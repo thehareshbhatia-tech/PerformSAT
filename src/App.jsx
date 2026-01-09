@@ -5134,41 +5134,43 @@ const PerformSAT = () => {
             case 'parallelLinesDiagram':
               return (
                 <div key={idx} style={{
-                  background: 'linear-gradient(135deg, #f8f9fa 0%, #f1f3f4 100%)',
-                  borderRadius: '16px',
-                  padding: '32px',
-                  margin: '32px 0',
-                  textAlign: 'center'
+                  background: '#ffffff',
+                  borderRadius: '24px',
+                  padding: '40px',
+                  margin: '48px 0',
+                  textAlign: 'center',
+                  boxShadow: '0 10px 40px rgba(0, 0, 0, 0.08)',
+                  border: '1px solid rgba(0, 0, 0, 0.06)'
                 }}>
-                  <svg viewBox="0 0 300 200" style={{ maxWidth: '350px', width: '100%' }}>
+                  <svg viewBox="0 0 300 200" style={{ maxWidth: '450px', width: '100%' }}>
                     {/* Grid lines */}
                     <defs>
                       <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
-                        <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#e5e7eb" strokeWidth="0.5"/>
+                        <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#f1f5f9" strokeWidth="1"/>
                       </pattern>
                     </defs>
                     <rect width="300" height="200" fill="url(#grid)"/>
-                    
+
                     {/* Axes */}
-                    <line x1="30" y1="170" x2="280" y2="170" stroke="#9ca3af" strokeWidth="1.5"/>
-                    <line x1="30" y1="20" x2="30" y2="170" stroke="#9ca3af" strokeWidth="1.5"/>
-                    
+                    <line x1="30" y1="170" x2="280" y2="170" stroke="#64748b" strokeWidth="2"/>
+                    <line x1="30" y1="20" x2="30" y2="170" stroke="#64748b" strokeWidth="2"/>
+
                     {/* Axis labels */}
-                    <text x="275" y="185" fontSize="12" fill="#6b7280">x</text>
-                    <text x="15" y="25" fontSize="12" fill="#6b7280">y</text>
-                    
+                    <text x="275" y="185" fontSize="14" fill="#475569" fontWeight="600">x</text>
+                    <text x="15" y="25" fontSize="14" fill="#475569" fontWeight="600">y</text>
+
                     {/* Parallel line 1 - orange */}
-                    <line x1="50" y1="150" x2="260" y2="50" stroke="#ea580c" strokeWidth="3" strokeLinecap="round"/>
-                    
+                    <line x1="50" y1="150" x2="260" y2="50" stroke="#f97316" strokeWidth="4" strokeLinecap="round"/>
+
                     {/* Parallel line 2 - blue */}
-                    <line x1="50" y1="100" x2="200" y2="30" stroke="#3b82f6" strokeWidth="3" strokeLinecap="round"/>
-                    
+                    <line x1="50" y1="100" x2="200" y2="30" stroke="#3b82f6" strokeWidth="4" strokeLinecap="round"/>
+
                     {/* Labels for lines */}
-                    <text x="250" y="40" fontSize="14" fill="#ea580c" fontWeight="600">y = 2x + 1</text>
-                    <text x="190" y="22" fontSize="14" fill="#3b82f6" fontWeight="600">y = 2x + 5</text>
-                    
+                    <text x="250" y="40" fontSize="16" fill="#f97316" fontWeight="700">y = 2x + 1</text>
+                    <text x="190" y="22" fontSize="16" fill="#3b82f6" fontWeight="700">y = 2x + 5</text>
+
                     {/* Same slope indicator */}
-                    <text x="150" y="190" fontSize="11" fill="#6b7280" textAnchor="middle">Same slope (m = 2), different y-intercepts</text>
+                    <text x="150" y="195" fontSize="13" fill="#64748b" textAnchor="middle" fontWeight="500">Same slope (m = 2), different y-intercepts</text>
                   </svg>
                 </div>
               );
@@ -5176,44 +5178,46 @@ const PerformSAT = () => {
             case 'perpendicularLinesDiagram':
               return (
                 <div key={idx} style={{
-                  background: 'linear-gradient(135deg, #f8f9fa 0%, #f1f3f4 100%)',
-                  borderRadius: '16px',
-                  padding: '32px',
-                  margin: '32px 0',
-                  textAlign: 'center'
+                  background: '#ffffff',
+                  borderRadius: '24px',
+                  padding: '40px',
+                  margin: '48px 0',
+                  textAlign: 'center',
+                  boxShadow: '0 10px 40px rgba(0, 0, 0, 0.08)',
+                  border: '1px solid rgba(0, 0, 0, 0.06)'
                 }}>
-                  <svg viewBox="0 0 300 220" style={{ maxWidth: '350px', width: '100%' }}>
+                  <svg viewBox="0 0 300 220" style={{ maxWidth: '450px', width: '100%' }}>
                     {/* Grid lines */}
                     <defs>
                       <pattern id="grid2" width="30" height="30" patternUnits="userSpaceOnUse">
-                        <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#e5e7eb" strokeWidth="0.5"/>
+                        <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#f1f5f9" strokeWidth="1"/>
                       </pattern>
                     </defs>
                     <rect width="300" height="200" fill="url(#grid2)"/>
-                    
+
                     {/* Axes */}
-                    <line x1="150" y1="10" x2="150" y2="190" stroke="#9ca3af" strokeWidth="1.5"/>
-                    <line x1="20" y1="100" x2="280" y2="100" stroke="#9ca3af" strokeWidth="1.5"/>
-                    
+                    <line x1="150" y1="10" x2="150" y2="190" stroke="#64748b" strokeWidth="2"/>
+                    <line x1="20" y1="100" x2="280" y2="100" stroke="#64748b" strokeWidth="2"/>
+
                     {/* Axis labels */}
-                    <text x="275" y="115" fontSize="12" fill="#6b7280">x</text>
-                    <text x="155" y="20" fontSize="12" fill="#6b7280">y</text>
-                    
+                    <text x="275" y="115" fontSize="14" fill="#475569" fontWeight="600">x</text>
+                    <text x="155" y="20" fontSize="14" fill="#475569" fontWeight="600">y</text>
+
                     {/* Line 1 - orange (slope = 2) */}
-                    <line x1="60" y1="170" x2="240" y2="30" stroke="#ea580c" strokeWidth="3" strokeLinecap="round"/>
-                    
+                    <line x1="60" y1="170" x2="240" y2="30" stroke="#f97316" strokeWidth="4" strokeLinecap="round"/>
+
                     {/* Line 2 - blue (slope = -1/2) */}
-                    <line x1="40" y1="50" x2="260" y2="160" stroke="#3b82f6" strokeWidth="3" strokeLinecap="round"/>
-                    
+                    <line x1="40" y1="50" x2="260" y2="160" stroke="#3b82f6" strokeWidth="4" strokeLinecap="round"/>
+
                     {/* 90° angle indicator */}
-                    <rect x="150" y="85" width="15" height="15" fill="none" stroke="#10b981" strokeWidth="2"/>
-                    
+                    <rect x="150" y="85" width="15" height="15" fill="none" stroke="#10b981" strokeWidth="2.5"/>
+
                     {/* Labels for lines */}
-                    <text x="235" y="25" fontSize="13" fill="#ea580c" fontWeight="600">m = 2</text>
-                    <text x="245" y="175" fontSize="13" fill="#3b82f6" fontWeight="600">m = -½</text>
-                    
+                    <text x="235" y="25" fontSize="15" fill="#f97316" fontWeight="700">m = 2</text>
+                    <text x="245" y="175" fontSize="15" fill="#3b82f6" fontWeight="700">m = -½</text>
+
                     {/* Relationship indicator */}
-                    <text x="150" y="210" fontSize="11" fill="#6b7280" textAnchor="middle">Slopes are negative reciprocals: 2 × (-½) = -1</text>
+                    <text x="150" y="215" fontSize="13" fill="#64748b" textAnchor="middle" fontWeight="500">Slopes are negative reciprocals: 2 × (-½) = -1</text>
                   </svg>
                 </div>
               );
@@ -5221,11 +5225,13 @@ const PerformSAT = () => {
             case 'slopeFromGraphDiagram':
               return (
                 <div key={idx} style={{
-                  background: 'linear-gradient(135deg, #f8f9fa 0%, #f1f3f4 100%)',
-                  borderRadius: '16px',
+                  background: '#ffffff',
+                  borderRadius: '24px',
                   padding: '40px',
-                  margin: '32px 0',
-                  textAlign: 'center'
+                  margin: '48px 0',
+                  textAlign: 'center',
+                  boxShadow: '0 10px 40px rgba(0, 0, 0, 0.08)',
+                  border: '1px solid rgba(0, 0, 0, 0.06)'
                 }}>
                   <svg viewBox="0 0 500 420" style={{ maxWidth: '550px', width: '100%' }}>
                     {/* Background */}
@@ -5233,32 +5239,32 @@ const PerformSAT = () => {
                     
                     {/* Grid lines */}
                     {[-2,-1,0,1,2,3,4,5,6,7,8].map(i => (
-                      <line key={`vgrid${i}`} x1={130 + i*35} y1="30" x2={130 + i*35} y2="330" stroke="#d1d5db" strokeWidth="1"/>
+                      <line key={`vgrid${i}`} x1={130 + i*35} y1="30" x2={130 + i*35} y2="330" stroke="#f1f5f9" strokeWidth="1.5"/>
                     ))}
                     {[-4,-3,-2,-1,0,1,2,3,4,5].map(i => (
-                      <line key={`hgrid${i}`} x1="60" y1={190 - i*35} x2="420" y2={190 - i*35} stroke="#d1d5db" strokeWidth="1"/>
+                      <line key={`hgrid${i}`} x1="60" y1={190 - i*35} x2="420" y2={190 - i*35} stroke="#f1f5f9" strokeWidth="1.5"/>
                     ))}
-                    
-                    {/* Axes - bold black */}
-                    <line x1="60" y1="190" x2="420" y2="190" stroke="#000" strokeWidth="2"/>
-                    <line x1="130" y1="30" x2="130" y2="330" stroke="#000" strokeWidth="2"/>
-                    
+
+                    {/* Axes - bold slate */}
+                    <line x1="60" y1="190" x2="420" y2="190" stroke="#475569" strokeWidth="2.5"/>
+                    <line x1="130" y1="30" x2="130" y2="330" stroke="#475569" strokeWidth="2.5"/>
+
                     {/* Axis arrows */}
-                    <polygon points="420,190 408,184 408,196" fill="#000"/>
-                    <polygon points="130,30 124,42 136,42" fill="#000"/>
-                    
+                    <polygon points="420,190 408,184 408,196" fill="#475569"/>
+                    <polygon points="130,30 124,42 136,42" fill="#475569"/>
+
                     {/* Axis labels */}
-                    <text x="430" y="195" fontSize="20" fill="#000" fontWeight="700" fontFamily="system-ui">x</text>
-                    <text x="135" y="25" fontSize="20" fill="#000" fontWeight="700" fontFamily="system-ui">y</text>
+                    <text x="430" y="195" fontSize="20" fill="#0f172a" fontWeight="700" fontFamily="system-ui">x</text>
+                    <text x="135" y="25" fontSize="20" fill="#0f172a" fontWeight="700" fontFamily="system-ui">y</text>
                     
                     {/* X-axis numbers */}
                     {[-2,-1,1,2,3,4,5,6,7,8].map(i => (
-                      <text key={`xnum${i}`} x={130 + i*35} y="208" fontSize="13" fill="#000" textAnchor="middle" fontFamily="system-ui">{i}</text>
+                      <text key={`xnum${i}`} x={130 + i*35} y="208" fontSize="13" fill="#64748b" textAnchor="middle" fontFamily="system-ui" fontWeight="500">{i}</text>
                     ))}
-                    
+
                     {/* Y-axis numbers */}
                     {[-4,-3,-2,-1,1,2,3,4].map(i => (
-                      <text key={`ynum${i}`} x={i >= 0 ? "118" : "115"} y={190 - i*35 + 5} fontSize="13" fill="#000" textAnchor="end" fontFamily="system-ui">{i}</text>
+                      <text key={`ynum${i}`} x={i >= 0 ? "118" : "115"} y={190 - i*35 + 5} fontSize="13" fill="#64748b" textAnchor="end" fontFamily="system-ui" fontWeight="500">{i}</text>
                     ))}
                     
                     {/* 
@@ -5267,48 +5273,48 @@ const PerformSAT = () => {
                       At x=5 (pixel 130+5*35=305): y=1 → pixel = 190 - 1*35 = 155
                       Extend line beyond both points
                     */}
-                    <line x1="60" y1="8" x2="410" y2="218" stroke="#ef4444" strokeWidth="4" strokeLinecap="round"/>
-                    
+                    <line x1="60" y1="8" x2="410" y2="218" stroke="#ef4444" strokeWidth="5" strokeLinecap="round"/>
+
                     {/* Point 1 at (0, 4) - x=130, y=50 */}
-                    <circle cx="130" cy="50" r="10" fill="#fbbf24" stroke="#000" strokeWidth="2"/>
-                    
+                    <circle cx="130" cy="50" r="11" fill="#fbbf24" stroke="#0f172a" strokeWidth="2.5"/>
+
                     {/* Point 2 at (5, 1) - x=305, y=155 */}
-                    <circle cx="305" cy="155" r="10" fill="#fbbf24" stroke="#000" strokeWidth="2"/>
+                    <circle cx="305" cy="155" r="11" fill="#fbbf24" stroke="#0f172a" strokeWidth="2.5"/>
                     
                     {/* Run line (horizontal green) - from (0,4) at y=50 going right to x=305 */}
-                    <line x1="140" y1="50" x2="295" y2="50" stroke="#22c55e" strokeWidth="5"/>
+                    <line x1="140" y1="50" x2="295" y2="50" stroke="#22c55e" strokeWidth="6"/>
                     {/* Run arrow head */}
                     <polygon points="305,50 290,42 290,58" fill="#22c55e"/>
-                    
+
                     {/* Rise line (vertical pink) - from y=50 going DOWN to y=155 */}
-                    <line x1="305" y1="60" x2="305" y2="145" stroke="#ec4899" strokeWidth="5"/>
+                    <line x1="305" y1="60" x2="305" y2="145" stroke="#ec4899" strokeWidth="6"/>
                     {/* Rise arrow head - pointing down */}
                     <polygon points="305,155 295,140 315,140" fill="#ec4899"/>
-                    
+
                     {/* Run label */}
-                    <text x="215" y="38" fontSize="24" fill="#22c55e" fontWeight="800" fontFamily="system-ui">5</text>
-                    
+                    <text x="215" y="38" fontSize="26" fill="#22c55e" fontWeight="800" fontFamily="system-ui">5</text>
+
                     {/* Rise label */}
-                    <text x="320" y="110" fontSize="24" fill="#ec4899" fontWeight="800" fontFamily="system-ui">-3</text>
-                    
+                    <text x="320" y="110" fontSize="26" fill="#ec4899" fontWeight="800" fontFamily="system-ui">-3</text>
+
                     {/* Formula section below graph */}
-                    <rect x="100" y="350" width="300" height="60" rx="10" fill="#fff" stroke="#e5e7eb" strokeWidth="2"/>
+                    <rect x="100" y="350" width="300" height="60" rx="12" fill="#f8fafc" stroke="#cbd5e1" strokeWidth="2"/>
                     
                     {/* Rise over Run fraction */}
                     <text x="150" y="372" fontSize="18" fill="#ec4899" fontWeight="700" fontFamily="system-ui">Rise</text>
-                    <line x1="140" y1="378" x2="190" y2="378" stroke="#000" strokeWidth="2"/>
+                    <line x1="140" y1="378" x2="190" y2="378" stroke="#0f172a" strokeWidth="2.5"/>
                     <text x="150" y="398" fontSize="18" fill="#22c55e" fontWeight="700" fontFamily="system-ui">Run</text>
-                    
-                    <text x="210" y="388" fontSize="24" fill="#000" fontWeight="700" fontFamily="system-ui">=</text>
-                    
+
+                    <text x="210" y="388" fontSize="24" fill="#0f172a" fontWeight="700" fontFamily="system-ui">=</text>
+
                     {/* -3/5 fraction */}
-                    <text x="255" y="372" fontSize="20" fill="#000" fontWeight="700" fontFamily="system-ui">-3</text>
-                    <line x1="250" y1="378" x2="285" y2="378" stroke="#000" strokeWidth="2"/>
-                    <text x="262" y="400" fontSize="20" fill="#000" fontWeight="700" fontFamily="system-ui">5</text>
-                    
-                    <text x="310" y="388" fontSize="24" fill="#000" fontWeight="700" fontFamily="system-ui">=</text>
-                    
-                    <text x="355" y="390" fontSize="22" fill="#000" fontWeight="800" fontFamily="system-ui">-³⁄₅</text>
+                    <text x="255" y="372" fontSize="20" fill="#0f172a" fontWeight="700" fontFamily="system-ui">-3</text>
+                    <line x1="250" y1="378" x2="285" y2="378" stroke="#0f172a" strokeWidth="2.5"/>
+                    <text x="262" y="400" fontSize="20" fill="#0f172a" fontWeight="700" fontFamily="system-ui">5</text>
+
+                    <text x="310" y="388" fontSize="24" fill="#0f172a" fontWeight="700" fontFamily="system-ui">=</text>
+
+                    <text x="355" y="390" fontSize="22" fill="#0f172a" fontWeight="800" fontFamily="system-ui">-³⁄₅</text>
                   </svg>
                 </div>
               );
@@ -6783,18 +6789,21 @@ const PerformSAT = () => {
             case 'stdDevVisual':
               return (
                 <div key={idx} style={{
-                  background: '#f5f5f7',
-                  borderRadius: '16px',
-                  padding: '32px',
-                  margin: '24px 0'
+                  background: '#ffffff',
+                  borderRadius: '24px',
+                  padding: '40px',
+                  margin: '48px 0',
+                  boxShadow: '0 10px 40px rgba(0, 0, 0, 0.08)',
+                  border: '1px solid rgba(0, 0, 0, 0.06)'
                 }}>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '32px' }}>
                     {/* Low Standard Deviation */}
                     <div style={{
-                      background: '#fff',
-                      borderRadius: '12px',
-                      padding: '24px',
-                      border: '2px solid #16a34a'
+                      background: 'linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%)',
+                      borderRadius: '20px',
+                      padding: '28px',
+                      border: '3px solid #16a34a',
+                      boxShadow: '0 8px 24px rgba(22, 163, 74, 0.15)'
                     }}>
                       <div style={{ textAlign: 'center', marginBottom: '20px' }}>
                         <div style={{ fontSize: '18px', fontWeight: '700', color: '#16a34a', marginBottom: '4px' }}>Low Standard Deviation</div>
@@ -6830,10 +6839,11 @@ const PerformSAT = () => {
                     
                     {/* High Standard Deviation */}
                     <div style={{
-                      background: '#fff',
-                      borderRadius: '12px',
-                      padding: '24px',
-                      border: '2px solid #dc2626'
+                      background: 'linear-gradient(135deg, #fef2f2 0%, #ffffff 100%)',
+                      borderRadius: '20px',
+                      padding: '28px',
+                      border: '3px solid #dc2626',
+                      boxShadow: '0 8px 24px rgba(220, 38, 38, 0.15)'
                     }}>
                       <div style={{ textAlign: 'center', marginBottom: '20px' }}>
                         <div style={{ fontSize: '18px', fontWeight: '700', color: '#dc2626', marginBottom: '4px' }}>High Standard Deviation</div>
@@ -6897,20 +6907,23 @@ const PerformSAT = () => {
             case 'marginOfErrorVisual':
               return (
                 <div key={idx} style={{
-                  background: '#f5f5f7',
-                  borderRadius: '16px',
-                  padding: '32px',
-                  margin: '24px 0'
+                  background: '#ffffff',
+                  borderRadius: '24px',
+                  padding: '40px',
+                  margin: '48px 0',
+                  boxShadow: '0 10px 40px rgba(0, 0, 0, 0.08)',
+                  border: '1px solid rgba(0, 0, 0, 0.06)'
                 }}>
                   <div style={{ fontSize: '13px', color: '#86868b', marginBottom: '24px', fontWeight: '600', letterSpacing: '1px', textAlign: 'center' }}>UNDERSTANDING THE CONCEPTS</div>
                   
                   {/* Population vs Sample */}
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px', marginBottom: '24px' }}>
-                    <div style={{ 
-                      background: '#fff', 
-                      borderRadius: '12px', 
-                      padding: '24px',
-                      border: '2px solid #2563eb'
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', marginBottom: '32px' }}>
+                    <div style={{
+                      background: 'linear-gradient(135deg, #eff6ff 0%, #ffffff 100%)',
+                      borderRadius: '20px',
+                      padding: '28px',
+                      border: '3px solid #2563eb',
+                      boxShadow: '0 8px 24px rgba(37, 99, 235, 0.15)'
                     }}>
                       <div style={{ fontSize: '18px', fontWeight: '700', color: '#2563eb', marginBottom: '12px' }}>Population</div>
                       <div style={{ fontSize: '15px', color: '#1d1d1f', lineHeight: 1.6 }}>
@@ -6927,12 +6940,13 @@ const PerformSAT = () => {
                         Example: All students in a school
                       </div>
                     </div>
-                    
-                    <div style={{ 
-                      background: '#fff', 
-                      borderRadius: '12px', 
-                      padding: '24px',
-                      border: '2px solid #16a34a'
+
+                    <div style={{
+                      background: 'linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%)',
+                      borderRadius: '20px',
+                      padding: '28px',
+                      border: '3px solid #16a34a',
+                      boxShadow: '0 8px 24px rgba(22, 163, 74, 0.15)'
                     }}>
                       <div style={{ fontSize: '18px', fontWeight: '700', color: '#16a34a', marginBottom: '12px' }}>Sample</div>
                       <div style={{ fontSize: '15px', color: '#1d1d1f', lineHeight: 1.6 }}>
@@ -6965,11 +6979,12 @@ const PerformSAT = () => {
                   </div>
                   
                   {/* Sample Statistic */}
-                  <div style={{ 
-                    background: '#fff', 
-                    borderRadius: '12px', 
-                    padding: '24px',
-                    border: '2px solid #ea580c'
+                  <div style={{
+                    background: 'linear-gradient(135deg, #fff7ed 0%, #ffffff 100%)',
+                    borderRadius: '20px',
+                    padding: '28px',
+                    border: '3px solid #ea580c',
+                    boxShadow: '0 8px 24px rgba(234, 88, 12, 0.15)'
                   }}>
                     <div style={{ fontSize: '18px', fontWeight: '700', color: '#ea580c', marginBottom: '12px' }}>Sample Statistic</div>
                     <div style={{ fontSize: '15px', color: '#1d1d1f', lineHeight: 1.6 }}>
