@@ -1871,9 +1871,20 @@ const PerformSAT = () => {
   const renderText = (text) => {
     return text.split(/(\*\*.*?\*\*|\*.*?\*)/).map((part, i) => {
       if (part.startsWith('**') && part.endsWith('**')) {
-        return <strong key={i} style={{ fontWeight: '600', color: '#1d1d1f' }}>{part.slice(2, -2)}</strong>;
+        return <strong key={i} style={{
+          fontWeight: '700',
+          color: '#0f172a',
+          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          backgroundClip: 'text'
+        }}>{part.slice(2, -2)}</strong>;
       } else if (part.startsWith('*') && part.endsWith('*')) {
-        return <em key={i} style={{ color: '#ea580c' }}>{part.slice(1, -1)}</em>;
+        return <em key={i} style={{
+          color: '#f59e0b',
+          fontWeight: '500',
+          fontStyle: 'italic'
+        }}>{part.slice(1, -1)}</em>;
       }
       return part;
     });
@@ -1982,11 +1993,13 @@ const PerformSAT = () => {
               const isFirstText = currentLesson.content.blocks.findIndex(b => b.type === 'text') === idx;
               return (
                 <p key={idx} style={{
-                  fontSize: isFirstText ? '19px' : '17px',
-                  lineHeight: '1.8',
-                  color: isFirstText ? '#1d1d1f' : '#424245',
-                  marginBottom: '24px',
-                  fontWeight: isFirstText ? '400' : '400'
+                  fontSize: isFirstText ? '22px' : '18px',
+                  lineHeight: '1.9',
+                  color: isFirstText ? '#0f172a' : '#334155',
+                  marginBottom: '28px',
+                  fontWeight: isFirstText ? '500' : '400',
+                  letterSpacing: '-0.01em',
+                  maxWidth: '800px'
                 }}>
                   {renderText(block.content)}
                 </p>
@@ -1995,21 +2008,46 @@ const PerformSAT = () => {
             case 'formula':
               return (
                 <div key={idx} style={{
-                  background: 'linear-gradient(135deg, #f8f9fa 0%, #f1f3f4 100%)',
-                  borderRadius: '16px',
-                  padding: '36px',
-                  margin: '36px 0',
+                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  borderRadius: '24px',
+                  padding: '48px',
+                  margin: '48px 0',
                   textAlign: 'center',
-                  border: '1px solid rgba(0,0,0,0.04)'
+                  border: 'none',
+                  boxShadow: '0 20px 40px rgba(102, 126, 234, 0.25), 0 0 0 1px rgba(255,255,255,0.1) inset',
+                  position: 'relative',
+                  overflow: 'hidden'
                 }}>
+                  {/* Decorative background elements */}
+                  <div style={{
+                    position: 'absolute',
+                    top: '-50%',
+                    right: '-50%',
+                    width: '100%',
+                    height: '100%',
+                    background: 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%)',
+                    pointerEvents: 'none'
+                  }} />
+                  <div style={{
+                    position: 'absolute',
+                    bottom: '-30%',
+                    left: '-30%',
+                    width: '80%',
+                    height: '80%',
+                    background: 'radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 60%)',
+                    pointerEvents: 'none'
+                  }} />
+
                   {block.label && (
                     <div style={{
-                      fontSize: '11px',
+                      fontSize: '13px',
                       fontWeight: '700',
-                      color: '#6b7280',
+                      color: 'rgba(255, 255, 255, 0.9)',
                       textTransform: 'uppercase',
-                      letterSpacing: '1.5px',
-                      marginBottom: '16px'
+                      letterSpacing: '2.5px',
+                      marginBottom: '24px',
+                      position: 'relative',
+                      zIndex: 1
                     }}>
                       {block.label}
                     </div>
@@ -2020,11 +2058,13 @@ const PerformSAT = () => {
                       alignItems: 'center',
                       justifyContent: 'center',
                       gap: '16px',
-                      fontSize: '28px',
-                      fontWeight: '500',
-                      color: '#1d1d1f',
+                      fontSize: '36px',
+                      fontWeight: '600',
+                      color: '#ffffff',
                       fontFamily: 'Georgia, serif',
-                      fontStyle: 'italic'
+                      fontStyle: 'italic',
+                      position: 'relative',
+                      zIndex: 1
                     }}>
                       {block.prefix && <span>{block.prefix}</span>}
                       <div style={{
@@ -2032,14 +2072,15 @@ const PerformSAT = () => {
                         flexDirection: 'column',
                         alignItems: 'center'
                       }}>
-                        <span style={{ color: block.numeratorColor || '#1d1d1f' }}>{block.fraction.numerator}</span>
+                        <span style={{ color: block.numeratorColor || '#ffffff' }}>{block.fraction.numerator}</span>
                         <div style={{
                           width: '100%',
-                          height: '2px',
-                          background: '#1d1d1f',
-                          margin: '4px 0'
+                          height: '3px',
+                          background: '#ffffff',
+                          margin: '6px 0',
+                          borderRadius: '2px'
                         }} />
-                        <span style={{ color: block.denominatorColor || '#1d1d1f' }}>{block.fraction.denominator}</span>
+                        <span style={{ color: block.denominatorColor || '#ffffff' }}>{block.fraction.denominator}</span>
                       </div>
                       {block.suffix && <span>{block.suffix}</span>}
                       {block.secondFraction && (
@@ -2049,14 +2090,15 @@ const PerformSAT = () => {
                             flexDirection: 'column',
                             alignItems: 'center'
                           }}>
-                            <span style={{ color: block.numeratorColor || '#1d1d1f' }}>{block.secondFraction.numerator}</span>
+                            <span style={{ color: block.numeratorColor || '#ffffff' }}>{block.secondFraction.numerator}</span>
                             <div style={{
                               width: '100%',
-                              height: '2px',
-                              background: '#1d1d1f',
-                              margin: '4px 0'
+                              height: '3px',
+                              background: '#ffffff',
+                              margin: '6px 0',
+                              borderRadius: '2px'
                             }} />
-                            <span style={{ color: block.denominatorColor || '#1d1d1f' }}>{block.secondFraction.denominator}</span>
+                            <span style={{ color: block.denominatorColor || '#ffffff' }}>{block.secondFraction.denominator}</span>
                           </div>
                           {block.secondSuffix && <span>{block.secondSuffix}</span>}
                         </>
@@ -2064,11 +2106,14 @@ const PerformSAT = () => {
                     </div>
                   ) : (
                     <div style={{
-                      fontSize: '32px',
-                      fontWeight: '500',
-                      color: '#1d1d1f',
+                      fontSize: '42px',
+                      fontWeight: '600',
+                      color: '#ffffff',
                       fontFamily: 'Georgia, serif',
-                      fontStyle: 'italic'
+                      fontStyle: 'italic',
+                      position: 'relative',
+                      zIndex: 1,
+                      textShadow: '0 2px 12px rgba(0,0,0,0.15)'
                     }}>
                       {block.content}
                     </div>
@@ -5271,27 +5316,35 @@ const PerformSAT = () => {
             case 'list':
               return (
                 <ul key={idx} style={{
-                  margin: '24px 0',
+                  margin: '32px 0',
                   paddingLeft: '0',
                   listStyle: 'none'
                 }}>
                   {block.items.map((item, i) => (
                     <li key={i} style={{
-                      fontSize: '17px',
-                      lineHeight: '1.8',
-                      color: '#424245',
-                      marginBottom: '16px',
-                      paddingLeft: '28px',
-                      position: 'relative'
+                      fontSize: '18px',
+                      lineHeight: '1.9',
+                      color: '#334155',
+                      marginBottom: '20px',
+                      paddingLeft: '36px',
+                      position: 'relative',
+                      padding: '16px 16px 16px 52px',
+                      background: 'linear-gradient(135deg, #f8fafc 0%, #ffffff 100%)',
+                      borderRadius: '12px',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+                      border: '1px solid rgba(100,116,139,0.1)',
+                      transition: 'transform 0.2s ease, box-shadow 0.2s ease'
                     }}>
                       <span style={{
                         position: 'absolute',
-                        left: '0',
-                        top: '10px',
-                        width: '6px',
-                        height: '6px',
+                        left: '20px',
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        width: '8px',
+                        height: '8px',
                         borderRadius: '50%',
-                        background: '#ea580c'
+                        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                        boxShadow: '0 0 0 3px rgba(102, 126, 234, 0.15)'
                       }} />
                       {renderText(item)}
                     </li>
@@ -5302,27 +5355,45 @@ const PerformSAT = () => {
             case 'example':
               return (
                 <div key={idx} style={{
-                  background: 'linear-gradient(135deg, #fef3f2 0%, #fff 100%)',
-                  borderRadius: '12px',
-                  padding: '28px',
-                  margin: '28px 0',
-                  borderLeft: '4px solid #ea580c'
+                  background: 'linear-gradient(135deg, #fef3c7 0%, #fef9c3 100%)',
+                  borderRadius: '20px',
+                  padding: '32px',
+                  margin: '40px 0',
+                  borderLeft: '6px solid #f59e0b',
+                  boxShadow: '0 10px 30px rgba(245, 158, 11, 0.15)',
+                  position: 'relative',
+                  overflow: 'hidden'
                 }}>
+                  {/* Decorative corner element */}
                   <div style={{
-                    fontSize: '12px',
-                    fontWeight: '700',
-                    color: '#ea580c',
-                    marginBottom: '16px',
+                    position: 'absolute',
+                    top: 0,
+                    right: 0,
+                    width: '120px',
+                    height: '120px',
+                    background: 'radial-gradient(circle at top right, rgba(245, 158, 11, 0.1) 0%, transparent 70%)',
+                    pointerEvents: 'none'
+                  }} />
+                  <div style={{
+                    fontSize: '13px',
+                    fontWeight: '800',
+                    color: '#b45309',
+                    marginBottom: '20px',
                     textTransform: 'uppercase',
-                    letterSpacing: '0.5px'
+                    letterSpacing: '1.5px',
+                    position: 'relative',
+                    zIndex: 1
                   }}>
                     {block.title}
                   </div>
                   <div style={{
-                    fontSize: '17px',
-                    lineHeight: '1.8',
-                    color: '#1d1d1f',
-                    whiteSpace: 'pre-line'
+                    fontSize: '18px',
+                    lineHeight: '1.9',
+                    color: '#0f172a',
+                    whiteSpace: 'pre-line',
+                    fontWeight: '400',
+                    position: 'relative',
+                    zIndex: 1
                   }}>
                     {renderText(block.content)}
                   </div>
