@@ -5153,14 +5153,14 @@ const PerformSAT = () => {
                     <text x="280" y="30" fontSize="24" fill="#1e293b" fontWeight="700" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui">y</text>
 
                     {/* Line shadows */}
-                    <line x1="150" y1="310" x2="390" y2="70" stroke="#ea580c" strokeWidth="6" strokeLinecap="round" opacity="0.2"/>
-                    <line x1="150" y1="150" x2="390" y2="-90" stroke="#3b82f6" strokeWidth="6" strokeLinecap="round" opacity="0.2"/>
+                    <line x1="190" y1="310" x2="350" y2="-10" stroke="#ea580c" strokeWidth="6" strokeLinecap="round" opacity="0.2"/>
+                    <line x1="190" y1="150" x2="350" y2="-170" stroke="#3b82f6" strokeWidth="6" strokeLinecap="round" opacity="0.2"/>
 
                     {/* Parallel line 1: y = 2x + 1 (orange) */}
-                    <line x1="150" y1="310" x2="390" y2="70" stroke="url(#orangeGrad)" strokeWidth="5" strokeLinecap="round" filter="url(#glowParallel)"/>
+                    <line x1="190" y1="310" x2="350" y2="-10" stroke="url(#orangeGrad)" strokeWidth="5" strokeLinecap="round" filter="url(#glowParallel)"/>
 
                     {/* Parallel line 2: y = 2x + 5 (blue) */}
-                    <line x1="150" y1="150" x2="390" y2="-90" stroke="url(#blueGrad)" strokeWidth="5" strokeLinecap="round" filter="url(#glowParallel)"/>
+                    <line x1="190" y1="150" x2="350" y2="-170" stroke="url(#blueGrad)" strokeWidth="5" strokeLinecap="round" filter="url(#glowParallel)"/>
 
                     {/* Label cards */}
                     <g filter="url(#glowParallel)">
