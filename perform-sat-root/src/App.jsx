@@ -5314,13 +5314,11 @@ const PerformSAT = () => {
 
                     {/*
                       Line with equation y = 2x + 3
-                      At x=-3: y = -3, pixel = (220-3*35, 190-(-3)*35) = (115, 295)
-                      At x=3: y = 9 (off screen, so use x=2.5: y=8), pixel = (307.5, 190-8*35=-90) use nearby point
-                      Let's use x=-2 to x=1.5 for visible range
-                      At x=-2: y = -1, pixel = (220-2*35, 190-(-1)*35) = (150, 225)
-                      At x=1.5: y = 6, pixel = (220+1.5*35, 190-6*35) = (272.5, -20)
+                      At x=-3: y = 2(-3)+3 = -3, pixel = (220-3*35, 190-(-3)*35) = (115, 295)
+                      At x=1.5: y = 2(1.5)+3 = 6, pixel = (220+1.5*35, 190-6*35) = (272.5, -20)
+                      Verify at x=0: y = 3, pixel = (220, 190-3*35) = (220, 85) ✓
                     */}
-                    <line x1="115" y1="295" x2="310" y2="-20" stroke="#3b82f6" strokeWidth="4" strokeLinecap="round"/>
+                    <line x1="115" y1="295" x2="272.5" y2="-20" stroke="#3b82f6" strokeWidth="4" strokeLinecap="round"/>
 
                     {/* Y-intercept point at (0, 3) - x=220, y=190-3*35=85 */}
                     <circle cx="220" cy="85" r="12" fill="#f59e0b" stroke="#000" strokeWidth="3"/>
