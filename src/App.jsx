@@ -5238,14 +5238,18 @@ const PerformSAT = () => {
                     {/* Line 2: slope = -1/2 (blue) - passes through origin */}
                     <line x1="110" y1="140" x2="470" y2="320" stroke="url(#blueGradPerp)" strokeWidth="5" strokeLinecap="round" filter="url(#glowPerp)"/>
 
-                    {/* 90° angle indicator at intersection (origin) - larger and more visible */}
-                    <rect x="252" y="202" width="36" height="36" fill="rgba(16, 185, 129, 0.1)" stroke="#10b981" strokeWidth="3.5" filter="url(#glowPerp)"/>
+                    {/* 4 separate right angle indicators - one in each quadrant */}
+                    {/* Right angle 1: Top-right quadrant */}
+                    <rect x="285" y="205" width="15" height="15" fill="none" stroke="#10b981" strokeWidth="3" filter="url(#glowPerp)"/>
 
-                    {/* Small corner indicators to emphasize 4 right angles */}
-                    <path d="M 252 214 L 252 202 L 264 202" stroke="#10b981" strokeWidth="2.5" fill="none"/>
-                    <path d="M 276 202 L 288 202 L 288 214" stroke="#10b981" strokeWidth="2.5" fill="none"/>
-                    <path d="M 288 226 L 288 238 L 276 238" stroke="#10b981" strokeWidth="2.5" fill="none"/>
-                    <path d="M 264 238 L 252 238 L 252 226" stroke="#10b981" strokeWidth="2.5" fill="none"/>
+                    {/* Right angle 2: Bottom-right quadrant */}
+                    <rect x="285" y="220" width="15" height="15" fill="none" stroke="#10b981" strokeWidth="3" filter="url(#glowPerp)"/>
+
+                    {/* Right angle 3: Bottom-left quadrant */}
+                    <rect x="255" y="220" width="15" height="15" fill="none" stroke="#10b981" strokeWidth="3" filter="url(#glowPerp)"/>
+
+                    {/* Right angle 4: Top-left quadrant */}
+                    <rect x="255" y="205" width="15" height="15" fill="none" stroke="#10b981" strokeWidth="3" filter="url(#glowPerp)"/>
 
                     {/* Label cards */}
                     <g filter="url(#glowPerp)">
