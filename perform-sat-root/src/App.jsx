@@ -5272,79 +5272,100 @@ const PerformSAT = () => {
             case 'yInterceptDiagram':
               return (
                 <div key={idx} style={{
-                  background: 'linear-gradient(135deg, #f8f9fa 0%, #f1f3f4 100%)',
-                  borderRadius: '16px',
-                  padding: '40px',
-                  margin: '32px 0',
-                  textAlign: 'center'
+                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  borderRadius: '24px',
+                  padding: '48px',
+                  margin: '40px 0',
+                  textAlign: 'center',
+                  boxShadow: '0 20px 60px rgba(102, 126, 234, 0.3)'
                 }}>
-                  <svg viewBox="0 0 500 420" style={{ maxWidth: '550px', width: '100%' }}>
-                    {/* Background */}
-                    <rect x="0" y="0" width="500" height="420" fill="#fff"/>
-
-                    {/* Grid lines */}
-                    {[-3,-2,-1,0,1,2,3,4,5,6].map(i => (
-                      <line key={`vgrid${i}`} x1={220 + i*35} y1="30" x2={220 + i*35} y2="330" stroke="#d1d5db" strokeWidth="1"/>
-                    ))}
-                    {[-4,-3,-2,-1,0,1,2,3,4,5].map(i => (
-                      <line key={`hgrid${i}`} x1="80" y1={190 - i*35} x2="440" y2={190 - i*35} stroke="#d1d5db" strokeWidth="1"/>
-                    ))}
-
-                    {/* Axes - bold black */}
-                    <line x1="80" y1="190" x2="440" y2="190" stroke="#000" strokeWidth="2"/>
-                    <line x1="220" y1="30" x2="220" y2="330" stroke="#000" strokeWidth="2"/>
-
-                    {/* Axis arrows */}
-                    <polygon points="440,190 428,184 428,196" fill="#000"/>
-                    <polygon points="220,30 214,42 226,42" fill="#000"/>
-
-                    {/* Axis labels */}
-                    <text x="450" y="195" fontSize="20" fill="#000" fontWeight="700" fontFamily="system-ui">x</text>
-                    <text x="225" y="25" fontSize="20" fill="#000" fontWeight="700" fontFamily="system-ui">y</text>
-
-                    {/* X-axis numbers */}
-                    {[-3,-2,-1,1,2,3,4,5,6].map(i => (
-                      <text key={`xnum${i}`} x={220 + i*35} y="208" fontSize="13" fill="#000" textAnchor="middle" fontFamily="system-ui">{i}</text>
-                    ))}
-
-                    {/* Y-axis numbers */}
-                    {[-4,-3,-2,-1,1,2,3,4,5].map(i => (
-                      <text key={`ynum${i}`} x={i >= 0 ? "208" : "205"} y={190 - i*35 + 5} fontSize="13" fill="#000" textAnchor="end" fontFamily="system-ui">{i}</text>
-                    ))}
-
-                    {/*
-                      Line with equation y = 2x + 3
-                      At x=-3: y = 2(-3)+3 = -3, pixel = (220-3*35, 190-(-3)*35) = (115, 295)
-                      At x=1.5: y = 2(1.5)+3 = 6, pixel = (220+1.5*35, 190-6*35) = (272.5, -20)
-                      Verify at x=0: y = 3, pixel = (220, 190-3*35) = (220, 85) ✓
-                    */}
-                    <line x1="115" y1="295" x2="272.5" y2="-20" stroke="#3b82f6" strokeWidth="4" strokeLinecap="round"/>
-
-                    {/* Y-intercept point at (0, 3) - x=220, y=190-3*35=85 */}
-                    <circle cx="220" cy="85" r="12" fill="#f59e0b" stroke="#000" strokeWidth="3"/>
-
-                    {/* Highlight the y-axis near intercept with a glow */}
-                    <line x1="220" y1="30" x2="220" y2="140" stroke="#f59e0b" strokeWidth="6" opacity="0.3"/>
-
-                    {/* Arrow pointing to y-intercept */}
-                    <line x1="270" y1="60" x2="235" y2="78" stroke="#ea580c" strokeWidth="3" markerEnd="url(#arrowhead)"/>
+                  <svg viewBox="0 0 600 480" style={{ maxWidth: '650px', width: '100%', filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.1))' }}>
+                    {/* Background with gradient */}
                     <defs>
-                      <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto">
-                        <polygon points="0 0, 10 3, 0 6" fill="#ea580c" />
-                      </marker>
+                      <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style={{stopColor: '#ffffff', stopOpacity: 1}} />
+                        <stop offset="100%" style={{stopColor: '#f8fafc', stopOpacity: 1}} />
+                      </linearGradient>
+                      <filter id="glow">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                        <feMerge>
+                          <feMergeNode in="coloredBlur"/>
+                          <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                      </filter>
+                      <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style={{stopColor: '#3b82f6', stopOpacity: 1}} />
+                        <stop offset="100%" style={{stopColor: '#2563eb', stopOpacity: 1}} />
+                      </linearGradient>
                     </defs>
 
-                    {/* Label for y-intercept */}
-                    <text x="280" y="50" fontSize="18" fill="#ea580c" fontWeight="700" fontFamily="system-ui">Y-intercept</text>
-                    <text x="280" y="72" fontSize="16" fill="#ea580c" fontWeight="600" fontFamily="system-ui">(0, 3)</text>
+                    <rect x="0" y="0" width="600" height="480" fill="url(#bgGrad)" rx="16"/>
 
-                    {/* Equation label */}
-                    <rect x="310" y="250" width="110" height="45" rx="8" fill="#fff" stroke="#3b82f6" strokeWidth="2"/>
-                    <text x="365" y="278" fontSize="20" fill="#3b82f6" fontWeight="700" fontFamily="system-ui" textAnchor="middle">y = 2x + 3</text>
+                    {/* Subtle grid lines */}
+                    {[-3,-2,-1,0,1,2,3,4,5,6].map(i => (
+                      <line key={`vgrid${i}`} x1={270 + i*40} y1="40" x2={270 + i*40} y2="380" stroke="#e2e8f0" strokeWidth="1" opacity="0.6"/>
+                    ))}
+                    {[-4,-3,-2,-1,0,1,2,3,4,5].map(i => (
+                      <line key={`hgrid${i}`} x1="110" y1={220 - i*40} x2="510" y2={220 - i*40} stroke="#e2e8f0" strokeWidth="1" opacity="0.6"/>
+                    ))}
 
-                    {/* Info box at bottom */}
-                    <rect x="80" y="355" width="360" height="50" rx="10" fill="#fef3c7" stroke="#f59e0b" strokeWidth="2"/>
-                    <text x="260" y="385" fontSize="16" fill="#92400e" fontWeight="600" fontFamily="system-ui" textAnchor="middle">The line crosses the y-axis at (0, 3)</text>
+                    {/* Axes with gradient */}
+                    <line x1="110" y1="220" x2="510" y2="220" stroke="#1e293b" strokeWidth="3" strokeLinecap="round"/>
+                    <line x1="270" y1="40" x2="270" y2="380" stroke="#1e293b" strokeWidth="3" strokeLinecap="round"/>
+
+                    {/* Axis arrows */}
+                    <polygon points="510,220 495,213 495,227" fill="#1e293b"/>
+                    <polygon points="270,40 263,55 277,55" fill="#1e293b"/>
+
+                    {/* Axis labels - larger and cleaner */}
+                    <text x="525" y="227" fontSize="24" fill="#1e293b" fontWeight="700" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui">x</text>
+                    <text x="280" y="30" fontSize="24" fill="#1e293b" fontWeight="700" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui">y</text>
+
+                    {/* Axis numbers - cleaner styling */}
+                    {[-3,-2,-1,1,2,3,4,5,6].map(i => (
+                      <text key={`xnum${i}`} x={270 + i*40} y="240" fontSize="14" fill="#64748b" fontWeight="600" textAnchor="middle" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui">{i}</text>
+                    ))}
+                    {[-4,-3,-2,-1,1,2,3,4,5].map(i => (
+                      <text key={`ynum${i}`} x="255" y={220 - i*40 + 5} fontSize="14" fill="#64748b" fontWeight="600" textAnchor="end" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui">{i}</text>
+                    ))}
+
+                    {/* Line shadow for depth */}
+                    <line x1="130" y1="340" x2="310" y2="-20" stroke="#1e40af" strokeWidth="6" strokeLinecap="round" opacity="0.2"/>
+
+                    {/* Main line with gradient - y = 2x + 3 */}
+                    <line x1="130" y1="340" x2="310" y2="-20" stroke="url(#lineGrad)" strokeWidth="5" strokeLinecap="round" filter="url(#glow)"/>
+
+                    {/* Y-intercept highlight on axis - subtle glow */}
+                    <line x1="270" y1="40" x2="270" y2="160" stroke="#f59e0b" strokeWidth="8" opacity="0.25" strokeLinecap="round"/>
+
+                    {/* Y-intercept point with rings */}
+                    <circle cx="270" cy="100" r="20" fill="#fbbf24" opacity="0.2"/>
+                    <circle cx="270" cy="100" r="14" fill="#f59e0b" opacity="0.3"/>
+                    <circle cx="270" cy="100" r="10" fill="#fbbf24" stroke="#1e293b" strokeWidth="3" filter="url(#glow)"/>
+
+                    {/* Elegant callout line */}
+                    <path d="M 320 70 Q 300 75, 283 92" stroke="#dc2626" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+                    <circle cx="320" cy="70" r="3" fill="#dc2626"/>
+
+                    {/* Label with modern card design */}
+                    <g filter="url(#glow)">
+                      <rect x="325" y="45" width="160" height="65" rx="12" fill="#ffffff" stroke="#e2e8f0" strokeWidth="2"/>
+                      <text x="405" y="70" fontSize="15" fill="#64748b" fontWeight="600" textAnchor="middle" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui">Y-intercept</text>
+                      <text x="405" y="95" fontSize="22" fill="#dc2626" fontWeight="700" textAnchor="middle" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui">(0, 3)</text>
+                    </g>
+
+                    {/* Equation badge - modern design */}
+                    <g filter="url(#glow)">
+                      <rect x="365" y="290" width="130" height="50" rx="25" fill="#3b82f6" stroke="#2563eb" strokeWidth="2"/>
+                      <text x="430" y="322" fontSize="22" fill="#ffffff" fontWeight="700" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui" textAnchor="middle">y = 2x + 3</text>
+                    </g>
+
+                    {/* Bottom info card - premium design */}
+                    <g filter="url(#glow)">
+                      <rect x="120" y="410" width="360" height="55" rx="16" fill="#ffffff" stroke="#e2e8f0" strokeWidth="2"/>
+                      <circle cx="145" cy="437.5" r="6" fill="#10b981"/>
+                      <text x="300" y="443" fontSize="17" fill="#1e293b" fontWeight="600" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui" textAnchor="middle">The line crosses the y-axis at (0, 3)</text>
+                    </g>
                   </svg>
                 </div>
               );
