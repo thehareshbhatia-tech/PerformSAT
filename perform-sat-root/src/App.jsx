@@ -179,7 +179,7 @@ const PerformSAT = () => {
           blocks: [
             { type: "text", content: "The **slope** of a linear equation tells you **how steep the line is** and **how the y-value changes** as the x-value increases." },
             { type: "text", content: "In other words, slope is ( the change in y ) over ( the change in x )" },
-            { type: "list", items: ["It represents the **rate of change**", "It tells you **\"rise over run\"** → how much you go **up or down** for every **1 unit you move to the right**"] },
+            { type: "list", items: ["It represents the **rate of change**"] },
             { type: "example", title: "Example", content: "In the equation **y = 3x + 2**, the slope is **3** (or ³⁄₁)\n\nAnd because slope is ( the change in y ) over ( the change in x )\n\n**For every 1 unit you increase x, y increases by 3**" }
           ]
         }
@@ -254,6 +254,7 @@ const PerformSAT = () => {
         content: {
           blocks: [
             { type: "text", content: "The **Y-intercept** is the point where the line **crosses the y-axis**." },
+            { type: "yInterceptDiagram" },
             { type: "list", items: ["It's the value of **y when x = 0**", "In coordinate form, it's **( 0, b )**", "In a real world scenario, the y-intercept is the starting point because no negative numbers exist in the real world, and the lowest that x can be is 0"] },
             { type: "example", title: "Example", content: "In the equation **y = 3x + 2**, the y-intercept is **2**\n\n→ the line crosses the y-axis at the point **( 0, 2 )**" }
           ]
@@ -5267,7 +5268,89 @@ const PerformSAT = () => {
                   </svg>
                 </div>
               );
-            
+
+            case 'yInterceptDiagram':
+              return (
+                <div key={idx} style={{
+                  background: 'linear-gradient(135deg, #f8f9fa 0%, #f1f3f4 100%)',
+                  borderRadius: '16px',
+                  padding: '40px',
+                  margin: '32px 0',
+                  textAlign: 'center'
+                }}>
+                  <svg viewBox="0 0 500 420" style={{ maxWidth: '550px', width: '100%' }}>
+                    {/* Background */}
+                    <rect x="0" y="0" width="500" height="420" fill="#fff"/>
+
+                    {/* Grid lines */}
+                    {[-3,-2,-1,0,1,2,3,4,5,6].map(i => (
+                      <line key={`vgrid${i}`} x1={220 + i*35} y1="30" x2={220 + i*35} y2="330" stroke="#d1d5db" strokeWidth="1"/>
+                    ))}
+                    {[-4,-3,-2,-1,0,1,2,3,4,5].map(i => (
+                      <line key={`hgrid${i}`} x1="80" y1={190 - i*35} x2="440" y2={190 - i*35} stroke="#d1d5db" strokeWidth="1"/>
+                    ))}
+
+                    {/* Axes - bold black */}
+                    <line x1="80" y1="190" x2="440" y2="190" stroke="#000" strokeWidth="2"/>
+                    <line x1="220" y1="30" x2="220" y2="330" stroke="#000" strokeWidth="2"/>
+
+                    {/* Axis arrows */}
+                    <polygon points="440,190 428,184 428,196" fill="#000"/>
+                    <polygon points="220,30 214,42 226,42" fill="#000"/>
+
+                    {/* Axis labels */}
+                    <text x="450" y="195" fontSize="20" fill="#000" fontWeight="700" fontFamily="system-ui">x</text>
+                    <text x="225" y="25" fontSize="20" fill="#000" fontWeight="700" fontFamily="system-ui">y</text>
+
+                    {/* X-axis numbers */}
+                    {[-3,-2,-1,1,2,3,4,5,6].map(i => (
+                      <text key={`xnum${i}`} x={220 + i*35} y="208" fontSize="13" fill="#000" textAnchor="middle" fontFamily="system-ui">{i}</text>
+                    ))}
+
+                    {/* Y-axis numbers */}
+                    {[-4,-3,-2,-1,1,2,3,4,5].map(i => (
+                      <text key={`ynum${i}`} x={i >= 0 ? "208" : "205"} y={190 - i*35 + 5} fontSize="13" fill="#000" textAnchor="end" fontFamily="system-ui">{i}</text>
+                    ))}
+
+                    {/*
+                      Line with equation y = 2x + 3
+                      At x=-3: y = -3, pixel = (220-3*35, 190-(-3)*35) = (115, 295)
+                      At x=3: y = 9 (off screen, so use x=2.5: y=8), pixel = (307.5, 190-8*35=-90) use nearby point
+                      Let's use x=-2 to x=1.5 for visible range
+                      At x=-2: y = -1, pixel = (220-2*35, 190-(-1)*35) = (150, 225)
+                      At x=1.5: y = 6, pixel = (220+1.5*35, 190-6*35) = (272.5, -20)
+                    */}
+                    <line x1="115" y1="295" x2="310" y2="-20" stroke="#3b82f6" strokeWidth="4" strokeLinecap="round"/>
+
+                    {/* Y-intercept point at (0, 3) - x=220, y=190-3*35=85 */}
+                    <circle cx="220" cy="85" r="12" fill="#f59e0b" stroke="#000" strokeWidth="3"/>
+
+                    {/* Highlight the y-axis near intercept with a glow */}
+                    <line x1="220" y1="30" x2="220" y2="140" stroke="#f59e0b" strokeWidth="6" opacity="0.3"/>
+
+                    {/* Arrow pointing to y-intercept */}
+                    <line x1="270" y1="60" x2="235" y2="78" stroke="#ea580c" strokeWidth="3" markerEnd="url(#arrowhead)"/>
+                    <defs>
+                      <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#ea580c" />
+                      </marker>
+                    </defs>
+
+                    {/* Label for y-intercept */}
+                    <text x="280" y="50" fontSize="18" fill="#ea580c" fontWeight="700" fontFamily="system-ui">Y-intercept</text>
+                    <text x="280" y="72" fontSize="16" fill="#ea580c" fontWeight="600" fontFamily="system-ui">(0, 3)</text>
+
+                    {/* Equation label */}
+                    <rect x="310" y="250" width="110" height="45" rx="8" fill="#fff" stroke="#3b82f6" strokeWidth="2"/>
+                    <text x="365" y="278" fontSize="20" fill="#3b82f6" fontWeight="700" fontFamily="system-ui" textAnchor="middle">y = 2x + 3</text>
+
+                    {/* Info box at bottom */}
+                    <rect x="80" y="355" width="360" height="50" rx="10" fill="#fef3c7" stroke="#f59e0b" strokeWidth="2"/>
+                    <text x="260" y="385" fontSize="16" fill="#92400e" fontWeight="600" fontFamily="system-ui" textAnchor="middle">The line crosses the y-axis at (0, 3)</text>
+                  </svg>
+                </div>
+              );
+
             case 'list':
               return (
                 <ul key={idx} style={{
