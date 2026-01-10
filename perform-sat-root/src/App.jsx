@@ -179,7 +179,7 @@ const PerformSAT = () => {
           blocks: [
             { type: "text", content: "The **slope** of a linear equation tells you **how steep the line is** and **how the y-value changes** as the x-value increases." },
             { type: "text", content: "In other words, slope is ( the change in y ) over ( the change in x )" },
-            { type: "list", items: ["It represents the **rate of change**", "It tells you **\"rise over run\"** → how much you go **up or down** for every **1 unit you move to the right**"] },
+            { type: "list", items: ["It represents the **rate of change**"] },
             { type: "example", title: "Example", content: "In the equation **y = 3x + 2**, the slope is **3** (or ³⁄₁)\n\nAnd because slope is ( the change in y ) over ( the change in x )\n\n**For every 1 unit you increase x, y increases by 3**" }
           ]
         }
