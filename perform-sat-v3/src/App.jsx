@@ -1872,9 +1872,9 @@ const PerformSAT = () => {
   const renderText = (text) => {
     return text.split(/(\*\*.*?\*\*|\*.*?\*)/).map((part, i) => {
       if (part.startsWith('**') && part.endsWith('**')) {
-        return <strong key={i} style={{ fontWeight: '600', color: '#1d1d1f' }}>{part.slice(2, -2)}</strong>;
+        return <strong key={i} style={{ fontWeight: '700', color: '#000' }}>{part.slice(2, -2)}</strong>;
       } else if (part.startsWith('*') && part.endsWith('*')) {
-        return <em key={i} style={{ color: '#ea580c' }}>{part.slice(1, -1)}</em>;
+        return <em key={i} style={{ color: '#ea580c', fontWeight: '500', fontStyle: 'normal' }}>{part.slice(1, -1)}</em>;
       }
       return part;
     });
@@ -1919,56 +1919,62 @@ const PerformSAT = () => {
         {currentLesson.hero && (
           <div style={{
             background: currentLesson.hero.gradient,
-            borderRadius: '20px',
-            padding: '48px 40px',
-            marginBottom: '40px',
+            borderRadius: '32px',
+            padding: '72px 64px',
+            marginBottom: '72px',
             position: 'relative',
             overflow: 'hidden'
           }}>
             {/* Decorative circles */}
             <div style={{
               position: 'absolute',
-              top: '-50px',
-              right: '-50px',
-              width: '200px',
-              height: '200px',
+              top: '-100px',
+              right: '-100px',
+              width: '400px',
+              height: '400px',
               borderRadius: '50%',
-              background: 'rgba(255,255,255,0.1)'
+              background: 'rgba(255,255,255,0.12)'
             }} />
             <div style={{
               position: 'absolute',
-              bottom: '-30px',
-              left: '20%',
-              width: '120px',
-              height: '120px',
+              bottom: '-60px',
+              left: '15%',
+              width: '250px',
+              height: '250px',
               borderRadius: '50%',
               background: 'rgba(255,255,255,0.08)'
             }} />
-            
+
             <div style={{ position: 'relative', zIndex: 1 }}>
               <div style={{
-                fontSize: '12px',
+                fontSize: '13px',
                 fontWeight: '700',
-                color: 'rgba(255,255,255,0.85)',
+                color: 'rgba(255,255,255,0.95)',
                 textTransform: 'uppercase',
-                letterSpacing: '2px',
-                marginBottom: '16px'
+                letterSpacing: '3px',
+                marginBottom: '20px',
+                fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif'
               }}>
                 {currentLesson.hero.tagline}
               </div>
               <h2 style={{
-                fontSize: '32px',
+                fontSize: '56px',
                 fontWeight: '700',
                 color: '#fff',
-                marginBottom: '12px',
-                letterSpacing: '-0.5px'
+                marginBottom: '16px',
+                letterSpacing: '-1.5px',
+                fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif',
+                lineHeight: '1.1'
               }}>
                 {currentLesson.title}
               </h2>
               <p style={{
-                fontSize: '18px',
-                color: 'rgba(255,255,255,0.9)',
-                fontWeight: '400'
+                fontSize: '24px',
+                color: 'rgba(255,255,255,0.95)',
+                fontWeight: '400',
+                letterSpacing: '-0.2px',
+                fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif',
+                lineHeight: '1.4'
               }}>
                 {currentLesson.hero.subtitle}
               </p>
@@ -1983,12 +1989,12 @@ const PerformSAT = () => {
               const isFirstText = currentLesson.content.blocks.findIndex(b => b.type === 'text') === idx;
               return (
                 <p key={idx} style={{
-                  fontSize: isFirstText ? '21px' : '19px',
-                  lineHeight: isFirstText ? '1.6' : '1.7',
-                  color: isFirstText ? '#1d1d1f' : '#1d1d1f',
-                  marginBottom: '28px',
+                  fontSize: isFirstText ? '28px' : '24px',
+                  lineHeight: isFirstText ? '1.5' : '1.6',
+                  color: '#1d1d1f',
+                  marginBottom: '36px',
                   fontWeight: isFirstText ? '500' : '400',
-                  letterSpacing: isFirstText ? '-0.3px' : '0',
+                  letterSpacing: isFirstText ? '-0.4px' : '-0.2px',
                   fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif'
                 }}>
                   {renderText(block.content)}
@@ -1998,33 +2004,21 @@ const PerformSAT = () => {
             case 'formula':
               return (
                 <div key={idx} style={{
-                  background: 'linear-gradient(135deg, #f7f8fa 0%, #eef0f3 100%)',
-                  borderRadius: '24px',
-                  padding: '48px',
-                  margin: '48px 0',
+                  background: '#f5f5f7',
+                  borderRadius: '28px',
+                  padding: '64px 48px',
+                  margin: '64px 0',
                   textAlign: 'center',
-                  border: '1px solid rgba(0,0,0,0.06)',
-                  boxShadow: '0 2px 12px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.02)',
-                  position: 'relative',
-                  overflow: 'hidden'
+                  border: '1px solid rgba(0,0,0,0.04)'
                 }}>
-                  <div style={{
-                    position: 'absolute',
-                    top: '-50px',
-                    right: '-50px',
-                    width: '150px',
-                    height: '150px',
-                    borderRadius: '50%',
-                    background: 'radial-gradient(circle, rgba(99,102,241,0.08) 0%, rgba(99,102,241,0) 70%)'
-                  }} />
                   {block.label && (
                     <div style={{
-                      fontSize: '11px',
+                      fontSize: '12px',
                       fontWeight: '700',
                       color: '#86868b',
                       textTransform: 'uppercase',
-                      letterSpacing: '2px',
-                      marginBottom: '24px',
+                      letterSpacing: '2.5px',
+                      marginBottom: '32px',
                       fontFamily: '-apple-system, BlinkMacSystemFont, system-ui, sans-serif'
                     }}>
                       {block.label}
@@ -2035,14 +2029,12 @@ const PerformSAT = () => {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      gap: '20px',
-                      fontSize: '36px',
+                      gap: '24px',
+                      fontSize: '48px',
                       fontWeight: '400',
                       color: '#1d1d1f',
                       fontFamily: 'Georgia, "Times New Roman", serif',
-                      fontStyle: 'italic',
-                      position: 'relative',
-                      zIndex: 1
+                      fontStyle: 'italic'
                     }}>
                       {block.prefix && <span>{block.prefix}</span>}
                       <div style={{
@@ -2053,9 +2045,9 @@ const PerformSAT = () => {
                         <span style={{ color: block.numeratorColor || '#1d1d1f' }}>{block.fraction.numerator}</span>
                         <div style={{
                           width: '100%',
-                          height: '2.5px',
-                          background: 'linear-gradient(90deg, transparent, #1d1d1f, transparent)',
-                          margin: '6px 0'
+                          height: '3px',
+                          background: '#1d1d1f',
+                          margin: '8px 0'
                         }} />
                         <span style={{ color: block.denominatorColor || '#1d1d1f' }}>{block.fraction.denominator}</span>
                       </div>
@@ -2070,9 +2062,9 @@ const PerformSAT = () => {
                             <span style={{ color: block.numeratorColor || '#1d1d1f' }}>{block.secondFraction.numerator}</span>
                             <div style={{
                               width: '100%',
-                              height: '2.5px',
-                              background: 'linear-gradient(90deg, transparent, #1d1d1f, transparent)',
-                              margin: '6px 0'
+                              height: '3px',
+                              background: '#1d1d1f',
+                              margin: '8px 0'
                             }} />
                             <span style={{ color: block.denominatorColor || '#1d1d1f' }}>{block.secondFraction.denominator}</span>
                           </div>
@@ -2082,14 +2074,12 @@ const PerformSAT = () => {
                     </div>
                   ) : (
                     <div style={{
-                      fontSize: '42px',
+                      fontSize: '72px',
                       fontWeight: '400',
                       color: '#1d1d1f',
                       fontFamily: 'Georgia, "Times New Roman", serif',
                       fontStyle: 'italic',
-                      position: 'relative',
-                      zIndex: 1,
-                      letterSpacing: '-0.5px'
+                      letterSpacing: '-1px'
                     }}>
                       {block.content}
                     </div>
@@ -5484,45 +5474,26 @@ const PerformSAT = () => {
             case 'list':
               return (
                 <ul key={idx} style={{
-                  margin: '32px 0',
-                  paddingLeft: '0',
-                  listStyle: 'none',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '16px'
+                  margin: '40px 0',
+                  paddingLeft: '32px',
+                  listStyle: 'none'
                 }}>
                   {block.items.map((item, i) => (
                     <li key={i} style={{
-                      fontSize: '19px',
-                      lineHeight: '1.7',
+                      fontSize: '24px',
+                      lineHeight: '1.6',
                       color: '#1d1d1f',
-                      padding: '20px 24px 20px 56px',
+                      marginBottom: '16px',
+                      fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif',
+                      letterSpacing: '-0.2px',
                       position: 'relative',
-                      background: 'rgba(99, 102, 241, 0.03)',
-                      borderRadius: '16px',
-                      border: '1px solid rgba(99, 102, 241, 0.08)',
-                      fontFamily: '-apple-system, BlinkMacSystemFont, system-ui, sans-serif',
-                      transition: 'all 0.2s ease'
+                      paddingLeft: '12px'
                     }}>
                       <span style={{
                         position: 'absolute',
-                        left: '20px',
-                        top: '50%',
-                        transform: 'translateY(-50%)',
-                        width: '20px',
-                        height: '20px',
-                        borderRadius: '50%',
-                        background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)',
-                        boxShadow: '0 2px 8px rgba(99, 102, 241, 0.3)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        fontSize: '11px',
-                        color: 'white',
-                        fontWeight: '700'
-                      }}>
-                        {i + 1}
-                      </span>
+                        left: '-20px',
+                        color: '#666'
+                      }}>•</span>
                       {renderText(item)}
                     </li>
                   ))}
@@ -5532,46 +5503,31 @@ const PerformSAT = () => {
             case 'example':
               return (
                 <div key={idx} style={{
-                  background: 'linear-gradient(135deg, #fef3f2 0%, #fef8f6 100%)',
+                  background: '#f5f5f7',
                   borderRadius: '24px',
-                  padding: '36px',
-                  margin: '40px 0',
-                  border: '1px solid rgba(234, 88, 12, 0.1)',
-                  boxShadow: '0 4px 20px rgba(234, 88, 12, 0.08)',
-                  position: 'relative',
-                  overflow: 'hidden'
+                  padding: '48px',
+                  margin: '56px 0',
+                  border: '1px solid rgba(0, 0, 0, 0.04)'
                 }}>
                   <div style={{
-                    position: 'absolute',
-                    top: '-40px',
-                    left: '-40px',
-                    width: '120px',
-                    height: '120px',
-                    borderRadius: '50%',
-                    background: 'radial-gradient(circle, rgba(234, 88, 12, 0.12) 0%, rgba(234, 88, 12, 0) 70%)'
-                  }} />
-                  <div style={{
-                    fontSize: '11px',
+                    fontSize: '12px',
                     fontWeight: '700',
                     color: '#ea580c',
-                    marginBottom: '20px',
+                    marginBottom: '24px',
                     textTransform: 'uppercase',
-                    letterSpacing: '2px',
-                    fontFamily: '-apple-system, BlinkMacSystemFont, system-ui, sans-serif',
-                    position: 'relative',
-                    zIndex: 1
+                    letterSpacing: '2.5px',
+                    fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif'
                   }}>
                     {block.title}
                   </div>
                   <div style={{
-                    fontSize: '19px',
-                    lineHeight: '1.7',
+                    fontSize: '22px',
+                    lineHeight: '1.65',
                     color: '#1d1d1f',
                     whiteSpace: 'pre-line',
                     fontWeight: '400',
-                    fontFamily: '-apple-system, BlinkMacSystemFont, system-ui, sans-serif',
-                    position: 'relative',
-                    zIndex: 1
+                    fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif',
+                    letterSpacing: '-0.2px'
                   }}>
                     {renderText(block.content)}
                   </div>
