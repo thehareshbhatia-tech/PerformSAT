@@ -1,56 +1,87 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useAuth } from './hooks/useAuth';
+import { useProgress } from './hooks/useProgress';
 
 const PerformSAT = () => {
   const [activeModule, setActiveModule] = useState(null);
   const [activeLesson, setActiveLesson] = useState(null);
   const [view, setView] = useState('modules'); // 'modules', 'list', 'lesson', or 'login'
-  const [user, setUser] = useState(null); // null when logged out, { name, email } when logged in
   const [loginForm, setLoginForm] = useState({ email: '', password: '', name: '' });
   const [isSignUp, setIsSignUp] = useState(false);
   const [loginError, setLoginError] = useState('');
-  const [completedLessons, setCompletedLessons] = useState({}); // { lessonId: true }
 
-  const markLessonComplete = (moduleId, lessonId) => {
-    setCompletedLessons(prev => ({
-      ...prev,
-      [`${moduleId}-${lessonId}`]: true
-    }));
+  // Use Supabase authentication hook
+  const { user: authUser, loading: authLoading, login, register, logout, isAuthenticated } = useAuth();
+
+  // Use Supabase progress tracking hook
+  const {
+    completedLessons,
+    markLessonComplete: saveProgress,
+    getModuleProgress,
+    loading: progressLoading
+  } = useProgress(authUser?.id);
+
+  // Create user object for UI compatibility
+  const user = authUser ? {
+    name: authUser.user_metadata?.full_name || authUser.email?.split('@')[0],
+    email: authUser.email,
+    id: authUser.id
+  } : null;
+
+  // Redirect to login if not authenticated
+  useEffect(() => {
+    if (!authLoading && !isAuthenticated && view !== 'login') {
+      setView('login');
+    }
+  }, [authLoading, isAuthenticated, view]);
+
+  // Wrapper for markLessonComplete that uses Supabase
+  const markLessonComplete = async (moduleId, lessonId) => {
+    await saveProgress(moduleId, lessonId);
   };
 
-  const getModuleProgress = (moduleId, lessons) => {
-    if (!lessons || lessons.length === 0) return 0;
-    const completed = lessons.filter(l => completedLessons[`${moduleId}-${l.id}`]).length;
-    return Math.round((completed / lessons.length) * 100);
-  };
-
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     if (!loginForm.email || !loginForm.password) {
       setLoginError('Please fill in all fields');
       return;
     }
-    // Simulate login - in real app this would call an API
-    const firstName = loginForm.email.split('@')[0].split('.')[0];
-    const capitalizedName = firstName.charAt(0).toUpperCase() + firstName.slice(1);
-    setUser({ name: capitalizedName, email: loginForm.email });
+
+    const { success, error } = await login(loginForm.email, loginForm.password);
+
+    if (!success) {
+      setLoginError(error || 'Login failed. Please check your credentials.');
+      return;
+    }
+
     setView('modules');
     setLoginError('');
+    setLoginForm({ email: '', password: '', name: '' });
   };
 
-  const handleSignUp = (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
     if (!loginForm.name || !loginForm.email || !loginForm.password) {
       setLoginError('Please fill in all fields');
       return;
     }
-    setUser({ name: loginForm.name, email: loginForm.email });
+
+    const { success, error } = await register(loginForm.email, loginForm.password, loginForm.name);
+
+    if (!success) {
+      setLoginError(error || 'Sign up failed. Please try again.');
+      return;
+    }
+
     setView('modules');
     setLoginError('');
+    setLoginForm({ email: '', password: '', name: '' });
   };
 
-  const handleLogout = () => {
-    setUser(null);
+  const handleLogout = async () => {
+    await logout();
     setLoginForm({ email: '', password: '', name: '' });
+    setView('login');
   };
 
   const modules = [
