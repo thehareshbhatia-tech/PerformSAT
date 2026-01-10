@@ -5153,24 +5153,24 @@ const PerformSAT = () => {
                     <text x="280" y="30" fontSize="24" fill="#1e293b" fontWeight="700" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui">y</text>
 
                     {/* Line shadows */}
-                    <line x1="190" y1="310" x2="350" y2="-10" stroke="#ea580c" strokeWidth="6" strokeLinecap="round" opacity="0.2"/>
-                    <line x1="190" y1="150" x2="350" y2="-170" stroke="#3b82f6" strokeWidth="6" strokeLinecap="round" opacity="0.2"/>
+                    <line x1="175" y1="340" x2="325" y2="40" stroke="#ea580c" strokeWidth="6" strokeLinecap="round" opacity="0.2"/>
+                    <line x1="95" y1="340" x2="245" y2="40" stroke="#3b82f6" strokeWidth="6" strokeLinecap="round" opacity="0.2"/>
 
-                    {/* Parallel line 1: y = 2x + 1 (orange) */}
-                    <line x1="190" y1="310" x2="350" y2="-10" stroke="url(#orangeGrad)" strokeWidth="5" strokeLinecap="round" filter="url(#glowParallel)"/>
+                    {/* Parallel line 1: y = 2x + 1 (orange) - passes through (0,1) */}
+                    <line x1="175" y1="340" x2="325" y2="40" stroke="url(#orangeGrad)" strokeWidth="5" strokeLinecap="round" filter="url(#glowParallel)"/>
 
-                    {/* Parallel line 2: y = 2x + 5 (blue) */}
-                    <line x1="190" y1="150" x2="350" y2="-170" stroke="url(#blueGrad)" strokeWidth="5" strokeLinecap="round" filter="url(#glowParallel)"/>
+                    {/* Parallel line 2: y = 2x + 5 (blue) - passes through (0,5) */}
+                    <line x1="95" y1="340" x2="245" y2="40" stroke="url(#blueGrad)" strokeWidth="5" strokeLinecap="round" filter="url(#glowParallel)"/>
 
                     {/* Label cards */}
                     <g filter="url(#glowParallel)">
-                      <rect x="390" y="155" width="100" height="45" rx="22" fill="#f97316" stroke="#ea580c" strokeWidth="2"/>
-                      <text x="440" y="185" fontSize="20" fill="#ffffff" fontWeight="700" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui" textAnchor="middle">y = 2x + 1</text>
+                      <rect x="330" y="165" width="115" height="45" rx="22" fill="#f97316" stroke="#ea580c" strokeWidth="2"/>
+                      <text x="387" y="195" fontSize="20" fill="#ffffff" fontWeight="700" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui" textAnchor="middle">y = 2x + 1</text>
                     </g>
 
                     <g filter="url(#glowParallel)">
-                      <rect x="390" y="45" width="100" height="45" rx="22" fill="#3b82f6" stroke="#2563eb" strokeWidth="2"/>
-                      <text x="440" y="75" fontSize="20" fill="#ffffff" fontWeight="700" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui" textAnchor="middle">y = 2x + 5</text>
+                      <rect x="120" y="60" width="115" height="45" rx="22" fill="#3b82f6" stroke="#2563eb" strokeWidth="2"/>
+                      <text x="177" y="90" fontSize="20" fill="#ffffff" fontWeight="700" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui" textAnchor="middle">y = 2x + 5</text>
                     </g>
 
                     {/* Info card */}
