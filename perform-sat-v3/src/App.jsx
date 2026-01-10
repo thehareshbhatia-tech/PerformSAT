@@ -5238,18 +5238,8 @@ const PerformSAT = () => {
                     {/* Line 2: slope = -1/2 (blue) - passes through origin */}
                     <line x1="110" y1="140" x2="470" y2="320" stroke="url(#blueGradPerp)" strokeWidth="5" strokeLinecap="round" filter="url(#glowPerp)"/>
 
-                    {/* 4 separate right angle indicators - one in each quadrant */}
-                    {/* Right angle 1: Top-right quadrant */}
-                    <rect x="285" y="205" width="15" height="15" fill="none" stroke="#10b981" strokeWidth="3" filter="url(#glowPerp)"/>
-
-                    {/* Right angle 2: Bottom-right quadrant */}
-                    <rect x="285" y="220" width="15" height="15" fill="none" stroke="#10b981" strokeWidth="3" filter="url(#glowPerp)"/>
-
-                    {/* Right angle 3: Bottom-left quadrant */}
-                    <rect x="255" y="220" width="15" height="15" fill="none" stroke="#10b981" strokeWidth="3" filter="url(#glowPerp)"/>
-
-                    {/* Right angle 4: Top-left quadrant */}
-                    <rect x="255" y="205" width="15" height="15" fill="none" stroke="#10b981" strokeWidth="3" filter="url(#glowPerp)"/>
+                    {/* Right angle indicator - square centered at intersection showing 4 right angles */}
+                    <rect x="255" y="205" width="30" height="30" fill="none" stroke="#10b981" strokeWidth="3" filter="url(#glowPerp)"/>
 
                     {/* Label cards */}
                     <g filter="url(#glowPerp)">
@@ -5265,7 +5255,6 @@ const PerformSAT = () => {
                     {/* Info card */}
                     <g filter="url(#glowPerp)">
                       <rect x="120" y="410" width="360" height="55" rx="16" fill="#ffffff" stroke="#e2e8f0" strokeWidth="2"/>
-                      <circle cx="145" cy="437.5" r="6" fill="#8b5cf6"/>
                       <text x="300" y="443" fontSize="17" fill="#1e293b" fontWeight="600" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui" textAnchor="middle">Slopes are negative reciprocals: 2 × (-½) = -1</text>
                     </g>
                   </svg>
