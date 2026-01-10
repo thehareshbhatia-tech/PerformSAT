@@ -5167,7 +5167,7 @@ const PerformSAT = () => {
                     <g filter="url(#glowParallel)">
                       <rect x="120" y="370" width="360" height="55" rx="16" fill="#ffffff" stroke="#e2e8f0" strokeWidth="2"/>
                       <circle cx="145" cy="397.5" r="6" fill="#8b5cf6"/>
-                      <text x="300" y="403" fontSize="17" fill="#1e293b" fontWeight="600" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui" textAnchor="middle">Same slope (m = 2), different y-intercepts</text>
+                      <text x="300" y="403" fontSize="17" fill="#1e293b" fontWeight="600" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui" textAnchor="middle">Same slope (slope = 2), different y-intercepts</text>
                     </g>
                   </svg>
                 </div>
@@ -5229,33 +5229,33 @@ const PerformSAT = () => {
                     <text x="280" y="30" fontSize="24" fill="#1e293b" fontWeight="700" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui">y</text>
 
                     {/* Line shadows */}
-                    <line x1="150" y1="340" x2="390" y2="100" stroke="#ea580c" strokeWidth="6" strokeLinecap="round" opacity="0.2"/>
-                    <line x1="150" y1="130" x2="470" y2="290" stroke="#3b82f6" strokeWidth="6" strokeLinecap="round" opacity="0.2"/>
+                    <line x1="190" y1="380" x2="350" y2="60" stroke="#ea580c" strokeWidth="6" strokeLinecap="round" opacity="0.2"/>
+                    <line x1="110" y1="140" x2="470" y2="320" stroke="#3b82f6" strokeWidth="6" strokeLinecap="round" opacity="0.2"/>
 
-                    {/* Line 1: slope = 2 (orange) */}
-                    <line x1="150" y1="340" x2="390" y2="100" stroke="url(#orangeGradPerp)" strokeWidth="5" strokeLinecap="round" filter="url(#glowPerp)"/>
+                    {/* Line 1: slope = 2 (orange) - passes through origin */}
+                    <line x1="190" y1="380" x2="350" y2="60" stroke="url(#orangeGradPerp)" strokeWidth="5" strokeLinecap="round" filter="url(#glowPerp)"/>
 
-                    {/* Line 2: slope = -1/2 (blue) */}
-                    <line x1="150" y1="130" x2="470" y2="290" stroke="url(#blueGradPerp)" strokeWidth="5" strokeLinecap="round" filter="url(#glowPerp)"/>
+                    {/* Line 2: slope = -1/2 (blue) - passes through origin */}
+                    <line x1="110" y1="140" x2="470" y2="320" stroke="url(#blueGradPerp)" strokeWidth="5" strokeLinecap="round" filter="url(#glowPerp)"/>
 
-                    {/* 90° angle indicator - green square at intersection */}
+                    {/* 90° angle indicator at intersection (origin) */}
                     <rect x="261" y="211" width="18" height="18" fill="none" stroke="#10b981" strokeWidth="3" filter="url(#glowPerp)"/>
 
                     {/* Label cards */}
                     <g filter="url(#glowPerp)">
-                      <rect x="390" y="85" width="85" height="45" rx="22" fill="#f97316" stroke="#ea580c" strokeWidth="2"/>
-                      <text x="432.5" y="115" fontSize="20" fill="#ffffff" fontWeight="700" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui" textAnchor="middle">m = 2</text>
+                      <rect x="355" y="50" width="125" height="45" rx="22" fill="#f97316" stroke="#ea580c" strokeWidth="2"/>
+                      <text x="417.5" y="80" fontSize="20" fill="#ffffff" fontWeight="700" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui" textAnchor="middle">slope = 2</text>
                     </g>
 
                     <g filter="url(#glowPerp)">
-                      <rect x="460" y="295" width="90" height="45" rx="22" fill="#3b82f6" stroke="#2563eb" strokeWidth="2"/>
-                      <text x="505" y="325" fontSize="20" fill="#ffffff" fontWeight="700" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui" textAnchor="middle">m = -½</text>
+                      <rect x="460" y="325" width="125" height="45" rx="22" fill="#3b82f6" stroke="#2563eb" strokeWidth="2"/>
+                      <text x="522.5" y="355" fontSize="20" fill="#ffffff" fontWeight="700" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui" textAnchor="middle">slope = -½</text>
                     </g>
 
                     {/* Info card */}
                     <g filter="url(#glowPerp)">
                       <rect x="120" y="410" width="360" height="55" rx="16" fill="#ffffff" stroke="#e2e8f0" strokeWidth="2"/>
-                      <circle cx="145" cy="437.5" r="6" fill="#10b981"/>
+                      <circle cx="145" cy="437.5" r="6" fill="#8b5cf6"/>
                       <text x="300" y="443" fontSize="17" fill="#1e293b" fontWeight="600" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui" textAnchor="middle">Slopes are negative reciprocals: 2 × (-½) = -1</text>
                     </g>
                   </svg>
