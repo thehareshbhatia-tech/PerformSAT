@@ -5330,10 +5330,14 @@ const PerformSAT = () => {
                     ))}
 
                     {/* Line shadow for depth */}
-                    <line x1="130" y1="340" x2="310" y2="-20" stroke="#1e40af" strokeWidth="6" strokeLinecap="round" opacity="0.2"/>
+                    <line x1="150" y1="340" x2="330" y2="-20" stroke="#1e40af" strokeWidth="6" strokeLinecap="round" opacity="0.2"/>
 
-                    {/* Main line with gradient - y = 2x + 3 */}
-                    <line x1="130" y1="340" x2="310" y2="-20" stroke="url(#lineGrad)" strokeWidth="5" strokeLinecap="round" filter="url(#glow)"/>
+                    {/* Main line with gradient - y = 2x + 3
+                        Passes through (0,3): pixel (270, 100)
+                        At x=-3: y=-3, pixel (150, 340)
+                        At x=1.5: y=6, pixel (330, -20)
+                    */}
+                    <line x1="150" y1="340" x2="330" y2="-20" stroke="url(#lineGrad)" strokeWidth="5" strokeLinecap="round" filter="url(#glow)"/>
 
                     {/* Y-intercept highlight on axis - subtle glow */}
                     <line x1="270" y1="40" x2="270" y2="160" stroke="#f59e0b" strokeWidth="8" opacity="0.25" strokeLinecap="round"/>
