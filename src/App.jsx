@@ -5090,41 +5090,85 @@ const PerformSAT = () => {
             case 'parallelLinesDiagram':
               return (
                 <div key={idx} style={{
-                  background: 'linear-gradient(135deg, #f8f9fa 0%, #f1f3f4 100%)',
-                  borderRadius: '16px',
-                  padding: '32px',
-                  margin: '32px 0',
-                  textAlign: 'center'
+                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  borderRadius: '24px',
+                  padding: '48px',
+                  margin: '40px 0',
+                  textAlign: 'center',
+                  boxShadow: '0 20px 60px rgba(102, 126, 234, 0.3)'
                 }}>
-                  <svg viewBox="0 0 300 200" style={{ maxWidth: '350px', width: '100%' }}>
-                    {/* Grid lines */}
+                  <svg viewBox="0 0 600 440" style={{ maxWidth: '650px', width: '100%', filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.1))' }}>
                     <defs>
-                      <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
-                        <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#e5e7eb" strokeWidth="0.5"/>
-                      </pattern>
+                      <linearGradient id="bgGradParallel" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style={{stopColor: '#ffffff', stopOpacity: 1}} />
+                        <stop offset="100%" style={{stopColor: '#f8fafc', stopOpacity: 1}} />
+                      </linearGradient>
+                      <filter id="glowParallel">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                        <feMerge>
+                          <feMergeNode in="coloredBlur"/>
+                          <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                      </filter>
+                      <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style={{stopColor: '#f97316', stopOpacity: 1}} />
+                        <stop offset="100%" style={{stopColor: '#ea580c', stopOpacity: 1}} />
+                      </linearGradient>
+                      <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style={{stopColor: '#60a5fa', stopOpacity: 1}} />
+                        <stop offset="100%" style={{stopColor: '#3b82f6', stopOpacity: 1}} />
+                      </linearGradient>
                     </defs>
-                    <rect width="300" height="200" fill="url(#grid)"/>
-                    
+
+                    <rect x="0" y="0" width="600" height="440" fill="url(#bgGradParallel)" rx="16"/>
+
+                    {/* Grid lines */}
+                    {[-3,-2,-1,0,1,2,3,4,5,6].map(i => (
+                      <line key={`vgridp${i}`} x1={270 + i*40} y1="40" x2={270 + i*40} y2="340" stroke="#e2e8f0" strokeWidth="1" opacity="0.6"/>
+                    ))}
+                    {[-4,-3,-2,-1,0,1,2,3,4].map(i => (
+                      <line key={`hgridp${i}`} x1="110" y1={190 - i*40} x2="510" y2={190 - i*40} stroke="#e2e8f0" strokeWidth="1" opacity="0.6"/>
+                    ))}
+
                     {/* Axes */}
-                    <line x1="30" y1="170" x2="280" y2="170" stroke="#9ca3af" strokeWidth="1.5"/>
-                    <line x1="30" y1="20" x2="30" y2="170" stroke="#9ca3af" strokeWidth="1.5"/>
-                    
+                    <line x1="110" y1="190" x2="510" y2="190" stroke="#1e293b" strokeWidth="3" strokeLinecap="round"/>
+                    <line x1="270" y1="40" x2="270" y2="340" stroke="#1e293b" strokeWidth="3" strokeLinecap="round"/>
+
+                    {/* Axis arrows */}
+                    <polygon points="510,190 495,183 495,197" fill="#1e293b"/>
+                    <polygon points="270,40 263,55 277,55" fill="#1e293b"/>
+
                     {/* Axis labels */}
-                    <text x="275" y="185" fontSize="12" fill="#6b7280">x</text>
-                    <text x="15" y="25" fontSize="12" fill="#6b7280">y</text>
-                    
-                    {/* Parallel line 1 - orange */}
-                    <line x1="50" y1="150" x2="260" y2="50" stroke="#ea580c" strokeWidth="3" strokeLinecap="round"/>
-                    
-                    {/* Parallel line 2 - blue */}
-                    <line x1="50" y1="100" x2="200" y2="30" stroke="#3b82f6" strokeWidth="3" strokeLinecap="round"/>
-                    
-                    {/* Labels for lines */}
-                    <text x="250" y="40" fontSize="14" fill="#ea580c" fontWeight="600">y = 2x + 1</text>
-                    <text x="190" y="22" fontSize="14" fill="#3b82f6" fontWeight="600">y = 2x + 5</text>
-                    
-                    {/* Same slope indicator */}
-                    <text x="150" y="190" fontSize="11" fill="#6b7280" textAnchor="middle">Same slope (m = 2), different y-intercepts</text>
+                    <text x="525" y="197" fontSize="24" fill="#1e293b" fontWeight="700" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui">x</text>
+                    <text x="280" y="30" fontSize="24" fill="#1e293b" fontWeight="700" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui">y</text>
+
+                    {/* Line shadows */}
+                    <line x1="150" y1="310" x2="390" y2="70" stroke="#ea580c" strokeWidth="6" strokeLinecap="round" opacity="0.2"/>
+                    <line x1="150" y1="150" x2="390" y2="-90" stroke="#3b82f6" strokeWidth="6" strokeLinecap="round" opacity="0.2"/>
+
+                    {/* Parallel line 1: y = 2x + 1 (orange) */}
+                    <line x1="150" y1="310" x2="390" y2="70" stroke="url(#orangeGrad)" strokeWidth="5" strokeLinecap="round" filter="url(#glowParallel)"/>
+
+                    {/* Parallel line 2: y = 2x + 5 (blue) */}
+                    <line x1="150" y1="150" x2="390" y2="-90" stroke="url(#blueGrad)" strokeWidth="5" strokeLinecap="round" filter="url(#glowParallel)"/>
+
+                    {/* Label cards */}
+                    <g filter="url(#glowParallel)">
+                      <rect x="390" y="155" width="100" height="45" rx="22" fill="#f97316" stroke="#ea580c" strokeWidth="2"/>
+                      <text x="440" y="185" fontSize="20" fill="#ffffff" fontWeight="700" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui" textAnchor="middle">y = 2x + 1</text>
+                    </g>
+
+                    <g filter="url(#glowParallel)">
+                      <rect x="390" y="45" width="100" height="45" rx="22" fill="#3b82f6" stroke="#2563eb" strokeWidth="2"/>
+                      <text x="440" y="75" fontSize="20" fill="#ffffff" fontWeight="700" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui" textAnchor="middle">y = 2x + 5</text>
+                    </g>
+
+                    {/* Info card */}
+                    <g filter="url(#glowParallel)">
+                      <rect x="120" y="370" width="360" height="55" rx="16" fill="#ffffff" stroke="#e2e8f0" strokeWidth="2"/>
+                      <circle cx="145" cy="397.5" r="6" fill="#8b5cf6"/>
+                      <text x="300" y="403" fontSize="17" fill="#1e293b" fontWeight="600" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui" textAnchor="middle">Same slope (m = 2), different y-intercepts</text>
+                    </g>
                   </svg>
                 </div>
               );
@@ -5132,44 +5176,88 @@ const PerformSAT = () => {
             case 'perpendicularLinesDiagram':
               return (
                 <div key={idx} style={{
-                  background: 'linear-gradient(135deg, #f8f9fa 0%, #f1f3f4 100%)',
-                  borderRadius: '16px',
-                  padding: '32px',
-                  margin: '32px 0',
-                  textAlign: 'center'
+                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  borderRadius: '24px',
+                  padding: '48px',
+                  margin: '40px 0',
+                  textAlign: 'center',
+                  boxShadow: '0 20px 60px rgba(102, 126, 234, 0.3)'
                 }}>
-                  <svg viewBox="0 0 300 220" style={{ maxWidth: '350px', width: '100%' }}>
-                    {/* Grid lines */}
+                  <svg viewBox="0 0 600 480" style={{ maxWidth: '650px', width: '100%', filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.1))' }}>
                     <defs>
-                      <pattern id="grid2" width="30" height="30" patternUnits="userSpaceOnUse">
-                        <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#e5e7eb" strokeWidth="0.5"/>
-                      </pattern>
+                      <linearGradient id="bgGradPerp" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style={{stopColor: '#ffffff', stopOpacity: 1}} />
+                        <stop offset="100%" style={{stopColor: '#f8fafc', stopOpacity: 1}} />
+                      </linearGradient>
+                      <filter id="glowPerp">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                        <feMerge>
+                          <feMergeNode in="coloredBlur"/>
+                          <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                      </filter>
+                      <linearGradient id="orangeGradPerp" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style={{stopColor: '#f97316', stopOpacity: 1}} />
+                        <stop offset="100%" style={{stopColor: '#ea580c', stopOpacity: 1}} />
+                      </linearGradient>
+                      <linearGradient id="blueGradPerp" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style={{stopColor: '#60a5fa', stopOpacity: 1}} />
+                        <stop offset="100%" style={{stopColor: '#3b82f6', stopOpacity: 1}} />
+                      </linearGradient>
                     </defs>
-                    <rect width="300" height="200" fill="url(#grid2)"/>
-                    
+
+                    <rect x="0" y="0" width="600" height="480" fill="url(#bgGradPerp)" rx="16"/>
+
+                    {/* Grid lines */}
+                    {[-3,-2,-1,0,1,2,3,4,5,6].map(i => (
+                      <line key={`vgridperp${i}`} x1={270 + i*40} y1="40" x2={270 + i*40} y2="380" stroke="#e2e8f0" strokeWidth="1" opacity="0.6"/>
+                    ))}
+                    {[-4,-3,-2,-1,0,1,2,3,4,5].map(i => (
+                      <line key={`hgridperp${i}`} x1="110" y1={220 - i*40} x2="510" y2={220 - i*40} stroke="#e2e8f0" strokeWidth="1" opacity="0.6"/>
+                    ))}
+
                     {/* Axes */}
-                    <line x1="150" y1="10" x2="150" y2="190" stroke="#9ca3af" strokeWidth="1.5"/>
-                    <line x1="20" y1="100" x2="280" y2="100" stroke="#9ca3af" strokeWidth="1.5"/>
-                    
+                    <line x1="110" y1="220" x2="510" y2="220" stroke="#1e293b" strokeWidth="3" strokeLinecap="round"/>
+                    <line x1="270" y1="40" x2="270" y2="380" stroke="#1e293b" strokeWidth="3" strokeLinecap="round"/>
+
+                    {/* Axis arrows */}
+                    <polygon points="510,220 495,213 495,227" fill="#1e293b"/>
+                    <polygon points="270,40 263,55 277,55" fill="#1e293b"/>
+
                     {/* Axis labels */}
-                    <text x="275" y="115" fontSize="12" fill="#6b7280">x</text>
-                    <text x="155" y="20" fontSize="12" fill="#6b7280">y</text>
-                    
-                    {/* Line 1 - orange (slope = 2) */}
-                    <line x1="60" y1="170" x2="240" y2="30" stroke="#ea580c" strokeWidth="3" strokeLinecap="round"/>
-                    
-                    {/* Line 2 - blue (slope = -1/2) */}
-                    <line x1="40" y1="50" x2="260" y2="160" stroke="#3b82f6" strokeWidth="3" strokeLinecap="round"/>
-                    
-                    {/* 90° angle indicator */}
-                    <rect x="150" y="85" width="15" height="15" fill="none" stroke="#10b981" strokeWidth="2"/>
-                    
-                    {/* Labels for lines */}
-                    <text x="235" y="25" fontSize="13" fill="#ea580c" fontWeight="600">m = 2</text>
-                    <text x="245" y="175" fontSize="13" fill="#3b82f6" fontWeight="600">m = -½</text>
-                    
-                    {/* Relationship indicator */}
-                    <text x="150" y="210" fontSize="11" fill="#6b7280" textAnchor="middle">Slopes are negative reciprocals: 2 × (-½) = -1</text>
+                    <text x="525" y="227" fontSize="24" fill="#1e293b" fontWeight="700" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui">x</text>
+                    <text x="280" y="30" fontSize="24" fill="#1e293b" fontWeight="700" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui">y</text>
+
+                    {/* Line shadows */}
+                    <line x1="150" y1="340" x2="390" y2="100" stroke="#ea580c" strokeWidth="6" strokeLinecap="round" opacity="0.2"/>
+                    <line x1="150" y1="130" x2="470" y2="290" stroke="#3b82f6" strokeWidth="6" strokeLinecap="round" opacity="0.2"/>
+
+                    {/* Line 1: slope = 2 (orange) */}
+                    <line x1="150" y1="340" x2="390" y2="100" stroke="url(#orangeGradPerp)" strokeWidth="5" strokeLinecap="round" filter="url(#glowPerp)"/>
+
+                    {/* Line 2: slope = -1/2 (blue) */}
+                    <line x1="150" y1="130" x2="470" y2="290" stroke="url(#blueGradPerp)" strokeWidth="5" strokeLinecap="round" filter="url(#glowPerp)"/>
+
+                    {/* 90° angle indicator - green square at intersection */}
+                    <rect x="261" y="211" width="18" height="18" fill="none" stroke="#10b981" strokeWidth="3" filter="url(#glowPerp)"/>
+
+                    {/* Label cards */}
+                    <g filter="url(#glowPerp)">
+                      <rect x="390" y="85" width="85" height="45" rx="22" fill="#f97316" stroke="#ea580c" strokeWidth="2"/>
+                      <text x="432.5" y="115" fontSize="20" fill="#ffffff" fontWeight="700" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui" textAnchor="middle">m = 2</text>
+                    </g>
+
+                    <g filter="url(#glowPerp)">
+                      <rect x="460" y="295" width="90" height="45" rx="22" fill="#3b82f6" stroke="#2563eb" strokeWidth="2"/>
+                      <text x="505" y="325" fontSize="20" fill="#ffffff" fontWeight="700" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui" textAnchor="middle">m = -½</text>
+                    </g>
+
+                    {/* Info card */}
+                    <g filter="url(#glowPerp)">
+                      <rect x="120" y="410" width="360" height="55" rx="16" fill="#ffffff" stroke="#e2e8f0" strokeWidth="2"/>
+                      <circle cx="145" cy="437.5" r="6" fill="#10b981"/>
+                      <text x="300" y="443" fontSize="17" fill="#1e293b" fontWeight="600" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui" textAnchor="middle">Slopes are negative reciprocals: 2 × (-½) = -1</text>
+                    </g>
                   </svg>
                 </div>
               );
