@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perform | Outperform the Competition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --orange-500: #FF6B35;
+            --orange-600: #E85A24;
+            --orange-400: #FF8C5A;
+            --orange-300: #FFB088;
+            --orange-100: #FFF5F0;
+            --dark: #0A0A0A;
+            --dark-800: #1A1A1A;
+            --dark-700: #2A2A2A;
+            --gray-600: #52525B;
+            --gray-500: #71717A;
+            --gray-400: #A1A1AA;
+            --gray-300: #D4D4D8;
+            --gray-200: #E4E4E7;
+            --gray-100: #F4F4F5;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--white);
+            color: var(--dark);
+            overflow-x: hidden;
+            font-weight: 500;
+        }
+
+        /* Subtle grid background */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.25rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .logo {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--dark);
+            letter-spacing: -0.03em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--orange-500) 0%, var(--orange-600) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 900;
+            font-size: 1.1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--dark);
+        }
+
+        .btn-primary {
+            background: var(--orange-500);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--orange-600);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(255, 107, 53, 0.35);
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-secondary {
+            color: var(--gray-600);
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-secondary:hover {
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 10rem 2rem 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Gradient orbs */
+        .hero-glow {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .hero-glow-1 {
+            background: var(--orange-300);
+            top: -20%;
+            right: -10%;
+            animation: float-slow 20s ease-in-out infinite;
+        }
+
+        .hero-glow-2 {
+            background: var(--orange-100);
+            bottom: -30%;
+            left: -20%;
+            animation: float-slow 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float-slow {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.05); }
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gray-100);
+            color: var(--gray-600);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid var(--gray-200);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease-out forwards;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--orange-500);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(3.5rem, 10vw, 6rem);
+            font-weight: 900;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            letter-spacing: -0.04em;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease-out 0.1s forwards;
+        }
+
+        .hero h1 .accent {
+            background: linear-gradient(135deg, var(--orange-500) 0%, var(--orange-400) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero h1 .italic {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray-500);
+            max-width: 480px;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+            font-weight: 500;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease-out 0.2s forwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 0.5rem;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease-out 0.3s forwards;
+        }
+
+        /* Floating UI Preview */
+        .hero-preview {
+            margin-top: 5rem;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeUp 1s ease-out 0.5s forwards;
+        }
+
+        .preview-window {
+            background: var(--dark);
+            border-radius: 16px;
+            padding: 0;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 
+                0 0 0 1px rgba(255,255,255,0.1),
+                0 50px 100px -20px rgba(0,0,0,0.4),
+                0 30px 60px -30px rgba(0,0,0,0.5);
+            overflow: hidden;
+            transform: perspective(1000px) rotateX(2deg);
+            transition: transform 0.5s ease;
+        }
+
+        .preview-window:hover {
+            transform: perspective(1000px) rotateX(0deg) translateY(-5px);
+        }
+
+        .window-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 1rem 1.25rem;
+            background: var(--dark-800);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .window-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .window-dot.red { background: #FF5F57; }
+        .window-dot.yellow { background: #FFBD2E; }
+        .window-dot.green { background: #28CA41; }
+
+        .window-url {
+            flex: 1;
+            text-align: center;
+            color: var(--gray-500);
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .window-content {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 1.5rem;
+            min-height: 300px;
+        }
+
+        .window-sidebar {
+            border-right: 1px solid rgba(255,255,255,0.1);
+            padding-right: 1.5rem;
+        }
+
+        .sidebar-logo {
+            color: white;
+            font-weight: 800;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sidebar-logo-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--orange-500);
+            border-radius: 6px;
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.65rem 0.75rem;
+            color: var(--gray-400);
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-radius: 8px;
+            margin-bottom: 0.25rem;
+            transition: all 0.2s ease;
+        }
+
+        .sidebar-item.active {
+            background: rgba(255, 107, 53, 0.15);
+            color: var(--orange-400);
+        }
+
+        .sidebar-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+            background: currentColor;
+            opacity: 0.5;
+        }
+
+        .window-main {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .main-search {
+            background: var(--dark-700);
+            border-radius: 10px;
+            padding: 0.85rem 1rem;
+            color: var(--gray-500);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .grid-item {
+            background: linear-gradient(135deg, var(--dark-700) 0%, var(--dark-800) 100%);
+            border-radius: 10px;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--gray-500);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .grid-item:hover {
+            border-color: var(--orange-500);
+            transform: scale(1.02);
+        }
+
+        .grid-item.highlight {
+            background: linear-gradient(135deg, var(--orange-500) 0%, var(--orange-600) 100%);
+            color: white;
+        }
+
+        /* Sections */
+        section {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Unlocks Section */
+        .unlocks {
+            padding: 8rem 4rem;
+            background: var(--gray-100);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--orange-500);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+
+        .section-header h2 .accent {
+            background: linear-gradient(135deg, var(--orange-500) 0%, var(--orange-400) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--gray-500);
+            max-width: 500px;
+            margin: 1.5rem auto 0;
+            line-height: 1.7;
+        }
+
+        .unlocks-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .unlock-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid var(--gray-200);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .unlock-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--orange-500), var(--orange-400));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .unlock-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+            border-color: var(--orange-200);
+        }
+
+        .unlock-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .unlock-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--orange-100) 0%, var(--orange-50) 100%);
+            border: 1px solid var(--orange-200);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--orange-500);
+        }
+
+        .unlock-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .unlock-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .unlock-card p {
+            color: var(--gray-500);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 8rem 4rem;
+            background: var(--dark);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--orange-500) 0%, transparent 70%);
+            opacity: 0.08;
+            top: -200px;
+            right: -200px;
+            border-radius: 50%;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about .section-tag {
+            color: var(--orange-400);
+        }
+
+        .about h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            margin-bottom: 2rem;
+        }
+
+        .about h2 .accent {
+            background: linear-gradient(135deg, var(--orange-400) 0%, var(--orange-300) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-lead {
+            font-size: 1.35rem;
+            color: var(--gray-300);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .about p {
+            color: var(--gray-400);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .about strong {
+            color: var(--orange-400);
+            font-weight: 700;
+        }
+
+        .about .btn-primary {
+            margin-top: 1rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 10rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, var(--white) 0%, var(--orange-100) 100%);
+        }
+
+        .cta-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: var(--orange-300);
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.3;
+            bottom: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            pointer-events: none;
+        }
+
+        .cta h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            letter-spacing: -0.03em;
+        }
+
+        .cta h2 .accent {
+            background: linear-gradient(135deg, var(--orange-500) 0%, var(--orange-400) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            color: var(--gray-500);
+            max-width: 450px;
+            margin: 0 auto 2.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta .btn-primary {
+            position: relative;
+            z-index: 1;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 4rem;
+            border-top: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            background: var(--white);
+        }
+
+        .footer-logo {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: var(--dark);
+            letter-spacing: -0.03em;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--gray-500);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--dark);
+        }
+
+        .footer-copy {
+            color: var(--gray-400);
+            font-size: 0.85rem;
+        }
+
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-stagger {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-stagger.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .unlocks-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links a:not(.btn-primary) {
+                display: none;
+            }
+
+            .hero {
+                padding: 8rem 1.5rem 4rem;
+            }
+
+            .preview-window {
+                display: none;
+            }
+
+            .unlocks {
+                padding: 4rem 1.5rem;
+            }
+
+            .unlocks-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about {
+                padding: 4rem 1.5rem;
+            }
+
+            .cta {
+                padding: 5rem 1.5rem;
+            }
+
+            footer {
+                padding: 2rem 1.5rem;
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+
+    <nav>
+        <div class="logo">
+            <div class="logo-icon">P</div>
+            Perform
+        </div>
+        <div class="nav-links">
+            <a href="#unlocks">Benefits</a>
+            <a href="#about">About</a>
+            <a href="#" class="btn-primary">Enroll Now</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+        
+        <div class="badge">
+            <span class="badge-dot"></span>
+            Video Course Now Available
+        </div>
+        
+        <h1>Perform the SAT,<br><span class="italic accent">Outperform</span> the Competition</h1>
+        
+        <p>A comprehensive video course built on a proven curriculum. Master every concept, strategy, and technique you need.</p>
+        
+        <div class="hero-buttons">
+            <a href="#" class="btn-primary">Enroll in the Course →</a>
+            <a href="#about" class="btn-secondary">Meet Your Instructor</a>
+        </div>
+
+        <div class="hero-preview">
+            <div class="preview-window">
+                <div class="window-header">
+                    <div class="window-dot red"></div>
+                    <div class="window-dot yellow"></div>
+                    <div class="window-dot green"></div>
+                    <div class="window-url">perform.com/dashboard</div>
+                </div>
+                <div class="window-content">
+                    <div class="window-sidebar">
+                        <div class="sidebar-logo">
+                            <div class="sidebar-logo-icon"></div>
+                            Perform
+                        </div>
+                        <div class="sidebar-item active">
+                            <div class="sidebar-icon"></div>
+                            Dashboard
+                        </div>
+                        <div class="sidebar-item">
+                            <div class="sidebar-icon"></div>
+                            Lessons
+                        </div>
+                        <div class="sidebar-item">
+                            <div class="sidebar-icon"></div>
+                            Practice
+                        </div>
+                        <div class="sidebar-item">
+                            <div class="sidebar-icon"></div>
+                            Progress
+                        </div>
+                    </div>
+                    <div class="window-main">
+                        <div class="main-search">
+                            <span>⌘</span>
+                            Search lessons...
+                        </div>
+                        <div class="main-grid">
+                            <div class="grid-item highlight">1600</div>
+                            <div class="grid-item">R</div>
+                            <div class="grid-item">W</div>
+                            <div class="grid-item">M</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="unlocks" id="unlocks">
+        <div class="section-header reveal">
+            <div class="section-tag">
+                <span>—</span> Why It Matters
+            </div>
+            <h2>What a high score <span class="accent">unlocks</span></h2>
+            <p>Your SAT score opens doors that stay open for the rest of your life.</p>
+        </div>
+        <div class="unlocks-grid">
+            <div class="unlock-card reveal-stagger">
+                <div class="unlock-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342" />
+                    </svg>
+                </div>
+                <h3>Elite Acceptances</h3>
+                <p>Gain admission to top-tier universities that would otherwise be out of reach. Your dream school becomes a real possibility.</p>
+            </div>
+            <div class="unlock-card reveal-stagger">
+                <div class="unlock-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <h3>Bigger Scholarships</h3>
+                <p>Unlock merit-based scholarships worth tens of thousands of dollars. A higher score literally pays for itself many times over.</p>
+            </div>
+            <div class="unlock-card reveal-stagger">
+                <div class="unlock-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                    </svg>
+                </div>
+                <h3>Powerful Networks</h3>
+                <p>Connect with ambitious, driven peers at elite institutions. The relationships you build will shape your career for decades.</p>
+            </div>
+            <div class="unlock-card reveal-stagger">
+                <div class="unlock-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+                    </svg>
+                </div>
+                <h3>Career Opportunities</h3>
+                <p>Top employers recruit from top schools. Your SAT score today influences the opportunities you'll have tomorrow.</p>
+            </div>
+            <div class="unlock-card reveal-stagger">
+                <div class="unlock-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0" />
+                    </svg>
+                </div>
+                <h3>Competitive Edge</h3>
+                <p>Stand out in a sea of applicants. A strong SAT score signals discipline, intelligence, and preparation.</p>
+            </div>
+            <div class="unlock-card reveal-stagger">
+                <div class="unlock-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
+                    </svg>
+                </div>
+                <h3>More Options</h3>
+                <p>Choose your future instead of settling. A high score means you decide where to go—not the other way around.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-content reveal">
+            <div class="section-tag">
+                <span>—</span> Your Instructor
+            </div>
+            <h2>Meet the <span class="accent">creator</span></h2>
+            <p class="about-lead">Perfect Digital SAT scorer. 99th percentile Paper SAT scorer.</p>
+            <p>I've developed a proven system built on <strong>pattern recognition</strong>—the same patterns that appear on every SAT. This isn't about memorizing thousands of facts. It's about learning to see what the test makers don't want you to see.</p>
+            <p>My system has trained dozens of students to score <strong>1400+</strong>, regardless of their starting point.</p>
+            <a href="#" class="btn-primary">Learn My System →</a>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta-glow"></div>
+        <div class="reveal">
+            <h2>Ready to <span class="accent">outperform?</span></h2>
+            <p>Get instant access to the full video course and start your journey to a higher SAT score.</p>
+            <a href="#" class="btn-primary">Enroll Now →</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">Perform</div>
+        <div class="footer-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Contact</a>
+        </div>
+        <p class="footer-copy">© 2026 Perform. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal, .reveal-stagger');
+        
+        const revealOnScroll = () => {
+            revealElements.forEach((el, index) => {
+                const elementTop = el.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    if (el.classList.contains('reveal-stagger')) {
+                        const parent = el.parentElement;
+                        const siblings = parent.querySelectorAll('.reveal-stagger');
+                        const idx = Array.from(siblings).indexOf(el);
+                        setTimeout(() => {
+                            el.classList.add('active');
+                        }, idx * 100);
+                    } else {
+                        el.classList.add('active');
+                    }
+                }
+            });
+        };
+
+        // Parallax effect on hero glows
+        document.addEventListener('mousemove', (e) => {
+            const glows = document.querySelectorAll('.hero-glow');
+            const x = (window.innerWidth / 2 - e.clientX) / 30;
+            const y = (window.innerHeight / 2 - e.clientY) / 30;
+            
+            glows.forEach((glow, i) => {
+                const factor = i === 0 ? 1 : -0.5;
+                glow.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
+            });
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+    </script>
+</body>
+</html>
