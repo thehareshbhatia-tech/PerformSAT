@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './hooks/useAuth';
 import { useProgress } from './hooks/useProgress';
-import MagicLinkLogin from './components/Auth/MagicLinkLogin';
-import AuthCallback from './components/Auth/AuthCallback';
 import AdminDashboard from './components/Admin/AdminDashboard';
 import StudentDetail from './components/Admin/StudentDetail';
 import { allLessons } from './data/lessons';
@@ -13,7 +11,7 @@ const PerformSAT = () => {
   const [activeLesson, setActiveLesson] = useState(null);
   const [view, setView] = useState('modules'); // 'modules', 'list', 'lesson'
   
-  const { user, loading, sendMagicLink, logout } = useAuth();
+  const { user, loading, logout } = useAuth();
   const { completedLessons, markLessonComplete: markComplete, getModuleProgress: calcProgress, isLessonCompleted } = useProgress(user?.uid);
 
   const markLessonComplete = (moduleId, lessonId) => {
@@ -7909,14 +7907,9 @@ const PerformSAT = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Auth Routes */}
-        <Route path="/auth/verify" element={<AuthCallback onComplete={() => window.location.href = '/'} />} />
-        
         {/* Main App Route */}
         <Route path="/*" element={
-          !user ? (
-            <MagicLinkLogin onSendLink={sendMagicLink} />
-          ) : user.role === 'principal' ? (
+          user && user.role === 'principal' ? (
             <Navigate to="/admin" replace />
           ) : (
             <div style={{
