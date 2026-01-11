@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { validateSchoolCode } from '../../services/schoolService';
 
-const LandingPage = ({ isAdmin }) => {
-  const [step, setStep] = useState('school-code'); // 'school-code' or 'login'
+const StudentLandingPage = () => {
+  const [step, setStep] = useState('school-code');
   const [schoolCode, setSchoolCode] = useState('');
   const [school, setSchool] = useState(null);
   const [email, setEmail] = useState('');
@@ -41,7 +41,6 @@ const LandingPage = ({ isAdmin }) => {
 
     try {
       await signInWithPassword(email, password, schoolCode, firstName);
-      // Auth state change will trigger redirect via App.jsx routing
     } catch (err) {
       setError(err.message || 'Failed to sign in. Please try again.');
     } finally {
@@ -60,7 +59,7 @@ const LandingPage = ({ isAdmin }) => {
   return (
     <div style={{
       minHeight: '100vh',
-      background: '#ffffff',
+      background: 'linear-gradient(135deg, #fff5f0 0%, #ffffff 100%)',
       fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif',
       display: 'flex',
       flexDirection: 'column',
@@ -68,46 +67,58 @@ const LandingPage = ({ isAdmin }) => {
       justifyContent: 'center',
       padding: '24px'
     }}>
-      {/* Logo */}
       <div style={{ marginBottom: '48px', textAlign: 'center' }}>
-        <div style={{ fontSize: '32px', fontWeight: '700', letterSpacing: '-1px', marginBottom: '16px' }}>
+        <div style={{ fontSize: '36px', fontWeight: '700', letterSpacing: '-1.5px', marginBottom: '24px' }}>
           <span style={{ color: '#1d1d1f' }}>Perform</span>
           <span style={{ color: '#ea580c' }}>SAT</span>
         </div>
       </div>
 
-      {/* Main Card */}
       <div style={{
         background: '#ffffff',
-        borderRadius: '16px',
-        boxShadow: '0 4px 24px rgba(0,0,0,0.08)',
-        padding: '48px',
+        borderRadius: '20px',
+        boxShadow: '0 10px 40px rgba(234, 88, 12, 0.1)',
+        padding: '56px',
         width: '100%',
-        maxWidth: '440px',
-        border: '1px solid rgba(0,0,0,0.06)'
+        maxWidth: '480px',
+        border: '2px solid rgba(234, 88, 12, 0.1)'
       }}>
-        {/* Title */}
         {step === 'school-code' && (
           <>
+            <div style={{
+              width: '64px',
+              height: '64px',
+              background: 'linear-gradient(135deg, #ea580c, #f97316)',
+              borderRadius: '16px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              margin: '0 auto 24px',
+              boxShadow: '0 8px 16px rgba(234, 88, 12, 0.2)'
+            }}>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </div>
             <h1 style={{
-              fontSize: '28px',
+              fontSize: '32px',
               fontWeight: '700',
-              letterSpacing: '-0.5px',
+              letterSpacing: '-1px',
               color: '#1d1d1f',
-              marginBottom: '8px',
+              marginBottom: '12px',
               textAlign: 'center'
             }}>
-              {isAdmin ? 'Admin Portal' : 'Student Portal'}
+              Student Portal
             </h1>
             <p style={{
-              fontSize: '16px',
+              fontSize: '17px',
               color: '#6b7280',
-              marginBottom: '32px',
-              textAlign: 'center'
+              marginBottom: '40px',
+              textAlign: 'center',
+              lineHeight: '1.5'
             }}>
-              {isAdmin
-                ? 'Monitor student progress and performance'
-                : 'Master SAT Math concepts at your own pace'}
+              Master SAT Math concepts at your own pace
             </p>
           </>
         )}
@@ -115,45 +126,44 @@ const LandingPage = ({ isAdmin }) => {
         {step === 'login' && school && (
           <>
             <div style={{
-              fontSize: '20px',
+              fontSize: '22px',
               fontWeight: '600',
               color: '#ea580c',
-              marginBottom: '8px',
+              marginBottom: '12px',
               textAlign: 'center'
             }}>
               {school.name || 'Your School'}
             </div>
             <h1 style={{
-              fontSize: '24px',
+              fontSize: '28px',
               fontWeight: '700',
               letterSpacing: '-0.5px',
               color: '#1d1d1f',
-              marginBottom: '8px',
+              marginBottom: '12px',
               textAlign: 'center'
             }}>
-              {isAdmin ? 'Admin Sign In' : 'Student Sign In'}
+              Welcome Back
             </h1>
             <p style={{
-              fontSize: '14px',
+              fontSize: '15px',
               color: '#6b7280',
-              marginBottom: '32px',
+              marginBottom: '36px',
               textAlign: 'center'
             }}>
-              Enter your credentials to continue
+              Sign in to continue learning
             </p>
           </>
         )}
 
-        {/* School Code Form */}
         {step === 'school-code' && (
           <form onSubmit={handleSchoolCodeSubmit}>
             <div style={{ marginBottom: '24px' }}>
               <label style={{
                 display: 'block',
-                fontSize: '14px',
-                fontWeight: '500',
+                fontSize: '15px',
+                fontWeight: '600',
                 color: '#1d1d1f',
-                marginBottom: '8px'
+                marginBottom: '10px'
               }}>
                 School Code
               </label>
@@ -165,29 +175,37 @@ const LandingPage = ({ isAdmin }) => {
                 required
                 style={{
                   width: '100%',
-                  padding: '12px 16px',
-                  fontSize: '16px',
-                  border: '1px solid rgba(0,0,0,0.12)',
-                  borderRadius: '8px',
+                  padding: '14px 18px',
+                  fontSize: '17px',
+                  border: '2px solid rgba(0,0,0,0.08)',
+                  borderRadius: '12px',
                   outline: 'none',
-                  transition: 'border-color 0.2s',
+                  transition: 'all 0.2s',
                   fontFamily: 'inherit',
-                  boxSizing: 'border-box'
+                  boxSizing: 'border-box',
+                  background: '#fafafa'
                 }}
-                onFocus={(e) => e.target.style.borderColor = '#ea580c'}
-                onBlur={(e) => e.target.style.borderColor = 'rgba(0,0,0,0.12)'}
+                onFocus={(e) => {
+                  e.target.style.borderColor = '#ea580c';
+                  e.target.style.background = '#ffffff';
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderColor = 'rgba(0,0,0,0.08)';
+                  e.target.style.background = '#fafafa';
+                }}
               />
             </div>
 
             {error && (
               <div style={{
-                padding: '12px 16px',
+                padding: '14px 18px',
                 background: '#fef2f2',
-                border: '1px solid #fecaca',
-                borderRadius: '8px',
+                border: '2px solid #fecaca',
+                borderRadius: '12px',
                 marginBottom: '24px',
                 fontSize: '14px',
-                color: '#dc2626'
+                color: '#dc2626',
+                fontWeight: '500'
               }}>
                 {error}
               </div>
@@ -198,22 +216,23 @@ const LandingPage = ({ isAdmin }) => {
               disabled={loading || !schoolCode}
               style={{
                 width: '100%',
-                padding: '14px',
-                background: loading || !schoolCode ? '#d1d5db' : '#ea580c',
+                padding: '16px',
+                background: loading || !schoolCode ? '#d1d5db' : 'linear-gradient(135deg, #ea580c, #f97316)',
                 color: '#ffffff',
                 border: 'none',
-                borderRadius: '8px',
-                fontSize: '16px',
+                borderRadius: '12px',
+                fontSize: '17px',
                 fontWeight: '600',
                 cursor: loading || !schoolCode ? 'not-allowed' : 'pointer',
-                transition: 'background 0.2s',
-                fontFamily: 'inherit'
+                transition: 'all 0.2s',
+                fontFamily: 'inherit',
+                boxShadow: loading || !schoolCode ? 'none' : '0 4px 12px rgba(234, 88, 12, 0.3)'
               }}
               onMouseEnter={(e) => {
-                if (!loading && schoolCode) e.target.style.background = '#c2410c';
+                if (!loading && schoolCode) e.target.style.transform = 'translateY(-1px)';
               }}
               onMouseLeave={(e) => {
-                if (!loading && schoolCode) e.target.style.background = '#ea580c';
+                if (!loading && schoolCode) e.target.style.transform = 'translateY(0)';
               }}
             >
               {loading ? 'Validating...' : 'Continue'}
@@ -221,47 +240,53 @@ const LandingPage = ({ isAdmin }) => {
           </form>
         )}
 
-        {/* Login Form */}
         {step === 'login' && (
           <form onSubmit={handleLoginSubmit}>
             <div style={{ marginBottom: '20px' }}>
               <label style={{
                 display: 'block',
-                fontSize: '14px',
-                fontWeight: '500',
+                fontSize: '15px',
+                fontWeight: '600',
                 color: '#1d1d1f',
-                marginBottom: '8px'
+                marginBottom: '10px'
               }}>
-                First Name (optional for returning users)
+                First Name (optional)
               </label>
               <input
                 type="text"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                placeholder="Enter your first name"
+                placeholder="Your first name"
                 style={{
                   width: '100%',
-                  padding: '12px 16px',
-                  fontSize: '16px',
-                  border: '1px solid rgba(0,0,0,0.12)',
-                  borderRadius: '8px',
+                  padding: '14px 18px',
+                  fontSize: '17px',
+                  border: '2px solid rgba(0,0,0,0.08)',
+                  borderRadius: '12px',
                   outline: 'none',
-                  transition: 'border-color 0.2s',
+                  transition: 'all 0.2s',
                   fontFamily: 'inherit',
-                  boxSizing: 'border-box'
+                  boxSizing: 'border-box',
+                  background: '#fafafa'
                 }}
-                onFocus={(e) => e.target.style.borderColor = '#ea580c'}
-                onBlur={(e) => e.target.style.borderColor = 'rgba(0,0,0,0.12)'}
+                onFocus={(e) => {
+                  e.target.style.borderColor = '#ea580c';
+                  e.target.style.background = '#ffffff';
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderColor = 'rgba(0,0,0,0.08)';
+                  e.target.style.background = '#fafafa';
+                }}
               />
             </div>
 
             <div style={{ marginBottom: '20px' }}>
               <label style={{
                 display: 'block',
-                fontSize: '14px',
-                fontWeight: '500',
+                fontSize: '15px',
+                fontWeight: '600',
                 color: '#1d1d1f',
-                marginBottom: '8px'
+                marginBottom: '10px'
               }}>
                 Email
               </label>
@@ -273,27 +298,34 @@ const LandingPage = ({ isAdmin }) => {
                 required
                 style={{
                   width: '100%',
-                  padding: '12px 16px',
-                  fontSize: '16px',
-                  border: '1px solid rgba(0,0,0,0.12)',
-                  borderRadius: '8px',
+                  padding: '14px 18px',
+                  fontSize: '17px',
+                  border: '2px solid rgba(0,0,0,0.08)',
+                  borderRadius: '12px',
                   outline: 'none',
-                  transition: 'border-color 0.2s',
+                  transition: 'all 0.2s',
                   fontFamily: 'inherit',
-                  boxSizing: 'border-box'
+                  boxSizing: 'border-box',
+                  background: '#fafafa'
                 }}
-                onFocus={(e) => e.target.style.borderColor = '#ea580c'}
-                onBlur={(e) => e.target.style.borderColor = 'rgba(0,0,0,0.12)'}
+                onFocus={(e) => {
+                  e.target.style.borderColor = '#ea580c';
+                  e.target.style.background = '#ffffff';
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderColor = 'rgba(0,0,0,0.08)';
+                  e.target.style.background = '#fafafa';
+                }}
               />
             </div>
 
-            <div style={{ marginBottom: '24px' }}>
+            <div style={{ marginBottom: '28px' }}>
               <label style={{
                 display: 'block',
-                fontSize: '14px',
-                fontWeight: '500',
+                fontSize: '15px',
+                fontWeight: '600',
                 color: '#1d1d1f',
-                marginBottom: '8px'
+                marginBottom: '10px'
               }}>
                 Password
               </label>
@@ -301,53 +333,63 @@ const LandingPage = ({ isAdmin }) => {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter your password"
+                placeholder="Create a password"
                 required
                 minLength="6"
                 style={{
                   width: '100%',
-                  padding: '12px 16px',
-                  fontSize: '16px',
-                  border: '1px solid rgba(0,0,0,0.12)',
-                  borderRadius: '8px',
+                  padding: '14px 18px',
+                  fontSize: '17px',
+                  border: '2px solid rgba(0,0,0,0.08)',
+                  borderRadius: '12px',
                   outline: 'none',
-                  transition: 'border-color 0.2s',
+                  transition: 'all 0.2s',
                   fontFamily: 'inherit',
-                  boxSizing: 'border-box'
+                  boxSizing: 'border-box',
+                  background: '#fafafa'
                 }}
-                onFocus={(e) => e.target.style.borderColor = '#ea580c'}
-                onBlur={(e) => e.target.style.borderColor = 'rgba(0,0,0,0.12)'}
+                onFocus={(e) => {
+                  e.target.style.borderColor = '#ea580c';
+                  e.target.style.background = '#ffffff';
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderColor = 'rgba(0,0,0,0.08)';
+                  e.target.style.background = '#fafafa';
+                }}
               />
               <p style={{
-                fontSize: '12px',
+                fontSize: '13px',
                 color: '#9ca3af',
-                marginTop: '6px'
+                marginTop: '8px'
               }}>
                 Minimum 6 characters
               </p>
             </div>
 
             <div style={{
-              padding: '12px 16px',
-              background: '#f3f4f6',
-              borderRadius: '8px',
-              marginBottom: '24px',
-              fontSize: '13px',
-              color: '#6b7280',
-              textAlign: 'center'
+              padding: '14px 18px',
+              background: 'linear-gradient(135deg, rgba(234, 88, 12, 0.05), rgba(249, 115, 22, 0.05))',
+              borderRadius: '12px',
+              marginBottom: '28px',
+              fontSize: '14px',
+              color: '#ea580c',
+              textAlign: 'center',
+              fontWeight: '500',
+              border: '1px solid rgba(234, 88, 12, 0.1)'
             }}>
-              New user? Your account will be created automatically
+              New student? Your account will be created automatically
             </div>
 
             {error && (
               <div style={{
-                padding: '12px 16px',
+                padding: '14px 18px',
                 background: '#fef2f2',
-                border: '1px solid #fecaca',
-                borderRadius: '8px',
+                border: '2px solid #fecaca',
+                borderRadius: '12px',
                 marginBottom: '24px',
                 fontSize: '14px',
-                color: '#dc2626'
+                color: '#dc2626',
+                fontWeight: '500'
               }}>
                 {error}
               </div>
@@ -358,23 +400,24 @@ const LandingPage = ({ isAdmin }) => {
               disabled={loading || !email || !password}
               style={{
                 width: '100%',
-                padding: '14px',
-                background: loading || !email || !password ? '#d1d5db' : '#ea580c',
+                padding: '16px',
+                background: loading || !email || !password ? '#d1d5db' : 'linear-gradient(135deg, #ea580c, #f97316)',
                 color: '#ffffff',
                 border: 'none',
-                borderRadius: '8px',
-                fontSize: '16px',
+                borderRadius: '12px',
+                fontSize: '17px',
                 fontWeight: '600',
                 cursor: loading || !email || !password ? 'not-allowed' : 'pointer',
-                transition: 'background 0.2s',
+                transition: 'all 0.2s',
                 fontFamily: 'inherit',
-                marginBottom: '16px'
+                marginBottom: '16px',
+                boxShadow: loading || !email || !password ? 'none' : '0 4px 12px rgba(234, 88, 12, 0.3)'
               }}
               onMouseEnter={(e) => {
-                if (!loading && email && password) e.target.style.background = '#c2410c';
+                if (!loading && email && password) e.target.style.transform = 'translateY(-1px)';
               }}
               onMouseLeave={(e) => {
-                if (!loading && email && password) e.target.style.background = '#ea580c';
+                if (!loading && email && password) e.target.style.transform = 'translateY(0)';
               }}
             >
               {loading ? 'Signing in...' : 'Sign In'}
@@ -386,12 +429,12 @@ const LandingPage = ({ isAdmin }) => {
               disabled={loading}
               style={{
                 width: '100%',
-                padding: '12px',
+                padding: '14px',
                 background: 'transparent',
                 color: '#6b7280',
-                border: '1px solid rgba(0,0,0,0.12)',
-                borderRadius: '8px',
-                fontSize: '14px',
+                border: '2px solid rgba(0,0,0,0.08)',
+                borderRadius: '12px',
+                fontSize: '15px',
                 fontWeight: '500',
                 cursor: loading ? 'not-allowed' : 'pointer',
                 transition: 'all 0.2s',
@@ -400,23 +443,22 @@ const LandingPage = ({ isAdmin }) => {
               onMouseEnter={(e) => {
                 if (!loading) {
                   e.target.style.background = '#f9fafb';
-                  e.target.style.borderColor = 'rgba(0,0,0,0.2)';
+                  e.target.style.borderColor = 'rgba(0,0,0,0.15)';
                 }
               }}
               onMouseLeave={(e) => {
                 if (!loading) {
                   e.target.style.background = 'transparent';
-                  e.target.style.borderColor = 'rgba(0,0,0,0.12)';
+                  e.target.style.borderColor = 'rgba(0,0,0,0.08)';
                 }
               }}
             >
-              ← Back to school code
+              ← Back
             </button>
           </form>
         )}
       </div>
 
-      {/* Footer */}
       <div style={{
         marginTop: '48px',
         fontSize: '13px',
@@ -429,4 +471,4 @@ const LandingPage = ({ isAdmin }) => {
   );
 };
 
-export default LandingPage;
+export default StudentLandingPage;

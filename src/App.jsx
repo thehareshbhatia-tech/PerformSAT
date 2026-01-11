@@ -4,7 +4,8 @@ import { useAuth } from './hooks/useAuth';
 import { useProgress } from './hooks/useProgress';
 import AdminDashboard from './components/Admin/AdminDashboard';
 import StudentDetail from './components/Admin/StudentDetail';
-import LandingPage from './components/Auth/LandingPage';
+import StudentLandingPage from './components/Auth/StudentLandingPage';
+import AdminLandingPage from './components/Auth/AdminLandingPage';
 import { allLessons } from './data/lessons';
 
 const PerformSAT = () => {
@@ -7911,7 +7912,7 @@ const PerformSAT = () => {
         {/* Landing Pages */}
         <Route path="/student" element={
           !user ? (
-            <LandingPage isAdmin={false} />
+            <StudentLandingPage />
           ) : user.role === 'student' ? (
             <Navigate to="/" replace />
           ) : (
@@ -7921,7 +7922,7 @@ const PerformSAT = () => {
 
         <Route path="/admin" element={
           !user ? (
-            <LandingPage isAdmin={true} />
+            <AdminLandingPage />
           ) : user.role === 'principal' ? (
             <AdminDashboard user={user} modules={modules} />
           ) : (
