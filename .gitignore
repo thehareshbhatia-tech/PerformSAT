@@ -29,3 +29,8 @@ yarn-error.log*
 firebase-debug.log
 firestore-debug.log
 ui-debug.log
+
+# Test/debug scripts with credentials
+test-*.js
+check-*.js
+*-test.js
