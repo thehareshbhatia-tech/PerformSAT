@@ -4,6 +4,7 @@ import { useAuth } from './hooks/useAuth';
 import { useProgress } from './hooks/useProgress';
 import AdminDashboard from './components/Admin/AdminDashboard';
 import StudentDetail from './components/Admin/StudentDetail';
+import LandingPage from './components/Auth/LandingPage';
 import { allLessons } from './data/lessons';
 
 const PerformSAT = () => {
@@ -7907,9 +7908,32 @@ const PerformSAT = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Main App Route */}
-        <Route path="/*" element={
-          user && user.role === 'principal' ? (
+        {/* Landing Pages */}
+        <Route path="/student" element={
+          !user ? (
+            <LandingPage isAdmin={false} />
+          ) : user.role === 'student' ? (
+            <Navigate to="/" replace />
+          ) : (
+            <Navigate to="/admin" replace />
+          )
+        } />
+
+        <Route path="/admin" element={
+          !user ? (
+            <LandingPage isAdmin={true} />
+          ) : user.role === 'principal' ? (
+            <AdminDashboard user={user} modules={modules} />
+          ) : (
+            <Navigate to="/" replace />
+          )
+        } />
+
+        {/* Student App Route */}
+        <Route path="/" element={
+          !user ? (
+            <Navigate to="/student" replace />
+          ) : user.role === 'principal' ? (
             <Navigate to="/admin" replace />
           ) : (
             <div style={{
@@ -8019,9 +8043,9 @@ const PerformSAT = () => {
             }}>
               Reading & Writing
             </a>
-            {user ? (
+            {user && (
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                <span style={{ fontSize: '14px', color: '#6b7280' }}>{user.name}</span>
+                <span style={{ fontSize: '14px', color: '#6b7280' }}>{user.firstName || user.email}</span>
                 <button
                   onClick={logout}
                   style={{
@@ -8037,22 +8061,6 @@ const PerformSAT = () => {
                   Log out
                 </button>
               </div>
-            ) : (
-              <button
-                onClick={() => setView('login')}
-                style={{
-                  background: '#ea580c',
-                  border: 'none',
-                  padding: '8px 20px',
-                  borderRadius: '8px',
-                  fontSize: '14px',
-                  fontWeight: '500',
-                  color: '#fff',
-                  cursor: 'pointer'
-                }}
-              >
-                Log in
-              </button>
             )}
           </nav>
         </div>
@@ -8514,21 +8522,13 @@ const PerformSAT = () => {
     </div>
           )
         } />
-        
-        {/* Admin Routes */}
-        <Route path="/admin" element={
-          user && user.role === 'principal' ? (
-            <AdminDashboard user={user} modules={modules} />
-          ) : (
-            <Navigate to="/" replace />
-          )
-        } />
-        
+
+        {/* Admin Student Detail Route */}
         <Route path="/admin/student/:userId" element={
           user && user.role === 'principal' ? (
             <StudentDetail modules={modules} />
           ) : (
-            <Navigate to="/" replace />
+            <Navigate to="/student" replace />
           )
         } />
       </Routes>

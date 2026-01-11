@@ -1,18 +1,13 @@
 import { useState, useEffect } from 'react';
 import { auth, db } from '../firebase/config';
 import {
-  sendSignInLinkToEmail,
-  isSignInWithEmailLink,
-  signInWithEmailLink,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
   onAuthStateChanged,
   signOut
 } from 'firebase/auth';
 import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
-
-const actionCodeSettings = {
-  url: window.location.origin + '/auth/verify',
-  handleCodeInApp: true,
-};
+import { validateSchoolCode } from '../services/schoolService';
 
 export const useAuth = () => {
   const [user, setUser] = useState(null);
@@ -51,72 +46,64 @@ export const useAuth = () => {
   }, []);
 
   /**
-   * Sends magic link to user's email
+   * Signs in or creates a new user with email and password
    * @param {string} email - User's email
-   * @param {string} firstName - User's first name
+   * @param {string} password - User's password
    * @param {string} schoolCode - School code
-   * @returns {Promise<void>}
-   */
-  const sendMagicLink = async (email, firstName, schoolCode) => {
-    try {
-      setError(null);
-
-      // Store user data temporarily in localStorage
-      window.localStorage.setItem('emailForSignIn', email);
-      window.localStorage.setItem('userSignupData', JSON.stringify({
-        email,
-        firstName,
-        schoolCode: schoolCode.toUpperCase(),
-        timestamp: Date.now()
-      }));
-
-      await sendSignInLinkToEmail(auth, email, actionCodeSettings);
-      return { success: true };
-    } catch (err) {
-      console.error('Error sending magic link:', err);
-      setError(err.message);
-      throw err;
-    }
-  };
-
-  /**
-   * Completes the sign-in flow after clicking magic link
-   * @param {string} url - The URL from the magic link
-   * @param {Object} school - School data
+   * @param {string} firstName - User's first name (optional, for new users)
    * @returns {Promise<Object>} User object
    */
-  const completeMagicLinkSignIn = async (url, school) => {
+  const signInWithPassword = async (email, password, schoolCode, firstName = '') => {
     try {
       setError(null);
 
-      if (!isSignInWithEmailLink(auth, url)) {
-        throw new Error('Invalid sign-in link');
+      // 1. Validate school code
+      const school = await validateSchoolCode(schoolCode);
+      if (!school) {
+        throw new Error('Invalid school code. Please check with your school administrator.');
       }
 
-      // Get email from localStorage
-      let email = window.localStorage.getItem('emailForSignIn');
-      if (!email) {
-        email = window.prompt('Please provide your email for confirmation');
+      let result;
+      let isNewUser = false;
+
+      try {
+        // 2. Try to sign in existing user
+        result = await signInWithEmailAndPassword(auth, email, password);
+      } catch (err) {
+        if (err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password') {
+          // 3. Create new user if doesn't exist
+          try {
+            result = await createUserWithEmailAndPassword(auth, email, password);
+            isNewUser = true;
+          } catch (createErr) {
+            if (createErr.code === 'auth/email-already-in-use') {
+              throw new Error('Incorrect password. Please try again.');
+            }
+            throw createErr;
+          }
+        } else if (err.code === 'auth/wrong-password') {
+          throw new Error('Incorrect password. Please try again.');
+        } else if (err.code === 'auth/weak-password') {
+          throw new Error('Password must be at least 6 characters.');
+        } else {
+          throw err;
+        }
       }
 
-      // Sign in with email link
-      const result = await signInWithEmailLink(auth, email, url);
-
-      // Get stored signup data
-      const signupDataStr = window.localStorage.getItem('userSignupData');
-      const signupData = signupDataStr ? JSON.parse(signupDataStr) : {};
-
-      // Check if user document exists
+      // 4. Check if user document exists
       const userDocRef = doc(db, 'users', result.user.uid);
       const userDoc = await getDoc(userDocRef);
 
-      if (!userDoc.exists()) {
-        // Create new user document
+      if (!userDoc.exists() || isNewUser) {
+        // 5. Determine role based on school's adminEmail
+        const role = result.user.email === school.adminEmail ? 'principal' : 'student';
+
+        // 6. Create user document
         const userData = {
           email: result.user.email,
-          firstName: signupData.firstName || email.split('@')[0],
+          firstName: firstName || result.user.email.split('@')[0],
           lastName: '',
-          role: result.user.email === school.adminEmail ? 'principal' : 'student',
+          role,
           schoolId: school.id,
           schoolCode: school.code,
           createdAt: serverTimestamp(),
@@ -125,40 +112,44 @@ export const useAuth = () => {
 
         await setDoc(userDocRef, userData);
 
-        // Create initial progress document
-        const progressDocRef = doc(db, 'progress', result.user.uid);
-        await setDoc(progressDocRef, {
-          userId: result.user.uid,
-          lastUpdated: serverTimestamp(),
-          totalLessonsCompleted: 0,
-          totalModulesCompleted: 0,
-          completedLessons: {}
-        });
+        // 7. Create progress document for students
+        if (role === 'student') {
+          const progressDocRef = doc(db, 'progress', result.user.uid);
+          await setDoc(progressDocRef, {
+            userId: result.user.uid,
+            lastUpdated: serverTimestamp(),
+            totalLessonsCompleted: 0,
+            totalModulesCompleted: 0,
+            completedLessons: {}
+          });
+        }
 
         setUser({
           uid: result.user.uid,
           ...userData
         });
+
+        return {
+          uid: result.user.uid,
+          ...userData
+        };
       } else {
-        // Update last login time
+        // 8. Update last login time for existing users
         await setDoc(userDocRef, {
           lastLoginAt: serverTimestamp()
         }, { merge: true });
 
-        setUser({
+        const userData = {
           uid: result.user.uid,
           email: result.user.email,
           ...userDoc.data()
-        });
+        };
+
+        setUser(userData);
+        return userData;
       }
-
-      // Clear localStorage
-      window.localStorage.removeItem('emailForSignIn');
-      window.localStorage.removeItem('userSignupData');
-
-      return user;
     } catch (err) {
-      console.error('Error completing sign-in:', err);
+      console.error('Error signing in:', err);
       setError(err.message);
       throw err;
     }
@@ -182,8 +173,7 @@ export const useAuth = () => {
     user,
     loading,
     error,
-    sendMagicLink,
-    completeMagicLinkSignIn,
+    signInWithPassword,
     logout,
     isAuthenticated: !!user
   };
