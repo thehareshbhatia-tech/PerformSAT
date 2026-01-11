@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './hooks/useAuth';
 import { useProgress } from './hooks/useProgress';
-import AdminDashboard from './components/Admin/AdminDashboard';
-import StudentDetail from './components/Admin/StudentDetail';
-import StudentLandingPage from './components/Auth/StudentLandingPage';
-import AdminLandingPage from './components/Auth/AdminLandingPage';
+import LandingPage from './components/LandingPage';
 import { allLessons } from './data/lessons';
 
 const PerformSAT = () => {
@@ -7909,34 +7906,18 @@ const PerformSAT = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Landing Pages */}
-        <Route path="/student" element={
-          !user ? (
-            <StudentLandingPage />
-          ) : user.role === 'student' ? (
-            <Navigate to="/" replace />
-          ) : (
-            <Navigate to="/admin" replace />
-          )
-        } />
-
-        <Route path="/admin" element={
-          !user ? (
-            <AdminLandingPage />
-          ) : user.role === 'principal' ? (
-            <AdminDashboard user={user} modules={modules} />
-          ) : (
-            <Navigate to="/" replace />
-          )
-        } />
-
-        {/* Student App Route */}
+        {/* Landing Page */}
         <Route path="/" element={
           !user ? (
-            <Navigate to="/student" replace />
-          ) : user.role === 'principal' ? (
-            <Navigate to="/admin" replace />
+            <LandingPage />
           ) : (
+            <Navigate to="/course" replace />
+          )
+        } />
+
+        {/* Course Route */}
+        <Route path="/course" element={
+          user ? (
             <div style={{
               minHeight: '100vh',
               background: '#ffffff',
@@ -8521,15 +8502,8 @@ const PerformSAT = () => {
         </div>
       </footer>
     </div>
-          )
-        } />
-
-        {/* Admin Student Detail Route */}
-        <Route path="/admin/student/:userId" element={
-          user && user.role === 'principal' ? (
-            <StudentDetail modules={modules} />
           ) : (
-            <Navigate to="/student" replace />
+            <Navigate to="/" replace />
           )
         } />
       </Routes>
