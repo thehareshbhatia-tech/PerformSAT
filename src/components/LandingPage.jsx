@@ -193,13 +193,14 @@ const LandingPage = () => {
                     marginBottom: '0.5rem',
                     color: '#0A0A0A'
                   }}>
-                    First Name (optional)
+                    First Name
                   </label>
                   <input
                     type="text"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                     placeholder="Your first name"
+                    required
                     style={{
                       width: '100%',
                       padding: '0.75rem 1rem',
