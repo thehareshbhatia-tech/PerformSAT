@@ -1,35 +1,56 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { useAuth } from './hooks/useAuth';
-import { useProgress } from './hooks/useProgress';
-import MagicLinkLogin from './components/Auth/MagicLinkLogin';
-import AuthCallback from './components/Auth/AuthCallback';
-import AdminDashboard from './components/Admin/AdminDashboard';
-import StudentDetail from './components/Admin/StudentDetail';
-import { allLessons } from './data/lessons';
 
 const PerformSAT = () => {
   const [activeModule, setActiveModule] = useState(null);
   const [activeLesson, setActiveLesson] = useState(null);
-  const [view, setView] = useState('modules'); // 'modules', 'list', 'lesson'
-  
-  const { user, loading, sendMagicLink, logout } = useAuth();
-  const { completedLessons, markLessonComplete: markComplete, getModuleProgress: calcProgress, isLessonCompleted } = useProgress(user?.uid);
+  const [view, setView] = useState('modules'); // 'modules', 'list', 'lesson', or 'login'
+  const [user, setUser] = useState(null); // null when logged out, { name, email } when logged in
+  const [loginForm, setLoginForm] = useState({ email: '', password: '', name: '' });
+  const [isSignUp, setIsSignUp] = useState(false);
+  const [loginError, setLoginError] = useState('');
+  const [completedLessons, setCompletedLessons] = useState({}); // { lessonId: true }
 
   const markLessonComplete = (moduleId, lessonId) => {
-    const moduleLessons = allLessons[moduleId] || [];
-    const lesson = moduleLessons.find(l => l.id === lessonId);
-    if (lesson && user) {
-      markComplete(moduleId, lessonId, {
-        title: lesson.title,
-        type: lesson.type
-      });
-    }
+    setCompletedLessons(prev => ({
+      ...prev,
+      [`${moduleId}-${lessonId}`]: true
+    }));
   };
 
   const getModuleProgress = (moduleId, lessons) => {
-    if (!user || !lessons || lessons.length === 0) return 0;
-    return calcProgress(moduleId, lessons.length);
+    if (!lessons || lessons.length === 0) return 0;
+    const completed = lessons.filter(l => completedLessons[`${moduleId}-${l.id}`]).length;
+    return Math.round((completed / lessons.length) * 100);
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (!loginForm.email || !loginForm.password) {
+      setLoginError('Please fill in all fields');
+      return;
+    }
+    // Simulate login - in real app this would call an API
+    const firstName = loginForm.email.split('@')[0].split('.')[0];
+    const capitalizedName = firstName.charAt(0).toUpperCase() + firstName.slice(1);
+    setUser({ name: capitalizedName, email: loginForm.email });
+    setView('modules');
+    setLoginError('');
+  };
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    if (!loginForm.name || !loginForm.email || !loginForm.password) {
+      setLoginError('Please fill in all fields');
+      return;
+    }
+    setUser({ name: loginForm.name, email: loginForm.email });
+    setView('modules');
+    setLoginError('');
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+    setLoginForm({ email: '', password: '', name: '' });
   };
 
   const modules = [
@@ -77,47 +98,1763 @@ const PerformSAT = () => {
     },
     {
       id: 'quadratics',
-      title: 'Quadratic Functions & Equations',
+      title: 'Quadratics',
       description: 'Parabolas, factoring, and the quadratic formula',
-      lessonCount: 18
-    },
-    {
-      id: 'radians-degrees',
-      title: 'Radians & Degrees',
-      description: 'Converting between angle measurements',
-      lessonCount: 4
-    },
-    {
-      id: 'triangles',
-      title: 'Triangles',
-      description: 'Right triangles, trigonometry, and similar triangles',
-      lessonCount: 35
-    },
-    {
-      id: 'circles',
-      title: 'Circles',
-      description: 'Arcs, sectors, and circle equations',
-      lessonCount: 22
-    },
-    {
-      id: 'volume',
-      title: 'Volume',
-      description: 'Calculating volumes of 3D shapes',
-      lessonCount: 9
-    },
-    {
-      id: 'statistics',
-      title: 'Statistics',
-      description: 'Mean, median, mode, and data analysis',
-      lessonCount: 12
+      lessonCount: 27
     },
     {
       id: 'dimensional-analysis',
       title: 'Dimensional Analysis',
-      description: 'Unit conversion and problem solving',
+      description: 'Unit conversions and word problem setup',
+      lessonCount: 5
+    },
+    {
+      id: 'statistics',
+      title: 'Statistics',
+      description: 'Mean, median, standard deviation, and data analysis',
+      lessonCount: 25
+    },
+    {
+      id: 'radians-degrees',
+      title: 'Radians & Degrees',
+      description: 'Angle measure conversions',
       lessonCount: 4
+    },
+    {
+      id: 'circles',
+      title: 'Circles',
+      description: 'Circle equations, arcs, and sectors',
+      lessonCount: 33
+    },
+    {
+      id: 'volume',
+      title: 'Volume',
+      description: '3D shapes and composite figures',
+      lessonCount: 16
+    },
+    {
+      id: 'triangles',
+      title: 'Triangles',
+      description: 'Pythagorean theorem and trigonometry',
+      lessonCount: 35
     }
   ];
+
+  const allLessons = {
+    'linear-equations': [
+      // Section: Fundamentals
+      {
+        id: 1,
+        title: "Linear Equations",
+        type: "lesson",
+        duration: "5 min",
+        section: "Fundamentals",
+        hero: {
+          tagline: "THE FOUNDATION",
+          subtitle: "Everything starts with a straight line",
+          gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "text", content: "A **linear equation** is an equation **whose graph is a straight line**." },
+            { type: "text", content: "The word *linear* comes from *line* — meaning when you plot the **x values** of the equation and their corresponding **y values** on a coordinate plane, they **form a straight line**." },
+            { type: "text", content: "The highest **degree** of a linear function is **1** ( x¹ )" },
+            { type: "formula", label: "Slope-Intercept Form", content: "y = mx + b" },
+            { type: "text", content: "The **two components** of **Slope-Intercept Form** are **m (slope)** and **b (y-intercept)**" }
+          ]
+        }
+      },
+      {
+        id: 2,
+        title: "What Is the Slope?",
+        type: "lesson",
+        duration: "6 min",
+        section: "Fundamentals",
+        hero: {
+          tagline: "RISE OVER RUN",
+          subtitle: "How steep is your line?",
+          gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "text", content: "The **slope** of a linear equation tells you **how steep the line is** and **how the y-value changes** as the x-value increases." },
+            { type: "text", content: "In other words, slope is ( the change in y ) over ( the change in x )" },
+            { type: "list", items: ["It represents the **rate of change**"] },
+            { type: "example", title: "Example", content: "In the equation **y = 3x + 2**, the slope is **3** (or ³⁄₁)\n\nAnd because slope is ( the change in y ) over ( the change in x )\n\n**For every 1 unit you increase x, y increases by 3**" }
+          ]
+        }
+      },
+      {
+        id: 3,
+        title: "Determining Slope from Two Coordinates",
+        type: "lesson",
+        duration: "5 min",
+        section: "Fundamentals",
+        hero: {
+          tagline: "THE SLOPE FORMULA",
+          subtitle: "Two points tell you everything",
+          gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "text", content: "If you know two points on a line, **(x₁, y₁)** and **(x₂, y₂)**, you can find the **slope** of that line!" },
+            { type: "formula", label: "Slope Formula", prefix: "slope =", fraction: { numerator: "y₂ - y₁", denominator: "x₂ - x₁" }, numeratorColor: "#ea580c", denominatorColor: "#3b82f6" }
+          ]
+        }
+      },
+      {
+        id: 4,
+        title: "Determining Slope from Table",
+        type: "lesson",
+        duration: "5 min",
+        section: "Fundamentals",
+        hero: {
+          tagline: "READ THE PATTERN",
+          subtitle: "Find slope from any data table",
+          gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "text", content: "When given a table of values, find the change in Y (ΔY) and change in X (ΔX), then divide." },
+            { type: "table", headers: ["X", "2", "4", "6", "8"], row: ["Y", "0", "3", "6", "9"], xChange: "+2", yChange: "+3" },
+            { type: "formula", label: "Result", prefix: "", fraction: { numerator: "ΔY", denominator: "ΔX" }, suffix: "=", secondFraction: { numerator: "+3", denominator: "+2" }, secondSuffix: "= ³⁄₂", numeratorColor: "#ea580c", denominatorColor: "#3b82f6" }
+          ]
+        }
+      },
+      {
+        id: 5,
+        title: "Determining Slope from Graph",
+        type: "lesson",
+        duration: "5 min",
+        section: "Fundamentals",
+        hero: {
+          tagline: "COUNT THE STEPS",
+          subtitle: "Rise and run on any graph",
+          gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "text", content: "To find slope from a graph, pick two points and count the **rise** (vertical change) and **run** (horizontal change)." },
+            { type: "slopeFromGraphDiagram" },
+            { type: "text", content: "The line has a slope of **-³⁄₅**" }
+          ]
+        }
+      },
+      {
+        id: 6,
+        title: "What is the Y-Intercept?",
+        type: "lesson",
+        duration: "5 min",
+        section: "Fundamentals",
+        hero: {
+          tagline: "WHERE IT ALL BEGINS",
+          subtitle: "The starting point of every line",
+          gradient: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "text", content: "The **Y-intercept** is the point where the line **crosses the y-axis**." },
+            { type: "yInterceptDiagram" },
+            { type: "list", items: ["It's the value of **y when x = 0**", "In coordinate form, it's **( 0, b )**", "In a real world scenario, the y-intercept is the starting point because no negative numbers exist in the real world, and the lowest that x can be is 0"] },
+            { type: "example", title: "Example", content: "In the equation **y = 3x + 2**, the y-intercept is **2**\n\n→ the line crosses the y-axis at the point **( 0, 2 )**" }
+          ]
+        }
+      },
+      // Section: Deriving Equations
+      { id: 7, title: "Deriving Linear Equations From Context", type: "video", duration: "10 min", section: "Deriving Equations", videoId: "p9m2tKpTKzM" },
+      { id: 8, title: "Deriving Linear Equations From Graph (Example 1)", type: "video", duration: "8 min", section: "Deriving Equations", videoId: "nwqjqznGy1w" },
+      { id: 9, title: "Deriving Linear Equations From Graph (Example 2)", type: "video", duration: "8 min", section: "Deriving Equations", videoId: "s0OT5hRgkv8" },
+      { id: 10, title: "Deriving Linear Equations From Table", type: "video", duration: "8 min", section: "Deriving Equations", videoId: "sUwnF6j8ES4" },
+      { id: 11, title: "Deriving Linear Equations From Function Notation", type: "video", duration: "8 min", section: "Deriving Equations", videoId: "4HC-rL8KPAc" },
+      // Section: Parallel Lines
+      {
+        id: 12,
+        title: "Parallel Lines",
+        type: "lesson",
+        duration: "5 min",
+        section: "Parallel Lines",
+        hero: {
+          tagline: "NEVER CROSS",
+          subtitle: "Same slope, different paths",
+          gradient: "linear-gradient(135deg, #5ee7df 0%, #b490ca 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "text", content: "Parallel lines are **two or more lines in the same plane that never intersect**, no matter how far you extend them." },
+            { type: "parallelLinesDiagram" },
+            { type: "text", content: "Parallel Lines have the **Same Slope**." },
+            { type: "list", items: ["Because their slopes are equal, the lines rise and run at the *same rate*, which is why they never cross."] },
+            { type: "text", content: "Parallel Lines have **Different Y-Intercepts**" },
+            { type: "list", items: ["If the **y-intercepts are the *same*** *and* the slopes are the same, then they are **not just parallel** — they are actually the **same exact line**"] }
+          ]
+        }
+      },
+      { id: 13, title: "Simple Parallel Lines Question #1", type: "video", duration: "6 min", section: "Parallel Lines", videoId: "bY6HSCB0hHE" },
+      { id: 14, title: "Simple Parallel Lines Question #2", type: "video", duration: "6 min", section: "Parallel Lines", videoId: "5McgHKQg0M4" },
+      { id: 15, title: "Simple Parallel Lines in a System Question", type: "video", duration: "8 min", section: "Parallel Lines", videoId: "a6Wph54Ks6c" },
+      { id: 16, title: "Complex Parallel Lines in a System Question #1", type: "video", duration: "10 min", section: "Parallel Lines", videoId: "kWAW26BUVak" },
+      { id: 17, title: "Complex Parallel Lines #1 (DESMOS Method)", type: "video", duration: "8 min", section: "Parallel Lines", videoId: "F9GUje7wxVo" },
+      { id: 18, title: "Complex Parallel Lines in a System Question #2", type: "video", duration: "10 min", section: "Parallel Lines", videoId: "ajbuDVZK_w0" },
+      { id: 19, title: "Complex Parallel Lines #2 (DESMOS Method)", type: "video", duration: "8 min", section: "Parallel Lines", videoId: "kpc7cVNdPLc" },
+      { id: 20, title: "Complex Parallel Lines in a System Question #3", type: "video", duration: "10 min", section: "Parallel Lines", videoId: "4qZLRcR2nDc" },
+      { id: 21, title: "Complex Parallel Lines #3 (Answer Choices Method)", type: "video", duration: "8 min", section: "Parallel Lines", videoId: "AypfTD5JHuk" },
+      // Section: Perpendicular Lines
+      {
+        id: 22,
+        title: "Perpendicular Lines",
+        type: "lesson",
+        duration: "5 min",
+        section: "Perpendicular Lines",
+        hero: {
+          tagline: "90° ANGLES",
+          subtitle: "When lines meet at right angles",
+          gradient: "linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "text", content: "Perpendicular lines are **two lines that intersect to form 90° angles**" },
+            { type: "perpendicularLinesDiagram" },
+            { type: "text", content: "The Slopes of Perpendicular Lines are **negative reciprocals** of each other" },
+            { type: "text", content: "The Y-Intercepts of Perpendicular Lines **do not matter**" },
+            { type: "text", content: "**(Y-Intercepts can be the same or different)**" },
+            { type: "list", items: ["As long as the **slopes are negative reciprocals**, the lines will be **perpendicular**, regardless of their y-intercepts."] }
+          ]
+        }
+      },
+      { id: 23, title: "Simple Perpendicular Lines Question", type: "video", duration: "6 min", section: "Perpendicular Lines", videoId: "62BK8zl8FjA" },
+      { id: 24, title: "Complex Perpendicular Lines Question", type: "video", duration: "10 min", section: "Perpendicular Lines", videoId: "Xw5bLjiPKOU" }
+    ],
+    'functions': [
+      // Section: Fundamentals
+      {
+        id: 1,
+        title: "What is a Function?",
+        type: "lesson",
+        duration: "5 min",
+        section: "Fundamentals",
+        hero: {
+          tagline: "INPUT → OUTPUT",
+          subtitle: "The machine that transforms numbers",
+          gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "text", content: "A function can be viewed as an **input–output system** — a rule that converts an input value into an output value according to a specific process." },
+            { type: "text", content: "We often describe this concept using the \"function machine\" analogy — not as a childlike idea, but as a precise model:" },
+            { type: "diagram", content: "x → function rule → f(x)" },
+            { type: "list", items: [
+              "The **input** is the independent variable, often called **x**",
+              "The **rule** is the function's defining operation or expression",
+              "The **output** is the dependent variable, denoted **f(x)**"
+            ]}
+          ]
+        }
+      },
+      {
+        id: 2,
+        title: "Function Notation",
+        type: "lesson",
+        duration: "5 min",
+        section: "Fundamentals",
+        hero: {
+          tagline: "f(x) DECODED",
+          subtitle: "Understanding the language of functions",
+          gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "text", content: "**Function notation** is a way to name a function and show what input it takes." },
+            { type: "formula", label: "Function Notation", content: "f(x)" },
+            { type: "text", content: "This is read as \"**f of x**\" — it means the output of function **f** when the input is **x**." },
+            { type: "list", items: [
+              "**f** is the name of the function (could be g, h, or any letter)",
+              "**x** is the input value",
+              "**f(x)** is the output value"
+            ]},
+            { type: "example", title: "Example", content: "If **f(x) = 2x + 3**, then:\n\n**f(4)** = 2(4) + 3 = **11**\n\nWe substituted **4** for **x** and calculated the output." }
+          ]
+        }
+      },
+      {
+        id: 3,
+        title: "Evaluating Functions",
+        type: "lesson",
+        duration: "6 min",
+        section: "Fundamentals",
+        hero: {
+          tagline: "PLUG AND SOLVE",
+          subtitle: "Find the output for any input",
+          gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "text", content: "**Evaluating a function** means finding the output value when you're given a specific input." },
+            { type: "text", content: "To evaluate a function:" },
+            { type: "list", items: [
+              "**Step 1:** Take the input value given to you",
+              "**Step 2:** Substitute it for the variable in the function",
+              "**Step 3:** Simplify to find the output"
+            ]},
+            { type: "example", title: "Example 1: Find f(x)", content: "Given **f(x) = x² + 9**, find **f(4)**\n\nf(4) = (4)² + 9\nf(4) = 16 + 9\nf(4) = **25**" },
+            { type: "example", title: "Example 2: Find x when f(x) = value", content: "Given **g(x) = x² + 9**, for which value of x is **g(x) = 25**?\n\nSet up: x² + 9 = 25\nSolve: x² = 16\nx = **4** (or -4)" }
+          ]
+        }
+      },
+      // Section: Simple Function Problems
+      { id: 4, title: "Simple Function Example #1", type: "video", duration: "8 min", section: "Simple Function Problems", videoId: "4E54Yd1aSPo" },
+      { id: 5, title: "Simple Function Example #2", type: "video", duration: "8 min", section: "Simple Function Problems", videoId: "cMmuvbxZUco" },
+      { id: 6, title: "Simple Function Example #3", type: "video", duration: "8 min", section: "Simple Function Problems", videoId: "fV_idRMO6k8" },
+      { id: 7, title: "Simple Function Example #4 (Word Problem)", type: "video", duration: "10 min", section: "Simple Function Problems", videoId: "VU1ydOSDfTI" },
+      // Section: Complex Function Problems
+      { id: 8, title: "Complex Functions Example #1", type: "video", duration: "10 min", section: "Complex Function Problems", videoId: "p7Z2beYwpaI" },
+      { id: 9, title: "Complex Functions Example #2", type: "video", duration: "10 min", section: "Complex Function Problems", videoId: "dUWjb0racis" },
+      { id: 10, title: "Complex Functions Example #3 (Polynomial)", type: "video", duration: "12 min", section: "Complex Function Problems", videoId: "WIKiYCOZnSw" }
+    ],
+    'transformations': [
+      // Section: Fundamentals
+      {
+        id: 1,
+        title: "What is a Transformation?",
+        type: "lesson",
+        duration: "4 min",
+        section: "Fundamentals",
+        hero: {
+          tagline: "MOVE & RESHAPE",
+          subtitle: "How equations change graphs",
+          gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "text", content: "A **transformation** is a change made to a function that moves or reshapes its graph on the coordinate plane." },
+            { type: "text", content: "There are several types of transformations:" },
+            { type: "list", items: [
+              "**Translations** — sliding the graph up, down, left, or right",
+              "**Reflections** — flipping the graph over an axis",
+              "**Stretches/Compressions** — making the graph wider or narrower"
+            ]},
+            { type: "text", content: "On the SAT, **translations** are by far the most commonly tested. This module focuses primarily on translations — learning to shift graphs **vertically** (up/down) and **horizontally** (left/right)." },
+            { type: "example", title: "The Big Idea", content: "If you know what **f(x)** looks like, you can figure out what **f(x) + 5** or **f(x − 3)** looks like without graphing from scratch.\n\nTransformations let you take a known function and **predict how changes to the equation affect the graph**." }
+          ]
+        }
+      },
+      {
+        id: 2,
+        title: "Vertical Translations (Up & Down)",
+        type: "lesson",
+        duration: "5 min",
+        section: "Fundamentals",
+        hero: {
+          tagline: "UP & DOWN",
+          subtitle: "Shifting along the y-axis",
+          gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "text", content: "**Vertical translations** shift a graph **up or down** along the y-axis." },
+            { type: "text", content: "The key insight: the number being added or subtracted is **outside** the function — it affects the **output** (y-value)." },
+            { type: "formula", label: "Moving UP", content: "f(x) + d" },
+            { type: "text", content: "Adding **d** to the function shifts the graph **up** by **d** units. Every y-value increases by d." },
+            { type: "formula", label: "Moving DOWN", content: "f(x) − d" },
+            { type: "text", content: "Subtracting **d** from the function shifts the graph **down** by **d** units. Every y-value decreases by d." },
+            { type: "example", title: "Example", content: "If **f(x) = x²** (a parabola with vertex at origin)\n\n• **f(x) + 3 = x² + 3** → parabola shifts **UP 3**\n• **f(x) − 5 = x² − 5** → parabola shifts **DOWN 5**" },
+            { type: "text", content: "**Golden Rule for Vertical Translations:**" },
+            { type: "text", content: "When moving a function **up or down**, **ALWAYS** use the **y-intercept** as your reference point, **NEVER** the x-intercept." }
+          ]
+        }
+      },
+      {
+        id: 3,
+        title: "Horizontal Translations (Left & Right)",
+        type: "lesson",
+        duration: "6 min",
+        section: "Fundamentals",
+        hero: {
+          tagline: "LEFT & RIGHT",
+          subtitle: "The counterintuitive shift",
+          gradient: "linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "text", content: "**Horizontal translations** shift a graph **left or right** along the x-axis." },
+            { type: "text", content: "The key insight: the number being added or subtracted is **inside** the function (with x) — it affects the **input** (x-value)." },
+            { type: "text", content: "⚠️ **This is counterintuitive!** The direction is **opposite** to what you might expect:" },
+            { type: "formula", label: "Moving LEFT", content: "f(x + c)" },
+            { type: "text", content: "Adding **c** inside the function shifts the graph **LEFT** by **c** units." },
+            { type: "formula", label: "Moving RIGHT", content: "f(x − c)" },
+            { type: "text", content: "Subtracting **c** inside the function shifts the graph **RIGHT** by **c** units." },
+            { type: "example", title: "Why is it backwards?", content: "Think about it this way: **f(x + 3)** means the function \"activates\" **3 units sooner**.\n\nTo get the same y-value that used to occur at x = 5, you now only need x = 2.\n\nThe whole graph shifts **LEFT** because everything happens earlier." },
+            { type: "example", title: "Example", content: "If **f(x) = x²** (a parabola with vertex at origin)\n\n• **f(x + 4) = (x + 4)²** → parabola shifts **LEFT 4**\n• **f(x − 2) = (x − 2)²** → parabola shifts **RIGHT 2**" },
+            { type: "text", content: "**Golden Rule for Horizontal Translations:**" },
+            { type: "text", content: "When moving a function **left or right**, **ALWAYS** use the **x-intercept** as your reference point, **NEVER** the y-intercept." }
+          ]
+        }
+      },
+      {
+        id: 4,
+        title: "Transformation Rules Summary",
+        type: "lesson",
+        duration: "4 min",
+        section: "Fundamentals",
+        hero: {
+          tagline: "CHEAT SHEET",
+          subtitle: "All the rules in one place",
+          gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "text", content: "Here's your complete reference for transformation rules:" },
+            { type: "transformTable" },
+            { type: "text", content: "**Quick Memory Tips:**" },
+            { type: "list", items: [
+              "**Outside the function** (f(x) ± d) → **Vertical** shift → affects **y-values**",
+              "**Inside the function** (f(x ± c)) → **Horizontal** shift → affects **x-values**",
+              "Horizontal shifts are **opposite** to the sign (+ goes left, − goes right)",
+              "Vertical shifts **match** the sign (+ goes up, − goes down)"
+            ]},
+            { type: "example", title: "Putting It Together", content: "What does **f(x − 3) + 7** do to the graph of f(x)?\n\n• **(x − 3)** → shifts **RIGHT 3** (inside, minus = right)\n• **+ 7** → shifts **UP 7** (outside, plus = up)\n\nThe graph moves **right 3 and up 7**." }
+          ]
+        }
+      },
+      // Section: Transformations from Graph
+      { id: 5, title: "Simple Transformation From Graph Example", type: "video", duration: "8 min", section: "Transformations from Graph", videoId: "Qdjm9OwykZY" },
+      { id: 6, title: "Complex Transformation From Graph Example", type: "video", duration: "10 min", section: "Transformations from Graph", videoId: "OPDUQ7xR3DY" },
+      // Section: Transformations from Table
+      { id: 7, title: "Simple Transformation From Table Example #1", type: "video", duration: "8 min", section: "Transformations from Table", videoId: "FykKYINTDbE" },
+      { id: 8, title: "Simple Transformation From Table #1 (DESMOS Method)", type: "video", duration: "6 min", section: "Transformations from Table", videoId: "Zw2WJEwEowU" },
+      { id: 9, title: "Complex Transformation From Table Example", type: "video", duration: "10 min", section: "Transformations from Table", videoId: "MuB5Q2nMEZ4" },
+      { id: 10, title: "Complex Transformation From Table (DESMOS Method)", type: "video", duration: "8 min", section: "Transformations from Table", videoId: "G34X0J7M7qM" },
+      // Section: Transformations from Expression
+      { id: 11, title: "Simple Transformation From Expression Example", type: "video", duration: "8 min", section: "Transformations from Expression", videoId: "butfjZEcHcg" },
+      { id: 12, title: "Complex Transformation From Expression Example #1", type: "video", duration: "10 min", section: "Transformations from Expression", videoId: "Xw5tnurT1Ss" },
+      { id: 13, title: "Complex Transformation From Expression Example #2", type: "video", duration: "10 min", section: "Transformations from Expression", videoId: "lt3QfNmDDPI" },
+      // Section: Difficult Transformations
+      { id: 14, title: "Difficult Transformations (System of Equations Method)", type: "video", duration: "12 min", section: "Difficult Transformations", videoId: "CygUy93GH6o" },
+      { id: 15, title: "Difficult Transformations (Answer Choice Method)", type: "video", duration: "10 min", section: "Difficult Transformations", videoId: "6e9Gx_EC8uw" }
+    ],
+    'triangles': [
+      // Section 1: Triangle Fundamentals
+      {
+        id: 1,
+        title: "What is a Triangle?",
+        type: "lesson",
+        duration: "5 min",
+        section: "Triangle Fundamentals",
+        hero: {
+          tagline: "3 SIDES, 180°",
+          subtitle: "The building block of geometry",
+          gradient: "linear-gradient(135deg, #f5576c 0%, #f093fb 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "text", content: "A **triangle** is a 3-sided polygon. It is one of the most fundamental shapes in geometry and appears frequently on the SAT." },
+            { type: "formula", label: "Key Property", content: "Interior angles always sum to 180°" },
+            { type: "text", content: "Triangles are classified by their **sides**:" },
+            { type: "triangleTypes" },
+            { type: "list", items: [
+              "**Scalene Triangle** — All three sides are different lengths (no equal sides)",
+              "**Isosceles Triangle** — Two sides are equal → the angles opposite those sides (base angles) are also equal",
+              "**Equilateral Triangle** — All three sides are equal → all three angles are equal (each is 60°)"
+            ]},
+            { type: "example", title: "Important Connection", content: "In an **isosceles triangle**, equal sides mean equal angles.\n\nIf you know two sides are equal, the angles across from them must be equal too. This is tested frequently on the SAT!" }
+          ]
+        }
+      },
+      {
+        id: 2,
+        title: "Types of Triangles by Angles",
+        type: "lesson",
+        duration: "4 min",
+        section: "Triangle Fundamentals",
+        hero: {
+          tagline: "ACUTE • RIGHT • OBTUSE",
+          subtitle: "Classifying by angle size",
+          gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "text", content: "Triangles can also be classified by their **angles**:" },
+            { type: "triangleAngles" },
+            { type: "list", items: [
+              "**Acute Triangle** — All angles are less than 90°",
+              "**Right Triangle** — One angle is exactly 90° (marked with a small square)",
+              "**Obtuse Triangle** — One angle is greater than 90°"
+            ]},
+            { type: "text", content: "A triangle can only have **at most one** right angle or obtuse angle. Why? Because the angles must sum to 180°." },
+            { type: "example", title: "Think About It", content: "If one angle is 90°, the other two must sum to 90°.\nIf one angle is 100° (obtuse), the other two must sum to only 80°.\n\nThere's no room for a second large angle!" }
+          ]
+        }
+      },
+      {
+        id: 3,
+        title: "Triangle Inequality Theorem",
+        type: "lesson",
+        duration: "4 min",
+        section: "Triangle Fundamentals",
+        hero: {
+          tagline: "CAN IT EXIST?",
+          subtitle: "Testing if three sides form a triangle",
+          gradient: "linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "text", content: "The **Triangle Inequality Theorem** states:" },
+            { type: "formula", label: "Triangle Inequality", content: "The sum of any two sides must be greater than the third side" },
+            { type: "text", content: "This rule determines whether three lengths can actually form a triangle." },
+            { type: "example", title: "Example 1: Can 7, 6, and 10 form a triangle?", content: "Check all combinations:\n• 7 + 6 = 13 > 10 ✓\n• 7 + 10 = 17 > 6 ✓\n• 6 + 10 = 16 > 7 ✓\n\n**Yes**, these can form a triangle." },
+            { type: "example", title: "Example 2: Can 2, 3, and 7 form a triangle?", content: "Check: 2 + 3 = 5\nIs 5 > 7? **No!**\n\n**Impossible** — these cannot form a triangle." },
+            { type: "text", content: "**SAT Tip:** You only need to find ONE combination that fails. Check the two smallest sides first — if their sum isn't greater than the largest side, it's impossible." }
+          ]
+        }
+      },
+      // Section 2: Angles of a Triangle
+      { id: 4, title: "Simple Angles of a Triangle Example", type: "video", duration: "8 min", section: "Angles of a Triangle", videoId: "VYNQZLCTnx8" },
+      { id: 5, title: "Complex Angles of a Triangle Example", type: "video", duration: "10 min", section: "Angles of a Triangle", videoId: "ZkBP4vwYxQ0" },
+      // Section 3: Area of a Triangle
+      {
+        id: 6,
+        title: "Area of a Triangle",
+        type: "lesson",
+        duration: "5 min",
+        section: "Area of a Triangle",
+        hero: {
+          tagline: "½ × BASE × HEIGHT",
+          subtitle: "Finding the space inside",
+          gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "text", content: "The **area of a triangle** measures how much space is inside the triangle." },
+            { type: "areaTriangle" },
+            { type: "text", content: "**Key concepts:**" },
+            { type: "list", items: [
+              "The **base** can be any side of the triangle",
+              "The **height** must be perpendicular (at 90°) to the base",
+              "The height may be inside or outside the triangle depending on its shape"
+            ]},
+            { type: "example", title: "For Right Triangles", content: "Right triangles are the easiest! The two **legs** (the sides that form the right angle) serve as the base and height.\n\nJust multiply the two legs and divide by 2." },
+            { type: "text", content: "**Perimeter** is simpler — just add up all three sides." }
+          ]
+        }
+      },
+      { id: 7, title: "Simple Area of a Right Triangle Example", type: "video", duration: "8 min", section: "Area of a Triangle", videoId: "yv6gAJqTezs" },
+      { id: 8, title: "Complex Area of a Right Triangle Example", type: "video", duration: "10 min", section: "Area of a Triangle", videoId: "XqQj-8GeyEM" },
+      // Section 4: Similar Triangles
+      {
+        id: 9,
+        title: "What Are Similar Triangles?",
+        type: "lesson",
+        duration: "5 min",
+        section: "Similar Triangles",
+        hero: {
+          tagline: "SAME SHAPE, DIFFERENT SIZE",
+          subtitle: "Proportional sides, equal angles",
+          gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "text", content: "**Similar triangles** have the same shape but may be different sizes. Think of them as scaled versions of each other." },
+            { type: "similarTriangles" },
+            { type: "text", content: "When two triangles are similar:" },
+            { type: "list", items: [
+              "**Corresponding angles are equal** — same angles, same positions",
+              "**Corresponding sides are proportional** — related by a constant scale factor"
+            ]},
+            { type: "example", title: "Scale Factor", content: "If triangle ABC is similar to triangle DEF with a scale factor of 2:\n\n• If AB = 3, then DE = 6\n• If BC = 4, then EF = 8\n• If AC = 5, then DF = 10\n\nEvery side of the larger triangle is exactly **2×** the corresponding side of the smaller triangle." },
+            { type: "text", content: "**SAT Strategy:** Set up a proportion between corresponding sides to find missing lengths." }
+          ]
+        }
+      },
+      {
+        id: 10,
+        title: "How to Identify Similar Triangles",
+        type: "lesson",
+        duration: "5 min",
+        section: "Similar Triangles",
+        hero: {
+          tagline: "AA SIMILARITY",
+          subtitle: "Two angles are all you need",
+          gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "text", content: "There are two main ways to prove triangles are similar on the SAT:" },
+            { type: "text", content: "**1. AA (Angle-Angle) Criterion**" },
+            { type: "text", content: "If two angles of one triangle equal two angles of another triangle, the triangles are similar. (The third angle must also be equal since angles sum to 180°.)" },
+            { type: "text", content: "**2. Parallel Lines**" },
+            { type: "text", content: "When a line is drawn parallel to one side of a triangle, it creates a smaller triangle that is similar to the original." },
+            { type: "example", title: "Parallel Line Pattern", content: "If a line parallel to the base cuts through a triangle, the smaller triangle formed at the top is similar to the whole triangle.\n\nThis pattern appears frequently on the SAT — look for parallel lines inside triangles!" },
+            { type: "text", content: "**Once you confirm triangles are similar**, set up proportions between corresponding sides to solve for unknowns." }
+          ]
+        }
+      },
+      { id: 11, title: "Simple Similar Triangles Example #1", type: "video", duration: "8 min", section: "Similar Triangles", videoId: "SllN4xzTNm0" },
+      { id: 12, title: "Simple Similar Triangles Example #2", type: "video", duration: "8 min", section: "Similar Triangles", videoId: "cQ8KEHofTyA" },
+      { id: 13, title: "Simple Similar Triangles Example #3", type: "video", duration: "8 min", section: "Similar Triangles", videoId: "fCleu3BSqEw" },
+      { id: 14, title: "Simple Similar Triangles Example #4", type: "video", duration: "8 min", section: "Similar Triangles", videoId: "PEW__E6DNOU" },
+      { id: 15, title: "Complex Similar Triangles Example", type: "video", duration: "12 min", section: "Similar Triangles", videoId: "9Y71mE9It_4" },
+      // Section 5: Right Triangles & Pythagorean Theorem
+      {
+        id: 16,
+        title: "Right Triangles",
+        type: "lesson",
+        duration: "4 min",
+        section: "Right Triangles & Pythagorean Theorem",
+        content: {
+          blocks: [
+            { type: "text", content: "A **right triangle** is a triangle with one **90° angle** (a right angle)." },
+            { type: "rightTriangleParts" },
+            { type: "text", content: "The parts of a right triangle have special names:" },
+            { type: "list", items: [
+              "**Hypotenuse** — The side across from the right angle. It is always the **longest side**.",
+              "**Legs** — The two sides that form the right angle."
+            ]},
+            { type: "example", title: "Identifying the Hypotenuse", content: "The hypotenuse is always:\n• Opposite the 90° angle\n• The longest side\n• Never touches the right angle corner\n\nThe two legs always meet at the right angle." },
+            { type: "text", content: "Right triangles are special because they follow the **Pythagorean Theorem**, which lets us find missing sides." }
+          ]
+        }
+      },
+      {
+        id: 17,
+        title: "The Pythagorean Theorem",
+        type: "lesson",
+        duration: "6 min",
+        section: "Right Triangles & Pythagorean Theorem",
+        content: {
+          blocks: [
+            { type: "text", content: "The **Pythagorean Theorem** is one of the most important formulas in geometry. It applies **only to right triangles**." },
+            { type: "pythagorean" },
+            { type: "text", content: "Where **a** and **b** are the legs, and **c** is the hypotenuse." },
+            { type: "text", content: "In words: **The sum of the squares of the two legs equals the square of the hypotenuse.**" },
+            { type: "example", title: "Finding the Hypotenuse", content: "If the legs are 3 and 4, find the hypotenuse:\n\n3² + 4² = c²\n9 + 16 = c²\n25 = c²\nc = **5**" },
+            { type: "example", title: "Finding a Leg", content: "If one leg is 5 and the hypotenuse is 13, find the other leg:\n\n5² + b² = 13²\n25 + b² = 169\nb² = 144\nb = **12**" },
+            { type: "text", content: "**Common Pythagorean Triples** (memorize these!):" },
+            { type: "list", items: [
+              "**3, 4, 5** (and multiples: 6-8-10, 9-12-15, etc.)",
+              "**5, 12, 13**",
+              "**8, 15, 17**",
+              "**7, 24, 25**"
+            ]}
+          ]
+        }
+      },
+      { id: 18, title: "Simple Pythagorean Theorem Example #1", type: "video", duration: "8 min", section: "Right Triangles & Pythagorean Theorem", videoId: "DmKXof2wtJM" },
+      { id: 19, title: "Simple Pythagorean Theorem Example #2", type: "video", duration: "8 min", section: "Right Triangles & Pythagorean Theorem", videoId: "xKBeYQAxV4g" },
+      { id: 20, title: "Simple Pythagorean Theorem Example #3", type: "video", duration: "8 min", section: "Right Triangles & Pythagorean Theorem", videoId: "caGJrq00byY" },
+      { id: 21, title: "Complex Pythagorean Theorem Example", type: "video", duration: "12 min", section: "Right Triangles & Pythagorean Theorem", videoId: "k4eFz5IlTOo" },
+      // Section 6: Trigonometric Ratios
+      {
+        id: 22,
+        title: "Introduction to Trigonometry (SOH CAH TOA)",
+        type: "lesson",
+        duration: "7 min",
+        section: "Trigonometric Ratios",
+        content: {
+          blocks: [
+            { type: "text", content: "**Trigonometric ratios** compare the sides of a right triangle relative to a chosen acute angle. They only apply to **right triangles**." },
+            { type: "text", content: "First, you must identify the sides relative to your chosen angle θ:" },
+            { type: "sohcahtoa" },
+            { type: "list", items: [
+              "**Opposite** — The side across from the angle (doesn't touch it)",
+              "**Adjacent** — The side next to the angle (not the hypotenuse)",
+              "**Hypotenuse** — Always the longest side, across from the 90°"
+            ]},
+            { type: "text", content: "**The Three Ratios (SOH CAH TOA):**" },
+            { type: "formula", label: "Sine", prefix: "sin(θ) =", fraction: { numerator: "Opposite", denominator: "Hypotenuse" }, numeratorColor: "#ea580c", denominatorColor: "#3b82f6" },
+            { type: "formula", label: "Cosine", prefix: "cos(θ) =", fraction: { numerator: "Adjacent", denominator: "Hypotenuse" }, numeratorColor: "#16a34a", denominatorColor: "#3b82f6" },
+            { type: "formula", label: "Tangent", prefix: "tan(θ) =", fraction: { numerator: "Opposite", denominator: "Adjacent" }, numeratorColor: "#ea580c", denominatorColor: "#16a34a" },
+            { type: "text", content: "**Memory trick: SOH CAH TOA**" },
+            { type: "list", items: [
+              "**S**ine = **O**pposite / **H**ypotenuse",
+              "**C**osine = **A**djacent / **H**ypotenuse",
+              "**T**angent = **O**pposite / **A**djacent"
+            ]}
+          ]
+        }
+      },
+      { id: 23, title: "Simple Trigonometric Ratios Example #1", type: "video", duration: "8 min", section: "Trigonometric Ratios", videoId: "V4hSoSCACUA" },
+      { id: 24, title: "Simple Trigonometric Ratios Example #2", type: "video", duration: "8 min", section: "Trigonometric Ratios", videoId: "XO4V-6Nv2VA" },
+      { id: 25, title: "Simple Trigonometric Ratios Example #3", type: "video", duration: "8 min", section: "Trigonometric Ratios", videoId: "1pN3OcxOVk4" },
+      { id: 26, title: "Simple Trigonometric Ratios Example #4", type: "video", duration: "8 min", section: "Trigonometric Ratios", videoId: "HaJettXIUlU" },
+      { id: 27, title: "Simple Trigonometric Ratios Example #5", type: "video", duration: "8 min", section: "Trigonometric Ratios", videoId: "byD4ls13d64" },
+      { id: 28, title: "Complex Trigonometric Ratios Example", type: "video", duration: "12 min", section: "Trigonometric Ratios", videoId: "lTF4dy953gw" },
+      // Section 7: Special Right Triangles
+      {
+        id: 29,
+        title: "The 45-45-90 Triangle",
+        type: "lesson",
+        duration: "5 min",
+        section: "Special Right Triangles",
+        content: {
+          blocks: [
+            { type: "text", content: "A **45-45-90 triangle** is a special right triangle that is also **isosceles** (two equal sides)." },
+            { type: "text", content: "The angles are always **45°, 45°, and 90°**." },
+            { type: "text", content: "Because the angles are fixed, the **side ratios are always the same**:" },
+            { type: "triangle4545" },
+            { type: "list", items: [
+              "The two **legs** are equal (both are **x**)",
+              "The **hypotenuse** is **x√2** (leg times √2)"
+            ]},
+            { type: "example", title: "Example", content: "If each leg is **5**:\n• Leg 1 = 5\n• Leg 2 = 5\n• Hypotenuse = 5√2 ≈ 7.07\n\nIf the hypotenuse is **10**:\n• Hypotenuse = 10 = x√2\n• x = ¹⁰⁄√₂ = ¹⁰√²⁄₂ = 5√2\n• Each leg = 5√2 ≈ 7.07" },
+            { type: "text", content: "**Quick tip:** A 45-45-90 triangle is half of a square cut diagonally!" }
+          ]
+        }
+      },
+      { id: 30, title: "Simple 45-45-90 Triangle Example", type: "video", duration: "8 min", section: "Special Right Triangles", videoId: "hEcp1GCByyk" },
+      { id: 31, title: "Complex 45-45-90 Triangle Example", type: "video", duration: "10 min", section: "Special Right Triangles", videoId: "Nqke1YTLr3k" },
+      {
+        id: 32,
+        title: "The 30-60-90 Triangle",
+        type: "lesson",
+        duration: "6 min",
+        section: "Special Right Triangles",
+        content: {
+          blocks: [
+            { type: "text", content: "A **30-60-90 triangle** is a special right triangle where the angles are always **30°, 60°, and 90°**." },
+            { type: "text", content: "Because the angles are fixed, the **side ratios are always the same**:" },
+            { type: "triangle3060" },
+            { type: "list", items: [
+              "**Shortest side** (opposite 30°) = **x**",
+              "**Medium side** (opposite 60°) = **x√3**",
+              "**Hypotenuse** (opposite 90°) = **2x**"
+            ]},
+            { type: "text", content: "**Key relationship:** The hypotenuse is always **twice** the shortest side." },
+            { type: "example", title: "Example", content: "If the shortest side is **4**:\n• Short side (opposite 30°) = 4\n• Medium side (opposite 60°) = 4√3 ≈ 6.93\n• Hypotenuse = 8\n\nIf the hypotenuse is **12**:\n• Hypotenuse = 12 = 2x → x = 6\n• Short side = 6\n• Medium side = 6√3 ≈ 10.39" },
+            { type: "text", content: "**Quick tip:** A 30-60-90 triangle is half of an equilateral triangle cut down the middle!" }
+          ]
+        }
+      },
+      { id: 33, title: "Simple 30-60-90 Triangle Example", type: "video", duration: "8 min", section: "Special Right Triangles", videoId: "_6bZxuQym8g" },
+      { id: 34, title: "Complex 30-60-90 Triangle Example #1", type: "video", duration: "10 min", section: "Special Right Triangles", videoId: "HvJnE1eP6Xs" },
+      { id: 35, title: "Complex 30-60-90 Triangle Example #2", type: "video", duration: "10 min", section: "Special Right Triangles", videoId: "q19izkGElyI" }
+    ],
+    'circles': [
+      // Section 1: Circle Fundamentals
+      {
+        id: 1,
+        title: "Parts of a Circle",
+        type: "lesson",
+        duration: "5 min",
+        section: "Circle Fundamentals",
+        hero: {
+          tagline: "THE PERFECT SHAPE",
+          subtitle: "Radius, diameter, and everything round",
+          gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "text", content: "A **Circle** is the set of all points that are the **same distance** from a fixed point called the **Center**." },
+            { type: "circleParts" },
+            { type: "text", content: "**Key Parts of a Circle:**" },
+            { type: "list", items: [
+              "**Center** — The fixed point in the middle of the circle",
+              "**Radius (r)** — The distance from the center to any point on the circle",
+              "**Diameter (d)** — The distance across the circle through the center",
+              "**Circumference** — The distance around the circle (the perimeter)",
+              "**Area** — The space enclosed inside the circle"
+            ]},
+            { type: "formula", label: "Key Relationship", content: "Diameter = 2 × Radius   →   d = 2r" },
+            { type: "text", content: "The **Diameter** is always **twice** the **Radius**. If given one, you can always find the other." }
+          ]
+        }
+      },
+      {
+        id: 2,
+        title: "Area of a Circle",
+        type: "lesson",
+        duration: "5 min",
+        section: "Circle Fundamentals",
+        hero: {
+          tagline: "πr² — MEMORIZE IT",
+          subtitle: "The space inside the circle",
+          gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "text", content: "The **Area** of a circle measures the space enclosed inside the circle." },
+            { type: "circleArea" },
+            { type: "text", content: "The most important step is identifying the **Radius**. If the problem gives the **Diameter**, divide by 2 first!" },
+            { type: "example", title: "Example 1: Given Radius", content: "A circle has a **radius of 5**.\n\nArea = π(5)² = **25π**" },
+            { type: "example", title: "Example 2: Given Diameter", content: "A circle has a **diameter of 10**.\n\nRadius = 10 ÷ 2 = 5\nArea = π(5)² = **25π**" },
+            { type: "text", content: "**Critical Insight:** Area grows with the **square** of the radius." },
+            { type: "example", title: "What This Means", content: "If the radius **doubles**, the area becomes **4× larger** (not 2×).\nIf the radius **triples**, the area becomes **9× larger**." }
+          ]
+        }
+      },
+      {
+        id: 3,
+        title: "Circumference of a Circle",
+        type: "lesson",
+        duration: "4 min",
+        section: "Circle Fundamentals",
+        hero: {
+          tagline: "2πr OR πd",
+          subtitle: "The distance around",
+          gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "text", content: "The **Circumference** is the distance around a circle — the circle's perimeter." },
+            { type: "formula", label: "Using Radius", content: "C = 2πr" },
+            { type: "formula", label: "Using Diameter", content: "C = πd" },
+            { type: "text", content: "Both formulas give the same result since **d = 2r**. Use whichever matches what you're given." },
+            { type: "example", title: "Example", content: "A circle has a **radius of 7**.\n\nUsing radius: C = 2π(7) = **14π**\n\nUsing diameter (d = 14): C = π(14) = **14π** ✓" }
+          ]
+        }
+      },
+      // Section 2: Area Problems
+      { id: 4, title: "Simple Circle Area Example", type: "video", duration: "8 min", section: "Area Problems", videoId: "iD5FSvzmEqY" },
+      { id: 5, title: "Complex Circle Area Example", type: "video", duration: "10 min", section: "Area Problems", videoId: "qEtS0mW7dH8" },
+      // Section 3: Circumference & Arc Length
+      {
+        id: 6,
+        title: "Arc Length",
+        type: "lesson",
+        duration: "5 min",
+        section: "Circumference & Arc Length",
+        content: {
+          blocks: [
+            { type: "text", content: "**Arc Length** is the distance along the curved part of a circle — a \"portion of the circumference.\"" },
+            { type: "arcLength" },
+            { type: "text", content: "The Arc Length is a **fraction** of the full Circumference. The fraction equals the central angle divided by 360°." },
+            { type: "fractionEquation", 
+              label: "Arc Length Formula",
+              leftNumerator: "Arc Length", 
+              leftDenominator: "Circumference",
+              leftColor: "#2563eb",
+              rightNumerator: "Central Angle", 
+              rightDenominator: "360°",
+              rightColor: "#7c3aed"
+            },
+            { type: "arcLengthExample" }
+          ]
+        }
+      },
+      { id: 7, title: "Simple Circumference Example", type: "video", duration: "8 min", section: "Circumference & Arc Length", videoId: "rylb6ba8CXY" },
+      { id: 8, title: "Conceptual Arc Length Example", type: "video", duration: "8 min", section: "Circumference & Arc Length", videoId: "FogWIBHFRVM" },
+      { id: 9, title: "Calculating Arc Length Example", type: "video", duration: "10 min", section: "Circumference & Arc Length", videoId: "dINd03hAQc0" },
+      // Section 4: Sector Area
+      {
+        id: 10,
+        title: "Sector Area",
+        type: "lesson",
+        duration: "5 min",
+        section: "Sector Area",
+        content: {
+          blocks: [
+            { type: "text", content: "A **Sector** is a \"pie-slice\" region of a circle, bounded by two radii and an arc." },
+            { type: "sectorArea" },
+            { type: "text", content: "Just like Arc Length, Sector Area is a **fraction** of the circle's total area. The fraction uses the same ratio: Central Angle ÷ 360°." },
+            { type: "fractionEquation", 
+              label: "Sector Area Formula",
+              leftNumerator: "Sector Area", 
+              leftDenominator: "Circle Area",
+              leftColor: "#2563eb",
+              rightNumerator: "Central Angle", 
+              rightDenominator: "360°",
+              rightColor: "#7c3aed"
+            },
+            { type: "sectorAreaExample" }
+          ]
+        }
+      },
+      { id: 11, title: "Simple Sector Area Example", type: "video", duration: "8 min", section: "Sector Area", videoId: "BCj2GzLu84I" },
+      { id: 12, title: "Complex Sector Area Example", type: "video", duration: "10 min", section: "Sector Area", videoId: "kInBtmMmsn8" },
+      // Section 5: Equation of a Circle
+      {
+        id: 13,
+        title: "Standard Form of a Circle Equation",
+        type: "lesson",
+        duration: "6 min",
+        section: "Equation of a Circle",
+        content: {
+          blocks: [
+            { type: "text", content: "The **Standard Form** of a circle equation lets you immediately identify the **Center** and **Radius**." },
+            { type: "circleEquation" },
+            { type: "list", items: [
+              "**(h, k)** is the **Center** of the circle",
+              "**r** is the **Radius** (note: the equation shows **r²**, so take the square root!)"
+            ]},
+            { type: "text", content: "⚠️ **Watch the Signs!** Inside the parentheses, the signs are **OPPOSITE** of the center coordinates." },
+            { type: "circleStandardFormExample" },
+            { type: "text", content: "This sign flip is a **common SAT trap** — always double-check your signs!" }
+          ]
+        }
+      },
+      { id: 14, title: "Simple Extracting Center & Radius from Standard Form", type: "video", duration: "8 min", section: "Equation of a Circle", videoId: "FyCLcqWY2H0" },
+      { id: 15, title: "Simple Extracting Diameter from Standard Form", type: "video", duration: "8 min", section: "Equation of a Circle", videoId: "75d4HDTqVqg" },
+      { id: 16, title: "Complex Extracting Diameter (Conceptual Method)", type: "video", duration: "10 min", section: "Equation of a Circle", videoId: "h2q3pRkWHc4" },
+      { id: 17, title: "Complex Extracting Diameter (Plug-In Method)", type: "video", duration: "10 min", section: "Equation of a Circle", videoId: "qpYkCKjZzrA" },
+      // Section 6: Circle Transformations
+      {
+        id: 18,
+        title: "Transformations of Circles",
+        type: "lesson",
+        duration: "5 min",
+        section: "Circle Transformations",
+        content: {
+          blocks: [
+            { type: "text", content: "A **Translation** moves the entire circle without changing its size. Only the **Center** changes — the **Radius** stays the same." },
+            { type: "circleTransformRules" },
+            { type: "circleTransformExample" },
+            { type: "text", content: "**Remember:** The sign inside the equation is always **OPPOSITE** the center's coordinate value." }
+          ]
+        }
+      },
+      { id: 19, title: "Simple Circle Transformations Example", type: "video", duration: "8 min", section: "Circle Transformations", videoId: "bO3UP6O7U4M" },
+      { id: 20, title: "Complex Circle Transformations Example", type: "video", duration: "10 min", section: "Circle Transformations", videoId: "Ggb2uBweoDg" },
+      // Section 7: Domain, Range & Intersections
+      {
+        id: 21,
+        title: "Domain & Range of a Circle",
+        type: "lesson",
+        duration: "5 min",
+        section: "Domain, Range & Intersections",
+        content: {
+          blocks: [
+            { type: "text", content: "For a circle with **Center (h, k)** and **Radius r**, the Domain and Range tell you how far the circle extends." },
+            { type: "domainRangeFormulas" },
+            { type: "text", content: "**Intersecting the Axes:**" },
+            { type: "axisIntersectionRules" },
+            { type: "domainRangeExample" }
+          ]
+        }
+      },
+      { id: 22, title: "Determining Domain & Range Example", type: "video", duration: "10 min", section: "Domain, Range & Intersections", videoId: "U7bhoyuhCwA" },
+      { id: 23, title: "Intersecting Y-Axis at Exactly One Point Example", type: "video", duration: "8 min", section: "Domain, Range & Intersections", videoId: "RV6vzQq3fro" },
+      { id: 24, title: "Intersecting Y-Axis at One Point (DESMOS Method)", type: "video", duration: "8 min", section: "Domain, Range & Intersections", videoId: "0dGx4haTSfk" },
+      // Section 8: Converting to Standard Form
+      {
+        id: 25,
+        title: "Completing the Square for Circles",
+        type: "lesson",
+        duration: "7 min",
+        section: "Converting to Standard Form",
+        content: {
+          blocks: [
+            { type: "text", content: "Sometimes a circle equation is given in **Expanded Form**. You must convert it to **Standard Form** to find the Center and Radius." },
+            { type: "completingSquareSteps" },
+            { type: "completingSquareExample" }
+          ]
+        }
+      },
+      { id: 26, title: "Deriving Standard Form to Determine Radius #1", type: "video", duration: "10 min", section: "Converting to Standard Form", videoId: "Ivt8GlJNN54" },
+      { id: 27, title: "Deriving Standard Form — Radius #1 (DESMOS)", type: "video", duration: "8 min", section: "Converting to Standard Form", videoId: "2QLT2GBx4J8" },
+      { id: 28, title: "Deriving Standard Form — Center #1 (DESMOS)", type: "video", duration: "8 min", section: "Converting to Standard Form", videoId: "adDR0DIhsiU" },
+      { id: 29, title: "Deriving Standard Form to Determine Radius #2", type: "video", duration: "10 min", section: "Converting to Standard Form", videoId: "SZ49_TM1cRk" },
+      { id: 30, title: "Deriving Standard Form — Radius #2 (DESMOS)", type: "video", duration: "8 min", section: "Converting to Standard Form", videoId: "MuVouk8s0R4" },
+      { id: 31, title: "Deriving Standard Form — Center #2 (DESMOS)", type: "video", duration: "8 min", section: "Converting to Standard Form", videoId: "maCBR4AUK8g" },
+      // Section 9: Tangent Lines
+      {
+        id: 32,
+        title: "Tangent Lines to a Circle",
+        type: "lesson",
+        duration: "5 min",
+        section: "Tangent Lines",
+        content: {
+          blocks: [
+            { type: "text", content: "A **Tangent Line** is a line that touches a circle at exactly **ONE point**, called the **Point of Tangency**." },
+            { type: "tangentLine" },
+            { type: "formula", label: "Key Rule", content: "The Tangent Line is PERPENDICULAR to the Radius at the Point of Tangency" },
+            { type: "text", content: "This means the tangent and radius form a **90° angle** where they meet." },
+            { type: "text", content: "**Why This Matters on the SAT:**" },
+            { type: "list", items: [
+              "If you know the radius to a point, the tangent at that point is **perpendicular** to it",
+              "Perpendicular lines have **negative reciprocal slopes** (if one slope is m, the other is −1/m)",
+              "This often creates **right triangles** you can solve with the Pythagorean Theorem"
+            ]}
+          ]
+        }
+      },
+      { id: 33, title: "Tangent Line to a Circle Example", type: "video", duration: "10 min", section: "Tangent Lines", videoId: "CYnV3su1S5A" }
+    ],
+    
+    'dimensional-analysis': [
+      // Section 1: Unit Conversion Basics
+      {
+        id: 1,
+        title: "Dimensional Analysis (Unit Conversion)",
+        type: "lesson",
+        duration: "6 min",
+        section: "Unit Conversion Basics",
+        content: {
+          blocks: [
+            { type: "text", content: "**Dimensional Analysis** is a way to check that a formula or calculation makes sense by looking at the **units**." },
+            { type: "dimensionalAnalysisRules" },
+            { type: "dimensionalAnalysisExample" }
+          ]
+        }
+      },
+      { id: 2, title: "Simple Dimensional Analysis Question", type: "video", duration: "8 min", section: "Unit Conversion Basics", videoId: "8Pt_Ie0ibQw" },
+      // Section 2: Squared & Cubic Units
+      {
+        id: 3,
+        title: "Dimensional Analysis with Squared/Cubic Units",
+        type: "lesson",
+        duration: "7 min",
+        section: "Squared & Cubic Units",
+        content: {
+          blocks: [
+            { type: "text", content: "When a unit is **squared** or **cubed**, the **entire conversion factor** must also be squared or cubed. You are converting the unit **twice** (or three times), not once." },
+            { type: "squaredUnitsWarning" },
+            { type: "squaredUnitsExample1" },
+            { type: "squaredUnitsExample2" },
+            { type: "whySquareConversion" }
+          ]
+        }
+      },
+      { id: 4, title: "Simple Dimensional Analysis with Squared Units", type: "video", duration: "8 min", section: "Squared & Cubic Units", videoId: "46FIIVQweZA" },
+      { id: 5, title: "Multi-Step Dimensional Analysis with Squared Units", type: "video", duration: "10 min", section: "Squared & Cubic Units", videoId: "SdOgadn-vRk" }
+    ],
+    
+    'percents': [
+      // Section 1: Percent Fundamentals
+      {
+        id: 1,
+        title: "Introduction to Percents",
+        type: "lesson",
+        duration: "5 min",
+        section: "Percent Fundamentals",
+        content: {
+          blocks: [
+            { type: "percentIntro" },
+            { type: "percentTypesIntro" }
+          ]
+        }
+      },
+      // Section 2: Percent Of Questions
+      {
+        id: 2,
+        title: "Percent Of Questions",
+        type: "lesson",
+        duration: "6 min",
+        section: "Percent Of Questions",
+        content: {
+          blocks: [
+            { type: "percentOfIntro" },
+            { type: "percentOfTranslationTable" },
+            { type: "percentOfWorkedExample" }
+          ]
+        }
+      },
+      { id: 3, title: "Simple Percent Of Question", type: "video", duration: "8 min", section: "Percent Of Questions", videoId: "4u5Z8BzlibM" },
+      { id: 4, title: "Simple Percent Of Question #2", type: "video", duration: "8 min", section: "Percent Of Questions", videoId: "ogabppfe6XQ" },
+      { id: 5, title: "Simple Percent Of Question #3", type: "video", duration: "8 min", section: "Percent Of Questions", videoId: "-JUF3R5ZHmU" },
+      { id: 6, title: "Complex Percent Of Question", type: "video", duration: "10 min", section: "Percent Of Questions", videoId: "jAR4wJ_Btuw" },
+      { id: 7, title: "Conceptual Percent Of Question", type: "video", duration: "10 min", section: "Percent Of Questions", videoId: "3cPc_xtceig" },
+      // Section 3: Percent Change Questions
+      {
+        id: 8,
+        title: "Percent Change Questions",
+        type: "lesson",
+        duration: "6 min",
+        section: "Percent Change Questions",
+        content: {
+          blocks: [
+            { type: "percentChangeIntro" },
+            { type: "percentIncreaseFormula" },
+            { type: "percentDecreaseFormula" },
+            { type: "percentChangeKeyInsight" }
+          ]
+        }
+      },
+      { id: 9, title: "Simple Percent Change Example", type: "video", duration: "8 min", section: "Percent Change Questions", videoId: "_wCBskbQnxM" },
+      { id: 10, title: "Complex Percent Change Example #1", type: "video", duration: "10 min", section: "Percent Change Questions", videoId: "3TF-HvTO3yY" },
+      { id: 11, title: "Complex Percent Change Example #2", type: "video", duration: "10 min", section: "Percent Change Questions", videoId: "QgZQtaqOH0Q" },
+      { id: 12, title: "Complex Percent Change Example #3", type: "video", duration: "10 min", section: "Percent Change Questions", videoId: "1B0scCTKYcc" },
+      // Section 4: Percent Model Questions
+      {
+        id: 13,
+        title: "Percent Model Questions",
+        type: "lesson",
+        duration: "5 min",
+        section: "Percent Model Questions",
+        content: {
+          blocks: [
+            { type: "percentModelIntro" },
+            { type: "percentModelFormulaPremium" }
+          ]
+        }
+      },
+      { id: 14, title: "Simple Percent Model Example", type: "video", duration: "8 min", section: "Percent Model Questions", videoId: "gCuT1uatMx0" },
+      { id: 15, title: "Complex Percent Model Example", type: "video", duration: "10 min", section: "Percent Model Questions", videoId: "1yAG9QEoLDs" },
+      { id: 16, title: "Simple Conceptual Percent Model Example", type: "video", duration: "8 min", section: "Percent Model Questions", videoId: "ou7EbU-Gj0w" },
+      { id: 17, title: "Complex Conceptual Percent Model Example", type: "video", duration: "10 min", section: "Percent Model Questions", videoId: "F7YlV88yC1M" }
+    ],
+    
+    'exponents': [
+      // Section 1: Laws of Exponents
+      {
+        id: 1,
+        title: "Laws of Exponents",
+        type: "lesson",
+        duration: "8 min",
+        section: "Laws of Exponents",
+        content: {
+          blocks: [
+            { type: "exponentLawsIntro" },
+            { type: "exponentRulesGrid" }
+          ]
+        }
+      },
+      { id: 2, title: "Simple Laws of Exponents (Product Rule) Example", type: "video", duration: "8 min", section: "Laws of Exponents", videoId: "wtzpclGJjwA" },
+      { id: 3, title: "Simple Laws of Exponents (Quotient Rule) Example", type: "video", duration: "8 min", section: "Laws of Exponents", videoId: "rGbR2Sje0yg" },
+      { id: 4, title: "Fractional Exponents Simple Example", type: "video", duration: "8 min", section: "Laws of Exponents", videoId: "wt4jURbliN8" },
+      { id: 5, title: "Fractional Exponents Complex Example", type: "video", duration: "10 min", section: "Laws of Exponents", videoId: "MsEOg94CW2A" },
+      // Section 2: Comparing Exponential Expressions
+      {
+        id: 6,
+        title: "Comparing Exponential Expressions",
+        type: "lesson",
+        duration: "6 min",
+        section: "Comparing Exponential Expressions",
+        content: {
+          blocks: [
+            { type: "comparingExpIntro" },
+            { type: "goldenRuleExponents" }
+          ]
+        }
+      },
+      { id: 7, title: "Simple Exponential Expression Comparison Example", type: "video", duration: "8 min", section: "Comparing Exponential Expressions", videoId: "7Jvib5zG3DY" },
+      { id: 8, title: "Complex Exponential Expression Comparison Example", type: "video", duration: "10 min", section: "Comparing Exponential Expressions", videoId: "pj7ULfiKJGw" },
+      // Section 3: Exponential Functions
+      {
+        id: 9,
+        title: "Exponential Functions",
+        type: "lesson",
+        duration: "7 min",
+        section: "Exponential Functions",
+        content: {
+          blocks: [
+            { type: "exponentialFunctionIntro" },
+            { type: "exponentialFunctionFormula" },
+            { type: "growthVsDecay" }
+          ]
+        }
+      },
+      { id: 10, title: "Simple Exponential Function Example", type: "video", duration: "8 min", section: "Exponential Functions", videoId: "l7O1iak-Zh8" },
+      { id: 11, title: "Interpreting Exponential Functions Example", type: "video", duration: "10 min", section: "Exponential Functions", videoId: "aySy8jrjpRU" },
+      { id: 12, title: "Complex Exponential Function Example", type: "video", duration: "10 min", section: "Exponential Functions", videoId: "dTcLpzbW3Rg" }
+    ],
+    
+    'quadratics': [
+      // Section 1: Overview
+      {
+        id: 1,
+        title: "Introduction to Quadratics",
+        type: "lesson",
+        duration: "6 min",
+        section: "Overview",
+        content: {
+          blocks: [
+            { type: "quadraticIntro" },
+            { type: "quadraticStandardForm" },
+            { type: "parabolaDirection" }
+          ]
+        }
+      },
+      // Section 2: Roots
+      {
+        id: 2,
+        title: "Roots of a Quadratic",
+        type: "lesson",
+        duration: "6 min",
+        section: "Roots",
+        content: {
+          blocks: [
+            { type: "rootsIntro" },
+            { type: "rootsSynonyms" },
+            { type: "rootsOnGraph" }
+          ]
+        }
+      },
+      { id: 3, title: "Finding Roots Via Graph", type: "video", duration: "8 min", section: "Roots", videoId: "HjtgJosvHus" },
+      { id: 4, title: "Finding Roots Via Factoring", type: "video", duration: "10 min", section: "Roots", videoId: "Ilf751ezqtM" },
+      { id: 5, title: "Finding Roots Via Completing the Square", type: "video", duration: "10 min", section: "Roots", videoId: "WVhrFVpiqik" },
+      { id: 6, title: "Finding Roots Via DESMOS", type: "video", duration: "8 min", section: "Roots", videoId: "vOfds1-LBx4" },
+      { id: 7, title: "Complex Finding the Roots via DESMOS", type: "video", duration: "10 min", section: "Roots", videoId: "06R53pBYjs0" },
+      // Section 3: Vertex
+      {
+        id: 8,
+        title: "The Vertex",
+        type: "lesson",
+        duration: "6 min",
+        section: "Vertex",
+        content: {
+          blocks: [
+            { type: "vertexIntro" },
+            { type: "vertexFormula" },
+            { type: "vertexWhereVsWhat" }
+          ]
+        }
+      },
+      {
+        id: 9,
+        title: "Vertex Form",
+        type: "lesson",
+        duration: "5 min",
+        section: "Vertex",
+        content: {
+          blocks: [
+            { type: "vertexFormIntro" },
+            { type: "vertexFormFormula" }
+          ]
+        }
+      },
+      { id: 10, title: "Finding the Vertex from a Graph", type: "video", duration: "8 min", section: "Vertex", videoId: "KSvSDNTvwOQ" },
+      { id: 11, title: "Finding the Vertex from an Equation", type: "video", duration: "10 min", section: "Vertex", videoId: "XQ2Tw8hzjPk" },
+      { id: 12, title: "Transformation of Vertex", type: "video", duration: "10 min", section: "Vertex", videoId: "R-f4HyaOsZY" },
+      { id: 13, title: "Transformation of Vertex (DESMOS Method)", type: "video", duration: "8 min", section: "Vertex", videoId: "iKRlQJg463E" },
+      // Section 4: Discriminant
+      {
+        id: 14,
+        title: "The Discriminant",
+        type: "lesson",
+        duration: "7 min",
+        section: "Discriminant",
+        content: {
+          blocks: [
+            { type: "discriminantIntro" },
+            { type: "discriminantFormula" },
+            { type: "discriminantCases" },
+            { type: "discriminantWhenToUse" }
+          ]
+        }
+      },
+      { id: 15, title: "Simple Discriminant Question #1", type: "video", duration: "8 min", section: "Discriminant", videoId: "HvmcHvs4aJw" },
+      { id: 16, title: "Simple Discriminant Question #1 (DESMOS Method)", type: "video", duration: "8 min", section: "Discriminant", videoId: "qC4zH3TPEPs" },
+      { id: 17, title: "Simple Discriminant Question #2", type: "video", duration: "8 min", section: "Discriminant", videoId: "3T7p7HIovK0" },
+      { id: 18, title: "Simple Discriminant Question #2 (DESMOS Method)", type: "video", duration: "8 min", section: "Discriminant", videoId: "QH6bXCWlYaU" },
+      { id: 19, title: "Complex Discriminant Question", type: "video", duration: "10 min", section: "Discriminant", videoId: "z8eu9oFwk2I" },
+      { id: 20, title: "Simple Discriminant System Question", type: "video", duration: "10 min", section: "Discriminant", videoId: "uGGb383xfu4" },
+      { id: 21, title: "Simple Discriminant System Question (DESMOS Method)", type: "video", duration: "8 min", section: "Discriminant", videoId: "skD4XM2RIgw" },
+      { id: 22, title: "Complex Discriminant System Question", type: "video", duration: "12 min", section: "Discriminant", videoId: "l6yMmy60gFA" },
+      // Section 5: Deriving Standard Form
+      {
+        id: 23,
+        title: "Deriving Standard Form from a Graph",
+        type: "lesson",
+        duration: "6 min",
+        section: "Deriving Standard Form",
+        content: {
+          blocks: [
+            { type: "derivingStandardFormIntro" },
+            { type: "derivingStandardFormMethods" },
+            { type: "derivingStandardFormTips" }
+          ]
+        }
+      },
+      { id: 24, title: "Deriving Standard Form From Graph", type: "video", duration: "10 min", section: "Deriving Standard Form", videoId: "K66XHuhQy-U" },
+      { id: 25, title: "Deriving Standard Form From Graph (DESMOS Method)", type: "video", duration: "8 min", section: "Deriving Standard Form", videoId: "QpUMRFoMUMo" },
+      { id: 26, title: "Complex Deriving Standard Form (Vertex Form Method)", type: "video", duration: "12 min", section: "Deriving Standard Form", videoId: "0ijCFEhltcg" },
+      { id: 27, title: "Complex Deriving Standard Form (System of Equations Method)", type: "video", duration: "12 min", section: "Deriving Standard Form", videoId: "G6dJDa4sFCU" }
+    ],
+    
+    'radians-degrees': [
+      {
+        id: 1,
+        title: "Radians & Degrees",
+        type: "lesson",
+        duration: "5 min",
+        section: "Converting Angles",
+        content: {
+          blocks: [
+            { type: "radiansDegreesIntro" },
+            { type: "conversionFormulas" },
+            { type: "commonAnglesTable" },
+            { type: "desmosTip" }
+          ]
+        }
+      },
+      { id: 2, title: "Simple Converting Radians to Degrees Example", type: "video", duration: "6 min", section: "Converting Angles", videoId: "Ymvs5c9ZGoU" },
+      { id: 3, title: "Using DESMOS Calculator in Radian Mode Example", type: "video", duration: "5 min", section: "Converting Angles", videoId: "fMeL-KVlrgA" },
+      { id: 4, title: "Using DESMOS Calculator in Degree Mode Example", type: "video", duration: "5 min", section: "Converting Angles", videoId: "fMeL-KVlrgA" }
+    ],
+    
+    'equivalent-expressions': [
+      {
+        id: 1,
+        title: "Equivalent Expressions",
+        type: "lesson",
+        duration: "4 min",
+        section: "Equivalent Expressions",
+        content: {
+          blocks: [
+            { type: "equivalentExpressionsIntro" },
+            { type: "equivalentExpressionsMethod" },
+            { type: "equivalentExpressionsExample" }
+          ]
+        }
+      },
+      { id: 2, title: "Equivalent Expressions Example #1 (DESMOS Method)", type: "video", duration: "6 min", section: "Equivalent Expressions", videoId: "2if86_b5ljE" },
+      { id: 3, title: "Equivalent Expressions Example #2 (DESMOS Method)", type: "video", duration: "6 min", section: "Equivalent Expressions", videoId: "rJvyuTF9_Uw" }
+    ],
+    'statistics': [
+      // Section: Mean
+      {
+        id: 1,
+        title: "What is the Mean?",
+        type: "lesson",
+        duration: "5 min",
+        section: "Mean",
+        hero: {
+          tagline: "THE AVERAGE",
+          subtitle: "Add them up, divide by count",
+          gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "meanIntro" },
+            { type: "meanFormula" },
+            { type: "text", content: "The mean is often called the **average** — it's the value you get when you **add up all the values** and **divide by how many** there are." },
+            { type: "text", content: "On the SAT, mean questions often involve finding a missing value when given the mean, or understanding how adding/removing values affects the mean." }
+          ]
+        }
+      },
+      { id: 2, title: "Simple Calculating Mean Example", type: "video", duration: "6 min", section: "Mean", videoId: "CLPwCiT26Yw" },
+      { id: 3, title: "Simple Calculating Mean Example (DESMOS Method)", type: "video", duration: "6 min", section: "Mean", videoId: "PaGkN42IbFk" },
+      {
+        id: 4,
+        title: "How Outliers Affect the Mean",
+        type: "lesson",
+        duration: "6 min",
+        section: "Mean",
+        hero: {
+          tagline: "OUTLIER ALERT",
+          subtitle: "One extreme value changes everything",
+          gradient: "linear-gradient(135deg, #f5576c 0%, #f093fb 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "outlierMeanIntro" },
+            { type: "outlierMeanExample" },
+            { type: "text", content: "**Golden Rule:** An outlier pulls the mean in its direction." },
+            { type: "list", items: [
+              "A **high outlier** increases the mean",
+              "A **low outlier** decreases the mean"
+            ]},
+            { type: "text", content: "This is why the mean is considered **sensitive to outliers** — even one extreme value can significantly shift the average." }
+          ]
+        }
+      },
+      { id: 5, title: "Outlier Affecting Mean Example #1", type: "video", duration: "8 min", section: "Mean", videoId: "VrM1qUVevf8" },
+      { id: 6, title: "Outlier Affecting Mean Example #2", type: "video", duration: "8 min", section: "Mean", videoId: "NVHHjqpKrxA" },
+      { id: 7, title: "Finding Mean of a Combined Data Set", type: "video", duration: "10 min", section: "Mean", videoId: "fuxm-h0xAOQ" },
+      // Section: Median
+      {
+        id: 8,
+        title: "What is the Median?",
+        type: "lesson",
+        duration: "5 min",
+        section: "Median",
+        hero: {
+          tagline: "THE MIDDLE VALUE",
+          subtitle: "Resistant to outliers",
+          gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "medianIntro" },
+            { type: "medianSteps" },
+            { type: "text", content: "Unlike the mean, the median is **resistant to outliers** because it only depends on the middle position, not the total sum of all values." }
+          ]
+        }
+      },
+      {
+        id: 9,
+        title: "Finding Median from a Frequency Table",
+        type: "lesson",
+        duration: "6 min",
+        section: "Median",
+        hero: {
+          tagline: "COUNT TO THE MIDDLE",
+          subtitle: "Working with frequency tables",
+          gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "medianFrequencyIntro" },
+            { type: "medianFrequencySteps" },
+            { type: "text", content: "**Pro Tip:** When N is even, the median is the average of the values at positions N/2 and (N/2 + 1)." }
+          ]
+        }
+      },
+      { id: 10, title: "Simple Calculating Median Example #1", type: "video", duration: "6 min", section: "Median", videoId: "vQ2i2EqGtT4" },
+      { id: 11, title: "Simple Calculating Median Example #1 (DESMOS Method)", type: "video", duration: "6 min", section: "Median", videoId: "QyDRT97bYg0" },
+      { id: 12, title: "Simple Calculating Median Example #2", type: "video", duration: "6 min", section: "Median", videoId: "jit5NLKJdGY" },
+      { id: 13, title: "Simple Calculating Median Example #2 (DESMOS Method)", type: "video", duration: "6 min", section: "Median", videoId: "olTnIv_PANA" },
+      { id: 14, title: "Finding Median from Frequency Table", type: "video", duration: "8 min", section: "Median", videoId: "pcdZAZ8lQiI" },
+      { id: 15, title: "Comparing Mean & Median of Two Data Sets", type: "video", duration: "10 min", section: "Median", videoId: "Hf8geKrPg00" },
+      // Section: Mode
+      {
+        id: 16,
+        title: "What is the Mode?",
+        type: "lesson",
+        duration: "4 min",
+        section: "Mode",
+        content: {
+          blocks: [
+            { type: "modeIntro" },
+            { type: "modeExamples" },
+            { type: "text", content: "The mode is especially useful for **categorical data** where calculating a mean or median doesn't make sense." }
+          ]
+        }
+      },
+      // Section: Range
+      {
+        id: 17,
+        title: "What is the Range?",
+        type: "lesson",
+        duration: "4 min",
+        section: "Range",
+        content: {
+          blocks: [
+            { type: "rangeIntro" },
+            { type: "rangeFormula" },
+            { type: "text", content: "The range tells you **how spread out** the data is. A larger range means more variability in the data." },
+            { type: "example", title: "Example", content: "Data set: 3, 7, 12, 15, 22\n\nRange = 22 − 3 = **19**" }
+          ]
+        }
+      },
+      { id: 18, title: "Simple Calculating Range Example", type: "video", duration: "6 min", section: "Range", videoId: "Ja8KCtWP6JY" },
+      { id: 19, title: "Comparing Median & Range of Two Data Sets", type: "video", duration: "8 min", section: "Range", videoId: "zo3W571N1ag" },
+      // Section: Standard Deviation
+      {
+        id: 20,
+        title: "What is Standard Deviation?",
+        type: "lesson",
+        duration: "6 min",
+        section: "Standard Deviation",
+        content: {
+          blocks: [
+            { type: "stdDevIntro" },
+            { type: "stdDevVisual" },
+            { type: "text", content: "**Good news:** You will **not** need to calculate standard deviation on the SAT — you just need to understand what it **means** and how to **compare** standard deviations." },
+            { type: "list", items: [
+              "A data set with values **closer together** has a **smaller** standard deviation",
+              "A data set with values **spread far apart** has a **larger** standard deviation"
+            ]}
+          ]
+        }
+      },
+      { id: 21, title: "Simple Standard Deviation Example", type: "video", duration: "8 min", section: "Standard Deviation", videoId: "m3GVIhKeeZY" },
+      { id: 22, title: "Complex Standard Deviation Example", type: "video", duration: "10 min", section: "Standard Deviation", videoId: "rz74TuYvxKs" },
+      // Section: Margin of Error
+      {
+        id: 23,
+        title: "What is Margin of Error?",
+        type: "lesson",
+        duration: "7 min",
+        section: "Margin of Error",
+        content: {
+          blocks: [
+            { type: "marginOfErrorIntro" },
+            { type: "marginOfErrorVisual" },
+            { type: "marginOfErrorSampleSize" },
+            { type: "text", content: "**Key takeaway:** The margin of error connects the **sample statistic** to the **true population value** by showing a **reasonable range** where the true value is expected to be." }
+          ]
+        }
+      },
+      { id: 24, title: "Simple Margin of Error Example #1", type: "video", duration: "8 min", section: "Margin of Error", videoId: "ToUn8E5a7Ho" },
+      { id: 25, title: "Simple Margin of Error Example #2", type: "video", duration: "8 min", section: "Margin of Error", videoId: "By4TzkHujmc" }
+    ],
+    'volume': [
+      // Section: Fundamentals
+      {
+        id: 1,
+        title: "What is Volume?",
+        type: "lesson",
+        duration: "5 min",
+        section: "Fundamentals",
+        hero: {
+          tagline: "3D SPACE",
+          subtitle: "Measuring what's inside",
+          gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "volumeIntro" },
+            { type: "volumeUnits" }
+          ]
+        }
+      },
+      // Section: Rectangular Prism
+      {
+        id: 2,
+        title: "Volume of a Rectangular Prism",
+        type: "lesson",
+        duration: "5 min",
+        section: "Rectangular Prism",
+        hero: {
+          tagline: "LENGTH × WIDTH × HEIGHT",
+          subtitle: "The classic box formula",
+          gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "rectangularPrismIntro" },
+            { type: "rectangularPrismFormula" },
+            { type: "rectangularPrismExample" }
+          ]
+        }
+      },
+      { id: 3, title: "Simple Volume of Rectangular Prism", type: "video", duration: "6 min", section: "Rectangular Prism", videoId: "Pr0sgY6eHaA" },
+      { id: 4, title: "Complex Volume of Rectangular Prism", type: "video", duration: "8 min", section: "Rectangular Prism", videoId: "YK1O3QN_puE" },
+      // Section: Cube
+      {
+        id: 5,
+        title: "Volume of a Cube",
+        type: "lesson",
+        duration: "5 min",
+        section: "Cube",
+        hero: {
+          tagline: "s³",
+          subtitle: "All sides equal",
+          gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "cubeIntro" },
+            { type: "cubeFormula" },
+            { type: "cubeExample" }
+          ]
+        }
+      },
+      { id: 6, title: "Simple Volume of Cube Example", type: "video", duration: "6 min", section: "Cube", videoId: "3NGFvYlxWsE" },
+      // Section: Cylinder
+      {
+        id: 7,
+        title: "Volume of a Cylinder",
+        type: "lesson",
+        duration: "5 min",
+        section: "Cylinder",
+        hero: {
+          tagline: "πr²h",
+          subtitle: "Circles stacked up",
+          gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "cylinderIntro" },
+            { type: "cylinderFormula" },
+            { type: "cylinderExample" }
+          ]
+        }
+      },
+      { id: 8, title: "Simple Volume of Cylinder Example", type: "video", duration: "6 min", section: "Cylinder", videoId: "K_wAeM8oKSo" },
+      { id: 9, title: "Complex Volume of Cylinder Example", type: "video", duration: "8 min", section: "Cylinder", videoId: "bVOOj1uhCLM" },
+      // Section: Sphere
+      {
+        id: 10,
+        title: "Volume of a Sphere",
+        type: "lesson",
+        duration: "5 min",
+        section: "Sphere",
+        hero: {
+          tagline: "⁴⁄₃πr³",
+          subtitle: "The perfect 3D shape",
+          gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "sphereIntro" },
+            { type: "sphereFormula" },
+            { type: "sphereExample" }
+          ]
+        }
+      },
+      { id: 11, title: "Simple Volume of Sphere Example", type: "video", duration: "6 min", section: "Sphere", videoId: "vgp4iFY6vdU" },
+      { id: 12, title: "Complex Volume of Sphere Example", type: "video", duration: "8 min", section: "Sphere", videoId: "8ix6fP1eQlU" },
+      // Section: Cone
+      {
+        id: 13,
+        title: "Volume of a Cone",
+        type: "lesson",
+        duration: "5 min",
+        section: "Cone",
+        hero: {
+          tagline: "⅓πr²h",
+          subtitle: "One-third of a cylinder",
+          gradient: "linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "coneIntro" },
+            { type: "coneFormula" },
+            { type: "coneExample" }
+          ]
+        }
+      },
+      { id: 14, title: "Simple Volume of Cone Example", type: "video", duration: "6 min", section: "Cone", videoId: "e3E58fCpu4E" },
+      // Section: Triangular Prism
+      {
+        id: 15,
+        title: "Volume of a Triangular Prism",
+        type: "lesson",
+        duration: "5 min",
+        section: "Triangular Prism",
+        content: {
+          blocks: [
+            { type: "triangularPrismIntro" },
+            { type: "triangularPrismFormula" },
+            { type: "triangularPrismExample" }
+          ]
+        }
+      },
+      { id: 16, title: "Simple Volume of Triangular Prism Example", type: "video", duration: "6 min", section: "Triangular Prism", videoId: "Hu_1bndFGFY" }
+    ],
+    'systems': [
+      // Section: Introduction
+      {
+        id: 1,
+        title: "What is a System of Equations?",
+        type: "lesson",
+        duration: "6 min",
+        section: "Introduction",
+        hero: {
+          tagline: "TWO EQUATIONS, TWO UNKNOWNS",
+          subtitle: "Finding where the lines meet",
+          gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "systemsIntro" },
+            { type: "systemsWhyWeNeedThem" },
+            { type: "systemsWhatIsIt" },
+            { type: "systemsSolutionMeaning" }
+          ]
+        }
+      },
+      {
+        id: 2,
+        title: "Types of Solutions",
+        type: "lesson",
+        duration: "6 min",
+        section: "Introduction",
+        hero: {
+          tagline: "ONE, NONE, OR INFINITE",
+          subtitle: "How lines can intersect",
+          gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "systemsSolutionTypes" },
+            { type: "systemsGraphicalMeaning" }
+          ]
+        }
+      },
+      // Section: Setting Up Systems
+      {
+        id: 3,
+        title: "Writing Systems from Word Problems",
+        type: "lesson",
+        duration: "6 min",
+        section: "Setting Up Systems",
+        hero: {
+          tagline: "TRANSLATE THE WORDS",
+          subtitle: "From story to equations",
+          gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "systemsSetupStrategy" },
+            { type: "systemsFromContext" },
+            { type: "systemsContextExample" }
+          ]
+        }
+      },
+      { id: 4, title: "Deriving System of Equation from Context Example #1", type: "video", duration: "8 min", section: "Setting Up Systems", videoId: "U-XS0YLJDBU" },
+      { id: 5, title: "Deriving System of Equation from Context Example #2", type: "video", duration: "8 min", section: "Setting Up Systems", videoId: "H_VAwlhG17w" },
+      // Section: Substitution Method
+      {
+        id: 6,
+        title: "Solving by Substitution",
+        type: "lesson",
+        duration: "7 min",
+        section: "Substitution Method",
+        hero: {
+          tagline: "PLUG IT IN",
+          subtitle: "Replace one variable with an expression",
+          gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "substitutionIntro" },
+            { type: "substitutionWhenToUse" },
+            { type: "substitutionSteps" },
+            { type: "substitutionExample" }
+          ]
+        }
+      },
+      { id: 7, title: "Solving System of Equation using Substitution", type: "video", duration: "8 min", section: "Substitution Method", videoId: "50Hjbc3rZ0U" },
+      // Section: Elimination Method
+      {
+        id: 8,
+        title: "Solving by Elimination",
+        type: "lesson",
+        duration: "7 min",
+        section: "Elimination Method",
+        hero: {
+          tagline: "ADD TO CANCEL",
+          subtitle: "Make one variable disappear",
+          gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "eliminationIntro" },
+            { type: "eliminationWhenToUse" },
+            { type: "eliminationSteps" },
+            { type: "eliminationExample" }
+          ]
+        }
+      },
+      { id: 9, title: "Solving System of Equations using Elimination", type: "video", duration: "8 min", section: "Elimination Method", videoId: "pvOrqZvCn-4" },
+      // Section: DESMOS Method
+      {
+        id: 10,
+        title: "Solving with DESMOS",
+        type: "lesson",
+        duration: "5 min",
+        section: "DESMOS Method",
+        hero: {
+          tagline: "⚡ THE FAST METHOD",
+          subtitle: "Graph it, click the intersection, done",
+          gradient: "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "desmosIntro" },
+            { type: "desmosSATReality" },
+            { type: "desmosSteps" },
+            { type: "desmosWhenToUse" }
+          ]
+        }
+      },
+      { id: 11, title: "Solving System of Equations using DESMOS Example #1", type: "video", duration: "6 min", section: "DESMOS Method", videoId: "rmV0RBBmFPk" },
+      { id: 12, title: "Solving System of Equations using DESMOS Example #2", type: "video", duration: "6 min", section: "DESMOS Method", videoId: "8qCUhJYM3Tg" },
+      // Section: Infinite Solutions
+      {
+        id: 13,
+        title: "Infinite Solutions & Parametric Form",
+        type: "lesson",
+        duration: "7 min",
+        section: "Infinite Solutions",
+        hero: {
+          tagline: "SAME LINE = ∞ SOLUTIONS",
+          subtitle: "When equations are equivalent",
+          gradient: "linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)"
+        },
+        content: {
+          blocks: [
+            { type: "infiniteSolutionsIntro" },
+            { type: "infiniteSolutionsRecognize" },
+            { type: "infiniteSolutionsParametric" },
+            { type: "infiniteSolutionsExample" }
+          ]
+        }
+      },
+      { id: 14, title: "Infinite Solutions SAT Example", type: "video", duration: "10 min", section: "Infinite Solutions", videoId: "e37RY2cRYMI" }
+    ]
+  };
 
   const currentModuleLessons = activeModule ? allLessons[activeModule] : [];
   const currentLesson = activeLesson !== null ? currentModuleLessons.find(l => l.id === activeLesson) : null;
@@ -7884,48 +9621,14 @@ const PerformSAT = () => {
     );
   };
 
-  if (loading) {
-    return (
-      <div style={{
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        background: '#ffffff'
-      }}>
-        <div style={{
-          width: '48px',
-          height: '48px',
-          border: '4px solid #e5e7eb',
-          borderTop: '4px solid #667eea',
-          borderRadius: '50%',
-          animation: 'spin 1s linear infinite'
-        }} />
-        <style>{`@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`}</style>
-      </div>
-    );
-  }
-
   return (
-    <BrowserRouter>
-      <Routes>
-        {/* Auth Routes */}
-        <Route path="/auth/verify" element={<AuthCallback onComplete={() => window.location.href = '/'} />} />
-        
-        {/* Main App Route */}
-        <Route path="/*" element={
-          !user ? (
-            <MagicLinkLogin onSendLink={sendMagicLink} />
-          ) : user.role === 'principal' ? (
-            <Navigate to="/admin" replace />
-          ) : (
-            <div style={{
-              minHeight: '100vh',
-              background: '#ffffff',
-              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif',
-              color: '#1d1d1f',
-              WebkitFontSmoothing: 'antialiased'
-            }}>
+    <div style={{
+      minHeight: '100vh',
+      background: '#ffffff',
+      fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif',
+      color: '#1d1d1f',
+      WebkitFontSmoothing: 'antialiased'
+    }}>
       <style>{`
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
@@ -8030,7 +9733,7 @@ const PerformSAT = () => {
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                 <span style={{ fontSize: '14px', color: '#6b7280' }}>{user.name}</span>
                 <button
-                  onClick={logout}
+                  onClick={handleLogout}
                   style={{
                     background: 'none',
                     border: '1px solid rgba(0,0,0,0.1)',
@@ -8075,14 +9778,14 @@ const PerformSAT = () => {
           <>
             {/* Page Title */}
             <div style={{ marginBottom: '64px' }}>
-              {user && user.firstName && (
+              {user && (
                 <p style={{
                   fontSize: '16px',
                   color: '#ea580c',
                   marginBottom: '8px',
                   fontWeight: '500'
                 }}>
-                  Welcome back, {user.firstName}
+                  Welcome back, {user.name}
                 </p>
               )}
               <h1 style={{
@@ -8358,6 +10061,186 @@ const PerformSAT = () => {
           </>
         )}
 
+        {view === 'login' && (
+          <div style={{
+            maxWidth: '400px',
+            margin: '0 auto',
+            paddingTop: '40px'
+          }}>
+            <button
+              className="back-btn"
+              onClick={() => setView('modules')}
+              style={{
+                background: 'none',
+                border: 'none',
+                padding: 0,
+                fontSize: '14px',
+                color: '#ea580c',
+                cursor: 'pointer',
+                marginBottom: '32px',
+                fontWeight: '500'
+              }}
+            >
+              ← Back
+            </button>
+            
+            <h1 style={{
+              fontSize: '36px',
+              fontWeight: '700',
+              letterSpacing: '-1px',
+              color: '#1d1d1f',
+              marginBottom: '8px'
+            }}>
+              {isSignUp ? 'Create account' : 'Welcome back'}
+            </h1>
+            <p style={{
+              fontSize: '16px',
+              color: '#6b7280',
+              marginBottom: '32px'
+            }}>
+              {isSignUp ? 'Start your SAT prep journey' : 'Log in to continue learning'}
+            </p>
+
+            <form onSubmit={isSignUp ? handleSignUp : handleLogin}>
+              {isSignUp && (
+                <div style={{ marginBottom: '20px' }}>
+                  <label style={{
+                    display: 'block',
+                    fontSize: '14px',
+                    fontWeight: '500',
+                    color: '#1d1d1f',
+                    marginBottom: '8px'
+                  }}>
+                    First name
+                  </label>
+                  <input
+                    type="text"
+                    value={loginForm.name}
+                    onChange={(e) => setLoginForm({ ...loginForm, name: e.target.value })}
+                    placeholder="Alex"
+                    style={{
+                      width: '100%',
+                      padding: '14px 16px',
+                      fontSize: '16px',
+                      border: '1px solid rgba(0,0,0,0.1)',
+                      borderRadius: '10px',
+                      outline: 'none',
+                      boxSizing: 'border-box'
+                    }}
+                  />
+                </div>
+              )}
+              
+              <div style={{ marginBottom: '20px' }}>
+                <label style={{
+                  display: 'block',
+                  fontSize: '14px',
+                  fontWeight: '500',
+                  color: '#1d1d1f',
+                  marginBottom: '8px'
+                }}>
+                  Email
+                </label>
+                <input
+                  type="email"
+                  value={loginForm.email}
+                  onChange={(e) => setLoginForm({ ...loginForm, email: e.target.value })}
+                  placeholder="alex@example.com"
+                  style={{
+                    width: '100%',
+                    padding: '14px 16px',
+                    fontSize: '16px',
+                    border: '1px solid rgba(0,0,0,0.1)',
+                    borderRadius: '10px',
+                    outline: 'none',
+                    boxSizing: 'border-box'
+                  }}
+                />
+              </div>
+              
+              <div style={{ marginBottom: '24px' }}>
+                <label style={{
+                  display: 'block',
+                  fontSize: '14px',
+                  fontWeight: '500',
+                  color: '#1d1d1f',
+                  marginBottom: '8px'
+                }}>
+                  Password
+                </label>
+                <input
+                  type="password"
+                  value={loginForm.password}
+                  onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
+                  placeholder="••••••••"
+                  style={{
+                    width: '100%',
+                    padding: '14px 16px',
+                    fontSize: '16px',
+                    border: '1px solid rgba(0,0,0,0.1)',
+                    borderRadius: '10px',
+                    outline: 'none',
+                    boxSizing: 'border-box'
+                  }}
+                />
+              </div>
+
+              {loginError && (
+                <p style={{
+                  color: '#dc2626',
+                  fontSize: '14px',
+                  marginBottom: '16px'
+                }}>
+                  {loginError}
+                </p>
+              )}
+              
+              <button
+                type="submit"
+                style={{
+                  width: '100%',
+                  padding: '14px',
+                  fontSize: '16px',
+                  fontWeight: '600',
+                  color: '#fff',
+                  background: '#ea580c',
+                  border: 'none',
+                  borderRadius: '10px',
+                  cursor: 'pointer',
+                  marginBottom: '24px'
+                }}
+              >
+                {isSignUp ? 'Create account' : 'Log in'}
+              </button>
+            </form>
+            
+            <p style={{
+              textAlign: 'center',
+              fontSize: '14px',
+              color: '#6b7280'
+            }}>
+              {isSignUp ? 'Already have an account? ' : "Don't have an account? "}
+              <button
+                onClick={() => {
+                  setIsSignUp(!isSignUp);
+                  setLoginError('');
+                }}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  color: '#ea580c',
+                  fontWeight: '500',
+                  cursor: 'pointer',
+                  padding: 0,
+                  fontSize: '14px'
+                }}
+              >
+                {isSignUp ? 'Log in' : 'Sign up'}
+              </button>
+            </p>
+          </div>
+        )}
+
         {view === 'lesson' && (
           <>
             {/* Lesson View */}
@@ -8458,7 +10341,7 @@ const PerformSAT = () => {
                   }
                 }}
                 style={{
-                  background: isLessonCompleted(activeModule, activeLesson) ? '#10b981' : '#ea580c',
+                  background: completedLessons[`${activeModule}-${activeLesson}`] ? '#10b981' : '#ea580c',
                   border: 'none',
                   fontSize: '14px',
                   fontWeight: '500',
@@ -8471,7 +10354,7 @@ const PerformSAT = () => {
                   gap: '8px'
                 }}
               >
-                {isLessonCompleted(activeModule, activeLesson) ? '✓ Completed' : 'Mark Complete'}
+                {completedLessons[`${activeModule}-${activeLesson}`] ? '✓ Completed' : 'Mark Complete'}
               </button>
               
               <button
@@ -8519,27 +10402,6 @@ const PerformSAT = () => {
         </div>
       </footer>
     </div>
-          )
-        } />
-        
-        {/* Admin Routes */}
-        <Route path="/admin" element={
-          user && user.role === 'principal' ? (
-            <AdminDashboard user={user} modules={modules} />
-          ) : (
-            <Navigate to="/" replace />
-          )
-        } />
-        
-        <Route path="/admin/student/:userId" element={
-          user && user.role === 'principal' ? (
-            <StudentDetail modules={modules} />
-          ) : (
-            <Navigate to="/" replace />
-          )
-        } />
-      </Routes>
-    </BrowserRouter>
   );
 };
 

@@ -1,0 +1,50 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+
+    function getUserData() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+
+    function isPrincipal() {
+      return isAuthenticated() && getUserData().role == 'principal';
+    }
+
+    function isSameSchool(schoolId) {
+      return getUserData().schoolId == schoolId;
+    }
+
+    // Schools collection - read-only for validation
+    match /schools/{schoolId} {
+      allow read: if true; // Allow unauthenticated reads for school code validation
+      allow write: if false; // Only via admin SDK or Firebase console
+    }
+
+    // Users collection
+    match /users/{userId} {
+      allow read: if isAuthenticated() &&
+        (isOwner(userId) || (isPrincipal() && isSameSchool(resource.data.schoolId)));
+      allow create: if isAuthenticated() && isOwner(userId);
+      allow update: if isAuthenticated() && isOwner(userId);
+      allow delete: if false; // No self-deletion
+    }
+
+    // Progress collection
+    match /progress/{userId} {
+      allow read: if isAuthenticated() &&
+        (isOwner(userId) || (isPrincipal() &&
+          isSameSchool(get(/databases/$(database)/documents/users/$(userId)).data.schoolId)));
+      allow create, update: if isAuthenticated() && isOwner(userId);
+      allow delete: if false;
+    }
+  }
+}
