@@ -48,10 +48,11 @@ export const useAuth = () => {
    * Sign up a new user with email and password
    * @param {string} email - User's email
    * @param {string} password - User's password
-   * @param {string} firstName - User's first name (optional)
+   * @param {string} firstName - User's first name
+   * @param {Object} additionalInfo - Additional user info (hasTakenSAT, satScore)
    * @returns {Promise<Object>} User object
    */
-  const signup = async (email, password, firstName = '') => {
+  const signup = async (email, password, firstName = '', additionalInfo = {}) => {
     try {
       setError(null);
 
@@ -63,6 +64,8 @@ export const useAuth = () => {
         email: result.user.email,
         firstName: firstName || email.split('@')[0],
         role: 'student',
+        hasTakenSAT: additionalInfo.hasTakenSAT || false,
+        satScore: additionalInfo.satScore || null,
         createdAt: serverTimestamp(),
         lastLoginAt: serverTimestamp()
       };

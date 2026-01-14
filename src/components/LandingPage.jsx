@@ -7,6 +7,8 @@ const LandingPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
+  const [hasTakenSAT, setHasTakenSAT] = useState('');
+  const [satScore, setSatScore] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -21,7 +23,11 @@ const LandingPage = () => {
       if (isLogin) {
         await login(email, password);
       } else {
-        await signup(email, password, firstName);
+        const additionalInfo = {
+          hasTakenSAT: hasTakenSAT === 'yes',
+          satScore: hasTakenSAT === 'yes' && satScore ? parseInt(satScore) : null
+        };
+        await signup(email, password, firstName, additionalInfo);
       }
       // User will be redirected automatically by App.jsx routing
     } catch (err) {
@@ -185,37 +191,123 @@ const LandingPage = () => {
 
             <form onSubmit={handleSubmit}>
               {!isLogin && (
-                <div style={{ marginBottom: '1.25rem' }}>
-                  <label style={{
-                    display: 'block',
-                    fontSize: '0.9rem',
-                    fontWeight: '600',
-                    marginBottom: '0.5rem',
-                    color: '#0A0A0A'
-                  }}>
-                    First Name
-                  </label>
-                  <input
-                    type="text"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    placeholder="Your first name"
-                    required
-                    style={{
-                      width: '100%',
-                      padding: '0.75rem 1rem',
-                      border: '2px solid #E4E4E7',
-                      borderRadius: '10px',
-                      fontSize: '1rem',
-                      outline: 'none',
-                      transition: 'border-color 0.2s',
-                      fontFamily: 'inherit',
-                      boxSizing: 'border-box'
-                    }}
-                    onFocus={(e) => e.target.style.borderColor = '#FF6B35'}
-                    onBlur={(e) => e.target.style.borderColor = '#E4E4E7'}
-                  />
-                </div>
+                <>
+                  <div style={{ marginBottom: '1.25rem' }}>
+                    <label style={{
+                      display: 'block',
+                      fontSize: '0.9rem',
+                      fontWeight: '600',
+                      marginBottom: '0.5rem',
+                      color: '#0A0A0A'
+                    }}>
+                      First Name
+                    </label>
+                    <input
+                      type="text"
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
+                      placeholder="Your first name"
+                      required
+                      style={{
+                        width: '100%',
+                        padding: '0.75rem 1rem',
+                        border: '2px solid #E4E4E7',
+                        borderRadius: '10px',
+                        fontSize: '1rem',
+                        outline: 'none',
+                        transition: 'border-color 0.2s',
+                        fontFamily: 'inherit',
+                        boxSizing: 'border-box'
+                      }}
+                      onFocus={(e) => e.target.style.borderColor = '#FF6B35'}
+                      onBlur={(e) => e.target.style.borderColor = '#E4E4E7'}
+                    />
+                  </div>
+
+                  <div style={{ marginBottom: '1.25rem' }}>
+                    <label style={{
+                      display: 'block',
+                      fontSize: '0.9rem',
+                      fontWeight: '600',
+                      marginBottom: '0.5rem',
+                      color: '#0A0A0A'
+                    }}>
+                      Have you taken the SAT before?
+                    </label>
+                    <div style={{ display: 'flex', gap: '1rem' }}>
+                      <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
+                        <input
+                          type="radio"
+                          name="hasTakenSAT"
+                          value="yes"
+                          checked={hasTakenSAT === 'yes'}
+                          onChange={(e) => setHasTakenSAT(e.target.value)}
+                          required
+                          style={{ cursor: 'pointer' }}
+                        />
+                        <span style={{ fontSize: '0.9rem', color: '#0A0A0A' }}>Yes</span>
+                      </label>
+                      <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
+                        <input
+                          type="radio"
+                          name="hasTakenSAT"
+                          value="no"
+                          checked={hasTakenSAT === 'no'}
+                          onChange={(e) => {
+                            setHasTakenSAT(e.target.value);
+                            setSatScore('');
+                          }}
+                          required
+                          style={{ cursor: 'pointer' }}
+                        />
+                        <span style={{ fontSize: '0.9rem', color: '#0A0A0A' }}>No</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  {hasTakenSAT === 'yes' && (
+                    <div style={{ marginBottom: '1.25rem' }}>
+                      <label style={{
+                        display: 'block',
+                        fontSize: '0.9rem',
+                        fontWeight: '600',
+                        marginBottom: '0.5rem',
+                        color: '#0A0A0A'
+                      }}>
+                        What was your SAT score?
+                      </label>
+                      <input
+                        type="number"
+                        value={satScore}
+                        onChange={(e) => setSatScore(e.target.value)}
+                        placeholder="e.g., 1200"
+                        min="400"
+                        max="1600"
+                        required
+                        style={{
+                          width: '100%',
+                          padding: '0.75rem 1rem',
+                          border: '2px solid #E4E4E7',
+                          borderRadius: '10px',
+                          fontSize: '1rem',
+                          outline: 'none',
+                          transition: 'border-color 0.2s',
+                          fontFamily: 'inherit',
+                          boxSizing: 'border-box'
+                        }}
+                        onFocus={(e) => e.target.style.borderColor = '#FF6B35'}
+                        onBlur={(e) => e.target.style.borderColor = '#E4E4E7'}
+                      />
+                      <p style={{
+                        fontSize: '0.8rem',
+                        color: '#A1A1AA',
+                        marginTop: '0.5rem'
+                      }}>
+                        Score range: 400-1600
+                      </p>
+                    </div>
+                  )}
+                </>
               )}
 
               <div style={{ marginBottom: '1.25rem' }}>
