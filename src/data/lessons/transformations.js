@@ -8,8 +8,7 @@ export const transformationsLessons = [
     section: "Fundamentals",
     hero: {
       tagline: "MOVE & RESHAPE",
-      subtitle: "How equations change graphs",
-      gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
+      subtitle: "How equations change graphs"
     },
     content: {
       blocks: [
@@ -33,8 +32,7 @@ export const transformationsLessons = [
     section: "Fundamentals",
     hero: {
       tagline: "UP & DOWN",
-      subtitle: "Shifting along the y-axis",
-      gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"
+      subtitle: "Shifting along the y-axis"
     },
     content: {
       blocks: [
@@ -58,8 +56,7 @@ export const transformationsLessons = [
     section: "Fundamentals",
     hero: {
       tagline: "LEFT & RIGHT",
-      subtitle: "The counterintuitive shift",
-      gradient: "linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)"
+      subtitle: "The counterintuitive shift"
     },
     content: {
       blocks: [
@@ -85,8 +82,7 @@ export const transformationsLessons = [
     section: "Fundamentals",
     hero: {
       tagline: "CHEAT SHEET",
-      subtitle: "All the rules in one place",
-      gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+      subtitle: "All the rules in one place"
     },
     content: {
       blocks: [
@@ -104,18 +100,18 @@ export const transformationsLessons = [
     }
   },
   // Section: Transformations from Graph
-  { id: 5, title: "Simple Transformation From Graph Example", type: "video", duration: "8 min", section: "Transformations from Graph", videoId: "Qdjm9OwykZY" },
-  { id: 6, title: "Complex Transformation From Graph Example", type: "video", duration: "10 min", section: "Transformations from Graph", videoId: "OPDUQ7xR3DY" },
+  { id: 5, title: "Simple Transformation From Graph Example", type: "video", duration: "8 min", section: "Transformations from Graph", videoId: "Qdjm9OwykZY", hero: { tagline: "PRACTICE", subtitle: "Reading shifts from graphs" } },
+  { id: 6, title: "Complex Transformation From Graph Example", type: "video", duration: "10 min", section: "Transformations from Graph", videoId: "OPDUQ7xR3DY", hero: { tagline: "ADVANCED", subtitle: "Multi-step graph analysis" } },
   // Section: Transformations from Table
-  { id: 7, title: "Simple Transformation From Table Example #1", type: "video", duration: "8 min", section: "Transformations from Table", videoId: "FykKYINTDbE" },
-  { id: 8, title: "Simple Transformation From Table #1 (DESMOS Method)", type: "video", duration: "6 min", section: "Transformations from Table", videoId: "Zw2WJEwEowU" },
-  { id: 9, title: "Complex Transformation From Table Example", type: "video", duration: "10 min", section: "Transformations from Table", videoId: "MuB5Q2nMEZ4" },
-  { id: 10, title: "Complex Transformation From Table (DESMOS Method)", type: "video", duration: "8 min", section: "Transformations from Table", videoId: "G34X0J7M7qM" },
+  { id: 7, title: "Simple Transformation From Table Example #1", type: "video", duration: "8 min", section: "Transformations from Table", videoId: "FykKYINTDbE", hero: { tagline: "PRACTICE", subtitle: "Finding shifts in data" } },
+  { id: 8, title: "Simple Transformation From Table #1 (DESMOS Method)", type: "video", duration: "6 min", section: "Transformations from Table", videoId: "Zw2WJEwEowU", hero: { tagline: "DESMOS METHOD", subtitle: "Visual verification" } },
+  { id: 9, title: "Complex Transformation From Table Example", type: "video", duration: "10 min", section: "Transformations from Table", videoId: "MuB5Q2nMEZ4", hero: { tagline: "ADVANCED", subtitle: "Challenging table problems" } },
+  { id: 10, title: "Complex Transformation From Table (DESMOS Method)", type: "video", duration: "8 min", section: "Transformations from Table", videoId: "G34X0J7M7qM", hero: { tagline: "DESMOS METHOD", subtitle: "Complex visual approach" } },
   // Section: Transformations from Expression
-  { id: 11, title: "Simple Transformation From Expression Example", type: "video", duration: "8 min", section: "Transformations from Expression", videoId: "butfjZEcHcg" },
-  { id: 12, title: "Complex Transformation From Expression Example #1", type: "video", duration: "10 min", section: "Transformations from Expression", videoId: "Xw5tnurT1Ss" },
-  { id: 13, title: "Complex Transformation From Expression Example #2", type: "video", duration: "10 min", section: "Transformations from Expression", videoId: "lt3QfNmDDPI" },
+  { id: 11, title: "Simple Transformation From Expression Example", type: "video", duration: "8 min", section: "Transformations from Expression", videoId: "butfjZEcHcg", hero: { tagline: "PRACTICE", subtitle: "Algebraic transformations" } },
+  { id: 12, title: "Complex Transformation From Expression Example #1", type: "video", duration: "10 min", section: "Transformations from Expression", videoId: "Xw5tnurT1Ss", hero: { tagline: "ADVANCED", subtitle: "Multi-step expressions" } },
+  { id: 13, title: "Complex Transformation From Expression Example #2", type: "video", duration: "10 min", section: "Transformations from Expression", videoId: "lt3QfNmDDPI", hero: { tagline: "ADVANCED", subtitle: "Challenging scenarios" } },
   // Section: Difficult Transformations
-  { id: 14, title: "Difficult Transformations (System of Equations Method)", type: "video", duration: "12 min", section: "Difficult Transformations", videoId: "CygUy93GH6o" },
-  { id: 15, title: "Difficult Transformations (Answer Choice Method)", type: "video", duration: "10 min", section: "Difficult Transformations", videoId: "6e9Gx_EC8uw" }
+  { id: 14, title: "Difficult Transformations (System of Equations Method)", type: "video", duration: "12 min", section: "Difficult Transformations", videoId: "CygUy93GH6o", hero: { tagline: "EXPERT", subtitle: "System of equations approach" } },
+  { id: 15, title: "Difficult Transformations (Answer Choice Method)", type: "video", duration: "10 min", section: "Difficult Transformations", videoId: "6e9Gx_EC8uw", hero: { tagline: "EXPERT", subtitle: "Strategic elimination" } }
 ];

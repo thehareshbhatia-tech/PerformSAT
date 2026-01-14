@@ -8,8 +8,7 @@ export const trianglesLessons = [
     section: "Triangle Fundamentals",
     hero: {
       tagline: "3 SIDES, 180°",
-      subtitle: "The building block of geometry",
-      gradient: "linear-gradient(135deg, #f5576c 0%, #f093fb 100%)"
+      subtitle: "The building block of geometry"
     },
     content: {
       blocks: [
@@ -34,8 +33,7 @@ export const trianglesLessons = [
     section: "Triangle Fundamentals",
     hero: {
       tagline: "ACUTE • RIGHT • OBTUSE",
-      subtitle: "Classifying by angle size",
-      gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+      subtitle: "Classifying by angle size"
     },
     content: {
       blocks: [
@@ -59,8 +57,7 @@ export const trianglesLessons = [
     section: "Triangle Fundamentals",
     hero: {
       tagline: "CAN IT EXIST?",
-      subtitle: "Testing if three sides form a triangle",
-      gradient: "linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)"
+      subtitle: "Testing if three sides form a triangle"
     },
     content: {
       blocks: [
@@ -74,8 +71,8 @@ export const trianglesLessons = [
     }
   },
   // Section 2: Angles of a Triangle
-  { id: 4, title: "Simple Angles of a Triangle Example", type: "video", duration: "8 min", section: "Angles of a Triangle", videoId: "VYNQZLCTnx8" },
-  { id: 5, title: "Complex Angles of a Triangle Example", type: "video", duration: "10 min", section: "Angles of a Triangle", videoId: "ZkBP4vwYxQ0" },
+  { id: 4, title: "Simple Angles of a Triangle Example", type: "video", duration: "8 min", section: "Angles of a Triangle", videoId: "VYNQZLCTnx8", hero: { tagline: "PRACTICE", subtitle: "Basic angle problems" } },
+  { id: 5, title: "Complex Angles of a Triangle Example", type: "video", duration: "10 min", section: "Angles of a Triangle", videoId: "ZkBP4vwYxQ0", hero: { tagline: "ADVANCED", subtitle: "Multi-step angle problems" } },
   // Section 3: Area of a Triangle
   {
     id: 6,
@@ -85,8 +82,7 @@ export const trianglesLessons = [
     section: "Area of a Triangle",
     hero: {
       tagline: "½ × BASE × HEIGHT",
-      subtitle: "Finding the space inside",
-      gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+      subtitle: "Finding the space inside"
     },
     content: {
       blocks: [
@@ -103,8 +99,8 @@ export const trianglesLessons = [
       ]
     }
   },
-  { id: 7, title: "Simple Area of a Right Triangle Example", type: "video", duration: "8 min", section: "Area of a Triangle", videoId: "yv6gAJqTezs" },
-  { id: 8, title: "Complex Area of a Right Triangle Example", type: "video", duration: "10 min", section: "Area of a Triangle", videoId: "XqQj-8GeyEM" },
+  { id: 7, title: "Simple Area of a Right Triangle Example", type: "video", duration: "8 min", section: "Area of a Triangle", videoId: "yv6gAJqTezs", hero: { tagline: "PRACTICE", subtitle: "Right triangle area" } },
+  { id: 8, title: "Complex Area of a Right Triangle Example", type: "video", duration: "10 min", section: "Area of a Triangle", videoId: "XqQj-8GeyEM", hero: { tagline: "ADVANCED", subtitle: "Challenging area problems" } },
   // Section 4: Similar Triangles
   {
     id: 9,
@@ -114,8 +110,7 @@ export const trianglesLessons = [
     section: "Similar Triangles",
     hero: {
       tagline: "SAME SHAPE, DIFFERENT SIZE",
-      subtitle: "Proportional sides, equal angles",
-      gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"
+      subtitle: "Proportional sides, equal angles"
     },
     content: {
       blocks: [
@@ -139,8 +134,7 @@ export const trianglesLessons = [
     section: "Similar Triangles",
     hero: {
       tagline: "AA SIMILARITY",
-      subtitle: "Two angles are all you need",
-      gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
+      subtitle: "Two angles are all you need"
     },
     content: {
       blocks: [
@@ -154,11 +148,11 @@ export const trianglesLessons = [
       ]
     }
   },
-  { id: 11, title: "Simple Similar Triangles Example #1", type: "video", duration: "8 min", section: "Similar Triangles", videoId: "SllN4xzTNm0" },
-  { id: 12, title: "Simple Similar Triangles Example #2", type: "video", duration: "8 min", section: "Similar Triangles", videoId: "cQ8KEHofTyA" },
-  { id: 13, title: "Simple Similar Triangles Example #3", type: "video", duration: "8 min", section: "Similar Triangles", videoId: "fCleu3BSqEw" },
-  { id: 14, title: "Simple Similar Triangles Example #4", type: "video", duration: "8 min", section: "Similar Triangles", videoId: "PEW__E6DNOU" },
-  { id: 15, title: "Complex Similar Triangles Example", type: "video", duration: "12 min", section: "Similar Triangles", videoId: "9Y71mE9It_4" },
+  { id: 11, title: "Simple Similar Triangles Example #1", type: "video", duration: "8 min", section: "Similar Triangles", videoId: "SllN4xzTNm0", hero: { tagline: "PRACTICE", subtitle: "Basic similarity" } },
+  { id: 12, title: "Simple Similar Triangles Example #2", type: "video", duration: "8 min", section: "Similar Triangles", videoId: "cQ8KEHofTyA", hero: { tagline: "PRACTICE", subtitle: "More examples" } },
+  { id: 13, title: "Simple Similar Triangles Example #3", type: "video", duration: "8 min", section: "Similar Triangles", videoId: "fCleu3BSqEw", hero: { tagline: "PRACTICE", subtitle: "Building fluency" } },
+  { id: 14, title: "Simple Similar Triangles Example #4", type: "video", duration: "8 min", section: "Similar Triangles", videoId: "PEW__E6DNOU", hero: { tagline: "PRACTICE", subtitle: "Additional practice" } },
+  { id: 15, title: "Complex Similar Triangles Example", type: "video", duration: "12 min", section: "Similar Triangles", videoId: "9Y71mE9It_4", hero: { tagline: "ADVANCED", subtitle: "Challenging scenarios" } },
   // Section 5: Right Triangles & Pythagorean Theorem
   {
     id: 16,
@@ -166,6 +160,10 @@ export const trianglesLessons = [
     type: "lesson",
     duration: "4 min",
     section: "Right Triangles & Pythagorean Theorem",
+    hero: {
+      tagline: "THE 90° TRIANGLE",
+      subtitle: "Hypotenuse and legs"
+    },
     content: {
       blocks: [
         { type: "text", content: "A **right triangle** is a triangle with one **90° angle** (a right angle)." },
@@ -186,6 +184,10 @@ export const trianglesLessons = [
     type: "lesson",
     duration: "6 min",
     section: "Right Triangles & Pythagorean Theorem",
+    hero: {
+      tagline: "a² + b² = c²",
+      subtitle: "The most famous formula"
+    },
     content: {
       blocks: [
         { type: "text", content: "The **Pythagorean Theorem** is one of the most important formulas in geometry. It applies **only to right triangles**." },
@@ -204,10 +206,10 @@ export const trianglesLessons = [
       ]
     }
   },
-  { id: 18, title: "Simple Pythagorean Theorem Example #1", type: "video", duration: "8 min", section: "Right Triangles & Pythagorean Theorem", videoId: "DmKXof2wtJM" },
-  { id: 19, title: "Simple Pythagorean Theorem Example #2", type: "video", duration: "8 min", section: "Right Triangles & Pythagorean Theorem", videoId: "xKBeYQAxV4g" },
-  { id: 20, title: "Simple Pythagorean Theorem Example #3", type: "video", duration: "8 min", section: "Right Triangles & Pythagorean Theorem", videoId: "caGJrq00byY" },
-  { id: 21, title: "Complex Pythagorean Theorem Example", type: "video", duration: "12 min", section: "Right Triangles & Pythagorean Theorem", videoId: "k4eFz5IlTOo" },
+  { id: 18, title: "Simple Pythagorean Theorem Example #1", type: "video", duration: "8 min", section: "Right Triangles & Pythagorean Theorem", videoId: "DmKXof2wtJM", hero: { tagline: "PRACTICE", subtitle: "Basic Pythagorean" } },
+  { id: 19, title: "Simple Pythagorean Theorem Example #2", type: "video", duration: "8 min", section: "Right Triangles & Pythagorean Theorem", videoId: "xKBeYQAxV4g", hero: { tagline: "PRACTICE", subtitle: "More examples" } },
+  { id: 20, title: "Simple Pythagorean Theorem Example #3", type: "video", duration: "8 min", section: "Right Triangles & Pythagorean Theorem", videoId: "caGJrq00byY", hero: { tagline: "PRACTICE", subtitle: "Building fluency" } },
+  { id: 21, title: "Complex Pythagorean Theorem Example", type: "video", duration: "12 min", section: "Right Triangles & Pythagorean Theorem", videoId: "k4eFz5IlTOo", hero: { tagline: "ADVANCED", subtitle: "Challenging problems" } },
   // Section 6: Trigonometric Ratios
   {
     id: 22,
@@ -215,11 +217,15 @@ export const trianglesLessons = [
     type: "lesson",
     duration: "7 min",
     section: "Trigonometric Ratios",
+    hero: {
+      tagline: "SOH CAH TOA",
+      subtitle: "Sin, Cos, Tan explained"
+    },
     content: {
       blocks: [
         { type: "text", content: "**Trigonometric ratios** compare the sides of a right triangle relative to a chosen acute angle. They only apply to **right triangles**." },
         { type: "text", content: "First, you must identify the sides relative to your chosen angle θ:" },
-        { type: "sohcahtoa" },
+        { type: "sohcahtoa", notGiven: true },
         { type: "list", items: [
           "**Opposite** — The side across from the angle (doesn't touch it)",
           "**Adjacent** — The side next to the angle (not the hypotenuse)",
@@ -238,12 +244,12 @@ export const trianglesLessons = [
       ]
     }
   },
-  { id: 23, title: "Simple Trigonometric Ratios Example #1", type: "video", duration: "8 min", section: "Trigonometric Ratios", videoId: "V4hSoSCACUA" },
-  { id: 24, title: "Simple Trigonometric Ratios Example #2", type: "video", duration: "8 min", section: "Trigonometric Ratios", videoId: "XO4V-6Nv2VA" },
-  { id: 25, title: "Simple Trigonometric Ratios Example #3", type: "video", duration: "8 min", section: "Trigonometric Ratios", videoId: "1pN3OcxOVk4" },
-  { id: 26, title: "Simple Trigonometric Ratios Example #4", type: "video", duration: "8 min", section: "Trigonometric Ratios", videoId: "HaJettXIUlU" },
-  { id: 27, title: "Simple Trigonometric Ratios Example #5", type: "video", duration: "8 min", section: "Trigonometric Ratios", videoId: "byD4ls13d64" },
-  { id: 28, title: "Complex Trigonometric Ratios Example", type: "video", duration: "12 min", section: "Trigonometric Ratios", videoId: "lTF4dy953gw" },
+  { id: 23, title: "Simple Trigonometric Ratios Example #1", type: "video", duration: "8 min", section: "Trigonometric Ratios", videoId: "V4hSoSCACUA", hero: { tagline: "PRACTICE", subtitle: "Basic trig ratios" } },
+  { id: 24, title: "Simple Trigonometric Ratios Example #2", type: "video", duration: "8 min", section: "Trigonometric Ratios", videoId: "XO4V-6Nv2VA", hero: { tagline: "PRACTICE", subtitle: "More examples" } },
+  { id: 25, title: "Simple Trigonometric Ratios Example #3", type: "video", duration: "8 min", section: "Trigonometric Ratios", videoId: "1pN3OcxOVk4", hero: { tagline: "PRACTICE", subtitle: "Building fluency" } },
+  { id: 26, title: "Simple Trigonometric Ratios Example #4", type: "video", duration: "8 min", section: "Trigonometric Ratios", videoId: "HaJettXIUlU", hero: { tagline: "PRACTICE", subtitle: "Additional practice" } },
+  { id: 27, title: "Simple Trigonometric Ratios Example #5", type: "video", duration: "8 min", section: "Trigonometric Ratios", videoId: "byD4ls13d64", hero: { tagline: "PRACTICE", subtitle: "Final basic examples" } },
+  { id: 28, title: "Complex Trigonometric Ratios Example", type: "video", duration: "12 min", section: "Trigonometric Ratios", videoId: "lTF4dy953gw", hero: { tagline: "ADVANCED", subtitle: "Challenging trig problems" } },
   // Section 7: Special Right Triangles
   {
     id: 29,
@@ -251,6 +257,10 @@ export const trianglesLessons = [
     type: "lesson",
     duration: "5 min",
     section: "Special Right Triangles",
+    hero: {
+      tagline: "x : x : x√2",
+      subtitle: "The isosceles right triangle"
+    },
     content: {
       blocks: [
         { type: "text", content: "A **45-45-90 triangle** is a special right triangle that is also **isosceles** (two equal sides)." },
@@ -266,14 +276,18 @@ export const trianglesLessons = [
       ]
     }
   },
-  { id: 30, title: "Simple 45-45-90 Triangle Example", type: "video", duration: "8 min", section: "Special Right Triangles", videoId: "hEcp1GCByyk" },
-  { id: 31, title: "Complex 45-45-90 Triangle Example", type: "video", duration: "10 min", section: "Special Right Triangles", videoId: "Nqke1YTLr3k" },
+  { id: 30, title: "Simple 45-45-90 Triangle Example", type: "video", duration: "8 min", section: "Special Right Triangles", videoId: "hEcp1GCByyk", hero: { tagline: "PRACTICE", subtitle: "Basic 45-45-90" } },
+  { id: 31, title: "Complex 45-45-90 Triangle Example", type: "video", duration: "10 min", section: "Special Right Triangles", videoId: "Nqke1YTLr3k", hero: { tagline: "ADVANCED", subtitle: "Challenging 45-45-90" } },
   {
     id: 32,
     title: "The 30-60-90 Triangle",
     type: "lesson",
     duration: "6 min",
     section: "Special Right Triangles",
+    hero: {
+      tagline: "x : x√3 : 2x",
+      subtitle: "Half an equilateral triangle"
+    },
     content: {
       blocks: [
         { type: "text", content: "A **30-60-90 triangle** is a special right triangle where the angles are always **30°, 60°, and 90°**." },
@@ -290,7 +304,7 @@ export const trianglesLessons = [
       ]
     }
   },
-  { id: 33, title: "Simple 30-60-90 Triangle Example", type: "video", duration: "8 min", section: "Special Right Triangles", videoId: "_6bZxuQym8g" },
-  { id: 34, title: "Complex 30-60-90 Triangle Example #1", type: "video", duration: "10 min", section: "Special Right Triangles", videoId: "HvJnE1eP6Xs" },
-  { id: 35, title: "Complex 30-60-90 Triangle Example #2", type: "video", duration: "10 min", section: "Special Right Triangles", videoId: "q19izkGElyI" }
+  { id: 33, title: "Simple 30-60-90 Triangle Example", type: "video", duration: "8 min", section: "Special Right Triangles", videoId: "_6bZxuQym8g", hero: { tagline: "PRACTICE", subtitle: "Basic 30-60-90" } },
+  { id: 34, title: "Complex 30-60-90 Triangle Example #1", type: "video", duration: "10 min", section: "Special Right Triangles", videoId: "HvJnE1eP6Xs", hero: { tagline: "ADVANCED", subtitle: "Challenging 30-60-90" } },
+  { id: 35, title: "Complex 30-60-90 Triangle Example #2", type: "video", duration: "10 min", section: "Special Right Triangles", videoId: "q19izkGElyI", hero: { tagline: "ADVANCED", subtitle: "More complex examples" } }
 ];

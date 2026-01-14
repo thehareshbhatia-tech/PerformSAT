@@ -5,6 +5,10 @@ export const equivalentExpressionsLessons = [
     type: "lesson",
     duration: "4 min",
     section: "Equivalent Expressions",
+    hero: {
+      tagline: "ALGEBRA FOUNDATIONS",
+      subtitle: "Same value, different form"
+    },
     content: {
       blocks: [
         { type: "equivalentExpressionsIntro" },
@@ -13,6 +17,6 @@ export const equivalentExpressionsLessons = [
       ]
     }
   },
-  { id: 2, title: "Equivalent Expressions Example #1 (DESMOS Method)", type: "video", duration: "6 min", section: "Equivalent Expressions", videoId: "2if86_b5ljE" },
-  { id: 3, title: "Equivalent Expressions Example #2 (DESMOS Method)", type: "video", duration: "6 min", section: "Equivalent Expressions", videoId: "rJvyuTF9_Uw" }
+  { id: 2, title: "Equivalent Expressions Example #1", type: "video", duration: "6 min", section: "Equivalent Expressions", videoId: "2if86_b5ljE", hero: { tagline: "DESMOS METHOD", subtitle: "Visual verification technique" } },
+  { id: 3, title: "Equivalent Expressions Example #2", type: "video", duration: "6 min", section: "Equivalent Expressions", videoId: "rJvyuTF9_Uw", hero: { tagline: "DESMOS METHOD", subtitle: "More practice problems" } }
 ];

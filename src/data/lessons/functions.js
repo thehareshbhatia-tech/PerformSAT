@@ -8,8 +8,7 @@ export const functionsLessons = [
     section: "Fundamentals",
     hero: {
       tagline: "INPUT → OUTPUT",
-      subtitle: "The machine that transforms numbers",
-      gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+      subtitle: "The machine that transforms numbers"
     },
     content: {
       blocks: [
@@ -32,8 +31,7 @@ export const functionsLessons = [
     section: "Fundamentals",
     hero: {
       tagline: "f(x) DECODED",
-      subtitle: "Understanding the language of functions",
-      gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
+      subtitle: "Understanding the language of functions"
     },
     content: {
       blocks: [
@@ -57,8 +55,7 @@ export const functionsLessons = [
     section: "Fundamentals",
     hero: {
       tagline: "PLUG AND SOLVE",
-      subtitle: "Find the output for any input",
-      gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+      subtitle: "Find the output for any input"
     },
     content: {
       blocks: [
@@ -75,12 +72,12 @@ export const functionsLessons = [
     }
   },
   // Section: Simple Function Problems
-  { id: 4, title: "Simple Function Example #1", type: "video", duration: "8 min", section: "Simple Function Problems", videoId: "4E54Yd1aSPo" },
-  { id: 5, title: "Simple Function Example #2", type: "video", duration: "8 min", section: "Simple Function Problems", videoId: "cMmuvbxZUco" },
-  { id: 6, title: "Simple Function Example #3", type: "video", duration: "8 min", section: "Simple Function Problems", videoId: "fV_idRMO6k8" },
-  { id: 7, title: "Simple Function Example #4 (Word Problem)", type: "video", duration: "10 min", section: "Simple Function Problems", videoId: "VU1ydOSDfTI" },
+  { id: 4, title: "Simple Function Example #1", type: "video", duration: "8 min", section: "Simple Function Problems", videoId: "4E54Yd1aSPo", hero: { tagline: "PRACTICE", subtitle: "Basic function evaluation" } },
+  { id: 5, title: "Simple Function Example #2", type: "video", duration: "8 min", section: "Simple Function Problems", videoId: "cMmuvbxZUco", hero: { tagline: "PRACTICE", subtitle: "More evaluation practice" } },
+  { id: 6, title: "Simple Function Example #3", type: "video", duration: "8 min", section: "Simple Function Problems", videoId: "fV_idRMO6k8", hero: { tagline: "PRACTICE", subtitle: "Building confidence" } },
+  { id: 7, title: "Simple Function Example #4 (Word Problem)", type: "video", duration: "10 min", section: "Simple Function Problems", videoId: "VU1ydOSDfTI", hero: { tagline: "WORD PROBLEM", subtitle: "Functions in context" } },
   // Section: Complex Function Problems
-  { id: 8, title: "Complex Functions Example #1", type: "video", duration: "10 min", section: "Complex Function Problems", videoId: "p7Z2beYwpaI" },
-  { id: 9, title: "Complex Functions Example #2", type: "video", duration: "10 min", section: "Complex Function Problems", videoId: "dUWjb0racis" },
-  { id: 10, title: "Complex Functions Example #3 (Polynomial)", type: "video", duration: "12 min", section: "Complex Function Problems", videoId: "WIKiYCOZnSw" }
+  { id: 8, title: "Complex Functions Example #1", type: "video", duration: "10 min", section: "Complex Function Problems", videoId: "p7Z2beYwpaI", hero: { tagline: "ADVANCED", subtitle: "Multi-step problems" } },
+  { id: 9, title: "Complex Functions Example #2", type: "video", duration: "10 min", section: "Complex Function Problems", videoId: "dUWjb0racis", hero: { tagline: "ADVANCED", subtitle: "Challenging scenarios" } },
+  { id: 10, title: "Complex Functions Example #3 (Polynomial)", type: "video", duration: "12 min", section: "Complex Function Problems", videoId: "WIKiYCOZnSw", hero: { tagline: "POLYNOMIALS", subtitle: "Higher degree functions" } }
 ];

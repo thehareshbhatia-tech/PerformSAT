@@ -9045,43 +9045,6 @@ const PerformSAT = () => {
                 ← {currentModuleInfo?.title}
               </button>
 
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: design.spacing.sm,
-                marginBottom: design.spacing.md
-              }}>
-                <span style={{
-                  fontFamily: design.typography.fontFamily,
-                  fontSize: design.typography.sizes.xs,
-                  fontWeight: design.typography.weights.semibold,
-                  color: currentLesson?.type === 'video' ? design.colors.accent.orange : design.colors.text.tertiary,
-                  textTransform: 'uppercase',
-                  letterSpacing: design.typography.letterSpacing.wide
-                }}>
-                  {currentLesson?.type === 'video' ? 'Video' : 'Lesson'}
-                </span>
-                <span style={{ color: design.colors.surface.grayDark }}>·</span>
-                <span style={{
-                  fontFamily: design.typography.fontFamily,
-                  fontSize: design.typography.sizes.xs,
-                  color: design.colors.text.tertiary
-                }}>
-                  {currentLesson?.duration}
-                </span>
-              </div>
-
-              <h1 style={{
-                fontFamily: design.typography.fontFamily,
-                fontSize: '64px',
-                fontWeight: '800',
-                letterSpacing: '-3px',
-                color: '#0a0a0a',
-                lineHeight: '1.0',
-                marginBottom: '8px'
-              }}>
-                {currentLesson?.title}
-              </h1>
             </div>
 
             {renderLessonContent()}

@@ -8,8 +8,7 @@ export const volumeLessons = [
     section: "Fundamentals",
     hero: {
       tagline: "3D SPACE",
-      subtitle: "Measuring what's inside",
-      gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+      subtitle: "Measuring what's inside"
     },
     content: {
       blocks: [
@@ -27,8 +26,7 @@ export const volumeLessons = [
     section: "Rectangular Prism",
     hero: {
       tagline: "LENGTH × WIDTH × HEIGHT",
-      subtitle: "The classic box formula",
-      gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+      subtitle: "The classic box formula"
     },
     content: {
       blocks: [
@@ -38,8 +36,8 @@ export const volumeLessons = [
       ]
     }
   },
-  { id: 3, title: "Simple Volume of Rectangular Prism", type: "video", duration: "6 min", section: "Rectangular Prism", videoId: "Pr0sgY6eHaA" },
-  { id: 4, title: "Complex Volume of Rectangular Prism", type: "video", duration: "8 min", section: "Rectangular Prism", videoId: "YK1O3QN_puE" },
+  { id: 3, title: "Simple Volume of Rectangular Prism", type: "video", duration: "6 min", section: "Rectangular Prism", videoId: "Pr0sgY6eHaA", hero: { tagline: "PRACTICE", subtitle: "Basic box calculations" } },
+  { id: 4, title: "Complex Volume of Rectangular Prism", type: "video", duration: "8 min", section: "Rectangular Prism", videoId: "YK1O3QN_puE", hero: { tagline: "ADVANCED", subtitle: "Multi-step problems" } },
   // Section: Cube
   {
     id: 5,
@@ -49,8 +47,7 @@ export const volumeLessons = [
     section: "Cube",
     hero: {
       tagline: "s³",
-      subtitle: "All sides equal",
-      gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"
+      subtitle: "All sides equal"
     },
     content: {
       blocks: [
@@ -60,7 +57,7 @@ export const volumeLessons = [
       ]
     }
   },
-  { id: 6, title: "Simple Volume of Cube Example", type: "video", duration: "6 min", section: "Cube", videoId: "3NGFvYlxWsE" },
+  { id: 6, title: "Simple Volume of Cube Example", type: "video", duration: "6 min", section: "Cube", videoId: "3NGFvYlxWsE", hero: { tagline: "PRACTICE", subtitle: "Perfect cube problems" } },
   // Section: Cylinder
   {
     id: 7,
@@ -70,8 +67,7 @@ export const volumeLessons = [
     section: "Cylinder",
     hero: {
       tagline: "πr²h",
-      subtitle: "Circles stacked up",
-      gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
+      subtitle: "Circles stacked up"
     },
     content: {
       blocks: [
@@ -81,8 +77,8 @@ export const volumeLessons = [
       ]
     }
   },
-  { id: 8, title: "Simple Volume of Cylinder Example", type: "video", duration: "6 min", section: "Cylinder", videoId: "K_wAeM8oKSo" },
-  { id: 9, title: "Complex Volume of Cylinder Example", type: "video", duration: "8 min", section: "Cylinder", videoId: "bVOOj1uhCLM" },
+  { id: 8, title: "Simple Volume of Cylinder Example", type: "video", duration: "6 min", section: "Cylinder", videoId: "K_wAeM8oKSo", hero: { tagline: "PRACTICE", subtitle: "Basic cylinder problems" } },
+  { id: 9, title: "Complex Volume of Cylinder Example", type: "video", duration: "8 min", section: "Cylinder", videoId: "bVOOj1uhCLM", hero: { tagline: "ADVANCED", subtitle: "Multi-step cylinder" } },
   // Section: Sphere
   {
     id: 10,
@@ -92,8 +88,7 @@ export const volumeLessons = [
     section: "Sphere",
     hero: {
       tagline: "⁴⁄₃πr³",
-      subtitle: "The perfect 3D shape",
-      gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
+      subtitle: "The perfect 3D shape"
     },
     content: {
       blocks: [
@@ -103,8 +98,8 @@ export const volumeLessons = [
       ]
     }
   },
-  { id: 11, title: "Simple Volume of Sphere Example", type: "video", duration: "6 min", section: "Sphere", videoId: "vgp4iFY6vdU" },
-  { id: 12, title: "Complex Volume of Sphere Example", type: "video", duration: "8 min", section: "Sphere", videoId: "8ix6fP1eQlU" },
+  { id: 11, title: "Simple Volume of Sphere Example", type: "video", duration: "6 min", section: "Sphere", videoId: "vgp4iFY6vdU", hero: { tagline: "PRACTICE", subtitle: "Basic sphere calculations" } },
+  { id: 12, title: "Complex Volume of Sphere Example", type: "video", duration: "8 min", section: "Sphere", videoId: "8ix6fP1eQlU", hero: { tagline: "ADVANCED", subtitle: "Challenging sphere problems" } },
   // Section: Cone
   {
     id: 13,
@@ -114,8 +109,7 @@ export const volumeLessons = [
     section: "Cone",
     hero: {
       tagline: "⅓πr²h",
-      subtitle: "One-third of a cylinder",
-      gradient: "linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)"
+      subtitle: "One-third of a cylinder"
     },
     content: {
       blocks: [
@@ -125,7 +119,7 @@ export const volumeLessons = [
       ]
     }
   },
-  { id: 14, title: "Simple Volume of Cone Example", type: "video", duration: "6 min", section: "Cone", videoId: "e3E58fCpu4E" },
+  { id: 14, title: "Simple Volume of Cone Example", type: "video", duration: "6 min", section: "Cone", videoId: "e3E58fCpu4E", hero: { tagline: "PRACTICE", subtitle: "Basic cone problems" } },
   // Section: Triangular Prism
   {
     id: 15,
@@ -133,6 +127,10 @@ export const volumeLessons = [
     type: "lesson",
     duration: "5 min",
     section: "Triangular Prism",
+    hero: {
+      tagline: "½ × b × h × l",
+      subtitle: "Triangle meets depth"
+    },
     content: {
       blocks: [
         { type: "triangularPrismIntro" },
@@ -141,5 +139,5 @@ export const volumeLessons = [
       ]
     }
   },
-  { id: 16, title: "Simple Volume of Triangular Prism Example", type: "video", duration: "6 min", section: "Triangular Prism", videoId: "Hu_1bndFGFY" }
+  { id: 16, title: "Simple Volume of Triangular Prism Example", type: "video", duration: "6 min", section: "Triangular Prism", videoId: "Hu_1bndFGFY", hero: { tagline: "PRACTICE", subtitle: "Triangular prism basics" } }
 ];

@@ -8,8 +8,7 @@ export const linearEquationsLessons = [
     section: "Fundamentals",
     hero: {
       tagline: "THE FOUNDATION",
-      subtitle: "Everything starts with a straight line",
-      gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+      subtitle: "Everything starts with a straight line"
     },
     content: {
       blocks: [
@@ -29,8 +28,7 @@ export const linearEquationsLessons = [
     section: "Fundamentals",
     hero: {
       tagline: "RISE OVER RUN",
-      subtitle: "How steep is your line?",
-      gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
+      subtitle: "How steep is your line?"
     },
     content: {
       blocks: [
@@ -49,13 +47,12 @@ export const linearEquationsLessons = [
     section: "Fundamentals",
     hero: {
       tagline: "THE SLOPE FORMULA",
-      subtitle: "Two points tell you everything",
-      gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+      subtitle: "Two points tell you everything"
     },
     content: {
       blocks: [
         { type: "text", content: "If you know two points on a line, **(x₁, y₁)** and **(x₂, y₂)**, you can find the **slope** of that line!" },
-        { type: "formula", label: "Slope Formula", prefix: "slope =", fraction: { numerator: "y₂ - y₁", denominator: "x₂ - x₁" }, numeratorColor: "#ea580c", denominatorColor: "#3b82f6" }
+        { type: "formula", label: "Slope Formula", prefix: "slope =", fraction: { numerator: "y₂ - y₁", denominator: "x₂ - x₁" }, numeratorColor: "#ea580c", denominatorColor: "#3b82f6", notGiven: true }
       ]
     }
   },
@@ -67,8 +64,7 @@ export const linearEquationsLessons = [
     section: "Fundamentals",
     hero: {
       tagline: "READ THE PATTERN",
-      subtitle: "Find slope from any data table",
-      gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"
+      subtitle: "Find slope from any data table"
     },
     content: {
       blocks: [
@@ -86,8 +82,7 @@ export const linearEquationsLessons = [
     section: "Fundamentals",
     hero: {
       tagline: "COUNT THE STEPS",
-      subtitle: "Rise and run on any graph",
-      gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
+      subtitle: "Rise and run on any graph"
     },
     content: {
       blocks: [
@@ -105,8 +100,7 @@ export const linearEquationsLessons = [
     section: "Fundamentals",
     hero: {
       tagline: "WHERE IT ALL BEGINS",
-      subtitle: "The starting point of every line",
-      gradient: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)"
+      subtitle: "The starting point of every line"
     },
     content: {
       blocks: [
@@ -118,11 +112,11 @@ export const linearEquationsLessons = [
     }
   },
   // Section: Deriving Equations
-  { id: 7, title: "Deriving Linear Equations From Context", type: "video", duration: "10 min", section: "Deriving Equations", videoId: "p9m2tKpTKzM" },
-  { id: 8, title: "Deriving Linear Equations From Graph (Example 1)", type: "video", duration: "8 min", section: "Deriving Equations", videoId: "nwqjqznGy1w" },
-  { id: 9, title: "Deriving Linear Equations From Graph (Example 2)", type: "video", duration: "8 min", section: "Deriving Equations", videoId: "s0OT5hRgkv8" },
-  { id: 10, title: "Deriving Linear Equations From Table", type: "video", duration: "8 min", section: "Deriving Equations", videoId: "sUwnF6j8ES4" },
-  { id: 11, title: "Deriving Linear Equations From Function Notation", type: "video", duration: "8 min", section: "Deriving Equations", videoId: "4HC-rL8KPAc" },
+  { id: 7, title: "Deriving Linear Equations From Context", type: "video", duration: "10 min", section: "Deriving Equations", videoId: "p9m2tKpTKzM", hero: { tagline: "WORD PROBLEM", subtitle: "From story to equation" } },
+  { id: 8, title: "Deriving Linear Equations From Graph (Example 1)", type: "video", duration: "8 min", section: "Deriving Equations", videoId: "nwqjqznGy1w", hero: { tagline: "PRACTICE", subtitle: "Reading graphs" } },
+  { id: 9, title: "Deriving Linear Equations From Graph (Example 2)", type: "video", duration: "8 min", section: "Deriving Equations", videoId: "s0OT5hRgkv8", hero: { tagline: "PRACTICE", subtitle: "More graph examples" } },
+  { id: 10, title: "Deriving Linear Equations From Table", type: "video", duration: "8 min", section: "Deriving Equations", videoId: "sUwnF6j8ES4", hero: { tagline: "PRACTICE", subtitle: "Table to equation" } },
+  { id: 11, title: "Deriving Linear Equations From Function Notation", type: "video", duration: "8 min", section: "Deriving Equations", videoId: "4HC-rL8KPAc", hero: { tagline: "PRACTICE", subtitle: "Function notation approach" } },
   // Section: Parallel Lines
   {
     id: 12,
@@ -132,8 +126,7 @@ export const linearEquationsLessons = [
     section: "Parallel Lines",
     hero: {
       tagline: "NEVER CROSS",
-      subtitle: "Same slope, different paths",
-      gradient: "linear-gradient(135deg, #5ee7df 0%, #b490ca 100%)"
+      subtitle: "Same slope, different paths"
     },
     content: {
       blocks: [
@@ -146,15 +139,15 @@ export const linearEquationsLessons = [
       ]
     }
   },
-  { id: 13, title: "Simple Parallel Lines Question #1", type: "video", duration: "6 min", section: "Parallel Lines", videoId: "bY6HSCB0hHE" },
-  { id: 14, title: "Simple Parallel Lines Question #2", type: "video", duration: "6 min", section: "Parallel Lines", videoId: "5McgHKQg0M4" },
-  { id: 15, title: "Simple Parallel Lines in a System Question", type: "video", duration: "8 min", section: "Parallel Lines", videoId: "a6Wph54Ks6c" },
-  { id: 16, title: "Complex Parallel Lines in a System Question #1", type: "video", duration: "10 min", section: "Parallel Lines", videoId: "kWAW26BUVak" },
-  { id: 17, title: "Complex Parallel Lines #1 (DESMOS Method)", type: "video", duration: "8 min", section: "Parallel Lines", videoId: "F9GUje7wxVo" },
-  { id: 18, title: "Complex Parallel Lines in a System Question #2", type: "video", duration: "10 min", section: "Parallel Lines", videoId: "ajbuDVZK_w0" },
-  { id: 19, title: "Complex Parallel Lines #2 (DESMOS Method)", type: "video", duration: "8 min", section: "Parallel Lines", videoId: "kpc7cVNdPLc" },
-  { id: 20, title: "Complex Parallel Lines in a System Question #3", type: "video", duration: "10 min", section: "Parallel Lines", videoId: "4qZLRcR2nDc" },
-  { id: 21, title: "Complex Parallel Lines #3 (Answer Choices Method)", type: "video", duration: "8 min", section: "Parallel Lines", videoId: "AypfTD5JHuk" },
+  { id: 13, title: "Simple Parallel Lines Question #1", type: "video", duration: "6 min", section: "Parallel Lines", videoId: "bY6HSCB0hHE", hero: { tagline: "PRACTICE", subtitle: "Basic parallel lines" } },
+  { id: 14, title: "Simple Parallel Lines Question #2", type: "video", duration: "6 min", section: "Parallel Lines", videoId: "5McgHKQg0M4", hero: { tagline: "PRACTICE", subtitle: "More basic examples" } },
+  { id: 15, title: "Simple Parallel Lines in a System Question", type: "video", duration: "8 min", section: "Parallel Lines", videoId: "a6Wph54Ks6c", hero: { tagline: "SYSTEMS", subtitle: "Parallel in systems" } },
+  { id: 16, title: "Complex Parallel Lines in a System Question #1", type: "video", duration: "10 min", section: "Parallel Lines", videoId: "kWAW26BUVak", hero: { tagline: "ADVANCED", subtitle: "Complex system #1" } },
+  { id: 17, title: "Complex Parallel Lines #1 (DESMOS Method)", type: "video", duration: "8 min", section: "Parallel Lines", videoId: "F9GUje7wxVo", hero: { tagline: "DESMOS METHOD", subtitle: "Visual approach #1" } },
+  { id: 18, title: "Complex Parallel Lines in a System Question #2", type: "video", duration: "10 min", section: "Parallel Lines", videoId: "ajbuDVZK_w0", hero: { tagline: "ADVANCED", subtitle: "Complex system #2" } },
+  { id: 19, title: "Complex Parallel Lines #2 (DESMOS Method)", type: "video", duration: "8 min", section: "Parallel Lines", videoId: "kpc7cVNdPLc", hero: { tagline: "DESMOS METHOD", subtitle: "Visual approach #2" } },
+  { id: 20, title: "Complex Parallel Lines in a System Question #3", type: "video", duration: "10 min", section: "Parallel Lines", videoId: "4qZLRcR2nDc", hero: { tagline: "ADVANCED", subtitle: "Complex system #3" } },
+  { id: 21, title: "Complex Parallel Lines #3 (Answer Choices Method)", type: "video", duration: "8 min", section: "Parallel Lines", videoId: "AypfTD5JHuk", hero: { tagline: "STRATEGY", subtitle: "Answer choice elimination" } },
   // Section: Perpendicular Lines
   {
     id: 22,
@@ -164,8 +157,7 @@ export const linearEquationsLessons = [
     section: "Perpendicular Lines",
     hero: {
       tagline: "90° ANGLES",
-      subtitle: "When lines meet at right angles",
-      gradient: "linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)"
+      subtitle: "When lines meet at right angles"
     },
     content: {
       blocks: [
@@ -178,6 +170,6 @@ export const linearEquationsLessons = [
       ]
     }
   },
-  { id: 23, title: "Simple Perpendicular Lines Question", type: "video", duration: "6 min", section: "Perpendicular Lines", videoId: "62BK8zl8FjA" },
-  { id: 24, title: "Complex Perpendicular Lines Question", type: "video", duration: "10 min", section: "Perpendicular Lines", videoId: "Xw5bLjiPKOU" }
+  { id: 23, title: "Simple Perpendicular Lines Question", type: "video", duration: "6 min", section: "Perpendicular Lines", videoId: "62BK8zl8FjA", hero: { tagline: "PRACTICE", subtitle: "Basic perpendicular" } },
+  { id: 24, title: "Complex Perpendicular Lines Question", type: "video", duration: "10 min", section: "Perpendicular Lines", videoId: "Xw5bLjiPKOU", hero: { tagline: "ADVANCED", subtitle: "Challenging perpendicular" } }
 ];
