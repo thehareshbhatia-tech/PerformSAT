@@ -464,33 +464,6 @@ const PerformSAT = () => {
             />
           </div>
 
-          {/* Video timestamp indicator (for debugging - can hide later) */}
-          {videoTranscript && (
-            <div style={{
-              marginTop: '16px',
-              padding: '12px 16px',
-              background: '#f5f5f5',
-              borderRadius: '8px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '12px',
-              fontSize: '13px',
-              color: '#525252'
-            }}>
-              <span style={{
-                background: '#ea580c',
-                color: 'white',
-                padding: '4px 10px',
-                borderRadius: '4px',
-                fontWeight: '600',
-                fontFamily: 'monospace'
-              }}>
-                {Math.floor(videoTimestamp / 60)}:{String(Math.floor(videoTimestamp % 60)).padStart(2, '0')}
-              </span>
-              <span>Transcript loaded - AI Tutor can see what's being discussed</span>
-            </div>
-          )}
-
           {/* Ask Perform Button and Chat - below video */}
           <div style={{ marginTop: '24px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <AiTutorButton
