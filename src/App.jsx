@@ -465,7 +465,7 @@ const PerformSAT = () => {
           </div>
 
           {/* Ask Perform Button and Chat - below video */}
-          <div style={{ marginTop: '24px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div style={{ marginTop: '48px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <AiTutorButton
               onClick={() => setShowAiTutor(!showAiTutor)}
               isOpen={showAiTutor}

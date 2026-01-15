@@ -5,7 +5,6 @@ import { chatWithTutor } from '../services/aiTutorService';
 const renderMarkdown = (text) => {
   if (!text) return null;
 
-  // Split into lines for processing
   const lines = text.split('\n');
   const elements = [];
   let currentList = [];
@@ -14,35 +13,32 @@ const renderMarkdown = (text) => {
   const processMath = (str) => {
     let processed = str;
 
-    // Process exponents with parentheses containing fractions: ^(7/3) - keep fraction as text in superscript
+    // Process exponents with parentheses containing fractions
     processed = processed.replace(/\^[\(\{]([^\)\}]+)[\)\}]/g, '<sup style="font-size:0.75em;vertical-align:super;">$1</sup>');
 
-    // Process simple exponents: ^2, ^7, ^n (single character or number)
+    // Process simple exponents
     processed = processed.replace(/\^(\d+)/g, (match, num) => {
       const superscripts = { '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹' };
       return num.split('').map(d => superscripts[d] || d).join('');
     });
     processed = processed.replace(/\^([a-zA-Z])/g, '<sup style="font-size:0.75em;vertical-align:super;">$1</sup>');
 
-    // Process subscripts with parentheses: _(n+1), etc.
+    // Process subscripts
     processed = processed.replace(/_[\(\{]([^\)\}]+)[\)\}]/g, '<sub style="font-size:0.75em;vertical-align:sub;">$1</sub>');
-
-    // Process simple subscripts: _1, _2, _n
     processed = processed.replace(/_(\d+)/g, (match, num) => {
       const subscripts = { '0': '₀', '1': '₁', '2': '₂', '3': '₃', '4': '₄', '5': '₅', '6': '₆', '7': '₇', '8': '₈', '9': '₉' };
       return num.split('').map(d => subscripts[d] || d).join('');
     });
 
-    // Process square root: sqrt(x) → √(x)
+    // Process square root
     processed = processed.replace(/sqrt\(([^)]+)\)/gi, '√($1)');
 
-    // Process standalone fractions: 7/3, 1/2, etc. (not inside sup tags already)
-    // Only match fractions that are standalone (surrounded by spaces or at word boundaries)
+    // Process standalone fractions
     processed = processed.replace(/(?<!<sup[^>]*>.*?)(?<![a-zA-Z\d])(\d+)\/(\d+)(?![a-zA-Z\d])/g,
       '<span style="display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 2px;line-height:1;"><span style="border-bottom:1px solid currentColor;padding:0 3px;font-size:0.85em;">$1</span><span style="padding:0 3px;font-size:0.85em;">$2</span></span>');
 
-    // Convert common math symbols
-    processed = processed.replace(/(\d)\s*\*\s*(\d)/g, '$1 × $2'); // 3 * 4 → 3 × 4
+    // Convert math symbols
+    processed = processed.replace(/(\d)\s*\*\s*(\d)/g, '$1 × $2');
     processed = processed.replace(/<=/g, '≤');
     processed = processed.replace(/>=/g, '≥');
     processed = processed.replace(/!=/g, '≠');
@@ -54,14 +50,10 @@ const renderMarkdown = (text) => {
   };
 
   const processInlineMarkdown = (line) => {
-    // Process bold (**text** or __text__) - do this BEFORE math processing
     let processed = line.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
     processed = processed.replace(/__(.+?)__/g, '<strong>$1</strong>');
-    // Process italic (*text*) - single asterisks, but not math multiplication
     processed = processed.replace(/(?<![a-zA-Z0-9])\*([^*\s][^*]*[^*\s])\*(?![a-zA-Z0-9])/g, '<em>$1</em>');
-    // Process inline code
-    processed = processed.replace(/`([^`]+?)`/g, '<code style="background:#f3f4f6;padding:2px 6px;border-radius:4px;font-size:13px;font-family:monospace;">$1</code>');
-    // Process math (exponents, subscripts, symbols)
+    processed = processed.replace(/`([^`]+?)`/g, '<code style="background:rgba(0,0,0,0.04);padding:2px 6px;border-radius:4px;font-size:0.9em;font-family:\'SF Mono\',Menlo,monospace;">$1</code>');
     processed = processMath(processed);
     return processed;
   };
@@ -70,9 +62,9 @@ const renderMarkdown = (text) => {
     if (currentList.length > 0) {
       const Tag = listType === 'ol' ? 'ol' : 'ul';
       elements.push(
-        <Tag key={`list-${elements.length}`} style={{ margin: '8px 0', paddingLeft: '20px' }}>
+        <Tag key={`list-${elements.length}`} style={{ margin: '12px 0', paddingLeft: '24px', lineHeight: '1.7' }}>
           {currentList.map((item, i) => (
-            <li key={i} style={{ marginBottom: '4px' }} dangerouslySetInnerHTML={{ __html: processInlineMarkdown(item) }} />
+            <li key={i} style={{ marginBottom: '6px' }} dangerouslySetInnerHTML={{ __html: processInlineMarkdown(item) }} />
           ))}
         </Tag>
       );
@@ -82,7 +74,6 @@ const renderMarkdown = (text) => {
   };
 
   lines.forEach((line, idx) => {
-    // Check for numbered list (1. item)
     const numberedMatch = line.match(/^(\d+)\.\s+(.+)$/);
     if (numberedMatch) {
       if (listType !== 'ol') flushList();
@@ -91,7 +82,6 @@ const renderMarkdown = (text) => {
       return;
     }
 
-    // Check for bullet list (- item or * item)
     const bulletMatch = line.match(/^[-*]\s+(.+)$/);
     if (bulletMatch) {
       if (listType !== 'ul') flushList();
@@ -100,30 +90,28 @@ const renderMarkdown = (text) => {
       return;
     }
 
-    // Not a list item, flush any pending list
     flushList();
 
-    // Empty line
     if (line.trim() === '') {
-      elements.push(<div key={`br-${idx}`} style={{ height: '8px' }} />);
+      elements.push(<div key={`br-${idx}`} style={{ height: '12px' }} />);
       return;
     }
 
-    // Check for headers (# to ####)
     const headerMatch = line.match(/^(#{1,4})\s+(.+)$/);
     if (headerMatch) {
       const level = headerMatch[1].length;
       const text = headerMatch[2];
-      const sizes = { 1: '1.5em', 2: '1.3em', 3: '1.1em', 4: '1em' };
-      const weights = { 1: '700', 2: '700', 3: '600', 4: '600' };
+      const sizes = { 1: '1.25em', 2: '1.15em', 3: '1.05em', 4: '1em' };
+      const weights = { 1: '600', 2: '600', 3: '600', 4: '600' };
       elements.push(
         <div
           key={idx}
           style={{
             fontSize: sizes[level],
             fontWeight: weights[level],
-            margin: level <= 2 ? '16px 0 8px 0' : '12px 0 6px 0',
-            color: '#0a0a0a'
+            margin: '20px 0 10px 0',
+            color: '#1d1d1f',
+            letterSpacing: '-0.01em'
           }}
           dangerouslySetInnerHTML={{ __html: processInlineMarkdown(text) }}
         />
@@ -131,48 +119,52 @@ const renderMarkdown = (text) => {
       return;
     }
 
-    // Check for horizontal rule (---)
     if (line.match(/^-{3,}$/)) {
       elements.push(
-        <hr key={idx} style={{ border: 'none', borderTop: '1px solid #e5e5e5', margin: '12px 0' }} />
+        <hr key={idx} style={{ border: 'none', borderTop: '1px solid rgba(0,0,0,0.08)', margin: '16px 0' }} />
       );
       return;
     }
 
-    // Regular paragraph
     elements.push(
-      <p key={idx} style={{ margin: '0 0 8px 0' }} dangerouslySetInnerHTML={{ __html: processInlineMarkdown(line) }} />
+      <p key={idx} style={{ margin: '0 0 10px 0', lineHeight: '1.65' }} dangerouslySetInnerHTML={{ __html: processInlineMarkdown(line) }} />
     );
   });
 
-  // Flush any remaining list
   flushList();
 
   return <>{elements}</>;
 };
 
-// Premium design tokens (matching App.jsx)
+// Apple-inspired design system
 const design = {
   colors: {
     text: {
-      primary: '#0a0a0a',
-      secondary: '#525252',
-      muted: '#a3a3a3',
+      primary: '#1d1d1f',
+      secondary: '#6e6e73',
+      tertiary: '#86868b',
     },
     accent: {
+      primary: '#0071e3',
       orange: '#ea580c',
-      orangeHover: '#c2410c',
-      orangeLight: '#fff7ed',
     },
     surface: {
-      white: '#ffffff',
-      offWhite: '#fafafa',
-      gray: '#f5f5f5',
-      dark: '#171717',
+      primary: '#ffffff',
+      secondary: '#f5f5f7',
+      tertiary: '#fbfbfd',
+    },
+    border: {
+      light: 'rgba(0,0,0,0.06)',
+      medium: 'rgba(0,0,0,0.1)',
     }
   },
   typography: {
-    fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif',
+    fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif',
+  },
+  shadow: {
+    small: '0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06)',
+    medium: '0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04)',
+    large: '0 8px 28px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.04)',
   }
 };
 
@@ -184,12 +176,10 @@ const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideo
   const inputRef = useRef(null);
   const chatContainerRef = useRef(null);
 
-  // Scroll to bottom when messages change
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  // Focus input and scroll chat into view when panel opens
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => {
@@ -209,7 +199,6 @@ const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideo
     setIsLoading(true);
 
     try {
-      // Build video context if available
       const videoContext = isVideoLesson && videoTranscript ? {
         transcript: videoTranscript,
         currentTime: videoTimestamp
@@ -219,7 +208,7 @@ const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideo
         newMessages,
         moduleId,
         lessonId,
-        null, // API key no longer needed - handled by Cloud Function
+        null,
         videoContext
       );
       setMessages([...newMessages, { role: 'assistant', content: response }]);
@@ -228,7 +217,7 @@ const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideo
         ...newMessages,
         {
           role: 'assistant',
-          content: `Sorry, I encountered an error: ${error.message}. Please try again.`
+          content: `I encountered an issue. Please try again.`
         }
       ]);
     } finally {
@@ -249,112 +238,141 @@ const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideo
     <div
       ref={chatContainerRef}
       style={{
-        marginTop: '24px',
-        borderRadius: '16px',
-        border: '1px solid #e5e7eb',
-        background: design.colors.surface.white,
-        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
+        marginTop: '20px',
+        borderRadius: '20px',
+        background: design.colors.surface.primary,
+        boxShadow: design.shadow.large,
         overflow: 'hidden',
         fontFamily: design.typography.fontFamily,
-        animation: 'slideDown 0.3s ease-out'
+        animation: 'chatSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+        border: `1px solid ${design.colors.border.light}`,
       }}
     >
       {/* Header */}
       <div
         style={{
-          padding: '16px 20px',
-          borderBottom: '1px solid #e5e7eb',
-          background: design.colors.surface.dark,
+          padding: '18px 24px',
+          background: design.colors.surface.primary,
+          borderBottom: `1px solid ${design.colors.border.light}`,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between'
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
           <span style={{
-            fontSize: '16px',
+            fontSize: '17px',
             fontWeight: '600',
-            color: design.colors.surface.white
+            color: design.colors.text.primary,
+            letterSpacing: '-0.02em'
           }}>
-            Ask Perform
+            Perform
           </span>
           {isVideoLesson && videoTranscript && (
             <span style={{
-              background: 'rgba(234, 88, 12, 0.3)',
-              color: '#f97316',
-              padding: '4px 10px',
-              borderRadius: '12px',
+              background: 'rgba(52, 199, 89, 0.12)',
+              color: '#248a3d',
+              padding: '5px 12px',
+              borderRadius: '100px',
               fontSize: '12px',
-              fontWeight: '500'
+              fontWeight: '500',
+              letterSpacing: '0.01em'
             }}>
-              Video synced
+              Watching with you
             </span>
           )}
         </div>
         <button
           onClick={onClose}
           style={{
-            background: 'rgba(255, 255, 255, 0.1)',
+            background: design.colors.surface.secondary,
             border: 'none',
-            width: '32px',
-            height: '32px',
-            borderRadius: '8px',
+            width: '30px',
+            height: '30px',
+            borderRadius: '50%',
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: design.colors.surface.white,
-            fontSize: '18px',
-            transition: 'background 0.2s'
+            color: design.colors.text.secondary,
+            fontSize: '16px',
+            transition: 'all 0.2s ease',
           }}
-          onMouseOver={(e) => e.target.style.background = 'rgba(255, 255, 255, 0.2)'}
-          onMouseOut={(e) => e.target.style.background = 'rgba(255, 255, 255, 0.1)'}
+          onMouseOver={(e) => {
+            e.currentTarget.style.background = design.colors.border.medium;
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.background = design.colors.surface.secondary;
+          }}
         >
-          ×
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M1 1L11 11M1 11L11 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+          </svg>
         </button>
       </div>
 
       {/* Messages Area */}
       <div
         style={{
-          height: '320px',
+          height: '380px',
           overflowY: 'auto',
-          padding: '20px',
-          background: design.colors.surface.offWhite
+          padding: '24px',
+          background: design.colors.surface.tertiary,
         }}
       >
         {messages.length === 0 ? (
-          <div style={{ textAlign: 'center', padding: '20px 10px' }}>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '100%',
+            padding: '20px'
+          }}>
             <div style={{
-              fontSize: '15px',
-              fontWeight: '500',
+              fontSize: '32px',
+              marginBottom: '16px',
+              opacity: 0.15
+            }}>
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
+            <div style={{
+              fontSize: '17px',
+              fontWeight: '600',
               color: design.colors.text.primary,
-              marginBottom: '8px'
+              marginBottom: '6px',
+              letterSpacing: '-0.02em'
             }}>
               {isVideoLesson && videoTranscript
-                ? "I'm watching the video with you!"
+                ? "Ask about any step"
                 : "How can I help?"
               }
             </div>
             <div style={{
               fontSize: '14px',
-              color: design.colors.text.secondary,
-              marginBottom: '20px'
+              color: design.colors.text.tertiary,
+              marginBottom: '28px',
+              textAlign: 'center',
+              maxWidth: '280px',
+              lineHeight: '1.5'
             }}>
               {isVideoLesson && videoTranscript
-                ? "Ask about any step and I'll explain it."
+                ? "I can see what's happening in the video and explain it."
                 : "Ask me anything about this lesson."
               }
             </div>
             <div style={{
               display: 'flex',
               flexWrap: 'wrap',
-              gap: '8px',
-              justifyContent: 'center'
+              gap: '10px',
+              justifyContent: 'center',
+              maxWidth: '340px'
             }}>
               {(isVideoLesson ? [
-                "Why did he do that?",
                 "Explain this step",
+                "Why did he do that?",
                 "What formula is this?"
               ] : [
                 "Why this formula?",
@@ -365,22 +383,24 @@ const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideo
                   key={i}
                   onClick={() => setInput(suggestion)}
                   style={{
-                    padding: '8px 14px',
-                    background: design.colors.surface.white,
-                    border: '1px solid #e5e7eb',
-                    borderRadius: '20px',
-                    fontSize: '13px',
+                    padding: '10px 18px',
+                    background: design.colors.surface.primary,
+                    border: `1px solid ${design.colors.border.medium}`,
+                    borderRadius: '100px',
+                    fontSize: '14px',
+                    fontWeight: '500',
                     color: design.colors.text.secondary,
                     cursor: 'pointer',
-                    transition: 'all 0.2s'
+                    transition: 'all 0.2s ease',
+                    fontFamily: design.typography.fontFamily,
                   }}
                   onMouseOver={(e) => {
-                    e.target.style.borderColor = design.colors.accent.orange;
-                    e.target.style.color = design.colors.accent.orange;
+                    e.currentTarget.style.background = design.colors.surface.secondary;
+                    e.currentTarget.style.borderColor = design.colors.border.medium;
                   }}
                   onMouseOut={(e) => {
-                    e.target.style.borderColor = '#e5e7eb';
-                    e.target.style.color = design.colors.text.secondary;
+                    e.currentTarget.style.background = design.colors.surface.primary;
+                    e.currentTarget.style.borderColor = design.colors.border.medium;
                   }}
                 >
                   {suggestion}
@@ -394,23 +414,26 @@ const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideo
               <div
                 key={idx}
                 style={{
-                  marginBottom: '12px',
+                  marginBottom: '16px',
                   display: 'flex',
                   justifyContent: msg.role === 'user' ? 'flex-end' : 'flex-start'
                 }}
               >
                 <div
                   style={{
-                    maxWidth: '85%',
-                    padding: '12px 16px',
-                    borderRadius: msg.role === 'user' ? '16px 16px 4px 16px' : '16px 16px 16px 4px',
+                    maxWidth: '88%',
+                    padding: msg.role === 'user' ? '12px 18px' : '16px 20px',
+                    borderRadius: msg.role === 'user' ? '20px 20px 6px 20px' : '20px 20px 20px 6px',
                     background: msg.role === 'user'
-                      ? 'linear-gradient(135deg, #ea580c, #f97316)'
-                      : design.colors.surface.white,
+                      ? design.colors.accent.orange
+                      : design.colors.surface.primary,
                     color: msg.role === 'user' ? 'white' : design.colors.text.primary,
-                    fontSize: '14px',
+                    fontSize: '15px',
                     lineHeight: '1.6',
-                    boxShadow: '0 1px 4px rgba(0, 0, 0, 0.06)'
+                    boxShadow: msg.role === 'user'
+                      ? 'none'
+                      : design.shadow.small,
+                    letterSpacing: '-0.01em',
                   }}
                 >
                   {msg.role === 'assistant' ? renderMarkdown(msg.content) : msg.content}
@@ -418,26 +441,25 @@ const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideo
               </div>
             ))}
             {isLoading && (
-              <div style={{ display: 'flex', justifyContent: 'flex-start', marginBottom: '12px' }}>
+              <div style={{ display: 'flex', justifyContent: 'flex-start', marginBottom: '16px' }}>
                 <div
                   style={{
-                    padding: '12px 16px',
-                    borderRadius: '16px 16px 16px 4px',
-                    background: design.colors.surface.white,
-                    boxShadow: '0 1px 4px rgba(0, 0, 0, 0.06)'
+                    padding: '16px 20px',
+                    borderRadius: '20px 20px 20px 6px',
+                    background: design.colors.surface.primary,
+                    boxShadow: design.shadow.small,
                   }}
                 >
-                  <div style={{ display: 'flex', gap: '5px' }}>
+                  <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
                     {[0, 1, 2].map(i => (
                       <div
                         key={i}
                         style={{
-                          width: '7px',
-                          height: '7px',
+                          width: '8px',
+                          height: '8px',
                           borderRadius: '50%',
-                          background: design.colors.accent.orange,
-                          opacity: 0.6,
-                          animation: `pulse 1.4s ease-in-out ${i * 0.2}s infinite`
+                          background: design.colors.text.tertiary,
+                          animation: `typingPulse 1.4s ease-in-out ${i * 0.15}s infinite`
                         }}
                       />
                     ))}
@@ -453,56 +475,80 @@ const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideo
       {/* Input Area */}
       <div
         style={{
-          padding: '14px 16px',
-          borderTop: '1px solid #e5e7eb',
-          background: design.colors.surface.white
+          padding: '16px 20px',
+          background: design.colors.surface.primary,
+          borderTop: `1px solid ${design.colors.border.light}`,
         }}
       >
         <div style={{
           display: 'flex',
-          gap: '10px',
+          gap: '12px',
           alignItems: 'flex-end'
         }}>
-          <textarea
-            ref={inputRef}
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyPress={handleKeyPress}
-            placeholder="Ask a question..."
-            rows={1}
-            style={{
-              flex: 1,
-              padding: '12px 16px',
-              borderRadius: '12px',
-              border: '1px solid #e5e7eb',
-              fontSize: '14px',
-              fontFamily: design.typography.fontFamily,
-              resize: 'none',
-              outline: 'none',
-              maxHeight: '100px',
-              lineHeight: '1.5',
-              transition: 'border-color 0.2s'
-            }}
-            onFocus={(e) => e.target.style.borderColor = design.colors.accent.orange}
-            onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
-          />
+          <div style={{
+            flex: 1,
+            position: 'relative',
+          }}>
+            <textarea
+              ref={inputRef}
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyPress={handleKeyPress}
+              placeholder="Message..."
+              rows={1}
+              style={{
+                width: '100%',
+                padding: '14px 18px',
+                borderRadius: '24px',
+                border: `1px solid ${design.colors.border.medium}`,
+                fontSize: '15px',
+                fontFamily: design.typography.fontFamily,
+                resize: 'none',
+                outline: 'none',
+                maxHeight: '120px',
+                lineHeight: '1.5',
+                transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                background: design.colors.surface.secondary,
+                color: design.colors.text.primary,
+                boxSizing: 'border-box',
+              }}
+              onFocus={(e) => {
+                e.target.style.borderColor = design.colors.accent.orange;
+                e.target.style.boxShadow = `0 0 0 3px rgba(234, 88, 12, 0.1)`;
+                e.target.style.background = design.colors.surface.primary;
+              }}
+              onBlur={(e) => {
+                e.target.style.borderColor = design.colors.border.medium;
+                e.target.style.boxShadow = 'none';
+                e.target.style.background = design.colors.surface.secondary;
+              }}
+            />
+          </div>
           <button
             onClick={handleSend}
             disabled={!input.trim() || isLoading}
             style={{
-              width: '42px',
-              height: '42px',
+              width: '44px',
+              height: '44px',
               borderRadius: '50%',
               border: 'none',
               background: input.trim() && !isLoading
-                ? 'linear-gradient(135deg, #ea580c, #f97316)'
-                : '#e5e7eb',
+                ? design.colors.accent.orange
+                : design.colors.surface.secondary,
               cursor: input.trim() && !isLoading ? 'pointer' : 'default',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              transition: 'all 0.2s',
-              flexShrink: 0
+              transition: 'all 0.2s ease',
+              flexShrink: 0,
+            }}
+            onMouseOver={(e) => {
+              if (input.trim() && !isLoading) {
+                e.currentTarget.style.transform = 'scale(1.05)';
+              }
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.transform = 'scale(1)';
             }}
           >
             <svg
@@ -510,73 +556,87 @@ const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideo
               height="18"
               viewBox="0 0 24 24"
               fill="none"
-              stroke={input.trim() && !isLoading ? 'white' : '#9ca3af'}
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              style={{
+                transform: 'rotate(-45deg)',
+                marginLeft: '2px',
+              }}
             >
-              <line x1="22" y1="2" x2="11" y2="13" />
-              <polygon points="22 2 15 22 11 13 2 9 22 2" />
+              <path
+                d="M22 2L11 13"
+                stroke={input.trim() && !isLoading ? 'white' : design.colors.text.tertiary}
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M22 2L15 22L11 13L2 9L22 2Z"
+                stroke={input.trim() && !isLoading ? 'white' : design.colors.text.tertiary}
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </button>
         </div>
       </div>
 
-      {/* CSS Animations */}
       <style>{`
-        @keyframes pulse {
-          0%, 100% { transform: scale(1); opacity: 0.6; }
-          50% { transform: scale(1.2); opacity: 1; }
+        @keyframes typingPulse {
+          0%, 100% { opacity: 0.4; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.1); }
         }
-        @keyframes slideDown {
-          from { opacity: 0; transform: translateY(-10px); }
-          to { opacity: 1; transform: translateY(0); }
+        @keyframes chatSlideIn {
+          from { opacity: 0; transform: translateY(-8px) scale(0.98); }
+          to { opacity: 1; transform: translateY(0) scale(1); }
         }
       `}</style>
     </div>
   );
 };
 
-// Ask Perform Button Component
+// Ask Perform Button Component - Apple-inspired
 export const AiTutorButton = ({ onClick, isOpen }) => {
   return (
     <button
       onClick={onClick}
       style={{
-        height: '48px',
-        borderRadius: '24px',
+        height: '52px',
+        borderRadius: '26px',
         background: isOpen
-          ? design.colors.surface.dark
-          : 'linear-gradient(135deg, #ea580c, #f97316)',
+          ? design.colors.text.primary
+          : design.colors.accent.orange,
         border: 'none',
         boxShadow: isOpen
-          ? '0 4px 12px rgba(0, 0, 0, 0.15)'
-          : '0 8px 24px rgba(234, 88, 12, 0.4)',
+          ? design.shadow.medium
+          : '0 4px 14px rgba(234, 88, 12, 0.35)',
         cursor: 'pointer',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '0 28px',
-        transition: 'all 0.2s ease',
-        fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif'
+        padding: '0 32px',
+        transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
+        fontFamily: design.typography.fontFamily,
       }}
       onMouseOver={(e) => {
         if (!isOpen) {
-          e.currentTarget.style.transform = 'scale(1.05)';
-          e.currentTarget.style.boxShadow = '0 12px 28px rgba(234, 88, 12, 0.5)';
+          e.currentTarget.style.transform = 'scale(1.03)';
+          e.currentTarget.style.boxShadow = '0 6px 20px rgba(234, 88, 12, 0.45)';
+        } else {
+          e.currentTarget.style.transform = 'scale(1.02)';
         }
       }}
       onMouseOut={(e) => {
         e.currentTarget.style.transform = 'scale(1)';
         e.currentTarget.style.boxShadow = isOpen
-          ? '0 4px 12px rgba(0, 0, 0, 0.15)'
-          : '0 8px 24px rgba(234, 88, 12, 0.4)';
+          ? design.shadow.medium
+          : '0 4px 14px rgba(234, 88, 12, 0.35)';
       }}
     >
       <span style={{
         color: 'white',
         fontWeight: '600',
-        fontSize: '15px',
+        fontSize: '16px',
+        letterSpacing: '-0.02em',
         whiteSpace: 'nowrap'
       }}>
         {isOpen ? 'Close' : 'Ask Perform'}
