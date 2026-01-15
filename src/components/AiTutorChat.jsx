@@ -109,6 +109,36 @@ const renderMarkdown = (text) => {
       return;
     }
 
+    // Check for headers (# to ####)
+    const headerMatch = line.match(/^(#{1,4})\s+(.+)$/);
+    if (headerMatch) {
+      const level = headerMatch[1].length;
+      const text = headerMatch[2];
+      const sizes = { 1: '1.5em', 2: '1.3em', 3: '1.1em', 4: '1em' };
+      const weights = { 1: '700', 2: '700', 3: '600', 4: '600' };
+      elements.push(
+        <div
+          key={idx}
+          style={{
+            fontSize: sizes[level],
+            fontWeight: weights[level],
+            margin: level <= 2 ? '16px 0 8px 0' : '12px 0 6px 0',
+            color: '#0a0a0a'
+          }}
+          dangerouslySetInnerHTML={{ __html: processInlineMarkdown(text) }}
+        />
+      );
+      return;
+    }
+
+    // Check for horizontal rule (---)
+    if (line.match(/^-{3,}$/)) {
+      elements.push(
+        <hr key={idx} style={{ border: 'none', borderTop: '1px solid #e5e5e5', margin: '12px 0' }} />
+      );
+      return;
+    }
+
     // Regular paragraph
     elements.push(
       <p key={idx} style={{ margin: '0 0 8px 0' }} dangerouslySetInnerHTML={{ __html: processInlineMarkdown(line) }} />

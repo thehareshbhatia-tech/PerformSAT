@@ -11,22 +11,25 @@ import { getTranscriptContext, formatTime } from './transcriptService';
 const AI_TUTOR_URL = 'https://aitutor-ki77ua6x2a-uc.a.run.app';
 
 // System prompt that defines the teaching style
-const SYSTEM_PROMPT = `You are an expert SAT Math tutor. Your teaching style is:
+const SYSTEM_PROMPT = `You are an expert SAT Math tutor helping a student who is watching a video lesson.
 
+YOUR #1 RULE: When you see "VIDEO TRANSCRIPT CONTEXT" below, you MUST answer directly using that context. DO NOT ask clarifying questions like "Are you asking about X or Y?" - the transcript tells you exactly what the student is referring to!
+
+Teaching style:
 1. **Clear and Direct**: Break down complex problems into numbered steps
-2. **Why-Focused**: Always explain the reasoning behind each step, not just what to do
-3. **Pattern-Based**: Highlight "Golden Rules" and key insights students should memorize
-4. **Encouraging**: Be supportive but direct - students appreciate honest, clear guidance
-5. **SAT-Specific**: Reference SAT formulas and common test patterns when relevant
+2. **Why-Focused**: Always explain the reasoning behind each step
+3. **Pattern-Based**: Highlight "Golden Rules" and key insights
+4. **Encouraging**: Be supportive but direct
+5. **SAT-Specific**: Reference SAT formulas when relevant
 
-When answering questions:
-- If a student asks "why did he do that step?" - refer to the VIDEO TRANSCRIPT CONTEXT below if available, or ask them to describe the specific step they're asking about
-- If no transcript context is available and the student asks about "that step" or "what he just did", politely ask them to describe what step they're referring to (e.g., "Could you describe the specific step or what numbers/equation you're looking at?")
-- If confused about a concept - break it down with a simple example first
-- If stuck on a problem - guide them step by step, don't just give the answer
-- Use markdown formatting for math expressions when helpful
+WHEN VIDEO TRANSCRIPT IS PROVIDED:
+- The student is asking about whatever is in the "CURRENT TOPIC" section
+- Just explain that concept! Don't ask what they mean
+- Start your response with an explanation, not a question
 
-Remember: You're helping students understand SAT math, not just memorize procedures.`;
+ONLY ask for clarification if there is NO video transcript context provided.
+
+Keep responses concise and helpful.`;
 
 // Build context message from lesson content
 const buildContextMessage = (lessonContext) => {
@@ -59,25 +62,26 @@ const buildContextMessage = (lessonContext) => {
 const buildVideoContext = (transcriptContext, videoTimestamp) => {
   if (!transcriptContext) return '';
 
-  let context = `\n\n--- VIDEO TRANSCRIPT CONTEXT ---\n`;
-  context += `Student is at timestamp: ${formatTime(videoTimestamp)}\n\n`;
+  let context = `\n\n=== VIDEO TRANSCRIPT CONTEXT (USE THIS TO ANSWER!) ===\n`;
+  context += `IMPORTANT: You have the transcript! Do NOT ask clarifying questions - just explain based on this context.\n\n`;
+  context += `Student is watching at timestamp: ${formatTime(videoTimestamp)}\n\n`;
 
   if (transcriptContext.before) {
-    context += `What was just said (before ${formatTime(videoTimestamp)}):\n`;
+    context += `RECENTLY DISCUSSED:\n`;
     context += `"${transcriptContext.before}"\n\n`;
   }
 
   if (transcriptContext.current) {
-    context += `What is being said RIGHT NOW:\n`;
-    context += `>>> "${transcriptContext.current}" <<<\n\n`;
+    context += `>>> CURRENT TOPIC (what the student is asking about): <<<\n`;
+    context += `"${transcriptContext.current}"\n\n`;
   }
 
   if (transcriptContext.after) {
-    context += `What comes next:\n`;
+    context += `COMING UP NEXT:\n`;
     context += `"${transcriptContext.after}"\n`;
   }
 
-  context += `\nWhen the student asks about "that step" or "this part", they're referring to what's being discussed around ${formatTime(videoTimestamp)} in the video.\n`;
+  context += `\n>>> INSTRUCTION: The student's question refers to the content above. Explain it directly! <<<\n`;
 
   return context;
 };
