@@ -1,11 +1,81 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { chatWithTutor } from '../services/aiTutorService';
 
-// Simple markdown renderer for chat messages with math support
+// Comprehensive markdown renderer for chat messages with full math/LaTeX support
 const renderMarkdown = (text) => {
   if (!text) return null;
 
-  const lines = text.split('\n');
+  let cleanedText = text;
+
+  // === LATEX CLEANUP - ORDER MATTERS! ===
+
+  // First, handle \text{} commands - extract the text content
+  cleanedText = cleanedText.replace(/\\text\{([^}]+)\}/g, '$1');
+  cleanedText = cleanedText.replace(/\\textbf\{([^}]+)\}/g, '**$1**');
+  cleanedText = cleanedText.replace(/\\textit\{([^}]+)\}/g, '*$1*');
+  cleanedText = cleanedText.replace(/\\mathrm\{([^}]+)\}/g, '$1');
+  cleanedText = cleanedText.replace(/\\mathbf\{([^}]+)\}/g, '$1');
+
+  // Handle fractions BEFORE removing delimiters (convert to special marker)
+  // \frac{a}{b} -> ⟦FRAC:a:b⟧ (temporary marker)
+  cleanedText = cleanedText.replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '⟦FRAC:$1:$2⟧');
+
+  // Remove display math delimiters: $$...$$ and \[...\]
+  cleanedText = cleanedText.replace(/\$\$([^$]+)\$\$/g, '$1');
+  cleanedText = cleanedText.replace(/\\\[([^\]]+)\\\]/g, '$1');
+  // Remove inline math delimiters: $...$ and \(...\)
+  cleanedText = cleanedText.replace(/\$([^$\n]+)\$/g, '$1');
+  cleanedText = cleanedText.replace(/\\\(([^)]+)\\\)/g, '$1');
+
+  // === LATEX COMMANDS TO READABLE FORMAT ===
+  // Square root: \sqrt{x} -> √(x)
+  cleanedText = cleanedText.replace(/\\sqrt\{([^}]+)\}/g, '√($1)');
+  cleanedText = cleanedText.replace(/\\sqrt\[([^\]]+)\]\{([^}]+)\}/g, '$1√($2)');
+  // Powers: x^{2} -> x^2, also handles x^2 directly
+  cleanedText = cleanedText.replace(/\^\{([^}]+)\}/g, '^($1)');
+  // Subscripts: x_{n} -> x_n
+  cleanedText = cleanedText.replace(/_\{([^}]+)\}/g, '_($1)');
+  // Common LaTeX symbols
+  cleanedText = cleanedText.replace(/\\times/g, '×');
+  cleanedText = cleanedText.replace(/\\cdot/g, '·');
+  cleanedText = cleanedText.replace(/\\div/g, '÷');
+  cleanedText = cleanedText.replace(/\\pm/g, '±');
+  cleanedText = cleanedText.replace(/\\mp/g, '∓');
+  cleanedText = cleanedText.replace(/\\leq/g, '≤');
+  cleanedText = cleanedText.replace(/\\geq/g, '≥');
+  cleanedText = cleanedText.replace(/\\neq/g, '≠');
+  cleanedText = cleanedText.replace(/\\approx/g, '≈');
+  cleanedText = cleanedText.replace(/\\equiv/g, '≡');
+  cleanedText = cleanedText.replace(/\\sim/g, '∼');
+  cleanedText = cleanedText.replace(/\\propto/g, '∝');
+  cleanedText = cleanedText.replace(/\\infty/g, '∞');
+  cleanedText = cleanedText.replace(/\\pi/g, 'π');
+  cleanedText = cleanedText.replace(/\\theta/g, 'θ');
+  cleanedText = cleanedText.replace(/\\alpha/g, 'α');
+  cleanedText = cleanedText.replace(/\\beta/g, 'β');
+  cleanedText = cleanedText.replace(/\\gamma/g, 'γ');
+  cleanedText = cleanedText.replace(/\\delta/g, 'δ');
+  cleanedText = cleanedText.replace(/\\Delta/g, 'Δ');
+  cleanedText = cleanedText.replace(/\\sigma/g, 'σ');
+  cleanedText = cleanedText.replace(/\\Sigma/g, 'Σ');
+  cleanedText = cleanedText.replace(/\\mu/g, 'μ');
+  cleanedText = cleanedText.replace(/\\lambda/g, 'λ');
+  cleanedText = cleanedText.replace(/\\phi/g, 'φ');
+  cleanedText = cleanedText.replace(/\\omega/g, 'ω');
+  cleanedText = cleanedText.replace(/\\Omega/g, 'Ω');
+  // Trig functions - remove backslash
+  cleanedText = cleanedText.replace(/\\(sin|cos|tan|cot|sec|csc|arcsin|arccos|arctan|log|ln|exp)/g, '$1');
+  // Left/right delimiters
+  cleanedText = cleanedText.replace(/\\left/g, '');
+  cleanedText = cleanedText.replace(/\\right/g, '');
+  // Remove remaining backslashes from LaTeX commands (cleanup)
+  cleanedText = cleanedText.replace(/\\([a-zA-Z]+)/g, '$1');
+  // Remove empty braces
+  cleanedText = cleanedText.replace(/\{\}/g, '');
+  // Clean up standalone braces used in LaTeX
+  cleanedText = cleanedText.replace(/\{([^{}]+)\}/g, '$1');
+
+  const lines = cleanedText.split('\n');
   const elements = [];
   let currentList = [];
   let listType = null;
@@ -13,31 +83,39 @@ const renderMarkdown = (text) => {
   const processMath = (str) => {
     let processed = str;
 
-    // Process exponents with parentheses containing fractions
-    processed = processed.replace(/\^[\(\{]([^\)\}]+)[\)\}]/g, '<sup style="font-size:0.75em;vertical-align:super;">$1</sup>');
+    // Process fraction markers (⟦FRAC:num:denom⟧) into stacked fractions
+    processed = processed.replace(/⟦FRAC:([^:]+):([^⟧]+)⟧/g,
+      '<span style="display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 4px;line-height:1.1;"><span style="border-bottom:1px solid currentColor;padding:1px 4px;font-size:0.9em;">$1</span><span style="padding:1px 4px;font-size:0.9em;">$2</span></span>');
 
-    // Process simple exponents
+    // Process simple fractions like 1/2, 3/4 (only simple numeric ones)
+    processed = processed.replace(/(?<![a-zA-Z\d\/])(\d+)\/(\d+)(?![a-zA-Z\d\/])/g,
+      '<span style="display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 3px;line-height:1.1;"><span style="border-bottom:1px solid currentColor;padding:1px 3px;font-size:0.85em;">$1</span><span style="padding:1px 3px;font-size:0.85em;">$2</span></span>');
+
+    // Process exponents with parentheses containing content
+    processed = processed.replace(/\^\(([^)]+)\)/g, '<sup style="font-size:0.75em;vertical-align:super;">$1</sup>');
+
+    // Process simple numeric exponents (x^2, x^12, etc.)
     processed = processed.replace(/\^(\d+)/g, (match, num) => {
       const superscripts = { '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹' };
       return num.split('').map(d => superscripts[d] || d).join('');
     });
+    // Process letter exponents (x^n, x^a, etc.)
     processed = processed.replace(/\^([a-zA-Z])/g, '<sup style="font-size:0.75em;vertical-align:super;">$1</sup>');
 
-    // Process subscripts
-    processed = processed.replace(/_[\(\{]([^\)\}]+)[\)\}]/g, '<sub style="font-size:0.75em;vertical-align:sub;">$1</sub>');
+    // Process subscripts with parentheses
+    processed = processed.replace(/_\(([^)]+)\)/g, '<sub style="font-size:0.75em;vertical-align:sub;">$1</sub>');
+    // Process simple numeric subscripts
     processed = processed.replace(/_(\d+)/g, (match, num) => {
       const subscripts = { '0': '₀', '1': '₁', '2': '₂', '3': '₃', '4': '₄', '5': '₅', '6': '₆', '7': '₇', '8': '₈', '9': '₉' };
       return num.split('').map(d => subscripts[d] || d).join('');
     });
+    // Process letter subscripts
+    processed = processed.replace(/_([a-zA-Z])(?![a-zA-Z])/g, '<sub style="font-size:0.75em;vertical-align:sub;">$1</sub>');
 
-    // Process square root
+    // Process square root (already converted from \sqrt{})
     processed = processed.replace(/sqrt\(([^)]+)\)/gi, '√($1)');
 
-    // Process standalone fractions
-    processed = processed.replace(/(?<!<sup[^>]*>.*?)(?<![a-zA-Z\d])(\d+)\/(\d+)(?![a-zA-Z\d])/g,
-      '<span style="display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 2px;line-height:1;"><span style="border-bottom:1px solid currentColor;padding:0 3px;font-size:0.85em;">$1</span><span style="padding:0 3px;font-size:0.85em;">$2</span></span>');
-
-    // Convert math symbols
+    // Convert remaining math symbols
     processed = processed.replace(/(\d)\s*\*\s*(\d)/g, '$1 × $2');
     processed = processed.replace(/<=/g, '≤');
     processed = processed.replace(/>=/g, '≥');
@@ -50,10 +128,14 @@ const renderMarkdown = (text) => {
   };
 
   const processInlineMarkdown = (line) => {
+    // Bold: **text** or __text__
     let processed = line.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
     processed = processed.replace(/__(.+?)__/g, '<strong>$1</strong>');
-    processed = processed.replace(/(?<![a-zA-Z0-9])\*([^*\s][^*]*[^*\s])\*(?![a-zA-Z0-9])/g, '<em>$1</em>');
+    // Italic: *text* (but not **)
+    processed = processed.replace(/(?<!\*)\*([^*\n]+)\*(?!\*)/g, '<em>$1</em>');
+    // Inline code: `code`
     processed = processed.replace(/`([^`]+?)`/g, '<code style="background:rgba(0,0,0,0.04);padding:2px 6px;border-radius:4px;font-size:0.9em;font-family:\'SF Mono\',Menlo,monospace;">$1</code>');
+    // Process math notation
     processed = processMath(processed);
     return processed;
   };
