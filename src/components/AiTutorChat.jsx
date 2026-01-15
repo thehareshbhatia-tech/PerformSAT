@@ -20,11 +20,11 @@ const renderMarkdown = (text) => {
   // \frac{a}{b} -> ⟦FRAC:a:b⟧ (temporary marker)
   cleanedText = cleanedText.replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '⟦FRAC:$1:$2⟧');
 
-  // Remove display math delimiters: $$...$$ and \[...\]
-  cleanedText = cleanedText.replace(/\$\$([^$]+)\$\$/g, '$1');
-  cleanedText = cleanedText.replace(/\\\[([^\]]+)\\\]/g, '$1');
+  // Remove display math delimiters: $$...$$ and \[...\] (multiline support with 's' flag)
+  cleanedText = cleanedText.replace(/\$\$([\s\S]*?)\$\$/g, '$1');
+  cleanedText = cleanedText.replace(/\\\[([\s\S]*?)\\\]/g, '$1');
   // Remove inline math delimiters: $...$ and \(...\)
-  cleanedText = cleanedText.replace(/\$([^$\n]+)\$/g, '$1');
+  cleanedText = cleanedText.replace(/\$([^$]+)\$/g, '$1');
   cleanedText = cleanedText.replace(/\\\(([^)]+)\\\)/g, '$1');
 
   // === LATEX COMMANDS TO READABLE FORMAT ===
