@@ -1,32 +1,86 @@
 /**
- * Import function triggers from their respective submodules:
- *
- * import {onCall} from "firebase-functions/v2/https";
- * import {onDocumentWritten} from "firebase-functions/v2/firestore";
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
+ * Firebase Cloud Functions for PerformSAT
+ * Includes secure AI Tutor endpoint that proxies Anthropic API
  */
 
-import {setGlobalOptions} from "firebase-functions";
-import {onRequest} from "firebase-functions/https";
+import {setGlobalOptions, defineSecret} from "firebase-functions/v2/options";
+import {onRequest} from "firebase-functions/v2/https";
 import * as logger from "firebase-functions/logger";
 
-// Start writing functions
-// https://firebase.google.com/docs/functions/typescript
+// Define the Anthropic API key as a secret
+const anthropicApiKey = defineSecret("ANTHROPIC_API_KEY");
 
-// For cost control, you can set the maximum number of containers that can be
-// running at the same time. This helps mitigate the impact of unexpected
-// traffic spikes by instead downgrading performance. This limit is a
-// per-function limit. You can override the limit for each function using the
-// `maxInstances` option in the function's options, e.g.
-// `onRequest({ maxInstances: 5 }, (req, res) => { ... })`.
-// NOTE: setGlobalOptions does not apply to functions using the v1 API. V1
-// functions should each use functions.runWith({ maxInstances: 10 }) instead.
-// In the v1 API, each function can only serve one request per container, so
-// this will be the maximum concurrent request count.
-setGlobalOptions({ maxInstances: 10 });
+// Set global options for all functions
+setGlobalOptions({maxInstances: 10});
 
-// export const helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+/**
+ * AI Tutor endpoint - proxies requests to Anthropic Claude API
+ * This keeps the API key secure on the server
+ */
+export const aiTutor = onRequest(
+  {
+    cors: true,
+    secrets: [anthropicApiKey],
+  },
+  async (request, response) => {
+    // Only allow POST requests
+    if (request.method !== "POST") {
+      response.status(405).json({error: "Method not allowed"});
+      return;
+    }
+
+    try {
+      const {messages, system} = request.body;
+
+      if (!messages || !Array.isArray(messages)) {
+        response.status(400).json({error: "Messages array is required"});
+        return;
+      }
+
+      // Get the API key from secrets
+      const apiKey = anthropicApiKey.value();
+
+      if (!apiKey) {
+        logger.error("ANTHROPIC_API_KEY secret is not configured");
+        response.status(500).json({error: "AI service not configured"});
+        return;
+      }
+
+      // Call Anthropic API
+      const anthropicResponse = await fetch(
+        "https://api.anthropic.com/v1/messages",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-api-key": apiKey,
+            "anthropic-version": "2023-06-01",
+          },
+          body: JSON.stringify({
+            model: "claude-haiku-4-5-20251001",
+            max_tokens: 1024,
+            system: system || "",
+            messages: messages,
+          }),
+        }
+      );
+
+      if (!anthropicResponse.ok) {
+        const errorData = await anthropicResponse.json();
+        logger.error("Anthropic API error:", errorData);
+        response.status(anthropicResponse.status).json({
+          error: errorData.error?.message || "Failed to get AI response",
+        });
+        return;
+      }
+
+      const data = await anthropicResponse.json();
+      response.json({
+        content: data.content[0].text,
+      });
+    } catch (error) {
+      logger.error("AI Tutor error:", error);
+      response.status(500).json({error: "Internal server error"});
+    }
+  }
+);

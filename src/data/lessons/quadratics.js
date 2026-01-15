@@ -105,7 +105,7 @@ export const quadraticsLessons = [
   { id: 15, title: "Simple Discriminant Question #1", type: "video", duration: "8 min", section: "Discriminant", videoId: "HvmcHvs4aJw", hero: { tagline: "PRACTICE", subtitle: "Basic discriminant" } },
   { id: 16, title: "Simple Discriminant Question #1 (DESMOS Method)", type: "video", duration: "8 min", section: "Discriminant", videoId: "qC4zH3TPEPs", hero: { tagline: "DESMOS METHOD", subtitle: "Visual approach" } },
   { id: 17, title: "Simple Discriminant Question #2", type: "video", duration: "8 min", section: "Discriminant", videoId: "3T7p7HIovK0", hero: { tagline: "PRACTICE", subtitle: "More practice" } },
-  { id: 18, title: "Simple Discriminant Question #2 (DESMOS Method)", type: "video", duration: "8 min", section: "Discriminant", videoId: "QH6bXCWlYaU", hero: { tagline: "DESMOS METHOD", subtitle: "Visual solution" } },
+  { id: 18, title: "Simple Discriminant Question #2 (DESMOS Method)", type: "video", duration: "8 min", section: "Discriminant", videoId: "QH6bXCWIYaU", hero: { tagline: "DESMOS METHOD", subtitle: "Visual solution" } },
   { id: 19, title: "Complex Discriminant Question", type: "video", duration: "10 min", section: "Discriminant", videoId: "z8eu9oFwk2I", hero: { tagline: "ADVANCED", subtitle: "Challenging discriminant" } },
   { id: 20, title: "Simple Discriminant System Question", type: "video", duration: "10 min", section: "Discriminant", videoId: "uGGb383xfu4", hero: { tagline: "SYSTEMS", subtitle: "Discriminant in systems" } },
   { id: 21, title: "Simple Discriminant System Question (DESMOS Method)", type: "video", duration: "8 min", section: "Discriminant", videoId: "skD4XM2RIgw", hero: { tagline: "DESMOS METHOD", subtitle: "Visual system approach" } },

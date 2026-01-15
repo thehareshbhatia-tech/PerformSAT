@@ -234,7 +234,7 @@ const LandingPage = () => {
                     }}>
                       Have you taken the SAT before?
                     </label>
-                    <div style={{ display: 'flex', gap: '1rem' }}>
+                    <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                       <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
                         <input
                           type="radio"
@@ -262,6 +262,21 @@ const LandingPage = () => {
                         />
                         <span style={{ fontSize: '0.9rem', color: '#0A0A0A' }}>No</span>
                       </label>
+                      <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
+                        <input
+                          type="radio"
+                          name="hasTakenSAT"
+                          value="prefer-not-to-say"
+                          checked={hasTakenSAT === 'prefer-not-to-say'}
+                          onChange={(e) => {
+                            setHasTakenSAT(e.target.value);
+                            setSatScore('');
+                          }}
+                          required
+                          style={{ cursor: 'pointer' }}
+                        />
+                        <span style={{ fontSize: '0.9rem', color: '#0A0A0A' }}>Prefer not to say</span>
+                      </label>
                     </div>
                   </div>
 
@@ -274,7 +289,7 @@ const LandingPage = () => {
                         marginBottom: '0.5rem',
                         color: '#0A0A0A'
                       }}>
-                        What was your SAT score?
+                        What was your SAT score? (optional)
                       </label>
                       <input
                         type="number"
@@ -283,7 +298,6 @@ const LandingPage = () => {
                         placeholder="e.g., 1200"
                         min="400"
                         max="1600"
-                        required
                         style={{
                           width: '100%',
                           padding: '0.75rem 1rem',

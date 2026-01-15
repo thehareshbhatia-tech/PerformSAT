@@ -34,3 +34,5 @@ ui-debug.log
 test-*.js
 check-*.js
 *-test.js
+# Firebase service account key (NEVER commit)
+scripts/serviceAccountKey.json

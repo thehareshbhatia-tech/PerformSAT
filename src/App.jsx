@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './hooks/useAuth';
 import { useProgress } from './hooks/useProgress';
 import LandingPage from './components/LandingPage';
+import AiTutorChat, { AiTutorButton } from './components/AiTutorChat';
 import { allLessons } from './data/lessons';
+import { fetchTranscript } from './services/transcriptService';
 
 // Premium Design System - Clean, Modern, Professional
 const design = {
@@ -111,7 +113,14 @@ const PerformSAT = () => {
   const [activeModule, setActiveModule] = useState(null);
   const [activeLesson, setActiveLesson] = useState(null);
   const [view, setView] = useState('modules'); // 'modules', 'list', 'lesson'
-  
+  const [showAiTutor, setShowAiTutor] = useState(false);
+  const [videoTimestamp, setVideoTimestamp] = useState(0);
+  const [videoTranscript, setVideoTranscript] = useState(null);
+  const [ytReady, setYtReady] = useState(false);
+  const playerRef = useRef(null);
+  const timestampIntervalRef = useRef(null);
+  const playerInitializedForVideo = useRef(null);
+
   const { user, loading, logout } = useAuth();
   const { completedLessons, markLessonComplete: markComplete, getModuleProgress: calcProgress, isLessonCompleted } = useProgress(user?.uid);
 
@@ -130,6 +139,136 @@ const PerformSAT = () => {
     if (!user || !lessons || lessons.length === 0) return 0;
     return calcProgress(moduleId, lessons.length);
   };
+
+  // Load YouTube IFrame API
+  useEffect(() => {
+    if (window.YT && window.YT.Player) {
+      setYtReady(true);
+      return;
+    }
+
+    // Set up the callback before loading the script
+    window.onYouTubeIframeAPIReady = () => {
+      setYtReady(true);
+    };
+
+    if (!document.querySelector('script[src*="youtube.com/iframe_api"]')) {
+      const tag = document.createElement('script');
+      tag.src = 'https://www.youtube.com/iframe_api';
+      const firstScript = document.getElementsByTagName('script')[0];
+      firstScript.parentNode.insertBefore(tag, firstScript);
+    }
+  }, []);
+
+  // Fetch transcript when video lesson changes
+  useEffect(() => {
+    // Reset player tracking when lesson changes
+    playerInitializedForVideo.current = null;
+
+    const loadTranscript = async () => {
+      // Get current lesson info
+      const moduleLessons = activeModule ? allLessons[activeModule] : [];
+      const lesson = activeLesson !== null ? moduleLessons.find(l => l.id === activeLesson) : null;
+
+      if (lesson?.type === 'video' && lesson?.videoId) {
+        setVideoTimestamp(0);
+        const transcript = await fetchTranscript(lesson.videoId);
+        setVideoTranscript(transcript);
+      } else {
+        setVideoTranscript(null);
+      }
+    };
+    loadTranscript();
+
+    // Cleanup: destroy player and clear interval when leaving lesson
+    return () => {
+      if (timestampIntervalRef.current) {
+        clearInterval(timestampIntervalRef.current);
+      }
+      if (playerRef.current) {
+        try {
+          playerRef.current.destroy();
+        } catch (e) {
+          // Player might already be destroyed
+        }
+        playerRef.current = null;
+      }
+    };
+  }, [activeLesson, activeModule]);
+
+  // Initialize YouTube player when video lesson is active and YT API is ready
+  useEffect(() => {
+    // Get current lesson info
+    const moduleLessons = activeModule ? allLessons[activeModule] : [];
+    const lesson = activeLesson !== null ? moduleLessons.find(l => l.id === activeLesson) : null;
+
+    // Only proceed for video lessons with a videoId when YT is ready
+    if (!ytReady || !lesson || lesson.type !== 'video' || !lesson.videoId) {
+      return;
+    }
+
+    // Don't reinitialize if already initialized for this video
+    if (playerInitializedForVideo.current === lesson.videoId) {
+      return;
+    }
+
+    // Small delay to ensure the DOM element exists
+    const initTimer = setTimeout(() => {
+      const playerElement = document.getElementById('youtube-player');
+      if (!playerElement) return;
+
+      // Destroy existing player if any
+      if (playerRef.current) {
+        try {
+          playerRef.current.destroy();
+        } catch (e) {
+          // Player might already be destroyed
+        }
+        playerRef.current = null;
+      }
+
+      // Clear any existing interval
+      if (timestampIntervalRef.current) {
+        clearInterval(timestampIntervalRef.current);
+      }
+
+      playerRef.current = new window.YT.Player('youtube-player', {
+        videoId: lesson.videoId,
+        playerVars: {
+          autoplay: 0,
+          modestbranding: 1,
+          rel: 0
+        },
+        events: {
+          onReady: () => {
+            playerInitializedForVideo.current = lesson.videoId;
+          },
+          onStateChange: (event) => {
+            // When playing, start tracking timestamp
+            if (event.data === window.YT.PlayerState.PLAYING) {
+              if (timestampIntervalRef.current) {
+                clearInterval(timestampIntervalRef.current);
+              }
+              timestampIntervalRef.current = setInterval(() => {
+                if (playerRef.current && playerRef.current.getCurrentTime) {
+                  setVideoTimestamp(playerRef.current.getCurrentTime());
+                }
+              }, 1000);
+            } else {
+              // Stop tracking when paused/ended
+              if (timestampIntervalRef.current) {
+                clearInterval(timestampIntervalRef.current);
+              }
+            }
+          }
+        }
+      });
+    }, 200);
+
+    return () => {
+      clearTimeout(initTimer);
+    };
+  }, [ytReady, activeLesson, activeModule]);
 
   const modules = [
     {
@@ -248,6 +387,63 @@ const PerformSAT = () => {
     if (currentLesson.type === 'video') {
       return (
         <div>
+          {/* Premium Hero Banner for Videos */}
+          {currentLesson.hero && (
+            <div style={{
+              background: 'linear-gradient(180deg, #0a0a0a 0%, #171717 100%)',
+              borderRadius: '24px',
+              padding: '48px 40px',
+              marginBottom: '32px',
+              position: 'relative',
+              overflow: 'hidden',
+              boxShadow: '0 16px 40px -12px rgba(0, 0, 0, 0.25)'
+            }}>
+              <div style={{
+                position: 'absolute',
+                top: '-80px',
+                right: '-80px',
+                width: '300px',
+                height: '300px',
+                background: 'radial-gradient(circle, rgba(234, 88, 12, 0.2) 0%, transparent 70%)',
+                pointerEvents: 'none'
+              }} />
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <span style={{
+                  display: 'inline-block',
+                  background: 'rgba(234, 88, 12, 0.15)',
+                  color: '#ea580c',
+                  padding: '6px 14px',
+                  borderRadius: '100px',
+                  fontSize: '11px',
+                  fontWeight: '600',
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  marginBottom: '16px'
+                }}>
+                  {currentLesson.hero.tagline}
+                </span>
+                <h2 style={{
+                  fontSize: '32px',
+                  fontWeight: '700',
+                  color: '#ffffff',
+                  letterSpacing: '-0.5px',
+                  lineHeight: '1.2',
+                  marginBottom: '8px'
+                }}>
+                  {currentLesson.title}
+                </h2>
+                <p style={{
+                  fontSize: '16px',
+                  color: '#9ca3af',
+                  lineHeight: '1.5'
+                }}>
+                  {currentLesson.hero.subtitle}
+                </p>
+              </div>
+            </div>
+          )}
+
+          {/* YouTube Player with timestamp tracking */}
           <div style={{
             position: 'relative',
             paddingBottom: '56.25%',
@@ -256,20 +452,63 @@ const PerformSAT = () => {
             overflow: 'hidden',
             background: '#000'
           }}>
-            <iframe
-              src={`https://www.youtube.com/embed/${currentLesson.videoId}`}
+            <div
+              id="youtube-player"
               style={{
                 position: 'absolute',
                 top: 0,
                 left: 0,
                 width: '100%',
-                height: '100%',
-                border: 'none'
+                height: '100%'
               }}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title={currentLesson.title}
             />
+          </div>
+
+          {/* Video timestamp indicator (for debugging - can hide later) */}
+          {videoTranscript && (
+            <div style={{
+              marginTop: '16px',
+              padding: '12px 16px',
+              background: '#f5f5f5',
+              borderRadius: '8px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px',
+              fontSize: '13px',
+              color: '#525252'
+            }}>
+              <span style={{
+                background: '#ea580c',
+                color: 'white',
+                padding: '4px 10px',
+                borderRadius: '4px',
+                fontWeight: '600',
+                fontFamily: 'monospace'
+              }}>
+                {Math.floor(videoTimestamp / 60)}:{String(Math.floor(videoTimestamp % 60)).padStart(2, '0')}
+              </span>
+              <span>Transcript loaded - AI Tutor can see what's being discussed</span>
+            </div>
+          )}
+
+          {/* Ask Perform Button and Chat - below video */}
+          <div style={{ marginTop: '24px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <AiTutorButton
+              onClick={() => setShowAiTutor(!showAiTutor)}
+              isOpen={showAiTutor}
+            />
+            <div style={{ width: '100%' }}>
+              <AiTutorChat
+                isOpen={showAiTutor}
+                onClose={() => setShowAiTutor(false)}
+                moduleId={activeModule}
+                lessonId={activeLesson}
+                lessonTitle={currentLesson?.title}
+                isVideoLesson={true}
+                videoTranscript={videoTranscript}
+                videoTimestamp={videoTimestamp}
+              />
+            </div>
           </div>
         </div>
       );
@@ -8555,6 +8794,26 @@ const PerformSAT = () => {
               return null;
           }
         })}
+
+        {/* Ask Perform Button and Chat - below text lesson content */}
+        <div style={{ marginTop: '32px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <AiTutorButton
+            onClick={() => setShowAiTutor(!showAiTutor)}
+            isOpen={showAiTutor}
+          />
+          <div style={{ width: '100%' }}>
+            <AiTutorChat
+              isOpen={showAiTutor}
+              onClose={() => setShowAiTutor(false)}
+              moduleId={activeModule}
+              lessonId={activeLesson}
+              lessonTitle={currentLesson?.title}
+              isVideoLesson={false}
+              videoTranscript={null}
+              videoTimestamp={0}
+            />
+          </div>
+        </div>
       </div>
     );
   };
@@ -9156,6 +9415,7 @@ const PerformSAT = () => {
           <span style={{ fontSize: '13px', color: '#9ca3af' }}>© 2025</span>
         </div>
       </footer>
+
     </div>
           ) : (
             <Navigate to="/" replace />
