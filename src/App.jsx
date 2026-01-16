@@ -160,6 +160,21 @@ const PerformSAT = () => {
     }
   }, []);
 
+  // Keyboard shortcut: Cmd/Ctrl+K to toggle AI Tutor
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        // Only toggle when viewing a lesson
+        if (view === 'lesson') {
+          setShowAiTutor(prev => !prev);
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [view]);
+
   // Fetch transcript when video lesson changes
   useEffect(() => {
     // Reset player tracking when lesson changes

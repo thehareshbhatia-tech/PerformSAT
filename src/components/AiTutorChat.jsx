@@ -254,9 +254,42 @@ const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideo
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [lastSendTime, setLastSendTime] = useState(0);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
   const chatContainerRef = useRef(null);
+
+  // Rate limiting: minimum 2 seconds between sends
+  const RATE_LIMIT_MS = 2000;
+
+  // Generate storage key based on lesson
+  const storageKey = `aiTutorChat_${moduleId}_${lessonId}`;
+
+  // Load chat history from sessionStorage on mount
+  useEffect(() => {
+    try {
+      const saved = sessionStorage.getItem(storageKey);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          setMessages(parsed);
+        }
+      }
+    } catch (e) {
+      // Ignore parse errors
+    }
+  }, [storageKey]);
+
+  // Save chat history to sessionStorage when messages change
+  useEffect(() => {
+    if (messages.length > 0) {
+      try {
+        sessionStorage.setItem(storageKey, JSON.stringify(messages));
+      } catch (e) {
+        // Storage might be full
+      }
+    }
+  }, [messages, storageKey]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -272,8 +305,10 @@ const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideo
   }, [isOpen]);
 
   const handleSend = async () => {
-    if (!input.trim() || isLoading) return;
+    const now = Date.now();
+    if (!input.trim() || isLoading || (now - lastSendTime < RATE_LIMIT_MS)) return;
 
+    setLastSendTime(now);
     const userMessage = { role: 'user', content: input.trim() };
     const newMessages = [...messages, userMessage];
     setMessages(newMessages);
@@ -295,11 +330,17 @@ const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideo
       );
       setMessages([...newMessages, { role: 'assistant', content: response }]);
     } catch (error) {
+      let errorMessage = "I couldn't connect right now. Please check your internet connection and try again.";
+      if (error.message?.includes('rate') || error.message?.includes('limit')) {
+        errorMessage = "Too many requests. Please wait a moment before trying again.";
+      } else if (error.message?.includes('timeout')) {
+        errorMessage = "The request took too long. Please try again with a shorter question.";
+      }
       setMessages([
         ...newMessages,
         {
           role: 'assistant',
-          content: `I encountered an issue. Please try again.`
+          content: errorMessage
         }
       ]);
     } finally {
@@ -319,6 +360,9 @@ const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideo
   return (
     <div
       ref={chatContainerRef}
+      role="dialog"
+      aria-label="AI Tutor Chat"
+      aria-modal="false"
       style={{
         marginTop: '20px',
         borderRadius: '20px',
@@ -366,6 +410,7 @@ const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideo
         </div>
         <button
           onClick={onClose}
+          aria-label="Close chat"
           style={{
             background: design.colors.surface.secondary,
             border: 'none',
@@ -387,7 +432,7 @@ const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideo
             e.currentTarget.style.background = design.colors.surface.secondary;
           }}
         >
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
             <path d="M1 1L11 11M1 11L11 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
           </svg>
         </button>
@@ -395,6 +440,9 @@ const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideo
 
       {/* Messages Area */}
       <div
+        role="log"
+        aria-label="Chat messages"
+        aria-live="polite"
         style={{
           height: '380px',
           overflowY: 'auto',
@@ -415,7 +463,7 @@ const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideo
               fontSize: '32px',
               marginBottom: '16px',
               opacity: 0.15
-            }}>
+            }} aria-hidden="true">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
               </svg>
@@ -577,6 +625,7 @@ const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideo
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={handleKeyPress}
               placeholder="Message..."
+              aria-label="Type your message"
               rows={1}
               style={{
                 width: '100%',
@@ -609,6 +658,7 @@ const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideo
           <button
             onClick={handleSend}
             disabled={!input.trim() || isLoading}
+            aria-label={isLoading ? "Sending message" : "Send message"}
             style={{
               width: '44px',
               height: '44px',
@@ -638,6 +688,7 @@ const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideo
               height="18"
               viewBox="0 0 24 24"
               fill="none"
+              aria-hidden="true"
               style={{
                 transform: 'rotate(-45deg)',
                 marginLeft: '2px',
@@ -681,6 +732,8 @@ export const AiTutorButton = ({ onClick, isOpen }) => {
   return (
     <button
       onClick={onClick}
+      aria-label={isOpen ? "Close AI Tutor chat" : "Open AI Tutor chat"}
+      aria-expanded={isOpen}
       style={{
         height: '52px',
         borderRadius: '26px',
