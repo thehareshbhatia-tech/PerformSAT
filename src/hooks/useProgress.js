@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { db } from '../firebase/config';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { markLessonComplete as markComplete, markLessonIncomplete } from '../services/progressService';
+import { recordPracticeAttempt as recordAttempt } from '../services/practiceService';
 
 /**
  * Hook for managing user progress with real-time Firestore sync
@@ -10,6 +11,7 @@ import { markLessonComplete as markComplete, markLessonIncomplete } from '../ser
  */
 export const useProgress = (userId) => {
   const [completedLessons, setCompletedLessons] = useState({});
+  const [practiceProgress, setPracticeProgress] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -45,8 +47,12 @@ export const useProgress = (userId) => {
           }
 
           setCompletedLessons(completedLessonsData);
+
+          // Also get practice progress
+          setPracticeProgress(data.practiceProgress || {});
         } else {
           setCompletedLessons({});
+          setPracticeProgress({});
         }
         setLoading(false);
       },
@@ -162,13 +168,86 @@ export const useProgress = (userId) => {
     return Math.round((completedCount / totalLessons) * 100);
   };
 
+  // ===== Practice Progress Functions =====
+  // Note: These functions now work with section names (e.g., "Deriving Equations")
+  // instead of lesson IDs for section-based practice
+
+  /**
+   * Records a practice attempt with optimistic update
+   * @param {string} moduleId - Module ID
+   * @param {string} sectionName - Section name (e.g., "Deriving Equations")
+   * @param {Object} answers - Answers object { questionId: { selected, correct } }
+   * @param {number} score - Number correct
+   * @param {number} totalQuestions - Total questions
+   */
+  const recordPracticeAttempt = async (moduleId, sectionName, answers, score, totalQuestions) => {
+    const practiceKey = `${moduleId}-${sectionName}`;
+
+    // Optimistic update
+    setPracticeProgress(prev => ({
+      ...prev,
+      [practiceKey]: {
+        bestScore: prev[practiceKey] ? Math.max(prev[practiceKey].bestScore, score) : score,
+        totalAttempts: prev[practiceKey] ? prev[practiceKey].totalAttempts + 1 : 1,
+        lastAttemptAt: new Date(),
+        lastAnswers: answers
+      }
+    }));
+
+    try {
+      await recordAttempt(userId, moduleId, sectionName, answers, score, totalQuestions);
+    } catch (err) {
+      console.error('Failed to record practice attempt:', err);
+      setError(err.message);
+    }
+  };
+
+  /**
+   * Checks if a section has been practiced
+   * @param {string} moduleId - Module ID
+   * @param {string} sectionName - Section name
+   * @returns {boolean}
+   */
+  const hasPracticed = (moduleId, sectionName) => {
+    const practiceKey = `${moduleId}-${sectionName}`;
+    return !!practiceProgress[practiceKey];
+  };
+
+  /**
+   * Gets best score for a section
+   * @param {string} moduleId - Module ID
+   * @param {string} sectionName - Section name
+   * @returns {number} Best score or 0
+   */
+  const getBestScore = (moduleId, sectionName) => {
+    const practiceKey = `${moduleId}-${sectionName}`;
+    return practiceProgress[practiceKey]?.bestScore || 0;
+  };
+
+  /**
+   * Gets practice progress for a specific section
+   * @param {string} moduleId - Module ID
+   * @param {string} sectionName - Section name
+   * @returns {Object|null}
+   */
+  const getSectionPracticeProgress = (moduleId, sectionName) => {
+    const practiceKey = `${moduleId}-${sectionName}`;
+    return practiceProgress[practiceKey] || null;
+  };
+
   return {
     completedLessons,
+    practiceProgress,
     loading,
     error,
     markLessonComplete,
     toggleLessonComplete,
     isLessonCompleted,
-    getModuleProgress
+    getModuleProgress,
+    // Practice functions (section-based)
+    recordPracticeAttempt,
+    hasPracticed,
+    getBestScore,
+    getSectionPracticeProgress
   };
 };

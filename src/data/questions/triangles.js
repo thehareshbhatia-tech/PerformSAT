@@ -1,0 +1,452 @@
+// Practice questions for Triangles module
+// Questions are organized by SECTION (question type)
+
+export const trianglesQuestions = {
+  // Section: Triangle Fundamentals
+  "Triangle Fundamentals": [
+    {
+      id: 1,
+      question: "What is the sum of the interior angles of any triangle?",
+      choices: [
+        { id: "A", text: "90°" },
+        { id: "B", text: "180°" },
+        { id: "C", text: "270°" },
+        { id: "D", text: "360°" }
+      ],
+      correctAnswer: "B",
+      explanation: "The sum of interior angles in any triangle is always 180°."
+    },
+    {
+      id: 2,
+      question: "A triangle has sides of length 3, 4, and 5. What type of triangle is this?",
+      choices: [
+        { id: "A", text: "Equilateral" },
+        { id: "B", text: "Isosceles" },
+        { id: "C", text: "Scalene" },
+        { id: "D", text: "Cannot determine" }
+      ],
+      correctAnswer: "C",
+      explanation: "A scalene triangle has all sides of different lengths. Since 3 ≠ 4 ≠ 5, this is scalene."
+    },
+    {
+      id: 3,
+      question: "In an isosceles triangle, if one of the equal angles is 70°, what is the third angle?",
+      choices: [
+        { id: "A", text: "40°" },
+        { id: "B", text: "55°" },
+        { id: "C", text: "70°" },
+        { id: "D", text: "110°" }
+      ],
+      correctAnswer: "A",
+      explanation: "Two angles are 70° each. Third angle = 180° - 70° - 70° = 40°."
+    },
+    {
+      id: 4,
+      question: "Can a triangle have sides of length 2, 3, and 7?",
+      choices: [
+        { id: "A", text: "Yes" },
+        { id: "B", text: "No, because 2 + 3 < 7" },
+        { id: "C", text: "No, because 7 is too large" },
+        { id: "D", text: "Only if it's a right triangle" }
+      ],
+      correctAnswer: "B",
+      explanation: "Triangle inequality: sum of any two sides must be greater than the third. 2 + 3 = 5 < 7, so no triangle is possible."
+    },
+    {
+      id: 5,
+      question: "An equilateral triangle has a side length of 6. What is its perimeter?",
+      choices: [
+        { id: "A", text: "12" },
+        { id: "B", text: "18" },
+        { id: "C", text: "24" },
+        { id: "D", text: "36" }
+      ],
+      correctAnswer: "B",
+      explanation: "An equilateral triangle has 3 equal sides. Perimeter = 3 × 6 = 18."
+    }
+  ],
+
+  // Section: Angles of a Triangle
+  "Angles of a Triangle": [
+    {
+      id: 1,
+      question: "In a triangle, two angles measure 45° and 75°. What is the third angle?",
+      choices: [
+        { id: "A", text: "30°" },
+        { id: "B", text: "60°" },
+        { id: "C", text: "90°" },
+        { id: "D", text: "120°" }
+      ],
+      correctAnswer: "B",
+      explanation: "Third angle = 180° - 45° - 75° = 60°."
+    },
+    {
+      id: 2,
+      question: "An exterior angle of a triangle is 110°. What is the sum of the two non-adjacent interior angles?",
+      choices: [
+        { id: "A", text: "70°" },
+        { id: "B", text: "90°" },
+        { id: "C", text: "110°" },
+        { id: "D", text: "180°" }
+      ],
+      correctAnswer: "C",
+      explanation: "An exterior angle equals the sum of the two non-adjacent interior angles. Sum = 110°."
+    },
+    {
+      id: 3,
+      question: "In a right triangle, if one acute angle is 35°, what is the other acute angle?",
+      choices: [
+        { id: "A", text: "35°" },
+        { id: "B", text: "45°" },
+        { id: "C", text: "55°" },
+        { id: "D", text: "145°" }
+      ],
+      correctAnswer: "C",
+      explanation: "In a right triangle: 90° + 35° + x = 180°, so x = 55°."
+    },
+    {
+      id: 4,
+      question: "If all angles of a triangle are less than 90°, the triangle is:",
+      choices: [
+        { id: "A", text: "Acute" },
+        { id: "B", text: "Right" },
+        { id: "C", text: "Obtuse" },
+        { id: "D", text: "Equilateral" }
+      ],
+      correctAnswer: "A",
+      explanation: "An acute triangle has all angles less than 90°."
+    },
+    {
+      id: 5,
+      question: "In triangle ABC, angle A = 2x, angle B = 3x, angle C = 4x. What is angle B?",
+      choices: [
+        { id: "A", text: "20°" },
+        { id: "B", text: "40°" },
+        { id: "C", text: "60°" },
+        { id: "D", text: "80°" }
+      ],
+      correctAnswer: "C",
+      explanation: "2x + 3x + 4x = 180° → 9x = 180° → x = 20°. Angle B = 3x = 60°."
+    }
+  ],
+
+  // Section: Area of a Triangle
+  "Area of a Triangle": [
+    {
+      id: 1,
+      question: "What is the area of a triangle with base 10 and height 6?",
+      choices: [
+        { id: "A", text: "16" },
+        { id: "B", text: "30" },
+        { id: "C", text: "60" },
+        { id: "D", text: "120" }
+      ],
+      correctAnswer: "B",
+      explanation: "Area = (1/2) × base × height = (1/2) × 10 × 6 = 30."
+    },
+    {
+      id: 2,
+      question: "A triangle has area 24 and base 8. What is its height?",
+      choices: [
+        { id: "A", text: "3" },
+        { id: "B", text: "6" },
+        { id: "C", text: "12" },
+        { id: "D", text: "16" }
+      ],
+      correctAnswer: "B",
+      explanation: "Area = (1/2) × base × height → 24 = (1/2) × 8 × h → 24 = 4h → h = 6."
+    },
+    {
+      id: 3,
+      question: "If the base and height of a triangle are both doubled, the area is multiplied by:",
+      choices: [
+        { id: "A", text: "2" },
+        { id: "B", text: "4" },
+        { id: "C", text: "8" },
+        { id: "D", text: "16" }
+      ],
+      correctAnswer: "B",
+      explanation: "New area = (1/2)(2b)(2h) = 4 × (1/2)bh = 4 × original area."
+    },
+    {
+      id: 4,
+      question: "A right triangle has legs of length 5 and 12. What is its area?",
+      choices: [
+        { id: "A", text: "30" },
+        { id: "B", text: "60" },
+        { id: "C", text: "65" },
+        { id: "D", text: "85" }
+      ],
+      correctAnswer: "A",
+      explanation: "For a right triangle, the legs are base and height. Area = (1/2) × 5 × 12 = 30."
+    },
+    {
+      id: 5,
+      question: "An equilateral triangle has side length 4. What is its height?",
+      choices: [
+        { id: "A", text: "2" },
+        { id: "B", text: "2√3" },
+        { id: "C", text: "4" },
+        { id: "D", text: "4√3" }
+      ],
+      correctAnswer: "B",
+      explanation: "For equilateral triangle, height = (side × √3)/2 = (4 × √3)/2 = 2√3."
+    }
+  ],
+
+  // Section: Similar Triangles
+  "Similar Triangles": [
+    {
+      id: 1,
+      question: "Triangles ABC and DEF are similar. If AB = 6, DE = 9, and BC = 8, what is EF?",
+      choices: [
+        { id: "A", text: "10" },
+        { id: "B", text: "12" },
+        { id: "C", text: "14" },
+        { id: "D", text: "16" }
+      ],
+      correctAnswer: "B",
+      explanation: "Scale factor = 9/6 = 3/2. EF = BC × (3/2) = 8 × 3/2 = 12."
+    },
+    {
+      id: 2,
+      question: "Two similar triangles have a scale factor of 2:5. If the smaller triangle has perimeter 24, what is the perimeter of the larger triangle?",
+      choices: [
+        { id: "A", text: "48" },
+        { id: "B", text: "60" },
+        { id: "C", text: "96" },
+        { id: "D", text: "150" }
+      ],
+      correctAnswer: "B",
+      explanation: "Perimeters have the same ratio as sides. Larger perimeter = 24 × (5/2) = 60."
+    },
+    {
+      id: 3,
+      question: "Similar triangles have areas in the ratio 4:9. What is the ratio of their corresponding sides?",
+      choices: [
+        { id: "A", text: "2:3" },
+        { id: "B", text: "4:9" },
+        { id: "C", text: "16:81" },
+        { id: "D", text: "8:27" }
+      ],
+      correctAnswer: "A",
+      explanation: "Area ratio = (side ratio)². If area ratio is 4:9, side ratio = √(4:9) = 2:3."
+    },
+    {
+      id: 4,
+      question: "Two similar triangles have corresponding sides of 3 and 5. If the smaller has area 18, what is the area of the larger?",
+      choices: [
+        { id: "A", text: "30" },
+        { id: "B", text: "50" },
+        { id: "C", text: "54" },
+        { id: "D", text: "90" }
+      ],
+      correctAnswer: "B",
+      explanation: "Area ratio = (5/3)² = 25/9. Larger area = 18 × (25/9) = 50."
+    },
+    {
+      id: 5,
+      question: "Which condition is NOT sufficient to prove two triangles are similar?",
+      choices: [
+        { id: "A", text: "AA (two angles equal)" },
+        { id: "B", text: "SSS (all sides proportional)" },
+        { id: "C", text: "SAS (two sides proportional and included angle equal)" },
+        { id: "D", text: "SSA (two sides proportional and non-included angle equal)" }
+      ],
+      correctAnswer: "D",
+      explanation: "SSA is not a valid similarity criterion - it can produce different triangles (ambiguous case)."
+    }
+  ],
+
+  // Section: Right Triangles & Pythagorean Theorem
+  "Right Triangles & Pythagorean Theorem": [
+    {
+      id: 1,
+      question: "A right triangle has legs 6 and 8. What is the hypotenuse?",
+      choices: [
+        { id: "A", text: "7" },
+        { id: "B", text: "10" },
+        { id: "C", text: "14" },
+        { id: "D", text: "100" }
+      ],
+      correctAnswer: "B",
+      explanation: "c² = a² + b² = 36 + 64 = 100. c = √100 = 10."
+    },
+    {
+      id: 2,
+      question: "A ladder 13 feet long leans against a wall. If the base is 5 feet from the wall, how high up the wall does it reach?",
+      choices: [
+        { id: "A", text: "8 feet" },
+        { id: "B", text: "12 feet" },
+        { id: "C", text: "18 feet" },
+        { id: "D", text: "144 feet" }
+      ],
+      correctAnswer: "B",
+      explanation: "13² = 5² + h² → 169 = 25 + h² → h² = 144 → h = 12 feet."
+    },
+    {
+      id: 3,
+      question: "Is a triangle with sides 7, 24, 25 a right triangle?",
+      choices: [
+        { id: "A", text: "Yes, because 7² + 24² = 25²" },
+        { id: "B", text: "No, because 7² + 24² ≠ 25²" },
+        { id: "C", text: "Yes, because 7 + 24 > 25" },
+        { id: "D", text: "Cannot determine" }
+      ],
+      correctAnswer: "A",
+      explanation: "Check: 7² + 24² = 49 + 576 = 625 = 25². Yes, it's a right triangle."
+    },
+    {
+      id: 4,
+      question: "A right triangle has hypotenuse 15 and one leg 9. What is the other leg?",
+      choices: [
+        { id: "A", text: "6" },
+        { id: "B", text: "12" },
+        { id: "C", text: "18" },
+        { id: "D", text: "24" }
+      ],
+      correctAnswer: "B",
+      explanation: "15² = 9² + b² → 225 = 81 + b² → b² = 144 → b = 12."
+    },
+    {
+      id: 5,
+      question: "The diagonal of a rectangle is 10 and one side is 6. What is the other side?",
+      choices: [
+        { id: "A", text: "4" },
+        { id: "B", text: "8" },
+        { id: "C", text: "√64" },
+        { id: "D", text: "Both B and C" }
+      ],
+      correctAnswer: "D",
+      explanation: "10² = 6² + s² → 100 = 36 + s² → s² = 64 → s = 8. Both B and C equal 8."
+    }
+  ],
+
+  // Section: Trigonometric Ratios
+  "Trigonometric Ratios": [
+    {
+      id: 1,
+      question: "In a right triangle, sin(θ) equals:",
+      choices: [
+        { id: "A", text: "Adjacent/Hypotenuse" },
+        { id: "B", text: "Opposite/Hypotenuse" },
+        { id: "C", text: "Opposite/Adjacent" },
+        { id: "D", text: "Hypotenuse/Opposite" }
+      ],
+      correctAnswer: "B",
+      explanation: "SOH-CAH-TOA: Sin = Opposite/Hypotenuse."
+    },
+    {
+      id: 2,
+      question: "In a right triangle, the side opposite to a 30° angle is 5. What is the hypotenuse?",
+      choices: [
+        { id: "A", text: "5" },
+        { id: "B", text: "10" },
+        { id: "C", text: "5√3" },
+        { id: "D", text: "10√3" }
+      ],
+      correctAnswer: "B",
+      explanation: "sin(30°) = 1/2 = opposite/hypotenuse = 5/h. So h = 10."
+    },
+    {
+      id: 3,
+      question: "If cos(θ) = 0.8 in a right triangle with adjacent side 12, what is the hypotenuse?",
+      choices: [
+        { id: "A", text: "9.6" },
+        { id: "B", text: "15" },
+        { id: "C", text: "16" },
+        { id: "D", text: "20" }
+      ],
+      correctAnswer: "B",
+      explanation: "cos(θ) = adjacent/hypotenuse → 0.8 = 12/h → h = 12/0.8 = 15."
+    },
+    {
+      id: 4,
+      question: "In a right triangle with legs 3 and 4, what is tan(θ) where θ is the angle opposite the side of length 3?",
+      choices: [
+        { id: "A", text: "3/4" },
+        { id: "B", text: "4/3" },
+        { id: "C", text: "3/5" },
+        { id: "D", text: "4/5" }
+      ],
+      correctAnswer: "A",
+      explanation: "tan(θ) = opposite/adjacent = 3/4."
+    },
+    {
+      id: 5,
+      question: "If sin(A) = cos(B) in a right triangle, then angles A and B are:",
+      choices: [
+        { id: "A", text: "Equal" },
+        { id: "B", text: "Complementary (sum to 90°)" },
+        { id: "C", text: "Supplementary (sum to 180°)" },
+        { id: "D", text: "No relationship" }
+      ],
+      correctAnswer: "B",
+      explanation: "In a right triangle, sin(A) = cos(90° - A). So if sin(A) = cos(B), then B = 90° - A, meaning A + B = 90°."
+    }
+  ],
+
+  // Section: Special Right Triangles
+  "Special Right Triangles": [
+    {
+      id: 1,
+      question: "In a 45-45-90 triangle, if one leg is 6, what is the hypotenuse?",
+      choices: [
+        { id: "A", text: "6" },
+        { id: "B", text: "6√2" },
+        { id: "C", text: "6√3" },
+        { id: "D", text: "12" }
+      ],
+      correctAnswer: "B",
+      explanation: "In a 45-45-90 triangle, hypotenuse = leg × √2 = 6√2."
+    },
+    {
+      id: 2,
+      question: "In a 30-60-90 triangle, if the shortest side is 5, what is the longest side?",
+      choices: [
+        { id: "A", text: "5√2" },
+        { id: "B", text: "5√3" },
+        { id: "C", text: "10" },
+        { id: "D", text: "10√3" }
+      ],
+      correctAnswer: "C",
+      explanation: "In a 30-60-90, sides are in ratio 1:√3:2. If shortest = 5, hypotenuse = 2 × 5 = 10."
+    },
+    {
+      id: 3,
+      question: "In a 45-45-90 triangle, if the hypotenuse is 10, what is each leg?",
+      choices: [
+        { id: "A", text: "5" },
+        { id: "B", text: "5√2" },
+        { id: "C", text: "10/√2 = 5√2" },
+        { id: "D", text: "Both B and C" }
+      ],
+      correctAnswer: "C",
+      explanation: "Leg = hypotenuse/√2 = 10/√2 = 10√2/2 = 5√2."
+    },
+    {
+      id: 4,
+      question: "In a 30-60-90 triangle with hypotenuse 8, what is the side opposite the 60° angle?",
+      choices: [
+        { id: "A", text: "4" },
+        { id: "B", text: "4√3" },
+        { id: "C", text: "8√3" },
+        { id: "D", text: "8/√3" }
+      ],
+      correctAnswer: "B",
+      explanation: "Sides are x : x√3 : 2x. If 2x = 8, then x = 4. Side opposite 60° = x√3 = 4√3."
+    },
+    {
+      id: 5,
+      question: "The diagonal of a square is 10. What is the side length?",
+      choices: [
+        { id: "A", text: "5" },
+        { id: "B", text: "5√2" },
+        { id: "C", text: "10/√2 = 5√2" },
+        { id: "D", text: "10√2" }
+      ],
+      correctAnswer: "C",
+      explanation: "A square's diagonal creates two 45-45-90 triangles. Side = diagonal/√2 = 10/√2 = 5√2."
+    }
+  ]
+};

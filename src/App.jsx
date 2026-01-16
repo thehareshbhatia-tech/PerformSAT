@@ -6,6 +6,7 @@ import LandingPage from './components/LandingPage';
 import AiTutorChat, { AiTutorButton } from './components/AiTutorChat';
 import { allLessons } from './data/lessons';
 import { fetchTranscript } from './services/transcriptService';
+import { getQuestionsForSection, hasQuestionsForSection } from './data/questions';
 
 // Premium Design System - Clean, Modern, Professional
 const design = {
@@ -112,7 +113,8 @@ const design = {
 const PerformSAT = () => {
   const [activeModule, setActiveModule] = useState(null);
   const [activeLesson, setActiveLesson] = useState(null);
-  const [view, setView] = useState('modules'); // 'modules', 'list', 'lesson'
+  const [activeSection, setActiveSection] = useState(null); // For section-based practice
+  const [view, setView] = useState('modules'); // 'modules', 'list', 'lesson', 'practice'
   const [showAiTutor, setShowAiTutor] = useState(false);
   const [videoTimestamp, setVideoTimestamp] = useState(0);
   const [videoTranscript, setVideoTranscript] = useState(null);
@@ -121,8 +123,31 @@ const PerformSAT = () => {
   const timestampIntervalRef = useRef(null);
   const playerInitializedForVideo = useRef(null);
 
+  // Practice state
+  const [practiceState, setPracticeState] = useState({
+    currentQuestionIndex: 0,
+    selectedAnswer: null,
+    showFeedback: false,
+    answers: {},
+    isComplete: false
+  });
+
+  // Calculator state for practice
+  const [showCalculator, setShowCalculator] = useState(false);
+
+  // ESC key handler for calculator
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === 'Escape' && showCalculator) {
+        setShowCalculator(false);
+      }
+    };
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, [showCalculator]);
+
   const { user, loading, logout } = useAuth();
-  const { completedLessons, markLessonComplete: markComplete, getModuleProgress: calcProgress, isLessonCompleted } = useProgress(user?.uid);
+  const { completedLessons, markLessonComplete: markComplete, getModuleProgress: calcProgress, isLessonCompleted, recordPracticeAttempt, hasPracticed, getBestScore } = useProgress(user?.uid);
 
   const markLessonComplete = (moduleId, lessonId) => {
     const moduleLessons = allLessons[moduleId] || [];
@@ -138,6 +163,57 @@ const PerformSAT = () => {
   const getModuleProgress = (moduleId, lessons) => {
     if (!user || !lessons || lessons.length === 0) return 0;
     return calcProgress(moduleId, lessons.length);
+  };
+
+  // Practice functions
+  const startSectionPractice = (moduleId, sectionName) => {
+    setPracticeState({
+      currentQuestionIndex: 0,
+      selectedAnswer: null,
+      showFeedback: false,
+      answers: {},
+      isComplete: false
+    });
+    setActiveModule(moduleId);
+    setActiveSection(sectionName);
+    setShowCalculator(false);
+    setView('practice');
+  };
+
+  const handleSelectAnswer = (answerId) => {
+    if (!practiceState.showFeedback) {
+      setPracticeState(prev => ({ ...prev, selectedAnswer: answerId }));
+    }
+  };
+
+  const handleCheckAnswer = (question) => {
+    const isCorrect = practiceState.selectedAnswer === question.correctAnswer;
+    setPracticeState(prev => ({
+      ...prev,
+      showFeedback: true,
+      answers: {
+        ...prev.answers,
+        [question.id]: { selected: prev.selectedAnswer, correct: isCorrect }
+      }
+    }));
+  };
+
+  const handleNextQuestion = (questions) => {
+    if (practiceState.currentQuestionIndex < questions.length - 1) {
+      setPracticeState(prev => ({
+        ...prev,
+        currentQuestionIndex: prev.currentQuestionIndex + 1,
+        selectedAnswer: null,
+        showFeedback: false
+      }));
+    } else {
+      // Calculate final score and save
+      const correctCount = Object.values(practiceState.answers).filter(a => a.correct).length;
+      if (user && activeModule && activeSection) {
+        recordPracticeAttempt(activeModule, activeSection, correctCount, questions.length);
+      }
+      setPracticeState(prev => ({ ...prev, isComplete: true }));
+    }
   };
 
   // Load YouTube IFrame API
@@ -9190,18 +9266,45 @@ const PerformSAT = () => {
             </div>
 
             {/* Sections */}
-            {Object.entries(sections).map(([sectionName, sectionLessons], sectionIdx) => (
+            {Object.entries(sections).map(([sectionName, sectionLessons], sectionIdx) => {
+              const sectionHasVideos = sectionLessons.some(l => l.type === 'video');
+              const sectionHasQuestions = hasQuestionsForSection(activeModule, sectionName);
+              const practiced = hasPracticed(activeModule, sectionName);
+              const bestScore = getBestScore(activeModule, sectionName);
+
+              return (
               <div key={sectionIdx} style={{ marginBottom: '48px' }}>
-                <h2 style={{
-                  fontSize: '13px',
-                  fontWeight: '600',
-                  color: design.colors.accent.orange,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.5px',
-                  marginBottom: '16px'
-                }}>
-                  {sectionName}
-                </h2>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                  <h2 style={{
+                    fontSize: '13px',
+                    fontWeight: '600',
+                    color: design.colors.accent.orange,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.5px'
+                  }}>
+                    {sectionName}
+                  </h2>
+                  {sectionHasVideos && sectionHasQuestions && (
+                    <button
+                      onClick={(e) => { e.stopPropagation(); startSectionPractice(activeModule, sectionName); }}
+                      style={{
+                        padding: '8px 16px',
+                        borderRadius: '8px',
+                        border: 'none',
+                        background: practiced ? '#10b981' : '#ea580c',
+                        color: '#fff',
+                        fontSize: '13px',
+                        fontWeight: '600',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px'
+                      }}
+                    >
+                      {practiced ? `${bestScore}/5` : 'Practice →'}
+                    </button>
+                  )}
+                </div>
                 
                 <div style={{
                   background: design.colors.surface.white,
@@ -9262,9 +9365,615 @@ const PerformSAT = () => {
                   ))}
                 </div>
               </div>
-            ))}
+            );
+            })}
           </>
         )}
+
+        {/* Practice View */}
+        {view === 'practice' && activeSection && (() => {
+          const questions = getQuestionsForSection(activeModule, activeSection);
+          if (questions.length === 0) return null;
+          const currentQuestion = questions[practiceState.currentQuestionIndex];
+
+          // Results screen
+          if (practiceState.isComplete) {
+            const correctCount = Object.values(practiceState.answers).filter(a => a.correct).length;
+            return (
+              <div style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
+                <button
+                  onClick={() => { setView('list'); setActiveSection(null); setShowCalculator(false); }}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    padding: 0,
+                    fontSize: '14px',
+                    color: '#ea580c',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    marginBottom: '48px',
+                    fontWeight: '500'
+                  }}
+                >
+                  ← Back to {currentModuleInfo?.title}
+                </button>
+
+                <div style={{
+                  width: '120px',
+                  height: '120px',
+                  borderRadius: '50%',
+                  background: correctCount >= 4 ? 'rgba(16, 185, 129, 0.1)' : correctCount >= 2 ? 'rgba(234, 179, 8, 0.1)' : 'rgba(239, 68, 68, 0.1)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 32px'
+                }}>
+                  <span style={{
+                    fontSize: '48px',
+                    fontWeight: '700',
+                    color: correctCount >= 4 ? '#10b981' : correctCount >= 2 ? '#eab308' : '#ef4444'
+                  }}>
+                    {correctCount}
+                  </span>
+                  <span style={{ fontSize: '24px', color: '#6b7280' }}>/5</span>
+                </div>
+
+                <h2 style={{ fontSize: '28px', fontWeight: '700', color: '#1d1d1f', marginBottom: '12px' }}>
+                  {correctCount >= 4 ? 'Excellent!' : correctCount >= 2 ? 'Good effort!' : 'Keep practicing!'}
+                </h2>
+                <p style={{ fontSize: '16px', color: '#6b7280', marginBottom: '48px' }}>
+                  You got {correctCount} out of 5 questions correct
+                </p>
+
+                <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
+                  <button
+                    onClick={() => startSectionPractice(activeModule, activeSection)}
+                    style={{
+                      padding: '16px 32px',
+                      borderRadius: '12px',
+                      border: '2px solid #ea580c',
+                      background: '#fff',
+                      color: '#ea580c',
+                      fontSize: '16px',
+                      fontWeight: '600',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    Try Again
+                  </button>
+                  <button
+                    onClick={() => { setView('list'); setActiveSection(null); setShowCalculator(false); }}
+                    style={{
+                      padding: '16px 32px',
+                      borderRadius: '12px',
+                      border: 'none',
+                      background: '#ea580c',
+                      color: '#fff',
+                      fontSize: '16px',
+                      fontWeight: '600',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    Done
+                  </button>
+                </div>
+              </div>
+            );
+          }
+
+          return (
+            <>
+              {/* Practice Header */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px' }}>
+                <button
+                  onClick={() => { setView('list'); setActiveSection(null); setShowCalculator(false); }}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    padding: 0,
+                    fontSize: '14px',
+                    color: '#ea580c',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    fontWeight: '500'
+                  }}
+                >
+                  ← Back
+                </button>
+
+                <h1 style={{ fontSize: '20px', fontWeight: '600', color: '#1d1d1f' }}>
+                  {activeSection}
+                </h1>
+
+                <button
+                  onClick={() => setShowCalculator(!showCalculator)}
+                  style={{
+                    background: showCalculator ? '#ea580c' : '#1d1d1f',
+                    border: 'none',
+                    borderRadius: '8px',
+                    padding: '10px 16px',
+                    fontSize: '14px',
+                    fontWeight: '600',
+                    color: '#fff',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px'
+                  }}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="4" y="2" width="16" height="20" rx="2" />
+                    <line x1="8" y1="6" x2="16" y2="6" />
+                    <line x1="8" y1="10" x2="8" y2="10.01" />
+                    <line x1="12" y1="10" x2="12" y2="10.01" />
+                    <line x1="16" y1="10" x2="16" y2="10.01" />
+                  </svg>
+                  {showCalculator ? 'Hide Calculator' : 'DESMOS Calculator'}
+                </button>
+              </div>
+
+              {/* Full Screen Calculator Modal */}
+              {showCalculator && (
+                <div style={{
+                  position: 'fixed',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  background: 'rgba(0,0,0,0.92)',
+                  zIndex: 9999,
+                  display: 'flex',
+                  padding: '24px',
+                  gap: '24px'
+                }}>
+                  {/* Left: Question Panel (50%) */}
+                  <div style={{
+                    flex: '1 1 50%',
+                    background: '#fff',
+                    borderRadius: '20px',
+                    padding: '40px',
+                    overflow: 'auto',
+                    display: 'flex',
+                    flexDirection: 'column'
+                  }}>
+                    {/* Modal Progress indicator */}
+                    <div style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      marginBottom: '32px'
+                    }}>
+                      {questions.map((_, idx) => (
+                        <div
+                          key={idx}
+                          style={{
+                            flex: 1,
+                            height: '6px',
+                            borderRadius: '3px',
+                            background: practiceState.answers[questions[idx]?.id]
+                              ? (practiceState.answers[questions[idx].id].correct ? '#10b981' : '#ef4444')
+                              : idx === practiceState.currentQuestionIndex
+                                ? '#ea580c'
+                                : '#e5e5e5'
+                          }}
+                        />
+                      ))}
+                    </div>
+
+                    {/* Modal Question number */}
+                    <div style={{
+                      fontSize: '15px',
+                      fontWeight: '600',
+                      color: '#6b7280',
+                      marginBottom: '20px'
+                    }}>
+                      Question {practiceState.currentQuestionIndex + 1} of {questions.length}
+                    </div>
+
+                    {/* Modal Question text */}
+                    <h2 style={{
+                      fontSize: '26px',
+                      fontWeight: '600',
+                      color: '#1d1d1f',
+                      lineHeight: 1.4,
+                      marginBottom: '36px'
+                    }}>
+                      {currentQuestion.question}
+                    </h2>
+
+                    {/* Modal Answer choices */}
+                    <div style={{ marginBottom: '28px', flex: 1 }}>
+                      {currentQuestion.choices.map((choice) => {
+                        const isSelected = practiceState.selectedAnswer === choice.id;
+                        const isCorrect = choice.id === currentQuestion.correctAnswer;
+                        const showResult = practiceState.showFeedback;
+
+                        let borderColor = 'rgba(0,0,0,0.1)';
+                        let bgColor = '#fff';
+
+                        if (showResult) {
+                          if (isCorrect) {
+                            borderColor = '#10b981';
+                            bgColor = 'rgba(16, 185, 129, 0.08)';
+                          } else if (isSelected && !isCorrect) {
+                            borderColor = '#ef4444';
+                            bgColor = 'rgba(239, 68, 68, 0.08)';
+                          }
+                        } else if (isSelected) {
+                          borderColor = '#ea580c';
+                          bgColor = 'rgba(234, 88, 12, 0.05)';
+                        }
+
+                        return (
+                          <div
+                            key={choice.id}
+                            onClick={() => handleSelectAnswer(choice.id)}
+                            style={{
+                              padding: '18px 24px',
+                              borderRadius: '14px',
+                              border: `2px solid ${borderColor}`,
+                              background: bgColor,
+                              cursor: practiceState.showFeedback ? 'default' : 'pointer',
+                              marginBottom: '14px',
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '14px',
+                              transition: 'all 0.15s ease'
+                            }}
+                          >
+                            <span style={{
+                              width: '32px',
+                              height: '32px',
+                              borderRadius: '8px',
+                              background: showResult
+                                ? (isCorrect ? '#10b981' : isSelected ? '#ef4444' : '#f5f5f7')
+                                : (isSelected ? '#ea580c' : '#f5f5f7'),
+                              color: (showResult && (isCorrect || isSelected)) || isSelected ? '#fff' : '#6b7280',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              fontSize: '15px',
+                              fontWeight: '600'
+                            }}>
+                              {showResult && isCorrect ? '✓' : showResult && isSelected && !isCorrect ? '✗' : choice.id}
+                            </span>
+                            <span style={{
+                              fontSize: '18px',
+                              color: '#1d1d1f'
+                            }}>
+                              {choice.text}
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    {/* Modal Check Answer / Feedback */}
+                    {!practiceState.showFeedback ? (
+                      <button
+                        onClick={() => handleCheckAnswer(currentQuestion)}
+                        disabled={!practiceState.selectedAnswer}
+                        style={{
+                          width: '100%',
+                          padding: '18px',
+                          borderRadius: '14px',
+                          border: 'none',
+                          background: practiceState.selectedAnswer ? '#ea580c' : '#e5e5e5',
+                          color: '#fff',
+                          fontSize: '18px',
+                          fontWeight: '600',
+                          cursor: practiceState.selectedAnswer ? 'pointer' : 'default'
+                        }}
+                      >
+                        Check Answer
+                      </button>
+                    ) : (
+                      <>
+                        {/* Modal Feedback panel */}
+                        <div style={{
+                          background: practiceState.answers[currentQuestion.id]?.correct
+                            ? 'rgba(16, 185, 129, 0.08)'
+                            : 'rgba(239, 68, 68, 0.08)',
+                          borderRadius: '14px',
+                          padding: '24px',
+                          marginBottom: '20px',
+                          borderLeft: `4px solid ${practiceState.answers[currentQuestion.id]?.correct ? '#10b981' : '#ef4444'}`
+                        }}>
+                          <div style={{
+                            fontSize: '16px',
+                            fontWeight: '600',
+                            color: practiceState.answers[currentQuestion.id]?.correct ? '#10b981' : '#ef4444',
+                            marginBottom: '12px'
+                          }}>
+                            {practiceState.answers[currentQuestion.id]?.correct ? 'Correct!' : 'Incorrect'}
+                          </div>
+                          <p style={{
+                            fontSize: '16px',
+                            color: '#1d1d1f',
+                            lineHeight: 1.6
+                          }}>
+                            {currentQuestion.explanation}
+                          </p>
+                        </div>
+
+                        {/* Modal Next button */}
+                        <button
+                          onClick={() => handleNextQuestion(questions)}
+                          style={{
+                            width: '100%',
+                            padding: '18px',
+                            borderRadius: '14px',
+                            border: 'none',
+                            background: '#ea580c',
+                            color: '#fff',
+                            fontSize: '18px',
+                            fontWeight: '600',
+                            cursor: 'pointer'
+                          }}
+                        >
+                          {practiceState.currentQuestionIndex < questions.length - 1 ? 'Next Question' : 'See Results'}
+                        </button>
+                      </>
+                    )}
+                  </div>
+
+                  {/* Right: Calculator (50%) */}
+                  <div style={{
+                    flex: '1 1 50%',
+                    background: '#fff',
+                    borderRadius: '20px',
+                    overflow: 'hidden',
+                    display: 'flex',
+                    flexDirection: 'column'
+                  }}>
+                    {/* Calculator Header */}
+                    <div style={{
+                      padding: '16px 24px',
+                      borderBottom: '1px solid rgba(0,0,0,0.08)',
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      background: '#1d1d1f'
+                    }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
+                          <rect x="4" y="2" width="16" height="20" rx="2" />
+                          <line x1="8" y1="6" x2="16" y2="6" />
+                          <line x1="8" y1="10" x2="8" y2="10.01" />
+                          <line x1="12" y1="10" x2="12" y2="10.01" />
+                          <line x1="16" y1="10" x2="16" y2="10.01" />
+                          <line x1="8" y1="14" x2="8" y2="14.01" />
+                          <line x1="12" y1="14" x2="12" y2="14.01" />
+                          <line x1="16" y1="14" x2="16" y2="14.01" />
+                        </svg>
+                        <span style={{ fontWeight: '600', color: '#fff', fontSize: '16px' }}>
+                          DESMOS Calculator
+                        </span>
+                      </div>
+                      <button
+                        onClick={() => setShowCalculator(false)}
+                        style={{
+                          background: 'rgba(255,255,255,0.15)',
+                          border: 'none',
+                          borderRadius: '8px',
+                          padding: '10px 16px',
+                          fontSize: '14px',
+                          fontWeight: '600',
+                          color: '#fff',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '6px'
+                        }}
+                      >
+                        <span style={{ fontSize: '18px' }}>×</span>
+                        Close (ESC)
+                      </button>
+                    </div>
+
+                    {/* Calculator iframe */}
+                    <iframe
+                      src="https://www.desmos.com/calculator"
+                      title="DESMOS Calculator"
+                      style={{
+                        flex: 1,
+                        width: '100%',
+                        border: 'none'
+                      }}
+                    />
+                  </div>
+                </div>
+              )}
+
+              {/* Regular Question Panel (when calculator is closed) */}
+              <div style={{ display: showCalculator ? 'none' : 'block', maxWidth: '700px', margin: '0 auto' }}>
+                {/* Progress indicator */}
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  marginBottom: '32px'
+                }}>
+                  {questions.map((_, idx) => (
+                    <div
+                      key={idx}
+                      style={{
+                        flex: 1,
+                        height: '4px',
+                        borderRadius: '2px',
+                        background: practiceState.answers[questions[idx]?.id]
+                          ? (practiceState.answers[questions[idx].id].correct ? '#10b981' : '#ef4444')
+                          : idx === practiceState.currentQuestionIndex
+                            ? '#ea580c'
+                            : '#e5e5e5'
+                      }}
+                    />
+                  ))}
+                </div>
+
+                {/* Question number */}
+                <div style={{
+                  fontSize: '13px',
+                  fontWeight: '600',
+                  color: '#6b7280',
+                  marginBottom: '16px'
+                }}>
+                  Question {practiceState.currentQuestionIndex + 1} of {questions.length}
+                </div>
+
+                {/* Question text */}
+                <h2 style={{
+                  fontSize: '22px',
+                  fontWeight: '600',
+                  color: '#1d1d1f',
+                  lineHeight: 1.4,
+                  marginBottom: '32px'
+                }}>
+                  {currentQuestion.question}
+                </h2>
+
+                {/* Answer choices */}
+                <div style={{ marginBottom: '24px' }}>
+                  {currentQuestion.choices.map((choice) => {
+                    const isSelected = practiceState.selectedAnswer === choice.id;
+                    const isCorrect = choice.id === currentQuestion.correctAnswer;
+                    const showResult = practiceState.showFeedback;
+
+                    let borderColor = 'rgba(0,0,0,0.08)';
+                    let bgColor = '#fff';
+
+                    if (showResult) {
+                      if (isCorrect) {
+                        borderColor = '#10b981';
+                        bgColor = 'rgba(16, 185, 129, 0.08)';
+                      } else if (isSelected && !isCorrect) {
+                        borderColor = '#ef4444';
+                        bgColor = 'rgba(239, 68, 68, 0.08)';
+                      }
+                    } else if (isSelected) {
+                      borderColor = '#ea580c';
+                      bgColor = 'rgba(234, 88, 12, 0.05)';
+                    }
+
+                    return (
+                      <div
+                        key={choice.id}
+                        onClick={() => handleSelectAnswer(choice.id)}
+                        style={{
+                          padding: '16px 20px',
+                          borderRadius: '12px',
+                          border: `2px solid ${borderColor}`,
+                          background: bgColor,
+                          cursor: practiceState.showFeedback ? 'default' : 'pointer',
+                          marginBottom: '12px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '12px',
+                          transition: 'all 0.15s ease'
+                        }}
+                      >
+                        <span style={{
+                          width: '28px',
+                          height: '28px',
+                          borderRadius: '6px',
+                          background: showResult
+                            ? (isCorrect ? '#10b981' : isSelected ? '#ef4444' : '#f5f5f7')
+                            : (isSelected ? '#ea580c' : '#f5f5f7'),
+                          color: (showResult && (isCorrect || isSelected)) || isSelected ? '#fff' : '#6b7280',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          fontSize: '14px',
+                          fontWeight: '600'
+                        }}>
+                          {showResult && isCorrect ? '✓' : showResult && isSelected && !isCorrect ? '✗' : choice.id}
+                        </span>
+                        <span style={{
+                          fontSize: '16px',
+                          color: '#1d1d1f'
+                        }}>
+                          {choice.text}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Check Answer / Feedback */}
+                {!practiceState.showFeedback ? (
+                  <button
+                    onClick={() => handleCheckAnswer(currentQuestion)}
+                    disabled={!practiceState.selectedAnswer}
+                    style={{
+                      width: '100%',
+                      padding: '16px',
+                      borderRadius: '12px',
+                      border: 'none',
+                      background: practiceState.selectedAnswer ? '#ea580c' : '#e5e5e5',
+                      color: '#fff',
+                      fontSize: '16px',
+                      fontWeight: '600',
+                      cursor: practiceState.selectedAnswer ? 'pointer' : 'default'
+                    }}
+                  >
+                    Check Answer
+                  </button>
+                ) : (
+                  <>
+                    {/* Feedback panel */}
+                    <div style={{
+                      background: practiceState.answers[currentQuestion.id]?.correct
+                        ? 'rgba(16, 185, 129, 0.08)'
+                        : 'rgba(239, 68, 68, 0.08)',
+                      borderRadius: '12px',
+                      padding: '24px',
+                      marginBottom: '24px',
+                      borderLeft: `4px solid ${practiceState.answers[currentQuestion.id]?.correct ? '#10b981' : '#ef4444'}`
+                    }}>
+                      <div style={{
+                        fontSize: '14px',
+                        fontWeight: '600',
+                        color: practiceState.answers[currentQuestion.id]?.correct ? '#10b981' : '#ef4444',
+                        marginBottom: '12px'
+                      }}>
+                        {practiceState.answers[currentQuestion.id]?.correct ? 'Correct!' : 'Incorrect'}
+                      </div>
+                      <p style={{
+                        fontSize: '15px',
+                        color: '#1d1d1f',
+                        lineHeight: 1.6
+                      }}>
+                        {currentQuestion.explanation}
+                      </p>
+                    </div>
+
+                    {/* Next button */}
+                    <button
+                      onClick={() => handleNextQuestion(questions)}
+                      style={{
+                        width: '100%',
+                        padding: '16px',
+                        borderRadius: '12px',
+                        border: 'none',
+                        background: '#ea580c',
+                        color: '#fff',
+                        fontSize: '16px',
+                        fontWeight: '600',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      {practiceState.currentQuestionIndex < questions.length - 1 ? 'Next Question' : 'See Results'}
+                    </button>
+                  </>
+                )}
+              </div>
+            </>
+          );
+        })()}
 
         {view === 'lesson' && (
           <>
