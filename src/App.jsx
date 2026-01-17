@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './hooks/useAuth';
 import { useProgress } from './hooks/useProgress';
 import LandingPage from './components/LandingPage';
+import StudentDashboard from './components/StudentDashboard';
 import AiTutorChat, { AiTutorButton } from './components/AiTutorChat';
 import { allLessons } from './data/lessons';
 import { fetchTranscript } from './services/transcriptService';
@@ -114,7 +115,7 @@ const PerformSAT = () => {
   const [activeModule, setActiveModule] = useState(null);
   const [activeLesson, setActiveLesson] = useState(null);
   const [activeSection, setActiveSection] = useState(null); // For section-based practice
-  const [view, setView] = useState('modules'); // 'modules', 'list', 'lesson', 'practice'
+  const [view, setView] = useState('dashboard'); // 'dashboard', 'modules', 'list', 'lesson', 'practice'
   const [showAiTutor, setShowAiTutor] = useState(false);
   const [videoTimestamp, setVideoTimestamp] = useState(0);
   const [videoTranscript, setVideoTranscript] = useState(null);
@@ -148,7 +149,7 @@ const PerformSAT = () => {
   }, [showCalculator]);
 
   const { user, loading, logout } = useAuth();
-  const { completedLessons, markLessonComplete: markComplete, getModuleProgress: calcProgress, isLessonCompleted, recordPracticeAttempt, hasPracticed, getBestScore } = useProgress(user?.uid);
+  const { completedLessons, practiceProgress, markLessonComplete: markComplete, getModuleProgress: calcProgress, isLessonCompleted, recordPracticeAttempt, hasPracticed, getBestScore } = useProgress(user?.uid);
 
   const markLessonComplete = (moduleId, lessonId) => {
     const moduleLessons = allLessons[moduleId] || [];
@@ -8993,11 +8994,11 @@ const PerformSAT = () => {
           alignItems: 'center',
           justifyContent: 'space-between'
         }}>
-          <div 
-            onClick={() => { setView('modules'); setActiveModule(null); setActiveLesson(null); }}
-            style={{ 
-              display: 'flex', 
-              alignItems: 'center', 
+          <div
+            onClick={() => { setView('dashboard'); setActiveModule(null); setActiveLesson(null); }}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
               cursor: 'pointer'
             }}
           >
@@ -9020,23 +9021,39 @@ const PerformSAT = () => {
             </span>
           </div>
           
-          <nav style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
-            <a href="#" className="nav-link" style={{ 
-              fontSize: '14px', 
-              color: design.colors.text.primary, 
-              textDecoration: 'none',
-              fontWeight: '500'
-            }}>
-              Math
-            </a>
-            <a href="#" className="nav-link" style={{ 
-              fontSize: '14px', 
-              color: '#9ca3af', 
-              textDecoration: 'none',
-              fontWeight: '400'
-            }}>
-              Reading & Writing
-            </a>
+          <nav style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
+            <button
+              onClick={() => { setView('dashboard'); setActiveModule(null); setActiveLesson(null); }}
+              className="nav-link"
+              style={{
+                background: 'none',
+                border: 'none',
+                fontSize: '14px',
+                color: view === 'dashboard' ? design.colors.accent.orange : design.colors.text.primary,
+                textDecoration: 'none',
+                fontWeight: view === 'dashboard' ? '600' : '500',
+                cursor: 'pointer',
+                padding: 0
+              }}
+            >
+              Dashboard
+            </button>
+            <button
+              onClick={() => { setView('modules'); setActiveModule(null); setActiveLesson(null); }}
+              className="nav-link"
+              style={{
+                background: 'none',
+                border: 'none',
+                fontSize: '14px',
+                color: view === 'modules' ? design.colors.accent.orange : design.colors.text.primary,
+                textDecoration: 'none',
+                fontWeight: view === 'modules' ? '600' : '500',
+                cursor: 'pointer',
+                padding: 0
+              }}
+            >
+              All Modules
+            </button>
             {user && (
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                 <span style={{ fontSize: '14px', color: design.colors.text.secondary }}>{user.firstName || user.email}</span>
@@ -9062,10 +9079,23 @@ const PerformSAT = () => {
 
       {/* Main Content */}
       <main style={{
-        maxWidth: '800px',
+        maxWidth: view === 'dashboard' ? '960px' : '800px',
         margin: '0 auto',
         padding: '140px 32px 100px'
       }}>
+        {/* Student Dashboard View */}
+        {view === 'dashboard' && (
+          <StudentDashboard
+            user={user}
+            completedLessons={completedLessons}
+            practiceProgress={practiceProgress}
+            onNavigateToModule={(moduleId) => {
+              setActiveModule(moduleId);
+              setView('list');
+            }}
+          />
+        )}
+
         {view === 'modules' && (
           <>
             {/* Page Title */}
@@ -9212,7 +9242,7 @@ const PerformSAT = () => {
             <div style={{ marginBottom: '48px' }}>
               <button
                 className="back-btn"
-                onClick={() => { setView('modules'); setActiveModule(null); }}
+                onClick={() => { setView('dashboard'); setActiveModule(null); }}
                 style={{
                   background: 'none',
                   border: 'none',
