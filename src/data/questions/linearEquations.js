@@ -14,6 +14,7 @@ export const linearEquationsQuestions = {
         { id: "D", text: "C = 10 + 25t" }
       ],
       correctAnswer: "B",
+      hint: "Think about what stays the same each month (the flat fee) and what changes based on usage (the per-text charge).",
       explanation: "The flat fee ($25) is the y-intercept (constant term), and the rate per text ($0.10) is the slope (coefficient of t). In slope-intercept form: C = 25 + 0.10t, which represents total cost = fixed fee + (rate × texts)."
     },
     {
@@ -26,6 +27,7 @@ export const linearEquationsQuestions = {
         { id: "D", text: "y = 3x + 10" }
       ],
       correctAnswer: "A",
+      hint: "Use the slope formula: m = (y₂ - y₁)/(x₂ - x₁). The point (0, 4) tells you the y-intercept directly.",
       explanation: "First find slope: m = (10-4)/(2-0) = 6/2 = 3. The y-intercept is 4 (the point where x=0). So the equation is y = 3x + 4."
     },
     {
@@ -38,6 +40,7 @@ export const linearEquationsQuestions = {
         { id: "D", text: "y = 2x + 5" }
       ],
       correctAnswer: "A",
+      hint: "Find how much y changes when x increases by 2. That's your rise. Divide by 2 to get the slope. When x = 0, y gives you the y-intercept.",
       explanation: "From the table: when x increases by 2, y increases by 6. Slope = 6/2 = 3. When x = 0, y = 5 (y-intercept). Equation: y = 3x + 5."
     },
     {
@@ -50,6 +53,7 @@ export const linearEquationsQuestions = {
         { id: "D", text: "-3" }
       ],
       correctAnswer: "A",
+      hint: "First find the slope using the two points (2, 7) and (5, 16). Then use point-slope form to find the y-intercept, which equals f(0).",
       explanation: "Slope = (16-7)/(5-2) = 9/3 = 3. Using f(2) = 7: f(x) = 3x + b → 7 = 3(2) + b → b = 1. So f(x) = 3x + 1, and f(0) = 1."
     },
     {
@@ -62,6 +66,7 @@ export const linearEquationsQuestions = {
         { id: "D", text: "h = 12t - 0.5" }
       ],
       correctAnswer: "C",
+      hint: "The candle is getting shorter over time (decreasing), so the slope should be negative. Start with the initial height.",
       explanation: "The candle starts at 12 inches (initial value/y-intercept) and decreases by 0.5 inches each hour (negative slope). The equation is h = 12 - 0.5t. The negative coefficient shows the height is decreasing over time."
     }
   ],
@@ -78,6 +83,7 @@ export const linearEquationsQuestions = {
         { id: "D", text: "y = -(1/4)x + 2" }
       ],
       correctAnswer: "C",
+      hint: "Parallel lines have the SAME slope. Look for the answer with the same coefficient of x.",
       explanation: "Parallel lines have the same slope. Line p has slope 4. Only y = 4x + 7 also has slope 4. The y-intercept can be different, but the slope must match."
     },
     {
@@ -90,6 +96,7 @@ export const linearEquationsQuestions = {
         { id: "D", text: "y = -(1/2)x + 4" }
       ],
       correctAnswer: "B",
+      hint: "First rewrite 2x + y = 8 in slope-intercept form (y = mx + b) by solving for y. Then find the line with the same slope.",
       explanation: "First, convert 2x + y = 8 to slope-intercept form: y = -2x + 8. The slope is -2. A parallel line must also have slope -2. Only y = -2x + 5 has this slope."
     },
     {
@@ -102,6 +109,7 @@ export const linearEquationsQuestions = {
         { id: "D", text: "y = (1/3)x + 5" }
       ],
       correctAnswer: "A",
+      hint: "Since line m is parallel, it has slope 3. Use the point (1, 5) to find b in y = 3x + b.",
       explanation: "Parallel means same slope, so m = 3. Using point (1, 5): y - 5 = 3(x - 1) → y = 3x - 3 + 5 → y = 3x + 2."
     },
     {
@@ -114,6 +122,7 @@ export const linearEquationsQuestions = {
         { id: "D", text: "Infinitely many solutions" }
       ],
       correctAnswer: "A",
+      hint: "Compare the slopes. If two lines have the same slope but different y-intercepts, they are parallel and never meet.",
       explanation: "Both lines have the same slope (2) but different y-intercepts (3 and -1). This means the lines are parallel and never intersect, so there is no solution."
     },
     {
@@ -126,6 +135,7 @@ export const linearEquationsQuestions = {
         { id: "D", text: "6" }
       ],
       correctAnswer: "A",
+      hint: "Calculate the slope of the line through the two points using (y₂ - y₁)/(x₂ - x₁). Parallel lines have equal slopes.",
       explanation: "Find the slope of the line through the two points: m = (7-1)/(4-(-2)) = 6/6 = 1. For parallel lines, m = 1."
     }
   ],
@@ -142,6 +152,7 @@ export const linearEquationsQuestions = {
         { id: "D", text: "-1/2" }
       ],
       correctAnswer: "D",
+      hint: "Perpendicular slopes are negative reciprocals. Flip the fraction and change the sign.",
       explanation: "Perpendicular lines have slopes that are negative reciprocals. The slope of line k is 2. The negative reciprocal of 2 is -1/2."
     },
     {
@@ -154,6 +165,7 @@ export const linearEquationsQuestions = {
         { id: "D", text: "y = -(1/3)x + 1" }
       ],
       correctAnswer: "C",
+      hint: "The slope is -3. The negative reciprocal means flip it (1/3) and change the sign (positive).",
       explanation: "The slope of y = -3x + 1 is -3. The negative reciprocal is 1/3. Only y = (1/3)x + 5 has slope 1/3."
     },
     {
@@ -166,6 +178,7 @@ export const linearEquationsQuestions = {
         { id: "D", text: "y = -2x" }
       ],
       correctAnswer: "A",
+      hint: "The negative reciprocal of 1/2 is -2. Use this slope with the point (2, 4) to find the equation.",
       explanation: "The original slope is 1/2. Perpendicular slope = -2. Using point (2, 4): y - 4 = -2(x - 2) → y = -2x + 4 + 4 → y = -2x + 8."
     },
     {
@@ -178,6 +191,7 @@ export const linearEquationsQuestions = {
         { id: "D", text: "-5/4" }
       ],
       correctAnswer: "D",
+      hint: "To find the negative reciprocal: flip 4/5 to get 5/4, then make it negative.",
       explanation: "Perpendicular slopes are negative reciprocals. The negative reciprocal of 4/5 is -5/4. You flip the fraction and change the sign."
     },
     {
@@ -190,6 +204,7 @@ export const linearEquationsQuestions = {
         { id: "D", text: "5" }
       ],
       correctAnswer: "A",
+      hint: "First find the slope of line j, then find the perpendicular slope. Use point (2, 5) to write the equation and find b.",
       explanation: "Slope of j = (1-3)/(4-0) = -2/4 = -1/2. Perpendicular slope = 2. Using (2, 5): y - 5 = 2(x - 2) → y = 2x + 1. Y-intercept is 1."
     }
   ]

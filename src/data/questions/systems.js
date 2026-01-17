@@ -14,6 +14,7 @@ export const systemsQuestions = {
         { id: "D", text: "Two solutions" }
       ],
       correctAnswer: "C",
+      hint: "Think about all the ways two lines can relate to each other on a graph. Can they cross, run parallel, or overlap?",
       explanation: "A system of two linear equations can have no solution (parallel lines), exactly one solution (intersecting lines), or infinitely many solutions (same line)."
     },
     {
@@ -26,6 +27,7 @@ export const systemsQuestions = {
         { id: "D", text: "Parallel" }
       ],
       correctAnswer: "C",
+      hint: "When each equation gives you unique information that the other doesn't, what does that say about their relationship?",
       explanation: "When lines intersect at exactly one point, they are independent - each equation provides unique information."
     },
     {
@@ -38,6 +40,7 @@ export const systemsQuestions = {
         { id: "D", text: "The lines are perpendicular" }
       ],
       correctAnswer: "C",
+      hint: "If there's no solution, the lines never share a common point. What kind of lines never meet?",
       explanation: "No solution means the lines never intersect - they are parallel."
     },
     {
@@ -50,6 +53,7 @@ export const systemsQuestions = {
         { id: "D", text: "The x-intercept of the first line" }
       ],
       correctAnswer: "C",
+      hint: "What must be true about a solution? It needs to work when plugged into every equation in the system.",
       explanation: "A solution to a system is an ordered pair (x, y) that makes ALL equations true simultaneously."
     },
     {
@@ -62,6 +66,7 @@ export const systemsQuestions = {
         { id: "D", text: "No, it satisfies neither equation" }
       ],
       correctAnswer: "A",
+      hint: "Substitute x = 2 and y = 3 into both equations separately. Does each equation become a true statement?",
       explanation: "Check: x + y = 2 + 3 = 5 ✓ and 2x - y = 2(2) - 3 = 4 - 3 = 1 ✓. Both are satisfied."
     }
   ],
@@ -78,6 +83,7 @@ export const systemsQuestions = {
         { id: "D", text: "a + c = 14, a + c = 95" }
       ],
       correctAnswer: "B",
+      hint: "Write one equation for the total number of tickets, and another for the total money. Make sure the units match on each side.",
       explanation: "Let a = adult tickets, c = child tickets. Total tickets: a + c = 14. Total cost: 8a + 5c = 95."
     },
     {
@@ -90,6 +96,7 @@ export const systemsQuestions = {
         { id: "D", text: "5p + 2n = 29, p + n = 8" }
       ],
       correctAnswer: "C",
+      hint: "One equation should count items, the other should count dollars. Make sure prices multiply with the correct variables.",
       explanation: "Total items: p + n = 8. Total cost: 2p + 5n = 29."
     },
     {
@@ -102,6 +109,7 @@ export const systemsQuestions = {
         { id: "D", text: "x + y = 26, xy = 6" }
       ],
       correctAnswer: "A",
+      hint: "Translate 'sum' and 'difference' directly into mathematical operations. Sum means add, difference means subtract.",
       explanation: "Sum: x + y = 20. Difference: x - y = 6 (assuming x > y)."
     },
     {
@@ -114,6 +122,7 @@ export const systemsQuestions = {
         { id: "D", text: "Both A and C" }
       ],
       correctAnswer: "D",
+      hint: "Downstream, the current helps (add speeds). Upstream, the current slows you down (subtract). Use distance = rate times time.",
       explanation: "Downstream: rate = b + c, so 2(b + c) = 30 → b + c = 15. Upstream: rate = b - c, so 3(b - c) = 18 → b - c = 6."
     },
     {
@@ -126,6 +135,7 @@ export const systemsQuestions = {
         { id: "D", text: "4a + 7b = 10, a + b = 55" }
       ],
       correctAnswer: "A",
+      hint: "The total weight is 10 lbs. For the cost equation, calculate the total value of the blend: 10 lbs times $5.50/lb.",
       explanation: "Total weight: a + b = 10. Total value: 4a + 7b = 10 × 5.50 = 55."
     }
   ],
@@ -142,6 +152,7 @@ export const systemsQuestions = {
         { id: "D", text: "9" }
       ],
       correctAnswer: "B",
+      hint: "Since y already equals 2x, replace y in the second equation with 2x, then solve for x.",
       explanation: "Substitute y = 2x into x + y = 9: x + 2x = 9 → 3x = 9 → x = 3."
     },
     {
@@ -154,6 +165,7 @@ export const systemsQuestions = {
         { id: "D", text: "14" }
       ],
       correctAnswer: "A",
+      hint: "Replace x with (3y - 1) in the second equation, then simplify and solve for y.",
       explanation: "Substitute: 2(3y - 1) + y = 12 → 6y - 2 + y = 12 → 7y = 14 → y = 2."
     },
     {
@@ -166,6 +178,7 @@ export const systemsQuestions = {
         { id: "D", text: "Either equation for either variable" }
       ],
       correctAnswer: "B",
+      hint: "Look for a variable with a coefficient of 1 or -1. Solving for that variable avoids fractions.",
       explanation: "Solve 3x + y = 10 for y gives y = 10 - 3x (coefficient of y is 1, so no fractions)."
     },
     {
@@ -178,6 +191,7 @@ export const systemsQuestions = {
         { id: "D", text: "(4, 8)" }
       ],
       correctAnswer: "A",
+      hint: "Both equations equal y, so set them equal to each other: x + 4 = 3x - 2. Solve for x first.",
       explanation: "Set equal: x + 4 = 3x - 2 → 6 = 2x → x = 3. Then y = 3 + 4 = 7. Solution: (3, 7)."
     },
     {
@@ -190,6 +204,7 @@ export const systemsQuestions = {
         { id: "D", text: "8" }
       ],
       correctAnswer: "B",
+      hint: "Solve the second equation for x (since its coefficient is 1), substitute into the first, then find both values.",
       explanation: "From second: x = 1 - 2y. Substitute: 2(1 - 2y) - y = 7 → 2 - 4y - y = 7 → -5y = 5 → y = -1. Then x = 1 - 2(-1) = 3. x + y = 3 + (-1) = 2."
     }
   ],
@@ -206,6 +221,7 @@ export const systemsQuestions = {
         { id: "D", text: "12" }
       ],
       correctAnswer: "B",
+      hint: "Notice the y terms have opposite signs. Adding the equations will eliminate y.",
       explanation: "Add equations: 2x = 12, so x = 6."
     },
     {
@@ -218,6 +234,7 @@ export const systemsQuestions = {
         { id: "D", text: "6" }
       ],
       correctAnswer: "B",
+      hint: "The x coefficients are the same. Subtract one equation from the other to eliminate x.",
       explanation: "Subtract second from first: 4y = 12, so y = 3."
     },
     {
@@ -230,6 +247,7 @@ export const systemsQuestions = {
         { id: "D", text: "5 and the second by 2" }
       ],
       correctAnswer: "B",
+      hint: "To eliminate x, you need both equations to have the same x coefficient. Find the LCM of 2 and 5.",
       explanation: "To eliminate x: multiply first by 5 and second by 2 (or first by -5 and second by 2) to get coefficients of ±10."
     },
     {
@@ -242,6 +260,7 @@ export const systemsQuestions = {
         { id: "D", text: "(4, -5)" }
       ],
       correctAnswer: "A",
+      hint: "Multiply the first equation by -3 to make the y coefficients opposites, then add the equations.",
       explanation: "Multiply first by -3: -12x - 3y = -33. Add to second: -10x = -20, x = 2. Substitute: 4(2) + y = 11, y = 3."
     },
     {
@@ -254,6 +273,7 @@ export const systemsQuestions = {
         { id: "D", text: "53" }
       ],
       correctAnswer: "C",
+      hint: "The y coefficients are already equal. Subtract the equations to find x directly, then multiply by 5.",
       explanation: "Subtract first from second: x = 5. So 5x = 25."
     }
   ],
@@ -270,6 +290,7 @@ export const systemsQuestions = {
         { id: "D", text: "The highest point" }
       ],
       correctAnswer: "C",
+      hint: "The solution must satisfy both equations. On a graph, where do both lines share the same point?",
       explanation: "The solution to a system is where the graphs intersect - the point(s) that satisfy both equations."
     },
     {
@@ -282,6 +303,7 @@ export const systemsQuestions = {
         { id: "D", text: "Infinitely many solutions" }
       ],
       correctAnswer: "C",
+      hint: "Parallel lines have the same slope but different y-intercepts. Will they ever cross?",
       explanation: "Parallel lines never intersect, so there is no point that satisfies both equations - no solution."
     },
     {
@@ -294,6 +316,7 @@ export const systemsQuestions = {
         { id: "D", text: "Infinitely many solutions" }
       ],
       correctAnswer: "D",
+      hint: "If the lines overlap completely, they are the same line. How many points do they share?",
       explanation: "Overlapping lines are the same line - every point on the line is a solution, giving infinitely many solutions."
     },
     {
@@ -306,6 +329,7 @@ export const systemsQuestions = {
         { id: "D", text: "Use only the substitution method" }
       ],
       correctAnswer: "B",
+      hint: "Desmos can find intersection points automatically. What's the most efficient way to use this feature?",
       explanation: "On the SAT, Desmos is built into the calculator. Type both equations and click on the intersection point to find the solution."
     },
     {
@@ -318,6 +342,7 @@ export const systemsQuestions = {
         { id: "D", text: "The system has no solution" }
       ],
       correctAnswer: "D",
+      hint: "Compare the slopes and y-intercepts of both lines. What does it mean when lines never touch?",
       explanation: "Both lines have slope 2 (parallel) but different y-intercepts, so they never intersect - no solution."
     }
   ],
@@ -334,6 +359,7 @@ export const systemsQuestions = {
         { id: "D", text: "Infinitely many solutions" }
       ],
       correctAnswer: "D",
+      hint: "Try dividing the second equation by 2. What do you notice about the two equations?",
       explanation: "The second equation is just 2 times the first (2x + 2y = 2(x + y) = 2(5) = 10). They're the same line - infinite solutions."
     },
     {
@@ -346,6 +372,7 @@ export const systemsQuestions = {
         { id: "D", text: "Lines with different slopes" }
       ],
       correctAnswer: "C",
+      hint: "If every point that satisfies one equation also satisfies the other, what must be true about the lines?",
       explanation: "Infinite solutions means every point on one line is also on the other - they're the same line."
     },
     {
@@ -358,6 +385,7 @@ export const systemsQuestions = {
         { id: "D", text: "k = 27" }
       ],
       correctAnswer: "A",
+      hint: "Divide the first equation by 3 to put it in the same form as the second. What should k equal for them to be identical?",
       explanation: "The first equation divided by 3 gives x - 2y = 3. For same line, second must also be x - 2y = 3, so k = 3."
     },
     {
@@ -370,6 +398,7 @@ export const systemsQuestions = {
         { id: "D", text: "An error" }
       ],
       correctAnswer: "C",
+      hint: "Is 0 = 0 always true, never true, or sometimes true? What does that tell you about the equations?",
       explanation: "0 = 0 is always true, meaning the equations are dependent - infinite solutions."
     },
     {
@@ -382,6 +411,7 @@ export const systemsQuestions = {
         { id: "D", text: "y = 2x + 3, y = -2x + 3" }
       ],
       correctAnswer: "B",
+      hint: "Simplify each system to see if both equations reduce to the same line. Divide or multiply to compare.",
       explanation: "In B, divide second by 2: y = 2x + 3, same as first equation - infinitely many solutions."
     }
   ]

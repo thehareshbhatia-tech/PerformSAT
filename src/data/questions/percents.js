@@ -14,6 +14,7 @@ export const percentsQuestions = {
         { id: "D", text: "25" }
       ],
       correctAnswer: "B",
+      hint: "Remember that 'percent' means 'per hundred.' To convert a percent to a decimal, think about how many hundredths it represents.",
       explanation: "To convert a percent to a decimal, divide by 100: 25% = 25/100 = 0.25."
     },
     {
@@ -26,6 +27,7 @@ export const percentsQuestions = {
         { id: "D", text: "375%" }
       ],
       correctAnswer: "C",
+      hint: "Converting a decimal to a percent is the reverse of converting a percent to a decimal. Think about what operation undoes division by 100.",
       explanation: "To convert a decimal to a percent, multiply by 100: 0.375 × 100 = 37.5%."
     },
     {
@@ -38,6 +40,7 @@ export const percentsQuestions = {
         { id: "D", text: "65%" }
       ],
       correctAnswer: "C",
+      hint: "First convert the fraction to a decimal by dividing the numerator by the denominator, then convert that decimal to a percent.",
       explanation: "Convert fraction to decimal: 3/5 = 0.6. Then convert to percent: 0.6 × 100 = 60%."
     },
     {
@@ -50,6 +53,7 @@ export const percentsQuestions = {
         { id: "D", text: "They are all equal" }
       ],
       correctAnswer: "A",
+      hint: "To compare values in different forms, convert them all to the same form. Try converting everything to decimals first.",
       explanation: "Convert all to decimals: 45% = 0.45, 0.4 = 0.4, 2/5 = 0.4. Since 0.45 > 0.4, 45% is greatest."
     },
     {
@@ -62,6 +66,7 @@ export const percentsQuestions = {
         { id: "D", text: "250%" }
       ],
       correctAnswer: "B",
+      hint: "Set up the equation: (unknown percent) × 200 = 50. Solve for the unknown by dividing, then convert to a percent.",
       explanation: "Set up: x% of 200 = 50. So (x/100) × 200 = 50. Solving: 2x = 50, x = 25. Answer: 25%."
     }
   ],
@@ -78,6 +83,7 @@ export const percentsQuestions = {
         { id: "D", text: "110" }
       ],
       correctAnswer: "A",
+      hint: "The word 'of' in math means multiply. Convert the percent to a decimal first, then multiply by the whole amount.",
       explanation: "30% of 80 = 0.30 × 80 = 24."
     },
     {
@@ -90,6 +96,7 @@ export const percentsQuestions = {
         { id: "D", text: "112" }
       ],
       correctAnswer: "C",
+      hint: "Let the unknown number be x. Write an equation: 0.40 × x = 28, then solve for x by dividing both sides.",
       explanation: "Let x = the number. 0.40x = 28. So x = 28/0.40 = 70."
     },
     {
@@ -102,6 +109,7 @@ export const percentsQuestions = {
         { id: "D", text: "$51" }
       ],
       correctAnswer: "B",
+      hint: "The discount amount is the percent off applied to the original price. Find 15% of the original price.",
       explanation: "Discount = 15% of $60 = 0.15 × 60 = $9."
     },
     {
@@ -114,6 +122,7 @@ export const percentsQuestions = {
         { id: "D", text: "40" }
       ],
       correctAnswer: "A",
+      hint: "If 60% are girls, what percent are boys? Remember that the total must equal 100%.",
       explanation: "Girls = 60% of 25 = 15. Boys = 25 - 15 = 10. Or: Boys = 40% of 25 = 0.40 × 25 = 10."
     },
     {
@@ -126,6 +135,7 @@ export const percentsQuestions = {
         { id: "D", text: "576 items" }
       ],
       correctAnswer: "C",
+      hint: "You know that 24% of the total equals 120. Set up an equation with the total as the unknown and solve for it.",
       explanation: "Let x = weekly sales. 24% of x = 120. So 0.24x = 120. x = 120/0.24 = 500 items."
     }
   ],
@@ -142,6 +152,7 @@ export const percentsQuestions = {
         { id: "D", text: "125%" }
       ],
       correctAnswer: "B",
+      hint: "Use the percent change formula: (change ÷ original) × 100. First find how much the price changed, then divide by the starting value.",
       explanation: "Percent change = (change/original) × 100 = (20/80) × 100 = 25%."
     },
     {
@@ -154,6 +165,7 @@ export const percentsQuestions = {
         { id: "D", text: "100%" }
       ],
       correctAnswer: "B",
+      hint: "Percent decrease uses the same formula as percent increase: (change ÷ original) × 100. The original is always the starting value.",
       explanation: "Percent decrease = (change/original) × 100 = (100/500) × 100 = 20%."
     },
     {
@@ -166,6 +178,7 @@ export const percentsQuestions = {
         { id: "D", text: "$120" }
       ],
       correctAnswer: "A",
+      hint: "Work through each change step by step. After the increase, find the new value, then apply the decrease to that new value, not the original.",
       explanation: "After 20% increase: $100 × 1.20 = $120. After 20% decrease: $120 × 0.80 = $96. The percents don't cancel!"
     },
     {
@@ -178,6 +191,7 @@ export const percentsQuestions = {
         { id: "D", text: "$105" }
       ],
       correctAnswer: "B",
+      hint: "If the price was reduced by 30%, the sale price represents 70% of the original. Set up an equation where 70% of the original equals $35.",
       explanation: "After 30% off, you pay 70%. So 0.70 × original = $35. Original = $35/0.70 = $50."
     },
     {
@@ -190,6 +204,7 @@ export const percentsQuestions = {
         { id: "D", text: "100%" }
       ],
       correctAnswer: "C",
+      hint: "Try picking a simple starting number like 100. Apply the 50% increase first, then apply the 50% decrease to your new value.",
       explanation: "Let original = 100. After +50%: 150. After -50%: 150 × 0.50 = 75. This is 75% of original."
     }
   ],
@@ -206,6 +221,7 @@ export const percentsQuestions = {
         { id: "D", text: "365" }
       ],
       correctAnswer: "C",
+      hint: "This is a 'percent of' problem. Convert 35% to a decimal and multiply by the total number of respondents.",
       explanation: "Number preferring A = 35% of 400 = 0.35 × 400 = 140 respondents."
     },
     {
@@ -218,6 +234,7 @@ export const percentsQuestions = {
         { id: "D", text: "138 mL" }
       ],
       correctAnswer: "B",
+      hint: "If acid is 15% of the solution, then water must be 85%. Use the water amount to find the total solution first, then calculate the acid.",
       explanation: "Water = 85% of total (since acid is 15%). So 0.85 × total = 120. Total = 141.18 mL. Acid = 0.15 × 141.18 ≈ 21.18 mL."
     },
     {
@@ -230,6 +247,7 @@ export const percentsQuestions = {
         { id: "D", text: "$75,000" }
       ],
       correctAnswer: "C",
+      hint: "Commission equals the percent rate times total sales. Set up the equation: 6% × (total sales) = $450, then solve for total sales.",
       explanation: "6% × sales = $450. So 0.06 × sales = 450. Sales = 450/0.06 = $7,500."
     },
     {
@@ -242,6 +260,7 @@ export const percentsQuestions = {
         { id: "D", text: "960 gallons" }
       ],
       correctAnswer: "C",
+      hint: "The 240 gallons represents 40% of the tank's total capacity. Set up an equation to find what number 240 is 40% of.",
       explanation: "40% of capacity = 240. So 0.40 × capacity = 240. Capacity = 240/0.40 = 600 gallons."
     },
     {
@@ -254,6 +273,7 @@ export const percentsQuestions = {
         { id: "D", text: "80" }
       ],
       correctAnswer: "B",
+      hint: "Find 75% of the total number of questions. This gives you the minimum number of correct answers needed to pass.",
       explanation: "Minimum correct = 75% of 80 = 0.75 × 80 = 60 questions."
     }
   ]

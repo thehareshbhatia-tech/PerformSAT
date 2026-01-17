@@ -14,6 +14,7 @@ export const equivalentExpressionsQuestions = {
         { id: "D", text: "4x + 12" }
       ],
       correctAnswer: "A",
+      hint: "Use the distributive property to expand each term, then combine like terms. Pay close attention to signs when distributing a negative number.",
       explanation: "3(2x + 4) - 2(x - 1) = 6x + 12 - 2x + 2 = 4x + 14. Distribute carefully, noting that -2(x-1) = -2x + 2."
     },
     {
@@ -26,6 +27,7 @@ export const equivalentExpressionsQuestions = {
         { id: "D", text: "x² + 6x + 9" }
       ],
       correctAnswer: "C",
+      hint: "Look for a special pattern here. When you have the sum and difference of the same two terms being multiplied, there's a shortcut formula you can use.",
       explanation: "This is the difference of squares pattern: (a + b)(a - b) = a² - b². So (x + 3)(x - 3) = x² - 9."
     },
     {
@@ -38,6 +40,7 @@ export const equivalentExpressionsQuestions = {
         { id: "D", text: "8x³y⁴" }
       ],
       correctAnswer: "A",
+      hint: "When dividing terms with the same base, subtract the exponents. Handle the coefficients and each variable separately.",
       explanation: "Divide coefficients: 4/2 = 2. Subtract exponents: x²⁻¹ = x, y³⁻¹ = y². Result: 2xy²."
     },
     {
@@ -50,6 +53,7 @@ export const equivalentExpressionsQuestions = {
         { id: "D", text: "(x + 6)(x + 3)" }
       ],
       correctAnswer: "A",
+      hint: "Check if this is a perfect square trinomial by seeing if the first and last terms are perfect squares, and if the middle term equals twice the product of their square roots.",
       explanation: "This is a perfect square trinomial: x² + 6x + 9 = (x + 3)². Check: (x + 3)² = x² + 6x + 9 ✓"
     },
     {
@@ -62,6 +66,7 @@ export const equivalentExpressionsQuestions = {
         { id: "D", text: "2a² + 2ab + b²" }
       ],
       correctAnswer: "C",
+      hint: "Use the perfect square formula: (a + b)² = a² + 2ab + b². Remember to square the entire first term, including its coefficient.",
       explanation: "(2a + b)² = (2a)² + 2(2a)(b) + b² = 4a² + 4ab + b². Remember the middle term is 2 times the product."
     }
   ]

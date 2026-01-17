@@ -110,7 +110,8 @@ export const chatWithTutor = async (
   currentModuleId,
   currentLessonId,
   _apiKey, // No longer needed - kept for backward compatibility
-  videoContext = null // { transcript, currentTime }
+  videoContext = null, // { transcript, currentTime }
+  practiceContext = '' // Optional practice question context with restrictions
 ) => {
   // Get lesson context
   const lessonContext = getLessonContext(currentModuleId, currentLessonId);
@@ -159,6 +160,11 @@ export const chatWithTutor = async (
         });
       }
     });
+  }
+
+  // Add practice question context if provided
+  if (practiceContext) {
+    enhancedSystem += '\n\n' + practiceContext;
   }
 
   // Prepare messages for Claude API

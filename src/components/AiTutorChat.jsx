@@ -250,7 +250,18 @@ const design = {
   }
 };
 
-const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideoLesson, videoTranscript, videoTimestamp }) => {
+const AiTutorChat = ({
+  isOpen,
+  onClose,
+  moduleId,
+  lessonId,
+  lessonTitle,
+  isVideoLesson,
+  videoTranscript,
+  videoTimestamp,
+  isPracticeQuestion = false,
+  practiceContext = null
+}) => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -261,6 +272,56 @@ const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideo
 
   // Rate limiting: minimum 2 seconds between sends
   const RATE_LIMIT_MS = 2000;
+
+  // Build practice question context with smart restrictions
+  const buildPracticeContext = () => {
+    if (!isPracticeQuestion || !practiceContext) return '';
+
+    const { question, choices, hint, answerRevealed, correctAnswer, explanation } = practiceContext;
+
+    let context = `
+>>> PRACTICE QUESTION CONTEXT <<<
+The student is working on this SAT Math practice question:
+
+QUESTION: ${question}
+
+ANSWER CHOICES:
+${choices?.map(c => `${c.id}) ${c.text}`).join('\n') || 'No choices provided'}
+
+${hint ? `HINT PROVIDED TO STUDENT: ${hint}` : 'No hint available for this question.'}
+`;
+
+    if (answerRevealed) {
+      context += `
+>>> ANSWER HAS BEEN REVEALED <<<
+The student has already submitted their answer and seen the result.
+CORRECT ANSWER: ${correctAnswer}
+EXPLANATION: ${explanation}
+
+You may now fully explain the solution, walk through the steps, and answer any questions about this problem.
+`;
+    } else {
+      context += `
+>>> ANSWER NOT YET REVEALED - CRITICAL RESTRICTIONS <<<
+The student has NOT yet submitted their answer. You MUST follow these rules:
+
+1. NEVER reveal the correct answer (do not say "the answer is B" or "choice C is correct")
+2. NEVER solve the problem completely - stop before the final step
+3. NEVER confirm or deny if a specific choice is correct
+4. You CAN:
+   - Explain the hint in more detail
+   - Clarify what the question is asking
+   - Remind them of relevant formulas or concepts
+   - Guide their thinking with questions like "What happens when you..."
+   - Help them set up the problem
+5. If they directly ask for the answer, say: "I can't give you the answer yet, but let me help guide your thinking..."
+
+Your goal is to be a helpful tutor who guides discovery, not an answer-revealing machine.
+`;
+    }
+
+    return context;
+  };
 
   // Generate storage key based on lesson
   const storageKey = `aiTutorChat_${moduleId}_${lessonId}`;
@@ -321,12 +382,16 @@ const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideo
         currentTime: videoTimestamp
       } : null;
 
+      // Build practice context string with restrictions
+      const practiceContextStr = buildPracticeContext();
+
       const response = await chatWithTutor(
         newMessages,
         moduleId,
         lessonId,
         null,
-        videoContext
+        videoContext,
+        practiceContextStr
       );
       setMessages([...newMessages, { role: 'assistant', content: response }]);
     } catch (error) {
@@ -475,9 +540,11 @@ const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideo
               marginBottom: '6px',
               letterSpacing: '-0.02em'
             }}>
-              {isVideoLesson && videoTranscript
-                ? "Ask about any step"
-                : "How can I help?"
+              {isPracticeQuestion
+                ? (practiceContext?.answerRevealed ? "Let's review" : "Need a hint?")
+                : (isVideoLesson && videoTranscript
+                  ? "Ask about any step"
+                  : "How can I help?")
               }
             </div>
             <div style={{
@@ -488,9 +555,13 @@ const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideo
               maxWidth: '280px',
               lineHeight: '1.5'
             }}>
-              {isVideoLesson && videoTranscript
-                ? "I can see what's happening in the video and explain it."
-                : "Ask me anything about this lesson."
+              {isPracticeQuestion
+                ? (practiceContext?.answerRevealed
+                  ? "I can explain the solution and answer any questions."
+                  : "I can guide your thinking without giving away the answer.")
+                : (isVideoLesson && videoTranscript
+                  ? "I can see what's happening in the video and explain it."
+                  : "Ask me anything about this lesson.")
               }
             </div>
             <div style={{
@@ -500,15 +571,30 @@ const AiTutorChat = ({ isOpen, onClose, moduleId, lessonId, lessonTitle, isVideo
               justifyContent: 'center',
               maxWidth: '340px'
             }}>
-              {(isVideoLesson ? [
-                "Explain this step",
-                "Why did he do that?",
-                "What formula is this?"
-              ] : [
-                "Why this formula?",
-                "Explain again",
-                "Common mistakes?"
-              ]).map((suggestion, i) => (
+              {(isPracticeQuestion
+                ? (practiceContext?.answerRevealed
+                  ? [
+                    "Explain the solution",
+                    "Why is that the answer?",
+                    "Show me the steps"
+                  ]
+                  : [
+                    "Explain the hint",
+                    "What formula do I use?",
+                    "How do I start?"
+                  ])
+                : (isVideoLesson
+                  ? [
+                    "Explain this step",
+                    "Why did he do that?",
+                    "What formula is this?"
+                  ]
+                  : [
+                    "Why this formula?",
+                    "Explain again",
+                    "Common mistakes?"
+                  ])
+              ).map((suggestion, i) => (
                 <button
                   key={i}
                   onClick={() => setInput(suggestion)}

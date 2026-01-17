@@ -14,6 +14,7 @@ export const exponentsQuestions = {
         { id: "D", text: "2x⁷" }
       ],
       correctAnswer: "A",
+      hint: "When multiplying terms with the same base, think about what happens to the exponents. Do you add, subtract, or multiply them?",
       explanation: "When multiplying like bases, add the exponents: x⁴ · x³ = x⁴⁺³ = x⁷."
     },
     {
@@ -26,6 +27,7 @@ export const exponentsQuestions = {
         { id: "D", text: "x⁶⁴" }
       ],
       correctAnswer: "B",
+      hint: "When you raise a power to another power, you need to combine the exponents. Think about what operation connects them.",
       explanation: "When raising a power to a power, multiply the exponents: (x³)⁴ = x³ˣ⁴ = x¹²."
     },
     {
@@ -38,6 +40,7 @@ export const exponentsQuestions = {
         { id: "D", text: "x⁸/³" }
       ],
       correctAnswer: "A",
+      hint: "Division is the opposite of multiplication. If multiplying bases means adding exponents, what does dividing bases mean for the exponents?",
       explanation: "When dividing like bases, subtract the exponents: x⁸/x³ = x⁸⁻³ = x⁵."
     },
     {
@@ -50,6 +53,7 @@ export const exponentsQuestions = {
         { id: "D", text: "Undefined" }
       ],
       correctAnswer: "B",
+      hint: "There's a special rule for any nonzero number raised to the power of zero. This is a fundamental exponent property to memorize.",
       explanation: "Any nonzero number raised to the power of 0 equals 1. So 3⁰ = 1."
     },
     {
@@ -62,6 +66,7 @@ export const exponentsQuestions = {
         { id: "D", text: "8x⁵y⁴" }
       ],
       correctAnswer: "B",
+      hint: "The exponent outside applies to every factor inside the parentheses. Don't forget to raise the coefficient (2) to the power as well!",
       explanation: "(2x²y)³ = 2³ · (x²)³ · y³ = 8 · x⁶ · y³ = 8x⁶y³. Raise each factor to the power."
     }
   ],
@@ -78,6 +83,7 @@ export const exponentsQuestions = {
         { id: "D", text: "Cannot be determined" }
       ],
       correctAnswer: "A",
+      hint: "Calculate each expression separately. Remember, 2⁵ means 2 multiplied by itself 5 times, and 5² means 5 multiplied by itself 2 times.",
       explanation: "2⁵ = 32 and 5² = 25. Since 32 > 25, 2⁵ is greater."
     },
     {
@@ -90,6 +96,7 @@ export const exponentsQuestions = {
         { id: "D", text: "8" }
       ],
       correctAnswer: "C",
+      hint: "Start doubling from 2: 2, 4, 8, 16... Count how many times you need to multiply 2 by itself to reach 64.",
       explanation: "64 = 2 × 2 × 2 × 2 × 2 × 2 = 2⁶. So n = 6."
     },
     {
@@ -102,6 +109,7 @@ export const exponentsQuestions = {
         { id: "D", text: "All are equal" }
       ],
       correctAnswer: "A",
+      hint: "Evaluate each expression by computing the actual numerical value. Sometimes smaller bases with larger exponents can surprise you!",
       explanation: "3⁴ = 81, 4³ = 64, 2⁶ = 64. Since 81 > 64, 3⁴ has the greatest value."
     },
     {
@@ -114,6 +122,7 @@ export const exponentsQuestions = {
         { id: "D", text: "Cannot be determined" }
       ],
       correctAnswer: "B",
+      hint: "Think about what x³ equals in terms of x². Since x > 1, consider what happens when you multiply a number greater than 1 by itself again.",
       explanation: "For x > 1, multiplying by x (which is greater than 1) increases the value. So x³ = x² · x > x²."
     },
     {
@@ -126,6 +135,7 @@ export const exponentsQuestions = {
         { id: "D", text: "3" }
       ],
       correctAnswer: "A",
+      hint: "Try rewriting both 4 and 8 as powers of 2. This will let you compare the exponents directly.",
       explanation: "4ˣ = 8 can be rewritten as (2²)ˣ = 2³, so 2²ˣ = 2³. Therefore 2x = 3, and x = 1.5."
     }
   ],
@@ -142,6 +152,7 @@ export const exponentsQuestions = {
         { id: "D", text: "Linear increase" }
       ],
       correctAnswer: "B",
+      hint: "Look at the base of the exponential. Is it greater than 1 or between 0 and 1? This determines whether the function grows or decays.",
       explanation: "When the base is greater than 1 (here, 2 > 1), the function represents exponential growth."
     },
     {
@@ -154,6 +165,7 @@ export const exponentsQuestions = {
         { id: "D", text: "800" }
       ],
       correctAnswer: "D",
+      hint: "Doubling means multiplying by 2. Track the population year by year, or use the formula: initial value times 2 raised to the number of years.",
       explanation: "P = 100 × 2³ = 100 × 8 = 800. Each year the population doubles: 100 → 200 → 400 → 800."
     },
     {
@@ -166,6 +178,7 @@ export const exponentsQuestions = {
         { id: "D", text: "Increases by 20% each time period" }
       ],
       correctAnswer: "C",
+      hint: "The base 0.8 means the quantity keeps 80% of its value each period. What percentage is being lost?",
       explanation: "Base 0.8 = 1 - 0.2, which means 20% decay each period. The quantity retains 80% and loses 20%."
     },
     {
@@ -178,6 +191,7 @@ export const exponentsQuestions = {
         { id: "D", text: "Both A and C" }
       ],
       correctAnswer: "D",
+      hint: "The y-intercept occurs when x = 0. Substitute x = 0 into each function and remember that any number raised to the power of 0 equals 1.",
       explanation: "Y-intercept is when x = 0. For f(x) = 5(2)⁰ = 5(1) = 5. For f(x) = 2⁰ + 5 = 1 + 5 = 6. Wait, let me recalculate. Only A: 5(2)⁰ = 5."
     },
     {
@@ -190,6 +204,7 @@ export const exponentsQuestions = {
         { id: "D", text: "20000 - 0.15t" }
       ],
       correctAnswer: "B",
+      hint: "Depreciation means losing value. If the car loses 15% of its value each year, what percentage of its value does it retain?",
       explanation: "Depreciation of 15% means retaining 85% = 0.85 each year. Value = 20000(0.85)ᵗ."
     }
   ]

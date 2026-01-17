@@ -128,6 +128,7 @@ const PerformSAT = () => {
     currentQuestionIndex: 0,
     selectedAnswer: null,
     showFeedback: false,
+    showHint: false,
     answers: {},
     isComplete: false
   });
@@ -171,6 +172,7 @@ const PerformSAT = () => {
       currentQuestionIndex: 0,
       selectedAnswer: null,
       showFeedback: false,
+      showHint: false,
       answers: {},
       isComplete: false
     });
@@ -178,6 +180,10 @@ const PerformSAT = () => {
     setActiveSection(sectionName);
     setShowCalculator(false);
     setView('practice');
+  };
+
+  const handleShowHint = () => {
+    setPracticeState(prev => ({ ...prev, showHint: true }));
   };
 
   const handleSelectAnswer = (answerId) => {
@@ -199,12 +205,17 @@ const PerformSAT = () => {
   };
 
   const handleNextQuestion = (questions) => {
+    // Clear AI tutor chat when moving to next question
+    setShowAiTutor(false);
+    sessionStorage.removeItem(`aiTutorChat_${activeModule}_practice-${activeSection}-q${practiceState.currentQuestionIndex}`);
+
     if (practiceState.currentQuestionIndex < questions.length - 1) {
       setPracticeState(prev => ({
         ...prev,
         currentQuestionIndex: prev.currentQuestionIndex + 1,
         selectedAnswer: null,
-        showFeedback: false
+        showFeedback: false,
+        showHint: false
       }));
     } else {
       // Calculate final score and save
@@ -9652,6 +9663,94 @@ const PerformSAT = () => {
                       })}
                     </div>
 
+                    {/* Modal Hint Section */}
+                    {currentQuestion.hint && !practiceState.showFeedback && (
+                      <div style={{ marginBottom: '16px' }}>
+                        {!practiceState.showHint ? (
+                          <button
+                            onClick={handleShowHint}
+                            style={{
+                              background: 'none',
+                              border: '1px solid #d1d5db',
+                              borderRadius: '8px',
+                              padding: '12px 18px',
+                              fontSize: '15px',
+                              fontWeight: '500',
+                              color: '#6b7280',
+                              cursor: 'pointer',
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '8px'
+                            }}
+                          >
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                              <circle cx="12" cy="12" r="10" />
+                              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                              <line x1="12" y1="17" x2="12.01" y2="17" />
+                            </svg>
+                            Need a hint?
+                          </button>
+                        ) : (
+                          <div style={{
+                            background: 'rgba(59, 130, 246, 0.08)',
+                            borderRadius: '14px',
+                            padding: '18px 22px',
+                            borderLeft: '4px solid #3b82f6'
+                          }}>
+                            <div style={{
+                              fontSize: '14px',
+                              fontWeight: '600',
+                              color: '#3b82f6',
+                              marginBottom: '10px',
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '6px'
+                            }}>
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                <line x1="12" y1="17" x2="12.01" y2="17" />
+                              </svg>
+                              Hint
+                            </div>
+                            <p style={{
+                              fontSize: '16px',
+                              color: '#1d1d1f',
+                              lineHeight: 1.5,
+                              margin: 0
+                            }}>
+                              {currentQuestion.hint}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                    {/* Modal Ask Perform for Practice Questions */}
+                    <div style={{ marginBottom: '16px' }}>
+                      <AiTutorButton
+                        onClick={() => setShowAiTutor(!showAiTutor)}
+                        isOpen={showAiTutor}
+                      />
+                      <AiTutorChat
+                        isOpen={showAiTutor}
+                        onClose={() => setShowAiTutor(false)}
+                        moduleId={activeModule}
+                        lessonId={`practice-${activeSection}-q${practiceState.currentQuestionIndex}`}
+                        lessonTitle={`Practice: ${activeSection}`}
+                        isVideoLesson={false}
+                        isPracticeQuestion={true}
+                        practiceContext={{
+                          question: currentQuestion.question,
+                          choices: currentQuestion.choices,
+                          hint: currentQuestion.hint,
+                          answerRevealed: practiceState.showFeedback,
+                          correctAnswer: practiceState.showFeedback ? currentQuestion.correctAnswer : null,
+                          explanation: practiceState.showFeedback ? currentQuestion.explanation : null
+                        }}
+                      />
+                    </div>
+
                     {/* Modal Check Answer / Feedback */}
                     {!practiceState.showFeedback ? (
                       <button
@@ -9901,6 +10000,94 @@ const PerformSAT = () => {
                       </div>
                     );
                   })}
+                </div>
+
+                {/* Hint Section */}
+                {currentQuestion.hint && !practiceState.showFeedback && (
+                  <div style={{ marginBottom: '16px' }}>
+                    {!practiceState.showHint ? (
+                      <button
+                        onClick={handleShowHint}
+                        style={{
+                          background: 'none',
+                          border: '1px solid #d1d5db',
+                          borderRadius: '8px',
+                          padding: '10px 16px',
+                          fontSize: '14px',
+                          fontWeight: '500',
+                          color: '#6b7280',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '8px'
+                        }}
+                      >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <circle cx="12" cy="12" r="10" />
+                          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                          <line x1="12" y1="17" x2="12.01" y2="17" />
+                        </svg>
+                        Need a hint?
+                      </button>
+                    ) : (
+                      <div style={{
+                        background: 'rgba(59, 130, 246, 0.08)',
+                        borderRadius: '12px',
+                        padding: '16px 20px',
+                        borderLeft: '4px solid #3b82f6'
+                      }}>
+                        <div style={{
+                          fontSize: '13px',
+                          fontWeight: '600',
+                          color: '#3b82f6',
+                          marginBottom: '8px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '6px'
+                        }}>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                          </svg>
+                          Hint
+                        </div>
+                        <p style={{
+                          fontSize: '14px',
+                          color: '#1d1d1f',
+                          lineHeight: 1.5,
+                          margin: 0
+                        }}>
+                          {currentQuestion.hint}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Ask Perform for Practice Questions */}
+                <div style={{ marginBottom: '16px' }}>
+                  <AiTutorButton
+                    onClick={() => setShowAiTutor(!showAiTutor)}
+                    isOpen={showAiTutor}
+                  />
+                  <AiTutorChat
+                    isOpen={showAiTutor}
+                    onClose={() => setShowAiTutor(false)}
+                    moduleId={activeModule}
+                    lessonId={`practice-${activeSection}-q${practiceState.currentQuestionIndex}`}
+                    lessonTitle={`Practice: ${activeSection}`}
+                    isVideoLesson={false}
+                    isPracticeQuestion={true}
+                    practiceContext={{
+                      question: currentQuestion.question,
+                      choices: currentQuestion.choices,
+                      hint: currentQuestion.hint,
+                      answerRevealed: practiceState.showFeedback,
+                      correctAnswer: practiceState.showFeedback ? currentQuestion.correctAnswer : null,
+                      explanation: practiceState.showFeedback ? currentQuestion.explanation : null
+                    }}
+                  />
                 </div>
 
                 {/* Check Answer / Feedback */}
