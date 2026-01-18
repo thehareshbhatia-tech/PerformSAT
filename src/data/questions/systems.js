@@ -6,6 +6,7 @@ export const systemsQuestions = {
   "Introduction": [
     {
       id: 1,
+      difficulty: "easy",
       question: "A system of linear equations can have:",
       choices: [
         { id: "A", text: "Exactly one solution only" },
@@ -19,6 +20,7 @@ export const systemsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "If two lines intersect at exactly one point, the system is called:",
       choices: [
         { id: "A", text: "Inconsistent" },
@@ -32,6 +34,7 @@ export const systemsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "What does it mean graphically if a system has no solution?",
       choices: [
         { id: "A", text: "The lines intersect at one point" },
@@ -45,6 +48,7 @@ export const systemsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "The solution to a system of equations represents:",
       choices: [
         { id: "A", text: "The y-intercept of both lines" },
@@ -58,6 +62,7 @@ export const systemsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "Is (2, 3) a solution to the system: x + y = 5 and 2x - y = 1?",
       choices: [
         { id: "A", text: "Yes" },
@@ -75,6 +80,7 @@ export const systemsQuestions = {
   "Setting Up Systems": [
     {
       id: 1,
+      difficulty: "easy",
       question: "Adult tickets cost $8 and child tickets cost $5. Total sales were $95 for 14 tickets. Which system represents this?",
       choices: [
         { id: "A", text: "a + c = 95, 8a + 5c = 14" },
@@ -88,6 +94,7 @@ export const systemsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "A store sells pens for $2 and notebooks for $5. Maria spent $29 on 8 items. If p = pens and n = notebooks, which system is correct?",
       choices: [
         { id: "A", text: "p + n = 29, 2p + 5n = 8" },
@@ -101,6 +108,7 @@ export const systemsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "The sum of two numbers is 20 and their difference is 6. Which system represents this?",
       choices: [
         { id: "A", text: "x + y = 20, x - y = 6" },
@@ -114,6 +122,7 @@ export const systemsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "A boat travels 30 miles downstream in 2 hours and 18 miles upstream in 3 hours. If b = boat speed and c = current speed, which equations are correct?",
       choices: [
         { id: "A", text: "b + c = 15, b - c = 6" },
@@ -127,6 +136,7 @@ export const systemsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "Coffee A costs $4/lb and Coffee B costs $7/lb. To make 10 lbs of a blend costing $5.50/lb, which system applies?",
       choices: [
         { id: "A", text: "a + b = 10, 4a + 7b = 55" },
@@ -144,6 +154,7 @@ export const systemsQuestions = {
   "Substitution Method": [
     {
       id: 1,
+      difficulty: "easy",
       question: "Solve using substitution: y = 2x and x + y = 9. What is x?",
       choices: [
         { id: "A", text: "2" },
@@ -157,6 +168,7 @@ export const systemsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "Solve: x = 3y - 1 and 2x + y = 12. What is y?",
       choices: [
         { id: "A", text: "2" },
@@ -170,6 +182,7 @@ export const systemsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "Which equation is best to solve first for substitution in: 3x + y = 10 and 2x - 3y = 1?",
       choices: [
         { id: "A", text: "Solve first equation for x" },
@@ -183,6 +196,7 @@ export const systemsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "Solve: y = x + 4 and y = 3x - 2. What is the solution (x, y)?",
       choices: [
         { id: "A", text: "(3, 7)" },
@@ -196,6 +210,7 @@ export const systemsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "Using substitution on 2x - y = 7 and x + 2y = 1, what is x + y?",
       choices: [
         { id: "A", text: "-2" },
@@ -213,6 +228,7 @@ export const systemsQuestions = {
   "Elimination Method": [
     {
       id: 1,
+      difficulty: "easy",
       question: "Solve by elimination: x + y = 10 and x - y = 2. What is x?",
       choices: [
         { id: "A", text: "4" },
@@ -226,6 +242,7 @@ export const systemsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "Solve: 3x + 2y = 12 and 3x - 2y = 0. What is y?",
       choices: [
         { id: "A", text: "2" },
@@ -239,6 +256,7 @@ export const systemsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "To eliminate x from 2x + 3y = 8 and 5x - 2y = 1, multiply the first equation by:",
       choices: [
         { id: "A", text: "2" },
@@ -252,6 +270,7 @@ export const systemsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "Solve: 4x + y = 11 and 2x + 3y = 13. What is the solution?",
       choices: [
         { id: "A", text: "(2, 3)" },
@@ -265,6 +284,7 @@ export const systemsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "Using elimination on 2x + 5y = 24 and 3x + 5y = 29, what is 5x?",
       choices: [
         { id: "A", text: "5" },
@@ -282,6 +302,7 @@ export const systemsQuestions = {
   "DESMOS Method": [
     {
       id: 1,
+      difficulty: "easy",
       question: "When graphing a system in Desmos, the solution is found at:",
       choices: [
         { id: "A", text: "The y-intercepts" },
@@ -295,6 +316,7 @@ export const systemsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "In Desmos, if two lines appear parallel, the system has:",
       choices: [
         { id: "A", text: "One solution" },
@@ -308,6 +330,7 @@ export const systemsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "If Desmos shows the lines overlapping completely, the system has:",
       choices: [
         { id: "A", text: "No solution" },
@@ -321,6 +344,7 @@ export const systemsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "When using Desmos for the SAT, it's best to:",
       choices: [
         { id: "A", text: "Graph only one equation" },
@@ -334,6 +358,7 @@ export const systemsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "A Desmos graph shows lines y = 2x + 1 and y = 2x - 3 never touching. This means:",
       choices: [
         { id: "A", text: "The solution is (0, 1)" },
@@ -351,6 +376,7 @@ export const systemsQuestions = {
   "Infinite Solutions": [
     {
       id: 1,
+      difficulty: "easy",
       question: "The system x + y = 5 and 2x + 2y = 10 has:",
       choices: [
         { id: "A", text: "No solution" },
@@ -364,6 +390,7 @@ export const systemsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "For infinite solutions, the two equations must represent:",
       choices: [
         { id: "A", text: "Parallel lines" },
@@ -377,6 +404,7 @@ export const systemsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "For what value of k does 3x - 6y = 9 and x - 2y = k have infinite solutions?",
       choices: [
         { id: "A", text: "k = 3" },
@@ -390,6 +418,7 @@ export const systemsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "If using elimination gives 0 = 0, the system has:",
       choices: [
         { id: "A", text: "No solution" },
@@ -403,6 +432,7 @@ export const systemsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "Which system has infinitely many solutions?",
       choices: [
         { id: "A", text: "y = 2x + 3, y = 2x - 1" },

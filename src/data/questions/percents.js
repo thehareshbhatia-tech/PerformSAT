@@ -6,6 +6,7 @@ export const percentsQuestions = {
   "Percent Fundamentals": [
     {
       id: 1,
+      difficulty: "easy",
       question: "What is 25% expressed as a decimal?",
       choices: [
         { id: "A", text: "0.025" },
@@ -19,6 +20,7 @@ export const percentsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "Express 0.375 as a percent.",
       choices: [
         { id: "A", text: "0.375%" },
@@ -32,6 +34,7 @@ export const percentsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "What is 3/5 expressed as a percent?",
       choices: [
         { id: "A", text: "35%" },
@@ -45,6 +48,7 @@ export const percentsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "Which is greatest: 45%, 0.4, or 2/5?",
       choices: [
         { id: "A", text: "45%" },
@@ -58,6 +62,7 @@ export const percentsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "What percent of 200 is 50?",
       choices: [
         { id: "A", text: "4%" },
@@ -75,6 +80,7 @@ export const percentsQuestions = {
   "Percent Of Questions": [
     {
       id: 1,
+      difficulty: "easy",
       question: "What is 30% of 80?",
       choices: [
         { id: "A", text: "24" },
@@ -88,6 +94,7 @@ export const percentsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "If 40% of a number is 28, what is the number?",
       choices: [
         { id: "A", text: "11.2" },
@@ -101,6 +108,7 @@ export const percentsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "A shirt originally costs $60. If it is 15% off, what is the discount amount?",
       choices: [
         { id: "A", text: "$4" },
@@ -114,6 +122,7 @@ export const percentsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "In a class of 25 students, 60% are girls. How many boys are in the class?",
       choices: [
         { id: "A", text: "10" },
@@ -127,6 +136,7 @@ export const percentsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "A store sold 120 items on Monday. If this represents 24% of their weekly sales, what were the total weekly sales?",
       choices: [
         { id: "A", text: "28.8 items" },
@@ -144,6 +154,7 @@ export const percentsQuestions = {
   "Percent Change Questions": [
     {
       id: 1,
+      difficulty: "easy",
       question: "A price increases from $80 to $100. What is the percent increase?",
       choices: [
         { id: "A", text: "20%" },
@@ -157,6 +168,7 @@ export const percentsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "A population decreases from 500 to 400. What is the percent decrease?",
       choices: [
         { id: "A", text: "10%" },
@@ -170,6 +182,7 @@ export const percentsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "A stock increases by 20% one year and decreases by 20% the next year. If it started at $100, what is its final value?",
       choices: [
         { id: "A", text: "$96" },
@@ -183,6 +196,7 @@ export const percentsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "A shirt's price was reduced by 30% to $35. What was the original price?",
       choices: [
         { id: "A", text: "$45.50" },
@@ -196,6 +210,7 @@ export const percentsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "If a number is increased by 50% and then decreased by 50%, the final result is what percent of the original?",
       choices: [
         { id: "A", text: "25%" },
@@ -213,6 +228,7 @@ export const percentsQuestions = {
   "Percent Model Questions": [
     {
       id: 1,
+      difficulty: "easy",
       question: "A survey found that 35% of 400 respondents prefer product A. How many respondents prefer product A?",
       choices: [
         { id: "A", text: "35" },
@@ -226,6 +242,7 @@ export const percentsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "In a solution, 15% is acid and the rest is water. If there are 120 mL of water, how much acid is there?",
       choices: [
         { id: "A", text: "18 mL" },
@@ -239,6 +256,7 @@ export const percentsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "A salesperson earns a 6% commission on sales. If they earn $450 in commission, what were their total sales?",
       choices: [
         { id: "A", text: "$27" },
@@ -252,6 +270,7 @@ export const percentsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "A tank is 40% full and contains 240 gallons of water. What is the total capacity of the tank?",
       choices: [
         { id: "A", text: "96 gallons" },
@@ -265,6 +284,7 @@ export const percentsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "A test has 80 questions. To pass, you need at least 75%. What is the minimum number of questions you must answer correctly?",
       choices: [
         { id: "A", text: "55" },

@@ -6,6 +6,7 @@ export const exponentsQuestions = {
   "Laws of Exponents": [
     {
       id: 1,
+      difficulty: "easy",
       question: "Simplify: x⁴ · x³",
       choices: [
         { id: "A", text: "x⁷" },
@@ -19,6 +20,7 @@ export const exponentsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "Simplify: (x³)⁴",
       choices: [
         { id: "A", text: "x⁷" },
@@ -32,6 +34,7 @@ export const exponentsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "Simplify: x⁸/x³",
       choices: [
         { id: "A", text: "x⁵" },
@@ -45,6 +48,7 @@ export const exponentsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "What is the value of 3⁰?",
       choices: [
         { id: "A", text: "0" },
@@ -58,6 +62,7 @@ export const exponentsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "Simplify: (2x²y)³",
       choices: [
         { id: "A", text: "6x⁶y³" },
@@ -75,6 +80,7 @@ export const exponentsQuestions = {
   "Comparing Exponential Expressions": [
     {
       id: 1,
+      difficulty: "easy",
       question: "Which is greater: 2⁵ or 5²?",
       choices: [
         { id: "A", text: "2⁵" },
@@ -88,6 +94,7 @@ export const exponentsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "If 2ⁿ = 64, what is the value of n?",
       choices: [
         { id: "A", text: "4" },
@@ -101,6 +108,7 @@ export const exponentsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "Which expression has the greatest value: 3⁴, 4³, or 2⁶?",
       choices: [
         { id: "A", text: "3⁴" },
@@ -114,6 +122,7 @@ export const exponentsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "If x > 1, which is greater: x² or x³?",
       choices: [
         { id: "A", text: "x²" },
@@ -127,6 +136,7 @@ export const exponentsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "For what value of x does 4ˣ = 8?",
       choices: [
         { id: "A", text: "1.5" },
@@ -144,6 +154,7 @@ export const exponentsQuestions = {
   "Exponential Functions": [
     {
       id: 1,
+      difficulty: "easy",
       question: "The function f(x) = 2ˣ represents exponential:",
       choices: [
         { id: "A", text: "Decay" },
@@ -157,6 +168,7 @@ export const exponentsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "A population doubles every year. If it starts at 100, what is the population after 3 years?",
       choices: [
         { id: "A", text: "300" },
@@ -170,6 +182,7 @@ export const exponentsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "The function f(x) = 500(0.8)ˣ represents a quantity that:",
       choices: [
         { id: "A", text: "Increases by 80% each time period" },
@@ -183,19 +196,21 @@ export const exponentsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "Which function has the y-intercept of 5?",
       choices: [
         { id: "A", text: "f(x) = 5(2)ˣ" },
         { id: "B", text: "f(x) = 2(5)ˣ" },
         { id: "C", text: "f(x) = 2ˣ + 5" },
-        { id: "D", text: "Both A and C" }
+        { id: "D", text: "f(x) = 5ˣ + 2" }
       ],
-      correctAnswer: "D",
+      correctAnswer: "A",
       hint: "The y-intercept occurs when x = 0. Substitute x = 0 into each function and remember that any number raised to the power of 0 equals 1.",
-      explanation: "Y-intercept is when x = 0. For f(x) = 5(2)⁰ = 5(1) = 5. For f(x) = 2⁰ + 5 = 1 + 5 = 6. Wait, let me recalculate. Only A: 5(2)⁰ = 5."
+      explanation: "Y-intercept is when x = 0. For A: f(0) = 5(2)⁰ = 5(1) = 5. For B: f(0) = 2(5)⁰ = 2(1) = 2. For C: f(0) = 2⁰ + 5 = 1 + 5 = 6. For D: f(0) = 5⁰ + 2 = 1 + 2 = 3. Only A has y-intercept of 5."
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "A car depreciates by 15% per year. If its initial value is $20,000, which expression gives its value after t years?",
       choices: [
         { id: "A", text: "20000(0.15)ᵗ" },

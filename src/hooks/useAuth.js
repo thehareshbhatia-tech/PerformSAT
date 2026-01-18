@@ -183,6 +183,25 @@ export const useAuth = () => {
     }
   };
 
+  /**
+   * Update user's target SAT score
+   * @param {number} targetScore - Target score (400-1600)
+   */
+  const updateTargetScore = async (targetScore) => {
+    if (!user?.uid) return;
+
+    try {
+      await setDoc(doc(db, 'users', user.uid), {
+        targetScore: targetScore
+      }, { merge: true });
+
+      setUser(prev => ({ ...prev, targetScore }));
+    } catch (err) {
+      console.error('Error updating target score:', err);
+      throw err;
+    }
+  };
+
   return {
     user,
     loading,
@@ -191,6 +210,7 @@ export const useAuth = () => {
     login,
     logout,
     updateTestDate,
+    updateTargetScore,
     isAuthenticated: !!user
   };
 };

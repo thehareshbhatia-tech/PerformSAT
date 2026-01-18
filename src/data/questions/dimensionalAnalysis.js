@@ -6,6 +6,7 @@ export const dimensionalAnalysisQuestions = {
   "Unit Conversion Basics": [
     {
       id: 1,
+      difficulty: "easy",
       question: "If 1 mile = 5,280 feet, how many feet are in 3.5 miles?",
       choices: [
         { id: "A", text: "1,508.57 feet" },
@@ -19,6 +20,7 @@ export const dimensionalAnalysisQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "A car travels at 60 miles per hour. What is its speed in miles per minute?",
       choices: [
         { id: "A", text: "1 mile per minute" },
@@ -32,6 +34,7 @@ export const dimensionalAnalysisQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "If 1 kilogram = 2.2 pounds, how many kilograms is 110 pounds?",
       choices: [
         { id: "A", text: "50 kilograms" },
@@ -45,6 +48,7 @@ export const dimensionalAnalysisQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "Convert 5,400 seconds to hours.",
       choices: [
         { id: "A", text: "0.5 hours" },
@@ -58,6 +62,7 @@ export const dimensionalAnalysisQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "A recipe calls for 3 cups of flour. If 1 cup = 8 fluid ounces, how many fluid ounces of flour is needed?",
       choices: [
         { id: "A", text: "0.375 fluid ounces" },
@@ -75,6 +80,7 @@ export const dimensionalAnalysisQuestions = {
   "Squared & Cubic Units": [
     {
       id: 1,
+      difficulty: "easy",
       question: "If 1 foot = 12 inches, how many square inches are in 1 square foot?",
       choices: [
         { id: "A", text: "12 square inches" },
@@ -88,6 +94,7 @@ export const dimensionalAnalysisQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "Convert 3 square meters to square centimeters. (1 m = 100 cm)",
       choices: [
         { id: "A", text: "300 cm²" },
@@ -101,6 +108,7 @@ export const dimensionalAnalysisQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "How many cubic feet are in 1 cubic yard? (1 yard = 3 feet)",
       choices: [
         { id: "A", text: "3 cubic feet" },
@@ -114,6 +122,7 @@ export const dimensionalAnalysisQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "A room has an area of 180 square feet. What is this area in square yards? (1 yard = 3 feet)",
       choices: [
         { id: "A", text: "20 square yards" },
@@ -127,6 +136,7 @@ export const dimensionalAnalysisQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "A tank holds 8,000 cubic centimeters. What is its volume in liters? (1 liter = 1,000 cm³)",
       choices: [
         { id: "A", text: "0.8 liters" },

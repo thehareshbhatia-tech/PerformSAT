@@ -6,6 +6,7 @@ export const linearEquationsQuestions = {
   "Deriving Equations": [
     {
       id: 1,
+      difficulty: "easy",
       question: "A phone plan charges a flat fee of $25 per month plus $0.10 per text message. Which equation represents the total monthly cost C in terms of the number of text messages t?",
       choices: [
         { id: "A", text: "C = 0.10 + 25t" },
@@ -19,6 +20,7 @@ export const linearEquationsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "A line passes through points (0, 4) and (2, 10) on a graph. What is the equation of this line?",
       choices: [
         { id: "A", text: "y = 3x + 4" },
@@ -32,6 +34,7 @@ export const linearEquationsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "A table shows: x = [0, 2, 4, 6] and y = [5, 11, 17, 23]. What is the equation?",
       choices: [
         { id: "A", text: "y = 3x + 5" },
@@ -45,6 +48,7 @@ export const linearEquationsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "If f(x) is a linear function where f(2) = 7 and f(5) = 16, what is f(0)?",
       choices: [
         { id: "A", text: "1" },
@@ -58,6 +62,7 @@ export const linearEquationsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "A candle is 12 inches tall and burns at a rate of 0.5 inches per hour. Which equation gives the height h of the candle after t hours?",
       choices: [
         { id: "A", text: "h = 12 + 0.5t" },
@@ -75,6 +80,7 @@ export const linearEquationsQuestions = {
   "Parallel Lines": [
     {
       id: 1,
+      difficulty: "easy",
       question: "Line p has the equation y = 4x - 3. Which equation represents a line parallel to line p?",
       choices: [
         { id: "A", text: "y = -4x + 5" },
@@ -88,6 +94,7 @@ export const linearEquationsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "Which line is parallel to 2x + y = 8?",
       choices: [
         { id: "A", text: "y = 2x + 3" },
@@ -101,6 +108,7 @@ export const linearEquationsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "Line m passes through (1, 5) and is parallel to y = 3x - 2. What is the equation of line m?",
       choices: [
         { id: "A", text: "y = 3x + 2" },
@@ -114,6 +122,7 @@ export const linearEquationsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "In a system of equations, y = 2x + 3 and y = 2x - 1, how many solutions exist?",
       choices: [
         { id: "A", text: "No solution" },
@@ -127,6 +136,7 @@ export const linearEquationsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "If y = mx + 5 is parallel to the line passing through (-2, 1) and (4, 7), what is m?",
       choices: [
         { id: "A", text: "1" },
@@ -144,6 +154,7 @@ export const linearEquationsQuestions = {
   "Perpendicular Lines": [
     {
       id: 1,
+      difficulty: "easy",
       question: "Line k has the equation y = 2x + 5. What is the slope of a line perpendicular to line k?",
       choices: [
         { id: "A", text: "2" },
@@ -157,6 +168,7 @@ export const linearEquationsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "Which equation represents a line perpendicular to y = -3x + 1?",
       choices: [
         { id: "A", text: "y = -3x + 4" },
@@ -170,6 +182,7 @@ export const linearEquationsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "A line passes through (2, 4) and is perpendicular to y = (1/2)x - 3. What is the equation of this line?",
       choices: [
         { id: "A", text: "y = -2x + 8" },
@@ -183,6 +196,7 @@ export const linearEquationsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "If two lines are perpendicular and one has slope 4/5, what is the slope of the other?",
       choices: [
         { id: "A", text: "4/5" },
@@ -196,6 +210,7 @@ export const linearEquationsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "Line j passes through (0, 3) and (4, 1). A line perpendicular to j passes through (2, 5). What is the y-intercept of the perpendicular line?",
       choices: [
         { id: "A", text: "1" },

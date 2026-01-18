@@ -6,6 +6,7 @@ export const quadraticsQuestions = {
   "Overview": [
     {
       id: 1,
+      difficulty: "easy",
       question: "Which of the following is a quadratic function?",
       choices: [
         { id: "A", text: "f(x) = 3x + 2" },
@@ -19,6 +20,7 @@ export const quadraticsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "In the quadratic function f(x) = 2x² - 4x + 7, what is the value of 'a'?",
       choices: [
         { id: "A", text: "-4" },
@@ -32,6 +34,7 @@ export const quadraticsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "The graph of a quadratic function is called a:",
       choices: [
         { id: "A", text: "Line" },
@@ -45,6 +48,7 @@ export const quadraticsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "If a > 0 in f(x) = ax² + bx + c, the parabola:",
       choices: [
         { id: "A", text: "Opens upward" },
@@ -58,6 +62,7 @@ export const quadraticsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "What is the y-intercept of f(x) = 3x² - 2x + 5?",
       choices: [
         { id: "A", text: "3" },
@@ -75,6 +80,7 @@ export const quadraticsQuestions = {
   "Roots": [
     {
       id: 1,
+      difficulty: "easy",
       question: "What are the roots of x² - 5x + 6 = 0?",
       choices: [
         { id: "A", text: "x = 2 and x = 3" },
@@ -88,6 +94,7 @@ export const quadraticsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "If x = -4 is a root of x² + 7x + k = 0, what is the value of k?",
       choices: [
         { id: "A", text: "-12" },
@@ -101,6 +108,7 @@ export const quadraticsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "The equation x² - 9 = 0 has roots at:",
       choices: [
         { id: "A", text: "x = 9 only" },
@@ -114,6 +122,7 @@ export const quadraticsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "If a quadratic equation has roots at x = 1 and x = 5, which could be the equation?",
       choices: [
         { id: "A", text: "x² - 6x + 5 = 0" },
@@ -127,6 +136,7 @@ export const quadraticsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "For what value of x does 2x² - 8x = 0?",
       choices: [
         { id: "A", text: "x = 0 only" },
@@ -144,6 +154,7 @@ export const quadraticsQuestions = {
   "Vertex": [
     {
       id: 1,
+      difficulty: "easy",
       question: "What is the x-coordinate of the vertex of f(x) = x² - 6x + 5?",
       choices: [
         { id: "A", text: "-6" },
@@ -157,6 +168,7 @@ export const quadraticsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "The vertex of f(x) = (x - 2)² + 3 is at:",
       choices: [
         { id: "A", text: "(2, 3)" },
@@ -170,6 +182,7 @@ export const quadraticsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "For f(x) = -2x² + 8x - 3, does the vertex represent a maximum or minimum?",
       choices: [
         { id: "A", text: "Maximum, because a < 0" },
@@ -183,6 +196,7 @@ export const quadraticsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "What is the minimum value of f(x) = x² + 4x + 7?",
       choices: [
         { id: "A", text: "3" },
@@ -196,6 +210,7 @@ export const quadraticsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "The axis of symmetry of f(x) = 2x² + 12x - 5 is:",
       choices: [
         { id: "A", text: "x = 3" },
@@ -213,6 +228,7 @@ export const quadraticsQuestions = {
   "Discriminant": [
     {
       id: 1,
+      difficulty: "easy",
       question: "What is the discriminant of x² - 4x + 4 = 0?",
       choices: [
         { id: "A", text: "-32" },
@@ -226,6 +242,7 @@ export const quadraticsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "If the discriminant is negative, the quadratic equation has:",
       choices: [
         { id: "A", text: "Two real solutions" },
@@ -239,6 +256,7 @@ export const quadraticsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "How many x-intercepts does y = x² + 2x + 5 have?",
       choices: [
         { id: "A", text: "0" },
@@ -252,6 +270,7 @@ export const quadraticsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "For what value of k does x² + kx + 9 = 0 have exactly one solution?",
       choices: [
         { id: "A", text: "k = 3 only" },
@@ -265,6 +284,7 @@ export const quadraticsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "The equation 2x² - 5x + 1 = 0 has:",
       choices: [
         { id: "A", text: "Two distinct real roots" },
@@ -282,6 +302,7 @@ export const quadraticsQuestions = {
   "Deriving Standard Form": [
     {
       id: 1,
+      difficulty: "easy",
       question: "Convert f(x) = (x + 3)² - 4 to standard form.",
       choices: [
         { id: "A", text: "f(x) = x² + 6x + 5" },
@@ -295,6 +316,7 @@ export const quadraticsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "If a parabola has vertex (2, -1) and passes through (0, 3), what is the value of 'a' in f(x) = a(x - 2)² - 1?",
       choices: [
         { id: "A", text: "1" },
@@ -308,6 +330,7 @@ export const quadraticsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "A parabola has x-intercepts at 1 and 5 and passes through (0, -10). What is the equation?",
       choices: [
         { id: "A", text: "y = 2(x - 1)(x - 5)" },
@@ -321,6 +344,7 @@ export const quadraticsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "What is the standard form of a quadratic with roots 2 and -3 that passes through (1, -8)?",
       choices: [
         { id: "A", text: "y = 2x² + 2x - 12" },
@@ -334,6 +358,7 @@ export const quadraticsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "Convert f(x) = -2(x - 1)² + 8 to standard form.",
       choices: [
         { id: "A", text: "f(x) = -2x² + 4x + 6" },

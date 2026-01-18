@@ -6,6 +6,7 @@ export const statisticsQuestions = {
   "Mean": [
     {
       id: 1,
+      difficulty: "easy",
       question: "What is the mean of the data set: 4, 8, 6, 5, 9, 2, 8?",
       choices: [
         { id: "A", text: "5" },
@@ -19,6 +20,7 @@ export const statisticsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "The mean of 5 numbers is 12. If one number is removed and the new mean is 10, what number was removed?",
       choices: [
         { id: "A", text: "10" },
@@ -32,6 +34,7 @@ export const statisticsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "A student's test scores are 85, 90, 78, and 92. What score on the fifth test gives a mean of 88?",
       choices: [
         { id: "A", text: "88" },
@@ -45,6 +48,7 @@ export const statisticsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "If 10 is added to each value in a data set, the mean:",
       choices: [
         { id: "A", text: "Stays the same" },
@@ -58,6 +62,7 @@ export const statisticsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "A class of 20 students has a mean score of 75. A class of 30 students has a mean score of 80. What is the combined mean?",
       choices: [
         { id: "A", text: "77" },
@@ -75,6 +80,7 @@ export const statisticsQuestions = {
   "Median": [
     {
       id: 1,
+      difficulty: "easy",
       question: "What is the median of: 3, 7, 9, 2, 5?",
       choices: [
         { id: "A", text: "5" },
@@ -88,6 +94,7 @@ export const statisticsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "What is the median of: 4, 8, 2, 10, 6, 12?",
       choices: [
         { id: "A", text: "6" },
@@ -101,6 +108,7 @@ export const statisticsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "If outliers are present in data, which measure of center is more reliable?",
       choices: [
         { id: "A", text: "Mean" },
@@ -114,6 +122,7 @@ export const statisticsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "A data set has 15 values. After ordering, which position(s) contain the median?",
       choices: [
         { id: "A", text: "7th position" },
@@ -127,6 +136,7 @@ export const statisticsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "The data set 10, 12, 15, 18, 22, x has a median of 16. What is x?",
       choices: [
         { id: "A", text: "14" },
@@ -144,6 +154,7 @@ export const statisticsQuestions = {
   "Mode": [
     {
       id: 1,
+      difficulty: "easy",
       question: "What is the mode of: 2, 4, 4, 5, 7, 4, 8?",
       choices: [
         { id: "A", text: "2" },
@@ -157,6 +168,7 @@ export const statisticsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "A data set is: 1, 2, 3, 4, 5. What is the mode?",
       choices: [
         { id: "A", text: "1" },
@@ -170,6 +182,7 @@ export const statisticsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "The data set 3, 5, 5, 7, 9, 9 is:",
       choices: [
         { id: "A", text: "Unimodal" },
@@ -183,6 +196,7 @@ export const statisticsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "For which type of data is mode the only appropriate measure of center?",
       choices: [
         { id: "A", text: "Continuous data" },
@@ -196,6 +210,7 @@ export const statisticsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "If a new value equal to the current mode is added to a data set, the mode:",
       choices: [
         { id: "A", text: "Changes" },
@@ -213,6 +228,7 @@ export const statisticsQuestions = {
   "Range": [
     {
       id: 1,
+      difficulty: "easy",
       question: "What is the range of: 15, 8, 22, 11, 19?",
       choices: [
         { id: "A", text: "7" },
@@ -226,6 +242,7 @@ export const statisticsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "Data set A has range 10. If each value is multiplied by 3, what is the new range?",
       choices: [
         { id: "A", text: "10" },
@@ -239,6 +256,7 @@ export const statisticsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "A data set has minimum 5 and maximum 23. If a value of 30 is added, how does the range change?",
       choices: [
         { id: "A", text: "Increases by 7" },
@@ -252,6 +270,7 @@ export const statisticsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "Which measure is most affected by outliers?",
       choices: [
         { id: "A", text: "Median" },
@@ -265,6 +284,7 @@ export const statisticsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "If 5 is added to every value in a data set, the range:",
       choices: [
         { id: "A", text: "Increases by 5" },
@@ -282,6 +302,7 @@ export const statisticsQuestions = {
   "Standard Deviation": [
     {
       id: 1,
+      difficulty: "easy",
       question: "Standard deviation measures:",
       choices: [
         { id: "A", text: "The center of the data" },
@@ -295,6 +316,7 @@ export const statisticsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "If all values in a data set are the same, the standard deviation is:",
       choices: [
         { id: "A", text: "1" },
@@ -308,6 +330,7 @@ export const statisticsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "Data set A: 10, 10, 10, 10. Data set B: 5, 10, 10, 15. Which has larger standard deviation?",
       choices: [
         { id: "A", text: "Data set A" },
@@ -321,6 +344,7 @@ export const statisticsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "If 10 is added to every value in a data set, the standard deviation:",
       choices: [
         { id: "A", text: "Increases by 10" },
@@ -334,6 +358,7 @@ export const statisticsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "If every value in a data set is multiplied by 2, the standard deviation:",
       choices: [
         { id: "A", text: "Stays the same" },
@@ -351,6 +376,7 @@ export const statisticsQuestions = {
   "Margin of Error": [
     {
       id: 1,
+      difficulty: "easy",
       question: "A poll reports 45% support with a margin of error of ±3%. What is the confidence interval?",
       choices: [
         { id: "A", text: "42% to 48%" },
@@ -364,6 +390,7 @@ export const statisticsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "If sample size increases (all else equal), the margin of error:",
       choices: [
         { id: "A", text: "Increases" },
@@ -377,6 +404,7 @@ export const statisticsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "A survey of 400 people has a margin of error of 5%. To halve the margin of error, you need approximately:",
       choices: [
         { id: "A", text: "800 people" },
@@ -390,6 +418,7 @@ export const statisticsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "Two polls show: Poll A: 52% ± 4%, Poll B: 48% ± 4%. Can we conclude which candidate is ahead?",
       choices: [
         { id: "A", text: "Yes, candidate A is ahead" },
@@ -403,6 +432,7 @@ export const statisticsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "What does a 95% confidence level mean?",
       choices: [
         { id: "A", text: "95% of the population was sampled" },

@@ -6,6 +6,7 @@ export const volumeQuestions = {
   "Fundamentals": [
     {
       id: 1,
+      difficulty: "easy",
       question: "Volume is measured in:",
       choices: [
         { id: "A", text: "Linear units (cm, m)" },
@@ -19,6 +20,7 @@ export const volumeQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "If all dimensions of a 3D shape are doubled, the volume is multiplied by:",
       choices: [
         { id: "A", text: "2" },
@@ -32,6 +34,7 @@ export const volumeQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "Which formula represents the volume of any prism?",
       choices: [
         { id: "A", text: "V = lwh" },
@@ -45,6 +48,7 @@ export const volumeQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "A container holds 2 liters. How many cubic centimeters is this?",
       choices: [
         { id: "A", text: "2 cm³" },
@@ -58,6 +62,7 @@ export const volumeQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "If two solids have the same volume, they must have:",
       choices: [
         { id: "A", text: "The same shape" },
@@ -75,6 +80,7 @@ export const volumeQuestions = {
   "Rectangular Prism": [
     {
       id: 1,
+      difficulty: "easy",
       question: "What is the volume of a rectangular prism with length 5, width 3, and height 4?",
       choices: [
         { id: "A", text: "12" },
@@ -88,6 +94,7 @@ export const volumeQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "A box has volume 120 cm³. If its length is 10 cm and width is 4 cm, what is its height?",
       choices: [
         { id: "A", text: "3 cm" },
@@ -101,6 +108,7 @@ export const volumeQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "A rectangular tank holds 1,000 gallons. If its base is 10 ft × 5 ft, how deep is the water? (1 gallon ≈ 0.134 cubic feet)",
       choices: [
         { id: "A", text: "2 ft" },
@@ -114,6 +122,7 @@ export const volumeQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "If a rectangular prism's length is tripled while width and height stay the same, the volume:",
       choices: [
         { id: "A", text: "Triples" },
@@ -127,6 +136,7 @@ export const volumeQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "A storage unit is 12 ft × 10 ft × 8 ft. How many boxes that are 2 ft × 2 ft × 2 ft can fit inside?",
       choices: [
         { id: "A", text: "60" },
@@ -144,6 +154,7 @@ export const volumeQuestions = {
   "Cube": [
     {
       id: 1,
+      difficulty: "easy",
       question: "What is the volume of a cube with edge length 4?",
       choices: [
         { id: "A", text: "12" },
@@ -157,6 +168,7 @@ export const volumeQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "A cube has volume 125 cm³. What is its edge length?",
       choices: [
         { id: "A", text: "5 cm" },
@@ -170,6 +182,7 @@ export const volumeQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "If a cube's edge is doubled, its volume is multiplied by:",
       choices: [
         { id: "A", text: "2" },
@@ -183,6 +196,7 @@ export const volumeQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "A cube has surface area 96 cm². What is its volume?",
       choices: [
         { id: "A", text: "16 cm³" },
@@ -196,6 +210,7 @@ export const volumeQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "How many small cubes of edge 2 cm fit inside a large cube of edge 8 cm?",
       choices: [
         { id: "A", text: "4" },
@@ -213,6 +228,7 @@ export const volumeQuestions = {
   "Cylinder": [
     {
       id: 1,
+      difficulty: "easy",
       question: "What is the volume of a cylinder with radius 3 and height 7? (Leave in terms of π)",
       choices: [
         { id: "A", text: "21π" },
@@ -226,6 +242,7 @@ export const volumeQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "A cylindrical tank has volume 200π m³ and radius 5 m. What is its height?",
       choices: [
         { id: "A", text: "4 m" },
@@ -239,6 +256,7 @@ export const volumeQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "A cylinder has diameter 10 and height 12. What is its volume?",
       choices: [
         { id: "A", text: "120π" },
@@ -252,6 +270,7 @@ export const volumeQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "If a cylinder's radius is doubled and height is halved, the volume:",
       choices: [
         { id: "A", text: "Stays the same" },
@@ -265,6 +284,7 @@ export const volumeQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "A glass has radius 4 cm and is filled to height 10 cm. How much water does it hold?",
       choices: [
         { id: "A", text: "40π cm³" },
@@ -282,6 +302,7 @@ export const volumeQuestions = {
   "Sphere": [
     {
       id: 1,
+      difficulty: "easy",
       question: "What is the volume of a sphere with radius 3? (Leave in terms of π)",
       choices: [
         { id: "A", text: "12π" },
@@ -295,6 +316,7 @@ export const volumeQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "A sphere has volume 288π cm³. What is its radius?",
       choices: [
         { id: "A", text: "4 cm" },
@@ -308,6 +330,7 @@ export const volumeQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "A sphere has diameter 10. What is its volume?",
       choices: [
         { id: "A", text: "(500/3)π" },
@@ -321,6 +344,7 @@ export const volumeQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "If a sphere's radius is tripled, its volume is multiplied by:",
       choices: [
         { id: "A", text: "3" },
@@ -334,6 +358,7 @@ export const volumeQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "A basketball has radius 12 cm. What is its volume rounded to the nearest cm³? (Use π ≈ 3.14)",
       choices: [
         { id: "A", text: "1,809 cm³" },
@@ -351,6 +376,7 @@ export const volumeQuestions = {
   "Cone": [
     {
       id: 1,
+      difficulty: "easy",
       question: "What is the volume of a cone with radius 3 and height 4?",
       choices: [
         { id: "A", text: "12π" },
@@ -364,6 +390,7 @@ export const volumeQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "A cone and cylinder have the same radius and height. The cone's volume is what fraction of the cylinder's?",
       choices: [
         { id: "A", text: "1/2" },
@@ -377,6 +404,7 @@ export const volumeQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "An ice cream cone has radius 2 cm and height 10 cm. What is its volume?",
       choices: [
         { id: "A", text: "(40/3)π cm³" },
@@ -390,6 +418,7 @@ export const volumeQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "A cone has volume 24π and height 6. What is its radius?",
       choices: [
         { id: "A", text: "2" },
@@ -403,6 +432,7 @@ export const volumeQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "If a cone's dimensions are all doubled, its volume is multiplied by:",
       choices: [
         { id: "A", text: "2" },
@@ -420,6 +450,7 @@ export const volumeQuestions = {
   "Triangular Prism": [
     {
       id: 1,
+      difficulty: "easy",
       question: "A triangular prism has a triangular base with base 6 and height 4, and the prism's length is 10. What is the volume?",
       choices: [
         { id: "A", text: "60" },
@@ -433,6 +464,7 @@ export const volumeQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "A tent (triangular prism) has a triangular cross-section with legs 3 m and 4 m, and is 5 m long. What is its volume?",
       choices: [
         { id: "A", text: "30 m³" },
@@ -446,6 +478,7 @@ export const volumeQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "A triangular prism has volume 90 cm³. If the triangular base has area 15 cm², what is the prism's length?",
       choices: [
         { id: "A", text: "3 cm" },
@@ -459,6 +492,7 @@ export const volumeQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "An equilateral triangular prism has side 4 and length 9. What is its volume? (Equilateral triangle area = (s²√3)/4)",
       choices: [
         { id: "A", text: "36√3" },
@@ -472,6 +506,7 @@ export const volumeQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "A ramp is a triangular prism. Its triangular face has base 8 ft and height 3 ft, and the ramp is 12 ft wide. What is its volume?",
       choices: [
         { id: "A", text: "72 ft³" },

@@ -6,6 +6,7 @@ export const functionsQuestions = {
   "Fundamentals": [
     {
       id: 1,
+      difficulty: "easy",
       question: "If f(x) = 3x - 7, what is f(4)?",
       choices: [
         { id: "A", text: "5" },
@@ -19,6 +20,7 @@ export const functionsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "For the function g(x) = x² + 2x, what is g(-3)?",
       choices: [
         { id: "A", text: "3" },
@@ -32,6 +34,7 @@ export const functionsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "If f(x) = 2x + 1 and f(a) = 11, what is the value of a?",
       choices: [
         { id: "A", text: "5" },
@@ -45,6 +48,7 @@ export const functionsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "Which of the following represents a function?",
       choices: [
         { id: "A", text: "{(1, 2), (1, 3), (2, 4)}" },
@@ -58,6 +62,7 @@ export const functionsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "What is the domain of f(x) = 1/(x - 3)?",
       choices: [
         { id: "A", text: "All real numbers" },
@@ -75,6 +80,7 @@ export const functionsQuestions = {
   "Simple Function Problems": [
     {
       id: 1,
+      difficulty: "easy",
       question: "If f(x) = x² - 4 and g(x) = x + 2, what is f(g(1))?",
       choices: [
         { id: "A", text: "5" },
@@ -88,6 +94,7 @@ export const functionsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "If h(x) = 5x - 2, what is h(x + 1)?",
       choices: [
         { id: "A", text: "5x - 1" },
@@ -101,6 +108,7 @@ export const functionsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "If f(x) = 2x and g(x) = x + 3, what is f(x) + g(x)?",
       choices: [
         { id: "A", text: "2x² + 3" },
@@ -114,6 +122,7 @@ export const functionsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "For f(x) = x² - 1, what is f(2) - f(1)?",
       choices: [
         { id: "A", text: "2" },
@@ -127,6 +136,7 @@ export const functionsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "If f(x) = 4x + k and f(2) = 15, what is the value of k?",
       choices: [
         { id: "A", text: "7" },
@@ -144,6 +154,7 @@ export const functionsQuestions = {
   "Complex Function Problems": [
     {
       id: 1,
+      difficulty: "easy",
       question: "If f(x) = 3x - 1, what is f(f(2))?",
       choices: [
         { id: "A", text: "5" },
@@ -157,6 +168,7 @@ export const functionsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "If f(x) = x + 2 and g(x) = x², what is g(f(x))?",
       choices: [
         { id: "A", text: "x² + 2" },
@@ -170,6 +182,7 @@ export const functionsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "If f(x) = 2x + 3 and f(g(x)) = 4x + 7, what is g(x)?",
       choices: [
         { id: "A", text: "2x + 2" },
@@ -183,6 +196,7 @@ export const functionsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "The graph of y = f(x) passes through point (2, 5). If g(x) = f(x) + 3, what point must be on the graph of g?",
       choices: [
         { id: "A", text: "(2, 5)" },
@@ -196,6 +210,7 @@ export const functionsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "If f(x) = x² and f(a + 1) - f(a - 1) = 8, what is the value of a?",
       choices: [
         { id: "A", text: "1" },

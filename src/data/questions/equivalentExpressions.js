@@ -6,6 +6,7 @@ export const equivalentExpressionsQuestions = {
   "Equivalent Expressions": [
     {
       id: 1,
+      difficulty: "easy",
       question: "Which expression is equivalent to 3(2x + 4) - 2(x - 1)?",
       choices: [
         { id: "A", text: "4x + 14" },
@@ -19,6 +20,7 @@ export const equivalentExpressionsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "Which expression is equivalent to (x + 3)(x - 3)?",
       choices: [
         { id: "A", text: "x² - 6" },
@@ -32,6 +34,7 @@ export const equivalentExpressionsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "Simplify: (4x²y³)/(2xy)",
       choices: [
         { id: "A", text: "2xy²" },
@@ -45,6 +48,7 @@ export const equivalentExpressionsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "Which expression is equivalent to x² + 6x + 9?",
       choices: [
         { id: "A", text: "(x + 3)²" },
@@ -58,6 +62,7 @@ export const equivalentExpressionsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "Which expression is equivalent to (2a + b)²?",
       choices: [
         { id: "A", text: "4a² + b²" },

@@ -6,6 +6,7 @@ export const radiansDegreesQuestions = {
   "Converting Angles": [
     {
       id: 1,
+      difficulty: "easy",
       question: "Convert 180° to radians.",
       choices: [
         { id: "A", text: "π/2" },
@@ -19,6 +20,7 @@ export const radiansDegreesQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "Convert π/6 radians to degrees.",
       choices: [
         { id: "A", text: "30°" },
@@ -32,6 +34,7 @@ export const radiansDegreesQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "How many radians are in a full rotation (360°)?",
       choices: [
         { id: "A", text: "π" },
@@ -45,6 +48,7 @@ export const radiansDegreesQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "Convert 45° to radians.",
       choices: [
         { id: "A", text: "π/6" },
@@ -58,6 +62,7 @@ export const radiansDegreesQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "Convert 3π/2 radians to degrees.",
       choices: [
         { id: "A", text: "90°" },

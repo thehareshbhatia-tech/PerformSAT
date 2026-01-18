@@ -6,6 +6,7 @@ export const trianglesQuestions = {
   "Triangle Fundamentals": [
     {
       id: 1,
+      difficulty: "easy",
       question: "What is the sum of the interior angles of any triangle?",
       choices: [
         { id: "A", text: "90°" },
@@ -19,6 +20,7 @@ export const trianglesQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "A triangle has sides of length 3, 4, and 5. What type of triangle is this?",
       choices: [
         { id: "A", text: "Equilateral" },
@@ -32,6 +34,7 @@ export const trianglesQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "In an isosceles triangle, if one of the equal angles is 70°, what is the third angle?",
       choices: [
         { id: "A", text: "40°" },
@@ -45,6 +48,7 @@ export const trianglesQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "Can a triangle have sides of length 2, 3, and 7?",
       choices: [
         { id: "A", text: "Yes" },
@@ -58,6 +62,7 @@ export const trianglesQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "An equilateral triangle has a side length of 6. What is its perimeter?",
       choices: [
         { id: "A", text: "12" },
@@ -75,6 +80,7 @@ export const trianglesQuestions = {
   "Angles of a Triangle": [
     {
       id: 1,
+      difficulty: "easy",
       question: "In a triangle, two angles measure 45° and 75°. What is the third angle?",
       choices: [
         { id: "A", text: "30°" },
@@ -88,6 +94,7 @@ export const trianglesQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "An exterior angle of a triangle is 110°. What is the sum of the two non-adjacent interior angles?",
       choices: [
         { id: "A", text: "70°" },
@@ -101,6 +108,7 @@ export const trianglesQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "In a right triangle, if one acute angle is 35°, what is the other acute angle?",
       choices: [
         { id: "A", text: "35°" },
@@ -114,6 +122,7 @@ export const trianglesQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "If all angles of a triangle are less than 90°, the triangle is:",
       choices: [
         { id: "A", text: "Acute" },
@@ -127,6 +136,7 @@ export const trianglesQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "In triangle ABC, angle A = 2x, angle B = 3x, angle C = 4x. What is angle B?",
       choices: [
         { id: "A", text: "20°" },
@@ -144,6 +154,7 @@ export const trianglesQuestions = {
   "Area of a Triangle": [
     {
       id: 1,
+      difficulty: "easy",
       question: "What is the area of a triangle with base 10 and height 6?",
       choices: [
         { id: "A", text: "16" },
@@ -157,6 +168,7 @@ export const trianglesQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "A triangle has area 24 and base 8. What is its height?",
       choices: [
         { id: "A", text: "3" },
@@ -170,6 +182,7 @@ export const trianglesQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "If the base and height of a triangle are both doubled, the area is multiplied by:",
       choices: [
         { id: "A", text: "2" },
@@ -183,6 +196,7 @@ export const trianglesQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "A right triangle has legs of length 5 and 12. What is its area?",
       choices: [
         { id: "A", text: "30" },
@@ -196,6 +210,7 @@ export const trianglesQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "An equilateral triangle has side length 4. What is its height?",
       choices: [
         { id: "A", text: "2" },
@@ -213,6 +228,7 @@ export const trianglesQuestions = {
   "Similar Triangles": [
     {
       id: 1,
+      difficulty: "easy",
       question: "Triangles ABC and DEF are similar. If AB = 6, DE = 9, and BC = 8, what is EF?",
       choices: [
         { id: "A", text: "10" },
@@ -226,6 +242,7 @@ export const trianglesQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "Two similar triangles have a scale factor of 2:5. If the smaller triangle has perimeter 24, what is the perimeter of the larger triangle?",
       choices: [
         { id: "A", text: "48" },
@@ -239,6 +256,7 @@ export const trianglesQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "Similar triangles have areas in the ratio 4:9. What is the ratio of their corresponding sides?",
       choices: [
         { id: "A", text: "2:3" },
@@ -252,6 +270,7 @@ export const trianglesQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "Two similar triangles have corresponding sides of 3 and 5. If the smaller has area 18, what is the area of the larger?",
       choices: [
         { id: "A", text: "30" },
@@ -265,6 +284,7 @@ export const trianglesQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "Which condition is NOT sufficient to prove two triangles are similar?",
       choices: [
         { id: "A", text: "AA (two angles equal)" },
@@ -282,6 +302,7 @@ export const trianglesQuestions = {
   "Right Triangles & Pythagorean Theorem": [
     {
       id: 1,
+      difficulty: "easy",
       question: "A right triangle has legs 6 and 8. What is the hypotenuse?",
       choices: [
         { id: "A", text: "7" },
@@ -295,6 +316,7 @@ export const trianglesQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "A ladder 13 feet long leans against a wall. If the base is 5 feet from the wall, how high up the wall does it reach?",
       choices: [
         { id: "A", text: "8 feet" },
@@ -308,6 +330,7 @@ export const trianglesQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "Is a triangle with sides 7, 24, 25 a right triangle?",
       choices: [
         { id: "A", text: "Yes, because 7² + 24² = 25²" },
@@ -321,6 +344,7 @@ export const trianglesQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "A right triangle has hypotenuse 15 and one leg 9. What is the other leg?",
       choices: [
         { id: "A", text: "6" },
@@ -334,6 +358,7 @@ export const trianglesQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "The diagonal of a rectangle is 10 and one side is 6. What is the other side?",
       choices: [
         { id: "A", text: "4" },
@@ -351,6 +376,7 @@ export const trianglesQuestions = {
   "Trigonometric Ratios": [
     {
       id: 1,
+      difficulty: "easy",
       question: "In a right triangle, sin(θ) equals:",
       choices: [
         { id: "A", text: "Adjacent/Hypotenuse" },
@@ -364,6 +390,7 @@ export const trianglesQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "In a right triangle, the side opposite to a 30° angle is 5. What is the hypotenuse?",
       choices: [
         { id: "A", text: "5" },
@@ -377,6 +404,7 @@ export const trianglesQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "If cos(θ) = 0.8 in a right triangle with adjacent side 12, what is the hypotenuse?",
       choices: [
         { id: "A", text: "9.6" },
@@ -390,6 +418,7 @@ export const trianglesQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "In a right triangle with legs 3 and 4, what is tan(θ) where θ is the angle opposite the side of length 3?",
       choices: [
         { id: "A", text: "3/4" },
@@ -403,6 +432,7 @@ export const trianglesQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "If sin(A) = cos(B) in a right triangle, then angles A and B are:",
       choices: [
         { id: "A", text: "Equal" },
@@ -420,6 +450,7 @@ export const trianglesQuestions = {
   "Special Right Triangles": [
     {
       id: 1,
+      difficulty: "easy",
       question: "In a 45-45-90 triangle, if one leg is 6, what is the hypotenuse?",
       choices: [
         { id: "A", text: "6" },
@@ -433,6 +464,7 @@ export const trianglesQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "In a 30-60-90 triangle, if the shortest side is 5, what is the longest side?",
       choices: [
         { id: "A", text: "5√2" },
@@ -446,6 +478,7 @@ export const trianglesQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "In a 45-45-90 triangle, if the hypotenuse is 10, what is each leg?",
       choices: [
         { id: "A", text: "5" },
@@ -459,6 +492,7 @@ export const trianglesQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "In a 30-60-90 triangle with hypotenuse 8, what is the side opposite the 60° angle?",
       choices: [
         { id: "A", text: "4" },
@@ -472,6 +506,7 @@ export const trianglesQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "The diagonal of a square is 10. What is the side length?",
       choices: [
         { id: "A", text: "5" },

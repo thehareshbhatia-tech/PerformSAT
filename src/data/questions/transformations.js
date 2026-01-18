@@ -6,6 +6,7 @@ export const transformationsQuestions = {
   "Fundamentals": [
     {
       id: 1,
+      difficulty: "easy",
       question: "If f(x) = x², what transformation does f(x) + 3 represent?",
       choices: [
         { id: "A", text: "Shift 3 units right" },
@@ -19,6 +20,7 @@ export const transformationsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "If g(x) = √x, what transformation does g(x - 2) represent?",
       choices: [
         { id: "A", text: "Shift 2 units right" },
@@ -32,6 +34,7 @@ export const transformationsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "The graph of y = -f(x) is a reflection of y = f(x) across the:",
       choices: [
         { id: "A", text: "x-axis" },
@@ -45,6 +48,7 @@ export const transformationsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "If h(x) = |x|, what does 2h(x) do to the graph?",
       choices: [
         { id: "A", text: "Horizontal compression by 2" },
@@ -58,6 +62,7 @@ export const transformationsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "Which transformation does f(-x) represent?",
       choices: [
         { id: "A", text: "Reflection across x-axis" },
@@ -75,6 +80,7 @@ export const transformationsQuestions = {
   "Transformations from Graph": [
     {
       id: 1,
+      difficulty: "easy",
       question: "The vertex of f(x) = x² is at (0, 0). If a transformed parabola has vertex at (3, -2), which transformation was applied?",
       choices: [
         { id: "A", text: "f(x - 3) - 2" },
@@ -88,6 +94,7 @@ export const transformationsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "Graph of f(x) passes through (2, 5). After transformation g(x) = f(x) - 3, what point is on g(x)?",
       choices: [
         { id: "A", text: "(2, 8)" },
@@ -101,6 +108,7 @@ export const transformationsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "If f(x) has a maximum at (4, 6), where is the maximum of f(x - 1) + 2?",
       choices: [
         { id: "A", text: "(3, 8)" },
@@ -114,6 +122,7 @@ export const transformationsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "The graph of y = f(x) is reflected across the x-axis and shifted up 4 units. Which equation represents this?",
       choices: [
         { id: "A", text: "y = -f(x) + 4" },
@@ -127,6 +136,7 @@ export const transformationsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "If y = f(x) has y-intercept at (0, 3), what is the y-intercept of y = 2f(x)?",
       choices: [
         { id: "A", text: "(0, 3)" },
@@ -144,6 +154,7 @@ export const transformationsQuestions = {
   "Transformations from Table": [
     {
       id: 1,
+      difficulty: "easy",
       question: "If f(2) = 7, what is g(2) if g(x) = f(x) + 5?",
       choices: [
         { id: "A", text: "2" },
@@ -157,6 +168,7 @@ export const transformationsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "If f(3) = 8, what is h(5) if h(x) = f(x - 2)?",
       choices: [
         { id: "A", text: "6" },
@@ -170,6 +182,7 @@ export const transformationsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "Given the table: f(1) = 4, f(2) = 7, f(3) = 10. If g(x) = -f(x), what is g(2)?",
       choices: [
         { id: "A", text: "-7" },
@@ -183,6 +196,7 @@ export const transformationsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "If f(4) = 10 and g(x) = f(x + 3) - 2, what is g(1)?",
       choices: [
         { id: "A", text: "5" },
@@ -196,6 +210,7 @@ export const transformationsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "Table shows: x = [0, 1, 2], f(x) = [5, 8, 11]. For g(x) = 2f(x), what is g(1)?",
       choices: [
         { id: "A", text: "8" },
@@ -213,6 +228,7 @@ export const transformationsQuestions = {
   "Transformations from Expression": [
     {
       id: 1,
+      difficulty: "easy",
       question: "If f(x) = x², what is f(x + 3)?",
       choices: [
         { id: "A", text: "x² + 3" },
@@ -226,6 +242,7 @@ export const transformationsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "If f(x) = 2x - 1, what is -f(x)?",
       choices: [
         { id: "A", text: "-2x - 1" },
@@ -239,6 +256,7 @@ export const transformationsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "If g(x) = |x|, what is g(x - 4) + 2?",
       choices: [
         { id: "A", text: "|x - 4| + 2" },
@@ -252,6 +270,7 @@ export const transformationsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "If f(x) = x³, what is f(-x)?",
       choices: [
         { id: "A", text: "x³" },
@@ -265,6 +284,7 @@ export const transformationsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "If h(x) = √x, what is 3h(x) - 1?",
       choices: [
         { id: "A", text: "3√x - 1" },
@@ -282,6 +302,7 @@ export const transformationsQuestions = {
   "Difficult Transformations": [
     {
       id: 1,
+      difficulty: "easy",
       question: "If f(x) = x², describe the transformation to get y = (1/2)f(x - 1) + 3.",
       choices: [
         { id: "A", text: "Shift right 1, vertical compression by 1/2, shift up 3" },
@@ -295,6 +316,7 @@ export const transformationsQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "The graph of y = f(x) is transformed to y = -2f(x + 1) - 3. If f(0) = 4, what is the y-coordinate when x = -1?",
       choices: [
         { id: "A", text: "-11" },
@@ -308,6 +330,7 @@ export const transformationsQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "If f(x) has domain [0, 4], what is the domain of g(x) = f(2x)?",
       choices: [
         { id: "A", text: "[0, 8]" },
@@ -321,6 +344,7 @@ export const transformationsQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "If f(x) has range [-3, 5], what is the range of y = 2f(x) + 1?",
       choices: [
         { id: "A", text: "[-5, 11]" },
@@ -334,6 +358,7 @@ export const transformationsQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "If the point (2, 5) is on y = f(x), which point is on y = f(3x) + 2?",
       choices: [
         { id: "A", text: "(6, 7)" },

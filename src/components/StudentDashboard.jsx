@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import { generateRecommendations } from '../services/recommendationService';
+import { generatePersonalizedPlan } from '../services/studyPlanService';
 
 // Official SAT Test Dates (from College Board)
 const SAT_TEST_DATES = [
@@ -66,14 +68,24 @@ const DonutChart = ({ percent, size = 120, strokeWidth = 10, color = '#22c55e' }
   );
 };
 
+// Common target scores
+const TARGET_SCORES = [1200, 1300, 1400, 1500, 1550, 1600];
+
 const StudentDashboard = ({
   user,
   completedLessons,
   practiceProgress,
+  reviewQueue,
+  dueReviewCount = 0,
   onNavigateToModule,
-  onUpdateTestDate
+  onUpdateTestDate,
+  onUpdateTargetScore,
+  onStartPractice,
+  onStartReview,
+  allLessons
 }) => {
   const [showDatePicker, setShowDatePicker] = useState(false);
+  const [showTargetPicker, setShowTargetPicker] = useState(false);
   const [selectedDate, setSelectedDate] = useState(user?.testDate || '');
 
   // Filter to only show future SAT dates
@@ -136,6 +148,54 @@ const StudentDashboard = ({
   };
 
   const daysUntilTest = getDaysUntilTest();
+
+  // Generate prescriptive recommendations
+  const recommendations = useMemo(() => {
+    return generateRecommendations({
+      completedLessons,
+      practiceProgress,
+      reviewQueue,
+      testDate: user?.testDate,
+      allLessons
+    });
+  }, [completedLessons, practiceProgress, reviewQueue, user?.testDate, allLessons]);
+
+  // Generate personalized study plan
+  const studyPlan = useMemo(() => {
+    return generatePersonalizedPlan({
+      completedLessons,
+      practiceProgress,
+      reviewQueue,
+      testDate: user?.testDate,
+      targetScore: user?.targetScore
+    });
+  }, [completedLessons, practiceProgress, reviewQueue, user?.testDate, user?.targetScore]);
+
+  // Handle target score selection
+  const handleSelectTargetScore = (score) => {
+    if (score && onUpdateTargetScore) {
+      onUpdateTargetScore(score);
+    }
+    setShowTargetPicker(false);
+  };
+
+
+  // Handle recommendation click
+  const handleRecommendationClick = (rec) => {
+    console.log('Recommendation clicked:', rec);
+    if (!rec || !rec.action) return;
+
+    if (rec.action.type === 'startPractice' && onStartPractice) {
+      onStartPractice(rec.action.moduleId, rec.action.sectionName);
+    } else if (rec.action.type === 'startReview' && onStartReview) {
+      onStartReview();
+    } else if (rec.action.type === 'startLesson' && onNavigateToModule) {
+      onNavigateToModule(rec.action.moduleId);
+    } else if (rec.action.type === 'browseModules') {
+      // Navigate to modules view
+      onNavigateToModule && onNavigateToModule('linear-equations'); // Default to first module
+    }
+  };
 
   const formatTestDate = (dateStr) => {
     if (!dateStr) return '';
@@ -332,6 +392,232 @@ const StudentDashboard = ({
         </div>
       )}
 
+      {/* Target Score Section */}
+      {showTargetPicker ? (
+        <div style={{
+          ...cardStyle,
+          marginBottom: '24px',
+          padding: '28px'
+        }}>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            marginBottom: '20px'
+          }}>
+            <div>
+              <div style={{ fontSize: '18px', fontWeight: '600', color: '#111827' }}>
+                What's your target SAT score?
+              </div>
+              <div style={{ fontSize: '13px', color: '#6b7280', marginTop: '4px' }}>
+                We'll personalize your study plan to help you reach it
+              </div>
+            </div>
+            <button
+              onClick={() => setShowTargetPicker(false)}
+              style={{
+                padding: '6px 12px',
+                background: 'transparent',
+                color: '#6b7280',
+                border: 'none',
+                fontSize: '14px',
+                cursor: 'pointer'
+              }}
+            >
+              Cancel
+            </button>
+          </div>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(6, 1fr)',
+            gap: '10px'
+          }}>
+            {TARGET_SCORES.map(score => {
+              const isSelected = user?.targetScore === score;
+              return (
+                <button
+                  key={score}
+                  onClick={() => handleSelectTargetScore(score)}
+                  style={{
+                    padding: '16px 8px',
+                    background: isSelected ? '#111827' : '#f9fafb',
+                    color: isSelected ? 'white' : '#111827',
+                    border: isSelected ? 'none' : '1px solid #e5e7eb',
+                    borderRadius: '10px',
+                    cursor: 'pointer',
+                    textAlign: 'center',
+                    fontSize: '16px',
+                    fontWeight: '600',
+                    transition: 'all 0.15s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isSelected) {
+                      e.target.style.background = '#f3f4f6';
+                      e.target.style.borderColor = '#d1d5db';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isSelected) {
+                      e.target.style.background = '#f9fafb';
+                      e.target.style.borderColor = '#e5e7eb';
+                    }
+                  }}
+                >
+                  {score}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      ) : (
+        <div style={{
+          ...cardStyle,
+          marginBottom: '24px',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center'
+        }}>
+          <div>
+            {user?.targetScore ? (
+              <>
+                <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '4px' }}>
+                  Target Score
+                </div>
+                <div style={{ fontSize: '18px', fontWeight: '600', color: '#111827' }}>
+                  {user.targetScore}
+                </div>
+              </>
+            ) : (
+              <>
+                <div style={{ fontSize: '15px', fontWeight: '500', color: '#111827' }}>
+                  Set your target score
+                </div>
+                <div style={{ fontSize: '13px', color: '#6b7280' }}>
+                  Get a personalized plan to reach your goal
+                </div>
+              </>
+            )}
+          </div>
+          <button
+            onClick={() => setShowTargetPicker(true)}
+            style={{
+              padding: '8px 16px',
+              background: user?.targetScore ? 'transparent' : '#111827',
+              color: user?.targetScore ? '#374151' : 'white',
+              border: user?.targetScore ? '1px solid #d1d5db' : 'none',
+              borderRadius: '8px',
+              fontSize: '14px',
+              cursor: 'pointer'
+            }}
+          >
+            {user?.targetScore ? 'Change' : 'Set Goal'}
+          </button>
+        </div>
+      )}
+
+      {/* Study Plan Summary (only show if test date and target are set) */}
+      {user?.testDate && user?.targetScore && studyPlan && (
+        <div style={{
+          ...cardStyle,
+          marginBottom: '24px',
+          background: '#f9fafb'
+        }}>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            marginBottom: '16px'
+          }}>
+            <h2 style={{ fontSize: '16px', fontWeight: '600', color: '#111827', margin: 0 }}>
+              Your Study Plan
+            </h2>
+            <div style={{ fontSize: '13px', color: '#6b7280' }}>
+              {studyPlan.summary.weeksLeft} week{studyPlan.summary.weeksLeft !== 1 ? 's' : ''} to go
+            </div>
+          </div>
+
+          {/* Score Progress Bar */}
+          <div style={{
+            background: 'white',
+            borderRadius: '8px',
+            padding: '16px',
+            marginBottom: '16px',
+            border: '1px solid #e5e7eb'
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '8px' }}>
+              <div>
+                <div style={{ fontSize: '12px', color: '#6b7280' }}>Estimated</div>
+                <div style={{ fontSize: '20px', fontWeight: '600', color: '#111827' }}>
+                  ~{studyPlan.summary.currentEstimate}
+                </div>
+              </div>
+              <div style={{
+                fontSize: '13px',
+                color: '#ea580c',
+                fontWeight: '500'
+              }}>
+                {studyPlan.summary.dailyMinutes} min/day
+              </div>
+              <div style={{ textAlign: 'right' }}>
+                <div style={{ fontSize: '12px', color: '#6b7280' }}>Target</div>
+                <div style={{ fontSize: '20px', fontWeight: '600', color: '#111827' }}>
+                  {studyPlan.summary.targetScore}
+                </div>
+              </div>
+            </div>
+
+            {/* Visual progress bar */}
+            <div style={{
+              height: '8px',
+              background: '#e5e7eb',
+              borderRadius: '4px',
+              overflow: 'hidden'
+            }}>
+              <div style={{
+                height: '100%',
+                width: `${Math.min(100, (studyPlan.summary.currentEstimate / studyPlan.summary.targetScore) * 100)}%`,
+                background: studyPlan.onTrack ? '#22c55e' : '#ea580c',
+                borderRadius: '4px',
+                transition: 'width 0.3s ease'
+              }} />
+            </div>
+          </div>
+
+          {/* Focus Areas */}
+          {studyPlan.summary.focusAreas.length > 0 && (
+            <div>
+              <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '8px' }}>
+                This week: Focus on
+              </div>
+              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                {studyPlan.summary.focusAreas.map((area, i) => (
+                  <span key={i} style={{
+                    background: '#fff7ed',
+                    color: '#ea580c',
+                    padding: '6px 12px',
+                    borderRadius: '16px',
+                    fontSize: '13px',
+                    fontWeight: '500'
+                  }}>
+                    {area}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Motivational message */}
+          <div style={{
+            marginTop: '12px',
+            fontSize: '13px',
+            color: '#6b7280',
+            fontStyle: 'italic'
+          }}>
+            {studyPlan.message}
+          </div>
+        </div>
+      )}
+
       {/* Top Stats Row */}
       <div style={{
         display: 'grid',
@@ -438,6 +724,51 @@ const StudentDashboard = ({
         </div>
       </div>
 
+      {/* YOUR NEXT STEP - Simple, Clean */}
+      {recommendations[0] && (
+        <div
+          onClick={() => handleRecommendationClick(recommendations[0])}
+          style={{
+            ...cardStyle,
+            marginBottom: '24px',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            cursor: 'pointer',
+            border: '2px solid #ea580c',
+            background: '#fff7ed'
+          }}
+        >
+          <div>
+            <div style={{ fontSize: '13px', color: '#ea580c', fontWeight: '500', marginBottom: '4px' }}>
+              Your Next Step
+            </div>
+            <div style={{ fontSize: '16px', fontWeight: '600', color: '#111827' }}>
+              {recommendations[0].title}
+            </div>
+            {recommendations[0].subtitle && (
+              <div style={{ fontSize: '13px', color: '#6b7280' }}>
+                {recommendations[0].subtitle}
+              </div>
+            )}
+          </div>
+          <button
+            style={{
+              padding: '10px 20px',
+              background: '#ea580c',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '8px',
+              fontSize: '14px',
+              fontWeight: '600',
+              cursor: 'pointer'
+            }}
+          >
+            Start →
+          </button>
+        </div>
+      )}
+
       {/* Strongest / Weakest Row */}
       <div style={{
         display: 'grid',
@@ -503,58 +834,6 @@ const StudentDashboard = ({
               {weakest?.title || 'Keep going!'}
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Continue Learning */}
-      <div style={{ ...cardStyle, marginBottom: '24px' }}>
-        <div style={{
-          fontSize: '16px',
-          fontWeight: '600',
-          color: '#111827',
-          marginBottom: '16px'
-        }}>
-          Continue Learning
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-          {moduleProgress
-            .filter(m => m.percent > 0 && m.percent < 100)
-            .slice(0, 3)
-            .map(module => (
-              <div
-                key={module.id}
-                onClick={() => onNavigateToModule(module.id)}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  padding: '12px 16px',
-                  background: '#f9fafb',
-                  borderRadius: '8px',
-                  cursor: 'pointer'
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <div style={{
-                    width: '8px',
-                    height: '8px',
-                    borderRadius: '50%',
-                    background: '#ea580c'
-                  }} />
-                  <span style={{ fontSize: '14px', color: '#111827' }}>
-                    {module.title}
-                  </span>
-                </div>
-                <span style={{ fontSize: '13px', color: '#6b7280' }}>
-                  {module.completed}/{module.lessonCount} lessons
-                </span>
-              </div>
-            ))}
-          {moduleProgress.filter(m => m.percent > 0 && m.percent < 100).length === 0 && (
-            <div style={{ color: '#6b7280', fontSize: '14px', padding: '12px' }}>
-              Start a module to track your progress here
-            </div>
-          )}
         </div>
       </div>
 

@@ -7,7 +7,10 @@ import StudentDashboard from './components/StudentDashboard';
 import AiTutorChat, { AiTutorButton } from './components/AiTutorChat';
 import { allLessons } from './data/lessons';
 import { fetchTranscript } from './services/transcriptService';
-import { getQuestionsForSection, hasQuestionsForSection } from './data/questions';
+import { getQuestionsForSection, hasQuestionsForSection, getRandomQuestions } from './data/questions';
+import { getDifficultyBadge, calculateWeightedScore } from './services/adaptiveService';
+import { addToReviewQueue, getDueReviewCount } from './services/reviewService';
+import { calculateOptimalDifficulty } from './services/recommendationService';
 
 // Premium Design System - Clean, Modern, Professional
 const design = {
@@ -131,11 +134,14 @@ const PerformSAT = () => {
     showFeedback: false,
     showHint: false,
     answers: {},
-    isComplete: false
+    isComplete: false,
+    shuffledQuestions: [], // Store randomized questions
+    practiceMode: 'standard' // 'standard' | 'adaptive'
   });
 
   // Calculator state for practice
   const [showCalculator, setShowCalculator] = useState(false);
+
 
   // ESC key handler for calculator
   useEffect(() => {
@@ -148,8 +154,8 @@ const PerformSAT = () => {
     return () => window.removeEventListener('keydown', handleEsc);
   }, [showCalculator]);
 
-  const { user, loading, logout, updateTestDate } = useAuth();
-  const { completedLessons, practiceProgress, markLessonComplete: markComplete, getModuleProgress: calcProgress, isLessonCompleted, recordPracticeAttempt, hasPracticed, getBestScore } = useProgress(user?.uid);
+  const { user, loading, logout, updateTestDate, updateTargetScore } = useAuth();
+  const { completedLessons, practiceProgress, reviewQueue, markLessonComplete: markComplete, getModuleProgress: calcProgress, isLessonCompleted, recordPracticeAttempt, hasPracticed, getBestScore, getDueCount, getReviewStatistics } = useProgress(user?.uid);
 
   const markLessonComplete = (moduleId, lessonId) => {
     const moduleLessons = allLessons[moduleId] || [];
@@ -167,15 +173,57 @@ const PerformSAT = () => {
     return calcProgress(moduleId, lessons.length);
   };
 
-  // Practice functions
-  const startSectionPractice = (moduleId, sectionName) => {
+  // Prescriptive practice - auto-selects difficulty based on performance
+  const startPrescriptivePractice = (moduleId, sectionName) => {
+    // Get student's performance for this section
+    const practiceKey = `${moduleId}-${sectionName}`;
+    const performance = practiceProgress[practiceKey];
+
+    // Calculate optimal difficulty based on past performance
+    const difficulty = calculateOptimalDifficulty(performance?.bestScore);
+
+    // Get questions at the recommended difficulty (with fallback)
+    let questions = getRandomQuestions(moduleId, sectionName, 5, {
+      difficulty,
+      shuffle: true
+    });
+
+    // Fallback: if not enough questions at that difficulty, get mixed
+    if (questions.length < 5) {
+      questions = getRandomQuestions(moduleId, sectionName, 5, { shuffle: true });
+    }
+
+    // Start practice immediately - no modal
     setPracticeState({
       currentQuestionIndex: 0,
       selectedAnswer: null,
       showFeedback: false,
       showHint: false,
       answers: {},
-      isComplete: false
+      isComplete: false,
+      shuffledQuestions: questions,
+      practiceMode: 'prescriptive',
+      recommendedDifficulty: difficulty
+    });
+    setActiveModule(moduleId);
+    setActiveSection(sectionName);
+    setShowCalculator(false);
+    setView('practice');
+  };
+
+  const startSectionPractice = (moduleId, sectionName, mode = 'standard') => {
+    // Get shuffled questions for this practice session
+    const shuffledQuestions = getRandomQuestions(moduleId, sectionName, null, { shuffle: true });
+
+    setPracticeState({
+      currentQuestionIndex: 0,
+      selectedAnswer: null,
+      showFeedback: false,
+      showHint: false,
+      answers: {},
+      isComplete: false,
+      shuffledQuestions,
+      practiceMode: mode
     });
     setActiveModule(moduleId);
     setActiveSection(sectionName);
@@ -200,9 +248,14 @@ const PerformSAT = () => {
       showFeedback: true,
       answers: {
         ...prev.answers,
-        [question.id]: { selected: prev.selectedAnswer, correct: isCorrect }
+        [question.id]: { selected: prev.selectedAnswer, correct: isCorrect, difficulty: question.difficulty }
       }
     }));
+
+    // Add to review queue for spaced repetition tracking
+    if (user?.uid && activeModule && activeSection) {
+      addToReviewQueue(user.uid, activeModule, activeSection, question.id, isCorrect);
+    }
   };
 
   const handleNextQuestion = (questions) => {
@@ -9089,11 +9142,22 @@ const PerformSAT = () => {
             user={user}
             completedLessons={completedLessons}
             practiceProgress={practiceProgress}
+            reviewQueue={reviewQueue}
+            dueReviewCount={getDueCount()}
+            allLessons={allLessons}
             onNavigateToModule={(moduleId) => {
               setActiveModule(moduleId);
               setView('list');
             }}
             onUpdateTestDate={updateTestDate}
+            onUpdateTargetScore={updateTargetScore}
+            onStartPractice={(moduleId, sectionName) => {
+              startPrescriptivePractice(moduleId, sectionName);
+            }}
+            onStartReview={() => {
+              // TODO: Implement review session start
+              console.log('Start review session');
+            }}
           />
         )}
 
@@ -9328,7 +9392,7 @@ const PerformSAT = () => {
                   </h2>
                   {sectionHasVideos && sectionHasQuestions && (
                     <button
-                      onClick={(e) => { e.stopPropagation(); startSectionPractice(activeModule, sectionName); }}
+                      onClick={(e) => { e.stopPropagation(); startPrescriptivePractice(activeModule, sectionName); }}
                       style={{
                         padding: '8px 16px',
                         borderRadius: '8px',
@@ -9414,13 +9478,31 @@ const PerformSAT = () => {
 
         {/* Practice View */}
         {view === 'practice' && activeSection && (() => {
-          const questions = getQuestionsForSection(activeModule, activeSection);
+          const questions = practiceState.shuffledQuestions.length > 0
+            ? practiceState.shuffledQuestions
+            : getQuestionsForSection(activeModule, activeSection);
           if (questions.length === 0) return null;
           const currentQuestion = questions[practiceState.currentQuestionIndex];
+          const difficultyBadge = currentQuestion?.difficulty ? getDifficultyBadge(currentQuestion.difficulty) : null;
 
           // Results screen
           if (practiceState.isComplete) {
+            const totalQuestions = questions.length;
             const correctCount = Object.values(practiceState.answers).filter(a => a.correct).length;
+            const percentage = Math.round((correctCount / totalQuestions) * 100);
+            const isGood = percentage >= 80;
+            const isOkay = percentage >= 40;
+
+            // Calculate scores by difficulty
+            const difficultyStats = { easy: { total: 0, correct: 0 }, medium: { total: 0, correct: 0 }, hard: { total: 0, correct: 0 } };
+            questions.forEach(q => {
+              const diff = q.difficulty || 'medium';
+              difficultyStats[diff].total++;
+              if (practiceState.answers[q.id]?.correct) {
+                difficultyStats[diff].correct++;
+              }
+            });
+
             return (
               <div style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
                 <button
@@ -9446,7 +9528,7 @@ const PerformSAT = () => {
                   width: '120px',
                   height: '120px',
                   borderRadius: '50%',
-                  background: correctCount >= 4 ? 'rgba(16, 185, 129, 0.1)' : correctCount >= 2 ? 'rgba(234, 179, 8, 0.1)' : 'rgba(239, 68, 68, 0.1)',
+                  background: isGood ? 'rgba(16, 185, 129, 0.1)' : isOkay ? 'rgba(234, 179, 8, 0.1)' : 'rgba(239, 68, 68, 0.1)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -9455,19 +9537,65 @@ const PerformSAT = () => {
                   <span style={{
                     fontSize: '48px',
                     fontWeight: '700',
-                    color: correctCount >= 4 ? '#10b981' : correctCount >= 2 ? '#eab308' : '#ef4444'
+                    color: isGood ? '#10b981' : isOkay ? '#eab308' : '#ef4444'
                   }}>
                     {correctCount}
                   </span>
-                  <span style={{ fontSize: '24px', color: '#6b7280' }}>/5</span>
+                  <span style={{ fontSize: '24px', color: '#6b7280' }}>/{totalQuestions}</span>
                 </div>
 
                 <h2 style={{ fontSize: '28px', fontWeight: '700', color: '#1d1d1f', marginBottom: '12px' }}>
-                  {correctCount >= 4 ? 'Excellent!' : correctCount >= 2 ? 'Good effort!' : 'Keep practicing!'}
+                  {isGood ? 'Excellent!' : isOkay ? 'Good effort!' : 'Keep practicing!'}
                 </h2>
-                <p style={{ fontSize: '16px', color: '#6b7280', marginBottom: '48px' }}>
-                  You got {correctCount} out of 5 questions correct
+                <p style={{ fontSize: '16px', color: '#6b7280', marginBottom: '32px' }}>
+                  You got {correctCount} out of {totalQuestions} questions correct ({percentage}%)
                 </p>
+
+                {/* Difficulty Breakdown */}
+                <div style={{
+                  background: '#f9fafb',
+                  borderRadius: '16px',
+                  padding: '24px',
+                  marginBottom: '32px',
+                  textAlign: 'left'
+                }}>
+                  <h3 style={{ fontSize: '14px', fontWeight: '600', color: '#6b7280', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                    By Difficulty
+                  </h3>
+                  {[
+                    { key: 'easy', label: 'Easy', color: '#10b981', bg: 'rgba(16, 185, 129, 0.12)' },
+                    { key: 'medium', label: 'Medium', color: '#f59e0b', bg: 'rgba(245, 158, 11, 0.12)' },
+                    { key: 'hard', label: 'Hard', color: '#ef4444', bg: 'rgba(239, 68, 68, 0.12)' }
+                  ].map(({ key, label, color, bg }) => {
+                    const stats = difficultyStats[key];
+                    if (stats.total === 0) return null;
+                    const pct = Math.round((stats.correct / stats.total) * 100);
+                    return (
+                      <div key={key} style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
+                        <span style={{
+                          fontSize: '12px',
+                          fontWeight: '600',
+                          padding: '4px 10px',
+                          borderRadius: '10px',
+                          background: bg,
+                          color: color,
+                          width: '70px',
+                          textAlign: 'center'
+                        }}>
+                          {label}
+                        </span>
+                        <div style={{ flex: 1, marginLeft: '16px', marginRight: '12px' }}>
+                          <div style={{ height: '8px', background: '#e5e7eb', borderRadius: '4px', overflow: 'hidden' }}>
+                            <div style={{ height: '100%', width: `${pct}%`, background: color, borderRadius: '4px', transition: 'width 0.3s' }} />
+                          </div>
+                        </div>
+                        <span style={{ fontSize: '14px', fontWeight: '600', color: '#374151', minWidth: '80px', textAlign: 'right' }}>
+                          {stats.correct}/{stats.total} ({pct}%)
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
 
                 <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
                   <button
@@ -9558,6 +9686,28 @@ const PerformSAT = () => {
                 </button>
               </div>
 
+              {/* Recommended Difficulty Indicator - Prescriptive Mode */}
+              {practiceState.practiceMode === 'prescriptive' && practiceState.recommendedDifficulty && (
+                <div style={{
+                  background: 'linear-gradient(135deg, rgba(234, 88, 12, 0.08) 0%, rgba(234, 88, 12, 0.04) 100%)',
+                  padding: '14px 20px',
+                  borderRadius: '12px',
+                  marginBottom: '24px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  border: '1px solid rgba(234, 88, 12, 0.15)'
+                }}>
+                  <span style={{ fontSize: '16px' }}>
+                    {practiceState.recommendedDifficulty === 'easy' ? '🌱' :
+                     practiceState.recommendedDifficulty === 'medium' ? '🎯' : '🔥'}
+                  </span>
+                  <span style={{ fontSize: '14px', color: '#ea580c', fontWeight: '500' }}>
+                    <strong style={{ textTransform: 'capitalize' }}>{practiceState.recommendedDifficulty}</strong> difficulty selected based on your performance
+                  </span>
+                </div>
+              )}
+
               {/* Full Screen Calculator Modal */}
               {showCalculator && (
                 <div style={{
@@ -9606,14 +9756,34 @@ const PerformSAT = () => {
                       ))}
                     </div>
 
-                    {/* Modal Question number */}
+                    {/* Modal Question number and difficulty */}
                     <div style={{
-                      fontSize: '15px',
-                      fontWeight: '600',
-                      color: '#6b7280',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
                       marginBottom: '20px'
                     }}>
-                      Question {practiceState.currentQuestionIndex + 1} of {questions.length}
+                      <span style={{
+                        fontSize: '15px',
+                        fontWeight: '600',
+                        color: '#6b7280'
+                      }}>
+                        Question {practiceState.currentQuestionIndex + 1} of {questions.length}
+                      </span>
+                      {difficultyBadge && (
+                        <span style={{
+                          fontSize: '13px',
+                          fontWeight: '600',
+                          padding: '5px 12px',
+                          borderRadius: '12px',
+                          background: difficultyBadge.color === '#10b981' ? 'rgba(16, 185, 129, 0.12)'
+                            : difficultyBadge.color === '#f59e0b' ? 'rgba(245, 158, 11, 0.12)'
+                            : 'rgba(239, 68, 68, 0.12)',
+                          color: difficultyBadge.color
+                        }}>
+                          {difficultyBadge.label}
+                        </span>
+                      )}
                     </div>
 
                     {/* Modal Question text */}
@@ -9945,14 +10115,34 @@ const PerformSAT = () => {
                   ))}
                 </div>
 
-                {/* Question number */}
+                {/* Question number and difficulty */}
                 <div style={{
-                  fontSize: '13px',
-                  fontWeight: '600',
-                  color: '#6b7280',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
                   marginBottom: '16px'
                 }}>
-                  Question {practiceState.currentQuestionIndex + 1} of {questions.length}
+                  <span style={{
+                    fontSize: '13px',
+                    fontWeight: '600',
+                    color: '#6b7280'
+                  }}>
+                    Question {practiceState.currentQuestionIndex + 1} of {questions.length}
+                  </span>
+                  {difficultyBadge && (
+                    <span style={{
+                      fontSize: '12px',
+                      fontWeight: '600',
+                      padding: '4px 10px',
+                      borderRadius: '12px',
+                      background: difficultyBadge.color === '#10b981' ? 'rgba(16, 185, 129, 0.12)'
+                        : difficultyBadge.color === '#f59e0b' ? 'rgba(245, 158, 11, 0.12)'
+                        : 'rgba(239, 68, 68, 0.12)',
+                      color: difficultyBadge.color
+                    }}>
+                      {difficultyBadge.label}
+                    </span>
+                  )}
                 </div>
 
                 {/* Question text */}

@@ -3,6 +3,7 @@ import { db } from '../firebase/config';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { markLessonComplete as markComplete, markLessonIncomplete } from '../services/progressService';
 import { recordPracticeAttempt as recordAttempt } from '../services/practiceService';
+import { getDueReviewCount, getReviewStats } from '../services/reviewService';
 
 /**
  * Hook for managing user progress with real-time Firestore sync
@@ -12,6 +13,7 @@ import { recordPracticeAttempt as recordAttempt } from '../services/practiceServ
 export const useProgress = (userId) => {
   const [completedLessons, setCompletedLessons] = useState({});
   const [practiceProgress, setPracticeProgress] = useState({});
+  const [reviewQueue, setReviewQueue] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -50,9 +52,13 @@ export const useProgress = (userId) => {
 
           // Also get practice progress
           setPracticeProgress(data.practiceProgress || {});
+
+          // Get review queue
+          setReviewQueue(data.reviewQueue || {});
         } else {
           setCompletedLessons({});
           setPracticeProgress({});
+          setReviewQueue({});
         }
         setLoading(false);
       },
@@ -235,9 +241,28 @@ export const useProgress = (userId) => {
     return practiceProgress[practiceKey] || null;
   };
 
+  // ===== Review Queue Functions =====
+
+  /**
+   * Gets count of questions due for review
+   * @returns {number}
+   */
+  const getDueCount = () => {
+    return getDueReviewCount(reviewQueue);
+  };
+
+  /**
+   * Gets review statistics
+   * @returns {{ dueCount: number, totalCount: number, masteredRecently: number }}
+   */
+  const getReviewStatistics = () => {
+    return getReviewStats(reviewQueue);
+  };
+
   return {
     completedLessons,
     practiceProgress,
+    reviewQueue,
     loading,
     error,
     markLessonComplete,
@@ -248,6 +273,9 @@ export const useProgress = (userId) => {
     recordPracticeAttempt,
     hasPracticed,
     getBestScore,
-    getSectionPracticeProgress
+    getSectionPracticeProgress,
+    // Review queue functions
+    getDueCount,
+    getReviewStatistics
   };
 };

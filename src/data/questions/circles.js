@@ -6,6 +6,7 @@ export const circlesQuestions = {
   "Circle Fundamentals": [
     {
       id: 1,
+      difficulty: "easy",
       question: "A circle has a radius of 7 cm. What is the diameter of the circle?",
       choices: [
         { id: "A", text: "3.5 cm" },
@@ -19,6 +20,7 @@ export const circlesQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "If the diameter of a circle is 20 inches, what is the radius?",
       choices: [
         { id: "A", text: "5 inches" },
@@ -32,6 +34,7 @@ export const circlesQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "A circle has a center at point O. If point P is on the circle and OP = 5, what is the radius of the circle?",
       choices: [
         { id: "A", text: "2.5" },
@@ -45,6 +48,7 @@ export const circlesQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "Which of the following is always true about a chord of a circle?",
       choices: [
         { id: "A", text: "It passes through the center" },
@@ -58,6 +62,7 @@ export const circlesQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "The longest chord in a circle is the:",
       choices: [
         { id: "A", text: "Radius" },
@@ -75,6 +80,7 @@ export const circlesQuestions = {
   "Area Problems": [
     {
       id: 1,
+      difficulty: "easy",
       question: "What is the area of a circle with radius 6? (Leave answer in terms of π)",
       choices: [
         { id: "A", text: "6π" },
@@ -88,6 +94,7 @@ export const circlesQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "A circular pizza has a diameter of 16 inches. What is its area in square inches?",
       choices: [
         { id: "A", text: "16π" },
@@ -101,6 +108,7 @@ export const circlesQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "If the area of a circle is 100π square meters, what is the radius?",
       choices: [
         { id: "A", text: "5 meters" },
@@ -114,6 +122,7 @@ export const circlesQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "A circular garden has an area of 154 square feet. Using π ≈ 22/7, what is the radius of the garden?",
       choices: [
         { id: "A", text: "7 feet" },
@@ -127,6 +136,7 @@ export const circlesQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "If the radius of a circle is doubled, by what factor does the area increase?",
       choices: [
         { id: "A", text: "2" },
@@ -144,6 +154,7 @@ export const circlesQuestions = {
   "Circumference & Arc Length": [
     {
       id: 1,
+      difficulty: "easy",
       question: "What is the circumference of a circle with radius 5? (Leave answer in terms of π)",
       choices: [
         { id: "A", text: "5π" },
@@ -157,6 +168,7 @@ export const circlesQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "A circle has a circumference of 24π cm. What is the diameter?",
       choices: [
         { id: "A", text: "6 cm" },
@@ -170,6 +182,7 @@ export const circlesQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "What is the length of an arc with a central angle of 60° in a circle with radius 9?",
       choices: [
         { id: "A", text: "3π" },
@@ -183,6 +196,7 @@ export const circlesQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "In a circle with radius 12, what central angle creates an arc of length 4π?",
       choices: [
         { id: "A", text: "30°" },
@@ -196,6 +210,7 @@ export const circlesQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "A semicircular arc has length 8π. What is the radius of the circle?",
       choices: [
         { id: "A", text: "4" },
@@ -213,6 +228,7 @@ export const circlesQuestions = {
   "Sector Area": [
     {
       id: 1,
+      difficulty: "easy",
       question: "What is the area of a sector with central angle 90° in a circle with radius 8?",
       choices: [
         { id: "A", text: "8π" },
@@ -226,6 +242,7 @@ export const circlesQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "A pizza slice represents a 45° sector of a circular pizza with radius 10 inches. What is the area of the slice?",
       choices: [
         { id: "A", text: "12.5π square inches" },
@@ -239,6 +256,7 @@ export const circlesQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "If a sector has an area of 18π and a central angle of 60°, what is the radius of the circle?",
       choices: [
         { id: "A", text: "3√6" },
@@ -252,6 +270,7 @@ export const circlesQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "A sector of a circle with radius 6 has an area of 9π. What is the central angle of the sector?",
       choices: [
         { id: "A", text: "45°" },
@@ -265,6 +284,7 @@ export const circlesQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "The area of a sector is what fraction of the circle's total area if the central angle is 120°?",
       choices: [
         { id: "A", text: "1/6" },
@@ -282,6 +302,7 @@ export const circlesQuestions = {
   "Equation of a Circle": [
     {
       id: 1,
+      difficulty: "easy",
       question: "What is the center of the circle with equation (x - 3)² + (y + 2)² = 25?",
       choices: [
         { id: "A", text: "(3, 2)" },
@@ -295,6 +316,7 @@ export const circlesQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "What is the radius of the circle (x + 1)² + (y - 4)² = 49?",
       choices: [
         { id: "A", text: "7" },
@@ -308,6 +330,7 @@ export const circlesQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "Which equation represents a circle with center (0, 5) and radius 3?",
       choices: [
         { id: "A", text: "x² + (y - 5)² = 3" },
@@ -321,6 +344,7 @@ export const circlesQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "The circle x² + y² = 36 has its center at:",
       choices: [
         { id: "A", text: "(0, 0)" },
@@ -334,6 +358,7 @@ export const circlesQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "A circle has center (-2, 3) and passes through the point (1, 7). What is the radius?",
       choices: [
         { id: "A", text: "3" },
@@ -351,6 +376,7 @@ export const circlesQuestions = {
   "Circle Transformations": [
     {
       id: 1,
+      difficulty: "easy",
       question: "If the circle x² + y² = 16 is translated 3 units right and 2 units up, what is the new equation?",
       choices: [
         { id: "A", text: "(x - 3)² + (y - 2)² = 16" },
@@ -364,6 +390,7 @@ export const circlesQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "The circle (x - 2)² + (y + 1)² = 9 is translated so its new center is at (5, 3). What is the new equation?",
       choices: [
         { id: "A", text: "(x - 5)² + (y - 3)² = 9" },
@@ -377,6 +404,7 @@ export const circlesQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "If a circle centered at the origin with radius 4 is dilated by a factor of 2, what is the new radius?",
       choices: [
         { id: "A", text: "2" },
@@ -390,6 +418,7 @@ export const circlesQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "The circle (x + 4)² + (y - 1)² = 25 is reflected across the y-axis. What is the x-coordinate of the new center?",
       choices: [
         { id: "A", text: "-4" },
@@ -403,6 +432,7 @@ export const circlesQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "After a circle is translated 5 units left, its equation is (x + 2)² + (y - 3)² = 4. What was the original center?",
       choices: [
         { id: "A", text: "(-7, 3)" },
@@ -420,6 +450,7 @@ export const circlesQuestions = {
   "Domain, Range & Intersections": [
     {
       id: 1,
+      difficulty: "easy",
       question: "What is the domain of the circle (x - 1)² + (y + 2)² = 9?",
       choices: [
         { id: "A", text: "-2 ≤ x ≤ 4" },
@@ -433,6 +464,7 @@ export const circlesQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "What is the range of the circle x² + (y - 5)² = 16?",
       choices: [
         { id: "A", text: "1 ≤ y ≤ 9" },
@@ -446,6 +478,7 @@ export const circlesQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "How many times does the line y = 3 intersect the circle x² + y² = 25?",
       choices: [
         { id: "A", text: "0" },
@@ -459,6 +492,7 @@ export const circlesQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "At what points does the circle x² + y² = 25 intersect the x-axis?",
       choices: [
         { id: "A", text: "(5, 0) only" },
@@ -472,6 +506,7 @@ export const circlesQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "The line y = x + 1 and circle x² + y² = 5 intersect at how many points?",
       choices: [
         { id: "A", text: "0" },
@@ -489,6 +524,7 @@ export const circlesQuestions = {
   "Converting to Standard Form": [
     {
       id: 1,
+      difficulty: "easy",
       question: "Convert x² + y² - 6x + 4y = 12 to standard form. What is the center?",
       choices: [
         { id: "A", text: "(3, -2)" },
@@ -502,6 +538,7 @@ export const circlesQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "For the circle x² + y² + 8x - 2y - 8 = 0, what is the radius?",
       choices: [
         { id: "A", text: "3" },
@@ -515,6 +552,7 @@ export const circlesQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "The equation x² + y² - 10y = 0 represents a circle with center at:",
       choices: [
         { id: "A", text: "(0, 5)" },
@@ -528,6 +566,7 @@ export const circlesQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "Convert x² + y² + 2x - 6y + 6 = 0 to standard form. What is r²?",
       choices: [
         { id: "A", text: "2" },
@@ -541,6 +580,7 @@ export const circlesQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "Which equation in general form represents the circle (x - 2)² + (y + 3)² = 16?",
       choices: [
         { id: "A", text: "x² + y² - 4x + 6y - 3 = 0" },
@@ -558,6 +598,7 @@ export const circlesQuestions = {
   "Tangent Lines": [
     {
       id: 1,
+      difficulty: "easy",
       question: "A tangent line to a circle at a point is _____ to the radius at that point.",
       choices: [
         { id: "A", text: "Parallel" },
@@ -571,6 +612,7 @@ export const circlesQuestions = {
     },
     {
       id: 2,
+      difficulty: "easy",
       question: "The center of a circle is at (3, 4) and a tangent line touches the circle at (6, 8). What is the slope of the tangent line?",
       choices: [
         { id: "A", text: "4/3" },
@@ -584,6 +626,7 @@ export const circlesQuestions = {
     },
     {
       id: 3,
+      difficulty: "medium",
       question: "From point P outside a circle, two tangent segments are drawn to the circle. These segments are:",
       choices: [
         { id: "A", text: "Perpendicular" },
@@ -597,6 +640,7 @@ export const circlesQuestions = {
     },
     {
       id: 4,
+      difficulty: "medium",
       question: "A circle has center (0, 0) and radius 5. What is the distance from the center to the tangent line y = 5?",
       choices: [
         { id: "A", text: "0" },
@@ -610,6 +654,7 @@ export const circlesQuestions = {
     },
     {
       id: 5,
+      difficulty: "hard",
       question: "If the tangent line at point (5, 0) on a circle centered at the origin is vertical, what can you conclude?",
       choices: [
         { id: "A", text: "The radius at that point is horizontal" },
