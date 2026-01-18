@@ -16,7 +16,8 @@ export const dimensionalAnalysisQuestions = {
       ],
       correctAnswer: "C",
       hint: "Multiply the number of miles by the conversion factor to convert from miles to feet.",
-      explanation: "3.5 miles × (5,280 feet/1 mile) = 18,480 feet. The miles unit cancels, leaving feet."
+      explanation: "3.5 miles × (5,280 feet/1 mile) = 18,480 feet. The miles unit cancels, leaving feet.",
+      skills: ['unit-conversion']
     },
     {
       id: 2,
@@ -30,7 +31,8 @@ export const dimensionalAnalysisQuestions = {
       ],
       correctAnswer: "A",
       hint: "Think about how many minutes are in one hour, then set up your conversion factor so the hour units cancel.",
-      explanation: "60 miles/hour × (1 hour/60 minutes) = 1 mile/minute. The hour units cancel."
+      explanation: "60 miles/hour × (1 hour/60 minutes) = 1 mile/minute. The hour units cancel.",
+      skills: ['unit-conversion', 'rate-conversion']
     },
     {
       id: 3,
@@ -44,7 +46,8 @@ export const dimensionalAnalysisQuestions = {
       ],
       correctAnswer: "A",
       hint: "Set up the conversion factor with pounds in the denominator so that pounds cancel out, leaving kilograms.",
-      explanation: "110 pounds × (1 kilogram/2.2 pounds) = 50 kilograms. The pounds unit cancels."
+      explanation: "110 pounds × (1 kilogram/2.2 pounds) = 50 kilograms. The pounds unit cancels.",
+      skills: ['unit-conversion']
     },
     {
       id: 4,
@@ -58,7 +61,8 @@ export const dimensionalAnalysisQuestions = {
       ],
       correctAnswer: "B",
       hint: "This requires two conversion steps: first convert seconds to minutes, then minutes to hours.",
-      explanation: "5,400 seconds × (1 minute/60 seconds) × (1 hour/60 minutes) = 5,400/3,600 = 1.5 hours."
+      explanation: "5,400 seconds × (1 minute/60 seconds) × (1 hour/60 minutes) = 5,400/3,600 = 1.5 hours.",
+      skills: ['unit-conversion', 'rate-conversion']
     },
     {
       id: 5,
@@ -72,7 +76,8 @@ export const dimensionalAnalysisQuestions = {
       ],
       correctAnswer: "C",
       hint: "Multiply the number of cups by the number of fluid ounces per cup.",
-      explanation: "3 cups × (8 fluid ounces/1 cup) = 24 fluid ounces."
+      explanation: "3 cups × (8 fluid ounces/1 cup) = 24 fluid ounces.",
+      skills: ['unit-conversion']
     }
   ],
 
@@ -90,7 +95,8 @@ export const dimensionalAnalysisQuestions = {
       ],
       correctAnswer: "C",
       hint: "When converting area (square units), remember to apply the conversion factor twice - once for each dimension.",
-      explanation: "1 ft² = (1 ft)² = (12 in)² = 144 in². When converting area, you must square the conversion factor."
+      explanation: "1 ft² = (1 ft)² = (12 in)² = 144 in². When converting area, you must square the conversion factor.",
+      skills: ['squared-cubed-units']
     },
     {
       id: 2,
@@ -104,7 +110,8 @@ export const dimensionalAnalysisQuestions = {
       ],
       correctAnswer: "C",
       hint: "For area conversions, square the linear conversion factor (100) before multiplying.",
-      explanation: "3 m² × (100 cm/1 m)² = 3 × 10,000 cm² = 30,000 cm². The conversion factor must be squared."
+      explanation: "3 m² × (100 cm/1 m)² = 3 × 10,000 cm² = 30,000 cm². The conversion factor must be squared.",
+      skills: ['squared-cubed-units']
     },
     {
       id: 3,
@@ -118,7 +125,8 @@ export const dimensionalAnalysisQuestions = {
       ],
       correctAnswer: "C",
       hint: "For volume (cubic units), you need to cube the linear conversion factor to account for all three dimensions.",
-      explanation: "1 yd³ = (1 yd)³ = (3 ft)³ = 27 ft³. When converting volume, you must cube the conversion factor."
+      explanation: "1 yd³ = (1 yd)³ = (3 ft)³ = 27 ft³. When converting volume, you must cube the conversion factor.",
+      skills: ['squared-cubed-units']
     },
     {
       id: 4,
@@ -132,7 +140,8 @@ export const dimensionalAnalysisQuestions = {
       ],
       correctAnswer: "A",
       hint: "Since you're converting to a larger unit (yards), you'll divide. Remember to square the conversion factor for area.",
-      explanation: "180 ft² × (1 yd/3 ft)² = 180 × (1/9) yd² = 20 yd². Divide by 9 (the square of 3)."
+      explanation: "180 ft² × (1 yd/3 ft)² = 180 × (1/9) yd² = 20 yd². Divide by 9 (the square of 3).",
+      skills: ['squared-cubed-units']
     },
     {
       id: 5,
@@ -146,7 +155,8 @@ export const dimensionalAnalysisQuestions = {
       ],
       correctAnswer: "B",
       hint: "Use the given relationship directly - this is already a cubic conversion, so no additional exponent is needed.",
-      explanation: "8,000 cm³ × (1 liter/1,000 cm³) = 8 liters. This is a direct cubic conversion."
+      explanation: "8,000 cm³ × (1 liter/1,000 cm³) = 8 liters. This is a direct cubic conversion.",
+      skills: ['squared-cubed-units']
     }
   ]
 };

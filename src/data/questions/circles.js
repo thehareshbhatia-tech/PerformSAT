@@ -16,7 +16,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "C",
       hint: "Think about the relationship between radius and diameter. How many radii fit across the full width of a circle?",
-      explanation: "The diameter of a circle is twice the radius. Diameter = 2 × radius = 2 × 7 = 14 cm."
+      explanation: "The diameter of a circle is twice the radius. Diameter = 2 × radius = 2 × 7 = 14 cm.",
+      skills: ["circle-parts"]
     },
     {
       id: 2,
@@ -30,7 +31,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "B",
       hint: "The radius is a portion of the diameter. Consider what fraction of the diameter equals the radius.",
-      explanation: "The radius is half the diameter. Radius = diameter ÷ 2 = 20 ÷ 2 = 10 inches."
+      explanation: "The radius is half the diameter. Radius = diameter ÷ 2 = 20 ÷ 2 = 10 inches.",
+      skills: ["circle-parts"]
     },
     {
       id: 3,
@@ -44,7 +46,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "B",
       hint: "Remember what the radius represents: the distance from the center to any point on the circle.",
-      explanation: "The radius is the distance from the center to any point on the circle. Since OP = 5 and P is on the circle, the radius is 5."
+      explanation: "The radius is the distance from the center to any point on the circle. Since OP = 5 and P is on the circle, the radius is 5.",
+      skills: ["circle-parts"]
     },
     {
       id: 4,
@@ -58,7 +61,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "C",
       hint: "Focus on the definition of a chord. What must be true about where a chord starts and ends?",
-      explanation: "A chord is a line segment with both endpoints on the circle. It doesn't have to pass through the center (that would be a diameter) or have any specific relationship to the radius."
+      explanation: "A chord is a line segment with both endpoints on the circle. It doesn't have to pass through the center (that would be a diameter) or have any specific relationship to the radius.",
+      skills: ["circle-parts"]
     },
     {
       id: 5,
@@ -72,7 +76,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "B",
       hint: "Think about which chord passes through the center of the circle and would therefore span the greatest distance.",
-      explanation: "The diameter is the longest chord in a circle because it passes through the center. Any other chord that doesn't pass through the center will be shorter."
+      explanation: "The diameter is the longest chord in a circle because it passes through the center. Any other chord that doesn't pass through the center will be shorter.",
+      skills: ["circle-parts"]
     }
   ],
 
@@ -90,7 +95,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "C",
       hint: "Use the area formula A = πr². Make sure to square the radius, not just multiply it by π.",
-      explanation: "Area = πr² = π(6)² = 36π. Remember, area of a circle is always πr², not πd or 2πr."
+      explanation: "Area = πr² = π(6)² = 36π. Remember, area of a circle is always πr², not πd or 2πr.",
+      skills: ["circle-area"]
     },
     {
       id: 2,
@@ -104,7 +110,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "C",
       hint: "The area formula uses radius, not diameter. First convert the diameter to radius, then apply the formula.",
-      explanation: "First find radius: r = d/2 = 16/2 = 8 inches. Area = πr² = π(8)² = 64π square inches."
+      explanation: "First find radius: r = d/2 = 16/2 = 8 inches. Area = πr² = π(8)² = 64π square inches.",
+      skills: ["circle-area"]
     },
     {
       id: 3,
@@ -118,12 +125,14 @@ export const circlesQuestions = {
       ],
       correctAnswer: "B",
       hint: "Work backwards from the area formula. If A = πr², then r² = A/π. What number squared gives you 100?",
-      explanation: "Area = πr², so 100π = πr². Dividing both sides by π: 100 = r². Taking the square root: r = 10 meters."
+      explanation: "Area = πr², so 100π = πr². Dividing both sides by π: 100 = r². Taking the square root: r = 10 meters.",
+      skills: ["circle-area"]
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "A circular garden has an area of 154 square feet. Using π ≈ 22/7, what is the radius of the garden?",
+      question: "A circular garden has an area of 154 square feet. Using the approximation below for π, what is the radius of the garden?",
+      questionFormula: { text: "π ≈ ", fraction: { numerator: "22", denominator: "7" } },
       choices: [
         { id: "A", text: "7 feet" },
         { id: "B", text: "14 feet" },
@@ -132,7 +141,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "A",
       hint: "Set up the equation 154 = (22/7)r² and solve for r². Multiply both sides by 7/22 to isolate r².",
-      explanation: "Area = πr², so 154 = (22/7)r². Solving: r² = 154 × (7/22) = 49. Therefore r = 7 feet."
+      explanation: "Area = πr², so 154 = (22/7)r². Solving: r² = 154 × (7/22) = 49. Therefore r = 7 feet.",
+      skills: ["circle-area"]
     },
     {
       id: 5,
@@ -146,7 +156,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "B",
       hint: "Compare π(2r)² with πr². Since radius is squared in the area formula, doubling it has a multiplied effect.",
-      explanation: "If original area = πr², new area with doubled radius = π(2r)² = 4πr². The new area is 4 times the original area."
+      explanation: "If original area = πr², new area with doubled radius = π(2r)² = 4πr². The new area is 4 times the original area.",
+      skills: ["circle-area"]
     }
   ],
 
@@ -164,7 +175,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "B",
       hint: "Use the circumference formula C = 2πr. The circumference involves the radius multiplied by 2π.",
-      explanation: "Circumference = 2πr = 2π(5) = 10π. Alternatively, C = πd = π(10) = 10π."
+      explanation: "Circumference = 2πr = 2π(5) = 10π. Alternatively, C = πd = π(10) = 10π.",
+      skills: ["circumference"]
     },
     {
       id: 2,
@@ -178,7 +190,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "C",
       hint: "Use the formula C = πd. If the circumference is 24π, what value of d makes this equation true?",
-      explanation: "Circumference = πd, so 24π = πd. Dividing both sides by π: d = 24 cm."
+      explanation: "Circumference = πd, so 24π = πd. Dividing both sides by π: d = 24 cm.",
+      skills: ["circumference"]
     },
     {
       id: 3,
@@ -192,7 +205,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "A",
       hint: "Arc length is a fraction of the circumference. The fraction equals the central angle divided by 360°.",
-      explanation: "Arc length = (θ/360°) × 2πr = (60°/360°) × 2π(9) = (1/6) × 18π = 3π."
+      explanation: "Arc length = (θ/360°) × 2πr = (60°/360°) × 2π(9) = (1/6) × 18π = 3π.",
+      skills: ["arc-length"]
     },
     {
       id: 4,
@@ -206,7 +220,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "B",
       hint: "Use the arc length formula and solve for θ. First find what fraction of the circumference the arc represents.",
-      explanation: "Arc length = (θ/360°) × 2πr. So 4π = (θ/360°) × 24π. Solving: θ/360° = 4π/24π = 1/6. θ = 60°."
+      explanation: "Arc length = (θ/360°) × 2πr. So 4π = (θ/360°) × 24π. Solving: θ/360° = 4π/24π = 1/6. θ = 60°.",
+      skills: ["arc-length"]
     },
     {
       id: 5,
@@ -220,7 +235,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "B",
       hint: "A semicircle is half of a full circle. Its arc length is half the circumference, which equals πr.",
-      explanation: "A semicircle is half the circumference: arc = πr. So 8π = πr, meaning r = 8."
+      explanation: "A semicircle is half the circumference: arc = πr. So 8π = πr, meaning r = 8.",
+      skills: ["arc-length"]
     }
   ],
 
@@ -238,7 +254,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "B",
       hint: "A sector's area is a fraction of the whole circle's area. 90° is what fraction of a full 360° circle?",
-      explanation: "Sector area = (θ/360°) × πr² = (90°/360°) × π(8)² = (1/4) × 64π = 16π."
+      explanation: "Sector area = (θ/360°) × πr² = (90°/360°) × π(8)² = (1/4) × 64π = 16π.",
+      skills: ["sector-area"]
     },
     {
       id: 2,
@@ -252,7 +269,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "A",
       hint: "Find what fraction of the whole pizza the slice represents (45°/360°), then multiply by the total area.",
-      explanation: "Sector area = (θ/360°) × πr² = (45°/360°) × π(10)² = (1/8) × 100π = 12.5π square inches."
+      explanation: "Sector area = (θ/360°) × πr² = (45°/360°) × π(10)² = (1/8) × 100π = 12.5π square inches.",
+      skills: ["sector-area"]
     },
     {
       id: 3,
@@ -266,7 +284,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "C",
       hint: "Set up the sector area formula with known values and solve for r². Remember that 60° is 1/6 of a full circle.",
-      explanation: "18π = (60°/360°) × πr² = (1/6) × πr². So r² = 18 × 6 = 108. r = √108 = √(36×3) = 6√3."
+      explanation: "18π = (60°/360°) × πr² = (1/6) × πr². So r² = 18 × 6 = 108. r = √108 = √(36×3) = 6√3.",
+      skills: ["sector-area"]
     },
     {
       id: 4,
@@ -280,21 +299,23 @@ export const circlesQuestions = {
       ],
       correctAnswer: "C",
       hint: "First calculate the total area of the circle, then determine what fraction the sector area represents.",
-      explanation: "9π = (θ/360°) × π(6)² = (θ/360°) × 36π. So θ/360° = 9/36 = 1/4. θ = 90°."
+      explanation: "9π = (θ/360°) × π(6)² = (θ/360°) × 36π. So θ/360° = 9/36 = 1/4. θ = 90°.",
+      skills: ["sector-area"]
     },
     {
       id: 5,
       difficulty: "hard",
       question: "The area of a sector is what fraction of the circle's total area if the central angle is 120°?",
       choices: [
-        { id: "A", text: "1/6" },
-        { id: "B", text: "1/4" },
-        { id: "C", text: "1/3" },
-        { id: "D", text: "1/2" }
+        { id: "A", fraction: { numerator: "1", denominator: "6" } },
+        { id: "B", fraction: { numerator: "1", denominator: "4" } },
+        { id: "C", fraction: { numerator: "1", denominator: "3" } },
+        { id: "D", fraction: { numerator: "1", denominator: "2" } }
       ],
       correctAnswer: "C",
       hint: "The fraction of the area equals the fraction of the angle. What is 120° as a fraction of 360°?",
-      explanation: "The fraction of the circle is simply θ/360° = 120°/360° = 1/3."
+      explanation: "The fraction of the circle is simply θ/360° = 120°/360° = 1/3.",
+      skills: ["sector-area"]
     }
   ],
 
@@ -312,7 +333,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "C",
       hint: "In the standard form (x - h)² + (y - k)² = r², the center is (h, k). Watch the signs carefully!",
-      explanation: "In the form (x - h)² + (y - k)² = r², the center is (h, k). Here, h = 3 and k = -2 (note: y + 2 = y - (-2)). Center: (3, -2)."
+      explanation: "In the form (x - h)² + (y - k)² = r², the center is (h, k). Here, h = 3 and k = -2 (note: y + 2 = y - (-2)). Center: (3, -2).",
+      skills: ["circle-equation"]
     },
     {
       id: 2,
@@ -326,7 +348,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "A",
       hint: "In standard form, the number on the right side equals r². Take the square root to find the radius.",
-      explanation: "In standard form (x - h)² + (y - k)² = r², the radius is r = √49 = 7."
+      explanation: "In standard form (x - h)² + (y - k)² = r², the radius is r = √49 = 7.",
+      skills: ["circle-equation"]
     },
     {
       id: 3,
@@ -340,7 +363,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "B",
       hint: "Plug the center coordinates into (x - h)² + (y - k)² = r². Remember that r² appears on the right, not r.",
-      explanation: "Standard form: (x - h)² + (y - k)² = r². With center (0, 5) and radius 3: x² + (y - 5)² = 9."
+      explanation: "Standard form: (x - h)² + (y - k)² = r². With center (0, 5) and radius 3: x² + (y - 5)² = 9.",
+      skills: ["circle-equation"]
     },
     {
       id: 4,
@@ -354,7 +378,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "A",
       hint: "When there are no numbers being added or subtracted from x or y inside the parentheses, what does that tell you about the center?",
-      explanation: "The equation x² + y² = 36 can be written as (x - 0)² + (y - 0)² = 36. The center is (0, 0) and radius is 6."
+      explanation: "The equation x² + y² = 36 can be written as (x - 0)² + (y - 0)² = 36. The center is (0, 0) and radius is 6.",
+      skills: ["circle-equation"]
     },
     {
       id: 5,
@@ -368,7 +393,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "C",
       hint: "The radius is the distance from the center to any point on the circle. Use the distance formula between the two given points.",
-      explanation: "The radius equals the distance from center to point on circle: r = √[(1-(-2))² + (7-3)²] = √[9 + 16] = √25 = 5."
+      explanation: "The radius equals the distance from center to point on circle: r = √[(1-(-2))² + (7-3)²] = √[9 + 16] = √25 = 5.",
+      skills: ["circle-equation"]
     }
   ],
 
@@ -386,7 +412,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "A",
       hint: "Moving right means subtracting from x in the equation; moving up means subtracting from y. The radius stays the same.",
-      explanation: "Translation right by 3 means subtract 3 from x; up by 2 means subtract 2 from y. New equation: (x - 3)² + (y - 2)² = 16."
+      explanation: "Translation right by 3 means subtract 3 from x; up by 2 means subtract 2 from y. New equation: (x - 3)² + (y - 2)² = 16.",
+      skills: ["circle-equation", "function-transformations"]
     },
     {
       id: 2,
@@ -400,7 +427,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "A",
       hint: "The new center is given directly. Just write the standard form equation with the new center; the radius remains unchanged.",
-      explanation: "The new center is (5, 3) and the radius stays the same at 3. New equation: (x - 5)² + (y - 3)² = 9."
+      explanation: "The new center is (5, 3) and the radius stays the same at 3. New equation: (x - 5)² + (y - 3)² = 9.",
+      skills: ["circle-equation", "function-transformations"]
     },
     {
       id: 3,
@@ -414,21 +442,23 @@ export const circlesQuestions = {
       ],
       correctAnswer: "D",
       hint: "Dilation multiplies all distances from the center by the scale factor. Apply this factor to the radius.",
-      explanation: "A dilation by factor 2 multiplies all distances by 2. New radius = 4 × 2 = 8."
+      explanation: "A dilation by factor 2 multiplies all distances by 2. New radius = 4 × 2 = 8.",
+      skills: ["circle-equation", "function-transformations"]
     },
     {
       id: 4,
       difficulty: "medium",
       question: "The circle (x + 4)² + (y - 1)² = 25 is reflected across the y-axis. What is the x-coordinate of the new center?",
       choices: [
-        { id: "A", text: "-4" },
+        { id: "A", text: "−4" },
         { id: "B", text: "4" },
-        { id: "C", text: "-1" },
+        { id: "C", text: "−1" },
         { id: "D", text: "1" }
       ],
       correctAnswer: "B",
       hint: "First identify the original center from the equation. Reflecting across the y-axis changes the sign of the x-coordinate only.",
-      explanation: "Original center: (-4, 1). Reflecting across y-axis changes sign of x-coordinate. New center: (4, 1)."
+      explanation: "Original center: (-4, 1). Reflecting across y-axis changes sign of x-coordinate. New center: (4, 1).",
+      skills: ["circle-equation", "function-transformations"]
     },
     {
       id: 5,
@@ -442,7 +472,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "B",
       hint: "Work backwards: if moving left got us here, the original was to the right. Add 5 to the current x-coordinate.",
-      explanation: "Current center: (-2, 3). Moving 5 left means 5 was subtracted from x. Original x = -2 + 5 = 3. Original center: (3, 3)."
+      explanation: "Current center: (-2, 3). Moving 5 left means 5 was subtracted from x. Original x = -2 + 5 = 3. Original center: (3, 3).",
+      skills: ["circle-equation", "function-transformations"]
     }
   ],
 
@@ -453,14 +484,15 @@ export const circlesQuestions = {
       difficulty: "easy",
       question: "What is the domain of the circle (x - 1)² + (y + 2)² = 9?",
       choices: [
-        { id: "A", text: "-2 ≤ x ≤ 4" },
-        { id: "B", text: "-1 ≤ x ≤ 3" },
-        { id: "C", text: "-5 ≤ x ≤ 1" },
+        { id: "A", text: "−2 ≤ x ≤ 4" },
+        { id: "B", text: "−1 ≤ x ≤ 3" },
+        { id: "C", text: "−5 ≤ x ≤ 1" },
         { id: "D", text: "All real numbers" }
       ],
       correctAnswer: "A",
       hint: "Find the center's x-coordinate and the radius. The domain extends one radius left and one radius right from the center.",
-      explanation: "Center is (1, -2), radius is 3. Domain extends 3 units left and right of center: 1 - 3 = -2 and 1 + 3 = 4. Domain: -2 ≤ x ≤ 4."
+      explanation: "Center is (1, -2), radius is 3. Domain extends 3 units left and right of center: 1 - 3 = -2 and 1 + 3 = 4. Domain: -2 ≤ x ≤ 4.",
+      skills: ["circle-equation"]
     },
     {
       id: 2,
@@ -468,13 +500,14 @@ export const circlesQuestions = {
       question: "What is the range of the circle x² + (y - 5)² = 16?",
       choices: [
         { id: "A", text: "1 ≤ y ≤ 9" },
-        { id: "B", text: "-4 ≤ y ≤ 4" },
+        { id: "B", text: "−4 ≤ y ≤ 4" },
         { id: "C", text: "1 ≤ y ≤ 5" },
-        { id: "D", text: "-1 ≤ y ≤ 9" }
+        { id: "D", text: "−1 ≤ y ≤ 9" }
       ],
       correctAnswer: "A",
       hint: "Find the center's y-coordinate and the radius. The range extends one radius above and one radius below the center.",
-      explanation: "Center is (0, 5), radius is 4. Range extends 4 units above and below center: 5 - 4 = 1 and 5 + 4 = 9. Range: 1 ≤ y ≤ 9."
+      explanation: "Center is (0, 5), radius is 4. Range extends 4 units above and below center: 5 - 4 = 1 and 5 + 4 = 9. Range: 1 ≤ y ≤ 9.",
+      skills: ["circle-equation"]
     },
     {
       id: 3,
@@ -488,7 +521,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "C",
       hint: "Substitute y = 3 into the circle equation and solve for x. The number of x-values equals the number of intersection points.",
-      explanation: "Substituting y = 3: x² + 9 = 25, so x² = 16, x = ±4. The line intersects at (4, 3) and (-4, 3) - two points."
+      explanation: "Substituting y = 3: x² + 9 = 25, so x² = 16, x = ±4. The line intersects at (4, 3) and (-4, 3) - two points.",
+      skills: ["circle-equation"]
     },
     {
       id: 4,
@@ -502,7 +536,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "B",
       hint: "On the x-axis, y = 0. Substitute this into the equation and solve for x.",
-      explanation: "On the x-axis, y = 0. Substituting: x² + 0 = 25, so x = ±5. Intersection points: (5, 0) and (-5, 0)."
+      explanation: "On the x-axis, y = 0. Substituting: x² + 0 = 25, so x = ±5. Intersection points: (5, 0) and (-5, 0).",
+      skills: ["circle-equation"]
     },
     {
       id: 5,
@@ -516,7 +551,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "C",
       hint: "Substitute the line equation into the circle equation to get a quadratic in x. The discriminant tells you how many solutions exist.",
-      explanation: "Substitute y = x + 1: x² + (x+1)² = 5 → x² + x² + 2x + 1 = 5 → 2x² + 2x - 4 = 0 → x² + x - 2 = 0 → (x+2)(x-1) = 0. Two solutions, so 2 intersection points."
+      explanation: "Substitute y = x + 1: x² + (x+1)² = 5 → x² + x² + 2x + 1 = 5 → 2x² + 2x - 4 = 0 → x² + x - 2 = 0 → (x+2)(x-1) = 0. Two solutions, so 2 intersection points.",
+      skills: ["circle-equation"]
     }
   ],
 
@@ -534,7 +570,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "A",
       hint: "Complete the square for both x and y terms. Remember to add the same values to both sides of the equation.",
-      explanation: "Complete the square: (x² - 6x + 9) + (y² + 4y + 4) = 12 + 9 + 4 → (x - 3)² + (y + 2)² = 25. Center: (3, -2)."
+      explanation: "Complete the square: (x² - 6x + 9) + (y² + 4y + 4) = 12 + 9 + 4 → (x - 3)² + (y + 2)² = 25. Center: (3, -2).",
+      skills: ["completing-square-circles", "circle-equation"]
     },
     {
       id: 2,
@@ -548,7 +585,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "B",
       hint: "Complete the square for x and y, then find what r² equals. Take the square root to find r.",
-      explanation: "Complete the square: (x² + 8x + 16) + (y² - 2y + 1) = 8 + 16 + 1 = 25 → (x + 4)² + (y - 1)² = 25. Radius = 5."
+      explanation: "Complete the square: (x² + 8x + 16) + (y² - 2y + 1) = 8 + 16 + 1 = 25 → (x + 4)² + (y - 1)² = 25. Radius = 5.",
+      skills: ["completing-square-circles", "circle-equation"]
     },
     {
       id: 3,
@@ -562,7 +600,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "A",
       hint: "Since there's no x term to complete, focus on completing the square for the y terms only.",
-      explanation: "Complete the square: x² + (y² - 10y + 25) = 25 → x² + (y - 5)² = 25. Center: (0, 5)."
+      explanation: "Complete the square: x² + (y² - 10y + 25) = 25 → x² + (y - 5)² = 25. Center: (0, 5).",
+      skills: ["completing-square-circles", "circle-equation"]
     },
     {
       id: 4,
@@ -576,7 +615,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "B",
       hint: "After completing the square, the constant on the right side is r². Be careful with signs when moving terms.",
-      explanation: "Complete the square: (x² + 2x + 1) + (y² - 6y + 9) = -6 + 1 + 9 = 4 → (x + 1)² + (y - 3)² = 4. So r² = 4."
+      explanation: "Complete the square: (x² + 2x + 1) + (y² - 6y + 9) = -6 + 1 + 9 = 4 → (x + 1)² + (y - 3)² = 4. So r² = 4.",
+      skills: ["completing-square-circles", "circle-equation"]
     },
     {
       id: 5,
@@ -590,7 +630,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "A",
       hint: "Expand both squared terms, combine like terms, and move everything to one side. Check signs carefully.",
-      explanation: "Expand: x² - 4x + 4 + y² + 6y + 9 = 16 → x² + y² - 4x + 6y + 13 = 16 → x² + y² - 4x + 6y - 3 = 0."
+      explanation: "Expand: x² - 4x + 4 + y² + 6y + 9 = 16 → x² + y² - 4x + 6y + 13 = 16 → x² + y² - 4x + 6y - 3 = 0.",
+      skills: ["completing-square-circles", "circle-equation"]
     }
   ],
 
@@ -608,21 +649,23 @@ export const circlesQuestions = {
       ],
       correctAnswer: "B",
       hint: "Think about a wheel touching a flat road. What angle does the spoke (radius) make with the ground (tangent)?",
-      explanation: "A fundamental property: a tangent line is always perpendicular to the radius drawn to the point of tangency."
+      explanation: "A fundamental property: a tangent line is always perpendicular to the radius drawn to the point of tangency.",
+      skills: ["tangent-lines"]
     },
     {
       id: 2,
       difficulty: "easy",
       question: "The center of a circle is at (3, 4) and a tangent line touches the circle at (6, 8). What is the slope of the tangent line?",
       choices: [
-        { id: "A", text: "4/3" },
-        { id: "B", text: "-4/3" },
-        { id: "C", text: "3/4" },
-        { id: "D", text: "-3/4" }
+        { id: "A", fraction: { numerator: "4", denominator: "3" } },
+        { id: "B", text: "−", fraction: { numerator: "4", denominator: "3" } },
+        { id: "C", fraction: { numerator: "3", denominator: "4" } },
+        { id: "D", text: "−", fraction: { numerator: "3", denominator: "4" } }
       ],
       correctAnswer: "D",
       hint: "First find the slope of the radius from center to the tangent point. The tangent slope is the negative reciprocal of the radius slope.",
-      explanation: "Slope of radius = (8-4)/(6-3) = 4/3. Tangent is perpendicular, so its slope = -1/(4/3) = -3/4."
+      explanation: "Slope of radius = (8-4)/(6-3) = 4/3. Tangent is perpendicular, so its slope = -1/(4/3) = -3/4.",
+      skills: ["tangent-lines", "perpendicular-negative-reciprocal"]
     },
     {
       id: 3,
@@ -636,7 +679,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "B",
       hint: "This is a special property of tangent segments from an external point. Think about symmetry.",
-      explanation: "A key theorem: two tangent segments from the same external point to a circle are always equal in length."
+      explanation: "A key theorem: two tangent segments from the same external point to a circle are always equal in length.",
+      skills: ["tangent-lines"]
     },
     {
       id: 4,
@@ -650,7 +694,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "B",
       hint: "The distance from the center of a circle to any tangent line has a special relationship with the radius.",
-      explanation: "The distance from center to a tangent line always equals the radius. Here, the tangent at the top of the circle is at y = 5, distance 5 from center."
+      explanation: "The distance from center to a tangent line always equals the radius. Here, the tangent at the top of the circle is at y = 5, distance 5 from center.",
+      skills: ["tangent-lines"]
     },
     {
       id: 5,
@@ -664,7 +709,8 @@ export const circlesQuestions = {
       ],
       correctAnswer: "D",
       hint: "If the tangent is vertical, what direction must the perpendicular radius be? Also, calculate the distance from origin to (5, 0).",
-      explanation: "If the tangent is vertical, the radius must be horizontal (perpendicular). The point (5, 0) is distance 5 from origin, so radius = 5."
+      explanation: "If the tangent is vertical, the radius must be horizontal (perpendicular). The point (5, 0) is distance 5 from origin, so radius = 5.",
+      skills: ["tangent-lines", "perpendicular-negative-reciprocal"]
     }
   ]
 };

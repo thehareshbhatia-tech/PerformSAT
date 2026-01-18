@@ -1,6 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import { generateRecommendations } from '../services/recommendationService';
 import { generatePersonalizedPlan } from '../services/studyPlanService';
+import SkillDiagnosticSummary from './SkillDiagnosticSummary';
+import SkillBreakdownPanel from './SkillBreakdownPanel';
+import ScoreSlider from './ScoreSlider';
 
 // Official SAT Test Dates (from College Board)
 const SAT_TEST_DATES = [
@@ -68,9 +71,6 @@ const DonutChart = ({ percent, size = 120, strokeWidth = 10, color = '#22c55e' }
   );
 };
 
-// Common target scores
-const TARGET_SCORES = [1200, 1300, 1400, 1500, 1550, 1600];
-
 const StudentDashboard = ({
   user,
   completedLessons,
@@ -80,13 +80,19 @@ const StudentDashboard = ({
   onNavigateToModule,
   onUpdateTestDate,
   onUpdateTargetScore,
+  onUpdateCurrentScore,
   onStartPractice,
   onStartReview,
-  allLessons
+  allLessons,
+  skillDiagnosticSummary,
+  skillBreakdown
 }) => {
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [showTargetPicker, setShowTargetPicker] = useState(false);
+  const [showCurrentScorePicker, setShowCurrentScorePicker] = useState(false);
   const [selectedDate, setSelectedDate] = useState(user?.testDate || '');
+  const [tempTargetScore, setTempTargetScore] = useState(user?.targetScore || 1200);
+  const [tempCurrentScore, setTempCurrentScore] = useState(user?.currentScore || 1000);
 
   // Filter to only show future SAT dates
   const getUpcomingSATDates = () => {
@@ -177,6 +183,14 @@ const StudentDashboard = ({
       onUpdateTargetScore(score);
     }
     setShowTargetPicker(false);
+  };
+
+  // Handle current score selection
+  const handleSelectCurrentScore = (score) => {
+    if (score && onUpdateCurrentScore) {
+      onUpdateCurrentScore(score);
+    }
+    setShowCurrentScorePicker(false);
   };
 
 
@@ -394,81 +408,16 @@ const StudentDashboard = ({
 
       {/* Target Score Section */}
       {showTargetPicker ? (
-        <div style={{
-          ...cardStyle,
-          marginBottom: '24px',
-          padding: '28px'
-        }}>
-          <div style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginBottom: '20px'
-          }}>
-            <div>
-              <div style={{ fontSize: '18px', fontWeight: '600', color: '#111827' }}>
-                What's your target SAT score?
-              </div>
-              <div style={{ fontSize: '13px', color: '#6b7280', marginTop: '4px' }}>
-                We'll personalize your study plan to help you reach it
-              </div>
-            </div>
-            <button
-              onClick={() => setShowTargetPicker(false)}
-              style={{
-                padding: '6px 12px',
-                background: 'transparent',
-                color: '#6b7280',
-                border: 'none',
-                fontSize: '14px',
-                cursor: 'pointer'
-              }}
-            >
-              Cancel
-            </button>
-          </div>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(6, 1fr)',
-            gap: '10px'
-          }}>
-            {TARGET_SCORES.map(score => {
-              const isSelected = user?.targetScore === score;
-              return (
-                <button
-                  key={score}
-                  onClick={() => handleSelectTargetScore(score)}
-                  style={{
-                    padding: '16px 8px',
-                    background: isSelected ? '#111827' : '#f9fafb',
-                    color: isSelected ? 'white' : '#111827',
-                    border: isSelected ? 'none' : '1px solid #e5e7eb',
-                    borderRadius: '10px',
-                    cursor: 'pointer',
-                    textAlign: 'center',
-                    fontSize: '16px',
-                    fontWeight: '600',
-                    transition: 'all 0.15s ease'
-                  }}
-                  onMouseEnter={(e) => {
-                    if (!isSelected) {
-                      e.target.style.background = '#f3f4f6';
-                      e.target.style.borderColor = '#d1d5db';
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!isSelected) {
-                      e.target.style.background = '#f9fafb';
-                      e.target.style.borderColor = '#e5e7eb';
-                    }
-                  }}
-                >
-                  {score}
-                </button>
-              );
-            })}
-          </div>
-        </div>
+        <ScoreSlider
+          value={tempTargetScore}
+          onChange={setTempTargetScore}
+          label="What's your target SAT score?"
+          description="We'll personalize your study plan to help you reach it"
+          onSave={() => {
+            handleSelectTargetScore(tempTargetScore);
+          }}
+          onCancel={() => setShowTargetPicker(false)}
+        />
       ) : (
         <div style={{
           ...cardStyle,
@@ -499,7 +448,10 @@ const StudentDashboard = ({
             )}
           </div>
           <button
-            onClick={() => setShowTargetPicker(true)}
+            onClick={() => {
+              setTempTargetScore(user?.targetScore || 1200);
+              setShowTargetPicker(true);
+            }}
             style={{
               padding: '8px 16px',
               background: user?.targetScore ? 'transparent' : '#111827',
@@ -511,6 +463,77 @@ const StudentDashboard = ({
             }}
           >
             {user?.targetScore ? 'Change' : 'Set Goal'}
+          </button>
+        </div>
+      )}
+
+      {/* Current SAT Score Section */}
+      {showCurrentScorePicker ? (
+        <ScoreSlider
+          value={tempCurrentScore}
+          onChange={setTempCurrentScore}
+          label="What's your current SAT score?"
+          description="Enter your most recent practice test or official score"
+          onSave={() => {
+            handleSelectCurrentScore(tempCurrentScore);
+          }}
+          onCancel={() => setShowCurrentScorePicker(false)}
+        />
+      ) : (
+        <div style={{
+          ...cardStyle,
+          marginBottom: '24px',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center'
+        }}>
+          <div>
+            {user?.currentScore ? (
+              <>
+                <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '4px' }}>
+                  Current Score
+                </div>
+                <div style={{ fontSize: '18px', fontWeight: '600', color: '#111827' }}>
+                  {user.currentScore}
+                  {user?.targetScore && user.currentScore < user.targetScore && (
+                    <span style={{
+                      marginLeft: '12px',
+                      fontSize: '14px',
+                      fontWeight: '500',
+                      color: '#16a34a'
+                    }}>
+                      +{user.targetScore - user.currentScore} to goal
+                    </span>
+                  )}
+                </div>
+              </>
+            ) : (
+              <>
+                <div style={{ fontSize: '15px', fontWeight: '500', color: '#111827' }}>
+                  What's your current SAT score?
+                </div>
+                <div style={{ fontSize: '13px', color: '#6b7280' }}>
+                  Track your progress from where you started
+                </div>
+              </>
+            )}
+          </div>
+          <button
+            onClick={() => {
+              setTempCurrentScore(user?.currentScore || 1000);
+              setShowCurrentScorePicker(true);
+            }}
+            style={{
+              padding: '8px 16px',
+              background: user?.currentScore ? 'transparent' : '#111827',
+              color: user?.currentScore ? '#374151' : 'white',
+              border: user?.currentScore ? '1px solid #d1d5db' : 'none',
+              borderRadius: '8px',
+              fontSize: '14px',
+              cursor: 'pointer'
+            }}
+          >
+            {user?.currentScore ? 'Change' : 'Add Score'}
           </button>
         </div>
       )}
@@ -837,58 +860,20 @@ const StudentDashboard = ({
         </div>
       </div>
 
-      {/* All Modules */}
-      <div style={cardStyle}>
-        <div style={{
-          fontSize: '16px',
-          fontWeight: '600',
-          color: '#111827',
-          marginBottom: '16px'
-        }}>
-          All Modules
+      {/* Skill Diagnostic Summary */}
+      {skillDiagnosticSummary && (
+        <div style={{ marginBottom: '24px' }}>
+          <SkillDiagnosticSummary
+            diagnosticSummary={skillDiagnosticSummary}
+            onPracticeSkill={null}
+          />
         </div>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: '8px'
-        }}>
-          {moduleProgress.map(module => (
-            <div
-              key={module.id}
-              onClick={() => onNavigateToModule(module.id)}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                padding: '12px 16px',
-                background: module.percent === 100 ? '#f0fdf4' : '#f9fafb',
-                borderRadius: '8px',
-                cursor: 'pointer',
-                border: module.percent === 100 ? '1px solid #bbf7d0' : '1px solid transparent'
-              }}
-            >
-              <span style={{
-                fontSize: '14px',
-                color: '#111827',
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-                whiteSpace: 'nowrap',
-                flex: 1,
-                marginRight: '8px'
-              }}>
-                {module.title}
-              </span>
-              <span style={{
-                fontSize: '13px',
-                fontWeight: '500',
-                color: module.percent === 100 ? '#16a34a' : module.percent > 0 ? '#ea580c' : '#9ca3af'
-              }}>
-                {module.percent}%
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
+      )}
+
+      {/* Skill Breakdown Panel */}
+      {skillBreakdown && Object.keys(skillBreakdown).length > 0 && (
+        <SkillBreakdownPanel skillBreakdown={skillBreakdown} />
+      )}
     </div>
   );
 };

@@ -16,7 +16,8 @@ export const radiansDegreesQuestions = {
       ],
       correctAnswer: "B",
       hint: "To convert degrees to radians, multiply the degree value by π/180. Think about what happens when the numerator and denominator simplify.",
-      explanation: "To convert degrees to radians, multiply by π/180: 180° × (π/180) = π radians."
+      explanation: "To convert degrees to radians, multiply by π/180: 180° × (π/180) = π radians.",
+      skills: ['degrees-to-radians']
     },
     {
       id: 2,
@@ -30,7 +31,8 @@ export const radiansDegreesQuestions = {
       ],
       correctAnswer: "A",
       hint: "To convert radians to degrees, multiply by 180/π. Notice that the π in the numerator and denominator will cancel out.",
-      explanation: "To convert radians to degrees, multiply by 180/π: (π/6) × (180/π) = 180/6 = 30°."
+      explanation: "To convert radians to degrees, multiply by 180/π: (π/6) × (180/π) = 180/6 = 30°.",
+      skills: ['radians-to-degrees']
     },
     {
       id: 3,
@@ -44,7 +46,8 @@ export const radiansDegreesQuestions = {
       ],
       correctAnswer: "B",
       hint: "Remember that 180° equals π radians. A full rotation is twice a half rotation, so think about how that relationship scales.",
-      explanation: "360° × (π/180) = 2π radians. A full rotation is 2π radians."
+      explanation: "360° × (π/180) = 2π radians. A full rotation is 2π radians.",
+      skills: ['radian-measure-understanding', 'degrees-to-radians']
     },
     {
       id: 4,
@@ -58,7 +61,8 @@ export const radiansDegreesQuestions = {
       ],
       correctAnswer: "B",
       hint: "Use the conversion factor π/180 to convert degrees to radians. After multiplying, simplify the fraction by finding the greatest common factor of 45 and 180.",
-      explanation: "45° × (π/180) = 45π/180 = π/4 radians."
+      explanation: "45° × (π/180) = 45π/180 = π/4 radians.",
+      skills: ['degrees-to-radians']
     },
     {
       id: 5,
@@ -72,7 +76,8 @@ export const radiansDegreesQuestions = {
       ],
       correctAnswer: "C",
       hint: "Multiply the radian value by 180/π to convert to degrees. The π will cancel, leaving you with a simple arithmetic calculation.",
-      explanation: "(3π/2) × (180/π) = 3 × 180/2 = 540/2 = 270°."
+      explanation: "(3π/2) × (180/π) = 3 × 180/2 = 540/2 = 270°.",
+      skills: ['radians-to-degrees']
     }
   ]
 };

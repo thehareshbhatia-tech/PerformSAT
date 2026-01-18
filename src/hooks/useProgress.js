@@ -4,6 +4,7 @@ import { doc, onSnapshot } from 'firebase/firestore';
 import { markLessonComplete as markComplete, markLessonIncomplete } from '../services/progressService';
 import { recordPracticeAttempt as recordAttempt } from '../services/practiceService';
 import { getDueReviewCount, getReviewStats } from '../services/reviewService';
+import { recordSkillAttempts, getSkillDiagnosticSummary as getDiagnostic, getSkillBreakdown as getBreakdown } from '../services/skillService';
 
 /**
  * Hook for managing user progress with real-time Firestore sync
@@ -14,6 +15,7 @@ export const useProgress = (userId) => {
   const [completedLessons, setCompletedLessons] = useState({});
   const [practiceProgress, setPracticeProgress] = useState({});
   const [reviewQueue, setReviewQueue] = useState({});
+  const [skillProgress, setSkillProgress] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -55,10 +57,14 @@ export const useProgress = (userId) => {
 
           // Get review queue
           setReviewQueue(data.reviewQueue || {});
+
+          // Get skill progress
+          setSkillProgress(data.skillProgress || {});
         } else {
           setCompletedLessons({});
           setPracticeProgress({});
           setReviewQueue({});
+          setSkillProgress({});
         }
         setLoading(false);
       },
@@ -180,9 +186,10 @@ export const useProgress = (userId) => {
 
   /**
    * Records a practice attempt with optimistic update
+   * Also records skill attempts for each question answered
    * @param {string} moduleId - Module ID
    * @param {string} sectionName - Section name (e.g., "Deriving Equations")
-   * @param {Object} answers - Answers object { questionId: { selected, correct } }
+   * @param {Object} answers - Answers object { questionId: { selected, correct, skills } }
    * @param {number} score - Number correct
    * @param {number} totalQuestions - Total questions
    */
@@ -202,6 +209,13 @@ export const useProgress = (userId) => {
 
     try {
       await recordAttempt(userId, moduleId, sectionName, answers, score, totalQuestions);
+
+      // Record skill attempts for each answered question
+      for (const [questionId, answerData] of Object.entries(answers)) {
+        if (answerData.skills && answerData.skills.length > 0) {
+          await recordSkillAttempts(userId, answerData.skills, answerData.correct);
+        }
+      }
     } catch (err) {
       console.error('Failed to record practice attempt:', err);
       setError(err.message);
@@ -259,10 +273,29 @@ export const useProgress = (userId) => {
     return getReviewStats(reviewQueue);
   };
 
+  // ===== Skill Progress Functions =====
+
+  /**
+   * Gets skill diagnostic summary for the dashboard
+   * @returns {Object} Diagnostic summary with weak/strong skills, domain progress
+   */
+  const getSkillDiagnosticSummary = () => {
+    return getDiagnostic(skillProgress);
+  };
+
+  /**
+   * Gets hierarchical skill breakdown (domain > module > section > skills)
+   * @returns {Object} Hierarchical skill breakdown
+   */
+  const getSkillBreakdown = () => {
+    return getBreakdown(skillProgress);
+  };
+
   return {
     completedLessons,
     practiceProgress,
     reviewQueue,
+    skillProgress,
     loading,
     error,
     markLessonComplete,
@@ -276,6 +309,9 @@ export const useProgress = (userId) => {
     getSectionPracticeProgress,
     // Review queue functions
     getDueCount,
-    getReviewStatistics
+    getReviewStatistics,
+    // Skill progress functions
+    getSkillDiagnosticSummary,
+    getSkillBreakdown
   };
 };

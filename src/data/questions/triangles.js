@@ -16,7 +16,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "B",
       hint: "Think about what happens when you tear off all three corners of a triangle and put them together. They form a straight line.",
-      explanation: "The sum of interior angles in any triangle is always 180°."
+      explanation: "The sum of interior angles in any triangle is always 180°.",
+      skills: ['triangle-angle-sum']
     },
     {
       id: 2,
@@ -30,7 +31,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "C",
       hint: "Compare all three side lengths. How many of them are equal to each other?",
-      explanation: "A scalene triangle has all sides of different lengths. Since 3 ≠ 4 ≠ 5, this is scalene."
+      explanation: "A scalene triangle has all sides of different lengths. Since 3 ≠ 4 ≠ 5, this is scalene.",
+      skills: ['triangle-types']
     },
     {
       id: 3,
@@ -44,7 +46,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "A",
       hint: "In an isosceles triangle, two angles are equal. Use the fact that all three angles must sum to 180°.",
-      explanation: "Two angles are 70° each. Third angle = 180° - 70° - 70° = 40°."
+      explanation: "Two angles are 70° each. Third angle = 180° - 70° - 70° = 40°.",
+      skills: ['triangle-angle-sum', 'triangle-types']
     },
     {
       id: 4,
@@ -58,7 +61,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "B",
       hint: "Apply the Triangle Inequality Theorem: the sum of any two sides must be greater than the third side.",
-      explanation: "Triangle inequality: sum of any two sides must be greater than the third. 2 + 3 = 5 < 7, so no triangle is possible."
+      explanation: "Triangle inequality: sum of any two sides must be greater than the third. 2 + 3 = 5 < 7, so no triangle is possible.",
+      skills: ['triangle-inequality']
     },
     {
       id: 5,
@@ -72,7 +76,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "B",
       hint: "Remember that 'equilateral' means all sides are equal. Perimeter is the sum of all sides.",
-      explanation: "An equilateral triangle has 3 equal sides. Perimeter = 3 × 6 = 18."
+      explanation: "An equilateral triangle has 3 equal sides. Perimeter = 3 × 6 = 18.",
+      skills: ['triangle-types']
     }
   ],
 
@@ -90,7 +95,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "B",
       hint: "All three angles in a triangle must add up to 180°. Subtract the known angles from this total.",
-      explanation: "Third angle = 180° - 45° - 75° = 60°."
+      explanation: "Third angle = 180° - 45° - 75° = 60°.",
+      skills: ['triangle-angle-sum']
     },
     {
       id: 2,
@@ -104,7 +110,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "C",
       hint: "The Exterior Angle Theorem states that an exterior angle equals the sum of the two remote (non-adjacent) interior angles.",
-      explanation: "An exterior angle equals the sum of the two non-adjacent interior angles. Sum = 110°."
+      explanation: "An exterior angle equals the sum of the two non-adjacent interior angles. Sum = 110°.",
+      skills: ['triangle-angle-sum']
     },
     {
       id: 3,
@@ -118,7 +125,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "C",
       hint: "A right triangle has one 90° angle. The two acute angles must together make up the remaining degrees.",
-      explanation: "In a right triangle: 90° + 35° + x = 180°, so x = 55°."
+      explanation: "In a right triangle: 90° + 35° + x = 180°, so x = 55°.",
+      skills: ['triangle-angle-sum']
     },
     {
       id: 4,
@@ -132,7 +140,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "A",
       hint: "Triangles are classified by their largest angle: acute (all < 90°), right (one = 90°), or obtuse (one > 90°).",
-      explanation: "An acute triangle has all angles less than 90°."
+      explanation: "An acute triangle has all angles less than 90°.",
+      skills: ['triangle-angle-sum']
     },
     {
       id: 5,
@@ -146,7 +155,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "C",
       hint: "First, set up an equation using the fact that 2x + 3x + 4x = 180°. Solve for x, then find angle B.",
-      explanation: "2x + 3x + 4x = 180° → 9x = 180° → x = 20°. Angle B = 3x = 60°."
+      explanation: "2x + 3x + 4x = 180° → 9x = 180° → x = 20°. Angle B = 3x = 60°.",
+      skills: ['triangle-angle-sum']
     }
   ],
 
@@ -164,7 +174,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "B",
       hint: "The area formula for a triangle is half of base times height: A = (1/2) × b × h.",
-      explanation: "Area = (1/2) × base × height = (1/2) × 10 × 6 = 30."
+      explanation: "Area = (1/2) × base × height = (1/2) × 10 × 6 = 30.",
+      skills: ['triangle-area']
     },
     {
       id: 2,
@@ -178,7 +189,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "B",
       hint: "Rearrange the area formula A = (1/2) × b × h to solve for h when you know A and b.",
-      explanation: "Area = (1/2) × base × height → 24 = (1/2) × 8 × h → 24 = 4h → h = 6."
+      explanation: "Area = (1/2) × base × height → 24 = (1/2) × 8 × h → 24 = 4h → h = 6.",
+      skills: ['triangle-area']
     },
     {
       id: 3,
@@ -192,7 +204,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "B",
       hint: "Substitute 2b and 2h into the area formula and compare to the original area (1/2)bh.",
-      explanation: "New area = (1/2)(2b)(2h) = 4 × (1/2)bh = 4 × original area."
+      explanation: "New area = (1/2)(2b)(2h) = 4 × (1/2)bh = 4 × original area.",
+      skills: ['triangle-area']
     },
     {
       id: 4,
@@ -206,7 +219,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "A",
       hint: "In a right triangle, the two legs are perpendicular, so one can serve as the base and the other as the height.",
-      explanation: "For a right triangle, the legs are base and height. Area = (1/2) × 5 × 12 = 30."
+      explanation: "For a right triangle, the legs are base and height. Area = (1/2) × 5 × 12 = 30.",
+      skills: ['triangle-area']
     },
     {
       id: 5,
@@ -220,7 +234,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "B",
       hint: "Draw the height from one vertex to the opposite side. This creates two 30-60-90 triangles.",
-      explanation: "For equilateral triangle, height = (side × √3)/2 = (4 × √3)/2 = 2√3."
+      explanation: "For equilateral triangle, height = (side × √3)/2 = (4 × √3)/2 = 2√3.",
+      skills: ['triangle-area', 'special-right-triangles']
     }
   ],
 
@@ -238,7 +253,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "B",
       hint: "Find the scale factor by comparing corresponding sides (DE/AB), then multiply BC by this factor.",
-      explanation: "Scale factor = 9/6 = 3/2. EF = BC × (3/2) = 8 × 3/2 = 12."
+      explanation: "Scale factor = 9/6 = 3/2. EF = BC × (3/2) = 8 × 3/2 = 12.",
+      skills: ['similar-triangles']
     },
     {
       id: 2,
@@ -252,7 +268,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "B",
       hint: "The ratio of perimeters equals the ratio of corresponding sides. Multiply the smaller perimeter by 5/2.",
-      explanation: "Perimeters have the same ratio as sides. Larger perimeter = 24 × (5/2) = 60."
+      explanation: "Perimeters have the same ratio as sides. Larger perimeter = 24 × (5/2) = 60.",
+      skills: ['similar-triangles']
     },
     {
       id: 3,
@@ -266,7 +283,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "A",
       hint: "Area ratio equals the square of the side ratio. Take the square root of the area ratio to find the side ratio.",
-      explanation: "Area ratio = (side ratio)². If area ratio is 4:9, side ratio = √(4:9) = 2:3."
+      explanation: "Area ratio = (side ratio)². If area ratio is 4:9, side ratio = √(4:9) = 2:3.",
+      skills: ['similar-triangles']
     },
     {
       id: 4,
@@ -280,7 +298,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "B",
       hint: "The area ratio is the square of the side ratio. Find (5/3)² and multiply by the smaller area.",
-      explanation: "Area ratio = (5/3)² = 25/9. Larger area = 18 × (25/9) = 50."
+      explanation: "Area ratio = (5/3)² = 25/9. Larger area = 18 × (25/9) = 50.",
+      skills: ['similar-triangles']
     },
     {
       id: 5,
@@ -294,7 +313,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "D",
       hint: "Think about which combinations uniquely determine a triangle's shape. One of these can produce two different triangles.",
-      explanation: "SSA is not a valid similarity criterion - it can produce different triangles (ambiguous case)."
+      explanation: "SSA is not a valid similarity criterion - it can produce different triangles (ambiguous case).",
+      skills: ['similar-triangles']
     }
   ],
 
@@ -312,7 +332,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "B",
       hint: "Use the Pythagorean Theorem: a² + b² = c², where c is the hypotenuse.",
-      explanation: "c² = a² + b² = 36 + 64 = 100. c = √100 = 10."
+      explanation: "c² = a² + b² = 36 + 64 = 100. c = √100 = 10.",
+      skills: ['pythagorean-theorem']
     },
     {
       id: 2,
@@ -326,7 +347,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "B",
       hint: "The ladder forms a right triangle with the wall and ground. The ladder is the hypotenuse.",
-      explanation: "13² = 5² + h² → 169 = 25 + h² → h² = 144 → h = 12 feet."
+      explanation: "13² = 5² + h² → 169 = 25 + h² → h² = 144 → h = 12 feet.",
+      skills: ['pythagorean-theorem']
     },
     {
       id: 3,
@@ -340,7 +362,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "A",
       hint: "Test the Pythagorean Theorem with the two shorter sides and the longest side (potential hypotenuse).",
-      explanation: "Check: 7² + 24² = 49 + 576 = 625 = 25². Yes, it's a right triangle."
+      explanation: "Check: 7² + 24² = 49 + 576 = 625 = 25². Yes, it's a right triangle.",
+      skills: ['pythagorean-theorem']
     },
     {
       id: 4,
@@ -354,7 +377,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "B",
       hint: "Rearrange the Pythagorean Theorem to solve for the missing leg: b² = c² - a².",
-      explanation: "15² = 9² + b² → 225 = 81 + b² → b² = 144 → b = 12."
+      explanation: "15² = 9² + b² → 225 = 81 + b² → b² = 144 → b = 12.",
+      skills: ['pythagorean-theorem']
     },
     {
       id: 5,
@@ -368,7 +392,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "D",
       hint: "A rectangle's diagonal creates a right triangle with the two sides. The diagonal is the hypotenuse.",
-      explanation: "10² = 6² + s² → 100 = 36 + s² → s² = 64 → s = 8. Both B and C equal 8."
+      explanation: "10² = 6² + s² → 100 = 36 + s² → s² = 64 → s = 8. Both B and C equal 8.",
+      skills: ['pythagorean-theorem']
     }
   ],
 
@@ -386,7 +411,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "B",
       hint: "Remember SOH-CAH-TOA: Sine = Opposite/Hypotenuse, Cosine = Adjacent/Hypotenuse, Tangent = Opposite/Adjacent.",
-      explanation: "SOH-CAH-TOA: Sin = Opposite/Hypotenuse."
+      explanation: "SOH-CAH-TOA: Sin = Opposite/Hypotenuse.",
+      skills: ['soh-cah-toa']
     },
     {
       id: 2,
@@ -400,7 +426,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "B",
       hint: "Use the fact that sin(30°) = 1/2. Set up the equation: opposite/hypotenuse = 1/2.",
-      explanation: "sin(30°) = 1/2 = opposite/hypotenuse = 5/h. So h = 10."
+      explanation: "sin(30°) = 1/2 = opposite/hypotenuse = 5/h. So h = 10.",
+      skills: ['soh-cah-toa']
     },
     {
       id: 3,
@@ -414,21 +441,23 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "B",
       hint: "Cosine equals adjacent over hypotenuse. Set up: 0.8 = 12/h and solve for h.",
-      explanation: "cos(θ) = adjacent/hypotenuse → 0.8 = 12/h → h = 12/0.8 = 15."
+      explanation: "cos(θ) = adjacent/hypotenuse → 0.8 = 12/h → h = 12/0.8 = 15.",
+      skills: ['soh-cah-toa']
     },
     {
       id: 4,
       difficulty: "medium",
       question: "In a right triangle with legs 3 and 4, what is tan(θ) where θ is the angle opposite the side of length 3?",
       choices: [
-        { id: "A", text: "3/4" },
-        { id: "B", text: "4/3" },
-        { id: "C", text: "3/5" },
-        { id: "D", text: "4/5" }
+        { id: "A", fraction: { numerator: "3", denominator: "4" } },
+        { id: "B", fraction: { numerator: "4", denominator: "3" } },
+        { id: "C", fraction: { numerator: "3", denominator: "5" } },
+        { id: "D", fraction: { numerator: "4", denominator: "5" } }
       ],
       correctAnswer: "A",
       hint: "Tangent = opposite/adjacent. Identify which leg is opposite to angle θ and which is adjacent.",
-      explanation: "tan(θ) = opposite/adjacent = 3/4."
+      explanation: "tan(θ) = opposite/adjacent = 3/4.",
+      skills: ['soh-cah-toa']
     },
     {
       id: 5,
@@ -442,7 +471,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "B",
       hint: "Recall that sin(θ) = cos(90° - θ). What relationship must A and B have for sin(A) = cos(B)?",
-      explanation: "In a right triangle, sin(A) = cos(90° - A). So if sin(A) = cos(B), then B = 90° - A, meaning A + B = 90°."
+      explanation: "In a right triangle, sin(A) = cos(90° - A). So if sin(A) = cos(B), then B = 90° - A, meaning A + B = 90°.",
+      skills: ['soh-cah-toa']
     }
   ],
 
@@ -460,7 +490,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "B",
       hint: "In a 45-45-90 triangle, the sides are in the ratio 1:1:√2 (leg:leg:hypotenuse).",
-      explanation: "In a 45-45-90 triangle, hypotenuse = leg × √2 = 6√2."
+      explanation: "In a 45-45-90 triangle, hypotenuse = leg × √2 = 6√2.",
+      skills: ['special-right-triangles']
     },
     {
       id: 2,
@@ -474,7 +505,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "C",
       hint: "In a 30-60-90 triangle, sides are in ratio 1:√3:2. The shortest side is opposite 30°, and the longest is the hypotenuse.",
-      explanation: "In a 30-60-90, sides are in ratio 1:√3:2. If shortest = 5, hypotenuse = 2 × 5 = 10."
+      explanation: "In a 30-60-90, sides are in ratio 1:√3:2. If shortest = 5, hypotenuse = 2 × 5 = 10.",
+      skills: ['special-right-triangles']
     },
     {
       id: 3,
@@ -488,7 +520,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "C",
       hint: "To find a leg from the hypotenuse in a 45-45-90 triangle, divide by √2. Then rationalize the denominator.",
-      explanation: "Leg = hypotenuse/√2 = 10/√2 = 10√2/2 = 5√2."
+      explanation: "Leg = hypotenuse/√2 = 10/√2 = 10√2/2 = 5√2.",
+      skills: ['special-right-triangles']
     },
     {
       id: 4,
@@ -502,7 +535,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "B",
       hint: "First find the shortest side (opposite 30°) using the ratio 1:√3:2. Then multiply by √3 for the side opposite 60°.",
-      explanation: "Sides are x : x√3 : 2x. If 2x = 8, then x = 4. Side opposite 60° = x√3 = 4√3."
+      explanation: "Sides are x : x√3 : 2x. If 2x = 8, then x = 4. Side opposite 60° = x√3 = 4√3.",
+      skills: ['special-right-triangles']
     },
     {
       id: 5,
@@ -516,7 +550,8 @@ export const trianglesQuestions = {
       ],
       correctAnswer: "C",
       hint: "A square's diagonal divides it into two 45-45-90 triangles. The diagonal is the hypotenuse of these triangles.",
-      explanation: "A square's diagonal creates two 45-45-90 triangles. Side = diagonal/√2 = 10/√2 = 5√2."
+      explanation: "A square's diagonal creates two 45-45-90 triangles. Side = diagonal/√2 = 10/√2 = 5√2.",
+      skills: ['special-right-triangles']
     }
   ]
 };

@@ -16,7 +16,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "B",
       hint: "Add all the numbers together, then divide by how many numbers there are.",
-      explanation: "Mean = sum/count = (4 + 8 + 6 + 5 + 9 + 2 + 8)/7 = 42/7 = 6."
+      explanation: "Mean = sum/count = (4 + 8 + 6 + 5 + 9 + 2 + 8)/7 = 42/7 = 6.",
+      skills: ["calculate-mean"]
     },
     {
       id: 2,
@@ -30,7 +31,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "C",
       hint: "Find the original total sum and the new total sum. The removed number is the difference between them.",
-      explanation: "Original sum = 5 × 12 = 60. New sum = 4 × 10 = 40. Removed number = 60 - 40 = 20."
+      explanation: "Original sum = 5 × 12 = 60. New sum = 4 × 10 = 40. Removed number = 60 - 40 = 20.",
+      skills: ["calculate-mean"]
     },
     {
       id: 3,
@@ -44,7 +46,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "C",
       hint: "Set up an equation where the sum of all five scores divided by 5 equals 88, then solve for the unknown score.",
-      explanation: "Need: (85 + 90 + 78 + 92 + x)/5 = 88. So 345 + x = 440. x = 95."
+      explanation: "Need: (85 + 90 + 78 + 92 + x)/5 = 88. So 345 + x = 440. x = 95.",
+      skills: ["calculate-mean"]
     },
     {
       id: 4,
@@ -58,7 +61,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "B",
       hint: "Think about what happens to the sum when you add the same number to every value.",
-      explanation: "Adding a constant to each value increases the mean by that constant. The mean increases by 10."
+      explanation: "Adding a constant to each value increases the mean by that constant. The mean increases by 10.",
+      skills: ["calculate-mean"]
     },
     {
       id: 5,
@@ -72,7 +76,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "C",
       hint: "Calculate the total sum of scores for each class, add them together, then divide by the total number of students.",
-      explanation: "Total sum = (20 × 75) + (30 × 80) = 1500 + 2400 = 3900. Combined mean = 3900/50 = 78."
+      explanation: "Total sum = (20 × 75) + (30 × 80) = 1500 + 2400 = 3900. Combined mean = 3900/50 = 78.",
+      skills: ["calculate-mean", "weighted-mean"]
     }
   ],
 
@@ -90,7 +95,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "A",
       hint: "First arrange the numbers in order from smallest to largest, then find the middle value.",
-      explanation: "First order the data: 2, 3, 5, 7, 9. The middle value (3rd of 5) is 5."
+      explanation: "First order the data: 2, 3, 5, 7, 9. The middle value (3rd of 5) is 5.",
+      skills: ["find-median"]
     },
     {
       id: 2,
@@ -104,7 +110,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "B",
       hint: "With an even number of values, find the two middle numbers and calculate their average.",
-      explanation: "Order: 2, 4, 6, 8, 10, 12. With 6 values, median = average of 3rd and 4th: (6 + 8)/2 = 7."
+      explanation: "Order: 2, 4, 6, 8, 10, 12. With 6 values, median = average of 3rd and 4th: (6 + 8)/2 = 7.",
+      skills: ["find-median"]
     },
     {
       id: 3,
@@ -118,7 +125,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "B",
       hint: "Consider which measure focuses on the middle position rather than using all values in a calculation.",
-      explanation: "The median is resistant to outliers because it only considers the middle value(s), not extreme values."
+      explanation: "The median is resistant to outliers because it only considers the middle value(s), not extreme values.",
+      skills: ["find-median"]
     },
     {
       id: 4,
@@ -132,7 +140,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "B",
       hint: "For an odd number of values n, the median is at position (n+1)/2.",
-      explanation: "For n = 15 (odd), median is at position (n+1)/2 = 16/2 = 8th position."
+      explanation: "For n = 15 (odd), median is at position (n+1)/2 = 16/2 = 8th position.",
+      skills: ["find-median"]
     },
     {
       id: 5,
@@ -146,7 +155,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "C",
       hint: "The median of 6 values is the average of the 3rd and 4th values. Consider where x would fit in the ordered list.",
-      explanation: "With 6 values, median = average of 3rd and 4th. If median = 16, then (15 + x)/2 = 16 when x is 4th. So 15 + x = 32, x = 17."
+      explanation: "With 6 values, median = average of 3rd and 4th. If median = 16, then (15 + x)/2 = 16 when x is 4th. So 15 + x = 32, x = 17.",
+      skills: ["find-median"]
     }
   ],
 
@@ -164,7 +174,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "B",
       hint: "Count how many times each number appears. The mode is the number that appears most often.",
-      explanation: "The mode is the value that appears most frequently. 4 appears three times, more than any other value."
+      explanation: "The mode is the value that appears most frequently. 4 appears three times, more than any other value.",
+      skills: ["find-mode"]
     },
     {
       id: 2,
@@ -178,7 +189,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "D",
       hint: "Check if any value appears more frequently than the others.",
-      explanation: "When all values appear the same number of times (once each), there is no mode."
+      explanation: "When all values appear the same number of times (once each), there is no mode.",
+      skills: ["find-mode"]
     },
     {
       id: 3,
@@ -192,7 +204,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "B",
       hint: "Count how many different values appear most frequently. 'Bi' means two, 'uni' means one.",
-      explanation: "The data has two modes (5 and 9), each appearing twice. This makes it bimodal."
+      explanation: "The data has two modes (5 and 9), each appearing twice. This makes it bimodal.",
+      skills: ["find-mode"]
     },
     {
       id: 4,
@@ -206,7 +219,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "B",
       hint: "Think about which type of data cannot be added or averaged, like colors or names.",
-      explanation: "For categorical data (like favorite color or car brand), mode is the only meaningful measure since you can't calculate a mean or median of categories."
+      explanation: "For categorical data (like favorite color or car brand), mode is the only meaningful measure since you can't calculate a mean or median of categories.",
+      skills: ["find-mode"]
     },
     {
       id: 5,
@@ -220,7 +234,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "B",
       hint: "Adding another copy of the most frequent value makes it even more frequent. Does that change which value is most common?",
-      explanation: "Adding another instance of the mode only strengthens it as the most frequent value. The mode stays the same."
+      explanation: "Adding another instance of the mode only strengthens it as the most frequent value. The mode stays the same.",
+      skills: ["find-mode"]
     }
   ],
 
@@ -238,7 +253,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "C",
       hint: "Find the largest and smallest values, then subtract the smallest from the largest.",
-      explanation: "Range = maximum - minimum = 22 - 8 = 14."
+      explanation: "Range = maximum - minimum = 22 - 8 = 14.",
+      skills: ["range-calculation"]
     },
     {
       id: 2,
@@ -252,7 +268,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "C",
       hint: "When you multiply each value by a number, the distance between the max and min is also multiplied by that same number.",
-      explanation: "Multiplying each value by a constant multiplies the range by that constant. New range = 10 × 3 = 30."
+      explanation: "Multiplying each value by a constant multiplies the range by that constant. New range = 10 × 3 = 30.",
+      skills: ["range-calculation"]
     },
     {
       id: 3,
@@ -266,7 +283,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "A",
       hint: "Calculate the original range, then the new range with 30 as the maximum. Find the difference.",
-      explanation: "Original range = 23 - 5 = 18. New range = 30 - 5 = 25. Change = 25 - 18 = 7."
+      explanation: "Original range = 23 - 5 = 18. New range = 30 - 5 = 25. Change = 25 - 18 = 7.",
+      skills: ["range-calculation"]
     },
     {
       id: 4,
@@ -280,7 +298,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "C",
       hint: "Consider which measure depends entirely on the extreme values in the data set.",
-      explanation: "Range uses only the maximum and minimum, so a single extreme outlier directly affects it."
+      explanation: "Range uses only the maximum and minimum, so a single extreme outlier directly affects it.",
+      skills: ["range-calculation"]
     },
     {
       id: 5,
@@ -294,7 +313,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "C",
       hint: "If both the maximum and minimum increase by the same amount, what happens to the difference between them?",
-      explanation: "Adding a constant shifts all values by the same amount, so the difference between max and min stays the same."
+      explanation: "Adding a constant shifts all values by the same amount, so the difference between max and min stays the same.",
+      skills: ["range-calculation"]
     }
   ],
 
@@ -312,7 +332,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "B",
       hint: "Standard deviation tells you how far, on average, values are from the mean.",
-      explanation: "Standard deviation measures how spread out the data values are from the mean."
+      explanation: "Standard deviation measures how spread out the data values are from the mean.",
+      skills: ["standard-deviation-concept"]
     },
     {
       id: 2,
@@ -326,7 +347,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "C",
       hint: "If there is no variation in the data, how much spread is there from the mean?",
-      explanation: "If all values are identical, there's no variation from the mean, so standard deviation = 0."
+      explanation: "If all values are identical, there's no variation from the mean, so standard deviation = 0.",
+      skills: ["standard-deviation-concept"]
     },
     {
       id: 3,
@@ -340,7 +362,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "B",
       hint: "Compare how spread out each data set is. One has no variation while the other has values farther from the mean.",
-      explanation: "Data set A has no variation (all 10s), so SD = 0. Data set B has values spread around 10, so SD > 0."
+      explanation: "Data set A has no variation (all 10s), so SD = 0. Data set B has values spread around 10, so SD > 0.",
+      skills: ["standard-deviation-concept"]
     },
     {
       id: 4,
@@ -354,7 +377,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "C",
       hint: "Adding a constant shifts all values and the mean by the same amount. Do the distances from the mean change?",
-      explanation: "Adding a constant shifts all values equally, including the mean. The distances from the mean don't change, so SD stays the same."
+      explanation: "Adding a constant shifts all values equally, including the mean. The distances from the mean don't change, so SD stays the same.",
+      skills: ["standard-deviation-concept"]
     },
     {
       id: 5,
@@ -368,7 +392,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "B",
       hint: "Multiplying values stretches the distances between them and from the mean by the same factor.",
-      explanation: "Multiplying by a constant scales the spread proportionally. SD is multiplied by 2."
+      explanation: "Multiplying by a constant scales the spread proportionally. SD is multiplied by 2.",
+      skills: ["standard-deviation-concept"]
     }
   ],
 
@@ -386,7 +411,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "A",
       hint: "Subtract the margin of error to find the lower bound, and add it to find the upper bound.",
-      explanation: "Confidence interval = estimate ± margin of error = 45% ± 3% = 42% to 48%."
+      explanation: "Confidence interval = estimate ± margin of error = 45% ± 3% = 42% to 48%.",
+      skills: ["margin-of-error"]
     },
     {
       id: 2,
@@ -400,7 +426,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "B",
       hint: "Think about whether surveying more people makes your estimate more or less precise.",
-      explanation: "Larger samples provide more precise estimates, reducing the margin of error."
+      explanation: "Larger samples provide more precise estimates, reducing the margin of error.",
+      skills: ["margin-of-error"]
     },
     {
       id: 3,
@@ -414,7 +441,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "C",
       hint: "Margin of error is related to the square root of sample size. To halve the margin, you need to quadruple the sample.",
-      explanation: "Margin of error is proportional to 1/√n. To halve it, you need 4 times the sample: 400 × 4 = 1,600."
+      explanation: "Margin of error is proportional to 1/√n. To halve it, you need 4 times the sample: 400 × 4 = 1,600.",
+      skills: ["margin-of-error"]
     },
     {
       id: 4,
@@ -428,7 +456,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "C",
       hint: "Calculate each confidence interval and check if they share any common values.",
-      explanation: "Poll A: 48-56%, Poll B: 44-52%. The intervals overlap (48-52% is in both), so we can't conclude who's truly ahead."
+      explanation: "Poll A: 48-56%, Poll B: 44-52%. The intervals overlap (48-52% is in both), so we can't conclude who's truly ahead.",
+      skills: ["margin-of-error"]
     },
     {
       id: 5,
@@ -442,7 +471,8 @@ export const statisticsQuestions = {
       ],
       correctAnswer: "C",
       hint: "Think about what would happen if you repeated this survey many times with different samples.",
-      explanation: "A 95% confidence level means if we repeated the sampling process many times, about 95% of the calculated intervals would contain the true population parameter."
+      explanation: "A 95% confidence level means if we repeated the sampling process many times, about 95% of the calculated intervals would contain the true population parameter.",
+      skills: ["margin-of-error"]
     }
   ]
 };

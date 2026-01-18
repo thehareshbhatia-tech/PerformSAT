@@ -202,6 +202,25 @@ export const useAuth = () => {
     }
   };
 
+  /**
+   * Update user's current SAT score
+   * @param {number} currentScore - Current score (400-1600)
+   */
+  const updateCurrentScore = async (currentScore) => {
+    if (!user?.uid) return;
+
+    try {
+      await setDoc(doc(db, 'users', user.uid), {
+        currentScore: currentScore
+      }, { merge: true });
+
+      setUser(prev => ({ ...prev, currentScore }));
+    } catch (err) {
+      console.error('Error updating current score:', err);
+      throw err;
+    }
+  };
+
   return {
     user,
     loading,
@@ -211,6 +230,7 @@ export const useAuth = () => {
     logout,
     updateTestDate,
     updateTargetScore,
+    updateCurrentScore,
     isAuthenticated: !!user
   };
 };

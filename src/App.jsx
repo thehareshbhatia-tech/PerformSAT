@@ -5,6 +5,7 @@ import { useProgress } from './hooks/useProgress';
 import LandingPage from './components/LandingPage';
 import StudentDashboard from './components/StudentDashboard';
 import AiTutorChat, { AiTutorButton } from './components/AiTutorChat';
+import QuestionDiagram from './components/QuestionDiagrams';
 import { allLessons } from './data/lessons';
 import { fetchTranscript } from './services/transcriptService';
 import { getQuestionsForSection, hasQuestionsForSection, getRandomQuestions } from './data/questions';
@@ -154,8 +155,8 @@ const PerformSAT = () => {
     return () => window.removeEventListener('keydown', handleEsc);
   }, [showCalculator]);
 
-  const { user, loading, logout, updateTestDate, updateTargetScore } = useAuth();
-  const { completedLessons, practiceProgress, reviewQueue, markLessonComplete: markComplete, getModuleProgress: calcProgress, isLessonCompleted, recordPracticeAttempt, hasPracticed, getBestScore, getDueCount, getReviewStatistics } = useProgress(user?.uid);
+  const { user, loading, logout, updateTestDate, updateTargetScore, updateCurrentScore } = useAuth();
+  const { completedLessons, practiceProgress, reviewQueue, skillProgress, markLessonComplete: markComplete, getModuleProgress: calcProgress, isLessonCompleted, recordPracticeAttempt, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown } = useProgress(user?.uid);
 
   const markLessonComplete = (moduleId, lessonId) => {
     const moduleLessons = allLessons[moduleId] || [];
@@ -248,7 +249,12 @@ const PerformSAT = () => {
       showFeedback: true,
       answers: {
         ...prev.answers,
-        [question.id]: { selected: prev.selectedAnswer, correct: isCorrect, difficulty: question.difficulty }
+        [question.id]: {
+          selected: prev.selectedAnswer,
+          correct: isCorrect,
+          difficulty: question.difficulty,
+          skills: question.skills || []
+        }
       }
     }));
 
@@ -275,7 +281,7 @@ const PerformSAT = () => {
       // Calculate final score and save
       const correctCount = Object.values(practiceState.answers).filter(a => a.correct).length;
       if (user && activeModule && activeSection) {
-        recordPracticeAttempt(activeModule, activeSection, correctCount, questions.length);
+        recordPracticeAttempt(activeModule, activeSection, practiceState.answers, correctCount, questions.length);
       }
       setPracticeState(prev => ({ ...prev, isComplete: true }));
     }
@@ -9145,12 +9151,15 @@ const PerformSAT = () => {
             reviewQueue={reviewQueue}
             dueReviewCount={getDueCount()}
             allLessons={allLessons}
+            skillDiagnosticSummary={getSkillDiagnosticSummary()}
+            skillBreakdown={getSkillBreakdown()}
             onNavigateToModule={(moduleId) => {
               setActiveModule(moduleId);
               setView('list');
             }}
             onUpdateTestDate={updateTestDate}
             onUpdateTargetScore={updateTargetScore}
+            onUpdateCurrentScore={updateCurrentScore}
             onStartPractice={(moduleId, sectionName) => {
               startPrescriptivePractice(moduleId, sectionName);
             }}
@@ -9786,16 +9795,66 @@ const PerformSAT = () => {
                       )}
                     </div>
 
+                    {/* Question Diagram (if present) */}
+                    {currentQuestion.diagram && (
+                      <div style={{
+                        marginBottom: '24px',
+                        display: 'flex',
+                        justifyContent: 'center'
+                      }}>
+                        <QuestionDiagram
+                          type={currentQuestion.diagram.type}
+                          params={currentQuestion.diagram.params}
+                        />
+                      </div>
+                    )}
+
                     {/* Modal Question text */}
                     <h2 style={{
                       fontSize: '26px',
                       fontWeight: '600',
                       color: '#1d1d1f',
                       lineHeight: 1.4,
-                      marginBottom: '36px'
+                      marginBottom: currentQuestion.questionFormula ? '16px' : '36px'
                     }}>
                       {currentQuestion.question}
                     </h2>
+
+                    {/* Question Formula (if present) */}
+                    {currentQuestion.questionFormula && (
+                      <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        marginBottom: '36px',
+                        fontSize: '22px',
+                        fontFamily: 'Georgia, serif',
+                        fontStyle: 'italic',
+                        color: '#1d1d1f'
+                      }}>
+                        {currentQuestion.questionFormula.text}
+                        {currentQuestion.questionFormula.fraction && (
+                          <span style={{
+                            display: 'inline-flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            marginLeft: currentQuestion.questionFormula.text ? '4px' : '0'
+                          }}>
+                            <span style={{ padding: '0 8px' }}>{currentQuestion.questionFormula.fraction.numerator}</span>
+                            <span style={{
+                              width: '100%',
+                              height: '2px',
+                              background: '#1d1d1f',
+                              margin: '3px 0'
+                            }} />
+                            <span style={{ padding: '0 8px' }}>{currentQuestion.questionFormula.fraction.denominator}</span>
+                          </span>
+                        )}
+                        {currentQuestion.questionFormula.textAfter && (
+                          <span style={{ marginLeft: '4px' }}>{currentQuestion.questionFormula.textAfter}</span>
+                        )}
+                      </div>
+                    )}
 
                     {/* Modal Answer choices */}
                     <div style={{ marginBottom: '28px', flex: 1 }}>
@@ -9855,9 +9914,33 @@ const PerformSAT = () => {
                             </span>
                             <span style={{
                               fontSize: '18px',
-                              color: '#1d1d1f'
+                              color: '#1d1d1f',
+                              display: 'flex',
+                              alignItems: 'center'
                             }}>
                               {choice.text}
+                              {choice.fraction && (
+                                <span style={{
+                                  display: 'inline-flex',
+                                  flexDirection: 'column',
+                                  alignItems: 'center',
+                                  marginLeft: choice.text ? '4px' : '0',
+                                  fontFamily: 'Georgia, serif',
+                                  fontStyle: 'italic'
+                                }}>
+                                  <span style={{ padding: '0 4px' }}>{choice.fraction.numerator}</span>
+                                  <span style={{
+                                    width: '100%',
+                                    height: '1px',
+                                    background: '#1d1d1f',
+                                    margin: '2px 0'
+                                  }} />
+                                  <span style={{ padding: '0 4px' }}>{choice.fraction.denominator}</span>
+                                </span>
+                              )}
+                              {choice.textAfter && (
+                                <span style={{ marginLeft: '4px' }}>{choice.textAfter}</span>
+                              )}
                             </span>
                           </div>
                         );
@@ -10145,16 +10228,66 @@ const PerformSAT = () => {
                   )}
                 </div>
 
+                {/* Question Diagram (if present) */}
+                {currentQuestion.diagram && (
+                  <div style={{
+                    marginBottom: '20px',
+                    display: 'flex',
+                    justifyContent: 'center'
+                  }}>
+                    <QuestionDiagram
+                      type={currentQuestion.diagram.type}
+                      params={currentQuestion.diagram.params}
+                    />
+                  </div>
+                )}
+
                 {/* Question text */}
                 <h2 style={{
                   fontSize: '22px',
                   fontWeight: '600',
                   color: '#1d1d1f',
                   lineHeight: 1.4,
-                  marginBottom: '32px'
+                  marginBottom: currentQuestion.questionFormula ? '14px' : '32px'
                 }}>
                   {currentQuestion.question}
                 </h2>
+
+                {/* Question Formula (if present) */}
+                {currentQuestion.questionFormula && (
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '32px',
+                    fontSize: '20px',
+                    fontFamily: 'Georgia, serif',
+                    fontStyle: 'italic',
+                    color: '#1d1d1f'
+                  }}>
+                    {currentQuestion.questionFormula.text}
+                    {currentQuestion.questionFormula.fraction && (
+                      <span style={{
+                        display: 'inline-flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        marginLeft: currentQuestion.questionFormula.text ? '4px' : '0'
+                      }}>
+                        <span style={{ padding: '0 6px' }}>{currentQuestion.questionFormula.fraction.numerator}</span>
+                        <span style={{
+                          width: '100%',
+                          height: '2px',
+                          background: '#1d1d1f',
+                          margin: '2px 0'
+                        }} />
+                        <span style={{ padding: '0 6px' }}>{currentQuestion.questionFormula.fraction.denominator}</span>
+                      </span>
+                    )}
+                    {currentQuestion.questionFormula.textAfter && (
+                      <span style={{ marginLeft: '4px' }}>{currentQuestion.questionFormula.textAfter}</span>
+                    )}
+                  </div>
+                )}
 
                 {/* Answer choices */}
                 <div style={{ marginBottom: '24px' }}>
@@ -10214,9 +10347,33 @@ const PerformSAT = () => {
                         </span>
                         <span style={{
                           fontSize: '16px',
-                          color: '#1d1d1f'
+                          color: '#1d1d1f',
+                          display: 'flex',
+                          alignItems: 'center'
                         }}>
                           {choice.text}
+                          {choice.fraction && (
+                            <span style={{
+                              display: 'inline-flex',
+                              flexDirection: 'column',
+                              alignItems: 'center',
+                              marginLeft: choice.text ? '4px' : '0',
+                              fontFamily: 'Georgia, serif',
+                              fontStyle: 'italic'
+                            }}>
+                              <span style={{ padding: '0 4px' }}>{choice.fraction.numerator}</span>
+                              <span style={{
+                                width: '100%',
+                                height: '1px',
+                                background: '#1d1d1f',
+                                margin: '2px 0'
+                              }} />
+                              <span style={{ padding: '0 4px' }}>{choice.fraction.denominator}</span>
+                            </span>
+                          )}
+                          {choice.textAfter && (
+                            <span style={{ marginLeft: '4px' }}>{choice.textAfter}</span>
+                          )}
                         </span>
                       </div>
                     );

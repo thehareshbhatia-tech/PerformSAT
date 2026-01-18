@@ -16,7 +16,8 @@ export const percentsQuestions = {
       ],
       correctAnswer: "B",
       hint: "Remember that 'percent' means 'per hundred.' To convert a percent to a decimal, think about how many hundredths it represents.",
-      explanation: "To convert a percent to a decimal, divide by 100: 25% = 25/100 = 0.25."
+      explanation: "To convert a percent to a decimal, divide by 100: 25% = 25/100 = 0.25.",
+      skills: ['percent-decimal-conversion']
     },
     {
       id: 2,
@@ -30,12 +31,14 @@ export const percentsQuestions = {
       ],
       correctAnswer: "C",
       hint: "Converting a decimal to a percent is the reverse of converting a percent to a decimal. Think about what operation undoes division by 100.",
-      explanation: "To convert a decimal to a percent, multiply by 100: 0.375 × 100 = 37.5%."
+      explanation: "To convert a decimal to a percent, multiply by 100: 0.375 × 100 = 37.5%.",
+      skills: ['percent-decimal-conversion']
     },
     {
       id: 3,
       difficulty: "medium",
-      question: "What is 3/5 expressed as a percent?",
+      question: "What is the following fraction expressed as a percent?",
+      questionFormula: { fraction: { numerator: "3", denominator: "5" } },
       choices: [
         { id: "A", text: "35%" },
         { id: "B", text: "53%" },
@@ -44,21 +47,24 @@ export const percentsQuestions = {
       ],
       correctAnswer: "C",
       hint: "First convert the fraction to a decimal by dividing the numerator by the denominator, then convert that decimal to a percent.",
-      explanation: "Convert fraction to decimal: 3/5 = 0.6. Then convert to percent: 0.6 × 100 = 60%."
+      explanation: "Convert fraction to decimal: 3/5 = 0.6. Then convert to percent: 0.6 × 100 = 60%.",
+      skills: ['percent-decimal-conversion']
     },
     {
       id: 4,
       difficulty: "medium",
-      question: "Which is greatest: 45%, 0.4, or 2/5?",
+      question: "Which value is the greatest?",
+      questionFormula: { text: "45%, 0.4, or ", fraction: { numerator: "2", denominator: "5" } },
       choices: [
         { id: "A", text: "45%" },
         { id: "B", text: "0.4" },
-        { id: "C", text: "2/5" },
+        { id: "C", fraction: { numerator: "2", denominator: "5" } },
         { id: "D", text: "They are all equal" }
       ],
       correctAnswer: "A",
       hint: "To compare values in different forms, convert them all to the same form. Try converting everything to decimals first.",
-      explanation: "Convert all to decimals: 45% = 0.45, 0.4 = 0.4, 2/5 = 0.4. Since 0.45 > 0.4, 45% is greatest."
+      explanation: "Convert all to decimals: 45% = 0.45, 0.4 = 0.4, 2/5 = 0.4. Since 0.45 > 0.4, 45% is greatest.",
+      skills: ['percent-decimal-conversion']
     },
     {
       id: 5,
@@ -72,7 +78,8 @@ export const percentsQuestions = {
       ],
       correctAnswer: "B",
       hint: "Set up the equation: (unknown percent) × 200 = 50. Solve for the unknown by dividing, then convert to a percent.",
-      explanation: "Set up: x% of 200 = 50. So (x/100) × 200 = 50. Solving: 2x = 50, x = 25. Answer: 25%."
+      explanation: "Set up: x% of 200 = 50. So (x/100) × 200 = 50. Solving: 2x = 50, x = 25. Answer: 25%.",
+      skills: ['percent-decimal-conversion']
     }
   ],
 
@@ -90,7 +97,8 @@ export const percentsQuestions = {
       ],
       correctAnswer: "A",
       hint: "The word 'of' in math means multiply. Convert the percent to a decimal first, then multiply by the whole amount.",
-      explanation: "30% of 80 = 0.30 × 80 = 24."
+      explanation: "30% of 80 = 0.30 × 80 = 24.",
+      skills: ['percent-of-value', 'percent-word-problems']
     },
     {
       id: 2,
@@ -104,7 +112,8 @@ export const percentsQuestions = {
       ],
       correctAnswer: "C",
       hint: "Let the unknown number be x. Write an equation: 0.40 × x = 28, then solve for x by dividing both sides.",
-      explanation: "Let x = the number. 0.40x = 28. So x = 28/0.40 = 70."
+      explanation: "Let x = the number. 0.40x = 28. So x = 28/0.40 = 70.",
+      skills: ['percent-of-value', 'percent-word-problems']
     },
     {
       id: 3,
@@ -118,7 +127,8 @@ export const percentsQuestions = {
       ],
       correctAnswer: "B",
       hint: "The discount amount is the percent off applied to the original price. Find 15% of the original price.",
-      explanation: "Discount = 15% of $60 = 0.15 × 60 = $9."
+      explanation: "Discount = 15% of $60 = 0.15 × 60 = $9.",
+      skills: ['percent-of-value', 'percent-word-problems']
     },
     {
       id: 4,
@@ -132,7 +142,8 @@ export const percentsQuestions = {
       ],
       correctAnswer: "A",
       hint: "If 60% are girls, what percent are boys? Remember that the total must equal 100%.",
-      explanation: "Girls = 60% of 25 = 15. Boys = 25 - 15 = 10. Or: Boys = 40% of 25 = 0.40 × 25 = 10."
+      explanation: "Girls = 60% of 25 = 15. Boys = 25 - 15 = 10. Or: Boys = 40% of 25 = 0.40 × 25 = 10.",
+      skills: ['percent-of-value', 'percent-word-problems']
     },
     {
       id: 5,
@@ -146,7 +157,8 @@ export const percentsQuestions = {
       ],
       correctAnswer: "C",
       hint: "You know that 24% of the total equals 120. Set up an equation with the total as the unknown and solve for it.",
-      explanation: "Let x = weekly sales. 24% of x = 120. So 0.24x = 120. x = 120/0.24 = 500 items."
+      explanation: "Let x = weekly sales. 24% of x = 120. So 0.24x = 120. x = 120/0.24 = 500 items.",
+      skills: ['percent-of-value', 'percent-word-problems']
     }
   ],
 
@@ -164,7 +176,8 @@ export const percentsQuestions = {
       ],
       correctAnswer: "B",
       hint: "Use the percent change formula: (change ÷ original) × 100. First find how much the price changed, then divide by the starting value.",
-      explanation: "Percent change = (change/original) × 100 = (20/80) × 100 = 25%."
+      explanation: "Percent change = (change/original) × 100 = (20/80) × 100 = 25%.",
+      skills: ['percent-change']
     },
     {
       id: 2,
@@ -178,7 +191,8 @@ export const percentsQuestions = {
       ],
       correctAnswer: "B",
       hint: "Percent decrease uses the same formula as percent increase: (change ÷ original) × 100. The original is always the starting value.",
-      explanation: "Percent decrease = (change/original) × 100 = (100/500) × 100 = 20%."
+      explanation: "Percent decrease = (change/original) × 100 = (100/500) × 100 = 20%.",
+      skills: ['percent-change']
     },
     {
       id: 3,
@@ -192,7 +206,8 @@ export const percentsQuestions = {
       ],
       correctAnswer: "A",
       hint: "Work through each change step by step. After the increase, find the new value, then apply the decrease to that new value, not the original.",
-      explanation: "After 20% increase: $100 × 1.20 = $120. After 20% decrease: $120 × 0.80 = $96. The percents don't cancel!"
+      explanation: "After 20% increase: $100 × 1.20 = $120. After 20% decrease: $120 × 0.80 = $96. The percents don't cancel!",
+      skills: ['percent-change', 'successive-percent-change']
     },
     {
       id: 4,
@@ -206,7 +221,8 @@ export const percentsQuestions = {
       ],
       correctAnswer: "B",
       hint: "If the price was reduced by 30%, the sale price represents 70% of the original. Set up an equation where 70% of the original equals $35.",
-      explanation: "After 30% off, you pay 70%. So 0.70 × original = $35. Original = $35/0.70 = $50."
+      explanation: "After 30% off, you pay 70%. So 0.70 × original = $35. Original = $35/0.70 = $50.",
+      skills: ['percent-change']
     },
     {
       id: 5,
@@ -220,7 +236,8 @@ export const percentsQuestions = {
       ],
       correctAnswer: "C",
       hint: "Try picking a simple starting number like 100. Apply the 50% increase first, then apply the 50% decrease to your new value.",
-      explanation: "Let original = 100. After +50%: 150. After -50%: 150 × 0.50 = 75. This is 75% of original."
+      explanation: "Let original = 100. After +50%: 150. After -50%: 150 × 0.50 = 75. This is 75% of original.",
+      skills: ['percent-change', 'successive-percent-change']
     }
   ],
 
@@ -238,7 +255,8 @@ export const percentsQuestions = {
       ],
       correctAnswer: "C",
       hint: "This is a 'percent of' problem. Convert 35% to a decimal and multiply by the total number of respondents.",
-      explanation: "Number preferring A = 35% of 400 = 0.35 × 400 = 140 respondents."
+      explanation: "Number preferring A = 35% of 400 = 0.35 × 400 = 140 respondents.",
+      skills: ['percent-word-problems', 'percent-of-value']
     },
     {
       id: 2,
@@ -252,7 +270,8 @@ export const percentsQuestions = {
       ],
       correctAnswer: "B",
       hint: "If acid is 15% of the solution, then water must be 85%. Use the water amount to find the total solution first, then calculate the acid.",
-      explanation: "Water = 85% of total (since acid is 15%). So 0.85 × total = 120. Total = 141.18 mL. Acid = 0.15 × 141.18 ≈ 21.18 mL."
+      explanation: "Water = 85% of total (since acid is 15%). So 0.85 × total = 120. Total = 141.18 mL. Acid = 0.15 × 141.18 ≈ 21.18 mL.",
+      skills: ['percent-word-problems', 'percent-of-value']
     },
     {
       id: 3,
@@ -266,7 +285,8 @@ export const percentsQuestions = {
       ],
       correctAnswer: "C",
       hint: "Commission equals the percent rate times total sales. Set up the equation: 6% × (total sales) = $450, then solve for total sales.",
-      explanation: "6% × sales = $450. So 0.06 × sales = 450. Sales = 450/0.06 = $7,500."
+      explanation: "6% × sales = $450. So 0.06 × sales = 450. Sales = 450/0.06 = $7,500.",
+      skills: ['percent-word-problems', 'percent-of-value']
     },
     {
       id: 4,
@@ -280,7 +300,8 @@ export const percentsQuestions = {
       ],
       correctAnswer: "C",
       hint: "The 240 gallons represents 40% of the tank's total capacity. Set up an equation to find what number 240 is 40% of.",
-      explanation: "40% of capacity = 240. So 0.40 × capacity = 240. Capacity = 240/0.40 = 600 gallons."
+      explanation: "40% of capacity = 240. So 0.40 × capacity = 240. Capacity = 240/0.40 = 600 gallons.",
+      skills: ['percent-word-problems', 'percent-of-value']
     },
     {
       id: 5,
@@ -294,7 +315,8 @@ export const percentsQuestions = {
       ],
       correctAnswer: "B",
       hint: "Find 75% of the total number of questions. This gives you the minimum number of correct answers needed to pass.",
-      explanation: "Minimum correct = 75% of 80 = 0.75 × 80 = 60 questions."
+      explanation: "Minimum correct = 75% of 80 = 0.75 × 80 = 60 questions.",
+      skills: ['percent-word-problems', 'percent-of-value']
     }
   ]
 };
