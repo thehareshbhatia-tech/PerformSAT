@@ -148,7 +148,7 @@ const PerformSAT = () => {
     return () => window.removeEventListener('keydown', handleEsc);
   }, [showCalculator]);
 
-  const { user, loading, logout } = useAuth();
+  const { user, loading, logout, updateTestDate } = useAuth();
   const { completedLessons, practiceProgress, markLessonComplete: markComplete, getModuleProgress: calcProgress, isLessonCompleted, recordPracticeAttempt, hasPracticed, getBestScore } = useProgress(user?.uid);
 
   const markLessonComplete = (moduleId, lessonId) => {
@@ -9093,6 +9093,7 @@ const PerformSAT = () => {
               setActiveModule(moduleId);
               setView('list');
             }}
+            onUpdateTestDate={updateTestDate}
           />
         )}
 

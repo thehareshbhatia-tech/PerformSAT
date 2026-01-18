@@ -1,4 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+// Official SAT Test Dates (from College Board)
+const SAT_TEST_DATES = [
+  { name: 'March 2026 SAT', date: '2026-03-14' },
+  { name: 'May 2026 SAT', date: '2026-05-02' },
+  { name: 'June 2026 SAT', date: '2026-06-06' },
+  { name: 'August 2026 SAT', date: '2026-08-15' },
+  { name: 'September 2026 SAT', date: '2026-09-12' },
+  { name: 'October 2026 SAT', date: '2026-10-03' },
+  { name: 'November 2026 SAT', date: '2026-11-07' },
+  { name: 'December 2026 SAT', date: '2026-12-05' },
+  { name: 'March 2027 SAT', date: '2027-03-13' },
+  { name: 'May 2027 SAT', date: '2027-05-01' },
+  { name: 'June 2027 SAT', date: '2027-06-05' },
+];
 
 // Module data
 const MODULES = [
@@ -55,8 +70,25 @@ const StudentDashboard = ({
   user,
   completedLessons,
   practiceProgress,
-  onNavigateToModule
+  onNavigateToModule,
+  onUpdateTestDate
 }) => {
+  const [showDatePicker, setShowDatePicker] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(user?.testDate || '');
+
+  // Filter to only show future SAT dates
+  const getUpcomingSATDates = () => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return SAT_TEST_DATES.filter(sat => new Date(sat.date) >= today);
+  };
+
+  // Get the SAT test name from a date
+  const getSATNameFromDate = (dateStr) => {
+    const sat = SAT_TEST_DATES.find(s => s.date === dateStr);
+    return sat ? sat.name : null;
+  };
+
   // Calculate total completed
   const totalCompleted = Object.values(completedLessons).filter(l => l?.completed).length;
   const completionPercent = Math.round((totalCompleted / TOTAL_LESSONS) * 100);
@@ -91,6 +123,34 @@ const StudentDashboard = ({
     ? startedModules.reduce((a, b) => a.percent < b.percent ? a : b)
     : null;
 
+  // Calculate days until test
+  const getDaysUntilTest = () => {
+    if (!user?.testDate) return null;
+    const testDate = new Date(user.testDate);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    testDate.setHours(0, 0, 0, 0);
+    const diffTime = testDate - today;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays;
+  };
+
+  const daysUntilTest = getDaysUntilTest();
+
+  const formatTestDate = (dateStr) => {
+    if (!dateStr) return '';
+    const date = new Date(dateStr);
+    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  };
+
+  const handleSelectDate = (dateValue) => {
+    if (dateValue && onUpdateTestDate) {
+      onUpdateTestDate(dateValue);
+      setSelectedDate(dateValue);
+    }
+    setShowDatePicker(false);
+  };
+
   // Card style
   const cardStyle = {
     background: 'white',
@@ -110,6 +170,167 @@ const StudentDashboard = ({
       }}>
         Your SAT Math Progress
       </h1>
+
+      {/* Test Date Section */}
+      {showDatePicker ? (
+        <div style={{
+          ...cardStyle,
+          marginBottom: '24px',
+          padding: '28px'
+        }}>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            marginBottom: '20px'
+          }}>
+            <div>
+              <div style={{ fontSize: '18px', fontWeight: '600', color: '#111827' }}>
+                Which SAT are you taking?
+              </div>
+              <div style={{ fontSize: '13px', color: '#6b7280', marginTop: '4px' }}>
+                Select your upcoming test date
+              </div>
+            </div>
+            <button
+              onClick={() => setShowDatePicker(false)}
+              style={{
+                padding: '6px 12px',
+                background: 'transparent',
+                color: '#6b7280',
+                border: 'none',
+                fontSize: '14px',
+                cursor: 'pointer'
+              }}
+            >
+              Cancel
+            </button>
+          </div>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))',
+            gap: '10px'
+          }}>
+            {getUpcomingSATDates().map(sat => {
+              const satDate = new Date(sat.date);
+              const month = satDate.toLocaleDateString('en-US', { month: 'short' });
+              const day = satDate.getDate();
+              const year = satDate.getFullYear();
+              const isSelected = selectedDate === sat.date || user?.testDate === sat.date;
+
+              return (
+                <button
+                  key={sat.date}
+                  onClick={() => handleSelectDate(sat.date)}
+                  style={{
+                    padding: '14px 12px',
+                    background: isSelected ? '#111827' : '#f9fafb',
+                    color: isSelected ? 'white' : '#111827',
+                    border: isSelected ? 'none' : '1px solid #e5e7eb',
+                    borderRadius: '10px',
+                    cursor: 'pointer',
+                    textAlign: 'center',
+                    transition: 'all 0.15s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isSelected) {
+                      e.target.style.background = '#f3f4f6';
+                      e.target.style.borderColor = '#d1d5db';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isSelected) {
+                      e.target.style.background = '#f9fafb';
+                      e.target.style.borderColor = '#e5e7eb';
+                    }
+                  }}
+                >
+                  <div style={{
+                    fontSize: '13px',
+                    fontWeight: '600',
+                    marginBottom: '2px',
+                    opacity: isSelected ? 1 : 0.9
+                  }}>
+                    {month} {year}
+                  </div>
+                  <div style={{
+                    fontSize: '11px',
+                    opacity: isSelected ? 0.8 : 0.6
+                  }}>
+                    {month} {day}
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      ) : (
+        <div style={{
+          ...cardStyle,
+          marginBottom: '24px',
+          background: user?.testDate
+            ? (daysUntilTest !== null && daysUntilTest <= 14 ? '#fef3c7' : '#f0f9ff')
+            : 'white',
+          border: user?.testDate
+            ? (daysUntilTest !== null && daysUntilTest <= 14 ? '1px solid #fcd34d' : '1px solid #bae6fd')
+            : '1px solid #e5e7eb',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center'
+        }}>
+          <div>
+            {user?.testDate ? (
+              <>
+                <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '4px' }}>
+                  Your SAT Date
+                </div>
+                <div style={{ fontSize: '18px', fontWeight: '600', color: '#111827' }}>
+                  {getSATNameFromDate(user.testDate) || formatTestDate(user.testDate)}
+                  {daysUntilTest !== null && (
+                    <span style={{
+                      marginLeft: '12px',
+                      fontSize: '14px',
+                      fontWeight: '500',
+                      color: daysUntilTest <= 14 ? '#d97706' : '#0369a1'
+                    }}>
+                      {daysUntilTest === 0 ? "Today!" :
+                       daysUntilTest === 1 ? "Tomorrow!" :
+                       daysUntilTest < 0 ? "Completed" :
+                       `${daysUntilTest} days left`}
+                    </span>
+                  )}
+                </div>
+              </>
+            ) : (
+              <>
+                <div style={{ fontSize: '15px', fontWeight: '500', color: '#111827' }}>
+                  Which SAT are you taking?
+                </div>
+                <div style={{ fontSize: '13px', color: '#6b7280' }}>
+                  Select your test date to track your countdown
+                </div>
+              </>
+            )}
+          </div>
+          <button
+            onClick={() => {
+              setSelectedDate(user?.testDate || '');
+              setShowDatePicker(true);
+            }}
+            style={{
+              padding: '8px 16px',
+              background: user?.testDate ? 'transparent' : '#111827',
+              color: user?.testDate ? '#374151' : 'white',
+              border: user?.testDate ? '1px solid #d1d5db' : 'none',
+              borderRadius: '8px',
+              fontSize: '14px',
+              cursor: 'pointer'
+            }}
+          >
+            {user?.testDate ? 'Change' : 'Select SAT'}
+          </button>
+        </div>
+      )}
 
       {/* Top Stats Row */}
       <div style={{

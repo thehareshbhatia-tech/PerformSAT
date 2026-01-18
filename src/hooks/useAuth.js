@@ -164,6 +164,25 @@ export const useAuth = () => {
     }
   };
 
+  /**
+   * Update user's test date
+   * @param {string} testDate - Test date in YYYY-MM-DD format
+   */
+  const updateTestDate = async (testDate) => {
+    if (!user?.uid) return;
+
+    try {
+      await setDoc(doc(db, 'users', user.uid), {
+        testDate: testDate
+      }, { merge: true });
+
+      setUser(prev => ({ ...prev, testDate }));
+    } catch (err) {
+      console.error('Error updating test date:', err);
+      throw err;
+    }
+  };
+
   return {
     user,
     loading,
@@ -171,6 +190,7 @@ export const useAuth = () => {
     signup,
     login,
     logout,
+    updateTestDate,
     isAuthenticated: !!user
   };
 };
