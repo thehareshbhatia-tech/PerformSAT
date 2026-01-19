@@ -4,6 +4,7 @@ import { generatePersonalizedPlan } from '../services/studyPlanService';
 import SkillDiagnosticSummary from './SkillDiagnosticSummary';
 import SkillBreakdownPanel from './SkillBreakdownPanel';
 import ScoreSlider from './ScoreSlider';
+import CollegePicker from './CollegePicker';
 
 // Official SAT Test Dates (from College Board)
 const SAT_TEST_DATES = [
@@ -81,6 +82,7 @@ const StudentDashboard = ({
   onUpdateTestDate,
   onUpdateTargetScore,
   onUpdateCurrentScore,
+  onUpdateTargetSchools,
   onStartPractice,
   onStartReview,
   allLessons,
@@ -91,8 +93,8 @@ const StudentDashboard = ({
   const [showTargetPicker, setShowTargetPicker] = useState(false);
   const [showCurrentScorePicker, setShowCurrentScorePicker] = useState(false);
   const [selectedDate, setSelectedDate] = useState(user?.testDate || '');
-  const [tempTargetScore, setTempTargetScore] = useState(user?.targetScore || 1200);
-  const [tempCurrentScore, setTempCurrentScore] = useState(user?.currentScore || 1000);
+  const [tempTargetScore, setTempTargetScore] = useState(user?.targetScore || 600);
+  const [tempCurrentScore, setTempCurrentScore] = useState(user?.currentScore || 500);
 
   // Filter to only show future SAT dates
   const getUpcomingSATDates = () => {
@@ -177,10 +179,18 @@ const StudentDashboard = ({
     });
   }, [completedLessons, practiceProgress, reviewQueue, user?.testDate, user?.targetScore]);
 
-  // Handle target score selection
+  // Handle target score selection (legacy - kept for backwards compatibility)
   const handleSelectTargetScore = (score) => {
     if (score && onUpdateTargetScore) {
       onUpdateTargetScore(score);
+    }
+    setShowTargetPicker(false);
+  };
+
+  // Handle target schools selection
+  const handleSelectTargetSchools = (schools) => {
+    if (schools && schools.length > 0 && onUpdateTargetSchools) {
+      onUpdateTargetSchools(schools);
     }
     setShowTargetPicker(false);
   };
@@ -406,64 +416,77 @@ const StudentDashboard = ({
         </div>
       )}
 
-      {/* Target Score Section */}
+      {/* Target Schools Section */}
       {showTargetPicker ? (
-        <ScoreSlider
-          value={tempTargetScore}
-          onChange={setTempTargetScore}
-          label="What's your target SAT score?"
-          description="We'll personalize your study plan to help you reach it"
-          onSave={() => {
-            handleSelectTargetScore(tempTargetScore);
+        <CollegePicker
+          selectedSchools={user?.targetSchools || []}
+          onSave={(schools) => {
+            handleSelectTargetSchools(schools);
           }}
           onCancel={() => setShowTargetPicker(false)}
+          maxSelections={3}
         />
       ) : (
         <div style={{
           ...cardStyle,
-          marginBottom: '24px',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center'
+          marginBottom: '24px'
         }}>
-          <div>
-            {user?.targetScore ? (
-              <>
-                <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '4px' }}>
-                  Target Score
-                </div>
-                <div style={{ fontSize: '18px', fontWeight: '600', color: '#111827' }}>
-                  {user.targetScore}
-                </div>
-              </>
-            ) : (
-              <>
-                <div style={{ fontSize: '15px', fontWeight: '500', color: '#111827' }}>
-                  Set your target score
-                </div>
-                <div style={{ fontSize: '13px', color: '#6b7280' }}>
-                  Get a personalized plan to reach your goal
-                </div>
-              </>
-            )}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start'
+          }}>
+            <div style={{ flex: 1 }}>
+              {user?.targetSchools && user.targetSchools.length > 0 ? (
+                <>
+                  <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '6px' }}>
+                    Target Schools
+                  </div>
+                  <div style={{ fontSize: '15px', fontWeight: '500', color: '#111827', marginBottom: '8px' }}>
+                    {user.targetSchools.map(s => s.name).join(', ')}
+                  </div>
+                  <div style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    background: '#f0fdf4',
+                    padding: '6px 12px',
+                    borderRadius: '6px'
+                  }}>
+                    <span style={{ fontSize: '13px', color: '#16a34a' }}>Target:</span>
+                    <span style={{ fontSize: '16px', fontWeight: '700', color: '#16a34a' }}>
+                      {user.targetScore}
+                    </span>
+                    <span style={{ fontSize: '13px', color: '#16a34a' }}>Math</span>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div style={{ fontSize: '15px', fontWeight: '500', color: '#111827' }}>
+                    Set your target schools
+                  </div>
+                  <div style={{ fontSize: '13px', color: '#6b7280' }}>
+                    Pick 3 schools you're aiming for
+                  </div>
+                </>
+              )}
+            </div>
+            <button
+              onClick={() => setShowTargetPicker(true)}
+              style={{
+                padding: '8px 16px',
+                background: user?.targetSchools?.length > 0 ? 'transparent' : '#111827',
+                color: user?.targetSchools?.length > 0 ? '#374151' : 'white',
+                border: user?.targetSchools?.length > 0 ? '1px solid #d1d5db' : 'none',
+                borderRadius: '8px',
+                fontSize: '14px',
+                cursor: 'pointer',
+                flexShrink: 0
+              }}
+            >
+              {user?.targetSchools?.length > 0 ? 'Change' : 'Select Schools'}
+            </button>
           </div>
-          <button
-            onClick={() => {
-              setTempTargetScore(user?.targetScore || 1200);
-              setShowTargetPicker(true);
-            }}
-            style={{
-              padding: '8px 16px',
-              background: user?.targetScore ? 'transparent' : '#111827',
-              color: user?.targetScore ? '#374151' : 'white',
-              border: user?.targetScore ? '1px solid #d1d5db' : 'none',
-              borderRadius: '8px',
-              fontSize: '14px',
-              cursor: 'pointer'
-            }}
-          >
-            {user?.targetScore ? 'Change' : 'Set Goal'}
-          </button>
         </div>
       )}
 
@@ -472,7 +495,7 @@ const StudentDashboard = ({
         <ScoreSlider
           value={tempCurrentScore}
           onChange={setTempCurrentScore}
-          label="What's your current SAT score?"
+          label="What's your current SAT Math score?"
           description="Enter your most recent practice test or official score"
           onSave={() => {
             handleSelectCurrentScore(tempCurrentScore);
@@ -510,7 +533,7 @@ const StudentDashboard = ({
             ) : (
               <>
                 <div style={{ fontSize: '15px', fontWeight: '500', color: '#111827' }}>
-                  What's your current SAT score?
+                  What's your current SAT Math score?
                 </div>
                 <div style={{ fontSize: '13px', color: '#6b7280' }}>
                   Track your progress from where you started
@@ -520,7 +543,7 @@ const StudentDashboard = ({
           </div>
           <button
             onClick={() => {
-              setTempCurrentScore(user?.currentScore || 1000);
+              setTempCurrentScore(user?.currentScore || 500);
               setShowCurrentScorePicker(true);
             }}
             style={{

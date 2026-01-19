@@ -184,8 +184,8 @@ export const useAuth = () => {
   };
 
   /**
-   * Update user's target SAT score
-   * @param {number} targetScore - Target score (400-1600)
+   * Update user's target SAT Math score
+   * @param {number} targetScore - Target score (200-800)
    */
   const updateTargetScore = async (targetScore) => {
     if (!user?.uid) return;
@@ -203,8 +203,8 @@ export const useAuth = () => {
   };
 
   /**
-   * Update user's current SAT score
-   * @param {number} currentScore - Current score (400-1600)
+   * Update user's current SAT Math score
+   * @param {number} currentScore - Current score (200-800)
    */
   const updateCurrentScore = async (currentScore) => {
     if (!user?.uid) return;
@@ -221,6 +221,34 @@ export const useAuth = () => {
     }
   };
 
+  /**
+   * Update user's target schools and auto-calculate target score
+   * @param {Array} schools - Array of school objects [{id, name, satMath}, ...]
+   */
+  const updateTargetSchools = async (schools) => {
+    if (!user?.uid) return;
+
+    try {
+      // Calculate median score from selected schools
+      const scores = schools.map(s => s.satMath);
+      const sorted = [...scores].sort((a, b) => a - b);
+      const mid = Math.floor(sorted.length / 2);
+      const medianScore = sorted.length % 2 === 0
+        ? Math.round((sorted[mid - 1] + sorted[mid]) / 2)
+        : sorted[mid];
+
+      await setDoc(doc(db, 'users', user.uid), {
+        targetSchools: schools,
+        targetScore: medianScore
+      }, { merge: true });
+
+      setUser(prev => ({ ...prev, targetSchools: schools, targetScore: medianScore }));
+    } catch (err) {
+      console.error('Error updating target schools:', err);
+      throw err;
+    }
+  };
+
   return {
     user,
     loading,
@@ -231,6 +259,7 @@ export const useAuth = () => {
     updateTestDate,
     updateTargetScore,
     updateCurrentScore,
+    updateTargetSchools,
     isAuthenticated: !!user
   };
 };

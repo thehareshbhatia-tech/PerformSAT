@@ -155,7 +155,7 @@ const PerformSAT = () => {
     return () => window.removeEventListener('keydown', handleEsc);
   }, [showCalculator]);
 
-  const { user, loading, logout, updateTestDate, updateTargetScore, updateCurrentScore } = useAuth();
+  const { user, loading, logout, updateTestDate, updateTargetScore, updateCurrentScore, updateTargetSchools } = useAuth();
   const { completedLessons, practiceProgress, reviewQueue, skillProgress, markLessonComplete: markComplete, getModuleProgress: calcProgress, isLessonCompleted, recordPracticeAttempt, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown } = useProgress(user?.uid);
 
   const markLessonComplete = (moduleId, lessonId) => {
@@ -9160,6 +9160,7 @@ const PerformSAT = () => {
             onUpdateTestDate={updateTestDate}
             onUpdateTargetScore={updateTargetScore}
             onUpdateCurrentScore={updateCurrentScore}
+            onUpdateTargetSchools={updateTargetSchools}
             onStartPractice={(moduleId, sectionName) => {
               startPrescriptivePractice(moduleId, sectionName);
             }}
@@ -9815,7 +9816,8 @@ const PerformSAT = () => {
                       fontWeight: '600',
                       color: '#1d1d1f',
                       lineHeight: 1.4,
-                      marginBottom: currentQuestion.questionFormula ? '16px' : '36px'
+                      marginBottom: currentQuestion.questionFormula ? '16px' : '36px',
+                      whiteSpace: 'pre-line'
                     }}>
                       {currentQuestion.question}
                     </h2>
@@ -10248,7 +10250,8 @@ const PerformSAT = () => {
                   fontWeight: '600',
                   color: '#1d1d1f',
                   lineHeight: 1.4,
-                  marginBottom: currentQuestion.questionFormula ? '14px' : '32px'
+                  marginBottom: currentQuestion.questionFormula ? '14px' : '32px',
+                  whiteSpace: 'pre-line'
                 }}>
                   {currentQuestion.question}
                 </h2>

@@ -52,8 +52,8 @@ const injectSliderStyles = () => {
 const ScoreSlider = ({
   value,
   onChange,
-  min = 400,
-  max = 1600,
+  min = 200,
+  max = 800,
   step = 10,
   label,
   description,

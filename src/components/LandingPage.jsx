@@ -289,15 +289,15 @@ const LandingPage = () => {
                         marginBottom: '0.5rem',
                         color: '#0A0A0A'
                       }}>
-                        What was your SAT score? (optional)
+                        What was your SAT Math score? (optional)
                       </label>
                       <input
                         type="number"
                         value={satScore}
                         onChange={(e) => setSatScore(e.target.value)}
-                        placeholder="e.g., 1200"
-                        min="400"
-                        max="1600"
+                        placeholder="e.g., 600"
+                        min="200"
+                        max="800"
                         style={{
                           width: '100%',
                           padding: '0.75rem 1rem',
@@ -317,7 +317,7 @@ const LandingPage = () => {
                         color: '#A1A1AA',
                         marginTop: '0.5rem'
                       }}>
-                        Score range: 400-1600
+                        Score range: 200-800
                       </p>
                     </div>
                   )}

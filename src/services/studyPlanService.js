@@ -185,8 +185,8 @@ export const generatePersonalizedPlan = ({
   // Calculate current estimated score
   const { mathScore, estimatedTotal } = estimateCurrentScore(practiceProgress);
 
-  // Use target or default to 1400
-  const target = targetScore || 1400;
+  // Use target or default to 700 (SAT Math only)
+  const target = targetScore || 700;
   const scoreGap = Math.max(0, target - estimatedTotal);
 
   // Calculate study intensity

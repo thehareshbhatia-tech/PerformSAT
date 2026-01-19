@@ -566,6 +566,371 @@ export const QuadraticInterceptsDiagram = ({ intercepts, vertex = null }) => {
   );
 };
 
+// SAT-Style Table Diagram (for table-to-equation questions)
+export const TableDiagram = ({ rows = [], xHeader = "x", yHeader = "f(x)" }) => {
+  const cellWidth = 80;
+  const cellHeight = 40;
+  const headerHeight = 45;
+  const tableWidth = cellWidth * 2;
+  const tableHeight = headerHeight + rows.length * cellHeight;
+
+  return (
+    <svg
+      width={tableWidth + 4}
+      height={tableHeight + 4}
+      viewBox={`0 0 ${tableWidth + 4} ${tableHeight + 4}`}
+      style={{
+        background: '#ffffff',
+        borderRadius: '4px',
+        border: '2px solid #343a40'
+      }}
+    >
+      {/* Table border */}
+      <rect
+        x="2"
+        y="2"
+        width={tableWidth}
+        height={tableHeight}
+        fill="none"
+        stroke="#212529"
+        strokeWidth="2"
+      />
+
+      {/* Header row background */}
+      <rect
+        x="2"
+        y="2"
+        width={tableWidth}
+        height={headerHeight}
+        fill="#f8f9fa"
+        stroke="#212529"
+        strokeWidth="1"
+      />
+
+      {/* Vertical divider between columns */}
+      <line
+        x1={2 + cellWidth}
+        y1="2"
+        x2={2 + cellWidth}
+        y2={tableHeight + 2}
+        stroke="#212529"
+        strokeWidth="2"
+      />
+
+      {/* Horizontal line under header */}
+      <line
+        x1="2"
+        y1={2 + headerHeight}
+        x2={tableWidth + 2}
+        y2={2 + headerHeight}
+        stroke="#212529"
+        strokeWidth="2"
+      />
+
+      {/* Header text */}
+      <text
+        x={2 + cellWidth / 2}
+        y={2 + headerHeight / 2 + 6}
+        fontSize="18"
+        fontWeight="600"
+        textAnchor="middle"
+        fill="#212529"
+        fontFamily="Times New Roman, serif"
+        fontStyle="italic"
+      >
+        {xHeader}
+      </text>
+      <text
+        x={2 + cellWidth + cellWidth / 2}
+        y={2 + headerHeight / 2 + 6}
+        fontSize="18"
+        fontWeight="600"
+        textAnchor="middle"
+        fill="#212529"
+        fontFamily="Times New Roman, serif"
+        fontStyle="italic"
+      >
+        {yHeader}
+      </text>
+
+      {/* Data rows */}
+      {rows.map((row, i) => {
+        const rowY = 2 + headerHeight + i * cellHeight;
+        return (
+          <g key={i}>
+            {/* Horizontal line between rows (except first) */}
+            {i > 0 && (
+              <line
+                x1="2"
+                y1={rowY}
+                x2={tableWidth + 2}
+                y2={rowY}
+                stroke="#dee2e6"
+                strokeWidth="1"
+              />
+            )}
+            {/* X value */}
+            <text
+              x={2 + cellWidth / 2}
+              y={rowY + cellHeight / 2 + 6}
+              fontSize="16"
+              textAnchor="middle"
+              fill="#212529"
+              fontFamily="Arial, sans-serif"
+            >
+              {row[0]}
+            </text>
+            {/* Y value */}
+            <text
+              x={2 + cellWidth + cellWidth / 2}
+              y={rowY + cellHeight / 2 + 6}
+              fontSize="16"
+              textAnchor="middle"
+              fill="#212529"
+              fontFamily="Arial, sans-serif"
+            >
+              {row[1]}
+            </text>
+          </g>
+        );
+      })}
+    </svg>
+  );
+};
+
+// SAT-Style Scatterplot Diagram (for best-fit line questions)
+export const ScatterplotDiagram = ({ points = [], xLabel = "x", yLabel = "y", xMax = 10, yMax = 10 }) => {
+  const xMin = 0, yMin = 0;
+
+  return (
+    <svg
+      width="320"
+      height="280"
+      viewBox={`-1.5 ${-yMax - 1.5} ${xMax + 3} ${yMax + 3}`}
+      style={{
+        background: '#ffffff',
+        borderRadius: '4px',
+        border: '2px solid #343a40'
+      }}
+    >
+      {/* Grid lines */}
+      {Array.from({ length: Math.floor(xMax / 2) + 1 }, (_, i) => i * 2).filter(x => x > 0).map(x => (
+        <line key={`v${x}`} x1={x} y1={-yMax - 0.3} x2={x} y2={0.3} stroke="#e9ecef" strokeWidth="0.04" />
+      ))}
+      {Array.from({ length: Math.floor(yMax / 2) + 1 }, (_, i) => i * 2).filter(y => y > 0).map(y => (
+        <line key={`h${y}`} x1={-0.3} y1={-y} x2={xMax + 0.3} y2={-y} stroke="#e9ecef" strokeWidth="0.04" />
+      ))}
+
+      {/* Main X-axis */}
+      <line x1="-0.5" y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.1" />
+      <polygon points={`${xMax + 0.8},0 ${xMax + 0.5},0.15 ${xMax + 0.5},-0.15`} fill="#212529" />
+
+      {/* Main Y-axis */}
+      <line x1="0" y1="0.5" x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.1" />
+      <polygon points={`0,${-yMax - 0.8} 0.15,${-yMax - 0.5} -0.15,${-yMax - 0.5}`} fill="#212529" />
+
+      {/* X-axis tick marks and labels */}
+      {Array.from({ length: Math.floor(xMax / 2) + 1 }, (_, i) => i * 2).filter(x => x > 0).map(x => (
+        <g key={`tx${x}`}>
+          <line x1={x} y1="-0.15" x2={x} y2="0.15" stroke="#212529" strokeWidth="0.08" />
+          <text x={x} y="0.7" fontSize="0.5" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
+        </g>
+      ))}
+
+      {/* Y-axis tick marks and labels */}
+      {Array.from({ length: Math.floor(yMax / 2) + 1 }, (_, i) => i * 2).filter(y => y > 0).map(y => (
+        <g key={`ty${y}`}>
+          <line x1="-0.15" y1={-y} x2="0.15" y2={-y} stroke="#212529" strokeWidth="0.08" />
+          <text x="-0.4" y={-y + 0.15} fontSize="0.5" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
+        </g>
+      ))}
+
+      {/* Origin */}
+      <text x="-0.4" y="0.7" fontSize="0.5" fill="#495057" fontFamily="Arial, sans-serif">O</text>
+
+      {/* Scatter points - solid black dots */}
+      {points.map(([px, py], i) => (
+        <circle key={i} cx={px} cy={-py} r="0.22" fill="#212529" />
+      ))}
+
+      {/* Axis labels */}
+      <text x={xMax + 0.5} y="-0.4" fontSize="0.55" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">{xLabel}</text>
+      <text x="0.4" y={-yMax - 0.2} fontSize="0.55" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">{yLabel}</text>
+    </svg>
+  );
+};
+
+// SAT-Style Linear Line Diagram (line passing through two points)
+export const LinearLineDiagram = ({ points = [], xLabel = "x", yLabel = "y", xRange = [-1, 10], yRange = [-1, 10], showLabels = true }) => {
+  const [xMin, xMax] = xRange;
+  const [yMin, yMax] = yRange;
+
+  // Calculate line equation from two points
+  let linePathD = '';
+  if (points.length >= 2) {
+    const [x1, y1] = points[0];
+    const [x2, y2] = points[1];
+    const slope = (y2 - y1) / (x2 - x1);
+    const intercept = y1 - slope * x1;
+
+    // Extend line to edges of visible area
+    const lineStartX = xMin - 1;
+    const lineStartY = slope * lineStartX + intercept;
+    const lineEndX = xMax + 1;
+    const lineEndY = slope * lineEndX + intercept;
+
+    linePathD = `M ${lineStartX} ${-lineStartY} L ${lineEndX} ${-lineEndY}`;
+  }
+
+  return (
+    <svg
+      width="320"
+      height="280"
+      viewBox={`${xMin - 1.5} ${-yMax - 1.5} ${xMax - xMin + 3} ${yMax - yMin + 3}`}
+      style={{
+        background: '#ffffff',
+        borderRadius: '4px',
+        border: '2px solid #343a40'
+      }}
+    >
+      {/* Grid lines */}
+      {Array.from({ length: Math.floor((xMax - xMin) / 10) * 5 + 1 }, (_, i) => xMin + i * 10).filter(x => x !== 0 && x >= xMin && x <= xMax).map(x => (
+        <line key={`v${x}`} x1={x} y1={-yMax - 0.3} x2={x} y2={-yMin + 0.3} stroke="#e9ecef" strokeWidth="0.3" />
+      ))}
+      {Array.from({ length: Math.floor((yMax - yMin) / 10) * 5 + 1 }, (_, i) => yMin + i * 10).filter(y => y !== 0 && y >= yMin && y <= yMax).map(y => (
+        <line key={`h${y}`} x1={xMin - 0.3} y1={-y} x2={xMax + 0.3} y2={-y} stroke="#e9ecef" strokeWidth="0.3" />
+      ))}
+
+      {/* Main X-axis */}
+      <line x1={xMin - 0.5} y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.8" />
+      <polygon points={`${xMax + 0.8},0 ${xMax + 0.3},1.2 ${xMax + 0.3},-1.2`} fill="#212529" />
+
+      {/* Main Y-axis */}
+      <line x1="0" y1={-yMin + 0.5} x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.8" />
+      <polygon points={`0,${-yMax - 0.8} 1.2,${-yMax - 0.3} -1.2,${-yMax - 0.3}`} fill="#212529" />
+
+      {/* Tick marks - every 10 units for larger scales, or every unit for smaller */}
+      {(() => {
+        const step = xMax > 20 ? 20 : 10;
+        return Array.from({ length: Math.floor(xMax / step) + 1 }, (_, i) => i * step)
+          .filter(x => x > 0 && x <= xMax)
+          .map(x => (
+            <g key={`tx${x}`}>
+              <line x1={x} y1="-1" x2={x} y2="1" stroke="#212529" strokeWidth="0.5" />
+              <text x={x} y="5" fontSize="4" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
+            </g>
+          ));
+      })()}
+
+      {(() => {
+        const step = yMax > 20 ? 20 : 10;
+        return Array.from({ length: Math.floor(yMax / step) + 1 }, (_, i) => i * step)
+          .filter(y => y > 0 && y <= yMax)
+          .map(y => (
+            <g key={`ty${y}`}>
+              <line x1="-1" y1={-y} x2="1" y2={-y} stroke="#212529" strokeWidth="0.5" />
+              <text x="-3" y={-y + 1.5} fontSize="4" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
+            </g>
+          ));
+      })()}
+
+      {/* Origin */}
+      <text x="-3" y="5" fontSize="4" fill="#495057" fontFamily="Arial, sans-serif">O</text>
+
+      {/* Line */}
+      {linePathD && (
+        <path d={linePathD} fill="none" stroke="#212529" strokeWidth="1.2" />
+      )}
+
+      {/* Points - if we want to show them */}
+      {showLabels && points.map(([px, py], i) => (
+        <g key={i}>
+          <circle cx={px} cy={-py} r="2" fill="#212529" />
+        </g>
+      ))}
+
+      {/* Axis labels */}
+      <text x={xMax - 5} y="8" fontSize="5" fill="#212529" fontFamily="Arial, sans-serif">{xLabel}</text>
+      <text x="3" y={-yMax + 3} fontSize="5" fill="#212529" fontFamily="Arial, sans-serif">{yLabel}</text>
+    </svg>
+  );
+};
+
+// SAT-Style Simple Line Diagram (for smaller coordinate systems)
+export const SimpleLineDiagram = ({ points = [], xMax = 6, yMax = 12 }) => {
+  // Calculate line equation and extend
+  let linePathD = '';
+  if (points.length >= 2) {
+    const [x1, y1] = points[0];
+    const [x2, y2] = points[1];
+    const slope = (y2 - y1) / (x2 - x1);
+    const intercept = y1 - slope * x1;
+
+    const lineStartX = -0.5;
+    const lineStartY = slope * lineStartX + intercept;
+    const lineEndX = xMax + 0.5;
+    const lineEndY = slope * lineEndX + intercept;
+
+    linePathD = `M ${lineStartX} ${-lineStartY} L ${lineEndX} ${-lineEndY}`;
+  }
+
+  return (
+    <svg
+      width="300"
+      height="280"
+      viewBox={`-1.5 ${-yMax - 1.5} ${xMax + 3} ${yMax + 3}`}
+      style={{
+        background: '#ffffff',
+        borderRadius: '4px',
+        border: '2px solid #343a40'
+      }}
+    >
+      {/* Grid */}
+      {Array.from({ length: xMax + 1 }, (_, i) => i).filter(x => x > 0).map(x => (
+        <line key={`v${x}`} x1={x} y1={-yMax - 0.3} x2={x} y2="0.3" stroke="#e9ecef" strokeWidth="0.04" />
+      ))}
+      {Array.from({ length: yMax + 1 }, (_, i) => i).filter(y => y > 0 && y % 2 === 0).map(y => (
+        <line key={`h${y}`} x1="-0.3" y1={-y} x2={xMax + 0.3} y2={-y} stroke="#e9ecef" strokeWidth="0.04" />
+      ))}
+
+      {/* Axes */}
+      <line x1="-0.5" y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.1" />
+      <polygon points={`${xMax + 0.8},0 ${xMax + 0.5},0.2 ${xMax + 0.5},-0.2`} fill="#212529" />
+      <line x1="0" y1="0.5" x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.1" />
+      <polygon points={`0,${-yMax - 0.8} 0.2,${-yMax - 0.5} -0.2,${-yMax - 0.5}`} fill="#212529" />
+
+      {/* Tick marks */}
+      {Array.from({ length: xMax + 1 }, (_, i) => i).filter(x => x > 0).map(x => (
+        <g key={`tx${x}`}>
+          <line x1={x} y1="-0.15" x2={x} y2="0.15" stroke="#212529" strokeWidth="0.08" />
+          <text x={x} y="0.7" fontSize="0.5" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
+        </g>
+      ))}
+      {Array.from({ length: yMax + 1 }, (_, i) => i).filter(y => y > 0 && y % 2 === 0).map(y => (
+        <g key={`ty${y}`}>
+          <line x1="-0.15" y1={-y} x2="0.15" y2={-y} stroke="#212529" strokeWidth="0.08" />
+          <text x="-0.4" y={-y + 0.15} fontSize="0.5" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
+        </g>
+      ))}
+      <text x="-0.4" y="0.7" fontSize="0.5" fill="#495057" fontFamily="Arial, sans-serif">O</text>
+
+      {/* Line */}
+      {linePathD && (
+        <path d={linePathD} fill="none" stroke="#212529" strokeWidth="0.12" />
+      )}
+
+      {/* Points */}
+      {points.map(([px, py], i) => (
+        <circle key={i} cx={px} cy={-py} r="0.2" fill="#212529" />
+      ))}
+
+      {/* Axis labels */}
+      <text x={xMax + 0.5} y="-0.4" fontSize="0.55" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">x</text>
+      <text x="0.4" y={-yMax - 0.2} fontSize="0.55" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">y</text>
+    </svg>
+  );
+};
+
 // Main QuestionDiagram component that switches based on type
 const QuestionDiagram = ({ type, params }) => {
   switch (type) {
@@ -579,6 +944,14 @@ const QuestionDiagram = ({ type, params }) => {
       return <CoordinatePointsDiagram {...params} />;
     case 'quadraticIntercepts':
       return <QuadraticInterceptsDiagram {...params} />;
+    case 'scatterplot':
+      return <ScatterplotDiagram {...params} />;
+    case 'linearLine':
+      return <LinearLineDiagram {...params} />;
+    case 'simpleLine':
+      return <SimpleLineDiagram {...params} />;
+    case 'table':
+      return <TableDiagram {...params} />;
     default:
       return null;
   }
