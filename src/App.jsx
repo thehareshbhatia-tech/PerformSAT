@@ -123,6 +123,7 @@ const PerformSAT = () => {
   const [activeSection, setActiveSection] = useState(null); // For section-based practice
   const [view, setView] = useState('dashboard'); // 'dashboard', 'modules', 'list', 'lesson', 'practice', 'practiceTests', 'takingTest'
   const [selectedPracticeTest, setSelectedPracticeTest] = useState(null);
+  const [isTestTimed, setIsTestTimed] = useState(true);
   const [showAiTutor, setShowAiTutor] = useState(false);
   const [videoTimestamp, setVideoTimestamp] = useState(0);
   const [videoTranscript, setVideoTranscript] = useState(null);
@@ -9195,6 +9196,12 @@ const PerformSAT = () => {
           <PracticeTestList
             onSelectTest={(test) => {
               setSelectedPracticeTest(test);
+              setIsTestTimed(true);
+              setView('takingTest');
+            }}
+            onSelectTestWithMode={(test, timed) => {
+              setSelectedPracticeTest(test);
+              setIsTestTimed(timed);
               setView('takingTest');
             }}
             onBack={() => setView('dashboard')}
@@ -9205,6 +9212,7 @@ const PerformSAT = () => {
         {view === 'takingTest' && selectedPracticeTest && (
           <PracticeTest
             test={selectedPracticeTest}
+            isTimed={isTestTimed}
             onBack={() => {
               setSelectedPracticeTest(null);
               setView('practiceTests');

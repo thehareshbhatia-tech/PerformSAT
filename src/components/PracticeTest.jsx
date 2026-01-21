@@ -597,12 +597,12 @@ const renderChoice = (choice) => {
   return <MathText text={choice.text} />;
 };
 
-const PracticeTest = ({ test, onBack, onComplete }) => {
+const PracticeTest = ({ test, onBack, onComplete, isTimed = true }) => {
   const [currentModule, setCurrentModule] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
   const [markedForReview, setMarkedForReview] = useState([]);
-  const [showTimer, setShowTimer] = useState(true);
+  const [showTimer, setShowTimer] = useState(isTimed);
   const [moduleCompleted, setModuleCompleted] = useState(false);
   const [testCompleted, setTestCompleted] = useState(false);
   const [fillInValue, setFillInValue] = useState('');
@@ -931,26 +931,41 @@ const PracticeTest = ({ test, onBack, onComplete }) => {
             </svg>
             Calculator
           </button>
-          <button
-            onClick={() => setShowTimer(!showTimer)}
-            style={{
-              padding: '6px 12px',
-              background: 'transparent',
-              border: '1px solid #d1d5db',
-              borderRadius: '6px',
+          {isTimed ? (
+            <>
+              <button
+                onClick={() => setShowTimer(!showTimer)}
+                style={{
+                  padding: '6px 12px',
+                  background: 'transparent',
+                  border: '1px solid #d1d5db',
+                  borderRadius: '6px',
+                  fontSize: '13px',
+                  color: '#6b7280',
+                  cursor: 'pointer'
+                }}
+              >
+                {showTimer ? 'Hide Timer' : 'Show Timer'}
+              </button>
+              {showTimer && (
+                <Timer
+                  initialMinutes={module.timeLimit || 35}
+                  onTimeUp={handleTimeUp}
+                  isPaused={false}
+                />
+              )}
+            </>
+          ) : (
+            <span style={{
+              padding: '8px 16px',
+              background: '#f0fdf4',
+              color: '#16a34a',
+              borderRadius: '8px',
               fontSize: '13px',
-              color: '#6b7280',
-              cursor: 'pointer'
-            }}
-          >
-            {showTimer ? 'Hide Timer' : 'Show Timer'}
-          </button>
-          {showTimer && (
-            <Timer
-              initialMinutes={module.timeLimit || 35}
-              onTimeUp={handleTimeUp}
-              isPaused={false}
-            />
+              fontWeight: '500'
+            }}>
+              Untimed Mode
+            </span>
           )}
         </div>
       </div>

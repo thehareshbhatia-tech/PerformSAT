@@ -1,6 +1,6 @@
 import { getAllPracticeTests } from '../data/practiceTests';
 
-const PracticeTestList = ({ onSelectTest, onBack }) => {
+const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode }) => {
   const tests = getAllPracticeTests();
 
   return (
@@ -112,22 +112,54 @@ const PracticeTestList = ({ onSelectTest, onBack }) => {
                   </div>
                 </div>
 
-                <button
-                  onClick={() => onSelectTest(test)}
-                  style={{
-                    padding: '12px 28px',
-                    background: '#111827',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '8px',
-                    fontSize: '15px',
-                    fontWeight: '600',
-                    cursor: 'pointer',
-                    flexShrink: 0
-                  }}
-                >
-                  Start Test
-                </button>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', flexShrink: 0 }}>
+                  <button
+                    onClick={() => onSelectTestWithMode ? onSelectTestWithMode(test, true) : onSelectTest(test)}
+                    style={{
+                      padding: '12px 28px',
+                      background: '#111827',
+                      color: 'white',
+                      border: 'none',
+                      borderRadius: '8px',
+                      fontSize: '15px',
+                      fontWeight: '600',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '8px'
+                    }}
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    Start Timed
+                  </button>
+                  <button
+                    onClick={() => onSelectTestWithMode ? onSelectTestWithMode(test, false) : onSelectTest(test)}
+                    style={{
+                      padding: '12px 28px',
+                      background: 'white',
+                      color: '#374151',
+                      border: '1px solid #d1d5db',
+                      borderRadius: '8px',
+                      fontSize: '15px',
+                      fontWeight: '500',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '8px'
+                    }}
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="8" y1="12" x2="16" y2="12" />
+                    </svg>
+                    Start Untimed
+                  </button>
+                </div>
               </div>
             </div>
           );
@@ -158,7 +190,8 @@ const PracticeTestList = ({ onSelectTest, onBack }) => {
         }}>
           <li>Each test has 2 modules with 22 questions each (44 total)</li>
           <li>Questions match the style and difficulty of the official SAT</li>
-          <li>Timed mode helps simulate real test conditions</li>
+          <li><strong>Timed mode</strong> simulates real test conditions with a countdown timer</li>
+          <li><strong>Untimed mode</strong> lets you practice at your own pace without time pressure</li>
           <li>Review your answers and explanations after completing each module</li>
         </ul>
       </div>
