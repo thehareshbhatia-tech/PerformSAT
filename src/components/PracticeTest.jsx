@@ -607,6 +607,9 @@ const PracticeTest = ({ test, onBack, onComplete, isTimed = true }) => {
   const [testCompleted, setTestCompleted] = useState(false);
   const [fillInValue, setFillInValue] = useState('');
   const [showCalculator, setShowCalculator] = useState(false);
+  const [reviewMode, setReviewMode] = useState(false);
+  const [reviewModule, setReviewModule] = useState(0);
+  const [reviewQuestion, setReviewQuestion] = useState(0);
 
   const module = test.modules[currentModule];
   const questions = module?.questions || [];
@@ -1007,6 +1010,344 @@ const PracticeTest = ({ test, onBack, onComplete, isTimed = true }) => {
             }}
           >
             Retake Test
+          </button>
+          <button
+            onClick={() => {
+              setReviewMode(true);
+              setReviewModule(0);
+              setReviewQuestion(0);
+            }}
+            style={{
+              padding: '14px 32px',
+              background: '#2563eb',
+              color: 'white',
+              border: 'none',
+              borderRadius: '8px',
+              fontSize: '16px',
+              fontWeight: '600',
+              cursor: 'pointer'
+            }}
+          >
+            Review Answers
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // Review mode screen - shows all questions with explanations
+  if (reviewMode) {
+    const reviewMod = test.modules[reviewModule];
+    const reviewQuestions = reviewMod?.questions || [];
+    const reviewQ = reviewQuestions[reviewQuestion];
+    const reviewKey = `${reviewModule}-${reviewQuestion}`;
+    const userAnswer = answers[reviewKey];
+
+    // Check if answer is correct
+    const isCorrect = reviewQ?.type === 'fill-in'
+      ? userAnswer === reviewQ.correctAnswer || parseFloat(userAnswer) === reviewQ.correctAnswer
+      : userAnswer === reviewQ?.correctAnswer;
+
+    // Build flat list of all questions for navigation
+    const allQuestions = [];
+    test.modules.forEach((mod, modIdx) => {
+      mod.questions.forEach((q, qIdx) => {
+        const key = `${modIdx}-${qIdx}`;
+        const ans = answers[key];
+        const correct = q.type === 'fill-in'
+          ? ans === q.correctAnswer || parseFloat(ans) === q.correctAnswer
+          : ans === q.correctAnswer;
+        allQuestions.push({ modIdx, qIdx, correct, answered: ans !== undefined });
+      });
+    });
+
+    const currentFlatIndex = allQuestions.findIndex(
+      q => q.modIdx === reviewModule && q.qIdx === reviewQuestion
+    );
+
+    const handleReviewNav = (direction) => {
+      const newIndex = currentFlatIndex + direction;
+      if (newIndex >= 0 && newIndex < allQuestions.length) {
+        const target = allQuestions[newIndex];
+        setReviewModule(target.modIdx);
+        setReviewQuestion(target.qIdx);
+      }
+    };
+
+    const handleReviewJump = (modIdx, qIdx) => {
+      setReviewModule(modIdx);
+      setReviewQuestion(qIdx);
+    };
+
+    return (
+      <div style={{ maxWidth: '900px', margin: '0 auto', padding: '20px' }}>
+        {/* Review Header */}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: '24px',
+          paddingBottom: '16px',
+          borderBottom: '1px solid #e5e7eb'
+        }}>
+          <div>
+            <h1 style={{ fontSize: '20px', fontWeight: '600', color: '#111827', marginBottom: '4px' }}>
+              Review: {test.title}
+            </h1>
+            <p style={{ fontSize: '14px', color: '#6b7280' }}>
+              {reviewMod.title} - Question {reviewQuestion + 1} of {reviewQuestions.length}
+            </p>
+          </div>
+          <button
+            onClick={() => setReviewMode(false)}
+            style={{
+              padding: '10px 20px',
+              background: '#111827',
+              color: 'white',
+              border: 'none',
+              borderRadius: '8px',
+              fontSize: '14px',
+              fontWeight: '600',
+              cursor: 'pointer'
+            }}
+          >
+            Back to Results
+          </button>
+        </div>
+
+        {/* Question Navigation Grid */}
+        <div style={{
+          background: '#f9fafb',
+          borderRadius: '12px',
+          padding: '16px',
+          marginBottom: '24px'
+        }}>
+          <p style={{ fontSize: '13px', color: '#6b7280', marginBottom: '12px' }}>
+            Click to jump to question (Green = Correct, Red = Incorrect, Gray = Unanswered)
+          </p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+            {allQuestions.map((q, idx) => {
+              const isActive = q.modIdx === reviewModule && q.qIdx === reviewQuestion;
+              const bgColor = !q.answered ? '#d1d5db' : q.correct ? '#16a34a' : '#dc2626';
+              return (
+                <button
+                  key={idx}
+                  onClick={() => handleReviewJump(q.modIdx, q.qIdx)}
+                  style={{
+                    width: '32px',
+                    height: '32px',
+                    borderRadius: '6px',
+                    border: isActive ? '3px solid #111827' : 'none',
+                    background: bgColor,
+                    color: 'white',
+                    fontSize: '12px',
+                    fontWeight: '600',
+                    cursor: 'pointer'
+                  }}
+                >
+                  {idx + 1}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Answer Status Banner */}
+        <div style={{
+          padding: '12px 16px',
+          borderRadius: '8px',
+          marginBottom: '20px',
+          background: !userAnswer ? '#f3f4f6' : isCorrect ? '#dcfce7' : '#fef2f2',
+          border: `1px solid ${!userAnswer ? '#d1d5db' : isCorrect ? '#86efac' : '#fecaca'}`
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <span style={{
+              fontSize: '20px'
+            }}>
+              {!userAnswer ? '⚪' : isCorrect ? '✓' : '✗'}
+            </span>
+            <div>
+              <p style={{
+                fontWeight: '600',
+                color: !userAnswer ? '#6b7280' : isCorrect ? '#16a34a' : '#dc2626',
+                marginBottom: '2px'
+              }}>
+                {!userAnswer ? 'Not Answered' : isCorrect ? 'Correct!' : 'Incorrect'}
+              </p>
+              <p style={{ fontSize: '14px', color: '#6b7280' }}>
+                Your answer: {userAnswer !== undefined ? (reviewQ?.type === 'fill-in' ? userAnswer : reviewQ?.choices?.find(c => c.id === userAnswer)?.text || userAnswer) : 'None'}
+                {!isCorrect && userAnswer !== undefined && (
+                  <span style={{ marginLeft: '12px', color: '#16a34a', fontWeight: '500' }}>
+                    Correct: {reviewQ?.type === 'fill-in' ? reviewQ.correctAnswer : reviewQ?.choices?.find(c => c.id === reviewQ.correctAnswer)?.text}
+                  </span>
+                )}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Question Content */}
+        <div style={{
+          background: 'white',
+          border: '1px solid #e5e7eb',
+          borderRadius: '12px',
+          padding: '24px',
+          marginBottom: '20px'
+        }}>
+          {/* Question Text */}
+          <div style={{ marginBottom: '24px' }}>
+            <MathText text={reviewQ?.question || ''} />
+          </div>
+
+          {/* Diagram if present */}
+          {reviewQ?.diagram && (
+            <div style={{ marginBottom: '24px' }}>
+              <QuestionDiagram type={reviewQ.diagram.type} params={reviewQ.diagram.params} />
+            </div>
+          )}
+
+          {/* Answer choices */}
+          {reviewQ?.type === 'multiple-choice' && reviewQ?.choices && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              {reviewQ.choices.map((choice) => {
+                const isUserChoice = userAnswer === choice.id;
+                const isCorrectChoice = reviewQ.correctAnswer === choice.id;
+                let bgColor = '#f9fafb';
+                let borderColor = '#e5e7eb';
+
+                if (isCorrectChoice) {
+                  bgColor = '#dcfce7';
+                  borderColor = '#16a34a';
+                } else if (isUserChoice && !isCorrect) {
+                  bgColor = '#fef2f2';
+                  borderColor = '#dc2626';
+                }
+
+                return (
+                  <div
+                    key={choice.id}
+                    style={{
+                      padding: '14px 18px',
+                      borderRadius: '10px',
+                      border: `2px solid ${borderColor}`,
+                      background: bgColor,
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '14px'
+                    }}
+                  >
+                    <div style={{
+                      width: '28px',
+                      height: '28px',
+                      borderRadius: '50%',
+                      background: isCorrectChoice ? '#16a34a' : isUserChoice ? '#dc2626' : '#e5e7eb',
+                      color: (isCorrectChoice || isUserChoice) ? 'white' : '#6b7280',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontWeight: '600',
+                      fontSize: '14px',
+                      flexShrink: 0
+                    }}>
+                      {choice.id}
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      {renderChoice(choice)}
+                    </div>
+                    {isCorrectChoice && (
+                      <span style={{ color: '#16a34a', fontWeight: '600', fontSize: '14px' }}>✓ Correct</span>
+                    )}
+                    {isUserChoice && !isCorrect && (
+                      <span style={{ color: '#dc2626', fontWeight: '600', fontSize: '14px' }}>Your answer</span>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          )}
+
+          {/* Fill-in answer display */}
+          {reviewQ?.type === 'fill-in' && (
+            <div style={{
+              padding: '16px',
+              background: '#f9fafb',
+              borderRadius: '8px',
+              marginBottom: '16px'
+            }}>
+              <p style={{ fontSize: '14px', color: '#6b7280', marginBottom: '8px' }}>
+                Correct Answer:
+              </p>
+              <p style={{ fontSize: '20px', fontWeight: '600', color: '#16a34a' }}>
+                {reviewQ.correctAnswer}
+              </p>
+            </div>
+          )}
+        </div>
+
+        {/* Explanation Section */}
+        <div style={{
+          background: '#fffbeb',
+          border: '1px solid #fcd34d',
+          borderRadius: '12px',
+          padding: '20px',
+          marginBottom: '24px'
+        }}>
+          <h3 style={{
+            fontSize: '16px',
+            fontWeight: '600',
+            color: '#92400e',
+            marginBottom: '12px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px'
+          }}>
+            <span>💡</span> Explanation
+          </h3>
+          <div style={{ color: '#78350f', lineHeight: '1.7' }}>
+            <MathText text={reviewQ?.explanation || 'No explanation available for this question.'} />
+          </div>
+        </div>
+
+        {/* Navigation Buttons */}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center'
+        }}>
+          <button
+            onClick={() => handleReviewNav(-1)}
+            disabled={currentFlatIndex === 0}
+            style={{
+              padding: '12px 24px',
+              background: currentFlatIndex === 0 ? '#e5e7eb' : 'white',
+              color: currentFlatIndex === 0 ? '#9ca3af' : '#374151',
+              border: '1px solid #d1d5db',
+              borderRadius: '8px',
+              fontSize: '15px',
+              fontWeight: '500',
+              cursor: currentFlatIndex === 0 ? 'not-allowed' : 'pointer'
+            }}
+          >
+            ← Previous
+          </button>
+          <span style={{ color: '#6b7280', fontSize: '14px' }}>
+            Question {currentFlatIndex + 1} of {allQuestions.length}
+          </span>
+          <button
+            onClick={() => handleReviewNav(1)}
+            disabled={currentFlatIndex === allQuestions.length - 1}
+            style={{
+              padding: '12px 24px',
+              background: currentFlatIndex === allQuestions.length - 1 ? '#e5e7eb' : '#111827',
+              color: currentFlatIndex === allQuestions.length - 1 ? '#9ca3af' : 'white',
+              border: 'none',
+              borderRadius: '8px',
+              fontSize: '15px',
+              fontWeight: '500',
+              cursor: currentFlatIndex === allQuestions.length - 1 ? 'not-allowed' : 'pointer'
+            }}
+          >
+            Next →
           </button>
         </div>
       </div>
