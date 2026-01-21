@@ -1,5 +1,142 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import QuestionDiagram from './QuestionDiagrams';
+
+// Desmos Calculator Component
+const DesmosCalculator = ({ isOpen, onClose }) => {
+  const containerRef = useRef(null);
+  const calculatorRef = useRef(null);
+
+  useEffect(() => {
+    if (isOpen && containerRef.current && !calculatorRef.current) {
+      // Load Desmos script if not already loaded
+      if (!window.Desmos) {
+        const script = document.createElement('script');
+        script.src = 'https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6';
+        script.async = true;
+        script.onload = () => {
+          if (containerRef.current) {
+            calculatorRef.current = window.Desmos.GraphingCalculator(containerRef.current, {
+              keypad: true,
+              expressions: true,
+              settingsMenu: true,
+              zoomButtons: true,
+              expressionsTopbar: true,
+              pointsOfInterest: true,
+              trace: true,
+              border: false,
+              lockViewport: false,
+              capExpressionSize: false
+            });
+          }
+        };
+        document.head.appendChild(script);
+      } else {
+        calculatorRef.current = window.Desmos.GraphingCalculator(containerRef.current, {
+          keypad: true,
+          expressions: true,
+          settingsMenu: true,
+          zoomButtons: true,
+          expressionsTopbar: true,
+          pointsOfInterest: true,
+          trace: true,
+          border: false,
+          lockViewport: false,
+          capExpressionSize: false
+        });
+      }
+    }
+
+    return () => {
+      if (calculatorRef.current) {
+        calculatorRef.current.destroy();
+        calculatorRef.current = null;
+      }
+    };
+  }, [isOpen]);
+
+  if (!isOpen) return null;
+
+  return (
+    <div style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      background: 'rgba(0, 0, 0, 0.5)',
+      zIndex: 1000,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
+    }}>
+      <div style={{
+        background: 'white',
+        borderRadius: '12px',
+        overflow: 'hidden',
+        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+        display: 'flex',
+        flexDirection: 'column',
+        width: '90vw',
+        maxWidth: '900px',
+        height: '80vh',
+        maxHeight: '700px'
+      }}>
+        {/* Calculator Header */}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          padding: '12px 16px',
+          borderBottom: '1px solid #e5e7eb',
+          background: '#f9fafb'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="2">
+              <rect x="4" y="2" width="16" height="20" rx="2" />
+              <line x1="8" y1="6" x2="16" y2="6" />
+              <line x1="8" y1="10" x2="10" y2="10" />
+              <line x1="14" y1="10" x2="16" y2="10" />
+              <line x1="8" y1="14" x2="10" y2="14" />
+              <line x1="14" y1="14" x2="16" y2="14" />
+              <line x1="8" y1="18" x2="10" y2="18" />
+              <line x1="14" y1="18" x2="16" y2="18" />
+            </svg>
+            <span style={{ fontWeight: '600', color: '#111827' }}>Graphing Calculator</span>
+          </div>
+          <button
+            onClick={onClose}
+            style={{
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              padding: '4px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              borderRadius: '4px'
+            }}
+            onMouseOver={(e) => e.currentTarget.style.background = '#e5e7eb'}
+            onMouseOut={(e) => e.currentTarget.style.background = 'none'}
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Calculator Container */}
+        <div
+          ref={containerRef}
+          style={{
+            flex: 1,
+            width: '100%'
+          }}
+        />
+      </div>
+    </div>
+  );
+};
 
 // Timer component
 const Timer = ({ initialMinutes, onTimeUp, isPaused }) => {
@@ -379,6 +516,7 @@ const PracticeTest = ({ test, onBack, onComplete }) => {
   const [moduleCompleted, setModuleCompleted] = useState(false);
   const [testCompleted, setTestCompleted] = useState(false);
   const [fillInValue, setFillInValue] = useState('');
+  const [showCalculator, setShowCalculator] = useState(false);
 
   const module = test.modules[currentModule];
   const questions = module?.questions || [];
@@ -674,7 +812,35 @@ const PracticeTest = ({ test, onBack, onComplete }) => {
           </p>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          {/* Calculator Button */}
+          <button
+            onClick={() => setShowCalculator(true)}
+            style={{
+              padding: '8px 14px',
+              background: '#2563eb',
+              border: 'none',
+              borderRadius: '6px',
+              fontSize: '13px',
+              fontWeight: '500',
+              color: 'white',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px'
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <rect x="4" y="2" width="16" height="20" rx="2" />
+              <line x1="8" y1="6" x2="16" y2="6" />
+              <line x1="8" y1="10" x2="10" y2="10" />
+              <line x1="14" y1="10" x2="16" y2="10" />
+              <line x1="8" y1="14" x2="10" y2="14" />
+              <line x1="14" y1="14" x2="16" y2="14" />
+              <line x1="8" y1="18" x2="16" y2="18" />
+            </svg>
+            Calculator
+          </button>
           <button
             onClick={() => setShowTimer(!showTimer)}
             style={{
@@ -698,6 +864,9 @@ const PracticeTest = ({ test, onBack, onComplete }) => {
           )}
         </div>
       </div>
+
+      {/* Desmos Calculator Modal */}
+      <DesmosCalculator isOpen={showCalculator} onClose={() => setShowCalculator(false)} />
 
       {/* Question Navigation Grid */}
       <QuestionGrid
