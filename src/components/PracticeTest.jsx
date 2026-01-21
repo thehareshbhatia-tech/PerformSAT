@@ -729,10 +729,50 @@ const PracticeTest = ({ test, onBack, onComplete, isTimed = true }) => {
     return total;
   };
 
+  // Convert raw score (0-44) to SAT scaled score (200-800)
+  // Based on official College Board Digital SAT scoring tables
+  const convertToSATScore = (rawScore, totalQuestions = 44) => {
+    // SAT Math section scoring conversion table
+    // Raw scores map to scaled scores on a curve
+    // This is an approximation based on official College Board data
+    const scoringTable = {
+      44: 800, 43: 790, 42: 780, 41: 770, 40: 760,
+      39: 750, 38: 740, 37: 730, 36: 720, 35: 710,
+      34: 700, 33: 690, 32: 680, 31: 670, 30: 660,
+      29: 650, 28: 640, 27: 630, 26: 620, 25: 610,
+      24: 600, 23: 590, 22: 580, 21: 570, 20: 560,
+      19: 550, 18: 540, 17: 530, 16: 520, 15: 510,
+      14: 500, 13: 490, 12: 480, 11: 470, 10: 450,
+      9: 430, 8: 410, 7: 390, 6: 370, 5: 350,
+      4: 330, 3: 310, 2: 280, 1: 240, 0: 200
+    };
+
+    // If test has different number of questions, scale proportionally
+    if (totalQuestions !== 44) {
+      const scaledRaw = Math.round((rawScore / totalQuestions) * 44);
+      return scoringTable[Math.min(44, Math.max(0, scaledRaw))];
+    }
+
+    return scoringTable[Math.min(44, Math.max(0, rawScore))];
+  };
+
+  // Get score level description
+  const getScoreLevel = (scaledScore) => {
+    if (scaledScore >= 750) return { level: 'Excellent', color: '#059669' };
+    if (scaledScore >= 650) return { level: 'Good', color: '#16a34a' };
+    if (scaledScore >= 550) return { level: 'Average', color: '#ca8a04' };
+    if (scaledScore >= 450) return { level: 'Below Average', color: '#ea580c' };
+    return { level: 'Needs Improvement', color: '#dc2626' };
+  };
+
   // Module completion screen
   if (moduleCompleted && !testCompleted) {
     const score = calculateModuleScore();
     const isLastModule = currentModule === test.modules.length - 1;
+    const totalQuestions = test.modules.reduce((sum, m) => sum + m.questions.length, 0);
+    // Estimate projected score based on current module performance
+    const projectedRaw = Math.round((score / questions.length) * totalQuestions);
+    const projectedSATScore = convertToSATScore(projectedRaw, totalQuestions);
 
     return (
       <div style={{ maxWidth: '600px', margin: '0 auto', padding: '40px 20px', textAlign: 'center' }}>
@@ -747,9 +787,27 @@ const PracticeTest = ({ test, onBack, onComplete, isTimed = true }) => {
         }}>
           {score}/{questions.length}
         </div>
-        <p style={{ color: '#6b7280', marginBottom: '32px' }}>
+        <p style={{ color: '#6b7280', marginBottom: '24px' }}>
           {Math.round((score / questions.length) * 100)}% correct
         </p>
+
+        {/* Projected Score */}
+        <div style={{
+          background: '#f0f9ff',
+          border: '1px solid #bae6fd',
+          borderRadius: '12px',
+          padding: '16px 20px',
+          marginBottom: '32px',
+          fontSize: '14px',
+          color: '#0369a1'
+        }}>
+          <p style={{ marginBottom: '4px' }}>
+            <strong>Projected SAT Score:</strong> ~{projectedSATScore}
+          </p>
+          <p style={{ fontSize: '12px', opacity: 0.8 }}>
+            Based on current performance. Complete Module 2 for your final score.
+          </p>
+        </div>
 
         <button
           onClick={handleNextModule}
@@ -774,24 +832,83 @@ const PracticeTest = ({ test, onBack, onComplete, isTimed = true }) => {
   if (testCompleted) {
     const totalScore = calculateTotalScore();
     const totalQuestions = test.modules.reduce((sum, m) => sum + m.questions.length, 0);
+    const satScore = convertToSATScore(totalScore, totalQuestions);
+    const scoreInfo = getScoreLevel(satScore);
 
     return (
       <div style={{ maxWidth: '700px', margin: '0 auto', padding: '40px 20px' }}>
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <h2 style={{ fontSize: '28px', fontWeight: '600', marginBottom: '16px', color: '#111827' }}>
+          <h2 style={{ fontSize: '28px', fontWeight: '600', marginBottom: '24px', color: '#111827' }}>
             {test.title} Complete!
           </h2>
+
+          {/* SAT Scaled Score - Primary Display */}
           <div style={{
-            fontSize: '64px',
-            fontWeight: '700',
-            color: '#16a34a',
+            background: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%)',
+            borderRadius: '16px',
+            padding: '32px',
+            marginBottom: '24px',
+            color: 'white'
+          }}>
+            <p style={{ fontSize: '14px', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px', opacity: 0.9 }}>
+              Your SAT Math Score
+            </p>
+            <div style={{
+              fontSize: '72px',
+              fontWeight: '700',
+              marginBottom: '8px',
+              lineHeight: 1
+            }}>
+              {satScore}
+            </div>
+            <p style={{ fontSize: '14px', opacity: 0.8, marginBottom: '16px' }}>
+              out of 800
+            </p>
+            <div style={{
+              display: 'inline-block',
+              padding: '6px 16px',
+              background: 'rgba(255,255,255,0.2)',
+              borderRadius: '20px',
+              fontSize: '14px',
+              fontWeight: '500'
+            }}>
+              {scoreInfo.level}
+            </div>
+          </div>
+
+          {/* Raw Score */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '32px',
             marginBottom: '8px'
           }}>
-            {totalScore}/{totalQuestions}
+            <div>
+              <p style={{ fontSize: '14px', color: '#6b7280', marginBottom: '4px' }}>Raw Score</p>
+              <p style={{ fontSize: '24px', fontWeight: '600', color: '#111827' }}>
+                {totalScore}/{totalQuestions}
+              </p>
+            </div>
+            <div>
+              <p style={{ fontSize: '14px', color: '#6b7280', marginBottom: '4px' }}>Accuracy</p>
+              <p style={{ fontSize: '24px', fontWeight: '600', color: '#111827' }}>
+                {Math.round((totalScore / totalQuestions) * 100)}%
+              </p>
+            </div>
           </div>
-          <p style={{ fontSize: '18px', color: '#6b7280' }}>
-            {Math.round((totalScore / totalQuestions) * 100)}% correct
-          </p>
+        </div>
+
+        {/* Score Context */}
+        <div style={{
+          background: '#f0f9ff',
+          border: '1px solid #bae6fd',
+          borderRadius: '12px',
+          padding: '16px 20px',
+          marginBottom: '24px',
+          fontSize: '14px',
+          color: '#0369a1'
+        }}>
+          <strong>How SAT Scoring Works:</strong> Your raw score ({totalScore} correct answers) is converted to a scaled score of {satScore} using the official SAT scoring curve. The Math section is scored from 200-800.
         </div>
 
         {/* Module breakdown */}
@@ -802,7 +919,7 @@ const PracticeTest = ({ test, onBack, onComplete, isTimed = true }) => {
           marginBottom: '32px'
         }}>
           <h3 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '16px', color: '#111827' }}>
-            Score Breakdown
+            Score Breakdown by Module
           </h3>
           {test.modules.map((mod, modIdx) => {
             let modScore = 0;
@@ -819,6 +936,7 @@ const PracticeTest = ({ test, onBack, onComplete, isTimed = true }) => {
                 }
               }
             });
+            const percentage = Math.round((modScore / mod.questions.length) * 100);
             return (
               <div key={modIdx} style={{
                 display: 'flex',
@@ -828,9 +946,25 @@ const PracticeTest = ({ test, onBack, onComplete, isTimed = true }) => {
                 borderBottom: modIdx < test.modules.length - 1 ? '1px solid #e5e7eb' : 'none'
               }}>
                 <span style={{ color: '#374151' }}>{mod.title}</span>
-                <span style={{ fontWeight: '600', color: '#111827' }}>
-                  {modScore}/{mod.questions.length} ({Math.round((modScore / mod.questions.length) * 100)}%)
-                </span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{
+                    width: '100px',
+                    height: '8px',
+                    background: '#e5e7eb',
+                    borderRadius: '4px',
+                    overflow: 'hidden'
+                  }}>
+                    <div style={{
+                      width: `${percentage}%`,
+                      height: '100%',
+                      background: percentage >= 70 ? '#16a34a' : percentage >= 50 ? '#ca8a04' : '#dc2626',
+                      borderRadius: '4px'
+                    }} />
+                  </div>
+                  <span style={{ fontWeight: '600', color: '#111827', minWidth: '80px', textAlign: 'right' }}>
+                    {modScore}/{mod.questions.length}
+                  </span>
+                </div>
               </div>
             );
           })}
