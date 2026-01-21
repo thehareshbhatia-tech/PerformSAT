@@ -6,6 +6,8 @@ import LandingPage from './components/LandingPage';
 import StudentDashboard from './components/StudentDashboard';
 import AiTutorChat, { AiTutorButton } from './components/AiTutorChat';
 import QuestionDiagram from './components/QuestionDiagrams';
+import PracticeTest from './components/PracticeTest';
+import PracticeTestList from './components/PracticeTestList';
 import { allLessons } from './data/lessons';
 import { fetchTranscript } from './services/transcriptService';
 import { getQuestionsForSection, hasQuestionsForSection, getRandomQuestions } from './data/questions';
@@ -119,7 +121,8 @@ const PerformSAT = () => {
   const [activeModule, setActiveModule] = useState(null);
   const [activeLesson, setActiveLesson] = useState(null);
   const [activeSection, setActiveSection] = useState(null); // For section-based practice
-  const [view, setView] = useState('dashboard'); // 'dashboard', 'modules', 'list', 'lesson', 'practice'
+  const [view, setView] = useState('dashboard'); // 'dashboard', 'modules', 'list', 'lesson', 'practice', 'practiceTests', 'takingTest'
+  const [selectedPracticeTest, setSelectedPracticeTest] = useState(null);
   const [showAiTutor, setShowAiTutor] = useState(false);
   const [videoTimestamp, setVideoTimestamp] = useState(0);
   const [videoTranscript, setVideoTranscript] = useState(null);
@@ -9111,7 +9114,23 @@ const PerformSAT = () => {
                 padding: 0
               }}
             >
-              All Modules
+              Videos
+            </button>
+            <button
+              onClick={() => { setView('practiceTests'); setSelectedPracticeTest(null); }}
+              className="nav-link"
+              style={{
+                background: 'none',
+                border: 'none',
+                fontSize: '14px',
+                color: view === 'practiceTests' || view === 'takingTest' ? design.colors.accent.orange : design.colors.text.primary,
+                textDecoration: 'none',
+                fontWeight: view === 'practiceTests' || view === 'takingTest' ? '600' : '500',
+                cursor: 'pointer',
+                padding: 0
+              }}
+            >
+              Practice Tests
             </button>
             {user && (
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
@@ -9138,7 +9157,7 @@ const PerformSAT = () => {
 
       {/* Main Content */}
       <main style={{
-        maxWidth: view === 'dashboard' ? '960px' : '800px',
+        maxWidth: (view === 'dashboard' || view === 'practiceTests' || view === 'takingTest') ? '960px' : '800px',
         margin: '0 auto',
         padding: '140px 32px 100px'
       }}>
@@ -9167,6 +9186,32 @@ const PerformSAT = () => {
             onStartReview={() => {
               // TODO: Implement review session start
               console.log('Start review session');
+            }}
+          />
+        )}
+
+        {/* Practice Tests List View */}
+        {view === 'practiceTests' && (
+          <PracticeTestList
+            onSelectTest={(test) => {
+              setSelectedPracticeTest(test);
+              setView('takingTest');
+            }}
+            onBack={() => setView('dashboard')}
+          />
+        )}
+
+        {/* Taking a Practice Test View */}
+        {view === 'takingTest' && selectedPracticeTest && (
+          <PracticeTest
+            test={selectedPracticeTest}
+            onBack={() => {
+              setSelectedPracticeTest(null);
+              setView('practiceTests');
+            }}
+            onComplete={() => {
+              setSelectedPracticeTest(null);
+              setView('practiceTests');
             }}
           />
         )}
@@ -9329,7 +9374,7 @@ const PerformSAT = () => {
                   fontWeight: '500'
                 }}
               >
-                ← All Modules
+                ← Videos
               </button>
               
               {/* Progress Section */}

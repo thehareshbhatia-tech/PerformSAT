@@ -931,6 +931,603 @@ export const SimpleLineDiagram = ({ points = [], xMax = 6, yMax = 12 }) => {
   );
 };
 
+// SAT-Style Dot Plot Diagram (for statistics questions)
+export const DotPlotDiagram = ({ sets = [], xRange = [0, 10], title = "" }) => {
+  const [xMin, xMax] = xRange;
+  const plotWidth = 300;
+  const plotHeight = sets.length === 2 ? 200 : 120;
+  const margin = { top: 20, right: 20, bottom: 40, left: 20 };
+  const innerWidth = plotWidth - margin.left - margin.right;
+  const innerHeight = plotHeight - margin.top - margin.bottom;
+  const setHeight = innerHeight / sets.length;
+
+  const xScale = (x) => margin.left + ((x - xMin) / (xMax - xMin)) * innerWidth;
+
+  // Count occurrences of each value
+  const countData = (data) => {
+    const counts = {};
+    data.forEach(val => {
+      counts[val] = (counts[val] || 0) + 1;
+    });
+    return counts;
+  };
+
+  return (
+    <svg
+      width={plotWidth}
+      height={plotHeight}
+      style={{
+        background: '#ffffff',
+        borderRadius: '4px',
+        border: '2px solid #343a40'
+      }}
+    >
+      {sets.map((set, setIndex) => {
+        const counts = countData(set.data);
+        const setY = margin.top + setIndex * setHeight;
+        const baselineY = setY + setHeight - 20;
+
+        return (
+          <g key={setIndex}>
+            {/* Set label */}
+            <text
+              x={plotWidth / 2}
+              y={setY + 12}
+              fontSize="11"
+              fontWeight="600"
+              textAnchor="middle"
+              fill="#212529"
+              fontFamily="Arial, sans-serif"
+            >
+              {set.name}
+            </text>
+
+            {/* Baseline */}
+            <line
+              x1={margin.left}
+              y1={baselineY}
+              x2={plotWidth - margin.right}
+              y2={baselineY}
+              stroke="#212529"
+              strokeWidth="1.5"
+            />
+
+            {/* X-axis labels */}
+            {Array.from({ length: xMax - xMin + 1 }, (_, i) => xMin + i).map(x => (
+              <g key={x}>
+                <line
+                  x1={xScale(x)}
+                  y1={baselineY}
+                  x2={xScale(x)}
+                  y2={baselineY + 5}
+                  stroke="#212529"
+                  strokeWidth="1"
+                />
+                <text
+                  x={xScale(x)}
+                  y={baselineY + 16}
+                  fontSize="10"
+                  textAnchor="middle"
+                  fill="#495057"
+                  fontFamily="Arial, sans-serif"
+                >
+                  {x}
+                </text>
+              </g>
+            ))}
+
+            {/* Dots */}
+            {Object.entries(counts).map(([value, count]) => {
+              const x = xScale(parseInt(value));
+              return Array.from({ length: count }, (_, i) => (
+                <circle
+                  key={`${value}-${i}`}
+                  cx={x}
+                  cy={baselineY - 10 - i * 12}
+                  r="5"
+                  fill="#212529"
+                />
+              ));
+            })}
+          </g>
+        );
+      })}
+    </svg>
+  );
+};
+
+// SAT-Style Circle Geometry Diagram (for inscribed angle questions)
+export const CircleGeometryDiagram = ({ center = "O", points = [], inscribedAngle = "", centralAngle = "" }) => {
+  const size = 280;
+  const cx = size / 2;
+  const cy = size / 2;
+  const radius = 100;
+
+  // Calculate point positions on circle
+  const getPointOnCircle = (angle) => ({
+    x: cx + radius * Math.cos(angle * Math.PI / 180),
+    y: cy + radius * Math.sin(angle * Math.PI / 180)
+  });
+
+  // Default positions for points P, Q, R, S around the circle
+  const pointAngles = { P: -60, Q: 30, R: 120, S: 200, E: -30, D: 60 };
+  const pointPositions = {};
+  points.forEach(p => {
+    pointPositions[p] = getPointOnCircle(pointAngles[p] || 0);
+  });
+
+  return (
+    <svg
+      width={size}
+      height={size}
+      style={{
+        background: '#ffffff',
+        borderRadius: '4px',
+        border: '2px solid #343a40'
+      }}
+    >
+      {/* Circle */}
+      <circle
+        cx={cx}
+        cy={cy}
+        r={radius}
+        fill="none"
+        stroke="#212529"
+        strokeWidth="2"
+      />
+
+      {/* Center point */}
+      <circle cx={cx} cy={cy} r="4" fill="#212529" />
+      <text
+        x={cx + 10}
+        y={cy + 5}
+        fontSize="14"
+        fontWeight="600"
+        fill="#212529"
+        fontFamily="Arial, sans-serif"
+      >
+        {center}
+      </text>
+
+      {/* Points on circle */}
+      {points.map(p => {
+        const pos = pointPositions[p];
+        if (!pos) return null;
+        return (
+          <g key={p}>
+            <circle cx={pos.x} cy={pos.y} r="4" fill="#212529" />
+            <text
+              x={pos.x + (pos.x > cx ? 12 : -12)}
+              y={pos.y + (pos.y > cy ? 15 : -8)}
+              fontSize="14"
+              fontWeight="600"
+              textAnchor={pos.x > cx ? "start" : "end"}
+              fill="#212529"
+              fontFamily="Arial, sans-serif"
+            >
+              {p}
+            </text>
+          </g>
+        );
+      })}
+
+      {/* Draw lines connecting points if needed */}
+      {points.length >= 2 && (
+        <>
+          {/* Connect adjacent points */}
+          {points.slice(0, -1).map((p, i) => {
+            const p1 = pointPositions[p];
+            const p2 = pointPositions[points[i + 1]];
+            if (!p1 || !p2) return null;
+            return (
+              <line
+                key={`line-${i}`}
+                x1={p1.x}
+                y1={p1.y}
+                x2={p2.x}
+                y2={p2.y}
+                stroke="#212529"
+                strokeWidth="1.5"
+              />
+            );
+          })}
+          {/* Connect last to first if 3+ points */}
+          {points.length >= 3 && (
+            <line
+              x1={pointPositions[points[points.length - 1]]?.x}
+              y1={pointPositions[points[points.length - 1]]?.y}
+              x2={pointPositions[points[0]]?.x}
+              y2={pointPositions[points[0]]?.y}
+              stroke="#212529"
+              strokeWidth="1.5"
+            />
+          )}
+        </>
+      )}
+
+      {/* Draw radii to center if central angle */}
+      {centralAngle && points.length >= 2 && (
+        <>
+          <line
+            x1={cx}
+            y1={cy}
+            x2={pointPositions[points[0]]?.x}
+            y2={pointPositions[points[0]]?.y}
+            stroke="#212529"
+            strokeWidth="1.5"
+          />
+          <line
+            x1={cx}
+            y1={cy}
+            x2={pointPositions[points[points.length - 1]]?.x}
+            y2={pointPositions[points[points.length - 1]]?.y}
+            stroke="#212529"
+            strokeWidth="1.5"
+          />
+        </>
+      )}
+    </svg>
+  );
+};
+
+// SAT-Style Piecewise Linear Diagram
+export const PiecewiseLinearDiagram = ({ points = [], xRange = [-5, 6], yRange = [-3, 6], label = "f(x)" }) => {
+  const [xMin, xMax] = xRange;
+  const [yMin, yMax] = yRange;
+
+  // Build path from points
+  let pathD = '';
+  if (points.length > 0) {
+    pathD = `M ${points[0][0]} ${-points[0][1]}`;
+    for (let i = 1; i < points.length; i++) {
+      pathD += ` L ${points[i][0]} ${-points[i][1]}`;
+    }
+  }
+
+  return (
+    <svg
+      width="340"
+      height="280"
+      viewBox={`${xMin - 1.5} ${-yMax - 1.5} ${xMax - xMin + 3} ${yMax - yMin + 3}`}
+      style={{
+        background: '#ffffff',
+        borderRadius: '4px',
+        border: '2px solid #343a40'
+      }}
+    >
+      {/* Grid lines */}
+      {Array.from({ length: xMax - xMin + 1 }, (_, i) => xMin + i).filter(x => x !== 0).map(x => (
+        <line key={`v${x}`} x1={x} y1={-yMax - 0.3} x2={x} y2={-yMin + 0.3} stroke="#e9ecef" strokeWidth="0.05" />
+      ))}
+      {Array.from({ length: yMax - yMin + 1 }, (_, i) => yMin + i).filter(y => y !== 0).map(y => (
+        <line key={`h${y}`} x1={xMin - 0.3} y1={-y} x2={xMax + 0.3} y2={-y} stroke="#e9ecef" strokeWidth="0.05" />
+      ))}
+
+      {/* X-axis */}
+      <line x1={xMin - 0.5} y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.12" />
+      <polygon points={`${xMax + 0.8},0 ${xMax + 0.5},0.2 ${xMax + 0.5},-0.2`} fill="#212529" />
+
+      {/* Y-axis */}
+      <line x1="0" y1={-yMin + 0.5} x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.12" />
+      <polygon points={`0,${-yMax - 0.8} 0.2,${-yMax - 0.5} -0.2,${-yMax - 0.5}`} fill="#212529" />
+
+      {/* Tick marks */}
+      {Array.from({ length: xMax - xMin + 1 }, (_, i) => xMin + i).filter(x => x !== 0).map(x => (
+        <g key={`tx${x}`}>
+          <line x1={x} y1="-0.15" x2={x} y2="0.15" stroke="#212529" strokeWidth="0.08" />
+          <text x={x} y="0.7" fontSize="0.5" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
+        </g>
+      ))}
+      {Array.from({ length: yMax - yMin + 1 }, (_, i) => yMin + i).filter(y => y !== 0).map(y => (
+        <g key={`ty${y}`}>
+          <line x1="-0.15" y1={-y} x2="0.15" y2={-y} stroke="#212529" strokeWidth="0.08" />
+          <text x="-0.4" y={-y + 0.15} fontSize="0.5" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
+        </g>
+      ))}
+
+      {/* Origin */}
+      <text x="-0.4" y="0.6" fontSize="0.5" fill="#495057" fontFamily="Arial, sans-serif">O</text>
+
+      {/* Piecewise line */}
+      <path d={pathD} fill="none" stroke="#1864ab" strokeWidth="0.15" strokeLinecap="round" strokeLinejoin="round" />
+
+      {/* Points */}
+      {points.map(([px, py], i) => (
+        <circle key={i} cx={px} cy={-py} r="0.18" fill="#1864ab" />
+      ))}
+
+      {/* Label */}
+      <text x={xMax - 0.5} y={-yMax + 0.5} fontSize="0.6" fill="#1864ab" fontFamily="Times New Roman, serif" fontStyle="italic">{label}</text>
+    </svg>
+  );
+};
+
+// SAT-Style Bar Chart Diagram
+export const BarChartDiagram = ({ data = [], title = "", xLabel = "", yLabel = "" }) => {
+  const width = 320;
+  const height = 240;
+  const margin = { top: 30, right: 20, bottom: 50, left: 50 };
+  const innerWidth = width - margin.left - margin.right;
+  const innerHeight = height - margin.top - margin.bottom;
+
+  const maxValue = Math.max(...data.map(d => d.value));
+  const barWidth = innerWidth / data.length - 10;
+
+  const yScale = (val) => innerHeight - (val / maxValue) * innerHeight;
+
+  return (
+    <svg
+      width={width}
+      height={height}
+      style={{
+        background: '#ffffff',
+        borderRadius: '4px',
+        border: '2px solid #343a40'
+      }}
+    >
+      {/* Title */}
+      {title && (
+        <text
+          x={width / 2}
+          y={18}
+          fontSize="12"
+          fontWeight="600"
+          textAnchor="middle"
+          fill="#212529"
+          fontFamily="Arial, sans-serif"
+        >
+          {title}
+        </text>
+      )}
+
+      <g transform={`translate(${margin.left}, ${margin.top})`}>
+        {/* Y-axis */}
+        <line x1="0" y1="0" x2="0" y2={innerHeight} stroke="#212529" strokeWidth="1.5" />
+
+        {/* Y-axis labels */}
+        {[0, 0.25, 0.5, 0.75, 1].map(frac => {
+          const val = Math.round(maxValue * frac);
+          return (
+            <g key={frac}>
+              <line x1="-5" y1={yScale(val)} x2="0" y2={yScale(val)} stroke="#212529" strokeWidth="1" />
+              <text x="-10" y={yScale(val) + 4} fontSize="10" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">
+                {val}
+              </text>
+              {frac > 0 && (
+                <line x1="0" y1={yScale(val)} x2={innerWidth} y2={yScale(val)} stroke="#e9ecef" strokeWidth="0.5" />
+              )}
+            </g>
+          );
+        })}
+
+        {/* X-axis */}
+        <line x1="0" y1={innerHeight} x2={innerWidth} y2={innerHeight} stroke="#212529" strokeWidth="1.5" />
+
+        {/* Bars */}
+        {data.map((d, i) => {
+          const x = i * (innerWidth / data.length) + 5;
+          const barHeight = innerHeight - yScale(d.value);
+          return (
+            <g key={i}>
+              <rect
+                x={x}
+                y={yScale(d.value)}
+                width={barWidth}
+                height={barHeight}
+                fill="#4c6ef5"
+                stroke="#364fc7"
+                strokeWidth="1"
+              />
+              {/* Value label on bar */}
+              <text
+                x={x + barWidth / 2}
+                y={yScale(d.value) - 5}
+                fontSize="10"
+                fontWeight="600"
+                textAnchor="middle"
+                fill="#212529"
+                fontFamily="Arial, sans-serif"
+              >
+                ${d.value}
+              </text>
+              {/* X-axis label */}
+              <text
+                x={x + barWidth / 2}
+                y={innerHeight + 15}
+                fontSize="10"
+                textAnchor="middle"
+                fill="#495057"
+                fontFamily="Arial, sans-serif"
+              >
+                {d.label}
+              </text>
+            </g>
+          );
+        })}
+
+        {/* Y-axis label */}
+        {yLabel && (
+          <text
+            x={-innerHeight / 2}
+            y={-35}
+            fontSize="11"
+            textAnchor="middle"
+            fill="#212529"
+            fontFamily="Arial, sans-serif"
+            transform="rotate(-90)"
+          >
+            {yLabel}
+          </text>
+        )}
+      </g>
+    </svg>
+  );
+};
+
+// SAT-Style Triangle Geometry Diagram
+export const TriangleGeometryDiagram = ({ vertices = ["A", "B", "C"], rightAngle = "", altitude = null }) => {
+  const size = 280;
+  const margin = 40;
+
+  // Default triangle positions
+  const positions = {
+    A: { x: margin, y: size - margin },
+    B: { x: size / 2, y: margin + 20 },
+    C: { x: size - margin, y: size - margin }
+  };
+
+  // Calculate D if altitude exists (foot of altitude on AC)
+  let altitudePoint = null;
+  if (altitude && altitude.from && altitude.to && altitude.on) {
+    // D is on AC, positioned roughly in the middle-ish
+    altitudePoint = {
+      x: positions.A.x + (positions.C.x - positions.A.x) * 0.45,
+      y: positions.A.y
+    };
+  }
+
+  return (
+    <svg
+      width={size}
+      height={size}
+      style={{
+        background: '#ffffff',
+        borderRadius: '4px',
+        border: '2px solid #343a40'
+      }}
+    >
+      {/* Triangle sides */}
+      <line x1={positions.A.x} y1={positions.A.y} x2={positions.B.x} y2={positions.B.y} stroke="#212529" strokeWidth="2" />
+      <line x1={positions.B.x} y1={positions.B.y} x2={positions.C.x} y2={positions.C.y} stroke="#212529" strokeWidth="2" />
+      <line x1={positions.C.x} y1={positions.C.y} x2={positions.A.x} y2={positions.A.y} stroke="#212529" strokeWidth="2" />
+
+      {/* Altitude line if exists */}
+      {altitudePoint && (
+        <line
+          x1={positions.B.x}
+          y1={positions.B.y}
+          x2={altitudePoint.x}
+          y2={altitudePoint.y}
+          stroke="#212529"
+          strokeWidth="1.5"
+        />
+      )}
+
+      {/* Right angle marker */}
+      {rightAngle && (
+        <rect
+          x={positions[rightAngle].x - 12}
+          y={positions[rightAngle].y - 12}
+          width="12"
+          height="12"
+          fill="none"
+          stroke="#212529"
+          strokeWidth="1"
+        />
+      )}
+
+      {/* Vertex labels */}
+      {vertices.map(v => {
+        const pos = positions[v];
+        if (!pos) return null;
+        return (
+          <text
+            key={v}
+            x={pos.x + (v === 'B' ? 0 : v === 'A' ? -15 : 15)}
+            y={pos.y + (v === 'B' ? -10 : 18)}
+            fontSize="16"
+            fontWeight="600"
+            textAnchor="middle"
+            fill="#212529"
+            fontFamily="Arial, sans-serif"
+          >
+            {v}
+          </text>
+        );
+      })}
+
+      {/* Altitude point label (D) */}
+      {altitudePoint && altitude.to && (
+        <text
+          x={altitudePoint.x}
+          y={altitudePoint.y + 20}
+          fontSize="16"
+          fontWeight="600"
+          textAnchor="middle"
+          fill="#212529"
+          fontFamily="Arial, sans-serif"
+        >
+          {altitude.to}
+        </text>
+      )}
+    </svg>
+  );
+};
+
+// SAT-Style Linear Graph (for function graphs)
+export const LinearGraphDiagram = ({ slope, yIntercept, xRange = [-10, 10], yRange = [-10, 10], showPoints = [], label = "g(x)", axisLabels = {} }) => {
+  const [xMin, xMax] = xRange;
+  const [yMin, yMax] = yRange;
+
+  // Calculate line endpoints
+  const y1 = slope * xMin + yIntercept;
+  const y2 = slope * xMax + yIntercept;
+
+  return (
+    <svg
+      width="320"
+      height="280"
+      viewBox={`${xMin - 1.5} ${-yMax - 1.5} ${xMax - xMin + 3} ${yMax - yMin + 3}`}
+      style={{
+        background: '#ffffff',
+        borderRadius: '4px',
+        border: '2px solid #343a40'
+      }}
+    >
+      {/* Grid */}
+      {Array.from({ length: Math.ceil((xMax - xMin) / 2) + 1 }, (_, i) => xMin + i * 2).filter(x => x !== 0 && x >= xMin && x <= xMax).map(x => (
+        <line key={`v${x}`} x1={x} y1={-yMax} x2={x} y2={-yMin} stroke="#e9ecef" strokeWidth="0.05" />
+      ))}
+      {Array.from({ length: Math.ceil((yMax - yMin) / 2) + 1 }, (_, i) => yMin + i * 2).filter(y => y !== 0 && y >= yMin && y <= yMax).map(y => (
+        <line key={`h${y}`} x1={xMin} y1={-y} x2={xMax} y2={-y} stroke="#e9ecef" strokeWidth="0.05" />
+      ))}
+
+      {/* X-axis */}
+      <line x1={xMin - 0.5} y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.12" />
+      <polygon points={`${xMax + 0.8},0 ${xMax + 0.5},0.3 ${xMax + 0.5},-0.3`} fill="#212529" />
+
+      {/* Y-axis */}
+      <line x1="0" y1={-yMin + 0.5} x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.12" />
+      <polygon points={`0,${-yMax - 0.8} 0.3,${-yMax - 0.5} -0.3,${-yMax - 0.5}`} fill="#212529" />
+
+      {/* Tick marks */}
+      {[-5, 5].map(x => (
+        <g key={`tx${x}`}>
+          <line x1={x} y1="-0.2" x2={x} y2="0.2" stroke="#212529" strokeWidth="0.1" />
+          <text x={x} y="1" fontSize="0.7" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
+        </g>
+      ))}
+      {[-5, 5].map(y => (
+        <g key={`ty${y}`}>
+          <line x1="-0.2" y1={-y} x2="0.2" y2={-y} stroke="#212529" strokeWidth="0.1" />
+          <text x="-0.6" y={-y + 0.25} fontSize="0.7" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
+        </g>
+      ))}
+
+      {/* Line */}
+      <line x1={xMin} y1={-y1} x2={xMax} y2={-y2} stroke="#1864ab" strokeWidth="0.15" />
+
+      {/* Points */}
+      {showPoints.map(([px, py], i) => (
+        <circle key={i} cx={px} cy={-py} r="0.25" fill="#1864ab" />
+      ))}
+
+      {/* Label */}
+      <text x={xMax - 1} y={-yMax + 0.8} fontSize="0.7" fill="#1864ab" fontFamily="Times New Roman, serif" fontStyle="italic">{label}</text>
+    </svg>
+  );
+};
+
 // Main QuestionDiagram component that switches based on type
 const QuestionDiagram = ({ type, params }) => {
   switch (type) {
@@ -952,6 +1549,19 @@ const QuestionDiagram = ({ type, params }) => {
       return <SimpleLineDiagram {...params} />;
     case 'table':
       return <TableDiagram {...params} />;
+    case 'dotPlot':
+      return <DotPlotDiagram {...params} />;
+    case 'circleGeometry':
+    case 'circleInscribed':
+      return <CircleGeometryDiagram {...params} />;
+    case 'piecewiseLinear':
+      return <PiecewiseLinearDiagram {...params} />;
+    case 'barChart':
+      return <BarChartDiagram {...params} />;
+    case 'triangle':
+      return <TriangleGeometryDiagram {...params} />;
+    case 'linearGraph':
+      return <LinearGraphDiagram {...params} />;
     default:
       return null;
   }

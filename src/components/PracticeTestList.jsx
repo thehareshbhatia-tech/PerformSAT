@@ -1,0 +1,169 @@
+import { getAllPracticeTests } from '../data/practiceTests';
+
+const PracticeTestList = ({ onSelectTest, onBack }) => {
+  const tests = getAllPracticeTests();
+
+  return (
+    <div style={{ maxWidth: '800px', margin: '0 auto', padding: '40px 20px' }}>
+      {/* Header */}
+      <div style={{ marginBottom: '40px' }}>
+        <button
+          onClick={onBack}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            background: 'none',
+            border: 'none',
+            color: '#6b7280',
+            fontSize: '14px',
+            cursor: 'pointer',
+            padding: '0',
+            marginBottom: '16px'
+          }}
+        >
+          ← Back to Dashboard
+        </button>
+        <h1 style={{
+          fontSize: '28px',
+          fontWeight: '600',
+          color: '#111827',
+          marginBottom: '8px'
+        }}>
+          Practice Tests
+        </h1>
+        <p style={{
+          fontSize: '16px',
+          color: '#6b7280'
+        }}>
+          Full-length SAT Math practice tests to prepare for the real exam
+        </p>
+      </div>
+
+      {/* Test cards */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        {tests.map((test) => {
+          const totalQuestions = test.modules.reduce((sum, m) => sum + m.questions.length, 0);
+          const totalTime = test.modules.reduce((sum, m) => sum + (m.timeLimit || 35), 0);
+
+          return (
+            <div
+              key={test.id}
+              style={{
+                background: 'white',
+                border: '1px solid #e5e7eb',
+                borderRadius: '12px',
+                padding: '24px',
+                transition: 'box-shadow 0.2s ease'
+              }}
+            >
+              <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'flex-start'
+              }}>
+                <div>
+                  <h2 style={{
+                    fontSize: '20px',
+                    fontWeight: '600',
+                    color: '#111827',
+                    marginBottom: '8px'
+                  }}>
+                    {test.title}
+                  </h2>
+                  <p style={{
+                    fontSize: '14px',
+                    color: '#6b7280',
+                    marginBottom: '16px'
+                  }}>
+                    {test.description || 'Full-length SAT Math practice test'}
+                  </p>
+
+                  {/* Module breakdown */}
+                  <div style={{ display: 'flex', gap: '24px', marginBottom: '16px' }}>
+                    {test.modules.map((module, idx) => (
+                      <div key={idx} style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px'
+                      }}>
+                        <div style={{
+                          width: '8px',
+                          height: '8px',
+                          borderRadius: '50%',
+                          background: idx === 0 ? '#3b82f6' : '#10b981'
+                        }} />
+                        <span style={{ fontSize: '14px', color: '#374151' }}>
+                          {module.title}: {module.questions.length} questions
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Stats */}
+                  <div style={{
+                    display: 'flex',
+                    gap: '20px',
+                    fontSize: '13px',
+                    color: '#6b7280'
+                  }}>
+                    <span>{totalQuestions} total questions</span>
+                    <span>~{totalTime} minutes</span>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => onSelectTest(test)}
+                  style={{
+                    padding: '12px 28px',
+                    background: '#111827',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '8px',
+                    fontSize: '15px',
+                    fontWeight: '600',
+                    cursor: 'pointer',
+                    flexShrink: 0
+                  }}
+                >
+                  Start Test
+                </button>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Info section */}
+      <div style={{
+        marginTop: '40px',
+        padding: '24px',
+        background: '#f9fafb',
+        borderRadius: '12px'
+      }}>
+        <h3 style={{
+          fontSize: '16px',
+          fontWeight: '600',
+          color: '#111827',
+          marginBottom: '12px'
+        }}>
+          About Practice Tests
+        </h3>
+        <ul style={{
+          margin: 0,
+          paddingLeft: '20px',
+          color: '#6b7280',
+          fontSize: '14px',
+          lineHeight: '1.8'
+        }}>
+          <li>Each test has 2 modules with 22 questions each (44 total)</li>
+          <li>Questions match the style and difficulty of the official SAT</li>
+          <li>Timed mode helps simulate real test conditions</li>
+          <li>Review your answers and explanations after completing each module</li>
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+export default PracticeTestList;

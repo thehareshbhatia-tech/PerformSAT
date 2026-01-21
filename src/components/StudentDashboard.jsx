@@ -252,7 +252,7 @@ const StudentDashboard = ({
         color: '#111827',
         marginBottom: '32px'
       }}>
-        Your SAT Math Progress
+        {user?.firstName ? `${user.firstName}'s SAT Math Progress` : 'Your SAT Math Progress'}
       </h1>
 
       {/* Test Date Section */}
