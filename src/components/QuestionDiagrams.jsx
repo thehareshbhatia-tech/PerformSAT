@@ -63,57 +63,56 @@ export const RationalFunctionDiagram = ({ a, b, showPoints = [] }) => {
       viewBox="-8 -9.5 16 14"
       style={{
         background: '#ffffff',
-        borderRadius: '4px',
-        border: '2px solid #343a40'
+        border: '1px solid #d1d5db'
       }}
     >
       {/* Background */}
       <rect x="-8" y="-9.5" width="16" height="14" fill="#ffffff" />
 
-      {/* Grid lines - lighter secondary grid */}
+      {/* Grid lines - very light */}
       {[-6, -4, -2, 2, 4, 6].map(x => (
         <line
           key={`v${x}`}
           x1={x} y1={-yMax - 0.5} x2={x} y2={-yMin + 0.5}
-          stroke="#e9ecef"
-          strokeWidth="0.05"
+          stroke="#f0f0f0"
+          strokeWidth="0.03"
         />
       ))}
       {[-2, 2, 4, 6].map(y => (
         <line
           key={`h${y}`}
           x1={xMin - 0.5} y1={-y} x2={xMax + 0.5} y2={-y}
-          stroke="#e9ecef"
-          strokeWidth="0.05"
+          stroke="#f0f0f0"
+          strokeWidth="0.03"
         />
       ))}
 
-      {/* Main X-axis - thick black */}
+      {/* Main X-axis - thin clean line */}
       <line
         x1={xMin - 0.8} y1="0" x2={xMax + 0.8} y2="0"
         stroke="#212529"
-        strokeWidth="0.12"
+        strokeWidth="0.08"
       />
-      {/* X-axis arrow */}
-      <polygon points={`${xMax + 0.8},0 ${xMax + 0.5},0.2 ${xMax + 0.5},-0.2`} fill="#212529" />
+      {/* X-axis arrow - smaller */}
+      <polygon points={`${xMax + 0.8},0 ${xMax + 0.55},0.12 ${xMax + 0.55},-0.12`} fill="#212529" />
 
-      {/* Main Y-axis - thick black */}
+      {/* Main Y-axis - thin clean line */}
       <line
         x1="0" y1={-yMin + 0.8} x2="0" y2={-yMax - 0.8}
         stroke="#212529"
-        strokeWidth="0.12"
+        strokeWidth="0.08"
       />
-      {/* Y-axis arrow */}
-      <polygon points={`0,${-yMax - 0.8} 0.2,${-yMax - 0.5} -0.2,${-yMax - 0.5}`} fill="#212529" />
+      {/* Y-axis arrow - smaller */}
+      <polygon points={`0,${-yMax - 0.8} 0.12,${-yMax - 0.55} -0.12,${-yMax - 0.55}`} fill="#212529" />
 
       {/* Tick marks with numbers - X axis */}
       {[-6, -4, -2, 2, 4, 6].map(x => (
         <g key={`tx${x}`}>
-          <line x1={x} y1="-0.2" x2={x} y2="0.2" stroke="#212529" strokeWidth="0.1" />
+          <line x1={x} y1="-0.15" x2={x} y2="0.15" stroke="#212529" strokeWidth="0.06" />
           <text
             x={x}
-            y="0.9"
-            fontSize="0.6"
+            y="0.8"
+            fontSize="0.5"
             textAnchor="middle"
             fill="#495057"
             fontFamily="Arial, sans-serif"
@@ -126,11 +125,11 @@ export const RationalFunctionDiagram = ({ a, b, showPoints = [] }) => {
       {/* Tick marks with numbers - Y axis */}
       {[-2, 2, 4, 6].map(y => (
         <g key={`ty${y}`}>
-          <line x1="-0.2" y1={-y} x2="0.2" y2={-y} stroke="#212529" strokeWidth="0.1" />
+          <line x1="-0.15" y1={-y} x2="0.15" y2={-y} stroke="#212529" strokeWidth="0.06" />
           <text
-            x="-0.6"
-            y={-y + 0.2}
-            fontSize="0.6"
+            x="-0.5"
+            y={-y + 0.18}
+            fontSize="0.5"
             textAnchor="end"
             fill="#495057"
             fontFamily="Arial, sans-serif"
@@ -141,7 +140,7 @@ export const RationalFunctionDiagram = ({ a, b, showPoints = [] }) => {
       ))}
 
       {/* Origin O label */}
-      <text x="-0.5" y="0.9" fontSize="0.6" fill="#495057" fontFamily="Arial, sans-serif">O</text>
+      <text x="-0.4" y="0.8" fontSize="0.5" fill="#495057" fontFamily="Arial, sans-serif">O</text>
 
       {/* Vertical asymptote - dashed gray line */}
       <line
@@ -151,12 +150,12 @@ export const RationalFunctionDiagram = ({ a, b, showPoints = [] }) => {
         strokeDasharray="0.4,0.2"
       />
 
-      {/* Function curve - thick dark blue */}
+      {/* Function curve - clean dark blue */}
       <path
         d={curvePath}
         fill="none"
         stroke="#1864ab"
-        strokeWidth="0.18"
+        strokeWidth="0.12"
         strokeLinecap="round"
       />
 
@@ -166,7 +165,7 @@ export const RationalFunctionDiagram = ({ a, b, showPoints = [] }) => {
           <circle
             cx={px}
             cy={-py}
-            r="0.28"
+            r="0.2"
             fill="#1864ab"
           />
           <text
@@ -249,50 +248,49 @@ export const QuadraticDiagram = ({ vertex, a = 0.5, showPoints = [], showVertex 
       viewBox="-8 -7.5 16 14"
       style={{
         background: '#ffffff',
-        borderRadius: '4px',
-        border: '2px solid #343a40'
+        border: '1px solid #d1d5db'
       }}
     >
       {/* Grid lines */}
       {[-6, -4, -2, 2, 4, 6].map(x => (
-        <line key={`v${x}`} x1={x} y1={-yMax - 0.5} x2={x} y2={-yMin + 0.5} stroke="#e9ecef" strokeWidth="0.05" />
+        <line key={`v${x}`} x1={x} y1={-yMax - 0.5} x2={x} y2={-yMin + 0.5} stroke="#f0f0f0" strokeWidth="0.03" />
       ))}
       {[-4, -2, 2, 4].map(y => (
-        <line key={`h${y}`} x1={xMin - 0.5} y1={-y} x2={xMax + 0.5} y2={-y} stroke="#e9ecef" strokeWidth="0.05" />
+        <line key={`h${y}`} x1={xMin - 0.5} y1={-y} x2={xMax + 0.5} y2={-y} stroke="#f0f0f0" strokeWidth="0.03" />
       ))}
 
       {/* Axes */}
-      <line x1={xMin - 0.8} y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.12" />
-      <polygon points={`${xMax + 0.8},0 ${xMax + 0.5},0.2 ${xMax + 0.5},-0.2`} fill="#212529" />
-      <line x1="0" y1={-yMin + 0.8} x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.12" />
-      <polygon points={`0,${-yMax - 0.8} 0.2,${-yMax - 0.5} -0.2,${-yMax - 0.5}`} fill="#212529" />
+      <line x1={xMin - 0.8} y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.08" />
+      <polygon points={`${xMax + 0.8},0 ${xMax + 0.55},0.12 ${xMax + 0.55},-0.12`} fill="#212529" />
+      <line x1="0" y1={-yMin + 0.8} x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.08" />
+      <polygon points={`0,${-yMax - 0.8} 0.12,${-yMax - 0.55} -0.12,${-yMax - 0.55}`} fill="#212529" />
 
       {/* Tick marks with numbers */}
       {[-6, -4, -2, 2, 4, 6].map(x => (
         <g key={`tx${x}`}>
-          <line x1={x} y1="-0.2" x2={x} y2="0.2" stroke="#212529" strokeWidth="0.1" />
-          <text x={x} y="0.9" fontSize="0.6" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
+          <line x1={x} y1="-0.15" x2={x} y2="0.15" stroke="#212529" strokeWidth="0.06" />
+          <text x={x} y="0.8" fontSize="0.5" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
         </g>
       ))}
       {[-4, -2, 2, 4].map(y => (
         <g key={`ty${y}`}>
-          <line x1="-0.2" y1={-y} x2="0.2" y2={-y} stroke="#212529" strokeWidth="0.1" />
-          <text x="-0.6" y={-y + 0.2} fontSize="0.6" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
+          <line x1="-0.15" y1={-y} x2="0.15" y2={-y} stroke="#212529" strokeWidth="0.06" />
+          <text x="-0.5" y={-y + 0.18} fontSize="0.5" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
         </g>
       ))}
-      <text x="-0.5" y="0.9" fontSize="0.6" fill="#495057" fontFamily="Arial, sans-serif">O</text>
+      <text x="-0.4" y="0.8" fontSize="0.5" fill="#495057" fontFamily="Arial, sans-serif">O</text>
 
       {/* Parabola curve */}
-      <path d={pathD} fill="none" stroke="#1864ab" strokeWidth="0.18" strokeLinecap="round" />
+      <path d={pathD} fill="none" stroke="#1864ab" strokeWidth="0.12" strokeLinecap="round" />
 
       {/* Vertex point */}
       {showVertex && (
         <g>
-          <circle cx={h} cy={-k} r="0.28" fill="#c92a2a" />
+          <circle cx={h} cy={-k} r="0.2" fill="#c92a2a" />
           <text
             x={h + 0.5}
             y={-k + (k < 0 ? -0.5 : 0.8)}
-            fontSize="0.55"
+            fontSize="0.5"
             fill="#212529"
             fontFamily="Arial, sans-serif"
             fontWeight="500"
@@ -305,15 +303,15 @@ export const QuadraticDiagram = ({ vertex, a = 0.5, showPoints = [], showVertex 
       {/* Additional marked points */}
       {showPoints.map(([px, py], i) => (
         <g key={i}>
-          <circle cx={px} cy={-py} r="0.25" fill="#1864ab" />
-          <text x={px + 0.4} y={-py - 0.3} fontSize="0.5" fill="#212529" fontFamily="Arial, sans-serif">({px}, {py})</text>
+          <circle cx={px} cy={-py} r="0.18" fill="#1864ab" />
+          <text x={px + 0.4} y={-py - 0.3} fontSize="0.45" fill="#212529" fontFamily="Arial, sans-serif">({px}, {py})</text>
         </g>
       ))}
 
       {/* Axis labels */}
-      <text x={xMax + 0.5} y="-0.5" fontSize="0.7" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">x</text>
-      <text x="0.5" y={-yMax - 0.3} fontSize="0.7" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">y</text>
-      <text x={xMax - 1.5} y={-yMax + 0.5} fontSize="0.6" fill="#1864ab" fontFamily="Times New Roman, serif" fontStyle="italic">y = f(x)</text>
+      <text x={xMax + 0.5} y="-0.5" fontSize="0.6" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">x</text>
+      <text x="0.5" y={-yMax - 0.3} fontSize="0.6" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">y</text>
+      <text x={xMax - 1.5} y={-yMax + 0.5} fontSize="0.55" fill="#1864ab" fontFamily="Times New Roman, serif" fontStyle="italic">y = f(x)</text>
     </svg>
   );
 };
@@ -336,59 +334,58 @@ export const AbsoluteValueDiagram = ({ vertex, slope = 1, showPoints = [] }) => 
       viewBox="-8 -7.5 16 13"
       style={{
         background: '#ffffff',
-        borderRadius: '4px',
-        border: '2px solid #343a40'
+        border: '1px solid #d1d5db'
       }}
     >
       {/* Grid */}
       {[-6, -4, -2, 2, 4, 6].map(x => (
-        <line key={`v${x}`} x1={x} y1={-yMax - 0.5} x2={x} y2={-yMin + 0.5} stroke="#e9ecef" strokeWidth="0.05" />
+        <line key={`v${x}`} x1={x} y1={-yMax - 0.5} x2={x} y2={-yMin + 0.5} stroke="#f0f0f0" strokeWidth="0.03" />
       ))}
       {[-4, -2, 2, 4].map(y => (
-        <line key={`h${y}`} x1={xMin - 0.5} y1={-y} x2={xMax + 0.5} y2={-y} stroke="#e9ecef" strokeWidth="0.05" />
+        <line key={`h${y}`} x1={xMin - 0.5} y1={-y} x2={xMax + 0.5} y2={-y} stroke="#f0f0f0" strokeWidth="0.03" />
       ))}
 
       {/* Axes */}
-      <line x1={xMin - 0.8} y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.12" />
-      <polygon points={`${xMax + 0.8},0 ${xMax + 0.5},0.2 ${xMax + 0.5},-0.2`} fill="#212529" />
-      <line x1="0" y1={-yMin + 0.8} x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.12" />
-      <polygon points={`0,${-yMax - 0.8} 0.2,${-yMax - 0.5} -0.2,${-yMax - 0.5}`} fill="#212529" />
+      <line x1={xMin - 0.8} y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.08" />
+      <polygon points={`${xMax + 0.8},0 ${xMax + 0.55},0.12 ${xMax + 0.55},-0.12`} fill="#212529" />
+      <line x1="0" y1={-yMin + 0.8} x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.08" />
+      <polygon points={`0,${-yMax - 0.8} 0.12,${-yMax - 0.55} -0.12,${-yMax - 0.55}`} fill="#212529" />
 
       {/* Tick marks */}
       {[-6, -4, -2, 2, 4, 6].map(x => (
         <g key={`tx${x}`}>
-          <line x1={x} y1="-0.2" x2={x} y2="0.2" stroke="#212529" strokeWidth="0.1" />
-          <text x={x} y="0.9" fontSize="0.6" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
+          <line x1={x} y1="-0.15" x2={x} y2="0.15" stroke="#212529" strokeWidth="0.06" />
+          <text x={x} y="0.8" fontSize="0.5" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
         </g>
       ))}
       {[-4, -2, 2, 4].map(y => (
         <g key={`ty${y}`}>
-          <line x1="-0.2" y1={-y} x2="0.2" y2={-y} stroke="#212529" strokeWidth="0.1" />
-          <text x="-0.6" y={-y + 0.2} fontSize="0.6" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
+          <line x1="-0.15" y1={-y} x2="0.15" y2={-y} stroke="#212529" strokeWidth="0.06" />
+          <text x="-0.5" y={-y + 0.18} fontSize="0.5" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
         </g>
       ))}
-      <text x="-0.5" y="0.9" fontSize="0.6" fill="#495057" fontFamily="Arial, sans-serif">O</text>
+      <text x="-0.4" y="0.8" fontSize="0.5" fill="#495057" fontFamily="Arial, sans-serif">O</text>
 
       {/* V-shape: left arm */}
       <line
         x1={leftEndX} y1={-Math.min(leftEndY, yMax)}
         x2={h} y2={-k}
-        stroke="#1864ab" strokeWidth="0.18" strokeLinecap="round"
+        stroke="#1864ab" strokeWidth="0.12" strokeLinecap="round"
       />
 
       {/* V-shape: right arm */}
       <line
         x1={h} y1={-k}
         x2={rightEndX} y2={-Math.min(rightEndY, yMax)}
-        stroke="#1864ab" strokeWidth="0.18" strokeLinecap="round"
+        stroke="#1864ab" strokeWidth="0.12" strokeLinecap="round"
       />
 
       {/* Vertex */}
-      <circle cx={h} cy={-k} r="0.28" fill="#c92a2a" />
+      <circle cx={h} cy={-k} r="0.2" fill="#c92a2a" />
       <text
         x={h + 0.5}
         y={-k + (k < 0 ? -0.5 : 0.8)}
-        fontSize="0.55"
+        fontSize="0.5"
         fill="#212529"
         fontFamily="Arial, sans-serif"
         fontWeight="500"
@@ -399,14 +396,14 @@ export const AbsoluteValueDiagram = ({ vertex, slope = 1, showPoints = [] }) => 
       {/* Additional points */}
       {showPoints.map(([px, py], i) => (
         <g key={i}>
-          <circle cx={px} cy={-py} r="0.25" fill="#1864ab" />
+          <circle cx={px} cy={-py} r="0.18" fill="#1864ab" />
         </g>
       ))}
 
       {/* Labels */}
-      <text x={xMax + 0.5} y="-0.5" fontSize="0.7" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">x</text>
-      <text x="0.5" y={-yMax - 0.3} fontSize="0.7" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">y</text>
-      <text x={xMax - 1.5} y={-yMax + 0.5} fontSize="0.6" fill="#1864ab" fontFamily="Times New Roman, serif" fontStyle="italic">y = f(x)</text>
+      <text x={xMax + 0.5} y="-0.5" fontSize="0.6" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">x</text>
+      <text x="0.5" y={-yMax - 0.3} fontSize="0.6" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">y</text>
+      <text x={xMax - 1.5} y={-yMax + 0.5} fontSize="0.55" fill="#1864ab" fontFamily="Times New Roman, serif" fontStyle="italic">y = f(x)</text>
     </svg>
   );
 };
@@ -422,47 +419,46 @@ export const CoordinatePointsDiagram = ({ points = [], label = "f" }) => {
       viewBox="-3 -13 12 16"
       style={{
         background: '#ffffff',
-        borderRadius: '4px',
-        border: '2px solid #343a40'
+        border: '1px solid #d1d5db'
       }}
     >
       {/* Grid */}
       {[2, 4, 6].map(x => (
-        <line key={`v${x}`} x1={x} y1={-yMax - 0.5} x2={x} y2={-yMin + 0.5} stroke="#e9ecef" strokeWidth="0.05" />
+        <line key={`v${x}`} x1={x} y1={-yMax - 0.5} x2={x} y2={-yMin + 0.5} stroke="#f0f0f0" strokeWidth="0.03" />
       ))}
       {[2, 4, 6, 8, 10].map(y => (
-        <line key={`h${y}`} x1={xMin - 0.5} y1={-y} x2={xMax + 0.5} y2={-y} stroke="#e9ecef" strokeWidth="0.05" />
+        <line key={`h${y}`} x1={xMin - 0.5} y1={-y} x2={xMax + 0.5} y2={-y} stroke="#f0f0f0" strokeWidth="0.03" />
       ))}
 
       {/* Axes */}
-      <line x1={xMin - 0.8} y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.12" />
-      <polygon points={`${xMax + 0.8},0 ${xMax + 0.5},0.2 ${xMax + 0.5},-0.2`} fill="#212529" />
-      <line x1="0" y1={-yMin + 0.8} x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.12" />
-      <polygon points={`0,${-yMax - 0.8} 0.2,${-yMax - 0.5} -0.2,${-yMax - 0.5}`} fill="#212529" />
+      <line x1={xMin - 0.8} y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.08" />
+      <polygon points={`${xMax + 0.8},0 ${xMax + 0.55},0.12 ${xMax + 0.55},-0.12`} fill="#212529" />
+      <line x1="0" y1={-yMin + 0.8} x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.08" />
+      <polygon points={`0,${-yMax - 0.8} 0.12,${-yMax - 0.55} -0.12,${-yMax - 0.55}`} fill="#212529" />
 
       {/* Tick marks */}
       {[2, 4, 6].map(x => (
         <g key={`tx${x}`}>
-          <line x1={x} y1="-0.2" x2={x} y2="0.2" stroke="#212529" strokeWidth="0.1" />
-          <text x={x} y="0.9" fontSize="0.6" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
+          <line x1={x} y1="-0.15" x2={x} y2="0.15" stroke="#212529" strokeWidth="0.06" />
+          <text x={x} y="0.8" fontSize="0.5" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
         </g>
       ))}
       {[2, 4, 6, 8, 10].map(y => (
         <g key={`ty${y}`}>
-          <line x1="-0.2" y1={-y} x2="0.2" y2={-y} stroke="#212529" strokeWidth="0.1" />
-          <text x="-0.6" y={-y + 0.2} fontSize="0.6" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
+          <line x1="-0.15" y1={-y} x2="0.15" y2={-y} stroke="#212529" strokeWidth="0.06" />
+          <text x="-0.5" y={-y + 0.18} fontSize="0.5" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
         </g>
       ))}
-      <text x="-0.5" y="0.9" fontSize="0.6" fill="#495057" fontFamily="Arial, sans-serif">O</text>
+      <text x="-0.4" y="0.8" fontSize="0.5" fill="#495057" fontFamily="Arial, sans-serif">O</text>
 
       {/* Points */}
       {points.map(([px, py], i) => (
         <g key={i}>
-          <circle cx={px} cy={-py} r="0.32" fill="#1864ab" />
+          <circle cx={px} cy={-py} r="0.22" fill="#1864ab" />
           <text
             x={px + 0.5}
             y={-py - 0.4}
-            fontSize="0.6"
+            fontSize="0.5"
             fill="#212529"
             fontFamily="Arial, sans-serif"
             fontWeight="500"
@@ -473,9 +469,9 @@ export const CoordinatePointsDiagram = ({ points = [], label = "f" }) => {
       ))}
 
       {/* Labels */}
-      <text x={xMax + 0.5} y="-0.5" fontSize="0.7" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">x</text>
-      <text x="0.5" y={-yMax - 0.3} fontSize="0.7" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">y</text>
-      <text x={xMax - 2} y={-yMax + 0.5} fontSize="0.6" fill="#1864ab" fontFamily="Times New Roman, serif" fontStyle="italic">y = {label}(x)</text>
+      <text x={xMax + 0.5} y="-0.5" fontSize="0.6" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">x</text>
+      <text x="0.5" y={-yMax - 0.3} fontSize="0.6" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">y</text>
+      <text x={xMax - 2} y={-yMax + 0.5} fontSize="0.55" fill="#1864ab" fontFamily="Times New Roman, serif" fontStyle="italic">y = {label}(x)</text>
     </svg>
   );
 };
@@ -511,57 +507,56 @@ export const QuadraticInterceptsDiagram = ({ intercepts, vertex = null }) => {
       viewBox="-5 -5 14 11"
       style={{
         background: '#ffffff',
-        borderRadius: '4px',
-        border: '2px solid #343a40'
+        border: '1px solid #d1d5db'
       }}
     >
       {/* Grid */}
       {[-2, 2, 4, 6].map(x => (
-        <line key={`v${x}`} x1={x} y1={-yMax - 0.5} x2={x} y2={-yMin + 0.5} stroke="#e9ecef" strokeWidth="0.05" />
+        <line key={`v${x}`} x1={x} y1={-yMax - 0.5} x2={x} y2={-yMin + 0.5} stroke="#f0f0f0" strokeWidth="0.03" />
       ))}
       {[-4, -2, 2].map(y => (
-        <line key={`h${y}`} x1={xMin - 0.5} y1={-y} x2={xMax + 0.5} y2={-y} stroke="#e9ecef" strokeWidth="0.05" />
+        <line key={`h${y}`} x1={xMin - 0.5} y1={-y} x2={xMax + 0.5} y2={-y} stroke="#f0f0f0" strokeWidth="0.03" />
       ))}
 
       {/* Axes */}
-      <line x1={xMin - 0.8} y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.12" />
-      <polygon points={`${xMax + 0.8},0 ${xMax + 0.5},0.2 ${xMax + 0.5},-0.2`} fill="#212529" />
-      <line x1="0" y1={-yMin + 0.8} x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.12" />
-      <polygon points={`0,${-yMax - 0.8} 0.2,${-yMax - 0.5} -0.2,${-yMax - 0.5}`} fill="#212529" />
+      <line x1={xMin - 0.8} y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.08" />
+      <polygon points={`${xMax + 0.8},0 ${xMax + 0.55},0.12 ${xMax + 0.55},-0.12`} fill="#212529" />
+      <line x1="0" y1={-yMin + 0.8} x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.08" />
+      <polygon points={`0,${-yMax - 0.8} 0.12,${-yMax - 0.55} -0.12,${-yMax - 0.55}`} fill="#212529" />
 
       {/* Tick marks */}
       {[-2, 2, 4, 6].map(x => (
         <g key={`tx${x}`}>
-          <line x1={x} y1="-0.2" x2={x} y2="0.2" stroke="#212529" strokeWidth="0.1" />
-          <text x={x} y="0.8" fontSize="0.55" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
+          <line x1={x} y1="-0.15" x2={x} y2="0.15" stroke="#212529" strokeWidth="0.06" />
+          <text x={x} y="0.75" fontSize="0.5" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
         </g>
       ))}
       {[-4, -2, 2].map(y => (
         <g key={`ty${y}`}>
-          <line x1="-0.2" y1={-y} x2="0.2" y2={-y} stroke="#212529" strokeWidth="0.1" />
-          <text x="-0.5" y={-y + 0.2} fontSize="0.55" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
+          <line x1="-0.15" y1={-y} x2="0.15" y2={-y} stroke="#212529" strokeWidth="0.06" />
+          <text x="-0.45" y={-y + 0.18} fontSize="0.5" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
         </g>
       ))}
-      <text x="-0.5" y="0.8" fontSize="0.55" fill="#495057" fontFamily="Arial, sans-serif">O</text>
+      <text x="-0.4" y="0.75" fontSize="0.5" fill="#495057" fontFamily="Arial, sans-serif">O</text>
 
       {/* Parabola */}
-      <path d={pathD} fill="none" stroke="#1864ab" strokeWidth="0.18" strokeLinecap="round" />
+      <path d={pathD} fill="none" stroke="#1864ab" strokeWidth="0.12" strokeLinecap="round" />
 
       {/* X-intercepts - green dots */}
-      <circle cx={x1} cy="0" r="0.28" fill="#2f9e44" />
-      <text x={x1} y="1.1" fontSize="0.55" fill="#2f9e44" textAnchor="middle" fontFamily="Arial, sans-serif" fontWeight="600">
+      <circle cx={x1} cy="0" r="0.2" fill="#2f9e44" />
+      <text x={x1} y="1" fontSize="0.5" fill="#2f9e44" textAnchor="middle" fontFamily="Arial, sans-serif" fontWeight="600">
         {x1}
       </text>
 
-      <circle cx={x2} cy="0" r="0.28" fill="#2f9e44" />
-      <text x={x2} y="1.1" fontSize="0.55" fill="#2f9e44" textAnchor="middle" fontFamily="Arial, sans-serif" fontWeight="600">
+      <circle cx={x2} cy="0" r="0.2" fill="#2f9e44" />
+      <text x={x2} y="1" fontSize="0.5" fill="#2f9e44" textAnchor="middle" fontFamily="Arial, sans-serif" fontWeight="600">
         {x2}
       </text>
 
       {/* Labels */}
-      <text x={xMax + 0.5} y="-0.5" fontSize="0.7" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">x</text>
-      <text x="0.5" y={-yMax - 0.3} fontSize="0.7" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">y</text>
-      <text x={xMax - 1.5} y={-yMax + 0.5} fontSize="0.6" fill="#1864ab" fontFamily="Times New Roman, serif" fontStyle="italic">y = f(x)</text>
+      <text x={xMax + 0.5} y="-0.5" fontSize="0.6" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">x</text>
+      <text x="0.5" y={-yMax - 0.3} fontSize="0.6" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">y</text>
+      <text x={xMax - 1.5} y={-yMax + 0.5} fontSize="0.55" fill="#1864ab" fontFamily="Times New Roman, serif" fontStyle="italic">y = f(x)</text>
     </svg>
   );
 };
@@ -569,8 +564,8 @@ export const QuadraticInterceptsDiagram = ({ intercepts, vertex = null }) => {
 // SAT-Style Table Diagram (for table-to-equation questions)
 export const TableDiagram = ({ rows = [], xHeader = "x", yHeader = "f(x)" }) => {
   const cellWidth = 80;
-  const cellHeight = 40;
-  const headerHeight = 45;
+  const cellHeight = 36;
+  const headerHeight = 40;
   const tableWidth = cellWidth * 2;
   const tableHeight = headerHeight + rows.length * cellHeight;
 
@@ -580,31 +575,28 @@ export const TableDiagram = ({ rows = [], xHeader = "x", yHeader = "f(x)" }) => 
       height={tableHeight + 4}
       viewBox={`0 0 ${tableWidth + 4} ${tableHeight + 4}`}
       style={{
-        background: '#ffffff',
-        borderRadius: '4px',
-        border: '2px solid #343a40'
+        background: '#ffffff'
       }}
     >
-      {/* Table border */}
+      {/* Table border - thin */}
       <rect
         x="2"
         y="2"
         width={tableWidth}
         height={tableHeight}
         fill="none"
-        stroke="#212529"
-        strokeWidth="2"
+        stroke="#495057"
+        strokeWidth="1"
       />
 
-      {/* Header row background */}
+      {/* Header row background - very light */}
       <rect
         x="2"
         y="2"
         width={tableWidth}
         height={headerHeight}
-        fill="#f8f9fa"
-        stroke="#212529"
-        strokeWidth="1"
+        fill="#f9fafb"
+        stroke="none"
       />
 
       {/* Vertical divider between columns */}
@@ -613,8 +605,8 @@ export const TableDiagram = ({ rows = [], xHeader = "x", yHeader = "f(x)" }) => 
         y1="2"
         x2={2 + cellWidth}
         y2={tableHeight + 2}
-        stroke="#212529"
-        strokeWidth="2"
+        stroke="#495057"
+        strokeWidth="1"
       />
 
       {/* Horizontal line under header */}
@@ -623,15 +615,15 @@ export const TableDiagram = ({ rows = [], xHeader = "x", yHeader = "f(x)" }) => 
         y1={2 + headerHeight}
         x2={tableWidth + 2}
         y2={2 + headerHeight}
-        stroke="#212529"
-        strokeWidth="2"
+        stroke="#495057"
+        strokeWidth="1"
       />
 
       {/* Header text */}
       <text
         x={2 + cellWidth / 2}
-        y={2 + headerHeight / 2 + 6}
-        fontSize="18"
+        y={2 + headerHeight / 2 + 5}
+        fontSize="16"
         fontWeight="600"
         textAnchor="middle"
         fill="#212529"
@@ -642,8 +634,8 @@ export const TableDiagram = ({ rows = [], xHeader = "x", yHeader = "f(x)" }) => 
       </text>
       <text
         x={2 + cellWidth + cellWidth / 2}
-        y={2 + headerHeight / 2 + 6}
-        fontSize="18"
+        y={2 + headerHeight / 2 + 5}
+        fontSize="16"
         fontWeight="600"
         textAnchor="middle"
         fill="#212529"
@@ -665,15 +657,15 @@ export const TableDiagram = ({ rows = [], xHeader = "x", yHeader = "f(x)" }) => 
                 y1={rowY}
                 x2={tableWidth + 2}
                 y2={rowY}
-                stroke="#dee2e6"
+                stroke="#e5e7eb"
                 strokeWidth="1"
               />
             )}
             {/* X value */}
             <text
               x={2 + cellWidth / 2}
-              y={rowY + cellHeight / 2 + 6}
-              fontSize="16"
+              y={rowY + cellHeight / 2 + 5}
+              fontSize="15"
               textAnchor="middle"
               fill="#212529"
               fontFamily="Arial, sans-serif"
@@ -683,8 +675,8 @@ export const TableDiagram = ({ rows = [], xHeader = "x", yHeader = "f(x)" }) => 
             {/* Y value */}
             <text
               x={2 + cellWidth + cellWidth / 2}
-              y={rowY + cellHeight / 2 + 6}
-              fontSize="16"
+              y={rowY + cellHeight / 2 + 5}
+              fontSize="15"
               textAnchor="middle"
               fill="#212529"
               fontFamily="Arial, sans-serif"
@@ -709,53 +701,52 @@ export const ScatterplotDiagram = ({ points = [], xLabel = "x", yLabel = "y", xM
       viewBox={`-1.5 ${-yMax - 1.5} ${xMax + 3} ${yMax + 3}`}
       style={{
         background: '#ffffff',
-        borderRadius: '4px',
-        border: '2px solid #343a40'
+        border: '1px solid #d1d5db'
       }}
     >
       {/* Grid lines */}
       {Array.from({ length: Math.floor(xMax / 2) + 1 }, (_, i) => i * 2).filter(x => x > 0).map(x => (
-        <line key={`v${x}`} x1={x} y1={-yMax - 0.3} x2={x} y2={0.3} stroke="#e9ecef" strokeWidth="0.04" />
+        <line key={`v${x}`} x1={x} y1={-yMax - 0.3} x2={x} y2={0.3} stroke="#f0f0f0" strokeWidth="0.03" />
       ))}
       {Array.from({ length: Math.floor(yMax / 2) + 1 }, (_, i) => i * 2).filter(y => y > 0).map(y => (
-        <line key={`h${y}`} x1={-0.3} y1={-y} x2={xMax + 0.3} y2={-y} stroke="#e9ecef" strokeWidth="0.04" />
+        <line key={`h${y}`} x1={-0.3} y1={-y} x2={xMax + 0.3} y2={-y} stroke="#f0f0f0" strokeWidth="0.03" />
       ))}
 
       {/* Main X-axis */}
-      <line x1="-0.5" y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.1" />
-      <polygon points={`${xMax + 0.8},0 ${xMax + 0.5},0.15 ${xMax + 0.5},-0.15`} fill="#212529" />
+      <line x1="-0.5" y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.08" />
+      <polygon points={`${xMax + 0.8},0 ${xMax + 0.55},0.1 ${xMax + 0.55},-0.1`} fill="#212529" />
 
       {/* Main Y-axis */}
-      <line x1="0" y1="0.5" x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.1" />
-      <polygon points={`0,${-yMax - 0.8} 0.15,${-yMax - 0.5} -0.15,${-yMax - 0.5}`} fill="#212529" />
+      <line x1="0" y1="0.5" x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.08" />
+      <polygon points={`0,${-yMax - 0.8} 0.1,${-yMax - 0.55} -0.1,${-yMax - 0.55}`} fill="#212529" />
 
       {/* X-axis tick marks and labels */}
       {Array.from({ length: Math.floor(xMax / 2) + 1 }, (_, i) => i * 2).filter(x => x > 0).map(x => (
         <g key={`tx${x}`}>
-          <line x1={x} y1="-0.15" x2={x} y2="0.15" stroke="#212529" strokeWidth="0.08" />
-          <text x={x} y="0.7" fontSize="0.5" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
+          <line x1={x} y1="-0.12" x2={x} y2="0.12" stroke="#212529" strokeWidth="0.06" />
+          <text x={x} y="0.6" fontSize="0.45" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
         </g>
       ))}
 
       {/* Y-axis tick marks and labels */}
       {Array.from({ length: Math.floor(yMax / 2) + 1 }, (_, i) => i * 2).filter(y => y > 0).map(y => (
         <g key={`ty${y}`}>
-          <line x1="-0.15" y1={-y} x2="0.15" y2={-y} stroke="#212529" strokeWidth="0.08" />
-          <text x="-0.4" y={-y + 0.15} fontSize="0.5" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
+          <line x1="-0.12" y1={-y} x2="0.12" y2={-y} stroke="#212529" strokeWidth="0.06" />
+          <text x="-0.35" y={-y + 0.13} fontSize="0.45" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
         </g>
       ))}
 
       {/* Origin */}
-      <text x="-0.4" y="0.7" fontSize="0.5" fill="#495057" fontFamily="Arial, sans-serif">O</text>
+      <text x="-0.35" y="0.6" fontSize="0.45" fill="#495057" fontFamily="Arial, sans-serif">O</text>
 
       {/* Scatter points - solid black dots */}
       {points.map(([px, py], i) => (
-        <circle key={i} cx={px} cy={-py} r="0.22" fill="#212529" />
+        <circle key={i} cx={px} cy={-py} r="0.18" fill="#212529" />
       ))}
 
       {/* Axis labels */}
-      <text x={xMax + 0.5} y="-0.4" fontSize="0.55" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">{xLabel}</text>
-      <text x="0.4" y={-yMax - 0.2} fontSize="0.55" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">{yLabel}</text>
+      <text x={xMax + 0.5} y="-0.4" fontSize="0.5" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">{xLabel}</text>
+      <text x="0.4" y={-yMax - 0.2} fontSize="0.5" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">{yLabel}</text>
     </svg>
   );
 };
@@ -789,25 +780,24 @@ export const LinearLineDiagram = ({ points = [], xLabel = "x", yLabel = "y", xRa
       viewBox={`${xMin - 1.5} ${-yMax - 1.5} ${xMax - xMin + 3} ${yMax - yMin + 3}`}
       style={{
         background: '#ffffff',
-        borderRadius: '4px',
-        border: '2px solid #343a40'
+        border: '1px solid #d1d5db'
       }}
     >
       {/* Grid lines */}
       {Array.from({ length: Math.floor((xMax - xMin) / 10) * 5 + 1 }, (_, i) => xMin + i * 10).filter(x => x !== 0 && x >= xMin && x <= xMax).map(x => (
-        <line key={`v${x}`} x1={x} y1={-yMax - 0.3} x2={x} y2={-yMin + 0.3} stroke="#e9ecef" strokeWidth="0.3" />
+        <line key={`v${x}`} x1={x} y1={-yMax - 0.3} x2={x} y2={-yMin + 0.3} stroke="#f0f0f0" strokeWidth="0.2" />
       ))}
       {Array.from({ length: Math.floor((yMax - yMin) / 10) * 5 + 1 }, (_, i) => yMin + i * 10).filter(y => y !== 0 && y >= yMin && y <= yMax).map(y => (
-        <line key={`h${y}`} x1={xMin - 0.3} y1={-y} x2={xMax + 0.3} y2={-y} stroke="#e9ecef" strokeWidth="0.3" />
+        <line key={`h${y}`} x1={xMin - 0.3} y1={-y} x2={xMax + 0.3} y2={-y} stroke="#f0f0f0" strokeWidth="0.2" />
       ))}
 
       {/* Main X-axis */}
-      <line x1={xMin - 0.5} y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.8" />
-      <polygon points={`${xMax + 0.8},0 ${xMax + 0.3},1.2 ${xMax + 0.3},-1.2`} fill="#212529" />
+      <line x1={xMin - 0.5} y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.5" />
+      <polygon points={`${xMax + 0.8},0 ${xMax + 0.4},0.8 ${xMax + 0.4},-0.8`} fill="#212529" />
 
       {/* Main Y-axis */}
-      <line x1="0" y1={-yMin + 0.5} x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.8" />
-      <polygon points={`0,${-yMax - 0.8} 1.2,${-yMax - 0.3} -1.2,${-yMax - 0.3}`} fill="#212529" />
+      <line x1="0" y1={-yMin + 0.5} x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.5" />
+      <polygon points={`0,${-yMax - 0.8} 0.8,${-yMax - 0.4} -0.8,${-yMax - 0.4}`} fill="#212529" />
 
       {/* Tick marks - every 10 units for larger scales, or every unit for smaller */}
       {(() => {
@@ -816,8 +806,8 @@ export const LinearLineDiagram = ({ points = [], xLabel = "x", yLabel = "y", xRa
           .filter(x => x > 0 && x <= xMax)
           .map(x => (
             <g key={`tx${x}`}>
-              <line x1={x} y1="-1" x2={x} y2="1" stroke="#212529" strokeWidth="0.5" />
-              <text x={x} y="5" fontSize="4" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
+              <line x1={x} y1="-0.8" x2={x} y2="0.8" stroke="#212529" strokeWidth="0.3" />
+              <text x={x} y="4" fontSize="3.5" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
             </g>
           ));
       })()}
@@ -828,30 +818,30 @@ export const LinearLineDiagram = ({ points = [], xLabel = "x", yLabel = "y", xRa
           .filter(y => y > 0 && y <= yMax)
           .map(y => (
             <g key={`ty${y}`}>
-              <line x1="-1" y1={-y} x2="1" y2={-y} stroke="#212529" strokeWidth="0.5" />
-              <text x="-3" y={-y + 1.5} fontSize="4" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
+              <line x1="-0.8" y1={-y} x2="0.8" y2={-y} stroke="#212529" strokeWidth="0.3" />
+              <text x="-2.5" y={-y + 1.2} fontSize="3.5" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
             </g>
           ));
       })()}
 
       {/* Origin */}
-      <text x="-3" y="5" fontSize="4" fill="#495057" fontFamily="Arial, sans-serif">O</text>
+      <text x="-2.5" y="4" fontSize="3.5" fill="#495057" fontFamily="Arial, sans-serif">O</text>
 
       {/* Line */}
       {linePathD && (
-        <path d={linePathD} fill="none" stroke="#212529" strokeWidth="1.2" />
+        <path d={linePathD} fill="none" stroke="#212529" strokeWidth="0.8" />
       )}
 
       {/* Points - if we want to show them */}
       {showLabels && points.map(([px, py], i) => (
         <g key={i}>
-          <circle cx={px} cy={-py} r="2" fill="#212529" />
+          <circle cx={px} cy={-py} r="1.5" fill="#212529" />
         </g>
       ))}
 
       {/* Axis labels */}
-      <text x={xMax - 5} y="8" fontSize="5" fill="#212529" fontFamily="Arial, sans-serif">{xLabel}</text>
-      <text x="3" y={-yMax + 3} fontSize="5" fill="#212529" fontFamily="Arial, sans-serif">{yLabel}</text>
+      <text x={xMax - 4} y="7" fontSize="4" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">{xLabel}</text>
+      <text x="2.5" y={-yMax + 2.5} fontSize="4" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">{yLabel}</text>
     </svg>
   );
 };
@@ -881,52 +871,51 @@ export const SimpleLineDiagram = ({ points = [], xMax = 6, yMax = 12 }) => {
       viewBox={`-1.5 ${-yMax - 1.5} ${xMax + 3} ${yMax + 3}`}
       style={{
         background: '#ffffff',
-        borderRadius: '4px',
-        border: '2px solid #343a40'
+        border: '1px solid #d1d5db'
       }}
     >
       {/* Grid */}
       {Array.from({ length: xMax + 1 }, (_, i) => i).filter(x => x > 0).map(x => (
-        <line key={`v${x}`} x1={x} y1={-yMax - 0.3} x2={x} y2="0.3" stroke="#e9ecef" strokeWidth="0.04" />
+        <line key={`v${x}`} x1={x} y1={-yMax - 0.3} x2={x} y2="0.3" stroke="#f0f0f0" strokeWidth="0.03" />
       ))}
       {Array.from({ length: yMax + 1 }, (_, i) => i).filter(y => y > 0 && y % 2 === 0).map(y => (
-        <line key={`h${y}`} x1="-0.3" y1={-y} x2={xMax + 0.3} y2={-y} stroke="#e9ecef" strokeWidth="0.04" />
+        <line key={`h${y}`} x1="-0.3" y1={-y} x2={xMax + 0.3} y2={-y} stroke="#f0f0f0" strokeWidth="0.03" />
       ))}
 
       {/* Axes */}
-      <line x1="-0.5" y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.1" />
-      <polygon points={`${xMax + 0.8},0 ${xMax + 0.5},0.2 ${xMax + 0.5},-0.2`} fill="#212529" />
-      <line x1="0" y1="0.5" x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.1" />
-      <polygon points={`0,${-yMax - 0.8} 0.2,${-yMax - 0.5} -0.2,${-yMax - 0.5}`} fill="#212529" />
+      <line x1="-0.5" y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.08" />
+      <polygon points={`${xMax + 0.8},0 ${xMax + 0.55},0.12 ${xMax + 0.55},-0.12`} fill="#212529" />
+      <line x1="0" y1="0.5" x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.08" />
+      <polygon points={`0,${-yMax - 0.8} 0.12,${-yMax - 0.55} -0.12,${-yMax - 0.55}`} fill="#212529" />
 
       {/* Tick marks */}
       {Array.from({ length: xMax + 1 }, (_, i) => i).filter(x => x > 0).map(x => (
         <g key={`tx${x}`}>
-          <line x1={x} y1="-0.15" x2={x} y2="0.15" stroke="#212529" strokeWidth="0.08" />
-          <text x={x} y="0.7" fontSize="0.5" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
+          <line x1={x} y1="-0.12" x2={x} y2="0.12" stroke="#212529" strokeWidth="0.06" />
+          <text x={x} y="0.6" fontSize="0.45" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
         </g>
       ))}
       {Array.from({ length: yMax + 1 }, (_, i) => i).filter(y => y > 0 && y % 2 === 0).map(y => (
         <g key={`ty${y}`}>
-          <line x1="-0.15" y1={-y} x2="0.15" y2={-y} stroke="#212529" strokeWidth="0.08" />
-          <text x="-0.4" y={-y + 0.15} fontSize="0.5" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
+          <line x1="-0.12" y1={-y} x2="0.12" y2={-y} stroke="#212529" strokeWidth="0.06" />
+          <text x="-0.35" y={-y + 0.13} fontSize="0.45" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
         </g>
       ))}
-      <text x="-0.4" y="0.7" fontSize="0.5" fill="#495057" fontFamily="Arial, sans-serif">O</text>
+      <text x="-0.35" y="0.6" fontSize="0.45" fill="#495057" fontFamily="Arial, sans-serif">O</text>
 
       {/* Line */}
       {linePathD && (
-        <path d={linePathD} fill="none" stroke="#212529" strokeWidth="0.12" />
+        <path d={linePathD} fill="none" stroke="#212529" strokeWidth="0.1" />
       )}
 
       {/* Points */}
       {points.map(([px, py], i) => (
-        <circle key={i} cx={px} cy={-py} r="0.2" fill="#212529" />
+        <circle key={i} cx={px} cy={-py} r="0.15" fill="#212529" />
       ))}
 
       {/* Axis labels */}
-      <text x={xMax + 0.5} y="-0.4" fontSize="0.55" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">x</text>
-      <text x="0.4" y={-yMax - 0.2} fontSize="0.55" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">y</text>
+      <text x={xMax + 0.5} y="-0.4" fontSize="0.5" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">x</text>
+      <text x="0.4" y={-yMax - 0.2} fontSize="0.5" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">y</text>
     </svg>
   );
 };
@@ -958,8 +947,7 @@ export const DotPlotDiagram = ({ sets = [], xRange = [0, 10], title = "" }) => {
       height={plotHeight}
       style={{
         background: '#ffffff',
-        borderRadius: '4px',
-        border: '2px solid #343a40'
+        border: '1px solid #d1d5db'
       }}
     >
       {sets.map((set, setIndex) => {
@@ -973,7 +961,7 @@ export const DotPlotDiagram = ({ sets = [], xRange = [0, 10], title = "" }) => {
             <text
               x={plotWidth / 2}
               y={setY + 12}
-              fontSize="11"
+              fontSize="10"
               fontWeight="600"
               textAnchor="middle"
               fill="#212529"
@@ -989,7 +977,7 @@ export const DotPlotDiagram = ({ sets = [], xRange = [0, 10], title = "" }) => {
               x2={plotWidth - margin.right}
               y2={baselineY}
               stroke="#212529"
-              strokeWidth="1.5"
+              strokeWidth="1"
             />
 
             {/* X-axis labels */}
@@ -999,14 +987,14 @@ export const DotPlotDiagram = ({ sets = [], xRange = [0, 10], title = "" }) => {
                   x1={xScale(x)}
                   y1={baselineY}
                   x2={xScale(x)}
-                  y2={baselineY + 5}
+                  y2={baselineY + 4}
                   stroke="#212529"
-                  strokeWidth="1"
+                  strokeWidth="0.75"
                 />
                 <text
                   x={xScale(x)}
-                  y={baselineY + 16}
-                  fontSize="10"
+                  y={baselineY + 14}
+                  fontSize="9"
                   textAnchor="middle"
                   fill="#495057"
                   fontFamily="Arial, sans-serif"
@@ -1023,8 +1011,8 @@ export const DotPlotDiagram = ({ sets = [], xRange = [0, 10], title = "" }) => {
                 <circle
                   key={`${value}-${i}`}
                   cx={x}
-                  cy={baselineY - 10 - i * 12}
-                  r="5"
+                  cy={baselineY - 9 - i * 10}
+                  r="4"
                   fill="#212529"
                 />
               ));
@@ -1062,8 +1050,7 @@ export const CircleGeometryDiagram = ({ center = "O", points = [], inscribedAngl
       height={size}
       style={{
         background: '#ffffff',
-        borderRadius: '4px',
-        border: '2px solid #343a40'
+        border: '1px solid #d1d5db'
       }}
     >
       {/* Circle */}
@@ -1073,15 +1060,15 @@ export const CircleGeometryDiagram = ({ center = "O", points = [], inscribedAngl
         r={radius}
         fill="none"
         stroke="#212529"
-        strokeWidth="2"
+        strokeWidth="1.5"
       />
 
       {/* Center point */}
-      <circle cx={cx} cy={cy} r="4" fill="#212529" />
+      <circle cx={cx} cy={cy} r="3" fill="#212529" />
       <text
         x={cx + 10}
         y={cy + 5}
-        fontSize="14"
+        fontSize="13"
         fontWeight="600"
         fill="#212529"
         fontFamily="Arial, sans-serif"
@@ -1095,11 +1082,11 @@ export const CircleGeometryDiagram = ({ center = "O", points = [], inscribedAngl
         if (!pos) return null;
         return (
           <g key={p}>
-            <circle cx={pos.x} cy={pos.y} r="4" fill="#212529" />
+            <circle cx={pos.x} cy={pos.y} r="3" fill="#212529" />
             <text
-              x={pos.x + (pos.x > cx ? 12 : -12)}
-              y={pos.y + (pos.y > cy ? 15 : -8)}
-              fontSize="14"
+              x={pos.x + (pos.x > cx ? 10 : -10)}
+              y={pos.y + (pos.y > cy ? 14 : -7)}
+              fontSize="13"
               fontWeight="600"
               textAnchor={pos.x > cx ? "start" : "end"}
               fill="#212529"
@@ -1127,7 +1114,7 @@ export const CircleGeometryDiagram = ({ center = "O", points = [], inscribedAngl
                 x2={p2.x}
                 y2={p2.y}
                 stroke="#212529"
-                strokeWidth="1.5"
+                strokeWidth="1"
               />
             );
           })}
@@ -1139,7 +1126,7 @@ export const CircleGeometryDiagram = ({ center = "O", points = [], inscribedAngl
               x2={pointPositions[points[0]]?.x}
               y2={pointPositions[points[0]]?.y}
               stroke="#212529"
-              strokeWidth="1.5"
+              strokeWidth="1"
             />
           )}
         </>
@@ -1154,7 +1141,7 @@ export const CircleGeometryDiagram = ({ center = "O", points = [], inscribedAngl
             x2={pointPositions[points[0]]?.x}
             y2={pointPositions[points[0]]?.y}
             stroke="#212529"
-            strokeWidth="1.5"
+            strokeWidth="1"
           />
           <line
             x1={cx}
@@ -1162,7 +1149,7 @@ export const CircleGeometryDiagram = ({ center = "O", points = [], inscribedAngl
             x2={pointPositions[points[points.length - 1]]?.x}
             y2={pointPositions[points[points.length - 1]]?.y}
             stroke="#212529"
-            strokeWidth="1.5"
+            strokeWidth="1"
           />
         </>
       )}
@@ -1191,53 +1178,52 @@ export const PiecewiseLinearDiagram = ({ points = [], xRange = [-5, 6], yRange =
       viewBox={`${xMin - 1.5} ${-yMax - 1.5} ${xMax - xMin + 3} ${yMax - yMin + 3}`}
       style={{
         background: '#ffffff',
-        borderRadius: '4px',
-        border: '2px solid #343a40'
+        border: '1px solid #d1d5db'
       }}
     >
       {/* Grid lines */}
       {Array.from({ length: xMax - xMin + 1 }, (_, i) => xMin + i).filter(x => x !== 0).map(x => (
-        <line key={`v${x}`} x1={x} y1={-yMax - 0.3} x2={x} y2={-yMin + 0.3} stroke="#e9ecef" strokeWidth="0.05" />
+        <line key={`v${x}`} x1={x} y1={-yMax - 0.3} x2={x} y2={-yMin + 0.3} stroke="#f0f0f0" strokeWidth="0.03" />
       ))}
       {Array.from({ length: yMax - yMin + 1 }, (_, i) => yMin + i).filter(y => y !== 0).map(y => (
-        <line key={`h${y}`} x1={xMin - 0.3} y1={-y} x2={xMax + 0.3} y2={-y} stroke="#e9ecef" strokeWidth="0.05" />
+        <line key={`h${y}`} x1={xMin - 0.3} y1={-y} x2={xMax + 0.3} y2={-y} stroke="#f0f0f0" strokeWidth="0.03" />
       ))}
 
       {/* X-axis */}
-      <line x1={xMin - 0.5} y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.12" />
-      <polygon points={`${xMax + 0.8},0 ${xMax + 0.5},0.2 ${xMax + 0.5},-0.2`} fill="#212529" />
+      <line x1={xMin - 0.5} y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.08" />
+      <polygon points={`${xMax + 0.8},0 ${xMax + 0.55},0.12 ${xMax + 0.55},-0.12`} fill="#212529" />
 
       {/* Y-axis */}
-      <line x1="0" y1={-yMin + 0.5} x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.12" />
-      <polygon points={`0,${-yMax - 0.8} 0.2,${-yMax - 0.5} -0.2,${-yMax - 0.5}`} fill="#212529" />
+      <line x1="0" y1={-yMin + 0.5} x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.08" />
+      <polygon points={`0,${-yMax - 0.8} 0.12,${-yMax - 0.55} -0.12,${-yMax - 0.55}`} fill="#212529" />
 
       {/* Tick marks */}
       {Array.from({ length: xMax - xMin + 1 }, (_, i) => xMin + i).filter(x => x !== 0).map(x => (
         <g key={`tx${x}`}>
-          <line x1={x} y1="-0.15" x2={x} y2="0.15" stroke="#212529" strokeWidth="0.08" />
-          <text x={x} y="0.7" fontSize="0.5" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
+          <line x1={x} y1="-0.12" x2={x} y2="0.12" stroke="#212529" strokeWidth="0.06" />
+          <text x={x} y="0.6" fontSize="0.45" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
         </g>
       ))}
       {Array.from({ length: yMax - yMin + 1 }, (_, i) => yMin + i).filter(y => y !== 0).map(y => (
         <g key={`ty${y}`}>
-          <line x1="-0.15" y1={-y} x2="0.15" y2={-y} stroke="#212529" strokeWidth="0.08" />
-          <text x="-0.4" y={-y + 0.15} fontSize="0.5" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
+          <line x1="-0.12" y1={-y} x2="0.12" y2={-y} stroke="#212529" strokeWidth="0.06" />
+          <text x="-0.35" y={-y + 0.13} fontSize="0.45" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
         </g>
       ))}
 
       {/* Origin */}
-      <text x="-0.4" y="0.6" fontSize="0.5" fill="#495057" fontFamily="Arial, sans-serif">O</text>
+      <text x="-0.35" y="0.55" fontSize="0.45" fill="#495057" fontFamily="Arial, sans-serif">O</text>
 
       {/* Piecewise line */}
-      <path d={pathD} fill="none" stroke="#1864ab" strokeWidth="0.15" strokeLinecap="round" strokeLinejoin="round" />
+      <path d={pathD} fill="none" stroke="#1864ab" strokeWidth="0.1" strokeLinecap="round" strokeLinejoin="round" />
 
       {/* Points */}
       {points.map(([px, py], i) => (
-        <circle key={i} cx={px} cy={-py} r="0.18" fill="#1864ab" />
+        <circle key={i} cx={px} cy={-py} r="0.14" fill="#1864ab" />
       ))}
 
       {/* Label */}
-      <text x={xMax - 0.5} y={-yMax + 0.5} fontSize="0.6" fill="#1864ab" fontFamily="Times New Roman, serif" fontStyle="italic">{label}</text>
+      <text x={xMax - 0.5} y={-yMax + 0.5} fontSize="0.55" fill="#1864ab" fontFamily="Times New Roman, serif" fontStyle="italic">{label}</text>
     </svg>
   );
 };
@@ -1261,8 +1247,7 @@ export const BarChartDiagram = ({ data = [], title = "", xLabel = "", yLabel = "
       height={height}
       style={{
         background: '#ffffff',
-        borderRadius: '4px',
-        border: '2px solid #343a40'
+        border: '1px solid #d1d5db'
       }}
     >
       {/* Title */}
@@ -1270,7 +1255,7 @@ export const BarChartDiagram = ({ data = [], title = "", xLabel = "", yLabel = "
         <text
           x={width / 2}
           y={18}
-          fontSize="12"
+          fontSize="11"
           fontWeight="600"
           textAnchor="middle"
           fill="#212529"
@@ -1282,26 +1267,26 @@ export const BarChartDiagram = ({ data = [], title = "", xLabel = "", yLabel = "
 
       <g transform={`translate(${margin.left}, ${margin.top})`}>
         {/* Y-axis */}
-        <line x1="0" y1="0" x2="0" y2={innerHeight} stroke="#212529" strokeWidth="1.5" />
+        <line x1="0" y1="0" x2="0" y2={innerHeight} stroke="#212529" strokeWidth="1" />
 
         {/* Y-axis labels */}
         {[0, 0.25, 0.5, 0.75, 1].map(frac => {
           const val = Math.round(maxValue * frac);
           return (
             <g key={frac}>
-              <line x1="-5" y1={yScale(val)} x2="0" y2={yScale(val)} stroke="#212529" strokeWidth="1" />
-              <text x="-10" y={yScale(val) + 4} fontSize="10" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">
+              <line x1="-4" y1={yScale(val)} x2="0" y2={yScale(val)} stroke="#212529" strokeWidth="0.75" />
+              <text x="-8" y={yScale(val) + 4} fontSize="9" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">
                 {val}
               </text>
               {frac > 0 && (
-                <line x1="0" y1={yScale(val)} x2={innerWidth} y2={yScale(val)} stroke="#e9ecef" strokeWidth="0.5" />
+                <line x1="0" y1={yScale(val)} x2={innerWidth} y2={yScale(val)} stroke="#e5e7eb" strokeWidth="0.5" />
               )}
             </g>
           );
         })}
 
         {/* X-axis */}
-        <line x1="0" y1={innerHeight} x2={innerWidth} y2={innerHeight} stroke="#212529" strokeWidth="1.5" />
+        <line x1="0" y1={innerHeight} x2={innerWidth} y2={innerHeight} stroke="#212529" strokeWidth="1" />
 
         {/* Bars */}
         {data.map((d, i) => {
@@ -1314,15 +1299,14 @@ export const BarChartDiagram = ({ data = [], title = "", xLabel = "", yLabel = "
                 y={yScale(d.value)}
                 width={barWidth}
                 height={barHeight}
-                fill="#4c6ef5"
-                stroke="#364fc7"
-                strokeWidth="1"
+                fill="#9ca3af"
+                stroke="none"
               />
               {/* Value label on bar */}
               <text
                 x={x + barWidth / 2}
-                y={yScale(d.value) - 5}
-                fontSize="10"
+                y={yScale(d.value) - 4}
+                fontSize="9"
                 fontWeight="600"
                 textAnchor="middle"
                 fill="#212529"
@@ -1333,8 +1317,8 @@ export const BarChartDiagram = ({ data = [], title = "", xLabel = "", yLabel = "
               {/* X-axis label */}
               <text
                 x={x + barWidth / 2}
-                y={innerHeight + 15}
-                fontSize="10"
+                y={innerHeight + 14}
+                fontSize="9"
                 textAnchor="middle"
                 fill="#495057"
                 fontFamily="Arial, sans-serif"
@@ -1350,7 +1334,7 @@ export const BarChartDiagram = ({ data = [], title = "", xLabel = "", yLabel = "
           <text
             x={-innerHeight / 2}
             y={-35}
-            fontSize="11"
+            fontSize="10"
             textAnchor="middle"
             fill="#212529"
             fontFamily="Arial, sans-serif"
@@ -1392,14 +1376,13 @@ export const TriangleGeometryDiagram = ({ vertices = ["A", "B", "C"], rightAngle
       height={size}
       style={{
         background: '#ffffff',
-        borderRadius: '4px',
-        border: '2px solid #343a40'
+        border: '1px solid #d1d5db'
       }}
     >
       {/* Triangle sides */}
-      <line x1={positions.A.x} y1={positions.A.y} x2={positions.B.x} y2={positions.B.y} stroke="#212529" strokeWidth="2" />
-      <line x1={positions.B.x} y1={positions.B.y} x2={positions.C.x} y2={positions.C.y} stroke="#212529" strokeWidth="2" />
-      <line x1={positions.C.x} y1={positions.C.y} x2={positions.A.x} y2={positions.A.y} stroke="#212529" strokeWidth="2" />
+      <line x1={positions.A.x} y1={positions.A.y} x2={positions.B.x} y2={positions.B.y} stroke="#212529" strokeWidth="1.5" />
+      <line x1={positions.B.x} y1={positions.B.y} x2={positions.C.x} y2={positions.C.y} stroke="#212529" strokeWidth="1.5" />
+      <line x1={positions.C.x} y1={positions.C.y} x2={positions.A.x} y2={positions.A.y} stroke="#212529" strokeWidth="1.5" />
 
       {/* Altitude line if exists */}
       {altitudePoint && (
@@ -1409,20 +1392,21 @@ export const TriangleGeometryDiagram = ({ vertices = ["A", "B", "C"], rightAngle
           x2={altitudePoint.x}
           y2={altitudePoint.y}
           stroke="#212529"
-          strokeWidth="1.5"
+          strokeWidth="1"
+          strokeDasharray="4,2"
         />
       )}
 
-      {/* Right angle marker */}
+      {/* Right angle marker - larger, cleaner square */}
       {rightAngle && (
         <rect
-          x={positions[rightAngle].x - 12}
-          y={positions[rightAngle].y - 12}
-          width="12"
-          height="12"
+          x={positions[rightAngle].x - 10}
+          y={positions[rightAngle].y - 10}
+          width="10"
+          height="10"
           fill="none"
           stroke="#212529"
-          strokeWidth="1"
+          strokeWidth="0.75"
         />
       )}
 
@@ -1433,9 +1417,9 @@ export const TriangleGeometryDiagram = ({ vertices = ["A", "B", "C"], rightAngle
         return (
           <text
             key={v}
-            x={pos.x + (v === 'B' ? 0 : v === 'A' ? -15 : 15)}
-            y={pos.y + (v === 'B' ? -10 : 18)}
-            fontSize="16"
+            x={pos.x + (v === 'B' ? 0 : v === 'A' ? -12 : 12)}
+            y={pos.y + (v === 'B' ? -8 : 16)}
+            fontSize="14"
             fontWeight="600"
             textAnchor="middle"
             fill="#212529"
@@ -1450,8 +1434,8 @@ export const TriangleGeometryDiagram = ({ vertices = ["A", "B", "C"], rightAngle
       {altitudePoint && altitude.to && (
         <text
           x={altitudePoint.x}
-          y={altitudePoint.y + 20}
-          fontSize="16"
+          y={altitudePoint.y + 18}
+          fontSize="14"
           fontWeight="600"
           textAnchor="middle"
           fill="#212529"
@@ -1480,50 +1464,49 @@ export const LinearGraphDiagram = ({ slope, yIntercept, xRange = [-10, 10], yRan
       viewBox={`${xMin - 1.5} ${-yMax - 1.5} ${xMax - xMin + 3} ${yMax - yMin + 3}`}
       style={{
         background: '#ffffff',
-        borderRadius: '4px',
-        border: '2px solid #343a40'
+        border: '1px solid #d1d5db'
       }}
     >
       {/* Grid */}
       {Array.from({ length: Math.ceil((xMax - xMin) / 2) + 1 }, (_, i) => xMin + i * 2).filter(x => x !== 0 && x >= xMin && x <= xMax).map(x => (
-        <line key={`v${x}`} x1={x} y1={-yMax} x2={x} y2={-yMin} stroke="#e9ecef" strokeWidth="0.05" />
+        <line key={`v${x}`} x1={x} y1={-yMax} x2={x} y2={-yMin} stroke="#f0f0f0" strokeWidth="0.03" />
       ))}
       {Array.from({ length: Math.ceil((yMax - yMin) / 2) + 1 }, (_, i) => yMin + i * 2).filter(y => y !== 0 && y >= yMin && y <= yMax).map(y => (
-        <line key={`h${y}`} x1={xMin} y1={-y} x2={xMax} y2={-y} stroke="#e9ecef" strokeWidth="0.05" />
+        <line key={`h${y}`} x1={xMin} y1={-y} x2={xMax} y2={-y} stroke="#f0f0f0" strokeWidth="0.03" />
       ))}
 
       {/* X-axis */}
-      <line x1={xMin - 0.5} y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.12" />
-      <polygon points={`${xMax + 0.8},0 ${xMax + 0.5},0.3 ${xMax + 0.5},-0.3`} fill="#212529" />
+      <line x1={xMin - 0.5} y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.08" />
+      <polygon points={`${xMax + 0.8},0 ${xMax + 0.55},0.18 ${xMax + 0.55},-0.18`} fill="#212529" />
 
       {/* Y-axis */}
-      <line x1="0" y1={-yMin + 0.5} x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.12" />
-      <polygon points={`0,${-yMax - 0.8} 0.3,${-yMax - 0.5} -0.3,${-yMax - 0.5}`} fill="#212529" />
+      <line x1="0" y1={-yMin + 0.5} x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.08" />
+      <polygon points={`0,${-yMax - 0.8} 0.18,${-yMax - 0.55} -0.18,${-yMax - 0.55}`} fill="#212529" />
 
       {/* Tick marks */}
       {[-5, 5].map(x => (
         <g key={`tx${x}`}>
-          <line x1={x} y1="-0.2" x2={x} y2="0.2" stroke="#212529" strokeWidth="0.1" />
-          <text x={x} y="1" fontSize="0.7" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
+          <line x1={x} y1="-0.15" x2={x} y2="0.15" stroke="#212529" strokeWidth="0.06" />
+          <text x={x} y="0.85" fontSize="0.6" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
         </g>
       ))}
       {[-5, 5].map(y => (
         <g key={`ty${y}`}>
-          <line x1="-0.2" y1={-y} x2="0.2" y2={-y} stroke="#212529" strokeWidth="0.1" />
-          <text x="-0.6" y={-y + 0.25} fontSize="0.7" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
+          <line x1="-0.15" y1={-y} x2="0.15" y2={-y} stroke="#212529" strokeWidth="0.06" />
+          <text x="-0.5" y={-y + 0.2} fontSize="0.6" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
         </g>
       ))}
 
       {/* Line */}
-      <line x1={xMin} y1={-y1} x2={xMax} y2={-y2} stroke="#1864ab" strokeWidth="0.15" />
+      <line x1={xMin} y1={-y1} x2={xMax} y2={-y2} stroke="#1864ab" strokeWidth="0.1" />
 
       {/* Points */}
       {showPoints.map(([px, py], i) => (
-        <circle key={i} cx={px} cy={-py} r="0.25" fill="#1864ab" />
+        <circle key={i} cx={px} cy={-py} r="0.18" fill="#1864ab" />
       ))}
 
       {/* Label */}
-      <text x={xMax - 1} y={-yMax + 0.8} fontSize="0.7" fill="#1864ab" fontFamily="Times New Roman, serif" fontStyle="italic">{label}</text>
+      <text x={xMax - 1} y={-yMax + 0.8} fontSize="0.6" fill="#1864ab" fontFamily="Times New Roman, serif" fontStyle="italic">{label}</text>
     </svg>
   );
 };
