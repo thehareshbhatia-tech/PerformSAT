@@ -1,37 +1,65 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import QuestionDiagram from './QuestionDiagrams';
 
-// Desmos Calculator Component
+// SAT-Style Draggable Desmos Calculator Component
 const DesmosCalculator = ({ isOpen, onClose }) => {
   const containerRef = useRef(null);
   const calculatorRef = useRef(null);
+  const [position, setPosition] = useState({ x: 50, y: 80 });
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+  const [calcMode, setCalcMode] = useState('graphing'); // 'graphing' or 'scientific'
+  const [isMinimized, setIsMinimized] = useState(false);
+
+  const CALC_WIDTH = 480;
+  const CALC_HEIGHT = 420;
+
+  // Drag handlers
+  const handleMouseDown = (e) => {
+    if (e.target.tagName === 'BUTTON') return; // Don't drag when clicking buttons
+    setIsDragging(true);
+    setDragOffset({
+      x: e.clientX - position.x,
+      y: e.clientY - position.y
+    });
+  };
 
   useEffect(() => {
-    if (isOpen && containerRef.current && !calculatorRef.current) {
-      // Load Desmos script if not already loaded
-      if (!window.Desmos) {
-        const script = document.createElement('script');
-        script.src = 'https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6';
-        script.async = true;
-        script.onload = () => {
-          if (containerRef.current) {
-            calculatorRef.current = window.Desmos.GraphingCalculator(containerRef.current, {
-              keypad: true,
-              expressions: true,
-              settingsMenu: true,
-              zoomButtons: true,
-              expressionsTopbar: true,
-              pointsOfInterest: true,
-              trace: true,
-              border: false,
-              lockViewport: false,
-              capExpressionSize: false
-            });
-          }
-        };
-        document.head.appendChild(script);
-      } else {
-        calculatorRef.current = window.Desmos.GraphingCalculator(containerRef.current, {
+    const handleMouseMove = (e) => {
+      if (isDragging) {
+        setPosition({
+          x: Math.max(0, Math.min(window.innerWidth - CALC_WIDTH, e.clientX - dragOffset.x)),
+          y: Math.max(0, Math.min(window.innerHeight - 50, e.clientY - dragOffset.y))
+        });
+      }
+    };
+
+    const handleMouseUp = () => setIsDragging(false);
+
+    if (isDragging) {
+      document.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener('mouseup', handleMouseUp);
+    }
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [isDragging, dragOffset]);
+
+  // Initialize/switch calculator
+  useEffect(() => {
+    if (isOpen && containerRef.current && !isMinimized) {
+      // Destroy existing calculator if switching modes
+      if (calculatorRef.current) {
+        calculatorRef.current.destroy();
+        calculatorRef.current = null;
+      }
+
+      const initCalculator = () => {
+        if (!containerRef.current) return;
+
+        const options = {
           keypad: true,
           expressions: true,
           settingsMenu: true,
@@ -40,9 +68,25 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
           pointsOfInterest: true,
           trace: true,
           border: false,
-          lockViewport: false,
-          capExpressionSize: false
-        });
+          lockViewport: false
+        };
+
+        if (calcMode === 'scientific') {
+          calculatorRef.current = window.Desmos.ScientificCalculator(containerRef.current, options);
+        } else {
+          calculatorRef.current = window.Desmos.GraphingCalculator(containerRef.current, options);
+        }
+      };
+
+      // Load Desmos script if not already loaded
+      if (!window.Desmos) {
+        const script = document.createElement('script');
+        script.src = 'https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6';
+        script.async = true;
+        script.onload = initCalculator;
+        document.head.appendChild(script);
+      } else {
+        initCalculator();
       }
     }
 
@@ -52,88 +96,134 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
         calculatorRef.current = null;
       }
     };
-  }, [isOpen]);
+  }, [isOpen, calcMode, isMinimized]);
 
   if (!isOpen) return null;
 
+  const modeButtonStyle = (active) => ({
+    padding: '4px 12px',
+    fontSize: '12px',
+    fontWeight: '600',
+    border: 'none',
+    borderRadius: '4px',
+    cursor: 'pointer',
+    background: active ? '#2563eb' : '#e5e7eb',
+    color: active ? 'white' : '#374151',
+    transition: 'all 0.15s ease'
+  });
+
+  const iconButtonStyle = {
+    background: 'none',
+    border: 'none',
+    cursor: 'pointer',
+    padding: '4px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: '4px',
+    color: '#6b7280'
+  };
+
   return (
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      background: 'rgba(0, 0, 0, 0.5)',
-      zIndex: 1000,
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center'
-    }}>
-      <div style={{
+    <div
+      style={{
+        position: 'fixed',
+        left: position.x,
+        top: position.y,
+        width: CALC_WIDTH,
+        height: isMinimized ? 'auto' : CALC_HEIGHT,
+        zIndex: 1000,
         background: 'white',
-        borderRadius: '12px',
+        borderRadius: '8px',
         overflow: 'hidden',
-        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+        boxShadow: '0 10px 40px -10px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.1)',
         display: 'flex',
         flexDirection: 'column',
-        width: '90vw',
-        maxWidth: '900px',
-        height: '80vh',
-        maxHeight: '700px'
-      }}>
-        {/* Calculator Header */}
-        <div style={{
+        userSelect: 'none'
+      }}
+    >
+      {/* Calculator Header - Draggable */}
+      <div
+        onMouseDown={handleMouseDown}
+        style={{
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '12px 16px',
-          borderBottom: '1px solid #e5e7eb',
-          background: '#f9fafb'
+          padding: '8px 12px',
+          borderBottom: isMinimized ? 'none' : '1px solid #e5e7eb',
+          background: '#1e3a5f',
+          cursor: isDragging ? 'grabbing' : 'grab'
+        }}
+      >
+        {/* Mode Toggle Buttons */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <button
+            onClick={() => setCalcMode('graphing')}
+            style={modeButtonStyle(calcMode === 'graphing')}
+          >
+            Graphing
+          </button>
+          <button
+            onClick={() => setCalcMode('scientific')}
+            style={modeButtonStyle(calcMode === 'scientific')}
+          >
+            Scientific
+          </button>
+        </div>
+
+        {/* Title */}
+        <span style={{
+          fontWeight: '600',
+          color: 'white',
+          fontSize: '13px',
+          position: 'absolute',
+          left: '50%',
+          transform: 'translateX(-50%)'
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="2">
-              <rect x="4" y="2" width="16" height="20" rx="2" />
-              <line x1="8" y1="6" x2="16" y2="6" />
-              <line x1="8" y1="10" x2="10" y2="10" />
-              <line x1="14" y1="10" x2="16" y2="10" />
-              <line x1="8" y1="14" x2="10" y2="14" />
-              <line x1="14" y1="14" x2="16" y2="14" />
-              <line x1="8" y1="18" x2="10" y2="18" />
-              <line x1="14" y1="18" x2="16" y2="18" />
+          {calcMode === 'graphing' ? 'Graphing' : 'Scientific'} Calculator
+        </span>
+
+        {/* Control Buttons */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+          {/* Minimize Button */}
+          <button
+            onClick={() => setIsMinimized(!isMinimized)}
+            style={{ ...iconButtonStyle, color: 'white' }}
+            title={isMinimized ? 'Expand' : 'Minimize'}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              {isMinimized ? (
+                <polyline points="15 3 21 3 21 9" />
+              ) : (
+                <line x1="5" y1="12" x2="19" y2="12" />
+              )}
             </svg>
-            <span style={{ fontWeight: '600', color: '#111827' }}>Graphing Calculator</span>
-          </div>
+          </button>
+          {/* Close Button */}
           <button
             onClick={onClose}
-            style={{
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              padding: '4px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderRadius: '4px'
-            }}
-            onMouseOver={(e) => e.currentTarget.style.background = '#e5e7eb'}
-            onMouseOut={(e) => e.currentTarget.style.background = 'none'}
+            style={{ ...iconButtonStyle, color: 'white' }}
+            title="Close Calculator"
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <line x1="18" y1="6" x2="6" y2="18" />
               <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           </button>
         </div>
+      </div>
 
-        {/* Calculator Container */}
+      {/* Calculator Container */}
+      {!isMinimized && (
         <div
           ref={containerRef}
           style={{
             flex: 1,
-            width: '100%'
+            width: '100%',
+            minHeight: CALC_HEIGHT - 50
           }}
         />
-      </div>
+      )}
     </div>
   );
 };
