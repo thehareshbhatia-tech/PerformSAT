@@ -598,7 +598,7 @@ const renderChoice = (choice) => {
   return <MathText text={choice.text} />;
 };
 
-const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, onClearProgress, savedProgress, isTimed = true }) => {
+const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, onClearProgress, savedProgress, isTimed = true, skillProgress = null, user = null }) => {
   // Initialize state from saved progress if available
   const [currentModule, setCurrentModule] = useState(savedProgress?.currentModule || 0);
   const [currentQuestion, setCurrentQuestion] = useState(savedProgress?.currentQuestion || 0);
@@ -1438,6 +1438,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             lessonTitle={`${test.title} - Question ${currentFlatIndex + 1}`}
             isVideoLesson={false}
             isPracticeQuestion={true}
+            skillProgress={skillProgress}
+            testDate={user?.testDate}
             practiceContext={{
               question: reviewQ?.question || '',
               choices: reviewQ?.choices || [],
@@ -1446,7 +1448,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               correctAnswer: reviewQ?.type === 'fill-in'
                 ? reviewQ?.correctAnswer
                 : reviewQ?.choices?.find(c => c.id === reviewQ?.correctAnswer)?.text || reviewQ?.correctAnswer,
-              explanation: reviewQ?.explanation || ''
+              explanation: reviewQ?.explanation || '',
+              skills: reviewQ?.skills || []
             }}
           />
         </div>

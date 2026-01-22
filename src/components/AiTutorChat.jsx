@@ -1,5 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { chatWithTutor } from '../services/aiTutorService';
+import ProactiveHint from './ProactiveHint';
+import {
+  generateProactiveRecommendation,
+  shouldOfferProactiveHint,
+  generateSmartPrompts,
+  buildSkillContextForAI
+} from '../services/proactiveRecommendationService';
 
 // Comprehensive markdown renderer for chat messages with full math/LaTeX support
 const renderMarkdown = (text) => {
@@ -260,12 +267,16 @@ const AiTutorChat = ({
   videoTranscript,
   videoTimestamp,
   isPracticeQuestion = false,
-  practiceContext = null
+  practiceContext = null,
+  skillProgress = null,
+  testDate = null
 }) => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [lastSendTime, setLastSendTime] = useState(0);
+  const [proactiveRec, setProactiveRec] = useState(null);
+  const [hintDismissed, setHintDismissed] = useState(false);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
   const chatContainerRef = useRef(null);
@@ -365,6 +376,64 @@ Your goal is to be a helpful tutor who guides discovery, not an answer-revealing
     }
   }, [isOpen]);
 
+  // Generate proactive recommendations based on skill progress
+  useEffect(() => {
+    if (!skillProgress || hintDismissed || messages.length > 0) return;
+
+    // Check if we should offer a proactive hint for the current question
+    if (isPracticeQuestion && practiceContext?.skills) {
+      const hintCheck = shouldOfferProactiveHint(skillProgress, practiceContext.skills);
+      if (hintCheck.offer) {
+        setProactiveRec({
+          type: 'hint-offer',
+          title: 'Need a hint?',
+          message: hintCheck.message,
+          skillId: hintCheck.skillId,
+          skillName: hintCheck.skillName,
+          action: 'get-hint',
+          actionLabel: 'Yes, give me a hint',
+          suggestedPrompt: `Can you help me understand ${hintCheck.skillName}? I'm not sure how to approach this problem.`
+        });
+        return;
+      }
+    }
+
+    // Otherwise, check for general recommendations (weak/declining skills)
+    const rec = generateProactiveRecommendation(skillProgress, {
+      currentSkillId: practiceContext?.skills?.[0],
+      isCorrect: practiceContext?.isCorrect,
+      wrongCount: practiceContext?.wrongCount || 0,
+      testDate
+    });
+
+    if (rec) {
+      setProactiveRec(rec);
+    }
+  }, [skillProgress, isPracticeQuestion, practiceContext, testDate, hintDismissed, messages.length]);
+
+  // Handle accepting a proactive recommendation
+  const handleProactiveAccept = (recommendation) => {
+    if (recommendation.suggestedPrompt) {
+      setInput(recommendation.suggestedPrompt);
+      inputRef.current?.focus();
+    }
+    setProactiveRec(null);
+  };
+
+  // Handle dismissing a proactive recommendation
+  const handleProactiveDismiss = () => {
+    setProactiveRec(null);
+    setHintDismissed(true);
+  };
+
+  // Generate smart prompts based on skill progress
+  const getSmartPrompts = () => {
+    if (skillProgress && practiceContext) {
+      return generateSmartPrompts(skillProgress, practiceContext);
+    }
+    return null;
+  };
+
   const handleSend = async () => {
     const now = Date.now();
     if (!input.trim() || isLoading || (now - lastSendTime < RATE_LIMIT_MS)) return;
@@ -383,7 +452,13 @@ Your goal is to be a helpful tutor who guides discovery, not an answer-revealing
       } : null;
 
       // Build practice context string with restrictions
-      const practiceContextStr = buildPracticeContext();
+      let practiceContextStr = buildPracticeContext();
+
+      // Add skill context if available
+      if (skillProgress && practiceContext?.skills) {
+        const skillContext = buildSkillContextForAI(skillProgress, practiceContext.skills);
+        practiceContextStr = skillContext + '\n' + practiceContextStr;
+      }
 
       const response = await chatWithTutor(
         newMessages,
@@ -515,6 +590,15 @@ Your goal is to be a helpful tutor who guides discovery, not an answer-revealing
           background: design.colors.surface.tertiary,
         }}
       >
+        {/* Proactive Recommendation */}
+        {proactiveRec && messages.length === 0 && (
+          <ProactiveHint
+            recommendation={proactiveRec}
+            onDismiss={handleProactiveDismiss}
+            onAccept={handleProactiveAccept}
+          />
+        )}
+
         {messages.length === 0 ? (
           <div style={{
             display: 'flex',
@@ -571,29 +655,33 @@ Your goal is to be a helpful tutor who guides discovery, not an answer-revealing
               justifyContent: 'center',
               maxWidth: '340px'
             }}>
-              {(isPracticeQuestion
-                ? (practiceContext?.answerRevealed
-                  ? [
-                    "Explain the solution",
-                    "Why is that the answer?",
-                    "Show me the steps"
-                  ]
-                  : [
-                    "Explain the hint",
-                    "What formula do I use?",
-                    "How do I start?"
-                  ])
-                : (isVideoLesson
-                  ? [
-                    "Explain this step",
-                    "Why did he do that?",
-                    "What formula is this?"
-                  ]
-                  : [
-                    "Why this formula?",
-                    "Explain again",
-                    "Common mistakes?"
-                  ])
+              {(
+                // Use smart prompts if skill progress is available
+                (skillProgress && isPracticeQuestion && getSmartPrompts()) ||
+                // Otherwise use default prompts
+                (isPracticeQuestion
+                  ? (practiceContext?.answerRevealed
+                    ? [
+                      "Explain the solution",
+                      "Why is that the answer?",
+                      "Show me the steps"
+                    ]
+                    : [
+                      "Explain the hint",
+                      "What formula do I use?",
+                      "How do I start?"
+                    ])
+                  : (isVideoLesson
+                    ? [
+                      "Explain this step",
+                      "Why did he do that?",
+                      "What formula is this?"
+                    ]
+                    : [
+                      "Why this formula?",
+                      "Explain again",
+                      "Common mistakes?"
+                    ]))
               ).map((suggestion, i) => (
                 <button
                   key={i}

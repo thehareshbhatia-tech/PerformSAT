@@ -9234,6 +9234,8 @@ const PerformSAT = () => {
             test={selectedPracticeTest}
             isTimed={isTestTimed}
             savedProgress={getTestProgress(selectedPracticeTest.id)}
+            skillProgress={skillProgress}
+            user={user}
             onBack={() => {
               setSelectedPracticeTest(null);
               setView('practiceTests');
