@@ -76,6 +76,7 @@ const StudentDashboard = ({
   user,
   completedLessons,
   practiceProgress,
+  practiceTestResults,
   reviewQueue,
   dueReviewCount = 0,
   onNavigateToModule,
@@ -85,6 +86,7 @@ const StudentDashboard = ({
   onUpdateTargetSchools,
   onStartPractice,
   onStartReview,
+  onStartPracticeTest,
   allLessons,
   skillDiagnosticSummary,
   skillBreakdown
@@ -769,6 +771,84 @@ const StudentDashboard = ({
           </div>
         </div>
       </div>
+
+      {/* Practice Test Scores */}
+      {practiceTestResults && Object.keys(practiceTestResults).length > 0 && (
+        <div style={{
+          ...cardStyle,
+          marginBottom: '24px'
+        }}>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            marginBottom: '16px'
+          }}>
+            <h2 style={{ fontSize: '16px', fontWeight: '600', color: '#111827', margin: 0 }}>
+              Practice Test Scores
+            </h2>
+            {onStartPracticeTest && (
+              <button
+                onClick={onStartPracticeTest}
+                style={{
+                  padding: '6px 12px',
+                  background: 'transparent',
+                  color: '#3b82f6',
+                  border: '1px solid #3b82f6',
+                  borderRadius: '6px',
+                  fontSize: '13px',
+                  cursor: 'pointer'
+                }}
+              >
+                Take a Test
+              </button>
+            )}
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            {Object.values(practiceTestResults)
+              .sort((a, b) => {
+                const dateA = a.lastAttemptAt?.toDate?.() || new Date(a.lastAttemptAt) || new Date(0);
+                const dateB = b.lastAttemptAt?.toDate?.() || new Date(b.lastAttemptAt) || new Date(0);
+                return dateB - dateA;
+              })
+              .map(test => (
+                <div
+                  key={test.testId}
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    padding: '12px 16px',
+                    background: '#f9fafb',
+                    borderRadius: '8px'
+                  }}
+                >
+                  <div>
+                    <div style={{ fontSize: '15px', fontWeight: '500', color: '#111827' }}>
+                      {test.testTitle}
+                    </div>
+                    <div style={{ fontSize: '12px', color: '#6b7280', marginTop: '2px' }}>
+                      {test.totalAttempts} attempt{test.totalAttempts !== 1 ? 's' : ''}
+                    </div>
+                  </div>
+                  <div style={{ textAlign: 'right' }}>
+                    <div style={{
+                      fontSize: '24px',
+                      fontWeight: '700',
+                      color: test.bestScaledScore >= 700 ? '#16a34a' :
+                             test.bestScaledScore >= 600 ? '#ca8a04' : '#111827'
+                    }}>
+                      {test.bestScaledScore}
+                    </div>
+                    <div style={{ fontSize: '11px', color: '#6b7280' }}>
+                      Best Score
+                    </div>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
+      )}
 
       {/* YOUR NEXT STEP - Simple, Clean */}
       {recommendations[0] && (

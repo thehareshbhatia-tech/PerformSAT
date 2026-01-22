@@ -160,7 +160,7 @@ const PerformSAT = () => {
   }, [showCalculator]);
 
   const { user, loading, logout, updateTestDate, updateTargetScore, updateCurrentScore, updateTargetSchools } = useAuth();
-  const { completedLessons, practiceProgress, reviewQueue, skillProgress, markLessonComplete: markComplete, getModuleProgress: calcProgress, isLessonCompleted, recordPracticeAttempt, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown } = useProgress(user?.uid);
+  const { completedLessons, practiceProgress, reviewQueue, skillProgress, practiceTestResults, inProgressTests, markLessonComplete: markComplete, getModuleProgress: calcProgress, isLessonCompleted, recordPracticeAttempt, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress } = useProgress(user?.uid);
 
   const markLessonComplete = (moduleId, lessonId) => {
     const moduleLessons = allLessons[moduleId] || [];
@@ -9168,6 +9168,7 @@ const PerformSAT = () => {
             user={user}
             completedLessons={completedLessons}
             practiceProgress={practiceProgress}
+            practiceTestResults={practiceTestResults}
             reviewQueue={reviewQueue}
             dueReviewCount={getDueCount()}
             allLessons={allLessons}
@@ -9188,6 +9189,7 @@ const PerformSAT = () => {
               // TODO: Implement review session start
               console.log('Start review session');
             }}
+            onStartPracticeTest={() => setView('practiceTests')}
           />
         )}
 
@@ -9195,16 +9197,34 @@ const PerformSAT = () => {
         {view === 'practiceTests' && (
           <PracticeTestList
             onSelectTest={(test) => {
+              // Clear any existing progress when starting fresh
+              if (hasTestProgress(test.id)) {
+                clearTestProgress(test.id);
+              }
               setSelectedPracticeTest(test);
               setIsTestTimed(true);
               setView('takingTest');
             }}
             onSelectTestWithMode={(test, timed) => {
+              // Clear any existing progress when starting fresh
+              if (hasTestProgress(test.id)) {
+                clearTestProgress(test.id);
+              }
+              setSelectedPracticeTest(test);
+              setIsTestTimed(timed);
+              setView('takingTest');
+            }}
+            onResumeTest={(test, timed) => {
+              // Resume with existing progress
               setSelectedPracticeTest(test);
               setIsTestTimed(timed);
               setView('takingTest');
             }}
             onBack={() => setView('dashboard')}
+            practiceTestResults={practiceTestResults}
+            getTestBestScore={getTestBestScore}
+            getTestAttempts={getTestAttempts}
+            inProgressTests={inProgressTests}
           />
         )}
 
@@ -9213,6 +9233,7 @@ const PerformSAT = () => {
           <PracticeTest
             test={selectedPracticeTest}
             isTimed={isTestTimed}
+            savedProgress={getTestProgress(selectedPracticeTest.id)}
             onBack={() => {
               setSelectedPracticeTest(null);
               setView('practiceTests');
@@ -9220,6 +9241,27 @@ const PerformSAT = () => {
             onComplete={() => {
               setSelectedPracticeTest(null);
               setView('practiceTests');
+            }}
+            onSaveProgress={(progressData) => {
+              if (user && selectedPracticeTest) {
+                saveTestProgress(selectedPracticeTest.id, progressData);
+              }
+            }}
+            onClearProgress={() => {
+              if (user && selectedPracticeTest) {
+                clearTestProgress(selectedPracticeTest.id);
+              }
+            }}
+            onSaveResult={(results) => {
+              console.log('[App.jsx] onSaveResult called with:', results);
+              console.log('[App.jsx] User:', user);
+              console.log('[App.jsx] selectedPracticeTest:', selectedPracticeTest);
+              if (user) {
+                console.log('[App.jsx] Calling recordPracticeTestAttempt...');
+                recordPracticeTestAttempt(selectedPracticeTest.id, selectedPracticeTest.title, results);
+              } else {
+                console.error('[App.jsx] No user - cannot save results!');
+              }
             }}
           />
         )}
@@ -9245,7 +9287,7 @@ const PerformSAT = () => {
                 color: design.colors.text.primary,
                 marginBottom: '16px'
               }}>
-                SAT Math
+                SAT Math Videos
               </h1>
               <p style={{
                 fontSize: '18px',

@@ -1,6 +1,6 @@
 import { getAllPracticeTests } from '../data/practiceTests';
 
-const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode }) => {
+const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practiceTestResults, getTestBestScore, getTestAttempts, inProgressTests, onResumeTest }) => {
   const tests = getAllPracticeTests();
 
   return (
@@ -45,13 +45,17 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode }) => {
         {tests.map((test) => {
           const totalQuestions = test.modules.reduce((sum, m) => sum + m.questions.length, 0);
           const totalTime = test.modules.reduce((sum, m) => sum + (m.timeLimit || 35), 0);
+          const bestScore = getTestBestScore ? getTestBestScore(test.id) : null;
+          const attempts = getTestAttempts ? getTestAttempts(test.id) : 0;
+          const inProgress = inProgressTests && inProgressTests[test.id];
+          const answeredCount = inProgress ? Object.keys(inProgress.answers || {}).length : 0;
 
           return (
             <div
               key={test.id}
               style={{
                 background: 'white',
-                border: '1px solid #e5e7eb',
+                border: bestScore ? '2px solid #22c55e' : '1px solid #e5e7eb',
                 borderRadius: '12px',
                 padding: '24px',
                 transition: 'box-shadow 0.2s ease'
@@ -63,14 +67,37 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode }) => {
                 alignItems: 'flex-start'
               }}>
                 <div>
-                  <h2 style={{
-                    fontSize: '20px',
-                    fontWeight: '600',
-                    color: '#111827',
-                    marginBottom: '8px'
-                  }}>
-                    {test.title}
-                  </h2>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
+                    <h2 style={{
+                      fontSize: '20px',
+                      fontWeight: '600',
+                      color: '#111827',
+                      margin: 0
+                    }}>
+                      {test.title}
+                    </h2>
+                    {bestScore && (
+                      <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        background: '#f0fdf4',
+                        padding: '4px 12px',
+                        borderRadius: '16px',
+                        border: '1px solid #bbf7d0'
+                      }}>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2.5">
+                          <path d="M20 6L9 17l-5-5" />
+                        </svg>
+                        <span style={{ fontSize: '13px', fontWeight: '600', color: '#16a34a' }}>
+                          Best: {bestScore}
+                        </span>
+                        <span style={{ fontSize: '12px', color: '#22c55e' }}>
+                          ({attempts} attempt{attempts !== 1 ? 's' : ''})
+                        </span>
+                      </div>
+                    )}
+                  </div>
                   <p style={{
                     fontSize: '14px',
                     color: '#6b7280',
@@ -113,52 +140,96 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode }) => {
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', flexShrink: 0 }}>
-                  <button
-                    onClick={() => onSelectTestWithMode ? onSelectTestWithMode(test, true) : onSelectTest(test)}
-                    style={{
-                      padding: '12px 28px',
-                      background: '#111827',
-                      color: 'white',
-                      border: 'none',
-                      borderRadius: '8px',
-                      fontSize: '15px',
-                      fontWeight: '600',
-                      cursor: 'pointer',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: '8px'
-                    }}
-                  >
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <circle cx="12" cy="12" r="10" />
-                      <polyline points="12 6 12 12 16 14" />
-                    </svg>
-                    Start Timed
-                  </button>
-                  <button
-                    onClick={() => onSelectTestWithMode ? onSelectTestWithMode(test, false) : onSelectTest(test)}
-                    style={{
-                      padding: '12px 28px',
-                      background: 'white',
-                      color: '#374151',
-                      border: '1px solid #d1d5db',
-                      borderRadius: '8px',
-                      fontSize: '15px',
-                      fontWeight: '500',
-                      cursor: 'pointer',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: '8px'
-                    }}
-                  >
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <circle cx="12" cy="12" r="10" />
-                      <line x1="8" y1="12" x2="16" y2="12" />
-                    </svg>
-                    Start Untimed
-                  </button>
+                  {inProgress && onResumeTest ? (
+                    <>
+                      <button
+                        onClick={() => onResumeTest(test, inProgress.isTimed)}
+                        style={{
+                          padding: '12px 28px',
+                          background: '#16a34a',
+                          color: 'white',
+                          border: 'none',
+                          borderRadius: '8px',
+                          fontSize: '15px',
+                          fontWeight: '600',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '8px'
+                        }}
+                      >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <polygon points="5 3 19 12 5 21 5 3" />
+                        </svg>
+                        Resume ({answeredCount}/{totalQuestions})
+                      </button>
+                      <button
+                        onClick={() => onSelectTestWithMode ? onSelectTestWithMode(test, true) : onSelectTest(test)}
+                        style={{
+                          padding: '10px 20px',
+                          background: 'white',
+                          color: '#6b7280',
+                          border: '1px solid #d1d5db',
+                          borderRadius: '8px',
+                          fontSize: '13px',
+                          fontWeight: '500',
+                          cursor: 'pointer'
+                        }}
+                      >
+                        Start Over
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <button
+                        onClick={() => onSelectTestWithMode ? onSelectTestWithMode(test, true) : onSelectTest(test)}
+                        style={{
+                          padding: '12px 28px',
+                          background: '#111827',
+                          color: 'white',
+                          border: 'none',
+                          borderRadius: '8px',
+                          fontSize: '15px',
+                          fontWeight: '600',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '8px'
+                        }}
+                      >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <circle cx="12" cy="12" r="10" />
+                          <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        Start Timed
+                      </button>
+                      <button
+                        onClick={() => onSelectTestWithMode ? onSelectTestWithMode(test, false) : onSelectTest(test)}
+                        style={{
+                          padding: '12px 28px',
+                          background: 'white',
+                          color: '#374151',
+                          border: '1px solid #d1d5db',
+                          borderRadius: '8px',
+                          fontSize: '15px',
+                          fontWeight: '500',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '8px'
+                        }}
+                      >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <circle cx="12" cy="12" r="10" />
+                          <line x1="8" y1="12" x2="16" y2="12" />
+                        </svg>
+                        Start Untimed
+                      </button>
+                    </>
+                  )}
                 </div>
               </div>
             </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import QuestionDiagram from './QuestionDiagrams';
+import AiTutorChat, { AiTutorButton } from './AiTutorChat';
 
 // SAT-Style Draggable Desmos Calculator Component
 const DesmosCalculator = ({ isOpen, onClose }) => {
@@ -597,11 +598,12 @@ const renderChoice = (choice) => {
   return <MathText text={choice.text} />;
 };
 
-const PracticeTest = ({ test, onBack, onComplete, isTimed = true }) => {
-  const [currentModule, setCurrentModule] = useState(0);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState({});
-  const [markedForReview, setMarkedForReview] = useState([]);
+const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, onClearProgress, savedProgress, isTimed = true }) => {
+  // Initialize state from saved progress if available
+  const [currentModule, setCurrentModule] = useState(savedProgress?.currentModule || 0);
+  const [currentQuestion, setCurrentQuestion] = useState(savedProgress?.currentQuestion || 0);
+  const [answers, setAnswers] = useState(savedProgress?.answers || {});
+  const [markedForReview, setMarkedForReview] = useState(savedProgress?.markedForReview || []);
   const [showTimer, setShowTimer] = useState(isTimed);
   const [moduleCompleted, setModuleCompleted] = useState(false);
   const [testCompleted, setTestCompleted] = useState(false);
@@ -610,6 +612,8 @@ const PracticeTest = ({ test, onBack, onComplete, isTimed = true }) => {
   const [reviewMode, setReviewMode] = useState(false);
   const [reviewModule, setReviewModule] = useState(0);
   const [reviewQuestion, setReviewQuestion] = useState(0);
+  const [resultSaved, setResultSaved] = useState(false);
+  const [showAiTutor, setShowAiTutor] = useState(false);
 
   const module = test.modules[currentModule];
   const questions = module?.questions || [];
@@ -622,6 +626,110 @@ const PracticeTest = ({ test, onBack, onComplete, isTimed = true }) => {
       setFillInValue(existingAnswer !== undefined ? String(existingAnswer) : '');
     }
   }, [currentQuestion, currentModule, question?.type, answers]);
+
+  // Auto-save progress when answers, module, or question changes
+  useEffect(() => {
+    // Don't save if test is completed or we're in review mode
+    if (testCompleted || reviewMode || !onSaveProgress) return;
+
+    // Only save if there are answers (user has started the test)
+    if (Object.keys(answers).length > 0) {
+      const progressData = {
+        currentModule,
+        currentQuestion,
+        answers,
+        markedForReview,
+        isTimed
+      };
+      console.log('[PracticeTest] Auto-saving progress:', progressData);
+      onSaveProgress(progressData);
+    }
+  }, [answers, currentModule, currentQuestion, markedForReview, testCompleted, reviewMode, onSaveProgress, isTimed]);
+
+  // Save test results when test completes
+  useEffect(() => {
+    console.log('[PracticeTest] Save effect triggered:', { testCompleted, hasOnSaveResult: !!onSaveResult, resultSaved });
+
+    if (testCompleted && onSaveResult && !resultSaved) {
+      console.log('[PracticeTest] Attempting to save results...');
+      const totalQuestions = test.modules.reduce((sum, m) => sum + m.questions.length, 0);
+
+      // Calculate total score
+      let totalScore = 0;
+      test.modules.forEach((mod, modIdx) => {
+        mod.questions.forEach((q, qIdx) => {
+          const key = `${modIdx}-${qIdx}`;
+          const userAnswer = answers[key];
+          if (q.type === 'fill-in') {
+            if (userAnswer === q.correctAnswer || parseFloat(userAnswer) === q.correctAnswer) {
+              totalScore++;
+            }
+          } else {
+            if (userAnswer === q.correctAnswer) {
+              totalScore++;
+            }
+          }
+        });
+      });
+
+      // Calculate module scores
+      const moduleScores = test.modules.map((mod, modIdx) => {
+        let modScore = 0;
+        mod.questions.forEach((q, qIdx) => {
+          const key = `${modIdx}-${qIdx}`;
+          const userAnswer = answers[key];
+          if (q.type === 'fill-in') {
+            if (userAnswer === q.correctAnswer || parseFloat(userAnswer) === q.correctAnswer) {
+              modScore++;
+            }
+          } else {
+            if (userAnswer === q.correctAnswer) {
+              modScore++;
+            }
+          }
+        });
+        return { moduleTitle: mod.title, score: modScore, total: mod.questions.length };
+      });
+
+      // Convert to SAT score
+      const scoringTable = {
+        44: 800, 43: 790, 42: 780, 41: 770, 40: 760,
+        39: 750, 38: 740, 37: 730, 36: 720, 35: 710,
+        34: 700, 33: 690, 32: 680, 31: 670, 30: 660,
+        29: 650, 28: 640, 27: 630, 26: 620, 25: 610,
+        24: 600, 23: 590, 22: 580, 21: 570, 20: 560,
+        19: 550, 18: 540, 17: 530, 16: 520, 15: 510,
+        14: 500, 13: 490, 12: 480, 11: 470, 10: 450,
+        9: 430, 8: 410, 7: 390, 6: 370, 5: 350,
+        4: 330, 3: 310, 2: 280, 1: 240, 0: 200
+      };
+      let scaledScore;
+      if (totalQuestions !== 44) {
+        const scaledRaw = Math.round((totalScore / totalQuestions) * 44);
+        scaledScore = scoringTable[Math.min(44, Math.max(0, scaledRaw))];
+      } else {
+        scaledScore = scoringTable[Math.min(44, Math.max(0, totalScore))];
+      }
+
+      const resultsToSave = {
+        rawScore: totalScore,
+        totalQuestions,
+        scaledScore,
+        timedMode: isTimed,
+        moduleScores
+      };
+      console.log('[PracticeTest] Calling onSaveResult with:', resultsToSave);
+      onSaveResult(resultsToSave);
+      setResultSaved(true);
+      console.log('[PracticeTest] Results saved, resultSaved set to true');
+
+      // Clear in-progress data since test is complete
+      if (onClearProgress) {
+        console.log('[PracticeTest] Clearing in-progress data');
+        onClearProgress();
+      }
+    }
+  }, [testCompleted, onSaveResult, onClearProgress, resultSaved, test, answers, isTimed]);
 
   const handleSelectAnswer = (answerId) => {
     const key = `${currentModule}-${currentQuestion}`;
@@ -919,7 +1027,7 @@ const PracticeTest = ({ test, onBack, onComplete, isTimed = true }) => {
           </button>
         </div>
 
-        {/* Question Navigation Grid */}
+        {/* Question Navigation Grid - Organized by Module */}
         <div style={{
           background: 'white',
           borderRadius: '16px',
@@ -947,34 +1055,91 @@ const PracticeTest = ({ test, onBack, onComplete, isTimed = true }) => {
               </span>
             </div>
           </div>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-            {allQuestions.map((q, idx) => {
-              const isActive = q.modIdx === reviewModule && q.qIdx === reviewQuestion;
-              const bgColor = !q.answered ? '#cbd5e1' : q.correct ? '#16a34a' : '#dc2626';
-              return (
-                <button
-                  key={idx}
-                  onClick={() => handleReviewJump(q.modIdx, q.qIdx)}
-                  style={{
-                    width: '36px',
-                    height: '36px',
-                    borderRadius: '8px',
-                    border: isActive ? '3px solid #111827' : '2px solid transparent',
-                    background: bgColor,
-                    color: 'white',
+
+          {/* Module-based navigation */}
+          {test.modules.map((mod, modIdx) => {
+            // Calculate module stats
+            const moduleQuestions = mod.questions.map((q, qIdx) => {
+              const key = `${modIdx}-${qIdx}`;
+              const ans = answers[key];
+              const correct = q.type === 'fill-in'
+                ? ans === q.correctAnswer || parseFloat(ans) === q.correctAnswer
+                : ans === q.correctAnswer;
+              return { modIdx, qIdx, correct, answered: ans !== undefined };
+            });
+            const correctCount = moduleQuestions.filter(q => q.answered && q.correct).length;
+
+            return (
+              <div key={modIdx} style={{ marginBottom: modIdx < test.modules.length - 1 ? '20px' : 0 }}>
+                {/* Module Header */}
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  marginBottom: '12px',
+                  paddingBottom: '8px',
+                  borderBottom: '1px solid #e2e8f0'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <span style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      width: '28px',
+                      height: '28px',
+                      borderRadius: '6px',
+                      background: modIdx === 0 ? '#3b82f6' : '#10b981',
+                      color: 'white',
+                      fontSize: '14px',
+                      fontWeight: '700'
+                    }}>
+                      {modIdx + 1}
+                    </span>
+                    <span style={{ fontSize: '15px', fontWeight: '600', color: '#1e293b' }}>
+                      {mod.title}
+                    </span>
+                  </div>
+                  <div style={{
                     fontSize: '13px',
                     fontWeight: '600',
-                    cursor: 'pointer',
-                    boxShadow: isActive ? '0 2px 8px rgba(0,0,0,0.2)' : 'none',
-                    transform: isActive ? 'scale(1.1)' : 'scale(1)',
-                    transition: 'all 0.15s ease'
-                  }}
-                >
-                  {idx + 1}
-                </button>
-              );
-            })}
-          </div>
+                    color: correctCount === mod.questions.length ? '#16a34a' : '#64748b'
+                  }}>
+                    {correctCount}/{mod.questions.length} correct
+                  </div>
+                </div>
+
+                {/* Module Questions Grid */}
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                  {moduleQuestions.map((q, qIdx) => {
+                    const isActive = q.modIdx === reviewModule && q.qIdx === reviewQuestion;
+                    const bgColor = !q.answered ? '#cbd5e1' : q.correct ? '#16a34a' : '#dc2626';
+                    return (
+                      <button
+                        key={qIdx}
+                        onClick={() => handleReviewJump(q.modIdx, q.qIdx)}
+                        style={{
+                          width: '36px',
+                          height: '36px',
+                          borderRadius: '8px',
+                          border: isActive ? '3px solid #111827' : '2px solid transparent',
+                          background: bgColor,
+                          color: 'white',
+                          fontSize: '13px',
+                          fontWeight: '600',
+                          cursor: 'pointer',
+                          boxShadow: isActive ? '0 2px 8px rgba(0,0,0,0.2)' : 'none',
+                          transform: isActive ? 'scale(1.1)' : 'scale(1)',
+                          transition: 'all 0.15s ease'
+                        }}
+                      >
+                        {qIdx + 1}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         {/* Answer Status Banner */}
@@ -1243,7 +1408,47 @@ const PracticeTest = ({ test, onBack, onComplete, isTimed = true }) => {
                 No explanation available for this question.
               </p>
             )}
+
           </div>
+        </div>
+
+        {/* AI Tutor Section */}
+        <div style={{ marginBottom: '24px' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '8px' }}>
+            <AiTutorButton
+              onClick={() => setShowAiTutor(!showAiTutor)}
+              isOpen={showAiTutor}
+            />
+          </div>
+          {!showAiTutor && (
+            <p style={{
+              textAlign: 'center',
+              fontSize: '13px',
+              color: '#64748b',
+              margin: 0
+            }}>
+              Need more help understanding this question?
+            </p>
+          )}
+          <AiTutorChat
+            isOpen={showAiTutor}
+            onClose={() => setShowAiTutor(false)}
+            moduleId={test.id}
+            lessonId={`review-${reviewModule}-${reviewQuestion}`}
+            lessonTitle={`${test.title} - Question ${currentFlatIndex + 1}`}
+            isVideoLesson={false}
+            isPracticeQuestion={true}
+            practiceContext={{
+              question: reviewQ?.question || '',
+              choices: reviewQ?.choices || [],
+              hint: reviewQ?.hint || '',
+              answerRevealed: true,
+              correctAnswer: reviewQ?.type === 'fill-in'
+                ? reviewQ?.correctAnswer
+                : reviewQ?.choices?.find(c => c.id === reviewQ?.correctAnswer)?.text || reviewQ?.correctAnswer,
+              explanation: reviewQ?.explanation || ''
+            }}
+          />
         </div>
 
         {/* Navigation Buttons */}
