@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import QuestionDiagram from './QuestionDiagrams';
 import AiTutorChat, { AiTutorButton } from './AiTutorChat';
+import TestResults from './TestResults';
 
 // SAT-Style Draggable Desmos Calculator Component
 const DesmosCalculator = ({ isOpen, onClose }) => {
@@ -1519,207 +1520,32 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     );
   }
 
-  // Test completion screen
+  // Test completion screen - using TestResults component
   if (testCompleted) {
-    const totalScore = calculateTotalScore();
-    const totalQuestions = test.modules.reduce((sum, m) => sum + m.questions.length, 0);
-    const satScore = convertToSATScore(totalScore, totalQuestions);
-    const scoreInfo = getScoreLevel(satScore);
-
     return (
-      <div style={{ maxWidth: '700px', margin: '0 auto', padding: '40px 20px' }}>
-        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <h2 style={{ fontSize: '28px', fontWeight: '600', marginBottom: '24px', color: '#111827' }}>
-            {test.title} Complete!
-          </h2>
-
-          {/* SAT Scaled Score - Primary Display */}
-          <div style={{
-            background: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%)',
-            borderRadius: '16px',
-            padding: '32px',
-            marginBottom: '24px',
-            color: 'white'
-          }}>
-            <p style={{ fontSize: '14px', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px', opacity: 0.9 }}>
-              Your SAT Math Score
-            </p>
-            <div style={{
-              fontSize: '72px',
-              fontWeight: '700',
-              marginBottom: '8px',
-              lineHeight: 1
-            }}>
-              {satScore}
-            </div>
-            <p style={{ fontSize: '14px', opacity: 0.8, marginBottom: '16px' }}>
-              out of 800
-            </p>
-            <div style={{
-              display: 'inline-block',
-              padding: '6px 16px',
-              background: 'rgba(255,255,255,0.2)',
-              borderRadius: '20px',
-              fontSize: '14px',
-              fontWeight: '500'
-            }}>
-              {scoreInfo.level}
-            </div>
-          </div>
-
-          {/* Raw Score */}
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: '32px',
-            marginBottom: '8px'
-          }}>
-            <div>
-              <p style={{ fontSize: '14px', color: '#6b7280', marginBottom: '4px' }}>Raw Score</p>
-              <p style={{ fontSize: '24px', fontWeight: '600', color: '#111827' }}>
-                {totalScore}/{totalQuestions}
-              </p>
-            </div>
-            <div>
-              <p style={{ fontSize: '14px', color: '#6b7280', marginBottom: '4px' }}>Accuracy</p>
-              <p style={{ fontSize: '24px', fontWeight: '600', color: '#111827' }}>
-                {Math.round((totalScore / totalQuestions) * 100)}%
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Score Context */}
-        <div style={{
-          background: '#f0f9ff',
-          border: '1px solid #bae6fd',
-          borderRadius: '12px',
-          padding: '16px 20px',
-          marginBottom: '24px',
-          fontSize: '14px',
-          color: '#0369a1'
-        }}>
-          <strong>How SAT Scoring Works:</strong> Your raw score ({totalScore} correct answers) is converted to a scaled score of {satScore} using the official SAT scoring curve. The Math section is scored from 200-800.
-        </div>
-
-        {/* Module breakdown */}
-        <div style={{
-          background: '#f9fafb',
-          borderRadius: '12px',
-          padding: '24px',
-          marginBottom: '32px'
-        }}>
-          <h3 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '16px', color: '#111827' }}>
-            Score Breakdown by Module
-          </h3>
-          {test.modules.map((mod, modIdx) => {
-            let modScore = 0;
-            mod.questions.forEach((q, qIdx) => {
-              const key = `${modIdx}-${qIdx}`;
-              const userAnswer = answers[key];
-              if (q.type === 'fill-in') {
-                if (userAnswer === q.correctAnswer || parseFloat(userAnswer) === q.correctAnswer) {
-                  modScore++;
-                }
-              } else {
-                if (userAnswer === q.correctAnswer) {
-                  modScore++;
-                }
-              }
-            });
-            const percentage = Math.round((modScore / mod.questions.length) * 100);
-            return (
-              <div key={modIdx} style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                padding: '12px 0',
-                borderBottom: modIdx < test.modules.length - 1 ? '1px solid #e5e7eb' : 'none'
-              }}>
-                <span style={{ color: '#374151' }}>{mod.title}</span>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <div style={{
-                    width: '100px',
-                    height: '8px',
-                    background: '#e5e7eb',
-                    borderRadius: '4px',
-                    overflow: 'hidden'
-                  }}>
-                    <div style={{
-                      width: `${percentage}%`,
-                      height: '100%',
-                      background: percentage >= 70 ? '#16a34a' : percentage >= 50 ? '#ca8a04' : '#dc2626',
-                      borderRadius: '4px'
-                    }} />
-                  </div>
-                  <span style={{ fontWeight: '600', color: '#111827', minWidth: '80px', textAlign: 'right' }}>
-                    {modScore}/{mod.questions.length}
-                  </span>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
-          <button
-            onClick={onBack}
-            style={{
-              padding: '14px 32px',
-              background: 'white',
-              color: '#374151',
-              border: '1px solid #d1d5db',
-              borderRadius: '8px',
-              fontSize: '16px',
-              fontWeight: '600',
-              cursor: 'pointer'
-            }}
-          >
-            Back to Practice Tests
-          </button>
-          <button
-            onClick={() => {
-              setCurrentModule(0);
-              setCurrentQuestion(0);
-              setAnswers({});
-              setMarkedForReview([]);
-              setModuleCompleted(false);
-              setTestCompleted(false);
-            }}
-            style={{
-              padding: '14px 32px',
-              background: '#111827',
-              color: 'white',
-              border: 'none',
-              borderRadius: '8px',
-              fontSize: '16px',
-              fontWeight: '600',
-              cursor: 'pointer'
-            }}
-          >
-            Retake Test
-          </button>
-          <button
-            onClick={() => {
-              setReviewMode(true);
-              setReviewModule(0);
-              setReviewQuestion(0);
-            }}
-            style={{
-              padding: '14px 32px',
-              background: '#2563eb',
-              color: 'white',
-              border: 'none',
-              borderRadius: '8px',
-              fontSize: '16px',
-              fontWeight: '600',
-              cursor: 'pointer'
-            }}
-          >
-            Review Answers
-          </button>
-        </div>
-      </div>
+      <TestResults
+        test={test}
+        answers={answers}
+        onBack={onBack}
+        onRetake={() => {
+          setCurrentModule(0);
+          setCurrentQuestion(0);
+          setAnswers({});
+          setMarkedForReview([]);
+          setModuleCompleted(false);
+          setTestCompleted(false);
+        }}
+        onReview={() => {
+          setReviewMode(true);
+          setReviewModule(0);
+          setReviewQuestion(0);
+        }}
+        onReviewModule={(moduleIndex) => {
+          setReviewMode(true);
+          setReviewModule(moduleIndex);
+          setReviewQuestion(0);
+        }}
+      />
     );
   }
 
