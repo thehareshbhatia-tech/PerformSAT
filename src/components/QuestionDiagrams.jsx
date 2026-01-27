@@ -5,6 +5,18 @@ import React from 'react';
  * These render mathematical graphs that match the College Board SAT format
  */
 
+// SAT-Style Diagram Constants - matches College Board format
+const SAT_DIAGRAM = {
+  axis: { stroke: '#000000', strokeWidth: 0.08 },
+  gridline: { stroke: '#e5e5e5', strokeWidth: 0.03 },
+  curve: { stroke: '#000000', strokeWidth: 0.12 },
+  point: { fill: '#000000', r: 0.18 },
+  text: { fill: '#000000', fontFamily: "'Arial', sans-serif" },
+  axisLabel: { fill: '#000000', fontFamily: "'Times New Roman', serif", fontStyle: 'italic' },
+  tableBorder: '#000000',
+  barFill: '#9ca3af',
+};
+
 // Helper function to generate path for rational function f(x) = a/(x+b)
 const generateRationalCurvePath = (a, b, xMin, xMax, yMin, yMax) => {
   const asymptote = -b;
@@ -150,23 +162,23 @@ export const RationalFunctionDiagram = ({ a, b, showPoints = [] }) => {
         strokeDasharray="0.4,0.2"
       />
 
-      {/* Function curve - clean dark blue */}
+      {/* Function curve - SAT-style black */}
       <path
         d={curvePath}
         fill="none"
-        stroke="#1864ab"
-        strokeWidth="0.12"
+        stroke={SAT_DIAGRAM.curve.stroke}
+        strokeWidth={SAT_DIAGRAM.curve.strokeWidth}
         strokeLinecap="round"
       />
 
-      {/* Marked points - solid dots with coordinates */}
+      {/* Marked points - solid black dots with coordinates */}
       {showPoints.map(([px, py], i) => (
         <g key={i}>
           <circle
             cx={px}
             cy={-py}
-            r="0.2"
-            fill="#1864ab"
+            r={SAT_DIAGRAM.point.r}
+            fill={SAT_DIAGRAM.point.fill}
           />
           <text
             x={px > 0 ? px + 0.5 : px - 0.5}
@@ -204,12 +216,12 @@ export const RationalFunctionDiagram = ({ a, b, showPoints = [] }) => {
         y
       </text>
 
-      {/* Function label */}
+      {/* Function label - SAT-style black */}
       <text
         x={xMax - 1.5}
         y={-yMax + 0.5}
         fontSize="0.6"
-        fill="#1864ab"
+        fill={SAT_DIAGRAM.text.fill}
         fontFamily="Times New Roman, serif"
         fontStyle="italic"
       >
@@ -281,7 +293,7 @@ export const QuadraticDiagram = ({ vertex, a = 0.5, showPoints = [], showVertex 
       <text x="-0.4" y="0.8" fontSize="0.5" fill="#495057" fontFamily="Arial, sans-serif">O</text>
 
       {/* Parabola curve */}
-      <path d={pathD} fill="none" stroke="#1864ab" strokeWidth="0.12" strokeLinecap="round" />
+      <path d={pathD} fill="none" stroke="#000000" strokeWidth="0.12" strokeLinecap="round" />
 
       {/* Vertex point */}
       {showVertex && (
@@ -303,7 +315,7 @@ export const QuadraticDiagram = ({ vertex, a = 0.5, showPoints = [], showVertex 
       {/* Additional marked points */}
       {showPoints.map(([px, py], i) => (
         <g key={i}>
-          <circle cx={px} cy={-py} r="0.18" fill="#1864ab" />
+          <circle cx={px} cy={-py} r="0.18" fill="#000000" />
           <text x={px + 0.4} y={-py - 0.3} fontSize="0.45" fill="#212529" fontFamily="Arial, sans-serif">({px}, {py})</text>
         </g>
       ))}
@@ -311,7 +323,7 @@ export const QuadraticDiagram = ({ vertex, a = 0.5, showPoints = [], showVertex 
       {/* Axis labels */}
       <text x={xMax + 0.5} y="-0.5" fontSize="0.6" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">x</text>
       <text x="0.5" y={-yMax - 0.3} fontSize="0.6" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">y</text>
-      <text x={xMax - 1.5} y={-yMax + 0.5} fontSize="0.55" fill="#1864ab" fontFamily="Times New Roman, serif" fontStyle="italic">y = f(x)</text>
+      <text x={xMax - 1.5} y={-yMax + 0.5} fontSize="0.55" fill="#000000" fontFamily="Times New Roman, serif" fontStyle="italic">y = f(x)</text>
     </svg>
   );
 };
@@ -370,14 +382,14 @@ export const AbsoluteValueDiagram = ({ vertex, slope = 1, showPoints = [] }) => 
       <line
         x1={leftEndX} y1={-Math.min(leftEndY, yMax)}
         x2={h} y2={-k}
-        stroke="#1864ab" strokeWidth="0.12" strokeLinecap="round"
+        stroke="#000000" strokeWidth="0.12" strokeLinecap="round"
       />
 
       {/* V-shape: right arm */}
       <line
         x1={h} y1={-k}
         x2={rightEndX} y2={-Math.min(rightEndY, yMax)}
-        stroke="#1864ab" strokeWidth="0.12" strokeLinecap="round"
+        stroke="#000000" strokeWidth="0.12" strokeLinecap="round"
       />
 
       {/* Vertex */}
@@ -396,14 +408,14 @@ export const AbsoluteValueDiagram = ({ vertex, slope = 1, showPoints = [] }) => 
       {/* Additional points */}
       {showPoints.map(([px, py], i) => (
         <g key={i}>
-          <circle cx={px} cy={-py} r="0.18" fill="#1864ab" />
+          <circle cx={px} cy={-py} r="0.18" fill="#000000" />
         </g>
       ))}
 
       {/* Labels */}
       <text x={xMax + 0.5} y="-0.5" fontSize="0.6" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">x</text>
       <text x="0.5" y={-yMax - 0.3} fontSize="0.6" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">y</text>
-      <text x={xMax - 1.5} y={-yMax + 0.5} fontSize="0.55" fill="#1864ab" fontFamily="Times New Roman, serif" fontStyle="italic">y = f(x)</text>
+      <text x={xMax - 1.5} y={-yMax + 0.5} fontSize="0.55" fill="#000000" fontFamily="Times New Roman, serif" fontStyle="italic">y = f(x)</text>
     </svg>
   );
 };
@@ -454,7 +466,7 @@ export const CoordinatePointsDiagram = ({ points = [], label = "f" }) => {
       {/* Points */}
       {points.map(([px, py], i) => (
         <g key={i}>
-          <circle cx={px} cy={-py} r="0.22" fill="#1864ab" />
+          <circle cx={px} cy={-py} r="0.22" fill="#000000" />
           <text
             x={px + 0.5}
             y={-py - 0.4}
@@ -471,7 +483,7 @@ export const CoordinatePointsDiagram = ({ points = [], label = "f" }) => {
       {/* Labels */}
       <text x={xMax + 0.5} y="-0.5" fontSize="0.6" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">x</text>
       <text x="0.5" y={-yMax - 0.3} fontSize="0.6" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">y</text>
-      <text x={xMax - 2} y={-yMax + 0.5} fontSize="0.55" fill="#1864ab" fontFamily="Times New Roman, serif" fontStyle="italic">y = {label}(x)</text>
+      <text x={xMax - 2} y={-yMax + 0.5} fontSize="0.55" fill="#000000" fontFamily="Times New Roman, serif" fontStyle="italic">y = {label}(x)</text>
     </svg>
   );
 };
@@ -540,7 +552,7 @@ export const QuadraticInterceptsDiagram = ({ intercepts, vertex = null }) => {
       <text x="-0.4" y="0.75" fontSize="0.5" fill="#495057" fontFamily="Arial, sans-serif">O</text>
 
       {/* Parabola */}
-      <path d={pathD} fill="none" stroke="#1864ab" strokeWidth="0.12" strokeLinecap="round" />
+      <path d={pathD} fill="none" stroke="#000000" strokeWidth="0.12" strokeLinecap="round" />
 
       {/* X-intercepts - green dots */}
       <circle cx={x1} cy="0" r="0.2" fill="#2f9e44" />
@@ -556,7 +568,7 @@ export const QuadraticInterceptsDiagram = ({ intercepts, vertex = null }) => {
       {/* Labels */}
       <text x={xMax + 0.5} y="-0.5" fontSize="0.6" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">x</text>
       <text x="0.5" y={-yMax - 0.3} fontSize="0.6" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">y</text>
-      <text x={xMax - 1.5} y={-yMax + 0.5} fontSize="0.55" fill="#1864ab" fontFamily="Times New Roman, serif" fontStyle="italic">y = f(x)</text>
+      <text x={xMax - 1.5} y={-yMax + 0.5} fontSize="0.55" fill="#000000" fontFamily="Times New Roman, serif" fontStyle="italic">y = f(x)</text>
     </svg>
   );
 };
@@ -578,45 +590,45 @@ export const TableDiagram = ({ rows = [], xHeader = "x", yHeader = "f(x)" }) => 
         background: '#ffffff'
       }}
     >
-      {/* Table border - thin */}
+      {/* Table border - SAT-style black */}
       <rect
         x="2"
         y="2"
         width={tableWidth}
         height={tableHeight}
         fill="none"
-        stroke="#495057"
-        strokeWidth="1"
+        stroke={SAT_DIAGRAM.tableBorder}
+        strokeWidth="1.5"
       />
 
-      {/* Header row background - very light */}
+      {/* Header row background - white for SAT style */}
       <rect
         x="2"
         y="2"
         width={tableWidth}
         height={headerHeight}
-        fill="#f9fafb"
+        fill="#ffffff"
         stroke="none"
       />
 
-      {/* Vertical divider between columns */}
+      {/* Vertical divider between columns - black */}
       <line
         x1={2 + cellWidth}
         y1="2"
         x2={2 + cellWidth}
         y2={tableHeight + 2}
-        stroke="#495057"
+        stroke={SAT_DIAGRAM.tableBorder}
         strokeWidth="1"
       />
 
-      {/* Horizontal line under header */}
+      {/* Horizontal line under header - thicker for SAT style */}
       <line
         x1="2"
         y1={2 + headerHeight}
         x2={tableWidth + 2}
         y2={2 + headerHeight}
-        stroke="#495057"
-        strokeWidth="1"
+        stroke={SAT_DIAGRAM.tableBorder}
+        strokeWidth="1.5"
       />
 
       {/* Header text */}
@@ -1215,15 +1227,15 @@ export const PiecewiseLinearDiagram = ({ points = [], xRange = [-5, 6], yRange =
       <text x="-0.35" y="0.55" fontSize="0.45" fill="#495057" fontFamily="Arial, sans-serif">O</text>
 
       {/* Piecewise line */}
-      <path d={pathD} fill="none" stroke="#1864ab" strokeWidth="0.1" strokeLinecap="round" strokeLinejoin="round" />
+      <path d={pathD} fill="none" stroke="#000000" strokeWidth="0.1" strokeLinecap="round" strokeLinejoin="round" />
 
       {/* Points */}
       {points.map(([px, py], i) => (
-        <circle key={i} cx={px} cy={-py} r="0.14" fill="#1864ab" />
+        <circle key={i} cx={px} cy={-py} r="0.14" fill="#000000" />
       ))}
 
       {/* Label */}
-      <text x={xMax - 0.5} y={-yMax + 0.5} fontSize="0.55" fill="#1864ab" fontFamily="Times New Roman, serif" fontStyle="italic">{label}</text>
+      <text x={xMax - 0.5} y={-yMax + 0.5} fontSize="0.55" fill="#000000" fontFamily="Times New Roman, serif" fontStyle="italic">{label}</text>
     </svg>
   );
 };
@@ -1300,7 +1312,8 @@ export const BarChartDiagram = ({ data = [], title = "", xLabel = "", yLabel = "
                 width={barWidth}
                 height={barHeight}
                 fill="#9ca3af"
-                stroke="none"
+                stroke="#333333"
+                strokeWidth="0.5"
               />
               {/* Value label on bar */}
               <text
@@ -1498,15 +1511,15 @@ export const LinearGraphDiagram = ({ slope, yIntercept, xRange = [-10, 10], yRan
       ))}
 
       {/* Line */}
-      <line x1={xMin} y1={-y1} x2={xMax} y2={-y2} stroke="#1864ab" strokeWidth="0.1" />
+      <line x1={xMin} y1={-y1} x2={xMax} y2={-y2} stroke="#000000" strokeWidth="0.1" />
 
       {/* Points */}
       {showPoints.map(([px, py], i) => (
-        <circle key={i} cx={px} cy={-py} r="0.18" fill="#1864ab" />
+        <circle key={i} cx={px} cy={-py} r="0.18" fill="#000000" />
       ))}
 
       {/* Label */}
-      <text x={xMax - 1} y={-yMax + 0.8} fontSize="0.6" fill="#1864ab" fontFamily="Times New Roman, serif" fontStyle="italic">{label}</text>
+      <text x={xMax - 1} y={-yMax + 0.8} fontSize="0.6" fill="#000000" fontFamily="Times New Roman, serif" fontStyle="italic">{label}</text>
     </svg>
   );
 };

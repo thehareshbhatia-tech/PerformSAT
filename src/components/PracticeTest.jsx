@@ -3,6 +3,44 @@ import QuestionDiagram from './QuestionDiagrams';
 import AiTutorChat, { AiTutorButton } from './AiTutorChat';
 import TestResults from './TestResults';
 
+// SAT-Style Typography Constants - matches College Board format
+const SAT_TYPOGRAPHY = {
+  questionFont: "'Times New Roman', 'Georgia', 'Cambria', serif",
+  diagramFont: "'Arial', 'Helvetica', sans-serif",
+  sizes: {
+    questionText: '17px',
+    choiceText: '16px',
+    questionNumber: '14px',
+    smallText: '13px',
+  },
+  lineHeights: {
+    question: '1.7',
+    choice: '1.5',
+  }
+};
+
+// SAT-Style Color Palette - minimal, professional
+const SAT_COLORS = {
+  text: {
+    primary: '#000000',
+    secondary: '#333333',
+    muted: '#666666',
+  },
+  background: {
+    page: '#ffffff',
+    selected: '#f5f5f5',
+  },
+  border: {
+    dark: '#000000',
+    medium: '#666666',
+    light: '#e5e5e5',
+  },
+  ui: {
+    questionBadgeBg: '#000000',
+    questionBadgeText: '#ffffff',
+  }
+};
+
 // SAT-Style Draggable Desmos Calculator Component
 const DesmosCalculator = ({ isOpen, onClose }) => {
   const containerRef = useRef(null);
@@ -269,7 +307,7 @@ const Timer = ({ initialMinutes, onTimeUp, isPaused }) => {
   );
 };
 
-// Question navigation grid
+// Question navigation grid - SAT Style
 const QuestionGrid = ({ questions, currentIndex, answers, markedForReview, onNavigate }) => {
   return (
     <div style={{
@@ -277,8 +315,9 @@ const QuestionGrid = ({ questions, currentIndex, answers, markedForReview, onNav
       gridTemplateColumns: 'repeat(11, 1fr)',
       gap: '6px',
       padding: '16px',
-      background: '#f9fafb',
-      borderRadius: '8px',
+      background: SAT_COLORS.background.page,
+      border: `1px solid ${SAT_COLORS.border.light}`,
+      borderRadius: '0',
       marginBottom: '24px'
     }}>
       {questions.map((_, idx) => {
@@ -293,10 +332,11 @@ const QuestionGrid = ({ questions, currentIndex, answers, markedForReview, onNav
             style={{
               width: '32px',
               height: '32px',
-              borderRadius: '4px',
-              border: isCurrent ? '2px solid #2563eb' : '1px solid #d1d5db',
-              background: isMarked ? '#fef3c7' : isAnswered ? '#dcfce7' : 'white',
-              color: '#374151',
+              borderRadius: '0',
+              border: isCurrent ? `2px solid ${SAT_COLORS.border.dark}` : `1px solid ${SAT_COLORS.border.light}`,
+              background: isMarked ? '#fff3cd' : isAnswered ? '#e8e8e8' : SAT_COLORS.background.page,
+              color: SAT_COLORS.text.primary,
+              fontFamily: SAT_TYPOGRAPHY.diagramFont,
               fontSize: '13px',
               fontWeight: isCurrent ? '700' : '500',
               cursor: 'pointer',
@@ -1656,28 +1696,37 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         onNavigate={handleNavigate}
       />
 
-      {/* Question Card */}
+      {/* Question Card - SAT Style */}
       <div style={{
-        background: 'white',
-        border: '1px solid #e5e7eb',
-        borderRadius: '12px',
-        padding: '32px',
-        marginBottom: '24px'
+        background: SAT_COLORS.background.page,
+        border: 'none',
+        borderRadius: '0',
+        padding: '24px 0',
+        marginBottom: '24px',
+        borderBottom: `1px solid ${SAT_COLORS.border.light}`
       }}>
-        {/* Question number and mark button */}
+        {/* Question number badge and mark button */}
         <div style={{
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
           marginBottom: '20px'
         }}>
-          <span style={{
-            fontSize: '14px',
-            fontWeight: '600',
-            color: '#6b7280'
+          {/* SAT-style black box with white number */}
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '32px',
+            height: '32px',
+            backgroundColor: SAT_COLORS.ui.questionBadgeBg,
+            color: SAT_COLORS.ui.questionBadgeText,
+            fontFamily: SAT_TYPOGRAPHY.diagramFont,
+            fontWeight: '700',
+            fontSize: SAT_TYPOGRAPHY.sizes.questionNumber,
           }}>
-            Question {currentQuestion + 1}
-          </span>
+            {currentQuestion + 1}
+          </div>
           <button
             onClick={handleToggleMark}
             style={{
@@ -1704,11 +1753,12 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           </div>
         )}
 
-        {/* Question text */}
+        {/* Question text - SAT Style */}
         <p style={{
-          fontSize: '17px',
-          lineHeight: '1.7',
-          color: '#111827',
+          fontFamily: SAT_TYPOGRAPHY.questionFont,
+          fontSize: SAT_TYPOGRAPHY.sizes.questionText,
+          lineHeight: SAT_TYPOGRAPHY.lineHeights.question,
+          color: SAT_COLORS.text.primary,
           marginBottom: '8px'
         }}>
           <MathText text={question?.question} />
@@ -1717,9 +1767,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         {/* Continued question text if present */}
         {question?.questionContinued && (
           <p style={{
-            fontSize: '17px',
-            lineHeight: '1.7',
-            color: '#111827',
+            fontFamily: SAT_TYPOGRAPHY.questionFont,
+            fontSize: SAT_TYPOGRAPHY.sizes.questionText,
+            lineHeight: SAT_TYPOGRAPHY.lineHeights.question,
+            color: SAT_COLORS.text.primary,
             marginBottom: '24px'
           }}>
             <MathText text={question.questionContinued} />
@@ -1736,12 +1787,14 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               onBlur={handleFillInSubmit}
               placeholder="Enter your answer"
               style={{
-                width: '200px',
+                width: '180px',
                 padding: '12px 16px',
+                fontFamily: SAT_TYPOGRAPHY.questionFont,
                 fontSize: '18px',
-                border: '2px solid #d1d5db',
-                borderRadius: '8px',
-                outline: 'none'
+                border: `2px solid ${SAT_COLORS.border.dark}`,
+                borderRadius: '0',
+                outline: 'none',
+                backgroundColor: SAT_COLORS.background.page,
               }}
               onKeyDown={(e) => {
                 if (e.key === 'Enter') {
@@ -1756,47 +1809,44 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             {question?.choices?.map((choice) => {
               const isSelected = currentAnswer === choice.id;
               return (
-                <button
+                <div
                   key={choice.id}
                   onClick={() => handleSelectAnswer(choice.id)}
                   style={{
                     display: 'flex',
-                    alignItems: 'center',
+                    alignItems: 'flex-start',
                     width: '100%',
-                    padding: '14px 16px',
-                    marginBottom: '12px',
-                    background: isSelected ? '#eff6ff' : 'white',
-                    border: `2px solid ${isSelected ? '#2563eb' : '#e5e7eb'}`,
-                    borderRadius: '8px',
+                    padding: '10px 12px',
+                    marginBottom: '8px',
+                    background: isSelected ? SAT_COLORS.background.selected : 'transparent',
+                    border: 'none',
+                    borderRadius: '0',
                     cursor: 'pointer',
                     textAlign: 'left',
-                    transition: 'all 0.15s ease'
+                    fontFamily: SAT_TYPOGRAPHY.questionFont,
                   }}
                 >
+                  {/* SAT-style choice label: A) B) C) D) */}
                   <span style={{
-                    width: '28px',
-                    height: '28px',
-                    borderRadius: '50%',
-                    border: `2px solid ${isSelected ? '#2563eb' : '#d1d5db'}`,
-                    background: isSelected ? '#2563eb' : 'white',
-                    color: isSelected ? 'white' : '#374151',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginRight: '12px',
-                    fontSize: '13px',
+                    fontFamily: SAT_TYPOGRAPHY.questionFont,
+                    fontSize: SAT_TYPOGRAPHY.sizes.choiceText,
                     fontWeight: '600',
-                    flexShrink: 0
+                    color: SAT_COLORS.text.primary,
+                    marginRight: '12px',
+                    minWidth: '28px',
+                    lineHeight: SAT_TYPOGRAPHY.lineHeights.choice,
                   }}>
-                    {choice.id}
+                    {choice.id})
                   </span>
                   <span style={{
-                    fontSize: '16px',
-                    color: '#111827'
+                    fontFamily: SAT_TYPOGRAPHY.questionFont,
+                    fontSize: SAT_TYPOGRAPHY.sizes.choiceText,
+                    color: SAT_COLORS.text.primary,
+                    lineHeight: SAT_TYPOGRAPHY.lineHeights.choice,
                   }}>
                     {renderChoice(choice)}
                   </span>
-                </button>
+                </div>
               );
             })}
           </div>
