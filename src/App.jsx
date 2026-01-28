@@ -440,84 +440,98 @@ const PerformSAT = () => {
     {
       id: 'linear-equations',
       title: 'Linear Equations',
+      category: 'Algebra',
       description: 'Slope, intercepts, and graphing lines',
       lessonCount: 24
     },
     {
       id: 'functions',
       title: 'Functions',
+      category: 'Algebra',
       description: 'Function notation and graph interpretation',
       lessonCount: 10
     },
     {
       id: 'systems',
       title: 'System of Equations',
+      category: 'Algebra',
       description: 'Solving for multiple unknowns',
       lessonCount: 14
     },
     {
       id: 'transformations',
       title: 'Transformations',
+      category: 'Advanced Math',
       description: 'Shifting, stretching, and reflecting functions',
       lessonCount: 15
     },
     {
       id: 'exponents',
       title: 'Exponents & Exponential Functions',
+      category: 'Advanced Math',
       description: 'Exponent rules and growth/decay models',
       lessonCount: 12
     },
     {
       id: 'percents',
       title: 'Percents',
+      category: 'Problem-Solving & Data Analysis',
       description: 'Percent change and word problems',
       lessonCount: 17
     },
     {
       id: 'equivalent-expressions',
       title: 'Equivalent Expressions',
+      category: 'Advanced Math',
       description: 'Verifying equivalence with DESMOS',
       lessonCount: 3
     },
     {
       id: 'quadratics',
       title: 'Quadratic Functions & Equations',
+      category: 'Advanced Math',
       description: 'Parabolas, factoring, and the quadratic formula',
       lessonCount: 18
     },
     {
       id: 'radians-degrees',
       title: 'Radians & Degrees',
+      category: 'Geometry & Trigonometry',
       description: 'Converting between angle measurements',
       lessonCount: 4
     },
     {
       id: 'triangles',
       title: 'Triangles',
+      category: 'Geometry & Trigonometry',
       description: 'Right triangles, trigonometry, and similar triangles',
       lessonCount: 35
     },
     {
       id: 'circles',
       title: 'Circles',
+      category: 'Geometry & Trigonometry',
       description: 'Arcs, sectors, and circle equations',
       lessonCount: 22
     },
     {
       id: 'volume',
       title: 'Volume',
+      category: 'Geometry & Trigonometry',
       description: 'Calculating volumes of 3D shapes',
       lessonCount: 9
     },
     {
       id: 'statistics',
       title: 'Statistics',
+      category: 'Problem-Solving & Data Analysis',
       description: 'Mean, median, mode, and data analysis',
       lessonCount: 12
     },
     {
       id: 'dimensional-analysis',
       title: 'Dimensional Analysis',
+      category: 'Problem-Solving & Data Analysis',
       description: 'Unit conversion and problem solving',
       lessonCount: 4
     }
@@ -9332,6 +9346,17 @@ const PerformSAT = () => {
                       {progress === 100 ? '✓' : idx + 1}
                     </span>
                     <div style={{ flex: 1 }}>
+                      <span style={{
+                        fontSize: '11px',
+                        fontWeight: '600',
+                        color: '#ea580c',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.5px',
+                        marginBottom: '4px',
+                        display: 'block'
+                      }}>
+                        {module.category}
+                      </span>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '6px' }}>
                         <h2 style={{
                           fontSize: '17px',
