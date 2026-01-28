@@ -1,8 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { generateRecommendations } from '../services/recommendationService';
-import { generatePersonalizedPlan } from '../services/studyPlanService';
 import SkillDiagnosticSummary from './SkillDiagnosticSummary';
-import SkillBreakdownPanel from './SkillBreakdownPanel';
 import ScoreSlider from './ScoreSlider';
 import CollegePicker from './CollegePicker';
 
@@ -88,8 +86,7 @@ const StudentDashboard = ({
   onStartReview,
   onStartPracticeTest,
   allLessons,
-  skillDiagnosticSummary,
-  skillBreakdown
+  skillDiagnosticSummary
 }) => {
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [showTargetPicker, setShowTargetPicker] = useState(false);
@@ -136,6 +133,41 @@ const StudentDashboard = ({
   const totalQuestions = totalPracticed * 5;
   const practicePercent = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
 
+  // Calculate projected SAT score from practice tests
+  const calculateProjectedScore = () => {
+    if (!practiceTestResults || Object.keys(practiceTestResults).length === 0) {
+      return { score: null, testsCount: 0 };
+    }
+
+    const tests = Object.values(practiceTestResults)
+      .filter(t => t.bestScaledScore)
+      .sort((a, b) => {
+        const dateA = a.lastAttemptAt?.toDate?.() || new Date(a.lastAttemptAt);
+        const dateB = b.lastAttemptAt?.toDate?.() || new Date(b.lastAttemptAt);
+        return dateB - dateA;
+      });
+
+    if (tests.length === 0) return { score: null, testsCount: 0 };
+
+    const recentTests = tests.slice(0, 3);
+    const weights = [0.5, 0.3, 0.2];
+    let totalWeight = 0;
+    let weightedSum = 0;
+
+    recentTests.forEach((test, i) => {
+      const weight = weights[i] || 0.2;
+      weightedSum += test.bestScaledScore * weight;
+      totalWeight += weight;
+    });
+
+    return {
+      score: Math.round(weightedSum / totalWeight),
+      testsCount: tests.length
+    };
+  };
+
+  const { score: projectedScore, testsCount: projectedTestsCount } = calculateProjectedScore();
+
   // Find strongest and weakest modules (only those with progress)
   const startedModules = moduleProgress.filter(m => m.completed > 0);
   const strongest = startedModules.length > 0
@@ -169,17 +201,6 @@ const StudentDashboard = ({
       allLessons
     });
   }, [completedLessons, practiceProgress, reviewQueue, user?.testDate, allLessons]);
-
-  // Generate personalized study plan
-  const studyPlan = useMemo(() => {
-    return generatePersonalizedPlan({
-      completedLessons,
-      practiceProgress,
-      reviewQueue,
-      testDate: user?.testDate,
-      targetScore: user?.targetScore
-    });
-  }, [completedLessons, practiceProgress, reviewQueue, user?.testDate, user?.targetScore]);
 
   // Handle target score selection (legacy - kept for backwards compatibility)
   const handleSelectTargetScore = (score) => {
@@ -563,113 +584,10 @@ const StudentDashboard = ({
         </div>
       )}
 
-      {/* Study Plan Summary (only show if test date and target are set) */}
-      {user?.testDate && user?.targetScore && studyPlan && (
-        <div style={{
-          ...cardStyle,
-          marginBottom: '24px',
-          background: '#f9fafb'
-        }}>
-          <div style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginBottom: '16px'
-          }}>
-            <h2 style={{ fontSize: '16px', fontWeight: '600', color: '#111827', margin: 0 }}>
-              Your Study Plan
-            </h2>
-            <div style={{ fontSize: '13px', color: '#6b7280' }}>
-              {studyPlan.summary.weeksLeft} week{studyPlan.summary.weeksLeft !== 1 ? 's' : ''} to go
-            </div>
-          </div>
-
-          {/* Score Progress Bar */}
-          <div style={{
-            background: 'white',
-            borderRadius: '8px',
-            padding: '16px',
-            marginBottom: '16px',
-            border: '1px solid #e5e7eb'
-          }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '8px' }}>
-              <div>
-                <div style={{ fontSize: '12px', color: '#6b7280' }}>Estimated</div>
-                <div style={{ fontSize: '20px', fontWeight: '600', color: '#111827' }}>
-                  ~{studyPlan.summary.currentEstimate}
-                </div>
-              </div>
-              <div style={{
-                fontSize: '13px',
-                color: '#ea580c',
-                fontWeight: '500'
-              }}>
-                {studyPlan.summary.dailyMinutes} min/day
-              </div>
-              <div style={{ textAlign: 'right' }}>
-                <div style={{ fontSize: '12px', color: '#6b7280' }}>Target</div>
-                <div style={{ fontSize: '20px', fontWeight: '600', color: '#111827' }}>
-                  {studyPlan.summary.targetScore}
-                </div>
-              </div>
-            </div>
-
-            {/* Visual progress bar */}
-            <div style={{
-              height: '8px',
-              background: '#e5e7eb',
-              borderRadius: '4px',
-              overflow: 'hidden'
-            }}>
-              <div style={{
-                height: '100%',
-                width: `${Math.min(100, (studyPlan.summary.currentEstimate / studyPlan.summary.targetScore) * 100)}%`,
-                background: studyPlan.onTrack ? '#22c55e' : '#ea580c',
-                borderRadius: '4px',
-                transition: 'width 0.3s ease'
-              }} />
-            </div>
-          </div>
-
-          {/* Focus Areas */}
-          {studyPlan.summary.focusAreas.length > 0 && (
-            <div>
-              <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '8px' }}>
-                This week: Focus on
-              </div>
-              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                {studyPlan.summary.focusAreas.map((area, i) => (
-                  <span key={i} style={{
-                    background: '#fff7ed',
-                    color: '#ea580c',
-                    padding: '6px 12px',
-                    borderRadius: '16px',
-                    fontSize: '13px',
-                    fontWeight: '500'
-                  }}>
-                    {area}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Motivational message */}
-          <div style={{
-            marginTop: '12px',
-            fontSize: '13px',
-            color: '#6b7280',
-            fontStyle: 'italic'
-          }}>
-            {studyPlan.message}
-          </div>
-        </div>
-      )}
-
       {/* Top Stats Row */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(3, 1fr)',
+        gridTemplateColumns: 'repeat(4, 1fr)',
         gap: '16px',
         marginBottom: '24px'
       }}>
@@ -768,6 +686,32 @@ const StudentDashboard = ({
                 questions correct
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Projected Score */}
+        <div style={cardStyle}>
+          <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '12px' }}>
+            Projected Score
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '80px' }}>
+            {projectedScore ? (
+              <div style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: '42px', fontWeight: '700', color: '#ea580c' }}>
+                  {projectedScore}
+                </div>
+                <div style={{ fontSize: '13px', color: '#6b7280', marginTop: '4px' }}>
+                  Based on {projectedTestsCount} test{projectedTestsCount !== 1 ? 's' : ''}
+                </div>
+              </div>
+            ) : (
+              <div style={{ textAlign: 'center', color: '#9ca3af' }}>
+                <div style={{ fontSize: '32px', fontWeight: '600' }}>—</div>
+                <div style={{ fontSize: '12px', marginTop: '4px' }}>
+                  Complete a practice test
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -973,10 +917,6 @@ const StudentDashboard = ({
         </div>
       )}
 
-      {/* Skill Breakdown Panel */}
-      {skillBreakdown && Object.keys(skillBreakdown).length > 0 && (
-        <SkillBreakdownPanel skillBreakdown={skillBreakdown} />
-      )}
     </div>
   );
 };
