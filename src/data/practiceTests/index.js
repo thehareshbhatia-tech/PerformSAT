@@ -6,13 +6,17 @@ import { practiceTest2 } from './practiceTest2';
 import { practiceTest3 } from './practiceTest3';
 import { practiceTest4 } from './practiceTest4';
 import { practiceTest5 } from './practiceTest5';
+import { practiceTest6 } from './practiceTest6';
+import { practiceTest7 } from './practiceTest7';
 
 export const practiceTests = [
   practiceTest1,
   practiceTest2,
   practiceTest3,
   practiceTest4,
-  practiceTest5
+  practiceTest5,
+  practiceTest6,
+  practiceTest7
 ];
 
 export const getPracticeTestById = (id) => {
@@ -23,4 +27,4 @@ export const getAllPracticeTests = () => {
   return practiceTests;
 };
 
-export { practiceTest1, practiceTest2, practiceTest3, practiceTest4, practiceTest5 };
+export { practiceTest1, practiceTest2, practiceTest3, practiceTest4, practiceTest5, practiceTest6, practiceTest7 };
