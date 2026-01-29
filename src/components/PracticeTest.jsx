@@ -329,23 +329,49 @@ const QuestionGrid = ({ questions, currentIndex, answers, markedForReview, onNav
           <button
             key={idx}
             onClick={() => onNavigate(idx)}
+            title={isMarked ? `Question ${idx + 1} - Flagged for later` : `Question ${idx + 1}`}
             style={{
               width: '32px',
               height: '32px',
-              borderRadius: '0',
+              borderRadius: '4px',
               border: isCurrent ? `2px solid ${SAT_COLORS.border.dark}` : `1px solid ${SAT_COLORS.border.light}`,
-              background: isMarked ? '#fff3cd' : isAnswered ? '#e8e8e8' : SAT_COLORS.background.page,
-              color: SAT_COLORS.text.primary,
+              background: isMarked ? '#fef3c7' : isAnswered ? '#e8e8e8' : SAT_COLORS.background.page,
+              color: isMarked ? '#b45309' : SAT_COLORS.text.primary,
               fontFamily: SAT_TYPOGRAPHY.diagramFont,
               fontSize: '13px',
               fontWeight: isCurrent ? '700' : '500',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              position: 'relative'
             }}
           >
             {idx + 1}
+            {/* Flag indicator for marked questions */}
+            {isMarked && (
+              <span style={{
+                position: 'absolute',
+                top: '-4px',
+                right: '-4px',
+                width: '12px',
+                height: '12px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}>
+                <svg
+                  width="10"
+                  height="10"
+                  viewBox="0 0 24 24"
+                  fill="#f59e0b"
+                  stroke="#b45309"
+                  strokeWidth="2"
+                >
+                  <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+                </svg>
+              </span>
+            )}
           </button>
         );
       })}
@@ -1696,6 +1722,58 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         onNavigate={handleNavigate}
       />
 
+      {/* Navigation Legend */}
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '20px',
+        marginBottom: '20px',
+        fontSize: '12px',
+        color: '#6b7280'
+      }}>
+        <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <span style={{
+            width: '14px',
+            height: '14px',
+            borderRadius: '3px',
+            background: '#e8e8e8',
+            border: '1px solid #d1d5db'
+          }}></span>
+          Answered
+        </span>
+        <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <span style={{
+            width: '14px',
+            height: '14px',
+            borderRadius: '3px',
+            background: '#fef3c7',
+            border: '1px solid #fcd34d',
+            position: 'relative'
+          }}>
+            <svg
+              style={{ position: 'absolute', top: '-3px', right: '-3px' }}
+              width="8"
+              height="8"
+              viewBox="0 0 24 24"
+              fill="#f59e0b"
+            >
+              <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+            </svg>
+          </span>
+          Flagged for Later
+        </span>
+        <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <span style={{
+            width: '14px',
+            height: '14px',
+            borderRadius: '3px',
+            background: 'white',
+            border: '1px solid #d1d5db'
+          }}></span>
+          Unanswered
+        </span>
+      </div>
+
       {/* Question Card - SAT Style */}
       <div style={{
         background: SAT_COLORS.background.page,
@@ -1730,16 +1808,35 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           <button
             onClick={handleToggleMark}
             style={{
-              padding: '6px 12px',
+              padding: '8px 14px',
               background: isMarked ? '#fef3c7' : 'transparent',
-              border: `1px solid ${isMarked ? '#fcd34d' : '#d1d5db'}`,
-              borderRadius: '6px',
+              border: `2px solid ${isMarked ? '#f59e0b' : '#d1d5db'}`,
+              borderRadius: '8px',
               fontSize: '13px',
-              color: isMarked ? '#92400e' : '#6b7280',
-              cursor: 'pointer'
+              fontWeight: '600',
+              color: isMarked ? '#b45309' : '#6b7280',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              transition: 'all 0.15s ease'
             }}
           >
-            {isMarked ? 'Marked for Review' : 'Mark for Review'}
+            {/* Flag Icon */}
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill={isMarked ? '#f59e0b' : 'none'}
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+              <line x1="4" y1="22" x2="4" y2="15" />
+            </svg>
+            {isMarked ? 'Flagged - Come Back Later' : 'Flag for Later'}
           </button>
         </div>
 
