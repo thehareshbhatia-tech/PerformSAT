@@ -19,7 +19,21 @@ export const practiceTest5 = {
           id: 1,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "A survey asked employees to rate their favorite office snack. The bar graph shows the number of employees who chose each of the five snacks.\n\n[Bar graph showing: Chips: 32, Fruit: 45, Cookies: 28, Granola: 38, Candy: 22]\n\nHow many employees chose fruit as their favorite snack?",
+          question: "A survey asked employees to rate their favorite office snack. The bar graph shows the number of employees who chose each of the five snacks. How many employees chose fruit as their favorite snack?",
+          diagram: {
+            type: "barChart",
+            params: {
+              data: [
+                { label: "Chips", value: 32 },
+                { label: "Fruit", value: 45 },
+                { label: "Cookies", value: 28 },
+                { label: "Granola", value: 38 },
+                { label: "Candy", value: 22 }
+              ],
+              xLabel: "Snack",
+              yLabel: "Number of employees"
+            }
+          },
           choices: [
             { id: "A", text: "28" },
             { id: "B", text: "38" },
@@ -119,7 +133,19 @@ export const practiceTest5 = {
           id: 8,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "For the linear function g, the table shows three values of x and their corresponding values of g(x).\n\n| x | g(x) |\n|---|------|\n| 0 | 17 |\n| 1 | 21 |\n| 2 | 25 |\n\nWhich equation defines g(x)?",
+          question: "For the linear function g, the table shows three values of x and their corresponding values of g(x). Which equation defines g(x)?",
+          diagram: {
+            type: "table",
+            params: {
+              xHeader: "x",
+              yHeader: "g(x)",
+              rows: [
+                [0, 17],
+                [1, 21],
+                [2, 25]
+              ]
+            }
+          },
           choices: [
             { id: "A", text: "g(x) = 4x + 17" },
             { id: "B", text: "g(x) = 17x + 21" },
@@ -151,7 +177,21 @@ export const practiceTest5 = {
           id: 10,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "The scatterplot shows the relationship between two variables, x and y. The points appear to follow a linear trend with a positive slope and a y-intercept near 2.\n\nWhich of the following equations is the most appropriate linear model for the data shown?",
+          question: "The scatterplot shows the relationship between two variables, x and y. Which of the following equations is the most appropriate linear model for the data shown?",
+          diagram: {
+            type: "scatterplot",
+            params: {
+              points: [
+                [1, 8], [1, 9], [2, 9], [2, 10], [3, 10],
+                [3, 11], [4, 12], [4, 13], [5, 14], [5, 15],
+                [6, 15], [6, 16], [7, 17], [7, 18], [8, 19]
+              ],
+              xLabel: "x",
+              yLabel: "y",
+              xMax: 10,
+              yMax: 20
+            }
+          },
           choices: [
             { id: "A", text: "y = 1.5 + 7.2x" },
             { id: "B", text: "y = 1.5 - 7.2x" },
@@ -159,7 +199,7 @@ export const practiceTest5 = {
             { id: "D", text: "y = 7.2 - 1.5x" }
           ],
           correctAnswer: "C",
-          explanation: "**Choice C is correct.** Based on the description of the scatterplot:\n\n• Positive slope: eliminates choices B and D (negative slopes)\n• Y-intercept near 2: Among A and C, 7.2 is closer to 2 than 1.5 as a y-intercept\n• Wait - let me reconsider: y = mx + b format\n• Choice A: slope = 7.2, y-intercept = 1.5\n• Choice C: slope = 1.5, y-intercept = 7.2\n\nFor data with y-intercept \"near 2\" and positive slope, Choice C with y-intercept 7.2 is the better fit based on typical SAT scatterplot patterns.\n\n**Key concept:** In y = mx + b form, m is the slope and b is the y-intercept.",
+          explanation: "**Choice C is correct.** Based on the scatterplot:\n\n• Positive slope: eliminates choices B and D (negative slopes)\n• The data shows a positive linear trend starting around y = 7-8 when x = 1\n• The slope appears to be around 1.5 (rise of about 10 over run of about 7)\n• Choice C: y = 7.2 + 1.5x has y-intercept of 7.2 and slope of 1.5\n\n**Key concept:** In y = mx + b form, m is the slope and b is the y-intercept.",
           skills: ["Problem-Solving and Data Analysis", "Linear models"]
         },
         // Question 11 - Substitution in linear equation (based on Q11)
@@ -343,6 +383,27 @@ export const practiceTest5 = {
           type: "multiple-choice",
           difficulty: "easy",
           question: "The line graph shows the estimated number of deer in a wildlife reserve on January 1 of each year from 2010 to 2020. Based on the line graph, in which year was the estimated number of deer in the reserve the greatest?",
+          diagram: {
+            type: "piecewiseLinear",
+            params: {
+              points: [
+                [0, 3],    // 2010: 150 deer (scaled: 3)
+                [1, 2.5],  // 2011: 125 deer
+                [2, 2],    // 2012: 100 deer
+                [3, 3],    // 2013: 150 deer
+                [4, 4],    // 2014: 200 deer
+                [5, 4.5],  // 2015: 225 deer
+                [6, 5],    // 2016: 250 deer (peak)
+                [7, 4],    // 2017: 200 deer
+                [8, 3.5],  // 2018: 175 deer
+                [9, 4],    // 2019: 200 deer
+                [10, 3.5]  // 2020: 175 deer
+              ],
+              xRange: [-1, 11],
+              yRange: [-1, 6],
+              label: "Deer population"
+            }
+          },
           choices: [
             { id: "A", text: "2010" },
             { id: "B", text: "2014" },
