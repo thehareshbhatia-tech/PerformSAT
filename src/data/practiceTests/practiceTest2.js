@@ -123,8 +123,11 @@ export const practiceTest2 = {
           difficulty: "medium",
           question: "In the figure given, lines p and s are parallel, and lines q and t are parallel. If the measure of angle 1 is 125°, what is the measure of angle 2?",
           diagram: {
-            type: "parallel-lines-transversal",
-            description: "Two sets of parallel lines (p||s and q||t) intersecting, with angle 1 marked at one intersection and angle 2 at another"
+            type: "parallelLines",
+            params: {
+              angles: { x: "125°", y: "∠2" },
+              lineLabels: ["p", "s", "t"]
+            }
           },
           choices: [
             { id: "A", text: "45°" },

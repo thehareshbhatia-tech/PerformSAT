@@ -157,7 +157,8 @@ export const practiceTest1 = {
           diagram: {
             type: "linearGraph",
             params: {
-              points: [[-8, -2], [0, 4], [8, 10]],
+              slope: 0.75,
+              yIntercept: 4,
               xRange: [-10, 10],
               yRange: [-10, 12],
               label: "g(x)"
@@ -374,10 +375,10 @@ export const practiceTest1 = {
           diagram: {
             type: "circleInscribed",
             params: {
-              center: "O",
-              points: ["P", "Q", "R"],
-              inscribedAngle: "QPR",
-              centralAngle: "QOR"
+              inscribedAngle: 40,
+              labelCenter: "O",
+              labelPoints: ["Q", "P", "R"],
+              showCentralAngle: true
             }
           },
           question: "The circle shown has center O. If the measure of angle QPR is 40°, what is the measure of angle QOR?",
@@ -566,8 +567,12 @@ export const practiceTest1 = {
             type: "barChart",
             params: {
               title: "Monthly Sales",
-              labels: ["Jan", "Feb", "Mar", "Apr"],
-              values: [150, 180, 210, 252],
+              data: [
+                { label: "Jan", value: 150 },
+                { label: "Feb", value: 180 },
+                { label: "Mar", value: 210 },
+                { label: "Apr", value: 252 }
+              ],
               yAxisLabel: "Units Sold"
             }
           },
@@ -814,13 +819,11 @@ export const practiceTest1 = {
           type: "multiple-choice",
           difficulty: "hard",
           diagram: {
-            type: "rightTriangle",
+            type: "rightTriangleWithAltitude",
             params: {
-              vertices: ["A", "B", "C"],
-              rightAngle: "B",
-              altitude: "D",
-              altitudeFrom: "B",
-              altitudeTo: "AC"
+              vertexLabels: ["A", "B", "C", "D"],
+              rightAngleAt: "B",
+              altitudeFrom: "D"
             }
           },
           question: "In the figure, triangle ABC is a right triangle with the right angle at B. Point D is on AC such that BD is perpendicular to AC. What is the value of sin(∠ABD) - cos(∠DBC)?",

@@ -1,4 +1,25 @@
 import React from 'react';
+import {
+  SATLinearGraph,
+  SATTwoLineGraph,
+  SATScatterplot,
+  SATParabola,
+  SATLineGraph,
+  SATBarChart,
+  SATDotPlot,
+  SATTable,
+  SATParallelLines,
+  SATIntersectingLines,
+  SATPiecewiseLinear,
+  SATCubicGraph,
+  CircleWithSector,
+  CircleWithSquare,
+  CircleInscribed,
+  RightTriangle,
+  TriangleWithAngles,
+  RightTriangleWithAltitude,
+  SimilarTriangles,
+} from './graphs';
 
 /**
  * Professional SAT-style SVG diagram components for practice questions
@@ -1361,6 +1382,391 @@ export const BarChartDiagram = ({ data = [], title = "", xLabel = "", yLabel = "
   );
 };
 
+// SAT-Style Two-Way Table Diagram (for multi-column tables like probability questions)
+export const TwoWayTableDiagram = ({ headers = [], rows = [], title = "" }) => {
+  const cellWidth = 60;
+  const firstColWidth = 70;
+  const cellHeight = 32;
+  const headerHeight = 36;
+  const tableWidth = firstColWidth + (headers.length - 1) * cellWidth;
+  const tableHeight = headerHeight + rows.length * cellHeight;
+
+  return (
+    <svg
+      width={tableWidth + 4}
+      height={tableHeight + 4}
+      viewBox={`0 0 ${tableWidth + 4} ${tableHeight + 4}`}
+      style={{
+        background: '#ffffff'
+      }}
+    >
+      {/* Table border */}
+      <rect
+        x="2"
+        y="2"
+        width={tableWidth}
+        height={tableHeight}
+        fill="none"
+        stroke={SAT_DIAGRAM.tableBorder}
+        strokeWidth="1.5"
+      />
+
+      {/* Header row background */}
+      <rect
+        x="2"
+        y="2"
+        width={tableWidth}
+        height={headerHeight}
+        fill="#f8f9fa"
+        stroke="none"
+      />
+
+      {/* Vertical dividers */}
+      <line
+        x1={2 + firstColWidth}
+        y1="2"
+        x2={2 + firstColWidth}
+        y2={tableHeight + 2}
+        stroke={SAT_DIAGRAM.tableBorder}
+        strokeWidth="1"
+      />
+      {headers.slice(2).map((_, i) => (
+        <line
+          key={`vd${i}`}
+          x1={2 + firstColWidth + (i + 1) * cellWidth}
+          y1="2"
+          x2={2 + firstColWidth + (i + 1) * cellWidth}
+          y2={tableHeight + 2}
+          stroke="#e5e7eb"
+          strokeWidth="1"
+        />
+      ))}
+
+      {/* Horizontal line under header */}
+      <line
+        x1="2"
+        y1={2 + headerHeight}
+        x2={tableWidth + 2}
+        y2={2 + headerHeight}
+        stroke={SAT_DIAGRAM.tableBorder}
+        strokeWidth="1.5"
+      />
+
+      {/* Header text */}
+      {headers.map((header, i) => {
+        const x = i === 0
+          ? 2 + firstColWidth / 2
+          : 2 + firstColWidth + (i - 0.5) * cellWidth;
+        return (
+          <text
+            key={`h${i}`}
+            x={x}
+            y={2 + headerHeight / 2 + 5}
+            fontSize="12"
+            fontWeight="600"
+            textAnchor="middle"
+            fill="#212529"
+            fontFamily="Arial, sans-serif"
+          >
+            {header}
+          </text>
+        );
+      })}
+
+      {/* Data rows */}
+      {rows.map((row, rowIndex) => {
+        const rowY = 2 + headerHeight + rowIndex * cellHeight;
+        const isLastRow = rowIndex === rows.length - 1;
+        return (
+          <g key={rowIndex}>
+            {/* Horizontal line between rows */}
+            {rowIndex > 0 && (
+              <line
+                x1="2"
+                y1={rowY}
+                x2={tableWidth + 2}
+                y2={rowY}
+                stroke={isLastRow ? SAT_DIAGRAM.tableBorder : "#e5e7eb"}
+                strokeWidth={isLastRow ? "1" : "1"}
+              />
+            )}
+            {/* Row cells */}
+            {row.map((cell, colIndex) => {
+              const x = colIndex === 0
+                ? 2 + firstColWidth / 2
+                : 2 + firstColWidth + (colIndex - 0.5) * cellWidth;
+              return (
+                <text
+                  key={`c${rowIndex}-${colIndex}`}
+                  x={x}
+                  y={rowY + cellHeight / 2 + 5}
+                  fontSize="12"
+                  fontWeight={colIndex === 0 || isLastRow ? "600" : "400"}
+                  textAnchor="middle"
+                  fill="#212529"
+                  fontFamily="Arial, sans-serif"
+                >
+                  {cell}
+                </text>
+              );
+            })}
+          </g>
+        );
+      })}
+    </svg>
+  );
+};
+
+// SAT-Style Parallel Lines with Transversal Diagram
+export const ParallelLinesDiagram = ({ angles = {}, lineLabels = { m: "m", n: "n" } }) => {
+  const size = 280;
+  const margin = 30;
+
+  // Parallel lines positions
+  const line1Y = size * 0.35;
+  const line2Y = size * 0.65;
+
+  // Transversal crosses both lines
+  const transStartX = margin + 30;
+  const transEndX = size - margin - 30;
+  const transStartY = margin;
+  const transEndY = size - margin;
+
+  // Calculate intersection points
+  const slope = (transEndY - transStartY) / (transEndX - transStartX);
+  const intersect1X = transStartX + (line1Y - transStartY) / slope;
+  const intersect2X = transStartX + (line2Y - transStartY) / slope;
+
+  return (
+    <svg
+      width={size}
+      height={size}
+      style={{
+        background: '#ffffff',
+        border: '1px solid #d1d5db'
+      }}
+    >
+      {/* Parallel line m */}
+      <line
+        x1={margin}
+        y1={line1Y}
+        x2={size - margin}
+        y2={line1Y}
+        stroke="#212529"
+        strokeWidth="1.5"
+      />
+      <text
+        x={size - margin + 8}
+        y={line1Y + 5}
+        fontSize="14"
+        fontStyle="italic"
+        fill="#212529"
+        fontFamily="Times New Roman, serif"
+      >
+        {lineLabels.m}
+      </text>
+
+      {/* Parallel line n */}
+      <line
+        x1={margin}
+        y1={line2Y}
+        x2={size - margin}
+        y2={line2Y}
+        stroke="#212529"
+        strokeWidth="1.5"
+      />
+      <text
+        x={size - margin + 8}
+        y={line2Y + 5}
+        fontSize="14"
+        fontStyle="italic"
+        fill="#212529"
+        fontFamily="Times New Roman, serif"
+      >
+        {lineLabels.n}
+      </text>
+
+      {/* Transversal */}
+      <line
+        x1={transStartX}
+        y1={transStartY}
+        x2={transEndX}
+        y2={transEndY}
+        stroke="#212529"
+        strokeWidth="1.5"
+      />
+
+      {/* Angle labels at intersection with line m */}
+      {angles.x && (
+        <text
+          x={intersect1X + 15}
+          y={line1Y - 10}
+          fontSize="14"
+          fontStyle="italic"
+          fill="#212529"
+          fontFamily="Times New Roman, serif"
+        >
+          x°
+        </text>
+      )}
+      {angles.y && (
+        <text
+          x={intersect1X - 25}
+          y={line1Y + 20}
+          fontSize="14"
+          fontStyle="italic"
+          fill="#212529"
+          fontFamily="Times New Roman, serif"
+        >
+          y°
+        </text>
+      )}
+
+      {/* Angle labels at intersection with line n */}
+      {angles.z && (
+        <text
+          x={intersect2X + 15}
+          y={line2Y - 10}
+          fontSize="14"
+          fontStyle="italic"
+          fill="#212529"
+          fontFamily="Times New Roman, serif"
+        >
+          z°
+        </text>
+      )}
+
+      {/* Parallel marks (arrows) */}
+      <text x={margin + 40} y={line1Y - 5} fontSize="12" fill="#212529">›</text>
+      <text x={margin + 50} y={line1Y - 5} fontSize="12" fill="#212529">›</text>
+      <text x={margin + 40} y={line2Y - 5} fontSize="12" fill="#212529">›</text>
+      <text x={margin + 50} y={line2Y - 5} fontSize="12" fill="#212529">›</text>
+    </svg>
+  );
+};
+
+// SAT-Style Two Lines System Diagram (for systems of equations)
+// Supports both slope/intercept and points-based line definitions
+export const TwoLineSystemDiagram = ({ line1 = {}, line2 = {}, intersection = null, xRange = [-6, 6], yRange = [-6, 6], showIntersection = true }) => {
+  const [xMin, xMax] = xRange;
+  const [yMin, yMax] = yRange;
+
+  // Helper function to get line endpoints from either slope/intercept or points
+  const getLineEndpoints = (line, xMin, xMax) => {
+    if (line.points && line.points.length >= 2) {
+      // Calculate slope and intercept from two points
+      const [x1, y1] = line.points[0];
+      const [x2, y2] = line.points[1];
+      const slope = (y2 - y1) / (x2 - x1);
+      const intercept = y1 - slope * x1;
+      return {
+        y1: slope * xMin + intercept,
+        y2: slope * xMax + intercept
+      };
+    } else {
+      // Use slope and intercept directly
+      const { slope = 0, yIntercept = 0 } = line;
+      return {
+        y1: slope * xMin + yIntercept,
+        y2: slope * xMax + yIntercept
+      };
+    }
+  };
+
+  const line1Endpoints = getLineEndpoints(line1, xMin, xMax);
+  const line2Endpoints = getLineEndpoints(line2, xMin, xMax);
+
+  return (
+    <svg
+      width="320"
+      height="280"
+      viewBox={`${xMin - 1.5} ${-yMax - 1.5} ${xMax - xMin + 3} ${yMax - yMin + 3}`}
+      style={{
+        background: '#ffffff',
+        border: '1px solid #d1d5db'
+      }}
+    >
+      {/* Grid */}
+      {Array.from({ length: Math.ceil((xMax - xMin) / 2) + 1 }, (_, i) => xMin + i * 2)
+        .filter(x => x !== 0 && x >= xMin && x <= xMax)
+        .map(x => (
+          <line key={`v${x}`} x1={x} y1={-yMax} x2={x} y2={-yMin} stroke="#f0f0f0" strokeWidth="0.03" />
+        ))}
+      {Array.from({ length: Math.ceil((yMax - yMin) / 2) + 1 }, (_, i) => yMin + i * 2)
+        .filter(y => y !== 0 && y >= yMin && y <= yMax)
+        .map(y => (
+          <line key={`h${y}`} x1={xMin} y1={-y} x2={xMax} y2={-y} stroke="#f0f0f0" strokeWidth="0.03" />
+        ))}
+
+      {/* X-axis */}
+      <line x1={xMin - 0.5} y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.08" />
+      <polygon points={`${xMax + 0.8},0 ${xMax + 0.55},0.18 ${xMax + 0.55},-0.18`} fill="#212529" />
+
+      {/* Y-axis */}
+      <line x1="0" y1={-yMin + 0.5} x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.08" />
+      <polygon points={`0,${-yMax - 0.8} 0.18,${-yMax - 0.55} -0.18,${-yMax - 0.55}`} fill="#212529" />
+
+      {/* Tick marks */}
+      {[-4, -2, 2, 4].filter(x => x >= xMin && x <= xMax).map(x => (
+        <g key={`tx${x}`}>
+          <line x1={x} y1="-0.15" x2={x} y2="0.15" stroke="#212529" strokeWidth="0.06" />
+          <text x={x} y="0.7" fontSize="0.5" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
+        </g>
+      ))}
+      {[-4, -2, 2, 4].filter(y => y >= yMin && y <= yMax).map(y => (
+        <g key={`ty${y}`}>
+          <line x1="-0.15" y1={-y} x2="0.15" y2={-y} stroke="#212529" strokeWidth="0.06" />
+          <text x="-0.45" y={-y + 0.18} fontSize="0.5" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
+        </g>
+      ))}
+
+      {/* Origin */}
+      <text x="-0.4" y="0.7" fontSize="0.5" fill="#495057" fontFamily="Arial, sans-serif">O</text>
+
+      {/* Line 1 */}
+      <line
+        x1={xMin}
+        y1={-Math.max(yMin, Math.min(yMax, line1Endpoints.y1))}
+        x2={xMax}
+        y2={-Math.max(yMin, Math.min(yMax, line1Endpoints.y2))}
+        stroke="#212529"
+        strokeWidth="0.1"
+      />
+
+      {/* Line 2 */}
+      <line
+        x1={xMin}
+        y1={-Math.max(yMin, Math.min(yMax, line2Endpoints.y1))}
+        x2={xMax}
+        y2={-Math.max(yMin, Math.min(yMax, line2Endpoints.y2))}
+        stroke="#212529"
+        strokeWidth="0.1"
+      />
+
+      {/* Intersection point */}
+      {intersection && (
+        <g>
+          <circle cx={intersection[0]} cy={-intersection[1]} r="0.2" fill="#c92a2a" />
+          <text
+            x={intersection[0] + 0.5}
+            y={-intersection[1] - 0.4}
+            fontSize="0.5"
+            fill="#212529"
+            fontFamily="Arial, sans-serif"
+            fontWeight="500"
+          >
+            ({intersection[0]}, {intersection[1]})
+          </text>
+        </g>
+      )}
+
+      {/* Axis labels */}
+      <text x={xMax + 0.4} y="-0.4" fontSize="0.6" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">x</text>
+      <text x="0.4" y={-yMax - 0.2} fontSize="0.6" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">y</text>
+    </svg>
+  );
+};
+
 // SAT-Style Triangle Geometry Diagram
 export const TriangleGeometryDiagram = ({ vertices = ["A", "B", "C"], rightAngle = "", altitude = null }) => {
   const size = 280;
@@ -1527,38 +1933,99 @@ export const LinearGraphDiagram = ({ slope, yIntercept, xRange = [-10, 10], yRan
 // Main QuestionDiagram component that switches based on type
 const QuestionDiagram = ({ type, params }) => {
   switch (type) {
+    // Legacy components (kept for backward compatibility)
     case 'rationalFunction':
       return <RationalFunctionDiagram {...params} />;
-    case 'quadraticVertex':
-      return <QuadraticDiagram {...params} />;
     case 'absoluteValue':
       return <AbsoluteValueDiagram {...params} />;
     case 'coordinatePoints':
       return <CoordinatePointsDiagram {...params} />;
     case 'quadraticIntercepts':
       return <QuadraticInterceptsDiagram {...params} />;
-    case 'scatterplot':
-      return <ScatterplotDiagram {...params} />;
     case 'linearLine':
       return <LinearLineDiagram {...params} />;
-    case 'simpleLine':
-      return <SimpleLineDiagram {...params} />;
-    case 'table':
-      return <TableDiagram {...params} />;
-    case 'dotPlot':
-      return <DotPlotDiagram {...params} />;
-    case 'circleGeometry':
-    case 'circleInscribed':
-      return <CircleGeometryDiagram {...params} />;
-    case 'piecewiseLinear':
-      return <PiecewiseLinearDiagram {...params} />;
-    case 'barChart':
-      return <BarChartDiagram {...params} />;
-    case 'triangle':
-      return <TriangleGeometryDiagram {...params} />;
+
+    // SAT-style graph components (primary)
     case 'linearGraph':
-      return <LinearGraphDiagram {...params} />;
+    case 'simpleLine':
+    case 'satLinearGraph':
+      return <SATLinearGraph {...params} />;
+
+    case 'twoLineSystem':
+    case 'twoLineGraph':
+    case 'satTwoLineGraph':
+      return <SATTwoLineGraph {...params} />;
+
+    case 'scatterplot':
+    case 'satScatterplot':
+      return <SATScatterplot {...params} />;
+
+    case 'quadraticVertex':
+    case 'parabola':
+    case 'satParabola':
+      return <SATParabola {...params} />;
+
+    case 'lineGraph':
+    case 'satLineGraph':
+      return <SATLineGraph {...params} />;
+
+    // New SAT-style components
+    case 'barChart':
+    case 'bar-graph':
+      return <SATBarChart {...params} />;
+
+    case 'dotPlot':
+      return <SATDotPlot {...params} />;
+
+    case 'table':
+    case 'twoWayTable':
+      return <SATTable {...params} />;
+
+    case 'piecewiseLinear':
+      return <SATPiecewiseLinear {...params} />;
+
+    case 'cubicGraph':
+      return <SATCubicGraph {...params} />;
+
+    // Parallel and intersecting lines
+    case 'parallelLines':
+      return <SATParallelLines {...params} />;
+
+    case 'intersecting-lines':
+    case 'intersectingLines':
+      return <SATIntersectingLines {...params} />;
+
+    // Circle diagrams
+    case 'circleWithSector':
+    case 'circle-sector':
+      return <CircleWithSector {...params} />;
+
+    case 'circleWithSquare':
+    case 'square-in-circle':
+      return <CircleWithSquare {...params} />;
+
+    case 'circleInscribed':
+    case 'circleGeometry':
+      return <CircleInscribed {...params} />;
+
+    // Triangle diagrams
+    case 'rightTriangle':
+    case 'triangle':
+      return <RightTriangle {...params} />;
+
+    case 'triangleWithAngles':
+      return <TriangleWithAngles {...params} />;
+
+    case 'rightTriangleWithAltitude':
+    case 'right-triangle-altitude':
+      return <RightTriangleWithAltitude {...params} />;
+
+    case 'similarTriangles':
+      return <SimilarTriangles {...params} />;
+
     default:
+      // Try to render as legacy component if available
+      console.warn(`Unknown diagram type: ${type}`);
       return null;
   }
 };

@@ -662,6 +662,38 @@ const renderChoice = (choice) => {
       />
     );
   }
+  if (choice.table) {
+    return (
+      <table style={{ borderCollapse: 'collapse', fontSize: '14px' }}>
+        <thead>
+          <tr>
+            {choice.table.headers.map((h, i) => (
+              <th key={i} style={{
+                border: '1px solid #ccc',
+                padding: '4px 12px',
+                background: '#f8f9fa',
+                fontWeight: '600',
+                fontStyle: 'italic'
+              }}>{h}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {choice.table.rows.map((row, i) => (
+            <tr key={i}>
+              {row.map((cell, j) => (
+                <td key={j} style={{
+                  border: '1px solid #ccc',
+                  padding: '4px 12px',
+                  textAlign: 'center'
+                }}>{cell}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    );
+  }
   return <MathText text={choice.text} />;
 };
 

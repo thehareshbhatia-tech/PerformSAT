@@ -40,6 +40,17 @@ export const practiceTest6 = {
           id: 3,
           type: 'multiple-choice',
           question: 'The graph of the linear function f is shown, where y = f(x). The line passes through the points (0, -5) and (10, 5). What is the y-intercept of the graph of f?',
+          diagram: {
+            type: "linearGraph",
+            params: {
+              slope: 1,
+              yIntercept: -5,
+              xRange: [-2, 12],
+              yRange: [-8, 8],
+              showPoints: [[0, -5], [10, 5]],
+              label: "f(x)"
+            }
+          },
           choices: [
             { id: 'A', text: '(0, 0)' },
             { id: 'B', text: '(0, -5)' },
@@ -65,7 +76,15 @@ export const practiceTest6 = {
         {
           id: 5,
           type: 'multiple-choice',
-          question: 'The table shows selected values from function f.\n\n| x | f(x) |\n|---|------|\n| -1 | 24 |\n| 0 | 27 |\n| 1 | 30 |\n| 2 | 33 |\n\nWhich of the following is the best description of function f?',
+          question: 'The table shows selected values from function f. Which of the following is the best description of function f?',
+          diagram: {
+            type: "table",
+            params: {
+              xHeader: "x",
+              yHeader: "f(x)",
+              rows: [[-1, 24], [0, 27], [1, 30], [2, 33]]
+            }
+          },
           choices: [
             { id: 'A', text: 'Decreasing linear' },
             { id: 'B', text: 'Increasing linear' },
@@ -79,6 +98,17 @@ export const practiceTest6 = {
           id: 6,
           type: 'fill-in',
           question: 'The graph of a system of linear equations is shown. One line passes through (0, 4) and (8, 0). The other line passes through (0, -2) and (4, 4). The solution to the system is (x, y). What is the value of x?',
+          diagram: {
+            type: "twoLineGraph",
+            params: {
+              intersection: { x: 3, y: 2.5 },
+              slope1: -0.5,
+              slope2: 1.5,
+              xRange: [-2, 10],
+              yRange: [-4, 8],
+              showIntersection: true
+            }
+          },
           correctAnswer: '3',
           explanation: 'Line 1: slope = (0-4)/(8-0) = -1/2, equation: y = -x/2 + 4. Line 2: slope = (4-(-2))/(4-0) = 6/4 = 3/2, equation: y = 3x/2 - 2. Setting equal: -x/2 + 4 = 3x/2 - 2, so 6 = 2x, giving x = 3.'
         },
@@ -93,6 +123,13 @@ export const practiceTest6 = {
           id: 8,
           type: 'multiple-choice',
           question: 'In a figure, line m is parallel to line n, and line k intersects both lines. The angle formed between line k and line m measures 132°. Which of the following statements is true about the angle x° formed between line k and line n on the same side?',
+          diagram: {
+            type: "parallelLines",
+            params: {
+              angles: { x: true },
+              lineLabels: { m: "m", n: "n" }
+            }
+          },
           choices: [
             { id: 'A', text: 'The value of x is less than 132.' },
             { id: 'B', text: 'The value of x is greater than 132.' },
@@ -283,6 +320,14 @@ export const practiceTest6 = {
           id: 2,
           type: 'multiple-choice',
           question: 'Helium is placed inside a container with a constant volume. The graph shows the estimated pressure y, in kilopascals (kPa), of the helium when its temperature is x kelvins. The relationship is linear, passing through (0, 0) and (400, 80). What is the estimated pressure of the helium, in kPa, when the temperature is 500 kelvins?',
+          diagram: {
+            type: "simpleLine",
+            params: {
+              points: [[0, 0], [400, 80]],
+              xMax: 600,
+              yMax: 120
+            }
+          },
           choices: [
             { id: 'A', text: '80' },
             { id: 'B', text: '100' },
@@ -362,6 +407,14 @@ export const practiceTest6 = {
           id: 9,
           type: 'multiple-choice',
           question: 'A ball is thrown upward from a platform. The graph shows the height above the ground y, in feet, of the ball x seconds after being thrown. The ball reaches its maximum height and then falls, hitting the ground at x = 2.4 seconds. What is the best interpretation of the x-intercept of the graph?',
+          diagram: {
+            type: "quadraticVertex",
+            params: {
+              vertex: [1.0, 20],
+              a: -10,
+              showVertex: false
+            }
+          },
           choices: [
             { id: 'A', text: 'The ball reaches a maximum height at 2.4 seconds.' },
             { id: 'B', text: 'The ball hits the ground at 2.4 seconds.' },

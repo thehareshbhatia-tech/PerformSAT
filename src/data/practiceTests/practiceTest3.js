@@ -223,7 +223,12 @@ export const practiceTest3 = {
           question: "The graph shows a parabola with vertex at (3, 10) opening downward and passing through approximately (0, -8). What is the equation of the graph?",
           diagram: {
             type: "parabola",
-            description: "Downward-opening parabola with vertex at (3, 10), passing through points near (-10, -10) and (10, -10)"
+            params: {
+              vertex: { h: 3, k: 10 },
+              a: -2,
+              xRange: [-5, 11],
+              yRange: [-10, 12]
+            }
           },
           choices: [
             { id: "A", text: "y = -2(x - 3)² + 10" },
@@ -298,8 +303,14 @@ export const practiceTest3 = {
           difficulty: "medium",
           question: "What is the length of the minor arc AB, given that the diameter of the circle is 12 and the measure of the angle of sector AOB is 72°?",
           diagram: {
-            type: "circle-sector",
-            description: "Circle with center O, radius to points A and B forming a 72° angle"
+            type: "circleWithSector",
+            params: {
+              centralAngle: 72,
+              labelCenter: "O",
+              labelPoint1: "A",
+              labelPoint2: "B",
+              showAngleLabel: true
+            }
           },
           choices: [
             { id: "A", text: "π/6" },
@@ -339,8 +350,11 @@ export const practiceTest3 = {
           difficulty: "hard",
           question: "In the figure shown, square ABCD is circumscribed by Circle O. The diameter of the circle is 18 inches. What is the area of the square, in square inches?",
           diagram: {
-            type: "square-in-circle",
-            description: "Square ABCD inscribed in circle O with center marked"
+            type: "circleWithSquare",
+            params: {
+              labels: { A: "A", B: "B", C: "C", D: "D", O: "O" },
+              showDiagonals: true
+            }
           },
           correctAnswer: 162,
           explanation: "**The correct answer is 162.**\n\nWhen a square is inscribed in a circle, the diagonal of the square equals the diameter of the circle.\n\n**Step 1:** Identify that the diagonal = diameter:\nDiagonal = 18 inches\n\n**Step 2:** Relate diagonal to side length:\nFor a square, diagonal = s√2, where s is the side length\ns√2 = 18\ns = 18/√2 = 18√2/2 = 9√2\n\n**Step 3:** Calculate area:\nArea = s² = (9√2)² = 81 × 2 = **162 square inches**\n\n**Alternative method:** For a square with diagonal d:\nArea = d²/2 = 18²/2 = 324/2 = 162\n\n**Key concept:** For a square inscribed in a circle:\n• Diagonal = diameter\n• Area = diagonal²/2 = d²/2",
@@ -354,8 +368,10 @@ export const practiceTest3 = {
           difficulty: "hard",
           question: "In the given figure, angles measuring 18°, t°, 68°, and 27° are shown. What is the value of t?",
           diagram: {
-            type: "intersecting-lines",
-            description: "Two lines intersecting with angles 18°, t°, 68°, and 27° marked"
+            type: "intersectingLines",
+            params: {
+              angles: ["18°", "t°", "68°", "27°"]
+            }
           },
           correctAnswer: 113,
           explanation: "**The correct answer is 113.**\n\nBased on the angle configuration, this involves the exterior angle theorem or supplementary angles.\n\n**Using exterior angle theorem:** An exterior angle of a triangle equals the sum of the two non-adjacent interior angles.\n\nIf t° is an exterior angle with 18° and 68° as remote interior angles:\nt = 18 + 68 + 27 = 113°\n\n**Alternative interpretation using supplementary angles:**\nIf 18° and 68° are on one side and t° is supplementary to their complement with 27°:\nt = 180 - (18 + 68 - 27) = 180 - 59 = 121°\nOr: t = 180 - 67 = 113° (depending on configuration)\n\n**The answer is t = 113°**\n\n**Key concept:** The sum of angles in a triangle is 180°. Exterior angle = sum of remote interior angles.",
@@ -369,8 +385,14 @@ export const practiceTest3 = {
           difficulty: "hard",
           question: "The graph of an equation k is shown above. Line l is perpendicular to line k and intersects the line at the coordinate point (-6, -2). The y-intercept of line l is at the coordinate point (0, b). What is the value of b?",
           diagram: {
-            type: "linear-graph",
-            description: "Line k passing through points showing positive slope"
+            type: "linearGraph",
+            params: {
+              slope: 0.5,
+              yIntercept: 1,
+              xRange: [-6, 6],
+              yRange: [-6, 6],
+              label: "k"
+            }
           },
           correctAnswer: -11,
           explanation: "**The correct answer is -11.**\n\n**Step 1:** Determine the slope of line k from the graph:\nFrom the graph, line k has a slope of 2/3 (rises 2 for every 3 units right).\n\n**Step 2:** Find the perpendicular slope:\nPerpendicular slopes are negative reciprocals.\nSlope of line l = -3/2\n\n**Step 3:** Write the equation of line l using point-slope form:\nLine l passes through (-6, -2) with slope -3/2:\ny - (-2) = -3/2(x - (-6))\ny + 2 = -3/2(x + 6)\n\n**Step 4:** Find the y-intercept (where x = 0):\ny + 2 = -3/2(0 + 6)\ny + 2 = -3/2(6)\ny + 2 = -9\ny = -11\n\nTherefore, b = **-11**\n\n**Verification:** The point (0, -11) is on line l:\n-11 + 2 = -9 = -3/2(6) ✓\n\n**Key concept:** Perpendicular lines have slopes that are negative reciprocals (m₁ × m₂ = -1).",
@@ -424,8 +446,20 @@ export const practiceTest3 = {
           difficulty: "easy",
           question: "The bar graph shows how many hours the air conditioner was on from Monday to Friday in a given week. What is the mean number of hours the air conditioner was on during this period?",
           diagram: {
-            type: "bar-graph",
-            description: "Bar graph showing: Monday=10, Tuesday=12, Wednesday=15, Thursday=18, Friday=15 hours"
+            type: "barChart",
+            params: {
+              title: "Hours Air Conditioner Was Active",
+              data: [
+                { label: "Mon", value: 10 },
+                { label: "Tue", value: 12 },
+                { label: "Wed", value: 15 },
+                { label: "Thu", value: 18 },
+                { label: "Fri", value: 15 }
+              ],
+              yAxisLabel: "Hours",
+              yMax: 20,
+              yStep: 2
+            }
           },
           choices: [
             { id: "A", text: "8" },
@@ -681,8 +715,14 @@ export const practiceTest3 = {
           difficulty: "hard",
           question: "In the given circle, the radius is 6 centimeters and angle AOB measures (7/12)π radians. What is the value of the arc length AB, in centimeters?",
           diagram: {
-            type: "circle-sector",
-            description: "Circle with center O, points A and B on circumference"
+            type: "circleWithSector",
+            params: {
+              centralAngle: 105,
+              labelCenter: "O",
+              labelPoint1: "A",
+              labelPoint2: "B",
+              showAngleArc: true
+            }
           },
           choices: [
             { id: "A", text: "(7/2)π" },
@@ -702,8 +742,13 @@ export const practiceTest3 = {
           difficulty: "hard",
           question: "In the image shown, right triangle LMN has a right angle at M. Altitude PM is shown and ∠NPM is a right angle. LP = 13 and PM = 10. Which of the following are closest to the length of NP?",
           diagram: {
-            type: "right-triangle-altitude",
-            description: "Right triangle LMN with altitude PM from right angle M to hypotenuse LN"
+            type: "rightTriangleWithAltitude",
+            params: {
+              vertexLabels: ["L", "M", "N", "P"],
+              rightAngleAt: "M",
+              altitudeFrom: "P",
+              sideLengths: { LP: 13, PM: 10 }
+            }
           },
           choices: [
             { id: "A", text: "3.0" },

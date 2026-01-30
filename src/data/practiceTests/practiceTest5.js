@@ -505,10 +505,38 @@ export const practiceTest5 = {
           difficulty: "medium",
           question: "g(x) = x² - 5\n\nWhich table gives three values of x and their corresponding values of g(x) for the given function g?",
           choices: [
-            { id: "A", text: "x: 1, 2, 3 → g(x): 6, 7, 8" },
-            { id: "B", text: "x: 1, 2, 3 → g(x): -4, -1, 4" },
-            { id: "C", text: "x: 1, 2, 3 → g(x): -3, -1, 1" },
-            { id: "D", text: "x: 1, 2, 3 → g(x): -4, -1, 2" }
+            {
+              id: "A",
+              text: "",
+              table: {
+                headers: ["x", "g(x)"],
+                rows: [["1", "6"], ["2", "7"], ["3", "8"]]
+              }
+            },
+            {
+              id: "B",
+              text: "",
+              table: {
+                headers: ["x", "g(x)"],
+                rows: [["1", "-4"], ["2", "-1"], ["3", "4"]]
+              }
+            },
+            {
+              id: "C",
+              text: "",
+              table: {
+                headers: ["x", "g(x)"],
+                rows: [["1", "-3"], ["2", "-1"], ["3", "1"]]
+              }
+            },
+            {
+              id: "D",
+              text: "",
+              table: {
+                headers: ["x", "g(x)"],
+                rows: [["1", "-4"], ["2", "-1"], ["3", "2"]]
+              }
+            }
           ],
           correctAnswer: "B",
           explanation: "**Choice B is correct.** Calculate g(x) for each x value.\n\n• g(1) = 1² - 5 = 1 - 5 = -4\n• g(2) = 2² - 5 = 4 - 5 = -1\n• g(3) = 3² - 5 = 9 - 5 = 4\n\nThe values -4, -1, 4 match Choice B.\n\n**Why other choices are incorrect:**\n• Choice A: Would need x² - 5 to equal 6, 7, 8\n• Choice C: g(3) should be 4, not 1\n• Choice D: g(3) should be 4, not 2\n\n**Key concept:** Substitute each x-value into the function to find corresponding outputs.",
@@ -583,7 +611,18 @@ export const practiceTest5 = {
           id: 13,
           type: "fill-in",
           difficulty: "medium",
-          question: "The table summarizes the distribution of size and color for 80 shirts.\n\n|        | White | Black | Gray | Total |\n|--------|-------|-------|------|-------|\n| Small  |   8   |  12   |  15  |  35   |\n| Large  |  12   |  18   |  15  |  45   |\n| Total  |  20   |  30   |  30  |  80   |\n\nIf one of these shirts is selected at random, what is the probability of selecting a white shirt? (Express your answer as a decimal or fraction, not as a percent.)",
+          question: "The table summarizes the distribution of size and color for 80 shirts. If one of these shirts is selected at random, what is the probability of selecting a white shirt? (Express your answer as a decimal or fraction, not as a percent.)",
+          diagram: {
+            type: "twoWayTable",
+            params: {
+              headers: ["", "White", "Black", "Gray", "Total"],
+              rows: [
+                ["Small", "8", "12", "15", "35"],
+                ["Large", "12", "18", "15", "45"],
+                ["Total", "20", "30", "30", "80"]
+              ]
+            }
+          },
           correctAnswer: "0.25",
           explanation: "**The correct answer is 0.25 (or 1/4 or 20/80).**\n\n• Total white shirts: 20\n• Total shirts: 80\n• Probability = 20/80 = 1/4 = 0.25\n\n**Key concept:** Probability = (favorable outcomes) / (total outcomes)\n\n**Note:** Express as decimal (0.25) or fraction (1/4), not percent (25%).",
           skills: ["Problem-Solving and Data Analysis", "Probability"]
@@ -620,6 +659,13 @@ export const practiceTest5 = {
           type: "multiple-choice",
           difficulty: "medium",
           question: "In the figure, lines m and n are parallel. If x = 5k + 8 and y = 7k - 20, what is the value of z?",
+          diagram: {
+            type: "parallelLines",
+            params: {
+              angles: { x: true, y: true, z: true },
+              lineLabels: { m: "m", n: "n" }
+            }
+          },
           choices: [
             { id: "A", text: "14" },
             { id: "B", text: "28" },
@@ -704,6 +750,17 @@ export const practiceTest5 = {
           type: "multiple-choice",
           difficulty: "hard",
           question: "The graph shows a system of two linear equations. If a new graph of three linear equations is created using the system of equations shown and the equation 2x + 3y = -12, how many solutions (x, y) will the resulting system of three equations have?",
+          diagram: {
+            type: "twoLineGraph",
+            params: {
+              intersection: { x: -4, y: 2 },
+              slope1: 1,
+              slope2: -1,
+              xRange: [-8, 8],
+              yRange: [-8, 12],
+              showIntersection: true
+            }
+          },
           choices: [
             { id: "A", text: "Zero" },
             { id: "B", text: "Exactly one" },
