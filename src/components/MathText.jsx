@@ -9,11 +9,16 @@ export const MathText = ({ children, text, className = '', style = {} }) => {
 
     let result = String(inputText);
 
-    // Step 1: Protect currency amounts ($12.50, \$12.50, etc.) BEFORE math processing
+    // Step 0: Protect escaped dollar signs (\$) BEFORE any processing
+    // This handles \$25 style currency notation
+    const ESCAPED_DOLLAR_PLACEHOLDER = '\uFFFD';
+    result = result.replace(/\\\$/g, ESCAPED_DOLLAR_PLACEHOLDER);
+
+    // Step 1: Protect currency amounts ($12.50) BEFORE math processing
     // Only match currency with decimal (e.g., $12.50) to avoid matching math like $5$
     const CURRENCY_PLACEHOLDER = '\uFFFE';
     const currencies = [];
-    result = result.replace(/\\?\$(\d+(?:,\d{3})*\.\d{2})(?=[\s,;:.!?)}\]]|$)/g, (match, amount) => {
+    result = result.replace(/\$(\d+(?:,\d{3})*\.\d{2})(?=[\s,;:.!?)}\]]|$)/g, (match, amount) => {
       currencies.push(amount);
       return CURRENCY_PLACEHOLDER;
     });
@@ -49,6 +54,9 @@ export const MathText = ({ children, text, className = '', style = {} }) => {
     result = result.replace(new RegExp(CURRENCY_PLACEHOLDER, 'g'), () => {
       return '$' + currencies[currencyIndex++];
     });
+
+    // Step 5: Restore escaped dollar signs as $ (e.g., \$25 becomes $25)
+    result = result.replace(new RegExp(ESCAPED_DOLLAR_PLACEHOLDER, 'g'), '$');
 
     return result;
   };
