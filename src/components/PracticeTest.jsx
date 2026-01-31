@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import QuestionDiagram from './QuestionDiagrams';
 import AiTutorChat, { AiTutorButton } from './AiTutorChat';
 import TestResults from './TestResults';
+import { MathText } from './MathText';
 
 // SAT-Style Typography Constants - matches College Board format
 const SAT_TYPOGRAPHY = {
@@ -379,8 +380,9 @@ const QuestionGrid = ({ questions, currentIndex, answers, markedForReview, onNav
   );
 };
 
-// MathText component - renders mathematical notation properly
-const MathText = ({ text, style = {} }) => {
+// OLD MathText component - NOW USING KaTeX-based version from ./MathText.jsx
+// Keeping for reference only
+const OldMathText_DISABLED = ({ text, style = {} }) => {
   if (!text) return null;
 
   const baseStyle = {

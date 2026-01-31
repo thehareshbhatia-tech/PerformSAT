@@ -5,6 +5,7 @@
    ============================================ */
 
 import React, { useState } from 'react';
+import { MathText } from './MathText';
 
 /* ============================================
    STYLES - Matches Test Innovators exactly
@@ -550,10 +551,9 @@ const PracticeTestLayout = ({
           )}
 
           {/* Question Text */}
-          <div
-            style={styles.questionText}
-            dangerouslySetInnerHTML={{ __html: currentQuestion.question }}
-          />
+          <div style={styles.questionText}>
+            <MathText>{currentQuestion.question}</MathText>
+          </div>
         </div>
 
         {/* Right Side - Answers */}
@@ -589,7 +589,7 @@ const PracticeTestLayout = ({
                     {choice.id}
                   </span>
                   <span style={styles.choiceText}>
-                    {choice.text}
+                    <MathText>{choice.text}</MathText>
                   </span>
                   {showReview && currentQuestion.stats && (
                     <span style={styles.choicePercent}>
@@ -616,7 +616,7 @@ const PracticeTestLayout = ({
                 <div>
                   <div style={styles.correctAnswerLabel}>Correct Answer:</div>
                   <div style={styles.correctAnswerValue}>
-                    {currentQuestion.correctAnswer}
+                    <MathText>{currentQuestion.correctAnswer}</MathText>
                   </div>
                 </div>
               )}
