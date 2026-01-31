@@ -1,39 +1,24 @@
 import React from 'react';
 import katex from 'katex';
 
-/**
- * MathText Component - Renders LaTeX math notation using KaTeX
- *
- * Usage:
- *   <MathText>Solve $\frac{3}{4}x = 12$ for $x$.</MathText>
- *
- * Supports:
- *   - Inline math: $...$
- *   - Display math: $$...$$ (centered on own line)
- *
- * Common LaTeX codes:
- *   - Fractions: \frac{a}{b}
- *   - Exponents: x^2 or x^{n+1}
- *   - Square root: \sqrt{x}
- *   - Cube root: \sqrt[3]{x}
- *   - Pi: \pi
- *   - Degrees: 90^\circ
- *   - Inequalities: \leq, \geq, \neq
- *   - Plus/minus: \pm
- *   - Absolute value: |x|
- *   - Angle: \angle ABC
- *   - Triangle: \triangle ABC
- */
 export const MathText = ({ children, text, className = '', style = {} }) => {
-  // Support both `text` prop (for backward compatibility) and `children`
   const content = text !== undefined ? text : children;
 
   const renderMath = (inputText) => {
-    if (!text) return '';
+    if (!inputText) return '';
 
-    let result = String(text);
+    let result = String(inputText);
 
-    // Display math: $$...$$ (must be processed first to avoid conflict with inline)
+    // Step 1: Protect currency amounts ($12.50, \$12.50, etc.) BEFORE math processing
+    // Only match currency with decimal (e.g., $12.50) to avoid matching math like $5$
+    const CURRENCY_PLACEHOLDER = '\uFFFE';
+    const currencies = [];
+    result = result.replace(/\\?\$(\d+(?:,\d{3})*\.\d{2})(?=[\s,;:.!?)}\]]|$)/g, (match, amount) => {
+      currencies.push(amount);
+      return CURRENCY_PLACEHOLDER;
+    });
+
+    // Step 2: Display math $$...$$
     result = result.replace(/\$\$([\s\S]*?)\$\$/g, (match, latex) => {
       try {
         return katex.renderToString(latex.trim(), {
@@ -46,7 +31,7 @@ export const MathText = ({ children, text, className = '', style = {} }) => {
       }
     });
 
-    // Inline math: $...$
+    // Step 3: Inline math $...$
     result = result.replace(/\$([^\$]+?)\$/g, (match, latex) => {
       try {
         return katex.renderToString(latex.trim(), {
@@ -57,6 +42,12 @@ export const MathText = ({ children, text, className = '', style = {} }) => {
         console.warn('KaTeX inline math error:', e);
         return match;
       }
+    });
+
+    // Step 4: Restore currency amounts with $ sign
+    let currencyIndex = 0;
+    result = result.replace(new RegExp(CURRENCY_PLACEHOLDER, 'g'), () => {
+      return '$' + currencies[currencyIndex++];
     });
 
     return result;
@@ -71,34 +62,22 @@ export const MathText = ({ children, text, className = '', style = {} }) => {
   );
 };
 
-/**
- * MathBlock Component - For standalone math equations (display mode)
- * Renders as a block-level element
- */
 export const MathBlock = ({ children, className = '', style = {} }) => {
-  const renderDisplayMath = (text) => {
-    if (!text) return '';
+  if (!children) return null;
 
-    try {
-      // Remove $$ delimiters if present
-      const latex = String(text).replace(/^\$\$|\$\$$/g, '').trim();
-      return katex.renderToString(latex, {
-        displayMode: true,
-        throwOnError: false
-      });
-    } catch (e) {
-      console.warn('KaTeX block math error:', e);
-      return String(text);
-    }
-  };
-
-  return (
-    <div
-      className={className}
-      style={{ textAlign: 'center', margin: '1rem 0', ...style }}
-      dangerouslySetInnerHTML={{ __html: renderDisplayMath(children) }}
-    />
-  );
+  try {
+    const latex = String(children).replace(/^\$\$|\$\$$/g, '').trim();
+    const html = katex.renderToString(latex, { displayMode: true, throwOnError: false });
+    return (
+      <div
+        className={className}
+        style={{ textAlign: 'center', margin: '1rem 0', ...style }}
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
+    );
+  } catch (e) {
+    return <div className={className} style={style}>{String(children)}</div>;
+  }
 };
 
 export default MathText;
