@@ -3,6 +3,7 @@ import QuestionDiagram from './QuestionDiagrams';
 import AiTutorChat, { AiTutorButton } from './AiTutorChat';
 import TestResults from './TestResults';
 import { MathText } from './MathText';
+import QuestionRenderer from './QuestionRenderer';
 
 // SAT-Style Typography Constants - matches College Board format
 const SAT_TYPOGRAPHY = {
@@ -687,6 +688,11 @@ const renderChoice = (choice) => {
       </table>
     );
   }
+  // Handle structured content (arrays or objects) with QuestionRenderer
+  if (Array.isArray(choice.text) || (choice.text && typeof choice.text === 'object')) {
+    return <QuestionRenderer content={choice.text} />;
+  }
+  // Handle string content with MathText
   return <MathText text={choice.text} />;
 };
 
@@ -1332,7 +1338,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             lineHeight: '1.7',
             color: '#1e293b'
           }}>
-            <MathText text={reviewQ?.question || ''} />
+            {Array.isArray(reviewQ?.question) || (reviewQ?.question && typeof reviewQ.question === 'object')
+              ? <QuestionRenderer content={reviewQ.question} />
+              : <MathText text={reviewQ?.question || ''} />
+            }
           </div>
 
           {/* Diagram if present */}
@@ -1894,7 +1903,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           color: SAT_COLORS.text.primary,
           marginBottom: '8px'
         }}>
-          <MathText text={question?.question} />
+          {Array.isArray(question?.question) || (question?.question && typeof question.question === 'object')
+            ? <QuestionRenderer content={question.question} />
+            : <MathText text={question?.question} />
+          }
         </p>
 
         {/* Continued question text if present */}
@@ -1906,7 +1918,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             color: SAT_COLORS.text.primary,
             marginBottom: '24px'
           }}>
-            <MathText text={question.questionContinued} />
+            {Array.isArray(question.questionContinued) || (typeof question.questionContinued === 'object')
+              ? <QuestionRenderer content={question.questionContinued} />
+              : <MathText text={question.questionContinued} />
+            }
           </p>
         )}
 
