@@ -16,12 +16,19 @@ export const MathText = ({ children, text, className = '', style = {} }) => {
 
     // Step 1: Protect currency amounts ($12.50) BEFORE math processing
     // Only match currency with decimal (e.g., $12.50) to avoid matching math like $5$
+    // BUT skip currency detection if the string looks like a math expression (starts with $ and ends with $)
     const CURRENCY_PLACEHOLDER = '\uFFFE';
     const currencies = [];
-    result = result.replace(/\$(\d+(?:,\d{3})*\.\d{2})(?=[\s,;:.!?)}\]]|$)/g, (match, amount) => {
-      currencies.push(amount);
-      return CURRENCY_PLACEHOLDER;
-    });
+    const trimmed = result.trim();
+    const isMathExpression = (trimmed.startsWith('$') && trimmed.endsWith('$')) ||
+                             (trimmed.startsWith('$$') && trimmed.endsWith('$$'));
+
+    if (!isMathExpression) {
+      result = result.replace(/\$(\d+(?:,\d{3})*\.\d{2})(?=[\s,;:.!?)}\]]|$)/g, (match, amount) => {
+        currencies.push(amount);
+        return CURRENCY_PLACEHOLDER;
+      });
+    }
 
     // Step 2: Display math $$...$$
     result = result.replace(/\$\$([\s\S]*?)\$\$/g, (match, latex) => {
@@ -57,6 +64,9 @@ export const MathText = ({ children, text, className = '', style = {} }) => {
 
     // Step 5: Restore escaped dollar signs as $ (e.g., \$25 becomes $25)
     result = result.replace(new RegExp(ESCAPED_DOLLAR_PLACEHOLDER, 'g'), '$');
+
+    // Step 6: Convert newlines to <br> for proper line breaks
+    result = result.replace(/\n/g, '<br>');
 
     return result;
   };

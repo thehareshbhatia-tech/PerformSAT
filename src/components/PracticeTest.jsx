@@ -1896,18 +1896,59 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         )}
 
         {/* Question text - SAT Style */}
-        <p style={{
-          fontFamily: SAT_TYPOGRAPHY.questionFont,
-          fontSize: SAT_TYPOGRAPHY.sizes.questionText,
-          lineHeight: SAT_TYPOGRAPHY.lineHeights.question,
-          color: SAT_COLORS.text.primary,
-          marginBottom: '8px'
-        }}>
-          {Array.isArray(question?.question) || (question?.question && typeof question.question === 'object')
-            ? <QuestionRenderer content={question.question} />
-            : <MathText text={question?.question} />
+        {(() => {
+          const questionText = question?.question;
+          // Check if question starts with equations (lines starting with $) followed by blank line
+          if (typeof questionText === 'string' && questionText.match(/^\$[^\n]+\$\n/)) {
+            const parts = questionText.split(/\n\n/);
+            const equationPart = parts[0]; // First part (equations)
+            const textPart = parts.slice(1).join('\n\n'); // Rest of the question
+
+            return (
+              <>
+                {/* Centered equations */}
+                <div style={{
+                  fontFamily: SAT_TYPOGRAPHY.questionFont,
+                  fontSize: SAT_TYPOGRAPHY.sizes.questionText,
+                  lineHeight: '2',
+                  color: SAT_COLORS.text.primary,
+                  textAlign: 'center',
+                  marginBottom: '16px'
+                }}>
+                  <MathText text={equationPart} />
+                </div>
+                {/* Rest of question text */}
+                {textPart && (
+                  <p style={{
+                    fontFamily: SAT_TYPOGRAPHY.questionFont,
+                    fontSize: SAT_TYPOGRAPHY.sizes.questionText,
+                    lineHeight: SAT_TYPOGRAPHY.lineHeights.question,
+                    color: SAT_COLORS.text.primary,
+                    marginBottom: '8px'
+                  }}>
+                    <MathText text={textPart} />
+                  </p>
+                )}
+              </>
+            );
           }
-        </p>
+
+          // Default rendering for non-equation questions
+          return (
+            <p style={{
+              fontFamily: SAT_TYPOGRAPHY.questionFont,
+              fontSize: SAT_TYPOGRAPHY.sizes.questionText,
+              lineHeight: SAT_TYPOGRAPHY.lineHeights.question,
+              color: SAT_COLORS.text.primary,
+              marginBottom: '8px'
+            }}>
+              {Array.isArray(questionText) || (questionText && typeof questionText === 'object')
+                ? <QuestionRenderer content={questionText} />
+                : <MathText text={questionText} />
+              }
+            </p>
+          );
+        })()}
 
         {/* Continued question text if present */}
         {question?.questionContinued && (
