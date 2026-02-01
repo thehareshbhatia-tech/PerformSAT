@@ -825,7 +825,16 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
 
   const handleSelectAnswer = (answerId) => {
     const key = `${currentModule}-${currentQuestion}`;
-    setAnswers(prev => ({ ...prev, [key]: answerId }));
+    setAnswers(prev => {
+      // If clicking the already-selected answer, deselect it
+      if (prev[key] === answerId) {
+        const newAnswers = { ...prev };
+        delete newAnswers[key];
+        return newAnswers;
+      }
+      // Otherwise, select the new answer
+      return { ...prev, [key]: answerId };
+    });
   };
 
   const handleFillInSubmit = () => {
