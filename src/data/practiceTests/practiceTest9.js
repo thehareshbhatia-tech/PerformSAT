@@ -111,13 +111,13 @@ export const practiceTest9 = {
           difficulty: "medium",
           question: "A scientist is studying a bacteria population that doubles every $3$ hours. If the initial population is $500$ bacteria, which function $P(t)$ models the population after $t$ hours?",
           choices: [
-            { id: "A", text: "$P(t) = 500(2)^{t/3}$" },
+            { id: "A", text: "$P(t) = 500(2)^{\frac{t}{3}}$" },
             { id: "B", text: "$P(t) = 500(2)^{3t}$" },
-            { id: "C", text: "$P(t) = 500(3)^{t/2}$" },
+            { id: "C", text: "$P(t) = 500(3)^{\frac{t}{2}}$" },
             { id: "D", text: "$P(t) = 500 + 2t$" }
           ],
           correctAnswer: "A",
-          explanation: "**Choice A is correct.** For exponential growth where the quantity doubles every $k$ units of time:\n\n$P(t) = P_0 \\times 2^{t/k}$\n\nHere:\n• $P_0 = 500$ (initial population)\n• Doubling time $k = 3$ hours\n\nSo: $P(t) = 500(2)^{t/3}$\n\n**Verification:** At $t = 3$: $P(3) = 500(2)^1 = 1000$ ✓ (doubled)\nAt $t = 6$: $P(6) = 500(2)^2 = 2000$ ✓ (doubled again)\n\n**Why other choices are incorrect:**\n• Choice B: Would triple after $1$ hour (way too fast)\n• Choice C: Wrong base and wrong exponent structure\n• Choice D: Linear, not exponential growth",
+          explanation: "**Choice A is correct.** For exponential growth where the quantity doubles every $k$ units of time:\n\n$P(t) = P_0 \\times 2^{\\frac{t}{k}}$\n\nHere:\n• $P_0 = 500$ (initial population)\n• Doubling time $k = 3$ hours\n\nSo: $P(t) = 500(2)^{\frac{t}{3}}$\n\n**Verification:** At $t = 3$: $P(3) = 500(2)^1 = 1000$ ✓ (doubled)\nAt $t = 6$: $P(6) = 500(2)^2 = 2000$ ✓ (doubled again)\n\n**Why other choices are incorrect:**\n• Choice B: Would triple after $1$ hour (way too fast)\n• Choice C: Wrong base and wrong exponent structure\n• Choice D: Linear, not exponential growth",
           skills: ["exponential-functions", "modeling"]
         },
 
@@ -625,15 +625,15 @@ export const practiceTest9 = {
           id: 17,
           type: "multiple-choice",
           difficulty: "hard",
-          question: "Which expression is equivalent to $x^{2/3} \\cdot x^{1/6}$?",
+          question: "Which expression is equivalent to $x^{\frac{2}{3}} \\cdot x^{\frac{1}{6}}$?",
           choices: [
-            { id: "A", text: "$x^{1/9}$" },
-            { id: "B", text: "$x^{1/3}$" },
-            { id: "C", text: "$x^{5/6}$" },
-            { id: "D", text: "$x^{2/9}$" }
+            { id: "A", text: "$x^{\frac{1}{9}}$" },
+            { id: "B", text: "$x^{\frac{1}{3}}$" },
+            { id: "C", text: "$x^{\frac{5}{6}}$" },
+            { id: "D", text: "$x^{\frac{2}{9}}$" }
           ],
           correctAnswer: "C",
-          explanation: "**Choice C is correct.** When multiplying powers with the same base, add exponents.\n\n$x^{2/3} \\cdot x^{1/6} = x^{2/3 + 1/6}$\n\nFind common denominator:\n$\\frac{2}{3} = \\frac{4}{6}$\n\n$\\frac{4}{6} + \\frac{1}{6} = \\frac{5}{6}$\n\n**Result:** $x^{5/6}$\n\n**Why other choices are incorrect:**\n• Choice A: Would require multiplying exponents (wrong operation)\n• Choice B: $\\frac{2}{3} + \\frac{1}{6} \\neq \\frac{1}{3}$\n• Choice D: Would require multiplying exponents\n\n**Key rule:** $x^a \\cdot x^b = x^{a+b}$",
+          explanation: "**Choice C is correct.** When multiplying powers with the same base, add exponents.\n\n$x^{\\frac{2}{3}} \\cdot x^{\\frac{1}{6}} = x^{\\frac{2}{3} + \\frac{1}{6}}$\n\nFind common denominator:\n$\\frac{2}{3} = \\frac{4}{6}$\n\n$\\frac{4}{6} + \\frac{1}{6} = \\frac{5}{6}$\n\n**Result:** $x^{\frac{5}{6}}$\n\n**Why other choices are incorrect:**\n• Choice A: Would require multiplying exponents (wrong operation)\n• Choice B: $\\frac{2}{3} + \\frac{1}{6} \\neq \\frac{1}{3}$\n• Choice D: Would require multiplying exponents\n\n**Key rule:** $x^a \\cdot x^b = x^{a+b}$",
           skills: ["exponents", "radicals"]
         },
 

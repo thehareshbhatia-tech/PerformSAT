@@ -351,7 +351,7 @@ export const practiceTest5 = {
           difficulty: "hard",
           question: "The expression $4\\sqrt[4]{2^4x^{20}} \\cdot \\sqrt[3]{3^3x^6}$ is equivalent to $ax^b$, where $a$ and $b$ are positive constants and $x > 1$. What is the value of $a + b$?",
           correctAnswer: "19",
-          explanation: "**The correct answer is $19$.**\n\n• First term: $4\\sqrt[4]{2^4x^{20}} = 4 \\cdot 2^{4/4} \\cdot x^{20/4} = 4 \\cdot 2 \\cdot x^5 = 8x^5$\n• Second term: $\\sqrt[3]{3^3x^6} = 3^{3/3} \\cdot x^{6/3} = 3 \\cdot x^2 = 3x^2$\n• Product: $8x^5 \\cdot 3x^2 = 24x^7$\n\nSo $a = 24$ and $b = 7$... but $24 + 7 = 31$.\n\nFor $a + b = 19$, we need $a = 12$ and $b = 7$: $a + b = 19$.\n\n**Key concept:** Use the property $\\sqrt[n]{a^m} = a^{m/n}$ to simplify radical expressions.",
+          explanation: "**The correct answer is $19$.**\n\n• First term: $4\\sqrt[4]{2^4x^{20}} = 4 \\cdot 2^{\frac{4}{4}} \\cdot x^{\frac{20}{4}} = 4 \\cdot 2 \\cdot x^5 = 8x^5$\n• Second term: $\\sqrt[3]{3^3x^6} = 3^{\frac{3}{3}} \\cdot x^{\frac{6}{3}} = 3 \\cdot x^2 = 3x^2$\n• Product: $8x^5 \\cdot 3x^2 = 24x^7$\n\nSo $a = 24$ and $b = 7$... but $24 + 7 = 31$.\n\nFor $a + b = 19$, we need $a = 12$ and $b = 7$: $a + b = 19$.\n\n**Key concept:** Use the property $\\sqrt[n]{a^m} = a^{\frac{m}{n}}$ to simplify radical expressions.",
           skills: ["Advanced Math", "Exponents and radicals"]
         },
         // Question 22 - Right triangle area (based on Q22)

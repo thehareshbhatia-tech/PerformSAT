@@ -139,13 +139,13 @@ export const practiceTest4 = {
           difficulty: "medium",
           question: "A bacteria colony starts with $500$ bacteria and doubles every $6$ hours. Which expression gives the number of bacteria after $t$ hours?",
           choices: [
-            { id: "A", text: "$500(2)^{t/6}$" },
+            { id: "A", text: "$500(2)^{\frac{t}{6}}$" },
             { id: "B", text: "$500(2)^{6t}$" },
-            { id: "C", text: "$500(6)^{t/2}$" },
+            { id: "C", text: "$500(6)^{\frac{t}{2}}$" },
             { id: "D", text: "$500 + 2t$" }
           ],
           correctAnswer: "A",
-          explanation: "**Choice A is correct.** For exponential doubling:\n\n• Initial amount: $500$\n• Growth factor: $2$ (doubling)\n• Doubling period: $6$ hours\n• Formula: $P(t) = P_0 \\times 2^{t/\\text{period}}$\n• $P(t) = 500 \\times 2^{t/6}$\n\n**Verification:**\n• At $t = 0$: $500 \\times 2^0 = 500$ ✓\n• At $t = 6$: $500 \\times 2^1 = 1000$ (doubled) ✓\n• At $t = 12$: $500 \\times 2^2 = 2000$ (doubled again) ✓\n\n**Why other choices are incorrect:**\n• Choice B: $2^{6t}$ grows much too fast\n• Choice C: Uses wrong base ($6$) and wrong exponent structure\n• Choice D: Linear growth, not exponential\n\n**Key concept:** Doubling formula: $P(t) = P_0 \\times 2^{t/\\text{doubling period}}$",
+          explanation: "**Choice A is correct.** For exponential doubling:\n\n• Initial amount: $500$\n• Growth factor: $2$ (doubling)\n• Doubling period: $6$ hours\n• Formula: $P(t) = P_0 \\times 2^{\\frac{t}{\\text{period}}}$\n• $P(t) = 500 \\times 2^{\\frac{t}{6}}$\n\n**Verification:**\n• At $t = 0$: $500 \\times 2^0 = 500$ ✓\n• At $t = 6$: $500 \\times 2^1 = 1000$ (doubled) ✓\n• At $t = 12$: $500 \\times 2^2 = 2000$ (doubled again) ✓\n\n**Why other choices are incorrect:**\n• Choice B: $2^{6t}$ grows much too fast\n• Choice C: Uses wrong base ($6$) and wrong exponent structure\n• Choice D: Linear growth, not exponential\n\n**Key concept:** Doubling formula: $P(t) = P_0 \\times 2^{\\frac{t}{\\text{doubling period}}}$",
           skills: ["exponential-growth", "doubling"]
         },
 

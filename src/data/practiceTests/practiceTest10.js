@@ -249,7 +249,7 @@ export const practiceTest10 = {
           id: 'pt10-m1-q18',
           type: 'multiple-choice',
           difficulty: 'hard',
-          question: 'The function $f(t) = 40{,}000(2)^{t/790}$ gives the number of bacteria in a population $t$ minutes after an initial observation. How much time, in minutes, does it take for the number of bacteria in the population to double?',
+          question: 'The function $f(t) = 40{,}000(2)^{\frac{t}{790}}$ gives the number of bacteria in a population $t$ minutes after an initial observation. How much time, in minutes, does it take for the number of bacteria in the population to double?',
           choices: [
             { id: 'A', text: '$2$' },
             { id: 'B', text: '$790$' },
@@ -257,7 +257,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$40{,}000$' }
           ],
           correctAnswer: 'B',
-          explanation: 'The bacteria doubles when $2^{t/790} = 2$, which means $\\frac{t}{790} = 1$, so $t = 790$ minutes.',
+          explanation: 'The bacteria doubles when $2^{\frac{t}{790}} = 2$, which means $\\frac{t}{790} = 1$, so $t = 790$ minutes.',
           skills: ['Exponential Functions', 'Exponential Growth']
         },
         {
@@ -508,13 +508,13 @@ export const practiceTest10 = {
           difficulty: 'hard',
           question: 'An investment account was opened with an initial value of $\\$890$. The value of the account doubled every $10$ years. Which equation represents the value of the account $M(t)$, in dollars, $t$ years after the account was opened?',
           choices: [
-            { id: 'A', text: '$M(t) = 890\\left(\\frac{1}{2}\\right)^{t/10}$' },
-            { id: 'B', text: '$M(t) = 890\\left(\\frac{1}{10}\\right)^{t/2}$' },
-            { id: 'C', text: '$M(t) = 890(2)^{t/10}$' },
-            { id: 'D', text: '$M(t) = 890(10)^{t/2}$' }
+            { id: 'A', text: '$M(t) = 890\\left(\\frac{1}{2}\\right)^{\frac{t}{10}}$' },
+            { id: 'B', text: '$M(t) = 890\\left(\\frac{1}{10}\\right)^{\frac{t}{2}}$' },
+            { id: 'C', text: '$M(t) = 890(2)^{\frac{t}{10}}$' },
+            { id: 'D', text: '$M(t) = 890(10)^{\frac{t}{2}}$' }
           ],
           correctAnswer: 'C',
-          explanation: 'For doubling every $10$ years, the base is $2$ and the exponent is $\\frac{t}{10}$. So $M(t) = 890(2)^{t/10}$.',
+          explanation: 'For doubling every $10$ years, the base is $2$ and the exponent is $\\frac{t}{10}$. So $M(t) = 890(2)^{\frac{t}{10}}$.',
           skills: ['Exponential Functions', 'Exponential Growth']
         },
         {
