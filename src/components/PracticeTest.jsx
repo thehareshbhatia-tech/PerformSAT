@@ -1383,15 +1383,15 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                     }}
                   >
                     <div style={{
-                      width: '32px',
-                      height: '32px',
-                      borderRadius: '50%',
+                      width: '28px',
+                      height: '28px',
+                      borderRadius: '4px',
                       background: isCorrectChoice ? '#16a34a' : isUserChoice ? '#dc2626' : '#cbd5e1',
                       color: 'white',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      fontWeight: '700',
+                      fontWeight: '500',
                       fontSize: '14px',
                       flexShrink: 0,
                       boxShadow: (isCorrectChoice || isUserChoice) ? '0 2px 6px rgba(0,0,0,0.15)' : 'none'
@@ -1945,30 +1945,37 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                   onClick={() => handleSelectAnswer(choice.id)}
                   style={{
                     display: 'flex',
-                    alignItems: 'flex-start',
+                    alignItems: 'center',
                     width: '100%',
-                    padding: '10px 12px',
-                    marginBottom: '8px',
-                    background: isSelected ? SAT_COLORS.background.selected : 'transparent',
-                    border: 'none',
-                    borderRadius: '0',
+                    padding: '12px 16px',
+                    marginBottom: '10px',
+                    background: isSelected ? '#e8f4fd' : '#ffffff',
+                    border: `1px solid ${isSelected ? '#3b82f6' : '#e5e7eb'}`,
+                    borderRadius: '8px',
                     cursor: 'pointer',
                     textAlign: 'left',
                     fontFamily: SAT_TYPOGRAPHY.questionFont,
+                    transition: 'all 0.15s ease',
                   }}
                 >
-                  {/* SAT-style choice label: A) B) C) D) */}
-                  <span style={{
-                    fontFamily: SAT_TYPOGRAPHY.questionFont,
-                    fontSize: SAT_TYPOGRAPHY.sizes.choiceText,
-                    fontWeight: '600',
-                    color: SAT_COLORS.text.primary,
-                    marginRight: '12px',
-                    minWidth: '28px',
-                    lineHeight: SAT_TYPOGRAPHY.lineHeights.choice,
+                  {/* Rounded rectangle badge */}
+                  <div style={{
+                    width: '28px',
+                    height: '28px',
+                    borderRadius: '4px',
+                    backgroundColor: isSelected ? '#3b82f6' : '#ffffff',
+                    border: `1px solid ${isSelected ? '#3b82f6' : '#d1d5db'}`,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontWeight: '500',
+                    fontSize: '14px',
+                    color: isSelected ? '#ffffff' : '#374151',
+                    marginRight: '14px',
+                    flexShrink: 0,
                   }}>
-                    {choice.id})
-                  </span>
+                    {choice.id}
+                  </div>
                   <span style={{
                     fontFamily: SAT_TYPOGRAPHY.questionFont,
                     fontSize: SAT_TYPOGRAPHY.sizes.choiceText,
