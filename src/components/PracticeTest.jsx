@@ -349,29 +349,20 @@ const QuestionGrid = ({ questions, currentIndex, answers, markedForReview, onNav
             }}
           >
             {idx + 1}
-            {/* Flag indicator for marked questions */}
+            {/* Dot indicator for flagged questions */}
             {isMarked && (
               <span style={{
                 position: 'absolute',
-                top: '-4px',
-                right: '-4px',
-                width: '12px',
-                height: '12px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}>
-                <svg
-                  width="10"
-                  height="10"
-                  viewBox="0 0 24 24"
-                  fill="#f59e0b"
-                  stroke="#b45309"
-                  strokeWidth="2"
-                >
-                  <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
-                </svg>
-              </span>
+                top: '-5px',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: '8px',
+                height: '8px',
+                borderRadius: '50%',
+                backgroundColor: '#f97316',
+                border: '1px solid #ffffff',
+                boxShadow: '0 1px 2px rgba(0,0,0,0.2)'
+              }} />
             )}
           </button>
         );
@@ -1784,15 +1775,17 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             border: '1px solid #fcd34d',
             position: 'relative'
           }}>
-            <svg
-              style={{ position: 'absolute', top: '-3px', right: '-3px' }}
-              width="8"
-              height="8"
-              viewBox="0 0 24 24"
-              fill="#f59e0b"
-            >
-              <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
-            </svg>
+            <span style={{
+              position: 'absolute',
+              top: '-4px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '6px',
+              height: '6px',
+              borderRadius: '50%',
+              backgroundColor: '#f97316',
+              border: '1px solid #ffffff'
+            }} />
           </span>
           Flagged for Later
         </span>
