@@ -156,20 +156,33 @@ const SATParabola = ({
         );
       })}
 
-      {/* Label */}
-      {label && (
-        <text
-          x={coordSystem.bounds.right - 10}
-          y={coordSystem.bounds.top + 20}
-          fontFamily={styles.font.axis}
-          fontSize={14}
-          fontStyle="italic"
-          fill={styles.colors.axis}
-          textAnchor="end"
-        >
-          {label}
-        </text>
-      )}
+      {/* Label - positioned near the curve on the right side */}
+      {label && (() => {
+        // Calculate where curve is near right edge of graph
+        const labelX = xMax - 1;
+        const labelY = a * Math.pow(labelX - h, 2) + k;
+
+        // Clamp labelY to visible range
+        const clampedY = Math.max(yMin + 1, Math.min(yMax - 1, labelY));
+        const labelPos = coordSystem.toSVG(labelX, clampedY);
+
+        // Offset label above curve if parabola opens up (a > 0), below if opens down
+        const yOffset = a >= 0 ? -12 : 18;
+
+        return (
+          <text
+            x={labelPos.x}
+            y={labelPos.y + yOffset}
+            fontFamily={styles.font.axis}
+            fontSize={14}
+            fontStyle="italic"
+            fill={styles.colors.axis}
+            textAnchor="end"
+          >
+            {label}
+          </text>
+        );
+      })()}
     </svg>
   );
 };

@@ -129,20 +129,30 @@ const SATLinearGraph = ({
         );
       })}
 
-      {/* Label */}
-      {label && (
-        <text
-          x={coordSystem.bounds.right - 10}
-          y={coordSystem.bounds.top + 20}
-          fontFamily={styles.font.axis}
-          fontSize={14}
-          fontStyle="italic"
-          fill={styles.colors.axis}
-          textAnchor="end"
-        >
-          {label}
-        </text>
-      )}
+      {/* Label - positioned near the line on the right side */}
+      {label && (() => {
+        // Calculate where line intersects near right edge of graph
+        const labelX = xMax - 1;
+        const labelY = slope * labelX + yIntercept;
+        const labelPos = coordSystem.toSVG(labelX, labelY);
+
+        // Offset label above the line (negative y in SVG moves up)
+        const yOffset = slope >= 0 ? -12 : 18;
+
+        return (
+          <text
+            x={labelPos.x}
+            y={labelPos.y + yOffset}
+            fontFamily={styles.font.axis}
+            fontSize={14}
+            fontStyle="italic"
+            fill={styles.colors.axis}
+            textAnchor="end"
+          >
+            {label}
+          </text>
+        );
+      })()}
     </svg>
   );
 };

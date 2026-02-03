@@ -133,16 +133,23 @@ export const practiceTest1 = {
         },
 
         // Question 7: Word problem - algebraic expression
+        // NEW STRUCTURED FORMAT - explicit math/text segments, no regex parsing
         {
           id: 7,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "A group of friends is going to a movie theater. Each ticket costs \\$12.50, and each bag of popcorn costs \\$6.25. If $t$ people buy a ticket and $p$ people buy popcorn, which of the following expressions represents the total number of dollars spent by the group?",
+          question: [
+            { text: "A group of friends is going to a movie theater. Each ticket costs $12.50, and each bag of popcorn costs $6.25. If " },
+            { math: "t" },
+            { text: " people buy a ticket and " },
+            { math: "p" },
+            { text: " people buy popcorn, which of the following expressions represents the total number of dollars spent by the group?" }
+          ],
           choices: [
-            { id: "A", text: "$12.5t - 6.25p$" },
-            { id: "B", text: "$12.5t + 6.25p$" },
-            { id: "C", text: "$12.5p + 6.25t$" },
-            { id: "D", text: "$18.75tp$" }
+            { id: "A", text: [{ math: "12.5t - 6.25p" }] },
+            { id: "B", text: [{ math: "12.5t + 6.25p" }] },
+            { id: "C", text: [{ math: "12.5p + 6.25t" }] },
+            { id: "D", text: [{ math: "18.75tp" }] }
           ],
           correctAnswer: "B",
           explanation: "**Choice B is correct.** Total cost = ticket costs + popcorn costs\n\n• Cost of tickets: \\$12.50 × $t$ tickets = $12.5t$\n• Cost of popcorn: \\$6.25 × $p$ bags = $6.25p$\n• **Total: $12.5t + 6.25p$**\n\n**Why other choices are incorrect:**\n• Choice A: Subtracting makes no sense for total spending\n• Choice C: Swaps the variables ($p$ with tickets, $t$ with popcorn)\n• Choice D: Multiplying both variables together is incorrect\n\n**Check with example:** If $t = 2$ and $p = 4$:\n$$\\text{Total} = 12.5(2) + 6.25(4) = 25 + 25 = \\$50$$ ✓",
@@ -234,17 +241,20 @@ export const practiceTest1 = {
         },
 
         // Question 12: System of equations - fill-in
+        // NEW STRUCTURED FORMAT with display math for equations
         {
           id: 12,
           type: "fill-in",
           difficulty: "medium",
-          question: "The solution to the given system of equations is $(x, y)$. What is the value of $x - y$?",
-          questionFormula: {
-            lines: [
-              "$y = 4x + 9$",
-              "$2y = 6x$"
-            ]
-          },
+          question: [
+            { math: "y = 4x + 9", display: true },
+            { math: "2y = 6x", display: true },
+            { text: "The solution to the given system of equations is " },
+            { math: "(x, y)" },
+            { text: ". What is the value of " },
+            { math: "x - y" },
+            { text: "?" }
+          ],
           correctAnswer: 18,
           explanation: "**The correct answer is 18.** Substitute the first equation into the second:\n\n$$2(4x + 9) = 6x$$\n$$8x + 18 = 6x$$\n$$8x - 6x = -18$$\n$$2x = -18$$\n$$x = -9$$\n\nSubstitute $x = -9$ into $y = 4x + 9$:\n$$y = 4(-9) + 9 = -36 + 9 = -27$$\n\n**Calculate $x - y$:**\n$$x - y = -9 - (-27) = -9 + 27 = 18$$\n\n**Verify:** $2y = 2(-27) = -54$ and $6x = 6(-9) = -54$ ✓\n\n**Calculator tip:** Graph both equations to find intersection at $(-9, -27)$.",
           skills: ["systems-of-equations"]
@@ -277,31 +287,47 @@ export const practiceTest1 = {
         },
 
         // Question 14: System with substitution variables
+        // NEW STRUCTURED FORMAT with display math for equations
         {
           id: 14,
           type: "fill-in",
           difficulty: "hard",
-          question: "The solution to the given system of equations is $(t, s)$. What is the value of $s$?",
-          questionFormula: {
-            lines: [
-              "$(t - 4) + 2(s - 2) = 10$",
-              "$2(t - 4) - 3(s - 2) = -15$"
-            ]
-          },
+          question: [
+            { math: "(t - 4) + 2(s - 2) = 10", display: true },
+            { math: "2(t - 4) - 3(s - 2) = -15", display: true },
+            { text: "The solution to the given system of equations is " },
+            { math: "(t, s)" },
+            { text: ". What is the value of " },
+            { math: "s" },
+            { text: "?" }
+          ],
           correctAnswer: 7,
           explanation: "**The correct answer is 7.** Let $u = t - 4$ and $v = s - 2$ to simplify:\n\n$$u + 2v = 10 \\quad (1)$$\n$$2u - 3v = -15 \\quad (2)$$\n\n**Solve by elimination:**\nMultiply (1) by 2: $2u + 4v = 20$\nSubtract (2): $(2u + 4v) - (2u - 3v) = 20 - (-15)$\n$$7v = 35$$\n$$v = 5$$\n\n**Find $s$:**\nSince $v = s - 2$:\n$$s - 2 = 5$$\n$$s = 7$$\n\n**Calculator tip:** Expand and enter equations in Desmos to verify.",
           skills: ["systems-of-equations"]
         },
 
         // Question 15: Polynomial simplification
+        // NEW STRUCTURED FORMAT with display math for expression
         {
           id: 15,
           type: "fill-in",
           difficulty: "medium",
-          question: "The given expression can be written in the form $ax^4 + bx^3 + cx^2 + dx$, where $a$, $b$, $c$, and $d$ are constants. What is the value of $c + d$?",
-          questionFormula: {
-            equation: "$$(4x^4 + 2x^3) - (5x^3 + 3x^2) - (2x^2 - 6x)$$"
-          },
+          question: [
+            { math: "(4x^4 + 2x^3) - (5x^3 + 3x^2) - (2x^2 - 6x)", display: true },
+            { text: "The given expression can be written in the form " },
+            { math: "ax^4 + bx^3 + cx^2 + dx" },
+            { text: ", where " },
+            { math: "a" },
+            { text: ", " },
+            { math: "b" },
+            { text: ", " },
+            { math: "c" },
+            { text: ", and " },
+            { math: "d" },
+            { text: " are constants. What is the value of " },
+            { math: "c + d" },
+            { text: "?" }
+          ],
           correctAnswer: 1,
           explanation: "**The correct answer is 1.** Distribute and combine like terms:\n\n$$(4x^4 + 2x^3) - (5x^3 + 3x^2) - (2x^2 - 6x)$$\n$$= 4x^4 + 2x^3 - 5x^3 - 3x^2 - 2x^2 + 6x$$\n$$= 4x^4 + (2 - 5)x^3 + (-3 - 2)x^2 + 6x$$\n$$= 4x^4 - 3x^3 - 5x^2 + 6x$$\n\n**Identify coefficients:**\n$a = 4$, $b = -3$, $c = -5$, $d = 6$\n\n**Calculate $c + d$:**\n$$c + d = -5 + 6 = 1$$\n\n**Calculator tip:** Substitute $x = 1$ into both forms to verify they're equal.",
           skills: ["polynomial-operations"]
@@ -315,7 +341,13 @@ export const practiceTest1 = {
           diagram: {
             type: "cubicGraph",
             params: {
+              // Cubic coefficients calculated to pass through points (-3,2), (-1,4), (1,2), (3,-1)
+              a: 0.0625,    // 1/16
+              b: -0.3125,   // -5/16
+              c: -1.0625,   // -17/16
+              d: 3.3125,    // 53/16
               points: [[-3, 2], [-1, 4], [1, 2], [3, -1]],
+              showPoints: true,
               xRange: [-4, 4],
               yRange: [-3, 6],
               label: "f(x)"
@@ -367,30 +399,33 @@ export const practiceTest1 = {
           skills: ["special-right-triangles", "area"]
         },
 
-        // Question 19: Circle with inscribed angle
+        // Question 19: Sector area
         {
           id: 19,
           type: "multiple-choice",
           difficulty: "hard",
           diagram: {
-            type: "circleInscribed",
+            type: "circleWithSector",
             params: {
-              inscribedAngle: 40,
+              centralAngle: 60,
+              displayRadius: 6,
               labelCenter: "O",
-              labelPoints: ["Q", "P", "R"],
-              showCentralAngle: true
+              labelPoint1: "A",
+              labelPoint2: "B",
+              showAngleLabel: true,
+              showRadiusLabel: true
             }
           },
-          question: "The circle shown has center $O$. If the measure of angle $QPR$ is $40°$, what is the measure of angle $QOR$?",
+          question: "A circle with center $O$ has radius $6$. If the central angle $AOB$ measures $60°$, what is the area of the shaded sector $AOB$?",
           choices: [
-            { id: "A", text: "$40°$" },
-            { id: "B", text: "$50°$" },
-            { id: "C", text: "$70°$" },
-            { id: "D", text: "$80°$" }
+            { id: "A", text: "$3\\pi$" },
+            { id: "B", text: "$6\\pi$" },
+            { id: "C", text: "$12\\pi$" },
+            { id: "D", text: "$36\\pi$" }
           ],
-          correctAnswer: "D",
-          explanation: "**Choice D is correct.** Use the Inscribed Angle Theorem.\n\n**Key theorem:** Central angle $= 2 \\times$ Inscribed angle (same arc)\n\n• Inscribed angle $QPR$ (vertex on circle) $= 40°$\n• Central angle $QOR$ (vertex at center) $= 2 \\times 40° = 80°$\n\n**Why other choices are incorrect:**\n• Choice A ($40°$): Assumes central = inscribed (false)\n• Choice B ($50°$): No mathematical basis\n• Choice C ($70°$): No mathematical basis\n\n**Remember:** The central angle is always TWICE the inscribed angle when they subtend the same arc.",
-          skills: ["circles", "inscribed-angles"]
+          correctAnswer: "B",
+          explanation: "**Choice B is correct.** Use the sector area formula.\n\n**Formula:** $$\\text{Sector Area} = \\frac{\\theta}{360°} \\times \\pi r^2$$\n\n**Given:**\n• Radius $r = 6$\n• Central angle $\\theta = 60°$\n\n**Calculate:**\n$$\\text{Sector Area} = \\frac{60°}{360°} \\times \\pi (6)^2 = \\frac{1}{6} \\times 36\\pi = 6\\pi$$\n\n**Why other choices are incorrect:**\n• Choice A ($3\\pi$): Uses $\\frac{1}{12}$ instead of $\\frac{1}{6}$\n• Choice C ($12\\pi$): Uses $\\frac{1}{3}$ instead of $\\frac{1}{6}$\n• Choice D ($36\\pi$): This is the full circle area, not the sector\n\n**Key concept:** A sector with central angle $\\theta$ is $\\frac{\\theta}{360°}$ of the full circle.",
+          skills: ["circles", "sector-area"]
         },
 
         // Question 20: Dot plot comparison
@@ -405,7 +440,8 @@ export const practiceTest1 = {
                 { name: "SET A", data: [3, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8, 8, 9] },
                 { name: "SET B", data: [4, 4, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8] }
               ],
-              xRange: [2, 10]
+              xRange: [2, 10],
+              layout: "horizontal"
             }
           },
           question: "The dot plots shown summarize the data in two sets, Set A and Set B. Which of the following correctly describes the relationship between the means and the standard deviations of the two sets?",
@@ -662,22 +698,21 @@ export const practiceTest1 = {
         },
 
         // Question 12: System of inequalities
+        // NEW STRUCTURED FORMAT
         {
           id: 12,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "Which point is a solution to the system of inequalities below?",
-          questionFormula: {
-            lines: [
-              "$y \\leq 2x + 1$",
-              "$y > -x + 4$"
-            ]
-          },
+          question: [
+            { math: "y \\leq 2x + 1", display: true },
+            { math: "y > -x + 4", display: true },
+            { text: "Which point is a solution to the system of inequalities above?" }
+          ],
           choices: [
-            { id: "A", text: "$(0, 2)$" },
-            { id: "B", text: "$(1, 4)$" },
-            { id: "C", text: "$(2, 3)$" },
-            { id: "D", text: "$(3, 2)$" }
+            { id: "A", text: [{ math: "(0, 2)" }] },
+            { id: "B", text: [{ math: "(1, 4)" }] },
+            { id: "C", text: [{ math: "(2, 3)" }] },
+            { id: "D", text: [{ math: "(3, 2)" }] }
           ],
           correctAnswer: "C",
           explanation: "**Choice C is correct.** Test each point in both inequalities.\n\n**For $(2, 3)$:**\n• $y \\leq 2x + 1$: Is $3 \\leq 2(2) + 1 = 5$? Yes ✓\n• $y > -x + 4$: Is $3 > -2 + 4 = 2$? Yes ✓\n\nBoth inequalities satisfied!\n\n**Why other choices are incorrect:**\n• Choice A $(0, 2)$: $2 \\leq 1$ is false\n• Choice B $(1, 4)$: $4 \\leq 3$ is false\n• Choice D $(3, 2)$: Works, but C is the intended answer\n\n**Calculator tip:** Graph both inequalities to see the overlapping region.",
@@ -685,17 +720,18 @@ export const practiceTest1 = {
         },
 
         // Question 13: Infinite solutions
+        // NEW STRUCTURED FORMAT
         {
           id: 13,
           type: "fill-in",
           difficulty: "hard",
-          question: "For what value of $k$ does the system of equations below have infinitely many solutions?",
-          questionFormula: {
-            lines: [
-              "$3x - 6y = 12$",
-              "$kx - 2y = 4$"
-            ]
-          },
+          question: [
+            { math: "3x - 6y = 12", display: true },
+            { math: "kx - 2y = 4", display: true },
+            { text: "For what value of " },
+            { math: "k" },
+            { text: " does the system of equations above have infinitely many solutions?" }
+          ],
           correctAnswer: 1,
           explanation: "**The correct answer is 1.** For infinitely many solutions, equations must be equivalent (same line).\n\n**Simplify first equation:**\n$$3x - 6y = 12$$\nDivide by 3: $x - 2y = 4$\n\n**For second equation to match:**\n$kx - 2y = 4$ must equal $x - 2y = 4$\n\nComparing: $k = 1$\n\n**Verify:** When $k = 1$:\n• Eq 1: $3x - 6y = 12 \\to x - 2y = 4$\n• Eq 2: $1x - 2y = 4 \\to x - 2y = 4$\n\nIdentical equations = infinitely many solutions ✓\n\n**Key concept:** Same line = same equation = infinite solutions",
           skills: ["systems-of-equations", "infinite-solutions"]
@@ -719,33 +755,45 @@ export const practiceTest1 = {
         },
 
         // Question 15: One solution for system
+        // NEW STRUCTURED FORMAT
         {
           id: 15,
           type: "fill-in",
           difficulty: "hard",
-          question: "For what value of $c$ does the system below have exactly one solution?",
-          questionFormula: {
-            lines: [
-              "$y = x^2 - 6x + c$",
-              "$y = 4$"
-            ]
-          },
+          question: [
+            { math: "y = x^2 - 6x + c", display: true },
+            { math: "y = 4", display: true },
+            { text: "For what value of " },
+            { math: "c" },
+            { text: " does the system above have exactly one solution?" }
+          ],
           correctAnswer: 13,
           explanation: "**The correct answer is 13.** For exactly one solution, the line $y = 4$ must be **tangent** to the parabola.\n\n**Set equal:**\n$$x^2 - 6x + c = 4$$\n$$x^2 - 6x + (c - 4) = 0$$\n\n**For one solution, discriminant $= 0$:**\n$$b^2 - 4ac = 0$$\n$$(-6)^2 - 4(1)(c - 4) = 0$$\n$$36 - 4c + 16 = 0$$\n$$52 = 4c$$\n$$c = 13$$\n\n**Verify:** With $c = 13$:\n$$x^2 - 6x + 9 = 0$$\n$$(x - 3)^2 = 0$$\n$x = 3$ (exactly one solution) ✓\n\n**Key concept:** Tangent ↔ discriminant $= 0$",
           skills: ["quadratic-systems", "discriminant"]
         },
 
         // Question 16: System with quadratic minimum
+        // NEW STRUCTURED FORMAT
         {
           id: 16,
           type: "multiple-choice",
           difficulty: "hard",
-          question: "In the $xy$-plane, the graphs of $y = x^2 - 4x + 5$ and $y = x + b$ intersect at exactly two points. Which could be the value of $b$?",
+          question: [
+            { text: "In the " },
+            { math: "xy" },
+            { text: "-plane, the graphs of " },
+            { math: "y = x^2 - 4x + 5" },
+            { text: " and " },
+            { math: "y = x + b" },
+            { text: " intersect at exactly two points. Which could be the value of " },
+            { math: "b" },
+            { text: "?" }
+          ],
           choices: [
-            { id: "A", text: "$-2$" },
-            { id: "B", text: "$0$" },
-            { id: "C", text: "$1$" },
-            { id: "D", text: "$2$" }
+            { id: "A", text: [{ math: "-2" }] },
+            { id: "B", text: [{ math: "0" }] },
+            { id: "C", text: [{ math: "1" }] },
+            { id: "D", text: [{ math: "2" }] }
           ],
           correctAnswer: "C",
           explanation: "**Choice C is correct.** For two intersection points, the discriminant must be positive.\n\n**Set equal:**\n$$x^2 - 4x + 5 = x + b$$\n$$x^2 - 5x + (5 - b) = 0$$\n\n**For two solutions, discriminant $> 0$:**\n$$(-5)^2 - 4(1)(5 - b) > 0$$\n$$25 - 20 + 4b > 0$$\n$$5 + 4b > 0$$\n$$b > -1.25$$\n\n**Check choices:**\n• A ($b = -2$): $-2 > -1.25$? No ✗\n• B ($b = 0$): $0 > -1.25$? Yes ✓\n• C ($b = 1$): $1 > -1.25$? Yes ✓\n• D ($b = 2$): $2 > -1.25$? Yes ✓\n\nAll of B, C, D work! The answer is C.\n\n**Key concept:** Two intersections require positive discriminant.",
@@ -781,7 +829,8 @@ export const practiceTest1 = {
                 { name: "SET M", data: [5, 5, 6, 6, 6, 7, 7, 7, 7, 7, 8, 8, 8, 9, 9] },
                 { name: "SET N", data: [4, 5, 5, 6, 6, 7, 7, 7, 7, 8, 8, 8, 9, 9, 10] }
               ],
-              xRange: [3, 11]
+              xRange: [3, 11],
+              layout: "horizontal"
             }
           },
           question: "The dot plots shown summarize the data in two sets, Set M and Set N. Which of the following statements is true?",
@@ -813,29 +862,21 @@ export const practiceTest1 = {
           skills: ["circles", "completing-the-square", "circumference"]
         },
 
-        // Question 20: Triangle trig identity
+        // Question 20: Polynomial remainder theorem
         {
           id: 20,
           type: "multiple-choice",
           difficulty: "hard",
-          diagram: {
-            type: "rightTriangleWithAltitude",
-            params: {
-              vertexLabels: ["A", "B", "C", "D"],
-              rightAngleAt: "B",
-              altitudeFrom: "D"
-            }
-          },
-          question: "In the figure, triangle $ABC$ is a right triangle with the right angle at $B$. Point $D$ is on $\\overline{AC}$ such that $\\overline{BD}$ is perpendicular to $\\overline{AC}$. What is the value of $\\sin(\\angle ABD) - \\cos(\\angle DBC)$?",
+          question: "When $p(x) = 2x^3 - 5x^2 + kx - 8$ is divided by $(x - 2)$, the remainder is $6$. What is the value of $k$?",
           choices: [
-            { id: "A", text: "$0$" },
-            { id: "B", text: "$1$" },
-            { id: "C", text: "$-1$" },
-            { id: "D", text: "Cannot be determined" }
+            { id: "A", text: "$3$" },
+            { id: "B", text: "$5$" },
+            { id: "C", text: "$7$" },
+            { id: "D", text: "$9$" }
           ],
-          correctAnswer: "A",
-          explanation: "**Choice A is correct.** $\\angle ABD$ and $\\angle DBC$ are complementary (sum to $90°$).\n\nLet $\\angle ABD = \\theta$, then $\\angle DBC = 90° - \\theta$\n\n**Use cofunction identity:**\n$\\sin(\\theta) = \\cos(90° - \\theta)$\n\n**Calculate:**\n$\\sin(\\angle ABD) - \\cos(\\angle DBC)$\n$= \\sin(\\theta) - \\cos(90° - \\theta)$\n$= \\sin(\\theta) - \\sin(\\theta)$\n$= 0$\n\n**Why other choices are incorrect:**\n• Choices B, C: The cofunction identity makes difference $= 0$\n• Choice D: Relationship is determinable\n\n**Key identity:** $\\sin(\\theta) = \\cos(90° - \\theta)$",
-          skills: ["trigonometry", "complementary-angles"]
+          correctAnswer: "D",
+          explanation: "**Choice D is correct.** Use the Remainder Theorem: when $p(x)$ is divided by $(x - a)$, the remainder equals $p(a)$.\n\n**Apply the theorem:**\nSince dividing by $(x - 2)$ gives remainder $6$:\n$$p(2) = 6$$\n\n**Substitute $x = 2$:**\n$$p(2) = 2(2)^3 - 5(2)^2 + k(2) - 8 = 6$$\n$$= 2(8) - 5(4) + 2k - 8 = 6$$\n$$= 16 - 20 + 2k - 8 = 6$$\n$$-12 + 2k = 6$$\n$$2k = 18$$\n$$k = 9$$\n\n**Verify with $k = 9$:**\n$$p(2) = 16 - 20 + 18 - 8 = 6$$ ✓\n\n**Why other choices are incorrect:**\n• Choice A ($k = 3$): $p(2) = 16 - 20 + 6 - 8 = -6$\n• Choice B ($k = 5$): $p(2) = 16 - 20 + 10 - 8 = -2$\n• Choice C ($k = 7$): $p(2) = 16 - 20 + 14 - 8 = 2$\n\n**Key concept:** Remainder Theorem states $p(a)$ equals the remainder when dividing by $(x - a)$.",
+          skills: ["polynomials", "remainder-theorem"]
         },
 
         // Question 21: No solution for quadratic system
@@ -863,7 +904,7 @@ export const practiceTest1 = {
           question: "The function $f$ is defined by $f(x) = a \\cdot k^x$, where $a$ and $k$ are positive constants. In the $xy$-plane, the graph of $f$ has a $y$-intercept of 3. Which of the following could be the equation for function $g$, if $g(x - 1) = k^x$?",
           choices: [
             { id: "A", text: "$g(x) = k^x \\cdot k$" },
-            { id: "B", text: "$g(x) = k^x \\div k$" },
+            { id: "B", text: "$g(x) = \\frac{k^x}{k}$" },
             { id: "C", text: "$g(x) = k^x + k$" },
             { id: "D", text: "$g(x) = k^x - 1$" }
           ],

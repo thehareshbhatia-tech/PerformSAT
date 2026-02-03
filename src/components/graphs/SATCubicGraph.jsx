@@ -69,6 +69,7 @@ const SATCubicGraph = ({
   roots,              // Alternative: [r1, r2, r3] for factored form
   highlightPoints = [], // [[x, y], ...] - key points to highlight
   points: providedPoints = [], // Alternative: plot specific points
+  showPoints = false, // Whether to render providedPoints as visible dots
   xRange = [-10, 10],
   yRange = [-10, 10],
   label = '',
@@ -148,8 +149,8 @@ const SATCubicGraph = ({
         );
       })}
 
-      {/* BUG FIX 2: Only render provided points if array exists and has elements */}
-      {providedPoints && providedPoints.length > 0 && providedPoints.map(([x, y], i) => {
+      {/* Only render provided points if showPoints is true */}
+      {showPoints && providedPoints && providedPoints.length > 0 && providedPoints.map(([x, y], i) => {
         const pos = coordSystem.toSVG(x, y);
         return (
           <circle
@@ -162,20 +163,48 @@ const SATCubicGraph = ({
         );
       })}
 
-      {/* Label */}
-      {label && (
-        <text
-          x={coordSystem.bounds.right - 10}
-          y={coordSystem.bounds.top + 20}
-          fontFamily={styles.font.axis}
-          fontSize={14}
-          fontStyle="italic"
-          fill={styles.colors.axis}
-          textAnchor="end"
-        >
-          {label}
-        </text>
-      )}
+      {/* Label - positioned near the curve on the right side */}
+      {label && (() => {
+        // Calculate where curve is near right edge of graph
+        const labelX = xMax - 1;
+        let labelY;
+        let slopeAtLabel;
+
+        if (roots && roots.length === 3) {
+          const [r1, r2, r3] = roots;
+          labelY = a * (labelX - r1) * (labelX - r2) * (labelX - r3);
+          // Derivative for factored form is complex, use numerical approximation
+          const dx = 0.01;
+          const yPlus = a * (labelX + dx - r1) * (labelX + dx - r2) * (labelX + dx - r3);
+          slopeAtLabel = (yPlus - labelY) / dx;
+        } else {
+          labelY = a * Math.pow(labelX, 3) + b * Math.pow(labelX, 2) + c * labelX + d;
+          // Derivative: 3ax² + 2bx + c
+          slopeAtLabel = 3 * a * Math.pow(labelX, 2) + 2 * b * labelX + c;
+        }
+
+        // Clamp labelY to visible range
+        const clampedY = Math.max(yMin + 1, Math.min(yMax - 1, labelY));
+        const labelPos = coordSystem.toSVG(labelX, clampedY);
+
+        // Offset label based on actual slope at label point
+        // If slope is negative (going down), put label above; if positive (going up), put below
+        const yOffset = slopeAtLabel <= 0 ? -12 : 18;
+
+        return (
+          <text
+            x={labelPos.x}
+            y={labelPos.y + yOffset}
+            fontFamily={styles.font.axis}
+            fontSize={14}
+            fontStyle="italic"
+            fill={styles.colors.axis}
+            textAnchor="end"
+          >
+            {label}
+          </text>
+        );
+      })()}
     </svg>
   );
 };

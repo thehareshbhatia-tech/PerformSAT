@@ -5,164 +5,164 @@ import { SAT_GRAPH_STYLES } from './SATGraphCore';
 const styles = SAT_GRAPH_STYLES;
 
 /**
- * CircleWithSector - Circle with a sector/arc marked
+ * CircleWithSector - Circle with a sector/arc marked (SAT-style like lesson diagrams)
  */
 export const CircleWithSector = ({
   centralAngle = 90,
-  radius: providedRadius,
+  radius: displayRadius,
   labelCenter = 'O',
   labelPoint1 = 'A',
   labelPoint2 = 'B',
-  showAngleLabel = false,
-  showAngleArc = false,
-  showRadii = true,
+  showAngleLabel = true,
+  showRadiusLabel = false,
   width = 280,
   height = 280,
 }) => {
   const centerX = width / 2;
   const centerY = height / 2;
-  const radius = providedRadius || Math.min(width, height) / 2 - 40;
+  const radius = Math.min(width, height) / 2 - 40;
 
-  // Convert angle to radians (start from right, go counterclockwise)
-  const startAngle = 0;
-  const endAngle = (centralAngle * Math.PI) / 180;
+  // Convert angle to radians (start from top-right, go counterclockwise)
+  const startAngle = -Math.PI / 4; // Start at -45 degrees for better visual
+  const endAngle = startAngle + (centralAngle * Math.PI) / 180;
 
   // Calculate arc endpoints
   const x1 = centerX + radius * Math.cos(startAngle);
-  const y1 = centerY - radius * Math.sin(startAngle);
+  const y1 = centerY + radius * Math.sin(startAngle);
   const x2 = centerX + radius * Math.cos(endAngle);
-  const y2 = centerY - radius * Math.sin(endAngle);
+  const y2 = centerY + radius * Math.sin(endAngle);
 
   // Arc path (large arc flag depends on angle > 180)
   const largeArcFlag = centralAngle > 180 ? 1 : 0;
-  const arcPath = `M ${x1} ${y1} A ${radius} ${radius} 0 ${largeArcFlag} 0 ${x2} ${y2}`;
 
-  // Sector path (filled)
-  const sectorPath = `M ${centerX} ${centerY} L ${x1} ${y1} A ${radius} ${radius} 0 ${largeArcFlag} 0 ${x2} ${y2} Z`;
+  // Sector path (filled) - sweep flag 1 for counterclockwise
+  const sectorPath = `M ${centerX} ${centerY} L ${x1} ${y1} A ${radius} ${radius} 0 ${largeArcFlag} 1 ${x2} ${y2} Z`;
 
-  // Angle arc for display
+  // Angle arc for display (smaller arc near center)
   const angleArcRadius = 25;
+  const angleX1 = centerX + angleArcRadius * Math.cos(startAngle);
+  const angleY1 = centerY + angleArcRadius * Math.sin(startAngle);
   const angleX2 = centerX + angleArcRadius * Math.cos(endAngle);
-  const angleY2 = centerY - angleArcRadius * Math.sin(endAngle);
-  const angleArcPath = `M ${centerX + angleArcRadius} ${centerY} A ${angleArcRadius} ${angleArcRadius} 0 0 0 ${angleX2} ${angleY2}`;
+  const angleY2 = centerY + angleArcRadius * Math.sin(endAngle);
+  const smallLargeArc = centralAngle > 180 ? 1 : 0;
+  const angleArcPath = `M ${angleX1} ${angleY1} A ${angleArcRadius} ${angleArcRadius} 0 ${smallLargeArc} 1 ${angleX2} ${angleY2}`;
 
   // Label positions
-  const labelOffset = 20;
+  const labelOffset = 18;
   const point1LabelX = x1 + labelOffset * Math.cos(startAngle);
-  const point1LabelY = y1 - labelOffset * Math.sin(startAngle);
+  const point1LabelY = y1 + labelOffset * Math.sin(startAngle);
   const point2LabelX = x2 + labelOffset * Math.cos(endAngle);
-  const point2LabelY = y2 - labelOffset * Math.sin(endAngle);
+  const point2LabelY = y2 + labelOffset * Math.sin(endAngle);
 
-  // Angle label position
-  const angleLabelAngle = endAngle / 2;
-  const angleLabelRadius = 40;
+  // Angle label position (in the middle of the angle arc)
+  const angleLabelAngle = startAngle + (centralAngle * Math.PI) / 360;
+  const angleLabelRadius = 42;
   const angleLabelX = centerX + angleLabelRadius * Math.cos(angleLabelAngle);
-  const angleLabelY = centerY - angleLabelRadius * Math.sin(angleLabelAngle);
+  const angleLabelY = centerY + angleLabelRadius * Math.sin(angleLabelAngle);
+
+  // Radius label position (middle of first radius)
+  const radiusLabelAngle = startAngle;
+  const radiusMidX = centerX + (radius / 2) * Math.cos(radiusLabelAngle);
+  const radiusMidY = centerY + (radius / 2) * Math.sin(radiusLabelAngle);
 
   return (
     <svg
       width={width}
       height={height}
       style={{
-        background: styles.colors.background,
-        border: `1px solid ${styles.colors.border}`,
+        background: '#ffffff',
+        border: '1px solid #e5e7eb',
       }}
     >
-      {/* Circle */}
+      {/* Full circle (faded background) */}
       <circle
         cx={centerX}
         cy={centerY}
         r={radius}
-        fill="none"
-        stroke={styles.colors.axis}
-        strokeWidth={styles.strokeWidth.axis}
+        fill="#f9fafb"
+        stroke="#d1d5db"
+        strokeWidth={1.5}
       />
 
-      {/* Sector fill (light) */}
+      {/* Sector fill (blue like lesson) */}
       <path
         d={sectorPath}
-        fill="rgba(0, 0, 0, 0.05)"
-        stroke="none"
+        fill="#dbeafe"
+        stroke="#2563eb"
+        strokeWidth={2}
       />
 
       {/* Radii */}
-      {showRadii && (
-        <>
-          <line
-            x1={centerX}
-            y1={centerY}
-            x2={x1}
-            y2={y1}
-            stroke={styles.colors.axis}
-            strokeWidth={styles.strokeWidth.dataLine}
-          />
-          <line
-            x1={centerX}
-            y1={centerY}
-            x2={x2}
-            y2={y2}
-            stroke={styles.colors.axis}
-            strokeWidth={styles.strokeWidth.dataLine}
-          />
-        </>
-      )}
-
-      {/* Arc highlight */}
-      <path
-        d={arcPath}
-        fill="none"
-        stroke={styles.colors.dataLine}
-        strokeWidth={styles.strokeWidth.dataLine + 1}
+      <line
+        x1={centerX}
+        y1={centerY}
+        x2={x1}
+        y2={y1}
+        stroke="#1e40af"
+        strokeWidth={2}
+      />
+      <line
+        x1={centerX}
+        y1={centerY}
+        x2={x2}
+        y2={y2}
+        stroke="#1e40af"
+        strokeWidth={2}
       />
 
-      {/* Angle arc */}
-      {showAngleArc && (
-        <path
-          d={angleArcPath}
-          fill="none"
-          stroke={styles.colors.axis}
-          strokeWidth={1}
-        />
-      )}
+      {/* Angle arc (purple like lesson) */}
+      <path
+        d={angleArcPath}
+        fill="none"
+        stroke="#7c3aed"
+        strokeWidth={2.5}
+      />
 
       {/* Center point */}
       <circle
         cx={centerX}
         cy={centerY}
-        r={3}
-        fill={styles.colors.axis}
+        r={4}
+        fill="#1e40af"
       />
+
+      {/* Endpoint dots */}
+      <circle cx={x1} cy={y1} r={3} fill="#1e40af" />
+      <circle cx={x2} cy={y2} r={3} fill="#1e40af" />
 
       {/* Center label */}
       <text
-        x={centerX - 15}
+        x={centerX - 18}
         y={centerY + 5}
-        fontFamily={styles.font.axis}
-        fontSize={styles.fontSize.tickLabel}
-        fill={styles.colors.axis}
+        fontFamily="system-ui, sans-serif"
+        fontSize={14}
+        fontWeight="600"
+        fill="#374151"
       >
         {labelCenter}
       </text>
 
-      {/* Point 1 label */}
+      {/* Point 1 label (A) */}
       <text
         x={point1LabelX}
         y={point1LabelY + 5}
-        fontFamily={styles.font.axis}
-        fontSize={styles.fontSize.tickLabel}
-        fill={styles.colors.axis}
+        fontFamily="system-ui, sans-serif"
+        fontSize={14}
+        fontWeight="600"
+        fill="#374151"
         textAnchor="middle"
       >
         {labelPoint1}
       </text>
 
-      {/* Point 2 label */}
+      {/* Point 2 label (B) */}
       <text
         x={point2LabelX}
         y={point2LabelY + 5}
-        fontFamily={styles.font.axis}
-        fontSize={styles.fontSize.tickLabel}
-        fill={styles.colors.axis}
+        fontFamily="system-ui, sans-serif"
+        fontSize={14}
+        fontWeight="600"
+        fill="#374151"
         textAnchor="middle"
       >
         {labelPoint2}
@@ -172,13 +172,30 @@ export const CircleWithSector = ({
       {showAngleLabel && (
         <text
           x={angleLabelX}
-          y={angleLabelY}
-          fontFamily={styles.font.axis}
-          fontSize={styles.fontSize.tickLabel - 1}
-          fill={styles.colors.axis}
+          y={angleLabelY + 5}
+          fontFamily="Georgia, serif"
+          fontSize={15}
+          fontWeight="600"
+          fontStyle="italic"
+          fill="#7c3aed"
           textAnchor="middle"
         >
           {centralAngle}°
+        </text>
+      )}
+
+      {/* Radius label */}
+      {showRadiusLabel && displayRadius && (
+        <text
+          x={radiusMidX - 12}
+          y={radiusMidY - 8}
+          fontFamily="system-ui, sans-serif"
+          fontSize={13}
+          fontWeight="600"
+          fill="#1e40af"
+          textAnchor="middle"
+        >
+          {displayRadius}
         </text>
       )}
     </svg>

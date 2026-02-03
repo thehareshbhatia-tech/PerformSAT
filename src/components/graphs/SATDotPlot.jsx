@@ -23,21 +23,28 @@ const SATDotPlot = ({
   xMin: providedXMin,
   xMax: providedXMax,
   xRange: providedXRange,
-  width = 320,
+  width: providedWidth,
   height: providedHeight,
   dotRadius = 6,
   dotColor = '#000000',
+  layout = 'vertical', // 'vertical' (stacked) or 'horizontal' (side by side)
 }) => {
   const styles = SAT_GRAPH_STYLES;
 
   // Handle multi-set format
   const isMultiSet = sets && sets.length > 0;
   const setCount = isMultiSet ? sets.length : 1;
-  const height = providedHeight || (isMultiSet ? 120 * setCount + 40 : 150);
+
+  // For horizontal layout, make width wider to fit sets side by side
+  const isHorizontal = layout === 'horizontal' && isMultiSet;
+  const width = providedWidth || (isHorizontal ? 280 * setCount + 40 : 320);
+  const height = providedHeight || (isHorizontal ? 200 : (isMultiSet ? 120 * setCount + 40 : 150));
 
   // Calculate padding
   const padding = { top: 30, right: 30, bottom: 50, left: 30 };
-  const chartWidth = width - padding.left - padding.right;
+  const chartWidth = isHorizontal
+    ? (width - padding.left - padding.right - (setCount - 1) * 20) / setCount
+    : width - padding.left - padding.right;
 
   // Determine x range
   let xMin, xMax;
@@ -54,22 +61,27 @@ const SATDotPlot = ({
   }
   const xRangeSpan = xMax - xMin || 1;
 
-  // Calculate x position for a value
-  const xScale = (value) => padding.left + ((value - xMin) / xRangeSpan) * chartWidth;
-
   // Render single dot plot
-  const renderSingleDotPlot = (plotData, yOffset, plotHeight, setName = null) => {
+  const renderSingleDotPlot = (plotData, yOffset, plotHeight, setName = null, xOffset = 0, plotWidth = chartWidth) => {
     const maxCount = Math.max(...plotData.map(d => d.count), 1);
-    const dotSpacing = Math.min(dotRadius * 2.5, (plotHeight - 30) / maxCount);
+    // Reserve space for title (25px) and baseline labels (25px)
+    const titleSpace = setName ? 25 : 0;
+    const availableHeight = plotHeight - titleSpace - 25;
+    // Ensure minimum spacing so dots don't overlap (at least 2.2x radius)
+    const dotSpacing = Math.max(dotRadius * 2.2, availableHeight / maxCount);
     const baselineY = yOffset + plotHeight - 20;
+
+    // Local x scale for this plot
+    const localXScale = (value) => xOffset + padding.left + ((value - xMin) / xRangeSpan) * plotWidth;
 
     return (
       <g key={setName || 'single'}>
-        {/* Set name */}
+        {/* Set name - positioned at top of plot area */}
         {setName && (
           <text
-            x={padding.left}
-            y={yOffset + 15}
+            x={xOffset + padding.left + plotWidth / 2}
+            y={yOffset + 12}
+            textAnchor="middle"
             fontFamily={styles.font.axis}
             fontSize={12}
             fontWeight="bold"
@@ -81,9 +93,9 @@ const SATDotPlot = ({
 
         {/* Number line */}
         <line
-          x1={padding.left}
+          x1={xOffset + padding.left}
           y1={baselineY}
-          x2={padding.left + chartWidth}
+          x2={xOffset + padding.left + plotWidth}
           y2={baselineY}
           stroke={styles.colors.axis}
           strokeWidth={styles.strokeWidth.axis}
@@ -91,9 +103,9 @@ const SATDotPlot = ({
 
         {/* Tick marks */}
         {plotData.map((item) => {
-          const x = xScale(item.value);
+          const x = localXScale(item.value);
           return (
-            <g key={`tick-${item.value}`}>
+            <g key={`tick-${setName}-${item.value}`}>
               <line
                 x1={x}
                 y1={baselineY - 4}
@@ -118,13 +130,13 @@ const SATDotPlot = ({
 
         {/* Dots */}
         {plotData.map((item) => {
-          const x = xScale(item.value);
+          const x = localXScale(item.value);
           const dots = [];
           for (let i = 0; i < item.count; i++) {
             const y = baselineY - dotRadius - 4 - i * dotSpacing;
             dots.push(
               <circle
-                key={`dot-${item.value}-${i}`}
+                key={`dot-${setName}-${item.value}-${i}`}
                 cx={x}
                 cy={y}
                 r={dotRadius}
@@ -165,10 +177,20 @@ const SATDotPlot = ({
       {/* Multi-set or single plot */}
       {isMultiSet ? (
         sets.map((set, index) => {
-          const plotHeight = (height - padding.top - padding.bottom) / setCount;
-          const yOffset = padding.top + index * plotHeight;
           const processedData = rawDataToValueCount(set.data);
-          return renderSingleDotPlot(processedData, yOffset, plotHeight, set.name);
+
+          if (isHorizontal) {
+            // Horizontal layout: side by side
+            const plotHeight = height - padding.top - padding.bottom;
+            const yOffset = padding.top;
+            const xOffset = index * (chartWidth + 20);
+            return renderSingleDotPlot(processedData, yOffset, plotHeight, set.name, xOffset, chartWidth);
+          } else {
+            // Vertical layout: stacked
+            const plotHeight = (height - padding.top - padding.bottom) / setCount;
+            const yOffset = padding.top + index * plotHeight;
+            return renderSingleDotPlot(processedData, yOffset, plotHeight, set.name, 0, chartWidth);
+          }
         })
       ) : (
         renderSingleDotPlot(data, padding.top, height - padding.top - padding.bottom)
