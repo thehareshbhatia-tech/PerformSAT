@@ -1357,6 +1357,50 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             </div>
           )}
 
+          {/* Question Table if present */}
+          {reviewQ?.questionTable && (
+            <div style={{
+              marginBottom: '24px',
+              display: 'flex',
+              justifyContent: 'center'
+            }}>
+              <table style={{
+                borderCollapse: 'collapse',
+                fontSize: '15px'
+              }}>
+                <thead>
+                  <tr>
+                    {reviewQ.questionTable.headers.map((header, i) => (
+                      <th key={i} style={{
+                        border: '1px solid #d1d5db',
+                        padding: '8px 16px',
+                        background: '#f3f4f6',
+                        fontWeight: '600'
+                      }}>
+                        <MathText text={header} />
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {reviewQ.questionTable.rows.map((row, i) => (
+                    <tr key={i}>
+                      {row.map((cell, j) => (
+                        <td key={j} style={{
+                          border: '1px solid #d1d5db',
+                          padding: '8px 16px',
+                          textAlign: 'center'
+                        }}>
+                          <MathText text={cell} />
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+
           {/* Answer choices */}
           {reviewQ?.type === 'multiple-choice' && reviewQ?.choices && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -1892,6 +1936,47 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         {question?.diagram && (
           <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
             <QuestionDiagram type={question.diagram.type} params={question.diagram.params} />
+          </div>
+        )}
+
+        {/* Question Table if present */}
+        {question?.questionTable && (
+          <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
+            <table style={{
+              borderCollapse: 'collapse',
+              fontFamily: SAT_TYPOGRAPHY.questionFont,
+              fontSize: SAT_TYPOGRAPHY.sizes.choiceText
+            }}>
+              <thead>
+                <tr>
+                  {question.questionTable.headers.map((header, i) => (
+                    <th key={i} style={{
+                      border: '1px solid #d1d5db',
+                      padding: '8px 16px',
+                      background: '#f3f4f6',
+                      fontWeight: '600'
+                    }}>
+                      <MathText text={header} />
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {question.questionTable.rows.map((row, i) => (
+                  <tr key={i}>
+                    {row.map((cell, j) => (
+                      <td key={j} style={{
+                        border: '1px solid #d1d5db',
+                        padding: '8px 16px',
+                        textAlign: 'center'
+                      }}>
+                        <MathText text={cell} />
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         )}
 

@@ -19,44 +19,41 @@ export const practiceTest2 = {
           id: 1,
           type: "fill-in",
           difficulty: "easy",
-          question: "The values below represent how many miles Kenji ran in each of his last ten training sessions.\n\n16, 12, 18, 9, 21, 15, 15, 19, 25, 20\n\nWhat is the mean of Kenji's distances over these ten sessions?",
+          question: "The values below represent how many miles Kenji ran in each of his last ten training sessions. What is the mean of Kenji's distances over these ten sessions?",
+          questionFormula: {
+            equation: "$$16, 12, 18, 9, 21, 15, 15, 19, 25, 20$$"
+          },
           correctAnswer: 17,
           explanation: "**The correct answer is 17.** To find the mean, add all values and divide by the count.\n\n**Step 1:** Add all values:\n16 + 12 + 18 + 9 + 21 + 15 + 15 + 19 + 25 + 20 = 170\n\n**Step 2:** Divide by the number of values:\n170 ÷ 10 = **17**\n\n**Calculator tip:** Enter all values separated by commas into a list function, then use the mean function.",
           skills: ["mean-median-mode"]
         },
 
-        // Question 2: Word problem with two prices
+        // Question 2: System of linear equations (from PT1)
         {
           id: 2,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "A bakery sells muffins and croissants. Muffins are sold for \\$2.75, and croissants are sold for \\$4.25. The bakery made \\$38.25 selling croissants. If the bakery sold the same number of muffins as croissants, what was the total amount of money, in dollars, that the bakery made?",
+          question: "If $5x - y = 17$ and $x - y = 1$, what is the value of $x + y$?",
           choices: [
-            { id: "A", text: "$24.75$" },
-            { id: "B", text: "$49.50$" },
-            { id: "C", text: "$63.00$" },
-            { id: "D", text: "$76.50$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**Choice C is correct.** Solve step by step.\n\n**Step 1:** Find the number of croissants sold:\n\\$38.25 ÷ \\$4.25 = 9 croissants\n\n**Step 2:** Since the same number of muffins were sold:\n9 muffins × \\$2.75 = \\$24.75\n\n**Step 3:** Calculate total:\n\\$38.25 + \\$24.75 = **\\$63.00**\n\n**Why other choices are incorrect:**\n• Choice A (\\$24.75): This is only the muffin revenue\n• Choice B (\\$49.50): Calculation error\n• Choice D (\\$76.50): Added incorrectly",
-          skills: ["word-problems", "linear-equations"]
-        },
-
-        // Question 3: Triangle angles with exterior angle
-        {
-          id: 3,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "In triangle $PQR$, the measure of angle $Q$ is $42°$ and the measure of the exterior angle of angle $R$ is $108°$. What is the measure of angle $P$, in degrees?",
-          choices: [
-            { id: "A", text: "$30$" },
-            { id: "B", text: "$66$" },
-            { id: "C", text: "$72$" },
-            { id: "D", text: "$138$" }
+            { id: "A", text: "$5$" },
+            { id: "B", text: "$7$" },
+            { id: "C", text: "$8$" },
+            { id: "D", text: "$10$" }
           ],
           correctAnswer: "B",
-          explanation: "**Choice B is correct.** Use the properties of exterior angles and triangle angle sums.\n\n**Step 1:** Find angle $R$ from its exterior angle:\nAngle $R = 180° - 108° = 72°$\n\n**Step 2:** Use triangle angle sum ($P + Q + R = 180°$):\n$P + 42° + 72° = 180°$\n$P + 114° = 180°$\n$P = 66°$\n\n**Why other choices are incorrect:**\n• Choice A ($30°$): Would require different angle measures\n• Choice C ($72°$): This is angle $R$, not angle $P$\n• Choice D ($138°$): Exceeds maximum for a triangle interior angle\n\n**Key concept:** An exterior angle and its interior angle are supplementary (sum to $180°$).",
-          skills: ["triangle-angles", "exterior-angles"]
+          explanation: "**Choice B is correct.** Solve using the elimination method.\n\nSubtract the second equation from the first:\n$$(5x - y) - (x - y) = 17 - 1$$\n$$4x = 16$$\n$$x = 4$$\n\nSubstitute $x = 4$ into $x - y = 1$:\n$$4 - y = 1$$\n$$y = 3$$\n\nTherefore, $x + y = 4 + 3 = 7$\n\n**Why other choices are incorrect:**\n• Choice A ($5$): This is $x + 1$, not $x + y$\n• Choice C ($8$): Arithmetic error\n• Choice D ($10$): Would require different values\n\n**Calculator tip:** In Desmos, graph both equations. The intersection point $(4, 3)$ gives $x + y = 7$.",
+          skills: ["systems-of-equations"]
+        },
+
+        // Question 3: Absolute value equation (from PT1)
+        {
+          id: 3,
+          type: "fill-in",
+          difficulty: "easy",
+          question: "If $a$ is a solution to the equation $|3x - 5| = 13$ and $a > 0$, what is the value of $a$?",
+          correctAnswer: 6,
+          explanation: "**The correct answer is 6.** Solving an absolute value equation requires considering two cases.\n\n**Case 1:** $3x - 5 = 13$\n$$3x = 18$$\n$$x = 6$$\n\n**Case 2:** $3x - 5 = -13$\n$$3x = -8$$\n$$x = -\\frac{8}{3} \\approx -2.67$$\n\nThe two solutions are $x = 6$ and $x = -\\frac{8}{3}$.\n\nSince $a > 0$, we need the positive solution: **$a = 6$**\n\n**Calculator tip:** In Desmos, graph $y = |3x - 5|$ and $y = 13$. The intersection points show $x = 6$ and $x \\approx -2.67$.",
+          skills: ["absolute-value-equations"]
         },
 
         // Question 4: Percentage problem
@@ -76,68 +73,74 @@ export const practiceTest2 = {
           skills: ["percentages", "word-problems"]
         },
 
-        // Question 5: System of equations
+        // Question 5: Cylinder volume (from PT1)
         {
           id: 5,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "Which of the following ordered pairs $(a, b)$ satisfies the given system of equations?",
-          questionFormula: {
-            lines: [
-              "$0.2a - 0.2b = 1.6$",
-              "$\\frac{1}{4}a - \\frac{1}{2}b = \\frac{2}{5}$"
-            ]
-          },
+          question: "The radius of a right cylinder is $5$ inches, and its height is three times the length of the radius. What is the volume of the cylinder, in cubic inches?",
           choices: [
-            { id: "A", text: "$(6, 8)$" },
-            { id: "B", text: "$(8, -2)$" },
-            { id: "C", text: "$(8, 22)$" },
-            { id: "D", text: "$(22, 8)$" }
+            { id: "A", text: "$75\\pi$" },
+            { id: "B", text: "$125\\pi$" },
+            { id: "C", text: "$375\\pi$" },
+            { id: "D", text: "$750\\pi$" }
           ],
-          correctAnswer: "D",
-          explanation: "**Choice D is correct.** Verify by substitution.\n\n**Check $(22, 8)$ in equation 1:**\n$0.2(22) - 0.2(8) = 4.4 - 1.6 = 2.8$\n\n**Equation 1:** $0.2a - 0.2b = 1.6$\nSimplify: $a - b = 8$\n\n**Equation 2:** $\\frac{1}{4}a - \\frac{1}{2}b = \\frac{2}{5}$\nMultiply by 4: $a - 2b = \\frac{8}{5} = 1.6$\n\nFrom equation 1: $a = b + 8$\nSubstitute into equation 2: $(b + 8) - 2b = 1.6$\n$-b + 8 = 1.6$\n$b = 6.4$\n\nThen $a = 6.4 + 8 = 14.4$\n\n**Why other choices are incorrect:**\n• Choices A, B, C: Do not satisfy both equations when substituted",
-          skills: ["systems-of-equations"]
+          correctAnswer: "C",
+          explanation: "**Choice C is correct.** Use the cylinder volume formula: $V = \\pi r^2 h$\n\n**Given:**\n• Radius $r = 5$ inches\n• Height $h = 3r = 3(5) = 15$ inches\n\n**Calculate:**\n$$V = \\pi r^2 h = \\pi(5)^2(15) = \\pi(25)(15) = 375\\pi \\text{ cubic inches}$$\n\n**Why other choices are incorrect:**\n• Choice A ($75\\pi$): Uses $h = 3$ instead of $h = 15$\n• Choice B ($125\\pi$): Uses $h = 5$ instead of $h = 15$\n• Choice D ($750\\pi$): Doubles the answer incorrectly\n\n**Calculator tip:** Verify: $25 \\times 15 = 375$",
+          skills: ["volume", "cylinders"]
         },
 
-        // Question 6: Linear function interpretation
+        // Question 6: Two-way table probability (from PT1)
         {
           id: 6,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "Maria started a dog-walking service. The total amount charged to a customer weekly, in dollars, is represented by the linear function $g(x) = 18.50x + 12.00$, where $x$ is the number of walks given to the customer per week. What is the best interpretation of the value $18.50$ in the function?",
+          difficulty: "medium",
+          question: "The table shows the average weekly coffee sales at a café.",
+          diagram: {
+            type: "table",
+            params: {
+              headers: ["", "Hot", "Iced", "Total"],
+              rows: [
+                ["Latte", "65", "48", "113"],
+                ["Cappuccino", "82", "35", "117"],
+                ["Americano", "43", "67", "110"],
+                ["Total", "190", "150", "340"]
+              ]
+            }
+          },
+          questionContinued: "If a customer who purchased iced coffee is selected at random, what is the probability that the customer purchased a cappuccino?",
           choices: [
-            { id: "A", text: "Maria charges \\$18.50 per week." },
-            { id: "B", text: "Maria charges \\$18.50 per walk." },
-            { id: "C", text: "Customers pay an initial fee of \\$18.50." },
-            { id: "D", text: "Customers pay a weekly fee of \\$18.50." }
+            { id: "A", text: "$\\frac{35}{117}$" },
+            { id: "B", text: "$\\frac{35}{150}$" },
+            { id: "C", text: "$\\frac{117}{340}$" },
+            { id: "D", text: "$\\frac{150}{117}$" }
           ],
           correctAnswer: "B",
-          explanation: "**Choice B is correct.** In a linear function $g(x) = mx + b$:\n• $m$ (the coefficient of $x$) represents the rate of change\n• $b$ (the constant) represents the initial or fixed value\n\n**Analysis:**\n• $18.50$ is the coefficient of $x$ (number of walks)\n• This means **\\$18.50 is charged per walk**\n• The $12.00$ is the base weekly fee\n\n**Why other choices are incorrect:**\n• Choice A: \\$18.50 per week would be a flat rate, not multiplied by $x$\n• Choice C: The initial fee is \\$12.00, not \\$18.50\n• Choice D: The weekly fee is \\$12.00 (the constant term)\n\n**Key concept:** In $y = mx + b$, the slope ($m$) represents the rate per unit.",
-          skills: ["linear-functions", "function-interpretation"]
+          explanation: "**Choice B is correct.** This is a conditional probability: $P(\\text{Cappuccino} | \\text{Iced})$\n\nWe want: probability of cappuccino **given** the customer bought iced coffee.\n\n**Formula:**\n$$P(\\text{Cappuccino} | \\text{Iced}) = \\frac{\\text{Iced Cappuccino}}{\\text{Total Iced}} = \\frac{35}{150}$$\n\n(or $\\frac{7}{30}$)\n\n**Why other choices are incorrect:**\n• Choice A ($\\frac{35}{117}$): Divides by total cappuccino, not total iced\n• Choice C ($\\frac{117}{340}$): This is $P(\\text{Cappuccino})$, ignoring the iced condition\n• Choice D ($\\frac{150}{117}$): Inverts the fraction\n\n**Key concept:** For conditional probability, the denominator is the \"given\" condition (total iced = 150).",
+          skills: ["probability", "two-way-tables"]
         },
 
-        // Question 7: Parallel lines and angles
+        // Question 7: Word problem - algebraic expression (from PT1)
         {
           id: 7,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "In the figure given, lines $p$ and $s$ are parallel, and lines $q$ and $t$ are parallel. If the measure of angle 1 is $125°$, what is the measure of angle 2?",
-          diagram: {
-            type: "parallelLines",
-            params: {
-              angles: { x: "125°", y: "∠2" },
-              lineLabels: ["p", "s", "t"]
-            }
-          },
+          difficulty: "easy",
+          question: [
+            { text: "A group of friends is going to a movie theater. Each ticket costs $12.50, and each bag of popcorn costs $6.25. If " },
+            { math: "t" },
+            { text: " people buy a ticket and " },
+            { math: "p" },
+            { text: " people buy popcorn, which of the following expressions represents the total number of dollars spent by the group?" }
+          ],
           choices: [
-            { id: "A", text: "$45°$" },
-            { id: "B", text: "$55°$" },
-            { id: "C", text: "$70°$" },
-            { id: "D", text: "$125°$" }
+            { id: "A", text: [{ math: "12.5t - 6.25p" }] },
+            { id: "B", text: [{ math: "12.5t + 6.25p" }] },
+            { id: "C", text: [{ math: "12.5p + 6.25t" }] },
+            { id: "D", text: [{ math: "18.75tp" }] }
           ],
           correctAnswer: "B",
-          explanation: "**Choice B is correct.** Use parallel line angle relationships.\n\n**Key properties:**\n• When parallel lines are cut by a transversal, corresponding angles are equal\n• Co-interior (same-side interior) angles are supplementary (sum to $180°$)\n\n**Solution:**\nAngle 2 and angle 1 are co-interior angles (same-side interior angles).\n\nAngle $2 = 180° - 125° = 55°$\n\n**Why other choices are incorrect:**\n• Choice A ($45°$): Incorrect calculation\n• Choice C ($70°$): Incorrect calculation\n• Choice D ($125°$): This would be true only for corresponding or alternate angles\n\n**Key concept:** Co-interior angles formed by parallel lines and a transversal are supplementary.",
-          skills: ["parallel-lines", "angle-relationships"]
+          explanation: "**Choice B is correct.** Total cost = ticket costs + popcorn costs\n\n• Cost of tickets: \\$12.50 × $t$ tickets = $12.5t$\n• Cost of popcorn: \\$6.25 × $p$ bags = $6.25p$\n• **Total: $12.5t + 6.25p$**\n\n**Why other choices are incorrect:**\n• Choice A: Subtracting makes no sense for total spending\n• Choice C: Swaps the variables ($p$ with tickets, $t$ with popcorn)\n• Choice D: Multiplying both variables together is incorrect\n\n**Check with example:** If $t = 2$ and $p = 4$:\n$$\\text{Total} = 12.5(2) + 6.25(4) = 25 + 25 = \\$50$$ ✓",
+          skills: ["algebraic-expressions", "word-problems"]
         },
 
         // Question 8: Solving for variable with fractions
@@ -157,49 +160,61 @@ export const practiceTest2 = {
           skills: ["solving-equations", "fractions"]
         },
 
-        // Question 9: Adding polynomial expressions
+        // Question 9: Quadratic equation - find k (from PT1)
         {
           id: 9,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "Which expression is equivalent to $(5x^2 - 4x) + (2x^2 - 7x)$?",
+          difficulty: "medium",
+          question: "If the solution to the given equation is a positive whole number, what could be a value of $k$?",
+          questionFormula: {
+            equation: "$$kx^2 + 36 = 900$$"
+          },
           choices: [
-            { id: "A", text: "$-3x^2$" },
-            { id: "B", text: "$7x^2 - 11x$" },
-            { id: "C", text: "$7x^4 - 11x^2$" },
-            { id: "D", text: "$10x^4 + 28x^2$" }
+            { id: "A", text: "$2$" },
+            { id: "B", text: "$4$" },
+            { id: "C", text: "$6$" },
+            { id: "D", text: "$8$" }
           ],
-          correctAnswer: "B",
-          explanation: "**Choice B is correct.** Combine like terms.\n\n**Step 1:** Remove parentheses:\n$5x^2 - 4x + 2x^2 - 7x$\n\n**Step 2:** Group like terms:\n$(5x^2 + 2x^2) + (-4x - 7x)$\n\n**Step 3:** Combine:\n$7x^2 + (-11x) = 7x^2 - 11x$\n\n**Why other choices are incorrect:**\n• Choice A ($-3x^2$): Only subtracted $x^2$ terms and ignored $x$ terms\n• Choice C ($7x^4 - 11x^2$): Wrong - adding $x^2 + x^2$ gives $x^2$, not $x^4$\n• Choice D ($10x^4 + 28x^2$): Multiplied instead of added\n\n**Key concept:** When adding polynomials, only combine terms with the same variable AND exponent.",
-          skills: ["polynomial-operations", "combining-like-terms"]
+          correctAnswer: "C",
+          explanation: "**Choice C is correct.** Solve for $x^2$:\n\n$$kx^2 + 36 = 900$$\n$$kx^2 = 864$$\n$$x^2 = \\frac{864}{k}$$\n\nFor $x$ to be a positive whole number, $\\frac{864}{k}$ must be a perfect square.\n\n**Test each option:**\n• $k = 2$: $x^2 = 432 \\to \\sqrt{432} \\approx 20.8$ (not whole)\n• $k = 4$: $x^2 = 216 \\to \\sqrt{216} \\approx 14.7$ (not whole)\n• **$k = 6$: $x^2 = 144 \\to \\sqrt{144} = 12$ ✓ (whole number!)**\n• $k = 8$: $x^2 = 108 \\to \\sqrt{108} \\approx 10.4$ (not whole)\n\nWhen $k = 6$, $x = 12$ is a positive whole number.\n\n**Calculator tip:** Test each $k$ value to find which gives a perfect square.",
+          skills: ["quadratic-equations"]
         },
 
-        // Question 10: Squaring a binomial
+        // Question 10: Rational expression simplification (from PT1)
         {
           id: 10,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "Which of the following is equivalent to $(2a^2 + 7b^2)^2$?",
+          question: "The expression $\\frac{x^2 + 7x + 12}{x^2 + x - 12}$ is equivalent to which expression?",
           choices: [
-            { id: "A", text: "$2a^2 + 28a^2b^2 + 49b^4$" },
-            { id: "B", text: "$2a^4 + 14a^2b^2 + 49b^4$" },
-            { id: "C", text: "$4a^4 + 14a^2b^2 + 49b^4$" },
-            { id: "D", text: "$4a^4 + 28a^2b^2 + 49b^4$" }
+            { id: "A", text: "$\\frac{x + 3}{x - 3}$" },
+            { id: "B", text: "$\\frac{x + 4}{x - 4}$" },
+            { id: "C", text: "$\\frac{x + 7}{x + 1}$" },
+            { id: "D", text: "$7$" }
           ],
-          correctAnswer: "D",
-          explanation: "**Choice D is correct.** Use the perfect square formula: $(A + B)^2 = A^2 + 2AB + B^2$\n\n**Let $A = 2a^2$ and $B = 7b^2$**\n\n**Step 1:** Find $A^2$:\n$(2a^2)^2 = 4a^4$\n\n**Step 2:** Find $2AB$:\n$2(2a^2)(7b^2) = 28a^2b^2$\n\n**Step 3:** Find $B^2$:\n$(7b^2)^2 = 49b^4$\n\n**Result:** $4a^4 + 28a^2b^2 + 49b^4$\n\n**Why other choices are incorrect:**\n• Choice A: First term should be $4a^4$, not $2a^2$\n• Choice B: Middle term should be $28a^2b^2$, not $14a^2b^2$\n• Choice C: Middle term should be $28a^2b^2$, not $14a^2b^2$\n\n**Key formula:** $(A + B)^2 = A^2 + 2AB + B^2$ — don't forget the 2 in the middle term!",
-          skills: ["polynomial-operations", "special-products"]
+          correctAnswer: "A",
+          explanation: "**Choice A is correct.** Factor both numerator and denominator.\n\n**Numerator:** $x^2 + 7x + 12 = (x + 3)(x + 4)$\n**Denominator:** $x^2 + x - 12 = (x + 4)(x - 3)$\n\n**Simplify by canceling $(x + 4)$:**\n\n$$\\frac{(x + 3)(x + 4)}{(x + 4)(x - 3)} = \\frac{x + 3}{x - 3}$$\n\n**Why other choices are incorrect:**\n• Choice B: Wrong factors\n• Choice C: Wrong factors\n• Choice D: The expression is not constant\n\n**Calculator tip:** Graph both expressions in Desmos—they should produce identical graphs.",
+          skills: ["rational-expressions", "factoring"]
         },
 
-        // Question 11: Finding constant from point on function
+        // Question 11: Radical equation with constraint (from PT1)
         {
           id: 11,
-          type: "fill-in",
-          difficulty: "medium",
-          question: "In the $xy$-coordinate plane, the point $(2, 5)$ lies on the graph of the function $f(x) = x^3 - cx^2 - x + 3$, and $c$ represents a constant. What is the value of $c$?",
-          correctAnswer: 1,
-          explanation: "**The correct answer is 1.** Substitute the point $(2, 5)$ into the function.\n\n**Step 1:** Since $(2, 5)$ is on the graph, $f(2) = 5$:\n$5 = (2)^3 - c(2)^2 - (2) + 3$\n\n**Step 2:** Simplify:\n$5 = 8 - 4c - 2 + 3$\n$5 = 9 - 4c$\n\n**Step 3:** Solve for $c$:\n$4c = 9 - 5$\n$4c = 4$\n$c = 1$\n\n**Verification:** $f(x) = x^3 - x^2 - x + 3$\n$f(2) = 8 - 4 - 2 + 3 = 5$ ✓",
-          skills: ["evaluating-functions", "solving-equations"]
+          type: "multiple-choice",
+          difficulty: "hard",
+          question: "In the given equation, $x < 0$ and $a = 3$. What is the value of $x - 3$?",
+          questionFormula: {
+            equation: "$$\\frac{\\sqrt{x^2 - 16}}{a} = 1$$"
+          },
+          choices: [
+            { id: "A", text: "$-11$" },
+            { id: "B", text: "$-8$" },
+            { id: "C", text: "$-3$" },
+            { id: "D", text: "$-5$" }
+          ],
+          correctAnswer: "B",
+          explanation: "**Choice B is correct.** Substitute $a = 3$ and solve:\n\n$$\\frac{\\sqrt{x^2 - 16}}{3} = 1$$\n$$\\sqrt{x^2 - 16} = 3$$\n$$x^2 - 16 = 9$$\n$$x^2 = 25$$\n$$x = \\pm 5$$\n\nSince **$x < 0$**, we have $x = -5$\n\nTherefore: $x - 3 = -5 - 3 = -8$\n\n**Why other choices are incorrect:**\n• Choice A ($-11$): Would require $x = -8$\n• Choice C ($-3$): Would require $x = 0$\n• Choice D ($-5$): This is $x$ itself, not $x - 3$\n\n**Calculator tip:** Graph $y = \\frac{\\sqrt{x^2 - 16}}{3}$ and $y = 1$ to find intersections at $x = \\pm 5$.",
+          skills: ["radical-equations"]
         },
 
         // Question 12: Survey/polling problem
@@ -219,152 +234,242 @@ export const practiceTest2 = {
           skills: ["statistics", "margin-of-error", "percentages"]
         },
 
-        // Question 13: Factoring perfect square trinomial
+        // Question 13: Piecewise linear graph (from PT1)
         {
           id: 13,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "Which of the following is equivalent to the given expression?\n\n$9x^4 + 30x^2y + 25y^2$",
+          diagram: {
+            type: "piecewiseLinear",
+            params: {
+              points: [[-5, 1], [-2, 4], [0, 2], [2, 4], [5, 2]],
+              xRange: [-6, 6],
+              yRange: [-2, 6],
+              label: "f(x)"
+            }
+          },
+          question: "The complete graph of the function $f$ in the $xy$-plane is shown. For how many values of $x$ is $f(x)$ equal to $3$?",
           choices: [
-            { id: "A", text: "$(3x^2 + 5y)^2$" },
-            { id: "B", text: "$(3x^2 + 5y^2)^2$" },
-            { id: "C", text: "$(9x^2 + 5y)^2$" },
-            { id: "D", text: "$(9x^2 + 25y)^2$" }
+            { id: "A", text: "$1$" },
+            { id: "B", text: "$2$" },
+            { id: "C", text: "$3$" },
+            { id: "D", text: "$4$" }
           ],
-          correctAnswer: "A",
-          explanation: "**Choice A is correct.** Recognize this as a perfect square trinomial.\n\n**Pattern:** $A^2 + 2AB + B^2 = (A + B)^2$\n\n**Step 1:** Identify the square terms:\n• $9x^4 = (3x^2)^2$ → $A = 3x^2$\n• $25y^2 = (5y)^2$ → $B = 5y$\n\n**Step 2:** Verify the middle term:\n$2AB = 2(3x^2)(5y) = 30x^2y$ ✓\n\n**Result:** $(3x^2 + 5y)^2$\n\n**Why other choices are incorrect:**\n• Choice B: $(3x^2 + 5y^2)^2$ would give $9x^4 + 30x^2y^2 + 25y^4$ (wrong middle term)\n• Choice C: $(9x^2 + 5y)^2$ would give $81x^4 + 90x^2y + 25y^2$ (wrong first term)\n• Choice D: $(9x^2 + 25y)^2$ would give $81x^4 + 450x^2y + 625y^2$ (all terms wrong)\n\n**Key concept:** For perfect square trinomials, check that middle term $= 2 \\times \\sqrt{\\text{first}} \\times \\sqrt{\\text{last}}$",
-          skills: ["factoring", "special-products"]
+          correctAnswer: "D",
+          explanation: "**Choice D is correct.** Draw a horizontal line at $y = 3$ and count intersections.\n\n**Analyzing each segment:**\n1. From $(-5, 1)$ to $(-2, 4)$: crosses $y = 3$ once ✓\n2. From $(-2, 4)$ to $(0, 2)$: crosses $y = 3$ once ✓\n3. From $(0, 2)$ to $(2, 4)$: crosses $y = 3$ once ✓\n4. From $(2, 4)$ to $(5, 2)$: crosses $y = 3$ once ✓\n\n**Total intersections: 4**\n\n**Why other choices are incorrect:**\n• Choices A, B, C: Miscounting intersections\n\n**Calculator tip:** Graph the piecewise function and add $y = 3$ to count intersections.",
+          skills: ["piecewise-functions", "reading-graphs"]
         },
 
-        // Question 14: Exponential decay/half-life
+        // Question 14: System with substitution variables (from PT1)
         {
           id: 14,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "Carbon-14 is a radioisotope used in archaeology. It has a half-life of about 5,730 years, which means it takes about 5,730 years for a sample to decay to half of its original amount. If a fossil originally contains 80 grams of Carbon-14, which of the following functions best expresses the amount of $y$, in grams, that remains in the fossil $t$ years after it formed?",
-          choices: [
-            { id: "A", text: "$y = \\frac{1}{2}(80)^{\\frac{t}{5730}}$" },
-            { id: "B", text: "$y = \\frac{1}{2}(80)^{5730t}$" },
-            { id: "C", text: "$y = 80\\left(\\frac{1}{2}\\right)^{\\frac{t}{5730}}$" },
-            { id: "D", text: "$y = 80\\left(\\frac{1}{2}\\right)^{5730t}$" }
+          type: "fill-in",
+          difficulty: "hard",
+          question: [
+            { math: "(t - 4) + 2(s - 2) = 10", display: true },
+            { math: "2(t - 4) - 3(s - 2) = -15", display: true },
+            { text: "The solution to the given system of equations is " },
+            { math: "(t, s)" },
+            { text: ". What is the value of " },
+            { math: "s" },
+            { text: "?" }
           ],
-          correctAnswer: "C",
-          explanation: "**Choice C is correct.** The half-life formula is $y = A_0\\left(\\frac{1}{2}\\right)^{\\frac{t}{h}}$\n\n**Components:**\n• $A_0$ = initial amount = 80 grams\n• $\\frac{1}{2}$ = decay factor (halving)\n• $t$ = time elapsed\n• $h$ = half-life = 5,730 years\n\n**Formula:** $y = 80\\left(\\frac{1}{2}\\right)^{\\frac{t}{5730}}$\n\n**Verification:**\n• At $t = 0$: $y = 80\\left(\\frac{1}{2}\\right)^0 = 80$ grams ✓\n• At $t = 5730$: $y = 80\\left(\\frac{1}{2}\\right)^1 = 40$ grams ✓\n\n**Why other choices are incorrect:**\n• Choice A: Initial amount should multiply the decay, not be the base\n• Choice B: Same error as A, plus exponent is wrong\n• Choice D: Exponent should be $\\frac{t}{5730}$, not $5730t$ (would decay way too fast)\n\n**Key concept:** Half-life formula: $A = A_0\\left(\\frac{1}{2}\\right)^{\\frac{t}{\\text{half-life}}}$",
-          skills: ["exponential-functions", "half-life"]
+          correctAnswer: 7,
+          explanation: "**The correct answer is 7.** Let $u = t - 4$ and $v = s - 2$ to simplify:\n\n$$u + 2v = 10 \\quad (1)$$\n$$2u - 3v = -15 \\quad (2)$$\n\n**Solve by elimination:**\nMultiply (1) by 2: $2u + 4v = 20$\nSubtract (2): $(2u + 4v) - (2u - 3v) = 20 - (-15)$\n$$7v = 35$$\n$$v = 5$$\n\n**Find $s$:**\nSince $v = s - 2$:\n$$s - 2 = 5$$\n$$s = 7$$\n\n**Calculator tip:** Expand and enter equations in Desmos to verify.",
+          skills: ["systems-of-equations"]
         },
 
-        // Question 15: Right triangle trig
+        // Question 15: Polynomial simplification (from PT1)
         {
           id: 15,
           type: "fill-in",
           difficulty: "medium",
-          question: "In triangle $ABC$, $\\sin(A) = \\frac{5}{13}$, and angle $C$ is a right angle. What is the value of $\\sin(B)$?",
-          correctAnswer: "12/13",
-          acceptedAnswers: ["12/13", 0.923, "0.923"],
-          explanation: "**The correct answer is $\\frac{12}{13}$.** Use right triangle relationships.\n\n**Step 1:** Set up the triangle:\n• $\\sin(A) = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{5}{13}$\n• So: opposite to $A$ = 5, hypotenuse = 13\n\n**Step 2:** Find the adjacent side using Pythagorean theorem:\n$\\text{adjacent}^2 = 13^2 - 5^2 = 169 - 25 = 144$\nadjacent = 12\n\n**Step 3:** Find $\\sin(B)$:\n• In a right triangle, angles $A$ and $B$ are complementary ($A + B = 90°$)\n• $\\sin(B) = \\cos(A) = \\frac{\\text{adjacent to } A}{\\text{hypotenuse}} = \\frac{12}{13}$\n\n**Alternative method:** Since the sides are 5, 12, 13 (Pythagorean triple), $\\sin(B) = \\frac{12}{13}$.\n\n**Key concept:** In a right triangle, $\\sin(A) = \\cos(B)$ when $A + B = 90°$.",
-          skills: ["right-triangle-trig", "pythagorean-theorem"]
+          question: [
+            { math: "(4x^4 + 2x^3) - (5x^3 + 3x^2) - (2x^2 - 6x)", display: true },
+            { text: "The given expression can be written in the form " },
+            { math: "ax^4 + bx^3 + cx^2 + dx" },
+            { text: ", where " },
+            { math: "a" },
+            { text: ", " },
+            { math: "b" },
+            { text: ", " },
+            { math: "c" },
+            { text: ", and " },
+            { math: "d" },
+            { text: " are constants. What is the value of " },
+            { math: "c + d" },
+            { text: "?" }
+          ],
+          correctAnswer: 1,
+          explanation: "**The correct answer is 1.** Distribute and combine like terms:\n\n$$(4x^4 + 2x^3) - (5x^3 + 3x^2) - (2x^2 - 6x)$$\n$$= 4x^4 + 2x^3 - 5x^3 - 3x^2 - 2x^2 + 6x$$\n$$= 4x^4 + (2 - 5)x^3 + (-3 - 2)x^2 + 6x$$\n$$= 4x^4 - 3x^3 - 5x^2 + 6x$$\n\n**Identify coefficients:**\n$a = 4$, $b = -3$, $c = -5$, $d = 6$\n\n**Calculate $c + d$:**\n$$c + d = -5 + 6 = 1$$\n\n**Calculator tip:** Substitute $x = 1$ into both forms to verify they're equal.",
+          skills: ["polynomial-operations"]
         },
 
-        // Question 16: Linear equation with fractions
+        // Question 16: Function transformation (from PT1)
         {
           id: 16,
-          type: "fill-in",
+          type: "multiple-choice",
           difficulty: "medium",
-          question: "What value of $x$ satisfies the given equation?\n\n$\\frac{9}{14}x - \\frac{5}{14}x = \\frac{1}{4} + \\frac{1}{8}$",
-          correctAnswer: "21/16",
-          acceptedAnswers: ["21/16", 1.3125, "1.3125"],
-          explanation: "**The correct answer is $\\frac{21}{16}$.** Simplify both sides.\n\n**Step 1:** Simplify left side:\n$\\frac{9}{14}x - \\frac{5}{14}x = \\frac{4}{14}x = \\frac{2}{7}x$\n\n**Step 2:** Simplify right side:\n$\\frac{1}{4} + \\frac{1}{8} = \\frac{2}{8} + \\frac{1}{8} = \\frac{3}{8}$\n\n**Step 3:** Solve for $x$:\n$\\frac{2}{7}x = \\frac{3}{8}$\n$x = \\frac{3}{8} \\times \\frac{7}{2}$\n$x = \\frac{21}{16} = 1.3125$\n\n**Verification:** $\\frac{2}{7} \\times \\frac{21}{16} = \\frac{42}{112} = \\frac{3}{8}$ ✓\n\n**Calculator tip:** $\\frac{3}{8} \\div \\frac{2}{7} = \\frac{3}{8} \\times \\frac{7}{2} = \\frac{21}{16}$",
-          skills: ["solving-equations", "fractions"]
+          diagram: {
+            type: "cubicGraph",
+            params: {
+              a: 0.0625,
+              b: -0.3125,
+              c: -1.0625,
+              d: 3.3125,
+              points: [[-3, 2], [-1, 4], [1, 2], [3, -1]],
+              showPoints: true,
+              xRange: [-4, 4],
+              yRange: [-3, 6],
+              label: "f(x)"
+            }
+          },
+          question: "The graph of $f(x)$ is shown. If $g(x) = f(x) + 3$, what must be true of $g(x)$?",
+          choices: [
+            { id: "A", text: "$g(-3) = 2$ and $g(1) = 5$" },
+            { id: "B", text: "$g(-1) = 1$ and $g(3) = 2$" },
+            { id: "C", text: "$g(-1) = 7$ and $g(1) = 5$" },
+            { id: "D", text: "$g(1) = 3$ and $g(3) = 2$" }
+          ],
+          correctAnswer: "C",
+          explanation: "**Choice C is correct.** The transformation $g(x) = f(x) + 3$ shifts the graph **up by 3 units**.\n\n**From the graph:**\n• $f(-1) = 4$, so $g(-1) = 4 + 3 = 7$ ✓\n• $f(1) = 2$, so $g(1) = 2 + 3 = 5$ ✓\n\n**Why other choices are incorrect:**\n• Choice A: $g(-3) = f(-3) + 3 = 2 + 3 = 5$, not $2$\n• Choice B: $g(-1) = 7$, not $1$\n• Choice D: $g(1) = 5$, not $3$\n\n**Key concept:** Adding a constant shifts the graph vertically (up if positive).",
+          skills: ["function-transformations"]
         },
 
-        // Question 17: Circle equation - diameter
+        // Question 17: Percent increase (from PT1)
         {
           id: 17,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "What is the diameter of a circle with the equation $(x + 4)^2 + (y - 2)^2 = 81$?",
+          difficulty: "easy",
+          question: "What is the value when $60$ is increased by $150\\%$?",
           choices: [
-            { id: "A", text: "$9$" },
-            { id: "B", text: "$18$" },
-            { id: "C", text: "$36$" },
-            { id: "D", text: "$81$" }
+            { id: "A", text: "$90$" },
+            { id: "B", text: "$120$" },
+            { id: "C", text: "$150$" },
+            { id: "D", text: "$210$" }
           ],
-          correctAnswer: "B",
-          explanation: "**Choice B is correct.** Use the standard form of a circle equation.\n\n**Standard form:** $(x - h)^2 + (y - k)^2 = r^2$\n\n**From the equation:**\n• $(x + 4)^2 + (y - 2)^2 = 81$\n• Center: $(-4, 2)$\n• $r^2 = 81$, so $r = 9$\n\n**Find diameter:**\nDiameter $= 2r = 2 \\times 9 = 18$\n\n**Why other choices are incorrect:**\n• Choice A ($9$): This is the radius, not the diameter\n• Choice C ($36$): This is $4r$, not $2r$\n• Choice D ($81$): This is $r^2$, not the diameter\n\n**Key concept:** In the circle equation $(x-h)^2 + (y-k)^2 = r^2$, the number on the right is $r^2$, not $r$.",
-          skills: ["circle-equations", "geometry"]
+          correctAnswer: "C",
+          explanation: "**Choice C is correct.** \"Increased by $150\\%$\" means add $150\\%$ of the original.\n\n**Method 1:**\n$150\\%$ of $60 = 1.50 \\times 60 = 90$\nNew value $= 60 + 90 = 150$\n\n**Method 2:**\n$$60 \\times (1 + 1.50) = 60 \\times 2.5 = 150$$\n\n**Why other choices are incorrect:**\n• Choice A ($90$): This is $150\\%$ of $60$, not the increased value\n• Choice B ($120$): This is $60$ increased by $100\\%$\n• Choice D ($210$): This is $60$ increased by $250\\%$\n\n**Key concept:** \"Increased by $150\\%$\" = $250\\%$ of original = $2.5 \\times$ original",
+          skills: ["percents"]
         },
 
-        // Question 18: Function with constant finding f(0)
+        // Question 18: Special right triangle area (from PT1)
         {
           id: 18,
-          type: "fill-in",
+          type: "multiple-choice",
           difficulty: "hard",
-          question: "The function $f$ is defined as $f(x) = 3(x + 4)(x - 3)(x + k)$, where $k$ is a constant. When graphed, $y = f(x)$ passes through the point $(-2, 0)$. What is the value of $f(0)$?",
-          correctAnswer: -72,
-          explanation: "**The correct answer is $-72$.** First find $k$, then evaluate $f(0)$.\n\n**Step 1:** Since $(-2, 0)$ is on the graph, $x = -2$ is a root:\n$f(-2) = 0$ means $(x + 2)$ is a factor\nSo $k = 2$\n\n**Step 2:** The function is:\n$f(x) = 3(x + 4)(x - 3)(x + 2)$\n\n**Step 3:** Calculate $f(0)$:\n$f(0) = 3(0 + 4)(0 - 3)(0 + 2)$\n$f(0) = 3(4)(-3)(2)$\n$f(0) = 3 \\times (-24)$\n$f(0) = -72$\n\n**Verification:** The roots are $x = -4, 3, -2$, which matches the factors.",
-          skills: ["polynomial-functions", "function-evaluation"]
+          question: "$ABC$ is a right triangle, where angle $B$ is $90°$ and angle $C$ is $30°$. If $AC = 24$ inches, what is the area of triangle $ABC$, in square inches?",
+          choices: [
+            { id: "A", text: "$36\\sqrt{2}$" },
+            { id: "B", text: "$36\\sqrt{3}$" },
+            { id: "C", text: "$72\\sqrt{2}$" },
+            { id: "D", text: "$72\\sqrt{3}$" }
+          ],
+          correctAnswer: "D",
+          explanation: "**Choice D is correct.** This is a 30-60-90 triangle with $AC$ as the hypotenuse.\n\n**30-60-90 triangle ratios:** $1 : \\sqrt{3} : 2$\n\n**Find the sides:**\n• Side opposite $30°$ ($AB$) $= \\frac{\\text{hypotenuse}}{2} = \\frac{24}{2} = 12$\n• Side opposite $60°$ ($BC$) $= \\frac{\\text{hypotenuse} \\times \\sqrt{3}}{2} = \\frac{24\\sqrt{3}}{2} = 12\\sqrt{3}$\n\n**Calculate area:**\n$$\\text{Area} = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2} \\times 12 \\times 12\\sqrt{3} = 72\\sqrt{3}$$\n\n**Why other choices are incorrect:**\n• Choice A ($36\\sqrt{2}$): Wrong triangle type\n• Choice B ($36\\sqrt{3}$): Missing factor of 2\n• Choice C ($72\\sqrt{2}$): Wrong triangle type\n\n**Key ratios:** 30-60-90 → $1 : \\sqrt{3} : 2$",
+          skills: ["special-right-triangles", "area"]
         },
 
-        // Question 19: Unit conversion / rate problem
+        // Question 19: Sector area (from PT1)
         {
           id: 19,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "Saturn travels a distance of approximately 1.4 billion (or $1.4 \\times 10^9$) kilometers during its orbit around the sun. Saturn completes an orbit in about 29 Earth years. Which of the following is closest to the number of kilometers Saturn travels in one day?",
+          difficulty: "hard",
+          diagram: {
+            type: "circleWithSector",
+            params: {
+              centralAngle: 60,
+              displayRadius: 6,
+              labelCenter: "O",
+              labelPoint1: "A",
+              labelPoint2: "B",
+              showAngleLabel: true,
+              showRadiusLabel: true
+            }
+          },
+          question: "A circle with center $O$ has radius $6$. If the central angle $AOB$ measures $60°$, what is the area of the shaded sector $AOB$?",
           choices: [
-            { id: "A", text: "$130$" },
-            { id: "B", text: "$4{,}800$" },
-            { id: "C", text: "$130{,}000$" },
-            { id: "D", text: "$4{,}800{,}000$" }
+            { id: "A", text: "$3\\pi$" },
+            { id: "B", text: "$6\\pi$" },
+            { id: "C", text: "$12\\pi$" },
+            { id: "D", text: "$36\\pi$" }
           ],
-          correctAnswer: "C",
-          explanation: "**Choice C is correct.** Convert from years to days.\n\n**Step 1:** Find km per year:\n$1.4 \\times 10^9$ km $\\div$ 29 years $\\approx 4.83 \\times 10^7$ km/year\n\n**Step 2:** Convert to km per day:\n$4.83 \\times 10^7$ km/year $\\div$ 365 days/year\n$\\approx 1.32 \\times 10^5$ km/day\n$\\approx$ 132,000 km/day $\\approx$ 130,000\n\n**Why other choices are incorrect:**\n• Choice A (130): Off by a factor of 1,000\n• Choice B (4,800): Calculation error\n• Choice D (4,800,000): This is roughly the km/month, not km/day\n\n**Calculator tip:** $1.4 \\times 10^9 \\div 29 \\div 365 \\approx 132{,}000$",
-          skills: ["unit-conversion", "scientific-notation"]
+          correctAnswer: "B",
+          explanation: "**Choice B is correct.** Use the sector area formula.\n\n**Formula:** $$\\text{Sector Area} = \\frac{\\theta}{360°} \\times \\pi r^2$$\n\n**Given:**\n• Radius $r = 6$\n• Central angle $\\theta = 60°$\n\n**Calculate:**\n$$\\text{Sector Area} = \\frac{60°}{360°} \\times \\pi (6)^2 = \\frac{1}{6} \\times 36\\pi = 6\\pi$$\n\n**Why other choices are incorrect:**\n• Choice A ($3\\pi$): Uses $\\frac{1}{12}$ instead of $\\frac{1}{6}$\n• Choice C ($12\\pi$): Uses $\\frac{1}{3}$ instead of $\\frac{1}{6}$\n• Choice D ($36\\pi$): This is the full circle area, not the sector\n\n**Key concept:** A sector with central angle $\\theta$ is $\\frac{\\theta}{360°}$ of the full circle.",
+          skills: ["circles", "sector-area"]
         },
 
-        // Question 20: Exponent equation
+        // Question 20: Dot plot comparison (from PT1)
         {
           id: 20,
           type: "multiple-choice",
           difficulty: "hard",
-          question: "If $(3^b)^{2a} = 27$, what is the value of $12ab$?",
+          diagram: {
+            type: "dotPlot",
+            params: {
+              sets: [
+                { name: "SET A", data: [3, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8, 8, 9] },
+                { name: "SET B", data: [4, 4, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8] }
+              ],
+              xRange: [2, 10],
+              layout: "horizontal"
+            }
+          },
+          question: "The dot plots shown summarize the data in two sets, Set A and Set B. Which of the following correctly describes the relationship between the means and the standard deviations of the two sets?",
           choices: [
-            { id: "A", text: "$2$" },
-            { id: "B", text: "$3$" },
-            { id: "C", text: "$6$" },
-            { id: "D", text: "$18$" }
+            { id: "A", text: "The standard deviation of Set A is greater than the standard deviation of Set B, and the mean of Set A is less than the mean of Set B." },
+            { id: "B", text: "The standard deviation of Set A is less than the standard deviation of Set B, and the mean of Set A is greater than the mean of Set B." },
+            { id: "C", text: "The standard deviation of Set A is greater than the standard deviation of Set B, and the mean of Set A is equal to the mean of Set B." },
+            { id: "D", text: "The standard deviation of the two sets is equal, and the mean of Set A is less than the mean of Set B." }
           ],
-          correctAnswer: "D",
-          explanation: "**Choice D is correct.** Use exponent rules to simplify.\n\n**Step 1:** Simplify the left side using power rule:\n$(3^b)^{2a} = 3^{b \\times 2a} = 3^{2ab}$\n\n**Step 2:** Express 27 as a power of 3:\n$27 = 3^3$\n\n**Step 3:** Set exponents equal:\n$3^{2ab} = 3^3$\n$2ab = 3$\n$ab = \\frac{3}{2}$\n\n**Step 4:** Calculate $12ab$:\n$12ab = 12 \\times \\frac{3}{2} = \\frac{36}{2} = 18$\n\n**Why other choices are incorrect:**\n• Choice A ($2$): Would require $ab = \\frac{1}{6}$\n• Choice B ($3$): Would require $ab = \\frac{1}{4}$\n• Choice C ($6$): Would require $ab = \\frac{1}{2}$\n\n**Key rule:** $(a^m)^n = a^{mn}$",
-          skills: ["exponents", "exponential-equations"]
+          correctAnswer: "C",
+          explanation: "**Choice C is correct.** Compare both distributions.\n\n**Means:**\n• Set A: $\\frac{3+4+4+5+5+5+6+6+6+6+7+7+7+8+8+9}{16} = \\frac{96}{16} = 6$\n• Set B: $\\frac{4+4+5+5+5+6+6+6+6+6+7+7+7+7+8+8}{16} = \\frac{96}{16} = 6$\n• **Means are equal**\n\n**Standard Deviations:**\n• Set A: Range $3$-$9$ (wider spread)\n• Set B: Range $4$-$8$ (narrower spread)\n• **SD of A $>$ SD of B**\n\n**Why other choices are incorrect:**\n• Choice A: Means are equal, not A $<$ B\n• Choice B: A has greater SD, not less\n• Choice D: SDs are not equal",
+          skills: ["statistics", "dot-plots", "standard-deviation"]
         },
 
-        // Question 21: Quadratic minimum/maximum
+        // Question 21: Function interpretation from graph (from PT1)
         {
           id: 21,
-          type: "fill-in",
+          type: "multiple-choice",
           difficulty: "medium",
-          question: "The given equation defines the function $h$.\n\n$h(x) = 2x^2 - 12x + 40$\n\nFor what value of $x$ does $h(x)$ reach its minimum?",
-          correctAnswer: 3,
-          explanation: "**The correct answer is 3.** Use the vertex formula for a parabola.\n\n**Step 1:** Identify $a$ and $b$:\n$h(x) = 2x^2 - 12x + 40$\n$a = 2$, $b = -12$\n\n**Step 2:** Find $x$-coordinate of vertex:\n$x = \\frac{-b}{2a} = \\frac{-(-12)}{2 \\times 2} = \\frac{12}{4} = 3$\n\n**Step 3:** Verify it's a minimum:\nSince $a = 2 > 0$, the parabola opens upward, so the vertex is a minimum.\n\n**Alternative method (completing the square):**\n$h(x) = 2(x^2 - 6x) + 40 = 2(x^2 - 6x + 9 - 9) + 40 = 2(x - 3)^2 + 22$\nVertex form shows minimum at $x = 3$.\n\n**Calculator tip:** Graph $y = 2x^2 - 12x + 40$ and find the vertex $x$-coordinate.",
-          skills: ["quadratic-functions", "vertex-form"]
+          diagram: {
+            type: "linearGraph",
+            params: {
+              slope: 2,
+              yIntercept: 3,
+              xRange: [0, 6],
+              yRange: [0, 16],
+              label: "d(t)",
+              axisLabels: { x: "Time (hours)", y: "Distance (miles)" }
+            }
+          },
+          question: "The graph of the function $d(t)$ shows how far, in miles, a car has traveled after $t$ hours. What is the best interpretation of the function $d(t) + 5$?",
+          choices: [
+            { id: "A", text: "The car starts from the same location and travels 5 times as fast." },
+            { id: "B", text: "The car starts 5 miles closer to the destination and travels at the same speed." },
+            { id: "C", text: "The car starts 5 hours later and travels 5 miles per hour faster." },
+            { id: "D", text: "The car starts 5 miles farther from the starting point and travels at the same speed." }
+          ],
+          correctAnswer: "D",
+          explanation: "**Choice D is correct.** $d(t) + 5$ shifts the graph UP by $5$ units.\n\n**Original $d(t)$:**\n• Initial distance $= 3$ miles (y-intercept)\n• Speed $= 2$ mph (slope, unchanged)\n\n**Transformed $d(t) + 5$:**\n• New initial distance $= 3 + 5 = 8$ miles\n• Speed still $= 2$ mph (unchanged)\n\nThe car **starts 5 miles farther** but travels at the **same speed**.\n\n**Why other choices are incorrect:**\n• Choice A: Adding $5$ doesn't change the speed multiplier\n• Choice B: \"Closer\" would be subtracting, not adding\n• Choice C: $d(t - 5)$ would shift time, not $d(t) + 5$\n\n**Key concept:** $f(x) + k$ shifts graph UP by $k$ units.",
+          skills: ["function-interpretation", "graph-transformations"]
         },
 
-        // Question 22: Tax and shipping problem
+        // Question 22: Exterior angle of regular polygon (from PT1)
         {
           id: 22,
           type: "multiple-choice",
-          difficulty: "hard",
-          question: "Marcus spent \\$210.60 on a bulk supply of notebooks. Each box of notebooks costs \\$30. A delivery charge of \\$8 is added. An 8% tax is applied to both the total order and the delivery charge. If Marcus ordered 5 boxes, what is the value of $p$, the delivery charge?",
+          difficulty: "easy",
+          question: "What is the measure of an exterior angle of a regular octagon, in degrees?",
           choices: [
-            { id: "A", text: "$8.00$" },
-            { id: "B", text: "$8.64$" },
-            { id: "C", text: "$15.00$" },
-            { id: "D", text: "$32.40$" }
+            { id: "A", text: "$30$" },
+            { id: "B", text: "$45$" },
+            { id: "C", text: "$60$" },
+            { id: "D", text: "$135$" }
           ],
-          correctAnswer: "A",
-          explanation: "**Choice A is correct.** The question states the delivery charge is \\$8.\n\n**Verification:**\n• Cost of 5 boxes: $5 \\times \\$30 = \\$150$\n• Delivery charge: \\$8 (this is what we're asked to identify)\n• Subtotal: $\\$150 + \\$8 = \\$158$\n• With 8% tax: $\\$158 \\times 1.08 = \\$170.64$\n\nNote: The given total of \\$210.60 doesn't match this calculation. The question asks for \"the delivery charge\" which is stated as **\\$8** in the problem.\n\n**Why other choices are incorrect:**\n• Choice B (\\$8.64): This is \\$8 with 8% tax added\n• Choice C (\\$15.00): Not the stated delivery charge\n• Choice D (\\$32.40): Not the stated delivery charge\n\n**Key concept:** Read carefully - the delivery charge $p = \\$8$ is given in the problem.",
-          skills: ["word-problems", "percentages"]
+          correctAnswer: "B",
+          explanation: "**Choice B is correct.** For any regular polygon, exterior angles sum to $360°$.\n\nAn octagon has **8 sides**, so 8 exterior angles.\n\n$$\\text{Each exterior angle} = \\frac{360°}{8} = 45°$$\n\n**Why other choices are incorrect:**\n• Choice A ($30°$): This is for a 12-sided polygon ($\\frac{360°}{12}$)\n• Choice C ($60°$): This is for a hexagon ($\\frac{360°}{6}$)\n• Choice D ($135°$): This is the INTERIOR angle of an octagon\n\n**Key formula:** Exterior angle $= \\frac{360°}{n}$ (where $n$ = number of sides)\n\n**Note:** Interior + Exterior $= 180°$, so interior $= 180° - 45° = 135°$",
+          skills: ["polygons", "angles"]
         }
       ]
     },
@@ -390,41 +495,32 @@ export const practiceTest2 = {
           skills: ["solving-equations"]
         },
 
-        // Question 2: Percentage relationship
+        // Question 2: Rationalizing denominators (from PT1)
         {
           id: 2,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "If $x$ is $3k\\%$ of $y$, what is the value of $4k\\%$ of $0.2y$?",
+          difficulty: "medium",
+          question: "Which expression is equivalent to $\\frac{9x^2 - 5}{3x + \\sqrt{5}}$?",
           choices: [
-            { id: "A", text: "$0.04x$" },
-            { id: "B", text: "$0.15x$" },
-            { id: "C", text: "$0.4x$" },
-            { id: "D", text: "$0.8x$" }
+            { id: "A", text: "$3x - 5$" },
+            { id: "B", text: "$3x - \\sqrt{5}$" },
+            { id: "C", text: "$3x + \\sqrt{5}$" },
+            { id: "D", text: "$9x - \\sqrt{5}$" }
           ],
-          correctAnswer: "C",
-          explanation: "**Choice C is correct.** Express everything in terms of $x$.\n\n**Step 1:** From $x = 3k\\%$ of $y$:\n$x = \\frac{3k}{100} \\times y$\n$y = \\frac{100x}{3k}$\n\n**Step 2:** Find $4k\\%$ of $0.2y$:\n$4k\\%$ of $0.2y = \\frac{4k}{100} \\times 0.2y$\n$= \\frac{4k}{100} \\times 0.2 \\times \\frac{100x}{3k}$\n$= \\frac{4k \\times 0.2 \\times 100x}{100 \\times 3k}$\n$= \\frac{80kx}{300k}$\n$= \\frac{80x}{300}$\n$= \\frac{4x}{15}$\n$\\approx 0.267x$\n\nThe closest answer is $0.4x$ (Choice C).\n\n**Note:** This appears to be an approximation question where $0.4x$ is the intended answer.",
-          skills: ["percentages", "algebraic-expressions"]
+          correctAnswer: "B",
+          explanation: "**Choice B is correct.** Notice the numerator is a difference of squares:\n\n$$9x^2 - 5 = (3x)^2 - (\\sqrt{5})^2 = (3x + \\sqrt{5})(3x - \\sqrt{5})$$\n\n**Simplify:**\n$$\\frac{(3x + \\sqrt{5})(3x - \\sqrt{5})}{3x + \\sqrt{5}} = 3x - \\sqrt{5}$$\n\nThe $(3x + \\sqrt{5})$ factors cancel.\n\n**Why other choices are incorrect:**\n• Choice A ($3x - 5$): Incorrectly treats $\\sqrt{5}$ as $5$\n• Choice C ($3x + \\sqrt{5}$): This is the denominator\n• Choice D ($9x - \\sqrt{5}$): Wrong factoring\n\n**Key pattern:** $a^2 - b^2 = (a + b)(a - b)$",
+          skills: ["rationalizing-denominators", "factoring"]
         },
 
-        // Question 3: Function evaluation
+        // Question 3: Exponential y-intercept (from PT1)
         {
           id: 3,
-          type: "multiple-choice",
+          type: "fill-in",
           difficulty: "medium",
-          question: "For the given function $h(x)$, $h(3) = 28$. What is the value of $h(-2)$?",
-          questionFormula: {
-            equation: "$h(x) = 2x^3 - bx$"
-          },
-          choices: [
-            { id: "A", text: "$-6$" },
-            { id: "B", text: "$-2$" },
-            { id: "C", text: "$2$" },
-            { id: "D", text: "$6$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**Choice A is correct.** First find $b$ using $h(3) = 28$.\n\n**Step 1:** Find $b$:\n$h(3) = 2(3)^3 - b(3) = 28$\n$54 - 3b = 28$\n$3b = 26$\n$b = \\frac{26}{3}$\n\n**Step 2:** Calculate $h(-2)$:\n$h(-2) = 2(-2)^3 - \\frac{26}{3}(-2)$\n$= 2(-8) - (-\\frac{52}{3})$\n$= -16 + \\frac{52}{3}$\n$= \\frac{-48}{3} + \\frac{52}{3}$\n$= \\frac{4}{3} \\approx 1.33$\n\nThe answer $-6$ is based on the test key.",
-          skills: ["function-evaluation", "solving-equations"]
+          question: "What is the y-intercept of the graph of $y - 8 = 2^x - 4$ in the $xy$-plane?",
+          correctAnswer: 5,
+          explanation: "**The correct answer is 5.** The y-intercept occurs when $x = 0$.\n\nSubstitute $x = 0$:\n$$y - 8 = 2^0 - 4$$\n$$y - 8 = 1 - 4$$\n$$y - 8 = -3$$\n$$y = 5$$\n\n**Alternative method:**\nRewrite: $y = 2^x - 4 + 8 = 2^x + 4$\nWhen $x = 0$: $y = 2^0 + 4 = 1 + 4 = 5$\n\nThe y-intercept is $(0, 5)$, so the y-coordinate is **5**.\n\n**Calculator tip:** Graph $y = 2^x + 4$ and find where it crosses the y-axis.",
+          skills: ["exponential-functions", "y-intercept"]
         },
 
         // Question 4: Right triangle trig identity
@@ -501,16 +597,18 @@ export const practiceTest2 = {
           id: 8,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "The table shows the distribution of pizza preferences among the 32 members of the Tech Club.",
-          questionTable: {
-            headers: ["", "Pepperoni", "No Pepperoni", "Total"],
-            rows: [
-              ["Mushrooms", "5", "8", "13"],
-              ["No Mushrooms", "12", "7", "19"],
-              ["Total", "17", "15", "32"]
-            ]
+          diagram: {
+            type: "table",
+            params: {
+              headers: ["", "Pepperoni", "No Pepperoni", "Total"],
+              rows: [
+                ["Mushrooms", "5", "8", "13"],
+                ["No Mushrooms", "12", "7", "19"],
+                ["Total", "17", "15", "32"]
+              ]
+            }
           },
-          questionContinued: "If a club member is selected at random, what is the probability the member prefers no pepperoni, given that they prefer mushrooms?",
+          question: "The table shows the distribution of pizza preferences among the 32 members of the Tech Club. If a club member is selected at random, what is the probability the member prefers no pepperoni, given that they prefer mushrooms?",
           choices: [
             { id: "A", text: "$\\frac{8}{32}$" },
             { id: "B", text: "$\\frac{8}{15}$" },

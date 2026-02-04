@@ -14,7 +14,13 @@ export const MathText = ({ children, text, className = '', style = {} }) => {
     const ESCAPED_DOLLAR_PLACEHOLDER = '\uFFFD';
     result = result.replace(/\\\$/g, ESCAPED_DOLLAR_PLACEHOLDER);
 
-    // Step 1: Protect currency amounts ($12.50) BEFORE math processing
+    // Step 1: Convert newlines to <br> BEFORE math processing
+    // This must happen before KaTeX renders, as KaTeX SVG output contains newlines
+    // that should NOT be converted to <br> tags
+    const NEWLINE_PLACEHOLDER = '\uFFFC';
+    result = result.replace(/\n/g, NEWLINE_PLACEHOLDER);
+
+    // Step 2: Protect currency amounts ($12.50) BEFORE math processing
     // Only match currency with decimal (e.g., $12.50) to avoid matching math like $5$
     // BUT skip currency detection if the string looks like a math expression (starts with $ and ends with $)
     const CURRENCY_PLACEHOLDER = '\uFFFE';
@@ -30,10 +36,12 @@ export const MathText = ({ children, text, className = '', style = {} }) => {
       });
     }
 
-    // Step 2: Display math $$...$$
+    // Step 3: Display math $$...$$
     result = result.replace(/\$\$([\s\S]*?)\$\$/g, (match, latex) => {
       try {
-        return katex.renderToString(latex.trim(), {
+        // Remove newline placeholders from latex before rendering
+        const cleanLatex = latex.replace(new RegExp(NEWLINE_PLACEHOLDER, 'g'), '\n');
+        return katex.renderToString(cleanLatex.trim(), {
           displayMode: true,
           throwOnError: false
         });
@@ -43,10 +51,12 @@ export const MathText = ({ children, text, className = '', style = {} }) => {
       }
     });
 
-    // Step 3: Inline math $...$
+    // Step 4: Inline math $...$
     result = result.replace(/\$([^\$]+?)\$/g, (match, latex) => {
       try {
-        return katex.renderToString(latex.trim(), {
+        // Remove newline placeholders from latex before rendering
+        const cleanLatex = latex.replace(new RegExp(NEWLINE_PLACEHOLDER, 'g'), '\n');
+        return katex.renderToString(cleanLatex.trim(), {
           displayMode: false,
           throwOnError: false
         });
@@ -56,17 +66,17 @@ export const MathText = ({ children, text, className = '', style = {} }) => {
       }
     });
 
-    // Step 4: Restore currency amounts with $ sign
+    // Step 5: Restore currency amounts with $ sign
     let currencyIndex = 0;
     result = result.replace(new RegExp(CURRENCY_PLACEHOLDER, 'g'), () => {
       return '$' + currencies[currencyIndex++];
     });
 
-    // Step 5: Restore escaped dollar signs as $ (e.g., \$25 becomes $25)
+    // Step 6: Restore escaped dollar signs as $ (e.g., \$25 becomes $25)
     result = result.replace(new RegExp(ESCAPED_DOLLAR_PLACEHOLDER, 'g'), '$');
 
-    // Step 6: Convert newlines to <br> for proper line breaks
-    result = result.replace(/\n/g, '<br>');
+    // Step 7: Convert newline placeholders to <br> for proper line breaks
+    result = result.replace(new RegExp(NEWLINE_PLACEHOLDER, 'g'), '<br>');
 
     return result;
   };
