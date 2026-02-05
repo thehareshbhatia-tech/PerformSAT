@@ -12,6 +12,8 @@ import { getQuestionsForSection, hasQuestionsForSection, getRandomQuestions } fr
 import { getDifficultyBadge, calculateWeightedScore } from './services/adaptiveService';
 import { addToReviewQueue, getDueReviewCount } from './services/reviewService';
 import { calculateOptimalDifficulty } from './services/recommendationService';
+import practiceTest1 from './data/practiceTests/practiceTest1.json';
+import practiceTest2 from './data/practiceTests/practiceTest2.json';
 
 // Premium Design System - Clean, Modern, Professional
 const design = {
@@ -119,7 +121,7 @@ const PerformSAT = () => {
   const [activeModule, setActiveModule] = useState(null);
   const [activeLesson, setActiveLesson] = useState(null);
   const [activeSection, setActiveSection] = useState(null); // For section-based practice
-  const [view, setView] = useState('dashboard'); // 'dashboard', 'modules', 'list', 'lesson', 'practice'
+  const [view, setView] = useState('dashboard'); // 'dashboard', 'modules', 'list', 'lesson', 'practice', 'test'
   const [showAiTutor, setShowAiTutor] = useState(false);
   const [videoTimestamp, setVideoTimestamp] = useState(0);
   const [videoTranscript, setVideoTranscript] = useState(null);
@@ -138,6 +140,16 @@ const PerformSAT = () => {
     isComplete: false,
     shuffledQuestions: [], // Store randomized questions
     practiceMode: 'standard' // 'standard' | 'adaptive'
+  });
+
+  // Practice Test state
+  const [testState, setTestState] = useState({
+    activeTestId: null,
+    currentModule: 0, // 0 or 1 (Module 1 or Module 2)
+    currentQuestionIndex: 0,
+    answers: {}, // { "1-5": "B", "2-3": "A" } format: "moduleId-questionId": answer
+    isComplete: false,
+    showResults: false
   });
 
   // Calculator state for practice
@@ -230,6 +242,20 @@ const PerformSAT = () => {
     setActiveSection(sectionName);
     setShowCalculator(false);
     setView('practice');
+  };
+
+  // Start full practice test
+  const startPracticeTest = (testId) => {
+    setTestState({
+      activeTestId: testId,
+      currentModule: 0,
+      currentQuestionIndex: 0,
+      answers: {},
+      isComplete: false,
+      showResults: false
+    });
+    setShowCalculator(false);
+    setView('test');
   };
 
   const handleShowHint = () => {
@@ -9168,6 +9194,7 @@ const PerformSAT = () => {
               // TODO: Implement review session start
               console.log('Start review session');
             }}
+            onStartPracticeTest={startPracticeTest}
           />
         )}
 
@@ -10537,6 +10564,512 @@ const PerformSAT = () => {
                       {practiceState.currentQuestionIndex < questions.length - 1 ? 'Next Question' : 'See Results'}
                     </button>
                   </>
+                )}
+              </div>
+            </>
+          );
+        })()}
+
+        {/* Practice Test View */}
+        {view === 'test' && testState.activeTestId && (() => {
+          const testData = testState.activeTestId === 'practice_test_1'
+            ? practiceTest1
+            : testState.activeTestId === 'practice_test_2'
+              ? practiceTest2
+              : null;
+          if (!testData) return null;
+
+          const currentModuleData = testData.modules[testState.currentModule];
+          const questions = currentModuleData.questions;
+          const currentQuestion = questions[testState.currentQuestionIndex];
+          const totalQuestionsInModule = questions.length;
+          const answeredInModule = Object.keys(testState.answers).filter(k => k.startsWith(`${currentModuleData.module_id}-`)).length;
+
+          // Calculate total answers across both modules
+          const totalAnswered = Object.keys(testState.answers).length;
+          const totalQuestions = testData.modules.reduce((sum, m) => sum + m.questions.length, 0);
+
+          // Results screen
+          if (testState.showResults) {
+            let totalCorrect = 0;
+            const moduleResults = testData.modules.map(mod => {
+              const modCorrect = mod.questions.filter(q =>
+                testState.answers[`${mod.module_id}-${q.id}`] === q.correctAnswer
+              ).length;
+              totalCorrect += modCorrect;
+              return { name: mod.name, correct: modCorrect, total: mod.questions.length };
+            });
+            const percentage = Math.round((totalCorrect / totalQuestions) * 100);
+            const isGood = percentage >= 80;
+            const isOkay = percentage >= 60;
+
+            return (
+              <div style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
+                <button
+                  onClick={() => { setView('dashboard'); setTestState(prev => ({ ...prev, activeTestId: null, showResults: false })); }}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    padding: 0,
+                    fontSize: '14px',
+                    color: '#0284c7',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    marginBottom: '48px',
+                    fontWeight: '500'
+                  }}
+                >
+                  ← Back to Dashboard
+                </button>
+
+                <div style={{
+                  width: '140px',
+                  height: '140px',
+                  borderRadius: '50%',
+                  background: isGood ? 'rgba(16, 185, 129, 0.1)' : isOkay ? 'rgba(234, 179, 8, 0.1)' : 'rgba(239, 68, 68, 0.1)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 32px'
+                }}>
+                  <span style={{
+                    fontSize: '52px',
+                    fontWeight: '700',
+                    color: isGood ? '#10b981' : isOkay ? '#eab308' : '#ef4444'
+                  }}>
+                    {totalCorrect}
+                  </span>
+                  <span style={{ fontSize: '24px', color: '#6b7280' }}>/{totalQuestions}</span>
+                </div>
+
+                <h2 style={{ fontSize: '28px', fontWeight: '700', color: '#1d1d1f', marginBottom: '12px' }}>
+                  {isGood ? 'Excellent work!' : isOkay ? 'Good effort!' : 'Keep practicing!'}
+                </h2>
+                <p style={{ fontSize: '16px', color: '#6b7280', marginBottom: '32px' }}>
+                  You scored {totalCorrect} out of {totalQuestions} ({percentage}%)
+                </p>
+
+                {/* Module Breakdown */}
+                <div style={{
+                  background: '#f9fafb',
+                  borderRadius: '16px',
+                  padding: '24px',
+                  marginBottom: '32px',
+                  textAlign: 'left'
+                }}>
+                  <h3 style={{ fontSize: '14px', fontWeight: '600', color: '#6b7280', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                    By Module
+                  </h3>
+                  {moduleResults.map((mod, idx) => (
+                    <div key={idx} style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      padding: '12px 0',
+                      borderBottom: idx < moduleResults.length - 1 ? '1px solid #e5e7eb' : 'none'
+                    }}>
+                      <span style={{ fontSize: '15px', color: '#374151' }}>{mod.name}</span>
+                      <span style={{
+                        fontSize: '15px',
+                        fontWeight: '600',
+                        color: mod.correct / mod.total >= 0.8 ? '#10b981' : mod.correct / mod.total >= 0.6 ? '#f59e0b' : '#ef4444'
+                      }}>
+                        {mod.correct}/{mod.total} ({Math.round((mod.correct / mod.total) * 100)}%)
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <button
+                  onClick={() => { setView('dashboard'); setTestState(prev => ({ ...prev, activeTestId: null, showResults: false })); }}
+                  style={{
+                    padding: '14px 32px',
+                    background: '#0284c7',
+                    color: '#fff',
+                    border: 'none',
+                    borderRadius: '10px',
+                    fontSize: '16px',
+                    fontWeight: '600',
+                    cursor: 'pointer'
+                  }}
+                >
+                  Return to Dashboard
+                </button>
+              </div>
+            );
+          }
+
+          return (
+            <>
+              {/* Test Header */}
+              <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                marginBottom: '32px'
+              }}>
+                <button
+                  onClick={() => {
+                    if (window.confirm('Are you sure you want to exit? Your progress will be lost.')) {
+                      setView('dashboard');
+                      setTestState({ activeTestId: null, currentModule: 0, currentQuestionIndex: 0, answers: {}, isComplete: false, showResults: false });
+                    }
+                  }}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    padding: 0,
+                    fontSize: '14px',
+                    color: '#0284c7',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    fontWeight: '500'
+                  }}
+                >
+                  ← Exit Test
+                </button>
+                <div style={{ textAlign: 'right' }}>
+                  <div style={{ fontSize: '13px', color: '#6b7280' }}>{testData.title}</div>
+                  <div style={{ fontSize: '16px', fontWeight: '600', color: '#111827' }}>{currentModuleData.name}</div>
+                </div>
+              </div>
+
+              {/* Progress Bar */}
+              <div style={{ marginBottom: '32px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                  <span style={{ fontSize: '13px', color: '#6b7280' }}>
+                    Question {testState.currentQuestionIndex + 1} of {totalQuestionsInModule}
+                  </span>
+                  <span style={{ fontSize: '13px', color: '#6b7280' }}>
+                    {answeredInModule} answered
+                  </span>
+                </div>
+                <div style={{ height: '6px', background: '#e5e7eb', borderRadius: '3px', overflow: 'hidden' }}>
+                  <div style={{
+                    height: '100%',
+                    width: `${((testState.currentQuestionIndex + 1) / totalQuestionsInModule) * 100}%`,
+                    background: '#0284c7',
+                    borderRadius: '3px',
+                    transition: 'width 0.3s ease'
+                  }} />
+                </div>
+              </div>
+
+              {/* Question Card */}
+              <div style={{
+                background: '#fff',
+                borderRadius: '16px',
+                border: '1px solid #e5e7eb',
+                padding: '32px',
+                marginBottom: '24px'
+              }}>
+                {/* Topic badge */}
+                {currentQuestion.topic && (
+                  <span style={{
+                    display: 'inline-block',
+                    padding: '4px 10px',
+                    background: '#f0f9ff',
+                    color: '#0369a1',
+                    borderRadius: '6px',
+                    fontSize: '12px',
+                    fontWeight: '500',
+                    marginBottom: '16px'
+                  }}>
+                    {currentQuestion.topic}
+                  </span>
+                )}
+
+                {/* Question image (if present) */}
+                {currentQuestion.image && (
+                  <div style={{
+                    textAlign: 'center',
+                    margin: '16px 0 24px 0'
+                  }}>
+                    <img
+                      src={currentQuestion.image}
+                      alt="Question diagram"
+                      style={{
+                        maxWidth: '100%',
+                        maxHeight: '300px',
+                        borderRadius: '8px',
+                        border: '1px solid #e5e7eb'
+                      }}
+                    />
+                  </div>
+                )}
+
+                {/* Question diagram (if present) */}
+                {currentQuestion.diagram && (
+                  <div style={{
+                    textAlign: 'center',
+                    margin: '16px 0 24px 0'
+                  }}>
+                    <QuestionDiagram
+                      type={currentQuestion.diagram.type}
+                      params={currentQuestion.diagram.params}
+                    />
+                  </div>
+                )}
+
+                {/* Question text */}
+                <h2 style={{
+                  fontSize: '20px',
+                  fontWeight: '600',
+                  color: '#1d1d1f',
+                  lineHeight: 1.5,
+                  marginBottom: '28px',
+                  whiteSpace: 'pre-line'
+                }}>
+                  {currentQuestion.question}
+                </h2>
+
+                {/* Answer choices */}
+                {currentQuestion.type === 'multiple_choice' && (
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                    {currentQuestion.choices.map(choice => {
+                      const answerKey = `${currentModuleData.module_id}-${currentQuestion.id}`;
+                      const isSelected = testState.answers[answerKey] === choice.id;
+                      return (
+                        <button
+                          key={choice.id}
+                          onClick={() => {
+                            setTestState(prev => ({
+                              ...prev,
+                              answers: { ...prev.answers, [answerKey]: choice.id }
+                            }));
+                          }}
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '14px',
+                            padding: '16px 20px',
+                            background: isSelected ? '#f0f9ff' : '#fff',
+                            border: isSelected ? '2px solid #0284c7' : '1px solid #e5e7eb',
+                            borderRadius: '12px',
+                            cursor: 'pointer',
+                            textAlign: 'left',
+                            transition: 'all 0.15s ease'
+                          }}
+                        >
+                          <span style={{
+                            width: '32px',
+                            height: '32px',
+                            borderRadius: '50%',
+                            background: isSelected ? '#0284c7' : '#f3f4f6',
+                            color: isSelected ? '#fff' : '#6b7280',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            fontSize: '14px',
+                            fontWeight: '600',
+                            flexShrink: 0
+                          }}>
+                            {choice.id}
+                          </span>
+                          <span style={{
+                            fontSize: '16px',
+                            color: '#1d1d1f',
+                            display: 'flex',
+                            alignItems: 'center'
+                          }}>
+                            {choice.text}
+                            {choice.fraction && (
+                              <span style={{
+                                display: 'inline-flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                marginLeft: choice.text ? '4px' : '0',
+                                fontFamily: 'Georgia, serif',
+                                fontStyle: 'italic'
+                              }}>
+                                <span style={{ padding: '0 4px' }}>{choice.fraction.numerator}</span>
+                                <span style={{
+                                  width: '100%',
+                                  height: '1px',
+                                  background: '#1d1d1f',
+                                  margin: '2px 0'
+                                }} />
+                                <span style={{ padding: '0 4px' }}>{choice.fraction.denominator}</span>
+                              </span>
+                            )}
+                            {choice.textAfter && (
+                              <span style={{ marginLeft: '4px' }}>{choice.textAfter}</span>
+                            )}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+
+                {/* Free response input */}
+                {currentQuestion.type === 'free_response' && (
+                  <input
+                    type="text"
+                    value={testState.answers[`${currentModuleData.module_id}-${currentQuestion.id}`] || ''}
+                    onChange={(e) => {
+                      const answerKey = `${currentModuleData.module_id}-${currentQuestion.id}`;
+                      setTestState(prev => ({
+                        ...prev,
+                        answers: { ...prev.answers, [answerKey]: e.target.value }
+                      }));
+                    }}
+                    placeholder="Enter your answer"
+                    style={{
+                      width: '100%',
+                      padding: '16px',
+                      fontSize: '18px',
+                      border: '2px solid #e5e7eb',
+                      borderRadius: '12px',
+                      outline: 'none'
+                    }}
+                  />
+                )}
+              </div>
+
+              {/* Navigation Buttons */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', gap: '16px' }}>
+                <button
+                  onClick={() => {
+                    if (testState.currentQuestionIndex > 0) {
+                      setTestState(prev => ({ ...prev, currentQuestionIndex: prev.currentQuestionIndex - 1 }));
+                    } else if (testState.currentModule > 0) {
+                      // Go back to previous module
+                      const prevModuleQuestions = testData.modules[testState.currentModule - 1].questions;
+                      setTestState(prev => ({
+                        ...prev,
+                        currentModule: prev.currentModule - 1,
+                        currentQuestionIndex: prevModuleQuestions.length - 1
+                      }));
+                    }
+                  }}
+                  disabled={testState.currentModule === 0 && testState.currentQuestionIndex === 0}
+                  style={{
+                    padding: '12px 24px',
+                    background: '#f3f4f6',
+                    color: testState.currentModule === 0 && testState.currentQuestionIndex === 0 ? '#9ca3af' : '#374151',
+                    border: 'none',
+                    borderRadius: '10px',
+                    fontSize: '15px',
+                    fontWeight: '600',
+                    cursor: testState.currentModule === 0 && testState.currentQuestionIndex === 0 ? 'not-allowed' : 'pointer'
+                  }}
+                >
+                  ← Previous
+                </button>
+
+                {/* Next / Submit button */}
+                {testState.currentModule === testData.modules.length - 1 && testState.currentQuestionIndex === totalQuestionsInModule - 1 ? (
+                  <button
+                    onClick={() => {
+                      setTestState(prev => ({ ...prev, showResults: true }));
+                    }}
+                    style={{
+                      padding: '12px 32px',
+                      background: '#0284c7',
+                      color: '#fff',
+                      border: 'none',
+                      borderRadius: '10px',
+                      fontSize: '15px',
+                      fontWeight: '600',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    Submit Test
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => {
+                      if (testState.currentQuestionIndex < totalQuestionsInModule - 1) {
+                        setTestState(prev => ({ ...prev, currentQuestionIndex: prev.currentQuestionIndex + 1 }));
+                      } else if (testState.currentModule < testData.modules.length - 1) {
+                        // Move to next module
+                        setTestState(prev => ({
+                          ...prev,
+                          currentModule: prev.currentModule + 1,
+                          currentQuestionIndex: 0
+                        }));
+                      }
+                    }}
+                    style={{
+                      padding: '12px 32px',
+                      background: '#0284c7',
+                      color: '#fff',
+                      border: 'none',
+                      borderRadius: '10px',
+                      fontSize: '15px',
+                      fontWeight: '600',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    Next →
+                  </button>
+                )}
+              </div>
+
+              {/* Question Navigator */}
+              <div style={{
+                marginTop: '32px',
+                padding: '20px',
+                background: '#f9fafb',
+                borderRadius: '12px'
+              }}>
+                <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '12px', fontWeight: '500' }}>
+                  Question Navigator - {currentModuleData.name}
+                </div>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                  {questions.map((q, idx) => {
+                    const answerKey = `${currentModuleData.module_id}-${q.id}`;
+                    const isAnswered = testState.answers[answerKey];
+                    const isCurrent = idx === testState.currentQuestionIndex;
+                    return (
+                      <button
+                        key={q.id}
+                        onClick={() => setTestState(prev => ({ ...prev, currentQuestionIndex: idx }))}
+                        style={{
+                          width: '36px',
+                          height: '36px',
+                          borderRadius: '8px',
+                          border: isCurrent ? '2px solid #0284c7' : '1px solid #e5e7eb',
+                          background: isAnswered ? '#0284c7' : '#fff',
+                          color: isAnswered ? '#fff' : '#374151',
+                          fontSize: '13px',
+                          fontWeight: '600',
+                          cursor: 'pointer'
+                        }}
+                      >
+                        {idx + 1}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Module tabs */}
+                {testData.modules.length > 1 && (
+                  <div style={{ display: 'flex', gap: '12px', marginTop: '16px', paddingTop: '16px', borderTop: '1px solid #e5e7eb' }}>
+                    {testData.modules.map((mod, idx) => (
+                      <button
+                        key={mod.module_id}
+                        onClick={() => setTestState(prev => ({ ...prev, currentModule: idx, currentQuestionIndex: 0 }))}
+                        style={{
+                          padding: '8px 16px',
+                          background: testState.currentModule === idx ? '#0284c7' : '#fff',
+                          color: testState.currentModule === idx ? '#fff' : '#374151',
+                          border: testState.currentModule === idx ? 'none' : '1px solid #e5e7eb',
+                          borderRadius: '8px',
+                          fontSize: '13px',
+                          fontWeight: '600',
+                          cursor: 'pointer'
+                        }}
+                      >
+                        {mod.name}
+                      </button>
+                    ))}
+                  </div>
                 )}
               </div>
             </>

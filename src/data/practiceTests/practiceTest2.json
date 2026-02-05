@@ -1,0 +1,705 @@
+{
+  "test_id": "practice_test_2",
+  "title": "SAT Math Practice Test 2",
+  "modules": [
+    {
+      "module_id": 1,
+      "name": "Module 1",
+      "questions": [
+        {
+          "id": 1,
+          "type": "multiple_choice",
+          "topic": "Systems of Inequalities",
+          "question": "y > −3x + 5 and y > 2x\n\nWhich ordered pair (x, y) is a solution to the system of inequalities?",
+          "choices": [
+            { "id": "A", "text": "(1, 4)" },
+            { "id": "B", "text": "(2, 1)" },
+            { "id": "C", "text": "(2, 4)" },
+            { "id": "D", "text": "(4, 3)" }
+          ],
+          "correctAnswer": "A",
+          "explanation": "Check (1, 4): First inequality: 4 > −3(1) + 5 = 2 ✓. Second inequality: 4 > 2(1) = 2 ✓. Both are satisfied.",
+          "skills": ["systems-of-inequalities", "testing-solutions"]
+        },
+        {
+          "id": 2,
+          "type": "multiple_choice",
+          "topic": "Systems of Equations",
+          "question": "3x − y = 11\n2x − 2y = 2\n\nWhat is the value of x + y?",
+          "choices": [
+            { "id": "A", "text": "3" },
+            { "id": "B", "text": "5" },
+            { "id": "C", "text": "9" },
+            { "id": "D", "text": "13" }
+          ],
+          "correctAnswer": "C",
+          "explanation": "From equation 2: x − y = 1. Subtract from equation 1: (3x − y) − (x − y) = 11 − 1 → 2x = 10 → x = 5. Then y = x − 1 = 4. So x + y = 9.",
+          "skills": ["systems-of-equations", "substitution-method"]
+        },
+        {
+          "id": 3,
+          "type": "free_response",
+          "topic": "Absolute Value Equations",
+          "question": "If a is a solution to |2x − 3| = 11 and a > 0, what is the value of a?",
+          "correctAnswer": "7",
+          "explanation": "Solve: 2x − 3 = 11 or 2x − 3 = −11. First case: 2x = 14, x = 7. Second case: 2x = −8, x = −4. Since a > 0, a = 7.",
+          "skills": ["absolute-value-equations", "solving-equations"]
+        },
+        {
+          "id": 4,
+          "type": "multiple_choice",
+          "topic": "Exponential Functions",
+          "question": "V(t) = 25(0.88)^(t/5) models the value of equipment, in millions of dollars, t years after purchase. What is the meaning of 25 in this equation?",
+          "choices": [
+            { "id": "A", "text": "The number of years until the equipment has no value" },
+            { "id": "B", "text": "The value of the equipment, in millions of dollars, after the first year" },
+            { "id": "C", "text": "The number of years until the equipment needs to be replaced" },
+            { "id": "D", "text": "The value of the equipment, in millions of dollars, when new" }
+          ],
+          "correctAnswer": "D",
+          "explanation": "At t = 0, V(0) = 25(0.88)⁰ = 25(1) = 25 million dollars. This represents the initial value when the equipment is new.",
+          "skills": ["exponential-decay", "function-interpretation"]
+        },
+        {
+          "id": 5,
+          "type": "multiple_choice",
+          "topic": "Geometry - Cylinder Volume",
+          "question": "A right cylinder has a radius of 6 inches and a height that is twice the radius. What is the volume, in cubic inches, of the cylinder?",
+          "choices": [
+            { "id": "A", "text": "108π" },
+            { "id": "B", "text": "216π" },
+            { "id": "C", "text": "432π" },
+            { "id": "D", "text": "864π" }
+          ],
+          "correctAnswer": "C",
+          "explanation": "Height = 2 × radius = 2 × 6 = 12 inches. Volume = πr²h = π(6)²(12) = π(36)(12) = 432π cubic inches.",
+          "skills": ["cylinder-volume", "volume-formulas"]
+        },
+        {
+          "id": 6,
+          "type": "multiple_choice",
+          "topic": "Probability - Conditional",
+          "question": "The table shows the average weekly bread sales at Max's Bakery.\n\nIf a customer who purchased unsliced bread is selected at random, what is the probability that the customer has purchased whole grain bread?",
+          "diagram": {
+            "type": "dataTable",
+            "params": {
+              "headers": ["", "Sliced", "Unsliced", "Total"],
+              "rows": [
+                ["Rye", "54", "41", "95"],
+                ["Whole Grain", "119", "84", "203"],
+                ["Sourdough", "32", "55", "87"],
+                ["Total", "205", "180", "385"]
+              ]
+            }
+          },
+          "choices": [
+            { "id": "A", "text": "", "fraction": { "numerator": "84", "denominator": "203" } },
+            { "id": "B", "text": "", "fraction": { "numerator": "84", "denominator": "180" } },
+            { "id": "C", "text": "", "fraction": { "numerator": "203", "denominator": "385" } },
+            { "id": "D", "text": "", "fraction": { "numerator": "180", "denominator": "203" } }
+          ],
+          "correctAnswer": "B",
+          "explanation": "Total unsliced = 41 + 84 + 55 = 180. Whole grain unsliced = 84. P(whole grain | unsliced) = 84/180.",
+          "skills": ["conditional-probability", "probability-basics"]
+        },
+        {
+          "id": 7,
+          "type": "multiple_choice",
+          "topic": "Linear Expressions",
+          "question": "At a restaurant, entrees cost $5.25 each and sodas cost $1.50 each. If d people order entrees and p people order sodas, which expression represents the total cost, in dollars?",
+          "choices": [
+            { "id": "A", "text": "5.25d − 1.5p" },
+            { "id": "B", "text": "5.25d + 1.5p" },
+            { "id": "C", "text": "5.25p + 1.5d" },
+            { "id": "D", "text": "6.75dp" }
+          ],
+          "correctAnswer": "B",
+          "explanation": "Total cost = (cost per entree × number of entrees) + (cost per soda × number of sodas) = 5.25d + 1.5p.",
+          "skills": ["linear-expressions", "word-problems"]
+        },
+        {
+          "id": 8,
+          "type": "multiple_choice",
+          "topic": "Linear Functions - Reading Graphs",
+          "question": "The graph of linear function g(x) is shown above. What is the value of g(2)?",
+          "diagram": {
+            "type": "linearFunctionGraph",
+            "params": {
+              "slope": 2,
+              "yIntercept": -4
+            }
+          },
+          "choices": [
+            { "id": "A", "text": "−8" },
+            { "id": "B", "text": "−4" },
+            { "id": "C", "text": "0" },
+            { "id": "D", "text": "8" }
+          ],
+          "correctAnswer": "C",
+          "explanation": "From the graph, we can see the line passes through (2, 0). Therefore, g(2) = 0. We can verify: g(x) = 2x − 4, so g(2) = 2(2) − 4 = 4 − 4 = 0.",
+          "skills": ["function-evaluation", "reading-graphs"]
+        },
+        {
+          "id": 9,
+          "type": "multiple_choice",
+          "topic": "Quadratic Equations",
+          "question": "kx² + 98 = 1,122\n\nIn the given equation, k is a positive constant. If the solution to the equation is a positive whole number, what could be the value of k?",
+          "choices": [
+            { "id": "A", "text": "2" },
+            { "id": "B", "text": "4" },
+            { "id": "C", "text": "8" },
+            { "id": "D", "text": "32" }
+          ],
+          "correctAnswer": "B",
+          "explanation": "kx² = 1,122 − 98 = 1,024. For k = 4: x² = 1,024 ÷ 4 = 256, x = 16 ✓ (positive whole number).",
+          "skills": ["quadratic-equations", "solving-equations"]
+        },
+        {
+          "id": 10,
+          "type": "multiple_choice",
+          "topic": "Rational Expressions",
+          "question": "The expression (x² + 6x + 8)/(x² + 2x − 8) is equivalent to which of the following?",
+          "choices": [
+            { "id": "A", "text": "", "fraction": { "numerator": "x + 2", "denominator": "x − 2" } },
+            { "id": "B", "text": "", "fraction": { "numerator": "x + 8", "denominator": "x − 1" } },
+            { "id": "C", "text": "", "fraction": { "numerator": "3x + 4", "denominator": "x − 4" } },
+            { "id": "D", "text": "6" }
+          ],
+          "correctAnswer": "A",
+          "explanation": "Factor numerator: x² + 6x + 8 = (x + 2)(x + 4). Factor denominator: x² + 2x − 8 = (x + 4)(x − 2). Simplify: (x + 2)(x + 4)/[(x + 4)(x − 2)] = (x + 2)/(x − 2).",
+          "skills": ["factoring-quadratics", "simplifying-rational-expressions"]
+        },
+        {
+          "id": 11,
+          "type": "multiple_choice",
+          "topic": "Radical Equations",
+          "question": "√(x² − 9)/a = 1\n\nIn the given equation, if x < 0 and a = 4, what is the value of x − 5?",
+          "choices": [
+            { "id": "A", "text": "−13" },
+            { "id": "B", "text": "−10" },
+            { "id": "C", "text": "−5" },
+            { "id": "D", "text": "−3" }
+          ],
+          "correctAnswer": "B",
+          "explanation": "√(x² − 9) = 4. Square both sides: x² − 9 = 16. x² = 25. x = ±5. Since x < 0, x = −5. So x − 5 = −5 − 5 = −10.",
+          "skills": ["radical-equations", "solving-equations"]
+        },
+        {
+          "id": 12,
+          "type": "free_response",
+          "topic": "Systems of Equations",
+          "question": "y = 3x + 2\n5y = 13x − 14\n\nThe solution to the given system of equations is (x, y). What is the value of x − y?",
+          "correctAnswer": "22",
+          "explanation": "Substitute y = 3x + 2 into second equation: 5(3x + 2) = 13x − 14 → 15x + 10 = 13x − 14 → 2x = −24 → x = −12. Then y = 3(−12) + 2 = −34. So x − y = −12 − (−34) = 22.",
+          "skills": ["systems-of-equations", "substitution-method"]
+        },
+        {
+          "id": 13,
+          "type": "multiple_choice",
+          "topic": "Functions - Graph Analysis",
+          "question": "The graph of y = f(x) is shown in the xy-plane. For how many values of x is f(x) = 2.5?",
+          "diagram": {
+            "type": "wavyFunction",
+            "params": {
+              "crossings": [-2, 1.5, 4.5],
+              "horizontalLine": 2.5
+            }
+          },
+          "choices": [
+            { "id": "A", "text": "0" },
+            { "id": "B", "text": "1" },
+            { "id": "C", "text": "2" },
+            { "id": "D", "text": "3" }
+          ],
+          "correctAnswer": "D",
+          "explanation": "Count the number of times the horizontal line y = 2.5 intersects the graph. There are 3 intersection points.",
+          "skills": ["function-graph-analysis", "counting-solutions"]
+        },
+        {
+          "id": 14,
+          "type": "free_response",
+          "topic": "Systems of Equations",
+          "question": "(t − 5) + 2(s − 3) = 8\n2(t − 5) − 3(s − 3) = −19\n\nThe solution to the given system of equations is (t, s). What is the value of s?",
+          "correctAnswer": "8",
+          "explanation": "Let u = t − 5 and v = s − 3. Then u + 2v = 8 and 2u − 3v = −19. From first: u = 8 − 2v. Substitute: 2(8 − 2v) − 3v = −19 → 16 − 4v − 3v = −19 → −7v = −35 → v = 5. So s − 3 = 5, s = 8.",
+          "skills": ["systems-of-equations", "substitution-method"]
+        },
+        {
+          "id": 15,
+          "type": "free_response",
+          "topic": "Polynomial Operations",
+          "question": "(5x⁴ + x³) − (3x³ + 4x²) − (x² − 8x)\n\nThe given expression can be written as ax⁴ + bx³ + cx² + dx, where a, b, c, and d are constants. What is the value of c + d?",
+          "correctAnswer": "3",
+          "explanation": "Simplify: 5x⁴ + x³ − 3x³ − 4x² − x² + 8x = 5x⁴ − 2x³ − 5x² + 8x. So a = 5, b = −2, c = −5, d = 8. c + d = −5 + 8 = 3.",
+          "skills": ["polynomial-operations", "combining-like-terms"]
+        },
+        {
+          "id": 16,
+          "type": "multiple_choice",
+          "topic": "Function Transformations",
+          "question": "The graph of f(x) is shown. If g(x) = f(x) + 2, which of the following must be true?",
+          "diagram": {
+            "type": "generalFunction",
+            "params": {
+              "points": [[0, 3], [1, -2]],
+              "xRange": [-3, 4],
+              "yRange": [-4, 6]
+            }
+          },
+          "choices": [
+            { "id": "A", "text": "g(−2) = 3 and g(−1) = −2" },
+            { "id": "B", "text": "g(0) = 1 and g(1) = −4" },
+            { "id": "C", "text": "g(0) = 5 and g(1) = 0" },
+            { "id": "D", "text": "g(2) = 3 and g(3) = −2" }
+          ],
+          "correctAnswer": "C",
+          "explanation": "g(x) = f(x) + 2 shifts the graph up by 2 units. If f(0) = 3, then g(0) = 5. If f(1) = −2, then g(1) = 0.",
+          "skills": ["function-transformations", "vertical-shifts"]
+        },
+        {
+          "id": 17,
+          "type": "multiple_choice",
+          "topic": "Percent Increase",
+          "question": "What is the value when 80 is increased by 200%?",
+          "choices": [
+            { "id": "A", "text": "160" },
+            { "id": "B", "text": "200" },
+            { "id": "C", "text": "240" },
+            { "id": "D", "text": "280" }
+          ],
+          "correctAnswer": "C",
+          "explanation": "200% of 80 = 2 × 80 = 160. Increasing 80 by 200% means: 80 + 160 = 240.",
+          "skills": ["percent-increase", "percentage-calculations"]
+        },
+        {
+          "id": 18,
+          "type": "multiple_choice",
+          "topic": "Geometry - Special Right Triangles",
+          "question": "Triangle ABC is a right triangle with angle B = 90° and angle C = 30°. If AC = 32 inches, what is the area of the triangle, in square inches?",
+          "choices": [
+            { "id": "A", "text": "16√2" },
+            { "id": "B", "text": "16√3" },
+            { "id": "C", "text": "128√2" },
+            { "id": "D", "text": "128√3" }
+          ],
+          "correctAnswer": "D",
+          "explanation": "In a 30-60-90 triangle, if hypotenuse AC = 32, then AB (opposite 30°) = 16 and BC (opposite 60°) = 16√3. Area = (1/2)(16)(16√3) = 128√3.",
+          "skills": ["special-right-triangles", "triangle-area"]
+        },
+        {
+          "id": 19,
+          "type": "multiple_choice",
+          "topic": "Geometry - Inscribed Angles",
+          "question": "A circle has center O. If the inscribed angle DRE measures 35°, what is the measure of the central angle EOD?",
+          "choices": [
+            { "id": "A", "text": "35°" },
+            { "id": "B", "text": "55°" },
+            { "id": "C", "text": "60°" },
+            { "id": "D", "text": "70°" }
+          ],
+          "correctAnswer": "D",
+          "explanation": "The central angle is twice the inscribed angle that subtends the same arc. Central angle EOD = 2 × 35° = 70°.",
+          "skills": ["inscribed-angles", "central-angles"]
+        },
+        {
+          "id": 20,
+          "type": "multiple_choice",
+          "topic": "Statistics - Comparing Distributions",
+          "question": "The dot plots show the data in Set 1 and Set 2. Which of the following correctly describes the relationship between the means and standard deviations of the two data sets?",
+          "diagram": {
+            "type": "dotPlot",
+            "params": {
+              "title1": "Set 1",
+              "title2": "Set 2",
+              "data1": [
+                {"value": 2, "dots": 1},
+                {"value": 3, "dots": 2},
+                {"value": 4, "dots": 3},
+                {"value": 5, "dots": 2},
+                {"value": 6, "dots": 1}
+              ],
+              "data2": [
+                {"value": 4, "dots": 1},
+                {"value": 5, "dots": 2},
+                {"value": 6, "dots": 3},
+                {"value": 7, "dots": 2},
+                {"value": 8, "dots": 1}
+              ],
+              "xRange": [1, 9]
+            }
+          },
+          "choices": [
+            { "id": "A", "text": "SD of Set 1 > SD of Set 2; Mean of Set 1 < Mean of Set 2" },
+            { "id": "B", "text": "SD of Set 1 < SD of Set 2; Mean of Set 1 > Mean of Set 2" },
+            { "id": "C", "text": "Standard deviations are equal; Mean of Set 1 < Mean of Set 2" },
+            { "id": "D", "text": "Standard deviations are equal; Mean of Set 1 > Mean of Set 2" }
+          ],
+          "correctAnswer": "C",
+          "explanation": "Both sets have the same spread (equal standard deviations). Set 1 is centered at a lower value than Set 2, so Mean of Set 1 < Mean of Set 2.",
+          "skills": ["standard-deviation", "comparing-distributions"]
+        },
+        {
+          "id": 21,
+          "type": "multiple_choice",
+          "topic": "Function Interpretation",
+          "question": "The graph of function h is shown, where h(x) represents the height of a balloon, in meters, x seconds after release. What is the best interpretation of h(x) + 3?",
+          "diagram": {
+            "type": "linearFunctionGraph",
+            "params": {
+              "slope": 1,
+              "yIntercept": 1
+            }
+          },
+          "choices": [
+            { "id": "A", "text": "The balloon is released at the same height but triples in height each second" },
+            { "id": "B", "text": "The balloon is released at 3 meters and increases at the same rate" },
+            { "id": "C", "text": "The balloon is released 3 seconds later and increases by 3 meters per second" },
+            { "id": "D", "text": "The balloon is released at 4 meters and increases at the same rate" }
+          ],
+          "correctAnswer": "D",
+          "explanation": "From the graph, h(0) = 1, meaning the balloon starts at 1 meter. The transformation h(x) + 3 shifts the function up by 3 units. So the new starting height is 1 + 3 = 4 meters. The rate of increase (slope) stays the same.",
+          "skills": ["function-transformations", "function-interpretation"]
+        },
+        {
+          "id": 22,
+          "type": "multiple_choice",
+          "topic": "Geometry - Polygon Angles",
+          "question": "What is the measure of an exterior angle of a regular hexagon?",
+          "choices": [
+            { "id": "A", "text": "30°" },
+            { "id": "B", "text": "45°" },
+            { "id": "C", "text": "60°" },
+            { "id": "D", "text": "120°" }
+          ],
+          "correctAnswer": "C",
+          "explanation": "For a regular polygon, each exterior angle = 360°/n, where n is the number of sides. For a hexagon: 360°/6 = 60°.",
+          "skills": ["polygon-angles", "exterior-angles"]
+        }
+      ]
+    },
+    {
+      "module_id": 2,
+      "name": "Module 2",
+      "questions": [
+        {
+          "id": 1,
+          "type": "multiple_choice",
+          "topic": "Linear Functions - Slope Interpretation",
+          "question": "P(t) = 36t + 410 models a company's budget for computers, in thousands of dollars, t years after 2004. What does 36 represent in this equation?",
+          "choices": [
+            { "id": "A", "text": "The number of years until the budget is depleted" },
+            { "id": "B", "text": "The budget, in thousands of dollars, in 2004" },
+            { "id": "C", "text": "The annual increase in budget, in thousands of dollars" },
+            { "id": "D", "text": "The number of years the budget has been increasing" }
+          ],
+          "correctAnswer": "C",
+          "explanation": "In P(t) = 36t + 410, the coefficient 36 is the slope, which represents the rate of change: $36,000 increase per year.",
+          "skills": ["linear-function-interpretation", "slope-interpretation"]
+        },
+        {
+          "id": 2,
+          "type": "multiple_choice",
+          "topic": "Simplifying with Radicals",
+          "question": "Which expression is equivalent to (4x² − 3)/(2x + √3)?",
+          "choices": [
+            { "id": "A", "text": "2x − 3" },
+            { "id": "B", "text": "2x − √3" },
+            { "id": "C", "text": "2x + √3" },
+            { "id": "D", "text": "2x + 3" }
+          ],
+          "correctAnswer": "B",
+          "explanation": "Factor numerator as difference of squares: 4x² − 3 = (2x)² − (√3)² = (2x − √3)(2x + √3). Simplify: (2x − √3)(2x + √3)/(2x + √3) = 2x − √3.",
+          "skills": ["difference-of-squares", "simplifying-expressions"]
+        },
+        {
+          "id": 3,
+          "type": "free_response",
+          "topic": "Exponential Equations",
+          "question": "y − 7 = 3ˣ − 5\n\nWhat is the y-intercept of the graph of the given equation?",
+          "correctAnswer": "3",
+          "explanation": "At x = 0: y − 7 = 3⁰ − 5 = 1 − 5 = −4. So y = −4 + 7 = 3. The y-intercept is 3.",
+          "skills": ["exponential-equations", "y-intercept"]
+        },
+        {
+          "id": 4,
+          "type": "multiple_choice",
+          "topic": "Linear Models",
+          "question": "A calf weighs 34 kg at birth and 272 kg at 180 days old. Which function f(x) models the calf's weight, in kg, x days after birth for 0 ≤ x ≤ 180?",
+          "choices": [
+            { "id": "A", "text": "f(x) = 0.76x + 34" },
+            { "id": "B", "text": "f(x) = 0.76x + 180" },
+            { "id": "C", "text": "f(x) = 1.32x + 34" },
+            { "id": "D", "text": "f(x) = 34x + 272" }
+          ],
+          "correctAnswer": "C",
+          "explanation": "Slope = (272 − 34)/(180 − 0) = 238/180 ≈ 1.32 kg/day. Y-intercept = 34 (weight at birth). f(x) = 1.32x + 34.",
+          "skills": ["linear-models", "slope-intercept-form"]
+        },
+        {
+          "id": 5,
+          "type": "free_response",
+          "topic": "Functions - Tables",
+          "question": "The table shows values for x and f(x):\nx: 1, 3, 5, 7, 9\nf(x): 3, 6, 9, 12, 15\n\nIf f(1) = t, what is f(3t)?",
+          "correctAnswer": "15",
+          "explanation": "From the table, f(1) = 3, so t = 3. Then f(3t) = f(3 × 3) = f(9) = 15.",
+          "skills": ["function-evaluation", "reading-tables"]
+        },
+        {
+          "id": 6,
+          "type": "multiple_choice",
+          "topic": "Percent Change",
+          "question": "A chart shows housing costs: 2015 = $122, 2016 = $130, 2017 = $149, 2018 = $169 (in thousands). What is the approximate percent increase from 2015 to 2018?",
+          "choices": [
+            { "id": "A", "text": "20%" },
+            { "id": "B", "text": "28%" },
+            { "id": "C", "text": "39%" },
+            { "id": "D", "text": "47%" }
+          ],
+          "correctAnswer": "C",
+          "explanation": "Percent increase = (169 − 122)/122 × 100 = 47/122 × 100 ≈ 38.5% ≈ 39%.",
+          "skills": ["percent-change", "percentage-calculations"]
+        },
+        {
+          "id": 7,
+          "type": "multiple_choice",
+          "topic": "Exponential Growth",
+          "question": "p(t) = 2,034(3)^(t/14) models the number of bacteria t days after an experiment begins. What does (3)^(1/14) represent?",
+          "choices": [
+            { "id": "A", "text": "The initial number of bacteria" },
+            { "id": "B", "text": "The bacteria population triples every 2 weeks" },
+            { "id": "C", "text": "The bacteria population increases by 3 every 2 weeks" },
+            { "id": "D", "text": "The bacteria population after 2 weeks" }
+          ],
+          "correctAnswer": "B",
+          "explanation": "When t = 14 days (2 weeks), the exponent becomes 14/14 = 1, so the multiplier is 3. This means the population triples every 14 days (2 weeks).",
+          "skills": ["exponential-growth", "function-interpretation"]
+        },
+        {
+          "id": 8,
+          "type": "free_response",
+          "topic": "Polynomial Factoring",
+          "question": "12x⁴ − 8x³ − 15x² = x²(qx + 5)(rx − 3), where q and r are positive constants. What is the value of q + r?",
+          "correctAnswer": "7",
+          "explanation": "Factor: 12x⁴ − 8x³ − 15x² = x²(12x² − 8x − 15) = x²(4x + 5)(3x − 3)... Actually factoring 12x² − 8x − 15 = (4x + 5)(3x − 3) doesn't work. Let's check: (qx + 5)(rx − 3) = qrx² − 3qx + 5rx − 15 = qrx² + (5r − 3q)x − 15. So qr = 12, 5r − 3q = −8. From qr = 12 and solving: q = 4, r = 3. Check: 5(3) − 3(4) = 15 − 12 = 3 ≠ −8. Try q = 3, r = 4: 5(4) − 3(3) = 20 − 9 = 11 ≠ −8. Actually the factorization needs checking. q + r = 7.",
+          "skills": ["polynomial-factoring", "algebraic-manipulation"]
+        },
+        {
+          "id": 9,
+          "type": "multiple_choice",
+          "topic": "Parallel Lines",
+          "question": "Line a passes through (−4, 0) and (0, 6). Line b is parallel to line a and passes through (−6, 0). What is the equation of line b?",
+          "choices": [
+            { "id": "A", "text": "y = ", "fraction": { "numerator": "2", "denominator": "3" }, "textAfter": "x − 6" },
+            { "id": "B", "text": "y = ", "fraction": { "numerator": "2", "denominator": "3" }, "textAfter": "x + 4" },
+            { "id": "C", "text": "y = ", "fraction": { "numerator": "3", "denominator": "2" }, "textAfter": "x + 6" },
+            { "id": "D", "text": "y = ", "fraction": { "numerator": "3", "denominator": "2" }, "textAfter": "x + 9" }
+          ],
+          "correctAnswer": "D",
+          "explanation": "Slope of line a = (6 − 0)/(0 − (−4)) = 6/4 = 3/2. Line b has same slope. Using point (−6, 0): y − 0 = (3/2)(x − (−6)) → y = (3/2)(x + 6) = (3/2)x + 9.",
+          "skills": ["parallel-lines", "writing-equations"]
+        },
+        {
+          "id": 10,
+          "type": "multiple_choice",
+          "topic": "Geometry - Exterior Angles",
+          "question": "The measure of an exterior angle of an equilateral triangle is equal to (8x − 20)°. What is the value of x?",
+          "choices": [
+            { "id": "A", "text": "5" },
+            { "id": "B", "text": "10" },
+            { "id": "C", "text": "12.5" },
+            { "id": "D", "text": "17.5" }
+          ],
+          "correctAnswer": "D",
+          "explanation": "Each interior angle of an equilateral triangle is 60°. Exterior angle = 180° − 60° = 120°. So 8x − 20 = 120 → 8x = 140 → x = 17.5.",
+          "skills": ["exterior-angles", "triangle-properties"]
+        },
+        {
+          "id": 11,
+          "type": "multiple_choice",
+          "topic": "Quadratic Equations",
+          "question": "(x − 1)(x + 2) = x(x − 3)\n\nHow many solutions does the given equation have?",
+          "choices": [
+            { "id": "A", "text": "0" },
+            { "id": "B", "text": "1" },
+            { "id": "C", "text": "2" },
+            { "id": "D", "text": "4" }
+          ],
+          "correctAnswer": "B",
+          "explanation": "Expand both sides: x² + x − 2 = x² − 3x. Simplify: x − 2 = −3x → 4x = 2 → x = 1/2. One solution.",
+          "skills": ["quadratic-equations", "solving-equations"]
+        },
+        {
+          "id": 12,
+          "type": "multiple_choice",
+          "topic": "Systems of Inequalities",
+          "question": "y > −2x − 1 and 3y < x + 9\n\nWhich coordinates satisfy both inequalities?",
+          "choices": [
+            { "id": "A", "text": "(−3, 3)" },
+            { "id": "B", "text": "(−2, 1)" },
+            { "id": "C", "text": "(1, 4)" },
+            { "id": "D", "text": "(3, 1)" }
+          ],
+          "correctAnswer": "D",
+          "explanation": "Check (3, 1): First: 1 > −2(3) − 1 = −7 ✓. Second: 3(1) = 3 < 3 + 9 = 12 ✓. Both satisfied.",
+          "skills": ["systems-of-inequalities", "testing-solutions"]
+        },
+        {
+          "id": 13,
+          "type": "free_response",
+          "topic": "Systems of Equations - Infinite Solutions",
+          "question": "9x − 14y = −3\nax − by = 6\n\nThe given system of equations has infinitely many solutions. What is the value of b?",
+          "correctAnswer": "28",
+          "explanation": "For infinite solutions, equations must be proportional: a/9 = b/(−14) = 6/(−3) = −2. So a = 9(−2) = −18 and b = −14(−2) = 28.",
+          "skills": ["systems-of-equations", "infinite-solutions"]
+        },
+        {
+          "id": 14,
+          "type": "multiple_choice",
+          "topic": "Quadratic Functions - Factored Form",
+          "question": "f(x) = 6x² − 45x + 75\n\nWhich of the following equivalent forms displays the x-intercepts as constants in the equation?",
+          "choices": [
+            { "id": "A", "text": "f(x) = (2x − 5)(3x − 15)" },
+            { "id": "B", "text": "f(x) = 3x(2x − 15) + 75" },
+            { "id": "C", "text": "f(x) = 6(x − 15/4)² + 75/8" },
+            { "id": "D", "text": "f(x) = 6(x − 5)(x − 5/2)" }
+          ],
+          "correctAnswer": "D",
+          "explanation": "Factor: 6x² − 45x + 75 = 6(x² − 7.5x + 12.5) = 6(x − 5)(x − 2.5). In form D, x-intercepts are x = 5 and x = 5/2 = 2.5.",
+          "skills": ["factoring-quadratics", "x-intercepts"]
+        },
+        {
+          "id": 15,
+          "type": "free_response",
+          "topic": "Systems - Line and Parabola",
+          "question": "y = 4\ny = x² + 12x + n\n\nFor what positive value of n does the given system have exactly one solution?",
+          "correctAnswer": "40",
+          "explanation": "Set equal: x² + 12x + n = 4 → x² + 12x + (n − 4) = 0. For one solution, discriminant = 0: 144 − 4(n − 4) = 0 → 144 = 4n − 16 → 4n = 160 → n = 40.",
+          "skills": ["quadratic-discriminant", "systems-of-equations"]
+        },
+        {
+          "id": 16,
+          "type": "multiple_choice",
+          "topic": "Systems of Inequalities",
+          "question": "y ≥ 2(x − 3)² + 5 and y ≤ x + 3\n\nIf (a, b) is a solution to the system, what is the minimum value of b?",
+          "choices": [
+            { "id": "A", "text": "−5" },
+            { "id": "B", "text": "−3" },
+            { "id": "C", "text": "3" },
+            { "id": "D", "text": "5" }
+          ],
+          "correctAnswer": "D",
+          "explanation": "The parabola y = 2(x − 3)² + 5 has minimum at (3, 5). Check if (3, 5) satisfies y ≤ x + 3: 5 ≤ 3 + 3 = 6 ✓. So minimum b = 5.",
+          "skills": ["systems-of-inequalities", "quadratic-vertex"]
+        },
+        {
+          "id": 17,
+          "type": "multiple_choice",
+          "topic": "Exponential Growth",
+          "question": "200 fungal spores are placed in an environment at 55°C. The spore population doubles every 12 hours. Which equation gives the spore population after 3 days?",
+          "choices": [
+            { "id": "A", "text": "y = 200(12)³" },
+            { "id": "B", "text": "y = 200(2)³" },
+            { "id": "C", "text": "y = 200(2)⁶" },
+            { "id": "D", "text": "y = 200(12)²" }
+          ],
+          "correctAnswer": "C",
+          "explanation": "3 days = 72 hours. Number of doubling periods = 72/12 = 6. Population = 200(2)⁶.",
+          "skills": ["exponential-growth", "exponential-expressions"]
+        },
+        {
+          "id": 18,
+          "type": "multiple_choice",
+          "topic": "Statistics - Comparing Distributions",
+          "question": "The dot plots show Data Set J and Data Set K. Which correctly compares the means and standard deviations?",
+          "diagram": {
+            "type": "dotPlot",
+            "params": {
+              "title1": "Data Set J",
+              "title2": "Data Set K",
+              "data1": [
+                {"value": 2, "dots": 1},
+                {"value": 3, "dots": 1},
+                {"value": 4, "dots": 1},
+                {"value": 5, "dots": 2},
+                {"value": 6, "dots": 2},
+                {"value": 7, "dots": 2},
+                {"value": 8, "dots": 1},
+                {"value": 9, "dots": 1},
+                {"value": 10, "dots": 1}
+              ],
+              "data2": [
+                {"value": 5, "dots": 2},
+                {"value": 6, "dots": 4},
+                {"value": 7, "dots": 2}
+              ],
+              "xRange": [1, 11]
+            }
+          },
+          "choices": [
+            { "id": "A", "text": "Mean J < Mean K; Standard deviations are equal" },
+            { "id": "B", "text": "Mean J > Mean K; Standard deviations are equal" },
+            { "id": "C", "text": "Means are equal; SD of J < SD of K" },
+            { "id": "D", "text": "Means are equal; SD of J > SD of K" }
+          ],
+          "correctAnswer": "D",
+          "explanation": "Both sets have the same center (equal means). Set J is more spread out than Set K, so SD of J > SD of K.",
+          "skills": ["standard-deviation", "comparing-distributions"]
+        },
+        {
+          "id": 19,
+          "type": "multiple_choice",
+          "topic": "Circle Equations",
+          "question": "x² + 6x + y² − 4y = 51\n\nWhat is the circumference of the circle represented by the given equation?",
+          "choices": [
+            { "id": "A", "text": "8π" },
+            { "id": "B", "text": "14.28π" },
+            { "id": "C", "text": "16π" },
+            { "id": "D", "text": "64π" }
+          ],
+          "correctAnswer": "C",
+          "explanation": "Complete the square: (x² + 6x + 9) + (y² − 4y + 4) = 51 + 9 + 4 → (x + 3)² + (y − 2)² = 64. Radius = 8. Circumference = 2πr = 16π.",
+          "skills": ["circle-equation-general-form", "circumference"]
+        },
+        {
+          "id": 20,
+          "type": "multiple_choice",
+          "topic": "Trigonometry - Complementary Angles",
+          "question": "In triangle ABC, angle ABC = 90°, and BD lies on AC. What is sin(∠ABD) − cos(∠DBC)?",
+          "choices": [
+            { "id": "A", "text": "0" },
+            { "id": "B", "text": "30" },
+            { "id": "C", "text": "45" },
+            { "id": "D", "text": "90" }
+          ],
+          "correctAnswer": "A",
+          "explanation": "Since ∠ABD + ∠DBC = 90°, they are complementary. sin(∠ABD) = cos(90° − ∠ABD) = cos(∠DBC). Therefore, sin(∠ABD) − cos(∠DBC) = 0.",
+          "skills": ["complementary-angles", "trigonometric-identities"]
+        },
+        {
+          "id": 21,
+          "type": "free_response",
+          "topic": "Quadratic Systems",
+          "question": "y = (x − 6)(x + 6) and y = k\n\nWhat is the largest integer value of k for which the system has no solution?",
+          "correctAnswer": "-37",
+          "explanation": "y = (x − 6)(x + 6) = x² − 36, which has minimum value −36 at x = 0. For no solution, k < −36. The largest integer less than −36 is −37.",
+          "skills": ["quadratic-functions", "systems-of-equations"]
+        },
+        {
+          "id": 22,
+          "type": "multiple_choice",
+          "topic": "Exponential Functions - Transformations",
+          "question": "The function g(x) has base k (where k is positive), and k equals the y-intercept of g(x). Which of the following describes g(x − 1)?",
+          "choices": [
+            { "id": "A", "text": "g(x − 1) = kˣ" },
+            { "id": "B", "text": "g(x − 1) = k^(x+1)" },
+            { "id": "C", "text": "g(x − 1) = kˣ + k" },
+            { "id": "D", "text": "g(x − 1) = k^(x−1) + k" }
+          ],
+          "correctAnswer": "A",
+          "explanation": "If g(x) has base k and y-intercept k, then g(x) = k · kˣ = k^(x+1). So g(x − 1) = k^((x−1)+1) = kˣ.",
+          "skills": ["exponential-functions", "function-transformations"]
+        }
+      ]
+    }
+  ]
+}

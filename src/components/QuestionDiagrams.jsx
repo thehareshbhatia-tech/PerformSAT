@@ -2,941 +2,584 @@ import React from 'react';
 
 /**
  * Professional SAT-style SVG diagram components for practice questions
- * These render mathematical graphs that match the College Board SAT format
+ * Matching Test Innovators style: gray background, white grid, -10 to 10 axes
  */
 
-// Helper function to generate path for rational function f(x) = a/(x+b)
-const generateRationalCurvePath = (a, b, xMin, xMax, yMin, yMax) => {
-  const asymptote = -b;
-  const points = [];
-  const step = 0.08;
+// =============================================================================
+// SHARED GRID COMPONENT - Test Innovators Style
+// =============================================================================
+const SATGrid = ({
+  size = 300,
+  padding = 30,
+  xMin = -10,
+  xMax = 10,
+  yMin = -10,
+  yMax = 10,
+  children
+}) => {
+  const gridArea = size - 2 * padding;
+  const xRange = xMax - xMin;
+  const yRange = yMax - yMin;
+  const unitSizeX = gridArea / xRange;
+  const unitSizeY = gridArea / yRange;
 
-  // Left side of asymptote
-  for (let x = xMin; x < asymptote - 0.2; x += step) {
-    const y = a / (x + b);
-    if (y >= yMin && y <= yMax) {
-      points.push({ x, y, side: 'left' });
-    }
-  }
+  // Convert math coords to SVG coords
+  const toX = (x) => padding + (x - xMin) * unitSizeX;
+  const toY = (y) => padding + (yMax - y) * unitSizeY;
 
-  // Right side of asymptote
-  for (let x = asymptote + 0.2; x <= xMax; x += step) {
-    const y = a / (x + b);
-    if (y >= yMin && y <= yMax) {
-      points.push({ x, y, side: 'right' });
-    }
-  }
+  // Determine which labels to show (only major ones)
+  const getXLabels = () => {
+    if (xRange <= 12) return Array.from({ length: xRange + 1 }, (_, i) => xMin + i).filter(x => x !== 0 && x % 2 === 0);
+    if (xRange <= 24) return Array.from({ length: xRange + 1 }, (_, i) => xMin + i).filter(x => x !== 0 && x % 5 === 0);
+    return [xMin, Math.round(xMin/2), Math.round(xMax/2), xMax].filter(x => x !== 0);
+  };
 
-  // Build path strings for each side
-  const leftPoints = points.filter(p => p.side === 'left');
-  const rightPoints = points.filter(p => p.side === 'right');
-
-  let pathD = '';
-
-  if (leftPoints.length > 0) {
-    pathD += `M ${leftPoints[0].x} ${-leftPoints[0].y}`;
-    for (let i = 1; i < leftPoints.length; i++) {
-      pathD += ` L ${leftPoints[i].x} ${-leftPoints[i].y}`;
-    }
-  }
-
-  if (rightPoints.length > 0) {
-    pathD += ` M ${rightPoints[0].x} ${-rightPoints[0].y}`;
-    for (let i = 1; i < rightPoints.length; i++) {
-      pathD += ` L ${rightPoints[i].x} ${-rightPoints[i].y}`;
-    }
-  }
-
-  return pathD;
-};
-
-// SAT-Style Rational Function Diagram: f(x) = a/(x+b)
-export const RationalFunctionDiagram = ({ a, b, showPoints = [] }) => {
-  const xMin = -7, xMax = 7, yMin = -4, yMax = 8;
-  const asymptote = -b;
-  const curvePath = generateRationalCurvePath(a, b, xMin, xMax, yMin, yMax);
+  const getYLabels = () => {
+    if (yRange <= 12) return Array.from({ length: yRange + 1 }, (_, i) => yMin + i).filter(y => y !== 0 && y % 2 === 0);
+    if (yRange <= 24) return Array.from({ length: yRange + 1 }, (_, i) => yMin + i).filter(y => y !== 0 && y % 5 === 0);
+    return [yMin, Math.round(yMin/2), Math.round(yMax/2), yMax].filter(y => y !== 0);
+  };
 
   return (
-    <svg
-      width="340"
-      height="300"
-      viewBox="-8 -9.5 16 14"
-      style={{
-        background: '#ffffff',
-        borderRadius: '4px',
-        border: '2px solid #343a40'
-      }}
-    >
-      {/* Background */}
-      <rect x="-8" y="-9.5" width="16" height="14" fill="#ffffff" />
+    <svg width={size} height={size} style={{ display: 'block', margin: '0 auto' }}>
+      {/* Light gray background */}
+      <rect x={padding} y={padding} width={gridArea} height={gridArea} fill="#e5e5e5" />
 
-      {/* Grid lines - lighter secondary grid */}
-      {[-6, -4, -2, 2, 4, 6].map(x => (
-        <line
-          key={`v${x}`}
-          x1={x} y1={-yMax - 0.5} x2={x} y2={-yMin + 0.5}
-          stroke="#e9ecef"
-          strokeWidth="0.05"
-        />
+      {/* White grid lines - every unit */}
+      {Array.from({ length: xRange + 1 }, (_, i) => xMin + i).map(n => (
+        <line key={`v${n}`} x1={toX(n)} y1={padding} x2={toX(n)} y2={size - padding} stroke="white" strokeWidth="1" />
       ))}
-      {[-2, 2, 4, 6].map(y => (
-        <line
-          key={`h${y}`}
-          x1={xMin - 0.5} y1={-y} x2={xMax + 0.5} y2={-y}
-          stroke="#e9ecef"
-          strokeWidth="0.05"
-        />
+      {Array.from({ length: yRange + 1 }, (_, i) => yMin + i).map(n => (
+        <line key={`h${n}`} x1={padding} y1={toY(n)} x2={size - padding} y2={toY(n)} stroke="white" strokeWidth="1" />
       ))}
 
-      {/* Main X-axis - thick black */}
-      <line
-        x1={xMin - 0.8} y1="0" x2={xMax + 0.8} y2="0"
-        stroke="#212529"
-        strokeWidth="0.12"
-      />
-      {/* X-axis arrow */}
-      <polygon points={`${xMax + 0.8},0 ${xMax + 0.5},0.2 ${xMax + 0.5},-0.2`} fill="#212529" />
+      {/* X-axis with arrow */}
+      <line x1={padding - 10} y1={toY(0)} x2={size - padding + 10} y2={toY(0)} stroke="#444" strokeWidth="1.5" />
+      <polygon points={`${size - padding + 18},${toY(0)} ${size - padding + 8},${toY(0) - 4} ${size - padding + 8},${toY(0) + 4}`} fill="#444" />
 
-      {/* Main Y-axis - thick black */}
-      <line
-        x1="0" y1={-yMin + 0.8} x2="0" y2={-yMax - 0.8}
-        stroke="#212529"
-        strokeWidth="0.12"
-      />
-      {/* Y-axis arrow */}
-      <polygon points={`0,${-yMax - 0.8} 0.2,${-yMax - 0.5} -0.2,${-yMax - 0.5}`} fill="#212529" />
+      {/* Y-axis with arrow */}
+      <line x1={toX(0)} y1={size - padding + 10} x2={toX(0)} y2={padding - 10} stroke="#444" strokeWidth="1.5" />
+      <polygon points={`${toX(0)},${padding - 18} ${toX(0) - 4},${padding - 8} ${toX(0) + 4},${padding - 8}`} fill="#444" />
 
-      {/* Tick marks with numbers - X axis */}
-      {[-6, -4, -2, 2, 4, 6].map(x => (
-        <g key={`tx${x}`}>
-          <line x1={x} y1="-0.2" x2={x} y2="0.2" stroke="#212529" strokeWidth="0.1" />
-          <text
-            x={x}
-            y="0.9"
-            fontSize="0.6"
-            textAnchor="middle"
-            fill="#495057"
-            fontFamily="Arial, sans-serif"
-          >
-            {x}
-          </text>
-        </g>
+      {/* Y label */}
+      <text x={toX(0) + 8} y={padding - 10} fontSize="14" fontFamily="Times New Roman, serif" fontStyle="italic" fill="#333">y</text>
+
+      {/* X-axis labels */}
+      {getXLabels().map(x => (
+        <text key={`xl${x}`} x={toX(x)} y={toY(0) + 15} fontSize="12" fontFamily="Arial, sans-serif" textAnchor="middle" fill="#333">{x}</text>
       ))}
 
-      {/* Tick marks with numbers - Y axis */}
-      {[-2, 2, 4, 6].map(y => (
-        <g key={`ty${y}`}>
-          <line x1="-0.2" y1={-y} x2="0.2" y2={-y} stroke="#212529" strokeWidth="0.1" />
-          <text
-            x="-0.6"
-            y={-y + 0.2}
-            fontSize="0.6"
-            textAnchor="end"
-            fill="#495057"
-            fontFamily="Arial, sans-serif"
-          >
-            {y}
-          </text>
-        </g>
+      {/* Y-axis labels */}
+      {getYLabels().map(y => (
+        <text key={`yl${y}`} x={toX(0) - 5} y={toY(y) + 4} fontSize="12" fontFamily="Arial, sans-serif" textAnchor="end" fill="#333">{y}</text>
       ))}
 
-      {/* Origin O label */}
-      <text x="-0.5" y="0.9" fontSize="0.6" fill="#495057" fontFamily="Arial, sans-serif">O</text>
+      {/* Clip path for drawing inside grid only */}
+      <defs>
+        <clipPath id="gridClip">
+          <rect x={padding} y={padding} width={gridArea} height={gridArea} />
+        </clipPath>
+      </defs>
 
-      {/* Vertical asymptote - dashed gray line */}
-      <line
-        x1={asymptote} y1={-yMin + 0.5} x2={asymptote} y2={-yMax - 0.5}
-        stroke="#868e96"
-        strokeWidth="0.08"
-        strokeDasharray="0.4,0.2"
-      />
-
-      {/* Function curve - thick dark blue */}
-      <path
-        d={curvePath}
-        fill="none"
-        stroke="#1864ab"
-        strokeWidth="0.18"
-        strokeLinecap="round"
-      />
-
-      {/* Marked points - solid dots with coordinates */}
-      {showPoints.map(([px, py], i) => (
-        <g key={i}>
-          <circle
-            cx={px}
-            cy={-py}
-            r="0.28"
-            fill="#1864ab"
-          />
-          <text
-            x={px > 0 ? px + 0.5 : px - 0.5}
-            y={py > 4 ? -py + 0.7 : -py - 0.4}
-            fontSize="0.55"
-            fill="#212529"
-            fontFamily="Arial, sans-serif"
-            fontWeight="500"
-            textAnchor={px > 0 ? "start" : "end"}
-          >
-            ({px}, {py})
-          </text>
-        </g>
-      ))}
-
-      {/* Axis labels */}
-      <text
-        x={xMax + 0.5}
-        y="-0.5"
-        fontSize="0.7"
-        fill="#212529"
-        fontFamily="Times New Roman, serif"
-        fontStyle="italic"
-      >
-        x
-      </text>
-      <text
-        x="0.5"
-        y={-yMax - 0.3}
-        fontSize="0.7"
-        fill="#212529"
-        fontFamily="Times New Roman, serif"
-        fontStyle="italic"
-      >
-        y
-      </text>
-
-      {/* Function label */}
-      <text
-        x={xMax - 1.5}
-        y={-yMax + 0.5}
-        fontSize="0.6"
-        fill="#1864ab"
-        fontFamily="Times New Roman, serif"
-        fontStyle="italic"
-      >
-        y = f(x)
-      </text>
+      {/* Render children with coordinate conversion functions */}
+      {typeof children === 'function' ? children({ toX, toY, padding, gridArea }) : children}
     </svg>
   );
 };
 
-// SAT-Style Quadratic Function Diagram with vertex
-export const QuadraticDiagram = ({ vertex, a = 0.5, showPoints = [], showVertex = true }) => {
-  const [h, k] = vertex;
-  const xMin = -7, xMax = 7, yMin = -6, yMax = 6;
-
-  // Generate parabola path: y = a(x-h)² + k
-  const points = [];
-  for (let x = xMin; x <= xMax; x += 0.15) {
-    const y = a * Math.pow(x - h, 2) + k;
-    if (y >= yMin && y <= yMax) {
-      points.push({ x, y });
-    }
-  }
-
-  let pathD = '';
-  if (points.length > 0) {
-    pathD = `M ${points[0].x} ${-points[0].y}`;
-    for (let i = 1; i < points.length; i++) {
-      pathD += ` L ${points[i].x} ${-points[i].y}`;
-    }
-  }
+// =============================================================================
+// LINEAR FUNCTION DIAGRAM - y = mx + b
+// =============================================================================
+export const LinearFunctionGraphDiagram = ({ slope = 2, yIntercept = -4 }) => {
+  const getY = (x) => slope * x + yIntercept;
 
   return (
-    <svg
-      width="340"
-      height="300"
-      viewBox="-8 -7.5 16 14"
-      style={{
-        background: '#ffffff',
-        borderRadius: '4px',
-        border: '2px solid #343a40'
-      }}
-    >
-      {/* Grid lines */}
-      {[-6, -4, -2, 2, 4, 6].map(x => (
-        <line key={`v${x}`} x1={x} y1={-yMax - 0.5} x2={x} y2={-yMin + 0.5} stroke="#e9ecef" strokeWidth="0.05" />
-      ))}
-      {[-4, -2, 2, 4].map(y => (
-        <line key={`h${y}`} x1={xMin - 0.5} y1={-y} x2={xMax + 0.5} y2={-y} stroke="#e9ecef" strokeWidth="0.05" />
-      ))}
+    <SATGrid>
+      {({ toX, toY }) => (
+        <line
+          x1={toX(-15)} y1={toY(getY(-15))}
+          x2={toX(15)} y2={toY(getY(15))}
+          stroke="#333" strokeWidth="2"
+          clipPath="url(#gridClip)"
+        />
+      )}
+    </SATGrid>
+  );
+};
 
-      {/* Axes */}
-      <line x1={xMin - 0.8} y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.12" />
-      <polygon points={`${xMax + 0.8},0 ${xMax + 0.5},0.2 ${xMax + 0.5},-0.2`} fill="#212529" />
-      <line x1="0" y1={-yMin + 0.8} x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.12" />
-      <polygon points={`0,${-yMax - 0.8} 0.2,${-yMax - 0.5} -0.2,${-yMax - 0.5}`} fill="#212529" />
+// =============================================================================
+// RATIONAL FUNCTION DIAGRAM - f(x) = a/(x+b)
+// =============================================================================
+export const RationalFunctionDiagram = ({ a = 6, b = 2, showPoints = [] }) => {
+  const asymptote = -b;
 
-      {/* Tick marks with numbers */}
-      {[-6, -4, -2, 2, 4, 6].map(x => (
-        <g key={`tx${x}`}>
-          <line x1={x} y1="-0.2" x2={x} y2="0.2" stroke="#212529" strokeWidth="0.1" />
-          <text x={x} y="0.9" fontSize="0.6" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
-        </g>
-      ))}
-      {[-4, -2, 2, 4].map(y => (
-        <g key={`ty${y}`}>
-          <line x1="-0.2" y1={-y} x2="0.2" y2={-y} stroke="#212529" strokeWidth="0.1" />
-          <text x="-0.6" y={-y + 0.2} fontSize="0.6" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
-        </g>
-      ))}
-      <text x="-0.5" y="0.9" fontSize="0.6" fill="#495057" fontFamily="Arial, sans-serif">O</text>
+  // Generate curve path
+  const generatePath = (toX, toY) => {
+    const step = 0.1;
+    let leftPath = '';
+    let rightPath = '';
 
-      {/* Parabola curve */}
-      <path d={pathD} fill="none" stroke="#1864ab" strokeWidth="0.18" strokeLinecap="round" />
+    // Left of asymptote
+    for (let x = -10; x < asymptote - 0.3; x += step) {
+      const y = a / (x + b);
+      if (y >= -10 && y <= 10) {
+        if (!leftPath) leftPath = `M ${toX(x)} ${toY(y)}`;
+        else leftPath += ` L ${toX(x)} ${toY(y)}`;
+      }
+    }
 
-      {/* Vertex point */}
-      {showVertex && (
-        <g>
-          <circle cx={h} cy={-k} r="0.28" fill="#c92a2a" />
-          <text
-            x={h + 0.5}
-            y={-k + (k < 0 ? -0.5 : 0.8)}
-            fontSize="0.55"
-            fill="#212529"
-            fontFamily="Arial, sans-serif"
-            fontWeight="500"
-          >
-            ({h}, {k})
-          </text>
+    // Right of asymptote
+    for (let x = asymptote + 0.3; x <= 10; x += step) {
+      const y = a / (x + b);
+      if (y >= -10 && y <= 10) {
+        if (!rightPath) rightPath = `M ${toX(x)} ${toY(y)}`;
+        else rightPath += ` L ${toX(x)} ${toY(y)}`;
+      }
+    }
+
+    return leftPath + ' ' + rightPath;
+  };
+
+  return (
+    <SATGrid>
+      {({ toX, toY }) => (
+        <g clipPath="url(#gridClip)">
+          {/* Asymptote dashed line */}
+          <line
+            x1={toX(asymptote)} y1={toY(10)}
+            x2={toX(asymptote)} y2={toY(-10)}
+            stroke="#999" strokeWidth="1" strokeDasharray="5,5"
+          />
+          {/* Curve */}
+          <path d={generatePath(toX, toY)} fill="none" stroke="#333" strokeWidth="2" />
+          {/* Points */}
+          {showPoints.map(([px, py], i) => (
+            <circle key={i} cx={toX(px)} cy={toY(py)} r="5" fill="#333" />
+          ))}
         </g>
       )}
-
-      {/* Additional marked points */}
-      {showPoints.map(([px, py], i) => (
-        <g key={i}>
-          <circle cx={px} cy={-py} r="0.25" fill="#1864ab" />
-          <text x={px + 0.4} y={-py - 0.3} fontSize="0.5" fill="#212529" fontFamily="Arial, sans-serif">({px}, {py})</text>
-        </g>
-      ))}
-
-      {/* Axis labels */}
-      <text x={xMax + 0.5} y="-0.5" fontSize="0.7" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">x</text>
-      <text x="0.5" y={-yMax - 0.3} fontSize="0.7" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">y</text>
-      <text x={xMax - 1.5} y={-yMax + 0.5} fontSize="0.6" fill="#1864ab" fontFamily="Times New Roman, serif" fontStyle="italic">y = f(x)</text>
-    </svg>
+    </SATGrid>
   );
 };
 
-// SAT-Style Absolute Value Diagram
-export const AbsoluteValueDiagram = ({ vertex, slope = 1, showPoints = [] }) => {
+// =============================================================================
+// QUADRATIC DIAGRAM - y = a(x-h)² + k
+// =============================================================================
+export const QuadraticDiagram = ({ vertex = [0, 0], a = 0.5, showPoints = [], showVertex = true }) => {
   const [h, k] = vertex;
-  const xMin = -7, xMax = 7, yMin = -5, yMax = 6;
 
-  // Clamp line endpoints to visible area
-  const leftEndX = xMin;
-  const leftEndY = k + slope * Math.abs(leftEndX - h);
-  const rightEndX = xMax;
-  const rightEndY = k + slope * Math.abs(rightEndX - h);
+  const generatePath = (toX, toY) => {
+    let path = '';
+    for (let x = -10; x <= 10; x += 0.2) {
+      const y = a * Math.pow(x - h, 2) + k;
+      if (y >= -10 && y <= 10) {
+        if (!path) path = `M ${toX(x)} ${toY(y)}`;
+        else path += ` L ${toX(x)} ${toY(y)}`;
+      }
+    }
+    return path;
+  };
 
   return (
-    <svg
-      width="340"
-      height="280"
-      viewBox="-8 -7.5 16 13"
-      style={{
-        background: '#ffffff',
-        borderRadius: '4px',
-        border: '2px solid #343a40'
-      }}
-    >
-      {/* Grid */}
-      {[-6, -4, -2, 2, 4, 6].map(x => (
-        <line key={`v${x}`} x1={x} y1={-yMax - 0.5} x2={x} y2={-yMin + 0.5} stroke="#e9ecef" strokeWidth="0.05" />
-      ))}
-      {[-4, -2, 2, 4].map(y => (
-        <line key={`h${y}`} x1={xMin - 0.5} y1={-y} x2={xMax + 0.5} y2={-y} stroke="#e9ecef" strokeWidth="0.05" />
-      ))}
-
-      {/* Axes */}
-      <line x1={xMin - 0.8} y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.12" />
-      <polygon points={`${xMax + 0.8},0 ${xMax + 0.5},0.2 ${xMax + 0.5},-0.2`} fill="#212529" />
-      <line x1="0" y1={-yMin + 0.8} x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.12" />
-      <polygon points={`0,${-yMax - 0.8} 0.2,${-yMax - 0.5} -0.2,${-yMax - 0.5}`} fill="#212529" />
-
-      {/* Tick marks */}
-      {[-6, -4, -2, 2, 4, 6].map(x => (
-        <g key={`tx${x}`}>
-          <line x1={x} y1="-0.2" x2={x} y2="0.2" stroke="#212529" strokeWidth="0.1" />
-          <text x={x} y="0.9" fontSize="0.6" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
+    <SATGrid>
+      {({ toX, toY }) => (
+        <g clipPath="url(#gridClip)">
+          <path d={generatePath(toX, toY)} fill="none" stroke="#333" strokeWidth="2" />
+          {showVertex && <circle cx={toX(h)} cy={toY(k)} r="5" fill="#333" />}
+          {showPoints.map(([px, py], i) => (
+            <circle key={i} cx={toX(px)} cy={toY(py)} r="5" fill="#333" />
+          ))}
         </g>
-      ))}
-      {[-4, -2, 2, 4].map(y => (
-        <g key={`ty${y}`}>
-          <line x1="-0.2" y1={-y} x2="0.2" y2={-y} stroke="#212529" strokeWidth="0.1" />
-          <text x="-0.6" y={-y + 0.2} fontSize="0.6" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
-        </g>
-      ))}
-      <text x="-0.5" y="0.9" fontSize="0.6" fill="#495057" fontFamily="Arial, sans-serif">O</text>
-
-      {/* V-shape: left arm */}
-      <line
-        x1={leftEndX} y1={-Math.min(leftEndY, yMax)}
-        x2={h} y2={-k}
-        stroke="#1864ab" strokeWidth="0.18" strokeLinecap="round"
-      />
-
-      {/* V-shape: right arm */}
-      <line
-        x1={h} y1={-k}
-        x2={rightEndX} y2={-Math.min(rightEndY, yMax)}
-        stroke="#1864ab" strokeWidth="0.18" strokeLinecap="round"
-      />
-
-      {/* Vertex */}
-      <circle cx={h} cy={-k} r="0.28" fill="#c92a2a" />
-      <text
-        x={h + 0.5}
-        y={-k + (k < 0 ? -0.5 : 0.8)}
-        fontSize="0.55"
-        fill="#212529"
-        fontFamily="Arial, sans-serif"
-        fontWeight="500"
-      >
-        ({h}, {k})
-      </text>
-
-      {/* Additional points */}
-      {showPoints.map(([px, py], i) => (
-        <g key={i}>
-          <circle cx={px} cy={-py} r="0.25" fill="#1864ab" />
-        </g>
-      ))}
-
-      {/* Labels */}
-      <text x={xMax + 0.5} y="-0.5" fontSize="0.7" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">x</text>
-      <text x="0.5" y={-yMax - 0.3} fontSize="0.7" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">y</text>
-      <text x={xMax - 1.5} y={-yMax + 0.5} fontSize="0.6" fill="#1864ab" fontFamily="Times New Roman, serif" fontStyle="italic">y = f(x)</text>
-    </svg>
+      )}
+    </SATGrid>
   );
 };
 
-// SAT-Style Coordinate Points Diagram (just points on a grid)
-export const CoordinatePointsDiagram = ({ points = [], label = "f" }) => {
-  const xMin = -2, xMax = 8, yMin = -2, yMax = 12;
+// =============================================================================
+// ABSOLUTE VALUE DIAGRAM - y = a|x-h| + k
+// =============================================================================
+export const AbsoluteValueDiagram = ({ vertex = [0, 0], slope = 1, showPoints = [] }) => {
+  const [h, k] = vertex;
 
   return (
-    <svg
-      width="320"
-      height="300"
-      viewBox="-3 -13 12 16"
-      style={{
-        background: '#ffffff',
-        borderRadius: '4px',
-        border: '2px solid #343a40'
-      }}
-    >
-      {/* Grid */}
-      {[2, 4, 6].map(x => (
-        <line key={`v${x}`} x1={x} y1={-yMax - 0.5} x2={x} y2={-yMin + 0.5} stroke="#e9ecef" strokeWidth="0.05" />
-      ))}
-      {[2, 4, 6, 8, 10].map(y => (
-        <line key={`h${y}`} x1={xMin - 0.5} y1={-y} x2={xMax + 0.5} y2={-y} stroke="#e9ecef" strokeWidth="0.05" />
-      ))}
-
-      {/* Axes */}
-      <line x1={xMin - 0.8} y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.12" />
-      <polygon points={`${xMax + 0.8},0 ${xMax + 0.5},0.2 ${xMax + 0.5},-0.2`} fill="#212529" />
-      <line x1="0" y1={-yMin + 0.8} x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.12" />
-      <polygon points={`0,${-yMax - 0.8} 0.2,${-yMax - 0.5} -0.2,${-yMax - 0.5}`} fill="#212529" />
-
-      {/* Tick marks */}
-      {[2, 4, 6].map(x => (
-        <g key={`tx${x}`}>
-          <line x1={x} y1="-0.2" x2={x} y2="0.2" stroke="#212529" strokeWidth="0.1" />
-          <text x={x} y="0.9" fontSize="0.6" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
+    <SATGrid>
+      {({ toX, toY }) => (
+        <g clipPath="url(#gridClip)">
+          {/* Left arm */}
+          <line
+            x1={toX(-10)} y1={toY(k + slope * Math.abs(-10 - h))}
+            x2={toX(h)} y2={toY(k)}
+            stroke="#333" strokeWidth="2"
+          />
+          {/* Right arm */}
+          <line
+            x1={toX(h)} y1={toY(k)}
+            x2={toX(10)} y2={toY(k + slope * Math.abs(10 - h))}
+            stroke="#333" strokeWidth="2"
+          />
+          {/* Vertex */}
+          <circle cx={toX(h)} cy={toY(k)} r="5" fill="#333" />
+          {showPoints.map(([px, py], i) => (
+            <circle key={i} cx={toX(px)} cy={toY(py)} r="5" fill="#333" />
+          ))}
         </g>
-      ))}
-      {[2, 4, 6, 8, 10].map(y => (
-        <g key={`ty${y}`}>
-          <line x1="-0.2" y1={-y} x2="0.2" y2={-y} stroke="#212529" strokeWidth="0.1" />
-          <text x="-0.6" y={-y + 0.2} fontSize="0.6" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
-        </g>
-      ))}
-      <text x="-0.5" y="0.9" fontSize="0.6" fill="#495057" fontFamily="Arial, sans-serif">O</text>
-
-      {/* Points */}
-      {points.map(([px, py], i) => (
-        <g key={i}>
-          <circle cx={px} cy={-py} r="0.32" fill="#1864ab" />
-          <text
-            x={px + 0.5}
-            y={-py - 0.4}
-            fontSize="0.6"
-            fill="#212529"
-            fontFamily="Arial, sans-serif"
-            fontWeight="500"
-          >
-            ({px}, {py})
-          </text>
-        </g>
-      ))}
-
-      {/* Labels */}
-      <text x={xMax + 0.5} y="-0.5" fontSize="0.7" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">x</text>
-      <text x="0.5" y={-yMax - 0.3} fontSize="0.7" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">y</text>
-      <text x={xMax - 2} y={-yMax + 0.5} fontSize="0.6" fill="#1864ab" fontFamily="Times New Roman, serif" fontStyle="italic">y = {label}(x)</text>
-    </svg>
+      )}
+    </SATGrid>
   );
 };
 
-// SAT-Style Quadratic with X-Intercepts shown
-export const QuadraticInterceptsDiagram = ({ intercepts, vertex = null }) => {
+// =============================================================================
+// COORDINATE POINTS DIAGRAM - Just points on grid
+// =============================================================================
+export const CoordinatePointsDiagram = ({ points = [], xMin = -10, xMax = 10, yMin = -10, yMax = 10 }) => {
+  return (
+    <SATGrid xMin={xMin} xMax={xMax} yMin={yMin} yMax={yMax}>
+      {({ toX, toY }) => (
+        <g>
+          {points.map(([px, py], i) => (
+            <circle key={i} cx={toX(px)} cy={toY(py)} r="5" fill="#333" />
+          ))}
+        </g>
+      )}
+    </SATGrid>
+  );
+};
+
+// =============================================================================
+// QUADRATIC INTERCEPTS DIAGRAM - Parabola with x-intercepts marked
+// =============================================================================
+export const QuadraticInterceptsDiagram = ({ intercepts = [0, 4], vertex = null }) => {
   const [x1, x2] = intercepts;
   const h = (x1 + x2) / 2;
-  const k = -Math.pow((x2 - x1) / 2, 2) * 0.3; // Scale for better visibility
-  const xMin = -4, xMax = 8, yMin = -6, yMax = 4;
+  const k = -0.3 * Math.pow((x2 - x1) / 2, 2);
 
-  // Generate parabola path
-  const points = [];
-  for (let x = xMin; x <= xMax; x += 0.15) {
-    const y = 0.3 * (x - x1) * (x - x2);
-    if (y >= yMin && y <= yMax) {
-      points.push({ x, y });
+  const generatePath = (toX, toY) => {
+    let path = '';
+    for (let x = -10; x <= 10; x += 0.2) {
+      const y = 0.3 * (x - x1) * (x - x2);
+      if (y >= -10 && y <= 10) {
+        if (!path) path = `M ${toX(x)} ${toY(y)}`;
+        else path += ` L ${toX(x)} ${toY(y)}`;
+      }
     }
-  }
-
-  let pathD = '';
-  if (points.length > 0) {
-    pathD = `M ${points[0].x} ${-points[0].y}`;
-    for (let i = 1; i < points.length; i++) {
-      pathD += ` L ${points[i].x} ${-points[i].y}`;
-    }
-  }
+    return path;
+  };
 
   return (
-    <svg
-      width="340"
-      height="280"
-      viewBox="-5 -5 14 11"
-      style={{
-        background: '#ffffff',
-        borderRadius: '4px',
-        border: '2px solid #343a40'
-      }}
-    >
-      {/* Grid */}
-      {[-2, 2, 4, 6].map(x => (
-        <line key={`v${x}`} x1={x} y1={-yMax - 0.5} x2={x} y2={-yMin + 0.5} stroke="#e9ecef" strokeWidth="0.05" />
-      ))}
-      {[-4, -2, 2].map(y => (
-        <line key={`h${y}`} x1={xMin - 0.5} y1={-y} x2={xMax + 0.5} y2={-y} stroke="#e9ecef" strokeWidth="0.05" />
-      ))}
-
-      {/* Axes */}
-      <line x1={xMin - 0.8} y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.12" />
-      <polygon points={`${xMax + 0.8},0 ${xMax + 0.5},0.2 ${xMax + 0.5},-0.2`} fill="#212529" />
-      <line x1="0" y1={-yMin + 0.8} x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.12" />
-      <polygon points={`0,${-yMax - 0.8} 0.2,${-yMax - 0.5} -0.2,${-yMax - 0.5}`} fill="#212529" />
-
-      {/* Tick marks */}
-      {[-2, 2, 4, 6].map(x => (
-        <g key={`tx${x}`}>
-          <line x1={x} y1="-0.2" x2={x} y2="0.2" stroke="#212529" strokeWidth="0.1" />
-          <text x={x} y="0.8" fontSize="0.55" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
+    <SATGrid>
+      {({ toX, toY }) => (
+        <g clipPath="url(#gridClip)">
+          <path d={generatePath(toX, toY)} fill="none" stroke="#333" strokeWidth="2" />
+          <circle cx={toX(x1)} cy={toY(0)} r="5" fill="#333" />
+          <circle cx={toX(x2)} cy={toY(0)} r="5" fill="#333" />
         </g>
-      ))}
-      {[-4, -2, 2].map(y => (
-        <g key={`ty${y}`}>
-          <line x1="-0.2" y1={-y} x2="0.2" y2={-y} stroke="#212529" strokeWidth="0.1" />
-          <text x="-0.5" y={-y + 0.2} fontSize="0.55" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
-        </g>
-      ))}
-      <text x="-0.5" y="0.8" fontSize="0.55" fill="#495057" fontFamily="Arial, sans-serif">O</text>
-
-      {/* Parabola */}
-      <path d={pathD} fill="none" stroke="#1864ab" strokeWidth="0.18" strokeLinecap="round" />
-
-      {/* X-intercepts - green dots */}
-      <circle cx={x1} cy="0" r="0.28" fill="#2f9e44" />
-      <text x={x1} y="1.1" fontSize="0.55" fill="#2f9e44" textAnchor="middle" fontFamily="Arial, sans-serif" fontWeight="600">
-        {x1}
-      </text>
-
-      <circle cx={x2} cy="0" r="0.28" fill="#2f9e44" />
-      <text x={x2} y="1.1" fontSize="0.55" fill="#2f9e44" textAnchor="middle" fontFamily="Arial, sans-serif" fontWeight="600">
-        {x2}
-      </text>
-
-      {/* Labels */}
-      <text x={xMax + 0.5} y="-0.5" fontSize="0.7" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">x</text>
-      <text x="0.5" y={-yMax - 0.3} fontSize="0.7" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">y</text>
-      <text x={xMax - 1.5} y={-yMax + 0.5} fontSize="0.6" fill="#1864ab" fontFamily="Times New Roman, serif" fontStyle="italic">y = f(x)</text>
-    </svg>
+      )}
+    </SATGrid>
   );
 };
 
-// SAT-Style Table Diagram (for table-to-equation questions)
-export const TableDiagram = ({ rows = [], xHeader = "x", yHeader = "f(x)" }) => {
-  const cellWidth = 80;
-  const cellHeight = 40;
-  const headerHeight = 45;
-  const tableWidth = cellWidth * 2;
-  const tableHeight = headerHeight + rows.length * cellHeight;
-
+// =============================================================================
+// SCATTERPLOT DIAGRAM - Points for best-fit questions
+// =============================================================================
+export const ScatterplotDiagram = ({ points = [], xMax = 10, yMax = 10 }) => {
   return (
-    <svg
-      width={tableWidth + 4}
-      height={tableHeight + 4}
-      viewBox={`0 0 ${tableWidth + 4} ${tableHeight + 4}`}
-      style={{
-        background: '#ffffff',
-        borderRadius: '4px',
-        border: '2px solid #343a40'
-      }}
-    >
-      {/* Table border */}
-      <rect
-        x="2"
-        y="2"
-        width={tableWidth}
-        height={tableHeight}
-        fill="none"
-        stroke="#212529"
-        strokeWidth="2"
-      />
-
-      {/* Header row background */}
-      <rect
-        x="2"
-        y="2"
-        width={tableWidth}
-        height={headerHeight}
-        fill="#f8f9fa"
-        stroke="#212529"
-        strokeWidth="1"
-      />
-
-      {/* Vertical divider between columns */}
-      <line
-        x1={2 + cellWidth}
-        y1="2"
-        x2={2 + cellWidth}
-        y2={tableHeight + 2}
-        stroke="#212529"
-        strokeWidth="2"
-      />
-
-      {/* Horizontal line under header */}
-      <line
-        x1="2"
-        y1={2 + headerHeight}
-        x2={tableWidth + 2}
-        y2={2 + headerHeight}
-        stroke="#212529"
-        strokeWidth="2"
-      />
-
-      {/* Header text */}
-      <text
-        x={2 + cellWidth / 2}
-        y={2 + headerHeight / 2 + 6}
-        fontSize="18"
-        fontWeight="600"
-        textAnchor="middle"
-        fill="#212529"
-        fontFamily="Times New Roman, serif"
-        fontStyle="italic"
-      >
-        {xHeader}
-      </text>
-      <text
-        x={2 + cellWidth + cellWidth / 2}
-        y={2 + headerHeight / 2 + 6}
-        fontSize="18"
-        fontWeight="600"
-        textAnchor="middle"
-        fill="#212529"
-        fontFamily="Times New Roman, serif"
-        fontStyle="italic"
-      >
-        {yHeader}
-      </text>
-
-      {/* Data rows */}
-      {rows.map((row, i) => {
-        const rowY = 2 + headerHeight + i * cellHeight;
-        return (
-          <g key={i}>
-            {/* Horizontal line between rows (except first) */}
-            {i > 0 && (
-              <line
-                x1="2"
-                y1={rowY}
-                x2={tableWidth + 2}
-                y2={rowY}
-                stroke="#dee2e6"
-                strokeWidth="1"
-              />
-            )}
-            {/* X value */}
-            <text
-              x={2 + cellWidth / 2}
-              y={rowY + cellHeight / 2 + 6}
-              fontSize="16"
-              textAnchor="middle"
-              fill="#212529"
-              fontFamily="Arial, sans-serif"
-            >
-              {row[0]}
-            </text>
-            {/* Y value */}
-            <text
-              x={2 + cellWidth + cellWidth / 2}
-              y={rowY + cellHeight / 2 + 6}
-              fontSize="16"
-              textAnchor="middle"
-              fill="#212529"
-              fontFamily="Arial, sans-serif"
-            >
-              {row[1]}
-            </text>
-          </g>
-        );
-      })}
-    </svg>
+    <SATGrid xMin={0} xMax={xMax} yMin={0} yMax={yMax}>
+      {({ toX, toY }) => (
+        <g>
+          {points.map(([px, py], i) => (
+            <circle key={i} cx={toX(px)} cy={toY(py)} r="4" fill="#333" />
+          ))}
+        </g>
+      )}
+    </SATGrid>
   );
 };
 
-// SAT-Style Scatterplot Diagram (for best-fit line questions)
-export const ScatterplotDiagram = ({ points = [], xLabel = "x", yLabel = "y", xMax = 10, yMax = 10 }) => {
-  const xMin = 0, yMin = 0;
-
-  return (
-    <svg
-      width="320"
-      height="280"
-      viewBox={`-1.5 ${-yMax - 1.5} ${xMax + 3} ${yMax + 3}`}
-      style={{
-        background: '#ffffff',
-        borderRadius: '4px',
-        border: '2px solid #343a40'
-      }}
-    >
-      {/* Grid lines */}
-      {Array.from({ length: Math.floor(xMax / 2) + 1 }, (_, i) => i * 2).filter(x => x > 0).map(x => (
-        <line key={`v${x}`} x1={x} y1={-yMax - 0.3} x2={x} y2={0.3} stroke="#e9ecef" strokeWidth="0.04" />
-      ))}
-      {Array.from({ length: Math.floor(yMax / 2) + 1 }, (_, i) => i * 2).filter(y => y > 0).map(y => (
-        <line key={`h${y}`} x1={-0.3} y1={-y} x2={xMax + 0.3} y2={-y} stroke="#e9ecef" strokeWidth="0.04" />
-      ))}
-
-      {/* Main X-axis */}
-      <line x1="-0.5" y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.1" />
-      <polygon points={`${xMax + 0.8},0 ${xMax + 0.5},0.15 ${xMax + 0.5},-0.15`} fill="#212529" />
-
-      {/* Main Y-axis */}
-      <line x1="0" y1="0.5" x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.1" />
-      <polygon points={`0,${-yMax - 0.8} 0.15,${-yMax - 0.5} -0.15,${-yMax - 0.5}`} fill="#212529" />
-
-      {/* X-axis tick marks and labels */}
-      {Array.from({ length: Math.floor(xMax / 2) + 1 }, (_, i) => i * 2).filter(x => x > 0).map(x => (
-        <g key={`tx${x}`}>
-          <line x1={x} y1="-0.15" x2={x} y2="0.15" stroke="#212529" strokeWidth="0.08" />
-          <text x={x} y="0.7" fontSize="0.5" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
-        </g>
-      ))}
-
-      {/* Y-axis tick marks and labels */}
-      {Array.from({ length: Math.floor(yMax / 2) + 1 }, (_, i) => i * 2).filter(y => y > 0).map(y => (
-        <g key={`ty${y}`}>
-          <line x1="-0.15" y1={-y} x2="0.15" y2={-y} stroke="#212529" strokeWidth="0.08" />
-          <text x="-0.4" y={-y + 0.15} fontSize="0.5" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
-        </g>
-      ))}
-
-      {/* Origin */}
-      <text x="-0.4" y="0.7" fontSize="0.5" fill="#495057" fontFamily="Arial, sans-serif">O</text>
-
-      {/* Scatter points - solid black dots */}
-      {points.map(([px, py], i) => (
-        <circle key={i} cx={px} cy={-py} r="0.22" fill="#212529" />
-      ))}
-
-      {/* Axis labels */}
-      <text x={xMax + 0.5} y="-0.4" fontSize="0.55" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">{xLabel}</text>
-      <text x="0.4" y={-yMax - 0.2} fontSize="0.55" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">{yLabel}</text>
-    </svg>
-  );
-};
-
-// SAT-Style Linear Line Diagram (line passing through two points)
-export const LinearLineDiagram = ({ points = [], xLabel = "x", yLabel = "y", xRange = [-1, 10], yRange = [-1, 10], showLabels = true }) => {
+// =============================================================================
+// LINEAR LINE DIAGRAM - Line through points
+// =============================================================================
+export const LinearLineDiagram = ({ points = [], xRange = [-10, 10], yRange = [-10, 10] }) => {
   const [xMin, xMax] = xRange;
   const [yMin, yMax] = yRange;
 
-  // Calculate line equation from two points
-  let linePathD = '';
+  let slope = 1, intercept = 0;
   if (points.length >= 2) {
     const [x1, y1] = points[0];
     const [x2, y2] = points[1];
-    const slope = (y2 - y1) / (x2 - x1);
-    const intercept = y1 - slope * x1;
-
-    // Extend line to edges of visible area
-    const lineStartX = xMin - 1;
-    const lineStartY = slope * lineStartX + intercept;
-    const lineEndX = xMax + 1;
-    const lineEndY = slope * lineEndX + intercept;
-
-    linePathD = `M ${lineStartX} ${-lineStartY} L ${lineEndX} ${-lineEndY}`;
+    slope = (y2 - y1) / (x2 - x1);
+    intercept = y1 - slope * x1;
   }
 
+  const getY = (x) => slope * x + intercept;
+
   return (
-    <svg
-      width="320"
-      height="280"
-      viewBox={`${xMin - 1.5} ${-yMax - 1.5} ${xMax - xMin + 3} ${yMax - yMin + 3}`}
-      style={{
-        background: '#ffffff',
-        borderRadius: '4px',
-        border: '2px solid #343a40'
-      }}
-    >
-      {/* Grid lines */}
-      {Array.from({ length: Math.floor((xMax - xMin) / 10) * 5 + 1 }, (_, i) => xMin + i * 10).filter(x => x !== 0 && x >= xMin && x <= xMax).map(x => (
-        <line key={`v${x}`} x1={x} y1={-yMax - 0.3} x2={x} y2={-yMin + 0.3} stroke="#e9ecef" strokeWidth="0.3" />
-      ))}
-      {Array.from({ length: Math.floor((yMax - yMin) / 10) * 5 + 1 }, (_, i) => yMin + i * 10).filter(y => y !== 0 && y >= yMin && y <= yMax).map(y => (
-        <line key={`h${y}`} x1={xMin - 0.3} y1={-y} x2={xMax + 0.3} y2={-y} stroke="#e9ecef" strokeWidth="0.3" />
-      ))}
-
-      {/* Main X-axis */}
-      <line x1={xMin - 0.5} y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.8" />
-      <polygon points={`${xMax + 0.8},0 ${xMax + 0.3},1.2 ${xMax + 0.3},-1.2`} fill="#212529" />
-
-      {/* Main Y-axis */}
-      <line x1="0" y1={-yMin + 0.5} x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.8" />
-      <polygon points={`0,${-yMax - 0.8} 1.2,${-yMax - 0.3} -1.2,${-yMax - 0.3}`} fill="#212529" />
-
-      {/* Tick marks - every 10 units for larger scales, or every unit for smaller */}
-      {(() => {
-        const step = xMax > 20 ? 20 : 10;
-        return Array.from({ length: Math.floor(xMax / step) + 1 }, (_, i) => i * step)
-          .filter(x => x > 0 && x <= xMax)
-          .map(x => (
-            <g key={`tx${x}`}>
-              <line x1={x} y1="-1" x2={x} y2="1" stroke="#212529" strokeWidth="0.5" />
-              <text x={x} y="5" fontSize="4" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
-            </g>
-          ));
-      })()}
-
-      {(() => {
-        const step = yMax > 20 ? 20 : 10;
-        return Array.from({ length: Math.floor(yMax / step) + 1 }, (_, i) => i * step)
-          .filter(y => y > 0 && y <= yMax)
-          .map(y => (
-            <g key={`ty${y}`}>
-              <line x1="-1" y1={-y} x2="1" y2={-y} stroke="#212529" strokeWidth="0.5" />
-              <text x="-3" y={-y + 1.5} fontSize="4" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
-            </g>
-          ));
-      })()}
-
-      {/* Origin */}
-      <text x="-3" y="5" fontSize="4" fill="#495057" fontFamily="Arial, sans-serif">O</text>
-
-      {/* Line */}
-      {linePathD && (
-        <path d={linePathD} fill="none" stroke="#212529" strokeWidth="1.2" />
-      )}
-
-      {/* Points - if we want to show them */}
-      {showLabels && points.map(([px, py], i) => (
-        <g key={i}>
-          <circle cx={px} cy={-py} r="2" fill="#212529" />
+    <SATGrid xMin={xMin} xMax={xMax} yMin={yMin} yMax={yMax}>
+      {({ toX, toY }) => (
+        <g clipPath="url(#gridClip)">
+          <line
+            x1={toX(xMin - 5)} y1={toY(getY(xMin - 5))}
+            x2={toX(xMax + 5)} y2={toY(getY(xMax + 5))}
+            stroke="#333" strokeWidth="2"
+          />
+          {points.map(([px, py], i) => (
+            <circle key={i} cx={toX(px)} cy={toY(py)} r="5" fill="#333" />
+          ))}
         </g>
-      ))}
-
-      {/* Axis labels */}
-      <text x={xMax - 5} y="8" fontSize="5" fill="#212529" fontFamily="Arial, sans-serif">{xLabel}</text>
-      <text x="3" y={-yMax + 3} fontSize="5" fill="#212529" fontFamily="Arial, sans-serif">{yLabel}</text>
-    </svg>
+      )}
+    </SATGrid>
   );
 };
 
-// SAT-Style Simple Line Diagram (for smaller coordinate systems)
+// =============================================================================
+// SIMPLE LINE DIAGRAM - Small coordinate system
+// =============================================================================
 export const SimpleLineDiagram = ({ points = [], xMax = 6, yMax = 12 }) => {
-  // Calculate line equation and extend
-  let linePathD = '';
+  let slope = 1, intercept = 0;
   if (points.length >= 2) {
     const [x1, y1] = points[0];
     const [x2, y2] = points[1];
-    const slope = (y2 - y1) / (x2 - x1);
-    const intercept = y1 - slope * x1;
-
-    const lineStartX = -0.5;
-    const lineStartY = slope * lineStartX + intercept;
-    const lineEndX = xMax + 0.5;
-    const lineEndY = slope * lineEndX + intercept;
-
-    linePathD = `M ${lineStartX} ${-lineStartY} L ${lineEndX} ${-lineEndY}`;
+    slope = (y2 - y1) / (x2 - x1);
+    intercept = y1 - slope * x1;
   }
 
+  const getY = (x) => slope * x + intercept;
+
   return (
-    <svg
-      width="300"
-      height="280"
-      viewBox={`-1.5 ${-yMax - 1.5} ${xMax + 3} ${yMax + 3}`}
-      style={{
-        background: '#ffffff',
-        borderRadius: '4px',
-        border: '2px solid #343a40'
-      }}
-    >
-      {/* Grid */}
-      {Array.from({ length: xMax + 1 }, (_, i) => i).filter(x => x > 0).map(x => (
-        <line key={`v${x}`} x1={x} y1={-yMax - 0.3} x2={x} y2="0.3" stroke="#e9ecef" strokeWidth="0.04" />
-      ))}
-      {Array.from({ length: yMax + 1 }, (_, i) => i).filter(y => y > 0 && y % 2 === 0).map(y => (
-        <line key={`h${y}`} x1="-0.3" y1={-y} x2={xMax + 0.3} y2={-y} stroke="#e9ecef" strokeWidth="0.04" />
-      ))}
-
-      {/* Axes */}
-      <line x1="-0.5" y1="0" x2={xMax + 0.8} y2="0" stroke="#212529" strokeWidth="0.1" />
-      <polygon points={`${xMax + 0.8},0 ${xMax + 0.5},0.2 ${xMax + 0.5},-0.2`} fill="#212529" />
-      <line x1="0" y1="0.5" x2="0" y2={-yMax - 0.8} stroke="#212529" strokeWidth="0.1" />
-      <polygon points={`0,${-yMax - 0.8} 0.2,${-yMax - 0.5} -0.2,${-yMax - 0.5}`} fill="#212529" />
-
-      {/* Tick marks */}
-      {Array.from({ length: xMax + 1 }, (_, i) => i).filter(x => x > 0).map(x => (
-        <g key={`tx${x}`}>
-          <line x1={x} y1="-0.15" x2={x} y2="0.15" stroke="#212529" strokeWidth="0.08" />
-          <text x={x} y="0.7" fontSize="0.5" textAnchor="middle" fill="#495057" fontFamily="Arial, sans-serif">{x}</text>
+    <SATGrid xMin={-1} xMax={xMax} yMin={-1} yMax={yMax}>
+      {({ toX, toY }) => (
+        <g clipPath="url(#gridClip)">
+          <line
+            x1={toX(-2)} y1={toY(getY(-2))}
+            x2={toX(xMax + 2)} y2={toY(getY(xMax + 2))}
+            stroke="#333" strokeWidth="2"
+          />
+          {points.map(([px, py], i) => (
+            <circle key={i} cx={toX(px)} cy={toY(py)} r="5" fill="#333" />
+          ))}
         </g>
-      ))}
-      {Array.from({ length: yMax + 1 }, (_, i) => i).filter(y => y > 0 && y % 2 === 0).map(y => (
-        <g key={`ty${y}`}>
-          <line x1="-0.15" y1={-y} x2="0.15" y2={-y} stroke="#212529" strokeWidth="0.08" />
-          <text x="-0.4" y={-y + 0.15} fontSize="0.5" textAnchor="end" fill="#495057" fontFamily="Arial, sans-serif">{y}</text>
-        </g>
-      ))}
-      <text x="-0.4" y="0.7" fontSize="0.5" fill="#495057" fontFamily="Arial, sans-serif">O</text>
-
-      {/* Line */}
-      {linePathD && (
-        <path d={linePathD} fill="none" stroke="#212529" strokeWidth="0.12" />
       )}
+    </SATGrid>
+  );
+};
 
-      {/* Points */}
-      {points.map(([px, py], i) => (
-        <circle key={i} cx={px} cy={-py} r="0.2" fill="#212529" />
-      ))}
+// =============================================================================
+// WAVY FUNCTION DIAGRAM - Cubic-like curve
+// =============================================================================
+export const WavyFunctionDiagram = ({ crossings = [-2, 1.5, 4.5], horizontalLine = 2.5 }) => {
+  const generatePath = (toX, toY) => {
+    let path = '';
+    for (let x = -10; x <= 10; x += 0.1) {
+      const y = -0.15 * (x - crossings[0]) * (x - crossings[1]) * (x - crossings[2]) + horizontalLine;
+      if (y >= -10 && y <= 10) {
+        if (!path) path = `M ${toX(x)} ${toY(y)}`;
+        else path += ` L ${toX(x)} ${toY(y)}`;
+      }
+    }
+    return path;
+  };
 
-      {/* Axis labels */}
-      <text x={xMax + 0.5} y="-0.4" fontSize="0.55" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">x</text>
-      <text x="0.4" y={-yMax - 0.2} fontSize="0.55" fill="#212529" fontFamily="Times New Roman, serif" fontStyle="italic">y</text>
+  return (
+    <SATGrid>
+      {({ toX, toY }) => (
+        <g clipPath="url(#gridClip)">
+          {/* Horizontal reference line */}
+          <line
+            x1={toX(-10)} y1={toY(horizontalLine)}
+            x2={toX(10)} y2={toY(horizontalLine)}
+            stroke="#999" strokeWidth="1" strokeDasharray="5,5"
+          />
+          {/* Curve */}
+          <path d={generatePath(toX, toY)} fill="none" stroke="#333" strokeWidth="2" />
+        </g>
+      )}
+    </SATGrid>
+  );
+};
+
+// =============================================================================
+// GENERAL FUNCTION DIAGRAM - Passes through specific points
+// =============================================================================
+export const GeneralFunctionDiagram = ({ points = [[0, 3], [1, -2]], xRange = [-10, 10], yRange = [-10, 10] }) => {
+  const [xMin, xMax] = xRange;
+  const [yMin, yMax] = yRange;
+
+  // Create a curve passing through points (simple linear interpolation for 2 points)
+  let slope = 1, intercept = 0;
+  if (points.length >= 2) {
+    const [x1, y1] = points[0];
+    const [x2, y2] = points[1];
+    slope = (y2 - y1) / (x2 - x1);
+    intercept = y1 - slope * x1;
+  }
+
+  const getY = (x) => slope * x + intercept;
+
+  return (
+    <SATGrid xMin={xMin} xMax={xMax} yMin={yMin} yMax={yMax}>
+      {({ toX, toY }) => (
+        <g clipPath="url(#gridClip)">
+          <line
+            x1={toX(xMin - 2)} y1={toY(getY(xMin - 2))}
+            x2={toX(xMax + 2)} y2={toY(getY(xMax + 2))}
+            stroke="#333" strokeWidth="2"
+          />
+          {points.map(([px, py], i) => (
+            <circle key={i} cx={toX(px)} cy={toY(py)} r="5" fill="#333" />
+          ))}
+        </g>
+      )}
+    </SATGrid>
+  );
+};
+
+// =============================================================================
+// TABLE DIAGRAM - For x/f(x) tables (2 columns)
+// =============================================================================
+export const TableDiagram = ({ rows = [], xHeader = "x", yHeader = "f(x)" }) => {
+  return (
+    <table style={{
+      borderCollapse: 'collapse',
+      fontSize: '14px',
+      fontFamily: 'system-ui, -apple-system, sans-serif',
+      margin: '0 auto'
+    }}>
+      <thead>
+        <tr>
+          <th style={{ padding: '8px 24px', border: '1px solid #ccc', background: '#e8f4fc', fontWeight: '500', fontStyle: 'italic' }}>{xHeader}</th>
+          <th style={{ padding: '8px 24px', border: '1px solid #ccc', background: '#e8f4fc', fontWeight: '500', fontStyle: 'italic' }}>{yHeader}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row, i) => (
+          <tr key={i}>
+            <td style={{ padding: '6px 24px', border: '1px solid #ccc', textAlign: 'center' }}>{row[0]}</td>
+            <td style={{ padding: '6px 24px', border: '1px solid #ccc', textAlign: 'center' }}>{row[1]}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+};
+
+// =============================================================================
+// DATA TABLE DIAGRAM - For multi-column tables (like probability tables)
+// =============================================================================
+export const DataTableDiagram = ({ headers = [], rows = [] }) => {
+  return (
+    <table style={{
+      borderCollapse: 'collapse',
+      fontSize: '14px',
+      fontFamily: 'system-ui, -apple-system, sans-serif',
+      margin: '0 auto'
+    }}>
+      <thead>
+        <tr>
+          {headers.map((header, i) => (
+            <th key={i} style={{
+              padding: '8px 16px',
+              border: '1px solid #ccc',
+              background: i === 0 ? '#f5f5f5' : '#e8f4fc',
+              fontWeight: '500',
+              textAlign: 'center'
+            }}>
+              {header}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row, rowIdx) => (
+          <tr key={rowIdx}>
+            {row.map((cell, colIdx) => (
+              <td key={colIdx} style={{
+                padding: '6px 16px',
+                border: '1px solid #ccc',
+                background: colIdx === 0 ? '#f9f9f9' : '#fff',
+                textAlign: colIdx === 0 ? 'left' : 'center'
+              }}>
+                {cell}
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+};
+
+// =============================================================================
+// DOT PLOT DIAGRAM - For comparing distributions
+// =============================================================================
+export const DotPlotDiagram = ({
+  data1 = [],
+  data2 = [],
+  title1 = "Data Set 1",
+  title2 = "Data Set 2",
+  xMin = 0,
+  xMax = 10
+}) => {
+  const width = 340;
+  const plotHeight = 80;
+  const totalHeight = plotHeight * 2 + 60;
+  const padding = 40;
+  const plotWidth = width - 2 * padding;
+  const scale = plotWidth / (xMax - xMin);
+
+  const renderDotPlot = (data, yOffset, title) => {
+    return (
+      <g transform={`translate(0, ${yOffset})`}>
+        {/* Title */}
+        <text x={padding} y={-5} fontSize="12" fontFamily="Arial, sans-serif" fill="#333" fontWeight="500">{title}</text>
+
+        {/* Axis line */}
+        <line x1={padding} y1={plotHeight - 20} x2={width - padding} y2={plotHeight - 20} stroke="#444" strokeWidth="1.5" />
+
+        {/* Tick marks and labels */}
+        {Array.from({ length: xMax - xMin + 1 }, (_, i) => xMin + i).map(x => (
+          <g key={x}>
+            <line x1={padding + (x - xMin) * scale} y1={plotHeight - 20} x2={padding + (x - xMin) * scale} y2={plotHeight - 15} stroke="#444" strokeWidth="1" />
+            <text x={padding + (x - xMin) * scale} y={plotHeight - 5} fontSize="10" textAnchor="middle" fill="#333">{x}</text>
+          </g>
+        ))}
+
+        {/* Dots */}
+        {data.map((item, i) => {
+          const dots = [];
+          for (let d = 0; d < item.count; d++) {
+            dots.push(
+              <circle
+                key={`${i}-${d}`}
+                cx={padding + (item.value - xMin) * scale}
+                cy={plotHeight - 28 - d * 12}
+                r="5"
+                fill="#333"
+              />
+            );
+          }
+          return dots;
+        })}
+      </g>
+    );
+  };
+
+  return (
+    <svg width={width} height={totalHeight} style={{ display: 'block', margin: '0 auto' }}>
+      <rect width={width} height={totalHeight} fill="#f5f5f5" />
+      {renderDotPlot(data1, 20, title1)}
+      {renderDotPlot(data2, plotHeight + 50, title2)}
     </svg>
   );
 };
 
-// Main QuestionDiagram component that switches based on type
+// =============================================================================
+// MAIN QUESTION DIAGRAM COMPONENT - Switch based on type
+// =============================================================================
 const QuestionDiagram = ({ type, params }) => {
   switch (type) {
     case 'rationalFunction':
       return <RationalFunctionDiagram {...params} />;
     case 'quadraticVertex':
+    case 'quadratic':
       return <QuadraticDiagram {...params} />;
     case 'absoluteValue':
       return <AbsoluteValueDiagram {...params} />;
@@ -952,6 +595,16 @@ const QuestionDiagram = ({ type, params }) => {
       return <SimpleLineDiagram {...params} />;
     case 'table':
       return <TableDiagram {...params} />;
+    case 'linearFunctionGraph':
+      return <LinearFunctionGraphDiagram {...params} />;
+    case 'wavyFunction':
+      return <WavyFunctionDiagram {...params} />;
+    case 'generalFunction':
+      return <GeneralFunctionDiagram {...params} />;
+    case 'dotPlot':
+      return <DotPlotDiagram {...params} />;
+    case 'dataTable':
+      return <DataTableDiagram {...params} />;
     default:
       return null;
   }

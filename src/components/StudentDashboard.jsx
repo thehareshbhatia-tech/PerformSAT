@@ -85,6 +85,7 @@ const StudentDashboard = ({
   onUpdateTargetSchools,
   onStartPractice,
   onStartReview,
+  onStartPracticeTest,
   allLessons,
   skillDiagnosticSummary,
   skillBreakdown
@@ -814,6 +815,86 @@ const StudentDashboard = ({
           </button>
         </div>
       )}
+
+      {/* Practice Test Card */}
+      <div
+        style={{
+          ...cardStyle,
+          marginBottom: '24px',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          background: '#f0f9ff',
+          border: '1px solid #bae6fd'
+        }}
+      >
+        <div>
+          <div style={{ fontSize: '13px', color: '#0369a1', fontWeight: '500', marginBottom: '4px' }}>
+            Diagnostic Test
+          </div>
+          <div style={{ fontSize: '18px', fontWeight: '600', color: '#111827' }}>
+            SAT Math Diagnostic
+          </div>
+          <div style={{ fontSize: '13px', color: '#6b7280', marginTop: '4px' }}>
+            44 questions • 2 modules • ~70 minutes
+          </div>
+        </div>
+        <button
+          onClick={() => onStartPracticeTest && onStartPracticeTest('practice_test_1')}
+          style={{
+            padding: '10px 20px',
+            background: '#0284c7',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '8px',
+            fontSize: '14px',
+            fontWeight: '600',
+            cursor: 'pointer'
+          }}
+        >
+          Take Test
+        </button>
+      </div>
+
+      {/* Practice Test 2 Card */}
+      <div
+        style={{
+          ...cardStyle,
+          marginBottom: '24px',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          background: '#f0fdf4',
+          border: '1px solid #bbf7d0'
+        }}
+      >
+        <div>
+          <div style={{ fontSize: '13px', color: '#15803d', fontWeight: '500', marginBottom: '4px' }}>
+            Practice Test
+          </div>
+          <div style={{ fontSize: '18px', fontWeight: '600', color: '#111827' }}>
+            SAT Math Practice Test 2
+          </div>
+          <div style={{ fontSize: '13px', color: '#6b7280', marginTop: '4px' }}>
+            44 questions • 2 modules • ~70 minutes
+          </div>
+        </div>
+        <button
+          onClick={() => onStartPracticeTest && onStartPracticeTest('practice_test_2')}
+          style={{
+            padding: '10px 20px',
+            background: '#16a34a',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '8px',
+            fontSize: '14px',
+            fontWeight: '600',
+            cursor: 'pointer'
+          }}
+        >
+          Take Test
+        </button>
+      </div>
 
       {/* Strongest / Weakest Row */}
       <div style={{
