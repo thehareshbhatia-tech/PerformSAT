@@ -5,6 +5,7 @@ import { markLessonComplete as markComplete, markLessonIncomplete } from '../ser
 import { recordPracticeAttempt as recordAttempt } from '../services/practiceService';
 import { getDueReviewCount, getReviewStats } from '../services/reviewService';
 import { recordSkillAttempts, getSkillDiagnosticSummary as getDiagnostic, getSkillBreakdown as getBreakdown } from '../services/skillService';
+import { recordPracticeTestResult as recordTestResult, getPracticeTestBestScore, getPracticeTestAttempts, saveTestProgress as saveProgress, clearTestProgress as clearProgress, getInProgressTest } from '../services/practiceTestService';
 
 /**
  * Hook for managing user progress with real-time Firestore sync
@@ -16,6 +17,8 @@ export const useProgress = (userId) => {
   const [practiceProgress, setPracticeProgress] = useState({});
   const [reviewQueue, setReviewQueue] = useState({});
   const [skillProgress, setSkillProgress] = useState({});
+  const [practiceTestResults, setPracticeTestResults] = useState({});
+  const [inProgressTests, setInProgressTests] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -60,11 +63,19 @@ export const useProgress = (userId) => {
 
           // Get skill progress
           setSkillProgress(data.skillProgress || {});
+
+          // Get practice test results
+          setPracticeTestResults(data.practiceTestResults || {});
+
+          // Get in-progress tests
+          setInProgressTests(data.inProgressTests || {});
         } else {
           setCompletedLessons({});
           setPracticeProgress({});
           setReviewQueue({});
           setSkillProgress({});
+          setPracticeTestResults({});
+          setInProgressTests({});
         }
         setLoading(false);
       },
@@ -291,11 +302,157 @@ export const useProgress = (userId) => {
     return getBreakdown(skillProgress);
   };
 
+  // ===== Practice Test Results Functions =====
+
+  /**
+   * Records a practice test result with optimistic update
+   * @param {string} testId - Test ID
+   * @param {string} testTitle - Test title
+   * @param {Object} results - Test results { rawScore, totalQuestions, scaledScore, timedMode, moduleScores }
+   */
+  const recordPracticeTestAttempt = async (testId, testTitle, results) => {
+    console.log('[useProgress] recordPracticeTestAttempt called:', { userId, testId, testTitle, results });
+
+    // Optimistic update
+    setPracticeTestResults(prev => {
+      const existing = prev[testId];
+      const attemptData = {
+        completedAt: new Date().toISOString(),
+        rawScore: results.rawScore,
+        totalQuestions: results.totalQuestions,
+        scaledScore: results.scaledScore,
+        timedMode: results.timedMode,
+        moduleScores: results.moduleScores
+      };
+
+      if (existing) {
+        return {
+          ...prev,
+          [testId]: {
+            ...existing,
+            attempts: [...(existing.attempts || []), attemptData],
+            bestScaledScore: Math.max(existing.bestScaledScore, results.scaledScore),
+            bestRawScore: Math.max(existing.bestRawScore, results.rawScore),
+            totalAttempts: existing.totalAttempts + 1,
+            lastAttemptAt: new Date()
+          }
+        };
+      } else {
+        return {
+          ...prev,
+          [testId]: {
+            testId,
+            testTitle,
+            attempts: [attemptData],
+            bestScaledScore: results.scaledScore,
+            bestRawScore: results.rawScore,
+            totalAttempts: 1,
+            lastAttemptAt: new Date()
+          }
+        };
+      }
+    });
+
+    try {
+      console.log('[useProgress] Calling Firestore recordTestResult...');
+      await recordTestResult(userId, testId, testTitle, results);
+      console.log('[useProgress] Firestore save successful!');
+    } catch (err) {
+      console.error('[useProgress] Failed to record practice test result:', err);
+      setError(err.message);
+    }
+  };
+
+  /**
+   * Gets best SAT score for a test
+   * @param {string} testId - Test ID
+   * @returns {number|null} Best scaled score or null
+   */
+  const getTestBestScore = (testId) => {
+    return getPracticeTestBestScore(practiceTestResults, testId);
+  };
+
+  /**
+   * Gets number of attempts for a test
+   * @param {string} testId - Test ID
+   * @returns {number} Number of attempts
+   */
+  const getTestAttempts = (testId) => {
+    return getPracticeTestAttempts(practiceTestResults, testId);
+  };
+
+  // ===== In-Progress Test Functions =====
+
+  /**
+   * Saves test progress (called when user answers questions or navigates)
+   * @param {string} testId - Test ID
+   * @param {Object} progressData - Current progress state
+   */
+  const saveTestProgress = async (testId, progressData) => {
+    if (!userId) return;
+
+    // Optimistic update
+    setInProgressTests(prev => ({
+      ...prev,
+      [testId]: {
+        testId,
+        ...progressData,
+        lastSavedAt: new Date().toISOString()
+      }
+    }));
+
+    try {
+      await saveProgress(userId, testId, progressData);
+    } catch (err) {
+      console.error('Failed to save test progress:', err);
+    }
+  };
+
+  /**
+   * Clears test progress (called when test is completed or abandoned)
+   * @param {string} testId - Test ID
+   */
+  const clearTestProgress = async (testId) => {
+    if (!userId) return;
+
+    // Optimistic update
+    setInProgressTests(prev => {
+      const { [testId]: _, ...rest } = prev;
+      return rest;
+    });
+
+    try {
+      await clearProgress(userId, testId);
+    } catch (err) {
+      console.error('Failed to clear test progress:', err);
+    }
+  };
+
+  /**
+   * Gets in-progress test data
+   * @param {string} testId - Test ID
+   * @returns {Object|null} In-progress data or null
+   */
+  const getTestProgress = (testId) => {
+    return getInProgressTest(inProgressTests, testId);
+  };
+
+  /**
+   * Checks if a test has saved progress
+   * @param {string} testId - Test ID
+   * @returns {boolean}
+   */
+  const hasTestProgress = (testId) => {
+    return !!inProgressTests[testId];
+  };
+
   return {
     completedLessons,
     practiceProgress,
     reviewQueue,
     skillProgress,
+    practiceTestResults,
+    inProgressTests,
     loading,
     error,
     markLessonComplete,
@@ -312,6 +469,15 @@ export const useProgress = (userId) => {
     getReviewStatistics,
     // Skill progress functions
     getSkillDiagnosticSummary,
-    getSkillBreakdown
+    getSkillBreakdown,
+    // Practice test results functions
+    recordPracticeTestAttempt,
+    getTestBestScore,
+    getTestAttempts,
+    // In-progress test functions
+    saveTestProgress,
+    clearTestProgress,
+    getTestProgress,
+    hasTestProgress
   };
 };
