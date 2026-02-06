@@ -147,40 +147,16 @@ const SATParallelLines = ({
       {bottomAngles[0] && drawAngleArc(intersect2, 180, 180 - transAngle, 20, bottomAngles[0])}
       {bottomAngles[1] && drawAngleArc(intersect2, 0, 180 - transAngle, 20, bottomAngles[1])}
 
-      {/* Single angle labels if using angles object format */}
-      {angles.x !== undefined && (
-        <text
-          x={intersect1[0] - 30}
-          y={intersect1[1] - 10}
-          fontFamily={styles.font.axis}
-          fontSize={styles.fontSize.tickLabel}
-          fill={styles.colors.axis}
-        >
-          {typeof angles.x === 'boolean' ? 'x°' : angles.x}
-        </text>
-      )}
-      {angles.y !== undefined && (
-        <text
-          x={intersect2[0] + 15}
-          y={intersect2[1] - 10}
-          fontFamily={styles.font.axis}
-          fontSize={styles.fontSize.tickLabel}
-          fill={styles.colors.axis}
-        >
-          {typeof angles.y === 'boolean' ? 'y°' : angles.y}
-        </text>
-      )}
-      {angles.z !== undefined && (
-        <text
-          x={intersect2[0] - 30}
-          y={intersect2[1] + 20}
-          fontFamily={styles.font.axis}
-          fontSize={styles.fontSize.tickLabel}
-          fill={styles.colors.axis}
-        >
-          {typeof angles.z === 'boolean' ? 'z°' : angles.z}
-        </text>
-      )}
+      {/* Angle arcs and labels for x, y, z object format */}
+      {angles.x !== undefined &&
+        drawAngleArc(intersect1, 180, 180 - transAngle, 20, typeof angles.x === 'boolean' ? 'x°' : angles.x)
+      }
+      {angles.y !== undefined &&
+        drawAngleArc(intersect2, 180, 180 - transAngle, 20, typeof angles.y === 'boolean' ? 'y°' : angles.y)
+      }
+      {angles.z !== undefined &&
+        drawAngleArc(intersect2, 0, -transAngle, 20, typeof angles.z === 'boolean' ? 'z°' : angles.z)
+      }
 
       {/* Line labels */}
       {lineLabels[0] && (

@@ -498,12 +498,12 @@ export const practiceTest4 = {
           id: 11,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "In the figure, lines $m$ and $n$ are parallel. If $x = 5k + 8$ and $y = 7k - 20$, what is the value of $z$?",
+          question: "In the figure, lines $m$ and $n$ are parallel and are cut by transversal $t$. If $x = 5k + 8$ and $y = 7k - 20$, what is the value of $z$?",
           diagram: {
             type: "parallelLines",
             params: {
               angles: { x: true, y: true, z: true },
-              lineLabels: { m: "m", n: "n" }
+              lineLabels: { m: "m", n: "n", t: "t" }
             }
           },
           choices: [
@@ -513,7 +513,7 @@ export const practiceTest4 = {
             { id: "D", text: "$102$" }
           ],
           correctAnswer: "C",
-          explanation: "**Choice C is correct.** Use properties of parallel lines and transversals.\n\n• If $x$ and $y$ are corresponding angles or alternate angles, they're equal\n• If $x$ and $y$ are co-interior angles, $x + y = 180°$\n\nAssuming $x$ and $y$ are equal (corresponding angles):\n• $5k + 8 = 7k - 20$\n• $28 = 2k$\n• $k = 14$\n• $x = 5(14) + 8 = 78°$\n\nIf $z$ is a corresponding angle to $x$, then $z = 78°$.\n\n**Key concept:** When parallel lines are cut by a transversal, corresponding angles are equal and co-interior angles are supplementary.",
+          explanation: "**Choice C is correct.** When parallel lines are cut by a transversal, corresponding angles are equal.\n\n**Step 1:** Since $x°$ and $y°$ are corresponding angles, $x = y$.\n• $5k + 8 = 7k - 20$\n• $28 = 2k$\n• $k = 14$\n\n**Step 2:** Find $x$.\n• $x = 5(14) + 8 = 78$\n\n**Step 3:** Since $z°$ and $y°$ are vertical angles, $z = y = x = 78$.\n\n**Why other choices are incorrect:**\n• Choice A ($14$): This is the value of $k$, not an angle\n• Choice B ($28$): This is $2k$\n• Choice D ($102$): This is $180 - 78$, the supplement of $x$\n\n**Key concept:** Corresponding angles are equal. Vertical angles are equal.",
           skills: ["Geometry", "Parallel lines"]
         },
         {
