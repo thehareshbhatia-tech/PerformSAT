@@ -438,6 +438,20 @@ export const practiceTest4 = {
           type: "multiple-choice",
           difficulty: "medium",
           question: "A scatterplot shows a negative linear association between two variables. Which could be the equation of the line of best fit?",
+          diagram: {
+            type: "scatterplot",
+            params: {
+              points: [
+                [1, 14], [1, 12], [2, 12], [2, 10], [3, 10],
+                [3, 8], [4, 8], [4, 6], [5, 6], [5, 4],
+                [6, 4], [6, 2], [7, 2], [7, 1]
+              ],
+              xLabel: "$x$",
+              yLabel: "$y$",
+              xMax: 8,
+              yMax: 16
+            }
+          },
           choices: [
             { id: "A", text: "$y = 3x + 10$" },
             { id: "B", text: "$y = -2x + 15$" },
