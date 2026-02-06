@@ -369,11 +369,16 @@ export const practiceTest4 = {
           difficulty: 'easy',
           question: 'Helium is placed inside a container with a constant volume. The graph shows the estimated pressure $y$, in kilopascals (kPa), of the helium when its temperature is $x$ kelvins. The relationship is linear, passing through $(0, 0)$ and $(400, 80)$. What is the estimated pressure of the helium, in kPa, when the temperature is $500$ kelvins?',
           diagram: {
-            type: "simpleLine",
+            type: "linearGraph",
             params: {
-              points: [[0, 0], [400, 80]],
-              xMax: 600,
-              yMax: 120
+              slope: 0.2,
+              yIntercept: 0,
+              xRange: [0, 600],
+              yRange: [0, 120],
+              xTickInterval: 100,
+              yTickInterval: 20,
+              gridInterval: 20,
+              highlightPoints: [[0, 0], [400, 80]]
             }
           },
           choices: [
