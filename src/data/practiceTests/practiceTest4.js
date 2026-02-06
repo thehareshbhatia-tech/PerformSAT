@@ -178,8 +178,8 @@ export const practiceTest4 = {
           diagram: {
             type: "table",
             params: {
-              xHeader: "$x$",
-              yHeader: "$g(x)$",
+              xHeader: "x",
+              yHeader: "g(x)",
               rows: [
                 [0, 17],
                 [1, 21],
