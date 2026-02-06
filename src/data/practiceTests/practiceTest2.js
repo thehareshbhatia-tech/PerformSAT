@@ -198,14 +198,14 @@ export const practiceTest2 = {
           diagram: {
             type: "cubicGraph",
             params: {
-              a: 0.0625,
-              b: -0.3125,
-              c: -1.0625,
-              d: 3.3125,
-              points: [[-3, 2], [-1, 4], [1, 2], [3, -1]],
+              a: 0.25,
+              b: 0.125,
+              c: -1.25,
+              d: 2.875,
+              points: [[-3, 1], [-1, 4], [1, 2], [3, 7]],
               showPoints: true,
               xRange: [-4, 4],
-              yRange: [-3, 6],
+              yRange: [-2, 8],
               label: "f(x)"
             }
           },
@@ -217,7 +217,7 @@ export const practiceTest2 = {
             { id: "D", text: "$g(1) = 3$ and $g(3) = 2$" }
           ],
           correctAnswer: "C",
-          explanation: "**Choice C is correct.** The transformation $g(x) = f(x) + 3$ shifts the graph **up by 3 units**.\n\n**From the graph:**\n• $f(-1) = 4$, so $g(-1) = 4 + 3 = 7$ ✓\n• $f(1) = 2$, so $g(1) = 2 + 3 = 5$ ✓\n\n**Why other choices are incorrect:**\n• Choice A: $g(-3) = f(-3) + 3 = 2 + 3 = 5$, not $2$\n• Choice B: $g(-1) = 7$, not $1$\n• Choice D: $g(1) = 5$, not $3$\n\n**Key concept:** Adding a constant shifts the graph vertically (up if positive).",
+          explanation: "**Choice C is correct.** The transformation $g(x) = f(x) + 3$ shifts the graph **up by 3 units**.\n\n**From the graph:**\n• $f(-1) = 4$, so $g(-1) = 4 + 3 = 7$ ✓\n• $f(1) = 2$, so $g(1) = 2 + 3 = 5$ ✓\n\n**Why other choices are incorrect:**\n• Choice A: $g(-3) = f(-3) + 3 = 1 + 3 = 4$, not $2$\n• Choice B: $g(-1) = 7$, not $1$\n• Choice D: $g(1) = 5$, not $3$\n\n**Key concept:** Adding a constant shifts the graph vertically (up if positive).",
           skills: ["function-transformations"]
         },
         {
