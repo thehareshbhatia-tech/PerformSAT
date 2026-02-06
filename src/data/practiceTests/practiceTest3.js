@@ -23,8 +23,10 @@ export const practiceTest3 = {
             params: {
               slope: 0.75,
               yIntercept: 4,
-              xRange: [-10, 10],
-              yRange: [-10, 12],
+              xRange: [0, 10],
+              yRange: [0, 12],
+              xTickInterval: 2,
+              yTickInterval: 2,
               label: "g(x)"
             }
           },
