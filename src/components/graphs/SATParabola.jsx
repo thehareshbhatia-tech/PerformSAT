@@ -156,27 +156,48 @@ const SATParabola = ({
         );
       })}
 
-      {/* Label - positioned near the curve on the right side */}
+      {/* Label - positioned in empty space away from the curve */}
       {label && (() => {
-        // Calculate where curve is near right edge of graph
-        const labelX = xMax - 1;
-        const labelY = a * Math.pow(labelX - h, 2) + k;
+        // Check where curve is to find empty space
+        const curveAtLeft = a * Math.pow((xMin + 1) - h, 2) + k;
+        const curveAtRight = a * Math.pow((xMax - 1) - h, 2) + k;
+        const midY = (yMin + yMax) / 2;
 
-        // Clamp labelY to visible range
-        const clampedY = Math.max(yMin + 1, Math.min(yMax - 1, labelY));
-        const labelPos = coordSystem.toSVG(labelX, clampedY);
+        let placementX, placementY;
+        if (a >= 0) {
+          // Opens up → curve is high at edges, low at vertex
+          // Place label below vertex area if vertex is high, or above if vertex is low
+          if (k > midY) {
+            placementX = xMax - 1;
+            placementY = yMin + (yMax - yMin) * 0.15;
+          } else {
+            placementX = xMax - 1;
+            placementY = yMax - (yMax - yMin) * 0.1;
+          }
+        } else {
+          // Opens down → curve is low at edges, high at vertex
+          if (k < midY) {
+            placementX = xMax - 1;
+            placementY = yMax - (yMax - yMin) * 0.1;
+          } else {
+            placementX = xMax - 1;
+            placementY = yMin + (yMax - yMin) * 0.15;
+          }
+        }
 
-        // Offset label above curve if parabola opens up (a > 0), below if opens down
-        const yOffset = a >= 0 ? -12 : 18;
+        const labelPos = coordSystem.toSVG(placementX, placementY);
 
         return (
           <text
             x={labelPos.x}
-            y={labelPos.y + yOffset}
+            y={labelPos.y}
             fontFamily={styles.font.axis}
             fontSize={14}
             fontStyle="italic"
             fill={styles.colors.axis}
+            stroke="#ffffff"
+            strokeWidth={3}
+            paintOrder="stroke"
             textAnchor="end"
           >
             {label}

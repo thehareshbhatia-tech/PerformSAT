@@ -1,4 +1,15 @@
 import React from 'react';
+import SATLinearGraph from './graphs/SATLinearGraph';
+import SATParabola from './graphs/SATParabola';
+import SATBarChart from './graphs/SATBarChart';
+import { CircleWithSector, CircleWithSquare } from './graphs/SATCircleDiagrams';
+import SATIntersectingLines from './graphs/SATIntersectingLines';
+import SATPiecewiseLinear from './graphs/SATPiecewiseLinear';
+import SATCubicGraph from './graphs/SATCubicGraph';
+import SATParallelLines from './graphs/SATParallelLines';
+import SATTwoLineGraph from './graphs/SATTwoLineGraph';
+import SATTable from './graphs/SATTable';
+import SATDotPlot from './graphs/SATDotPlot';
 
 /**
  * Professional SAT-style SVG diagram components for practice questions
@@ -593,8 +604,16 @@ const QuestionDiagram = ({ type, params }) => {
       return <LinearLineDiagram {...params} />;
     case 'simpleLine':
       return <SimpleLineDiagram {...params} />;
-    case 'table':
-      return <TableDiagram {...params} />;
+    case 'table': {
+      // Multi-column tables (3+ columns) use DataTableDiagram
+      if (params.headers && params.headers.length > 2) {
+        return <DataTableDiagram {...params} />;
+      }
+      // 2-column tables: map headers array to xHeader/yHeader if needed
+      const xHeader = params.xHeader || (params.headers && params.headers[0]) || 'x';
+      const yHeader = params.yHeader || (params.headers && params.headers[1]) || 'f(x)';
+      return <TableDiagram {...params} xHeader={xHeader} yHeader={yHeader} />;
+    }
     case 'linearFunctionGraph':
       return <LinearFunctionGraphDiagram {...params} />;
     case 'wavyFunction':
@@ -602,9 +621,40 @@ const QuestionDiagram = ({ type, params }) => {
     case 'generalFunction':
       return <GeneralFunctionDiagram {...params} />;
     case 'dotPlot':
-      return <DotPlotDiagram {...params} />;
+      return <SATDotPlot {...params} />;
     case 'dataTable':
       return <DataTableDiagram {...params} />;
+
+    // --- Types delegating to graphs/ components ---
+    case 'linearGraph':
+      return <SATLinearGraph {...params} highlightPoints={params.showPoints || params.highlightPoints} />;
+    case 'parabola':
+      return <SATParabola {...params} />;
+    case 'barChart':
+      return <SATBarChart {...params} />;
+    case 'circleWithSector':
+      return <CircleWithSector {...params} />;
+    case 'circleWithSquare':
+      return <CircleWithSquare {...params} />;
+    case 'intersectingLines':
+      return <SATIntersectingLines {...params} />;
+    case 'piecewiseLinear':
+      return <SATPiecewiseLinear {...params} title={params.label || params.title} />;
+    case 'cubicGraph':
+      return <SATCubicGraph {...params} />;
+    case 'parallelLines': {
+      const lineLabelsArray = params.lineLabels
+        ? (Array.isArray(params.lineLabels)
+            ? params.lineLabels
+            : [params.lineLabels.m, params.lineLabels.n, params.lineLabels.t].filter(Boolean))
+        : [];
+      return <SATParallelLines {...params} lineLabels={lineLabelsArray} />;
+    }
+    case 'twoLineGraph':
+      return <SATTwoLineGraph {...params} />;
+    case 'twoWayTable':
+      return <SATTable {...params} />;
+
     default:
       return null;
   }

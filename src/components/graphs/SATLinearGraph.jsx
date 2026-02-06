@@ -129,24 +129,43 @@ const SATLinearGraph = ({
         );
       })}
 
-      {/* Label - positioned near the line on the right side */}
+      {/* Label - positioned in empty space away from the line */}
       {label && (() => {
-        // Calculate where line intersects near right edge of graph
-        const labelX = xMax - 1;
-        const labelY = slope * labelX + yIntercept;
-        const labelPos = coordSystem.toSVG(labelX, labelY);
+        const [xLo, xHi] = xRange;
+        const [yLo, yHi] = yRange;
+        // Check where line is at edges to find empty space
+        const lineAtLeft = slope * (xLo + 1) + yIntercept;
+        const lineAtRight = slope * (xHi - 1) + yIntercept;
+        const midY = (yLo + yHi) / 2;
 
-        // Offset label above the line (negative y in SVG moves up)
-        const yOffset = slope >= 0 ? -12 : 18;
+        let placementX, placementY;
+        if (lineAtRight > midY) {
+          // Line is high on right → place label in upper-left
+          placementX = xLo + 2;
+          placementY = yHi - (yHi - yLo) * 0.1;
+        } else if (lineAtLeft > midY) {
+          // Line is high on left → place label in upper-right
+          placementX = xHi - 1;
+          placementY = yHi - (yHi - yLo) * 0.1;
+        } else {
+          // Line is low → place label in upper-right
+          placementX = xHi - 1;
+          placementY = yHi - (yHi - yLo) * 0.1;
+        }
+
+        const labelPos = coordSystem.toSVG(placementX, placementY);
 
         return (
           <text
             x={labelPos.x}
-            y={labelPos.y + yOffset}
+            y={labelPos.y}
             fontFamily={styles.font.axis}
             fontSize={14}
             fontStyle="italic"
             fill={styles.colors.axis}
+            stroke="#ffffff"
+            strokeWidth={3}
+            paintOrder="stroke"
             textAnchor="end"
           >
             {label}

@@ -73,10 +73,10 @@ const SATCubicGraph = ({
   xRange = [-10, 10],
   yRange = [-10, 10],
   label = '',
-  width = 320,
-  height = 280,
-  xTickInterval = 2,
-  yTickInterval = 2,
+  width: providedWidth,
+  height: providedHeight,
+  xTickInterval: providedXTick,
+  yTickInterval: providedYTick,
   gridInterval = 1,
 }) => {
   const componentId = useMemo(() => generateId(), []);
@@ -84,6 +84,14 @@ const SATCubicGraph = ({
 
   const [xMin, xMax] = xRange;
   const [yMin, yMax] = yRange;
+
+  // Auto-calculate tick intervals and dimensions based on range
+  const xSpan = xMax - xMin;
+  const ySpan = yMax - yMin;
+  const xTickInterval = providedXTick || (xSpan <= 12 ? 1 : 2);
+  const yTickInterval = providedYTick || (ySpan <= 12 ? 1 : 2);
+  const width = providedWidth || (xSpan <= 12 ? 360 : 320);
+  const height = providedHeight || (ySpan <= 12 ? 320 : 280);
 
   // Create coordinate system
   const coordSystem = useMemo(() =>
@@ -163,42 +171,51 @@ const SATCubicGraph = ({
         );
       })}
 
-      {/* Label - positioned near the curve on the right side */}
+      {/* Label - positioned in empty space away from the curve */}
       {label && (() => {
-        // Calculate where curve is near right edge of graph
-        const labelX = xMax - 1;
-        let labelY;
-        let slopeAtLabel;
+        // Find empty space by checking curve position at corners
+        const evalCubic = (x) => {
+          if (roots && roots.length === 3) {
+            const [r1, r2, r3] = roots;
+            return a * (x - r1) * (x - r2) * (x - r3);
+          }
+          return a * Math.pow(x, 3) + b * Math.pow(x, 2) + c * x + d;
+        };
 
-        if (roots && roots.length === 3) {
-          const [r1, r2, r3] = roots;
-          labelY = a * (labelX - r1) * (labelX - r2) * (labelX - r3);
-          // Derivative for factored form is complex, use numerical approximation
-          const dx = 0.01;
-          const yPlus = a * (labelX + dx - r1) * (labelX + dx - r2) * (labelX + dx - r3);
-          slopeAtLabel = (yPlus - labelY) / dx;
+        // Check curve y-value near left and right edges
+        const curveAtLeft = evalCubic(xMin + 1);
+        const curveAtRight = evalCubic(xMax - 1);
+        const midY = (yMin + yMax) / 2;
+
+        // Place label in the corner farthest from the curve
+        let placementX, placementY;
+        if (curveAtRight > midY) {
+          // Curve is high on the right → place label in upper-left (curve is low there)
+          placementX = xMin + 2;
+          placementY = yMax - (yMax - yMin) * 0.1;
+        } else if (curveAtLeft > midY) {
+          // Curve is high on the left → place label in lower-right
+          placementX = xMax - 1;
+          placementY = yMin + (yMax - yMin) * 0.25;
         } else {
-          labelY = a * Math.pow(labelX, 3) + b * Math.pow(labelX, 2) + c * labelX + d;
-          // Derivative: 3ax² + 2bx + c
-          slopeAtLabel = 3 * a * Math.pow(labelX, 2) + 2 * b * labelX + c;
+          // Curve is low → place label in upper-right
+          placementX = xMax - 1;
+          placementY = yMax - (yMax - yMin) * 0.1;
         }
 
-        // Clamp labelY to visible range
-        const clampedY = Math.max(yMin + 1, Math.min(yMax - 1, labelY));
-        const labelPos = coordSystem.toSVG(labelX, clampedY);
-
-        // Offset label based on actual slope at label point
-        // If slope is negative (going down), put label above; if positive (going up), put below
-        const yOffset = slopeAtLabel <= 0 ? -12 : 18;
+        const labelPos = coordSystem.toSVG(placementX, placementY);
 
         return (
           <text
             x={labelPos.x}
-            y={labelPos.y + yOffset}
+            y={labelPos.y}
             fontFamily={styles.font.axis}
             fontSize={14}
             fontStyle="italic"
             fill={styles.colors.axis}
+            stroke="#ffffff"
+            strokeWidth={3}
+            paintOrder="stroke"
             textAnchor="end"
           >
             {label}

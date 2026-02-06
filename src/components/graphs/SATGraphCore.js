@@ -219,6 +219,9 @@ export function renderAxes(coordSystem, options = {}) {
               fontFamily={styles.font.axis}
               fontSize={styles.fontSize.tickLabel}
               fill={styles.colors.axis}
+              stroke="#ffffff"
+              strokeWidth={3}
+              paintOrder="stroke"
             >
               {x}
             </text>
@@ -307,6 +310,9 @@ export function renderAxes(coordSystem, options = {}) {
               fontFamily={styles.font.axis}
               fontSize={styles.fontSize.tickLabel}
               fill={styles.colors.axis}
+              stroke="#ffffff"
+              strokeWidth={3}
+              paintOrder="stroke"
             >
               {y}
             </text>

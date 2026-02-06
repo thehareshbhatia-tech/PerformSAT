@@ -9,11 +9,13 @@ const styles = SAT_GRAPH_STYLES;
  */
 export const CircleWithSector = ({
   centralAngle = 90,
+  angleLabel,
   radius: displayRadius,
   labelCenter = 'O',
   labelPoint1 = 'A',
   labelPoint2 = 'B',
   showAngleLabel = true,
+  showAngleArc = false,
   showRadiusLabel = false,
   width = 280,
   height = 280,
@@ -56,7 +58,8 @@ export const CircleWithSector = ({
 
   // Angle label position (in the middle of the angle arc)
   const angleLabelAngle = startAngle + (centralAngle * Math.PI) / 360;
-  const angleLabelRadius = 42;
+  const isFraction = angleLabel && angleLabel.includes('/');
+  const angleLabelRadius = isFraction ? 52 : 42;
   const angleLabelX = centerX + angleLabelRadius * Math.cos(angleLabelAngle);
   const angleLabelY = centerY + angleLabelRadius * Math.sin(angleLabelAngle);
 
@@ -169,20 +172,68 @@ export const CircleWithSector = ({
       </text>
 
       {/* Angle label */}
-      {showAngleLabel && (
-        <text
-          x={angleLabelX}
-          y={angleLabelY + 5}
-          fontFamily="Georgia, serif"
-          fontSize={15}
-          fontWeight="600"
-          fontStyle="italic"
-          fill="#7c3aed"
-          textAnchor="middle"
-        >
-          {centralAngle}°
-        </text>
-      )}
+      {showAngleLabel && (() => {
+        const labelText = angleLabel || `${centralAngle}°`;
+        const labelFill = "#7c3aed";
+        const labelFont = "Georgia, serif";
+
+        // Render fractions as stacked numerator/denominator
+        if (labelText.includes('/')) {
+          const [numerator, denominator] = labelText.split('/');
+          const fracWidth = Math.max(numerator.length, denominator.length) * 9 + 4;
+          return (
+            <g>
+              <text
+                x={angleLabelX}
+                y={angleLabelY - 5}
+                fontFamily={labelFont}
+                fontSize={13}
+                fontWeight="600"
+                fontStyle="italic"
+                fill={labelFill}
+                textAnchor="middle"
+              >
+                {numerator}
+              </text>
+              <line
+                x1={angleLabelX - fracWidth / 2}
+                y1={angleLabelY + 1}
+                x2={angleLabelX + fracWidth / 2}
+                y2={angleLabelY + 1}
+                stroke={labelFill}
+                strokeWidth={1.5}
+              />
+              <text
+                x={angleLabelX}
+                y={angleLabelY + 14}
+                fontFamily={labelFont}
+                fontSize={13}
+                fontWeight="600"
+                fontStyle="italic"
+                fill={labelFill}
+                textAnchor="middle"
+              >
+                {denominator}
+              </text>
+            </g>
+          );
+        }
+
+        return (
+          <text
+            x={angleLabelX}
+            y={angleLabelY + 5}
+            fontFamily={labelFont}
+            fontSize={15}
+            fontWeight="600"
+            fontStyle="italic"
+            fill={labelFill}
+            textAnchor="middle"
+          >
+            {labelText}
+          </text>
+        );
+      })()}
 
       {/* Radius label */}
       {showRadiusLabel && displayRadius && (
