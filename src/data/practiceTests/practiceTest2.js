@@ -248,7 +248,7 @@ export const practiceTest2 = {
           id: 15,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "The graph shows a parabola with vertex at $(3, 10)$ opening downward and passing through approximately $(0, -8)$. What is the equation of the graph?",
+          question: "The graph of a parabola is shown. What is the equation of the graph?",
           diagram: {
             type: "parabola",
             params: {
