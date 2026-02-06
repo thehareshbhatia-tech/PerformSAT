@@ -33,8 +33,17 @@ export const practiceTest5 = {
           type: "multiple-choice",
           difficulty: "easy",
           question: "Line $m$ is shown in the $xy$-plane. Line $n$ (not shown) is parallel to line $m$. Which equation represents line $n$?",
-          questionFormula: {
-            lines: ["Line $m$: $y = -4x + 2$"]
+          diagram: {
+            type: "linearGraph",
+            params: {
+              slope: -4,
+              yIntercept: 2,
+              xRange: [-4, 4],
+              yRange: [-10, 10],
+              xTickInterval: 1,
+              yTickInterval: 2,
+              label: "m"
+            }
           },
           choices: [
             { id: "A", text: "$y = -4x + 7$" },
