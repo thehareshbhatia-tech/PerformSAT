@@ -305,9 +305,11 @@ export const practiceTest5 = {
               intersection: { x: 3, y: 2.5 },
               slope1: -0.5,
               slope2: 1.5,
-              xRange: [-2, 10],
-              yRange: [-4, 8],
-              showIntersection: true
+              xRange: [-1, 9],
+              yRange: [-3, 5],
+              xTickInterval: 1,
+              yTickInterval: 1,
+              showIntersection: false
             }
           },
           correctAnswer: '3',
