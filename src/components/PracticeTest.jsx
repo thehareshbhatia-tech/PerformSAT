@@ -1983,39 +1983,53 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         {/* Question text - SAT Style */}
         {(() => {
           const questionText = question?.question;
-          // Check if question starts with equations (lines starting with $) followed by blank line
-          if (typeof questionText === 'string' && questionText.match(/^\$[^\n]+\$\n/)) {
+          // Check if question has standalone equation blocks separated by \n\n
+          // A standalone equation block is a paragraph where every line is purely math ($...$)
+          if (typeof questionText === 'string' && questionText.includes('\n\n')) {
             const parts = questionText.split(/\n\n/);
-            const equationPart = parts[0]; // First part (equations)
-            const textPart = parts.slice(1).join('\n\n'); // Rest of the question
+            const isStandaloneEquation = (part) => {
+              const trimmed = part.trim();
+              const lines = trimmed.split('\n');
+              return lines.length > 0 && lines.every(line => {
+                const t = line.trim();
+                return t.startsWith('$') && t.endsWith('$') && t.length > 2;
+              });
+            };
+            const hasEquationBlocks = parts.some(p => isStandaloneEquation(p));
 
-            return (
-              <>
-                {/* Centered equations */}
-                <div style={{
-                  fontFamily: SAT_TYPOGRAPHY.questionFont,
-                  fontSize: SAT_TYPOGRAPHY.sizes.questionText,
-                  lineHeight: '2',
-                  color: SAT_COLORS.text.primary,
-                  textAlign: 'center',
-                  marginBottom: '16px'
-                }}>
-                  <MathText text={equationPart} />
-                </div>
-                {/* Rest of question text */}
-                {textPart && (
-                  <p style={{
-                    fontFamily: SAT_TYPOGRAPHY.questionFont,
-                    fontSize: SAT_TYPOGRAPHY.sizes.questionText,
-                    lineHeight: SAT_TYPOGRAPHY.lineHeights.question,
-                    color: SAT_COLORS.text.primary,
-                    marginBottom: '8px'
-                  }}>
-                    <MathText text={textPart} />
-                  </p>
-                )}
-              </>
-            );
+            if (hasEquationBlocks) {
+              return (
+                <>
+                  {parts.map((part, idx) => {
+                    if (isStandaloneEquation(part)) {
+                      return (
+                        <div key={idx} style={{
+                          fontFamily: SAT_TYPOGRAPHY.questionFont,
+                          fontSize: SAT_TYPOGRAPHY.sizes.questionText,
+                          lineHeight: '2',
+                          color: SAT_COLORS.text.primary,
+                          textAlign: 'center',
+                          marginBottom: '16px'
+                        }}>
+                          <MathText text={part} />
+                        </div>
+                      );
+                    }
+                    return (
+                      <p key={idx} style={{
+                        fontFamily: SAT_TYPOGRAPHY.questionFont,
+                        fontSize: SAT_TYPOGRAPHY.sizes.questionText,
+                        lineHeight: SAT_TYPOGRAPHY.lineHeights.question,
+                        color: SAT_COLORS.text.primary,
+                        marginBottom: '8px'
+                      }}>
+                        <MathText text={part} />
+                      </p>
+                    );
+                  })}
+                </>
+              );
+            }
           }
 
           // Default rendering for non-equation questions
