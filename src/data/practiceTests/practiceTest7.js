@@ -457,7 +457,10 @@ export const practiceTest7 = {
         {
           id: 'pt7-m2-q15',
           type: 'multiple-choice',
-          question: 'The data set $\\{12, 15, 18, 22, 28, 35, 42\\}$ has what median?',
+          question: 'What is the median of the data set shown?',
+          questionFormula: {
+            equation: "$$12, 15, 18, 22, 28, 35, 42$$"
+          },
           choices: [
             { id: 'A', text: '$18$' },
             { id: 'B', text: '$22$' },
