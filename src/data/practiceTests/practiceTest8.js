@@ -13,7 +13,23 @@ export const practiceTest8 = {
         {
           id: 'pt8-m1-q1',
           type: 'multiple-choice',
-          question: 'A bar graph shows the percentage of laptops for sale at a store by year of manufacture. For which year is the percentage of laptops for sale the lowest: 2019, 2020, 2021, or 2022, if the percentages are $8\\%$, $12\\%$, $5\\%$, and $15\\%$ respectively?',
+          question: 'The bar graph shows the percentage of laptops for sale at a store by year of manufacture. For which year is the percentage of laptops for sale the lowest?',
+          diagram: {
+            type: 'barChart',
+            params: {
+              title: 'Laptops for Sale by Year',
+              data: [
+                { label: '2019', value: 8 },
+                { label: '2020', value: 12 },
+                { label: '2021', value: 5 },
+                { label: '2022', value: 15 }
+              ],
+              xAxisLabel: 'Year of manufacture',
+              yAxisLabel: 'Percentage',
+              yMax: 20,
+              yStep: 5
+            }
+          },
           choices: [
             { id: 'A', text: '2019' },
             { id: 'B', text: '2020' },
@@ -92,7 +108,17 @@ export const practiceTest8 = {
         {
           id: 'pt8-m1-q8',
           type: 'multiple-choice',
-          question: 'A table shows the distribution of votes for a class president by grade level for $100$ students. If $25$ students voted for Candidate A, what is the probability of randomly selecting a student who voted for Candidate A?',
+          question: 'The table shows the distribution of votes for class president by grade level. If a student is selected at random, what is the probability that the student voted for Candidate A?',
+          questionTable: {
+            headers: ['', 'Candidate A', 'Candidate B', 'Total'],
+            rows: [
+              ['Grade 9', '8', '12', '20'],
+              ['Grade 10', '7', '18', '25'],
+              ['Grade 11', '5', '20', '25'],
+              ['Grade 12', '5', '25', '30'],
+              ['Total', '25', '75', '100']
+            ]
+          },
           choices: [
             { id: 'A', text: '$\\frac{1}{10}$' },
             { id: 'B', text: '$\\frac{1}{5}$' },
@@ -197,7 +223,15 @@ export const practiceTest8 = {
         {
           id: 'pt8-m1-q17',
           type: 'multiple-choice',
-          question: 'A table shows the exponential relationship between $x$ (years since starting a business) and $h(x)$ (revenue in thousands): $x = 0$, $h(x) = 50$; $x = 1$, $h(x) = 60$; $x = 2$, $h(x) = 72$. Which function best represents this relationship?',
+          question: 'The table shows the exponential relationship between $x$, the number of years since starting a business, and $h(x)$, the revenue in thousands of dollars. Which function best represents this relationship?',
+          questionTable: {
+            headers: ['$x$', '$h(x)$'],
+            rows: [
+              ['$0$', '$50$'],
+              ['$1$', '$60$'],
+              ['$2$', '$72$']
+            ]
+          },
           choices: [
             { id: 'A', text: '$h(x) = 50(0.2)^x$' },
             { id: 'B', text: '$h(x) = 50(1.2)^x$' },
@@ -225,10 +259,10 @@ export const practiceTest8 = {
           type: 'multiple-choice',
           question: '$y < 4x + 5$\n\nFor which of the following tables are all the values of $x$ and their corresponding values of $y$ solutions to the given inequality?',
           choices: [
-            { id: 'A', text: '$x = 2$, $y = 15$; $x = 3$, $y = 19$; $x = 4$, $y = 23$' },
-            { id: 'B', text: '$x = 2$, $y = 12$; $x = 3$, $y = 16$; $x = 4$, $y = 20$' },
-            { id: 'C', text: '$x = 2$, $y = 10$; $x = 3$, $y = 14$; $x = 4$, $y = 18$' },
-            { id: 'D', text: '$x = 2$, $y = 8$; $x = 3$, $y = 12$; $x = 4$, $y = 16$' }
+            { id: 'A', table: { headers: ['x', 'y'], rows: [['2', '15'], ['3', '19'], ['4', '23']] } },
+            { id: 'B', table: { headers: ['x', 'y'], rows: [['2', '12'], ['3', '16'], ['4', '20']] } },
+            { id: 'C', table: { headers: ['x', 'y'], rows: [['2', '10'], ['3', '14'], ['4', '18']] } },
+            { id: 'D', table: { headers: ['x', 'y'], rows: [['2', '8'], ['3', '12'], ['4', '16']] } }
           ],
           correctAnswer: 'D',
           explanation: 'Check D: For $x = 2$, $4(2) + 5 = 13$, and $8 < 13$ ✓. For $x = 3$, $4(3) + 5 = 17$, and $12 < 17$ ✓. For $x = 4$, $4(4) + 5 = 21$, and $16 < 21$ ✓. All values in D satisfy $y < 4x + 5$.'
@@ -282,7 +316,16 @@ export const practiceTest8 = {
         {
           id: 'pt8-m2-q2',
           type: 'multiple-choice',
-          question: 'A scatterplot shows a positive linear relationship between $x$ and $y$. The line of best fit passes through the origin with a slope of approximately $1.5$. Which equation best represents the line of best fit?',
+          question: 'The scatterplot shows the relationship between $x$ and $y$. The line of best fit passes through the origin. Which equation best represents the line of best fit?',
+          diagram: {
+            type: 'scatterplot',
+            params: {
+              points: [[1, 2], [2, 2.5], [2, 3.5], [3, 4], [3, 5], [4, 5.5], [4, 6.5], [5, 7], [5, 8], [6, 9], [6, 10], [7, 10], [7, 11]],
+              xMax: 8,
+              yMax: 12,
+              bestFitLine: { slope: 1.5, intercept: 0 }
+            }
+          },
           choices: [
             { id: 'A', text: '$y = x + 1.5$' },
             { id: 'B', text: '$y = x - 1.5$' },
@@ -295,12 +338,24 @@ export const practiceTest8 = {
         {
           id: 'pt8-m2-q3',
           type: 'multiple-choice',
-          question: 'A linear graph passes through points $(0, -4)$ and $(2, 0)$. Which table gives three values of $x$ and their corresponding values of $y$ for this relationship?',
+          question: 'The graph of a linear relationship is shown. Which table gives three values of $x$ and their corresponding values of $y$ for this relationship?',
+          diagram: {
+            type: 'linearGraph',
+            params: {
+              slope: 2,
+              yIntercept: -4,
+              xRange: [-6, 6],
+              yRange: [-6, 6],
+              xTickInterval: 2,
+              yTickInterval: 2,
+              highlightPoints: [[0, -4], [2, 0]]
+            }
+          },
           choices: [
-            { id: 'A', text: '$x = 0$, $y = 0$; $x = 1$, $y = -2$; $x = 2$, $y = -4$' },
-            { id: 'B', text: '$x = 0$, $y = -4$; $x = 1$, $y = -2$; $x = 2$, $y = 0$' },
-            { id: 'C', text: '$x = 0$, $y = -4$; $x = 1$, $y = -6$; $x = 2$, $y = -8$' },
-            { id: 'D', text: '$x = 0$, $y = 4$; $x = 1$, $y = 2$; $x = 2$, $y = 0$' }
+            { id: 'A', table: { headers: ['x', 'y'], rows: [['0', '0'], ['1', '-2'], ['2', '-4']] } },
+            { id: 'B', table: { headers: ['x', 'y'], rows: [['0', '-4'], ['1', '-2'], ['2', '0']] } },
+            { id: 'C', table: { headers: ['x', 'y'], rows: [['0', '-4'], ['1', '-6'], ['2', '-8']] } },
+            { id: 'D', table: { headers: ['x', 'y'], rows: [['0', '4'], ['1', '2'], ['2', '0']] } }
           ],
           correctAnswer: 'B',
           explanation: 'The line passes through $(0, -4)$ and $(2, 0)$. Slope $= \\frac{0 - (-4)}{2 - 0} = \\frac{4}{2} = 2$. Equation: $y = 2x - 4$. Check: $x = 0$, $y = -4$ ✓; $x = 1$, $y = -2$ ✓; $x = 2$, $y = 0$ ✓.'
@@ -440,7 +495,19 @@ export const practiceTest8 = {
         {
           id: 'pt8-m2-q16',
           type: 'multiple-choice',
-          question: 'A graph shows the relationship between shares of stock from Company $X$ ($x$-axis) and Company $Y$ ($y$-axis). The line passes through $(0, 60)$ and $(40, 0)$. Which equation represents this relationship?',
+          question: 'The graph shows the relationship between shares of stock from Company $X$ and Company $Y$. Which equation represents this relationship?',
+          diagram: {
+            type: 'linearGraph',
+            params: {
+              slope: -1.5,
+              yIntercept: 60,
+              xRange: [-5, 50],
+              yRange: [-5, 70],
+              xTickInterval: 10,
+              yTickInterval: 10,
+              highlightPoints: [[0, 60], [40, 0]]
+            }
+          },
           choices: [
             { id: 'A', text: '$y = 60x + 40$' },
             { id: 'B', text: '$3x + 2y = 120$' },

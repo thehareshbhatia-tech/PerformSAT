@@ -98,7 +98,15 @@ export const practiceTest9 = {
           id: 6,
           type: "fill-in",
           difficulty: "medium",
-          question: "Two parallel lines are cut by a transversal. One of the angles formed measures $125°$. What is the measure, in degrees, of the supplementary angle formed at that same intersection?",
+          question: "Two parallel lines are cut by a transversal as shown. What is the measure, in degrees, of angle $x$?",
+          diagram: {
+            type: 'parallelLines',
+            params: {
+              angles: { x: true, y: '125°' },
+              lineLabels: ['m', 'n', 't'],
+              showParallelMarks: false
+            }
+          },
           correctAnswer: 55,
           explanation: "**The correct answer is 55.** When a transversal crosses parallel lines, angles at each intersection come in pairs.\n\nSupplementary angles sum to $180°$.\n\n$180° - 125° = 55°$\n\nThe angle measuring $55°$ is supplementary to the $125°$ angle at the same intersection point.\n\n**Key relationships for parallel lines cut by a transversal:**\n• Corresponding angles are equal\n• Alternate interior angles are equal\n• Co-interior (same-side interior) angles are supplementary",
           skills: ["parallel-lines", "angles"]
@@ -111,13 +119,13 @@ export const practiceTest9 = {
           difficulty: "medium",
           question: "A scientist is studying a bacteria population that doubles every $3$ hours. If the initial population is $500$ bacteria, which function $P(t)$ models the population after $t$ hours?",
           choices: [
-            { id: "A", text: "$P(t) = 500(2)^{\frac{t}{3}}$" },
+            { id: "A", text: "$P(t) = 500(2)^{\\frac{t}{3}}$" },
             { id: "B", text: "$P(t) = 500(2)^{3t}$" },
-            { id: "C", text: "$P(t) = 500(3)^{\frac{t}{2}}$" },
+            { id: "C", text: "$P(t) = 500(3)^{\\frac{t}{2}}$" },
             { id: "D", text: "$P(t) = 500 + 2t$" }
           ],
           correctAnswer: "A",
-          explanation: "**Choice A is correct.** For exponential growth where the quantity doubles every $k$ units of time:\n\n$P(t) = P_0 \\times 2^{\\frac{t}{k}}$\n\nHere:\n• $P_0 = 500$ (initial population)\n• Doubling time $k = 3$ hours\n\nSo: $P(t) = 500(2)^{\frac{t}{3}}$\n\n**Verification:** At $t = 3$: $P(3) = 500(2)^1 = 1000$ ✓ (doubled)\nAt $t = 6$: $P(6) = 500(2)^2 = 2000$ ✓ (doubled again)\n\n**Why other choices are incorrect:**\n• Choice B: Would triple after $1$ hour (way too fast)\n• Choice C: Wrong base and wrong exponent structure\n• Choice D: Linear, not exponential growth",
+          explanation: "**Choice A is correct.** For exponential growth where the quantity doubles every $k$ units of time:\n\n$P(t) = P_0 \\times 2^{\\frac{t}{k}}$\n\nHere:\n• $P_0 = 500$ (initial population)\n• Doubling time $k = 3$ hours\n\nSo: $P(t) = 500(2)^{\\frac{t}{3}}$\n\n**Verification:** At $t = 3$: $P(3) = 500(2)^1 = 1000$ ✓ (doubled)\nAt $t = 6$: $P(6) = 500(2)^2 = 2000$ ✓ (doubled again)\n\n**Why other choices are incorrect:**\n• Choice B: Would triple after $1$ hour (way too fast)\n• Choice C: Wrong base and wrong exponent structure\n• Choice D: Linear, not exponential growth",
           skills: ["exponential-functions", "modeling"]
         },
 
@@ -194,7 +202,10 @@ export const practiceTest9 = {
           id: 12,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "A data set contains the values: 12, 15, 18, 19, 20, 22, 85. Which statement about the mean and median is correct?",
+          question: "Which statement about the mean and median of the data set is correct?",
+          questionFormula: {
+            equation: "$$\\text{Data set: } 12, 15, 18, 19, 20, 22, 85$$"
+          },
           choices: [
             { id: "A", text: "The mean is greater than the median." },
             { id: "B", text: "The median is greater than the mean." },
@@ -284,7 +295,21 @@ export const practiceTest9 = {
           id: 18,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "A scatterplot shows the relationship between hours studied ($x$) and test scores ($y$) for $20$ students. The line of best fit has equation $y = 5.2x + 62$. What does the slope represent in this context?",
+          question: "The scatterplot above shows the relationship between hours studied and test scores for $20$ students. The line of best fit is shown. What does the slope of the line of best fit represent in this context?",
+          diagram: {
+            type: 'scatterplot',
+            params: {
+              points: [
+                [1, 64], [1, 71], [2, 70], [2, 76], [3, 73],
+                [3, 82], [4, 79], [4, 86], [5, 83], [5, 91],
+                [6, 90], [6, 96], [7, 94], [7, 101], [8, 100],
+                [8, 107], [9, 106], [9, 113], [10, 112], [10, 118]
+              ],
+              xMax: 12,
+              yMax: 120,
+              bestFitLine: { slope: 5.2, intercept: 62 }
+            }
+          },
           choices: [
             { id: "A", text: "The predicted test score with zero hours of studying" },
             { id: "B", text: "The predicted increase in test score for each additional hour studied" },
@@ -417,7 +442,15 @@ export const practiceTest9 = {
           id: 3,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "Two parallel lines are cut by a transversal. If one angle measures $72°$, what is the measure of its corresponding angle?",
+          question: "Two parallel lines are cut by a transversal as shown. What is the measure of the corresponding angle $x$?",
+          diagram: {
+            type: 'parallelLines',
+            params: {
+              angles: { x: true, y: '72°' },
+              lineLabels: ['l', 'm', 't'],
+              showParallelMarks: false
+            }
+          },
           choices: [
             { id: "A", text: "$18°$" },
             { id: "B", text: "$72°$" },
@@ -625,15 +658,15 @@ export const practiceTest9 = {
           id: 17,
           type: "multiple-choice",
           difficulty: "hard",
-          question: "Which expression is equivalent to $x^{\frac{2}{3}} \\cdot x^{\frac{1}{6}}$?",
+          question: "Which expression is equivalent to $x^{\\frac{2}{3}} \\cdot x^{\\frac{1}{6}}$?",
           choices: [
-            { id: "A", text: "$x^{\frac{1}{9}}$" },
-            { id: "B", text: "$x^{\frac{1}{3}}$" },
-            { id: "C", text: "$x^{\frac{5}{6}}$" },
-            { id: "D", text: "$x^{\frac{2}{9}}$" }
+            { id: "A", text: "$x^{\\frac{1}{9}}$" },
+            { id: "B", text: "$x^{\\frac{1}{3}}$" },
+            { id: "C", text: "$x^{\\frac{5}{6}}$" },
+            { id: "D", text: "$x^{\\frac{2}{9}}$" }
           ],
           correctAnswer: "C",
-          explanation: "**Choice C is correct.** When multiplying powers with the same base, add exponents.\n\n$x^{\\frac{2}{3}} \\cdot x^{\\frac{1}{6}} = x^{\\frac{2}{3} + \\frac{1}{6}}$\n\nFind common denominator:\n$\\frac{2}{3} = \\frac{4}{6}$\n\n$\\frac{4}{6} + \\frac{1}{6} = \\frac{5}{6}$\n\n**Result:** $x^{\frac{5}{6}}$\n\n**Why other choices are incorrect:**\n• Choice A: Would require multiplying exponents (wrong operation)\n• Choice B: $\\frac{2}{3} + \\frac{1}{6} \\neq \\frac{1}{3}$\n• Choice D: Would require multiplying exponents\n\n**Key rule:** $x^a \\cdot x^b = x^{a+b}$",
+          explanation: "**Choice C is correct.** When multiplying powers with the same base, add exponents.\n\n$x^{\\frac{2}{3}} \\cdot x^{\\frac{1}{6}} = x^{\\frac{2}{3} + \\frac{1}{6}}$\n\nFind common denominator:\n$\\frac{2}{3} = \\frac{4}{6}$\n\n$\\frac{4}{6} + \\frac{1}{6} = \\frac{5}{6}$\n\n**Result:** $x^{\\frac{5}{6}}$\n\n**Why other choices are incorrect:**\n• Choice A: Would require multiplying exponents (wrong operation)\n• Choice B: $\\frac{2}{3} + \\frac{1}{6} \\neq \\frac{1}{3}$\n• Choice D: Would require multiplying exponents\n\n**Key rule:** $x^a \\cdot x^b = x^{a+b}$",
           skills: ["exponents", "radicals"]
         },
 
@@ -642,7 +675,28 @@ export const practiceTest9 = {
           id: 18,
           type: "multiple-choice",
           difficulty: "hard",
-          question: "A dot plot shows the following data for number of pets owned by $15$ families: $0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 4, 6$. What is the median number of pets?",
+          question: "The dot plot above shows the number of pets owned by $15$ families. What is the median number of pets?",
+          diagram: {
+            type: 'dotPlot',
+            params: {
+              data: [
+                { value: 0, count: 2 },
+                { value: 1, count: 4 },
+                { value: 2, count: 5 },
+                { value: 3, count: 2 },
+                { value: 4, count: 1 },
+                { value: 5, count: 0 },
+                { value: 6, count: 1 }
+              ],
+              xLabel: 'Number of pets',
+              title: 'Pets Owned by Families',
+              xMin: 0,
+              xMax: 7,
+              width: 360,
+              height: 200,
+              dotRadius: 8
+            }
+          },
           choices: [
             { id: "A", text: "$1$" },
             { id: "B", text: "$2$" },
@@ -676,31 +730,31 @@ export const practiceTest9 = {
           skills: ["systems-of-equations", "dependent-systems", "parametric-solutions"]
         },
 
-        // Question 21: Complex radical equation (CHALLENGING - College Board style)
+        // Question 21: Complex radical equation
         {
           id: 21,
           type: "multiple-choice",
           difficulty: "hard",
-          question: "In the given equation, $c$ is a positive constant. Which of the following is one of the solutions to the given equation?\n\n$\\frac{x^2}{\\sqrt{x^2 - c^2}} = \\frac{c^2}{\\sqrt{x^2 - c^2}} + 39$",
+          question: "In the given equation, $k$ is a positive constant. Which of the following is one of the solutions to the given equation?\n\n$\\frac{x^2}{\\sqrt{x^2 - k^2}} = \\frac{k^2}{\\sqrt{x^2 - k^2}} + 17$",
           choices: [
-            { id: "A", text: "$-c$" },
-            { id: "B", text: "$-\\sqrt{c^2 + 39^2}$" },
-            { id: "C", text: "$-\\sqrt{39^2 - c^2}$" },
-            { id: "D", text: "$-\\sqrt{c^2 + 39^2}$" }
+            { id: "A", text: "$-k$" },
+            { id: "B", text: "$\\sqrt{17^2 - k^2}$" },
+            { id: "C", text: "$-\\sqrt{k^2 + 17^2}$" },
+            { id: "D", text: "$\\sqrt{k^2 - 17^2}$" }
           ],
-          correctAnswer: "D",
-          explanation: "**Choice D is correct.** Solve this equation involving radicals.\n\n**Step 1:** Multiply both sides by $\\sqrt{x^2 - c^2}$:\n$x^2 = c^2 + 39\\sqrt{x^2 - c^2}$\n\n**Step 2:** Rearrange and isolate the radical:\n$x^2 - c^2 = 39\\sqrt{x^2 - c^2}$\n\n**Step 3:** Let $u = \\sqrt{x^2 - c^2}$, so $u^2 = x^2 - c^2$:\n$u^2 = 39u$\n$u^2 - 39u = 0$\n$u(u - 39) = 0$\n$u = 0$ or $u = 39$\n\n**Step 4:** Solve for $x$:\n• If $u = 0$: $\\sqrt{x^2 - c^2} = 0 \\rightarrow x^2 = c^2 \\rightarrow x = \\pm c$\n  But $x = \\pm c$ makes the original denominator zero. **Reject.**\n\n• If $u = 39$: $\\sqrt{x^2 - c^2} = 39 \\rightarrow x^2 - c^2 = 1521 \\rightarrow x^2 = c^2 + 1521 = c^2 + 39^2$\n  So $x = \\pm\\sqrt{c^2 + 39^2}$\n\nThe negative solution is $x = -\\sqrt{c^2 + 39^2}$\n\n**Why other choices are incorrect:**\n• Choice A ($-c$): Makes denominator zero\n• Choice B: Same as D (trick option)\n• Choice C: Would give $x^2 - c^2 = 39^2 - c^2 - c^2 = 39^2 - 2c^2$, which doesn't match",
+          correctAnswer: "C",
+          explanation: "**Choice C is correct.** Solve this equation involving radicals.\n\n**Step 1:** Multiply both sides by $\\sqrt{x^2 - k^2}$:\n$x^2 = k^2 + 17\\sqrt{x^2 - k^2}$\n\n**Step 2:** Rearrange and isolate the radical:\n$x^2 - k^2 = 17\\sqrt{x^2 - k^2}$\n\n**Step 3:** Let $u = \\sqrt{x^2 - k^2}$, so $u^2 = x^2 - k^2$:\n$u^2 = 17u$\n$u^2 - 17u = 0$\n$u(u - 17) = 0$\n$u = 0$ or $u = 17$\n\n**Step 4:** Solve for $x$:\n• If $u = 0$: $\\sqrt{x^2 - k^2} = 0 \\rightarrow x^2 = k^2 \\rightarrow x = \\pm k$\n  But $x = \\pm k$ makes the original denominator zero. **Reject.**\n\n• If $u = 17$: $\\sqrt{x^2 - k^2} = 17 \\rightarrow x^2 - k^2 = 289 \\rightarrow x^2 = k^2 + 289 = k^2 + 17^2$\n  So $x = \\pm\\sqrt{k^2 + 17^2}$\n\nThe negative solution $x = -\\sqrt{k^2 + 17^2}$ matches Choice C.\n\n**Why other choices are incorrect:**\n• Choice A ($-k$): Makes the denominator zero (undefined)\n• Choice B: Uses subtraction instead of addition under the radical\n• Choice D: Uses subtraction in the wrong direction",
           skills: ["radical-equations", "algebraic-manipulation", "quadratic-equations"]
         },
 
-        // Question 22: Quadratic modeling - Seal dive depth (CHALLENGING - College Board Q27)
+        // Question 22: Quadratic modeling - Rocket height
         {
           id: 22,
           type: "fill-in",
           difficulty: "hard",
-          question: "The quadratic function $g$ models the depth, in meters, below the surface of the water of a seal $t$ minutes after the seal entered the water during a dive. The function estimates that the seal reached its maximum depth of $302.4$ meters $6$ minutes after it entered the water and then reached the surface of the water $12$ minutes after it entered the water. Based on the function, what was the estimated depth, to the nearest meter, of the seal $10$ minutes after it entered the water?",
-          correctAnswer: 168,
-          explanation: "**The correct answer is 168.** Build the quadratic function from the given information.\n\n**Given information:**\n• Maximum depth $= 302.4$ meters at $t = 6$ minutes (vertex)\n• Surface (depth $= 0$) at $t = 12$ minutes\n• By symmetry, surface at $t = 0$ minutes (when seal entered)\n\n**Step 1:** Use vertex form: $g(t) = a(t - h)^2 + k$\nwhere $(h, k)$ is the vertex $= (6, 302.4)$\n\n$g(t) = a(t - 6)^2 + 302.4$\n\n**Step 2:** Find '$a$' using the point $(12, 0)$:\n$0 = a(12 - 6)^2 + 302.4$\n$0 = a(36) + 302.4$\n$-302.4 = 36a$\n$a = \\frac{-302.4}{36} = -8.4$\n\n**Step 3:** The function is:\n$g(t) = -8.4(t - 6)^2 + 302.4$\n\n**Step 4:** Find depth at $t = 10$:\n$g(10) = -8.4(10 - 6)^2 + 302.4$\n$= -8.4(4)^2 + 302.4$\n$= -8.4(16) + 302.4$\n$= -134.4 + 302.4$\n$= 168$ meters\n\n**Key concepts:**\n1. Use vertex form with vertex at $(6, 302.4)$\n2. Find '$a$' using another known point $(12, 0)$\n3. Evaluate at $t = 10$\n\n**Verification by symmetry:** $t = 10$ is $4$ minutes after the vertex ($t = 6$). By symmetry, $g(2)$ should equal $g(10)$. $g(2) = -8.4(2-6)^2 + 302.4 = -8.4(16) + 302.4 = 168$ ✓",
+          question: "A quadratic function $h$ models the height, in feet, above the ground of a model rocket $t$ seconds after launch. The function estimates that the rocket reached its maximum height of $576$ feet $6$ seconds after launch and returned to the ground $12$ seconds after launch. Based on this function, what was the estimated height, in feet, of the rocket $9$ seconds after launch?",
+          correctAnswer: 432,
+          explanation: "**The correct answer is 432.** Build the quadratic function from the given information.\n\n**Given information:**\n• Maximum height $= 576$ feet at $t = 6$ seconds (vertex)\n• Ground (height $= 0$) at $t = 12$ seconds\n• By symmetry, ground at $t = 0$ seconds (launch)\n\n**Step 1:** Use vertex form: $h(t) = a(t - h)^2 + k$\nwhere the vertex $= (6, 576)$\n\n$h(t) = a(t - 6)^2 + 576$\n\n**Step 2:** Find $a$ using the point $(12, 0)$:\n$0 = a(12 - 6)^2 + 576$\n$0 = 36a + 576$\n$a = \\frac{-576}{36} = -16$\n\n**Step 3:** The function is:\n$h(t) = -16(t - 6)^2 + 576$\n\n**Step 4:** Find height at $t = 9$:\n$h(9) = -16(9 - 6)^2 + 576$\n$= -16(3)^2 + 576$\n$= -16(9) + 576$\n$= -144 + 576$\n$= 432$ feet\n\n**Verification by symmetry:** $t = 9$ is $3$ seconds after the vertex ($t = 6$). By symmetry, $h(3)$ should equal $h(9)$.\n$h(3) = -16(3-6)^2 + 576 = -16(9) + 576 = 432$ ✓",
           skills: ["quadratic-functions", "vertex-form", "modeling", "word-problems"]
         }
       ]

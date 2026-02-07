@@ -17,7 +17,19 @@ export const practiceTest10 = {
           id: 'pt10-m1-q1',
           type: 'multiple-choice',
           difficulty: 'easy',
-          question: 'The scatterplot shows the temperature, in degrees Fahrenheit (°F), and the distance above sea level, in feet, measured at $6$ locations on Mount Jefferson. A line of best fit is also shown. At a distance of $4{,}000$ feet above sea level, what is the temperature, in °F, predicted by the line of best fit?',
+          question: 'The scatterplot above shows the temperature, in degrees Fahrenheit (°F), and the distance above sea level, in thousands of feet, measured at $6$ locations on Mount Jefferson. A line of best fit is also shown. At a distance of $4$ thousand feet above sea level, what is the temperature, in °F, predicted by the line of best fit?',
+          diagram: {
+            type: 'scatterplot',
+            params: {
+              points: [
+                [1, 62], [2, 48], [3, 45],
+                [4.5, 28], [5, 30], [5.5, 20]
+              ],
+              xMax: 7,
+              yMax: 70,
+              bestFitLine: { slope: -8, intercept: 67 }
+            }
+          },
           choices: [
             { id: 'A', text: '$47$' },
             { id: 'B', text: '$35$' },
@@ -77,7 +89,22 @@ export const practiceTest10 = {
           id: 'pt10-m1-q5',
           type: 'multiple-choice',
           difficulty: 'easy',
-          question: 'The bar graph summarizes the charge, in kilowatt-hours (kWh), a battery received each day for $15$ days. For how many of these $15$ days did the battery receive a charge of $0$ kWh?',
+          question: 'The bar graph above summarizes the charge, in kilowatt-hours (kWh), a battery received each day for $15$ days. For how many of these $15$ days did the battery receive a charge of $0$ kWh?',
+          diagram: {
+            type: 'barChart',
+            params: {
+              data: [
+                { label: '0', value: 4 },
+                { label: '1', value: 3 },
+                { label: '2', value: 6 },
+                { label: '3', value: 1 },
+                { label: '4', value: 1 }
+              ],
+              xLabel: 'Charge (kWh)',
+              yLabel: 'Number of days',
+              yMax: 8
+            }
+          },
           choices: [
             { id: 'A', text: '$0$' },
             { id: 'B', text: '$1$' },
@@ -111,7 +138,20 @@ export const practiceTest10 = {
           id: 'pt10-m1-q8',
           type: 'multiple-choice',
           difficulty: 'medium',
-          question: 'The graph shows the estimated value, in dollars, of a tablet as a function of the number of months since it was purchased. The $y$-intercept is at $(0, 225)$. What is the best interpretation of the $y$-intercept of the graph in this context?',
+          question: 'The graph above shows the estimated value, in dollars, of a tablet as a function of the number of months since it was purchased. The $y$-intercept is at $(0, 225)$. What is the best interpretation of the $y$-intercept of the graph in this context?',
+          diagram: {
+            type: 'linearGraph',
+            params: {
+              slope: -8.75,
+              yIntercept: 225,
+              xRange: [0, 28],
+              yRange: [0, 250],
+              xTickInterval: 4,
+              yTickInterval: 50,
+              gridInterval: 4,
+              highlightPoints: [[0, 225]]
+            }
+          },
           choices: [
             { id: 'A', text: 'The estimated value of the tablet was \\$225 when it was purchased.' },
             { id: 'B', text: 'The estimated value of the tablet $24$ months after it was purchased was \\$225.' },
@@ -156,7 +196,22 @@ export const practiceTest10 = {
           id: 'pt10-m1-q11',
           type: 'multiple-choice',
           difficulty: 'medium',
-          question: 'The graph of a system of an absolute value function and a linear function is shown. The absolute value function has vertex at $(-3, 4)$ and opens upward. The linear function passes through $(-7, 8)$ and $(1, 8)$. What is the solution $(x, y)$ to this system of two equations?',
+          question: 'The graph above shows a system of two equations. What is the solution $(x, y)$ to this system of two equations?',
+          diagram: {
+            type: 'parabola',
+            params: {
+              vertex: { h: -3, k: 4 },
+              a: 1,
+              xRange: [-8, 4],
+              yRange: [0, 14],
+              showVertex: false,
+              highlightPoints: [[-3.5, 4.5]],
+              overlayLine: { slope: 1, yIntercept: 8 },
+              xTickInterval: 1,
+              yTickInterval: 2,
+              gridInterval: 1
+            }
+          },
           choices: [
             { id: 'A', text: '$(0, 8)$' },
             { id: 'B', text: '$\\left(\\frac{7}{2}, \\frac{9}{2}\\right)$' },
@@ -249,7 +304,7 @@ export const practiceTest10 = {
           id: 'pt10-m1-q18',
           type: 'multiple-choice',
           difficulty: 'hard',
-          question: 'The function $f(t) = 40{,}000(2)^{\frac{t}{790}}$ gives the number of bacteria in a population $t$ minutes after an initial observation. How much time, in minutes, does it take for the number of bacteria in the population to double?',
+          question: 'The function $f(t) = 40{,}000(2)^{\\frac{t}{790}}$ gives the number of bacteria in a population $t$ minutes after an initial observation. How much time, in minutes, does it take for the number of bacteria in the population to double?',
           choices: [
             { id: 'A', text: '$2$' },
             { id: 'B', text: '$790$' },
@@ -257,7 +312,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$40{,}000$' }
           ],
           correctAnswer: 'B',
-          explanation: 'The bacteria doubles when $2^{\frac{t}{790}} = 2$, which means $\\frac{t}{790} = 1$, so $t = 790$ minutes.',
+          explanation: 'The bacteria doubles when $2^{\\frac{t}{790}} = 2$, which means $\\frac{t}{790} = 1$, so $t = 790$ minutes.',
           skills: ['Exponential Functions', 'Exponential Growth']
         },
         {
@@ -279,7 +334,19 @@ export const practiceTest10 = {
           id: 'pt10-m1-q20',
           type: 'fill-in',
           difficulty: 'hard',
-          question: 'During a study, the temperature of air in a chamber was recorded. The scatterplot shows temperature $y$ (°C) at time $x$ minutes. At $x = 5$, the temperature was $12$°C. At $x = 7$, the temperature was $18$°C. What was the average rate of change, in °C per minute, of the recorded temperature from $x = 5$ to $x = 7$?',
+          question: 'During a study, the temperature of air in a chamber was recorded. The scatterplot above shows the temperature $y$, in degrees Celsius, at time $x$, in minutes. What was the average rate of change, in °C per minute, of the recorded temperature from $x = 5$ to $x = 7$?',
+          diagram: {
+            type: 'scatterplot',
+            params: {
+              points: [
+                [1, 3], [2, 5], [3, 6], [4, 9],
+                [5, 12], [6, 14], [7, 18], [8, 20],
+                [9, 23], [10, 25]
+              ],
+              xMax: 12,
+              yMax: 28
+            }
+          },
           correctAnswer: '3',
           explanation: 'Average rate of change $= \\frac{18 - 12}{7 - 5} = \\frac{6}{2} = 3$°C per minute.',
           skills: ['Functions', 'Rate of Change']
@@ -349,7 +416,21 @@ export const practiceTest10 = {
           id: 'pt10-m2-q3',
           type: 'multiple-choice',
           difficulty: 'easy',
-          question: 'The graph of the quadratic function $y = f(x)$ is shown. The parabola opens upward with vertex at $(0, 2)$. What is the vertex of the graph?',
+          question: 'The graph of the quadratic function $y = f(x)$ is shown above. What is the vertex of the graph?',
+          diagram: {
+            type: 'parabola',
+            params: {
+              vertex: { h: 0, k: 2 },
+              a: 1,
+              xRange: [-6, 6],
+              yRange: [-2, 10],
+              showVertex: false,
+              xTickInterval: 2,
+              yTickInterval: 2,
+              gridInterval: 1,
+              label: 'y = f(x)'
+            }
+          },
           choices: [
             { id: 'A', text: '$(0, -2)$' },
             { id: 'B', text: '$(0, -3)$' },
@@ -473,7 +554,20 @@ export const practiceTest10 = {
           id: 'pt10-m2-q12',
           type: 'multiple-choice',
           difficulty: 'medium',
-          question: 'In the given scatterplot, a line of best fit for the data is shown. The line passes approximately through $(0, 2)$ and $(6, 14)$. Which of the following is closest to the slope of the line of best fit shown?',
+          question: 'A line of best fit for the data is shown in the scatterplot above. Which of the following is closest to the slope of the line of best fit shown?',
+          diagram: {
+            type: 'scatterplot',
+            params: {
+              points: [
+                [0.5, 3], [1, 4], [1.5, 5], [2, 6],
+                [2.5, 7], [3, 8], [3.5, 9], [4, 10],
+                [4.5, 8], [5, 12], [5.5, 13], [6, 14]
+              ],
+              xMax: 7,
+              yMax: 16,
+              bestFitLine: { slope: 2, intercept: 2 }
+            }
+          },
           choices: [
             { id: 'A', text: '$0$' },
             { id: 'B', text: '$\\frac{1}{2}$' },
@@ -508,13 +602,13 @@ export const practiceTest10 = {
           difficulty: 'hard',
           question: 'An investment account was opened with an initial value of $\\$890$. The value of the account doubled every $10$ years. Which equation represents the value of the account $M(t)$, in dollars, $t$ years after the account was opened?',
           choices: [
-            { id: 'A', text: '$M(t) = 890\\left(\\frac{1}{2}\\right)^{\frac{t}{10}}$' },
-            { id: 'B', text: '$M(t) = 890\\left(\\frac{1}{10}\\right)^{\frac{t}{2}}$' },
-            { id: 'C', text: '$M(t) = 890(2)^{\frac{t}{10}}$' },
-            { id: 'D', text: '$M(t) = 890(10)^{\frac{t}{2}}$' }
+            { id: 'A', text: '$M(t) = 890\\left(\\frac{1}{2}\\right)^{\\frac{t}{10}}$' },
+            { id: 'B', text: '$M(t) = 890\\left(\\frac{1}{10}\\right)^{\\frac{t}{2}}$' },
+            { id: 'C', text: '$M(t) = 890(2)^{\\frac{t}{10}}$' },
+            { id: 'D', text: '$M(t) = 890(10)^{\\frac{t}{2}}$' }
           ],
           correctAnswer: 'C',
-          explanation: 'For doubling every $10$ years, the base is $2$ and the exponent is $\\frac{t}{10}$. So $M(t) = 890(2)^{\frac{t}{10}}$.',
+          explanation: 'For doubling every $10$ years, the base is $2$ and the exponent is $\\frac{t}{10}$. So $M(t) = 890(2)^{\\frac{t}{10}}$.',
           skills: ['Exponential Functions', 'Exponential Growth']
         },
         {
@@ -523,10 +617,10 @@ export const practiceTest10 = {
           difficulty: 'hard',
           question: '$y < x$\n$x < 22$\n\nFor which of the following tables are all the values of $x$ and their corresponding values of $y$ solutions to the given system of inequalities?',
           choices: [
-            { id: 'A', text: '$x$: $19, 20, 21$; $y$: $18, 19, 20$' },
-            { id: 'B', text: '$x$: $19, 20, 21$; $y$: $20, 21, 22$' },
-            { id: 'C', text: '$x$: $23, 24, 25$; $y$: $22, 23, 24$' },
-            { id: 'D', text: '$x$: $23, 24, 25$; $y$: $24, 25, 26$' }
+            { id: 'A', text: '$\\begin{array}{|c|c|c|c|}\\hline x & 19 & 20 & 21 \\\\ \\hline y & 18 & 19 & 20 \\\\ \\hline\\end{array}$' },
+            { id: 'B', text: '$\\begin{array}{|c|c|c|c|}\\hline x & 19 & 20 & 21 \\\\ \\hline y & 20 & 21 & 22 \\\\ \\hline\\end{array}$' },
+            { id: 'C', text: '$\\begin{array}{|c|c|c|c|}\\hline x & 23 & 24 & 25 \\\\ \\hline y & 22 & 23 & 24 \\\\ \\hline\\end{array}$' },
+            { id: 'D', text: '$\\begin{array}{|c|c|c|c|}\\hline x & 23 & 24 & 25 \\\\ \\hline y & 24 & 25 & 26 \\\\ \\hline\\end{array}$' }
           ],
           correctAnswer: 'A',
           explanation: 'We need $y < x$ and $x < 22$. Option A has all $x < 22$ ($19, 20, 21$) and $y < x$ ($18<19, 19<20, 20<21$). Options C and D have $x > 22$.',
