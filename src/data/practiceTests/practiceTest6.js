@@ -69,8 +69,9 @@ export const practiceTest6 = {
           diagram: {
             type: "parallelLines",
             params: {
-              angles: { x: true },
-              lineLabels: { m: "m", n: "n" }
+              angles: { x: "132°", y: "x°" },
+              lineLabels: { m: "m", n: "n", t: "k" },
+              showParallelMarks: false
             }
           },
           choices: [
@@ -86,16 +87,17 @@ export const practiceTest6 = {
           id: 5,
           type: 'multiple-choice',
           difficulty: 'easy',
-          question: 'The graph of the linear function $f$ is shown, where $y = f(x)$. The line passes through the points $(0, -5)$ and $(10, 5)$. What is the $y$-intercept of the graph of $f$?',
+          question: 'The graph of the linear function $f$ is shown, where $y = f(x)$. What is the $y$-intercept of the graph of $f$?',
           diagram: {
             type: "linearGraph",
             params: {
               slope: 1,
               yIntercept: -5,
-              xRange: [-2, 12],
-              yRange: [-8, 8],
-              showPoints: [[0, -5], [10, 5]],
-              label: "f(x)"
+              xRange: [-1, 7],
+              yRange: [-6, 4],
+              xTickInterval: 1,
+              yTickInterval: 1,
+              label: "f"
             }
           },
           choices: [

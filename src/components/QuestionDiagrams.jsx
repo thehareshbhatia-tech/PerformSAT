@@ -292,11 +292,22 @@ export const QuadraticInterceptsDiagram = ({ intercepts = [0, 4], vertex = null 
 // =============================================================================
 // SCATTERPLOT DIAGRAM - Points for best-fit questions
 // =============================================================================
-export const ScatterplotDiagram = ({ points = [], xMax = 10, yMax = 10 }) => {
+export const ScatterplotDiagram = ({ points = [], xMax = 10, yMax = 10, bestFitLine }) => {
   return (
     <SATGrid xMin={0} xMax={xMax} yMin={0} yMax={yMax}>
       {({ toX, toY }) => (
         <g>
+          {bestFitLine && (
+            <line
+              x1={toX(0)}
+              y1={toY(bestFitLine.intercept)}
+              x2={toX(xMax)}
+              y2={toY(bestFitLine.slope * xMax + bestFitLine.intercept)}
+              stroke="#2563eb"
+              strokeWidth={2}
+              strokeDasharray="6,3"
+            />
+          )}
           {points.map(([px, py], i) => (
             <circle key={i} cx={toX(px)} cy={toY(py)} r="4" fill="#333" />
           ))}

@@ -298,22 +298,22 @@ export const practiceTest5 = {
           id: 19,
           type: 'fill-in',
           difficulty: 'medium',
-          question: 'The graph of a system of linear equations is shown. One line passes through $(0, 4)$ and $(8, 0)$. The other line passes through $(0, -2)$ and $(4, 4)$. The solution to the system is $(x, y)$. What is the value of $x$?',
+          question: 'The graph of a system of two linear equations is shown. What is the $x$-coordinate of the solution to the system?',
           diagram: {
             type: "twoLineGraph",
             params: {
-              intersection: { x: 3, y: 2.5 },
-              slope1: -0.5,
-              slope2: 1.5,
+              intersection: { x: 3, y: 3 },
+              slope1: -1,
+              slope2: 1,
               xRange: [-1, 9],
-              yRange: [-3, 5],
+              yRange: [-4, 8],
               xTickInterval: 1,
               yTickInterval: 1,
               showIntersection: false
             }
           },
           correctAnswer: '3',
-          explanation: 'Line 1: slope $= \\frac{0-4}{8-0} = -\\frac{1}{2}$, equation: $y = -\\frac{x}{2} + 4$. Line 2: slope $= \\frac{4-(-2)}{4-0} = \\frac{6}{4} = \\frac{3}{2}$, equation: $y = \\frac{3x}{2} - 2$. Setting equal: $-\\frac{x}{2} + 4 = \\frac{3x}{2} - 2$, so $6 = 2x$, giving $x = 3$.'
+          explanation: 'Line 1 passes through $(0, 6)$ and $(6, 0)$, so its slope is $\\frac{0-6}{6-0} = -1$ and its equation is $y = -x + 6$. Line 2 passes through the origin and $(6, 6)$, so its slope is $1$ and its equation is $y = x$. Setting equal: $-x + 6 = x$, so $6 = 2x$, giving $x = 3$.'
         },
         {
           id: 20,
@@ -415,7 +415,20 @@ export const practiceTest5 = {
           id: 5,
           type: 'multiple-choice',
           difficulty: 'easy',
-          question: 'A scatterplot shows the relationship between two variables $x$ and $y$, with a line of best fit. For how many of the $12$ data points is the actual $y$-value greater than the $y$-value predicted by the line of best fit if $5$ points are above the line?',
+          question: 'The scatterplot above shows the relationship between two variables $x$ and $y$, along with a line of best fit. For how many of the $12$ data points is the actual $y$-value greater than the $y$-value predicted by the line of best fit?',
+          diagram: {
+            type: "scatterplot",
+            params: {
+              points: [
+                [1, 4], [2, 2], [2, 3], [3, 6], [4, 4],
+                [5, 7], [6, 5], [6, 6], [7, 9], [8, 7],
+                [9, 10], [10, 8]
+              ],
+              bestFitLine: { slope: 0.7, intercept: 2 },
+              xMax: 10,
+              yMax: 12
+            }
+          },
           choices: [
             { id: 'A', text: '$5$' },
             { id: 'B', text: '$6$' },
@@ -423,7 +436,7 @@ export const practiceTest5 = {
             { id: 'D', text: '$12$' }
           ],
           correctAnswer: 'A',
-          explanation: 'Points above the line of best fit have actual $y$-values greater than predicted $y$-values. If $5$ points are above the line, then $5$ data points have actual $y$-values greater than predicted.'
+          explanation: 'Points above the line of best fit have actual $y$-values greater than predicted $y$-values. Counting the points that lie above the dashed line, there are $5$ such points.'
         },
         {
           id: 6,
@@ -617,16 +630,18 @@ export const practiceTest5 = {
           id: 21,
           type: "multiple-choice",
           difficulty: "hard",
-          question: "The graph shows a system of two linear equations. If a new graph of three linear equations is created using the system of equations shown and the equation $2x + 3y = -12$, how many solutions $(x, y)$ will the resulting system of three equations have?",
+          question: "The graph shows a system of two linear equations. If a new system of three linear equations is created using the two equations shown and the equation $2x + 3y = -12$, how many solutions $(x, y)$ will the resulting system of three equations have?",
           diagram: {
             type: "twoLineGraph",
             params: {
-              intersection: { x: -4, y: 2 },
+              intersection: { x: 0, y: -4 },
               slope1: 1,
               slope2: -1,
-              xRange: [-8, 8],
-              yRange: [-8, 12],
-              showIntersection: true
+              xRange: [-6, 6],
+              yRange: [-6, 4],
+              xTickInterval: 2,
+              yTickInterval: 2,
+              showIntersection: false
             }
           },
           choices: [
@@ -636,7 +651,7 @@ export const practiceTest5 = {
             { id: "D", text: "Infinitely many" }
           ],
           correctAnswer: "B",
-          explanation: "**Choice B is correct.** A system of three linear equations can have:\n• Zero solutions (no common point)\n• Exactly one solution (all three lines meet at one point)\n• Infinitely many solutions (all three are the same line)\n\nIf the original two lines intersect at a point, and the third line passes through that same point, there's exactly one solution. If not, there are zero solutions.\n\nBased on typical SAT problems where the third equation is chosen to pass through the intersection point, the answer is **exactly one solution**.\n\n**Key concept:** Three lines have exactly one common solution only if all three pass through the same point.",
+          explanation: "**Choice B is correct.** The two lines shown intersect at $(0, -4)$. For the system of three equations to have a solution, all three lines must pass through the same point.\n\n**Check:** Does $2x + 3y = -12$ pass through $(0, -4)$?\n$2(0) + 3(-4) = 0 - 12 = -12$ ✓\n\nSince all three lines pass through $(0, -4)$, the system has **exactly one** solution.\n\n**Why other choices are incorrect:**\n• **A (Zero):** Would be correct only if the third line missed the intersection point\n• **C (Exactly two):** Three distinct lines cannot share exactly two common points\n• **D (Infinitely many):** Would require all three lines to be the same line",
           skills: ["Algebra", "Systems of equations"]
         },
         {
@@ -645,10 +660,10 @@ export const practiceTest5 = {
           difficulty: 'hard',
           question: '$3x - y > 660$\n\nFor which of the following tables are all the values of $x$ and their corresponding values of $y$ solutions to the given inequality?',
           choices: [
-            { id: 'A', text: '$x = 220, y = 0$; $x = 221, y = -3$; $x = 222, y = -6$' },
-            { id: 'B', text: '$x = 220, y = 0$; $x = 222, y = -3$; $x = 221, y = -6$' },
-            { id: 'C', text: '$x = 221, y = 0$; $x = 220, y = -3$; $x = 222, y = -6$' },
-            { id: 'D', text: '$x = 221, y = 0$; $x = 222, y = -3$; $x = 220, y = -6$' }
+            { id: 'A', text: '$\\begin{array}{|c|c|c|c|}\\hline x & 220 & 221 & 222 \\\\ \\hline y & 0 & -3 & -6 \\\\ \\hline\\end{array}$' },
+            { id: 'B', text: '$\\begin{array}{|c|c|c|c|}\\hline x & 220 & 222 & 221 \\\\ \\hline y & 0 & -3 & -6 \\\\ \\hline\\end{array}$' },
+            { id: 'C', text: '$\\begin{array}{|c|c|c|c|}\\hline x & 221 & 220 & 222 \\\\ \\hline y & 0 & -3 & -6 \\\\ \\hline\\end{array}$' },
+            { id: 'D', text: '$\\begin{array}{|c|c|c|c|}\\hline x & 221 & 222 & 220 \\\\ \\hline y & 0 & -3 & -6 \\\\ \\hline\\end{array}$' }
           ],
           correctAnswer: 'D',
           explanation: 'Check option D: For $(221, 0)$: $3(221) - 0 = 663 > 660$ ✓. For $(222, -3)$: $3(222) - (-3) = 666 + 3 = 669 > 660$ ✓. For $(220, -6)$: $3(220) - (-6) = 660 + 6 = 666 > 660$ ✓. All satisfy the inequality.'
