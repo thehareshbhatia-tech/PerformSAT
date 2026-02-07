@@ -953,9 +953,11 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       setResultSaved(true);
       console.log('[PracticeTest] Results saved, resultSaved set to true');
 
-      // Record skill attempts for each question
+      // Record skill attempts — aggregate first, then record sequentially to avoid race conditions
       if (user?.uid) {
-        const skillPromises = [];
+        console.log('[PracticeTest] Starting skill recording for user:', user.uid);
+        // Build list of {skills, isCorrect} entries
+        const skillEntries = [];
         test.modules.forEach((mod, modIdx) => {
           mod.questions.forEach((q, qIdx) => {
             if (q.skills && q.skills.length > 0) {
@@ -967,11 +969,24 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               } else {
                 isCorrect = userAnswer === q.correctAnswer;
               }
-              skillPromises.push(recordSkillAttempts(user.uid, q.skills, isCorrect));
+              skillEntries.push({ skills: q.skills, isCorrect });
             }
           });
         });
-        Promise.all(skillPromises).catch(err => console.error('[PracticeTest] Skill recording error:', err));
+        console.log('[PracticeTest] Skill entries to record:', skillEntries.length);
+        // Record sequentially to prevent concurrent Firestore read-modify-write conflicts
+        (async () => {
+          try {
+            for (const entry of skillEntries) {
+              await recordSkillAttempts(user.uid, entry.skills, entry.isCorrect);
+            }
+            console.log('[PracticeTest] All skill recordings complete');
+          } catch (err) {
+            console.error('[PracticeTest] Skill recording error:', err);
+          }
+        })();
+      } else {
+        console.warn('[PracticeTest] No user.uid — skipping skill recording');
       }
 
       // Clear in-progress data since test is complete
