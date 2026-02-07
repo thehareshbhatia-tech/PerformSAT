@@ -50,7 +50,8 @@ export const practiceTest4 = {
             { id: 'D', text: '$85 \\leq t \\leq 108$' }
           ],
           correctAnswer: 'D',
-          explanation: 'All temperatures recorded during the heat wave must be between the minimum ($85°F$) and maximum ($108°F$), inclusive. This is expressed as $85 \\leq t \\leq 108$.'
+          explanation: 'All temperatures recorded during the heat wave must be between the minimum ($85°F$) and maximum ($108°F$), inclusive. This is expressed as $85 \\leq t \\leq 108$.',
+          skills: ["linear-equations"]
         },
         {
           id: 4,
@@ -67,7 +68,8 @@ export const practiceTest4 = {
           difficulty: 'easy',
           question: '$18, 24, 24, 31, 35, 38, 56$\n\nWhat is the range of the $7$ scores shown?',
           correctAnswer: '38',
-          explanation: 'The range is the difference between the maximum and minimum values. Range $= 56 - 18 = 38$.'
+          explanation: 'The range is the difference between the maximum and minimum values. Range $= 56 - 18 = 38$.',
+          skills: ["range-calculation"]
         },
         {
           id: 6,
@@ -96,7 +98,8 @@ export const practiceTest4 = {
             { id: 'D', text: '$1{,}320$' }
           ],
           correctAnswer: 'B',
-          explanation: 'Substituting $x = 580$ into $x + y = 1{,}320$: $580 + y = 1{,}320$, so $y = 1{,}320 - 580 = 740$ minutes of non-daylight.'
+          explanation: 'Substituting $x = 580$ into $x + y = 1{,}320$: $580 + y = 1{,}320$, so $y = 1{,}320 - 580 = 740$ minutes of non-daylight.',
+          skills: ["substitution-method", "setting-up-systems"]
         },
         {
           id: 8,
@@ -104,7 +107,8 @@ export const practiceTest4 = {
           difficulty: 'medium',
           question: 'In a right triangle, one leg has length $9$ and the hypotenuse has length $41$. What is the value of $\\cos(x°)$, where $x°$ is the angle opposite the leg of length $9$? Express your answer as a fraction.',
           correctAnswer: '40/41',
-          explanation: 'Using the Pythagorean theorem: other leg $= \\sqrt{41^2 - 9^2} = \\sqrt{1681 - 81} = \\sqrt{1600} = 40$. For angle $x°$ opposite the leg of length $9$, $\\cos(x°) = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\frac{40}{41}$.'
+          explanation: 'Using the Pythagorean theorem: other leg $= \\sqrt{41^2 - 9^2} = \\sqrt{1681 - 81} = \\sqrt{1600} = 40$. For angle $x°$ opposite the leg of length $9$, $\\cos(x°) = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\frac{40}{41}$.',
+          skills: ["soh-cah-toa", "pythagorean-theorem"]
         },
         {
           id: 9,
@@ -218,7 +222,8 @@ export const practiceTest4 = {
           difficulty: 'medium',
           question: '$y = 5x$\n$y = x^2 - 6$\n\nA solution to the given system of equations is $(x, y)$, where $x > 0$. What is the value of $x$?',
           correctAnswer: '6',
-          explanation: 'Setting the equations equal: $5x = x^2 - 6$. Rearranging: $x^2 - 5x - 6 = 0$. Factoring: $(x - 6)(x + 1) = 0$. So $x = 6$ or $x = -1$. Since $x > 0$, $x = 6$.'
+          explanation: 'Setting the equations equal: $5x = x^2 - 6$. Rearranging: $x^2 - 5x - 6 = 0$. Factoring: $(x - 6)(x + 1) = 0$. So $x = 6$ or $x = -1$. Since $x > 0$, $x = 6$.',
+          skills: ["substitution-method", "identify-quadratic"]
         },
         {
           id: 16,
@@ -324,7 +329,8 @@ export const practiceTest4 = {
           difficulty: 'hard',
           question: 'The function $g$ is defined by $g(x) = (x + 12)(t - x)$, where $t$ is a constant. In the $xy$-plane, the graph of $y = g(x)$ passes through the point $(20, 0)$. What is the value of $g(0)$?',
           correctAnswer: '240',
-          explanation: 'Since $g(20) = 0$: $(20 + 12)(t - 20) = 0$. So $32(t - 20) = 0$, meaning $t = 20$. Therefore, $g(x) = (x + 12)(20 - x)$. $g(0) = (0 + 12)(20 - 0) = 12 \\times 20 = 240$.'
+          explanation: 'Since $g(20) = 0$: $(20 + 12)(t - 20) = 0$. So $32(t - 20) = 0$, meaning $t = 20$. Therefore, $g(x) = (x + 12)(20 - x)$. $g(0) = (0 + 12)(20 - 0) = 12 \\times 20 = 240$.',
+          skills: ["finding-function-from-conditions", "function-evaluation"]
         }
       ]
     },
@@ -358,7 +364,8 @@ export const practiceTest4 = {
             { id: 'D', text: '$500$' }
           ],
           correctAnswer: 'B',
-          explanation: 'The slope is $\\frac{80}{400} = 0.2$ kPa per kelvin. At $500$ kelvins: $y = 0.2 \\times 500 = 100$ kPa.'
+          explanation: 'The slope is $\\frac{80}{400} = 0.2$ kPa per kelvin. At $500$ kelvins: $y = 0.2 \\times 500 = 100$ kPa.',
+          skills: ["slope-intercept-form", "function-evaluation"]
         },
         {
           id: 2,
@@ -372,7 +379,8 @@ export const practiceTest4 = {
             { id: 'D', text: 'The object traveling at $12{,}500$ meters per second has a kinetic energy of $25$ joules.' }
           ],
           correctAnswer: 'A',
-          explanation: '$K(25) = 2{,}500$ means that when $v = 25$ (speed is $25$ m/s), the kinetic energy $K$ is $2{,}500$ joules.'
+          explanation: '$K(25) = 2{,}500$ means that when $v = 25$ (speed is $25$ m/s), the kinetic energy $K$ is $2{,}500$ joules.',
+          skills: ["function-notation", "function-evaluation"]
         },
         {
           id: 3,
@@ -401,7 +409,8 @@ export const practiceTest4 = {
             { id: 'D', text: '$900$' }
           ],
           correctAnswer: 'C',
-          explanation: '$25\\%$ of $360 = 0.25 \\times 360 = 90$.'
+          explanation: '$25\\%$ of $360 = 0.25 \\times 360 = 90$.',
+          skills: ["percent-of-value"]
         },
         {
           id: 5,
@@ -462,7 +471,8 @@ export const practiceTest4 = {
           difficulty: 'medium',
           question: 'What is the slope of the graph of $y = \\frac{1}{4}(24x + 8) + 3x$ in the $xy$-plane?',
           correctAnswer: '9',
-          explanation: 'Simplify: $y = \\frac{1}{4}(24x) + \\frac{1}{4}(8) + 3x = 6x + 2 + 3x = 9x + 2$. The slope is $9$.'
+          explanation: 'Simplify: $y = \\frac{1}{4}(24x) + \\frac{1}{4}(8) + 3x = 6x + 2 + 3x = 9x + 2$. The slope is $9$.',
+          skills: ["slope-intercept-form", "equivalent-expressions"]
         },
         {
           id: 9,
@@ -526,7 +536,8 @@ export const practiceTest4 = {
           difficulty: 'medium',
           question: '$(d - 25)(d + 25) - 9 = -9$\n\nWhat is a solution to the given equation?',
           correctAnswer: '25',
-          explanation: 'Adding $9$ to both sides: $(d - 25)(d + 25) = 0$. This means $d - 25 = 0$ or $d + 25 = 0$. So $d = 25$ or $d = -25$. Both are valid solutions; $25$ is one of them.'
+          explanation: 'Adding $9$ to both sides: $(d - 25)(d + 25) = 0$. This means $d - 25 = 0$ or $d + 25 = 0$. So $d = 25$ or $d = -25$. Both are valid solutions; $25$ is one of them.',
+          skills: ["difference-of-squares"]
         },
         {
           id: 14,
@@ -564,7 +575,8 @@ export const practiceTest4 = {
             { id: 'D', text: '$80$' }
           ],
           correctAnswer: 'A',
-          explanation: '$81 = 3^4$, so $3^{2x} = 3^4$. Therefore $2x = 4$, giving $x = 2$. Thus $5x = 5(2) = 10$.'
+          explanation: '$81 = 3^4$, so $3^{2x} = 3^4$. Therefore $2x = 4$, giving $x = 2$. Thus $5x = 5(2) = 10$.',
+          skills: ["exponent-laws"]
         },
         {
           id: 17,
@@ -605,7 +617,8 @@ export const practiceTest4 = {
           difficulty: 'hard',
           question: 'A flat surface consists of two adjacent squares, where the side length, in meters, of the larger square is $4$ times the side length of the smaller square. A uniform field with strength $18.00$ units per square meter passes through this surface perpendicular to it. The total flux through both squares together is $4{,}590$ units. What is the flux, in units, through the larger square only?',
           correctAnswer: '4320',
-          explanation: 'Let $s$ = side length of smaller square. Larger square has side $4s$. Area of smaller $= s^2$. Area of larger $= (4s)^2 = 16s^2$. Total area $= s^2 + 16s^2 = 17s^2$. Total flux = field strength × total area $= 18 \\times 17s^2 = 4590$. So $306s^2 = 4590$, giving $s^2 = 15$. Flux through larger square $= 18 \\times 16s^2 = 18 \\times 16 \\times 15 = 18 \\times 240 = 4{,}320$ units.'
+          explanation: 'Let $s$ = side length of smaller square. Larger square has side $4s$. Area of smaller $= s^2$. Area of larger $= (4s)^2 = 16s^2$. Total area $= s^2 + 16s^2 = 17s^2$. Total flux = field strength × total area $= 18 \\times 17s^2 = 4590$. So $306s^2 = 4590$, giving $s^2 = 15$. Flux through larger square $= 18 \\times 16s^2 = 18 \\times 16 \\times 15 = 18 \\times 240 = 4{,}320$ units.',
+          skills: ["word-problem-to-equation", "dimensional-analysis"]
         },
         {
           id: 21,

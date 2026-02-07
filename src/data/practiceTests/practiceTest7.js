@@ -13,6 +13,7 @@ export const practiceTest7 = {
         {
           id: 'pt7-m1-q1',
           type: 'multiple-choice',
+          difficulty: 'easy',
           question: 'If $5x - 15 = 30$, what is the value of $x - 3$?',
           choices: [
             { id: 'A', text: '$6$' },
@@ -21,11 +22,13 @@ export const practiceTest7 = {
             { id: 'D', text: '$15$' }
           ],
           correctAnswer: 'A',
-          explanation: 'From $5x - 15 = 30$, we can factor: $5(x - 3) = 30$. Dividing both sides by $5$: $x - 3 = 6$.'
+          explanation: 'From $5x - 15 = 30$, we can factor: $5(x - 3) = 30$. Dividing both sides by $5$: $x - 3 = 6$.',
+          skills: ["linear-equations"]
         },
         {
           id: 'pt7-m1-q2',
           type: 'multiple-choice',
+          difficulty: 'easy',
           question: 'A researcher collected data on the relationship between hours of sunlight and plant height. The scatterplot shows a positive linear relationship. If the line of best fit has equation $h = 2.5s + 4$, where $h$ is height in centimeters and $s$ is hours of sunlight, what does the $4$ represent?',
           choices: [
             { id: 'A', text: 'The increase in height for each additional hour of sunlight' },
@@ -34,11 +37,13 @@ export const practiceTest7 = {
             { id: 'D', text: 'The number of hours of sunlight needed' }
           ],
           correctAnswer: 'B',
-          explanation: 'In the equation $h = 2.5s + 4$, the constant term $4$ is the $y$-intercept, representing the predicted height when $s = 0$ (no sunlight).'
+          explanation: 'In the equation $h = 2.5s + 4$, the constant term $4$ is the $y$-intercept, representing the predicted height when $s = 0$ (no sunlight).',
+          skills: ["slope-intercept-form", "word-problem-to-equation"]
         },
         {
           id: 'pt7-m1-q3',
           type: 'multiple-choice',
+          difficulty: 'easy',
           question: 'What is the solution to $\\sqrt{3x + 7} = 5$?',
           choices: [
             { id: 'A', text: '$4$' },
@@ -47,11 +52,13 @@ export const practiceTest7 = {
             { id: 'D', text: '$10$' }
           ],
           correctAnswer: 'B',
-          explanation: 'Squaring both sides: $3x + 7 = 25$. Subtracting $7$: $3x = 18$. Dividing by $3$: $x = 6$. Check: $\\sqrt{3(6) + 7} = \\sqrt{25} = 5$ ✓'
+          explanation: 'Squaring both sides: $3x + 7 = 25$. Subtracting $7$: $3x = 18$. Dividing by $3$: $x = 6$. Check: $\\sqrt{3(6) + 7} = \\sqrt{25} = 5$ ✓',
+          skills: ["linear-equations"]
         },
         {
           id: 'pt7-m1-q4',
           type: 'multiple-choice',
+          difficulty: 'easy',
           question: 'Which inequality represents all values of $x$ such that $3x - 7 > 2x + 5$?',
           choices: [
             { id: 'A', text: '$x > 12$' },
@@ -60,11 +67,13 @@ export const practiceTest7 = {
             { id: 'D', text: '$x < -12$' }
           ],
           correctAnswer: 'A',
-          explanation: 'Subtracting $2x$ from both sides: $x - 7 > 5$. Adding $7$ to both sides: $x > 12$.'
+          explanation: 'Subtracting $2x$ from both sides: $x - 7 > 5$. Adding $7$ to both sides: $x > 12$.',
+          skills: ["linear-equations"]
         },
         {
           id: 'pt7-m1-q5',
           type: 'multiple-choice',
+          difficulty: 'easy',
           question: 'The function $f(t) = 800(1.06)^t$ models the value of an investment after $t$ years. What does $800$ represent in this context?',
           choices: [
             { id: 'A', text: 'The annual interest rate' },
@@ -73,11 +82,13 @@ export const practiceTest7 = {
             { id: 'D', text: 'The total interest earned' }
           ],
           correctAnswer: 'B',
-          explanation: 'In the exponential function $f(t) = 800(1.06)^t$, $800$ is the initial value when $t = 0$, representing the initial investment amount.'
+          explanation: 'In the exponential function $f(t) = 800(1.06)^t$, $800$ is the initial value when $t = 0$, representing the initial investment amount.',
+          skills: ["exponential-growth-decay"]
         },
         {
           id: 'pt7-m1-q6',
           type: 'multiple-choice',
+          difficulty: 'easy',
           question: 'A phone plan charges a monthly fee of \\$25 plus \\$0.05 per text message. Which equation represents the total monthly cost $C$ in terms of the number of text messages $m$?',
           choices: [
             { id: 'A', text: '$C = 0.05m + 25$' },
@@ -86,11 +97,13 @@ export const practiceTest7 = {
             { id: 'D', text: '$C = 25(m + 0.05)$' }
           ],
           correctAnswer: 'A',
-          explanation: 'The total cost is the fixed monthly fee (\\$25) plus the variable cost (\\$0.05 per message × number of messages). So $C = 0.05m + 25$.'
+          explanation: 'The total cost is the fixed monthly fee (\\$25) plus the variable cost (\\$0.05 per message × number of messages). So $C = 0.05m + 25$.',
+          skills: ["word-problem-to-equation", "slope-intercept-form"]
         },
         {
           id: 'pt7-m1-q7',
           type: 'multiple-choice',
+          difficulty: 'easy',
           question: 'A triangle has a base of $12$ inches and a height of $8$ inches. What is the area of the triangle in square inches?',
           choices: [
             { id: 'A', text: '$20$' },
@@ -99,11 +112,13 @@ export const practiceTest7 = {
             { id: 'D', text: '$192$' }
           ],
           correctAnswer: 'B',
-          explanation: 'Area of a triangle $= \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2} \\times 12 \\times 8 = 48$ square inches.'
+          explanation: 'Area of a triangle $= \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2} \\times 12 \\times 8 = 48$ square inches.',
+          skills: ["triangle-area"]
         },
         {
           id: 'pt7-m1-q8',
           type: 'multiple-choice',
+          difficulty: 'medium',
           question: 'If $x^2 - 6x + 9 = 0$, what is the value of $x$?',
           choices: [
             { id: 'A', text: '$-3$' },
@@ -112,11 +127,13 @@ export const practiceTest7 = {
             { id: 'D', text: '$9$' }
           ],
           correctAnswer: 'B',
-          explanation: 'Factoring: $x^2 - 6x + 9 = (x - 3)^2 = 0$. Therefore, $x - 3 = 0$, so $x = 3$.'
+          explanation: 'Factoring: $x^2 - 6x + 9 = (x - 3)^2 = 0$. Therefore, $x - 3 = 0$, so $x = 3$.',
+          skills: ["perfect-square-trinomial", "finding-roots-factoring"]
         },
         {
           id: 'pt7-m1-q9',
           type: 'multiple-choice',
+          difficulty: 'medium',
           question: 'The equation $y = 2x^2 - 8x + 10$ represents a parabola. What is the $y$-intercept?',
           choices: [
             { id: 'A', text: '$2$' },
@@ -125,11 +142,13 @@ export const practiceTest7 = {
             { id: 'D', text: '$0$' }
           ],
           correctAnswer: 'C',
-          explanation: 'The $y$-intercept occurs when $x = 0$. Substituting: $y = 2(0)^2 - 8(0) + 10 = 10$.'
+          explanation: 'The $y$-intercept occurs when $x = 0$. Substituting: $y = 2(0)^2 - 8(0) + 10 = 10$.',
+          skills: ["vertex-form", "function-evaluation"]
         },
         {
           id: 'pt7-m1-q10',
           type: 'multiple-choice',
+          difficulty: 'medium',
           question: 'A store increases the price of an item by $25\\%$. If the new price is \\$75, what was the original price?',
           choices: [
             { id: 'A', text: '\\$50' },
@@ -138,11 +157,13 @@ export const practiceTest7 = {
             { id: 'D', text: '\\$62.50' }
           ],
           correctAnswer: 'C',
-          explanation: 'If the original price is $p$, then $1.25p = 75$. Dividing by $1.25$: $p = \\frac{75}{1.25} = \\$60$.'
+          explanation: 'If the original price is $p$, then $1.25p = 75$. Dividing by $1.25$: $p = \\frac{75}{1.25} = \\$60$.',
+          skills: ["percent-change"]
         },
         {
           id: 'pt7-m1-q11',
           type: 'multiple-choice',
+          difficulty: 'medium',
           question: 'The equation of a circle is $(x - 4)^2 + (y + 2)^2 = 36$. What is the radius of the circle?',
           choices: [
             { id: 'A', text: '$4$' },
@@ -151,11 +172,13 @@ export const practiceTest7 = {
             { id: 'D', text: '$36$' }
           ],
           correctAnswer: 'B',
-          explanation: 'The standard form of a circle is $(x - h)^2 + (y - k)^2 = r^2$. Here, $r^2 = 36$, so $r = 6$.'
+          explanation: 'The standard form of a circle is $(x - h)^2 + (y - k)^2 = r^2$. Here, $r^2 = 36$, so $r = 6$.',
+          skills: ["circle-equation"]
         },
         {
           id: 'pt7-m1-q12',
           type: 'multiple-choice',
+          difficulty: 'medium',
           question: 'In a right triangle, if $\\sin(\\theta) = \\frac{5}{13}$, what is $\\cos(\\theta)$?',
           choices: [
             { id: 'A', text: '$\\frac{5}{13}$' },
@@ -164,18 +187,22 @@ export const practiceTest7 = {
             { id: 'D', text: '$\\frac{13}{12}$' }
           ],
           correctAnswer: 'B',
-          explanation: 'Using the Pythagorean identity: $\\sin^2(\\theta) + \\cos^2(\\theta) = 1$. So $\\left(\\frac{5}{13}\\right)^2 + \\cos^2(\\theta) = 1$. Thus $\\cos^2(\\theta) = 1 - \\frac{25}{169} = \\frac{144}{169}$, and $\\cos(\\theta) = \\frac{12}{13}$.'
+          explanation: 'Using the Pythagorean identity: $\\sin^2(\\theta) + \\cos^2(\\theta) = 1$. So $\\left(\\frac{5}{13}\\right)^2 + \\cos^2(\\theta) = 1$. Thus $\\cos^2(\\theta) = 1 - \\frac{25}{169} = \\frac{144}{169}$, and $\\cos(\\theta) = \\frac{12}{13}$.',
+          skills: ["soh-cah-toa", "pythagorean-theorem"]
         },
         {
           id: 'pt7-m1-q13',
           type: 'fill-in',
+          difficulty: 'easy',
           question: 'If $4(2x + 3) = 28$, what is the value of $x$?',
           correctAnswer: '2',
-          explanation: 'Distributing: $8x + 12 = 28$. Subtracting $12$: $8x = 16$. Dividing by $8$: $x = 2$.'
+          explanation: 'Distributing: $8x + 12 = 28$. Subtracting $12$: $8x = 16$. Dividing by $8$: $x = 2$.',
+          skills: ["linear-equations", "distributive-property"]
         },
         {
           id: 'pt7-m1-q14',
           type: 'multiple-choice',
+          difficulty: 'easy',
           question: 'The function $g(x) = 3x - 7$. What is $g(5)$?',
           choices: [
             { id: 'A', text: '$2$' },
@@ -184,11 +211,13 @@ export const practiceTest7 = {
             { id: 'D', text: '$22$' }
           ],
           correctAnswer: 'B',
-          explanation: 'Substituting $x = 5$: $g(5) = 3(5) - 7 = 15 - 7 = 8$.'
+          explanation: 'Substituting $x = 5$: $g(5) = 3(5) - 7 = 15 - 7 = 8$.',
+          skills: ["function-evaluation"]
         },
         {
           id: 'pt7-m1-q15',
           type: 'multiple-choice',
+          difficulty: 'medium',
           question: 'If $f(x) = x^2 + 4x - 5$, for what value of $x$ does $f(x) = 0$?',
           choices: [
             { id: 'A', text: '$x = 1$ only' },
@@ -197,11 +226,13 @@ export const practiceTest7 = {
             { id: 'D', text: '$x = -1$ or $x = 5$' }
           ],
           correctAnswer: 'C',
-          explanation: 'Factoring: $x^2 + 4x - 5 = (x + 5)(x - 1) = 0$. So $x = -5$ or $x = 1$.'
+          explanation: 'Factoring: $x^2 + 4x - 5 = (x + 5)(x - 1) = 0$. So $x = -5$ or $x = 1$.',
+          skills: ["finding-roots-factoring"]
         },
         {
           id: 'pt7-m1-q16',
           type: 'multiple-choice',
+          difficulty: 'easy',
           question: 'A line passes through the points $(2, 5)$ and $(6, 13)$. What is the slope of the line?',
           choices: [
             { id: 'A', text: '$\\frac{1}{2}$' },
@@ -210,18 +241,22 @@ export const practiceTest7 = {
             { id: 'D', text: '$8$' }
           ],
           correctAnswer: 'B',
-          explanation: 'Slope $= \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{13 - 5}{6 - 2} = \\frac{8}{4} = 2$.'
+          explanation: 'Slope $= \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{13 - 5}{6 - 2} = \\frac{8}{4} = 2$.',
+          skills: ["slope-from-points"]
         },
         {
           id: 'pt7-m1-q17',
           type: 'fill-in',
+          difficulty: 'easy',
           question: 'What is the value of $3^2 + 4^2$?',
           correctAnswer: '25',
-          explanation: '$3^2 + 4^2 = 9 + 16 = 25$.'
+          explanation: '$3^2 + 4^2 = 9 + 16 = 25$.',
+          skills: ["pythagorean-theorem"]
         },
         {
           id: 'pt7-m1-q18',
           type: 'multiple-choice',
+          difficulty: 'medium',
           question: 'Which expression is equivalent to $(2x^3)^2$?',
           choices: [
             { id: 'A', text: '$2x^6$' },
@@ -230,11 +265,13 @@ export const practiceTest7 = {
             { id: 'D', text: '$2x^9$' }
           ],
           correctAnswer: 'C',
-          explanation: '$(2x^3)^2 = 2^2 \\times (x^3)^2 = 4 \\times x^6 = 4x^6$.'
+          explanation: '$(2x^3)^2 = 2^2 \\times (x^3)^2 = 4 \\times x^6 = 4x^6$.',
+          skills: ["exponent-laws"]
         },
         {
           id: 'pt7-m1-q19',
           type: 'multiple-choice',
+          difficulty: 'medium',
           question: 'The sum of three consecutive integers is $72$. What is the largest of these integers?',
           choices: [
             { id: 'A', text: '$23$' },
@@ -243,11 +280,13 @@ export const practiceTest7 = {
             { id: 'D', text: '$26$' }
           ],
           correctAnswer: 'C',
-          explanation: 'Let the integers be $n$, $n+1$, $n+2$. Then $n + (n+1) + (n+2) = 72$, so $3n + 3 = 72$, $3n = 69$, $n = 23$. The largest is $23 + 2 = 25$.'
+          explanation: 'Let the integers be $n$, $n+1$, $n+2$. Then $n + (n+1) + (n+2) = 72$, so $3n + 3 = 72$, $3n = 69$, $n = 23$. The largest is $23 + 2 = 25$.',
+          skills: ["word-problem-to-equation", "linear-equations"]
         },
         {
           id: 'pt7-m1-q20',
           type: 'multiple-choice',
+          difficulty: 'easy',
           question: 'If $2y - 3 = 11$, what is the value of $4y$?',
           choices: [
             { id: 'A', text: '$14$' },
@@ -256,18 +295,22 @@ export const practiceTest7 = {
             { id: 'D', text: '$44$' }
           ],
           correctAnswer: 'C',
-          explanation: 'From $2y - 3 = 11$, we get $2y = 14$, so $y = 7$. Therefore, $4y = 4(7) = 28$.'
+          explanation: 'From $2y - 3 = 11$, we get $2y = 14$, so $y = 7$. Therefore, $4y = 4(7) = 28$.',
+          skills: ["linear-equations"]
         },
         {
           id: 'pt7-m1-q21',
           type: 'fill-in',
+          difficulty: 'easy',
           question: 'A rectangle has a perimeter of $28$ cm. If the length is $9$ cm, what is the width in cm?',
           correctAnswer: '5',
-          explanation: 'Perimeter $= 2(\\text{length} + \\text{width})$. So $28 = 2(9 + \\text{width})$, $14 = 9 + \\text{width}$, width $= 5$ cm.'
+          explanation: 'Perimeter $= 2(\\text{length} + \\text{width})$. So $28 = 2(9 + \\text{width})$, $14 = 9 + \\text{width}$, width $= 5$ cm.',
+          skills: ["word-problem-to-equation"]
         },
         {
           id: 'pt7-m1-q22',
           type: 'multiple-choice',
+          difficulty: 'medium',
           question: 'Which of the following is equivalent to $(x + 3)(x - 3)$?',
           choices: [
             { id: 'A', text: '$x^2 - 9$' },
@@ -276,7 +319,8 @@ export const practiceTest7 = {
             { id: 'D', text: '$x^2 + 6x + 9$' }
           ],
           correctAnswer: 'A',
-          explanation: 'Using the difference of squares formula: $(x + 3)(x - 3) = x^2 - 3^2 = x^2 - 9$.'
+          explanation: 'Using the difference of squares formula: $(x + 3)(x - 3) = x^2 - 3^2 = x^2 - 9$.',
+          skills: ["difference-of-squares"]
         }
       ]
     },
@@ -296,7 +340,8 @@ export const practiceTest7 = {
             { id: 'D', text: '$\\frac{2}{3}$' }
           ],
           correctAnswer: 'B',
-          explanation: 'Total marbles $= 4 + 6 + 5 = 15$. Probability of blue $= \\frac{6}{15} = \\frac{2}{5}$.'
+          explanation: 'Total marbles $= 4 + 6 + 5 = 15$. Probability of blue $= \\frac{6}{15} = \\frac{2}{5}$.',
+          skills: ["percent-of-value"]
         },
         {
           id: 'pt7-m2-q2',
@@ -310,7 +355,8 @@ export const practiceTest7 = {
             { id: 'D', text: '$f(x) = x^2 - 4$' }
           ],
           correctAnswer: 'C',
-          explanation: 'Exponential decay has the form $f(x) = a(b)^x$ where $0 < b < 1$. In $f(x) = 50(0.85)^x$, the base $0.85$ is between $0$ and $1$.'
+          explanation: 'Exponential decay has the form $f(x) = a(b)^x$ where $0 < b < 1$. In $f(x) = 50(0.85)^x$, the base $0.85$ is between $0$ and $1$.',
+          skills: ["exponential-growth-decay"]
         },
         {
           id: 'pt7-m2-q3',
@@ -324,7 +370,8 @@ export const practiceTest7 = {
             { id: 'D', text: '$(-3, 0)$' }
           ],
           correctAnswer: 'B',
-          explanation: 'The $y$-intercept is the point where $x = 0$. Substituting: $y = -3(0) + 12 = 12$. The point is $(0, 12)$.'
+          explanation: 'The $y$-intercept is the point where $x = 0$. Substituting: $y = -3(0) + 12 = 12$. The point is $(0, 12)$.',
+          skills: ["slope-intercept-form"]
         },
         {
           id: 'pt7-m2-q4',
@@ -338,7 +385,8 @@ export const practiceTest7 = {
             { id: 'D', text: '$x = 8$, $y = 2$' }
           ],
           correctAnswer: 'A',
-          explanation: 'Adding the equations: $2x = 14$, so $x = 7$. Substituting into $x + y = 10$: $7 + y = 10$, so $y = 3$.'
+          explanation: 'Adding the equations: $2x = 14$, so $x = 7$. Substituting into $x + y = 10$: $7 + y = 10$, so $y = 3$.',
+          skills: ["elimination-method"]
         },
         {
           id: 'pt7-m2-q5',
@@ -352,7 +400,8 @@ export const practiceTest7 = {
             { id: 'D', text: '$130$' }
           ],
           correctAnswer: 'C',
-          explanation: '$35\\%$ of $200 = 0.35 \\times 200 = 70$ students.'
+          explanation: '$35\\%$ of $200 = 0.35 \\times 200 = 70$ students.',
+          skills: ["percent-of-value"]
         },
         {
           id: 'pt7-m2-q6',
@@ -360,7 +409,8 @@ export const practiceTest7 = {
           difficulty: 'easy',
           question: 'The ratio of boys to girls in a class is $3:5$. If there are $24$ boys, how many girls are in the class?',
           correctAnswer: '40',
-          explanation: 'If boys:girls $= 3:5$ and boys $= 24$, then $\\frac{24}{3} = 8$ represents one unit. Girls $= 5 \\times 8 = 40$.'
+          explanation: 'If boys:girls $= 3:5$ and boys $= 24$, then $\\frac{24}{3} = 8$ represents one unit. Girls $= 5 \\times 8 = 40$.',
+          skills: ["word-problem-to-equation"]
         },
         {
           id: 'pt7-m2-q7',
@@ -374,7 +424,8 @@ export const practiceTest7 = {
             { id: 'D', text: '$2x - 4 = 3x + 3$' }
           ],
           correctAnswer: 'A',
-          explanation: 'Distributing both sides: $2(x - 4) = 2x - 8$ and $3(x + 1) = 3x + 3$. So $2x - 8 = 3x + 3$.'
+          explanation: 'Distributing both sides: $2(x - 4) = 2x - 8$ and $3(x + 1) = 3x + 3$. So $2x - 8 = 3x + 3$.',
+          skills: ["distributive-property", "linear-equations"]
         },
         {
           id: 'pt7-m2-q8',
@@ -388,7 +439,8 @@ export const practiceTest7 = {
             { id: 'D', text: '$6$' }
           ],
           correctAnswer: 'B',
-          explanation: 'Using $d = 55t$ with $d = 220$: $220 = 55t$, so $t = \\frac{220}{55} = 4$ hours.'
+          explanation: 'Using $d = 55t$ with $d = 220$: $220 = 55t$, so $t = \\frac{220}{55} = 4$ hours.',
+          skills: ["linear-equations", "word-problem-to-equation"]
         },
         {
           id: 'pt7-m2-q9',
@@ -402,7 +454,8 @@ export const practiceTest7 = {
             { id: 'D', text: '$x = -2$ and $x = 6$' }
           ],
           correctAnswer: 'C',
-          explanation: 'Setting each factor to zero: $x - 2 = 0$ gives $x = 2$, and $x + 6 = 0$ gives $x = -6$.'
+          explanation: 'Setting each factor to zero: $x - 2 = 0$ gives $x = 2$, and $x + 6 = 0$ gives $x = -6$.',
+          skills: ["roots-from-factors"]
         },
         {
           id: 'pt7-m2-q10',
@@ -416,7 +469,8 @@ export const practiceTest7 = {
             { id: 'D', text: '$S = 200w - 50$' }
           ],
           correctAnswer: 'B',
-          explanation: 'Total savings = starting amount + (weekly savings × weeks) $= 200 + 50w$, or $S = 50w + 200$.'
+          explanation: 'Total savings = starting amount + (weekly savings × weeks) $= 200 + 50w$, or $S = 50w + 200$.',
+          skills: ["slope-intercept-form", "word-problem-to-equation"]
         },
         {
           id: 'pt7-m2-q11',
@@ -433,7 +487,8 @@ export const practiceTest7 = {
             { id: 'D', text: '$28$' }
           ],
           correctAnswer: 'B',
-          explanation: 'The median of an ordered set with $7$ values is the $4$th value. The values in order are: $12, 15, 18, 22, 28, 35, 42$. The $4$th value is $22$.'
+          explanation: 'The median of an ordered set with $7$ values is the $4$th value. The values in order are: $12, 15, 18, 22, 28, 35, 42$. The $4$th value is $22$.',
+          skills: ["find-median"]
         },
         {
           id: 'pt7-m2-q12',
@@ -447,7 +502,8 @@ export const practiceTest7 = {
             { id: 'D', text: '$-\\frac{1}{4}$' }
           ],
           correctAnswer: 'D',
-          explanation: 'Perpendicular lines have slopes that are negative reciprocals. The negative reciprocal of $4$ is $-\\frac{1}{4}$.'
+          explanation: 'Perpendicular lines have slopes that are negative reciprocals. The negative reciprocal of $4$ is $-\\frac{1}{4}$.',
+          skills: ["perpendicular-negative-reciprocal"]
         },
         {
           id: 'pt7-m2-q13',
@@ -461,7 +517,8 @@ export const practiceTest7 = {
             { id: 'D', text: '$y = -\\frac{2}{3}x + 6$' }
           ],
           correctAnswer: 'B',
-          explanation: 'Solving for $y$: $2y = -3x + 18$, so $y = -\\frac{3}{2}x + 9$.'
+          explanation: 'Solving for $y$: $2y = -3x + 18$, so $y = -\\frac{3}{2}x + 9$.',
+          skills: ["slope-intercept-form"]
         },
         {
           id: 'pt7-m2-q14',
@@ -469,7 +526,8 @@ export const practiceTest7 = {
           difficulty: 'easy',
           question: 'A store offers a $20\\%$ discount on an item originally priced at \\$85. What is the sale price in dollars?',
           correctAnswer: '68',
-          explanation: 'Discount $= 20\\%$ of \\$85 $= 0.20 \\times 85 = \\$17$. Sale price $= \\$85 - \\$17 = \\$68$.'
+          explanation: 'Discount $= 20\\%$ of \\$85 $= 0.20 \\times 85 = \\$17$. Sale price $= \\$85 - \\$17 = \\$68$.',
+          skills: ["percent-change"]
         },
         {
           id: 'pt7-m2-q15',
@@ -483,7 +541,8 @@ export const practiceTest7 = {
             { id: 'D', text: '$(x - 2)(x - 2)(x - 2)$' }
           ],
           correctAnswer: 'A',
-          explanation: 'Using the difference of cubes formula: $a^3 - b^3 = (a - b)(a^2 + ab + b^2)$. Here, $x^3 - 8 = x^3 - 2^3 = (x - 2)(x^2 + 2x + 4)$.'
+          explanation: 'Using the difference of cubes formula: $a^3 - b^3 = (a - b)(a^2 + ab + b^2)$. Here, $x^3 - 8 = x^3 - 2^3 = (x - 2)(x^2 + 2x + 4)$.',
+          skills: ["finding-roots-factoring", "equivalent-expressions"]
         },
         {
           id: 'pt7-m2-q16',
@@ -491,7 +550,8 @@ export const practiceTest7 = {
           difficulty: 'medium',
           question: 'A rectangle has length $(x + 5)$ and width $(x - 2)$. If the area is $18$, what is the positive value of $x$?',
           correctAnswer: '4',
-          explanation: 'Area $= (x + 5)(x - 2) = 18$. Expanding: $x^2 + 3x - 10 = 18$, so $x^2 + 3x - 28 = 0$. Factoring: $(x + 7)(x - 4) = 0$. So $x = -7$ or $x = 4$. The positive value is $x = 4$. Check: $(4 + 5)(4 - 2) = 9 \\times 2 = 18$ ✓'
+          explanation: 'Area $= (x + 5)(x - 2) = 18$. Expanding: $x^2 + 3x - 10 = 18$, so $x^2 + 3x - 28 = 0$. Factoring: $(x + 7)(x - 4) = 0$. So $x = -7$ or $x = 4$. The positive value is $x = 4$. Check: $(4 + 5)(4 - 2) = 9 \\times 2 = 18$ ✓',
+          skills: ["finding-roots-factoring", "identify-quadratic"]
         },
         {
           id: 'pt7-m2-q17',
@@ -505,7 +565,8 @@ export const practiceTest7 = {
             { id: 'D', text: '$144\\pi$' }
           ],
           correctAnswer: 'A',
-          explanation: 'Volume of cylinder $= \\pi r^2 h = \\pi(3)^2(8) = \\pi(9)(8) = 72\\pi$ cubic inches.'
+          explanation: 'Volume of cylinder $= \\pi r^2 h = \\pi(3)^2(8) = \\pi(9)(8) = 72\\pi$ cubic inches.',
+          skills: ["volume-prism"]
         },
         {
           id: 'pt7-m2-q18',
@@ -513,7 +574,8 @@ export const practiceTest7 = {
           difficulty: 'medium',
           question: 'If $5^{2x} = 125$, what is the value of $x$?',
           correctAnswer: '1.5',
-          explanation: '$125 = 5^3$, so $5^{2x} = 5^3$. Therefore $2x = 3$, and $x = \\frac{3}{2} = 1.5$.'
+          explanation: '$125 = 5^3$, so $5^{2x} = 5^3$. Therefore $2x = 3$, and $x = \\frac{3}{2} = 1.5$.',
+          skills: ["exponent-laws"]
         },
         {
           id: 'pt7-m2-q19',
@@ -527,7 +589,8 @@ export const practiceTest7 = {
             { id: 'D', text: '$y = 2(x - 3)^2 - 4$' }
           ],
           correctAnswer: 'A',
-          explanation: 'Vertex form is $y = a(x - h)^2 + k$ with vertex $(h, k) = (3, -4)$. So $y = a(x - 3)^2 - 4$. Testing with point $(5, 0)$: $0 = a(5-3)^2 - 4 = 4a - 4$, so $a = 1$. Thus $y = (x - 3)^2 - 4$.'
+          explanation: 'Vertex form is $y = a(x - h)^2 + k$ with vertex $(h, k) = (3, -4)$. So $y = a(x - 3)^2 - 4$. Testing with point $(5, 0)$: $0 = a(5-3)^2 - 4 = 4a - 4$, so $a = 1$. Thus $y = (x - 3)^2 - 4$.',
+          skills: ["vertex-form", "finding-function-from-conditions"]
         },
         {
           id: 'pt7-m2-q20',
@@ -541,7 +604,8 @@ export const practiceTest7 = {
             { id: 'D', text: '$4x + 3$' }
           ],
           correctAnswer: 'B',
-          explanation: 'Factor the numerator as a difference of squares: $4x^2 - 9 = (2x + 3)(2x - 3)$. Then $\\frac{(2x + 3)(2x - 3)}{2x + 3} = 2x - 3$.'
+          explanation: 'Factor the numerator as a difference of squares: $4x^2 - 9 = (2x + 3)(2x - 3)$. Then $\\frac{(2x + 3)(2x - 3)}{2x + 3} = 2x - 3$.',
+          skills: ["simplifying-rational-expressions", "difference-of-squares"]
         },
         {
           id: 'pt7-m2-q21',

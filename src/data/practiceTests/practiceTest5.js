@@ -26,7 +26,8 @@ export const practiceTest5 = {
             { id: 'D', text: '$75$' }
           ],
           correctAnswer: 'A',
-          explanation: 'Starting with $75$ donors on day $1$, after $5$ more days there will be $5 \\times 12 = 60$ additional donors. Total $= 75 + 60 = 135$ donors.'
+          explanation: 'Starting with $75$ donors on day $1$, after $5$ more days there will be $5 \\times 12 = 60$ additional donors. Total $= 75 + 60 = 135$ donors.',
+          skills: ["word-problem-to-equation", "linear-equations"]
         },
         {
           id: 2,
@@ -75,7 +76,8 @@ export const practiceTest5 = {
             { id: 'D', text: 'Increasing exponential' }
           ],
           correctAnswer: 'B',
-          explanation: 'The function values increase by a constant amount of $3$ for each unit increase in $x$ ($27-24=3$, $30-27=3$, $33-30=3$). A constant rate of change indicates a linear function, and since $f(x)$ increases as $x$ increases, it is an increasing linear function.'
+          explanation: 'The function values increase by a constant amount of $3$ for each unit increase in $x$ ($27-24=3$, $30-27=3$, $33-30=3$). A constant rate of change indicates a linear function, and since $f(x)$ increases as $x$ increases, it is an increasing linear function.',
+          skills: ["table-to-equation", "function-notation"]
         },
         {
           id: 4,
@@ -173,7 +175,8 @@ export const practiceTest5 = {
             { id: 'D', text: '$480$' }
           ],
           correctAnswer: 'B',
-          explanation: 'The sample proportion is $\\frac{20}{25} = 0.80$ or $80\\%$. Applying this proportion to the entire company: $0.80 \\times 500 = 400$ employees.'
+          explanation: 'The sample proportion is $\\frac{20}{25} = 0.80$ or $80\\%$. Applying this proportion to the entire company: $0.80 \\times 500 = 400$ employees.',
+          skills: ["margin-of-error"]
         },
         {
           id: 10,
@@ -238,7 +241,8 @@ export const practiceTest5 = {
             { id: 'D', text: 'The tailor purchased $8$ yards more fabric than was used to make the curtains.' }
           ],
           correctAnswer: 'D',
-          explanation: 'Rearranging the equation: $y = 4x + 8$. The fabric used for curtains is $4x$ yards, and the total fabric purchased is $y$ yards. The difference $y - 4x = 8$ represents extra fabric purchased beyond what was used for curtains.'
+          explanation: 'Rearranging the equation: $y = 4x + 8$. The fabric used for curtains is $4x$ yards, and the total fabric purchased is $y$ yards. The difference $y - 4x = 8$ represents extra fabric purchased beyond what was used for curtains.',
+          skills: ["slope-intercept-form", "word-problem-to-equation"]
         },
         {
           id: 15,
@@ -252,7 +256,8 @@ export const practiceTest5 = {
             { id: 'D', text: '$-3$' }
           ],
           correctAnswer: 'C',
-          explanation: 'Notice that $5x - 35 = 5(x - 7)$. So $5(x - 7) = -20$, which means $x - 7 = \\frac{-20}{5} = -4$.'
+          explanation: 'Notice that $5x - 35 = 5(x - 7)$. So $5(x - 7) = -20$, which means $x - 7 = \\frac{-20}{5} = -4$.',
+          skills: ["linear-equations", "equivalent-expressions"]
         },
         {
           id: 16,
@@ -313,7 +318,8 @@ export const practiceTest5 = {
             }
           },
           correctAnswer: '3',
-          explanation: 'Line 1 passes through $(0, 6)$ and $(6, 0)$, so its slope is $\\frac{0-6}{6-0} = -1$ and its equation is $y = -x + 6$. Line 2 passes through the origin and $(6, 6)$, so its slope is $1$ and its equation is $y = x$. Setting equal: $-x + 6 = x$, so $6 = 2x$, giving $x = 3$.'
+          explanation: 'Line 1 passes through $(0, 6)$ and $(6, 0)$, so its slope is $\\frac{0-6}{6-0} = -1$ and its equation is $y = -x + 6$. Line 2 passes through the origin and $(6, 6)$, so its slope is $1$ and its equation is $y = x$. Setting equal: $-x + 6 = x$, so $6 = 2x$, giving $x = 3$.',
+          skills: ["graphing-systems"]
         },
         {
           id: 20,
@@ -336,7 +342,8 @@ export const practiceTest5 = {
             { id: 'D', text: '$17$' }
           ],
           correctAnswer: 'A',
-          explanation: 'The circle has center $(-5, 17)$ and radius $\\sqrt{169} = 13$. The $x$-coordinates on the circle range from $-5 - 13 = -18$ to $-5 + 13 = 8$. Among the choices, $-18$ is on the circle (at point $(-18, 17)$). We can verify: $(-18 + 5)^2 + (17 - 17)^2 = (-13)^2 + 0 = 169$. ✓'
+          explanation: 'The circle has center $(-5, 17)$ and radius $\\sqrt{169} = 13$. The $x$-coordinates on the circle range from $-5 - 13 = -18$ to $-5 + 13 = 8$. Among the choices, $-18$ is on the circle (at point $(-18, 17)$). We can verify: $(-18 + 5)^2 + (17 - 17)^2 = (-13)^2 + 0 = 169$. ✓',
+          skills: ["circle-equation"]
         },
         {
           id: 22,
@@ -350,7 +357,8 @@ export const practiceTest5 = {
             { id: 'D', text: '$\\sqrt{3}$' }
           ],
           correctAnswer: 'A',
-          explanation: '88π/3 = 29π + π/3 = 29π + π/3. Since tan has period π, tan(88π/3) = tan(π/3 + 29π) = tan(π/3 + π) = tan(4π/3) = tan(π + π/3) = tan(π/3) = √3. But 88π/3 = 88/3 × π ≈ 29.33π. 29.33π mod 2π gives the reference. Actually, 88/3 = 29 + 1/3, so 88π/3 = 29π + π/3. Since tan has period π: tan(29π + π/3) = tan(π/3) = √3. Wait, let me recalculate: 88π/3 ÷ π = 88/3 ≈ 29.33. 88/3 - 29 = 1/3, so tan(88π/3) = tan(π/3) = √3. However, checking the quadrant: 88π/3 = 29π + π/3. Since 29 is odd, this is in the third quadrant where tan is positive. Actually tan(π + π/3) = tan(π/3) = √3. Let me verify: 88/3 = 29.333..., so 88π/3 - 14(2π) = 88π/3 - 28π = 88π/3 - 84π/3 = 4π/3. tan(4π/3) = tan(π + π/3) = tan(π/3) = √3. But 4π/3 is in Q3 where tan > 0, so tan(4π/3) = √3. Hmm, but answer A says -√3. Let me reconsider with 92π/3 from the original: 92/3 = 30.667, 92π/3 - 15(2π) = 92π/3 - 30π = 92π/3 - 90π/3 = 2π/3. tan(2π/3) = -√3.'
+          explanation: '88π/3 = 29π + π/3 = 29π + π/3. Since tan has period π, tan(88π/3) = tan(π/3 + 29π) = tan(π/3 + π) = tan(4π/3) = tan(π + π/3) = tan(π/3) = √3. But 88π/3 = 88/3 × π ≈ 29.33π. 29.33π mod 2π gives the reference. Actually, 88/3 = 29 + 1/3, so 88π/3 = 29π + π/3. Since tan has period π: tan(29π + π/3) = tan(π/3) = √3. Wait, let me recalculate: 88π/3 ÷ π = 88/3 ≈ 29.33. 88/3 - 29 = 1/3, so tan(88π/3) = tan(π/3) = √3. However, checking the quadrant: 88π/3 = 29π + π/3. Since 29 is odd, this is in the third quadrant where tan is positive. Actually tan(π + π/3) = tan(π/3) = √3. Let me verify: 88/3 = 29.333..., so 88π/3 - 14(2π) = 88π/3 - 28π = 88π/3 - 84π/3 = 4π/3. tan(4π/3) = tan(π + π/3) = tan(π/3) = √3. But 4π/3 is in Q3 where tan > 0, so tan(4π/3) = √3. Hmm, but answer A says -√3. Let me reconsider with 92π/3 from the original: 92/3 = 30.667, 92π/3 - 15(2π) = 92π/3 - 30π = 92π/3 - 90π/3 = 2π/3. tan(2π/3) = -√3.',
+          skills: ["radian-measure-understanding", "soh-cah-toa"]
         }
       ]
     },
@@ -380,7 +388,8 @@ export const practiceTest5 = {
           difficulty: 'easy',
           question: 'If $8n = 24$, what is the value of $n + 5$?',
           correctAnswer: '8',
-          explanation: '$8n = 24$, so $n = \\frac{24}{8} = 3$. Therefore, $n + 5 = 3 + 5 = 8$.'
+          explanation: '$8n = 24$, so $n = \\frac{24}{8} = 3$. Therefore, $n + 5 = 3 + 5 = 8$.',
+          skills: ["linear-equations"]
         },
         {
           id: 3,
@@ -407,7 +416,8 @@ export const practiceTest5 = {
             { id: 'D', text: '$12$' }
           ],
           correctAnswer: 'A',
-          explanation: 'Points above the line of best fit have actual $y$-values greater than predicted $y$-values. Counting the points that lie above the dashed line, there are $5$ such points.'
+          explanation: 'Points above the line of best fit have actual $y$-values greater than predicted $y$-values. Counting the points that lie above the dashed line, there are $5$ such points.',
+          skills: ["margin-of-error"]
         },
         {
           id: 4,
@@ -445,7 +455,8 @@ export const practiceTest5 = {
             { id: 'D', text: '$315$' }
           ],
           correctAnswer: 'A',
-          explanation: '$P(C) = 1 - P(A) - P(B) = 1 - 0.45 - 0.30 = 0.25$. Number in section C $= 0.25 \\times 420 = 105$ attendees.'
+          explanation: '$P(C) = 1 - P(A) - P(B) = 1 - 0.45 - 0.30 = 0.25$. Number in section C $= 0.25 \\times 420 = 105$ attendees.',
+          skills: ["percent-of-value"]
         },
         {
           id: 7,
@@ -487,7 +498,8 @@ export const practiceTest5 = {
             { id: 'D', text: '$180$' }
           ],
           correctAnswer: 'B',
-          explanation: 'The sum of angles in a triangle is $180°$. If $\\angle A = 72°$, then $\\angle B + \\angle C = 108°$. For $\\angle B$ to be valid, it must be positive and $\\angle C$ must also be positive. So $\\angle B < 108°$. Among the choices, only $107°$ satisfies this (leaving $\\angle C = 1°$).'
+          explanation: 'The sum of angles in a triangle is $180°$. If $\\angle A = 72°$, then $\\angle B + \\angle C = 108°$. For $\\angle B$ to be valid, it must be positive and $\\angle C$ must also be positive. So $\\angle B < 108°$. Among the choices, only $107°$ satisfies this (leaving $\\angle C = 1°$).',
+          skills: ["triangle-angle-sum", "similar-triangles"]
         },
         {
           id: 11,
@@ -516,7 +528,8 @@ export const practiceTest5 = {
             { id: 'D', text: '$18x^2y(2x^2y^2 + 1)$' }
           ],
           correctAnswer: 'A',
-          explanation: 'Factor out the GCF: $6x^2y$. $12x^4y^3 \\div 6x^2y = 2x^2y^2$ and $18x^2y \\div 6x^2y = 3$. So $12x^4y^3 + 18x^2y = 6x^2y(2x^2y^2 + 3)$.'
+          explanation: 'Factor out the GCF: $6x^2y$. $12x^4y^3 \\div 6x^2y = 2x^2y^2$ and $18x^2y \\div 6x^2y = 3$. So $12x^4y^3 + 18x^2y = 6x^2y(2x^2y^2 + 3)$.',
+          skills: ["combining-like-terms", "equivalent-expressions"]
         },
         {
           id: 13,
@@ -667,7 +680,8 @@ export const practiceTest5 = {
             { id: 'D', text: '$\\begin{array}{|c|c|c|c|}\\hline x & 221 & 222 & 220 \\\\ \\hline y & 0 & -3 & -6 \\\\ \\hline\\end{array}$' }
           ],
           correctAnswer: 'D',
-          explanation: 'Check option D: For $(221, 0)$: $3(221) - 0 = 663 > 660$ ✓. For $(222, -3)$: $3(222) - (-3) = 666 + 3 = 669 > 660$ ✓. For $(220, -6)$: $3(220) - (-6) = 660 + 6 = 666 > 660$ ✓. All satisfy the inequality.'
+          explanation: 'Check option D: For $(221, 0)$: $3(221) - 0 = 663 > 660$ ✓. For $(222, -3)$: $3(222) - (-3) = 666 + 3 = 669 > 660$ ✓. For $(220, -6)$: $3(220) - (-6) = 660 + 6 = 666 > 660$ ✓. All satisfy the inequality.',
+          skills: ["linear-equations"]
         }
       ]
     }

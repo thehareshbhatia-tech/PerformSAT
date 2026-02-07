@@ -22,7 +22,8 @@ export const practiceTest6 = {
             { id: 'D', text: '$(32, 4)$' }
           ],
           correctAnswer: 'A',
-          explanation: 'Substituting $r = 4$ into the first equation: $s + 5(4) = 32$, so $s + 20 = 32$, giving $s = 12$. The solution is $(r, s) = (4, 12)$.'
+          explanation: 'Substituting $r = 4$ into the first equation: $s + 5(4) = 32$, so $s + 20 = 32$, giving $s = 12$. The solution is $(r, s) = (4, 12)$.',
+          skills: ["substitution-method", "linear-equations"]
         },
         {
           id: 2,
@@ -59,7 +60,8 @@ export const practiceTest6 = {
             { id: 'D', text: '$\\frac{32}{x}$' }
           ],
           correctAnswer: 'B',
-          explanation: 'If the ratio of speakers to attendees is $1:32$, then for every $1$ speaker there are $32$ attendees. With $x$ speakers, there are $32x$ attendees.'
+          explanation: 'If the ratio of speakers to attendees is $1:32$, then for every $1$ speaker there are $32$ attendees. With $x$ speakers, there are $32x$ attendees.',
+          skills: ["word-problem-to-equation"]
         },
         {
           id: 4,
@@ -81,7 +83,8 @@ export const practiceTest6 = {
             { id: 'D', text: 'The value of $x$ cannot be determined.' }
           ],
           correctAnswer: 'C',
-          explanation: 'When a transversal crosses parallel lines, corresponding angles are equal. If the angle at line $m$ is $132°$, the corresponding angle at line $n$ is also $132°$.'
+          explanation: 'When a transversal crosses parallel lines, corresponding angles are equal. If the angle at line $m$ is $132°$, the corresponding angle at line $n$ is also $132°$.',
+          skills: ["triangle-angle-sum"]
         },
         {
           id: 5,
@@ -107,7 +110,8 @@ export const practiceTest6 = {
             { id: 'D', text: '$(0, 10)$' }
           ],
           correctAnswer: 'B',
-          explanation: 'The $y$-intercept is the point where the line crosses the $y$-axis, which occurs at $x = 0$. The line passes through $(0, -5)$, so the $y$-intercept is $(0, -5)$.'
+          explanation: 'The $y$-intercept is the point where the line crosses the $y$-axis, which occurs at $x = 0$. The line passes through $(0, -5)$, so the $y$-intercept is $(0, -5)$.',
+          skills: ["slope-intercept-form"]
         },
         {
           id: 6,
@@ -115,7 +119,8 @@ export const practiceTest6 = {
           difficulty: 'easy',
           question: 'A store sells two different-sized containers of almonds. The store\'s sales of these almonds totaled \\$725.40 last month. The equation $3.85x + 5.45y = 725.40$ represents this situation, where $x$ is the number of smaller containers sold and $y$ is the number of larger containers sold. According to the equation, what is the price, in dollars, of each smaller container?',
           correctAnswer: '3.85',
-          explanation: 'In the equation $3.85x + 5.45y = 725.40$, the coefficient of $x$ (which represents the number of smaller containers) is the price per smaller container. Therefore, the price of each smaller container is \\$3.85.'
+          explanation: 'In the equation $3.85x + 5.45y = 725.40$, the coefficient of $x$ (which represents the number of smaller containers) is the price per smaller container. Therefore, the price of each smaller container is \\$3.85.',
+          skills: ["word-problem-to-equation", "linear-equations"]
         },
         {
           id: 7,
@@ -192,7 +197,8 @@ export const practiceTest6 = {
             { id: 'D', text: '$2{,}592\\pi$' }
           ],
           correctAnswer: 'C',
-          explanation: 'The volume of a cylinder is $V = \\pi r^2 h$. The radius is half the diameter: $r = \\frac{18}{2} = 9$ cm. $V = \\pi(9)^2(8) = \\pi(81)(8) = 648\\pi$ cubic centimeters.'
+          explanation: 'The volume of a cylinder is $V = \\pi r^2 h$. The radius is half the diameter: $r = \\frac{18}{2} = 9$ cm. $V = \\pi(9)^2(8) = \\pi(81)(8) = 648\\pi$ cubic centimeters.',
+          skills: ["volume-prism"]
         },
         {
           id: 13,
@@ -229,7 +235,8 @@ export const practiceTest6 = {
             { id: 'D', text: '$(6, 9)$' }
           ],
           correctAnswer: 'B',
-          explanation: 'The intersection points of a line and a parabola are the solutions to the system. By examining where the line $y = x + 3$ intersects the downward parabola with vertex at $(3, 6)$, one intersection occurs at $(3, 6)$. We can verify: the line at $x = 3$ gives $y = 3 + 3 = 6$, which matches the vertex of the parabola.'
+          explanation: 'The intersection points of a line and a parabola are the solutions to the system. By examining where the line $y = x + 3$ intersects the downward parabola with vertex at $(3, 6)$, one intersection occurs at $(3, 6)$. We can verify: the line at $x = 3$ gives $y = 3 + 3 = 6$, which matches the vertex of the parabola.',
+          skills: ["graphing-systems", "identify-quadratic"]
         },
         {
           id: 15,
@@ -286,7 +293,8 @@ export const practiceTest6 = {
             { id: 'D', text: '$6$' }
           ],
           correctAnswer: 'A',
-          explanation: 'From the graph, the parabola crosses the $x$-axis at $x = 1$ and $x = 5$. Using factored form:\n\n$f(x) = (x - 1)(x - 5)$\n\nExpanding:\n\n$f(x) = x^2 - 6x + 5$\n\nComparing with $f(x) = x^2 + bx + c$, we get $b = -6$.'
+          explanation: 'From the graph, the parabola crosses the $x$-axis at $x = 1$ and $x = 5$. Using factored form:\n\n$f(x) = (x - 1)(x - 5)$\n\nExpanding:\n\n$f(x) = x^2 - 6x + 5$\n\nComparing with $f(x) = x^2 + bx + c$, we get $b = -6$.',
+          skills: ["finding-roots-factoring", "identify-quadratic"]
         },
         {
           id: 18,
@@ -369,7 +377,8 @@ export const practiceTest6 = {
             { id: 'D', text: '$5x^3 + 1$' }
           ],
           correctAnswer: 'B',
-          explanation: '$(6x^3 + 5) - (x^3 - 4) = 6x^3 + 5 - x^3 + 4 = 5x^3 + 9$.'
+          explanation: '$(6x^3 + 5) - (x^3 - 4) = 6x^3 + 5 - x^3 + 4 = 5x^3 + 9$.',
+          skills: ["combining-like-terms"]
         },
         {
           id: 2,
@@ -419,7 +428,8 @@ export const practiceTest6 = {
             { id: 'D', text: '$c = 30x + 15$' }
           ],
           correctAnswer: 'D',
-          explanation: 'The dog should eat $30$ calories per pound ($30x$) plus an additional $15$ calories. Total: $c = 30x + 15$.'
+          explanation: 'The dog should eat $30$ calories per pound ($30x$) plus an additional $15$ calories. Total: $c = 30x + 15$.',
+          skills: ["word-problem-to-equation", "slope-intercept-form"]
         },
         {
           id: 4,
@@ -433,7 +443,8 @@ export const practiceTest6 = {
             { id: 'D', text: 'There is not enough information to compare the means.' }
           ],
           correctAnswer: 'A',
-          explanation: 'Original mean $= \\frac{82 + 78 + 85 + 74 + 81}{5} = \\frac{400}{5} = 80$. New mean $= \\frac{400 + 60}{6} = \\frac{460}{6} \\approx 76.67$. The original mean ($80$) is greater than the new mean ($76.67$).'
+          explanation: 'Original mean $= \\frac{82 + 78 + 85 + 74 + 81}{5} = \\frac{400}{5} = 80$. New mean $= \\frac{400 + 60}{6} = \\frac{460}{6} \\approx 76.67$. The original mean ($80$) is greater than the new mean ($76.67$).',
+          skills: ["find-mean"]
         },
         {
           id: 5,
@@ -487,7 +498,8 @@ export const practiceTest6 = {
             { id: 'D', text: 'The ball was thrown from a height of $2.4$ feet.' }
           ],
           correctAnswer: 'B',
-          explanation: 'The $x$-intercept represents where $y = 0$, meaning the ball\'s height above the ground is $0$. This is when the ball hits the ground, which occurs at $2.4$ seconds.'
+          explanation: 'The $x$-intercept represents where $y = 0$, meaning the ball\'s height above the ground is $0$. This is when the ball hits the ground, which occurs at $2.4$ seconds.',
+          skills: ["identify-quadratic", "parabola-direction"]
         },
         {
           id: 7,
@@ -510,7 +522,8 @@ export const practiceTest6 = {
           difficulty: 'medium',
           question: 'The length of each edge of a cube is $24$ inches. The cube does not have a lid on top. What is the exterior surface area, in square inches, of this cube without a lid?',
           correctAnswer: '2880',
-          explanation: 'A cube without a lid has $5$ faces. Each face has area $24^2 = 576$ square inches. Total surface area $= 5 \\times 576 = 2{,}880$ square inches.'
+          explanation: 'A cube without a lid has $5$ faces. Each face has area $24^2 = 576$ square inches. Total surface area $= 5 \\times 576 = 2{,}880$ square inches.',
+          skills: ["volume-prism", "dimensional-analysis"]
         },
         {
           id: 9,
@@ -686,7 +699,8 @@ export const practiceTest6 = {
             { id: 'D', text: '$(2, -1)$' }
           ],
           correctAnswer: 'C',
-          explanation: 'The radius from center $(1, 2)$ to tangent point $(4, -1)$ has slope $= \\frac{-1 - 2}{4 - 1} = \\frac{-3}{3} = -1$. A tangent line is perpendicular to the radius, so its slope is the negative reciprocal: $1$. Line $m$ passes through $(4, -1)$ with slope $1$: $y - (-1) = 1(x - 4)$, so $y = x - 5$. Check $(10, 5)$: $y = 10 - 5 = 5$ ✓. The point $(10, 5)$ lies on line $m$.'
+          explanation: 'The radius from center $(1, 2)$ to tangent point $(4, -1)$ has slope $= \\frac{-1 - 2}{4 - 1} = \\frac{-3}{3} = -1$. A tangent line is perpendicular to the radius, so its slope is the negative reciprocal: $1$. Line $m$ passes through $(4, -1)$ with slope $1$: $y - (-1) = 1(x - 4)$, so $y = x - 5$. Check $(10, 5)$: $y = 10 - 5 = 5$ ✓. The point $(10, 5)$ lies on line $m$.',
+          skills: ["circle-equation", "perpendicular-negative-reciprocal"]
         },
         {
           id: 19,
@@ -700,7 +714,8 @@ export const practiceTest6 = {
             { id: 'D', text: '$72$' }
           ],
           correctAnswer: 'B',
-          explanation: 'In the model $P(t) = 180(1.03)^{\\frac{12t}{n}}$, the base $1.03$ represents a $3\\%$ increase, and the exponent $\\frac{12t}{n}$ represents the number of $n$-month periods in $t$ years. Since there are $12$ months in a year, in $t$ years there are $12t$ months, and therefore $\\frac{12t}{n}$ periods of $n$ months each. For a $3\\%$ increase every $n$ months, after $1$ year ($t = 1$), the exponent should equal $\\frac{12}{n}$ periods. If $n = 12$, then after $1$ year we have $(1.03)^{\\frac{12}{12}} = 1.03$, meaning exactly one $3\\%$ increase per year. Therefore $n = 12$ months.'
+          explanation: 'In the model $P(t) = 180(1.03)^{\\frac{12t}{n}}$, the base $1.03$ represents a $3\\%$ increase, and the exponent $\\frac{12t}{n}$ represents the number of $n$-month periods in $t$ years. Since there are $12$ months in a year, in $t$ years there are $12t$ months, and therefore $\\frac{12t}{n}$ periods of $n$ months each. For a $3\\%$ increase every $n$ months, after $1$ year ($t = 1$), the exponent should equal $\\frac{12}{n}$ periods. If $n = 12$, then after $1$ year we have $(1.03)^{\\frac{12}{12}} = 1.03$, meaning exactly one $3\\%$ increase per year. Therefore $n = 12$ months.',
+          skills: ["exponential-growth-decay"]
         },
         {
           id: 20,
