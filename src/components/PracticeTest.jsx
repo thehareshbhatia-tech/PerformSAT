@@ -4,6 +4,7 @@ import AiTutorChat, { AiTutorButton } from './AiTutorChat';
 import TestResults from './TestResults';
 import { MathText } from './MathText';
 import QuestionRenderer from './QuestionRenderer';
+import { recordSkillAttempts } from '../services/skillService';
 
 // SAT-Style Typography Constants - matches College Board format
 const SAT_TYPOGRAPHY = {
@@ -271,7 +272,7 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
 };
 
 // Timer component
-const Timer = ({ initialMinutes, onTimeUp, isPaused }) => {
+const Timer = ({ initialMinutes, onTimeUp, isPaused, timeRef }) => {
   const [seconds, setSeconds] = useState(initialMinutes * 60);
 
   useEffect(() => {
@@ -279,16 +280,15 @@ const Timer = ({ initialMinutes, onTimeUp, isPaused }) => {
 
     const interval = setInterval(() => {
       setSeconds(s => {
-        if (s <= 1) {
-          onTimeUp?.();
-          return 0;
-        }
-        return s - 1;
+        const next = s <= 1 ? 0 : s - 1;
+        if (timeRef) timeRef.current = next;
+        if (next === 0) onTimeUp?.();
+        return next;
       });
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [isPaused, seconds, onTimeUp]);
+  }, [isPaused, seconds, onTimeUp, timeRef]);
 
   const mins = Math.floor(seconds / 60);
   const secs = seconds % 60;
@@ -713,6 +713,16 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   const [resultSaved, setResultSaved] = useState(false);
   const [showAiTutor, setShowAiTutor] = useState(false);
 
+  // Diagnostic tracking refs (refs avoid re-renders on every data point)
+  const questionTelemetry = useRef({});
+  const questionStartTime = useRef(Date.now());
+  const prevQuestion = useRef({ module: 0, question: 0 });
+  const navigationHistory = useRef([]);
+  const moduleTimeRemaining = useRef({});
+  const visitedQuestions = useRef(new Set());
+  const timerSecondsRef = useRef(null);
+  const currentModuleRef = useRef(currentModule);
+
   const module = test.modules[currentModule];
   const questions = module?.questions || [];
   const question = questions[currentQuestion];
@@ -724,6 +734,58 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       setFillInValue(existingAnswer !== undefined ? String(existingAnswer) : '');
     }
   }, [currentQuestion, currentModule, question?.type, answers]);
+
+  // Keep currentModuleRef in sync for handleTimeUp
+  useEffect(() => {
+    currentModuleRef.current = currentModule;
+  }, [currentModule]);
+
+  // Helper: get or create telemetry entry for a question
+  const getOrCreateTelemetry = (modIdx, qIdx) => {
+    const key = `${modIdx}-${qIdx}`;
+    if (!questionTelemetry.current[key]) {
+      questionTelemetry.current[key] = {
+        timeSpent: 0,
+        visits: 0,
+        answerChanges: [],
+        usedCalculator: false,
+        markedForReview: false,
+        firstAnswerTime: null,
+        finalAnswerTime: null,
+      };
+    }
+    return questionTelemetry.current[key];
+  };
+
+  // Track question navigation and time spent
+  useEffect(() => {
+    const now = Date.now();
+    const prevMod = prevQuestion.current.module;
+    const prevQ = prevQuestion.current.question;
+    const prevKey = `${prevMod}-${prevQ}`;
+    const newKey = `${currentModule}-${currentQuestion}`;
+
+    // Record time spent on previous question
+    const elapsed = (now - questionStartTime.current) / 1000;
+    if (elapsed > 0 && elapsed < 3600) {
+      const prevTelemetry = getOrCreateTelemetry(prevMod, prevQ);
+      prevTelemetry.timeSpent += elapsed;
+    }
+
+    // Record navigation event
+    if (prevKey !== newKey) {
+      navigationHistory.current.push({ from: prevKey, to: newKey, timestamp: now });
+    }
+
+    // Increment visits on new question
+    const newTelemetry = getOrCreateTelemetry(currentModule, currentQuestion);
+    newTelemetry.visits += 1;
+    visitedQuestions.current.add(newKey);
+
+    // Reset start time and update prev
+    questionStartTime.current = now;
+    prevQuestion.current = { module: currentModule, question: currentQuestion };
+  }, [currentModule, currentQuestion]);
 
   // Auto-save progress when answers, module, or question changes
   useEffect(() => {
@@ -809,17 +871,105 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         scaledScore = scoringTable[Math.min(44, Math.max(0, totalScore))];
       }
 
+      // Record time spent on the last question before test completion
+      const now = Date.now();
+      const lastElapsed = (now - questionStartTime.current) / 1000;
+      if (lastElapsed > 0 && lastElapsed < 3600) {
+        const lastKey = `${prevQuestion.current.module}-${prevQuestion.current.question}`;
+        if (questionTelemetry.current[lastKey]) {
+          questionTelemetry.current[lastKey].timeSpent += lastElapsed;
+        }
+      }
+
+      // Build per-question diagnostic details
+      const questionDetails = {};
+      test.modules.forEach((mod, modIdx) => {
+        mod.questions.forEach((q, qIdx) => {
+          const key = `${modIdx}-${qIdx}`;
+          const userAnswer = answers[key];
+          let isCorrect = false;
+          if (q.type === 'fill-in') {
+            isCorrect = userAnswer === q.correctAnswer || parseFloat(userAnswer) === q.correctAnswer;
+          } else {
+            isCorrect = userAnswer === q.correctAnswer;
+          }
+          const telem = questionTelemetry.current[key] || {};
+          questionDetails[key] = {
+            timeSpent: Math.round((telem.timeSpent || 0) * 10) / 10,
+            visits: telem.visits || 0,
+            answerChanges: (telem.answerChanges || []).length,
+            usedCalculator: telem.usedCalculator || false,
+            markedForReview: telem.markedForReview || false,
+            isCorrect,
+            difficulty: q.difficulty || null,
+            skills: q.skills || [],
+          };
+        });
+      });
+
+      // Classify navigation pattern
+      const navHistory = navigationHistory.current;
+      let navigationPattern = 'linear';
+      if (navHistory.length > 0) {
+        let backwardCount = 0;
+        let skipCount = 0;
+        for (const nav of navHistory) {
+          const [, fromQ] = nav.from.split('-').map(Number);
+          const [, toQ] = nav.to.split('-').map(Number);
+          if (toQ < fromQ) backwardCount++;
+          if (Math.abs(toQ - fromQ) > 1) skipCount++;
+        }
+        if (skipCount > navHistory.length * 0.3) {
+          navigationPattern = 'jumping';
+        } else if (backwardCount > 2 || skipCount > 2) {
+          navigationPattern = 'strategic-skip';
+        }
+      }
+
+      const telemetryValues = Object.values(questionTelemetry.current);
+      const diagnosticData = {
+        questionDetails,
+        navigationPattern,
+        totalNavigationEvents: navHistory.length,
+        moduleTimeRemaining: { ...moduleTimeRemaining.current },
+        questionsVisitedMultipleTimes: telemetryValues.filter(t => t.visits > 1).length,
+        calculatorUsageCount: telemetryValues.filter(t => t.usedCalculator).length,
+        markedForReviewCount: telemetryValues.filter(t => t.markedForReview).length,
+      };
+
       const resultsToSave = {
         rawScore: totalScore,
         totalQuestions,
         scaledScore,
         timedMode: isTimed,
-        moduleScores
+        moduleScores,
+        diagnosticData
       };
       console.log('[PracticeTest] Calling onSaveResult with:', resultsToSave);
       onSaveResult(resultsToSave);
       setResultSaved(true);
       console.log('[PracticeTest] Results saved, resultSaved set to true');
+
+      // Record skill attempts for each question
+      if (user?.uid) {
+        const skillPromises = [];
+        test.modules.forEach((mod, modIdx) => {
+          mod.questions.forEach((q, qIdx) => {
+            if (q.skills && q.skills.length > 0) {
+              const key = `${modIdx}-${qIdx}`;
+              const userAnswer = answers[key];
+              let isCorrect = false;
+              if (q.type === 'fill-in') {
+                isCorrect = userAnswer === q.correctAnswer || parseFloat(userAnswer) === q.correctAnswer;
+              } else {
+                isCorrect = userAnswer === q.correctAnswer;
+              }
+              skillPromises.push(recordSkillAttempts(user.uid, q.skills, isCorrect));
+            }
+          });
+        });
+        Promise.all(skillPromises).catch(err => console.error('[PracticeTest] Skill recording error:', err));
+      }
 
       // Clear in-progress data since test is complete
       if (onClearProgress) {
@@ -827,11 +977,20 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         onClearProgress();
       }
     }
-  }, [testCompleted, onSaveResult, onClearProgress, resultSaved, test, answers, isTimed]);
+  }, [testCompleted, onSaveResult, onClearProgress, resultSaved, test, answers, isTimed, user]);
 
   const handleSelectAnswer = (answerId) => {
     const key = `${currentModule}-${currentQuestion}`;
+    const telemetry = getOrCreateTelemetry(currentModule, currentQuestion);
+    const now = Date.now();
+
     setAnswers(prev => {
+      const oldAnswer = prev[key];
+      // Track answer change
+      telemetry.answerChanges.push({ from: oldAnswer || null, to: answerId, timestamp: now });
+      if (!telemetry.firstAnswerTime) telemetry.firstAnswerTime = now;
+      telemetry.finalAnswerTime = now;
+
       // If clicking the already-selected answer, deselect it
       if (prev[key] === answerId) {
         const newAnswers = { ...prev };
@@ -847,15 +1006,26 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     if (fillInValue.trim()) {
       const key = `${currentModule}-${currentQuestion}`;
       const numValue = parseFloat(fillInValue);
-      setAnswers(prev => ({ ...prev, [key]: isNaN(numValue) ? fillInValue : numValue }));
+      const value = isNaN(numValue) ? fillInValue : numValue;
+
+      const telemetry = getOrCreateTelemetry(currentModule, currentQuestion);
+      const now = Date.now();
+      telemetry.answerChanges.push({ from: answers[key] || null, to: value, timestamp: now });
+      if (!telemetry.firstAnswerTime) telemetry.firstAnswerTime = now;
+      telemetry.finalAnswerTime = now;
+
+      setAnswers(prev => ({ ...prev, [key]: value }));
     }
   };
 
   const handleToggleMark = () => {
+    const telemetry = getOrCreateTelemetry(currentModule, currentQuestion);
     setMarkedForReview(prev => {
       if (prev.includes(currentQuestion)) {
         return prev.filter(i => i !== currentQuestion);
       }
+      // Mark for review — record in telemetry
+      telemetry.markedForReview = true;
       return [...prev, currentQuestion];
     });
   };
@@ -889,6 +1059,14 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     if (question?.type === 'fill-in') {
       handleFillInSubmit();
     }
+    // Record time spent on current question before submitting
+    const now = Date.now();
+    const elapsed = (now - questionStartTime.current) / 1000;
+    if (elapsed > 0 && elapsed < 3600) {
+      const telemetry = getOrCreateTelemetry(currentModule, currentQuestion);
+      telemetry.timeSpent += elapsed;
+    }
+    moduleTimeRemaining.current[currentModule] = timerSecondsRef.current;
     setModuleCompleted(true);
   };
 
@@ -898,12 +1076,16 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       setCurrentQuestion(0);
       setMarkedForReview([]);
       setModuleCompleted(false);
+      // Reset telemetry start time for the new module
+      questionStartTime.current = Date.now();
+      prevQuestion.current = { module: currentModule + 1, question: 0 };
     } else {
       setTestCompleted(true);
     }
   };
 
   const handleTimeUp = useCallback(() => {
+    moduleTimeRemaining.current[currentModuleRef.current] = 0;
     setModuleCompleted(true);
   }, []);
 
@@ -1728,7 +1910,11 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           {/* Calculator Button */}
           <button
-            onClick={() => setShowCalculator(true)}
+            onClick={() => {
+              const telemetry = getOrCreateTelemetry(currentModule, currentQuestion);
+              telemetry.usedCalculator = true;
+              setShowCalculator(true);
+            }}
             style={{
               padding: '8px 14px',
               background: '#2563eb',
@@ -1775,6 +1961,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                   initialMinutes={module.timeLimit || 35}
                   onTimeUp={handleTimeUp}
                   isPaused={false}
+                  timeRef={timerSecondsRef}
                 />
               )}
             </>
