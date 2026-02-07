@@ -287,32 +287,7 @@ export const practiceTest7 = {
         {
           id: 'pt7-m2-q1',
           type: 'multiple-choice',
-          question: 'If $f(x) = 2x^2 - 3x + 1$, what is $f(-2)$?',
-          choices: [
-            { id: 'A', text: '$3$' },
-            { id: 'B', text: '$11$' },
-            { id: 'C', text: '$15$' },
-            { id: 'D', text: '$19$' }
-          ],
-          correctAnswer: 'C',
-          explanation: '$f(-2) = 2(-2)^2 - 3(-2) + 1 = 2(4) + 6 + 1 = 8 + 6 + 1 = 15$.'
-        },
-        {
-          id: 'pt7-m2-q2',
-          type: 'multiple-choice',
-          question: 'Two lines intersect, forming vertical angles. If one angle measures $65°$, what is the measure of the angle adjacent to it?',
-          choices: [
-            { id: 'A', text: '$25°$' },
-            { id: 'B', text: '$65°$' },
-            { id: 'C', text: '$115°$' },
-            { id: 'D', text: '$130°$' }
-          ],
-          correctAnswer: 'C',
-          explanation: 'Adjacent angles on a straight line are supplementary (sum to $180°$). So the adjacent angle $= 180° - 65° = 115°$.'
-        },
-        {
-          id: 'pt7-m2-q3',
-          type: 'multiple-choice',
+          difficulty: 'easy',
           question: 'A bag contains $4$ red marbles, $6$ blue marbles, and $5$ green marbles. If one marble is selected at random, what is the probability of selecting a blue marble?',
           choices: [
             { id: 'A', text: '$\\frac{1}{5}$' },
@@ -324,8 +299,9 @@ export const practiceTest7 = {
           explanation: 'Total marbles $= 4 + 6 + 5 = 15$. Probability of blue $= \\frac{6}{15} = \\frac{2}{5}$.'
         },
         {
-          id: 'pt7-m2-q4',
+          id: 'pt7-m2-q2',
           type: 'multiple-choice',
+          difficulty: 'easy',
           question: 'Which function represents exponential decay?',
           choices: [
             { id: 'A', text: '$f(x) = 3x + 2$' },
@@ -337,8 +313,9 @@ export const practiceTest7 = {
           explanation: 'Exponential decay has the form $f(x) = a(b)^x$ where $0 < b < 1$. In $f(x) = 50(0.85)^x$, the base $0.85$ is between $0$ and $1$.'
         },
         {
-          id: 'pt7-m2-q5',
+          id: 'pt7-m2-q3',
           type: 'multiple-choice',
+          difficulty: 'easy',
           question: 'The line $y = -3x + 12$ intersects the $y$-axis at what point?',
           choices: [
             { id: 'A', text: '$(0, -3)$' },
@@ -350,8 +327,9 @@ export const practiceTest7 = {
           explanation: 'The $y$-intercept is the point where $x = 0$. Substituting: $y = -3(0) + 12 = 12$. The point is $(0, 12)$.'
         },
         {
-          id: 'pt7-m2-q6',
+          id: 'pt7-m2-q4',
           type: 'multiple-choice',
+          difficulty: 'easy',
           question: 'What is the solution to the system of equations: $x + y = 10$ and $x - y = 4$?',
           choices: [
             { id: 'A', text: '$x = 7$, $y = 3$' },
@@ -363,8 +341,9 @@ export const practiceTest7 = {
           explanation: 'Adding the equations: $2x = 14$, so $x = 7$. Substituting into $x + y = 10$: $7 + y = 10$, so $y = 3$.'
         },
         {
-          id: 'pt7-m2-q7',
+          id: 'pt7-m2-q5',
           type: 'multiple-choice',
+          difficulty: 'easy',
           question: 'A survey found that $35\\%$ of $200$ students prefer online classes. How many students prefer online classes?',
           choices: [
             { id: 'A', text: '$35$' },
@@ -376,28 +355,17 @@ export const practiceTest7 = {
           explanation: '$35\\%$ of $200 = 0.35 \\times 200 = 70$ students.'
         },
         {
-          id: 'pt7-m2-q8',
-          type: 'multiple-choice',
-          question: 'Which expression is equivalent to $x^3 - 8$?',
-          choices: [
-            { id: 'A', text: '$(x - 2)(x^2 + 2x + 4)$' },
-            { id: 'B', text: '$(x - 2)(x^2 - 2x + 4)$' },
-            { id: 'C', text: '$(x + 2)(x^2 - 2x + 4)$' },
-            { id: 'D', text: '$(x - 2)(x - 2)(x - 2)$' }
-          ],
-          correctAnswer: 'A',
-          explanation: 'Using the difference of cubes formula: $a^3 - b^3 = (a - b)(a^2 + ab + b^2)$. Here, $x^3 - 8 = x^3 - 2^3 = (x - 2)(x^2 + 2x + 4)$.'
-        },
-        {
-          id: 'pt7-m2-q9',
+          id: 'pt7-m2-q6',
           type: 'fill-in',
+          difficulty: 'easy',
           question: 'The ratio of boys to girls in a class is $3:5$. If there are $24$ boys, how many girls are in the class?',
           correctAnswer: '40',
           explanation: 'If boys:girls $= 3:5$ and boys $= 24$, then $\\frac{24}{3} = 8$ represents one unit. Girls $= 5 \\times 8 = 40$.'
         },
         {
-          id: 'pt7-m2-q10',
+          id: 'pt7-m2-q7',
           type: 'multiple-choice',
+          difficulty: 'easy',
           question: 'Which equation is equivalent to $2(x - 4) = 3(x + 1)$?',
           choices: [
             { id: 'A', text: '$2x - 8 = 3x + 3$' },
@@ -409,8 +377,9 @@ export const practiceTest7 = {
           explanation: 'Distributing both sides: $2(x - 4) = 2x - 8$ and $3(x + 1) = 3x + 3$. So $2x - 8 = 3x + 3$.'
         },
         {
-          id: 'pt7-m2-q11',
+          id: 'pt7-m2-q8',
           type: 'multiple-choice',
+          difficulty: 'easy',
           question: 'A car travels at a constant rate of $55$ miles per hour. The equation $d = 55t$ represents the distance $d$ traveled in $t$ hours. If the car travels $220$ miles, how many hours did it travel?',
           choices: [
             { id: 'A', text: '$3$' },
@@ -422,8 +391,9 @@ export const practiceTest7 = {
           explanation: 'Using $d = 55t$ with $d = 220$: $220 = 55t$, so $t = \\frac{220}{55} = 4$ hours.'
         },
         {
-          id: 'pt7-m2-q12',
+          id: 'pt7-m2-q9',
           type: 'multiple-choice',
+          difficulty: 'easy',
           question: 'If the function $f(x) = (x - 2)(x + 6) = 0$, what are the solutions for $x$?',
           choices: [
             { id: 'A', text: '$x = 2$ and $x = 6$' },
@@ -435,8 +405,9 @@ export const practiceTest7 = {
           explanation: 'Setting each factor to zero: $x - 2 = 0$ gives $x = 2$, and $x + 6 = 0$ gives $x = -6$.'
         },
         {
-          id: 'pt7-m2-q13',
+          id: 'pt7-m2-q10',
           type: 'multiple-choice',
+          difficulty: 'easy',
           question: 'Emma saves \\$50 per week. She currently has \\$200 in savings. Which equation represents her total savings $S$ after $w$ weeks?',
           choices: [
             { id: 'A', text: '$S = 200w + 50$' },
@@ -448,15 +419,9 @@ export const practiceTest7 = {
           explanation: 'Total savings = starting amount + (weekly savings × weeks) $= 200 + 50w$, or $S = 50w + 200$.'
         },
         {
-          id: 'pt7-m2-q14',
-          type: 'fill-in',
-          question: 'A rectangle has length $(x + 5)$ and width $(x - 2)$. If the area is $18$, what is the positive value of $x$?',
-          correctAnswer: '4',
-          explanation: 'Area $= (x + 5)(x - 2) = 18$. Expanding: $x^2 + 3x - 10 = 18$, so $x^2 + 3x - 28 = 0$. Factoring: $(x + 7)(x - 4) = 0$. So $x = -7$ or $x = 4$. The positive value is $x = 4$. Check: $(4 + 5)(4 - 2) = 9 \\times 2 = 18$ ✓'
-        },
-        {
-          id: 'pt7-m2-q15',
+          id: 'pt7-m2-q11',
           type: 'multiple-choice',
+          difficulty: 'easy',
           question: 'What is the median of the data set shown?',
           questionFormula: {
             equation: "$$12, 15, 18, 22, 28, 35, 42$$"
@@ -471,21 +436,9 @@ export const practiceTest7 = {
           explanation: 'The median of an ordered set with $7$ values is the $4$th value. The values in order are: $12, 15, 18, 22, 28, 35, 42$. The $4$th value is $22$.'
         },
         {
-          id: 'pt7-m2-q16',
+          id: 'pt7-m2-q12',
           type: 'multiple-choice',
-          question: 'A cylinder has radius $3$ inches and height $8$ inches. What is its volume in cubic inches?',
-          choices: [
-            { id: 'A', text: '$72\\pi$' },
-            { id: 'B', text: '$24\\pi$' },
-            { id: 'C', text: '$48\\pi$' },
-            { id: 'D', text: '$144\\pi$' }
-          ],
-          correctAnswer: 'A',
-          explanation: 'Volume of cylinder $= \\pi r^2 h = \\pi(3)^2(8) = \\pi(9)(8) = 72\\pi$ cubic inches.'
-        },
-        {
-          id: 'pt7-m2-q17',
-          type: 'multiple-choice',
+          difficulty: 'easy',
           question: 'A line has slope $4$. What is the slope of a line perpendicular to it?',
           choices: [
             { id: 'A', text: '$4$' },
@@ -497,8 +450,9 @@ export const practiceTest7 = {
           explanation: 'Perpendicular lines have slopes that are negative reciprocals. The negative reciprocal of $4$ is $-\\frac{1}{4}$.'
         },
         {
-          id: 'pt7-m2-q18',
+          id: 'pt7-m2-q13',
           type: 'multiple-choice',
+          difficulty: 'easy',
           question: 'The equation $3x + 2y = 18$ can be rewritten in slope-intercept form as:',
           choices: [
             { id: 'A', text: '$y = \\frac{3}{2}x + 9$' },
@@ -510,15 +464,61 @@ export const practiceTest7 = {
           explanation: 'Solving for $y$: $2y = -3x + 18$, so $y = -\\frac{3}{2}x + 9$.'
         },
         {
-          id: 'pt7-m2-q19',
+          id: 'pt7-m2-q14',
           type: 'fill-in',
+          difficulty: 'easy',
+          question: 'A store offers a $20\\%$ discount on an item originally priced at \\$85. What is the sale price in dollars?',
+          correctAnswer: '68',
+          explanation: 'Discount $= 20\\%$ of \\$85 $= 0.20 \\times 85 = \\$17$. Sale price $= \\$85 - \\$17 = \\$68$.'
+        },
+        {
+          id: 'pt7-m2-q15',
+          type: 'multiple-choice',
+          difficulty: 'medium',
+          question: 'Which expression is equivalent to $x^3 - 8$?',
+          choices: [
+            { id: 'A', text: '$(x - 2)(x^2 + 2x + 4)$' },
+            { id: 'B', text: '$(x - 2)(x^2 - 2x + 4)$' },
+            { id: 'C', text: '$(x + 2)(x^2 - 2x + 4)$' },
+            { id: 'D', text: '$(x - 2)(x - 2)(x - 2)$' }
+          ],
+          correctAnswer: 'A',
+          explanation: 'Using the difference of cubes formula: $a^3 - b^3 = (a - b)(a^2 + ab + b^2)$. Here, $x^3 - 8 = x^3 - 2^3 = (x - 2)(x^2 + 2x + 4)$.'
+        },
+        {
+          id: 'pt7-m2-q16',
+          type: 'fill-in',
+          difficulty: 'medium',
+          question: 'A rectangle has length $(x + 5)$ and width $(x - 2)$. If the area is $18$, what is the positive value of $x$?',
+          correctAnswer: '4',
+          explanation: 'Area $= (x + 5)(x - 2) = 18$. Expanding: $x^2 + 3x - 10 = 18$, so $x^2 + 3x - 28 = 0$. Factoring: $(x + 7)(x - 4) = 0$. So $x = -7$ or $x = 4$. The positive value is $x = 4$. Check: $(4 + 5)(4 - 2) = 9 \\times 2 = 18$ ✓'
+        },
+        {
+          id: 'pt7-m2-q17',
+          type: 'multiple-choice',
+          difficulty: 'medium',
+          question: 'A cylinder has radius $3$ inches and height $8$ inches. What is its volume in cubic inches?',
+          choices: [
+            { id: 'A', text: '$72\\pi$' },
+            { id: 'B', text: '$24\\pi$' },
+            { id: 'C', text: '$48\\pi$' },
+            { id: 'D', text: '$144\\pi$' }
+          ],
+          correctAnswer: 'A',
+          explanation: 'Volume of cylinder $= \\pi r^2 h = \\pi(3)^2(8) = \\pi(9)(8) = 72\\pi$ cubic inches.'
+        },
+        {
+          id: 'pt7-m2-q18',
+          type: 'fill-in',
+          difficulty: 'medium',
           question: 'If $5^{2x} = 125$, what is the value of $x$?',
           correctAnswer: '1.5',
           explanation: '$125 = 5^3$, so $5^{2x} = 5^3$. Therefore $2x = 3$, and $x = \\frac{3}{2} = 1.5$.'
         },
         {
-          id: 'pt7-m2-q20',
+          id: 'pt7-m2-q19',
           type: 'multiple-choice',
+          difficulty: 'medium',
           question: 'A quadratic function has vertex at $(3, -4)$ and passes through the point $(5, 0)$. Which could be the equation of this function?',
           choices: [
             { id: 'A', text: '$y = (x - 3)^2 - 4$' },
@@ -530,8 +530,9 @@ export const practiceTest7 = {
           explanation: 'Vertex form is $y = a(x - h)^2 + k$ with vertex $(h, k) = (3, -4)$. So $y = a(x - 3)^2 - 4$. Testing with point $(5, 0)$: $0 = a(5-3)^2 - 4 = 4a - 4$, so $a = 1$. Thus $y = (x - 3)^2 - 4$.'
         },
         {
-          id: 'pt7-m2-q21',
+          id: 'pt7-m2-q20',
           type: 'multiple-choice',
+          difficulty: 'medium',
           question: 'Which expression is equivalent to $\\frac{4x^2 - 9}{2x + 3}$?',
           choices: [
             { id: 'A', text: '$2x + 3$' },
@@ -543,11 +544,50 @@ export const practiceTest7 = {
           explanation: 'Factor the numerator as a difference of squares: $4x^2 - 9 = (2x + 3)(2x - 3)$. Then $\\frac{(2x + 3)(2x - 3)}{2x + 3} = 2x - 3$.'
         },
         {
-          id: 'pt7-m2-q22',
+          id: 'pt7-m2-q21',
           type: 'fill-in',
-          question: 'A store offers a $20\\%$ discount on an item originally priced at \\$85. What is the sale price in dollars?',
-          correctAnswer: '68',
-          explanation: 'Discount $= 20\\%$ of \\$85 $= 0.20 \\times 85 = \\$17$. Sale price $= \\$85 - \\$17 = \\$68$.'
+          difficulty: 'hard',
+          question: 'The graph of $y = 3x^2 + bx + c$ is shown, where $b$ and $c$ are constants. What is the value of $bc$?',
+          diagram: {
+            type: 'parabola',
+            params: {
+              vertex: { h: 1, k: -6 },
+              a: 3,
+              xRange: [-2, 4],
+              yRange: [-8, 6],
+              showVertex: false,
+              xTickInterval: 1,
+              yTickInterval: 2,
+              gridInterval: 1,
+              label: 'y = 3x² + bx + c'
+            }
+          },
+          correctAnswer: 18,
+          explanation: '**The correct answer is 18.**\n\n**Step 1:** From the graph, the parabola has vertex at $(1, -6)$ and opens upward with $a = 3$.\n\nUsing vertex form: $y = 3(x - 1)^2 - 6 = 3(x^2 - 2x + 1) - 6 = 3x^2 - 6x + 3 - 6 = 3x^2 - 6x - 3$\n\n**Step 2:** Match with $y = 3x^2 + bx + c$:\n$b = -6$ and $c = -3$\n\n**Step 3:** $bc = (-6)(-3) = 18$\n\n**Verification:** $x$-intercepts at $x = 1 \\pm \\sqrt{2}$: $3(1 + \\sqrt{2})^2 - 6(1 + \\sqrt{2}) - 3 = 3(3 + 2\\sqrt{2}) - 6 - 6\\sqrt{2} - 3 = 9 + 6\\sqrt{2} - 9 - 6\\sqrt{2} = 0$ ✓',
+          skills: ['quadratic-equations', 'vertex-form', 'graph-interpretation']
+        },
+        {
+          id: 'pt7-m2-q22',
+          type: 'multiple-choice',
+          difficulty: 'hard',
+          question: 'The rational function $f$ is defined by an equation in the form $f(x) = \\frac{a}{x + b}$, where $a$ and $b$ are constants. The partial graph of $y = f(x)$ is shown. If $g(x) = f(x + 3)$, which equation could define function $g$?',
+          diagram: {
+            type: 'rationalFunction',
+            params: {
+              a: 5,
+              b: 3,
+              xMin: -10
+            }
+          },
+          choices: [
+            { id: 'A', text: '$g(x) = \\frac{5}{x}$' },
+            { id: 'B', text: '$g(x) = \\frac{5}{x + 3}$' },
+            { id: 'C', text: '$g(x) = \\frac{5}{x + 6}$' },
+            { id: 'D', text: '$g(x) = \\frac{5(x + 3)}{x + 3}$' }
+          ],
+          correctAnswer: 'C',
+          explanation: '**Choice C is correct.**\n\n**Step 1:** From the graph, the vertical asymptote is at $x = -3$, so $b = 3$ and $f(x) = \\frac{a}{x + 3}$.\n\nThe graph passes through approximately $(-4, -5)$: $\\frac{a}{-4 + 3} = \\frac{a}{-1} = -5$, so $a = 5$.\n\nThus $f(x) = \\frac{5}{x + 3}$.\n\n**Step 2:** Find $g(x) = f(x + 3)$:\n$g(x) = f(x + 3) = \\frac{5}{(x + 3) + 3} = \\frac{5}{x + 6}$',
+          skills: ['rational-functions', 'function-transformations']
         }
       ]
     }

@@ -10,6 +10,7 @@ import SATParallelLines from './graphs/SATParallelLines';
 import SATTwoLineGraph from './graphs/SATTwoLineGraph';
 import SATTable from './graphs/SATTable';
 import SATDotPlot from './graphs/SATDotPlot';
+import { RightTriangle, TriangleWithAngles, RightTriangleWithAltitude, SimilarTriangles } from './graphs/SATTriangleDiagrams';
 
 /**
  * Professional SAT-style SVG diagram components for practice questions
@@ -612,6 +613,84 @@ export const DotPlotDiagram = ({
 };
 
 // =============================================================================
+// NESTED RIGHT TRIANGLES - Two similar right triangles sharing a vertex
+// =============================================================================
+const NestedRightTrianglesDiagram = ({
+  // Points: A (shared vertex), B, C (small triangle), D, E (large triangle)
+  // Right angles at C and E; C on segment AE, B on segment AD
+  labels = { A: 'A', B: 'B', C: 'C', D: 'D', E: 'E' },
+  sideLabels = {},  // e.g. { AB: '√34', AC: '3', CE: '21' }
+  width = 320,
+  height = 220,
+}) => {
+  // Layout: A top-left, horizontal line A→C→E, diagonal A→B→D
+  // C and E have right angles (vertical lines down to B and D)
+  const pad = 30;
+  const A = [pad, pad];
+  const C = [pad + 70, pad];
+  const E = [width - pad, pad];
+  const B = [pad + 70, pad + 80];
+  const D = [width - pad, height - pad];
+
+  const rightAngleSize = 10;
+
+  return (
+    <svg width={width} height={height} style={{ background: '#f8f8f8', border: '1px solid #ccc' }}>
+      {/* Triangle outlines */}
+      {/* Line A→E (horizontal top) */}
+      <line x1={A[0]} y1={A[1]} x2={E[0]} y2={E[1]} stroke="#333" strokeWidth={1.5} />
+      {/* Line A→D (diagonal) */}
+      <line x1={A[0]} y1={A[1]} x2={D[0]} y2={D[1]} stroke="#333" strokeWidth={1.5} />
+      {/* Line C→B (vertical, small triangle) */}
+      <line x1={C[0]} y1={C[1]} x2={B[0]} y2={B[1]} stroke="#333" strokeWidth={1.5} />
+      {/* Line E→D (vertical, large triangle) */}
+      <line x1={E[0]} y1={E[1]} x2={D[0]} y2={D[1]} stroke="#333" strokeWidth={1.5} />
+
+      {/* Right angle marker at C */}
+      <polyline
+        points={`${C[0]},${C[1] + rightAngleSize} ${C[0] - rightAngleSize},${C[1] + rightAngleSize} ${C[0] - rightAngleSize},${C[1]}`}
+        fill="none" stroke="#333" strokeWidth={1}
+      />
+      {/* Right angle marker at E */}
+      <polyline
+        points={`${E[0]},${E[1] + rightAngleSize} ${E[0] - rightAngleSize},${E[1] + rightAngleSize} ${E[0] - rightAngleSize},${E[1]}`}
+        fill="none" stroke="#333" strokeWidth={1}
+      />
+
+      {/* Vertex labels */}
+      <text x={A[0] - 15} y={A[1] + 5} fontSize={13} fontFamily="system-ui" fontWeight="bold" fill="#333">{labels.A}</text>
+      <text x={B[0] - 18} y={B[1] + 5} fontSize={13} fontFamily="system-ui" fontWeight="bold" fill="#333">{labels.B}</text>
+      <text x={C[0] - 5} y={C[1] - 10} fontSize={13} fontFamily="system-ui" fontWeight="bold" fill="#333">{labels.C}</text>
+      <text x={D[0] + 8} y={D[1] + 5} fontSize={13} fontFamily="system-ui" fontWeight="bold" fill="#333">{labels.D}</text>
+      <text x={E[0] + 8} y={E[1] + 5} fontSize={13} fontFamily="system-ui" fontWeight="bold" fill="#333">{labels.E}</text>
+
+      {/* Side labels */}
+      {sideLabels.AB && (
+        <text
+          x={(A[0] + B[0]) / 2 - 20}
+          y={(A[1] + B[1]) / 2 + 5}
+          fontSize={12} fontFamily="system-ui" fill="#333" textAnchor="end"
+        >{sideLabels.AB}</text>
+      )}
+      {sideLabels.AC && (
+        <text
+          x={(A[0] + C[0]) / 2}
+          y={A[1] - 8}
+          fontSize={12} fontFamily="system-ui" fill="#333" textAnchor="middle"
+        >{sideLabels.AC}</text>
+      )}
+      {sideLabels.CE && (
+        <text
+          x={(C[0] + E[0]) / 2}
+          y={C[1] - 8}
+          fontSize={12} fontFamily="system-ui" fill="#333" textAnchor="middle"
+        >{sideLabels.CE}</text>
+      )}
+    </svg>
+  );
+};
+
+// =============================================================================
 // MAIN QUESTION DIAGRAM COMPONENT - Switch based on type
 // =============================================================================
 const QuestionDiagram = ({ type, params }) => {
@@ -683,6 +762,18 @@ const QuestionDiagram = ({ type, params }) => {
       return <SATTwoLineGraph {...params} />;
     case 'twoWayTable':
       return <SATTable {...params} />;
+
+    // --- Triangle diagrams ---
+    case 'rightTriangle':
+      return <RightTriangle {...params} />;
+    case 'triangleWithAngles':
+      return <TriangleWithAngles {...params} />;
+    case 'rightTriangleWithAltitude':
+      return <RightTriangleWithAltitude {...params} />;
+    case 'similarTriangles':
+      return <SimilarTriangles {...params} />;
+    case 'nestedRightTriangles':
+      return <NestedRightTrianglesDiagram {...params} />;
 
     default:
       return null;

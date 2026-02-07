@@ -361,35 +361,6 @@ export const practiceTest5 = {
       questions: [
         {
           id: 1,
-          type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'The function $f$ is defined by $f(x) = 3x - 7$. What is the value of $f(12)$?',
-          choices: [
-            { id: 'A', text: '$-36$' },
-            { id: 'B', text: '$29$' },
-            { id: 'C', text: '$36$' },
-            { id: 'D', text: '$43$' }
-          ],
-          correctAnswer: 'B',
-          explanation: '$f(12) = 3(12) - 7 = 36 - 7 = 29$.'
-        },
-        {
-          id: 2,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "Which expression is equivalent to $8x^4 - 3x^4$?",
-          choices: [
-            { id: "A", text: "$5x^8$" },
-            { id: "B", text: "$11x^4$" },
-            { id: "C", text: "$5x^4$" },
-            { id: "D", text: "$11x^8$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**Choice C is correct.** Combine like terms by subtracting coefficients.\n\n• $8x^4 - 3x^4 = (8 - 3)x^4 = 5x^4$\n• The exponent stays the same when adding/subtracting like terms\n\n**Why other choices are incorrect:**\n• Choice A: Can't add exponents when subtracting terms\n• Choice B: Added coefficients instead of subtracting\n• Choice D: Both wrong coefficient and wrong exponent rule\n\n**Key concept:** When combining like terms, add or subtract coefficients only. The variable part (including exponent) stays the same.",
-          skills: ["Algebra", "Combining like terms"]
-        },
-        {
-          id: 3,
           type: "multiple-choice",
           difficulty: "easy",
           question: "What is the $y$-intercept of the line $18x - 9y = 36$?",
@@ -404,7 +375,7 @@ export const practiceTest5 = {
           skills: ["linear-equations", "y-intercept"]
         },
         {
-          id: 4,
+          id: 2,
           type: 'fill-in',
           difficulty: 'easy',
           question: 'If $8n = 24$, what is the value of $n + 5$?',
@@ -412,7 +383,7 @@ export const practiceTest5 = {
           explanation: '$8n = 24$, so $n = \\frac{24}{8} = 3$. Therefore, $n + 5 = 3 + 5 = 8$.'
         },
         {
-          id: 5,
+          id: 3,
           type: 'multiple-choice',
           difficulty: 'easy',
           question: 'The scatterplot above shows the relationship between two variables $x$ and $y$, along with a line of best fit. For how many of the $12$ data points is the actual $y$-value greater than the $y$-value predicted by the line of best fit?',
@@ -439,7 +410,7 @@ export const practiceTest5 = {
           explanation: 'Points above the line of best fit have actual $y$-values greater than predicted $y$-values. Counting the points that lie above the dashed line, there are $5$ such points.'
         },
         {
-          id: 6,
+          id: 4,
           type: "fill-in",
           difficulty: "medium",
           question: "If $3x + 4y = 20$ and $x - 4y = -8$, what is the value of $x$?",
@@ -448,7 +419,7 @@ export const practiceTest5 = {
           skills: ["systems-of-equations", "elimination"]
         },
         {
-          id: 7,
+          id: 5,
           type: "multiple-choice",
           difficulty: "medium",
           question: "Which expression is equivalent to $4x^2 - 9x - 9$?",
@@ -463,7 +434,7 @@ export const practiceTest5 = {
           skills: ["factoring", "quadratic-expressions"]
         },
         {
-          id: 8,
+          id: 6,
           type: 'multiple-choice',
           difficulty: 'medium',
           question: 'At a concert venue, there are a total of $420$ attendees. Each attendee is located in either section A, section B, or section C. If one of these attendees is selected at random, the probability of selecting an attendee in section A is $0.45$, and the probability of selecting an attendee in section B is $0.30$. How many attendees are in section C?',
@@ -477,7 +448,7 @@ export const practiceTest5 = {
           explanation: '$P(C) = 1 - P(A) - P(B) = 1 - 0.45 - 0.30 = 0.25$. Number in section C $= 0.25 \\times 420 = 105$ attendees.'
         },
         {
-          id: 9,
+          id: 7,
           type: "fill-in",
           difficulty: "medium",
           question: "If $2x + 3y = 12$ and $6y = 9$, what is the value of $x$?",
@@ -487,7 +458,7 @@ export const practiceTest5 = {
           skills: ["systems-of-equations"]
         },
         {
-          id: 10,
+          id: 8,
           type: "fill-in",
           difficulty: "medium",
           question: "What is the sum of the solutions to $x^2 - 10x + 21 = 0$?",
@@ -496,7 +467,7 @@ export const practiceTest5 = {
           skills: ["quadratic-equations", "vietas-formulas"]
         },
         {
-          id: 11,
+          id: 9,
           type: "fill-in",
           difficulty: "medium",
           question: "At what positive value of $x$ do the graphs of $y = x^2$ and $y = 5x - 4$ intersect?",
@@ -505,7 +476,7 @@ export const practiceTest5 = {
           skills: ["systems-of-equations", "quadratic-equations"]
         },
         {
-          id: 12,
+          id: 10,
           type: 'multiple-choice',
           difficulty: 'medium',
           question: 'In $\\triangle ABC$, the measure of $\\angle A$ is $72°$. Which of the following could be the measure, in degrees, of $\\angle B$?',
@@ -519,7 +490,7 @@ export const practiceTest5 = {
           explanation: 'The sum of angles in a triangle is $180°$. If $\\angle A = 72°$, then $\\angle B + \\angle C = 108°$. For $\\angle B$ to be valid, it must be positive and $\\angle C$ must also be positive. So $\\angle B < 108°$. Among the choices, only $107°$ satisfies this (leaving $\\angle C = 1°$).'
         },
         {
-          id: 13,
+          id: 11,
           type: "multiple-choice",
           difficulty: "medium",
           question: "The function $f$ is graphed in the $xy$-plane. If $g(x) = f(x - 3)$, how is the graph of $g$ related to the graph of $f$?",
@@ -534,7 +505,7 @@ export const practiceTest5 = {
           skills: ["function-transformations", "horizontal-shifts"]
         },
         {
-          id: 14,
+          id: 12,
           type: 'multiple-choice',
           difficulty: 'medium',
           question: 'Which expression is equivalent to $12x^4y^3 + 18x^2y$?',
@@ -548,7 +519,7 @@ export const practiceTest5 = {
           explanation: 'Factor out the GCF: $6x^2y$. $12x^4y^3 \\div 6x^2y = 2x^2y^2$ and $18x^2y \\div 6x^2y = 3$. So $12x^4y^3 + 18x^2y = 6x^2y(2x^2y^2 + 3)$.'
         },
         {
-          id: 15,
+          id: 13,
           type: "multiple-choice",
           difficulty: "medium",
           question: "A storage container can hold at most $500$ pounds. If the container already has $180$ pounds of supplies, which inequality represents the additional weight $w$, in pounds, that can be added?",
@@ -563,7 +534,7 @@ export const practiceTest5 = {
           skills: ["inequalities", "word-problems"]
         },
         {
-          id: 16,
+          id: 14,
           type: "multiple-choice",
           difficulty: "medium",
           question: "The function $h$ is defined by $h(x) = 450(0.2)^x$. What is the value of $h(0)$?",
@@ -578,10 +549,40 @@ export const practiceTest5 = {
           skills: ["Algebra", "Exponential functions"]
         },
         {
+          id: 15,
+          type: "multiple-choice",
+          difficulty: "hard",
+          question: "In the $xy$-plane, a circle has center $C$ with coordinates $(h, k)$. Points $A$ and $B$ lie on the circle. Point $A$ has coordinates $(h + 3, k + \\sqrt{55})$, and $\\angle ACB$ is a right angle. What is the length of $\\overline{AB}$?",
+          choices: [
+            { id: "A", text: "$8\\sqrt{2}$" },
+            { id: "B", text: "$2\\sqrt{55}$" },
+            { id: "C", text: "$64\\sqrt{2}$" },
+            { id: "D", text: "$64\\sqrt{3}$" }
+          ],
+          correctAnswer: "A",
+          explanation: "**Choice A is correct.**\n\n**Step 1:** Find the radius.\n$r = CA = \\sqrt{(h+3-h)^2 + (k+\\sqrt{55}-k)^2} = \\sqrt{9 + 55} = \\sqrt{64} = 8$\n\n**Step 2:** Since $\\angle ACB = 90°$ and $CA = CB = r = 8$ (both radii), triangle $ACB$ is an isosceles right triangle.\n\nBy the Pythagorean theorem:\n$AB^2 = CA^2 + CB^2 = 64 + 64 = 128$\n$AB = \\sqrt{128} = 8\\sqrt{2}$",
+          skills: ["circles", "coordinate-geometry", "pythagorean-theorem"]
+        },
+        {
+          id: 16,
+          type: "multiple-choice",
+          difficulty: "hard",
+          question: "A circle has center $P$, and points $R$ and $S$ lie on the circle. Line segments $RQ$ and $SQ$ are tangent to the circle at points $R$ and $S$, respectively. If the radius of the circle is $180$ millimeters and the perimeter of quadrilateral $PRQS$ is $1{,}224$ millimeters, what is the distance, in millimeters, between points $P$ and $Q$?",
+          choices: [
+            { id: "A", text: "$180$" },
+            { id: "B", text: "$450$" },
+            { id: "C", text: "$460$" },
+            { id: "D", text: "$468$" }
+          ],
+          correctAnswer: "D",
+          explanation: "**Choice D is correct.**\n\nSince $RQ$ and $SQ$ are tangent to the circle at $R$ and $S$, we have $PR \\perp RQ$ and $PS \\perp SQ$. Also $PR = PS = 180$ (radii) and $RQ = SQ$ (tangent segments from an external point are equal).\n\nPerimeter of $PRQS = PR + RQ + QS + SP = 180 + RQ + RQ + 180 = 1{,}224$\n$2 \\cdot RQ = 864$, so $RQ = 432$\n\nIn right triangle $PRQ$:\n$PQ^2 = PR^2 + RQ^2 = 180^2 + 432^2 = 32{,}400 + 186{,}624 = 219{,}024$\n$PQ = \\sqrt{219{,}024} = 468$\n\n**Verification:** $468 = 36 \\times 13$ and $468^2 = 1{,}296 \\times 169 = 219{,}024$ ✓",
+          skills: ["circles", "tangent-lines", "pythagorean-theorem"]
+        },
+        {
           id: 17,
           type: "multiple-choice",
           difficulty: "hard",
-          question: "A town's population is modeled by $P(t) = 12000(1.03)^t$, where $t$ is the number of years since 2020. What does $1.03$ represent in this model?",
+          question: "A town's population is modeled by $P(t) = 12{,}000(1.03)^t$, where $t$ is the number of years since 2020. What does $1.03$ represent in this model?",
           choices: [
             { id: "A", text: "The population decreases by $3\\%$ each year" },
             { id: "B", text: "The population increases by $3\\%$ each year" },
@@ -589,7 +590,7 @@ export const practiceTest5 = {
             { id: "D", text: "The population was $1.03$ in the year 2020" }
           ],
           correctAnswer: "B",
-          explanation: "**Choice B is correct.** In exponential models $P(t) = P_0(b)^t$:\n\n• $P_0 = 12000$ is the initial population\n• $b = 1.03$ is the growth factor\n• Since $b = 1 + r$, where $r$ is the growth rate:\n• $1.03 = 1 + 0.03$\n• $r = 0.03 = 3\\%$\n\nThe population increases by $3\\%$ each year.\n\n**Why other choices are incorrect:**\n• Choice A: Would need $b < 1$ (like $0.97$) for decrease\n• Choice C: This describes linear growth, not exponential\n• Choice D: $12000$ was the 2020 population, not $1.03$\n\n**Key concept:** In $P(t) = P_0(1 + r)^t$, the growth factor $(1 + r)$ indicates percent growth.",
+          explanation: "**Choice B is correct.** In exponential models $P(t) = P_0(b)^t$:\n\n• $P_0 = 12{,}000$ is the initial population\n• $b = 1.03$ is the growth factor\n• Since $b = 1 + r$, where $r$ is the growth rate:\n• $1.03 = 1 + 0.03$\n• $r = 0.03 = 3\\%$\n\nThe population increases by $3\\%$ each year.\n\n**Why other choices are incorrect:**\n• Choice A: Would need $b < 1$ (like $0.97$) for decrease\n• Choice C: This describes linear growth, not exponential\n• Choice D: $12000$ was the 2020 population, not $1.03$\n\n**Key concept:** In $P(t) = P_0(1 + r)^t$, the growth factor $(1 + r)$ indicates percent growth.",
           skills: ["exponential-growth", "interpretation"]
         },
         {

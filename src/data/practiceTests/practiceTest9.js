@@ -396,23 +396,6 @@ export const practiceTest9 = {
       title: "Module 2",
       timeLimit: 35,
       questions: [
-        // Question 1: Y-intercept
-        {
-          id: 1,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "What is the $y$-intercept of the line $3x - 4y = 24$?",
-          choices: [
-            { id: "A", text: "$(0, -6)$" },
-            { id: "B", text: "$(0, 6)$" },
-            { id: "C", text: "$(8, 0)$" },
-            { id: "D", text: "$(-6, 0)$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**Choice A is correct.** The $y$-intercept occurs when $x = 0$.\n\nSubstitute $x = 0$:\n$3(0) - 4y = 24$\n$-4y = 24$\n$y = -6$\n\nThe $y$-intercept is $(0, -6)$\n\n**Why other choices are incorrect:**\n• Choice B: Sign error; $y = -6$, not $6$\n• Choice C: This is the $x$-intercept (when $y = 0$)\n• Choice D: This has the wrong coordinate format\n\n**Alternative:** Rewrite in slope-intercept form: $y = \\frac{3}{4}x - 6$. The $y$-intercept is $-6$.",
-          skills: ["linear-equations", "intercepts"]
-        },
-
         // Question 2: Table data interpretation
         {
           id: 2,
@@ -436,7 +419,6 @@ export const practiceTest9 = {
           explanation: "**The correct answer is 20.** Add up all the students in each category.\n\n$4 + 8 + 6 + 2 = 20$ students\n\nThis is a frequency table showing the distribution of books read.",
           skills: ["data-analysis", "frequency-tables"]
         },
-
         // Question 3: Parallel lines angle relationship
         {
           id: 3,
@@ -461,7 +443,6 @@ export const practiceTest9 = {
           explanation: "**Choice B is correct.** Corresponding angles formed by a transversal cutting parallel lines are equal.\n\nIf one angle measures $72°$, its corresponding angle also measures $72°$.\n\n**Why other choices are incorrect:**\n• Choice A: $18°$ is not related to $72°$ in this context\n• Choice C: $108°$ would be the supplementary angle ($180° - 72°$)\n• Choice D: $288°$ is greater than $180°$, impossible for a single angle\n\n**Key angle relationships:**\n• Corresponding angles: equal\n• Alternate interior angles: equal\n• Co-interior angles: supplementary (sum to $180°$)",
           skills: ["parallel-lines", "angles"]
         },
-
         // Question 4: Cost equation
         {
           id: 4,
@@ -478,7 +459,6 @@ export const practiceTest9 = {
           explanation: "**Choice B is correct.** Build the cost equation from the given information.\n\n• Fixed cost (registration): \\$50 (one-time fee)\n• Variable cost: \\$25 per month $\\times m$ months $= 25m$\n\n**Total cost:** $C = 25m + 50$\n\n**Verification:** For $3$ months: $C = 25(3) + 50 = 75 + 50 = \\$125$ ✓\n\n**Why other choices are incorrect:**\n• Choice A: Switches the coefficients\n• Choice C: Ignores the registration fee structure\n• Choice D: Multiplies incorrectly",
           skills: ["linear-equations", "modeling"]
         },
-
         // Question 5: Pythagorean theorem
         {
           id: 5,
@@ -489,7 +469,6 @@ export const practiceTest9 = {
           explanation: "**The correct answer is 10.** Use the Pythagorean theorem.\n\nThe ladder, wall, and ground form a right triangle:\n• One leg $= 6$ feet (ground)\n• Other leg $= 8$ feet (wall)\n• Hypotenuse $=$ ladder length\n\n$a^2 + b^2 = c^2$\n$6^2 + 8^2 = c^2$\n$36 + 64 = c^2$\n$100 = c^2$\n$c = 10$ feet\n\n**Recognition:** This is a $6$-$8$-$10$ right triangle (a multiple of $3$-$4$-$5$).",
           skills: ["pythagorean-theorem", "right-triangles"]
         },
-
         // Question 6: Cubic function zeros
         {
           id: 6,
@@ -506,7 +485,6 @@ export const practiceTest9 = {
           explanation: "**Choice B is correct.** Find zeros by setting each factor equal to zero.\n\n$x(x - 2)(x + 5) = 0$\n\n• $x = 0$\n• $x - 2 = 0 \\rightarrow x = 2$\n• $x + 5 = 0 \\rightarrow x = -5$\n\nThe zeros are $x = 0$, $x = 2$, and $x = -5$\n\n**Why other choices are incorrect:**\n• Choice A: The factor $(x + 5)$ gives $x = -5$, not $x = 5$\n• Choice C: The factor $(x - 2)$ gives $x = 2$, not $x = -2$\n• Choice D: Both non-zero values have wrong signs\n\n**Calculator tip:** Graph the function and locate where it crosses the $x$-axis.",
           skills: ["polynomial-functions", "zeros"]
         },
-
         // Question 7: Y-intercept from function
         {
           id: 7,
@@ -517,7 +495,6 @@ export const practiceTest9 = {
           explanation: "**The correct answer is 8.** The $y$-intercept occurs when $x = 0$.\n\n$h(0) = (0)^2 - 6(0) + 8 = 0 - 0 + 8 = 8$\n\nThe $y$-intercept is at the point $(0, 8)$, so the $y$-coordinate is $8$.\n\n**Key insight:** For any function $f(x)$, the $y$-intercept is always $f(0)$, which equals the constant term when $x = 0$.",
           skills: ["quadratic-functions", "intercepts"]
         },
-
         // Question 8: Linear equation from context
         {
           id: 8,
@@ -534,7 +511,6 @@ export const practiceTest9 = {
           explanation: "**Choice A is correct.** Build the equation using the given information.\n\n• Initial subscribers: $3$ million\n• Monthly gain: $150{,}000 = 0.15$ million\n\n**Equation:** $S = 3 + 0.15m$ (in millions)\n\n**Verification:** After $10$ months: $S = 3 + 0.15(10) = 3 + 1.5 = 4.5$ million ✓\n\n**Why other choices are incorrect:**\n• Choice B: $150$ million per month is way too large\n• Choice C: Puts the multiplier on the wrong term\n• Choice D: Ignores the initial $3$ million subscribers",
           skills: ["linear-equations", "modeling"]
         },
-
         // Question 9: Function transformation
         {
           id: 9,
@@ -551,7 +527,6 @@ export const practiceTest9 = {
           explanation: "**Choice C is correct.** Apply the transformations to the original point.\n\nOriginal: $f(x)$ passes through $(3, 7)$, meaning $f(3) = 7$\n\nFor $y = f(x - 2) + 4$:\n• $(x - 2)$ shifts the graph **right** $2$ units\n• $+4$ shifts the graph **up** $4$ units\n\nNew $x$-coordinate: $3 + 2 = 5$\nNew $y$-coordinate: $7 + 4 = 11$\n\nThe new point is $(5, 11)$\n\n**Why other choices are incorrect:**\n• $(x - 2)$ shifts RIGHT, not left, so $x$ increases\n• $+4$ shifts UP, not down, so $y$ increases\n\n**Verification:** When $x = 5$ in the new function: $f(5 - 2) + 4 = f(3) + 4 = 7 + 4 = 11$ ✓",
           skills: ["function-transformations"]
         },
-
         // Question 10: System of equations
         {
           id: 10,
@@ -562,7 +537,6 @@ export const practiceTest9 = {
           explanation: "**The correct answer is 5.** Solve the system using elimination.\n\nAdd the two equations:\n$2x + 3y = 12$\n$4x - 3y = 6$\n───────────\n$6x = 18$\n$x = 3$\n\nSubstitute $x = 3$ into the first equation:\n$2(3) + 3y = 12$\n$6 + 3y = 12$\n$3y = 6$\n$y = 2$\n\n**Therefore:** $x + y = 3 + 2 = 5$\n\n**Verification:** \n• $2(3) + 3(2) = 6 + 6 = 12$ ✓\n• $4(3) - 3(2) = 12 - 6 = 6$ ✓",
           skills: ["systems-of-equations"]
         },
-
         // Question 11: Trigonometry (sine)
         {
           id: 11,
@@ -579,7 +553,6 @@ export const practiceTest9 = {
           explanation: "**Choice B is correct.** Use the Pythagorean identity and right triangle ratios.\n\nIf $\\sin(\\theta) = \\frac{5}{13}$, then:\n• Opposite $= 5$\n• Hypotenuse $= 13$\n\nFind the adjacent side using Pythagorean theorem:\n$5^2 + \\text{adj}^2 = 13^2$\n$25 + \\text{adj}^2 = 169$\n$\\text{adj}^2 = 144$\n$\\text{adj} = 12$\n\n$\\cos(\\theta) = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\frac{12}{13}$\n\n**Alternative:** Use $\\sin^2\\theta + \\cos^2\\theta = 1$\n$\\left(\\frac{5}{13}\\right)^2 + \\cos^2\\theta = 1$\n$\\frac{25}{169} + \\cos^2\\theta = 1$\n$\\cos^2\\theta = \\frac{144}{169}$\n$\\cos\\theta = \\frac{12}{13}$\n\n**Recognition:** This is a $5$-$12$-$13$ right triangle.",
           skills: ["trigonometry", "right-triangles"]
         },
-
         // Question 12: Area calculation
         {
           id: 12,
@@ -590,7 +563,6 @@ export const practiceTest9 = {
           explanation: "**The correct answer is 63.** Use the triangle area formula.\n\nArea $= \\frac{1}{2} \\times \\text{base} \\times \\text{height}$\n$= \\frac{1}{2} \\times 14 \\times 9$\n$= \\frac{1}{2} \\times 126$\n$= 63$ square inches\n\n**Calculator tip:** $14 \\times 9 \\div 2 = 63$",
           skills: ["area", "triangles"]
         },
-
         // Question 13: Exponent equations
         {
           id: 13,
@@ -607,7 +579,6 @@ export const practiceTest9 = {
           explanation: "**Choice A is correct.** Express both sides with the same base.\n\n$3^{2x} = 81$\n$3^{2x} = 3^4$ (since $81 = 3^4$)\n\nSince the bases are equal, the exponents must be equal:\n$2x = 4$\n$x = 2$\n\n**Verification:** $3^{2 \\times 2} = 3^4 = 81$ ✓\n\n**Why other choices are incorrect:**\n• Choice B: Would give $3^8 = 6561$\n• Choice C: Would give $3^{16}$ = huge number\n• Choice D: Would give $3^{81}$ = astronomical",
           skills: ["exponents", "exponential-equations"]
         },
-
         // Question 14: Rate problem
         {
           id: 14,
@@ -618,7 +589,6 @@ export const practiceTest9 = {
           explanation: "**The correct answer is 96.** Find the rate and apply it.\n\n**Rate:** $24$ pages $\\div 3$ minutes $= 8$ pages per minute\n\n**In 12 minutes:** $8 \\times 12 = 96$ pages\n\n**Alternative proportion method:**\n$\\frac{24}{3} = \\frac{x}{12}$\n$24 \\times 12 = 3x$\n$288 = 3x$\n$x = 96$",
           skills: ["rates", "proportions"]
         },
-
         // Question 15: Substitution
         {
           id: 15,
@@ -635,7 +605,6 @@ export const practiceTest9 = {
           explanation: "**Choice A is correct.** Use substitution to solve.\n\nSubstitute $a = 3b$ into the second equation:\n$2(3b) + b = 35$\n$6b + b = 35$\n$7b = 35$\n$b = 5$\n\n**Verification:** If $b = 5$, then $a = 3(5) = 15$\nCheck: $2(15) + 5 = 30 + 5 = 35$ ✓\n\n**Why other choices are incorrect:**\n• Choice B ($b = 7$): Would give $a = 21$, and $2(21) + 7 = 49 \\neq 35$\n• Choice C ($b = 15$): This is the value of $a$, not $b$\n• Choice D ($b = 21$): Would give $a = 63$, far too large",
           skills: ["systems-of-equations", "substitution"]
         },
-
         // Question 16: Linear context interpretation
         {
           id: 16,
@@ -652,7 +621,33 @@ export const practiceTest9 = {
           explanation: "**Choice B is correct.** In $C = 0.08m + 35$, identify what $35$ represents.\n\nThe constant term $35$ is the cost when $m = 0$ (no overage minutes).\n\nThis is the **base monthly cost** before any overage charges are added.\n\n**Why other choices are incorrect:**\n• Choice A: $0.08$ is the cost per minute, not $35$\n• Choice C: $35$ is a dollar amount, not a count of minutes\n• Choice D: The cost for $35$ overage minutes would be $0.08(35) + 35 = \\$37.80$",
           skills: ["linear-equations", "function-interpretation"]
         },
-
+        // Question 17: Data table - g(x) = f(x)/(x+2), find y-intercept of f
+        {
+          id: 17,
+          type: "multiple-choice",
+          difficulty: "hard",
+          question: "The table gives the values of the function $g$ for some values of $x$, where $g(x) = \\frac{f(x)}{x + 2}$ and $f$ is a linear function. What is the $y$-intercept of the graph of $y = f(x)$ in the $xy$-plane?",
+          diagram: {
+            type: 'dataTable',
+            params: {
+              headers: ['x', 'g(x)'],
+              rows: [
+                ['-5', '0'],
+                ['0', '5'],
+                ['4', '3']
+              ]
+            }
+          },
+          choices: [
+            { id: "A", text: "$(0, -5)$" },
+            { id: "B", text: "$(0, 10)$" },
+            { id: "C", text: "$(0, 20)$" },
+            { id: "D", text: "$(0, 30)$" }
+          ],
+          correctAnswer: "B",
+          explanation: "**Choice B is correct.** Since $g(x) = \\frac{f(x)}{x + 2}$, we have $f(x) = g(x) \\cdot (x + 2)$.\n\nUsing the table values:\n• At $x = -5$: $f(-5) = 0 \\cdot (-5 + 2) = 0 \\cdot (-3) = 0$\n• At $x = 0$: $f(0) = 5 \\cdot (0 + 2) = 5 \\cdot 2 = 10$\n• At $x = 4$: $f(4) = 3 \\cdot (4 + 2) = 3 \\cdot 6 = 18$\n\nSince $f$ is linear, find its equation using two points $(-5, 0)$ and $(0, 10)$:\n$\\text{slope} = \\frac{10 - 0}{0 - (-5)} = \\frac{10}{5} = 2$\n\n$f(x) = 2(x + 5) = 2x + 10$\n\nVerify with $(4, 18)$: $f(4) = 2(4) + 10 = 8 + 10 = 18$ ✓\n\nThe $y$-intercept is $f(0) = 10$, so the $y$-intercept is $(0, 10)$.\n\n**Why other choices are incorrect:**\n• Choice A: $(0, -5)$ confuses the $x$-intercept value with the $y$-intercept\n• Choice C: $(0, 20)$ likely a computation error doubling the correct answer\n• Choice D: $(0, 30)$ results from an incorrect slope calculation",
+          skills: ["function-operations", "linear-functions", "tables"]
+        },
         // Question 17: Radical exponents
         {
           id: 17,
@@ -669,7 +664,6 @@ export const practiceTest9 = {
           explanation: "**Choice C is correct.** When multiplying powers with the same base, add exponents.\n\n$x^{\\frac{2}{3}} \\cdot x^{\\frac{1}{6}} = x^{\\frac{2}{3} + \\frac{1}{6}}$\n\nFind common denominator:\n$\\frac{2}{3} = \\frac{4}{6}$\n\n$\\frac{4}{6} + \\frac{1}{6} = \\frac{5}{6}$\n\n**Result:** $x^{\\frac{5}{6}}$\n\n**Why other choices are incorrect:**\n• Choice A: Would require multiplying exponents (wrong operation)\n• Choice B: $\\frac{2}{3} + \\frac{1}{6} \\neq \\frac{1}{3}$\n• Choice D: Would require multiplying exponents\n\n**Key rule:** $x^a \\cdot x^b = x^{a+b}$",
           skills: ["exponents", "radicals"]
         },
-
         // Question 18: Dot plot statistics
         {
           id: 18,
@@ -685,7 +679,6 @@ export const practiceTest9 = {
                 { value: 2, count: 5 },
                 { value: 3, count: 2 },
                 { value: 4, count: 1 },
-                { value: 5, count: 0 },
                 { value: 6, count: 1 }
               ],
               xLabel: 'Number of pets',
@@ -707,7 +700,6 @@ export const practiceTest9 = {
           explanation: "**Choice B is correct.** Find the middle value of the ordered data.\n\nWith $15$ values, the median is the 8th value (since $\\frac{15+1}{2} = 8$).\n\nCount through the ordered data:\n$0, 0, 1, 1, 1, 1, 2, \\mathbf{2}, 2, 2, 2, 3, 3, 4, 6$\n\nThe 8th value is $2$.\n\n**Why other choices are incorrect:**\n• Choice A: $1$ is the mode of the lower values, not the median\n• Choice C: $2.5$ would be correct only for even number of data points\n• Choice D: $3$ is too high in the ordered list",
           skills: ["statistics", "median"]
         },
-
         // Question 19: Isosceles triangle angles
         {
           id: 19,
@@ -718,18 +710,16 @@ export const practiceTest9 = {
           explanation: "**The correct answer is 70.** Use the triangle angle sum property.\n\nIn an isosceles triangle:\n• The two base angles are equal\n• All angles sum to $180°$\n\nLet each base angle $= x$\n\n$40 + x + x = 180$\n$40 + 2x = 180$\n$2x = 140$\n$x = 70°$\n\n**Verification:** $40° + 70° + 70° = 180°$ ✓",
           skills: ["triangles", "isosceles-triangles", "angles"]
         },
-
         // Question 20: System with infinitely many solutions (Parametric)
         {
           id: 20,
           type: "fill-in",
           difficulty: "hard",
-          question: "Consider the system of equations:\n\n$2x + 3y = 7$\n$10x + 15y = 35$\n\nIf $(x, y)$ is a solution to this system where $y = 5$, what is the value of $x$?",
+          question: "Consider the system of equations:\n\n$2x + 3y = 7$\n\n$10x + 15y = 35$\n\nIf $(x, y)$ is a solution to this system where $y = 5$, what is the value of $x$?",
           correctAnswer: -4,
           explanation: "**The correct answer is -4.** Analyze the system first.\n\n**Observation:** The second equation is exactly $5$ times the first:\n$5(2x + 3y) = 5(7) \\rightarrow 10x + 15y = 35$ ✓\n\nThis means the equations represent the **same line**, so there are infinitely many solutions (any point on the line $2x + 3y = 7$ works).\n\n**Find $x$ when $y = 5$:**\n$2x + 3(5) = 7$\n$2x + 15 = 7$\n$2x = -8$\n$x = -4$\n\n**Verification:** \n• First equation: $2(-4) + 3(5) = -8 + 15 = 7$ ✓\n• Second equation: $10(-4) + 15(5) = -40 + 75 = 35$ ✓\n\n**Key insight:** When one equation is a multiple of another, the system has infinitely many solutions - all points on that line. The question asks for the specific solution where $y = 5$.",
           skills: ["systems-of-equations", "dependent-systems", "parametric-solutions"]
         },
-
         // Question 21: Complex radical equation
         {
           id: 21,
@@ -746,7 +736,6 @@ export const practiceTest9 = {
           explanation: "**Choice C is correct.** Solve this equation involving radicals.\n\n**Step 1:** Multiply both sides by $\\sqrt{x^2 - k^2}$:\n$x^2 = k^2 + 17\\sqrt{x^2 - k^2}$\n\n**Step 2:** Rearrange and isolate the radical:\n$x^2 - k^2 = 17\\sqrt{x^2 - k^2}$\n\n**Step 3:** Let $u = \\sqrt{x^2 - k^2}$, so $u^2 = x^2 - k^2$:\n$u^2 = 17u$\n$u^2 - 17u = 0$\n$u(u - 17) = 0$\n$u = 0$ or $u = 17$\n\n**Step 4:** Solve for $x$:\n• If $u = 0$: $\\sqrt{x^2 - k^2} = 0 \\rightarrow x^2 = k^2 \\rightarrow x = \\pm k$\n  But $x = \\pm k$ makes the original denominator zero. **Reject.**\n\n• If $u = 17$: $\\sqrt{x^2 - k^2} = 17 \\rightarrow x^2 - k^2 = 289 \\rightarrow x^2 = k^2 + 289 = k^2 + 17^2$\n  So $x = \\pm\\sqrt{k^2 + 17^2}$\n\nThe negative solution $x = -\\sqrt{k^2 + 17^2}$ matches Choice C.\n\n**Why other choices are incorrect:**\n• Choice A ($-k$): Makes the denominator zero (undefined)\n• Choice B: Uses subtraction instead of addition under the radical\n• Choice D: Uses subtraction in the wrong direction",
           skills: ["radical-equations", "algebraic-manipulation", "quadratic-equations"]
         },
-
         // Question 22: Quadratic modeling - Rocket height
         {
           id: 22,

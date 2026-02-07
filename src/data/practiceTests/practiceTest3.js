@@ -358,21 +358,6 @@ export const practiceTest3 = {
         {
           id: 1,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "A fitness center offers annual memberships. The function $B(t) = 45t + 250$ models the total amount paid, in dollars, $t$ years after joining. What is the best interpretation of $45$ in this context?",
-          choices: [
-            { id: "A", text: "The number of years until the membership expires" },
-            { id: "B", text: "The amount paid, in dollars, when first joining" },
-            { id: "C", text: "The annual increase, in dollars, in the membership cost each year" },
-            { id: "D", text: "The number of years of membership purchased" }
-          ],
-          correctAnswer: "C",
-          explanation: "**Choice C is correct.** In $B(t) = 45t + 250$:\n• $45$ is the coefficient of $t$ (the **slope**)\n• $250$ is the y-intercept (initial value)\n\nThe slope represents the **rate of change**—how much $B$ increases per year.\n\n$45$ represents the **annual increase of \\$45 per year**.\n\n**Why other choices are incorrect:**\n• Choice A: Slope doesn't indicate duration\n• Choice B: $250$ (not $45$) is the initial payment\n• Choice D: Slope isn't a count of years\n\n**Key concept:** In $y = mx + b$, $m$ = rate of change, $b$ = initial value",
-          skills: ["linear-functions", "slope-interpretation"]
-        },
-        {
-          id: 2,
-          type: "multiple-choice",
           difficulty: "medium",
           question: "If $g(3x) = 8x - 5$, what is the value of $g(9)$?",
           choices: [
@@ -386,7 +371,7 @@ export const practiceTest3 = {
           skills: ["function-evaluation", "algebraic-manipulation"]
         },
         {
-          id: 3,
+          id: 2,
           type: "multiple-choice",
           difficulty: "medium",
           diagram: {
@@ -414,7 +399,7 @@ export const practiceTest3 = {
           skills: ["percent-increase", "bar-charts"]
         },
         {
-          id: 4,
+          id: 3,
           type: "multiple-choice",
           difficulty: "medium",
           question: "Which of the following values is a solution to the given inequality?\n\n$4x + 3 < -3(x + 5)$",
@@ -429,7 +414,7 @@ export const practiceTest3 = {
           skills: ["linear-inequalities", "solving-inequalities"]
         },
         {
-          id: 5,
+          id: 4,
           type: "multiple-choice",
           difficulty: "medium",
           question: "A botanist measures the height of a plant over several weeks. When the study began, the plant was $22$ centimeters tall. After $15$ weeks, the plant was $46.5$ centimeters tall. If the plant's height increased at a constant rate, which function best models the height, $f(x)$, in centimeters, of the plant $x$ weeks after the study began?",
@@ -444,7 +429,7 @@ export const practiceTest3 = {
           skills: ["linear-models", "slope"]
         },
         {
-          id: 6,
+          id: 5,
           type: "fill-in",
           difficulty: "medium",
           question: "What is the y-intercept of the graph of $y - 8 = 2^x - 4$ in the $xy$-plane?",
@@ -453,7 +438,7 @@ export const practiceTest3 = {
           skills: ["exponential-functions", "y-intercept"]
         },
         {
-          id: 7,
+          id: 6,
           type: "multiple-choice",
           difficulty: "medium",
           question: [
@@ -472,7 +457,7 @@ export const practiceTest3 = {
           skills: ["systems-of-inequalities"]
         },
         {
-          id: 8,
+          id: 7,
           type: "multiple-choice",
           difficulty: "medium",
           question: "If $m$ and $n$ are solutions to the given equation, what is the value of $m + n$?",
@@ -490,7 +475,7 @@ export const practiceTest3 = {
           skills: ["quadratic-equations", "sum-of-roots"]
         },
         {
-          id: 9,
+          id: 8,
           type: "multiple-choice",
           difficulty: "medium",
           question: "Which of the following equivalent forms of the function $f(x) = x^2 - 2x - 15$ shows the x-intercepts of the graph of $f$ as constants or coefficients?",
@@ -505,7 +490,7 @@ export const practiceTest3 = {
           skills: ["quadratic-functions", "factoring", "x-intercepts"]
         },
         {
-          id: 10,
+          id: 9,
           type: "multiple-choice",
           difficulty: "medium",
           question: "How many solutions does the given system of equations have?",
@@ -524,6 +509,15 @@ export const practiceTest3 = {
           correctAnswer: "D",
           explanation: "**Choice D is correct.** Transform both equations to the same form and compare.\n\n**Step 1:** Rewrite the second equation in standard form:\n$-4x = -10y + 40$\n$-4x + 10y = 40$\n$4x - 10y = -40$ (multiply by $-1$)\n\n**Step 2:** Simplify by dividing by 2:\n$2x - 5y = -20$\n\n**Step 3:** Compare with the first equation:\n• Equation 1: $2x - 5y = 15$\n• Equation 2: $2x - 5y = -20$\n\n**Analysis:**\nBoth equations have the same left side ($2x - 5y$) but different right sides ($15 \\neq -20$).\n\nThis means the lines are parallel (same slope) but different (different $y$-intercepts).\n\nParallel lines never intersect, so there are **zero solutions**.\n\n**Why other choices are incorrect:**\n• Choice A: One solution would require intersecting lines\n• Choice B: Linear systems can have 0, 1, or infinitely many solutions—never exactly 2\n• Choice C: Infinitely many would require the equations to be identical",
           skills: ["systems-of-equations", "parallel-lines"]
+        },
+        {
+          id: 10,
+          type: "fill-in",
+          difficulty: "hard",
+          question: "A rectangle is inscribed in a circle, such that each vertex of the rectangle lies on the circumference of the circle. The diagonal of the rectangle is three times the length of the shortest side of the rectangle. The area of the rectangle is $1{,}250\\sqrt{2}$ square units. What is the length, in units, of the diameter of the circle?",
+          correctAnswer: 75,
+          explanation: "**The correct answer is 75.**\n\n**Step 1:** Let the short side $= s$. Then diagonal $= 3s$.\n\nBy the Pythagorean theorem, if the long side $= l$:\n$s^2 + l^2 = (3s)^2 = 9s^2$\n$l^2 = 8s^2$\n$l = 2s\\sqrt{2}$\n\n**Step 2:** Use the area.\nArea $= s \\times l = s \\times 2s\\sqrt{2} = 2s^2\\sqrt{2} = 1{,}250\\sqrt{2}$\n$s^2 = 625$\n$s = 25$\n\n**Step 3:** The diagonal of the rectangle equals the diameter of the circle (a rectangle inscribed in a circle has its diagonal as the diameter).\nDiameter $= 3s = 3(25) = 75$",
+          skills: ["geometry", "circles", "rectangles"]
         },
         {
           id: 11,

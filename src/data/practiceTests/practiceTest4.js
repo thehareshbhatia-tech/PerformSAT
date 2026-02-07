@@ -335,36 +335,6 @@ export const practiceTest4 = {
       questions: [
         {
           id: 1,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "$x + y = 24$\n$4y = x$\n\nWhat is the solution $(x, y)$ to the given system of equations?",
-          choices: [
-            { id: "A", text: "$(16, 8)$" },
-            { id: "B", text: "$(18, 6)$" },
-            { id: "C", text: "$(19.2, 4.8)$" },
-            { id: "D", text: "$(20, 4)$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**Choice C is correct.** Use substitution to solve.\n\n• From equation 2: $x = 4y$\n• Substitute into equation 1: $4y + y = 24$\n• Simplify: $5y = 24$\n• Solve: $y = \\frac{24}{5} = 4.8$\n• Find $x$: $x = 4(4.8) = 19.2$\n• Solution: $(19.2, 4.8)$\n\n**Verification:** $19.2 + 4.8 = 24$ ✓ and $4(4.8) = 19.2$ ✓\n\n**Why other choices are incorrect:**\n• Choice A: $16 + 8 = 24$ ✓ but $4(8) = 32 \\neq 16$\n• Choice B: $18 + 6 = 24$ ✓ but $4(6) = 24 \\neq 18$\n• Choice D: $20 + 4 = 24$ ✓ but $4(4) = 16 \\neq 20$\n\n**Key concept:** Substitution works well when one equation has an isolated variable.",
-          skills: ["Algebra", "Systems of equations"]
-        },
-        {
-          id: 2,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "The point $(5, -3)$ in the $xy$-plane is a solution to which of the following systems of inequalities?",
-          choices: [
-            { id: "A", text: "$x > 0$ and $y > 0$" },
-            { id: "B", text: "$x > 0$ and $y < 0$" },
-            { id: "C", text: "$x < 0$ and $y > 0$" },
-            { id: "D", text: "$x < 0$ and $y < 0$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**Choice B is correct.** Check the signs of the coordinates.\n\n• Point $(5, -3)$ has $x = 5$ and $y = -3$\n• $x = 5 > 0$ (positive) ✓\n• $y = -3 < 0$ (negative) ✓\n• This matches $x > 0$ and $y < 0$\n\n**Why other choices are incorrect:**\n• Choice A: $y$ is not $> 0$ (it's $-3$)\n• Choice C: $x$ is not $< 0$ (it's $5$)\n• Choice D: $x$ is not $< 0$ (it's $5$)\n\n**Key concept:** A point $(x, y)$ satisfies an inequality if substituting its coordinates makes the inequality true.",
-          skills: ["Algebra", "Inequalities"]
-        },
-        {
-          id: 3,
           type: 'multiple-choice',
           difficulty: 'easy',
           question: 'Helium is placed inside a container with a constant volume. The graph shows the estimated pressure $y$, in kilopascals (kPa), of the helium when its temperature is $x$ kelvins. The relationship is linear, passing through $(0, 0)$ and $(400, 80)$. What is the estimated pressure of the helium, in kPa, when the temperature is $500$ kelvins?',
@@ -391,7 +361,7 @@ export const practiceTest4 = {
           explanation: 'The slope is $\\frac{80}{400} = 0.2$ kPa per kelvin. At $500$ kelvins: $y = 0.2 \\times 500 = 100$ kPa.'
         },
         {
-          id: 4,
+          id: 2,
           type: 'multiple-choice',
           difficulty: 'easy',
           question: 'The kinetic energy, in joules, of an object with mass $8$ kilograms traveling at a speed of $v$ meters per second is given by the function $K$, where $K(v) = 4v^2$. Which of the following is the best interpretation of $K(25) = 2{,}500$ in this context?',
@@ -405,7 +375,7 @@ export const practiceTest4 = {
           explanation: '$K(25) = 2{,}500$ means that when $v = 25$ (speed is $25$ m/s), the kinetic energy $K$ is $2{,}500$ joules.'
         },
         {
-          id: 5,
+          id: 3,
           type: "multiple-choice",
           difficulty: "easy",
           question: "A hiker walked a distance of 7,920 feet. How far did the hiker walk, in miles? (1 mile = 5,280 feet)",
@@ -420,7 +390,7 @@ export const practiceTest4 = {
           skills: ["Problem-Solving and Data Analysis", "Unit conversion"]
         },
         {
-          id: 6,
+          id: 4,
           type: 'multiple-choice',
           difficulty: 'easy',
           question: 'What is $25\\%$ of $360$?',
@@ -434,7 +404,7 @@ export const practiceTest4 = {
           explanation: '$25\\%$ of $360 = 0.25 \\times 360 = 90$.'
         },
         {
-          id: 7,
+          id: 5,
           type: "multiple-choice",
           difficulty: "medium",
           question: "A scatterplot shows a negative linear association between two variables. Which could be the equation of the line of best fit?",
@@ -463,7 +433,7 @@ export const practiceTest4 = {
           skills: ["scatterplots", "linear-regression"]
         },
         {
-          id: 8,
+          id: 6,
           type: "multiple-choice",
           difficulty: "medium",
           question: "An elevator can carry passengers if the combined weight of the passengers and cargo is no more than $2{,}400$ pounds. What is the maximum number of passengers this elevator can carry along with cargo weighing $300$ pounds if each passenger weighs $150$ pounds?",
@@ -478,7 +448,7 @@ export const practiceTest4 = {
           skills: ["Algebra", "Linear inequalities"]
         },
         {
-          id: 9,
+          id: 7,
           type: "fill-in",
           difficulty: "medium",
           question: "$|x - 7| = 12$\n\nWhat is one possible solution to the given equation?",
@@ -487,7 +457,7 @@ export const practiceTest4 = {
           skills: ["Algebra", "Absolute value equations"]
         },
         {
-          id: 10,
+          id: 8,
           type: 'fill-in',
           difficulty: 'medium',
           question: 'What is the slope of the graph of $y = \\frac{1}{4}(24x + 8) + 3x$ in the $xy$-plane?',
@@ -495,7 +465,7 @@ export const practiceTest4 = {
           explanation: 'Simplify: $y = \\frac{1}{4}(24x) + \\frac{1}{4}(8) + 3x = 6x + 2 + 3x = 9x + 2$. The slope is $9$.'
         },
         {
-          id: 11,
+          id: 9,
           type: "multiple-choice",
           difficulty: "medium",
           question: "In the figure, lines $m$ and $n$ are parallel and are cut by transversal $t$. If $x = 5k + 8$ and $y = 7k - 20$, what is the value of $z$?",
@@ -517,7 +487,7 @@ export const practiceTest4 = {
           skills: ["Geometry", "Parallel lines"]
         },
         {
-          id: 12,
+          id: 10,
           type: "fill-in",
           difficulty: "medium",
           question: "$f(x) = 5x + 8$\n\nFor the given function $f$, the graph of $y = f(x)$ in the $xy$-plane is parallel to line $k$. What is the slope of line $k$?",
@@ -526,7 +496,7 @@ export const practiceTest4 = {
           skills: ["Algebra", "Linear equations"]
         },
         {
-          id: 13,
+          id: 11,
           type: "fill-in",
           difficulty: "medium",
           question: "In triangle $ABC$, angle $A$ measures $(2x + 10)°$, angle $B$ measures $45°$, and angle $C$ measures $x°$. What is the value of $x$?",
@@ -536,7 +506,7 @@ export const practiceTest4 = {
           skills: ["triangle-angles", "geometry"]
         },
         {
-          id: 14,
+          id: 12,
           type: "multiple-choice",
           difficulty: "medium",
           question: "For the function $f(x) = \\sqrt{x + 5}$, what is the least value of $x$ for which $f(x)$ is defined?",
@@ -551,7 +521,7 @@ export const practiceTest4 = {
           skills: ["function-domain", "radical-functions"]
         },
         {
-          id: 15,
+          id: 13,
           type: 'fill-in',
           difficulty: 'medium',
           question: '$(d - 25)(d + 25) - 9 = -9$\n\nWhat is a solution to the given equation?',
@@ -559,7 +529,7 @@ export const practiceTest4 = {
           explanation: 'Adding $9$ to both sides: $(d - 25)(d + 25) = 0$. This means $d - 25 = 0$ or $d + 25 = 0$. So $d = 25$ or $d = -25$. Both are valid solutions; $25$ is one of them.'
         },
         {
-          id: 16,
+          id: 14,
           type: "fill-in",
           difficulty: "medium",
           question: "In an isosceles triangle, the two equal angles each measure 65°. What is the measure, in degrees, of the third angle?",
@@ -568,7 +538,7 @@ export const practiceTest4 = {
           skills: ["triangle-angles", "isosceles-triangles"]
         },
         {
-          id: 17,
+          id: 15,
           type: "multiple-choice",
           difficulty: "medium",
           question: "The function $f(x) = \\frac{1}{4}(x - 5)^2 + 2$ gives the height of a pendulum above the ground $f(x)$, in inches, $x$ seconds after it was released, where $0 \\leq x \\leq 10$. Which of the following is the best interpretation of the vertex of the graph of $y = f(x)$ in the $xy$-plane?",
@@ -583,7 +553,7 @@ export const practiceTest4 = {
           skills: ["Algebra", "Quadratic functions"]
         },
         {
-          id: 18,
+          id: 16,
           type: 'multiple-choice',
           difficulty: 'medium',
           question: 'If $3^{2x} = 81$, what is the value of $5x$?',
@@ -595,6 +565,30 @@ export const practiceTest4 = {
           ],
           correctAnswer: 'A',
           explanation: '$81 = 3^4$, so $3^{2x} = 3^4$. Therefore $2x = 4$, giving $x = 2$. Thus $5x = 5(2) = 10$.'
+        },
+        {
+          id: 17,
+          type: "fill-in",
+          difficulty: "hard",
+          question: "$\\frac{5}{4}y - \\frac{3}{4}x = \\frac{2}{7} - \\frac{5}{4}y$\n\n$\\frac{3}{2}x + \\frac{3}{4} = py + \\frac{7}{4}$\n\nIn the given system of equations, $p$ is a constant. If the system has no solution, what is the value of $p$?",
+          correctAnswer: 5,
+          explanation: "**The correct answer is $5$.**\n\n**Step 1:** Simplify equation 1.\n$\\frac{5}{4}y - \\frac{3}{4}x = \\frac{2}{7} - \\frac{5}{4}y$\n$\\frac{5}{4}y + \\frac{5}{4}y = \\frac{2}{7} + \\frac{3}{4}x$\n$\\frac{10}{4}y = \\frac{3}{4}x + \\frac{2}{7}$\n$\\frac{5}{2}y = \\frac{3}{4}x + \\frac{2}{7}$\n\nMultiply by 4: $10y = 3x + \\frac{8}{7}$\nRearrange: $3x - 10y = -\\frac{8}{7}$\n\n**Step 2:** Rearrange equation 2.\n$\\frac{3}{2}x - py = \\frac{7}{4} - \\frac{3}{4} = 1$\nMultiply by 2: $3x - 2py = 2$\n\n**Step 3:** For no solution, the coefficients of $x$ and $y$ must be proportional but the constants must not be.\nCoefficient of $x$: both $3$ ✓\nCoefficient of $y$: $2p = 10$, so $p = 5$\nConstants: $-\\frac{8}{7} \\neq 2$ ✓ (not proportional)\n\nTherefore $p = 5$.",
+          skills: ["systems-of-equations", "no-solution"]
+        },
+        {
+          id: 18,
+          type: "multiple-choice",
+          difficulty: "hard",
+          question: "$43x^2 + (43b + a)x + ab = 0$\n\nIn the given equation, $a$ and $b$ are positive constants. The product of the solutions to the given equation is $kab$, where $k$ is a constant. What is the value of $k$?",
+          choices: [
+            { id: "A", text: "$\\frac{1}{43}$" },
+            { id: "B", text: "$\\frac{1}{21}$" },
+            { id: "C", text: "$1$" },
+            { id: "D", text: "$43$" }
+          ],
+          correctAnswer: "A",
+          explanation: "**Choice A is correct.**\n\nFor a quadratic $Ax^2 + Bx + C = 0$, the product of the solutions is $\\frac{C}{A}$ (by Vieta's formulas).\n\nHere: $A = 43$, $C = ab$\n\nProduct of solutions $= \\frac{ab}{43} = \\frac{1}{43} \\cdot ab$\n\nSo $k = \\frac{1}{43}$.\n\n**Verification:** Factor $43x^2 + (43b + a)x + ab = (43x + a)(x + b) = 0$\nSolutions: $x = -\\frac{a}{43}$ and $x = -b$\nProduct: $\\left(-\\frac{a}{43}\\right)(-b) = \\frac{ab}{43}$ ✓",
+          skills: ["quadratic-equations", "vietas-formulas"]
         },
         {
           id: 19,

@@ -303,19 +303,7 @@ export const practiceTest8 = {
         {
           id: 'pt8-m2-q1',
           type: 'multiple-choice',
-          question: 'An object\'s speed is $48$ feet per second. What is the object\'s speed, in yards per second? ($1$ yard $= 3$ feet)',
-          choices: [
-            { id: 'A', text: '$16$' },
-            { id: 'B', text: '$45$' },
-            { id: 'C', text: '$51$' },
-            { id: 'D', text: '$144$' }
-          ],
-          correctAnswer: 'A',
-          explanation: '$48$ feet $\\div 3$ feet/yard $= 16$ yards per second.'
-        },
-        {
-          id: 'pt8-m2-q2',
-          type: 'multiple-choice',
+          difficulty: 'easy',
           question: 'The scatterplot shows the relationship between $x$ and $y$. The line of best fit passes through the origin. Which equation best represents the line of best fit?',
           diagram: {
             type: 'scatterplot',
@@ -336,8 +324,9 @@ export const practiceTest8 = {
           explanation: 'A line through the origin has $y$-intercept $0$. With slope $1.5$, the equation is $y = 1.5x$.'
         },
         {
-          id: 'pt8-m2-q3',
+          id: 'pt8-m2-q2',
           type: 'multiple-choice',
+          difficulty: 'easy',
           question: 'The graph of a linear relationship is shown. Which table gives three values of $x$ and their corresponding values of $y$ for this relationship?',
           diagram: {
             type: 'linearGraph',
@@ -361,21 +350,9 @@ export const practiceTest8 = {
           explanation: 'The line passes through $(0, -4)$ and $(2, 0)$. Slope $= \\frac{0 - (-4)}{2 - 0} = \\frac{4}{2} = 2$. Equation: $y = 2x - 4$. Check: $x = 0$, $y = -4$ ✓; $x = 1$, $y = -2$ ✓; $x = 2$, $y = 0$ ✓.'
         },
         {
-          id: 'pt8-m2-q4',
+          id: 'pt8-m2-q3',
           type: 'multiple-choice',
-          question: 'What is the perimeter, in centimeters, of a rectangle with a length of $7$ centimeters and a width of $5$ centimeters?',
-          choices: [
-            { id: 'A', text: '$12$' },
-            { id: 'B', text: '$24$' },
-            { id: 'C', text: '$35$' },
-            { id: 'D', text: '$70$' }
-          ],
-          correctAnswer: 'B',
-          explanation: 'Perimeter $= 2(\\text{length} + \\text{width}) = 2(7 + 5) = 2(12) = 24$ centimeters.'
-        },
-        {
-          id: 'pt8-m2-q5',
-          type: 'multiple-choice',
+          difficulty: 'easy',
           question: '$5m = 3(n + p)$\n\nThe given equation relates the positive numbers $m$, $n$, and $p$. Which equation correctly gives $m$ in terms of $n$ and $p$?',
           choices: [
             { id: 'A', text: '$m = \\frac{3(n + p)}{5}$' },
@@ -387,22 +364,25 @@ export const practiceTest8 = {
           explanation: 'From $5m = 3(n + p)$, divide both sides by $5$: $m = \\frac{3(n + p)}{5}$.'
         },
         {
-          id: 'pt8-m2-q6',
+          id: 'pt8-m2-q4',
           type: 'fill-in',
+          difficulty: 'easy',
           question: '$45, 52, 58, 63, 67, 72, 78, 85, 92$\n\nWhat is the median of the data shown?',
           correctAnswer: '67',
           explanation: 'There are $9$ values. The median is the middle value, which is the 5th value: $67$.'
         },
         {
-          id: 'pt8-m2-q7',
+          id: 'pt8-m2-q5',
           type: 'fill-in',
+          difficulty: 'easy',
           question: 'The function $f$ is defined by $f(x) = 5x$. For what value of $x$ does $f(x) = 35$?',
           correctAnswer: '7',
           explanation: 'Set $5x = 35$. Dividing by $5$: $x = 7$.'
         },
         {
-          id: 'pt8-m2-q8',
+          id: 'pt8-m2-q6',
           type: 'multiple-choice',
+          difficulty: 'easy',
           question: 'Of $250$ marbles, $175$ are blue. What percentage of the marbles are blue?',
           choices: [
             { id: 'A', text: '$30\\%$' },
@@ -414,8 +394,9 @@ export const practiceTest8 = {
           explanation: '$\\frac{175}{250} \\times 100 = 0.70 \\times 100 = 70\\%$.'
         },
         {
-          id: 'pt8-m2-q9',
+          id: 'pt8-m2-q7',
           type: 'multiple-choice',
+          difficulty: 'easy',
           question: '$f(x) = 6x + 10$\n\nThe function $f$ gives the estimated distance, in miles, a hiker travels $x$ hours after starting a trail. Which statement is the best interpretation of $10$ in this context?',
           choices: [
             { id: 'A', text: 'The hiker will walk for $10$ hours.' },
@@ -427,21 +408,9 @@ export const practiceTest8 = {
           explanation: 'In $f(x) = 6x + 10$, the constant $10$ is the $y$-intercept, representing the distance when $x = 0$ (when timing started).'
         },
         {
-          id: 'pt8-m2-q10',
+          id: 'pt8-m2-q8',
           type: 'multiple-choice',
-          question: '$y = 49$\n$y = x^2 - 15$\n\nThe graphs of the given equations in the $xy$-plane intersect at the point $(x, y)$. What is a possible value of $x$?',
-          choices: [
-            { id: 'A', text: '$-64$' },
-            { id: 'B', text: '$-8$' },
-            { id: 'C', text: '$7$' },
-            { id: 'D', text: '$49$' }
-          ],
-          correctAnswer: 'B',
-          explanation: 'Set $49 = x^2 - 15$. Then $x^2 = 64$, so $x = \\pm 8$. Choice B ($-8$) is a valid answer.'
-        },
-        {
-          id: 'pt8-m2-q11',
-          type: 'multiple-choice',
+          difficulty: 'easy',
           question: 'Each side of equilateral triangle $A$ is multiplied by a scale factor of $k$ to create equilateral triangle $B$. The length of each side of triangle $B$ is greater than the length of each side of triangle $A$. Which could be the value of $k$?',
           choices: [
             { id: 'A', text: '$\\frac{5}{4}$' },
@@ -453,8 +422,9 @@ export const practiceTest8 = {
           explanation: 'For triangle $B$ to have larger sides than triangle $A$, the scale factor $k$ must be greater than $1$. Only $\\frac{5}{4} = 1.25 > 1$.'
         },
         {
-          id: 'pt8-m2-q12',
+          id: 'pt8-m2-q9',
           type: 'multiple-choice',
+          difficulty: 'easy',
           question: '$42x = 42x$\n\nHow many solutions does the given equation have?',
           choices: [
             { id: 'A', text: 'Exactly one' },
@@ -466,22 +436,53 @@ export const practiceTest8 = {
           explanation: 'The equation $42x = 42x$ is true for all values of $x$, so it has infinitely many solutions.'
         },
         {
-          id: 'pt8-m2-q13',
+          id: 'pt8-m2-q10',
           type: 'fill-in',
+          difficulty: 'easy',
           question: 'Marcus bought notebooks and pens for \\$54. Each notebook cost \\$4, and each pen cost \\$2. If Marcus bought $8$ notebooks, how many pens did he buy?',
           correctAnswer: '11',
           explanation: 'Cost of notebooks $= 8 \\times \\$4 = \\$32$. Remaining for pens $= \\$54 - \\$32 = \\$22$. Number of pens $= \\$22 \\div \\$2 = 11$.'
         },
         {
-          id: 'pt8-m2-q14',
+          id: 'pt8-m2-q11',
+          type: 'multiple-choice',
+          difficulty: 'easy',
+          question: 'The function $f$ is defined by $f(x) = (-5)(3)^x + 18$. What is the $y$-intercept of the graph of $y = f(x)$ in the $xy$-plane?',
+          choices: [
+            { id: 'A', text: '$(0, 13)$' },
+            { id: 'B', text: '$(0, 18)$' },
+            { id: 'C', text: '$(0, 23)$' },
+            { id: 'D', text: '$(0, -5)$' }
+          ],
+          correctAnswer: 'A',
+          explanation: 'The $y$-intercept is $f(0) = (-5)(3)^0 + 18 = (-5)(1) + 18 = -5 + 18 = 13$. The point is $(0, 13)$.'
+        },
+        {
+          id: 'pt8-m2-q12',
+          type: 'multiple-choice',
+          difficulty: 'medium',
+          question: '$y = 49$\n$y = x^2 - 15$\n\nThe graphs of the given equations in the $xy$-plane intersect at the point $(x, y)$. What is a possible value of $x$?',
+          choices: [
+            { id: 'A', text: '$-64$' },
+            { id: 'B', text: '$-8$' },
+            { id: 'C', text: '$7$' },
+            { id: 'D', text: '$49$' }
+          ],
+          correctAnswer: 'B',
+          explanation: 'Set $49 = x^2 - 15$. Then $x^2 = 64$, so $x = \\pm 8$. Choice B ($-8$) is a valid answer.'
+        },
+        {
+          id: 'pt8-m2-q13',
           type: 'fill-in',
+          difficulty: 'medium',
           question: 'The exponential function $g$ is defined by $g(x) = 12 \\cdot a^x$, where $a$ is a positive constant. If $g(2) = 300$, what is the value of $g(3)$?',
           correctAnswer: '1500',
           explanation: '$g(2) = 12 \\cdot a^2 = 300$, so $a^2 = 25$, giving $a = 5$. Then $g(3) = 12 \\cdot 5^3 = 12 \\cdot 125 = 1{,}500$.'
         },
         {
-          id: 'pt8-m2-q15',
+          id: 'pt8-m2-q14',
           type: 'multiple-choice',
+          difficulty: 'medium',
           question: 'In right triangle $ABC$, the sum of the measures of angle $A$ and angle $B$ is $90$ degrees. The value of $\\sin(A)$ is $\\frac{3}{5}$. What is the value of $\\cos(B)$?',
           choices: [
             { id: 'A', text: '$\\frac{3}{5}$' },
@@ -493,8 +494,9 @@ export const practiceTest8 = {
           explanation: 'Since $A + B = 90°$, we have $B = 90° - A$. Therefore $\\cos(B) = \\cos(90° - A) = \\sin(A) = \\frac{3}{5}$.'
         },
         {
-          id: 'pt8-m2-q16',
+          id: 'pt8-m2-q15',
           type: 'multiple-choice',
+          difficulty: 'medium',
           question: 'The graph shows the relationship between shares of stock from Company $X$ and Company $Y$. Which equation represents this relationship?',
           diagram: {
             type: 'linearGraph',
@@ -518,8 +520,9 @@ export const practiceTest8 = {
           explanation: 'Check B with points: At $(0, 60)$: $3(0) + 2(60) = 120$ ✓. At $(40, 0)$: $3(40) + 2(0) = 120$ ✓.'
         },
         {
-          id: 'pt8-m2-q17',
+          id: 'pt8-m2-q16',
           type: 'multiple-choice',
+          difficulty: 'medium',
           question: 'Which expression is equivalent to $\\frac{6x(x - 5) - 2(x - 5)}{3x - 15}$, where $x > 5$?',
           choices: [
             { id: 'A', text: '$\\frac{x - 5}{2}$' },
@@ -531,21 +534,9 @@ export const practiceTest8 = {
           explanation: 'Factor numerator: $6x(x - 5) - 2(x - 5) = (x - 5)(6x - 2)$. Factor denominator: $3x - 15 = 3(x - 5)$. So $\\frac{(x - 5)(6x - 2)}{3(x - 5)} = \\frac{6x - 2}{3}$.'
         },
         {
-          id: 'pt8-m2-q18',
+          id: 'pt8-m2-q17',
           type: 'multiple-choice',
-          question: 'The function $f$ is defined by $f(x) = (-5)(3)^x + 18$. What is the $y$-intercept of the graph of $y = f(x)$ in the $xy$-plane?',
-          choices: [
-            { id: 'A', text: '$(0, 13)$' },
-            { id: 'B', text: '$(0, 18)$' },
-            { id: 'C', text: '$(0, 23)$' },
-            { id: 'D', text: '$(0, -5)$' }
-          ],
-          correctAnswer: 'A',
-          explanation: 'The $y$-intercept is $f(0) = (-5)(3)^0 + 18 = (-5)(1) + 18 = -5 + 18 = 13$. The point is $(0, 13)$.'
-        },
-        {
-          id: 'pt8-m2-q19',
-          type: 'multiple-choice',
+          difficulty: 'medium',
           question: 'For the exponential function $f$, the value of $f(1)$ is $k$, where $k$ is a constant. Which of the following equivalent forms of the function $f$ shows the value of $k$ as the coefficient or the base?',
           choices: [
             { id: 'A', text: '$f(x) = 40(1.5)^{x+1}$' },
@@ -557,21 +548,9 @@ export const practiceTest8 = {
           explanation: 'We need $f(1) = k$ to appear as a coefficient. In option C: $f(1) = 90(1.5)^{1-1} = 90(1.5)^0 = 90(1) = 90$. So $k = 90$ appears as the coefficient. Verify all forms are equivalent: A: $f(1) = 40(1.5)^2 = 90$ ✓. B: $f(1) = 60(1.5) = 90$ ✓. D: $f(1) = 135(1.5)^{-1} = \\frac{135}{1.5} = 90$ ✓.'
         },
         {
-          id: 'pt8-m2-q20',
+          id: 'pt8-m2-q18',
           type: 'multiple-choice',
-          question: '$-4x^2 + 24x + c = 0$\n\nIn the given equation, $c$ is a constant. The equation has exactly one solution. What is the value of $c$?',
-          choices: [
-            { id: 'A', text: '$36$' },
-            { id: 'B', text: '$0$' },
-            { id: 'C', text: '$-36$' },
-            { id: 'D', text: '$-144$' }
-          ],
-          correctAnswer: 'C',
-          explanation: 'For exactly one solution, the discriminant must equal zero: $b^2 - 4ac = 0$. Here $a = -4$, $b = 24$, so $24^2 - 4(-4)(c) = 0$. Thus $576 + 16c = 0$, giving $16c = -576$, so $c = -36$.'
-        },
-        {
-          id: 'pt8-m2-q21',
-          type: 'multiple-choice',
+          difficulty: 'medium',
           question: 'Which of the following expressions has a factor of $(x + 3b)$, where $b$ is a positive integer constant?',
           choices: [
             { id: 'A', text: '$2x^2 + 5x + 6b$' },
@@ -583,11 +562,71 @@ export const practiceTest8 = {
           explanation: 'If $(x + 3b)$ is a factor, then $x = -3b$ is a root. For factoring: $2x^2 + 8bx + 6b$. Factor out $2$: $2(x^2 + 4bx + 3b)$. If this factors as $2(x + 3b)(x + b) = 2(x^2 + 4bx + 3b^2)$. We need $3b = 3b^2$, so $b = 1$. Then $2x^2 + 8x + 6 = 2(x + 3)(x + 1)$, and $(x + 3) = (x + 3b)$ when $b = 1$ ✓.'
         },
         {
-          id: 'pt8-m2-q22',
+          id: 'pt8-m2-q19',
           type: 'fill-in',
+          difficulty: 'medium',
           question: 'The perimeter of an equilateral triangle is $432$ centimeters. The height of this triangle is $k\\sqrt{3}$ centimeters, where $k$ is a constant. What is the value of $k$?',
           correctAnswer: '72',
           explanation: 'Each side of the equilateral triangle $= 432 \\div 3 = 144$ cm. For an equilateral triangle with side $s$, the height $h = \\frac{s\\sqrt{3}}{2}$. So $h = \\frac{144\\sqrt{3}}{2} = 72\\sqrt{3}$ cm. Therefore $k = 72$.'
+        },
+        {
+          id: 'pt8-m2-q20',
+          type: 'multiple-choice',
+          difficulty: 'hard',
+          question: 'The dot plot represents the $13$ values in data set A. Data set B is created by adding $42$ to each of the values in data set A. Which of the following correctly compares the medians and the ranges of data sets A and B?',
+          diagram: {
+            type: 'dotPlot',
+            params: {
+              title: 'Data Set A',
+              data: [
+                { value: 31, count: 3 },
+                { value: 32, count: 2 },
+                { value: 33, count: 4 },
+                { value: 34, count: 3 },
+                { value: 35, count: 1 }
+              ],
+              xMin: 31,
+              xMax: 35
+            }
+          },
+          choices: [
+            { id: 'A', text: 'The median of data set B is equal to the median of data set A, and the range of data set B is equal to the range of data set A.' },
+            { id: 'B', text: 'The median of data set B is equal to the median of data set A, and the range of data set B is greater than the range of data set A.' },
+            { id: 'C', text: 'The median of data set B is greater than the median of data set A, and the range of data set B is equal to the range of data set A.' },
+            { id: 'D', text: 'The median of data set B is greater than the median of data set A, and the range of data set B is greater than the range of data set A.' }
+          ],
+          correctAnswer: 'C',
+          explanation: '**Choice C is correct.**\n\n**Median:** Data set A has 13 values. The 7th value (median) is $33$.\nData set B adds $42$ to each value, so the median of B is $33 + 42 = 75$.\nMedian of B ($75$) $>$ Median of A ($33$).\n\n**Range:** Range of A $= 35 - 31 = 4$.\nRange of B $= 77 - 73 = 4$.\nAdding a constant to every value does not change the range.\n\nSo the median increases but the range stays the same.',
+          skills: ['statistics', 'dot-plots', 'median', 'range']
+        },
+        {
+          id: 'pt8-m2-q21',
+          type: 'multiple-choice',
+          difficulty: 'hard',
+          question: 'In the $xy$-plane, a parabola has vertex $(7, -10)$ and intersects the $x$-axis at two points. If the equation of the parabola is written in the form $y = ax^2 + bx + c$, where $a$, $b$, and $c$ are constants, which of the following could be the value of $a + b + c$?',
+          choices: [
+            { id: 'A', text: '$-19$' },
+            { id: 'B', text: '$-15$' },
+            { id: 'C', text: '$-10$' },
+            { id: 'D', text: '$-8$' }
+          ],
+          correctAnswer: 'D',
+          explanation: '**Choice D is correct.**\n\n**Key insight:** $a + b + c = f(1)$ (substitute $x = 1$ into $y = ax^2 + bx + c$).\n\nThe parabola has vertex $(7, -10)$, so $y = a(x - 7)^2 - 10$ for some $a > 0$ (opens upward since it crosses the $x$-axis at two points with vertex below).\n\n$f(1) = a(1 - 7)^2 - 10 = 36a - 10$\n\nCheck each choice with the requirement $a > 0$:\n• A) $-19$: $36a = -9 \\Rightarrow a = -\\frac{1}{4} < 0$ ✗\n• B) $-15$: $36a = -5 \\Rightarrow a = -\\frac{5}{36} < 0$ ✗\n• C) $-10$: $36a = 0 \\Rightarrow a = 0$ (not a parabola) ✗\n• D) $-8$: $36a = 2 \\Rightarrow a = \\frac{1}{18} > 0$ ✓\n\nOnly choice D gives a positive value of $a$, producing a valid upward-opening parabola with vertex below the $x$-axis that intersects it at two points.',
+          skills: ['quadratic-equations', 'vertex-form', 'parabolas']
+        },
+        {
+          id: 'pt8-m2-q22',
+          type: 'multiple-choice',
+          difficulty: 'hard',
+          question: '$-4x^2 + 24x + c = 0$\n\nIn the given equation, $c$ is a constant. The equation has exactly one solution. What is the value of $c$?',
+          choices: [
+            { id: 'A', text: '$36$' },
+            { id: 'B', text: '$0$' },
+            { id: 'C', text: '$-36$' },
+            { id: 'D', text: '$-144$' }
+          ],
+          correctAnswer: 'C',
+          explanation: 'For exactly one solution, the discriminant must equal zero: $b^2 - 4ac = 0$. Here $a = -4$, $b = 24$, so $24^2 - 4(-4)(c) = 0$. Thus $576 + 16c = 0$, giving $16c = -576$, so $c = -36$.'
         }
       ]
     }

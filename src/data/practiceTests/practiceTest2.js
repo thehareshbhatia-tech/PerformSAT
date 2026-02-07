@@ -426,37 +426,6 @@ export const practiceTest2 = {
         {
           id: 2,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "The bar graph shows how many hours the heater was on from Monday to Friday in a given week. What is the mean number of hours the heater was on during this period?",
-          diagram: {
-            type: "barChart",
-            params: {
-              title: "Hours Heater Was Active",
-              data: [
-                { label: "Mon", value: 8 },
-                { label: "Tue", value: 14 },
-                { label: "Wed", value: 12 },
-                { label: "Thu", value: 16 },
-                { label: "Fri", value: 15 }
-              ],
-              yAxisLabel: "Hours",
-              yMax: 20,
-              yStep: 2
-            }
-          },
-          choices: [
-            { id: "A", text: "11" },
-            { id: "B", text: "12" },
-            { id: "C", text: "13" },
-            { id: "D", text: "14" }
-          ],
-          correctAnswer: "C",
-          explanation: "**Choice C is correct.** Calculate the mean by adding all values and dividing by the number of days.\n\n**Step 1:** Read values from the bar graph:\n• Monday: 8 hours\n• Tuesday: 14 hours\n• Wednesday: 12 hours\n• Thursday: 16 hours\n• Friday: 15 hours\n\n**Step 2:** Calculate the sum:\n8 + 14 + 12 + 16 + 15 = 65 hours\n\n**Step 3:** Calculate the mean:\nMean = 65 ÷ 5 = **13 hours**\n\n**Key concept:** Mean = Sum of all values ÷ Number of values",
-          skills: ["mean-median-mode", "data-interpretation"]
-        },
-        {
-          id: 3,
-          type: "multiple-choice",
           difficulty: "medium",
           question: "An investment of \\$500 doubles every 8 years. Which expression represents the value of the investment, in dollars, after 48 years?",
           choices: [
@@ -470,7 +439,7 @@ export const practiceTest2 = {
           skills: ["exponential-growth"]
         },
         {
-          id: 4,
+          id: 3,
           type: "multiple-choice",
           difficulty: "medium",
           question: "Triangle $MNP$ is an isosceles triangle. The measure of angle $M$ is $35°$. If $\\overline{MP}$ is the longest side of the triangle, what is the measure of angle $N$?",
@@ -485,7 +454,7 @@ export const practiceTest2 = {
           skills: ["triangle-angles", "isosceles-triangles"]
         },
         {
-          id: 5,
+          id: 4,
           type: "multiple-choice",
           difficulty: "medium",
           question: "A survey recorded the number of books on the shelves in a library section. The mean number of books per shelf was 28 and the median number was 38. What factor most likely would account for the difference between the mean and the median?",
@@ -500,7 +469,7 @@ export const practiceTest2 = {
           skills: ["mean-median-mode", "data-interpretation"]
         },
         {
-          id: 6,
+          id: 5,
           type: "multiple-choice",
           difficulty: "medium",
           question: "Which expression is equivalent to $\\frac{9x^2 - 5}{3x + \\sqrt{5}}$?",
@@ -515,7 +484,7 @@ export const practiceTest2 = {
           skills: ["rationalizing-denominators", "factoring"]
         },
         {
-          id: 7,
+          id: 6,
           type: "fill-in",
           difficulty: "medium",
           question: "In an equilateral triangle, one exterior angle measures $(6x - 18)°$. What is the value of $x$?",
@@ -524,7 +493,7 @@ export const practiceTest2 = {
           skills: ["triangles", "exterior-angles", "equations"]
         },
         {
-          id: 8,
+          id: 7,
           type: "multiple-choice",
           difficulty: "medium",
           question: "The equation $R(t) = 42(1.15)^t$ gives the estimated annual revenue, in thousands of dollars, at a bakery, where $t$ is the number of years since the bakery opened a second location. Which of the following is the best interpretation of the number 42 in this context?",
@@ -539,7 +508,7 @@ export const practiceTest2 = {
           skills: ["exponential-functions", "function-interpretation"]
         },
         {
-          id: 9,
+          id: 8,
           type: "fill-in",
           difficulty: "medium",
           question: "The expression $-3(x + 2)^2 + 5$ is equivalent to $ax^2 + bx + c$, where $a < 0$ and $b < 0$. What is the value of $c$?",
@@ -548,7 +517,7 @@ export const practiceTest2 = {
           skills: ["polynomial-expansion", "vertex-form"]
         },
         {
-          id: 10,
+          id: 9,
           type: "multiple-choice",
           difficulty: "medium",
           question: "The height of a cone is four times its diameter. The base of the cone is a circle, and the area of the base is $16\\pi$ square centimeters. What is the volume of the cone, in cubic centimeters?",
@@ -563,7 +532,7 @@ export const practiceTest2 = {
           skills: ["volume", "geometry"]
         },
         {
-          id: 11,
+          id: 10,
           type: "multiple-choice",
           difficulty: "medium",
           question: "At the start of the winter, the US stockpile of wheat was 8 billion bushels. Two months later, $p\\%$ of the stockpile had been used. Which expression best represents the number, in billions, of bushels of wheat remaining in the US stockpile at the end of those two months?",
@@ -576,6 +545,15 @@ export const practiceTest2 = {
           correctAnswer: "B",
           explanation: "**Choice B is correct.** If $p\\%$ is used, then $(100 - p)\\%$ remains.\n\n**Step 1:** Identify the starting amount:\nInitial stockpile = 8 billion bushels\n\n**Step 2:** Determine the percentage remaining:\nIf $p\\%$ was used, then $(100 - p)\\%$ remains.\n\n**Step 3:** Calculate the remaining amount:\nRemaining = Initial × (percent remaining as decimal)\nRemaining $= 8 \\times \\frac{100 - p}{100}$\n\nThis matches $8\\left(\\frac{100 - p}{100}\\right)$\n\n**Example verification:** If $p = 25$ (25% used):\nRemaining $= 8 \\times \\frac{100 - 25}{100} = 8 \\times 0.75 = 6$ billion bushels ✓\n\n**Why other choices are incorrect:**\n• Choice A: The factor of 2 is unexplained and incorrect\n• Choice C: This gives the decimal form of $p\\%$, not the remaining amount\n• Choice D: Not divided by 100, so units would be wrong\n\n**Key concept:** Remaining amount = Original × (1 - rate used) = Original × $\\frac{100-p}{100}$",
           skills: ["percentages", "algebraic-expressions"]
+        },
+        {
+          id: 11,
+          type: "fill-in",
+          difficulty: "hard",
+          question: "Group A consists of the test scores of $80$ students and has a mean of $68$ points. Group B consists of the test scores of $40$ students and has a mean of $86$ points. Group C consists of the test scores of all $120$ students from groups A and B. What is the mean, in points, of group C?",
+          correctAnswer: 74,
+          explanation: "**The correct answer is 74.**\n\n**Step 1:** Find the total score for each group.\n• Group A: $80 \\times 68 = 5{,}440$ points\n• Group B: $40 \\times 86 = 3{,}440$ points\n\n**Step 2:** Find the combined total.\n$5{,}440 + 3{,}440 = 8{,}880$ points\n\n**Step 3:** Find the mean of group C.\nMean $= \\frac{8{,}880}{120} = 74$ points\n\n**Key concept:** The combined mean is NOT simply the average of the two means—you must weight by the number of values in each group.",
+          skills: ["statistics", "weighted-mean"]
         },
         {
           id: 12,
@@ -641,7 +619,7 @@ export const practiceTest2 = {
           id: 16,
           type: "fill-in",
           difficulty: "hard",
-          question: "If $(2x + a)(3x + b) = 6x^2 + cx + 8$ and $3a + 2b = 32$, for all values of $x$, what is the value of $c$?",
+          question: "If the equation below is true for all values of $x$, what is the value of $c$?\n\n$(2x + a)(3x + b) = 6x^2 + cx + 8$\n\n$3a + 2b = 32$",
           correctAnswer: 20,
           explanation: "**The correct answer is 20.** Expand and compare coefficients.\n\n**Step 1:** Expand $(2x + a)(3x + b)$:\n$= 6x^2 + 2bx + 3ax + ab$\n$= 6x^2 + (2b + 3a)x + ab$\n\n**Step 2:** Compare with $6x^2 + cx + 8$:\n• Coefficient of $x^2$: $6 = 6$ ✓\n• Coefficient of $x$: $c = 2b + 3a$\n• Constant term: $ab = 8$\n\n**Step 3:** We're given $3a + 2b = 32$\n\nNotice that $c = 2b + 3a = 3a + 2b = 32$\n\nGiven the answer is $20$, there may be additional constraints. The test key answer is $c = 20$.",
           skills: ["polynomial-expansion", "systems-of-equations"]
@@ -710,7 +688,7 @@ export const practiceTest2 = {
           id: 21,
           type: "fill-in",
           difficulty: "hard",
-          question: "If $\\frac{4}{x} = \\frac{3}{y}$ and $\\frac{5}{x} - \\frac{3}{y} = -\\frac{1}{4}$, what is the value of $xy$?",
+          question: "Given the system of equations below, what is the value of $xy$?\n\n$\\frac{4}{x} = \\frac{3}{y}$\n\n$\\frac{5}{x} - \\frac{3}{y} = -\\frac{1}{4}$",
           correctAnswer: 12,
           explanation: "**The correct answer is 12.**\n\n**Step 1:** From the first equation, express the relationship:\n$\\frac{4}{x} = \\frac{3}{y}$\nCross multiply: $4y = 3x$\nSo $y = \\frac{3x}{4}$\n\n**Step 2:** Substitute into the second equation:\n$\\frac{5}{x} - \\frac{3}{y} = -\\frac{1}{4}$\n$\\frac{5}{x} - \\frac{3}{\\frac{3x}{4}} = -\\frac{1}{4}$\n$\\frac{5}{x} - \\frac{4}{x} = -\\frac{1}{4}$\n$\\frac{1}{x} = -\\frac{1}{4}$\n$x = -4$\n\n**Step 3:** Find $y$:\n$y = \\frac{3x}{4} = \\frac{3(-4)}{4} = -3$\n\n**Step 4:** Calculate $xy$:\n$xy = (-4) \\times (-3) = $ **12**\n\n**Verification:**\n• Check equation 1: $\\frac{4}{-4} = -1$; $\\frac{3}{-3} = -1$ ✓\n• Check equation 2: $\\frac{5}{-4} - \\frac{3}{-3} = -\\frac{5}{4} + 1 = -\\frac{5}{4} + \\frac{4}{4} = -\\frac{1}{4}$ ✓\n\n**Key concept:** When solving systems with fractions, find relationships between variables and substitute.",
           skills: ["systems-of-equations", "algebraic-manipulation"]

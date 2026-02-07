@@ -392,36 +392,6 @@ export const practiceTest1 = {
         {
           id: 1,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "If $3x + 12 = 27$, what is the value of $x + 4$?",
-          choices: [
-            { id: "A", text: "$3$" },
-            { id: "B", text: "$5$" },
-            { id: "C", text: "$9$" },
-            { id: "D", text: "$11$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**Choice C is correct.** Solve for $x$, then find $x + 4$.\n\n**Step 1:** Solve for $x$:\n$3x + 12 = 27$\n$3x = 27 - 12$\n$3x = 15$\n$x = 5$\n\n**Step 2:** Find $x + 4$:\n$x + 4 = 5 + 4 = 9$\n\n**Alternative method (faster):**\nNotice that $3x + 12 = 3(x + 4) = 27$\nSo $x + 4 = 27 \\div 3 = 9$\n\n**Why other choices are incorrect:**\n• Choice A ($3$): This would mean $x = -1$\n• Choice B ($5$): This is the value of $x$, not $x + 4$\n• Choice D ($11$): Calculation error",
-          skills: ["solving-equations"]
-        },
-        {
-          id: 2,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "Given that $3(x + 2) = 24$, what is the value of $x + 5$?",
-          choices: [
-            { id: "A", text: "$-2$" },
-            { id: "B", text: "$6$" },
-            { id: "C", text: "$8$" },
-            { id: "D", text: "$11$" }
-          ],
-          correctAnswer: "D",
-          explanation: "**Choice D is correct.** First solve for $x$, then calculate $x + 5$.\n\n**Step 1:** Solve for $x$:\n$3(x + 2) = 24$\n$x + 2 = 8$ (divide both sides by 3)\n$x = 6$ (subtract 2 from both sides)\n\n**Step 2:** Calculate $x + 5$:\n$x + 5 = 6 + 5 = 11$\n\n**Shortcut:** Notice that $x + 5 = (x + 2) + 3 = 8 + 3 = 11$\n\n**Why other choices are incorrect:**\n• Choice A ($-2$): Subtracted instead of adding\n• Choice B ($6$): This is the value of $x$, not $x + 5$\n• Choice C ($8$): This is the value of $x + 2$, not $x + 5$\n\n**Key concept:** Read carefully what the question asks for. It asks for $x + 5$, not just $x$.",
-          skills: ["solving-equations"]
-        },
-        {
-          id: 3,
-          type: "multiple-choice",
           difficulty: "medium",
           diagram: {
             type: "table",
@@ -446,7 +416,7 @@ export const practiceTest1 = {
           skills: ["probability", "two-way-tables"]
         },
         {
-          id: 4,
+          id: 2,
           type: "fill-in",
           difficulty: "medium",
           question: "An angle opposite a leg of a right triangle measures $v°$, and $\\tan(v°) = \\frac{5}{12}$. What is $\\sin(90° - v°)$?",
@@ -456,7 +426,7 @@ export const practiceTest1 = {
           skills: ["right-triangle-trig", "trig-identities"]
         },
         {
-          id: 5,
+          id: 3,
           type: "multiple-choice",
           difficulty: "medium",
           question: "For the given function $h(x)$, $h(3) = 28$. What is the value of $h(-2)$?",
@@ -474,7 +444,7 @@ export const practiceTest1 = {
           skills: ["function-evaluation", "solving-equations"]
         },
         {
-          id: 6,
+          id: 4,
           type: "multiple-choice",
           difficulty: "medium",
           question: "The solution to the given system of equations is $(a, b)$. What is the value of $a - b$?",
@@ -495,7 +465,7 @@ export const practiceTest1 = {
           skills: ["systems-of-equations"]
         },
         {
-          id: 7,
+          id: 5,
           type: "fill-in",
           difficulty: "medium",
           question: "What is the value of the slope of a line perpendicular to the line $4x - 5y + 20 = 0$?",
@@ -505,7 +475,7 @@ export const practiceTest1 = {
           skills: ["perpendicular-lines", "slope"]
         },
         {
-          id: 8,
+          id: 6,
           type: "multiple-choice",
           difficulty: "medium",
           question: "Which of the following is equivalent to $x^{0.8} \\cdot x^{\\frac{1}{4}}$ for all positive values of $x$?",
@@ -520,7 +490,7 @@ export const practiceTest1 = {
           skills: ["exponent-rules", "radicals"]
         },
         {
-          id: 9,
+          id: 7,
           type: "multiple-choice",
           difficulty: "medium",
           question: "The graph of $(x - 4)^2 + y^2 + 6y = 91$ is a circle in the $xy$-plane. Which of the following coordinates lie on the circle?",
@@ -535,7 +505,7 @@ export const practiceTest1 = {
           skills: ["circle-equations", "completing-the-square"]
         },
         {
-          id: 10,
+          id: 8,
           type: "multiple-choice",
           difficulty: "medium",
           question: "A line in the $xy$-plane contains the point $(2, -4)$ and has a slope of $\\frac{5}{3}$. Which of the following points lies on the line?",
@@ -550,7 +520,7 @@ export const practiceTest1 = {
           skills: ["linear-equations", "slope"]
         },
         {
-          id: 11,
+          id: 9,
           type: "multiple-choice",
           difficulty: "medium",
           question: "Which equation represents a line that passes through the point $(4, 11)$ and is parallel to the line $y = \\frac{5}{4}x - 3$?",
@@ -563,6 +533,30 @@ export const practiceTest1 = {
           correctAnswer: "A",
           explanation: "**Choice A is correct.** Parallel lines have the **same slope**.\n\nGiven line: $y = \\frac{5}{4}x - 3$ has slope $\\frac{5}{4}$\n\nNew line also has slope $\\frac{5}{4}$ and passes through $(4, 11)$.\n\n**Use point-slope form:**\n$$y - 11 = \\frac{5}{4}(x - 4)$$\n$$y - 11 = \\frac{5}{4}x - 5$$\n$$y = \\frac{5}{4}x + 6$$\n\n**Why other choices are incorrect:**\n• Choice B: Doesn't pass through $(4, 11)$\n• Choice C: Slope $-\\frac{4}{5}$ is perpendicular, not parallel\n• Choice D: Wrong slope\n\n**Verify:** $\\frac{5}{4}(4) + 6 = 5 + 6 = 11$ ✓",
           skills: ["parallel-lines", "linear-equations"]
+        },
+        {
+          id: 10,
+          type: "fill-in",
+          difficulty: "hard",
+          question: "A bookstore purchases novels at a wholesale cost of $6.00$ dollars each and sells them at a retail price that is $320\\%$ of the wholesale cost. At the end of the month, unsold novels are reduced to a clearance price that is $85\\%$ off the retail price. What is the clearance price of each unsold novel, in dollars?",
+          correctAnswer: 2.88,
+          explanation: "**The correct answer is 2.88.**\n\n**Step 1:** Find the retail price.\nRetail price $= 320\\% \\times 6.00 = 3.20 \\times 6.00 = 19.20$ dollars\n\n**Step 2:** Find the clearance price.\n$85\\%$ off means the customer pays $15\\%$ of the retail price.\nClearance price $= 15\\% \\times 19.20 = 0.15 \\times 19.20 = 2.88$ dollars",
+          skills: ["percentages", "word-problems"]
+        },
+        {
+          id: 11,
+          type: "multiple-choice",
+          difficulty: "hard",
+          question: "The positive number $a$ is $1{,}200\\%$ of the sum of the positive numbers $b$ and $c$, and $b$ is $60\\%$ of $c$. What percent of $b$ is $a$?",
+          choices: [
+            { id: "A", text: "$12\\%$" },
+            { id: "B", text: "$32\\%$" },
+            { id: "C", text: "$1{,}200\\%$" },
+            { id: "D", text: "$3{,}200\\%$" }
+          ],
+          correctAnswer: "D",
+          explanation: "**Choice D is correct.**\n\n**Step 1:** Express $a$ in terms of $b$ and $c$.\n$a = 12(b + c)$\n\n**Step 2:** Since $b = 0.60c$, we get $c = \\frac{b}{0.60} = \\frac{5b}{3}$.\n\n**Step 3:** Substitute:\n$a = 12\\left(b + \\frac{5b}{3}\\right) = 12 \\cdot b \\cdot \\frac{8}{3} = 32b$\n\nSo $a$ is $3{,}200\\%$ of $b$.\n\n**Why other choices are incorrect:**\n• Choice A ($12\\%$): Confuses the given $1{,}200\\%$ with the answer\n• Choice B ($32\\%$): Off by a factor of $100$ (correct ratio but wrong percent)\n• Choice C ($1{,}200\\%$): Uses the percent of $(b+c)$ instead of percent of $b$ alone",
+          skills: ["percentages", "algebra"]
         },
         {
           id: 12,

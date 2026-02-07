@@ -361,29 +361,6 @@ export const practiceTest6 = {
           id: 1,
           type: 'multiple-choice',
           difficulty: 'easy',
-          question: 'Line $r$ in the $xy$-plane has a slope of $5$ and passes through the point $(0, -3)$. Which equation defines line $r$?',
-          choices: [
-            { id: 'A', text: '$y = -3x + 5$' },
-            { id: 'B', text: '$y = 3x + 5$' },
-            { id: 'C', text: '$y = 5x - 3$' },
-            { id: 'D', text: '$y = 5x + 3$' }
-          ],
-          correctAnswer: 'C',
-          explanation: 'Using slope-intercept form $y = mx + b$, where $m = 5$ (slope) and $b = -3$ ($y$-intercept from point $(0, -3)$). The equation is $y = 5x - 3$.'
-        },
-        {
-          id: 2,
-          type: "fill-in",
-          difficulty: "easy",
-          question: "$f(x) = 9x + 4$\n\nThe function gives the total number of attendees at a workshop with $x$ facilitators. What is the total number of attendees at a workshop with $6$ facilitators?",
-          correctAnswer: "58",
-          explanation: "**The correct answer is $58$.**\n\n• Given: $f(x) = 9x + 4$\n• Find $f(6)$ for $6$ facilitators\n• $f(6) = 9(6) + 4 = 54 + 4 = 58$\n\n**Key concept:** To evaluate a function, substitute the input value for $x$ and simplify.\n\n**Calculator tip:** Enter $9 \\times 6 + 4 = 58$.",
-          skills: ["Algebra", "Function evaluation"]
-        },
-        {
-          id: 3,
-          type: 'multiple-choice',
-          difficulty: 'easy',
           question: 'Which expression is equivalent to $(6x^3 + 5) - (x^3 - 4)$?',
           choices: [
             { id: 'A', text: '$6x^3 + 1$' },
@@ -395,7 +372,7 @@ export const practiceTest6 = {
           explanation: '$(6x^3 + 5) - (x^3 - 4) = 6x^3 + 5 - x^3 + 4 = 5x^3 + 9$.'
         },
         {
-          id: 4,
+          id: 2,
           type: "multiple-choice",
           difficulty: "easy",
           question: "The line graph shows the estimated number of deer in a wildlife reserve on January 1 of each year from 2010 to 2020. Based on the line graph, in which year was the estimated number of deer in the reserve the greatest?",
@@ -431,7 +408,7 @@ export const practiceTest6 = {
           skills: ["Problem-Solving and Data Analysis", "Data interpretation"]
         },
         {
-          id: 5,
+          id: 3,
           type: 'multiple-choice',
           difficulty: 'easy',
           question: 'A nutritionist recommends that each day a certain dog should eat $30$ calories per pound of the dog\'s weight, plus an additional $15$ calories. Which equation represents this situation, where $c$ is the total number of calories the nutritionist recommends the dog should eat each day if the dog\'s weight is $x$ pounds?',
@@ -445,7 +422,7 @@ export const practiceTest6 = {
           explanation: 'The dog should eat $30$ calories per pound ($30x$) plus an additional $15$ calories. Total: $c = 30x + 15$.'
         },
         {
-          id: 6,
+          id: 4,
           type: 'multiple-choice',
           difficulty: 'medium',
           question: 'Five students took a quiz. The scores were: $82, 78, 85, 74, 81$. A sixth student scored $60$ on the quiz. Which of the following correctly compares the means of the two data sets?',
@@ -459,7 +436,7 @@ export const practiceTest6 = {
           explanation: 'Original mean $= \\frac{82 + 78 + 85 + 74 + 81}{5} = \\frac{400}{5} = 80$. New mean $= \\frac{400 + 60}{6} = \\frac{460}{6} \\approx 76.67$. The original mean ($80$) is greater than the new mean ($76.67$).'
         },
         {
-          id: 7,
+          id: 5,
           type: "multiple-choice",
           difficulty: "medium",
           question: "Two data sets are shown in the dot plots. Set A has a mean of $12$ and a standard deviation of $3$. Set B has a mean of $12$ and a standard deviation of $6$. Which statement must be true?",
@@ -487,7 +464,7 @@ export const practiceTest6 = {
           skills: ["statistics", "standard-deviation"]
         },
         {
-          id: 8,
+          id: 6,
           type: 'multiple-choice',
           difficulty: 'medium',
           question: 'A ball is thrown upward from a platform. The graph shows the height above the ground $y$, in feet, of the ball $x$ seconds after being thrown. The ball reaches its maximum height and then falls, hitting the ground at $2.4$ seconds. What is the best interpretation of the $x$-intercept of the graph?',
@@ -513,7 +490,7 @@ export const practiceTest6 = {
           explanation: 'The $x$-intercept represents where $y = 0$, meaning the ball\'s height above the ground is $0$. This is when the ball hits the ground, which occurs at $2.4$ seconds.'
         },
         {
-          id: 9,
+          id: 7,
           type: "multiple-choice",
           difficulty: "medium",
           question: "$-3x^2 - 5x = -28$\n\nWhat is the positive solution to the given equation?",
@@ -528,7 +505,7 @@ export const practiceTest6 = {
           skills: ["Algebra", "Quadratic equations"]
         },
         {
-          id: 10,
+          id: 8,
           type: 'fill-in',
           difficulty: 'medium',
           question: 'The length of each edge of a cube is $24$ inches. The cube does not have a lid on top. What is the exterior surface area, in square inches, of this cube without a lid?',
@@ -536,7 +513,7 @@ export const practiceTest6 = {
           explanation: 'A cube without a lid has $5$ faces. Each face has area $24^2 = 576$ square inches. Total surface area $= 5 \\times 576 = 2{,}880$ square inches.'
         },
         {
-          id: 11,
+          id: 9,
           type: "multiple-choice",
           difficulty: "medium",
           question: "To estimate the proportion of a population that supports a policy change, a random sample was selected from the population. Based on the sample, it is estimated that the proportion of the population that supports the change is 0.62, with an associated margin of error of 0.05. Based on this estimate and margin of error, which of the following is the most appropriate conclusion about the proportion of the population that supports the change?",
@@ -551,7 +528,7 @@ export const practiceTest6 = {
           skills: ["Problem-Solving and Data Analysis", "Statistical inference"]
         },
         {
-          id: 12,
+          id: 10,
           type: "fill-in",
           difficulty: "medium",
           question: "The table summarizes the distribution of size and color for 80 shirts. If one of these shirts is selected at random, what is the probability of selecting a white shirt? (Express your answer as a decimal or fraction, not as a percent.)",
@@ -571,7 +548,7 @@ export const practiceTest6 = {
           skills: ["Problem-Solving and Data Analysis", "Probability"]
         },
         {
-          id: 13,
+          id: 11,
           type: "multiple-choice",
           difficulty: "medium",
           question: "$g(x) = x^2 - 5$\n\nWhich table gives three values of $x$ and their corresponding values of $g(x)$ for the given function $g$?",
@@ -614,7 +591,7 @@ export const practiceTest6 = {
           skills: ["Algebra", "Function evaluation"]
         },
         {
-          id: 14,
+          id: 12,
           type: "multiple-choice",
           difficulty: "medium",
           question: "$f(x) = (x - 8)(x + 14)$\n\nThe function $f$ is defined by the given equation. For what value of $x$ does $f(x)$ reach its minimum?",
@@ -629,7 +606,7 @@ export const practiceTest6 = {
           skills: ["Algebra", "Quadratic functions"]
         },
         {
-          id: 15,
+          id: 13,
           type: "multiple-choice",
           difficulty: "medium",
           question: "A referendum was included on a ballot. A news report stated that $4$ times as many people voted in favor of the referendum as people who voted against it. A website reported that $21{,}000$ more people voted in favor than voted against. Based on these data, how many people voted against the referendum?",
@@ -644,7 +621,7 @@ export const practiceTest6 = {
           skills: ["Algebra", "Systems of equations"]
         },
         {
-          id: 16,
+          id: 14,
           type: "multiple-choice",
           difficulty: "medium",
           question: "What is the minimum value of the function $f(x) = (x - 5)^2 + 3$?",
@@ -657,6 +634,36 @@ export const practiceTest6 = {
           correctAnswer: "B",
           explanation: "**Choice B is correct.** The function is in vertex form.\n\nVertex form: $f(x) = a(x - h)^2 + k$\n• Vertex: $(h, k) = (5, 3)$\n• Since $a = 1 > 0$, parabola opens upward\n• Minimum value is $k = 3$\n\nThe minimum occurs at $x = 5$, and $f(5) = (5-5)^2 + 3 = 0 + 3 = 3$.\n\n**Why other choices are incorrect:**\n• Choice A ($-5$): Negative of the $h$-value\n• Choice C ($5$): This is the $x$-coordinate of the vertex, not the minimum value\n• Choice D ($8$): This would be $h + k$\n\n**Key concept:** For $f(x) = a(x-h)^2 + k$ with $a > 0$, the minimum value is $k$.",
           skills: ["quadratic-functions", "vertex-form"]
+        },
+        {
+          id: 15,
+          type: "multiple-choice",
+          difficulty: "hard",
+          question: "Two identical rectangular prisms each have a height of $60$ centimeters (cm). The base of each prism is a square, and the surface area of each prism is $K$ cm$^2$. If the prisms are glued together along a square base, the resulting prism has a surface area of $\\frac{41}{21}K$ cm$^2$. What is the side length, in cm, of each square base?",
+          choices: [
+            { id: "A", text: "$3$" },
+            { id: "B", text: "$6$" },
+            { id: "C", text: "$9$" },
+            { id: "D", text: "$12$" }
+          ],
+          correctAnswer: "B",
+          explanation: "**Choice B is correct.**\n\nSurface area of one prism with square base side $s$ and height $60$:\n$K = 2s^2 + 4(60)s = 2s^2 + 240s$\n\nWhen glued along a square base, two square faces are hidden:\nCombined SA $= 2K - 2s^2 = \\frac{41}{21}K$\n\n$2K - 2s^2 = \\frac{41}{21}K$\n$\\frac{42K - 41K}{21} = 2s^2$\n$\\frac{K}{21} = 2s^2$\n$K = 42s^2$\n\nSubstitute $K = 2s^2 + 240s$:\n$2s^2 + 240s = 42s^2$\n$240s = 40s^2$\n$240 = 40s$\n$s = 6$\n\n**Verification:** $K = 2(36) + 240(6) = 72 + 1{,}440 = 1{,}512$ and $42(36) = 1{,}512$ ✓",
+          skills: ["geometry", "surface-area", "algebra"]
+        },
+        {
+          id: 16,
+          type: "multiple-choice",
+          difficulty: "hard",
+          question: "The function $f$ is defined by $f(x) = ax^2 + bx + c$, where $a$, $b$, and $c$ are constants. The graph of $y = f(x)$ in the $xy$-plane passes through the points $(6, 0)$ and $(-2, 0)$. If $a$ is an integer greater than $1$, which of the following could be the value of $a + b$?",
+          choices: [
+            { id: "A", text: "$-9$" },
+            { id: "B", text: "$-4$" },
+            { id: "C", text: "$3$" },
+            { id: "D", text: "$8$" }
+          ],
+          correctAnswer: "A",
+          explanation: "**Choice A is correct.**\n\n**Step 1:** Since $f(x)$ has roots at $x = 6$ and $x = -2$:\n$f(x) = a(x - 6)(x + 2) = a(x^2 - 4x - 12) = ax^2 - 4ax - 12a$\n\nSo $b = -4a$ and $c = -12a$.\n\n**Step 2:** Find $a + b$:\n$a + b = a + (-4a) = -3a$\n\n**Step 3:** Since $a$ is an integer $> 1$, try $a = 3$:\n$a + b = -3(3) = -9$ ✓\n\n**Verification:** With $a = 3$: $f(x) = 3x^2 - 12x - 36$. Check $f(6) = 3(36) - 72 - 36 = 0$ ✓",
+          skills: ["quadratic-equations", "factored-form"]
         },
         {
           id: 17,

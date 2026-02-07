@@ -386,21 +386,6 @@ export const practiceTest10 = {
           id: 'pt10-m2-q1',
           type: 'multiple-choice',
           difficulty: 'easy',
-          question: 'A total of $165$ people contributed to a charity event as either a donor or a volunteer. $130$ people contributed as a donor. How many people contributed as a volunteer?',
-          choices: [
-            { id: 'A', text: '$35$' },
-            { id: 'B', text: '$130$' },
-            { id: 'C', text: '$165$' },
-            { id: 'D', text: '$330$' }
-          ],
-          correctAnswer: 'A',
-          explanation: 'Total = Donors + Volunteers\n$165 = 130 +$ Volunteers\nVolunteers $= 165 - 130 = 35$',
-          skills: ['Arithmetic', 'Word Problems']
-        },
-        {
-          id: 'pt10-m2-q2',
-          type: 'multiple-choice',
-          difficulty: 'easy',
           question: 'There are $250$ trees in a park. Of these trees, $6\\%$ are birch trees. How many birch trees are in the park?',
           choices: [
             { id: 'A', text: '$6$' },
@@ -413,7 +398,7 @@ export const practiceTest10 = {
           skills: ['Percentages', 'Arithmetic']
         },
         {
-          id: 'pt10-m2-q3',
+          id: 'pt10-m2-q2',
           type: 'multiple-choice',
           difficulty: 'easy',
           question: 'The graph of the quadratic function $y = f(x)$ is shown above. What is the vertex of the graph?',
@@ -442,7 +427,7 @@ export const practiceTest10 = {
           skills: ['Quadratic Functions', 'Graph Analysis']
         },
         {
-          id: 'pt10-m2-q4',
+          id: 'pt10-m2-q3',
           type: 'multiple-choice',
           difficulty: 'easy',
           question: 'The number of raccoons in a $131$-square-mile area is estimated to be $2{,}358$. What is the estimated population density, in raccoons per square mile, of this area?',
@@ -457,7 +442,7 @@ export const practiceTest10 = {
           skills: ['Ratios', 'Population Density']
         },
         {
-          id: 'pt10-m2-q5',
+          id: 'pt10-m2-q4',
           type: 'multiple-choice',
           difficulty: 'medium',
           question: '$-11, -9, 26$\n\nA data set of three numbers is shown. If a number from this data set is selected at random, what is the probability of selecting a positive number?',
@@ -472,7 +457,7 @@ export const practiceTest10 = {
           skills: ['Probability', 'Data Analysis']
         },
         {
-          id: 'pt10-m2-q6',
+          id: 'pt10-m2-q5',
           type: 'fill-in',
           difficulty: 'medium',
           question: '$f(x) = 45x + 600$\n\nThe function $f$ gives the monthly fee $f(x)$, in dollars, a facility charges to keep $x$ crates in storage. What is the monthly fee, in dollars, the facility charges to keep $50$ crates in storage?',
@@ -481,7 +466,7 @@ export const practiceTest10 = {
           skills: ['Functions', 'Function Evaluation']
         },
         {
-          id: 'pt10-m2-q7',
+          id: 'pt10-m2-q6',
           type: 'fill-in',
           difficulty: 'medium',
           question: 'The function $f$ is defined by $f(x) = 5\\left(\\frac{1}{4} - x\\right)^2 + \\frac{11}{4}$. What is the value of $f\\left(\\frac{1}{4}\\right)$?',
@@ -491,7 +476,7 @@ export const practiceTest10 = {
           skills: ['Functions', 'Function Evaluation']
         },
         {
-          id: 'pt10-m2-q8',
+          id: 'pt10-m2-q7',
           type: 'multiple-choice',
           difficulty: 'medium',
           question: 'If $8x = 6$, what is the value of $72x$?',
@@ -506,7 +491,7 @@ export const practiceTest10 = {
           skills: ['Algebra', 'Algebraic Manipulation']
         },
         {
-          id: 'pt10-m2-q9',
+          id: 'pt10-m2-q8',
           type: 'multiple-choice',
           difficulty: 'medium',
           question: 'Which expression is equivalent to $23x^3 + 2x^2 + 9x$?',
@@ -521,7 +506,7 @@ export const practiceTest10 = {
           skills: ['Algebra', 'Factoring', 'Polynomials']
         },
         {
-          id: 'pt10-m2-q10',
+          id: 'pt10-m2-q9',
           type: 'multiple-choice',
           difficulty: 'medium',
           question: 'Which expression is equivalent to $(9x^3 + 5x + 7) + (6x^3 + 5x^2 - 5)$?',
@@ -536,7 +521,7 @@ export const practiceTest10 = {
           skills: ['Algebra', 'Polynomial Addition']
         },
         {
-          id: 'pt10-m2-q11',
+          id: 'pt10-m2-q10',
           type: 'multiple-choice',
           difficulty: 'medium',
           question: 'At a state fair, attendees can win tokens that are worth a different number of points depending on the shape. One attendee won $S$ square tokens and $C$ circle tokens worth a total of $1{,}120$ points. The equation $80S + 90C = 1{,}120$ represents this situation. How many more points is a circle token worth than a square token?',
@@ -551,7 +536,7 @@ export const practiceTest10 = {
           skills: ['Algebra', 'Linear Equations', 'Word Problems']
         },
         {
-          id: 'pt10-m2-q12',
+          id: 'pt10-m2-q11',
           type: 'multiple-choice',
           difficulty: 'medium',
           question: 'A line of best fit for the data is shown in the scatterplot above. Which of the following is closest to the slope of the line of best fit shown?',
@@ -579,13 +564,29 @@ export const practiceTest10 = {
           skills: ['Data Analysis', 'Slope', 'Line of Best Fit']
         },
         {
-          id: 'pt10-m2-q13',
+          id: 'pt10-m2-q12',
           type: 'fill-in',
           difficulty: 'medium',
           question: 'A circle has a radius of $2.1$ inches. The area of the circle is $b\\pi$ square inches, where $b$ is a constant. What is the value of $b$?',
           correctAnswer: '4.41',
           explanation: 'Area $= \\pi r^2 = \\pi(2.1)^2 = \\pi(4.41) = 4.41\\pi$. So $b = 4.41$.',
           skills: ['Geometry', 'Circle Area']
+        },
+        {
+          id: 'pt10-m2-q13',
+          type: 'fill-in',
+          difficulty: 'hard',
+          question: 'In triangles $ABC$ and $ADE$, angles $C$ and $E$ are right angles. Point $C$ is on $\\overline{AE}$ and point $B$ is on $\\overline{AD}$. If $AB = \\sqrt{41}$, $AC = 4$, and $CE = 16$, what is the area of triangle $ADE$?',
+          diagram: {
+            type: 'nestedRightTriangles',
+            params: {
+              labels: { A: 'A', B: 'B', C: 'C', D: 'D', E: 'E' },
+              sideLabels: { AB: '√41', AC: '4', CE: '16' }
+            }
+          },
+          correctAnswer: 250,
+          explanation: '**The correct answer is 250.**\n\nIn right triangle $ABC$ with right angle at $C$:\n• $AC = 4$, $AB = \\sqrt{41}$\n• By the Pythagorean theorem: $BC = \\sqrt{AB^2 - AC^2} = \\sqrt{41 - 16} = \\sqrt{25} = 5$\n\nTriangles $ABC$ and $ADE$ are similar (both have a right angle and share angle $A$).\n\n$AE = AC + CE = 4 + 16 = 20$\n\nThe scale factor from $ABC$ to $ADE$ is:\n$\\frac{AE}{AC} = \\frac{20}{4} = 5$\n\nSo $DE = 5 \\cdot BC = 5 \\cdot 5 = 25$\n\nArea of triangle $ADE = \\frac{1}{2} \\cdot AE \\cdot DE = \\frac{1}{2} \\cdot 20 \\cdot 25 = 250$',
+          skills: ['similar-triangles', 'pythagorean-theorem', 'area']
         },
         {
           id: 'pt10-m2-q14',
@@ -645,15 +646,15 @@ export const practiceTest10 = {
           id: 'pt10-m2-q18',
           type: 'multiple-choice',
           difficulty: 'hard',
-          question: '$3y = 4x + 17$\n$-3y = 9x - 23$\n\nThe solution to the given system of equations is $(x, y)$. What is the value of $39x$?',
+          question: '$3y = 4x + 17$\n\n$-3y = 9x - 23$\n\nThe solution to the given system of equations is $(x, y)$. What is the value of $39x$?',
           choices: [
             { id: 'A', text: '$-18$' },
             { id: 'B', text: '$-6$' },
             { id: 'C', text: '$6$' },
             { id: 'D', text: '$18$' }
           ],
-          correctAnswer: 'B',
-          explanation: 'Adding the equations: $0 = 13x - 6$, so $13x = 6$, $x = \\frac{6}{13}$. Then $39x = 39 \\times \\frac{6}{13} = 3 \\times 6 = 18$. Wait, that gives $18$. Let me verify: $3y + (-3y) = (4x+17) + (9x-23) = 13x - 6 = 0$, so $x = \\frac{6}{13}$. Then $39x = \\frac{234}{13} = 18$.',
+          correctAnswer: 'D',
+          explanation: '**Choice D is correct.** Add the two equations:\n\n$3y + (-3y) = (4x + 17) + (9x - 23)$\n$0 = 13x - 6$\n$13x = 6$, so $x = \\frac{6}{13}$\n\nThen $39x = 39 \\times \\frac{6}{13} = 3 \\times 6 = 18$.',
           skills: ['Systems of Equations', 'Linear Equations']
         },
         {
@@ -685,15 +686,15 @@ export const practiceTest10 = {
           type: 'fill-in',
           difficulty: 'hard',
           question: 'A line intersects two parallel lines, forming four acute angles and four obtuse angles. The measure of one of the acute angles is $(9x - 560)°$. The sum of the measures of one of the acute angles and three of the obtuse angles is $(-18x + w)°$. What is the value of $w$?',
-          correctAnswer: '920',
-          explanation: 'Let the acute angle $= (9x - 560)°$. The obtuse angle $= 180° - (9x - 560)° = (740 - 9x)°$.\nSum $=$ acute $+ 3$(obtuse) $= (9x - 560) + 3(740 - 9x) = 9x - 560 + 2220 - 27x = -18x + 1660$.\nSince one acute $+$ three obtuse $= (-18x + w)°$, we get $w = 1660$. However, the answer $920$ suggests a different interpretation where the angles are chosen differently among the eight total angles formed.',
+          correctAnswer: '1660',
+          explanation: '**The correct answer is 1660.** When a transversal crosses two parallel lines, all acute angles are equal and all obtuse angles are equal.\n\nLet the acute angle $= (9x - 560)°$. Then the obtuse angle $= 180° - (9x - 560)° = (740 - 9x)°$.\n\nSum of one acute and three obtuse angles:\n$= (9x - 560) + 3(740 - 9x)$\n$= 9x - 560 + 2{,}220 - 27x$\n$= -18x + 1{,}660$\n\nSince the sum is given as $(-18x + w)°$, we have $w = 1{,}660$.',
           skills: ['Geometry', 'Parallel Lines', 'Transversals', 'Angle Relationships']
         },
         {
           id: 'pt10-m2-q22',
           type: 'fill-in',
           difficulty: 'hard',
-          question: '$y = -2.5$\n$y = x^2 + 8x + k$\n\nIn the given system of equations, $k$ is a positive integer constant. The system has no real solutions. What is the least possible value of $k$?',
+          question: '$y = -2.5$\n\n$y = x^2 + 8x + k$\n\nIn the given system of equations, $k$ is a positive integer constant. The system has no real solutions. What is the least possible value of $k$?',
           correctAnswer: '14',
           explanation: 'For no real solutions, the parabola $y = x^2 + 8x + k$ must not intersect $y = -2.5$.\nSetting them equal: $x^2 + 8x + k = -2.5$\n$x^2 + 8x + (k + 2.5) = 0$\nFor no real solutions, discriminant $< 0$:\n$b^2 - 4ac < 0$\n$64 - 4(1)(k + 2.5) < 0$\n$64 - 4k - 10 < 0$\n$54 < 4k$\n$k > 13.5$\nSince $k$ must be a positive integer, the least value is $k = 14$.',
           skills: ['Quadratic Equations', 'Systems of Equations', 'Discriminant']
