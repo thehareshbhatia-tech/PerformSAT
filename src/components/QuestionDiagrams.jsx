@@ -119,10 +119,11 @@ export const LinearFunctionGraphDiagram = ({ slope = 2, yIntercept = -4 }) => {
 };
 
 // =============================================================================
-// RATIONAL FUNCTION DIAGRAM - f(x) = a/(x+b)
+// RATIONAL FUNCTION DIAGRAM - f(x) = a/(x+b) + c
 // =============================================================================
-export const RationalFunctionDiagram = ({ a = 6, b = 2, showPoints = [] }) => {
+export const RationalFunctionDiagram = ({ a = 6, b = 2, c = 0, xMin: domainMin, label, showPoints = [] }) => {
   const asymptote = -b;
+  const xLo = domainMin !== undefined ? domainMin : -10;
 
   // Generate curve path
   const generatePath = (toX, toY) => {
@@ -131,8 +132,8 @@ export const RationalFunctionDiagram = ({ a = 6, b = 2, showPoints = [] }) => {
     let rightPath = '';
 
     // Left of asymptote
-    for (let x = -10; x < asymptote - 0.3; x += step) {
-      const y = a / (x + b);
+    for (let x = xLo; x < asymptote - 0.3; x += step) {
+      const y = a / (x + b) + c;
       if (y >= -10 && y <= 10) {
         if (!leftPath) leftPath = `M ${toX(x)} ${toY(y)}`;
         else leftPath += ` L ${toX(x)} ${toY(y)}`;
@@ -140,8 +141,9 @@ export const RationalFunctionDiagram = ({ a = 6, b = 2, showPoints = [] }) => {
     }
 
     // Right of asymptote
-    for (let x = asymptote + 0.3; x <= 10; x += step) {
-      const y = a / (x + b);
+    const rightStart = Math.max(asymptote + 0.3, xLo);
+    for (let x = rightStart; x <= 10; x += step) {
+      const y = a / (x + b) + c;
       if (y >= -10 && y <= 10) {
         if (!rightPath) rightPath = `M ${toX(x)} ${toY(y)}`;
         else rightPath += ` L ${toX(x)} ${toY(y)}`;
@@ -155,18 +157,34 @@ export const RationalFunctionDiagram = ({ a = 6, b = 2, showPoints = [] }) => {
     <SATGrid>
       {({ toX, toY }) => (
         <g clipPath="url(#gridClip)">
-          {/* Asymptote dashed line */}
-          <line
-            x1={toX(asymptote)} y1={toY(10)}
-            x2={toX(asymptote)} y2={toY(-10)}
-            stroke="#999" strokeWidth="1" strokeDasharray="5,5"
-          />
+          {/* Vertical asymptote dashed line (only if visible in domain) */}
+          {asymptote >= xLo && (
+            <line
+              x1={toX(asymptote)} y1={toY(10)}
+              x2={toX(asymptote)} y2={toY(-10)}
+              stroke="#999" strokeWidth="1" strokeDasharray="5,5"
+            />
+          )}
+          {/* Horizontal asymptote dashed line */}
+          {c !== 0 && (
+            <line
+              x1={toX(xLo)} y1={toY(c)}
+              x2={toX(10)} y2={toY(c)}
+              stroke="#999" strokeWidth="1" strokeDasharray="5,5"
+            />
+          )}
           {/* Curve */}
           <path d={generatePath(toX, toY)} fill="none" stroke="#333" strokeWidth="2" />
           {/* Points */}
           {showPoints.map(([px, py], i) => (
             <circle key={i} cx={toX(px)} cy={toY(py)} r="5" fill="#333" />
           ))}
+          {/* Label */}
+          {label && (
+            <text x={toX(8)} y={toY(c + 1.5)} fontFamily="Georgia, serif" fontSize="14" fontStyle="italic" fill="#333">
+              {label}
+            </text>
+          )}
         </g>
       )}
     </SATGrid>

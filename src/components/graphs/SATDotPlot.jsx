@@ -38,7 +38,7 @@ const SATDotPlot = ({
   // For horizontal layout, make width wider to fit sets side by side
   const isHorizontal = layout === 'horizontal' && isMultiSet;
   const width = providedWidth || (isHorizontal ? 280 * setCount + 40 : 320);
-  const height = providedHeight || (isHorizontal ? 200 : (isMultiSet ? 120 * setCount + 40 : 150));
+  const height = providedHeight || (isHorizontal ? 200 : (isMultiSet ? 150 * setCount + 40 : 150));
 
   // Calculate padding
   const padding = { top: 30, right: 30, bottom: 50, left: 30 };
@@ -186,9 +186,11 @@ const SATDotPlot = ({
             const xOffset = index * (chartWidth + 20);
             return renderSingleDotPlot(processedData, yOffset, plotHeight, set.name, xOffset, chartWidth);
           } else {
-            // Vertical layout: stacked
-            const plotHeight = (height - padding.top - padding.bottom) / setCount;
-            const yOffset = padding.top + index * plotHeight;
+            // Vertical layout: stacked with gap between plots
+            const interPlotGap = 25;
+            const totalGap = (setCount - 1) * interPlotGap;
+            const plotHeight = (height - padding.top - padding.bottom - totalGap) / setCount;
+            const yOffset = padding.top + index * (plotHeight + interPlotGap);
             return renderSingleDotPlot(processedData, yOffset, plotHeight, set.name, 0, chartWidth);
           }
         })

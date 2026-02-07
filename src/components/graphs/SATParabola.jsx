@@ -53,6 +53,7 @@ const SATParabola = ({
   yRange = [-10, 10],
   showVertex = true,
   highlightPoints = [],
+  overlayLine,  // { slope, yIntercept } - optional line to draw on same graph
   label = '',
   width = 320,
   height = 280,
@@ -110,7 +111,7 @@ const SATParabola = ({
       {/* Axes */}
       {renderAxes(coordSystem, { xTickInterval, yTickInterval })}
 
-      {/* Parabola curve (clipped) */}
+      {/* Parabola curve and optional overlay line (clipped) */}
       <g clipPath={`url(#${clipPathId})`}>
         <path
           d={parabolaPath}
@@ -118,6 +119,22 @@ const SATParabola = ({
           stroke={styles.colors.dataLine}
           strokeWidth={styles.strokeWidth.dataLine}
         />
+        {overlayLine && (() => {
+          const extXMin = xMin - 10;
+          const extXMax = xMax + 10;
+          const ly1 = overlayLine.slope * extXMin + overlayLine.yIntercept;
+          const ly2 = overlayLine.slope * extXMax + overlayLine.yIntercept;
+          const start = coordSystem.toSVG(extXMin, ly1);
+          const end = coordSystem.toSVG(extXMax, ly2);
+          return (
+            <line
+              x1={start.x} y1={start.y}
+              x2={end.x} y2={end.y}
+              stroke={styles.colors.dataLine}
+              strokeWidth={styles.strokeWidth.dataLine}
+            />
+          );
+        })()}
       </g>
 
       {/* Vertex point */}

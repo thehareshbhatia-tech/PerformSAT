@@ -93,10 +93,10 @@ export const practiceTest6 = {
             params: {
               slope: 1,
               yIntercept: -5,
-              xRange: [-1, 7],
-              yRange: [-6, 4],
-              xTickInterval: 1,
-              yTickInterval: 1,
+              xRange: [-2, 10],
+              yRange: [-8, 6],
+              xTickInterval: 2,
+              yTickInterval: 2,
               label: "f"
             }
           },
@@ -207,7 +207,21 @@ export const practiceTest6 = {
           id: 14,
           type: 'multiple-choice',
           difficulty: 'medium',
-          question: 'The graph of a system of a linear equation and a quadratic equation is shown. The linear equation passes through $(0, 3)$ and $(6, 9)$, and the quadratic opens downward with vertex at $(3, 6)$. What is the solution $(x, y)$ to this system where $x > 0$?',
+          question: 'The graph of a system of a linear equation and a quadratic equation is shown. What is the solution $(x, y)$ to this system where $x > 0$?',
+          diagram: {
+            type: "parabola",
+            params: {
+              vertex: { h: 3, k: 6 },
+              a: -1/3,
+              overlayLine: { slope: 1, yIntercept: 3 },
+              xRange: [-2, 8],
+              yRange: [-2, 8],
+              xTickInterval: 1,
+              yTickInterval: 1,
+              showVertex: false,
+              highlightPoints: [[0, 3], [3, 6]]
+            }
+          },
           choices: [
             { id: 'A', text: '$(0, 3)$' },
             { id: 'B', text: '$(3, 6)$' },
@@ -223,9 +237,9 @@ export const practiceTest6 = {
           difficulty: "medium",
           question: "A bacteria colony starts with $500$ bacteria and doubles every $6$ hours. Which expression gives the number of bacteria after $t$ hours?",
           choices: [
-            { id: "A", text: "$500(2)^{\frac{t}{6}}$" },
+            { id: "A", text: "$500(2)^{\\frac{t}{6}}$" },
             { id: "B", text: "$500(2)^{6t}$" },
-            { id: "C", text: "$500(6)^{\frac{t}{2}}$" },
+            { id: "C", text: "$500(6)^{\\frac{t}{2}}$" },
             { id: "D", text: "$500 + 2t$" }
           ],
           correctAnswer: "A",
@@ -251,15 +265,28 @@ export const practiceTest6 = {
           id: 17,
           type: 'multiple-choice',
           difficulty: 'medium',
-          question: 'The graph of the rational function $f$ is shown, where $y = f(x)$ and $x \\geq 0$. The function decreases from $(0, 10)$ and approaches $y = 2$ as $x$ increases. Which of the following is the graph of $y = f(x) + 4$, where $x \\geq 0$?',
+          question: 'The graph of $f(x) = x^2 + bx + c$ is shown in the $xy$-plane, where $b$ and $c$ are constants. What is the value of $b$?',
+          diagram: {
+            type: "parabola",
+            params: {
+              vertex: { h: 3, k: -4 },
+              a: 1,
+              xRange: [-1, 7],
+              yRange: [-6, 8],
+              xTickInterval: 1,
+              yTickInterval: 2,
+              showVertex: false,
+              highlightPoints: [[1, 0], [5, 0]]
+            }
+          },
           choices: [
-            { id: 'A', text: 'A curve starting at $(0, 14)$ and approaching $y = 6$ as $x$ increases' },
-            { id: 'B', text: 'A curve starting at $(0, 6)$ and approaching $y = -2$ as $x$ increases' },
-            { id: 'C', text: 'A curve starting at $(4, 10)$ and approaching $y = 2$ as $x$ increases' },
-            { id: 'D', text: 'A curve starting at $(0, 10)$ and approaching $y = 6$ as $x$ increases' }
+            { id: 'A', text: '$-6$' },
+            { id: 'B', text: '$-5$' },
+            { id: 'C', text: '$5$' },
+            { id: 'D', text: '$6$' }
           ],
           correctAnswer: 'A',
-          explanation: 'Adding $4$ to $f(x)$ shifts the entire graph up by $4$ units. The starting point shifts from $(0, 10)$ to $(0, 14)$, and the horizontal asymptote shifts from $y = 2$ to $y = 6$.'
+          explanation: 'From the graph, the parabola crosses the $x$-axis at $x = 1$ and $x = 5$. Using factored form:\n\n$f(x) = (x - 1)(x - 5)$\n\nExpanding:\n\n$f(x) = x^2 - 6x + 5$\n\nComparing with $f(x) = x^2 + bx + c$, we get $b = -6$.'
         },
         {
           id: 18,
@@ -435,7 +462,20 @@ export const practiceTest6 = {
           id: 7,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "Two data sets are shown in dot plots. Set A has a mean of 12 and a standard deviation of 3. Set B has a mean of 12 and a standard deviation of 6. Which statement must be true?",
+          question: "Two data sets are shown in the dot plots. Set A has a mean of $12$ and a standard deviation of $3$. Set B has a mean of $12$ and a standard deviation of $6$. Which statement must be true?",
+          diagram: {
+            type: "dotPlot",
+            params: {
+              sets: [
+                { name: "Set A", data: [6, 8, 10, 10, 12, 12, 12, 14, 14, 16, 18] },
+                { name: "Set B", data: [4, 6, 8, 10, 10, 12, 14, 14, 16, 18, 20] }
+              ],
+              xRange: [2, 22],
+              xLabel: "Value",
+              dotRadius: 4,
+              layout: "horizontal"
+            }
+          },
           choices: [
             { id: "A", text: "Set A and Set B have the same range" },
             { id: "B", text: "Set B has more variability than Set A" },
@@ -450,12 +490,16 @@ export const practiceTest6 = {
           id: 8,
           type: 'multiple-choice',
           difficulty: 'medium',
-          question: 'A ball is thrown upward from a platform. The graph shows the height above the ground $y$, in feet, of the ball $x$ seconds after being thrown. The ball reaches its maximum height and then falls, hitting the ground at $x = 2.4$ seconds. What is the best interpretation of the $x$-intercept of the graph?',
+          question: 'A ball is thrown upward from a platform. The graph shows the height above the ground $y$, in feet, of the ball $x$ seconds after being thrown. The ball reaches its maximum height and then falls, hitting the ground at $2.4$ seconds. What is the best interpretation of the $x$-intercept of the graph?',
           diagram: {
-            type: "quadraticVertex",
+            type: "parabola",
             params: {
-              vertex: [1.0, 20],
+              vertex: { h: 1, k: 20 },
               a: -10,
+              xRange: [-0.5, 3],
+              yRange: [-2, 24],
+              xTickInterval: 1,
+              yTickInterval: 5,
               showVertex: false
             }
           },
