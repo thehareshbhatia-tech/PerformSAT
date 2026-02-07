@@ -265,6 +265,7 @@ const DonutLegend = () => (
 const TestResults = ({
   test,
   answers,
+  diagnosticData,
   onBack,
   onRetake,
   onReview,
@@ -389,6 +390,7 @@ const TestResults = ({
   // Tab navigation
   const tabs = [
     { id: 'summary', label: 'TEST OVERVIEW' },
+    { id: 'diagnostic', label: 'DIAGNOSTIC INSIGHTS' },
     ...test.modules.map((mod, idx) => ({
       id: `module-${idx}`,
       label: `MATH: MODULE ${idx + 1}`
@@ -754,6 +756,256 @@ const TestResults = ({
     );
   };
 
+  const renderDiagnosticView = () => {
+    if (!diagnosticData) {
+      return (
+        <div style={{ textAlign: 'center', padding: '60px 20px', color: '#6b7280' }}>
+          <div style={{ fontSize: '48px', marginBottom: '16px' }}>📊</div>
+          <p style={{ fontSize: '16px', fontWeight: '500', marginBottom: '8px' }}>
+            Diagnostic data is not available for this test attempt.
+          </p>
+          <p style={{ fontSize: '14px' }}>
+            Complete a new test to see detailed insights about your performance.
+          </p>
+        </div>
+      );
+    }
+
+    const { questionDetails, navigationPattern, totalNavigationEvents,
+      moduleTimeRemaining: modTimeRemaining, questionsVisitedMultipleTimes,
+      calculatorUsageCount, markedForReviewCount } = diagnosticData;
+
+    const questionEntries = Object.entries(questionDetails || {});
+    const totalQ = questionEntries.length || totalQuestions;
+
+    // Time analysis
+    const totalTimeSpent = questionEntries.reduce((sum, [, q]) => sum + (q.timeSpent || 0), 0);
+    const avgTime = totalQ > 0 ? (totalTimeSpent / totalQ) : 0;
+
+    // Slowest 5 questions
+    const slowest = [...questionEntries]
+      .sort(([, a], [, b]) => (b.timeSpent || 0) - (a.timeSpent || 0))
+      .slice(0, 5);
+
+    // Skill performance: group by skill
+    const skillMap = {};
+    questionEntries.forEach(([, q]) => {
+      const skills = q.skills || [];
+      skills.forEach(skillId => {
+        if (!skillMap[skillId]) {
+          skillMap[skillId] = { correct: 0, total: 0 };
+        }
+        skillMap[skillId].total += 1;
+        if (q.isCorrect) skillMap[skillId].correct += 1;
+      });
+    });
+
+    const skillPerformance = Object.entries(skillMap)
+      .map(([skillId, data]) => {
+        const skill = getSkillById(skillId);
+        const pct = data.total > 0 ? Math.round((data.correct / data.total) * 100) : 0;
+        return { skillId, name: skill?.name || skillId, ...data, pct };
+      })
+      .sort((a, b) => a.pct - b.pct);
+
+    // Study recommendations
+    const recommendations = [];
+    const weakSkills = skillPerformance.filter(s => s.pct < 60 && s.total >= 1);
+    if (weakSkills.length > 0) {
+      const top3 = weakSkills.slice(0, 3);
+      top3.forEach(s => {
+        recommendations.push(`Focus on ${s.name} — you got ${s.correct}/${s.total} correct.`);
+      });
+    }
+    if (navigationPattern === 'jumping') {
+      recommendations.push('Try working through questions in order first, then revisit flagged ones.');
+    }
+    const wrongCount = questionEntries.filter(([, q]) => !q.isCorrect).length;
+    if (markedForReviewCount === 0 && wrongCount > 3) {
+      recommendations.push('Use mark-for-review to flag uncertain answers for a second pass.');
+    }
+    if (recommendations.length === 0) {
+      recommendations.push('Great job! Keep practicing to maintain your skills.');
+    }
+
+    const navPatternLabel = {
+      'linear': 'Linear',
+      'strategic-skip': 'Strategic Skip',
+      'jumping': 'Jumping'
+    };
+
+    const cardStyle = {
+      background: 'white',
+      border: '1px solid #e5e7eb',
+      borderRadius: '12px',
+      padding: '20px',
+      marginBottom: '24px',
+    };
+
+    const sectionTitle = (text) => (
+      <h3 style={{ fontSize: '16px', fontWeight: '600', color: '#111827', marginBottom: '16px', marginTop: '0' }}>
+        {text}
+      </h3>
+    );
+
+    const formatTime = (seconds) => {
+      if (seconds < 60) return `${Math.round(seconds)}s`;
+      const m = Math.floor(seconds / 60);
+      const s = Math.round(seconds % 60);
+      return `${m}m ${s}s`;
+    };
+
+    // Get question label from key (e.g., "0-5" → "M1 Q6")
+    const questionLabel = (key) => {
+      const [modIdx, qIdx] = key.split('-').map(Number);
+      return `M${modIdx + 1} Q${qIdx + 1}`;
+    };
+
+    return (
+      <div>
+        {/* Section A: Test-Taking Behavior */}
+        <div style={cardStyle}>
+          {sectionTitle('Test-Taking Behavior')}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
+            {/* Navigation Pattern */}
+            <div style={{ background: '#f0fdfa', borderRadius: '10px', padding: '16px', textAlign: 'center' }}>
+              <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '8px' }}>Navigation Pattern</div>
+              <div style={{ fontSize: '20px', fontWeight: '700', color: '#0d9488' }}>
+                {navPatternLabel[navigationPattern] || 'Linear'}
+              </div>
+              <div style={{ fontSize: '12px', color: '#9ca3af', marginTop: '4px' }}>
+                {totalNavigationEvents} nav events
+              </div>
+            </div>
+            {/* Calculator Usage */}
+            <div style={{ background: '#eff6ff', borderRadius: '10px', padding: '16px', textAlign: 'center' }}>
+              <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '8px' }}>Calculator Used</div>
+              <div style={{ fontSize: '20px', fontWeight: '700', color: '#2563eb' }}>
+                {calculatorUsageCount}
+              </div>
+              <div style={{ fontSize: '12px', color: '#9ca3af', marginTop: '4px' }}>
+                of {totalQ} questions
+              </div>
+            </div>
+            {/* Marked for Review */}
+            <div style={{ background: '#fefce8', borderRadius: '10px', padding: '16px', textAlign: 'center' }}>
+              <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '8px' }}>Marked for Review</div>
+              <div style={{ fontSize: '20px', fontWeight: '700', color: '#ca8a04' }}>
+                {markedForReviewCount}
+              </div>
+              <div style={{ fontSize: '12px', color: '#9ca3af', marginTop: '4px' }}>
+                {questionsVisitedMultipleTimes} revisited
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Section B: Time Analysis */}
+        <div style={cardStyle}>
+          {sectionTitle('Time Analysis')}
+          <div style={{ display: 'flex', gap: '24px', marginBottom: '20px', flexWrap: 'wrap' }}>
+            <div style={{ background: '#f9fafb', borderRadius: '8px', padding: '12px 20px' }}>
+              <div style={{ fontSize: '12px', color: '#6b7280' }}>Total Time</div>
+              <div style={{ fontSize: '18px', fontWeight: '600', color: '#111827' }}>{formatTime(totalTimeSpent)}</div>
+            </div>
+            <div style={{ background: '#f9fafb', borderRadius: '8px', padding: '12px 20px' }}>
+              <div style={{ fontSize: '12px', color: '#6b7280' }}>Avg per Question</div>
+              <div style={{ fontSize: '18px', fontWeight: '600', color: '#111827' }}>{formatTime(avgTime)}</div>
+            </div>
+            {Object.entries(modTimeRemaining || {}).map(([modIdx, remaining]) => (
+              <div key={modIdx} style={{ background: '#f9fafb', borderRadius: '8px', padding: '12px 20px' }}>
+                <div style={{ fontSize: '12px', color: '#6b7280' }}>Module {parseInt(modIdx) + 1} Time Left</div>
+                <div style={{ fontSize: '18px', fontWeight: '600', color: remaining === null ? '#9ca3af' : remaining > 120 ? '#16a34a' : '#ea580c' }}>
+                  {remaining === null ? 'Untimed' : formatTime(remaining)}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {slowest.length > 0 && (
+            <>
+              <div style={{ fontSize: '13px', fontWeight: '600', color: '#6b7280', marginBottom: '8px' }}>
+                Slowest Questions
+              </div>
+              {slowest.map(([key, q]) => {
+                const diffColor = q.difficulty === 'hard' ? '#ef4444' : q.difficulty === 'medium' ? '#f59e0b' : '#22c55e';
+                return (
+                  <div key={key} style={{
+                    display: 'flex', alignItems: 'center', gap: '12px',
+                    padding: '8px 12px', borderRadius: '6px',
+                    background: q.isCorrect ? '#f0fdf4' : '#fef2f2',
+                    marginBottom: '4px'
+                  }}>
+                    <span style={{ fontWeight: '600', fontSize: '13px', color: '#374151', minWidth: '55px' }}>
+                      {questionLabel(key)}
+                    </span>
+                    <span style={{
+                      fontSize: '11px', fontWeight: '500', padding: '2px 8px',
+                      borderRadius: '4px', background: diffColor, color: 'white', textTransform: 'capitalize'
+                    }}>
+                      {q.difficulty || 'medium'}
+                    </span>
+                    <span style={{ flex: 1, fontSize: '13px', color: q.isCorrect ? '#16a34a' : '#dc2626', fontWeight: '500' }}>
+                      {q.isCorrect ? 'Correct' : 'Incorrect'}
+                    </span>
+                    <span style={{ fontWeight: '600', fontSize: '14px', color: '#374151' }}>
+                      {formatTime(q.timeSpent || 0)}
+                    </span>
+                  </div>
+                );
+              })}
+            </>
+          )}
+        </div>
+
+        {/* Section C: Skill Performance */}
+        <div style={cardStyle}>
+          {sectionTitle('Skill Performance')}
+          {skillPerformance.length === 0 ? (
+            <p style={{ color: '#9ca3af', fontSize: '14px' }}>No skill data available.</p>
+          ) : (
+            <div>
+              {skillPerformance.map(skill => {
+                const barColor = skill.pct >= 80 ? '#22c55e' : skill.pct >= 60 ? '#f59e0b' : '#ef4444';
+                return (
+                  <div key={skill.skillId} style={{ marginBottom: '12px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+                      <span style={{ fontSize: '13px', fontWeight: '500', color: '#374151' }}>{skill.name}</span>
+                      <span style={{ fontSize: '13px', fontWeight: '600', color: barColor }}>
+                        {skill.correct}/{skill.total} ({skill.pct}%)
+                      </span>
+                    </div>
+                    <div style={{ background: '#f3f4f6', borderRadius: '4px', height: '8px', overflow: 'hidden' }}>
+                      <div style={{
+                        width: `${skill.pct}%`,
+                        height: '100%',
+                        background: barColor,
+                        borderRadius: '4px',
+                        transition: 'width 0.3s ease'
+                      }} />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
+        {/* Section D: Study Recommendations */}
+        <div style={{ ...cardStyle, background: '#f0fdfa', border: '1px solid #99f6e4' }}>
+          {sectionTitle('Study Recommendations')}
+          <ul style={{ margin: 0, paddingLeft: '20px' }}>
+            {recommendations.map((rec, i) => (
+              <li key={i} style={{ fontSize: '14px', color: '#374151', marginBottom: '8px', lineHeight: '1.5' }}>
+                {rec}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div style={{ maxWidth: '800px', margin: '0 auto', padding: '20px' }}>
       {/* Header */}
@@ -820,6 +1072,8 @@ const TestResults = ({
       }}>
         {activeTab === 'summary'
           ? renderSummaryView()
+          : activeTab === 'diagnostic'
+          ? renderDiagnosticView()
           : renderModuleSummary(parseInt(activeTab.split('-')[1]))
         }
       </div>

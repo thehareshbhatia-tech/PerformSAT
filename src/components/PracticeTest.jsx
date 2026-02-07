@@ -722,6 +722,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   const visitedQuestions = useRef(new Set());
   const timerSecondsRef = useRef(null);
   const currentModuleRef = useRef(currentModule);
+  const diagnosticDataRef = useRef(null);
 
   const module = test.modules[currentModule];
   const questions = module?.questions || [];
@@ -936,6 +937,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         calculatorUsageCount: telemetryValues.filter(t => t.usedCalculator).length,
         markedForReviewCount: telemetryValues.filter(t => t.markedForReview).length,
       };
+
+      diagnosticDataRef.current = diagnosticData;
 
       const resultsToSave = {
         rawScore: totalScore,
@@ -1861,6 +1864,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       <TestResults
         test={test}
         answers={answers}
+        diagnosticData={diagnosticDataRef.current}
         onBack={onBack}
         onRetake={() => {
           setCurrentModule(0);
