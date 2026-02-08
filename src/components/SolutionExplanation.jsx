@@ -81,7 +81,7 @@ function parseExplanation(raw){
 // HELPERS
 // ═══════════════════════════════════════════════════════════════════════════════
 
-const strip=t=>(t||'').replace(/\*\*/g,'');
+const strip=t=>(t||'').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
 
 const Lines=({text})=>{
   if(!text)return null;
