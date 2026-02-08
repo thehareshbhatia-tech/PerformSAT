@@ -3,6 +3,7 @@ import QuestionDiagram from './QuestionDiagrams';
 import AiTutorChat, { AiTutorButton } from './AiTutorChat';
 import TestResults from './TestResults';
 import { MathText } from './MathText';
+import SolutionExplanation from './SolutionExplanation';
 import QuestionRenderer from './QuestionRenderer';
 import { recordSkillAttempts } from '../services/skillService';
 
@@ -1747,23 +1748,13 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               Solution Explanation
             </h3>
           </div>
-          <div style={{
-            color: '#1e3a5f',
-            fontSize: '15px',
-            lineHeight: '1.8',
-            fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
-          }}>
-            {reviewQ?.explanation ? (
-              <div style={{ whiteSpace: 'pre-wrap' }}>
-                <MathText text={reviewQ.explanation} />
-              </div>
-            ) : (
-              <p style={{ color: '#64748b', fontStyle: 'italic' }}>
-                No explanation available for this question.
-              </p>
-            )}
-
-          </div>
+          {reviewQ?.explanation ? (
+            <SolutionExplanation explanation={reviewQ.explanation} />
+          ) : (
+            <p style={{ color: '#64748b', fontStyle: 'italic' }}>
+              No explanation available for this question.
+            </p>
+          )}
         </div>
 
         {/* AI Tutor Section */}

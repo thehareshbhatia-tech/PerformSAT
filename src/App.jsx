@@ -8,6 +8,7 @@ import AiTutorChat, { AiTutorButton } from './components/AiTutorChat';
 import QuestionDiagram from './components/QuestionDiagrams';
 import PracticeTest from './components/PracticeTest';
 import PracticeTestList from './components/PracticeTestList';
+import SolutionExplanation from './components/SolutionExplanation';
 import { allLessons } from './data/lessons';
 import { fetchTranscript } from './services/transcriptService';
 import { getQuestionsForSection, hasQuestionsForSection, getRandomQuestions } from './data/questions';
@@ -10198,13 +10199,7 @@ const PerformSAT = () => {
                           }}>
                             {practiceState.answers[currentQuestion.id]?.correct ? 'Correct!' : 'Incorrect'}
                           </div>
-                          <p style={{
-                            fontSize: '16px',
-                            color: '#1d1d1f',
-                            lineHeight: 1.6
-                          }}>
-                            {currentQuestion.explanation}
-                          </p>
+                          <SolutionExplanation explanation={currentQuestion.explanation} />
                         </div>
 
                         {/* Modal Next button */}
@@ -10632,13 +10627,7 @@ const PerformSAT = () => {
                       }}>
                         {practiceState.answers[currentQuestion.id]?.correct ? 'Correct!' : 'Incorrect'}
                       </div>
-                      <p style={{
-                        fontSize: '15px',
-                        color: '#1d1d1f',
-                        lineHeight: 1.6
-                      }}>
-                        {currentQuestion.explanation}
-                      </p>
+                      <SolutionExplanation explanation={currentQuestion.explanation} />
                     </div>
 
                     {/* Next button */}
