@@ -50,7 +50,7 @@ export const practiceTest4 = {
             { id: 'D', text: '$85 \\leq t \\leq 108$' }
           ],
           correctAnswer: 'D',
-          explanation: 'All temperatures recorded during the heat wave must be between the minimum ($85°F$) and maximum ($108°F$), inclusive. This is expressed as $85 \\leq t \\leq 108$.',
+          explanation: '**Choice D is correct.** Find the inequality that captures all recorded temperatures.\n\n**Step 1: Identify the bounds**\nMinimum temperature: $85°F$. Maximum temperature: $108°F$.\n\n**Step 2: Write the inequality**\nEvery temperature $t$ satisfies $85 \\leq t \\leq 108$.\n\n**Why other choices are incorrect:**\n• Choice A ($t \\geq 108$): Only includes temperatures at or above the maximum — misses most recorded values\n• Choice B ($t \\geq 85$): Has no upper bound — would include temperatures above $108°F$ that were never recorded\n• Choice C ($0 \\leq t \\leq 85$): Wrong range entirely — caps at the minimum instead of starting there\n\n**Key concept:** A compound inequality $a \\leq t \\leq b$ captures all values between $a$ and $b$, inclusive.',
           skills: ["linear-equations"]
         },
         {
@@ -68,7 +68,7 @@ export const practiceTest4 = {
           difficulty: 'easy',
           question: '$18, 24, 24, 31, 35, 38, 56$\n\nWhat is the range of the $7$ scores shown?',
           correctAnswer: '38',
-          explanation: 'The range is the difference between the maximum and minimum values. Range $= 56 - 18 = 38$.',
+          explanation: '**The correct answer is $38$.** The range is the difference between the largest and smallest values.\n\n**Step 1: Identify the extreme values**\nThe data set in order: $18, 24, 24, 31, 35, 38, 56$.\n• Minimum: $18$\n• Maximum: $56$\n\n**Step 2: Calculate the range**\n$\\text{Range} = 56 - 18 = 38$\n\n**Key concept:** Range $=$ Maximum $-$ Minimum. It measures the spread of the data set.',
           skills: ["range-calculation"]
         },
         {
@@ -98,7 +98,7 @@ export const practiceTest4 = {
             { id: 'D', text: '$1{,}320$' }
           ],
           correctAnswer: 'B',
-          explanation: 'Substituting $x = 580$ into $x + y = 1{,}320$: $580 + y = 1{,}320$, so $y = 1{,}320 - 580 = 740$ minutes of non-daylight.',
+          explanation: '**Choice B is correct.** Substitute the known value and solve for the unknown.\n\n**Step 1: Substitute $x = 580$**\n$580 + y = 1{,}320$\n\n**Step 2: Solve for $y$**\n$y = 1{,}320 - 580 = 740$ minutes of non-daylight.\n\n**Why other choices are incorrect:**\n• Choice A ($580$): This is the number of daylight minutes, not non-daylight\n• Choice C ($1{,}253$): No mathematical basis for this value\n• Choice D ($1{,}320$): This is the total minutes in a day, not non-daylight alone\n\n**Verification:** $580 + 740 = 1{,}320$ ✓\n\n**Key concept:** In a two-variable equation where one variable is known, substitute its value and solve for the other.',
           skills: ["substitution-method", "setting-up-systems"]
         },
         {
@@ -107,7 +107,7 @@ export const practiceTest4 = {
           difficulty: 'medium',
           question: 'In a right triangle, one leg has length $9$ and the hypotenuse has length $41$. What is the value of $\\cos(x°)$, where $x°$ is the angle opposite the leg of length $9$? Express your answer as a fraction.',
           correctAnswer: '40/41',
-          explanation: 'Using the Pythagorean theorem: other leg $= \\sqrt{41^2 - 9^2} = \\sqrt{1681 - 81} = \\sqrt{1600} = 40$. For angle $x°$ opposite the leg of length $9$, $\\cos(x°) = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\frac{40}{41}$.',
+          explanation: '**The correct answer is $\\frac{40}{41}$.** Find the missing leg, then apply the cosine ratio.\n\n**Step 1: Find the other leg using the Pythagorean theorem**\n$a^2 + b^2 = c^2$\n$9^2 + b^2 = 41^2$\n$b^2 = 1681 - 81 = 1600$\n$b = 40$\n\n**Step 2: Identify sides relative to angle $x°$**\nAngle $x°$ is opposite the leg of length $9$, so:\n• Opposite $= 9$\n• Adjacent $= 40$\n• Hypotenuse $= 41$\n\n**Step 3: Apply the cosine ratio**\n$\\cos(x°) = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\frac{40}{41}$\n\n**Key concept:** SOH-CAH-TOA: $\\cos(\\theta) = \\frac{\\text{adjacent}}{\\text{hypotenuse}}$. The side "adjacent" to an angle is the leg that forms the angle (not the one across from it).',
           skills: ["soh-cah-toa", "pythagorean-theorem"]
         },
         {
@@ -222,7 +222,7 @@ export const practiceTest4 = {
           difficulty: 'medium',
           question: '$y = 5x$\n$y = x^2 - 6$\n\nA solution to the given system of equations is $(x, y)$, where $x > 0$. What is the value of $x$?',
           correctAnswer: '6',
-          explanation: 'Setting the equations equal: $5x = x^2 - 6$. Rearranging: $x^2 - 5x - 6 = 0$. Factoring: $(x - 6)(x + 1) = 0$. So $x = 6$ or $x = -1$. Since $x > 0$, $x = 6$.',
+          explanation: '**The correct answer is $6$.** Set the two equations equal and solve the resulting quadratic.\n\n**Step 1: Set $y$-expressions equal**\n$5x = x^2 - 6$\n\n**Step 2: Rearrange to standard form**\n$x^2 - 5x - 6 = 0$\n\n**Step 3: Factor and solve**\n$(x - 6)(x + 1) = 0$\n$x = 6$ or $x = -1$\n\n**Step 4: Apply the constraint**\nSince $x > 0$, the answer is $x = 6$.\n\n**Verification:** When $x = 6$: $y = 5(6) = 30$ and $y = 6^2 - 6 = 30$ ✓.\n\n**Key concept:** To solve a system with one linear and one quadratic equation, substitute the linear expression and solve the resulting quadratic by factoring or the quadratic formula.',
           skills: ["substitution-method", "identify-quadratic"]
         },
         {
@@ -329,7 +329,7 @@ export const practiceTest4 = {
           difficulty: 'hard',
           question: 'The function $g$ is defined by $g(x) = (x + 12)(t - x)$, where $t$ is a constant. In the $xy$-plane, the graph of $y = g(x)$ passes through the point $(20, 0)$. What is the value of $g(0)$?',
           correctAnswer: '240',
-          explanation: 'Since $g(20) = 0$: $(20 + 12)(t - 20) = 0$. So $32(t - 20) = 0$, meaning $t = 20$. Therefore, $g(x) = (x + 12)(20 - x)$. $g(0) = (0 + 12)(20 - 0) = 12 \\times 20 = 240$.',
+          explanation: '**The correct answer is $240$.** Use the given point to find $t$, then evaluate $g(0)$.\n\n**Step 1: Use the point $(20, 0)$ to find $t$**\n$g(20) = 0$\n$(20 + 12)(t - 20) = 0$\n$32(t - 20) = 0$\n\nSince $32 \\neq 0$, we get $t - 20 = 0$, so $t = 20$.\n\n**Step 2: Write the complete function**\n$g(x) = (x + 12)(20 - x)$\n\n**Step 3: Evaluate $g(0)$**\n$g(0) = (0 + 12)(20 - 0) = 12 \\times 20 = 240$\n\n**Verification:** $g(20) = (32)(0) = 0$ ✓, confirming the graph passes through $(20, 0)$.\n\n**Key concept:** If a function passes through $(a, 0)$, then $f(a) = 0$. Use this condition to solve for unknown constants.',
           skills: ["finding-function-from-conditions", "function-evaluation"]
         }
       ]
@@ -364,7 +364,7 @@ export const practiceTest4 = {
             { id: 'D', text: '$500$' }
           ],
           correctAnswer: 'B',
-          explanation: 'The slope is $\\frac{80}{400} = 0.2$ kPa per kelvin. At $500$ kelvins: $y = 0.2 \\times 500 = 100$ kPa.',
+          explanation: '**Choice B is correct.** Find the equation of the line, then evaluate at $x = 500$.\n\n**Step 1: Find the slope**\nUsing the points $(0, 0)$ and $(400, 80)$:\n$\\text{slope} = \\frac{80 - 0}{400 - 0} = \\frac{80}{400} = 0.2$ kPa per kelvin.\n\n**Step 2: Write the equation**\nSince the line passes through the origin: $y = 0.2x$.\n\n**Step 3: Evaluate at $x = 500$**\n$y = 0.2 \\times 500 = 100$ kPa.\n\n**Why other choices are incorrect:**\n• Choice A ($80$): This is the pressure at $400$ K, not $500$ K\n• Choice C ($400$): This is a temperature value, not a pressure\n• Choice D ($500$): This is the input temperature, not the output pressure\n\n**Key concept:** For a linear relationship through the origin, $y = mx$. The slope $m = \\frac{\\Delta y}{\\Delta x}$ gives the rate of change.',
           skills: ["slope-intercept-form", "function-evaluation"]
         },
         {
@@ -379,7 +379,7 @@ export const practiceTest4 = {
             { id: 'D', text: 'The object traveling at $12{,}500$ meters per second has a kinetic energy of $25$ joules.' }
           ],
           correctAnswer: 'A',
-          explanation: '$K(25) = 2{,}500$ means that when $v = 25$ (speed is $25$ m/s), the kinetic energy $K$ is $2{,}500$ joules.',
+          explanation: '**Choice A is correct.** Interpret function notation in context.\n\n**Step 1: Identify the input and output**\nIn $K(v) = 4v^2$, the input $v$ is the speed in m/s, and the output $K(v)$ is the kinetic energy in joules.\n\n**Step 2: Interpret $K(25) = 2{,}500$**\n$v = 25$ means the speed is $25$ m/s. $K(25) = 2{,}500$ means the kinetic energy is $2{,}500$ joules at that speed.\n\n**Why other choices are incorrect:**\n• Choice B: Uses $250$ m/s, but the input is $25$, not $250$\n• Choice C: Swaps the input and output ($2{,}500$ is the energy, not the speed)\n• Choice D: Uses $12{,}500$ m/s, which has no basis in the function\n\n**Verification:** $K(25) = 4(25)^2 = 4(625) = 2{,}500$ ✓\n\n**Key concept:** In $f(a) = b$, $a$ is the input and $b$ is the output. Interpret each in the context of what the variables represent.',
           skills: ["function-notation", "function-evaluation"]
         },
         {
@@ -409,7 +409,7 @@ export const practiceTest4 = {
             { id: 'D', text: '$900$' }
           ],
           correctAnswer: 'C',
-          explanation: '$25\\%$ of $360 = 0.25 \\times 360 = 90$.',
+          explanation: '**Choice C is correct.** Calculate $25\\%$ of $360$.\n\n**Step 1: Convert the percentage**\n$25\\% = \\frac{25}{100} = 0.25$\n\n**Step 2: Multiply**\n$0.25 \\times 360 = 90$\n\n**Quick method:** $25\\%$ is one-quarter, so $\\frac{360}{4} = 90$.\n\n**Why other choices are incorrect:**\n• Choice A ($36$): This is $10\\%$ of $360$\n• Choice B ($72$): This is $20\\%$ of $360$\n• Choice D ($900$): This is $250\\%$ of $360$ (multiplied by $2.5$ instead of $0.25$)\n\n**Key concept:** $25\\% = \\frac{1}{4}$. To find $25\\%$ of any number, divide by $4$.',
           skills: ["percent-of-value"]
         },
         {
@@ -471,7 +471,7 @@ export const practiceTest4 = {
           difficulty: 'medium',
           question: 'What is the slope of the graph of $y = \\frac{1}{4}(24x + 8) + 3x$ in the $xy$-plane?',
           correctAnswer: '9',
-          explanation: 'Simplify: $y = \\frac{1}{4}(24x) + \\frac{1}{4}(8) + 3x = 6x + 2 + 3x = 9x + 2$. The slope is $9$.',
+          explanation: '**The correct answer is $9$.** Simplify the equation to slope-intercept form.\n\n**Step 1: Distribute $\\frac{1}{4}$**\n$y = \\frac{1}{4}(24x) + \\frac{1}{4}(8) + 3x = 6x + 2 + 3x$\n\n**Step 2: Combine like terms**\n$y = (6x + 3x) + 2 = 9x + 2$\n\n**Step 3: Read the slope**\nIn $y = 9x + 2$, the coefficient of $x$ is $9$, so the slope is $9$.\n\n**Key concept:** To find the slope from any equation, simplify to $y = mx + b$ form. The coefficient $m$ is the slope.',
           skills: ["slope-intercept-form", "equivalent-expressions"]
         },
         {
@@ -536,7 +536,7 @@ export const practiceTest4 = {
           difficulty: 'medium',
           question: '$(d - 25)(d + 25) - 9 = -9$\n\nWhat is a solution to the given equation?',
           correctAnswer: '25',
-          explanation: 'Adding $9$ to both sides: $(d - 25)(d + 25) = 0$. This means $d - 25 = 0$ or $d + 25 = 0$. So $d = 25$ or $d = -25$. Both are valid solutions; $25$ is one of them.',
+          explanation: '**The correct answer is $25$ (or $-25$).** Simplify the equation, then apply the zero-product property.\n\n**Step 1: Add $9$ to both sides**\n$(d - 25)(d + 25) - 9 + 9 = -9 + 9$\n$(d - 25)(d + 25) = 0$\n\n**Step 2: Apply the zero-product property**\n$d - 25 = 0$ or $d + 25 = 0$\n$d = 25$ or $d = -25$\n\n**Verification:** For $d = 25$: $(25 - 25)(25 + 25) - 9 = (0)(50) - 9 = -9$ ✓\nFor $d = -25$: $(-25 - 25)(-25 + 25) - 9 = (-50)(0) - 9 = -9$ ✓\n\n**Key concept:** Notice that $(d - 25)(d + 25)$ is a difference-of-squares pattern: $d^2 - 625$. The $-9$ on both sides cancels, leaving a product equal to zero.',
           skills: ["difference-of-squares"]
         },
         {
@@ -575,7 +575,7 @@ export const practiceTest4 = {
             { id: 'D', text: '$80$' }
           ],
           correctAnswer: 'A',
-          explanation: '$81 = 3^4$, so $3^{2x} = 3^4$. Therefore $2x = 4$, giving $x = 2$. Thus $5x = 5(2) = 10$.',
+          explanation: '**Choice A is correct.** Express both sides with the same base, then solve.\n\n**Step 1: Rewrite $81$ as a power of $3$**\n$81 = 3^4$\n\n**Step 2: Set the exponents equal**\n$3^{2x} = 3^4$\n$2x = 4$\n$x = 2$\n\n**Step 3: Find $5x$**\n$5x = 5(2) = 10$\n\n**Why other choices are incorrect:**\n• Choice B ($20$): Uses $x = 4$ instead of $x = 2$ (forgot to divide by $2$)\n• Choice C ($40$): Uses $x = 8$ — no mathematical basis\n• Choice D ($80$): Confuses $81$ with $5x$\n\n**Verification:** $3^{2(2)} = 3^4 = 81$ ✓\n\n**Key concept:** When solving $a^{f(x)} = a^n$, set $f(x) = n$. First express both sides with the same base.',
           skills: ["exponent-laws"]
         },
         {
@@ -617,7 +617,7 @@ export const practiceTest4 = {
           difficulty: 'hard',
           question: 'A flat surface consists of two adjacent squares, where the side length, in meters, of the larger square is $4$ times the side length of the smaller square. A uniform field with strength $18.00$ units per square meter passes through this surface perpendicular to it. The total flux through both squares together is $4{,}590$ units. What is the flux, in units, through the larger square only?',
           correctAnswer: '4320',
-          explanation: 'Let $s$ = side length of smaller square. Larger square has side $4s$. Area of smaller $= s^2$. Area of larger $= (4s)^2 = 16s^2$. Total area $= s^2 + 16s^2 = 17s^2$. Total flux = field strength × total area $= 18 \\times 17s^2 = 4590$. So $306s^2 = 4590$, giving $s^2 = 15$. Flux through larger square $= 18 \\times 16s^2 = 18 \\times 16 \\times 15 = 18 \\times 240 = 4{,}320$ units.',
+          explanation: '**The correct answer is $4{,}320$.** Set up equations relating the areas and flux.\n\n**Step 1: Define variables and areas**\nLet $s$ = side length of the smaller square.\n• Smaller square area $= s^2$\n• Larger square area $= (4s)^2 = 16s^2$\n• Total area $= s^2 + 16s^2 = 17s^2$\n\n**Step 2: Find $s^2$ from the total flux**\nFlux $=$ field strength $\\times$ area:\n$18 \\times 17s^2 = 4{,}590$\n$306s^2 = 4{,}590$\n$s^2 = 15$\n\n**Step 3: Calculate the flux through the larger square**\nFlux through larger $= 18 \\times 16s^2 = 18 \\times 16 \\times 15 = 18 \\times 240 = 4{,}320$ units.\n\n**Verification:** Flux through smaller $= 18 \\times 15 = 270$. Total $= 4{,}320 + 270 = 4{,}590$ ✓.\n\n**Key concept:** When a scale factor of $4$ applies to the side, the area scales by $4^2 = 16$. Flux through a surface $=$ field strength $\\times$ area.',
           skills: ["word-problem-to-equation", "dimensional-analysis"]
         },
         {

@@ -22,7 +22,7 @@ export const practiceTest6 = {
             { id: 'D', text: '$(32, 4)$' }
           ],
           correctAnswer: 'A',
-          explanation: 'Substituting $r = 4$ into the first equation: $s + 5(4) = 32$, so $s + 20 = 32$, giving $s = 12$. The solution is $(r, s) = (4, 12)$.',
+          explanation: '**Choice A is correct.** Substitute the known value and solve.\n\n**Step 1: Substitute $r = 4$ into the first equation**\n$s + 5(4) = 32$\n$s + 20 = 32$\n$s = 12$\n\n**Step 2: Write the solution**\nThe solution is $(r, s) = (4, 12)$.\n\n**Why other choices are incorrect:**\n• Choice B $(12, 4)$: Swaps $r$ and $s$ — the order is $(r, s)$, not $(s, r)$\n• Choice C $(4, 32)$: Uses the constant $32$ as $s$ without solving\n• Choice D $(32, 4)$: Uses $32$ as $r$ and $4$ as $s$\n\n**Verification:** $12 + 5(4) = 12 + 20 = 32$ ✓\n\n**Key concept:** When one variable is given directly ($r = 4$), substitute it into the other equation to find the remaining variable.',
           skills: ["substitution-method", "linear-equations"]
         },
         {
@@ -60,7 +60,7 @@ export const practiceTest6 = {
             { id: 'D', text: '$\\frac{32}{x}$' }
           ],
           correctAnswer: 'B',
-          explanation: 'If the ratio of speakers to attendees is $1:32$, then for every $1$ speaker there are $32$ attendees. With $x$ speakers, there are $32x$ attendees.',
+          explanation: '**Choice B is correct.** Use the ratio to write an expression for the number of attendees.\n\n**Step 1: Interpret the ratio**\nThe ratio of speakers to attendees is $1:32$. This means for every $1$ speaker, there are $32$ attendees.\n\n**Step 2: Write the expression**\nIf there are $x$ speakers, multiply by $32$ to find the number of attendees:\n$$\\text{Attendees} = 32x$$\n\n**Why other choices are incorrect:**\n• Choice A ($\\frac{x}{32}$): Divides speakers by $32$, which would give fewer attendees than speakers\n• Choice C ($x + 32$): Adds $32$ instead of multiplying — this only works if there is exactly $1$ speaker\n• Choice D ($\\frac{32}{x}$): This gives a decreasing value as speakers increase, which contradicts the proportional relationship\n\n**Key concept:** A ratio of $1:32$ means the second quantity is $32$ times the first. If the first quantity is $x$, the second is $32x$.',
           skills: ["word-problem-to-equation"]
         },
         {
@@ -83,7 +83,7 @@ export const practiceTest6 = {
             { id: 'D', text: 'The value of $x$ cannot be determined.' }
           ],
           correctAnswer: 'C',
-          explanation: 'When a transversal crosses parallel lines, corresponding angles are equal. If the angle at line $m$ is $132°$, the corresponding angle at line $n$ is also $132°$.',
+          explanation: '**Choice C is correct.** Apply the corresponding angles postulate for parallel lines cut by a transversal.\n\n**Step 1: Identify the angle relationship**\nWhen a transversal (line $k$) crosses two parallel lines ($m$ and $n$), it creates corresponding angles — angles in the same position at each intersection.\n\n**Step 2: Apply the postulate**\nCorresponding angles formed by a transversal cutting parallel lines are equal. The angle at line $m$ is $132°$, and $x°$ is the corresponding angle at line $n$ on the same side. Therefore $x = 132$.\n\n**Why other choices are incorrect:**\n• Choice A (less than $132$): Corresponding angles are equal, not smaller\n• Choice B (greater than $132$): Corresponding angles are equal, not larger\n• Choice D (cannot be determined): The angle can be determined because the lines are parallel\n\n**Key concept:** When parallel lines are cut by a transversal, corresponding angles are congruent. Alternate interior angles are also congruent, and co-interior (same-side interior) angles are supplementary ($180°$).',
           skills: ["triangle-angle-sum"]
         },
         {
@@ -110,7 +110,7 @@ export const practiceTest6 = {
             { id: 'D', text: '$(0, 10)$' }
           ],
           correctAnswer: 'B',
-          explanation: 'The $y$-intercept is the point where the line crosses the $y$-axis, which occurs at $x = 0$. The line passes through $(0, -5)$, so the $y$-intercept is $(0, -5)$.',
+          explanation: '**Choice B is correct.** Read the $y$-intercept directly from the graph.\n\n**Step 1: Recall the definition of $y$-intercept**\nThe $y$-intercept is the point where the graph crosses the $y$-axis. At this point, $x = 0$.\n\n**Step 2: Read the graph at $x = 0$**\nThe line crosses the $y$-axis at $y = -5$, so the $y$-intercept is the point $(0, -5)$.\n\n**Why other choices are incorrect:**\n• Choice A $(0, 0)$: The line does not pass through the origin\n• Choice C $(0, 5)$: This has the wrong sign — the line crosses below the $x$-axis\n• Choice D $(0, 10)$: The line is nowhere near $y = 10$ when $x = 0$\n\n**Key concept:** The $y$-intercept is always written as a point $(0, b)$ and can be read from a graph by finding where the line meets the $y$-axis. In slope-intercept form $y = mx + b$, the value $b$ is the $y$-intercept.',
           skills: ["slope-intercept-form"]
         },
         {
@@ -119,7 +119,7 @@ export const practiceTest6 = {
           difficulty: 'easy',
           question: 'A store sells two different-sized containers of almonds. The store\'s sales of these almonds totaled \\$725.40 last month. The equation $3.85x + 5.45y = 725.40$ represents this situation, where $x$ is the number of smaller containers sold and $y$ is the number of larger containers sold. According to the equation, what is the price, in dollars, of each smaller container?',
           correctAnswer: '3.85',
-          explanation: 'In the equation $3.85x + 5.45y = 725.40$, the coefficient of $x$ (which represents the number of smaller containers) is the price per smaller container. Therefore, the price of each smaller container is \\$3.85.',
+          explanation: '**The correct answer is $3.85$.** Interpret the coefficient of $x$ in the context of the equation.\n\n**Step 1: Understand the equation structure**\nThe equation $3.85x + 5.45y = 725.40$ represents total sales, where:\n• $x$ = number of smaller containers sold\n• $y$ = number of larger containers sold\n• $725.40$ = total revenue in dollars\n\n**Step 2: Identify the meaning of each coefficient**\nIn a revenue equation of the form $\\text{(price}_1\\text{)(quantity}_1\\text{)} + \\text{(price}_2\\text{)(quantity}_2\\text{)} = \\text{total}$:\n• $3.85$ is multiplied by $x$ (smaller containers), so $3.85$ is the price per smaller container\n• $5.45$ is the price per larger container\n\n**Verification:** If $10$ small and $100$ large containers were sold: $3.85(10) + 5.45(100) = 38.50 + 545 = 583.50$ — the coefficient correctly gives the per-unit price.\n\n**Key concept:** In a linear cost/revenue equation, the coefficient of each variable represents the per-unit rate for that item.',
           skills: ["word-problem-to-equation", "linear-equations"]
         },
         {
@@ -197,7 +197,7 @@ export const practiceTest6 = {
             { id: 'D', text: '$2{,}592\\pi$' }
           ],
           correctAnswer: 'C',
-          explanation: 'The volume of a cylinder is $V = \\pi r^2 h$. The radius is half the diameter: $r = \\frac{18}{2} = 9$ cm. $V = \\pi(9)^2(8) = \\pi(81)(8) = 648\\pi$ cubic centimeters.',
+          explanation: '**Choice C is correct.** Use the cylinder volume formula with the given dimensions.\n\n**Step 1: Find the radius**\nThe diameter is $18$ cm, so the radius is:\n$$r = \\frac{18}{2} = 9 \\text{ cm}$$\n\n**Step 2: Apply the volume formula**\n$$V = \\pi r^2 h = \\pi(9)^2(8) = \\pi(81)(8) = 648\\pi$$\n\n**Why other choices are incorrect:**\n• Choice A ($144\\pi$): Uses $r = 18$ and $h = 8$ incorrectly, or $r = 12$ with wrong height\n• Choice B ($288\\pi$): Likely uses $r = 6$ (one-third of diameter instead of half)\n• Choice D ($2{,}592\\pi$): Uses the diameter ($18$) instead of the radius\n\n**Key concept:** The volume of a cylinder is $V = \\pi r^2 h$. Always use the radius (half the diameter), not the diameter itself. This formula is provided on the SAT reference sheet.',
           skills: ["volume-prism"]
         },
         {
@@ -235,7 +235,7 @@ export const practiceTest6 = {
             { id: 'D', text: '$(6, 9)$' }
           ],
           correctAnswer: 'B',
-          explanation: 'The intersection points of a line and a parabola are the solutions to the system. By examining where the line $y = x + 3$ intersects the downward parabola with vertex at $(3, 6)$, one intersection occurs at $(3, 6)$. We can verify: the line at $x = 3$ gives $y = 3 + 3 = 6$, which matches the vertex of the parabola.',
+          explanation: '**Choice B is correct.** Find the intersection point where $x > 0$ from the graph.\n\n**Step 1: Identify the intersection points**\nThe graph shows a line and a downward-opening parabola. They intersect at two points: $(0, 3)$ and $(3, 6)$.\n\n**Step 2: Apply the constraint $x > 0$**\nThe question asks for the solution where $x > 0$. Since $x = 0$ is not positive, the answer is $(3, 6)$.\n\n**Step 3: Verify algebraically**\nThe line has equation $y = x + 3$ (passes through $(0, 3)$ with slope $1$). At $x = 3$: $y = 3 + 3 = 6$ ✓\nThe parabola has vertex $(3, 6)$, so $f(3) = 6$ ✓\nBoth curves pass through $(3, 6)$, confirming it is an intersection point.\n\n**Why other choices are incorrect:**\n• Choice A $(0, 3)$: This is the other intersection, but $x = 0$ is not positive\n• Choice C $(6, 3)$: Swaps the coordinates of $(3, 6)$\n• Choice D $(6, 9)$: On the line ($9 = 6 + 3$), but not on the parabola\n\n**Key concept:** Solutions to a system of equations are the intersection points of their graphs. When there are multiple intersections, use the given constraint to select the correct one.',
           skills: ["graphing-systems", "identify-quadratic"]
         },
         {
@@ -293,7 +293,7 @@ export const practiceTest6 = {
             { id: 'D', text: '$6$' }
           ],
           correctAnswer: 'A',
-          explanation: 'From the graph, the parabola crosses the $x$-axis at $x = 1$ and $x = 5$. Using factored form:\n\n$f(x) = (x - 1)(x - 5)$\n\nExpanding:\n\n$f(x) = x^2 - 6x + 5$\n\nComparing with $f(x) = x^2 + bx + c$, we get $b = -6$.',
+          explanation: '**Choice A is correct.** Use the $x$-intercepts from the graph to find $b$.\n\n**Step 1: Read the $x$-intercepts from the graph**\nThe parabola crosses the $x$-axis at $x = 1$ and $x = 5$.\n\n**Step 2: Write the factored form**\nSince the leading coefficient is $1$ (from $f(x) = x^2 + bx + c$):\n$$f(x) = (x - 1)(x - 5)$$\n\n**Step 3: Expand and compare**\n$$f(x) = x^2 - 5x - x + 5 = x^2 - 6x + 5$$\nComparing with $f(x) = x^2 + bx + c$: $b = -6$ and $c = 5$.\n\n**Why other choices are incorrect:**\n• Choice B ($-5$): This is the negative sum using incorrect roots\n• Choice C ($5$): Wrong sign — the sum of the roots is $1 + 5 = 6$, but $b = -(\\text{sum of roots}) = -6$\n• Choice D ($6$): Wrong sign — $b$ is the negative of the sum of the roots\n\n**Key concept:** For $f(x) = x^2 + bx + c$ with roots $r_1$ and $r_2$: $b = -(r_1 + r_2)$ and $c = r_1 \\cdot r_2$. This comes from Vieta\'s formulas.',
           skills: ["finding-roots-factoring", "identify-quadratic"]
         },
         {
@@ -377,7 +377,7 @@ export const practiceTest6 = {
             { id: 'D', text: '$5x^3 + 1$' }
           ],
           correctAnswer: 'B',
-          explanation: '$(6x^3 + 5) - (x^3 - 4) = 6x^3 + 5 - x^3 + 4 = 5x^3 + 9$.',
+          explanation: '**Choice B is correct.** Distribute the negative sign and combine like terms.\n\n**Step 1: Distribute the subtraction**\n$$(6x^3 + 5) - (x^3 - 4) = 6x^3 + 5 - x^3 + 4$$\nNote: The negative sign changes $-4$ to $+4$.\n\n**Step 2: Combine like terms**\n$$6x^3 - x^3 + 5 + 4 = 5x^3 + 9$$\n\n**Why other choices are incorrect:**\n• Choice A ($6x^3 + 1$): Forgot to distribute the negative to $-4$, getting $5 - 4 = 1$ instead of $5 + 4 = 9$\n• Choice C ($6x^3 + 9$): Got the constant right but forgot to subtract $x^3$ from $6x^3$\n• Choice D ($5x^3 + 1$): Made both errors — subtracted $x^3$ correctly but forgot to flip the sign of $-4$\n\n**Key concept:** When subtracting polynomials, distribute the negative sign to every term in the second polynomial before combining like terms.',
           skills: ["combining-like-terms"]
         },
         {
@@ -428,7 +428,7 @@ export const practiceTest6 = {
             { id: 'D', text: '$c = 30x + 15$' }
           ],
           correctAnswer: 'D',
-          explanation: 'The dog should eat $30$ calories per pound ($30x$) plus an additional $15$ calories. Total: $c = 30x + 15$.',
+          explanation: '**Choice D is correct.** Translate the word problem into an equation.\n\n**Step 1: Identify the components**\n• $30$ calories per pound of weight → $30x$ (where $x$ is the weight in pounds)\n• Plus an additional $15$ calories → $+ 15$\n\n**Step 2: Write the equation**\n$$c = 30x + 15$$\n\n**Verification:** For a $10$-pound dog: $c = 30(10) + 15 = 300 + 15 = 315$ calories. This makes sense — $300$ calories for weight plus $15$ extra.\n\n**Why other choices are incorrect:**\n• Choice A ($c = 30x$): Missing the additional $15$ calories\n• Choice B ($c = 45x$): Incorrectly adds $30 + 15 = 45$ as the rate per pound\n• Choice C ($c = 15x + 30$): Swaps the rate and the constant — $15$ should be the flat addition, not the per-pound rate\n\n**Key concept:** In linear equations of the form $y = mx + b$, the coefficient $m$ represents the rate (per unit) and $b$ is the fixed constant. Match each number to its role in the word problem.',
           skills: ["word-problem-to-equation", "slope-intercept-form"]
         },
         {
@@ -443,7 +443,7 @@ export const practiceTest6 = {
             { id: 'D', text: 'There is not enough information to compare the means.' }
           ],
           correctAnswer: 'A',
-          explanation: 'Original mean $= \\frac{82 + 78 + 85 + 74 + 81}{5} = \\frac{400}{5} = 80$. New mean $= \\frac{400 + 60}{6} = \\frac{460}{6} \\approx 76.67$. The original mean ($80$) is greater than the new mean ($76.67$).',
+          explanation: '**Choice A is correct.** Calculate both means and compare.\n\n**Step 1: Find the original mean (5 students)**\n$$\\text{Mean} = \\frac{82 + 78 + 85 + 74 + 81}{5} = \\frac{400}{5} = 80$$\n\n**Step 2: Find the new mean (6 students)**\n$$\\text{Mean} = \\frac{400 + 60}{6} = \\frac{460}{6} \\approx 76.67$$\n\n**Step 3: Compare**\nThe original mean ($80$) is greater than the new mean ($76.67$).\n\n**Why other choices are incorrect:**\n• Choice B: The original mean is greater, not less\n• Choice C: $80 \\neq 76.67$, so the means are not equal\n• Choice D: There is enough information — we can compute both means exactly\n\n**Key concept:** Adding a value below the current mean will always pull the mean down. Since $60 < 80$ (the original mean), the new mean must be lower.',
           skills: ["find-mean"]
         },
         {
@@ -498,7 +498,7 @@ export const practiceTest6 = {
             { id: 'D', text: 'The ball was thrown from a height of $2.4$ feet.' }
           ],
           correctAnswer: 'B',
-          explanation: 'The $x$-intercept represents where $y = 0$, meaning the ball\'s height above the ground is $0$. This is when the ball hits the ground, which occurs at $2.4$ seconds.',
+          explanation: '**Choice B is correct.** Interpret the $x$-intercept in context.\n\n**Step 1: Recall what the $x$-intercept means**\nThe $x$-intercept is the point where the graph crosses the $x$-axis, meaning $y = 0$. In this context, $y$ represents the height above the ground, so $y = 0$ means the ball is at ground level.\n\n**Step 2: Apply to the problem**\nThe $x$-intercept occurs at $x = 2.4$ seconds, meaning the ball\'s height is $0$ feet at $2.4$ seconds. This is when the ball hits the ground.\n\n**Why other choices are incorrect:**\n• Choice A: The maximum height occurs at the vertex (peak) of the parabola, not the $x$-intercept\n• Choice C: $0.4$ seconds is not the $x$-intercept value, and the maximum height is at the vertex\n• Choice D: The height the ball was thrown from is the $y$-intercept (where $x = 0$), not the $x$-intercept\n\n**Key concept:** For projectile motion graphs, the $x$-intercept represents when the object hits the ground ($\\text{height} = 0$), the vertex represents maximum height, and the $y$-intercept represents the initial height.',
           skills: ["identify-quadratic", "parabola-direction"]
         },
         {
@@ -522,7 +522,7 @@ export const practiceTest6 = {
           difficulty: 'medium',
           question: 'The length of each edge of a cube is $24$ inches. The cube does not have a lid on top. What is the exterior surface area, in square inches, of this cube without a lid?',
           correctAnswer: '2880',
-          explanation: 'A cube without a lid has $5$ faces. Each face has area $24^2 = 576$ square inches. Total surface area $= 5 \\times 576 = 2{,}880$ square inches.',
+          explanation: '**The correct answer is $2{,}880$.** Calculate the surface area of a cube missing one face.\n\n**Step 1: Find the area of one face**\nEach face of the cube is a square with side length $24$ inches:\n$$\\text{Area of one face} = 24^2 = 576 \\text{ square inches}$$\n\n**Step 2: Count the exposed faces**\nA complete cube has $6$ faces. Removing the lid (top face) leaves $5$ faces.\n\n**Step 3: Calculate total surface area**\n$$\\text{Surface area} = 5 \\times 576 = 2{,}880 \\text{ square inches}$$\n\n**Verification:** A full cube would have $6 \\times 576 = 3{,}456$ sq in. Removing one face: $3{,}456 - 576 = 2{,}880$ sq in ✓\n\n**Key concept:** A cube has $6$ identical square faces with area $s^2$ each. Total surface area of a full cube is $6s^2$. For a cube without a lid, use $5s^2$.',
           skills: ["volume-prism", "dimensional-analysis"]
         },
         {
@@ -699,7 +699,7 @@ export const practiceTest6 = {
             { id: 'D', text: '$(2, -1)$' }
           ],
           correctAnswer: 'C',
-          explanation: 'The radius from center $(1, 2)$ to tangent point $(4, -1)$ has slope $= \\frac{-1 - 2}{4 - 1} = \\frac{-3}{3} = -1$. A tangent line is perpendicular to the radius, so its slope is the negative reciprocal: $1$. Line $m$ passes through $(4, -1)$ with slope $1$: $y - (-1) = 1(x - 4)$, so $y = x - 5$. Check $(10, 5)$: $y = 10 - 5 = 5$ ✓. The point $(10, 5)$ lies on line $m$.',
+          explanation: '**Choice C is correct.** Use the relationship between a radius and a tangent line to find the equation of line $m$.\n\n**Step 1: Find the slope of the radius**\nThe radius goes from center $(1, 2)$ to tangent point $(4, -1)$:\n$$\\text{slope of radius} = \\frac{-1 - 2}{4 - 1} = \\frac{-3}{3} = -1$$\n\n**Step 2: Find the slope of the tangent line**\nA tangent line is perpendicular to the radius at the point of tangency. Perpendicular slopes are negative reciprocals:\n$$\\text{slope of line } m = -\\frac{1}{-1} = 1$$\n\n**Step 3: Write the equation of line $m$**\nUsing point-slope form with point $(4, -1)$ and slope $1$:\n$$y - (-1) = 1(x - 4) \\implies y = x - 5$$\n\n**Step 4: Verify $(10, 5)$ lies on line $m$**\n$$y = 10 - 5 = 5 \\checkmark$$\nThe point $(10, 5)$ satisfies $y = x - 5$, so it lies on line $m$.\n\n**Why Choice D is incorrect:**\n• Choice D $(2, -1)$: $y = 2 - 5 = -3 \\neq -1$ ✗ — does not lie on line $m$\n\n**Key concept:** A tangent to a circle is perpendicular to the radius at the point of tangency. Use this to find the tangent line\'s slope, then write the equation using point-slope form.',
           skills: ["circle-equation", "perpendicular-negative-reciprocal"]
         },
         {
@@ -714,7 +714,7 @@ export const practiceTest6 = {
             { id: 'D', text: '$72$' }
           ],
           correctAnswer: 'B',
-          explanation: 'In the model $P(t) = 180(1.03)^{\\frac{12t}{n}}$, the base $1.03$ represents a $3\\%$ increase, and the exponent $\\frac{12t}{n}$ represents the number of $n$-month periods in $t$ years. Since there are $12$ months in a year, in $t$ years there are $12t$ months, and therefore $\\frac{12t}{n}$ periods of $n$ months each. For a $3\\%$ increase every $n$ months, after $1$ year ($t = 1$), the exponent should equal $\\frac{12}{n}$ periods. If $n = 12$, then after $1$ year we have $(1.03)^{\\frac{12}{12}} = 1.03$, meaning exactly one $3\\%$ increase per year. Therefore $n = 12$ months.',
+          explanation: '**Choice B is correct.** Interpret the exponent in the exponential model to find $n$.\n\n**Step 1: Understand the model structure**\nThe function $P(t) = 180(1.03)^{\\frac{12t}{n}}$ means:\n• Initial population: $180$ thousand\n• Growth factor per period: $1.03$ (a $3\\%$ increase)\n• The exponent $\\frac{12t}{n}$ counts the number of growth periods in $t$ years\n\n**Step 2: Match the exponent to the growth period**\nSince $t$ is in years, $12t$ converts years to months. Dividing by $n$ gives the number of $n$-month intervals. Each interval produces one $3\\%$ increase.\n\nThe problem states the population increases by $3\\%$ every $n$ months — meaning one application of the $1.03$ factor per $n$-month period.\n\n**Step 3: Verify with $n = 12$**\n• After $1$ year ($t = 1$): exponent $= \\frac{12(1)}{12} = 1$\n• $P(1) = 180(1.03)^1$ — one $3\\%$ increase per year ✓\n• After $2$ years ($t = 2$): exponent $= \\frac{24}{12} = 2$ — two increases ✓\n\n**Why other choices are incorrect:**\n• Choice A ($n = 8$): Would give $\\frac{12}{8} = 1.5$ increases per year\n• Choice C ($n = 18$): Would give $\\frac{12}{18} = \\frac{2}{3}$ increases per year\n• Choice D ($n = 72$): Would give $\\frac{12}{72} = \\frac{1}{6}$ increases per year\n\n**Key concept:** In exponential models $P(t) = P_0 \\cdot r^{\\frac{t}{\\text{period}}}$, the exponent counts the number of growth periods elapsed.',
           skills: ["exponential-growth-decay"]
         },
         {

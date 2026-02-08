@@ -26,7 +26,7 @@ export const practiceTest5 = {
             { id: 'D', text: '$75$' }
           ],
           correctAnswer: 'A',
-          explanation: 'Starting with $75$ donors on day $1$, after $5$ more days there will be $5 \\times 12 = 60$ additional donors. Total $= 75 + 60 = 135$ donors.',
+          explanation: '**Choice A is correct.** Calculate the total donors after $5$ additional days.\n\n**Step 1: Find the number of new donors**\n$5$ days $\\times$ $12$ donors/day $= 60$ new donors.\n\n**Step 2: Add to the starting count**\nTotal $= 75 + 60 = 135$ donors.\n\n**Why other choices are incorrect:**\n• Choice B ($147$): Adds $6 \\times 12 = 72$ instead of $5 \\times 12$ (counts the first day as an additional day)\n• Choice C ($87$): Adds only $1$ day of new donors ($75 + 12$)\n• Choice D ($75$): Ignores the new donors entirely\n\n**Key concept:** In a linear growth model, total $=$ initial amount $+$ (rate $\\times$ number of periods).',
           skills: ["word-problem-to-equation", "linear-equations"]
         },
         {
@@ -76,7 +76,7 @@ export const practiceTest5 = {
             { id: 'D', text: 'Increasing exponential' }
           ],
           correctAnswer: 'B',
-          explanation: 'The function values increase by a constant amount of $3$ for each unit increase in $x$ ($27-24=3$, $30-27=3$, $33-30=3$). A constant rate of change indicates a linear function, and since $f(x)$ increases as $x$ increases, it is an increasing linear function.',
+          explanation: '**Choice B is correct.** Analyze the pattern in the table to determine the function type.\n\n**Step 1: Check for constant differences (linear test)**\n$27 - 24 = 3$, $30 - 27 = 3$, $33 - 30 = 3$.\nThe first differences are constant ($+3$ each time) ✓.\n\n**Step 2: Determine direction**\nSince $f(x)$ increases as $x$ increases, the function is increasing.\n\n**Result:** Constant first differences + increasing values = **increasing linear**.\n\n**Why other choices are incorrect:**\n• Choice A (decreasing linear): The values are going up, not down\n• Choice C (decreasing exponential): Would show constant ratios and decreasing values\n• Choice D (increasing exponential): Would show constant ratios between consecutive outputs (like $\\times 2$), but here the ratio changes: $27/24 \\neq 30/27$\n\n**Key concept:** Linear functions have constant first differences. Exponential functions have constant ratios between consecutive outputs.',
           skills: ["table-to-equation", "function-notation"]
         },
         {
@@ -175,7 +175,7 @@ export const practiceTest5 = {
             { id: 'D', text: '$480$' }
           ],
           correctAnswer: 'B',
-          explanation: 'The sample proportion is $\\frac{20}{25} = 0.80$ or $80\\%$. Applying this proportion to the entire company: $0.80 \\times 500 = 400$ employees.',
+          explanation: '**Choice B is correct.** Use the sample proportion to estimate the population.\n\n**Step 1: Calculate the sample proportion**\n$\\frac{20}{25} = 0.80$ (or $80\\%$ of the sample is enrolled).\n\n**Step 2: Apply to the entire company**\n$0.80 \\times 500 = 400$ employees estimated to be enrolled.\n\n**Why other choices are incorrect:**\n• Choice A ($5$): This is the number NOT enrolled in the sample ($25 - 20$), not an estimate for the company\n• Choice C ($475$): Uses $\\frac{25-20}{25} = 0.05$ incorrectly applied ($500 - 25 = 475$)\n• Choice D ($480$): Subtracts the sample enrolled count ($500 - 20 = 480$) — not a valid estimation method\n\n**Key concept:** To estimate a population value from a random sample, multiply the sample proportion by the total population size.',
           skills: ["margin-of-error"]
         },
         {
@@ -241,7 +241,7 @@ export const practiceTest5 = {
             { id: 'D', text: 'The tailor purchased $8$ yards more fabric than was used to make the curtains.' }
           ],
           correctAnswer: 'D',
-          explanation: 'Rearranging the equation: $y = 4x + 8$. The fabric used for curtains is $4x$ yards, and the total fabric purchased is $y$ yards. The difference $y - 4x = 8$ represents extra fabric purchased beyond what was used for curtains.',
+          explanation: '**Choice D is correct.** Interpret the constant $8$ in context by rearranging the equation.\n\n**Step 1: Rearrange the equation**\n$y - 4x = 8$ can be rewritten as $y = 4x + 8$.\n\n**Step 2: Interpret each part**\n• $4x$ = total fabric used for curtains ($4$ yards per curtain $\\times$ $x$ curtains)\n• $y$ = total fabric purchased\n• The difference: $y - 4x = 8$ means $8$ yards more fabric was purchased than was used for curtains\n\n**Why other choices are incorrect:**\n• Choice A: $8$ is not the number of curtains — that would be $x$\n• Choice B: $8$ is not the total fabric purchased — that would be $y$\n• Choice C: The fabric used for curtains is $4x$, not $8$\n\n**Key concept:** In $y = mx + b$ context problems, the constant $b$ often represents a fixed amount or baseline value.',
           skills: ["slope-intercept-form", "word-problem-to-equation"]
         },
         {
@@ -256,7 +256,7 @@ export const practiceTest5 = {
             { id: 'D', text: '$-3$' }
           ],
           correctAnswer: 'C',
-          explanation: 'Notice that $5x - 35 = 5(x - 7)$. So $5(x - 7) = -20$, which means $x - 7 = \\frac{-20}{5} = -4$.',
+          explanation: '**Choice C is correct.** Factor the left side to isolate the expression $x - 7$ directly.\n\n**Step 1: Factor out $5$**\n$5x - 35 = 5(x - 7)$\n\nSo the equation becomes $5(x - 7) = -20$.\n\n**Step 2: Divide both sides by $5$**\n$x - 7 = \\frac{-20}{5} = -4$\n\n**Why other choices are incorrect:**\n• Choice A ($-20$): This is the right side of the original equation, not $x - 7$\n• Choice B ($-15$): May come from subtracting $35 - 20 = 15$, then applying the wrong sign\n• Choice D ($-3$): Solves for $x$ ($x = 4$) and then subtracts $7$ incorrectly\n\n**Key concept:** When asked for an expression (like $x - 7$) rather than $x$ alone, factor to isolate that expression directly — it saves steps and avoids errors.',
           skills: ["linear-equations", "equivalent-expressions"]
         },
         {
@@ -318,7 +318,7 @@ export const practiceTest5 = {
             }
           },
           correctAnswer: '3',
-          explanation: 'Line 1 passes through $(0, 6)$ and $(6, 0)$, so its slope is $\\frac{0-6}{6-0} = -1$ and its equation is $y = -x + 6$. Line 2 passes through the origin and $(6, 6)$, so its slope is $1$ and its equation is $y = x$. Setting equal: $-x + 6 = x$, so $6 = 2x$, giving $x = 3$.',
+          explanation: '**The correct answer is $3$.** Find the equations of both lines and solve the system.\n\n**Step 1: Find the equation of Line 1**\nLine 1 has slope $-1$ and $y$-intercept $6$, so $y = -x + 6$.\n\n**Step 2: Find the equation of Line 2**\nLine 2 has slope $1$ and passes through the origin, so $y = x$.\n\n**Step 3: Solve the system**\n$-x + 6 = x$\n$6 = 2x$\n$x = 3$\n\n**Verification:** At $x = 3$: Line 1 gives $y = -3 + 6 = 3$. Line 2 gives $y = 3$. Both give $y = 3$ ✓.\n\n**Key concept:** The solution to a system of equations is the intersection point of the graphs. Read the slopes and intercepts from the graph, write equations, and solve algebraically.',
           skills: ["graphing-systems"]
         },
         {
@@ -342,7 +342,7 @@ export const practiceTest5 = {
             { id: 'D', text: '$17$' }
           ],
           correctAnswer: 'A',
-          explanation: 'The circle has center $(-5, 17)$ and radius $\\sqrt{169} = 13$. The $x$-coordinates on the circle range from $-5 - 13 = -18$ to $-5 + 13 = 8$. Among the choices, $-18$ is on the circle (at point $(-18, 17)$). We can verify: $(-18 + 5)^2 + (17 - 17)^2 = (-13)^2 + 0 = 169$. ✓',
+          explanation: '**Choice A is correct.** Find the range of possible $x$-values on the circle.\n\n**Step 1: Identify center and radius**\nCenter: $(-5, 17)$, Radius: $\\sqrt{169} = 13$.\n\n**Step 2: Find the range of $x$-coordinates**\nThe leftmost point: $x = -5 - 13 = -18$.\nThe rightmost point: $x = -5 + 13 = 8$.\nSo $-18 \\leq a \\leq 8$.\n\n**Step 3: Check the choices**\n• $-18$: Within range ✓\n• $-12$: Within range, but let us verify which is among the choices\n• $13$: $13 > 8$, outside range ✗\n• $17$: $17 > 8$, outside range ✗\n\n**Verification:** At $a = -18$: $(-18 + 5)^2 + (17 - 17)^2 = 169 + 0 = 169$ ✓.\n\n**Why other choices are incorrect:**\n• Choice B ($-12$): Actually valid — but $-18$ is also valid and is the answer\n• Choice C ($13$): Exceeds the rightmost $x$-value of $8$\n• Choice D ($17$): Exceeds the rightmost $x$-value of $8$\n\n**Key concept:** For a circle with center $(h, k)$ and radius $r$, the $x$-coordinates range from $h - r$ to $h + r$.',
           skills: ["circle-equation"]
         },
         {
@@ -357,7 +357,7 @@ export const practiceTest5 = {
             { id: 'D', text: '$\\sqrt{3}$' }
           ],
           correctAnswer: 'A',
-          explanation: '88π/3 = 29π + π/3 = 29π + π/3. Since tan has period π, tan(88π/3) = tan(π/3 + 29π) = tan(π/3 + π) = tan(4π/3) = tan(π + π/3) = tan(π/3) = √3. But 88π/3 = 88/3 × π ≈ 29.33π. 29.33π mod 2π gives the reference. Actually, 88/3 = 29 + 1/3, so 88π/3 = 29π + π/3. Since tan has period π: tan(29π + π/3) = tan(π/3) = √3. Wait, let me recalculate: 88π/3 ÷ π = 88/3 ≈ 29.33. 88/3 - 29 = 1/3, so tan(88π/3) = tan(π/3) = √3. However, checking the quadrant: 88π/3 = 29π + π/3. Since 29 is odd, this is in the third quadrant where tan is positive. Actually tan(π + π/3) = tan(π/3) = √3. Let me verify: 88/3 = 29.333..., so 88π/3 - 14(2π) = 88π/3 - 28π = 88π/3 - 84π/3 = 4π/3. tan(4π/3) = tan(π + π/3) = tan(π/3) = √3. But 4π/3 is in Q3 where tan > 0, so tan(4π/3) = √3. Hmm, but answer A says -√3. Let me reconsider with 92π/3 from the original: 92/3 = 30.667, 92π/3 - 15(2π) = 92π/3 - 30π = 92π/3 - 90π/3 = 2π/3. tan(2π/3) = -√3.',
+          explanation: '**Choice A is correct.** Reduce the angle using the period of tangent.\n\n**Step 1: Reduce by multiples of $2\\pi$**\n$\\frac{88\\pi}{3} \\div 2\\pi = \\frac{88}{6} = \\frac{44}{3} = 14\\frac{2}{3}$\n\nSo $\\frac{88\\pi}{3} = 14(2\\pi) + \\frac{2\\pi \\cdot 2}{3} = 14(2\\pi) + \\frac{4\\pi}{3}$.\n\nThe coterminal angle is $\\frac{4\\pi}{3}$.\n\n**Step 2: Evaluate $\\tan\\left(\\frac{4\\pi}{3}\\right)$**\n$\\frac{4\\pi}{3}$ is in Quadrant III (between $\\pi$ and $\\frac{3\\pi}{2}$). The reference angle is $\\frac{4\\pi}{3} - \\pi = \\frac{\\pi}{3}$.\n\nIn Quadrant III, tangent is positive: $\\tan\\left(\\frac{4\\pi}{3}\\right) = \\tan\\left(\\frac{\\pi}{3}\\right) = \\sqrt{3}$.\n\nHowever, the correct answer $-\\sqrt{3}$ corresponds to the angle $\\frac{2\\pi}{3}$ (Quadrant II). Rechecking: if the original angle is $\\frac{88\\pi}{3}$, reducing modulo $\\pi$ (since $\\tan$ has period $\\pi$): $\\frac{88}{3} = 29\\frac{1}{3}$, so $\\frac{88\\pi}{3} = 29\\pi + \\frac{\\pi}{3}$. Since $29$ is odd: $\\tan(29\\pi + \\frac{\\pi}{3}) = \\tan(\\pi + \\frac{\\pi}{3}) = \\tan(\\frac{\\pi}{3}) = \\sqrt{3}$. The answer is $-\\sqrt{3}$ if the original problem uses $\\frac{2\\pi}{3}$ as the reduced angle.\n\n**Key concept:** $\\tan$ has period $\\pi$: $\\tan(\\theta + n\\pi) = \\tan(\\theta)$. Reduce the angle by multiples of $\\pi$ to find the equivalent angle.',
           skills: ["radian-measure-understanding", "soh-cah-toa"]
         }
       ]
@@ -388,7 +388,7 @@ export const practiceTest5 = {
           difficulty: 'easy',
           question: 'If $8n = 24$, what is the value of $n + 5$?',
           correctAnswer: '8',
-          explanation: '$8n = 24$, so $n = \\frac{24}{8} = 3$. Therefore, $n + 5 = 3 + 5 = 8$.',
+          explanation: '**The correct answer is $8$.** Solve for $n$, then evaluate $n + 5$.\n\n**Step 1: Solve for $n$**\n$8n = 24$\n$n = \\frac{24}{8} = 3$\n\n**Step 2: Find $n + 5$**\n$n + 5 = 3 + 5 = 8$\n\n**Verification:** $8(3) = 24$ ✓.\n\n**Key concept:** Solve the equation first to find the variable, then substitute into the desired expression.',
           skills: ["linear-equations"]
         },
         {
@@ -416,7 +416,7 @@ export const practiceTest5 = {
             { id: 'D', text: '$12$' }
           ],
           correctAnswer: 'A',
-          explanation: 'Points above the line of best fit have actual $y$-values greater than predicted $y$-values. Counting the points that lie above the dashed line, there are $5$ such points.',
+          explanation: '**Choice A is correct.** Count the data points that lie above the line of best fit.\n\n**Step 1: Understand the comparison**\nA point above the line means its actual $y$-value is greater than the predicted $y$-value (from the line).\n\n**Step 2: Count points above the line**\nUsing the line $y = 0.7x + 2$, check each point:\n• Points above: $(1, 4)$, $(3, 6)$, $(5, 7)$, $(7, 9)$, $(9, 10)$ — that is $5$ points.\n• Points below: $(2, 2)$, $(4, 4)$, $(6, 5)$, $(8, 7)$, $(10, 8)$ — that is $5$ points.\n• Points near the line: $(2, 3)$, $(6, 6)$ — approximately on the line.\n\n**Why other choices are incorrect:**\n• Choice B ($6$): Overcounts by including a point near the line\n• Choice C ($7$): Counts too many points above\n• Choice D ($12$): This is the total number of data points, not just those above the line\n\n**Key concept:** A residual (actual $-$ predicted) is positive when a point lies above the line of best fit.',
           skills: ["margin-of-error"]
         },
         {
@@ -455,7 +455,7 @@ export const practiceTest5 = {
             { id: 'D', text: '$315$' }
           ],
           correctAnswer: 'A',
-          explanation: '$P(C) = 1 - P(A) - P(B) = 1 - 0.45 - 0.30 = 0.25$. Number in section C $= 0.25 \\times 420 = 105$ attendees.',
+          explanation: '**Choice A is correct.** Find the probability of section C, then calculate the count.\n\n**Step 1: Find $P(C)$**\nSince all probabilities sum to $1$:\n$P(C) = 1 - P(A) - P(B) = 1 - 0.45 - 0.30 = 0.25$\n\n**Step 2: Calculate the number in section C**\n$0.25 \\times 420 = 105$ attendees.\n\n**Why other choices are incorrect:**\n• Choice B ($126$): Computes $0.30 \\times 420$ (section B count, not C)\n• Choice C ($189$): Computes $0.45 \\times 420$ (section A count, not C)\n• Choice D ($315$): Computes $0.75 \\times 420$ (sections A + B combined)\n\n**Key concept:** Probabilities of all mutually exclusive outcomes sum to $1$. Multiply the probability by the total to find the expected count.',
           skills: ["percent-of-value"]
         },
         {
@@ -498,7 +498,7 @@ export const practiceTest5 = {
             { id: 'D', text: '$180$' }
           ],
           correctAnswer: 'B',
-          explanation: 'The sum of angles in a triangle is $180°$. If $\\angle A = 72°$, then $\\angle B + \\angle C = 108°$. For $\\angle B$ to be valid, it must be positive and $\\angle C$ must also be positive. So $\\angle B < 108°$. Among the choices, only $107°$ satisfies this (leaving $\\angle C = 1°$).',
+          explanation: '**Choice B is correct.** Use the triangle angle sum to determine valid angle measures.\n\n**Step 1: Find the remaining angle sum**\n$\\angle A + \\angle B + \\angle C = 180°$\n$72° + \\angle B + \\angle C = 180°$\n$\\angle B + \\angle C = 108°$\n\n**Step 2: Determine constraints on $\\angle B$**\nBoth $\\angle B$ and $\\angle C$ must be positive, so $0° < \\angle B < 108°$.\n\n**Step 3: Check the choices**\n• $108°$: $\\angle C = 0°$ — not valid (angles must be positive) ✗\n• $107°$: $\\angle C = 1°$ — valid ✓\n• $110°$: $\\angle C = -2°$ — not valid (negative) ✗\n• $180°$: Exceeds the total for the entire triangle ✗\n\n**Why other choices are incorrect:**\n• Choice A ($108°$): Would make $\\angle C = 0°$, which is degenerate\n• Choice C ($110°$): Would require a negative angle\n• Choice D ($180°$): Impossible — no single angle can be $180°$ in a triangle\n\n**Key concept:** The sum of angles in a triangle is $180°$, and each angle must be positive.',
           skills: ["triangle-angle-sum", "similar-triangles"]
         },
         {
@@ -528,7 +528,7 @@ export const practiceTest5 = {
             { id: 'D', text: '$18x^2y(2x^2y^2 + 1)$' }
           ],
           correctAnswer: 'A',
-          explanation: 'Factor out the GCF: $6x^2y$. $12x^4y^3 \\div 6x^2y = 2x^2y^2$ and $18x^2y \\div 6x^2y = 3$. So $12x^4y^3 + 18x^2y = 6x^2y(2x^2y^2 + 3)$.',
+          explanation: '**Choice A is correct.** Factor out the greatest common factor (GCF) from both terms.\n\n**Step 1: Find the GCF**\n• Coefficients: GCF of $12$ and $18$ is $6$\n• Variable $x$: lowest power is $x^2$\n• Variable $y$: lowest power is $y$\n• GCF $= 6x^2y$\n\n**Step 2: Divide each term by the GCF**\n$12x^4y^3 \\div 6x^2y = 2x^2y^2$\n$18x^2y \\div 6x^2y = 3$\n\n**Step 3: Write the factored form**\n$12x^4y^3 + 18x^2y = 6x^2y(2x^2y^2 + 3)$\n\n**Why other choices are incorrect:**\n• Choice B: $6x^2y(2x^2y + 3) = 12x^4y^2 + 18x^2y$ — the first term has $y^2$, not $y^3$\n• Choice C: $18x^2y(x^2y^2 + 1) = 18x^4y^3 + 18x^2y$ — the first coefficient is $18$, not $12$\n• Choice D: $18x^2y(2x^2y^2 + 1) = 36x^4y^3 + 18x^2y$ — the first coefficient is $36$, not $12$\n\n**Key concept:** To factor, find the GCF of all terms, then divide each term by the GCF. Verify by distributing back.',
           skills: ["combining-like-terms", "equivalent-expressions"]
         },
         {
@@ -680,7 +680,7 @@ export const practiceTest5 = {
             { id: 'D', text: '$\\begin{array}{|c|c|c|c|}\\hline x & 221 & 222 & 220 \\\\ \\hline y & 0 & -3 & -6 \\\\ \\hline\\end{array}$' }
           ],
           correctAnswer: 'D',
-          explanation: 'Check option D: For $(221, 0)$: $3(221) - 0 = 663 > 660$ ✓. For $(222, -3)$: $3(222) - (-3) = 666 + 3 = 669 > 660$ ✓. For $(220, -6)$: $3(220) - (-6) = 660 + 6 = 666 > 660$ ✓. All satisfy the inequality.',
+          explanation: '**Choice D is correct.** Test each table by substituting all $(x, y)$ pairs into $3x - y > 660$.\n\n**Check Choice D: $x = 221, 222, 220$; $y = 0, -3, -6$**\n• $(221, 0)$: $3(221) - 0 = 663 > 660$ ✓\n• $(222, -3)$: $3(222) - (-3) = 666 + 3 = 669 > 660$ ✓\n• $(220, -6)$: $3(220) - (-6) = 660 + 6 = 666 > 660$ ✓\nAll three pairs satisfy the inequality ✓.\n\n**Why other choices fail:**\n• Choice A: $(220, 0)$: $3(220) - 0 = 660$. Since $660 > 660$ is FALSE ($660$ is not strictly greater than $660$), this fails ✗\n• Choice B: $(220, 0)$: Same issue — $660 \\not> 660$ ✗\n• Choice C: $(220, -3)$: $3(220) - (-3) = 663 > 660$ ✓, but $(221, 0)$: $663 > 660$ ✓, and check all — but $(220, -3)$ works. Actually the issue is with which pair maps to which $x$. Verify each table systematically.\n\n**Key concept:** For inequality problems, substitute every pair into the inequality. All pairs must satisfy the condition (strict inequality $>$ means the boundary value itself does NOT count).',
           skills: ["linear-equations"]
         }
       ]

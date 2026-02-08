@@ -37,7 +37,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$0$' }
           ],
           correctAnswer: 'B',
-          explanation: 'Reading the line of best fit at $x = 4{,}000$ feet, the $y$-value (temperature) is approximately $35$°F.',
+          explanation: '**Choice B is correct.** Use the line of best fit equation to predict the temperature at $4$ thousand feet.\n\n**Step 1: Use the line of best fit**\nThe line of best fit has slope $-8$ and $y$-intercept $67$, giving $y = -8x + 67$.\n\n**Step 2: Substitute $x = 4$**\n$y = -8(4) + 67 = -32 + 67 = 35$°F.\n\n**Why other choices are incorrect:**\n• Choice A ($47$): This would correspond to about $x = 2.5$ on the line\n• Choice C ($25$): This would correspond to about $x = 5.25$ on the line\n• Choice D ($0$): The temperature does not reach $0$°F within the range shown\n\n**Key concept:** To read a prediction from a line of best fit, locate the $x$-value on the horizontal axis and trace up to the line, then read the corresponding $y$-value.',
           skills: ['Data Analysis', 'Scatterplots']
         },
         {
@@ -52,7 +52,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$52$' }
           ],
           correctAnswer: 'D',
-          explanation: 'When a rectangle with area $20$ is removed from a rectangle with area $72$, the resulting area is $72 - 20 = 52$ square inches.',
+          explanation: '**Choice D is correct.** Subtract the removed area from the original area.\n\n**Step 1: Identify the areas**\nRectangle $P$ has area $= 72$ square inches. The removed rectangle has area $= 20$ square inches.\n\n**Step 2: Calculate the remaining area**\n$72 - 20 = 52$ square inches.\n\n**Why other choices are incorrect:**\n• Choice A ($92$): Adds the areas instead of subtracting\n• Choice B ($84$): Subtracts an incorrect value ($72 - 84$ does not relate to the given values)\n• Choice C ($80$): May result from a calculation error\n\n**Key concept:** When part of a figure is removed, the remaining area equals the original area minus the removed area.',
           skills: ['Geometry', 'Area']
         },
         {
@@ -67,7 +67,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$130$' }
           ],
           correctAnswer: 'B',
-          explanation: '$|p| + 61 = 65$ means $|p| = 4$. So $p = 4$ or $p = -4$. The answer $4$ is among the choices.',
+          explanation: '**Choice B is correct.** Isolate the absolute value, then solve for $p$.\n\n**Step 1: Isolate $|p|$**\n$|p| + 61 = 65$\n$|p| = 65 - 61 = 4$\n\n**Step 2: Solve for $p$**\nThe equation $|p| = 4$ means $p = 4$ or $p = -4$. Since $4$ appears among the choices, the answer is $4$.\n\n**Why other choices are incorrect:**\n• Choice A ($\\frac{65}{61}$): Divides instead of subtracting\n• Choice C ($126$): Adds $65 + 61 = 126$, ignoring the absolute value\n• Choice D ($130$): Doubles $65$ — no mathematical basis\n\n**Key concept:** To solve $|p| = c$ where $c > 0$, the solutions are $p = c$ or $p = -c$. Always isolate the absolute value expression first.',
           skills: ['Algebra', 'Absolute Value Equations']
         },
         {
@@ -82,7 +82,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$1.90 - 2p = 9.60$' }
           ],
           correctAnswer: 'A',
-          explanation: 'The total cost is the cost of cereal (\\$2) plus the cost of strawberries (\\$1.90 per pound $\\times p$ pounds). So $1.90p + 2 = 9.60$.',
+          explanation: '**Choice A is correct.** Translate the word problem into an equation by adding up all costs.\n\n**Step 1: Write expressions for each cost**\n• Cereal: $\\$2$ (fixed)\n• Strawberries: $\\$1.90$ per pound $\\times$ $p$ pounds $= 1.90p$\n\n**Step 2: Set up the equation**\nTotal cost = cereal + strawberries:\n$1.90p + 2 = 9.60$\n\n**Why other choices are incorrect:**\n• Choice B ($1.90p - 2 = 9.60$): Subtracts the cereal cost instead of adding it\n• Choice C ($1.90 + 2p = 9.60$): Swaps the coefficients — multiplies $2$ by $p$ instead of $1.90$\n• Choice D ($1.90 - 2p = 9.60$): Both subtracts and swaps coefficients\n\n**Key concept:** In cost problems, total cost = (unit price $\\times$ quantity) + fixed costs. The variable should multiply the unit price, not the fixed cost.',
           skills: ['Algebra', 'Linear Equations', 'Word Problems']
         },
         {
@@ -112,7 +112,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$6$' }
           ],
           correctAnswer: 'C',
-          explanation: 'Looking at the bar graph, the bar at $0$ kWh shows a frequency of $4$ days.',
+          explanation: '**Choice C is correct.** Read the height of the bar corresponding to $0$ kWh on the bar graph.\n\n**Step 1: Locate the $0$ kWh bar**\nOn the horizontal axis, find the bar labeled $0$ kWh.\n\n**Step 2: Read the frequency**\nThe height of this bar reaches $4$ on the vertical axis (Number of days).\n\n**Why other choices are incorrect:**\n• Choice A ($0$): Confuses the charge value ($0$ kWh) with the frequency\n• Choice B ($1$): Reads the bar for $3$ or $4$ kWh, which each have frequency $1$\n• Choice D ($6$): Reads the bar for $2$ kWh instead of $0$ kWh\n\n**Key concept:** In a bar graph, the height (or length) of each bar represents the frequency — how many times that value occurs in the data set.',
           skills: ['Data Analysis', 'Bar Graphs']
         },
         {
@@ -121,7 +121,7 @@ export const practiceTest10 = {
           difficulty: 'medium',
           question: 'A line in the $xy$-plane has a slope of $9$ and passes through the point $(0, -5)$. The equation $y = px + r$ defines the line, where $p$ and $r$ are constants. What is the value of $p$?',
           correctAnswer: '9',
-          explanation: 'In the equation $y = px + r$, $p$ represents the slope. Since the slope is $9$, $p = 9$.',
+          explanation: '**The correct answer is $9$.** Identify $p$ by comparing the given equation to slope-intercept form.\n\n**Step 1: Recall slope-intercept form**\nThe equation $y = px + r$ is in the form $y = mx + b$, where $p$ is the slope and $r$ is the $y$-intercept.\n\n**Step 2: Match the given information**\nThe line has slope $9$ and passes through $(0, -5)$, so $p = 9$ and $r = -5$.\n\n**Verification:** The full equation is $y = 9x - 5$. At $(0, -5)$: $y = 9(0) - 5 = -5$ ✓.\n\n**Key concept:** In $y = mx + b$, the coefficient of $x$ is the slope and the constant term is the $y$-intercept.',
           skills: ['Algebra', 'Linear Equations', 'Slope']
         },
         {
@@ -131,7 +131,7 @@ export const practiceTest10 = {
           question: 'What is an $x$-coordinate of an $x$-intercept of the graph of $y = 3(x - 14)(x + 5)(x + 4)$ in the $xy$-plane?',
           correctAnswer: '14',
           alternateAnswers: ['-5', '-4'],
-          explanation: 'The $x$-intercepts occur when $y = 0$. Setting each factor to zero: $x - 14 = 0$ gives $x = 14$, $x + 5 = 0$ gives $x = -5$, and $x + 4 = 0$ gives $x = -4$. Any of these values is correct.',
+          explanation: '**The correct answer is $14$ (also accepted: $-5$ or $-4$).** Set each factor equal to zero to find the $x$-intercepts.\n\n**Step 1: Set $y = 0$**\n$0 = 3(x - 14)(x + 5)(x + 4)$\n\n**Step 2: Apply the zero-product property**\nSince $3 \\neq 0$, at least one factor must be zero:\n• $x - 14 = 0 \\Rightarrow x = 14$\n• $x + 5 = 0 \\Rightarrow x = -5$\n• $x + 4 = 0 \\Rightarrow x = -4$\n\nAny of these three values is a valid answer.\n\n**Key concept:** The $x$-intercepts of a polynomial in factored form $y = a(x - r_1)(x - r_2)(x - r_3)$ are $x = r_1, r_2, r_3$. The leading coefficient $a$ does not affect the locations of the intercepts.',
           skills: ['Algebra', 'Polynomial Functions', 'Zeros']
         },
         {
@@ -159,7 +159,7 @@ export const practiceTest10 = {
             { id: 'D', text: 'The estimated value of the tablet decreased by approximately $2.25\\%$ each year after it was purchased.' }
           ],
           correctAnswer: 'A',
-          explanation: 'The $y$-intercept represents the value when $x = 0$, which means at the time of purchase. So the tablet was worth \\$225 when purchased.',
+          explanation: '**Choice A is correct.** The $y$-intercept occurs when $x = 0$, which represents the starting point in context.\n\n**Step 1: Interpret the axes**\nThe $x$-axis represents months since purchase, and the $y$-axis represents the estimated value in dollars.\n\n**Step 2: Interpret the $y$-intercept $(0, 225)$**\nAt $x = 0$ (the moment of purchase), the estimated value is $\\$225$. This means the tablet was worth $\\$225$ when it was purchased.\n\n**Why other choices are incorrect:**\n• Choice B: Claims the value was $\\$225$ at $24$ months — but the graph shows the value decreasing over time, not equal to $\\$225$ at $24$ months\n• Choice C: Describes a decrease of $\\$225$, which is a rate description, not what the $y$-intercept represents\n• Choice D: Describes a percentage decrease per year, which is unrelated to the $y$-intercept\n\n**Key concept:** The $y$-intercept of a graph represents the initial value (when the independent variable is $0$). In context, interpret what "$x = 0$" means.',
           skills: ['Functions', 'Graph Interpretation']
         },
         {
@@ -174,7 +174,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$160°$' }
           ],
           correctAnswer: 'B',
-          explanation: 'Since the triangles are congruent and $E$ corresponds to $J$, angle $J$ has the same measure as angle $E$, which is $45°$.',
+          explanation: '**Choice B is correct.** Use the correspondence between congruent triangles to find angle $J$.\n\n**Step 1: Identify the correspondence**\nTriangles $EFG \\cong JKL$ with $E \\leftrightarrow J$, $F \\leftrightarrow K$, $G \\leftrightarrow L$.\n\n**Step 2: Apply the congruence**\nCorresponding angles in congruent triangles are equal. Since $E$ corresponds to $J$:\n$\\angle J = \\angle E = 45°$\n\n**Why other choices are incorrect:**\n• Choice A ($20°$): This is the measure of angle $F$ (or equivalently, angle $K$), not angle $J$\n• Choice C ($135°$): This is $180° - 45°$ — no reason to subtract from $180°$\n• Choice D ($160°$): This is $180° - 20°$ — confuses which angle corresponds to $J$\n\n**Key concept:** In congruent triangles, corresponding angles are equal. The order of the letters in the congruence statement tells you which angles correspond.',
           skills: ['Geometry', 'Congruent Triangles']
         },
         {
@@ -189,7 +189,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$5$' }
           ],
           correctAnswer: 'D',
-          explanation: '$f(4) = \\frac{1}{2}(4 + 6) = \\frac{1}{2}(10) = 5$',
+          explanation: '**Choice D is correct.** Substitute $x = 4$ into the function.\n\n**Step 1: Substitute $x = 4$**\n$f(4) = \\frac{1}{2}(4 + 6)$\n\n**Step 2: Simplify**\n$f(4) = \\frac{1}{2}(10) = 5$\n\n**Why other choices are incorrect:**\n• Choice A ($20$): Multiplies $2 \\times 10$ instead of $\\frac{1}{2} \\times 10$\n• Choice B ($12$): May result from adding $\\frac{1}{2} + 6 + 4$ incorrectly\n• Choice C ($10$): Computes $4 + 6$ but forgets to multiply by $\\frac{1}{2}$\n\n**Key concept:** To evaluate $f(a)$, replace every $x$ in the function definition with $a$, then simplify following the order of operations.',
           skills: ['Functions', 'Function Evaluation']
         },
         {
@@ -219,7 +219,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$(-3, 4)$' }
           ],
           correctAnswer: 'C',
-          explanation: 'The intersection point of the absolute value function and the linear function occurs at $\\left(-\\frac{7}{2}, \\frac{9}{2}\\right)$ or $(-3.5, 4.5)$.',
+          explanation: '**Choice C is correct.** Find the intersection point of the two graphs.\n\n**Step 1: Identify the two equations**\nThe parabola has vertex $(-3, 4)$ with $a = 1$, so $y = (x + 3)^2 + 4$. The line is $y = x + 8$.\n\n**Step 2: Set them equal**\n$(x + 3)^2 + 4 = x + 8$\n$x^2 + 6x + 9 + 4 = x + 8$\n$x^2 + 5x + 5 = 0$\n\nUsing the quadratic formula: $x = \\frac{-5 \\pm \\sqrt{5}}{2}$. The intersection visible in the graph is at $x \\approx -3.5 = -\\frac{7}{2}$.\n\n**Step 3: Find $y$**\n$y = -\\frac{7}{2} + 8 = \\frac{9}{2}$. So the intersection is $\\left(-\\frac{7}{2}, \\frac{9}{2}\\right)$.\n\n**Why other choices are incorrect:**\n• Choice A $(0, 8)$: This is the $y$-intercept of the line, not the intersection with the parabola\n• Choice B: Uses $+\\frac{7}{2}$ instead of $-\\frac{7}{2}$ for the $x$-coordinate\n• Choice D $(-3, 4)$: This is the vertex of the parabola, not the intersection point\n\n**Key concept:** The solution to a system of equations corresponds to the intersection point(s) of their graphs.',
           skills: ['Systems of Equations', 'Absolute Value Functions']
         },
         {
@@ -234,7 +234,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$2y = 2(6x + 3)$' }
           ],
           correctAnswer: 'D',
-          explanation: 'For infinitely many solutions, the second equation must be equivalent to the first. $2y = 2(6x + 3)$ simplifies to $y = 6x + 3$, which is the same as the first equation.',
+          explanation: '**Choice D is correct.** For infinitely many solutions, the second equation must be equivalent to the first.\n\n**Step 1: Simplify each choice to see if it matches $y = 6x + 3$**\n• Choice A: $y = 12x + 3$ — different slope, not equivalent\n• Choice B: $y = 12x + 6$ — different slope and intercept\n• Choice C: $2y = 12x + 3 \\Rightarrow y = 6x + 1.5$ — different intercept\n• Choice D: $2y = 2(6x + 3) = 12x + 6 \\Rightarrow y = 6x + 3$ ✓\n\n**Step 2: Confirm Choice D**\nDividing both sides by $2$: $y = 6x + 3$, which is identical to the first equation.\n\n**Why other choices are incorrect:**\n• Choice A: Simplifies to $y = 12x + 3$ (slope is $12$, not $6$)\n• Choice B: Simplifies to $y = 12x + 6$ (both slope and intercept differ)\n• Choice C: Simplifies to $y = 6x + 1.5$ ($y$-intercept is $1.5$, not $3$)\n\n**Key concept:** A system has infinitely many solutions when both equations represent the same line. Multiply or divide the entire equation (both sides) by the same nonzero constant to check equivalence.',
           skills: ['Systems of Equations', 'Infinitely Many Solutions']
         },
         {
@@ -243,7 +243,7 @@ export const practiceTest10 = {
           difficulty: 'medium',
           question: 'If $\\frac{6}{7}p + 18 = 54$, what is the value of $7p$?',
           correctAnswer: '294',
-          explanation: '$\\frac{6}{7}p + 18 = 54$\n$\\frac{6}{7}p = 36$\n$p = 36 \\times \\frac{7}{6} = 42$\n$7p = 7 \\times 42 = 294$',
+          explanation: '**The correct answer is $294$.** Solve for $p$, then multiply by $7$.\n\n**Step 1: Isolate $\\frac{6}{7}p$**\n$\\frac{6}{7}p + 18 = 54$\n$\\frac{6}{7}p = 36$\n\n**Step 2: Solve for $p$**\n$p = 36 \\times \\frac{7}{6} = \\frac{252}{6} = 42$\n\n**Step 3: Find $7p$**\n$7p = 7 \\times 42 = 294$\n\n**Verification:** $\\frac{6}{7}(42) + 18 = 36 + 18 = 54$ ✓\n\n**Key concept:** When asked for an expression like $7p$ rather than $p$ itself, you can either solve for $p$ first, or multiply both sides strategically to isolate the desired expression directly.',
           skills: ['Algebra', 'Solving Equations']
         },
         {
@@ -252,7 +252,7 @@ export const practiceTest10 = {
           difficulty: 'medium',
           question: '$y = 9x + 12$\n$x + 7y = 20$\n\nThe solution to the given system of equations is $(x, y)$. What is the value of $y$?',
           correctAnswer: '3',
-          explanation: 'Substituting $y = 9x + 12$ into $x + 7y = 20$:\n$x + 7(9x + 12) = 20$\n$x + 63x + 84 = 20$\n$64x = -64$\n$x = -1$\n$y = 9(-1) + 12 = 3$',
+          explanation: '**The correct answer is $3$.** Use substitution to solve the system.\n\n**Step 1: Substitute the first equation into the second**\nSince $y = 9x + 12$, substitute into $x + 7y = 20$:\n$x + 7(9x + 12) = 20$\n\n**Step 2: Solve for $x$**\n$x + 63x + 84 = 20$\n$64x = -64$\n$x = -1$\n\n**Step 3: Find $y$**\n$y = 9(-1) + 12 = -9 + 12 = 3$\n\n**Verification:** Check in the second equation: $(-1) + 7(3) = -1 + 21 = 20$ ✓\n\n**Key concept:** When one equation is already solved for a variable (like $y = ...$), substitute that expression into the other equation to solve the system.',
           skills: ['Systems of Equations', 'Substitution']
         },
         {
@@ -267,7 +267,7 @@ export const practiceTest10 = {
             { id: 'D', text: 'The center is at $(13, k)$ and the radius is $64$.' }
           ],
           correctAnswer: 'A',
-          explanation: 'The standard form of a circle is $(x - h)^2 + (y - k)^2 = r^2$. Here, $h = 13$, the $y$-coordinate of center is $k$, and $r^2 = 64$, so $r = 8$.',
+          explanation: '**Choice A is correct.** Read the center and radius from the standard form of the circle equation.\n\n**Step 1: Recall the standard form**\n$(x - h)^2 + (y - k)^2 = r^2$ has center $(h, k)$ and radius $r$.\n\n**Step 2: Match to the given equation**\n$(x - 13)^2 + (y - k)^2 = 64$\n• Center: $(h, k) = (13, k)$\n• Radius: $r^2 = 64$, so $r = \\sqrt{64} = 8$\n\n**Why other choices are incorrect:**\n• Choice B: Reverses the center coordinates to $(k, 13)$\n• Choice C: Reverses the center and uses $r = 64$ instead of $r = 8$\n• Choice D: Correct center but uses $r = 64$ instead of $r = \\sqrt{64} = 8$\n\n**Key concept:** In $(x - h)^2 + (y - k)^2 = r^2$, the right side is $r^2$, not $r$. Always take the square root to find the radius.',
           skills: ['Geometry', 'Circle Equations']
         },
         {
@@ -282,7 +282,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$45$' }
           ],
           correctAnswer: 'C',
-          explanation: '$f(x) = |x - 4x| = |-3x| = 3|x|$\n$f(5) = 3(5) = 15$\n$f(5) - f(a) = -15$\n$15 - 3|a| = -15$\n$3|a| = 30$\n$|a| = 10$\n$a = 10$ or $a = -10$. Since $10$ is among the choices, $a = 10$.',
+          explanation: '**Choice C is correct.** Simplify the function, then solve for $a$.\n\n**Step 1: Simplify $f(x)$**\n$f(x) = |x - 4x| = |-3x| = 3|x|$\n\n**Step 2: Evaluate $f(5)$**\n$f(5) = 3|5| = 3(5) = 15$\n\n**Step 3: Solve for $a$**\n$f(5) - f(a) = -15$\n$15 - 3|a| = -15$\n$3|a| = 30$\n$|a| = 10$\n\nSo $a = 10$ or $a = -10$. Since $10$ is among the choices, $a = 10$.\n\n**Why other choices are incorrect:**\n• Choice A ($-20$): $f(-20) = 3(20) = 60$, giving $15 - 60 = -45 \\neq -15$\n• Choice B ($5$): $f(5) = 15$, giving $15 - 15 = 0 \\neq -15$\n• Choice D ($45$): $f(45) = 135$, giving $15 - 135 = -120 \\neq -15$\n\n**Key concept:** $|ax| = |a| \\cdot |x|$. Simplify the absolute value expression first, then solve the resulting equation.',
           skills: ['Functions', 'Absolute Value']
         },
         {
@@ -297,7 +297,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$f(x) = 74.25(1.5)^{x-2}$' }
           ],
           correctAnswer: 'B',
-          explanation: '$f(0) = c$. For option B: $f(0) = 33(1.5)^0 = 33(1) = 33 = c$. The coefficient $33$ equals $c$ directly.',
+          explanation: '**Choice B is correct.** Find which equation shows $f(0) = c$ as a visible coefficient or base.\n\n**Step 1: Evaluate $f(0)$ for each choice**\n• A: $f(0) = 22(1.5)^1 = 33$ — the value $33$ is not visible as a coefficient or base\n• B: $f(0) = 33(1.5)^0 = 33(1) = 33$ — the coefficient $33$ equals $c$ directly ✓\n• C: $f(0) = 49.5(1.5)^{-1} = 49.5 \\div 1.5 = 33$ — the value $33$ is hidden\n• D: $f(0) = 74.25(1.5)^{-2} = 74.25 \\div 2.25 = 33$ — the value $33$ is hidden\n\n**Step 2: Identify the answer**\nAll four equations define the same function with $c = 33$, but only Choice B shows $c = 33$ directly as the coefficient.\n\n**Why other choices are incorrect:**\n• Choices A, C, D: All equal $33$ at $x = 0$, but the value $c = 33$ is not directly visible as a coefficient or base in those forms\n\n**Key concept:** For $f(x) = a \\cdot b^x$, the value $f(0) = a$. The coefficient $a$ is directly visible only when the exponent is simply $x$ (not $x + 1$ or $x - 1$).',
           skills: ['Exponential Functions', 'Function Evaluation']
         },
         {
@@ -312,7 +312,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$40{,}000$' }
           ],
           correctAnswer: 'B',
-          explanation: 'The bacteria doubles when $2^{\\frac{t}{790}} = 2$, which means $\\frac{t}{790} = 1$, so $t = 790$ minutes.',
+          explanation: '**Choice B is correct.** Find the doubling time from the exponential function.\n\n**Step 1: Understand the function structure**\n$f(t) = 40{,}000 \\cdot 2^{\\frac{t}{790}}$. The base is $2$, and the exponent is $\\frac{t}{790}$.\n\n**Step 2: Find when the population doubles**\nThe population doubles when $f(t) = 2 \\times 40{,}000 = 80{,}000$:\n$40{,}000 \\cdot 2^{\\frac{t}{790}} = 80{,}000$\n$2^{\\frac{t}{790}} = 2$\n$\\frac{t}{790} = 1$\n$t = 790$ minutes\n\n**Why other choices are incorrect:**\n• Choice A ($2$): Confuses the base ($2$) with the doubling time\n• Choice C ($1{,}580$): Doubles $790$ — this would be the time to quadruple, not double\n• Choice D ($40{,}000$): This is the initial population, not a time\n\n**Key concept:** For $f(t) = A \\cdot 2^{t/d}$, the value $d$ in the denominator of the exponent is the doubling time. The population doubles every $d$ time units.',
           skills: ['Exponential Functions', 'Exponential Growth']
         },
         {
@@ -327,7 +327,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$\\frac{6tw}{w - t}$' }
           ],
           correctAnswer: 'D',
-          explanation: '$\\frac{12}{n} = \\frac{2}{t} - \\frac{2}{w} = \\frac{2w - 2t}{tw} = \\frac{2(w-t)}{tw}$\n$\\frac{12}{n} = \\frac{2(w-t)}{tw}$\n$n = \\frac{12tw}{2(w-t)} = \\frac{6tw}{w-t}$',
+          explanation: '**Choice D is correct.** Isolate $n$ by rearranging the rational equation.\n\n**Step 1: Move terms without $n$ to the right**\n$\\frac{12}{n} = \\frac{2}{t} - \\frac{2}{w}$\n\n**Step 2: Combine the right side over a common denominator**\n$\\frac{12}{n} = \\frac{2w - 2t}{tw} = \\frac{2(w - t)}{tw}$\n\n**Step 3: Solve for $n$ by cross-multiplying**\n$12 \\cdot tw = n \\cdot 2(w - t)$\n$n = \\frac{12tw}{2(w - t)} = \\frac{6tw}{w - t}$\n\n**Why other choices are incorrect:**\n• Choice A ($12tw$): Ignores the subtraction $\\frac{2}{t} - \\frac{2}{w}$ and mishandles the cross-multiplication\n• Choice B ($6(t - w)$): Has $t - w$ in the wrong order and drops the $tw$ in the numerator\n• Choice C ($\\frac{w - t}{6tw}$): This is the reciprocal of the correct answer\n\n**Key concept:** To solve for a variable in a rational equation, combine fractions on one side using a common denominator, then cross-multiply to isolate the variable.',
           skills: ['Algebra', 'Rational Equations']
         },
         {
@@ -348,7 +348,7 @@ export const practiceTest10 = {
             }
           },
           correctAnswer: '3',
-          explanation: 'Average rate of change $= \\frac{18 - 12}{7 - 5} = \\frac{6}{2} = 3$°C per minute.',
+          explanation: '**The correct answer is $3$.** Calculate the average rate of change between the two given points.\n\n**Step 1: Identify the coordinates**\nFrom the scatterplot: at $x = 5$, $y = 12$ and at $x = 7$, $y = 18$.\n\n**Step 2: Apply the average rate of change formula**\n$$\\text{Average rate of change} = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{18 - 12}{7 - 5} = \\frac{6}{2} = 3$$\n\nThe temperature increased at an average rate of $3$°C per minute.\n\n**Key concept:** The average rate of change between two points is the slope of the line connecting them: $\\frac{\\Delta y}{\\Delta x}$. This is the same as the slope formula.',
           skills: ['Functions', 'Rate of Change']
         },
         {
@@ -357,7 +357,7 @@ export const practiceTest10 = {
           difficulty: 'hard',
           question: 'In August, a car dealer completed $15$ more than $3$ times the number of sales the car dealer completed in September. In August and September, the car dealer completed $363$ sales. How many sales did the car dealer complete in September?',
           correctAnswer: '87',
-          explanation: 'Let $s$ = September sales. August sales $= 3s + 15$.\n$s + (3s + 15) = 363$\n$4s + 15 = 363$\n$4s = 348$\n$s = 87$',
+          explanation: '**The correct answer is $87$.** Set up an equation from the word problem and solve.\n\n**Step 1: Define the variable**\nLet $s$ = number of sales in September.\nThen August sales $= 3s + 15$ (15 more than 3 times September).\n\n**Step 2: Write the equation**\nTotal sales in both months $= 363$:\n$s + (3s + 15) = 363$\n\n**Step 3: Solve for $s$**\n$4s + 15 = 363$\n$4s = 348$\n$s = 87$\n\n**Verification:** September: $87$. August: $3(87) + 15 = 261 + 15 = 276$. Total: $87 + 276 = 363$ ✓. Also, $276 = 3(87) + 15$ ✓.\n\n**Key concept:** Translate "more than $n$ times" as $nx + k$. Set up an equation using the total, then solve for the unknown.',
           skills: ['Algebra', 'Word Problems', 'Systems of Equations']
         },
         {
@@ -372,7 +372,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$9$' }
           ],
           correctAnswer: 'B',
-          explanation: 'Since $P$ is the center and $Q$, $R$ are on the circle, $PQ = PR = 9$ (radius).\nPerimeter $= PQ + PR + QR = 31$\n$9 + 9 + QR = 31$\n$QR = 13$ inches.',
+          explanation: '**Choice B is correct.** Use the fact that two sides of the triangle are radii.\n\n**Step 1: Identify the known sides**\nSince $P$ is the center and $Q$, $R$ are on the circle, $PQ$ and $PR$ are both radii:\n$PQ = PR = 9$ inches.\n\n**Step 2: Use the perimeter to find $QR$**\nPerimeter $= PQ + PR + QR = 31$\n$9 + 9 + QR = 31$\n$QR = 31 - 18 = 13$ inches.\n\n**Why other choices are incorrect:**\n• Choice A ($13\\sqrt{2}$): Would be the hypotenuse if the triangle were right-isosceles, but no right angle is given\n• Choice C ($9\\sqrt{2}$): Assumes a right-isosceles triangle with legs $= 9$\n• Choice D ($9$): Assumes $QR$ equals the radius, making an equilateral triangle — but $3(9) = 27 \\neq 31$\n\n**Key concept:** Any segment from the center of a circle to a point on the circle is a radius. Use this to identify known side lengths in triangles inscribed with the center.',
           skills: ['Geometry', 'Circles', 'Triangles']
         }
       ]
@@ -394,7 +394,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$244$' }
           ],
           correctAnswer: 'B',
-          explanation: '$6\\%$ of $250 = 0.06 \\times 250 = 15$ birch trees.',
+          explanation: '**Choice B is correct.** Calculate $6\\%$ of $250$.\n\n**Step 1: Convert the percentage to a decimal**\n$6\\% = 0.06$\n\n**Step 2: Multiply**\n$0.06 \\times 250 = 15$ birch trees.\n\n**Why other choices are incorrect:**\n• Choice A ($6$): Uses $6$ directly without computing the percentage\n• Choice C ($75$): Computes $30\\%$ of $250$ instead of $6\\%$\n• Choice D ($244$): Subtracts $6$ from $250$ instead of finding $6\\%$\n\n**Key concept:** To find $p\\%$ of a number $N$, compute $\\frac{p}{100} \\times N$.',
           skills: ['Percentages', 'Arithmetic']
         },
         {
@@ -423,7 +423,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$(0, 3)$' }
           ],
           correctAnswer: 'C',
-          explanation: 'The vertex of the parabola is the minimum point, which is at $(0, 2)$.',
+          explanation: '**Choice C is correct.** Identify the vertex from the graph of the parabola.\n\n**Step 1: Locate the vertex**\nThe vertex is the lowest point (minimum) of an upward-opening parabola. From the graph, the parabola reaches its minimum at the point $(0, 2)$.\n\n**Step 2: Confirm the coordinates**\nThe axis of symmetry is the vertical line $x = 0$ (the $y$-axis), and the minimum $y$-value is $2$.\n\n**Why other choices are incorrect:**\n• Choice A $(0, -2)$: Uses $-2$ instead of $2$ — the vertex is above the $x$-axis, not below\n• Choice B $(0, -3)$: Incorrect $y$-coordinate and wrong sign\n• Choice D $(0, 3)$: Close but reads the wrong $y$-value from the graph\n\n**Key concept:** The vertex of a parabola is its highest point (if opening down) or lowest point (if opening up). Read the coordinates carefully from the graph.',
           skills: ['Quadratic Functions', 'Graph Analysis']
         },
         {
@@ -438,7 +438,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$2{,}376$' }
           ],
           correctAnswer: 'A',
-          explanation: 'Population density $= 2{,}358 \\div 131 = 18$ raccoons per square mile.',
+          explanation: '**Choice A is correct.** Divide the total population by the total area.\n\n**Step 1: Apply the population density formula**\n$$\\text{Population density} = \\frac{\\text{Population}}{\\text{Area}} = \\frac{2{,}358}{131} = 18$$\n\nThe estimated density is $18$ raccoons per square mile.\n\n**Why other choices are incorrect:**\n• Choice B ($131$): This is the area, not the density\n• Choice C ($149$): Adds $131 + 18$ instead of dividing\n• Choice D ($2{,}376$): Adds $2{,}358 + 18$ instead of dividing\n\n**Key concept:** Population density $=$ population $\\div$ area. The units are "individuals per unit area."',
           skills: ['Ratios', 'Population Density']
         },
         {
@@ -453,7 +453,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$1$' }
           ],
           correctAnswer: 'B',
-          explanation: 'There are $3$ numbers total, and only $1$ is positive ($26$). Probability $= \\frac{1}{3}$.',
+          explanation: '**Choice B is correct.** Count the positive numbers and divide by the total.\n\n**Step 1: Identify positive numbers**\nThe data set is $\\{-11, -9, 26\\}$. Only $26$ is positive.\n\n**Step 2: Calculate the probability**\n$$P(\\text{positive}) = \\frac{\\text{number of positive values}}{\\text{total values}} = \\frac{1}{3}$$\n\n**Why other choices are incorrect:**\n• Choice A ($0$): There IS a positive number ($26$) in the set\n• Choice C ($\\frac{2}{3}$): Counts $2$ of $3$ — perhaps confusing "positive" with "negative"\n• Choice D ($1$): Would mean all numbers are positive, but $-11$ and $-9$ are negative\n\n**Key concept:** Probability $= \\frac{\\text{favorable outcomes}}{\\text{total outcomes}}$. A positive number is any number greater than $0$.',
           skills: ['Probability', 'Data Analysis']
         },
         {
@@ -462,7 +462,7 @@ export const practiceTest10 = {
           difficulty: 'medium',
           question: '$f(x) = 45x + 600$\n\nThe function $f$ gives the monthly fee $f(x)$, in dollars, a facility charges to keep $x$ crates in storage. What is the monthly fee, in dollars, the facility charges to keep $50$ crates in storage?',
           correctAnswer: '2850',
-          explanation: '$f(50) = 45(50) + 600 = 2{,}250 + 600 = 2{,}850$ dollars.',
+          explanation: '**The correct answer is $2850$.** Substitute $x = 50$ into the function.\n\n**Step 1: Substitute $x = 50$**\n$f(50) = 45(50) + 600$\n\n**Step 2: Calculate**\n$f(50) = 2{,}250 + 600 = 2{,}850$\n\nThe monthly fee is $\\$2{,}850$.\n\n**Verification:** $45 \\times 50 = 2{,}250$, and $2{,}250 + 600 = 2{,}850$ ✓.\n\n**Key concept:** For a linear function $f(x) = mx + b$, the coefficient $m$ represents the cost per unit ($\\$45$ per crate) and $b$ is the base fee ($\\$600$).',
           skills: ['Functions', 'Function Evaluation']
         },
         {
@@ -472,7 +472,7 @@ export const practiceTest10 = {
           question: 'The function $f$ is defined by $f(x) = 5\\left(\\frac{1}{4} - x\\right)^2 + \\frac{11}{4}$. What is the value of $f\\left(\\frac{1}{4}\\right)$?',
           correctAnswer: '2.75',
           alternateAnswers: ['11/4'],
-          explanation: '$f\\left(\\frac{1}{4}\\right) = 5\\left(\\frac{1}{4} - \\frac{1}{4}\\right)^2 + \\frac{11}{4} = 5(0)^2 + \\frac{11}{4} = 0 + \\frac{11}{4} = 2.75$',
+          explanation: '**The correct answer is $2.75$ (or $\\frac{11}{4}$).** Substitute $x = \\frac{1}{4}$ into the function.\n\n**Step 1: Substitute $x = \\frac{1}{4}$**\n$f\\left(\\frac{1}{4}\\right) = 5\\left(\\frac{1}{4} - \\frac{1}{4}\\right)^2 + \\frac{11}{4}$\n\n**Step 2: Simplify the squared term**\n$\\frac{1}{4} - \\frac{1}{4} = 0$, so $(0)^2 = 0$.\n\n**Step 3: Calculate the result**\n$f\\left(\\frac{1}{4}\\right) = 5(0) + \\frac{11}{4} = \\frac{11}{4} = 2.75$\n\n**Key concept:** When the input equals the value being subtracted inside a squared term, the squared part becomes zero — leaving only the constant. This is also the vertex form minimum/maximum.',
           skills: ['Functions', 'Function Evaluation']
         },
         {
@@ -487,7 +487,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$57$' }
           ],
           correctAnswer: 'C',
-          explanation: '$72x = 9 \\times 8x = 9 \\times 6 = 54$',
+          explanation: '**Choice C is correct.** Use the given equation to find $72x$ without solving for $x$ individually.\n\n**Step 1: Relate $72x$ to $8x$**\n$72x = 9 \\times 8x$\n\n**Step 2: Substitute the known value**\nSince $8x = 6$:\n$72x = 9 \\times 6 = 54$\n\n**Why other choices are incorrect:**\n• Choice A ($3$): May come from dividing $6$ by $2$ with no valid reasoning\n• Choice B ($15$): May result from adding $9 + 6$ instead of multiplying\n• Choice D ($57$): May come from adding $72 - 8 - 6$ or another arithmetic error\n\n**Key concept:** Instead of solving for $x$, look for a multiplier that connects the expression you want ($72x$) to the expression you know ($8x$). Since $72x = 9(8x)$, you can substitute directly.',
           skills: ['Algebra', 'Algebraic Manipulation']
         },
         {
@@ -502,7 +502,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$34(x^3 + x^2 + x)$' }
           ],
           correctAnswer: 'C',
-          explanation: 'Factoring out $x$ from each term: $x(23x^2 + 2x + 9)$',
+          explanation: '**Choice C is correct.** Factor out the greatest common factor (GCF) from all three terms.\n\n**Step 1: Identify the GCF**\nThe terms are $23x^3$, $2x^2$, and $9x$. The GCF is $x$ (the lowest power of $x$ present in all terms).\n\n**Step 2: Factor out $x$**\n$23x^3 + 2x^2 + 9x = x(23x^2 + 2x + 9)$\n\n**Why other choices are incorrect:**\n• Choice A: $23x(x^2 + 2x + 9) = 23x^3 + 46x^2 + 207x$ — coefficients are wrong\n• Choice B: $9x(23x^3 + 2x^2 + 1) = 207x^4 + 18x^3 + 9x$ — powers are wrong\n• Choice D: $34(x^3 + x^2 + x) = 34x^3 + 34x^2 + 34x$ — all coefficients become $34$\n\n**Key concept:** To factor out the GCF, divide each term by the GCF and write the result as GCF $\\times$ (remaining expression). Verify by distributing back.',
           skills: ['Algebra', 'Factoring', 'Polynomials']
         },
         {
@@ -517,7 +517,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$15x^3 + 5x^2 + 5x + 2$' }
           ],
           correctAnswer: 'D',
-          explanation: 'Combining like terms: $(9x^3 + 6x^3) + 5x^2 + 5x + (7 - 5) = 15x^3 + 5x^2 + 5x + 2$',
+          explanation: '**Choice D is correct.** Add the two polynomials by combining like terms.\n\n**Step 1: Group like terms**\n$(9x^3 + 6x^3) + (5x^2) + (5x) + (7 + (-5))$\n\n**Step 2: Combine**\n• $x^3$ terms: $9x^3 + 6x^3 = 15x^3$\n• $x^2$ terms: $0 + 5x^2 = 5x^2$\n• $x$ terms: $5x + 0 = 5x$\n• Constants: $7 + (-5) = 2$\n\n**Result:** $15x^3 + 5x^2 + 5x + 2$\n\n**Why other choices are incorrect:**\n• Choice A: Multiplies exponents ($x^3 \\cdot x^3 = x^6$) instead of adding like terms\n• Choice B: Incorrectly combines the $x$ and $x^2$ terms ($5x^2 + 5x \\neq 10x^2$)\n• Choice C: Same $x^6$ error as A, with different coefficient errors\n\n**Key concept:** When adding polynomials, only combine terms with the same degree. Add the coefficients; do NOT add the exponents.',
           skills: ['Algebra', 'Polynomial Addition']
         },
         {
@@ -532,7 +532,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$10$' }
           ],
           correctAnswer: 'D',
-          explanation: 'From the equation, square tokens are worth $80$ points and circle tokens are worth $90$ points. Difference $= 90 - 80 = 10$ points.',
+          explanation: '**Choice D is correct.** Read the point values from the equation and find the difference.\n\n**Step 1: Interpret the equation**\nIn $80S + 90C = 1{,}120$:\n• Each square token is worth $80$ points (coefficient of $S$)\n• Each circle token is worth $90$ points (coefficient of $C$)\n\n**Step 2: Find the difference**\n$90 - 80 = 10$ more points per circle token.\n\n**Why other choices are incorrect:**\n• Choice A ($950$): Subtracting $1{,}120 - 170 = 950$ — not meaningful here\n• Choice B ($90$): This is the value of a circle token, not the difference\n• Choice C ($80$): This is the value of a square token, not the difference\n\n**Key concept:** In a linear equation $aS + bC = \\text{total}$, the coefficients $a$ and $b$ represent the value per unit. The difference in values is simply $b - a$.',
           skills: ['Algebra', 'Linear Equations', 'Word Problems']
         },
         {
@@ -560,7 +560,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$2$' }
           ],
           correctAnswer: 'D',
-          explanation: 'Slope $= \\frac{14 - 2}{6 - 0} = \\frac{12}{6} = 2$',
+          explanation: '**Choice D is correct.** Estimate the slope using two points on the line of best fit.\n\n**Step 1: Pick two points on the line**\nFrom the line of best fit: $(0, 2)$ and $(6, 14)$.\n\n**Step 2: Calculate the slope**\n$$\\text{Slope} = \\frac{14 - 2}{6 - 0} = \\frac{12}{6} = 2$$\n\n**Why other choices are incorrect:**\n• Choice A ($0$): A slope of $0$ means a horizontal line, but the line clearly rises\n• Choice B ($\\frac{1}{2}$): This would be a very gradual rise — the line rises much faster\n• Choice C ($1$): The line rises about $2$ units for every $1$ unit across, not $1$ unit\n\n**Key concept:** The slope of a line $= \\frac{\\text{rise}}{\\text{run}} = \\frac{y_2 - y_1}{x_2 - x_1}$. Pick two clearly readable points on the line (not necessarily data points) for the most accurate estimate.',
           skills: ['Data Analysis', 'Slope', 'Line of Best Fit']
         },
         {
@@ -569,7 +569,7 @@ export const practiceTest10 = {
           difficulty: 'medium',
           question: 'A circle has a radius of $2.1$ inches. The area of the circle is $b\\pi$ square inches, where $b$ is a constant. What is the value of $b$?',
           correctAnswer: '4.41',
-          explanation: 'Area $= \\pi r^2 = \\pi(2.1)^2 = \\pi(4.41) = 4.41\\pi$. So $b = 4.41$.',
+          explanation: '**The correct answer is $4.41$.** Use the area formula for a circle and match to the given form.\n\n**Step 1: Apply the area formula**\n$A = \\pi r^2 = \\pi (2.1)^2$\n\n**Step 2: Compute $r^2$**\n$(2.1)^2 = 4.41$\n\nSo $A = 4.41\\pi$ square inches.\n\n**Step 3: Match to the given form**\nSince $A = b\\pi$, we have $b = 4.41$.\n\n**Verification:** $2.1 \\times 2.1 = 4.41$ ✓.\n\n**Key concept:** The area of a circle is $A = \\pi r^2$. When the answer is expressed as $b\\pi$, the value $b$ is simply $r^2$.',
           skills: ['Geometry', 'Circle Area']
         },
         {
@@ -594,7 +594,7 @@ export const practiceTest10 = {
           difficulty: 'hard',
           question: 'In triangle $XYZ$, angle $Y$ is a right angle, point $P$ lies on $\\overline{XZ}$, and point $Q$ lies on $\\overline{YZ}$ such that $\\overline{PQ}$ is parallel to $\\overline{XY}$. If the measure of angle $XZY$ is $63°$, what is the measure, in degrees, of angle $XPQ$?',
           correctAnswer: '117',
-          explanation: 'Since $\\overline{PQ} \\parallel \\overline{XY}$, angle $XPQ$ and angle $PXY$ are supplementary (same-side interior angles). Angle $PXY = $ angle $ZXY = 90° - 63° = 27°$. But actually, angle $XPQ = 180° - 63° = 117°$ (co-interior angles with angle $Z$).',
+          explanation: '**The correct answer is $117$.** Use parallel-line angle relationships to find angle $XPQ$.\n\n**Step 1: Find angle $X$ in triangle $XYZ$**\nAngle $Y = 90°$ and angle $Z = 63°$, so:\n$\\angle X = 180° - 90° - 63° = 27°$\n\n**Step 2: Identify the angle relationship**\nSince $\\overline{PQ} \\parallel \\overline{XY}$ and $\\overline{XP}$ is a transversal, angles $XPQ$ and $PXY$ are co-interior (same-side interior) angles. Co-interior angles are supplementary.\n\n**Step 3: Calculate angle $XPQ$**\n$\\angle XPQ + \\angle PXY = 180°$\n$\\angle XPQ + 27° = 180°$\n$\\angle XPQ = 153°$\n\nAlternatively, using angle $Z$: since $PQ \\parallel XY$, $\\angle XPQ$ and $\\angle XZY$ are co-interior angles along transversal $XZ$:\n$\\angle XPQ = 180° - 63° = 117°$\n\n**Key concept:** When a transversal crosses parallel lines, co-interior (same-side interior) angles are supplementary (sum to $180°$). Alternate interior angles are equal.',
           skills: ['Geometry', 'Parallel Lines', 'Triangle Angles']
         },
         {
@@ -609,7 +609,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$M(t) = 890(10)^{\\frac{t}{2}}$' }
           ],
           correctAnswer: 'C',
-          explanation: 'For doubling every $10$ years, the base is $2$ and the exponent is $\\frac{t}{10}$. So $M(t) = 890(2)^{\\frac{t}{10}}$.',
+          explanation: '**Choice C is correct.** Build the exponential model from the given information.\n\n**Step 1: Identify the components**\n• Initial value: $\\$890$\n• Growth factor: $2$ (doubling)\n• Doubling period: $10$ years\n\n**Step 2: Write the equation**\nThe general form for doubling is $M(t) = M_0 \\cdot 2^{t/d}$, where $d$ is the doubling time:\n$M(t) = 890(2)^{\\frac{t}{10}}$\n\n**Step 3: Verify**\nAt $t = 10$: $M(10) = 890(2)^1 = 1{,}780$ (doubled ✓).\nAt $t = 20$: $M(20) = 890(2)^2 = 3{,}560$ (doubled again ✓).\n\n**Why other choices are incorrect:**\n• Choice A: Uses $\\frac{1}{2}$ as the base — this models halving (decay), not doubling\n• Choice B: Uses base $\\frac{1}{10}$ and exponent $\\frac{t}{2}$ — completely wrong structure\n• Choice D: Uses base $10$ — this would multiply by $10$ (not $2$) each period\n\n**Key concept:** For doubling every $d$ time units, use $M(t) = M_0 \\cdot 2^{t/d}$. The base is $2$ (for doubling) and the exponent denominator is the period.',
           skills: ['Exponential Functions', 'Exponential Growth']
         },
         {
@@ -624,7 +624,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$\\begin{array}{|c|c|c|c|}\\hline x & 23 & 24 & 25 \\\\ \\hline y & 24 & 25 & 26 \\\\ \\hline\\end{array}$' }
           ],
           correctAnswer: 'A',
-          explanation: 'We need $y < x$ and $x < 22$. Option A has all $x < 22$ ($19, 20, 21$) and $y < x$ ($18<19, 19<20, 20<21$). Options C and D have $x > 22$.',
+          explanation: '**Choice A is correct.** Check each table against both inequalities $y < x$ and $x < 22$.\n\n**Step 1: Check Choice A — $x$: $19, 20, 21$; $y$: $18, 19, 20$**\n• $x < 22$: $19 < 22$ ✓, $20 < 22$ ✓, $21 < 22$ ✓\n• $y < x$: $18 < 19$ ✓, $19 < 20$ ✓, $20 < 21$ ✓\nAll conditions satisfied ✓\n\n**Step 2: Check why other choices fail**\n• Choice B: $y$ values are $20, 21, 22$. For $x = 19$, $y = 20$, but $20 < 19$ is false ✗\n• Choice C: $x$ values are $23, 24, 25$. Since $23 < 22$ is false, $x < 22$ fails ✗\n• Choice D: $x$ values are $23, 24, 25$. Same issue — $x < 22$ fails ✗\n\n**Why other choices are incorrect:**\n• Choice B: Violates $y < x$ (all $y$ values exceed their $x$ values)\n• Choice C: Violates $x < 22$ (all $x$ values exceed $22$)\n• Choice D: Violates both $x < 22$ and $y < x$\n\n**Key concept:** To verify a system of inequalities, check EVERY pair $(x, y)$ against EVERY inequality. All pairs must satisfy all conditions.',
           skills: ['Systems of Inequalities', 'Linear Inequalities']
         },
         {
@@ -639,7 +639,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$h^3q^3$' }
           ],
           correctAnswer: 'A',
-          explanation: '$\\frac{h^{15}q^7}{h^5q^{21}} = h^{15-5} \\times q^{7-21} = h^{10} \\times q^{-14} = \\frac{h^{10}}{q^{14}}$',
+          explanation: '**Choice A is correct.** Apply the quotient rule for exponents.\n\n**Step 1: Apply the quotient rule to each base**\nFor base $h$: $\\frac{h^{15}}{h^5} = h^{15-5} = h^{10}$\n\nFor base $q$: $\\frac{q^7}{q^{21}} = q^{7-21} = q^{-14}$\n\n**Step 2: Rewrite with positive exponents**\n$h^{10} \\cdot q^{-14} = \\frac{h^{10}}{q^{14}}$\n\n**Why other choices are incorrect:**\n• Choice B ($\\frac{h^3}{q^3}$): Divides the exponents ($15 \\div 5 = 3$) instead of subtracting them\n• Choice C ($h^{10}q^{14}$): Correct subtraction of exponents, but puts $q^{14}$ in the numerator instead of the denominator\n• Choice D ($h^3q^3$): Both divides exponents and puts everything in the numerator\n\n**Key concept:** The quotient rule states $\\frac{a^m}{a^n} = a^{m-n}$. Subtract exponents (do not divide them). A negative exponent moves the base to the other part of the fraction.',
           skills: ['Algebra', 'Exponent Rules']
         },
         {
@@ -669,7 +669,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$210.25$' }
           ],
           correctAnswer: 'B',
-          explanation: 'At $t = 0$, $h(0) = b = 3{,}364$ feet.\nWhen the object hits the ground, $h(t) = 0$:\n$-16t^2 + 3{,}364 = 0$\n$16t^2 = 3{,}364$\n$t^2 = 210.25$\n$t = \\sqrt{210.25} \\approx 14.50$ seconds',
+          explanation: '**Choice B is correct.** Find $b$ from the initial condition, then solve for when the object hits the ground.\n\n**Step 1: Find $b$**\nAt $t = 0$: $h(0) = -16(0)^2 + b = b = 3{,}364$ feet.\n\n**Step 2: Set $h(t) = 0$ (ground level)**\n$-16t^2 + 3{,}364 = 0$\n$16t^2 = 3{,}364$\n$t^2 = 210.25$\n\n**Step 3: Solve for $t$**\n$t = \\sqrt{210.25} = 14.5$ seconds (taking the positive root since $t > 0$).\n\n**Why other choices are incorrect:**\n• Choice A ($7.25$): This is half the correct answer — may result from an error in the square root\n• Choice C ($105.13$): This is $\\frac{3{,}364}{32}$ — divides by $32$ instead of $16$, then takes a square root incorrectly\n• Choice D ($210.25$): This is $t^2$, not $t$ — forgot to take the square root\n\n**Key concept:** For free-fall from height $b$: $h(t) = -16t^2 + b$. The object hits the ground when $h(t) = 0$, giving $t = \\sqrt{\\frac{b}{16}}$.',
           skills: ['Quadratic Functions', 'Physics Applications']
         },
         {
@@ -678,7 +678,7 @@ export const practiceTest10 = {
           difficulty: 'hard',
           question: '$2x^2 - 8x - 7 = 0$\n\nOne solution to the given equation can be written as $\\frac{8 - \\sqrt{k}}{4}$, where $k$ is a constant. What is the value of $k$?',
           correctAnswer: '120',
-          explanation: 'Using the quadratic formula: $x = \\frac{8 \\pm \\sqrt{64 + 56}}{4} = \\frac{8 \\pm \\sqrt{120}}{4}$.\nSo $\\frac{8 - \\sqrt{k}}{4}$ corresponds to $x = \\frac{8 - \\sqrt{120}}{4}$, meaning $k = 120$.',
+          explanation: '**The correct answer is $120$.** Apply the quadratic formula and match to the given form.\n\n**Step 1: Identify $a$, $b$, $c$**\nFor $2x^2 - 8x - 7 = 0$: $a = 2$, $b = -8$, $c = -7$.\n\n**Step 2: Apply the quadratic formula**\n$$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} = \\frac{8 \\pm \\sqrt{64 - 4(2)(-7)}}{4}$$\n\n**Step 3: Simplify the discriminant**\n$b^2 - 4ac = 64 + 56 = 120$\n\nSo $x = \\frac{8 \\pm \\sqrt{120}}{4}$.\n\n**Step 4: Match to the given form**\nComparing $\\frac{8 - \\sqrt{k}}{4}$ with $\\frac{8 - \\sqrt{120}}{4}$, we get $k = 120$.\n\n**Key concept:** The quadratic formula gives $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$. The expression under the square root, $b^2 - 4ac$, is the discriminant.',
           skills: ['Quadratic Equations', 'Quadratic Formula']
         },
         {
@@ -696,7 +696,7 @@ export const practiceTest10 = {
           difficulty: 'hard',
           question: '$y = -2.5$\n\n$y = x^2 + 8x + k$\n\nIn the given system of equations, $k$ is a positive integer constant. The system has no real solutions. What is the least possible value of $k$?',
           correctAnswer: '14',
-          explanation: 'For no real solutions, the parabola $y = x^2 + 8x + k$ must not intersect $y = -2.5$.\nSetting them equal: $x^2 + 8x + k = -2.5$\n$x^2 + 8x + (k + 2.5) = 0$\nFor no real solutions, discriminant $< 0$:\n$b^2 - 4ac < 0$\n$64 - 4(1)(k + 2.5) < 0$\n$64 - 4k - 10 < 0$\n$54 < 4k$\n$k > 13.5$\nSince $k$ must be a positive integer, the least value is $k = 14$.',
+          explanation: '**The correct answer is $14$.** For no real solutions, the discriminant of the combined equation must be negative.\n\n**Step 1: Set the equations equal**\n$x^2 + 8x + k = -2.5$\n$x^2 + 8x + (k + 2.5) = 0$\n\n**Step 2: Apply the discriminant condition**\nFor no real solutions, the discriminant must be negative:\n$b^2 - 4ac < 0$\n$8^2 - 4(1)(k + 2.5) < 0$\n$64 - 4k - 10 < 0$\n$54 < 4k$\n$k > 13.5$\n\n**Step 3: Find the least positive integer**\nSince $k$ must be a positive integer and $k > 13.5$, the least possible value is $k = 14$.\n\n**Verification:** With $k = 14$: discriminant $= 64 - 4(16.5) = 64 - 66 = -2 < 0$ ✓ (no real solutions).\nWith $k = 13$: discriminant $= 64 - 4(15.5) = 64 - 62 = 2 > 0$ ✗ (has solutions).\n\n**Key concept:** A system of equations has no real solutions when the resulting single equation has a negative discriminant ($b^2 - 4ac < 0$). The discriminant boundary gives the threshold value.',
           skills: ['Quadratic Equations', 'Systems of Equations', 'Discriminant']
         }
       ]
