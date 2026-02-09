@@ -703,6 +703,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   const [currentQuestion, setCurrentQuestion] = useState(savedProgress?.currentQuestion || 0);
   const [answers, setAnswers] = useState(savedProgress?.answers || {});
   const [markedForReview, setMarkedForReview] = useState(savedProgress?.markedForReview || []);
+  const [eliminatedChoices, setEliminatedChoices] = useState(savedProgress?.eliminatedChoices || {});
   const [showTimer, setShowTimer] = useState(isTimed);
   const [moduleCompleted, setModuleCompleted] = useState(false);
   const [testCompleted, setTestCompleted] = useState(false);
@@ -800,12 +801,13 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         currentQuestion,
         answers,
         markedForReview,
+        eliminatedChoices,
         isTimed
       };
       console.log('[PracticeTest] Auto-saving progress:', progressData);
       onSaveProgress(progressData);
     }
-  }, [answers, currentModule, currentQuestion, markedForReview, testCompleted, reviewMode, onSaveProgress, isTimed]);
+  }, [answers, currentModule, currentQuestion, markedForReview, eliminatedChoices, testCompleted, reviewMode, onSaveProgress, isTimed]);
 
   // Save test results when test completes
   useEffect(() => {
@@ -1048,6 +1050,23 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     });
   };
 
+  const handleToggleEliminate = (choiceId) => {
+    const key = `${currentModule}-${currentQuestion}`;
+    setEliminatedChoices(prev => {
+      const current = prev[key] || [];
+      if (current.includes(choiceId)) {
+        const updated = current.filter(id => id !== choiceId);
+        if (updated.length === 0) {
+          const newState = { ...prev };
+          delete newState[key];
+          return newState;
+        }
+        return { ...prev, [key]: updated };
+      }
+      return { ...prev, [key]: [...current, choiceId] };
+    });
+  };
+
   const handleNext = () => {
     if (question?.type === 'fill-in') {
       handleFillInSubmit();
@@ -1093,6 +1112,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       setCurrentModule(currentModule + 1);
       setCurrentQuestion(0);
       setMarkedForReview([]);
+      setEliminatedChoices({});
       setModuleCompleted(false);
       // Reset telemetry start time for the new module
       questionStartTime.current = Date.now();
@@ -1865,6 +1885,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           setCurrentQuestion(0);
           setAnswers({});
           setMarkedForReview([]);
+          setEliminatedChoices({});
           setModuleCompleted(false);
           setTestCompleted(false);
         }}
@@ -2281,51 +2302,111 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           <div style={{ marginTop: '24px' }}>
             {question?.choices?.map((choice) => {
               const isSelected = currentAnswer === choice.id;
+              const elimKey = `${currentModule}-${currentQuestion}`;
+              const isEliminated = (eliminatedChoices[elimKey] || []).includes(choice.id);
               return (
                 <div
                   key={choice.id}
-                  onClick={() => handleSelectAnswer(choice.id)}
                   style={{
                     display: 'flex',
                     alignItems: 'center',
                     width: '100%',
                     padding: '12px 16px',
                     marginBottom: '10px',
-                    background: isSelected ? '#fff7ed' : '#ffffff',
-                    border: `1px solid ${isSelected ? '#f97316' : '#e5e7eb'}`,
+                    background: isSelected && !isEliminated ? '#fff7ed' : '#ffffff',
+                    border: `1px solid ${isSelected && !isEliminated ? '#f97316' : '#e5e7eb'}`,
                     borderRadius: '8px',
-                    cursor: 'pointer',
                     textAlign: 'left',
                     fontFamily: SAT_TYPOGRAPHY.questionFont,
                     transition: 'all 0.15s ease',
+                    opacity: isEliminated ? 0.5 : 1,
                   }}
                 >
-                  {/* Rounded rectangle badge */}
-                  <div style={{
-                    width: '28px',
-                    height: '28px',
-                    borderRadius: '4px',
-                    backgroundColor: isSelected ? '#f97316' : '#ffffff',
-                    border: `1px solid ${isSelected ? '#f97316' : '#d1d5db'}`,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontWeight: '500',
-                    fontSize: '14px',
-                    color: isSelected ? '#ffffff' : '#374151',
-                    marginRight: '14px',
-                    flexShrink: 0,
-                  }}>
-                    {choice.id}
+                  {/* Cross-out toggle button — LEFT side */}
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleToggleEliminate(choice.id);
+                    }}
+                    title={isEliminated ? 'Undo cross-out' : 'Cross out choice'}
+                    aria-label={isEliminated ? `Undo elimination of choice ${choice.id}` : `Eliminate choice ${choice.id}`}
+                    style={{
+                      marginRight: '10px',
+                      width: '22px',
+                      height: '22px',
+                      borderRadius: '4px',
+                      border: '1px solid #d1d5db',
+                      background: isEliminated ? '#fee2e2' : 'transparent',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0,
+                      color: isEliminated ? '#dc2626' : '#9ca3af',
+                      padding: 0,
+                      transition: 'all 0.15s ease',
+                    }}
+                  >
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                      <line x1="2" y1="2" x2="10" y2="10" />
+                      <line x1="10" y1="2" x2="2" y2="10" />
+                    </svg>
+                  </button>
+                  {/* Clickable area for answer selection */}
+                  <div
+                    onClick={() => handleSelectAnswer(choice.id)}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      flex: 1,
+                      cursor: 'pointer',
+                    }}
+                  >
+                    {/* Letter badge with X overlay when eliminated */}
+                    <div style={{
+                      width: '28px',
+                      height: '28px',
+                      borderRadius: '4px',
+                      backgroundColor: isEliminated ? '#f3f4f6' : isSelected ? '#f97316' : '#ffffff',
+                      border: `1px solid ${isEliminated ? '#d1d5db' : isSelected ? '#f97316' : '#d1d5db'}`,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontWeight: '500',
+                      fontSize: '14px',
+                      color: isEliminated ? '#9ca3af' : isSelected ? '#ffffff' : '#374151',
+                      marginRight: '14px',
+                      flexShrink: 0,
+                      position: 'relative',
+                    }}>
+                      {choice.id}
+                      {/* X overlay on the badge */}
+                      {isEliminated && (
+                        <svg
+                          width="28" height="28"
+                          viewBox="0 0 28 28"
+                          fill="none"
+                          stroke="#dc2626"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          style={{ position: 'absolute', top: 0, left: 0 }}
+                        >
+                          <line x1="6" y1="6" x2="22" y2="22" />
+                          <line x1="22" y1="6" x2="6" y2="22" />
+                        </svg>
+                      )}
+                    </div>
+                    <span style={{
+                      fontFamily: SAT_TYPOGRAPHY.questionFont,
+                      fontSize: SAT_TYPOGRAPHY.sizes.choiceText,
+                      color: isEliminated ? '#9ca3af' : SAT_COLORS.text.primary,
+                      lineHeight: SAT_TYPOGRAPHY.lineHeights.choice,
+                      textDecoration: isEliminated ? 'line-through' : 'none',
+                      textDecorationColor: isEliminated ? '#9ca3af' : undefined,
+                    }}>
+                      {renderChoice(choice)}
+                    </span>
                   </div>
-                  <span style={{
-                    fontFamily: SAT_TYPOGRAPHY.questionFont,
-                    fontSize: SAT_TYPOGRAPHY.sizes.choiceText,
-                    color: SAT_COLORS.text.primary,
-                    lineHeight: SAT_TYPOGRAPHY.lineHeights.choice,
-                  }}>
-                    {renderChoice(choice)}
-                  </span>
                 </div>
               );
             })}
