@@ -504,7 +504,7 @@ Your goal is to be a helpful tutor who guides discovery, not an answer-revealing
       aria-label="AI Tutor Chat"
       aria-modal="false"
       style={{
-        marginTop: '20px',
+        marginTop: '0px',
         borderRadius: '20px',
         background: design.colors.surface.primary,
         boxShadow: design.shadow.large,
@@ -512,6 +512,9 @@ Your goal is to be a helpful tutor who guides discovery, not an answer-revealing
         fontFamily: design.typography.fontFamily,
         animation: 'chatSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
         border: `1px solid ${design.colors.border.light}`,
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%',
       }}
     >
       {/* Header */}
@@ -584,7 +587,8 @@ Your goal is to be a helpful tutor who guides discovery, not an answer-revealing
         aria-label="Chat messages"
         aria-live="polite"
         style={{
-          height: '380px',
+          flex: 1,
+          minHeight: '200px',
           overflowY: 'auto',
           padding: '24px',
           background: design.colors.surface.tertiary,

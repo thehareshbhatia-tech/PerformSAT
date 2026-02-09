@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import QuestionDiagram from './QuestionDiagrams';
-import AiTutorChat, { AiTutorButton } from './AiTutorChat';
+import AiTutorChat from './AiTutorChat';
 import TestResults from './TestResults';
 import { MathText } from './MathText';
 import SolutionExplanation from './SolutionExplanation';
@@ -712,7 +712,6 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   const [reviewModule, setReviewModule] = useState(0);
   const [reviewQuestion, setReviewQuestion] = useState(0);
   const [resultSaved, setResultSaved] = useState(false);
-  const [showAiTutor, setShowAiTutor] = useState(false);
 
   // Diagnostic tracking refs (refs avoid re-renders on every data point)
   const questionTelemetry = useRef({});
@@ -1293,7 +1292,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     };
 
     return (
-      <div style={{ maxWidth: '900px', margin: '0 auto', padding: '24px 20px', background: '#f8fafc', minHeight: '100vh' }}>
+      <div style={{ maxWidth: '100%', margin: '0 auto', padding: '24px 32px', background: '#f8fafc', minHeight: '100vh' }}>
         {/* Review Header */}
         <div style={{
           display: 'flex',
@@ -1709,94 +1708,92 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           )}
         </div>
 
-        {/* Explanation Section */}
+        {/* Explanation + AI Chat Side-by-Side */}
         <div style={{
-          background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
-          border: '1px solid #7dd3fc',
-          borderRadius: '16px',
-          padding: '24px',
+          display: 'flex',
+          gap: '24px',
+          alignItems: 'stretch',
           marginBottom: '24px',
-          boxShadow: '0 2px 8px rgba(14, 165, 233, 0.1)'
         }}>
+          {/* LEFT: Solution Explanation */}
           <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '12px',
-            marginBottom: '16px',
-            paddingBottom: '12px',
-            borderBottom: '1px solid #bae6fd'
+            flex: '1 1 0',
+            minWidth: 0,
+            background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
+            border: '1px solid #7dd3fc',
+            borderRadius: '16px',
+            padding: '24px',
+            boxShadow: '0 2px 8px rgba(14, 165, 233, 0.1)'
           }}>
             <div style={{
-              width: '36px',
-              height: '36px',
-              borderRadius: '10px',
-              background: '#0ea5e9',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center',
-              color: 'white',
-              fontSize: '18px'
+              gap: '12px',
+              marginBottom: '16px',
+              paddingBottom: '12px',
+              borderBottom: '1px solid #bae6fd'
             }}>
-              💡
+              <div style={{
+                width: '36px',
+                height: '36px',
+                borderRadius: '10px',
+                background: '#0ea5e9',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'white',
+                fontSize: '18px'
+              }}>
+                💡
+              </div>
+              <h3 style={{
+                fontSize: '18px',
+                fontWeight: '700',
+                color: '#0c4a6e',
+                margin: 0
+              }}>
+                Solution Explanation
+              </h3>
             </div>
-            <h3 style={{
-              fontSize: '18px',
-              fontWeight: '700',
-              color: '#0c4a6e',
-              margin: 0
-            }}>
-              Solution Explanation
-            </h3>
+            {reviewQ?.explanation ? (
+              <SolutionExplanation explanation={reviewQ.explanation} />
+            ) : (
+              <p style={{ color: '#64748b', fontStyle: 'italic' }}>
+                No explanation available for this question.
+              </p>
+            )}
           </div>
-          {reviewQ?.explanation ? (
-            <SolutionExplanation explanation={reviewQ.explanation} />
-          ) : (
-            <p style={{ color: '#64748b', fontStyle: 'italic' }}>
-              No explanation available for this question.
-            </p>
-          )}
-        </div>
 
-        {/* AI Tutor Section */}
-        <div style={{ marginBottom: '24px' }}>
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '8px' }}>
-            <AiTutorButton
-              onClick={() => setShowAiTutor(!showAiTutor)}
-              isOpen={showAiTutor}
+          {/* RIGHT: Always-open AI Tutor Chat */}
+          <div style={{
+            flex: '1 1 0',
+            minWidth: 0,
+            display: 'flex',
+            flexDirection: 'column',
+          }}>
+            <AiTutorChat
+              isOpen={true}
+              onClose={() => {}}
+              moduleId={test.id}
+              lessonId={`review-${reviewModule}-${reviewQuestion}`}
+              lessonTitle={`${test.title} - Question ${currentFlatIndex + 1}`}
+              isVideoLesson={false}
+              isPracticeQuestion={true}
+              skillProgress={skillProgress}
+              testDate={user?.testDate}
+              practiceContext={{
+                question: reviewQ?.question || '',
+                choices: reviewQ?.choices || [],
+                hint: reviewQ?.hint || '',
+                answerRevealed: true,
+                correctAnswer: reviewQ?.type === 'fill-in'
+                  ? reviewQ?.correctAnswer
+                  : reviewQ?.choices?.find(c => c.id === reviewQ?.correctAnswer)?.text || reviewQ?.correctAnswer,
+                explanation: reviewQ?.explanation || '',
+                skills: reviewQ?.skills || []
+              }}
             />
           </div>
-          {!showAiTutor && (
-            <p style={{
-              textAlign: 'center',
-              fontSize: '13px',
-              color: '#64748b',
-              margin: 0
-            }}>
-              Need more help understanding this question?
-            </p>
-          )}
-          <AiTutorChat
-            isOpen={showAiTutor}
-            onClose={() => setShowAiTutor(false)}
-            moduleId={test.id}
-            lessonId={`review-${reviewModule}-${reviewQuestion}`}
-            lessonTitle={`${test.title} - Question ${currentFlatIndex + 1}`}
-            isVideoLesson={false}
-            isPracticeQuestion={true}
-            skillProgress={skillProgress}
-            testDate={user?.testDate}
-            practiceContext={{
-              question: reviewQ?.question || '',
-              choices: reviewQ?.choices || [],
-              hint: reviewQ?.hint || '',
-              answerRevealed: true,
-              correctAnswer: reviewQ?.type === 'fill-in'
-                ? reviewQ?.correctAnswer
-                : reviewQ?.choices?.find(c => c.id === reviewQ?.correctAnswer)?.text || reviewQ?.correctAnswer,
-              explanation: reviewQ?.explanation || '',
-              skills: reviewQ?.skills || []
-            }}
-          />
         </div>
 
         {/* Navigation Buttons */}
