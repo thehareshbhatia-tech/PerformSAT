@@ -1292,23 +1292,23 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     };
 
     return (
-      <div style={{ maxWidth: '100%', margin: '0 auto', padding: '24px 32px', background: '#f8fafc', minHeight: '100vh' }}>
+      <div style={{ maxWidth: '100%', margin: '0 auto', padding: '16px 32px', background: '#f8fafc', minHeight: '100vh' }}>
         {/* Review Header */}
         <div style={{
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          marginBottom: '24px',
-          padding: '20px 24px',
+          marginBottom: '16px',
+          padding: '14px 20px',
           background: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%)',
-          borderRadius: '16px',
+          borderRadius: '12px',
           boxShadow: '0 4px 12px rgba(30, 58, 95, 0.15)'
         }}>
           <div>
             <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '6px' }}>
               Review Mode
             </p>
-            <h1 style={{ fontSize: '22px', fontWeight: '700', color: 'white', marginBottom: '4px' }}>
+            <h1 style={{ fontSize: '18px', fontWeight: '700', color: 'white', marginBottom: '2px' }}>
               {test.title}
             </h1>
             <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.85)' }}>
@@ -1334,141 +1334,132 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           </button>
         </div>
 
-        {/* Question Navigation Grid - Organized by Module */}
+        {/* Compact Question Navigator - Current Module Only */}
         <div style={{
           background: 'white',
-          borderRadius: '16px',
-          padding: '20px',
-          marginBottom: '24px',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
+          borderRadius: '12px',
+          padding: '14px 20px',
+          marginBottom: '20px',
+          boxShadow: '0 1px 4px rgba(0,0,0,0.06)',
           border: '1px solid #e2e8f0'
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
-            <p style={{ fontSize: '14px', fontWeight: '600', color: '#334155' }}>
-              Question Navigator
-            </p>
-            <div style={{ display: 'flex', gap: '16px', fontSize: '12px' }}>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span style={{ width: '12px', height: '12px', borderRadius: '3px', background: '#16a34a' }}></span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'nowrap' }}>
+            {/* Module tabs */}
+            <div style={{ display: 'flex', gap: '6px', flexShrink: 0 }}>
+              {test.modules.map((mod, modIdx) => {
+                const modQuestions = mod.questions.map((q, qIdx) => {
+                  const key = `${modIdx}-${qIdx}`;
+                  const ans = answers[key];
+                  const correct = q.type === 'fill-in'
+                    ? ans === q.correctAnswer || parseFloat(ans) === q.correctAnswer
+                    : ans === q.correctAnswer;
+                  return { correct, answered: ans !== undefined };
+                });
+                const correctCount = modQuestions.filter(q => q.answered && q.correct).length;
+                const isActiveModule = modIdx === reviewModule;
+                return (
+                  <button
+                    key={modIdx}
+                    onClick={() => { setReviewModule(modIdx); setReviewQuestion(0); }}
+                    style={{
+                      padding: '6px 14px',
+                      borderRadius: '8px',
+                      border: 'none',
+                      background: isActiveModule ? '#1e3a5f' : '#f1f5f9',
+                      color: isActiveModule ? 'white' : '#64748b',
+                      fontSize: '13px',
+                      fontWeight: '600',
+                      cursor: 'pointer',
+                      whiteSpace: 'nowrap',
+                      transition: 'all 0.15s ease'
+                    }}
+                  >
+                    Module {modIdx + 1} ({correctCount}/{mod.questions.length})
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Divider */}
+            <div style={{ width: '1px', height: '28px', background: '#e2e8f0', flexShrink: 0 }} />
+
+            {/* Question buttons for current module only */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', flex: 1 }}>
+              {(() => {
+                const currentMod = test.modules[reviewModule];
+                return currentMod.questions.map((q, qIdx) => {
+                  const key = `${reviewModule}-${qIdx}`;
+                  const ans = answers[key];
+                  const correct = q.type === 'fill-in'
+                    ? ans === q.correctAnswer || parseFloat(ans) === q.correctAnswer
+                    : ans === q.correctAnswer;
+                  const answered = ans !== undefined;
+                  const isActive = qIdx === reviewQuestion;
+                  const bgColor = !answered ? '#cbd5e1' : correct ? '#16a34a' : '#dc2626';
+                  return (
+                    <button
+                      key={qIdx}
+                      onClick={() => handleReviewJump(reviewModule, qIdx)}
+                      style={{
+                        width: '32px',
+                        height: '32px',
+                        borderRadius: '6px',
+                        border: isActive ? '2.5px solid #111827' : '1.5px solid transparent',
+                        background: bgColor,
+                        color: 'white',
+                        fontSize: '12px',
+                        fontWeight: '600',
+                        cursor: 'pointer',
+                        boxShadow: isActive ? '0 2px 6px rgba(0,0,0,0.2)' : 'none',
+                        transform: isActive ? 'scale(1.15)' : 'scale(1)',
+                        transition: 'all 0.15s ease'
+                      }}
+                    >
+                      {qIdx + 1}
+                    </button>
+                  );
+                });
+              })()}
+            </div>
+
+            {/* Legend */}
+            <div style={{ display: 'flex', gap: '12px', fontSize: '11px', flexShrink: 0 }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                <span style={{ width: '10px', height: '10px', borderRadius: '2px', background: '#16a34a' }}></span>
                 <span style={{ color: '#6b7280' }}>Correct</span>
               </span>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span style={{ width: '12px', height: '12px', borderRadius: '3px', background: '#dc2626' }}></span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                <span style={{ width: '10px', height: '10px', borderRadius: '2px', background: '#dc2626' }}></span>
                 <span style={{ color: '#6b7280' }}>Incorrect</span>
               </span>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span style={{ width: '12px', height: '12px', borderRadius: '3px', background: '#cbd5e1' }}></span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                <span style={{ width: '10px', height: '10px', borderRadius: '2px', background: '#cbd5e1' }}></span>
                 <span style={{ color: '#6b7280' }}>Skipped</span>
               </span>
             </div>
           </div>
-
-          {/* Module-based navigation */}
-          {test.modules.map((mod, modIdx) => {
-            // Calculate module stats
-            const moduleQuestions = mod.questions.map((q, qIdx) => {
-              const key = `${modIdx}-${qIdx}`;
-              const ans = answers[key];
-              const correct = q.type === 'fill-in'
-                ? ans === q.correctAnswer || parseFloat(ans) === q.correctAnswer
-                : ans === q.correctAnswer;
-              return { modIdx, qIdx, correct, answered: ans !== undefined };
-            });
-            const correctCount = moduleQuestions.filter(q => q.answered && q.correct).length;
-
-            return (
-              <div key={modIdx} style={{ marginBottom: modIdx < test.modules.length - 1 ? '20px' : 0 }}>
-                {/* Module Header */}
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  marginBottom: '12px',
-                  paddingBottom: '8px',
-                  borderBottom: '1px solid #e2e8f0'
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <span style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      width: '28px',
-                      height: '28px',
-                      borderRadius: '6px',
-                      background: modIdx === 0 ? '#3b82f6' : '#10b981',
-                      color: 'white',
-                      fontSize: '14px',
-                      fontWeight: '700'
-                    }}>
-                      {modIdx + 1}
-                    </span>
-                    <span style={{ fontSize: '15px', fontWeight: '600', color: '#1e293b' }}>
-                      {mod.title}
-                    </span>
-                  </div>
-                  <div style={{
-                    fontSize: '13px',
-                    fontWeight: '600',
-                    color: correctCount === mod.questions.length ? '#16a34a' : '#64748b'
-                  }}>
-                    {correctCount}/{mod.questions.length} correct
-                  </div>
-                </div>
-
-                {/* Module Questions Grid */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                  {moduleQuestions.map((q, qIdx) => {
-                    const isActive = q.modIdx === reviewModule && q.qIdx === reviewQuestion;
-                    const bgColor = !q.answered ? '#cbd5e1' : q.correct ? '#16a34a' : '#dc2626';
-                    return (
-                      <button
-                        key={qIdx}
-                        onClick={() => handleReviewJump(q.modIdx, q.qIdx)}
-                        style={{
-                          width: '36px',
-                          height: '36px',
-                          borderRadius: '8px',
-                          border: isActive ? '3px solid #111827' : '2px solid transparent',
-                          background: bgColor,
-                          color: 'white',
-                          fontSize: '13px',
-                          fontWeight: '600',
-                          cursor: 'pointer',
-                          boxShadow: isActive ? '0 2px 8px rgba(0,0,0,0.2)' : 'none',
-                          transform: isActive ? 'scale(1.1)' : 'scale(1)',
-                          transition: 'all 0.15s ease'
-                        }}
-                      >
-                        {qIdx + 1}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          })}
         </div>
 
         {/* Answer Status Banner */}
         <div style={{
-          padding: '16px 20px',
-          borderRadius: '12px',
-          marginBottom: '20px',
+          padding: '12px 16px',
+          borderRadius: '10px',
+          marginBottom: '14px',
           background: !userAnswer ? 'linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%)' : isCorrect ? 'linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%)' : 'linear-gradient(135deg, #fef2f2 0%, #fecaca 100%)',
           border: `2px solid ${!userAnswer ? '#cbd5e1' : isCorrect ? '#4ade80' : '#f87171'}`,
           boxShadow: '0 2px 8px rgba(0,0,0,0.06)'
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <div style={{
-              width: '48px',
-              height: '48px',
+              width: '38px',
+              height: '38px',
               borderRadius: '50%',
               background: !userAnswer ? '#94a3b8' : isCorrect ? '#16a34a' : '#dc2626',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               color: 'white',
-              fontSize: '24px',
+              fontSize: '18px',
               fontWeight: '700',
               boxShadow: '0 2px 8px rgba(0,0,0,0.15)'
             }}>
@@ -1477,7 +1468,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             <div style={{ flex: 1 }}>
               <p style={{
                 fontWeight: '700',
-                fontSize: '18px',
+                fontSize: '15px',
                 color: !userAnswer ? '#475569' : isCorrect ? '#15803d' : '#b91c1c',
                 marginBottom: '4px'
               }}>
@@ -1499,9 +1490,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         <div style={{
           background: 'white',
           border: '1px solid #e2e8f0',
-          borderRadius: '16px',
-          padding: '28px',
-          marginBottom: '24px',
+          borderRadius: '12px',
+          padding: '20px',
+          marginBottom: '16px',
           boxShadow: '0 2px 8px rgba(0,0,0,0.06)'
         }}>
           {/* Question Number Badge */}
@@ -1509,10 +1500,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             display: 'inline-flex',
             alignItems: 'center',
             gap: '8px',
-            padding: '6px 14px',
+            padding: '4px 12px',
             background: '#f1f5f9',
             borderRadius: '20px',
-            marginBottom: '20px'
+            marginBottom: '14px'
           }}>
             <span style={{ fontSize: '13px', fontWeight: '600', color: '#475569' }}>
               Question {currentFlatIndex + 1}
@@ -1533,9 +1524,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
 
           {/* Question Text */}
           <div style={{
-            marginBottom: '24px',
-            fontSize: '16px',
-            lineHeight: '1.7',
+            marginBottom: '16px',
+            fontSize: '15px',
+            lineHeight: '1.6',
             color: '#1e293b'
           }}>
             {Array.isArray(reviewQ?.question) || (reviewQ?.question && typeof reviewQ.question === 'object')
@@ -1711,9 +1702,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         {/* Explanation + AI Chat Side-by-Side */}
         <div style={{
           display: 'flex',
-          gap: '24px',
+          gap: '20px',
           alignItems: 'stretch',
-          marginBottom: '24px',
+          marginBottom: '16px',
         }}>
           {/* LEFT: Solution Explanation */}
           <div style={{
@@ -1721,8 +1712,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             minWidth: 0,
             background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
             border: '1px solid #7dd3fc',
-            borderRadius: '16px',
-            padding: '24px',
+            borderRadius: '12px',
+            padding: '18px',
             boxShadow: '0 2px 8px rgba(14, 165, 233, 0.1)'
           }}>
             <div style={{
@@ -1802,16 +1793,16 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           justifyContent: 'space-between',
           alignItems: 'center',
           background: 'white',
-          padding: '16px 20px',
-          borderRadius: '12px',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
+          padding: '12px 16px',
+          borderRadius: '10px',
+          boxShadow: '0 1px 4px rgba(0,0,0,0.06)',
           border: '1px solid #e2e8f0'
         }}>
           <button
             onClick={() => handleReviewNav(-1)}
             disabled={currentFlatIndex === 0}
             style={{
-              padding: '14px 28px',
+              padding: '10px 22px',
               background: currentFlatIndex === 0 ? '#f1f5f9' : 'white',
               color: currentFlatIndex === 0 ? '#94a3b8' : '#334155',
               border: currentFlatIndex === 0 ? '2px solid #e2e8f0' : '2px solid #334155',
@@ -1839,7 +1830,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             onClick={() => handleReviewNav(1)}
             disabled={currentFlatIndex === allQuestions.length - 1}
             style={{
-              padding: '14px 28px',
+              padding: '10px 22px',
               background: currentFlatIndex === allQuestions.length - 1 ? '#f1f5f9' : 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%)',
               color: currentFlatIndex === allQuestions.length - 1 ? '#94a3b8' : 'white',
               border: 'none',

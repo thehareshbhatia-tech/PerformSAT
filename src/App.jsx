@@ -9173,9 +9173,9 @@ const PerformSAT = () => {
 
       {/* Main Content */}
       <main style={{
-        maxWidth: (view === 'dashboard' || view === 'practiceTests' || view === 'takingTest') ? '960px' : '800px',
+        maxWidth: view === 'takingTest' ? '100%' : (view === 'dashboard' || view === 'practiceTests') ? '960px' : '800px',
         margin: '0 auto',
-        padding: '140px 32px 100px'
+        padding: view === 'takingTest' ? '110px 0px 60px' : '140px 32px 100px'
       }}>
         {/* Student Dashboard View */}
         {view === 'dashboard' && (
