@@ -1,7 +1,22 @@
+import { useState, useRef, useEffect } from 'react';
 import { getAllPracticeTests } from '../data/practiceTests';
 
 const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practiceTestResults, getTestBestScore, getTestAttempts, inProgressTests, onResumeTest }) => {
   const tests = getAllPracticeTests();
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const dropdownRef = useRef(null);
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    if (!openDropdown) return;
+    const handler = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setOpenDropdown(null);
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, [openDropdown]);
 
   return (
     <div style={{ maxWidth: '800px', margin: '0 auto', padding: '40px 20px' }}>
@@ -49,6 +64,7 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
           const attempts = getTestAttempts ? getTestAttempts(test.id) : 0;
           const inProgress = inProgressTests && inProgressTests[test.id];
           const answeredCount = inProgress ? Object.keys(inProgress.answers || {}).length : 0;
+          const isOpen = openDropdown === test.id;
 
           return (
             <div
@@ -103,7 +119,7 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
                     color: '#6b7280',
                     marginBottom: '16px'
                   }}>
-                    {test.description || 'Full-length SAT Math practice test'}
+                    {test.description || 'Full-length SAT Math practice test with 2 modules'}
                   </p>
 
                   {/* Module breakdown */}
@@ -139,9 +155,11 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', flexShrink: 0 }}>
+                {/* Right side — dropdown button */}
+                <div style={{ flexShrink: 0, position: 'relative' }} ref={isOpen ? dropdownRef : null}>
                   {inProgress && onResumeTest ? (
-                    <>
+                    /* In-progress: show Resume + Start Over */
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                       <button
                         onClick={() => onResumeTest(test, inProgress.isTimed)}
                         style={{
@@ -165,70 +183,144 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
                         Resume ({answeredCount}/{totalQuestions})
                       </button>
                       <button
-                        onClick={() => onSelectTestWithMode ? onSelectTestWithMode(test, true) : onSelectTest(test)}
+                        onClick={() => setOpenDropdown(isOpen ? null : test.id)}
                         style={{
                           padding: '10px 20px',
-                          background: 'white',
-                          color: '#6b7280',
-                          border: '1px solid #d1d5db',
-                          borderRadius: '8px',
-                          fontSize: '13px',
-                          fontWeight: '500',
-                          cursor: 'pointer'
-                        }}
-                      >
-                        Start Over
-                      </button>
-                    </>
-                  ) : (
-                    <>
-                      <button
-                        onClick={() => onSelectTestWithMode ? onSelectTestWithMode(test, true) : onSelectTest(test)}
-                        style={{
-                          padding: '12px 28px',
-                          background: '#111827',
-                          color: 'white',
-                          border: 'none',
-                          borderRadius: '8px',
-                          fontSize: '15px',
-                          fontWeight: '600',
-                          cursor: 'pointer',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          gap: '8px'
-                        }}
-                      >
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <circle cx="12" cy="12" r="10" />
-                          <polyline points="12 6 12 12 16 14" />
-                        </svg>
-                        Start Timed
-                      </button>
-                      <button
-                        onClick={() => onSelectTestWithMode ? onSelectTestWithMode(test, false) : onSelectTest(test)}
-                        style={{
-                          padding: '12px 28px',
                           background: 'white',
                           color: '#374151',
                           border: '1px solid #d1d5db',
                           borderRadius: '8px',
-                          fontSize: '15px',
+                          fontSize: '13px',
                           fontWeight: '500',
                           cursor: 'pointer',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          gap: '8px'
+                          gap: '6px'
                         }}
                       >
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        Start Over
+                        <svg
+                          width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+                          style={{ transition: 'transform 0.2s ease', transform: isOpen ? 'rotate(180deg)' : 'rotate(0)' }}
+                        >
+                          <path d="M3 4.5L6 7.5L9 4.5" />
+                        </svg>
+                      </button>
+                    </div>
+                  ) : (
+                    /* Normal: single Start button with dropdown */
+                    <button
+                      onClick={() => setOpenDropdown(isOpen ? null : test.id)}
+                      style={{
+                        padding: '12px 28px',
+                        background: '#111827',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '8px',
+                        fontSize: '15px',
+                        fontWeight: '600',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '8px'
+                      }}
+                    >
+                      Start
+                      <svg
+                        width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+                        style={{ transition: 'transform 0.2s ease', transform: isOpen ? 'rotate(180deg)' : 'rotate(0)' }}
+                      >
+                        <path d="M3.5 5.25L7 8.75L10.5 5.25" />
+                      </svg>
+                    </button>
+                  )}
+
+                  {/* Dropdown */}
+                  {isOpen && (
+                    <div style={{
+                      position: 'absolute',
+                      top: '100%',
+                      right: 0,
+                      marginTop: '6px',
+                      background: 'white',
+                      border: '1px solid #e5e7eb',
+                      borderRadius: '10px',
+                      boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06)',
+                      overflow: 'hidden',
+                      zIndex: 10,
+                      minWidth: '180px',
+                      animation: 'ptDropdownIn 0.15s ease'
+                    }}>
+                      <style>{`
+                        @keyframes ptDropdownIn {
+                          from { opacity: 0; transform: translateY(-4px); }
+                          to { opacity: 1; transform: translateY(0); }
+                        }
+                      `}</style>
+                      <button
+                        onClick={() => {
+                          setOpenDropdown(null);
+                          onSelectTestWithMode ? onSelectTestWithMode(test, true) : onSelectTest(test);
+                        }}
+                        style={{
+                          width: '100%',
+                          padding: '12px 16px',
+                          background: 'white',
+                          border: 'none',
+                          borderBottom: '1px solid #f3f4f6',
+                          fontSize: '14px',
+                          fontWeight: '500',
+                          color: '#111827',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '10px',
+                          textAlign: 'left',
+                          transition: 'background 0.1s'
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.background = '#f9fafb'}
+                        onMouseLeave={(e) => e.currentTarget.style.background = 'white'}
+                      >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="2">
+                          <circle cx="12" cy="12" r="10" />
+                          <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        Timed
+                        <span style={{ fontSize: '12px', color: '#9ca3af', marginLeft: 'auto' }}>~{totalTime}m</span>
+                      </button>
+                      <button
+                        onClick={() => {
+                          setOpenDropdown(null);
+                          onSelectTestWithMode ? onSelectTestWithMode(test, false) : onSelectTest(test);
+                        }}
+                        style={{
+                          width: '100%',
+                          padding: '12px 16px',
+                          background: 'white',
+                          border: 'none',
+                          fontSize: '14px',
+                          fontWeight: '500',
+                          color: '#111827',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '10px',
+                          textAlign: 'left',
+                          transition: 'background 0.1s'
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.background = '#f9fafb'}
+                        onMouseLeave={(e) => e.currentTarget.style.background = 'white'}
+                      >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="2">
                           <circle cx="12" cy="12" r="10" />
                           <line x1="8" y1="12" x2="16" y2="12" />
                         </svg>
-                        Start Untimed
+                        Untimed
+                        <span style={{ fontSize: '12px', color: '#9ca3af', marginLeft: 'auto' }}>No limit</span>
                       </button>
-                    </>
+                    </div>
                   )}
                 </div>
               </div>
