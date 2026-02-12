@@ -349,16 +349,16 @@ export const practiceTest5 = {
           id: 22,
           type: 'multiple-choice',
           difficulty: 'hard',
-          question: 'What is the value of $\\tan\\left(\\frac{88\\pi}{3}\\right)$?',
+          question: 'The lines $ax + 6y = 12$ and $3x - 4y = 8$ in the $xy$-plane are perpendicular. What is the value of $a$?',
           choices: [
-            { id: 'A', text: '$-\\sqrt{3}$' },
-            { id: 'B', text: '$-\\frac{\\sqrt{3}}{3}$' },
-            { id: 'C', text: '$\\frac{\\sqrt{3}}{3}$' },
-            { id: 'D', text: '$\\sqrt{3}$' }
+            { id: 'A', text: '$2$' },
+            { id: 'B', text: '$4$' },
+            { id: 'C', text: '$8$' },
+            { id: 'D', text: '$12$' }
           ],
-          correctAnswer: 'A',
-          explanation: '**Choice A is correct.** Reduce the angle using the period of tangent.\n\n**Step 1: Reduce by multiples of $2\\pi$**\n$\\frac{88\\pi}{3} \\div 2\\pi = \\frac{88}{6} = \\frac{44}{3} = 14\\frac{2}{3}$\n\nSo $\\frac{88\\pi}{3} = 14(2\\pi) + \\frac{2\\pi \\cdot 2}{3} = 14(2\\pi) + \\frac{4\\pi}{3}$.\n\nThe coterminal angle is $\\frac{4\\pi}{3}$.\n\n**Step 2: Evaluate $\\tan\\left(\\frac{4\\pi}{3}\\right)$**\n$\\frac{4\\pi}{3}$ is in Quadrant III (between $\\pi$ and $\\frac{3\\pi}{2}$). The reference angle is $\\frac{4\\pi}{3} - \\pi = \\frac{\\pi}{3}$.\n\nIn Quadrant III, tangent is positive: $\\tan\\left(\\frac{4\\pi}{3}\\right) = \\tan\\left(\\frac{\\pi}{3}\\right) = \\sqrt{3}$.\n\nHowever, the correct answer $-\\sqrt{3}$ corresponds to the angle $\\frac{2\\pi}{3}$ (Quadrant II). Rechecking: if the original angle is $\\frac{88\\pi}{3}$, reducing modulo $\\pi$ (since $\\tan$ has period $\\pi$): $\\frac{88}{3} = 29\\frac{1}{3}$, so $\\frac{88\\pi}{3} = 29\\pi + \\frac{\\pi}{3}$. Since $29$ is odd: $\\tan(29\\pi + \\frac{\\pi}{3}) = \\tan(\\pi + \\frac{\\pi}{3}) = \\tan(\\frac{\\pi}{3}) = \\sqrt{3}$. The answer is $-\\sqrt{3}$ if the original problem uses $\\frac{2\\pi}{3}$ as the reduced angle.\n\n**Key concept:** $\\tan$ has period $\\pi$: $\\tan(\\theta + n\\pi) = \\tan(\\theta)$. Reduce the angle by multiples of $\\pi$ to find the equivalent angle.',
-          skills: ["radian-measure-understanding", "soh-cah-toa"]
+          correctAnswer: 'C',
+          explanation: '**Choice C is correct.** For perpendicular lines, the product of their slopes equals $-1$.\n\n**Step 1: Find the slope of the second line**\n$3x - 4y = 8$ → $y = \\frac{3}{4}x - 2$ → slope $= \\frac{3}{4}$\n\n**Step 2: Find the slope of the first line**\n$ax + 6y = 12$ → $y = -\\frac{a}{6}x + 2$ → slope $= -\\frac{a}{6}$\n\n**Step 3: Apply the perpendicularity condition**\n$m_1 \\times m_2 = -1$\n$\\left(-\\frac{a}{6}\\right) \\times \\frac{3}{4} = -1$\n$-\\frac{3a}{24} = -1$\n$\\frac{a}{8} = 1$\n$a = 8$\n\n**Verification:** Slopes are $-\\frac{8}{6} = -\\frac{4}{3}$ and $\\frac{3}{4}$.\n$-\\frac{4}{3} \\times \\frac{3}{4} = -1$ ✓\n\n**Why other choices are incorrect:**\n• Choice A ($a = 2$): slope $= -\\frac{1}{3}$, product $= -\\frac{1}{4} \\neq -1$\n• Choice B ($a = 4$): slope $= -\\frac{2}{3}$, product $= -\\frac{1}{2} \\neq -1$\n• Choice D ($a = 12$): slope $= -2$, product $= -\\frac{3}{2} \\neq -1$',
+          skills: ['Geometry', 'Perpendicular Lines']
         }
       ]
     },
@@ -369,27 +369,21 @@ export const practiceTest5 = {
       questions: [
         {
           id: 1,
-          type: "multiple-choice",
+          type: "fill-in",
           difficulty: "easy",
-          question: "What is the $y$-intercept of the line $18x - 9y = 36$?",
-          choices: [
-            { id: "A", text: "$(0, -4)$" },
-            { id: "B", text: "$(0, 4)$" },
-            { id: "C", text: "$(2, 0)$" },
-            { id: "D", text: "$(-4, 0)$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**Choice A is correct.** The $y$-intercept occurs where $x = 0$.\n\n• $18x - 9y = 36$\n• $18(0) - 9y = 36$\n• $-9y = 36$\n• $y = -4$\n\nThe $y$-intercept is $(0, -4)$.\n\n**Why other choices are incorrect:**\n• Choice B $(0, 4)$: Wrong sign\n• Choice C $(2, 0)$: This is the $x$-intercept\n• Choice D $(-4, 0)$: This has the form of an $x$-intercept\n\n**Calculator tip:** Rewrite in slope-intercept form: $y = 2x - 4$. The constant term is the $y$-intercept.",
-          skills: ["linear-equations", "y-intercept"]
+          question: "A number increased by $15\\%$ results in $46$. What is the original number?",
+          correctAnswer: 40,
+          explanation: "**The correct answer is $40$.**\n\nLet $x$ = the original number.\n$x \\times 1.15 = 46$\n$x = \\frac{46}{1.15} = 40$\n\n**Verification:** $40 \\times 1.15 = 40 + 6 = 46$ ✓\n\n**Key concept:** \"Increased by $p\\%$\" means multiplying by $(1 + p/100)$. To find the original, divide by the multiplier.",
+          skills: ['Problem-Solving and Data Analysis', 'Percent']
         },
         {
           id: 2,
           type: 'fill-in',
           difficulty: 'easy',
-          question: 'If $8n = 24$, what is the value of $n + 5$?',
-          correctAnswer: '8',
-          explanation: '**The correct answer is $8$.** Solve for $n$, then evaluate $n + 5$.\n\n**Step 1: Solve for $n$**\n$8n = 24$\n$n = \\frac{24}{8} = 3$\n\n**Step 2: Find $n + 5$**\n$n + 5 = 3 + 5 = 8$\n\n**Verification:** $8(3) = 24$ ✓.\n\n**Key concept:** Solve the equation first to find the variable, then substitute into the desired expression.',
-          skills: ["linear-equations"]
+          question: 'If $5(x + 3) = 40$, what is the value of $x$?',
+          correctAnswer: 5,
+          explanation: '**The correct answer is $5$.**\n\n**Step 1: Distribute (or divide)**\n$5(x + 3) = 40$\n$x + 3 = 8$\n\n**Step 2: Solve for $x$**\n$x = 8 - 3 = 5$\n\n**Verification:** $5(5 + 3) = 5(8) = 40$ ✓\n\n**Key concept:** Distribute or divide first, then isolate the variable.',
+          skills: ['Algebra', 'Linear Equations']
         },
         {
           id: 3,
@@ -462,11 +456,10 @@ export const practiceTest5 = {
           id: 7,
           type: "fill-in",
           difficulty: "medium",
-          question: "If $2x + 3y = 12$ and $6y = 9$, what is the value of $x$?",
-          correctAnswer: 3.75,
-          alternateAnswers: ["15/4", 3.8],
-          explanation: "**The correct answer is $\\frac{15}{4}$ or $3.75$.** Solve for $y$ first, then find $x$.\n\n**Step 1: Solve for $y$**\n• $6y = 9$\n• $y = \\frac{9}{6} = \\frac{3}{2} = 1.5$\n\n**Step 2: Substitute into first equation**\n• $2x + 3(1.5) = 12$\n• $2x + 4.5 = 12$\n• $2x = 7.5$\n• $x = 3.75$ or $\\frac{15}{4}$\n\n**Verification:** $2(3.75) + 3(1.5) = 7.5 + 4.5 = 12$ ✓\n\n**Key concept:** Solve the simpler equation first to find one variable.",
-          skills: ["systems-of-equations"]
+          question: "If $\\frac{x - 3}{4} = \\frac{x + 1}{6}$, what is the value of $x$?",
+          correctAnswer: 11,
+          explanation: "**The correct answer is $11$.**\n\n**Step 1: Cross-multiply**\n$6(x - 3) = 4(x + 1)$\n\n**Step 2: Distribute**\n$6x - 18 = 4x + 4$\n\n**Step 3: Solve**\n$2x = 22$\n$x = 11$\n\n**Verification:** $\\frac{11 - 3}{4} = \\frac{8}{4} = 2$ and $\\frac{11 + 1}{6} = \\frac{12}{6} = 2$ ✓\n\n**Key concept:** When two fractions are equal, cross-multiply to eliminate the denominators: $\\frac{a}{b} = \\frac{c}{d}$ implies $ad = bc$.",
+          skills: ['Algebra', 'Linear Equations']
         },
         {
           id: 8,
@@ -488,18 +481,12 @@ export const practiceTest5 = {
         },
         {
           id: 10,
-          type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'In $\\triangle ABC$, the measure of $\\angle A$ is $72°$. Which of the following could be the measure, in degrees, of $\\angle B$?',
-          choices: [
-            { id: 'A', text: '$108$' },
-            { id: 'B', text: '$107$' },
-            { id: 'C', text: '$110$' },
-            { id: 'D', text: '$180$' }
-          ],
-          correctAnswer: 'B',
-          explanation: '**Choice B is correct.** Use the triangle angle sum to determine valid angle measures.\n\n**Step 1: Find the remaining angle sum**\n$\\angle A + \\angle B + \\angle C = 180°$\n$72° + \\angle B + \\angle C = 180°$\n$\\angle B + \\angle C = 108°$\n\n**Step 2: Determine constraints on $\\angle B$**\nBoth $\\angle B$ and $\\angle C$ must be positive, so $0° < \\angle B < 108°$.\n\n**Step 3: Check the choices**\n• $108°$: $\\angle C = 0°$ — not valid (angles must be positive) ✗\n• $107°$: $\\angle C = 1°$ — valid ✓\n• $110°$: $\\angle C = -2°$ — not valid (negative) ✗\n• $180°$: Exceeds the total for the entire triangle ✗\n\n**Why other choices are incorrect:**\n• Choice A ($108°$): Would make $\\angle C = 0°$, which is degenerate\n• Choice C ($110°$): Would require a negative angle\n• Choice D ($180°$): Impossible — no single angle can be $180°$ in a triangle\n\n**Key concept:** The sum of angles in a triangle is $180°$, and each angle must be positive.',
-          skills: ["triangle-angle-sum", "similar-triangles"]
+          type: 'fill-in',
+          difficulty: 'hard',
+          question: 'The points $(k, 8)$ and $(k + 5, -12)$ lie on a line in the $xy$-plane. The $y$-intercept of this line is at the point $(k - 3, b)$. What is the value of $b$?',
+          correctAnswer: 20,
+          explanation: '**The correct answer is $20$.**\n\n**Step 1: Find the slope of the line**\n$m = \\frac{-12 - 8}{(k + 5) - k} = \\frac{-20}{5} = -4$\n\n**Step 2: Use point-slope form with $(k, 8)$**\n$y - 8 = -4(x - k)$\n$y = -4x + 4k + 8$\n\n**Step 3: Evaluate at the $y$-intercept point $(k - 3, b)$**\n$b = -4(k - 3) + 4k + 8$\n$b = -4k + 12 + 4k + 8$\n$b = 20$\n\nNote that $k$ cancels out — the value of $b$ is independent of $k$!\n\n**Verification:** The slope is $-4$ regardless of $k$. At $x = k - 3$:\n$y = 8 + (-4)((k-3) - k) = 8 + (-4)(-3) = 8 + 12 = 20$ ✓\n\n**Key concept:** When a question involves a parameter $k$ in the coordinates, the parameter often cancels in the final answer. Focus on the relationships between the coordinates.',
+          skills: ['Algebra', 'Linear Equations']
         },
         {
           id: 11,
@@ -549,17 +536,17 @@ export const practiceTest5 = {
         {
           id: 14,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "The function $h$ is defined by $h(x) = 450(0.2)^x$. What is the value of $h(0)$?",
+          difficulty: "hard",
+          question: "$x - 17 = (x - a)(x - 17)$\n\nIn the given equation, $a$ is a constant where $a > 18$. Which of the following are the solutions to the equation?",
           choices: [
-            { id: "A", text: "$0$" },
-            { id: "B", text: "$1$" },
-            { id: "C", text: "$90$" },
-            { id: "D", text: "$450$" }
+            { id: "A", text: "$17$ and $a + 1$" },
+            { id: "B", text: "$17$ only" },
+            { id: "C", text: "$a + 17$ and $a - 1$" },
+            { id: "D", text: "$a$ and $17$" }
           ],
-          correctAnswer: "D",
-          explanation: "**Choice D is correct.** Evaluate $h(0)$.\n\n• $h(x) = 450(0.2)^x$\n• $h(0) = 450(0.2)^0$\n• Any number raised to the $0$ power equals $1$\n• $h(0) = 450(1) = 450$\n\n**Why other choices are incorrect:**\n• Choice A: $(0.2)^0 = 1$, not $0$\n• Choice B: This is just the value of $(0.2)^0$\n• Choice C: This would be $450 \\times 0.2$\n\n**Key concept:** For any non-zero number $a$, $a^0 = 1$. This is the $y$-intercept of exponential functions.",
-          skills: ["Algebra", "Exponential functions"]
+          correctAnswer: "A",
+          explanation: "**Choice A is correct.** Solve by considering two cases.\n\n**Case 1: $x = 17$**\nLHS: $17 - 17 = 0$\nRHS: $(17 - a)(17 - 17) = (17 - a)(0) = 0$\n$0 = 0$ ✓ — So $x = 17$ is always a solution.\n\n**Case 2: $x \\neq 17$**\nSince $x - 17 \\neq 0$, divide both sides by $(x - 17)$:\n$1 = x - a$\n$x = a + 1$\n\nSince $a > 18$, we have $x = a + 1 > 19 \\neq 17$, confirming this is a distinct solution.\n\n**The solutions are $x = 17$ and $x = a + 1$.**\n\n**Why other choices are incorrect:**\n• Choice B: Misses the second solution $x = a + 1$\n• Choice C: Incorrectly combines $a$ and $17$\n• Choice D: $x = a$ does not satisfy the equation (substituting gives $a - 17 = 0 \\cdot (a - 17) = 0$, but $a - 17 > 1 \\neq 0$)\n\n**Key concept:** When both sides share a common factor, one solution comes from setting that factor to zero, and the other comes from dividing it out.",
+          skills: ['Advanced Math', 'Quadratic Equations']
         },
         {
           id: 15,
@@ -610,11 +597,10 @@ export const practiceTest5 = {
           id: 18,
           type: "fill-in",
           difficulty: "hard",
-          question: "An isosceles right triangle has legs of length $8$. What is the length of the hypotenuse?",
-          correctAnswer: "8√2",
-          alternateAnswers: [11.31, 11.3, "11.314"],
-          explanation: "**The correct answer is $8\\sqrt{2} \\approx 11.31$.** Use the Pythagorean theorem or the 45-45-90 pattern.\n\n**Method 1: Pythagorean theorem**\n• $c^2 = a^2 + b^2$\n• $c^2 = 8^2 + 8^2$\n• $c^2 = 64 + 64 = 128$\n• $c = \\sqrt{128} = \\sqrt{64 \\times 2} = 8\\sqrt{2}$\n\n**Method 2: 45-45-90 pattern**\nIn a 45-45-90 triangle, sides are in ratio $1:1:\\sqrt{2}$\n• Legs: $8$\n• Hypotenuse: $8\\sqrt{2}$\n\n**Key concept:** In a 45-45-90 triangle with legs of length $a$, the hypotenuse $= a\\sqrt{2}$.",
-          skills: ["right-triangles", "pythagorean-theorem"]
+          question: "$36x - 48y = 20$\n\n$9x - py = 8$\n\nIn the given system of equations, $p$ is a constant. If the system has no solution, what is the value of $p$?",
+          correctAnswer: 12,
+          explanation: "**The correct answer is $12$.**\n\n**Step 1: Simplify the first equation**\nDivide $36x - 48y = 20$ by $4$:\n$9x - 12y = 5$\n\n**Step 2: Set up the no-solution condition**\nFor no solution, the lines must be parallel (proportional coefficients, non-proportional constants).\n\nSimplified Eq 1: $9x - 12y = 5$\nEq 2: $9x - py = 8$\n\n**Step 3: Match coefficients**\nThe $x$-coefficients are already equal ($9 = 9$).\nFor parallel lines: $\\frac{-12}{-p} = \\frac{9}{9}$\n$\\frac{12}{p} = 1$\n$p = 12$\n\n**Step 4: Verify constants are NOT proportional**\n$\\frac{5}{8} \\neq 1$ ✓ → The lines are parallel but distinct → no solution.\n\n**Verification:** With $p = 12$:\nEq 1: $9x - 12y = 5$\nEq 2: $9x - 12y = 8$\nSubtracting: $0 = -3$ (contradiction) → no solution ✓",
+          skills: ['Algebra', 'Systems of Equations']
         },
         {
           id: 19,

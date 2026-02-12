@@ -294,10 +294,10 @@ export const practiceTest3 = {
           id: 19,
           type: "fill-in",
           difficulty: "hard",
-          question: "The function $f$ is defined as $f(x) = 3(x + 4)(x - 3)(x + k)$, where $k$ is a constant. When graphed, $y = f(x)$ passes through the point $(-2, 0)$. What is the value of $f(0)$?",
-          correctAnswer: -72,
-          explanation: "**The correct answer is $-72$.** First find $k$, then evaluate $f(0)$.\n\n**Step 1:** Since $(-2, 0)$ is on the graph, $x = -2$ is a root:\n$f(-2) = 0$ means $(x + 2)$ is a factor\nSo $k = 2$\n\n**Step 2:** The function is:\n$f(x) = 3(x + 4)(x - 3)(x + 2)$\n\n**Step 3:** Calculate $f(0)$:\n$f(0) = 3(0 + 4)(0 - 3)(0 + 2)$\n$f(0) = 3(4)(-3)(2)$\n$f(0) = 3 \\times (-24)$\n$f(0) = -72$\n\n**Verification:** The roots are $x = -4, 3, -2$, which matches the factors.",
-          skills: ["polynomial-functions", "function-evaluation"]
+          question: "$\\frac{3}{5}x + \\frac{2}{5}y = 4$\n\n$9x + py = 10$\n\nIn the given system of equations, $p$ is a constant. If the system has no solution, what is the value of $p$?",
+          correctAnswer: 6,
+          explanation: "**The correct answer is $6$.**\n\n**Step 1: Simplify the first equation**\nMultiply by $5$: $3x + 2y = 20$\n\n**Step 2: Set up the no-solution condition**\nFor no solution, the lines must be parallel (same slope, different intercepts). This means:\n$\\frac{a_1}{a_2} = \\frac{b_1}{b_2} \\neq \\frac{c_1}{c_2}$\n\nEquation 1: $3x + 2y = 20$\nEquation 2: $9x + py = 10$\n\n**Step 3: Find $p$**\n$\\frac{3}{9} = \\frac{2}{p}$\n$\\frac{1}{3} = \\frac{2}{p}$\n$p = 6$\n\n**Step 4: Verify the constants are NOT proportional**\n$\\frac{20}{10} = 2 \\neq \\frac{1}{3}$ ✓\n\nSo the lines are parallel but not identical → no solution.\n\n**Verification:** With $p = 6$: $9x + 6y = 10$ → $3x + 2y = \\frac{10}{3}$\nCompare with $3x + 2y = 20$ — same slope, different intercept → no solution ✓",
+          skills: ['Algebra', 'Systems of Equations']
         },
         {
           id: 20,
@@ -322,16 +322,16 @@ export const practiceTest3 = {
           id: 21,
           type: "multiple-choice",
           difficulty: "hard",
-          question: "If $(3^b)^{2a} = 27$, what is the value of $12ab$?",
+          question: "The function $f(x) = 3x^2 + bx + c$, where $b$ and $c$ are constants, has zeros at $x = 5$ and $x = -2$. What is the value of $b + c$?",
           choices: [
-            { id: "A", text: "$2$" },
-            { id: "B", text: "$3$" },
-            { id: "C", text: "$6$" },
-            { id: "D", text: "$18$" }
+            { id: "A", text: "$-39$" },
+            { id: "B", text: "$-21$" },
+            { id: "C", text: "$-9$" },
+            { id: "D", text: "$3$" }
           ],
-          correctAnswer: "D",
-          explanation: "**Choice D is correct.** Use exponent rules to simplify.\n\n**Step 1:** Simplify the left side using power rule:\n$(3^b)^{2a} = 3^{b \\times 2a} = 3^{2ab}$\n\n**Step 2:** Express 27 as a power of 3:\n$27 = 3^3$\n\n**Step 3:** Set exponents equal:\n$3^{2ab} = 3^3$\n$2ab = 3$\n$ab = \\frac{3}{2}$\n\n**Step 4:** Calculate $12ab$:\n$12ab = 12 \\times \\frac{3}{2} = \\frac{36}{2} = 18$\n\n**Why other choices are incorrect:**\n• Choice A ($2$): Would require $ab = \\frac{1}{6}$\n• Choice B ($3$): Would require $ab = \\frac{1}{4}$\n• Choice C ($6$): Would require $ab = \\frac{1}{2}$\n\n**Key rule:** $(a^m)^n = a^{mn}$",
-          skills: ["exponents", "exponential-equations"]
+          correctAnswer: "A",
+          explanation: "**Choice A is correct.** Use the zeros to write the factored form, then expand.\n\n**Step 1: Write in factored form**\nWith zeros at $x = 5$ and $x = -2$ and leading coefficient $3$:\n$f(x) = 3(x - 5)(x + 2)$\n\n**Step 2: Expand**\n$f(x) = 3(x^2 + 2x - 5x - 10)$\n$= 3(x^2 - 3x - 10)$\n$= 3x^2 - 9x - 30$\n\n**Step 3: Identify $b$ and $c$**\n$b = -9$ and $c = -30$\n$b + c = -9 + (-30) = -39$\n\n**Verification:** $f(5) = 3(25) - 9(5) - 30 = 75 - 45 - 30 = 0$ ✓\n$f(-2) = 3(4) - 9(-2) - 30 = 12 + 18 - 30 = 0$ ✓\n\n**Why other choices are incorrect:**\n• Choice B ($-21$): Only computes $b + c$ for leading coefficient $1$\n• Choice C ($-9$): This is just $b$, ignoring $c$\n• Choice D ($3$): This is the leading coefficient $a$, not $b + c$",
+          skills: ['Advanced Math', 'Quadratic Equations']
         },
         {
           id: 22,
@@ -358,17 +358,17 @@ export const practiceTest3 = {
         {
           id: 1,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "If $g(3x) = 8x - 5$, what is the value of $g(9)$?",
+          difficulty: "easy",
+          question: "If $f(x) = 3x - 7$, what is the value of $f(5)$?",
           choices: [
-            { id: "A", text: "$11$" },
-            { id: "B", text: "$19$" },
-            { id: "C", text: "$67$" },
-            { id: "D", text: "$85$" }
+            { id: "A", text: "$2$" },
+            { id: "B", text: "$8$" },
+            { id: "C", text: "$15$" },
+            { id: "D", text: "$22$" }
           ],
           correctAnswer: "B",
-          explanation: "**Choice B is correct.** Find the value of $x$ that makes $3x = 9$, then evaluate.\n\n**Step 1:** Determine what value of $x$ gives $g(9)$:\nWe need $3x = 9$, so $x = 3$.\n\n**Step 2:** Substitute $x = 3$ into $g(3x) = 8x - 5$:\n$g(3 \\times 3) = 8(3) - 5$\n$g(9) = 24 - 5 = 19$\n\n**Alternative approach - Find $g(x)$:**\nIf $g(3x) = 8x - 5$, let $u = 3x$, so $x = \\frac{u}{3}$\n$g(u) = 8\\left(\\frac{u}{3}\\right) - 5 = \\frac{8u}{3} - 5$\n$g(9) = \\frac{8 \\times 9}{3} - 5 = \\frac{72}{3} - 5 = 24 - 5 = 19$\n\n**Why other choices are incorrect:**\n• Choice A ($11$): Likely from using $x = 2$ instead of $x = 3$\n• Choice C ($67$): Likely from using $g(9) = 8(9) - 5 = 67$, but this would be $g(27)$, not $g(9)$\n• Choice D ($85$): Calculation error",
-          skills: ["function-evaluation", "algebraic-manipulation"]
+          explanation: "**Choice B is correct.** Substitute $x = 5$ into the function.\n\n$f(5) = 3(5) - 7 = 15 - 7 = 8$\n\n**Why other choices are incorrect:**\n• Choice A ($2$): Subtracts $3$ from $5$ instead of multiplying\n• Choice C ($15$): Only calculates $3 \\times 5$ without subtracting $7$\n• Choice D ($22$): Adds $7$ instead of subtracting\n\n**Key concept:** To evaluate $f(a)$, replace every $x$ in the function with $a$ and simplify.",
+          skills: ['Algebra', 'Functions']
         },
         {
           id: 2,
@@ -432,10 +432,10 @@ export const practiceTest3 = {
           id: 5,
           type: "fill-in",
           difficulty: "medium",
-          question: "What is the y-intercept of the graph of $y - 8 = 2^x - 4$ in the $xy$-plane?",
-          correctAnswer: 5,
-          explanation: "**The correct answer is 5.** The y-intercept occurs when $x = 0$.\n\nSubstitute $x = 0$:\n$$y - 8 = 2^0 - 4$$\n$$y - 8 = 1 - 4$$\n$$y - 8 = -3$$\n$$y = 5$$\n\n**Alternative method:**\nRewrite: $y = 2^x - 4 + 8 = 2^x + 4$\nWhen $x = 0$: $y = 2^0 + 4 = 1 + 4 = 5$\n\nThe y-intercept is $(0, 5)$, so the y-coordinate is **5**.\n\n**Calculator tip:** Graph $y = 2^x + 4$ and find where it crosses the y-axis.",
-          skills: ["exponential-functions", "y-intercept"]
+          question: "A movie theater charges $\\$9$ for each adult ticket and $\\$6$ for each child ticket. A group purchases $8$ tickets for a total cost of $\\$57$. How many adult tickets did the group purchase?",
+          correctAnswer: 3,
+          explanation: "**The correct answer is $3$.**\n\n**Step 1: Set up the system of equations**\nLet $a$ = adult tickets and $c$ = child tickets.\n$a + c = 8$ ... (1)\n$9a + 6c = 57$ ... (2)\n\n**Step 2: Solve by substitution**\nFrom (1): $c = 8 - a$\nSubstitute into (2): $9a + 6(8 - a) = 57$\n$9a + 48 - 6a = 57$\n$3a = 9$\n$a = 3$\n\n**Verification:** $3$ adult + $5$ child = $8$ tickets ✓\nCost: $3(\\$9) + 5(\\$6) = \\$27 + \\$30 = \\$57$ ✓",
+          skills: ['Algebra', 'Systems of Equations']
         },
         {
           id: 6,
@@ -478,16 +478,16 @@ export const practiceTest3 = {
           id: 8,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "Which of the following equivalent forms of the function $f(x) = x^2 - 2x - 15$ shows the x-intercepts of the graph of $f$ as constants or coefficients?",
+          question: "A ball is thrown upward from a height of $5$ feet with an initial velocity of $40$ feet per second. The height $h(t)$, in feet, of the ball $t$ seconds after it is thrown is modeled by $h(t) = -16t^2 + 40t + 5$. What is the maximum height, in feet, of the ball?",
           choices: [
-            { id: "A", text: "$f(x) = (x - 1)^2 - 16$" },
-            { id: "B", text: "$f(x) = (x + 1)^2 - 16$" },
-            { id: "C", text: "$f(x) = (x - 3)(x + 5)$" },
-            { id: "D", text: "$f(x) = (x + 3)(x - 5)$" }
+            { id: "A", text: "$25$" },
+            { id: "B", text: "$30$" },
+            { id: "C", text: "$40$" },
+            { id: "D", text: "$45$" }
           ],
-          correctAnswer: "D",
-          explanation: "**Choice D is correct.** X-intercepts are visible in **factored form**.\n\n**Factor $x^2 - 2x - 15$:**\nFind factors of $-15$ that add to $-2$: $3$ and $-5$\n\n$$x^2 - 2x - 15 = (x + 3)(x - 5)$$\n\n**Find x-intercepts:** Set $f(x) = 0$\n$$(x + 3)(x - 5) = 0$$\n$$x = -3 \\text{ or } x = 5$$\n\n**Why other choices are incorrect:**\n• Choice A: Vertex form (shows vertex, not x-intercepts)\n• Choice B: Wrong vertex form\n• Choice C: Factors to $x^2 + 2x - 15$ (wrong)\n\n**Verify:** Graph and check intercepts at $x = -3$ and $x = 5$.",
-          skills: ["quadratic-functions", "factoring", "x-intercepts"]
+          correctAnswer: "B",
+          explanation: "**Choice B is correct.** The maximum height occurs at the vertex of the parabola.\n\n**Step 1: Find the time at maximum height**\n$t = \\frac{-b}{2a} = \\frac{-40}{2(-16)} = \\frac{-40}{-32} = 1.25$ seconds\n\n**Step 2: Calculate the maximum height**\n$h(1.25) = -16(1.25)^2 + 40(1.25) + 5$\n$= -16(1.5625) + 50 + 5$\n$= -25 + 50 + 5$\n$= 30$ feet\n\n**Why other choices are incorrect:**\n• Choice A ($25$): This is $|-16(1.5625)| = 25$, only part of the calculation\n• Choice C ($40$): This is the initial velocity, not the height\n• Choice D ($45$): This is $40 + 5$ (adding velocity and initial height)\n\n**Key concept:** For $f(t) = at^2 + bt + c$ with $a < 0$, the maximum value is $f\\left(\\frac{-b}{2a}\\right)$.",
+          skills: ['Advanced Math', 'Quadratic Equations']
         },
         {
           id: 9,
@@ -598,25 +598,25 @@ export const practiceTest3 = {
           id: 17,
           type: "multiple-choice",
           difficulty: "hard",
-          question: "What is the circumference of the circle in the $xy$-plane with equation $x^2 + y^2 - 10x + 6y + 9 = 0$?",
+          question: "Point $H$ is external to a circle with center $O$ and radius $5$. Two line segments $\\overline{HA}$ and $\\overline{HB}$ are drawn from $H$ tangent to the circle at points $A$ and $B$, respectively. If $OH = 13$, what is the length of $\\overline{HA}$?",
           choices: [
-            { id: "A", text: "$5\\pi$" },
-            { id: "B", text: "$10\\pi$" },
-            { id: "C", text: "$25\\pi$" },
-            { id: "D", text: "$50\\pi$" }
+            { id: "A", text: "$8$" },
+            { id: "B", text: "$10$" },
+            { id: "C", text: "$12$" },
+            { id: "D", text: "$18$" }
           ],
-          correctAnswer: "B",
-          explanation: "**Choice B is correct.** Complete the square to find the radius.\n\n**Rearrange:**\n$x^2 - 10x + y^2 + 6y = -9$\n\n**Complete the square:**\n$(x^2 - 10x + 25) + (y^2 + 6y + 9) = -9 + 25 + 9$\n$(x - 5)^2 + (y + 3)^2 = 25$\n\n**Standard form:** $(x - h)^2 + (y - k)^2 = r^2$\n• Center: $(5, -3)$\n• Radius: $r = \\sqrt{25} = 5$\n\n**Circumference:**\n$C = 2\\pi r = 2\\pi(5) = 10\\pi$\n\n**Why other choices are incorrect:**\n• Choice A ($5\\pi$): Uses $r = 2.5$\n• Choice C ($25\\pi$): Confuses area formula\n• Choice D ($50\\pi$): Uses $r = 25$",
-          skills: ["circles", "completing-the-square", "circumference"]
+          correctAnswer: "C",
+          explanation: "**Choice C is correct.** Use the property that a tangent is perpendicular to the radius at the point of tangency.\n\n**Step 1: Identify the right triangle**\nSince $\\overline{HA}$ is tangent to the circle at $A$, the radius $\\overline{OA}$ is perpendicular to $\\overline{HA}$.\nTriangle $OAH$ is a right triangle with the right angle at $A$.\n\n**Step 2: Apply the Pythagorean theorem**\n$OH^2 = OA^2 + HA^2$\n$13^2 = 5^2 + HA^2$\n$169 = 25 + HA^2$\n$HA^2 = 144$\n$HA = 12$\n\n**Why other choices are incorrect:**\n• Choice A ($8$): Would require $OH = \\sqrt{64 + 25} = \\sqrt{89} \\neq 13$\n• Choice B ($10$): Would require $OH = \\sqrt{100 + 25} = \\sqrt{125} \\neq 13$\n• Choice D ($18$): Greater than $OH = 13$, impossible since $HA < OH$\n\n**Key concept:** A tangent to a circle is perpendicular to the radius at the point of tangency. This creates a right triangle where: $\\text{tangent length} = \\sqrt{d^2 - r^2}$, where $d$ is the distance from the external point to the center.",
+          skills: ['Geometry', 'Circles']
         },
         {
           id: 18,
           type: "fill-in",
           difficulty: "hard",
-          question: "If $\\frac{a^{3x}}{a^5} = a^{10}$, what is the value of $3^x$?",
-          correctAnswer: 243,
-          explanation: "**The correct answer is 243.** Use exponent rules.\n\n**Step 1:** Simplify the left side using division rule:\n$a^{3x} \\div a^5 = a^{3x - 5}$\n\n**Step 2:** Set exponents equal:\n$a^{3x - 5} = a^{10}$\n$3x - 5 = 10$\n$3x = 15$\n$x = 5$\n\n**Step 3:** Calculate $3^x$:\n$3^x = 3^5 = 3 \\times 3 \\times 3 \\times 3 \\times 3 = 243$\n\n**Verification:** $\\frac{a^{3 \\cdot 5}}{a^5} = \\frac{a^{15}}{a^5} = a^{10}$ ✓\n\n**Key rule:** $a^m \\div a^n = a^{m-n}$",
-          skills: ["exponent-rules", "exponential-equations"]
+          question: "A seal dives below the surface of the water. The seal's depth below the surface, in feet, $t$ seconds after beginning its dive is modeled by $d(t) = 2t^2 - 24t$ for $0 \\leq t \\leq 12$. What is the seal's maximum depth below the surface, in feet?",
+          correctAnswer: 72,
+          explanation: "**The correct answer is $72$.**\n\n**Step 1: Find when maximum depth occurs**\nThe vertex of the parabola gives the extreme value:\n$t = \\frac{-b}{2a} = \\frac{-(-24)}{2(2)} = \\frac{24}{4} = 6$ seconds\n\n**Step 2: Calculate the depth at the vertex**\n$d(6) = 2(6)^2 - 24(6) = 2(36) - 144 = 72 - 144 = -72$\n\nThe value $-72$ means $72$ feet below the surface.\n\n**Step 3: Interpret the result**\nSince depth below the surface is the absolute value of $d(t)$, the maximum depth is $72$ feet.\n\n**Verification:** $d(0) = 0$ (starts at surface), $d(6) = -72$ (deepest point), $d(12) = 288 - 288 = 0$ (returns to surface) ✓\n\n**Key concept:** In a quadratic model where negative values represent depth, the vertex gives the extreme depth. Since $a = 2 > 0$, the parabola opens upward, so the vertex is a minimum of $d(t)$, representing the maximum depth below the surface.",
+          skills: ['Advanced Math', 'Quadratic Equations']
         },
         {
           id: 19,

@@ -361,45 +361,31 @@ export const practiceTest2 = {
           id: 21,
           type: "multiple-choice",
           difficulty: "hard",
-          diagram: {
-            type: "circleWithSector",
-            params: {
-              centralAngle: 60,
-              displayRadius: 6,
-              labelCenter: "O",
-              labelPoint1: "A",
-              labelPoint2: "B",
-              showAngleLabel: true,
-              showRadiusLabel: true
-            }
-          },
-          question: "A circle with center $O$ has radius $6$. If the central angle $AOB$ measures $60°$, what is the area of the shaded sector $AOB$?",
+          question: "$y = -x^2 + 8x - 20$\n\nThe graph of the equation above is a parabola in the $xy$-plane. The horizontal line $y = c$ is tangent to the parabola. What is the value of $c$?",
           choices: [
-            { id: "A", text: "$3\\pi$" },
-            { id: "B", text: "$6\\pi$" },
-            { id: "C", text: "$12\\pi$" },
-            { id: "D", text: "$36\\pi$" }
+            { id: "A", text: "$-20$" },
+            { id: "B", text: "$-4$" },
+            { id: "C", text: "$4$" },
+            { id: "D", text: "$8$" }
           ],
           correctAnswer: "B",
-          explanation: "**Choice B is correct.** Use the sector area formula.\n\n**Formula:** $$\\text{Sector Area} = \\frac{\\theta}{360°} \\times \\pi r^2$$\n\n**Given:**\n• Radius $r = 6$\n• Central angle $\\theta = 60°$\n\n**Calculate:**\n$$\\text{Sector Area} = \\frac{60°}{360°} \\times \\pi (6)^2 = \\frac{1}{6} \\times 36\\pi = 6\\pi$$\n\n**Why other choices are incorrect:**\n• Choice A ($3\\pi$): Uses $\\frac{1}{12}$ instead of $\\frac{1}{6}$\n• Choice C ($12\\pi$): Uses $\\frac{1}{3}$ instead of $\\frac{1}{6}$\n• Choice D ($36\\pi$): This is the full circle area, not the sector\n\n**Key concept:** A sector with central angle $\\theta$ is $\\frac{\\theta}{360°}$ of the full circle.",
-          skills: ["circles", "sector-area"]
+          explanation: "**Choice B is correct.** A horizontal line tangent to a parabola touches it at the vertex.\n\n**Step 1: Find the vertex**\n$y = -x^2 + 8x - 20$ has $a = -1$, $b = 8$\n$x$-coordinate of vertex $= \\frac{-b}{2a} = \\frac{-8}{-2} = 4$\n\n**Step 2: Find the $y$-coordinate**\n$y = -(4)^2 + 8(4) - 20 = -16 + 32 - 20 = -4$\n\n**Step 3: Identify $c$**\nSince $a < 0$, the parabola opens downward, so the vertex is the maximum.\nThe tangent horizontal line touches at the vertex: $c = -4$.\n\n**Why other choices are incorrect:**\n• Choice A ($-20$): This is the $y$-intercept ($f(0) = -20$), not the vertex\n• Choice C ($4$): This is the $x$-coordinate of the vertex, not the $y$-coordinate\n• Choice D ($8$): This is the coefficient $b$, not the vertex value\n\n**Key concept:** A horizontal line $y = c$ tangent to a parabola must pass through the vertex. The vertex $y$-value is $c = \\frac{4ac - b^2}{4a}$.",
+          skills: ['Advanced Math', 'Quadratic Equations']
         },
         {
           id: 22,
-          type: "fill-in",
+          type: "multiple-choice",
           difficulty: "hard",
-          question: [
-            { math: "(t - 4) + 2(s - 2) = 10", display: true },
-            { math: "2(t - 4) - 3(s - 2) = -15", display: true },
-            { text: "The solution to the given system of equations is " },
-            { math: "(t, s)" },
-            { text: ". What is the value of " },
-            { math: "s" },
-            { text: "?" }
+          question: "$5x + 4y = 20$\n\n$15x + 12y = 60$\n\nFor each real number $r$, which of the following points lies on the graph of each equation in the $xy$-plane?",
+          choices: [
+            { id: "A", text: "$\\left(r,\\, 5 - \\frac{5r}{4}\\right)$" },
+            { id: "B", text: "$\\left(r,\\, 4 - \\frac{4r}{5}\\right)$" },
+            { id: "C", text: "$\\left(r,\\, 20 - 5r\\right)$" },
+            { id: "D", text: "$\\left(r,\\, 5 - 5r\\right)$" }
           ],
-          correctAnswer: 7,
-          explanation: "**The correct answer is 7.** Let $u = t - 4$ and $v = s - 2$ to simplify:\n\n$$u + 2v = 10 \\quad (1)$$\n$$2u - 3v = -15 \\quad (2)$$\n\n**Solve by elimination:**\nMultiply (1) by 2: $2u + 4v = 20$\nSubtract (2): $(2u + 4v) - (2u - 3v) = 20 - (-15)$\n$$7v = 35$$\n$$v = 5$$\n\n**Find $s$:**\nSince $v = s - 2$:\n$$s - 2 = 5$$\n$$s = 7$$\n\n**Calculator tip:** Expand and enter equations in Desmos to verify.",
-          skills: ["systems-of-equations"]
+          correctAnswer: "A",
+          explanation: "**Choice A is correct.** First, recognize the system has infinitely many solutions.\n\n**Step 1: Show the equations are equivalent**\nMultiply the first equation by $3$: $15x + 12y = 60$\nThis is identical to the second equation, so both represent the same line.\n\n**Step 2: Express $y$ in terms of $x$**\n$5x + 4y = 20$\n$4y = 20 - 5x$\n$y = 5 - \\frac{5x}{4}$\n\n**Step 3: Substitute $x = r$**\nFor any real number $r$: $y = 5 - \\frac{5r}{4}$\nSo the point is $\\left(r,\\, 5 - \\frac{5r}{4}\\right)$.\n\n**Verification:** Let $r = 4$: point $= (4,\\, 5 - 5) = (4, 0)$\nCheck: $5(4) + 4(0) = 20$ ✓\n\n**Why other choices are incorrect:**\n• Choice B: Swaps $4$ and $5$ — gives $y = 4 - \\frac{4r}{5}$, not on the line\n• Choice C: Uses $y = 20 - 5r$ — doesn't divide by $4$\n• Choice D: Uses $y = 5 - 5r$ — missing the $\\frac{1}{4}$ factor",
+          skills: ['Algebra', 'Systems of Equations']
         }
       ]
     },
@@ -412,16 +398,16 @@ export const practiceTest2 = {
           id: 1,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "If $x$ is $3k\\%$ of $y$, what is the value of $4k\\%$ of $0.2y$?",
+          question: "A store is having a $25\\%$ off sale. If a jacket's original price is $\\$48$, what is the sale price, in dollars?",
           choices: [
-            { id: "A", text: "$0.04x$" },
-            { id: "B", text: "$0.15x$" },
-            { id: "C", text: "$0.4x$" },
-            { id: "D", text: "$0.8x$" }
+            { id: "A", text: "$\\$12$" },
+            { id: "B", text: "$\\$23$" },
+            { id: "C", text: "$\\$36$" },
+            { id: "D", text: "$\\$60$" }
           ],
           correctAnswer: "C",
-          explanation: "**Choice C is correct.** Express everything in terms of $x$.\n\n**Step 1:** From $x = 3k\\%$ of $y$:\n$x = \\frac{3k}{100} \\times y$\n$y = \\frac{100x}{3k}$\n\n**Step 2:** Find $4k\\%$ of $0.2y$:\n$4k\\%$ of $0.2y = \\frac{4k}{100} \\times 0.2y$\n$= \\frac{4k}{100} \\times 0.2 \\times \\frac{100x}{3k}$\n$= \\frac{4k \\times 0.2 \\times 100x}{100 \\times 3k}$\n$= \\frac{80kx}{300k}$\n$= \\frac{80x}{300}$\n$= \\frac{4x}{15}$\n$\\approx 0.267x$\n\nThe closest answer is $0.4x$ (Choice C).\n\n**Note:** This appears to be an approximation question where $0.4x$ is the intended answer.",
-          skills: ["percentages", "algebraic-expressions"]
+          explanation: "**Choice C is correct.** Find $25\\%$ off.\n\n**Method 1 (find discount, subtract):**\n$25\\%$ of $\\$48 = 0.25 \\times 48 = \\$12$\nSale price $= \\$48 - \\$12 = \\$36$\n\n**Method 2 (multiply by remaining percent):**\n$25\\%$ off means paying $75\\%$:\n$0.75 \\times \\$48 = \\$36$\n\n**Why other choices are incorrect:**\n• Choice A ($\\$12$): This is the discount amount, not the sale price\n• Choice B ($\\$23$): Approximately half of $48$, but $25\\%$ off is not $50\\%$ off\n• Choice D ($\\$60$): This adds $25\\%$ instead of subtracting\n\n**Key concept:** Sale price $=$ Original price $\\times (1 - \\text{discount rate})$",
+          skills: ['Problem-Solving and Data Analysis', 'Percent']
         },
         {
           id: 2,
@@ -487,10 +473,10 @@ export const practiceTest2 = {
           id: 6,
           type: "fill-in",
           difficulty: "medium",
-          question: "In an equilateral triangle, one exterior angle measures $(6x - 18)°$. What is the value of $x$?",
-          correctAnswer: 23,
-          explanation: "**The correct answer is 23.** In an equilateral triangle, all interior angles $= 60°$.\n\n**Find exterior angle:**\nExterior + Interior $= 180°$\nExterior $= 180° - 60° = 120°$\n\n**Set up equation:**\n$$6x - 18 = 120$$\n$$6x = 138$$\n$$x = 23$$\n\n**Verify:** $6(23) - 18 = 138 - 18 = 120°$ ✓\n\n**Key facts:**\n• Equilateral triangle: all angles $= 60°$\n• Exterior angle $= 180° -$ interior angle\n• All exterior angles sum to $360°$",
-          skills: ["triangles", "exterior-angles", "equations"]
+          question: "A rectangle has a perimeter of $56$ centimeters. The length is $4$ centimeters more than twice the width. What is the area of the rectangle, in square centimeters?",
+          correctAnswer: 160,
+          explanation: "**The correct answer is $160$.**\n\n**Step 1: Set up equations**\nLet $w$ = width and $L$ = length.\n$2L + 2w = 56$ → $L + w = 28$ ... (1)\n$L = 2w + 4$ ... (2)\n\n**Step 2: Solve by substitution**\n$(2w + 4) + w = 28$\n$3w + 4 = 28$\n$3w = 24$\n$w = 8$ cm\n$L = 2(8) + 4 = 20$ cm\n\n**Step 3: Find the area**\n$A = L \\times w = 20 \\times 8 = 160$ cm²\n\n**Verification:** Perimeter $= 2(20) + 2(8) = 40 + 16 = 56$ ✓\nLength $= 20 = 2(8) + 4$ ✓",
+          skills: ['Geometry', 'Perimeter and Area']
         },
         {
           id: 7,
@@ -574,16 +560,10 @@ export const practiceTest2 = {
           id: 13,
           type: "fill-in",
           difficulty: "hard",
-          question: [
-            { math: "3x - 6y = 12", display: true },
-            { math: "kx - 2y = 4", display: true },
-            { text: "For what value of " },
-            { math: "k" },
-            { text: " does the system of equations above have infinitely many solutions?" }
-          ],
-          correctAnswer: 1,
-          explanation: "**The correct answer is 1.** For infinitely many solutions, equations must be equivalent (same line).\n\n**Simplify first equation:**\n$$3x - 6y = 12$$\nDivide by 3: $x - 2y = 4$\n\n**For second equation to match:**\n$kx - 2y = 4$ must equal $x - 2y = 4$\n\nComparing: $k = 1$\n\n**Verify:** When $k = 1$:\n• Eq 1: $3x - 6y = 12 \\to x - 2y = 4$\n• Eq 2: $1x - 2y = 4 \\to x - 2y = 4$\n\nIdentical equations = infinitely many solutions ✓\n\n**Key concept:** Same line = same equation = infinite solutions",
-          skills: ["systems-of-equations", "infinite-solutions"]
+          question: "In right triangle $PQR$, angle $Q$ is a right angle, $PQ = 20$, and the measure of angle $P$ is $40°$. The area of triangle $PQR$ can be written as $k \\cdot \\tan(40°)$, where $k$ is a constant. What is the value of $k$?",
+          correctAnswer: 200,
+          explanation: "**The correct answer is $200$.**\n\n**Step 1: Identify the sides**\nIn right triangle $PQR$ with right angle at $Q$:\n• $PQ = 20$ (leg adjacent to angle $P$)\n• $QR$ = leg opposite angle $P$\n\n**Step 2: Find $QR$ using trigonometry**\n$\\tan(P) = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{QR}{PQ}$\n$\\tan(40°) = \\frac{QR}{20}$\n$QR = 20\\tan(40°)$\n\n**Step 3: Calculate the area**\n$\\text{Area} = \\frac{1}{2} \\times PQ \\times QR = \\frac{1}{2} \\times 20 \\times 20\\tan(40°) = 200\\tan(40°)$\n\nSo $k = 200$.\n\n**Verification:** $\\text{Area} = \\frac{1}{2}(20)(20\\tan 40°) = 200\\tan 40° \\approx 200(0.839) \\approx 167.8$ square units.\nDirect check: $QR \\approx 16.78$, Area $\\approx \\frac{1}{2}(20)(16.78) \\approx 167.8$ ✓\n\n**Key concept:** In a right triangle, $\\tan(\\theta) = \\frac{\\text{opposite}}{\\text{adjacent}}$. Express unknown sides in terms of trig functions to write the area with a parameter.",
+          skills: ['Geometry', 'Trigonometry']
         },
         {
           id: 14,
@@ -628,33 +608,33 @@ export const practiceTest2 = {
           id: 17,
           type: "fill-in",
           difficulty: "hard",
-          question: "For the given function $f$, $f(x) = 28x^2 + bx + c$, where $b$ and $c$ are constants, and the graph of $y = f(x)$ in the $xy$-plane passes through the points in the table below. What is the value of $b$?",
+          question: "The function $g$ is defined by $g(x) = \\frac{f(x)}{x + 2}$, where $f$ is a linear function. Selected values of $g$ are shown in the table below. What is the $y$-intercept of the graph of $y = f(x)$ in the $xy$-plane?",
           questionTable: {
-            headers: ["$x$", "$f(x)$"],
+            headers: ["x", "g(x)"],
             rows: [
-              ["$-\\frac{12}{7}$", "$0$"],
-              ["$0$", "$c$"],
-              ["$\\frac{9}{4}$", "$0$"]
+              ["0", "3"],
+              ["1", "4"],
+              ["4", "5"]
             ]
           },
-          correctAnswer: -15,
-          explanation: "**The correct answer is $-15$.**\n\n**Method 1 - Using Vieta's formulas:**\nThe zeros are $x = -\\frac{12}{7}$ and $x = \\frac{9}{4}$.\n\nFor $f(x) = 28x^2 + bx + c$:\n• Sum of zeros $= -\\frac{b}{a} = -\\frac{b}{28}$\n• Sum of zeros $= -\\frac{12}{7} + \\frac{9}{4} = -\\frac{48}{28} + \\frac{63}{28} = \\frac{15}{28}$\n\nSo: $-\\frac{b}{28} = \\frac{15}{28}$\n$-b = 15$\n$b = $ **$-15$**\n\n**Method 2 - Factored form:**\nWith zeros at $-\\frac{12}{7}$ and $\\frac{9}{4}$:\n$f(x) = 28\\left(x + \\frac{12}{7}\\right)\\left(x - \\frac{9}{4}\\right)$\n\nExpand:\n$= 28\\left(x^2 - \\frac{9x}{4} + \\frac{12x}{7} - \\frac{108}{28}\\right)$\n$= 28x^2 + 28\\left(-\\frac{9}{4} + \\frac{12}{7}\\right)x + ...$\n$= 28x^2 + 28\\left(-\\frac{63}{28} + \\frac{48}{28}\\right)x + ...$\n$= 28x^2 + 28\\left(-\\frac{15}{28}\\right)x + ...$\n$= 28x^2 - 15x + ...$\n\nSo $b = $ **$-15$**\n\n**Key concept:** Sum of roots $= -\\frac{b}{a}$; Product of roots $= \\frac{c}{a}$",
-          skills: ["quadratic-functions", "sum-of-roots"]
+          correctAnswer: 6,
+          explanation: "**The correct answer is $6$.**\n\n**Step 1: Find $f(x)$ values from $g(x)$**\nSince $g(x) = \\frac{f(x)}{x + 2}$, we get $f(x) = g(x) \\cdot (x + 2)$:\n• $f(0) = g(0) \\cdot (0 + 2) = 3 \\cdot 2 = 6$\n• $f(1) = g(1) \\cdot (1 + 2) = 4 \\cdot 3 = 12$\n• $f(4) = g(4) \\cdot (4 + 2) = 5 \\cdot 6 = 30$\n\n**Step 2: Verify $f$ is linear**\nSlope from $(0, 6)$ to $(1, 12)$: $m = \\frac{12 - 6}{1 - 0} = 6$\nSlope from $(1, 12)$ to $(4, 30)$: $m = \\frac{30 - 12}{4 - 1} = \\frac{18}{3} = 6$ ✓\n\n$f(x) = 6x + 6$\n\n**Step 3: Identify the $y$-intercept**\nThe $y$-intercept of $f$ is $f(0) = 6$.\n\n**Verification:** $g(0) = \\frac{6}{2} = 3$ ✓, $g(1) = \\frac{12}{3} = 4$ ✓, $g(4) = \\frac{30}{6} = 5$ ✓\n\n**Key concept:** If $g(x) = \\frac{f(x)}{h(x)}$, then $f(x) = g(x) \\cdot h(x)$. Use known values to reconstruct $f$, then verify linearity.",
+          skills: ['Advanced Math', 'Functions']
         },
         {
           id: 18,
           type: "multiple-choice",
           difficulty: "hard",
-          question: "A formula used for simple interest is $A = P(1 + rt)$. Which of the following represents $r$ in terms of $A$, $P$, and $t$?",
+          question: "For the function $f(x) = ax^2 + bx + c$, it is known that $f(1) = 5$, $f(-1) = 9$, and $f(2) = 18$. What is the value of $c$?",
           choices: [
-            { id: "A", text: "$\\frac{1 + rt}{A}$" },
-            { id: "B", text: "$A(1 + rt)$" },
-            { id: "C", text: "$\\frac{A - P}{Pt}$" },
-            { id: "D", text: "$\\frac{1}{A(1 + rt)}$" }
+            { id: "A", text: "$2$" },
+            { id: "B", text: "$3$" },
+            { id: "C", text: "$5$" },
+            { id: "D", text: "$7$" }
           ],
-          correctAnswer: "C",
-          explanation: "**Choice C is correct.** Solve the formula for $r$.\n\n**Step 1:** Start with $A = P(1 + rt)$\n\n**Step 2:** Divide both sides by $P$:\n$\\frac{A}{P} = 1 + rt$\n\n**Step 3:** Subtract 1 from both sides:\n$\\frac{A}{P} - 1 = rt$\n$\\frac{A - P}{P} = rt$\n\n**Step 4:** Divide by $t$:\n$r = \\frac{A - P}{Pt}$\n\n**Verification:** Substitute back:\n$A = P\\left(1 + \\frac{A-P}{Pt} \\cdot t\\right) = P\\left(1 + \\frac{A-P}{P}\\right) = P\\left(\\frac{P}{P} + \\frac{A-P}{P}\\right) = P\\left(\\frac{A}{P}\\right) = A$ ✓\n\n**Why other choices are incorrect:**\n• Choice A: Contains $r$ on the right side\n• Choice B: This doesn't isolate $r$\n• Choice D: This is $\\frac{1}{A(1+rt)}$, not solving for $r$",
-          skills: ["formula-rearrangement", "algebraic-manipulation"]
+          correctAnswer: "A",
+          explanation: "**Choice A is correct.** Set up a system using the given function values.\n\n**Step 1: Write equations from the given values**\n$f(1) = a + b + c = 5$ ... (1)\n$f(-1) = a - b + c = 9$ ... (2)\n$f(2) = 4a + 2b + c = 18$ ... (3)\n\n**Step 2: Subtract (2) from (1)**\n$(a + b + c) - (a - b + c) = 5 - 9$\n$2b = -4$\n$b = -2$\n\n**Step 3: Substitute $b = -2$ into (1)**\n$a + (-2) + c = 5$\n$a + c = 7$ ... (4)\n\n**Step 4: Substitute $b = -2$ into (3)**\n$4a + 2(-2) + c = 18$\n$4a + c = 22$ ... (5)\n\n**Step 5: Subtract (4) from (5)**\n$3a = 15$\n$a = 5$\n$c = 7 - 5 = 2$\n\n**Verification:** $f(x) = 5x^2 - 2x + 2$\n$f(1) = 5 - 2 + 2 = 5$ ✓, $f(-1) = 5 + 2 + 2 = 9$ ✓, $f(2) = 20 - 4 + 2 = 18$ ✓\n\n**Why other choices are incorrect:**\n• Choice B ($3$): Would give $a = 4$, but $f(2) = 16 - 4 + 3 = 15 \\neq 18$\n• Choice C ($5$): Confuses $c$ with $f(1)$\n• Choice D ($7$): This is $a + c$, not $c$ alone",
+          skills: ['Advanced Math', 'Quadratic Equations']
         },
         {
           id: 19,
@@ -688,10 +668,11 @@ export const practiceTest2 = {
           id: 21,
           type: "fill-in",
           difficulty: "hard",
-          question: "Given the system of equations below, what is the value of $xy$?\n\n$\\frac{4}{x} = \\frac{3}{y}$\n\n$\\frac{5}{x} - \\frac{3}{y} = -\\frac{1}{4}$",
-          correctAnswer: 12,
-          explanation: "**The correct answer is 12.**\n\n**Step 1:** From the first equation, express the relationship:\n$\\frac{4}{x} = \\frac{3}{y}$\nCross multiply: $4y = 3x$\nSo $y = \\frac{3x}{4}$\n\n**Step 2:** Substitute into the second equation:\n$\\frac{5}{x} - \\frac{3}{y} = -\\frac{1}{4}$\n$\\frac{5}{x} - \\frac{3}{\\frac{3x}{4}} = -\\frac{1}{4}$\n$\\frac{5}{x} - \\frac{4}{x} = -\\frac{1}{4}$\n$\\frac{1}{x} = -\\frac{1}{4}$\n$x = -4$\n\n**Step 3:** Find $y$:\n$y = \\frac{3x}{4} = \\frac{3(-4)}{4} = -3$\n\n**Step 4:** Calculate $xy$:\n$xy = (-4) \\times (-3) = $ **12**\n\n**Verification:**\n• Check equation 1: $\\frac{4}{-4} = -1$; $\\frac{3}{-3} = -1$ ✓\n• Check equation 2: $\\frac{5}{-4} - \\frac{3}{-3} = -\\frac{5}{4} + 1 = -\\frac{5}{4} + \\frac{4}{4} = -\\frac{1}{4}$ ✓\n\n**Key concept:** When solving systems with fractions, find relationships between variables and substitute.",
-          skills: ["systems-of-equations", "algebraic-manipulation"]
+          question: "If $2^a = 3$ and $2^b = 6$, what is the value of $4^a \\cdot 2^{-b}$?",
+          correctAnswer: 1.5,
+          alternateAnswers: ["3/2"],
+          explanation: "**The correct answer is $1.5$ (or $\\frac{3}{2}$).**\n\n**Step 1: Rewrite $4^a$ using base $2$**\n$4^a = (2^2)^a = 2^{2a} = (2^a)^2 = 3^2 = 9$\n\n**Step 2: Find $2^{-b}$**\n$2^{-b} = \\frac{1}{2^b} = \\frac{1}{6}$\n\n**Step 3: Multiply**\n$4^a \\cdot 2^{-b} = 9 \\times \\frac{1}{6} = \\frac{9}{6} = \\frac{3}{2} = 1.5$\n\n**Verification:** Using logarithms:\n$a = \\log_2 3 \\approx 1.585$, $b = \\log_2 6 \\approx 2.585$\n$4^{1.585} \\times 2^{-2.585} = 2^{3.170} \\times 2^{-2.585} = 2^{0.585} \\approx 1.5$ ✓\n\n**Alternative approach:** Use exponent rules directly:\n$4^a \\cdot 2^{-b} = 2^{2a} \\cdot 2^{-b} = 2^{2a - b}$\nSince $2^a = 3$ and $2^b = 6$: $2^{2a-b} = \\frac{(2^a)^2}{2^b} = \\frac{9}{6} = \\frac{3}{2}$\n\n**Key concept:** Use exponent rules to combine powers: $a^m \\cdot a^n = a^{m+n}$ and $(a^m)^n = a^{mn}$. Given values like $2^a = 3$ can be used directly without solving for $a$.",
+          skills: ['Advanced Math', 'Exponents']
         },
         {
           id: 22,

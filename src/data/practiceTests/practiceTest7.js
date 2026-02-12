@@ -88,32 +88,32 @@ export const practiceTest7 = {
         {
           id: 'pt7-m1-q6',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'A phone plan charges a monthly fee of \\$25 plus \\$0.05 per text message. Which equation represents the total monthly cost $C$ in terms of the number of text messages $m$?',
+          difficulty: 'medium',
+          question: 'A survey of $240$ students asked whether they prefer math or science and whether they are in grade 10 or grade 11. Of the $100$ grade 10 students, $45$ prefer math. Of the $140$ grade 11 students, $80$ prefer science. What fraction of the students who prefer math are in grade 11?',
           choices: [
-            { id: 'A', text: '$C = 0.05m + 25$' },
-            { id: 'B', text: '$C = 25m + 0.05$' },
-            { id: 'C', text: '$C = 0.05(m + 25)$' },
-            { id: 'D', text: '$C = 25(m + 0.05)$' }
+            { id: 'A', text: '$\\frac{45}{105}$' },
+            { id: 'B', text: '$\\frac{60}{105}$' },
+            { id: 'C', text: '$\\frac{60}{140}$' },
+            { id: 'D', text: '$\\frac{45}{100}$' }
           ],
-          correctAnswer: 'A',
-          explanation: '**Choice A is correct.** Translate the word problem into a linear equation.\n\n**Step 1: Identify the components**\n• Fixed monthly fee: \\$25 (does not depend on messages)\n• Variable cost: \\$0.05 per text message\n• Number of messages: $m$\n\n**Step 2: Build the equation**\nTotal cost = fixed fee + (cost per message × number of messages)\n$C = 25 + 0.05m = 0.05m + 25$\n\n**Why other choices are incorrect:**\n• Choice B ($C = 25m + 0.05$): Multiplies \\$25 by number of messages — this would charge \\$25 per message\n• Choice C ($C = 0.05(m + 25)$): Distributes to $0.05m + 1.25$, which has the wrong fixed fee\n• Choice D ($C = 25(m + 0.05)$): Distributes to $25m + 1.25$, charging \\$25 per message\n\n**Key concept:** In cost equations, the per-unit rate multiplies the variable, and the fixed fee is added as a constant.',
-          skills: ["word-problem-to-equation", "slope-intercept-form"]
+          correctAnswer: 'B',
+          explanation: '**Choice B is correct.** Build a two-way table and find the conditional fraction.\n\n**Step 1: Find grade 11 students who prefer math**\nGrade 11 total $= 140$, and $80$ prefer science, so $140 - 80 = 60$ prefer math.\n\n**Step 2: Find total students who prefer math**\nGrade 10 math $+ $ grade 11 math $= 45 + 60 = 105$.\n\n**Step 3: Calculate the fraction**\n$\\frac{\\text{Grade 11 math}}{\\text{Total math}} = \\frac{60}{105}$\n\n**Why other choices are incorrect:**\n• Choice A ($\\frac{45}{105}$): This is the fraction of math-preferring students in grade 10\n• Choice C ($\\frac{60}{140}$): This is the fraction of all grade 11 students who prefer math\n• Choice D ($\\frac{45}{100}$): This is the fraction of grade 10 students who prefer math\n\n**Key concept:** Conditional fractions require restricting the denominator to only the relevant subgroup.',
+          skills: ['Problem Solving', 'Two-Way Tables']
         },
         {
           id: 'pt7-m1-q7',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'A triangle has a base of $12$ inches and a height of $8$ inches. What is the area of the triangle in square inches?',
+          difficulty: 'medium',
+          question: 'The system of equations $3x + 2y = 19$ and $x - y = 3$ has the solution $(x, y)$. What is the value of $x + y$?',
           choices: [
-            { id: 'A', text: '$20$' },
-            { id: 'B', text: '$48$' },
-            { id: 'C', text: '$96$' },
-            { id: 'D', text: '$192$' }
+            { id: 'A', text: '$7$' },
+            { id: 'B', text: '$8$' },
+            { id: 'C', text: '$9$' },
+            { id: 'D', text: '$11$' }
           ],
-          correctAnswer: 'B',
-          explanation: '**Choice B is correct.** Apply the triangle area formula.\n\n**Step 1: Recall the formula**\n$$\\text{Area} = \\frac{1}{2} \\times \\text{base} \\times \\text{height}$$\n\n**Step 2: Substitute and calculate**\n$$\\text{Area} = \\frac{1}{2} \\times 12 \\times 8 = \\frac{96}{2} = 48 \\text{ square inches}$$\n\n**Why other choices are incorrect:**\n• Choice A ($20$): Added base and height ($12 + 8$) instead of multiplying\n• Choice C ($96$): Forgot to multiply by $\\frac{1}{2}$ (this is base × height, the area of a rectangle)\n• Choice D ($192$): Doubled the rectangle area instead of halving it\n\n**Key concept:** The area of a triangle is exactly half the area of a rectangle with the same base and height: $A = \\frac{1}{2}bh$.',
-          skills: ["triangle-area"]
+          correctAnswer: 'A',
+          explanation: '**Choice A is correct.** Solve the system using substitution.\n\n**Step 1: Solve the second equation for $x$**\n$x = y + 3$\n\n**Step 2: Substitute into the first equation**\n$3(y + 3) + 2y = 19$\n$3y + 9 + 2y = 19$\n$5y = 10$, so $y = 2$\n\n**Step 3: Find $x$ and compute $x + y$**\n$x = 2 + 3 = 5$\n$x + y = 5 + 2 = 7$\n\n**Verification:** $3(5) + 2(2) = 15 + 4 = 19$ ✓ and $5 - 2 = 3$ ✓\n\n**Why other choices are incorrect:**\n• Choice B ($8$): May result from an arithmetic error in substitution\n• Choice C ($9$): Confuses $x + y$ with $2x - y$\n• Choice D ($11$): May result from computing $x + 2y$ instead of $x + y$\n\n**Key concept:** When asked for an expression like $x + y$, solve the system completely first, then compute the requested expression.',
+          skills: ['Algebra', 'Systems of Equations']
         },
         {
           id: 'pt7-m1-q8',
@@ -193,26 +193,26 @@ export const practiceTest7 = {
         {
           id: 'pt7-m1-q13',
           type: 'fill-in',
-          difficulty: 'easy',
-          question: 'If $4(2x + 3) = 28$, what is the value of $x$?',
-          correctAnswer: '2',
-          explanation: '**The correct answer is $2$.** Distribute and solve the linear equation.\n\n**Step 1: Distribute the $4$**\n$4(2x + 3) = 28$\n$8x + 12 = 28$\n\n**Step 2: Subtract $12$ from both sides**\n$8x = 28 - 12 = 16$\n\n**Step 3: Divide by $8$**\n$x = \\frac{16}{8} = 2$\n\n**Verification:** $4(2(2) + 3) = 4(4 + 3) = 4(7) = 28$ ✓\n\n**Key concept:** Always distribute first to clear parentheses, then isolate the variable using inverse operations.',
-          skills: ["linear-equations", "distributive-property"]
+          difficulty: 'medium',
+          question: 'The expression $6x^2 + 7x - 20$ can be written as $(2x + 5)(3x + k)$ for some constant $k$. What is the value of $k$?',
+          correctAnswer: '-4',
+          explanation: '**The correct answer is $-4$.** Expand the factored form and match coefficients.\n\n**Step 1: Expand $(2x + 5)(3x + k)$**\n$= 6x^2 + 2kx + 15x + 5k = 6x^2 + (2k + 15)x + 5k$\n\n**Step 2: Match the constant term**\n$5k = -20$, so $k = -4$\n\n**Verification:** $(2x + 5)(3x - 4) = 6x^2 - 8x + 15x - 20 = 6x^2 + 7x - 20$ ✓\n\n**Key concept:** When a factored form is partially given, expand and match corresponding coefficients to find the unknown constant.',
+          skills: ['Advanced Math', 'Polynomial Factoring']
         },
         {
           id: 'pt7-m1-q14',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'The function $g(x) = 3x - 7$. What is $g(5)$?',
+          difficulty: 'medium',
+          question: 'The function $h(x) = \\frac{x + 5}{x^2 - 9}$ is undefined for which of the following values of $x$?',
           choices: [
-            { id: 'A', text: '$2$' },
-            { id: 'B', text: '$8$' },
-            { id: 'C', text: '$15$' },
-            { id: 'D', text: '$22$' }
+            { id: 'A', text: '$-5$ only' },
+            { id: 'B', text: '$3$ only' },
+            { id: 'C', text: '$3$ and $-3$' },
+            { id: 'D', text: '$-5$, $3$, and $-3$' }
           ],
-          correctAnswer: 'B',
-          explanation: '**Choice B is correct.** Evaluate the function by substituting $x = 5$.\n\n**Step 1: Substitute $x = 5$ into the function**\n$g(5) = 3(5) - 7$\n\n**Step 2: Calculate**\n$g(5) = 15 - 7 = 8$\n\n**Why other choices are incorrect:**\n• Choice A ($2$): Would result from $3(5) - 13$, an arithmetic error\n• Choice C ($15$): This is $3(5)$ without subtracting $7$\n• Choice D ($22$): Would result from $3(5) + 7$, adding instead of subtracting\n\n**Key concept:** To evaluate $f(a)$, replace every $x$ in the function rule with $a$ and simplify.',
-          skills: ["function-evaluation"]
+          correctAnswer: 'C',
+          explanation: '**Choice C is correct.** A rational function is undefined where the denominator equals zero.\n\n**Step 1: Set the denominator equal to zero**\n$x^2 - 9 = 0$\n$(x - 3)(x + 3) = 0$\n$x = 3$ or $x = -3$\n\n**Step 2: Check whether $x = -5$ causes an issue**\nAt $x = -5$: denominator $= (-5)^2 - 9 = 25 - 9 = 16 \\neq 0$. The function is defined at $x = -5$ (it equals $0/16 = 0$).\n\n**Why other choices are incorrect:**\n• Choice A ($-5$ only): $x = -5$ makes the numerator $0$, not the denominator — the function equals $0$ there\n• Choice B ($3$ only): Misses $x = -3$, which also makes the denominator $0$\n• Choice D: $x = -5$ does not make the function undefined\n\n**Key concept:** A rational function is undefined only where the denominator is $0$. A numerator of $0$ simply means the function value is $0$.',
+          skills: ['Advanced Math', 'Rational Functions']
         },
         {
           id: 'pt7-m1-q15',
@@ -231,96 +231,96 @@ export const practiceTest7 = {
         },
         {
           id: 'pt7-m1-q16',
-          type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'A line passes through the points $(2, 5)$ and $(6, 13)$. What is the slope of the line?',
-          choices: [
-            { id: 'A', text: '$\\frac{1}{2}$' },
-            { id: 'B', text: '$2$' },
-            { id: 'C', text: '$4$' },
-            { id: 'D', text: '$8$' }
-          ],
-          correctAnswer: 'B',
-          explanation: '**Choice B is correct.** Use the slope formula with the two given points.\n\n**Step 1: Apply the slope formula**\n$$m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{13 - 5}{6 - 2}$$\n\n**Step 2: Calculate**\n$$m = \\frac{8}{4} = 2$$\n\n**Why other choices are incorrect:**\n• Choice A ($\\frac{1}{2}$): This is the reciprocal — computed $\\frac{\\Delta x}{\\Delta y}$ instead of $\\frac{\\Delta y}{\\Delta x}$\n• Choice C ($4$): This is the change in $x$ alone ($6 - 2$), not the ratio\n• Choice D ($8$): This is the change in $y$ alone ($13 - 5$), not the ratio\n\n**Key concept:** Slope $= \\frac{\\text{rise}}{\\text{run}} = \\frac{y_2 - y_1}{x_2 - x_1}$. Make sure $y$ is in the numerator.',
-          skills: ["slope-from-points"]
+          type: 'fill-in',
+          difficulty: 'hard',
+          question: 'The equation $x(kx - 42) = -9$ has no real solution. What is the least integer value of $k$?',
+          correctAnswer: '50',
+          explanation: '**The correct answer is $50$.**\n\n**Step 1: Rewrite in standard form**\n$x(kx - 42) = -9$\n$kx^2 - 42x + 9 = 0$\n\n**Step 2: Apply the discriminant condition for no real solutions**\nFor no real solutions, the discriminant must be negative: $b^2 - 4ac < 0$.\n\nHere $a = k$, $b = -42$, $c = 9$:\n$(-42)^2 - 4(k)(9) < 0$\n$1764 - 36k < 0$\n$36k > 1764$\n$k > 49$\n\n**Step 3: Find the least integer**\nSince $k > 49$, the least integer value is $k = 50$.\n\n**Key concept:** A quadratic $ax^2 + bx + c = 0$ has no real solutions when $b^2 - 4ac < 0$. Solve the resulting inequality for the parameter.',
+          skills: ['Advanced Math', 'Discriminant']
         },
         {
           id: 'pt7-m1-q17',
-          type: 'fill-in',
-          difficulty: 'easy',
-          question: 'What is the value of $3^2 + 4^2$?',
-          correctAnswer: '25',
-          explanation: '**The correct answer is $25$.** Evaluate each power and add.\n\n**Step 1: Calculate each term**\n$3^2 = 9$\n$4^2 = 16$\n\n**Step 2: Add the results**\n$9 + 16 = 25$\n\n**Key concept:** This is a Pythagorean triple: $3$-$4$-$5$. Since $3^2 + 4^2 = 5^2 = 25$, a triangle with sides $3$, $4$, and $5$ is a right triangle.',
-          skills: ["pythagorean-theorem"]
+          type: 'multiple-choice',
+          difficulty: 'hard',
+          question: 'In the $xy$-plane, the graph of the equation $y = -x^2 + 8x - 21$ intersects the line $y = c$ at exactly one point. What is the value of $c$?',
+          choices: [
+            { id: 'A', text: '$-5$' },
+            { id: 'B', text: '$-4$' },
+            { id: 'C', text: '$-3$' },
+            { id: 'D', text: '$-21$' }
+          ],
+          correctAnswer: 'A',
+          explanation: '**Choice A is correct.** A horizontal line $y = c$ intersects a downward-opening parabola at exactly one point when $c$ equals the maximum value (vertex).\n\n**Step 1: Find the vertex $x$-coordinate**\nFor $y = -x^2 + 8x - 21$:\n$x = -\\frac{b}{2a} = -\\frac{8}{2(-1)} = 4$\n\n**Step 2: Find the vertex $y$-coordinate**\n$y = -(4)^2 + 8(4) - 21 = -16 + 32 - 21 = -5$\n\nThe vertex is $(4, -5)$ and since $a = -1 < 0$, this is the maximum.\n\n**Step 3: Determine $c$**\nThe line $y = c$ touches the parabola at exactly one point when $c = -5$.\n\n**Why other choices are incorrect:**\n• Choice B ($-4$): Since $-4 > -5$, the line $y = -4$ lies above the maximum and never intersects the parabola\n• Choice C ($-3$): Same reasoning — $-3 > -5$, so no intersection\n• Choice D ($-21$): This is the $y$-intercept; the line $y = -21$ intersects the parabola at two points\n\n**Key concept:** A horizontal line touches a parabola at exactly one point only at the vertex — the maximum for downward-opening or the minimum for upward-opening.',
+          skills: ['Advanced Math', 'Quadratic Vertex']
         },
         {
           id: 'pt7-m1-q18',
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'Which expression is equivalent to $(2x^3)^2$?',
+          difficulty: 'hard',
+          question: 'One of the two equations in a system of linear equations is given.\n\n$$4x = 28y - 20$$\n\nThe system has no solution. Which equation could be the second equation in this system?',
           choices: [
-            { id: 'A', text: '$2x^6$' },
-            { id: 'B', text: '$4x^5$' },
-            { id: 'C', text: '$4x^6$' },
-            { id: 'D', text: '$2x^9$' }
+            { id: 'A', text: '$x = 7y$' },
+            { id: 'B', text: '$\\frac{1}{4}x = 7y$' },
+            { id: 'C', text: '$x = 7y - 5$' },
+            { id: 'D', text: '$\\frac{1}{4}x = 7y - 5$' }
           ],
-          correctAnswer: 'C',
-          explanation: '**Choice C is correct.** Apply the power rule to both the coefficient and the variable.\n\n**Step 1: Apply the power to each factor**\n$(2x^3)^2 = 2^2 \\times (x^3)^2$\n\n**Step 2: Simplify each part**\n$2^2 = 4$\n$(x^3)^2 = x^{3 \\times 2} = x^6$\n\n**Step 3: Combine**\n$(2x^3)^2 = 4x^6$\n\n**Why other choices are incorrect:**\n• Choice A ($2x^6$): Forgot to square the coefficient $2$\n• Choice B ($4x^5$): Added the exponents ($3 + 2$) instead of multiplying ($3 \\times 2$)\n• Choice D ($2x^9$): Used $3^2 = 9$ for the exponent but forgot to square the coefficient\n\n**Key concept:** When raising a product to a power: $(ab)^n = a^n \\cdot b^n$. When raising a power to a power: $(x^m)^n = x^{mn}$.',
-          skills: ["exponent-laws"]
+          correctAnswer: 'A',
+          explanation: '**Choice A is correct.** For a system to have no solution, the equations must represent parallel lines (same slope, different intercepts).\n\n**Step 1: Rewrite the given equation**\n$4x = 28y - 20$\nDivide by $4$: $x = 7y - 5$, or equivalently $x - 7y = -5$\n\n**Step 2: Check each choice**\n• Choice A: $x = 7y \\Rightarrow x - 7y = 0$. The coefficient ratio is the same ($1:-7$), but the constant differs ($0 \\neq -5$). These are parallel lines — **no solution** ✓\n• Choice B: $\\frac{1}{4}x = 7y \\Rightarrow x = 28y \\Rightarrow x - 28y = 0$. Different coefficient ratio ($1:-28$ vs $1:-7$). Has a unique solution ✗\n• Choice C: $x = 7y - 5 \\Rightarrow x - 7y = -5$. This is the same equation as the original — infinitely many solutions ✗\n• Choice D: $\\frac{1}{4}x = 7y - 5 \\Rightarrow x = 28y - 20 \\Rightarrow x - 28y = -20$. Different coefficient ratio. Has a unique solution ✗\n\n**Key concept:** Two linear equations have no solution when $\\frac{a_1}{a_2} = \\frac{b_1}{b_2} \\neq \\frac{c_1}{c_2}$ (same slope, different intercepts).',
+          skills: ['Algebra', 'Systems of Equations']
         },
         {
           id: 'pt7-m1-q19',
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'The sum of three consecutive integers is $72$. What is the largest of these integers?',
+          difficulty: 'hard',
+          question: 'If $\\frac{10}{n} = \\frac{10}{a} - \\frac{10}{b}$, which of the following correctly expresses $n$ in terms of $a$ and $b$?',
           choices: [
-            { id: 'A', text: '$23$' },
-            { id: 'B', text: '$24$' },
-            { id: 'C', text: '$25$' },
-            { id: 'D', text: '$26$' }
+            { id: 'A', text: '$n = \\frac{ab}{b - a}$' },
+            { id: 'B', text: '$n = \\frac{ab}{a - b}$' },
+            { id: 'C', text: '$n = a - b$' },
+            { id: 'D', text: '$n = \\frac{a + b}{ab}$' }
           ],
-          correctAnswer: 'C',
-          explanation: '**Choice C is correct.** Set up an equation using consecutive integers.\n\n**Step 1: Define the variables**\nLet the three consecutive integers be $n$, $n + 1$, and $n + 2$.\n\n**Step 2: Write and solve the equation**\n$n + (n + 1) + (n + 2) = 72$\n$3n + 3 = 72$\n$3n = 69$\n$n = 23$\n\n**Step 3: Find the largest**\nThe three integers are $23$, $24$, $25$. The largest is $25$.\n\n**Verification:** $23 + 24 + 25 = 72$ ✓\n\n**Why other choices are incorrect:**\n• Choice A ($23$): This is the smallest of the three, not the largest\n• Choice B ($24$): This is the middle integer\n• Choice D ($26$): Would make the sum $24 + 25 + 26 = 75 \\neq 72$\n\n**Key concept:** For consecutive integer problems, let the smallest be $n$ and express the others as $n + 1$, $n + 2$, etc.',
-          skills: ["word-problem-to-equation", "linear-equations"]
+          correctAnswer: 'A',
+          explanation: '**Choice A is correct.** Solve the multi-variable fraction equation for $n$.\n\n**Step 1: Divide both sides by $10$**\n$\\frac{1}{n} = \\frac{1}{a} - \\frac{1}{b}$\n\n**Step 2: Combine the right side over a common denominator**\n$\\frac{1}{n} = \\frac{b}{ab} - \\frac{a}{ab} = \\frac{b - a}{ab}$\n\n**Step 3: Take the reciprocal**\n$n = \\frac{ab}{b - a}$\n\n**Why other choices are incorrect:**\n• Choice B ($\\frac{ab}{a - b}$): Sign error — subtracted in the wrong order. This would give $n$ if the equation were $\\frac{10}{n} = \\frac{10}{b} - \\frac{10}{a}$\n• Choice C ($a - b$): Incorrectly treats the denominators as if they can be subtracted directly\n• Choice D ($\\frac{a + b}{ab}$): This is $\\frac{1}{a} + \\frac{1}{b}$, not the reciprocal of $\\frac{1}{a} - \\frac{1}{b}$\n\n**Key concept:** When variables are in denominators, find a common denominator to combine fractions, then take the reciprocal to isolate the target variable.',
+          skills: ['Advanced Math', 'Rational Equations']
         },
         {
           id: 'pt7-m1-q20',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'If $2y - 3 = 11$, what is the value of $4y$?',
+          difficulty: 'hard',
+          question: 'In the $xy$-plane, which of the following equations represents a circle that intersects the $y$-axis at exactly one point?',
           choices: [
-            { id: 'A', text: '$14$' },
-            { id: 'B', text: '$22$' },
-            { id: 'C', text: '$28$' },
-            { id: 'D', text: '$44$' }
+            { id: 'A', text: '$(x - 3)^2 + (y - 4)^2 = 9$' },
+            { id: 'B', text: '$(x - 5)^2 + (y + 2)^2 = 16$' },
+            { id: 'C', text: '$(x + 4)^2 + (y - 1)^2 = 25$' },
+            { id: 'D', text: '$(x - 2)^2 + (y - 6)^2 = 9$' }
           ],
-          correctAnswer: 'C',
-          explanation: '**Choice C is correct.** Solve for $y$ first, then compute $4y$.\n\n**Step 1: Solve for $y$**\n$2y - 3 = 11$\n$2y = 11 + 3 = 14$\n$y = 7$\n\n**Step 2: Calculate $4y$**\n$4y = 4(7) = 28$\n\n**Shortcut:** From $2y = 14$, multiply both sides by $2$: $4y = 28$.\n\n**Why other choices are incorrect:**\n• Choice A ($14$): This is $2y$, not $4y$\n• Choice B ($22$): Arithmetic error\n• Choice D ($44$): Would result from computing $4(11)$ instead of $4(7)$\n\n**Key concept:** When asked for a multiple of the variable (like $4y$), you can manipulate the equation directly — double both sides of $2y = 14$ to get $4y = 28$.',
-          skills: ["linear-equations"]
+          correctAnswer: 'A',
+          explanation: '**Choice A is correct.** A circle intersects the $y$-axis at exactly one point when it is tangent to the $y$-axis. This happens when the distance from the center to the $y$-axis equals the radius.\n\n**Step 1: Check each circle**\nThe distance from center $(h, k)$ to the $y$-axis is $|h|$.\n\n• A: Center $(3, 4)$, $r = 3$. Distance $= |3| = 3 = r$. **Tangent** — exactly one intersection ✓\n• B: Center $(5, -2)$, $r = 4$. Distance $= |5| = 5 > 4 = r$. Circle does not reach the $y$-axis — zero intersections ✗\n• C: Center $(-4, 1)$, $r = 5$. Distance $= |-4| = 4 < 5 = r$. Circle crosses the $y$-axis — two intersections ✗\n• D: Center $(2, 6)$, $r = 3$. Distance $= |2| = 2 < 3 = r$. Circle crosses the $y$-axis — two intersections ✗\n\n**Verification for A:** Set $x = 0$: $(0-3)^2 + (y-4)^2 = 9 \\Rightarrow 9 + (y-4)^2 = 9 \\Rightarrow y = 4$. Exactly one point ✓\n\n**Key concept:** A circle with center $(h, k)$ and radius $r$ is tangent to the $y$-axis when $|h| = r$. If $|h| < r$, it intersects at two points; if $|h| > r$, it does not intersect.',
+          skills: ['Geometry', 'Circle Equations']
         },
         {
           id: 'pt7-m1-q21',
           type: 'fill-in',
-          difficulty: 'easy',
-          question: 'A rectangle has a perimeter of $28$ cm. If the length is $9$ cm, what is the width in cm?',
-          correctAnswer: '5',
-          explanation: '**The correct answer is $5$.** Use the perimeter formula for a rectangle.\n\n**Step 1: Write the perimeter formula**\n$P = 2(\\text{length} + \\text{width})$\n$28 = 2(9 + w)$\n\n**Step 2: Solve for the width**\nDivide both sides by $2$: $14 = 9 + w$\nSubtract $9$: $w = 14 - 9 = 5$\n\n**Verification:** $P = 2(9 + 5) = 2(14) = 28$ ✓\n\n**Key concept:** The perimeter of a rectangle is $P = 2l + 2w$ (or equivalently $P = 2(l + w)$). To find a missing dimension, substitute the known values and solve.',
-          skills: ["word-problem-to-equation"]
+          difficulty: 'hard',
+          question: 'A ball is launched upward from the ground. The height $h$, in feet, of the ball $t$ seconds after launch is modeled by the quadratic function $h(t) = -16t^2 + 96t$. The ball reaches its maximum height and then falls back to the ground. What is the maximum height, in feet, reached by the ball?',
+          correctAnswer: '144',
+          explanation: '**The correct answer is $144$.**\n\n**Step 1: Find the time at maximum height**\nThe maximum occurs at the vertex. For $h(t) = -16t^2 + 96t$:\n$t = -\\frac{b}{2a} = -\\frac{96}{2(-16)} = -\\frac{96}{-32} = 3$ seconds\n\n**Step 2: Calculate the maximum height**\n$h(3) = -16(3)^2 + 96(3) = -16(9) + 288 = -144 + 288 = 144$ feet\n\n**Verification:** At $t = 0$: $h = 0$ (ground). At $t = 6$: $h = -16(36) + 96(6) = -576 + 576 = 0$ (returns to ground). The parabola is symmetric about $t = 3$, confirming the maximum.\n\n**Key concept:** For projectile motion modeled by $h = at^2 + bt + c$, the maximum height occurs at $t = -\\frac{b}{2a}$. Substitute this back into the function to find the maximum value.',
+          skills: ['Advanced Math', 'Quadratic Vertex']
         },
         {
           id: 'pt7-m1-q22',
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'Which of the following is equivalent to $(x + 3)(x - 3)$?',
+          difficulty: 'hard',
+          question: 'A store sells two types of candles. Small candles cost \\$4 each and large candles cost \\$7 each. A customer buys a total of at least $10$ candles and spends no more than \\$55. What is the maximum number of large candles the customer can buy?',
           choices: [
-            { id: 'A', text: '$x^2 - 9$' },
-            { id: 'B', text: '$x^2 + 9$' },
-            { id: 'C', text: '$x^2 - 6x + 9$' },
-            { id: 'D', text: '$x^2 + 6x + 9$' }
+            { id: 'A', text: '$3$' },
+            { id: 'B', text: '$4$' },
+            { id: 'C', text: '$5$' },
+            { id: 'D', text: '$6$' }
           ],
-          correctAnswer: 'A',
-          explanation: '**Choice A is correct.** Apply the difference of squares formula.\n\n**Step 1: Recognize the pattern**\n$(x + 3)(x - 3)$ has the form $(a + b)(a - b)$, which equals $a^2 - b^2$.\n\n**Step 2: Apply the formula**\n$(x + 3)(x - 3) = x^2 - 3^2 = x^2 - 9$\n\n**Verification (FOIL method):**\n$x \\cdot x + x(-3) + 3 \\cdot x + 3(-3) = x^2 - 3x + 3x - 9 = x^2 - 9$ ✓\n\n**Why other choices are incorrect:**\n• Choice B ($x^2 + 9$): Sign error — the product of $+3$ and $-3$ is $-9$, not $+9$\n• Choice C ($x^2 - 6x + 9$): This is $(x - 3)^2$, not $(x + 3)(x - 3)$\n• Choice D ($x^2 + 6x + 9$): This is $(x + 3)^2$, not $(x + 3)(x - 3)$\n\n**Key concept:** $(a + b)(a - b) = a^2 - b^2$ — the middle terms cancel, leaving only the difference of squares.',
-          skills: ["difference-of-squares"]
+          correctAnswer: 'C',
+          explanation: '**Choice C is correct.** Set up a system of inequalities and maximize large candles.\n\n**Step 1: Define variables and constraints**\nLet $s = $ small candles and $\\ell = $ large candles.\n• Total candles: $s + \\ell \\geq 10$\n• Budget: $4s + 7\\ell \\leq 55$\n• Both $s, \\ell \\geq 0$ (integers)\n\n**Step 2: Express $s$ in terms of $\\ell$ and find the constraint**\nFrom the total: $s \\geq 10 - \\ell$\nSubstitute into budget: $4(10 - \\ell) + 7\\ell \\leq 55$\n$40 - 4\\ell + 7\\ell \\leq 55$\n$3\\ell \\leq 15$\n$\\ell \\leq 5$\n\n**Step 3: Verify $\\ell = 5$**\nWith $\\ell = 5$: $s \\geq 10 - 5 = 5$. Cost $= 4(5) + 7(5) = 20 + 35 = 55 \\leq 55$ ✓\n\n**Why other choices are incorrect:**\n• Choices A and B: These are valid but not the maximum\n• Choice D ($6$): $s \\geq 4$ and cost $= 4(4) + 7(6) = 16 + 42 = 58 > 55$ — exceeds budget\n\n**Key concept:** To maximize one variable in a system of inequalities, substitute the binding constraint (minimum of the other variable) and solve.',
+          skills: ['Problem Solving', 'Systems of Inequalities']
         }
       ]
     },
@@ -391,221 +391,212 @@ export const practiceTest7 = {
         {
           id: 'pt7-m2-q5',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'A survey found that $35\\%$ of $200$ students prefer online classes. How many students prefer online classes?',
+          difficulty: 'medium',
+          question: 'The function $f(x) = 3(x - 4)^2 + 7$ has a minimum value. What is the minimum value of $f(x)$?',
           choices: [
-            { id: 'A', text: '$35$' },
-            { id: 'B', text: '$65$' },
-            { id: 'C', text: '$70$' },
-            { id: 'D', text: '$130$' }
+            { id: 'A', text: '$3$' },
+            { id: 'B', text: '$4$' },
+            { id: 'C', text: '$7$' },
+            { id: 'D', text: '$55$' }
           ],
           correctAnswer: 'C',
-          explanation: '**Choice C is correct.** Calculate the percentage of the total.\n\n**Step 1: Convert the percentage to a decimal**\n$35\\% = 0.35$\n\n**Step 2: Multiply by the total**\n$0.35 \\times 200 = 70$ students\n\n**Why other choices are incorrect:**\n• Choice A ($35$): Used the percentage value directly instead of calculating $35\\%$ of $200$\n• Choice B ($65$): Calculation error\n• Choice D ($130$): Computed $65\\%$ of $200$ (the complement), which is the number who do NOT prefer online classes\n\n**Key concept:** To find $p\\%$ of a number $n$: multiply $\\frac{p}{100} \\times n$.',
-          skills: ["percent-of-value"]
+          explanation: '**Choice C is correct.** Identify the minimum from vertex form.\n\n**Step 1: Recognize the vertex form**\n$f(x) = 3(x - 4)^2 + 7$ is in vertex form $a(x - h)^2 + k$ with vertex $(4, 7)$.\n\n**Step 2: Determine the minimum**\nSince $a = 3 > 0$, the parabola opens upward and the vertex is a minimum. The minimum value of $f(x)$ is $k = 7$.\n\n**Why other choices are incorrect:**\n• Choice A ($3$): This is the coefficient $a$, which affects the width, not the minimum value\n• Choice B ($4$): This is the $x$-coordinate of the vertex, not the $y$-value\n• Choice D ($55$): This is $f(0) = 3(16) + 7 = 55$, not the minimum\n\n**Key concept:** In $f(x) = a(x-h)^2 + k$, the minimum value (when $a > 0$) is $k$, occurring at $x = h$.',
+          skills: ['Advanced Math', 'Quadratic Vertex']
         },
         {
           id: 'pt7-m2-q6',
           type: 'fill-in',
-          difficulty: 'easy',
-          question: 'The ratio of boys to girls in a class is $3:5$. If there are $24$ boys, how many girls are in the class?',
-          correctAnswer: '40',
-          explanation: '**The correct answer is $40$.** Use the given ratio to find the number of girls.\n\n**Step 1: Find the value of one ratio unit**\nBoys : Girls $= 3 : 5$\nIf boys $= 24$ and the ratio portion for boys is $3$:\nOne unit $= \\frac{24}{3} = 8$\n\n**Step 2: Calculate the number of girls**\nGirls $= 5 \\times 8 = 40$\n\n**Verification:** $\\frac{\\text{Boys}}{\\text{Girls}} = \\frac{24}{40} = \\frac{3}{5}$ ✓\n\n**Key concept:** In ratio problems, find the value of one unit by dividing the known quantity by its ratio portion, then multiply by the other ratio portion.',
-          skills: ["word-problem-to-equation"]
+          difficulty: 'medium',
+          question: 'If $\\frac{3x - 5}{4} = 7$, what is the value of $3x - 5$?',
+          correctAnswer: '28',
+          explanation: '**The correct answer is $28$.**\n\n**Step 1: Multiply both sides by $4$**\n$\\frac{3x - 5}{4} = 7$\n$3x - 5 = 28$\n\nThe question asks for the value of $3x - 5$, which is $28$.\n\n**Verification:** $\\frac{28}{4} = 7$ ✓\n\n**Key concept:** When asked for the value of an expression (not just $x$), isolate that expression directly rather than solving for $x$ first.',
+          skills: ['Algebra', 'Linear Equations']
         },
         {
           id: 'pt7-m2-q7',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'Which equation is equivalent to $2(x - 4) = 3(x + 1)$?',
+          difficulty: 'medium',
+          question: 'A researcher surveyed a random sample of $500$ residents in a city with $80,000$ residents and found that $315$ of them support a new park. Based on this sample, which of the following is closest to the number of city residents who would support the new park?',
           choices: [
-            { id: 'A', text: '$2x - 8 = 3x + 3$' },
-            { id: 'B', text: '$2x - 4 = 3x + 1$' },
-            { id: 'C', text: '$2x - 8 = 3x + 1$' },
-            { id: 'D', text: '$2x - 4 = 3x + 3$' }
+            { id: 'A', text: '$31,500$' },
+            { id: 'B', text: '$40,000$' },
+            { id: 'C', text: '$50,400$' },
+            { id: 'D', text: '$63,000$' }
           ],
-          correctAnswer: 'A',
-          explanation: '**Choice A is correct.** Distribute both sides to find the equivalent equation.\n\n**Step 1: Distribute the left side**\n$2(x - 4) = 2x - 8$\n\n**Step 2: Distribute the right side**\n$3(x + 1) = 3x + 3$\n\n**Step 3: Write the equivalent equation**\n$2x - 8 = 3x + 3$\n\n**Why other choices are incorrect:**\n• Choice B ($2x - 4 = 3x + 1$): Failed to distribute — used the constants inside parentheses directly\n• Choice C ($2x - 8 = 3x + 1$): Left side is correct, but right side forgot to multiply $3 \\times 1 = 3$\n• Choice D ($2x - 4 = 3x + 3$): Right side is correct, but left side forgot to multiply $2 \\times 4 = 8$\n\n**Key concept:** The distributive property states $a(b + c) = ab + ac$. Multiply the factor outside by EACH term inside the parentheses.',
-          skills: ["distributive-property", "linear-equations"]
+          correctAnswer: 'C',
+          explanation: '**Choice C is correct.** Scale the sample proportion to the full population.\n\n**Step 1: Find the sample proportion**\n$\\frac{315}{500} = 0.63 = 63\\%$\n\n**Step 2: Apply to the full population**\n$0.63 \\times 80{,}000 = 50{,}400$\n\n**Why other choices are incorrect:**\n• Choice A ($31{,}500$): Multiplied $315 \\times 100$ instead of using the proportion\n• Choice B ($40{,}000$): Used $50\\%$ instead of $63\\%$\n• Choice D ($63{,}000$): Multiplied $63 \\times 1{,}000$ rather than $0.63 \\times 80{,}000$\n\n**Key concept:** To estimate a population value from a sample: multiply the sample proportion by the population size.',
+          skills: ['Problem Solving', 'Statistical Inference']
         },
         {
           id: 'pt7-m2-q8',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'A car travels at a constant rate of $55$ miles per hour. The equation $d = 55t$ represents the distance $d$ traveled in $t$ hours. If the car travels $220$ miles, how many hours did it travel?',
+          difficulty: 'medium',
+          question: 'The expression $\\frac{x^2 + 5x + 6}{x + 2}$ is equivalent to which of the following for $x \\neq -2$?',
           choices: [
-            { id: 'A', text: '$3$' },
-            { id: 'B', text: '$4$' },
-            { id: 'C', text: '$5$' },
-            { id: 'D', text: '$6$' }
+            { id: 'A', text: '$x + 2$' },
+            { id: 'B', text: '$x + 3$' },
+            { id: 'C', text: '$x + 6$' },
+            { id: 'D', text: '$x^2 + 5x + 3$' }
           ],
           correctAnswer: 'B',
-          explanation: '**Choice B is correct.** Solve the distance equation for time.\n\n**Step 1: Substitute $d = 220$ into the equation**\n$220 = 55t$\n\n**Step 2: Solve for $t$**\n$t = \\frac{220}{55} = 4$ hours\n\n**Verification:** $55 \\times 4 = 220$ miles ✓\n\n**Why other choices are incorrect:**\n• Choice A ($3$): $55 \\times 3 = 165 \\neq 220$\n• Choice C ($5$): $55 \\times 5 = 275 \\neq 220$\n• Choice D ($6$): $55 \\times 6 = 330 \\neq 220$\n\n**Key concept:** The distance formula $d = rt$ relates distance, rate, and time. To find time: $t = \\frac{d}{r}$.',
-          skills: ["linear-equations", "word-problem-to-equation"]
+          explanation: '**Choice B is correct.** Factor the numerator and simplify.\n\n**Step 1: Factor the numerator**\n$x^2 + 5x + 6 = (x + 2)(x + 3)$\n\n**Step 2: Simplify**\n$\\frac{(x + 2)(x + 3)}{x + 2} = x + 3$ (for $x \\neq -2$)\n\n**Why other choices are incorrect:**\n• Choice A ($x + 2$): This is the denominator, not the result of simplification\n• Choice C ($x + 6$): Does not come from correct factoring\n• Choice D: Subtracting instead of dividing\n\n**Key concept:** To simplify rational expressions, factor the numerator and denominator, then cancel common factors.',
+          skills: ['Advanced Math', 'Rational Expressions']
         },
         {
           id: 'pt7-m2-q9',
-          type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'If the function $f(x) = (x - 2)(x + 6) = 0$, what are the solutions for $x$?',
-          choices: [
-            { id: 'A', text: '$x = 2$ and $x = 6$' },
-            { id: 'B', text: '$x = -2$ and $x = -6$' },
-            { id: 'C', text: '$x = 2$ and $x = -6$' },
-            { id: 'D', text: '$x = -2$ and $x = 6$' }
-          ],
-          correctAnswer: 'C',
-          explanation: '**Choice C is correct.** Apply the zero product property.\n\n**Step 1: Set each factor equal to zero**\nIf $(x - 2)(x + 6) = 0$, then either $x - 2 = 0$ or $x + 6 = 0$.\n\n**Step 2: Solve each equation**\n$x - 2 = 0 \\Rightarrow x = 2$\n$x + 6 = 0 \\Rightarrow x = -6$\n\n**Verification:**\n• $(2 - 2)(2 + 6) = (0)(8) = 0$ ✓\n• $(-6 - 2)(-6 + 6) = (-8)(0) = 0$ ✓\n\n**Why other choices are incorrect:**\n• Choice A ($x = 2$ and $x = 6$): Sign error on second root — $x + 6 = 0$ gives $x = -6$, not $6$\n• Choice B ($x = -2$ and $x = -6$): Sign error on first root — $x - 2 = 0$ gives $x = 2$, not $-2$\n• Choice D ($x = -2$ and $x = 6$): Both signs are wrong\n\n**Key concept:** The zero product property: if $ab = 0$, then $a = 0$ or $b = 0$. For $(x - r) = 0$, the root is $x = r$ (same sign).',
-          skills: ["roots-from-factors"]
+          type: 'fill-in',
+          difficulty: 'medium',
+          question: 'A right circular cylinder has a height of $10$ cm and a volume of $250\\pi$ cubic cm. What is the radius, in cm, of the cylinder?',
+          correctAnswer: '5',
+          explanation: '**The correct answer is $5$.**\n\n**Step 1: Use the volume formula**\n$V = \\pi r^2 h$\n$250\\pi = \\pi r^2 (10)$\n\n**Step 2: Solve for $r$**\nDivide both sides by $10\\pi$:\n$r^2 = \\frac{250\\pi}{10\\pi} = 25$\n$r = 5$ cm\n\n**Verification:** $\\pi(5)^2(10) = 250\\pi$ ✓\n\n**Key concept:** For cylinder problems, use $V = \\pi r^2 h$. When given volume and height, divide to find $r^2$, then take the square root.',
+          skills: ['Geometry', 'Volume']
         },
         {
           id: 'pt7-m2-q10',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'Emma saves \\$50 per week. She currently has \\$200 in savings. Which equation represents her total savings $S$ after $w$ weeks?',
+          difficulty: 'hard',
+          question: 'For each real number $r$, which of the following points lies on the graph of each equation in the $xy$-plane for the given system?\n\n$$5x + 3y = 8$$\n$$20x + 12y = 32$$',
           choices: [
-            { id: 'A', text: '$S = 200w + 50$' },
-            { id: 'B', text: '$S = 50w + 200$' },
-            { id: 'C', text: '$S = 50w - 200$' },
-            { id: 'D', text: '$S = 200w - 50$' }
+            { id: 'A', text: '$\\left(r, \\frac{8 - 5r}{3}\\right)$' },
+            { id: 'B', text: '$\\left(r, \\frac{5r + 8}{3}\\right)$' },
+            { id: 'C', text: '$\\left(\\frac{8 - 3r}{5}, r\\right)$' },
+            { id: 'D', text: '$\\left(\\frac{5r + 8}{3}, r\\right)$' }
           ],
-          correctAnswer: 'B',
-          explanation: '**Choice B is correct.** Write the equation for total savings as a function of weeks.\n\n**Step 1: Identify the components**\n• Starting savings: \\$200 (constant, does not depend on weeks)\n• Weekly savings rate: \\$50 per week\n• Number of weeks: $w$\n\n**Step 2: Build the equation**\nTotal savings $=$ starting amount $+$ (weekly savings $\\times$ weeks)\n$S = 200 + 50w = 50w + 200$\n\n**Verification:** After $3$ weeks: $S = 50(3) + 200 = 350$. This makes sense: \\$200 initial + \\$150 saved.\n\n**Why other choices are incorrect:**\n• Choice A ($S = 200w + 50$): Charges \\$200 per week with only \\$50 starting — roles are reversed\n• Choice C ($S = 50w - 200$): Subtracts the initial savings instead of adding\n• Choice D ($S = 200w - 50$): Wrong rate and wrong operation on the constant\n\n**Key concept:** In $y = mx + b$ for real-world models, $m$ is the rate of change per unit and $b$ is the starting value.',
-          skills: ["slope-intercept-form", "word-problem-to-equation"]
+          correctAnswer: 'A',
+          explanation: '**Choice A is correct.** First verify that the system has infinitely many solutions, then express the solution set parametrically.\n\n**Step 1: Check the relationship between equations**\nMultiply the first equation by $4$: $20x + 12y = 32$. This is identical to the second equation, so the system has infinitely many solutions.\n\n**Step 2: Express $y$ in terms of a parameter**\nLet $x = r$. From $5x + 3y = 8$:\n$3y = 8 - 5r$\n$y = \\frac{8 - 5r}{3}$\n\nSo every point of the form $\\left(r, \\frac{8 - 5r}{3}\\right)$ lies on both lines.\n\n**Why other choices are incorrect:**\n• Choice B: Uses $5r + 8$ (wrong sign) — substituting gives $5r + 3 \\cdot \\frac{5r + 8}{3} = 5r + 5r + 8 = 10r + 8 \\neq 8$\n• Choice C: Correctly expresses $x$ in terms of $y = r$, but the question asks which point lies on each equation — this is also valid. However, checking: $5 \\cdot \\frac{8-3r}{5} + 3r = 8 - 3r + 3r = 8$ ✓. Both A and C work, but convention uses $x = r$.\n• Choice D: Uses incorrect formula\n\n**Key concept:** When a system has infinitely many solutions (dependent equations), the solution set can be expressed parametrically by letting one variable be $r$ and solving for the other.',
+          skills: ['Algebra', 'Systems of Equations']
         },
         {
           id: 'pt7-m2-q11',
-          type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'What is the median of the data set shown?',
-          questionFormula: {
-            equation: "$$12, 15, 18, 22, 28, 35, 42$$"
-          },
-          choices: [
-            { id: 'A', text: '$18$' },
-            { id: 'B', text: '$22$' },
-            { id: 'C', text: '$24.57$' },
-            { id: 'D', text: '$28$' }
-          ],
-          correctAnswer: 'B',
-          explanation: '**Choice B is correct.** Find the middle value of the ordered data set.\n\n**Step 1: Confirm the data is ordered**\nThe values are already in order: $12, 15, 18, 22, 28, 35, 42$\n\n**Step 2: Find the middle position**\nWith $7$ values, the median is the $\\frac{7+1}{2} = 4$th value.\n\n**Step 3: Identify the median**\nCounting to the $4$th value: $12, 15, 18, \\mathbf{22}, 28, 35, 42$\nThe median is $22$.\n\n**Why other choices are incorrect:**\n• Choice A ($18$): This is the $3$rd value, not the $4$th\n• Choice C ($24.57$): This is the mean ($\\frac{172}{7} \\approx 24.57$), not the median\n• Choice D ($28$): This is the $5$th value, not the $4$th\n\n**Key concept:** For an odd number of values $n$, the median is the value at position $\\frac{n+1}{2}$. The data must be in order.',
-          skills: ["find-median"]
+          type: 'fill-in',
+          difficulty: 'hard',
+          question: 'The regular price of a jacket at a store is \\$120. The sale price of the jacket is $70\\%$ less than the regular price, and the sale price is $20\\%$ greater than the store\'s cost for the jacket. What was the store\'s cost, in dollars, for the jacket? (Disregard the \\$ sign when entering your answer. For example, if your answer is \\$4.97, enter 4.97)',
+          correctAnswer: '30',
+          explanation: '**The correct answer is $30$.**\n\n**Step 1: Find the sale price**\nThe sale price is $70\\%$ less than the regular price:\nSale price $= 120 \\times (1 - 0.70) = 120 \\times 0.30 = 36$ dollars\n\n**Step 2: Find the store\'s cost**\nThe sale price is $20\\%$ greater than the store\'s cost $c$:\n$36 = c \\times (1 + 0.20) = 1.20c$\n$c = \\frac{36}{1.20} = 30$ dollars\n\n**Verification:** Cost $= \\$30$. $20\\%$ more $= 30 \\times 1.20 = \\$36$ (sale price). Regular price $= \\$120$, and $\\$120 - \\$36 = \\$84$, which is $70\\%$ of $\\$120$ ✓\n\n**Key concept:** Work through multi-step percentage problems sequentially. "X% less" means multiply by $(1 - X/100)$; "X% greater" means multiply by $(1 + X/100)$.',
+          skills: ['Problem Solving', 'Percent Change']
         },
         {
           id: 'pt7-m2-q12',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'A line has slope $4$. What is the slope of a line perpendicular to it?',
+          difficulty: 'hard',
+          question: 'The equation $x - 23 = (x - a)(x - 23)$, where $a$ is a constant and $a > 24$. Which of the following are solutions to the equation?\n\nI. $a$\nII. $a + 1$\nIII. $23$',
           choices: [
-            { id: 'A', text: '$4$' },
-            { id: 'B', text: '$-4$' },
-            { id: 'C', text: '$\\frac{1}{4}$' },
-            { id: 'D', text: '$-\\frac{1}{4}$' }
+            { id: 'A', text: 'I and II only' },
+            { id: 'B', text: 'I and III only' },
+            { id: 'C', text: 'II and III only' },
+            { id: 'D', text: 'I, II, and III' }
           ],
-          correctAnswer: 'D',
-          explanation: '**Choice D is correct.** Find the negative reciprocal of the given slope.\n\n**Step 1: Recall the perpendicular slope rule**\nPerpendicular lines have slopes that are negative reciprocals of each other:\n$m_1 \\times m_2 = -1$\n\n**Step 2: Calculate the perpendicular slope**\nGiven slope $= 4$\n$m_2 = -\\frac{1}{4}$\n\n**Verification:** $4 \\times \\left(-\\frac{1}{4}\\right) = -1$ ✓\n\n**Why other choices are incorrect:**\n• Choice A ($4$): Same slope means parallel, not perpendicular\n• Choice B ($-4$): Just the negative, not the negative reciprocal\n• Choice C ($\\frac{1}{4}$): Just the reciprocal, not the negative reciprocal\n\n**Key concept:** Perpendicular slopes: $m_2 = -\\frac{1}{m_1}$. Parallel slopes: $m_2 = m_1$.',
-          skills: ["perpendicular-negative-reciprocal"]
+          correctAnswer: 'C',
+          explanation: '**Choice C is correct.** Factor the equation to find all solutions.\n\n**Step 1: Rearrange and factor**\n$x - 23 = (x - a)(x - 23)$\n$(x - 23) - (x - a)(x - 23) = 0$\n$(x - 23)[1 - (x - a)] = 0$\n$(x - 23)(a + 1 - x) = 0$\n\n**Step 2: Find solutions**\n$x - 23 = 0 \\Rightarrow x = 23$\n$a + 1 - x = 0 \\Rightarrow x = a + 1$\n\n**Step 3: Check each statement**\n• I ($x = a$): Substitute: $(a - 23)(a + 1 - a) = (a - 23)(1) = a - 23 \\neq 0$ since $a > 24$. **Not a solution** ✗\n• II ($x = a + 1$): This is a solution from the factoring ✓\n• III ($x = 23$): This is a solution from the factoring ✓\n\n**Key concept:** Factor out the common expression $(x - 23)$ rather than dividing by it, since dividing could lose the solution $x = 23$.',
+          skills: ['Advanced Math', 'Polynomial Equations']
         },
         {
           id: 'pt7-m2-q13',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'The equation $3x + 2y = 18$ can be rewritten in slope-intercept form as:',
+          difficulty: 'hard',
+          question: 'A right circular cone has a volume of $15{,}360\\pi$ cubic centimeters and the area of its base is $2{,}304\\pi$ square centimeters. What is the slant height, in centimeters, of this cone?',
           choices: [
-            { id: 'A', text: '$y = \\frac{3}{2}x + 9$' },
-            { id: 'B', text: '$y = -\\frac{3}{2}x + 9$' },
-            { id: 'C', text: '$y = \\frac{3}{2}x - 9$' },
-            { id: 'D', text: '$y = -\\frac{2}{3}x + 6$' }
+            { id: 'A', text: '$20$' },
+            { id: 'B', text: '$36$' },
+            { id: 'C', text: '$48$' },
+            { id: 'D', text: '$52$' }
           ],
-          correctAnswer: 'B',
-          explanation: '**Choice B is correct.** Solve the equation for $y$ to convert to slope-intercept form.\n\n**Step 1: Isolate the $y$ term**\n$3x + 2y = 18$\n$2y = -3x + 18$\n\n**Step 2: Divide by the coefficient of $y$**\n$y = \\frac{-3x + 18}{2} = -\\frac{3}{2}x + 9$\n\n**Why other choices are incorrect:**\n• Choice A ($y = \\frac{3}{2}x + 9$): Sign error — when moving $3x$ to the right side, it becomes $-3x$\n• Choice C ($y = \\frac{3}{2}x - 9$): Both the slope sign and intercept sign are wrong\n• Choice D ($y = -\\frac{2}{3}x + 6$): Used the reciprocal slope and incorrect intercept\n\n**Key concept:** To convert $ax + by = c$ to slope-intercept form $y = mx + b$: subtract the $x$ term and divide everything by the coefficient of $y$.',
-          skills: ["slope-intercept-form"]
+          correctAnswer: 'D',
+          explanation: '**Choice D is correct.** Use the volume and base area to find the height, then calculate the slant height.\n\n**Step 1: Find the radius**\nBase area $= \\pi r^2 = 2{,}304\\pi$\n$r^2 = 2{,}304$, so $r = 48$ cm\n\n**Step 2: Find the height using the volume**\n$V = \\frac{1}{3}\\pi r^2 h$\n$15{,}360\\pi = \\frac{1}{3}\\pi(2{,}304)h$\n$15{,}360 = 768h$\n$h = 20$ cm\n\n**Step 3: Find the slant height**\n$\\ell = \\sqrt{r^2 + h^2} = \\sqrt{2{,}304 + 400} = \\sqrt{2{,}704} = 52$ cm\n\n**Why other choices are incorrect:**\n• Choice A ($20$): This is the height, not the slant height\n• Choice B ($36$): Incorrect calculation\n• Choice C ($48$): This is the radius, not the slant height\n\n**Key concept:** The slant height of a cone relates to the radius and height by $\\ell = \\sqrt{r^2 + h^2}$ (Pythagorean theorem applied to the right triangle formed by the radius, height, and slant height).',
+          skills: ['Geometry', 'Volume']
         },
         {
           id: 'pt7-m2-q14',
-          type: 'fill-in',
-          difficulty: 'easy',
-          question: 'A store offers a $20\\%$ discount on an item originally priced at \\$85. What is the sale price in dollars?',
-          correctAnswer: '68',
-          explanation: '**The correct answer is $68$.** Calculate the sale price after applying the discount.\n\n**Step 1: Calculate the discount amount**\nDiscount $= 20\\%$ of \\$85 $= 0.20 \\times 85 = \\$17$\n\n**Step 2: Subtract the discount from the original price**\nSale price $= \\$85 - \\$17 = \\$68$\n\n**Alternative method:** Multiply by $(1 - 0.20) = 0.80$:\nSale price $= 0.80 \\times 85 = \\$68$\n\n**Key concept:** A $p\\%$ discount means you pay $(100 - p)\\%$ of the original price. So $20\\%$ off means paying $80\\%$ of the original.',
-          skills: ["percent-change"]
+          type: 'multiple-choice',
+          difficulty: 'hard',
+          question: 'A square is inscribed in a circle with radius $5\\sqrt{2}$. What is the area of the square?',
+          choices: [
+            { id: 'A', text: '$25$' },
+            { id: 'B', text: '$50$' },
+            { id: 'C', text: '$100$' },
+            { id: 'D', text: '$200$' }
+          ],
+          correctAnswer: 'C',
+          explanation: '**Choice C is correct.** Relate the circle\'s radius to the square\'s diagonal.\n\n**Step 1: Find the diagonal of the square**\nWhen a square is inscribed in a circle, the diagonal of the square equals the diameter of the circle.\nDiameter $= 2 \\times 5\\sqrt{2} = 10\\sqrt{2}$\n\n**Step 2: Find the side length**\nFor a square with diagonal $d$: side $= \\frac{d}{\\sqrt{2}} = \\frac{10\\sqrt{2}}{\\sqrt{2}} = 10$\n\n**Step 3: Calculate the area**\nArea $= 10^2 = 100$\n\n**Why other choices are incorrect:**\n• Choice A ($25$): Used the radius as the side length: $(5)^2 = 25$\n• Choice B ($50$): Used $\\frac{\\text{diagonal}^2}{4} = \\frac{200}{4}$\n• Choice D ($200$): Used the diagonal as the side: $(10\\sqrt{2})^2 = 200$\n\n**Key concept:** For a square inscribed in a circle: diagonal $= $ diameter $= 2r$, and side $= \\frac{\\text{diagonal}}{\\sqrt{2}}$. Alternatively, area $= \\frac{d^2}{2} = \\frac{(2r)^2}{2} = 2r^2$.',
+          skills: ['Geometry', 'Circles and Squares']
         },
         {
           id: 'pt7-m2-q15',
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'Which expression is equivalent to $x^3 - 8$?',
+          difficulty: 'hard',
+          question: 'Which expression is equivalent to $\\frac{3}{x - 2} + \\frac{5}{x + 4}$?',
           choices: [
-            { id: 'A', text: '$(x - 2)(x^2 + 2x + 4)$' },
-            { id: 'B', text: '$(x - 2)(x^2 - 2x + 4)$' },
-            { id: 'C', text: '$(x + 2)(x^2 - 2x + 4)$' },
-            { id: 'D', text: '$(x - 2)(x - 2)(x - 2)$' }
+            { id: 'A', text: '$\\frac{8x + 2}{x^2 + 2x - 8}$' },
+            { id: 'B', text: '$\\frac{8x + 22}{x^2 + 2x - 8}$' },
+            { id: 'C', text: '$\\frac{8}{x^2 + 2x - 8}$' },
+            { id: 'D', text: '$\\frac{8x + 2}{2x + 2}$' }
           ],
           correctAnswer: 'A',
-          explanation: '**Choice A is correct.** Factor using the difference of cubes formula.\n\n**Step 1: Recognize the pattern**\n$x^3 - 8 = x^3 - 2^3$ is a difference of cubes.\n\n**Step 2: Apply the formula**\n$a^3 - b^3 = (a - b)(a^2 + ab + b^2)$\n\nWith $a = x$ and $b = 2$:\n$x^3 - 2^3 = (x - 2)(x^2 + 2x + 4)$\n\n**Verification:** Expand $(x - 2)(x^2 + 2x + 4)$:\n$= x^3 + 2x^2 + 4x - 2x^2 - 4x - 8 = x^3 - 8$ ✓\n\n**Why other choices are incorrect:**\n• Choice B ($(x-2)(x^2 - 2x + 4)$): Uses $-ab$ instead of $+ab$ in the second factor\n• Choice C ($(x+2)(x^2 - 2x + 4)$): This factors $x^3 + 8$ (sum of cubes), not $x^3 - 8$\n• Choice D ($(x-2)^3$): $(x-2)^3 = x^3 - 6x^2 + 12x - 8 \\neq x^3 - 8$\n\n**Key concept:** Difference of cubes: $a^3 - b^3 = (a - b)(a^2 + ab + b^2)$. Sum of cubes: $a^3 + b^3 = (a + b)(a^2 - ab + b^2)$.',
-          skills: ["finding-roots-factoring", "equivalent-expressions"]
+          explanation: '**Choice A is correct.** Combine the fractions using a common denominator.\n\n**Step 1: Find the common denominator**\nThe common denominator is $(x - 2)(x + 4) = x^2 + 2x - 8$.\n\n**Step 2: Rewrite each fraction**\n$$\\frac{3(x + 4)}{(x - 2)(x + 4)} + \\frac{5(x - 2)}{(x - 2)(x + 4)}$$\n\n**Step 3: Combine the numerators**\n$$\\frac{3(x + 4) + 5(x - 2)}{x^2 + 2x - 8} = \\frac{3x + 12 + 5x - 10}{x^2 + 2x - 8} = \\frac{8x + 2}{x^2 + 2x - 8}$$\n\n**Why other choices are incorrect:**\n• Choice B ($8x + 22$): Incorrectly computed $5(x + 4) = 5x + 20$ instead of $5(x - 2) = 5x - 10$\n• Choice C ($8$): Added only the numerators $3 + 5 = 8$ without adjusting for the common denominator\n• Choice D ($2x + 2$ denominator): Added the denominators instead of multiplying them\n\n**Key concept:** To add rational expressions, multiply each fraction by the missing factor to create a common denominator, then combine numerators.',
+          skills: ['Advanced Math', 'Rational Expressions']
         },
         {
           id: 'pt7-m2-q16',
           type: 'fill-in',
-          difficulty: 'medium',
-          question: 'A rectangle has length $(x + 5)$ and width $(x - 2)$. If the area is $18$, what is the positive value of $x$?',
-          correctAnswer: '4',
-          explanation: '**The correct answer is $4$.** Set up and solve the quadratic equation from the area formula.\n\n**Step 1: Write the area equation**\nArea $= \\text{length} \\times \\text{width}$\n$(x + 5)(x - 2) = 18$\n\n**Step 2: Expand and rearrange**\n$x^2 + 3x - 10 = 18$\n$x^2 + 3x - 28 = 0$\n\n**Step 3: Factor the quadratic**\nFind two numbers that multiply to $-28$ and add to $3$: those are $7$ and $-4$.\n$(x + 7)(x - 4) = 0$\n$x = -7$ or $x = 4$\n\n**Step 4: Choose the valid answer**\nSince the problem asks for the positive value, $x = 4$.\n\n**Verification:** Length $= 4 + 5 = 9$, Width $= 4 - 2 = 2$, Area $= 9 \\times 2 = 18$ ✓\n\n**Key concept:** When area problems lead to quadratics, always check which solutions make sense in context (dimensions must be positive).',
-          skills: ["finding-roots-factoring", "identify-quadratic"]
+          difficulty: 'hard',
+          question: 'The function $g$ is defined by $g(x) = \\frac{f(x)}{x + 3}$, where $f$ is a linear function. The table shows three values of $g$. What is the $y$-intercept of $y = f(x)$?',
+          diagram: {
+            type: 'table',
+            params: {
+              title: '',
+              headers: ['x', 'g(x)'],
+              rows: [
+                ['0', '2'],
+                ['3', '4'],
+                ['9', '5']
+              ]
+            }
+          },
+          correctAnswer: '6',
+          explanation: '**The correct answer is $6$.** Use the table to find $f(x)$, then identify the $y$-intercept.\n\n**Step 1: Find $f(x)$ values from the table**\nSince $g(x) = \\frac{f(x)}{x + 3}$, we have $f(x) = g(x) \\cdot (x + 3)$.\n\n$f(0) = 2 \\cdot (0 + 3) = 6$\n$f(3) = 4 \\cdot (3 + 3) = 24$\n$f(9) = 5 \\cdot (9 + 3) = 60$\n\n**Step 2: Verify $f$ is linear**\nSlope from $(0, 6)$ to $(3, 24)$: $\\frac{24 - 6}{3 - 0} = 6$\nSlope from $(3, 24)$ to $(9, 60)$: $\\frac{60 - 24}{9 - 3} = 6$ ✓\n\n**Step 3: Find the $y$-intercept**\nThe $y$-intercept of $f$ is $f(0) = 6$.\n\n**Key concept:** When $g(x) = \\frac{f(x)}{x + 3}$, recover $f$ by multiplying: $f(x) = g(x)(x + 3)$. Then verify the values are consistent with a linear function.',
+          skills: ['Advanced Math', 'Composed Functions']
         },
         {
           id: 'pt7-m2-q17',
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'A cylinder has radius $3$ inches and height $8$ inches. What is its volume in cubic inches?',
+          difficulty: 'hard',
+          question: 'A painting machine covers $2{,}160$ square feet of wall per hour. Which of the following is closest to this rate in square yards per minute? (1 yard = 3 feet)',
           choices: [
-            { id: 'A', text: '$72\\pi$' },
-            { id: 'B', text: '$24\\pi$' },
-            { id: 'C', text: '$48\\pi$' },
-            { id: 'D', text: '$144\\pi$' }
+            { id: 'A', text: '$4$' },
+            { id: 'B', text: '$12$' },
+            { id: 'C', text: '$36$' },
+            { id: 'D', text: '$240$' }
           ],
           correctAnswer: 'A',
-          explanation: '**Choice A is correct.** Apply the cylinder volume formula.\n\n**Step 1: Recall the formula**\n$$V = \\pi r^2 h$$\n\n**Step 2: Substitute the values**\n$r = 3$, $h = 8$\n$V = \\pi (3)^2 (8) = \\pi (9)(8) = 72\\pi$ cubic inches\n\n**Why other choices are incorrect:**\n• Choice B ($24\\pi$): Computed $\\pi(3)(8) = 24\\pi$ — forgot to square the radius\n• Choice C ($48\\pi$): Incorrect formula application\n• Choice D ($144\\pi$): May have doubled the radius to $6$: $\\pi(6)^2(4) = 144\\pi$\n\n**Key concept:** Volume of a cylinder: $V = \\pi r^2 h$. Remember to square the radius — a common error is using $r$ instead of $r^2$.',
-          skills: ["volume-prism"]
+          explanation: '**Choice A is correct.** Convert both the area units and the time units.\n\n**Step 1: Convert square feet to square yards**\nSince $1$ yard $= 3$ feet, $1$ square yard $= 3^2 = 9$ square feet.\n$$2{,}160 \\text{ sq ft} \\div 9 = 240 \\text{ sq yd}$$\n\n**Step 2: Convert hours to minutes**\n$$240 \\text{ sq yd per hour} \\div 60 = 4 \\text{ sq yd per minute}$$\n\n**Why other choices are incorrect:**\n• Choice B ($12$): Divided by $3$ instead of $9$ (forgot to square the conversion factor): $2{,}160 \\div 3 \\div 60 = 12$\n• Choice C ($36$): Only converted time, not area: $2{,}160 \\div 60 = 36$\n• Choice D ($240$): Only converted area, not time: $2{,}160 \\div 9 = 240$\n\n**Key concept:** When converting squared units, you must square the linear conversion factor. Since $1$ yd $= 3$ ft, $1$ sq yd $= 9$ sq ft.',
+          skills: ['Problem Solving', 'Unit Conversion']
         },
         {
           id: 'pt7-m2-q18',
           type: 'fill-in',
-          difficulty: 'medium',
-          question: 'If $5^{2x} = 125$, what is the value of $x$?',
-          correctAnswer: '1.5',
-          explanation: '**The correct answer is $1.5$.** Rewrite both sides with the same base to solve the exponential equation.\n\n**Step 1: Express $125$ as a power of $5$**\n$125 = 5^3$\n\n**Step 2: Set the exponents equal**\n$5^{2x} = 5^3$\nSince the bases are equal: $2x = 3$\n\n**Step 3: Solve for $x$**\n$x = \\frac{3}{2} = 1.5$\n\n**Verification:** $5^{2(1.5)} = 5^3 = 125$ ✓\n\n**Key concept:** When $a^m = a^n$ (same base), the exponents must be equal: $m = n$. Always try to rewrite both sides with the same base.',
-          skills: ["exponent-laws"]
+          difficulty: 'hard',
+          question: 'If $2^{a} = 3$ and $2^{b} = 5$, what is the value of $2^{3a + 2b}$?',
+          correctAnswer: '675',
+          explanation: '**The correct answer is $675$.** Use exponent rules to rewrite $2^{3a+2b}$ in terms of $2^a$ and $2^b$.\n\n**Step 1: Split the exponent using the product rule**\n$$2^{3a + 2b} = 2^{3a} \\cdot 2^{2b}$$\n\n**Step 2: Apply the power rule**\n$$2^{3a} = (2^a)^3 \\quad \\text{and} \\quad 2^{2b} = (2^b)^2$$\n\n**Step 3: Substitute the given values**\n$$(2^a)^3 \\cdot (2^b)^2 = 3^3 \\cdot 5^2 = 27 \\cdot 25 = 675$$\n\n**Key concept:** The exponent rules $a^{m+n} = a^m \\cdot a^n$ and $(a^m)^n = a^{mn}$ allow you to break apart complex exponents into simpler pieces.',
+          skills: ['Advanced Math', 'Exponent Rules']
         },
         {
           id: 'pt7-m2-q19',
-          type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'A quadratic function has vertex at $(3, -4)$ and passes through the point $(5, 0)$. Which could be the equation of this function?',
-          choices: [
-            { id: 'A', text: '$y = (x - 3)^2 - 4$' },
-            { id: 'B', text: '$y = (x + 3)^2 - 4$' },
-            { id: 'C', text: '$y = -(x - 3)^2 - 4$' },
-            { id: 'D', text: '$y = 2(x - 3)^2 - 4$' }
-          ],
-          correctAnswer: 'A',
-          explanation: '**Choice A is correct.** Use vertex form and the given point to find the equation.\n\n**Step 1: Write the vertex form**\nWith vertex $(h, k) = (3, -4)$:\n$y = a(x - 3)^2 - 4$\n\n**Step 2: Find $a$ using the point $(5, 0)$**\nSubstitute $x = 5$ and $y = 0$:\n$0 = a(5 - 3)^2 - 4$\n$0 = 4a - 4$\n$a = 1$\n\n**Step 3: Write the final equation**\n$y = (x - 3)^2 - 4$\n\n**Verification:** At $x = 5$: $y = (5-3)^2 - 4 = 4 - 4 = 0$ ✓. At vertex $x = 3$: $y = 0 - 4 = -4$ ✓\n\n**Why other choices are incorrect:**\n• Choice B ($y = (x+3)^2 - 4$): Vertex would be at $(-3, -4)$, not $(3, -4)$\n• Choice C ($y = -(x-3)^2 - 4$): Opens downward and vertex is a maximum at $y = -4$ — the parabola never reaches $y = 0$\n• Choice D ($y = 2(x-3)^2 - 4$): At $x = 5$: $y = 2(4) - 4 = 4 \\neq 0$\n\n**Key concept:** Vertex form: $y = a(x - h)^2 + k$ where $(h, k)$ is the vertex. Use a known point to solve for $a$.',
-          skills: ["vertex-form", "finding-function-from-conditions"]
+          type: 'fill-in',
+          difficulty: 'hard',
+          question: 'The equation $x^2 - 14x + 40 = 0$ has solutions $p$ and $q$. What is the value of $(p - 2)(q - 2)$?',
+          correctAnswer: '16',
+          explanation: '**The correct answer is $16$.** Use Vieta\'s formulas to find the answer without solving for $p$ and $q$ individually.\n\n**Step 1: Apply Vieta\'s formulas**\nFor $x^2 - 14x + 40 = 0$:\n$p + q = 14$ (sum of roots)\n$pq = 40$ (product of roots)\n\n**Step 2: Expand $(p - 2)(q - 2)$**\n$$(p - 2)(q - 2) = pq - 2p - 2q + 4 = pq - 2(p + q) + 4$$\n\n**Step 3: Substitute**\n$$= 40 - 2(14) + 4 = 40 - 28 + 4 = 16$$\n\n**Verification:** Solve directly: $x = \\frac{14 \\pm \\sqrt{196 - 160}}{2} = \\frac{14 \\pm 6}{2}$, so $p = 10$ and $q = 4$.\n$(10 - 2)(4 - 2) = 8 \\cdot 2 = 16$ ✓\n\n**Key concept:** Vieta\'s formulas ($p + q = -b/a$, $pq = c/a$) let you evaluate symmetric expressions of the roots without solving the quadratic.',
+          skills: ['Advanced Math', 'Quadratic Equations']
         },
         {
           id: 'pt7-m2-q20',
-          type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'Which expression is equivalent to $\\frac{4x^2 - 9}{2x + 3}$?',
-          choices: [
-            { id: 'A', text: '$2x + 3$' },
-            { id: 'B', text: '$2x - 3$' },
-            { id: 'C', text: '$4x - 3$' },
-            { id: 'D', text: '$4x + 3$' }
-          ],
-          correctAnswer: 'B',
-          explanation: '**Choice B is correct.** Factor the numerator and simplify.\n\n**Step 1: Recognize the numerator as a difference of squares**\n$4x^2 - 9 = (2x)^2 - 3^2 = (2x + 3)(2x - 3)$\n\n**Step 2: Simplify the fraction**\n$\\frac{(2x + 3)(2x - 3)}{2x + 3} = 2x - 3$ (where $2x + 3 \\neq 0$)\n\n**Verification:** Let $x = 2$: $\\frac{4(4) - 9}{2(2) + 3} = \\frac{7}{7} = 1$. And $2(2) - 3 = 1$ ✓\n\n**Why other choices are incorrect:**\n• Choice A ($2x + 3$): This is the denominator, not the remaining factor after cancellation\n• Choice C ($4x - 3$): Does not result from any correct factoring of $4x^2 - 9$\n• Choice D ($4x + 3$): Does not result from cancelling common factors\n\n**Key concept:** To simplify rational expressions, factor numerator and denominator completely, then cancel common factors. Remember: $a^2 - b^2 = (a+b)(a-b)$.',
-          skills: ["simplifying-rational-expressions", "difference-of-squares"]
+          type: 'fill-in',
+          difficulty: 'hard',
+          question: 'In the $xy$-plane, a circle has center $(6, -3)$ and radius $5$. A line passes through the center of the circle with slope $\\frac{3}{2}$. What is the $x$-coordinate of the point where this line crosses the $x$-axis?',
+          correctAnswer: '8',
+          explanation: '**The correct answer is $8$.** Find the equation of the line through the center, then find where it crosses the $x$-axis.\n\n**Step 1: Write the equation of the line**\nUsing point-slope form with center $(6, -3)$ and slope $\\frac{3}{2}$:\n$$y - (-3) = \\frac{3}{2}(x - 6)$$\n$$y + 3 = \\frac{3}{2}(x - 6)$$\n\n**Step 2: Find the $x$-intercept (set $y = 0$)**\n$$0 + 3 = \\frac{3}{2}(x - 6)$$\n$$3 = \\frac{3}{2}(x - 6)$$\n$$2 = x - 6$$\n$$x = 8$$\n\n**Verification:** At $(8, 0)$: slope from $(6, -3)$ is $\\frac{0 - (-3)}{8 - 6} = \\frac{3}{2}$ ✓\n\n**Key concept:** The circle\'s equation is not needed to solve this problem — only the center and the line\'s slope matter. Find the line equation using point-slope form, then set $y = 0$.',
+          skills: ['Geometry', 'Coordinate Geometry']
         },
         {
           id: 'pt7-m2-q21',
@@ -628,7 +619,7 @@ export const practiceTest7 = {
           },
           correctAnswer: 18,
           explanation: '**The correct answer is 18.**\n\n**Step 1:** From the graph, the parabola has vertex at $(1, -6)$ and opens upward with $a = 3$.\n\nUsing vertex form: $y = 3(x - 1)^2 - 6 = 3(x^2 - 2x + 1) - 6 = 3x^2 - 6x + 3 - 6 = 3x^2 - 6x - 3$\n\n**Step 2:** Match with $y = 3x^2 + bx + c$:\n$b = -6$ and $c = -3$\n\n**Step 3:** $bc = (-6)(-3) = 18$\n\n**Verification:** $x$-intercepts at $x = 1 \\pm \\sqrt{2}$: $3(1 + \\sqrt{2})^2 - 6(1 + \\sqrt{2}) - 3 = 3(3 + 2\\sqrt{2}) - 6 - 6\\sqrt{2} - 3 = 9 + 6\\sqrt{2} - 9 - 6\\sqrt{2} = 0$ ✓',
-          skills: ['quadratic-equations', 'vertex-form', 'graph-interpretation']
+          skills: ['Advanced Math', 'Quadratic Equations']
         },
         {
           id: 'pt7-m2-q22',
@@ -651,7 +642,7 @@ export const practiceTest7 = {
           ],
           correctAnswer: 'C',
           explanation: '**Choice C is correct.**\n\n**Step 1:** From the graph, the vertical asymptote is at $x = -3$, so $b = 3$ and $f(x) = \\frac{a}{x + 3}$.\n\nThe graph passes through approximately $(-4, -5)$: $\\frac{a}{-4 + 3} = \\frac{a}{-1} = -5$, so $a = 5$.\n\nThus $f(x) = \\frac{5}{x + 3}$.\n\n**Step 2:** Find $g(x) = f(x + 3)$:\n$g(x) = f(x + 3) = \\frac{5}{(x + 3) + 3} = \\frac{5}{x + 6}$',
-          skills: ['rational-functions', 'function-transformations']
+          skills: ['Advanced Math', 'Rational Functions']
         }
       ]
     }

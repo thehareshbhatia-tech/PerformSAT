@@ -290,104 +290,65 @@ export const practiceTest9 = {
           skills: ["function-evaluation"]
         },
 
-        // Question 18: Scatterplot trend
+        // Question 18: Equilateral triangle height
         {
           id: 18,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "The scatterplot above shows the relationship between hours studied and test scores for $20$ students. The line of best fit is shown. What does the slope of the line of best fit represent in this context?",
-          diagram: {
-            type: 'scatterplot',
-            params: {
-              points: [
-                [1, 64], [1, 71], [2, 70], [2, 76], [3, 73],
-                [3, 82], [4, 79], [4, 86], [5, 83], [5, 91],
-                [6, 90], [6, 96], [7, 94], [7, 101], [8, 100],
-                [8, 107], [9, 106], [9, 113], [10, 112], [10, 118]
-              ],
-              xMax: 12,
-              yMax: 120,
-              bestFitLine: { slope: 5.2, intercept: 62 }
-            }
-          },
-          choices: [
-            { id: "A", text: "The predicted test score with zero hours of studying" },
-            { id: "B", text: "The predicted increase in test score for each additional hour studied" },
-            { id: "C", text: "The total number of hours studied" },
-            { id: "D", text: "The average test score of all students" }
-          ],
-          correctAnswer: "B",
-          explanation: "**Choice B is correct.** In a linear model $y = mx + b$, the slope $m$ represents the rate of change.\n\nHere, slope $= 5.2$ means:\nFor each additional hour studied, the predicted test score increases by $5.2$ points.\n\n**Why other choices are incorrect:**\n• Choice A: This describes the $y$-intercept ($62$), not the slope\n• Choice C: The slope is not a count of hours\n• Choice D: The slope is not an average\n\n**Key insight:** Slope $= \\frac{\\text{change in } y}{\\text{change in } x} = \\frac{\\text{change in score}}{\\text{change in hours studied}}$",
-          skills: ["linear-regression", "slope-interpretation"]
+          type: "fill-in",
+          difficulty: "hard",
+          question: "An equilateral triangle has a perimeter of $360$ centimeters. The height of this triangle can be written as $k\\sqrt{3}$ centimeters, where $k$ is a constant. What is the value of $k$?",
+          correctAnswer: 60,
+          explanation: "**The correct answer is $60$.** Find the side length, then use the equilateral triangle height formula.\n\n**Step 1: Find the side length**\nEach side $= \\frac{360}{3} = 120$ cm\n\n**Step 2: Find the height**\nFor an equilateral triangle with side $s$, the height $= \\frac{s\\sqrt{3}}{2}$.\n$$h = \\frac{120\\sqrt{3}}{2} = 60\\sqrt{3}$$\n\n**Step 3: Identify $k$**\nSince $h = k\\sqrt{3}$ and $h = 60\\sqrt{3}$, we get $k = 60$.\n\n**Verification:** Splitting the equilateral triangle creates two 30-60-90 right triangles with hypotenuse $120$, short leg $60$, and long leg $60\\sqrt{3}$. By Pythagorean theorem: $60^2 + (60\\sqrt{3})^2 = 3{,}600 + 10{,}800 = 14{,}400 = 120^2$ ✓",
+          skills: ['Geometry', 'Special Right Triangles']
         },
 
-        // Question 19: Right triangle trigonometry
+        // Question 19: Perpendicular lines
         {
           id: 19,
           type: "fill-in",
-          difficulty: "medium",
-          question: "In a right triangle, one leg has length $5$ and the hypotenuse has length $13$. What is the length of the other leg?",
-          correctAnswer: 12,
-          explanation: "**The correct answer is 12.** Use the Pythagorean theorem: $a^2 + b^2 = c^2$\n\nLet the unknown leg $= b$, given leg $= 5$, hypotenuse $= 13$.\n\n$5^2 + b^2 = 13^2$\n$25 + b^2 = 169$\n$b^2 = 144$\n$b = 12$\n\n**Recognition:** This is a $5$-$12$-$13$ Pythagorean triple.\n\n**Verification:** $5^2 + 12^2 = 25 + 144 = 169 = 13^2$ ✓",
-          skills: ["pythagorean-theorem", "right-triangles"]
+          difficulty: "hard",
+          question: "In the $xy$-plane, line $\\ell_1$ has equation $ax + 3y = 12$ and line $\\ell_2$ has equation $6x - 4y = 8$. If the two lines are perpendicular, what is the value of $a$?",
+          correctAnswer: 2,
+          explanation: "**The correct answer is $2$.** Use the condition that perpendicular lines have slopes whose product is $-1$.\n\n**Step 1: Find the slope of line $\\ell_2$**\n$6x - 4y = 8 \\rightarrow -4y = -6x + 8 \\rightarrow y = \\frac{3}{2}x - 2$\nSlope of $\\ell_2 = \\frac{3}{2}$\n\n**Step 2: Find the slope of line $\\ell_1$**\n$ax + 3y = 12 \\rightarrow 3y = -ax + 12 \\rightarrow y = -\\frac{a}{3}x + 4$\nSlope of $\\ell_1 = -\\frac{a}{3}$\n\n**Step 3: Apply the perpendicular condition**\n$$\\left(-\\frac{a}{3}\\right) \\cdot \\frac{3}{2} = -1$$\n$$-\\frac{a}{2} = -1$$\n$$a = 2$$\n\n**Verification:** With $a = 2$: slope of $\\ell_1 = -\\frac{2}{3}$. Product: $\\left(-\\frac{2}{3}\\right)\\left(\\frac{3}{2}\\right) = -1$ ✓",
+          skills: ['Geometry', 'Perpendicular Lines']
         },
 
-        // Question 20: Linear equation from table
+        // Question 20: Infinite solutions parametric point
         {
           id: 20,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "The table shows pairs of $x$ and $y$ values that satisfy a linear equation.",
-          diagram: {
-            type: "table",
-            params: {
-              headers: ["x", "y"],
-              rows: [
-                ["0", "7"],
-                ["2", "11"],
-                ["4", "15"],
-                ["6", "19"]
-              ]
-            }
-          },
-          questionContinued: "Which equation represents the relationship between $x$ and $y$?",
+          difficulty: "hard",
+          question: "$7x + 6y = 5$\n$28x + 24y = 20$\n\nFor each real number $r$, which of the following points lies on the graph of each equation in the $xy$-plane?",
           choices: [
-            { id: "A", text: "$y = 2x + 7$" },
-            { id: "B", text: "$y = 4x + 7$" },
-            { id: "C", text: "$y = 2x + 11$" },
-            { id: "D", text: "$y = x + 7$" }
+            { id: "A", text: "$\\left(r, \\frac{5 - 7r}{6}\\right)$" },
+            { id: "B", text: "$\\left(r, \\frac{5 + 7r}{6}\\right)$" },
+            { id: "C", text: "$\\left(r, \\frac{5 - 7r}{24}\\right)$" },
+            { id: "D", text: "$\\left(r, \\frac{7r - 5}{6}\\right)$" }
           ],
           correctAnswer: "A",
-          explanation: "**Choice A is correct.** Find the slope and $y$-intercept from the table.\n\n**Slope:** $\\frac{\\text{Change in } y}{\\text{Change in } x} = \\frac{11 - 7}{2 - 0} = \\frac{4}{2} = 2$\n\n**$Y$-intercept:** When $x = 0$, $y = 7$\n\n**Equation:** $y = 2x + 7$\n\n**Verification:**\n• $x = 0$: $y = 2(0) + 7 = 7$ ✓\n• $x = 2$: $y = 2(2) + 7 = 11$ ✓\n• $x = 4$: $y = 2(4) + 7 = 15$ ✓\n• $x = 6$: $y = 2(6) + 7 = 19$ ✓\n\n**Why other choices are incorrect:**\n• Choice B: Slope is $2$, not $4$\n• Choice C: $Y$-intercept is $7$, not $11$\n• Choice D: Slope is $2$, not $1$",
-          skills: ["linear-equations", "slope-intercept-form"]
+          explanation: "**Choice A is correct.** First, recognize that the system has infinitely many solutions.\n\n**Step 1: Check if the equations are equivalent**\n$28x + 24y = 20$ is exactly $4 \\times (7x + 6y = 5)$.\nThe equations represent the same line, so every point on this line is a solution.\n\n**Step 2: Express $y$ in terms of $r$**\nSubstitute $x = r$ into $7x + 6y = 5$:\n$7r + 6y = 5$\n$6y = 5 - 7r$\n$y = \\frac{5 - 7r}{6}$\n\nSo the point $\\left(r, \\frac{5 - 7r}{6}\\right)$ lies on both equations for every real number $r$.\n\n**Why other choices are incorrect:**\n• Choice B: Sign error — uses $5 + 7r$ instead of $5 - 7r$\n• Choice C: Uses denominator $24$ from the second equation instead of $6$\n• Choice D: Reversed the subtraction ($7r - 5$ instead of $5 - 7r$)\n\n**Key concept:** When two equations are multiples of each other, the system has infinitely many solutions. Set $x = r$ and solve for $y$ to express all solutions parametrically.",
+          skills: ['Algebra', 'Systems of Equations']
         },
 
-        // Question 21: Area of composite figure
+        // Question 21: Parabola tangent to horizontal line
         {
           id: 21,
           type: "fill-in",
           difficulty: "hard",
-          question: "A rectangle has length $10$ cm and width $6$ cm. A semicircle with diameter equal to the width is removed from one end. What is the area of the remaining figure, in square centimeters? (Use $\\pi \\approx 3.14$ and round to the nearest tenth.)",
-          correctAnswer: 45.9,
-          explanation: "**The correct answer is 45.9.** Calculate the area of the rectangle minus the semicircle.\n\n**Rectangle area:** $10 \\times 6 = 60$ cm²\n\n**Semicircle:**\n• Diameter $= 6$ cm, so radius $= 3$ cm\n• Semicircle area $= \\frac{1}{2}\\pi r^2 = \\frac{1}{2}(3.14)(3)^2 = \\frac{1}{2}(3.14)(9) = 14.13$ cm²\n\n**Remaining area:** $60 - 14.13 = 45.87 \\approx 45.9$ cm²\n\n**Calculator tip:** $60 - 0.5 \\times \\pi \\times 9 \\approx 45.86$ using the $\\pi$ button.",
-          skills: ["area", "composite-figures"]
+          question: "In the $xy$-plane, the graph of $y = -x^2 + 12x - 40$ intersects the line $y = c$ at exactly one point. What is the value of $c$?",
+          correctAnswer: -4,
+          explanation: "**The correct answer is $-4$.** Find the vertex of the parabola.\n\n**Step 1: Find the $x$-coordinate of the vertex**\n$$x = -\\frac{b}{2a} = -\\frac{12}{2(-1)} = 6$$\n\n**Step 2: Find the $y$-coordinate of the vertex**\n$$y = -(6)^2 + 12(6) - 40 = -36 + 72 - 40 = -4$$\n\nThe vertex is at $(6, -4)$.\n\n**Step 3: Determine $c$**\nA horizontal line $y = c$ intersects a parabola at exactly one point only when it passes through the vertex. Since this parabola opens downward ($a = -1 < 0$), the vertex is the maximum point.\n\n$$c = -4$$\n\n**Verification:** Substituting $y = -4$: $-4 = -x^2 + 12x - 40$, so $x^2 - 12x + 36 = 0$, giving $(x - 6)^2 = 0$. Exactly one solution: $x = 6$ ✓\n\n**Key concept:** A horizontal line $y = c$ is tangent to a parabola when $c$ equals the $y$-coordinate of the vertex.",
+          skills: ['Advanced Math', 'Quadratic Equations']
         },
 
-        // Question 22: Interpreting graphs
+        // Question 22: Nonlinear system — exactly one solution
         {
           id: 22,
-          type: "multiple-choice",
+          type: "fill-in",
           difficulty: "hard",
-          question: "The function $f(t) = -16t^2 + 48t + 64$ models the height, in feet, of a ball thrown upward from a platform, where $t$ is time in seconds. What is the maximum height reached by the ball?",
-          choices: [
-            { id: "A", text: "$48$ feet" },
-            { id: "B", text: "$64$ feet" },
-            { id: "C", text: "$100$ feet" },
-            { id: "D", text: "$112$ feet" }
-          ],
-          correctAnswer: "C",
-          explanation: "**Choice C is correct.** Find the vertex of the downward parabola.\n\nFor $f(t) = at^2 + bt + c$, the $t$-coordinate of the vertex is $t = \\frac{-b}{2a}$\n\n$t = \\frac{-48}{2(-16)} = \\frac{-48}{-32} = 1.5$ seconds\n\n**Maximum height:** $f(1.5) = -16(1.5)^2 + 48(1.5) + 64$\n$= -16(2.25) + 72 + 64$\n$= -36 + 72 + 64$\n$= 100$ feet\n\n**Why other choices are incorrect:**\n• Choice A ($48$): This is the coefficient of $t$\n• Choice B ($64$): This is the initial height (at $t = 0$)\n• Choice D ($112$): Arithmetic error\n\n**Calculator tip:** Graph the function and find the maximum point, or use the vertex formula.",
-          skills: ["quadratic-functions", "vertex", "modeling"]
+          question: "$y + k = x + 10$\n$y - k = x^2 - 3x$\n\nIn the given system of equations, $k$ is a constant. The system has exactly one real solution. What is the value of $k$?",
+          correctAnswer: 7,
+          explanation: "**The correct answer is $7$.** Eliminate $y$ and use the discriminant condition.\n\n**Step 1: Solve for $y$ from the first equation**\n$y = x + 10 - k$\n\n**Step 2: Substitute into the second equation**\n$(x + 10 - k) - k = x^2 - 3x$\n$x + 10 - 2k = x^2 - 3x$\n\n**Step 3: Rearrange to standard form**\n$x^2 - 4x + 2k - 10 = 0$\n\n**Step 4: Apply the discriminant condition**\nFor exactly one real solution, the discriminant equals zero:\n$$(-4)^2 - 4(1)(2k - 10) = 0$$\n$$16 - 8k + 40 = 0$$\n$$56 - 8k = 0$$\n$$k = 7$$\n\n**Verification:** With $k = 7$: $x^2 - 4x + 4 = 0 \\rightarrow (x - 2)^2 = 0 \\rightarrow x = 2$.\nThen $y = 2 + 10 - 7 = 5$. Check second equation: $5 - 7 = -2$ and $4 - 6 = -2$ ✓\n\n**Key concept:** Eliminate one variable, then set the discriminant of the resulting quadratic equal to zero for exactly one solution.",
+          skills: ['Advanced Math', 'Systems of Equations']
         }
       ]
     },
@@ -537,21 +498,21 @@ export const practiceTest9 = {
           explanation: "**The correct answer is 5.** Solve the system using elimination.\n\nAdd the two equations:\n$2x + 3y = 12$\n$4x - 3y = 6$\n───────────\n$6x = 18$\n$x = 3$\n\nSubstitute $x = 3$ into the first equation:\n$2(3) + 3y = 12$\n$6 + 3y = 12$\n$3y = 6$\n$y = 2$\n\n**Therefore:** $x + y = 3 + 2 = 5$\n\n**Verification:** \n• $2(3) + 3(2) = 6 + 6 = 12$ ✓\n• $4(3) - 3(2) = 12 - 6 = 6$ ✓",
           skills: ["systems-of-equations"]
         },
-        // Question 11: Trigonometry (sine)
+        // Question 11: Multi-variable fraction equation
         {
           id: 11,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "In a right triangle, one of the acute angles measures $\\theta$. If $\\sin(\\theta) = \\frac{5}{13}$, what is $\\cos(\\theta)$?",
+          difficulty: "hard",
+          question: "$\\frac{15}{a} = \\frac{15}{b} + \\frac{15}{c}$\n\nThe given equation relates the distinct positive numbers $a$, $b$, and $c$, where $c > a$. Which of the following correctly expresses $b$ in terms of $a$ and $c$?",
           choices: [
-            { id: "A", text: "$\\frac{5}{12}$" },
-            { id: "B", text: "$\\frac{12}{13}$" },
-            { id: "C", text: "$\\frac{12}{5}$" },
-            { id: "D", text: "$\\frac{13}{12}$" }
+            { id: "A", text: "$b = \\frac{ac}{c - a}$" },
+            { id: "B", text: "$b = \\frac{ac}{a + c}$" },
+            { id: "C", text: "$b = \\frac{a + c}{ac}$" },
+            { id: "D", text: "$b = a - c$" }
           ],
-          correctAnswer: "B",
-          explanation: "**Choice B is correct.** Use the Pythagorean identity and right triangle ratios.\n\nIf $\\sin(\\theta) = \\frac{5}{13}$, then:\n• Opposite $= 5$\n• Hypotenuse $= 13$\n\nFind the adjacent side using Pythagorean theorem:\n$5^2 + \\text{adj}^2 = 13^2$\n$25 + \\text{adj}^2 = 169$\n$\\text{adj}^2 = 144$\n$\\text{adj} = 12$\n\n$\\cos(\\theta) = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\frac{12}{13}$\n\n**Alternative:** Use $\\sin^2\\theta + \\cos^2\\theta = 1$\n$\\left(\\frac{5}{13}\\right)^2 + \\cos^2\\theta = 1$\n$\\frac{25}{169} + \\cos^2\\theta = 1$\n$\\cos^2\\theta = \\frac{144}{169}$\n$\\cos\\theta = \\frac{12}{13}$\n\n**Recognition:** This is a $5$-$12$-$13$ right triangle.",
-          skills: ["trigonometry", "right-triangles"]
+          correctAnswer: "A",
+          explanation: "**Choice A is correct.** Isolate $b$ by algebraic manipulation.\n\n**Step 1: Divide both sides by $15$**\n$$\\frac{1}{a} = \\frac{1}{b} + \\frac{1}{c}$$\n\n**Step 2: Isolate $\\frac{1}{b}$**\n$$\\frac{1}{b} = \\frac{1}{a} - \\frac{1}{c}$$\n\n**Step 3: Combine the right side**\n$$\\frac{1}{b} = \\frac{c - a}{ac}$$\n\n**Step 4: Take the reciprocal**\n$$b = \\frac{ac}{c - a}$$\n\n**Verification:** Let $a = 3$, $c = 6$. Then $b = \\frac{18}{3} = 6$.\nCheck: $\\frac{15}{3} = \\frac{15}{6} + \\frac{15}{6} = 2.5 + 2.5 = 5$ and $\\frac{15}{3} = 5$ ✓\n\n**Why other choices are incorrect:**\n• Choice B: Uses $a + c$ instead of $c - a$ — this would come from $\\frac{1}{b} = \\frac{1}{a} + \\frac{1}{c}$\n• Choice C: This is $\\frac{1}{b}$, not $b$ (forgot to take the reciprocal)\n• Choice D: Incorrect simplification — the equation involves reciprocals, not simple subtraction\n\n**Key concept:** When solving equations with reciprocals, work with $\\frac{1}{x}$ form, combine fractions, then take the reciprocal at the end.",
+          skills: ['Advanced Math', 'Rational Equations']
         },
         // Question 12: Area calculation
         {
@@ -563,31 +524,25 @@ export const practiceTest9 = {
           explanation: "**The correct answer is 63.** Use the triangle area formula.\n\nArea $= \\frac{1}{2} \\times \\text{base} \\times \\text{height}$\n$= \\frac{1}{2} \\times 14 \\times 9$\n$= \\frac{1}{2} \\times 126$\n$= 63$ square inches\n\n**Calculator tip:** $14 \\times 9 \\div 2 = 63$",
           skills: ["area", "triangles"]
         },
-        // Question 13: Exponent equations
+        // Question 13: Poll proportion scaling
         {
           id: 13,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "If $3^{2x} = 81$, what is the value of $x$?",
-          choices: [
-            { id: "A", text: "$2$" },
-            { id: "B", text: "$4$" },
-            { id: "C", text: "$8$" },
-            { id: "D", text: "$40.5$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**Choice A is correct.** Express both sides with the same base.\n\n$3^{2x} = 81$\n$3^{2x} = 3^4$ (since $81 = 3^4$)\n\nSince the bases are equal, the exponents must be equal:\n$2x = 4$\n$x = 2$\n\n**Verification:** $3^{2 \\times 2} = 3^4 = 81$ ✓\n\n**Why other choices are incorrect:**\n• Choice B: Would give $3^8 = 6561$\n• Choice C: Would give $3^{16}$ = huge number\n• Choice D: Would give $3^{81}$ = astronomical",
-          skills: ["exponents", "exponential-equations"]
+          type: "fill-in",
+          difficulty: "hard",
+          question: "In a random poll of $600$ voters in a town, $420$ said they would support Candidate A. If the town has $45{,}000$ eligible voters, approximately how many of the eligible voters would be expected to support Candidate A based on this poll?",
+          correctAnswer: '31500',
+          explanation: "**The correct answer is $31{,}500$.** Scale the poll proportion to the full population.\n\n**Step 1: Find the proportion from the poll**\n$$\\frac{420}{600} = 0.70 = 70\\%$$\n\n**Step 2: Apply to the full population**\n$$0.70 \\times 45{,}000 = 31{,}500$$\n\n**Verification:** $\\frac{420}{600} = \\frac{7}{10}$, and $\\frac{7}{10} \\times 45{,}000 = 31{,}500$ ✓\n\n**Key concept:** In proportion problems, the ratio in the sample is assumed to represent the ratio in the population: $\\frac{\\text{sample favorable}}{\\text{sample total}} = \\frac{\\text{population favorable}}{\\text{population total}}$.",
+          skills: ['Data Analysis', 'Proportions']
         },
-        // Question 14: Rate problem
+        // Question 14: Combined rates
         {
           id: 14,
           type: "fill-in",
-          difficulty: "medium",
-          question: "A printer can print $24$ pages in $3$ minutes. At this rate, how many pages can it print in $12$ minutes?",
-          correctAnswer: 96,
-          explanation: "**The correct answer is 96.** Find the rate and apply it.\n\n**Rate:** $24$ pages $\\div 3$ minutes $= 8$ pages per minute\n\n**In 12 minutes:** $8 \\times 12 = 96$ pages\n\n**Alternative proportion method:**\n$\\frac{24}{3} = \\frac{x}{12}$\n$24 \\times 12 = 3x$\n$288 = 3x$\n$x = 96$",
-          skills: ["rates", "proportions"]
+          difficulty: "hard",
+          question: "Machine A can complete a job in $6$ hours, and Machine B can complete the same job in $4$ hours. If both machines work together at their respective rates, how many hours will it take to complete the job?",
+          correctAnswer: '2.4',
+          explanation: "**The correct answer is $2.4$ hours.** Add the individual rates to find the combined rate.\n\n**Step 1: Find each machine's rate**\n• Machine A: $\\frac{1}{6}$ of the job per hour\n• Machine B: $\\frac{1}{4}$ of the job per hour\n\n**Step 2: Add the rates**\n$$\\frac{1}{6} + \\frac{1}{4} = \\frac{2}{12} + \\frac{3}{12} = \\frac{5}{12}$$\n\nTogether they complete $\\frac{5}{12}$ of the job per hour.\n\n**Step 3: Find the time**\n$$\\text{Time} = \\frac{1}{\\text{Rate}} = \\frac{1}{5/12} = \\frac{12}{5} = 2.4 \\text{ hours}$$\n\n**Verification:** In $2.4$ hours, Machine A completes $\\frac{2.4}{6} = 0.4$ of the job, and Machine B completes $\\frac{2.4}{4} = 0.6$ of the job. Total: $0.4 + 0.6 = 1$ (complete job) ✓\n\n**Key concept:** For combined work problems: add rates, not times. Rate $= \\frac{1}{\\text{time}}$, and combined time $= \\frac{1}{\\text{sum of rates}}$.",
+          skills: ['Problem Solving', 'Rates']
         },
         // Question 15: Substitution
         {
@@ -664,61 +619,35 @@ export const practiceTest9 = {
           explanation: "**Choice C is correct.** When multiplying powers with the same base, add exponents.\n\n$x^{\\frac{2}{3}} \\cdot x^{\\frac{1}{6}} = x^{\\frac{2}{3} + \\frac{1}{6}}$\n\nFind common denominator:\n$\\frac{2}{3} = \\frac{4}{6}$\n\n$\\frac{4}{6} + \\frac{1}{6} = \\frac{5}{6}$\n\n**Result:** $x^{\\frac{5}{6}}$\n\n**Why other choices are incorrect:**\n• Choice A: Would require multiplying exponents (wrong operation)\n• Choice B: $\\frac{2}{3} + \\frac{1}{6} \\neq \\frac{1}{3}$\n• Choice D: Would require multiplying exponents\n\n**Key rule:** $x^a \\cdot x^b = x^{a+b}$",
           skills: ["exponents", "radicals"]
         },
-        // Question 18: Dot plot statistics
+        // Question 18: Radical equation
         {
           id: 18,
-          type: "multiple-choice",
+          type: "fill-in",
           difficulty: "hard",
-          question: "The dot plot above shows the number of pets owned by $15$ families. What is the median number of pets?",
-          diagram: {
-            type: 'dotPlot',
-            params: {
-              data: [
-                { value: 0, count: 2 },
-                { value: 1, count: 4 },
-                { value: 2, count: 5 },
-                { value: 3, count: 2 },
-                { value: 4, count: 1 },
-                { value: 6, count: 1 }
-              ],
-              xLabel: 'Number of pets',
-              title: 'Pets Owned by Families',
-              xMin: 0,
-              xMax: 7,
-              width: 360,
-              height: 200,
-              dotRadius: 8
-            }
-          },
-          choices: [
-            { id: "A", text: "$1$" },
-            { id: "B", text: "$2$" },
-            { id: "C", text: "$2.5$" },
-            { id: "D", text: "$3$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**Choice B is correct.** Find the middle value of the ordered data.\n\nWith $15$ values, the median is the 8th value (since $\\frac{15+1}{2} = 8$).\n\nCount through the ordered data:\n$0, 0, 1, 1, 1, 1, 2, \\mathbf{2}, 2, 2, 2, 3, 3, 4, 6$\n\nThe 8th value is $2$.\n\n**Why other choices are incorrect:**\n• Choice A: $1$ is the mode of the lower values, not the median\n• Choice C: $2.5$ would be correct only for even number of data points\n• Choice D: $3$ is too high in the ordered list",
-          skills: ["statistics", "median"]
+          question: "What is the solution to the equation $\\sqrt{3x + 7} = x - 1$?",
+          correctAnswer: 6,
+          explanation: "**The correct answer is $6$.** Square both sides and check for extraneous solutions.\n\n**Step 1: Square both sides**\n$$3x + 7 = (x - 1)^2 = x^2 - 2x + 1$$\n\n**Step 2: Rearrange to standard form**\n$$x^2 - 2x + 1 - 3x - 7 = 0$$\n$$x^2 - 5x - 6 = 0$$\n\n**Step 3: Factor and solve**\n$$(x - 6)(x + 1) = 0$$\n$$x = 6 \\text{ or } x = -1$$\n\n**Step 4: Check for extraneous solutions**\n• $x = 6$: $\\sqrt{3(6) + 7} = \\sqrt{25} = 5$ and $6 - 1 = 5$ ✓\n• $x = -1$: $\\sqrt{3(-1) + 7} = \\sqrt{4} = 2$ and $-1 - 1 = -2$ ✗ (extraneous)\n\nThe only valid solution is $x = 6$.\n\n**Key concept:** When solving radical equations by squaring, always check solutions in the original equation. Squaring can introduce extraneous solutions because $\\sqrt{a} \\geq 0$ by definition.",
+          skills: ['Advanced Math', 'Radical Equations']
         },
-        // Question 19: Isosceles triangle angles
+        // Question 19: Quadratic with vertex and point
         {
           id: 19,
           type: "fill-in",
           difficulty: "hard",
-          question: "In an isosceles triangle, the vertex angle measures $40°$. What is the measure, in degrees, of each base angle?",
-          correctAnswer: 70,
-          explanation: "**The correct answer is 70.** Use the triangle angle sum property.\n\nIn an isosceles triangle:\n• The two base angles are equal\n• All angles sum to $180°$\n\nLet each base angle $= x$\n\n$40 + x + x = 180$\n$40 + 2x = 180$\n$2x = 140$\n$x = 70°$\n\n**Verification:** $40° + 70° + 70° = 180°$ ✓",
-          skills: ["triangles", "isosceles-triangles", "angles"]
+          question: "The function $f$ is defined by $f(x) = 2x^2 + bx + c$, where $b$ and $c$ are constants. The graph of $y = f(x)$ in the $xy$-plane has a vertex at $(3, -5)$ and passes through the point $(0, 13)$. What is the value of $b + c$?",
+          correctAnswer: 1,
+          explanation: "**The correct answer is $1$.** Use the vertex to write the function, then expand.\n\n**Step 1: Write in vertex form**\nSince $a = 2$ and vertex $= (3, -5)$:\n$f(x) = 2(x - 3)^2 - 5$\n\n**Step 2: Expand**\n$f(x) = 2(x^2 - 6x + 9) - 5 = 2x^2 - 12x + 18 - 5 = 2x^2 - 12x + 13$\n\n**Step 3: Identify $b$ and $c$**\n$b = -12$ and $c = 13$\n\n**Step 4: Calculate $b + c$**\n$b + c = -12 + 13 = 1$\n\n**Verification:**\n• $f(0) = 2(0) - 12(0) + 13 = 13$ ✓\n• Vertex at $x = \\frac{-(-12)}{2(2)} = 3$, $f(3) = 18 - 36 + 13 = -5$ ✓\n\n**Key concept:** Use vertex form $a(x - h)^2 + k$ to build the equation, then expand to standard form to identify $b$ and $c$.",
+          skills: ['Advanced Math', 'Quadratic Equations']
         },
-        // Question 20: System with infinitely many solutions (Parametric)
+        // Question 20: Parabola-line system — exactly one intersection
         {
           id: 20,
           type: "fill-in",
           difficulty: "hard",
-          question: "Consider the system of equations:\n\n$2x + 3y = 7$\n\n$10x + 15y = 35$\n\nIf $(x, y)$ is a solution to this system where $y = 5$, what is the value of $x$?",
-          correctAnswer: -4,
-          explanation: "**The correct answer is -4.** Analyze the system first.\n\n**Observation:** The second equation is exactly $5$ times the first:\n$5(2x + 3y) = 5(7) \\rightarrow 10x + 15y = 35$ ✓\n\nThis means the equations represent the **same line**, so there are infinitely many solutions (any point on the line $2x + 3y = 7$ works).\n\n**Find $x$ when $y = 5$:**\n$2x + 3(5) = 7$\n$2x + 15 = 7$\n$2x = -8$\n$x = -4$\n\n**Verification:** \n• First equation: $2(-4) + 3(5) = -8 + 15 = 7$ ✓\n• Second equation: $10(-4) + 15(5) = -40 + 75 = 35$ ✓\n\n**Key insight:** When one equation is a multiple of another, the system has infinitely many solutions - all points on that line. The question asks for the specific solution where $y = 5$.",
-          skills: ["systems-of-equations", "dependent-systems", "parametric-solutions"]
+          question: "In the $xy$-plane, the line $y = -2x + k$ is tangent to the parabola $y = x^2 - 6x + 5$. What is the value of $k$?",
+          correctAnswer: 1,
+          explanation: "**The correct answer is $1$.** Set the equations equal and apply the discriminant condition.\n\n**Step 1: Set the equations equal**\n$$x^2 - 6x + 5 = -2x + k$$\n$$x^2 - 4x + 5 - k = 0$$\n\n**Step 2: Apply the tangent condition**\nFor the line to be tangent (exactly one intersection), the discriminant must equal zero:\n$$(-4)^2 - 4(1)(5 - k) = 0$$\n$$16 - 20 + 4k = 0$$\n$$4k - 4 = 0$$\n$$k = 1$$\n\n**Verification:** With $k = 1$: $x^2 - 4x + 4 = 0 \\rightarrow (x - 2)^2 = 0 \\rightarrow x = 2$.\nParabola: $4 - 12 + 5 = -3$. Line: $-4 + 1 = -3$ ✓. Exactly one intersection point at $(2, -3)$.\n\n**Key concept:** A line is tangent to a curve when they intersect at exactly one point. Setting them equal yields a quadratic — for tangency, its discriminant must be zero.",
+          skills: ['Advanced Math', 'Quadratic Equations']
         },
         // Question 21: Complex radical equation
         {

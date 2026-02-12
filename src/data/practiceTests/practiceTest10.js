@@ -523,17 +523,17 @@ export const practiceTest10 = {
         {
           id: 'pt10-m2-q10',
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'At a state fair, attendees can win tokens that are worth a different number of points depending on the shape. One attendee won $S$ square tokens and $C$ circle tokens worth a total of $1{,}120$ points. The equation $80S + 90C = 1{,}120$ represents this situation. How many more points is a circle token worth than a square token?',
+          difficulty: 'hard',
+          question: 'Which of the following is equivalent to $\\frac{3}{x + 2} + \\frac{5}{x - 4}$?',
           choices: [
-            { id: 'A', text: '$950$' },
-            { id: 'B', text: '$90$' },
-            { id: 'C', text: '$80$' },
-            { id: 'D', text: '$10$' }
+            { id: 'A', text: '$\\frac{8x - 2}{(x + 2)(x - 4)}$' },
+            { id: 'B', text: '$\\frac{8x + 22}{(x + 2)(x - 4)}$' },
+            { id: 'C', text: '$\\frac{8}{(x + 2)(x - 4)}$' },
+            { id: 'D', text: '$\\frac{8x - 2}{2x - 2}$' }
           ],
-          correctAnswer: 'D',
-          explanation: '**Choice D is correct.** Read the point values from the equation and find the difference.\n\n**Step 1: Interpret the equation**\nIn $80S + 90C = 1{,}120$:\n• Each square token is worth $80$ points (coefficient of $S$)\n• Each circle token is worth $90$ points (coefficient of $C$)\n\n**Step 2: Find the difference**\n$90 - 80 = 10$ more points per circle token.\n\n**Why other choices are incorrect:**\n• Choice A ($950$): Subtracting $1{,}120 - 170 = 950$ — not meaningful here\n• Choice B ($90$): This is the value of a circle token, not the difference\n• Choice C ($80$): This is the value of a square token, not the difference\n\n**Key concept:** In a linear equation $aS + bC = \\text{total}$, the coefficients $a$ and $b$ represent the value per unit. The difference in values is simply $b - a$.',
-          skills: ['Algebra', 'Linear Equations', 'Word Problems']
+          correctAnswer: 'A',
+          explanation: '**Choice A is correct.** Add the fractions by finding a common denominator.\n\n**Step 1: Find the common denominator**\nThe common denominator is $(x + 2)(x - 4)$.\n\n**Step 2: Rewrite each fraction**\n$$\\frac{3}{x + 2} = \\frac{3(x - 4)}{(x + 2)(x - 4)} = \\frac{3x - 12}{(x + 2)(x - 4)}$$\n$$\\frac{5}{x - 4} = \\frac{5(x + 2)}{(x + 2)(x - 4)} = \\frac{5x + 10}{(x + 2)(x - 4)}$$\n\n**Step 3: Add the numerators**\n$$\\frac{3x - 12 + 5x + 10}{(x + 2)(x - 4)} = \\frac{8x - 2}{(x + 2)(x - 4)}$$\n\n**Why other choices are incorrect:**\n• Choice B: Adds $-12 + 10$ as $+22$ instead of $-2$ — sign error in the cross-multiplication\n• Choice C: Simply adds the numerators $3 + 5 = 8$ without cross-multiplying\n• Choice D: Uses $2x - 2$ as the denominator instead of the product $(x + 2)(x - 4)$\n\n**Key concept:** To add rational expressions with different denominators, multiply each fraction by the other\'s denominator, then combine the numerators over the common denominator.',
+          skills: ['Advanced Math', 'Rational Expressions']
         },
         {
           id: 'pt10-m2-q11',
@@ -566,11 +566,18 @@ export const practiceTest10 = {
         {
           id: 'pt10-m2-q12',
           type: 'fill-in',
-          difficulty: 'medium',
-          question: 'A circle has a radius of $2.1$ inches. The area of the circle is $b\\pi$ square inches, where $b$ is a constant. What is the value of $b$?',
-          correctAnswer: '4.41',
-          explanation: '**The correct answer is $4.41$.** Use the area formula for a circle and match to the given form.\n\n**Step 1: Apply the area formula**\n$A = \\pi r^2 = \\pi (2.1)^2$\n\n**Step 2: Compute $r^2$**\n$(2.1)^2 = 4.41$\n\nSo $A = 4.41\\pi$ square inches.\n\n**Step 3: Match to the given form**\nSince $A = b\\pi$, we have $b = 4.41$.\n\n**Verification:** $2.1 \\times 2.1 = 4.41$ ✓.\n\n**Key concept:** The area of a circle is $A = \\pi r^2$. When the answer is expressed as $b\\pi$, the value $b$ is simply $r^2$.',
-          skills: ['Geometry', 'Circle Area']
+          difficulty: 'hard',
+          question: 'The function $g$ is defined by $g(x) = \\frac{f(x)}{x + 1}$, where $f$ is a linear function. The table shows two values of $x$ and their corresponding values of $g(x)$. What is the $y$-intercept of the graph of $y = f(x)$ in the $xy$-plane?',
+          questionTable: {
+            headers: ['x', 'g(x)'],
+            rows: [
+              ['1', '9'],
+              ['2', '7']
+            ]
+          },
+          correctAnswer: 15,
+          explanation: '**The correct answer is $15$.** Use the relationship $f(x) = g(x) \\cdot (x + 1)$ to find values of $f$, then determine the linear function.\n\n**Step 1: Find values of $f$**\nSince $g(x) = \\frac{f(x)}{x + 1}$, we have $f(x) = g(x) \\cdot (x + 1)$.\n\n• $f(1) = g(1) \\cdot (1 + 1) = 9 \\cdot 2 = 18$\n• $f(2) = g(2) \\cdot (2 + 1) = 7 \\cdot 3 = 21$\n\n**Step 2: Find the equation of $f$**\nSince $f$ is linear, find the slope:\n$$m = \\frac{21 - 18}{2 - 1} = 3$$\n\nUsing point $(1, 18)$:\n$$f(x) = 3(x - 1) + 18 = 3x + 15$$\n\n**Step 3: Find the $y$-intercept**\n$$f(0) = 3(0) + 15 = 15$$\n\n**Verification:** $g(1) = \\frac{3(1) + 15}{1 + 1} = \\frac{18}{2} = 9$ ✓ and $g(2) = \\frac{3(2) + 15}{2 + 1} = \\frac{21}{3} = 7$ ✓\n\n**Key concept:** When $g(x) = \\frac{f(x)}{\\text{expression}}$, multiply both sides to recover $f(x)$. Two points determine a linear function.',
+          skills: ['Advanced Math', 'Functions']
         },
         {
           id: 'pt10-m2-q13',
@@ -629,18 +636,12 @@ export const practiceTest10 = {
         },
         {
           id: 'pt10-m2-q17',
-          type: 'multiple-choice',
+          type: 'fill-in',
           difficulty: 'hard',
-          question: 'Which expression is equivalent to $\\frac{h^{15}q^7}{h^5q^{21}}$, where $h > 0$ and $q > 0$?',
-          choices: [
-            { id: 'A', text: '$\\frac{h^{10}}{q^{14}}$' },
-            { id: 'B', text: '$\\frac{h^3}{q^3}$' },
-            { id: 'C', text: '$h^{10}q^{14}$' },
-            { id: 'D', text: '$h^3q^3$' }
-          ],
-          correctAnswer: 'A',
-          explanation: '**Choice A is correct.** Apply the quotient rule for exponents.\n\n**Step 1: Apply the quotient rule to each base**\nFor base $h$: $\\frac{h^{15}}{h^5} = h^{15-5} = h^{10}$\n\nFor base $q$: $\\frac{q^7}{q^{21}} = q^{7-21} = q^{-14}$\n\n**Step 2: Rewrite with positive exponents**\n$h^{10} \\cdot q^{-14} = \\frac{h^{10}}{q^{14}}$\n\n**Why other choices are incorrect:**\n• Choice B ($\\frac{h^3}{q^3}$): Divides the exponents ($15 \\div 5 = 3$) instead of subtracting them\n• Choice C ($h^{10}q^{14}$): Correct subtraction of exponents, but puts $q^{14}$ in the numerator instead of the denominator\n• Choice D ($h^3q^3$): Both divides exponents and puts everything in the numerator\n\n**Key concept:** The quotient rule states $\\frac{a^m}{a^n} = a^{m-n}$. Subtract exponents (do not divide them). A negative exponent moves the base to the other part of the fraction.',
-          skills: ['Algebra', 'Exponent Rules']
+          question: 'The equation $x^2 + y^2 + 10x - 4y + c = 0$ defines a circle in the $xy$-plane with radius $6$. What is the value of $c$?',
+          correctAnswer: -7,
+          explanation: '**The correct answer is $-7$.** Complete the square and match the radius.\n\n**Step 1: Group and complete the square**\n$$(x^2 + 10x) + (y^2 - 4y) = -c$$\n\nFor $x$: $x^2 + 10x + 25 = (x + 5)^2$, add $25$.\nFor $y$: $y^2 - 4y + 4 = (y - 2)^2$, add $4$.\n\n$$(x + 5)^2 + (y - 2)^2 = -c + 25 + 4 = 29 - c$$\n\n**Step 2: Use the radius condition**\nThe standard form $(x - h)^2 + (y - k)^2 = r^2$ has $r^2 = 29 - c$.\n\nSince $r = 6$:\n$$29 - c = 36$$\n$$c = -7$$\n\n**Verification:** $x^2 + y^2 + 10x - 4y - 7 = 0 \\implies (x + 5)^2 + (y - 2)^2 = 36$. Radius $= \\sqrt{36} = 6$ ✓\n\n**Key concept:** To convert the general form $x^2 + y^2 + Dx + Ey + F = 0$ to standard form, complete the square for both $x$ and $y$. The radius equals $\\sqrt{(D/2)^2 + (E/2)^2 - F}$.',
+          skills: ['Geometry', 'Circle Equations']
         },
         {
           id: 'pt10-m2-q18',
@@ -676,10 +677,10 @@ export const practiceTest10 = {
           id: 'pt10-m2-q20',
           type: 'fill-in',
           difficulty: 'hard',
-          question: '$2x^2 - 8x - 7 = 0$\n\nOne solution to the given equation can be written as $\\frac{8 - \\sqrt{k}}{4}$, where $k$ is a constant. What is the value of $k$?',
-          correctAnswer: '120',
-          explanation: '**The correct answer is $120$.** Apply the quadratic formula and match to the given form.\n\n**Step 1: Identify $a$, $b$, $c$**\nFor $2x^2 - 8x - 7 = 0$: $a = 2$, $b = -8$, $c = -7$.\n\n**Step 2: Apply the quadratic formula**\n$$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} = \\frac{8 \\pm \\sqrt{64 - 4(2)(-7)}}{4}$$\n\n**Step 3: Simplify the discriminant**\n$b^2 - 4ac = 64 + 56 = 120$\n\nSo $x = \\frac{8 \\pm \\sqrt{120}}{4}$.\n\n**Step 4: Match to the given form**\nComparing $\\frac{8 - \\sqrt{k}}{4}$ with $\\frac{8 - \\sqrt{120}}{4}$, we get $k = 120$.\n\n**Key concept:** The quadratic formula gives $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$. The expression under the square root, $b^2 - 4ac$, is the discriminant.',
-          skills: ['Quadratic Equations', 'Quadratic Formula']
+          question: 'Let $f(x) = x^2 - 4x + 3$ and $g(x) = 2x - 1$. What is the sum of all values of $x$ for which $f(g(x)) = 0$?',
+          correctAnswer: 3,
+          explanation: '**The correct answer is $3$.** Evaluate the composition, then solve.\n\n**Step 1: Substitute $g(x)$ into $f$**\n$$f(g(x)) = f(2x - 1) = (2x - 1)^2 - 4(2x - 1) + 3$$\n\n**Step 2: Expand**\n$$= 4x^2 - 4x + 1 - 8x + 4 + 3$$\n$$= 4x^2 - 12x + 8$$\n\n**Step 3: Factor and solve**\n$$4(x^2 - 3x + 2) = 0$$\n$$4(x - 1)(x - 2) = 0$$\n$$x = 1 \\quad \\text{or} \\quad x = 2$$\n\n**Step 4: Find the sum**\n$$1 + 2 = 3$$\n\n**Verification:**\n• $x = 1$: $g(1) = 1$, $f(1) = 1 - 4 + 3 = 0$ ✓\n• $x = 2$: $g(2) = 3$, $f(3) = 9 - 12 + 3 = 0$ ✓\n\n**Alternative:** By Vieta\'s formulas, the sum of roots of $x^2 - 3x + 2 = 0$ is $-(-3)/1 = 3$.\n\n**Key concept:** For $f(g(x)) = 0$, substitute $g(x)$ into $f$, expand, and solve the resulting equation. The composition creates a new polynomial whose roots are the solutions.',
+          skills: ['Advanced Math', 'Function Composition']
         },
         {
           id: 'pt10-m2-q21',

@@ -348,16 +348,16 @@ export const practiceTest6 = {
           id: 22,
           type: "multiple-choice",
           difficulty: "hard",
-          question: "Square A has a side length of $x$ centimeters. Square B has a perimeter that is $120$ centimeters greater than the perimeter of square A. The function $f$ gives the area of square B, in square centimeters. Which of the following defines $f$?",
+          question: "A rectangle has a length that is $24$ inches more than its width. If the area of the rectangle is $180$ square inches, which of the following equations can be used to find the width $w$, in inches, of the rectangle?",
           choices: [
-            { id: "A", text: "$f(x) = (x + 30)^2$" },
-            { id: "B", text: "$f(x) = (x + 120)^2$" },
-            { id: "C", text: "$f(x) = (120x + 30)^2$" },
-            { id: "D", text: "$f(x) = (120x + 120)^2$" }
+            { id: "A", text: "$w^2 + 24w - 180 = 0$" },
+            { id: "B", text: "$w^2 + 24w + 180 = 0$" },
+            { id: "C", text: "$w^2 - 24w - 180 = 0$" },
+            { id: "D", text: "$w^2 - 24w + 180 = 0$" }
           ],
           correctAnswer: "A",
-          explanation: "**Choice A is correct.** Find the side length of Square B, then its area.\n\n• Square A: side $= x$, perimeter $= 4x$\n• Square B: perimeter $= 4x + 120$\n• Square B: side $= \\frac{4x + 120}{4} = x + 30$\n• Square B: area $= (x + 30)^2$\n\n**Why other choices are incorrect:**\n• Choice B: Adds $120$ to side instead of dividing perimeter increase by $4$\n• Choice C: Incorrectly multiplies $x$ by $120$\n• Choice D: Completely wrong structure\n\n**Key concept:** Perimeter of square $= 4s$, so side $= \\frac{\\text{perimeter}}{4}$. Area $= \\text{side}^2$.",
-          skills: ["Algebra", "Geometry"]
+          explanation: "**Choice A is correct.** Set up the area equation using the relationship between length and width.\n\n**Step 1: Define variables**\n• Width $= w$\n• Length $= w + 24$\n\n**Step 2: Write the area equation**\n$$w(w + 24) = 180$$\n$$w^2 + 24w = 180$$\n$$w^2 + 24w - 180 = 0$$\n\n**Verification:** Factor: $(w + 30)(w - 6) = 0$, so $w = 6$ (positive). Length $= 6 + 24 = 30$. Area $= 6 \\times 30 = 180$ ✓\n\n**Why other choices are incorrect:**\n• Choice B: Uses $+180$ instead of $-180$; this equation has no real solutions\n• Choice C: Uses $-24w$; the length is $24$ **more** than width, so the middle term should be positive\n• Choice D: Both signs are wrong\n\n**Key concept:** Translate word problems into algebraic equations. Area of rectangle $= \\text{length} \\times \\text{width}$.",
+          skills: ["Advanced Math", "Quadratic Equations"]
         }
       ]
     },
@@ -503,18 +503,12 @@ export const practiceTest6 = {
         },
         {
           id: 7,
-          type: "multiple-choice",
+          type: "fill-in",
           difficulty: "medium",
-          question: "$-3x^2 - 5x = -28$\n\nWhat is the positive solution to the given equation?",
-          choices: [
-            { id: "A", text: "$\\frac{5}{3}$" },
-            { id: "B", text: "$\\frac{7}{3}$" },
-            { id: "C", text: "$3$" },
-            { id: "D", text: "$5$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**Choice B is correct.** Rearrange and solve the quadratic.\n\n• $-3x^2 - 5x + 28 = 0$\n• Multiply by $-1$: $3x^2 + 5x - 28 = 0$\n• Factor: $(3x - 7)(x + 4) = 0$\n• Solutions: $x = \\frac{7}{3}$ or $x = -4$\n• Positive solution: $x = \\frac{7}{3}$\n\n**Verification:** $-3\\left(\\frac{7}{3}\\right)^2 - 5\\left(\\frac{7}{3}\\right) = -3\\left(\\frac{49}{9}\\right) - \\frac{35}{3} = -\\frac{49}{3} - \\frac{35}{3} = -\\frac{84}{3} = -28$ ✓\n\n**Why other choices are incorrect:**\n• Other values don't satisfy the equation\n\n**Key concept:** Factor or use the quadratic formula. Check that your answer is positive.",
-          skills: ["Algebra", "Quadratic equations"]
+          question: "A cylinder has a height that is $3$ times its radius. If the volume of the cylinder is $192\\pi$ cubic centimeters, what is the radius, in centimeters, of the cylinder?",
+          correctAnswer: 4,
+          explanation: "**The correct answer is $4$.** Use the volume formula for a cylinder.\n\n**Step 1: Set up the equation**\nLet $r$ = radius. Height $= 3r$.\n$$V = \\pi r^2 h = \\pi r^2(3r) = 3\\pi r^3$$\n\n**Step 2: Solve for $r$**\n$$3\\pi r^3 = 192\\pi$$\n$$r^3 = 64$$\n$$r = 4$$\n\n**Verification:** $V = \\pi(4)^2(12) = \\pi(16)(12) = 192\\pi$ ✓\n\n**Key concept:** Volume of a cylinder $= \\pi r^2 h$. Use given relationships between dimensions to write a single-variable equation.",
+          skills: ["Geometry", "Volume"]
         },
         {
           id: 8,
@@ -562,46 +556,12 @@ export const practiceTest6 = {
         },
         {
           id: 11,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "$g(x) = x^2 - 5$\n\nWhich table gives three values of $x$ and their corresponding values of $g(x)$ for the given function $g$?",
-          choices: [
-            {
-              id: "A",
-              text: "",
-              table: {
-                headers: ["x", "g(x)"],
-                rows: [["1", "6"], ["2", "7"], ["3", "8"]]
-              }
-            },
-            {
-              id: "B",
-              text: "",
-              table: {
-                headers: ["x", "g(x)"],
-                rows: [["1", "-4"], ["2", "-1"], ["3", "4"]]
-              }
-            },
-            {
-              id: "C",
-              text: "",
-              table: {
-                headers: ["x", "g(x)"],
-                rows: [["1", "-3"], ["2", "-1"], ["3", "1"]]
-              }
-            },
-            {
-              id: "D",
-              text: "",
-              table: {
-                headers: ["x", "g(x)"],
-                rows: [["1", "-4"], ["2", "-1"], ["3", "2"]]
-              }
-            }
-          ],
-          correctAnswer: "B",
-          explanation: "**Choice B is correct.** Calculate $g(x)$ for each $x$ value.\n\n• $g(1) = 1^2 - 5 = 1 - 5 = -4$\n• $g(2) = 2^2 - 5 = 4 - 5 = -1$\n• $g(3) = 3^2 - 5 = 9 - 5 = 4$\n\nThe values $-4$, $-1$, $4$ match Choice B.\n\n**Why other choices are incorrect:**\n• Choice A: Would need $x^2 - 5$ to equal $6$, $7$, $8$\n• Choice C: $g(3)$ should be $4$, not $1$\n• Choice D: $g(3)$ should be $4$, not $2$\n\n**Key concept:** Substitute each $x$-value into the function to find corresponding outputs.",
-          skills: ["Algebra", "Function evaluation"]
+          type: "fill-in",
+          difficulty: "hard",
+          question: "An equilateral triangle has a perimeter of $48$ centimeters. The height of this triangle can be written as $k\\sqrt{3}$ centimeters. What is the value of $k$?",
+          correctAnswer: 8,
+          explanation: "**The correct answer is $8$.** Use properties of equilateral triangles to find the height.\n\n**Step 1: Find the side length**\nPerimeter $= 48$, so each side $= \\frac{48}{3} = 16$ cm.\n\n**Step 2: Find the height**\nThe height of an equilateral triangle with side $s$ is $\\frac{s\\sqrt{3}}{2}$.\n$$h = \\frac{16\\sqrt{3}}{2} = 8\\sqrt{3}$$\n\n**Step 3: Identify $k$**\nSince $h = k\\sqrt{3} = 8\\sqrt{3}$, we have $k = 8$.\n\n**Verification:** Using the Pythagorean theorem on the half-triangle: base $= 8$, hypotenuse $= 16$.\n$$h = \\sqrt{16^2 - 8^2} = \\sqrt{256 - 64} = \\sqrt{192} = 8\\sqrt{3}$$ ✓\n\n**Key concept:** The height of an equilateral triangle bisects the base, forming two 30-60-90 right triangles. Height $= \\frac{s\\sqrt{3}}{2}$.",
+          skills: ["Geometry", "Special Triangles"]
         },
         {
           id: 12,
@@ -689,18 +649,12 @@ export const practiceTest6 = {
         },
         {
           id: 18,
-          type: 'multiple-choice',
-          difficulty: 'hard',
-          question: 'A circle in the $xy$-plane has its center at $(1, 2)$. Line $m$ is tangent to this circle at the point $(4, -1)$. Which of the following points also lies on line $m$?',
-          choices: [
-            { id: 'A', text: '$(0, -5)$' },
-            { id: 'B', text: '$(7, 2)$' },
-            { id: 'C', text: '$(10, 5)$' },
-            { id: 'D', text: '$(2, -1)$' }
-          ],
-          correctAnswer: 'C',
-          explanation: '**Choice C is correct.** Use the relationship between a radius and a tangent line to find the equation of line $m$.\n\n**Step 1: Find the slope of the radius**\nThe radius goes from center $(1, 2)$ to tangent point $(4, -1)$:\n$$\\text{slope of radius} = \\frac{-1 - 2}{4 - 1} = \\frac{-3}{3} = -1$$\n\n**Step 2: Find the slope of the tangent line**\nA tangent line is perpendicular to the radius at the point of tangency. Perpendicular slopes are negative reciprocals:\n$$\\text{slope of line } m = -\\frac{1}{-1} = 1$$\n\n**Step 3: Write the equation of line $m$**\nUsing point-slope form with point $(4, -1)$ and slope $1$:\n$$y - (-1) = 1(x - 4) \\implies y = x - 5$$\n\n**Step 4: Verify $(10, 5)$ lies on line $m$**\n$$y = 10 - 5 = 5 \\checkmark$$\nThe point $(10, 5)$ satisfies $y = x - 5$, so it lies on line $m$.\n\n**Why Choice D is incorrect:**\n• Choice D $(2, -1)$: $y = 2 - 5 = -3 \\neq -1$ ✗ — does not lie on line $m$\n\n**Key concept:** A tangent to a circle is perpendicular to the radius at the point of tangency. Use this to find the tangent line\'s slope, then write the equation using point-slope form.',
-          skills: ["circle-equation", "perpendicular-negative-reciprocal"]
+          type: "fill-in",
+          difficulty: "hard",
+          question: "A painting machine covers $2{,}700$ square feet per hour. How many square yards per minute does the machine cover?",
+          correctAnswer: 5,
+          explanation: "**The correct answer is $5$.** Convert both the area units and the time units.\n\n**Step 1: Convert hours to minutes**\n$$2{,}700 \\text{ sq ft/hr} = \\frac{2{,}700}{60} = 45 \\text{ sq ft/min}$$\n\n**Step 2: Convert square feet to square yards**\nSince $1$ yard $= 3$ feet, we have $1$ square yard $= 3^2 = 9$ square feet.\n$$45 \\text{ sq ft/min} \\div 9 = 5 \\text{ sq yd/min}$$\n\n**Verification:** $5 \\text{ sq yd/min} \\times 9 \\text{ sq ft/sq yd} \\times 60 \\text{ min/hr} = 2{,}700$ sq ft/hr ✓\n\n**Key concept:** When converting squared units, square the linear conversion factor. $1$ yd $= 3$ ft means $1$ sq yd $= 9$ sq ft, not $3$ sq ft.",
+          skills: ["Problem-Solving and Data Analysis", "Unit Conversion"]
         },
         {
           id: 19,
@@ -721,44 +675,37 @@ export const practiceTest6 = {
           id: 20,
           type: "multiple-choice",
           difficulty: "hard",
-          question: "For what value of $a$ does the system of equations have no solution?",
+          question: "For each real number $r$, which of the following points lies on the graph of each equation in the $xy$-plane?",
           questionFormula: {
-            lines: ["$3x + 6y = 12$", "$x + 2y = a$"]
+            lines: ["$8x + 12y = 20$", "$2x + 3y = 5$"]
           },
           choices: [
-            { id: "A", text: "$2$" },
-            { id: "B", text: "$4$" },
-            { id: "C", text: "$6$" },
-            { id: "D", text: "Any value except $4$" }
+            { id: "A", text: "$\\left(r, \\frac{5 - 2r}{3}\\right)$" },
+            { id: "B", text: "$\\left(r, \\frac{5 + 2r}{3}\\right)$" },
+            { id: "C", text: "$\\left(r, \\frac{20 - 8r}{3}\\right)$" },
+            { id: "D", text: "$\\left(r, \\frac{5 - 2r}{12}\\right)$" }
           ],
-          correctAnswer: "D",
-          explanation: "**Choice D is correct.** A system has no solution when the lines are parallel (same slope, different $y$-intercepts).\n\n**Analyze the equations:**\n• $3x + 6y = 12 \\to y = -\\frac{1}{2}x + 2$ (slope $= -\\frac{1}{2}$)\n• $x + 2y = a \\to y = -\\frac{1}{2}x + \\frac{a}{2}$ (slope $= -\\frac{1}{2}$)\n\nBoth lines have slope $-\\frac{1}{2}$, so they're parallel.\n\n**For no solution:** The $y$-intercepts must be different.\n• First line: $y$-intercept $= 2$\n• Second line: $y$-intercept $= \\frac{a}{2}$\n• For different intercepts: $\\frac{a}{2} \\neq 2$, so $a \\neq 4$\n\n**Note:** When $a = 4$, the lines are identical (infinitely many solutions).\n\n**Why other choices are incorrect:**\n• Choices A, B, C: Each specific value (except $4$) gives no solution, but the question asks for what value(s) produce no solution - that's any value except $4$.\n\n**Key concept:** Parallel lines (same slope, different intercept) have no intersection point.",
-          skills: ["systems-of-equations", "no-solution"]
+          correctAnswer: "A",
+          explanation: "**Choice A is correct.** First, show the system has infinitely many solutions, then find the general point.\n\n**Step 1: Show the equations are equivalent**\nDivide the first equation by $4$:\n$$\\frac{8x + 12y}{4} = \\frac{20}{4} \\implies 2x + 3y = 5$$\nThis is identical to the second equation, so the system has infinitely many solutions.\n\n**Step 2: Express $y$ in terms of $r$**\nLet $x = r$. Substitute into $2x + 3y = 5$:\n$$2r + 3y = 5$$\n$$3y = 5 - 2r$$\n$$y = \\frac{5 - 2r}{3}$$\n\nSo the point $\\left(r, \\frac{5 - 2r}{3}\\right)$ lies on both lines for every real number $r$.\n\n**Verification:** Substitute into the first equation:\n$$8r + 12 \\cdot \\frac{5 - 2r}{3} = 8r + 4(5 - 2r) = 8r + 20 - 8r = 20$$ ✓\n\n**Why other choices are incorrect:**\n• Choice B: $\\frac{5 + 2r}{3}$ — sign error; should be $5 - 2r$\n• Choice C: $\\frac{20 - 8r}{3}$ — uses first equation coefficients without dividing by $4$\n• Choice D: $\\frac{5 - 2r}{12}$ — divides by $12$ instead of $3$\n\n**Key concept:** When two equations are scalar multiples, the system has infinitely many solutions. Express $y$ in terms of $x = r$ to find the parametric point.",
+          skills: ["Algebra", "Systems of Equations"]
         },
         {
           id: 21,
           type: "fill-in",
           difficulty: "hard",
-          question: "For what value of $k$ does the equation $x^2 + kx + 9 = 0$ have exactly one real solution?",
-          correctAnswer: 6,
-          alternateAnswers: [-6],
-          explanation: "**The correct answer is $6$ (or $-6$).** For exactly one real solution, the discriminant must equal zero.\n\n• Discriminant: $b^2 - 4ac = 0$\n• For $x^2 + kx + 9 = 0$: $a = 1$, $b = k$, $c = 9$\n• $k^2 - 4(1)(9) = 0$\n• $k^2 - 36 = 0$\n• $k^2 = 36$\n• $k = \\pm 6$\n\n**Verification for $k = 6$:**\n• $x^2 + 6x + 9 = (x + 3)^2 = 0$\n• One solution: $x = -3$ ✓\n\n**Key concept:** A quadratic has exactly one real solution when its discriminant $b^2 - 4ac = 0$.",
-          skills: ["discriminant", "quadratic-equations"]
+          question: "$$\\frac{x + 2}{x - 3} + \\frac{1}{x + 1} = \\frac{7x - 1}{(x - 3)(x + 1)}$$\n\nWhat is the solution to the given equation?",
+          correctAnswer: 0,
+          explanation: "**The correct answer is $0$.** Multiply both sides by the common denominator and check for extraneous solutions.\n\n**Step 1: Multiply both sides by $(x - 3)(x + 1)$**\n$$(x + 2)(x + 1) + (x - 3) = 7x - 1$$\n\n**Step 2: Expand and simplify the left side**\n$$x^2 + 3x + 2 + x - 3 = 7x - 1$$\n$$x^2 + 4x - 1 = 7x - 1$$\n\n**Step 3: Solve**\n$$x^2 + 4x - 1 - 7x + 1 = 0$$\n$$x^2 - 3x = 0$$\n$$x(x - 3) = 0$$\n$$x = 0 \\text{ or } x = 3$$\n\n**Step 4: Check for extraneous solutions**\n• $x = 3$ makes the denominator $(x - 3)$ equal to zero, so $x = 3$ is **extraneous**.\n• $x = 0$: $\\frac{0 + 2}{0 - 3} + \\frac{1}{0 + 1} = -\\frac{2}{3} + 1 = \\frac{1}{3}$ and $\\frac{7(0) - 1}{(0 - 3)(0 + 1)} = \\frac{-1}{-3} = \\frac{1}{3}$ ✓\n\nThe only solution is $x = 0$.\n\n**Key concept:** When solving rational equations, always check solutions in the original equation. Values that make any denominator zero are extraneous and must be rejected.",
+          skills: ["Advanced Math", "Rational Equations"]
         },
         {
           id: 22,
-          type: "multiple-choice",
+          type: "fill-in",
           difficulty: "hard",
-          question: "The solutions to $2x^2 + 6x - 5 = 0$ can be written as $x = \\frac{-6 \\pm \\sqrt{k}}{4}$. What is the value of $k$?",
-          choices: [
-            { id: "A", text: "$36$" },
-            { id: "B", text: "$56$" },
-            { id: "C", text: "$76$" },
-            { id: "D", text: "$96$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**Choice C is correct.** Use the quadratic formula.\n\nFor $2x^2 + 6x - 5 = 0$, where $a = 2$, $b = 6$, $c = -5$:\n\n• $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$\n• $x = \\frac{-6 \\pm \\sqrt{36 - 4(2)(-5)}}{2(2)}$\n• $x = \\frac{-6 \\pm \\sqrt{36 + 40}}{4}$\n• $x = \\frac{-6 \\pm \\sqrt{76}}{4}$\n\nTherefore, $k = 76$.\n\n**Why other choices are incorrect:**\n• Choice A ($36$): This is just $b^2$, missing the $-4ac$ part\n• Choice B ($56$): Calculation error\n• Choice D ($96$): Would need different coefficients\n\n**Key concept:** The discriminant is $b^2 - 4ac$, which appears under the square root in the quadratic formula.",
-          skills: ["quadratic-formula", "discriminant"]
+          question: "$$3^{x+1} + 3^x = 108$$\n\nWhat is the value of $x$ in the given equation?",
+          correctAnswer: 3,
+          explanation: "**The correct answer is $3$.** Factor out $3^x$ from the left side.\n\n**Step 1: Rewrite $3^{x+1}$**\n$$3^{x+1} = 3 \\cdot 3^x$$\n\n**Step 2: Substitute and factor**\n$$3 \\cdot 3^x + 3^x = 108$$\n$$(3 + 1) \\cdot 3^x = 108$$\n$$4 \\cdot 3^x = 108$$\n\n**Step 3: Solve for $3^x$**\n$$3^x = 27$$\n$$3^x = 3^3$$\n$$x = 3$$\n\n**Verification:** $3^{3+1} + 3^3 = 3^4 + 3^3 = 81 + 27 = 108$ ✓\n\n**Key concept:** Use the exponent rule $a^{m+n} = a^m \\cdot a^n$ to factor expressions with the same base. Then solve the resulting exponential equation.",
+          skills: ["Advanced Math", "Exponential Equations"]
         }
       ]
     }

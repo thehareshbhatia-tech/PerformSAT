@@ -307,12 +307,18 @@ export const practiceTest8 = {
         },
         {
           id: 'pt8-m1-q20',
-          type: 'fill-in',
+          type: 'multiple-choice',
           difficulty: 'hard',
-          question: '$y = 2x + 1$\n$2y = 6x - 2$\n\nThe solution to the given system of equations is $(x, y)$. What is the value of $x - y$?',
-          correctAnswer: '-3',
-          explanation: '**The correct answer is $-3$.** Solve the system by substitution.\n\n**Step 1: Substitute the first equation into the second**\nSince $y = 2x + 1$, substitute into $2y = 6x - 2$:\n$2(2x + 1) = 6x - 2$\n$4x + 2 = 6x - 2$\n\n**Step 2: Solve for $x$**\n$4x - 6x = -2 - 2$\n$-2x = -4$\n$x = 2$\n\n**Step 3: Find $y$**\n$y = 2(2) + 1 = 5$\n\n**Step 4: Calculate $x - y$**\n$x - y = 2 - 5 = -3$\n\n**Verification:** Check in second equation: $2(5) = 10$ and $6(2) - 2 = 10$ ✓\n\n**Key concept:** When one equation is already solved for a variable (like $y = ...$), substitute it directly into the other equation.',
-          skills: ["substitution-method"]
+          question: 'The system of equations $\\frac{7}{8}y = \\frac{5}{8}x + 3$ and $py = 5x + 15$ has no solution. What is the value of $p$?',
+          choices: [
+            { id: 'A', text: '$5$' },
+            { id: 'B', text: '$7$' },
+            { id: 'C', text: '$8$' },
+            { id: 'D', text: '$15$' }
+          ],
+          correctAnswer: 'B',
+          explanation: '**Choice B is correct.** For a system with no solution, the lines must be parallel (same slope, different $y$-intercepts).\n\n**Step 1: Rewrite the first equation**\nMultiply both sides by $8$: $7y = 5x + 24$\nSolve for $y$: $y = \\frac{5}{7}x + \\frac{24}{7}$\n\n**Step 2: Rewrite the second equation**\n$py = 5x + 15$\n$y = \\frac{5}{p}x + \\frac{15}{p}$\n\n**Step 3: Set slopes equal (parallel condition)**\n$$\\frac{5}{p} = \\frac{5}{7} \\implies p = 7$$\n\n**Step 4: Verify different $y$-intercepts**\n$\\frac{24}{7} \\neq \\frac{15}{7}$ ✓ (different intercepts, so no solution)\n\n**Why other choices are incorrect:**\n• Choice A ($p = 5$): Slope would be $1$, not $\\frac{5}{7}$\n• Choice C ($p = 8$): Slope would be $\\frac{5}{8}$, not $\\frac{5}{7}$\n• Choice D ($p = 15$): Slope would be $\\frac{1}{3}$, not $\\frac{5}{7}$\n\n**Key concept:** A system has no solution when lines are parallel: same slope but different $y$-intercepts. Clear fractions first to compare more easily.',
+          skills: ['Algebra', 'Systems of Equations']
         },
         {
           id: 'pt8-m1-q21',
@@ -422,95 +428,89 @@ export const practiceTest8 = {
         {
           id: 'pt8-m2-q5',
           type: 'fill-in',
-          difficulty: 'easy',
-          question: 'The function $f$ is defined by $f(x) = 5x$. For what value of $x$ does $f(x) = 35$?',
+          difficulty: 'medium',
+          question: '$2x + 3y = 17$\n$x - y = 1$\n\nThe solution to the given system of equations is $(x, y)$. What is the value of $x + y$?',
           correctAnswer: '7',
-          explanation: '**The correct answer is $7$.** Set the function equal to $35$ and solve.\n\n**Step 1: Set up the equation**\n$f(x) = 35$\n$5x = 35$\n\n**Step 2: Solve for $x$**\n$x = \\frac{35}{5} = 7$\n\n**Verification:** $f(7) = 5(7) = 35$ ✓\n\n**Key concept:** To find $x$ when $f(x) = k$, set the function rule equal to $k$ and solve for $x$.',
+          explanation: '**The correct answer is $7$.** Solve the system by substitution.\n\n**Step 1: Solve the second equation for $x$**\n$x = y + 1$\n\n**Step 2: Substitute into the first equation**\n$2(y + 1) + 3y = 17$\n$2y + 2 + 3y = 17$\n$5y = 15$\n$y = 3$\n\n**Step 3: Find $x$**\n$x = 3 + 1 = 4$\n\n**Step 4: Calculate $x + y$**\n$x + y = 4 + 3 = 7$\n\n**Verification:** $2(4) + 3(3) = 8 + 9 = 17$ ✓ and $4 - 3 = 1$ ✓\n\n**Key concept:** When one equation is easily solved for a variable, use substitution. Then compute the requested expression — don\'t assume they\'re asking for $x$ or $y$ alone.',
           skills: ["function-evaluation", "linear-equations"]
         },
         {
           id: 'pt8-m2-q6',
-          type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'Of $250$ marbles, $175$ are blue. What percentage of the marbles are blue?',
-          choices: [
-            { id: 'A', text: '$30\\%$' },
-            { id: 'B', text: '$43\\%$' },
-            { id: 'C', text: '$70\\%$' },
-            { id: 'D', text: '$75\\%$' }
-          ],
-          correctAnswer: 'C',
-          explanation: '**Choice C is correct.** Convert the fraction to a percentage.\n\n**Step 1: Write the fraction**\n$\\frac{175}{250}$\n\n**Step 2: Convert to percentage**\n$\\frac{175}{250} = 0.70 = 70\\%$\n\n**Alternative method:** Simplify first: $\\frac{175}{250} = \\frac{7}{10} = 70\\%$\n\n**Why other choices are incorrect:**\n• Choice A ($30\\%$): This is the percentage that are NOT blue ($\\frac{75}{250}$)\n• Choice B ($43\\%$): Incorrect calculation\n• Choice D ($75\\%$): $75\\%$ of $250 = 187.5$, not $175$\n\n**Key concept:** Percentage $= \\frac{\\text{part}}{\\text{whole}} \\times 100$.',
-          skills: ["percent-of-value"]
+          type: 'fill-in',
+          difficulty: 'medium',
+          question: 'If $\\frac{4x - 3}{5} = 9$, what is the value of $8x - 6$?',
+          correctAnswer: '90',
+          explanation: '**The correct answer is $90$.** Recognize the relationship between $4x - 3$ and $8x - 6$.\n\n**Step 1: Solve for $4x - 3$**\n$\\frac{4x - 3}{5} = 9$\n$4x - 3 = 45$\n\n**Step 2: Find $8x - 6$**\nNotice that $8x - 6 = 2(4x - 3)$.\n$8x - 6 = 2(45) = 90$\n\n**Verification:** From $4x - 3 = 45$: $4x = 48$, so $x = 12$. Then $8(12) - 6 = 96 - 6 = 90$ ✓\n\n**Key concept:** Before solving for $x$ individually, check whether the target expression is a multiple of an expression you already know. This saves time: $8x - 6 = 2(4x - 3)$.',
+          skills: ['Algebra', 'Expressions']
         },
         {
           id: 'pt8-m2-q7',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: '$f(x) = 6x + 10$\n\nThe function $f$ gives the estimated distance, in miles, a hiker travels $x$ hours after starting a trail. Which statement is the best interpretation of $10$ in this context?',
+          difficulty: 'medium',
+          question: 'A survey of $200$ students asked about their preferred subject. The results are shown in the table. What fraction of the sophomores preferred science?',
+          diagram: {
+            type: 'table',
+            params: {
+              title: 'Student Subject Preference',
+              headers: ['', 'Science', 'Math', 'Total'],
+              rows: [
+                ['Freshmen', '35', '45', '80'],
+                ['Sophomores', '50', '70', '120'],
+                ['Total', '85', '115', '200']
+              ]
+            }
+          },
           choices: [
-            { id: 'A', text: 'The hiker will walk for $10$ hours.' },
-            { id: 'B', text: 'The hiker is estimated to travel a maximum of $10$ miles.' },
-            { id: 'C', text: 'The estimated distance increases by $10$ miles each hour.' },
-            { id: 'D', text: 'The hiker had already traveled $10$ miles when timing started.' }
+            { id: 'A', text: '$\\frac{5}{12}$' },
+            { id: 'B', text: '$\\frac{1}{4}$' },
+            { id: 'C', text: '$\\frac{10}{17}$' },
+            { id: 'D', text: '$\\frac{17}{40}$' }
           ],
-          correctAnswer: 'D',
-          explanation: '**Choice D is correct.** Interpret the constant term in context.\n\n**Step 1: Identify the equation form**\n$f(x) = 6x + 10$ is in slope-intercept form $y = mx + b$.\n• Slope ($6$): rate of change — $6$ miles per hour\n• $y$-intercept ($10$): value when $x = 0$\n\n**Step 2: Interpret in context**\nWhen $x = 0$ (timing starts), the hiker has already traveled $f(0) = 10$ miles.\n\n**Why other choices are incorrect:**\n• Choice A: The equation does not limit hours; $x$ can be any non-negative value\n• Choice B: There is no maximum — distance increases without bound\n• Choice C: $6$ is the rate (miles per hour), not $10$\n\n**Key concept:** In $f(x) = mx + b$, the constant $b$ represents the initial value (when $x = 0$), and $m$ represents the rate of change per unit.',
-          skills: ["slope-intercept-form", "word-problem-to-equation"]
+          correctAnswer: 'A',
+          explanation: '**Choice A is correct.** Find the conditional fraction using the correct row total.\n\n**Step 1: Identify the relevant data**\nSophomores who preferred science: $50$\nTotal sophomores: $120$\n\n**Step 2: Write the fraction**\n$$\\frac{50}{120} = \\frac{5}{12}$$\n\n**Why other choices are incorrect:**\n• Choice B ($\\frac{1}{4}$): Used total students: $\\frac{50}{200} = \\frac{1}{4}$ — this is the fraction of all students, not just sophomores\n• Choice C ($\\frac{10}{17}$): Used science total: $\\frac{50}{85}$ — wrong denominator (all science students, not all sophomores)\n• Choice D ($\\frac{17}{40}$): Used $\\frac{85}{200}$ — this is the fraction of all students who prefer science\n\n**Key concept:** For conditional fractions from two-way tables, use the row or column total that matches the given condition, not the grand total.',
+          skills: ['Data Analysis', 'Two-Way Tables']
         },
         {
           id: 'pt8-m2-q8',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'Each side of equilateral triangle $A$ is multiplied by a scale factor of $k$ to create equilateral triangle $B$. The length of each side of triangle $B$ is greater than the length of each side of triangle $A$. Which could be the value of $k$?',
+          difficulty: 'medium',
+          question: 'A car purchased for $\\$24{,}000$ decreases in value by $15\\%$ each year. Which function $v$ gives the value of the car, in dollars, $t$ years after purchase?',
           choices: [
-            { id: 'A', text: '$\\frac{5}{4}$' },
-            { id: 'B', text: '$1$' },
-            { id: 'C', text: '$\\frac{4}{5}$' },
-            { id: 'D', text: '$0$' }
+            { id: 'A', text: '$v(t) = 24{,}000(0.15)^t$' },
+            { id: 'B', text: '$v(t) = 24{,}000(0.85)^t$' },
+            { id: 'C', text: '$v(t) = 24{,}000(1.15)^t$' },
+            { id: 'D', text: '$v(t) = 24{,}000 - 0.15t$' }
           ],
-          correctAnswer: 'A',
-          explanation: '**Choice A is correct.** Determine which scale factor makes the triangle larger.\n\n**Step 1: Understand the condition**\nTriangle $B$ has sides greater than triangle $A$, so the scale factor must be $k > 1$.\n\n**Step 2: Check each choice**\n• $\\frac{5}{4} = 1.25 > 1$ ✓ (enlargement)\n• $1$: Same size, not greater\n• $\\frac{4}{5} = 0.80 < 1$ (reduction)\n• $0$: Triangle collapses to a point\n\n**Why other choices are incorrect:**\n• Choice B ($k = 1$): Equal sides, not greater\n• Choice C ($k = \\frac{4}{5}$): Makes sides smaller, not larger\n• Choice D ($k = 0$): All sides become $0$\n\n**Key concept:** Scale factor $k > 1$ creates an enlargement; $0 < k < 1$ creates a reduction; $k = 1$ preserves the original size.',
-          skills: ["similar-triangles", "volume-scaling"]
+          correctAnswer: 'B',
+          explanation: '**Choice B is correct.** Model the exponential decay.\n\n**Step 1: Identify the components**\n• Initial value: $\\$24{,}000$\n• Decay rate: $15\\%$ per year, so $85\\%$ is retained each year\n• Decay factor: $1 - 0.15 = 0.85$\n\n**Step 2: Write the exponential model**\n$v(t) = 24{,}000(0.85)^t$\n\n**Verification:** After $1$ year: $v(1) = 24{,}000(0.85) = 20{,}400$ (a $15\\%$ decrease) ✓\n\n**Why other choices are incorrect:**\n• Choice A ($0.15^t$): Uses the decay rate as the base — this would give $24{,}000(0.15) = 3{,}600$ after $1$ year (an $85\\%$ decrease)\n• Choice C ($1.15^t$): This models $15\\%$ growth, not decay\n• Choice D: This is a linear model, not exponential — value decreases by a fixed amount, not a percentage\n\n**Key concept:** For percent decrease: multiply by $(1 - r)$ each period, giving $A(1 - r)^t$. For $15\\%$ decrease, the factor is $0.85$.',
+          skills: ['Advanced Math', 'Exponential Decay']
         },
         {
           id: 'pt8-m2-q9',
-          type: 'multiple-choice',
-          difficulty: 'easy',
-          question: '$42x = 42x$\n\nHow many solutions does the given equation have?',
-          choices: [
-            { id: 'A', text: 'Exactly one' },
-            { id: 'B', text: 'Exactly two' },
-            { id: 'C', text: 'Infinitely many' },
-            { id: 'D', text: 'Zero' }
-          ],
-          correctAnswer: 'C',
-          explanation: '**Choice C is correct.** Analyze the structure of the equation.\n\n**Step 1: Simplify the equation**\n$42x = 42x$\nSubtract $42x$ from both sides: $0 = 0$\n\n**Step 2: Interpret the result**\n$0 = 0$ is always true, regardless of the value of $x$. Therefore, every real number is a solution.\n\n**Why other choices are incorrect:**\n• Choice A (Exactly one): This would require a single value, like $x = 5$\n• Choice B (Exactly two): This would require two specific values\n• Choice D (Zero): This would require a contradiction like $0 = 1$\n\n**Key concept:** When simplifying an equation leads to a true statement (like $0 = 0$), there are infinitely many solutions. A false statement (like $0 = 5$) means no solutions.',
-          skills: ["system-solution-types"]
+          type: 'fill-in',
+          difficulty: 'medium',
+          question: 'The function $f$ is defined by $f(x) = 2(x - 5)^2 + 3$. What is the minimum value of $f(x)$?',
+          correctAnswer: '3',
+          explanation: '**The correct answer is $3$.** Identify the minimum from the vertex form.\n\n**Step 1: Recognize the vertex form**\n$f(x) = 2(x - 5)^2 + 3$ is in the form $a(x - h)^2 + k$ with $a = 2$, $h = 5$, $k = 3$.\n\n**Step 2: Identify the vertex**\nThe vertex is at $(5, 3)$.\n\n**Step 3: Determine min or max**\nSince $a = 2 > 0$, the parabola opens upward, so the vertex gives the minimum value.\n\nThe minimum value of $f(x)$ is $3$, occurring at $x = 5$.\n\n**Verification:** $f(5) = 2(0)^2 + 3 = 3$. For any other $x$: $2(x - 5)^2 \\geq 0$, so $f(x) \\geq 3$ ✓\n\n**Key concept:** In vertex form $a(x - h)^2 + k$: if $a > 0$, the minimum value is $k$; if $a < 0$, the maximum value is $k$.',
+          skills: ['Advanced Math', 'Vertex Form']
         },
         {
           id: 'pt8-m2-q10',
           type: 'fill-in',
-          difficulty: 'easy',
-          question: 'Marcus bought notebooks and pens for \\$54. Each notebook cost \\$4, and each pen cost \\$2. If Marcus bought $8$ notebooks, how many pens did he buy?',
-          correctAnswer: '11',
-          explanation: '**The correct answer is $11$.** Calculate step by step.\n\n**Step 1: Find the cost of notebooks**\n$8$ notebooks $\\times$ \\$4 per notebook $= \\$32$\n\n**Step 2: Find the remaining amount for pens**\n\\$54 total $-$ \\$32 notebooks $= \\$22$\n\n**Step 3: Find the number of pens**\n$\\$22 \\div \\$2$ per pen $= 11$ pens\n\n**Verification:** $8(\\$4) + 11(\\$2) = \\$32 + \\$22 = \\$54$ ✓\n\n**Key concept:** In multi-item purchase problems, calculate the known costs first, find the remainder, then divide by the per-unit cost of the unknown item.',
-          skills: ["word-problem-to-equation", "linear-equations"]
+          difficulty: 'hard',
+          question: '$48x - 54y = 30$\n$16x - ry = 12$\n\nIn the given system of equations, $r$ is a constant. If the system has no solution, what is the value of $r$?',
+          correctAnswer: '18',
+          explanation: '**The correct answer is $18$.** For no solution, the lines must be parallel with different $y$-intercepts.\n\n**Step 1: Simplify the first equation**\nDivide by $6$: $8x - 9y = 5$\n\n**Step 2: Set up the parallel condition**\nFor no solution, the ratio of coefficients of $x$ and $y$ must be equal, but the constant ratio must differ.\n$$\\frac{16}{8} = \\frac{r}{9}$$\n$$2 = \\frac{r}{9}$$\n$$r = 18$$\n\n**Step 3: Verify no solution**\nWith $r = 18$: $16x - 18y = 12$. Divide by $2$: $8x - 9y = 6$.\nCompare with $8x - 9y = 5$. Same left side, different constants ($6 \\neq 5$), so no solution. ✓\n\n**Key concept:** A system $a_1x + b_1y = c_1$ and $a_2x + b_2y = c_2$ has no solution when $\\frac{a_1}{a_2} = \\frac{b_1}{b_2} \\neq \\frac{c_1}{c_2}$.',
+          skills: ['Algebra', 'Systems of Equations']
         },
         {
           id: 'pt8-m2-q11',
-          type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'The function $f$ is defined by $f(x) = (-5)(3)^x + 18$. What is the $y$-intercept of the graph of $y = f(x)$ in the $xy$-plane?',
-          choices: [
-            { id: 'A', text: '$(0, 13)$' },
-            { id: 'B', text: '$(0, 18)$' },
-            { id: 'C', text: '$(0, 23)$' },
-            { id: 'D', text: '$(0, -5)$' }
-          ],
-          correctAnswer: 'A',
-          explanation: '**Choice A is correct.** Find the $y$-intercept by evaluating $f(0)$.\n\n**Step 1: Substitute $x = 0$**\n$f(0) = (-5)(3)^0 + 18$\n\n**Step 2: Simplify using $3^0 = 1$**\n$f(0) = (-5)(1) + 18 = -5 + 18 = 13$\n\nThe $y$-intercept is $(0, 13)$.\n\n**Why other choices are incorrect:**\n• Choice B ($(0, 18)$): Ignored the $(-5)(3)^0$ term, keeping only the constant $18$\n• Choice C ($(0, 23)$): Computed $5 + 18$ instead of $-5 + 18$\n• Choice D ($(0, -5)$): Used only the coefficient $-5$, ignoring the constant $18$\n\n**Key concept:** The $y$-intercept of any function is $f(0)$. For exponential functions, remember that $b^0 = 1$ for any base $b$.',
-          skills: ["exponential-y-intercept"]
+          type: 'fill-in',
+          difficulty: 'hard',
+          question: 'The function $f$ is defined by $f(x) = 2x^2 + bx + c$, where $b$ and $c$ are constants. In the $xy$-plane, the graph of $y = f(x)$ passes through the points $(7, 0)$ and $(-3, 0)$. What is the value of $b + c$?',
+          correctAnswer: '-50',
+          explanation: '**The correct answer is $-50$.** Use the roots to find $b$ and $c$.\n\n**Step 1: Write $f(x)$ using the roots**\nSince $f(7) = 0$ and $f(-3) = 0$, the roots are $7$ and $-3$:\n$f(x) = 2(x - 7)(x + 3)$\n\n**Step 2: Expand**\n$f(x) = 2(x^2 + 3x - 7x - 21) = 2(x^2 - 4x - 21)$\n$f(x) = 2x^2 - 8x - 42$\n\n**Step 3: Identify $b$ and $c$**\n$b = -8$ and $c = -42$\n\n**Step 4: Calculate $b + c$**\n$b + c = -8 + (-42) = -50$\n\n**Verification:** $f(7) = 2(49) - 8(7) - 42 = 98 - 56 - 42 = 0$ ✓\n$f(-3) = 2(9) - 8(-3) - 42 = 18 + 24 - 42 = 0$ ✓\n\n**Key concept:** If a quadratic $ax^2 + bx + c$ has roots $r$ and $s$, it can be written as $a(x - r)(x - s)$. Expand to find $b$ and $c$.',
+          skills: ['Advanced Math', 'Quadratic Equations']
         },
         {
           id: 'pt8-m2-q12',
@@ -538,60 +538,36 @@ export const practiceTest8 = {
         },
         {
           id: 'pt8-m2-q14',
-          type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'In right triangle $ABC$, the sum of the measures of angle $A$ and angle $B$ is $90$ degrees. The value of $\\sin(A)$ is $\\frac{3}{5}$. What is the value of $\\cos(B)$?',
-          choices: [
-            { id: 'A', text: '$\\frac{3}{5}$' },
-            { id: 'B', text: '$\\frac{4}{5}$' },
-            { id: 'C', text: '$\\frac{5}{4}$' },
-            { id: 'D', text: '$\\frac{5}{3}$' }
-          ],
-          correctAnswer: 'A',
-          explanation: '**Choice A is correct.** Use the complementary angle relationship.\n\n**Step 1: Identify the relationship**\nSince $A + B = 90°$, angles $A$ and $B$ are complementary.\n\n**Step 2: Apply the cofunction identity**\n$\\cos(B) = \\cos(90° - A) = \\sin(A)$\n\n**Step 3: Substitute the known value**\n$\\cos(B) = \\sin(A) = \\frac{3}{5}$\n\n**Why other choices are incorrect:**\n• Choice B ($\\frac{4}{5}$): This is $\\cos(A)$, not $\\cos(B)$\n• Choice C ($\\frac{5}{4}$): This is $\\sec(A) = \\frac{1}{\\cos(A)}$, which is greater than $1$ and cannot be a cosine value\n• Choice D ($\\frac{5}{3}$): This is $\\csc(A) = \\frac{1}{\\sin(A)}$, also greater than $1$\n\n**Key concept:** In a right triangle, $\\sin(A) = \\cos(90° - A)$ and $\\cos(A) = \\sin(90° - A)$. Complementary angles have the "co" relationship.',
-          skills: ["soh-cah-toa"]
+          type: 'fill-in',
+          difficulty: 'hard',
+          question: 'In right triangle $PQR$, angle $R$ is $90$ degrees and angle $P$ is $33$ degrees. If $PR = 20$, the area of triangle $PQR$ can be written as $k \\cdot \\tan(33°)$, where $k$ is a constant. What is the value of $k$?',
+          correctAnswer: '200',
+          explanation: '**The correct answer is $200$.** Use trigonometry to express the area in terms of $\\tan(33°)$.\n\n**Step 1: Identify the sides**\nIn right triangle $PQR$ with right angle at $R$:\n• $PR = 20$ (side adjacent to angle $P$)\n• $QR$ = unknown (side opposite to angle $P$)\n\n**Step 2: Find $QR$ using tangent**\n$$\\tan(P) = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{QR}{PR}$$\n$$QR = PR \\cdot \\tan(33°) = 20 \\cdot \\tan(33°)$$\n\n**Step 3: Calculate the area**\n$$\\text{Area} = \\frac{1}{2} \\cdot PR \\cdot QR = \\frac{1}{2} \\cdot 20 \\cdot 20\\tan(33°) = 200\\tan(33°)$$\n\nSo $k = 200$.\n\n**Key concept:** In right triangle problems where the answer involves a trig function, express the unknown side using the given angle and known side, then substitute into the area formula.',
+          skills: ['Geometry', 'Trigonometry']
         },
         {
           id: 'pt8-m2-q15',
-          type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'The graph shows the relationship between shares of stock from Company $X$ and Company $Y$. Which equation represents this relationship?',
-          diagram: {
-            type: 'linearGraph',
-            params: {
-              slope: -1.5,
-              yIntercept: 60,
-              xRange: [-5, 50],
-              yRange: [-5, 70],
-              xTickInterval: 10,
-              yTickInterval: 10,
-              highlightPoints: [[0, 60], [40, 0]]
-            }
-          },
-          choices: [
-            { id: 'A', text: '$y = 60x + 40$' },
-            { id: 'B', text: '$3x + 2y = 120$' },
-            { id: 'C', text: '$y = 40x + 60$' },
-            { id: 'D', text: '$2x + 3y = 120$' }
-          ],
-          correctAnswer: 'B',
-          explanation: '**Choice B is correct.** Use the intercept points to verify the equation.\n\n**Step 1: Identify key points from the graph**\nThe line passes through $(0, 60)$ and $(40, 0)$.\n\n**Step 2: Verify Choice B: $3x + 2y = 120$**\n• At $(0, 60)$: $3(0) + 2(60) = 0 + 120 = 120$ ✓\n• At $(40, 0)$: $3(40) + 2(0) = 120 + 0 = 120$ ✓\n\n**Why other choices are incorrect:**\n• Choice A ($y = 60x + 40$): At $(0, 60)$: $y = 60(0) + 40 = 40 \\neq 60$\n• Choice C ($y = 40x + 60$): At $(40, 0)$: $y = 40(40) + 60 = 1{,}660 \\neq 0$\n• Choice D ($2x + 3y = 120$): At $(0, 60)$: $2(0) + 3(60) = 180 \\neq 120$\n\n**Key concept:** To identify an equation from a graph, test known points (especially intercepts) in each answer choice. Both points must satisfy the equation.',
-          skills: ["slope-intercept-form", "linear-equations"]
+          type: 'fill-in',
+          difficulty: 'hard',
+          question: 'From a point $H$ outside a circle with center $O$ and radius $8$, two tangent lines are drawn to the circle, touching it at points $A$ and $B$. If $OH = 17$, what is the length of $HA$?',
+          correctAnswer: '15',
+          explanation: '**The correct answer is $15$.** Use the property that a tangent is perpendicular to the radius at the point of tangency.\n\n**Step 1: Identify the right angle**\nSince $HA$ is tangent to the circle at $A$, we have $OA \\perp HA$, forming a right angle at $A$.\n\n**Step 2: Apply the Pythagorean theorem to triangle $OAH$**\n$$HA^2 + OA^2 = OH^2$$\n$$HA^2 + 8^2 = 17^2$$\n$$HA^2 + 64 = 289$$\n$$HA^2 = 225$$\n$$HA = 15$$\n\n**Verification:** This is an $8$-$15$-$17$ Pythagorean triple. Also, by symmetry, $HB = HA = 15$.\n\n**Key concept:** A tangent line to a circle is perpendicular to the radius drawn to the point of tangency. This creates a right triangle with the external point, the center, and the tangent point.',
+          skills: ['Geometry', 'Circles']
         },
         {
           id: 'pt8-m2-q16',
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'Which expression is equivalent to $\\frac{6x(x - 5) - 2(x - 5)}{3x - 15}$, where $x > 5$?',
+          difficulty: 'hard',
+          question: 'A rectangle has a length that is $24$ more than its width. The area of the rectangle is $180$ square units. Which equation could be used to find the width $w$ of the rectangle?',
           choices: [
-            { id: 'A', text: '$\\frac{x - 5}{2}$' },
-            { id: 'B', text: '$\\frac{6x - 2}{3}$' },
-            { id: 'C', text: '$\\frac{6x^2 - 2x - 30}{3x - 15}$' },
-            { id: 'D', text: '$\\frac{2(x - 5)}{3}$' }
+            { id: 'A', text: '$w^2 + 24w - 180 = 0$' },
+            { id: 'B', text: '$w^2 - 24w - 180 = 0$' },
+            { id: 'C', text: '$w^2 + 24w + 180 = 0$' },
+            { id: 'D', text: '$24w^2 - 180 = 0$' }
           ],
-          correctAnswer: 'B',
-          explanation: '**Choice B is correct.** Factor and simplify the rational expression.\n\n**Step 1: Factor the numerator**\n$6x(x - 5) - 2(x - 5)$\nFactor out $(x - 5)$: $(x - 5)(6x - 2)$\n\n**Step 2: Factor the denominator**\n$3x - 15 = 3(x - 5)$\n\n**Step 3: Cancel common factors**\n$\\frac{(x - 5)(6x - 2)}{3(x - 5)} = \\frac{6x - 2}{3}$ (where $x \\neq 5$)\n\n**Why other choices are incorrect:**\n• Choice A ($\\frac{x-5}{2}$): Incorrect cancellation — does not match the factored form\n• Choice C: This is just the expanded form, not simplified\n• Choice D ($\\frac{2(x-5)}{3}$): Incorrectly factored the numerator\n\n**Key concept:** To simplify rational expressions: (1) factor the numerator and denominator completely, (2) cancel common factors. Always factor out the GCF first.',
-          skills: ["simplifying-rational-expressions"]
+          correctAnswer: 'A',
+          explanation: '**Choice A is correct.** Translate the word problem into an equation.\n\n**Step 1: Define variables**\nWidth $= w$\nLength $= w + 24$\n\n**Step 2: Write the area equation**\n$$\\text{Area} = w(w + 24) = 180$$\n\n**Step 3: Rearrange to standard form**\n$$w^2 + 24w = 180$$\n$$w^2 + 24w - 180 = 0$$\n\n**Verification:** Solving: $w = \\frac{-24 \\pm \\sqrt{576 + 720}}{2} = \\frac{-24 \\pm \\sqrt{1296}}{2} = \\frac{-24 \\pm 36}{2}$.\nPositive solution: $w = \\frac{12}{2} = 6$. Length $= 30$. Area $= 6 \\times 30 = 180$ ✓\n\n**Why other choices are incorrect:**\n• Choice B: Uses $-24w$ instead of $+24w$ — would mean length is $24$ less, not more\n• Choice C: Uses $+180$ instead of $-180$ — did not move $180$ to the other side\n• Choice D: Incorrectly multiplied $24 \\times w^2$ instead of $w \\times (w + 24)$\n\n**Key concept:** For "length is $d$ more than width" problems: length $= w + d$, area $= w(w + d)$, leading to $w^2 + dw - A = 0$.',
+          skills: ['Advanced Math', 'Quadratic Equations']
         },
         {
           id: 'pt8-m2-q17',
@@ -626,11 +602,11 @@ export const practiceTest8 = {
         {
           id: 'pt8-m2-q19',
           type: 'fill-in',
-          difficulty: 'medium',
-          question: 'The perimeter of an equilateral triangle is $432$ centimeters. The height of this triangle is $k\\sqrt{3}$ centimeters, where $k$ is a constant. What is the value of $k$?',
-          correctAnswer: '72',
-          explanation: '**The correct answer is $72$.** Find the side length from the perimeter, then apply the equilateral triangle height formula.\n\n**Step 1: Find the side length**\nAn equilateral triangle has three equal sides, so each side $= \\frac{432}{3} = 144$ cm.\n\n**Step 2: Apply the height formula**\nFor an equilateral triangle with side $s$, the height is $h = \\frac{s\\sqrt{3}}{2}$.\n\n$$h = \\frac{144\\sqrt{3}}{2} = 72\\sqrt{3}$$\n\n**Step 3: Identify $k$**\nSince $h = k\\sqrt{3}$ and $h = 72\\sqrt{3}$, we get $k = 72$.\n\n**Verification:** The height formula comes from splitting the equilateral triangle into two 30-60-90 right triangles. The base of each is $72$, the hypotenuse is $144$, and the height (opposite the 60-degree angle) is $72\\sqrt{3}$. By the Pythagorean theorem: $72^2 + (72\\sqrt{3})^2 = 5184 + 15552 = 20736 = 144^2$ ✓.\n\n**Key concept:** In an equilateral triangle with side $s$, the height is $\\frac{s\\sqrt{3}}{2}$, derived from the 30-60-90 special right triangle ratio $1 : \\sqrt{3} : 2$.',
-          skills: ["special-right-triangles", "pythagorean-theorem"]
+          difficulty: 'hard',
+          question: 'The points $(k, 13)$ and $(k + 7, -15)$ lie on a line in the $xy$-plane. The $y$-intercept of the line is at the point $(k - 5, b)$. What is the value of $b$?',
+          correctAnswer: '33',
+          explanation: '**The correct answer is $33$.** Find the slope, determine $k$, then find $b$.\n\n**Step 1: Find the slope**\n$$m = \\frac{-15 - 13}{(k + 7) - k} = \\frac{-28}{7} = -4$$\n\n**Step 2: Determine $k$**\nThe $y$-intercept occurs where $x = 0$. Since the $y$-intercept is at $(k - 5, b)$:\n$$k - 5 = 0 \\implies k = 5$$\n\n**Step 3: Find $b$ using the slope and a known point**\nUsing point $(5, 13)$ and slope $-4$:\n$$y - 13 = -4(x - 5)$$\nAt $x = 0$: $b - 13 = -4(0 - 5) = 20$\n$$b = 33$$\n\n**Verification:** Line equation: $y = -4x + 33$.\n• At $(5, 13)$: $-4(5) + 33 = -20 + 33 = 13$ ✓\n• At $(12, -15)$: $-4(12) + 33 = -48 + 33 = -15$ ✓\n• $y$-intercept at $(0, 33)$ ✓\n\n**Key concept:** The $y$-intercept is where $x = 0$. When coordinates are given in terms of a parameter, use the condition $x = 0$ to find the parameter\'s value first.',
+          skills: ['Algebra', 'Linear Equations']
         },
         {
           id: 'pt8-m2-q20',
@@ -660,7 +636,7 @@ export const practiceTest8 = {
           ],
           correctAnswer: 'C',
           explanation: '**Choice C is correct.**\n\n**Median:** Data set A has 13 values. The 7th value (median) is $33$.\nData set B adds $42$ to each value, so the median of B is $33 + 42 = 75$.\nMedian of B ($75$) $>$ Median of A ($33$).\n\n**Range:** Range of A $= 35 - 31 = 4$.\nRange of B $= 77 - 73 = 4$.\nAdding a constant to every value does not change the range.\n\nSo the median increases but the range stays the same.',
-          skills: ['statistics', 'dot-plots', 'median', 'range']
+          skills: ['Data Analysis', 'Statistics']
         },
         {
           id: 'pt8-m2-q21',
@@ -675,7 +651,7 @@ export const practiceTest8 = {
           ],
           correctAnswer: 'D',
           explanation: '**Choice D is correct.**\n\n**Key insight:** $a + b + c = f(1)$ (substitute $x = 1$ into $y = ax^2 + bx + c$).\n\nThe parabola has vertex $(7, -10)$, so $y = a(x - 7)^2 - 10$ for some $a > 0$ (opens upward since it crosses the $x$-axis at two points with vertex below).\n\n$f(1) = a(1 - 7)^2 - 10 = 36a - 10$\n\nCheck each choice with the requirement $a > 0$:\n• A) $-19$: $36a = -9 \\Rightarrow a = -\\frac{1}{4} < 0$ ✗\n• B) $-15$: $36a = -5 \\Rightarrow a = -\\frac{5}{36} < 0$ ✗\n• C) $-10$: $36a = 0 \\Rightarrow a = 0$ (not a parabola) ✗\n• D) $-8$: $36a = 2 \\Rightarrow a = \\frac{1}{18} > 0$ ✓\n\nOnly choice D gives a positive value of $a$, producing a valid upward-opening parabola with vertex below the $x$-axis that intersects it at two points.',
-          skills: ['quadratic-equations', 'vertex-form', 'parabolas']
+          skills: ['Advanced Math', 'Quadratic Equations']
         },
         {
           id: 'pt8-m2-q22',
@@ -690,7 +666,7 @@ export const practiceTest8 = {
           ],
           correctAnswer: 'C',
           explanation: 'For exactly one solution, the discriminant must equal zero: $b^2 - 4ac = 0$. Here $a = -4$, $b = 24$, so $24^2 - 4(-4)(c) = 0$. Thus $576 + 16c = 0$, giving $16c = -576$, so $c = -36$.',
-          skills: ["discriminant-analysis"]
+          skills: ['Advanced Math', 'Discriminant']
         }
       ]
     }

@@ -310,18 +310,12 @@ export const practiceTest4 = {
         },
         {
           id: 21,
-          type: "multiple-choice",
+          type: "fill-in",
           difficulty: "hard",
-          question: "Which expression is equivalent to $\\frac{x^2 + 5x + 6}{x^2 - 4}$?",
-          choices: [
-            { id: "A", text: "$\\frac{x + 3}{x - 2}$" },
-            { id: "B", text: "$\\frac{x + 3}{x + 2}$" },
-            { id: "C", text: "$\\frac{x + 2}{x - 2}$" },
-            { id: "D", text: "$\\frac{x - 3}{x - 2}$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**Choice A is correct.** Factor both the numerator and denominator.\n\n**Factor numerator:** $x^2 + 5x + 6 = (x + 2)(x + 3)$\n**Factor denominator:** $x^2 - 4 = (x + 2)(x - 2)$ [difference of squares]\n\n**Simplify:**\n• $\\frac{x^2 + 5x + 6}{x^2 - 4}$\n• $= \\frac{(x + 2)(x + 3)}{(x + 2)(x - 2)}$\n• $= \\frac{x + 3}{x - 2}$ [cancel $(x + 2)$]\n\n**Why other choices are incorrect:**\n• Choice B: Would require $(x-2)$ in numerator\n• Choice C: Would require $(x+3)$ to cancel\n• Choice D: Wrong sign in numerator factor\n\n**Key concept:** To simplify rational expressions, factor completely, then cancel common factors.",
-          skills: ["rational-expressions", "factoring"]
+          question: "$x(kx - 30) = -9$\n\nIn the given equation, $k$ is a positive integer constant. The equation has no real solution. What is the least possible value of $k$?",
+          correctAnswer: '26',
+          explanation: "**The correct answer is $26$.** Rewrite in standard form and analyze the discriminant.\n\n**Step 1: Rewrite in standard form**\n$kx^2 - 30x + 9 = 0$\n\n**Step 2: Apply the discriminant condition**\nFor no real solutions, discriminant $< 0$:\n$$b^2 - 4ac < 0$$\n$$(-30)^2 - 4(k)(9) < 0$$\n$$900 - 36k < 0$$\n$$k > 25$$\n\n**Step 3: Find the least positive integer $k$**\nSince $k > 25$ and $k$ is a positive integer, the least value is $k = 26$.\n\n**Verification:** With $k = 26$: discriminant $= 900 - 936 = -36 < 0$ (no real solutions) ✓\nWith $k = 25$: discriminant $= 900 - 900 = 0$ (one real solution, not \"no solution\") ✗\n\n**Key concept:** A quadratic $ax^2 + bx + c = 0$ has no real solutions when its discriminant $b^2 - 4ac < 0$.",
+          skills: ['Advanced Math', 'Discriminant']
         },
         {
           id: 22,
@@ -498,22 +492,27 @@ export const practiceTest4 = {
         },
         {
           id: 10,
-          type: "fill-in",
-          difficulty: "medium",
-          question: "$f(x) = 5x + 8$\n\nFor the given function $f$, the graph of $y = f(x)$ in the $xy$-plane is parallel to line $k$. What is the slope of line $k$?",
-          correctAnswer: "5",
-          explanation: "**The correct answer is $5$.**\n\n• The function $f(x) = 5x + 8$ is in slope-intercept form $y = mx + b$\n• Slope of $f(x)$ is $m = 5$\n• Parallel lines have the same slope\n• Therefore, line $k$ has slope $5$\n\n**Key concept:** Parallel lines have equal slopes. In $y = mx + b$, $m$ is the slope.",
-          skills: ["Algebra", "Linear equations"]
+          type: "multiple-choice",
+          difficulty: "hard",
+          question: "Which of the following equations represents a circle in the $xy$-plane that intersects the $x$-axis at exactly one point?",
+          choices: [
+            { id: "A", text: "$(x - 3)^2 + (y - 4)^2 = 16$" },
+            { id: "B", text: "$(x - 2)^2 + (y - 5)^2 = 16$" },
+            { id: "C", text: "$(x + 1)^2 + (y - 3)^2 = 16$" },
+            { id: "D", text: "$(x - 4)^2 + (y + 2)^2 = 16$" }
+          ],
+          correctAnswer: "A",
+          explanation: "**Choice A is correct.** A circle intersects the $x$-axis at exactly one point when it is tangent to it.\n\n**Key condition:** The distance from the center to the $x$-axis equals the radius.\nDistance from center $(h, k)$ to $x$-axis $= |k|$. Tangent when $|k| = r$.\n\n**Check each choice ($r = 4$ for all):**\n• A: Center $(3, 4)$, $|k| = 4 = r$ ✓ (tangent to $x$-axis)\n• B: Center $(2, 5)$, $|k| = 5 > 4$ ✗ (doesn't reach $x$-axis)\n• C: Center $(-1, 3)$, $|k| = 3 < 4$ ✗ (crosses at two points)\n• D: Center $(4, -2)$, $|k| = 2 < 4$ ✗ (crosses at two points)\n\n**Why other choices are incorrect:**\n• Choice B: Center is $5$ units above $x$-axis but radius is only $4$ — circle doesn't reach\n• Choices C, D: Center is closer to $x$-axis than the radius, so the circle crosses at $2$ points\n\n**Key concept:** Circle tangent to $x$-axis: $|k| = r$. Circle tangent to $y$-axis: $|h| = r$.",
+          skills: ['Geometry', 'Circles']
         },
         {
           id: 11,
           type: "fill-in",
-          difficulty: "medium",
-          question: "In triangle $ABC$, angle $A$ measures $(2x + 10)°$, angle $B$ measures $45°$, and angle $C$ measures $x°$. What is the value of $x$?",
-          correctAnswer: "41.67",
-          alternateAnswers: [41.7, 42, "125/3"],
-          explanation: "**The correct answer is $\\frac{125}{3} \\approx 41.67$.** The sum of angles in a triangle is $180°$.\n\n• $(2x + 10) + 45 + x = 180$\n• $3x + 55 = 180$\n• $3x = 125$\n• $x = \\frac{125}{3} \\approx 41.67°$\n\n**Verification:**\n• Angle $A$: $2\\left(\\frac{125}{3}\\right) + 10 = \\frac{250}{3} + \\frac{30}{3} = \\frac{280}{3} \\approx 93.33°$\n• Angle $B$: $45°$\n• Angle $C$: $\\frac{125}{3} \\approx 41.67°$\n• Sum: $\\frac{280}{3} + 45 + \\frac{125}{3} = \\frac{280}{3} + \\frac{135}{3} + \\frac{125}{3} = \\frac{540}{3} = 180°$ ✓\n\n**Key concept:** The sum of interior angles of a triangle is always $180°$.",
-          skills: ["triangle-angles", "geometry"]
+          difficulty: "hard",
+          question: "A student buys pens and notebooks for a class. Pens cost $\\$2$ each and notebooks cost $\\$5$ each. The student needs at least $15$ items total and has a budget of $\\$50$. What is the maximum number of notebooks the student can buy?",
+          correctAnswer: '6',
+          explanation: "**The correct answer is $6$.** Set up the constraints and maximize notebooks.\n\n**Step 1: Write the constraints**\nLet $p$ = pens and $n$ = notebooks.\n• Budget: $2p + 5n \\leq 50$\n• Minimum items: $p + n \\geq 15$\n• Both $p \\geq 0$ and $n \\geq 0$\n\n**Step 2: Express $p$ in terms of $n$**\nFrom the minimum items constraint: $p \\geq 15 - n$\n\n**Step 3: Substitute into the budget constraint**\n$2(15 - n) + 5n \\leq 50$\n$30 - 2n + 5n \\leq 50$\n$3n \\leq 20$\n$n \\leq 6.67$\n\nSince $n$ must be a whole number: $n \\leq 6$.\n\n**Verification:** With $n = 6$: $p = 15 - 6 = 9$. Cost $= 2(9) + 5(6) = 18 + 30 = 48 \\leq 50$ ✓\nWith $n = 7$: $p = 15 - 7 = 8$. Cost $= 2(8) + 5(7) = 16 + 35 = 51 > 50$ ✗\n\n**Key concept:** In optimization problems with constraints, substitute the binding constraint into the objective to find the maximum or minimum.",
+          skills: ['Problem Solving', 'Linear Inequalities']
         },
         {
           id: 12,
@@ -533,20 +532,20 @@ export const practiceTest4 = {
         {
           id: 13,
           type: 'fill-in',
-          difficulty: 'medium',
-          question: '$(d - 25)(d + 25) - 9 = -9$\n\nWhat is a solution to the given equation?',
-          correctAnswer: '25',
-          explanation: '**The correct answer is $25$ (or $-25$).** Simplify the equation, then apply the zero-product property.\n\n**Step 1: Add $9$ to both sides**\n$(d - 25)(d + 25) - 9 + 9 = -9 + 9$\n$(d - 25)(d + 25) = 0$\n\n**Step 2: Apply the zero-product property**\n$d - 25 = 0$ or $d + 25 = 0$\n$d = 25$ or $d = -25$\n\n**Verification:** For $d = 25$: $(25 - 25)(25 + 25) - 9 = (0)(50) - 9 = -9$ ✓\nFor $d = -25$: $(-25 - 25)(-25 + 25) - 9 = (-50)(0) - 9 = -9$ ✓\n\n**Key concept:** Notice that $(d - 25)(d + 25)$ is a difference-of-squares pattern: $d^2 - 625$. The $-9$ on both sides cancels, leaving a product equal to zero.',
-          skills: ["difference-of-squares"]
+          difficulty: 'hard',
+          question: '$y + k = 3x + 5$\n\n$y - k = x^2 - 7x$\n\nIn the given system of equations, $k$ is a positive constant. The system has exactly one distinct real solution. What is the value of $k$?',
+          correctAnswer: '15',
+          explanation: '**The correct answer is $15$.**\n\n**Step 1: Eliminate $y$ by setting the expressions equal**\nFrom the first equation: $y = 3x + 5 - k$\nFrom the second equation: $y = x^2 - 7x + k$\n\nSet equal: $3x + 5 - k = x^2 - 7x + k$\n\n**Step 2: Rearrange into standard form**\n$0 = x^2 - 10x + 2k - 5$\n\n**Step 3: Apply the discriminant condition**\nFor exactly one solution, the discriminant equals zero:\n$b^2 - 4ac = 0$\n$(-10)^2 - 4(1)(2k - 5) = 0$\n$100 - 8k + 20 = 0$\n$120 = 8k$\n$k = 15$\n\n**Verification:** With $k = 15$: $x^2 - 10x + 25 = (x - 5)^2 = 0$, so $x = 5$.\n$y = 3(5) + 5 - 15 = 5$. Check second equation: $5 - 15 = 25 - 35 = -10$ ✓',
+          skills: ['Advanced Math', 'Systems of Equations']
         },
         {
           id: 14,
           type: "fill-in",
-          difficulty: "medium",
-          question: "In an isosceles triangle, the two equal angles each measure 65°. What is the measure, in degrees, of the third angle?",
-          correctAnswer: 50,
-          explanation: "**The correct answer is 50.** Use the triangle angle sum property.\n\n• Sum of angles = 180°\n• Two equal angles: 65° + 65° = 130°\n• Third angle: 180° - 130° = 50°\n\n**Key concept:** In an isosceles triangle, the two base angles are equal, and all three angles sum to 180°.",
-          skills: ["triangle-angles", "isosceles-triangles"]
+          difficulty: "hard",
+          question: "A store sells a jacket at a regular price of $\\$250$. During a clearance event, the jacket is first discounted by $20\\%$, and then an additional $10\\%$ is taken off the discounted price. If the final sale price is $25\\%$ above the store's cost, what is the store's cost, in dollars?",
+          correctAnswer: 144,
+          explanation: "**The correct answer is $144$.**\n\n**Step 1: Apply the first discount**\nRegular price: $\\$250$\nAfter $20\\%$ off: $250 \\times 0.80 = \\$200$\n\n**Step 2: Apply the second discount**\nAfter additional $10\\%$ off: $200 \\times 0.90 = \\$180$\n\n**Step 3: Find the store's cost**\nThe final price of $\\$180$ is $25\\%$ above cost:\n$\\text{Cost} \\times 1.25 = 180$\n$\\text{Cost} = \\frac{180}{1.25} = 144$\n\n**Verification:** Cost $\\$144$ + $25\\%$ markup = $144 \\times 1.25 = \\$180$ ✓\nOriginal $\\$250$ → $20\\%$ off = $\\$200$ → $10\\%$ off = $\\$180$ ✓\n\n**Key concept:** Sequential percentage discounts multiply (not add). A $20\\%$ discount followed by a $10\\%$ discount is NOT a $30\\%$ discount — it is $0.80 \\times 0.90 = 0.72$, or $28\\%$ total.",
+          skills: ['Algebra', 'Percent']
         },
         {
           id: 15,
@@ -566,17 +565,17 @@ export const practiceTest4 = {
         {
           id: 16,
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'If $3^{2x} = 81$, what is the value of $5x$?',
+          difficulty: 'hard',
+          question: 'If $3^a \\cdot 9^b = 3^{10}$ and $3^{2a} \\cdot 27^b = 3^{16}$, what is the value of $a - b$?',
           choices: [
-            { id: 'A', text: '$10$' },
-            { id: 'B', text: '$20$' },
-            { id: 'C', text: '$40$' },
-            { id: 'D', text: '$80$' }
+            { id: 'A', text: '$-2$' },
+            { id: 'B', text: '$2$' },
+            { id: 'C', text: '$4$' },
+            { id: 'D', text: '$6$' }
           ],
           correctAnswer: 'A',
-          explanation: '**Choice A is correct.** Express both sides with the same base, then solve.\n\n**Step 1: Rewrite $81$ as a power of $3$**\n$81 = 3^4$\n\n**Step 2: Set the exponents equal**\n$3^{2x} = 3^4$\n$2x = 4$\n$x = 2$\n\n**Step 3: Find $5x$**\n$5x = 5(2) = 10$\n\n**Why other choices are incorrect:**\n• Choice B ($20$): Uses $x = 4$ instead of $x = 2$ (forgot to divide by $2$)\n• Choice C ($40$): Uses $x = 8$ — no mathematical basis\n• Choice D ($80$): Confuses $81$ with $5x$\n\n**Verification:** $3^{2(2)} = 3^4 = 81$ ✓\n\n**Key concept:** When solving $a^{f(x)} = a^n$, set $f(x) = n$. First express both sides with the same base.',
-          skills: ["exponent-laws"]
+          explanation: '**Choice A is correct.** Rewrite all terms with base $3$, then solve the system.\n\n**Step 1: Rewrite with base $3$**\n$9 = 3^2$ and $27 = 3^3$, so:\n$3^a \\cdot 3^{2b} = 3^{10}$ → $a + 2b = 10$ ... (1)\n$3^{2a} \\cdot 3^{3b} = 3^{16}$ → $2a + 3b = 16$ ... (2)\n\n**Step 2: Solve the system**\nFrom (1): $a = 10 - 2b$\nSubstitute into (2): $2(10 - 2b) + 3b = 16$\n$20 - 4b + 3b = 16$\n$-b = -4$\n$b = 4$\n$a = 10 - 2(4) = 2$\n\n**Step 3: Find $a - b$**\n$a - b = 2 - 4 = -2$\n\n**Verification:** $3^2 \\cdot 9^4 = 9 \\cdot 6{,}561 = 59{,}049 = 3^{10}$ ✓\n$3^4 \\cdot 27^4 = 81 \\cdot 531{,}441 = 43{,}046{,}721 = 3^{16}$ ✓\n\n**Why other choices are incorrect:**\n• Choice B ($2$): Reverses the subtraction ($b - a$)\n• Choice C ($4$): Uses $b = 4$ alone without subtracting\n• Choice D ($6$): Computes $a + b$ instead of $a - b$',
+          skills: ['Advanced Math', 'Exponents']
         },
         {
           id: 17,
@@ -624,26 +623,25 @@ export const practiceTest4 = {
           id: 21,
           type: "fill-in",
           difficulty: "hard",
-          question: "A student's grade is calculated as follows: tests count for $70\\%$ and homework counts for $30\\%$. If the student has a test average of $85$ and a homework average of $90$, what is the student's overall grade?",
-          correctAnswer: 86.5,
-          alternateAnswers: ["173/2"],
-          explanation: "**The correct answer is $86.5$.** Calculate the weighted average.\n\n• Weighted grade $=$ (Test average $\\times$ Test weight) $+$ (Homework average $\\times$ Homework weight)\n• $= (85 \\times 0.70) + (90 \\times 0.30)$\n• $= 59.5 + 27$\n• $= 86.5$\n\n**Why simple average would be wrong:**\n• Simple average: $\\frac{85 + 90}{2} = 87.5$\n• But tests count more, so the grade is closer to $85$\n\n**Key concept:** Weighted average $= \\Sigma(\\text{value} \\times \\text{weight})$, where weights sum to $1$ (or $100\\%$).",
-          skills: ["weighted-average", "statistics"]
+          question: "$\\frac{x}{x - 2} - \\frac{3}{x + 4} = \\frac{18}{(x - 2)(x + 4)}$\n\nWhat is the solution to the given equation?",
+          correctAnswer: 3,
+          explanation: "**The correct answer is $3$.**\n\n**Step 1: Multiply both sides by $(x - 2)(x + 4)$**\nNote: $x \\neq 2$ and $x \\neq -4$\n\n$x(x + 4) - 3(x - 2) = 18$\n\n**Step 2: Expand and simplify**\n$x^2 + 4x - 3x + 6 = 18$\n$x^2 + x + 6 = 18$\n$x^2 + x - 12 = 0$\n\n**Step 3: Factor**\n$(x + 4)(x - 3) = 0$\n$x = -4$ or $x = 3$\n\n**Step 4: Check for extraneous solutions**\n$x = -4$ makes the denominator $(x + 4) = 0$, so it is **extraneous** and must be rejected.\n\nThe only valid solution is $x = 3$.\n\n**Verification:** $\\frac{3}{3 - 2} - \\frac{3}{3 + 4} = \\frac{3}{1} - \\frac{3}{7} = \\frac{21 - 3}{7} = \\frac{18}{7}$\nRHS: $\\frac{18}{(1)(7)} = \\frac{18}{7}$ ✓\n\n**Key concept:** When solving rational equations, always check solutions in the original equation. Solutions that make any denominator zero are extraneous and must be discarded.",
+          skills: ['Advanced Math', 'Rational Equations']
         },
         {
           id: 22,
           type: "multiple-choice",
           difficulty: "hard",
-          question: "If $4^x = 32$, which of the following is the value of $x$?",
+          question: "$3^{x+2} - 3^x = 72$\n\nWhat is the value of $x$?",
           choices: [
-            { id: "A", text: "$2$" },
-            { id: "B", text: "$2.5$" },
+            { id: "A", text: "$1$" },
+            { id: "B", text: "$2$" },
             { id: "C", text: "$3$" },
-            { id: "D", text: "$8$" }
+            { id: "D", text: "$4$" }
           ],
           correctAnswer: "B",
-          explanation: "**Choice B is correct.** Express both sides with the same base.\n\n• $4^x = 32$\n• $(2^2)^x = 2^5$ (since $4 = 2^2$ and $32 = 2^5$)\n• $2^{2x} = 2^5$\n• $2x = 5$\n• $x = 2.5$\n\n**Verification:** $4^{2.5} = 4^2 \\times 4^{0.5} = 16 \\times 2 = 32$ ✓\n\n**Why other choices are incorrect:**\n• Choice A ($2$): $4^2 = 16 \\neq 32$\n• Choice C ($3$): $4^3 = 64 \\neq 32$\n• Choice D ($8$): $4^8$ is much larger than $32$\n\n**Calculator tip:** Use logarithms: $x = \\log_4(32) = \\frac{\\log(32)}{\\log(4)} \\approx 2.5$",
-          skills: ["exponential-equations", "exponents"]
+          explanation: "**Choice B is correct.** Factor out the common exponential term.\n\n**Step 1: Rewrite $3^{x+2}$ using exponent rules**\n$3^{x+2} = 3^x \\cdot 3^2 = 9 \\cdot 3^x$\n\n**Step 2: Substitute and factor**\n$9 \\cdot 3^x - 3^x = 72$\n$3^x(9 - 1) = 72$\n$3^x \\cdot 8 = 72$\n$3^x = 9$\n\n**Step 3: Solve**\n$3^x = 3^2$\n$x = 2$\n\n**Verification:** $3^{2+2} - 3^2 = 3^4 - 9 = 81 - 9 = 72$ ✓\n\n**Why other choices are incorrect:**\n• Choice A ($x = 1$): $3^3 - 3^1 = 27 - 3 = 24 \\neq 72$\n• Choice C ($x = 3$): $3^5 - 3^3 = 243 - 27 = 216 \\neq 72$\n• Choice D ($x = 4$): $3^6 - 3^4 = 729 - 81 = 648 \\neq 72$\n\n**Key concept:** When subtracting exponential terms with the same base, factor out the smaller power: $a^{m+n} - a^m = a^m(a^n - 1)$.",
+          skills: ['Advanced Math', 'Exponents']
         }
       ]
     }

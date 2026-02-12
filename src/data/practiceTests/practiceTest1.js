@@ -371,16 +371,16 @@ export const practiceTest1 = {
           id: 22,
           type: "multiple-choice",
           difficulty: "hard",
-          question: "Marcus spent \\$210.60 on a bulk supply of notebooks. Each box of notebooks costs \\$30. A delivery charge of \\$8 is added. An 8% tax is applied to both the total order and the delivery charge. If Marcus ordered 5 boxes, what is the value of $p$, the delivery charge?",
+          question: "$3x + 5y = 15$\n\nWhich of the following equations, when paired with the equation above, creates a system of linear equations that has no solution?",
           choices: [
-            { id: "A", text: "$8.00$" },
-            { id: "B", text: "$8.64$" },
-            { id: "C", text: "$15.00$" },
-            { id: "D", text: "$32.40$" }
+            { id: "A", text: "$6x + 10y = 25$" },
+            { id: "B", text: "$6x + 10y = 30$" },
+            { id: "C", text: "$3x - 5y = 15$" },
+            { id: "D", text: "$5x + 3y = 15$" }
           ],
           correctAnswer: "A",
-          explanation: "**Choice A is correct.** The question states the delivery charge is \\$8.\n\n**Verification:**\n• Cost of 5 boxes: $5 \\times \\$30 = \\$150$\n• Delivery charge: \\$8 (this is what we're asked to identify)\n• Subtotal: $\\$150 + \\$8 = \\$158$\n• With 8% tax: $\\$158 \\times 1.08 = \\$170.64$\n\nNote: The given total of \\$210.60 doesn't match this calculation. The question asks for \"the delivery charge\" which is stated as **\\$8** in the problem.\n\n**Why other choices are incorrect:**\n• Choice B (\\$8.64): This is \\$8 with 8% tax added\n• Choice C (\\$15.00): Not the stated delivery charge\n• Choice D (\\$32.40): Not the stated delivery charge\n\n**Key concept:** Read carefully - the delivery charge $p = \\$8$ is given in the problem.",
-          skills: ["word-problems", "percentages"]
+          explanation: "**Choice A is correct.** A system has no solution when the lines are parallel (same slope, different $y$-intercepts).\n\n**Step 1: Find the slope of the given equation**\n$3x + 5y = 15$ → $y = -\\frac{3}{5}x + 3$ → slope $= -\\frac{3}{5}$\n\n**Step 2: Check each choice**\n• Choice A: $6x + 10y = 25$ → $y = -\\frac{6}{10}x + \\frac{25}{10} = -\\frac{3}{5}x + 2.5$\n  Same slope $-\\frac{3}{5}$, different $y$-intercept ($2.5 \\neq 3$) → **No solution** ✓\n\n• Choice B: $6x + 10y = 30$ → $y = -\\frac{3}{5}x + 3$\n  Same slope AND same $y$-intercept → **Infinitely many solutions** (same line)\n\n• Choice C: $3x - 5y = 15$ → $y = \\frac{3}{5}x - 3$ → slope $= \\frac{3}{5}$\n  Different slope → **One solution**\n\n• Choice D: $5x + 3y = 15$ → $y = -\\frac{5}{3}x + 5$ → slope $= -\\frac{5}{3}$\n  Different slope → **One solution**\n\n**Key concept:** For no solution, the ratio of coefficients must be equal for $x$ and $y$ but different for the constant: $\\frac{a_1}{a_2} = \\frac{b_1}{b_2} \\neq \\frac{c_1}{c_2}$.",
+          skills: ['Algebra', 'Systems of Equations']
         }
       ]
     },
@@ -468,11 +468,10 @@ export const practiceTest1 = {
           id: 5,
           type: "fill-in",
           difficulty: "medium",
-          question: "What is the value of the slope of a line perpendicular to the line $4x - 5y + 20 = 0$?",
-          correctAnswer: "-5/4",
-          acceptedAnswers: ["-5/4", -1.25, "-1.25"],
-          explanation: "**The correct answer is $-\\frac{5}{4}$ (or $-1.25$).**\n\n**Step 1:** Convert to slope-intercept form:\n$4x - 5y + 20 = 0$\n$-5y = -4x - 20$\n$y = \\frac{4}{5}x + 4$\n\n**Step 2:** Identify the slope of the original line:\nSlope $= \\frac{4}{5}$\n\n**Step 3:** Find the perpendicular slope:\nPerpendicular slopes are negative reciprocals.\nPerpendicular slope $= -\\frac{1}{\\frac{4}{5}} = -\\frac{5}{4}$ (or $-1.25$)\n\n**Verification:** Check that the slopes are negative reciprocals:\n$\\frac{4}{5} \\times \\left(-\\frac{5}{4}\\right) = -\\frac{20}{20} = -1$ ✓\n\n**Key concept:** If two lines are perpendicular, the product of their slopes equals $-1$.\n$m_1 \\times m_2 = -1$, so $m_2 = -\\frac{1}{m_1}$",
-          skills: ["perpendicular-lines", "slope"]
+          question: "A parking lot charges $\\$3$ per hour for each car and $\\$5$ per hour for each truck. In one hour, the lot collected $\\$86$ from a total of $22$ vehicles. How many trucks were in the lot during that hour?",
+          correctAnswer: 10,
+          explanation: "**The correct answer is $10$.**\n\n**Step 1: Set up the system of equations**\nLet $c$ = number of cars and $t$ = number of trucks.\n$c + t = 22$ ... (total vehicles)\n$3c + 5t = 86$ ... (total revenue)\n\n**Step 2: Solve by substitution**\nFrom equation 1: $c = 22 - t$\nSubstitute into equation 2:\n$3(22 - t) + 5t = 86$\n$66 - 3t + 5t = 86$\n$2t = 20$\n$t = 10$\n\n**Verification:** $c = 22 - 10 = 12$ cars\nRevenue: $3(12) + 5(10) = 36 + 50 = 86$ ✓\n\n**Key concept:** Systems of equations can model real-world scenarios. Use substitution or elimination when you have two unknowns and two equations.",
+          skills: ['Algebra', 'Systems of Equations']
         },
         {
           id: 6,
@@ -536,68 +535,57 @@ export const practiceTest1 = {
         },
         {
           id: 10,
-          type: "fill-in",
+          type: "multiple-choice",
           difficulty: "hard",
-          question: "A bookstore purchases novels at a wholesale cost of $6.00$ dollars each and sells them at a retail price that is $320\\%$ of the wholesale cost. At the end of the month, unsold novels are reduced to a clearance price that is $85\\%$ off the retail price. What is the clearance price of each unsold novel, in dollars?",
-          correctAnswer: 2.88,
-          explanation: "**The correct answer is 2.88.**\n\n**Step 1:** Find the retail price.\nRetail price $= 320\\% \\times 6.00 = 3.20 \\times 6.00 = 19.20$ dollars\n\n**Step 2:** Find the clearance price.\n$85\\%$ off means the customer pays $15\\%$ of the retail price.\nClearance price $= 15\\% \\times 19.20 = 0.15 \\times 19.20 = 2.88$ dollars",
-          skills: ["percentages", "word-problems"]
+          question: "A company's revenue increased by $20\\%$ from Year 1 to Year 2, then decreased by $15\\%$ from Year 2 to Year 3. If the company's revenue in Year 3 was $\\$510{,}000$, what was the revenue in Year 1?",
+          choices: [
+            { id: "A", text: "$\\$425{,}000$" },
+            { id: "B", text: "$\\$500{,}000$" },
+            { id: "C", text: "$\\$550{,}000$" },
+            { id: "D", text: "$\\$612{,}000$" }
+          ],
+          correctAnswer: "B",
+          explanation: "**Choice B is correct.** Work backward through the percentage changes.\n\n**Step 1: Find Year 2 revenue from Year 3**\nYear 3 is $85\\%$ of Year 2 (a $15\\%$ decrease):\n$\\text{Year 2} \\times 0.85 = 510{,}000$\n$\\text{Year 2} = \\frac{510{,}000}{0.85} = 600{,}000$\n\n**Step 2: Find Year 1 revenue from Year 2**\nYear 2 is $120\\%$ of Year 1 (a $20\\%$ increase):\n$\\text{Year 1} \\times 1.20 = 600{,}000$\n$\\text{Year 1} = \\frac{600{,}000}{1.20} = 500{,}000$\n\n**Verification:** $500{,}000 \\times 1.20 = 600{,}000$ → $600{,}000 \\times 0.85 = 510{,}000$ ✓\n\n**Why other choices are incorrect:**\n• Choice A: Incorrectly subtracts $20\\%$ then adds $15\\%$ of the original\n• Choice C: Divides by combined percentage $(0.93)$ instead of sequential percentages\n• Choice D: Multiplies forward instead of dividing backward\n\n**Key concept:** Sequential percentage changes multiply — a $20\\%$ increase then $15\\%$ decrease is $1.20 \\times 0.85 = 1.02$, a net $2\\%$ increase, NOT a $5\\%$ increase.",
+          skills: ['Problem-Solving and Data Analysis', 'Percent']
         },
         {
           id: 11,
           type: "multiple-choice",
           difficulty: "hard",
-          question: "The positive number $a$ is $1{,}200\\%$ of the sum of the positive numbers $b$ and $c$, and $b$ is $60\\%$ of $c$. What percent of $b$ is $a$?",
+          question: "$\\frac{20}{p} = \\frac{20}{q} - \\frac{20}{r}$\n\nWhich of the following correctly expresses $q$ in terms of $p$ and $r$?",
           choices: [
-            { id: "A", text: "$12\\%$" },
-            { id: "B", text: "$32\\%$" },
-            { id: "C", text: "$1{,}200\\%$" },
-            { id: "D", text: "$3{,}200\\%$" }
+            { id: "A", text: "$q = \\frac{pr}{p + r}$" },
+            { id: "B", text: "$q = \\frac{pr}{r - p}$" },
+            { id: "C", text: "$q = \\frac{p + r}{pr}$" },
+            { id: "D", text: "$q = p + r$" }
           ],
-          correctAnswer: "D",
-          explanation: "**Choice D is correct.**\n\n**Step 1:** Express $a$ in terms of $b$ and $c$.\n$a = 12(b + c)$\n\n**Step 2:** Since $b = 0.60c$, we get $c = \\frac{b}{0.60} = \\frac{5b}{3}$.\n\n**Step 3:** Substitute:\n$a = 12\\left(b + \\frac{5b}{3}\\right) = 12 \\cdot b \\cdot \\frac{8}{3} = 32b$\n\nSo $a$ is $3{,}200\\%$ of $b$.\n\n**Why other choices are incorrect:**\n• Choice A ($12\\%$): Confuses the given $1{,}200\\%$ with the answer\n• Choice B ($32\\%$): Off by a factor of $100$ (correct ratio but wrong percent)\n• Choice C ($1{,}200\\%$): Uses the percent of $(b+c)$ instead of percent of $b$ alone",
-          skills: ["percentages", "algebra"]
+          correctAnswer: "A",
+          explanation: "**Choice A is correct.** Solve the equation for $q$ by manipulating fractions.\n\n**Step 1: Divide both sides by $20$**\n$\\frac{1}{p} = \\frac{1}{q} - \\frac{1}{r}$\n\n**Step 2: Isolate $\\frac{1}{q}$**\n$\\frac{1}{q} = \\frac{1}{p} + \\frac{1}{r}$\n\n**Step 3: Combine the right side over a common denominator**\n$\\frac{1}{q} = \\frac{r + p}{pr}$\n\n**Step 4: Take the reciprocal**\n$q = \\frac{pr}{p + r}$\n\n**Verification:** Let $p = 3$, $r = 6$:\n$q = \\frac{3 \\times 6}{3 + 6} = \\frac{18}{9} = 2$\nCheck: $\\frac{20}{3} = \\frac{20}{2} - \\frac{20}{6} = 10 - \\frac{10}{3} = \\frac{20}{3}$ ✓\n\n**Why other choices are incorrect:**\n• Choice B: Uses $r - p$ instead of $r + p$ (sign error in rearrangement)\n• Choice C: Takes the wrong reciprocal — this is $\\frac{1}{q}$, not $q$\n• Choice D: Incorrectly simplifies the fraction equation",
+          skills: ['Advanced Math', 'Rational Equations']
         },
         {
           id: 12,
-          type: "multiple-choice",
+          type: "fill-in",
           difficulty: "hard",
-          question: "A sample of red oak has a density of $350$ kilograms per cubic meter. To the nearest tenth, what is the density, in pounds per cubic foot, of this sample? (Use $1$ kilogram $= 2.2$ pounds and $1$ meter $= 3.3$ feet)",
-          choices: [
-            { id: "A", text: "$4.4$" },
-            { id: "B", text: "$21.4$" },
-            { id: "C", text: "$106.1$" },
-            { id: "D", text: "$233.3$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**Choice B is correct.** Convert units using dimensional analysis.\n\n**Step 1:** Start with $350$ kg/m³ and convert kilograms to pounds:\n$350$ kg/m³ $\\times (2.2$ lb/kg$) = 770$ lb/m³\n\n**Step 2:** Convert cubic meters to cubic feet:\n$1$ m $= 3.3$ ft\n$1$ m³ $= (3.3)^3$ ft³ $= 35.937$ ft³\n\n**Step 3:** Complete the conversion:\n$770$ lb/m³ $\\times (1$ m³$/35.937$ ft³$) = 770/35.937$ lb/ft³ $\\approx$ **$21.4$** lb/ft³\n\n**Detailed calculation:**\n$350 \\times 2.2 \\div (3.3)^3 = 770 \\div 35.937 = 21.43...$\nRounded to nearest tenth: **$21.4$**\n\n**Why other choices are incorrect:**\n• Choice A ($4.4$): Divided by $3.3$ only once instead of cubing\n• Choice C ($106.1$): Used $3.3$ instead of $3.3^3$\n• Choice D ($233.3$): Multiplied by $3.3$ instead of dividing by $3.3^3$",
-          skills: ["unit-conversion", "dimensional-analysis"]
+          question: "A right circular cone has a volume of $96\\pi$ cubic centimeters and a base area of $36\\pi$ square centimeters. What is the slant height, in centimeters, of the cone?",
+          correctAnswer: 10,
+          explanation: "**The correct answer is $10$.**\n\n**Step 1: Find the radius from the base area**\n$\\pi r^2 = 36\\pi$\n$r^2 = 36$\n$r = 6$ cm\n\n**Step 2: Find the height from the volume**\n$V = \\frac{1}{3}\\pi r^2 h$\n$96\\pi = \\frac{1}{3}\\pi(36)h$\n$96 = 12h$\n$h = 8$ cm\n\n**Step 3: Find the slant height using the Pythagorean theorem**\nThe slant height $\\ell$, radius $r$, and height $h$ form a right triangle:\n$\\ell = \\sqrt{r^2 + h^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10$ cm\n\n**Verification:** Volume $= \\frac{1}{3}\\pi(6^2)(8) = \\frac{1}{3}\\pi(288) = 96\\pi$ ✓\nBase area $= \\pi(6^2) = 36\\pi$ ✓\nSlant height $= \\sqrt{6^2 + 8^2} = \\sqrt{100} = 10$ ✓\n\n**Key concept:** The slant height of a cone relates to its radius and height by: $\\ell = \\sqrt{r^2 + h^2}$. This is a 3D application of the Pythagorean theorem (here, a $6$-$8$-$10$ right triangle).",
+          skills: ['Geometry', 'Volume']
         },
         {
           id: 13,
           type: "multiple-choice",
           difficulty: "hard",
-          question: "In the given circle, the radius is $8$ centimeters and $\\angle AOB$ measures $\\frac{5}{8}\\pi$ radians. What is the value of the arc length $\\overline{AB}$, in centimeters?",
-          diagram: {
-            type: "circleWithSector",
-            params: {
-              centralAngle: 112.5,
-              angleLabel: "5π/8",
-              labelCenter: "O",
-              labelPoint1: "A",
-              labelPoint2: "B",
-              showAngleArc: true
-            }
-          },
+          question: "$x^2 + 8x + y^2 - 6y = 24$\n\nThe equation above represents a circle in the $xy$-plane. What is the radius of the circle?",
           choices: [
-            { id: "A", text: "$5\\pi$" },
-            { id: "B", text: "$\\frac{25}{4}\\pi$" },
-            { id: "C", text: "$16\\pi$" },
-            { id: "D", text: "$40\\pi$" }
+            { id: "A", text: "$5$" },
+            { id: "B", text: "$7$" },
+            { id: "C", text: "$25$" },
+            { id: "D", text: "$49$" }
           ],
-          correctAnswer: "A",
-          explanation: "**Choice A is correct.** Use the arc length formula with radians.\n\n**Formula:** Arc length $= r\\theta$ (when $\\theta$ is in radians)\n\n**Step 1:** Identify the values:\n• Radius $r = 8$ cm\n• Central angle $\\theta = \\frac{5}{8}\\pi$ radians\n\n**Step 2:** Calculate arc length:\nArc length $= r\\theta = 8 \\times \\frac{5}{8}\\pi = $ **$5\\pi$** cm\n\n**Alternative calculation:**\n$8 \\times \\frac{5}{8} = \\frac{40}{8} = 5$\nSo arc length $= 5\\pi$ cm\n\n**Why other choices are incorrect:**\n• Choice B ($\\frac{25}{4}\\pi$): Multiplied incorrectly\n• Choice C ($16\\pi$): This is the full circumference ($2\\pi r = 16\\pi$)\n• Choice D ($40\\pi$): Used diameter squared or similar error\n\n**Key concept:** When angle is in radians, arc length $=$ radius $\\times$ angle. This is one of the simplest formulas in circle geometry!",
-          skills: ["arc-length", "radians"]
+          correctAnswer: "B",
+          explanation: "**Choice B is correct.** Complete the square for both $x$ and $y$ to rewrite in standard form.\n\n**Step 1: Group and complete the square for $x$**\n$x^2 + 8x = (x^2 + 8x + 16) - 16 = (x + 4)^2 - 16$\n\n**Step 2: Complete the square for $y$**\n$y^2 - 6y = (y^2 - 6y + 9) - 9 = (y - 3)^2 - 9$\n\n**Step 3: Substitute back**\n$(x + 4)^2 - 16 + (y - 3)^2 - 9 = 24$\n$(x + 4)^2 + (y - 3)^2 = 24 + 16 + 9$\n$(x + 4)^2 + (y - 3)^2 = 49$\n\n**Step 4: Identify the radius**\nStandard form: $(x - h)^2 + (y - k)^2 = r^2$\n$r^2 = 49$, so $r = 7$\n\n**Why other choices are incorrect:**\n• Choice A ($5$): Common error from incomplete square completion\n• Choice C ($25$): Confuses $r^2$ with $r$ using wrong constant\n• Choice D ($49$): This is $r^2$, not $r$\n\n**Key concept:** To convert a circle equation to standard form, complete the square for both variables. Remember to add the same values to both sides.",
+          skills: ['Geometry', 'Circles']
         },
         {
           id: 14,
@@ -641,44 +629,21 @@ export const practiceTest1 = {
         },
         {
           id: 16,
-          type: "multiple-choice",
+          type: "fill-in",
           difficulty: "hard",
-          question: "Select values for the polynomial function $h(x)$ are shown in the table. Based on the values in the table, which of the following must be factors of $h(x)$?",
-          questionTable: {
-            headers: ["$x$", "$h(x)$"],
-            rows: [
-              ["$-8$", "$12$"],
-              ["$-5$", "$0$"],
-              ["$0$", "$7$"],
-              ["$4$", "$3$"],
-              ["$6$", "$-4$"],
-              ["$9$", "$0$"]
-            ]
-          },
-          choices: [
-            { id: "A", text: "$(x - 6)$" },
-            { id: "B", text: "$(x + 6)$" },
-            { id: "C", text: "$(x - 5)$ and $(x + 9)$" },
-            { id: "D", text: "$(x + 5)$ and $(x - 9)$" }
-          ],
-          correctAnswer: "D",
-          explanation: "**Choice D is correct.** Factors correspond to zeros of the polynomial.\n\n**Key principle:** If $h(a) = 0$, then $(x - a)$ is a factor of $h(x)$.\n\n**Step 1:** Identify zeros from the table:\n• $h(-5) = 0$ → $x = -5$ is a zero\n• $h(9) = 0$ → $x = 9$ is a zero\n\n**Step 2:** Convert zeros to factors:\n• Zero at $x = -5$ → Factor: $(x - (-5)) = (x + 5)$\n• Zero at $x = 9$ → Factor: $(x - 9)$\n\nTherefore, **$(x + 5)$ and $(x - 9)$** are factors.\n\n**Why other choices are incorrect:**\n• Choice A: $h(6) = -4 \\neq 0$, so $(x - 6)$ is not a factor\n• Choice B: We'd need $h(-6) = 0$, but $-6$ is not in the table with value $0$\n• Choice C: $(x - 5)$ would require $h(5) = 0$ and $(x + 9)$ would require $h(-9) = 0$, neither of which is in the table\n\n**Key concept:** A polynomial has factor $(x - a)$ if and only if the polynomial equals $0$ when $x = a$.",
-          skills: ["polynomial-factors", "zeros-of-functions"]
+          question: "$y = 3x + 1$\n\n$y = x^2 - kx + 10$\n\nIn the system of equations above, $k$ is a positive constant. If the system has exactly one real solution, what is the value of $k$?",
+          correctAnswer: 3,
+          explanation: "**The correct answer is $3$.**\n\n**Step 1: Set the equations equal**\n$3x + 1 = x^2 - kx + 10$\n$0 = x^2 - (k + 3)x + 9$\n\n**Step 2: Apply the discriminant condition**\nFor exactly one solution, the discriminant must equal zero:\n$b^2 - 4ac = 0$\n$(k + 3)^2 - 4(1)(9) = 0$\n$(k + 3)^2 = 36$\n$k + 3 = \\pm 6$\n\n**Step 3: Solve for $k$**\n$k + 3 = 6$ → $k = 3$\n$k + 3 = -6$ → $k = -9$\n\nSince $k$ is positive, $k = 3$.\n\n**Verification:** With $k = 3$: $x^2 - 6x + 9 = (x - 3)^2 = 0$ → $x = 3$\n$y = 3(3) + 1 = 10$. Check: $y = 9 - 9 + 10 = 10$ ✓\n\n**Key concept:** A line is tangent to a parabola when the resulting quadratic has discriminant $= 0$. This gives exactly one intersection point.",
+          skills: ['Advanced Math', 'Quadratic Equations']
         },
         {
           id: 17,
-          type: "multiple-choice",
+          type: "fill-in",
           difficulty: "hard",
-          question: "How many solutions does the equation $(x - 3)(x + 5) = (x - 3)(2x - 1)$ have?",
-          choices: [
-            { id: "A", text: "$0$" },
-            { id: "B", text: "$1$" },
-            { id: "C", text: "$2$" },
-            { id: "D", text: "Infinitely many" }
-          ],
-          correctAnswer: "C",
-          explanation: "**Choice C is correct.** Move everything to one side:\n\n$$(x - 3)(x + 5) - (x - 3)(2x - 1) = 0$$\n\n**Factor out $(x - 3)$:**\n$$(x - 3)[(x + 5) - (2x - 1)] = 0$$\n$$(x - 3)(x + 5 - 2x + 1) = 0$$\n$$(x - 3)(-x + 6) = 0$$\n\n**Solve:**\n$x - 3 = 0 \\to x = 3$\n$-x + 6 = 0 \\to x = 6$\n\n**Two solutions: $x = 3$ and $x = 6$**\n\n**Why other choices are incorrect:**\n• Choice A ($0$): Equation has solutions\n• Choice B ($1$): There are 2 distinct solutions\n• Choice D: Polynomial equations have finite solutions",
-          skills: ["quadratic-equations", "factoring"]
+          question: "$5^{2x} - 26 \\cdot 5^x + 25 = 0$\n\nWhat is the sum of all values of $x$ that satisfy the equation above?",
+          correctAnswer: 2,
+          explanation: "**The correct answer is $2$.**\n\n**Step 1: Substitute $u = 5^x$**\nSince $5^{2x} = (5^x)^2 = u^2$, the equation becomes:\n$u^2 - 26u + 25 = 0$\n\n**Step 2: Factor the quadratic in $u$**\n$(u - 1)(u - 25) = 0$\n$u = 1$ or $u = 25$\n\n**Step 3: Solve for $x$**\n$5^x = 1$ → $x = 0$\n$5^x = 25 = 5^2$ → $x = 2$\n\n**Step 4: Find the sum**\n$0 + 2 = 2$\n\n**Verification:**\nFor $x = 0$: $5^0 - 26 \\cdot 5^0 + 25 = 1 - 26 + 25 = 0$ ✓\nFor $x = 2$: $5^4 - 26 \\cdot 5^2 + 25 = 625 - 650 + 25 = 0$ ✓\n\n**Key concept:** When an equation has the form $a^{2x} + b \\cdot a^x + c = 0$, substitute $u = a^x$ to create a solvable quadratic. Both solutions for $u$ must be positive (since $a^x > 0$).",
+          skills: ['Advanced Math', 'Exponential Equations']
         },
         {
           id: 18,
