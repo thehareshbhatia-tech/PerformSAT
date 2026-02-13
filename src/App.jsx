@@ -573,8 +573,8 @@ const PerformSAT = () => {
             <div style={{
               background: 'linear-gradient(180deg, #0a0a0a 0%, #171717 100%)',
               borderRadius: '24px',
-              padding: '48px 40px',
-              marginBottom: '32px',
+              padding: '20px 32px',
+              marginBottom: '20px',
               position: 'relative',
               overflow: 'hidden',
               boxShadow: '0 16px 40px -12px rgba(0, 0, 0, 0.25)'
@@ -599,24 +599,24 @@ const PerformSAT = () => {
                   fontWeight: '600',
                   letterSpacing: '0.1em',
                   textTransform: 'uppercase',
-                  marginBottom: '16px'
+                  marginBottom: '8px'
                 }}>
                   {currentLesson.hero.tagline}
                 </span>
                 <h2 style={{
-                  fontSize: '32px',
+                  fontSize: '22px',
                   fontWeight: '700',
                   color: '#ffffff',
-                  letterSpacing: '-0.5px',
+                  letterSpacing: '-0.3px',
                   lineHeight: '1.2',
-                  marginBottom: '8px'
+                  marginBottom: '4px'
                 }}>
                   {currentLesson.title}
                 </h2>
                 <p style={{
-                  fontSize: '16px',
+                  fontSize: '14px',
                   color: '#9ca3af',
-                  lineHeight: '1.5'
+                  lineHeight: '1.4'
                 }}>
                   {currentLesson.hero.subtitle}
                 </p>
@@ -629,6 +629,7 @@ const PerformSAT = () => {
             display: 'flex',
             gap: '20px',
             alignItems: 'stretch',
+            height: '550px',
           }}>
             {/* LEFT: YouTube Player */}
             <div style={{
@@ -653,6 +654,7 @@ const PerformSAT = () => {
               minWidth: 0,
               display: 'flex',
               flexDirection: 'column',
+              overflow: 'hidden',
             }}>
               <AiTutorChat
                 isOpen={true}
