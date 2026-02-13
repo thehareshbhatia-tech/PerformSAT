@@ -138,7 +138,7 @@ export const practiceTest10 = {
           id: 'pt10-m1-q8',
           type: 'multiple-choice',
           difficulty: 'medium',
-          question: 'The graph above shows the estimated value, in dollars, of a tablet as a function of the number of months since it was purchased. The $y$-intercept is at $(0, 225)$. What is the best interpretation of the $y$-intercept of the graph in this context?',
+          question: 'The graph above shows the estimated value, in dollars, of a tablet as a function of the number of months since it was purchased. What is the best interpretation of the $y$-intercept of the graph in this context?',
           diagram: {
             type: 'linearGraph',
             params: {
@@ -159,7 +159,7 @@ export const practiceTest10 = {
             { id: 'D', text: 'The estimated value of the tablet decreased by approximately $2.25\\%$ each year after it was purchased.' }
           ],
           correctAnswer: 'A',
-          explanation: '**Choice A is correct.** The $y$-intercept occurs when $x = 0$, which represents the starting point in context.\n\n**Step 1: Interpret the axes**\nThe $x$-axis represents months since purchase, and the $y$-axis represents the estimated value in dollars.\n\n**Step 2: Interpret the $y$-intercept $(0, 225)$**\nAt $x = 0$ (the moment of purchase), the estimated value is $\\$225$. This means the tablet was worth $\\$225$ when it was purchased.\n\n**Why other choices are incorrect:**\n• Choice B: Claims the value was $\\$225$ at $24$ months — but the graph shows the value decreasing over time, not equal to $\\$225$ at $24$ months\n• Choice C: Describes a decrease of $\\$225$, which is a rate description, not what the $y$-intercept represents\n• Choice D: Describes a percentage decrease per year, which is unrelated to the $y$-intercept\n\n**Key concept:** The $y$-intercept of a graph represents the initial value (when the independent variable is $0$). In context, interpret what "$x = 0$" means.',
+          explanation: '**Choice A is correct.** Read the $y$-intercept from the graph, then interpret it in context.\n\n**Step 1: Read the graph**\nFrom the graph, the $y$-intercept is at $(0, 225)$.\n\n**Step 2: Interpret the axes**\nThe $x$-axis represents months since purchase, and the $y$-axis represents the estimated value in dollars.\n\n**Step 3: Interpret the $y$-intercept**\nAt $x = 0$ (the moment of purchase), the estimated value is $\\$225$. This means the tablet was worth $\\$225$ when it was purchased.\n\n**Why other choices are incorrect:**\n• Choice B: Claims the value was $\\$225$ at $24$ months — but the graph shows the value decreasing over time\n• Choice C: Describes a decrease of $\\$225$, which is a rate description, not what the $y$-intercept represents\n• Choice D: Describes a percentage decrease per year, which is unrelated to the $y$-intercept\n\n**Key concept:** Read the $y$-intercept value from the graph, then interpret what "$x = 0$" means in context. The $y$-intercept represents the initial value.',
           skills: ['Functions', 'Graph Interpretation']
         },
         {

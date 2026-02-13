@@ -629,14 +629,29 @@ export const practiceTest9 = {
           explanation: "**The correct answer is $6$.** Square both sides and check for extraneous solutions.\n\n**Step 1: Square both sides**\n$$3x + 7 = (x - 1)^2 = x^2 - 2x + 1$$\n\n**Step 2: Rearrange to standard form**\n$$x^2 - 2x + 1 - 3x - 7 = 0$$\n$$x^2 - 5x - 6 = 0$$\n\n**Step 3: Factor and solve**\n$$(x - 6)(x + 1) = 0$$\n$$x = 6 \\text{ or } x = -1$$\n\n**Step 4: Check for extraneous solutions**\n• $x = 6$: $\\sqrt{3(6) + 7} = \\sqrt{25} = 5$ and $6 - 1 = 5$ ✓\n• $x = -1$: $\\sqrt{3(-1) + 7} = \\sqrt{4} = 2$ and $-1 - 1 = -2$ ✗ (extraneous)\n\nThe only valid solution is $x = 6$.\n\n**Key concept:** When solving radical equations by squaring, always check solutions in the original equation. Squaring can introduce extraneous solutions because $\\sqrt{a} \\geq 0$ by definition.",
           skills: ['Advanced Math', 'Radical Equations']
         },
-        // Question 19: Quadratic with vertex and point
+        // Question 19: Quadratic with vertex and point (graph-based)
         {
           id: 19,
           type: "fill-in",
           difficulty: "hard",
-          question: "The function $f$ is defined by $f(x) = 2x^2 + bx + c$, where $b$ and $c$ are constants. The graph of $y = f(x)$ in the $xy$-plane has a vertex at $(3, -5)$ and passes through the point $(0, 13)$. What is the value of $b + c$?",
+          question: "The function $f$ is defined by $f(x) = 2x^2 + bx + c$, where $b$ and $c$ are constants. The graph of $y = f(x)$ in the $xy$-plane is shown. What is the value of $b + c$?",
+          diagram: {
+            type: "parabola",
+            params: {
+              vertex: { h: 3, k: -5 },
+              a: 2,
+              xRange: [-2, 8],
+              yRange: [-8, 16],
+              xTickInterval: 2,
+              yTickInterval: 2,
+              gridInterval: 1,
+              showVertex: true,
+              highlightPoints: [[0, 13]],
+              label: "y = f(x)"
+            }
+          },
           correctAnswer: 1,
-          explanation: "**The correct answer is $1$.** Use the vertex to write the function, then expand.\n\n**Step 1: Write in vertex form**\nSince $a = 2$ and vertex $= (3, -5)$:\n$f(x) = 2(x - 3)^2 - 5$\n\n**Step 2: Expand**\n$f(x) = 2(x^2 - 6x + 9) - 5 = 2x^2 - 12x + 18 - 5 = 2x^2 - 12x + 13$\n\n**Step 3: Identify $b$ and $c$**\n$b = -12$ and $c = 13$\n\n**Step 4: Calculate $b + c$**\n$b + c = -12 + 13 = 1$\n\n**Verification:**\n• $f(0) = 2(0) - 12(0) + 13 = 13$ ✓\n• Vertex at $x = \\frac{-(-12)}{2(2)} = 3$, $f(3) = 18 - 36 + 13 = -5$ ✓\n\n**Key concept:** Use vertex form $a(x - h)^2 + k$ to build the equation, then expand to standard form to identify $b$ and $c$.",
+          explanation: "**The correct answer is $1$.** Read the vertex and a point from the graph, then use vertex form.\n\n**Step 1: Read the graph**\nFrom the graph, the vertex is at $(3, -5)$ and the curve passes through $(0, 13)$.\n\n**Step 2: Write in vertex form**\nSince $a = 2$ and vertex $= (3, -5)$:\n$f(x) = 2(x - 3)^2 - 5$\n\n**Step 3: Expand**\n$f(x) = 2(x^2 - 6x + 9) - 5 = 2x^2 - 12x + 18 - 5 = 2x^2 - 12x + 13$\n\n**Step 4: Identify $b$ and $c$**\n$b = -12$ and $c = 13$\n\n**Step 5: Calculate $b + c$**\n$b + c = -12 + 13 = 1$\n\n**Verification:**\n• $f(0) = 2(0) - 12(0) + 13 = 13$ ✓ (matches the point on the graph)\n• Vertex at $x = \\frac{-(-12)}{2(2)} = 3$, $f(3) = 18 - 36 + 13 = -5$ ✓\n\n**Key concept:** Read key features (vertex, intercepts) from the graph, then use vertex form $a(x - h)^2 + k$ to build the equation and expand to standard form.",
           skills: ['Advanced Math', 'Quadratic Equations']
         },
         // Question 20: Parabola-line system — exactly one intersection

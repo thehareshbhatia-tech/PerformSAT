@@ -155,7 +155,7 @@ export const practiceTest11 = {
           id: 'pt11-m1-q8',
           type: 'multiple-choice',
           difficulty: 'medium',
-          question: 'The graph above shows the estimated number of gallons of water remaining in a tank as a function of the number of hours since the tank began draining. The $y$-intercept is at $(0, 500)$. What is the best interpretation of the $y$-intercept in this context?',
+          question: 'The graph above shows the estimated number of gallons of water remaining in a tank as a function of the number of hours since the tank began draining. What is the best interpretation of the $y$-intercept in this context?',
           diagram: {
             type: 'linearGraph',
             params: {
@@ -176,7 +176,7 @@ export const practiceTest11 = {
             { id: 'D', text: 'The tank loses $25$ gallons every $500$ hours.' }
           ],
           correctAnswer: 'B',
-          explanation: '**Choice B is correct.** The $y$-intercept occurs at $x = 0$, representing the initial condition.\n\n**Step 1: Interpret the axes**\nThe $x$-axis represents hours since draining began, and the $y$-axis represents gallons remaining.\n\n**Step 2: Interpret the $y$-intercept $(0, 500)$**\nAt $x = 0$ (when draining began), the tank had $500$ gallons.\n\n**Why other choices are incorrect:**\n• Choice A: Describes a rate, not a starting value — the rate is the slope, not the $y$-intercept\n• Choice C: $500$ is the initial amount, not the time to drain completely\n• Choice D: Confuses the $y$-intercept value with a rate description\n\n**Key concept:** The $y$-intercept represents the initial value — the value of $y$ when $x = 0$. In context, interpret what "$x = 0$" means.',
+          explanation: '**Choice B is correct.** Read the $y$-intercept from the graph, then interpret it in context.\n\n**Step 1: Read the graph**\nFrom the graph, the $y$-intercept is at $(0, 500)$.\n\n**Step 2: Interpret the axes**\nThe $x$-axis represents hours since draining began, and the $y$-axis represents gallons remaining.\n\n**Step 3: Interpret the $y$-intercept**\nAt $x = 0$ (when draining began), the tank had $500$ gallons.\n\n**Why other choices are incorrect:**\n• Choice A: Describes a rate, not a starting value — the rate is the slope, not the $y$-intercept\n• Choice C: $500$ is the initial amount, not the time to drain completely\n• Choice D: Confuses the $y$-intercept value with a rate description\n\n**Key concept:** Read the $y$-intercept from the graph, then interpret what "$x = 0$" means in context. The $y$-intercept represents the initial value.',
           skills: ['Functions', 'Graph Interpretation']
         },
         {

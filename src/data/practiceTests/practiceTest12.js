@@ -101,7 +101,7 @@ export const practiceTest12 = {
           id: 'pt12-m1-q6',
           type: 'multiple-choice',
           difficulty: 'medium',
-          question: 'The graph above shows the estimated revenue, in thousands of dollars, for a new business as a function of the number of months since it opened. The $y$-intercept is $(0, 5)$ and the line passes through $(12, 41)$. What does the slope of the line represent in this context?',
+          question: 'The graph above shows the estimated revenue, in thousands of dollars, for a new business as a function of the number of months since it opened. What does the slope of the line represent in this context?',
           diagram: {
             type: 'linearGraph',
             params: {
@@ -122,7 +122,7 @@ export const practiceTest12 = {
             { id: 'D', text: 'The business will earn \\$41,000 after $12$ months.' }
           ],
           correctAnswer: 'A',
-          explanation: '**Choice A is correct.** The slope represents the rate of change of revenue over time.\n\n**Step 1: Calculate the slope**\n$\\text{Slope} = \\frac{41 - 5}{12 - 0} = \\frac{36}{12} = 3$ (thousands of dollars per month)\n\n**Step 2: Interpret in context**\nSince $y$ is in thousands of dollars and $x$ is in months, a slope of $3$ means the revenue increases by $3$ thousand dollars ($\\$3{,}000$) per month.\n\n**Why other choices are incorrect:**\n• Choice B: Confuses the $y$-intercept ($5$) with the slope\n• Choice C: Describes the $y$-intercept, not the slope\n• Choice D: Describes a specific point on the line, not what the slope represents\n\n**Key concept:** The slope of a linear model represents the rate of change — how much $y$ changes per unit increase in $x$.',
+          explanation: '**Choice A is correct.** Read two points from the graph to calculate the slope, then interpret it.\n\n**Step 1: Read the graph**\nFrom the graph, the line passes through $(0, 5)$ and $(12, 41)$.\n\n**Step 2: Calculate the slope**\n$\\text{Slope} = \\frac{41 - 5}{12 - 0} = \\frac{36}{12} = 3$ (thousands of dollars per month)\n\n**Step 3: Interpret in context**\nSince $y$ is in thousands of dollars and $x$ is in months, a slope of $3$ means the revenue increases by $3$ thousand dollars ($\\$3{,}000$) per month.\n\n**Why other choices are incorrect:**\n• Choice B: Confuses the $y$-intercept ($5$) with the slope\n• Choice C: Describes the $y$-intercept, not the slope\n• Choice D: Describes a specific point on the line, not what the slope represents\n\n**Key concept:** Read two points from the graph to calculate the slope. The slope of a linear model represents the rate of change — how much $y$ changes per unit increase in $x$.',
           skills: ['Functions', 'Graph Interpretation', 'Slope']
         },
         {

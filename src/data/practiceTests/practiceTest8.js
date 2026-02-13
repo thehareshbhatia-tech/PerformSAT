@@ -507,9 +507,24 @@ export const practiceTest8 = {
           id: 'pt8-m2-q11',
           type: 'fill-in',
           difficulty: 'hard',
-          question: 'The function $f$ is defined by $f(x) = 2x^2 + bx + c$, where $b$ and $c$ are constants. In the $xy$-plane, the graph of $y = f(x)$ passes through the points $(7, 0)$ and $(-3, 0)$. What is the value of $b + c$?',
+          question: 'The function $f$ is defined by $f(x) = 2x^2 + bx + c$, where $b$ and $c$ are constants. The graph of $y = f(x)$ in the $xy$-plane is shown. What is the value of $b + c$?',
+          diagram: {
+            type: 'parabola',
+            params: {
+              vertex: { h: 2, k: -50 },
+              a: 2,
+              xRange: [-5, 9],
+              yRange: [-55, 10],
+              xTickInterval: 2,
+              yTickInterval: 10,
+              gridInterval: 1,
+              showVertex: false,
+              highlightPoints: [[-3, 0], [7, 0]],
+              label: 'y = f(x)'
+            }
+          },
           correctAnswer: '-50',
-          explanation: '**The correct answer is $-50$.** Use the roots to find $b$ and $c$.\n\n**Step 1: Write $f(x)$ using the roots**\nSince $f(7) = 0$ and $f(-3) = 0$, the roots are $7$ and $-3$:\n$f(x) = 2(x - 7)(x + 3)$\n\n**Step 2: Expand**\n$f(x) = 2(x^2 + 3x - 7x - 21) = 2(x^2 - 4x - 21)$\n$f(x) = 2x^2 - 8x - 42$\n\n**Step 3: Identify $b$ and $c$**\n$b = -8$ and $c = -42$\n\n**Step 4: Calculate $b + c$**\n$b + c = -8 + (-42) = -50$\n\n**Verification:** $f(7) = 2(49) - 8(7) - 42 = 98 - 56 - 42 = 0$ ✓\n$f(-3) = 2(9) - 8(-3) - 42 = 18 + 24 - 42 = 0$ ✓\n\n**Key concept:** If a quadratic $ax^2 + bx + c$ has roots $r$ and $s$, it can be written as $a(x - r)(x - s)$. Expand to find $b$ and $c$.',
+          explanation: '**The correct answer is $-50$.** Read the x-intercepts from the graph, then use the roots to find $b$ and $c$.\n\n**Step 1: Read the graph**\nFrom the graph, the parabola crosses the $x$-axis at $x = -3$ and $x = 7$.\n\n**Step 2: Write $f(x)$ using the roots**\nSince $f(-3) = 0$ and $f(7) = 0$, with leading coefficient $2$:\n$f(x) = 2(x - 7)(x + 3)$\n\n**Step 3: Expand**\n$f(x) = 2(x^2 + 3x - 7x - 21) = 2(x^2 - 4x - 21)$\n$f(x) = 2x^2 - 8x - 42$\n\n**Step 4: Identify $b$ and $c$**\n$b = -8$ and $c = -42$\n\n**Step 5: Calculate $b + c$**\n$b + c = -8 + (-42) = -50$\n\n**Verification:** $f(7) = 2(49) - 8(7) - 42 = 98 - 56 - 42 = 0$ ✓\n$f(-3) = 2(9) - 8(-3) - 42 = 18 + 24 - 42 = 0$ ✓\n\n**Key concept:** Read the $x$-intercepts from the graph to identify the roots. If a quadratic $ax^2 + bx + c$ has roots $r$ and $s$, it can be written as $a(x - r)(x - s)$. Expand to find $b$ and $c$.',
           skills: ['Advanced Math', 'Quadratic Equations']
         },
         {

@@ -337,7 +337,7 @@ export const practiceTest4 = {
           id: 1,
           type: 'multiple-choice',
           difficulty: 'easy',
-          question: 'Helium is placed inside a container with a constant volume. The graph shows the estimated pressure $y$, in kilopascals (kPa), of the helium when its temperature is $x$ kelvins. The relationship is linear, passing through $(0, 0)$ and $(400, 80)$. What is the estimated pressure of the helium, in kPa, when the temperature is $500$ kelvins?',
+          question: 'Helium is placed inside a container with a constant volume. The graph shows the estimated pressure $y$, in kilopascals (kPa), of the helium when its temperature is $x$ kelvins. What is the estimated pressure of the helium, in kPa, when the temperature is $500$ kelvins?',
           diagram: {
             type: "linearGraph",
             params: {
@@ -358,7 +358,7 @@ export const practiceTest4 = {
             { id: 'D', text: '$500$' }
           ],
           correctAnswer: 'B',
-          explanation: '**Choice B is correct.** Find the equation of the line, then evaluate at $x = 500$.\n\n**Step 1: Find the slope**\nUsing the points $(0, 0)$ and $(400, 80)$:\n$\\text{slope} = \\frac{80 - 0}{400 - 0} = \\frac{80}{400} = 0.2$ kPa per kelvin.\n\n**Step 2: Write the equation**\nSince the line passes through the origin: $y = 0.2x$.\n\n**Step 3: Evaluate at $x = 500$**\n$y = 0.2 \\times 500 = 100$ kPa.\n\n**Why other choices are incorrect:**\n• Choice A ($80$): This is the pressure at $400$ K, not $500$ K\n• Choice C ($400$): This is a temperature value, not a pressure\n• Choice D ($500$): This is the input temperature, not the output pressure\n\n**Key concept:** For a linear relationship through the origin, $y = mx$. The slope $m = \\frac{\\Delta y}{\\Delta x}$ gives the rate of change.',
+          explanation: '**Choice B is correct.** Read key points from the graph, find the equation, then evaluate at $x = 500$.\n\n**Step 1: Read the graph**\nFrom the graph, the line passes through $(0, 0)$ and $(400, 80)$.\n\n**Step 2: Find the slope**\n$\\text{slope} = \\frac{80 - 0}{400 - 0} = \\frac{80}{400} = 0.2$ kPa per kelvin.\n\n**Step 3: Write the equation**\nSince the line passes through the origin: $y = 0.2x$.\n\n**Step 4: Evaluate at $x = 500$**\n$y = 0.2 \\times 500 = 100$ kPa.\n\n**Why other choices are incorrect:**\n• Choice A ($80$): This is the pressure at $400$ K, not $500$ K\n• Choice C ($400$): This is a temperature value, not a pressure\n• Choice D ($500$): This is the input temperature, not the output pressure\n\n**Key concept:** Read coordinates from the graph to determine the linear equation, then use it to predict values beyond what is shown.',
           skills: ["slope-intercept-form", "function-evaluation"]
         },
         {
