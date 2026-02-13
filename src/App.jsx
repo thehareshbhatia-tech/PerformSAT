@@ -624,37 +624,39 @@ const PerformSAT = () => {
             </div>
           )}
 
-          {/* YouTube Player with timestamp tracking */}
+          {/* Video Player + AI Chat Side-by-Side */}
           <div style={{
-            position: 'relative',
-            paddingBottom: '56.25%',
-            height: 0,
-            borderRadius: design.radius.md,
-            overflow: 'hidden',
-            background: '#000'
+            display: 'flex',
+            gap: '20px',
+            alignItems: 'stretch',
           }}>
-            <div
-              id="youtube-player"
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%'
-              }}
-            />
-          </div>
+            {/* LEFT: YouTube Player */}
+            <div style={{
+              flex: '1 1 0',
+              minWidth: 0,
+              borderRadius: design.radius.md,
+              overflow: 'hidden',
+              background: '#000',
+            }}>
+              <div
+                id="youtube-player"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                }}
+              />
+            </div>
 
-          {/* Ask Perform Button and Chat - below video */}
-          <div style={{ marginTop: '48px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <AiTutorButton
-              onClick={() => setShowAiTutor(!showAiTutor)}
-              isOpen={showAiTutor}
-            />
-            <div style={{ width: '100%' }}>
+            {/* RIGHT: Always-open AI Tutor Chat */}
+            <div style={{
+              flex: '1 1 0',
+              minWidth: 0,
+              display: 'flex',
+              flexDirection: 'column',
+            }}>
               <AiTutorChat
-                isOpen={showAiTutor}
-                onClose={() => setShowAiTutor(false)}
+                isOpen={true}
+                onClose={() => {}}
                 moduleId={activeModule}
                 lessonId={activeLesson}
                 lessonTitle={currentLesson?.title}
@@ -9173,7 +9175,7 @@ const PerformSAT = () => {
 
       {/* Main Content */}
       <main style={{
-        maxWidth: view === 'takingTest' ? '100%' : (view === 'dashboard' || view === 'practiceTests') ? '960px' : '800px',
+        maxWidth: view === 'takingTest' ? '100%' : view === 'lesson' ? '1100px' : (view === 'dashboard' || view === 'practiceTests') ? '960px' : '800px',
         margin: '0 auto',
         padding: view === 'takingTest' ? '110px 0px 60px' : '140px 32px 100px'
       }}>
