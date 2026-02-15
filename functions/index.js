@@ -217,7 +217,7 @@ exports.aiTutor = onRequest(
           headers: {
             "Content-Type": "application/json",
             "x-api-key": apiKey,
-            "anthropic-version": "2025-04-15",
+            "anthropic-version": "2023-06-01",
           },
           body: JSON.stringify({
             model: "claude-sonnet-4-5-20250929",
