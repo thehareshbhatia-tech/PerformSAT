@@ -279,38 +279,42 @@ export const buildSkillContextForAI = (skillProgress, currentSkills) => {
     return {
       skillId,
       name: skill?.name || skillId,
+      domain: skill?.domain || 'unknown',
       mastery: data.mastery,
       trend: getSkillTrend(data),
       confidence: data.confidenceLevel,
-      attempts: data.attempts
+      attempts: data.attempts,
+      recentAccuracy: data.recentScores ? (data.recentScores.slice(-3).reduce((a, b) => a + b, 0) / Math.min(data.recentScores.length, 3) * 100).toFixed(0) : null
     };
   }).filter(Boolean);
 
   if (relevantSkills.length === 0) return '';
 
   let context = `
-[STUDENT SKILL CONTEXT]
-The student's performance on skills related to this question:
+[STUDENT SKILL PROFILE — USE THIS TO PERSONALIZE YOUR RESPONSE]
+This student's performance on the skills tested by this question:
 ${relevantSkills.map(s =>
-    `- ${s.name}: ${s.mastery}% mastery (${s.confidence} confidence, ${s.trend} trend, ${s.attempts} attempts)`
+    `- ${s.name} (${s.domain}): ${s.mastery}% mastery | ${s.trend} trend | ${s.attempts} attempts | confidence: ${s.confidence}${s.recentAccuracy ? ` | last 3 accuracy: ${s.recentAccuracy}%` : ''}`
   ).join('\n')}
 `;
 
-  // Add behavioral notes for the AI
+  // Add strategic coaching notes based on student profile
   const hasDeclining = relevantSkills.some(s => s.trend === 'declining');
   const hasLowConfidence = relevantSkills.some(s => s.confidence === 'low');
   const hasStruggling = relevantSkills.some(s => s.mastery < 40);
-
-  if (hasDeclining) {
-    context += '\nNOTE: Student is showing declining performance on this topic. Be encouraging, patient, and suggest trying simpler examples first.';
-  }
-
-  if (hasLowConfidence) {
-    context += '\nNOTE: Student has low confidence in this area (few attempts). Explain concepts thoroughly and offer to break things down step-by-step.';
-  }
+  const hasStrong = relevantSkills.some(s => s.mastery > 75);
+  const hasModerate = relevantSkills.some(s => s.mastery >= 40 && s.mastery <= 75);
 
   if (hasStruggling) {
-    context += '\nNOTE: Student is struggling with this concept (<40% mastery). Start with fundamentals, use very simple language, and give concrete examples.';
+    context += '\nTUTORING APPROACH: This student is struggling with this concept (<40% mastery). Start with the foundational idea before any technique. Use a simple, concrete example first. Be patient and encouraging — frame mistakes as learning, not failure. Avoid jargon. If explaining a solution, walk through every single step.';
+  } else if (hasDeclining) {
+    context += '\nTUTORING APPROACH: This student was doing better before but is now declining. They likely have a partial understanding with a specific gap or misconception. Try to identify what they might be confusing (common: sign errors, formula mix-ups, misreading what the question asks). Be encouraging — they have the foundation, they just need to fix one thing.';
+  } else if (hasLowConfidence) {
+    context += '\nTUTORING APPROACH: This student has few attempts on this skill — they are still building familiarity. Explain concepts thoroughly and offer to break things down step-by-step. Build their confidence by connecting to things they already know.';
+  } else if (hasStrong) {
+    context += '\nTUTORING APPROACH: This student is strong on this skill (75%+ mastery). Be concise — they do not need basics explained. Focus on speed optimization, edge cases, and advanced strategies (Desmos tricks, elimination shortcuts, time-saving techniques). Challenge them to find the fastest solve path.';
+  } else if (hasModerate) {
+    context += '\nTUTORING APPROACH: This student has a solid foundation but is not yet consistent. Focus on the specific step or concept where they tend to make errors. Reinforce the pattern recognition — help them categorize the question type quickly so they know which approach to use.';
   }
 
   return context;
