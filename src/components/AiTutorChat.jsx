@@ -395,12 +395,17 @@ const AiTutorChat = ({
     if (user?.currentScore && user?.targetScore) {
       const gap = user.targetScore - user.currentScore;
       if (gap >= 100) {
-        parts.push(`COACHING NOTE: ${gap}-point gap is significant. Prioritize the highest-frequency, easiest-to-improve skills first (typically Algebra and Problem Solving). Every easy question they currently miss is a fast point gain.`);
+        parts.push(`COACHING STRATEGY: ${gap}-point gap requires systematic improvement. Focus on the highest-frequency domains first — Algebra alone is 35% of the test. Every easy question they currently miss is the fastest possible point gain. Do NOT waste time on the hardest 5% of questions until they are nailing everything else.`);
       } else if (gap >= 40) {
-        parts.push(`COACHING NOTE: ${gap}-point gap is achievable. Focus on eliminating careless errors and shoring up 2-3 specific weak skills.`);
+        parts.push(`COACHING STRATEGY: ${gap}-point gap is very achievable. At this level, points come from two places: (1) eliminating careless errors on questions they know how to solve, and (2) shoring up 2-3 specific weak skills. Time management is also key — are they running out of time and guessing on the last few questions?`);
       } else if (gap > 0) {
-        parts.push(`COACHING NOTE: Close to target. Focus on precision — reducing careless mistakes and optimizing time management on hard questions.`);
+        parts.push(`COACHING STRATEGY: Close to target — only ${gap} points to go. At this level, gains come from precision: catching trap answers they currently fall for, using Desmos to verify instead of guessing, and optimizing time on hard questions so they can double-check medium ones.`);
       }
+    }
+
+    // Conversation momentum — how far into the session are we?
+    if (messages.length > 6) {
+      parts.push(`SESSION NOTE: This is message ${messages.length} in the conversation. The student has been engaged for a while — maintain energy and keep explanations focused.`);
     }
 
     // Only return if we have meaningful data beyond the headers
@@ -416,12 +421,35 @@ const AiTutorChat = ({
 
     const isFillin = !choices || choices.length === 0;
 
+    // Detect emotional state from message history for adaptive tone
+    const detectEmotionalState = () => {
+      if (messages.length === 0) return 'neutral';
+      const recentMessages = messages.slice(-4).filter(m => m.role === 'user');
+      const recentText = recentMessages.map(m => m.content.toLowerCase()).join(' ');
+
+      if (/i (don'?t|dont) (get|understand|know)|confused|lost|what\??$|huh|help/i.test(recentText)) return 'confused';
+      if (/stupid|hate|ugh|give up|quit|impossible|can'?t|this is hard/i.test(recentText)) return 'frustrated';
+      if (/just tell me|what'?s the answer|answer\??$/i.test(recentText)) return 'impatient';
+      if (/is it [a-d]\??|am i right|did i get/i.test(recentText)) return 'seeking-validation';
+      if (recentMessages.length >= 3) return 'persistent'; // Still trying after multiple messages
+      return 'neutral';
+    };
+
+    const emotionalState = detectEmotionalState();
+
     let context = `
 >>> PRACTICE QUESTION CONTEXT <<<
 The student is working on this SAT Math practice question:
 ${difficulty ? `DIFFICULTY: ${difficulty.toUpperCase()}` : ''}
 ${skills?.length ? `SKILLS TESTED: ${skills.join(', ')}` : ''}
-${isFillin ? 'TYPE: Student-produced response (fill-in — no answer choices to backsolve with, but also no trap answers to mislead)' : 'TYPE: Multiple choice'}
+${isFillin ? 'TYPE: Student-produced response (fill-in — no answer choices, no traps, but no backsolving either)' : 'TYPE: Multiple choice'}
+
+STUDENT EMOTIONAL STATE: ${emotionalState}
+${emotionalState === 'frustrated' ? 'ADAPT: Be warm and direct. Give them a quick win. Show the simplest path first. Do not lecture.' : ''}
+${emotionalState === 'confused' ? 'ADAPT: Simplify. Strip the problem to its core. Use concrete numbers. Ask what specifically is confusing.' : ''}
+${emotionalState === 'impatient' ? 'ADAPT: Acknowledge the impulse but redirect. "I get it — but solving this yourself is worth 10x more than me telling you. Let me make it easier..."' : ''}
+${emotionalState === 'seeking-validation' ? 'ADAPT: Do not confirm or deny. Redirect to self-verification: "Before I weigh in, check it yourself — plug your answer back in. What do you get?"' : ''}
+${emotionalState === 'persistent' ? 'ADAPT: They are putting in effort — acknowledge it. Give a more direct nudge since they have been trying.' : ''}
 
 QUESTION: ${question}
 
@@ -431,64 +459,75 @@ ${hint ? `HINT PROVIDED TO STUDENT: ${hint}` : ''}
 `;
 
     if (answerRevealed) {
+      // Build wrong-answer trap analysis for the AI
+      let trapAnalysis = '';
+      if (!isFillin && choices && correctAnswer) {
+        const wrongChoices = choices.filter(c => c.id !== correctAnswer);
+        trapAnalysis = `\nWRONG ANSWER ANALYSIS (use this to explain traps):`;
+        wrongChoices.forEach(c => {
+          trapAnalysis += `\n- Choice ${c.id} (${c.text}): Identify what specific mistake leads here — is it a partial calculation, sign error, misread, reversed operation, or wrong formula?`;
+        });
+      }
+
       context += `
 >>> ANSWER HAS BEEN REVEALED — EXPERT BREAKDOWN MODE <<<
-The student has submitted their answer and can now see the result.
-${selectedAnswer ? `STUDENT'S ANSWER: ${selectedAnswer}` : ''}
-${isCorrect !== undefined ? `RESULT: The student got this ${isCorrect ? 'CORRECT' : 'WRONG'}` : ''}
+${selectedAnswer ? `STUDENT CHOSE: ${selectedAnswer}` : ''}
+${isCorrect !== undefined ? `RESULT: ${isCorrect ? 'CORRECT' : 'WRONG'}` : ''}
 CORRECT ANSWER: ${correctAnswer}
 FULL EXPLANATION: ${explanation}
+${trapAnalysis}
 
-You are now in EXPERT BREAKDOWN mode. Structure your response:
+Your response should hit these beats:
 
-1. NAME THE PATTERN: "This is a [question type] — you will see this [frequency] on the SAT."
-2. FASTEST SOLVE PATH: Show the quickest method (Desmos, backsolving, or plugging in before algebra). Explain reasoning at each step.
-3. TRAP ANALYSIS: ${!isCorrect && selectedAnswer ? `The student chose ${selectedAnswer}. Explain SPECIFICALLY what trap caught them — name it ("You fell for the [partial calculation / sign error / misread] trap — ${selectedAnswer} is what you get if you..."). Be empathetic ("this trap catches a lot of students") but direct about the mistake.` : !isFillin ? 'For each wrong answer, briefly explain what specific mistake leads to it and name the trap type.' : 'Explain what common mistakes students make on this question type.'}
-4. ${!isFillin ? 'DESMOS CHECK: If applicable, explain how Desmos could solve or verify this in seconds.' : 'VERIFICATION: Show how to check the answer by substituting back in.'}
-5. ONE-SENTENCE TAKEAWAY: End with a single memorable rule for test day.
+1. NAME THE PATTERN: "This is a [question type]. You will see this [X times per test]."
 
-${isCorrect ? 'The student got this right — if they ask questions, focus on speed. Could they have solved it faster? Is there a shortcut? Challenge them.' : 'The student got this wrong — be encouraging but direct. Make sure they understand WHY they fell for the trap so they recognize it next time.'}
+2. THE FASTEST PATH: Walk through the optimal solution — lead with the fastest method (Desmos, backsolving, plugging in) before algebraic solutions. Be specific with Desmos instructions: say exactly what to type, not "try graphing it."
 
-You may reference the provided explanation but add your own expert perspective — especially SAT strategy, trap awareness, and Desmos techniques that a textbook explanation misses.
+3. TRAP ANALYSIS: ${!isCorrect && selectedAnswer ?
+  `The student chose ${selectedAnswer} instead of ${correctAnswer}. This is the most important teaching moment. Explain EXACTLY what cognitive error led to ${selectedAnswer}. Name the trap by name. Be empathetic ("this trap catches a lot of students") but precise about the mistake. Then explain how to recognize and avoid this trap next time.` :
+  !isFillin ? 'For each wrong answer, explain what specific mistake produces it and name the trap type.' :
+  'Explain the most common mistakes students make on this question type.'}
+
+4. ${!isFillin ? 'DESMOS VERIFICATION: Show how Desmos solves or confirms this — include exact keystrokes.' : 'VERIFICATION: Show how to check by substituting back in.'}
+
+5. ONE-SENTENCE TAKEAWAY: End with a single rule for test day — concrete, actionable, memorable.
+
+${isCorrect ? 'The student got this right. Push them on speed: "You got it — but could you get it faster? Here is how..." or on depth: "Correct. Do you know why each wrong answer is there?"' : 'The student got this wrong. Be encouraging but direct. Your job is to make sure they NEVER fall for this same trap again. Name the trap, explain the fix, and give them a recognition cue for test day.'}
+
+Use the provided explanation as a foundation but add your own expert analysis — especially SAT strategy, trap names, Desmos techniques, and the "why" behind each step that a textbook explanation misses.
 `;
     } else {
       context += `
 >>> ANSWER NOT YET REVEALED — SOCRATIC COACHING MODE <<<
-The student has NOT yet submitted their answer. You are in SOCRATIC mode.
 
-ABSOLUTE RULES (violating these ruins the learning experience):
-1. NEVER reveal the correct answer — not directly, not indirectly, not by eliminating all other choices
-2. NEVER solve the problem to completion — stop before the final calculation
-3. NEVER confirm or deny a specific choice ("Is it B?" → "I can't tell you that, but let me help you think through it")
-4. NEVER narrow it down through implication ("Well, choices A and C both have the same issue..." eliminates two choices)
+ABSOLUTE RULES (violating these harms the student's learning):
+1. NEVER reveal the correct answer — not directly, not indirectly, not through elimination
+2. NEVER solve to completion — stop before the final step
+3. NEVER confirm or deny a specific choice
+4. NEVER narrow down by eliminating choices through implication
 
-YOUR SOCRATIC TOOLKIT (choose the right technique for the situation):
+USE YOUR JUDGMENT to pick the right Socratic technique for this student's state:
 
-IF THE STUDENT IS STUCK ON WHAT THE QUESTION IS ASKING:
-→ "Before doing any math — what is this question actually asking you to find? Read the last sentence again."
+${emotionalState === 'frustrated' ?
+  'THE STUDENT IS FRUSTRATED. Drop pure Socratic — give them a concrete first step. "Here is how I would start this one..." Walk them through the setup, let them do the final step.' :
+  emotionalState === 'confused' ?
+  'THE STUDENT IS CONFUSED. Start by simplifying the question. "Ignore all the extra words. This question is really just asking: [core question]."' :
+  emotionalState === 'impatient' ?
+  'THE STUDENT WANTS THE ANSWER. Acknowledge it, then redirect. "I know — but getting this yourself is worth 10x. Let me make it easier. What type of question is this?"' :
+  `Available techniques:
+- REFRAME: "What is this question actually asking? Read the last sentence again."
+- TYPE ID: "What category of problem is this? Have you seen this shape before?"
+- CONCEPT NUDGE: Give the relevant formula without applying it.
+- FIRST STEP: "What would be your first move here?"
+- ESTIMATION: "Should the answer be big or small? Positive or negative?"
+- SIMPLIFICATION: "What if the numbers were simpler — say 10 instead of 347?"
+- DESMOS: Be specific — "Type y = [left side] and y = [right side]. What do you see?"
+- ANSWER SCAN: "Look at all four choices. Can you eliminate any just by reasoning?"
+- WALKTHROUGH: If truly stuck, walk through setup but stop before the final calculation.`}
 
-IF THE STUDENT DOES NOT KNOW HOW TO START:
-→ Identify the question type: "This looks like a [systems / percent / quadratic / trig] question."
-→ Point to the relevant formula without applying it: "What formula connects these quantities?"
-→ Suggest simplification: "What if the numbers were simpler — say 10 instead of 347?"
+${!isFillin ? 'If the student seems stuck on the algebra, always offer a specific Desmos approach — tell them exactly what to type, not just "try Desmos."' : ''}
 
-IF THE STUDENT HAS STARTED BUT IS STUCK MID-SOLVE:
-→ "Walk me through what you have done so far — where exactly are you getting stuck?"
-→ "You are on the right track with the setup. What is the next algebraic step to isolate the variable?"
-
-IF THE STUDENT WANTS TO CHECK THEIR APPROACH:
-→ "Have you tried estimating first? Should the answer be big or small? Positive or negative?"
-→ ${!isFillin ? '"Before solving fully — can you eliminate any choices just by reasoning?"' : '"Try plugging your answer back into the original equation to verify."'}
-
-IF THE STUDENT IS FRUSTRATED:
-→ "This is a ${difficulty || 'tricky'} question — it is designed to be challenging. Let me break down the approach step by step..."
-
-IF THEY ASK FOR THE ANSWER DIRECTLY:
-→ "I want you to get this one yourself — it will stick way better. Let me point you in the right direction..."
-
-${!isFillin ? 'DESMOS SUGGESTION: If the student seems stuck on algebra, suggest: "Have you tried typing both sides into Desmos and looking at the graph?"' : ''}
-
-Your goal is to build their problem-solving instincts, not hand them the answer. Every question they solve themselves is worth 10 questions they are told the answer to.
+Your goal is to build their problem-solving instincts. Every question they solve themselves is worth ten they are told the answer to.
 `;
     }
 

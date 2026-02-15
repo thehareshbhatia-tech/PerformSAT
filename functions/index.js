@@ -164,13 +164,20 @@ async function fetchFromYouTube(videoId) {
 }
 
 /**
- * AI Tutor endpoint - proxies requests to Anthropic Claude API
- * This keeps the API key secure on the server
+ * AI Tutor endpoint — proxies requests to Anthropic Claude API
+ *
+ * v2.0: Extended thinking enabled.
+ * The model now reasons through each math problem internally before responding —
+ * like a tutor working the problem on scratch paper before explaining it.
+ * This catches math errors, finds the fastest solution path, and produces
+ * dramatically sharper explanations and Socratic guidance.
  */
 exports.aiTutor = onRequest(
   {
     cors: true,
     secrets: [anthropicApiKey],
+    timeoutSeconds: 120,
+    memory: "512MiB",
   },
   async (request, response) => {
     // Only allow POST requests
@@ -180,7 +187,7 @@ exports.aiTutor = onRequest(
     }
 
     try {
-      const { messages, system } = request.body;
+      const { messages, system, thinking_budget } = request.body;
 
       if (!messages || !Array.isArray(messages)) {
         response.status(400).json({ error: "Messages array is required" });
@@ -196,7 +203,13 @@ exports.aiTutor = onRequest(
         return;
       }
 
-      // Call Anthropic API
+      // Thinking budget scales with question complexity:
+      // - Simple "what is slope" questions: low budget, fast response
+      // - Complex multi-step problems: high budget, thorough reasoning
+      // - Socratic mode: high budget (must reason carefully to avoid leaking the answer)
+      const budget = thinking_budget || 10000;
+
+      // Call Anthropic API with extended thinking
       const anthropicResponse = await fetch(
         "https://api.anthropic.com/v1/messages",
         {
@@ -204,11 +217,15 @@ exports.aiTutor = onRequest(
           headers: {
             "Content-Type": "application/json",
             "x-api-key": apiKey,
-            "anthropic-version": "2023-06-01",
+            "anthropic-version": "2025-04-15",
           },
           body: JSON.stringify({
             model: "claude-sonnet-4-5-20250929",
-            max_tokens: 2048,
+            max_tokens: 16000,
+            thinking: {
+              type: "enabled",
+              budget_tokens: budget
+            },
             system: system || "",
             messages: messages,
           }),
@@ -225,8 +242,14 @@ exports.aiTutor = onRequest(
       }
 
       const data = await anthropicResponse.json();
+
+      // Extract only the visible text (thinking blocks are internal reasoning)
+      const textBlocks = data.content.filter(block => block.type === "text");
+      const responseText = textBlocks.map(block => block.text).join("\n");
+
       response.json({
-        content: data.content[0].text,
+        content: responseText,
+        usage: data.usage,
       });
     } catch (error) {
       logger.error("AI Tutor error:", error);
