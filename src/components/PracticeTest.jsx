@@ -697,7 +697,7 @@ const renderChoice = (choice) => {
   return <MathText text={choice.text} />;
 };
 
-const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, onClearProgress, savedProgress, isTimed = true, skillProgress = null, user = null }) => {
+const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, onClearProgress, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null }) => {
   // Initialize state from saved progress if available
   const [currentModule, setCurrentModule] = useState(savedProgress?.currentModule || 0);
   const [currentQuestion, setCurrentQuestion] = useState(savedProgress?.currentQuestion || 0);
@@ -1792,6 +1792,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               isPracticeQuestion={true}
               skillProgress={skillProgress}
               testDate={user?.testDate}
+              user={user}
+              practiceTestResults={practiceTestResults}
               practiceContext={{
                 question: reviewQ?.question || '',
                 choices: reviewQ?.choices || [],

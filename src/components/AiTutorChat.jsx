@@ -7,6 +7,7 @@ import {
   generateSmartPrompts,
   buildSkillContextForAI
 } from '../services/proactiveRecommendationService';
+import { getSkillById } from '../data/skillTaxonomy';
 
 // Comprehensive markdown renderer for chat messages with full math/LaTeX support
 const renderMarkdown = (text) => {
@@ -269,7 +270,9 @@ const AiTutorChat = ({
   isPracticeQuestion = false,
   practiceContext = null,
   skillProgress = null,
-  testDate = null
+  testDate = null,
+  user = null,
+  practiceTestResults = null
 }) => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
@@ -284,64 +287,208 @@ const AiTutorChat = ({
   // Rate limiting: minimum 2 seconds between sends
   const RATE_LIMIT_MS = 2000;
 
+  // Build student profile snapshot for AI personalization
+  const buildStudentProfile = () => {
+    const parts = [];
+
+    parts.push('═══════════════════════════════════');
+    parts.push('STUDENT PROFILE — PERSONALIZE YOUR RESPONSES USING THIS');
+    parts.push('═══════════════════════════════════');
+
+    // Basic info
+    if (user?.firstName) {
+      parts.push(`Name: ${user.firstName}`);
+    }
+
+    // Score context
+    const scores = [];
+    if (user?.currentScore) scores.push(`Current SAT Math score: ${user.currentScore}`);
+    if (user?.targetScore) scores.push(`Target score: ${user.targetScore}`);
+    if (user?.currentScore && user?.targetScore) {
+      const gap = user.targetScore - user.currentScore;
+      if (gap > 0) {
+        scores.push(`Needs to gain: ${gap} points`);
+      } else {
+        scores.push(`Already at or above target`);
+      }
+    }
+    if (scores.length > 0) parts.push(scores.join(' | '));
+
+    // Test date urgency
+    if (testDate || user?.testDate) {
+      const dateStr = testDate || user.testDate;
+      const today = new Date();
+      const test = new Date(dateStr);
+      const daysUntil = Math.ceil((test - today) / (1000 * 60 * 60 * 24));
+      if (daysUntil > 0 && daysUntil <= 7) {
+        parts.push(`TEST IN ${daysUntil} DAY${daysUntil === 1 ? '' : 'S'} — Focus on confidence-building and quick wins. No time for new concepts; reinforce what they know and drill weak spots.`);
+      } else if (daysUntil > 7 && daysUntil <= 30) {
+        parts.push(`Test in ${daysUntil} days — Time for targeted improvement. Focus practice on weak areas with highest point-gain potential.`);
+      } else if (daysUntil > 30) {
+        parts.push(`Test in ${daysUntil} days — Plenty of time. Can work on building deep understanding and mastering all question types.`);
+      }
+    }
+
+    // Overall skill mastery
+    if (skillProgress && Object.keys(skillProgress).length > 0) {
+      const entries = Object.entries(skillProgress);
+      const attempted = entries.filter(([_, d]) => d.attempts >= 1);
+
+      if (attempted.length > 0) {
+        // Overall mastery
+        let totalWeighted = 0, totalWeight = 0;
+        attempted.forEach(([_, d]) => {
+          totalWeighted += d.mastery * d.attempts;
+          totalWeight += d.attempts;
+        });
+        const overallMastery = Math.round(totalWeighted / totalWeight);
+        parts.push(`Overall mastery: ${overallMastery}% across ${attempted.length} skills practiced`);
+
+        // Weak skills (mastery < 60%, at least 3 attempts)
+        const weak = entries
+          .filter(([_, d]) => d.attempts >= 3 && d.mastery < 60)
+          .sort((a, b) => a[1].mastery - b[1].mastery)
+          .slice(0, 4);
+
+        if (weak.length > 0) {
+          parts.push(`Weak areas: ${weak.map(([id, d]) => {
+            const skill = getSkillById(id);
+            return `${skill?.name || id} (${d.mastery}%)`;
+          }).join(', ')}`);
+        }
+
+        // Strong skills (mastery >= 80%, at least 3 attempts)
+        const strong = entries
+          .filter(([_, d]) => d.attempts >= 3 && d.mastery >= 80)
+          .sort((a, b) => b[1].mastery - a[1].mastery)
+          .slice(0, 3);
+
+        if (strong.length > 0) {
+          parts.push(`Strengths: ${strong.map(([id, d]) => {
+            const skill = getSkillById(id);
+            return `${skill?.name || id} (${d.mastery}%)`;
+          }).join(', ')}`);
+        }
+      }
+    }
+
+    // Practice test history
+    if (practiceTestResults && Object.keys(practiceTestResults).length > 0) {
+      const testScores = [];
+      Object.entries(practiceTestResults).forEach(([testId, results]) => {
+        if (results?.attempts && results.attempts.length > 0) {
+          const best = results.attempts.reduce((max, a) =>
+            (a.scaledScore || 0) > (max.scaledScore || 0) ? a : max, results.attempts[0]);
+          if (best.scaledScore) {
+            testScores.push(best.scaledScore);
+          }
+        }
+      });
+      if (testScores.length > 0) {
+        const avg = Math.round(testScores.reduce((a, b) => a + b, 0) / testScores.length);
+        const best = Math.max(...testScores);
+        parts.push(`Practice tests taken: ${testScores.length} | Average score: ${avg} | Best score: ${best}`);
+      }
+    }
+
+    // Strategic coaching note based on score gap
+    if (user?.currentScore && user?.targetScore) {
+      const gap = user.targetScore - user.currentScore;
+      if (gap >= 100) {
+        parts.push(`COACHING NOTE: ${gap}-point gap is significant. Prioritize the highest-frequency, easiest-to-improve skills first (typically Algebra and Problem Solving). Every easy question they currently miss is a fast point gain.`);
+      } else if (gap >= 40) {
+        parts.push(`COACHING NOTE: ${gap}-point gap is achievable. Focus on eliminating careless errors and shoring up 2-3 specific weak skills.`);
+      } else if (gap > 0) {
+        parts.push(`COACHING NOTE: Close to target. Focus on precision — reducing careless mistakes and optimizing time management on hard questions.`);
+      }
+    }
+
+    // Only return if we have meaningful data beyond the headers
+    if (parts.length <= 3) return '';
+    return parts.join('\n');
+  };
+
   // Build practice question context with smart restrictions
   const buildPracticeContext = () => {
     if (!isPracticeQuestion || !practiceContext) return '';
 
-    const { question, choices, hint, answerRevealed, correctAnswer, explanation } = practiceContext;
+    const { question, choices, hint, answerRevealed, correctAnswer, explanation, difficulty, skills, isCorrect, selectedAnswer } = practiceContext;
+
+    const isFillin = !choices || choices.length === 0;
 
     let context = `
 >>> PRACTICE QUESTION CONTEXT <<<
 The student is working on this SAT Math practice question:
+${difficulty ? `DIFFICULTY: ${difficulty.toUpperCase()}` : ''}
+${skills?.length ? `SKILLS TESTED: ${skills.join(', ')}` : ''}
+${isFillin ? 'TYPE: Student-produced response (fill-in — no answer choices to backsolve with, but also no trap answers to mislead)' : 'TYPE: Multiple choice'}
 
 QUESTION: ${question}
 
-ANSWER CHOICES:
-${choices?.map(c => `${c.id}) ${c.text}`).join('\n') || 'No choices provided (this is a fill-in-the-blank question)'}
+${!isFillin ? `ANSWER CHOICES:\n${choices.map(c => `${c.id}) ${c.text}`).join('\n')}` : ''}
 
-${hint ? `HINT PROVIDED TO STUDENT: ${hint}` : 'No hint available for this question.'}
+${hint ? `HINT PROVIDED TO STUDENT: ${hint}` : ''}
 `;
 
     if (answerRevealed) {
       context += `
 >>> ANSWER HAS BEEN REVEALED — EXPERT BREAKDOWN MODE <<<
 The student has submitted their answer and can now see the result.
+${selectedAnswer ? `STUDENT'S ANSWER: ${selectedAnswer}` : ''}
+${isCorrect !== undefined ? `RESULT: The student got this ${isCorrect ? 'CORRECT' : 'WRONG'}` : ''}
 CORRECT ANSWER: ${correctAnswer}
 FULL EXPLANATION: ${explanation}
 
-You are now in EXPERT BREAKDOWN mode. Your job is to give the kind of explanation a $500/hour SAT tutor would give:
+You are now in EXPERT BREAKDOWN mode. Structure your response:
 
-1. IDENTIFY THE PATTERN: Start by naming what type of SAT question this is (e.g., "This is a classic percent-change word problem" or "This is a systems question where they give you total quantity and total value"). This teaches the student to recognize the pattern on test day.
+1. NAME THE PATTERN: "This is a [question type] — you will see this [frequency] on the SAT."
+2. FASTEST SOLVE PATH: Show the quickest method (Desmos, backsolving, or plugging in before algebra). Explain reasoning at each step.
+3. TRAP ANALYSIS: ${!isCorrect && selectedAnswer ? `The student chose ${selectedAnswer}. Explain SPECIFICALLY what trap caught them — name it ("You fell for the [partial calculation / sign error / misread] trap — ${selectedAnswer} is what you get if you..."). Be empathetic ("this trap catches a lot of students") but direct about the mistake.` : !isFillin ? 'For each wrong answer, briefly explain what specific mistake leads to it and name the trap type.' : 'Explain what common mistakes students make on this question type.'}
+4. ${!isFillin ? 'DESMOS CHECK: If applicable, explain how Desmos could solve or verify this in seconds.' : 'VERIFICATION: Show how to check the answer by substituting back in.'}
+5. ONE-SENTENCE TAKEAWAY: End with a single memorable rule for test day.
 
-2. SHOW THE FASTEST PATH: Demonstrate the quickest way to solve this on the real SAT. If backsolving or plugging in is faster than algebra, show that method first. If Desmos can solve it in 10 seconds, explain how. The algebraic method can be secondary.
+${isCorrect ? 'The student got this right — if they ask questions, focus on speed. Could they have solved it faster? Is there a shortcut? Challenge them.' : 'The student got this wrong — be encouraging but direct. Make sure they understand WHY they fell for the trap so they recognize it next time.'}
 
-3. EXPLAIN THE TRAPS: For each wrong answer, briefly explain what specific mistake would lead a student to pick it (partial calculation, sign error, misreading the question, reversed fraction, etc.). This is how students learn to avoid traps on future questions.
-
-4. GIVE A TAKEAWAY: End with one memorable, reusable insight the student can carry to test day. Something like: "Whenever you see 'increased by X%', always add X% to 100% first — so 'increased by 150%' means multiply by 2.5, not 1.5."
-
-You may now fully explain the solution, walk through every step, and answer any follow-up questions. Reference the provided explanation but add your own expert perspective — especially strategy and trap awareness that a textbook explanation would miss.
+You may reference the provided explanation but add your own expert perspective — especially SAT strategy, trap awareness, and Desmos techniques that a textbook explanation misses.
 `;
     } else {
       context += `
 >>> ANSWER NOT YET REVEALED — SOCRATIC COACHING MODE <<<
-The student has NOT yet submitted their answer. You are in COACHING mode.
+The student has NOT yet submitted their answer. You are in SOCRATIC mode.
 
-HARD RULES (never break these):
-1. NEVER reveal the correct answer (do not say "the answer is B" or "choice C is correct")
-2. NEVER solve the problem completely — stop before the final calculation
-3. NEVER confirm or deny if a specific choice is correct ("you're on the right track" is fine, "yes, B is correct" is not)
+ABSOLUTE RULES (violating these ruins the learning experience):
+1. NEVER reveal the correct answer — not directly, not indirectly, not by eliminating all other choices
+2. NEVER solve the problem to completion — stop before the final calculation
+3. NEVER confirm or deny a specific choice ("Is it B?" → "I can't tell you that, but let me help you think through it")
+4. NEVER narrow it down through implication ("Well, choices A and C both have the same issue..." eliminates two choices)
 
-WHAT YOU CAN DO:
-- Ask "What is the question actually asking you to find?" (this alone unlocks many stuck students)
-- Identify the question type: "This looks like a [systems / percent change / circle equation] problem"
-- Remind them of the relevant formula or concept without applying it to this specific problem
-- Suggest a strategy: "Have you tried plugging the answer choices back in?" or "What if you graphed both sides on Desmos?"
-- Explain the hint in more detail if one was provided
-- Help them set up the first step: "Start by writing out what you know..."
-- If they ask for the answer directly: "I want you to crack this one — let me point you in the right direction instead..."
-- Guide with questions: "What happens when you substitute that value?" or "Do you notice anything about the coefficients?"
+YOUR SOCRATIC TOOLKIT (choose the right technique for the situation):
 
-Your goal is to build their problem-solving instincts, not hand them the answer.
+IF THE STUDENT IS STUCK ON WHAT THE QUESTION IS ASKING:
+→ "Before doing any math — what is this question actually asking you to find? Read the last sentence again."
+
+IF THE STUDENT DOES NOT KNOW HOW TO START:
+→ Identify the question type: "This looks like a [systems / percent / quadratic / trig] question."
+→ Point to the relevant formula without applying it: "What formula connects these quantities?"
+→ Suggest simplification: "What if the numbers were simpler — say 10 instead of 347?"
+
+IF THE STUDENT HAS STARTED BUT IS STUCK MID-SOLVE:
+→ "Walk me through what you have done so far — where exactly are you getting stuck?"
+→ "You are on the right track with the setup. What is the next algebraic step to isolate the variable?"
+
+IF THE STUDENT WANTS TO CHECK THEIR APPROACH:
+→ "Have you tried estimating first? Should the answer be big or small? Positive or negative?"
+→ ${!isFillin ? '"Before solving fully — can you eliminate any choices just by reasoning?"' : '"Try plugging your answer back into the original equation to verify."'}
+
+IF THE STUDENT IS FRUSTRATED:
+→ "This is a ${difficulty || 'tricky'} question — it is designed to be challenging. Let me break down the approach step by step..."
+
+IF THEY ASK FOR THE ANSWER DIRECTLY:
+→ "I want you to get this one yourself — it will stick way better. Let me point you in the right direction..."
+
+${!isFillin ? 'DESMOS SUGGESTION: If the student seems stuck on algebra, suggest: "Have you tried typing both sides into Desmos and looking at the graph?"' : ''}
+
+Your goal is to build their problem-solving instincts, not hand them the answer. Every question they solve themselves is worth 10 questions they are told the answer to.
 `;
     }
 
@@ -474,13 +621,17 @@ Your goal is to build their problem-solving instincts, not hand them the answer.
         practiceContextStr = skillContext + '\n' + practiceContextStr;
       }
 
+      // Build student profile for personalization
+      const studentProfileStr = buildStudentProfile();
+
       const response = await chatWithTutor(
         newMessages,
         moduleId,
         lessonId,
         null,
         videoContext,
-        practiceContextStr
+        practiceContextStr,
+        studentProfileStr
       );
       setMessages([...newMessages, { role: 'assistant', content: response }]);
     } catch (error) {
