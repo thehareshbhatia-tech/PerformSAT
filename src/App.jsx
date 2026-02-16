@@ -9255,6 +9255,26 @@ const PerformSAT = () => {
             savedProgress={getTestProgress(selectedPracticeTest.id)}
             skillProgress={skillProgress}
             user={user}
+            practiceTestResults={practiceTestResults}
+            completedLessons={completedLessons}
+            practiceProgress={practiceProgress}
+            onNavigateToModule={(moduleId, lessonId) => {
+              setActiveModule(moduleId);
+              if (lessonId) {
+                const lessons = allLessons[moduleId] || [];
+                const lesson = lessons.find(l => l.id === lessonId);
+                if (lesson) setActiveLesson(lesson);
+              }
+              setSelectedPracticeTest(null);
+              setView('list');
+            }}
+            onStartPractice={(moduleId, sectionName) => {
+              setActiveModule(moduleId);
+              setActiveSection(sectionName);
+              startPrescriptivePractice(moduleId, sectionName);
+              setSelectedPracticeTest(null);
+              setView('practice');
+            }}
             onBack={() => {
               setSelectedPracticeTest(null);
               setView('practiceTests');

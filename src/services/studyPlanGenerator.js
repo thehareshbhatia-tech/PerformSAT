@@ -1,0 +1,987 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * STUDY PLAN GENERATOR — The Prescriptive Engine of PerformSAT
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
+ * Takes the output of the Diagnostic Engine and creates a concrete,
+ * week-by-week study plan mapped to actual lessons and practice sections
+ * in the PerformSAT curriculum.
+ *
+ * The philosophy: Students don't need to figure out what to study.
+ * The system tells them EXACTLY what to do, in what order, and for how long.
+ *
+ * After each subsequent practice test, the plan adapts:
+ * - Skills that improved get less time
+ * - Skills that didn't improve get more time + different approach
+ * - New weaknesses discovered get added
+ * - Target date urgency increases appropriately
+ */
+
+import { allLessons } from '../data/lessons';
+import { hasQuestionsForSection, getSectionsWithQuestions } from '../data/questions';
+import { getSkillById, skillTaxonomy } from '../data/skillTaxonomy';
+import { ERROR_TYPES, ERROR_TYPE_LABELS, ERROR_TYPE_ICONS } from './diagnosticEngine';
+
+// ═══════════════════════════════════════════════════════════════════════════
+// CONSTANTS
+// ═══════════════════════════════════════════════════════════════════════════
+
+// How many minutes per day is realistic at each intensity level
+const INTENSITY_LEVELS = {
+  light:     { minutesPerDay: 20, label: 'Light', description: '20 min/day — maintaining skills', daysPerWeek: 5 },
+  moderate:  { minutesPerDay: 35, label: 'Moderate', description: '35 min/day — steady progress', daysPerWeek: 5 },
+  focused:   { minutesPerDay: 50, label: 'Focused', description: '50 min/day — significant gains', daysPerWeek: 6 },
+  intensive: { minutesPerDay: 75, label: 'Intensive', description: '75 min/day — aggressive improvement', daysPerWeek: 6 },
+  marathon:  { minutesPerDay: 100, label: 'Marathon', description: '100 min/day — maximum push', daysPerWeek: 7 },
+};
+
+// Approximate time for different activity types (in minutes)
+const ACTIVITY_DURATIONS = {
+  watchLesson: 8,         // Watch a video lesson
+  readLesson: 5,          // Read a text lesson
+  practiceSection: 15,    // Complete a 5-question practice section
+  reviewMistakes: 10,     // Review past mistakes
+  practiceTest: 70,       // Full practice test (35 min × 2 modules)
+  strategyDrill: 10,      // Trap recognition or time management drill
+};
+
+// Module to skill mapping (which modules teach which skills)
+const MODULE_SKILL_MAP = {
+  'linear-equations': ['slope-from-points', 'slope-intercept-form', 'word-problem-to-equation', 'table-to-equation', 'function-evaluation', 'parallel-line-slope', 'writing-parallel-equation', 'perpendicular-negative-reciprocal', 'writing-perpendicular-equation'],
+  'functions': ['function-notation', 'domain-restrictions', 'function-composition', 'function-interpretation'],
+  'systems': ['system-solution-types', 'setting-up-systems', 'substitution-method', 'elimination-method', 'graphing-systems', 'infinite-solutions-condition'],
+  'transformations': ['graph-transformations', 'vertical-shifts', 'horizontal-shifts', 'reflections'],
+  'exponents': ['exponent-rules', 'exponential-growth', 'exponential-decay', 'compound-interest', 'half-life'],
+  'percents': ['percents', 'percent-change', 'sequential-percent-change'],
+  'quadratics': ['factoring', 'quadratic-formula', 'completing-the-square', 'vertex-form', 'discriminant', 'quadratic-functions'],
+  'triangles': ['pythagorean-theorem', 'right-triangles', 'special-right-triangles', 'similar-triangles', 'sohcahtoa', 'trigonometry'],
+  'circles': ['circle-equations', 'completing-the-square-circles', 'arc-length', 'sector-area'],
+  'statistics': ['mean-median-mode', 'standard-deviation', 'data-interpretation', 'margin-of-error', 'two-way-tables', 'probability'],
+  'radians-degrees': ['radian-degree-conversion', 'unit-circle'],
+  'dimensional-analysis': ['unit-conversion', 'rate-problems'],
+  'equivalent-expressions': ['simplifying-expressions', 'combining-like-terms', 'polynomial-operations'],
+  'volume': ['prism-volume', 'cylinder-volume', 'cone-sphere-volume'],
+};
+
+// Reverse mapping: skill → modules that teach it
+const buildSkillToModuleMap = () => {
+  const map = {};
+  Object.entries(MODULE_SKILL_MAP).forEach(([moduleId, skills]) => {
+    skills.forEach(skillId => {
+      if (!map[skillId]) map[skillId] = [];
+      map[skillId].push(moduleId);
+    });
+  });
+  return map;
+};
+
+const SKILL_TO_MODULE_MAP = buildSkillToModuleMap();
+
+// Day names for the weekly schedule
+const DAY_NAMES = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+// ═══════════════════════════════════════════════════════════════════════════
+// MAIN STUDY PLAN GENERATOR
+// ═══════════════════════════════════════════════════════════════════════════
+
+/**
+ * Generate a complete study plan from diagnostic results.
+ *
+ * @param {Object} diagnostic - Output from diagnosticEngine.runDiagnostic()
+ * @param {Object} userProfile - { targetScore, testDate, currentScore }
+ * @param {Object} completedLessons - Student's completed lessons map
+ * @param {Object} practiceProgress - Student's practice progress map
+ * @param {Object|null} previousPlan - Previous study plan (for adaptation)
+ * @returns {Object} Complete study plan
+ */
+export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons = {}, practiceProgress = {}, previousPlan = null) => {
+  const { targetScore = 700, testDate } = userProfile;
+  const currentScore = diagnostic.score.scaled;
+  const scoreGap = Math.max(0, targetScore - currentScore);
+
+  // ═══ Calculate time constraints ═══
+  const daysUntilTest = getDaysUntil(testDate);
+  const weeksUntilTest = daysUntilTest !== null ? Math.ceil(daysUntilTest / 7) : 8; // Default 8 weeks
+  const effectiveWeeks = Math.min(Math.max(1, weeksUntilTest), 12); // Cap at 12 weeks
+
+  // ═══ Determine study intensity ═══
+  const intensity = calculateIntensity(scoreGap, daysUntilTest);
+  const intensityConfig = INTENSITY_LEVELS[intensity];
+  const minutesPerWeek = intensityConfig.minutesPerDay * intensityConfig.daysPerWeek;
+
+  // ═══ Gather all skill gaps from the diagnostic ═══
+  const skillGaps = gatherSkillGaps(diagnostic);
+
+  // ═══ Map skill gaps to specific curriculum activities ═══
+  const activities = mapGapsToActivities(skillGaps, completedLessons, practiceProgress, diagnostic);
+
+  // ═══ Add strategy activities (trap avoidance, time management, etc.) ═══
+  const strategyActivities = generateStrategyActivities(diagnostic);
+
+  // ═══ Distribute activities across weeks ═══
+  const weeklyPlan = distributeAcrossWeeks(
+    activities,
+    strategyActivities,
+    effectiveWeeks,
+    minutesPerWeek,
+    diagnostic,
+    previousPlan
+  );
+
+  // ═══ Generate milestones ═══
+  const milestones = generateMilestones(weeklyPlan, currentScore, targetScore, effectiveWeeks);
+
+  // ═══ Generate the executive summary ═══
+  const summary = generatePlanSummary(
+    diagnostic, weeklyPlan, intensity, effectiveWeeks,
+    daysUntilTest, currentScore, targetScore, skillGaps
+  );
+
+  return {
+    // Core plan data
+    weeks: weeklyPlan,
+    milestones,
+    summary,
+
+    // Metadata
+    intensity,
+    intensityConfig,
+    currentScore,
+    targetScore,
+    scoreGap,
+    daysUntilTest,
+    weeksUntilTest: effectiveWeeks,
+    minutesPerWeek,
+    totalActivities: activities.length + strategyActivities.length,
+
+    // The raw prioritized gaps (for reference)
+    skillGaps,
+
+    // Timestamp
+    generatedAt: new Date().toISOString(),
+    basedOnTest: diagnostic.testId,
+
+    // Adaptation data (for next plan generation)
+    previousPlanId: previousPlan?.generatedAt || null,
+  };
+};
+
+// ═══════════════════════════════════════════════════════════════════════════
+// GAP ANALYSIS
+// ═══════════════════════════════════════════════════════════════════════════
+
+/**
+ * Gather all skill gaps from the diagnostic, prioritized by ROI.
+ */
+const gatherSkillGaps = (diagnostic) => {
+  const gaps = [];
+
+  // From weak skills identified in the test
+  diagnostic.skillAnalysis.weakSkills.forEach((skill, idx) => {
+    // Find what module(s) and section(s) can address this skill
+    const moduleMatches = findModulesForSkill(skill.skillId);
+
+    gaps.push({
+      skillId: skill.skillId,
+      skillName: skill.name,
+      domain: skill.domain,
+      testAccuracy: skill.testAccuracy,
+      historicalMastery: skill.historicalMastery,
+      primaryErrorType: skill.primaryErrorType,
+      modules: moduleMatches,
+      sections: skill.sections || [],
+      // Priority scoring:
+      // - Low accuracy = higher priority
+      // - Domain weight = higher priority
+      // - Conceptual gaps > procedural > other (harder to fix = start earlier)
+      priority: calculateGapPriority(skill, diagnostic),
+      estimatedMinutes: estimateTimeToFix(skill),
+    });
+  });
+
+  // Also add skills from prioritized actions that aren't already covered
+  diagnostic.prioritizedActions
+    .filter(a => a.type === 'skill' && !gaps.find(g => g.skillId === a.skillId))
+    .forEach(action => {
+      gaps.push({
+        skillId: action.skillId,
+        skillName: action.title.replace('Master: ', ''),
+        modules: action.modules?.map(m => ({ moduleId: m, lessons: [], sections: [] })) || [],
+        sections: action.sections || [],
+        priority: action.estimatedGain,
+        primaryErrorType: action.primaryErrorType,
+        estimatedMinutes: 30,
+      });
+    });
+
+  // Sort by priority (highest first)
+  gaps.sort((a, b) => b.priority - a.priority);
+
+  return gaps;
+};
+
+/**
+ * Find which modules and sections can teach a given skill.
+ */
+const findModulesForSkill = (skillId) => {
+  const skill = getSkillById(skillId);
+  const results = [];
+
+  // Check direct module mapping
+  const directModules = SKILL_TO_MODULE_MAP[skillId] || [];
+
+  // Also check skill taxonomy for module associations
+  const taxonomyModules = skill?.modules || [];
+
+  const allModuleIds = [...new Set([...directModules, ...taxonomyModules])];
+
+  allModuleIds.forEach(moduleId => {
+    const lessons = allLessons[moduleId] || [];
+    const relevantLessons = findRelevantLessons(lessons, skillId, skill);
+    const relevantSections = findRelevantSections(moduleId, skill);
+
+    results.push({
+      moduleId,
+      moduleName: getModuleName(moduleId),
+      lessons: relevantLessons,
+      sections: relevantSections,
+    });
+  });
+
+  // If no results found through mapping, try fuzzy matching
+  if (results.length === 0) {
+    const fuzzyModule = fuzzyMatchModule(skillId);
+    if (fuzzyModule) {
+      results.push({
+        moduleId: fuzzyModule,
+        moduleName: getModuleName(fuzzyModule),
+        lessons: (allLessons[fuzzyModule] || []).slice(0, 3),
+        sections: [],
+      });
+    }
+  }
+
+  return results;
+};
+
+/**
+ * Find lessons within a module that are relevant to a specific skill.
+ */
+const findRelevantLessons = (lessons, skillId, skill) => {
+  if (!lessons || lessons.length === 0) return [];
+
+  const skillName = (skill?.name || skillId).toLowerCase();
+  const sections = (skill?.sections || []).map(s => s.toLowerCase());
+
+  // Find lessons that match by section name or title
+  const relevant = lessons.filter(lesson => {
+    const lessonSection = (lesson.section || '').toLowerCase();
+    const lessonTitle = (lesson.title || '').toLowerCase();
+
+    // Match by section
+    if (sections.some(s => lessonSection.includes(s) || s.includes(lessonSection))) return true;
+
+    // Match by skill name in title
+    if (lessonTitle.includes(skillName.split(' ')[0])) return true;
+
+    return false;
+  });
+
+  return relevant.length > 0 ? relevant.slice(0, 5) : lessons.slice(0, 3);
+};
+
+/**
+ * Find practice sections relevant to a skill within a module.
+ */
+const findRelevantSections = (moduleId, skill) => {
+  if (!skill) return [];
+
+  const taxonomySections = skill.sections || [];
+  const results = [];
+
+  taxonomySections.forEach(sectionName => {
+    if (hasQuestionsForSection(moduleId, sectionName)) {
+      results.push({ moduleId, sectionName });
+    }
+  });
+
+  // If no taxonomy sections match, try getting all available sections
+  if (results.length === 0) {
+    try {
+      const available = getSectionsWithQuestions(moduleId);
+      if (available && available.length > 0) {
+        results.push({ moduleId, sectionName: available[0] });
+      }
+    } catch (e) {
+      // getSectionsWithQuestions might not exist
+    }
+  }
+
+  return results;
+};
+
+// ═══════════════════════════════════════════════════════════════════════════
+// ACTIVITY GENERATION
+// ═══════════════════════════════════════════════════════════════════════════
+
+/**
+ * Map skill gaps to specific, actionable study activities.
+ */
+const mapGapsToActivities = (skillGaps, completedLessons, practiceProgress, diagnostic) => {
+  const activities = [];
+
+  skillGaps.forEach(gap => {
+    const errorType = gap.primaryErrorType;
+
+    gap.modules.forEach(mod => {
+      // ACTIVITY TYPE 1: Watch/re-watch lessons
+      // (Especially for conceptual gaps or skills the student hasn't studied)
+      if (errorType === ERROR_TYPES.CONCEPTUAL_GAP || gap.historicalMastery === null || gap.historicalMastery < 40) {
+        mod.lessons.forEach(lesson => {
+          const lessonKey = `${mod.moduleId}-${lesson.id}`;
+          const alreadyCompleted = completedLessons[lessonKey]?.completed;
+
+          activities.push({
+            type: 'lesson',
+            activityType: lesson.type === 'video' ? 'watchLesson' : 'readLesson',
+            title: alreadyCompleted ? `Review: ${lesson.title}` : lesson.title,
+            subtitle: `${mod.moduleName} → ${lesson.section || 'Core'}`,
+            moduleId: mod.moduleId,
+            lessonId: lesson.id,
+            sectionName: lesson.section,
+            duration: lesson.type === 'video' ? ACTIVITY_DURATIONS.watchLesson : ACTIVITY_DURATIONS.readLesson,
+            priority: gap.priority,
+            skillId: gap.skillId,
+            skillName: gap.skillName,
+            isReview: alreadyCompleted,
+            icon: lesson.type === 'video' ? '🎥' : '📖',
+          });
+        });
+      }
+
+      // ACTIVITY TYPE 2: Practice sections
+      // (For all error types — practice is always valuable)
+      mod.sections.forEach(section => {
+        const practiceKey = `${section.moduleId}-${section.sectionName}`;
+        const prevAttempts = practiceProgress[practiceKey]?.totalAttempts || 0;
+        const prevBest = practiceProgress[practiceKey]?.bestScore;
+
+        activities.push({
+          type: 'practice',
+          activityType: 'practiceSection',
+          title: `Practice: ${section.sectionName}`,
+          subtitle: `${mod.moduleName}${prevBest !== undefined ? ` (Best: ${prevBest}/5)` : ''}`,
+          moduleId: section.moduleId,
+          sectionName: section.sectionName,
+          duration: ACTIVITY_DURATIONS.practiceSection,
+          priority: gap.priority + (prevBest !== undefined && prevBest < 3 ? 5 : 0),
+          skillId: gap.skillId,
+          skillName: gap.skillName,
+          previousAttempts: prevAttempts,
+          previousBest: prevBest,
+          icon: '✏️',
+        });
+      });
+    });
+  });
+
+  // Deduplicate: same lesson/section shouldn't appear twice
+  const seen = new Set();
+  const deduped = activities.filter(a => {
+    const key = a.type === 'lesson'
+      ? `lesson-${a.moduleId}-${a.lessonId}`
+      : `practice-${a.moduleId}-${a.sectionName}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+
+  // Sort by priority
+  deduped.sort((a, b) => b.priority - a.priority);
+
+  return deduped;
+};
+
+/**
+ * Generate strategy-focused activities based on error patterns.
+ */
+const generateStrategyActivities = (diagnostic) => {
+  const activities = [];
+  const errorCounts = diagnostic.errorPatterns.counts;
+
+  // Trap avoidance drills
+  if ((errorCounts[ERROR_TYPES.TRAP_SUSCEPTIBILITY] || 0) >= 2) {
+    activities.push({
+      type: 'strategy',
+      activityType: 'strategyDrill',
+      title: 'Trap Answer Recognition Drill',
+      subtitle: 'Learn to spot the 6 most common College Board traps',
+      duration: ACTIVITY_DURATIONS.strategyDrill,
+      priority: 90,
+      icon: '🪤',
+      tips: [
+        'Before choosing, predict what trap answers might look like',
+        'In percent problems: "increased by X%" ≠ "X% of"',
+        'In multi-step problems: check that you answered the FINAL question, not an intermediate step',
+        'If your answer came too easily on a hard question, it\'s probably a trap',
+      ],
+    });
+  }
+
+  // Time management drills
+  if ((errorCounts[ERROR_TYPES.TIME_PRESSURE] || 0) >= 3 || diagnostic.timeAnalysis.fadeEffect > 15) {
+    activities.push({
+      type: 'strategy',
+      activityType: 'strategyDrill',
+      title: 'Time Management Practice',
+      subtitle: `${diagnostic.timeAnalysis.timeRelatedErrors} questions affected by time`,
+      duration: ACTIVITY_DURATIONS.strategyDrill,
+      priority: 85,
+      icon: '⏱️',
+      tips: [
+        'Easy: max 90 seconds. Medium: max 2 minutes. Hard: max 3 minutes.',
+        'If stuck, flag it and move on — come back with fresh eyes',
+        'Use the last 5 minutes to review flagged questions',
+        'Don\'t spend 4 minutes on one hard question and rush the next three',
+      ],
+    });
+  }
+
+  // Careless error reduction
+  if ((errorCounts[ERROR_TYPES.CARELESS_ERROR] || 0) >= 2) {
+    activities.push({
+      type: 'strategy',
+      activityType: 'strategyDrill',
+      title: 'Careless Error Prevention',
+      subtitle: `${errorCounts[ERROR_TYPES.CARELESS_ERROR]} avoidable mistakes last test`,
+      duration: ACTIVITY_DURATIONS.strategyDrill,
+      priority: 95,
+      icon: '⚡',
+      tips: [
+        'Re-read the last sentence of EVERY question before answering',
+        'After solving, plug your answer back in to verify',
+        'Circle/highlight what the question is actually asking for (x? 2x+1? y?)',
+        'For fill-in: double-check that your answer is in the right units/form',
+      ],
+    });
+  }
+
+  // Mistake review session
+  if (diagnostic.errorPatterns.totalWrong > 5) {
+    activities.push({
+      type: 'review',
+      activityType: 'reviewMistakes',
+      title: 'Review Your Missed Questions',
+      subtitle: `${diagnostic.errorPatterns.totalWrong} questions to review from ${diagnostic.testTitle}`,
+      duration: ACTIVITY_DURATIONS.reviewMistakes,
+      priority: 100, // Always high priority
+      icon: '🔍',
+      tips: [
+        'For each wrong answer, understand WHY the correct answer is right',
+        'Write down what you would do differently next time',
+        'Focus on questions you "almost" got right — these are your quick wins',
+      ],
+    });
+  }
+
+  return activities;
+};
+
+// ═══════════════════════════════════════════════════════════════════════════
+// WEEKLY DISTRIBUTION
+// ═══════════════════════════════════════════════════════════════════════════
+
+/**
+ * Distribute activities across weeks in a sensible order.
+ * Week structure:
+ * - Start of week: Strategy + review
+ * - Mid-week: Lessons + practice on new skills
+ * - End of week: More practice + self-assessment
+ * - Every 3-4 weeks: Take a practice test
+ */
+const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minutesPerWeek, diagnostic, previousPlan) => {
+  const weeks = [];
+
+  // Build a pool of all activities sorted by priority
+  const allActivities = [
+    ...strategyActivities,
+    ...activities,
+  ].sort((a, b) => b.priority - a.priority);
+
+  // Track which activities have been assigned
+  let activityPool = [...allActivities];
+
+  for (let weekNum = 1; weekNum <= totalWeeks; weekNum++) {
+    const isFirstWeek = weekNum === 1;
+    const isLastWeek = weekNum === totalWeeks;
+    const isTestWeek = weekNum % 3 === 0 || isLastWeek; // Test every 3 weeks + last week
+
+    const weekActivities = [];
+    let weekMinutesUsed = 0;
+    const weekMinutesBudget = minutesPerWeek;
+
+    // ── PHASE 1: Start of week — Review + Strategy ──
+    if (isFirstWeek) {
+      // First week: review mistakes from the test that triggered this plan
+      const reviewActivity = activityPool.find(a => a.type === 'review');
+      if (reviewActivity) {
+        weekActivities.push({
+          ...reviewActivity,
+          day: 'Monday',
+          weekPhase: 'start',
+        });
+        weekMinutesUsed += reviewActivity.duration;
+        activityPool = activityPool.filter(a => a !== reviewActivity);
+      }
+    }
+
+    // Add one strategy activity per week (if available)
+    const strategyIdx = activityPool.findIndex(a => a.type === 'strategy');
+    if (strategyIdx !== -1 && weekMinutesUsed + activityPool[strategyIdx].duration <= weekMinutesBudget) {
+      weekActivities.push({
+        ...activityPool[strategyIdx],
+        day: isFirstWeek ? 'Tuesday' : 'Monday',
+        weekPhase: 'start',
+      });
+      weekMinutesUsed += activityPool[strategyIdx].duration;
+      activityPool.splice(strategyIdx, 1);
+    }
+
+    // ── PHASE 2: Mid-week — Lessons and Practice ──
+    const midWeekDays = isFirstWeek
+      ? ['Wednesday', 'Thursday', 'Friday']
+      : ['Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+
+    let dayIdx = 0;
+    while (activityPool.length > 0 && weekMinutesUsed < weekMinutesBudget && dayIdx < midWeekDays.length) {
+      const nextActivity = activityPool[0];
+      if (!nextActivity) break;
+
+      if (weekMinutesUsed + nextActivity.duration > weekMinutesBudget + 10) {
+        // Over budget — try to find a shorter activity
+        const shorterIdx = activityPool.findIndex(a => weekMinutesUsed + a.duration <= weekMinutesBudget + 10);
+        if (shorterIdx === -1) break;
+
+        weekActivities.push({
+          ...activityPool[shorterIdx],
+          day: midWeekDays[dayIdx % midWeekDays.length],
+          weekPhase: 'mid',
+        });
+        weekMinutesUsed += activityPool[shorterIdx].duration;
+        activityPool.splice(shorterIdx, 1);
+      } else {
+        weekActivities.push({
+          ...nextActivity,
+          day: midWeekDays[dayIdx % midWeekDays.length],
+          weekPhase: 'mid',
+        });
+        weekMinutesUsed += nextActivity.duration;
+        activityPool.shift();
+      }
+      dayIdx++;
+    }
+
+    // ── PHASE 3: Test week — add practice test ──
+    if (isTestWeek && !isFirstWeek) {
+      weekActivities.push({
+        type: 'test',
+        activityType: 'practiceTest',
+        title: isLastWeek ? 'Final Practice Test' : 'Progress Check: Practice Test',
+        subtitle: isLastWeek
+          ? 'Full-length timed test to measure your final readiness'
+          : 'Take a practice test to measure improvement and adjust your plan',
+        duration: ACTIVITY_DURATIONS.practiceTest,
+        priority: 100,
+        icon: '📝',
+        day: 'Saturday',
+        weekPhase: 'end',
+        tips: [
+          'Take this test under real conditions — timed, no breaks, no phone',
+          'After completing, review the diagnostic to see what improved',
+        ],
+      });
+    }
+
+    // ── Calculate week summary ──
+    const weekLessonCount = weekActivities.filter(a => a.type === 'lesson').length;
+    const weekPracticeCount = weekActivities.filter(a => a.type === 'practice').length;
+    const weekStrategyCount = weekActivities.filter(a => a.type === 'strategy' || a.type === 'review').length;
+
+    // Determine the focus areas for this week
+    const weekSkills = [...new Set(weekActivities.filter(a => a.skillName).map(a => a.skillName))];
+    const weekDomains = [...new Set(weekActivities.filter(a => a.moduleId).map(a => {
+      // Infer domain from module
+      if (['linear-equations', 'functions', 'systems'].includes(a.moduleId)) return 'Algebra';
+      if (['percents', 'statistics', 'dimensional-analysis'].includes(a.moduleId)) return 'Problem Solving';
+      if (['quadratics', 'exponents', 'equivalent-expressions', 'transformations'].includes(a.moduleId)) return 'Advanced Math';
+      if (['triangles', 'circles', 'volume', 'radians-degrees'].includes(a.moduleId)) return 'Geometry';
+      return 'Other';
+    }))];
+
+    weeks.push({
+      weekNumber: weekNum,
+      title: generateWeekTitle(weekNum, totalWeeks, isTestWeek, weekDomains),
+      activities: weekActivities,
+      totalMinutes: weekMinutesUsed,
+      lessonCount: weekLessonCount,
+      practiceCount: weekPracticeCount,
+      strategyCount: weekStrategyCount,
+      isTestWeek,
+      focusSkills: weekSkills.slice(0, 3),
+      focusDomains: weekDomains,
+      goalDescription: generateWeekGoal(weekNum, totalWeeks, weekSkills, isTestWeek),
+    });
+  }
+
+  return weeks;
+};
+
+// ═══════════════════════════════════════════════════════════════════════════
+// MILESTONES
+// ═══════════════════════════════════════════════════════════════════════════
+
+/**
+ * Generate milestones — checkpoints where the student should see measurable progress.
+ */
+const generateMilestones = (weeklyPlan, currentScore, targetScore, totalWeeks) => {
+  const milestones = [];
+  const scorePerWeek = totalWeeks > 0 ? (targetScore - currentScore) / totalWeeks : 0;
+
+  // Milestone 1: After first week (quick wins)
+  milestones.push({
+    weekNumber: 1,
+    title: 'Foundation Set',
+    description: 'Review your test mistakes and start addressing your biggest gaps',
+    targetScore: Math.round(currentScore + scorePerWeek * 0.5),
+    type: 'checkpoint',
+  });
+
+  // Milestone 2: First practice test (usually week 3)
+  const firstTestWeek = weeklyPlan.find(w => w.isTestWeek && w.weekNumber > 1);
+  if (firstTestWeek) {
+    milestones.push({
+      weekNumber: firstTestWeek.weekNumber,
+      title: 'First Progress Check',
+      description: 'Take a practice test to measure improvement',
+      targetScore: Math.round(currentScore + scorePerWeek * firstTestWeek.weekNumber * 0.7),
+      type: 'test',
+    });
+  }
+
+  // Milestone 3: Midpoint
+  const midWeek = Math.ceil(totalWeeks / 2);
+  milestones.push({
+    weekNumber: midWeek,
+    title: 'Halfway There',
+    description: 'By now you should have addressed your biggest weaknesses',
+    targetScore: Math.round(currentScore + (targetScore - currentScore) * 0.5),
+    type: 'checkpoint',
+  });
+
+  // Milestone 4: Final push
+  if (totalWeeks > 3) {
+    milestones.push({
+      weekNumber: totalWeeks - 1,
+      title: 'Final Review',
+      description: 'Polish your skills and focus on test strategy',
+      targetScore: Math.round(targetScore - 10),
+      type: 'checkpoint',
+    });
+  }
+
+  // Milestone 5: Test day
+  milestones.push({
+    weekNumber: totalWeeks,
+    title: 'Test Ready',
+    description: 'You should be hitting your target score consistently',
+    targetScore: targetScore,
+    type: 'goal',
+  });
+
+  return milestones;
+};
+
+// ═══════════════════════════════════════════════════════════════════════════
+// SUMMARY & MESSAGING
+// ═══════════════════════════════════════════════════════════════════════════
+
+/**
+ * Generate the executive summary of the study plan.
+ */
+const generatePlanSummary = (diagnostic, weeklyPlan, intensity, totalWeeks, daysUntilTest, currentScore, targetScore, skillGaps) => {
+  const scoreGap = targetScore - currentScore;
+  const totalWrong = diagnostic.errorPatterns.totalWrong;
+  const dominantError = diagnostic.errorPatterns.dominantPattern;
+
+  // Build the "headline diagnosis"
+  let headline;
+  if (scoreGap <= 0) {
+    headline = `You're already at your target! Focus on maintaining your ${currentScore} and pushing higher.`;
+  } else if (scoreGap <= 30) {
+    headline = `You're ${scoreGap} points away from your target. A few targeted fixes will get you there.`;
+  } else if (scoreGap <= 80) {
+    headline = `You need ${scoreGap} more points. This is very achievable with focused practice.`;
+  } else if (scoreGap <= 150) {
+    headline = `${scoreGap} points to your target. This will take consistent work, but you can do it.`;
+  } else {
+    headline = `${scoreGap} points to go. This is ambitious — consider adjusting your target or test date.`;
+  }
+
+  // Build the "key insight" — the single most important thing the student should know
+  let keyInsight;
+  const carelessCount = diagnostic.errorPatterns.counts[ERROR_TYPES.CARELESS_ERROR] || 0;
+  const trapCount = diagnostic.errorPatterns.counts[ERROR_TYPES.TRAP_SUSCEPTIBILITY] || 0;
+  const quickWinCount = carelessCount + trapCount;
+  const easyMissed = diagnostic.scoreProjection.easyWins.count;
+
+  if (quickWinCount >= 4) {
+    keyInsight = {
+      title: 'Your biggest opportunity: quick wins',
+      message: `${quickWinCount} of your ${totalWrong} wrong answers were careless mistakes or trap answers. Fixing just these would add ~${diagnostic.scoreProjection.errorTypeProjections.slice(0, 2).reduce((s, p) => s + p.projectedPointGain, 0)} points.`,
+      type: 'quick_win',
+    };
+  } else if (easyMissed >= 3) {
+    keyInsight = {
+      title: 'Stop missing easy questions',
+      message: `You missed ${easyMissed} easy questions. ${diagnostic.scoreProjection.easyWins.description}. This is the fastest path to improvement.`,
+      type: 'easy_wins',
+    };
+  } else if (dominantError && dominantError.type === ERROR_TYPES.CONCEPTUAL_GAP) {
+    const topGap = skillGaps[0];
+    keyInsight = {
+      title: `Critical gap: ${topGap?.skillName || 'foundational concepts'}`,
+      message: `Most of your errors come from concept gaps. Your plan starts with the lessons you need to learn these concepts.`,
+      type: 'conceptual',
+    };
+  } else if (dominantError && dominantError.type === ERROR_TYPES.TIME_PRESSURE) {
+    keyInsight = {
+      title: 'Time management is costing you points',
+      message: `${dominantError.count} questions were affected by time pressure. Learning to pace yourself could add 30-50 points.`,
+      type: 'time',
+    };
+  } else {
+    keyInsight = {
+      title: 'Targeted practice is your path forward',
+      message: `Your errors are spread across different types. The study plan below attacks each area systematically.`,
+      type: 'general',
+    };
+  }
+
+  // Build "the numbers"
+  const totalLessons = weeklyPlan.reduce((s, w) => s + w.lessonCount, 0);
+  const totalPractice = weeklyPlan.reduce((s, w) => s + w.practiceCount, 0);
+  const totalTests = weeklyPlan.filter(w => w.isTestWeek).length;
+  const totalMinutes = weeklyPlan.reduce((s, w) => s + w.totalMinutes, 0);
+
+  return {
+    headline,
+    keyInsight,
+    stats: {
+      currentScore,
+      targetScore,
+      scoreGap,
+      daysUntilTest,
+      weeksInPlan: totalWeeks,
+      totalLessons,
+      totalPractice,
+      totalTests,
+      totalMinutes,
+      totalHours: Math.round(totalMinutes / 60 * 10) / 10,
+      minutesPerDay: INTENSITY_LEVELS[intensity].minutesPerDay,
+      intensity: INTENSITY_LEVELS[intensity].label,
+    },
+    topFocusAreas: skillGaps.slice(0, 3).map(g => ({
+      name: g.skillName,
+      accuracy: g.testAccuracy,
+      domain: g.domain,
+    })),
+    errorBreakdown: diagnostic.errorPatterns.summary,
+  };
+};
+
+// ═══════════════════════════════════════════════════════════════════════════
+// HELPER FUNCTIONS
+// ═══════════════════════════════════════════════════════════════════════════
+
+const getDaysUntil = (dateStr) => {
+  if (!dateStr) return null;
+  const target = new Date(dateStr);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  target.setHours(0, 0, 0, 0);
+  return Math.ceil((target - today) / (1000 * 60 * 60 * 24));
+};
+
+const calculateIntensity = (scoreGap, daysLeft) => {
+  if (daysLeft !== null && daysLeft <= 7) return 'marathon';
+  if (daysLeft !== null && daysLeft <= 14) return 'intensive';
+
+  const pointsPerDay = daysLeft ? scoreGap / daysLeft : scoreGap / 56; // default 8 weeks
+
+  if (pointsPerDay <= 0.5) return 'light';
+  if (pointsPerDay <= 1.5) return 'moderate';
+  if (pointsPerDay <= 3) return 'focused';
+  if (pointsPerDay <= 5) return 'intensive';
+  return 'marathon';
+};
+
+const calculateGapPriority = (skill, diagnostic) => {
+  let priority = 0;
+
+  // Base: inverse of accuracy (0% = 100 priority, 100% = 0)
+  priority += (100 - (skill.testAccuracy || 0));
+
+  // Bonus for domain weight
+  const domainWeight = skillTaxonomy.domains[skill.domain]?.satWeight || 0.15;
+  priority += domainWeight * 50;
+
+  // Bonus for conceptual gaps (harder to fix = start earlier)
+  if (skill.primaryErrorType === ERROR_TYPES.CONCEPTUAL_GAP) priority += 20;
+
+  // Bonus for declining trend
+  if (skill.trend === 'declining') priority += 15;
+
+  return priority;
+};
+
+const estimateTimeToFix = (skill) => {
+  const errorType = skill.primaryErrorType;
+  if (errorType === ERROR_TYPES.CONCEPTUAL_GAP) return 45; // Lessons + practice
+  if (errorType === ERROR_TYPES.PROCEDURAL_ERROR) return 30; // Practice focused
+  if (errorType === ERROR_TYPES.TRAP_SUSCEPTIBILITY) return 20; // Strategy
+  if (errorType === ERROR_TYPES.CARELESS_ERROR) return 10; // Awareness
+  return 25; // Default
+};
+
+const getModuleName = (moduleId) => {
+  const names = {
+    'linear-equations': 'Linear Equations',
+    'functions': 'Functions',
+    'systems': 'System of Equations',
+    'transformations': 'Transformations',
+    'exponents': 'Exponents & Exponential Functions',
+    'percents': 'Percents',
+    'quadratics': 'Quadratic Functions',
+    'triangles': 'Triangles',
+    'circles': 'Circles',
+    'statistics': 'Statistics',
+    'radians-degrees': 'Radians & Degrees',
+    'dimensional-analysis': 'Dimensional Analysis',
+    'equivalent-expressions': 'Equivalent Expressions',
+    'volume': 'Volume',
+  };
+  return names[moduleId] || moduleId;
+};
+
+const fuzzyMatchModule = (skillId) => {
+  const skillStr = skillId.toLowerCase();
+  if (skillStr.includes('linear') || skillStr.includes('slope')) return 'linear-equations';
+  if (skillStr.includes('function')) return 'functions';
+  if (skillStr.includes('system') || skillStr.includes('elimination') || skillStr.includes('substitution')) return 'systems';
+  if (skillStr.includes('quadratic') || skillStr.includes('factor') || skillStr.includes('vertex') || skillStr.includes('discriminant')) return 'quadratics';
+  if (skillStr.includes('triangle') || skillStr.includes('pythagorean') || skillStr.includes('trig') || skillStr.includes('sohcahtoa')) return 'triangles';
+  if (skillStr.includes('circle') || skillStr.includes('arc') || skillStr.includes('sector')) return 'circles';
+  if (skillStr.includes('exponent') || skillStr.includes('growth') || skillStr.includes('decay') || skillStr.includes('half-life')) return 'exponents';
+  if (skillStr.includes('percent')) return 'percents';
+  if (skillStr.includes('statistic') || skillStr.includes('mean') || skillStr.includes('median') || skillStr.includes('probability')) return 'statistics';
+  if (skillStr.includes('volume') || skillStr.includes('cylinder') || skillStr.includes('sphere')) return 'volume';
+  if (skillStr.includes('radian') || skillStr.includes('degree')) return 'radians-degrees';
+  if (skillStr.includes('polynomial') || skillStr.includes('expression')) return 'equivalent-expressions';
+  if (skillStr.includes('transform') || skillStr.includes('shift') || skillStr.includes('reflect')) return 'transformations';
+  if (skillStr.includes('unit') || skillStr.includes('dimensional') || skillStr.includes('rate')) return 'dimensional-analysis';
+  return null;
+};
+
+const generateWeekTitle = (weekNum, totalWeeks, isTestWeek, domains) => {
+  if (weekNum === 1) return 'Quick Wins & Foundations';
+  if (weekNum === totalWeeks) return 'Final Review & Test Ready';
+  if (isTestWeek) return `Progress Check (Week ${weekNum})`;
+  if (domains.length === 1) return `${domains[0]} Deep Dive`;
+  if (domains.length > 0) return `${domains.slice(0, 2).join(' & ')} Focus`;
+  return `Week ${weekNum}: Targeted Practice`;
+};
+
+const generateWeekGoal = (weekNum, totalWeeks, skills, isTestWeek) => {
+  if (weekNum === 1) return 'Review your test mistakes and build momentum with quick wins';
+  if (weekNum === totalWeeks) return 'Final polish — you should be hitting your target score';
+  if (isTestWeek) return 'Take a practice test to measure your progress';
+  if (skills.length > 0) return `Master ${skills.slice(0, 2).join(' and ')}`;
+  return 'Continue building skills and practicing';
+};
+
+// ═══════════════════════════════════════════════════════════════════════════
+// PLAN ADAPTATION (for subsequent tests)
+// ═══════════════════════════════════════════════════════════════════════════
+
+/**
+ * Compare two diagnostic reports and identify what changed.
+ * Used to adapt the study plan after a follow-up test.
+ */
+export const compareDiagnostics = (previousDiag, currentDiag) => {
+  const scoreChange = currentDiag.score.scaled - previousDiag.score.scaled;
+
+  // Skills that improved
+  const improved = [];
+  const worsened = [];
+  const unchanged = [];
+
+  currentDiag.skillAnalysis.allSkills.forEach(currentSkill => {
+    const prevSkill = previousDiag.skillAnalysis.allSkills.find(s => s.skillId === currentSkill.skillId);
+    if (prevSkill) {
+      const change = currentSkill.testAccuracy - prevSkill.testAccuracy;
+      if (change > 20) improved.push({ ...currentSkill, change });
+      else if (change < -20) worsened.push({ ...currentSkill, change });
+      else unchanged.push({ ...currentSkill, change });
+    }
+  });
+
+  // Error pattern changes
+  const prevErrorCounts = previousDiag.errorPatterns.counts;
+  const currErrorCounts = currentDiag.errorPatterns.counts;
+  const errorChanges = {};
+  Object.values(ERROR_TYPES).forEach(type => {
+    errorChanges[type] = (currErrorCounts[type] || 0) - (prevErrorCounts[type] || 0);
+  });
+
+  // Domain accuracy changes
+  const domainChanges = {};
+  currentDiag.domainAnalysis.forEach(currDomain => {
+    const prevDomain = previousDiag.domainAnalysis.find(d => d.domain === currDomain.domain);
+    domainChanges[currDomain.domain] = {
+      name: currDomain.displayName,
+      current: currDomain.accuracy,
+      previous: prevDomain?.accuracy || 0,
+      change: currDomain.accuracy - (prevDomain?.accuracy || 0),
+    };
+  });
+
+  return {
+    scoreChange,
+    improved: improved.sort((a, b) => b.change - a.change),
+    worsened: worsened.sort((a, b) => a.change - b.change),
+    unchanged,
+    errorChanges,
+    domainChanges,
+    overallProgress: scoreChange > 0 ? 'improving' : scoreChange < 0 ? 'declining' : 'stable',
+    message: generateComparisonMessage(scoreChange, improved, worsened),
+  };
+};
+
+const generateComparisonMessage = (scoreChange, improved, worsened) => {
+  if (scoreChange > 30) {
+    return `Incredible progress! +${scoreChange} points. ${improved.length > 0 ? `You really improved in ${improved[0].name}.` : 'Your hard work is paying off.'}`;
+  }
+  if (scoreChange > 10) {
+    return `Nice improvement! +${scoreChange} points. ${improved.length > 0 ? `${improved[0].name} is clearly getting stronger.` : 'Keep it going.'}`;
+  }
+  if (scoreChange >= 0) {
+    if (worsened.length > 0) {
+      return `Score held steady, but ${worsened[0].name} slipped. Let's focus there next.`;
+    }
+    return 'Score is stable. Let\'s push harder on your remaining weak areas.';
+  }
+  if (worsened.length > 0) {
+    return `Score dipped ${Math.abs(scoreChange)} points. ${worsened[0].name} needs more attention. Let\'s adjust the plan.`;
+  }
+  return `Score dropped ${Math.abs(scoreChange)} points. Don\'t worry — let\'s analyze what happened and refocus.`;
+};

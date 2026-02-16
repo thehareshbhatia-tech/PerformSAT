@@ -6,6 +6,7 @@ import { MathText } from './MathText';
 import SolutionExplanation from './SolutionExplanation';
 import QuestionRenderer from './QuestionRenderer';
 import { recordSkillAttempts } from '../services/skillService';
+import DiagnosticReport from './DiagnosticReport';
 
 // SAT-Style Typography Constants - matches College Board format
 const SAT_TYPOGRAPHY = {
@@ -697,7 +698,7 @@ const renderChoice = (choice) => {
   return <MathText text={choice.text} />;
 };
 
-const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, onClearProgress, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null }) => {
+const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, onClearProgress, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onNavigateToModule, onStartPractice }) => {
   // Initialize state from saved progress if available
   const [currentModule, setCurrentModule] = useState(savedProgress?.currentModule || 0);
   const [currentQuestion, setCurrentQuestion] = useState(savedProgress?.currentQuestion || 0);
@@ -713,6 +714,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   const [reviewModule, setReviewModule] = useState(0);
   const [reviewQuestion, setReviewQuestion] = useState(0);
   const [resultSaved, setResultSaved] = useState(false);
+  const [showDiagnosticReport, setShowDiagnosticReport] = useState(false);
 
   // Diagnostic tracking refs (refs avoid re-renders on every data point)
   const questionTelemetry = useRef({});
@@ -1874,34 +1876,87 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     );
   }
 
-  // Test completion screen - using TestResults component
+  // Test completion screen - using TestResults or DiagnosticReport
   if (testCompleted) {
+    // Show the full Diagnostic Report & Study Plan
+    if (showDiagnosticReport) {
+      return (
+        <DiagnosticReport
+          test={test}
+          answers={answers}
+          diagnosticData={diagnosticDataRef.current}
+          skillProgress={skillProgress || {}}
+          user={user || {}}
+          practiceTestResults={practiceTestResults || {}}
+          completedLessons={completedLessons}
+          practiceProgress={practiceProgress}
+          onNavigateToModule={onNavigateToModule}
+          onStartPractice={onStartPractice}
+          onBack={() => setShowDiagnosticReport(false)}
+        />
+      );
+    }
+
     return (
-      <TestResults
-        test={test}
-        answers={answers}
-        diagnosticData={diagnosticDataRef.current}
-        onBack={onBack}
-        onRetake={() => {
-          setCurrentModule(0);
-          setCurrentQuestion(0);
-          setAnswers({});
-          setMarkedForReview([]);
-          setEliminatedChoices({});
-          setModuleCompleted(false);
-          setTestCompleted(false);
-        }}
-        onReview={() => {
-          setReviewMode(true);
-          setReviewModule(0);
-          setReviewQuestion(0);
-        }}
-        onReviewModule={(moduleIndex) => {
-          setReviewMode(true);
-          setReviewModule(moduleIndex);
-          setReviewQuestion(0);
-        }}
-      />
+      <div>
+        <TestResults
+          test={test}
+          answers={answers}
+          diagnosticData={diagnosticDataRef.current}
+          onBack={onBack}
+          onRetake={() => {
+            setCurrentModule(0);
+            setCurrentQuestion(0);
+            setAnswers({});
+            setMarkedForReview([]);
+            setEliminatedChoices({});
+            setModuleCompleted(false);
+            setTestCompleted(false);
+            setShowDiagnosticReport(false);
+          }}
+          onReview={() => {
+            setReviewMode(true);
+            setReviewModule(0);
+            setReviewQuestion(0);
+          }}
+          onReviewModule={(moduleIndex) => {
+            setReviewMode(true);
+            setReviewModule(moduleIndex);
+            setReviewQuestion(0);
+          }}
+        />
+        {/* Diagnostic Report CTA - the core feature */}
+        <div style={{
+          maxWidth: '900px', margin: '0 auto', padding: '0 20px 40px',
+        }}>
+          <div
+            onClick={() => setShowDiagnosticReport(true)}
+            style={{
+              cursor: 'pointer',
+              background: 'linear-gradient(135deg, #ea580c 0%, #c2410c 100%)',
+              borderRadius: '16px',
+              padding: '24px 28px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              boxShadow: '0 8px 24px rgba(234, 88, 12, 0.3)',
+              transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 12px 32px rgba(234, 88, 12, 0.4)'; }}
+            onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(234, 88, 12, 0.3)'; }}
+          >
+            <div>
+              <div style={{ fontSize: '18px', fontWeight: '700', color: 'white', marginBottom: '6px' }}>
+                🔬 View Your Diagnosis & Study Plan
+              </div>
+              <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.85)', lineHeight: '1.5' }}>
+                See exactly why you missed each question, what to fix first, and your personalized week-by-week plan to reach your target score
+              </div>
+            </div>
+            <div style={{ fontSize: '28px', color: 'white', marginLeft: '16px', flexShrink: 0 }}>→</div>
+          </div>
+        </div>
+      </div>
     );
   }
 
