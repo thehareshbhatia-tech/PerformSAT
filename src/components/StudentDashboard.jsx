@@ -3,6 +3,8 @@ import { generateRecommendations } from '../services/recommendationService';
 import SkillDiagnosticSummary from './SkillDiagnosticSummary';
 import ScoreSlider from './ScoreSlider';
 import CollegePicker from './CollegePicker';
+import StudyPlanDashboard from './StudyPlanDashboard';
+import DashboardDiagnosticWidget from './DashboardDiagnosticWidget';
 
 // Official SAT Test Dates (from College Board)
 const SAT_TEST_DATES = [
@@ -85,8 +87,13 @@ const StudentDashboard = ({
   onStartPractice,
   onStartReview,
   onStartPracticeTest,
+  onViewFullDiagnosis,
   allLessons,
-  skillDiagnosticSummary
+  skillDiagnosticSummary,
+  studyPlan,
+  skillProgress,
+  onCompleteActivity,
+  onUncompleteActivity
 }) => {
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [showTargetPicker, setShowTargetPicker] = useState(false);
@@ -583,6 +590,33 @@ const StudentDashboard = ({
           </button>
         </div>
       )}
+
+      {/* ═══ AI DIAGNOSTIC & INSIGHTS — The Intelligence Layer ═══ */}
+      <DashboardDiagnosticWidget
+        practiceTestResults={practiceTestResults}
+        skillProgress={skillProgress}
+        user={user}
+        completedLessons={completedLessons}
+        practiceProgress={practiceProgress}
+        onViewFullDiagnosis={onViewFullDiagnosis}
+        onStartPracticeTest={onStartPracticeTest}
+        onNavigateToModule={onNavigateToModule}
+        onStartPractice={onStartPractice}
+      />
+
+      {/* ═══ AI STUDY PLAN — The Core Feature ═══ */}
+      <div style={{ marginBottom: '24px' }}>
+        <StudyPlanDashboard
+          studyPlan={studyPlan}
+          practiceTestResults={practiceTestResults}
+          user={user}
+          onNavigateToModule={onNavigateToModule}
+          onStartPractice={onStartPractice}
+          onStartPracticeTest={onStartPracticeTest}
+          onCompleteActivity={onCompleteActivity}
+          onUncompleteActivity={onUncompleteActivity}
+        />
+      </div>
 
       {/* Top Stats Row */}
       <div style={{

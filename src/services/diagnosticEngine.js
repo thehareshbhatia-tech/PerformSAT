@@ -275,8 +275,69 @@ const classifyError = (question, userAnswer, telemetry, skillProgress) => {
 const detectTrapAnswer = (question, userAnswer) => {
   const { choices, correctAnswer, type, skills = [], explanation = '' } = question;
 
-  // Can't detect traps on fill-in questions without more metadata
+  // ── Fill-in question analysis ──
+  // For fill-in, we can detect patterns by comparing the numeric relationship
   if (type === 'fill-in') {
+    const correctNum = typeof correctAnswer === 'number' ? correctAnswer : parseFloat(correctAnswer);
+    const userNum = typeof userAnswer === 'number' ? userAnswer : parseFloat(userAnswer);
+
+    if (!isNaN(correctNum) && !isNaN(userNum) && correctNum !== 0) {
+      const ratio = userNum / correctNum;
+      const diff = Math.abs(userNum - correctNum);
+
+      // Student answered exactly half or double = partial calculation or missed step
+      if (Math.abs(ratio - 0.5) < 0.01 || Math.abs(ratio - 2) < 0.01) {
+        return {
+          isTrap: true,
+          trapType: 'partial_calculation',
+          confidence: 0.80,
+          reasoning: ratio < 1
+            ? 'Your answer is exactly half the correct value — likely stopped one step early'
+            : 'Your answer is double the correct value — likely applied an operation twice',
+        };
+      }
+
+      // Sign error: correct magnitude, wrong sign
+      if (Math.abs(userNum + correctNum) < 0.01 * Math.abs(correctNum)) {
+        return {
+          isTrap: true,
+          trapType: 'sign_error',
+          confidence: 0.85,
+          reasoning: 'Correct magnitude but wrong sign — check for a dropped negative',
+        };
+      }
+
+      // Off by one = classic counting or boundary error
+      if (diff === 1 && Math.abs(correctNum) > 1) {
+        return {
+          isTrap: true,
+          trapType: 'off_by_one',
+          confidence: 0.70,
+          reasoning: 'Off by exactly 1 — likely a fencepost or boundary error',
+        };
+      }
+
+      // Very close (within 10%) = likely arithmetic slip
+      if (diff / Math.abs(correctNum) < 0.10 && diff > 0.01) {
+        return {
+          isTrap: true,
+          trapType: 'arithmetic_slip',
+          confidence: 0.60,
+          reasoning: `Answer is very close to correct (off by ${diff.toFixed(2)}) — likely an arithmetic mistake`,
+        };
+      }
+
+      // Student answered a factor that appears in the problem (e.g., answered "3" when correct is "9" for 3²)
+      if (ratio > 0 && ratio < 1 && (Math.abs(ratio - 1/3) < 0.02 || Math.abs(ratio - 1/4) < 0.02 || Math.abs(ratio - 1/5) < 0.02)) {
+        return {
+          isTrap: true,
+          trapType: 'partial_calculation',
+          confidence: 0.65,
+          reasoning: 'Your answer is a clean fraction of the correct value — likely an intermediate step, not the final answer',
+        };
+      }
+    }
+
     return { isTrap: false };
   }
 
@@ -285,8 +346,8 @@ const detectTrapAnswer = (question, userAnswer) => {
   }
 
   // Find the index of the user's wrong answer
-  const wrongIdx = choices.findIndex(c => c.id === userAnswer);
-  const correctIdx = choices.findIndex(c => c.id === correctAnswer);
+  const wrongIdx = choices.findIndex(c => c?.id === userAnswer);
+  const correctIdx = choices.findIndex(c => c?.id === correctAnswer);
   if (wrongIdx === -1 || correctIdx === -1) return { isTrap: false };
 
   const wrongText = choices[wrongIdx]?.text || '';
@@ -337,7 +398,7 @@ const detectTrapAnswer = (question, userAnswer) => {
 
   // ── Percent Confusion Trap ──
   // Common in percent problems: "increased by 150%" vs "150% of"
-  if (skills.some(s => s.includes('percent'))) {
+  if (skills.some(s => typeof s === 'string' && s.includes('percent'))) {
     if (wrongNum !== null && correctNum !== null) {
       // Check for "of" vs "increase by" confusion
       if (Math.abs(wrongNum - correctNum * 0.6) < 1 || Math.abs(wrongNum - correctNum * 1.5) < 1) {
@@ -356,7 +417,7 @@ const detectTrapAnswer = (question, userAnswer) => {
   if (explanationLower.includes('trap') || explanationLower.includes('common mistake') ||
       explanationLower.includes('common error')) {
     // The explanation itself mentions it's a trap
-    if (explanationLower.includes(userAnswer.toLowerCase())) {
+    if (typeof userAnswer === 'string' && explanationLower.includes(userAnswer.toLowerCase())) {
       return {
         isTrap: true,
         trapType: 'explanation_identified',
@@ -394,7 +455,9 @@ const detectTrapAnswer = (question, userAnswer) => {
  * Handles LaTeX formatting, fractions, etc.
  */
 const extractNumber = (text) => {
-  if (!text) return null;
+  if (text === null || text === undefined) return null;
+  if (typeof text === 'number') return text;
+  if (typeof text !== 'string') text = String(text);
 
   // Remove LaTeX delimiters and common formatting
   let cleaned = text
@@ -489,11 +552,13 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
         totalCorrect++;
         questionAnalysis.push({
           key,
+          questionNumber: questionAnalysis.length + 1,
           moduleIndex: modIdx,
           questionIndex: qIdx,
           isCorrect: true,
           difficulty: q.difficulty,
-          skills: q.skills || [],
+          skills: (q.skills || []).map(s => { const sk = getSkillById(s); return sk ? sk.name : s; }),
+          skillIds: q.skills || [],
           domain: inferDomain(q.skills),
           timeSpent: telemetry.timeSpent || 0,
         });
@@ -503,11 +568,13 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
 
         questionAnalysis.push({
           key,
+          questionNumber: questionAnalysis.length + 1,
           moduleIndex: modIdx,
           questionIndex: qIdx,
           isCorrect: false,
           difficulty: q.difficulty,
-          skills: q.skills || [],
+          skills: (q.skills || []).map(s => { const sk = getSkillById(s); return sk ? sk.name : s; }),
+          skillIds: q.skills || [],
           domain: inferDomain(q.skills),
           timeSpent: telemetry.timeSpent || 0,
           userAnswer,
@@ -592,6 +659,35 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
     // Ranked list of what to fix first
     prioritizedActions,
 
+    // ═══ ADVANCED ANALYTICS ═══
+
+    // Statistical confidence interval on the score
+    confidenceInterval: calculateConfidenceInterval(totalCorrect, totalQuestions, scaledScore),
+
+    // Learning velocity — points per week trajectory
+    learningVelocity: calculateLearningVelocity(previousTests, scaledScore),
+
+    // Skill clusters — related skills that fail together
+    skillClusters: analyzeSkillClusters(questionAnalysis),
+
+    // Answer pattern analysis — position bias, answer changes
+    answerPatterns: analyzeAnswerPatterns(questionAnalysis, diagnosticData),
+
+    // Stamina — performance degradation over test duration
+    stamina: analyzeStamina(questionAnalysis),
+
+    // National percentile estimate
+    percentile: estimatePercentile(scaledScore),
+
+    // Mistake fingerprint — student archetype
+    mistakeFingerprint: generateMistakeFingerprint(
+      { errorPatterns, domainAnalysis, difficultyAnalysis, timeAnalysis },
+      previousTests
+    ),
+
+    // Time allocation efficiency per domain
+    timeAllocation: analyzeTimeAllocation(questionAnalysis),
+
     // Metadata
     testId: test.id,
     testTitle: test.title,
@@ -613,7 +709,7 @@ const inferDomain = (skills = []) => {
   }
 
   // Fallback: infer from skill name patterns
-  const skillStr = skills.join(' ').toLowerCase();
+  const skillStr = (Array.isArray(skills) ? skills : []).join(' ').toLowerCase();
   if (skillStr.match(/linear|slope|system|function|absolute|inequalit/)) return 'algebra';
   if (skillStr.match(/percent|statistic|mean|median|probability|ratio|table|margin/)) return 'problem-solving';
   if (skillStr.match(/quadratic|exponential|polynomial|radical|rational|factor|vertex/)) return 'advanced-math';
@@ -704,7 +800,7 @@ const analyzeDomains = (questionAnalysis) => {
       if (q.isCorrect) domains[domain].byDifficulty[diff].correct++;
     }
 
-    q.skills.forEach(s => domains[domain].skills.add(s));
+    (Array.isArray(q.skills) ? q.skills : []).forEach(s => domains[domain].skills.add(s));
   });
 
   // Calculate percentages and rank
@@ -731,7 +827,7 @@ const analyzeSkills = (questionAnalysis, skillProgress = {}) => {
   const skillMap = {};
 
   questionAnalysis.forEach(q => {
-    q.skills.forEach(skillId => {
+    (Array.isArray(q.skills) ? q.skills : []).forEach(skillId => {
       if (!skillMap[skillId]) {
         const skill = getSkillById(skillId);
         const progress = skillProgress[skillId];
@@ -876,6 +972,7 @@ const projectScoreImprovements = (questionAnalysis, currentCorrect, totalQuestio
     quickWins: {
       count: quickWins.length,
       projectedGain: quickWinGain,
+      potentialGain: quickWinGain,
       description: `Getting all missed easy & medium questions right would add +${quickWinGain} points`,
     },
     easyWins: {
@@ -1078,6 +1175,52 @@ const analyzeTrends = (currentTestId, currentScore, previousTests = {}, skillPro
     if (skillTrend === 'declining' && skill) decliningSkills.push(skill.name);
   });
 
+  // ── Cross-test error persistence analysis ──
+  // Track which error types and weak skills appear across multiple tests
+  // This identifies "sticky" problems the student hasn't fixed
+  const persistentWeakSkills = [];
+  const persistentErrorTypes = {};
+
+  Object.entries(previousTests).forEach(([testId, testData]) => {
+    if (testData.attempts) {
+      testData.attempts.forEach(attempt => {
+        const diagData = attempt.diagnosticData;
+        if (diagData?.questionDetails) {
+          // Collect weak skills from this test
+          const skillHits = {};
+          Object.values(diagData.questionDetails).forEach(qd => {
+            if (qd && !qd.isCorrect && Array.isArray(qd.skills)) {
+              qd.skills.forEach(s => {
+                skillHits[s] = (skillHits[s] || 0) + 1;
+              });
+            }
+          });
+          Object.entries(skillHits).forEach(([skillId, count]) => {
+            if (count >= 1) {
+              const existing = persistentWeakSkills.find(p => p.skillId === skillId);
+              if (existing) {
+                existing.testCount++;
+              } else {
+                const skill = getSkillById(skillId);
+                persistentWeakSkills.push({
+                  skillId,
+                  name: skill?.name || skillId,
+                  testCount: 1,
+                });
+              }
+            }
+          });
+        }
+      });
+    }
+  });
+
+  // Skills weak in 2+ tests = persistent weakness
+  const trulyPersistent = persistentWeakSkills
+    .filter(s => s.testCount >= 2)
+    .sort((a, b) => b.testCount - a.testCount)
+    .slice(0, 5);
+
   return {
     hasHistory: true,
     testHistory,
@@ -1085,6 +1228,7 @@ const analyzeTrends = (currentTestId, currentScore, previousTests = {}, skillPro
     trend,
     improvingSkills: improvingSkills.slice(0, 5),
     decliningSkills: decliningSkills.slice(0, 5),
+    persistentWeaknesses: trulyPersistent,
     message: generateTrendMessage(scoreChange, trend),
   };
 };
@@ -1266,6 +1410,435 @@ const generateTrendMessage = (scoreChange, trend) => {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════
+// ADVANCED ANALYTICS — What makes PerformSAT #1
+// ═══════════════════════════════════════════════════════════════════════════
+
+/**
+ * Score Confidence Interval
+ * Uses binomial confidence interval to estimate true score range.
+ * A student who got 30/44 could truly be a 27-33/44 student.
+ * This prevents over-indexing on a single test result.
+ */
+const calculateConfidenceInterval = (correct, total, scaledScore) => {
+  const p = correct / total;
+  const z95 = 1.96;
+  const z80 = 1.28;
+
+  // Wilson score interval (better than normal approximation for small n)
+  const wilson = (z) => {
+    const denom = 1 + z * z / total;
+    const center = (p + z * z / (2 * total)) / denom;
+    const spread = (z * Math.sqrt(p * (1 - p) / total + z * z / (4 * total * total))) / denom;
+    return {
+      low: Math.max(0, Math.round((center - spread) * total)),
+      high: Math.min(total, Math.round((center + spread) * total)),
+    };
+  };
+
+  const ci95 = wilson(z95);
+  const ci80 = wilson(z80);
+
+  // Map raw ranges to scaled scores
+  const rawToScaled = (raw) => {
+    const scaledRaw = Math.round((raw / total) * 44);
+    return SCORING_TABLE[Math.min(44, Math.max(0, scaledRaw))] || 200;
+  };
+
+  return {
+    raw95: ci95,
+    raw80: ci80,
+    scaled95: { low: rawToScaled(ci95.low), high: rawToScaled(ci95.high) },
+    scaled80: { low: rawToScaled(ci80.low), high: rawToScaled(ci80.high) },
+    reliability: total >= 30 ? 'high' : total >= 20 ? 'moderate' : 'low',
+    message: `Your true score is likely between ${rawToScaled(ci80.low)} and ${rawToScaled(ci80.high)} (80% confidence)`,
+  };
+};
+
+/**
+ * Learning Velocity
+ * Tracks how fast the student is improving per unit of effort.
+ * Compares across tests to estimate points-per-week trajectory.
+ */
+const calculateLearningVelocity = (previousTests, currentScore) => {
+  const testHistory = Object.values(previousTests || {})
+    .filter(t => t.bestScaledScore && t.completedAt)
+    .sort((a, b) => new Date(a.completedAt) - new Date(b.completedAt));
+
+  if (testHistory.length < 1) {
+    return { hasData: false, velocity: 0, trend: 'insufficient_data', message: 'Take more tests to track your learning speed' };
+  }
+
+  const firstTest = testHistory[0];
+  const firstScore = firstTest.bestScaledScore;
+  const firstDate = new Date(firstTest.completedAt);
+  const now = new Date();
+  const weeksElapsed = Math.max(1, (now - firstDate) / (7 * 24 * 60 * 60 * 1000));
+
+  const totalGain = currentScore - firstScore;
+  const pointsPerWeek = totalGain / weeksElapsed;
+
+  // Calculate acceleration (is velocity increasing or decreasing?)
+  let acceleration = 0;
+  if (testHistory.length >= 3) {
+    const midIdx = Math.floor(testHistory.length / 2);
+    const earlyGain = testHistory[midIdx].bestScaledScore - firstScore;
+    const lateGain = currentScore - testHistory[midIdx].bestScaledScore;
+    const earlyWeeks = Math.max(1, (new Date(testHistory[midIdx].completedAt) - firstDate) / (7 * 24 * 60 * 60 * 1000));
+    const lateWeeks = Math.max(1, weeksElapsed - earlyWeeks);
+    acceleration = (lateGain / lateWeeks) - (earlyGain / earlyWeeks);
+  }
+
+  let trend, message;
+  if (pointsPerWeek > 5) {
+    trend = 'rapid';
+    message = `Gaining ~${Math.round(pointsPerWeek)} points/week — exceptional pace!`;
+  } else if (pointsPerWeek > 2) {
+    trend = 'strong';
+    message = `Gaining ~${Math.round(pointsPerWeek)} points/week — solid progress.`;
+  } else if (pointsPerWeek > 0.5) {
+    trend = 'steady';
+    message = `Gaining ~${pointsPerWeek.toFixed(1)} points/week — steady improvement.`;
+  } else if (pointsPerWeek >= 0) {
+    trend = 'plateau';
+    message = 'Progress has plateaued. Time to change your approach.';
+  } else {
+    trend = 'declining';
+    message = `Score declining ~${Math.abs(pointsPerWeek).toFixed(1)} points/week. Let's refocus.`;
+  }
+
+  return {
+    hasData: true,
+    velocity: Math.round(pointsPerWeek * 10) / 10,
+    acceleration: Math.round(acceleration * 10) / 10,
+    totalGain,
+    weeksElapsed: Math.round(weeksElapsed * 10) / 10,
+    testsCompleted: testHistory.length + 1,
+    trend,
+    message,
+    // Project where student will be at test day
+    projectedAtTestDay: (targetDate) => {
+      if (!targetDate) return null;
+      const weeksToTest = Math.max(0, (new Date(targetDate) - now) / (7 * 24 * 60 * 60 * 1000));
+      const projected = Math.round(currentScore + pointsPerWeek * weeksToTest);
+      return Math.min(800, Math.max(200, projected));
+    }
+  };
+};
+
+/**
+ * Skill Clustering Analysis
+ * Identifies skills that fail together — suggests underlying conceptual gaps.
+ * If a student misses "slope-from-points" AND "parallel-line-slope",
+ * the root issue is likely "understanding slope" not two separate skills.
+ */
+const analyzeSkillClusters = (questionAnalysis) => {
+  const wrongBySkill = {};
+  questionAnalysis.filter(q => !q.isCorrect).forEach(q => {
+    (q.skills || []).forEach(skill => {
+      if (!wrongBySkill[skill]) wrongBySkill[skill] = [];
+      wrongBySkill[skill].push(q);
+    });
+  });
+
+  // Define skill families (skills that share underlying concepts)
+  const SKILL_FAMILIES = {
+    'slope-mastery': ['slope-from-points', 'slope-intercept-form', 'parallel-line-slope', 'perpendicular-negative-reciprocal', 'writing-parallel-equation', 'writing-perpendicular-equation'],
+    'equation-building': ['word-problem-to-equation', 'table-to-equation', 'systems-from-word-problems', 'inequality-from-context'],
+    'quadratic-mastery': ['factoring', 'quadratic-formula', 'completing-the-square', 'vertex-form', 'discriminant', 'quadratic-functions'],
+    'function-understanding': ['function-notation', 'domain-restrictions', 'function-composition', 'function-interpretation', 'function-evaluation'],
+    'proportion-reasoning': ['ratio-setup', 'proportion-solving', 'unit-rate', 'scale-factor', 'percent-change', 'percent-of-percent'],
+    'geometry-foundations': ['area-formulas', 'perimeter-formulas', 'volume-formulas', 'circle-area-circumference', 'pythagorean-theorem'],
+    'coordinate-geometry': ['midpoint-formula', 'distance-formula', 'circle-equation', 'equation-of-line'],
+    'data-literacy': ['mean-median-mode', 'standard-deviation-concept', 'reading-scatterplots', 'reading-bar-charts', 'line-of-best-fit'],
+    'exponent-rules': ['exponent-rules', 'negative-exponents', 'rational-exponents', 'exponential-growth-decay'],
+  };
+
+  const clusters = [];
+  const wrongSkillNames = Object.keys(wrongBySkill);
+
+  for (const [familyName, familySkills] of Object.entries(SKILL_FAMILIES)) {
+    const failedInFamily = familySkills.filter(s => wrongSkillNames.includes(s));
+    if (failedInFamily.length >= 2) {
+      clusters.push({
+        name: familyName.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()),
+        rootConcept: familyName,
+        failedSkills: failedInFamily,
+        totalSkillsInFamily: familySkills.length,
+        failRate: Math.round((failedInFamily.length / familySkills.length) * 100),
+        severity: failedInFamily.length >= 3 ? 'critical' : 'moderate',
+        recommendation: failedInFamily.length >= 3
+          ? `Start from the fundamentals of ${familyName.replace(/-/g, ' ')} — multiple related skills are weak`
+          : `Review the core concept connecting these skills before practicing individually`,
+        questionsAffected: failedInFamily.reduce((sum, s) => sum + wrongBySkill[s].length, 0),
+      });
+    }
+  }
+
+  return clusters.sort((a, b) => b.questionsAffected - a.questionsAffected);
+};
+
+/**
+ * Answer Pattern Analysis
+ * Detects systematic biases in how students pick answers:
+ * - Position bias (always picks C)
+ * - First instinct accuracy (changed answers help or hurt?)
+ * - Elimination effectiveness (skip patterns)
+ */
+const analyzeAnswerPatterns = (questionAnalysis, diagnosticData) => {
+  const choiceCounts = { A: 0, B: 0, C: 0, D: 0 };
+  const choiceCorrect = { A: 0, B: 0, C: 0, D: 0 };
+  let changedToCorrect = 0;
+  let changedToWrong = 0;
+  let totalChanged = 0;
+  let totalAnswered = 0;
+
+  questionAnalysis.forEach((q, idx) => {
+    if (q.isUnanswered) return;
+    totalAnswered++;
+
+    // Map answer to letter position
+    const choiceIds = ['A', 'B', 'C', 'D'];
+    const answerIdx = choiceIds.indexOf(q.userAnswer?.toUpperCase?.());
+    if (answerIdx >= 0) {
+      choiceCounts[choiceIds[answerIdx]]++;
+      if (q.isCorrect) choiceCorrect[choiceIds[answerIdx]]++;
+    }
+
+    // Track answer changes
+    const telemetry = diagnosticData?.questionTelemetry?.[q.key] || {};
+    if (telemetry.answerChanges > 0) {
+      totalChanged++;
+      if (q.isCorrect) changedToCorrect++;
+      else changedToWrong++;
+    }
+  });
+
+  // Detect position bias
+  const expectedPct = 25;
+  const positionBias = Object.entries(choiceCounts).map(([letter, count]) => ({
+    letter,
+    count,
+    percent: totalAnswered > 0 ? Math.round((count / totalAnswered) * 100) : 0,
+    deviation: totalAnswered > 0 ? Math.round((count / totalAnswered) * 100) - expectedPct : 0,
+  })).sort((a, b) => Math.abs(b.deviation) - Math.abs(a.deviation));
+
+  const strongBias = positionBias.find(p => Math.abs(p.deviation) > 15);
+
+  // First instinct analysis
+  const firstInstinctAccuracy = totalChanged > 0
+    ? Math.round((changedToCorrect / totalChanged) * 100)
+    : null;
+
+  const firstInstinctAdvice = firstInstinctAccuracy !== null
+    ? firstInstinctAccuracy < 40
+      ? 'Your first instinct is usually better — trust it more!'
+      : firstInstinctAccuracy > 70
+        ? 'Good instinct for when to change answers — keep reviewing when unsure'
+        : 'Answer changes are 50/50 — only change if you find a clear reason'
+    : 'Not enough data on answer changes yet';
+
+  return {
+    positionBias,
+    hasPositionBias: !!strongBias,
+    biasWarning: strongBias ? `You chose "${strongBias.letter}" ${strongBias.percent}% of the time (expected ~25%). Be careful of systematic bias.` : null,
+    answerChanges: {
+      total: totalChanged,
+      changedToCorrect,
+      changedToWrong,
+      firstInstinctAccuracy,
+      advice: firstInstinctAdvice,
+    },
+    totalAnswered,
+  };
+};
+
+/**
+ * Stamina Score
+ * Measures performance degradation over the course of the test.
+ * Compares accuracy in quartiles to detect fatigue.
+ */
+const analyzeStamina = (questionAnalysis) => {
+  const total = questionAnalysis.length;
+  if (total < 8) return { hasData: false };
+
+  const q1End = Math.floor(total * 0.25);
+  const q2End = Math.floor(total * 0.5);
+  const q3End = Math.floor(total * 0.75);
+
+  const quarters = [
+    { label: 'Q1 (Start)', questions: questionAnalysis.slice(0, q1End) },
+    { label: 'Q2', questions: questionAnalysis.slice(q1End, q2End) },
+    { label: 'Q3', questions: questionAnalysis.slice(q2End, q3End) },
+    { label: 'Q4 (End)', questions: questionAnalysis.slice(q3End) },
+  ].map(q => ({
+    ...q,
+    total: q.questions.length,
+    correct: q.questions.filter(x => x.isCorrect).length,
+    accuracy: q.questions.length > 0 ? Math.round((q.questions.filter(x => x.isCorrect).length / q.questions.length) * 100) : 0,
+    avgTime: q.questions.length > 0
+      ? Math.round(q.questions.reduce((s, x) => s + (x.timeSpent || 0), 0) / q.questions.length)
+      : 0,
+  }));
+
+  const startAccuracy = quarters[0].accuracy;
+  const endAccuracy = quarters[3].accuracy;
+  const dropoff = startAccuracy - endAccuracy;
+
+  // Stamina score: 100 = no dropoff, 0 = total collapse
+  const staminaScore = Math.max(0, Math.min(100, 100 - Math.max(0, dropoff) * 2));
+
+  let rating, message;
+  if (staminaScore >= 85) {
+    rating = 'excellent';
+    message = 'Rock solid focus throughout the test. Your endurance is a strength.';
+  } else if (staminaScore >= 70) {
+    rating = 'good';
+    message = 'Slight dip at the end. Practice full-length sessions to build stamina.';
+  } else if (staminaScore >= 50) {
+    rating = 'fair';
+    message = `Accuracy dropped ${dropoff}% by test end. Build test-taking endurance with timed practice.`;
+  } else {
+    rating = 'needs_work';
+    message = `Significant fatigue: ${dropoff}% accuracy drop. Try practice tests with breaks, then gradually eliminate breaks.`;
+  }
+
+  return {
+    hasData: true,
+    quarters,
+    staminaScore,
+    rating,
+    dropoff,
+    message,
+  };
+};
+
+/**
+ * National Percentile Estimation
+ * Estimates where the student falls among all SAT test-takers.
+ * Based on published College Board score distributions.
+ */
+const estimatePercentile = (scaledScore) => {
+  // Approximate SAT Math percentile table (College Board data)
+  const PERCENTILE_TABLE = {
+    200: 1, 210: 1, 220: 1, 230: 1, 240: 2, 250: 3, 260: 4, 270: 5,
+    280: 6, 290: 8, 300: 10, 310: 12, 320: 14, 330: 16, 340: 19,
+    350: 22, 360: 25, 370: 28, 380: 31, 390: 34, 400: 37, 410: 40,
+    420: 43, 430: 46, 440: 49, 450: 52, 460: 55, 470: 57, 480: 60,
+    490: 63, 500: 65, 510: 68, 520: 70, 530: 73, 540: 75, 550: 77,
+    560: 79, 570: 81, 580: 83, 590: 85, 600: 86, 610: 88, 620: 89,
+    630: 90, 640: 91, 650: 92, 660: 93, 670: 94, 680: 95, 690: 96,
+    700: 96, 710: 97, 720: 97, 730: 98, 740: 98, 750: 99, 760: 99,
+    770: 99, 780: 99, 790: 99, 800: 99,
+  };
+
+  const rounded = Math.round(scaledScore / 10) * 10;
+  const percentile = PERCENTILE_TABLE[Math.min(800, Math.max(200, rounded))] || 50;
+
+  let tier;
+  if (percentile >= 95) tier = 'elite';
+  else if (percentile >= 85) tier = 'excellent';
+  else if (percentile >= 70) tier = 'above_average';
+  else if (percentile >= 50) tier = 'average';
+  else if (percentile >= 30) tier = 'below_average';
+  else tier = 'needs_significant_work';
+
+  return { percentile, tier, score: scaledScore };
+};
+
+/**
+ * Mistake Fingerprint
+ * Creates a unique "signature" of a student's error patterns that
+ * persists across tests. This helps identify deep-rooted habits.
+ */
+const generateMistakeFingerprint = (diagnostic, previousTests) => {
+  const { errorPatterns, domainAnalysis, difficultyAnalysis, timeAnalysis } = diagnostic;
+
+  const fingerprint = {
+    // Primary weakness archetype
+    archetype: 'balanced',
+    archetypeLabel: 'Balanced Learner',
+    archetypeDescription: '',
+    traits: [],
+    persistentWeaknesses: [],
+  };
+
+  // Determine archetype from dominant error pattern
+  const dominant = errorPatterns.dominantPattern;
+  const trapPct = (errorPatterns.summary.find(s => s.type === ERROR_TYPES.TRAP_SUSCEPTIBILITY)?.percentage || 0);
+  const carelessPct = (errorPatterns.summary.find(s => s.type === ERROR_TYPES.CARELESS_ERROR)?.percentage || 0);
+  const conceptPct = (errorPatterns.summary.find(s => s.type === ERROR_TYPES.CONCEPTUAL_GAP)?.percentage || 0);
+  const timePct = (errorPatterns.summary.find(s => s.type === ERROR_TYPES.TIME_PRESSURE)?.percentage || 0);
+
+  if (conceptPct >= 40) {
+    fingerprint.archetype = 'knowledge_builder';
+    fingerprint.archetypeLabel = 'The Knowledge Builder';
+    fingerprint.archetypeDescription = 'Your main opportunity is building deeper understanding of key concepts. Once you fill these gaps, your score will jump significantly.';
+  } else if (trapPct >= 30) {
+    fingerprint.archetype = 'trap_prone';
+    fingerprint.archetypeLabel = 'The Trap Dodger';
+    fingerprint.archetypeDescription = 'You know the math but fall for cleverly designed wrong answers. Learning to spot traps is your fastest path to a higher score.';
+  } else if (carelessPct >= 30) {
+    fingerprint.archetype = 'precision_seeker';
+    fingerprint.archetypeLabel = 'The Precision Seeker';
+    fingerprint.archetypeDescription = 'You understand the material well but lose points to avoidable mistakes. Slowing down on easy questions will recover the most points.';
+  } else if (timePct >= 30) {
+    fingerprint.archetype = 'speed_builder';
+    fingerprint.archetypeLabel = 'The Speed Builder';
+    fingerprint.archetypeDescription = 'You can solve problems correctly but need more time. Building fluency through timed practice will unlock your full potential.';
+  } else {
+    fingerprint.archetype = 'balanced';
+    fingerprint.archetypeLabel = 'The All-Rounder';
+    fingerprint.archetypeDescription = 'Your errors are spread across categories. A well-rounded study plan will yield the best results.';
+  }
+
+  // Add specific traits
+  if (difficultyAnalysis?.levels?.easy?.accuracy < 85) {
+    fingerprint.traits.push({ trait: 'Easy question vulnerability', severity: 'high', tip: 'You\'re leaving easy points on the table' });
+  }
+  if (timeAnalysis?.fadeEffect > 20) {
+    fingerprint.traits.push({ trait: 'Late-test fatigue', severity: 'moderate', tip: 'Practice with full-length timed tests' });
+  }
+  const weakestDomain = domainAnalysis?.sort((a, b) => a.accuracy - b.accuracy)?.[0];
+  if (weakestDomain?.accuracy < 50) {
+    fingerprint.traits.push({ trait: `${weakestDomain.displayName} gap`, severity: 'high', tip: `Focus study time on ${weakestDomain.displayName}` });
+  }
+
+  return fingerprint;
+};
+
+/**
+ * Score Breakdown by Time Invested
+ * Shows ROI: "You spent 40% of time on Algebra but only got 60% accuracy there"
+ */
+const analyzeTimeAllocation = (questionAnalysis) => {
+  const domainTime = {};
+  const domainCorrect = {};
+  const domainTotal = {};
+  let totalTime = 0;
+
+  questionAnalysis.forEach(q => {
+    const domain = q.domain || 'Unknown';
+    const time = q.timeSpent || 0;
+    domainTime[domain] = (domainTime[domain] || 0) + time;
+    domainTotal[domain] = (domainTotal[domain] || 0) + 1;
+    if (q.isCorrect) domainCorrect[domain] = (domainCorrect[domain] || 0) + 1;
+    totalTime += time;
+  });
+
+  return Object.keys(domainTime).map(domain => ({
+    domain,
+    timeSpent: domainTime[domain],
+    timePct: totalTime > 0 ? Math.round((domainTime[domain] / totalTime) * 100) : 0,
+    accuracy: domainTotal[domain] > 0 ? Math.round(((domainCorrect[domain] || 0) / domainTotal[domain]) * 100) : 0,
+    questionCount: domainTotal[domain],
+    efficiency: domainTotal[domain] > 0 && domainTime[domain] > 0
+      ? Math.round(((domainCorrect[domain] || 0) / domainTime[domain]) * 6000) // correct per minute * 100
+      : 0,
+    isOverinvested: (domainTime[domain] / totalTime) > 0.35 && ((domainCorrect[domain] || 0) / domainTotal[domain]) < 0.5,
+  })).sort((a, b) => a.accuracy - b.accuracy);
+};
+
+// ═══════════════════════════════════════════════════════════════════════════
 // EXPORTS
 // ═══════════════════════════════════════════════════════════════════════════
 
@@ -1278,4 +1851,12 @@ export {
   DOMAIN_WEIGHTS,
   DOMAIN_QUESTION_COUNTS,
   SCORING_TABLE,
+  calculateConfidenceInterval,
+  calculateLearningVelocity,
+  analyzeSkillClusters,
+  analyzeAnswerPatterns,
+  analyzeStamina,
+  estimatePercentile,
+  generateMistakeFingerprint,
+  analyzeTimeAllocation,
 };

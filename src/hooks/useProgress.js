@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { db } from '../firebase/config';
-import { doc, onSnapshot } from 'firebase/firestore';
+import { doc, onSnapshot, updateDoc, setDoc, getDoc, serverTimestamp } from 'firebase/firestore';
 import { markLessonComplete as markComplete, markLessonIncomplete } from '../services/progressService';
 import { recordPracticeAttempt as recordAttempt } from '../services/practiceService';
 import { getDueReviewCount, getReviewStats } from '../services/reviewService';
@@ -19,6 +19,7 @@ export const useProgress = (userId) => {
   const [skillProgress, setSkillProgress] = useState({});
   const [practiceTestResults, setPracticeTestResults] = useState({});
   const [inProgressTests, setInProgressTests] = useState({});
+  const [studyPlan, setStudyPlan] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -69,6 +70,9 @@ export const useProgress = (userId) => {
 
           // Get in-progress tests
           setInProgressTests(data.inProgressTests || {});
+
+          // Get study plan
+          setStudyPlan(data.studyPlan || null);
         } else {
           setCompletedLessons({});
           setPracticeProgress({});
@@ -76,6 +80,7 @@ export const useProgress = (userId) => {
           setSkillProgress({});
           setPracticeTestResults({});
           setInProgressTests({});
+          setStudyPlan(null);
         }
         setLoading(false);
       },
@@ -447,6 +452,108 @@ export const useProgress = (userId) => {
     return !!inProgressTests[testId];
   };
 
+  // ===== Study Plan Functions =====
+
+  /**
+   * Saves a study plan to Firestore
+   * @param {Object} plan - The generated study plan
+   */
+  const saveStudyPlan = async (plan) => {
+    if (!userId || !plan) return;
+
+    // Optimistic update
+    setStudyPlan(plan);
+
+    try {
+      const progressRef = doc(db, 'progress', userId);
+      const progressSnap = await getDoc(progressRef);
+
+      if (progressSnap.exists()) {
+        await updateDoc(progressRef, { studyPlan: plan });
+      } else {
+        await setDoc(progressRef, { userId, studyPlan: plan }, { merge: true });
+      }
+      console.log('[useProgress] Study plan saved');
+    } catch (err) {
+      console.error('[useProgress] Failed to save study plan:', err);
+      setError(err.message);
+    }
+  };
+
+  /**
+   * Marks a study plan activity as complete
+   * @param {number} weekIndex - Index of the week (0-based)
+   * @param {number} activityIndex - Index of the activity within the week (0-based)
+   */
+  const markStudyActivityComplete = async (weekIndex, activityIndex) => {
+    if (!userId || !studyPlan) return;
+
+    // Optimistic update
+    setStudyPlan(prev => {
+      if (!prev || !prev.weeks || !prev.weeks[weekIndex]) return prev;
+      const updated = JSON.parse(JSON.stringify(prev));
+      if (updated.weeks[weekIndex].activities[activityIndex]) {
+        updated.weeks[weekIndex].activities[activityIndex].completed = true;
+        updated.weeks[weekIndex].activities[activityIndex].completedAt = new Date().toISOString();
+      }
+      return updated;
+    });
+
+    try {
+      const progressRef = doc(db, 'progress', userId);
+      const progressSnap = await getDoc(progressRef);
+      if (progressSnap.exists()) {
+        const data = progressSnap.data();
+        const plan = data.studyPlan ? JSON.parse(JSON.stringify(data.studyPlan)) : null;
+        if (plan && plan.weeks && plan.weeks[weekIndex] && plan.weeks[weekIndex].activities[activityIndex]) {
+          plan.weeks[weekIndex].activities[activityIndex].completed = true;
+          plan.weeks[weekIndex].activities[activityIndex].completedAt = new Date().toISOString();
+          await updateDoc(progressRef, { studyPlan: plan });
+        }
+      }
+    } catch (err) {
+      console.error('[useProgress] Failed to mark activity complete:', err);
+      setError(err.message);
+    }
+  };
+
+  /**
+   * Unmarks a study plan activity (sets it back to incomplete)
+   * @param {number} weekIndex - Index of the week (0-based)
+   * @param {number} activityIndex - Index of the activity within the week (0-based)
+   */
+  const unmarkStudyActivityComplete = async (weekIndex, activityIndex) => {
+    if (!userId || !studyPlan) return;
+
+    // Optimistic update
+    setStudyPlan(prev => {
+      if (!prev || !prev.weeks || !prev.weeks[weekIndex]) return prev;
+      const updated = JSON.parse(JSON.stringify(prev));
+      if (updated.weeks[weekIndex].activities[activityIndex]) {
+        updated.weeks[weekIndex].activities[activityIndex].completed = false;
+        delete updated.weeks[weekIndex].activities[activityIndex].completedAt;
+      }
+      return updated;
+    });
+
+    try {
+      const progressRef = doc(db, 'progress', userId);
+      const progressSnap = await getDoc(progressRef);
+      if (progressSnap.exists()) {
+        const data = progressSnap.data();
+        const plan = data.studyPlan ? JSON.parse(JSON.stringify(data.studyPlan)) : null;
+        if (plan && plan.weeks && plan.weeks[weekIndex] && plan.weeks[weekIndex].activities[activityIndex]) {
+          plan.weeks[weekIndex].activities[activityIndex].completed = false;
+          delete plan.weeks[weekIndex].activities[activityIndex].completedAt;
+          await updateDoc(progressRef, { studyPlan: plan });
+        }
+      }
+    } catch (err) {
+      console.error('[useProgress] Failed to unmark activity:', err);
+      setError(err.message);
+    }
+  };
+
   return {
     completedLessons,
     practiceProgress,
@@ -454,6 +561,7 @@ export const useProgress = (userId) => {
     skillProgress,
     practiceTestResults,
     inProgressTests,
+    studyPlan,
     loading,
     error,
     markLessonComplete,
@@ -479,6 +587,10 @@ export const useProgress = (userId) => {
     saveTestProgress,
     clearTestProgress,
     getTestProgress,
-    hasTestProgress
+    hasTestProgress,
+    // Study plan functions
+    saveStudyPlan,
+    markStudyActivityComplete,
+    unmarkStudyActivityComplete
   };
 };
