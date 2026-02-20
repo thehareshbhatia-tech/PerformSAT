@@ -6,6 +6,8 @@
 
 import React, { useState } from 'react';
 import { MathText } from './MathText';
+import { colors, typography, radius, shadows } from '../design/tokens';
+import { FlagIcon, TimerIcon, ArrowLeftIcon, ArrowRightIcon } from '../design/icons';
 
 /* ============================================
    STYLES - Matches Test Innovators exactly
@@ -13,11 +15,11 @@ import { MathText } from './MathText';
 const styles = {
   // Main container
   container: {
-    fontFamily: "'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    fontFamily: typography.fontFamily,
     maxWidth: '1200px',
     margin: '0 auto',
     padding: '20px',
-    backgroundColor: '#f5f5f5',
+    backgroundColor: colors.surface.gray,
     minHeight: '100vh',
   },
 
@@ -28,15 +30,15 @@ const styles = {
     alignItems: 'center',
     marginBottom: '20px',
     padding: '15px 20px',
-    backgroundColor: '#fff',
-    borderRadius: '8px',
-    boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+    backgroundColor: colors.surface.white,
+    borderRadius: radius.sm,
+    boxShadow: shadows.sm,
   },
 
   headerTitle: {
     fontSize: '18px',
     fontWeight: '600',
-    color: '#333',
+    color: colors.text.primary,
   },
 
   headerInfo: {
@@ -46,9 +48,12 @@ const styles = {
   },
 
   timer: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '6px',
     fontSize: '18px',
     fontWeight: '600',
-    color: '#2c5282',
+    color: colors.semantic.info,
   },
 
   // Question card
@@ -56,16 +61,16 @@ const styles = {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
     gap: '0',
-    backgroundColor: '#fff',
-    borderRadius: '8px',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+    backgroundColor: colors.surface.white,
+    borderRadius: radius.sm,
+    boxShadow: shadows.md,
     overflow: 'hidden',
   },
 
   // Left side - Question content
   questionSide: {
     padding: '30px',
-    borderRight: '1px solid #e0e0e0',
+    borderRight: `1px solid ${colors.surface.grayDark}`,
   },
 
   questionNumber: {
@@ -74,8 +79,8 @@ const styles = {
     justifyContent: 'center',
     width: '32px',
     height: '32px',
-    backgroundColor: '#1a1a1a',
-    color: '#fff',
+    backgroundColor: colors.surface.dark,
+    color: colors.text.inverse,
     fontSize: '14px',
     fontWeight: '600',
     borderRadius: '4px',
@@ -85,7 +90,7 @@ const styles = {
   questionText: {
     fontSize: '16px',
     lineHeight: '1.7',
-    color: '#333',
+    color: colors.text.primary,
     marginBottom: '20px',
   },
 
@@ -99,7 +104,7 @@ const styles = {
   // Right side - Answers
   answerSide: {
     padding: '30px',
-    backgroundColor: '#fafafa',
+    backgroundColor: colors.surface.offWhite,
   },
 
   // Navigation buttons at top of answer side
@@ -115,12 +120,15 @@ const styles = {
     fontWeight: '600',
     textTransform: 'uppercase',
     letterSpacing: '0.5px',
-    border: '1px solid #ccc',
+    border: `1px solid ${colors.surface.grayMedium}`,
     borderRadius: '4px',
-    backgroundColor: '#fff',
-    color: '#555',
+    backgroundColor: colors.surface.white,
+    color: colors.text.secondary,
     cursor: 'pointer',
     transition: 'all 0.2s',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '6px',
   },
 
   navButtonPrimary: {
@@ -131,10 +139,13 @@ const styles = {
     letterSpacing: '0.5px',
     border: 'none',
     borderRadius: '4px',
-    backgroundColor: '#3182ce',
-    color: '#fff',
+    backgroundColor: colors.semantic.info,
+    color: colors.text.inverse,
     cursor: 'pointer',
     transition: 'all 0.2s',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '6px',
   },
 
   // Answer choices
@@ -150,8 +161,8 @@ const styles = {
     padding: '15px',
     marginBottom: '10px',
     borderRadius: '6px',
-    border: '1px solid #e0e0e0',
-    backgroundColor: '#fff',
+    border: `1px solid ${colors.surface.grayDark}`,
+    backgroundColor: colors.surface.white,
     cursor: 'pointer',
     transition: 'all 0.2s',
   },
@@ -162,8 +173,8 @@ const styles = {
     padding: '15px',
     marginBottom: '10px',
     borderRadius: '6px',
-    border: '2px solid #3182ce',
-    backgroundColor: '#ebf8ff',
+    border: `2px solid ${colors.semantic.info}`,
+    backgroundColor: colors.semantic.infoLight,
     cursor: 'pointer',
   },
 
@@ -173,8 +184,8 @@ const styles = {
     padding: '15px',
     marginBottom: '10px',
     borderRadius: '6px',
-    border: '2px solid #38a169',
-    backgroundColor: '#f0fff4',
+    border: `2px solid ${colors.semantic.success}`,
+    backgroundColor: colors.semantic.successLight,
     cursor: 'pointer',
   },
 
@@ -184,8 +195,8 @@ const styles = {
     padding: '15px',
     marginBottom: '10px',
     borderRadius: '6px',
-    border: '2px solid #e53e3e',
-    backgroundColor: '#fff5f5',
+    border: `2px solid ${colors.semantic.error}`,
+    backgroundColor: colors.semantic.errorLight,
     cursor: 'pointer',
   },
 
@@ -196,11 +207,11 @@ const styles = {
     width: '32px',
     height: '32px',
     borderRadius: '50%',
-    border: '2px solid #cbd5e0',
+    border: `2px solid ${colors.surface.grayMedium}`,
     marginRight: '15px',
     fontSize: '14px',
     fontWeight: '600',
-    color: '#555',
+    color: colors.text.secondary,
     flexShrink: 0,
   },
 
@@ -211,12 +222,12 @@ const styles = {
     width: '32px',
     height: '32px',
     borderRadius: '50%',
-    border: '2px solid #3182ce',
-    backgroundColor: '#3182ce',
+    border: `2px solid ${colors.semantic.info}`,
+    backgroundColor: colors.semantic.info,
     marginRight: '15px',
     fontSize: '14px',
     fontWeight: '600',
-    color: '#fff',
+    color: colors.text.inverse,
     flexShrink: 0,
   },
 
@@ -227,25 +238,25 @@ const styles = {
     width: '32px',
     height: '32px',
     borderRadius: '50%',
-    border: '2px solid #38a169',
-    backgroundColor: '#38a169',
+    border: `2px solid ${colors.semantic.success}`,
+    backgroundColor: colors.semantic.success,
     marginRight: '15px',
     fontSize: '14px',
     fontWeight: '600',
-    color: '#fff',
+    color: colors.text.inverse,
     flexShrink: 0,
   },
 
   choiceText: {
     fontSize: '16px',
-    color: '#333',
+    color: colors.text.primary,
     flex: 1,
   },
 
   // Student response percentage (for review mode)
   choicePercent: {
     fontSize: '12px',
-    color: '#888',
+    color: colors.text.muted,
     marginLeft: '10px',
   },
 
@@ -258,10 +269,10 @@ const styles = {
     width: '100%',
     padding: '12px',
     marginTop: '20px',
-    border: '1px solid #e0e0e0',
+    border: `1px solid ${colors.surface.grayDark}`,
     borderRadius: '6px',
-    backgroundColor: '#fff',
-    color: '#666',
+    backgroundColor: colors.surface.white,
+    color: colors.text.secondary,
     fontSize: '13px',
     cursor: 'pointer',
     transition: 'all 0.2s',
@@ -275,10 +286,10 @@ const styles = {
     width: '100%',
     padding: '12px',
     marginTop: '20px',
-    border: '1px solid #ed8936',
+    border: `1px solid ${colors.accent.orange}`,
     borderRadius: '6px',
-    backgroundColor: '#fffaf0',
-    color: '#c05621',
+    backgroundColor: colors.accent.orangeLight,
+    color: colors.accent.orangeHover,
     fontSize: '13px',
     cursor: 'pointer',
   },
@@ -289,7 +300,7 @@ const styles = {
     padding: '15px 20px',
     fontSize: '18px',
     textAlign: 'center',
-    border: '2px solid #e0e0e0',
+    border: `2px solid ${colors.surface.grayDark}`,
     borderRadius: '6px',
     marginBottom: '15px',
     outline: 'none',
@@ -298,14 +309,14 @@ const styles = {
 
   correctAnswerLabel: {
     fontSize: '14px',
-    color: '#666',
+    color: colors.text.secondary,
     marginTop: '10px',
   },
 
   correctAnswerValue: {
     fontSize: '20px',
     fontWeight: '600',
-    color: '#38a169',
+    color: colors.semantic.success,
   },
 
   // Progress bar
@@ -318,20 +329,20 @@ const styles = {
   progressBar: {
     width: '200px',
     height: '6px',
-    backgroundColor: '#e0e0e0',
+    backgroundColor: colors.surface.grayDark,
     borderRadius: '3px',
     overflow: 'hidden',
   },
 
   progressFill: {
     height: '100%',
-    backgroundColor: '#3182ce',
+    backgroundColor: colors.semantic.info,
     transition: 'width 0.3s',
   },
 
   progressText: {
     fontSize: '14px',
-    color: '#666',
+    color: colors.text.secondary,
   },
 
   // Question navigation dots
@@ -340,10 +351,10 @@ const styles = {
     flexWrap: 'wrap',
     gap: '8px',
     padding: '20px',
-    backgroundColor: '#fff',
-    borderRadius: '8px',
+    backgroundColor: colors.surface.white,
+    borderRadius: radius.sm,
     marginTop: '20px',
-    boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+    boxShadow: shadows.sm,
   },
 
   questionDot: {
@@ -353,11 +364,11 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: '4px',
-    border: '1px solid #e0e0e0',
-    backgroundColor: '#fff',
+    border: `1px solid ${colors.surface.grayDark}`,
+    backgroundColor: colors.surface.white,
     fontSize: '13px',
     fontWeight: '500',
-    color: '#555',
+    color: colors.text.secondary,
     cursor: 'pointer',
     transition: 'all 0.2s',
   },
@@ -369,11 +380,11 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: '4px',
-    border: '2px solid #3182ce',
-    backgroundColor: '#ebf8ff',
+    border: `2px solid ${colors.semantic.info}`,
+    backgroundColor: colors.semantic.infoLight,
     fontSize: '13px',
     fontWeight: '600',
-    color: '#3182ce',
+    color: colors.semantic.info,
     cursor: 'pointer',
   },
 
@@ -384,11 +395,11 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: '4px',
-    border: '1px solid #38a169',
-    backgroundColor: '#f0fff4',
+    border: `1px solid ${colors.semantic.success}`,
+    backgroundColor: colors.semantic.successLight,
     fontSize: '13px',
     fontWeight: '500',
-    color: '#38a169',
+    color: colors.semantic.success,
     cursor: 'pointer',
   },
 
@@ -399,11 +410,11 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: '4px',
-    border: '1px solid #ed8936',
-    backgroundColor: '#fffaf0',
+    border: `1px solid ${colors.accent.orange}`,
+    backgroundColor: colors.accent.orangeLight,
     fontSize: '13px',
     fontWeight: '500',
-    color: '#c05621',
+    color: colors.accent.orangeHover,
     cursor: 'pointer',
   },
 };
@@ -519,7 +530,8 @@ const PracticeTestLayout = ({
             </span>
           </div>
           <div style={styles.timer}>
-            ⏱ {formatTime(timeRemaining)}
+            <TimerIcon size={18} color={colors.semantic.info} />
+            {formatTime(timeRemaining)}
           </div>
         </div>
       </div>
@@ -538,12 +550,12 @@ const PracticeTestLayout = ({
               <div style={{
                 width: 300,
                 height: 250,
-                backgroundColor: '#f9f9f9',
-                border: '1px solid #ddd',
+                backgroundColor: colors.surface.offWhite,
+                border: `1px solid ${colors.surface.grayMedium}`,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#999'
+                color: colors.text.muted
               }}>
                 [Diagram: {currentQuestion.diagram.type}]
               </div>
@@ -565,14 +577,16 @@ const PracticeTestLayout = ({
               onClick={goPrev}
               disabled={currentIndex === 0}
             >
-              ← Prev. Question
+              <ArrowLeftIcon size={14} color="currentColor" />
+              Prev. Question
             </button>
             <button
               style={styles.navButtonPrimary}
               onClick={goNext}
               disabled={currentIndex === totalQuestions - 1}
             >
-              Next Question →
+              Next Question
+              <ArrowRightIcon size={14} color="currentColor" />
             </button>
           </div>
 
@@ -628,7 +642,7 @@ const PracticeTestLayout = ({
             style={flagged[currentQuestion.id] ? styles.flagButtonActive : styles.flagButton}
             onClick={handleFlag}
           >
-            <span>🚩</span>
+            <FlagIcon size={16} color={flagged[currentQuestion.id] ? colors.accent.orangeHover : colors.text.secondary} />
             {flagged[currentQuestion.id] ? 'Flagged for Review' : 'Flag for Later'}
           </button>
         </div>

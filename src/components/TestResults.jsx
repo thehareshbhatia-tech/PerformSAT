@@ -7,6 +7,9 @@
 
 import React, { useState } from 'react';
 import { getSkillById } from '../data/skillTaxonomy';
+import { colors, radius, shadows } from '../design/tokens';
+import { cardStyles, buttonStyles } from '../design/components';
+import { ChartBarIcon, ArrowRightIcon, CircleDotIcon } from '../design/icons';
 
 // Domain display names matching Test Innovators
 const domainDisplayNames = {
@@ -40,8 +43,8 @@ const DonutChart = ({ correct, incorrect, unanswered, label, size = 100 }) => {
   const total = correct + incorrect + unanswered;
   if (total === 0) return null;
 
-  const radius = 40;
-  const circumference = 2 * Math.PI * radius;
+  const chartRadius = 40;
+  const circumference = 2 * Math.PI * chartRadius;
 
   const correctPct = (correct / total) * 100;
   const incorrectPct = (incorrect / total) * 100;
@@ -62,9 +65,9 @@ const DonutChart = ({ correct, incorrect, unanswered, label, size = 100 }) => {
         <circle
           cx="50"
           cy="50"
-          r={radius}
+          r={chartRadius}
           fill="none"
-          stroke="#e5e7eb"
+          stroke={colors.surface.grayDark}
           strokeWidth="12"
         />
         {/* Unanswered (gray) - draw first as base */}
@@ -72,9 +75,9 @@ const DonutChart = ({ correct, incorrect, unanswered, label, size = 100 }) => {
           <circle
             cx="50"
             cy="50"
-            r={radius}
+            r={chartRadius}
             fill="none"
-            stroke="#9ca3af"
+            stroke={colors.text.muted}
             strokeWidth="12"
             strokeDasharray={`${unansweredDash} ${circumference}`}
             strokeDashoffset={unansweredOffset}
@@ -86,9 +89,9 @@ const DonutChart = ({ correct, incorrect, unanswered, label, size = 100 }) => {
           <circle
             cx="50"
             cy="50"
-            r={radius}
+            r={chartRadius}
             fill="none"
-            stroke="#ef4444"
+            stroke={colors.semantic.error}
             strokeWidth="12"
             strokeDasharray={`${incorrectDash} ${circumference}`}
             strokeDashoffset={incorrectOffset}
@@ -100,9 +103,9 @@ const DonutChart = ({ correct, incorrect, unanswered, label, size = 100 }) => {
           <circle
             cx="50"
             cy="50"
-            r={radius}
+            r={chartRadius}
             fill="none"
-            stroke="#22c55e"
+            stroke={colors.semantic.success}
             strokeWidth="12"
             strokeDasharray={`${correctDash} ${circumference}`}
             strokeDashoffset={correctOffset}
@@ -113,7 +116,7 @@ const DonutChart = ({ correct, incorrect, unanswered, label, size = 100 }) => {
       <p style={{
         fontWeight: '600',
         fontSize: '14px',
-        color: '#374151',
+        color: colors.text.secondary,
         marginTop: '8px'
       }}>
         {label}
@@ -138,12 +141,12 @@ const ScoreBadge = ({ score, maxScore, size = 'large' }) => {
       <div style={{
         width: isLarge ? '100px' : '70px',
         height: isLarge ? '100px' : '70px',
-        borderRadius: '50%',
-        background: '#0d9488',
+        borderRadius: radius.full,
+        background: colors.accent.teal,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: 'white',
+        color: colors.text.inverse,
         fontSize: isLarge ? '32px' : '22px',
         fontWeight: '700',
         boxShadow: '0 4px 12px rgba(13, 148, 136, 0.3)'
@@ -155,7 +158,7 @@ const ScoreBadge = ({ score, maxScore, size = 'large' }) => {
       <div style={{ flex: 1, maxWidth: isLarge ? '300px' : '200px' }}>
         <div style={{
           height: isLarge ? '12px' : '8px',
-          background: '#e5e7eb',
+          background: colors.surface.grayDark,
           borderRadius: '6px',
           overflow: 'hidden',
           position: 'relative'
@@ -163,7 +166,7 @@ const ScoreBadge = ({ score, maxScore, size = 'large' }) => {
           <div style={{
             width: `${percentage}%`,
             height: '100%',
-            background: 'linear-gradient(90deg, #0d9488 0%, #14b8a6 100%)',
+            background: colors.accent.teal,
             borderRadius: '6px',
             transition: 'width 0.5s ease-out'
           }} />
@@ -173,7 +176,7 @@ const ScoreBadge = ({ score, maxScore, size = 'large' }) => {
           justifyContent: 'space-between',
           marginTop: '4px',
           fontSize: isLarge ? '13px' : '11px',
-          color: '#6b7280'
+          color: colors.text.secondary
         }}>
           <span>{isLarge ? '400' : '200'}</span>
           <span>{maxScore}</span>
@@ -198,7 +201,7 @@ const DomainBar = ({ domain, correct, total, maxTotal }) => {
       <span style={{
         width: '220px',
         fontSize: '14px',
-        color: '#374151',
+        color: colors.text.secondary,
         flexShrink: 0
       }}>
         {displayName}
@@ -212,14 +215,14 @@ const DomainBar = ({ domain, correct, total, maxTotal }) => {
         <div style={{
           flex: 1,
           height: '24px',
-          background: '#e5e7eb',
+          background: colors.surface.grayDark,
           borderRadius: '4px',
           overflow: 'hidden'
         }}>
           <div style={{
             width: `${barWidth}%`,
             height: '100%',
-            background: '#84cc16',
+            background: colors.semantic.success,
             borderRadius: '4px',
             transition: 'width 0.3s ease'
           }} />
@@ -227,7 +230,7 @@ const DomainBar = ({ domain, correct, total, maxTotal }) => {
         <span style={{
           fontWeight: '600',
           fontSize: '14px',
-          color: '#374151',
+          color: colors.text.secondary,
           minWidth: '24px',
           textAlign: 'right'
         }}>
@@ -248,16 +251,16 @@ const DonutLegend = () => (
     fontSize: '12px'
   }}>
     <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-      <div style={{ width: '12px', height: '12px', background: '#22c55e', borderRadius: '2px' }} />
-      <span style={{ color: '#374151' }}>Correct</span>
+      <div style={{ width: '12px', height: '12px', background: colors.semantic.success, borderRadius: '2px' }} />
+      <span style={{ color: colors.text.secondary }}>Correct</span>
     </div>
     <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-      <div style={{ width: '12px', height: '12px', background: '#ef4444', borderRadius: '2px' }} />
-      <span style={{ color: '#374151' }}>Incorrect</span>
+      <div style={{ width: '12px', height: '12px', background: colors.semantic.error, borderRadius: '2px' }} />
+      <span style={{ color: colors.text.secondary }}>Incorrect</span>
     </div>
     <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-      <div style={{ width: '12px', height: '12px', background: '#9ca3af', borderRadius: '2px' }} />
-      <span style={{ color: '#374151' }}>Unanswered</span>
+      <div style={{ width: '12px', height: '12px', background: colors.text.muted, borderRadius: '2px' }} />
+      <span style={{ color: colors.text.secondary }}>Unanswered</span>
     </div>
   </div>
 );
@@ -407,7 +410,7 @@ const TestResults = ({
           <h2 style={{
             fontSize: '24px',
             fontWeight: '400',
-            color: '#374151',
+            color: colors.text.secondary,
             marginBottom: '24px'
           }}>
             Total Score
@@ -417,13 +420,13 @@ const TestResults = ({
 
         {/* Score Explanation */}
         <div style={{
-          background: '#f0f9ff',
-          border: '1px solid #bae6fd',
-          borderRadius: '8px',
+          background: colors.semantic.infoLight,
+          border: `1px solid ${colors.semantic.infoBg}`,
+          borderRadius: radius.sm,
           padding: '16px 20px',
           marginBottom: '32px',
           fontSize: '13px',
-          color: '#0369a1'
+          color: colors.semantic.info
         }}>
           <strong>HOW ARE SCORES CALCULATED?</strong>
           <p style={{ marginTop: '8px', lineHeight: '1.5' }}>
@@ -436,10 +439,10 @@ const TestResults = ({
 
         {/* Math Score Card */}
         <div style={{
-          background: '#0d9488',
-          borderRadius: '12px',
+          background: colors.accent.teal,
+          borderRadius: radius.md,
           padding: '24px',
-          color: 'white',
+          color: colors.text.inverse,
           marginBottom: '32px'
         }}>
           <h3 style={{
@@ -462,12 +465,12 @@ const TestResults = ({
             <div style={{
               width: '80px',
               height: '80px',
-              borderRadius: '50%',
-              background: 'white',
+              borderRadius: radius.full,
+              background: colors.surface.white,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: '#0d9488',
+              color: colors.accent.teal,
               fontSize: '28px',
               fontWeight: '700'
             }}>
@@ -485,7 +488,7 @@ const TestResults = ({
                 <div style={{
                   width: `${((satScore - 200) / 600) * 100}%`,
                   height: '100%',
-                  background: 'white',
+                  background: colors.surface.white,
                   borderRadius: '5px'
                 }} />
               </div>
@@ -523,9 +526,7 @@ const TestResults = ({
               }}>
                 Module 1
               </span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
+              <ArrowRightIcon size={20} color={colors.text.inverse} />
               <span style={{
                 background: 'rgba(255,255,255,0.2)',
                 padding: '4px 12px',
@@ -554,10 +555,10 @@ const TestResults = ({
             onClick={onBack}
             style={{
               padding: '12px 28px',
-              background: 'white',
-              color: '#374151',
-              border: '1px solid #d1d5db',
-              borderRadius: '8px',
+              background: colors.surface.white,
+              color: colors.text.secondary,
+              border: `1px solid ${colors.surface.grayMedium}`,
+              borderRadius: radius.sm,
               fontSize: '15px',
               fontWeight: '500',
               cursor: 'pointer'
@@ -569,10 +570,10 @@ const TestResults = ({
             onClick={onRetake}
             style={{
               padding: '12px 28px',
-              background: '#111827',
-              color: 'white',
+              background: colors.surface.dark,
+              color: colors.text.inverse,
               border: 'none',
-              borderRadius: '8px',
+              borderRadius: radius.sm,
               fontSize: '15px',
               fontWeight: '500',
               cursor: 'pointer'
@@ -584,10 +585,10 @@ const TestResults = ({
             onClick={onReview}
             style={{
               padding: '12px 28px',
-              background: '#0d9488',
-              color: 'white',
+              background: colors.accent.teal,
+              color: colors.text.inverse,
               border: 'none',
-              borderRadius: '8px',
+              borderRadius: radius.sm,
               fontSize: '15px',
               fontWeight: '500',
               cursor: 'pointer'
@@ -624,7 +625,7 @@ const TestResults = ({
           <h2 style={{
             fontSize: '24px',
             fontWeight: '500',
-            color: '#111827'
+            color: colors.text.primary
           }}>
             Math: Module {moduleIndex + 1} Summary
           </h2>
@@ -632,8 +633,8 @@ const TestResults = ({
             onClick={() => onReviewModule ? onReviewModule(moduleIndex) : onReview()}
             style={{
               padding: '10px 20px',
-              background: '#0d9488',
-              color: 'white',
+              background: colors.accent.teal,
+              color: colors.text.inverse,
               border: 'none',
               borderRadius: '6px',
               fontSize: '14px',
@@ -645,25 +646,23 @@ const TestResults = ({
             }}
           >
             VIEW YOUR ANSWERS
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
+            <ArrowRightIcon size={16} color={colors.text.inverse} />
           </button>
         </div>
 
         {/* Score Summary */}
         <div style={{
-          background: '#f9fafb',
-          borderRadius: '12px',
+          background: colors.surface.offWhite,
+          borderRadius: radius.md,
           padding: '20px',
           marginBottom: '32px',
           textAlign: 'center'
         }}>
-          <span style={{ fontSize: '14px', color: '#6b7280' }}>Module Score: </span>
-          <span style={{ fontSize: '24px', fontWeight: '600', color: '#111827' }}>
+          <span style={{ fontSize: '14px', color: colors.text.secondary }}>Module Score: </span>
+          <span style={{ fontSize: '24px', fontWeight: '600', color: colors.text.primary }}>
             {moduleScore.correct}/{moduleScore.total}
           </span>
-          <span style={{ fontSize: '14px', color: '#6b7280', marginLeft: '8px' }}>
+          <span style={{ fontSize: '14px', color: colors.text.secondary, marginLeft: '8px' }}>
             ({Math.round((moduleScore.correct / moduleScore.total) * 100)}%)
           </span>
         </div>
@@ -673,7 +672,7 @@ const TestResults = ({
           <h3 style={{
             fontSize: '16px',
             fontWeight: '600',
-            color: '#111827',
+            color: colors.text.primary,
             marginBottom: '20px'
           }}>
             How you did, by difficulty:
@@ -712,7 +711,7 @@ const TestResults = ({
           <h3 style={{
             fontSize: '16px',
             fontWeight: '600',
-            color: '#111827',
+            color: colors.text.primary,
             marginBottom: '20px'
           }}>
             How you did, by content domain:
@@ -740,9 +739,9 @@ const TestResults = ({
             onClick={() => setActiveTab('summary')}
             style={{
               padding: '10px 24px',
-              background: 'white',
-              color: '#374151',
-              border: '1px solid #d1d5db',
+              background: colors.surface.white,
+              color: colors.text.secondary,
+              border: `1px solid ${colors.surface.grayMedium}`,
               borderRadius: '6px',
               fontSize: '14px',
               fontWeight: '500',
@@ -759,8 +758,10 @@ const TestResults = ({
   const renderDiagnosticView = () => {
     if (!diagnosticData) {
       return (
-        <div style={{ textAlign: 'center', padding: '60px 20px', color: '#6b7280' }}>
-          <div style={{ fontSize: '48px', marginBottom: '16px' }}>📊</div>
+        <div style={{ textAlign: 'center', padding: '60px 20px', color: colors.text.secondary }}>
+          <div style={{ marginBottom: '16px', display: 'flex', justifyContent: 'center' }}>
+            <ChartBarIcon size={48} color={colors.text.muted} />
+          </div>
           <p style={{ fontSize: '16px', fontWeight: '500', marginBottom: '8px' }}>
             Diagnostic data is not available for this test attempt.
           </p>
@@ -834,16 +835,16 @@ const TestResults = ({
       'jumping': 'Jumping'
     };
 
-    const cardStyle = {
-      background: 'white',
-      border: '1px solid #e5e7eb',
-      borderRadius: '12px',
+    const diagnosticCardStyle = {
+      background: colors.surface.white,
+      border: `1px solid ${colors.surface.grayDark}`,
+      borderRadius: radius.md,
       padding: '20px',
       marginBottom: '24px',
     };
 
     const sectionTitle = (text) => (
-      <h3 style={{ fontSize: '16px', fontWeight: '600', color: '#111827', marginBottom: '16px', marginTop: '0' }}>
+      <h3 style={{ fontSize: '16px', fontWeight: '600', color: colors.text.primary, marginBottom: '16px', marginTop: '0' }}>
         {text}
       </h3>
     );
@@ -855,7 +856,7 @@ const TestResults = ({
       return `${m}m ${s}s`;
     };
 
-    // Get question label from key (e.g., "0-5" → "M1 Q6")
+    // Get question label from key (e.g., "0-5" -> "M1 Q6")
     const questionLabel = (key) => {
       const [modIdx, qIdx] = key.split('-').map(Number);
       return `M${modIdx + 1} Q${qIdx + 1}`;
@@ -864,36 +865,36 @@ const TestResults = ({
     return (
       <div>
         {/* Section A: Test-Taking Behavior */}
-        <div style={cardStyle}>
+        <div style={diagnosticCardStyle}>
           {sectionTitle('Test-Taking Behavior')}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
             {/* Navigation Pattern */}
-            <div style={{ background: '#f0fdfa', borderRadius: '10px', padding: '16px', textAlign: 'center' }}>
-              <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '8px' }}>Navigation Pattern</div>
-              <div style={{ fontSize: '20px', fontWeight: '700', color: '#0d9488' }}>
+            <div style={{ background: colors.accent.tealLight, borderRadius: '10px', padding: '16px', textAlign: 'center' }}>
+              <div style={{ fontSize: '13px', color: colors.text.secondary, marginBottom: '8px' }}>Navigation Pattern</div>
+              <div style={{ fontSize: '20px', fontWeight: '700', color: colors.accent.teal }}>
                 {navPatternLabel[navigationPattern] || 'Linear'}
               </div>
-              <div style={{ fontSize: '12px', color: '#9ca3af', marginTop: '4px' }}>
+              <div style={{ fontSize: '12px', color: colors.text.muted, marginTop: '4px' }}>
                 {totalNavigationEvents} nav events
               </div>
             </div>
             {/* Calculator Usage */}
-            <div style={{ background: '#eff6ff', borderRadius: '10px', padding: '16px', textAlign: 'center' }}>
-              <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '8px' }}>Calculator Used</div>
-              <div style={{ fontSize: '20px', fontWeight: '700', color: '#2563eb' }}>
+            <div style={{ background: colors.semantic.infoLight, borderRadius: '10px', padding: '16px', textAlign: 'center' }}>
+              <div style={{ fontSize: '13px', color: colors.text.secondary, marginBottom: '8px' }}>Calculator Used</div>
+              <div style={{ fontSize: '20px', fontWeight: '700', color: colors.semantic.info }}>
                 {calculatorUsageCount}
               </div>
-              <div style={{ fontSize: '12px', color: '#9ca3af', marginTop: '4px' }}>
+              <div style={{ fontSize: '12px', color: colors.text.muted, marginTop: '4px' }}>
                 of {totalQ} questions
               </div>
             </div>
             {/* Marked for Review */}
-            <div style={{ background: '#fefce8', borderRadius: '10px', padding: '16px', textAlign: 'center' }}>
-              <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '8px' }}>Marked for Review</div>
-              <div style={{ fontSize: '20px', fontWeight: '700', color: '#ca8a04' }}>
+            <div style={{ background: colors.semantic.warningLight, borderRadius: '10px', padding: '16px', textAlign: 'center' }}>
+              <div style={{ fontSize: '13px', color: colors.text.secondary, marginBottom: '8px' }}>Marked for Review</div>
+              <div style={{ fontSize: '20px', fontWeight: '700', color: colors.semantic.warning }}>
                 {markedForReviewCount}
               </div>
-              <div style={{ fontSize: '12px', color: '#9ca3af', marginTop: '4px' }}>
+              <div style={{ fontSize: '12px', color: colors.text.muted, marginTop: '4px' }}>
                 {questionsVisitedMultipleTimes} revisited
               </div>
             </div>
@@ -901,21 +902,21 @@ const TestResults = ({
         </div>
 
         {/* Section B: Time Analysis */}
-        <div style={cardStyle}>
+        <div style={diagnosticCardStyle}>
           {sectionTitle('Time Analysis')}
           <div style={{ display: 'flex', gap: '24px', marginBottom: '20px', flexWrap: 'wrap' }}>
-            <div style={{ background: '#f9fafb', borderRadius: '8px', padding: '12px 20px' }}>
-              <div style={{ fontSize: '12px', color: '#6b7280' }}>Total Time</div>
-              <div style={{ fontSize: '18px', fontWeight: '600', color: '#111827' }}>{formatTime(totalTimeSpent)}</div>
+            <div style={{ background: colors.surface.offWhite, borderRadius: radius.sm, padding: '12px 20px' }}>
+              <div style={{ fontSize: '12px', color: colors.text.secondary }}>Total Time</div>
+              <div style={{ fontSize: '18px', fontWeight: '600', color: colors.text.primary }}>{formatTime(totalTimeSpent)}</div>
             </div>
-            <div style={{ background: '#f9fafb', borderRadius: '8px', padding: '12px 20px' }}>
-              <div style={{ fontSize: '12px', color: '#6b7280' }}>Avg per Question</div>
-              <div style={{ fontSize: '18px', fontWeight: '600', color: '#111827' }}>{formatTime(avgTime)}</div>
+            <div style={{ background: colors.surface.offWhite, borderRadius: radius.sm, padding: '12px 20px' }}>
+              <div style={{ fontSize: '12px', color: colors.text.secondary }}>Avg per Question</div>
+              <div style={{ fontSize: '18px', fontWeight: '600', color: colors.text.primary }}>{formatTime(avgTime)}</div>
             </div>
             {Object.entries(modTimeRemaining || {}).map(([modIdx, remaining]) => (
-              <div key={modIdx} style={{ background: '#f9fafb', borderRadius: '8px', padding: '12px 20px' }}>
-                <div style={{ fontSize: '12px', color: '#6b7280' }}>Module {parseInt(modIdx) + 1} Time Left</div>
-                <div style={{ fontSize: '18px', fontWeight: '600', color: remaining === null ? '#9ca3af' : remaining > 120 ? '#16a34a' : '#ea580c' }}>
+              <div key={modIdx} style={{ background: colors.surface.offWhite, borderRadius: radius.sm, padding: '12px 20px' }}>
+                <div style={{ fontSize: '12px', color: colors.text.secondary }}>Module {parseInt(modIdx) + 1} Time Left</div>
+                <div style={{ fontSize: '18px', fontWeight: '600', color: remaining === null ? colors.text.muted : remaining > 120 ? colors.semantic.success : colors.accent.orange }}>
                   {remaining === null ? 'Untimed' : formatTime(remaining)}
                 </div>
               </div>
@@ -924,31 +925,31 @@ const TestResults = ({
 
           {slowest.length > 0 && (
             <>
-              <div style={{ fontSize: '13px', fontWeight: '600', color: '#6b7280', marginBottom: '8px' }}>
+              <div style={{ fontSize: '13px', fontWeight: '600', color: colors.text.secondary, marginBottom: '8px' }}>
                 Slowest Questions
               </div>
               {slowest.map(([key, q]) => {
-                const diffColor = q.difficulty === 'hard' ? '#ef4444' : q.difficulty === 'medium' ? '#f59e0b' : '#22c55e';
+                const diffColor = q.difficulty === 'hard' ? colors.semantic.error : q.difficulty === 'medium' ? colors.semantic.warning : colors.semantic.success;
                 return (
                   <div key={key} style={{
                     display: 'flex', alignItems: 'center', gap: '12px',
                     padding: '8px 12px', borderRadius: '6px',
-                    background: q.isCorrect ? '#f0fdf4' : '#fef2f2',
+                    background: q.isCorrect ? colors.semantic.successLight : colors.semantic.errorLight,
                     marginBottom: '4px'
                   }}>
-                    <span style={{ fontWeight: '600', fontSize: '13px', color: '#374151', minWidth: '55px' }}>
+                    <span style={{ fontWeight: '600', fontSize: '13px', color: colors.text.secondary, minWidth: '55px' }}>
                       {questionLabel(key)}
                     </span>
                     <span style={{
                       fontSize: '11px', fontWeight: '500', padding: '2px 8px',
-                      borderRadius: '4px', background: diffColor, color: 'white', textTransform: 'capitalize'
+                      borderRadius: '4px', background: diffColor, color: colors.text.inverse, textTransform: 'capitalize'
                     }}>
                       {q.difficulty || 'medium'}
                     </span>
-                    <span style={{ flex: 1, fontSize: '13px', color: q.isCorrect ? '#16a34a' : '#dc2626', fontWeight: '500' }}>
+                    <span style={{ flex: 1, fontSize: '13px', color: q.isCorrect ? colors.semantic.success : colors.semantic.error, fontWeight: '500' }}>
                       {q.isCorrect ? 'Correct' : 'Incorrect'}
                     </span>
-                    <span style={{ fontWeight: '600', fontSize: '14px', color: '#374151' }}>
+                    <span style={{ fontWeight: '600', fontSize: '14px', color: colors.text.secondary }}>
                       {formatTime(q.timeSpent || 0)}
                     </span>
                   </div>
@@ -959,23 +960,23 @@ const TestResults = ({
         </div>
 
         {/* Section C: Skill Performance */}
-        <div style={cardStyle}>
+        <div style={diagnosticCardStyle}>
           {sectionTitle('Skill Performance')}
           {skillPerformance.length === 0 ? (
-            <p style={{ color: '#9ca3af', fontSize: '14px' }}>No skill data available.</p>
+            <p style={{ color: colors.text.muted, fontSize: '14px' }}>No skill data available.</p>
           ) : (
             <div>
               {skillPerformance.map(skill => {
-                const barColor = skill.pct >= 80 ? '#22c55e' : skill.pct >= 60 ? '#f59e0b' : '#ef4444';
+                const barColor = skill.pct >= 80 ? colors.semantic.success : skill.pct >= 60 ? colors.semantic.warning : colors.semantic.error;
                 return (
                   <div key={skill.skillId} style={{ marginBottom: '12px' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
-                      <span style={{ fontSize: '13px', fontWeight: '500', color: '#374151' }}>{skill.name}</span>
+                      <span style={{ fontSize: '13px', fontWeight: '500', color: colors.text.secondary }}>{skill.name}</span>
                       <span style={{ fontSize: '13px', fontWeight: '600', color: barColor }}>
                         {skill.correct}/{skill.total} ({skill.pct}%)
                       </span>
                     </div>
-                    <div style={{ background: '#f3f4f6', borderRadius: '4px', height: '8px', overflow: 'hidden' }}>
+                    <div style={{ background: colors.surface.gray, borderRadius: '4px', height: '8px', overflow: 'hidden' }}>
                       <div style={{
                         width: `${skill.pct}%`,
                         height: '100%',
@@ -992,11 +993,11 @@ const TestResults = ({
         </div>
 
         {/* Section D: Study Recommendations */}
-        <div style={{ ...cardStyle, background: '#f0fdfa', border: '1px solid #99f6e4' }}>
+        <div style={{ ...diagnosticCardStyle, background: colors.accent.tealLight, border: `1px solid ${colors.surface.grayDark}` }}>
           {sectionTitle('Study Recommendations')}
           <ul style={{ margin: 0, paddingLeft: '20px' }}>
             {recommendations.map((rec, i) => (
-              <li key={i} style={{ fontSize: '14px', color: '#374151', marginBottom: '8px', lineHeight: '1.5' }}>
+              <li key={i} style={{ fontSize: '14px', color: colors.text.secondary, marginBottom: '8px', lineHeight: '1.5' }}>
                 {rec}
               </li>
             ))}
@@ -1010,10 +1011,10 @@ const TestResults = ({
     <div style={{ maxWidth: '800px', margin: '0 auto', padding: '20px' }}>
       {/* Header */}
       <div style={{
-        background: '#1e3a5f',
-        color: 'white',
+        background: colors.surface.dark,
+        color: colors.text.inverse,
         padding: '16px 24px',
-        borderRadius: '12px 12px 0 0',
+        borderRadius: `${radius.md} ${radius.md} 0 0`,
         marginBottom: '0'
       }}>
         <h1 style={{
@@ -1031,8 +1032,8 @@ const TestResults = ({
       {/* Tab Navigation */}
       <div style={{
         display: 'flex',
-        background: '#f3f4f6',
-        borderBottom: '1px solid #e5e7eb',
+        background: colors.surface.gray,
+        borderBottom: `1px solid ${colors.surface.grayDark}`,
         overflowX: 'auto'
       }}>
         {tabs.map(tab => (
@@ -1041,10 +1042,10 @@ const TestResults = ({
             onClick={() => setActiveTab(tab.id)}
             style={{
               padding: '14px 20px',
-              background: activeTab === tab.id ? 'white' : 'transparent',
+              background: activeTab === tab.id ? colors.surface.white : 'transparent',
               border: 'none',
-              borderBottom: activeTab === tab.id ? '3px solid #0d9488' : '3px solid transparent',
-              color: activeTab === tab.id ? '#0d9488' : '#6b7280',
+              borderBottom: activeTab === tab.id ? `3px solid ${colors.accent.teal}` : '3px solid transparent',
+              color: activeTab === tab.id ? colors.accent.teal : colors.text.secondary,
               fontSize: '12px',
               fontWeight: '600',
               cursor: 'pointer',
@@ -1054,8 +1055,8 @@ const TestResults = ({
             }}
           >
             {tab.id === 'summary' && (
-              <span style={{ marginRight: '6px' }}>
-                {activeTab === tab.id ? '●' : '○'}
+              <span style={{ marginRight: '6px', display: 'inline-flex', verticalAlign: 'middle' }}>
+                <CircleDotIcon size={12} color={activeTab === tab.id ? colors.accent.teal : colors.text.secondary} />
               </span>
             )}
             {tab.label}
@@ -1065,10 +1066,10 @@ const TestResults = ({
 
       {/* Content Area */}
       <div style={{
-        background: 'white',
+        background: colors.surface.white,
         padding: '32px',
-        borderRadius: '0 0 12px 12px',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.08)'
+        borderRadius: `0 0 ${radius.md} ${radius.md}`,
+        boxShadow: shadows.md
       }}>
         {activeTab === 'summary'
           ? renderSummaryView()

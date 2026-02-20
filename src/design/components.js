@@ -27,7 +27,7 @@ export const buttonStyles = {
   },
   primaryHover: {
     backgroundColor: colors.accent.orangeHover,
-    transform: 'scale(0.98)',
+    transform: 'scale(0.97)',
   },
   secondary: {
     backgroundColor: 'transparent',
@@ -40,14 +40,14 @@ export const buttonStyles = {
   },
   secondaryHover: {
     backgroundColor: colors.surface.gray,
-    borderColor: colors.text.muted,
+    borderColor: colors.surface.grayMedium,
   },
   tertiary: {
     backgroundColor: 'transparent',
     color: colors.accent.orange,
     fontWeight: typography.weights.medium,
     borderRadius: radius.sm,
-    height: '40px',
+    height: '44px',
     padding: `0 ${spacing.md}`,
   },
   tertiaryHover: {
@@ -62,23 +62,50 @@ export const buttonStyles = {
   },
   destructiveHover: {
     backgroundColor: '#b91c1c',
-    transform: 'scale(0.98)',
+    transform: 'scale(0.97)',
   },
   ghost: {
     backgroundColor: 'transparent',
     color: colors.text.secondary,
     fontWeight: typography.weights.regular,
     borderRadius: radius.sm,
-    height: '36px',
+    height: '44px',
     padding: `0 ${spacing.sm}`,
   },
   ghostHover: {
     backgroundColor: colors.surface.gray,
     color: colors.text.primary,
   },
+  icon: {
+    width: '40px',
+    height: '40px',
+    borderRadius: radius.full,
+    backgroundColor: 'transparent',
+    padding: 0,
+  },
+  iconHover: {
+    backgroundColor: colors.surface.gray,
+  },
 };
 
 export const cardStyles = {
+  // Flat — no border, no shadow. For nested/inline content areas
+  flat: {
+    backgroundColor: colors.surface.gray,
+    borderRadius: radius.md,
+    padding: spacing.md,
+    border: 'none',
+    boxShadow: 'none',
+  },
+  // Subtle — light border, no shadow. Quiet background cards
+  subtle: {
+    backgroundColor: colors.surface.white,
+    borderRadius: radius.lg,
+    padding: spacing.lg,
+    border: `1px solid ${colors.surface.grayDark}`,
+    boxShadow: 'none',
+  },
+  // Default — border + slight shadow. Standard content cards
   base: {
     backgroundColor: colors.surface.white,
     borderRadius: radius.lg,
@@ -86,6 +113,15 @@ export const cardStyles = {
     border: `1px solid ${colors.surface.grayDark}`,
     boxShadow: shadows.sm,
   },
+  // Prominent — no border, stronger shadow. CTAs, hero sections
+  prominent: {
+    backgroundColor: colors.surface.white,
+    borderRadius: radius.lg,
+    padding: spacing.lg,
+    border: 'none',
+    boxShadow: shadows.md,
+  },
+  // Elevated — large shadow. Modals, popovers
   elevated: {
     backgroundColor: colors.surface.white,
     borderRadius: radius.lg,
@@ -93,6 +129,7 @@ export const cardStyles = {
     border: 'none',
     boxShadow: shadows.lg,
   },
+  // Interactive — for clickable cards
   interactive: {
     backgroundColor: colors.surface.white,
     borderRadius: radius.lg,
@@ -104,9 +141,10 @@ export const cardStyles = {
   },
   interactiveHover: {
     boxShadow: shadows.md,
-    transform: 'translateY(-2px)',
-    borderColor: colors.accent.orangeMuted,
+    transform: 'scale(1.01)',
+    borderColor: colors.surface.grayMedium,
   },
+  // Dark — for hero/featured sections
   dark: {
     backgroundColor: colors.surface.dark,
     color: colors.text.inverse,

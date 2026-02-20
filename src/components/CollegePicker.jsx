@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { collegeData, calculateMedian } from '../data/collegeData';
+import { colors, radius, transitions } from '../design/tokens';
 
 // College domain mapping for favicon URLs
 const collegeDomains = {
@@ -796,6 +797,12 @@ const getLogoUrl = (collegeId) => {
   return `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
 };
 
+// Decorative palette for school badge fallbacks (not UI colors)
+const badgePalette = [
+  '#1e40af', colors.accent.purple, '#db2777', colors.semantic.error, colors.accent.orange,
+  '#ca8a04', colors.semantic.success, colors.accent.teal, '#0891b2', '#4f46e5'
+];
+
 // School logo component using official favicons
 const SchoolLogo = ({ college, size = 32 }) => {
   const [imageError, setImageError] = useState(false);
@@ -803,15 +810,11 @@ const SchoolLogo = ({ college, size = 32 }) => {
 
   // Generate a consistent color based on school name for fallback
   const getColorFromName = (name) => {
-    const colors = [
-      '#1e40af', '#7c3aed', '#db2777', '#dc2626', '#ea580c',
-      '#ca8a04', '#16a34a', '#0d9488', '#0891b2', '#4f46e5'
-    ];
     let hash = 0;
     for (let i = 0; i < name.length; i++) {
       hash = name.charCodeAt(i) + ((hash << 5) - hash);
     }
-    return colors[Math.abs(hash) % colors.length];
+    return badgePalette[Math.abs(hash) % badgePalette.length];
   };
 
   const firstLetter = college.name.charAt(0).toUpperCase();
@@ -822,12 +825,12 @@ const SchoolLogo = ({ college, size = 32 }) => {
       <div style={{
         width: `${size}px`,
         height: `${size}px`,
-        borderRadius: '6px',
+        borderRadius: radius.sm,
         background: bgColor,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: 'white',
+        color: colors.text.inverse,
         fontWeight: '700',
         fontSize: `${size * 0.5}px`,
         flexShrink: 0
@@ -844,10 +847,10 @@ const SchoolLogo = ({ college, size = 32 }) => {
       style={{
         width: `${size}px`,
         height: `${size}px`,
-        borderRadius: '6px',
+        borderRadius: radius.sm,
         objectFit: 'contain',
-        background: '#fff',
-        border: '1px solid #e5e7eb',
+        background: colors.surface.white,
+        border: `1px solid ${colors.surface.grayDark}`,
         flexShrink: 0
       }}
       onError={() => setImageError(true)}
@@ -906,9 +909,9 @@ const CollegePicker = ({
   };
 
   const cardStyle = {
-    background: 'white',
-    borderRadius: '16px',
-    border: '1px solid #e5e7eb',
+    background: colors.surface.white,
+    borderRadius: radius.lg,
+    border: `1px solid ${colors.surface.grayDark}`,
     padding: '24px',
     marginBottom: '24px',
     maxHeight: '80vh',
@@ -921,10 +924,10 @@ const CollegePicker = ({
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: '12px 16px',
-    background: '#f0fdf4',
-    borderRadius: '10px',
+    background: colors.semantic.successLight,
+    borderRadius: radius.md,
     marginBottom: '8px',
-    border: '1px solid #86efac'
+    border: `1px solid ${colors.semantic.successBg}`
   };
 
   const collegeItemStyle = (isSelected, isDisabled) => ({
@@ -932,13 +935,13 @@ const CollegePicker = ({
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: '14px 16px',
-    borderRadius: '10px',
+    borderRadius: radius.md,
     marginBottom: '6px',
     cursor: isDisabled && !isSelected ? 'not-allowed' : 'pointer',
-    background: isSelected ? '#eff6ff' : '#f9fafb',
-    border: isSelected ? '2px solid #3b82f6' : '1px solid #e5e7eb',
+    background: isSelected ? colors.semantic.infoLight : colors.surface.offWhite,
+    border: isSelected ? `2px solid ${colors.semantic.info}` : `1px solid ${colors.surface.grayDark}`,
     opacity: isDisabled && !isSelected ? 0.5 : 1,
-    transition: 'all 0.15s ease'
+    transition: `all ${transitions.fast}`
   });
 
   return (
@@ -951,10 +954,10 @@ const CollegePicker = ({
         marginBottom: '20px'
       }}>
         <div>
-          <div style={{ fontSize: '20px', fontWeight: '600', color: '#111827' }}>
+          <div style={{ fontSize: '20px', fontWeight: '600', color: colors.text.primary }}>
             Select Your Top {maxSelections} Target Schools
           </div>
-          <div style={{ fontSize: '14px', color: '#6b7280', marginTop: '4px' }}>
+          <div style={{ fontSize: '14px', color: colors.text.secondary, marginTop: '4px' }}>
             We'll set your target score based on these schools
           </div>
         </div>
@@ -963,7 +966,7 @@ const CollegePicker = ({
           style={{
             padding: '8px 16px',
             background: 'transparent',
-            color: '#6b7280',
+            color: colors.text.secondary,
             border: 'none',
             fontSize: '14px',
             cursor: 'pointer',
@@ -985,14 +988,14 @@ const CollegePicker = ({
             width: '100%',
             padding: '14px 16px',
             fontSize: '15px',
-            border: '2px solid #e5e7eb',
-            borderRadius: '10px',
+            border: `2px solid ${colors.surface.grayDark}`,
+            borderRadius: radius.md,
             outline: 'none',
             boxSizing: 'border-box',
-            transition: 'border-color 0.15s ease'
+            transition: `border-color ${transitions.fast}`
           }}
-          onFocus={(e) => e.target.style.borderColor = '#3b82f6'}
-          onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
+          onFocus={(e) => e.target.style.borderColor = colors.semantic.info}
+          onBlur={(e) => e.target.style.borderColor = colors.surface.grayDark}
         />
       </div>
 
@@ -1002,7 +1005,7 @@ const CollegePicker = ({
           <div style={{
             fontSize: '13px',
             fontWeight: '600',
-            color: '#16a34a',
+            color: colors.semantic.success,
             marginBottom: '10px',
             textTransform: 'uppercase',
             letterSpacing: '0.5px'
@@ -1014,10 +1017,10 @@ const CollegePicker = ({
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                 <SchoolLogo college={college} size={36} />
                 <div>
-                  <div style={{ fontWeight: '600', color: '#111827', fontSize: '15px' }}>
+                  <div style={{ fontWeight: '600', color: colors.text.primary, fontSize: '15px' }}>
                     {college.name}
                   </div>
-                  <div style={{ fontSize: '13px', color: '#16a34a', fontWeight: '500' }}>
+                  <div style={{ fontSize: '13px', color: colors.semantic.success, fontWeight: '500' }}>
                     {college.satMath} Math
                   </div>
                 </div>
@@ -1027,10 +1030,10 @@ const CollegePicker = ({
                 style={{
                   width: '28px',
                   height: '28px',
-                  borderRadius: '50%',
+                  borderRadius: radius.full,
                   border: 'none',
-                  background: '#fef2f2',
-                  color: '#dc2626',
+                  background: colors.semantic.errorLight,
+                  color: colors.semantic.error,
                   fontSize: '18px',
                   cursor: 'pointer',
                   display: 'flex',
@@ -1056,7 +1059,7 @@ const CollegePicker = ({
         <div style={{
           fontSize: '13px',
           fontWeight: '600',
-          color: '#6b7280',
+          color: colors.text.secondary,
           marginBottom: '10px',
           textTransform: 'uppercase',
           letterSpacing: '0.5px'
@@ -1068,7 +1071,7 @@ const CollegePicker = ({
           <div style={{
             padding: '24px',
             textAlign: 'center',
-            color: '#6b7280',
+            color: colors.text.secondary,
             fontSize: '14px'
           }}>
             No schools found matching "{searchQuery}"
@@ -1085,22 +1088,22 @@ const CollegePicker = ({
                   onClick={() => !isDisabled && toggleCollege(college)}
                   onMouseEnter={(e) => {
                     if (!isDisabled) {
-                      e.currentTarget.style.background = '#f3f4f6';
-                      e.currentTarget.style.borderColor = '#d1d5db';
+                      e.currentTarget.style.background = colors.surface.gray;
+                      e.currentTarget.style.borderColor = colors.surface.grayMedium;
                     }
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.background = '#f9fafb';
-                    e.currentTarget.style.borderColor = '#e5e7eb';
+                    e.currentTarget.style.background = colors.surface.offWhite;
+                    e.currentTarget.style.borderColor = colors.surface.grayDark;
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                     <SchoolLogo college={college} size={32} />
                     <div>
-                      <div style={{ fontWeight: '500', color: '#111827', fontSize: '15px' }}>
+                      <div style={{ fontWeight: '500', color: colors.text.primary, fontSize: '15px' }}>
                         {college.name}
                       </div>
-                      <div style={{ fontSize: '13px', color: '#6b7280', marginTop: '2px' }}>
+                      <div style={{ fontSize: '13px', color: colors.text.secondary, marginTop: '2px' }}>
                         {college.state}
                       </div>
                     </div>
@@ -1108,10 +1111,10 @@ const CollegePicker = ({
                   <div style={{
                     fontSize: '14px',
                     fontWeight: '600',
-                    color: '#3b82f6',
-                    background: '#eff6ff',
+                    color: colors.semantic.info,
+                    background: colors.semantic.infoLight,
                     padding: '6px 12px',
-                    borderRadius: '6px'
+                    borderRadius: radius.sm
                   }}>
                     {college.satMath}
                   </div>
@@ -1123,7 +1126,7 @@ const CollegePicker = ({
 
       {/* Footer with Median Score and Save */}
       <div style={{
-        borderTop: '1px solid #e5e7eb',
+        borderTop: `1px solid ${colors.surface.grayDark}`,
         paddingTop: '16px',
         display: 'flex',
         justifyContent: 'space-between',
@@ -1132,18 +1135,18 @@ const CollegePicker = ({
         <div>
           {medianScore ? (
             <>
-              <div style={{ fontSize: '13px', color: '#6b7280' }}>
+              <div style={{ fontSize: '13px', color: colors.text.secondary }}>
                 Your target score
               </div>
-              <div style={{ fontSize: '28px', fontWeight: '700', color: '#111827' }}>
+              <div style={{ fontSize: '28px', fontWeight: '700', color: colors.text.primary }}>
                 {medianScore}
-                <span style={{ fontSize: '14px', fontWeight: '500', color: '#6b7280', marginLeft: '6px' }}>
+                <span style={{ fontSize: '14px', fontWeight: '500', color: colors.text.secondary, marginLeft: '6px' }}>
                   Math
                 </span>
               </div>
             </>
           ) : (
-            <div style={{ fontSize: '14px', color: '#9ca3af' }}>
+            <div style={{ fontSize: '14px', color: colors.text.muted }}>
               Select {maxSelections} schools to set your target
             </div>
           )}
@@ -1153,20 +1156,20 @@ const CollegePicker = ({
           disabled={selected.length === 0}
           style={{
             padding: '12px 28px',
-            background: selected.length > 0 ? '#111827' : '#d1d5db',
-            color: 'white',
+            background: selected.length > 0 ? colors.text.primary : colors.surface.grayMedium,
+            color: colors.text.inverse,
             border: 'none',
-            borderRadius: '10px',
+            borderRadius: radius.md,
             fontSize: '15px',
             fontWeight: '600',
             cursor: selected.length > 0 ? 'pointer' : 'not-allowed',
-            transition: 'background 0.15s ease'
+            transition: `background ${transitions.fast}`
           }}
           onMouseEnter={(e) => {
-            if (selected.length > 0) e.target.style.background = '#374151';
+            if (selected.length > 0) e.target.style.background = colors.text.secondary;
           }}
           onMouseLeave={(e) => {
-            if (selected.length > 0) e.target.style.background = '#111827';
+            if (selected.length > 0) e.target.style.background = colors.text.primary;
           }}
         >
           Save

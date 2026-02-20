@@ -201,7 +201,7 @@ const renderMarkdown = (text) => {
             fontSize: sizes[level],
             fontWeight: weights[level],
             margin: '20px 0 10px 0',
-            color: '#1d1d1f',
+            color: designColors.text.primary,
             letterSpacing: '-0.01em'
           }}
           dangerouslySetInnerHTML={{ __html: processInlineMarkdown(text) }}
@@ -245,8 +245,8 @@ const design = {
       tertiary: designColors.surface.offWhite,
     },
     border: {
-      light: 'rgba(0,0,0,0.06)',
-      medium: 'rgba(0,0,0,0.1)',
+      light: designColors.surface.grayDark,
+      medium: designColors.surface.grayMedium,
     }
   },
   typography: {
@@ -747,7 +747,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
           {isVideoLesson && videoTranscript && (
             <span style={{
               background: 'rgba(52, 199, 89, 0.12)',
-              color: '#248a3d',
+              color: designColors.semantic.success,
               padding: '5px 12px',
               borderRadius: '100px',
               fontSize: '12px',

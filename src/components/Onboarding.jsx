@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { colors, typography, spacing, radius, shadows, transitions } from '../design/tokens';
 import { buttonStyles, cardStyles, inputStyles } from '../design/components';
 import { injectAnimations } from '../design/animations';
+import { CheckIcon, DocumentIcon } from '../design/icons';
 
 const Onboarding = ({ user, onUpdateTargetScore, onUpdateTestDate, onUpdateCurrentScore, onComplete }) => {
   const [step, setStep] = useState(0);
@@ -244,7 +245,7 @@ const Onboarding = ({ user, onUpdateTargetScore, onUpdateTestDate, onUpdateCurre
                 {preset.label}
               </span>
               {testDateOption === preset.value && (
-                <span style={{ color: colors.accent.orange, fontSize: '20px' }}>&#10003;</span>
+                <CheckIcon size={20} color={colors.accent.orange} />
               )}
             </button>
           ))}
@@ -335,7 +336,7 @@ const Onboarding = ({ user, onUpdateTargetScore, onUpdateTestDate, onUpdateCurre
               background: hasScore === true ? colors.accent.orangeLight : colors.surface.white,
             }}
           >
-            <div style={{ fontSize: '32px', marginBottom: spacing.xs }}>&#10004;</div>
+            <div style={{ marginBottom: spacing.xs }}><CheckIcon size={32} color={colors.accent.orange} /></div>
             <div style={{ fontSize: typography.sizes.md, fontWeight: typography.weights.semibold, color: colors.text.primary }}>
               Yes, I have a score
             </div>
@@ -351,7 +352,7 @@ const Onboarding = ({ user, onUpdateTargetScore, onUpdateTestDate, onUpdateCurre
               background: hasScore === false ? colors.accent.orangeLight : colors.surface.white,
             }}
           >
-            <div style={{ fontSize: '32px', marginBottom: spacing.xs }}>&#128196;</div>
+            <div style={{ marginBottom: spacing.xs }}><DocumentIcon size={32} color={colors.semantic.info} /></div>
             <div style={{ fontSize: typography.sizes.md, fontWeight: typography.weights.semibold, color: colors.text.primary }}>
               No, let's find out
             </div>

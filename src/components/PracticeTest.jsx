@@ -7,7 +7,9 @@ import SolutionExplanation from './SolutionExplanation';
 import QuestionRenderer from './QuestionRenderer';
 import { recordSkillAttempts } from '../services/skillService';
 import DiagnosticReport from './DiagnosticReport';
-import { colors as designColors, typography as designTypo, breakpoints } from '../design/tokens';
+import { colors, typography, spacing, radius, shadows, transitions } from '../design/tokens';
+import { cardStyles, buttonStyles } from '../design/components';
+import { CheckIcon, CrossIcon, LightBulbIcon, MicroscopeIcon } from '../design/icons';
 
 // SAT-Style Typography Constants - matches College Board format
 const SAT_TYPOGRAPHY = {
@@ -25,25 +27,25 @@ const SAT_TYPOGRAPHY = {
   }
 };
 
-// SAT-Style Color Palette - minimal, professional
+// SAT-Style Color Palette - mapped to design tokens
 const SAT_COLORS = {
   text: {
-    primary: '#000000',
-    secondary: '#333333',
-    muted: '#666666',
+    primary: colors.text.primary,
+    secondary: colors.text.secondary,
+    muted: colors.text.muted,
   },
   background: {
-    page: '#ffffff',
-    selected: '#f5f5f5',
+    page: colors.surface.white,
+    selected: colors.surface.gray,
   },
   border: {
-    dark: '#000000',
-    medium: '#666666',
-    light: '#e5e5e5',
+    dark: colors.text.primary,
+    medium: colors.text.secondary,
+    light: colors.surface.grayDark,
   },
   ui: {
-    questionBadgeBg: '#000000',
-    questionBadgeText: '#ffffff',
+    questionBadgeBg: colors.text.primary,
+    questionBadgeText: colors.surface.white,
   }
 };
 
@@ -154,11 +156,11 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
     fontSize: '12px',
     fontWeight: '600',
     border: 'none',
-    borderRadius: '4px',
+    borderRadius: radius.sm,
     cursor: 'pointer',
-    background: active ? '#2563eb' : '#e5e7eb',
-    color: active ? 'white' : '#374151',
-    transition: 'all 0.15s ease'
+    background: active ? colors.semantic.info : colors.surface.grayDark,
+    color: active ? colors.surface.white : colors.text.secondary,
+    transition: `all ${transitions.fast}`
   });
 
   const iconButtonStyle = {
@@ -169,8 +171,8 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: '4px',
-    color: '#6b7280'
+    borderRadius: radius.sm,
+    color: colors.text.secondary
   };
 
   return (
@@ -185,7 +187,7 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'rgba(0, 0, 0, 0.5)',
+          background: colors.overlay,
           zIndex: 999,
         }}
       />
@@ -199,8 +201,8 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
         width: '100%',
         height: isMinimized ? 'auto' : CALC_MOBILE_HEIGHT,
         zIndex: 1000,
-        background: 'white',
-        borderRadius: '16px 16px 0 0',
+        background: colors.surface.white,
+        borderRadius: `${radius.lg} ${radius.lg} 0 0`,
         overflow: 'hidden',
         boxShadow: '0 -10px 40px -10px rgba(0, 0, 0, 0.3)',
         display: 'flex',
@@ -213,8 +215,8 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
         width: CALC_WIDTH,
         height: isMinimized ? 'auto' : CALC_HEIGHT,
         zIndex: 1000,
-        background: 'white',
-        borderRadius: '8px',
+        background: colors.surface.white,
+        borderRadius: radius.sm,
         overflow: 'hidden',
         boxShadow: '0 10px 40px -10px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.1)',
         display: 'flex',
@@ -230,8 +232,8 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
           justifyContent: 'space-between',
           alignItems: 'center',
           padding: '8px 12px',
-          borderBottom: isMinimized ? 'none' : '1px solid #e5e7eb',
-          background: '#1e3a5f',
+          borderBottom: isMinimized ? 'none' : `1px solid ${colors.surface.grayDark}`,
+          background: colors.surface.dark,
           cursor: isMobileCalc ? 'default' : (isDragging ? 'grabbing' : 'grab')
         }}
       >
@@ -254,7 +256,7 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
         {/* Title */}
         <span style={{
           fontWeight: '600',
-          color: 'white',
+          color: colors.text.inverse,
           fontSize: '13px',
           position: 'absolute',
           left: '50%',
@@ -268,7 +270,7 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
           {/* Minimize Button */}
           <button
             onClick={() => setIsMinimized(!isMinimized)}
-            style={{ ...iconButtonStyle, color: 'white' }}
+            style={{ ...iconButtonStyle, color: colors.text.inverse }}
             title={isMinimized ? 'Expand' : 'Minimize'}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -282,7 +284,7 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
           {/* Close Button */}
           <button
             onClick={onClose}
-            style={{ ...iconButtonStyle, color: 'white' }}
+            style={{ ...iconButtonStyle, color: colors.text.inverse }}
             title="Close Calculator"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -336,11 +338,11 @@ const Timer = ({ initialMinutes, onTimeUp, isPaused, timeRef }) => {
     <div style={{
       fontSize: '18px',
       fontWeight: '600',
-      color: isLow ? '#dc2626' : '#374151',
+      color: isLow ? colors.semantic.error : colors.text.secondary,
       fontFamily: 'monospace',
       padding: '8px 16px',
-      background: isLow ? '#fef2f2' : '#f3f4f6',
-      borderRadius: '8px'
+      background: isLow ? colors.semantic.errorLight : colors.surface.gray,
+      borderRadius: radius.sm
     }}>
       {String(mins).padStart(2, '0')}:{String(secs).padStart(2, '0')}
     </div>
@@ -381,8 +383,8 @@ const QuestionGrid = ({ questions, currentIndex, answers, markedForReview, onNav
               height: '32px',
               borderRadius: '4px',
               border: isCurrent ? `2px solid ${SAT_COLORS.border.dark}` : `1px solid ${SAT_COLORS.border.light}`,
-              background: isMarked ? '#fef3c7' : isAnswered ? '#fdba74' : SAT_COLORS.background.page,
-              color: isMarked ? '#b45309' : isAnswered ? '#c2410c' : SAT_COLORS.text.primary,
+              background: isMarked ? colors.semantic.warningBg : isAnswered ? colors.accent.orangeMuted : SAT_COLORS.background.page,
+              color: isMarked ? colors.semantic.warning : isAnswered ? colors.accent.orangeHover : SAT_COLORS.text.primary,
               fontFamily: SAT_TYPOGRAPHY.diagramFont,
               fontSize: '13px',
               fontWeight: isCurrent ? '700' : '500',
@@ -404,9 +406,9 @@ const QuestionGrid = ({ questions, currentIndex, answers, markedForReview, onNav
                 width: '8px',
                 height: '8px',
                 borderRadius: '50%',
-                backgroundColor: '#f97316',
-                border: '1px solid #ffffff',
-                boxShadow: '0 1px 2px rgba(0,0,0,0.2)'
+                backgroundColor: colors.accent.orange,
+                border: `1px solid ${colors.surface.white}`,
+                boxShadow: shadows.sm
               }} />
             )}
           </button>
@@ -708,9 +710,9 @@ const renderChoice = (choice) => {
           <tr>
             {choice.table.headers.map((h, i) => (
               <th key={i} style={{
-                border: '1px solid #ccc',
+                border: `1px solid ${colors.surface.grayMedium}`,
                 padding: '4px 12px',
-                background: '#f8f9fa',
+                background: colors.surface.offWhite,
                 fontWeight: '600',
                 fontStyle: 'italic'
               }}>{h}</th>
@@ -722,7 +724,7 @@ const renderChoice = (choice) => {
             <tr key={i}>
               {row.map((cell, j) => (
                 <td key={j} style={{
-                  border: '1px solid #ccc',
+                  border: `1px solid ${colors.surface.grayMedium}`,
                   padding: '4px 12px',
                   textAlign: 'center'
                 }}>{cell}</td>
@@ -1250,11 +1252,11 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
 
   // Get score level description
   const getScoreLevel = (scaledScore) => {
-    if (scaledScore >= 750) return { level: 'Excellent', color: '#059669' };
-    if (scaledScore >= 650) return { level: 'Good', color: '#16a34a' };
-    if (scaledScore >= 550) return { level: 'Average', color: '#ca8a04' };
-    if (scaledScore >= 450) return { level: 'Below Average', color: '#ea580c' };
-    return { level: 'Needs Improvement', color: '#dc2626' };
+    if (scaledScore >= 750) return { level: 'Excellent', color: colors.semantic.success };
+    if (scaledScore >= 650) return { level: 'Good', color: colors.semantic.success };
+    if (scaledScore >= 550) return { level: 'Average', color: colors.semantic.warning };
+    if (scaledScore >= 450) return { level: 'Below Average', color: colors.accent.orange };
+    return { level: 'Needs Improvement', color: colors.semantic.error };
   };
 
   // Module completion screen
@@ -1268,30 +1270,30 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
 
     return (
       <div style={{ maxWidth: '600px', margin: '0 auto', padding: '40px 20px', textAlign: 'center' }}>
-        <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px', color: '#111827' }}>
+        <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px', color: colors.text.primary }}>
           {module.title} Complete
         </h2>
         <div style={{
           fontSize: '48px',
           fontWeight: '700',
-          color: '#16a34a',
+          color: colors.semantic.success,
           marginBottom: '8px'
         }}>
           {score}/{questions.length}
         </div>
-        <p style={{ color: '#6b7280', marginBottom: '24px' }}>
+        <p style={{ color: colors.text.muted, marginBottom: '24px' }}>
           {Math.round((score / questions.length) * 100)}% correct
         </p>
 
         {/* Projected Score */}
         <div style={{
-          background: '#f0f9ff',
-          border: '1px solid #bae6fd',
-          borderRadius: '12px',
+          background: colors.semantic.infoLight,
+          border: `1px solid ${colors.semantic.infoBg}`,
+          borderRadius: radius.md,
           padding: '16px 20px',
           marginBottom: '32px',
           fontSize: '14px',
-          color: '#0369a1'
+          color: colors.semantic.info
         }}>
           <p style={{ marginBottom: '4px' }}>
             <strong>Projected SAT Score:</strong> ~{projectedSATScore}
@@ -1305,10 +1307,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           onClick={handleNextModule}
           style={{
             padding: '14px 32px',
-            background: '#111827',
-            color: 'white',
+            background: colors.text.primary,
+            color: colors.text.inverse,
             border: 'none',
-            borderRadius: '8px',
+            borderRadius: radius.sm,
             fontSize: '16px',
             fontWeight: '600',
             cursor: 'pointer'
@@ -1366,7 +1368,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     };
 
     return (
-      <div style={{ maxWidth: '100%', margin: '0 auto', padding: '16px 32px', background: '#f8fafc', minHeight: '100vh' }}>
+      <div style={{ maxWidth: '100%', margin: '0 auto', padding: '16px 32px', background: colors.surface.offWhite, minHeight: '100vh' }}>
         {/* Review Header */}
         <div style={{
           display: 'flex',
@@ -1374,15 +1376,15 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           alignItems: 'center',
           marginBottom: '16px',
           padding: '14px 20px',
-          background: 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%)',
-          borderRadius: '12px',
-          boxShadow: '0 4px 12px rgba(30, 58, 95, 0.15)'
+          background: `linear-gradient(135deg, ${colors.surface.dark} 0%, ${colors.text.secondary} 100%)`,
+          borderRadius: radius.md,
+          boxShadow: shadows.md
         }}>
           <div>
             <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '6px' }}>
               Review Mode
             </p>
-            <h1 style={{ fontSize: '18px', fontWeight: '700', color: 'white', marginBottom: '2px' }}>
+            <h1 style={{ fontSize: '18px', fontWeight: '700', color: colors.text.inverse, marginBottom: '2px' }}>
               {test.title}
             </h1>
             <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.85)' }}>
@@ -1393,15 +1395,15 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             onClick={() => setReviewMode(false)}
             style={{
               padding: '12px 24px',
-              background: 'white',
-              color: '#1e3a5f',
+              background: colors.surface.white,
+              color: colors.surface.dark,
               border: 'none',
-              borderRadius: '10px',
+              borderRadius: radius.md,
               fontSize: '14px',
               fontWeight: '600',
               cursor: 'pointer',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-              transition: 'transform 0.2s ease'
+              boxShadow: shadows.sm,
+              transition: `transform ${transitions.normal}`
             }}
           >
             ← Back to Results
@@ -1410,12 +1412,12 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
 
         {/* Compact Question Navigator - Current Module Only */}
         <div style={{
-          background: 'white',
-          borderRadius: '12px',
+          background: colors.surface.white,
+          borderRadius: radius.md,
           padding: '14px 20px',
           marginBottom: '20px',
-          boxShadow: '0 1px 4px rgba(0,0,0,0.06)',
-          border: '1px solid #e2e8f0'
+          boxShadow: shadows.sm,
+          border: `1px solid ${colors.surface.grayDark}`
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'nowrap' }}>
             {/* Module tabs */}
@@ -1437,15 +1439,15 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                     onClick={() => { setReviewModule(modIdx); setReviewQuestion(0); }}
                     style={{
                       padding: '6px 14px',
-                      borderRadius: '8px',
+                      borderRadius: radius.sm,
                       border: 'none',
-                      background: isActiveModule ? '#1e3a5f' : '#f1f5f9',
-                      color: isActiveModule ? 'white' : '#64748b',
+                      background: isActiveModule ? colors.surface.dark : colors.surface.gray,
+                      color: isActiveModule ? colors.text.inverse : colors.text.secondary,
                       fontSize: '13px',
                       fontWeight: '600',
                       cursor: 'pointer',
                       whiteSpace: 'nowrap',
-                      transition: 'all 0.15s ease'
+                      transition: `all ${transitions.fast}`
                     }}
                   >
                     Module {modIdx + 1} ({correctCount}/{mod.questions.length})
@@ -1455,7 +1457,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             </div>
 
             {/* Divider */}
-            <div style={{ width: '1px', height: '28px', background: '#e2e8f0', flexShrink: 0 }} />
+            <div style={{ width: '1px', height: '28px', background: colors.surface.grayDark, flexShrink: 0 }} />
 
             {/* Question buttons for current module only */}
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', flex: 1 }}>
@@ -1469,7 +1471,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                     : ans === q.correctAnswer;
                   const answered = ans !== undefined;
                   const isActive = qIdx === reviewQuestion;
-                  const bgColor = !answered ? '#cbd5e1' : correct ? '#16a34a' : '#dc2626';
+                  const bgColor = !answered ? colors.surface.grayMedium : correct ? colors.semantic.success : colors.semantic.error;
                   return (
                     <button
                       key={qIdx}
@@ -1478,15 +1480,15 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                         width: '32px',
                         height: '32px',
                         borderRadius: '6px',
-                        border: isActive ? '2.5px solid #111827' : '1.5px solid transparent',
+                        border: isActive ? `2.5px solid ${colors.text.primary}` : '1.5px solid transparent',
                         background: bgColor,
-                        color: 'white',
+                        color: colors.text.inverse,
                         fontSize: '12px',
                         fontWeight: '600',
                         cursor: 'pointer',
-                        boxShadow: isActive ? '0 2px 6px rgba(0,0,0,0.2)' : 'none',
+                        boxShadow: isActive ? shadows.md : shadows.none,
                         transform: isActive ? 'scale(1.15)' : 'scale(1)',
-                        transition: 'all 0.15s ease'
+                        transition: `all ${transitions.fast}`
                       }}
                     >
                       {qIdx + 1}
@@ -1499,16 +1501,16 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             {/* Legend */}
             <div style={{ display: 'flex', gap: '12px', fontSize: '11px', flexShrink: 0 }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                <span style={{ width: '10px', height: '10px', borderRadius: '2px', background: '#16a34a' }}></span>
-                <span style={{ color: '#6b7280' }}>Correct</span>
+                <span style={{ width: '10px', height: '10px', borderRadius: '2px', background: colors.semantic.success }}></span>
+                <span style={{ color: colors.text.secondary }}>Correct</span>
               </span>
               <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                <span style={{ width: '10px', height: '10px', borderRadius: '2px', background: '#dc2626' }}></span>
-                <span style={{ color: '#6b7280' }}>Incorrect</span>
+                <span style={{ width: '10px', height: '10px', borderRadius: '2px', background: colors.semantic.error }}></span>
+                <span style={{ color: colors.text.secondary }}>Incorrect</span>
               </span>
               <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                <span style={{ width: '10px', height: '10px', borderRadius: '2px', background: '#cbd5e1' }}></span>
-                <span style={{ color: '#6b7280' }}>Skipped</span>
+                <span style={{ width: '10px', height: '10px', borderRadius: '2px', background: colors.surface.grayMedium }}></span>
+                <span style={{ color: colors.text.secondary }}>Skipped</span>
               </span>
             </div>
           </div>
@@ -1517,41 +1519,41 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         {/* Answer Status Banner */}
         <div style={{
           padding: '12px 16px',
-          borderRadius: '10px',
+          borderRadius: radius.md,
           marginBottom: '14px',
-          background: !userAnswer ? 'linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%)' : isCorrect ? 'linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%)' : 'linear-gradient(135deg, #fef2f2 0%, #fecaca 100%)',
-          border: `2px solid ${!userAnswer ? '#cbd5e1' : isCorrect ? '#4ade80' : '#f87171'}`,
-          boxShadow: '0 2px 8px rgba(0,0,0,0.06)'
+          background: !userAnswer ? `linear-gradient(135deg, ${colors.surface.gray} 0%, ${colors.surface.grayDark} 100%)` : isCorrect ? `linear-gradient(135deg, ${colors.semantic.successBg} 0%, ${colors.semantic.successBg} 100%)` : `linear-gradient(135deg, ${colors.semantic.errorLight} 0%, ${colors.semantic.errorBg} 100%)`,
+          border: `2px solid ${!userAnswer ? colors.surface.grayMedium : isCorrect ? colors.semantic.success : colors.semantic.error}`,
+          boxShadow: shadows.sm
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <div style={{
               width: '38px',
               height: '38px',
               borderRadius: '50%',
-              background: !userAnswer ? '#94a3b8' : isCorrect ? '#16a34a' : '#dc2626',
+              background: !userAnswer ? colors.text.muted : isCorrect ? colors.semantic.success : colors.semantic.error,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: 'white',
+              color: colors.text.inverse,
               fontSize: '18px',
               fontWeight: '700',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.15)'
+              boxShadow: shadows.md
             }}>
-              {!userAnswer ? '?' : isCorrect ? '✓' : '✗'}
+              {!userAnswer ? '?' : isCorrect ? <CheckIcon size={18} color={colors.text.inverse} /> : <CrossIcon size={18} color={colors.text.inverse} />}
             </div>
             <div style={{ flex: 1 }}>
               <p style={{
                 fontWeight: '700',
                 fontSize: '15px',
-                color: !userAnswer ? '#475569' : isCorrect ? '#15803d' : '#b91c1c',
+                color: !userAnswer ? colors.text.secondary : isCorrect ? colors.semantic.success : colors.semantic.error,
                 marginBottom: '4px'
               }}>
                 {!userAnswer ? 'Question Skipped' : isCorrect ? 'Correct Answer!' : 'Incorrect Answer'}
               </p>
-              <p style={{ fontSize: '14px', color: '#64748b', lineHeight: '1.5' }}>
+              <p style={{ fontSize: '14px', color: colors.text.secondary, lineHeight: '1.5' }}>
                 <span style={{ fontWeight: '500' }}>Your answer:</span> {userAnswer !== undefined ? (reviewQ?.type === 'fill-in' ? userAnswer : reviewQ?.choices?.find(c => c.id === userAnswer)?.text || userAnswer) : 'Not answered'}
                 {!isCorrect && userAnswer !== undefined && (
-                  <span style={{ marginLeft: '16px', color: '#15803d', fontWeight: '600' }}>
+                  <span style={{ marginLeft: '16px', color: colors.semantic.success, fontWeight: '600' }}>
                     • Correct: {reviewQ?.type === 'fill-in' ? reviewQ.correctAnswer : reviewQ?.choices?.find(c => c.id === reviewQ.correctAnswer)?.text}
                   </span>
                 )}
@@ -1562,12 +1564,12 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
 
         {/* Question Content */}
         <div style={{
-          background: 'white',
-          border: '1px solid #e2e8f0',
-          borderRadius: '12px',
+          background: colors.surface.white,
+          border: `1px solid ${colors.surface.grayDark}`,
+          borderRadius: radius.md,
           padding: '20px',
           marginBottom: '16px',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.06)'
+          boxShadow: shadows.sm
         }}>
           {/* Question Number Badge */}
           <div style={{
@@ -1575,11 +1577,11 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             alignItems: 'center',
             gap: '8px',
             padding: '4px 12px',
-            background: '#f1f5f9',
-            borderRadius: '20px',
+            background: colors.surface.gray,
+            borderRadius: radius.full,
             marginBottom: '14px'
           }}>
-            <span style={{ fontSize: '13px', fontWeight: '600', color: '#475569' }}>
+            <span style={{ fontSize: '13px', fontWeight: '600', color: colors.text.secondary }}>
               Question {currentFlatIndex + 1}
             </span>
             {reviewQ?.difficulty && (
@@ -1587,9 +1589,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                 fontSize: '11px',
                 fontWeight: '600',
                 padding: '2px 8px',
-                borderRadius: '10px',
-                background: reviewQ.difficulty === 'hard' ? '#fef2f2' : reviewQ.difficulty === 'medium' ? '#fefce8' : '#f0fdf4',
-                color: reviewQ.difficulty === 'hard' ? '#dc2626' : reviewQ.difficulty === 'medium' ? '#ca8a04' : '#16a34a'
+                borderRadius: radius.md,
+                background: reviewQ.difficulty === 'hard' ? colors.semantic.errorLight : reviewQ.difficulty === 'medium' ? colors.semantic.warningBg : colors.semantic.successLight,
+                color: reviewQ.difficulty === 'hard' ? colors.semantic.error : reviewQ.difficulty === 'medium' ? colors.semantic.warning : colors.semantic.success
               }}>
                 {reviewQ.difficulty.charAt(0).toUpperCase() + reviewQ.difficulty.slice(1)}
               </span>
@@ -1601,7 +1603,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             marginBottom: '16px',
             fontSize: '15px',
             lineHeight: '1.6',
-            color: '#1e293b'
+            color: colors.text.primary
           }}>
             {Array.isArray(reviewQ?.question) || (reviewQ?.question && typeof reviewQ.question === 'object')
               ? <QuestionRenderer content={reviewQ.question} />
@@ -1614,9 +1616,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             <div style={{
               marginBottom: '24px',
               padding: '16px',
-              background: '#f8fafc',
-              borderRadius: '12px',
-              border: '1px solid #e2e8f0'
+              background: colors.surface.offWhite,
+              borderRadius: radius.md,
+              border: `1px solid ${colors.surface.grayDark}`
             }}>
               <QuestionDiagram type={reviewQ.diagram.type} params={reviewQ.diagram.params} />
             </div>
@@ -1637,9 +1639,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                   <tr>
                     {reviewQ.questionTable.headers.map((header, i) => (
                       <th key={i} style={{
-                        border: '1px solid #d1d5db',
+                        border: `1px solid ${colors.surface.grayMedium}`,
                         padding: '8px 16px',
-                        background: '#f3f4f6',
+                        background: colors.surface.gray,
                         fontWeight: '600'
                       }}>
                         <MathText text={header} />
@@ -1652,7 +1654,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                     <tr key={i}>
                       {row.map((cell, j) => (
                         <td key={j} style={{
-                          border: '1px solid #d1d5db',
+                          border: `1px solid ${colors.surface.grayMedium}`,
                           padding: '8px 16px',
                           textAlign: 'center'
                         }}>
@@ -1669,21 +1671,21 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           {/* Answer choices */}
           {reviewQ?.type === 'multiple-choice' && reviewQ?.choices && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <p style={{ fontSize: '13px', fontWeight: '600', color: '#64748b', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+              <p style={{ fontSize: '13px', fontWeight: '600', color: colors.text.secondary, marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                 Answer Choices
               </p>
               {reviewQ.choices.map((choice) => {
                 const isUserChoice = userAnswer === choice.id;
                 const isCorrectChoice = reviewQ.correctAnswer === choice.id;
-                let bgColor = '#f8fafc';
-                let borderColor = '#e2e8f0';
+                let bgColor = colors.surface.offWhite;
+                let borderColor = colors.surface.grayDark;
 
                 if (isCorrectChoice) {
-                  bgColor = 'linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%)';
-                  borderColor = '#4ade80';
+                  bgColor = `linear-gradient(135deg, ${colors.semantic.successBg} 0%, ${colors.semantic.successBg} 100%)`;
+                  borderColor = colors.semantic.success;
                 } else if (isUserChoice && !isCorrect) {
-                  bgColor = 'linear-gradient(135deg, #fef2f2 0%, #fecaca 100%)';
-                  borderColor = '#f87171';
+                  bgColor = `linear-gradient(135deg, ${colors.semantic.errorLight} 0%, ${colors.semantic.errorBg} 100%)`;
+                  borderColor = colors.semantic.error;
                 }
 
                 return (
@@ -1691,62 +1693,62 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                     key={choice.id}
                     style={{
                       padding: '16px 20px',
-                      borderRadius: '12px',
+                      borderRadius: radius.md,
                       border: `2px solid ${borderColor}`,
                       background: bgColor,
                       display: 'flex',
                       alignItems: 'center',
                       gap: '16px',
-                      transition: 'all 0.15s ease'
+                      transition: `all ${transitions.fast}`
                     }}
                   >
                     <div style={{
                       width: '28px',
                       height: '28px',
                       borderRadius: '4px',
-                      background: isCorrectChoice ? '#16a34a' : isUserChoice ? '#dc2626' : '#cbd5e1',
-                      color: 'white',
+                      background: isCorrectChoice ? colors.semantic.success : isUserChoice ? colors.semantic.error : colors.surface.grayMedium,
+                      color: colors.text.inverse,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       fontWeight: '500',
                       fontSize: '14px',
                       flexShrink: 0,
-                      boxShadow: (isCorrectChoice || isUserChoice) ? '0 2px 6px rgba(0,0,0,0.15)' : 'none'
+                      boxShadow: (isCorrectChoice || isUserChoice) ? shadows.md : shadows.none
                     }}>
                       {choice.id}
                     </div>
-                    <div style={{ flex: 1, fontSize: '15px', color: '#334155' }}>
+                    <div style={{ flex: 1, fontSize: '15px', color: colors.text.primary }}>
                       {renderChoice(choice)}
                     </div>
                     {isCorrectChoice && (
                       <span style={{
-                        color: '#15803d',
+                        color: colors.semantic.success,
                         fontWeight: '700',
                         fontSize: '13px',
                         display: 'flex',
                         alignItems: 'center',
                         gap: '4px',
-                        background: '#dcfce7',
+                        background: colors.semantic.successBg,
                         padding: '4px 10px',
-                        borderRadius: '16px'
+                        borderRadius: radius.lg
                       }}>
-                        ✓ Correct
+                        <CheckIcon size={14} color={colors.semantic.success} /> Correct
                       </span>
                     )}
                     {isUserChoice && !isCorrect && (
                       <span style={{
-                        color: '#b91c1c',
+                        color: colors.semantic.error,
                         fontWeight: '700',
                         fontSize: '13px',
                         display: 'flex',
                         alignItems: 'center',
                         gap: '4px',
-                        background: '#fef2f2',
+                        background: colors.semantic.errorLight,
                         padding: '4px 10px',
-                        borderRadius: '16px'
+                        borderRadius: radius.lg
                       }}>
-                        ✗ Your answer
+                        <CrossIcon size={14} color={colors.semantic.error} /> Your answer
                       </span>
                     )}
                   </div>
@@ -1759,14 +1761,14 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           {reviewQ?.type === 'fill-in' && (
             <div style={{
               padding: '20px',
-              background: 'linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%)',
-              borderRadius: '12px',
-              border: '2px solid #4ade80'
+              background: `linear-gradient(135deg, ${colors.semantic.successBg} 0%, ${colors.semantic.successBg} 100%)`,
+              borderRadius: radius.md,
+              border: `2px solid ${colors.semantic.success}`
             }}>
-              <p style={{ fontSize: '13px', fontWeight: '600', color: '#15803d', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+              <p style={{ fontSize: '13px', fontWeight: '600', color: colors.semantic.success, marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                 Correct Answer
               </p>
-              <p style={{ fontSize: '28px', fontWeight: '700', color: '#15803d' }}>
+              <p style={{ fontSize: '28px', fontWeight: '700', color: colors.semantic.success }}>
                 {reviewQ.correctAnswer}
               </p>
             </div>
@@ -1784,11 +1786,11 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           <div style={{
             flex: '1 1 0',
             minWidth: 0,
-            background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
-            border: '1px solid #7dd3fc',
-            borderRadius: '12px',
+            background: `linear-gradient(135deg, ${colors.semantic.infoLight} 0%, ${colors.semantic.infoBg} 100%)`,
+            border: `1px solid ${colors.semantic.info}`,
+            borderRadius: radius.md,
             padding: '18px',
-            boxShadow: '0 2px 8px rgba(14, 165, 233, 0.1)'
+            boxShadow: shadows.sm
           }}>
             <div style={{
               display: 'flex',
@@ -1796,25 +1798,25 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               gap: '12px',
               marginBottom: '16px',
               paddingBottom: '12px',
-              borderBottom: '1px solid #bae6fd'
+              borderBottom: `1px solid ${colors.semantic.infoBg}`
             }}>
               <div style={{
                 width: '36px',
                 height: '36px',
-                borderRadius: '10px',
-                background: '#0ea5e9',
+                borderRadius: radius.md,
+                background: colors.semantic.info,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: 'white',
+                color: colors.text.inverse,
                 fontSize: '18px'
               }}>
-                💡
+                <LightBulbIcon size={20} color={colors.text.inverse} />
               </div>
               <h3 style={{
                 fontSize: '18px',
                 fontWeight: '700',
-                color: '#0c4a6e',
+                color: colors.semantic.info,
                 margin: 0
               }}>
                 Solution Explanation
@@ -1823,7 +1825,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             {reviewQ?.explanation ? (
               <SolutionExplanation explanation={reviewQ.explanation} />
             ) : (
-              <p style={{ color: '#64748b', fontStyle: 'italic' }}>
+              <p style={{ color: colors.text.secondary, fontStyle: 'italic' }}>
                 No explanation available for this question.
               </p>
             )}
@@ -1868,37 +1870,37 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          background: 'white',
+          background: colors.surface.white,
           padding: '12px 16px',
-          borderRadius: '10px',
-          boxShadow: '0 1px 4px rgba(0,0,0,0.06)',
-          border: '1px solid #e2e8f0'
+          borderRadius: radius.md,
+          boxShadow: shadows.sm,
+          border: `1px solid ${colors.surface.grayDark}`
         }}>
           <button
             onClick={() => handleReviewNav(-1)}
             disabled={currentFlatIndex === 0}
             style={{
               padding: '10px 22px',
-              background: currentFlatIndex === 0 ? '#f1f5f9' : 'white',
-              color: currentFlatIndex === 0 ? '#94a3b8' : '#334155',
-              border: currentFlatIndex === 0 ? '2px solid #e2e8f0' : '2px solid #334155',
-              borderRadius: '10px',
+              background: currentFlatIndex === 0 ? colors.surface.gray : colors.surface.white,
+              color: currentFlatIndex === 0 ? colors.text.muted : colors.text.primary,
+              border: currentFlatIndex === 0 ? `2px solid ${colors.surface.grayDark}` : `2px solid ${colors.text.primary}`,
+              borderRadius: radius.md,
               fontSize: '15px',
               fontWeight: '600',
               cursor: currentFlatIndex === 0 ? 'not-allowed' : 'pointer',
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
-              transition: 'all 0.15s ease'
+              transition: `all ${transitions.fast}`
             }}
           >
             ← Previous
           </button>
           <div style={{ textAlign: 'center' }}>
-            <span style={{ color: '#334155', fontSize: '15px', fontWeight: '600' }}>
+            <span style={{ color: colors.text.primary, fontSize: '15px', fontWeight: '600' }}>
               {currentFlatIndex + 1}
             </span>
-            <span style={{ color: '#94a3b8', fontSize: '14px' }}>
+            <span style={{ color: colors.text.muted, fontSize: '14px' }}>
               {' '}/ {allQuestions.length}
             </span>
           </div>
@@ -1907,18 +1909,18 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             disabled={currentFlatIndex === allQuestions.length - 1}
             style={{
               padding: '10px 22px',
-              background: currentFlatIndex === allQuestions.length - 1 ? '#f1f5f9' : 'linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%)',
-              color: currentFlatIndex === allQuestions.length - 1 ? '#94a3b8' : 'white',
+              background: currentFlatIndex === allQuestions.length - 1 ? colors.surface.gray : `linear-gradient(135deg, ${colors.surface.dark} 0%, ${colors.text.secondary} 100%)`,
+              color: currentFlatIndex === allQuestions.length - 1 ? colors.text.muted : colors.text.inverse,
               border: 'none',
-              borderRadius: '10px',
+              borderRadius: radius.md,
               fontSize: '15px',
               fontWeight: '600',
               cursor: currentFlatIndex === allQuestions.length - 1 ? 'not-allowed' : 'pointer',
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
-              boxShadow: currentFlatIndex === allQuestions.length - 1 ? 'none' : '0 2px 8px rgba(30, 58, 95, 0.25)',
-              transition: 'all 0.15s ease'
+              boxShadow: currentFlatIndex === allQuestions.length - 1 ? shadows.none : shadows.md,
+              transition: `all ${transitions.fast}`
             }}
           >
             Next →
@@ -1985,8 +1987,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             onClick={() => setShowDiagnosticReport(true)}
             style={{
               cursor: 'pointer',
-              background: 'linear-gradient(135deg, #ea580c 0%, #c2410c 100%)',
-              borderRadius: '16px',
+              background: `linear-gradient(135deg, ${colors.accent.orange} 0%, ${colors.accent.orangeHover} 100%)`,
+              borderRadius: radius.lg,
               padding: '24px 28px',
               display: 'flex',
               alignItems: 'center',
@@ -1998,14 +2000,14 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(234, 88, 12, 0.3)'; }}
           >
             <div>
-              <div style={{ fontSize: '18px', fontWeight: '700', color: 'white', marginBottom: '6px' }}>
-                🔬 View Your Diagnosis & Study Plan
+              <div style={{ fontSize: '18px', fontWeight: '700', color: colors.text.inverse, marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <MicroscopeIcon size={20} color={colors.text.inverse} /> View Your Diagnosis & Study Plan
               </div>
               <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.85)', lineHeight: '1.5' }}>
                 See exactly why you missed each question, what to fix first, and your personalized week-by-week plan to reach your target score
               </div>
             </div>
-            <div style={{ fontSize: '28px', color: 'white', marginLeft: '16px', flexShrink: 0 }}>→</div>
+            <div style={{ fontSize: '28px', color: colors.text.inverse, marginLeft: '16px', flexShrink: 0 }}>→</div>
           </div>
         </div>
       </div>
@@ -2025,14 +2027,14 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         alignItems: isMobile ? 'flex-start' : 'center',
         marginBottom: '24px',
         paddingBottom: '16px',
-        borderBottom: '1px solid #e5e7eb',
+        borderBottom: `1px solid ${colors.surface.grayDark}`,
         gap: isMobile ? '12px' : '0'
       }}>
         <div>
-          <h1 style={{ fontSize: isMobile ? '17px' : '20px', fontWeight: '600', color: '#111827', marginBottom: '4px' }}>
+          <h1 style={{ fontSize: isMobile ? '17px' : '20px', fontWeight: '600', color: colors.text.primary, marginBottom: '4px' }}>
             {test.title} - {module.title}
           </h1>
-          <p style={{ fontSize: isMobile ? '13px' : '14px', color: '#6b7280' }}>
+          <p style={{ fontSize: isMobile ? '13px' : '14px', color: colors.text.secondary }}>
             Question {currentQuestion + 1} of {questions.length}
           </p>
         </div>
@@ -2047,12 +2049,12 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             }}
             style={{
               padding: isMobile ? '6px 10px' : '8px 14px',
-              background: '#2563eb',
+              background: colors.semantic.info,
               border: 'none',
-              borderRadius: '6px',
+              borderRadius: radius.sm,
               fontSize: isMobile ? '12px' : '13px',
               fontWeight: '500',
-              color: 'white',
+              color: colors.text.inverse,
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
@@ -2077,10 +2079,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                 style={{
                   padding: isMobile ? '5px 8px' : '6px 12px',
                   background: 'transparent',
-                  border: '1px solid #d1d5db',
-                  borderRadius: '6px',
+                  border: `1px solid ${colors.surface.grayMedium}`,
+                  borderRadius: radius.sm,
                   fontSize: isMobile ? '12px' : '13px',
-                  color: '#6b7280',
+                  color: colors.text.secondary,
                   cursor: 'pointer'
                 }}
               >
@@ -2098,9 +2100,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           ) : (
             <span style={{
               padding: isMobile ? '6px 10px' : '8px 16px',
-              background: '#f0fdf4',
-              color: '#16a34a',
-              borderRadius: '8px',
+              background: colors.semantic.successLight,
+              color: colors.semantic.success,
+              borderRadius: radius.sm,
               fontSize: isMobile ? '12px' : '13px',
               fontWeight: '500'
             }}>
@@ -2133,15 +2135,15 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         gap: '20px',
         marginBottom: '20px',
         fontSize: '12px',
-        color: '#6b7280'
+        color: colors.text.secondary
       }}>
         <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
           <span style={{
             width: '14px',
             height: '14px',
             borderRadius: '3px',
-            background: '#fdba74',
-            border: '1px solid #fb923c'
+            background: colors.accent.orangeMuted,
+            border: `1px solid ${colors.accent.orange}`
           }}></span>
           Answered
         </span>
@@ -2150,8 +2152,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             width: '14px',
             height: '14px',
             borderRadius: '3px',
-            background: '#fef3c7',
-            border: '1px solid #fcd34d',
+            background: colors.semantic.warningBg,
+            border: `1px solid ${colors.semantic.warning}`,
             position: 'relative'
           }}>
             <span style={{
@@ -2162,8 +2164,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               width: '6px',
               height: '6px',
               borderRadius: '50%',
-              backgroundColor: '#f97316',
-              border: '1px solid #ffffff'
+              backgroundColor: colors.accent.orange,
+              border: `1px solid ${colors.surface.white}`
             }} />
           </span>
           Flagged for Later
@@ -2173,8 +2175,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             width: '14px',
             height: '14px',
             borderRadius: '3px',
-            background: 'white',
-            border: '1px solid #d1d5db'
+            background: colors.surface.white,
+            border: `1px solid ${colors.surface.grayMedium}`
           }}></span>
           Unanswered
         </span>
@@ -2215,17 +2217,17 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             onClick={handleToggleMark}
             style={{
               padding: '8px 14px',
-              background: isMarked ? '#fef3c7' : 'transparent',
-              border: `2px solid ${isMarked ? '#f59e0b' : '#d1d5db'}`,
-              borderRadius: '8px',
+              background: isMarked ? colors.semantic.warningBg : 'transparent',
+              border: `2px solid ${isMarked ? colors.semantic.warning : colors.surface.grayMedium}`,
+              borderRadius: radius.sm,
               fontSize: '13px',
               fontWeight: '600',
-              color: isMarked ? '#b45309' : '#6b7280',
+              color: isMarked ? colors.semantic.warning : colors.text.secondary,
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
               gap: '6px',
-              transition: 'all 0.15s ease'
+              transition: `all ${transitions.fast}`
             }}
           >
             {/* Flag Icon */}
@@ -2233,7 +2235,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               width="16"
               height="16"
               viewBox="0 0 24 24"
-              fill={isMarked ? '#f59e0b' : 'none'}
+              fill={isMarked ? colors.semantic.warning : 'none'}
               stroke="currentColor"
               strokeWidth="2"
               strokeLinecap="round"
@@ -2268,9 +2270,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                 <tr>
                   {question.questionTable.headers.map((header, i) => (
                     <th key={i} style={{
-                      border: '1px solid #d1d5db',
+                      border: `1px solid ${colors.surface.grayMedium}`,
                       padding: '8px 16px',
-                      background: '#f3f4f6',
+                      background: colors.surface.gray,
                       fontWeight: '600'
                     }}>
                       <MathText text={header} />
@@ -2283,7 +2285,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                   <tr key={i}>
                     {row.map((cell, j) => (
                       <td key={j} style={{
-                        border: '1px solid #d1d5db',
+                        border: `1px solid ${colors.surface.grayMedium}`,
                         padding: '8px 16px',
                         textAlign: 'center'
                       }}>
@@ -2424,9 +2426,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                     width: '100%',
                     padding: '12px 16px',
                     marginBottom: '10px',
-                    background: isSelected && !isEliminated ? '#fff7ed' : '#ffffff',
-                    border: `1px solid ${isSelected && !isEliminated ? '#f97316' : '#e5e7eb'}`,
-                    borderRadius: '8px',
+                    background: isSelected && !isEliminated ? colors.accent.orangeLight : colors.surface.white,
+                    border: `1px solid ${isSelected && !isEliminated ? colors.accent.orange : colors.surface.grayDark}`,
+                    borderRadius: radius.sm,
                     textAlign: 'left',
                     fontFamily: SAT_TYPOGRAPHY.questionFont,
                     transition: 'all 0.15s ease',
@@ -2446,16 +2448,16 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                       width: '22px',
                       height: '22px',
                       borderRadius: '4px',
-                      border: '1px solid #d1d5db',
-                      background: isEliminated ? '#fee2e2' : 'transparent',
+                      border: `1px solid ${colors.surface.grayMedium}`,
+                      background: isEliminated ? colors.semantic.errorBg : 'transparent',
                       cursor: 'pointer',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       flexShrink: 0,
-                      color: isEliminated ? '#dc2626' : '#9ca3af',
+                      color: isEliminated ? colors.semantic.error : colors.text.muted,
                       padding: 0,
-                      transition: 'all 0.15s ease',
+                      transition: `all ${transitions.fast}`,
                     }}
                   >
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -2478,14 +2480,14 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                       width: '28px',
                       height: '28px',
                       borderRadius: '4px',
-                      backgroundColor: isEliminated ? '#f3f4f6' : isSelected ? '#f97316' : '#ffffff',
-                      border: `1px solid ${isEliminated ? '#d1d5db' : isSelected ? '#f97316' : '#d1d5db'}`,
+                      backgroundColor: isEliminated ? colors.surface.gray : isSelected ? colors.accent.orange : colors.surface.white,
+                      border: `1px solid ${isEliminated ? colors.surface.grayMedium : isSelected ? colors.accent.orange : colors.surface.grayMedium}`,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       fontWeight: '500',
                       fontSize: '14px',
-                      color: isEliminated ? '#9ca3af' : isSelected ? '#ffffff' : '#374151',
+                      color: isEliminated ? colors.text.muted : isSelected ? colors.text.inverse : colors.text.secondary,
                       marginRight: '14px',
                       flexShrink: 0,
                       position: 'relative',
@@ -2497,7 +2499,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                           width="28" height="28"
                           viewBox="0 0 28 28"
                           fill="none"
-                          stroke="#dc2626"
+                          stroke={colors.semantic.error}
                           strokeWidth="2"
                           strokeLinecap="round"
                           style={{ position: 'absolute', top: 0, left: 0 }}
@@ -2510,10 +2512,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                     <span style={{
                       fontFamily: SAT_TYPOGRAPHY.questionFont,
                       fontSize: SAT_TYPOGRAPHY.sizes.choiceText,
-                      color: isEliminated ? '#9ca3af' : SAT_COLORS.text.primary,
+                      color: isEliminated ? colors.text.muted : SAT_COLORS.text.primary,
                       lineHeight: SAT_TYPOGRAPHY.lineHeights.choice,
                       textDecoration: isEliminated ? 'line-through' : 'none',
-                      textDecorationColor: isEliminated ? '#9ca3af' : undefined,
+                      textDecorationColor: isEliminated ? colors.text.muted : undefined,
                     }}>
                       {renderChoice(choice)}
                     </span>
@@ -2536,10 +2538,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           disabled={currentQuestion === 0}
           style={{
             padding: '12px 24px',
-            background: currentQuestion === 0 ? '#f3f4f6' : 'white',
-            color: currentQuestion === 0 ? '#9ca3af' : '#374151',
-            border: '1px solid #d1d5db',
-            borderRadius: '8px',
+            background: currentQuestion === 0 ? colors.surface.gray : colors.surface.white,
+            color: currentQuestion === 0 ? colors.text.muted : colors.text.secondary,
+            border: `1px solid ${colors.surface.grayMedium}`,
+            borderRadius: radius.sm,
             fontSize: '15px',
             fontWeight: '500',
             cursor: currentQuestion === 0 ? 'not-allowed' : 'pointer'
@@ -2554,10 +2556,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               onClick={handleSubmitModule}
               style={{
                 padding: '12px 32px',
-                background: '#16a34a',
-                color: 'white',
+                background: colors.semantic.success,
+                color: colors.text.inverse,
                 border: 'none',
-                borderRadius: '8px',
+                borderRadius: radius.sm,
                 fontSize: '15px',
                 fontWeight: '600',
                 cursor: 'pointer'
@@ -2570,10 +2572,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               onClick={handleNext}
               style={{
                 padding: '12px 24px',
-                background: '#111827',
-                color: 'white',
+                background: colors.text.primary,
+                color: colors.text.inverse,
                 border: 'none',
-                borderRadius: '8px',
+                borderRadius: radius.sm,
                 fontSize: '15px',
                 fontWeight: '600',
                 cursor: 'pointer'

@@ -1,19 +1,24 @@
-import React, { useState, useMemo } from 'react';
-import { colors as designColors, typography, spacing, radius, transitions, breakpoints } from '../design/tokens';
+import React, { useState } from 'react';
+import { colors, typography, spacing, radius, transitions, breakpoints } from '../design/tokens';
 import { cardStyles, buttonStyles } from '../design/components';
+import {
+  ClipboardIcon,
+  VideoCameraIcon,
+  BookOpenIcon,
+  PencilIcon,
+  BrainIcon,
+  SearchIcon,
+  DocumentIcon,
+  PinIcon,
+  CheckIcon,
+  ChevronDownIcon,
+} from '../design/icons';
 
 /**
  * StudyPlanDashboard — Compact study plan widget for the StudentDashboard.
  * Shows the AI-generated weekly study plan with expandable weeks,
  * activity completion checkboxes, and progress tracking.
  */
-
-const cardStyle = {
-  background: 'white',
-  borderRadius: '12px',
-  border: '1px solid #e5e7eb',
-  padding: '24px',
-};
 
 const StudyPlanDashboard = ({
   studyPlan,
@@ -33,36 +38,35 @@ const StudyPlanDashboard = ({
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  const isMobile = windowWidth < 768;
+  const isMobile = windowWidth < breakpoints.tablet;
 
   // If no study plan, show a prompt
   if (!studyPlan || !studyPlan.weeks || studyPlan.weeks.length === 0) {
     return (
       <div style={{
-        ...cardStyle,
+        ...cardStyles.subtle,
         textAlign: 'center',
-        padding: '32px 24px',
+        padding: `${spacing.xl} ${spacing.lg}`,
       }}>
-        <div style={{ fontSize: '28px', marginBottom: '8px' }}>📋</div>
-        <div style={{ fontSize: '16px', fontWeight: '600', color: '#111827', marginBottom: '4px' }}>
+        <div style={{ marginBottom: spacing.xs, display: 'flex', justifyContent: 'center' }}>
+          <ClipboardIcon size={28} color={colors.text.secondary} />
+        </div>
+        <div style={{ fontSize: typography.sizes.md, fontWeight: typography.weights.semibold, color: colors.text.primary, marginBottom: '4px' }}>
           No Study Plan Yet
         </div>
-        <div style={{ fontSize: '13px', color: '#6b7280', maxWidth: '320px', margin: '0 auto' }}>
+        <div style={{ fontSize: typography.sizes.sm, color: colors.text.secondary, maxWidth: '320px', margin: '0 auto' }}>
           Complete a practice test and view your diagnostic report to generate a personalized study plan.
         </div>
         {onStartPracticeTest && (
           <button
             onClick={onStartPracticeTest}
             style={{
-              marginTop: '16px',
+              ...buttonStyles.base,
+              ...buttonStyles.primary,
+              marginTop: spacing.md,
+              height: 'auto',
               padding: '10px 20px',
-              background: '#111827',
-              color: 'white',
-              border: 'none',
-              borderRadius: '8px',
-              fontSize: '14px',
-              fontWeight: '500',
-              cursor: 'pointer',
+              fontSize: typography.sizes.base,
             }}
           >
             Take a Practice Test
@@ -112,12 +116,16 @@ const StudyPlanDashboard = ({
 
   const getActivityIcon = (activity) => {
     if (activity.icon) return activity.icon;
-    if (activity.type === 'lesson') return activity.activityType === 'watchLesson' ? '🎥' : '📖';
-    if (activity.type === 'practice') return '✏️';
-    if (activity.type === 'strategy') return '🧠';
-    if (activity.type === 'review') return '🔍';
-    if (activity.type === 'test') return '📝';
-    return '📌';
+    if (activity.type === 'lesson') {
+      return activity.activityType === 'watchLesson'
+        ? <VideoCameraIcon size={16} color={colors.semantic.info} />
+        : <BookOpenIcon size={16} color={colors.semantic.info} />;
+    }
+    if (activity.type === 'practice') return <PencilIcon size={16} color={colors.semantic.success} />;
+    if (activity.type === 'strategy') return <BrainIcon size={16} color={colors.semantic.warning} />;
+    if (activity.type === 'review') return <SearchIcon size={16} color={colors.badge.bronze} />;
+    if (activity.type === 'test') return <DocumentIcon size={16} color={colors.accent.purple} />;
+    return <PinIcon size={16} color={colors.text.secondary} />;
   };
 
   const getActivityTypeLabel = (activity) => {
@@ -130,16 +138,16 @@ const StudyPlanDashboard = ({
   };
 
   const getActivityTypeColor = (activity) => {
-    if (activity.type === 'lesson') return { bg: '#eff6ff', text: '#2563eb' };
-    if (activity.type === 'practice') return { bg: '#f0fdf4', text: '#16a34a' };
-    if (activity.type === 'strategy') return { bg: '#fefce8', text: '#ca8a04' };
-    if (activity.type === 'review') return { bg: '#fef3c7', text: '#d97706' };
-    if (activity.type === 'test') return { bg: '#fce7f3', text: '#db2777' };
-    return { bg: '#f3f4f6', text: '#6b7280' };
+    if (activity.type === 'lesson') return { bg: colors.semantic.infoLight, text: colors.semantic.info };
+    if (activity.type === 'practice') return { bg: colors.semantic.successLight, text: colors.semantic.success };
+    if (activity.type === 'strategy') return { bg: colors.semantic.warningLight, text: colors.semantic.warning };
+    if (activity.type === 'review') return { bg: colors.semantic.warningBg, text: colors.badge.bronze };
+    if (activity.type === 'test') return { bg: colors.accent.purpleLight, text: colors.accent.purple };
+    return { bg: colors.surface.gray, text: colors.text.secondary };
   };
 
   return (
-    <div style={cardStyle}>
+    <div style={cardStyles.subtle}>
       {/* Header */}
       <div style={{
         display: 'flex',
@@ -149,16 +157,16 @@ const StudyPlanDashboard = ({
       }}>
         <div>
           <div style={{
-            fontSize: '13px',
-            color: '#6b7280',
+            fontSize: typography.sizes.sm,
+            color: colors.text.secondary,
             marginBottom: '4px',
             display: 'flex',
             alignItems: 'center',
             gap: '6px',
           }}>
-            <span>📋</span> AI Study Plan
+            <ClipboardIcon size={14} color={colors.text.secondary} /> AI Study Plan
           </div>
-          <div style={{ fontSize: '18px', fontWeight: '600', color: '#111827' }}>
+          <div style={{ fontSize: typography.sizes.lg, fontWeight: typography.weights.semibold, color: colors.text.primary }}>
             {summary?.headline
               ? (summary.headline.length > 60 ? summary.headline.slice(0, 60) + '...' : summary.headline)
               : `${weeks.length}-Week Plan`
@@ -169,10 +177,10 @@ const StudyPlanDashboard = ({
           textAlign: 'right',
           minWidth: '80px',
         }}>
-          <div style={{ fontSize: '28px', fontWeight: '700', color: '#ea580c' }}>
+          <div style={{ fontSize: typography.sizes['2xl'], fontWeight: typography.weights.bold, color: colors.accent.orange }}>
             {progressPercent}%
           </div>
-          <div style={{ fontSize: '11px', color: '#6b7280' }}>
+          <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary }}>
             {completedActivities}/{totalActivities} done
           </div>
         </div>
@@ -187,8 +195,8 @@ const StudyPlanDashboard = ({
         aria-label={`Study plan progress: ${progressPercent}%`}
         style={{
           height: '6px',
-          background: '#f3f4f6',
-          borderRadius: '3px',
+          background: colors.surface.gray,
+          borderRadius: radius.sm,
           marginBottom: '20px',
           overflow: 'hidden',
         }}
@@ -196,9 +204,9 @@ const StudyPlanDashboard = ({
         <div style={{
           height: '100%',
           width: `${progressPercent}%`,
-          background: progressPercent >= 75 ? '#22c55e' : progressPercent >= 40 ? '#f59e0b' : '#ea580c',
-          borderRadius: '3px',
-          transition: 'width 0.3s ease',
+          background: progressPercent >= 75 ? colors.semantic.success : progressPercent >= 40 ? colors.semantic.warning : colors.accent.orange,
+          borderRadius: radius.sm,
+          transition: `width ${transitions.slow}`,
         }} />
       </div>
 
@@ -206,35 +214,35 @@ const StudyPlanDashboard = ({
       {summary?.stats && (
         <div style={{
           display: 'flex',
-          gap: '12px',
+          gap: spacing.sm,
           marginBottom: '20px',
           flexWrap: 'wrap',
         }}>
           {summary.stats.weeksInPlan && (
-            <div style={{ fontSize: '12px', color: '#6b7280', minWidth: isMobile ? '45%' : 'auto' }}>
-              <span style={{ fontWeight: '600', color: '#111827' }}>{summary.stats.weeksInPlan}</span> weeks
+            <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary, minWidth: isMobile ? '45%' : 'auto' }}>
+              <span style={{ fontWeight: typography.weights.semibold, color: colors.text.primary }}>{summary.stats.weeksInPlan}</span> weeks
             </div>
           )}
           {summary.stats.totalLessons > 0 && (
-            <div style={{ fontSize: '12px', color: '#6b7280', minWidth: isMobile ? '45%' : 'auto' }}>
-              <span style={{ fontWeight: '600', color: '#111827' }}>{summary.stats.totalLessons}</span> lessons
+            <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary, minWidth: isMobile ? '45%' : 'auto' }}>
+              <span style={{ fontWeight: typography.weights.semibold, color: colors.text.primary }}>{summary.stats.totalLessons}</span> lessons
             </div>
           )}
           {summary.stats.totalPractice > 0 && (
-            <div style={{ fontSize: '12px', color: '#6b7280', minWidth: isMobile ? '45%' : 'auto' }}>
-              <span style={{ fontWeight: '600', color: '#111827' }}>{summary.stats.totalPractice}</span> practice sets
+            <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary, minWidth: isMobile ? '45%' : 'auto' }}>
+              <span style={{ fontWeight: typography.weights.semibold, color: colors.text.primary }}>{summary.stats.totalPractice}</span> practice sets
             </div>
           )}
           {summary.stats.minutesPerDay && (
-            <div style={{ fontSize: '12px', color: '#6b7280', minWidth: isMobile ? '45%' : 'auto' }}>
-              <span style={{ fontWeight: '600', color: '#111827' }}>{summary.stats.minutesPerDay}</span> min/day
+            <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary, minWidth: isMobile ? '45%' : 'auto' }}>
+              <span style={{ fontWeight: typography.weights.semibold, color: colors.text.primary }}>{summary.stats.minutesPerDay}</span> min/day
             </div>
           )}
         </div>
       )}
 
       {/* Weekly plan accordion */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: spacing.xs }}>
         {weeks.map((week, weekIdx) => {
           const isExpanded = activeExpanded === weekIdx;
           const weekCompleted = week.activities.filter(a => a.completed).length;
@@ -244,8 +252,8 @@ const StudyPlanDashboard = ({
 
           return (
             <div key={weekIdx} style={{
-              border: isCurrent ? '2px solid #ea580c' : '1px solid #e5e7eb',
-              borderRadius: '10px',
+              border: isCurrent ? `2px solid ${colors.accent.orange}` : `1px solid ${colors.surface.grayDark}`,
+              borderRadius: radius.md,
               overflow: 'hidden',
             }}>
               {/* Week header */}
@@ -256,7 +264,7 @@ const StudyPlanDashboard = ({
                 style={{
                   width: '100%',
                   padding: '14px 16px',
-                  background: isCurrent ? '#fff7ed' : weekPercent === 100 ? '#f0fdf4' : '#fafafa',
+                  background: isCurrent ? colors.accent.orangeLight : weekPercent === 100 ? colors.semantic.successLight : colors.surface.offWhite,
                   border: 'none',
                   cursor: 'pointer',
                   display: 'flex',
@@ -269,23 +277,23 @@ const StudyPlanDashboard = ({
                   <div style={{
                     width: '28px',
                     height: '28px',
-                    borderRadius: '50%',
-                    background: weekPercent === 100 ? '#22c55e' : isCurrent ? '#ea580c' : '#d1d5db',
-                    color: 'white',
+                    borderRadius: radius.full,
+                    background: weekPercent === 100 ? colors.semantic.success : isCurrent ? colors.accent.orange : colors.surface.grayMedium,
+                    color: colors.text.inverse,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontSize: '12px',
-                    fontWeight: '700',
+                    fontSize: typography.sizes.xs,
+                    fontWeight: typography.weights.bold,
                     flexShrink: 0,
                   }}>
-                    {weekPercent === 100 ? '✓' : week.weekNumber}
+                    {weekPercent === 100 ? <CheckIcon size={14} color={colors.text.inverse} /> : week.weekNumber}
                   </div>
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div style={{
-                      fontSize: '14px',
-                      fontWeight: '600',
-                      color: '#111827',
+                      fontSize: typography.sizes.base,
+                      fontWeight: typography.weights.semibold,
+                      color: colors.text.primary,
                       whiteSpace: 'nowrap',
                       overflow: 'hidden',
                       textOverflow: 'ellipsis',
@@ -293,13 +301,13 @@ const StudyPlanDashboard = ({
                       {week.title || `Week ${week.weekNumber}`}
                       {isCurrent && (
                         <span style={{
-                          marginLeft: '8px',
-                          fontSize: '11px',
-                          fontWeight: '500',
-                          color: '#ea580c',
-                          background: '#fff7ed',
+                          marginLeft: spacing.xs,
+                          fontSize: typography.sizes.xs,
+                          fontWeight: typography.weights.medium,
+                          color: colors.accent.orange,
+                          background: colors.accent.orangeLight,
                           padding: '2px 6px',
-                          borderRadius: '4px',
+                          borderRadius: radius.sm,
                         }}>
                           Current
                         </span>
@@ -307,8 +315,8 @@ const StudyPlanDashboard = ({
                     </div>
                     {week.focusSkills && week.focusSkills.length > 0 && (
                       <div style={{
-                        fontSize: '12px',
-                        color: '#6b7280',
+                        fontSize: typography.sizes.xs,
+                        color: colors.text.secondary,
                         whiteSpace: 'nowrap',
                         overflow: 'hidden',
                         textOverflow: 'ellipsis',
@@ -324,16 +332,17 @@ const StudyPlanDashboard = ({
                   gap: '10px',
                   flexShrink: 0,
                 }}>
-                  <div style={{ fontSize: '12px', color: '#6b7280' }}>
+                  <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary }}>
                     {weekCompleted}/{weekTotal}
                   </div>
                   <span style={{
-                    fontSize: '12px',
-                    color: '#9ca3af',
+                    color: colors.text.muted,
                     transform: isExpanded ? 'rotate(180deg)' : 'none',
-                    transition: 'transform 0.2s ease',
+                    transition: `transform ${transitions.fast}`,
+                    display: 'flex',
+                    alignItems: 'center',
                   }}>
-                    ▼
+                    <ChevronDownIcon size={14} color={colors.text.muted} />
                   </span>
                 </div>
               </button>
@@ -341,17 +350,17 @@ const StudyPlanDashboard = ({
               {/* Week activities (expanded) */}
               {isExpanded && (
                 <div style={{
-                  padding: '8px 16px 16px',
-                  background: 'white',
+                  padding: `${spacing.xs} ${spacing.md} ${spacing.md}`,
+                  background: colors.surface.white,
                 }}>
                   {week.goalDescription && (
                     <div style={{
-                      fontSize: '12px',
-                      color: '#6b7280',
+                      fontSize: typography.sizes.xs,
+                      color: colors.text.secondary,
                       fontStyle: 'italic',
-                      padding: '8px 0',
-                      marginBottom: '8px',
-                      borderBottom: '1px solid #f3f4f6',
+                      padding: `${spacing.xs} 0`,
+                      marginBottom: spacing.xs,
+                      borderBottom: `1px solid ${colors.surface.gray}`,
                     }}>
                       Goal: {week.goalDescription}
                     </div>
@@ -369,20 +378,20 @@ const StudyPlanDashboard = ({
                             alignItems: 'center',
                             gap: '10px',
                             padding: '10px 12px',
-                            borderRadius: '8px',
-                            background: isCompleted ? '#f9fafb' : 'white',
-                            border: '1px solid #f3f4f6',
+                            borderRadius: radius.sm,
+                            background: isCompleted ? colors.surface.offWhite : colors.surface.white,
+                            border: `1px solid ${colors.surface.gray}`,
                             cursor: 'pointer',
                             opacity: isCompleted ? 0.7 : 1,
-                            transition: 'all 0.15s ease',
+                            transition: `all ${transitions.fast}`,
                             minWidth: 0,
                           }}
                           onClick={() => handleActivityClick(activity, weekIdx, actIdx)}
                           onMouseEnter={(e) => {
-                            e.currentTarget.style.background = isCompleted ? '#f3f4f6' : '#fafafa';
+                            e.currentTarget.style.background = isCompleted ? colors.surface.gray : colors.surface.offWhite;
                           }}
                           onMouseLeave={(e) => {
-                            e.currentTarget.style.background = isCompleted ? '#f9fafb' : 'white';
+                            e.currentTarget.style.background = isCompleted ? colors.surface.offWhite : colors.surface.white;
                           }}
                         >
                           {/* Checkbox */}
@@ -395,10 +404,10 @@ const StudyPlanDashboard = ({
                               width: '22px',
                               height: '22px',
                               borderRadius: '6px',
-                              border: isCompleted ? 'none' : '2px solid #d1d5db',
-                              background: isCompleted ? '#22c55e' : 'white',
-                              color: 'white',
-                              fontSize: '12px',
+                              border: isCompleted ? 'none' : `2px solid ${colors.surface.grayMedium}`,
+                              background: isCompleted ? colors.semantic.success : colors.surface.white,
+                              color: colors.text.inverse,
+                              fontSize: typography.sizes.xs,
                               cursor: 'pointer',
                               display: 'flex',
                               alignItems: 'center',
@@ -407,20 +416,20 @@ const StudyPlanDashboard = ({
                               padding: 0,
                             }}
                           >
-                            {isCompleted && '✓'}
+                            {isCompleted && <CheckIcon size={12} color={colors.text.inverse} />}
                           </button>
 
                           {/* Icon */}
-                          <span style={{ fontSize: '16px', flexShrink: 0 }}>
+                          <span style={{ flexShrink: 0, display: 'flex', alignItems: 'center' }}>
                             {getActivityIcon(activity)}
                           </span>
 
                           {/* Content */}
                           <div style={{ flex: 1, minWidth: 0 }}>
                             <div style={{
-                              fontSize: '13px',
-                              fontWeight: '500',
-                              color: isCompleted ? '#9ca3af' : '#111827',
+                              fontSize: typography.sizes.sm,
+                              fontWeight: typography.weights.medium,
+                              color: isCompleted ? colors.text.muted : colors.text.primary,
                               textDecoration: isCompleted ? 'line-through' : 'none',
                               whiteSpace: 'nowrap',
                               overflow: 'hidden',
@@ -430,8 +439,8 @@ const StudyPlanDashboard = ({
                             </div>
                             {activity.subtitle && (
                               <div style={{
-                                fontSize: '11px',
-                                color: '#9ca3af',
+                                fontSize: typography.sizes.xs,
+                                color: colors.text.muted,
                                 whiteSpace: 'nowrap',
                                 overflow: 'hidden',
                                 textOverflow: 'ellipsis',
@@ -443,12 +452,12 @@ const StudyPlanDashboard = ({
 
                           {/* Type badge */}
                           <span style={{
-                            fontSize: '10px',
-                            fontWeight: '600',
+                            fontSize: typography.sizes.caption,
+                            fontWeight: typography.weights.semibold,
                             color: typeColor.text,
                             background: typeColor.bg,
-                            padding: '2px 8px',
-                            borderRadius: '4px',
+                            padding: `2px ${spacing.xs}`,
+                            borderRadius: radius.sm,
                             flexShrink: 0,
                           }}>
                             {getActivityTypeLabel(activity)}
@@ -457,8 +466,8 @@ const StudyPlanDashboard = ({
                           {/* Duration */}
                           {activity.duration && (
                             <span style={{
-                              fontSize: '11px',
-                              color: '#9ca3af',
+                              fontSize: typography.sizes.xs,
+                              color: colors.text.muted,
                               flexShrink: 0,
                             }}>
                               {activity.duration}m

@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { getAllPracticeTests } from '../data/practiceTests';
+import { colors, radius, shadows, zIndex } from '../design/tokens';
+import { ArrowLeftIcon, CheckIcon, PlayIcon, ChevronDownIcon, TimerIcon, CircleDotIcon } from '../design/icons';
 
 const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practiceTestResults, getTestBestScore, getTestAttempts, inProgressTests, onResumeTest }) => {
   const tests = getAllPracticeTests();
@@ -30,26 +32,27 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
             gap: '8px',
             background: 'none',
             border: 'none',
-            color: '#6b7280',
+            color: colors.text.secondary,
             fontSize: '14px',
             cursor: 'pointer',
             padding: '0',
             marginBottom: '16px'
           }}
         >
-          ← Back to Dashboard
+          <ArrowLeftIcon size={14} color={colors.text.secondary} />
+          Back to Dashboard
         </button>
         <h1 style={{
           fontSize: '28px',
           fontWeight: '600',
-          color: '#111827',
+          color: colors.text.primary,
           marginBottom: '8px'
         }}>
           Practice Tests
         </h1>
         <p style={{
           fontSize: '16px',
-          color: '#6b7280'
+          color: colors.text.secondary
         }}>
           Full-length SAT Math practice tests to prepare for the real exam
         </p>
@@ -70,9 +73,9 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
             <div
               key={test.id}
               style={{
-                background: 'white',
-                border: bestScore ? '2px solid #22c55e' : '1px solid #e5e7eb',
-                borderRadius: '12px',
+                background: colors.surface.white,
+                border: bestScore ? `2px solid ${colors.semantic.success}` : `1px solid ${colors.surface.grayDark}`,
+                borderRadius: radius.md,
                 padding: '24px',
                 transition: 'box-shadow 0.2s ease'
               }}
@@ -87,7 +90,7 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
                     <h2 style={{
                       fontSize: '20px',
                       fontWeight: '600',
-                      color: '#111827',
+                      color: colors.text.primary,
                       margin: 0
                     }}>
                       {test.title}
@@ -97,18 +100,16 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
                         display: 'flex',
                         alignItems: 'center',
                         gap: '8px',
-                        background: '#f0fdf4',
+                        background: colors.semantic.successLight,
                         padding: '4px 12px',
-                        borderRadius: '16px',
-                        border: '1px solid #bbf7d0'
+                        borderRadius: radius.xl,
+                        border: `1px solid ${colors.semantic.successBg}`
                       }}>
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2.5">
-                          <path d="M20 6L9 17l-5-5" />
-                        </svg>
-                        <span style={{ fontSize: '13px', fontWeight: '600', color: '#16a34a' }}>
+                        <CheckIcon size={14} color={colors.semantic.success} strokeWidth={2.5} />
+                        <span style={{ fontSize: '13px', fontWeight: '600', color: colors.semantic.success }}>
                           Best: {bestScore}
                         </span>
-                        <span style={{ fontSize: '12px', color: '#22c55e' }}>
+                        <span style={{ fontSize: '12px', color: colors.semantic.success }}>
                           ({attempts} attempt{attempts !== 1 ? 's' : ''})
                         </span>
                       </div>
@@ -116,7 +117,7 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
                   </div>
                   <p style={{
                     fontSize: '14px',
-                    color: '#6b7280',
+                    color: colors.text.secondary,
                     marginBottom: '16px'
                   }}>
                     {test.description || 'Full-length SAT Math practice test with 2 modules'}
@@ -134,9 +135,9 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
                           width: '8px',
                           height: '8px',
                           borderRadius: '50%',
-                          background: idx === 0 ? '#3b82f6' : '#10b981'
+                          background: idx === 0 ? colors.semantic.info : colors.semantic.success
                         }} />
-                        <span style={{ fontSize: '14px', color: '#374151' }}>
+                        <span style={{ fontSize: '14px', color: colors.text.secondary }}>
                           {module.title}: {module.questions.length} questions
                         </span>
                       </div>
@@ -148,14 +149,14 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
                     display: 'flex',
                     gap: '20px',
                     fontSize: '13px',
-                    color: '#6b7280'
+                    color: colors.text.secondary
                   }}>
                     <span>{totalQuestions} total questions</span>
                     <span>~{totalTime} minutes</span>
                   </div>
                 </div>
 
-                {/* Right side — dropdown button */}
+                {/* Right side - dropdown button */}
                 <div style={{ flexShrink: 0, position: 'relative' }} ref={isOpen ? dropdownRef : null}>
                   {inProgress && onResumeTest ? (
                     /* In-progress: show Resume + Start Over */
@@ -164,10 +165,10 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
                         onClick={() => onResumeTest(test, inProgress.isTimed)}
                         style={{
                           padding: '12px 28px',
-                          background: '#16a34a',
-                          color: 'white',
+                          background: colors.semantic.success,
+                          color: colors.text.inverse,
                           border: 'none',
-                          borderRadius: '8px',
+                          borderRadius: radius.sm,
                           fontSize: '15px',
                           fontWeight: '600',
                           cursor: 'pointer',
@@ -177,19 +178,17 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
                           gap: '8px'
                         }}
                       >
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <polygon points="5 3 19 12 5 21 5 3" />
-                        </svg>
+                        <PlayIcon size={16} color={colors.text.inverse} />
                         Resume ({answeredCount}/{totalQuestions})
                       </button>
                       <button
                         onClick={() => setOpenDropdown(isOpen ? null : test.id)}
                         style={{
                           padding: '10px 20px',
-                          background: 'white',
-                          color: '#374151',
-                          border: '1px solid #d1d5db',
-                          borderRadius: '8px',
+                          background: colors.surface.white,
+                          color: colors.text.secondary,
+                          border: `1px solid ${colors.surface.grayMedium}`,
+                          borderRadius: radius.sm,
                           fontSize: '13px',
                           fontWeight: '500',
                           cursor: 'pointer',
@@ -200,12 +199,11 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
                         }}
                       >
                         Start Over
-                        <svg
-                          width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+                        <ChevronDownIcon
+                          size={12}
+                          color="currentColor"
                           style={{ transition: 'transform 0.2s ease', transform: isOpen ? 'rotate(180deg)' : 'rotate(0)' }}
-                        >
-                          <path d="M3 4.5L6 7.5L9 4.5" />
-                        </svg>
+                        />
                       </button>
                     </div>
                   ) : (
@@ -214,10 +212,10 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
                       onClick={() => setOpenDropdown(isOpen ? null : test.id)}
                       style={{
                         padding: '12px 28px',
-                        background: '#111827',
-                        color: 'white',
+                        background: colors.surface.dark,
+                        color: colors.text.inverse,
                         border: 'none',
-                        borderRadius: '8px',
+                        borderRadius: radius.sm,
                         fontSize: '15px',
                         fontWeight: '600',
                         cursor: 'pointer',
@@ -228,12 +226,11 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
                       }}
                     >
                       Start
-                      <svg
-                        width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+                      <ChevronDownIcon
+                        size={14}
+                        color="currentColor"
                         style={{ transition: 'transform 0.2s ease', transform: isOpen ? 'rotate(180deg)' : 'rotate(0)' }}
-                      >
-                        <path d="M3.5 5.25L7 8.75L10.5 5.25" />
-                      </svg>
+                      />
                     </button>
                   )}
 
@@ -244,12 +241,12 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
                       top: '100%',
                       right: 0,
                       marginTop: '6px',
-                      background: 'white',
-                      border: '1px solid #e5e7eb',
-                      borderRadius: '10px',
+                      background: colors.surface.white,
+                      border: `1px solid ${colors.surface.grayDark}`,
+                      borderRadius: radius.md,
                       boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06)',
                       overflow: 'hidden',
-                      zIndex: 10,
+                      zIndex: zIndex.dropdown,
                       minWidth: '180px',
                       animation: 'ptDropdownIn 0.15s ease'
                     }}>
@@ -267,12 +264,12 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
                         style={{
                           width: '100%',
                           padding: '12px 16px',
-                          background: 'white',
+                          background: colors.surface.white,
                           border: 'none',
-                          borderBottom: '1px solid #f3f4f6',
+                          borderBottom: `1px solid ${colors.surface.gray}`,
                           fontSize: '14px',
                           fontWeight: '500',
-                          color: '#111827',
+                          color: colors.text.primary,
                           cursor: 'pointer',
                           display: 'flex',
                           alignItems: 'center',
@@ -280,15 +277,12 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
                           textAlign: 'left',
                           transition: 'background 0.1s'
                         }}
-                        onMouseEnter={(e) => e.currentTarget.style.background = '#f9fafb'}
-                        onMouseLeave={(e) => e.currentTarget.style.background = 'white'}
+                        onMouseEnter={(e) => e.currentTarget.style.background = colors.surface.offWhite}
+                        onMouseLeave={(e) => e.currentTarget.style.background = colors.surface.white}
                       >
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="2">
-                          <circle cx="12" cy="12" r="10" />
-                          <polyline points="12 6 12 12 16 14" />
-                        </svg>
+                        <TimerIcon size={16} color={colors.text.secondary} />
                         Timed
-                        <span style={{ fontSize: '12px', color: '#9ca3af', marginLeft: 'auto' }}>~{totalTime}m</span>
+                        <span style={{ fontSize: '12px', color: colors.text.muted, marginLeft: 'auto' }}>~{totalTime}m</span>
                       </button>
                       <button
                         onClick={() => {
@@ -298,11 +292,11 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
                         style={{
                           width: '100%',
                           padding: '12px 16px',
-                          background: 'white',
+                          background: colors.surface.white,
                           border: 'none',
                           fontSize: '14px',
                           fontWeight: '500',
-                          color: '#111827',
+                          color: colors.text.primary,
                           cursor: 'pointer',
                           display: 'flex',
                           alignItems: 'center',
@@ -310,15 +304,12 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
                           textAlign: 'left',
                           transition: 'background 0.1s'
                         }}
-                        onMouseEnter={(e) => e.currentTarget.style.background = '#f9fafb'}
-                        onMouseLeave={(e) => e.currentTarget.style.background = 'white'}
+                        onMouseEnter={(e) => e.currentTarget.style.background = colors.surface.offWhite}
+                        onMouseLeave={(e) => e.currentTarget.style.background = colors.surface.white}
                       >
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="2">
-                          <circle cx="12" cy="12" r="10" />
-                          <line x1="8" y1="12" x2="16" y2="12" />
-                        </svg>
+                        <CircleDotIcon size={16} color={colors.text.secondary} />
                         Untimed
-                        <span style={{ fontSize: '12px', color: '#9ca3af', marginLeft: 'auto' }}>No limit</span>
+                        <span style={{ fontSize: '12px', color: colors.text.muted, marginLeft: 'auto' }}>No limit</span>
                       </button>
                     </div>
                   )}
@@ -333,13 +324,13 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
       <div style={{
         marginTop: '40px',
         padding: '24px',
-        background: '#f9fafb',
-        borderRadius: '12px'
+        background: colors.surface.offWhite,
+        borderRadius: radius.md
       }}>
         <h3 style={{
           fontSize: '16px',
           fontWeight: '600',
-          color: '#111827',
+          color: colors.text.primary,
           marginBottom: '12px'
         }}>
           About Practice Tests
@@ -347,7 +338,7 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
         <ul style={{
           margin: 0,
           paddingLeft: '20px',
-          color: '#6b7280',
+          color: colors.text.secondary,
           fontSize: '14px',
           lineHeight: '1.8'
         }}>

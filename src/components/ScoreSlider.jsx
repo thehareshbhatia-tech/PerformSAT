@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { colors, radius, shadows, transitions } from '../design/tokens';
+import { cardStyles } from '../design/components';
 
 // Inject slider styles once
 const injectSliderStyles = () => {
@@ -14,9 +16,9 @@ const injectSliderStyles = () => {
       width: 28px;
       height: 28px;
       border-radius: 50%;
-      background: #111827;
+      background: ${colors.surface.dark};
       cursor: grab;
-      border: 4px solid white;
+      border: 4px solid ${colors.surface.white};
       box-shadow: 0 2px 6px rgba(0,0,0,0.25);
       margin-top: -10px;
     }
@@ -28,9 +30,9 @@ const injectSliderStyles = () => {
       width: 28px;
       height: 28px;
       border-radius: 50%;
-      background: #111827;
+      background: ${colors.surface.dark};
       cursor: grab;
-      border: 4px solid white;
+      border: 4px solid ${colors.surface.white};
       box-shadow: 0 2px 6px rgba(0,0,0,0.25);
     }
     input[type="range"].score-slider::-moz-range-thumb:active {
@@ -69,9 +71,7 @@ const ScoreSlider = ({
   const percent = ((value - min) / (max - min)) * 100;
 
   const cardStyle = {
-    background: 'white',
-    borderRadius: '12px',
-    border: '1px solid #e5e7eb',
+    ...cardStyles.subtle,
     padding: '28px',
     marginBottom: '24px'
   };
@@ -83,7 +83,7 @@ const ScoreSlider = ({
     width: '100%',
     height: '8px',
     borderRadius: '4px',
-    background: `linear-gradient(to right, #111827 0%, #111827 ${percent}%, #e5e7eb ${percent}%, #e5e7eb 100%)`,
+    background: `linear-gradient(to right, ${colors.surface.dark} 0%, ${colors.surface.dark} ${percent}%, ${colors.surface.grayDark} ${percent}%, ${colors.surface.grayDark} 100%)`,
     outline: 'none',
     cursor: 'pointer',
     margin: '0'
@@ -99,10 +99,10 @@ const ScoreSlider = ({
         marginBottom: '24px'
       }}>
         <div>
-          <div style={{ fontSize: '18px', fontWeight: '600', color: '#111827' }}>
+          <div style={{ fontSize: '18px', fontWeight: '600', color: colors.text.primary }}>
             {label}
           </div>
-          <div style={{ fontSize: '13px', color: '#6b7280', marginTop: '4px' }}>
+          <div style={{ fontSize: '13px', color: colors.text.secondary, marginTop: '4px' }}>
             {description}
           </div>
         </div>
@@ -111,7 +111,7 @@ const ScoreSlider = ({
           style={{
             padding: '6px 12px',
             background: 'transparent',
-            color: '#6b7280',
+            color: colors.text.secondary,
             border: 'none',
             fontSize: '14px',
             cursor: 'pointer'
@@ -126,7 +126,7 @@ const ScoreSlider = ({
         fontSize: '56px',
         fontWeight: '700',
         textAlign: 'center',
-        color: '#111827',
+        color: colors.text.primary,
         marginBottom: '24px',
         fontVariantNumeric: 'tabular-nums'
       }}>
@@ -142,7 +142,7 @@ const ScoreSlider = ({
       }}>
         <span style={{
           fontSize: '13px',
-          color: '#6b7280',
+          color: colors.text.secondary,
           fontWeight: '500',
           minWidth: '32px'
         }}>
@@ -160,7 +160,7 @@ const ScoreSlider = ({
         />
         <span style={{
           fontSize: '13px',
-          color: '#6b7280',
+          color: colors.text.secondary,
           fontWeight: '500',
           minWidth: '36px'
         }}>
@@ -174,17 +174,17 @@ const ScoreSlider = ({
           onClick={onSave}
           style={{
             padding: '10px 24px',
-            background: '#111827',
-            color: 'white',
+            background: colors.surface.dark,
+            color: colors.text.inverse,
             border: 'none',
-            borderRadius: '8px',
+            borderRadius: radius.sm,
             fontSize: '14px',
             fontWeight: '600',
             cursor: 'pointer',
-            transition: 'background 0.15s ease'
+            transition: `background ${transitions.fast}`
           }}
-          onMouseEnter={(e) => e.target.style.background = '#374151'}
-          onMouseLeave={(e) => e.target.style.background = '#111827'}
+          onMouseEnter={(e) => e.target.style.background = colors.text.secondary}
+          onMouseLeave={(e) => e.target.style.background = colors.surface.dark}
         >
           Save
         </button>

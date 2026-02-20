@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
+import { colors, radius, shadows, transitions } from '../design/tokens';
 
 const LandingPage = () => {
   const [showAuth, setShowAuth] = useState(false);
@@ -42,7 +43,7 @@ const LandingPage = () => {
       {/* Hero Section */}
       <div style={{
         minHeight: '100vh',
-        background: 'linear-gradient(180deg, #FFF5F0 0%, #FFFFFF 100%)',
+        background: `linear-gradient(180deg, ${colors.accent.orangeLight} 0%, ${colors.surface.white} 100%)`,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -54,7 +55,7 @@ const LandingPage = () => {
           <div style={{
             fontSize: '1.5rem',
             fontWeight: '900',
-            color: '#0A0A0A',
+            color: colors.text.primary,
             marginBottom: '1rem',
             display: 'flex',
             alignItems: 'center',
@@ -63,12 +64,12 @@ const LandingPage = () => {
             <div style={{
               width: '36px',
               height: '36px',
-              background: 'linear-gradient(135deg, #FF6B35 0%, #E85A24 100%)',
-              borderRadius: '10px',
+              background: `linear-gradient(135deg, ${colors.accent.orange} 0%, ${colors.accent.orangeHover} 100%)`,
+              borderRadius: radius.md,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: 'white',
+              color: colors.text.inverse,
               fontSize: '1.1rem'
             }}>P</div>
             Perform
@@ -81,11 +82,11 @@ const LandingPage = () => {
           letterSpacing: '-0.04em',
           lineHeight: '1.05',
           marginBottom: '1.5rem',
-          color: '#0A0A0A'
+          color: colors.text.primary
         }}>
           Perform the SAT,<br />
           <span style={{
-            background: 'linear-gradient(135deg, #FF6B35 0%, #FF8C5A 100%)',
+            background: `linear-gradient(135deg, ${colors.accent.orange} 0%, ${colors.accent.orangeMuted} 100%)`,
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             fontStyle: 'italic'
@@ -94,7 +95,7 @@ const LandingPage = () => {
 
         <p style={{
           fontSize: '1.2rem',
-          color: '#71717A',
+          color: colors.text.tertiary,
           maxWidth: '480px',
           marginBottom: '2.5rem',
           lineHeight: '1.7'
@@ -108,23 +109,23 @@ const LandingPage = () => {
             setIsLogin(false);
           }}
           style={{
-            background: '#FF6B35',
-            color: 'white',
+            background: colors.accent.orange,
+            color: colors.text.inverse,
             padding: '1rem 2rem',
             border: 'none',
-            borderRadius: '10px',
+            borderRadius: radius.md,
             fontSize: '1rem',
             fontWeight: '700',
             cursor: 'pointer',
-            transition: 'all 0.3s ease',
-            boxShadow: '0 10px 40px rgba(255, 107, 53, 0.3)'
+            transition: `all ${transitions.normal}`,
+            boxShadow: `0 10px 40px rgba(234, 88, 12, 0.3)`
           }}
           onMouseEnter={(e) => {
-            e.target.style.background = '#E85A24';
+            e.target.style.background = colors.accent.orangeHover;
             e.target.style.transform = 'translateY(-2px)';
           }}
           onMouseLeave={(e) => {
-            e.target.style.background = '#FF6B35';
+            e.target.style.background = colors.accent.orange;
             e.target.style.transform = 'translateY(0)';
           }}
         >
@@ -138,7 +139,7 @@ const LandingPage = () => {
           }}
           style={{
             background: 'transparent',
-            color: '#71717A',
+            color: colors.text.tertiary,
             padding: '0.75rem 1.5rem',
             border: 'none',
             fontSize: '0.9rem',
@@ -159,7 +160,7 @@ const LandingPage = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'rgba(0, 0, 0, 0.5)',
+          background: colors.overlay,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -167,23 +168,23 @@ const LandingPage = () => {
           padding: '1rem'
         }} onClick={() => setShowAuth(false)}>
           <div style={{
-            background: 'white',
-            borderRadius: '20px',
+            background: colors.surface.white,
+            borderRadius: radius.xl,
             padding: '3rem',
             maxWidth: '440px',
             width: '100%',
-            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
+            boxShadow: shadows.xl
           }} onClick={(e) => e.stopPropagation()}>
             <h2 style={{
               fontSize: '1.75rem',
               fontWeight: '800',
               marginBottom: '0.5rem',
-              color: '#0A0A0A'
+              color: colors.text.primary
             }}>
               {isLogin ? 'Welcome Back' : 'Get Started'}
             </h2>
             <p style={{
-              color: '#71717A',
+              color: colors.text.tertiary,
               marginBottom: '2rem'
             }}>
               {isLogin ? 'Log in to continue learning' : 'Create your account and start learning'}
@@ -198,7 +199,7 @@ const LandingPage = () => {
                       fontSize: '0.9rem',
                       fontWeight: '600',
                       marginBottom: '0.5rem',
-                      color: '#0A0A0A'
+                      color: colors.text.primary
                     }}>
                       First Name
                     </label>
@@ -211,16 +212,16 @@ const LandingPage = () => {
                       style={{
                         width: '100%',
                         padding: '0.75rem 1rem',
-                        border: '2px solid #E4E4E7',
-                        borderRadius: '10px',
+                        border: `2px solid ${colors.surface.grayDark}`,
+                        borderRadius: radius.md,
                         fontSize: '1rem',
                         outline: 'none',
-                        transition: 'border-color 0.2s',
+                        transition: `border-color ${transitions.fast}`,
                         fontFamily: 'inherit',
                         boxSizing: 'border-box'
                       }}
-                      onFocus={(e) => e.target.style.borderColor = '#FF6B35'}
-                      onBlur={(e) => e.target.style.borderColor = '#E4E4E7'}
+                      onFocus={(e) => e.target.style.borderColor = colors.accent.orange}
+                      onBlur={(e) => e.target.style.borderColor = colors.surface.grayDark}
                     />
                   </div>
 
@@ -230,7 +231,7 @@ const LandingPage = () => {
                       fontSize: '0.9rem',
                       fontWeight: '600',
                       marginBottom: '0.5rem',
-                      color: '#0A0A0A'
+                      color: colors.text.primary
                     }}>
                       Have you taken the SAT before?
                     </label>
@@ -245,7 +246,7 @@ const LandingPage = () => {
                           required
                           style={{ cursor: 'pointer' }}
                         />
-                        <span style={{ fontSize: '0.9rem', color: '#0A0A0A' }}>Yes</span>
+                        <span style={{ fontSize: '0.9rem', color: colors.text.primary }}>Yes</span>
                       </label>
                       <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
                         <input
@@ -260,7 +261,7 @@ const LandingPage = () => {
                           required
                           style={{ cursor: 'pointer' }}
                         />
-                        <span style={{ fontSize: '0.9rem', color: '#0A0A0A' }}>No</span>
+                        <span style={{ fontSize: '0.9rem', color: colors.text.primary }}>No</span>
                       </label>
                       <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
                         <input
@@ -275,7 +276,7 @@ const LandingPage = () => {
                           required
                           style={{ cursor: 'pointer' }}
                         />
-                        <span style={{ fontSize: '0.9rem', color: '#0A0A0A' }}>Prefer not to say</span>
+                        <span style={{ fontSize: '0.9rem', color: colors.text.primary }}>Prefer not to say</span>
                       </label>
                     </div>
                   </div>
@@ -287,7 +288,7 @@ const LandingPage = () => {
                         fontSize: '0.9rem',
                         fontWeight: '600',
                         marginBottom: '0.5rem',
-                        color: '#0A0A0A'
+                        color: colors.text.primary
                       }}>
                         What was your SAT Math score? (optional)
                       </label>
@@ -301,20 +302,20 @@ const LandingPage = () => {
                         style={{
                           width: '100%',
                           padding: '0.75rem 1rem',
-                          border: '2px solid #E4E4E7',
-                          borderRadius: '10px',
+                          border: `2px solid ${colors.surface.grayDark}`,
+                          borderRadius: radius.md,
                           fontSize: '1rem',
                           outline: 'none',
-                          transition: 'border-color 0.2s',
+                          transition: `border-color ${transitions.fast}`,
                           fontFamily: 'inherit',
                           boxSizing: 'border-box'
                         }}
-                        onFocus={(e) => e.target.style.borderColor = '#FF6B35'}
-                        onBlur={(e) => e.target.style.borderColor = '#E4E4E7'}
+                        onFocus={(e) => e.target.style.borderColor = colors.accent.orange}
+                        onBlur={(e) => e.target.style.borderColor = colors.surface.grayDark}
                       />
                       <p style={{
                         fontSize: '0.8rem',
-                        color: '#A1A1AA',
+                        color: colors.text.muted,
                         marginTop: '0.5rem'
                       }}>
                         Score range: 200-800
@@ -330,7 +331,7 @@ const LandingPage = () => {
                   fontSize: '0.9rem',
                   fontWeight: '600',
                   marginBottom: '0.5rem',
-                  color: '#0A0A0A'
+                  color: colors.text.primary
                 }}>
                   Email
                 </label>
@@ -343,16 +344,16 @@ const LandingPage = () => {
                   style={{
                     width: '100%',
                     padding: '0.75rem 1rem',
-                    border: '2px solid #E4E4E7',
-                    borderRadius: '10px',
+                    border: `2px solid ${colors.surface.grayDark}`,
+                    borderRadius: radius.md,
                     fontSize: '1rem',
                     outline: 'none',
-                    transition: 'border-color 0.2s',
+                    transition: `border-color ${transitions.fast}`,
                     fontFamily: 'inherit',
                     boxSizing: 'border-box'
                   }}
-                  onFocus={(e) => e.target.style.borderColor = '#FF6B35'}
-                  onBlur={(e) => e.target.style.borderColor = '#E4E4E7'}
+                  onFocus={(e) => e.target.style.borderColor = colors.accent.orange}
+                  onBlur={(e) => e.target.style.borderColor = colors.surface.grayDark}
                 />
               </div>
 
@@ -362,7 +363,7 @@ const LandingPage = () => {
                   fontSize: '0.9rem',
                   fontWeight: '600',
                   marginBottom: '0.5rem',
-                  color: '#0A0A0A'
+                  color: colors.text.primary
                 }}>
                   Password
                 </label>
@@ -376,20 +377,20 @@ const LandingPage = () => {
                   style={{
                     width: '100%',
                     padding: '0.75rem 1rem',
-                    border: '2px solid #E4E4E7',
-                    borderRadius: '10px',
+                    border: `2px solid ${colors.surface.grayDark}`,
+                    borderRadius: radius.md,
                     fontSize: '1rem',
                     outline: 'none',
-                    transition: 'border-color 0.2s',
+                    transition: `border-color ${transitions.fast}`,
                     fontFamily: 'inherit',
                     boxSizing: 'border-box'
                   }}
-                  onFocus={(e) => e.target.style.borderColor = '#FF6B35'}
-                  onBlur={(e) => e.target.style.borderColor = '#E4E4E7'}
+                  onFocus={(e) => e.target.style.borderColor = colors.accent.orange}
+                  onBlur={(e) => e.target.style.borderColor = colors.surface.grayDark}
                 />
                 <p style={{
                   fontSize: '0.8rem',
-                  color: '#A1A1AA',
+                  color: colors.text.muted,
                   marginTop: '0.5rem'
                 }}>
                   Minimum 6 characters
@@ -399,12 +400,12 @@ const LandingPage = () => {
               {error && (
                 <div style={{
                   padding: '0.75rem 1rem',
-                  background: '#FEF2F2',
-                  border: '2px solid #FECACA',
-                  borderRadius: '10px',
+                  background: colors.semantic.errorLight,
+                  border: `2px solid ${colors.semantic.errorBg}`,
+                  borderRadius: radius.md,
                   marginBottom: '1.5rem',
                   fontSize: '0.9rem',
-                  color: '#DC2626'
+                  color: colors.semantic.error
                 }}>
                   {error}
                 </div>
@@ -416,21 +417,21 @@ const LandingPage = () => {
                 style={{
                   width: '100%',
                   padding: '1rem',
-                  background: loading ? '#D1D5DB' : '#FF6B35',
-                  color: 'white',
+                  background: loading ? colors.surface.grayMedium : colors.accent.orange,
+                  color: colors.text.inverse,
                   border: 'none',
-                  borderRadius: '10px',
+                  borderRadius: radius.md,
                   fontSize: '1rem',
                   fontWeight: '700',
                   cursor: loading ? 'not-allowed' : 'pointer',
-                  transition: 'all 0.3s ease',
+                  transition: `all ${transitions.normal}`,
                   marginBottom: '1rem'
                 }}
                 onMouseEnter={(e) => {
-                  if (!loading) e.target.style.background = '#E85A24';
+                  if (!loading) e.target.style.background = colors.accent.orangeHover;
                 }}
                 onMouseLeave={(e) => {
-                  if (!loading) e.target.style.background = '#FF6B35';
+                  if (!loading) e.target.style.background = colors.accent.orange;
                 }}
               >
                 {loading ? 'Please wait...' : (isLogin ? 'Log In' : 'Create Account')}
@@ -442,7 +443,7 @@ const LandingPage = () => {
                 style={{
                   width: '100%',
                   background: 'transparent',
-                  color: '#71717A',
+                  color: colors.text.tertiary,
                   border: 'none',
                   padding: '0.75rem',
                   fontSize: '0.9rem',

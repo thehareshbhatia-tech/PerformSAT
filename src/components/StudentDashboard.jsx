@@ -7,6 +7,7 @@ import StudyPlanDashboard from './StudyPlanDashboard';
 import DashboardDiagnosticWidget from './DashboardDiagnosticWidget';
 import { colors, typography, spacing, radius, shadows, transitions, breakpoints } from '../design/tokens';
 import { cardStyles, buttonStyles } from '../design/components';
+import { PlayIcon, ChartBarIcon, TrendingUpIcon } from '../design/icons';
 import { injectAnimations, useCountUp } from '../design/animations';
 
 // Official SAT Test Dates (from College Board)
@@ -45,7 +46,7 @@ const MODULES = [
 const TOTAL_LESSONS = 199;
 
 // Simple donut chart component
-const DonutChart = ({ percent, size = 120, strokeWidth = 10, color = '#22c55e' }) => {
+const DonutChart = ({ percent, size = 120, strokeWidth = 10, color = colors.semantic.success }) => {
   const radius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (percent / 100) * circumference;
@@ -57,7 +58,7 @@ const DonutChart = ({ percent, size = 120, strokeWidth = 10, color = '#22c55e' }
         cy={size / 2}
         r={radius}
         fill="none"
-        stroke="#e5e7eb"
+        stroke={colors.surface.grayDark}
         strokeWidth={strokeWidth}
       />
       <circle
@@ -288,14 +289,6 @@ const StudentDashboard = ({
     return 'Good evening';
   };
 
-  // Card style
-  const cardStyle = {
-    background: 'white',
-    borderRadius: '12px',
-    border: '1px solid #e5e7eb',
-    padding: '24px'
-  };
-
   // Animated score count-up for hero
   const animatedScore = useCountUp(projectedScore || user?.currentScore || 0, 800, 300);
 
@@ -472,7 +465,7 @@ const StudentDashboard = ({
             textAlign: 'center',
           }}
         >
-          <span aria-hidden="true" style={{ fontSize: '24px' }}>&#9654;</span>
+          <span aria-hidden="true"><PlayIcon size={24} color="currentColor" /></span>
           <span style={{
             fontSize: isMobile ? typography.sizes.xs : typography.sizes.sm,
             fontWeight: typography.weights.medium,
@@ -496,7 +489,7 @@ const StudentDashboard = ({
             textAlign: 'center',
           }}
         >
-          <span aria-hidden="true" style={{ fontSize: '24px' }}>&#128202;</span>
+          <span aria-hidden="true"><ChartBarIcon size={24} color="currentColor" /></span>
           <span style={{
             fontSize: isMobile ? typography.sizes.xs : typography.sizes.sm,
             fontWeight: typography.weights.medium,
@@ -520,7 +513,7 @@ const StudentDashboard = ({
             textAlign: 'center',
           }}
         >
-          <span aria-hidden="true" style={{ fontSize: '24px' }}>&#128200;</span>
+          <span aria-hidden="true"><TrendingUpIcon size={24} color="currentColor" /></span>
           <span style={{
             fontSize: isMobile ? typography.sizes.xs : typography.sizes.sm,
             fontWeight: typography.weights.medium,
@@ -534,8 +527,8 @@ const StudentDashboard = ({
       {/* Test Date Section */}
       {showDatePicker ? (
         <div style={{
-          ...cardStyle,
-          marginBottom: '24px',
+          ...cardStyles.subtle,
+          marginBottom: spacing.lg,
           padding: '28px'
         }}>
           <div style={{
@@ -545,10 +538,10 @@ const StudentDashboard = ({
             marginBottom: '20px'
           }}>
             <div>
-              <div style={{ fontSize: '18px', fontWeight: '600', color: '#111827' }}>
+              <div style={{ fontSize: '18px', fontWeight: '600', color: colors.text.primary }}>
                 Which SAT are you taking?
               </div>
-              <div style={{ fontSize: '13px', color: '#6b7280', marginTop: '4px' }}>
+              <div style={{ fontSize: '13px', color: colors.text.secondary, marginTop: '4px' }}>
                 Select your upcoming test date
               </div>
             </div>
@@ -557,7 +550,7 @@ const StudentDashboard = ({
               style={{
                 padding: '6px 12px',
                 background: 'transparent',
-                color: '#6b7280',
+                color: colors.text.secondary,
                 border: 'none',
                 fontSize: '14px',
                 cursor: 'pointer'
@@ -584,24 +577,24 @@ const StudentDashboard = ({
                   onClick={() => handleSelectDate(sat.date)}
                   style={{
                     padding: '14px 12px',
-                    background: isSelected ? '#111827' : '#f9fafb',
-                    color: isSelected ? 'white' : '#111827',
-                    border: isSelected ? 'none' : '1px solid #e5e7eb',
-                    borderRadius: '10px',
+                    background: isSelected ? colors.text.primary : colors.surface.offWhite,
+                    color: isSelected ? colors.surface.white : colors.text.primary,
+                    border: isSelected ? 'none' : `1px solid ${colors.surface.grayDark}`,
+                    borderRadius: radius.md,
                     cursor: 'pointer',
                     textAlign: 'center',
-                    transition: 'all 0.15s ease'
+                    transition: `all ${transitions.fast}`
                   }}
                   onMouseEnter={(e) => {
                     if (!isSelected) {
-                      e.target.style.background = '#f3f4f6';
-                      e.target.style.borderColor = '#d1d5db';
+                      e.target.style.background = colors.surface.gray;
+                      e.target.style.borderColor = colors.surface.grayMedium;
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (!isSelected) {
-                      e.target.style.background = '#f9fafb';
-                      e.target.style.borderColor = '#e5e7eb';
+                      e.target.style.background = colors.surface.offWhite;
+                      e.target.style.borderColor = colors.surface.grayDark;
                     }
                   }}
                 >
@@ -626,14 +619,14 @@ const StudentDashboard = ({
         </div>
       ) : (
         <div style={{
-          ...cardStyle,
-          marginBottom: '24px',
+          ...cardStyles.subtle,
+          marginBottom: spacing.lg,
           background: user?.testDate
-            ? (daysUntilTest !== null && daysUntilTest <= 14 ? '#fef3c7' : '#f0f9ff')
-            : 'white',
+            ? (daysUntilTest !== null && daysUntilTest <= 14 ? colors.semantic.warningBg : colors.semantic.infoLight)
+            : colors.surface.white,
           border: user?.testDate
-            ? (daysUntilTest !== null && daysUntilTest <= 14 ? '1px solid #fcd34d' : '1px solid #bae6fd')
-            : '1px solid #e5e7eb',
+            ? (daysUntilTest !== null && daysUntilTest <= 14 ? `1px solid ${colors.semantic.warning}` : `1px solid ${colors.semantic.infoBg}`)
+            : `1px solid ${colors.surface.grayDark}`,
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center'
@@ -641,17 +634,17 @@ const StudentDashboard = ({
           <div>
             {user?.testDate ? (
               <>
-                <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '4px' }}>
+                <div style={{ fontSize: '13px', color: colors.text.secondary, marginBottom: '4px' }}>
                   Your SAT Date
                 </div>
-                <div style={{ fontSize: '18px', fontWeight: '600', color: '#111827' }}>
+                <div style={{ fontSize: '18px', fontWeight: '600', color: colors.text.primary }}>
                   {getSATNameFromDate(user.testDate) || formatTestDate(user.testDate)}
                   {daysUntilTest !== null && (
                     <span style={{
                       marginLeft: '12px',
                       fontSize: '14px',
                       fontWeight: '500',
-                      color: daysUntilTest <= 14 ? '#d97706' : '#0369a1'
+                      color: daysUntilTest <= 14 ? colors.badge.bronze : colors.semantic.info
                     }}>
                       {daysUntilTest === 0 ? "Today!" :
                        daysUntilTest === 1 ? "Tomorrow!" :
@@ -663,10 +656,10 @@ const StudentDashboard = ({
               </>
             ) : (
               <>
-                <div style={{ fontSize: '15px', fontWeight: '500', color: '#111827' }}>
+                <div style={{ fontSize: '15px', fontWeight: '500', color: colors.text.primary }}>
                   Which SAT are you taking?
                 </div>
-                <div style={{ fontSize: '13px', color: '#6b7280' }}>
+                <div style={{ fontSize: '13px', color: colors.text.secondary }}>
                   Select your test date to track your countdown
                 </div>
               </>
@@ -679,10 +672,10 @@ const StudentDashboard = ({
             }}
             style={{
               padding: '8px 16px',
-              background: user?.testDate ? 'transparent' : '#111827',
-              color: user?.testDate ? '#374151' : 'white',
-              border: user?.testDate ? '1px solid #d1d5db' : 'none',
-              borderRadius: '8px',
+              background: user?.testDate ? 'transparent' : colors.text.primary,
+              color: user?.testDate ? colors.text.secondary : colors.surface.white,
+              border: user?.testDate ? `1px solid ${colors.surface.grayMedium}` : 'none',
+              borderRadius: radius.sm,
               fontSize: '14px',
               cursor: 'pointer'
             }}
@@ -704,8 +697,8 @@ const StudentDashboard = ({
         />
       ) : (
         <div style={{
-          ...cardStyle,
-          marginBottom: '24px'
+          ...cardStyles.subtle,
+          marginBottom: spacing.lg
         }}>
           <div style={{
             display: 'flex',
@@ -715,33 +708,33 @@ const StudentDashboard = ({
             <div style={{ flex: 1 }}>
               {user?.targetSchools && user.targetSchools.length > 0 ? (
                 <>
-                  <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '6px' }}>
+                  <div style={{ fontSize: '13px', color: colors.text.secondary, marginBottom: '6px' }}>
                     Target Schools
                   </div>
-                  <div style={{ fontSize: '15px', fontWeight: '500', color: '#111827', marginBottom: '8px' }}>
+                  <div style={{ fontSize: '15px', fontWeight: '500', color: colors.text.primary, marginBottom: '8px' }}>
                     {user.targetSchools.map(s => s.name).join(', ')}
                   </div>
                   <div style={{
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '6px',
-                    background: '#f0fdf4',
+                    background: colors.semantic.successLight,
                     padding: '6px 12px',
-                    borderRadius: '6px'
+                    borderRadius: radius.sm
                   }}>
-                    <span style={{ fontSize: '13px', color: '#16a34a' }}>Target:</span>
-                    <span style={{ fontSize: '16px', fontWeight: '700', color: '#16a34a' }}>
+                    <span style={{ fontSize: '13px', color: colors.semantic.success }}>Target:</span>
+                    <span style={{ fontSize: '16px', fontWeight: '700', color: colors.semantic.success }}>
                       {user.targetScore}
                     </span>
-                    <span style={{ fontSize: '13px', color: '#16a34a' }}>Math</span>
+                    <span style={{ fontSize: '13px', color: colors.semantic.success }}>Math</span>
                   </div>
                 </>
               ) : (
                 <>
-                  <div style={{ fontSize: '15px', fontWeight: '500', color: '#111827' }}>
+                  <div style={{ fontSize: '15px', fontWeight: '500', color: colors.text.primary }}>
                     Set your target schools
                   </div>
-                  <div style={{ fontSize: '13px', color: '#6b7280' }}>
+                  <div style={{ fontSize: '13px', color: colors.text.secondary }}>
                     Pick 3 schools you're aiming for
                   </div>
                 </>
@@ -751,10 +744,10 @@ const StudentDashboard = ({
               onClick={() => setShowTargetPicker(true)}
               style={{
                 padding: '8px 16px',
-                background: user?.targetSchools?.length > 0 ? 'transparent' : '#111827',
-                color: user?.targetSchools?.length > 0 ? '#374151' : 'white',
-                border: user?.targetSchools?.length > 0 ? '1px solid #d1d5db' : 'none',
-                borderRadius: '8px',
+                background: user?.targetSchools?.length > 0 ? 'transparent' : colors.text.primary,
+                color: user?.targetSchools?.length > 0 ? colors.text.secondary : colors.surface.white,
+                border: user?.targetSchools?.length > 0 ? `1px solid ${colors.surface.grayMedium}` : 'none',
+                borderRadius: radius.sm,
                 fontSize: '14px',
                 cursor: 'pointer',
                 flexShrink: 0
@@ -780,8 +773,8 @@ const StudentDashboard = ({
         />
       ) : (
         <div style={{
-          ...cardStyle,
-          marginBottom: '24px',
+          ...cardStyles.subtle,
+          marginBottom: spacing.lg,
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center'
@@ -789,17 +782,17 @@ const StudentDashboard = ({
           <div>
             {user?.currentScore ? (
               <>
-                <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '4px' }}>
+                <div style={{ fontSize: '13px', color: colors.text.secondary, marginBottom: '4px' }}>
                   Current Score
                 </div>
-                <div style={{ fontSize: '18px', fontWeight: '600', color: '#111827' }}>
+                <div style={{ fontSize: '18px', fontWeight: '600', color: colors.text.primary }}>
                   {user.currentScore}
                   {user?.targetScore && user.currentScore < user.targetScore && (
                     <span style={{
                       marginLeft: '12px',
                       fontSize: '14px',
                       fontWeight: '500',
-                      color: '#16a34a'
+                      color: colors.semantic.success
                     }}>
                       +{user.targetScore - user.currentScore} to goal
                     </span>
@@ -808,10 +801,10 @@ const StudentDashboard = ({
               </>
             ) : (
               <>
-                <div style={{ fontSize: '15px', fontWeight: '500', color: '#111827' }}>
+                <div style={{ fontSize: '15px', fontWeight: '500', color: colors.text.primary }}>
                   What's your current SAT Math score?
                 </div>
-                <div style={{ fontSize: '13px', color: '#6b7280' }}>
+                <div style={{ fontSize: '13px', color: colors.text.secondary }}>
                   Track your progress from where you started
                 </div>
               </>
@@ -824,10 +817,10 @@ const StudentDashboard = ({
             }}
             style={{
               padding: '8px 16px',
-              background: user?.currentScore ? 'transparent' : '#111827',
-              color: user?.currentScore ? '#374151' : 'white',
-              border: user?.currentScore ? '1px solid #d1d5db' : 'none',
-              borderRadius: '8px',
+              background: user?.currentScore ? 'transparent' : colors.text.primary,
+              color: user?.currentScore ? colors.text.secondary : colors.surface.white,
+              border: user?.currentScore ? `1px solid ${colors.surface.grayMedium}` : 'none',
+              borderRadius: radius.sm,
               fontSize: '14px',
               cursor: 'pointer'
             }}
@@ -851,7 +844,7 @@ const StudentDashboard = ({
       />
 
       {/* ═══ AI STUDY PLAN — The Core Feature ═══ */}
-      <div style={{ marginBottom: '24px' }}>
+      <div style={{ marginBottom: spacing.lg }}>
         <StudyPlanDashboard
           studyPlan={studyPlan}
           practiceTestResults={practiceTestResults}
@@ -868,17 +861,17 @@ const StudentDashboard = ({
       <div style={{
         display: 'grid',
         gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)',
-        gap: '16px',
-        marginBottom: '24px'
+        gap: spacing.md,
+        marginBottom: spacing.lg
       }}>
         {/* Lessons Completed */}
-        <div style={cardStyle}>
-          <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '12px' }}>
+        <div style={cardStyles.subtle}>
+          <div style={{ fontSize: '13px', color: colors.text.secondary, marginBottom: '12px' }}>
             Lessons Completed
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: spacing.md }}>
             <div style={{ position: 'relative' }}>
-              <DonutChart percent={completionPercent} size={80} strokeWidth={8} color="#22c55e" />
+              <DonutChart percent={completionPercent} size={80} strokeWidth={8} color={colors.semantic.success} />
               <div style={{
                 position: 'absolute',
                 top: '50%',
@@ -886,16 +879,16 @@ const StudentDashboard = ({
                 transform: 'translate(-50%, -50%)',
                 fontSize: '18px',
                 fontWeight: '600',
-                color: '#111827'
+                color: colors.text.primary
               }}>
                 {completionPercent}%
               </div>
             </div>
             <div>
-              <div style={{ fontSize: '24px', fontWeight: '600', color: '#111827' }}>
+              <div style={{ fontSize: '24px', fontWeight: '600', color: colors.text.primary }}>
                 {totalCompleted}
               </div>
-              <div style={{ fontSize: '13px', color: '#6b7280' }}>
+              <div style={{ fontSize: '13px', color: colors.text.secondary }}>
                 of {TOTAL_LESSONS} lessons
               </div>
             </div>
@@ -903,17 +896,17 @@ const StudentDashboard = ({
         </div>
 
         {/* Modules Started */}
-        <div style={cardStyle}>
-          <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '12px' }}>
+        <div style={cardStyles.subtle}>
+          <div style={{ fontSize: '13px', color: colors.text.secondary, marginBottom: '12px' }}>
             Modules Started
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: spacing.md }}>
             <div style={{ position: 'relative' }}>
               <DonutChart
                 percent={Math.round((startedModules.length / MODULES.length) * 100)}
                 size={80}
                 strokeWidth={8}
-                color="#3b82f6"
+                color={colors.semantic.info}
               />
               <div style={{
                 position: 'absolute',
@@ -922,16 +915,16 @@ const StudentDashboard = ({
                 transform: 'translate(-50%, -50%)',
                 fontSize: '18px',
                 fontWeight: '600',
-                color: '#111827'
+                color: colors.text.primary
               }}>
                 {startedModules.length}
               </div>
             </div>
             <div>
-              <div style={{ fontSize: '24px', fontWeight: '600', color: '#111827' }}>
+              <div style={{ fontSize: '24px', fontWeight: '600', color: colors.text.primary }}>
                 {moduleProgress.filter(m => m.percent === 100).length}
               </div>
-              <div style={{ fontSize: '13px', color: '#6b7280' }}>
+              <div style={{ fontSize: '13px', color: colors.text.secondary }}>
                 completed
               </div>
             </div>
@@ -939,13 +932,13 @@ const StudentDashboard = ({
         </div>
 
         {/* Practice Accuracy */}
-        <div style={cardStyle}>
-          <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '12px' }}>
+        <div style={cardStyles.subtle}>
+          <div style={{ fontSize: '13px', color: colors.text.secondary, marginBottom: '12px' }}>
             Practice Accuracy
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: spacing.md }}>
             <div style={{ position: 'relative' }}>
-              <DonutChart percent={practicePercent} size={80} strokeWidth={8} color="#f59e0b" />
+              <DonutChart percent={practicePercent} size={80} strokeWidth={8} color={colors.semantic.warning} />
               <div style={{
                 position: 'absolute',
                 top: '50%',
@@ -953,16 +946,16 @@ const StudentDashboard = ({
                 transform: 'translate(-50%, -50%)',
                 fontSize: '18px',
                 fontWeight: '600',
-                color: '#111827'
+                color: colors.text.primary
               }}>
                 {practicePercent}%
               </div>
             </div>
             <div>
-              <div style={{ fontSize: '24px', fontWeight: '600', color: '#111827' }}>
+              <div style={{ fontSize: '24px', fontWeight: '600', color: colors.text.primary }}>
                 {totalCorrect}/{totalQuestions}
               </div>
-              <div style={{ fontSize: '13px', color: '#6b7280' }}>
+              <div style={{ fontSize: '13px', color: colors.text.secondary }}>
                 questions correct
               </div>
             </div>
@@ -970,22 +963,22 @@ const StudentDashboard = ({
         </div>
 
         {/* Projected Score */}
-        <div style={cardStyle}>
-          <div style={{ fontSize: '13px', color: '#6b7280', marginBottom: '12px' }}>
+        <div style={cardStyles.subtle}>
+          <div style={{ fontSize: '13px', color: colors.text.secondary, marginBottom: '12px' }}>
             Projected Score
           </div>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '80px' }}>
             {projectedScore ? (
               <div style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '42px', fontWeight: '700', color: '#ea580c' }}>
+                <div style={{ fontSize: '42px', fontWeight: '700', color: colors.accent.orange }}>
                   {projectedScore}
                 </div>
-                <div style={{ fontSize: '13px', color: '#6b7280', marginTop: '4px' }}>
+                <div style={{ fontSize: '13px', color: colors.text.secondary, marginTop: '4px' }}>
                   Based on {projectedTestsCount} test{projectedTestsCount !== 1 ? 's' : ''}
                 </div>
               </div>
             ) : (
-              <div style={{ textAlign: 'center', color: '#9ca3af' }}>
+              <div style={{ textAlign: 'center', color: colors.text.muted }}>
                 <div style={{ fontSize: '32px', fontWeight: '600' }}>—</div>
                 <div style={{ fontSize: '12px', marginTop: '4px' }}>
                   Complete a practice test
@@ -1002,25 +995,25 @@ const StudentDashboard = ({
         <div
           onClick={() => handleRecommendationClick(recommendations[0])}
           style={{
-            ...cardStyle,
-            marginBottom: '24px',
+            ...cardStyles.subtle,
+            marginBottom: spacing.lg,
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
             cursor: 'pointer',
-            border: '2px solid #ea580c',
-            background: '#fff7ed'
+            border: `2px solid ${colors.accent.orange}`,
+            background: colors.accent.orangeLight
           }}
         >
           <div>
-            <div style={{ fontSize: '13px', color: '#ea580c', fontWeight: '500', marginBottom: '4px' }}>
+            <div style={{ fontSize: '13px', color: colors.accent.orange, fontWeight: '500', marginBottom: '4px' }}>
               Your Next Step
             </div>
-            <div style={{ fontSize: '16px', fontWeight: '600', color: '#111827' }}>
+            <div style={{ fontSize: '16px', fontWeight: '600', color: colors.text.primary }}>
               {recommendations[0].title}
             </div>
             {recommendations[0].subtitle && (
-              <div style={{ fontSize: '13px', color: '#6b7280' }}>
+              <div style={{ fontSize: '13px', color: colors.text.secondary }}>
                 {recommendations[0].subtitle}
               </div>
             )}
@@ -1028,10 +1021,10 @@ const StudentDashboard = ({
           <button
             style={{
               padding: '10px 20px',
-              background: '#ea580c',
-              color: '#fff',
+              background: colors.accent.orange,
+              color: colors.text.inverse,
               border: 'none',
-              borderRadius: '8px',
+              borderRadius: radius.sm,
               fontSize: '14px',
               fontWeight: '600',
               cursor: 'pointer'
@@ -1046,64 +1039,64 @@ const StudentDashboard = ({
       <div style={{
         display: 'grid',
         gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
-        gap: '16px',
-        marginBottom: '24px'
+        gap: spacing.md,
+        marginBottom: spacing.lg
       }}>
         <div style={{
-          ...cardStyle,
+          ...cardStyles.subtle,
           display: 'flex',
           alignItems: 'center',
-          gap: '16px'
+          gap: spacing.md
         }}>
           <div style={{
             width: '48px',
             height: '48px',
             borderRadius: '50%',
-            background: '#dcfce7',
+            background: colors.semantic.successBg,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             fontSize: '16px',
             fontWeight: '600',
-            color: '#16a34a'
+            color: colors.semantic.success
           }}>
             {strongest?.percent || 0}%
           </div>
           <div>
-            <div style={{ fontSize: '12px', color: '#6b7280', marginBottom: '2px' }}>
+            <div style={{ fontSize: '12px', color: colors.text.secondary, marginBottom: '2px' }}>
               Strongest Section
             </div>
-            <div style={{ fontSize: '15px', fontWeight: '500', color: '#111827' }}>
+            <div style={{ fontSize: '15px', fontWeight: '500', color: colors.text.primary }}>
               {strongest?.title || 'Start learning to see'}
             </div>
           </div>
         </div>
 
         <div style={{
-          ...cardStyle,
+          ...cardStyles.subtle,
           display: 'flex',
           alignItems: 'center',
-          gap: '16px'
+          gap: spacing.md
         }}>
           <div style={{
             width: '48px',
             height: '48px',
             borderRadius: '50%',
-            background: '#fef3c7',
+            background: colors.semantic.warningBg,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             fontSize: '16px',
             fontWeight: '600',
-            color: '#d97706'
+            color: colors.badge.bronze
           }}>
             {weakest?.percent || 0}%
           </div>
           <div>
-            <div style={{ fontSize: '12px', color: '#6b7280', marginBottom: '2px' }}>
+            <div style={{ fontSize: '12px', color: colors.text.secondary, marginBottom: '2px' }}>
               Needs Work
             </div>
-            <div style={{ fontSize: '15px', fontWeight: '500', color: '#111827' }}>
+            <div style={{ fontSize: '15px', fontWeight: '500', color: colors.text.primary }}>
               {weakest?.title || 'Keep going!'}
             </div>
           </div>
@@ -1112,7 +1105,7 @@ const StudentDashboard = ({
 
       {/* Skill Diagnostic Summary */}
       {skillDiagnosticSummary && (
-        <div style={{ marginBottom: '24px' }}>
+        <div style={{ marginBottom: spacing.lg }}>
           <SkillDiagnosticSummary
             diagnosticSummary={skillDiagnosticSummary}
             onPracticeSkill={null}

@@ -1,3 +1,6 @@
+import { colors, radius, shadows, transitions } from '../design/tokens';
+import { InfoIcon, WarningIcon, BookOpenIcon, LightBulbIcon, ArrowRightIcon, CrossIcon } from '../design/icons';
+
 /**
  * ProactiveHint Component
  * Displays proactive recommendations and hints in the AI Tutor interface.
@@ -10,51 +13,28 @@ const ProactiveHint = ({ recommendation, onDismiss, onAccept }) => {
   // Style configurations for different recommendation types
   const typeStyles = {
     'struggle': {
-      bg: '#fef3c7',
-      border: '#fcd34d',
-      iconBg: '#fbbf24',
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#92400e" strokeWidth="2">
-          <circle cx="12" cy="12" r="10" />
-          <line x1="12" y1="16" x2="12" y2="12" />
-          <line x1="12" y1="8" x2="12.01" y2="8" />
-        </svg>
-      )
+      bg: colors.semantic.warningBg,
+      border: colors.semantic.warning,
+      iconBg: colors.semantic.warning,
+      icon: <InfoIcon size={20} color={colors.semantic.warning} />
     },
     'declining': {
-      bg: '#fee2e2',
-      border: '#fca5a5',
-      iconBg: '#f87171',
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#991b1b" strokeWidth="2">
-          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-          <line x1="12" y1="9" x2="12" y2="13" />
-          <line x1="12" y1="17" x2="12.01" y2="17" />
-        </svg>
-      )
+      bg: colors.semantic.errorBg,
+      border: colors.semantic.error,
+      iconBg: colors.semantic.error,
+      icon: <WarningIcon size={20} color={colors.semantic.error} />
     },
     'next-study': {
-      bg: '#dbeafe',
-      border: '#93c5fd',
-      iconBg: '#3b82f6',
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1e40af" strokeWidth="2">
-          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-        </svg>
-      )
+      bg: colors.semantic.infoBg,
+      border: colors.semantic.info,
+      iconBg: colors.semantic.info,
+      icon: <BookOpenIcon size={20} color={colors.semantic.info} />
     },
     'hint-offer': {
-      bg: '#f0fdf4',
-      border: '#86efac',
-      iconBg: '#22c55e',
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#166534" strokeWidth="2">
-          <circle cx="12" cy="12" r="10" />
-          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-          <line x1="12" y1="17" x2="12.01" y2="17" />
-        </svg>
-      )
+      bg: colors.semantic.successLight,
+      border: colors.semantic.success,
+      iconBg: colors.semantic.success,
+      icon: <LightBulbIcon size={20} color={colors.semantic.success} />
     }
   };
 
@@ -64,7 +44,7 @@ const ProactiveHint = ({ recommendation, onDismiss, onAccept }) => {
     <div style={{
       background: style.bg,
       border: `1px solid ${style.border}`,
-      borderRadius: '12px',
+      borderRadius: radius.md,
       padding: '16px',
       marginBottom: '16px',
       animation: 'slideIn 0.3s ease-out'
@@ -93,13 +73,13 @@ const ProactiveHint = ({ recommendation, onDismiss, onAccept }) => {
         <div style={{
           width: '36px',
           height: '36px',
-          borderRadius: '8px',
-          background: 'white',
+          borderRadius: radius.sm,
+          background: colors.surface.white,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           flexShrink: 0,
-          boxShadow: '0 1px 2px rgba(0,0,0,0.05)'
+          boxShadow: shadows.sm
         }}>
           {style.icon}
         </div>
@@ -109,7 +89,7 @@ const ProactiveHint = ({ recommendation, onDismiss, onAccept }) => {
           <p style={{
             fontWeight: '600',
             fontSize: '14px',
-            color: '#111827',
+            color: colors.text.primary,
             marginBottom: '6px',
             margin: 0
           }}>
@@ -118,7 +98,7 @@ const ProactiveHint = ({ recommendation, onDismiss, onAccept }) => {
 
           <p style={{
             fontSize: '13px',
-            color: '#4b5563',
+            color: colors.text.secondary,
             lineHeight: '1.5',
             margin: '6px 0 0 0'
           }}>
@@ -136,13 +116,13 @@ const ProactiveHint = ({ recommendation, onDismiss, onAccept }) => {
               background: 'rgba(255,255,255,0.7)',
               borderRadius: '6px',
               fontSize: '12px',
-              color: '#374151'
+              color: colors.text.secondary
             }}>
               <span style={{ fontWeight: '500' }}>{recommendation.skillName}</span>
               {recommendation.mastery !== undefined && (
                 <span style={{
-                  color: recommendation.mastery < 50 ? '#dc2626' :
-                         recommendation.mastery < 70 ? '#ca8a04' : '#16a34a',
+                  color: recommendation.mastery < 50 ? colors.semantic.error :
+                         recommendation.mastery < 70 ? colors.semantic.warning : colors.semantic.success,
                   fontWeight: '600'
                 }}>
                   {recommendation.mastery}%
@@ -158,26 +138,23 @@ const ProactiveHint = ({ recommendation, onDismiss, onAccept }) => {
               style={{
                 marginTop: '12px',
                 padding: '8px 16px',
-                background: '#111827',
-                color: 'white',
+                background: colors.surface.dark,
+                color: colors.text.inverse,
                 border: 'none',
-                borderRadius: '6px',
+                borderRadius: radius.sm,
                 fontSize: '13px',
                 fontWeight: '500',
                 cursor: 'pointer',
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                transition: 'background 0.2s'
+                transition: `background ${transitions.fast}`
               }}
-              onMouseEnter={(e) => e.target.style.background = '#374151'}
-              onMouseLeave={(e) => e.target.style.background = '#111827'}
+              onMouseEnter={(e) => e.target.style.background = colors.text.secondary}
+              onMouseLeave={(e) => e.target.style.background = colors.surface.dark}
             >
               {recommendation.actionLabel || 'Try it'}
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
+              <ArrowRightIcon size={14} color="currentColor" />
             </button>
           )}
         </div>
@@ -190,22 +167,19 @@ const ProactiveHint = ({ recommendation, onDismiss, onAccept }) => {
               background: 'none',
               border: 'none',
               cursor: 'pointer',
-              color: '#9ca3af',
+              color: colors.text.muted,
               padding: '4px',
               borderRadius: '4px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              transition: 'color 0.2s'
+              transition: `color ${transitions.fast}`
             }}
-            onMouseEnter={(e) => e.target.style.color = '#6b7280'}
-            onMouseLeave={(e) => e.target.style.color = '#9ca3af'}
+            onMouseEnter={(e) => e.target.style.color = colors.text.secondary}
+            onMouseLeave={(e) => e.target.style.color = colors.text.muted}
             aria-label="Dismiss"
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
+            <CrossIcon size={18} color="currentColor" />
           </button>
         )}
       </div>
@@ -219,7 +193,7 @@ const ProactiveHint = ({ recommendation, onDismiss, onAccept }) => {
         }}>
           <p style={{
             fontSize: '11px',
-            color: '#6b7280',
+            color: colors.text.secondary,
             marginBottom: '6px',
             fontWeight: '500',
             textTransform: 'uppercase',
@@ -233,7 +207,7 @@ const ProactiveHint = ({ recommendation, onDismiss, onAccept }) => {
                 key={skill.id}
                 style={{
                   fontSize: '12px',
-                  color: '#374151',
+                  color: colors.text.secondary,
                   background: 'rgba(255,255,255,0.7)',
                   padding: '3px 8px',
                   borderRadius: '4px'

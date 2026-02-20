@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { MathText } from './MathText';
+import { colors, typography, radius, shadows } from '../design/tokens';
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // MATH PREPROCESSOR — \div and ÷ → \frac{}{}
@@ -86,7 +87,7 @@ const strip=t=>(t||'').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
 const Lines=({text})=>{
   if(!text)return null;
   const ls=strip(text).split('\n').filter(l=>l.trim());
-  return <div style={{fontSize:'15px',color:'#1d1d1f',letterSpacing:'-0.01em'}}>
+  return <div style={{fontSize:'15px',color:colors.text.primary,letterSpacing:'-0.01em'}}>
     {ls.map((l,i)=><div key={i} style={{lineHeight:'1.95',marginBottom:'1px'}}><MathText text={l}/></div>)}
   </div>;
 };
@@ -94,8 +95,8 @@ const Lines=({text})=>{
 const Bullets=({items})=>{
   if(!items?.length)return null;
   return <div>{items.map((b,i)=>(
-    <div key={i} style={{display:'flex',gap:'8px',marginBottom:'4px',fontSize:'15px',lineHeight:'1.85',color:'#1d1d1f'}}>
-      <span style={{color:'#aeaeb2',flexShrink:0,marginTop:'2px',fontSize:'11px'}}>●</span>
+    <div key={i} style={{display:'flex',gap:'8px',marginBottom:'4px',fontSize:'15px',lineHeight:'1.85',color:colors.text.primary}}>
+      <span style={{color:colors.text.muted,flexShrink:0,marginTop:'2px',fontSize:'11px'}}>●</span>
       <span style={{flex:1,minWidth:0}}><MathText text={strip(b)}/></span>
     </div>
   ))}</div>;
@@ -108,11 +109,11 @@ const Bullets=({items})=>{
 const StepCard=({number,title,content,bullets,isLast})=>(
   <div style={{display:'flex',gap:'20px'}}>
     <div style={{display:'flex',flexDirection:'column',alignItems:'center',flexShrink:0,width:'24px'}}>
-      <div style={{width:'24px',height:'24px',borderRadius:'50%',background:'#f5f5f7',color:'#86868b',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'12px',fontWeight:'600',flexShrink:0,position:'relative',zIndex:1}}>{number}</div>
-      {!isLast&&<div style={{width:'0.5px',flex:1,background:'#d2d2d7',marginTop:'8px'}}/>}
+      <div style={{width:'24px',height:'24px',borderRadius:'50%',background:colors.surface.gray,color:colors.text.muted,display:'flex',alignItems:'center',justifyContent:'center',fontSize:'12px',fontWeight:'600',flexShrink:0,position:'relative',zIndex:1}}>{number}</div>
+      {!isLast&&<div style={{width:'0.5px',flex:1,background:colors.surface.grayMedium,marginTop:'8px'}}/>}
     </div>
     <div style={{flex:1,paddingBottom:isLast?0:'24px',minWidth:0}}>
-      {title&&<div style={{fontSize:'14px',fontWeight:'600',color:'#1d1d1f',letterSpacing:'-0.01em',lineHeight:'24px',marginBottom:'10px'}}><MathText text={strip(title)}/></div>}
+      {title&&<div style={{fontSize:'14px',fontWeight:'600',color:colors.text.primary,letterSpacing:'-0.01em',lineHeight:'24px',marginBottom:'10px'}}><MathText text={strip(title)}/></div>}
       {content&&<Lines text={content}/>}
       {bullets?.length>0&&<div style={{marginTop:content?'8px':0}}><Bullets items={bullets}/></div>}
     </div>
@@ -120,10 +121,10 @@ const StepCard=({number,title,content,bullets,isLast})=>(
 );
 
 const MethodCard=({number,title,content,bullets,label})=>(
-  <div style={{background:'#f5f5f7',borderRadius:'14px',overflow:'hidden'}}>
+  <div style={{background:colors.surface.gray,borderRadius:'14px',overflow:'hidden'}}>
     <div style={{padding:'14px 20px 12px'}}>
-      <div style={{fontSize:'10px',fontWeight:'700',color:'#86868b',letterSpacing:'0.08em',marginBottom:'10px'}}>{label||'METHOD '+number}{title?' · ':''}{title&&<MathText text={strip(title)}/>}</div>
-      <div style={{fontSize:'15px',color:'#1d1d1f',letterSpacing:'-0.01em'}}><Lines text={content}/>{bullets?.length>0&&<Bullets items={bullets}/>}</div>
+      <div style={{fontSize:'10px',fontWeight:'700',color:colors.text.muted,letterSpacing:'0.08em',marginBottom:'10px'}}>{label||'METHOD '+number}{title?' · ':''}{title&&<MathText text={strip(title)}/>}</div>
+      <div style={{fontSize:'15px',color:colors.text.primary,letterSpacing:'-0.01em'}}><Lines text={content}/>{bullets?.length>0&&<Bullets items={bullets}/>}</div>
     </div>
   </div>
 );
@@ -134,7 +135,7 @@ const WhyWrongCard=({bullets,content})=>{
   if(!items.length)return null;
   return <div>
     <button onClick={()=>setOpen(v=>!v)} style={{width:'100%',padding:'0 0 8px',background:'none',border:'none',cursor:'pointer',display:'flex',alignItems:'center',justifyContent:'space-between'}}>
-      <span style={{fontSize:'13px',fontWeight:'500',color:'#86868b',letterSpacing:'-0.01em'}}>Why other choices are incorrect</span>
+      <span style={{fontSize:'13px',fontWeight:'500',color:colors.text.muted,letterSpacing:'-0.01em'}}>Why other choices are incorrect</span>
       <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{transform:open?'rotate(180deg)':'rotate(0)',transition:'transform 0.3s cubic-bezier(0.25,0.1,0.25,1)'}}><path d="M3 4.5l3 3 3-3" stroke="#aeaeb2" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
     </button>
     {open&&<div style={{overflow:'hidden'}}>
@@ -142,11 +143,11 @@ const WhyWrongCard=({bullets,content})=>{
         const cm=item.match(/^(?:Choice\s+)?([A-D])[\s:(]+(.+?)\)?$/);
         return <div key={idx} style={{display:'flex',gap:'12px',padding:'14px 0',borderBottom:idx<items.length-1?'0.5px solid rgba(0,0,0,0.06)':'none',alignItems:'flex-start'}}>
           {cm?<>
-            <div style={{width:'22px',height:'22px',borderRadius:'50%',background:'#f5f5f7',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'11px',fontWeight:'600',color:'#86868b',flexShrink:0,marginTop:'2px'}}>{cm[1]}</div>
-            <span style={{fontSize:'14px',lineHeight:'1.8',color:'#6e6e73',flex:1,minWidth:0}}><MathText text={strip(cm[2])}/></span>
+            <div style={{width:'22px',height:'22px',borderRadius:'50%',background:colors.surface.gray,display:'flex',alignItems:'center',justifyContent:'center',fontSize:'11px',fontWeight:'600',color:colors.text.muted,flexShrink:0,marginTop:'2px'}}>{cm[1]}</div>
+            <span style={{fontSize:'14px',lineHeight:'1.8',color:colors.text.secondary,flex:1,minWidth:0}}><MathText text={strip(cm[2])}/></span>
           </>:<>
-            <span style={{color:'#aeaeb2',flexShrink:0,marginTop:'3px',fontSize:'9px'}}>●</span>
-            <span style={{fontSize:'14px',lineHeight:'1.8',color:'#6e6e73',flex:1,minWidth:0}}><MathText text={strip(item)}/></span>
+            <span style={{color:colors.text.muted,flexShrink:0,marginTop:'3px',fontSize:'9px'}}>●</span>
+            <span style={{fontSize:'14px',lineHeight:'1.8',color:colors.text.secondary,flex:1,minWidth:0}}><MathText text={strip(item)}/></span>
           </>}
         </div>;
       })}
@@ -157,9 +158,9 @@ const WhyWrongCard=({bullets,content})=>{
 const LABELS={'key-concept':'KEY CONCEPT','calculator-tip':'CALCULATOR TIP','verification':'VERIFICATION','note':'NOTE','formula':'FORMULA','alternative':'ALTERNATIVE'};
 
 const CalloutCard=({type,content,bullets})=>(
-  <div style={{padding:'18px 22px',background:'#f5f5f7',borderRadius:'14px'}}>
-    <div style={{fontSize:'10px',fontWeight:'700',color:'#86868b',letterSpacing:'0.08em',marginBottom:'8px'}}>{LABELS[type]||'NOTE'}</div>
-    {content&&<div style={{fontSize:'14px',lineHeight:'1.85',color:'#1d1d1f',letterSpacing:'-0.01em'}}><MathText text={strip(content)}/></div>}
+  <div style={{padding:'18px 22px',background:colors.surface.gray,borderRadius:'14px'}}>
+    <div style={{fontSize:'10px',fontWeight:'700',color:colors.text.muted,letterSpacing:'0.08em',marginBottom:'8px'}}>{LABELS[type]||'NOTE'}</div>
+    {content&&<div style={{fontSize:'14px',lineHeight:'1.85',color:colors.text.primary,letterSpacing:'-0.01em'}}><MathText text={strip(content)}/></div>}
     {bullets?.length>0&&<div style={{marginTop:content?'6px':0}}><Bullets items={bullets}/></div>}
   </div>
 );
@@ -171,7 +172,7 @@ const CalloutCard=({type,content,bullets})=>(
 const SolutionExplanation=({explanation,isCorrect,accentColor})=>{
   const parsed=useMemo(()=>parseExplanation(explanation),[explanation]);
 
-  if(!explanation)return <div style={{padding:'32px',textAlign:'center',color:'#86868b',fontSize:'14px'}}>No explanation available.</div>;
+  if(!explanation)return <div style={{padding:'32px',textAlign:'center',color:colors.text.muted,fontSize:'14px'}}>No explanation available.</div>;
 
   const{answer,answerDetail,equation,sections}=parsed;
   const steps=sections.filter(s=>s.type==='step');
@@ -183,26 +184,26 @@ const SolutionExplanation=({explanation,isCorrect,accentColor})=>{
   const hasBody=steps.length||methods.length||cases.length||whyWrong||callouts.length;
 
   return (
-    <div style={{background:'#fff',borderRadius:'20px',overflow:'hidden',boxShadow:'0 0 0 0.5px rgba(0,0,0,0.05),0 2px 8px rgba(0,0,0,0.03),0 12px 36px rgba(0,0,0,0.05)'}}>
+    <div style={{background:colors.surface.white,borderRadius:'20px',overflow:'hidden',boxShadow:'0 0 0 0.5px rgba(0,0,0,0.05),0 2px 8px rgba(0,0,0,0.03),0 12px 36px rgba(0,0,0,0.05)'}}>
 
       {/* Header */}
       <div style={{padding:'32px 36px 0'}}>
         <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'16px'}}>
-          <div style={{width:'8px',height:'8px',borderRadius:'50%',background:'#34c759',flexShrink:0}}/>
-          <span style={{fontSize:'12px',fontWeight:'600',color:'#86868b',letterSpacing:'0.04em'}}>SOLUTION</span>
+          <div style={{width:'8px',height:'8px',borderRadius:'50%',background:colors.semantic.success,flexShrink:0}}/>
+          <span style={{fontSize:'12px',fontWeight:'600',color:colors.text.muted,letterSpacing:'0.04em'}}>SOLUTION</span>
         </div>
-        <div style={{fontSize:'24px',fontWeight:'600',color:'#1d1d1f',letterSpacing:'-0.025em',lineHeight:'1.2'}}>
+        <div style={{fontSize:'24px',fontWeight:'600',color:colors.text.primary,letterSpacing:'-0.025em',lineHeight:'1.2'}}>
           {answer?<MathText text={strip(answer)}/>:'Explanation'}
         </div>
-        {answerDetail&&<div style={{marginTop:'12px',fontSize:'15px',lineHeight:'1.75',color:'#6e6e73',letterSpacing:'-0.01em'}}><MathText text={strip(answerDetail)}/></div>}
+        {answerDetail&&<div style={{marginTop:'12px',fontSize:'15px',lineHeight:'1.75',color:colors.text.secondary,letterSpacing:'-0.01em'}}><MathText text={strip(answerDetail)}/></div>}
       </div>
 
       {/* Equation Used */}
       {equation&&(
         <div style={{margin:'24px 36px 0'}}>
-          <div style={{background:'#f5f5f7',borderRadius:'16px',padding:'24px 28px',textAlign:'center'}}>
-            <div style={{fontSize:'10px',fontWeight:'700',color:'#86868b',letterSpacing:'0.1em',marginBottom:'14px'}}>EQUATION USED</div>
-            <div style={{fontSize:'18px',color:'#1d1d1f',lineHeight:'2.2'}}><MathText text={strip(equation)}/></div>
+          <div style={{background:colors.surface.gray,borderRadius:'16px',padding:'24px 28px',textAlign:'center'}}>
+            <div style={{fontSize:'10px',fontWeight:'700',color:colors.text.muted,letterSpacing:'0.1em',marginBottom:'14px'}}>EQUATION USED</div>
+            <div style={{fontSize:'18px',color:colors.text.primary,lineHeight:'2.2'}}><MathText text={strip(equation)}/></div>
           </div>
         </div>
       )}

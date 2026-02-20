@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { skillTaxonomy } from '../data/skillTaxonomy';
+import { colors, radius } from '../design/tokens';
+import { cardStyles } from '../design/components';
+import { ChevronRightIcon } from '../design/icons';
 
 // Module display names
 const MODULE_NAMES = {
@@ -30,16 +33,11 @@ const SkillBreakdownPanel = ({ skillBreakdown }) => {
 
   if (!skillBreakdown || Object.keys(skillBreakdown).length === 0) {
     return (
-      <div style={{
-        background: 'white',
-        borderRadius: '12px',
-        border: '1px solid #e5e7eb',
-        padding: '24px'
-      }}>
-        <h3 style={{ fontSize: '16px', fontWeight: '600', color: '#111827', marginBottom: '12px' }}>
+      <div style={cardStyles.subtle}>
+        <h3 style={{ fontSize: '16px', fontWeight: '600', color: colors.text.primary, marginBottom: '12px' }}>
           Skill Breakdown
         </h3>
-        <p style={{ fontSize: '14px', color: '#6b7280' }}>
+        <p style={{ fontSize: '14px', color: colors.text.secondary }}>
           Complete practice questions to see your detailed skill breakdown.
         </p>
       </div>
@@ -60,17 +58,17 @@ const SkillBreakdownPanel = ({ skillBreakdown }) => {
 
   // Get mastery bar color
   const getMasteryColor = (mastery) => {
-    if (mastery === null || mastery === undefined) return '#e5e7eb';
-    if (mastery >= 80) return '#22c55e';
-    if (mastery >= 60) return '#f59e0b';
-    return '#ef4444';
+    if (mastery === null || mastery === undefined) return colors.surface.grayDark;
+    if (mastery >= 80) return colors.semantic.success;
+    if (mastery >= 60) return colors.semantic.warning;
+    return colors.semantic.error;
   };
 
   // Get trend indicator
   const getTrendIndicator = (trend) => {
-    if (trend === 'improving') return { symbol: '\u2191', color: '#16a34a' };
-    if (trend === 'declining') return { symbol: '\u2193', color: '#dc2626' };
-    return { symbol: '-', color: '#9ca3af' };
+    if (trend === 'improving') return { symbol: '\u2191', color: colors.semantic.success };
+    if (trend === 'declining') return { symbol: '\u2193', color: colors.semantic.error };
+    return { symbol: '-', color: colors.text.muted };
   };
 
   // Render mastery bar
@@ -78,7 +76,7 @@ const SkillBreakdownPanel = ({ skillBreakdown }) => {
     <div style={{
       width: `${width}px`,
       height: '6px',
-      background: '#e5e7eb',
+      background: colors.surface.grayDark,
       borderRadius: '3px',
       overflow: 'hidden'
     }}>
@@ -112,13 +110,8 @@ const SkillBreakdownPanel = ({ skillBreakdown }) => {
   };
 
   return (
-    <div style={{
-      background: 'white',
-      borderRadius: '12px',
-      border: '1px solid #e5e7eb',
-      padding: '24px'
-    }}>
-      <h3 style={{ fontSize: '16px', fontWeight: '600', color: '#111827', marginBottom: '16px' }}>
+    <div style={cardStyles.subtle}>
+      <h3 style={{ fontSize: '16px', fontWeight: '600', color: colors.text.primary, marginBottom: '16px' }}>
         Skill Breakdown
       </h3>
 
@@ -138,23 +131,22 @@ const SkillBreakdownPanel = ({ skillBreakdown }) => {
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   padding: '12px 16px',
-                  background: '#f9fafb',
-                  borderRadius: '8px',
+                  background: colors.surface.offWhite,
+                  borderRadius: radius.sm,
                   cursor: hasModules ? 'pointer' : 'default',
                   borderLeft: `4px solid ${domain.color}`
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                   <span style={{
-                    fontSize: '12px',
-                    color: '#6b7280',
+                    display: 'inline-flex',
                     transform: isDomainExpanded ? 'rotate(90deg)' : 'rotate(0deg)',
                     transition: 'transform 0.2s',
                     opacity: hasModules ? 1 : 0
                   }}>
-                    &#9658;
+                    <ChevronRightIcon size={12} color={colors.text.secondary} />
                   </span>
-                  <span style={{ fontSize: '15px', fontWeight: '600', color: '#111827' }}>
+                  <span style={{ fontSize: '15px', fontWeight: '600', color: colors.text.primary }}>
                     {domain.name}
                   </span>
                 </div>
@@ -205,22 +197,21 @@ const SkillBreakdownPanel = ({ skillBreakdown }) => {
                             alignItems: 'center',
                             justifyContent: 'space-between',
                             padding: '10px 14px',
-                            background: '#f3f4f6',
+                            background: colors.surface.gray,
                             borderRadius: '6px',
                             cursor: hasSections ? 'pointer' : 'default'
                           }}
                         >
                           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                             <span style={{
-                              fontSize: '10px',
-                              color: '#9ca3af',
+                              display: 'inline-flex',
                               transform: isModuleExpanded ? 'rotate(90deg)' : 'rotate(0deg)',
                               transition: 'transform 0.2s',
                               opacity: hasSections ? 1 : 0
                             }}>
-                              &#9658;
+                              <ChevronRightIcon size={10} color={colors.text.muted} />
                             </span>
-                            <span style={{ fontSize: '14px', fontWeight: '500', color: '#374151' }}>
+                            <span style={{ fontSize: '14px', fontWeight: '500', color: colors.text.secondary }}>
                               {MODULE_NAMES[moduleId] || moduleId}
                             </span>
                           </div>
@@ -264,22 +255,21 @@ const SkillBreakdownPanel = ({ skillBreakdown }) => {
                                       alignItems: 'center',
                                       justifyContent: 'space-between',
                                       padding: '8px 12px',
-                                      background: '#fafafa',
+                                      background: colors.surface.offWhite,
                                       borderRadius: '4px',
                                       cursor: hasSkills ? 'pointer' : 'default'
                                     }}
                                   >
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                                       <span style={{
-                                        fontSize: '9px',
-                                        color: '#9ca3af',
+                                        display: 'inline-flex',
                                         transform: isSectionExpanded ? 'rotate(90deg)' : 'rotate(0deg)',
                                         transition: 'transform 0.2s',
                                         opacity: hasSkills ? 1 : 0
                                       }}>
-                                        &#9658;
+                                        <ChevronRightIcon size={9} color={colors.text.muted} />
                                       </span>
-                                      <span style={{ fontSize: '13px', color: '#4b5563' }}>
+                                      <span style={{ fontSize: '13px', color: colors.text.secondary }}>
                                         {sectionName}
                                       </span>
                                     </div>
@@ -309,15 +299,15 @@ const SkillBreakdownPanel = ({ skillBreakdown }) => {
                                               justifyContent: 'space-between',
                                               padding: '6px 10px',
                                               background: skill.progress
-                                                ? (skill.progress.mastery >= 80 ? '#f0fdf4' : skill.progress.mastery < 60 ? '#fef2f2' : '#fffbeb')
-                                                : 'white',
+                                                ? (skill.progress.mastery >= 80 ? colors.semantic.successLight : skill.progress.mastery < 60 ? colors.semantic.errorLight : colors.semantic.warningLight)
+                                                : colors.surface.white,
                                               borderRadius: '4px',
-                                              border: '1px solid #e5e7eb'
+                                              border: `1px solid ${colors.surface.grayDark}`
                                             }}
                                           >
                                             <span style={{
                                               fontSize: '12px',
-                                              color: '#374151',
+                                              color: colors.text.secondary,
                                               flex: 1
                                             }}>
                                               {skill.name}
@@ -347,7 +337,7 @@ const SkillBreakdownPanel = ({ skillBreakdown }) => {
                                             ) : (
                                               <span style={{
                                                 fontSize: '11px',
-                                                color: '#9ca3af',
+                                                color: colors.text.muted,
                                                 fontStyle: 'italic'
                                               }}>
                                                 Not practiced
