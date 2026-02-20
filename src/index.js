@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'katex/dist/katex.min.css';
+import './design/global.css';
 import App from './App';
 
 // Fix for KaTeX semantic layer showing alongside visual content

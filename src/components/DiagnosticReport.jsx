@@ -19,48 +19,50 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { runDiagnostic, ERROR_TYPES, ERROR_TYPE_LABELS, ERROR_TYPE_ICONS, ERROR_TYPE_COLORS } from '../services/diagnosticEngine';
 import { generateStudyPlan, compareDiagnostics } from '../services/studyPlanGenerator';
+import { colors as designColors, typography } from '../design/tokens';
+import { useCountUp } from '../design/animations';
 
 // Note: Advanced analytics (confidenceInterval, learningVelocity, skillClusters,
 // answerPatterns, stamina, percentile, mistakeFingerprint, timeAllocation)
 // are now included in the diagnostic output from runDiagnostic automatically.
 
 // ═══════════════════════════════════════════════════════════════════════════
-// DESIGN TOKENS
+// DESIGN TOKENS — mapped from shared design system
 // ═══════════════════════════════════════════════════════════════════════════
 
 const colors = {
-  bg: '#ffffff',
-  bgSubtle: '#fafafa',
-  bgMuted: '#f5f5f5',
-  bgDark: '#171717',
-  text: '#0a0a0a',
-  textSecondary: '#525252',
-  textMuted: '#737373',
-  border: '#e5e5e5',
+  bg: designColors.surface.white,
+  bgSubtle: designColors.surface.offWhite,
+  bgMuted: designColors.surface.gray,
+  bgDark: designColors.surface.dark,
+  text: designColors.text.primary,
+  textSecondary: designColors.text.secondary,
+  textMuted: designColors.text.tertiary,
+  border: designColors.surface.grayDark,
   borderLight: '#f0f0f0',
-  accent: '#ea580c',
-  accentLight: '#fff7ed',
-  accentBg: '#ffedd5',
-  success: '#16a34a',
-  successLight: '#f0fdf4',
+  accent: designColors.accent.orange,
+  accentLight: designColors.accent.orangeLight,
+  accentBg: designColors.accent.orangeMuted,
+  success: designColors.semantic.success,
+  successLight: designColors.semantic.successLight,
   successBg: '#dcfce7',
-  error: '#dc2626',
-  errorLight: '#fef2f2',
-  warning: '#f59e0b',
-  warningLight: '#fffbeb',
-  info: '#2563eb',
-  infoLight: '#eff6ff',
+  error: designColors.semantic.error,
+  errorLight: designColors.semantic.errorLight,
+  warning: designColors.semantic.warning,
+  warningLight: designColors.semantic.warningLight,
+  info: designColors.semantic.info,
+  infoLight: designColors.semantic.infoLight,
   purple: '#7c3aed',
   purpleLight: '#f5f3ff',
 };
 
-const font = '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif';
+const font = typography.fontFamily;
 
 // ═══════════════════════════════════════════════════════════════════════════
 // SUB-COMPONENTS
 // ═══════════════════════════════════════════════════════════════════════════
 
-// ── Score Ring ──
+// ── Score Ring with count-up animation ──
 const ScoreRing = ({ score, target, size = 160 }) => {
   const strokeWidth = 10;
   const radius = (size - strokeWidth) / 2 - 4;
@@ -70,6 +72,7 @@ const ScoreRing = ({ score, target, size = 160 }) => {
   const offset = circumference - progress * circumference;
   const targetOffset = circumference - targetProgress * circumference;
   const isAtTarget = score >= target;
+  const displayScore = useCountUp(score, 800, 200);
 
   return (
     <div style={{ position: 'relative', width: size, height: size }}>
@@ -87,7 +90,7 @@ const ScoreRing = ({ score, target, size = 160 }) => {
       </svg>
       <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center' }}>
         <div style={{ fontSize: '36px', fontWeight: '700', color: colors.text, letterSpacing: '-0.02em', lineHeight: '1' }}>
-          {score}
+          {displayScore}
         </div>
         <div style={{ fontSize: '12px', color: colors.textMuted, marginTop: '4px', fontWeight: '500' }}>
           out of 800
@@ -351,6 +354,32 @@ const DiagnosticReport = ({
   const [expandedWeek, setExpandedWeek] = useState(1);
   const [planSaved, setPlanSaved] = useState(false);
   const planSaveAttempted = useRef(false);
+  const tabBarRef = useRef(null);
+  const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
+
+  // Responsive
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  const isMobile = windowWidth < 768;
+
+  // Sliding tab indicator
+  useEffect(() => {
+    if (!tabBarRef.current) return;
+    const buttons = tabBarRef.current.querySelectorAll('[data-tab]');
+    const activeBtn = Array.from(buttons).find(b => b.dataset.tab === activeSection);
+    if (activeBtn) {
+      const barRect = tabBarRef.current.getBoundingClientRect();
+      const btnRect = activeBtn.getBoundingClientRect();
+      setIndicatorStyle({
+        left: btnRect.left - barRect.left,
+        width: btnRect.width,
+      });
+    }
+  }, [activeSection, windowWidth]);
 
   // ═══ Run the diagnostic engine ═══
   const diagnostic = useMemo(() => {
@@ -1434,7 +1463,7 @@ const DiagnosticReport = ({
   // ═══════════════════════════════════════════════════════════════════════
 
   return (
-    <div style={{ maxWidth: '720px', margin: '0 auto', padding: '20px', fontFamily: font }}>
+    <div style={{ maxWidth: '720px', margin: '0 auto', padding: isMobile ? '12px' : '20px', fontFamily: font }}>
 
       {/* ── Header ── */}
       <div style={{ marginBottom: '24px' }}>
@@ -1450,16 +1479,18 @@ const DiagnosticReport = ({
 
         {/* Score overview */}
         <div style={{
-          display: 'flex', alignItems: 'center', gap: '24px',
-          padding: '24px', background: colors.bgSubtle, borderRadius: '20px',
+          display: 'flex', alignItems: 'center', gap: isMobile ? '16px' : '24px',
+          padding: isMobile ? '16px' : '24px', background: colors.bgSubtle, borderRadius: '20px',
           border: `1px solid ${colors.border}`,
+          flexDirection: isMobile ? 'column' : 'row',
+          textAlign: isMobile ? 'center' : 'left',
         }}>
-          <ScoreRing score={score.scaled} target={score.target} size={140} />
+          <ScoreRing score={score.scaled} target={score.target} size={isMobile ? 120 : 140} />
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: '14px', color: colors.textMuted, fontWeight: '500', marginBottom: '4px' }}>
               {diagnostic.testTitle}
             </div>
-            <div style={{ fontSize: '24px', fontWeight: '700', color: colors.text, marginBottom: '4px' }}>
+            <div style={{ fontSize: isMobile ? '20px' : '24px', fontWeight: '700', color: colors.text, marginBottom: '4px' }}>
               {score.raw}/{score.total} correct ({score.percentCorrect}%)
             </div>
             {score.gap > 0 ? (
@@ -1475,35 +1506,62 @@ const DiagnosticReport = ({
         </div>
       </div>
 
-      {/* ── Tab Navigation ── */}
-      <div style={{
-        display: 'flex', gap: '4px', marginBottom: '24px',
-        background: colors.bgMuted, borderRadius: '12px', padding: '4px',
-      }}>
+      {/* ── Tab Navigation with sliding indicator ── */}
+      <div
+        ref={tabBarRef}
+        role="tablist"
+        aria-label="Diagnostic report sections"
+        style={{
+          display: 'flex', gap: '4px', marginBottom: '24px',
+          background: colors.bgMuted, borderRadius: '12px', padding: '4px',
+          position: 'relative',
+        }}
+      >
+        {/* Sliding indicator */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            top: '4px',
+            left: indicatorStyle.left,
+            width: indicatorStyle.width,
+            height: 'calc(100% - 8px)',
+            borderRadius: '10px',
+            background: colors.bg,
+            boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+            transition: 'left 0.25s cubic-bezier(0.25, 0.1, 0.25, 1), width 0.25s cubic-bezier(0.25, 0.1, 0.25, 1)',
+            zIndex: 0,
+          }}
+        />
         {sections.map(section => (
           <button
             key={section.id}
+            id={`tab-${section.id}`}
+            data-tab={section.id}
             onClick={() => setActiveSection(section.id)}
+            aria-selected={activeSection === section.id}
+            aria-controls={`panel-${section.id}`}
+            role="tab"
             style={{
-              flex: 1, padding: '10px 16px', border: 'none', borderRadius: '10px',
-              background: activeSection === section.id ? colors.bg : 'transparent',
+              flex: 1, padding: isMobile ? '10px 8px' : '10px 16px', border: 'none', borderRadius: '10px',
+              background: 'transparent',
               color: activeSection === section.id ? colors.text : colors.textMuted,
-              fontSize: '13px', fontWeight: '600', cursor: 'pointer',
-              boxShadow: activeSection === section.id ? '0 1px 3px rgba(0,0,0,0.1)' : 'none',
-              transition: 'all 0.2s ease',
-              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
+              fontSize: isMobile ? '12px' : '13px', fontWeight: '600', cursor: 'pointer',
+              transition: 'color 0.2s ease',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: isMobile ? '4px' : '6px',
+              position: 'relative', zIndex: 1,
             }}
           >
-            <span style={{ fontSize: '15px' }}>{section.icon}</span>
+            <span style={{ fontSize: isMobile ? '13px' : '15px' }}>{section.icon}</span>
             {section.label}
           </button>
         ))}
       </div>
 
       {/* ── Content ── */}
-      {activeSection === 'diagnosis' && renderDiagnosis()}
-      {activeSection === 'plan' && renderStudyPlan()}
-      {activeSection === 'trends' && renderTrends()}
+      {activeSection === 'diagnosis' && <div role="tabpanel" id="panel-diagnosis" aria-labelledby="tab-diagnosis">{renderDiagnosis()}</div>}
+      {activeSection === 'plan' && <div role="tabpanel" id="panel-plan" aria-labelledby="tab-plan">{renderStudyPlan()}</div>}
+      {activeSection === 'trends' && <div role="tabpanel" id="panel-trends" aria-labelledby="tab-trends">{renderTrends()}</div>}
 
       {/* ── Bottom CTA ── */}
       <div style={{

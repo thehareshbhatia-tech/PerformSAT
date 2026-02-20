@@ -16,6 +16,10 @@ import { getQuestionsForSection, hasQuestionsForSection, getRandomQuestions } fr
 import { getDifficultyBadge, calculateWeightedScore } from './services/adaptiveService';
 import { addToReviewQueue, getDueReviewCount } from './services/reviewService';
 import { calculateOptimalDifficulty } from './services/recommendationService';
+import AppShell from './components/ui/AppShell';
+import ErrorBoundary from './components/ui/ErrorBoundary';
+import Onboarding from './components/Onboarding';
+import Profile from './components/Profile';
 
 // Premium Design System - Clean, Modern, Professional
 const design = {
@@ -123,7 +127,8 @@ const PerformSAT = () => {
   const [activeModule, setActiveModule] = useState(null);
   const [activeLesson, setActiveLesson] = useState(null);
   const [activeSection, setActiveSection] = useState(null); // For section-based practice
-  const [view, setView] = useState('dashboard'); // 'dashboard', 'modules', 'list', 'lesson', 'practice', 'practiceTests', 'takingTest'
+  const [view, setView] = useState('dashboard'); // 'dashboard', 'modules', 'list', 'lesson', 'practice', 'practiceTests', 'takingTest', 'profile'
+  const [showOnboarding, setShowOnboarding] = useState(false);
   const [selectedPracticeTest, setSelectedPracticeTest] = useState(null);
   const [isTestTimed, setIsTestTimed] = useState(true);
   const [showAiTutor, setShowAiTutor] = useState(false);
@@ -9000,6 +9005,7 @@ const PerformSAT = () => {
   }
 
   return (
+    <ErrorBoundary>
     <BrowserRouter>
       <Routes>
         {/* Landing Page */}
@@ -9011,13 +9017,16 @@ const PerformSAT = () => {
           )
         } />
 
+        {/* App route (new) — redirects to /course for now */}
+        <Route path="/app/*" element={<Navigate to="/course" replace />} />
+
         {/* Course Route */}
         <Route path="/course" element={
           user ? (
             <div style={{
               minHeight: '100vh',
               background: '#ffffff',
-              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif',
+              fontFamily: design.typography.fontFamily,
               color: design.colors.text.primary,
               WebkitFontSmoothing: 'antialiased'
             }}>
@@ -9057,131 +9066,65 @@ const PerformSAT = () => {
         ::selection { background: rgba(234, 88, 12, 0.15); }
       `}</style>
 
-      {/* Header */}
-      <header style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 100,
-        background: 'rgba(255, 255, 255, 0.8)',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-        borderBottom: '1px solid rgba(0, 0, 0, 0.08)'
-      }}>
-        <div style={{
-          maxWidth: '800px',
-          margin: '0 auto',
-          padding: '16px 24px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between'
-        }}>
-          <div
-            onClick={() => { setView('dashboard'); setActiveModule(null); setActiveLesson(null); }}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              cursor: 'pointer'
-            }}
-          >
-            <span style={{
-              fontSize: '18px',
-              fontWeight: '600',
-              color: design.colors.text.primary,
-              letterSpacing: '-0.3px'
-            }}>
-              Perform
-            </span>
-            <span style={{
-              fontSize: '18px',
-              fontWeight: '700',
-              color: design.colors.accent.orange,
-              letterSpacing: '-0.3px',
-              marginLeft: '5px'
-            }}>
-              SAT
-            </span>
-          </div>
-          
-          <nav style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
-            <button
-              onClick={() => { setView('dashboard'); setActiveModule(null); setActiveLesson(null); }}
-              className="nav-link"
-              style={{
-                background: 'none',
-                border: 'none',
-                fontSize: '14px',
-                color: view === 'dashboard' ? design.colors.accent.orange : design.colors.text.primary,
-                textDecoration: 'none',
-                fontWeight: view === 'dashboard' ? '600' : '500',
-                cursor: 'pointer',
-                padding: 0
-              }}
-            >
-              Dashboard
-            </button>
-            <button
-              onClick={() => { setView('modules'); setActiveModule(null); setActiveLesson(null); }}
-              className="nav-link"
-              style={{
-                background: 'none',
-                border: 'none',
-                fontSize: '14px',
-                color: view === 'modules' ? design.colors.accent.orange : design.colors.text.primary,
-                textDecoration: 'none',
-                fontWeight: view === 'modules' ? '600' : '500',
-                cursor: 'pointer',
-                padding: 0
-              }}
-            >
-              Videos
-            </button>
-            <button
-              onClick={() => { setView('practiceTests'); setSelectedPracticeTest(null); }}
-              className="nav-link"
-              style={{
-                background: 'none',
-                border: 'none',
-                fontSize: '14px',
-                color: view === 'practiceTests' || view === 'takingTest' ? design.colors.accent.orange : design.colors.text.primary,
-                textDecoration: 'none',
-                fontWeight: view === 'practiceTests' || view === 'takingTest' ? '600' : '500',
-                cursor: 'pointer',
-                padding: 0
-              }}
-            >
-              Practice Tests
-            </button>
-            {user && (
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                <span style={{ fontSize: '14px', color: design.colors.text.secondary }}>{user.firstName || user.email}</span>
-                <button
-                  onClick={logout}
-                  style={{
-                    background: 'none',
-                    border: '1px solid rgba(0,0,0,0.1)',
-                    padding: '8px 16px',
-                    borderRadius: design.radius.sm,
-                    fontSize: '14px',
-                    color: design.colors.text.secondary,
-                    cursor: 'pointer'
-                  }}
-                >
-                  Log out
-                </button>
-              </div>
-            )}
-          </nav>
-        </div>
-      </header>
+      {/* Accessibility: Skip to main content link */}
+      <a href="#main-content" className="skip-link">Skip to main content</a>
 
+      <AppShell
+        currentView={view}
+        onNavigate={(navId) => {
+          if (navId === 'dashboard') { setView('dashboard'); setActiveModule(null); setActiveLesson(null); }
+          else if (navId === 'modules') { setView('modules'); setActiveModule(null); setActiveLesson(null); }
+          else if (navId === 'practiceTests') { setView('practiceTests'); setSelectedPracticeTest(null); }
+          else if (navId === 'tutor') { setView('tutor'); setShowAiTutor(true); }
+          else if (navId === 'profile') { setView('profile'); }
+          else { setView(navId); }
+        }}
+        user={user}
+        onLogout={logout}
+        hideNav={view === 'takingTest'}
+      >
       {/* Main Content */}
-      <main style={{
+      <main id="main-content" style={{
         maxWidth: view === 'takingTest' ? '100%' : view === 'lesson' ? '1100px' : (view === 'dashboard' || view === 'practiceTests' || view === 'diagnosticReport') ? '960px' : '800px',
         margin: '0 auto',
-        padding: view === 'takingTest' ? '110px 0px 60px' : '140px 32px 100px'
+        padding: view === 'takingTest' ? '32px 0px 60px' : '32px 32px 100px'
       }}>
+        {/* Standalone AI Tutor View */}
+        {view === 'tutor' && (
+          <div style={{ maxWidth: '720px', margin: '0 auto' }}>
+            <AiTutorChat
+              isOpen={true}
+              onClose={() => { setView('dashboard'); setShowAiTutor(false); }}
+              moduleId={activeModule}
+              lessonId={activeLesson}
+              currentQuestion={null}
+              allQuestions={[]}
+              currentQuestionIndex={0}
+              userAnswer={null}
+              skillProgress={skillProgress}
+              practiceTestResults={practiceTestResults}
+              completedLessons={completedLessons}
+              user={user}
+              standalone={true}
+            />
+          </div>
+        )}
+
+        {/* Profile View */}
+        {view === 'profile' && (
+          <Profile
+            user={user}
+            onLogout={logout}
+            onUpdateTargetScore={updateTargetScore}
+            onUpdateTestDate={updateTestDate}
+            onUpdateCurrentScore={updateCurrentScore}
+            onUpdateTargetSchools={updateTargetSchools}
+            completedLessons={completedLessons}
+            practiceTestResults={practiceTestResults}
+            skillProgress={skillProgress}
+          />
+        )}
+
         {/* Student Dashboard View */}
         {view === 'dashboard' && (
           <StudentDashboard
@@ -10852,26 +10795,7 @@ const PerformSAT = () => {
         )}
       </main>
 
-      {/* Footer */}
-      <footer style={{
-        borderTop: '1px solid rgba(0, 0, 0, 0.08)',
-        padding: '32px 24px'
-      }}>
-        <div style={{
-          maxWidth: '800px',
-          margin: '0 auto',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center'
-        }}>
-          <div>
-            <span style={{ fontSize: '14px', color: design.colors.text.primary, fontWeight: '500' }}>Perform</span>
-            <span style={{ fontSize: '14px', color: design.colors.accent.orange, fontWeight: '600' }}>SAT</span>
-          </div>
-          <span style={{ fontSize: '13px', color: '#9ca3af' }}>© 2025</span>
-        </div>
-      </footer>
-
+      </AppShell>
     </div>
           ) : (
             <Navigate to="/" replace />
@@ -10879,6 +10803,7 @@ const PerformSAT = () => {
         } />
       </Routes>
     </BrowserRouter>
+    </ErrorBoundary>
   );
 };
 

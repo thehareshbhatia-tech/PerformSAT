@@ -7,6 +7,7 @@ import SolutionExplanation from './SolutionExplanation';
 import QuestionRenderer from './QuestionRenderer';
 import { recordSkillAttempts } from '../services/skillService';
 import DiagnosticReport from './DiagnosticReport';
+import { colors as designColors, typography as designTypo, breakpoints } from '../design/tokens';
 
 // SAT-Style Typography Constants - matches College Board format
 const SAT_TYPOGRAPHY = {
@@ -58,6 +59,9 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
 
   const CALC_WIDTH = 480;
   const CALC_HEIGHT = 420;
+  const CALC_MOBILE_HEIGHT = '60vh';
+
+  const isMobileCalc = typeof window !== 'undefined' && window.innerWidth < 768;
 
   // Drag handlers
   const handleMouseDown = (e) => {
@@ -170,8 +174,39 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
   };
 
   return (
+    <>
+    {/* Backdrop overlay for mobile */}
+    {isMobileCalc && (
+      <div
+        onClick={onClose}
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(0, 0, 0, 0.5)',
+          zIndex: 999,
+        }}
+      />
+    )}
     <div
-      style={{
+      style={isMobileCalc ? {
+        position: 'fixed',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        width: '100%',
+        height: isMinimized ? 'auto' : CALC_MOBILE_HEIGHT,
+        zIndex: 1000,
+        background: 'white',
+        borderRadius: '16px 16px 0 0',
+        overflow: 'hidden',
+        boxShadow: '0 -10px 40px -10px rgba(0, 0, 0, 0.3)',
+        display: 'flex',
+        flexDirection: 'column',
+        userSelect: 'none'
+      } : {
         position: 'fixed',
         left: position.x,
         top: position.y,
@@ -187,9 +222,9 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
         userSelect: 'none'
       }}
     >
-      {/* Calculator Header - Draggable */}
+      {/* Calculator Header - Draggable on desktop only */}
       <div
-        onMouseDown={handleMouseDown}
+        onMouseDown={isMobileCalc ? undefined : handleMouseDown}
         style={{
           display: 'flex',
           justifyContent: 'space-between',
@@ -197,7 +232,7 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
           padding: '8px 12px',
           borderBottom: isMinimized ? 'none' : '1px solid #e5e7eb',
           background: '#1e3a5f',
-          cursor: isDragging ? 'grabbing' : 'grab'
+          cursor: isMobileCalc ? 'default' : (isDragging ? 'grabbing' : 'grab')
         }}
       >
         {/* Mode Toggle Buttons */}
@@ -265,11 +300,12 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
           style={{
             flex: 1,
             width: '100%',
-            minHeight: CALC_HEIGHT - 50
+            minHeight: isMobileCalc ? 'auto' : CALC_HEIGHT - 50
           }}
         />
       )}
     </div>
+    </>
   );
 };
 
@@ -313,16 +349,22 @@ const Timer = ({ initialMinutes, onTimeUp, isPaused, timeRef }) => {
 
 // Question navigation grid - SAT Style
 const QuestionGrid = ({ questions, currentIndex, answers, markedForReview, onNavigate }) => {
+  const gridCols = questions.length <= 22 ? 'repeat(11, 1fr)' : `repeat(${Math.ceil(questions.length / 2)}, 1fr)`;
   return (
     <div style={{
+      overflowX: 'auto',
+      WebkitOverflowScrolling: 'touch',
+      marginBottom: '24px'
+    }}>
+    <div style={{
       display: 'grid',
-      gridTemplateColumns: 'repeat(11, 1fr)',
+      gridTemplateColumns: gridCols,
       gap: '6px',
       padding: '16px',
       background: SAT_COLORS.background.page,
       border: `1px solid ${SAT_COLORS.border.light}`,
       borderRadius: '0',
-      marginBottom: '24px'
+      minWidth: 'min-content'
     }}>
       {questions.map((_, idx) => {
         const isAnswered = answers[idx] !== undefined;
@@ -370,6 +412,7 @@ const QuestionGrid = ({ questions, currentIndex, answers, markedForReview, onNav
           </button>
         );
       })}
+    </div>
     </div>
   );
 };
@@ -715,6 +758,15 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   const [reviewQuestion, setReviewQuestion] = useState(0);
   const [resultSaved, setResultSaved] = useState(false);
   const [showDiagnosticReport, setShowDiagnosticReport] = useState(false);
+
+  // Responsive: track window width for mobile layout
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  const isMobile = windowWidth < 768;
 
   // Diagnostic tracking refs (refs avoid re-renders on every data point)
   const questionTelemetry = useRef({});
@@ -1964,26 +2016,28 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   const isMarked = markedForReview.includes(currentQuestion);
 
   return (
-    <div style={{ maxWidth: '900px', margin: '0 auto', padding: '20px' }}>
+    <div style={{ maxWidth: '900px', margin: '0 auto', padding: isMobile ? '16px' : '0 32px' }}>
       {/* Header */}
       <div style={{
         display: 'flex',
+        flexDirection: isMobile ? 'column' : 'row',
         justifyContent: 'space-between',
-        alignItems: 'center',
+        alignItems: isMobile ? 'flex-start' : 'center',
         marginBottom: '24px',
         paddingBottom: '16px',
-        borderBottom: '1px solid #e5e7eb'
+        borderBottom: '1px solid #e5e7eb',
+        gap: isMobile ? '12px' : '0'
       }}>
         <div>
-          <h1 style={{ fontSize: '20px', fontWeight: '600', color: '#111827', marginBottom: '4px' }}>
+          <h1 style={{ fontSize: isMobile ? '17px' : '20px', fontWeight: '600', color: '#111827', marginBottom: '4px' }}>
             {test.title} - {module.title}
           </h1>
-          <p style={{ fontSize: '14px', color: '#6b7280' }}>
+          <p style={{ fontSize: isMobile ? '13px' : '14px', color: '#6b7280' }}>
             Question {currentQuestion + 1} of {questions.length}
           </p>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? '8px' : '12px', flexWrap: 'wrap' }}>
           {/* Calculator Button */}
           <button
             onClick={() => {
@@ -1992,11 +2046,11 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               setShowCalculator(true);
             }}
             style={{
-              padding: '8px 14px',
+              padding: isMobile ? '6px 10px' : '8px 14px',
               background: '#2563eb',
               border: 'none',
               borderRadius: '6px',
-              fontSize: '13px',
+              fontSize: isMobile ? '12px' : '13px',
               fontWeight: '500',
               color: 'white',
               cursor: 'pointer',
@@ -2021,11 +2075,11 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               <button
                 onClick={() => setShowTimer(!showTimer)}
                 style={{
-                  padding: '6px 12px',
+                  padding: isMobile ? '5px 8px' : '6px 12px',
                   background: 'transparent',
                   border: '1px solid #d1d5db',
                   borderRadius: '6px',
-                  fontSize: '13px',
+                  fontSize: isMobile ? '12px' : '13px',
                   color: '#6b7280',
                   cursor: 'pointer'
                 }}
@@ -2043,11 +2097,11 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             </>
           ) : (
             <span style={{
-              padding: '8px 16px',
+              padding: isMobile ? '6px 10px' : '8px 16px',
               background: '#f0fdf4',
               color: '#16a34a',
               borderRadius: '8px',
-              fontSize: '13px',
+              fontSize: isMobile ? '12px' : '13px',
               fontWeight: '500'
             }}>
               Untimed Mode

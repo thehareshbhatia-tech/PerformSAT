@@ -1,10 +1,13 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { generateRecommendations } from '../services/recommendationService';
 import SkillDiagnosticSummary from './SkillDiagnosticSummary';
 import ScoreSlider from './ScoreSlider';
 import CollegePicker from './CollegePicker';
 import StudyPlanDashboard from './StudyPlanDashboard';
 import DashboardDiagnosticWidget from './DashboardDiagnosticWidget';
+import { colors, typography, spacing, radius, shadows, transitions, breakpoints } from '../design/tokens';
+import { cardStyles, buttonStyles } from '../design/components';
+import { injectAnimations, useCountUp } from '../design/animations';
 
 // Official SAT Test Dates (from College Board)
 const SAT_TEST_DATES = [
@@ -48,7 +51,7 @@ const DonutChart = ({ percent, size = 120, strokeWidth = 10, color = '#22c55e' }
   const offset = circumference - (percent / 100) * circumference;
 
   return (
-    <svg width={size} height={size} style={{ transform: 'rotate(-90deg)' }}>
+    <svg width={size} height={size} role="progressbar" aria-valuenow={percent} aria-valuemin={0} aria-valuemax={100} style={{ transform: 'rotate(-90deg)' }}>
       <circle
         cx={size / 2}
         cy={size / 2}
@@ -265,6 +268,26 @@ const StudentDashboard = ({
     setShowDatePicker(false);
   };
 
+  // Inject animations on mount
+  useEffect(() => { injectAnimations(); }, []);
+
+  // Responsive hook
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  const isMobile = windowWidth < breakpoints.tablet;
+
+  // Time-of-day greeting
+  const getGreeting = () => {
+    const hour = new Date().getHours();
+    if (hour < 12) return 'Good morning';
+    if (hour < 17) return 'Good afternoon';
+    return 'Good evening';
+  };
+
   // Card style
   const cardStyle = {
     background: 'white',
@@ -273,17 +296,240 @@ const StudentDashboard = ({
     padding: '24px'
   };
 
+  // Animated score count-up for hero
+  const animatedScore = useCountUp(projectedScore || user?.currentScore || 0, 800, 300);
+
+  // Score Ring SVG component for hero
+  const ScoreRing = ({ score, target, size = 120 }) => {
+    const strokeWidth = 8;
+    const r = (size - strokeWidth) / 2;
+    const circumference = 2 * Math.PI * r;
+    const progress = target ? Math.min((score || 0) / target, 1) : 0;
+    const offset = circumference - progress * circumference;
+
+    return (
+      <svg width={size} height={size} role="progressbar" aria-valuenow={score || 0} aria-valuemax={target || 800} aria-label={`Score: ${score || 0} out of ${target || 800}`} style={{ transform: 'rotate(-90deg)' }}>
+        <circle cx={size/2} cy={size/2} r={r} fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth={strokeWidth} />
+        <circle
+          cx={size/2} cy={size/2} r={r} fill="none"
+          stroke={colors.accent.orange}
+          strokeWidth={strokeWidth}
+          strokeDasharray={circumference}
+          strokeDashoffset={offset}
+          strokeLinecap="round"
+          style={{ transition: 'stroke-dashoffset 1s ease-in-out' }}
+        />
+      </svg>
+    );
+  };
+
   return (
-    <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-      {/* Header */}
+    <div style={{ maxWidth: '960px', margin: '0 auto' }}>
+      {/* Greeting */}
       <h1 style={{
-        fontSize: '28px',
-        fontWeight: '600',
-        color: '#111827',
-        marginBottom: '32px'
+        fontSize: typography.sizes['2xl'],
+        fontWeight: typography.weights.bold,
+        color: colors.text.primary,
+        marginBottom: spacing.lg,
+        fontFamily: typography.fontFamily,
       }}>
-        {user?.firstName ? `${user.firstName}'s SAT Math Progress` : 'Your SAT Math Progress'}
+        {getGreeting()}, {user?.firstName || 'Student'}
       </h1>
+
+      {/* Score Hero Card */}
+      <div style={{
+        ...cardStyles.dark,
+        marginBottom: spacing.lg,
+        padding: isMobile ? spacing.lg : spacing.xl,
+        display: 'flex',
+        alignItems: isMobile ? 'flex-start' : 'center',
+        flexDirection: isMobile ? 'column' : 'row',
+        gap: spacing.lg,
+        animation: 'fadeInUp 500ms ease',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        {/* Background glow */}
+        <div style={{
+          position: 'absolute',
+          top: '-50%',
+          right: '-20%',
+          width: '300px',
+          height: '300px',
+          borderRadius: '50%',
+          background: `radial-gradient(circle, rgba(234,88,12,0.15) 0%, transparent 70%)`,
+          pointerEvents: 'none',
+        }} />
+
+        {/* Score Ring */}
+        <div style={{ position: 'relative', flexShrink: 0 }}>
+          <ScoreRing
+            score={projectedScore || user?.currentScore || 0}
+            target={user?.targetScore || 800}
+            size={isMobile ? 100 : 120}
+          />
+          <div style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            textAlign: 'center',
+          }}>
+            <div style={{
+              fontSize: isMobile ? typography.sizes['2xl'] : typography.sizes['3xl'],
+              fontWeight: typography.weights.bold,
+              color: colors.text.inverse,
+              lineHeight: 1,
+            }}>
+              {animatedScore || '--'}
+            </div>
+            <div style={{
+              fontSize: typography.sizes.xs,
+              color: 'rgba(255,255,255,0.6)',
+              marginTop: '2px',
+            }}>
+              {projectedScore ? 'Projected' : 'Current'}
+            </div>
+          </div>
+        </div>
+
+        {/* Score Details */}
+        <div style={{ flex: 1, zIndex: 1 }}>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: spacing.xs, marginBottom: spacing.xs }}>
+            {user?.targetScore && (
+              <span style={{
+                fontSize: typography.sizes.md,
+                color: 'rgba(255,255,255,0.7)',
+              }}>
+                Target: <strong style={{ color: colors.text.inverse }}>{user.targetScore}</strong>
+              </span>
+            )}
+            {user?.targetScore && (projectedScore || user?.currentScore) && (
+              <span style={{
+                fontSize: typography.sizes.sm,
+                color: colors.accent.orange,
+                fontWeight: typography.weights.semibold,
+              }}>
+                {user.targetScore - (projectedScore || user.currentScore || 0)} points to go
+              </span>
+            )}
+          </div>
+
+          {/* Quick stats row */}
+          <div style={{
+            display: 'flex',
+            gap: isMobile ? spacing.md : spacing.xl,
+            flexWrap: 'wrap',
+          }}>
+            {daysUntilTest !== null && daysUntilTest > 0 && (
+              <div>
+                <div style={{ fontSize: typography.sizes.xl, fontWeight: typography.weights.bold, color: colors.text.inverse }}>
+                  {daysUntilTest}
+                </div>
+                <div style={{ fontSize: typography.sizes.xs, color: 'rgba(255,255,255,0.5)' }}>
+                  days until test
+                </div>
+              </div>
+            )}
+            <div>
+              <div style={{ fontSize: typography.sizes.xl, fontWeight: typography.weights.bold, color: colors.text.inverse }}>
+                {projectedTestsCount || 0}
+              </div>
+              <div style={{ fontSize: typography.sizes.xs, color: 'rgba(255,255,255,0.5)' }}>
+                tests taken
+              </div>
+            </div>
+            <div>
+              <div style={{ fontSize: typography.sizes.xl, fontWeight: typography.weights.bold, color: colors.text.inverse }}>
+                {completionPercent}%
+              </div>
+              <div style={{ fontSize: typography.sizes.xs, color: 'rgba(255,255,255,0.5)' }}>
+                lessons done
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Quick Actions Row */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '1fr 1fr 1fr' : 'repeat(3, 1fr)',
+        gap: spacing.sm,
+        marginBottom: spacing.lg,
+      }}>
+        {/* Continue / Take Test */}
+        <button
+          onClick={onStartPracticeTest}
+          aria-label={projectedTestsCount > 0 ? 'Next Test' : 'Take Test'}
+          style={{
+            ...cardStyles.interactive,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: spacing.xs,
+            padding: spacing.md,
+            textAlign: 'center',
+          }}
+        >
+          <span aria-hidden="true" style={{ fontSize: '24px' }}>&#9654;</span>
+          <span style={{
+            fontSize: isMobile ? typography.sizes.xs : typography.sizes.sm,
+            fontWeight: typography.weights.medium,
+            color: colors.text.primary,
+          }}>
+            {projectedTestsCount > 0 ? 'Next Test' : 'Take Test'}
+          </span>
+        </button>
+
+        {/* Review Mistakes */}
+        <button
+          onClick={onStartReview || (() => {})}
+          aria-label={dueReviewCount > 0 ? `Review ${dueReviewCount} items` : 'Review mistakes'}
+          style={{
+            ...cardStyles.interactive,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: spacing.xs,
+            padding: spacing.md,
+            textAlign: 'center',
+          }}
+        >
+          <span aria-hidden="true" style={{ fontSize: '24px' }}>&#128202;</span>
+          <span style={{
+            fontSize: isMobile ? typography.sizes.xs : typography.sizes.sm,
+            fontWeight: typography.weights.medium,
+            color: colors.text.primary,
+          }}>
+            {dueReviewCount > 0 ? `Review (${dueReviewCount})` : 'Review'}
+          </span>
+        </button>
+
+        {/* View Diagnosis */}
+        <button
+          onClick={onViewFullDiagnosis || (() => {})}
+          aria-label="View diagnostic report"
+          style={{
+            ...cardStyles.interactive,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: spacing.xs,
+            padding: spacing.md,
+            textAlign: 'center',
+          }}
+        >
+          <span aria-hidden="true" style={{ fontSize: '24px' }}>&#128200;</span>
+          <span style={{
+            fontSize: isMobile ? typography.sizes.xs : typography.sizes.sm,
+            fontWeight: typography.weights.medium,
+            color: colors.text.primary,
+          }}>
+            Diagnostic
+          </span>
+        </button>
+      </div>
 
       {/* Test Date Section */}
       {showDatePicker ? (
@@ -621,7 +867,7 @@ const StudentDashboard = ({
       {/* Top Stats Row */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(4, 1fr)',
+        gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)',
         gap: '16px',
         marginBottom: '24px'
       }}>
@@ -799,7 +1045,7 @@ const StudentDashboard = ({
       {/* Strongest / Weakest Row */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
+        gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
         gap: '16px',
         marginBottom: '24px'
       }}>

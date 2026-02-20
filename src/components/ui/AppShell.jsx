@@ -1,0 +1,476 @@
+import React, { useState, useEffect, useCallback } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { colors, typography, spacing, radius, shadows, transitions, breakpoints, zIndex } from '../../design/tokens';
+import { injectAnimations } from '../../design/animations';
+
+// Route ↔ view state mapping
+const VIEW_ROUTES = {
+  dashboard: '/app',
+  modules: '/app/learn',
+  list: '/app/learn/module',
+  lesson: '/app/learn/lesson',
+  practice: '/app/practice',
+  practiceTests: '/app/tests',
+  takingTest: '/app/tests/active',
+  diagnosticReport: '/app/diagnostic',
+};
+
+const ROUTE_VIEWS = Object.fromEntries(
+  Object.entries(VIEW_ROUTES).map(([k, v]) => [v, k])
+);
+
+// Navigation items
+const NAV_ITEMS = [
+  { id: 'dashboard', label: 'Home', route: '/app', icon: HomeIcon },
+  { id: 'modules', label: 'Learn', route: '/app/learn', icon: BookIcon },
+  { id: 'practiceTests', label: 'Tests', route: '/app/tests', icon: ClockIcon },
+  { id: 'tutor', label: 'AI Tutor', route: '/app/tutor', icon: SparklesIcon },
+  { id: 'profile', label: 'Profile', route: '/app/profile', icon: PersonIcon },
+];
+
+function HomeIcon({ active }) {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={active ? colors.accent.orange : colors.text.tertiary} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+      <polyline points="9 22 9 12 15 12 15 22" />
+    </svg>
+  );
+}
+
+function BookIcon({ active }) {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={active ? colors.accent.orange : colors.text.tertiary} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+    </svg>
+  );
+}
+
+function ClockIcon({ active }) {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={active ? colors.accent.orange : colors.text.tertiary} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10" />
+      <polyline points="12 6 12 12 16 14" />
+    </svg>
+  );
+}
+
+function SparklesIcon({ active }) {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={active ? colors.accent.orange : colors.text.tertiary} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z" />
+    </svg>
+  );
+}
+
+function PersonIcon({ active }) {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={active ? colors.accent.orange : colors.text.tertiary} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+      <circle cx="12" cy="7" r="4" />
+    </svg>
+  );
+}
+
+// Hook to detect viewport width
+function useViewport() {
+  const [width, setWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
+
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return {
+    width,
+    isMobile: width < breakpoints.tablet,
+    isTablet: width >= breakpoints.tablet && width < breakpoints.desktop,
+    isDesktop: width >= breakpoints.desktop,
+  };
+}
+
+const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav = false }) => {
+  const { isMobile, isTablet, isDesktop } = useViewport();
+  const [sidebarExpanded, setSidebarExpanded] = useState(false);
+
+  useEffect(() => { injectAnimations(); }, []);
+
+  // Hide navigation during test-taking
+  if (hideNav) {
+    return <>{children}</>;
+  }
+
+  const activeNavId = currentView === 'list' || currentView === 'lesson' || currentView === 'practice'
+    ? 'modules'
+    : currentView === 'takingTest'
+    ? 'practiceTests'
+    : currentView === 'diagnosticReport'
+    ? 'practiceTests'
+    : currentView;
+
+  const handleNavClick = (item) => {
+    if (item.id === 'tutor' || item.id === 'profile') {
+      // These are new screens — for now, pass through to parent
+      onNavigate(item.id);
+    } else {
+      onNavigate(item.id);
+    }
+  };
+
+  return (
+    <div style={{
+      display: 'flex',
+      minHeight: '100vh',
+      fontFamily: typography.fontFamily,
+      backgroundColor: colors.surface.offWhite,
+    }}>
+      {/* Desktop Sidebar */}
+      {isDesktop && (
+        <aside role="navigation" aria-label="Desktop navigation" style={{
+          width: '240px',
+          backgroundColor: colors.surface.white,
+          borderRight: `1px solid ${colors.surface.grayDark}`,
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          bottom: 0,
+          display: 'flex',
+          flexDirection: 'column',
+          zIndex: zIndex.sticky,
+          transition: `width ${transitions.normal}`,
+        }}>
+          {/* Logo */}
+          <div style={{
+            padding: `${spacing.lg} ${spacing.lg}`,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '6px',
+            cursor: 'pointer',
+          }}
+            onClick={() => onNavigate('dashboard')}
+          >
+            <div style={{
+              width: '32px',
+              height: '32px',
+              background: `linear-gradient(135deg, ${colors.accent.orange} 0%, ${colors.accent.orangeHover} 100%)`,
+              borderRadius: '8px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: 'white',
+              fontSize: '14px',
+              fontWeight: '700',
+            }}>P</div>
+            <span style={{ fontSize: '18px', fontWeight: '600', color: colors.text.primary, letterSpacing: '-0.3px' }}>
+              Perform
+            </span>
+            <span style={{ fontSize: '18px', fontWeight: '700', color: colors.accent.orange, letterSpacing: '-0.3px' }}>
+              SAT
+            </span>
+          </div>
+
+          {/* Nav Items */}
+          <nav aria-label="Main navigation" style={{ flex: 1, padding: `${spacing.sm} ${spacing.sm}`, display: 'flex', flexDirection: 'column', gap: '4px' }}>
+            {NAV_ITEMS.map(item => {
+              const isActive = activeNavId === item.id;
+              const Icon = item.icon;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => handleNavClick(item)}
+                  aria-label={item.label}
+                  aria-current={isActive ? 'page' : undefined}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: spacing.sm,
+                    padding: `${spacing.sm} ${spacing.md}`,
+                    borderRadius: radius.md,
+                    border: 'none',
+                    background: isActive ? colors.accent.orangeLight : 'transparent',
+                    cursor: 'pointer',
+                    transition: `all ${transitions.fast}`,
+                    width: '100%',
+                    textAlign: 'left',
+                  }}
+                >
+                  <Icon active={isActive} />
+                  <span style={{
+                    fontSize: typography.sizes.base,
+                    fontWeight: isActive ? typography.weights.semibold : typography.weights.medium,
+                    color: isActive ? colors.accent.orange : colors.text.primary,
+                  }}>
+                    {item.label}
+                  </span>
+                </button>
+              );
+            })}
+          </nav>
+
+          {/* User section at bottom */}
+          {user && (
+            <div style={{
+              padding: spacing.lg,
+              borderTop: `1px solid ${colors.surface.grayDark}`,
+              display: 'flex',
+              alignItems: 'center',
+              gap: spacing.sm,
+            }}>
+              <div style={{
+                width: '36px',
+                height: '36px',
+                borderRadius: radius.full,
+                background: `linear-gradient(135deg, ${colors.accent.orange}, ${colors.accent.orangeHover})`,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'white',
+                fontSize: '14px',
+                fontWeight: '600',
+                flexShrink: 0,
+              }}>
+                {(user.firstName || user.email || '?')[0].toUpperCase()}
+              </div>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{
+                  fontSize: typography.sizes.sm,
+                  fontWeight: typography.weights.medium,
+                  color: colors.text.primary,
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap',
+                }}>
+                  {user.firstName || 'Student'}
+                </div>
+                <div style={{
+                  fontSize: typography.sizes.xs,
+                  color: colors.text.tertiary,
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap',
+                }}>
+                  {user.email}
+                </div>
+              </div>
+            </div>
+          )}
+        </aside>
+      )}
+
+      {/* Tablet Side Rail */}
+      {isTablet && (
+        <aside
+          role="navigation"
+          aria-label="Tablet navigation"
+          onMouseEnter={() => setSidebarExpanded(true)}
+          onMouseLeave={() => setSidebarExpanded(false)}
+          style={{
+            width: sidebarExpanded ? '240px' : '72px',
+            backgroundColor: colors.surface.white,
+            borderRight: `1px solid ${colors.surface.grayDark}`,
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            bottom: 0,
+            display: 'flex',
+            flexDirection: 'column',
+            zIndex: zIndex.sticky,
+            transition: `width ${transitions.normal}`,
+            overflow: 'hidden',
+          }}
+        >
+          {/* Logo */}
+          <div style={{
+            padding: `${spacing.lg} ${sidebarExpanded ? spacing.lg : spacing.md}`,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '6px',
+            cursor: 'pointer',
+            justifyContent: sidebarExpanded ? 'flex-start' : 'center',
+          }}
+            onClick={() => onNavigate('dashboard')}
+          >
+            <div style={{
+              width: '32px',
+              height: '32px',
+              background: `linear-gradient(135deg, ${colors.accent.orange} 0%, ${colors.accent.orangeHover} 100%)`,
+              borderRadius: '8px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: 'white',
+              fontSize: '14px',
+              fontWeight: '700',
+              flexShrink: 0,
+            }}>P</div>
+            {sidebarExpanded && (
+              <>
+                <span style={{ fontSize: '18px', fontWeight: '600', color: colors.text.primary }}>Perform</span>
+                <span style={{ fontSize: '18px', fontWeight: '700', color: colors.accent.orange }}>SAT</span>
+              </>
+            )}
+          </div>
+
+          {/* Nav Items */}
+          <nav aria-label="Main navigation" style={{ flex: 1, padding: `${spacing.sm} ${spacing.xs}`, display: 'flex', flexDirection: 'column', gap: '4px' }}>
+            {NAV_ITEMS.map(item => {
+              const isActive = activeNavId === item.id;
+              const Icon = item.icon;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => handleNavClick(item)}
+                  aria-label={item.label}
+                  aria-current={isActive ? 'page' : undefined}
+                  title={!sidebarExpanded ? item.label : undefined}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: spacing.sm,
+                    padding: `${spacing.sm} ${sidebarExpanded ? spacing.md : '0'}`,
+                    borderRadius: radius.md,
+                    border: 'none',
+                    background: isActive ? colors.accent.orangeLight : 'transparent',
+                    cursor: 'pointer',
+                    transition: `all ${transitions.fast}`,
+                    width: '100%',
+                    justifyContent: sidebarExpanded ? 'flex-start' : 'center',
+                  }}
+                >
+                  <Icon active={isActive} />
+                  {sidebarExpanded && (
+                    <span style={{
+                      fontSize: typography.sizes.base,
+                      fontWeight: isActive ? typography.weights.semibold : typography.weights.medium,
+                      color: isActive ? colors.accent.orange : colors.text.primary,
+                      whiteSpace: 'nowrap',
+                    }}>
+                      {item.label}
+                    </span>
+                  )}
+                </button>
+              );
+            })}
+          </nav>
+        </aside>
+      )}
+
+      {/* Main Content Area */}
+      <main style={{
+        flex: 1,
+        marginLeft: isDesktop ? '240px' : isTablet ? '72px' : 0,
+        marginBottom: isMobile ? '56px' : 0,
+        minHeight: '100vh',
+        transition: `margin-left ${transitions.normal}`,
+      }}>
+        {/* Mobile Header */}
+        {isMobile && (
+          <header style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: '56px',
+            backgroundColor: 'rgba(255, 255, 255, 0.85)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            borderBottom: `1px solid ${colors.surface.grayDark}`,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: zIndex.sticky,
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <div style={{
+                width: '24px',
+                height: '24px',
+                background: `linear-gradient(135deg, ${colors.accent.orange}, ${colors.accent.orangeHover})`,
+                borderRadius: '6px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'white',
+                fontSize: '11px',
+                fontWeight: '700',
+              }}>P</div>
+              <span style={{ fontSize: '16px', fontWeight: '600', color: colors.text.primary }}>Perform</span>
+              <span style={{ fontSize: '16px', fontWeight: '700', color: colors.accent.orange }}>SAT</span>
+            </div>
+          </header>
+        )}
+
+        {/* Content */}
+        <div style={{
+          paddingTop: isMobile ? '56px' : 0,
+        }}>
+          {children}
+        </div>
+      </main>
+
+      {/* Mobile Bottom Tab Bar */}
+      {isMobile && (
+        <nav
+          role="tablist"
+          aria-label="Main navigation"
+          style={{
+            position: 'fixed',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: '56px',
+            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            borderTop: `1px solid ${colors.surface.grayDark}`,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-around',
+            zIndex: zIndex.sticky,
+            paddingBottom: 'env(safe-area-inset-bottom, 0px)',
+          }}
+        >
+          {NAV_ITEMS.map(item => {
+            const isActive = activeNavId === item.id;
+            const Icon = item.icon;
+            return (
+              <button
+                key={item.id}
+                role="tab"
+                aria-selected={isActive}
+                aria-current={isActive ? 'page' : undefined}
+                aria-label={item.label}
+                onClick={() => handleNavClick(item)}
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: '2px',
+                  border: 'none',
+                  background: 'none',
+                  cursor: 'pointer',
+                  padding: '6px 12px',
+                  minWidth: '56px',
+                  transition: `all ${transitions.fast}`,
+                }}
+              >
+                <Icon active={isActive} />
+                <span style={{
+                  fontSize: '10px',
+                  fontWeight: isActive ? typography.weights.semibold : typography.weights.medium,
+                  color: isActive ? colors.accent.orange : colors.text.tertiary,
+                  lineHeight: 1,
+                }}>
+                  {item.label}
+                </span>
+              </button>
+            );
+          })}
+        </nav>
+      )}
+    </div>
+  );
+};
+
+export { useViewport };
+export default AppShell;

@@ -8,6 +8,7 @@ import {
   buildSkillContextForAI
 } from '../services/proactiveRecommendationService';
 import { getSkillById } from '../data/skillTaxonomy';
+import { colors as designColors, typography as designTypo, shadows as designShadows } from '../design/tokens';
 
 // Comprehensive markdown renderer for chat messages with full math/LaTeX support
 const renderMarkdown = (text) => {
@@ -226,22 +227,22 @@ const renderMarkdown = (text) => {
   return <>{elements}</>;
 };
 
-// Apple-inspired design system
+// Design system — sourced from shared tokens
 const design = {
   colors: {
     text: {
-      primary: '#1d1d1f',
-      secondary: '#6e6e73',
-      tertiary: '#86868b',
+      primary: designColors.text.primary,
+      secondary: designColors.text.secondary,
+      tertiary: designColors.text.tertiary,
     },
     accent: {
-      primary: '#0071e3',
-      orange: '#ea580c',
+      primary: designColors.semantic.info,
+      orange: designColors.accent.orange,
     },
     surface: {
-      primary: '#ffffff',
-      secondary: '#f5f5f7',
-      tertiary: '#fbfbfd',
+      primary: designColors.surface.white,
+      secondary: designColors.surface.gray,
+      tertiary: designColors.surface.offWhite,
     },
     border: {
       light: 'rgba(0,0,0,0.06)',
@@ -249,12 +250,12 @@ const design = {
     }
   },
   typography: {
-    fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif',
+    fontFamily: designTypo.fontFamily,
   },
   shadow: {
-    small: '0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06)',
-    medium: '0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04)',
-    large: '0 8px 28px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.04)',
+    small: designShadows.sm,
+    medium: designShadows.md,
+    large: designShadows.lg,
   }
 };
 
@@ -272,7 +273,8 @@ const AiTutorChat = ({
   skillProgress = null,
   testDate = null,
   user = null,
-  practiceTestResults = null
+  practiceTestResults = null,
+  standalone = false
 }) => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
@@ -709,16 +711,17 @@ Your goal is to build their problem-solving instincts. Every question they solve
       aria-modal="false"
       style={{
         marginTop: '0px',
-        borderRadius: '20px',
+        borderRadius: standalone ? '16px' : '20px',
         background: design.colors.surface.primary,
-        boxShadow: design.shadow.large,
+        boxShadow: standalone ? 'none' : design.shadow.large,
         overflow: 'hidden',
         fontFamily: design.typography.fontFamily,
-        animation: 'chatSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+        animation: standalone ? 'fadeIn 0.3s ease' : 'chatSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
         border: `1px solid ${design.colors.border.light}`,
         display: 'flex',
         flexDirection: 'column',
-        height: '100%',
+        height: standalone ? 'calc(100vh - 160px)' : '100%',
+        minHeight: standalone ? '500px' : undefined,
       }}
     >
       {/* Header */}

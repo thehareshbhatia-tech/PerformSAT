@@ -1,4 +1,6 @@
 import React, { useState, useMemo } from 'react';
+import { colors as designColors, typography, spacing, radius, transitions, breakpoints } from '../design/tokens';
+import { cardStyles, buttonStyles } from '../design/components';
 
 /**
  * StudyPlanDashboard — Compact study plan widget for the StudentDashboard.
@@ -24,6 +26,14 @@ const StudyPlanDashboard = ({
   onUncompleteActivity,
 }) => {
   const [expandedWeek, setExpandedWeek] = useState(null);
+
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
+  React.useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  const isMobile = windowWidth < 768;
 
   // If no study plan, show a prompt
   if (!studyPlan || !studyPlan.weeks || studyPlan.weeks.length === 0) {
@@ -169,13 +179,20 @@ const StudyPlanDashboard = ({
       </div>
 
       {/* Progress bar */}
-      <div style={{
-        height: '6px',
-        background: '#f3f4f6',
-        borderRadius: '3px',
-        marginBottom: '20px',
-        overflow: 'hidden',
-      }}>
+      <div
+        role="progressbar"
+        aria-valuenow={progressPercent}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-label={`Study plan progress: ${progressPercent}%`}
+        style={{
+          height: '6px',
+          background: '#f3f4f6',
+          borderRadius: '3px',
+          marginBottom: '20px',
+          overflow: 'hidden',
+        }}
+      >
         <div style={{
           height: '100%',
           width: `${progressPercent}%`,
@@ -189,27 +206,27 @@ const StudyPlanDashboard = ({
       {summary?.stats && (
         <div style={{
           display: 'flex',
-          gap: '16px',
+          gap: '12px',
           marginBottom: '20px',
           flexWrap: 'wrap',
         }}>
           {summary.stats.weeksInPlan && (
-            <div style={{ fontSize: '12px', color: '#6b7280' }}>
+            <div style={{ fontSize: '12px', color: '#6b7280', minWidth: isMobile ? '45%' : 'auto' }}>
               <span style={{ fontWeight: '600', color: '#111827' }}>{summary.stats.weeksInPlan}</span> weeks
             </div>
           )}
           {summary.stats.totalLessons > 0 && (
-            <div style={{ fontSize: '12px', color: '#6b7280' }}>
+            <div style={{ fontSize: '12px', color: '#6b7280', minWidth: isMobile ? '45%' : 'auto' }}>
               <span style={{ fontWeight: '600', color: '#111827' }}>{summary.stats.totalLessons}</span> lessons
             </div>
           )}
           {summary.stats.totalPractice > 0 && (
-            <div style={{ fontSize: '12px', color: '#6b7280' }}>
+            <div style={{ fontSize: '12px', color: '#6b7280', minWidth: isMobile ? '45%' : 'auto' }}>
               <span style={{ fontWeight: '600', color: '#111827' }}>{summary.stats.totalPractice}</span> practice sets
             </div>
           )}
           {summary.stats.minutesPerDay && (
-            <div style={{ fontSize: '12px', color: '#6b7280' }}>
+            <div style={{ fontSize: '12px', color: '#6b7280', minWidth: isMobile ? '45%' : 'auto' }}>
               <span style={{ fontWeight: '600', color: '#111827' }}>{summary.stats.minutesPerDay}</span> min/day
             </div>
           )}
@@ -234,6 +251,8 @@ const StudyPlanDashboard = ({
               {/* Week header */}
               <button
                 onClick={() => setExpandedWeek(isExpanded ? null : weekIdx)}
+                aria-expanded={isExpanded}
+                aria-label={`Week ${week.weekNumber}: ${week.title || `Week ${week.weekNumber}`}, ${weekCompleted} of ${weekTotal} activities completed`}
                 style={{
                   width: '100%',
                   padding: '14px 16px',
@@ -356,6 +375,7 @@ const StudyPlanDashboard = ({
                             cursor: 'pointer',
                             opacity: isCompleted ? 0.7 : 1,
                             transition: 'all 0.15s ease',
+                            minWidth: 0,
                           }}
                           onClick={() => handleActivityClick(activity, weekIdx, actIdx)}
                           onMouseEnter={(e) => {
@@ -368,6 +388,9 @@ const StudyPlanDashboard = ({
                           {/* Checkbox */}
                           <button
                             onClick={(e) => handleToggleComplete(e, weekIdx, actIdx, isCompleted)}
+                            role="checkbox"
+                            aria-checked={isCompleted}
+                            aria-label={`Mark "${activity.title}" as ${isCompleted ? 'incomplete' : 'complete'}`}
                             style={{
                               width: '22px',
                               height: '22px',
