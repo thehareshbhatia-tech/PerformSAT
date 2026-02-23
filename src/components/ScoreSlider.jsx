@@ -1,55 +1,6 @@
-import React, { useEffect } from 'react';
-import { colors, radius, shadows, transitions } from '../design/tokens';
-import { cardStyles } from '../design/components';
-
-// Inject slider styles once
-const injectSliderStyles = () => {
-  const styleId = 'score-slider-styles';
-  if (document.getElementById(styleId)) return;
-
-  const style = document.createElement('style');
-  style.id = styleId;
-  style.textContent = `
-    input[type="range"].score-slider::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: ${colors.surface.dark};
-      cursor: grab;
-      border: 4px solid ${colors.surface.white};
-      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-      margin-top: -10px;
-    }
-    input[type="range"].score-slider::-webkit-slider-thumb:active {
-      cursor: grabbing;
-      transform: scale(1.1);
-    }
-    input[type="range"].score-slider::-moz-range-thumb {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: ${colors.surface.dark};
-      cursor: grab;
-      border: 4px solid ${colors.surface.white};
-      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-    }
-    input[type="range"].score-slider::-moz-range-thumb:active {
-      cursor: grabbing;
-      transform: scale(1.1);
-    }
-    input[type="range"].score-slider::-webkit-slider-runnable-track {
-      height: 8px;
-      border-radius: 4px;
-    }
-    input[type="range"].score-slider::-moz-range-track {
-      height: 8px;
-      border-radius: 4px;
-    }
-  `;
-  document.head.appendChild(style);
-};
+import React from 'react';
+import { PrimaryButton, SecondaryButton } from './ui/Button';
+import { DataCard } from './ui/DataCard';
 
 const ScoreSlider = ({
   value,
@@ -62,19 +13,8 @@ const ScoreSlider = ({
   onSave,
   onCancel
 }) => {
-  // Inject CSS styles for slider thumb on mount
-  useEffect(() => {
-    injectSliderStyles();
-  }, []);
-
   // Calculate percentage for visual track fill
   const percent = ((value - min) / (max - min)) * 100;
-
-  const cardStyle = {
-    ...cardStyles.subtle,
-    padding: '28px',
-    marginBottom: '24px'
-  };
 
   const sliderStyle = {
     WebkitAppearance: 'none',
@@ -82,38 +22,37 @@ const ScoreSlider = ({
     appearance: 'none',
     width: '100%',
     height: '8px',
-    borderRadius: '4px',
-    background: `linear-gradient(to right, ${colors.surface.dark} 0%, ${colors.surface.dark} ${percent}%, ${colors.surface.grayDark} ${percent}%, ${colors.surface.grayDark} 100%)`,
+    borderRadius: 'var(--radius-md)',
+    background: `linear-gradient(to right, var(--color-brand-orange-500) 0%, var(--color-brand-orange-500) ${percent}%, var(--color-slate-200) ${percent}%, var(--color-slate-200) 100%)`,
     outline: 'none',
     cursor: 'pointer',
     margin: '0'
   };
 
   return (
-    <div style={cardStyle}>
+    <DataCard className="mb-6">
       {/* Header with Cancel button */}
       <div style={{
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'flex-start',
-        marginBottom: '24px'
+        marginBottom: '1.5rem'
       }}>
         <div>
-          <div style={{ fontSize: '18px', fontWeight: '600', color: colors.text.primary }}>
+          <div style={{ fontSize: '1.125rem', fontWeight: '600', color: 'var(--color-slate-900)' }}>
             {label}
           </div>
-          <div style={{ fontSize: '13px', color: colors.text.secondary, marginTop: '4px' }}>
+          <div style={{ fontSize: '0.875rem', color: 'var(--color-slate-500)', marginTop: '0.25rem' }}>
             {description}
           </div>
         </div>
         <button
           onClick={onCancel}
           style={{
-            padding: '6px 12px',
             background: 'transparent',
-            color: colors.text.secondary,
+            color: 'var(--color-slate-500)',
             border: 'none',
-            fontSize: '14px',
+            fontSize: '0.875rem',
             cursor: 'pointer'
           }}
         >
@@ -123,12 +62,13 @@ const ScoreSlider = ({
 
       {/* Large score display */}
       <div style={{
-        fontSize: '56px',
+        fontSize: '3.5rem',
         fontWeight: '700',
         textAlign: 'center',
-        color: colors.text.primary,
-        marginBottom: '24px',
-        fontVariantNumeric: 'tabular-nums'
+        color: 'var(--color-brand-orange-500)',
+        marginBottom: '1.5rem',
+        fontVariantNumeric: 'tabular-nums',
+        textShadow: 'var(--shadow-brand-glow)'
       }}>
         {value}
       </div>
@@ -137,20 +77,19 @@ const ScoreSlider = ({
       <div style={{
         display: 'flex',
         alignItems: 'center',
-        gap: '16px',
-        marginBottom: '24px'
+        gap: '1rem',
+        marginBottom: '1.5rem'
       }}>
         <span style={{
-          fontSize: '13px',
-          color: colors.text.secondary,
+          fontSize: '0.875rem',
+          color: 'var(--color-slate-500)',
           fontWeight: '500',
-          minWidth: '32px'
+          minWidth: '2rem'
         }}>
           {min}
         </span>
         <input
           type="range"
-          className="score-slider"
           min={min}
           max={max}
           step={step}
@@ -159,10 +98,10 @@ const ScoreSlider = ({
           style={sliderStyle}
         />
         <span style={{
-          fontSize: '13px',
-          color: colors.text.secondary,
+          fontSize: '0.875rem',
+          color: 'var(--color-slate-500)',
           fontWeight: '500',
-          minWidth: '36px'
+          minWidth: '2rem'
         }}>
           {max}
         </span>
@@ -170,26 +109,11 @@ const ScoreSlider = ({
 
       {/* Save button */}
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <button
-          onClick={onSave}
-          style={{
-            padding: '10px 24px',
-            background: colors.surface.dark,
-            color: colors.text.inverse,
-            border: 'none',
-            borderRadius: radius.sm,
-            fontSize: '14px',
-            fontWeight: '600',
-            cursor: 'pointer',
-            transition: `background ${transitions.fast}`
-          }}
-          onMouseEnter={(e) => e.target.style.background = colors.text.secondary}
-          onMouseLeave={(e) => e.target.style.background = colors.surface.dark}
-        >
+        <PrimaryButton onClick={onSave}>
           Save
-        </button>
+        </PrimaryButton>
       </div>
-    </div>
+    </DataCard>
   );
 };
 

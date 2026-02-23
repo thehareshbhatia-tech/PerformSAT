@@ -1,0 +1,61 @@
+:root {
+  /* Neutrals (Apple-style) */
+  --color-white: #FFFFFF;
+  --color-slate-50: #F5F5F7;  /* Apple System Background Secondary */
+  --color-slate-100: #E5E5EA; /* Apple Gray 5 */
+  --color-slate-200: #D1D1D6; /* Apple Gray 4 */
+  --color-slate-300: #C7C7CC; /* Apple Gray 3 */
+  --color-slate-400: #AEAEB2; /* Apple Gray 2 */
+  --color-slate-500: #8E8E93; /* Apple Gray 1 */
+  --color-slate-600: #636366; 
+  --color-slate-700: #48484A;
+  --color-slate-800: #3A3A3C;
+  --color-slate-900: #1D1D1F; /* Apple Primary Text */
+
+  /* Brand (Apple System Orange inspired) */
+  --color-brand-orange-400: #FF9F0A;
+  --color-brand-orange-500: #FF9500;
+  --color-brand-orange-600: #FF8A00;
+  --color-brand-amber-400: #FFCC00;
+  --color-brand-peach-100: #FFF5E5;
+
+  /* Semantic */
+  --color-success-100: #E3F8E5;
+  --color-success-600: #34C759;
+  --color-warning-100: #FFF8D6;
+  --color-warning-600: #FFCC00;
+  --color-error-100: #FFEBEB;
+  --color-error-600: #FF3B30;
+  --color-info-100: #E5F0FF;
+  --color-info-600: #007AFF;
+
+  /* Gradients (Smooth & Refined) */
+  --gradient-brand-primary: linear-gradient(135deg, #FF9F0A 0%, #FF5E3A 100%);
+  --gradient-brand-warm: linear-gradient(135deg, #FFF5E5 0%, #FFF0D4 100%);
+  
+  /* Shadows (Ultra-diffuse Apple style) */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.03);
+  --shadow-brand-glow: 0 8px 24px rgba(255, 149, 0, 0.25);
+
+  /* Typography (San Francisco) */
+  --font-ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+  --font-reading: "New York", Georgia, serif;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+}
+
+body {
+  font-family: var(--font-ui);
+  background-color: var(--color-slate-50);
+  color: var(--color-slate-900);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

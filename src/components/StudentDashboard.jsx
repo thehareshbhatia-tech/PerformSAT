@@ -5,10 +5,10 @@ import ScoreSlider from './ScoreSlider';
 import CollegePicker from './CollegePicker';
 import StudyPlanDashboard from './StudyPlanDashboard';
 import DashboardDiagnosticWidget from './DashboardDiagnosticWidget';
-import { colors, typography, spacing, radius, shadows, transitions, breakpoints } from '../design/tokens';
-import { cardStyles, buttonStyles } from '../design/components';
 import { PlayIcon, ChartBarIcon, TrendingUpIcon } from '../design/icons';
 import { injectAnimations, useCountUp } from '../design/animations';
+import { DataCard } from './ui/DataCard';
+import { PrimaryButton, SecondaryButton } from './ui/Button';
 
 // Official SAT Test Dates (from College Board)
 const SAT_TEST_DATES = [
@@ -20,12 +20,8 @@ const SAT_TEST_DATES = [
   { name: 'October 2026 SAT', date: '2026-10-03' },
   { name: 'November 2026 SAT', date: '2026-11-07' },
   { name: 'December 2026 SAT', date: '2026-12-05' },
-  { name: 'March 2027 SAT', date: '2027-03-13' },
-  { name: 'May 2027 SAT', date: '2027-05-01' },
-  { name: 'June 2027 SAT', date: '2027-06-05' },
 ];
 
-// Module data
 const MODULES = [
   { id: 'linear-equations', title: 'Linear Equations', lessonCount: 24 },
   { id: 'functions', title: 'Functions', lessonCount: 10 },
@@ -45,8 +41,7 @@ const MODULES = [
 
 const TOTAL_LESSONS = 199;
 
-// Simple donut chart component
-const DonutChart = ({ percent, size = 120, strokeWidth = 10, color = colors.semantic.success }) => {
+const DonutChart = ({ percent, size = 120, strokeWidth = 10, color = 'var(--color-success-600)' }) => {
   const radius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (percent / 100) * circumference;
@@ -58,7 +53,7 @@ const DonutChart = ({ percent, size = 120, strokeWidth = 10, color = colors.sema
         cy={size / 2}
         r={radius}
         fill="none"
-        stroke={colors.surface.grayDark}
+        stroke="var(--color-slate-200)"
         strokeWidth={strokeWidth}
       />
       <circle
@@ -106,50 +101,42 @@ const StudentDashboard = ({
   const [tempTargetScore, setTempTargetScore] = useState(user?.targetScore || 600);
   const [tempCurrentScore, setTempCurrentScore] = useState(user?.currentScore || 500);
 
-  // Filter to only show future SAT dates
   const getUpcomingSATDates = () => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     return SAT_TEST_DATES.filter(sat => new Date(sat.date) >= today);
   };
 
-  // Get the SAT test name from a date
   const getSATNameFromDate = (dateStr) => {
     const sat = SAT_TEST_DATES.find(s => s.date === dateStr);
     return sat ? sat.name : null;
   };
 
-  // Calculate total completed
-  const totalCompleted = Object.values(completedLessons).filter(l => l?.completed).length;
+  const totalCompleted = Object.values(completedLessons || {}).filter(l => l?.completed).length;
   const completionPercent = Math.round((totalCompleted / TOTAL_LESSONS) * 100);
 
-  // Get completed count per module
   const getModuleCompleted = (moduleId) => {
-    return Object.keys(completedLessons).filter(key =>
+    return Object.keys(completedLessons || {}).filter(key =>
       key.startsWith(`${moduleId}-`) && completedLessons[key]?.completed
     ).length;
   };
 
-  // Calculate module progress for strongest/weakest
   const moduleProgress = MODULES.map(m => ({
     ...m,
     completed: getModuleCompleted(m.id),
     percent: Math.round((getModuleCompleted(m.id) / m.lessonCount) * 100)
   }));
 
-  // Get practice stats
   const practiceEntries = Object.entries(practiceProgress || {});
   const totalPracticed = practiceEntries.length;
   const totalCorrect = practiceEntries.reduce((sum, [_, p]) => sum + (p.bestScore || 0), 0);
   const totalQuestions = totalPracticed * 5;
   const practicePercent = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
 
-  // Calculate projected SAT score from practice tests
   const calculateProjectedScore = () => {
     if (!practiceTestResults || Object.keys(practiceTestResults).length === 0) {
       return { score: null, testsCount: 0 };
     }
-
     const tests = Object.values(practiceTestResults)
       .filter(t => t.bestScaledScore)
       .sort((a, b) => {
@@ -157,20 +144,16 @@ const StudentDashboard = ({
         const dateB = b.lastAttemptAt?.toDate?.() || new Date(b.lastAttemptAt);
         return dateB - dateA;
       });
-
     if (tests.length === 0) return { score: null, testsCount: 0 };
-
     const recentTests = tests.slice(0, 3);
     const weights = [0.5, 0.3, 0.2];
     let totalWeight = 0;
     let weightedSum = 0;
-
     recentTests.forEach((test, i) => {
       const weight = weights[i] || 0.2;
       weightedSum += test.bestScaledScore * weight;
       totalWeight += weight;
     });
-
     return {
       score: Math.round(weightedSum / totalWeight),
       testsCount: tests.length
@@ -179,7 +162,6 @@ const StudentDashboard = ({
 
   const { score: projectedScore, testsCount: projectedTestsCount } = calculateProjectedScore();
 
-  // Find strongest and weakest modules (only those with progress)
   const startedModules = moduleProgress.filter(m => m.completed > 0);
   const strongest = startedModules.length > 0
     ? startedModules.reduce((a, b) => a.percent > b.percent ? a : b)
@@ -188,7 +170,6 @@ const StudentDashboard = ({
     ? startedModules.reduce((a, b) => a.percent < b.percent ? a : b)
     : null;
 
-  // Calculate days until test
   const getDaysUntilTest = () => {
     if (!user?.testDate) return null;
     const testDate = new Date(user.testDate);
@@ -196,13 +177,10 @@ const StudentDashboard = ({
     today.setHours(0, 0, 0, 0);
     testDate.setHours(0, 0, 0, 0);
     const diffTime = testDate - today;
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    return diffDays;
+    return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   };
-
   const daysUntilTest = getDaysUntilTest();
 
-  // Generate prescriptive recommendations
   const recommendations = useMemo(() => {
     return generateRecommendations({
       completedLessons,
@@ -213,15 +191,6 @@ const StudentDashboard = ({
     });
   }, [completedLessons, practiceProgress, reviewQueue, user?.testDate, allLessons]);
 
-  // Handle target score selection (legacy - kept for backwards compatibility)
-  const handleSelectTargetScore = (score) => {
-    if (score && onUpdateTargetScore) {
-      onUpdateTargetScore(score);
-    }
-    setShowTargetPicker(false);
-  };
-
-  // Handle target schools selection
   const handleSelectTargetSchools = (schools) => {
     if (schools && schools.length > 0 && onUpdateTargetSchools) {
       onUpdateTargetSchools(schools);
@@ -229,7 +198,6 @@ const StudentDashboard = ({
     setShowTargetPicker(false);
   };
 
-  // Handle current score selection
   const handleSelectCurrentScore = (score) => {
     if (score && onUpdateCurrentScore) {
       onUpdateCurrentScore(score);
@@ -237,12 +205,8 @@ const StudentDashboard = ({
     setShowCurrentScorePicker(false);
   };
 
-
-  // Handle recommendation click
   const handleRecommendationClick = (rec) => {
-    console.log('Recommendation clicked:', rec);
     if (!rec || !rec.action) return;
-
     if (rec.action.type === 'startPractice' && onStartPractice) {
       onStartPractice(rec.action.moduleId, rec.action.sectionName);
     } else if (rec.action.type === 'startReview' && onStartReview) {
@@ -250,8 +214,7 @@ const StudentDashboard = ({
     } else if (rec.action.type === 'startLesson' && onNavigateToModule) {
       onNavigateToModule(rec.action.moduleId);
     } else if (rec.action.type === 'browseModules') {
-      // Navigate to modules view
-      onNavigateToModule && onNavigateToModule('linear-equations'); // Default to first module
+      onNavigateToModule && onNavigateToModule('linear-equations');
     }
   };
 
@@ -269,19 +232,16 @@ const StudentDashboard = ({
     setShowDatePicker(false);
   };
 
-  // Inject animations on mount
   useEffect(() => { injectAnimations(); }, []);
 
-  // Responsive hook
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  const isMobile = windowWidth < breakpoints.tablet;
+  const isMobile = windowWidth < 768;
 
-  // Time-of-day greeting
   const getGreeting = () => {
     const hour = new Date().getHours();
     if (hour < 12) return 'Good morning';
@@ -289,77 +249,72 @@ const StudentDashboard = ({
     return 'Good evening';
   };
 
-  // Animated score count-up for hero
   const animatedScore = useCountUp(projectedScore || user?.currentScore || 0, 800, 300);
 
-  // Score Ring SVG component for hero
   const ScoreRing = ({ score, target, size = 120 }) => {
-    const strokeWidth = 8;
+    const strokeWidth = 10;
     const r = (size - strokeWidth) / 2;
     const circumference = 2 * Math.PI * r;
     const progress = target ? Math.min((score || 0) / target, 1) : 0;
     const offset = circumference - progress * circumference;
 
     return (
-      <svg width={size} height={size} role="progressbar" aria-valuenow={score || 0} aria-valuemax={target || 800} aria-label={`Score: ${score || 0} out of ${target || 800}`} style={{ transform: 'rotate(-90deg)' }}>
-        <circle cx={size/2} cy={size/2} r={r} fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth={strokeWidth} />
+      <svg width={size} height={size} role="progressbar" style={{ transform: 'rotate(-90deg)' }}>
+        <circle cx={size/2} cy={size/2} r={r} fill="none" stroke="var(--color-slate-100)" strokeWidth={strokeWidth} />
         <circle
           cx={size/2} cy={size/2} r={r} fill="none"
-          stroke={colors.accent.orange}
+          stroke="url(#orange-gradient)"
           strokeWidth={strokeWidth}
           strokeDasharray={circumference}
           strokeDashoffset={offset}
           strokeLinecap="round"
-          style={{ transition: 'stroke-dashoffset 1s ease-in-out' }}
+          style={{ transition: 'stroke-dashoffset 1s cubic-bezier(0.25, 0.1, 0.25, 1)' }}
         />
+        <defs>
+          <linearGradient id="orange-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="var(--color-brand-orange-400)" />
+            <stop offset="100%" stopColor="var(--color-brand-orange-600)" />
+          </linearGradient>
+        </defs>
       </svg>
     );
   };
 
   return (
-    <div style={{ maxWidth: '960px', margin: '0 auto' }}>
+    <div style={{ maxWidth: '1200px', margin: '0 auto', fontFamily: 'var(--font-ui)' }}>
       {/* Greeting */}
       <h1 style={{
-        fontSize: typography.sizes['2xl'],
-        fontWeight: typography.weights.bold,
-        color: colors.text.primary,
-        marginBottom: spacing.lg,
-        fontFamily: typography.fontFamily,
+        fontSize: '2rem',
+        fontWeight: '700',
+        letterSpacing: '-0.03em',
+        color: 'var(--color-slate-900)',
+        marginBottom: '1.5rem',
       }}>
-        {getGreeting()}, {user?.firstName || 'Student'}
+        {getGreeting()}{user?.firstName ? `, ${user.firstName}` : ''}
       </h1>
 
-      {/* Score Hero Card */}
+      {/* Score Hero Card - Apple Style (Clean, White, Content-First) */}
       <div style={{
-        ...cardStyles.dark,
-        marginBottom: spacing.lg,
-        padding: isMobile ? spacing.lg : spacing.xl,
+        background: 'var(--color-white)',
+        borderRadius: 'var(--radius-2xl)',
+        boxShadow: 'var(--shadow-md)',
+        border: '1px solid rgba(0, 0, 0, 0.04)',
+        marginBottom: '1.5rem',
+        padding: isMobile ? '1.5rem' : '2rem',
         display: 'flex',
         alignItems: isMobile ? 'flex-start' : 'center',
         flexDirection: isMobile ? 'column' : 'row',
-        gap: spacing.lg,
-        animation: 'fadeInUp 500ms ease',
+        gap: '2.5rem',
         position: 'relative',
         overflow: 'hidden',
+        color: 'var(--color-slate-900)'
       }}>
-        {/* Background glow */}
-        <div style={{
-          position: 'absolute',
-          top: '-50%',
-          right: '-20%',
-          width: '300px',
-          height: '300px',
-          borderRadius: '50%',
-          background: `radial-gradient(circle, rgba(234,88,12,0.15) 0%, transparent 70%)`,
-          pointerEvents: 'none',
-        }} />
-
         {/* Score Ring */}
         <div style={{ position: 'relative', flexShrink: 0 }}>
           <ScoreRing
             score={projectedScore || user?.currentScore || 0}
             target={user?.targetScore || 800}
-            size={isMobile ? 100 : 120}
+            size={isMobile ? 120 : 160}
           />
           <div style={{
             position: 'absolute',
@@ -369,17 +324,20 @@ const StudentDashboard = ({
             textAlign: 'center',
           }}>
             <div style={{
-              fontSize: isMobile ? typography.sizes['2xl'] : typography.sizes['3xl'],
-              fontWeight: typography.weights.bold,
-              color: colors.text.inverse,
+              fontSize: isMobile ? '2.25rem' : '2.75rem',
+              fontWeight: '700',
               lineHeight: 1,
+              letterSpacing: '-0.03em',
             }}>
               {animatedScore || '--'}
             </div>
             <div style={{
-              fontSize: typography.sizes.xs,
-              color: 'rgba(255,255,255,0.6)',
-              marginTop: '2px',
+              fontSize: '0.8125rem',
+              color: 'var(--color-slate-500)',
+              fontWeight: '500',
+              marginTop: '4px',
+              textTransform: 'uppercase',
+              letterSpacing: '0.04em'
             }}>
               {projectedScore ? 'Projected' : 'Current'}
             </div>
@@ -388,57 +346,41 @@ const StudentDashboard = ({
 
         {/* Score Details */}
         <div style={{ flex: 1, zIndex: 1 }}>
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: spacing.xs, marginBottom: spacing.xs }}>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem', marginBottom: '0.5rem' }}>
             {user?.targetScore && (
-              <span style={{
-                fontSize: typography.sizes.md,
-                color: 'rgba(255,255,255,0.7)',
-              }}>
-                Target: <strong style={{ color: colors.text.inverse }}>{user.targetScore}</strong>
+              <span style={{ fontSize: '1.25rem', fontWeight: '500', letterSpacing: '-0.01em', color: 'var(--color-slate-700)' }}>
+                Target: <strong style={{ color: 'var(--color-slate-900)' }}>{user.targetScore}</strong>
               </span>
             )}
             {user?.targetScore && (projectedScore || user?.currentScore) && (
               <span style={{
-                fontSize: typography.sizes.sm,
-                color: colors.accent.orange,
-                fontWeight: typography.weights.semibold,
+                fontSize: '0.875rem',
+                background: 'var(--color-brand-peach-100)',
+                color: 'var(--color-brand-orange-600)',
+                padding: '0.25rem 0.75rem',
+                borderRadius: 'var(--radius-full)',
+                fontWeight: '600',
+                letterSpacing: '-0.01em'
               }}>
                 {user.targetScore - (projectedScore || user.currentScore || 0)} points to go
               </span>
             )}
           </div>
 
-          {/* Quick stats row */}
-          <div style={{
-            display: 'flex',
-            gap: isMobile ? spacing.md : spacing.xl,
-            flexWrap: 'wrap',
-          }}>
+          <div style={{ display: 'flex', gap: isMobile ? '1.5rem' : '3rem', flexWrap: 'wrap', marginTop: '1.5rem' }}>
             {daysUntilTest !== null && daysUntilTest > 0 && (
               <div>
-                <div style={{ fontSize: typography.sizes.xl, fontWeight: typography.weights.bold, color: colors.text.inverse }}>
-                  {daysUntilTest}
-                </div>
-                <div style={{ fontSize: typography.sizes.xs, color: 'rgba(255,255,255,0.5)' }}>
-                  days until test
-                </div>
+                <div style={{ fontSize: '1.75rem', fontWeight: '700', letterSpacing: '-0.02em', color: 'var(--color-slate-900)' }}>{daysUntilTest}</div>
+                <div style={{ fontSize: '0.8125rem', color: 'var(--color-slate-500)', fontWeight: '500' }}>days to test</div>
               </div>
             )}
             <div>
-              <div style={{ fontSize: typography.sizes.xl, fontWeight: typography.weights.bold, color: colors.text.inverse }}>
-                {projectedTestsCount || 0}
-              </div>
-              <div style={{ fontSize: typography.sizes.xs, color: 'rgba(255,255,255,0.5)' }}>
-                tests taken
-              </div>
+              <div style={{ fontSize: '1.75rem', fontWeight: '700', letterSpacing: '-0.02em', color: 'var(--color-slate-900)' }}>{projectedTestsCount || 0}</div>
+              <div style={{ fontSize: '0.8125rem', color: 'var(--color-slate-500)', fontWeight: '500' }}>tests taken</div>
             </div>
             <div>
-              <div style={{ fontSize: typography.sizes.xl, fontWeight: typography.weights.bold, color: colors.text.inverse }}>
-                {completionPercent}%
-              </div>
-              <div style={{ fontSize: typography.sizes.xs, color: 'rgba(255,255,255,0.5)' }}>
-                lessons done
-              </div>
+              <div style={{ fontSize: '1.75rem', fontWeight: '700', letterSpacing: '-0.02em', color: 'var(--color-slate-900)' }}>{completionPercent}%</div>
+              <div style={{ fontSize: '0.8125rem', color: 'var(--color-slate-500)', fontWeight: '500' }}>lessons done</div>
             </div>
           </div>
         </div>
@@ -447,390 +389,173 @@ const StudentDashboard = ({
       {/* Quick Actions Row */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr 1fr 1fr' : 'repeat(3, 1fr)',
-        gap: spacing.sm,
-        marginBottom: spacing.lg,
+        gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
+        gap: '1rem',
+        marginBottom: '2rem',
       }}>
-        {/* Continue / Take Test */}
-        <button
-          onClick={onStartPracticeTest}
-          aria-label={projectedTestsCount > 0 ? 'Next Test' : 'Take Test'}
-          style={{
-            ...cardStyles.interactive,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: spacing.xs,
-            padding: spacing.md,
-            textAlign: 'center',
-          }}
-        >
-          <span aria-hidden="true"><PlayIcon size={24} color="currentColor" /></span>
-          <span style={{
-            fontSize: isMobile ? typography.sizes.xs : typography.sizes.sm,
-            fontWeight: typography.weights.medium,
-            color: colors.text.primary,
-          }}>
-            {projectedTestsCount > 0 ? 'Next Test' : 'Take Test'}
-          </span>
-        </button>
+        <DataCard hoverable onClick={onStartPracticeTest} style={{ cursor: 'pointer', textAlign: 'center', padding: '1.5rem' }}>
+          <div style={{ color: 'var(--color-brand-orange-500)', marginBottom: '0.5rem' }}>
+            <PlayIcon size={32} color="currentColor" />
+          </div>
+          <div style={{ fontWeight: '600', color: 'var(--color-slate-800)' }}>
+            {projectedTestsCount > 0 ? 'Take Next Test' : 'Take First Test'}
+          </div>
+        </DataCard>
 
-        {/* Review Mistakes */}
-        <button
-          onClick={onStartReview || (() => {})}
-          aria-label={dueReviewCount > 0 ? `Review ${dueReviewCount} items` : 'Review mistakes'}
-          style={{
-            ...cardStyles.interactive,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: spacing.xs,
-            padding: spacing.md,
-            textAlign: 'center',
-          }}
-        >
-          <span aria-hidden="true"><ChartBarIcon size={24} color="currentColor" /></span>
-          <span style={{
-            fontSize: isMobile ? typography.sizes.xs : typography.sizes.sm,
-            fontWeight: typography.weights.medium,
-            color: colors.text.primary,
-          }}>
-            {dueReviewCount > 0 ? `Review (${dueReviewCount})` : 'Review'}
-          </span>
-        </button>
+        <DataCard hoverable onClick={onStartReview || (() => {})} style={{ cursor: 'pointer', textAlign: 'center', padding: '1.5rem' }}>
+          <div style={{ color: 'var(--color-brand-orange-500)', marginBottom: '0.5rem' }}>
+            <ChartBarIcon size={32} color="currentColor" />
+          </div>
+          <div style={{ fontWeight: '600', color: 'var(--color-slate-800)' }}>
+            {dueReviewCount > 0 ? `Review Mistakes (${dueReviewCount})` : 'Review Mistakes'}
+          </div>
+        </DataCard>
 
-        {/* View Diagnosis */}
-        <button
-          onClick={onViewFullDiagnosis || (() => {})}
-          aria-label="View diagnostic report"
-          style={{
-            ...cardStyles.interactive,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: spacing.xs,
-            padding: spacing.md,
-            textAlign: 'center',
-          }}
-        >
-          <span aria-hidden="true"><TrendingUpIcon size={24} color="currentColor" /></span>
-          <span style={{
-            fontSize: isMobile ? typography.sizes.xs : typography.sizes.sm,
-            fontWeight: typography.weights.medium,
-            color: colors.text.primary,
-          }}>
-            Diagnostic
-          </span>
-        </button>
+        <DataCard hoverable onClick={onViewFullDiagnosis || (() => {})} style={{ cursor: 'pointer', textAlign: 'center', padding: '1.5rem' }}>
+          <div style={{ color: 'var(--color-brand-orange-500)', marginBottom: '0.5rem' }}>
+            <TrendingUpIcon size={32} color="currentColor" />
+          </div>
+          <div style={{ fontWeight: '600', color: 'var(--color-slate-800)' }}>
+            View Full Diagnosis
+          </div>
+        </DataCard>
       </div>
 
-      {/* Test Date Section */}
-      {showDatePicker ? (
-        <div style={{
-          ...cardStyles.subtle,
-          marginBottom: spacing.lg,
-          padding: '28px'
-        }}>
-          <div style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginBottom: '20px'
-          }}>
-            <div>
-              <div style={{ fontSize: '18px', fontWeight: '600', color: colors.text.primary }}>
-                Which SAT are you taking?
-              </div>
-              <div style={{ fontSize: '13px', color: colors.text.secondary, marginTop: '4px' }}>
-                Select your upcoming test date
-              </div>
-            </div>
-            <button
-              onClick={() => setShowDatePicker(false)}
-              style={{
-                padding: '6px 12px',
-                background: 'transparent',
-                color: colors.text.secondary,
-                border: 'none',
-                fontSize: '14px',
-                cursor: 'pointer'
-              }}
-            >
-              Cancel
-            </button>
-          </div>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))',
-            gap: '10px'
-          }}>
-            {getUpcomingSATDates().map(sat => {
-              const satDate = new Date(sat.date);
-              const month = satDate.toLocaleDateString('en-US', { month: 'short' });
-              const day = satDate.getDate();
-              const year = satDate.getFullYear();
-              const isSelected = selectedDate === sat.date || user?.testDate === sat.date;
-
-              return (
-                <button
-                  key={sat.date}
-                  onClick={() => handleSelectDate(sat.date)}
-                  style={{
-                    padding: '14px 12px',
-                    background: isSelected ? colors.text.primary : colors.surface.offWhite,
-                    color: isSelected ? colors.surface.white : colors.text.primary,
-                    border: isSelected ? 'none' : `1px solid ${colors.surface.grayDark}`,
-                    borderRadius: radius.md,
-                    cursor: 'pointer',
-                    textAlign: 'center',
-                    transition: `all ${transitions.fast}`
-                  }}
-                  onMouseEnter={(e) => {
-                    if (!isSelected) {
-                      e.target.style.background = colors.surface.gray;
-                      e.target.style.borderColor = colors.surface.grayMedium;
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!isSelected) {
-                      e.target.style.background = colors.surface.offWhite;
-                      e.target.style.borderColor = colors.surface.grayDark;
-                    }
-                  }}
-                >
-                  <div style={{
-                    fontSize: '13px',
-                    fontWeight: '600',
-                    marginBottom: '2px',
-                    opacity: isSelected ? 1 : 0.9
-                  }}>
-                    {month} {year}
+      {/* Dashboard Widgets */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '1fr' : '2fr 1fr',
+        gap: '2rem',
+        marginBottom: '2rem'
+      }}>
+        {/* Left Column: Recommendations & Study Plan */}
+        <div>
+          {/* YOUR NEXT STEP */}
+          {recommendations[0] && (
+            <DataCard style={{ marginBottom: '2rem', background: 'var(--color-white)', boxShadow: 'var(--shadow-md)', border: '1px solid rgba(0,0,0,0.04)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div>
+                  <div style={{ fontSize: '0.8125rem', color: 'var(--color-brand-orange-600)', fontWeight: '600', marginBottom: '0.25rem', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+                    Recommended Next Step
                   </div>
-                  <div style={{
-                    fontSize: '11px',
-                    opacity: isSelected ? 0.8 : 0.6
-                  }}>
-                    {month} {day}
+                  <div style={{ fontSize: '1.25rem', fontWeight: '700', color: 'var(--color-slate-900)', letterSpacing: '-0.02em' }}>
+                    {recommendations[0].title}
                   </div>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      ) : (
-        <div style={{
-          ...cardStyles.subtle,
-          marginBottom: spacing.lg,
-          background: user?.testDate
-            ? (daysUntilTest !== null && daysUntilTest <= 14 ? colors.semantic.warningBg : colors.semantic.infoLight)
-            : colors.surface.white,
-          border: user?.testDate
-            ? (daysUntilTest !== null && daysUntilTest <= 14 ? `1px solid ${colors.semantic.warning}` : `1px solid ${colors.semantic.infoBg}`)
-            : `1px solid ${colors.surface.grayDark}`,
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center'
-        }}>
-          <div>
-            {user?.testDate ? (
-              <>
-                <div style={{ fontSize: '13px', color: colors.text.secondary, marginBottom: '4px' }}>
-                  Your SAT Date
-                </div>
-                <div style={{ fontSize: '18px', fontWeight: '600', color: colors.text.primary }}>
-                  {getSATNameFromDate(user.testDate) || formatTestDate(user.testDate)}
-                  {daysUntilTest !== null && (
-                    <span style={{
-                      marginLeft: '12px',
-                      fontSize: '14px',
-                      fontWeight: '500',
-                      color: daysUntilTest <= 14 ? colors.badge.bronze : colors.semantic.info
-                    }}>
-                      {daysUntilTest === 0 ? "Today!" :
-                       daysUntilTest === 1 ? "Tomorrow!" :
-                       daysUntilTest < 0 ? "Completed" :
-                       `${daysUntilTest} days left`}
-                    </span>
+                  {recommendations[0].subtitle && (
+                    <div style={{ fontSize: '0.875rem', color: 'var(--color-slate-500)', marginTop: '0.25rem' }}>
+                      {recommendations[0].subtitle}
+                    </div>
                   )}
                 </div>
-              </>
-            ) : (
-              <>
-                <div style={{ fontSize: '15px', fontWeight: '500', color: colors.text.primary }}>
-                  Which SAT are you taking?
-                </div>
-                <div style={{ fontSize: '13px', color: colors.text.secondary }}>
-                  Select your test date to track your countdown
-                </div>
-              </>
-            )}
-          </div>
-          <button
-            onClick={() => {
-              setSelectedDate(user?.testDate || '');
-              setShowDatePicker(true);
-            }}
-            style={{
-              padding: '8px 16px',
-              background: user?.testDate ? 'transparent' : colors.text.primary,
-              color: user?.testDate ? colors.text.secondary : colors.surface.white,
-              border: user?.testDate ? `1px solid ${colors.surface.grayMedium}` : 'none',
-              borderRadius: radius.sm,
-              fontSize: '14px',
-              cursor: 'pointer'
-            }}
-          >
-            {user?.testDate ? 'Change' : 'Select SAT'}
-          </button>
-        </div>
-      )}
+                <PrimaryButton onClick={() => handleRecommendationClick(recommendations[0])} style={{ borderRadius: 'var(--radius-full)', padding: '0.5rem 1.25rem' }}>
+                  Start →
+                </PrimaryButton>
+              </div>
+            </DataCard>
+          )}
 
-      {/* Target Schools Section */}
-      {showTargetPicker ? (
-        <CollegePicker
-          selectedSchools={user?.targetSchools || []}
-          onSave={(schools) => {
-            handleSelectTargetSchools(schools);
-          }}
-          onCancel={() => setShowTargetPicker(false)}
-          maxSelections={3}
-        />
-      ) : (
-        <div style={{
-          ...cardStyles.subtle,
-          marginBottom: spacing.lg
-        }}>
-          <div style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'flex-start'
-          }}>
-            <div style={{ flex: 1 }}>
-              {user?.targetSchools && user.targetSchools.length > 0 ? (
-                <>
-                  <div style={{ fontSize: '13px', color: colors.text.secondary, marginBottom: '6px' }}>
-                    Target Schools
-                  </div>
-                  <div style={{ fontSize: '15px', fontWeight: '500', color: colors.text.primary, marginBottom: '8px' }}>
-                    {user.targetSchools.map(s => s.name).join(', ')}
-                  </div>
-                  <div style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    background: colors.semantic.successLight,
-                    padding: '6px 12px',
-                    borderRadius: radius.sm
-                  }}>
-                    <span style={{ fontSize: '13px', color: colors.semantic.success }}>Target:</span>
-                    <span style={{ fontSize: '16px', fontWeight: '700', color: colors.semantic.success }}>
-                      {user.targetScore}
-                    </span>
-                    <span style={{ fontSize: '13px', color: colors.semantic.success }}>Math</span>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div style={{ fontSize: '15px', fontWeight: '500', color: colors.text.primary }}>
-                    Set your target schools
-                  </div>
-                  <div style={{ fontSize: '13px', color: colors.text.secondary }}>
-                    Pick 3 schools you're aiming for
-                  </div>
-                </>
-              )}
-            </div>
-            <button
-              onClick={() => setShowTargetPicker(true)}
-              style={{
-                padding: '8px 16px',
-                background: user?.targetSchools?.length > 0 ? 'transparent' : colors.text.primary,
-                color: user?.targetSchools?.length > 0 ? colors.text.secondary : colors.surface.white,
-                border: user?.targetSchools?.length > 0 ? `1px solid ${colors.surface.grayMedium}` : 'none',
-                borderRadius: radius.sm,
-                fontSize: '14px',
-                cursor: 'pointer',
-                flexShrink: 0
-              }}
-            >
-              {user?.targetSchools?.length > 0 ? 'Change' : 'Select Schools'}
-            </button>
+          {/* AI STUDY PLAN */}
+          <div style={{ marginBottom: '2rem' }}>
+            <StudyPlanDashboard
+              studyPlan={studyPlan}
+              practiceTestResults={practiceTestResults}
+              user={user}
+              onNavigateToModule={onNavigateToModule}
+              onStartPractice={onStartPractice}
+              onStartPracticeTest={onStartPracticeTest}
+              onCompleteActivity={onCompleteActivity}
+              onUncompleteActivity={onUncompleteActivity}
+            />
           </div>
         </div>
-      )}
 
-      {/* Current SAT Score Section */}
-      {showCurrentScorePicker ? (
-        <ScoreSlider
-          value={tempCurrentScore}
-          onChange={setTempCurrentScore}
-          label="What's your current SAT Math score?"
-          description="Enter your most recent practice test or official score"
-          onSave={() => {
-            handleSelectCurrentScore(tempCurrentScore);
-          }}
-          onCancel={() => setShowCurrentScorePicker(false)}
-        />
-      ) : (
-        <div style={{
-          ...cardStyles.subtle,
-          marginBottom: spacing.lg,
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center'
-        }}>
-          <div>
-            {user?.currentScore ? (
-              <>
-                <div style={{ fontSize: '13px', color: colors.text.secondary, marginBottom: '4px' }}>
-                  Current Score
-                </div>
-                <div style={{ fontSize: '18px', fontWeight: '600', color: colors.text.primary }}>
-                  {user.currentScore}
-                  {user?.targetScore && user.currentScore < user.targetScore && (
-                    <span style={{
-                      marginLeft: '12px',
-                      fontSize: '14px',
-                      fontWeight: '500',
-                      color: colors.semantic.success
-                    }}>
-                      +{user.targetScore - user.currentScore} to goal
-                    </span>
+        {/* Right Column: Settings & Mini Stats */}
+        <div>
+          {/* Current SAT Score Section */}
+          {showCurrentScorePicker ? (
+            <ScoreSlider
+              value={tempCurrentScore}
+              onChange={setTempCurrentScore}
+              label="What's your current SAT Math score?"
+              description="Enter your most recent practice test or official score"
+              onSave={() => handleSelectCurrentScore(tempCurrentScore)}
+              onCancel={() => setShowCurrentScorePicker(false)}
+            />
+          ) : (
+            <DataCard style={{ marginBottom: '1rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div>
+                  {user?.currentScore ? (
+                    <>
+                      <div style={{ fontSize: '0.75rem', color: 'var(--color-slate-500)', marginBottom: '0.25rem' }}>
+                        Current Score
+                      </div>
+                      <div style={{ fontSize: '1.25rem', fontWeight: '600', color: 'var(--color-slate-900)' }}>
+                        {user.currentScore}
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div style={{ fontSize: '1rem', fontWeight: '600', color: 'var(--color-slate-900)' }}>
+                        Set Current Score
+                      </div>
+                    </>
                   )}
                 </div>
-              </>
-            ) : (
-              <>
-                <div style={{ fontSize: '15px', fontWeight: '500', color: colors.text.primary }}>
-                  What's your current SAT Math score?
-                </div>
-                <div style={{ fontSize: '13px', color: colors.text.secondary }}>
-                  Track your progress from where you started
-                </div>
-              </>
-            )}
-          </div>
-          <button
-            onClick={() => {
-              setTempCurrentScore(user?.currentScore || 500);
-              setShowCurrentScorePicker(true);
-            }}
-            style={{
-              padding: '8px 16px',
-              background: user?.currentScore ? 'transparent' : colors.text.primary,
-              color: user?.currentScore ? colors.text.secondary : colors.surface.white,
-              border: user?.currentScore ? `1px solid ${colors.surface.grayMedium}` : 'none',
-              borderRadius: radius.sm,
-              fontSize: '14px',
-              cursor: 'pointer'
-            }}
-          >
-            {user?.currentScore ? 'Change' : 'Add Score'}
-          </button>
-        </div>
-      )}
+                <SecondaryButton onClick={() => {
+                  setTempCurrentScore(user?.currentScore || 500);
+                  setShowCurrentScorePicker(true);
+                }}>
+                  {user?.currentScore ? 'Change' : 'Add'}
+                </SecondaryButton>
+              </div>
+            </DataCard>
+          )}
 
-      {/* ═══ AI DIAGNOSTIC & INSIGHTS — The Intelligence Layer ═══ */}
+          {/* Top Stats */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <DataCard>
+              <div style={{ fontSize: '0.75rem', color: 'var(--color-slate-500)', marginBottom: '0.75rem' }}>
+                Lessons Completed
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div style={{ position: 'relative' }}>
+                  <DonutChart percent={completionPercent} size={60} strokeWidth={6} color="var(--color-success-600)" />
+                </div>
+                <div>
+                  <div style={{ fontSize: '1.5rem', fontWeight: '700', color: 'var(--color-slate-900)' }}>
+                    {totalCompleted}
+                  </div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--color-slate-500)' }}>
+                    of {TOTAL_LESSONS} lessons
+                  </div>
+                </div>
+              </div>
+            </DataCard>
+
+            <DataCard>
+              <div style={{ fontSize: '0.75rem', color: 'var(--color-slate-500)', marginBottom: '0.75rem' }}>
+                Practice Accuracy
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div style={{ position: 'relative' }}>
+                  <DonutChart percent={practicePercent} size={60} strokeWidth={6} color="var(--color-warning-600)" />
+                </div>
+                <div>
+                  <div style={{ fontSize: '1.5rem', fontWeight: '700', color: 'var(--color-slate-900)' }}>
+                    {practicePercent}%
+                  </div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--color-slate-500)' }}>
+                    {totalCorrect}/{totalQuestions} correct
+                  </div>
+                </div>
+              </div>
+            </DataCard>
+          </div>
+        </div>
+      </div>
+
+      {/* AI DIAGNOSTIC & INSIGHTS */}
       <DashboardDiagnosticWidget
         practiceTestResults={practiceTestResults}
         skillProgress={skillProgress}
@@ -842,276 +567,6 @@ const StudentDashboard = ({
         onNavigateToModule={onNavigateToModule}
         onStartPractice={onStartPractice}
       />
-
-      {/* ═══ AI STUDY PLAN — The Core Feature ═══ */}
-      <div style={{ marginBottom: spacing.lg }}>
-        <StudyPlanDashboard
-          studyPlan={studyPlan}
-          practiceTestResults={practiceTestResults}
-          user={user}
-          onNavigateToModule={onNavigateToModule}
-          onStartPractice={onStartPractice}
-          onStartPracticeTest={onStartPracticeTest}
-          onCompleteActivity={onCompleteActivity}
-          onUncompleteActivity={onUncompleteActivity}
-        />
-      </div>
-
-      {/* Top Stats Row */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)',
-        gap: spacing.md,
-        marginBottom: spacing.lg
-      }}>
-        {/* Lessons Completed */}
-        <div style={cardStyles.subtle}>
-          <div style={{ fontSize: '13px', color: colors.text.secondary, marginBottom: '12px' }}>
-            Lessons Completed
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: spacing.md }}>
-            <div style={{ position: 'relative' }}>
-              <DonutChart percent={completionPercent} size={80} strokeWidth={8} color={colors.semantic.success} />
-              <div style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                fontSize: '18px',
-                fontWeight: '600',
-                color: colors.text.primary
-              }}>
-                {completionPercent}%
-              </div>
-            </div>
-            <div>
-              <div style={{ fontSize: '24px', fontWeight: '600', color: colors.text.primary }}>
-                {totalCompleted}
-              </div>
-              <div style={{ fontSize: '13px', color: colors.text.secondary }}>
-                of {TOTAL_LESSONS} lessons
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Modules Started */}
-        <div style={cardStyles.subtle}>
-          <div style={{ fontSize: '13px', color: colors.text.secondary, marginBottom: '12px' }}>
-            Modules Started
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: spacing.md }}>
-            <div style={{ position: 'relative' }}>
-              <DonutChart
-                percent={Math.round((startedModules.length / MODULES.length) * 100)}
-                size={80}
-                strokeWidth={8}
-                color={colors.semantic.info}
-              />
-              <div style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                fontSize: '18px',
-                fontWeight: '600',
-                color: colors.text.primary
-              }}>
-                {startedModules.length}
-              </div>
-            </div>
-            <div>
-              <div style={{ fontSize: '24px', fontWeight: '600', color: colors.text.primary }}>
-                {moduleProgress.filter(m => m.percent === 100).length}
-              </div>
-              <div style={{ fontSize: '13px', color: colors.text.secondary }}>
-                completed
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Practice Accuracy */}
-        <div style={cardStyles.subtle}>
-          <div style={{ fontSize: '13px', color: colors.text.secondary, marginBottom: '12px' }}>
-            Practice Accuracy
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: spacing.md }}>
-            <div style={{ position: 'relative' }}>
-              <DonutChart percent={practicePercent} size={80} strokeWidth={8} color={colors.semantic.warning} />
-              <div style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                fontSize: '18px',
-                fontWeight: '600',
-                color: colors.text.primary
-              }}>
-                {practicePercent}%
-              </div>
-            </div>
-            <div>
-              <div style={{ fontSize: '24px', fontWeight: '600', color: colors.text.primary }}>
-                {totalCorrect}/{totalQuestions}
-              </div>
-              <div style={{ fontSize: '13px', color: colors.text.secondary }}>
-                questions correct
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Projected Score */}
-        <div style={cardStyles.subtle}>
-          <div style={{ fontSize: '13px', color: colors.text.secondary, marginBottom: '12px' }}>
-            Projected Score
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '80px' }}>
-            {projectedScore ? (
-              <div style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '42px', fontWeight: '700', color: colors.accent.orange }}>
-                  {projectedScore}
-                </div>
-                <div style={{ fontSize: '13px', color: colors.text.secondary, marginTop: '4px' }}>
-                  Based on {projectedTestsCount} test{projectedTestsCount !== 1 ? 's' : ''}
-                </div>
-              </div>
-            ) : (
-              <div style={{ textAlign: 'center', color: colors.text.muted }}>
-                <div style={{ fontSize: '32px', fontWeight: '600' }}>—</div>
-                <div style={{ fontSize: '12px', marginTop: '4px' }}>
-                  Complete a practice test
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-
-
-      {/* YOUR NEXT STEP - Simple, Clean */}
-      {recommendations[0] && (
-        <div
-          onClick={() => handleRecommendationClick(recommendations[0])}
-          style={{
-            ...cardStyles.subtle,
-            marginBottom: spacing.lg,
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            cursor: 'pointer',
-            border: `2px solid ${colors.accent.orange}`,
-            background: colors.accent.orangeLight
-          }}
-        >
-          <div>
-            <div style={{ fontSize: '13px', color: colors.accent.orange, fontWeight: '500', marginBottom: '4px' }}>
-              Your Next Step
-            </div>
-            <div style={{ fontSize: '16px', fontWeight: '600', color: colors.text.primary }}>
-              {recommendations[0].title}
-            </div>
-            {recommendations[0].subtitle && (
-              <div style={{ fontSize: '13px', color: colors.text.secondary }}>
-                {recommendations[0].subtitle}
-              </div>
-            )}
-          </div>
-          <button
-            style={{
-              padding: '10px 20px',
-              background: colors.accent.orange,
-              color: colors.text.inverse,
-              border: 'none',
-              borderRadius: radius.sm,
-              fontSize: '14px',
-              fontWeight: '600',
-              cursor: 'pointer'
-            }}
-          >
-            Start →
-          </button>
-        </div>
-      )}
-
-      {/* Strongest / Weakest Row */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
-        gap: spacing.md,
-        marginBottom: spacing.lg
-      }}>
-        <div style={{
-          ...cardStyles.subtle,
-          display: 'flex',
-          alignItems: 'center',
-          gap: spacing.md
-        }}>
-          <div style={{
-            width: '48px',
-            height: '48px',
-            borderRadius: '50%',
-            background: colors.semantic.successBg,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '16px',
-            fontWeight: '600',
-            color: colors.semantic.success
-          }}>
-            {strongest?.percent || 0}%
-          </div>
-          <div>
-            <div style={{ fontSize: '12px', color: colors.text.secondary, marginBottom: '2px' }}>
-              Strongest Section
-            </div>
-            <div style={{ fontSize: '15px', fontWeight: '500', color: colors.text.primary }}>
-              {strongest?.title || 'Start learning to see'}
-            </div>
-          </div>
-        </div>
-
-        <div style={{
-          ...cardStyles.subtle,
-          display: 'flex',
-          alignItems: 'center',
-          gap: spacing.md
-        }}>
-          <div style={{
-            width: '48px',
-            height: '48px',
-            borderRadius: '50%',
-            background: colors.semantic.warningBg,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '16px',
-            fontWeight: '600',
-            color: colors.badge.bronze
-          }}>
-            {weakest?.percent || 0}%
-          </div>
-          <div>
-            <div style={{ fontSize: '12px', color: colors.text.secondary, marginBottom: '2px' }}>
-              Needs Work
-            </div>
-            <div style={{ fontSize: '15px', fontWeight: '500', color: colors.text.primary }}>
-              {weakest?.title || 'Keep going!'}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Skill Diagnostic Summary */}
-      {skillDiagnosticSummary && (
-        <div style={{ marginBottom: spacing.lg }}>
-          <SkillDiagnosticSummary
-            diagnosticSummary={skillDiagnosticSummary}
-            onPracticeSkill={null}
-          />
-        </div>
-      )}
 
     </div>
   );

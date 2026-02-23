@@ -1,73 +1,74 @@
 // PerformSAT Design System — Single Source of Truth
-// All components should import tokens from this file.
-// Do NOT define color/typography/spacing constants inline in components.
+// We map these legacy token names directly to our new CSS variables
+// defined in src/design-tokens.css so that old components automatically
+// inherit the new orange-gradient Acely-inspired design system.
 
 export const colors = {
   text: {
-    primary: '#0a0a0a',
-    secondary: '#525252',
-    tertiary: '#737373',
-    muted: '#a3a3a3',
-    inverse: '#ffffff',
+    primary: 'var(--color-slate-900)',
+    secondary: 'var(--color-slate-600)',
+    tertiary: 'var(--color-slate-500)',
+    muted: 'var(--color-slate-400)',
+    inverse: 'var(--color-white)',
   },
   accent: {
-    orange: '#ea580c',
-    orangeHover: '#c2410c',
-    orangeLight: '#fff7ed',
-    orangeMuted: '#ffedd5',
-    teal: '#0d9488',
-    tealLight: '#f0fdfa',
-    purple: '#7c3aed',
-    purpleLight: '#f5f3ff',
+    orange: 'var(--color-brand-orange-500)',
+    orangeHover: 'var(--color-brand-orange-600)',
+    orangeLight: 'var(--color-brand-peach-100)',
+    orangeMuted: 'var(--color-brand-peach-100)', // Using peach-100 for muted
+    teal: 'var(--color-info-600)', // Mapping legacy teal to semantic info
+    tealLight: 'var(--color-info-100)',
+    purple: 'var(--color-brand-orange-500)', // Mapping legacy purple to brand orange
+    purpleLight: 'var(--color-brand-peach-100)',
   },
   surface: {
-    white: '#ffffff',
-    offWhite: '#fafafa',
-    gray: '#f5f5f5',
-    grayDark: '#e5e5e5',
-    grayMedium: '#d4d4d4',
-    dark: '#171717',
+    white: 'var(--color-white)',
+    offWhite: 'var(--color-slate-50)',
+    gray: 'var(--color-slate-100)',
+    grayDark: 'var(--color-slate-200)',
+    grayMedium: 'var(--color-slate-300)',
+    dark: 'var(--color-slate-800)',
   },
   semantic: {
-    success: '#16a34a',
-    successLight: '#f0fdf4',
-    successBg: '#dcfce7',
-    error: '#dc2626',
-    errorLight: '#fef2f2',
-    errorBg: '#fee2e2',
-    info: '#2563eb',
-    infoLight: '#eff6ff',
-    infoBg: '#dbeafe',
-    warning: '#f59e0b',
-    warningLight: '#fffbeb',
-    warningBg: '#fef3c7',
+    success: 'var(--color-success-600)',
+    successLight: 'var(--color-success-100)',
+    successBg: 'var(--color-success-100)',
+    error: 'var(--color-error-600)',
+    errorLight: 'var(--color-error-100)',
+    errorBg: 'var(--color-error-100)',
+    info: 'var(--color-info-600)',
+    infoLight: 'var(--color-info-100)',
+    infoBg: 'var(--color-info-100)',
+    warning: 'var(--color-warning-600)',
+    warningLight: 'var(--color-warning-100)',
+    warningBg: 'var(--color-warning-100)',
   },
-  overlay: 'rgba(0, 0, 0, 0.4)',
-  skeleton: '#e5e5e5',
-  focus: 'rgba(234, 88, 12, 0.4)',
+  overlay: 'rgba(15, 23, 42, 0.4)', // slate-900 with opacity
+  skeleton: 'var(--color-slate-200)',
+  focus: 'var(--color-brand-orange-400)',
   badge: {
-    gold: '#f59e0b',
-    silver: '#94a3b8',
-    bronze: '#d97706',
+    gold: 'var(--color-warning-600)',
+    silver: 'var(--color-slate-400)',
+    bronze: 'var(--color-brand-amber-400)',
   },
 };
 
 export const typography = {
-  fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif',
-  fontFamilyMath: 'Georgia, "Times New Roman", serif',
-  fontFamilyMono: '"SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace',
+  fontFamily: 'var(--font-ui)',
+  fontFamilyMath: 'var(--font-reading)',
+  fontFamilyMono: '"Fira Code", monospace',
   sizes: {
-    caption: '0.625rem',   // 10px
-    xs: '0.6875rem',       // 11px
-    sm: '0.8125rem',       // 13px
-    base: '0.9375rem',     // 15px
-    md: '1.0625rem',       // 17px
-    lg: '1.1875rem',       // 19px
-    xl: '1.375rem',        // 22px
-    '2xl': '1.75rem',      // 28px
-    '3xl': '2.25rem',      // 36px
-    '4xl': '3rem',         // 48px
-    display: '4rem',       // 64px
+    caption: '0.625rem',
+    xs: '0.75rem',
+    sm: '0.875rem',
+    base: '1rem',
+    md: '1.125rem',
+    lg: '1.25rem',
+    xl: '1.5rem',
+    '2xl': '1.875rem',
+    '3xl': '2.25rem',
+    '4xl': '3rem',
+    display: '4rem',
   },
   weights: {
     regular: '400',
@@ -77,9 +78,9 @@ export const typography = {
     heavy: '900',
   },
   lineHeights: {
-    tight: '1.2',
+    tight: '1.25',
     normal: '1.5',
-    relaxed: '1.7',
+    relaxed: '1.75',
   },
   letterSpacing: {
     tight: '-0.025em',
@@ -90,33 +91,33 @@ export const typography = {
 };
 
 export const spacing = {
-  xs: '0.5rem',    // 8px
-  sm: '0.75rem',   // 12px
-  md: '1rem',      // 16px
-  lg: '1.5rem',    // 24px
-  xl: '2rem',      // 32px
-  '2xl': '3rem',   // 48px
-  '3xl': '4rem',   // 64px
-  '4xl': '5rem',   // 80px
+  xs: '0.5rem',
+  sm: '0.75rem',
+  md: '1rem',
+  lg: '1.5rem',
+  xl: '2rem',
+  '2xl': '3rem',
+  '3xl': '4rem',
+  '4xl': '5rem',
 };
 
 export const radius = {
-  sm: '8px',
-  md: '12px',
-  lg: '16px',
-  xl: '24px',
-  '2xl': '32px',
-  full: '9999px',
+  sm: 'var(--radius-sm)',
+  md: 'var(--radius-md)',
+  lg: 'var(--radius-lg)',
+  xl: 'var(--radius-xl)',
+  '2xl': 'var(--radius-2xl)',
+  full: 'var(--radius-full)',
 };
 
 export const shadows = {
   none: 'none',
-  sm: '0 1px 2px rgba(0, 0, 0, 0.05)',
-  md: '0 4px 12px rgba(0, 0, 0, 0.08)',
-  lg: '0 8px 24px rgba(0, 0, 0, 0.12)',
-  xl: '0 16px 48px rgba(0, 0, 0, 0.16)',
+  sm: 'var(--shadow-sm)',
+  md: 'var(--shadow-md)',
+  lg: 'var(--shadow-lg)',
+  xl: 'var(--shadow-lg)',
   inner: 'inset 0 2px 4px rgba(0, 0, 0, 0.05)',
-  focus: '0 0 0 3px rgba(234, 88, 12, 0.4)',
+  focus: '0 0 0 3px rgba(251, 146, 60, 0.4)', // orange-400
 };
 
 export const transitions = {
@@ -144,8 +145,6 @@ export const zIndex = {
   tooltip: 600,
 };
 
-// Backward-compatible "design" object for gradual migration
-// Components can import this while transitioning from the old inline tokens
 const design = {
   colors,
   typography,
