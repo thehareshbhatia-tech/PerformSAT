@@ -288,7 +288,7 @@ const DashboardDiagnosticWidget = ({
         </div>
 
         {/* Archetype + Quick Stats Row */}
-        <div style={{ padding: '1rem 1.5rem', borderBottom: '1px solid rgba(255, 255, 255, 0.4)' }}>
+        <div style={{ padding: '1.5rem 2rem', borderBottom: '1px solid rgba(255, 255, 255, 0.4)' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
               <span style={{ display: 'inline-flex', padding: '0.5rem', background: 'var(--color-slate-100)', borderRadius: 'var(--radius-full)' }}>
@@ -309,7 +309,7 @@ const DashboardDiagnosticWidget = ({
         {/* Quick Win + Learning Velocity Row */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', borderBottom: '1px solid rgba(255, 255, 255, 0.4)' }}>
           {/* Quick Wins */}
-          <div style={{ padding: '1rem 1.5rem', borderRight: '1px solid rgba(255, 255, 255, 0.4)' }}>
+          <div style={{ padding: '1.5rem 2rem', borderRight: '1px solid rgba(255, 255, 255, 0.4)' }}>
             <div style={{ fontSize: '0.75rem', color: 'var(--color-slate-500)', marginBottom: '0.5rem' }}>Quick Win Opportunity</div>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem' }}>
               <span style={{ fontSize: '1.5rem', fontWeight: '700', color: 'var(--color-success-600)' }}>
@@ -322,7 +322,7 @@ const DashboardDiagnosticWidget = ({
             </div>
           </div>
           {/* Learning Velocity */}
-          <div style={{ padding: '1rem 1.5rem' }}>
+          <div style={{ padding: '1.5rem 2rem' }}>
             <div style={{ fontSize: '0.75rem', color: 'var(--color-slate-500)', marginBottom: '0.5rem' }}>Learning Velocity</div>
             {learningVelocity?.hasData ? (
               <>
@@ -345,7 +345,7 @@ const DashboardDiagnosticWidget = ({
         </div>
 
         {/* Domain Performance Mini */}
-        <div style={{ padding: '1rem 1.5rem', borderBottom: expanded ? '1px solid rgba(255, 255, 255, 0.4)' : 'none' }}>
+        <div style={{ padding: '1.5rem 2rem', borderBottom: expanded ? '1px solid rgba(255, 255, 255, 0.4)' : 'none' }}>
           <div style={{ fontSize: '0.875rem', fontWeight: '600', color: 'var(--color-slate-900)', marginBottom: '1rem' }}>Domain Performance</div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem' }}>
             {(domainAnalysis || []).slice(0, 4).map(domain => {
@@ -376,7 +376,7 @@ const DashboardDiagnosticWidget = ({
 
         {/* Expand/Collapse + Action Row */}
         <div style={{
-          padding: '1rem 1.5rem',
+          padding: '1.5rem 2rem',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',

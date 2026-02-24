@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { colors, typography, spacing, radius, transitions, breakpoints } from '../design/tokens';
 import { cardStyles, buttonStyles } from '../design/components';
+import { DataCard } from './ui/DataCard';
+import { PrimaryButton } from './ui/Button';
 import {
   ClipboardIcon,
   VideoCameraIcon,
@@ -43,8 +45,7 @@ const StudyPlanDashboard = ({
   // If no study plan, show a prompt
   if (!studyPlan || !studyPlan.weeks || studyPlan.weeks.length === 0) {
     return (
-      <div style={{
-        ...cardStyles.subtle,
+      <DataCard style={{
         textAlign: 'center',
         padding: `${spacing.xl} ${spacing.lg}`,
       }}>
@@ -58,21 +59,16 @@ const StudyPlanDashboard = ({
           Complete a practice test and view your diagnostic report to generate a personalized study plan.
         </div>
         {onStartPracticeTest && (
-          <button
+          <PrimaryButton
             onClick={onStartPracticeTest}
             style={{
-              ...buttonStyles.base,
-              ...buttonStyles.primary,
               marginTop: spacing.md,
-              height: 'auto',
-              padding: '10px 20px',
-              fontSize: typography.sizes.base,
             }}
           >
             Take a Practice Test
-          </button>
+          </PrimaryButton>
         )}
-      </div>
+      </DataCard>
     );
   }
 
@@ -147,7 +143,7 @@ const StudyPlanDashboard = ({
   };
 
   return (
-    <div style={cardStyles.subtle}>
+    <DataCard>
       {/* Header */}
       <div style={{
         display: 'flex',
@@ -483,7 +479,7 @@ const StudyPlanDashboard = ({
           );
         })}
       </div>
-    </div>
+    </DataCard>
   );
 };
 

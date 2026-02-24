@@ -281,7 +281,7 @@ const StudentDashboard = ({
   };
 
   return (
-    <div style={{ maxWidth: '1200px', margin: '0 auto', fontFamily: 'var(--font-ui)' }}>
+    <div style={{ maxWidth: '1440px', margin: '0 auto', padding: isMobile ? '1rem' : '2rem 3rem', fontFamily: 'var(--font-ui)' }}>
       {/* Greeting */}
       <h1 style={{
         fontSize: '2rem',
@@ -386,177 +386,71 @@ const StudentDashboard = ({
               <div style={{ fontSize: '1.75rem', fontWeight: '700', letterSpacing: '-0.02em', color: 'var(--color-slate-900)' }}>{completionPercent}%</div>
               <div style={{ fontSize: '0.8125rem', color: 'var(--color-slate-500)', fontWeight: '500' }}>lessons done</div>
             </div>
+            
+            <div style={{ display: 'flex', alignItems: 'center', marginLeft: isMobile ? '0' : 'auto', marginTop: isMobile ? '0.5rem' : '0' }}>
+              <SecondaryButton onClick={() => { setTempCurrentScore(user?.currentScore || 500); setShowCurrentScorePicker(true); }} style={{ padding: '0.5rem 1rem', fontSize: '0.875rem', background: 'rgba(255,255,255,0.5)' }}>
+                Update Score
+              </SecondaryButton>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Quick Actions Row */}
+
+      {/* Dashboard Content */}
       <div style={{
-        display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
-        gap: '1rem',
-        marginBottom: '2rem',
-      }}>
-        <DataCard hoverable onClick={onStartPracticeTest} style={{ cursor: 'pointer', textAlign: 'center', padding: '1.5rem' }}>
-          <div style={{ color: 'var(--color-brand-orange-500)', marginBottom: '0.5rem' }}>
-            <PlayIcon size={32} color="currentColor" />
-          </div>
-          <div style={{ fontWeight: '600', color: 'var(--color-slate-800)' }}>
-            {projectedTestsCount > 0 ? 'Take Next Test' : 'Take First Test'}
-          </div>
-        </DataCard>
-
-        <DataCard hoverable onClick={onStartReview || (() => {})} style={{ cursor: 'pointer', textAlign: 'center', padding: '1.5rem' }}>
-          <div style={{ color: 'var(--color-brand-orange-500)', marginBottom: '0.5rem' }}>
-            <ChartBarIcon size={32} color="currentColor" />
-          </div>
-          <div style={{ fontWeight: '600', color: 'var(--color-slate-800)' }}>
-            {dueReviewCount > 0 ? `Review Mistakes (${dueReviewCount})` : 'Review Mistakes'}
-          </div>
-        </DataCard>
-
-        <DataCard hoverable onClick={onViewFullDiagnosis || (() => {})} style={{ cursor: 'pointer', textAlign: 'center', padding: '1.5rem' }}>
-          <div style={{ color: 'var(--color-brand-orange-500)', marginBottom: '0.5rem' }}>
-            <TrendingUpIcon size={32} color="currentColor" />
-          </div>
-          <div style={{ fontWeight: '600', color: 'var(--color-slate-800)' }}>
-            View Full Diagnosis
-          </div>
-        </DataCard>
-      </div>
-
-      {/* Dashboard Widgets */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : '2fr 1fr',
+        display: 'flex',
+        flexDirection: 'column',
         gap: '2rem',
         marginBottom: '2rem'
       }}>
-        {/* Left Column: Recommendations & Study Plan */}
-        <div>
-          {/* YOUR NEXT STEP */}
-          {recommendations[0] && (
-            <DataCard style={{ marginBottom: '2rem', background: 'rgba(255, 255, 255, 0.65)', border: '1px solid rgba(255,255,255,0.8)' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <div>
-                  <div style={{ fontSize: '0.8125rem', color: 'var(--color-brand-orange-600)', fontWeight: '600', marginBottom: '0.25rem', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
-                    Recommended Next Step
-                  </div>
-                  <div style={{ fontSize: '1.25rem', fontWeight: '700', color: 'var(--color-slate-900)', letterSpacing: '-0.02em' }}>
-                    {recommendations[0].title}
-                  </div>
-                  {recommendations[0].subtitle && (
-                    <div style={{ fontSize: '0.875rem', color: 'var(--color-slate-500)', marginTop: '0.25rem' }}>
-                      {recommendations[0].subtitle}
-                    </div>
-                  )}
-                </div>
-                <PrimaryButton onClick={() => handleRecommendationClick(recommendations[0])} style={{ borderRadius: 'var(--radius-full)', padding: '0.5rem 1.25rem' }}>
-                  Start →
-                </PrimaryButton>
-              </div>
-            </DataCard>
-          )}
+        {/* Current SAT Score Section (When Edit is clicked) */}
+        {showCurrentScorePicker && (
+          <ScoreSlider
+            value={tempCurrentScore}
+            onChange={setTempCurrentScore}
+            label="What's your current SAT Math score?"
+            description="Enter your most recent practice test or official score"
+            onSave={() => handleSelectCurrentScore(tempCurrentScore)}
+            onCancel={() => setShowCurrentScorePicker(false)}
+          />
+        )}
 
-          {/* AI STUDY PLAN */}
-          <div style={{ marginBottom: '2rem' }}>
-            <StudyPlanDashboard
-              studyPlan={studyPlan}
-              practiceTestResults={practiceTestResults}
-              user={user}
-              onNavigateToModule={onNavigateToModule}
-              onStartPractice={onStartPractice}
-              onStartPracticeTest={onStartPracticeTest}
-              onCompleteActivity={onCompleteActivity}
-              onUncompleteActivity={onUncompleteActivity}
-            />
-          </div>
-        </div>
+        {/* YOUR NEXT STEP */}
+        {recommendations[0] && (
+          <DataCard style={{ background: 'rgba(255, 255, 255, 0.65)', border: '1px solid rgba(255,255,255,0.8)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <div style={{ fontSize: '0.8125rem', color: 'var(--color-brand-orange-600)', fontWeight: '600', marginBottom: '0.25rem', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+                  Recommended Next Step
+                </div>
+                <div style={{ fontSize: '1.25rem', fontWeight: '700', color: 'var(--color-slate-900)', letterSpacing: '-0.02em' }}>
+                  {recommendations[0].title}
+                </div>
+                {recommendations[0].subtitle && (
+                  <div style={{ fontSize: '0.875rem', color: 'var(--color-slate-500)', marginTop: '0.25rem' }}>
+                    {recommendations[0].subtitle}
+                  </div>
+                )}
+              </div>
+              <PrimaryButton onClick={() => handleRecommendationClick(recommendations[0])} style={{ borderRadius: 'var(--radius-full)', padding: '0.5rem 1.25rem' }}>
+                Start →
+              </PrimaryButton>
+            </div>
+          </DataCard>
+        )}
 
-        {/* Right Column: Settings & Mini Stats */}
-        <div>
-          {/* Current SAT Score Section */}
-          {showCurrentScorePicker ? (
-            <ScoreSlider
-              value={tempCurrentScore}
-              onChange={setTempCurrentScore}
-              label="What's your current SAT Math score?"
-              description="Enter your most recent practice test or official score"
-              onSave={() => handleSelectCurrentScore(tempCurrentScore)}
-              onCancel={() => setShowCurrentScorePicker(false)}
-            />
-          ) : (
-            <DataCard style={{ marginBottom: '1rem' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <div>
-                  {user?.currentScore ? (
-                    <>
-                      <div style={{ fontSize: '0.75rem', color: 'var(--color-slate-500)', marginBottom: '0.25rem' }}>
-                        Current Score
-                      </div>
-                      <div style={{ fontSize: '1.25rem', fontWeight: '600', color: 'var(--color-slate-900)' }}>
-                        {user.currentScore}
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <div style={{ fontSize: '1rem', fontWeight: '600', color: 'var(--color-slate-900)' }}>
-                        Set Current Score
-                      </div>
-                    </>
-                  )}
-                </div>
-                <SecondaryButton onClick={() => {
-                  setTempCurrentScore(user?.currentScore || 500);
-                  setShowCurrentScorePicker(true);
-                }}>
-                  {user?.currentScore ? 'Change' : 'Add'}
-                </SecondaryButton>
-              </div>
-            </DataCard>
-          )}
-
-          {/* Top Stats */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <DataCard>
-              <div style={{ fontSize: '0.75rem', color: 'var(--color-slate-500)', marginBottom: '0.75rem' }}>
-                Lessons Completed
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <div style={{ position: 'relative' }}>
-                  <DonutChart percent={completionPercent} size={60} strokeWidth={6} color="var(--color-success-600)" />
-                </div>
-                <div>
-                  <div style={{ fontSize: '1.5rem', fontWeight: '700', color: 'var(--color-slate-900)' }}>
-                    {totalCompleted}
-                  </div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--color-slate-500)' }}>
-                    of {TOTAL_LESSONS} lessons
-                  </div>
-                </div>
-              </div>
-            </DataCard>
-
-            <DataCard>
-              <div style={{ fontSize: '0.75rem', color: 'var(--color-slate-500)', marginBottom: '0.75rem' }}>
-                Practice Accuracy
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <div style={{ position: 'relative' }}>
-                  <DonutChart percent={practicePercent} size={60} strokeWidth={6} color="var(--color-warning-600)" />
-                </div>
-                <div>
-                  <div style={{ fontSize: '1.5rem', fontWeight: '700', color: 'var(--color-slate-900)' }}>
-                    {practicePercent}%
-                  </div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--color-slate-500)' }}>
-                    {totalCorrect}/{totalQuestions} correct
-                  </div>
-                </div>
-              </div>
-            </DataCard>
-          </div>
-        </div>
+        {/* AI STUDY PLAN */}
+        <StudyPlanDashboard
+          studyPlan={studyPlan}
+          practiceTestResults={practiceTestResults}
+          user={user}
+          onNavigateToModule={onNavigateToModule}
+          onStartPractice={onStartPractice}
+          onStartPracticeTest={onStartPracticeTest}
+          onCompleteActivity={onCompleteActivity}
+          onUncompleteActivity={onUncompleteActivity}
+        />
       </div>
 
       {/* AI DIAGNOSTIC & INSIGHTS */}
