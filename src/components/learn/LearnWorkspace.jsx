@@ -1,0 +1,152 @@
+import React, { useMemo, useRef, useEffect } from 'react';
+import LearnRail from './LearnRail';
+import UpNextCard from './UpNextCard';
+import AiTutorChat from '../AiTutorChat';
+import './LearnWorkspace.css';
+
+const LearnWorkspace = ({
+  moduleId,
+  moduleLessons,
+  moduleTitle,
+  activeLessonId,
+  onSelectLesson,
+  onBack,
+  onMarkComplete,
+  isLessonCompleted,
+  moduleProgress,
+  renderLessonContent,
+  videoTranscript,
+  videoTimestamp,
+  currentLesson,
+}) => {
+  const stageRef = useRef(null);
+  const prevLessonId = useRef(activeLessonId);
+
+  useEffect(() => {
+    if (prevLessonId.current !== activeLessonId && stageRef.current) {
+      stageRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    prevLessonId.current = activeLessonId;
+  }, [activeLessonId]);
+
+  const { currentIndex, prevLesson, nextLesson } = useMemo(() => {
+    const idx = moduleLessons.findIndex(l => l.id === activeLessonId);
+    return {
+      currentIndex: idx,
+      prevLesson: idx > 0 ? moduleLessons[idx - 1] : null,
+      nextLesson: idx < moduleLessons.length - 1 ? moduleLessons[idx + 1] : null,
+    };
+  }, [moduleLessons, activeLessonId]);
+
+  const handlePrev = () => {
+    if (prevLesson) onSelectLesson(prevLesson.id);
+  };
+
+  const handleNext = () => {
+    if (nextLesson) onSelectLesson(nextLesson.id);
+  };
+
+  const handleMarkCompleteAndNext = () => {
+    onMarkComplete(moduleId, activeLessonId);
+    if (nextLesson) onSelectLesson(nextLesson.id);
+  };
+
+  const isCompleted = isLessonCompleted(moduleId, activeLessonId);
+  const isVideoLesson = currentLesson?.type === 'video';
+
+  return (
+    <div className="learn-workspace">
+      {/* LEFT: Course Rail */}
+      <LearnRail
+        moduleLessons={moduleLessons}
+        moduleTitle={moduleTitle}
+        activeLessonId={activeLessonId}
+        onSelectLesson={onSelectLesson}
+        onBack={onBack}
+        isLessonCompleted={isLessonCompleted}
+        moduleId={moduleId}
+        moduleProgress={moduleProgress}
+      />
+
+      {/* CENTER: Lesson Stage */}
+      <main className="lesson-stage" ref={stageRef}>
+        {currentLesson && (
+          <>
+            {/* Header */}
+            <div className="lesson-stage__header">
+              {currentLesson.hero?.tagline && (
+                <span className="lesson-stage__tagline">{currentLesson.hero.tagline}</span>
+              )}
+              <h1 className="lesson-stage__title">{currentLesson.title}</h1>
+              {currentLesson.hero?.subtitle && (
+                <p className="lesson-stage__subtitle">{currentLesson.hero.subtitle}</p>
+              )}
+            </div>
+
+            {/* Video player (if video lesson) */}
+            {isVideoLesson && currentLesson.videoId && (
+              <div className="lesson-stage__video-container">
+                <div
+                  id="youtube-player"
+                  style={{ width: '100%', height: '100%' }}
+                />
+              </div>
+            )}
+
+            {/* Content blocks (text lessons render here; video lessons get supplementary content) */}
+            {currentLesson.content?.blocks && (
+              <div className="lesson-stage__content-blocks">
+                {renderLessonContent()}
+              </div>
+            )}
+
+            {/* Previous / Complete / Next */}
+            <div className="lesson-stage__nav">
+              <button
+                className="lesson-stage__nav-btn"
+                onClick={handlePrev}
+                disabled={!prevLesson}
+              >
+                ← Previous
+              </button>
+
+              <button
+                className={`lesson-stage__complete-btn ${isCompleted ? 'lesson-stage__complete-btn--done' : ''}`}
+                onClick={handleMarkCompleteAndNext}
+              >
+                {isCompleted ? '✓ Completed' : 'Mark Complete & Continue'}
+              </button>
+
+              <button
+                className="lesson-stage__nav-btn"
+                onClick={handleNext}
+                disabled={!nextLesson}
+              >
+                Next →
+              </button>
+            </div>
+
+            {/* Up Next */}
+            <UpNextCard nextLesson={nextLesson} onAdvance={handleNext} />
+          </>
+        )}
+      </main>
+
+      {/* RIGHT: AI Coach Pane (persistent) */}
+      <aside className="ai-coach-pane">
+        <AiTutorChat
+          isOpen={true}
+          onClose={() => {}}
+          moduleId={moduleId}
+          lessonId={activeLessonId}
+          lessonTitle={currentLesson?.title}
+          isVideoLesson={isVideoLesson}
+          videoTranscript={videoTranscript}
+          videoTimestamp={videoTimestamp}
+        />
+      </aside>
+    </div>
+  );
+};
+
+export default LearnWorkspace;
