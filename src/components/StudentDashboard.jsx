@@ -5,6 +5,8 @@ import ScoreSlider from './ScoreSlider';
 import CollegePicker from './CollegePicker';
 import StudyPlanDashboard from './StudyPlanDashboard';
 import DashboardDiagnosticWidget from './DashboardDiagnosticWidget';
+import DailyReviewCard from './DailyReviewCard';
+import PacingDrillCard from './PacingDrillCard';
 import { PlayIcon, ChartBarIcon, TrendingUpIcon } from '../design/icons';
 import { injectAnimations, useCountUp } from '../design/animations';
 import { DataCard } from './ui/DataCard';
@@ -272,8 +274,8 @@ const StudentDashboard = ({
         />
         <defs>
           <linearGradient id="orange-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="var(--color-brand-orange-400)" />
-            <stop offset="100%" stopColor="var(--color-brand-orange-600)" />
+            <stop offset="0%" style={{ stopColor: 'var(--color-brand-orange-400)' }} />
+            <stop offset="100%" style={{ stopColor: 'var(--color-brand-orange-600)' }} />
           </linearGradient>
         </defs>
       </svg>
@@ -440,10 +442,29 @@ const StudentDashboard = ({
           </DataCard>
         )}
 
+        {/* DAILY REVIEW LOOP */}
+        <DailyReviewCard
+          reviewQueue={reviewQueue}
+          onStartReview={onStartReview}
+        />
+
+        {/* PACING TRAINING */}
+        <PacingDrillCard
+          questionTelemetry={(() => {
+            const allAttempts = Object.values(practiceTestResults || {}).flatMap(t => t.attempts || []);
+            return allAttempts.flatMap(a =>
+              (a.diagnosticData?.questionTelemetry || []).map((q, i) => ({ ...q, questionIndex: i }))
+            );
+          })()}
+          onStartPacing={onStartPracticeTest}
+        />
+
         {/* AI STUDY PLAN */}
         <StudyPlanDashboard
           studyPlan={studyPlan}
           practiceTestResults={practiceTestResults}
+          practiceProgress={practiceProgress}
+          reviewQueue={reviewQueue}
           user={user}
           onNavigateToModule={onNavigateToModule}
           onStartPractice={onStartPractice}

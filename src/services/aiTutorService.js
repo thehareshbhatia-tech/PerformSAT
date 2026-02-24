@@ -6,6 +6,7 @@
 
 import { getLessonContext, searchKnowledge } from '../data/knowledgeBase';
 import { getTranscriptContext, formatTime } from './transcriptService';
+import { buildCoachContext } from './aiCoachModes';
 
 // Cloud Function URL
 const AI_TUTOR_URL = 'https://aitutor-ki77ua6x2a-uc.a.run.app';
@@ -367,7 +368,8 @@ export const chatWithTutor = async (
   _apiKey, // No longer needed - kept for backward compatibility
   videoContext = null, // { transcript, currentTime }
   practiceContext = '', // Optional practice question context with restrictions
-  studentProfile = '' // Student profile snapshot for personalization
+  studentProfile = '', // Student profile snapshot for personalization
+  coachMode = null // { modeId, context } — activates a structured coach mode
 ) => {
   // Get lesson context
   const lessonContext = getLessonContext(currentModuleId, currentLessonId);
@@ -426,6 +428,11 @@ export const chatWithTutor = async (
   // Add practice question context if provided
   if (practiceContext) {
     enhancedSystem += '\n\n' + practiceContext;
+  }
+
+  // Add coach mode overlay if active
+  if (coachMode?.modeId) {
+    enhancedSystem += buildCoachContext(coachMode.modeId, coachMode.context || {});
   }
 
   // Prepare messages for Claude API

@@ -1,0 +1,47 @@
+/* Design Tokens - Apple Grade Learn Workspace */
+
+/* To be appended to src/design-tokens.css */
+
+:root {
+  /* Learn specific - Glass and Layers */
+  --learn-bg-rail: rgba(248, 248, 250, 0.7); /* Translucent off-white */
+  --learn-bg-coach: rgba(255, 255, 255, 0.8);
+  --learn-bg-stage: #ffffff;
+  
+  --learn-backdrop-blur: blur(20px);
+  --learn-border-divider: rgba(0, 0, 0, 0.06);
+
+  /* Learn specific - Interactive Accents */
+  --learn-accent-orange-ghost: rgba(255, 149, 0, 0.08); /* Selection highlight background */
+  --learn-accent-orange-text: #FF9500;
+  --learn-accent-orange-border: #FF9F0A;
+  
+  /* Ambient Video Halo */
+  --learn-video-halo: radial-gradient(circle at 50% 50%, rgba(255, 149, 0, 0.12) 0%, transparent 60%);
+
+  /* Specific typography sizing for readability in lesson stage */
+  --learn-body-size: 1.0625rem; /* ~17px */
+  --learn-body-line-height: 1.6;
+  --learn-heading-tracking: -0.02em;
+}
+
+/* Base class definitions for Gemini implementation reference */
+
+.learn-shell {
+  display: flex;
+  height: 100vh;
+  background-color: var(--color-slate-50);
+}
+
+.learn-rail, .learn-coach-pane {
+  background: var(--learn-bg-rail);
+  backdrop-filter: var(--learn-backdrop-blur);
+  border-right: 1px solid var(--learn-border-divider);
+  /* z-index strategy for mobile collapse */
+}
+
+/* Interaction specs:
+   - Rail Item (inactive): Hover dims slightly (black 2%).
+   - Rail Item (active): Uses orange-ghost background, orange-text color, bold weight, and a 3px left border.
+   - Stage Transition: Fade out (150ms ease), update content, fade in (200ms ease) while scrolling to top. 
+*/

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { colors, typography, spacing, radius, transitions, breakpoints } from '../design/tokens';
 import { cardStyles, buttonStyles } from '../design/components';
 import { DataCard } from './ui/DataCard';
 import { PrimaryButton } from './ui/Button';
+import { reprioritizePlan } from '../services/adaptivePlanService';
 import {
   ClipboardIcon,
   VideoCameraIcon,
@@ -25,6 +26,8 @@ import {
 const StudyPlanDashboard = ({
   studyPlan,
   practiceTestResults,
+  practiceProgress,
+  reviewQueue,
   user,
   onNavigateToModule,
   onStartPractice,
@@ -33,6 +36,18 @@ const StudyPlanDashboard = ({
   onUncompleteActivity,
 }) => {
   const [expandedWeek, setExpandedWeek] = useState(null);
+
+  const adaptiveOverlay = useMemo(() => {
+    if (!studyPlan?.weeks?.length) return null;
+    const adapted = reprioritizePlan(
+      studyPlan,
+      practiceProgress,
+      practiceTestResults,
+      reviewQueue,
+      user?.testDate
+    );
+    return adapted?.adaptiveOverlay || null;
+  }, [studyPlan, practiceProgress, practiceTestResults, reviewQueue, user?.testDate]);
 
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
   React.useEffect(() => {
@@ -205,6 +220,55 @@ const StudyPlanDashboard = ({
           transition: `width ${transitions.slow}`,
         }} />
       </div>
+
+      {/* Adaptive "Today's Focus" overlay */}
+      {adaptiveOverlay?.today?.length > 0 && (
+        <div style={{
+          padding: '12px 16px',
+          background: adaptiveOverlay.isTriage ? 'rgba(220, 38, 38, 0.06)' : 'rgba(255, 149, 0, 0.06)',
+          borderRadius: radius.md,
+          marginBottom: '16px',
+          border: `1px solid ${adaptiveOverlay.isTriage ? 'rgba(220, 38, 38, 0.15)' : 'rgba(255, 149, 0, 0.15)'}`,
+        }}>
+          <div style={{
+            fontSize: typography.sizes.xs,
+            fontWeight: typography.weights.semibold,
+            color: adaptiveOverlay.isTriage ? '#dc2626' : colors.accent.orange,
+            textTransform: 'uppercase',
+            letterSpacing: '0.04em',
+            marginBottom: '6px',
+          }}>
+            {adaptiveOverlay.isTriage ? 'Triage Mode — Test in ' + adaptiveOverlay.daysUntilTest + ' days' : "Today's Focus"}
+          </div>
+          <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary, marginBottom: '8px' }}>
+            {adaptiveOverlay.reprioritisationSummary}
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+            {adaptiveOverlay.today.slice(0, 4).map((action, i) => (
+              <div key={i} style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                fontSize: typography.sizes.xs,
+                color: colors.text.primary,
+              }}>
+                <span style={{
+                  width: '6px',
+                  height: '6px',
+                  borderRadius: '50%',
+                  background: action.type === 'review' ? colors.accent.orange :
+                    action.type === 'recovery' ? '#dc2626' : colors.semantic.success,
+                  flexShrink: 0,
+                }} />
+                <span>{action.label}</span>
+                <span style={{ color: colors.text.tertiary, marginLeft: 'auto', fontSize: '11px' }}>
+                  ~{action.minutes} min
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Summary stats row */}
       {summary?.stats && (
