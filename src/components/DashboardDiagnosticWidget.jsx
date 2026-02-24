@@ -214,12 +214,14 @@ const DashboardDiagnosticWidget = ({
 
         {/* Header with Archetype Banner */}
         <div style={{
-          background: 'var(--color-slate-50)',
+          background: 'rgba(255, 255, 255, 0.4)',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
           padding: '1.5rem',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          borderBottom: '1px solid var(--color-slate-200)',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.5)',
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
             <ScoreRingMini score={score.scaled} target={score.target} />
@@ -269,11 +271,13 @@ const DashboardDiagnosticWidget = ({
           </div>
           <div style={{ textAlign: 'right' }}>
             <div style={{
-              background: 'var(--color-white)',
+              background: 'rgba(255, 255, 255, 0.65)',
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
               borderRadius: 'var(--radius-md)',
               padding: '0.5rem 1rem',
               boxShadow: 'var(--shadow-sm)',
-              border: '1px solid var(--color-slate-200)'
+              border: '1px solid rgba(255, 255, 255, 0.8)'
             }}>
               <div style={{ fontSize: '0.75rem', color: 'var(--color-slate-500)', fontWeight: '500', marginBottom: '2px' }}>Percentile</div>
               <div style={{ fontSize: '1.25rem', fontWeight: '700', color: 'var(--color-slate-900)', letterSpacing: '-0.02em' }}>
@@ -284,7 +288,7 @@ const DashboardDiagnosticWidget = ({
         </div>
 
         {/* Archetype + Quick Stats Row */}
-        <div style={{ padding: '1rem 1.5rem', borderBottom: '1px solid var(--color-slate-200)' }}>
+        <div style={{ padding: '1rem 1.5rem', borderBottom: '1px solid rgba(255, 255, 255, 0.4)' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
               <span style={{ display: 'inline-flex', padding: '0.5rem', background: 'var(--color-slate-100)', borderRadius: 'var(--radius-full)' }}>
@@ -303,9 +307,9 @@ const DashboardDiagnosticWidget = ({
         </div>
 
         {/* Quick Win + Learning Velocity Row */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', borderBottom: '1px solid var(--color-slate-200)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', borderBottom: '1px solid rgba(255, 255, 255, 0.4)' }}>
           {/* Quick Wins */}
-          <div style={{ padding: '1rem 1.5rem', borderRight: '1px solid var(--color-slate-200)' }}>
+          <div style={{ padding: '1rem 1.5rem', borderRight: '1px solid rgba(255, 255, 255, 0.4)' }}>
             <div style={{ fontSize: '0.75rem', color: 'var(--color-slate-500)', marginBottom: '0.5rem' }}>Quick Win Opportunity</div>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem' }}>
               <span style={{ fontSize: '1.5rem', fontWeight: '700', color: 'var(--color-success-600)' }}>
@@ -341,7 +345,7 @@ const DashboardDiagnosticWidget = ({
         </div>
 
         {/* Domain Performance Mini */}
-        <div style={{ padding: '1rem 1.5rem', borderBottom: expanded ? '1px solid var(--color-slate-200)' : 'none' }}>
+        <div style={{ padding: '1rem 1.5rem', borderBottom: expanded ? '1px solid rgba(255, 255, 255, 0.4)' : 'none' }}>
           <div style={{ fontSize: '0.875rem', fontWeight: '600', color: 'var(--color-slate-900)', marginBottom: '1rem' }}>Domain Performance</div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem' }}>
             {(domainAnalysis || []).slice(0, 4).map(domain => {
@@ -376,8 +380,10 @@ const DashboardDiagnosticWidget = ({
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          background: 'var(--color-slate-50)',
-          borderTop: '1px solid var(--color-slate-200)'
+          background: 'rgba(255, 255, 255, 0.4)',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
+          borderTop: '1px solid rgba(255, 255, 255, 0.5)'
         }}>
           <button
             onClick={() => setExpanded(!expanded)}

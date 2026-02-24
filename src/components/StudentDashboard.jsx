@@ -295,10 +295,14 @@ const StudentDashboard = ({
 
       {/* Score Hero Card - Apple Style (Clean, White, Content-First) */}
       <div style={{
-        background: 'var(--color-white)',
+        background: 'rgba(255, 255, 255, 0.65)',
+        backdropFilter: 'blur(24px)',
+        WebkitBackdropFilter: 'blur(24px)',
         borderRadius: 'var(--radius-2xl)',
         boxShadow: 'var(--shadow-md)',
-        border: '1px solid rgba(0, 0, 0, 0.04)',
+        border: '1px solid rgba(255, 255, 255, 0.8)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.4)',
+        borderRight: '1px solid rgba(255, 255, 255, 0.4)',
         marginBottom: '1.5rem',
         padding: isMobile ? '1.5rem' : '2rem',
         display: 'flex',
@@ -432,7 +436,7 @@ const StudentDashboard = ({
         <div>
           {/* YOUR NEXT STEP */}
           {recommendations[0] && (
-            <DataCard style={{ marginBottom: '2rem', background: 'var(--color-white)', boxShadow: 'var(--shadow-md)', border: '1px solid rgba(0,0,0,0.04)' }}>
+            <DataCard style={{ marginBottom: '2rem', background: 'rgba(255, 255, 255, 0.65)', border: '1px solid rgba(255,255,255,0.8)' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
                   <div style={{ fontSize: '0.8125rem', color: 'var(--color-brand-orange-600)', fontWeight: '600', marginBottom: '0.25rem', letterSpacing: '0.04em', textTransform: 'uppercase' }}>

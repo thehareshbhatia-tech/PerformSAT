@@ -1,12 +1,13 @@
 :root {
-  /* Neutrals (Apple-style) */
+  /* Neutrals (Ultra-Premium Apple/Editorial) */
   --color-white: #FFFFFF;
-  --color-slate-50: #F5F5F7;  /* Apple System Background Secondary */
-  --color-slate-100: #E5E5EA; /* Apple Gray 5 */
-  --color-slate-200: #D1D1D6; /* Apple Gray 4 */
-  --color-slate-300: #C7C7CC; /* Apple Gray 3 */
-  --color-slate-400: #AEAEB2; /* Apple Gray 2 */
-  --color-slate-500: #8E8E93; /* Apple Gray 1 */
+  --color-white-translucent: rgba(255, 255, 255, 0.7);
+  --color-slate-50: #FBFBFD;  /* Apple Hardware Off-White */
+  --color-slate-100: #F5F5F7;
+  --color-slate-200: #E5E5EA;
+  --color-slate-300: #D1D1D6;
+  --color-slate-400: #AEAEB2;
+  --color-slate-500: #8E8E93;
   --color-slate-600: #636366; 
   --color-slate-700: #48484A;
   --color-slate-800: #3A3A3C;
@@ -32,29 +33,34 @@
   /* Gradients (Smooth & Refined) */
   --gradient-brand-primary: linear-gradient(135deg, #FF9F0A 0%, #FF5E3A 100%);
   --gradient-brand-warm: linear-gradient(135deg, #FFF5E5 0%, #FFF0D4 100%);
+  --gradient-ambient: radial-gradient(circle at 50% 0%, rgba(255, 149, 0, 0.15) 0%, rgba(255, 94, 58, 0.05) 50%, transparent 100%);
   
-  /* Shadows (Ultra-diffuse Apple style) */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.03);
+  /* Shadows (Ultra-diffuse Apple Glass style) */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08), 0 8px 16px rgba(0, 0, 0, 0.04);
   --shadow-brand-glow: 0 8px 24px rgba(255, 149, 0, 0.25);
 
   /* Typography (San Francisco) */
-  --font-ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+  --font-ui: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
   --font-reading: "New York", Georgia, serif;
 
   /* Radii */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
-  --radius-xl: 18px;
-  --radius-2xl: 24px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
   --radius-full: 9999px;
 }
 
 body {
   font-family: var(--font-ui);
   background-color: var(--color-slate-50);
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(255, 149, 0, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 85% 30%, rgba(255, 94, 58, 0.06) 0%, transparent 50%);
+  background-attachment: fixed;
   color: var(--color-slate-900);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
