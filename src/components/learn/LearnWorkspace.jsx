@@ -2,6 +2,8 @@ import React, { useMemo, useRef, useEffect } from 'react';
 import LearnRail from './LearnRail';
 import UpNextCard from './UpNextCard';
 import AiTutorChat from '../AiTutorChat';
+import ContentTabRenderer from './ContentTabRenderer';
+import { allContentTabs } from '../../data/contentTabs';
 import './LearnWorkspace.css';
 
 const LearnWorkspace = ({
@@ -21,6 +23,7 @@ const LearnWorkspace = ({
 }) => {
   const stageRef = useRef(null);
   const prevLessonId = useRef(activeLessonId);
+  const contentTab = allContentTabs[moduleId] || null;
 
   useEffect(() => {
     if (prevLessonId.current !== activeLessonId && stageRef.current) {
@@ -93,12 +96,26 @@ const LearnWorkspace = ({
               </div>
             )}
 
-            {/* Content blocks (text lessons render here; video lessons get supplementary content) */}
-            {currentLesson.content?.blocks && (
+            {/* Video Summary: compact module content for video lessons */}
+            {isVideoLesson && contentTab?.sections?.coreConcepts && (
+              <div className="lesson-stage__video-summary">
+                <h3 className="lesson-stage__video-summary-title">Video summary</h3>
+                <p className="lesson-stage__video-summary-text">
+                  {contentTab.sections.coreConcepts.summary || contentTab.title}
+                </p>
+              </div>
+            )}
+
+            {/* Content: original lesson blocks for non-video, or content tabs */}
+            {!isVideoLesson && contentTab ? (
+              <div className="lesson-stage__content-blocks">
+                <ContentTabRenderer contentTab={contentTab} />
+              </div>
+            ) : currentLesson.content?.blocks ? (
               <div className="lesson-stage__content-blocks">
                 {renderLessonContent()}
               </div>
-            )}
+            ) : null}
 
             {/* Previous / Complete / Next */}
             <div className="lesson-stage__nav">

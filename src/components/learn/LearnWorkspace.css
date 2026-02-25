@@ -244,6 +244,34 @@
   border-radius: 16px;
 }
 
+.lesson-stage__video-summary {
+  max-width: 720px;
+  margin-bottom: 24px;
+  padding: 16px 20px;
+  background: rgba(249, 250, 251, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+}
+
+.lesson-stage__video-summary-title {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #86868b;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 8px;
+}
+
+.lesson-stage__video-summary-text {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #374151;
+  margin: 0;
+  font-style: italic;
+}
+
 .lesson-stage__content-blocks {
   max-width: 720px;
 }

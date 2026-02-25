@@ -17,6 +17,8 @@ import { getDifficultyBadge, calculateWeightedScore } from './services/adaptiveS
 import { addToReviewQueue, getDueReviewCount } from './services/reviewService';
 import { calculateOptimalDifficulty } from './services/recommendationService';
 import LearnWorkspace from './components/learn/LearnWorkspace';
+import ContentTabRenderer from './components/learn/ContentTabRenderer';
+import { allContentTabs } from './data/contentTabs';
 import AppShell from './components/ui/AppShell';
 import ErrorBoundary from './components/ui/ErrorBoundary';
 import Onboarding from './components/Onboarding';
@@ -154,6 +156,7 @@ const PerformSAT = () => {
 
   // Calculator state for practice
   const [showCalculator, setShowCalculator] = useState(false);
+
 
 
   // ESC key handler for calculator
@@ -18928,7 +18931,7 @@ const PerformSAT = () => {
         {view === 'lesson' && (
           <>
             {/* Lesson View */}
-            <div style={{ marginBottom: design.spacing['2xl'] }}>
+            <div style={{ marginBottom: design.spacing.lg }}>
               <button
                 className="back-btn"
                 onClick={() => { setView('list'); setActiveLesson(null); }}
@@ -18943,7 +18946,7 @@ const PerformSAT = () => {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '6px',
-                  marginBottom: design.spacing.xl,
+                  marginBottom: design.spacing.lg,
                   fontWeight: design.typography.weights.medium,
                   transition: design.transitions.fast
                 }}
@@ -18953,7 +18956,14 @@ const PerformSAT = () => {
 
             </div>
 
-            {renderLessonContent()}
+            {/* Unified content: content tabs for non-video lessons, original blocks as fallback */}
+            {currentLesson?.type !== 'video' && allContentTabs[activeModule] ? (
+              <div style={{ maxWidth: 720 }}>
+                <ContentTabRenderer contentTab={allContentTabs[activeModule]} />
+              </div>
+            ) : (
+              renderLessonContent()
+            )}
 
             {/* Navigation */}
             <div style={{
