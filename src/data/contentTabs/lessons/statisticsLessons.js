@@ -93,17 +93,22 @@ export const statisticsLessonTabs = {
       },
       satPatterns: {
         title: 'SAT Patterns',
-        summary: 'The SAT loves asking which measure is "most appropriate" or how removing an outlier affects the statistics.',
         blocks: [
           {
             type: 'callout',
             variant: 'info',
-            title: 'Bluebook Phrasing',
-            content: '"A data set contains the values 5, 7, 8, 9, 9, 10, and 54. Which measure of center best describes a typical value?" — The outlier (54) inflates the mean; the **median** is more representative.',
+            title: '"Which Measure Is Most Appropriate?"',
+            content: 'Recognition cue: the words "most appropriate" + a data set with one extreme value. First move: spot the outlier. If one exists, the answer is **median** (resistant). If the data is roughly symmetric, the answer is **mean**.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Assuming the Mean Is Always Best',
+            wrong: 'Student picks "mean" for the set $\\{5, 7, 8, 9, 9, 10, 54\\}$.',
+            correction: 'The outlier $54$ inflates the mean to $\\approx 14.6$, which describes no typical value. The median ($9$) is a better center. Choose the median when outliers are present.',
           },
           {
             type: 'tip',
-            content: 'If the SAT asks what happens when an outlier is **removed**: the mean moves **toward** the remaining data, the median may shift slightly or stay the same, and the range **decreases**.',
+            content: 'When an outlier is **removed**: the mean shifts toward the cluster, the median barely moves, the range shrinks. When a value **equal to the mean** is added: the mean stays the same, the median may shift by one position.',
           },
         ],
       },
@@ -288,17 +293,22 @@ export const statisticsLessonTabs = {
       },
       satPatterns: {
         title: 'SAT Patterns',
-        summary: 'Mode questions on the SAT are typically quick — often combined with mean/median for comparison.',
         blocks: [
           {
             type: 'callout',
             variant: 'info',
-            title: 'Typical Prompt',
-            content: '"For the data set 3, 5, 5, 7, 8, 8, 8, 10, which of the following is true?" — Find all three measures: mean $= 6.75$, median $= 7.5$, mode $= 8$. The SAT checks if you can distinguish them.',
+            title: '"Which Statement Is True?" — Compare All Three',
+            content: 'Recognition cue: a small data set followed by four statements comparing mean, median, and mode. First move: compute all three quickly. Mean = sum/count, median = middle after sorting, mode = most frequent. Then match to the correct statement.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Skew Direction vs. Measure Order',
+            wrong: 'Student sees a right-skewed histogram and says mode > mean.',
+            correction: 'Right-skewed (tail stretches right): mode < median < mean. Left-skewed: mean < median < mode. The mean is pulled toward the tail.',
           },
           {
             type: 'tip',
-            content: 'When a question asks "which measure has the greatest value?" in a right-skewed data set, the order is usually: mode < median < mean.',
+            content: 'The mode is the only measure that can be used on **categorical** data ("most popular color"). If the answer choices involve non-numerical data, the answer is mode — mean and median require numbers.',
           },
         ],
       },
@@ -339,12 +349,18 @@ export const statisticsLessonTabs = {
           {
             type: 'callout',
             variant: 'info',
-            title: 'Bluebook Phrasing',
-            content: '"The data set has a range of 24. If the maximum value is 31, what is the minimum value?" — Just rearrange: $\\text{min} = 31 - 24 = 7$.',
+            title: 'Reverse-Solve the Range Formula',
+            content: '"The range is $24$ and the maximum is $31$. What is the minimum?" — Rearrange: $\\text{min} = \\text{max} - \\text{range} = 31 - 24 = 7$. This is pure formula manipulation — fast and free points.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Range Is a Single Number',
+            wrong: 'Student writes "the range is from $7$ to $31$" as their answer.',
+            correction: 'The range is the **difference** $31 - 7 = 24$, not the interval. On the SAT, the range is always a single number.',
           },
           {
             type: 'tip',
-            content: 'When the SAT asks "how does removing the outlier affect the range?" — the range **decreases** because the gap between max and min shrinks.',
+            content: 'When asked "how does removing a value affect the range?" — only the max or min matter. Removing the max → new range = (second largest) − min. Removing any interior value → range is unchanged.',
           },
         ],
       },
@@ -390,20 +406,22 @@ export const statisticsLessonTabs = {
       },
       satPatterns: {
         title: 'SAT Patterns',
-        summary: 'Standard deviation questions are conceptual — compare two data sets or predict the effect of a change.',
         blocks: [
           {
-            type: 'table',
-            title: 'Comparing Standard Deviations',
-            headers: ['Data Set', 'Values', 'Spread'],
-            rows: [
-              ['A', '$48, 49, 50, 51, 52$', 'Small SD — clustered near 50'],
-              ['B', '$10, 30, 50, 70, 90$', 'Large SD — spread far apart'],
-            ],
+            type: 'callout',
+            variant: 'info',
+            title: '"Which Data Set Has a Larger SD?"',
+            content: 'Recognition cue: two data sets side by side, question asks about spread. First move: **don\'t compute** — just eyeball which data clusters more tightly. The set with values closer to its mean has a smaller SD.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Confusing Range with SD',
+            wrong: 'Student sees sets $\\{48,49,50,51,52\\}$ and $\\{10,30,50,70,90\\}$, both centered at $50$, and says they have the same SD because the means are equal.',
+            correction: 'Equal means ≠ equal spread. The first set\'s values are within $2$ of the mean; the second\'s are within $40$. The second has a much larger SD.',
           },
           {
             type: 'tip',
-            content: 'Quick rule: adding a value **equal to the mean** never increases the SD. Adding a value **far from the mean** increases it.',
+            content: 'Three rules for the SAT: (1) Adding a constant to every value does **not** change SD. (2) Multiplying every value by $k$ multiplies SD by $|k|$. (3) Adding a value equal to the mean does not increase SD. You will never compute SD by hand.',
           },
         ],
       },
@@ -453,24 +471,22 @@ export const statisticsLessonTabs = {
       },
       satPatterns: {
         title: 'SAT Patterns',
-        summary: 'SAT questions ask you to interpret confidence intervals and reason about sample size.',
         blocks: [
           {
             type: 'callout',
             variant: 'info',
-            title: 'Typical Prompt',
-            content: '"A survey of 400 voters found that 55% support the proposal, with a margin of error of 5%. Which of the following is the best interpretation?" — The true proportion is likely between $50\\%$ and $60\\%$. This means the survey **cannot** definitively conclude majority support.',
+            title: '"Best Interpretation" = Choose the Most Cautious',
+            content: 'Recognition cue: a survey result with a stated margin of error followed by four interpretation choices. First move: compute the confidence interval ($\\text{result} \\pm \\text{MOE}$) and pick the answer that stays within that interval. The correct answer is **always the most cautious claim**.',
           },
           {
-            type: 'table',
-            title: 'Sample Size & MOE',
-            headers: ['Sample Size ($n$)', 'Approx. MOE'],
-            rows: [
-              ['$100$', '$\\frac{1}{\\sqrt{100}} = 10\\%$'],
-              ['$400$', '$\\frac{1}{\\sqrt{400}} = 5\\%$'],
-              ['$1{,}600$', '$\\frac{1}{\\sqrt{1600}} = 2.5\\%$'],
-              ['$10{,}000$', '$\\frac{1}{\\sqrt{10000}} = 1\\%$'],
-            ],
+            type: 'trapCard',
+            title: 'Overgeneralizing Beyond the Sample',
+            wrong: '"55% of all Americans support the proposal" based on a survey of Ohio voters.',
+            correction: 'Survey results only generalize to the **sampled population**. A poll of Ohio voters supports claims about Ohio voters, not all Americans. The SAT correct answer is always the narrowest valid claim.',
+          },
+          {
+            type: 'tip',
+            content: 'To halve the MOE you must **quadruple** $n$ (because $\\text{MOE} \\propto \\frac{1}{\\sqrt{n}}$). If the question asks "how should the researcher reduce the margin of error?" the answer is increase sample size — never "ask different people" or "change the question."',
           },
         ],
       },

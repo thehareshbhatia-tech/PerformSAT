@@ -29,17 +29,22 @@ export const transformationsLessonTabs = {
       },
       satPatterns: {
         title: 'SAT Patterns',
-        summary: 'The SAT asks: "Which equation represents the graph shifted 3 units right?" or shows two graphs and asks what changed.',
         blocks: [
           {
             type: 'callout',
             variant: 'info',
-            title: 'Typical Prompt',
-            content: '"The graph of $g$ is the graph of $f$ shifted 2 units left and 5 units up. Which defines $g$?" — Translate the words into algebra: left 2 → $f(x + 2)$; up 5 → $+5$. Answer: $g(x) = f(x + 2) + 5$.',
+            title: 'Words → Equation Translation',
+            content: 'Recognition cue: "the graph of $g$ is the graph of $f$ shifted/reflected/stretched…" First move: translate each word into algebra. "Left $2$" → $f(x+2)$. "Up $5$" → $+5$. Combine: $g(x) = f(x+2) + 5$. Apply horizontal changes inside, vertical changes outside.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Horizontal Direction Is Reversed',
+            wrong: '"Shifted right $3$" → student writes $f(x + 3)$.',
+            correction: 'Horizontal shifts work opposite to intuition. Right $3$ → $f(x - 3)$. Left $3$ → $f(x + 3)$. The sign inside the parentheses is **opposite** the direction.',
           },
           {
             type: 'tip',
-            content: 'When the Bluebook shows two graphs, identify one clear point on each. The horizontal and vertical shifts between those points tell you the translation immediately.',
+            content: 'When two graphs are shown side by side, pick a clear point on the original (e.g., the vertex). Find where it moved on the new graph. The horizontal and vertical displacement directly give you the shift values.',
           },
         ],
       },
@@ -123,8 +128,18 @@ export const transformationsLessonTabs = {
           {
             type: 'callout',
             variant: 'info',
-            title: 'Vertex Form Shortcut',
-            content: 'For $y = a(x - h)^2 + k$, the vertex is $(h, k)$. A vertical translation changes only $k$. If the vertex moves from $(2, 5)$ to $(2, 8)$, the graph shifted **up 3**.',
+            title: 'Vertex Form Shortcut for Vertical Shifts',
+            content: 'Recognition cue: $y = a(x - h)^2 + k$ with vertex $(h, k)$. A vertical translation changes only $k$. If the vertex moves from $(2, 5)$ to $(2, 8)$, the graph shifted **up $3$** — just add $3$ to $k$.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Mixing Vertical and Horizontal',
+            wrong: '"Shifted up $3$" → student writes $f(x) = (x - 3)^2$ instead of $f(x) = x^2 + 3$.',
+            correction: 'Up/down is **outside** the function ($+k$ or $-k$). Left/right is **inside** the parentheses ($x \\pm h$). Adding $3$ inside moves left, not up.',
+          },
+          {
+            type: 'tip',
+            content: 'Quick check: if only the $y$-coordinates of points changed, it is a vertical shift. If only the $x$-coordinates changed, it is a horizontal shift. If both changed, it is a combined translation.',
           },
         ],
       },

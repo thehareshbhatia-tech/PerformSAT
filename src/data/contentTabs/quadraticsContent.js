@@ -54,7 +54,7 @@ export const quadraticsContent = {
 
     satPatterns: {
       title: 'SAT Patterns',
-      summary: 'The five recurring prompt styles for quadratic questions on the Digital SAT.',
+      summary: 'Four pattern types with recognition cues, a form-reading trap, and a conversion decision rule.',
       blocks: [
         {
           type: 'iconRow',
@@ -66,26 +66,20 @@ export const quadraticsContent = {
           ],
         },
         {
-          type: 'table',
-          title: 'Graph Feature → Equation Feature',
-          headers: ['What You See', 'What It Means'],
-          rows: [
-            ['Opens upward', 'a > 0; vertex is minimum'],
-            ['Opens downward', 'a < 0; vertex is maximum'],
-            ['Crosses x-axis twice', 'D > 0 — two real roots'],
-            ['Touches x-axis once', 'D = 0 — one repeated root'],
-            ['Never touches x-axis', 'D < 0 — no real roots'],
-          ],
-        },
-        {
           type: 'callout',
           variant: 'info',
-          title: '"For What Value of k…" = Discriminant Problem',
-          content: '"For what value of k does x² + kx + 9 = 0 have exactly one solution?" → Set b² − 4ac = 0 → k² − 36 = 0 → k = ±6.',
+          title: 'Quadratic Question Types',
+          content: '**Roots**: factored form gives p, q directly; standard form → factor or quadratic formula. **Vertex/max/min**: vertex form gives (h, k); standard → x = −b/(2a). **Discriminant**: "How many solutions?" or "for what k exactly one?" → D = b² − 4ac. **Form conversion**: match what the question asks to the form that reveals it.',
+        },
+        {
+          type: 'trapCard',
+          title: 'Misreading Which Form Reveals What',
+          wrong: 'Treating vertex form as giving roots, or standard form as giving vertex directly.',
+          correction: '**Factored**: roots at p, q. **Vertex**: vertex at (h, k). **Standard**: y-int = c, vertex x = −b/(2a). Each form exposes different info — don\'t hunt for roots in vertex form.',
         },
         {
           type: 'tip',
-          content: 'The axis of symmetry is always the midpoint of the two roots. If zeros are at 2 and 8, the axis is x = 5 and the vertex x-coordinate is 5.',
+          content: '**Roots asked?** → Factored or quadratic formula. **Vertex/max/min asked?** → Vertex form or −b/(2a). **"How many solutions?"** → Discriminant only. **"Equivalent form"** → Convert to the form that matches the requested feature.',
         },
       ],
     },

@@ -41,32 +41,32 @@ export const systemsContent = {
 
     satPatterns: {
       title: 'SAT Patterns',
-      summary: 'College Board tests systems 3–5 times per module through five distinct prompt styles.',
+      summary: 'Four pattern types with recognition cues, a special-case trap, and a method-selection rule.',
       blocks: [
         {
           type: 'iconRow',
           items: [
-            { icon: '🔄', label: 'Solve the System', description: '"Find x, y, or x + y"' },
+            { icon: '🔄', label: 'Solve for Variable/Expression', description: '"Find x, y, or x + y"' },
             { icon: '⚙️', label: 'Value of k', description: '"For what k is there no solution?"' },
             { icon: '📝', label: 'Word Problem Setup', description: '"Translate a story into equations"' },
             { icon: '📊', label: 'Graph Intersection', description: '"What does the point represent?"' },
           ],
         },
-        { type: 'heading', content: 'Pattern 1: Solve for a Variable or Expression' },
-        {
-          type: 'text',
-          content: 'Given two equations, find x, y, or an expression like 3x − 2y. Key insight: sometimes adding/subtracting the equations directly produces the asked-for expression without isolating variables.',
-        },
         {
           type: 'callout',
           variant: 'info',
-          title: 'Bluebook Example',
-          content: '"If 2x + y = 10 and x − y = 2, what is 3x?" Add the equations: 3x = 12. No need to solve for x and y individually.',
+          title: 'Systems Question Types',
+          content: '**Solve**: Try add/subtract first — if the result gives the asked-for expression (e.g., 3x), stop. **Value of k**: No solution → same slopes, different intercepts. Infinite → same line (scalar multiple). **Word problem**: Two distinct relationships → two equations. **Graph**: Intersection = solution; read coordinates from DESMOS.',
         },
-        { type: 'heading', content: 'Pattern 2: "For What Value of k…"' },
         {
-          type: 'text',
-          content: 'One coefficient or constant contains k. Set coefficient ratios proportional (for no/infinite solutions), then check the constant ratio to distinguish the two cases.',
+          type: 'trapCard',
+          title: 'No Solution vs. Infinite Solutions',
+          wrong: 'Treating both as "no intersection" or confusing the coefficient/constant ratio logic.',
+          correction: '**No solution**: a₁/a₂ = b₁/b₂ but c₁/c₂ differs → parallel lines. **Infinite**: a₁/a₂ = b₁/b₂ = c₁/c₂ → same line. Set coefficient ratios equal first; then check whether constants match.',
+        },
+        {
+          type: 'tip',
+          content: '**Substitution** when one variable is isolated (y = … or x = …) or easy to isolate. **Elimination** when both equations are in standard form and coefficients align. **DESMOS** when numbers are messy or you need verification.',
         },
       ],
     },

@@ -38,8 +38,14 @@ export const percentsContent = {
 
     satPatterns: {
       title: 'SAT Patterns',
-      summary: 'The four prompt styles College Board uses for percent questions.',
+      summary: 'Four archetypes: percent-of translation, percent change, reverse percent, and layered changes.',
       blocks: [
+        {
+          type: 'callout',
+          variant: 'info',
+          title: 'Percent Prompt Archetypes',
+          content: '**Percent-of**: "What percent of A is B?" → B/A. **Percent change**: (New−Old)/Old × 100 — divide by original. **Reverse percent**: Final given, original asked — divide by multiplier. **Layered**: Discount then tax — chain multipliers.',
+        },
         {
           type: 'iconRow',
           items: [
@@ -50,26 +56,14 @@ export const percentsContent = {
           ],
         },
         {
-          type: 'table',
-          title: 'SAT Phrasing → Math Translation',
-          headers: ['SAT Wording', 'Multiplier'],
-          rows: [
-            ['"increased by 30%"', '×1.30'],
-            ['"decreased by 15%"', '×0.85'],
-            ['"is 40% more than"', '×1.40'],
-            ['"is 25% less than"', '×0.75'],
-            ['"is 200% of"', '×2.00'],
-          ],
-        },
-        {
-          type: 'callout',
-          variant: 'info',
-          title: 'Reverse-Percent Signal',
-          content: 'When the problem gives the **final** value and asks for the original, you must **divide** by the multiplier. "After a 20% increase the price is $84" → $84 / 1.20 = $70. Never subtract 20% of the final value.',
+          type: 'trapCard',
+          title: 'Reverse Percent: Divide, Don\'t Subtract',
+          wrong: 'After a 20% discount the price is $64. Student adds 20% back: $64 + $12.80 = $76.80.',
+          correction: 'Divide by the multiplier: $64 / 0.80 = **$80**. The 20% was taken off the original, not off $64. Reversing means undoing the multiplication.',
         },
         {
           type: 'tip',
-          content: 'Tax-and-discount problems: apply discount first, then tax. Final = Original × (1 − discount) × (1 + tax). The order of multiplication doesn\'t change the result, but the SAT context specifies the order.',
+          content: '**Multiplier approach**: Convert each change to (1±r), multiply for forward, divide for reverse. **Formula approach**: Part = Percent × Whole for "percent of"; (New−Old)/Old for change. Use multipliers for chained or reverse problems.',
         },
       ],
     },

@@ -25,20 +25,33 @@ export const volumeContent = {
 
     satPatterns: {
       title: 'SAT Patterns',
-      summary: 'Five prompt styles College Board uses to test volume knowledge.',
+      summary: 'Four archetypes: plug & compute, reverse solve, scaling/ratio, and composite solid.',
       blocks: [
-        { type: 'heading', content: 'How College Board Tests Volume' },
-        { type: 'iconRow', items: [
-          { icon: '📦', label: 'Plug & Compute', description: 'All dimensions given — find volume' },
-          { icon: '🔄', label: 'Reverse Solve', description: 'Volume given — find a missing dimension' },
-          { icon: '⚖️', label: 'Scaling / Ratio', description: 'Dimension changes — what happens to V?' },
-          { icon: '📐', label: 'Composite Solid', description: 'Add or subtract two shapes' },
-          { icon: '🌍', label: 'Real-World Wrap', description: 'Tank, silo, or container context' },
-        ] },
-        { type: 'text', content: '**Plug & Compute** (easy): All dimensions supplied, pick the right formula. Trap: diameter given, student uses it as radius.' },
-        { type: 'text', content: '**Reverse Solve** (medium): Given V, isolate the unknown. Requires dividing by π, taking square/cube roots.' },
-        { type: 'text', content: '**Scaling** (medium-hard): "If the radius doubles, what happens to volume?" Answer via exponents — r is squared in the cylinder formula, so doubling r quadruples the r² term. No need to compute actual volumes.' },
-        { type: 'callout', variant: 'info', title: 'Scaling Rule', content: 'Multiply every linear dimension by k → volume multiplies by **k³**. Change only one dimension by factor k → volume multiplies by **k** (or k² if that dimension appears squared).' },
+        {
+          type: 'callout',
+          variant: 'info',
+          title: 'Volume Prompt Archetypes',
+          content: '**Plug & compute**: All dimensions given — pick formula, substitute, simplify. **Reverse solve**: V given, find r or h — isolate, take root. **Scaling**: "Radius doubles, what happens to V?" — use exponents, no full computation. **Composite**: Two shapes — add (silo) or subtract (hole).',
+        },
+        {
+          type: 'iconRow',
+          items: [
+            { icon: '📦', label: 'Plug & Compute', description: 'All dimensions given — find volume' },
+            { icon: '🔄', label: 'Reverse Solve', description: 'Volume given — find a missing dimension' },
+            { icon: '⚖️', label: 'Scaling / Ratio', description: 'Dimension changes — what happens to V?' },
+            { icon: '📐', label: 'Composite Solid', description: 'Add or subtract two shapes' },
+          ],
+        },
+        {
+          type: 'trapCard',
+          title: 'Diameter vs. Radius',
+          wrong: 'Sphere diameter = 10. Student plugs 10 into V = (4/3)πr³ → gets 4,189 cm³.',
+          correction: 'r = 5. V = (4/3)π(125) = 500π/3 ≈ **523.6 cm³**. Halve the diameter before substituting. Circle r in scratch work before computing.',
+        },
+        {
+          type: 'tip',
+          content: '**Use ratio approach** when the question asks "what happens to V?" or compares two similar solids — exponent rules only, no π. **Use full computation** when a numeric answer is required or shapes differ (cone vs cylinder).',
+        },
       ],
     },
 

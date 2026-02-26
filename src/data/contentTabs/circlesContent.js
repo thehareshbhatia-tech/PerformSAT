@@ -42,51 +42,18 @@ export const circlesContent = {
 
     satPatterns: {
       title: 'SAT Patterns',
-      summary: 'College Board tests six circle patterns: completing the square for center/radius, arc/sector word problems, writing equations from context, circle-line intersection counts, tangent-line slope problems, and translations.',
+      summary: 'Recognition cues and decision rules for circle prompts.',
       blocks: [
-        {
-          type: 'callout',
-          variant: 'info',
-          title: 'Pattern 1: Center & Radius from General Form',
-          content: '"x² + y² − 6x + 8y + 9 = 0 represents a circle. What is the radius?" Must complete the square. One of the most common "hard" questions.',
-        },
-        {
-          type: 'callout',
-          variant: 'info',
-          title: 'Pattern 2: Arc Length / Sector Area',
-          content: '"A pizza is cut into 8 equal slices, diameter 16 inches. Area of one slice?" → θ = 45°, r = 8, sector area = (45/360) × π(64) = **8π**.',
-        },
-        {
-          type: 'callout',
-          variant: 'info',
-          title: 'Pattern 3: Write the Equation',
-          content: '"Center (3, −2), passes through (7, 1). What is the equation?" Find r via distance formula, plug into standard form.',
-        },
-        {
-          type: 'callout',
-          variant: 'info',
-          title: 'Pattern 4: Circle-Line Intersection',
-          content: '"How many intersection points for y = x + 5 and x² + y² = 9?" Substitute line into circle, use discriminant to count solutions.',
-        },
-        {
-          type: 'callout',
-          variant: 'warning',
-          title: 'Pattern 5: Tangent Line Slope',
-          content: '"A line is tangent to x² + y² = 25 at (3, 4). What is the slope?" Radius slope = 4/3, so tangent slope = **−3/4**.',
-        },
-        {
-          type: 'table',
-          title: 'Frequency & Difficulty',
-          headers: ['Pattern', 'Frequency', 'Difficulty'],
-          rows: [
-            ['Area / circumference', 'Very common', 'Easy'],
-            ['Arc length / sector area', 'Common', 'Easy–Medium'],
-            ['Completing the square', 'Common', 'Medium–Hard'],
-            ['Write equation from context', 'Common', 'Medium'],
-            ['Circle-line intersection', 'Occasional', 'Hard'],
-            ['Tangent lines', 'Occasional', 'Hard'],
-          ],
-        },
+        { type: 'callout', variant: 'info', title: 'Circle Question Types', content: '**Completing the square** — general form x² + y² + Dx + Ey + F = 0 → center and radius. **Arc/sector** — central angle θ; fraction θ/360 of circumference or area. **Write equation** — center + point or radius → standard form. **Circle-line intersection** — substitute line into circle; discriminant counts solutions. **Tangent line** — slope = negative reciprocal of radius slope at point of tangency.' },
+        { type: 'iconRow', items: [
+          { icon: '◯', label: 'Complete Square', description: 'General form → center, radius' },
+          { icon: '⌒', label: 'Arc/Sector', description: 'θ/360 × circumference or area' },
+          { icon: '📝', label: 'Write Equation', description: 'Center + point → (x−h)²+(y−k)²=r²' },
+          { icon: '↕', label: 'Intersection', description: 'Substitute; discriminant' },
+          { icon: '⊥', label: 'Tangent', description: 'Radius slope → negative reciprocal' },
+        ] },
+        { type: 'trapCard', title: 'Radius vs. Diameter', wrong: '"Diameter 10." Student plugs 10 into A = πr² or arc = (θ/360) × 2πr.', correction: 'Diameter 10 → **r = 5**. Area = π(25) = 25π. Arc uses r = 5. Halve the diameter before any formula. Same trap in "radius 6" vs "diameter 6" — read carefully.' },
+        { type: 'tip', content: '**Decision rule:** Arc length = fraction of **circumference** (2πr) — linear units. Sector area = fraction of **total area** (πr²) — square units. Same fraction θ/360; different base. "Length of the slice edge" → arc. "Area of the slice" → sector.' },
       ],
     },
 

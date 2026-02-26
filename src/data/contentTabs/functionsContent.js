@@ -39,7 +39,7 @@ export const functionsContent = {
 
     satPatterns: {
       title: 'SAT Patterns',
-      summary: 'College Board tests functions 4–6 times per module through five distinct prompt styles.',
+      summary: 'Four pattern types with recognition cues, a notation trap, and an evaluation-strategy rule.',
       blocks: [
         {
           type: 'iconRow',
@@ -50,15 +50,21 @@ export const functionsContent = {
             { icon: '📋', label: 'Table Lookup', description: '"Use the table to find f(g(1))"' },
           ],
         },
-        { type: 'heading', content: 'Pattern 1: Direct Evaluation' },
         {
-          type: 'text',
-          content: 'Given f(x) = [expression], find f(specific number). Pure substitution — but watch for nested negatives: f(−2) = 3(−2)² − 2(−2) + 1 = 12 + 4 + 1 = **17**, not 3(−4) + 4 + 1.',
+          type: 'callout',
+          variant: 'info',
+          title: 'Function Question Types',
+          content: '**Evaluate f(a)**: Substitute a for x; parenthesize negatives. **Composition**: Inside-out — g first, then f. **Graph**: x → up to curve → left to y-axis. **Table**: Chain lookups — g(a) gives input for f.',
         },
-        { type: 'heading', content: 'Pattern 2: Reverse Evaluation' },
         {
-          type: 'text',
-          content: 'The SAT gives f(x) = k and asks for x. Set the expression equal to k and solve the resulting equation. This is equation-solving disguised as a function problem.',
+          type: 'trapCard',
+          title: 'Forward vs. Reverse Function Notation',
+          wrong: '"For what x does f(x) = 4?" — going to x = 4 and reading up, or treating f(x) = k as "plug in k."',
+          correction: '**Forward** f(a): plug a in, get output. **Reverse** f(x) = k: set the rule equal to k, solve for x. On a graph, draw a horizontal line at y = k; read x where it crosses.',
+        },
+        {
+          type: 'tip',
+          content: '**Step-by-step** when the input is messy (f(−3)), composition is nested, or a table chains multiple lookups. **Algebraically** when asked for f(x + 1) or a general expression — substitute the whole expression, then simplify.',
         },
       ],
     },

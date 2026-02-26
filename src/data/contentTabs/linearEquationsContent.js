@@ -54,7 +54,7 @@ export const linearEquationsContent = {
 
     satPatterns: {
       title: 'SAT Patterns',
-      summary: 'College Board tests linear equations in 6–8 questions per module through five predictable prompt styles.',
+      summary: 'Four pattern types with recognition cues, a common trap, and a form-selection rule.',
       blocks: [
         {
           type: 'iconRow',
@@ -65,21 +65,21 @@ export const linearEquationsContent = {
             { icon: '📈', label: 'Graph ↔ Equation', description: '"Which equation matches the graph?"' },
           ],
         },
-        { type: 'heading', content: 'Pattern 1: Interpretation Questions' },
-        {
-          type: 'text',
-          content: 'College Board gives a modeled equation and asks what a coefficient or constant represents. The answer is always: coefficient = slope = rate, constant = y-intercept = starting value.',
-        },
         {
           type: 'callout',
           variant: 'info',
-          title: 'Bluebook Phrasing',
-          content: '"The equation C = 0.15m + 35 models cost in dollars where m = minutes. What does **0.15** represent?" — The cost, in dollars, per additional minute used.',
+          title: 'Linear Equation Question Types',
+          content: '**Interpret**: "What does [coefficient/constant] represent?" → coefficient = rate, constant = starting value. **Write from context**: rate → m, flat fee/initial → b. **Parallel/perpendicular**: same slope vs. negative reciprocal. **Graph ↔ equation**: read slope (rise/run) and y-intercept from graph, or plug answer choices into DESMOS.',
         },
-        { type: 'heading', content: 'Pattern 2: Equation from Context' },
         {
-          type: 'text',
-          content: 'A word problem describes a constant rate and a starting value. Identify rate → slope, starting amount → y-intercept, then write y = mx + b and match answer choices.',
+          type: 'trapCard',
+          title: 'Rate vs. Starting Value',
+          wrong: '"$3 per mile plus $5 base" → slope = 5, intercept = 3.',
+          correction: '**Per-unit** (per mile, each, for every) = slope. **Flat/fixed/initial** = y-intercept. Keywords like "per," "each," "for every" always signal slope.',
+        },
+        {
+          type: 'tip',
+          content: '**Slope-intercept** when you need to graph, interpret rate/starting value, or write from context. **Standard form** when working with systems, finding both intercepts quickly, or matching Ax + By = C answer choices.',
         },
       ],
     },

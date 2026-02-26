@@ -38,8 +38,18 @@ export const circlesLessonTabs = {
           {
             type: 'callout',
             variant: 'info',
-            title: 'Vocabulary Trap',
-            content: 'The SAT sometimes gives the diameter and labels it without emphasis. Always check: is the given value $r$ or $d$? Using $d$ where $r$ belongs (or vice versa) is the most common circle mistake.',
+            title: 'First Move: Confirm $r$ vs. $d$',
+            content: 'Recognition cue: any circle problem where a measurement is given. Before plugging into any formula, ask: "Is this the radius or the diameter?" The SAT buries the word "diameter" in the middle of a sentence. If diameter is given, halve it before using any formula.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Using Diameter as Radius',
+            wrong: '"A circle has a diameter of $10$." Student plugs $10$ into $A = \\pi r^2$ and gets $100\\pi$.',
+            correction: 'The radius is $\\frac{10}{2} = 5$. The area is $\\pi(5)^2 = 25\\pi$. Using $d$ as $r$ gives an answer exactly $4\\times$ too large.',
+          },
+          {
+            type: 'tip',
+            content: 'Every circle formula on the SAT reference sheet uses $r$. If you see circumference $= \\pi d$, that is the only formula using $d$ directly. For area, sector area, and arc length — always convert to $r$ first.',
           },
         ],
       },
@@ -157,11 +167,23 @@ export const circlesLessonTabs = {
         ],
       },
       satPatterns: {
-        title: 'SAT Connections',
+        title: 'SAT Patterns',
         blocks: [
           {
+            type: 'callout',
+            variant: 'info',
+            title: 'Wheel/Rotation Problems',
+            content: 'Recognition cue: "how far does a wheel travel" or "how many rotations." First move: one full rotation = one circumference = $2\\pi r$. Total distance $= n \\times 2\\pi r$. Reverse: number of rotations $= \\frac{\\text{distance}}{2\\pi r}$.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Using Diameter in the Area Formula',
+            wrong: '"Circumference is $20\\pi$." Student writes $A = \\pi(20)^2 = 400\\pi$.',
+            correction: 'If $C = 20\\pi$, then $2\\pi r = 20\\pi$, so $r = 10$. Area $= \\pi(10)^2 = 100\\pi$. Solve for $r$ first, then use $r$ in the area formula.',
+          },
+          {
             type: 'tip',
-            content: 'The SAT loves "how far does a wheel travel" problems. One full rotation $=$ one circumference. If a wheel of radius $r$ makes $n$ rotations, total distance $= n \\times 2\\pi r$.',
+            content: 'Circumference scales linearly ($\\times k$ radius → $\\times k$ circumference). Area scales quadratically ($\\times k$ radius → $\\times k^2$ area). If the radius triples, circumference triples but area increases $9\\times$.',
           },
         ],
       },
@@ -396,12 +418,18 @@ export const circlesLessonTabs = {
           {
             type: 'callout',
             variant: 'info',
-            title: 'Common SAT Setup',
-            content: '"A circle is shifted $3$ units to the left and $4$ units down. Which equation represents the new circle?" — Subtract $3$ from $h$, subtract $4$ from $k$, keep $r^2$ the same.',
+            title: '"Which Equation Represents the Shifted Circle?"',
+            content: 'Recognition cue: a circle equation plus a translation described in words. First move: adjust $h$ and $k$ according to the shift directions. Left/right changes $h$; up/down changes $k$. The $r^2$ stays the same for pure translations.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Shift Direction vs. Sign in Equation',
+            wrong: '"Shifted $3$ left" → student writes $(x - 3)^2$, moving the circle right.',
+            correction: 'Shifting left by $3$ subtracts $3$ from $h$. If the old center was $(h, k)$, new center is $(h-3, k)$. In the equation: $(x - (h-3))^2 = (x - h + 3)^2$. The sign inside the parentheses is opposite the direction.',
           },
           {
             type: 'tip',
-            content: 'Translations **never change** the radius. If the question only shifts the circle, the right side of the equation stays the same.',
+            content: 'Pure translations never change $r^2$. If the problem shifts AND scales the circle, handle them separately: translations change the center coordinates; scaling changes $r$ (and therefore $r^2$).',
           },
         ],
       },

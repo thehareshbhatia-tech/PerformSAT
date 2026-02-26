@@ -51,44 +51,18 @@ export const trianglesContent = {
 
     satPatterns: {
       title: 'SAT Patterns',
-      summary: 'College Board tests six triangle patterns: missing-angle, Pythagorean applications, special-triangle recognition, similar-triangle proportions, SOH CAH TOA in context, and the sin = cos complement rule.',
+      summary: 'Recognition cues and decision rules for triangle prompts.',
       blocks: [
-        {
-          type: 'callout',
-          variant: 'info',
-          title: 'Pattern 1: Find the Missing Angle',
-          content: '"Angle A = 35°, Angle B = 70°. What is Angle C?" → 180 − 35 − 70 = 75°. Often embedded in problems with parallel lines or exterior angles.',
-        },
-        {
-          type: 'callout',
-          variant: 'info',
-          title: 'Pattern 2: Pythagorean Theorem',
-          content: '"A 10-foot ladder leans against a wall, base 6 feet away. How high does it reach?" → 6-8-10 triple → **8 feet**. College Board disguises right triangles in real-world scenarios.',
-        },
-        {
-          type: 'callout',
-          variant: 'info',
-          title: 'Pattern 3: Special Right Triangles',
-          content: '"An equilateral triangle has side 10. What is its altitude?" → 30-60-90 with hypotenuse 10, short leg 5 → altitude = **5√3**.',
-        },
-        {
-          type: 'callout',
-          variant: 'info',
-          title: 'Pattern 4: Similar Triangles & Proportions',
-          content: 'Two triangles share angles (AA). One triangle\'s sides are given; find a corresponding side of the other. Set up a single proportion and cross-multiply.',
-        },
-        {
-          type: 'callout',
-          variant: 'info',
-          title: 'Pattern 5: SOH CAH TOA in Context',
-          content: '"From 50 meters away, the angle of elevation to a building\'s top is 40°. Find the height." → tan 40° = h/50 → h = 50 tan 40°.',
-        },
-        {
-          type: 'callout',
-          variant: 'warning',
-          title: 'Pattern 6: sin x = cos(90° − x)',
-          content: '"If sin x° = cos y° and x + y = 90…" The SAT tests the complement identity regularly. If sin 35° = 0.574, then cos 55° = 0.574.',
-        },
+        { type: 'callout', variant: 'info', title: 'Triangle Question Types', content: '**Missing angle** — 180° rule; often with parallel lines. **Pythagorean** — right triangle, two sides given. **Special triangles** — 30-60-90 or 45-45-90; match given side to ratio. **Similar triangles** — AA; proportional sides. **Trig ratios** — angle + one side; SOH CAH TOA. **sin = cos complement** — sin x° = cos(90° − x); x + y = 90.' },
+        { type: 'iconRow', items: [
+          { icon: '📐', label: 'Missing Angle', description: '180° − known angles' },
+          { icon: '△', label: 'Pythagorean', description: 'Right triangle only; a² + b² = c²' },
+          { icon: '⚡', label: 'Special Ratios', description: '30-60-90 or 45-45-90' },
+          { icon: '↔', label: 'Similar', description: 'AA → proportional sides' },
+          { icon: 'θ', label: 'Trig', description: 'SOH CAH TOA; sin = cos complement' },
+        ] },
+        { type: 'trapCard', title: 'Pythagorean on Non-Right Triangles', wrong: 'Triangle with sides 5, 7, 9. Student uses 5² + 7² = c² to find the "hypotenuse."', correction: 'a² + b² = c² applies **only to right triangles**. No right angle → no Pythagorean theorem. Use Law of Cosines (if given) or recognize the triangle is not right.' },
+        { type: 'tip', content: '**Decision rule:** Right triangle with two sides? → Pythagorean or special triple. Right triangle with angle + one side? → Trig (SOH CAH TOA). 30°, 45°, or 60° with one side? → Special ratios. Two triangles with matching angles? → Similar proportions.' },
       ],
     },
 

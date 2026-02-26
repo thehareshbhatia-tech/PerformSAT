@@ -23,19 +23,33 @@ export const dimensionalAnalysisContent = {
 
     satPatterns: {
       title: 'SAT Patterns',
-      summary: 'Five prompt styles: chain conversions, rate word problems, area/volume units, science context, and conversion-table lookups.',
+      summary: 'Four archetypes: chain conversion, rate problems, squared/cubic units, and science context.',
       blocks: [
-        { type: 'heading', content: 'How College Board Tests Unit Conversion' },
-        { type: 'iconRow', items: [
-          { icon: '🔗', label: 'Chain Conversion', description: 'Multi-step A → B → C conversion' },
-          { icon: '⏱️', label: 'Rate Problems', description: 'Speed, cost/unit, density' },
-          { icon: '📐', label: 'Squared/Cubic', description: 'Area or volume unit swap' },
-          { icon: '🧪', label: 'Science Context', description: 'Concentration, dosage, etc.' },
-        ] },
-        { type: 'text', content: '**Chain Conversion** (easy-medium): Two conversion factors supplied. Set up the chain, cancel units. Trap: inverting one fraction.' },
-        { type: 'text', content: '**Rate Problems** (medium): "150 widgets/hour — how many per minute?" Convert the time unit while the widget unit stays fixed.' },
-        { type: 'text', content: '**Squared/Cubic** (medium-hard): "12 ft × 15 ft room — area in square yards?" Requires applying 1 yd = 3 ft **twice**: 1 yd² = 9 ft².' },
-        { type: 'callout', variant: 'info', title: 'Factors Are Always Given', content: 'The SAT provides every non-obvious conversion factor in the problem. You never need to memorize that 1 mile = 5,280 ft. Your job: use the given factors correctly.' },
+        {
+          type: 'callout',
+          variant: 'info',
+          title: 'Dimensional Analysis Archetypes',
+          content: '**Chain conversion**: Multi-step A→B→C — arrange fractions so units cancel. **Rate problems**: Speed, cost/unit, density — convert numerator and denominator separately. **Squared/cubic**: Area/volume unit swap — square or cube the linear factor. **Science context**: Concentration, dosage — same chain logic.',
+        },
+        {
+          type: 'iconRow',
+          items: [
+            { icon: '🔗', label: 'Chain Conversion', description: 'Multi-step A → B → C conversion' },
+            { icon: '⏱️', label: 'Rate Problems', description: 'Speed, cost/unit, density' },
+            { icon: '📐', label: 'Squared/Cubic', description: 'Area or volume unit swap' },
+            { icon: '🧪', label: 'Science Context', description: 'Concentration, dosage, etc.' },
+          ],
+        },
+        {
+          type: 'trapCard',
+          title: 'Inverted Conversion Fraction',
+          wrong: '3 km × (1 km / 1000 m) = 0.003. Dimensionally nonsensical.',
+          correction: '3 km × (**1000 m / 1 km**) = 3,000 m. The unit you want to cancel must be in the opposite position. Sanity check: converting to smaller units → bigger number.',
+        },
+        {
+          type: 'tip',
+          content: '**Use dimensional analysis** when units differ and conversion factors are given — the chain guarantees correct setup. **Use direct computation** when all quantities share units (e.g., same-rate arithmetic) — no conversion needed.',
+        },
       ],
     },
 

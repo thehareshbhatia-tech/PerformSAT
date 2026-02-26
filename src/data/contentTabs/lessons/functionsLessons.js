@@ -37,17 +37,22 @@ export const functionsLessonTabs = {
       },
       satPatterns: {
         title: 'SAT Patterns',
-        summary: 'The SAT tests whether you understand input→output relationships, especially from graphs and tables.',
         blocks: [
           {
             type: 'callout',
             variant: 'info',
-            title: 'Typical Prompt',
-            content: '"The table above defines a function $f$. For how many values of $x$ does $f(x) = 3$?" — Scan the output column. Count how many rows show $3$ as the output. That count is your answer.',
+            title: '"For How Many Values of $x$…"',
+            content: 'Recognition cue: "for how many values of $x$ does $f(x) = k$" is a reverse-lookup problem. First move: scan the output column of the table (or draw $y = k$ on the graph) and count intersections. Each intersection is one valid $x$-value.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Confusing Forward and Reverse',
+            wrong: '"$f(x) = 3$" — student plugs $3$ into the function instead of searching for outputs equal to $3$.',
+            correction: '$f(x) = 3$ means "which inputs produce output $3$?" You search the output column for $3$, not the input column. $f(3)$ (no equation) would be the forward lookup.',
           },
           {
             type: 'tip',
-            content: '"How many values of $x$" asks about inputs that produce a given output — you are searching the **range** for a target value and counting which **domain** values map to it.',
+            content: 'Decision rule: $f(3)$ → go to input $3$, read the output. $f(x) = 3$ → find every input whose output is $3$. The position of the number (inside parentheses vs. after the equals sign) determines the direction of the lookup.',
           },
         ],
       },
@@ -125,14 +130,18 @@ export const functionsLessonTabs = {
           {
             type: 'callout',
             variant: 'info',
-            title: 'Graph-Based Notation',
-            content: '"Based on the graph of $f$, what is $f(2)$?" — Go to $x = 2$ on the horizontal axis, find where the graph sits, and read the $y$-value. That $y$-value is $f(2)$.',
+            title: 'Graph Reading: Forward vs. Reverse',
+            content: '"What is $f(2)$?" → go to $x = 2$, read the $y$-value. "For what value of $x$ is $f(x) = 2$?" → draw $y = 2$ mentally, find where it crosses the graph, read the $x$-value(s). The question stem tells you which axis to start from.',
           },
           {
             type: 'trapCard',
-            title: 'Reading $f(x) = 2$ Backwards',
+            title: 'Reading $f(x) = 2$ as $f(2)$',
             wrong: 'Student reads "$f(x) = 2$" and plugs $2$ into the function.',
-            correction: '$f(x) = 2$ asks: "Which input(s) give an output of $2$?" Find where $y = 2$ on the graph, then read the $x$-coordinate(s).',
+            correction: '$f(x) = 2$ asks "which inputs give output $2$?" — search horizontally at $y = 2$. $f(2)$ asks "what is the output at input $2$?" — search vertically at $x = 2$. They are opposite operations.',
+          },
+          {
+            type: 'tip',
+            content: 'On graph questions, trace your finger along the correct axis first. Forward ($f(a)$): start on the $x$-axis, go vertical to the curve, read $y$. Reverse ($f(x) = b$): start on the $y$-axis, go horizontal to the curve, read $x$.',
           },
         ],
       },
@@ -189,20 +198,22 @@ export const functionsLessonTabs = {
       },
       satPatterns: {
         title: 'SAT Patterns',
-        summary: 'The hardest SAT function questions combine composition with algebraic manipulation.',
         blocks: [
           {
             type: 'callout',
             variant: 'info',
-            title: 'The "Double Substitution" Pattern',
-            content: '"$f(x) = x^2 + 1$ and $g(x) = x - 3$. What is $f(g(x))$?" — Replace $x$ inside $f$ with the entire expression $g(x) = x - 3$: $f(g(x)) = (x-3)^2 + 1 = x^2 - 6x + 10$.',
+            title: 'Composition: Inside-Out',
+            content: 'Recognition cue: nested parentheses like $f(g(x))$ or $g(f(3))$. First move: **always evaluate the innermost function first**. For $g(f(3))$: compute $f(3)$ to get a number, then feed that number into $g$.',
           },
           {
-            type: 'checkpointQuestion',
-            question: 'If $f(x) = 4x + 2$ and $g(x) = x^2$, what is $g(f(1))$?',
-            options: ['$6$', '$18$', '$36$', '$38$'],
-            correctIndex: 2,
-            answer: '$f(1) = 4(1) + 2 = 6$. Then $g(6) = 6^2 = 36$.',
+            type: 'trapCard',
+            title: 'Wrong Order of Evaluation',
+            wrong: 'For $f(g(3))$, student computes $f(3)$ first, then feeds that into $g$.',
+            correction: '$f(g(3))$ reads "apply $g$ first, then $f$." Evaluate the inner function ($g(3)$) first, then use that result as the input to the outer function ($f$).',
+          },
+          {
+            type: 'tip',
+            content: 'Decision rule: if the input is a number ($g(f(2))$), evaluate step by step — inner first, then outer. If the input is $x$ ($f(g(x))$), replace every $x$ in the outer function with the full inner expression and simplify algebraically.',
           },
         ],
       },

@@ -25,20 +25,17 @@ export const statisticsContent = {
 
     satPatterns: {
       title: 'SAT Patterns',
-      summary: 'Five prompt styles College Board uses to test statistics.',
+      summary: 'Recognition cues and decision rules for statistics prompts.',
       blocks: [
-        { type: 'heading', content: 'How College Board Tests Statistics' },
+        { type: 'callout', variant: 'info', title: 'Statistics Question Types', content: '**Compute mean/median** — list or frequency table; sum ÷ count or cumulative-frequency median. **Effect of changes/outliers** — add/remove a value; which measure shifts more? **Compare data sets** — which has larger mean, σ, or range? **Survey interpretation** — margin of error, valid conclusions; results generalize only to the sampled population.' },
         { type: 'iconRow', items: [
-          { icon: '📊', label: 'Compute Mean/Median', description: 'From a list or frequency table' },
-          { icon: '🔀', label: 'Effect of Changes', description: 'Add/remove a value — what shifts?' },
-          { icon: '📈', label: 'Compare Data Sets', description: 'Which has larger mean, σ, or range?' },
-          { icon: '📋', label: 'Survey Interpretation', description: 'Margin of error, valid conclusions' },
-          { icon: '❓', label: 'Missing Value', description: 'Mean is known — find the missing number' },
+          { icon: '📊', label: 'Compute', description: 'Mean from sum/count; median via cumulative frequency' },
+          { icon: '🔀', label: 'Effect of Changes', description: 'Outliers pull mean; median resists' },
+          { icon: '📈', label: 'Compare Sets', description: 'Mean, σ, range — conceptual reasoning' },
+          { icon: '📋', label: 'Survey', description: 'Margin of error → interval; cautious claims only' },
         ] },
-        { type: 'text', content: '**Compute** (easy): Sum-and-divide or cumulative-frequency median. Trap: averaging averages instead of weighting.' },
-        { type: 'text', content: '**Missing Value** (medium): Reverse the mean formula — total needed minus known sum. Fast algebra, one equation.' },
-        { type: 'text', content: '**Effect of Changes** (medium): "Remove the outlier 95 — which measure changes more?" Outliers drag the mean; median barely moves.' },
-        { type: 'callout', variant: 'info', title: 'Generalization Rule', content: 'Survey results only generalize to the **sampled population**. A poll of Ohio juniors cannot support claims about all U.S. students. The SAT\'s correct answer is almost always the **most cautious** claim.' },
+        { type: 'trapCard', title: 'Mean vs. Median', wrong: 'Data: {2, 3, 4, 5, 100}. Student reports "typical value" as mean = 22.8.', correction: 'The mean is pulled by the outlier. For skewed data, **median** (4) better represents the typical value. Use mean when the question explicitly asks for it or when data is symmetric.' },
+        { type: 'tip', content: '**Decision rule:** When data has outliers or is skewed, prefer **median** for "typical" or "representative" value. When asked "which measure changes more if we remove X?" — mean shifts; median barely moves. No computation needed.' },
       ],
     },
 

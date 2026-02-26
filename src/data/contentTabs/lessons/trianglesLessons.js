@@ -35,17 +35,22 @@ export const trianglesLessonTabs = {
       },
       satPatterns: {
         title: 'SAT Patterns',
-        summary: 'The SAT loves asking you to find a missing angle using the $180°$ rule.',
         blocks: [
           {
             type: 'callout',
             variant: 'info',
-            title: 'Classic Prompt',
-            content: '"In triangle $ABC$, $\\angle A = 50°$ and $\\angle B = 65°$. What is $\\angle C$?" — Use $\\angle C = 180° - 50° - 65° = 65°$.',
+            title: 'Missing Angle = $180°$ Minus the Others',
+            content: 'Recognition cue: two angles given, third asked. First move: $\\angle C = 180° - \\angle A - \\angle B$. If only one angle is given and the triangle is isosceles, set the two base angles equal: $2\\alpha + \\text{vertex} = 180°$.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Exterior Angle Confusion',
+            wrong: 'The exterior angle at vertex $C$ is $130°$. Student writes $\\angle C = 130°$.',
+            correction: 'An exterior angle and its adjacent interior angle are supplementary: $\\angle C = 180° - 130° = 50°$. The exterior angle equals the sum of the two remote interior angles.',
           },
           {
             type: 'tip',
-            content: 'When the SAT says "equilateral," immediately write $60°$ for every angle. When it says "isosceles," set the two base angles equal and use $180°$ to solve.',
+            content: '"Equilateral" → all angles $60°$ (instant). "Isosceles" → base angles equal. "Right triangle" → one angle is $90°$, the other two sum to $90°$. These keywords shave seconds off setup.',
           },
         ],
       },
@@ -259,15 +264,22 @@ export const trianglesLessonTabs = {
       },
       satPatterns: {
         title: 'SAT Patterns',
-        summary: 'The SAT frequently embeds similar triangles in diagrams with parallel lines or shared angles.',
         blocks: [
           {
-            type: 'text',
-            content: 'Look for these setups: a **line parallel** to one side of a triangle (creates a smaller similar triangle inside), two triangles sharing a **common vertex**, or overlapping triangles in a complex figure.',
+            type: 'callout',
+            variant: 'info',
+            title: 'Spot AA Similarity First',
+            content: 'Recognition cue: a diagram with a parallel line cutting a triangle, or two triangles sharing a common angle. First move: identify two matching angles (AA). Once you have AA, the triangles are similar — write the proportion immediately.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Mismatching Corresponding Sides',
+            wrong: 'Student pairs the shortest side of one triangle with the longest side of the other.',
+            correction: 'Corresponding sides are opposite the same angle in each triangle. Label the triangles with matching vertex order ($\\triangle ABC \\sim \\triangle DEF$) and match: $AB↔DE$, $BC↔EF$, $AC↔DF$.',
           },
           {
             type: 'tip',
-            content: 'When you spot similar triangles, immediately set up a **proportion**. Match corresponding sides carefully — the side opposite the largest angle in one triangle corresponds to the side opposite the largest angle in the other.',
+            content: 'Decision rule: parallel line inside a triangle → similar triangles (by AA from corresponding angles). Shared angle between two triangles → check for a second matching angle. Two shared angles → immediate similarity.',
           },
         ],
       },
@@ -359,12 +371,18 @@ export const trianglesLessonTabs = {
           {
             type: 'callout',
             variant: 'info',
-            title: 'Hidden Right Triangles',
-            content: 'The SAT embeds right triangles in many contexts: altitudes dropped from a vertex, diagonals of rectangles, distances on coordinate planes, and ramps or ladders in word problems. Always ask: "Is there a $90°$ angle here?"',
+            title: 'Finding Hidden Right Triangles',
+            content: 'Recognition cue: a diagram showing a ladder, ramp, altitude, diagonal of a rectangle, or distance on a coordinate plane. First move: ask "where is the $90°$ angle?" Once you find it, label legs and hypotenuse, then decide your tool.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Applying Pythagorean Theorem to Non-Right Triangles',
+            wrong: 'Student uses $a^2 + b^2 = c^2$ on a triangle without verifying a right angle.',
+            correction: '$a^2 + b^2 = c^2$ applies **only** when one angle is exactly $90°$. If no right angle is confirmed, you need the Law of Cosines or another approach.',
           },
           {
             type: 'tip',
-            content: 'When a right triangle appears, you unlock three powerful tools: the **Pythagorean theorem**, **special right triangle ratios**, and **trigonometric ratios**. Decide which one the problem is testing before you start computing.',
+            content: 'Decision rule: if sides are clean integers → check for a Pythagorean triple first ($3$-$4$-$5$, $5$-$12$-$13$). If the problem mentions $45°$ or $30°$/$60°$ → use special triangle ratios. If it gives an arbitrary angle → use trig (SOH CAH TOA).',
           },
         ],
       },
@@ -480,16 +498,22 @@ export const trianglesLessonTabs = {
       },
       satPatterns: {
         title: 'SAT Patterns',
-        summary: 'The SAT reference sheet includes trig ratios. Questions typically give two sides and ask for an angle-related ratio.',
         blocks: [
           {
-            type: 'example',
-            difficulty: 'Medium',
-            problem: 'In right triangle $PQR$, $\\angle R = 90°$, $PQ = 13$, and $QR = 5$. What is $\\sin P$?',
-            steps: [
-              { label: 'Identify sides', content: 'Relative to $\\angle P$: opposite $= QR = 5$, hypotenuse $= PQ = 13$' },
-              { label: 'Apply SOH', content: '$\\sin P = \\frac{\\text{Opposite}}{\\text{Hypotenuse}} = \\frac{5}{13}$' },
-            ],
+            type: 'callout',
+            variant: 'info',
+            title: '"Find $\\sin P$" — Label Relative to the Angle',
+            content: 'Recognition cue: a right triangle with sides given, question asks for a trig ratio at a specific angle. First move: identify which sides are opposite, adjacent, and hypotenuse **relative to the asked angle**. Then apply SOH, CAH, or TOA.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Labeling Sides from the Wrong Angle',
+            wrong: 'Student labels "opposite" and "adjacent" from the right angle instead of the asked angle $P$.',
+            correction: 'The opposite and adjacent sides are always relative to the angle in the question. The right angle just tells you where the hypotenuse is (across from it).',
+          },
+          {
+            type: 'tip',
+            content: 'Complement shortcut: $\\sin \\theta = \\cos(90° - \\theta)$. If the SAT says $\\sin 40° = 0.643$, then $\\cos 50° = 0.643$. This identity saves you from computing when the question swaps between sin and cos of complementary angles.',
           },
         ],
       },
@@ -559,17 +583,23 @@ export const trianglesLessonTabs = {
         ],
       },
       satPatterns: {
-        title: 'SAT Connections',
+        title: 'SAT Patterns',
         blocks: [
           {
-            type: 'tip',
-            content: 'A 45-45-90 triangle appears whenever you see a square\'s diagonal, an isosceles right triangle, or coordinates that involve $45°$ rotations. The digital SAT reference sheet includes this ratio — know how to apply it fast.',
+            type: 'callout',
+            variant: 'info',
+            title: 'Where 45-45-90 Hides',
+            content: 'Recognition cue: a square\'s diagonal, an isosceles right triangle, or any $45°$ angle in a right-triangle context. First move: set up the ratio $1:1:\\sqrt{2}$ and identify which piece you know (leg or hypotenuse), then scale.',
           },
           {
             type: 'trapCard',
-            title: 'Multiplying Instead of Dividing',
-            wrong: 'Given hypotenuse $= 8$, student writes leg $= 8\\sqrt{2}$.',
-            correction: 'Going from hypotenuse to leg means **dividing** by $\\sqrt{2}$: leg $= \\frac{8}{\\sqrt{2}} = 4\\sqrt{2}$.',
+            title: 'Multiplying by $\\sqrt{2}$ in the Wrong Direction',
+            wrong: 'Hypotenuse $= 8$ → student writes leg $= 8\\sqrt{2}$.',
+            correction: 'Leg → hypotenuse: multiply by $\\sqrt{2}$. Hypotenuse → leg: **divide** by $\\sqrt{2}$. The hypotenuse is always the larger number. Leg $= \\frac{8}{\\sqrt{2}} = 4\\sqrt{2}$.',
+          },
+          {
+            type: 'tip',
+            content: 'Decision rule: see "$45°$" + right triangle → use $1:1:\\sqrt{2}$. See "$30°$" or "$60°$" + right triangle → use $1:\\sqrt{3}:2$. The angle tells you which special triangle ratio to apply.',
           },
         ],
       },

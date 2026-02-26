@@ -34,17 +34,22 @@ export const volumeLessonTabs = {
       },
       satPatterns: {
         title: 'SAT Patterns',
-        summary: 'Volume questions appear in 1–3 questions per SAT module, typically as word problems requiring the right formula.',
         blocks: [
           {
             type: 'callout',
             variant: 'info',
-            title: 'Typical Prompt',
-            content: '"A cylindrical tank has a radius of 4 feet and a height of 10 feet. What is the volume, in cubic feet, of the tank?" — Identify the shape, pick the formula from the reference sheet, substitute, and compute.',
+            title: 'Shape Identification Is Step One',
+            content: 'Recognition cue: a word problem describing a real-world 3D object. First move: identify the geometric shape — silo = cylinder, ball = sphere, ice cream cone = cone, box/crate = rectangular prism. Then pick the formula from the reference sheet and plug in.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Diameter Given, Radius Expected',
+            wrong: '"A cylindrical tank has a diameter of $8$ feet." Student plugs $8$ into $\\pi r^2 h$.',
+            correction: 'If diameter $= 8$, then $r = 4$. Every volume formula uses radius, not diameter. Halve first, then substitute.',
           },
           {
             type: 'tip',
-            content: 'The SAT often buries the shape name. Watch for real-world objects: *silo* = cylinder, *ball* = sphere, *ice cream cone* = cone, *shoebox* = rectangular prism.',
+            content: 'Decision rule: all dimensions given → plug and compute. Volume given, one dimension missing → reverse-solve (isolate the unknown). Two shapes compared → set up a ratio and cancel common terms (often $\\pi$ cancels).',
           },
         ],
       },
@@ -298,22 +303,22 @@ export const volumeLessonTabs = {
       },
       satPatterns: {
         title: 'SAT Patterns',
-        summary: 'Sphere questions often test scaling or ask you to compare two spheres of different radii.',
         blocks: [
           {
-            type: 'table',
-            title: 'Scaling Factor Quick Reference',
-            headers: ['Radius Multiplier', 'Volume Multiplier'],
-            rows: [
-              ['$\\times 2$', '$\\times 8$'],
-              ['$\\times 3$', '$\\times 27$'],
-              ['$\\times \\frac{1}{2}$', '$\\times \\frac{1}{8}$'],
-              ['$\\times k$', '$\\times k^3$'],
-            ],
+            type: 'callout',
+            variant: 'info',
+            title: 'Scaling Questions: Radius × $k$ → Volume × $k^3$',
+            content: 'Recognition cue: "if the radius doubles/triples, what happens to the volume?" First move: don\'t recalculate — apply the scaling rule. Multiply the radius by $k$ → volume multiplies by $k^3$. Double the radius → $8\\times$ the volume.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Scaling Linearly Instead of Cubically',
+            wrong: '"Radius doubles, so volume doubles too."',
+            correction: 'Volume depends on $r^3$, not $r$. Doubling $r$ means $(2r)^3 = 8r^3$. The volume becomes $8$ times as large, not $2$ times.',
           },
           {
             type: 'tip',
-            content: 'When two spheres are compared, set up a ratio: $\\frac{V_2}{V_1} = \\frac{r_2^3}{r_1^3} = \\left(\\frac{r_2}{r_1}\\right)^3$. The $\\frac{4}{3}\\pi$ cancels out.',
+            content: 'When comparing two spheres, set up the ratio $\\frac{V_2}{V_1} = \\left(\\frac{r_2}{r_1}\\right)^3$. The constants $\\frac{4}{3}\\pi$ cancel completely. You never need to compute actual volumes.',
           },
         ],
       },

@@ -33,20 +33,22 @@ export const exponentsLessonTabs = {
       },
       satPatterns: {
         title: 'SAT Patterns',
-        summary: 'The SAT disguises exponent laws inside fraction simplification, radical-to-exponent conversion, and scientific notation.',
         blocks: [
           {
             type: 'callout',
             variant: 'info',
-            title: 'Typical Prompt',
-            content: '"If $\\frac{x^a \\cdot x^3}{x^2} = x^7$, what is the value of $a$?" — Apply the laws: numerator exponents add ($a + 3$), then subtract the denominator ($-2$): $a + 3 - 2 = 7$, so $a = 6$.',
+            title: 'Exponent Equation: Match the Bases',
+            content: 'Recognition cue: an equation with $x$ in multiple exponent positions or "what is the value of $a$?" First move: apply product rule (add exponents when multiplying), quotient rule (subtract when dividing), power rule (multiply for nested exponents). Set the resulting exponent equal to the target.',
           },
           {
-            type: 'formulaGrid',
-            items: [
-              { label: 'Fractional Exponents', formula: '$a^{1/n} = \\sqrt[n]{a}$', note: 'Converts radicals ↔ exponents' },
-              { label: 'General Fractional', formula: '$a^{m/n} = \\sqrt[n]{a^m}$', note: 'Numerator = power, denominator = root' },
-            ],
+            type: 'trapCard',
+            title: 'Multiplying Exponents Instead of Adding',
+            wrong: '$x^3 \\cdot x^4 = x^{12}$ — student multiplied $3 \\times 4$.',
+            correction: 'Multiplication of same bases → **add** exponents: $x^{3+4} = x^7$. The power rule ($x^{3 \\cdot 4} = x^{12}$) applies to $(x^3)^4$, not $x^3 \\cdot x^4$.',
+          },
+          {
+            type: 'tip',
+            content: 'Decision rule: same-base multiplication → add exponents. Same-base division → subtract. Power of a power → multiply. If bases differ, rewrite as a common base (e.g., $8 = 2^3$, $27 = 3^3$) before combining.',
           },
         ],
       },
@@ -217,26 +219,22 @@ export const exponentsLessonTabs = {
       },
       satPatterns: {
         title: 'SAT Patterns',
-        summary: 'The SAT tests whether you can identify $a$ and $b$ in context and determine growth vs. decay.',
         blocks: [
           {
             type: 'callout',
             variant: 'info',
-            title: 'Bluebook Phrasing',
-            content: '"A car purchased for \\$25,000 loses 12% of its value each year. Which function models the car\'s value after $t$ years?" — $a = 25{,}000$ (initial value), $b = 1 - 0.12 = 0.88$ (decay factor). Answer: $V(t) = 25{,}000 \\cdot 0.88^t$.',
+            title: '"Which Function Models…" = Identify $a$ and $b$',
+            content: 'Recognition cue: a word problem describing percentage growth or decay over time. First move: identify the initial value ($a$) and compute the multiplier ($b = 1 \\pm r$). Growth uses $1 + r$; decay uses $1 - r$. The exponent is the time variable.',
           },
           {
-            type: 'formulaGrid',
-            items: [
-              { label: 'Growth by $r\\%$', formula: '$f(x) = a(1 + r)^x$', note: 'e.g., 5% growth → $b = 1.05$' },
-              { label: 'Decay by $r\\%$', formula: '$f(x) = a(1 - r)^x$', note: 'e.g., 15% decay → $b = 0.85$' },
-              { label: 'Doubling Time', formula: '$a \\cdot 2^{x/d}$', note: '$d$ = time to double' },
-              { label: 'Half-Life', formula: '$a \\cdot \\left(\\frac{1}{2}\\right)^{x/h}$', note: '$h$ = half-life period' },
-            ],
+            type: 'trapCard',
+            title: 'Confusing Factor with Rate',
+            wrong: '"Grows by $8\\%$ per year" → student writes $b = 8$ or $b = 0.08$.',
+            correction: '$8\\%$ growth means the factor is $1 + 0.08 = 1.08$. The factor $b$ is always close to $1$. If $b > 1$, it is growth; if $0 < b < 1$, it is decay.',
           },
           {
             type: 'tip',
-            content: 'To find the **percent change** from the equation: if $b = 1.08$, the growth rate is $8\\%$. If $b = 0.75$, the decay rate is $25\\%$. Just compare $b$ to $1$.',
+            content: 'To extract the rate from a given equation: $b = 1.08$ → growth rate is $|b - 1| = 0.08 = 8\\%$. $b = 0.75$ → decay rate is $|1 - b| = 0.25 = 25\\%$. The SAT phrasing is "by what percent does the value change each year?"',
           },
         ],
       },

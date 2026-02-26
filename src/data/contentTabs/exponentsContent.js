@@ -49,38 +49,17 @@ export const exponentsContent = {
 
     satPatterns: {
       title: 'SAT Patterns',
-      summary: 'The four recurring ways College Board frames exponent questions.',
+      summary: 'Recognition cues and decision rules for exponent prompts.',
       blocks: [
-        {
-          type: 'iconRow',
-          items: [
-            { icon: '🔄', label: 'Simplify / Rewrite', description: 'Reduce using exponent rules' },
-            { icon: '⚖️', label: 'Equivalent Form', description: 'Rational exponent ↔ radical' },
-            { icon: '📈', label: 'Model Interpretation', description: 'What does 0.88 represent?' },
-            { icon: '🔢', label: 'Common-Base Equations', description: 'If 4ˣ = 8, find x' },
-          ],
-        },
-        {
-          type: 'callout',
-          variant: 'info',
-          title: 'Simplify / Rewrite Prompts',
-          content: '"Which expression is equivalent to (x³y²)⁴ / x⁵y³?" — Pure rule application. Convert everything to the same base, then combine exponents.',
-        },
-        {
-          type: 'table',
-          title: 'Model Interpretation Guide for f(x) = a · bˣ',
-          headers: ['Component', 'Meaning', 'How SAT Asks'],
-          rows: [
-            ['a', 'Initial value', '"What is the starting population?"'],
-            ['b', 'Multiplier per period', '"By what factor does it change?"'],
-            ['|b − 1|', 'Percent change rate', '"By what percent does it decrease each year?"'],
-            ['Exponent t/k', 'Change happens every k units', '"What does the 3 represent in 2^(t/3)?"'],
-          ],
-        },
-        {
-          type: 'tip',
-          content: 'When you see bases like 4, 8, 16, 27, or 125, immediately ask: "Can I rewrite as a power of 2, 3, or 5?" This unlocks common-base comparison problems in seconds.',
-        },
+        { type: 'callout', variant: 'info', title: 'Exponent Question Types', content: '**Simplify/rewrite** — apply product, quotient, power rules; same base → combine exponents. **Equivalent forms** — radical ↔ rational exponent; a^(m/n) = ⁿ√(aᵐ). **Model interpretation** — f(x) = a·bˣ; a = initial, b = factor, |b−1| = rate. **Common-base equations** — 4ˣ = 8 → rewrite as 2^(2x) = 2³ → set exponents equal.' },
+        { type: 'iconRow', items: [
+          { icon: '🔄', label: 'Simplify', description: 'Product, quotient, power rules' },
+          { icon: '⚖️', label: 'Equivalent Form', description: 'Radical ↔ rational exponent' },
+          { icon: '📈', label: 'Model', description: 'a·bˣ: initial, factor, rate' },
+          { icon: '🔢', label: 'Common Base', description: 'Rewrite; set exponents equal' },
+        ] },
+        { type: 'trapCard', title: 'Distributing Exponents Over Addition', wrong: '(x + y)² → x² + y². Or (2 + 3)² → 2² + 3² = 13.', correction: 'Exponents distribute over **multiplication** only: (xy)² = x²y². For addition: (x + y)² = x² + 2xy + y². (2 + 3)² = 25, not 13.' },
+        { type: 'tip', content: '**Decision rule:** When solving an equation with different bases (4ˣ = 8, 9^(x+1) = 27ˣ), **convert to common base first**. 4 = 2², 8 = 2³, 9 = 3², 27 = 3³. Once both sides share a base, set exponents equal and solve.' },
       ],
     },
 

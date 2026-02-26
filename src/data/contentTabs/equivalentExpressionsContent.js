@@ -47,36 +47,32 @@ export const equivalentExpressionsContent = {
 
     satPatterns: {
       title: 'SAT Patterns',
-      summary: 'The four prompt styles College Board uses for equivalent-expression questions.',
+      summary: 'Four archetypes: "which is equivalent", "find k", "which form reveals…", and coefficient extraction.',
       blocks: [
+        {
+          type: 'callout',
+          variant: 'info',
+          title: 'Equivalent Expression Archetypes',
+          content: '**"Which is equivalent?"**: Match expanded/factored — plug in x = 2 or graph in DESMOS. **"Find k"**: True for all x → expand and match coefficients. **"Which form reveals…?"**: Factored → zeros; vertex → min/max. **Coefficient extraction**: a+b+c → evaluate at x = 1.',
+        },
         {
           type: 'iconRow',
           items: [
             { icon: '🔄', label: '"Which Is Equivalent?"', description: 'Match expanded/factored forms' },
             { icon: '🔑', label: '"Find k"', description: 'True for all x → match coefficients' },
             { icon: '📐', label: '"Which Form Reveals…?"', description: 'Factored → zeros, vertex → min/max' },
-            { icon: '🧮', label: '"Find a + b + c"', description: 'Coefficient extraction' },
+            { icon: '🧮', label: 'Coefficient Extraction', description: '"Find a + b + c"' },
           ],
         },
         {
-          type: 'table',
-          title: 'Form → Information Revealed',
-          headers: ['Form', 'What It Shows'],
-          rows: [
-            ['Expanded (ax² + bx + c)', 'y-intercept = c'],
-            ['Factored: a(x − p)(x − q)', 'Zeros at x = p and x = q'],
-            ['Vertex: a(x − h)² + k', 'Min/max value = k at x = h'],
-          ],
+          type: 'trapCard',
+          title: '"True for All x" vs. "Solve for x"',
+          wrong: 'Treating "ax² + bx + c = dx² + ex + f for all x" as an equation to solve — picking one value of x.',
+          correction: '"True for all x" means the expressions are identical. Expand both sides, match coefficients of x², x, and constant. "Solve for x" finds a specific value — different task entirely.',
         },
         {
-          type: 'callout',
-          variant: 'info',
-          title: '"True for All Values of x"',
-          content: 'This phrase means both sides must be identical expressions. Expand fully and match coefficients of each power of x. This is different from "solve for x" — that finds a specific value.',
-        },
-        {
-          type: 'keyInsight',
-          content: 'When the SAT asks for a + b + c where f(x) = ax² + bx + c, just evaluate the original at **x = 1**: f(1) = a + b + c. No expansion needed.',
+          type: 'tip',
+          content: '**Expand** when the target is standard form, you need to match coefficients, or the question says "true for all x." **Factor** when the target is factored form, you need zeros, or the structure suggests a special product (difference of squares, perfect square).',
         },
       ],
     },

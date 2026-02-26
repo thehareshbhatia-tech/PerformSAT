@@ -36,8 +36,14 @@ export const transformationsContent = {
 
     satPatterns: {
       title: 'SAT Patterns',
-      summary: 'College Board tests transformations 2–4 times per module through five predictable prompt styles.',
+      summary: 'Four prompt archetypes: describe from equation, match graph to equation, transform tables, and combined transforms.',
       blocks: [
+        {
+          type: 'callout',
+          variant: 'info',
+          title: 'Transformation Archetypes',
+          content: '**Describe from equation**: "How does g relate to f?" — decode y = a·f(b(x−h))+k. **Graph→equation**: shifted graph shown, pick matching equation — track one point. **Table→table**: given f(x), find g(x) = f(x±h)±k — apply inside-out. **Combined**: multiple shifts/stretches — decode left-to-right.',
+        },
         {
           type: 'iconRow',
           items: [
@@ -47,15 +53,15 @@ export const transformationsContent = {
             { icon: '🔄', label: 'Combined Transforms', description: '"Multiple changes at once"' },
           ],
         },
-        { type: 'heading', content: 'Pattern 1: Describe the Transformation' },
         {
-          type: 'text',
-          content: 'Given g(x) = f(x − 4) + 1, describe how g relates to f. Answer: shifted **right 4** and **up 1**. The SAT tests whether you reverse the horizontal sign correctly.',
+          type: 'trapCard',
+          title: 'Horizontal Shift Direction Reversed',
+          wrong: 'f(x − 3) → "shift left 3" because of the minus sign.',
+          correction: 'f(x − 3) shifts **right 3**. The shift is opposite the sign inside. Ask: "What x makes the inside zero?" x − 3 = 0 → x = 3. That is where the origin moves.',
         },
-        { type: 'heading', content: 'Pattern 2: Vertex Shifts & Tables' },
         {
-          type: 'text',
-          content: 'Vertex form y = a(x − h)² + k gives vertex (h, k). For tables: f(x) + 3 adds 3 to y; f(x − 1) adds 1 to x (opposite direction). **Track one point** through the transformation to match graphs.',
+          type: 'tip',
+          content: '**Inside f** (horizontal): affects x, direction is **opposite** the sign — minus inside = right, plus inside = left. **Outside f** (vertical): affects y, direction matches — plus = up, minus = down.',
         },
       ],
     },

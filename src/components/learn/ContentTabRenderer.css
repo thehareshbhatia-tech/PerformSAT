@@ -1,0 +1,288 @@
+.block-heading {
+  font-family: var(--font-ui);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-slate-900);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+  margin-top: 0;
+}
+
+.block-heading--spaced {
+  margin-top: 2rem;
+}
+
+.block-text {
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-slate-700);
+  margin-bottom: 1rem;
+  max-width: 720px;
+}
+
+.block-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-slate-500);
+  letter-spacing: 0.02em;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.block-label--accent {
+  color: var(--color-brand-orange-600);
+}
+
+.block-label--error {
+  color: var(--color-error-600);
+}
+
+.block-label--success {
+  color: var(--color-success-600);
+}
+
+/* --- Math Family --- */
+.block-math {
+  background: var(--color-slate-50);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem 2rem;
+  margin: 1.5rem 0;
+  text-align: center;
+  /* Removed borders for simplicity, just subtle background */
+}
+
+.block-math-formula {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--color-slate-900);
+}
+
+.block-math-note {
+  font-size: 0.875rem;
+  color: var(--color-slate-500);
+  margin-top: 0.75rem;
+}
+
+/* Table */
+.block-table-container {
+  margin: 1.5rem 0;
+  overflow-x: auto;
+}
+
+.block-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-ui);
+  font-size: 0.9375rem;
+}
+
+.block-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-slate-900);
+  border-bottom: 1px solid var(--color-slate-200);
+}
+
+.block-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--color-slate-100);
+  color: var(--color-slate-700);
+}
+
+.block-table td:first-child {
+  color: var(--color-slate-900);
+  font-weight: 500;
+}
+
+/* --- Emphasis Family (Callouts, Tips, etc.) --- */
+.block-emphasis {
+  background: var(--color-slate-50);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  border-left: 3px solid var(--color-brand-orange-500);
+}
+
+.block-emphasis--info {
+  border-left-color: var(--color-info-500);
+  background: var(--color-info-50);
+}
+
+.block-emphasis--warning {
+  border-left-color: var(--color-brand-orange-500);
+  background: var(--color-brand-peach-100);
+}
+
+.block-emphasis--error {
+  border-left-color: var(--color-error-500);
+  background: var(--color-error-50);
+}
+
+.block-emphasis--success {
+  border-left-color: var(--color-success-500);
+  background: var(--color-success-50);
+}
+
+.block-emphasis-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.block-emphasis-content {
+  flex: 1;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-slate-800);
+}
+
+.block-emphasis-title {
+  font-weight: 600;
+  color: var(--color-slate-900);
+  margin-bottom: 0.25rem;
+}
+
+/* --- Worked Family (Examples, Steps) --- */
+.block-worked {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: var(--radius-2xl);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: var(--shadow-sm);
+}
+
+.block-worked-problem {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-slate-900);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.block-worked-step {
+  background: var(--color-slate-50);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.block-worked-step--final {
+  background: var(--color-success-50);
+}
+
+.block-worked-step-number {
+  font-weight: 600;
+  color: var(--color-slate-400);
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.block-worked-step-content {
+  flex: 1;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-slate-700);
+}
+
+/* Comparison / Grid Layouts */
+.block-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.block-grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+/* Checkpoint / Reveal */
+.block-reveal-btn {
+  background: transparent;
+  color: var(--color-brand-orange-600);
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  font-family: var(--font-ui);
+  transition: opacity 0.2s ease;
+}
+
+.block-reveal-btn:hover {
+  opacity: 0.7;
+}
+
+.block-reveal-btn:focus-visible {
+  outline: 2px solid var(--color-brand-orange-500);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.block-reveal-content {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-slate-200);
+}
+
+/* Section Controls */
+.section-summary {
+  font-family: var(--font-ui);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-slate-600);
+  margin-bottom: 1.5rem;
+  font-style: normal; /* removed italic for cleaner look */
+}
+
+.content-tab-nav {
+  display: flex;
+  gap: 1rem;
+  border-bottom: 1px solid var(--color-slate-200);
+  margin-bottom: 2rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.content-tab-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-slate-500);
+  padding: 0.5rem 0;
+  white-space: nowrap;
+  position: relative;
+  transition: color 0.15s ease;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.content-tab-btn--active {
+  color: var(--color-slate-900);
+  font-weight: 600;
+  border-bottom-color: var(--color-slate-900);
+}
+
+.content-tab-btn:focus-visible {
+  outline: 2px solid var(--color-brand-orange-500);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}

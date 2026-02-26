@@ -28,13 +28,22 @@ export const linearEquationsLessonTabs = {
       },
       satPatterns: {
         title: 'SAT Patterns',
-        summary: 'Linear equations appear in 6–8 questions per SAT module. Recognizing the form is the first step.',
         blocks: [
           {
             type: 'callout',
             variant: 'info',
-            title: 'Typical Prompt',
-            content: '"Which of the following represents a linear relationship?" — Look for the answer where the variable has **no exponent greater than 1** and is **not in a denominator or under a radical**.',
+            title: 'Recognition Cue',
+            content: '"Which of the following represents a linear relationship?" — Scan each choice in 3 seconds: if the variable has an exponent other than $1$, sits in a denominator, or appears under a radical, eliminate it. The linear one looks like $y = mx + b$ or $Ax + By = C$.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Constants Are Linear Too',
+            wrong: 'Student sees $y = 5$ (no $x$ at all) and marks it as "not linear."',
+            correction: '$y = 5$ is a horizontal line — perfectly linear. It is $y = 0x + 5$. Linearity requires the highest power of $x$ to be $\\leq 1$, and zero counts.',
+          },
+          {
+            type: 'tip',
+            content: 'When four answer choices mix quadratics, reciprocals, and radicals with one linear option, elimination is faster than verification. Cross off anything with $x^2$, $\\frac{1}{x}$, or $\\sqrt{x}$ first.',
           },
         ],
       },
@@ -72,17 +81,22 @@ export const linearEquationsLessonTabs = {
       },
       satPatterns: {
         title: 'SAT Patterns',
-        summary: 'The SAT disguises slope behind words like "rate," "per," and "each."',
         blocks: [
           {
             type: 'callout',
             variant: 'info',
-            title: 'Bluebook Phrasing',
-            content: '"The equation $C = 0.15m + 35$ models cost where $m$ = minutes. What does **0.15** represent?" — It\'s the slope: the cost **per additional minute**.',
+            title: '"What Does the Number Represent?"',
+            content: '"The equation $C = 0.15m + 35$ models the monthly cost, in dollars, where $m$ is the number of minutes used. What does $0.15$ represent?" — It is the coefficient of $m$, so it is the **rate**: the cost per additional minute. The answer always pairs the coefficient\'s units with "per [input unit]."',
+          },
+          {
+            type: 'trapCard',
+            title: 'Slope vs. Intercept in Context',
+            wrong: '"A gym charges \\$25/month with a \\$50 sign-up fee." Student says \\$50 is the slope.',
+            correction: '**Per-unit** = slope (\\$25/month). **One-time/initial** = intercept (\\$50). If the value repeats per unit, it is the slope. If it happens once, it is the intercept.',
           },
           {
             type: 'tip',
-            content: 'Keywords for slope: **per**, **each**, **every**, **rate**, **for every**. Keywords for y-intercept: **initial**, **starting**, **base**, **flat fee**.',
+            content: 'Slope keywords: **per**, **each**, **every**, **for every**, **rate of**. Intercept keywords: **initial**, **starting**, **base fee**, **already**, **at time zero**. Spotting the keyword decides your answer instantly.',
           },
         ],
       },
@@ -281,13 +295,22 @@ export const linearEquationsLessonTabs = {
       },
       satPatterns: {
         title: 'SAT Patterns',
-        summary: 'The SAT asks "What does the constant represent?" — always answer with the starting value.',
         blocks: [
           {
             type: 'callout',
             variant: 'info',
-            title: 'Typical Prompt',
-            content: '"In the equation $y = 8x + 200$, what does **200** represent?" — It\'s the y-intercept: the **initial amount** when $x = 0$.',
+            title: 'First Move: Set $x = 0$',
+            content: '"In the equation $P = 8t + 200$, where $t$ is the number of months, what does $200$ represent?" — Plug in $t = 0$: $P = 200$. The $200$ is the value **before any time passes** — the initial amount. Answer in context: "the initial population."',
+          },
+          {
+            type: 'trapCard',
+            title: 'Confusing the Rate with the Start',
+            wrong: '"A tank drains at $8$ gallons/minute and starts with $200$ gallons." Student labels $8$ as the initial value.',
+            correction: 'The number attached to the variable ($8t$) is the rate. The standalone constant ($200$) is the starting value. Rate = slope = coefficient; start = intercept = constant.',
+          },
+          {
+            type: 'tip',
+            content: 'Decision rule: if the question asks "what does the **number** represent," identify whether it is the coefficient of the variable (rate) or the constant term (initial value). The physical meaning always follows from that position in $y = mx + b$.',
           },
         ],
       },
@@ -328,17 +351,22 @@ export const linearEquationsLessonTabs = {
       },
       satPatterns: {
         title: 'SAT Patterns',
-        summary: 'Parallel-line questions ask you to match slopes, often through systems with "no solution."',
         blocks: [
           {
             type: 'callout',
             variant: 'info',
-            title: 'No-Solution System',
-            content: '"The system has no solution. What is the value of $k$?" — No solution means the lines are parallel. Set their slopes equal: $\\frac{-A_1}{B_1} = \\frac{-A_2}{B_2}$, then solve for $k$.',
+            title: '"No Solution" = Parallel',
+            content: '"The system of equations has no solution. What is the value of $k$?" — Recognition cue: "no solution" on a linear system always means parallel lines. First move: extract slopes from both equations ($\\frac{-A}{B}$ for standard form), set them equal, solve for $k$.',
           },
           {
-            type: 'text',
-            content: 'For standard form $Ax + By = C$, the slope is $\\frac{-A}{B}$. Convert both equations to this form, set slopes equal, and solve for the unknown.',
+            type: 'trapCard',
+            title: 'Forgetting the Intercept Check',
+            wrong: 'Student sets slopes equal, finds $k$, but doesn\'t verify the intercepts differ.',
+            correction: 'Equal slopes + equal intercepts = same line (infinitely many solutions, not zero). After finding $k$, confirm the constant terms are different. On multiple-choice questions this check is usually unnecessary, but on student-produced-response it catches errors.',
+          },
+          {
+            type: 'tip',
+            content: 'Decision rule: "no solution" → set slopes equal. "Infinitely many solutions" → set slopes equal AND set intercepts (or constant ratios) equal. The question stem tells you which condition to use — read it precisely.',
           },
         ],
       },

@@ -44,49 +44,33 @@ export const radiansDegreesContent = {
 
     satPatterns: {
       title: 'SAT Patterns',
-      summary: 'College Board tests five patterns: direct conversion, arc/sector word problems, unit-circle coordinate lookups, trig with radian inputs, and angular speed.',
+      summary: 'Five archetypes: direct conversion, arc/sector, unit circle coordinates, trig with radian input, and angular speed.',
       blocks: [
         {
           type: 'callout',
           variant: 'info',
-          title: 'Pattern 1: Direct Conversion',
-          content: '"An angle measures 5π/6 radians. What is its measure in degrees?" Pure conversion — free points if the table is memorized.',
+          title: 'Radian/Degree Archetypes',
+          content: '**Direct conversion**: Angle given in one unit, asked in the other — multiply by π/180 or 180/π. **Arc/sector**: Real-world (wiper, pizza slice) — s = rθ or A = ½r²θ; θ must be radians. **Unit circle**: (a,b) on circle → a = cos θ, b = sin θ. **Trig input**: sin(π/3) — convert to 60° or use radian directly. **Angular speed**: rad/s × time → s = rθ.',
         },
         {
-          type: 'callout',
-          variant: 'info',
-          title: 'Pattern 2: Arc Length / Sector Area',
-          content: 'Real-world scenario (pizza slice, wiper blade, clock hand) asks for arc length or sector area. The central angle may arrive in degrees — decide whether to convert or use the proportion method.',
-        },
-        {
-          type: 'callout',
-          variant: 'info',
-          title: 'Pattern 3: Unit Circle Coordinates',
-          content: '"The terminal side of angle θ intersects the unit circle at (a, b). What is a?" Translation: **a = cos θ**. That\'s it.',
-        },
-        {
-          type: 'callout',
-          variant: 'info',
-          title: 'Pattern 4: Trig with Radian Input',
-          content: '"What is the value of sin(π/3)?" Requires knowing π/3 = 60° and sin 60° = √3/2. The conversion step is invisible but mandatory.',
-        },
-        {
-          type: 'callout',
-          variant: 'warning',
-          title: 'Pattern 5: Angular Speed / Rotation',
-          content: 'A wheel rotates at a given rate (rad/s). Find linear speed or total rotation. Combines **s = rθ** with rate × time. Appears as harder questions.',
-        },
-        {
-          type: 'table',
-          title: 'Frequency & Difficulty',
-          headers: ['Pattern', 'Frequency', 'Difficulty'],
-          rows: [
-            ['Direct conversion', 'Common', 'Easy–Medium'],
-            ['Arc length / sector area', 'Common', 'Medium'],
-            ['Unit circle coordinates', 'Occasional', 'Medium'],
-            ['Trig with radian input', 'Common', 'Medium–Hard'],
-            ['Angular speed', 'Rare', 'Hard'],
+          type: 'iconRow',
+          items: [
+            { icon: '🔄', label: 'Direct Conversion', description: '5π/6 rad → degrees' },
+            { icon: '📐', label: 'Arc / Sector', description: 'Pizza slice, wiper blade' },
+            { icon: '⭕', label: 'Unit Circle', description: '(a,b) → cos θ, sin θ' },
+            { icon: '📊', label: 'Trig Radian Input', description: 'sin(π/3) = ?' },
+            { icon: '⚙️', label: 'Angular Speed', description: 'rad/s, linear speed' },
           ],
+        },
+        {
+          type: 'trapCard',
+          title: 'Degrees in Arc Length Formula',
+          wrong: 'Plugs θ = 60 into s = rθ → s = 5 × 60 = 300. Answer is wildly too large.',
+          correction: 'Convert first: 60° = π/3. Then s = 5 × π/3 = **5π/3 ≈ 5.24**. The formulas s = rθ and A = ½r²θ require radians. Use (θ/360)×2πr if you prefer to keep degrees.',
+        },
+        {
+          type: 'tip',
+          content: '**Proportion method**: (θ/360)×2πr for arc, (θ/360)×πr² for sector — use when the angle is in degrees and conversion feels slow. **Radian formula**: s = rθ, A = ½r²θ — faster when θ is already in radians or you convert first.',
         },
       ],
     },
