@@ -118,7 +118,7 @@ const LearnWorkspace = ({
               </div>
             ) : null}
 
-            {/* Previous / Complete / Next */}
+            {/* Previous / Complete */}
             <div className="lesson-stage__nav">
               <button
                 className="lesson-stage__nav-btn"
@@ -134,14 +134,6 @@ const LearnWorkspace = ({
               >
                 {isCompleted ? '✓ Completed' : 'Mark Complete & Continue'}
               </PrimaryButton>
-
-              <button
-                className="lesson-stage__nav-btn"
-                onClick={handleNext}
-                disabled={!nextLesson}
-              >
-                Next →
-              </button>
             </div>
 
             {/* Up Next */}
