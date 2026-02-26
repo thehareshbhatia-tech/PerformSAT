@@ -3,7 +3,7 @@
 .learn-workspace {
   display: flex;
   height: calc(100vh - 64px);
-  background: var(--color-slate-50, #FBFBFD);
+  background: var(--color-slate-50);
   overflow: hidden;
 }
 
@@ -33,10 +33,10 @@
   background: none;
   border: none;
   padding: 6px 0;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  font-family: var(--font-ui);
   font-size: 13px;
   font-weight: 500;
-  color: #ea580c;
+  color: var(--color-brand-orange-500);
   cursor: pointer;
   transition: opacity 0.15s ease;
   margin-bottom: 16px;
@@ -47,10 +47,10 @@
 }
 
 .learn-rail__module-title {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  font-family: var(--font-ui);
   font-size: 17px;
   font-weight: 700;
-  color: #1D1D1F;
+  color: var(--color-slate-900);
   letter-spacing: -0.02em;
   line-height: 1.3;
   margin: 0;
@@ -58,23 +58,23 @@
 
 .learn-rail__module-meta {
   font-size: 12px;
-  color: #86868b;
+  color: var(--color-slate-500);
   margin-top: 4px;
   font-weight: 500;
 }
 
 .learn-rail__progress-bar {
-  height: 3px;
+  height: 4px;
   background: rgba(0, 0, 0, 0.06);
-  border-radius: 2px;
+  border-radius: var(--radius-sm);
   margin-top: 12px;
   overflow: hidden;
 }
 
 .learn-rail__progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #FF9F0A, #FF5E3A);
-  border-radius: 2px;
+  background: var(--gradient-brand-primary);
+  border-radius: var(--radius-sm);
   transition: width 0.4s ease;
 }
 
@@ -90,10 +90,10 @@
 }
 
 .learn-rail__section-label {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  font-family: var(--font-ui);
   font-size: 11px;
   font-weight: 700;
-  color: #86868b;
+  color: var(--color-slate-500);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: 16px 20px 6px;
@@ -111,23 +111,23 @@
 }
 
 .learn-rail__item:hover {
-  background: rgba(0, 0, 0, 0.02);
+  background: rgba(234, 88, 12, 0.03);
 }
 
 .learn-rail__item--active {
   background: rgba(255, 149, 0, 0.08);
-  border-left-color: #FF9500;
+  border-left-color: var(--color-brand-orange-500);
 }
 
 .learn-rail__item--active .learn-rail__item-title {
-  color: #ea580c;
+  color: var(--color-brand-orange-600);
   font-weight: 600;
 }
 
 .learn-rail__item-icon {
   width: 28px;
   height: 28px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -137,25 +137,25 @@
 }
 
 .learn-rail__item-icon--video {
-  background: rgba(234, 88, 12, 0.1);
-  color: #ea580c;
+  background: rgba(255, 149, 0, 0.1);
+  color: var(--color-brand-orange-500);
 }
 
 .learn-rail__item-icon--lesson {
-  background: rgba(37, 99, 235, 0.1);
-  color: #2563eb;
+  background: rgba(0, 122, 255, 0.1);
+  color: var(--color-info-600);
 }
 
 .learn-rail__item-icon--completed {
-  background: rgba(22, 163, 74, 0.1);
-  color: #16a34a;
+  background: rgba(52, 199, 89, 0.1);
+  color: var(--color-success-600);
 }
 
 .learn-rail__item-title {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  font-family: var(--font-ui);
   font-size: 13px;
   font-weight: 400;
-  color: #1D1D1F;
+  color: var(--color-slate-900);
   line-height: 1.35;
   flex: 1;
   min-width: 0;
@@ -168,7 +168,7 @@
 
 .learn-rail__item-duration {
   font-size: 11px;
-  color: #a1a1aa;
+  color: var(--color-slate-400);
   flex-shrink: 0;
   font-weight: 500;
 }
@@ -197,10 +197,10 @@
 
 .lesson-stage__tagline {
   display: inline-block;
-  background: rgba(234, 88, 12, 0.1);
-  color: #ea580c;
+  background: rgba(255, 149, 0, 0.1);
+  color: var(--color-brand-orange-600);
   padding: 5px 12px;
-  border-radius: 100px;
+  border-radius: var(--radius-full);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -209,10 +209,10 @@
 }
 
 .lesson-stage__title {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  font-family: var(--font-ui);
   font-size: 28px;
   font-weight: 700;
-  color: #1D1D1F;
+  color: var(--color-slate-900);
   letter-spacing: -0.02em;
   line-height: 1.2;
   margin: 0 0 6px;
@@ -220,18 +220,18 @@
 
 .lesson-stage__subtitle {
   font-size: 15px;
-  color: #86868b;
+  color: var(--color-slate-500);
   margin: 0;
   line-height: 1.5;
 }
 
 .lesson-stage__video-container {
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   background: #000;
   aspect-ratio: 16 / 9;
   margin-bottom: 32px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow-lg);
   position: relative;
 }
 
@@ -241,7 +241,7 @@
   inset: 0;
   pointer-events: none;
   box-shadow: inset 0 0 80px rgba(255, 149, 0, 0.04);
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
 }
 
 .lesson-stage__video-summary {
@@ -250,24 +250,24 @@
   padding: 16px 20px;
   background: rgba(249, 250, 251, 0.95);
   border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
 }
 
 .lesson-stage__video-summary-title {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  font-family: var(--font-ui);
   font-size: 12px;
   font-weight: 700;
-  color: #86868b;
+  color: var(--color-slate-500);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin: 0 0 8px;
 }
 
 .lesson-stage__video-summary-text {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  font-family: var(--font-ui);
   font-size: 14px;
   line-height: 1.55;
-  color: #374151;
+  color: var(--color-slate-700);
   margin: 0;
   font-style: italic;
 }
@@ -277,73 +277,6 @@
 }
 
 /* ===== UP NEXT CARD ===== */
-.up-next-card {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 16px;
-  padding: 20px 24px;
-  margin-top: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  transition: box-shadow 0.2s ease;
-}
-
-.up-next-card:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-}
-
-.up-next-card__label {
-  font-size: 11px;
-  font-weight: 700;
-  color: #86868b;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 4px;
-}
-
-.up-next-card__title {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  color: #1D1D1F;
-  line-height: 1.3;
-}
-
-.up-next-card__type {
-  font-size: 12px;
-  color: #86868b;
-  margin-top: 2px;
-}
-
-.up-next-card__btn {
-  background: linear-gradient(135deg, #FF9F0A 0%, #FF5E3A 100%);
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-  box-shadow: 0 2px 8px rgba(255, 149, 0, 0.25);
-  flex-shrink: 0;
-}
-
-.up-next-card__btn:hover {
-  transform: scale(1.03);
-  box-shadow: 0 4px 14px rgba(255, 149, 0, 0.35);
-}
-
-.up-next-card__btn:active {
-  transform: scale(0.98);
-}
-
 .module-complete-card {
   text-align: center;
   padding: 40px;
@@ -358,13 +291,13 @@
 .module-complete-card__title {
   font-size: 20px;
   font-weight: 700;
-  color: #1D1D1F;
+  color: var(--color-slate-900);
   margin-bottom: 6px;
 }
 
 .module-complete-card__text {
   font-size: 14px;
-  color: #86868b;
+  color: var(--color-slate-500);
 }
 
 /* ===== RIGHT COACH PANE ===== */
@@ -393,53 +326,22 @@
 .lesson-stage__nav-btn {
   background: none;
   border: none;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  font-family: var(--font-ui);
   font-size: 13px;
   font-weight: 500;
-  color: #ea580c;
+  color: var(--color-brand-orange-500);
   cursor: pointer;
   padding: 8px 0;
   transition: opacity 0.15s ease;
 }
 
 .lesson-stage__nav-btn:disabled {
-  color: #d4d4d8;
+  color: var(--color-slate-300);
   cursor: default;
 }
 
 .lesson-stage__nav-btn:not(:disabled):hover {
   opacity: 0.7;
-}
-
-.lesson-stage__complete-btn {
-  background: #ea580c;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.15s ease, transform 0.1s ease;
-  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.2);
-}
-
-.lesson-stage__complete-btn:hover {
-  background: #c2410c;
-}
-
-.lesson-stage__complete-btn:active {
-  transform: scale(0.97);
-}
-
-.lesson-stage__complete-btn--done {
-  background: #16a34a;
-  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.2);
-}
-
-.lesson-stage__complete-btn--done:hover {
-  background: #15803d;
 }
 
 /* ===== RESPONSIVE ===== */
@@ -481,4 +383,22 @@
   .ai-coach-pane {
     display: none;
   }
+}
+/* ===== ACCESSIBILITY & FOCUS ===== */
+.learn-rail__item:focus-visible {
+  outline: 2px solid var(--color-brand-orange-500);
+  outline-offset: -2px;
+  border-radius: var(--radius-sm);
+}
+
+.lesson-stage__nav-btn:focus-visible {
+  outline: 2px solid var(--color-brand-orange-500);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.learn-rail__back:focus-visible {
+  outline: 2px solid var(--color-brand-orange-500);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
 }

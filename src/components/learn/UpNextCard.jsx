@@ -1,4 +1,6 @@
 import React from 'react';
+import { DataCard } from '../ui/DataCard';
+import { PrimaryButton } from '../ui/Button';
 
 const UpNextCard = ({ nextLesson, onAdvance }) => {
   if (!nextLesson) {
@@ -14,7 +16,7 @@ const UpNextCard = ({ nextLesson, onAdvance }) => {
   }
 
   return (
-    <div className="up-next-card">
+    <DataCard style={{ marginTop: '40px', padding: '20px 24px', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
       <div>
         <div className="up-next-card__label">Up Next</div>
         <div className="up-next-card__title">{nextLesson.title}</div>
@@ -22,10 +24,10 @@ const UpNextCard = ({ nextLesson, onAdvance }) => {
           {nextLesson.type === 'video' ? '▶ Video' : '◉ Lesson'} · {nextLesson.duration || '5 min'}
         </div>
       </div>
-      <button className="up-next-card__btn" onClick={onAdvance}>
+      <PrimaryButton onClick={onAdvance} style={{ flexShrink: 0, padding: '10px 20px', borderRadius: 'var(--radius-md)' }}>
         Continue →
-      </button>
-    </div>
+      </PrimaryButton>
+    </DataCard>
   );
 };
 

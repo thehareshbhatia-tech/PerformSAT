@@ -3,6 +3,7 @@ import LearnRail from './LearnRail';
 import UpNextCard from './UpNextCard';
 import AiTutorChat from '../AiTutorChat';
 import ContentTabRenderer from './ContentTabRenderer';
+import { PrimaryButton } from '../ui/Button';
 import { getContentTabForLesson } from '../../data/contentTabs/lessonContentIndex';
 import './LearnWorkspace.css';
 
@@ -127,12 +128,12 @@ const LearnWorkspace = ({
                 ← Previous
               </button>
 
-              <button
-                className={`lesson-stage__complete-btn ${isCompleted ? 'lesson-stage__complete-btn--done' : ''}`}
+              <PrimaryButton
                 onClick={handleMarkCompleteAndNext}
+                style={isCompleted ? { background: 'var(--color-success-600)', boxShadow: '0 2px 8px rgba(52, 199, 89, 0.2)' } : {}}
               >
                 {isCompleted ? '✓ Completed' : 'Mark Complete & Continue'}
-              </button>
+              </PrimaryButton>
 
               <button
                 className="lesson-stage__nav-btn"
