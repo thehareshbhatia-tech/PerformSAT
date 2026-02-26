@@ -1,6 +1,5 @@
 import React, { useMemo, useRef, useEffect } from 'react';
 import LearnRail from './LearnRail';
-import UpNextCard from './UpNextCard';
 import AiTutorChat from '../AiTutorChat';
 import ContentTabRenderer from './ContentTabRenderer';
 import { PrimaryButton } from '../ui/Button';
@@ -118,7 +117,7 @@ const LearnWorkspace = ({
               </div>
             ) : null}
 
-            {/* Previous / Complete */}
+            {/* Previous / Complete / Next */}
             <div className="lesson-stage__nav">
               <button
                 className="lesson-stage__nav-btn"
@@ -134,10 +133,15 @@ const LearnWorkspace = ({
               >
                 {isCompleted ? '✓ Completed' : 'Mark Complete & Continue'}
               </PrimaryButton>
-            </div>
 
-            {/* Up Next */}
-            <UpNextCard nextLesson={nextLesson} onAdvance={handleNext} />
+              <button
+                className="lesson-stage__nav-btn"
+                onClick={handleNext}
+                disabled={!nextLesson}
+              >
+                Next →
+              </button>
+            </div>
           </>
         )}
       </main>
