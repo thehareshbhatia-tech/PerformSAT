@@ -3,7 +3,7 @@ import LearnRail from './LearnRail';
 import UpNextCard from './UpNextCard';
 import AiTutorChat from '../AiTutorChat';
 import ContentTabRenderer from './ContentTabRenderer';
-import { allContentTabs } from '../../data/contentTabs';
+import { getContentTabForLesson } from '../../data/contentTabs/lessonContentIndex';
 import './LearnWorkspace.css';
 
 const LearnWorkspace = ({
@@ -23,7 +23,7 @@ const LearnWorkspace = ({
 }) => {
   const stageRef = useRef(null);
   const prevLessonId = useRef(activeLessonId);
-  const contentTab = allContentTabs[moduleId] || null;
+  const contentTab = getContentTabForLesson(moduleId, activeLessonId);
 
   useEffect(() => {
     if (prevLessonId.current !== activeLessonId && stageRef.current) {

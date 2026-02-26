@@ -1,28 +1,39 @@
 import React, { useState, useMemo } from 'react';
 import { SECTION_ORDER, SECTION_LABELS, BLOCK_BUDGET, DEFAULT_MAX_BLOCKS_INITIALLY } from '../../data/contentTabs/schema';
+import { MathText } from '../MathText';
+import LessonVisualRenderer, { visualRegistry } from './LessonVisualRenderer';
 
 const font = '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif';
-const mathFont = 'Georgia, "Times New Roman", serif';
 const orange = '#ea580c';
 const orangeLight = '#fff7ed';
 const orangeMuted = '#ffedd5';
 
+/**
+ * Renders text with markdown emphasis (**bold**, *accent*) AND KaTeX math ($...$).
+ * Markdown is processed first into React nodes; segments without markup are
+ * passed through MathText so LaTeX renders correctly.
+ */
 const renderRichText = (text) => {
   if (!text) return null;
   return text.split(/(\*\*.*?\*\*|\*.*?\*|`[^`]+`)/).map((part, i) => {
     if (part.startsWith('**') && part.endsWith('**')) {
-      return <strong key={i} style={{ fontWeight: 600, color: '#0a0a0a' }}>{part.slice(2, -2)}</strong>;
+      return <strong key={i} style={{ fontWeight: 600, color: '#0a0a0a' }}>
+        <MathText>{part.slice(2, -2)}</MathText>
+      </strong>;
     }
     if (part.startsWith('*') && part.endsWith('*')) {
-      return <em key={i} style={{ color: orange, fontStyle: 'normal', fontWeight: 500 }}>{part.slice(1, -1)}</em>;
+      return <em key={i} style={{ color: orange, fontStyle: 'normal', fontWeight: 500 }}>
+        <MathText>{part.slice(1, -1)}</MathText>
+      </em>;
     }
     if (part.startsWith('`') && part.endsWith('`')) {
       return <code key={i} style={{
-        fontFamily: mathFont, fontStyle: 'italic', background: '#f5f5f5',
-        padding: '2px 8px', borderRadius: 6, fontSize: '0.95em', color: '#0a0a0a'
+        fontFamily: 'Georgia, "Times New Roman", serif', fontStyle: 'italic',
+        background: '#f5f5f5', padding: '2px 8px', borderRadius: 6,
+        fontSize: '0.95em', color: '#0a0a0a'
       }}>{part.slice(1, -1)}</code>;
     }
-    return part;
+    return <MathText key={i}>{part}</MathText>;
   });
 };
 
@@ -32,7 +43,7 @@ const BlockRenderers = {
       fontFamily: font, fontSize: 18, fontWeight: 700, color: '#0a0a0a',
       letterSpacing: '-0.02em', marginBottom: 12, marginTop: idx > 0 ? 24 : 0
     }}>
-      {block.content}
+      <MathText>{block.content}</MathText>
     </h3>
   ),
 
@@ -61,11 +72,8 @@ const BlockRenderers = {
           letterSpacing: '0.12em', marginBottom: 12
         }}>{block.label}</div>
       )}
-      <div style={{
-        fontSize: 24, fontWeight: 500, color: '#0a0a0a',
-        fontFamily: mathFont, fontStyle: 'italic'
-      }}>
-        {block.content}
+      <div style={{ fontSize: 24, fontWeight: 500, color: '#0a0a0a' }}>
+        <MathText>{block.content}</MathText>
       </div>
       {block.note && (
         <div style={{ fontSize: 12, color: '#6b7280', marginTop: 10 }}>
@@ -124,7 +132,7 @@ const BlockRenderers = {
                 padding: '10px 14px', textAlign: 'left', fontWeight: 700,
                 color: '#374151', borderBottom: '2px solid #e5e7eb',
                 background: '#fafafa', fontSize: 12, letterSpacing: '0.02em'
-              }}>{h}</th>
+              }}><MathText>{h}</MathText></th>
             ))}
           </tr>
         </thead>
@@ -135,10 +143,8 @@ const BlockRenderers = {
                 <td key={ci} style={{
                   padding: '8px 14px', borderBottom: '1px solid #f3f4f6',
                   color: ci === 0 ? '#0a0a0a' : '#525252', fontWeight: ci === 0 ? 600 : 400,
-                  fontFamily: ci > 0 && /[=+\-×÷/()xy]/.test(cell) ? mathFont : font,
-                  fontStyle: ci > 0 && /[=+\-×÷/()xy]/.test(cell) ? 'italic' : 'normal'
                 }}>
-                  {renderRichText(cell)}
+                  <MathText>{cell}</MathText>
                 </td>
               ))}
             </tr>
@@ -299,7 +305,7 @@ const BlockRenderers = {
     }}>
       <div style={{
         position: 'absolute', top: -40, right: -40, width: 150, height: 150,
-        background: `radial-gradient(circle, rgba(234,88,12,0.2), transparent 70%)`,
+        background: 'radial-gradient(circle, rgba(234,88,12,0.2), transparent 70%)',
         pointerEvents: 'none'
       }} />
       <div style={{ position: 'relative', zIndex: 1 }}>
@@ -359,9 +365,9 @@ const BlockRenderers = {
             fontSize: 10, fontWeight: 700, color: '#6b7280', textTransform: 'uppercase',
             letterSpacing: '0.1em', marginBottom: 8
           }}>{item.label}</div>
-          <div style={{
-            fontSize: 18, fontFamily: mathFont, fontStyle: 'italic', color: '#0a0a0a', fontWeight: 500
-          }}>{item.formula}</div>
+          <div style={{ fontSize: 18, color: '#0a0a0a', fontWeight: 500 }}>
+            <MathText>{item.formula}</MathText>
+          </div>
           {item.note && (
             <div style={{ fontSize: 11, color: '#6b7280', marginTop: 6 }}>{item.note}</div>
           )}
@@ -408,16 +414,21 @@ const BlockRenderers = {
     );
   },
 
-  diagramRef: (block, idx) => (
-    <div key={idx} style={{
-      background: '#f9fafb', borderRadius: 10, padding: '14px 18px', margin: '14px 0',
-      border: '1px dashed #d1d5db', textAlign: 'center'
-    }}>
-      <div style={{ fontSize: 12, color: '#6b7280', fontWeight: 500 }}>
-        {block.description || 'Refer to the visual model in the lesson content.'}
+  diagramRef: (block, idx) => {
+    if (block.visualType && visualRegistry[block.visualType]) {
+      return <div key={idx}><LessonVisualRenderer type={block.visualType} /></div>;
+    }
+    return (
+      <div key={idx} style={{
+        background: '#f9fafb', borderRadius: 10, padding: '14px 18px', margin: '14px 0',
+        border: '1px dashed #d1d5db', textAlign: 'center'
+      }}>
+        <div style={{ fontSize: 12, color: '#6b7280', fontWeight: 500 }}>
+          {block.description || 'Refer to the visual model in the lesson content.'}
+        </div>
       </div>
-    </div>
-  ),
+    );
+  },
 
   iconRow: (block, idx) => (
     <div key={idx} style={{
@@ -439,6 +450,19 @@ const BlockRenderers = {
         </div>
       ))}
     </div>
+  ),
+
+  parallelLinesDiagram: (_block, idx) => (
+    <div key={idx}><LessonVisualRenderer type="parallelLinesDiagram" /></div>
+  ),
+  perpendicularLinesDiagram: (_block, idx) => (
+    <div key={idx}><LessonVisualRenderer type="perpendicularLinesDiagram" /></div>
+  ),
+  slopeFromGraphDiagram: (_block, idx) => (
+    <div key={idx}><LessonVisualRenderer type="slopeFromGraphDiagram" /></div>
+  ),
+  yInterceptDiagram: (_block, idx) => (
+    <div key={idx}><LessonVisualRenderer type="yInterceptDiagram" /></div>
   ),
 };
 
@@ -474,7 +498,31 @@ const SectionContent = ({ section, sectionId }) => {
 
       {visibleBlocks.map((block, idx) => {
         const renderer = BlockRenderers[block.type];
-        if (!renderer) return null;
+        if (!renderer) {
+          if (process.env.NODE_ENV === 'development') {
+            console.warn(`ContentTabRenderer: unknown block type "${block.type}" at index ${idx}`);
+          }
+          return null;
+        }
+        if (process.env.NODE_ENV === 'development') {
+          const REQ = {
+            table: ['headers', 'rows'], steps: ['items'], example: ['problem', 'steps'],
+            trapCard: ['wrong'], checkpointQuestion: ['question', 'answer'],
+            formulaGrid: ['items'], iconRow: ['items'], formula: ['content'],
+            callout: ['content'], comparison: ['items'],
+          };
+          const fields = REQ[block.type];
+          if (fields) {
+            for (const f of fields) {
+              if (block[f] === undefined || block[f] === null) {
+                console.warn(`ContentTabRenderer: block[${idx}] type="${block.type}" missing required field "${f}"`);
+              }
+            }
+          }
+          if (block.type === 'diagramRef' && block.visualType && !visualRegistry[block.visualType]) {
+            console.warn(`ContentTabRenderer: diagramRef visualType "${block.visualType}" not found in visualRegistry`);
+          }
+        }
         return renderer(block, idx);
       })}
 
@@ -512,7 +560,6 @@ const ContentTabRenderer = ({ contentTab }) => {
 
   return (
     <div style={{ width: '100%' }}>
-      {/* Tab bar */}
       <div style={{
         display: 'flex', gap: 0, borderBottom: '1px solid #e5e7eb',
         marginBottom: 20, overflowX: 'auto', WebkitOverflowScrolling: 'touch',
@@ -537,7 +584,6 @@ const ContentTabRenderer = ({ contentTab }) => {
         ))}
       </div>
 
-      {/* Active section content */}
       <SectionContent section={tabs[activeTab]?.section} sectionId={tabs[activeTab]?.id} />
     </div>
   );

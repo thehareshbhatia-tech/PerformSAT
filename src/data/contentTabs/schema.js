@@ -10,6 +10,19 @@
  *
  * Block metadata (optional):
  * - priority: 'high' | 'medium' | 'low' — high-priority blocks shown first when collapsed
+ *
+ * ── Math Notation ──
+ * All symbolic math must use LaTeX wrapped in dollar signs:
+ *   Inline:  $m = \\frac{y_2 - y_1}{x_2 - x_1}$
+ *   Display: $$y = mx + b$$
+ * ContentTabRenderer routes all text through KaTeX via MathText.
+ * Do NOT use unicode fractions (³⁄₅) or ad-hoc symbols; use LaTeX equivalents.
+ *
+ * ── Visual Block Types ──
+ * The following block types render SVG diagrams directly:
+ *   parallelLinesDiagram, perpendicularLinesDiagram,
+ *   slopeFromGraphDiagram, yInterceptDiagram
+ * Use { type: 'diagramRef', visualType: '<name>' } for inline diagram embedding.
  */
 
 export const SECTION_IDS = {
@@ -76,18 +89,51 @@ export const CONTENT_BLOCK_TYPES = {
   STRATEGY_CARD: 'strategyCard',
   FORMULA_GRID: 'formulaGrid',
   ICON_ROW: 'iconRow',
+  PARALLEL_LINES_DIAGRAM: 'parallelLinesDiagram',
+  PERPENDICULAR_LINES_DIAGRAM: 'perpendicularLinesDiagram',
+  SLOPE_FROM_GRAPH_DIAGRAM: 'slopeFromGraphDiagram',
+  Y_INTERCEPT_DIAGRAM: 'yInterceptDiagram',
 };
 
 /**
- * Validate a module's content tab data.
- * Sections are optional — only validates sections that are present.
+ * ── Title-to-Required-Block Quality Matrix ──
+ * Lessons whose titles imply a specific artifact must include it.
+ */
+const TITLE_BLOCK_REQUIREMENTS = [
+  { pattern: /\btable\b/i, requiredTypes: ['table'], label: 'table block' },
+  { pattern: /\bfrom.*(graph|visual)\b/i, requiredTypes: ['slopeFromGraphDiagram', 'yInterceptDiagram', 'parallelLinesDiagram', 'perpendicularLinesDiagram', 'diagramRef'], label: 'visual/diagram block' },
+];
+
+const BLOCK_REQUIRED_FIELDS = {
+  table:              ['headers', 'rows'],
+  steps:              ['items'],
+  example:            ['problem', 'steps'],
+  trapCard:           ['wrong'],
+  checkpointQuestion: ['question', 'answer'],
+  formulaGrid:        ['items'],
+  iconRow:            ['items'],
+  formula:            ['content'],
+  callout:            ['content'],
+  comparison:         ['items'],
+};
+
+const SUPPORTED_VISUAL_TYPES = [
+  'parallelLinesDiagram', 'perpendicularLinesDiagram',
+  'slopeFromGraphDiagram', 'yInterceptDiagram',
+  'parabolaFromGraphDiagram',
+];
+
+/**
+ * Validate a content tab (module-level or lesson-level).
+ * Returns { valid, errors, warnings }.
  */
 export function validateContentTab(moduleId, contentTab) {
   const errors = [];
+  const warnings = [];
 
   if (!contentTab) {
     errors.push(`${moduleId}: contentTab is null/undefined`);
-    return { valid: false, errors };
+    return { valid: false, errors, warnings };
   }
 
   if (!contentTab.moduleId || contentTab.moduleId !== moduleId) {
@@ -100,8 +146,10 @@ export function validateContentTab(moduleId, contentTab) {
 
   if (!contentTab.sections || typeof contentTab.sections !== 'object') {
     errors.push(`${moduleId}: missing sections object`);
-    return { valid: false, errors };
+    return { valid: false, errors, warnings };
   }
+
+  const allBlockTypes = new Set();
 
   for (const [sectionId, section] of Object.entries(contentTab.sections)) {
     if (!section.title) {
@@ -109,8 +157,45 @@ export function validateContentTab(moduleId, contentTab) {
     }
     if (!Array.isArray(section.blocks) || section.blocks.length === 0) {
       errors.push(`${moduleId}.${sectionId}: blocks must be a non-empty array`);
+      continue;
+    }
+
+    const budget = BLOCK_BUDGET[sectionId];
+    if (budget && section.blocks.length > budget) {
+      warnings.push(`${moduleId}.${sectionId}: ${section.blocks.length} blocks exceeds budget of ${budget}`);
+    }
+
+    for (let i = 0; i < section.blocks.length; i++) {
+      const block = section.blocks[i];
+      allBlockTypes.add(block.type);
+
+      const required = BLOCK_REQUIRED_FIELDS[block.type];
+      if (required) {
+        for (const field of required) {
+          if (block[field] === undefined || block[field] === null) {
+            errors.push(`${moduleId}.${sectionId}.block[${i}] (${block.type}): missing required field '${field}'`);
+          }
+        }
+      }
+
+      if (block.type === 'diagramRef' && block.visualType) {
+        if (!SUPPORTED_VISUAL_TYPES.includes(block.visualType)) {
+          warnings.push(`${moduleId}.${sectionId}.block[${i}]: diagramRef visualType '${block.visualType}' not in supported list`);
+        }
+      }
     }
   }
 
-  return { valid: errors.length === 0, errors };
+  if (contentTab.title) {
+    for (const rule of TITLE_BLOCK_REQUIREMENTS) {
+      if (rule.pattern.test(contentTab.title)) {
+        const hasRequired = rule.requiredTypes.some(t => allBlockTypes.has(t));
+        if (!hasRequired) {
+          warnings.push(`${moduleId}: title "${contentTab.title}" implies a ${rule.label}, but none found in blocks`);
+        }
+      }
+    }
+  }
+
+  return { valid: errors.length === 0, errors, warnings };
 }

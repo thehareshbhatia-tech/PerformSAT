@@ -1,42 +1,141 @@
 /**
- * Schema validation for all content tabs.
+ * Schema validation for all content tabs (module-level and lesson-level).
  * Run with: node src/data/contentTabs/validateAll.js
- * Exits 1 if any module fails validation.
+ * Exits 1 if any module/lesson fails validation (errors).
+ * Warnings are printed but don't cause a failure exit code.
  */
 
 const fs = require('fs');
 const path = require('path');
 
+const BLOCK_BUDGET = {
+  coreConcepts: 6,
+  satPatterns: 6,
+  methods: 7,
+  commonTraps: 5,
+  workedExamples: 3,
+  visualModels: 5,
+  speedStrategy: 5,
+  checkpoint: 2,
+};
+
+const TITLE_BLOCK_REQUIREMENTS = [
+  { pattern: /\btable\b/i, requiredTypes: ['table'], label: 'table block' },
+  { pattern: /\bfrom.*(graph|visual)\b/i, requiredTypes: ['slopeFromGraphDiagram', 'yInterceptDiagram', 'parallelLinesDiagram', 'perpendicularLinesDiagram', 'parabolaFromGraphDiagram', 'diagramRef'], label: 'visual/diagram block' },
+];
+
+const BLOCK_REQUIRED_FIELDS = {
+  table:              ['headers', 'rows'],
+  steps:              ['items'],
+  example:            ['problem', 'steps'],
+  trapCard:           ['wrong'],
+  checkpointQuestion: ['question', 'answer'],
+  formulaGrid:        ['items'],
+  iconRow:            ['items'],
+  formula:            ['content'],
+  callout:            ['content'],
+  comparison:         ['items'],
+};
+
+const SUPPORTED_VISUAL_TYPES = [
+  'parallelLinesDiagram', 'perpendicularLinesDiagram',
+  'slopeFromGraphDiagram', 'yInterceptDiagram',
+  'parabolaFromGraphDiagram',
+];
+
 function validateContentTab(moduleId, contentTab) {
   const errors = [];
+  const warnings = [];
+
   if (!contentTab) {
     errors.push(`${moduleId}: contentTab is null/undefined`);
-    return { valid: false, errors };
+    return { valid: false, errors, warnings };
   }
+
   if (!contentTab.moduleId || contentTab.moduleId !== moduleId) {
-    errors.push(`${moduleId}: moduleId mismatch`);
+    errors.push(`${moduleId}: moduleId mismatch (got "${contentTab.moduleId}")`);
   }
+
   if (!contentTab.title) {
     errors.push(`${moduleId}: missing title`);
   }
+
   if (!contentTab.sections || typeof contentTab.sections !== 'object') {
     errors.push(`${moduleId}: missing sections object`);
-    return { valid: false, errors };
+    return { valid: false, errors, warnings };
   }
+
+  const sectionCount = Object.keys(contentTab.sections).length;
+  if (sectionCount > 4) {
+    warnings.push(`${moduleId}: ${sectionCount} sections (recommended max 4 for focused content)`);
+  }
+
+  const allBlockTypes = new Set();
+
   for (const [sectionId, section] of Object.entries(contentTab.sections)) {
     if (!section.title) {
       errors.push(`${moduleId}.${sectionId}: missing title`);
     }
     if (!Array.isArray(section.blocks) || section.blocks.length === 0) {
       errors.push(`${moduleId}.${sectionId}: blocks must be a non-empty array`);
+      continue;
+    }
+
+    const budget = BLOCK_BUDGET[sectionId];
+    if (budget && section.blocks.length > budget) {
+      warnings.push(`${moduleId}.${sectionId}: ${section.blocks.length} blocks exceeds budget of ${budget}`);
+    }
+
+    for (let i = 0; i < section.blocks.length; i++) {
+      const block = section.blocks[i];
+
+      if (!block.type) {
+        errors.push(`${moduleId}.${sectionId}.block[${i}]: missing type`);
+        continue;
+      }
+
+      allBlockTypes.add(block.type);
+
+      const required = BLOCK_REQUIRED_FIELDS[block.type];
+      if (required) {
+        for (const field of required) {
+          if (block[field] === undefined || block[field] === null) {
+            errors.push(`${moduleId}.${sectionId}.block[${i}] (${block.type}): missing required field '${field}'`);
+          }
+        }
+      }
+
+      if (block.type === 'formula' && block.latex && !block.content) {
+        errors.push(`${moduleId}.${sectionId}.block[${i}] (formula): uses 'latex' instead of 'content' — rename to 'content'`);
+      }
+
+      if (block.type === 'diagramRef' && block.visualType) {
+        if (!SUPPORTED_VISUAL_TYPES.includes(block.visualType)) {
+          warnings.push(`${moduleId}.${sectionId}.block[${i}]: diagramRef visualType '${block.visualType}' not in supported list`);
+        }
+      }
     }
   }
-  return { valid: errors.length === 0, errors };
+
+  if (contentTab.title) {
+    for (const rule of TITLE_BLOCK_REQUIREMENTS) {
+      if (rule.pattern.test(contentTab.title)) {
+        const hasRequired = rule.requiredTypes.some(t => allBlockTypes.has(t));
+        if (!hasRequired) {
+          warnings.push(`${moduleId}: title "${contentTab.title}" implies a ${rule.label}, but none found`);
+        }
+      }
+    }
+  }
+
+  return { valid: errors.length === 0, errors, warnings };
 }
 
 const dir = __dirname;
 const files = fs.readdirSync(dir).filter(f => f.endsWith('Content.js'));
 let hadError = false;
+let totalErrors = 0;
+let totalWarnings = 0;
 
 for (const file of files) {
   const raw = fs.readFileSync(path.join(dir, file), 'utf8');
@@ -54,15 +153,63 @@ for (const file of files) {
     continue;
   }
   const moduleId = contentTab.moduleId || file.replace('Content.js', '').replace(/([A-Z])/g, (m, c) => '-' + c.toLowerCase()).replace(/^-/, '');
-  const { valid, errors } = validateContentTab(moduleId, contentTab);
+  const { valid, errors, warnings } = validateContentTab(moduleId, contentTab);
   if (!valid) {
     hadError = true;
-    console.error(`${file}:`);
-    errors.forEach(e => console.error(`  - ${e}`));
+    totalErrors += errors.length;
+    console.error(`\n${file} ERRORS:`);
+    errors.forEach(e => console.error(`  ✗ ${e}`));
+  }
+  if (warnings.length > 0) {
+    totalWarnings += warnings.length;
+    console.warn(`\n${file} WARNINGS:`);
+    warnings.forEach(w => console.warn(`  ⚠ ${w}`));
   }
 }
 
+const lessonsDir = path.join(dir, 'lessons');
+if (fs.existsSync(lessonsDir)) {
+  const lessonFiles = fs.readdirSync(lessonsDir).filter(f => f.endsWith('Lessons.js'));
+  for (const file of lessonFiles) {
+    const raw = fs.readFileSync(path.join(lessonsDir, file), 'utf8');
+    const match = raw.match(/export const \w+ = ({[\s\S]+});?\s*$/);
+    if (!match) {
+      console.error(`SKIP (lesson): Could not parse ${file}`);
+      continue;
+    }
+    let lessonMap;
+    try {
+      lessonMap = eval('(' + match[1] + ')');
+    } catch (e) {
+      console.error(`SKIP (lesson): ${file}: ${e.message}`);
+      hadError = true;
+      continue;
+    }
+    for (const [lessonId, tab] of Object.entries(lessonMap)) {
+      const label = `${file}[lesson ${lessonId}]`;
+      const moduleId = tab.moduleId || label;
+      const { valid, errors, warnings } = validateContentTab(moduleId, tab);
+      if (!valid) {
+        hadError = true;
+        totalErrors += errors.length;
+        console.error(`\n${label} ERRORS:`);
+        errors.forEach(e => console.error(`  ✗ ${e}`));
+      }
+      if (warnings.length > 0) {
+        totalWarnings += warnings.length;
+        console.warn(`\n${label} WARNINGS:`);
+        warnings.forEach(w => console.warn(`  ⚠ ${w}`));
+      }
+    }
+  }
+}
+
+console.log(`\n══════ SUMMARY ══════`);
+console.log(`Errors:   ${totalErrors}`);
+console.log(`Warnings: ${totalWarnings}`);
+
 if (hadError) {
+  console.log(`\nRESULT: FAIL — fix errors above.`);
   process.exit(1);
 }
-console.log('All content tabs passed schema validation.');
+console.log(`\nRESULT: PASS — all content tabs passed schema validation.`);

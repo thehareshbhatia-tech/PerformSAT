@@ -126,6 +126,32 @@ function run() {
     allBudgetViolations.push(...checkBudgets(contentTab));
   }
 
+  // --- Lesson-level content tabs ---
+  const lessonsDir = path.join(dir, 'lessons');
+  if (fs.existsSync(lessonsDir)) {
+    const lessonFiles = fs.readdirSync(lessonsDir).filter(f => f.endsWith('Lessons.js'));
+    for (const file of lessonFiles) {
+      const filePath = path.join(lessonsDir, file);
+      const raw = fs.readFileSync(filePath, 'utf8');
+      const match = raw.match(/export const \w+ = ({[\s\S]+});?\s*$/);
+      if (!match) {
+        console.log(`SKIP (lesson): Could not parse export from ${file}`);
+        continue;
+      }
+      let lessonMap;
+      try {
+        lessonMap = eval('(' + match[1] + ')');
+      } catch (e) {
+        console.log(`SKIP (lesson): eval failed for ${file}: ${e.message}`);
+        continue;
+      }
+      for (const tab of Object.values(lessonMap)) {
+        allTexts.push(...extractTextBlocks(tab));
+        allBudgetViolations.push(...checkBudgets(tab));
+      }
+    }
+  }
+
   const ngramDupes = checkNearDuplicateNgrams(allTexts);
 
   // Find duplicated strings
@@ -150,6 +176,33 @@ function run() {
     }
   }
   
+  const MAX_SECTIONS_PER_TAB = 4;
+  const MAX_TOTAL_BLOCKS_PER_TAB = 16;
+
+  const oversizedTabs = [];
+  const allTabs = [...allTexts.reduce((map, t) => {
+    if (!map.has(t.moduleId)) map.set(t.moduleId, 0);
+    map.set(t.moduleId, map.get(t.moduleId) + 1);
+    return map;
+  }, new Map())].filter(([, count]) => count > MAX_TOTAL_BLOCKS_PER_TAB);
+
+  const lowSignalPatterns = [
+    /this is (a |an )?(common|important|key|critical)/i,
+    /remember (that |to )?always/i,
+    /make sure (you |to )/i,
+    /it('|')s important to/i,
+  ];
+  const lowSignalHits = [];
+  for (const item of allTexts) {
+    if (!item.content) continue;
+    for (const pat of lowSignalPatterns) {
+      if (pat.test(item.content)) {
+        lowSignalHits.push({ moduleId: item.moduleId, snippet: item.content.slice(0, 60), pattern: pat.source });
+        break;
+      }
+    }
+  }
+
   // Report
   console.log('\n=== CONTENT DUPLICATION REPORT ===\n');
   
@@ -194,6 +247,29 @@ function run() {
     if (ngramDupes.length > 10) console.log(`  … and ${ngramDupes.length - 10} more`);
   } else {
     console.log(`N-GRAMS: No phrase repeated in ${NGRAM_MODULE_THRESHOLD}+ modules.`);
+  }
+
+  console.log('');
+
+  if (oversizedTabs.length > 0 || allTabs.length > 0) {
+    console.log(`OVERSIZED TABS (> ${MAX_TOTAL_BLOCKS_PER_TAB} text blocks, ${allTabs.length} found):`);
+    for (const [moduleId, count] of allTabs) {
+      console.log(`  ⚠ ${moduleId}: ${count} text/heading blocks`);
+    }
+  } else {
+    console.log('TAB SIZE: All tabs within recommended block counts.');
+  }
+
+  console.log('');
+
+  if (lowSignalHits.length > 0) {
+    console.log(`LOW-SIGNAL TEXT PATTERNS (${lowSignalHits.length} found):`);
+    for (const h of lowSignalHits.slice(0, 10)) {
+      console.log(`  ⚠ ${h.moduleId}: "${h.snippet}…"`);
+    }
+    if (lowSignalHits.length > 10) console.log(`  … and ${lowSignalHits.length - 10} more`);
+  } else {
+    console.log('LOW-SIGNAL: No repeated low-signal text patterns detected.');
   }
 
   console.log('');

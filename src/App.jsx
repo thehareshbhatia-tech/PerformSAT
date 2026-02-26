@@ -18,7 +18,7 @@ import { addToReviewQueue, getDueReviewCount } from './services/reviewService';
 import { calculateOptimalDifficulty } from './services/recommendationService';
 import LearnWorkspace from './components/learn/LearnWorkspace';
 import ContentTabRenderer from './components/learn/ContentTabRenderer';
-import { allContentTabs } from './data/contentTabs';
+import { getContentTabForLesson } from './data/contentTabs/lessonContentIndex';
 import AppShell from './components/ui/AppShell';
 import ErrorBoundary from './components/ui/ErrorBoundary';
 import Onboarding from './components/Onboarding';
@@ -18957,9 +18957,9 @@ const PerformSAT = () => {
             </div>
 
             {/* Unified content: content tabs for non-video lessons, original blocks as fallback */}
-            {currentLesson?.type !== 'video' && allContentTabs[activeModule] ? (
+            {currentLesson?.type !== 'video' && getContentTabForLesson(activeModule, activeLesson) ? (
               <div style={{ maxWidth: 720 }}>
-                <ContentTabRenderer contentTab={allContentTabs[activeModule]} />
+                <ContentTabRenderer contentTab={getContentTabForLesson(activeModule, activeLesson)} />
               </div>
             ) : (
               renderLessonContent()
