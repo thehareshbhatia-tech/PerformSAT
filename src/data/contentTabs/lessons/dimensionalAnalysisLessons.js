@@ -91,6 +91,14 @@ export const dimensionalAnalysisLessonTabs = {
           },
         ],
       },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: 'Multi-Step Rate Conversion', content: 'Recognition cue: a speed or rate in one unit system, question asks for it in another (e.g., mph to ft/sec). First move: set up a chain of conversion fractions so that unwanted units cancel. Each fraction equals $1$.' },
+          { type: 'trapCard', title: 'Flipping the Conversion Factor', wrong: 'Converting miles to feet: student writes $\\frac{1 \\text{ mi}}{5{,}280 \\text{ ft}}$ — miles don\'t cancel.', correction: 'Orient the fraction so the unit to **eliminate** is in the canceling position: $\\frac{5{,}280 \\text{ ft}}{1 \\text{ mi}}$ puts miles in the denominator.' },
+          { type: 'tip', content: '**Decision rule:** Identify each unit that must change. Write one conversion fraction per unit change. Multiply the chain — every unwanted unit should cancel, leaving only the target unit.' },
+        ],
+      },
     },
   },
 
@@ -183,6 +191,14 @@ export const dimensionalAnalysisLessonTabs = {
             wrong: 'Student treats "$5$ square feet" as "$5$ feet, then squared" = $25$.',
             correction: '"$5$ square feet" means $5 \\text{ ft}^2$ — it\'s $5$ units of area, not $5$ feet being squared. $5 \\text{ ft}^2 \\neq (5 \\text{ ft})^2$.',
           },
+        ],
+      },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: 'Power Rule for Unit Conversion', content: 'Recognition cue: converting area (ft² to in²) or volume (m³ to cm³). First move: find the **linear** conversion factor, then raise it to the same power as the unit dimension. Area → square the factor. Volume → cube it.' },
+          { type: 'trapCard', title: 'Using the Linear Factor for Area', wrong: '$1 \\text{ ft}^2 = 12 \\text{ in}^2$. Student used $12$ instead of $12^2 = 144$.', correction: 'For squared units, square the linear factor: $1 \\text{ ft}^2 = 12^2 \\text{ in}^2 = 144 \\text{ in}^2$. For cubed units, cube it: $1 \\text{ ft}^3 = 12^3 = 1{,}728 \\text{ in}^3$.' },
+          { type: 'tip', content: 'Dimensional analysis still works: use the same conversion fraction **twice** for area, **three times** for volume. $5 \\text{ ft}^2 \\times \\frac{12 \\text{ in}}{1 \\text{ ft}} \\times \\frac{12 \\text{ in}}{1 \\text{ ft}} = 5 \\times 144 = 720 \\text{ in}^2$.' },
         ],
       },
     },

@@ -104,6 +104,14 @@ export const radiansDegreesLessonTabs = {
           },
         ],
       },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: 'Conversion Questions', content: 'Recognition cue: "Convert $X$ degrees to radians" or "what is $Y$ radians in degrees?" First move: degrees → radians: multiply by $\\frac{\\pi}{180}$. Radians → degrees: multiply by $\\frac{180}{\\pi}$.' },
+          { type: 'trapCard', title: 'Multiplying by the Wrong Fraction', wrong: 'Convert $60°$ to radians. Student writes $60 \\times \\frac{180}{\\pi} = \\frac{10800}{\\pi}$.', correction: 'Degrees → radians uses $\\frac{\\pi}{180}$, not $\\frac{180}{\\pi}$. Correct: $60 \\times \\frac{\\pi}{180} = \\frac{\\pi}{3}$. Sanity check: radian values are small (usually involve $\\pi$).' },
+          { type: 'tip', content: 'Memorize the "big five": $30° = \\frac{\\pi}{6}$, $45° = \\frac{\\pi}{4}$, $60° = \\frac{\\pi}{3}$, $90° = \\frac{\\pi}{2}$, $180° = \\pi$. Everything else builds from these.' },
+        ],
+      },
     },
   },
 };

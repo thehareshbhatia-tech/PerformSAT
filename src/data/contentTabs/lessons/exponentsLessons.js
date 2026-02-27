@@ -171,6 +171,14 @@ export const exponentsLessonTabs = {
           },
         ],
       },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: '"$a^x = b$" — Solve by Matching Bases', content: 'Recognition cue: an equation with the variable in the exponent and both sides expressible as powers of the same base. First move: rewrite both sides with a common base, then set exponents equal. $8^x = 32$ → $2^{3x} = 2^5$ → $3x = 5$ → $x = \\frac{5}{3}$.' },
+          { type: 'trapCard', title: 'Bases Between 0 and 1', wrong: 'Student assumes $\\left(\\frac{1}{3}\\right)^2 < \\left(\\frac{1}{3}\\right)^3$ because $2 < 3$.', correction: 'For bases between $0$ and $1$, larger exponents give **smaller** values. $\\left(\\frac{1}{3}\\right)^2 = \\frac{1}{9}$ and $\\left(\\frac{1}{3}\\right)^3 = \\frac{1}{27}$. Since $\\frac{1}{9} > \\frac{1}{27}$, the inequality flips.' },
+          { type: 'tip', content: '**Decision rule:** Same-base comparison → compare exponents directly (for base $> 1$: larger exponent = larger value; for $0 < $ base $< 1$: reverse). Different bases → rewrite as a common base first, then compare.' },
+        ],
+      },
       commonTraps: {
         title: 'Common Traps',
         blocks: [
@@ -277,7 +285,7 @@ export const exponentsLessonTabs = {
             type: 'trapCard',
             title: 'Confusing the Base ($b$) with the Rate ($r$)',
             wrong: '"The function $f(x) = 500(1.08)^x$ grows by $1.08\\%$ per unit."',
-            correction: 'The growth **factor** is $1.08$, which means the growth **rate** is $0.08 = 8\\%$. The rate is $b - 1$, not $b$ itself.',
+            correction: 'The growth **factor** is $1.08$, which means the growth **rate** is ${0.08} = 8\\%$. The rate is $b - 1$, not $b$ itself.',
           },
         ],
       },

@@ -1,5 +1,5 @@
 /**
- * Content Duplication Checker
+ * Content Duplication & Coverage Checker
  *
  * Run with: node src/data/contentTabs/dedupeCheck.js
  *
@@ -8,6 +8,10 @@
  * 2. Identical text block content reused across 2+ modules
  * 3. Sections exceeding block budget
  * 4. Near-duplicate n-grams (same 5-word phrase in NGRAM_MODULE_THRESHOLD+ modules)
+ * 5. Pedagogical skeleton reuse — same block-type sequence in same section across 3+ modules
+ * 6. Example difficulty progression — workedExamples lacking difficulty spread
+ * 7. Trap density — modules with fewer than 2 trapCards across all sections
+ * 8. Decision-rule coverage — satPatterns tips missing if/when/→ language
  */
 
 const NGRAM_SIZE = 5;
@@ -97,12 +101,73 @@ function checkBudgets(contentTab) {
   return violations;
 }
 
+function extractSkeleton(section) {
+  if (!section?.blocks) return '';
+  return section.blocks.map(b => b.type).join('→');
+}
+
+function checkSkeletonReuse(allSections) {
+  const skeletonMap = new Map();
+  for (const { moduleId, sectionId, skeleton } of allSections) {
+    if (!skeleton || skeleton.length < 3) continue;
+    const key = `${sectionId}::${skeleton}`;
+    if (!skeletonMap.has(key)) skeletonMap.set(key, new Set());
+    skeletonMap.get(key).add(moduleId);
+  }
+  return [...skeletonMap.entries()]
+    .filter(([, mods]) => mods.size >= 3)
+    .map(([key, mods]) => {
+      const [sectionId, skeleton] = key.split('::');
+      return { sectionId, skeleton, count: mods.size, modules: [...mods] };
+    });
+}
+
+function checkExampleProgression(allSections) {
+  const issues = [];
+  for (const { moduleId, sectionId, blocks } of allSections) {
+    if (sectionId !== 'workedExamples' || !blocks) continue;
+    const examples = blocks.filter(b => b.type === 'example');
+    if (examples.length < 2) continue;
+    const diffs = new Set(examples.map(e => e.difficulty).filter(Boolean));
+    if (diffs.size < 2) {
+      issues.push({ moduleId, count: examples.length, difficulties: [...diffs] });
+    }
+  }
+  return issues;
+}
+
+function checkTrapDensity(allSections) {
+  const moduleTrapCount = new Map();
+  for (const { moduleId, blocks } of allSections) {
+    if (!blocks) continue;
+    const traps = blocks.filter(b => b.type === 'trapCard').length;
+    moduleTrapCount.set(moduleId, (moduleTrapCount.get(moduleId) || 0) + traps);
+  }
+  return [...moduleTrapCount.entries()]
+    .filter(([, count]) => count < 2)
+    .map(([moduleId, count]) => ({ moduleId, trapCount: count }));
+}
+
+function checkDecisionRuleCoverage(allSections) {
+  const issues = [];
+  for (const { moduleId, sectionId, blocks } of allSections) {
+    if (sectionId !== 'satPatterns' || !blocks) continue;
+    const tips = blocks.filter(b => b.type === 'tip' || b.type === 'strategyCard');
+    const hasDecisionRule = tips.some(t => /if |when |→|decision rule|trigger/i.test(t.content || ''));
+    if (tips.length > 0 && !hasDecisionRule) {
+      issues.push({ moduleId });
+    }
+  }
+  return issues;
+}
+
 function run() {
   const dir = __dirname;
   const files = fs.readdirSync(dir).filter(f => f.endsWith('Content.js'));
   
   const allTexts = [];
   const allBudgetViolations = [];
+  const allSections = [];
   
   for (const file of files) {
     const filePath = path.join(dir, file);
@@ -124,6 +189,14 @@ function run() {
     
     allTexts.push(...extractTextBlocks(contentTab));
     allBudgetViolations.push(...checkBudgets(contentTab));
+    for (const [sectionId, section] of Object.entries(contentTab.sections || {})) {
+      allSections.push({
+        moduleId: contentTab.moduleId,
+        sectionId,
+        blocks: section.blocks || [],
+        skeleton: extractSkeleton(section),
+      });
+    }
   }
 
   // --- Lesson-level content tabs ---
@@ -145,9 +218,18 @@ function run() {
         console.log(`SKIP (lesson): eval failed for ${file}: ${e.message}`);
         continue;
       }
-      for (const tab of Object.values(lessonMap)) {
+      for (const [lessonId, tab] of Object.entries(lessonMap)) {
+        const moduleId = tab.moduleId || file.replace('Lessons.js', '');
         allTexts.push(...extractTextBlocks(tab));
         allBudgetViolations.push(...checkBudgets(tab));
+        for (const [sectionId, section] of Object.entries(tab.sections || {})) {
+          allSections.push({
+            moduleId: `${moduleId}/L${lessonId}`,
+            sectionId,
+            blocks: section.blocks || [],
+            skeleton: extractSkeleton(section),
+          });
+        }
       }
     }
   }
@@ -272,13 +354,68 @@ function run() {
     console.log('LOW-SIGNAL: No repeated low-signal text patterns detected.');
   }
 
+  // --- Pedagogical checks ---
+
+  const skeletonDupes = checkSkeletonReuse(allSections);
+  console.log('');
+  if (skeletonDupes.length > 0) {
+    console.log(`SKELETON REUSE (same block-type sequence in 3+ modules, ${skeletonDupes.length} found):`);
+    for (const d of skeletonDupes.slice(0, 10)) {
+      console.log(`  ⚠ ${d.sectionId}: [${d.skeleton}] — ${d.count} modules`);
+    }
+    if (skeletonDupes.length > 10) console.log(`  … and ${skeletonDupes.length - 10} more`);
+  } else {
+    console.log('SKELETONS: No identical block-type sequences reused across 3+ modules.');
+  }
+
+  const progressionIssues = checkExampleProgression(allSections);
+  console.log('');
+  if (progressionIssues.length > 0) {
+    console.log(`EXAMPLE PROGRESSION (same difficulty for all examples, ${progressionIssues.length} found):`);
+    for (const p of progressionIssues) {
+      console.log(`  ⚠ ${p.moduleId}: ${p.count} examples, all ${p.difficulties.join('/')}`);
+    }
+  } else {
+    console.log('EXAMPLE PROGRESSION: All multi-example sections have difficulty spread.');
+  }
+
+  const trapIssues = checkTrapDensity(allSections);
+  console.log('');
+  if (trapIssues.length > 0) {
+    console.log(`TRAP DENSITY (< 2 trapCards across all sections, ${trapIssues.length} found):`);
+    for (const t of trapIssues) {
+      console.log(`  ⚠ ${t.moduleId}: only ${t.trapCount} trapCard(s)`);
+    }
+  } else {
+    console.log('TRAP DENSITY: All modules have adequate trap coverage.');
+  }
+
+  const decisionRuleIssues = checkDecisionRuleCoverage(allSections);
+  console.log('');
+  if (decisionRuleIssues.length > 0) {
+    console.log(`DECISION-RULE GAPS (satPatterns tips without if/when/→, ${decisionRuleIssues.length} found):`);
+    for (const d of decisionRuleIssues) {
+      console.log(`  ⚠ ${d.moduleId}: satPatterns tip lacks decision-rule language`);
+    }
+  } else {
+    console.log('DECISION RULES: All satPatterns tips contain decision-rule language.');
+  }
+
   console.log('');
 
   const totalIssues = allBudgetViolations.length + headingDupes.length + textDupes.length + ngramDupes.length;
-  if (totalIssues === 0) {
-    console.log('ALL CLEAR — no duplication or budget issues found.');
+  const totalPedagogicalWarnings = skeletonDupes.length + progressionIssues.length + trapIssues.length + decisionRuleIssues.length;
+
+  console.log('═══════ SUMMARY ═══════');
+  console.log(`Duplication/budget issues: ${totalIssues}`);
+  console.log(`Pedagogical warnings:     ${totalPedagogicalWarnings}`);
+
+  if (totalIssues === 0 && totalPedagogicalWarnings === 0) {
+    console.log('\nALL CLEAR — no duplication, budget, or pedagogical issues found.');
+  } else if (totalIssues === 0) {
+    console.log(`\nPASS (duplication) with ${totalPedagogicalWarnings} pedagogical warnings.`);
   } else {
-    console.log(`TOTAL ISSUES: ${totalIssues}`);
+    console.log(`\nISSUES FOUND: ${totalIssues} duplication/budget + ${totalPedagogicalWarnings} pedagogical.`);
   }
   
   process.exit(totalIssues > 0 ? 1 : 0);

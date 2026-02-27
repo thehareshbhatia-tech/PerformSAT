@@ -10,9 +10,9 @@ export const trianglesContent = {
         {
           type: 'formulaGrid',
           items: [
-            { label: 'Angle Sum', formula: 'A + B + C = 180°', note: 'Every triangle, always' },
-            { label: 'Pythagorean Theorem', formula: 'a² + b² = c²', note: 'c = hypotenuse (longest side)' },
-            { label: 'Area', formula: 'A = ½ × base × height', note: 'Height must be ⊥ to base' },
+            { label: 'Angle Sum', formula: '$A + B + C = 180°$', note: 'Every triangle, always' },
+            { label: 'Pythagorean Theorem', formula: '$a^2 + b^2 = c^2$', note: 'c = hypotenuse (longest side)' },
+            { label: 'Area', formula: '$A = ½ \\times base \\times height$', note: 'Height must be ⊥ to base' },
           ],
         },
         {
@@ -36,7 +36,7 @@ export const trianglesContent = {
           type: 'callout',
           variant: 'memorize',
           title: 'Pythagorean Triples',
-          content: '**3-4-5** (×2 = 6-8-10, ×3 = 9-12-15) | **5-12-13** | **8-15-17** | **7-24-25**. Recognizing these on sight eliminates computation.',
+          content: '**3-4-5** ($\\times$2 = 6-8-10, $\\times$3 = 9-12-15) | **5-12-13** | **8-15-17** | **7-24-25**. Recognizing these on sight eliminates computation.',
         },
         {
           type: 'text',
@@ -53,9 +53,9 @@ export const trianglesContent = {
       title: 'SAT Patterns',
       summary: 'Recognition cues and decision rules for triangle prompts.',
       blocks: [
-        { type: 'callout', variant: 'info', title: 'Triangle Question Types', content: '**Missing angle** — 180° rule; often with parallel lines. **Pythagorean** — right triangle, two sides given. **Special triangles** — 30-60-90 or 45-45-90; match given side to ratio. **Similar triangles** — AA; proportional sides. **Trig ratios** — angle + one side; SOH CAH TOA. **sin = cos complement** — sin x° = cos(90° − x); x + y = 90.' },
+        { type: 'callout', variant: 'info', title: 'Triangle Question Types', content: '**Missing angle** — 180° rule; often with parallel lines. **Pythagorean** — right triangle, two sides given. **Special triangles** — 30-60-90 or 45-45-90; match given side to ratio. **Similar triangles** — AA; proportional sides. **Trig ratios** — angle + one side; SOH CAH TOA. **sin = cos complement** — sin x° = cos(90° - x); x + y = 90.' },
         { type: 'iconRow', items: [
-          { icon: '📐', label: 'Missing Angle', description: '180° − known angles' },
+          { icon: '📐', label: 'Missing Angle', description: '180° - known angles' },
           { icon: '△', label: 'Pythagorean', description: 'Right triangle only; a² + b² = c²' },
           { icon: '⚡', label: 'Special Ratios', description: '30-60-90 or 45-45-90' },
           { icon: '↔', label: 'Similar', description: 'AA → proportional sides' },
@@ -145,7 +145,7 @@ export const trianglesContent = {
         },
         {
           type: 'trapCard',
-          title: 'Similar ≠ Congruent',
+          title: 'Similar $\\neq$ Congruent',
           wrong: 'Assumes similar triangles have equal sides and copies lengths directly.',
           correction: 'Similar = same shape, different size. Sides are **proportional**, not equal. Set up a ratio.',
         },
@@ -165,7 +165,7 @@ export const trianglesContent = {
           difficulty: 'Medium',
           problem: 'An equilateral triangle has perimeter 36. What is the length of its altitude?',
           steps: [
-            { label: 'Side Length', content: 'Perimeter 36 ÷ 3 = side of **12**.' },
+            { label: 'Side Length', content: 'Perimeter 36 $\\div$ 3 = side of **12**.' },
             { label: 'Recognize', content: 'Altitude splits into two 30-60-90 triangles. Hypotenuse = 12, short leg = 6.' },
             { label: 'Solve', content: '30-60-90 ratio: altitude = x√3 = **6√3 ≈ 10.39**.' },
           ],
@@ -176,7 +176,7 @@ export const trianglesContent = {
           problem: 'Triangle ABC ~ Triangle DEF. AB = 8, BC = 12, AC = 15. If DE = 6, what is the perimeter of DEF?',
           steps: [
             { label: 'Scale Factor', content: 'DE/AB = 6/8 = **3/4**.' },
-            { label: 'Shortcut', content: 'Perimeters scale by the same factor: (8 + 12 + 15) × 3/4 = 35 × 3/4 = **26.25**.' },
+            { label: 'Shortcut', content: 'Perimeters scale by the same factor: (8 + 12 + 15) $\\times$ 3/4 = 35 $\\times$ 3/4 = **26.25**.' },
             { label: 'Answer', content: '**26.25** (or 105/4)' },
           ],
         },
@@ -214,7 +214,7 @@ export const trianglesContent = {
 
     speedStrategy: {
       title: 'Speed & Strategy',
-      summary: 'Spot Pythagorean triples by sight, use Desmos for trig calculations, memorize special-triangle ratios to skip the reference sheet, and remember sin x = cos(90° − x) for instant solves.',
+      summary: 'Spot Pythagorean triples by sight, use Desmos for trig calculations, memorize special-triangle ratios to skip the reference sheet, and remember sin x = cos(90° - x) for instant solves.',
       blocks: [
         {
           type: 'strategyCard',
@@ -258,7 +258,7 @@ export const trianglesContent = {
           type: 'checkpointQuestion',
           number: 2,
           question: 'If **sin A = 3/5** in a right triangle, what is **cos A**?',
-          answer: 'O = 3, H = 5. Adjacent = √(25 − 9) = 4. **cos A = 4/5**. (It\'s a 3-4-5 triangle.)',
+          answer: 'O = 3, H = 5. Adjacent = √(25 - 9) = 4. **cos A = 4/5**. (It\'s a 3-4-5 triangle.)',
         },
       ],
     },

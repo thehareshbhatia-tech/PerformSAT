@@ -44,7 +44,7 @@ export const functionsContent = {
         {
           type: 'iconRow',
           items: [
-            { icon: '🔢', label: 'Evaluate f(a)', description: '"What is f(−2)?"' },
+            { icon: '🔢', label: 'Evaluate f(a)', description: '"What is f(-2)?"' },
             { icon: '🔗', label: 'Composition', description: '"Find f(g(3))"' },
             { icon: '📉', label: 'Graph Reading', description: '"From the graph, find f(2)"' },
             { icon: '📋', label: 'Table Lookup', description: '"Use the table to find f(g(1))"' },
@@ -64,7 +64,7 @@ export const functionsContent = {
         },
         {
           type: 'tip',
-          content: '**Step-by-step** when the input is messy (f(−3)), composition is nested, or a table chains multiple lookups. **Algebraically** when asked for f(x + 1) or a general expression — substitute the whole expression, then simplify.',
+          content: '**Step-by-step** when the input is messy (f(-3)), composition is nested, or a table chains multiple lookups. **Algebraically** when asked for f(x + 1) or a general expression — substitute the whole expression, then simplify.',
         },
       ],
     },
@@ -79,7 +79,7 @@ export const functionsContent = {
           title: 'Evaluating f(a)',
           items: [
             'Write out the function rule: f(x) = [expression]',
-            'Replace every x with the input **in parentheses**: f(−3) uses (−3)',
+            'Replace every x with the input **in parentheses**: f(-3) uses (-3)',
             'Simplify: exponents first, then multiplication, watch negatives',
           ],
         },
@@ -106,7 +106,7 @@ export const functionsContent = {
         },
         {
           type: 'tip',
-          content: 'Domain: denominators ≠ 0, radicals ≥ 0. On the SAT, 90% of domain restrictions come from a **denominator equal to zero**.',
+          content: 'Domain: denominators $\\neq$ 0, radicals $\\geq$ 0. On the SAT, 90% of domain restrictions come from a **denominator equal to zero**.',
         },
       ],
     },
@@ -118,8 +118,8 @@ export const functionsContent = {
         {
           type: 'trapCard',
           title: 'Squaring a Negative Input',
-          wrong: 'f(−3) for f(x) = x²: students write −3² = −9 instead of (−3)² = 9.',
-          correction: 'Always parenthesize the input: **(−3)² = 9**. The negative is being squared.',
+          wrong: 'f(-3) for f(x) = x²: students write -3² = -9 instead of (-3)² = 9.',
+          correction: 'Always parenthesize the input: **(-3)² = 9**. The negative is being squared.',
         },
         {
           type: 'trapCard',
@@ -166,12 +166,12 @@ export const functionsContent = {
         {
           type: 'example',
           difficulty: 'Hard',
-          problem: 'Let f(x) = x² − 4x + 3 and g(x) = x + 1. If h(x) = f(g(x)), for what values of x does h(x) = 0?',
+          problem: 'Let f(x) = x² - 4x + 3 and g(x) = x + 1. If h(x) = f(g(x)), for what values of x does h(x) = 0?',
           steps: [
-            { label: 'Compose', content: 'h(x) = f(x + 1) = (x + 1)² − 4(x + 1) + 3.' },
-            { label: 'Expand', content: 'x² + 2x + 1 − 4x − 4 + 3 = **x² − 2x**.' },
-            { label: 'Factor', content: 'x(x − 2) = 0 → x = **0** or x = **2**.' },
-            { label: 'Verify', content: 'h(0) = 0 − 0 = 0 ✓. h(2) = 4 − 4 = 0 ✓.' },
+            { label: 'Compose', content: 'h(x) = f(x + 1) = (x + 1)² - 4(x + 1) + 3.' },
+            { label: 'Expand', content: 'x² + 2x + 1 - 4x - 4 + 3 = **x² - 2x**.' },
+            { label: 'Factor', content: 'x(x - 2) = 0 → x = **0** or x = **2**.' },
+            { label: 'Verify', content: 'h(0) = 0 - 0 = 0 ✓. h(2) = 4 - 4 = 0 ✓.' },
           ],
         },
       ],
@@ -242,14 +242,14 @@ export const functionsContent = {
         {
           type: 'checkpointQuestion',
           number: 1,
-          question: 'If f(x) = x² − 3x + 2, what is f(−1)?',
-          answer: 'f(−1) = (−1)² − 3(−1) + 2 = 1 + 3 + 2 = **6**.',
+          question: 'If f(x) = x² - 3x + 2, what is f(-1)?',
+          answer: 'f(-1) = (-1)² - 3(-1) + 2 = 1 + 3 + 2 = **6**.',
         },
         {
           type: 'checkpointQuestion',
           number: 2,
-          question: 'What is the domain of f(x) = 5 / (x² − 9)?',
-          answer: 'Denominator ≠ 0: x² − 9 ≠ 0 → x ≠ ±3. Domain: **all reals except x = 3 and x = −3**.',
+          question: 'What is the domain of f(x) = 5 / (x² - 9)?',
+          answer: 'Denominator $\\neq$ 0: x² - 9 $\\neq$ 0 → x $\\neq$ ±3. Domain: **all reals except x = 3 and x = -3**.',
         },
       ],
     },

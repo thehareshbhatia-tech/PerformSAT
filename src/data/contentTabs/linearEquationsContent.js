@@ -12,9 +12,9 @@ export const linearEquationsContent = {
         {
           type: 'formulaGrid',
           items: [
-            { label: 'Slope-Intercept', formula: 'y = mx + b', note: 'm = slope, b = y-intercept' },
-            { label: 'Point-Slope', formula: 'y − y₁ = m(x − x₁)', note: 'Uses one point + slope' },
-            { label: 'Standard Form', formula: 'Ax + By = C', note: 'A, B, C integers; A ≥ 0' },
+            { label: 'Slope-Intercept', formula: '$y = mx + b$', note: 'm = slope, b = y-intercept' },
+            { label: 'Point-Slope', formula: '$y - y_1 = m(x - x_1)$', note: 'Uses one point + slope' },
+            { label: 'Standard Form', formula: '$Ax + By = C$', note: 'A, B, C integers; A $\\geq$ 0' },
           ],
         },
         {
@@ -22,7 +22,7 @@ export const linearEquationsContent = {
           title: 'What You Can Read from Each Form',
           headers: ['Information', 'Slope-Intercept', 'Point-Slope', 'Standard Form'],
           rows: [
-            ['Slope', 'Read m directly', 'Read m directly', '−A/B'],
+            ['Slope', 'Read m directly', 'Read m directly', '-A/B'],
             ['Y-intercept', 'Read b directly', 'Expand and solve', 'C/B'],
             ['X-intercept', 'Set y = 0, solve', 'Set y = 0, solve', 'C/A'],
             ['Best for', 'Graphing, interpreting', 'Writing from a point', 'Systems, intercepts'],
@@ -32,7 +32,7 @@ export const linearEquationsContent = {
           type: 'callout',
           variant: 'memorize',
           title: 'Slope Formula',
-          content: '**m = (y₂ − y₁) / (x₂ − x₁)** — rise over run. Tested directly with two points, from tables, and inside word problems.',
+          content: '**m = (y₂ - y₁) / (x₂ - x₁)** — rise over run. Tested directly with two points, from tables, and inside word problems.',
         },
         {
           type: 'table',
@@ -40,14 +40,14 @@ export const linearEquationsContent = {
           headers: ['Relationship', 'Slope Rule', 'Quick Test'],
           rows: [
             ['Parallel lines', 'm₁ = m₂', 'Same slope, different intercept'],
-            ['Perpendicular lines', 'm₁ · m₂ = −1', 'Negative reciprocal'],
+            ['Perpendicular lines', 'm₁ · m₂ = -1', 'Negative reciprocal'],
             ['Horizontal line', 'm = 0', 'y = constant'],
             ['Vertical line', 'Undefined', 'x = constant'],
           ],
         },
         {
           type: 'keyInsight',
-          content: 'On the SAT, slope always means **rate** and y-intercept always means **starting value**. A gym charging $25/month with a $50 sign-up fee gives y = 25x + 50 — the 25 is slope (monthly rate), the 50 is the y-intercept (initial cost).',
+          content: 'On the SAT, slope always means **rate** and y-intercept always means **starting value**. A gym charging \\$25/month with a \\$50 sign-up fee gives y = 25x + 50 — the 25 is slope (monthly rate), the 50 is the y-intercept (initial cost).',
         },
       ],
     },
@@ -60,7 +60,7 @@ export const linearEquationsContent = {
           type: 'iconRow',
           items: [
             { icon: '📊', label: 'Interpret Slope/Intercept', description: '"What does the 3 represent?"' },
-            { icon: '📐', label: 'Write from Context', description: '"A plumber charges $40/hr plus…"' },
+            { icon: '📐', label: 'Write from Context', description: '"A plumber charges \\$40/hr plus…"' },
             { icon: '🔀', label: 'Parallel / Perpendicular', description: '"Which is perpendicular to…?"' },
             { icon: '📈', label: 'Graph ↔ Equation', description: '"Which equation matches the graph?"' },
           ],
@@ -74,7 +74,7 @@ export const linearEquationsContent = {
         {
           type: 'trapCard',
           title: 'Rate vs. Starting Value',
-          wrong: '"$3 per mile plus $5 base" → slope = 5, intercept = 3.',
+          wrong: '"\\$3 per mile plus \\$5 base" → slope = 5, intercept = 3.',
           correction: '**Per-unit** (per mile, each, for every) = slope. **Flat/fixed/initial** = y-intercept. Keywords like "per," "each," "for every" always signal slope.',
         },
         {
@@ -103,7 +103,7 @@ export const linearEquationsContent = {
           type: 'steps',
           title: 'When given two points or a table',
           items: [
-            'Compute slope: **m = (y₂ − y₁) / (x₂ − x₁)**',
+            'Compute slope: **m = (y₂ - y₁) / (x₂ - x₁)**',
             'Plug either point into point-slope form',
             'Simplify to match the answer format',
             'Verify with the unused point',
@@ -114,7 +114,7 @@ export const linearEquationsContent = {
           type: 'callout',
           variant: 'success',
           title: 'Quick reads & DESMOS',
-          content: 'From Ax + By = C: slope = **−A/B**, y-int = C/B. For two points, type each answer-choice equation into DESMOS; the correct line passes through **both** points.',
+          content: 'From Ax + By = C: slope = **-A/B**, y-int = C/B. For two points, type each answer-choice equation into DESMOS; the correct line passes through **both** points.',
         },
       ],
     },
@@ -127,25 +127,25 @@ export const linearEquationsContent = {
           type: 'trapCard',
           title: 'Slope Sign Error',
           wrong: 'Students swap the subtraction order of y-values but not x-values, flipping the slope sign.',
-          correction: 'Always subtract in the **same order**: (y₂ − y₁) / (x₂ − x₁). If the line goes downhill left-to-right, slope must be negative.',
+          correction: 'Always subtract in the **same order**: (y₂ - y₁) / (x₂ - x₁). If the line goes downhill left-to-right, slope must be negative.',
         },
         {
           type: 'trapCard',
           title: 'Perpendicular = Flip Only (Forgot Negate)',
           wrong: 'Perpendicular slope of 2 → ½. Students flip but forget to negate.',
-          correction: 'Perpendicular means **negative reciprocal**: 2 → **−½**. Always negate AND flip.',
+          correction: 'Perpendicular means **negative reciprocal**: 2 → **-½**. Always negate AND flip.',
         },
         {
           type: 'trapCard',
           title: 'Rate vs. Starting Value Mix-Up',
-          wrong: '"$3/mile plus $5 base" → slope = 5, intercept = 3.',
+          wrong: '"\\$3/mile plus \\$5 base" → slope = 5, intercept = 3.',
           correction: '**Per-unit** = slope (3/mile). **Flat/fixed/initial** = y-intercept (5 base). Keywords like "per," "each," "for every" always signal slope.',
         },
         {
           type: 'trapCard',
           title: 'Standard Form Slope Missing Negative',
           wrong: 'Given 2x + 3y = 6, students say slope = 2/3.',
-          correction: 'Slope from Ax + By = C is **−A/B**. Here: **−2/3**. The negative is always there.',
+          correction: 'Slope from Ax + By = C is **-A/B**. Here: **-2/3**. The negative is always there.',
         },
         {
           type: 'comparison',
@@ -164,24 +164,24 @@ export const linearEquationsContent = {
         {
           type: 'example',
           difficulty: 'Medium',
-          problem: 'The equation 4x − 2y = 10 represents a line. A second line is perpendicular to it and passes through (6, 1). What is the equation of the second line?',
+          problem: 'The equation 4x - 2y = 10 represents a line. A second line is perpendicular to it and passes through (6, 1). What is the equation of the second line?',
           steps: [
-            { label: 'Find slope of the given line', content: 'Slope = −A/B = −4/(−2) = **2**.' },
-            { label: 'Perpendicular slope', content: 'Negative reciprocal: **−½**.' },
-            { label: 'Point-slope form', content: 'y − 1 = −½(x − 6) → y − 1 = −½x + 3 → **y = −½x + 4**.' },
-            { label: 'Verify', content: 'Plug (6, 1): 1 = −½(6) + 4 = −3 + 4 = 1 ✓' },
+            { label: 'Find slope of the given line', content: 'Slope = -A/B = -4/(-2) = **2**.' },
+            { label: 'Perpendicular slope', content: 'Negative reciprocal: **-½**.' },
+            { label: 'Point-slope form', content: 'y - 1 = -½(x - 6) → y - 1 = -½x + 3 → **y = -½x + 4**.' },
+            { label: 'Verify', content: 'Plug (6, 1): 1 = -½(6) + 4 = -3 + 4 = 1 ✓' },
           ],
         },
         {
           type: 'example',
           difficulty: 'Hard',
-          problem: 'Company A\'s revenue (thousands) is R = 8.5n − 12 and Company B\'s is R = −3n + 150, where n = months since January. After how many months do they earn the same revenue?',
+          problem: 'Company A\'s revenue (thousands) is R = 8.5n - 12 and Company B\'s is R = -3n + 150, where n = months since January. After how many months do they earn the same revenue?',
           steps: [
-            { label: 'Set equal', content: '8.5n − 12 = −3n + 150' },
+            { label: 'Set equal', content: '8.5n - 12 = -3n + 150' },
             { label: 'Solve', content: '11.5n = 162 → n ≈ **14.09**' },
             { label: 'Interpret', content: 'Revenue equalizes around **month 14**.' },
-            { label: 'Find revenue', content: 'R = 8.5(14) − 12 ≈ **107** thousand dollars.' },
-            { label: 'Answer', content: 'After approximately **14 months**, both earn about **$107,000**.' },
+            { label: 'Find revenue', content: 'R = 8.5(14) - 12 ≈ **107** thousand dollars.' },
+            { label: 'Answer', content: 'After approximately **14 months**, both earn about **\\$107,000**.' },
           ],
         },
       ],
@@ -207,7 +207,7 @@ export const linearEquationsContent = {
         },
         {
           type: 'diagramRef',
-          description: 'Two parallel lines (same slope, different y-intercepts) with gap labeled, beside two perpendicular lines forming a 90° angle with slopes labeled m and −1/m',
+          description: 'Two parallel lines (same slope, different y-intercepts) with gap labeled, beside two perpendicular lines forming a 90° angle with slopes labeled m and -1/m',
         },
         {
           type: 'table',
@@ -232,7 +232,7 @@ export const linearEquationsContent = {
           title: 'Instant Slope from Standard Form',
           icon: '⚡',
           timing: '~5s',
-          content: 'Given Ax + By = C, slope is **−A/B**. Skip the full conversion. This saves 20+ seconds every time.',
+          content: 'Given Ax + By = C, slope is **-A/B**. Skip the full conversion. This saves 20+ seconds every time.',
         },
         {
           type: 'strategyCard',
@@ -268,13 +268,13 @@ export const linearEquationsContent = {
           type: 'checkpointQuestion',
           number: 1,
           question: 'A line passes through (2, 7) and (5, 16). What is its equation in slope-intercept form?',
-          answer: 'Slope = (16 − 7)/(5 − 2) = 9/3 = **3**. Point-slope: y − 7 = 3(x − 2) → **y = 3x + 1**.',
+          answer: 'Slope = (16 - 7)/(5 - 2) = 9/3 = **3**. Point-slope: y - 7 = 3(x - 2) → **y = 3x + 1**.',
         },
         {
           type: 'checkpointQuestion',
           number: 2,
           question: 'Line ℓ has equation 6x + 3y = 9. What is the slope of a line perpendicular to ℓ?',
-          answer: 'Slope of ℓ = −A/B = −6/3 = **−2**. Perpendicular slope = negative reciprocal = **½**.',
+          answer: 'Slope of ℓ = -A/B = -6/3 = **-2**. Perpendicular slope = negative reciprocal = **½**.',
         },
       ],
     },

@@ -116,6 +116,14 @@ export const volumeLessonTabs = {
           },
         ],
       },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: 'Reverse-Solve for a Missing Dimension', content: 'Recognition cue: volume given plus two of three dimensions, question asks for the third. First move: plug in the knowns and solve: $V = lwh$ → $h = \\frac{V}{lw}$.' },
+          { type: 'trapCard', title: 'Unit Mismatch', wrong: 'Box is $2$ ft $\\times$ $6$ in $\\times$ $3$ in. Student multiplies $2 \\times 6 \\times 3 = 36$.', correction: 'All dimensions must be in the **same unit**. Convert $2$ ft $= 24$ in first: $V = 24 \\times 6 \\times 3 = 432$ in³.' },
+          { type: 'tip', content: '**Decision rule:** All dimensions given → multiply directly. One dimension missing → reverse-solve. Two shapes compared → set up a ratio.' },
+        ],
+      },
     },
   },
 
@@ -178,6 +186,14 @@ export const volumeLessonTabs = {
               { label: 'Compute', content: '$SA = 6 \\times 49 = 294 \\text{ cm}^2$' },
             ],
           },
+        ],
+      },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: 'Volume ↔ Surface Area of a Cube', content: 'Recognition cue: cube volume given, surface area asked (or vice versa). First move: find the side length first. $V = s^3$ → $s = \\sqrt[3]{V}$. Then $SA = 6s^2$.' },
+          { type: 'trapCard', title: 'Confusing $s^2$ and $s^3$', wrong: 'Volume $= 64$. Student writes $s = \\sqrt{64} = 8$.', correction: 'Volume uses $s^{\\mathbf{3}}$, not $s^2$. Take the **cube root**: $s = \\sqrt[3]{64} = 4$.' },
+          { type: 'tip', content: 'Know the perfect cubes: $1, 8, 27, 64, 125, 216, 1000$. Recognizing these saves time when solving $V = s^3$ in reverse.' },
         ],
       },
     },
@@ -253,6 +269,14 @@ export const volumeLessonTabs = {
             timing: '~15s saved',
             content: 'When answer choices contain $\\pi$, never compute a decimal. Keep $\\pi$ symbolic: $\\pi r^2 h$ → simplify the numbers → match an answer. This eliminates rounding errors and saves time.',
           },
+        ],
+      },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: 'Cylinder Word Problems', content: 'Recognition cue: a cylindrical tank, pipe, can, or silo. First move: identify radius (or halve the diameter) and height. Apply $V = \\pi r^2 h$. Leave $\\pi$ symbolic unless told to approximate.' },
+          { type: 'trapCard', title: 'Diameter Given, Not Radius', wrong: '"A cylindrical can has diameter $8$ cm." Student plugs $8$ into $\\pi r^2 h$, getting $64\\pi h$.', correction: 'Radius $= \\frac{8}{2} = 4$. Volume $= \\pi(4)^2 h = 16\\pi h$. Using diameter as radius gives an answer $4\\times$ too large.' },
+          { type: 'tip', content: 'When answer choices include $\\pi$, never multiply $\\pi$ out to a decimal. Simplify the numbers and match. This avoids rounding errors and saves time.' },
         ],
       },
     },
@@ -398,6 +422,14 @@ export const volumeLessonTabs = {
           },
         ],
       },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: 'Cone = One-Third of the Cylinder', content: 'Recognition cue: an ice cream cone, funnel, or conical tank. First move: same as cylinder but multiply by $\\frac{1}{3}$. $V = \\frac{1}{3}\\pi r^2 h$.' },
+          { type: 'trapCard', title: 'Using Slant Height Instead of Actual Height', wrong: 'Cone with slant height $\\ell = 13$ and radius $5$. Student uses $V = \\frac{1}{3}\\pi(5)^2(13)$.', correction: 'Volume uses the **perpendicular height**, not the slant. Find $h = \\sqrt{\\ell^2 - r^2} = \\sqrt{169 - 25} = 12$. Then $V = \\frac{1}{3}\\pi(25)(12) = 100\\pi$.' },
+          { type: 'tip', content: '**Decision rule:** "Height" in the problem → use directly. "Slant height" → use Pythagorean theorem to find the actual height first: $h = \\sqrt{\\ell^2 - r^2}$.' },
+        ],
+      },
     },
   },
 
@@ -476,6 +508,14 @@ export const volumeLessonTabs = {
             timing: '~20s',
             content: 'Always break it into two steps: (1) compute the triangle area, (2) multiply by the length. This prevents the common mistake of multiplying all three numbers without the $\\frac{1}{2}$.',
           },
+        ],
+      },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: 'Cross-Section × Depth', content: 'Recognition cue: a tent, wedge, or ramp shaped as a triangular prism. First move: compute the triangular cross-section area ($\\frac{1}{2}bh$), then multiply by the prism\'s length (depth).' },
+          { type: 'trapCard', title: 'Forgetting the $\\frac{1}{2}$', wrong: 'Triangle base $= 8$, height $= 6$, prism length $= 10$. Student writes $V = 8 \\times 6 \\times 10 = 480$.', correction: 'The cross-section is a triangle: area $= \\frac{1}{2}(8)(6) = 24$. Then $V = 24 \\times 10 = 240$. Missing the $\\frac{1}{2}$ doubles the answer.' },
+          { type: 'tip', content: 'Break every prism problem into two steps: (1) find the cross-section area, (2) multiply by depth. This works for **any** prism — triangular, hexagonal, or irregular.' },
         ],
       },
     },

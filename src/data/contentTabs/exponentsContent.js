@@ -11,24 +11,24 @@ export const exponentsContent = {
         {
           type: 'formulaGrid',
           items: [
-            { label: 'Product Rule', formula: 'aᵐ · aⁿ = aᵐ⁺ⁿ', note: 'Same base → add exponents' },
-            { label: 'Quotient Rule', formula: 'aᵐ / aⁿ = aᵐ⁻ⁿ', note: 'Same base → subtract exponents' },
-            { label: 'Power Rule', formula: '(aᵐ)ⁿ = aᵐⁿ', note: 'Power of a power → multiply' },
-            { label: 'Zero Exponent', formula: 'a⁰ = 1', note: 'Any nonzero base' },
-            { label: 'Negative Exponent', formula: 'a⁻ⁿ = 1/aⁿ', note: 'Flip to denominator' },
-            { label: 'Distribute to Factors', formula: '(ab)ⁿ = aⁿbⁿ', note: 'Only over multiplication, never addition' },
+            { label: 'Product Rule', formula: '$a^m \\cdot a^n = a^{m+n}$', note: 'Same base → add exponents' },
+            { label: 'Quotient Rule', formula: '$a^m / a^n = a^{m-n}$', note: 'Same base → subtract exponents' },
+            { label: 'Power Rule', formula: '$(a^m)^n = a^{mn}$', note: 'Power of a power → multiply' },
+            { label: 'Zero Exponent', formula: '$a^0 = 1$', note: 'Any nonzero base' },
+            { label: 'Negative Exponent', formula: '$a^{-n} = 1/a^n$', note: 'Flip to denominator' },
+            { label: 'Distribute to Factors', formula: '$(ab)^n = a^nb^n$', note: 'Only over multiplication, never addition' },
           ],
         },
         {
           type: 'formula',
           label: 'Rational Exponent ↔ Radical',
-          content: 'a^(m/n) = ⁿ√(aᵐ) = (ⁿ√a)ᵐ',
+          content: '$a^{m/n} = \\sqrt[n]{a^m} = (\\sqrt[n]{a})^m$',
           note: 'Denominator = root index, numerator = power',
         },
         {
           type: 'formula',
           label: 'Exponential Model',
-          content: 'f(x) = a · bˣ',
+          content: '$f(x) = a \\cdot b^x$',
           note: 'a = initial value (when x = 0), b = growth/decay factor per period',
         },
         {
@@ -42,7 +42,7 @@ export const exponentsContent = {
         },
         {
           type: 'keyInsight',
-          content: 'The growth/decay **rate** is |b − 1|, not b itself. A factor of 1.07 means a 7% rate. College Board offers both 1.07 and 7% as answer choices — pick the one the question asks for.',
+          content: 'The growth/decay **rate** is |b - 1|, not b itself. A factor of 1.07 means a 7% rate. College Board offers both 1.07 and 7% as answer choices — pick the one the question asks for.',
         },
       ],
     },
@@ -51,7 +51,7 @@ export const exponentsContent = {
       title: 'SAT Patterns',
       summary: 'Recognition cues and decision rules for exponent prompts.',
       blocks: [
-        { type: 'callout', variant: 'info', title: 'Exponent Question Types', content: '**Simplify/rewrite** — apply product, quotient, power rules; same base → combine exponents. **Equivalent forms** — radical ↔ rational exponent; a^(m/n) = ⁿ√(aᵐ). **Model interpretation** — f(x) = a·bˣ; a = initial, b = factor, |b−1| = rate. **Common-base equations** — 4ˣ = 8 → rewrite as 2^(2x) = 2³ → set exponents equal.' },
+        { type: 'callout', variant: 'info', title: 'Exponent Question Types', content: '**Simplify/rewrite** — apply product, quotient, power rules; same base → combine exponents. **Equivalent forms** — radical ↔ rational exponent; a^(m/n) = ⁿ√(aᵐ). **Model interpretation** — f(x) = a·bˣ; a = initial, b = factor, |b-1| = rate. **Common-base equations** — 4ˣ = 8 → rewrite as 2^(2x) = 2³ → set exponents equal.' },
         { type: 'iconRow', items: [
           { icon: '🔄', label: 'Simplify', description: 'Product, quotient, power rules' },
           { icon: '⚖️', label: 'Equivalent Form', description: 'Radical ↔ rational exponent' },
@@ -93,7 +93,7 @@ export const exponentsContent = {
           type: 'callout',
           variant: 'success',
           title: 'Shortcut',
-          content: '"If 2ˣ = k, what is 2^(3x)?" → 2^(3x) = (2ˣ)³ = k³. For f(x) = a·b^(x/k): a = initial, rate = |b−1|.',
+          content: '"If 2ˣ = k, what is 2^(3x)?" → 2^(3x) = (2ˣ)³ = k³. For f(x) = a·b^(x/k): a = initial, rate = |b-1|.',
         },
       ],
     },
@@ -105,7 +105,7 @@ export const exponentsContent = {
         {
           type: 'trapCard',
           title: 'Multiplying Exponents Instead of Adding',
-          wrong: 'x³ · x⁴ → x¹² (multiplied 3 × 4)',
+          wrong: 'x³ · x⁴ → x¹² (multiplied 3 $\\times$ 4)',
           correction: 'Same base, multiply → **add** exponents: x³ · x⁴ = x⁷. Multiply exponents only in the power rule: (x³)⁴ = x¹².',
         },
         {
@@ -117,7 +117,7 @@ export const exponentsContent = {
         {
           type: 'trapCard',
           title: 'Negative Exponent = Negative Number',
-          wrong: '3⁻² → −9',
+          wrong: '3⁻² → -9',
           correction: '3⁻² = 1/3² = 1/9. Negative exponent means reciprocal, not negative value.',
         },
         {
@@ -130,7 +130,7 @@ export const exponentsContent = {
           type: 'trapCard',
           title: 'Growth Rate vs. Growth Factor',
           wrong: 'f(t) = 500 · (1.07)^t → "growth rate is 1.07"',
-          correction: 'The **factor** is 1.07; the **rate** is 0.07 = 7%. Rate = b − 1.',
+          correction: 'The **factor** is 1.07; the **rate** is 0.07 = 7%. Rate = b - 1.',
         },
       ],
     },
@@ -195,7 +195,7 @@ export const exponentsContent = {
           title: 'DESMOS: Graph Both Sides',
           icon: '📊',
           timing: '~20s',
-          content: 'For 2^(x+1) = 8^(x−1), graph y = 2^(x+1) and y = 8^(x−1). The intersection\'s x-coordinate is the answer — no algebra needed.',
+          content: 'For 2^(x+1) = 8^(x-1), graph y = 2^(x+1) and y = 8^(x-1). The intersection\'s x-coordinate is the answer — no algebra needed.',
         },
         {
           type: 'strategyCard',
@@ -228,13 +228,13 @@ export const exponentsContent = {
           type: 'checkpointQuestion',
           number: 1,
           question: 'Simplify: (x⁴ · x⁻²) / x³',
-          answer: 'Numerator: x^(4 + (−2)) = x². Divide: x² / x³ = x^(2−3) = x⁻¹ = **1/x**.',
+          answer: 'Numerator: x^(4 + (-2)) = x². Divide: x² / x³ = x^(2-3) = x⁻¹ = **1/x**.',
         },
         {
           type: 'checkpointQuestion',
           number: 2,
-          question: 'A car depreciates by 12% per year from $25,000. Write the model and state the value after 3 years.',
-          answer: 'Decay factor = 1 − 0.12 = 0.88. Model: **V(t) = 25000 · (0.88)^t**. After 3 years: 25000 · 0.88³ = 25000 · 0.681472 ≈ **$17,037**.',
+          question: 'A car depreciates by 12% per year from \\$25,000. Write the model and state the value after 3 years.',
+          answer: 'Decay factor = 1 - 0.12 = 0.88. Model: **V(t) = 25000 · (0.88)^t**. After 3 years: 25000 · 0.88³ = 25000 · 0.681472 ≈ **\\$17,037**.',
         },
       ],
     },

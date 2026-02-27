@@ -5,21 +5,21 @@ export const circlesContent = {
   sections: {
     coreConcepts: {
       title: 'Core Concepts',
-      summary: 'C = 2πr and A = πr²; arc length and sector area are proportional fractions of the whole; standard form (x−h)²+(y−k)²=r² encodes center and radius; completing the square converts general form; tangent ⊥ radius.',
+      summary: 'C = 2πr and A = πr²; arc length and sector area are proportional fractions of the whole; standard form (x-h)²+(y-k)²=r² encodes center and radius; completing the square converts general form; tangent ⊥ radius.',
       blocks: [
         {
           type: 'formulaGrid',
           items: [
-            { label: 'Circumference', formula: 'C = 2πr = πd', note: 'Distance around the circle' },
-            { label: 'Area', formula: 'A = πr²', note: 'Space enclosed by the circle' },
-            { label: 'Arc Length', formula: 's = (θ/360) × 2πr', note: 'Fraction of circumference; θ in degrees' },
-            { label: 'Sector Area', formula: 'A = (θ/360) × πr²', note: 'Fraction of total area; θ in degrees' },
+            { label: 'Circumference', formula: '$C = 2\\pi r = \\pi d$', note: 'Distance around the circle' },
+            { label: 'Area', formula: '$A = \\pi r^2$', note: 'Space enclosed by the circle' },
+            { label: 'Arc Length', formula: '$s = (\\theta /360) \\times 2\\pi r$', note: 'Fraction of circumference; θ in degrees' },
+            { label: 'Sector Area', formula: '$A = (\\theta /360) \\times \\pi r^2$', note: 'Fraction of total area; θ in degrees' },
           ],
         },
         {
           type: 'formula',
           label: 'Standard Form of a Circle',
-          content: '(x − h)² + (y − k)² = r²',
+          content: '$(x - h)^2 + (y - k)^2 = r^2$',
           note: 'Center = **(h, k)**, Radius = **r**. The signs inside the parentheses are **opposite** the actual coordinates.',
         },
         {
@@ -27,10 +27,10 @@ export const circlesContent = {
           title: 'Completing the Square (General → Standard)',
           items: [
             'Start with **x² + y² + Dx + Ey + F = 0**.',
-            'Group: **(x² + Dx) + (y² + Ey) = −F**.',
+            'Group: **(x² + Dx) + (y² + Ey) = -F**.',
             'Add **(D/2)²** and **(E/2)²** to **both** sides.',
-            'Factor: **(x + D/2)² + (y + E/2)² = −F + (D/2)² + (E/2)²**.',
-            'Read center = **(−D/2, −E/2)**, radius = **√(right side)**.',
+            'Factor: **(x + D/2)² + (y + E/2)² = -F + (D/2)² + (E/2)²**.',
+            'Read center = **(-D/2, -E/2)**, radius = **√(right side)**.',
           ],
         },
         {
@@ -47,12 +47,12 @@ export const circlesContent = {
         { type: 'callout', variant: 'info', title: 'Circle Question Types', content: '**Completing the square** — general form x² + y² + Dx + Ey + F = 0 → center and radius. **Arc/sector** — central angle θ; fraction θ/360 of circumference or area. **Write equation** — center + point or radius → standard form. **Circle-line intersection** — substitute line into circle; discriminant counts solutions. **Tangent line** — slope = negative reciprocal of radius slope at point of tangency.' },
         { type: 'iconRow', items: [
           { icon: '◯', label: 'Complete Square', description: 'General form → center, radius' },
-          { icon: '⌒', label: 'Arc/Sector', description: 'θ/360 × circumference or area' },
-          { icon: '📝', label: 'Write Equation', description: 'Center + point → (x−h)²+(y−k)²=r²' },
+          { icon: '⌒', label: 'Arc/Sector', description: 'θ/360 $\\times$ circumference or area' },
+          { icon: '📝', label: 'Write Equation', description: 'Center + point → (x-h)²+(y-k)²=r²' },
           { icon: '↕', label: 'Intersection', description: 'Substitute; discriminant' },
           { icon: '⊥', label: 'Tangent', description: 'Radius slope → negative reciprocal' },
         ] },
-        { type: 'trapCard', title: 'Radius vs. Diameter', wrong: '"Diameter 10." Student plugs 10 into A = πr² or arc = (θ/360) × 2πr.', correction: 'Diameter 10 → **r = 5**. Area = π(25) = 25π. Arc uses r = 5. Halve the diameter before any formula. Same trap in "radius 6" vs "diameter 6" — read carefully.' },
+        { type: 'trapCard', title: 'Radius vs. Diameter', wrong: '"Diameter 10." Student plugs 10 into A = πr² or arc = (θ/360) $\\times$ 2πr.', correction: 'Diameter 10 → **r = 5**. Area = π(25) = 25π. Arc uses r = 5. Halve the diameter before any formula. Same trap in "radius 6" vs "diameter 6" — read carefully.' },
         { type: 'tip', content: '**Decision rule:** Arc length = fraction of **circumference** (2πr) — linear units. Sector area = fraction of **total area** (πr²) — square units. Same fraction θ/360; different base. "Length of the slice edge" → arc. "Area of the slice" → sector.' },
       ],
     },
@@ -65,7 +65,7 @@ export const circlesContent = {
           type: 'steps',
           title: 'Method 1: Complete the Square',
           items: [
-            'Move constant to the right: **(x² + Dx) + (y² + Ey) = −F**.',
+            'Move constant to the right: **(x² + Dx) + (y² + Ey) = -F**.',
             'Half each coefficient, square it, add to **both** sides.',
             'Factor into perfect squares. Read center and radius.',
           ],
@@ -74,7 +74,7 @@ export const circlesContent = {
           type: 'callout',
           variant: 'success',
           title: 'Quick Example',
-          content: 'x² + y² − 10x + 4y + 13 = 0 → (x − 5)² + (y + 2)² = 16. Center **(5, −2)**, radius **4**.',
+          content: 'x² + y² - 10x + 4y + 13 = 0 → (x - 5)² + (y + 2)² = 16. Center **(5, -2)**, radius **4**.',
         },
         {
           type: 'steps',
@@ -82,7 +82,7 @@ export const circlesContent = {
           items: [
             'Find central angle θ (degrees).',
             'Compute fraction **θ/360**.',
-            'Arc length = fraction × **2πr**. Sector area = fraction × **πr²**.',
+            'Arc length = fraction $\\times$ **2πr**. Sector area = fraction $\\times$ **πr²**.',
           ],
         },
         {
@@ -91,7 +91,7 @@ export const circlesContent = {
           items: [
             'Read center **(h, k)** from graph or description.',
             'Find radius: given directly, or distance from center to a known point.',
-            'Write **(x − h)² + (y − k)² = r²**. Don\'t forget to **square r**.',
+            'Write **(x - h)² + (y - k)² = r²**. Don\'t forget to **square r**.',
           ],
         },
         {
@@ -100,7 +100,7 @@ export const circlesContent = {
           items: [
             'Find slope of radius from center to tangent point.',
             'Tangent slope = **negative reciprocal**.',
-            'Use point-slope form: **y − y₁ = m(x − x₁)**.',
+            'Use point-slope form: **y - y₁ = m(x - x₁)**.',
           ],
         },
         {
@@ -109,7 +109,7 @@ export const circlesContent = {
           items: [
             'Substitute line equation into circle equation.',
             'Simplify to a quadratic **ax² + bx + c = 0**.',
-            'Discriminant **D = b² − 4ac**: D > 0 → 2 points, D = 0 → tangent, D < 0 → none.',
+            'Discriminant **D = b² - 4ac**: D > 0 → 2 points, D = 0 → tangent, D < 0 → none.',
           ],
         },
         {
@@ -126,14 +126,14 @@ export const circlesContent = {
         {
           type: 'trapCard',
           title: 'Confusing r with r²',
-          wrong: 'Sees (x − 3)² + (y + 1)² = 49 and says radius = 49.',
+          wrong: 'Sees (x - 3)² + (y + 1)² = 49 and says radius = 49.',
           correction: 'The right side is **r²**. Radius = √49 = **7**. Always take the square root.',
         },
         {
           type: 'trapCard',
           title: 'Sign Errors in Standard Form',
-          wrong: 'Reads (x + 4)² + (y − 2)² = 25 as center (4, −2).',
-          correction: '(x + 4)² = (x − (−4))² → h = **−4**. (y − 2)² → k = **+2**. Center = **(−4, 2)**. Signs flip!',
+          wrong: 'Reads (x + 4)² + (y - 2)² = 25 as center (4, -2).',
+          correction: '(x + 4)² = (x - (-4))² → h = **-4**. (y - 2)² → k = **+2**. Center = **(-4, 2)**. Signs flip!',
         },
         {
           type: 'trapCard',
@@ -161,12 +161,12 @@ export const circlesContent = {
         {
           type: 'example',
           difficulty: 'Medium',
-          problem: 'Find the center and radius: **x² + y² + 6x − 2y − 6 = 0**.',
+          problem: 'Find the center and radius: **x² + y² + 6x - 2y - 6 = 0**.',
           steps: [
-            { label: 'Group', content: '(x² + 6x) + (y² − 2y) = 6' },
+            { label: 'Group', content: '(x² + 6x) + (y² - 2y) = 6' },
             { label: 'Complete x', content: '(6/2)² = 9 → (x + 3)². Add 9 to right.' },
-            { label: 'Complete y', content: '(−2/2)² = 1 → (y − 1)². Add 1 to right.' },
-            { label: 'Result', content: '(x + 3)² + (y − 1)² = 16. Center **(−3, 1)**, radius **4**.' },
+            { label: 'Complete y', content: '(-2/2)² = 1 → (y - 1)². Add 1 to right.' },
+            { label: 'Result', content: '(x + 3)² + (y - 1)² = 16. Center **(-3, 1)**, radius **4**.' },
           ],
         },
         {
@@ -175,9 +175,9 @@ export const circlesContent = {
           problem: 'A line is tangent to **x² + y² = 25** at **(3, 4)**. Find the equation.',
           steps: [
             { label: 'Center', content: 'Circle centered at **(0, 0)**, radius 5.' },
-            { label: 'Radius Slope', content: '(4 − 0)/(3 − 0) = **4/3**.' },
-            { label: 'Tangent Slope', content: 'Negative reciprocal = **−3/4**.' },
-            { label: 'Equation', content: 'y − 4 = −3/4(x − 3) → **y = −3x/4 + 25/4** or **3x + 4y = 25**.' },
+            { label: 'Radius Slope', content: '(4 - 0)/(3 - 0) = **4/3**.' },
+            { label: 'Tangent Slope', content: 'Negative reciprocal = **-3/4**.' },
+            { label: 'Equation', content: 'y - 4 = -3/4(x - 3) → **y = -3x/4 + 25/4** or **3x + 4y = 25**.' },
           ],
         },
       ],
@@ -194,8 +194,8 @@ export const circlesContent = {
         {
           type: 'comparison',
           items: [
-            { label: 'Arc Length (1D)', content: 'The **curved edge** between two points. Formula: **(θ/360) × 2πr**. Linear units.', variant: 'correct' },
-            { label: 'Sector Area (2D)', content: 'The **shaded pie-slice** bounded by two radii and an arc. Formula: **(θ/360) × πr²**. Square units.', variant: 'correct' },
+            { label: 'Arc Length (1D)', content: 'The **curved edge** between two points. Formula: **(θ/360) $\\times$ 2πr**. Linear units.', variant: 'correct' },
+            { label: 'Sector Area (2D)', content: 'The **shaded pie-slice** bounded by two radii and an arc. Formula: **(θ/360) $\\times$ πr²**. Square units.', variant: 'correct' },
           ],
         },
         {
@@ -203,9 +203,9 @@ export const circlesContent = {
           title: 'Completing the Square: Before & After',
           headers: ['General Form', 'Standard Form', 'Center', 'Radius'],
           rows: [
-            ['x² + y² − 4x + 6y − 12 = 0', '(x−2)² + (y+3)² = 25', '(2, −3)', '5'],
-            ['x² + y² + 8x − 10y + 16 = 0', '(x+4)² + (y−5)² = 25', '(−4, 5)', '5'],
-            ['x² + y² − 2x − 2y − 2 = 0', '(x−1)² + (y−1)² = 4', '(1, 1)', '2'],
+            ['x² + y² - 4x + 6y - 12 = 0', '(x-2)² + (y+3)² = 25', '(2, -3)', '5'],
+            ['x² + y² + 8x - 10y + 16 = 0', '(x+4)² + (y-5)² = 25', '(-4, 5)', '5'],
+            ['x² + y² - 2x - 2y - 2 = 0', '(x-1)² + (y-1)² = 4', '(1, 1)', '2'],
           ],
         },
         {
@@ -231,25 +231,25 @@ export const circlesContent = {
           title: 'Half-and-Square Shortcut',
           icon: '⚡',
           timing: '~10s',
-          content: 'Completing the square mentally: take the coefficient, **halve** it, **square** it. For x² + 6x: half of 6 = 3, squared = 9. Center x = −3. Done in 3 seconds.',
+          content: 'Completing the square mentally: take the coefficient, **halve** it, **square** it. For x² + 6x: half of 6 = 3, squared = 9. Center x = -3. Done in 3 seconds.',
         },
         {
           type: 'strategyCard',
           title: 'Simplify θ/360 First',
           icon: '🎯',
           timing: '~10s',
-          content: 'Reduce the fraction before multiplying. 120/360 = 1/3. Then arc = (1/3)(2πr). Much cleaner than carrying 120 × 2πr / 360.',
+          content: 'Reduce the fraction before multiplying. 120/360 = 1/3. Then arc = (1/3)(2πr). Much cleaner than carrying 120 $\\times$ 2πr / 360.',
         },
         {
           type: 'strategyCard',
           title: 'Flip-Sign Quick Read',
           icon: '👁',
           timing: '~5s',
-          content: 'For (x − h)² + (y − k)² = r²: center coordinates are the **opposite** of what\'s in the parentheses. (x − 3) → h = +3. (y + 7) → k = −7.',
+          content: 'For (x - h)² + (y - k)² = r²: center coordinates are the **opposite** of what\'s in the parentheses. (x - 3) → h = +3. (y + 7) → k = -7.',
         },
         {
           type: 'keyInsight',
-          content: 'Completing the square appears on nearly every SAT. The fastest students do it mentally: "x² + 6x → center x = −3, add 9." Practice until it\'s automatic — it unlocks 1–2 free points per test.',
+          content: 'Completing the square appears on nearly every SAT. The fastest students do it mentally: "x² + 6x → center x = -3, add 9." Practice until it\'s automatic — it unlocks 1–2 free points per test.',
         },
       ],
     },
@@ -262,13 +262,13 @@ export const circlesContent = {
           type: 'checkpointQuestion',
           number: 1,
           question: 'A sector of a circle with radius 12 has a central angle of **150°**. What is the sector area?',
-          answer: 'Fraction = 150/360 = 5/12. Area = (5/12) × π(144) = **60π** ≈ 188.5 square units.',
+          answer: 'Fraction = 150/360 = 5/12. Area = (5/12) $\\times$ π(144) = **60π** ≈ 188.5 square units.',
         },
         {
           type: 'checkpointQuestion',
           number: 2,
-          question: 'Find the center and radius: **x² + y² − 8x + 12y + 3 = 0**.',
-          answer: '(x² − 8x + 16) + (y² + 12y + 36) = −3 + 16 + 36 = 49. **(x − 4)² + (y + 6)² = 49**. Center = **(4, −6)**, radius = **7**.',
+          question: 'Find the center and radius: **x² + y² - 8x + 12y + 3 = 0**.',
+          answer: '(x² - 8x + 16) + (y² + 12y + 36) = -3 + 16 + 36 = 49. **(x - 4)² + (y + 6)² = 49**. Center = **(4, -6)**, radius = **7**.',
         },
       ],
     },

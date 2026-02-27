@@ -237,6 +237,14 @@ export const systemsLessonTabs = {
           },
         ],
       },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: 'When Substitution Is Fastest', content: 'Recognition cue: one equation already has a variable isolated ($y = ...$, $x = ...$) or has a coefficient of $1$ or $-1$. First move: solve that equation for the isolated variable and plug it into the other equation. This avoids the messy multiplications that elimination sometimes requires.' },
+          { type: 'trapCard', title: 'Forgetting to Distribute', wrong: '$3x + 2(2x - 1) = 16$ → student writes $3x + 4x - 1 = 16$ instead of $3x + 4x - 2 = 16$.', correction: 'When substituting, distribute the outer coefficient to **every** term inside: $2 \\cdot 2x = 4x$ and $2 \\cdot (-1) = -2$.' },
+          { type: 'tip', content: '**Decision rule:** Variable already isolated → substitution. Both equations in standard form with matching coefficients → elimination. Messy coefficients and only need a numerical answer → DESMOS.' },
+        ],
+      },
       commonTraps: {
         title: 'Common Traps',
         blocks: [
@@ -360,6 +368,14 @@ export const systemsLessonTabs = {
             title: 'Watch for Zoom Issues',
             content: 'If you don\'t see the intersection, the default window might not cover it. Zoom out (pinch or scroll) or adjust the axis range by clicking the wrench icon. Intersections far from the origin are easy to miss.',
           },
+        ],
+      },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: 'DESMOS for Systems: The 20-Second Solve', content: 'Recognition cue: any system where the answer choices are numerical $(x, y)$ pairs. First move: type both equations into DESMOS, click the intersection point, read the coordinates. This works for linear, quadratic, and even mixed systems.' },
+          { type: 'trapCard', title: 'Intersection Outside Default View', wrong: 'Student types both equations but sees no intersection — concludes "no solution."', correction: 'The intersection may exist beyond the default window. Zoom out (scroll or pinch) or click the wrench to expand the axis range. Only conclude "no solution" if the lines are clearly parallel.' },
+          { type: 'tip', content: '**When to skip DESMOS:** If the question asks for an expression like $2x + y$ (not a simple coordinate), algebra is faster because DESMOS doesn\'t directly compute combined expressions. Use DESMOS to find $x$ and $y$ individually, then combine.' },
         ],
       },
       speedStrategy: {

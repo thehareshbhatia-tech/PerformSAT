@@ -10,16 +10,16 @@ export const statisticsContent = {
       blocks: [
         { type: 'heading', content: 'Measures of Center' },
         { type: 'formulaGrid', items: [
-          { label: 'Mean', formula: 'x̄ = Σx / n', note: 'sum ÷ count; pulled by every value' },
+          { label: 'Mean', formula: '$\\bar{x} = \\sum x / n$', note: 'sum $\\div$ count; pulled by every value' },
           { label: 'Median', formula: 'Middle value (ordered)', note: 'position-based; resistant to outliers' },
           { label: 'Mode', formula: 'Most frequent value', note: 'can be none, one, or multiple' },
         ] },
         { type: 'heading', content: 'Measures of Spread' },
         { type: 'formulaGrid', items: [
-          { label: 'Range', formula: 'Max − Min', note: 'sensitive to outliers' },
-          { label: 'Standard Deviation', formula: 'σ (conceptual only)', note: 'average distance from mean; SAT never asks you to compute it' },
+          { label: 'Range', formula: '$Max - Min$', note: 'sensitive to outliers' },
+          { label: 'Standard Deviation', formula: '$\\sigma$ (conceptual only)', note: 'average distance from mean; SAT never asks you to compute it' },
         ] },
-        { type: 'keyInsight', content: 'σ = clustering around the mean. Weighted mean: (n₁·x̄₁ + n₂·x̄₂)/(n₁ + n₂). Margin of error: 52% ± 3% → interval [49%, 55%].' },
+        { type: 'keyInsight', content: '$\\sigma$ = clustering around the mean. Weighted mean: (n₁·$\\bar{x}$₁ + n₂·$\\bar{x}$₂)/(n₁ + n₂). Margin of error: 52% ± 3% → interval [49%, 55%].' },
       ],
     },
 
@@ -27,11 +27,11 @@ export const statisticsContent = {
       title: 'SAT Patterns',
       summary: 'Recognition cues and decision rules for statistics prompts.',
       blocks: [
-        { type: 'callout', variant: 'info', title: 'Statistics Question Types', content: '**Compute mean/median** — list or frequency table; sum ÷ count or cumulative-frequency median. **Effect of changes/outliers** — add/remove a value; which measure shifts more? **Compare data sets** — which has larger mean, σ, or range? **Survey interpretation** — margin of error, valid conclusions; results generalize only to the sampled population.' },
+        { type: 'callout', variant: 'info', title: 'Statistics Question Types', content: '**Compute mean/median** — list or frequency table; sum $\\div$ count or cumulative-frequency median. **Effect of changes/outliers** — add/remove a value; which measure shifts more? **Compare data sets** — which has larger mean, $\\sigma$, or range? **Survey interpretation** — margin of error, valid conclusions; results generalize only to the sampled population.' },
         { type: 'iconRow', items: [
           { icon: '📊', label: 'Compute', description: 'Mean from sum/count; median via cumulative frequency' },
           { icon: '🔀', label: 'Effect of Changes', description: 'Outliers pull mean; median resists' },
-          { icon: '📈', label: 'Compare Sets', description: 'Mean, σ, range — conceptual reasoning' },
+          { icon: '📈', label: 'Compare Sets', description: 'Mean, $\\sigma$, range — conceptual reasoning' },
           { icon: '📋', label: 'Survey', description: 'Margin of error → interval; cautious claims only' },
         ] },
         { type: 'trapCard', title: 'Mean vs. Median', wrong: 'Data: {2, 3, 4, 5, 100}. Student reports "typical value" as mean = 22.8.', correction: 'The mean is pulled by the outlier. For skewed data, **median** (4) better represents the typical value. Use mean when the question explicitly asks for it or when data is symmetric.' },
@@ -45,9 +45,9 @@ export const statisticsContent = {
       blocks: [
         { type: 'heading', content: 'Method 1: Mean from Raw Data or Frequency Table' },
         { type: 'steps', title: 'Workflow', items: [
-          'Sum all values (for a frequency table: Σ(value × frequency)).',
+          'Sum all values (for a frequency table: $\\sum$(value $\\times$ frequency)).',
           'Count total data points (sum of frequencies for a table).',
-          'Divide: x̄ = total sum / n.',
+          'Divide: $\\bar{x}$ = total sum / n.',
         ] },
         { type: 'heading', content: 'Method 2: Median via Cumulative Frequency' },
         { type: 'steps', title: 'Workflow', items: [
@@ -57,8 +57,8 @@ export const statisticsContent = {
           'Scan the cumulative column to find which value contains that position.',
         ] },
         { type: 'heading', content: 'Method 3: Reverse-Mean (Find Missing Value)' },
-        { type: 'formula', label: 'Missing Value', content: 'x_missing = (x̄ × n) − Σx_known', note: 'Rearrange the mean definition to isolate the unknown' },
-        { type: 'keyInsight', content: 'Outlier impact: mean is pulled by magnitude; median by position. Reverse-mean: need sum = x̄×n, then x = sum − known_sum.' },
+        { type: 'formula', label: 'Missing Value', content: '$x_missing = (\\bar{x} \\times n) - \\sum x_known$', note: 'Rearrange the mean definition to isolate the unknown' },
+        { type: 'keyInsight', content: 'Outlier impact: mean is pulled by magnitude; median by position. Reverse-mean: need sum = $\\bar{x}$$\\times$n, then x = sum - known_sum.' },
       ],
     },
 
@@ -66,11 +66,11 @@ export const statisticsContent = {
       title: 'Common Traps',
       summary: 'The five most costly statistics mistakes on the Digital SAT.',
       blocks: [
-        { type: 'trapCard', title: 'Averaging Averages', wrong: 'Section A mean = 80 (n=15), Section B mean = 90 (n=25). Student says combined mean = 85.', correction: 'Weighted: (15×80 + 25×90)/40 = **86.25**. Always weight by group size.' },
+        { type: 'trapCard', title: 'Averaging Averages', wrong: 'Section A mean = 80 (n=15), Section B mean = 90 (n=25). Student says combined mean = 85.', correction: 'Weighted: (15$\\times$80 + 25$\\times$90)/40 = **86.25**. Always weight by group size.' },
         { type: 'trapCard', title: 'Median Position Error', wrong: '12 values — student takes the 6th as the median.', correction: 'For even n, median = average of the 6th and 7th values.' },
         { type: 'trapCard', title: 'Overgeneralizing Surveys', wrong: '200 California freshmen surveyed → "Most U.S. college students prefer online classes."', correction: 'Results apply only to the **sampled population** — California freshmen, not all U.S. students.' },
-        { type: 'trapCard', title: 'Confusing Range and σ', wrong: 'Student picks the set with the largest range as having the largest σ.', correction: 'A set like {1, 50, 50, 50, 99} has large range but moderate σ because most values cluster. σ = average distance from mean, not max minus min.' },
-        { type: 'callout', variant: 'memorize', title: 'Trap-Avoidance Checklist', content: '**1)** Weighting group means? **2)** Even/odd n for median? **3)** Generalizing only to the sampled population? **4)** Range ≠ σ?' },
+        { type: 'trapCard', title: 'Confusing Range and $\\sigma$', wrong: 'Student picks the set with the largest range as having the largest $\\sigma$.', correction: 'A set like {1, 50, 50, 50, 99} has large range but moderate $\\sigma$ because most values cluster. $\\sigma$ = average distance from mean, not max minus min.' },
+        { type: 'callout', variant: 'memorize', title: 'Trap-Avoidance Checklist', content: '**1)** Weighting group means? **2)** Even/odd n for median? **3)** Generalizing only to the sampled population? **4)** Range $\\neq$ $\\sigma$?' },
       ],
     },
 
@@ -81,7 +81,7 @@ export const statisticsContent = {
         {
           type: 'example',
           difficulty: 'Medium',
-          problem: 'Books read by students: 0(×2), 1(×5), 2(×8), 3(×7), 4(×3), 5(×1). What is the median?',
+          problem: 'Books read by students: 0($\\times$2), 1($\\times$5), 2($\\times$8), 3($\\times$7), 4($\\times$3), 5($\\times$1). What is the median?',
           steps: [
             { label: 'Total', content: '2+5+8+7+3+1 = **26** students' },
             { label: 'Position', content: 'n = 26 (even) → median = average of 13th and 14th values.' },
@@ -95,8 +95,8 @@ export const statisticsContent = {
           difficulty: 'Hard',
           problem: 'Group A (40 people): mean response = 3.2 s. Group B (60 people): mean response = 4.5 s. The slowest person in B (12.1 s) is removed. What is the new overall mean?',
           steps: [
-            { label: 'Sums', content: 'A: 40 × 3.2 = 128. B: 60 × 4.5 = 270.' },
-            { label: 'Remove outlier', content: 'New B sum = 270 − 12.1 = 257.9. New B count = 59.' },
+            { label: 'Sums', content: 'A: 40 $\\times$ 3.2 = 128. B: 60 $\\times$ 4.5 = 270.' },
+            { label: 'Remove outlier', content: 'New B sum = 270 - 12.1 = 257.9. New B count = 59.' },
             { label: 'Combined', content: '(128 + 257.9) / (40 + 59) = 385.9 / 99 ≈ **3.9 s**' },
             { label: 'Insight', content: 'Removing one extreme value dropped the overall mean by ~0.1 s — mean is sensitive to outliers.' },
           ],
@@ -113,7 +113,7 @@ export const statisticsContent = {
         { type: 'iconRow', items: [
           { icon: '⚖️', label: 'Mean', description: 'Balance point — sensitive to outliers' },
           { icon: '🎯', label: 'Median', description: 'Middle position — resistant' },
-          { icon: '📏', label: 'Range', description: 'Max−Min — very sensitive' },
+          { icon: '📏', label: 'Range', description: 'Max-Min — very sensitive' },
           { icon: '📐', label: 'Std Dev', description: 'Avg distance from mean' },
         ] },
       ],
@@ -127,7 +127,7 @@ export const statisticsContent = {
         { type: 'strategyCard', title: 'Outlier Questions: Skip the Math', icon: '🧠', timing: '~45s saved', content: 'When asked "how does removing an outlier affect mean vs. median?" — answer conceptually. Mean shifts toward remaining data; median barely moves. No computation needed.' },
         { type: 'strategyCard', title: 'Cumulative Frequency on Scratch Paper', icon: '📝', timing: '~20s saved', content: 'For frequency-table medians, immediately build a running-total column. Find position (n+1)/2 and scan. Mechanical and fast.' },
         { type: 'strategyCard', title: 'Margin of Error: Build the Interval', icon: '📊', timing: '~15s saved', content: 'Compute estimate ± margin. If the interval crosses 50%, no candidate has a clear lead. If it does not include 50%, the result is statistically meaningful.' },
-        { type: 'tip', content: 'Statistics questions reward **conceptual reasoning** over raw computation. Many can be answered without a single calculation if you understand how mean, median, and σ behave.' },
+        { type: 'tip', content: 'Statistics questions reward **conceptual reasoning** over raw computation. Many can be answered without a single calculation if you understand how mean, median, and $\\sigma$ behave.' },
       ],
     },
 
@@ -139,7 +139,7 @@ export const statisticsContent = {
           type: 'checkpointQuestion',
           number: 1,
           question: 'The mean of 8 numbers is 15. If the value 40 is removed, what is the new mean of the remaining 7 numbers? (Round to the nearest tenth.)',
-          answer: 'Original sum = 8 × 15 = 120. Remove 40 → new sum = 80. New mean = 80/7 ≈ **11.4**.',
+          answer: 'Original sum = 8 $\\times$ 15 = 120. Remove 40 → new sum = 80. New mean = 80/7 ≈ **11.4**.',
         },
         {
           type: 'checkpointQuestion',

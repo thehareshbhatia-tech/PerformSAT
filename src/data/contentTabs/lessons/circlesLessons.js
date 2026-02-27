@@ -116,6 +116,27 @@ export const circlesLessonTabs = {
           },
         ],
       },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          {
+            type: 'callout',
+            variant: 'info',
+            title: 'Scaling: Radius × $k$ → Area × $k^2$',
+            content: 'Recognition cue: "the radius is doubled/tripled" or "compare areas of two circles." First move: don\'t recalculate both areas — use the scaling rule. Multiply the radius by $k$ → area multiplies by $k^2$. Double the radius → $4\\times$ the area.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Forgetting to Square the Radius',
+            wrong: '$r = 6$. Student writes $A = \\pi(6) = 6\\pi$.',
+            correction: 'Area requires $r^{\\mathbf{2}}$: $A = \\pi(6)^2 = 36\\pi$. Always square the radius before multiplying by $\\pi$.',
+          },
+          {
+            type: 'tip',
+            content: '**Decision rule:** Area given, radius asked → $r = \\sqrt{\\frac{A}{\\pi}}$. Radius given, area asked → $A = \\pi r^2$. Diameter given → halve first, then square. Circumference given → find $r = \\frac{C}{2\\pi}$, then compute area.',
+          },
+        ],
+      },
     },
   },
 
@@ -248,6 +269,27 @@ export const circlesLessonTabs = {
           },
         ],
       },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          {
+            type: 'callout',
+            variant: 'info',
+            title: 'The Fraction $\\frac{\\theta}{360}$ Drives Everything',
+            content: 'Recognition cue: a central angle and a circle measurement (circumference or area). First move: compute $\\frac{\\theta}{360}$ — this fraction of the full circumference gives arc length, and the same fraction of the full area gives sector area.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Using Area Formula for Length',
+            wrong: 'Asked for arc length. Student computes $\\frac{\\theta}{360} \\times \\pi r^2$ (sector area formula).',
+            correction: 'Arc **length** uses circumference ($2\\pi r$): $\\ell = \\frac{\\theta}{360} \\times 2\\pi r$. Sector **area** uses $\\pi r^2$. Check whether the question asks for a length or an area.',
+          },
+          {
+            type: 'tip',
+            content: 'Quick fraction shortcut: $90° = \\frac{1}{4}$, $60° = \\frac{1}{6}$, $120° = \\frac{1}{3}$, $45° = \\frac{1}{8}$. If $\\theta$ divides evenly into $360$, the fraction simplifies instantly.',
+          },
+        ],
+      },
     },
   },
 
@@ -314,6 +356,27 @@ export const circlesLessonTabs = {
           },
         ],
       },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          {
+            type: 'callout',
+            variant: 'info',
+            title: '"Find the Area of the Shaded Region"',
+            content: 'Recognition cue: a circle with a shaded sector or the unshaded complement. First move: if the sector is shaded, use $A = \\frac{\\theta}{360} \\times \\pi r^2$. If the complement is shaded, compute $\\pi r^2 - \\frac{\\theta}{360} \\times \\pi r^2$.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Arc Length Formula for Area',
+            wrong: 'Asked for sector area. Student writes $\\frac{60}{360} \\times 2\\pi(6) = 2\\pi$.',
+            correction: 'That computes arc **length** ($2\\pi r$), not area ($\\pi r^2$). Sector area: $\\frac{60}{360} \\times \\pi(6)^2 = \\frac{1}{6} \\times 36\\pi = 6\\pi$.',
+          },
+          {
+            type: 'tip',
+            content: '**Arc length** → linear units (cm, in). **Sector area** → square units (cm², in²). If the answer choices have square units, you need area. If they have linear units, you need length.',
+          },
+        ],
+      },
     },
   },
 
@@ -364,6 +427,27 @@ export const circlesLessonTabs = {
             title: 'Forgetting to Square Root',
             wrong: '$(x - 1)^2 + (y + 2)^2 = 36$ → radius $= 36$.',
             correction: 'The equation gives $r^2 = 36$, so $r = \\sqrt{36} = 6$.',
+          },
+        ],
+      },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          {
+            type: 'callout',
+            variant: 'info',
+            title: 'Reading Center and Radius',
+            content: 'Recognition cue: $(x - h)^2 + (y - k)^2 = r^2$ with a question about center, radius, or a specific point. First move: center $= (h, k)$ (reverse the signs inside), radius $= \\sqrt{\\text{right side}}$.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Sign Error on Center',
+            wrong: '$(x + 3)^2 + (y - 5)^2 = 49$ → center is $(3, 5)$.',
+            correction: '$(x + 3)^2 = (x - (-3))^2$, so $h = -3$. Center $= (-3, 5)$, radius $= \\sqrt{49} = 7$.',
+          },
+          {
+            type: 'tip',
+            content: 'The right side of the equation is $r^2$, not $r$. If the equation says $= 49$, the radius is $7$. If it says $= 25$, the radius is $5$. Always take the square root.',
           },
         ],
       },
@@ -554,6 +638,27 @@ export const circlesLessonTabs = {
           },
         ],
       },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          {
+            type: 'callout',
+            variant: 'info',
+            title: '"What Is the Radius of the Circle?"',
+            content: 'Recognition cue: a circle equation in general form ($x^2 + y^2 + Dx + Ey + F = 0$). First move: complete the square on both $x$ and $y$ to convert to standard form. The right side becomes $r^2$.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Adding to One Side Only',
+            wrong: 'Student adds $9$ to the left to complete $x^2 - 6x + 9$ but forgets to add $9$ to the right.',
+            correction: 'Whatever you add to the left, you **must** add to the right to keep the equation balanced. Both sides change by the same amount.',
+          },
+          {
+            type: 'tip',
+            content: 'Completing the square for circles is the same technique used for quadratics — you just do it **twice** (once for $x$, once for $y$). If the right side turns out negative, no circle exists (check your arithmetic).',
+          },
+        ],
+      },
     },
   },
 
@@ -630,6 +735,27 @@ export const circlesLessonTabs = {
             title: 'Using the Wrong Right Angle',
             wrong: 'Student assumes the right angle is at the external point $P$ instead of at the tangent point $T$.',
             correction: 'The $90°$ angle is **always at the point of tangency** (where the radius meets the tangent). $OT$ is a leg, not the hypotenuse.',
+          },
+        ],
+      },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          {
+            type: 'callout',
+            variant: 'info',
+            title: 'Tangent = Right Angle at Point of Tangency',
+            content: 'Recognition cue: a tangent line touching a circle, often with an external point. First move: draw the radius to the tangent point and mark the $90°$ angle. This creates a right triangle — use the Pythagorean theorem to find missing lengths.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Right Angle at Wrong Point',
+            wrong: 'Student assumes the right angle is at the external point, not at the tangent point.',
+            correction: 'The $90°$ angle is always at the **point of tangency** (where radius meets tangent). The external point is a vertex of the triangle but not the right angle.',
+          },
+          {
+            type: 'tip',
+            content: 'For tangent-line equation questions: radius slope $= \\frac{\\Delta y}{\\Delta x}$ from center to tangent point. Tangent slope $= -\\frac{1}{\\text{radius slope}}$ (negative reciprocal). Then use point-slope form with the tangent point.',
           },
         ],
       },

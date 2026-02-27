@@ -24,7 +24,7 @@ export const percentsLessonTabs = {
             headers: ['From → To', 'Method', 'Example'],
             rows: [
               ['Percent → Decimal', 'Divide by $100$ (move decimal 2 left)', '$35\\% \\to 0.35$'],
-              ['Decimal → Percent', 'Multiply by $100$ (move decimal 2 right)', '$0.08 \\to 8\\%$'],
+              ['Decimal → Percent', 'Multiply by $100$ (move decimal 2 right)', '${0.08} \\to 8\\%$'],
               ['Fraction → Percent', 'Divide numerator by denominator, then $\\times 100$', '$\\frac{3}{8} = 0.375 \\to 37.5\\%$'],
               ['Percent → Fraction', 'Put over $100$ and simplify', '$60\\% = \\frac{60}{100} = \\frac{3}{5}$'],
             ],
@@ -48,6 +48,14 @@ export const percentsLessonTabs = {
               'To reverse: divide the percent by $100$, then simplify the fraction',
             ],
           },
+        ],
+      },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: 'Conversion Speed', content: 'Recognition cue: any problem involving percents in calculations. First move: convert the percent to a decimal **immediately** — $p\\% = \\frac{p}{100}$. This single step prevents the most common arithmetic errors on percent problems.' },
+          { type: 'trapCard', title: 'Decimal Point Drift', wrong: '$4\\%$ → student converts as $0.4$ instead of $0.04$.', correction: 'Move the decimal **two** places left: $4\\% = 0.04$. Quick check: $0.4 = 40\\%$, which is $10\\times$ too large.' },
+          { type: 'tip', content: 'Benchmark shortcut: $10\\% =$ divide by $10$. $1\\% =$ divide by $100$. Build any percent from these two anchors. For $15\\%$: take $10\\%$ and add half of it ($5\\%$).' },
         ],
       },
       commonTraps: {
@@ -124,7 +132,7 @@ export const percentsLessonTabs = {
             problem: 'What is $15\\%$ of $240$?',
             steps: [
               { label: 'Convert', content: '$15\\% = 0.15$' },
-              { label: 'Multiply', content: '$0.15 \\times 240 = 36$' },
+              { label: 'Multiply', content: '${0.15} \\times 240 = 36$' },
               { label: 'Answer', content: '$36$' },
             ],
           },
@@ -139,6 +147,14 @@ export const percentsLessonTabs = {
               { label: 'Answer', content: '$35\\%$ discount' },
             ],
           },
+        ],
+      },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: 'The Is/Of Translation', content: 'Recognition cue: "What is $p\\%$ of $n$?" or "$a$ is what percent of $b$?" First move: translate using **is = equals**, **of = multiply**, **what = unknown**. Set up the equation and solve for the one missing piece.' },
+          { type: 'trapCard', title: 'Swapping Part and Whole', wrong: '"$15$ is what percent of $60$?" Student computes $\\frac{60}{15} = 4 = 400\\%$.', correction: 'The number after "of" is the **whole** (denominator): $\\frac{15}{60} = 0.25 = 25\\%$. Part ÷ Whole, not Whole ÷ Part.' },
+          { type: 'tip', content: '**Decision rule:** Missing the part → multiply percent × whole. Missing the percent → divide part by whole. Missing the whole → divide part by percent. Identify which of the three is unknown.' },
         ],
       },
       commonTraps: {
@@ -216,10 +232,18 @@ export const percentsLessonTabs = {
             steps: [
               { label: 'Find change', content: '$15{,}600 - 12{,}000 = 3{,}600$' },
               { label: 'Divide by old', content: '$\\frac{3{,}600}{12{,}000} = 0.30$' },
-              { label: 'Convert', content: '$0.30 \\times 100 = 30\\%$' },
+              { label: 'Convert', content: '${0.30} \\times 100 = 30\\%$' },
               { label: 'Answer', content: '$30\\%$ increase' },
             ],
           },
+        ],
+      },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: '"By What Percent Did It Change?"', content: 'Recognition cue: two values (before and after) with a question about percent increase or decrease. First move: $\\frac{\\text{New} - \\text{Old}}{\\text{Old}} \\times 100$. The **Old** value is always the denominator — this is the #1 rule.' },
+          { type: 'trapCard', title: 'Using New as the Base', wrong: 'Price goes from $\\$80$ to $\\$100$. Student computes $\\frac{20}{100} = 20\\%$.', correction: 'The denominator must be the **original** value: $\\frac{100 - 80}{80} = \\frac{20}{80} = 25\\%$. Using the new value as the base gives the wrong answer.' },
+          { type: 'tip', content: 'A $25\\%$ increase from $80$ to $100$ is NOT reversed by a $25\\%$ decrease. Going back: $100 \\times 0.75 = 75 \\neq 80$. Percent change is asymmetric because the base changes direction-to-direction.' },
         ],
       },
       commonTraps: {
@@ -276,7 +300,7 @@ export const percentsLessonTabs = {
           },
           {
             type: 'keyInsight',
-            content: 'A $20\\%$ increase followed by a $20\\%$ decrease does **not** return to the original value. Multiplier: $1.20 \\times 0.80 = 0.96$, so you end up $4\\%$ below where you started. The SAT tests this repeatedly.',
+            content: 'A $20\\%$ increase followed by a $20\\%$ decrease does **not** return to the original value. Multiplier: ${1.20} \\times 0.80 = 0.96$, so you end up $4\\%$ below where you started. The SAT tests this repeatedly.',
           },
         ],
       },
@@ -316,6 +340,14 @@ export const percentsLessonTabs = {
           },
         ],
       },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: '"After $n$ Years at $r\\%$…"', content: 'Recognition cue: repeated percent change over time (compound interest, depreciation, population growth). First move: identify $P$ (start), $r$ (rate as decimal), $n$ (periods). Apply $A = P(1 \\pm r)^n$. Use $+r$ for growth, $-r$ for decay.' },
+          { type: 'trapCard', title: 'Adding Percents Instead of Compounding', wrong: '$25\\%$ increase then another $25\\%$ increase. Student says total increase $= 50\\%$.', correction: 'Multipliers: ${1.25} \\times 1.25 = 1.5625$. Total increase is $56.25\\%$, not $50\\%$. Always multiply, never add.' },
+          { type: 'tip', content: 'To find the **rate** from a given multiplier: $b = 1.08$ → growth rate $= b - 1 = 0.08 = 8\\%$. $b = 0.75$ → decay rate $= 1 - b = 0.25 = 25\\%$. The SAT often gives the equation and asks "by what percent does the value change each period?"' },
+        ],
+      },
       commonTraps: {
         title: 'Common Traps',
         blocks: [
@@ -323,7 +355,7 @@ export const percentsLessonTabs = {
             type: 'trapCard',
             title: 'Adding Percents Instead of Multiplying',
             wrong: '25% increase then 25% increase = 50% total increase.',
-            correction: 'Multipliers: $1.25 \\times 1.25 = 1.5625$, so the total increase is $56.25\\%$, not $50\\%$. Always multiply, never add.',
+            correction: 'Multipliers: ${1.25} \\times 1.25 = 1.5625$, so the total increase is $56.25\\%$, not $50\\%$. Always multiply, never add.',
           },
         ],
       },

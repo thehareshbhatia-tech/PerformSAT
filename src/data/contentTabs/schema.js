@@ -124,30 +124,83 @@ const SUPPORTED_VISUAL_TYPES = [
 ];
 
 /**
- * ── SAT Patterns Quality Rubric ──
- * Every satPatterns section must contain high-signal, tutor-grade content.
- * Minimum 3 blocks per section at lesson level:
- *   1. Pattern archetype (callout): exact SAT-style task framing + recognition cue
- *   2. Trap / recovery  (trapCard or callout w/ variant 'warning'): common wrong path + fix
- *   3. Decision rule     (tip or strategyCard): when to use which approach
- *
- * Low-signal phrases that indicate generic filler (flagged by quality checks):
+ * ── Tutor-Grade v2 Quality Rubric ──
+ * Every section must contain high-signal, pedagogically strong content.
+ * Requirements are defined per-section so automated checks can enforce them.
  */
-export const SAT_PATTERNS_MIN_BLOCKS = 3;
 
-export const SAT_PATTERNS_REQUIRED_ELEMENTS = [
-  { label: 'pattern archetype', matchTypes: ['callout', 'example'] },
-  { label: 'trap or recovery',  matchTypes: ['trapCard', 'callout', 'comparison'] },
-  { label: 'decision rule',     matchTypes: ['tip', 'strategyCard', 'keyInsight'] },
-];
+export const SECTION_QUALITY = {
+  coreConcepts: {
+    minBlocks: 2,
+    requiredElements: [
+      { label: 'intuition or explanation', matchTypes: ['text', 'keyInsight'] },
+      { label: 'formal rule or formula',   matchTypes: ['formula', 'formulaGrid', 'callout', 'table'] },
+    ],
+  },
+  satPatterns: {
+    minBlocks: 3,
+    requiredElements: [
+      { label: 'pattern archetype',  matchTypes: ['callout', 'example'] },
+      { label: 'trap or recovery',   matchTypes: ['trapCard', 'callout', 'comparison'] },
+      { label: 'decision rule',      matchTypes: ['tip', 'strategyCard', 'keyInsight'] },
+    ],
+  },
+  methods: {
+    minBlocks: 1,
+    requiredElements: [
+      { label: 'step-by-step procedure or worked example', matchTypes: ['steps', 'example'] },
+    ],
+  },
+  commonTraps: {
+    minBlocks: 1,
+    requiredElements: [
+      { label: 'trap card', matchTypes: ['trapCard'] },
+    ],
+  },
+  workedExamples: {
+    minBlocks: 1,
+    requiredElements: [
+      { label: 'worked example', matchTypes: ['example'] },
+    ],
+  },
+  visualModels: {
+    minBlocks: 1,
+    requiredElements: [],
+  },
+  speedStrategy: {
+    minBlocks: 1,
+    requiredElements: [
+      { label: 'strategy or tip', matchTypes: ['strategyCard', 'tip', 'callout'] },
+    ],
+  },
+  checkpoint: {
+    minBlocks: 1,
+    requiredElements: [
+      { label: 'checkpoint question', matchTypes: ['checkpointQuestion'] },
+    ],
+  },
+};
 
-export const SAT_PATTERNS_LOW_SIGNAL = [
+/**
+ * Phrases that signal generic, low-value filler content.
+ * Applies to ALL sections, not just satPatterns.
+ */
+export const LOW_SIGNAL_PATTERNS = [
   /the SAT loves/i,
   /college board (often|frequently|typically) (tests|asks)/i,
   /\d+[–-]\d+ questions per/i,
   /you (should|need to|must) (know|understand|remember)/i,
   /this is (important|key|crucial)/i,
+  /this is (a |an )?(common|important|key|critical)/i,
+  /remember (that |to )?always/i,
+  /make sure (you |to )/i,
+  /it('|')s important to/i,
 ];
+
+// Legacy aliases for backward compatibility with satPatternsQualityCheck.js
+export const SAT_PATTERNS_MIN_BLOCKS = SECTION_QUALITY.satPatterns.minBlocks;
+export const SAT_PATTERNS_REQUIRED_ELEMENTS = SECTION_QUALITY.satPatterns.requiredElements;
+export const SAT_PATTERNS_LOW_SIGNAL = LOW_SIGNAL_PATTERNS.slice(0, 5);
 
 /**
  * Validate a content tab (module-level or lesson-level).
@@ -223,25 +276,28 @@ export function validateContentTab(moduleId, contentTab) {
     }
   }
 
-  const satSection = contentTab.sections?.[SECTION_IDS.SAT_PATTERNS];
-  if (satSection && Array.isArray(satSection.blocks)) {
-    if (satSection.blocks.length < SAT_PATTERNS_MIN_BLOCKS) {
-      warnings.push(`${moduleId}.satPatterns: only ${satSection.blocks.length} blocks — minimum ${SAT_PATTERNS_MIN_BLOCKS} for tutor-grade quality`);
+  // ── Tutor-Grade v2: per-section quality checks ──
+  for (const [sectionId, section] of Object.entries(contentTab.sections)) {
+    const quality = SECTION_QUALITY[sectionId];
+    if (!quality || !Array.isArray(section.blocks)) continue;
+
+    if (section.blocks.length < quality.minBlocks) {
+      warnings.push(`${moduleId}.${sectionId}: only ${section.blocks.length} blocks — minimum ${quality.minBlocks} for tutor-grade quality`);
     }
 
-    const satBlockTypes = satSection.blocks.map(b => b.type);
-    for (const req of SAT_PATTERNS_REQUIRED_ELEMENTS) {
-      if (!req.matchTypes.some(t => satBlockTypes.includes(t))) {
-        warnings.push(`${moduleId}.satPatterns: missing ${req.label} (expected one of: ${req.matchTypes.join(', ')})`);
+    const sectionBlockTypes = section.blocks.map(b => b.type);
+    for (const req of quality.requiredElements) {
+      if (!req.matchTypes.some(t => sectionBlockTypes.includes(t))) {
+        warnings.push(`${moduleId}.${sectionId}: missing ${req.label} (expected one of: ${req.matchTypes.join(', ')})`);
       }
     }
 
-    const allText = satSection.blocks
-      .map(b => [b.content, b.wrong, b.title, b.question].filter(Boolean).join(' '))
+    const sectionText = section.blocks
+      .map(b => [b.content, b.wrong, b.title, b.question, b.correction].filter(Boolean).join(' '))
       .join(' ');
-    for (const pattern of SAT_PATTERNS_LOW_SIGNAL) {
-      if (pattern.test(allText)) {
-        warnings.push(`${moduleId}.satPatterns: low-signal phrase detected — "${allText.match(pattern)?.[0]}"`);
+    for (const pattern of LOW_SIGNAL_PATTERNS) {
+      if (pattern.test(sectionText)) {
+        warnings.push(`${moduleId}.${sectionId}: low-signal phrase — "${sectionText.match(pattern)?.[0]}"`);
       }
     }
   }

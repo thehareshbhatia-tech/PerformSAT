@@ -232,6 +232,14 @@ export const transformationsLessonTabs = {
           },
         ],
       },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: '"The Graph of $g$ Is the Graph of $f$ Shifted…"', content: 'Recognition cue: a description of a horizontal or vertical shift. First move: horizontal shifts go **inside** the function (opposite sign to direction). Vertical shifts go **outside** (same sign as direction).' },
+          { type: 'trapCard', title: 'Sign Goes the Wrong Way', wrong: '"Shifted right $4$" → student writes $f(x + 4)$.', correction: 'Right $4$ means $f(x - 4)$. The sign inside is **opposite** the direction. Mnemonic: "inside the parentheses, the sign lies."' },
+          { type: 'tip', content: '**Verification trick:** Pick a known point on $f$, say $(2, 5)$. "Right $4$" moves it to $(6, 5)$. Check: $g(6) = f(6 - 4) = f(2) = 5$ ✓. If you used $f(x + 4)$: $g(6) = f(10) \\neq 5$ ✗.' },
+        ],
+      },
     },
   },
 
@@ -318,6 +326,14 @@ export const transformationsLessonTabs = {
             type: 'tip',
             content: 'On the digital SAT, use DESMOS. Type the parent function, then type the transformed version. Visually confirm the shift direction and magnitude in seconds.',
           },
+        ],
+      },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: 'Compound Transformations', content: 'Recognition cue: $g(x) = -2f(x - 3) + 1$ — multiple transformations in one equation. First move: read inside-out. Inside: $x - 3$ → right $3$. Then $2$ → vertical stretch by $2$. Then $-$ → reflect over $x$-axis. Then $+1$ → up $1$.' },
+          { type: 'trapCard', title: 'Applying Vertical Shift Before Stretch', wrong: 'Student reads $-2f(x) + 1$ and applies $+1$ first, then stretches, getting the wrong final position.', correction: 'Order matters: stretches and reflections happen **before** vertical translations. $-2f(x) + 1$ means: stretch by $2$, reflect, **then** shift up $1$.' },
+          { type: 'tip', content: '**DESMOS shortcut:** Type the parent function $f(x)$, then type the transformed version. Visually confirm the shift direction, stretch, and reflection match your algebraic reading. This 10-second check catches sign errors.' },
         ],
       },
     },

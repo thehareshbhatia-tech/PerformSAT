@@ -127,6 +127,14 @@ export const quadraticsLessonTabs = {
           },
         ],
       },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: '"What Are the Solutions?"', content: 'Recognition cue: "$ax^2 + bx + c = 0$" followed by "what are the solutions/zeros/roots/$x$-intercepts?" First move: try factoring (under 30s). If it doesn\'t factor cleanly, apply the quadratic formula. On multiple choice, you can also back-substitute each answer choice.' },
+          { type: 'trapCard', title: 'Sign Error in Quadratic Formula', wrong: 'For $x^2 + 6x + 5 = 0$: student writes $x = \\frac{6 \\pm \\sqrt{36 - 20}}{2}$, missing the negative on $b$.', correction: 'The formula starts with $-b$: $x = \\frac{-6 \\pm \\sqrt{36 - 20}}{2} = \\frac{-6 \\pm 4}{2}$. Roots: $-1$ and $-5$.' },
+          { type: 'tip', content: '**Decision rule:** Coefficients are small integers → try factoring first. Leading coefficient $\\neq 1$ or no clean factors → quadratic formula. Multiple choice → consider back-substituting answer choices into the equation.' },
+        ],
+      },
       commonTraps: {
         title: 'Common Traps',
         blocks: [
@@ -437,6 +445,14 @@ export const quadraticsLessonTabs = {
               { label: 'Expand', content: '$y = 2(x + 1)(x - 5) = 2(x^2 - 4x - 5) = 2x^2 - 8x - 10$' },
             ],
           },
+        ],
+      },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: '"Which Equation Matches the Graph?"', content: 'Recognition cue: a parabola graph with visible vertex or $x$-intercepts, followed by four equation choices. First move: read the vertex $(h, k)$ or the roots from the graph. If vertex is visible → vertex form $y = a(x-h)^2 + k$. If roots are visible → factored form $y = a(x-r)(x-s)$. Use one extra point to find $a$.' },
+          { type: 'trapCard', title: 'Assuming $a = 1$', wrong: 'Student reads vertex $(2, -3)$ and writes $y = (x-2)^2 - 3$ without checking $a$.', correction: 'The stretch factor $a$ might not be $1$. Plug in another visible point — if it doesn\'t satisfy the equation, solve for $a$. For example, if $(0, 5)$ is on the graph: $5 = a(0-2)^2 - 3 = 4a - 3$, so $a = 2$.' },
+          { type: 'tip', content: '**Strategy:** On the digital SAT, type each answer-choice equation into DESMOS and see which one matches the graph. This visual check takes ~20 seconds and requires no algebra.' },
         ],
       },
       commonTraps: {

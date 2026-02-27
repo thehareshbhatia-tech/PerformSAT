@@ -15,17 +15,17 @@ export const equivalentExpressionsContent = {
         {
           type: 'formulaGrid',
           items: [
-            { label: 'Distribution', formula: 'a(b + c) = ab + ac', note: 'Multiply each term inside' },
-            { label: 'Factoring (GCF)', formula: 'ab + ac = a(b + c)', note: 'Pull out common factor' },
-            { label: 'FOIL', formula: '(a+b)(c+d) = ac+ad+bc+bd', note: 'Two binomials' },
-            { label: 'Difference of Squares', formula: 'a² − b² = (a+b)(a−b)', note: 'Factor or expand; no middle term' },
+            { label: 'Distribution', formula: '$a(b + c) = ab + ac$', note: 'Multiply each term inside' },
+            { label: 'Factoring (GCF)', formula: '$ab + ac = a(b + c)$', note: 'Pull out common factor' },
+            { label: 'FOIL', formula: '$(a+b)(c+d) = ac+ad+bc+bd$', note: 'Two binomials' },
+            { label: 'Difference of Squares', formula: '$a^2 - b^2 = (a+b)(a-b)$', note: 'Factor or expand; no middle term' },
           ],
         },
         {
           type: 'formulaGrid',
           items: [
-            { label: 'Perfect Square (sum)', formula: '(a+b)² = a² + 2ab + b²', note: 'Don\'t forget the middle term' },
-            { label: 'Perfect Square (diff)', formula: '(a−b)² = a² − 2ab + b²', note: 'Middle term is negative' },
+            { label: 'Perfect Square (sum)', formula: '$(a+b)^2 = a^2 + 2ab + b^2$', note: 'Don\'t forget the middle term' },
+            { label: 'Perfect Square (diff)', formula: '$(a-b)^2 = a^2 - 2ab + b^2$', note: 'Middle term is negative' },
           ],
         },
         {
@@ -114,7 +114,7 @@ export const equivalentExpressionsContent = {
         },
         {
           type: 'tip',
-          content: 'Avoid x = 0, 1, or −1 when plugging in. For "true for all x," expand and match coefficients.',
+          content: 'Avoid x = 0, 1, or -1 when plugging in. For "true for all x," expand and match coefficients.',
         },
       ],
     },
@@ -132,8 +132,8 @@ export const equivalentExpressionsContent = {
         {
           type: 'trapCard',
           title: 'Sign Error When Distributing a Negative',
-          wrong: '3 − 2(x − 4) → 3 − 2x − 8 → −2x − 5',
-          correction: '−2(−4) = +8, so 3 − 2x + 8 = **−2x + 11**. The negative distributes to every term inside.',
+          wrong: '3 - 2(x - 4) → 3 - 2x - 8 → -2x - 5',
+          correction: '-2(-4) = +8, so 3 - 2x + 8 = **-2x + 11**. The negative distributes to every term inside.',
         },
         {
           type: 'trapCard',
@@ -157,22 +157,22 @@ export const equivalentExpressionsContent = {
         {
           type: 'example',
           difficulty: 'Medium',
-          problem: 'If (2x − 3)(x + 4) = ax² + bx + c for all x, what is a + b + c?',
+          problem: 'If (2x - 3)(x + 4) = ax² + bx + c for all x, what is a + b + c?',
           steps: [
-            { label: 'Shortcut: plug in x = 1', content: '(2·1 − 3)(1 + 4) = (−1)(5) = **−5**' },
-            { label: 'Since f(1) = a + b + c', content: 'a + b + c = **−5**' },
-            { label: 'Algebraic check', content: '2x² + 5x − 12 → 2 + 5 + (−12) = −5 ✓' },
+            { label: 'Shortcut: plug in x = 1', content: '(2·1 - 3)(1 + 4) = (-1)(5) = **-5**' },
+            { label: 'Since f(1) = a + b + c', content: 'a + b + c = **-5**' },
+            { label: 'Algebraic check', content: '2x² + 5x - 12 → 2 + 5 + (-12) = -5 ✓' },
           ],
         },
         {
           type: 'example',
           difficulty: 'Hard',
-          problem: 'Simplify: (x² + 6x + 9) / (x² − 9)',
+          problem: 'Simplify: (x² + 6x + 9) / (x² - 9)',
           steps: [
             { label: 'Factor numerator', content: 'x² + 6x + 9 = (x + 3)²' },
-            { label: 'Factor denominator', content: 'x² − 9 = (x + 3)(x − 3)' },
-            { label: 'Cancel common factor', content: '(x + 3)² / [(x + 3)(x − 3)] = **(x + 3)/(x − 3)**' },
-            { label: 'DESMOS verify', content: 'Graph both expressions — identical curves (undefined at x = −3) ✓' },
+            { label: 'Factor denominator', content: 'x² - 9 = (x + 3)(x - 3)' },
+            { label: 'Cancel common factor', content: '(x + 3)² / [(x + 3)(x - 3)] = **(x + 3)/(x - 3)**' },
+            { label: 'DESMOS verify', content: 'Graph both expressions — identical curves (undefined at x = -3) ✓' },
           ],
         },
       ],
@@ -217,7 +217,7 @@ export const equivalentExpressionsContent = {
           title: 'Instant Special-Product Recognition',
           icon: '🎯',
           timing: '~5s',
-          content: 'Train to spot on sight: x² − 9 = (x+3)(x−3). x² + 6x + 9 = (x+3)². x² − 10x + 25 = (x−5)². Recognition beats derivation.',
+          content: 'Train to spot on sight: x² - 9 = (x+3)(x-3). x² + 6x + 9 = (x+3)². x² - 10x + 25 = (x-5)². Recognition beats derivation.',
         },
         {
           type: 'callout',
@@ -235,14 +235,14 @@ export const equivalentExpressionsContent = {
         {
           type: 'checkpointQuestion',
           number: 1,
-          question: 'Expand and simplify: (3x − 2)(x + 5)',
-          answer: '3x² + 15x − 2x − 10 = **3x² + 13x − 10**.',
+          question: 'Expand and simplify: (3x - 2)(x + 5)',
+          answer: '3x² + 15x - 2x - 10 = **3x² + 13x - 10**.',
         },
         {
           type: 'checkpointQuestion',
           number: 2,
-          question: 'If 2(x + k)² − 8 = 2x² + 12x + 10 for all x, what is k?',
-          answer: 'Expand: 2(x² + 2kx + k²) − 8 = 2x² + 4kx + 2k² − 8. Match x-coefficient: 4k = 12 → **k = 3**. Check constants: 2(9) − 8 = 10 ✓.',
+          question: 'If 2(x + k)² - 8 = 2x² + 12x + 10 for all x, what is k?',
+          answer: 'Expand: 2(x² + 2kx + k²) - 8 = 2x² + 4kx + 2k² - 8. Match x-coefficient: 4k = 12 → **k = 3**. Check constants: 2(9) - 8 = 10 ✓.',
         },
       ],
     },

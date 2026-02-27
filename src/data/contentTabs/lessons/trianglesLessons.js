@@ -109,6 +109,27 @@ export const trianglesLessonTabs = {
           },
         ],
       },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          {
+            type: 'callout',
+            variant: 'info',
+            title: 'Classify from Side Lengths',
+            content: 'Recognition cue: three side lengths given, question asks "acute, right, or obtuse?" First move: label the longest side as $c$. Compute $a^2 + b^2$ and compare to $c^2$. Greater → acute, equal → right, less → obtuse.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Forgetting to Square',
+            wrong: 'Sides $5, 7, 9$. Student compares $5 + 7 = 12 > 9$ and says "acute."',
+            correction: 'You must compare **squares**: $5^2 + 7^2 = 74$ vs. $9^2 = 81$. Since $74 < 81$, the triangle is **obtuse**, not acute.',
+          },
+          {
+            type: 'tip',
+            content: '**Quick check:** If the three sides form a Pythagorean triple ($3$-$4$-$5$, $5$-$12$-$13$), it is a right triangle. If the longest side is slightly shorter than the triple hypotenuse, it is acute; slightly longer means obtuse.',
+          },
+        ],
+      },
     },
   },
 
@@ -173,6 +194,27 @@ export const trianglesLessonTabs = {
           },
         ],
       },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          {
+            type: 'callout',
+            variant: 'info',
+            title: '"What Are the Possible Values of the Third Side?"',
+            content: 'Recognition cue: two sides given, question asks for the range of the third side. First move: $|a - b| < c < a + b$. The third side must be strictly between the difference and the sum of the other two.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Including the Endpoints',
+            wrong: 'Sides $5$ and $9$. Student says third side can be $4$ through $14$.',
+            correction: 'The inequality is **strict**: $|9 - 5| < c < 9 + 5$ → $4 < c < 14$. The value $4$ and $14$ create degenerate triangles (straight lines), not valid triangles.',
+          },
+          {
+            type: 'tip',
+            content: 'For "how many integer values" questions: count integers strictly between the bounds. If bounds are $4 < c < 14$, the integers are $5, 6, 7, \\ldots, 13$ → that is $13 - 5 + 1 = 9$ values.',
+          },
+        ],
+      },
     },
   },
 
@@ -231,6 +273,27 @@ export const trianglesLessonTabs = {
             type: 'checkpointQuestion',
             question: 'A right triangle has legs of length $5$ and $12$. What is its area?',
             answer: '$A = \\frac{1}{2}(5)(12) = 30$ square units. In a right triangle, the two legs serve as base and height.',
+          },
+        ],
+      },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          {
+            type: 'callout',
+            variant: 'info',
+            title: 'Area with a Hidden Height',
+            content: 'Recognition cue: a triangle with only side lengths given (no explicit height). First move: look for a right angle — if present, the two legs serve as base and height directly. If no right angle, check for an altitude drawn in the diagram or use the Pythagorean theorem to find the height.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Using Slant Side as Height',
+            wrong: 'Triangle with base $10$ and sides $8$ and $6$. Student writes $A = \\frac{1}{2}(10)(8) = 40$.',
+            correction: 'The height must be **perpendicular** to the base. The side of length $8$ is a slant side, not the height. Drop a perpendicular from the opposite vertex to the base and compute its length.',
+          },
+          {
+            type: 'tip',
+            content: '**Decision rule:** Right triangle → legs are base and height ($A = \\frac{1}{2}ab$). Isosceles/equilateral → drop altitude to split into two right triangles, use Pythagorean theorem for height. Coordinate plane → use $A = \\frac{1}{2}|x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)|$.',
           },
         ],
       },
@@ -333,6 +396,27 @@ export const trianglesLessonTabs = {
             title: 'Mismatching Corresponding Sides',
             wrong: 'Students set up $\\frac{AD}{BC} = \\frac{DE}{AB}$, pairing sides from different positions.',
             correction: 'Always match sides by their **position** in each triangle: shortest-to-shortest, or side-opposite-the-same-angle to side-opposite-the-same-angle.',
+          },
+        ],
+      },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          {
+            type: 'callout',
+            variant: 'info',
+            title: 'Parallel Line → Similar Triangles',
+            content: 'Recognition cue: a triangle with a line drawn parallel to one side, cutting the other two sides. First move: the parallel line creates two triangles sharing a common angle at the apex, with two more matching angles (corresponding angles from the parallel). This gives AA similarity — write the proportion immediately.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Wrong Side Pairing',
+            wrong: '$\\triangle ADE \\sim \\triangle ABC$ with $AD = 4$, $DB = 6$, $BC = 15$. Student writes $\\frac{AD}{BC} = \\frac{DE}{AB}$.',
+            correction: 'Match sides by position: $\\frac{AD}{AB} = \\frac{DE}{BC}$. Here $AB = AD + DB = 10$, so $\\frac{4}{10} = \\frac{DE}{15}$, giving $DE = 6$.',
+          },
+          {
+            type: 'tip',
+            content: 'On the SAT, **AA is the only similarity test you typically need**. If you find two matching angles, stop — the triangles are similar. Write the proportion, cross-multiply, solve. SAS and SSS are rare.',
           },
         ],
       },
@@ -462,6 +546,27 @@ export const trianglesLessonTabs = {
               { label: 'Recognize', content: '$5$-$?$-$13$ is the $5$-$12$-$13$ triple.' },
               { label: 'Answer', content: 'The ladder reaches $12$ ft up the wall.' },
             ],
+          },
+        ],
+      },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          {
+            type: 'callout',
+            variant: 'info',
+            title: 'Hidden Right Triangles in Word Problems',
+            content: 'Recognition cue: ladders, ramps, building heights, diagonals, or "distance between two points." First move: sketch the scenario, identify the right angle, label legs and hypotenuse. Then apply $a^2 + b^2 = c^2$. Check for Pythagorean triples before computing.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Solving for the Wrong Side',
+            wrong: 'Hypotenuse $= 13$, one leg $= 5$. Student writes $5^2 + 13^2 = c^2$ → $c = \\sqrt{194}$.',
+            correction: 'The hypotenuse ($13$) goes on the right side alone: $5^2 + b^2 = 13^2$ → $b^2 = 169 - 25 = 144$ → $b = 12$. Recognize the $5$-$12$-$13$ triple.',
+          },
+          {
+            type: 'tip',
+            content: 'Memorize the common triples: $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, $7$-$24$-$25$. Also know their multiples ($6$-$8$-$10$, $9$-$12$-$15$, $10$-$24$-$26$). Recognizing a triple saves 30+ seconds of computation.',
           },
         ],
       },
@@ -673,6 +778,27 @@ export const trianglesLessonTabs = {
             title: 'Confusing Which Leg Is Which',
             wrong: 'Student uses the long leg as the "short leg" in the formula.',
             correction: 'The **short leg** is opposite the **smallest angle** ($30°$). The **long leg** is opposite $60°$. Always identify angles first.',
+          },
+        ],
+      },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          {
+            type: 'callout',
+            variant: 'info',
+            title: 'Where 30-60-90 Hides',
+            content: 'Recognition cue: an equilateral triangle with an altitude, a $30°$ or $60°$ angle in a right triangle, or a regular hexagon. First move: identify which side you know (short leg, long leg, or hypotenuse) and apply the ratio $1 : \\sqrt{3} : 2$.',
+          },
+          {
+            type: 'trapCard',
+            title: 'Swapping $\\sqrt{3}$ and $2$',
+            wrong: 'Student puts $\\sqrt{3}$ on the hypotenuse: ratio $1 : 2 : \\sqrt{3}$.',
+            correction: 'The hypotenuse is always $2$ (the integer). $\\sqrt{3}$ goes on the **long leg** (opposite $60°$). Correct ratio: short leg $: $ long leg $: $ hyp $= 1 : \\sqrt{3} : 2$.',
+          },
+          {
+            type: 'tip',
+            content: '**Decision rule:** See $30°$ or $60°$ in a right triangle → use $1 : \\sqrt{3} : 2$. See $45°$ in a right triangle → use $1 : 1 : \\sqrt{2}$. No special angles → use general trig (SOH CAH TOA) or the Pythagorean theorem.',
           },
         ],
       },

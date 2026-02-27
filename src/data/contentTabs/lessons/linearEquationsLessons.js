@@ -146,6 +146,14 @@ export const linearEquationsLessonTabs = {
           },
         ],
       },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: '"What Is the Slope of the Line?"', content: 'Recognition cue: two points given as ordered pairs or embedded in a word problem (e.g., "in 2010 the value was $300$ and in 2015 it was $450$"). First move: label the points and apply $m = \\frac{y_2 - y_1}{x_2 - x_1}$. If the question asks for the full equation, use point-slope form next.' },
+          { type: 'trapCard', title: 'Subtraction Order Mismatch', wrong: 'Points $(2, 5)$ and $(6, 17)$. Student writes $\\frac{17 - 5}{2 - 6} = \\frac{12}{-4} = -3$.', correction: 'The student subtracted $y$-values as $(y_2 - y_1)$ but $x$-values as $(x_1 - x_2)$. Both must use the same order: $\\frac{17 - 5}{6 - 2} = \\frac{12}{4} = 3$. Consistent order prevents sign errors.' },
+          { type: 'tip', content: '**Decision rule:** If the problem gives two points → slope formula first, then point-slope. If it gives a table → pick the two easiest rows (smallest numbers). If it gives a graph → count rise/run between two lattice points.' },
+        ],
+      },
       workedExamples: {
         title: 'Worked Example',
         blocks: [
@@ -212,6 +220,14 @@ export const linearEquationsLessonTabs = {
           },
         ],
       },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: 'Table → Rate of Change', content: 'Recognition cue: a two-column table ($x$/$y$ or input/output) with a question about rate, slope, or "change per unit." First move: pick any two rows and compute $\\frac{\\Delta y}{\\Delta x}$. If the rate is constant across all row pairs, the relationship is linear.' },
+          { type: 'trapCard', title: 'Non-Uniform $x$ Steps', wrong: 'Table: $x = 0, 2, 4, 6$ and $y = 1, 7, 13, 19$. Student reads $\\Delta y = 6$ from consecutive rows and writes slope $= 6$.', correction: 'The $x$-step is $2$, not $1$. Slope $= \\frac{\\Delta y}{\\Delta x} = \\frac{6}{2} = 3$. Always divide by the actual $\\Delta x$.' },
+          { type: 'tip', content: 'Speed hack: if $x$ increases by a constant step $d$, just compute $\\frac{\\Delta y}{d}$ once. No need to check every pair — for linear data, every pair gives the same slope.' },
+        ],
+      },
       commonTraps: {
         title: 'Common Traps',
         blocks: [
@@ -260,6 +276,14 @@ export const linearEquationsLessonTabs = {
               'Slope $= \\frac{\\text{rise}}{\\text{run}}$ — negative if the line falls left-to-right',
             ],
           },
+        ],
+      },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: 'Graph → Slope: Lattice Points', content: 'Recognition cue: a graph of a line with gridlines. First move: find two points where the line passes through grid intersections (lattice points). Count the vertical change (rise) and horizontal change (run). Slope $= \\frac{\\text{rise}}{\\text{run}}$.' },
+          { type: 'trapCard', title: 'Forgetting the Negative Sign', wrong: 'Line goes downhill from left to right. Student counts rise $= 3$ and run $= 2$, writes slope $= \\frac{3}{2}$.', correction: 'A downhill line has a **negative** slope. If you move right and the line goes **down**, the rise is negative: slope $= \\frac{-3}{2} = -\\frac{3}{2}$.' },
+          { type: 'tip', content: 'On the digital SAT, DESMOS is always available. Click two clear points on the graph, note their coordinates, and use $\\frac{y_2 - y_1}{x_2 - x_1}$. This is faster and eliminates counting errors.' },
         ],
       },
       speedStrategy: {
@@ -437,6 +461,14 @@ export const linearEquationsLessonTabs = {
               'Simplify and verify',
             ],
           },
+        ],
+      },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: '"Which Line Is Perpendicular?"', content: 'Recognition cue: answer choices show four equations and the question asks which is perpendicular to a given line. First move: find the slope of the given line (use $\\frac{-A}{B}$ for standard form). The perpendicular slope is the **negative reciprocal**: flip and negate. Scan the choices for that slope.' },
+          { type: 'trapCard', title: 'Flip Without Negating', wrong: 'Given slope $= 2$. Student writes perpendicular slope $= \\frac{1}{2}$ (flipped but not negated).', correction: 'Perpendicular requires **both** operations: flip $2 \\to \\frac{1}{2}$ AND negate $\\to -\\frac{1}{2}$. Check: $2 \\times (-\\frac{1}{2}) = -1$ ✓.' },
+          { type: 'tip', content: '**Parallel** = same slope. **Perpendicular** = negative reciprocal (product $= -1$). If the question says "perpendicular" and the given slope is $\\frac{a}{b}$, the answer has slope $-\\frac{b}{a}$.' },
         ],
       },
       commonTraps: {

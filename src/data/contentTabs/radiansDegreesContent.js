@@ -14,10 +14,10 @@ export const radiansDegreesContent = {
         {
           type: 'formulaGrid',
           items: [
-            { label: 'Degrees → Radians', formula: 'degrees × (π / 180)', note: 'Multiply by π/180' },
-            { label: 'Radians → Degrees', formula: 'radians × (180 / π)', note: 'Multiply by 180/π' },
-            { label: 'Arc Length', formula: 's = rθ', note: 'θ must be in radians' },
-            { label: 'Sector Area', formula: 'A = ½r²θ', note: 'θ must be in radians' },
+            { label: 'Degrees → Radians', formula: 'degrees $\\times$ (π / 180)', note: 'Multiply by π/180' },
+            { label: 'Radians → Degrees', formula: 'radians $\\times$ (180 / π)', note: 'Multiply by 180/π' },
+            { label: 'Arc Length', formula: '$s = r\\theta$', note: 'θ must be in radians' },
+            { label: 'Sector Area', formula: '$A = ½r^2\\theta$', note: 'θ must be in radians' },
           ],
         },
         {
@@ -37,7 +37,7 @@ export const radiansDegreesContent = {
         },
         {
           type: 'keyInsight',
-          content: 'The formulas **s = rθ** and **A = ½r²θ** only work when θ is in radians. If the problem gives degrees, either convert first or use the proportion method: (θ/360) × 2πr for arc length, (θ/360) × πr² for sector area.',
+          content: 'The formulas **s = rθ** and **A = ½r²θ** only work when θ is in radians. If the problem gives degrees, either convert first or use the proportion method: (θ/360) $\\times$ 2πr for arc length, (θ/360) $\\times$ πr² for sector area.',
         },
       ],
     },
@@ -50,7 +50,7 @@ export const radiansDegreesContent = {
           type: 'callout',
           variant: 'info',
           title: 'Radian/Degree Archetypes',
-          content: '**Direct conversion**: Angle given in one unit, asked in the other — multiply by π/180 or 180/π. **Arc/sector**: Real-world (wiper, pizza slice) — s = rθ or A = ½r²θ; θ must be radians. **Unit circle**: (a,b) on circle → a = cos θ, b = sin θ. **Trig input**: sin(π/3) — convert to 60° or use radian directly. **Angular speed**: rad/s × time → s = rθ.',
+          content: '**Direct conversion**: Angle given in one unit, asked in the other — multiply by π/180 or 180/π. **Arc/sector**: Real-world (wiper, pizza slice) — s = rθ or A = ½r²θ; θ must be radians. **Unit circle**: (a,b) on circle → a = cos θ, b = sin θ. **Trig input**: sin(π/3) — convert to 60° or use radian directly. **Angular speed**: rad/s $\\times$ time → s = rθ.',
         },
         {
           type: 'iconRow',
@@ -65,12 +65,12 @@ export const radiansDegreesContent = {
         {
           type: 'trapCard',
           title: 'Degrees in Arc Length Formula',
-          wrong: 'Plugs θ = 60 into s = rθ → s = 5 × 60 = 300. Answer is wildly too large.',
-          correction: 'Convert first: 60° = π/3. Then s = 5 × π/3 = **5π/3 ≈ 5.24**. The formulas s = rθ and A = ½r²θ require radians. Use (θ/360)×2πr if you prefer to keep degrees.',
+          wrong: 'Plugs θ = 60 into s = rθ → s = 5 $\\times$ 60 = 300. Answer is wildly too large.',
+          correction: 'Convert first: 60° = π/3. Then s = 5 $\\times$ π/3 = **5π/3 ≈ 5.24**. The formulas s = rθ and A = ½r²θ require radians. Use (θ/360)$\\times$2πr if you prefer to keep degrees.',
         },
         {
           type: 'tip',
-          content: '**Proportion method**: (θ/360)×2πr for arc, (θ/360)×πr² for sector — use when the angle is in degrees and conversion feels slow. **Radian formula**: s = rθ, A = ½r²θ — faster when θ is already in radians or you convert first.',
+          content: '**Proportion method**: (θ/360)$\\times$2πr for arc, (θ/360)$\\times$πr² for sector — use when the angle is in degrees and conversion feels slow. **Radian formula**: s = rθ, A = ½r²θ — faster when θ is already in radians or you convert first.',
         },
       ],
     },
@@ -84,21 +84,21 @@ export const radiansDegreesContent = {
           title: 'Method 1: Degree ↔ Radian Conversion',
           items: [
             'Multiply the angle by **π/180** (deg→rad) or **180/π** (rad→deg).',
-            'Simplify the fraction. Example: 150° × π/180 = 150π/180 = **5π/6**.',
+            'Simplify the fraction. Example: 150° $\\times$ π/180 = 150π/180 = **5π/6**.',
           ],
         },
         {
           type: 'comparison',
           items: [
             { label: 'Arc Length — Radians (Faster)', content: '**s = rθ**\nDirect multiplication. Use when θ is in radians.', variant: 'correct' },
-            { label: 'Arc Length — Degrees', content: '**s = (θ/360) × 2πr**\nUse when the angle is in degrees and conversion feels slow.', variant: 'correct' },
+            { label: 'Arc Length — Degrees', content: '**s = (θ/360) $\\times$ 2πr**\nUse when the angle is in degrees and conversion feels slow.', variant: 'correct' },
           ],
         },
         {
           type: 'comparison',
           items: [
             { label: 'Sector Area — Radians (Faster)', content: '**A = ½r²θ**\nClean and fast when θ is in radians.', variant: 'correct' },
-            { label: 'Sector Area — Degrees', content: '**A = (θ/360) × πr²**\nUse when the angle is in degrees.', variant: 'correct' },
+            { label: 'Sector Area — Degrees', content: '**A = (θ/360) $\\times$ πr²**\nUse when the angle is in degrees.', variant: 'correct' },
           ],
         },
         {
@@ -108,7 +108,7 @@ export const radiansDegreesContent = {
             'Convert the radian measure to degrees if needed.',
             'Find the **reference angle** (acute angle to the x-axis).',
             'Use known sin/cos values for 30°, 45°, or 60°.',
-            'Apply the correct **sign** using ASTC (All Students Take Calculus): Q1 (+,+), Q2 (−,+), Q3 (−,−), Q4 (+,−).',
+            'Apply the correct **sign** using ASTC (All Students Take Calculus): Q1 (+,+), Q2 (-,+), Q3 (-,-), Q4 (+,-).',
           ],
         },
       ],
@@ -121,14 +121,14 @@ export const radiansDegreesContent = {
         {
           type: 'trapCard',
           title: 'Degrees in a Radian Formula',
-          wrong: 'Plugs θ = 60 into s = rθ → s = 5 × 60 = 300. Answer is wildly too large.',
-          correction: 'Convert first: 60° = π/3. Then s = 5 × π/3 = **5π/3 ≈ 5.24**. The formulas s = rθ and A = ½r²θ require radians.',
+          wrong: 'Plugs θ = 60 into s = rθ → s = 5 $\\times$ 60 = 300. Answer is wildly too large.',
+          correction: 'Convert first: 60° = π/3. Then s = 5 $\\times$ π/3 = **5π/3 ≈ 5.24**. The formulas s = rθ and A = ½r²θ require radians.',
         },
         {
           type: 'trapCard',
           title: 'Flipped Conversion Factor',
-          wrong: 'Converts 45° to radians by multiplying 45 × 180/π ≈ 2578. The number gets bigger — wrong direction.',
-          correction: 'Degrees → radians always makes the number **smaller**. Multiply by **π/180**: 45 × π/180 = **π/4**.',
+          wrong: 'Converts 45° to radians by multiplying 45 $\\times$ 180/π ≈ 2578. The number gets bigger — wrong direction.',
+          correction: 'Degrees → radians always makes the number **smaller**. Multiply by **π/180**: 45 $\\times$ π/180 = **π/4**.',
         },
         {
           type: 'trapCard',
@@ -155,7 +155,7 @@ export const radiansDegreesContent = {
           problem: 'A circle has radius 10 cm. A central angle of **2π/5 radians** intercepts an arc. What is the arc length?',
           steps: [
             { label: 'Identify', content: 'r = 10 cm, θ = 2π/5 rad. Need arc length s.' },
-            { label: 'Apply', content: '**s = rθ** = 10 × (2π/5) = 20π/5 = **4π cm**' },
+            { label: 'Apply', content: '**s = rθ** = 10 $\\times$ (2π/5) = 20π/5 = **4π cm**' },
             { label: 'Answer', content: '**4π cm** ≈ 12.57 cm. SAT prefers the exact form with π.' },
           ],
         },
@@ -164,9 +164,9 @@ export const radiansDegreesContent = {
           difficulty: 'Hard',
           problem: 'A windshield wiper is 18 inches long and sweeps through 150°. What is the area of the cleaned region, to the nearest square inch?',
           steps: [
-            { label: 'Convert', content: '150° × π/180 = **5π/6 radians**' },
-            { label: 'Formula', content: 'Sector area: **A = ½r²θ** = ½ × 18² × 5π/6' },
-            { label: 'Compute', content: '½ × 324 × 5π/6 = 162 × 5π/6 = **135π**' },
+            { label: 'Convert', content: '150° $\\times$ π/180 = **5π/6 radians**' },
+            { label: 'Formula', content: 'Sector area: **A = ½r²θ** = ½ $\\times$ 18² $\\times$ 5π/6' },
+            { label: 'Compute', content: '½ $\\times$ 324 $\\times$ 5π/6 = 162 $\\times$ 5π/6 = **135π**' },
             { label: 'Answer', content: '135π ≈ **424 square inches**' },
           ],
         },
@@ -179,7 +179,7 @@ export const radiansDegreesContent = {
       blocks: [
         {
           type: 'diagramRef',
-          description: 'Unit circle showing key angles (0, π/6, π/4, π/3, π/2, … 2π) with (cos θ, sin θ) coordinates at each position. Quadrant signs labeled: Q1(+,+), Q2(−,+), Q3(−,−), Q4(+,−).',
+          description: 'Unit circle showing key angles (0, π/6, π/4, π/3, π/2, … 2π) with (cos θ, sin θ) coordinates at each position. Quadrant signs labeled: Q1(+,+), Q2(-,+), Q3(-,-), Q4(+,-).',
         },
         {
           type: 'diagramRef',
@@ -195,8 +195,8 @@ export const radiansDegreesContent = {
         {
           type: 'iconRow',
           items: [
-            { icon: '⬇️', label: 'Degrees → Radians', description: 'Number gets smaller (× π/180)' },
-            { icon: '⬆️', label: 'Radians → Degrees', description: 'Number gets larger (× 180/π)' },
+            { icon: '⬇️', label: 'Degrees → Radians', description: 'Number gets smaller ($\\times$ π/180)' },
+            { icon: '⬆️', label: 'Radians → Degrees', description: 'Number gets larger ($\\times$ 180/π)' },
           ],
         },
       ],
@@ -211,7 +211,7 @@ export const radiansDegreesContent = {
           title: 'Cancel-π Mental Shortcut',
           icon: '⚡',
           timing: '~10s',
-          content: 'For radians → degrees, multiply the coefficient of π by 180. Example: **7π/4** → 7 × 180/4 = 7 × 45 = **315°**. The π cancels — no decimals needed.',
+          content: 'For radians → degrees, multiply the coefficient of π by 180. Example: **7π/4** → 7 $\\times$ 180/4 = 7 $\\times$ 45 = **315°**. The π cancels — no decimals needed.',
         },
         {
           type: 'strategyCard',
@@ -242,13 +242,13 @@ export const radiansDegreesContent = {
           type: 'checkpointQuestion',
           number: 1,
           question: 'Convert **300°** to radians.',
-          answer: '300° × π/180 = 300π/180 = **5π/3 radians**. Simplify by dividing numerator and denominator by 60.',
+          answer: '300° $\\times$ π/180 = 300π/180 = **5π/3 radians**. Simplify by dividing numerator and denominator by 60.',
         },
         {
           type: 'checkpointQuestion',
           number: 2,
           question: 'A sector has radius 8 and central angle **3π/4 radians**. What is its area?',
-          answer: '**A = ½r²θ** = ½ × 64 × 3π/4 = 32 × 3π/4 = **24π** ≈ 75.4 square units.',
+          answer: '**A = ½r²θ** = ½ $\\times$ 64 $\\times$ 3π/4 = 32 $\\times$ 3π/4 = **24π** ≈ 75.4 square units.',
         },
       ],
     },

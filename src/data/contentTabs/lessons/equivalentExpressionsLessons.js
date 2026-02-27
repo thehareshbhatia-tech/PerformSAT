@@ -111,6 +111,14 @@ export const equivalentExpressionsLessonTabs = {
           },
         ],
       },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: '"Which Expression Is Equivalent?"', content: 'Recognition cue: a given expression and four choices in different forms. First move: look at the answer choices — if they are expanded, distribute. If factored, look for GCF or special patterns (difference of squares, perfect-square trinomials).' },
+          { type: 'trapCard', title: 'Distributing a Negative Incorrectly', wrong: '$-(3x - 7) = -3x - 7$. Student only negated the first term.', correction: 'The negative flips **every** term: $-(3x - 7) = -3x + 7$.' },
+          { type: 'tip', content: '**Verification shortcut:** Plug in $x = 2$ (or any easy number) into both the given expression and each answer choice. The equivalent one will produce the same value. This works every time and takes ~20 seconds.' },
+        ],
+      },
     },
   },
 };

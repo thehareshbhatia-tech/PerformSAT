@@ -62,6 +62,14 @@ export const statisticsLessonTabs = {
           },
         ],
       },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: '"Finding a Missing Value Given the Mean"', content: 'Recognition cue: "The average of $n$ numbers is $k$. If one number is removed/added…" First move: recover the sum using $\\text{sum} = \\bar{x} \\times n$. Then adjust for the added/removed value. This sum-recovery trick is the single most common mean question on the SAT.' },
+          { type: 'trapCard', title: 'Using the Wrong Count', wrong: 'Five test scores average $82$. A sixth score is added. Student computes the new total as $82 \\times 6 = 492$.', correction: 'The original sum is $82 \\times 5 = 410$, not $82 \\times 6$. You must use the **original** count with the original mean, then add the new score to get the new sum.' },
+          { type: 'tip', content: '**Decision rule:** Given mean + count → recover sum ($\\bar{x} \\times n$). Given sum + count → compute mean ($\\frac{\\text{sum}}{n}$). Given mean + sum → find count ($\\frac{\\text{sum}}{\\bar{x}}$). Identify the two knowns and solve for the third.' },
+        ],
+      },
     },
   },
 
@@ -176,6 +184,14 @@ export const statisticsLessonTabs = {
           },
         ],
       },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: '"What Is the Median of the Data Set?"', content: 'Recognition cue: a list of numbers (sometimes in a table or bar chart). First move: sort from least to greatest, then locate the middle. Odd count → single middle value. Even count → average the two middle values.' },
+          { type: 'trapCard', title: 'Forgot to Sort', wrong: 'Data: $12, 7, 3, 14, 9$. Student picks the middle value of the unsorted list: $3$.', correction: 'You must **sort first**: $3, 7, 9, 12, 14$. The median is $9$ (the 3rd value), not $3$.' },
+          { type: 'tip', content: 'For even-count data sets, the median is the average of positions $\\frac{n}{2}$ and $\\frac{n}{2} + 1$. For odd-count: position $\\frac{n+1}{2}$. On histogram/bar chart questions, add up frequencies to find $n$, then count to the median position.' },
+        ],
+      },
       commonTraps: {
         title: 'Common Traps',
         blocks: [
@@ -260,6 +276,14 @@ export const statisticsLessonTabs = {
             timing: '~20s',
             content: 'Don\'t list every data point — just add frequencies as you go ($2, 8, 13, 16$) and stop when you pass the median position. The value you\'re on is the median.',
           },
+        ],
+      },
+      satPatterns: {
+        title: 'SAT Patterns',
+        blocks: [
+          { type: 'callout', variant: 'info', title: 'Frequency Table → Median', content: 'Recognition cue: a table with values and frequencies (or a bar chart). First move: add a cumulative frequency column, find total $n$, compute median position(s), scan cumulative column to find which value contains that position.' },
+          { type: 'trapCard', title: 'Median of the Frequencies Instead of the Values', wrong: 'Frequencies are $3, 5, 8, 4$. Student finds median of $3, 5, 8, 4$ → $\\frac{5+8}{2} = 6.5$.', correction: 'The frequencies tell you how many data points have each value. The median is a **data value**, not a frequency. Use cumulative frequency to locate the correct data value at the median position.' },
+          { type: 'tip', content: 'Running-total scan: add frequencies left to right ($3, 8, 16, 20$). Stop as soon as the cumulative total passes the median position. The value you are on at that moment is the median.' },
         ],
       },
     },

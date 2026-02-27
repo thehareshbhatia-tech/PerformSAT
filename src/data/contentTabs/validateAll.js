@@ -204,12 +204,29 @@ if (fs.existsSync(lessonsDir)) {
   }
 }
 
-console.log(`\n══════ SUMMARY ══════`);
+console.log(`\n══════ SCHEMA VALIDATION SUMMARY ══════`);
 console.log(`Errors:   ${totalErrors}`);
 console.log(`Warnings: ${totalWarnings}`);
 
 if (hadError) {
-  console.log(`\nRESULT: FAIL — fix errors above.`);
+  console.log(`\nRESULT: FAIL — fix schema errors above.`);
   process.exit(1);
 }
-console.log(`\nRESULT: PASS — all content tabs passed schema validation.`);
+console.log(`\nSchema validation: PASS`);
+
+console.log(`\n══════ TUTOR-GRADE v2 QUALITY GATE ══════\n`);
+const { execSync } = require('child_process');
+try {
+  const qcOutput = execSync(`node "${path.join(dir, 'tutorGradeQualityCheck.js')}"`, {
+    encoding: 'utf8',
+    stdio: ['pipe', 'pipe', 'pipe'],
+  });
+  console.log(qcOutput);
+} catch (qcErr) {
+  if (qcErr.stdout) console.log(qcErr.stdout);
+  if (qcErr.stderr) console.error(qcErr.stderr);
+  console.log('\nRESULT: FAIL — tutor-grade quality check has hard errors.');
+  process.exit(1);
+}
+
+console.log(`\nRESULT: PASS — all content tabs passed schema + tutor-grade validation.`);
