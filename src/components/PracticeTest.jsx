@@ -9,6 +9,7 @@ import { recordSkillAttempts } from '../services/skillService';
 import DiagnosticReport from './DiagnosticReport';
 import { colors, typography, spacing, radius, shadows, transitions } from '../design/tokens';
 import { cardStyles, buttonStyles } from '../design/components';
+import './PracticeTest.css';
 import { CheckIcon, CrossIcon, LightBulbIcon, MicroscopeIcon } from '../design/icons';
 
 // SAT-Style Typography Constants - matches College Board format
@@ -351,70 +352,29 @@ const Timer = ({ initialMinutes, onTimeUp, isPaused, timeRef, initialSeconds: sa
 
 // Question navigation grid - SAT Style
 const QuestionGrid = ({ questions, currentIndex, answers, markedForReview, onNavigate }) => {
-  const gridCols = questions.length <= 22 ? 'repeat(11, 1fr)' : `repeat(${Math.ceil(questions.length / 2)}, 1fr)`;
   return (
-    <div style={{
-      overflowX: 'auto',
-      WebkitOverflowScrolling: 'touch',
-      marginBottom: '24px'
-    }}>
-    <div style={{
-      display: 'grid',
-      gridTemplateColumns: gridCols,
-      gap: '6px',
-      padding: '16px',
-      background: SAT_COLORS.background.page,
-      border: `1px solid ${SAT_COLORS.border.light}`,
-      borderRadius: '0',
-      minWidth: 'min-content'
-    }}>
+    <div className="nav-grid">
       {questions.map((_, idx) => {
         const isAnswered = answers[idx] !== undefined;
         const isMarked = markedForReview.includes(idx);
         const isCurrent = idx === currentIndex;
+
+        let className = "nav-grid-item";
+        if (isCurrent) className += " is-current";
+        if (isMarked) className += " is-flagged";
+        else if (isAnswered) className += " is-answered"; // Only show answered if not flagged (flagged overrides)
 
         return (
           <button
             key={idx}
             onClick={() => onNavigate(idx)}
             title={isMarked ? `Question ${idx + 1} - Flagged for later` : `Question ${idx + 1}`}
-            style={{
-              width: '32px',
-              height: '32px',
-              borderRadius: '4px',
-              border: isCurrent ? `2px solid ${SAT_COLORS.border.dark}` : `1px solid ${SAT_COLORS.border.light}`,
-              background: isMarked ? colors.semantic.warningBg : isAnswered ? colors.accent.orangeMuted : SAT_COLORS.background.page,
-              color: isMarked ? colors.semantic.warning : isAnswered ? colors.accent.orangeHover : SAT_COLORS.text.primary,
-              fontFamily: SAT_TYPOGRAPHY.diagramFont,
-              fontSize: '13px',
-              fontWeight: isCurrent ? '700' : '500',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              position: 'relative'
-            }}
+            className={className}
           >
             {idx + 1}
-            {/* Dot indicator for flagged questions */}
-            {isMarked && (
-              <span style={{
-                position: 'absolute',
-                top: '-5px',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                width: '8px',
-                height: '8px',
-                borderRadius: '50%',
-                backgroundColor: colors.accent.orange,
-                border: `1px solid ${colors.surface.white}`,
-                boxShadow: shadows.sm
-              }} />
-            )}
           </button>
         );
       })}
-    </div>
     </div>
   );
 };
@@ -2087,38 +2047,26 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   const isMarked = markedForReview.includes(currentQuestion);
 
   return (
-    <div style={{ maxWidth: '900px', margin: '0 auto', padding: isMobile ? '16px' : '0 32px' }}>
+    <div className="test-session-shell">
       {/* Header */}
-      <div style={{
-        display: 'flex',
-        flexDirection: isMobile ? 'column' : 'row',
-        justifyContent: 'space-between',
-        alignItems: isMobile ? 'flex-start' : 'center',
-        marginBottom: '24px',
-        paddingBottom: '16px',
-        borderBottom: `1px solid ${colors.surface.grayDark}`,
-        gap: isMobile ? '12px' : '0'
-      }}>
-        <div>
+      <div className="test-session-header">
+        <div className="header-left">
           <button
             onClick={handleRequestLeave}
-            style={{
-              display: 'flex', alignItems: 'center', gap: '6px',
-              background: 'none', border: 'none', color: colors.text.secondary,
-              fontSize: '13px', cursor: 'pointer', padding: '0', marginBottom: '8px',
-            }}
+            className="btn-icon-subtle"
+            style={{ width: 'auto', padding: '0 0.75rem', fontSize: '0.875rem', fontWeight: 500 }}
           >
             ← Exit
           </button>
-          <h1 style={{ fontSize: isMobile ? '17px' : '20px', fontWeight: '600', color: colors.text.primary, marginBottom: '4px' }}>
-            {test.title} - {module.title}
-          </h1>
-          <p style={{ fontSize: isMobile ? '13px' : '14px', color: colors.text.secondary }}>
-            Question {currentQuestion + 1} of {questions.length}
-          </p>
+          {!isMobile && <div className="header-title">{test.title}</div>}
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? '8px' : '12px', flexWrap: 'wrap' }}>
+        <div className="header-center">
+          <div className="header-title">{module.title}</div>
+          <div className="header-subtitle">Question {currentQuestion + 1} of {questions.length}</div>
+        </div>
+
+        <div className="header-right">
           {/* Calculator Button */}
           <button
             onClick={() => {
@@ -2153,33 +2101,17 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           </button>
           <button
             onClick={handlePauseToggle}
-            style={{
-              padding: isMobile ? '6px 10px' : '8px 14px',
-              background: isPaused ? colors.semantic.success : 'transparent',
-              border: isPaused ? 'none' : `1px solid ${colors.surface.grayMedium}`,
-              borderRadius: radius.sm,
-              fontSize: isMobile ? '12px' : '13px',
-              fontWeight: '600',
-              color: isPaused ? colors.text.inverse : colors.text.secondary,
-              cursor: 'pointer',
-              display: 'flex', alignItems: 'center', gap: '6px',
-            }}
+            className="btn-icon-subtle"
+            style={{ width: 'auto', padding: '0 0.75rem', fontSize: '0.875rem', fontWeight: 600, background: isPaused ? colors.semantic.success : 'transparent', color: isPaused ? colors.text.inverse : colors.text.secondary, border: isPaused ? 'none' : `1px solid ${colors.surface.grayMedium}` }}
           >
             {isPaused ? '▶ Resume' : '⏸ Pause'}
           </button>
           {isTimed ? (
-            <>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <button
                 onClick={() => setShowTimer(!showTimer)}
-                style={{
-                  padding: isMobile ? '5px 8px' : '6px 12px',
-                  background: 'transparent',
-                  border: `1px solid ${colors.surface.grayMedium}`,
-                  borderRadius: radius.sm,
-                  fontSize: isMobile ? '12px' : '13px',
-                  color: colors.text.secondary,
-                  cursor: 'pointer'
-                }}
+                className="btn-icon-subtle"
+                style={{ width: 'auto', padding: '0 0.75rem', fontSize: '0.875rem', border: `1px solid ${colors.surface.grayMedium}` }}
               >
                 {showTimer ? 'Hide Timer' : 'Show Timer'}
               </button>
@@ -2192,122 +2124,43 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                   initialSeconds={resumeTimeRemaining}
                 />
               )}
-            </>
+            </div>
           ) : (
             <span style={{
-              padding: isMobile ? '6px 10px' : '8px 16px',
+              padding: '0.25rem 0.75rem',
               background: colors.semantic.successLight,
               color: colors.semantic.success,
               borderRadius: radius.sm,
-              fontSize: isMobile ? '12px' : '13px',
-              fontWeight: '500'
+              fontSize: '0.875rem',
+              fontWeight: 500
             }}>
               Untimed Mode
             </span>
           )}
           <button
             onClick={handleRequestEndTest}
-            style={{
-              padding: isMobile ? '6px 10px' : '8px 14px',
-              background: 'transparent',
-              border: `1px solid ${colors.semantic.error}`,
-              borderRadius: radius.sm,
-              fontSize: isMobile ? '12px' : '13px',
-              fontWeight: '600',
-              color: colors.semantic.error,
-              cursor: 'pointer',
-            }}
+            className="btn-icon-subtle"
+            style={{ width: 'auto', padding: '0 0.75rem', fontSize: '0.875rem', fontWeight: 600, color: colors.semantic.error, border: `1px solid ${colors.semantic.error}` }}
           >
             End Test
           </button>
         </div>
       </div>
 
+      <div className="test-session-body">
+        <div className="test-workspace-main">
+
       {/* Desmos Calculator Modal */}
       <DesmosCalculator isOpen={showCalculator} onClose={() => setShowCalculator(false)} />
 
-      {/* Question Navigation Grid */}
-      <QuestionGrid
-        questions={questions}
-        currentIndex={currentQuestion}
-        answers={Object.fromEntries(
-          Object.entries(answers)
-            .filter(([key]) => key.startsWith(`${currentModule}-`))
-            .map(([key, val]) => [parseInt(key.split('-')[1]), val])
-        )}
-        markedForReview={markedForReview}
-        onNavigate={handleNavigate}
-      />
-
-      {/* Navigation Legend */}
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        gap: '20px',
-        marginBottom: '20px',
-        fontSize: '12px',
-        color: colors.text.secondary
-      }}>
-        <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <span style={{
-            width: '14px',
-            height: '14px',
-            borderRadius: '3px',
-            background: colors.accent.orangeMuted,
-            border: `1px solid ${colors.accent.orange}`
-          }}></span>
-          Answered
-        </span>
-        <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <span style={{
-            width: '14px',
-            height: '14px',
-            borderRadius: '3px',
-            background: colors.semantic.warningBg,
-            border: `1px solid ${colors.semantic.warning}`,
-            position: 'relative'
-          }}>
-            <span style={{
-              position: 'absolute',
-              top: '-4px',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: '6px',
-              height: '6px',
-              borderRadius: '50%',
-              backgroundColor: colors.accent.orange,
-              border: `1px solid ${colors.surface.white}`
-            }} />
-          </span>
-          Flagged for Later
-        </span>
-        <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <span style={{
-            width: '14px',
-            height: '14px',
-            borderRadius: '3px',
-            background: colors.surface.white,
-            border: `1px solid ${colors.surface.grayMedium}`
-          }}></span>
-          Unanswered
-        </span>
-      </div>
-
       {/* Question Card - SAT Style */}
-      <div style={{
-        background: SAT_COLORS.background.page,
-        border: 'none',
-        borderRadius: '0',
-        padding: '24px 0',
-        marginBottom: '24px',
-        borderBottom: `1px solid ${SAT_COLORS.border.light}`
-      }}>
+      <div className="question-panel">
         {/* Question number badge and mark button */}
         <div style={{
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          marginBottom: '20px'
+          marginBottom: '2rem'
         }}>
           {/* SAT-style black box with white number */}
           <div style={{
@@ -2316,11 +2169,12 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             justifyContent: 'center',
             width: '32px',
             height: '32px',
-            backgroundColor: SAT_COLORS.ui.questionBadgeBg,
-            color: SAT_COLORS.ui.questionBadgeText,
-            fontFamily: SAT_TYPOGRAPHY.diagramFont,
+            backgroundColor: 'var(--color-slate-900)',
+            color: 'var(--color-white)',
+            fontFamily: 'var(--font-ui)',
             fontWeight: '700',
-            fontSize: SAT_TYPOGRAPHY.sizes.questionNumber,
+            fontSize: '14px',
+            borderRadius: 'var(--radius-sm)'
           }}>
             {currentQuestion + 1}
           </div>
@@ -2523,113 +2377,51 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             />
           </div>
         ) : (
-          <div style={{ marginTop: '24px' }}>
+          <div className="answers-container">
             {question?.choices?.map((choice) => {
               const isSelected = currentAnswer === choice.id;
               const elimKey = `${currentModule}-${currentQuestion}`;
               const isEliminated = (eliminatedChoices[elimKey] || []).includes(choice.id);
+
+              let cardClass = "answer-choice-card";
+              if (isSelected && !isEliminated) cardClass += " is-selected";
+              if (isEliminated) cardClass += " is-eliminated";
+
               return (
                 <div
                   key={choice.id}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    width: '100%',
-                    padding: '12px 16px',
-                    marginBottom: '10px',
-                    background: isSelected && !isEliminated ? colors.accent.orangeLight : colors.surface.white,
-                    border: `1px solid ${isSelected && !isEliminated ? colors.accent.orange : colors.surface.grayDark}`,
-                    borderRadius: radius.sm,
-                    textAlign: 'left',
-                    fontFamily: SAT_TYPOGRAPHY.questionFont,
-                    transition: 'all 0.15s ease',
-                    opacity: isEliminated ? 0.5 : 1,
+                  className={cardClass}
+                  onClick={() => handleSelectAnswer(choice.id)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      handleSelectAnswer(choice.id);
+                    }
                   }}
                 >
-                  {/* Cross-out toggle button — LEFT side */}
                   <button
+                    className="answer-eliminate-btn"
                     onClick={(e) => {
                       e.stopPropagation();
                       handleToggleEliminate(choice.id);
                     }}
                     title={isEliminated ? 'Undo cross-out' : 'Cross out choice'}
                     aria-label={isEliminated ? `Undo elimination of choice ${choice.id}` : `Eliminate choice ${choice.id}`}
-                    style={{
-                      marginRight: '10px',
-                      width: '22px',
-                      height: '22px',
-                      borderRadius: '4px',
-                      border: `1px solid ${colors.surface.grayMedium}`,
-                      background: isEliminated ? colors.semantic.errorBg : 'transparent',
-                      cursor: 'pointer',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexShrink: 0,
-                      color: isEliminated ? colors.semantic.error : colors.text.muted,
-                      padding: 0,
-                      transition: `all ${transitions.fast}`,
-                    }}
                   >
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                    <svg width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                       <line x1="2" y1="2" x2="10" y2="10" />
                       <line x1="10" y1="2" x2="2" y2="10" />
                     </svg>
                   </button>
-                  {/* Clickable area for answer selection */}
-                  <div
-                    onClick={() => handleSelectAnswer(choice.id)}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      flex: 1,
-                      cursor: 'pointer',
-                    }}
-                  >
-                    {/* Letter badge with X overlay when eliminated */}
-                    <div style={{
-                      width: '28px',
-                      height: '28px',
-                      borderRadius: '4px',
-                      backgroundColor: isEliminated ? colors.surface.gray : isSelected ? colors.accent.orange : colors.surface.white,
-                      border: `1px solid ${isEliminated ? colors.surface.grayMedium : isSelected ? colors.accent.orange : colors.surface.grayMedium}`,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontWeight: '500',
-                      fontSize: '14px',
-                      color: isEliminated ? colors.text.muted : isSelected ? colors.text.inverse : colors.text.secondary,
-                      marginRight: '14px',
-                      flexShrink: 0,
-                      position: 'relative',
-                    }}>
-                      {choice.id}
-                      {/* X overlay on the badge */}
-                      {isEliminated && (
-                        <svg
-                          width="28" height="28"
-                          viewBox="0 0 28 28"
-                          fill="none"
-                          stroke={colors.semantic.error}
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          style={{ position: 'absolute', top: 0, left: 0 }}
-                        >
-                          <line x1="6" y1="6" x2="22" y2="22" />
-                          <line x1="22" y1="6" x2="6" y2="22" />
-                        </svg>
-                      )}
-                    </div>
-                    <span style={{
-                      fontFamily: SAT_TYPOGRAPHY.questionFont,
-                      fontSize: SAT_TYPOGRAPHY.sizes.choiceText,
-                      color: isEliminated ? colors.text.muted : SAT_COLORS.text.primary,
-                      lineHeight: SAT_TYPOGRAPHY.lineHeights.choice,
-                      textDecoration: isEliminated ? 'line-through' : 'none',
-                      textDecorationColor: isEliminated ? colors.text.muted : undefined,
-                    }}>
-                      {renderChoice(choice)}
-                    </span>
+
+                  <div className="answer-letter-bubble">
+                    {choice.id}
+                  </div>
+                  
+                  <div className="answer-text-content">
+                    {renderChoice(choice)}
                   </div>
                 </div>
               );
@@ -2639,23 +2431,20 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       </div>
 
       {/* Navigation buttons */}
-      <div style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center'
-      }}>
+      <div className="test-controls-bottom">
         <button
           onClick={handlePrev}
           disabled={currentQuestion === 0}
           style={{
             padding: '12px 24px',
-            background: currentQuestion === 0 ? colors.surface.gray : colors.surface.white,
-            color: currentQuestion === 0 ? colors.text.muted : colors.text.secondary,
-            border: `1px solid ${colors.surface.grayMedium}`,
-            borderRadius: radius.sm,
+            background: currentQuestion === 0 ? 'var(--color-slate-100)' : 'var(--color-white)',
+            color: currentQuestion === 0 ? 'var(--color-slate-400)' : 'var(--color-slate-700)',
+            border: `1px solid var(--color-slate-200)`,
+            borderRadius: 'var(--radius-sm)',
             fontSize: '15px',
             fontWeight: '500',
-            cursor: currentQuestion === 0 ? 'not-allowed' : 'pointer'
+            cursor: currentQuestion === 0 ? 'not-allowed' : 'pointer',
+            transition: 'all 0.2s ease'
           }}
         >
           Previous
@@ -2667,13 +2456,14 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               onClick={handleSubmitModule}
               style={{
                 padding: '12px 32px',
-                background: colors.semantic.success,
-                color: colors.text.inverse,
+                background: 'var(--color-success-600)',
+                color: 'var(--color-white)',
                 border: 'none',
-                borderRadius: radius.sm,
+                borderRadius: 'var(--radius-sm)',
                 fontSize: '15px',
                 fontWeight: '600',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                transition: 'all 0.2s ease'
               }}
             >
               Submit {module.title}
@@ -2682,14 +2472,15 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             <button
               onClick={handleNext}
               style={{
-                padding: '12px 24px',
-                background: colors.text.primary,
-                color: colors.text.inverse,
+                padding: '12px 32px',
+                background: 'var(--color-slate-900)',
+                color: 'var(--color-white)',
                 border: 'none',
-                borderRadius: radius.sm,
+                borderRadius: 'var(--radius-sm)',
                 fontSize: '15px',
                 fontWeight: '600',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                transition: 'all 0.2s ease'
               }}
             >
               Next
@@ -2698,51 +2489,125 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         </div>
       </div>
 
+      {/* Mobile Nav Grid & Legend */}
+      {isMobile && (
+        <div style={{ marginTop: '2.5rem', paddingTop: '1.5rem', borderTop: '1px solid var(--color-slate-200)' }}>
+          <h3 style={{ fontSize: '1rem', fontWeight: 600, marginBottom: '1rem', color: 'var(--color-slate-900)' }}>Question Navigation</h3>
+          <QuestionGrid
+            questions={questions}
+            currentIndex={currentQuestion}
+            answers={Object.fromEntries(
+              Object.entries(answers)
+                .filter(([key]) => key.startsWith(`${currentModule}-`))
+                .map(([key, val]) => [parseInt(key.split('-')[1]), val])
+            )}
+            markedForReview={markedForReview}
+            onNavigate={handleNavigate}
+          />
+          <div className="nav-legend" style={{ marginTop: '1rem' }}>
+            <div className="nav-legend-item">
+              <div className="nav-legend-icon answered"></div>
+              <span>Answered</span>
+            </div>
+            <div className="nav-legend-item">
+              <div className="nav-legend-icon flagged"></div>
+              <span>Flagged for Later</span>
+            </div>
+            <div className="nav-legend-item">
+              <div className="nav-legend-icon"></div>
+              <span>Unanswered</span>
+            </div>
+          </div>
+        </div>
+      )}
+      
+      </div> {/* End test-workspace-main */}
+
+      {/* Desktop Navigation Rail */}
+      {!isMobile && (
+        <div className="test-nav-rail">
+          <div className="nav-rail-header">
+            <div style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-slate-900)', marginBottom: '0.25rem' }}>
+              Section {currentModule + 1}
+            </div>
+            <div style={{ fontSize: '0.8125rem', color: 'var(--color-slate-500)', fontWeight: 500 }}>
+              {module.title}
+            </div>
+          </div>
+          <div className="nav-rail-content">
+            <QuestionGrid
+              questions={questions}
+              currentIndex={currentQuestion}
+              answers={Object.fromEntries(
+                Object.entries(answers)
+                  .filter(([key]) => key.startsWith(`${currentModule}-`))
+                  .map(([key, val]) => [parseInt(key.split('-')[1]), val])
+              )}
+              markedForReview={markedForReview}
+              onNavigate={handleNavigate}
+            />
+
+            <div className="nav-legend">
+              <div className="nav-legend-item">
+                <div className="nav-legend-icon answered"></div>
+                <span>Answered</span>
+              </div>
+              <div className="nav-legend-item">
+                <div className="nav-legend-icon flagged"></div>
+                <span>Flagged for Later</span>
+              </div>
+              <div className="nav-legend-item">
+                <div className="nav-legend-icon current"></div>
+                <span>Current</span>
+              </div>
+              <div className="nav-legend-item">
+                <div className="nav-legend-icon"></div>
+                <span>Unanswered</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      
+      </div> {/* End test-session-body */}
+
       {/* Pause Overlay */}
       {isPaused && !confirmAction && (
-        <div style={{
-          position: 'fixed', inset: 0, zIndex: 2000,
-          background: 'rgba(0, 0, 0, 0.6)',
-          backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-        }}>
-          <div style={{
-            background: colors.surface.white, borderRadius: radius.lg,
-            padding: '48px 40px', maxWidth: '420px', width: '90%',
-            textAlign: 'center', boxShadow: '0 25px 50px rgba(0,0,0,0.25)',
-          }}>
+        <div className="overlay-backdrop">
+          <div className="modal-card">
             <div style={{
               width: '64px', height: '64px', borderRadius: '50%',
-              background: colors.surface.gray, display: 'flex',
+              background: 'var(--color-slate-100)', display: 'flex',
               alignItems: 'center', justifyContent: 'center',
-              margin: '0 auto 24px', fontSize: '28px',
+              margin: '0 auto 1.5rem', fontSize: '28px',
+              border: '1px solid var(--color-slate-200)'
             }}>⏸</div>
-            <h2 style={{ fontSize: '24px', fontWeight: '700', color: colors.text.primary, marginBottom: '8px' }}>
-              Test Paused
-            </h2>
-            <p style={{ fontSize: '15px', color: colors.text.secondary, marginBottom: '32px', lineHeight: '1.6' }}>
+            <h2 className="modal-title">Test Paused</h2>
+            <p className="modal-text">
               {isTimed ? 'Timer is frozen. ' : ''}Your progress has been saved.
             </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <div className="modal-actions">
               <button
                 onClick={handlePauseToggle}
                 style={{
                   padding: '14px 32px', width: '100%',
-                  background: colors.text.primary, color: colors.text.inverse,
-                  border: 'none', borderRadius: radius.sm,
-                  fontSize: '16px', fontWeight: '600', cursor: 'pointer',
+                  background: 'var(--color-slate-900)', color: 'var(--color-white)',
+                  border: 'none', borderRadius: 'var(--radius-sm)',
+                  fontSize: '1rem', fontWeight: '600', cursor: 'pointer',
+                  transition: 'all 0.2s ease'
                 }}
               >
                 Resume Test
               </button>
-              <div style={{ display: 'flex', gap: '12px' }}>
+              <div className="modal-actions-row">
                 <button
                   onClick={handleRequestEndTest}
                   style={{
                     flex: 1, padding: '12px 20px',
-                    background: 'transparent', color: colors.semantic.error,
-                    border: `1.5px solid ${colors.semantic.error}`,
-                    borderRadius: radius.sm, fontSize: '14px', fontWeight: '600', cursor: 'pointer',
+                    background: 'transparent', color: 'var(--color-error-600)',
+                    border: `1px solid var(--color-error-600)`,
+                    borderRadius: 'var(--radius-sm)', fontSize: '0.875rem', fontWeight: '600', cursor: 'pointer',
+                    transition: 'all 0.2s ease'
                   }}
                 >
                   End Test
@@ -2751,9 +2616,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                   onClick={handleRequestLeave}
                   style={{
                     flex: 1, padding: '12px 20px',
-                    background: 'transparent', color: colors.text.secondary,
-                    border: `1.5px solid ${colors.surface.grayMedium}`,
-                    borderRadius: radius.sm, fontSize: '14px', fontWeight: '600', cursor: 'pointer',
+                    background: 'transparent', color: 'var(--color-slate-600)',
+                    border: `1px solid var(--color-slate-300)`,
+                    borderRadius: 'var(--radius-sm)', fontSize: '0.875rem', fontWeight: '600', cursor: 'pointer',
+                    transition: 'all 0.2s ease'
                   }}
                 >
                   Save & Leave
@@ -2766,39 +2632,29 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
 
       {/* Confirmation Modal */}
       {confirmAction && (
-        <div style={{
-          position: 'fixed', inset: 0, zIndex: 2001,
-          background: 'rgba(0, 0, 0, 0.6)',
-          backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-        }}>
-          <div style={{
-            background: colors.surface.white, borderRadius: radius.lg,
-            padding: '40px 36px', maxWidth: '420px', width: '90%',
-            boxShadow: '0 25px 50px rgba(0,0,0,0.25)',
-          }}>
+        <div className="overlay-backdrop">
+          <div className="modal-card">
             {confirmAction === 'endTest' ? (
               <>
                 <div style={{
                   width: '48px', height: '48px', borderRadius: '50%',
-                  background: colors.semantic.errorLight,
+                  background: 'var(--color-error-100)', color: 'var(--color-error-600)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  marginBottom: '20px', fontSize: '22px',
+                  margin: '0 auto 1.25rem', fontSize: '22px',
                 }}>⚠</div>
-                <h2 style={{ fontSize: '20px', fontWeight: '700', color: colors.text.primary, marginBottom: '8px' }}>
-                  End Test Early?
-                </h2>
-                <p style={{ fontSize: '14px', color: colors.text.secondary, marginBottom: '28px', lineHeight: '1.6' }}>
+                <h2 className="modal-title">End Test Early?</h2>
+                <p className="modal-text">
                   Unanswered questions will be marked wrong. Your score will be calculated from what you've completed so far.
                 </p>
-                <div style={{ display: 'flex', gap: '12px' }}>
+                <div className="modal-actions-row">
                   <button
                     onClick={handleCancelAction}
                     style={{
                       flex: 1, padding: '12px 20px',
-                      background: 'transparent', color: colors.text.primary,
-                      border: `1.5px solid ${colors.surface.grayMedium}`,
-                      borderRadius: radius.sm, fontSize: '14px', fontWeight: '600', cursor: 'pointer',
+                      background: 'transparent', color: 'var(--color-slate-700)',
+                      border: `1px solid var(--color-slate-300)`,
+                      borderRadius: 'var(--radius-sm)', fontSize: '0.875rem', fontWeight: '600', cursor: 'pointer',
+                      transition: 'all 0.2s ease'
                     }}
                   >
                     Continue Test
@@ -2807,9 +2663,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                     onClick={handleConfirmEndTest}
                     style={{
                       flex: 1, padding: '12px 20px',
-                      background: colors.semantic.error, color: colors.text.inverse,
-                      border: 'none', borderRadius: radius.sm,
-                      fontSize: '14px', fontWeight: '600', cursor: 'pointer',
+                      background: 'var(--color-error-600)', color: 'var(--color-white)',
+                      border: 'none', borderRadius: 'var(--radius-sm)',
+                      fontSize: '0.875rem', fontWeight: '600', cursor: 'pointer',
+                      transition: 'all 0.2s ease'
                     }}
                   >
                     End Test
@@ -2820,24 +2677,23 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               <>
                 <div style={{
                   width: '48px', height: '48px', borderRadius: '50%',
-                  background: colors.semantic.infoLight,
+                  background: 'var(--color-info-100)', color: 'var(--color-info-600)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  marginBottom: '20px', fontSize: '22px',
+                  margin: '0 auto 1.25rem', fontSize: '22px',
                 }}>💾</div>
-                <h2 style={{ fontSize: '20px', fontWeight: '700', color: colors.text.primary, marginBottom: '8px' }}>
-                  Save & Leave?
-                </h2>
-                <p style={{ fontSize: '14px', color: colors.text.secondary, marginBottom: '28px', lineHeight: '1.6' }}>
+                <h2 className="modal-title">Save & Leave?</h2>
+                <p className="modal-text">
                   Your progress will be saved. You can resume this test later from the test list.
                 </p>
-                <div style={{ display: 'flex', gap: '12px' }}>
+                <div className="modal-actions-row">
                   <button
                     onClick={handleCancelAction}
                     style={{
                       flex: 1, padding: '12px 20px',
-                      background: 'transparent', color: colors.text.primary,
-                      border: `1.5px solid ${colors.surface.grayMedium}`,
-                      borderRadius: radius.sm, fontSize: '14px', fontWeight: '600', cursor: 'pointer',
+                      background: 'transparent', color: 'var(--color-slate-700)',
+                      border: `1px solid var(--color-slate-300)`,
+                      borderRadius: 'var(--radius-sm)', fontSize: '0.875rem', fontWeight: '600', cursor: 'pointer',
+                      transition: 'all 0.2s ease'
                     }}
                   >
                     Continue Test
@@ -2846,9 +2702,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                     onClick={handleConfirmLeave}
                     style={{
                       flex: 1, padding: '12px 20px',
-                      background: colors.text.primary, color: colors.text.inverse,
-                      border: 'none', borderRadius: radius.sm,
-                      fontSize: '14px', fontWeight: '600', cursor: 'pointer',
+                      background: 'var(--color-slate-900)', color: 'var(--color-white)',
+                      border: 'none', borderRadius: 'var(--radius-sm)',
+                      fontSize: '0.875rem', fontWeight: '600', cursor: 'pointer',
+                      transition: 'all 0.2s ease'
                     }}
                   >
                     Save & Leave

@@ -73,11 +73,20 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
             <div
               key={test.id}
               style={{
-                background: colors.surface.white,
-                border: bestScore ? `2px solid ${colors.semantic.success}` : `1px solid ${colors.surface.grayDark}`,
-                borderRadius: radius.md,
+                background: 'var(--color-white)',
+                border: bestScore ? `2px solid var(--color-success-600)` : `1px solid var(--color-slate-200)`,
+                borderRadius: 'var(--radius-lg)',
                 padding: '24px',
-                transition: 'box-shadow 0.2s ease'
+                boxShadow: 'var(--shadow-sm)',
+                transition: 'box-shadow 0.2s ease, border-color 0.2s ease'
+              }}
+              onMouseEnter={(e) => {
+                if (!bestScore) e.currentTarget.style.borderColor = 'var(--color-slate-300)';
+                e.currentTarget.style.boxShadow = 'var(--shadow-md)';
+              }}
+              onMouseLeave={(e) => {
+                if (!bestScore) e.currentTarget.style.borderColor = 'var(--color-slate-200)';
+                e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
               }}
             >
               <div style={{
