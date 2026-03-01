@@ -312,8 +312,8 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
 };
 
 // Timer component
-const Timer = ({ initialMinutes, onTimeUp, isPaused, timeRef }) => {
-  const [seconds, setSeconds] = useState(initialMinutes * 60);
+const Timer = ({ initialMinutes, onTimeUp, isPaused, timeRef, initialSeconds: savedSeconds }) => {
+  const [seconds, setSeconds] = useState(() => savedSeconds != null ? savedSeconds : initialMinutes * 60);
 
   useEffect(() => {
     if (isPaused || seconds <= 0) return;
@@ -760,6 +760,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   const [reviewQuestion, setReviewQuestion] = useState(0);
   const [resultSaved, setResultSaved] = useState(false);
   const [showDiagnosticReport, setShowDiagnosticReport] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const [confirmAction, setConfirmAction] = useState(null);
+  const [resumeTimeRemaining, setResumeTimeRemaining] = useState(savedProgress?.timeRemaining ?? null);
 
   // Responsive: track window width for mobile layout
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
@@ -858,12 +861,20 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         answers,
         markedForReview,
         eliminatedChoices,
-        isTimed
+        isTimed,
+        timeRemaining: timerSecondsRef.current,
       };
       console.log('[PracticeTest] Auto-saving progress:', progressData);
       onSaveProgress(progressData);
     }
   }, [answers, currentModule, currentQuestion, markedForReview, eliminatedChoices, testCompleted, reviewMode, onSaveProgress, isTimed]);
+
+  useEffect(() => {
+    if (testCompleted || reviewMode) return;
+    const onBeforeUnload = (e) => { e.preventDefault(); e.returnValue = ''; };
+    window.addEventListener('beforeunload', onBeforeUnload);
+    return () => window.removeEventListener('beforeunload', onBeforeUnload);
+  }, [testCompleted, reviewMode]);
 
   // Save test results when test completes
   useEffect(() => {
@@ -1170,7 +1181,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       setMarkedForReview([]);
       setEliminatedChoices({});
       setModuleCompleted(false);
-      // Reset telemetry start time for the new module
+      setResumeTimeRemaining(null);
       questionStartTime.current = Date.now();
       prevQuestion.current = { module: currentModule + 1, question: 0 };
     } else {
@@ -1182,6 +1193,64 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     moduleTimeRemaining.current[currentModuleRef.current] = 0;
     setModuleCompleted(true);
   }, []);
+
+  const handlePauseToggle = () => setIsPaused(p => !p);
+
+  const handleRequestEndTest = () => {
+    setConfirmAction('endTest');
+    setIsPaused(true);
+  };
+
+  const handleRequestLeave = () => {
+    setConfirmAction('leave');
+    setIsPaused(true);
+  };
+
+  const handleConfirmEndTest = () => {
+    setConfirmAction(null);
+    setIsPaused(false);
+    if (question?.type === 'fill-in' && fillInValue.trim()) {
+      const key = `${currentModule}-${currentQuestion}`;
+      const numValue = parseFloat(fillInValue);
+      setAnswers(prev => ({ ...prev, [key]: isNaN(numValue) ? fillInValue : numValue }));
+    }
+    const now = Date.now();
+    const elapsed = (now - questionStartTime.current) / 1000;
+    if (elapsed > 0 && elapsed < 3600) {
+      const telemetry = getOrCreateTelemetry(currentModule, currentQuestion);
+      telemetry.timeSpent += elapsed;
+    }
+    moduleTimeRemaining.current[currentModule] = timerSecondsRef.current;
+    setTestCompleted(true);
+  };
+
+  const handleConfirmLeave = () => {
+    setConfirmAction(null);
+    setIsPaused(false);
+    let finalAnswers = answers;
+    if (question?.type === 'fill-in' && fillInValue.trim()) {
+      const key = `${currentModule}-${currentQuestion}`;
+      const numValue = parseFloat(fillInValue);
+      finalAnswers = { ...answers, [key]: isNaN(numValue) ? fillInValue : numValue };
+    }
+    if (onSaveProgress) {
+      onSaveProgress({
+        currentModule,
+        currentQuestion,
+        answers: finalAnswers,
+        markedForReview,
+        eliminatedChoices,
+        isTimed,
+        timeRemaining: timerSecondsRef.current,
+      });
+    }
+    onBack();
+  };
+
+  const handleCancelAction = () => {
+    setConfirmAction(null);
+    setIsPaused(false);
+  };
 
   // Calculate score for current module
   const calculateModuleScore = () => {
@@ -2031,6 +2100,16 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         gap: isMobile ? '12px' : '0'
       }}>
         <div>
+          <button
+            onClick={handleRequestLeave}
+            style={{
+              display: 'flex', alignItems: 'center', gap: '6px',
+              background: 'none', border: 'none', color: colors.text.secondary,
+              fontSize: '13px', cursor: 'pointer', padding: '0', marginBottom: '8px',
+            }}
+          >
+            ← Exit
+          </button>
           <h1 style={{ fontSize: isMobile ? '17px' : '20px', fontWeight: '600', color: colors.text.primary, marginBottom: '4px' }}>
             {test.title} - {module.title}
           </h1>
@@ -2072,6 +2151,22 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             </svg>
             Calculator
           </button>
+          <button
+            onClick={handlePauseToggle}
+            style={{
+              padding: isMobile ? '6px 10px' : '8px 14px',
+              background: isPaused ? colors.semantic.success : 'transparent',
+              border: isPaused ? 'none' : `1px solid ${colors.surface.grayMedium}`,
+              borderRadius: radius.sm,
+              fontSize: isMobile ? '12px' : '13px',
+              fontWeight: '600',
+              color: isPaused ? colors.text.inverse : colors.text.secondary,
+              cursor: 'pointer',
+              display: 'flex', alignItems: 'center', gap: '6px',
+            }}
+          >
+            {isPaused ? '▶ Resume' : '⏸ Pause'}
+          </button>
           {isTimed ? (
             <>
               <button
@@ -2092,8 +2187,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                 <Timer
                   initialMinutes={module.timeLimit || 35}
                   onTimeUp={handleTimeUp}
-                  isPaused={false}
+                  isPaused={isPaused}
                   timeRef={timerSecondsRef}
+                  initialSeconds={resumeTimeRemaining}
                 />
               )}
             </>
@@ -2109,6 +2205,21 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               Untimed Mode
             </span>
           )}
+          <button
+            onClick={handleRequestEndTest}
+            style={{
+              padding: isMobile ? '6px 10px' : '8px 14px',
+              background: 'transparent',
+              border: `1px solid ${colors.semantic.error}`,
+              borderRadius: radius.sm,
+              fontSize: isMobile ? '12px' : '13px',
+              fontWeight: '600',
+              color: colors.semantic.error,
+              cursor: 'pointer',
+            }}
+          >
+            End Test
+          </button>
         </div>
       </div>
 
@@ -2586,6 +2697,168 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           )}
         </div>
       </div>
+
+      {/* Pause Overlay */}
+      {isPaused && !confirmAction && (
+        <div style={{
+          position: 'fixed', inset: 0, zIndex: 2000,
+          background: 'rgba(0, 0, 0, 0.6)',
+          backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+        }}>
+          <div style={{
+            background: colors.surface.white, borderRadius: radius.lg,
+            padding: '48px 40px', maxWidth: '420px', width: '90%',
+            textAlign: 'center', boxShadow: '0 25px 50px rgba(0,0,0,0.25)',
+          }}>
+            <div style={{
+              width: '64px', height: '64px', borderRadius: '50%',
+              background: colors.surface.gray, display: 'flex',
+              alignItems: 'center', justifyContent: 'center',
+              margin: '0 auto 24px', fontSize: '28px',
+            }}>⏸</div>
+            <h2 style={{ fontSize: '24px', fontWeight: '700', color: colors.text.primary, marginBottom: '8px' }}>
+              Test Paused
+            </h2>
+            <p style={{ fontSize: '15px', color: colors.text.secondary, marginBottom: '32px', lineHeight: '1.6' }}>
+              {isTimed ? 'Timer is frozen. ' : ''}Your progress has been saved.
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <button
+                onClick={handlePauseToggle}
+                style={{
+                  padding: '14px 32px', width: '100%',
+                  background: colors.text.primary, color: colors.text.inverse,
+                  border: 'none', borderRadius: radius.sm,
+                  fontSize: '16px', fontWeight: '600', cursor: 'pointer',
+                }}
+              >
+                Resume Test
+              </button>
+              <div style={{ display: 'flex', gap: '12px' }}>
+                <button
+                  onClick={handleRequestEndTest}
+                  style={{
+                    flex: 1, padding: '12px 20px',
+                    background: 'transparent', color: colors.semantic.error,
+                    border: `1.5px solid ${colors.semantic.error}`,
+                    borderRadius: radius.sm, fontSize: '14px', fontWeight: '600', cursor: 'pointer',
+                  }}
+                >
+                  End Test
+                </button>
+                <button
+                  onClick={handleRequestLeave}
+                  style={{
+                    flex: 1, padding: '12px 20px',
+                    background: 'transparent', color: colors.text.secondary,
+                    border: `1.5px solid ${colors.surface.grayMedium}`,
+                    borderRadius: radius.sm, fontSize: '14px', fontWeight: '600', cursor: 'pointer',
+                  }}
+                >
+                  Save & Leave
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Confirmation Modal */}
+      {confirmAction && (
+        <div style={{
+          position: 'fixed', inset: 0, zIndex: 2001,
+          background: 'rgba(0, 0, 0, 0.6)',
+          backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+        }}>
+          <div style={{
+            background: colors.surface.white, borderRadius: radius.lg,
+            padding: '40px 36px', maxWidth: '420px', width: '90%',
+            boxShadow: '0 25px 50px rgba(0,0,0,0.25)',
+          }}>
+            {confirmAction === 'endTest' ? (
+              <>
+                <div style={{
+                  width: '48px', height: '48px', borderRadius: '50%',
+                  background: colors.semantic.errorLight,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  marginBottom: '20px', fontSize: '22px',
+                }}>⚠</div>
+                <h2 style={{ fontSize: '20px', fontWeight: '700', color: colors.text.primary, marginBottom: '8px' }}>
+                  End Test Early?
+                </h2>
+                <p style={{ fontSize: '14px', color: colors.text.secondary, marginBottom: '28px', lineHeight: '1.6' }}>
+                  Unanswered questions will be marked wrong. Your score will be calculated from what you've completed so far.
+                </p>
+                <div style={{ display: 'flex', gap: '12px' }}>
+                  <button
+                    onClick={handleCancelAction}
+                    style={{
+                      flex: 1, padding: '12px 20px',
+                      background: 'transparent', color: colors.text.primary,
+                      border: `1.5px solid ${colors.surface.grayMedium}`,
+                      borderRadius: radius.sm, fontSize: '14px', fontWeight: '600', cursor: 'pointer',
+                    }}
+                  >
+                    Continue Test
+                  </button>
+                  <button
+                    onClick={handleConfirmEndTest}
+                    style={{
+                      flex: 1, padding: '12px 20px',
+                      background: colors.semantic.error, color: colors.text.inverse,
+                      border: 'none', borderRadius: radius.sm,
+                      fontSize: '14px', fontWeight: '600', cursor: 'pointer',
+                    }}
+                  >
+                    End Test
+                  </button>
+                </div>
+              </>
+            ) : (
+              <>
+                <div style={{
+                  width: '48px', height: '48px', borderRadius: '50%',
+                  background: colors.semantic.infoLight,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  marginBottom: '20px', fontSize: '22px',
+                }}>💾</div>
+                <h2 style={{ fontSize: '20px', fontWeight: '700', color: colors.text.primary, marginBottom: '8px' }}>
+                  Save & Leave?
+                </h2>
+                <p style={{ fontSize: '14px', color: colors.text.secondary, marginBottom: '28px', lineHeight: '1.6' }}>
+                  Your progress will be saved. You can resume this test later from the test list.
+                </p>
+                <div style={{ display: 'flex', gap: '12px' }}>
+                  <button
+                    onClick={handleCancelAction}
+                    style={{
+                      flex: 1, padding: '12px 20px',
+                      background: 'transparent', color: colors.text.primary,
+                      border: `1.5px solid ${colors.surface.grayMedium}`,
+                      borderRadius: radius.sm, fontSize: '14px', fontWeight: '600', cursor: 'pointer',
+                    }}
+                  >
+                    Continue Test
+                  </button>
+                  <button
+                    onClick={handleConfirmLeave}
+                    style={{
+                      flex: 1, padding: '12px 20px',
+                      background: colors.text.primary, color: colors.text.inverse,
+                      border: 'none', borderRadius: radius.sm,
+                      fontSize: '14px', fontWeight: '600', cursor: 'pointer',
+                    }}
+                  >
+                    Save & Leave
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
