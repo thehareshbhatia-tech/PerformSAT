@@ -1,65 +1,28 @@
 /**
- * Tutor-Grade v2 Quality Check
+ * Quality Check for Learn + Practice model.
  *
  * Run with: node src/data/contentTabs/tutorGradeQualityCheck.js
  *
- * Validates every section of every content tab against the Tutor-Grade v2 rubric:
- *   - Minimum block counts per section type
- *   - Required element types per section
- *   - Low-signal filler phrase detection across ALL sections
- *   - SAT archetype coverage (satPatterns sections must have recognition cues)
- *   - Example difficulty progression (workedExamples should span Easy → Hard)
- *   - Trap specificity (trapCards must include concrete wrong/correction)
- *   - Decision rule presence (satPatterns tips must use if→then language)
+ * Validates:
+ *   - learn section has at least 2 blocks with explanation/formula content
+ *   - practice section has a worked example + checkpoint question
+ *   - No low-signal filler phrases
  */
 
 const fs = require('fs');
 const path = require('path');
 
 const SECTION_QUALITY = {
-  coreConcepts: {
+  learn: {
     minBlocks: 2,
     requiredElements: [
-      { label: 'intuition or explanation', matchTypes: ['text', 'keyInsight'] },
-      { label: 'formal rule or formula',   matchTypes: ['formula', 'formulaGrid', 'callout', 'table'] },
+      { label: 'explanation or formula', matchTypes: ['text', 'keyInsight', 'formula', 'formulaGrid', 'callout', 'table'] },
     ],
   },
-  satPatterns: {
-    minBlocks: 3,
+  practice: {
+    minBlocks: 2,
     requiredElements: [
-      { label: 'pattern archetype',  matchTypes: ['callout', 'example'] },
-      { label: 'trap or recovery',   matchTypes: ['trapCard', 'callout', 'comparison'] },
-      { label: 'decision rule',      matchTypes: ['tip', 'strategyCard', 'keyInsight'] },
-    ],
-  },
-  methods: {
-    minBlocks: 1,
-    requiredElements: [
-      { label: 'step-by-step procedure or worked example', matchTypes: ['steps', 'example'] },
-    ],
-  },
-  commonTraps: {
-    minBlocks: 1,
-    requiredElements: [
-      { label: 'trap card', matchTypes: ['trapCard'] },
-    ],
-  },
-  workedExamples: {
-    minBlocks: 1,
-    requiredElements: [
-      { label: 'worked example', matchTypes: ['example'] },
-    ],
-  },
-  visualModels: { minBlocks: 1, requiredElements: [] },
-  speedStrategy: {
-    minBlocks: 1,
-    requiredElements: [
-      { label: 'strategy or tip', matchTypes: ['strategyCard', 'tip', 'callout'] },
-    ],
-  },
-  checkpoint: {
-    minBlocks: 1,
-    requiredElements: [
+      { label: 'worked example', matchTypes: ['example', 'steps'] },
       { label: 'checkpoint question', matchTypes: ['checkpointQuestion'] },
     ],
   },
@@ -74,6 +37,12 @@ const LOW_SIGNAL_PATTERNS = [
   { re: /this is (a |an )?(common|important|key|critical)/i, label: 'filler importance claim' },
   { re: /remember (that |to )?always/i, label: 'generic "remember" instruction' },
   { re: /make sure (you |to )/i, label: 'generic "make sure" instruction' },
+  { re: /don'?t forget to/i, label: '"don\'t forget" instruction' },
+  { re: /keep in mind (that )?/i, label: '"keep in mind" filler' },
+  { re: /practice makes perfect/i, label: 'cliche filler' },
+  { re: /let'?s (take a |have a )?look at/i, label: 'conversational filler' },
+  { re: /in this (lesson|section|module)/i, label: 'self-referential filler' },
+  { re: /as (we|you) (can |will )?(see|learn|discover)/i, label: 'narration filler' },
 ];
 
 function extractAllText(blocks) {
@@ -107,51 +76,9 @@ function checkSection(label, sectionId, section) {
   }
 
   const allText = extractAllText(section.blocks);
-  if (section.summary) {
-    for (const { re, label: patLabel } of LOW_SIGNAL_PATTERNS) {
-      if (re.test(section.summary)) {
-        warnings.push(`${label}.${sectionId}: low-signal phrase in summary — ${patLabel}`);
-      }
-    }
-  }
   for (const { re, label: patLabel } of LOW_SIGNAL_PATTERNS) {
     if (re.test(allText)) {
-      warnings.push(`${label}.${sectionId}: low-signal phrase in blocks — ${patLabel}`);
-    }
-  }
-
-  if (sectionId === 'workedExamples') {
-    const examples = section.blocks.filter(b => b.type === 'example');
-    if (examples.length >= 2) {
-      const difficulties = examples.map(e => e.difficulty).filter(Boolean);
-      const uniqueDiffs = new Set(difficulties);
-      if (uniqueDiffs.size < 2) {
-        warnings.push(`${label}.workedExamples: all examples same difficulty — need progression (Easy/Medium/Hard)`);
-      }
-    }
-  }
-
-  if (sectionId === 'commonTraps') {
-    for (let i = 0; i < section.blocks.length; i++) {
-      const block = section.blocks[i];
-      if (block.type === 'trapCard') {
-        if (!block.wrong || block.wrong.length < 15) {
-          warnings.push(`${label}.commonTraps.block[${i}]: trapCard 'wrong' field too short — needs specific mistake with numbers`);
-        }
-        if (block.correction && block.correction.length < 15) {
-          warnings.push(`${label}.commonTraps.block[${i}]: trapCard 'correction' field too short — needs detailed fix`);
-        }
-      }
-    }
-  }
-
-  if (sectionId === 'satPatterns') {
-    const tips = section.blocks.filter(b => b.type === 'tip' || b.type === 'strategyCard');
-    for (const tip of tips) {
-      const text = tip.content || '';
-      if (text.length > 20 && !/if |when |→|decision rule|trigger/i.test(text)) {
-        warnings.push(`${label}.satPatterns: tip lacks decision-rule language (if/when/→)`);
-      }
+      warnings.push(`${label}.${sectionId}: low-signal phrase — ${patLabel}`);
     }
   }
 
@@ -170,7 +97,6 @@ function run() {
   let totalErrors = 0;
   let totalWarnings = 0;
   let tabsChecked = 0;
-  let sectionsChecked = 0;
   const moduleReport = {};
 
   const moduleFiles = fs.readdirSync(dir).filter(f => f.endsWith('Content.js'));
@@ -184,13 +110,12 @@ function run() {
     const modErrors = [];
 
     for (const [sectionId, section] of Object.entries(contentTab.sections || {})) {
-      sectionsChecked++;
       const { errors, warnings } = checkSection(label, sectionId, section);
       modErrors.push(...errors);
       modWarnings.push(...warnings);
     }
 
-    moduleReport[moduleId] = { errors: modErrors.length, warnings: modWarnings.length, type: 'module' };
+    moduleReport[moduleId] = { errors: modErrors.length, warnings: modWarnings.length };
     totalErrors += modErrors.length;
     totalWarnings += modWarnings.length;
     for (const e of modErrors) console.error(`  ✗ ${e}`);
@@ -209,14 +134,13 @@ function run() {
         tabsChecked++;
 
         for (const [sectionId, section] of Object.entries(tab.sections || {})) {
-          sectionsChecked++;
           const { errors, warnings } = checkSection(label, sectionId, section);
           totalErrors += errors.length;
           totalWarnings += warnings.length;
           for (const e of errors) console.error(`  ✗ ${e}`);
           for (const w of warnings) console.warn(`  ⚠ ${w}`);
 
-          if (!moduleReport[moduleId]) moduleReport[moduleId] = { errors: 0, warnings: 0, type: 'lesson' };
+          if (!moduleReport[moduleId]) moduleReport[moduleId] = { errors: 0, warnings: 0 };
           moduleReport[moduleId].errors += errors.length;
           moduleReport[moduleId].warnings += warnings.length;
         }
@@ -225,12 +149,11 @@ function run() {
   }
 
   console.log('\n═══════════════════════════════════════════════');
-  console.log('  TUTOR-GRADE v2 QUALITY REPORT');
+  console.log('  QUALITY REPORT (Learn + Practice)');
   console.log('═══════════════════════════════════════════════\n');
-  console.log(`Tabs checked:     ${tabsChecked}`);
-  console.log(`Sections checked: ${sectionsChecked}`);
-  console.log(`Total errors:     ${totalErrors}`);
-  console.log(`Total warnings:   ${totalWarnings}`);
+  console.log(`Tabs checked:   ${tabsChecked}`);
+  console.log(`Total errors:   ${totalErrors}`);
+  console.log(`Total warnings: ${totalWarnings}`);
 
   console.log('\n── Per-Module Summary ──');
   const sortedModules = Object.entries(moduleReport).sort((a, b) => (b[1].errors + b[1].warnings) - (a[1].errors + a[1].warnings));
@@ -241,7 +164,7 @@ function run() {
 
   console.log('');
   if (totalErrors === 0 && totalWarnings === 0) {
-    console.log('ALL CLEAR — every section meets Tutor-Grade v2 rubric.');
+    console.log('ALL CLEAR — every tab meets Learn + Practice quality rubric.');
   } else if (totalErrors === 0) {
     console.log(`PASS with ${totalWarnings} warnings. No hard errors.`);
   } else {

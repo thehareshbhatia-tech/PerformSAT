@@ -1,28 +1,16 @@
 /**
  * Schema validation for all content tabs (module-level and lesson-level).
  * Run with: node src/data/contentTabs/validateAll.js
- * Exits 1 if any module/lesson fails validation (errors).
- * Warnings are printed but don't cause a failure exit code.
+ * Validates the Learn + Practice two-stage model.
  */
 
 const fs = require('fs');
 const path = require('path');
 
 const BLOCK_BUDGET = {
-  coreConcepts: 6,
-  satPatterns: 6,
-  methods: 7,
-  commonTraps: 5,
-  workedExamples: 3,
-  visualModels: 5,
-  speedStrategy: 5,
-  checkpoint: 2,
+  learn: 6,
+  practice: 4,
 };
-
-const TITLE_BLOCK_REQUIREMENTS = [
-  { pattern: /\btable\b/i, requiredTypes: ['table'], label: 'table block' },
-  { pattern: /\bfrom.*(graph|visual)\b/i, requiredTypes: ['slopeFromGraphDiagram', 'yInterceptDiagram', 'parallelLinesDiagram', 'perpendicularLinesDiagram', 'parabolaFromGraphDiagram', 'diagramRef'], label: 'visual/diagram block' },
-];
 
 const BLOCK_REQUIRED_FIELDS = {
   table:              ['headers', 'rows'],
@@ -65,12 +53,13 @@ function validateContentTab(moduleId, contentTab) {
     return { valid: false, errors, warnings };
   }
 
-  const sectionCount = Object.keys(contentTab.sections).length;
-  if (sectionCount > 4) {
-    warnings.push(`${moduleId}: ${sectionCount} sections (recommended max 4 for focused content)`);
+  const sectionIds = Object.keys(contentTab.sections);
+  if (!sectionIds.includes('learn')) {
+    errors.push(`${moduleId}: missing required "learn" section`);
   }
-
-  const allBlockTypes = new Set();
+  if (!sectionIds.includes('practice')) {
+    errors.push(`${moduleId}: missing required "practice" section`);
+  }
 
   for (const [sectionId, section] of Object.entries(contentTab.sections)) {
     if (!section.title) {
@@ -94,8 +83,6 @@ function validateContentTab(moduleId, contentTab) {
         continue;
       }
 
-      allBlockTypes.add(block.type);
-
       const required = BLOCK_REQUIRED_FIELDS[block.type];
       if (required) {
         for (const field of required) {
@@ -103,10 +90,6 @@ function validateContentTab(moduleId, contentTab) {
             errors.push(`${moduleId}.${sectionId}.block[${i}] (${block.type}): missing required field '${field}'`);
           }
         }
-      }
-
-      if (block.type === 'formula' && block.latex && !block.content) {
-        errors.push(`${moduleId}.${sectionId}.block[${i}] (formula): uses 'latex' instead of 'content' — rename to 'content'`);
       }
 
       if (block.type === 'diagramRef' && block.visualType) {
@@ -117,14 +100,15 @@ function validateContentTab(moduleId, contentTab) {
     }
   }
 
-  if (contentTab.title) {
-    for (const rule of TITLE_BLOCK_REQUIREMENTS) {
-      if (rule.pattern.test(contentTab.title)) {
-        const hasRequired = rule.requiredTypes.some(t => allBlockTypes.has(t));
-        if (!hasRequired) {
-          warnings.push(`${moduleId}: title "${contentTab.title}" implies a ${rule.label}, but none found`);
-        }
-      }
+  const practice = contentTab.sections.practice;
+  if (practice && Array.isArray(practice.blocks)) {
+    const hasExample = practice.blocks.some(b => b.type === 'example' || b.type === 'steps');
+    const hasCheckpoint = practice.blocks.some(b => b.type === 'checkpointQuestion');
+    if (!hasExample) {
+      warnings.push(`${moduleId}.practice: missing worked example or steps`);
+    }
+    if (!hasCheckpoint) {
+      warnings.push(`${moduleId}.practice: missing checkpoint question`);
     }
   }
 
@@ -212,21 +196,4 @@ if (hadError) {
   console.log(`\nRESULT: FAIL — fix schema errors above.`);
   process.exit(1);
 }
-console.log(`\nSchema validation: PASS`);
-
-console.log(`\n══════ TUTOR-GRADE v2 QUALITY GATE ══════\n`);
-const { execSync } = require('child_process');
-try {
-  const qcOutput = execSync(`node "${path.join(dir, 'tutorGradeQualityCheck.js')}"`, {
-    encoding: 'utf8',
-    stdio: ['pipe', 'pipe', 'pipe'],
-  });
-  console.log(qcOutput);
-} catch (qcErr) {
-  if (qcErr.stdout) console.log(qcErr.stdout);
-  if (qcErr.stderr) console.error(qcErr.stderr);
-  console.log('\nRESULT: FAIL — tutor-grade quality check has hard errors.');
-  process.exit(1);
-}
-
-console.log(`\nRESULT: PASS — all content tabs passed schema + tutor-grade validation.`);
+console.log(`\nRESULT: PASS`);

@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from 'react';
-import { SECTION_ORDER, SECTION_LABELS, BLOCK_BUDGET, DEFAULT_MAX_BLOCKS_INITIALLY } from '../../data/contentTabs/schema';
+import React, { useState } from 'react';
+import { SECTION_ORDER, SECTION_LABELS } from '../../data/contentTabs/schema';
 import { MathText } from '../MathText';
 import LessonVisualRenderer, { visualRegistry } from './LessonVisualRenderer';
 import { DataCard } from '../ui/DataCard';
@@ -30,6 +30,30 @@ const renderRichText = (text) => {
     }
     return <MathText key={i}>{part}</MathText>;
   });
+};
+
+const CheckpointBlock = ({ block, idx }) => {
+  const [revealed, setRevealed] = useState(false);
+  return (
+    <DataCard style={{ padding: '1.5rem' }}>
+      <div className="block-label block-label--accent">Quick Check #{block.number || idx + 1}</div>
+      <div className="block-text">
+        {renderRichText(block.question)}
+      </div>
+      <button
+        className="block-reveal-btn"
+        onClick={() => setRevealed(r => !r)}
+      >
+        {revealed ? 'Hide Answer' : 'Reveal Answer'}
+        <span className={`block-reveal-chevron ${revealed ? 'block-reveal-chevron--open' : ''}`}>▾</span>
+      </button>
+      {revealed && (
+        <div className="block-reveal-content block-text" style={{ marginBottom: 0 }}>
+          {renderRichText(block.answer)}
+        </div>
+      )}
+    </DataCard>
+  );
 };
 
 const BlockRenderers = {
@@ -88,7 +112,7 @@ const BlockRenderers = {
   formulaGrid: (block, idx) => (
     <div key={idx} className="block-grid-auto">
       {block.items.map((item, fi) => (
-        <div key={fi} className="block-math" style={{ margin: 0, padding: '1.25rem' }}>
+        <div key={fi} className="block-math block-math--grid-item">
           <div className="block-label">{item.label}</div>
           <div className="block-math-formula" style={{ fontSize: '1.25rem' }}>
             <MathText>{item.formula}</MathText>
@@ -147,13 +171,13 @@ const BlockRenderers = {
       <div className="block-emphasis-icon">⚠️</div>
       <div className="block-emphasis-content">
         <div className="block-emphasis-title">{block.title || 'Common Trap'}</div>
-        <div style={{ marginBottom: block.correction ? '0.75rem' : 0 }}>
+        <div className="block-trap-wrong" style={{ marginBottom: block.correction ? '0.75rem' : 0 }}>
           {renderRichText(block.wrong)}
         </div>
         {block.correction && (
           <div className="block-worked-step block-worked-step--final" style={{ margin: 0 }}>
             <div className="block-worked-step-content">
-              <div className="block-label block-label--success">Correct Approach</div>
+              <div className="block-correction-badge">Correct Approach</div>
               <div>{renderRichText(block.correction)}</div>
             </div>
           </div>
@@ -163,7 +187,7 @@ const BlockRenderers = {
   ),
 
   strategyCard: (block, idx) => (
-    <DataCard key={idx} style={{ padding: '1.5rem', margin: '1.5rem 0' }}>
+    <DataCard key={idx} style={{ padding: '1.5rem' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
         <div style={{ fontSize: '1.25rem' }}>{block.icon || '⚡'}</div>
         <div style={{ fontWeight: 600, color: 'var(--color-slate-900)' }}>{block.title}</div>
@@ -178,39 +202,43 @@ const BlockRenderers = {
   ),
 
   // --- WORKED FAMILY ---
-  example: (block, idx) => (
-    <DataCard key={idx} style={{ padding: '2rem', margin: '2rem 0' }}>
-      <div className="block-label block-label--accent">
-        {block.difficulty ? `${block.difficulty} Example` : 'Worked Example'}
-      </div>
-      {block.problem && (
-        <div className="block-worked-problem">
-          {renderRichText(block.problem)}
+  example: (block, idx) => {
+    const diffClass = block.difficulty ? `block-difficulty-badge--${block.difficulty.toLowerCase()}` : '';
+    return (
+      <DataCard key={idx} style={{ padding: '2rem' }}>
+        <div className={`block-difficulty-badge ${diffClass}`}>
+          <span className="block-difficulty-dot" />
+          {block.difficulty ? `${block.difficulty} Example` : 'Worked Example'}
         </div>
-      )}
-      {block.steps && (
-        <div>
-          {block.steps.map((step, si) => (
-            <div key={si} className={`block-worked-step ${si === block.steps.length - 1 ? 'block-worked-step--final' : ''}`}>
-              <div className="block-worked-step-number">{si + 1}.</div>
-              <div className="block-worked-step-content">
-                {step.label && <div className="block-label">{step.label}</div>}
-                <div>{renderRichText(step.content)}</div>
+        {block.problem && (
+          <div className="block-worked-problem">
+            {renderRichText(block.problem)}
+          </div>
+        )}
+        {block.steps && (
+          <div className="block-worked-steps">
+            {block.steps.map((step, si) => (
+              <div key={si} className={`block-worked-step ${si === block.steps.length - 1 ? 'block-worked-step--final' : ''}`}>
+                <div className="block-worked-step-number">{si === block.steps.length - 1 ? '✓' : si + 1}</div>
+                <div className="block-worked-step-content">
+                  {step.label && <div className="block-label">{step.label}</div>}
+                  <div>{renderRichText(step.content)}</div>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      )}
-    </DataCard>
-  ),
+            ))}
+          </div>
+        )}
+      </DataCard>
+    );
+  },
 
   steps: (block, idx) => (
-    <div key={idx} style={{ margin: '1.5rem 0' }}>
+    <div key={idx}>
       {block.title && <div className="block-heading">{block.title}</div>}
-      <div>
+      <div className="block-worked-steps">
         {block.items.map((step, si) => (
           <div key={si} className="block-worked-step">
-            <div className="block-worked-step-number">{si + 1}.</div>
+            <div className="block-worked-step-number">{si + 1}</div>
             <div className="block-worked-step-content">
               {renderRichText(step)}
             </div>
@@ -220,28 +248,9 @@ const BlockRenderers = {
     </div>
   ),
 
-  checkpointQuestion: (block, idx) => {
-    const [revealed, setRevealed] = useState(false);
-    return (
-      <DataCard key={idx} style={{ padding: '1.5rem', margin: '1.5rem 0' }}>
-        <div className="block-label block-label--accent">Quick Check #{block.number || idx + 1}</div>
-        <div className="block-text">
-          {renderRichText(block.question)}
-        </div>
-        <button
-          className="block-reveal-btn"
-          onClick={() => setRevealed(r => !r)}
-        >
-          {revealed ? 'Hide Answer' : 'Reveal Answer'}
-        </button>
-        {revealed && (
-          <div className="block-reveal-content block-text" style={{ marginBottom: 0 }}>
-            {renderRichText(block.answer)}
-          </div>
-        )}
-      </DataCard>
-    );
-  },
+  checkpointQuestion: (block, idx) => (
+    <CheckpointBlock key={idx} block={block} idx={idx} />
+  ),
 
   comparison: (block, idx) => (
     <div key={idx} className="block-grid-2">
@@ -298,33 +307,18 @@ const BlockRenderers = {
   ),
 };
 
-const PRIORITY_ORDER = { high: 0, medium: 1, low: 2 };
-
 const SectionContent = ({ section, sectionId }) => {
-  const [expanded, setExpanded] = useState(false);
-
   if (!section || !section.blocks) return null;
 
-  const maxInitially = section.maxBlocksInitially ?? DEFAULT_MAX_BLOCKS_INITIALLY;
-  const cap = Math.min(maxInitially, BLOCK_BUDGET[sectionId] ?? section.blocks.length, section.blocks.length);
-  const sortedBlocks = useMemo(() => {
-    return [...section.blocks].sort((a, b) => {
-      const p = (PRIORITY_ORDER[a.priority] ?? 3) - (PRIORITY_ORDER[b.priority] ?? 3);
-      return p;
-    });
-  }, [section.blocks]);
-  const needsExpansion = section.blocks.length > cap;
-  const visibleBlocks = expanded ? section.blocks : sortedBlocks.slice(0, cap);
-
   return (
-    <div>
+    <div className="section-content">
       {section.summary && (
         <div className="section-summary">
           {renderRichText(section.summary)}
         </div>
       )}
 
-      {visibleBlocks.map((block, idx) => {
+      {section.blocks.map((block, idx) => {
         const renderer = BlockRenderers[block.type];
         if (!renderer) {
           if (process.env.NODE_ENV === 'development') {
@@ -334,19 +328,11 @@ const SectionContent = ({ section, sectionId }) => {
         }
         return renderer(block, idx);
       })}
-
-      {needsExpansion && (
-        <button
-          onClick={() => setExpanded(e => !e)}
-          className="block-reveal-btn"
-          style={{ marginTop: '1rem' }}
-        >
-          {expanded ? 'Show less' : `Show ${section.blocks.length - cap} more`}
-        </button>
-      )}
     </div>
   );
 };
+
+const TAB_ICONS = { learn: '\u{1F4D6}', practice: '\u{270F}\uFE0F' };
 
 const ContentTabRenderer = ({ contentTab }) => {
   const [activeTab, setActiveTab] = useState(0);
@@ -365,19 +351,27 @@ const ContentTabRenderer = ({ contentTab }) => {
 
   return (
     <div style={{ width: '100%' }}>
-      <div className="content-tab-nav">
+      <div className="content-tab-nav" role="tablist">
         {tabs.map((tab, i) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(i)}
+            role="tab"
+            aria-selected={activeTab === i}
             className={`content-tab-btn ${activeTab === i ? 'content-tab-btn--active' : ''}`}
           >
+            <span className="content-tab-icon">{TAB_ICONS[tab.id] || ''}</span>
             {tab.label}
           </button>
         ))}
       </div>
 
-      <SectionContent section={tabs[activeTab]?.section} sectionId={tabs[activeTab]?.id} />
+      <div role="tabpanel" className="content-tab-panel" key={activeTab}>
+        <SectionContent
+          section={tabs[activeTab]?.section}
+          sectionId={tabs[activeTab]?.id}
+        />
+      </div>
     </div>
   );
 };

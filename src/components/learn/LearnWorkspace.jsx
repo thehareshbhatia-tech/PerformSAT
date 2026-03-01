@@ -97,11 +97,11 @@ const LearnWorkspace = ({
             )}
 
             {/* Video Summary: compact module content for video lessons */}
-            {isVideoLesson && contentTab?.sections?.coreConcepts && (
+            {isVideoLesson && contentTab?.sections?.learn?.summary && (
               <div className="lesson-stage__video-summary">
                 <h3 className="lesson-stage__video-summary-title">Video summary</h3>
                 <p className="lesson-stage__video-summary-text">
-                  {contentTab.sections.coreConcepts.summary || contentTab.title}
+                  {contentTab.sections.learn.summary}
                 </p>
               </div>
             )}

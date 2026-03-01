@@ -1,76 +1,43 @@
 /**
- * Content Tab Schema
+ * Content Tab Schema — Learn + Practice v1
  *
- * Each module content tab has up to 8 sections.
- * Sections are optional — only present sections render.
+ * Every content tab (lesson-level or module fallback) uses exactly two sections:
+ *   1. learn    — concise essentials: formulas, key insight, one trap/tip
+ *   2. practice — one worked example + one checkpoint question
  *
- * Section metadata (optional):
- * - summary: short intro shown first
- * - maxBlocksInitially: cap on blocks shown before "Show more" (default from BLOCK_BUDGET)
+ * ── Authoring Principles ──
+ *   - Keep learn blocks short; every sentence must teach
+ *   - Worked examples must be SAT-realistic
+ *   - Checkpoints use retrieval practice: question → hidden answer
+ *   - All math uses LaTeX dollar signs ($...$, $$...$$)
+ *   - No filler phrases
  *
- * Block metadata (optional):
- * - priority: 'high' | 'medium' | 'low' — high-priority blocks shown first when collapsed
- *
- * ── Math Notation ──
- * All symbolic math must use LaTeX wrapped in dollar signs:
- *   Inline:  $m = \\frac{y_2 - y_1}{x_2 - x_1}$
- *   Display: $$y = mx + b$$
- * ContentTabRenderer routes all text through KaTeX via MathText.
- * Do NOT use unicode fractions (³⁄₅) or ad-hoc symbols; use LaTeX equivalents.
- *
- * ── Visual Block Types ──
- * The following block types render SVG diagrams directly:
- *   parallelLinesDiagram, perpendicularLinesDiagram,
- *   slopeFromGraphDiagram, yInterceptDiagram
- * Use { type: 'diagramRef', visualType: '<name>' } for inline diagram embedding.
+ * ── Block metadata (optional) ──
+ * - priority: 'high' | 'medium' | 'low'
  */
 
 export const SECTION_IDS = {
-  CORE_CONCEPTS: 'coreConcepts',
-  SAT_PATTERNS: 'satPatterns',
-  METHODS: 'methods',
-  COMMON_TRAPS: 'commonTraps',
-  WORKED_EXAMPLES: 'workedExamples',
-  VISUAL_MODELS: 'visualModels',
-  SPEED_STRATEGY: 'speedStrategy',
-  CHECKPOINT: 'checkpoint',
+  LEARN: 'learn',
+  PRACTICE: 'practice',
 };
 
 export const SECTION_LABELS = {
-  [SECTION_IDS.CORE_CONCEPTS]: 'Core Concepts',
-  [SECTION_IDS.SAT_PATTERNS]: 'SAT Patterns',
-  [SECTION_IDS.METHODS]: 'Methods',
-  [SECTION_IDS.COMMON_TRAPS]: 'Common Traps',
-  [SECTION_IDS.WORKED_EXAMPLES]: 'Worked Examples',
-  [SECTION_IDS.VISUAL_MODELS]: 'Visual Models',
-  [SECTION_IDS.SPEED_STRATEGY]: 'Speed & Strategy',
-  [SECTION_IDS.CHECKPOINT]: 'Checkpoint',
+  [SECTION_IDS.LEARN]: 'Learn',
+  [SECTION_IDS.PRACTICE]: 'Practice',
 };
 
 export const SECTION_ORDER = [
-  SECTION_IDS.CORE_CONCEPTS,
-  SECTION_IDS.SAT_PATTERNS,
-  SECTION_IDS.METHODS,
-  SECTION_IDS.COMMON_TRAPS,
-  SECTION_IDS.WORKED_EXAMPLES,
-  SECTION_IDS.VISUAL_MODELS,
-  SECTION_IDS.SPEED_STRATEGY,
-  SECTION_IDS.CHECKPOINT,
+  SECTION_IDS.LEARN,
+  SECTION_IDS.PRACTICE,
 ];
 
 export const BLOCK_BUDGET = {
-  [SECTION_IDS.CORE_CONCEPTS]: 6,
-  [SECTION_IDS.SAT_PATTERNS]: 6,
-  [SECTION_IDS.METHODS]: 7,
-  [SECTION_IDS.COMMON_TRAPS]: 5,
-  [SECTION_IDS.WORKED_EXAMPLES]: 3,
-  [SECTION_IDS.VISUAL_MODELS]: 5,
-  [SECTION_IDS.SPEED_STRATEGY]: 5,
-  [SECTION_IDS.CHECKPOINT]: 2,
+  [SECTION_IDS.LEARN]: 6,
+  [SECTION_IDS.PRACTICE]: 4,
 };
 
-/** Default number of blocks shown before "Show more" when section has many blocks. */
-export const DEFAULT_MAX_BLOCKS_INITIALLY = 4;
+export const DEFAULT_MAX_BLOCKS_INITIALLY = 6;
+export const LESSON_DEFAULT_MAX_BLOCKS = 6;
 
 export const CONTENT_BLOCK_TYPES = {
   HEADING: 'heading',
@@ -95,15 +62,6 @@ export const CONTENT_BLOCK_TYPES = {
   Y_INTERCEPT_DIAGRAM: 'yInterceptDiagram',
 };
 
-/**
- * ── Title-to-Required-Block Quality Matrix ──
- * Lessons whose titles imply a specific artifact must include it.
- */
-const TITLE_BLOCK_REQUIREMENTS = [
-  { pattern: /\btable\b/i, requiredTypes: ['table'], label: 'table block' },
-  { pattern: /\bfrom.*(graph|visual)\b/i, requiredTypes: ['slopeFromGraphDiagram', 'yInterceptDiagram', 'parallelLinesDiagram', 'perpendicularLinesDiagram', 'diagramRef'], label: 'visual/diagram block' },
-];
-
 const BLOCK_REQUIRED_FIELDS = {
   table:              ['headers', 'rows'],
   steps:              ['items'],
@@ -123,68 +81,22 @@ const SUPPORTED_VISUAL_TYPES = [
   'parabolaFromGraphDiagram',
 ];
 
-/**
- * ── Tutor-Grade v2 Quality Rubric ──
- * Every section must contain high-signal, pedagogically strong content.
- * Requirements are defined per-section so automated checks can enforce them.
- */
-
 export const SECTION_QUALITY = {
-  coreConcepts: {
+  learn: {
     minBlocks: 2,
     requiredElements: [
-      { label: 'intuition or explanation', matchTypes: ['text', 'keyInsight'] },
-      { label: 'formal rule or formula',   matchTypes: ['formula', 'formulaGrid', 'callout', 'table'] },
+      { label: 'explanation or formula', matchTypes: ['text', 'keyInsight', 'formula', 'formulaGrid', 'callout', 'table'] },
     ],
   },
-  satPatterns: {
-    minBlocks: 3,
-    requiredElements: [
-      { label: 'pattern archetype',  matchTypes: ['callout', 'example'] },
-      { label: 'trap or recovery',   matchTypes: ['trapCard', 'callout', 'comparison'] },
-      { label: 'decision rule',      matchTypes: ['tip', 'strategyCard', 'keyInsight'] },
-    ],
-  },
-  methods: {
-    minBlocks: 1,
-    requiredElements: [
-      { label: 'step-by-step procedure or worked example', matchTypes: ['steps', 'example'] },
-    ],
-  },
-  commonTraps: {
-    minBlocks: 1,
-    requiredElements: [
-      { label: 'trap card', matchTypes: ['trapCard'] },
-    ],
-  },
-  workedExamples: {
-    minBlocks: 1,
+  practice: {
+    minBlocks: 2,
     requiredElements: [
       { label: 'worked example', matchTypes: ['example'] },
-    ],
-  },
-  visualModels: {
-    minBlocks: 1,
-    requiredElements: [],
-  },
-  speedStrategy: {
-    minBlocks: 1,
-    requiredElements: [
-      { label: 'strategy or tip', matchTypes: ['strategyCard', 'tip', 'callout'] },
-    ],
-  },
-  checkpoint: {
-    minBlocks: 1,
-    requiredElements: [
       { label: 'checkpoint question', matchTypes: ['checkpointQuestion'] },
     ],
   },
 };
 
-/**
- * Phrases that signal generic, low-value filler content.
- * Applies to ALL sections, not just satPatterns.
- */
 export const LOW_SIGNAL_PATTERNS = [
   /the SAT loves/i,
   /college board (often|frequently|typically) (tests|asks)/i,
@@ -195,12 +107,13 @@ export const LOW_SIGNAL_PATTERNS = [
   /remember (that |to )?always/i,
   /make sure (you |to )/i,
   /it('|')s important to/i,
+  /don'?t forget to/i,
+  /keep in mind (that )?/i,
+  /practice makes perfect/i,
+  /let'?s (take a |have a )?look at/i,
+  /in this (lesson|section|module)/i,
+  /as (we|you) (can |will )?(see|learn|discover)/i,
 ];
-
-// Legacy aliases for backward compatibility with satPatternsQualityCheck.js
-export const SAT_PATTERNS_MIN_BLOCKS = SECTION_QUALITY.satPatterns.minBlocks;
-export const SAT_PATTERNS_REQUIRED_ELEMENTS = SECTION_QUALITY.satPatterns.requiredElements;
-export const SAT_PATTERNS_LOW_SIGNAL = LOW_SIGNAL_PATTERNS.slice(0, 5);
 
 /**
  * Validate a content tab (module-level or lesson-level).
@@ -228,7 +141,14 @@ export function validateContentTab(moduleId, contentTab) {
     return { valid: false, errors, warnings };
   }
 
-  const allBlockTypes = new Set();
+  const sectionIds = Object.keys(contentTab.sections);
+
+  if (!sectionIds.includes('learn')) {
+    errors.push(`${moduleId}: missing required "learn" section`);
+  }
+  if (!sectionIds.includes('practice')) {
+    errors.push(`${moduleId}: missing required "practice" section`);
+  }
 
   for (const [sectionId, section] of Object.entries(contentTab.sections)) {
     if (!section.title) {
@@ -246,7 +166,6 @@ export function validateContentTab(moduleId, contentTab) {
 
     for (let i = 0; i < section.blocks.length; i++) {
       const block = section.blocks[i];
-      allBlockTypes.add(block.type);
 
       const required = BLOCK_REQUIRED_FIELDS[block.type];
       if (required) {
@@ -265,24 +184,12 @@ export function validateContentTab(moduleId, contentTab) {
     }
   }
 
-  if (contentTab.title) {
-    for (const rule of TITLE_BLOCK_REQUIREMENTS) {
-      if (rule.pattern.test(contentTab.title)) {
-        const hasRequired = rule.requiredTypes.some(t => allBlockTypes.has(t));
-        if (!hasRequired) {
-          warnings.push(`${moduleId}: title "${contentTab.title}" implies a ${rule.label}, but none found in blocks`);
-        }
-      }
-    }
-  }
-
-  // ── Tutor-Grade v2: per-section quality checks ──
   for (const [sectionId, section] of Object.entries(contentTab.sections)) {
     const quality = SECTION_QUALITY[sectionId];
     if (!quality || !Array.isArray(section.blocks)) continue;
 
     if (section.blocks.length < quality.minBlocks) {
-      warnings.push(`${moduleId}.${sectionId}: only ${section.blocks.length} blocks — minimum ${quality.minBlocks} for tutor-grade quality`);
+      warnings.push(`${moduleId}.${sectionId}: only ${section.blocks.length} blocks — minimum ${quality.minBlocks}`);
     }
 
     const sectionBlockTypes = section.blocks.map(b => b.type);
