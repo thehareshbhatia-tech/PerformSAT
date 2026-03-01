@@ -202,8 +202,8 @@
 }
 
 .answer-text-content {
-  font-family: var(--font-ui);
-  font-size: 1.0625rem;
+  font-family: 'Times New Roman', 'Georgia', 'Cambria', serif;
+  font-size: 1rem;
   line-height: 1.5;
   color: var(--color-slate-800);
   flex: 1;
