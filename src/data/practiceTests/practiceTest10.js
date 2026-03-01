@@ -43,8 +43,8 @@ export const practiceTest10 = {
         {
           id: 'pt10-m1-q2',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'Rectangle $P$ has an area of $72$ square inches. If a rectangle with an area of $20$ square inches is removed from rectangle $P$, what is the area, in square inches, of the resulting figure?',
+          difficulty: 'medium',
+          question: 'Rectangle $P$ has a length of $12$ inches and a width of $6$ inches. A smaller rectangle with a length of $5$ inches and a width of $4$ inches is removed from one corner of rectangle $P$. What is the area, in square inches, of the resulting figure?',
           choices: [
             { id: 'A', text: '$92$' },
             { id: 'B', text: '$84$' },
@@ -52,22 +52,22 @@ export const practiceTest10 = {
             { id: 'D', text: '$52$' }
           ],
           correctAnswer: 'D',
-          explanation: '**SAT Pattern: Area Subtraction** -- Shows up 1-2 times per test. When a piece is removed from a shape, the SAT wants to see if you subtract instead of add.\n\n**Choice D is correct.** The resulting figure has an area of $52$ square inches.\n\n**The Fast Way (10 seconds):** Removed means subtract: $72 - 20 = 52$. Done.\n\n**Step 1: Identify the areas**\nRectangle $P$ has area $= 72$ square inches. The removed rectangle has area $= 20$ square inches.\n\n**Step 2: Calculate the remaining area**\n$72 - 20 = 52$ square inches.\n\n**Why the wrong answers are tempting:**\n- $92$ (Choice A) is $72 + 20$. The word "removed" should trigger subtraction, but under pressure your brain can default to addition. This is the most common mistake on this type of problem.\n- $84$ (Choice B) does not come from any clean arithmetic with $72$ and $20$, but on a timed test, a small calculation slip can land you here.\n- $80$ (Choice C) is close to the right answer and could come from a mental math error where you think $72 - 20 = 80$ by accidentally borrowing wrong.\n\n**Verification:** $72 - 20 = 52$ -- confirmed.\n\n**Test Day Takeaway:** "Removed" always means subtract. Circle the word "removed" in the problem so you do not accidentally add.',
+          explanation: '**SAT Pattern: Area Subtraction with Dimension Calculation** -- Shows up 1-2 times per test. The SAT gives you dimensions rather than areas directly, adding an extra computation step.\n\n**Choice D is correct.** The resulting figure has an area of $52$ square inches.\n\n**The Fast Way (20 seconds):** Compute both areas first: $12 \\times 6 = 72$ and $5 \\times 4 = 20$. Then subtract: $72 - 20 = 52$.\n\n**Step 1: Find the area of rectangle $P$**\nArea of $P = 12 \\times 6 = 72$ square inches.\n\n**Step 2: Find the area of the removed rectangle**\nArea of removed piece $= 5 \\times 4 = 20$ square inches.\n\n**Step 3: Calculate the remaining area**\n$72 - 20 = 52$ square inches.\n\n**Why the wrong answers are tempting:**\n- $92$ (Choice A) is $72 + 20$. The word "removed" should trigger subtraction, but under pressure your brain can default to addition. This is the most common mistake on this type of problem.\n- $84$ (Choice B) could come from miscalculating one of the areas -- for example, using $5 \\times 6 = 30$ for the removed rectangle and subtracting from a miscomputed total.\n- $80$ (Choice C) could result from computing the removed area incorrectly as $5 + 4 = 9$ instead of $5 \\times 4 = 20$, then subtracting from a rounded total.\n\n**Verification:** $12 \\times 6 = 72$, $5 \\times 4 = 20$, $72 - 20 = 52$ -- confirmed.\n\n**Test Day Takeaway:** When given dimensions instead of areas, compute each area first before combining. "Removed" always means subtract.',
           skills: ['Geometry', 'Area']
         },
         {
           id: 'pt10-m1-q3',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: '$|p| + 61 = 65$\n\nWhich value is a solution to the given equation?',
+          difficulty: 'medium',
+          question: '$|2p - 3| + 61 = 65$\n\nWhich value is a solution to the given equation?',
           choices: [
             { id: 'A', text: '$\\frac{65}{61}$' },
-            { id: 'B', text: '$4$' },
+            { id: 'B', text: '$\\frac{7}{2}$' },
             { id: 'C', text: '$126$' },
             { id: 'D', text: '$130$' }
           ],
           correctAnswer: 'B',
-          explanation: '**SAT Pattern: Absolute Value Equation** -- Appears 1-2 times per test. The SAT tests whether you can isolate the absolute value before solving.\n\n**Choice B is correct.** A solution to the equation is $p = 4$.\n\n**The Fast Way (15 seconds):** Isolate the absolute value: $|p| = 65 - 61 = 4$. So $p = 4$ or $p = -4$. Choice B gives $4$.\n\n**Step 1: Isolate $|p|$**\n$|p| + 61 = 65$\n$|p| = 65 - 61 = 4$\n\n**Step 2: Solve for $p$**\nThe equation $|p| = 4$ means $p = 4$ or $p = -4$. Since $4$ appears among the choices, the answer is $4$.\n\n**Why the wrong answers are tempting:**\n- $\\frac{65}{61}$ (Choice A) comes from dividing the two numbers you see instead of subtracting. When students are unsure what operation to use, division can feel like a reasonable guess -- but the equation clearly calls for subtraction.\n- $126$ (Choice C) is $65 + 61$. If you forget whether the $61$ is being added or subtracted and default to adding, you land here.\n- $130$ (Choice D) is $65 \\times 2$, which has no connection to the equation at all. This is there to catch students who are guessing rather than solving.\n\n**Verification:** $|4| + 61 = 4 + 61 = 65$ -- confirmed.\n\n**Test Day Takeaway:** With absolute value equations, always isolate the absolute value first, then split into two cases. The SAT usually only lists one of the two solutions in the choices.',
+          explanation: '**SAT Pattern: Absolute Value Equation with Linear Expression** -- Appears 1-2 times per test. The SAT tests whether you can isolate the absolute value and then solve the resulting linear equation inside.\n\n**Choice B is correct.** A solution to the equation is $p = \\frac{7}{2}$.\n\n**The Fast Way (20 seconds):** Isolate the absolute value: $|2p - 3| = 4$. Then $2p - 3 = 4$ gives $p = \\frac{7}{2}$, or $2p - 3 = -4$ gives $p = -\\frac{1}{2}$. Choice B gives $\\frac{7}{2}$.\n\n**Step 1: Isolate $|2p - 3|$**\n$|2p - 3| + 61 = 65$\n$|2p - 3| = 65 - 61 = 4$\n\n**Step 2: Split into two cases**\nCase 1: $2p - 3 = 4 \\Rightarrow 2p = 7 \\Rightarrow p = \\frac{7}{2}$\nCase 2: $2p - 3 = -4 \\Rightarrow 2p = -1 \\Rightarrow p = -\\frac{1}{2}$\n\n**Step 3: Match to the choices**\nSince $\\frac{7}{2}$ appears among the choices, the answer is $\\frac{7}{2}$.\n\n**Why the wrong answers are tempting:**\n- $\\frac{65}{61}$ (Choice A) comes from dividing the two numbers you see instead of subtracting. When students are unsure what operation to use, division can feel like a reasonable guess -- but the equation clearly calls for subtraction.\n- $126$ (Choice C) is $65 + 61$. If you forget whether the $61$ is being added or subtracted and default to adding, you land here.\n- $130$ (Choice D) is $65 \\times 2$, which has no connection to the equation at all. This is there to catch students who are guessing rather than solving.\n\n**Verification:** $|2(\\frac{7}{2}) - 3| + 61 = |7 - 3| + 61 = 4 + 61 = 65$ -- confirmed.\n\n**Test Day Takeaway:** With absolute value equations, always isolate the absolute value first, then split into two cases. When the expression inside is more than just a variable, solve the resulting linear equation carefully.',
           skills: ['Algebra', 'Absolute Value Equations']
         },
         {
@@ -118,10 +118,10 @@ export const practiceTest10 = {
         {
           id: 'pt10-m1-q6',
           type: 'fill-in',
-          difficulty: 'medium',
-          question: 'A line in the $xy$-plane has a slope of $9$ and passes through the point $(0, -5)$. The equation $y = px + r$ defines the line, where $p$ and $r$ are constants. What is the value of $p$?',
-          correctAnswer: '9',
-          explanation: '**SAT Pattern: Slope-Intercept Form Identification** -- Appears 2-3 times per test. The SAT disguises $y = mx + b$ by using different letters and asks you to match components.\n\n**The correct answer is $9$.**\n\n**The Fast Way (10 seconds):** The equation $y = px + r$ is just $y = mx + b$ with different letters. The slope is $9$, so $p = 9$. Done.\n\n**Step 1: Recall slope-intercept form**\nThe equation $y = px + r$ is in the form $y = mx + b$, where $p$ is the slope and $r$ is the $y$-intercept.\n\n**Step 2: Match the given information**\nThe line has slope $9$ and passes through $(0, -5)$, so $p = 9$ and $r = -5$.\n\n**Verification:** The full equation is $y = 9x - 5$. At $(0, -5)$: $y = 9(0) - 5 = -5$ -- confirmed.\n\n**Test Day Takeaway:** When the SAT uses unfamiliar letters like $p$ and $r$ instead of $m$ and $b$, do not overthink it. Match positions: the coefficient of $x$ is always the slope.',
+          difficulty: 'hard',
+          question: 'Line $\\ell$ in the $xy$-plane passes through the point $(0, -5)$ and is parallel to the line defined by $y = 3(3x + 2) - 6$. The equation $y = px + r$ defines line $\\ell$, where $p$ and $r$ are constants. What is the value of $p + r$?',
+          correctAnswer: '4',
+          explanation: '**SAT Pattern: Parallel Lines and Slope-Intercept Form** -- Appears 1-2 times per test. The SAT combines parallel line reasoning (same slope) with algebraic simplification and multi-step evaluation.\n\n**The correct answer is $4$.**\n\n**The Fast Way (30 seconds):** Simplify the given line: $y = 3(3x + 2) - 6 = 9x + 6 - 6 = 9x$. Parallel lines have the same slope, so $p = 9$. The line passes through $(0, -5)$, so $r = -5$. Thus $p + r = 9 + (-5) = 4$.\n\n**Step 1: Simplify the given line equation**\n$y = 3(3x + 2) - 6 = 9x + 6 - 6 = 9x$\nThe slope of this line is $9$.\n\n**Step 2: Determine the slope of line $\\ell$**\nParallel lines have equal slopes, so $p = 9$.\n\n**Step 3: Determine the $y$-intercept of line $\\ell$**\nLine $\\ell$ passes through $(0, -5)$, so $r = -5$.\n\n**Step 4: Compute $p + r$**\n$p + r = 9 + (-5) = 4$\n\n**Verification:** Line $\\ell$: $y = 9x - 5$. At $(0, -5)$: $y = 9(0) - 5 = -5$ -- confirmed. The slope $9$ matches the parallel line -- confirmed. $p + r = 9 + (-5) = 4$ -- confirmed.\n\n**Test Day Takeaway:** Problems that combine parallel lines with disguised equations require multiple steps: simplify the reference line to find the slope, apply the parallel condition, use the given point to find the intercept, then compute the requested expression.',
           skills: ['Algebra', 'Linear Equations', 'Slope']
         },
         {
@@ -180,16 +180,16 @@ export const practiceTest10 = {
         {
           id: 'pt10-m1-q10',
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'The function $f$ is defined by $f(x) = \\frac{1}{2}(x + 6)$. What is the value of $f(4)$?',
+          difficulty: 'hard',
+          question: 'The function $f$ is defined by $f(x) = \\frac{1}{2}(x + 6)$. What is the value of $f(f(f(4)))$?',
           choices: [
             { id: 'A', text: '$20$' },
-            { id: 'B', text: '$12$' },
-            { id: 'C', text: '$10$' },
+            { id: 'B', text: '$\\frac{17}{4}$' },
+            { id: 'C', text: '$\\frac{23}{4}$' },
             { id: 'D', text: '$5$' }
           ],
-          correctAnswer: 'D',
-          explanation: '**SAT Pattern: Function Evaluation** -- Appears 2-3 times per test. Plug in and simplify. The SAT tests order of operations and whether you finish all the steps.\n\n**Choice D is correct.** $f(4) = 5$.\n\n**The Fast Way (10 seconds):** $f(4) = \\frac{1}{2}(4 + 6) = \\frac{1}{2}(10) = 5$. On Desmos, type the function and evaluate at $x = 4$.\n\n**Step 1: Substitute $x = 4$**\n$f(4) = \\frac{1}{2}(4 + 6)$\n\n**Step 2: Simplify**\n$f(4) = \\frac{1}{2}(10) = 5$\n\n**Why the wrong answers are tempting:**\n- $20$ (Choice A) comes from multiplying by $2$ instead of $\\frac{1}{2}$. Under time pressure, your brain can flip a fraction. $2 \\times 10 = 20$ feels right if you misread the coefficient.\n- $12$ (Choice B) does not come from a clean calculation, but arithmetic slips happen when you try to do too many steps in your head at once.\n- $10$ (Choice C) is the classic "stopped one step early" trap. You correctly compute $4 + 6 = 10$ and then forget the $\\frac{1}{2}$ out front. The parentheses are there for a reason -- the SAT knows many students will skip the final multiplication.\n\n**Verification:** $f(4) = \\frac{1}{2}(4 + 6) = \\frac{1}{2}(10) = 5$ -- confirmed.\n\n**Test Day Takeaway:** After substituting, finish ALL operations. If you see a coefficient outside parentheses, do not stop until you have multiplied by it.',
+          correctAnswer: 'C',
+          explanation: '**SAT Pattern: Iterated Function Evaluation** -- Appears 1 time per test. The SAT tests whether you can chain function evaluations carefully, tracking fractions through multiple substitutions.\n\n**Choice C is correct.** $f(f(f(4))) = \\frac{23}{4}$.\n\n**The Fast Way (40 seconds):** Work inside-out. $f(4) = \\frac{1}{2}(10) = 5$. $f(5) = \\frac{1}{2}(11) = \\frac{11}{2}$. $f\\left(\\frac{11}{2}\\right) = \\frac{1}{2}\\left(\\frac{11}{2} + 6\\right) = \\frac{1}{2} \\cdot \\frac{23}{2} = \\frac{23}{4}$.\n\n**Step 1: Compute $f(4)$**\n$f(4) = \\frac{1}{2}(4 + 6) = \\frac{1}{2}(10) = 5$\n\n**Step 2: Compute $f(f(4)) = f(5)$**\n$f(5) = \\frac{1}{2}(5 + 6) = \\frac{1}{2}(11) = \\frac{11}{2}$\n\n**Step 3: Compute $f(f(f(4))) = f\\left(\\frac{11}{2}\\right)$**\n$f\\left(\\frac{11}{2}\\right) = \\frac{1}{2}\\left(\\frac{11}{2} + 6\\right) = \\frac{1}{2}\\left(\\frac{11}{2} + \\frac{12}{2}\\right) = \\frac{1}{2} \\cdot \\frac{23}{2} = \\frac{23}{4}$\n\n**Why the wrong answers are tempting:**\n- $20$ (Choice A) comes from multiplying by $2$ instead of $\\frac{1}{2}$ at some stage. Under time pressure, your brain can flip a fraction.\n- $\\frac{17}{4}$ (Choice B) results from an arithmetic error in the final step, such as adding $\\frac{11}{2} + 3$ instead of $\\frac{11}{2} + 6$.\n- $5$ (Choice D) is just $f(4)$, the first evaluation. This is the classic "stopped too early" trap -- you computed the innermost call but forgot to apply $f$ two more times.\n\n**Verification:** $f(4) = 5$, $f(5) = \\frac{11}{2}$, $f\\left(\\frac{11}{2}\\right) = \\frac{23}{4} = 5.75$ -- confirmed.\n\n**Test Day Takeaway:** For iterated functions like $f(f(f(x)))$, work from the inside out, writing down each intermediate result. Fraction arithmetic in the later steps is where most errors happen -- do not skip steps.',
           skills: ['Functions', 'Function Evaluation']
         },
         {
@@ -385,16 +385,16 @@ export const practiceTest10 = {
         {
           id: 'pt10-m2-q1',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'There are $250$ trees in a park. Of these trees, $6\\%$ are birch trees. How many birch trees are in the park?',
+          difficulty: 'medium',
+          question: 'There are $250$ trees in a park. Of these trees, $6\\%$ are birch trees and $30\\%$ of the remaining trees are maple trees. How many maple trees are in the park?',
           choices: [
             { id: 'A', text: '$6$' },
             { id: 'B', text: '$15$' },
-            { id: 'C', text: '$75$' },
-            { id: 'D', text: '$244$' }
+            { id: 'C', text: '$70.5$' },
+            { id: 'D', text: '$75$' }
           ],
-          correctAnswer: 'B',
-          explanation: '**SAT Pattern: Basic Percent Calculation** -- Appears 1-2 times per test. A free point if you know the formula, but the SAT puts traps for students who confuse the percentage with the answer.\n\n**Choice B is correct.** There are $15$ birch trees in the park.\n\n**The Fast Way (10 seconds):** $6\\%$ of $250 = 0.06 \\times 250 = 15$. Done.\n\n**Step 1: Convert the percentage to a decimal**\n$6\\% = 0.06$\n\n**Step 2: Multiply**\n$0.06 \\times 250 = 15$ birch trees.\n\n**Why the wrong answers are tempting:**\n- $6$ (Choice A) is just the percentage itself, not the result of the calculation. Some students see "$6\\%$" and think the answer is $6$, confusing the rate with the count. This is one of the most common percentage mistakes.\n- $75$ (Choice C) is $30\\%$ of $250$. If you accidentally move the decimal point to the wrong place and use $0.30$ instead of $0.06$, you get $75$. Decimal placement errors are very common with percentages.\n- $244$ (Choice D) is $250 - 6 = 244$, which treats the $6$ as a quantity to subtract rather than a percentage to calculate. Subtracting the percentage number from the total is a classic misunderstanding of what percent means.\n\n**Verification:** $0.06 \\times 250 = 15$ -- confirmed.\n\n**Test Day Takeaway:** Percent means "per hundred." Always convert to a decimal first ($6\\% = 0.06$), then multiply. Never subtract the percentage number directly.',
+          correctAnswer: 'C',
+          explanation: '**SAT Pattern: Percent of a Remainder** -- Appears 1-2 times per test. The SAT adds a layer by asking for a percentage of what is left after a first percentage is removed.\n\n**Choice C is correct.** There are $70.5$ maple trees in the park.\n\n**The Fast Way (20 seconds):** Birch trees: $0.06 \\times 250 = 15$. Remaining: $250 - 15 = 235$. Maple trees: $0.30 \\times 235 = 70.5$.\n\n**Step 1: Find the number of birch trees**\n$6\\%$ of $250 = 0.06 \\times 250 = 15$ birch trees.\n\n**Step 2: Find the remaining trees**\n$250 - 15 = 235$ non-birch trees.\n\n**Step 3: Find the number of maple trees**\n$30\\%$ of $235 = 0.30 \\times 235 = 70.5$ maple trees.\n\n**Why the wrong answers are tempting:**\n- $6$ (Choice A) is just the birch percentage itself, not the result of any calculation. Some students see "$6\\%$" and think the answer involves that number directly.\n- $15$ (Choice B) is the number of birch trees ($0.06 \\times 250$). Students who stop after the first step or confuse which type of tree the question asks about will pick this.\n- $75$ (Choice D) is $30\\%$ of $250$, which applies the maple percentage to the entire park instead of the remaining trees. The question says "$30\\%$ of the remaining trees," not "$30\\%$ of all trees."\n\n**Verification:** $0.06 \\times 250 = 15$, $250 - 15 = 235$, $0.30 \\times 235 = 70.5$ -- confirmed.\n\n**Test Day Takeaway:** When a percentage applies to "the remaining" or "the rest," you must subtract the first group before applying the second percentage. Watch for whether the percent applies to the total or to a subset.',
           skills: ['Percentages', 'Arithmetic']
         },
         {
@@ -429,31 +429,31 @@ export const practiceTest10 = {
         {
           id: 'pt10-m2-q3',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'The number of raccoons in a $131$-square-mile area is estimated to be $2{,}358$. What is the estimated population density, in raccoons per square mile, of this area?',
+          difficulty: 'medium',
+          question: 'The number of raccoons in a $131$-square-mile area is estimated to be $2{,}358$. A wildlife study predicts that the population will increase by $25\\%$ over the next $5$ years while the area remains the same. What is the estimated population density, in raccoons per square mile, of this area after $5$ years?',
           choices: [
             { id: 'A', text: '$18$' },
-            { id: 'B', text: '$131$' },
+            { id: 'B', text: '$22.5$' },
             { id: 'C', text: '$149$' },
-            { id: 'D', text: '$2{,}376$' }
+            { id: 'D', text: '$2{,}947.5$' }
           ],
-          correctAnswer: 'A',
-          explanation: '**SAT Pattern: Population Density (Rate = Total / Size)** -- Appears 1-2 times per test. This is a unit rate problem in disguise. The SAT checks whether you divide in the right direction.\n\n**Choice A is correct.** The population density is $18$ raccoons per square mile.\n\n**The Fast Way (15 seconds):** Population density = population / area = $2{,}358 \\div 131 = 18$. The word "per" means divide.\n\n**Step 1: Apply the population density formula**\n$$\\text{Population density} = \\frac{\\text{Population}}{\\text{Area}} = \\frac{2{,}358}{131} = 18$$\n\nThe estimated density is $18$ raccoons per square mile.\n\n**Why the wrong answers are tempting:**\n- $131$ (Choice B) is the area given in the problem, not the density. When a problem involves multiple numbers, it is tempting to grab one of the given values rather than perform the calculation. This choice targets students who do not compute anything at all.\n- $149$ (Choice C) is $131 + 18$, which adds the area and the density. When you are unsure which operation to use, addition feels safe, but "per square mile" demands division.\n- $2{,}376$ (Choice D) is $2{,}358 + 18$, adding the population and the density together. This makes no physical sense but might look right to someone who calculated $18$ and then accidentally added it back to the population.\n\n**Verification:** $18 \\times 131 = 2{,}358$ -- confirmed.\n\n**Test Day Takeaway:** "Per" always means divide. Population density = population divided by area. If the answer is bigger than the population, you divided the wrong way.',
+          correctAnswer: 'B',
+          explanation: '**SAT Pattern: Population Density with Percent Increase** -- Appears 1-2 times per test. This combines a unit rate problem with a percentage growth step. The SAT checks whether you apply the increase before dividing.\n\n**Choice B is correct.** The estimated population density after $5$ years is $22.5$ raccoons per square mile.\n\n**The Fast Way (20 seconds):** New population: $2{,}358 \\times 1.25 = 2{,}947.5$. Density: $2{,}947.5 \\div 131 = 22.5$.\n\n**Step 1: Calculate the new population after $25\\%$ increase**\n$2{,}358 \\times 1.25 = 2{,}947.5$ raccoons.\n\n**Step 2: Apply the population density formula**\n$$\\text{Population density} = \\frac{2{,}947.5}{131} = 22.5$$\n\nThe estimated density is $22.5$ raccoons per square mile.\n\n**Why the wrong answers are tempting:**\n- $18$ (Choice A) is the current density ($2{,}358 \\div 131 = 18$) without the $25\\%$ increase. Students who forget to apply the population growth and just divide directly will pick this.\n- $149$ (Choice C) is $131 + 18$, which adds the area and the current density. When you are unsure which operation to use, addition feels safe, but "per square mile" demands division.\n- $2{,}947.5$ (Choice D) is the future population itself, not the density. Students who correctly compute the $25\\%$ increase but forget to divide by the area will pick this.\n\n**Verification:** $2{,}358 \\times 1.25 = 2{,}947.5$, and $2{,}947.5 \\div 131 = 22.5$ -- confirmed.\n\n**Test Day Takeaway:** Multi-step rate problems require you to handle each layer in order. First apply any growth or change to the total, then compute the rate. "Per" always means divide.',
           skills: ['Ratios', 'Population Density']
         },
         {
           id: 'pt10-m2-q4',
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: '$-11, -9, 26$\n\nA data set of three numbers is shown. If a number from this data set is selected at random, what is the probability of selecting a positive number?',
+          difficulty: 'hard',
+          question: 'A survey asked $120$ students about their study habits. Of these students, $45$ study on weekends and $75$ study on weekdays only. Among the weekend studiers, $\\frac{2}{3}$ scored above average on the test. Among the weekday-only studiers, $\\frac{1}{3}$ scored above average. If a student who scored above average is selected at random, what is the probability that this student studies on weekends?',
           choices: [
-            { id: 'A', text: '$0$' },
-            { id: 'B', text: '$\\frac{1}{3}$' },
+            { id: 'A', text: '$\\frac{1}{4}$' },
+            { id: 'B', text: '$\\frac{6}{11}$' },
             { id: 'C', text: '$\\frac{2}{3}$' },
-            { id: 'D', text: '$1$' }
+            { id: 'D', text: '$\\frac{3}{4}$' }
           ],
           correctAnswer: 'B',
-          explanation: '**SAT Pattern: Basic Probability from a Small Data Set** -- Appears 1-2 times per test. Count the favorable outcomes and divide by total. The trap is confusing "positive" with "negative."\n\n**Choice B is correct.** The probability of selecting a positive number is $\\frac{1}{3}$.\n\n**The Fast Way (10 seconds):** Three numbers: $-11$, $-9$, $26$. Only $26$ is positive. Probability $= \\frac{1}{3}$.\n\n**Step 1: Identify positive numbers**\nThe data set is $\\{-11, -9, 26\\}$. Only $26$ is positive.\n\n**Step 2: Calculate the probability**\n$$P(\\text{positive}) = \\frac{\\text{number of positive values}}{\\text{total values}} = \\frac{1}{3}$$\n\n**Why the wrong answers are tempting:**\n- $0$ (Choice A) would mean there are no positive numbers at all. Students who rush past the data set or confuse positive with negative might think all three numbers are negative. But $26$ is clearly positive.\n- $\\frac{2}{3}$ (Choice C) counts $2$ out of $3$, which is the probability of selecting a negative number, not a positive one. The SAT is betting that some students will count the wrong category. When you see "positive," double-check you are counting numbers greater than zero.\n- $1$ (Choice D) would mean every number is positive. Two of the three numbers have negative signs, so this cannot be right. This choice targets students who do not actually look at the data.\n\n**Verification:** Only $26 > 0$, so $P = \\frac{1}{3}$ -- confirmed.\n\n**Test Day Takeaway:** For probability questions, underline the exact condition being asked ("positive number") and count carefully. The SAT often puts the complementary probability as a wrong answer.',
+          explanation: '**SAT Pattern: Conditional Probability from a Two-Way Table** -- Appears 1-2 times per test. The SAT tests whether you can find a conditional probability by identifying both the "given" group and the "favorable" subset within it.\n\n**Choice B is correct.** The probability is $\\frac{6}{11}$.\n\n**The Fast Way (40 seconds):** Weekend studiers above average: $45 \\times \\frac{2}{3} = 30$. Weekday studiers above average: $75 \\times \\frac{1}{3} = 25$. Total above average: $30 + 25 = 55$. Probability = $\\frac{30}{55} = \\frac{6}{11}$.\n\n**Step 1: Find the number of above-average scorers in each group**\nWeekend studiers who scored above average: $45 \\times \\frac{2}{3} = 30$\nWeekday-only studiers who scored above average: $75 \\times \\frac{1}{3} = 25$\n\n**Step 2: Find the total number of above-average scorers**\n$30 + 25 = 55$ students scored above average.\n\n**Step 3: Compute the conditional probability**\n$$P(\\text{weekend} \\mid \\text{above average}) = \\frac{30}{55} = \\frac{6}{11}$$\n\n**Why the wrong answers are tempting:**\n- $\\frac{1}{4}$ (Choice A) is $\\frac{30}{120}$, dividing weekend above-average students by the total number of all students. This ignores the "given" condition -- we are told the selected student already scored above average.\n- $\\frac{2}{3}$ (Choice C) is the proportion of weekend studiers who scored above average, not the proportion of above-average scorers who study on weekends. Confusing $P(A|B)$ with $P(B|A)$ is the most common conditional probability error.\n- $\\frac{3}{4}$ (Choice D) could result from incorrectly computing the ratio of groups or misapplying the fractions.\n\n**Verification:** $\\frac{30}{55} = \\frac{6}{11} \\approx 0.545$ -- confirmed.\n\n**Test Day Takeaway:** In conditional probability, the denominator is always the "given" group. "Given that they scored above average" means the denominator is the total above-average count, not the total student count.',
           skills: ['Probability', 'Data Analysis']
         },
         {
@@ -478,8 +478,8 @@ export const practiceTest10 = {
         {
           id: 'pt10-m2-q7',
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'If $8x = 6$, what is the value of $72x$?',
+          difficulty: 'hard',
+          question: 'If $8x + 3y = 6$ and $4x - 3y = 12$, what is the value of $72x + 27y$?',
           choices: [
             { id: 'A', text: '$3$' },
             { id: 'B', text: '$15$' },
@@ -487,7 +487,7 @@ export const practiceTest10 = {
             { id: 'D', text: '$57$' }
           ],
           correctAnswer: 'C',
-          explanation: '**SAT Pattern: Strategic Multiplication Instead of Solving for x** -- Appears 1-2 times per test. The SAT rewards students who see the relationship between $72x$ and $8x$ without solving for $x$ first.\n\n**Choice C is correct.** $72x = 54$.\n\n**The Fast Way (10 seconds):** $72x = 9 \\times 8x = 9 \\times 6 = 54$. No need to find $x$.\n\n**Step 1: Relate $72x$ to $8x$**\n$72x = 9 \\times 8x$\n\n**Step 2: Substitute the known value**\nSince $8x = 6$:\n$72x = 9 \\times 6 = 54$\n\n**Why the wrong answers are tempting:**\n- $3$ (Choice A) could come from dividing $6 \\div 2$ or from solving $x = 0.75$ and then multiplying by the wrong number. When you solve for $x$ first, you introduce extra steps where arithmetic errors can creep in.\n- $15$ (Choice B) might come from adding $9 + 6 = 15$ instead of multiplying $9 \\times 6$. Students who see the relationship $72 = 9 \\times 8$ sometimes add instead of multiply in the next step.\n- $57$ (Choice D) is close to $54$ and could result from a small arithmetic slip. On the SAT, wrong answers that are close to the right answer are the most dangerous.\n\n**Verification:** $72x = 9(8x) = 9(6) = 54$ -- confirmed.\n\n**Test Day Takeaway:** Before solving for $x$, ask: "Can I get to the expression they want by multiplying what I already know?" $72 = 9 \\times 8$, so $72x = 9 \\times 8x$. This saves time and avoids fraction errors.',
+          explanation: '**SAT Pattern: System of Equations with Strategic Scaling** -- Appears 1-2 times per test. The SAT rewards students who see how to combine equations to produce the target expression without solving for individual variables.\n\n**Choice C is correct.** $72x + 27y = 54$.\n\n**The Fast Way (30 seconds):** Add the two equations: $(8x + 3y) + (4x - 3y) = 6 + 12$, giving $12x = 18$, so $8x = 12$ is not quite right -- let us use the strategic approach instead. Notice $72x + 27y = 9(8x + 3y) = 9(6) = 54$.\n\n**Step 1: Recognize the target expression as a multiple of the first equation**\n$72x + 27y = 9(8x + 3y)$\n\n**Step 2: Substitute the known value**\nSince $8x + 3y = 6$:\n$72x + 27y = 9 \\times 6 = 54$\n\n**Step 3: Verify the system is consistent**\nAdding the equations: $12x = 18$, so $x = \\frac{3}{2}$. Then $3y = 6 - 8(\\frac{3}{2}) = 6 - 12 = -6$, so $y = -2$.\nCheck: $72(\\frac{3}{2}) + 27(-2) = 108 - 54 = 54$.\n\n**Why the wrong answers are tempting:**\n- $3$ (Choice A) could come from finding $y = -2$ and then taking the absolute value minus $1$, or from other partial computations that go off track.\n- $15$ (Choice B) might result from adding the right-hand sides $6 + 12 = 18$ and then subtracting $3$, or from misidentifying the multiplier.\n- $57$ (Choice D) is close to $54$ and could result from a small arithmetic slip in the scaling step, such as computing $9 \\times 6 + 3$.\n\n**Verification:** $x = \\frac{3}{2}$, $y = -2$: $72(\\frac{3}{2}) + 27(-2) = 108 - 54 = 54$ -- confirmed.\n\n**Test Day Takeaway:** Before solving a system for individual variables, check whether the target expression is a multiple of one of the given equations. $72x + 27y = 9(8x + 3y)$ lets you skip the system entirely and multiply directly.',
           skills: ['Algebra', 'Algebraic Manipulation']
         },
         {

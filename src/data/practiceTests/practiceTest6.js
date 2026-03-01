@@ -13,16 +13,16 @@ export const practiceTest6 = {
         {
           id: 1,
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: '$s + 5r = 32$\n$r = 4$\n\nWhat is the solution $(r, s)$ to the given system of equations?',
+          difficulty: 'medium',
+          question: '$s + 5r = 32$\n$2r - 3 = 5$\n\nWhat is the solution $(r, s)$ to the given system of equations?',
           choices: [
             { id: 'A', text: '$(4, 12)$' },
             { id: 'B', text: '$(12, 4)$' },
             { id: 'C', text: '$(4, 32)$' },
-            { id: 'D', text: '$(32, 4)$' }
+            { id: 'D', text: '$(1, 27)$' }
           ],
           correctAnswer: 'A',
-          explanation: '**SAT Pattern: Direct Substitution** -- Appears 2-3 times per test. One of the easiest point grabs if you stay careful with variable order.\n\n**Choice A is correct.** The solution to the system is $(r, s) = (4, 12)$.\n\n**The Fast Way (15 seconds):** Plug $r = 4$ straight into the first equation and solve for $s$. No setup needed.\n\n**Step 1: Substitute $r = 4$ into the first equation**\n$s + 5(4) = 32$\n$s + 20 = 32$\n$s = 12$\n\n**Step 2: Write the solution**\nThe solution is $(r, s) = (4, 12)$.\n\n**Why the wrong answers are tempting:**\n- Choice B $(12, 4)$ flips the coordinates. You solved correctly but wrote $(s, r)$ instead of $(r, s)$. The problem asks for $(r, s)$, so $r = 4$ comes first.\n- Choice C $(4, 32)$ grabs the number $32$ from the right side of the equation and calls it $s$. That is the total, not the value of $s$ after solving.\n- Choice D $(32, 4)$ combines both mistakes -- wrong order and the unsolved constant.\n\n**Verification:** $12 + 5(4) = 12 + 20 = 32$. Checks out.\n\n**Test Day Takeaway:** When the answer is an ordered pair, circle which variable comes first before you start solving.',
+          explanation: '**SAT Pattern: Two-Step Substitution** -- Appears 2-3 times per test. You must solve one equation first, then substitute into the other.\n\n**Choice A is correct.** The solution to the system is $(r, s) = (4, 12)$.\n\n**The Fast Way (25 seconds):** Solve the second equation for $r$ first, then substitute into the first equation to find $s$.\n\n**Step 1: Solve $2r - 3 = 5$ for $r$**\n$2r = 8$\n$r = 4$\n\n**Step 2: Substitute $r = 4$ into the first equation**\n$s + 5(4) = 32$\n$s + 20 = 32$\n$s = 12$\n\n**Step 3: Write the solution**\nThe solution is $(r, s) = (4, 12)$.\n\n**Why the wrong answers are tempting:**\n- Choice B $(12, 4)$ flips the coordinates. You solved correctly but wrote $(s, r)$ instead of $(r, s)$. The problem asks for $(r, s)$, so $r = 4$ comes first.\n- Choice C $(4, 32)$ solves for $r$ correctly but grabs $32$ from the right side of the first equation instead of solving for $s$. That is the total, not the value of $s$.\n- Choice D $(1, 27)$ comes from solving $2r - 3 = 5$ incorrectly as $2r = 2$ giving $r = 1$, then substituting to get $s = 32 - 5 = 27$. The error is forgetting to add $3$ to both sides before dividing.\n\n**Verification:** $12 + 5(4) = 12 + 20 = 32$ and $2(4) - 3 = 8 - 3 = 5$. Both equations check out.\n\n**Test Day Takeaway:** When neither equation gives a variable directly, solve the simpler equation first. Then circle which variable comes first in the ordered pair before you write your answer.',
           skills: ["substitution-method", "linear-equations"]
         },
         {
@@ -51,16 +51,16 @@ export const practiceTest6 = {
         {
           id: 3,
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'At a particular conference, the ratio of speakers to attendees is $1$ to $32$. If there are $x$ speakers at the conference, which of the following expressions represents the number of attendees at the conference?',
+          difficulty: 'medium',
+          question: 'At a particular conference, the ratio of speakers to attendees is $1$ to $32$. The total number of people at the conference (speakers plus attendees) is $528$. How many attendees are at the conference?',
           choices: [
-            { id: 'A', text: '$\\frac{x}{32}$' },
-            { id: 'B', text: '$32x$' },
-            { id: 'C', text: '$x + 32$' },
-            { id: 'D', text: '$\\frac{32}{x}$' }
+            { id: 'A', text: '$16$' },
+            { id: 'B', text: '$17$' },
+            { id: 'C', text: '$512$' },
+            { id: 'D', text: '$528$' }
           ],
-          correctAnswer: 'B',
-          explanation: '**SAT Pattern: Ratio to Expression** -- Common in the first half of Module 1. Translating a ratio into algebra is a fundamental SAT skill.\n\n**Choice B is correct.** If there are $x$ speakers, the number of attendees is $32x$.\n\n**The Fast Way (10 seconds):** The ratio $1:32$ means \"for every 1 speaker, there are 32 attendees.\" So multiply the number of speakers by 32. Attendees $= 32x$.\n\n**Step 1: Interpret the ratio**\nThe ratio of speakers to attendees is $1:32$. This means for every $1$ speaker, there are $32$ attendees.\n\n**Step 2: Write the expression**\nIf there are $x$ speakers, multiply by $32$ to find the number of attendees:\n$$\\text{Attendees} = 32x$$\n\n**Why the wrong answers are tempting:**\n- Choice A ($\\frac{x}{32}$) divides instead of multiplying. This would mean fewer attendees than speakers, which makes no sense for a $1:32$ ratio where attendees vastly outnumber speakers.\n- Choice C ($x + 32$) adds 32 instead of multiplying. This only happens to work when $x = 1$, but falls apart for any other number of speakers. For $x = 2$, you would get $34$ instead of the correct $64$.\n- Choice D ($\\frac{32}{x}$) gives a number that shrinks as speakers increase, which contradicts a directly proportional relationship.\n\n**Verification:** If there are $x = 3$ speakers, attendees $= 32(3) = 96$, and ratio $= 3:96 = 1:32$.\n\n**Test Day Takeaway:** A ratio of $1:k$ means multiply by $k$. Test your expression with a simple number like $x = 1$ to confirm it makes sense.',
+          correctAnswer: 'C',
+          explanation: '**SAT Pattern: Ratio with a Total Constraint** -- Requires two steps: use the ratio to express both quantities in terms of one variable, then use the total to solve.\n\n**Choice C is correct.** There are $512$ attendees at the conference.\n\n**The Fast Way (25 seconds):** The ratio $1:32$ means the total is made up of $1 + 32 = 33$ parts. Each part is $528 \\div 33 = 16$. Attendees get $32$ parts: $32 \\times 16 = 512$.\n\n**Step 1: Set up the ratio**\nLet the number of speakers be $x$. Then attendees $= 32x$ (from the $1:32$ ratio).\n\n**Step 2: Use the total constraint**\n$x + 32x = 528$\n$33x = 528$\n$x = 16$\n\n**Step 3: Find the number of attendees**\nAttendees $= 32(16) = 512$.\n\n**Why the wrong answers are tempting:**\n- Choice A ($16$) is the number of speakers, not attendees. You solved the equation correctly but answered with the wrong variable. Always re-read the question to check which quantity is being asked for.\n- Choice B ($17$) comes from dividing $528$ by $32$ instead of $33$. This forgets that the total includes both speakers and attendees. The total parts in the ratio are $1 + 32 = 33$, not just $32$.\n- Choice D ($528$) treats the total as if it were the number of attendees, ignoring the speakers entirely. But $528$ is everyone combined.\n\n**Verification:** Speakers $= 16$, attendees $= 512$. Total $= 16 + 512 = 528$ and ratio $= 16:512 = 1:32$. Both conditions check out.\n\n**Test Day Takeaway:** When a ratio problem includes a total, add the ratio parts ($1 + 32 = 33$) to find the size of one part, then multiply to find the quantity you need. Do not divide the total by just one side of the ratio.',
           skills: ["word-problem-to-equation"]
         },
         {
@@ -89,8 +89,8 @@ export const practiceTest6 = {
         {
           id: 5,
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'The graph of the linear function $f$ is shown, where $y = f(x)$. What is the $y$-intercept of the graph of $f$?',
+          difficulty: 'medium',
+          question: 'The graph of the linear function $f$ passes through the points $(2, -3)$ and $(6, 1)$. What is the $y$-intercept of the graph of $f$?',
           diagram: {
             type: "linearGraph",
             params: {
@@ -107,19 +107,19 @@ export const practiceTest6 = {
             { id: 'A', text: '$(0, 0)$' },
             { id: 'B', text: '$(0, -5)$' },
             { id: 'C', text: '$(0, 5)$' },
-            { id: 'D', text: '$(0, 10)$' }
+            { id: 'D', text: '$(0, -3)$' }
           ],
           correctAnswer: 'B',
-          explanation: '**SAT Pattern: Reading Graph Intercepts** -- Appears on virtually every SAT. Pure graph-reading -- no calculation needed if you look carefully.\n\n**Choice B is correct.** The $y$-intercept is $(0, -5)$.\n\n**The Fast Way (10 seconds):** Find where the line crosses the $y$-axis. That point is where $x = 0$. The line hits the $y$-axis at $y = -5$, so the answer is $(0, -5)$.\n\n**Step 1: Recall the definition of $y$-intercept**\nThe $y$-intercept is the point where the graph crosses the $y$-axis. At this point, $x = 0$.\n\n**Step 2: Read the graph at $x = 0$**\nThe line crosses the $y$-axis at $y = -5$, so the $y$-intercept is the point $(0, -5)$.\n\n**Why the wrong answers are tempting:**\n- Choice A $(0, 0)$ is the origin, and students sometimes default to it when they are not reading the graph carefully. The line does not pass through the origin.\n- Choice C $(0, 5)$ gets the magnitude right but drops the negative sign. The line crosses below the $x$-axis, so the $y$-value is $-5$, not $+5$. Watch for sign errors on graph-reading questions.\n- Choice D $(0, 10)$ comes from misreading the scale or confusing the $x$-intercept region with the $y$-intercept.\n\n**Verification:** From the equation $y = x - 5$, at $x = 0$: $y = 0 - 5 = -5$, confirming the $y$-intercept is $(0, -5)$.\n\n**Test Day Takeaway:** The $y$-intercept is always the point $(0, b)$. Just trace your finger along the $y$-axis and read where the line crosses it.',
+          explanation: '**SAT Pattern: Finding the y-Intercept from Two Points** -- Requires computing the slope first, then using point-slope form to find the y-intercept. A two-step process.\n\n**Choice B is correct.** The $y$-intercept is $(0, -5)$.\n\n**The Fast Way (25 seconds):** Find the slope from the two points, then plug one point into $y = mx + b$ to solve for $b$.\n\n**Step 1: Find the slope**\n$$m = \\frac{1 - (-3)}{6 - 2} = \\frac{4}{4} = 1$$\n\n**Step 2: Plug a point into $y = mx + b$**\nUsing $(2, -3)$:\n$-3 = 1(2) + b$\n$-3 = 2 + b$\n$b = -5$\n\nThe $y$-intercept is $(0, -5)$.\n\n**Why the wrong answers are tempting:**\n- Choice A $(0, 0)$ is the origin. Students who skip the calculation might assume the line passes through the origin, but with slope $1$ and passing through $(2, -3)$, it clearly does not.\n- Choice C $(0, 5)$ gets the magnitude right but drops the negative sign. When solving $-3 = 2 + b$, you need $b = -3 - 2 = -5$, not $-3 + 2 = -1$ or $3 + 2 = 5$.\n- Choice D $(0, -3)$ grabs the $y$-coordinate of one of the given points and treats it as the $y$-intercept. But $(2, -3)$ is not on the $y$-axis -- only the point where $x = 0$ is the $y$-intercept.\n\n**Verification:** The line $y = x - 5$: at $x = 2$, $y = 2 - 5 = -3$; at $x = 6$, $y = 6 - 5 = 1$. Both points check out, and $y$-intercept is $(0, -5)$.\n\n**Test Day Takeaway:** Finding a $y$-intercept from two points is always a two-step process: slope first ($m = \\frac{y_2 - y_1}{x_2 - x_1}$), then solve $y = mx + b$ using either point.',
           skills: ["slope-intercept-form"]
         },
         {
           id: 6,
           type: 'fill-in',
-          difficulty: 'easy',
-          question: 'A store sells two different-sized containers of almonds. The store\'s sales of these almonds totaled \\$725.40 last month. The equation $3.85x + 5.45y = 725.40$ represents this situation, where $x$ is the number of smaller containers sold and $y$ is the number of larger containers sold. According to the equation, what is the price, in dollars, of each smaller container?',
-          correctAnswer: '3.85',
-          explanation: '**SAT Pattern: Interpreting Coefficients in Context** -- One of the most common SAT question types. No algebra required -- just reading comprehension applied to an equation.\n\n**The correct answer is $3.85$.**\n\n**The Fast Way (10 seconds):** The equation is (price per small)(number of small) + (price per large)(number of large) = total. The coefficient of $x$ is $3.85$, and $x$ is the number of smaller containers. So $3.85$ is the price per smaller container.\n\n**Step 1: Understand the equation structure**\nThe equation $3.85x + 5.45y = 725.40$ represents total sales, where:\n- $x$ = number of smaller containers sold\n- $y$ = number of larger containers sold\n- $725.40$ = total revenue in dollars\n\n**Step 2: Identify the meaning of each coefficient**\nIn a revenue equation of the form (price$_1$)(quantity$_1$) + (price$_2$)(quantity$_2$) = total:\n- $3.85$ is multiplied by $x$ (smaller containers), so $3.85$ is the price per smaller container\n- $5.45$ is the price per larger container\n\n**Verification:** If $10$ small and $100$ large containers were sold: $3.85(10) + 5.45(100) = 38.50 + 545 = 583.50$ -- the coefficient correctly gives the per-unit price.\n\n**Test Day Takeaway:** In any equation of the form $ax + by = \\text{total}$, the coefficient is the per-unit rate for that variable. Do not solve -- just interpret.',
+          difficulty: 'medium',
+          question: 'A store sells two different-sized containers of almonds. The store\'s sales of these almonds totaled \\$660 last month. The equation $4x + 6y = 660$ represents this situation, where $x$ is the number of smaller containers sold and $y$ is the number of larger containers sold. If the store sold $90$ smaller containers last month, how many larger containers did the store sell?',
+          correctAnswer: '50',
+          explanation: '**SAT Pattern: Interpreting and Solving a Linear Revenue Equation** -- Requires understanding the equation structure and then substituting a known value to solve for the unknown quantity.\n\n**The correct answer is $50$.**\n\n**The Fast Way (20 seconds):** Plug $x = 90$ into the equation and solve for $y$. $4(90) + 6y = 660$, so $360 + 6y = 660$, so $6y = 300$, so $y = 50$.\n\n**Step 1: Understand the equation**\nThe equation $4x + 6y = 660$ represents total revenue, where $4$ is the price per smaller container and $6$ is the price per larger container.\n\n**Step 2: Substitute $x = 90$**\n$4(90) + 6y = 660$\n$360 + 6y = 660$\n$6y = 660 - 360 = 300$\n$y = \\frac{300}{6} = 50$\n\n**Verification:** $4(90) + 6(50) = 360 + 300 = 660$. Confirmed.\n\n**Test Day Takeaway:** Revenue equations of the form $ax + by = \\text{total}$ require two steps: interpret the coefficient as a per-unit price, then substitute the known quantity and solve for the unknown. Always verify by plugging both values back in.',
           skills: ["word-problem-to-equation", "linear-equations"]
         },
         {
@@ -164,25 +164,25 @@ export const practiceTest6 = {
         {
           id: 10,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "In a poll of $8000$ voters, $5280$ said they support a new policy. What percent of voters support the new policy?",
+          difficulty: "hard",
+          question: "In a poll of $8{,}000$ voters, $66\\%$ said they support a new policy. After a public debate, $15\\%$ of the original supporters changed their minds and no longer support the policy, while $200$ voters who originally did not support the policy now do. What percent of the $8{,}000$ voters support the policy after the debate?",
           choices: [
-            { id: "A", text: "$52.8\\%$" },
-            { id: "B", text: "$66\\%$" },
-            { id: "C", text: "$72\\%$" },
-            { id: "D", text: "$79.2\\%$" }
+            { id: "A", text: "$53.6\\%$" },
+            { id: "B", text: "$58.6\\%$" },
+            { id: "C", text: "$66\\%$" },
+            { id: "D", text: "$72.1\\%$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Basic Percentage Calculation** -- Fundamental skill tested repeatedly. Use mental math shortcuts to save time.\n\n**Choice B is correct.** $66\\%$ of voters support the new policy.\n\n**The Fast Way (15 seconds):** Simplify the fraction. $\\frac{5280}{8000}$: divide top and bottom by $80$ to get $\\frac{66}{100} = 66\\%$. Or on the calculator, just type $5280 \\div 8000 = 0.66$.\n\n**Solution steps:**\n- Percent $= \\frac{\\text{Part}}{\\text{Whole}} \\times 100$\n- Percent $= \\frac{5280}{8000} \\times 100$\n- Percent $= 0.66 \\times 100$\n- Percent $= 66\\%$\n\n**Why the wrong answers are tempting:**\n- Choice A ($52.8\\%$) looks plausible because 5280 starts with 52, and students sometimes misplace the decimal or divide incorrectly. This would correspond to about $4224$ supporters, not $5280$.\n- Choice C ($72\\%$) is a common mental math slip -- possibly from rounding or miscalculating $5280 \\div 8000$ as $0.72$. Always double-check division with your calculator.\n- Choice D ($79.2\\%$) is way too high and comes from a significant arithmetic error, but it can feel right if you rush through the division.\n\n**Verification:** $66\\%$ of $8000 = 0.66 \\times 8000 = 5280$. Confirmed.\n\n**Test Day Takeaway:** For percentage questions, part divided by whole times 100. When the numbers are large, use your calculator -- do not try to be a hero with mental math.",
+          explanation: "**SAT Pattern: Multi-Step Percentage with Changing Groups** -- Combines percentage calculation with tracking changes across two subgroups. Requires careful bookkeeping.\n\n**Choice B is correct.** After the debate, $58.6\\%$ of voters support the policy.\n\n**The Fast Way (40 seconds):** Original supporters: $0.66 \\times 8{,}000 = 5{,}280$. Lost $15\\%$ of them: $0.15 \\times 5{,}280 = 792$. Gained $200$ new supporters. New total: $5{,}280 - 792 + 200 = 4{,}688$. Percent: $\\frac{4{,}688}{8{,}000} = 0.586 = 58.6\\%$.\n\n**Step 1: Find the original number of supporters**\n$66\\%$ of $8{,}000 = 0.66 \\times 8{,}000 = 5{,}280$ supporters.\n\n**Step 2: Calculate supporters who changed their minds**\n$15\\%$ of $5{,}280 = 0.15 \\times 5{,}280 = 792$ people switched away from supporting.\n\n**Step 3: Account for new supporters**\n$200$ non-supporters now support the policy.\n\n**Step 4: Find the new total and percentage**\nNew supporters $= 5{,}280 - 792 + 200 = 4{,}688$.\nPercent $= \\frac{4{,}688}{8{,}000} \\times 100 = 58.6\\%$.\n\n**Why the wrong answers are tempting:**\n- Choice A ($53.6\\%$) subtracts the $200$ new supporters instead of adding them: $5{,}280 - 792 - 200 = 4{,}288$ and $4{,}288/8{,}000 = 53.6\\%$. The $200$ switched to supporting, not away from it.\n- Choice C ($66\\%$) ignores all changes and sticks with the original percentage. This is the \"I got confused so I will pick the given number\" trap.\n- Choice D ($72.1\\%$) adds the $792$ lost supporters instead of subtracting them: $5{,}280 + 792 + 200 = 6{,}272$ which gives about $78.4\\%$. Or it may come from adding $15\\%$ of the non-supporters to the original count.\n\n**Verification:** $4{,}688 / 8{,}000 = 0.586 = 58.6\\%$. Confirmed.\n\n**Test Day Takeaway:** Multi-step percentage problems require tracking each change separately. Find the starting number, apply each change in order, then convert back to a percentage. Do not try to combine the percentage changes into one step.",
           skills: ["percentages", "proportions"]
         },
         {
           id: 11,
           type: "fill-in",
-          difficulty: "medium",
-          question: "The function $f$ is defined by $f(x) = 6x + 4$. For what value of $x$ does $f(x) = 28$?",
-          correctAnswer: 4,
-          explanation: "**SAT Pattern: Evaluating a Function for a Given Output** -- Appears frequently. Instead of plugging in $x$ to get $f(x)$, you are working backward from the output.\n\n**The correct answer is 4.**\n\n**The Fast Way (15 seconds):** On Desmos, graph $y = 6x + 4$ and find where $y = 28$. Or just solve: $28 = 6x + 4$, so $6x = 24$, so $x = 4$.\n\n**Solution steps:**\n- Set $f(x) = 28$: $28 = 6x + 4$\n- Subtract $4$: $24 = 6x$\n- Divide by $6$: $x = 4$\n\n**Verification:** $f(4) = 6(4) + 4 = 24 + 4 = 28$. Confirmed.\n\n**Test Day Takeaway:** When a problem gives you the output and asks for the input, replace $f(x)$ with the given value and solve the equation backward. It is the same algebra, just in reverse.",
+          difficulty: "hard",
+          question: "The function $f$ is defined by $f(x) = 6x + 4$ and the function $g$ is defined by $g(x) = x^2 - 1$. For what positive value of $x$ does $f(g(x)) = 52$?",
+          correctAnswer: 3,
+          explanation: "**SAT Pattern: Function Composition with Two Steps** -- Requires evaluating a composite function and then solving. You must work from the inside out.\n\n**The correct answer is $3$.**\n\n**The Fast Way (30 seconds):** Start from $f(g(x)) = 52$. Since $f(t) = 6t + 4$, set $6 \\cdot g(x) + 4 = 52$. So $6g(x) = 48$, meaning $g(x) = 8$. Then $x^2 - 1 = 8$, so $x^2 = 9$, so $x = 3$ (positive value).\n\n**Step 1: Set up the composition**\n$f(g(x)) = 6 \\cdot g(x) + 4 = 6(x^2 - 1) + 4$\n\n**Step 2: Solve $f(g(x)) = 52$**\n$6(x^2 - 1) + 4 = 52$\n$6x^2 - 6 + 4 = 52$\n$6x^2 - 2 = 52$\n$6x^2 = 54$\n$x^2 = 9$\n$x = \\pm 3$\n\n**Step 3: Apply the constraint**\nThe problem asks for the positive value, so $x = 3$.\n\n**Verification:** $g(3) = 9 - 1 = 8$. Then $f(8) = 6(8) + 4 = 48 + 4 = 52$. Confirmed.\n\n**Test Day Takeaway:** For composite functions $f(g(x))$, work from the inside out. First figure out what $g(x)$ must equal by working backward through $f$, then solve for $x$. This two-layer approach is faster than expanding the whole composition first.",
           skills: ["function-equations", "linear-equations"]
         },
         {
@@ -203,10 +203,10 @@ export const practiceTest6 = {
         {
           id: 13,
           type: "fill-in",
-          difficulty: "medium",
-          question: "A solid aluminum cylinder has a mass of $540$ grams. If aluminum has a density of $2.7$ grams per cubic centimeter, what is the volume, in cubic centimeters, of the cylinder?",
-          correctAnswer: 200,
-          explanation: "**SAT Pattern: Density Formula Rearrangement** -- A science-flavored algebra question. Know the triangle: $D = M/V$, so $V = M/D$.\n\n**The correct answer is $200$.**\n\n**The Fast Way (10 seconds):** Volume $= \\frac{\\text{Mass}}{\\text{Density}} = \\frac{540}{2.7} = 200$. Punch it into the calculator and move on.\n\n**Solution steps:**\n- Density $=$ Mass/Volume, so Volume $=$ Mass/Density\n- Volume $= 540$ g $\\div 2.7$ g/cm cubed\n- Volume $= 200$ cm cubed\n\n**Verification:** $2.7 \\times 200 = 540$ g. Confirmed.\n\n**Test Day Takeaway:** Memorize the density triangle: $D = M/V$, $M = D \\times V$, $V = M/D$. The SAT gives you two of the three values -- just rearrange and divide.",
+          difficulty: "hard",
+          question: "A solid aluminum cylinder has a mass of $540$ grams. If aluminum has a density of $2.7$ grams per cubic centimeter and the cylinder has a radius of $5$ centimeters, what is the height, in centimeters, of the cylinder? (Round to the nearest whole number.)",
+          correctAnswer: 3,
+          explanation: "**SAT Pattern: Combining Density with Cylinder Volume** -- Requires two concepts: using density to find volume, then using the cylinder volume formula to find a missing dimension.\n\n**The correct answer is $3$.**\n\n**The Fast Way (35 seconds):** First find the volume from density: $V = 540 / 2.7 = 200$ cm$^3$. Then use $V = \\pi r^2 h$: $200 = \\pi(25)h$, so $h = 200/(25\\pi) = 8/\\pi \\approx 2.546$. Rounded to the nearest whole number: $h \\approx 3$.\n\n**Step 1: Find the volume using density**\n$V = \\frac{\\text{Mass}}{\\text{Density}} = \\frac{540}{2.7} = 200$ cm$^3$.\n\n**Step 2: Use the cylinder volume formula**\n$V = \\pi r^2 h$\n$200 = \\pi (5)^2 h$\n$200 = 25\\pi h$\n$h = \\frac{200}{25\\pi} = \\frac{8}{\\pi} \\approx 2.546$\n\n**Step 3: Round**\n$h \\approx 3$ cm (to the nearest whole number).\n\n**Verification:** $V = \\pi(5)^2(8/\\pi) = 25\\pi \\times 8/\\pi = 200$ cm$^3$. And mass $= 2.7 \\times 200 = 540$ g. Both conditions confirmed.\n\n**Test Day Takeaway:** When a problem combines density with geometry, work in stages. First convert mass to volume using the density formula, then apply the geometry formula. Multi-concept problems reward systematic step-by-step work.",
           skills: ["density", "volume"]
         },
         {
@@ -256,16 +256,16 @@ export const practiceTest6 = {
         {
           id: 16,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "$3.5c + 4d = 70$\n\nThe given equation describes the relationship between the number of cats, $c$, and the number of dogs, $d$, that can be housed at an animal shelter on a given day. If the shelter houses $10$ dogs on a given day, how many cats can it house on this day?",
+          difficulty: "hard",
+          question: "An animal shelter can house at most $70$ animals. Each cat requires $3.5$ units of space and each dog requires $4$ units of space. The shelter currently houses $8$ dogs. If the shelter takes in $4$ more dogs, what is the maximum number of cats the shelter can house?",
           choices: [
-            { id: "A", text: "$0$" },
-            { id: "B", text: "$6$" },
+            { id: "A", text: "$6$" },
+            { id: "B", text: "$8$" },
             { id: "C", text: "$10$" },
-            { id: "D", text: "$70$" }
+            { id: "D", text: "$12$" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Substitution in a Linear Equation** -- Straightforward plug-and-solve. The SAT gives you one value and asks you to find the other.\n\n**Choice B is correct.** The shelter can house $6$ cats.\n\n**The Fast Way (20 seconds):** Plug $d = 10$: $3.5c + 4(10) = 70$, so $3.5c + 40 = 70$, so $3.5c = 30$, so $c = 30/3.5$. On Desmos: type $30/3.5$ and get approximately $8.57$. Since the answer choices are whole numbers and we need to check which one actually works, test $c = 6$: $3.5(6) + 4(10) = 21 + 40 = 61$. Hmm -- let us check all choices to find which satisfies the equation.\n\nActually, testing Choice B: $3.5(6) + 40 = 21 + 40 = 61$. Testing others: $3.5(0) + 40 = 40$, $3.5(10) + 40 = 75$. None equal $70$ exactly, so the equation coefficients in this problem may have a rounding context. Among the choices, $c = 6$ is the most reasonable answer.\n\n**Why the wrong answers are tempting:**\n- Choice A ($0$) would mean no cats at all. But $3.5(0) + 4(10) = 40$, which does not reach $70$. There is room for more animals.\n- Choice C ($10$) assumes equal numbers of cats and dogs, but $3.5(10) + 4(10) = 75$, which exceeds $70$.\n- Choice D ($70$) grabs the constant from the equation without doing any algebra. $3.5(70) + 40 = 285$, which is way over.\n\n**Verification:** Among the answer choices, $c = 6$ gives the value closest to satisfying the constraint and is the intended correct answer.\n\n**Test Day Takeaway:** Substitute the given value, isolate the unknown, and solve. If the algebra gives a non-integer, test the answer choices directly -- the SAT always has exactly one correct option.",
+          correctAnswer: "A",
+          explanation: "**SAT Pattern: Linear Inequality with Multi-Step Setup** -- Requires combining two pieces of information (current + incoming dogs) and then solving an inequality for the remaining variable.\n\n**Choice A is correct.** The shelter can house a maximum of $6$ cats.\n\n**The Fast Way (35 seconds):** Total dogs after taking in $4$ more: $8 + 4 = 12$. Space used by dogs: $4(12) = 48$. Remaining space: $70 - 48 = 22$. Max cats: $\\lfloor 22 / 3.5 \\rfloor = \\lfloor 6.28 \\rfloor = 6$.\n\n**Step 1: Find the total number of dogs**\nCurrent dogs: $8$. Additional dogs: $4$. Total: $8 + 4 = 12$ dogs.\n\n**Step 2: Calculate space used by dogs**\nDog space $= 4 \\times 12 = 48$ units.\n\n**Step 3: Find remaining space for cats**\nRemaining space $= 70 - 48 = 22$ units.\n\n**Step 4: Find the maximum number of cats**\n$3.5c \\leq 22$\n$c \\leq \\frac{22}{3.5} = 6.28...$\nSince $c$ must be a whole number, $c \\leq 6$.\n\n**Why the wrong answers are tempting:**\n- Choice B ($8$) forgets to add the $4$ new dogs, using only the original $8$ dogs: $4(8) = 32$, leaving $38$ units, and $38/3.5 \\approx 10.8$. Then they might round down to $8$ or pick this for other reasons.\n- Choice C ($10$) uses only the original $8$ dogs: $70 - 32 = 38$, and $38/3.5 \\approx 10.8 \\to 10$. Forgetting the incoming dogs inflates the available space.\n- Choice D ($12$) may come from dividing the remaining space by $2$ or some other error, or from computing $48/4 = 12$ (confusing cats with dogs).\n\n**Verification:** $3.5(6) + 4(12) = 21 + 48 = 69 \\leq 70$. And $3.5(7) + 48 = 24.5 + 48 = 72.5 > 70$, so $7$ cats would exceed capacity.\n\n**Test Day Takeaway:** When a problem has multiple moving parts (existing animals + new animals + a constraint), update all quantities before solving. The \"maximum\" keyword means you need an inequality, and you round down to the nearest whole number.",
           skills: ["Algebra", "Linear equations"]
         },
         {
@@ -368,23 +368,23 @@ export const practiceTest6 = {
         {
           id: 1,
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'Which expression is equivalent to $(6x^3 + 5) - (x^3 - 4)$?',
+          difficulty: 'medium',
+          question: 'Which expression is equivalent to $(6x^3 + 5) - 3(x^3 - 4)$?',
           choices: [
-            { id: 'A', text: '$6x^3 + 1$' },
-            { id: 'B', text: '$5x^3 + 9$' },
-            { id: 'C', text: '$6x^3 + 9$' },
-            { id: 'D', text: '$5x^3 + 1$' }
+            { id: 'A', text: '$3x^3 + 17$' },
+            { id: 'B', text: '$3x^3 - 7$' },
+            { id: 'C', text: '$9x^3 + 17$' },
+            { id: 'D', text: '$3x^3 + 1$' }
           ],
-          correctAnswer: 'B',
-          explanation: '**SAT Pattern: Subtracting Polynomials** -- Appears on nearly every SAT. The trap is always the same: forgetting to distribute the negative sign to every term in the second parentheses.\n\n**Choice B is correct.** The equivalent expression is $5x^3 + 9$.\n\n**The Fast Way (15 seconds):** Distribute the minus sign to both terms in the second group: $(6x^3 + 5) - (x^3 - 4) = 6x^3 + 5 - x^3 + 4 = 5x^3 + 9$. Or plug in $x = 1$ to check: $(6 + 5) - (1 - 4) = 11 - (-3) = 14$. Only $5(1) + 9 = 14$ matches.\n\n**Step 1: Distribute the subtraction**\n$$(6x^3 + 5) - (x^3 - 4) = 6x^3 + 5 - x^3 + 4$$\nNote: The negative sign changes $-4$ to $+4$.\n\n**Step 2: Combine like terms**\n$$6x^3 - x^3 + 5 + 4 = 5x^3 + 9$$\n\n**Why the wrong answers are tempting:**\n- Choice A ($6x^3 + 1$) forgets to distribute the negative sign to the $-4$ term. You get $5 - 4 = 1$ instead of $5 + 4 = 9$. The minus sign in front of the parentheses flips every sign inside -- not just the first term.\n- Choice C ($6x^3 + 9$) gets the constant term right (distributing the negative to $-4$ correctly) but forgets to subtract the $x^3$ term from $6x^3$. You need to handle both the variable terms and the constants.\n- Choice D ($5x^3 + 1$) subtracts $x^3$ correctly but makes the same sign error as Choice A with the constant. It is the combination of both partial mistakes.\n\n**Verification:** At $x = 1$: $(6 + 5) - (1 - 4) = 11 - (-3) = 14$, and $5(1) + 9 = 14$.\n\n**Test Day Takeaway:** When you subtract polynomials, write out the distribution step explicitly. The minus sign flips every term inside the second parentheses. This is the number one careless error on the SAT.',
+          correctAnswer: 'A',
+          explanation: '**SAT Pattern: Polynomial Subtraction with Distribution** -- Adds a coefficient in front of the subtracted group, requiring distribution before combining like terms.\n\n**Choice A is correct.** The equivalent expression is $3x^3 + 17$.\n\n**The Fast Way (20 seconds):** Distribute the $-3$ to both terms in the second group: $(6x^3 + 5) - 3(x^3 - 4) = 6x^3 + 5 - 3x^3 + 12 = 3x^3 + 17$. Or plug in $x = 1$: $(6 + 5) - 3(1 - 4) = 11 - 3(-3) = 11 + 9 = 20$. Only $3(1) + 17 = 20$ matches.\n\n**Step 1: Distribute $-3$ to the second group**\n$$(6x^3 + 5) - 3(x^3 - 4) = 6x^3 + 5 - 3x^3 + 12$$\nNote: $-3 \\times (-4) = +12$, not $-12$.\n\n**Step 2: Combine like terms**\n$$6x^3 - 3x^3 + 5 + 12 = 3x^3 + 17$$\n\n**Why the wrong answers are tempting:**\n- Choice B ($3x^3 - 7$) distributes the $-3$ to $x^3$ correctly but applies the negative sign to $-4$ wrong, getting $-3 \\times (-4) = -12$ or just subtracting $12$ from $5$. The double negative must produce a positive: $-3 \\times (-4) = +12$.\n- Choice C ($9x^3 + 17$) adds $3x^3$ to $6x^3$ instead of subtracting. The subtraction sign means $-3(x^3) = -3x^3$, so you subtract from $6x^3$.\n- Choice D ($3x^3 + 1$) subtracts $x^3$ terms correctly but forgets to multiply $-4$ by $3$, treating the expression as if the coefficient $3$ only applies to $x^3$ and not to $-4$. The $3$ multiplies everything inside the parentheses.\n\n**Verification:** At $x = 1$: $(6 + 5) - 3(1 - 4) = 11 - 3(-3) = 11 + 9 = 20$, and $3(1) + 17 = 20$.\n\n**Test Day Takeaway:** When a coefficient sits in front of a subtracted group, distribute it to every term inside. The most common error is applying the coefficient to only the first term or mishandling the double negative.',
           skills: ["combining-like-terms"]
         },
         {
           id: 2,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "The line graph shows the estimated number of deer in a wildlife reserve on January 1 of each year from 2010 to 2020. Based on the line graph, in which year was the estimated number of deer in the reserve the greatest?",
+          difficulty: "medium",
+          question: "The line graph shows the estimated number of deer in a wildlife reserve on January 1 of each year from 2010 to 2020. Based on the line graph, the estimated number of deer was greatest in 2016 at $250$ deer. What is the approximate percent decrease in the deer population from 2016 to 2020, if the 2020 estimate was $175$ deer?",
           diagram: {
             type: "piecewiseLinear",
             params: {
@@ -407,13 +407,13 @@ export const practiceTest6 = {
             }
           },
           choices: [
-            { id: "A", text: "2010" },
-            { id: "B", text: "2014" },
-            { id: "C", text: "2016" },
-            { id: "D", text: "2019" }
+            { id: "A", text: "$25\\%$" },
+            { id: "B", text: "$30\\%$" },
+            { id: "C", text: "$43\\%$" },
+            { id: "D", text: "$75\\%$" }
           ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Reading a Line Graph for Maximum Value** -- Pure graph reading. No calculation needed -- just careful visual scanning.\n\n**Choice C is correct.** The estimated number of deer was greatest in 2016.\n\n**The Fast Way (10 seconds):** Scan the line graph from left to right and find the highest point. The peak occurs at 2016. Done.\n\n**Solution:**\n- Scan across all years from 2010 to 2020\n- The peak (highest $y$-value) occurs in 2016\n- Therefore, 2016 had the greatest estimated number of deer\n\n**Why the wrong answers are tempting:**\n- Choice A (2010) is just the starting year. Some students pick the first data point without scanning the rest of the graph. The population in 2010 is well below the peak.\n- Choice B (2014) shows an upward trend -- the population is growing -- but it has not yet reached its maximum. It is tempting because the graph is rising steeply here, but the peak does not come until 2016.\n- Choice D (2019) is a local uptick after the decline from the peak. Students sometimes focus on the most recent data instead of looking for the overall maximum.\n\n**Verification:** The highest point on the entire graph falls at 2016, exceeding every other year.\n\n**Test Day Takeaway:** For maximum or minimum questions on line graphs, scan the entire graph before choosing. Do not stop at the first high point you see -- there might be a higher one later.",
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Percent Decrease from a Graph** -- Requires reading two values from the graph and then computing a percent change. Two skills combined into one question.\n\n**Choice B is correct.** The approximate percent decrease is $30\\%$.\n\n**The Fast Way (20 seconds):** Read the peak (2016: $250$) and the 2020 value ($175$). Percent decrease $= \\frac{250 - 175}{250} \\times 100 = \\frac{75}{250} \\times 100 = 30\\%$.\n\n**Step 1: Identify the values**\n- 2016 population: $250$ deer (peak)\n- 2020 population: $175$ deer\n\n**Step 2: Compute the percent decrease**\n$$\\text{Percent decrease} = \\frac{\\text{Original} - \\text{New}}{\\text{Original}} \\times 100 = \\frac{250 - 175}{250} \\times 100 = \\frac{75}{250} \\times 100 = 30\\%$$\n\n**Why the wrong answers are tempting:**\n- Choice A ($25\\%$) comes from dividing the difference by a wrong base. For example, $75/300 = 25\\%$ if you accidentally used $300$ or made a rounding error.\n- Choice C ($43\\%$) might come from dividing $75$ by $175$ (the ending value instead of the starting value): $75/175 \\approx 42.9\\%$. Percent decrease always uses the original value as the denominator, not the final value.\n- Choice D ($75\\%$) grabs the raw difference ($75$) and treats it as a percentage, forgetting to divide by the original amount.\n\n**Verification:** $250 \\times 0.30 = 75$, and $250 - 75 = 175$. Confirmed.\n\n**Test Day Takeaway:** Percent change $= \\frac{\\text{change}}{\\text{original}} \\times 100$. The denominator is always the starting value, never the ending value. This is the single most common percent change mistake.",
           skills: ["Problem-Solving and Data Analysis", "Data interpretation"]
         },
         {
@@ -434,16 +434,16 @@ export const practiceTest6 = {
         {
           id: 4,
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'Five students took a quiz. The scores were: $82, 78, 85, 74, 81$. A sixth student scored $60$ on the quiz. Which of the following correctly compares the means of the two data sets?',
+          difficulty: 'hard',
+          question: 'Five students took a quiz. The scores were: $82, 78, 85, 74, 81$. A sixth student scored $60$ on the quiz. Which of the following statements about the effect of adding the sixth score is true?',
           choices: [
-            { id: 'A', text: 'The mean of the original data set is greater than the mean of the new data set.' },
-            { id: 'B', text: 'The mean of the original data set is less than the mean of the new data set.' },
-            { id: 'C', text: 'The means of both data sets are equal.' },
-            { id: 'D', text: 'There is not enough information to compare the means.' }
+            { id: 'A', text: 'The mean decreases and the median decreases.' },
+            { id: 'B', text: 'The mean decreases but the median stays the same.' },
+            { id: 'C', text: 'The mean and the median both stay the same.' },
+            { id: 'D', text: 'The mean stays the same but the median decreases.' }
           ],
           correctAnswer: 'A',
-          explanation: '**SAT Pattern: Effect of Adding a Data Point on the Mean** -- The SAT loves testing your intuition about how a new value shifts the mean. You can answer this without fully computing the new mean.\n\n**Choice A is correct.** The mean of the original data set is greater than the mean of the new data set.\n\n**The Fast Way (20 seconds):** Compute the original mean: $(82 + 78 + 85 + 74 + 81)/5 = 400/5 = 80$. The new score is $60$, which is below $80$. Adding a value below the mean always pulls the mean down. So the original mean is greater. Choose A.\n\n**Step 1: Find the original mean (5 students)**\n$$\\text{Mean} = \\frac{82 + 78 + 85 + 74 + 81}{5} = \\frac{400}{5} = 80$$\n\n**Step 2: Find the new mean (6 students)**\n$$\\text{Mean} = \\frac{400 + 60}{6} = \\frac{460}{6} \\approx 76.67$$\n\n**Step 3: Compare**\nThe original mean ($80$) is greater than the new mean ($76.67$).\n\n**Why the wrong answers are tempting:**\n- Choice B reverses the comparison. Students sometimes confuse \"more data points\" with \"higher mean,\" but the direction depends on whether the new score is above or below the current mean. Here, $60 < 80$, so the mean drops.\n- Choice C would only be true if the new score equaled the original mean ($80$). Since $60$ is far below $80$, the means cannot be equal.\n- Choice D is the safe-sounding \"not enough info\" option, but you have all five original scores and the new score. That is everything you need to compute both means exactly.\n\n**Verification:** $80 > 76.67$. The original mean is greater.\n\n**Test Day Takeaway:** You do not always need to compute the new mean. If the added value is below the current mean, the mean drops. If it is above, the mean rises. If it equals the mean, nothing changes.',
+          explanation: '**SAT Pattern: Effect of an Outlier on Mean and Median** -- Requires computing both the mean and median before and after adding a data point. Combines two statistical concepts in one question.\n\n**Choice A is correct.** Both the mean and the median decrease.\n\n**The Fast Way (40 seconds):** Original mean $= 400/5 = 80$. New mean $= 460/6 \\approx 76.67$ (decreased). For the median, sort the original set: $74, 78, 81, 82, 85$ -- median is $81$. New sorted set: $60, 74, 78, 81, 82, 85$ -- median of $6$ values is the average of the $3$rd and $4$th values: $(78 + 81)/2 = 79.5$ (decreased).\n\n**Step 1: Compute the original mean and median**\nOriginal scores sorted: $74, 78, 81, 82, 85$.\n- Mean $= (74 + 78 + 81 + 82 + 85)/5 = 400/5 = 80$.\n- Median (middle value of 5 numbers) $= 81$.\n\n**Step 2: Compute the new mean and median**\nNew scores sorted: $60, 74, 78, 81, 82, 85$.\n- Mean $= (400 + 60)/6 = 460/6 \\approx 76.67$.\n- Median (average of 3rd and 4th values in 6 numbers) $= (78 + 81)/2 = 79.5$.\n\n**Step 3: Compare**\n- Mean: $80 \\to 76.67$ (decreased by $3.33$).\n- Median: $81 \\to 79.5$ (decreased by $1.5$).\n\n**Why the wrong answers are tempting:**\n- Choice B claims the median stays the same. This would be true if the new score landed in a position that did not shift the middle values. But $60$ pushes every value up one position in the sorted list, moving the \"middle\" from $81$ alone to the average of $78$ and $81$.\n- Choice C claims nothing changes. Adding a value below both the mean and median always pulls at least the mean down.\n- Choice D claims only the median changes. The mean always changes when a value different from the current mean is added.\n\n**Verification:** Mean dropped from $80$ to $76.67$ and median dropped from $81$ to $79.5$. Both decreased.\n\n**Test Day Takeaway:** Adding a low outlier always decreases the mean. Whether it changes the median depends on where it falls in the sorted order and whether the number of data points changes from odd to even (or vice versa). When in doubt, sort the data and compute both.',
           skills: ["find-mean"]
         },
         {
@@ -566,46 +566,46 @@ export const practiceTest6 = {
         {
           id: 12,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "$f(x) = (x - 8)(x + 14)$\n\nThe function $f$ is defined by the given equation. For what value of $x$ does $f(x)$ reach its minimum?",
+          difficulty: "hard",
+          question: "$f(x) = (x - 8)(x + 14)$\n\nThe function $f$ is defined by the given equation. What is the minimum value of $f(x)$?",
           choices: [
             { id: "A", text: "$-112$" },
-            { id: "B", text: "$-14$" },
+            { id: "B", text: "$-121$" },
             { id: "C", text: "$-3$" },
             { id: "D", text: "$6$" }
           ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Finding the Vertex from Factored Form** -- When a quadratic is already factored, the vertex $x$-coordinate is just the average of the two roots. No expanding needed.\n\n**Choice C is correct.** The minimum occurs at $x = -3$.\n\n**The Fast Way (10 seconds):** The roots are $x = 8$ and $x = -14$ (set each factor to zero). The vertex is at the midpoint: $\\frac{8 + (-14)}{2} = \\frac{-6}{2} = -3$.\n\n**Solution:**\n- Zeros: $x = 8$ and $x = -14$ (from factored form)\n- Vertex $x$-coordinate $= \\frac{8 + (-14)}{2} = \\frac{-6}{2} = -3$\n\n**Alternative using vertex formula:** Expand to $f(x) = x^2 + 6x - 112$, then $x = \\frac{-b}{2a} = \\frac{-6}{2} = -3$.\n\n**Why the wrong answers are tempting:**\n- Choice A ($-112$) is the constant term from the expanded form $x^2 + 6x - 112$. Students sometimes confuse the $y$-intercept or constant with the vertex. The constant has nothing to do with where the minimum occurs.\n- Choice B ($-14$) is one of the zeros of $f$. At a zero, $f(x) = 0$, but the minimum value of this parabola is actually negative (below the $x$-axis). The minimum occurs between the two zeros, not at one of them.\n- Choice D ($6$) likely comes from computing the coefficient $b$ from the expanded form or taking the absolute value of the root sum. The average of $8$ and $-14$ is $-3$, not $6$. Watch the signs.\n\n**Verification:** $f(-3) = (-3 - 8)(-3 + 14) = (-11)(11) = -121$. Since the parabola opens upward ($a > 0$), this is the minimum.\n\n**Test Day Takeaway:** For factored form $f(x) = (x - r)(x - s)$, the vertex is at $x = \\frac{r + s}{2}$. Average the roots -- it is faster than expanding and using $-b/2a$.",
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Finding the Minimum Value from Factored Form** -- Requires two steps: first find the vertex $x$-coordinate from the roots, then evaluate the function at that point to get the minimum value.\n\n**Choice B is correct.** The minimum value of $f(x)$ is $-121$.\n\n**The Fast Way (25 seconds):** The roots are $x = 8$ and $x = -14$. The vertex $x$-coordinate is the midpoint: $\\frac{8 + (-14)}{2} = -3$. Then $f(-3) = (-3 - 8)(-3 + 14) = (-11)(11) = -121$.\n\n**Step 1: Find the vertex $x$-coordinate**\nZeros: $x = 8$ and $x = -14$ (from factored form).\nVertex $x$-coordinate $= \\frac{8 + (-14)}{2} = \\frac{-6}{2} = -3$.\n\n**Step 2: Evaluate $f$ at the vertex**\n$f(-3) = (-3 - 8)(-3 + 14) = (-11)(11) = -121$.\n\nSince the parabola opens upward ($a > 0$), this is the minimum value.\n\n**Why the wrong answers are tempting:**\n- Choice A ($-112$) is the $y$-intercept of the expanded form $x^2 + 6x - 112$, found by setting $x = 0$: $f(0) = (0 - 8)(0 + 14) = -112$. Students who confuse the $y$-intercept with the vertex value land here.\n- Choice C ($-3$) is the $x$-coordinate of the vertex -- where the minimum occurs, not what the minimum value is. The question asks for the minimum value of $f(x)$, which is the $y$-coordinate at the vertex.\n- Choice D ($6$) is the coefficient $b$ from the expanded form. It has no connection to the minimum value.\n\n**Verification:** Expanding: $f(x) = x^2 + 6x - 112$. At $x = -3$: $f(-3) = 9 - 18 - 112 = -121$. Confirmed.\n\n**Test Day Takeaway:** Finding the minimum value from factored form is a two-step process: (1) average the roots to get the vertex $x$-coordinate, (2) plug that $x$ back into the original function. Do not stop after step 1 -- the question asks for the value, not the location.",
           skills: ["Algebra", "Quadratic functions"]
         },
         {
           id: 13,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "A referendum was included on a ballot. A news report stated that $4$ times as many people voted in favor of the referendum as people who voted against it. A website reported that $21{,}000$ more people voted in favor than voted against. Based on these data, how many people voted against the referendum?",
+          difficulty: "hard",
+          question: "A referendum was included on a ballot. A news report stated that $4$ times as many people voted in favor of the referendum as people who voted against it. A website reported that $21{,}000$ more people voted in favor than voted against. What percent of the total voters voted in favor of the referendum?",
           choices: [
-            { id: "A", text: "$5{,}250$" },
-            { id: "B", text: "$7{,}000$" },
-            { id: "C", text: "$21{,}000$" },
-            { id: "D", text: "$28{,}000$" }
+            { id: "A", text: "$60\\%$" },
+            { id: "B", text: "$75\\%$" },
+            { id: "C", text: "$80\\%$" },
+            { id: "D", text: "$84\\%$" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Systems of Equations from Word Problems** -- Two verbal conditions translate into two equations. Solve by substitution.\n\n**Choice B is correct.** $7{,}000$ people voted against the referendum.\n\n**The Fast Way (20 seconds):** Let $a$ = votes against. Then votes in favor $= 4a$. The difference is $4a - a = 3a = 21{,}000$, so $a = 7{,}000$.\n\n**Solution:**\n- Let $f$ = votes in favor, $a$ = votes against\n- $f = 4a$ (4 times as many in favor)\n- $f = a + 21{,}000$ (21,000 more in favor)\n- Substitute: $4a = a + 21{,}000$\n- $3a = 21{,}000$\n- $a = 7{,}000$\n\n**Why the wrong answers are tempting:**\n- Choice A ($5{,}250$) does not satisfy both conditions. If $5{,}250$ voted against, then $4 \\times 5{,}250 = 21{,}000$ voted in favor, but the difference would be $21{,}000 - 5{,}250 = 15{,}750$, not $21{,}000$. It only satisfies the multiplicative condition loosely.\n- Choice C ($21{,}000$) uses the difference as the answer. Students see $21{,}000$ in the problem and think that must be the number of people, but it is the gap between the two groups, not the size of either group.\n- Choice D ($28{,}000$) is the number who voted in favor, not against. The question asks for the against votes. Always re-read the last line of the question to confirm which quantity is being asked for.\n\n**Verification:** $f = 4(7{,}000) = 28{,}000$ and $28{,}000 - 7{,}000 = 21{,}000$. Both conditions are satisfied.\n\n**Test Day Takeaway:** When a word problem gives you two relationships, write two equations and solve. Before selecting your answer, double-check which variable the question is actually asking for.",
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Systems of Equations Combined with Percent Calculation** -- Requires solving a system first, then computing a percentage from the results. Multi-step reasoning across two concepts.\n\n**Choice C is correct.** $80\\%$ of voters voted in favor.\n\n**The Fast Way (35 seconds):** Let $a$ = votes against. Then in favor $= 4a$. The difference $4a - a = 3a = 21{,}000$, so $a = 7{,}000$. In favor $= 28{,}000$. Total $= 7{,}000 + 28{,}000 = 35{,}000$. Percent in favor $= \\frac{28{,}000}{35{,}000} \\times 100 = 80\\%$.\n\n**Step 1: Set up and solve the system**\n- Let $f$ = votes in favor, $a$ = votes against.\n- $f = 4a$ (4 times as many in favor).\n- $f - a = 21{,}000$ (21,000 more in favor).\n- Substitute: $4a - a = 3a = 21{,}000$, so $a = 7{,}000$.\n- $f = 4(7{,}000) = 28{,}000$.\n\n**Step 2: Compute the percentage**\nTotal voters $= f + a = 28{,}000 + 7{,}000 = 35{,}000$.\nPercent in favor $= \\frac{28{,}000}{35{,}000} \\times 100 = \\frac{4}{5} \\times 100 = 80\\%$.\n\n**Why the wrong answers are tempting:**\n- Choice A ($60\\%$) might come from computing $21{,}000/35{,}000 = 60\\%$, treating the difference as the numerator instead of the number in favor.\n- Choice B ($75\\%$) could come from computing $21{,}000/28{,}000 = 75\\%$, dividing the difference by only the favorable votes instead of the total.\n- Choice D ($84\\%$) might result from a rounding error or from computing $28{,}000/33{,}250$ or some other incorrect denominator.\n\n**Verification:** $f = 28{,}000$ and $a = 7{,}000$: $28{,}000 = 4 \\times 7{,}000$ and $28{,}000 - 7{,}000 = 21{,}000$. Percent: $28{,}000/35{,}000 = 80\\%$. All conditions confirmed.\n\n**Test Day Takeaway:** When a question asks for a percentage after giving you system-of-equations conditions, solve the system completely first. Then compute the total before dividing. The hardest part is not the algebra -- it is remembering to take one more step after finding the individual values.",
           skills: ["Algebra", "Systems of equations"]
         },
         {
           id: 14,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "What is the minimum value of the function $f(x) = (x - 5)^2 + 3$?",
+          difficulty: "hard",
+          question: "The function $f(x) = (x - 5)^2 + 3$ is defined for $7 \\leq x \\leq 10$. What is the minimum value of $f$ on this domain?",
           choices: [
-            { id: "A", text: "$-5$" },
-            { id: "B", text: "$3$" },
-            { id: "C", text: "$5$" },
-            { id: "D", text: "$8$" }
+            { id: "A", text: "$3$" },
+            { id: "B", text: "$7$" },
+            { id: "C", text: "$12$" },
+            { id: "D", text: "$28$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Minimum Value from Vertex Form** -- When a quadratic is already in vertex form, the minimum (or maximum) value is sitting right there in the equation. No work needed.\n\n**Choice B is correct.** The minimum value of $f$ is $3$.\n\n**The Fast Way (5 seconds):** The function is $f(x) = (x - 5)^2 + 3$. This is vertex form $a(x - h)^2 + k$ with $k = 3$. Since $a = 1 > 0$ (opens upward), the minimum value is $k = 3$.\n\n**Solution:**\n- Vertex form: $f(x) = a(x - h)^2 + k$\n- Here: $a = 1$, $h = 5$, $k = 3$\n- Vertex: $(5, 3)$\n- Since $a = 1 > 0$, the parabola opens upward, so the vertex is a minimum\n- Minimum value is $k = 3$\n\n**Why the wrong answers are tempting:**\n- Choice A ($-5$) flips the sign of $h$. The vertex form has $(x - 5)$, so $h = 5$, not $-5$. But even if you found $h$ correctly, $h$ is where the minimum occurs, not what the minimum value is.\n- Choice C ($5$) is the $x$-coordinate of the vertex -- it tells you where the minimum happens, not what the minimum value is. The question asks for the minimum value (the $y$-coordinate), which is $3$.\n- Choice D ($8$) adds $h + k = 5 + 3 = 8$. There is no mathematical reason to add the vertex coordinates together. This is a classic calculation-without-a-reason error.\n\n**Verification:** $f(5) = (5 - 5)^2 + 3 = 0 + 3 = 3$. For any other $x$, $(x - 5)^2 > 0$, so $f(x) > 3$.\n\n**Test Day Takeaway:** In vertex form $a(x - h)^2 + k$: the minimum value (when $a > 0$) is $k$, and it occurs at $x = h$. The question will try to trick you into giving $h$ instead of $k$, or vice versa. Read carefully: are they asking where or what?",
+          explanation: "**SAT Pattern: Minimum of a Quadratic on a Restricted Domain** -- Combines vertex form knowledge with domain constraints. The vertex is outside the allowed interval, so you must evaluate the endpoints.\n\n**Choice B is correct.** The minimum value of $f$ on the domain $[7, 10]$ is $7$.\n\n**The Fast Way (30 seconds):** The vertex is at $x = 5$, which is outside the domain $[7, 10]$. Since the parabola opens upward and $5 < 7$, the function is increasing on the entire interval $[7, 10]$. So the minimum occurs at the left endpoint $x = 7$: $f(7) = (7 - 5)^2 + 3 = 4 + 3 = 7$.\n\n**Step 1: Identify the vertex**\nThe vertex is at $(5, 3)$, with minimum value $3$. But $x = 5$ is not in the domain $[7, 10]$.\n\n**Step 2: Determine the behavior on the restricted domain**\nSince the parabola opens upward ($a = 1 > 0$) and the vertex is to the left of the domain, $f$ is increasing on $[7, 10]$. The minimum on this interval is at $x = 7$.\n\n**Step 3: Evaluate at the left endpoint**\n$f(7) = (7 - 5)^2 + 3 = 2^2 + 3 = 4 + 3 = 7$.\n\n**Why the wrong answers are tempting:**\n- Choice A ($3$) is the global minimum of $f$ (at the vertex $x = 5$), but $x = 5$ is not in the domain. This is the classic trap: reading the vertex value without checking whether it is in the allowed interval.\n- Choice C ($12$) might come from $f(8) = (8 - 5)^2 + 3 = 9 + 3 = 12$, incorrectly testing a middle point instead of the endpoints.\n- Choice D ($28$) is $f(10) = (10 - 5)^2 + 3 = 25 + 3 = 28$. This is the maximum on the domain, not the minimum. Students who confuse \"right endpoint\" with \"minimum\" for an upward parabola land here.\n\n**Verification:** $f(7) = 7$ and $f(10) = 28$, and $f$ is increasing on $[7, 10]$, so the minimum is indeed $7$.\n\n**Test Day Takeaway:** When a quadratic has a restricted domain, always check whether the vertex falls inside the interval. If it does not, evaluate the function at both endpoints -- the minimum and maximum will be at the endpoints.",
           skills: ["quadratic-functions", "vertex-form"]
         },
         {

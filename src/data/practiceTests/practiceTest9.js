@@ -18,16 +18,16 @@ export const practiceTest9 = {
         {
           id: 1,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "What is the solution to the equation $4x - 7 = 21$?",
+          difficulty: "medium",
+          question: "If $4x - 7 = 21$, what is the value of $12x - 5$?",
           choices: [
-            { id: "A", text: "$3.5$" },
-            { id: "B", text: "$7$" },
-            { id: "C", text: "$14$" },
-            { id: "D", text: "$28$" }
+            { id: "A", text: "$37$" },
+            { id: "B", text: "$79$" },
+            { id: "C", text: "$58$" },
+            { id: "D", text: "$89$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Two-Step Linear Equation** -- Shows up every test, usually as one of the first questions. Free points if you don't rush.\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Type $4x - 7 = 21$ into Desmos. It gives $x = 7$ instantly. Or do mental math: add $7$ to both sides to get $4x = 28$, then divide by $4$.\n\n**Step-by-step solution:**\n$4x - 7 = 21$\n$4x = 21 + 7$\n$4x = 28$\n$x = 7$\n\n**Why the wrong answers are tempting:**\n- Choice A ($3.5$): You get this by dividing $21$ by $4$ directly, skipping the step where you add $7$ first. College Board puts this here because students who rush will grab the first division they see.\n- Choice C ($14$): You get this by dividing $28$ by $2$ instead of by $4$. The number $2$ appears nowhere in the problem, but under pressure your brain can substitute the wrong divisor.\n- Choice D ($28$): You correctly find $4x = 28$ but write down $28$ as your answer instead of finishing the last step. College Board loves testing whether you actually complete the problem.\n\n**Verification:** $4(7) - 7 = 28 - 7 = 21$. Matches the right side.\n\n**Test Day Takeaway:** On two-step equations, always finish BOTH steps -- undo the addition/subtraction first, THEN undo the multiplication. Then plug back in to confirm.",
+          explanation: "**SAT Pattern: Solve-Then-Evaluate Linear Equation** -- A common medium-difficulty twist: solve for the variable, then plug into a second expression. Two stages, two chances for errors.\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** Solve $4x - 7 = 21$: add $7$ to get $4x = 28$, divide by $4$ to get $x = 7$. Then evaluate $12(7) - 5 = 84 - 5 = 79$. Or type $4x - 7 = 21$ into Desmos, read $x = 7$, and compute.\n\n**Step-by-step solution:**\n$4x - 7 = 21$\n$4x = 28$\n$x = 7$\n\nNow substitute into $12x - 5$:\n$12(7) - 5 = 84 - 5 = 79$\n\n**Why the wrong answers are tempting:**\n- Choice A ($37$): You get this by computing $4(7) + 5 = 33$ or by evaluating $12(3.5) - 5 = 37$, using the trap value $x = 3.5$ (from dividing $21 \\div 4$ directly without first adding $7$). College Board chains the errors: one wrong step feeds into the next.\n- Choice C ($58$): You get this from $12(\\frac{28}{4+1}) - 5$ or similar arithmetic confusion, possibly computing $9x - 5 = 63 - 5 = 58$ by misreading the coefficient as $9$ instead of $12$.\n- Choice D ($89$): You get this by computing $12(7) + 5 = 89$, flipping the subtraction to addition in the final step. Under time pressure, sign errors on the last operation are common.\n\n**Verification:** $x = 7$: $4(7) - 7 = 21$ ✓. Then $12(7) - 5 = 84 - 5 = 79$.\n\n**Test Day Takeaway:** When the question asks for an expression involving the variable (not just the variable itself), you must complete two stages: solve first, then substitute. Do not stop after finding $x$ -- read what the question actually asks for.",
           skills: ["linear-equations"]
         },
 
@@ -232,16 +232,16 @@ export const practiceTest9 = {
         {
           id: 14,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "In the $xy$-plane, the graph of $y = x^2 - 4x + 3$ intersects the line $y = x - 1$ at how many points?",
+          difficulty: "hard",
+          question: "In the $xy$-plane, the graph of $y = x^2 - 4x + 3$ intersects the line $y = x - 1$ at points $P$ and $Q$. What is the sum of the $x$-coordinate and the $y$-coordinate of the midpoint of $\\overline{PQ}$?",
           choices: [
-            { id: "A", text: "Zero" },
-            { id: "B", text: "One" },
-            { id: "C", text: "Two" },
-            { id: "D", text: "Three" }
+            { id: "A", text: "$2$" },
+            { id: "B", text: "$3$" },
+            { id: "C", text: "$4$" },
+            { id: "D", text: "$5$" }
           ],
           correctAnswer: "C",
-          explanation: "**SAT Pattern: Number of Intersections** -- 1 per test. Set equations equal and count solutions, or graph in Desmos.\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** Type $y = x^2 - 4x + 3$ and $y = x - 1$ into Desmos. Count the intersection points visually: two. Done.\n\n**Step-by-step solution:**\nSet equal: $x^2 - 4x + 3 = x - 1$\n$x^2 - 5x + 4 = 0$\n$(x - 1)(x - 4) = 0$\n$x = 1$ or $x = 4$\n\nTwo solutions means two intersection points.\n\n**Why the wrong answers are tempting:**\n- Choice A (Zero): You might get this from a sign error when rearranging. The discriminant is $25 - 16 = 9 > 0$, confirming two real solutions exist.\n- Choice B (One): One intersection would require the discriminant to equal exactly zero (tangent line). Since $9 > 0$, there are two intersections, not one.\n- Choice D (Three): A line and a parabola can intersect at most $2$ points -- this is mathematically impossible. College Board includes it to test whether you know this basic geometric fact.\n\n**Verification:** At $x = 1$: parabola $= 1 - 4 + 3 = 0$, line $= 1 - 1 = 0$. At $x = 4$: parabola $= 16 - 16 + 3 = 3$, line $= 4 - 1 = 3$. Both match.\n\n**Test Day Takeaway:** To find intersection count: set equations equal, rearrange to standard form, and check the discriminant. Positive = 2, zero = 1, negative = 0. Or just graph both in Desmos.",
+          explanation: "**SAT Pattern: Intersection Points + Midpoint** -- Combines solving a nonlinear system AND applying the midpoint formula, then computing a derived quantity. Multi-step problems like this appear in the hard section.\n\n**Choice C is correct.**\n\n**The Fast Way (40 seconds):** Graph both in Desmos, read the intersections, and average the coordinates. Or solve algebraically.\n\n**Step-by-step solution:**\n\nStep 1: Find the intersection $x$-values by setting the equations equal.\n$x^2 - 4x + 3 = x - 1$\n$x^2 - 5x + 4 = 0$\n$(x - 1)(x - 4) = 0$\n$x = 1$ or $x = 4$\n\nStep 2: Find the $y$-coordinates using $y = x - 1$.\nAt $x = 1$: $y = 0$, so $P = (1, 0)$.\nAt $x = 4$: $y = 3$, so $Q = (4, 3)$.\n\nStep 3: Find the midpoint of $\\overline{PQ}$.\n$$M = \\left(\\frac{1+4}{2}, \\frac{0+3}{2}\\right) = \\left(\\frac{5}{2}, \\frac{3}{2}\\right)$$\n\nStep 4: Sum the coordinates.\n$$\\frac{5}{2} + \\frac{3}{2} = \\frac{8}{2} = 4$$\n\n**Why the wrong answers are tempting:**\n- Choice A ($2$): You get this if you only average the $y$-coordinates ($\\frac{0+3}{2} = 1.5$) and round, or if you confuse the midpoint $x$-coordinate with $\\frac{4-1}{2} = 1.5$ (using subtraction instead of addition in the midpoint formula).\n- Choice B ($3$): You get this if you compute the sum of the $x$-coordinates of the intersection points divided by $2$: $\\frac{1+4}{2} = 2.5$ and mistakenly add just one $y$-value. Or you compute $\\frac{0+3}{2} + \\frac{4-1}{2} = 1.5 + 1.5 = 3$.\n- Choice D ($5$): You get this by summing the $x$-coordinates of $P$ and $Q$ directly ($1 + 4 = 5$) without taking the midpoint. This skips the averaging step entirely.\n\n**Verification:** $P = (1,0)$, $Q = (4,3)$. Midpoint $= (2.5, 1.5)$. Sum $= 2.5 + 1.5 = 4$. Check on parabola: $1 - 4 + 3 = 0$ ✓ and $16 - 16 + 3 = 3$ ✓.\n\n**Test Day Takeaway:** Multi-step intersection problems require: (1) solve the system for coordinates, (2) apply a formula (midpoint, distance, slope) to the results, (3) compute the final requested quantity. Break it into stages and verify each stage independently.",
           skills: ["quadratic-functions", "systems-of-equations"]
         },
 
@@ -249,16 +249,16 @@ export const practiceTest9 = {
         {
           id: 15,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "Which expression is equivalent to $(2x^3y^2)^3$?",
+          difficulty: "hard",
+          question: "Which expression is equivalent to $\\frac{(2x^3y^2)^3}{4x^{-1}y^4}$?",
           choices: [
-            { id: "A", text: "$6x^6y^5$" },
-            { id: "B", text: "$6x^9y^6$" },
-            { id: "C", text: "$8x^6y^5$" },
-            { id: "D", text: "$8x^9y^6$" }
+            { id: "A", text: "$2x^{10}y^2$" },
+            { id: "B", text: "$2x^8y^2$" },
+            { id: "C", text: "$2x^{10}y^{10}$" },
+            { id: "D", text: "$4x^{10}y^2$" }
           ],
-          correctAnswer: "D",
-          explanation: "**SAT Pattern: Power of a Product Rule** -- 1-2 per test. Raise EACH factor to the outer power, and MULTIPLY exponents.\n\n**Choice D is correct.**\n\n**The Fast Way (15 seconds):** Process of elimination with two checks. (1) Coefficient: $2^3 = 8$, not $6$, so eliminate A and B. (2) $x$-exponent: $3 \\times 3 = 9$, not $6$, so eliminate C. Only D remains.\n\n**Step-by-step solution:**\n$(2x^3y^2)^3 = 2^3 \\times (x^3)^3 \\times (y^2)^3$\n$= 8 \\times x^9 \\times y^6$\n$= 8x^9y^6$\n\n**Why the wrong answers are tempting:**\n- Choice A ($6x^6y^5$): Two errors combined. You computed $2 \\times 3 = 6$ instead of $2^3 = 8$, and you ADDED exponents ($3 + 3 = 6$, $2 + 3 = 5$) instead of multiplying them. College Board designs this to catch students who confuse the power rule with the product rule.\n- Choice B ($6x^9y^6$): The exponents are correct but the coefficient is wrong ($6$ instead of $8$). You computed $2 \\times 3 = 6$ instead of $2^3 = 8$. This separates the coefficient error from the exponent error.\n- Choice C ($8x^6y^5$): The coefficient is correct but you added exponents instead of multiplying: $3 + 3 = 6$ and $2 + 3 = 5$. This tests whether you know the difference between $x^a \\cdot x^b = x^{a+b}$ and $(x^a)^b = x^{ab}$.\n\n**Verification:** Let $x = 1$, $y = 1$: $(2)^3 = 8$ and $8(1)(1) = 8$.\n\n**Test Day Takeaway:** Power of a product: raise EACH factor to the power. Power of a power: MULTIPLY exponents. You only ADD exponents when multiplying same-base terms.",
+          correctAnswer: "A",
+          explanation: "**SAT Pattern: Combining Power-of-a-Product with Division and Negative Exponents** -- Requires chaining multiple exponent rules: power of a product in the numerator, then dividing with a negative exponent in the denominator. Multi-rule problems appear in the hard section.\n\n**Choice A is correct.**\n\n**The Fast Way (30 seconds):** Simplify numerator first: $(2x^3y^2)^3 = 8x^9y^6$. Then divide: $\\frac{8x^9y^6}{4x^{-1}y^4} = 2 \\cdot x^{9-(-1)} \\cdot y^{6-4} = 2x^{10}y^2$.\n\n**Step-by-step solution:**\n\nStep 1: Expand the numerator using the power-of-a-product rule.\n$(2x^3y^2)^3 = 2^3 \\cdot (x^3)^3 \\cdot (y^2)^3 = 8x^9y^6$\n\nStep 2: Divide by the denominator, subtracting exponents.\n$$\\frac{8x^9y^6}{4x^{-1}y^4} = \\frac{8}{4} \\cdot x^{9-(-1)} \\cdot y^{6-4} = 2 \\cdot x^{10} \\cdot y^2$$\n\nThe key step: subtracting a negative exponent means $9 - (-1) = 9 + 1 = 10$.\n\n**Why the wrong answers are tempting:**\n- Choice B ($2x^8y^2$): You computed $9 - 1 = 8$ instead of $9 - (-1) = 10$. Forgetting that subtracting a negative exponent means adding is the single most common exponent error on the SAT.\n- Choice C ($2x^{10}y^{10}$): You correctly handled the $x$ exponents but ADDED the $y$ exponents ($6 + 4 = 10$) instead of subtracting ($6 - 4 = 2$). Division means subtract exponents, not add.\n- Choice D ($4x^{10}y^2$): The exponents are correct but $\\frac{8}{4} = 4$ instead of $2$. Wait -- $\\frac{8}{4}$ IS $2$, so this results from computing $2^3 = 8$ but then not dividing the coefficient at all, or from computing $2 \\times 3 = 6$ then dividing $24/6 = 4$.\n\n**Verification:** Let $x = 1$, $y = 1$: numerator $= 8$, denominator $= 4$. Result $= 2$. Answer gives $2(1)(1) = 2$. ✓\n\n**Test Day Takeaway:** For complex exponent expressions, work in stages: (1) simplify the numerator, (2) simplify the denominator, (3) divide by subtracting exponents. Watch for negative exponents -- subtracting a negative means ADDING.",
           skills: ["exponents", "algebraic-expressions"]
         },
 
@@ -361,7 +361,7 @@ export const practiceTest9 = {
         {
           id: 2,
           type: "fill-in",
-          difficulty: "easy",
+          difficulty: "medium",
           question: "The table shows the number of books read by students in a class.",
           diagram: {
             type: "table",
@@ -375,9 +375,9 @@ export const practiceTest9 = {
               ]
             }
           },
-          questionContinued: "How many students are in the class?",
-          correctAnswer: 20,
-          explanation: "**SAT Pattern: Reading a Frequency Table** -- 1-2 per test. The simplest data question you will see -- just add up the frequencies.\n\n**The correct answer is 20.**\n\n**The Fast Way (10 seconds):** Add the right column: $4 + 8 + 6 + 2 = 20$.\n\n**Step-by-step solution:**\nThe \"Number of Students\" column gives the frequency for each category.\nTotal students $= 4 + 8 + 6 + 2 = 20$\n\n**Verification:** $4 + 8 = 12$, $12 + 6 = 18$, $18 + 2 = 20$.\n\n**Test Day Takeaway:** In a frequency table, the total count is always the sum of the frequency column. Do not accidentally add the category boundaries (like $2 + 5 + 8 + 11$) -- add the counts.",
+          questionContinued: "If a student is selected at random, what is the probability that the student read more than $5$ books? (Express your answer as a decimal.)",
+          correctAnswer: 0.4,
+          explanation: "**SAT Pattern: Probability from a Frequency Table** -- Requires identifying the relevant categories, summing their frequencies, and dividing by the total. An extra reasoning step beyond simply reading the table.\n\n**The correct answer is $0.4$.**\n\n**The Fast Way (15 seconds):** \"More than $5$ books\" means the $6$-$8$ and $9$-$11$ groups. That is $6 + 2 = 8$ students. Total $= 4 + 8 + 6 + 2 = 20$. Probability $= \\frac{8}{20} = 0.4$.\n\n**Step-by-step solution:**\n\nStep 1: Find the total number of students.\n$4 + 8 + 6 + 2 = 20$\n\nStep 2: Identify students who read MORE than $5$ books.\nThe categories $6$-$8$ and $9$-$11$ represent students who read more than $5$.\n$6 + 2 = 8$ students\n\nStep 3: Compute the probability.\n$$P(\\text{more than } 5) = \\frac{8}{20} = \\frac{2}{5} = 0.4$$\n\n**Common wrong answers and why they are tempting:**\n- $0.9$ (or $\\frac{18}{20}$): You included the $3$-$5$ group, interpreting \"more than $5$\" as \"$3$ or more.\" The $3$-$5$ category includes students who read exactly $5$, which is NOT more than $5$.\n- $0.3$ (or $\\frac{6}{20}$): You only counted the $6$-$8$ group and excluded the $9$-$11$ group. \"More than $5$\" includes ALL categories above $5$.\n- $0.1$ (or $\\frac{2}{20}$): You only counted the $9$-$11$ group, perhaps interpreting \"more than $5$\" as \"more than $8$.\"\n\n**Verification:** $\\frac{8}{20} = 0.40$. The $8$ students in categories $6$-$8$ and $9$-$11$ out of $20$ total.\n\n**Test Day Takeaway:** For probability from grouped data: (1) identify which groups satisfy the condition, (2) sum those frequencies, (3) divide by the total. Pay close attention to boundary values -- \"more than $5$\" does NOT include exactly $5$.",
           skills: ["data-analysis", "frequency-tables"]
         },
         // Question 3: Parallel lines angle relationship
@@ -408,26 +408,26 @@ export const practiceTest9 = {
         {
           id: 4,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "A gym charges a \\$50 registration fee plus \\$25 per month. Which equation represents the total cost $C$, in dollars, for $m$ months of membership?",
+          difficulty: "medium",
+          question: "A gym charges a \\$50 registration fee plus \\$25 per month. A second gym charges no registration fee but \\$40 per month. After how many months will the total cost be the same at both gyms?",
           choices: [
-            { id: "A", text: "$C = 50m + 25$" },
-            { id: "B", text: "$C = 25m + 50$" },
-            { id: "C", text: "$C = 75m$" },
-            { id: "D", text: "$C = 50(m + 25)$" }
+            { id: "A", text: "$2$" },
+            { id: "B", text: "$\\frac{10}{3}$" },
+            { id: "C", text: "$\\frac{25}{6}$" },
+            { id: "D", text: "$5$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Linear Cost Model** -- 1-2 per test. Identify the per-unit rate (slope) and the fixed cost (y-intercept).\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Monthly rate $= \\$25$ per month, so the slope is $25$. One-time fee $= \\$50$, so the y-intercept is $50$. That gives $C = 25m + 50$. Or test $m = 1$: total should be $\\$75$. Only B gives $25(1) + 50 = 75$.\n\n**Step-by-step solution:**\nFixed cost (registration): $\\$50$ (one-time)\nVariable cost: $\\$25$ per month $\\times m$ months $= 25m$\n\nTotal: $C = 25m + 50$\n\n**Why the wrong answers are tempting:**\n- Choice A ($C = 50m + 25$): Swaps the coefficients -- charges $\\$50$ per month and $\\$25$ registration. College Board knows that under pressure, students reverse which number is the rate and which is the fixed cost.\n- Choice C ($C = 75m$): Combines $50 + 25 = 75$ and multiplies everything by $m$. This treats the registration fee as if it repeats every month, which it does not.\n- Choice D ($C = 50(m + 25)$): Distributes to $50m + 1250$, which is wildly expensive. This results from incorrectly grouping the terms.\n\n**Verification:** For $3$ months: $C = 25(3) + 50 = 75 + 50 = \\$125$.\n\n**Test Day Takeaway:** In cost models, the per-unit rate multiplies the variable, and the one-time fee stands alone. Test your equation with a simple value like $m = 1$ to confirm.",
+          explanation: "**SAT Pattern: Comparing Linear Cost Models** -- Requires building two equations AND setting them equal. An extra reasoning step beyond a simple cost model.\n\n**Choice B is correct.**\n\n**The Fast Way (25 seconds):** Gym 1: $C = 25m + 50$. Gym 2: $C = 40m$. Set equal: $25m + 50 = 40m$, so $50 = 15m$, giving $m = \\frac{50}{15} = \\frac{10}{3}$.\n\n**Step-by-step solution:**\nGym 1 total cost: $C_1 = 25m + 50$\nGym 2 total cost: $C_2 = 40m$\n\nSet equal:\n$25m + 50 = 40m$\n$50 = 40m - 25m$\n$50 = 15m$\n$m = \\frac{50}{15} = \\frac{10}{3}$\n\n**Why the wrong answers are tempting:**\n- Choice A ($2$): You get this by computing $\\frac{50}{25} = 2$, dividing the registration fee by Gym 1's monthly rate. This ignores Gym 2 entirely and does not set up a comparison.\n- Choice C ($\\frac{25}{6}$): You get this if you set up the equation as $50m + 25 = 40m$ (swapping the slope and intercept for Gym 1), giving $10m + 25 = 0$ or $25 = -10m$. Alternatively, a sign error when rearranging leads to $\\frac{25}{6}$.\n- Choice D ($5$): You get this by computing $\\frac{50}{10} = 5$ instead of $\\frac{50}{15}$, likely from subtracting $40 - 25 = 15$ but then miswriting $15$ as $10$. Arithmetic slips on the denominator are common under time pressure.\n\n**Verification:** At $m = \\frac{10}{3}$: Gym 1 costs $25(\\frac{10}{3}) + 50 = \\frac{250}{3} + \\frac{150}{3} = \\frac{400}{3}$. Gym 2 costs $40(\\frac{10}{3}) = \\frac{400}{3}$. Equal. ✓\n\n**Test Day Takeaway:** When comparing two cost models, write both equations and set them equal. The break-even point is where the lines cross. Always reduce fractions fully.",
           skills: ["linear-equations", "modeling"]
         },
         // Question 5: Pythagorean theorem
         {
           id: 5,
           type: "fill-in",
-          difficulty: "easy",
-          question: "A ladder is placed against a wall. The base of the ladder is $6$ feet from the wall, and the ladder reaches $8$ feet up the wall. What is the length of the ladder, in feet?",
-          correctAnswer: 10,
-          explanation: "**SAT Pattern: Pythagorean Theorem** -- 1-2 per test. Recognizing common triples saves you the most time here.\n\n**The correct answer is 10.**\n\n**The Fast Way (5 seconds):** Recognize the $6$-$8$-$10$ Pythagorean triple (which is $2 \\times$ the $3$-$4$-$5$ triple). The ladder is $10$ feet.\n\n**Step-by-step solution:**\nThe ladder, wall, and ground form a right triangle:\nLegs: $6$ and $8$. Hypotenuse: ladder.\n\n$a^2 + b^2 = c^2$\n$6^2 + 8^2 = c^2$\n$36 + 64 = c^2$\n$100 = c^2$\n$c = 10$ feet\n\n**Verification:** $6^2 + 8^2 = 36 + 64 = 100 = 10^2$.\n\n**Test Day Takeaway:** Memorize the common Pythagorean triples and their multiples: $3$-$4$-$5$ (and $6$-$8$-$10$, $9$-$12$-$15$), $5$-$12$-$13$, $8$-$15$-$17$, $7$-$24$-$25$. Recognizing them is faster than computing.",
+          difficulty: "medium",
+          question: "A ladder is placed against a wall, forming a right triangle with the ground. The base of the ladder is $6$ feet from the wall, and the ladder reaches $8$ feet up the wall. What is the area, in square feet, of the triangle formed by the ladder, the wall, and the ground?",
+          correctAnswer: 24,
+          explanation: "**SAT Pattern: Pythagorean Theorem + Area Combination** -- Requires recognizing the right-triangle geometry AND applying the area formula. The extra reasoning step separates this from a basic Pythagorean theorem question.\n\n**The correct answer is $24$.**\n\n**The Fast Way (15 seconds):** The wall and ground are the two legs of the right triangle: $6$ and $8$. Area $= \\frac{1}{2}(6)(8) = 24$. The ladder length ($10$, from the $6$-$8$-$10$ triple) is not needed for the area.\n\n**Step-by-step solution:**\n\nStep 1: Identify the right triangle.\nThe wall (vertical) $= 8$ ft, the ground (horizontal) $= 6$ ft, and the ladder is the hypotenuse.\n\nStep 2: Compute the area.\nThe two legs of the right triangle serve as the base and height:\n$$A = \\frac{1}{2} \\times 6 \\times 8 = 24 \\text{ square feet}$$\n\n**Common wrong answers and why they are tempting:**\n- $48$: You forgot the $\\frac{1}{2}$ and computed $6 \\times 8 = 48$. This is the area of a rectangle, not a triangle.\n- $30$: You used the ladder length ($10$) as the base and one leg as the height: $\\frac{1}{2}(10)(6) = 30$. But $6$ is not the height relative to base $10$ -- in a right triangle, you must use the two legs as base and height.\n- $40$: You used $\\frac{1}{2}(10)(8) = 40$, making the same error with the other leg.\n\n**Verification:** $\\frac{1}{2}(6)(8) = 24$. Alternatively, ladder $= \\sqrt{36 + 64} = 10$. Using Heron's formula with sides $6, 8, 10$: $s = 12$, $A = \\sqrt{12 \\cdot 6 \\cdot 4 \\cdot 2} = \\sqrt{576} = 24$. ✓\n\n**Test Day Takeaway:** In a right triangle, the two legs are automatically the base and height for the area formula. You do NOT need to find the hypotenuse first. Recognizing which dimensions to use is the key reasoning step.",
           skills: ["pythagorean-theorem", "right-triangles"]
         },
         // Question 6: Cubic function zeros
@@ -518,10 +518,10 @@ export const practiceTest9 = {
         {
           id: 12,
           type: "fill-in",
-          difficulty: "medium",
-          question: "A triangle has a base of $14$ inches and a height of $9$ inches. What is the area of the triangle, in square inches?",
-          correctAnswer: 63,
-          explanation: "**SAT Pattern: Triangle Area** -- 1 per test. The formula is on your reference sheet, but know it cold.\n\n**The correct answer is 63.**\n\n**The Fast Way (10 seconds):** $\\frac{1}{2} \\times 14 \\times 9 = 7 \\times 9 = 63$.\n\n**Step-by-step solution:**\nArea $= \\frac{1}{2} \\times \\text{base} \\times \\text{height}$\n$= \\frac{1}{2} \\times 14 \\times 9$\n$= 7 \\times 9$\n$= 63$ square inches\n\n**Verification:** $\\frac{1}{2} \\times 14 \\times 9 = \\frac{126}{2} = 63$.\n\n**Test Day Takeaway:** Triangle area $= \\frac{1}{2}bh$. The most common error is forgetting the $\\frac{1}{2}$ and writing $14 \\times 9 = 126$. Always halve the product.",
+          difficulty: "hard",
+          question: "A triangle has vertices at points $(0, 0)$, $(14, 0)$, and $(6, 9)$ in the $xy$-plane. A rectangle is inscribed in the triangle with one side along the $x$-axis. If the rectangle has a height of $3$, what is the area of the rectangle, in square units?",
+          correctAnswer: 28,
+          explanation: "**SAT Pattern: Inscribed Shape + Coordinate Geometry** -- Combines the triangle area/proportion concept with coordinate geometry reasoning. Multi-step problems requiring two concepts appear in the hard section.\n\n**The correct answer is $28$.**\n\n**The Fast Way (45 seconds):** The triangle has base $14$ on the $x$-axis and height $9$ (from vertex $(6,9)$). At height $y = 3$, the triangle has shrunk by a factor. The cross-section at height $3$ needs the left and right edges of the triangle at $y = 3$.\n\n**Step-by-step solution:**\n\nStep 1: Find the equations of the two non-horizontal sides of the triangle.\nLeft side from $(0,0)$ to $(6,9)$: slope $= \\frac{9}{6} = \\frac{3}{2}$, so $y = \\frac{3}{2}x$, which gives $x = \\frac{2y}{3}$.\nRight side from $(14,0)$ to $(6,9)$: slope $= \\frac{9-0}{6-14} = -\\frac{9}{8}$, so $y = -\\frac{9}{8}(x - 14)$, which gives $x = 14 - \\frac{8y}{9}$.\n\nStep 2: Find the width of the triangle at height $y = 3$.\nLeft edge: $x_L = \\frac{2(3)}{3} = 2$\nRight edge: $x_R = 14 - \\frac{8(3)}{9} = 14 - \\frac{24}{9} = 14 - \\frac{8}{3} = \\frac{42 - 8}{3} = \\frac{34}{3}$\n\nWidth at $y = 3$: $\\frac{34}{3} - 2 = \\frac{34 - 6}{3} = \\frac{28}{3}$\n\nStep 3: Compute the rectangle's area.\nThe rectangle has height $3$ and width $\\frac{28}{3}$:\n$$A = 3 \\times \\frac{28}{3} = 28$$\n\n**Verification:** At $y = 0$ (base), width $= 14 - 0 = 14$. At $y = 9$ (apex), width $= 0$. At $y = 3$ (one-third of the height), the width should be $14 \\times \\frac{9-3}{9} = 14 \\times \\frac{2}{3} = \\frac{28}{3}$. Area $= 3 \\times \\frac{28}{3} = 28$. ✓\n\n**Test Day Takeaway:** For inscribed rectangles in triangles, find the boundary lines and evaluate them at the given height. The width of a triangle cross-section scales linearly with how far you are from the apex. Coordinate geometry makes this systematic.",
           skills: ["area", "triangles"]
         },
         // Question 13: Poll proportion scaling

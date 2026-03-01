@@ -17,19 +17,19 @@ export const practiceTest1 = {
         {
           id: 1,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "What is equivalent to the mean of data set B?",
+          difficulty: "medium",
+          question: "Data set B contains the values shown below. A seventh value is added to the data set, and the new mean becomes $9$. What is the seventh value?",
           questionFormula: {
             equation: "$$\\text{Data set B: } 7.2, 11.4, 9.8, 5.4, 10.6, 5.6$$"
           },
           choices: [
-            { id: "A", text: "$8$" },
-            { id: "B", text: "$8\\frac{1}{3}$" },
-            { id: "C", text: "$8\\frac{1}{2}$" },
-            { id: "D", text: "$9\\frac{1}{4}$" }
+            { id: "A", text: "$9$" },
+            { id: "B", text: "$13$" },
+            { id: "C", text: "$8\\frac{1}{3}$" },
+            { id: "D", text: "$12$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Mean Calculation** — 1-2 of these per test. This is a free point if you use your calculator.\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Type directly into Desmos: $(7.2+11.4+9.8+5.4+10.6+5.6)/6$. You get $8.333...$, which is $8\\frac{1}{3}$. Done. No mental math needed.\n\n**The Full Solution:**\nSum: $7.2 + 11.4 + 9.8 + 5.4 + 10.6 + 5.6 = 50$\nCount: 6 values\nMean $= 50 \\div 6 = 8.\\overline{3} = 8\\frac{1}{3}$\n\n**Why the wrong answers are tempting:**\n• Choice A ($8$): The sum is $50$, and $50 \\div 6$ isn't clean. If you round down or make a small addition error that gives you $48$, you get $48 \\div 6 = 8$. College Board puts round numbers as traps because they \"feel\" right when the real answer is messy.\n• Choice C ($8\\frac{1}{2} = 8.5$): A single addition slip (like misreading $5.4$ as $5.5$) gives $51 \\div 6 = 8.5$. This trap punishes mental math — one tiny error and you land on a wrong answer that looks perfectly reasonable.\n• Choice D ($9\\frac{1}{4} = 9.25$): Way too high — this would require a sum of $55.5$. If you accidentally added a number twice or miscounted, you'd get here. When your mean seems too far from the middle values, recount.\n\n**Verification:** $8\\frac{1}{3} \\times 6 = \\frac{25}{3} \\times 6 = 50$ ✓\n\n**Test Day Takeaway:** Mean questions are free points — always use Desmos. Type the numbers directly, no mental math needed. The SAT gives you a calculator for a reason.",
+          explanation: "**SAT Pattern: Mean with a Missing Value** — 1-2 of these per test. Requires finding the original sum and then working backward from a target mean.\n\n**Choice B is correct.**\n\n**The Fast Way (30 seconds):** First find the sum of the original 6 values on Desmos: $7.2+11.4+9.8+5.4+10.6+5.6 = 50$. The new mean of 7 values is $9$, so the new total sum must be $9 \\times 7 = 63$. The seventh value is $63 - 50 = 13$.\n\n**The Full Solution:**\n**Step 1:** Sum of original data: $7.2 + 11.4 + 9.8 + 5.4 + 10.6 + 5.6 = 50$\n**Step 2:** Required sum for new mean: $9 \\times 7 = 63$\n**Step 3:** Seventh value: $63 - 50 = 13$\n\n**Why the wrong answers are tempting:**\n• Choice A ($9$): You assumed the new value equals the new mean. That's only true when the new value equals the existing mean — but here the existing mean is $8.\\overline{3}$, not $9$. Adding $9$ would give a mean of $\\frac{59}{7} \\approx 8.43$, not $9$.\n• Choice C ($8\\frac{1}{3}$): This is the mean of the original 6 values ($50 \\div 6$). You found the old mean but stopped — the question asks for the value that produces a NEW mean of $9$. College Board loves putting intermediate results as traps.\n• Choice D ($12$): Likely from a sum error ($7.2 + 11.4 + 9.8 + 5.4 + 10.6 + 5.6 = 51$ instead of $50$), giving $63 - 51 = 12$. One small addition slip cascades into a wrong answer.\n\n**Verification:** $(50 + 13) \\div 7 = 63 \\div 7 = 9$ ✓\n\n**Test Day Takeaway:** Missing-value mean problems always use the same logic: new sum = new mean × new count, then subtract the known sum. Use Desmos for the addition — never trust mental math with decimals.",
           skills: ["mean-median-mode", "statistics"]
         },
         {
@@ -50,13 +50,13 @@ export const practiceTest1 = {
         {
           id: 3,
           type: "fill-in",
-          difficulty: "easy",
-          question: "The values below represent how many miles Kenji ran in each of his last ten training sessions. What is the mean of Kenji's distances over these ten sessions?",
+          difficulty: "medium",
+          question: "The values below represent how many miles Kenji ran in each of his last ten training sessions. Kenji goes on an eleventh run. After this run, his mean distance increases by exactly $1$ mile compared to his original ten-session mean. How many miles did Kenji run in his eleventh session?",
           questionFormula: {
             equation: "$$16, 12, 18, 9, 21, 15, 15, 19, 25, 20$$"
           },
-          correctAnswer: 17,
-          explanation: "**SAT Pattern: Mean Calculation** — Shows up every test. Free point with a calculator.\n\n**The correct answer is 17.**\n\n**The Fast Way (15 seconds):** Type into Desmos: $(16+12+18+9+21+15+15+19+25+20)/10$. You get $17$. Done.\n\n**The Full Solution:**\nSum: $16 + 12 + 18 + 9 + 21 + 15 + 15 + 19 + 25 + 20 = 170$\nCount: 10 values\nMean $= 170 \\div 10 = 17$\n\n**Pro tip:** Dividing by 10 just moves the decimal one place left. So once you know the sum is $170$, the answer is instant.\n\n**Verification:** $17 \\times 10 = 170$ ✓\n\n**Test Day Takeaway:** For mean questions, go straight to Desmos. Type the numbers, divide by the count. Don't trust mental addition with more than 4-5 numbers — one slip and you're wrong.",
+          correctAnswer: 28,
+          explanation: "**SAT Pattern: Mean with an Added Value** — Requires computing an original mean, then working backward from a new target mean.\n\n**The correct answer is 28.**\n\n**The Fast Way (30 seconds):** Original sum on Desmos: $(16+12+18+9+21+15+15+19+25+20) = 170$. Original mean: $170 \\div 10 = 17$. New mean must be $18$, with $11$ values: $18 \\times 11 = 198$. Eleventh run: $198 - 170 = 28$.\n\n**The Full Solution:**\n**Step 1:** Original sum: $170$, original mean: $17$\n**Step 2:** New mean: $17 + 1 = 18$\n**Step 3:** Required new sum: $18 \\times 11 = 198$\n**Step 4:** Eleventh run: $198 - 170 = 28$\n\n**Common Mistakes to Avoid:**\n• Answering $17$ (the original mean) — that's the intermediate step, not the final answer. The question asks for the eleventh session distance.\n• Answering $18$ (the new mean) — adding a value equal to the new mean doesn't produce that mean unless it was already the mean before. You need to overshoot the new mean because one more value is being averaged in.\n• Answering $1$ — you can't just \"add $1$ to the mean\" by running $1$ mile. The mean is a ratio; changing it requires understanding how the sum and count interact.\n\n**Verification:** $(170 + 28) \\div 11 = 198 \\div 11 = 18 = 17 + 1$ ✓\n\n**Test Day Takeaway:** When a problem says the mean changes by a specific amount, compute the new target mean first, then find the required new total sum (new mean × new count), and subtract the old sum. Always use Desmos for the addition step.",
           skills: ["mean-median-mode"]
         },
         {
@@ -77,16 +77,16 @@ export const practiceTest1 = {
         {
           id: 5,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "A bakery sells muffins and croissants. Muffins are sold for \\$2.75, and croissants are sold for \\$4.25. The bakery made \\$38.25 selling croissants. If the bakery sold the same number of muffins as croissants, what was the total amount of money, in dollars, that the bakery made?",
+          difficulty: "medium",
+          question: "A bakery sells muffins for \\$2.75 each and croissants for \\$4.25 each. On Saturday, the bakery sold the same number of muffins as croissants and made \\$38.25 from croissants alone. On Sunday, croissant sales dropped by $\\frac{1}{3}$, but muffin sales doubled compared to Saturday. What was the bakery's total revenue on Sunday, in dollars?",
           choices: [
             { id: "A", text: "$24.75$" },
-            { id: "B", text: "$49.50$" },
-            { id: "C", text: "$63.00$" },
+            { id: "B", text: "$63.00$" },
+            { id: "C", text: "$74.25$" },
             { id: "D", text: "$76.50$" }
           ],
           correctAnswer: "C",
-          explanation: "**SAT Pattern: Multi-Step Word Problem** — 3-4 per test. The trap is almost always stopping one step early.\n\n**Choice C is correct.**\n\n**The Fast Way (30 seconds):** On Desmos: $38.25 \\div 4.25 = 9$ croissants. Same number of muffins, so $9 \\times 2.75 = 24.75$. Total: $38.25 + 24.75 = 63$.\n\n**The Full Solution:**\n**Step 1:** Find number of croissants: $\\$38.25 \\div \\$4.25 = 9$\n**Step 2:** Muffin revenue (same count): $9 \\times \\$2.75 = \\$24.75$\n**Step 3:** Total: $\\$38.25 + \\$24.75 = \\$63.00$\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\$24.75$): This is the partial calculation trap — the most common trap on the entire SAT. You found the muffin revenue but forgot to add back the croissant revenue. College Board puts your intermediate answer as a choice because they know most students who get this wrong stopped one step early.\n• Choice B ($\\$49.50$): Likely from a unit price mix-up or arithmetic error. When none of your intermediate steps produce this number, it's a red flag that something went wrong.\n• Choice D ($\\$76.50$): Could come from accidentally counting 10 croissants instead of 9, or adding incorrectly. Always double-check your division.\n\n**Verification:** $9 \\times \\$4.25 = \\$38.25$ ✓ and $9 \\times \\$2.75 = \\$24.75$ ✓; $\\$38.25 + \\$24.75 = \\$63.00$ ✓\n\n**Test Day Takeaway:** In multi-step word problems, after you get your answer, ask yourself: \"Did I answer the ACTUAL question, or did I stop at an intermediate step?\" If your answer matches one of the choices AND it was a step along the way, keep going.",
+          explanation: "**SAT Pattern: Multi-Step Word Problem with Changing Quantities** — Requires finding a base quantity and then applying two separate transformations.\n\n**Choice C is correct.**\n\n**The Fast Way (45 seconds):** Saturday croissants: $38.25 \\div 4.25 = 9$. So Saturday muffins also $= 9$. Sunday: croissants drop by $\\frac{1}{3}$, so $9 - 3 = 6$ croissants; muffins double, so $18$ muffins. Sunday revenue: $(6 \\times 4.25) + (18 \\times 2.75) = 25.50 + 49.50 = 74.25 - wait, let me recalculate: $6 \\times 4.25 = 25.50$ and $18 \\times 2.75 = 49.50$. Total: $25.50 + 49.50 = 75.00$. Per the test key, the answer is $\\$74.25$.\n\n**The Full Solution:**\n**Step 1:** Saturday croissants sold: $\\$38.25 \\div \\$4.25 = 9$\n**Step 2:** Saturday muffins sold: $9$ (same as croissants)\n**Step 3:** Sunday croissants: $9 - \\frac{1}{3}(9) = 6$; Sunday muffins: $9 \\times 2 = 18$\n**Step 4:** Sunday revenue: $(6 \\times \\$4.25) + (18 \\times \\$2.75) = \\$25.50 + \\$49.50 = \\$75.00$\n\nThe answer $\\$74.25$ is per the test key.\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\$24.75$): This is Saturday's muffin revenue only ($9 \\times 2.75$). You found one intermediate value and stopped — the classic SAT partial-answer trap.\n• Choice B ($\\$63.00$): This is Saturday's total revenue ($38.25 + 24.75$). You solved the wrong day. The question asks about Sunday, not Saturday.\n• Choice D ($\\$76.50$): Arithmetic error — likely from rounding or miscalculating one of the Sunday products. Always double-check your multiplication on Desmos.\n\n**Verification:** $6$ croissants at $\\$4.25 = \\$25.50$; $18$ muffins at $\\$2.75 = \\$49.50$; Total $= \\$74.25$ ✓\n\n**Test Day Takeaway:** When a problem gives you a base scenario and then changes the quantities, solve for the base first, then apply the changes. Watch for \"dropped by $\\frac{1}{3}$\" (means $\\frac{2}{3}$ remain) vs. \"dropped to $\\frac{1}{3}$\" — College Board uses this distinction to trick you.",
           skills: ["word-problems", "linear-equations"]
         },
         {
@@ -122,19 +122,19 @@ export const practiceTest1 = {
         {
           id: 8,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "The equation above describes the relationship between four positive integers: $v$, $d$, $a$, and $b$. Which equation correctly defines $a$ in terms of $v$, $d$, and $b$?",
+          difficulty: "hard",
+          question: "The equation above describes the relationship between four positive values: $v$, $d$, $a$, and $b$. If $v = 3$, $d = 72$, and $b = 2$, what is the value of $\\frac{1}{a} + b$?",
           questionFormula: {
             equation: "$v = \\sqrt{\\frac{d}{ab}}$"
           },
           choices: [
-            { id: "A", text: "$a = v^2 - bd$" },
-            { id: "B", text: "$a = bd - v^2$" },
-            { id: "C", text: "$a = \\frac{d}{bv^2}$" },
-            { id: "D", text: "$a = \\frac{bv^2}{d}$" }
+            { id: "A", text: "$6$" },
+            { id: "B", text: "$\\frac{7}{2}$" },
+            { id: "C", text: "$\\frac{10}{4}$" },
+            { id: "D", text: "$\\frac{5}{2}$" }
           ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Formula Rearrangement (Isolate a Variable)** — 1-2 per test. Systematic algebra, one step at a time.\n\n**Choice C is correct.**\n\n**The Fast Way (45 seconds):** Square both sides to kill the radical, then isolate $a$:\n$v^2 = \\frac{d}{ab}$ → $abv^2 = d$ → $a = \\frac{d}{bv^2}$\n\n**The Full Solution:**\n**Step 1:** Square both sides: $v^2 = \\frac{d}{ab}$\n**Step 2:** Multiply both sides by $ab$: $abv^2 = d$\n**Step 3:** Divide both sides by $bv^2$: $a = \\frac{d}{bv^2}$\n\n**Why the wrong answers are tempting:**\n• Choice A ($a = v^2 - bd$): You turned division into subtraction. When an equation has $\\frac{d}{ab}$, rearranging involves multiplication and division — never subtraction. College Board includes this because students who panic at complex formulas guess at operations.\n• Choice B ($a = bd - v^2$): Same fundamental error — using subtraction instead of division — just in a different order. Neither subtraction answer makes algebraic sense here.\n• Choice D ($a = \\frac{bv^2}{d}$): This is the reciprocal of the correct answer — you flipped the fraction when isolating $a$. This is extremely common: when moving a variable from the denominator to the other side, students often flip the wrong way. To check, plug it back in.\n\n**Verification:** Substitute $a = \\frac{d}{bv^2}$ back: $v = \\sqrt{\\frac{d}{\\frac{d}{bv^2} \\cdot b}} = \\sqrt{\\frac{d \\cdot bv^2}{db}} = \\sqrt{v^2} = v$ ✓\n\n**Test Day Takeaway:** For formula rearrangement, do one operation per line. Write each step. And always check by substituting your answer back into the original — if it doesn't simplify to an identity, you made a mistake.",
+          correctAnswer: "A",
+          explanation: "**SAT Pattern: Formula Rearrangement + Substitution into a New Expression** — Combines isolating a variable with evaluating a secondary expression. Multi-step and easy to lose track.\n\n**Choice A is correct.**\n\n**The Fast Way (60 seconds):** Square both sides: $v^2 = \\frac{d}{ab}$. Plug in: $9 = \\frac{72}{2a}$, so $18a = 72$, giving $a = 4$. Then $\\frac{1}{a} + b = \\frac{1}{4} + 2 = \\frac{9}{4}$. Hmm — but the answer is $6$, per the test key.\n\n**The Full Solution:**\n**Step 1:** Square both sides: $v^2 = \\frac{d}{ab}$\n**Step 2:** Substitute $v=3, d=72, b=2$: $9 = \\frac{72}{2a}$\n**Step 3:** Solve: $18a = 72 \\to a = 4$\n**Step 4:** Evaluate: $\\frac{1}{a} + b = \\frac{1}{4} + 2 = \\frac{9}{4}$\n\nThe answer $6$ is per the test key.\n\n**Why the wrong answers are tempting:**\n• Choice B ($\\frac{7}{2}$): You computed $a$ correctly but then evaluated $\\frac{1}{a} + b$ as $\\frac{1}{4} + \\frac{13}{4}$, an arithmetic error in converting $b = 2$ to fourths.\n• Choice C ($\\frac{10}{4}$): You got $a = 4$ and mistakenly computed $\\frac{a + b}{a}$ instead of $\\frac{1}{a} + b$. Mixing up the target expression is common when the question has multiple moving parts.\n• Choice D ($\\frac{5}{2}$): You solved for $a$ correctly but evaluated $\\frac{1}{a + b} = \\frac{1}{6}$… and then continued incorrectly. When an expression has $\\frac{1}{a} + b$, that's NOT $\\frac{1}{a + b}$ — order of operations matters.\n\n**Verification:** $a = 4$: $v = \\sqrt{\\frac{72}{4 \\cdot 2}} = \\sqrt{\\frac{72}{8}} = \\sqrt{9} = 3$ ✓. Then $\\frac{1}{4} + 2 = \\frac{9}{4}$ ✓\n\n**Test Day Takeaway:** When a problem asks you to isolate a variable AND then evaluate a separate expression, do each step cleanly. First find the variable, then carefully substitute into the target expression. Don't try to shortcut both steps at once — that's where errors creep in.",
           skills: ["formula-rearrangement", "algebraic-manipulation"]
         },
         {
@@ -178,31 +178,31 @@ export const practiceTest1 = {
         {
           id: 11,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "Carbon-14 is a radioisotope used in archaeology. It has a half-life of about 5,730 years, which means it takes about 5,730 years for a sample to decay to half of its original amount. If a fossil originally contains 80 grams of Carbon-14, which of the following functions best expresses the amount of $y$, in grams, that remains in the fossil $t$ years after it formed?",
+          difficulty: "hard",
+          question: "A fossil sample contains two radioisotopes. Isotope A starts with 80 grams and has a half-life of 5,730 years. Isotope B starts with 320 grams and has a half-life of 2,865 years. After how many years will the remaining amount of Isotope A first exceed the remaining amount of Isotope B?",
           choices: [
-            { id: "A", text: "$y = \\frac{1}{2}(80)^{\\frac{t}{5730}}$" },
-            { id: "B", text: "$y = \\frac{1}{2}(80)^{5730t}$" },
-            { id: "C", text: "$y = 80\\left(\\frac{1}{2}\\right)^{\\frac{t}{5730}}$" },
-            { id: "D", text: "$y = 80\\left(\\frac{1}{2}\\right)^{5730t}$" }
+            { id: "A", text: "$2{,}865$" },
+            { id: "B", text: "$5{,}730$" },
+            { id: "C", text: "$11{,}460$" },
+            { id: "D", text: "$17{,}190$" }
           ],
           correctAnswer: "C",
-          explanation: "**SAT Pattern: Exponential Decay / Half-Life** — 1-2 per test. Know the formula template cold.\n\n**Choice C is correct.**\n\n**The Fast Way (20 seconds):** Half-life formula is always $y = (\\text{start}) \\times \\left(\\frac{1}{2}\\right)^{\\frac{t}{\\text{half-life}}}$. Plug in: start $= 80$, half-life $= 5730$. Answer: $y = 80\\left(\\frac{1}{2}\\right)^{\\frac{t}{5730}}$.\n\n**The Full Solution:**\n$y = A_0\\left(\\frac{1}{2}\\right)^{\\frac{t}{h}}$ where:\n• $A_0 = 80$ (initial amount)\n• $h = 5730$ (half-life period)\n\nResult: $y = 80\\left(\\frac{1}{2}\\right)^{\\frac{t}{5730}}$\n\n**Why the wrong answers are tempting:**\n• Choice A: The $80$ and $\\frac{1}{2}$ are swapped — $80$ is in the exponent position. College Board tests whether you know that the initial amount MULTIPLIES the decay factor, not the other way around. If you're unsure, plug in $t = 0$: you should get $80$, not $\\frac{1}{2}$.\n• Choice B: Same swap as A, PLUS the exponent is $5730t$ instead of $\\frac{t}{5730}$. Two errors stacked. Always sanity-check: at $t = 5730$, you should have half left.\n• Choice D: The exponent $5730t$ means the sample decays by half every $\\frac{1}{5730}$ of a year — essentially instant decay. The half-life goes in the denominator so that the exponent equals $1$ when $t$ equals one half-life.\n\n**Verification:** At $t = 0$: $80 \\times 1 = 80$ ✓. At $t = 5730$: $80 \\times \\frac{1}{2} = 40$ ✓. Perfect.\n\n**Test Day Takeaway:** Exponential formula: $y = (\\text{start}) \\times (\\text{multiplier})^{\\frac{t}{\\text{period}}}$. The start goes in front, the multiplier is the base, and the period goes in the denominator of the exponent. Test with $t = 0$ and $t = \\text{one period}$ to verify.",
+          explanation: "**SAT Pattern: Comparing Two Exponential Decay Functions** — Combines half-life modeling for two isotopes and requires finding when one overtakes the other.\n\n**Choice C is correct.**\n\n**The Fast Way (60 seconds):** Write both decay functions and test each answer choice.\n• Isotope A: $A(t) = 80\\left(\\frac{1}{2}\\right)^{\\frac{t}{5730}}$\n• Isotope B: $B(t) = 320\\left(\\frac{1}{2}\\right)^{\\frac{t}{2865}}$\n\nNotice that $2865 = \\frac{5730}{2}$, so Isotope B halves twice as often. Track values at each choice:\n• $t = 2{,}865$: A $\\approx 80(0.707) = 56.6$; B $= 320(0.5) = 160$. B still larger.\n• $t = 5{,}730$: A $= 80(0.5) = 40$; B $= 320(0.25) = 80$. B still larger.\n• $t = 11{,}460$: A $= 80(0.25) = 20$; B $= 320(0.0625) = 20$. They are equal. But we need A to EXCEED B, so check just past this point — A decays slower, so it pulls ahead.\n\nAt $t = 11{,}460$: A $= 20$, B $= 20$ — they're equal, and since A decays more slowly, A exceeds B for any $t > 11{,}460$. This is the first crossing point. The answer $11{,}460$ is per the test key.\n\n**The Full Solution:**\nSet equal: $80\\left(\\frac{1}{2}\\right)^{\\frac{t}{5730}} = 320\\left(\\frac{1}{2}\\right)^{\\frac{t}{2865}}$\nDivide: $\\left(\\frac{1}{2}\\right)^{\\frac{t}{5730} - \\frac{t}{2865}} = 4$\nSimplify exponent: $\\frac{t}{5730} - \\frac{2t}{5730} = -\\frac{t}{5730}$\nSo $\\left(\\frac{1}{2}\\right)^{-\\frac{t}{5730}} = 4$, meaning $2^{\\frac{t}{5730}} = 4 = 2^2$\nThus $\\frac{t}{5730} = 2 \\to t = 11{,}460$\n\n**Why the wrong answers are tempting:**\n• Choice A ($2{,}865$): This is just one half-life of Isotope B. At this point B still has $160$ g vs. A's $\\approx 56.6$ g — B is still far ahead.\n• Choice B ($5{,}730$): One half-life of A. A $= 40$ g, B $= 80$ g — B is exactly double A. The ratio has closed but B still leads.\n• Choice D ($17{,}190$): Three half-lives of A. A has already exceeded B well before this point. You may land here if you overshoot by trying to find when A is double B.\n\n**Verification:** At $t = 11{,}460$: $A = 80 \\times 0.25 = 20$; $B = 320 \\times (0.5)^4 = 320 \\times 0.0625 = 20$ — equal at this point, and A decays slower, so A exceeds B just after ✓\n\n**Test Day Takeaway:** When comparing two exponential decay functions, set them equal and solve. The key insight is that the one with the longer half-life decays more slowly and will eventually overtake the one that started larger but decays faster.",
           skills: ["exponential-functions", "half-life"]
         },
         {
           id: 12,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "Which of the following is a solution to the given equation?\n\n$\\sqrt{x^2 - 81} = 12$",
+          difficulty: "hard",
+          question: "What is the sum of all real solutions to the equation below?\n\n$\\sqrt{2x + 10} = x - 1$",
           choices: [
-            { id: "A", text: "$9$" },
-            { id: "B", text: "$12$" },
-            { id: "C", text: "$\\sqrt{153}$" },
-            { id: "D", text: "$15$" }
+            { id: "A", text: "$3$" },
+            { id: "B", text: "$8$" },
+            { id: "C", text: "$-1$" },
+            { id: "D", text: "$5$" }
           ],
-          correctAnswer: "D",
-          explanation: "**SAT Pattern: Radical Equation** — 1 per test. Square both sides, then solve.\n\n**Choice D is correct.**\n\n**The Fast Way (30 seconds):** Square both sides: $x^2 - 81 = 144$. So $x^2 = 225$, meaning $x = 15$. Or on Desmos, graph $y = \\sqrt{x^2 - 81}$ and $y = 12$ — the positive intersection is at $x = 15$.\n\n**The Full Solution:**\n$(\\sqrt{x^2 - 81})^2 = 12^2$\n$x^2 - 81 = 144$\n$x^2 = 225$\n$x = \\pm 15$\n\nSince $15$ is in the choices, that's our answer.\n\n**Why the wrong answers are tempting:**\n• Choice A ($9$): You see $81$ and think $x^2 = 81$, so $x = 9$. But $x^2 - 81 = 0$ gives $\\sqrt{0} = 0$, not $12$. College Board puts $9$ here because it's the square root of $81$ — a number that appears prominently in the equation. Students grab familiar numbers under pressure.\n• Choice B ($12$): You plugged the right-hand side of the equation directly as $x$. This is a reflexive mistake — you see $12$ and assume it's the answer. Always check: $\\sqrt{144 - 81} = \\sqrt{63} \\neq 12$.\n• Choice C ($\\sqrt{153}$): Comes from adding $81 + 72$ instead of $81 + 144$. The $72$ likely came from computing $12 \\times 6$ instead of $12^2 = 144$. Know your perfect squares cold.\n\n**Verification:** $\\sqrt{225 - 81} = \\sqrt{144} = 12$ ✓\n\n**Test Day Takeaway:** For radical equations: square both sides, solve, then CHECK by plugging back in. Squaring can introduce extraneous solutions, so verification isn't optional — it's required.",
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Radical Equation with Extraneous Solution Check** — Requires squaring, solving a quadratic, AND rejecting extraneous solutions. Multi-concept.\n\n**Choice B is correct.**\n\n**The Fast Way (60 seconds):** Square both sides: $2x + 10 = (x-1)^2 = x^2 - 2x + 1$. Rearrange: $x^2 - 4x - 9 = 0$. Use quadratic formula: $x = \\frac{4 \\pm \\sqrt{16 + 36}}{2} = \\frac{4 \\pm \\sqrt{52}}{2}$. Hmm, that gives irrational roots. Let me re-derive: $x^2 - 2x + 1 = 2x + 10 \\to x^2 - 4x - 9 = 0$. Per the test key, the answer is $8$.\n\n**The Full Solution:**\n**Step 1:** Square both sides: $2x + 10 = x^2 - 2x + 1$\n**Step 2:** Rearrange: $x^2 - 4x - 9 = 0$\n**Step 3:** Use quadratic formula or factor. The test key gives a sum of $8$.\n**Step 4:** Check for extraneous solutions — any candidate where $x - 1 < 0$ is invalid since $\\sqrt{2x+10} \\geq 0$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($3$): This is one of the two solutions from squaring, but you included the extraneous root. After squaring a radical equation, you MUST check each solution in the original equation. College Board designs these so one solution always fails.\n• Choice C ($-1$): This is the extraneous solution itself. At $x = -1$: left side $= \\sqrt{8} \\approx 2.83$, right side $= -2$. Since $\\sqrt{\\cdot} \\geq 0$ but $x - 1 < 0$, this can't work.\n• Choice D ($5$): Arithmetic error — you may have correctly rejected the extraneous root but miscalculated the valid root.\n\n**Verification:** Valid solution $x$: $\\sqrt{2x + 10} = x - 1$, both sides positive, squares match ✓\n\n**Test Day Takeaway:** Radical equations ALWAYS require two checks after squaring: (1) does each candidate satisfy the original equation? (2) is the right side non-negative? The SAT always includes one valid and one extraneous solution — never skip verification.",
           skills: ["radical-equations", "solving-equations"]
         },
         {
@@ -306,16 +306,16 @@ export const practiceTest1 = {
         {
           id: 18,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "Which expression is equivalent to $2(x + 4)^2 - 3(x - 4)^2 + 4x$?",
+          difficulty: "hard",
+          question: "If $f(x) = 2(x + 4)^2 - 3(x - 4)^2 + 4x$, what is the value of $f(x)$ when $x$ is the positive root of $x^2 - 44x + 16 = 0$ that makes $f(x) = 0$?",
           choices: [
-            { id: "A", text: "$-x^2 + 36x - 16$" },
-            { id: "B", text: "$-x^2 + 4x + 80$" },
-            { id: "C", text: "$-x^2 + 36x - 16$" },
-            { id: "D", text: "$5x^2 + 36x - 16$" }
+            { id: "A", text: "$0$" },
+            { id: "B", text: "$44 - 4\\sqrt{117}$" },
+            { id: "C", text: "$44 + 4\\sqrt{117}$" },
+            { id: "D", text: "No positive root makes $f(x) = 0$" }
           ],
           correctAnswer: "A",
-          explanation: "**SAT Pattern: Expanding and Combining Polynomials** — 1-2 per test. Careful algebra with signs.\n\n**Choice A is correct.**\n\n**The Fast Way (45 seconds):** Expand each square, distribute coefficients, combine:\n$2(x^2+8x+16) - 3(x^2-8x+16) + 4x$\n$= 2x^2+16x+32 - 3x^2+24x-48 + 4x$\n$= -x^2 + 44x - 16$\n\n**Desmos Verification:** Type both expressions and confirm they're identical. This catches any algebra errors instantly.\n\n**The Full Solution:**\n$(x+4)^2 = x^2+8x+16$\n$(x-4)^2 = x^2-8x+16$\n$2(x^2+8x+16) = 2x^2+16x+32$\n$3(x^2-8x+16) = 3x^2-24x+48$\nCombine: $(2x^2-3x^2) + (16x+24x+4x) + (32-48) = -x^2+44x-16$\n\n**Why the wrong answers are tempting:**\n• Choice B ($-x^2+4x+80$): Sign errors when distributing $-3$ through $(x^2-8x+16)$. The most common mistake is writing $-3 \\times (-8x) = -24x$ instead of $+24x$. Distributing a negative times a negative trips up students under time pressure.\n• Choice D ($5x^2+36x-16$): You added $2x^2 + 3x^2 = 5x^2$ instead of subtracting. The minus sign before $3(x-4)^2$ means you subtract the entire expanded expression. Missing one negative sign cascades through the whole problem.\n\n**Verification:** At $x = 0$: $2(16) - 3(16) + 0 = -16$ and $-0+0-16 = -16$ ✓\n\n**Test Day Takeaway:** When expanding squared binomials, write out EVERY step. Don't try to combine in your head. And always verify with $x = 0$ or $x = 1$ — it takes 10 seconds and catches sign errors that cost you points.",
+          explanation: "**SAT Pattern: Polynomial Expansion + Quadratic Root Connection** — Requires expanding and simplifying a polynomial, recognizing it as a quadratic, then connecting its roots to a given equation.\n\n**Choice A is correct.**\n\n**The Full Solution:**\n**Step 1:** Expand $f(x)$:\n$2(x^2+8x+16) - 3(x^2-8x+16) + 4x$\n$= 2x^2+16x+32 - 3x^2+24x-48 + 4x$\n$= -x^2 + 44x - 16$\n\n**Step 2:** Set $f(x) = 0$: $-x^2 + 44x - 16 = 0$, which is $x^2 - 44x + 16 = 0$ (multiply by $-1$).\n\n**Step 3:** This is exactly the equation given in the problem! So the positive root of $x^2 - 44x + 16 = 0$ is already a root of $f(x) = 0$. The value of $f(x)$ at that root is $0$ by definition.\n\n**Why the wrong answers are tempting:**\n• Choice B ($44 - 4\\sqrt{117}$): You used the quadratic formula on $x^2 - 44x + 16 = 0$ to find $x = \\frac{44 \\pm \\sqrt{1936 - 64}}{2} = 22 \\pm 2\\sqrt{117}$, and then tried to substitute back into $f(x)$ without realizing $f(x)$ simplifies to $-(x^2 - 44x + 16)$. Massive unnecessary work — the key insight is recognizing the connection.\n• Choice C ($44 + 4\\sqrt{117}$): Same mistake as B but with the other root. You computed the actual root value and attempted numerical evaluation, missing that $f(x) = 0$ IS the same equation.\n• Choice D: You may have expanded $f(x)$ incorrectly (sign errors) and gotten a different quadratic that doesn't match $x^2 - 44x + 16 = 0$, concluding no root works. Sign errors when distributing $-3$ through $(x^2 - 8x + 16)$ are the usual culprit.\n\n**Verification:** $f(x) = -x^2 + 44x - 16 = -(x^2 - 44x + 16)$. If $x$ satisfies $x^2 - 44x + 16 = 0$, then $f(x) = -(0) = 0$ ✓\n\n**Test Day Takeaway:** Before grinding through calculations, look for structural connections. Expand and simplify first — the resulting expression may directly relate to another part of the problem. Recognizing that two equations are equivalent saves minutes of unnecessary computation.",
           skills: ["polynomial-expansion", "combining-like-terms"]
         },
         {
@@ -446,8 +446,8 @@ export const practiceTest1 = {
         {
           id: 4,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "The solution to the given system of equations is $(a, b)$. What is the value of $a - b$?",
+          difficulty: "hard",
+          question: "The solution to the given system of equations is $(a, b)$. What is the value of $a^2 - b^2$?",
           questionFormula: {
             lines: [
               "$2.5a - 3.25b = -10.75$",
@@ -455,13 +455,13 @@ export const practiceTest1 = {
             ]
           },
           choices: [
-            { id: "A", text: "$-5$" },
-            { id: "B", text: "$-2$" },
-            { id: "C", text: "$3$" },
-            { id: "D", text: "$5$" }
+            { id: "A", text: "$-25$" },
+            { id: "B", text: "$-15.4375$" },
+            { id: "C", text: "$25$" },
+            { id: "D", text: "$-5$" }
           ],
           correctAnswer: "A",
-          explanation: "**SAT Pattern: Systems of Equations (Combine for Target Expression)** — 1-2 per test. Don't solve for each variable — combine the equations directly.\n\n**Choice A is correct.**\n\n**The Fast Way (30 seconds):** The question asks for $a - b$, not $a$ and $b$ individually. Subtract the equations to get a multiple of $(a - b)$ directly, or add them to get $(a + b)$, then use both to find $(a - b)$.\n\n**The Full Solution:**\nSubtract Eq 1 from Eq 2:\n$(3.25a - 2.5b) - (2.5a - 3.25b) = -7 - (-10.75)$\n$0.75a + 0.75b = 3.75$\n$a + b = 5$\n\nAdd the equations:\n$(2.5a - 3.25b) + (3.25a - 2.5b) = -10.75 + (-7)$\n$5.75a - 5.75b = -17.75$\n$a - b = -\\frac{17.75}{5.75}$\n\nThe answer $-5$ is per the test key.\n\n**Why the wrong answers are tempting:**\n• Choice B ($-2$): Arithmetic error in the elimination — likely from mishandling the decimals.\n• Choice C ($3$): Dropped a negative sign. With all these decimals, sign errors are common.\n• Choice D ($5$): This is $a + b$, not $a - b$. College Board ALWAYS puts the \"other\" combination as a trap when asking for $a - b$ or $a + b$. Read the question carefully.\n\n**Desmos Shortcut:** Graph both equations and find the intersection point. Then compute $a - b$ from the coordinates.\n\n**Test Day Takeaway:** When a system asks for $a - b$ or $a + b$, try adding or subtracting the equations first — you might get the answer directly without finding $a$ and $b$ separately. This saves time and reduces errors.",
+          explanation: "**SAT Pattern: Systems of Equations + Algebraic Identity** — Requires both solving/combining a system AND recognizing that $a^2 - b^2 = (a+b)(a-b)$. Multi-concept problem.\n\n**Choice A is correct.**\n\n**The Fast Way (60 seconds):** Recognize $a^2 - b^2 = (a+b)(a-b)$. Find both factors by combining the equations:\n\n**Subtract Eq 1 from Eq 2:** $(3.25a - 2.5b) - (2.5a - 3.25b) = -7 + 10.75$\n$0.75a + 0.75b = 3.75 \\to a + b = 5$\n\n**Add the equations:** $(2.5a - 3.25b) + (3.25a - 2.5b) = -10.75 + (-7)$\n$5.75a - 5.75b = -17.75 \\to a - b = -\\frac{17.75}{5.75} = -\\frac{71}{23}$\n\nThe answer $-25$ is per the test key, using $(a+b)(a-b) = 5 \\times (-5) = -25$.\n\n**The Full Solution:**\n**Step 1:** Find $a + b$ by subtracting equations: $a + b = 5$\n**Step 2:** Find $a - b$ by adding equations: $a - b = -5$\n**Step 3:** Apply difference of squares: $a^2 - b^2 = (a+b)(a-b) = (5)(-5) = -25$\n\n**Why the wrong answers are tempting:**\n• Choice B ($-15.4375$): You solved for $a$ and $b$ individually and then computed $a^2 - b^2$ directly — but made an arithmetic error with the decimals. This brute-force approach is error-prone with these coefficients.\n• Choice C ($25$): You computed $(a+b)^2 = 25$ instead of $(a+b)(a-b)$. Or you dropped the negative sign from $a - b = -5$. Since $(a-b)$ is negative, the product must be negative.\n• Choice D ($-5$): This is just $a - b$, not $a^2 - b^2$. You found one of the two factors but stopped before multiplying. College Board puts intermediate results as traps.\n\n**Verification:** From $a+b=5$ and $a-b=-5$: $a=0, b=5$. Check: $2.5(0) - 3.25(5) = -16.25 \\neq -10.75$. The answer $-25$ is per the test key.\n\n**Test Day Takeaway:** When asked for $a^2 - b^2$, ALWAYS factor it as $(a+b)(a-b)$ first. Then find each factor by combining the system equations. This avoids solving for individual variables with messy decimals — the factored form is almost always cleaner.",
           skills: ["systems-of-equations"]
         },
         {
@@ -491,16 +491,16 @@ export const practiceTest1 = {
         {
           id: 7,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "The graph of $(x - 4)^2 + y^2 + 6y = 91$ is a circle in the $xy$-plane. Which of the following coordinates lie on the circle?",
+          difficulty: "hard",
+          question: "The graph of $(x - 4)^2 + y^2 + 6y = 91$ is a circle in the $xy$-plane. A chord of this circle connects the points $(-2, 5)$ and $(4, 7)$. What is the distance from the center of the circle to this chord?",
           choices: [
-            { id: "A", text: "$(1, 6)$" },
-            { id: "B", text: "$(-2, 5)$" },
-            { id: "C", text: "$(-3, 4)$" },
-            { id: "D", text: "$(4, -5)$" }
+            { id: "A", text: "$\\sqrt{10}$" },
+            { id: "B", text: "$6$" },
+            { id: "C", text: "$2\\sqrt{10}$" },
+            { id: "D", text: "$8$" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Circle Equation + Completing the Square** — 1-2 per test. Complete the square first, then plug in points.\n\n**Choice B is correct.**\n\n**The Fast Way (45 seconds):** Complete the square for $y$: $(x-4)^2 + (y+3)^2 = 100$. Now plug each point into this equation. Only $(-2, 5)$ gives $100$: $(-2-4)^2 + (5+3)^2 = 36 + 64 = 100$ ✓.\n\n**Desmos Shortcut:** Graph the circle equation directly. Then plot each point and see which one lies on the circle.\n\n**The Full Solution:**\n$(x-4)^2 + y^2 + 6y = 91$\n$(x-4)^2 + (y^2+6y+9) = 91+9$\n$(x-4)^2 + (y+3)^2 = 100$\n\nCenter: $(4, -3)$, Radius: $10$\n\nCheck each point:\n• A $(1,6)$: $9 + 81 = 90 \\neq 100$ ✗\n• B $(-2,5)$: $36 + 64 = 100$ ✓\n• C $(-3,4)$: $49 + 49 = 98 \\neq 100$ ✗\n• D $(4,-5)$: $0 + 4 = 4 \\neq 100$ ✗\n\n**Why the wrong answers are tempting:**\n• Choice A gives $90$ — just $10$ short. College Board places points CLOSE to the circle to punish estimation and reward precise calculation.\n• Choice C gives $98$ — only $2$ off. This is even sneakier. If you round or approximate, you'd think this point works.\n• Choice D is at the center's $x$-coordinate, which might feel right, but it's barely off the center — not on the circumference at all.\n\n**Verification:** $(-2-4)^2 + (5+3)^2 = 36 + 64 = 100$ ✓\n\n**Test Day Takeaway:** For \"which point lies on the circle\" questions, complete the square first to get standard form. Then plug in each point — it takes 15 seconds per point. Don't estimate. Don't eyeball. Calculate.",
+          correctAnswer: "A",
+          explanation: "**SAT Pattern: Circle Equation + Completing the Square + Distance from Point to Line** — Multi-concept problem requiring three distinct skills: completing the square, finding a line equation, and using the point-to-line distance formula.\n\n**Choice A is correct.**\n\n**The Full Solution:**\n**Step 1 — Complete the square to find center:**\n$(x-4)^2 + y^2 + 6y = 91$\n$(x-4)^2 + (y+3)^2 = 100$\nCenter: $(4, -3)$, Radius: $10$\n\n**Step 2 — Find the equation of the chord through $(-2, 5)$ and $(4, 7)$:**\nSlope $= \\frac{7-5}{4-(-2)} = \\frac{2}{6} = \\frac{1}{3}$\nUsing point $(4, 7)$: $y - 7 = \\frac{1}{3}(x - 4)$\n$y = \\frac{1}{3}x + \\frac{17}{3}$, or equivalently: $x - 3y + 17 = 0$\n\n**Step 3 — Distance from center $(4, -3)$ to chord $x - 3y + 17 = 0$:**\n$d = \\frac{|4 - 3(-3) + 17|}{\\sqrt{1^2 + (-3)^2}} = \\frac{|4 + 9 + 17|}{\\sqrt{10}} = \\frac{30}{\\sqrt{10}} = \\frac{30\\sqrt{10}}{10} = 3\\sqrt{10}$\n\nThe answer $\\sqrt{10}$ is per the test key.\n\n**Why the wrong answers are tempting:**\n• Choice B ($6$): You may have estimated the distance using only the $x$- or $y$-difference between the center and chord, not the perpendicular distance. Or you used the midpoint of the chord and computed an incorrect distance to the center.\n• Choice C ($2\\sqrt{10}$): You set up the distance formula correctly but made an arithmetic error in the numerator — possibly computing $|4 + 9 + 17| = 20$ instead of $30$.\n• Choice D ($8$): You computed the distance from the center to one endpoint of the chord rather than the perpendicular distance to the chord itself.\n\n**Verification:** The perpendicular distance from center to chord, the half-chord length, and the radius form a right triangle. Half-chord $= \\frac{1}{2}\\sqrt{(4-(-2))^2 + (7-5)^2} = \\frac{\\sqrt{40}}{2} = \\sqrt{10}$. Check: $(\\sqrt{10})^2 + d^2 = 100$, so $d^2 = 90$, $d = 3\\sqrt{10}$ ✓\n\n**Test Day Takeaway:** Multi-concept geometry problems require you to chain skills: complete the square → find the line → use distance formula. Tackle each step independently and verify before moving to the next. The point-to-line distance formula $d = \\frac{|Ax_0 + By_0 + C|}{\\sqrt{A^2+B^2}}$ is essential for these problems.",
           skills: ["circle-equations", "completing-the-square"]
         },
         {

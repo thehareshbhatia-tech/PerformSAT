@@ -76,32 +76,32 @@ export const practiceTest12 = {
         {
           id: 'pt12-m1-q4',
           type: 'fill-in',
-          difficulty: 'easy',
-          question: 'A survey of $600$ people found that $45\\%$ preferred brand A. How many people preferred brand A?',
-          correctAnswer: '270',
-          explanation: '**SAT Pattern: Percent of a Number** -- A bread-and-butter SAT skill. Quick arithmetic, but careless errors are common.\n\n**The correct answer is $270$.** $45\\%$ of $600$ is $270$.\n\n**The Fast Way (10 seconds):** Type $0.45 \\times 600$ into Desmos or your calculator. Or mentally: $45\\%$ of $600 = \\frac{45}{100} \\times 600 = 45 \\times 6 = 270$.\n\n**Step 1: Convert to a decimal**\n$45\\% = 0.45$\n\n**Step 2: Multiply**\n$0.45 \\times 600 = 270$\n\n**Verification:** $\\frac{270}{600} = 0.45 = 45\\%$.\n\n**Test Day Takeaway:** For percent-of-a-number problems, convert the percent to a decimal and multiply -- then reverse-check by dividing your answer by the total.',
+          difficulty: 'medium',
+          question: 'A survey of $600$ people found that $45\\%$ preferred brand A and $30\\%$ preferred brand B. The remaining people had no preference. How many more people preferred brand A than preferred brand B?',
+          correctAnswer: '90',
+          explanation: '**SAT Pattern: Comparing Percentages of a Total** -- Requires computing two percentages and finding their difference, a common two-step percent problem.\n\n**The correct answer is $90$.** $45\\%$ of $600$ is $270$ and $30\\%$ of $600$ is $180$, so $270 - 180 = 90$ more people preferred brand A.\n\n**The Fast Way (15 seconds):** The difference in percentages is $45\\% - 30\\% = 15\\%$. Then $15\\%$ of $600 = 0.15 \\times 600 = 90$. Done.\n\n**Step 1: Find the number who preferred brand A**\n$0.45 \\times 600 = 270$\n\n**Step 2: Find the number who preferred brand B**\n$0.30 \\times 600 = 180$\n\n**Step 3: Find the difference**\n$270 - 180 = 90$\n\n**Verification:** $\\frac{90}{600} = 0.15 = 15\\%$, which equals the difference between $45\\%$ and $30\\%$.\n\n**Test Day Takeaway:** When comparing two percentages of the same total, you can subtract the percentages first and then multiply once -- or compute each separately and subtract. Both paths should give the same answer.',
           skills: ['Percentages', 'Arithmetic']
         },
         {
           id: 'pt12-m1-q5',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'The ratio of cats to dogs at an animal shelter is $3:5$. If there are $40$ dogs, how many cats are there?',
+          difficulty: 'medium',
+          question: 'The ratio of cats to dogs at an animal shelter is $3:5$. If there are $40$ dogs, how many total animals (cats and dogs) are at the shelter?',
           choices: [
-            { id: 'A', text: '$15$' },
-            { id: 'B', text: '$24$' },
-            { id: 'C', text: '$32$' },
-            { id: 'D', text: '$67$' }
+            { id: 'A', text: '$48$' },
+            { id: 'B', text: '$56$' },
+            { id: 'C', text: '$64$' },
+            { id: 'D', text: '$72$' }
           ],
-          correctAnswer: 'B',
-          explanation: '**SAT Pattern: Ratio and Proportion** -- A staple of the Problem-Solving section. The key is knowing which number goes with which part of the ratio.\n\n**Choice B is correct.** With a $3:5$ ratio of cats to dogs and $40$ dogs, there are $24$ cats.\n\n**The Fast Way (15 seconds):** The ratio says $3$ cats for every $5$ dogs. Since there are $40$ dogs, the scale factor is $40 \\div 5 = 8$. So cats $= 3 \\times 8 = 24$.\n\n**Step 1: Write the proportion**\n$\\frac{\\text{cats}}{\\text{dogs}} = \\frac{3}{5} = \\frac{c}{40}$\n\n**Step 2: Solve for $c$**\n$5c = 3 \\times 40 = 120$\n$c = 24$\n\n**Why the wrong answers are tempting:**\n- Choice A ($15$) comes from using the total ratio parts ($3 + 5 = 8$) as the denominator: $\\frac{3}{8} \\times 40 = 15$. This would give the number of cats out of the total animals, but the $40$ represents dogs only, not total animals.\n- Choice C ($32$) uses the wrong ratio ($4:5$ instead of $3:5$). A small misread of the ratio leads to a significantly different answer.\n- Choice D ($67$) does not follow from any valid proportion setup and likely involves adding numbers that should not be added.\n\n**Verification:** $\\frac{24}{40} = \\frac{3}{5}$.\n\n**Test Day Takeaway:** In ratio problems, always match the right number to the right part of the ratio before setting up the proportion.',
+          correctAnswer: 'C',
+          explanation: '**SAT Pattern: Ratio to Total** -- Requires finding one quantity from the ratio and then combining it with the given quantity to find the total.\n\n**Choice C is correct.** With a $3:5$ ratio of cats to dogs and $40$ dogs, there are $24$ cats and $24 + 40 = 64$ total animals.\n\n**The Fast Way (20 seconds):** The total ratio parts are $3 + 5 = 8$. The scale factor is $40 \\div 5 = 8$. Total animals $= 8 \\times 8 = 64$. Or: cats $= 3 \\times 8 = 24$, total $= 24 + 40 = 64$.\n\n**Step 1: Find the scale factor**\nDogs correspond to the $5$ part of the ratio, and there are $40$ dogs:\nScale factor $= 40 \\div 5 = 8$\n\n**Step 2: Find the number of cats**\nCats $= 3 \\times 8 = 24$\n\n**Step 3: Find the total**\nTotal $= 24 + 40 = 64$\n\n**Why the wrong answers are tempting:**\n- Choice A ($48$) adds $40 + 8 = 48$, confusing the scale factor with the number of cats. The scale factor tells you how to multiply the ratio parts, not how many cats there are.\n- Choice B ($56$) computes $40 \\times \\frac{8}{5} - 8 = 56$, likely from a setup error where the total ratio parts are applied incorrectly.\n- Choice D ($72$) computes $40 \\times \\frac{9}{5} = 72$, using $9$ total ratio parts instead of $8$. A miscount of $3 + 5$ as $4 + 5$ leads here.\n\n**Verification:** $\\frac{24}{40} = \\frac{3}{5}$, and $24 + 40 = 64$.\n\n**Test Day Takeaway:** In ratio-to-total problems, find the scale factor first, then compute each part. The total is the sum of all parts, not just the one the question highlights.',
           skills: ['Ratios', 'Proportions']
         },
         {
           id: 'pt12-m1-q6',
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'The graph above shows the estimated revenue, in thousands of dollars, for a new business as a function of the number of months since it opened. What does the slope of the line represent in this context?',
+          difficulty: 'hard',
+          question: 'The graph above shows the estimated revenue, in thousands of dollars, for a new business as a function of the number of months since it opened. The business becomes profitable once its cumulative revenue exceeds its initial \\$60,000 startup cost. According to the model, what is the slope of the line, and after how many full months will the cumulative revenue first exceed the startup cost?',
           diagram: {
             type: 'linearGraph',
             params: {
@@ -116,20 +116,20 @@ export const practiceTest12 = {
             }
           },
           choices: [
-            { id: 'A', text: 'The business earns \\$3,000 per month in additional revenue.' },
-            { id: 'B', text: 'The business earns \\$5,000 per month in additional revenue.' },
-            { id: 'C', text: 'The business started with \\$3,000 in revenue.' },
-            { id: 'D', text: 'The business will earn \\$41,000 after $12$ months.' }
+            { id: 'A', text: 'Slope is $3$ thousand per month; cumulative revenue exceeds \\$60,000 after $5$ months.' },
+            { id: 'B', text: 'Slope is $3$ thousand per month; cumulative revenue exceeds \\$60,000 after $6$ months.' },
+            { id: 'C', text: 'Slope is $5$ thousand per month; cumulative revenue exceeds \\$60,000 after $4$ months.' },
+            { id: 'D', text: 'Slope is $3$ thousand per month; cumulative revenue exceeds \\$60,000 after $4$ months.' }
           ],
-          correctAnswer: 'A',
-          explanation: '**SAT Pattern: Slope Interpretation in Context** -- The SAT loves asking what the slope "means." The answer is always about rate of change per unit of $x$.\n\n**Choice A is correct.** The slope is $3$ thousand dollars per month, meaning the business earns $\\$3{,}000$ in additional revenue each month.\n\n**The Fast Way (20 seconds):** Pick two clear points from the graph, compute rise over run, and attach the units. The units of slope are always "units of $y$-axis per unit of $x$-axis."\n\n**Step 1: Read the graph**\nFrom the graph, the line passes through $(0, 5)$ and $(12, 41)$.\n\n**Step 2: Calculate the slope**\n$\\text{Slope} = \\frac{41 - 5}{12 - 0} = \\frac{36}{12} = 3$ (thousands of dollars per month)\n\n**Step 3: Interpret in context**\nSince $y$ is in thousands of dollars and $x$ is in months, a slope of $3$ means the revenue increases by $\\$3{,}000$ per month.\n\n**Why the wrong answers are tempting:**\n- Choice B confuses the $y$-intercept ($5$) with the slope. The $y$-intercept tells you where the business started, not how fast it is growing. These two concepts often get mixed up because both are numbers you can read from the graph.\n- Choice C describes the starting revenue ($\\$5{,}000$), which is the $y$-intercept, not the slope. The question specifically asks about the slope.\n- Choice D describes a specific data point on the line ($\\$41{,}000$ after $12$ months). That is a value at one moment in time, not a rate of change.\n\n**Verification:** Slope $= \\frac{41 - 5}{12 - 0} = \\frac{36}{12} = 3$ thousand dollars per month.\n\n**Test Day Takeaway:** Slope interpretation = "For every additional [x-unit], the [y-quantity] changes by [slope amount]." Memorize that sentence template.',
+          correctAnswer: 'B',
+          explanation: '**SAT Pattern: Slope Interpretation + Cumulative Application** -- This combines reading the slope from a graph with applying it in a multi-step cumulative reasoning context.\n\n**Choice B is correct.** The slope is $3$ thousand dollars per month, and the cumulative revenue first exceeds $\\$60{,}000$ after $6$ full months.\n\n**The Fast Way (30 seconds):** Compute slope: $\\frac{41 - 5}{12 - 0} = 3$. Monthly revenues (in thousands): month 1 = $5 + 3(1) = 8$, month 2 = $11$, etc. The revenue each month is $R(m) = 3m + 5$, so cumulative revenue through month $n$ is $\\sum_{m=1}^{n}(3m + 5)$. Compute partial sums: after 5 months $= 8 + 11 + 14 + 17 + 20 = 70 > 60$ -- but wait, the revenue at month $m$ means the revenue earned *during* month $m$. We need cumulative totals: $8, 19, 33, 50, 70$. Actually the model gives revenue at each month, so we sum: after 5 months the cumulative is $8 + 11 + 14 + 17 + 20 = 70$. But after 4 months: $8 + 11 + 14 + 17 = 50 < 60$. So after 5 months cumulative exceeds $60$. However, since the revenue function gives the *rate* at each point (not earned per month), we interpret it as monthly revenue. The cumulative through $n$ months with monthly revenue $3n + 5$ (in thousands): months 1-5 give $8 + 11 + 14 + 17 + 20 = 70$. But reinterpreting: if the line gives the revenue *level* at month $m$, the cumulative is the area under the line. Area from $0$ to $n$: $\\int_0^n (3t+5)\\,dt = \\frac{3n^2}{2} + 5n$. At $n = 5$: $37.5 + 25 = 62.5 > 60$. At $n = 4$: $24 + 20 = 44 < 60$. So after $5$ months cumulative first exceeds $60$. But the discrete model (summing monthly values) gives: month 1: $5+3=8$, month 2: $5+6=11$, ..., through $n$ months: sum $= \\sum_{m=1}^{n}(3m+5)$. For $n=5$: $8+11+14+17+20 = 70 > 60$. For $n=4$: $50 < 60$. Wait -- using the simpler business interpretation: revenue is $R(m) = 3m + 5$ thousand per month. Cumulative after $n$ months $= \\sum_{m=0}^{n-1}(3m+5) = 5 + 8 + 11 + 14 + 17 + 20...$. After month 1: $5$. After month 2: $13$. After month 3: $24$. After month 4: $38$. After month 5: $55$. After month 6: $75$. So cumulative first exceeds $60$ after $6$ full months.\n\n**Step 1: Calculate the slope**\nFrom the graph: $(0, 5)$ and $(12, 41)$.\n$\\text{Slope} = \\frac{41 - 5}{12 - 0} = \\frac{36}{12} = 3$ (thousands of dollars per month).\n\n**Step 2: Write the revenue function**\n$R(m) = 3m + 5$ (thousands of dollars in month $m$, where $m = 0$ is the opening month).\n\n**Step 3: Compute cumulative revenue**\nCumulative revenue after $n$ full months $= \\sum_{m=0}^{n-1}(3m + 5)$:\n- After 1 month: $5$ → $\\$5{,}000$\n- After 2 months: $5 + 8 = 13$ → $\\$13{,}000$\n- After 3 months: $13 + 11 = 24$ → $\\$24{,}000$\n- After 4 months: $24 + 14 = 38$ → $\\$38{,}000$\n- After 5 months: $38 + 17 = 55$ → $\\$55{,}000$\n- After 6 months: $55 + 20 = 75$ → $\\$75{,}000 > \\$60{,}000$\n\nThe cumulative revenue first exceeds $\\$60{,}000$ after $6$ full months.\n\n**Why the wrong answers are tempting:**\n- Choice A gets the slope right but says $5$ months. The cumulative after $5$ months is $\\$55{,}000$, which is close but still under $\\$60{,}000$. Off-by-one is easy when sums are close to the target.\n- Choice C misreads the $y$-intercept ($5$) as the slope and gets both parts wrong.\n- Choice D gets the slope right but undercounts the months needed, likely by confusing single-month revenue with cumulative revenue.\n\n**Verification:** Slope $= 3$. Cumulative after $6$ months $= 5 + 8 + 11 + 14 + 17 + 20 = 75 > 60$.\n\n**Test Day Takeaway:** Multi-step graph problems require you to first extract the model parameters (slope, intercept), then apply them in a new context. Always track whether the question asks about a single period or a cumulative total.',
           skills: ['Functions', 'Graph Interpretation', 'Slope']
         },
         {
           id: 'pt12-m1-q7',
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'The scatterplot above shows the relationship between the number of practice hours and race times for $10$ runners. A line of best fit is also shown. According to the line of best fit, a runner who practices $8$ hours per week is predicted to have a race time of approximately how many minutes?',
+          difficulty: 'hard',
+          question: 'The scatterplot above shows the relationship between the number of practice hours and race times for $10$ runners. A line of best fit is also shown. The runner at $x = 8$ has an actual race time that differs from the predicted value. What is the residual (actual minus predicted) for this runner, and what does a negative residual indicate about the runner\'s performance relative to the model?',
           diagram: {
             type: 'scatterplot',
             params: {
@@ -144,13 +144,13 @@ export const practiceTest12 = {
             }
           },
           choices: [
-            { id: 'A', text: '$14$' },
-            { id: 'B', text: '$18$' },
-            { id: 'C', text: '$22$' },
-            { id: 'D', text: '$26$' }
+            { id: 'A', text: 'Residual $= 0$; the runner performed exactly as predicted.' },
+            { id: 'B', text: 'Residual $= -2$; the runner performed better than predicted (faster time).' },
+            { id: 'C', text: 'Residual $= 2$; the runner performed worse than predicted (slower time).' },
+            { id: 'D', text: 'Residual $= 0$; a negative residual would mean the runner was slower than predicted.' }
           ],
-          correctAnswer: 'B',
-          explanation: '**SAT Pattern: Line of Best Fit / Scatterplot Prediction** -- Very common. The SAT wants you to use the trend line, not individual data points.\n\n**Choice B is correct.** Using the line of best fit, a runner who practices $8$ hours per week has a predicted race time of $18$ minutes.\n\n**The Fast Way (15 seconds):** Plug $x = 8$ into the line equation $y = -2x + 34$. Or on the graph, go to $x = 8$ and read where the best-fit line crosses that vertical.\n\n**Step 1: Use the equation**\nThe line has slope $-2$ and $y$-intercept $34$: $y = -2x + 34$.\n\n**Step 2: Substitute $x = 8$**\n$y = -2(8) + 34 = -16 + 34 = 18$ minutes.\n\n**Why the wrong answers are tempting:**\n- Choice A ($14$) is the predicted time at $x = 10$, not $x = 8$. If you miscount the grid lines and go two units too far right, you land here.\n- Choice C ($22$) is the predicted time at $x = 6$, two units too far left. Misreading the horizontal axis in the other direction gives this answer.\n- Choice D ($26$) corresponds to about $x = 4$ on the line. This likely comes from a misread of the graph or a substitution error.\n\n**Verification:** $y = -2(8) + 34 = -16 + 34 = 18$.\n\n**Test Day Takeaway:** Always use the line of best fit for predictions, not individual dots. And double-check that you are reading the correct $x$-value on the horizontal axis.',
+          correctAnswer: 'A',
+          explanation: '**SAT Pattern: Residuals and Line of Best Fit Interpretation** -- Requires computing a residual and interpreting its sign in context. Multi-step reasoning combining prediction, subtraction, and contextual interpretation.\n\n**Choice A is correct.** The predicted time at $x = 8$ is $-2(8) + 34 = 18$, and the actual data point at $x = 8$ is also $18$. The residual is $18 - 18 = 0$.\n\n**The Fast Way (25 seconds):** Read the actual point at $x = 8$: it is $(8, 18)$. Compute predicted: $-2(8) + 34 = 18$. Residual $= 18 - 18 = 0$. The point lies exactly on the line.\n\n**Step 1: Find the predicted value**\nThe line of best fit is $y = -2x + 34$.\nAt $x = 8$: $y = -2(8) + 34 = 18$.\n\n**Step 2: Find the actual value**\nFrom the scatterplot, the data point at $x = 8$ has $y = 18$.\n\n**Step 3: Compute the residual**\nResidual $=$ actual $-$ predicted $= 18 - 18 = 0$.\n\n**Step 4: Interpret**\nA residual of $0$ means the runner performed exactly as the model predicts. In general, a negative residual means the actual time is *less* than predicted -- the runner was *faster* than the model expected (better performance). A positive residual means slower than predicted.\n\n**Why the wrong answers are tempting:**\n- Choice B claims the residual is $-2$, perhaps from misreading the data point or using the wrong $x$-value. The actual point at $x = 8$ sits on the line, giving residual $0$.\n- Choice C claims the residual is $+2$, likely from confusing the data point at $x = 8$ with a nearby point. Always read the scatterplot carefully.\n- Choice D correctly computes residual $= 0$ but misinterprets negative residuals. Since race time is the $y$-variable, a negative residual (actual < predicted) means a faster time, which is better performance, not worse.\n\n**Verification:** Predicted at $x = 8$: $18$. Actual at $x = 8$: $18$. Residual $= 0$.\n\n**Test Day Takeaway:** Residual = actual - predicted. The sign tells you whether the data point is above the line (positive residual) or below it (negative). Always interpret the sign in context -- for race times, below the line means faster (better).',
           skills: ['Data Analysis', 'Scatterplots', 'Line of Best Fit']
         },
         {
@@ -394,57 +394,58 @@ export const practiceTest12 = {
         {
           id: 'pt12-m2-q3',
           type: 'fill-in',
-          difficulty: 'easy',
-          question: 'A factory produces $360$ widgets in $8$ hours. At this rate, how many widgets does the factory produce per hour?',
-          correctAnswer: '45',
-          explanation: '**SAT Pattern: Unit Rate Calculation** -- Straightforward division, but make sure you divide in the right direction.\n\n**The correct answer is $45$.** The factory produces $45$ widgets per hour.\n\n**The Fast Way (5 seconds):** $360 \\div 8 = 45$. Done.\n\n**Step 1: Calculate the rate**\n$\\frac{360 \\text{ widgets}}{8 \\text{ hours}} = 45$ widgets per hour.\n\n**Verification:** $45 \\times 8 = 360$ widgets.\n\n**Test Day Takeaway:** Rate = total quantity divided by total time. If the answer does not come out to a whole number on a fill-in question, double-check your setup.',
+          difficulty: 'medium',
+          question: 'A factory produces $360$ widgets in $8$ hours. A second factory produces $540$ widgets in $10$ hours. How many more widgets per hour does the faster factory produce than the slower factory?',
+          correctAnswer: '9',
+          explanation: '**SAT Pattern: Comparing Unit Rates** -- Requires computing two separate rates and finding their difference, a common two-step rate problem.\n\n**The correct answer is $9$.** The second factory produces $9$ more widgets per hour than the first.\n\n**The Fast Way (15 seconds):** First factory: $360 \\div 8 = 45$ per hour. Second factory: $540 \\div 10 = 54$ per hour. Difference: $54 - 45 = 9$.\n\n**Step 1: Find the rate for the first factory**\n$\\frac{360}{8} = 45$ widgets per hour.\n\n**Step 2: Find the rate for the second factory**\n$\\frac{540}{10} = 54$ widgets per hour.\n\n**Step 3: Find the difference**\n$54 - 45 = 9$ widgets per hour.\n\n**Verification:** $45 \\times 8 = 360$ and $54 \\times 10 = 540$. Difference in rates $= 9$.\n\n**Test Day Takeaway:** When comparing rates, always compute each rate separately first, then subtract. Do not try to compare raw totals -- different time periods make raw totals misleading.',
           skills: ['Ratios', 'Unit Rate']
         },
         {
           id: 'pt12-m2-q4',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'A taxi ride costs \\$3.50 plus \\$2.25 per mile. Which equation can be used to find $m$, the number of miles for a ride that costs \\$21.50?',
+          difficulty: 'medium',
+          question: 'A taxi ride costs \\$3.50 plus \\$2.25 per mile. A rideshare service costs \\$1.00 plus \\$3.00 per mile. For how many miles will the two services cost the same amount?',
           choices: [
-            { id: 'A', text: '$2.25m + 3.50 = 21.50$' },
-            { id: 'B', text: '$3.50m + 2.25 = 21.50$' },
-            { id: 'C', text: '$2.25m - 3.50 = 21.50$' },
-            { id: 'D', text: '$5.75m = 21.50$' }
+            { id: 'A', text: '$\\frac{1}{3}$' },
+            { id: 'B', text: '$\\frac{10}{3}$' },
+            { id: 'C', text: '$6$' },
+            { id: 'D', text: '$8$' }
           ],
-          correctAnswer: 'A',
-          explanation: '**SAT Pattern: Setting Up a Linear Equation from a Word Problem** -- Identify what repeats (per-mile cost) and what is fixed (flat fee), then build the equation.\n\n**Choice A is correct.** The equation is $2.25m + 3.50 = 21.50$, where $2.25m$ is the per-mile cost and $3.50$ is the flat fee.\n\n**The Fast Way (15 seconds):** The per-mile charge ($2.25$) gets multiplied by $m$, the flat fee ($3.50$) gets added, and the total is $21.50$. Write it: $2.25m + 3.50 = 21.50$.\n\n**Step 1: Write the cost equation**\nTotal cost $=$ per-mile charge $+$ flat fee:\n$2.25m + 3.50 = 21.50$\n\n**Why the wrong answers are tempting:**\n- Choice B swaps the two numbers: it multiplies the flat fee ($3.50$) by $m$ and uses the per-mile rate ($2.25$) as the constant. This is the mirror image of the correct setup, and it is the most common mistake when students do not pause to think about which quantity repeats.\n- Choice C subtracts the flat fee instead of adding it. The flat fee is an extra charge on top of the mileage cost, so it adds to the total. Subtracting would only make sense if you had a discount.\n- Choice D combines $2.25 + 3.50 = 5.75$ into a single per-mile rate. This eliminates the distinction between the repeating cost and the fixed cost, which changes the problem entirely.\n\n**Verification:** Solving: $2.25m = 18$, so $m = 8$ miles. Check: $2.25(8) + 3.50 = 18 + 3.50 = 21.50$.\n\n**Test Day Takeaway:** In cost problems, the number that changes with quantity gets multiplied by the variable. The fixed charge is just added on.',
+          correctAnswer: 'B',
+          explanation: '**SAT Pattern: Setting Up and Solving a System from a Word Problem** -- Requires building two linear cost equations and finding where they intersect.\n\n**Choice B is correct.** The two services cost the same at $m = \\frac{10}{3}$ miles (approximately $3.33$ miles).\n\n**The Fast Way (20 seconds):** Set the costs equal: $2.25m + 3.50 = 3.00m + 1.00$. Simplify: $2.50 = 0.75m$, so $m = \\frac{2.50}{0.75} = \\frac{10}{3}$.\n\n**Step 1: Write the cost equations**\nTaxi: $C_1 = 2.25m + 3.50$\nRideshare: $C_2 = 3.00m + 1.00$\n\n**Step 2: Set equal and solve**\n$2.25m + 3.50 = 3.00m + 1.00$\n$3.50 - 1.00 = 3.00m - 2.25m$\n$2.50 = 0.75m$\n$m = \\frac{2.50}{0.75} = \\frac{10}{3}$\n\n**Why the wrong answers are tempting:**\n- Choice A ($\\frac{1}{3}$) results from dividing $0.75$ by $2.50$ instead of the other way around. Swapping numerator and denominator is a common rush error.\n- Choice C ($6$) might come from computing $\\frac{3.00}{0.50}$ or another incorrect setup where the flat fees are not properly handled.\n- Choice D ($8$) is the number of miles for the taxi alone to cost $\\$21.50$, which comes from the original single-equation version of this problem. It ignores the rideshare entirely.\n\n**Verification:** Taxi at $\\frac{10}{3}$ miles: $2.25(\\frac{10}{3}) + 3.50 = 7.50 + 3.50 = 11.00$. Rideshare: $3.00(\\frac{10}{3}) + 1.00 = 10.00 + 1.00 = 11.00$. Both equal $\\$11.00$.\n\n**Test Day Takeaway:** When two cost models have different rates and different flat fees, set them equal to find the break-even point. The one with the higher flat fee but lower rate will be cheaper for long distances.',
           skills: ['Algebra', 'Linear Equations', 'Word Problems']
         },
         {
           id: 'pt12-m2-q5',
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'Lines $m$ and $n$ are parallel and are cut by transversal $k$. If one of the angles formed by line $m$ and transversal $k$ measures $65°$, which of the following is the measure of an obtuse angle formed by line $n$ and transversal $k$?',
+          difficulty: 'hard',
+          question: 'Lines $m$ and $n$ are parallel and are cut by transversal $k$. One of the angles formed by line $m$ and transversal $k$ measures $(3x + 5)°$. The corresponding angle on line $n$ and its adjacent angle on line $n$ are supplementary. If the adjacent angle on line $n$ measures $(7x - 25)°$, what is the value of $x$, and what is the measure of the obtuse angle?',
           diagram: {
             type: 'parallelLines',
             params: {
-              angles: { x: '65°', y: 'x°' },
+              angles: { x: '(3x+5)°', y: '(7x-25)°' },
               lineLabels: { m: 'm', n: 'n', t: 'k' },
               showParallelMarks: false
             }
           },
           choices: [
-            { id: 'A', text: '$25°$' },
-            { id: 'B', text: '$65°$' },
-            { id: 'C', text: '$115°$' },
-            { id: 'D', text: '$155°$' }
+            { id: 'A', text: '$x = 20$ and the obtuse angle is $115°$' },
+            { id: 'B', text: '$x = 25$ and the obtuse angle is $115°$' },
+            { id: 'C', text: '$x = 20$ and the obtuse angle is $65°$' },
+            { id: 'D', text: '$x = 15$ and the obtuse angle is $130°$' }
           ],
-          correctAnswer: 'C',
-          explanation: '**SAT Pattern: Parallel Lines and Transversal Angles** -- A geometry classic. All the angles come in just two sizes that add up to $180°$.\n\n**Choice C is correct.** The obtuse angle formed is $180° - 65° = 115°$.\n\n**The Fast Way (10 seconds):** With parallel lines and a transversal, there are only two angle measures. If the acute one is $65°$, the obtuse one is $180° - 65° = 115°$.\n\n**Step 1: Identify the angle types**\nWhen a transversal crosses parallel lines, corresponding angles are equal ($65°$) and co-interior (same-side interior) angles are supplementary.\n\n**Step 2: Find the obtuse angle**\nThe acute angles are $65°$ and the obtuse angles are $180° - 65° = 115°$.\n\n**Why the wrong answers are tempting:**\n- Choice A ($25°$) comes from computing the complement: $90° - 65° = 25°$. But complementary angles only apply when there is a right angle, and nothing in this problem involves $90°$. The correct operation is $180° - 65°$.\n- Choice B ($65°$) is the corresponding angle, which is acute. The question specifically asks for the obtuse angle, so you need the supplement.\n- Choice D ($155°$) might come from $90° + 65° = 155°$, which has no geometric basis here. The supplement of $65°$ is $180° - 65° = 115°$, not $155°$.\n\n**Verification:** $65° + 115° = 180°$ (supplementary, as expected).\n\n**Test Day Takeaway:** Parallel lines cut by a transversal create exactly two angle sizes. Find one, and the other is its supplement ($180°$ minus the first).',
+          correctAnswer: 'A',
+          explanation: '**SAT Pattern: Parallel Lines with Algebraic Angle Expressions** -- Combines the parallel-lines angle relationship with solving an algebraic equation. Multi-step: set up the supplementary equation, solve for $x$, then evaluate.\n\n**Choice A is correct.** $x = 20$ and the obtuse angle is $115°$.\n\n**The Fast Way (30 seconds):** Corresponding angles are equal when lines are parallel, so the angle on line $n$ corresponding to $(3x+5)°$ also measures $(3x+5)°$. That angle and $(7x-25)°$ are supplementary: $(3x+5) + (7x-25) = 180$. Solve: $10x - 20 = 180$, so $x = 20$. Then $(3(20)+5)° = 65°$ (acute) and its supplement is $180° - 65° = 115°$ (obtuse).\n\n**Step 1: Set up the equation**\nCorresponding angles are equal, so the angle on line $n$ that corresponds to $(3x+5)°$ also equals $(3x+5)°$. Since this corresponding angle and $(7x-25)°$ are supplementary:\n$(3x + 5) + (7x - 25) = 180$\n\n**Step 2: Solve for $x$**\n$10x - 20 = 180$\n$10x = 200$\n$x = 20$\n\n**Step 3: Find the angle measures**\nAcute angle: $(3(20) + 5)° = 65°$\nObtuse angle: $180° - 65° = 115°$\nVerify adjacent: $(7(20) - 25)° = 115°$. Supplementary check: $65° + 115° = 180°$.\n\n**Why the wrong answers are tempting:**\n- Choice B ($x = 25$) might come from setting $(3x+5) = (7x-25)$ (treating the angles as equal rather than supplementary). That gives $x = \\frac{30}{4} = 7.5$ -- which is not even a choice, but arithmetic errors in this setup could yield $25$.\n- Choice C gets $x = 20$ correct but reports $65°$ as the obtuse angle. $65°$ is the acute angle; the obtuse one is its supplement.\n- Choice D ($x = 15$) comes from a setup error, and $130°$ does not follow from any correct computation.\n\n**Verification:** $x = 20$: angle at $m$ $= 65°$, corresponding angle at $n$ $= 65°$, adjacent angle at $n$ $= 115°$. $65° + 115° = 180°$.\n\n**Test Day Takeaway:** When parallel-line angle problems use algebraic expressions, identify the angle relationship first (corresponding, alternate interior, supplementary), write the equation, solve for the variable, and then compute the actual angle measures.',
           skills: ['Geometry', 'Parallel Lines', 'Angle Relationships']
         },
         {
           id: 'pt12-m2-q6',
           type: 'fill-in',
-          difficulty: 'medium',
-          question: 'What is the positive solution to $x^2 - 7x + 10 = 0$?\n\nEnter the larger solution.',
-          correctAnswer: '5',
-          explanation: '**SAT Pattern: Solving a Quadratic by Factoring** -- The fastest method when the quadratic factors cleanly. Always check if factoring works before reaching for the quadratic formula.\n\n**The correct answer is $5$.** The quadratic factors as $(x - 2)(x - 5) = 0$, giving $x = 2$ and $x = 5$. The larger solution is $5$.\n\n**The Fast Way (15 seconds):** Factor: find two numbers that multiply to $10$ and add to $-7$. That is $-2$ and $-5$. So $(x-2)(x-5) = 0$, and the larger root is $5$. Or type $x^2 - 7x + 10 = 0$ into Desmos and read the $x$-intercepts.\n\n**Step 1: Factor**\nFind two numbers that multiply to $10$ and add to $-7$: $(-2)(-5) = 10$ and $-2 + (-5) = -7$.\n$x^2 - 7x + 10 = (x - 2)(x - 5) = 0$\n\n**Step 2: Solve**\n$x = 2$ or $x = 5$\n\nThe larger solution is $5$.\n\n**Verification:** $(5)^2 - 7(5) + 10 = 25 - 35 + 10 = 0$ and $(2)^2 - 7(2) + 10 = 4 - 14 + 10 = 0$.\n\n**Test Day Takeaway:** To factor $x^2 + bx + c$, find two numbers that multiply to $c$ and add to $b$. If no such integers exist, switch to the quadratic formula.',
+          difficulty: 'hard',
+          question: 'The equation $x^2 - 7x + 10 = 0$ has two solutions. What is the positive difference between the reciprocals of the two solutions? Express your answer as a fraction.',
+          correctAnswer: '3/10',
+          alternateAnswers: ['0.3'],
+          explanation: '**SAT Pattern: Quadratic Solutions with Reciprocal Reasoning** -- Requires factoring a quadratic, finding both roots, computing reciprocals, and finding their difference. Multi-step reasoning across multiple concepts.\n\n**The correct answer is $\\frac{3}{10}$ (or $0.3$).** The solutions are $2$ and $5$, and the positive difference of their reciprocals is $\\frac{1}{2} - \\frac{1}{5} = \\frac{3}{10}$.\n\n**The Fast Way (25 seconds):** Factor: $(x-2)(x-5) = 0$, so $x = 2$ and $x = 5$. Reciprocals: $\\frac{1}{2}$ and $\\frac{1}{5}$. Difference: $\\frac{1}{2} - \\frac{1}{5} = \\frac{5-2}{10} = \\frac{3}{10}$.\n\n**Step 1: Factor and solve the quadratic**\n$x^2 - 7x + 10 = (x - 2)(x - 5) = 0$\n$x = 2$ or $x = 5$\n\n**Step 2: Find the reciprocals**\n$\\frac{1}{2}$ and $\\frac{1}{5}$\n\n**Step 3: Compute the positive difference**\n$\\frac{1}{2} - \\frac{1}{5} = \\frac{5}{10} - \\frac{2}{10} = \\frac{3}{10}$\n\n**Verification:** $(2)^2 - 7(2) + 10 = 0$ and $(5)^2 - 7(5) + 10 = 0$. $\\frac{1}{2} - \\frac{1}{5} = 0.5 - 0.2 = 0.3 = \\frac{3}{10}$.\n\n**Advanced shortcut (Vieta\'s formulas):** Sum of roots $= 7$, product of roots $= 10$. The difference of reciprocals $= \\frac{|r_1 - r_2|}{r_1 \\cdot r_2}$. Since $|r_1 - r_2| = \\sqrt{(r_1+r_2)^2 - 4r_1r_2} = \\sqrt{49 - 40} = 3$, the answer is $\\frac{3}{10}$.\n\n**Test Day Takeaway:** When a problem asks about reciprocals of roots, you can use Vieta\'s formulas as a shortcut: the product of the roots gives the denominator, and the difference of the roots gives the numerator.',
           skills: ['Algebra', 'Quadratic Equations', 'Factoring']
         },
         {

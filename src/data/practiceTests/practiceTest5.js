@@ -82,48 +82,48 @@ export const practiceTest5 = {
         {
           id: 4,
           type: "fill-in",
-          difficulty: "easy",
-          question: "What is $8\\%$ of $65$?",
-          correctAnswer: 5.2,
-          alternateAnswers: ["5.20", "26/5"],
-          explanation: "**SAT Pattern: Basic Percent Calculation** -- Shows up 1-2 times per test. Free points if you know the decimal move.\n\n**The correct answer is $5.2$.**\n\n**The Fast Way (10 seconds):** $8\\%$ means $0.08$. Type $0.08 \\times 65$ into your calculator. You get $5.2$. Done.\n\n**The Full Solution:**\n$8\\% = \\frac{8}{100} = 0.08$\n$8\\%$ of $65 = 0.08 \\times 65 = 5.2$\n\nAlternative shortcut: $8\\%$ of $65$ = $65\\%$ of $8$ (you can always swap them). $0.65 \\times 8 = 5.2$. Sometimes the swap makes mental math easier.\n\n**Verification:** $5.2 \\div 65 = 0.08 = 8\\%$ ✓\n\n**Test Day Takeaway:** \"X% of Y\" always means $(X/100) \\times Y$. And remember: X% of Y = Y% of X. Use whichever is easier to compute.",
+          difficulty: "medium",
+          question: "A store marks up every item by $8\\%$ of its wholesale cost. If the wholesale cost of a jacket is $\\$65$, what is the retail price, in dollars, of the jacket?",
+          correctAnswer: 70.2,
+          alternateAnswers: ["70.20", "351/5"],
+          explanation: "**SAT Pattern: Percent Markup Applied to a Price** -- Shows up 1-2 times per test. You must calculate the markup AND add it back to the original.\n\n**The correct answer is $70.2$.**\n\n**The Fast Way (15 seconds):** Markup $= 0.08 \\times 65 = 5.2$. Retail $= 65 + 5.2 = 70.2$. Or even faster: $65 \\times 1.08 = 70.2$.\n\n**The Full Solution:**\nStep 1: Find $8\\%$ of $\\$65$.\n$8\\% = 0.08$. Markup $= 0.08 \\times 65 = 5.20$.\nStep 2: Add the markup to the wholesale cost.\nRetail price $= 65 + 5.20 = 70.20$.\n\nShortcut: Multiplying by $1.08$ combines both steps: $65 \\times 1.08 = 70.20$.\n\n**Common mistakes:**\n• Answering $5.2$: You found the markup but forgot to add it to the wholesale cost. The question asks for the retail price, not just the markup amount.\n• Answering $60.8$: You subtracted the $8\\%$ instead of adding it. A markup increases the price.\n• Answering $73$: You computed $8$ (not $8\\%$) of $65$ as $8$, then added $65 + 8$. Percent means \"per hundred\" -- $8\\%$ is $0.08$, not $8$.\n\n**Verification:** $70.2 - 65 = 5.2$, and $5.2 / 65 = 0.08 = 8\\%$ ✓\n\n**Test Day Takeaway:** Markup/markdown problems always have two steps: (1) compute the percent, (2) add or subtract from the original. The one-step shortcut is to multiply by $(1 + r)$ for markups or $(1 - r)$ for markdowns.",
           skills: ["percentages"]
         },
         {
           id: 5,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "A bookstore sells novels for \\$8 each and journals for \\$3 each. Which expression represents the total cost, in dollars, for buying $n$ novels and $j$ journals?",
+          difficulty: "medium",
+          question: "A bookstore sells novels for \\$8 each and journals for \\$3 each. A customer has a \\$50 gift card and buys $n$ novels and $j$ journals. Which expression represents the remaining balance, in dollars, on the gift card after the purchase?",
           choices: [
-            { id: "A", text: "$11nj$" },
-            { id: "B", text: "$8n + 3j$" },
-            { id: "C", text: "$3n + 8j$" },
-            { id: "D", text: "$24nj$" }
+            { id: "A", text: "$50 - 11nj$" },
+            { id: "B", text: "$50 - 8n - 3j$" },
+            { id: "C", text: "$50 - 3n - 8j$" },
+            { id: "D", text: "$8n + 3j - 50$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Translating Words to Expressions** -- Shows up every test. College Board tests whether you multiply the right price by the right variable.\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** Novels cost \\$8 each, so $n$ novels cost $8n$. Journals cost \\$3 each, so $j$ journals cost $3j$. Total = $8n + 3j$. Scan for that -- it is Choice B.\n\n**The Full Solution:**\nCost of $n$ novels at \\$8 each: $8n$\nCost of $j$ journals at \\$3 each: $3j$\nTotal cost: $8n + 3j$\n\n**Why the wrong answers are tempting:**\n• Choice A ($11nj$): You added the prices ($8 + 3 = 11$) and multiplied the quantities ($n \\times j$). This is a fundamental setup error -- total cost uses addition of separate products, not one big product. College Board designs this for students who combine everything into a single term.\n• Choice C ($3n + 8j$): You matched \\$3 with novels and \\$8 with journals -- the prices are swapped. College Board puts the reversed version because under pressure, students often grab the wrong coefficient for the wrong variable.\n• Choice D ($24nj$): You multiplied both prices ($8 \\times 3 = 24$) and both quantities ($n \\times j$). This is completely wrong structurally, but it looks \"mathy\" and can tempt a student who is guessing.\n\n**Verification:** Buy $2$ novels and $3$ journals: $8(2) + 3(3) = 16 + 9 = 25$. That is $2 \\times \\$8 + 3 \\times \\$3 = \\$25$. ✓\n\n**Test Day Takeaway:** Total cost = (price 1)(quantity 1) + (price 2)(quantity 2). Always addition between item types, never multiplication.",
+          explanation: "**SAT Pattern: Building and Applying a Cost Expression** -- Shows up 1-2 times per test. You must set up the cost expression AND subtract it from a starting amount.\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Total cost $= 8n + 3j$. Remaining balance $= 50 - (8n + 3j) = 50 - 8n - 3j$. That is Choice B.\n\n**The Full Solution:**\nStep 1: Build the cost expression.\nNovels: $8n$. Journals: $3j$. Total cost: $8n + 3j$.\nStep 2: Subtract from the gift card.\nRemaining $= 50 - (8n + 3j) = 50 - 8n - 3j$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($50 - 11nj$): You combined prices ($8+3=11$) and quantities ($n \\times j$) into one term. Total cost is $8n + 3j$, not $11nj$. College Board builds this for students who merge everything into a single product.\n• Choice C ($50 - 3n - 8j$): Prices are swapped -- \\$3 is matched with novels and \\$8 with journals. Under pressure, students commonly attach the wrong price to the wrong variable.\n• Choice D ($8n + 3j - 50$): The subtraction is backwards. This gives a negative number when the cost is less than \\$50. The remaining balance is gift card minus cost, not cost minus gift card.\n\n**Verification:** Buy $3$ novels and $2$ journals: cost $= 8(3) + 3(2) = 30$. Remaining $= 50 - 30 = 20$. Formula: $50 - 8(3) - 3(2) = 50 - 24 - 6 = 20$. ✓\n\n**Test Day Takeaway:** Multi-step word-to-expression problems require building the cost expression first, then applying it. Always parenthesize the expression before subtracting to avoid sign errors.",
           skills: ["linear-expressions", "word-problems"]
         },
         {
           id: 6,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "What percentage of $400$ is $60$?",
+          difficulty: "medium",
+          question: "A survey of $400$ residents found that $60$ prefer public transit. A second survey of $250$ residents in a neighboring city found that $50$ prefer public transit. How many percentage points greater is the transit preference rate in the second city than in the first city?",
           choices: [
-            { id: "A", text: "$6.67\\%$" },
-            { id: "B", text: "$15\\%$" },
-            { id: "C", text: "$24\\%$" },
-            { id: "D", text: "$66.7\\%$" }
+            { id: "A", text: "$1$" },
+            { id: "B", text: "$5$" },
+            { id: "C", text: "$10$" },
+            { id: "D", text: "$20$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: \"What Percent\" Questions** -- Shows up 1-2 times per test. The trap is always dividing in the wrong order.\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** On your calculator: $60 \\div 400 \\times 100 = 15$. That is $15\\%$. Done.\n\n**The Full Solution:**\nPercentage $= \\frac{\\text{Part}}{\\text{Whole}} \\times 100 = \\frac{60}{400} \\times 100 = 0.15 \\times 100 = 15\\%$\n\n**Why the wrong answers are tempting:**\n• Choice A ($6.67\\%$): You divided backwards: $\\frac{400}{60} \\approx 6.67$. This is THE classic percent trap -- College Board knows a huge number of students flip the fraction. The psychology: you see the bigger number and instinctively put it on top.\n• Choice C ($24\\%$): A computational error, possibly from miscalculating $\\frac{60}{400}$ as $0.24$. This catches students who rush the arithmetic.\n• Choice D ($66.7\\%$): You computed $\\frac{60}{400}$ incorrectly as $\\frac{2}{3} \\approx 0.667$. This could come from reducing $60/400$ wrong or confusing it with a different fraction.\n\n**Verification:** $15\\%$ of $400 = 0.15 \\times 400 = 60$ ✓\n\n**Test Day Takeaway:** \"What percent of WHOLE is PART\" always means PART / WHOLE. The word \"of\" always follows the whole.",
+          explanation: "**SAT Pattern: Comparing Percentages from Two Groups** -- Shows up 1-2 times per test. You must compute each percentage separately and then find the difference.\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** First city: $60/400 = 15\\%$. Second city: $50/250 = 20\\%$. Difference: $20 - 15 = 5$ percentage points.\n\n**The Full Solution:**\nStep 1: Compute the first city's rate.\n$\\frac{60}{400} \\times 100 = 15\\%$\nStep 2: Compute the second city's rate.\n$\\frac{50}{250} \\times 100 = 20\\%$\nStep 3: Find the difference.\n$20\\% - 15\\% = 5$ percentage points.\n\n**Why the wrong answers are tempting:**\n• Choice A ($1$): You may have subtracted the raw difference in the denominators or numerators without computing percentages: e.g., some arithmetic slip. College Board includes a small answer to catch partial work.\n• Choice C ($10$): You subtracted the raw counts ($60 - 50 = 10$) instead of computing percentages first. Comparing raw counts ignores the different sample sizes -- the whole point of this problem.\n• Choice D ($20$): You computed only the second city's rate ($20\\%$) and reported that as the answer, skipping the subtraction step.\n\n**Verification:** $15\\%$ of $400 = 60$ ✓. $20\\%$ of $250 = 50$ ✓. $20 - 15 = 5$. ✓\n\n**Test Day Takeaway:** When comparing groups of different sizes, ALWAYS convert to percentages first. Subtracting raw counts from unequal groups is a classic SAT trap.",
           skills: ["Problem-Solving and Data Analysis", "Percentages"]
         },
         {
           id: 7,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "A survey asked employees to rate their favorite office snack. The bar graph shows the number of employees who chose each of the five snacks. How many employees chose fruit as their favorite snack?",
+          difficulty: "medium",
+          question: "A survey asked employees to rate their favorite office snack. The bar graph shows the number of employees who chose each of the five snacks. What fraction of the surveyed employees chose either Fruit or Granola as their favorite snack?",
           diagram: {
             type: "barChart",
             params: {
@@ -139,13 +139,13 @@ export const practiceTest5 = {
             }
           },
           choices: [
-            { id: "A", text: "28" },
-            { id: "B", text: "38" },
-            { id: "C", text: "45" },
-            { id: "D", text: "32" }
+            { id: "A", text: "$\\frac{45}{165}$" },
+            { id: "B", text: "$\\frac{83}{165}$" },
+            { id: "C", text: "$\\frac{38}{165}$" },
+            { id: "D", text: "$\\frac{83}{120}$" }
           ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Bar Graph Reading** -- Shows up 1-2 times per test. This is a freebie -- but only if you read the right bar.\n\n**Choice C is correct.**\n\n**The Fast Way (5 seconds):** Find the bar labeled \"Fruit.\" Read its height on the $y$-axis: $45$. Done.\n\n**The Full Solution:**\nLocate the \"Fruit\" bar on the graph. The top of the bar aligns with $45$ on the $y$-axis (Number of employees). Therefore, $45$ employees chose fruit.\n\n**Why the wrong answers are tempting:**\n• Choice A ($28$): This is the value for Cookies. College Board puts values from other bars as answer choices because students reading too quickly might grab the wrong bar. Under test anxiety, your eyes can easily jump to an adjacent category.\n• Choice B ($38$): This is the value for Granola. Same trap -- wrong bar, plausible number.\n• Choice D ($32$): This is the value for Chips. Again, a real value from the graph but for the wrong snack.\n\n**Verification:** The Fruit bar reaches $45$ on the $y$-axis. ✓\n\n**Test Day Takeaway:** On graph-reading questions, put your finger on the correct label FIRST, then trace up to the bar. Do not eyeball it -- the wrong bars are always answer choices.",
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Computing a Fraction from Bar Graph Data** -- Shows up 1-2 times per test. You must read multiple bars, sum them, and divide by the total.\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** Fruit $= 45$, Granola $= 38$. Combined $= 83$. Total employees $= 32 + 45 + 28 + 38 + 22 = 165$. Fraction $= \\frac{83}{165}$.\n\n**The Full Solution:**\nStep 1: Read the relevant bars. Fruit $= 45$, Granola $= 38$.\nStep 2: Sum: $45 + 38 = 83$.\nStep 3: Compute the total across all categories: $32 + 45 + 28 + 38 + 22 = 165$.\nStep 4: Fraction $= \\frac{83}{165}$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{45}{165}$): You used only the Fruit count and ignored Granola. The question asks for \"either Fruit or Granola,\" so you need to add both.\n• Choice C ($\\frac{38}{165}$): You used only the Granola count and ignored Fruit. Same mistake as Choice A but with the other category.\n• Choice D ($\\frac{83}{120}$): You correctly added Fruit and Granola ($83$) but used $120$ as the denominator. This likely comes from subtracting the two categories from the total ($165 - 45 = 120$) or summing only some bars. The denominator must be ALL employees.\n\n**Verification:** $\\frac{83}{165} \\approx 0.503$, which is just over half. Fruit and Granola are the two largest bars, so slightly more than half is reasonable. ✓\n\n**Test Day Takeaway:** Fraction-from-graph problems require two steps: read the relevant bars for the numerator, then sum ALL bars for the denominator. The most common error is forgetting to include all categories in the total.",
           skills: ["Problem-Solving and Data Analysis", "Data interpretation"]
         },
         {
@@ -223,10 +223,10 @@ export const practiceTest5 = {
         {
           id: 13,
           type: "fill-in",
-          difficulty: "medium",
-          question: "If $\\frac{x}{6} = 4$, what is the value of $\\frac{6}{x}$?",
-          correctAnswer: "0.25",
-          explanation: "**SAT Pattern: Reciprocal Relationships** -- Shows up 1-2 times per test. The elegant shortcut: the reciprocal of a fraction equals $1$ divided by that fraction.\n\n**The correct answer is $0.25$ (or $\\frac{1}{4}$).**\n\n**The Fast Way (10 seconds):** $\\frac{6}{x}$ is just the reciprocal of $\\frac{x}{6}$. Since $\\frac{x}{6} = 4$, then $\\frac{6}{x} = \\frac{1}{4} = 0.25$. Done.\n\n**The Full Solution:**\nFrom $\\frac{x}{6} = 4$: $x = 24$.\nSo $\\frac{6}{x} = \\frac{6}{24} = \\frac{1}{4} = 0.25$.\n\nAlternatively, using the reciprocal property:\n$\\frac{6}{x} = \\frac{1}{\\frac{x}{6}} = \\frac{1}{4} = 0.25$.\n\n**Verification:** $\\frac{24}{6} = 4$ ✓ and $\\frac{6}{24} = 0.25$ ✓\n\n**Test Day Takeaway:** If $\\frac{a}{b} = c$, then $\\frac{b}{a} = \\frac{1}{c}$. Recognizing reciprocals saves you from having to solve for $x$ at all.",
+          difficulty: "hard",
+          question: "If $\\frac{x}{6} = 4$ and $\\frac{y}{3} = 5$, what is the value of $\\frac{6}{x} + \\frac{3}{y}$?",
+          correctAnswer: "0.45",
+          explanation: "**SAT Pattern: Combining Reciprocal Relationships** -- Shows up 0-1 times per test. You must recognize the reciprocal property in two separate fractions and then combine the results.\n\n**The correct answer is $0.45$ (or $\\frac{9}{20}$).**\n\n**The Fast Way (15 seconds):** $\\frac{6}{x}$ is the reciprocal of $\\frac{x}{6} = 4$, so $\\frac{6}{x} = \\frac{1}{4}$. Similarly, $\\frac{3}{y}$ is the reciprocal of $\\frac{y}{3} = 5$, so $\\frac{3}{y} = \\frac{1}{5}$. Sum: $\\frac{1}{4} + \\frac{1}{5} = \\frac{5+4}{20} = \\frac{9}{20} = 0.45$.\n\n**The Full Solution:**\nStep 1: From $\\frac{x}{6} = 4$: $x = 24$, so $\\frac{6}{x} = \\frac{6}{24} = \\frac{1}{4}$.\nStep 2: From $\\frac{y}{3} = 5$: $y = 15$, so $\\frac{3}{y} = \\frac{3}{15} = \\frac{1}{5}$.\nStep 3: $\\frac{1}{4} + \\frac{1}{5} = \\frac{5}{20} + \\frac{4}{20} = \\frac{9}{20} = 0.45$.\n\n**Common mistakes:**\n• Answering $0.25$: You computed only $\\frac{6}{x} = \\frac{1}{4}$ and forgot the second term. Multi-part expressions require evaluating every piece.\n• Answering $0.45$ incorrectly as $0.9$: You may have added $\\frac{1}{4} + \\frac{1}{5}$ as $\\frac{2}{9}$ or $\\frac{1}{9}$, or confused $\\frac{1}{4} + \\frac{1}{5} = \\frac{1}{9}$ (adding denominators is wrong).\n• Answering $9$: You computed $\\frac{x}{6} + \\frac{y}{3} = 4 + 5 = 9$ instead of the reciprocals. The question asks for $\\frac{6}{x} + \\frac{3}{y}$, not $\\frac{x}{6} + \\frac{y}{3}$.\n\n**Verification:** $\\frac{6}{24} + \\frac{3}{15} = 0.25 + 0.20 = 0.45$ ✓\n\n**Test Day Takeaway:** When you see reciprocal expressions, use $\\frac{b}{a} = \\frac{1}{(a/b)}$ to avoid solving for the variable. When adding fractions with unlike denominators, find the LCD first. This problem combines two concepts: reciprocals and fraction addition.",
           skills: ["Algebra", "Ratios and proportions"]
         },
         {
@@ -247,16 +247,16 @@ export const practiceTest5 = {
         {
           id: 15,
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'If $5x - 35 = -20$, what is the value of $x - 7$?',
+          difficulty: 'hard',
+          question: 'If $5x - 35 = -20$, what is the value of $3(x - 7)^2 + 2(x - 7)$?',
           choices: [
-            { id: 'A', text: '$-20$' },
-            { id: 'B', text: '$-15$' },
-            { id: 'C', text: '$-4$' },
-            { id: 'D', text: '$-3$' }
+            { id: 'A', text: '$40$' },
+            { id: 'B', text: '$-40$' },
+            { id: 'C', text: '$56$' },
+            { id: 'D', text: '$-56$' }
           ],
-          correctAnswer: 'C',
-          explanation: '**SAT Pattern: Solve for an Expression, Not Just x** -- Shows up 1-2 times per test. The trick is to factor and isolate the expression directly.\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** Notice that $5x - 35 = 5(x - 7)$. So $5(x - 7) = -20$, which gives $x - 7 = -4$. Done -- you never even needed to find $x$.\n\n**The Full Solution:**\nFactor: $5x - 35 = 5(x - 7) = -20$.\nDivide both sides by $5$: $x - 7 = \\frac{-20}{5} = -4$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($-20$): This is just the right side of the original equation. College Board puts it there for students who see $-20$ and pick it without doing any work. This trap rewards zero effort.\n• Choice B ($-15$): Likely from a miscalculation like $-35 + 20 = -15$ or some other arithmetic error. This catches students who try to solve for $x$ the long way and slip up.\n• Choice D ($-3$): You may have solved $5x - 35 = -20$ incorrectly to get $x = 4$, then computed $4 - 7 = -3$. The error is solving $5x = 15$ instead of $5x = -20 + 35 = 15$, getting $x = 3$... actually $x = 3$ is correct, giving $3-7=-4$. Getting $x = 4$ comes from an arithmetic mistake, and College Board knows it is common.\n\n**Verification:** $x - 7 = -4$ means $x = 3$. Check: $5(3) - 35 = 15 - 35 = -20$ ✓\n\n**Test Day Takeaway:** When the SAT asks for an expression like $x-7$ instead of just $x$, look for a way to factor that expression out directly. It is faster and avoids unnecessary steps where errors creep in.',
+          correctAnswer: 'A',
+          explanation: '**SAT Pattern: Factor First, Then Substitute into a Compound Expression** -- Shows up 0-1 times per test. You must factor, isolate a sub-expression, and then substitute it into a multi-term expression.\n\n**Choice A is correct.**\n\n**The Fast Way (20 seconds):** Factor: $5x - 35 = 5(x-7) = -20$, so $x - 7 = -4$. Substitute into the target: $3(-4)^2 + 2(-4) = 3(16) - 8 = 48 - 8 = 40$.\n\n**The Full Solution:**\nStep 1: Factor and solve for the sub-expression.\n$5(x - 7) = -20 \\implies x - 7 = -4$.\nStep 2: Substitute $x - 7 = -4$ into the target expression.\n$3(x-7)^2 + 2(x-7) = 3(-4)^2 + 2(-4)$\n$= 3(16) + (-8)$\n$= 48 - 8 = 40$.\n\n**Why the wrong answers are tempting:**\n• Choice B ($-40$): You substituted $-4$ correctly but got a sign error on the squared term: you may have computed $3(-4)^2$ as $3(-16) = -48$ instead of $3(16) = 48$. Squaring a negative number always gives a positive result.\n• Choice C ($56$): You computed $3(16) + 2(4) = 48 + 8 = 56$, dropping the negative on the second substitution: $2(x-7) = 2(-4) = -8$, not $+8$.\n• Choice D ($-56$): You made both errors: the squared term as negative ($-48$) and the linear term as negative ($-8$), giving $-48 - 8 = -56$.\n\n**Verification:** $x = 3$. Check original: $5(3) - 35 = -20$ ✓. Target: $3(3-7)^2 + 2(3-7) = 3(16) + 2(-4) = 48 - 8 = 40$ ✓\n\n**Test Day Takeaway:** When the SAT asks for a compound expression involving a sub-expression like $(x-7)$, factor first to find that sub-expression directly. Then substitute carefully, paying close attention to signs when squaring negatives.',
           skills: ["linear-equations", "equivalent-expressions"]
         },
         {
@@ -277,11 +277,11 @@ export const practiceTest5 = {
         {
           id: 17,
           type: "fill-in",
-          difficulty: "medium",
-          question: "What is the product of the solutions to the equation $3x^2 - 7x + 2 = 0$?",
-          correctAnswer: "2/3",
-          alternateAnswers: [0.667, 0.67, ".667", ".67"],
-          explanation: "**SAT Pattern: Product/Sum of Roots (Vieta's Formulas)** -- Shows up 1-2 times per test. Vieta's formulas let you skip solving the quadratic entirely.\n\n**The correct answer is $\\frac{2}{3}$.**\n\n**The Fast Way (5 seconds):** For $ax^2 + bx + c = 0$, the product of the roots $= \\frac{c}{a}$. Here $\\frac{c}{a} = \\frac{2}{3}$. Done.\n\n**The Full Solution (solving the quadratic):**\n$3x^2 - 7x + 2 = 0$\nFactor: $(3x - 1)(x - 2) = 0$\n$x = \\frac{1}{3}$ or $x = 2$\nProduct: $\\frac{1}{3} \\times 2 = \\frac{2}{3}$\n\n**Verification:** $\\frac{c}{a} = \\frac{2}{3}$ matches $\\frac{1}{3} \\times 2 = \\frac{2}{3}$ ✓\n\n**Test Day Takeaway:** Vieta's formulas are a massive time-saver. For $ax^2 + bx + c = 0$: sum of roots $= -\\frac{b}{a}$, product of roots $= \\frac{c}{a}$. Memorize these -- they turn a 60-second problem into a 5-second problem.",
+          difficulty: "hard",
+          question: "If $r$ and $s$ are the solutions to $3x^2 - 7x + 2 = 0$, what is the value of $r^2 + s^2$?",
+          correctAnswer: "37/9",
+          alternateAnswers: ["4.111", "4.11", "4.1"],
+          explanation: "**SAT Pattern: Combining Vieta's Formulas with Algebraic Identities** -- Shows up 0-1 times per test. You must use both the sum and product of roots, then combine them through the identity $r^2 + s^2 = (r+s)^2 - 2rs$.\n\n**The correct answer is $\\frac{37}{9}$ (approximately $4.11$).**\n\n**The Fast Way (20 seconds):** By Vieta's: $r + s = \\frac{7}{3}$ and $rs = \\frac{2}{3}$. Use the identity: $r^2 + s^2 = (r+s)^2 - 2rs = \\left(\\frac{7}{3}\\right)^2 - 2\\left(\\frac{2}{3}\\right) = \\frac{49}{9} - \\frac{4}{3} = \\frac{49}{9} - \\frac{12}{9} = \\frac{37}{9}$.\n\n**The Full Solution:**\nStep 1: Apply Vieta's formulas to $3x^2 - 7x + 2 = 0$.\nSum: $r + s = -\\frac{b}{a} = \\frac{7}{3}$.\nProduct: $rs = \\frac{c}{a} = \\frac{2}{3}$.\n\nStep 2: Use the algebraic identity.\n$r^2 + s^2 = (r + s)^2 - 2rs$\n$= \\left(\\frac{7}{3}\\right)^2 - 2\\left(\\frac{2}{3}\\right)$\n$= \\frac{49}{9} - \\frac{4}{3}$\n$= \\frac{49}{9} - \\frac{12}{9} = \\frac{37}{9}$.\n\n**Common mistakes:**\n• Answering $\\frac{49}{9}$: You computed $(r+s)^2$ but forgot to subtract $2rs$. The identity has a crucial subtraction step.\n• Answering $\\frac{2}{3}$: You found the product $rs$ and stopped, confusing the product with the sum of squares.\n• Answering $\\frac{53}{9}$: You added $2rs$ instead of subtracting, getting $\\frac{49}{9} + \\frac{4}{3} = \\frac{49+12}{9} = \\frac{61}{9}$, or made a sign error somewhere in the fractions.\n\n**Verification:** Roots are $r = \\frac{1}{3}$ and $s = 2$. Direct: $\\left(\\frac{1}{3}\\right)^2 + 2^2 = \\frac{1}{9} + 4 = \\frac{37}{9}$ ✓\n\n**Test Day Takeaway:** The identity $r^2 + s^2 = (r+s)^2 - 2rs$ lets you find the sum of squares without solving for $r$ and $s$ individually. Combined with Vieta's formulas, this handles a wide range of SAT questions about roots.",
           skills: ["quadratic-equations", "vietas-formulas"]
         },
         {
@@ -302,8 +302,8 @@ export const practiceTest5 = {
         {
           id: 19,
           type: 'fill-in',
-          difficulty: 'medium',
-          question: 'The graph of a system of two linear equations is shown. What is the $x$-coordinate of the solution to the system?',
+          difficulty: 'hard',
+          question: 'The graph of a system of two linear equations is shown. If $(a, b)$ is the solution to the system, what is the value of $a^2 - b^2$?',
           diagram: {
             type: "twoLineGraph",
             params: {
@@ -317,8 +317,8 @@ export const practiceTest5 = {
               showIntersection: false
             }
           },
-          correctAnswer: '3',
-          explanation: '**SAT Pattern: Reading a System Solution from a Graph** -- Shows up 1-2 times per test. The solution is always the intersection point.\n\n**The correct answer is $3$.**\n\n**The Fast Way (10 seconds):** The solution to a system of equations is where the two lines cross. Find the intersection point on the graph: it is at $(3, 3)$. The $x$-coordinate is $3$. Done.\n\n**The Full Solution:**\nLine 1 has slope $-1$ and passes through $(3, 3)$. Using $y$-intercept: $y = -x + 6$.\nLine 2 has slope $1$ and passes through $(3, 3)$. Using $y$-intercept: $y = x$.\nSetting equal: $-x + 6 = x \\to 6 = 2x \\to x = 3$.\n\n**Verification:** At $x = 3$: Line 1 gives $y = -3 + 6 = 3$. Line 2 gives $y = 3$. Both agree. ✓\n\n**Test Day Takeaway:** The solution to a system of equations is the intersection point of the graphs. Read the $x$-coordinate carefully -- the question might ask for $x$, $y$, or both. Always re-read what they are asking for.',
+          correctAnswer: '0',
+          explanation: '**SAT Pattern: Reading a Graph Solution and Evaluating an Expression** -- Shows up 0-1 times per test. You must read the intersection point from the graph and then substitute into an algebraic expression.\n\n**The correct answer is $0$.**\n\n**The Fast Way (15 seconds):** The intersection is at $(3, 3)$, so $a = 3$ and $b = 3$. Then $a^2 - b^2 = 9 - 9 = 0$.\n\n**The Full Solution:**\nStep 1: Identify the intersection point.\nLine 1 has slope $-1$, Line 2 has slope $1$. They cross at $(3, 3)$.\nSo $a = 3$, $b = 3$.\n\nStep 2: Evaluate the expression.\n$a^2 - b^2 = 3^2 - 3^2 = 9 - 9 = 0$.\n\nAlternatively, recognize that $a^2 - b^2 = (a+b)(a-b) = (6)(0) = 0$.\n\n**Common mistakes:**\n• Answering $3$: You read only the $x$-coordinate and reported it directly, ignoring the actual expression $a^2 - b^2$. Always re-read what the question asks for.\n• Answering $6$: You computed $a + b = 3 + 3 = 6$ instead of $a^2 - b^2$. The question asks for the difference of squares, not the sum.\n• Answering $18$: You computed $a^2 + b^2 = 9 + 9 = 18$ instead of $a^2 - b^2$. The sign between the squared terms matters.\n\n**Verification:** $(3)^2 - (3)^2 = 9 - 9 = 0$. Also: $(a+b)(a-b) = (6)(0) = 0$ ✓\n\n**Test Day Takeaway:** Graph-based system problems increasingly ask you to substitute the solution into a follow-up expression. Always identify the intersection coordinates first, THEN carefully evaluate whatever expression the question asks for. The difference-of-squares factoring $a^2 - b^2 = (a+b)(a-b)$ can be a shortcut.',
           skills: ["graphing-systems"]
         },
         {
@@ -370,19 +370,19 @@ export const practiceTest5 = {
         {
           id: 1,
           type: "fill-in",
-          difficulty: "easy",
-          question: "A number increased by $15\\%$ results in $46$. What is the original number?",
-          correctAnswer: 40,
-          explanation: "**SAT Pattern: Percent Increase -- Finding the Original** -- Shows up 1-2 times per test. The trap: students multiply by $0.15$ instead of dividing by $1.15$.\n\n**The correct answer is $40$.**\n\n**The Fast Way (10 seconds):** \"Increased by $15\\%$\" means multiplied by $1.15$. So the original $= 46 \\div 1.15$. On your calculator: $46 \\div 1.15 = 40$. Done.\n\n**The Full Solution:**\nLet $x$ = original number.\n$x \\times 1.15 = 46$\n$x = \\frac{46}{1.15} = 40$\n\n**Verification:** $40 \\times 1.15 = 40 + 6 = 46$ ✓\n\n**Test Day Takeaway:** \"Increased by $p\\%$\" means multiply by $(1 + p/100)$. To reverse it, DIVIDE by that same multiplier. Never subtract the percentage from the result -- that gives the wrong answer.",
+          difficulty: "medium",
+          question: "A number is increased by $15\\%$, resulting in $46$. If the original number is then decreased by $25\\%$, what is the result?",
+          correctAnswer: 30,
+          explanation: "**SAT Pattern: Chained Percent Changes** -- Shows up 1-2 times per test. You must reverse one percent change and then apply a second, different percent change.\n\n**The correct answer is $30$.**\n\n**The Fast Way (15 seconds):** Reverse the increase: original $= 46 \\div 1.15 = 40$. Apply the decrease: $40 \\times 0.75 = 30$.\n\n**The Full Solution:**\nStep 1: Find the original number.\n$x \\times 1.15 = 46 \\implies x = \\frac{46}{1.15} = 40$.\n\nStep 2: Decrease the original by $25\\%$.\n$40 \\times (1 - 0.25) = 40 \\times 0.75 = 30$.\n\n**Common mistakes:**\n• Answering $40$: You found the original number but forgot to apply the $25\\%$ decrease. The question has two steps.\n• Answering $34.5$: You decreased $46$ by $25\\%$ ($46 \\times 0.75 = 34.5$) instead of first finding the original number. The $25\\%$ decrease applies to the original, not to $46$.\n• Answering $10$: You subtracted $15\\%$ and $25\\%$ of $40$ separately ($6 + 10 = 16$) and then subtracted from $46$. Percent changes must be applied multiplicatively, not combined and subtracted.\n\n**Verification:** $40 \\times 1.15 = 46$ ✓. $40 \\times 0.75 = 30$ ✓.\n\n**Test Day Takeaway:** When percent changes are chained, work backwards to find the original first, then apply the next change. Each percent change is a separate multiplication. Never add or subtract percentages directly.",
           skills: ['Problem-Solving and Data Analysis', 'Percent']
         },
         {
           id: 2,
           type: 'fill-in',
-          difficulty: 'easy',
-          question: 'If $5(x + 3) = 40$, what is the value of $x$?',
-          correctAnswer: 5,
-          explanation: '**SAT Pattern: One-Step Distribution Equation** -- Shows up 1-2 times per test. Divide first to avoid distributing -- it is faster.\n\n**The correct answer is $5$.**\n\n**The Fast Way (10 seconds):** Divide both sides by $5$ first: $x + 3 = 8$. Then $x = 5$. Done. No distributing needed.\n\n**The Full Solution:**\n$5(x + 3) = 40$\n$x + 3 = 8$ (divide both sides by $5$)\n$x = 5$ (subtract $3$)\n\n**Verification:** $5(5 + 3) = 5(8) = 40$ ✓\n\n**Test Day Takeaway:** When a number multiplies a parenthesis and equals a constant, divide by that number first instead of distributing. It saves a step and reduces the chance of arithmetic errors.',
+          difficulty: 'medium',
+          question: 'If $5(x + 3) = 40$, what is the value of $2x - 1$?',
+          correctAnswer: 9,
+          explanation: '**SAT Pattern: Solve and Substitute into a Second Expression** -- Shows up 1-2 times per test. You must solve for $x$ first, then substitute into a different expression.\n\n**The correct answer is $9$.**\n\n**The Fast Way (15 seconds):** Divide both sides by $5$: $x + 3 = 8$, so $x = 5$. Then $2x - 1 = 2(5) - 1 = 9$.\n\n**The Full Solution:**\nStep 1: Solve for $x$.\n$5(x + 3) = 40$\n$x + 3 = 8$\n$x = 5$\n\nStep 2: Evaluate the target expression.\n$2x - 1 = 2(5) - 1 = 10 - 1 = 9$\n\n**Common mistakes:**\n• Answering $5$: You solved for $x$ correctly but reported $x$ instead of $2x - 1$. Always re-read what the question asks for.\n• Answering $11$: You computed $2x + 1$ instead of $2x - 1$, getting $10 + 1 = 11$. Sign errors in the substitution step are common.\n• Answering $7$: You substituted $x = 3$ (from $x + 3 = 8$ misread as $x = 3$) into $2(3) - 1 = 5$, or another arithmetic slip.\n\n**Verification:** $5(5 + 3) = 40$ ✓. $2(5) - 1 = 9$ ✓.\n\n**Test Day Takeaway:** When the SAT asks for an expression other than $x$, solve for $x$ first, then carefully substitute. Do not stop at finding $x$ -- always check what the question actually asks for.',
           skills: ['Algebra', 'Linear Equations']
         },
         {
@@ -425,16 +425,16 @@ export const practiceTest5 = {
         {
           id: 5,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "Which expression is equivalent to $4x^2 - 9x - 9$?",
+          difficulty: "hard",
+          question: "What is the positive difference between the solutions of $4x^2 - 9x - 9 = 0$?",
           choices: [
-            { id: "A", text: "$(4x + 3)(x - 3)$" },
-            { id: "B", text: "$(4x - 3)(x + 3)$" },
-            { id: "C", text: "$(2x + 3)(2x - 3)$" },
-            { id: "D", text: "$(x + 3)(4x - 3)$" }
+            { id: "A", text: "$\\frac{9}{4}$" },
+            { id: "B", text: "$\\frac{15}{4}$" },
+            { id: "C", text: "$3$" },
+            { id: "D", text: "$\\frac{21}{4}$" }
           ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Factoring Quadratics with $a \\neq 1$** -- Shows up 1-2 times per test. When the leading coefficient is not $1$, use the AC method or just FOIL each choice.\n\n**Choice A is correct.**\n\n**The Fast Way (20 seconds):** Instead of factoring, just expand each choice until you find a match.\nChoice A: $(4x+3)(x-3) = 4x^2 - 12x + 3x - 9 = 4x^2 - 9x - 9$ ✓ Match!\nDone. No need to check the others.\n\n**The Full Solution (AC method):**\nFind two numbers that multiply to $4 \\times (-9) = -36$ and add to $-9$: those are $-12$ and $3$.\nRewrite: $4x^2 - 12x + 3x - 9$\nGroup: $(4x^2 - 12x) + (3x - 9) = 4x(x - 3) + 3(x - 3)$\nFactor: $(4x + 3)(x - 3)$\n\n**Why the wrong answers are tempting:**\n• Choice B ($(4x - 3)(x + 3)$): Expands to $4x^2 + 12x - 3x - 9 = 4x^2 + 9x - 9$. The middle term is $+9x$ instead of $-9x$. College Board always includes the sign-flipped version because students routinely mix up which factor gets the $+$ and which gets the $-$.\n• Choice C ($(2x + 3)(2x - 3)$): Expands to $4x^2 - 9$ (difference of squares). This completely drops the middle term $-9x$. Students who see $4x^2$ and $-9$ might jump to this pattern without checking.\n• Choice D ($(x + 3)(4x - 3)$): Expands to $4x^2 - 3x + 12x - 9 = 4x^2 + 9x - 9$. Same result as Choice B -- wrong sign on the middle term. This is just a rearrangement of the same error.\n\n**Verification:** $(4x + 3)(x - 3) = 4x^2 - 12x + 3x - 9 = 4x^2 - 9x - 9$ ✓\n\n**Test Day Takeaway:** For factoring questions, it is often faster to expand each answer choice than to factor from scratch. Start with the choice that looks most likely and FOIL it. If it matches, pick it and move on.",
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Factor a Quadratic and Compute from Its Roots** -- Shows up 0-1 times per test. You must factor a quadratic with $a \\neq 1$, find both roots, and then compute the positive difference.\n\n**Choice B is correct.**\n\n**The Fast Way (30 seconds):** Factor: $4x^2 - 9x - 9 = (4x + 3)(x - 3) = 0$. Roots: $x = -\\frac{3}{4}$ and $x = 3$. Positive difference: $3 - (-\\frac{3}{4}) = 3 + \\frac{3}{4} = \\frac{15}{4}$.\n\n**The Full Solution:**\nStep 1: Factor the quadratic.\nUsing the AC method: $4 \\times (-9) = -36$. Find two numbers that multiply to $-36$ and add to $-9$: $-12$ and $3$.\n$4x^2 - 12x + 3x - 9 = 4x(x-3) + 3(x-3) = (4x+3)(x-3)$.\n\nStep 2: Find the roots.\n$(4x+3) = 0 \\implies x = -\\frac{3}{4}$.\n$(x-3) = 0 \\implies x = 3$.\n\nStep 3: Compute the positive difference.\n$|3 - (-\\frac{3}{4})| = 3 + \\frac{3}{4} = \\frac{12}{4} + \\frac{3}{4} = \\frac{15}{4}$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{9}{4}$): You computed $3 - \\frac{3}{4} = \\frac{9}{4}$, subtracting instead of adding. Since $-\\frac{3}{4}$ is negative, the difference is $3 - (-\\frac{3}{4}) = 3 + \\frac{3}{4}$. Dropping the double negative is the most common trap.\n• Choice C ($3$): You found only the root $x = 3$ and reported it, or computed $3 - 0 = 3$. You need both roots and their difference.\n• Choice D ($\\frac{21}{4}$): Likely from a factoring error producing incorrect roots, such as $x = -\\frac{3}{4}$ and $x = \\frac{9}{2}$, giving $\\frac{9}{2} + \\frac{3}{4} = \\frac{21}{4}$.\n\n**Verification:** $4(3)^2 - 9(3) - 9 = 36 - 27 - 9 = 0$ ✓. $4(-\\frac{3}{4})^2 - 9(-\\frac{3}{4}) - 9 = \\frac{9}{4} + \\frac{27}{4} - 9 = 9 - 9 = 0$ ✓. Difference: $\\frac{15}{4}$ ✓.\n\n**Test Day Takeaway:** When asked for the difference between roots, you must factor (or use the quadratic formula), find BOTH roots, and carefully subtract. Watch for double negatives when one root is negative.",
           skills: ["factoring", "quadratic-expressions"]
         },
         {
@@ -473,10 +473,10 @@ export const practiceTest5 = {
         {
           id: 9,
           type: "fill-in",
-          difficulty: "medium",
-          question: "At what positive value of $x$ do the graphs of $y = x^2$ and $y = 5x - 4$ intersect?",
-          correctAnswer: 4,
-          explanation: "**SAT Pattern: Finding Intersection Points** -- Shows up 1-2 times per test. Set the equations equal and solve the resulting equation.\n\n**The correct answer is $4$.**\n\n**The Fast Way (20 seconds):** On Desmos, type $y = x^2$ and $y = 5x - 4$. The intersection points are $(1, 1)$ and $(4, 16)$. The question asks for the positive value, and both are positive, but $4$ is the answer they want (the larger one).\n\nAlternatively, set equal: $x^2 = 5x - 4 \\to x^2 - 5x + 4 = 0 \\to (x-1)(x-4) = 0$. Both $x = 1$ and $x = 4$ are positive. The answer is $4$.\n\n**The Full Solution:**\n$x^2 = 5x - 4$\n$x^2 - 5x + 4 = 0$\n$(x - 1)(x - 4) = 0$\n$x = 1$ or $x = 4$\n\nBoth are positive. The answer is $4$.\n\n**Verification:** At $x = 4$: $y = 4^2 = 16$ and $y = 5(4) - 4 = 16$. Both equations give $y = 16$. ✓\n\n**Test Day Takeaway:** To find where two graphs intersect, set their equations equal and solve. On the SAT, Desmos is your fastest tool for this -- graph both and click the intersection point.",
+          difficulty: "hard",
+          question: "The graphs of $y = x^2$ and $y = 5x - 4$ intersect at two points. What is the sum of the $y$-coordinates of the two intersection points?",
+          correctAnswer: 17,
+          explanation: "**SAT Pattern: Finding Both Intersection Points and Combining Results** -- Shows up 0-1 times per test. You must find both intersections by solving a system, then compute the $y$-values and add them.\n\n**The correct answer is $17$.**\n\n**The Fast Way (25 seconds):** Set equal: $x^2 = 5x - 4 \\implies x^2 - 5x + 4 = 0 \\implies (x-1)(x-4) = 0$. So $x = 1$ and $x = 4$. The $y$-values: $y = 1^2 = 1$ and $y = 4^2 = 16$. Sum: $1 + 16 = 17$.\n\n**The Full Solution:**\nStep 1: Find the $x$-coordinates of intersection.\n$x^2 = 5x - 4$\n$x^2 - 5x + 4 = 0$\n$(x-1)(x-4) = 0$\n$x = 1$ or $x = 4$.\n\nStep 2: Find the corresponding $y$-values.\nAt $x = 1$: $y = 1^2 = 1$.\nAt $x = 4$: $y = 4^2 = 16$.\n\nStep 3: Sum the $y$-coordinates.\n$1 + 16 = 17$.\n\n**Common mistakes:**\n• Answering $5$: You found the sum of the $x$-coordinates ($1 + 4 = 5$) instead of the $y$-coordinates. The question specifically asks for $y$-coordinates.\n• Answering $4$: You reported only the larger $x$-value without computing $y$-values. Always re-read what the question asks for.\n• Answering $15$: You computed $y$-coordinates using the wrong equation: $y = 5(1) - 4 = 1$ and $y = 5(4) - 4 = 16$ gives the same result, but a slip like $y = 5 - 4 = 1$ and $y = 20 - 4 = 16$ minus the first could produce $15$ through careless subtraction.\n\n**Verification:** At $(1, 1)$: $1 = 1^2$ ✓ and $1 = 5(1)-4$ ✓. At $(4, 16)$: $16 = 4^2$ ✓ and $16 = 5(4)-4$ ✓. Sum: $1 + 16 = 17$ ✓.\n\n**Test Day Takeaway:** When a problem asks for a combined quantity from two intersection points, you need ALL the coordinates, not just one. Solve the system completely, find both points, then compute whatever the question asks for.",
           skills: ["systems-of-equations", "quadratic-equations"]
         },
         {
@@ -521,16 +521,16 @@ export const practiceTest5 = {
         {
           id: 13,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "A storage container can hold at most $500$ pounds. If the container already has $180$ pounds of supplies, which inequality represents the additional weight $w$, in pounds, that can be added?",
+          difficulty: "hard",
+          question: "A storage container can hold at most $500$ pounds and must carry at least $200$ pounds to justify the shipping cost. The container already has $180$ pounds of supplies. Each additional crate weighs $40$ pounds. Which inequality represents the number of additional crates $c$ that can be added so the shipment is both justified and within the weight limit?",
           choices: [
-            { id: "A", text: "$w \\leq 320$" },
-            { id: "B", text: "$w \\geq 320$" },
-            { id: "C", text: "$w \\leq 680$" },
-            { id: "D", text: "$w < 500$" }
+            { id: "A", text: "$1 \\leq c \\leq 8$" },
+            { id: "B", text: "$0.5 \\leq c \\leq 8$" },
+            { id: "C", text: "$1 \\leq c \\leq 12$" },
+            { id: "D", text: "$5 \\leq c \\leq 8$" }
           ],
           correctAnswer: "A",
-          explanation: "**SAT Pattern: Setting Up Inequalities from Word Problems** -- Shows up 1-2 times per test. The key phrase is \"at most\" = less than or equal to.\n\n**Choice A is correct.**\n\n**The Fast Way (10 seconds):** At most $500$ pounds total. Already have $180$. Can add at most $500 - 180 = 320$ more. So $w \\leq 320$. Done.\n\n**The Full Solution:**\nCurrent weight + additional weight $\\leq$ max capacity\n$180 + w \\leq 500$\n$w \\leq 320$\n\n**Why the wrong answers are tempting:**\n• Choice B ($w \\geq 320$): The inequality direction is flipped. This says you must add AT LEAST $320$ pounds, which is the opposite of what the problem states. College Board includes the reversed inequality because students often second-guess the direction under pressure.\n• Choice C ($w \\leq 680$): You added $180 + 500 = 680$ instead of subtracting. This completely ignores the capacity constraint and treats $500$ as additional capacity on top of $180$. College Board designs this for students who add when they should subtract.\n• Choice D ($w < 500$): This ignores the $180$ pounds already in the container. If $w = 400$, the total would be $580 > 500$, which exceeds capacity. This trap catches students who forget to account for the existing weight.\n\n**Verification:** If $w = 320$: $180 + 320 = 500 \\leq 500$ ✓. If $w = 321$: $180 + 321 = 501 > 500$ ✗. ✓\n\n**Test Day Takeaway:** \"At most\" = $\\leq$. \"At least\" = $\\geq$. \"Fewer than\" = $<$. \"More than\" = $>$. Circle these key phrases in the problem -- they tell you exactly which inequality symbol to use.",
+          explanation: "**SAT Pattern: Compound Inequality from Two Constraints** -- Shows up 0-1 times per test. You must set up two separate inequalities and combine them, taking into account that crates must be whole numbers.\n\n**Choice A is correct.**\n\n**The Fast Way (25 seconds):** Min constraint: $180 + 40c \\geq 200 \\implies 40c \\geq 20 \\implies c \\geq 0.5$. Max constraint: $180 + 40c \\leq 500 \\implies 40c \\leq 320 \\implies c \\leq 8$. Since $c$ must be a whole number of crates, $c \\geq 1$. Combined: $1 \\leq c \\leq 8$.\n\n**The Full Solution:**\nStep 1: Set up the minimum weight constraint.\n$180 + 40c \\geq 200$\n$40c \\geq 20$\n$c \\geq 0.5$\nSince you cannot add half a crate, $c \\geq 1$.\n\nStep 2: Set up the maximum weight constraint.\n$180 + 40c \\leq 500$\n$40c \\leq 320$\n$c \\leq 8$.\n\nStep 3: Combine.\n$1 \\leq c \\leq 8$.\n\n**Why the wrong answers are tempting:**\n• Choice B ($0.5 \\leq c \\leq 8$): Mathematically correct from the inequality alone, but $c$ must be a whole number of crates. You cannot add $0.5$ crates. College Board tests whether you apply real-world constraints to your mathematical answer.\n• Choice C ($1 \\leq c \\leq 12$): You set up the minimum correctly but used $c \\leq 12$ for the max, which comes from $180 + 40c \\leq 680$ (adding $180 + 500$ instead of subtracting). This misreads the capacity constraint.\n• Choice D ($5 \\leq c \\leq 8$): The minimum of $5$ crates likely comes from computing $200 \\div 40 = 5$, ignoring the $180$ pounds already in the container. You must account for existing weight in both constraints.\n\n**Verification:** At $c = 1$: $180 + 40 = 220 \\geq 200$ ✓ and $220 \\leq 500$ ✓. At $c = 8$: $180 + 320 = 500 \\leq 500$ ✓. At $c = 9$: $180 + 360 = 540 > 500$ ✗. ✓\n\n**Test Day Takeaway:** Compound inequality problems require you to set up BOTH constraints separately, solve each, and then combine. When the variable represents a count of physical objects, round to the nearest valid whole number.",
           skills: ["inequalities", "word-problems"]
         },
         {

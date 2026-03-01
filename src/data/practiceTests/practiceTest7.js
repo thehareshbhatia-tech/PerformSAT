@@ -13,16 +13,16 @@ export const practiceTest7 = {
         {
           id: 'pt7-m1-q1',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'If $5x - 15 = 30$, what is the value of $x - 3$?',
+          difficulty: 'medium',
+          question: 'If $5x - 15 = 30$ and $y = 2(x - 3) + 7$, what is the value of $y$?',
           choices: [
-            { id: 'A', text: '$6$' },
-            { id: 'B', text: '$9$' },
+            { id: 'A', text: '$19$' },
+            { id: 'B', text: '$25$' },
             { id: 'C', text: '$12$' },
             { id: 'D', text: '$15$' }
           ],
           correctAnswer: 'A',
-          explanation: '**SAT Pattern: "Find the Expression, Not the Variable"** -- Shows up 1-2 times per test. College Board loves asking for $x - 3$ instead of $x$ to see if you do unnecessary work.\n\n**Choice A is correct.**\n\n**The Fast Way (10 seconds):** Notice $5x - 15 = 5(x - 3)$. So $5(x-3) = 30$, meaning $x - 3 = 6$. Done -- no need to find $x$.\n\n**The Full Solution:**\n$5x - 15 = 30$\nFactor: $5(x - 3) = 30$\nDivide both sides by $5$: $x - 3 = 6$\n\n**Why the wrong answers are tempting:**\n• Choice B ($9$): You solved for $x$ correctly ($5x = 45$, so $x = 9$) but then forgot to subtract $3$. College Board designs this as the most tempting wrong answer because it rewards partial work -- you did the hard part but stopped one step early.\n• Choice C ($12$): This comes from a computational slip, perhaps dividing $30$ by $2.5$ instead of $5$. Under time pressure, basic arithmetic mistakes are the number one score killer.\n• Choice D ($15$): You subtracted the constant $15$ from $30$ directly ($30 - 15 = 15$) instead of factoring. This trap punishes students who skip the algebra and guess at operations.\n\n**Verification:** $x - 3 = 6$ means $5(6) = 30$. Check.\n\n**Test Day Takeaway:** Before you solve, circle what they are asking for. If they want an expression like $x - 3$, factor to isolate that expression directly -- never solve for $x$ first.',
+          explanation: '**SAT Pattern: "Find the Expression, Then Substitute"** -- Shows up 1-2 times per test. College Board chains two steps: first isolate a sub-expression, then feed it into a second equation.\n\n**Choice A is correct.**\n\n**The Fast Way (15 seconds):** Notice $5x - 15 = 5(x - 3) = 30$, so $x - 3 = 6$. Substitute into $y$: $y = 2(6) + 7 = 19$.\n\n**The Full Solution:**\nStep 1 -- Solve for the sub-expression:\n$5x - 15 = 30$\nFactor: $5(x - 3) = 30$\nDivide both sides by $5$: $x - 3 = 6$\n\nStep 2 -- Substitute into the second equation:\n$y = 2(x - 3) + 7 = 2(6) + 7 = 12 + 7 = 19$\n\n**Why the wrong answers are tempting:**\n• Choice B ($25$): You solved for $x = 9$ and plugged that directly into $2x + 7 = 25$, forgetting to use the expression $x - 3$ inside the parentheses. College Board designs this trap because students who find $x$ sometimes substitute $x$ instead of $x - 3$.\n• Choice C ($12$): This is $2(x-3) = 12$ without the $+ 7$. You did both algebraic steps but forgot the constant. Under time pressure, dropping a term is the number one score killer.\n• Choice D ($15$): This comes from computing $x - 3 = 6$ and then $6 + 9 = 15$, conflating $x$ with the constant. This trap punishes students who mix up which numbers to combine.\n\n**Verification:** $x - 3 = 6$ means $x = 9$. Check first equation: $5(9) - 15 = 30$. Check $y$: $2(9-3) + 7 = 19$. Confirmed.\n\n**Test Day Takeaway:** When two equations are linked, isolate the shared sub-expression first -- here $x - 3$ -- and substitute it directly. Never solve for $x$ unless you have to.',
           skills: ["linear-equations"]
         },
         {
@@ -58,16 +58,16 @@ export const practiceTest7 = {
         {
           id: 'pt7-m1-q4',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'Which inequality represents all values of $x$ such that $3x - 7 > 2x + 5$?',
+          difficulty: 'medium',
+          question: 'Which inequality represents all values of $x$ such that $3(2x - 5) - x > 2x + 10$?',
           choices: [
-            { id: 'A', text: '$x > 12$' },
-            { id: 'B', text: '$x > -12$' },
-            { id: 'C', text: '$x < 12$' },
-            { id: 'D', text: '$x < -12$' }
+            { id: 'A', text: '$x > \\frac{25}{3}$' },
+            { id: 'B', text: '$x > 25$' },
+            { id: 'C', text: '$x < \\frac{25}{3}$' },
+            { id: 'D', text: '$x > -5$' }
           ],
           correctAnswer: 'A',
-          explanation: '**SAT Pattern: Linear Inequality** -- Shows up 1-2 times per test. The algebra is identical to solving equations; the only extra rule is about flipping the sign when multiplying or dividing by a negative.\n\n**Choice A is correct.**\n\n**The Fast Way (15 seconds):** Subtract $2x$ from both sides: $x - 7 > 5$. Add $7$: $x > 12$. No negative multiplication, so the sign stays.\n\n**The Full Solution:**\n$3x - 7 > 2x + 5$\n$3x - 2x > 5 + 7$\n$x > 12$\n\n**Why the wrong answers are tempting:**\n• Choice B ($x > -12$): You subtracted $7$ instead of adding it: $5 - 7 = -12$ instead of $5 + 7 = 12$. College Board designs this trap because sign errors are the most common algebra mistake on the entire SAT. When you move a term across the inequality, the sign flips.\n• Choice C ($x < 12$): You got the correct boundary of $12$ but flipped the inequality direction for no reason. The direction only changes when you multiply or divide by a negative. This trap punishes students who over-apply the "flip" rule.\n• Choice D ($x < -12$): This combines both errors -- wrong sign AND wrong direction. College Board includes this to cover all possible mistake combinations.\n\n**Verification:** Test $x = 13$: $3(13) - 7 = 32$ and $2(13) + 5 = 31$. Since $32 > 31$, confirmed.\n\n**Test Day Takeaway:** Only flip the inequality when you multiply or divide by a negative number. Adding and subtracting never change the direction.',
+          explanation: '**SAT Pattern: Linear Inequality with Distribution** -- Shows up 1-2 times per test. The extra reasoning step is distributing before collecting terms; the inequality direction rule still applies.\n\n**Choice A is correct.**\n\n**The Fast Way (20 seconds):** Distribute: $6x - 15 - x > 2x + 10$, so $5x - 15 > 2x + 10$. Subtract $2x$: $3x - 15 > 10$. Add $15$: $3x > 25$. Divide: $x > \\frac{25}{3}$.\n\n**The Full Solution:**\nStep 1 -- Distribute: $3(2x - 5) - x = 6x - 15 - x = 5x - 15$\nStep 2 -- Solve the inequality:\n$5x - 15 > 2x + 10$\n$3x > 25$\n$x > \\frac{25}{3}$\n\n**Why the wrong answers are tempting:**\n• Choice B ($x > 25$): You forgot to divide by $3$ in the final step, writing $x > 25$ instead of $x > 25/3$. College Board designs this trap because students who correctly simplify often rush the last step and skip the division.\n• Choice C ($x < \\frac{25}{3}$): You found the correct boundary but flipped the inequality direction. The direction only changes when you multiply or divide by a negative. Since we divided by positive $3$, the sign stays. This trap punishes students who over-apply the "flip" rule.\n• Choice D ($x > -5$): This comes from a distribution error, such as computing $3(2x - 5) = 6x - 5$ instead of $6x - 15$. Dropping the distributive property is a common mistake under time pressure.\n\n**Verification:** Test $x = 9 > 25/3 \\approx 8.33$: LHS $= 3(13) - 9 = 30$, RHS $= 28$. Since $30 > 28$, confirmed.\n\n**Test Day Takeaway:** When an inequality involves parentheses, distribute first, then combine like terms. Only flip the inequality when you multiply or divide by a negative number.',
           skills: ["linear-equations"]
         },
         {
@@ -118,31 +118,31 @@ export const practiceTest7 = {
         {
           id: 'pt7-m1-q8',
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'If $x^2 - 6x + 9 = 0$, what is the value of $x$?',
+          difficulty: 'hard',
+          question: 'The equation $2x^2 - 12x + 18 = k$ has exactly one real solution. The value of $x$ that satisfies this equation is substituted into the expression $x^2 - 2x + 5$. What is the resulting value?',
           choices: [
-            { id: 'A', text: '$-3$' },
-            { id: 'B', text: '$3$' },
-            { id: 'C', text: '$-3$ or $3$' },
-            { id: 'D', text: '$9$' }
+            { id: 'A', text: '$2$' },
+            { id: 'B', text: '$8$' },
+            { id: 'C', text: '$14$' },
+            { id: 'D', text: '$24$' }
           ],
           correctAnswer: 'B',
-          explanation: '**SAT Pattern: Perfect Square Trinomial** -- Shows up 1-2 times per test. Recognizing the pattern $a^2 - 2ab + b^2 = (a-b)^2$ saves significant time.\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** On Desmos, graph $y = x^2 - 6x + 9$. You will see the parabola touches the $x$-axis at exactly one point: $x = 3$.\n\n**The Full Solution:**\n$x^2 - 6x + 9 = (x - 3)^2 = 0$\n$(x - 3)^2 = 0$ means $x - 3 = 0$, so $x = 3$\n\n**Why the wrong answers are tempting:**\n• Choice A ($-3$): This is the classic sign error. You saw "$-6x$" and "$9$" and thought of $-3$, but $(-3)^2 - 6(-3) + 9 = 9 + 18 + 9 = 36 \\neq 0$. College Board knows that students associate the number $3$ with the equation and then second-guess themselves into picking the negative version.\n• Choice C ($-3$ or $3$): You confused this with $x^2 - 9 = 0$ (difference of squares), which does have two solutions. This is the most psychologically tempting wrong answer because "quadratics have two solutions" is drilled into every student\'s head. But a perfect square trinomial has one repeated root.\n• Choice D ($9$): You grabbed the constant term and assumed it was the answer. $(9)^2 - 6(9) + 9 = 36 \\neq 0$. This trap catches students who guess instead of solving.\n\n**Verification:** $(3 - 3)^2 = 0$. Check.\n\n**Test Day Takeaway:** If you see $x^2 - 2bx + b^2$, it is $(x-b)^2$ and has exactly one root at $x = b$. Do not assume every quadratic has two different solutions.',
+          explanation: '**SAT Pattern: Perfect Square Trinomial + Multi-Step Substitution** -- Combines recognizing a perfect square form, determining the discriminant condition, and evaluating a second expression.\n\n**Choice B is correct.**\n\n**The Full Solution:**\nStep 1 -- Factor: $2x^2 - 12x + 18 = 2(x^2 - 6x + 9) = 2(x-3)^2$.\nStep 2 -- For exactly one real solution to $2(x-3)^2 = k$, we need $(x-3)^2 = k/2$ to have one solution. A square equals zero at exactly one point, so $k = 0$.\nStep 3 -- When $k = 0$: $2(x-3)^2 = 0$ gives $x = 3$.\nStep 4 -- Evaluate: $x^2 - 2x + 5 = 9 - 6 + 5 = 8$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($2$): You evaluated $x^2 - 6x + 9$ at $x = 3$, getting $0$, then added $2$ from a misremembered expression. This catches students who confuse the original equation\'s expression with the one they need to evaluate.\n• Choice C ($14$): You found $x = 3$ correctly but evaluated $x^2 + 5 = 14$, dropping the $-2x$ term. Under multi-step pressure, forgetting a middle term is common.\n• Choice D ($24$): You substituted $x = 3$ into $2x^2 - 2x + 6$, conflating the original quadratic\'s coefficients with the evaluation expression. College Board designs multi-step problems so that mixing up which expression to use produces a plausible wrong answer.\n\n**Verification:** $k = 0$: $2(3)^2 - 12(3) + 18 = 18 - 36 + 18 = 0$. One solution at $x = 3$. $3^2 - 2(3) + 5 = 8$. Check.\n\n**Test Day Takeaway:** When a problem says "exactly one real solution," think discriminant $= 0$ or a perfect square equaling zero. Then follow through to whatever expression they actually ask you to evaluate -- do not stop at finding $x$.',
           skills: ["perfect-square-trinomial", "finding-roots-factoring"]
         },
         {
           id: 'pt7-m1-q9',
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'The equation $y = 2x^2 - 8x + 10$ represents a parabola. What is the $y$-intercept?',
+          difficulty: 'hard',
+          question: 'The parabola $y = 2x^2 - 8x + 10$ has vertex $(h, k)$ and $y$-intercept $(0, c)$. What is the value of $c - k$?',
           choices: [
             { id: 'A', text: '$2$' },
-            { id: 'B', text: '$-8$' },
+            { id: 'B', text: '$8$' },
             { id: 'C', text: '$10$' },
-            { id: 'D', text: '$0$' }
+            { id: 'D', text: '$12$' }
           ],
-          correctAnswer: 'C',
-          explanation: '**SAT Pattern: Y-Intercept of a Quadratic** -- Shows up every test in some form. This is a free point if you know one rule.\n\n**Choice C is correct.**\n\n**The Fast Way (5 seconds):** The $y$-intercept of $y = ax^2 + bx + c$ is always $c$. Here, $c = 10$. Done.\n\n**The Full Solution:**\nThe $y$-intercept occurs when $x = 0$:\n$y = 2(0)^2 - 8(0) + 10 = 10$\n\n**Why the wrong answers are tempting:**\n• Choice A ($2$): This is the leading coefficient $a$, not the $y$-intercept. College Board puts this here because students who partially memorize the standard form mix up which number is which. The coefficient $a$ controls the width and direction of the parabola.\n• Choice B ($-8$): This is the coefficient of $x$ (the $b$ value). Students who scan the equation too quickly and grab the "middle number" fall for this. On a timed test, reading too fast is just as dangerous as reading too slow.\n• Choice D ($0$): Some students assume all parabolas pass through the origin. This is only true when $c = 0$. College Board exploits this misconception regularly.\n\n**Verification:** $y = 2(0)^2 - 8(0) + 10 = 10$. Check.\n\n**Test Day Takeaway:** The $y$-intercept of ANY function is found by plugging in $x = 0$. For $y = ax^2 + bx + c$, that is always just $c$ -- the constant term.',
+          correctAnswer: 'B',
+          explanation: '**SAT Pattern: Multi-Step Vertex and Intercept Comparison** -- Requires finding the $y$-intercept, computing the vertex, and then combining the results.\n\n**Choice B is correct.**\n\n**The Full Solution:**\nStep 1 -- $y$-intercept: Set $x = 0$: $c = 2(0)^2 - 8(0) + 10 = 10$.\nStep 2 -- Vertex $x$-coordinate: $h = -\\frac{b}{2a} = -\\frac{-8}{2(2)} = 2$.\nStep 3 -- Vertex $y$-coordinate: $k = 2(2)^2 - 8(2) + 10 = 8 - 16 + 10 = 2$.\nStep 4 -- Compute the difference: $c - k = 10 - 2 = 8$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($2$): This is $k$ itself, the vertex $y$-coordinate. You stopped one step early, finding the vertex but forgetting to subtract it from $c$. College Board frequently places intermediate results as wrong answers.\n• Choice C ($10$): This is $c$ alone, the $y$-intercept. You found the first value correctly but forgot the vertex step entirely. On multi-step problems, College Board rewards partial work with a matching wrong answer.\n• Choice D ($12$): This is $c + k = 10 + 2$ instead of $c - k$. You computed both values correctly but added instead of subtracting. Sign and operation errors in the final step are especially common under time pressure.\n\n**Verification:** Vertex form: $2(x-2)^2 + 2$. At $x = 0$: $2(4) + 2 = 10 = c$. $c - k = 10 - 2 = 8$. Check.\n\n**Test Day Takeaway:** Multi-step problems that ask for a combined expression are testing whether you can hold multiple results in memory. Write each intermediate value on your scratch paper before computing the final answer.',
           skills: ["vertex-form", "function-evaluation"]
         },
         {
@@ -331,16 +331,16 @@ export const practiceTest7 = {
         {
           id: 'pt7-m2-q1',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'A bag contains $4$ red marbles, $6$ blue marbles, and $5$ green marbles. If one marble is selected at random, what is the probability of selecting a blue marble?',
+          difficulty: 'medium',
+          question: 'A bag contains $4$ red marbles, $6$ blue marbles, and $5$ green marbles. One marble is drawn and set aside (it is NOT blue). What is the probability that the next marble drawn at random from the remaining marbles is blue?',
           choices: [
-            { id: 'A', text: '$\\frac{1}{5}$' },
-            { id: 'B', text: '$\\frac{2}{5}$' },
-            { id: 'C', text: '$\\frac{6}{15}$' },
-            { id: 'D', text: '$\\frac{2}{3}$' }
+            { id: 'A', text: '$\\frac{2}{5}$' },
+            { id: 'B', text: '$\\frac{3}{7}$' },
+            { id: 'C', text: '$\\frac{6}{14}$' },
+            { id: 'D', text: '$\\frac{6}{15}$' }
           ],
           correctAnswer: 'B',
-          explanation: '**SAT Pattern: Basic Probability** -- Shows up 1-2 per test. The formula is always favorable outcomes over total outcomes.\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** Total marbles: $4 + 6 + 5 = 15$. Blue: $6$. Probability: $\\frac{6}{15} = \\frac{2}{5}$.\n\n**The Full Solution:**\n$P(\\text{blue}) = \\frac{6}{15} = \\frac{2}{5}$\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{1}{5}$): This equals $\\frac{3}{15}$, which would mean only $3$ blue marbles. You may have miscounted or confused the blue count with another color. College Board puts a simplified fraction that "looks right" to catch counting errors.\n• Choice C ($\\frac{6}{15}$): This is mathematically equal to $\\frac{2}{5}$, and on the SAT, both would be accepted as correct if this were a fill-in. But as a multiple choice, College Board lists both the unreduced and reduced versions to see if you recognize they are the same. If both B and C appear, the simplified version is the "credited" answer.\n• Choice D ($\\frac{2}{3}$): This is way too large -- it would mean $10$ out of $15$ marbles are blue. This comes from an incorrect denominator or numerator. College Board includes an obviously-too-large answer for students who guess or make a major calculation error.\n\n**Verification:** $\\frac{2}{5} = 0.4 = 40\\%$, which is reasonable for $6$ out of $15$.\n\n**Test Day Takeaway:** Probability = favorable / total. Always add up ALL outcomes for the total, and always simplify your fraction.',
+          explanation: '**SAT Pattern: Conditional Probability After Removal** -- Shows up 1-2 per test. The extra step is adjusting the total after the first draw while recognizing which group was affected.\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** After removing one non-blue marble, $14$ marbles remain and all $6$ blue marbles are still there. $P = \\frac{6}{14} = \\frac{3}{7}$.\n\n**The Full Solution:**\nStep 1 -- Original total: $4 + 6 + 5 = 15$ marbles.\nStep 2 -- One non-blue marble is removed: $15 - 1 = 14$ marbles remain, with all $6$ blue still in the bag.\nStep 3 -- Probability: $\\frac{6}{14} = \\frac{3}{7}$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{2}{5}$): This is $\\frac{6}{15}$ simplified -- the probability BEFORE the first draw. You ignored the fact that a marble was removed. College Board designs this for students who skip the conditional step and compute from the original counts.\n• Choice C ($\\frac{6}{14}$): This is mathematically equal to $\\frac{3}{7}$. On a fill-in, both would be accepted. As multiple choice, College Board lists the unreduced form alongside the reduced form. The simplified version $\\frac{3}{7}$ is the credited answer.\n• Choice D ($\\frac{6}{15}$): Same as Choice A but unreduced. You used the original total of $15$ instead of the updated total of $14$. This trap catches students who forget to update the denominator after a marble is removed.\n\n**Verification:** $\\frac{3}{7} \\approx 0.429$, slightly higher than $\\frac{2}{5} = 0.400$, which makes sense -- removing a non-blue marble increases the blue proportion.\n\n**Test Day Takeaway:** When a problem says something is drawn and set aside, update both the numerator (if the favorable group changed) and the denominator (total always decreases). Read carefully whether the removed item is from the favorable group or not.',
           skills: ["percent-of-value"]
         },
         {
@@ -361,16 +361,16 @@ export const practiceTest7 = {
         {
           id: 'pt7-m2-q3',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'The line $y = -3x + 12$ intersects the $y$-axis at what point?',
+          difficulty: 'medium',
+          question: 'The line $6x + 2y = 24$ intersects the $y$-axis at what point?',
           choices: [
             { id: 'A', text: '$(0, -3)$' },
             { id: 'B', text: '$(0, 12)$' },
-            { id: 'C', text: '$(12, 0)$' },
-            { id: 'D', text: '$(-3, 0)$' }
+            { id: 'C', text: '$(4, 0)$' },
+            { id: 'D', text: '$(0, 24)$' }
           ],
           correctAnswer: 'B',
-          explanation: '**SAT Pattern: Reading the Y-Intercept from Slope-Intercept Form** -- Shows up every test. This is a free point if you know that in $y = mx + b$, the $y$-intercept is $(0, b)$.\n\n**Choice B is correct.**\n\n**The Fast Way (5 seconds):** In $y = -3x + 12$, the $y$-intercept is $(0, 12)$. The $b$ value is $12$. Done.\n\n**The Full Solution:**\nThe $y$-intercept occurs when $x = 0$:\n$y = -3(0) + 12 = 12$\nThe point is $(0, 12)$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($(0, -3)$): You grabbed the slope ($-3$) instead of the intercept ($12$). College Board designs this as the number one trap for this question type: students who confuse slope and intercept. The slope tells you how steep the line is, not where it crosses the axis.\n• Choice C ($(12, 0)$): This is the $x$-intercept, not the $y$-intercept. You correctly found $12$ but put it in the wrong coordinate. On the $y$-axis, $x$ is always $0$. On the $x$-axis, $y$ is always $0$. Getting these swapped is one of the most common SAT mistakes.\n• Choice D ($(-3, 0)$): This is not even on the line ($y = -3(-3) + 12 = 21 \\neq 0$). Students sometimes combine the slope and a zero to form a point that looks plausible but is not.\n\n**Verification:** At $x = 0$: $y = 12$. The point $(0, 12)$ is on the $y$-axis. Check.\n\n**Test Day Takeaway:** $y$-axis means $x = 0$. $x$-axis means $y = 0$. In $y = mx + b$, the $y$-intercept is always the point $(0, b)$. No calculation needed.',
+          explanation: '**SAT Pattern: Y-Intercept from Standard Form** -- Shows up every test. The extra step here is that the equation is in standard form, so you must either convert to slope-intercept form or substitute $x = 0$ before reading the intercept.\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** Set $x = 0$: $6(0) + 2y = 24$, so $2y = 24$ and $y = 12$. The point is $(0, 12)$.\n\n**The Full Solution:**\nStep 1 -- Substitute $x = 0$ into the standard form:\n$6(0) + 2y = 24$\n$2y = 24$\n$y = 12$\nStep 2 -- The $y$-intercept is $(0, 12)$.\n\nAlternatively, convert to slope-intercept form: $2y = -6x + 24$, so $y = -3x + 12$. The $y$-intercept is $12$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($(0, -3)$): You converted to $y = -3x + 12$ and grabbed the slope ($-3$) instead of the intercept ($12$). College Board designs this trap for students who confuse slope and intercept, especially after a conversion step adds cognitive load.\n• Choice C ($(4, 0)$): This is the $x$-intercept, not the $y$-intercept. Setting $y = 0$: $6x = 24$, $x = 4$. You solved for the wrong axis. College Board loves swapping which intercept they ask for.\n• Choice D ($(0, 24)$): You read the constant $24$ directly from $6x + 2y = 24$ without dividing by $2$. In standard form $Ax + By = C$, the $y$-intercept is $C/B$, not $C$. This is the most common standard-form trap.\n\n**Verification:** $6(0) + 2(12) = 24$. Check.\n\n**Test Day Takeaway:** For ANY equation, the $y$-intercept is found by setting $x = 0$ and solving for $y$. In standard form $Ax + By = C$, the $y$-intercept is $C/B$. Do not read the constant directly -- you must divide.',
           skills: ["slope-intercept-form"]
         },
         {
@@ -406,10 +406,10 @@ export const practiceTest7 = {
         {
           id: 'pt7-m2-q6',
           type: 'fill-in',
-          difficulty: 'medium',
-          question: 'If $\\frac{3x - 5}{4} = 7$, what is the value of $3x - 5$?',
-          correctAnswer: '28',
-          explanation: '**SAT Pattern: "Find the Expression" Shortcut** -- Shows up 1-2 per test. When they ask for the entire expression, isolate it directly instead of solving for $x$.\n\n**The correct answer is $28$.**\n\n**The Fast Way (5 seconds):** They are asking for $3x - 5$, which is already in the numerator. Multiply both sides by $4$: $3x - 5 = 28$. Done. Do not solve for $x$.\n\n**The Full Solution:**\n$\\frac{3x - 5}{4} = 7$\n$3x - 5 = 7 \\times 4 = 28$\n\n**Verification:** $\\frac{28}{4} = 7$. Check.\n\n**Test Day Takeaway:** When the question asks for an expression like $3x - 5$ (not just $x$), look for a way to isolate that entire expression in one step. Do not waste time solving for $x$ and then computing $3x - 5$.',
+          difficulty: 'hard',
+          question: 'If $\\frac{3x - 5}{4} = 7$ and $\\frac{y - 2}{3} = \\frac{x - 1}{5}$, what is the value of $y$?',
+          correctAnswer: '8',
+          explanation: '**SAT Pattern: Chained Fractional Equations** -- Requires solving one equation fully, substituting into a second fractional equation, and solving again. Multi-step algebra under time pressure.\n\n**The correct answer is $8$.**\n\n**The Full Solution:**\nStep 1 -- Solve the first equation for $x$:\n$\\frac{3x - 5}{4} = 7$\n$3x - 5 = 28$\n$3x = 33$\n$x = 11$\n\nStep 2 -- Substitute $x = 11$ into the second equation:\n$\\frac{y - 2}{3} = \\frac{11 - 1}{5} = \\frac{10}{5} = 2$\n\nStep 3 -- Solve for $y$:\n$y - 2 = 6$\n$y = 8$\n\n**Common errors:**\n• Getting $x = 11$ but substituting into the wrong side, or forgetting to subtract $1$ from $x$ before dividing by $5$, giving $\\frac{11}{5}$ instead of $\\frac{10}{5}$. That leads to $y = \\frac{43}{5}$, a non-integer that should signal a mistake.\n• Solving the first equation as $3x = 23$ (subtracting $5$ from $28$ instead of adding), giving $x = 23/3$. Always verify your intermediate result: $\\frac{3(11)-5}{4} = \\frac{28}{4} = 7$.\n• Cross-multiplying the second equation incorrectly: $5(y-2) = 3(x-1)$ gives $5y - 10 = 30$, so $y = 8$. Some students get $3(y-2) = 5(x-1)$ by swapping sides, yielding $y = 52/3$.\n\n**Verification:** $\\frac{3(11)-5}{4} = \\frac{28}{4} = 7$. $\\frac{8-2}{3} = \\frac{6}{3} = 2$ and $\\frac{11-1}{5} = \\frac{10}{5} = 2$. Both check.\n\n**Test Day Takeaway:** Multi-step fractional equations require solving one variable fully before substituting. Always verify intermediate results -- if you get a non-integer in an integer-answer problem, go back and check.',
           skills: ['Algebra', 'Linear Equations']
         },
         {
@@ -445,10 +445,10 @@ export const practiceTest7 = {
         {
           id: 'pt7-m2-q9',
           type: 'fill-in',
-          difficulty: 'medium',
-          question: 'A right circular cylinder has a height of $10$ cm and a volume of $250\\pi$ cubic cm. What is the radius, in cm, of the cylinder?',
-          correctAnswer: '5',
-          explanation: '**SAT Pattern: Cylinder Volume** -- Shows up 1 per test. The formula $V = \\pi r^2 h$ is given on the reference sheet, so you just need to plug in and solve.\n\n**The correct answer is $5$.**\n\n**The Fast Way (15 seconds):** $V = \\pi r^2 h$ gives $250\\pi = \\pi r^2(10)$. Cancel $\\pi$: $250 = 10r^2$. So $r^2 = 25$, meaning $r = 5$.\n\n**The Full Solution:**\n$V = \\pi r^2 h$\n$250\\pi = \\pi r^2 (10)$\nDivide both sides by $10\\pi$: $r^2 = 25$\n$r = 5$ cm\n\n**Verification:** $\\pi(5)^2(10) = 250\\pi$. Check.\n\n**Test Day Takeaway:** On volume problems, the formula is on your reference sheet. Write it down, plug in what you know, and solve for what you do not know. Always cancel $\\pi$ from both sides early -- it simplifies everything.',
+          difficulty: 'hard',
+          question: 'A right circular cylinder has a height of $10$ cm and a volume of $250\\pi$ cubic cm. What is the total surface area, in square cm, of the cylinder? (Give your answer as a number times $\\pi$. For example, if your answer is $36\\pi$, enter 36.)',
+          correctAnswer: '150',
+          explanation: '**SAT Pattern: Multi-Step 3D Geometry -- Volume to Surface Area** -- Requires finding the radius from volume, then applying the surface area formula. Chains two formulas together.\n\n**The correct answer is $150$ (i.e., $150\\pi$ sq cm).**\n\n**The Full Solution:**\nStep 1 -- Find the radius from volume:\n$V = \\pi r^2 h$\n$250\\pi = \\pi r^2(10)$\n$r^2 = 25$, so $r = 5$ cm\n\nStep 2 -- Compute total surface area:\n$SA = 2\\pi r^2 + 2\\pi r h$\n$= 2\\pi(25) + 2\\pi(5)(10)$\n$= 50\\pi + 100\\pi = 150\\pi$\n\nThe coefficient is $150$.\n\n**Common errors:**\n• Answering $5$ (the radius) -- you stopped at the intermediate step. The question asks for surface area, not radius. College Board frequently places intermediate values as traps.\n• Computing only the lateral surface area $2\\pi rh = 100\\pi$ and forgetting the two circular bases. The total surface area includes $2\\pi r^2$ for the top and bottom.\n• Computing only $\\pi r^2 + 2\\pi rh = 125\\pi$ (one base instead of two). Read "total surface area" carefully -- it means all surfaces.\n• Getting $r^2 = 25$ but using $r = 25$ in the surface area formula, yielding a much larger answer.\n\n**Verification:** $V = \\pi(25)(10) = 250\\pi$. $SA = 2\\pi(25) + 2\\pi(5)(10) = 50\\pi + 100\\pi = 150\\pi$. Check.\n\n**Test Day Takeaway:** Total surface area of a cylinder $= 2\\pi r^2 + 2\\pi rh$. When a problem gives volume and asks for surface area, you must find $r$ first. Write each intermediate value on scratch paper to avoid losing track.',
           skills: ['Geometry', 'Volume']
         },
         {

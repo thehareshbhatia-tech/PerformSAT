@@ -44,16 +44,16 @@ export const practiceTest3 = {
         {
           id: 2,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "Of the 48,000 seats in a concert hall, 36,000 are in the general admission section. Out of those seats in general admission, 14,400 are in the front rows. What percentage of the seats in the concert hall are in general admission and not in the front rows?",
+          difficulty: "medium",
+          question: "Of the 48,000 seats in a concert hall, 36,000 are in the general admission section. Out of those seats in general admission, 14,400 are in the front rows. Of the general admission seats that are NOT in the front rows, 40% are classified as premium. What percentage of ALL seats in the concert hall are general admission, non-front-row, premium seats?",
           choices: [
-            { id: "A", text: "30%" },
-            { id: "B", text: "45%" },
-            { id: "C", text: "55%" },
-            { id: "D", text: "70%" }
+            { id: "A", text: "12%" },
+            { id: "B", text: "18%" },
+            { id: "C", text: "30%" },
+            { id: "D", text: "45%" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Nested Percentage / Subset of a Subset** -- The SAT loves giving you overlapping categories and asking for one specific slice as a percent of the whole.\n\n**Choice B is correct.** 45% of the seats are in general admission but not in the front rows.\n\n**The Fast Way (15 seconds):** GA seats minus front rows: $36{,}000 - 14{,}400 = 21{,}600$. Divide by total: $21{,}600 \\div 48{,}000 = 0.45 = 45\\%$. Done.\n\n**Solution steps:**\n1. Seats in GA but NOT front rows: $36{,}000 - 14{,}400 = 21{,}600$\n2. As a percentage of total seats: $(21{,}600 \\div 48{,}000) \\times 100\\% = 45\\%$\n\n**Why the wrong answers are tempting:**\n- **A (30%):** This is $14{,}400 \\div 48{,}000$ -- the percentage of front-row seats out of the total. You grabbed the wrong numerator because the problem mentions front rows prominently.\n- **C (55%):** This does not match any clean calculation, which is a clue it comes from an arithmetic slip, likely subtracting percentages in the wrong order or using the wrong denominator.\n- **D (70%):** This is $36{,}000 \\div 48{,}000$ -- the percentage of ALL general admission seats. You forgot to subtract the front rows first. The question specifically says \"not in the front rows.\"\n\n**Verification:** $21{,}600 \\div 48{,}000 = 0.45 = 45\\%$, and $21{,}600 + 14{,}400 = 36{,}000$ confirms our subtraction.\n\n**Test Day Takeaway:** When a problem says \"A and not B,\" subtract B from A before dividing by the total. Read the question twice to catch which slice they actually want.",
+          explanation: "**SAT Pattern: Multi-Layer Subset Percentage** -- The SAT tests whether you can chain multiple filtering steps before computing a percentage of the whole. Each step narrows the group.\n\n**Choice B is correct.** 18% of all seats are GA, non-front-row, premium seats.\n\n**The Fast Way (25 seconds):** GA non-front-row seats: $36{,}000 - 14{,}400 = 21{,}600$. Premium portion: $21{,}600 \\times 0.40 = 8{,}640$. As a percentage of total: $8{,}640 \\div 48{,}000 = 0.18 = 18\\%$.\n\n**Solution steps:**\n1. Seats in GA but NOT front rows: $36{,}000 - 14{,}400 = 21{,}600$\n2. Premium seats among those: $21{,}600 \\times 0.40 = 8{,}640$\n3. As a percentage of all seats: $(8{,}640 \\div 48{,}000) \\times 100\\% = 18\\%$\n\n**Why the wrong answers are tempting:**\n- **A (12%):** This comes from taking $40\\%$ of $14{,}400$ (the front-row seats) instead of the non-front-row seats, giving $5{,}760 \\div 48{,}000 = 12\\%$. You applied the premium rate to the wrong subset.\n- **C (30%):** This is $14{,}400 \\div 48{,}000 = 30\\%$, the percentage of front-row seats out of the total. You stopped after the first subtraction step and grabbed the wrong numerator.\n- **D (45%):** This is $21{,}600 \\div 48{,}000 = 45\\%$, the percentage of ALL non-front-row GA seats. You forgot to apply the $40\\%$ premium filter -- the final and most critical step.\n\n**Verification:** $8{,}640 \\div 48{,}000 = 0.18 = 18\\%$, and $8{,}640 + (21{,}600 - 8{,}640) + 14{,}400 = 36{,}000$ confirms the GA total.\n\n**Test Day Takeaway:** When a problem chains multiple subsets (\"of those... of those...\"), work step by step: subtract first, then apply the next filter, then compute the final percentage against the total. Each layer reduces the group further.",
           skills: ["percentages", "word-problems"]
         },
         {
@@ -68,31 +68,31 @@ export const practiceTest3 = {
         {
           id: 4,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "Which expression is equivalent to $(5x^2 - 4x) + (2x^2 - 7x)$?",
+          difficulty: "medium",
+          question: "Which expression is equivalent to $(5x^2 - 4x + 3) + (2x^2 - 7x) - (x^2 + 2x - 6)$?",
           choices: [
-            { id: "A", text: "$-3x^2$" },
-            { id: "B", text: "$7x^2 - 11x$" },
-            { id: "C", text: "$7x^4 - 11x^2$" },
-            { id: "D", text: "$10x^4 + 28x^2$" }
+            { id: "A", text: "$6x^2 - 13x + 9$" },
+            { id: "B", text: "$6x^2 - 9x - 3$" },
+            { id: "C", text: "$8x^2 - 13x + 9$" },
+            { id: "D", text: "$6x^2 - 13x - 3$" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Combining Like Terms in Polynomials** -- Shows up on every SAT. They want to see if you know that adding polynomials means combining like terms, not multiplying them.\n\n**Choice B is correct.** $(5x^2 - 4x) + (2x^2 - 7x) = 7x^2 - 11x$.\n\n**The Fast Way (15 seconds):** Drop the parentheses (the $+$ sign between them means nothing changes), then group: $x^2$ terms give $5 + 2 = 7$, and $x$ terms give $-4 + (-7) = -11$. Answer: $7x^2 - 11x$.\n\n**Solution steps:**\n1. Remove parentheses: $5x^2 - 4x + 2x^2 - 7x$\n2. Group like terms: $(5x^2 + 2x^2) + (-4x - 7x)$\n3. Combine: $7x^2 - 11x$\n\n**Why the wrong answers are tempting:**\n- **A ($-3x^2$):** This comes from subtracting the $x^2$ terms ($5 - 2$) with a sign error, and then ignoring the $x$ terms entirely. Under time pressure, you might grab only part of the answer.\n- **C ($7x^4 - 11x^2$):** This is the classic exponent mistake -- thinking $x^2 + x^2 = x^4$. When you add like terms, the exponent stays the same. Only multiplication adds exponents.\n- **D ($10x^4 + 28x^2$):** This is what you get if you multiply the two groups instead of adding them. The problem says \"$+$\" between the parentheses, not \"$\\times$\".\n\n**Verification:** Coefficients check: $5 + 2 = 7$ and $-4 + (-7) = -11$.\n\n**Test Day Takeaway:** Adding polynomials means combining coefficients of matching terms. The exponents never change when you add.",
+          correctAnswer: "A",
+          explanation: "**SAT Pattern: Combining Polynomials with Subtraction (Sign Distribution)** -- The SAT adds a subtracted group to test whether you correctly distribute the negative sign across every term in the third polynomial. This is where most errors happen.\n\n**Choice A is correct.** $(5x^2 - 4x + 3) + (2x^2 - 7x) - (x^2 + 2x - 6) = 6x^2 - 13x + 9$.\n\n**The Fast Way (25 seconds):** Distribute the minus sign on the third group: $-x^2 - 2x + 6$. Now combine all three: $x^2$ terms: $5 + 2 - 1 = 6$. $x$ terms: $-4 - 7 - 2 = -13$. Constants: $3 + 0 + 6 = 9$. Answer: $6x^2 - 13x + 9$.\n\n**Solution steps:**\n1. Remove parentheses, distributing the negative: $5x^2 - 4x + 3 + 2x^2 - 7x - x^2 - 2x + 6$\n2. Group $x^2$ terms: $(5 + 2 - 1)x^2 = 6x^2$\n3. Group $x$ terms: $(-4 - 7 - 2)x = -13x$\n4. Group constants: $3 + 6 = 9$\n5. Result: $6x^2 - 13x + 9$\n\n**Why the wrong answers are tempting:**\n- **B ($6x^2 - 9x - 3$):** You forgot to distribute the negative to the $-2x$ term (leaving it as $+2x$ instead of $-2x$), giving $-4 - 7 + 2 = -9$ for the $x$ coefficient. You also missed flipping the $-6$ to $+6$, keeping $3 - 6 = -3$ for the constant.\n- **C ($8x^2 - 13x + 9$):** You added $x^2$ instead of subtracting it from the third group ($5 + 2 + 1 = 8$). The minus sign before the parentheses affects every term inside.\n- **D ($6x^2 - 13x - 3$):** The $x^2$ and $x$ terms are correct, but the constant is wrong. You subtracted $6$ instead of adding it: $-(- 6) = +6$, so the constant should be $3 + 6 = 9$, not $3 - 6 = -3$.\n\n**Verification:** Plug in $x = 1$: $(5 - 4 + 3) + (2 - 7) - (1 + 2 - 6) = 4 + (-5) - (-3) = 4 - 5 + 3 = 2$. Check: $6(1) - 13(1) + 9 = 6 - 13 + 9 = 2$.\n\n**Test Day Takeaway:** When subtracting a polynomial group, flip the sign of every term inside the parentheses -- including the constant. The most common SAT trap is forgetting to negate the last term.",
           skills: ["polynomial-operations", "combining-like-terms"]
         },
         {
           id: 5,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "In triangle $PQR$, the measure of angle $Q$ is $42°$ and the measure of the exterior angle of angle $R$ is $108°$. What is the measure of angle $P$, in degrees?",
+          difficulty: "medium",
+          question: "In triangle $PQR$, the measure of angle $Q$ is $42°$ and the measure of the exterior angle at vertex $R$ is $108°$. Side $QR$ is extended through $R$ to a point $S$, forming triangle $PRS$. If $\\angle PRS = 108°$, what is the measure of angle $\\angle PSR$, in degrees?",
           choices: [
-            { id: "A", text: "$30$" },
-            { id: "B", text: "$66$" },
-            { id: "C", text: "$72$" },
-            { id: "D", text: "$138$" }
+            { id: "A", text: "$6$" },
+            { id: "B", text: "$42$" },
+            { id: "C", text: "$66$" },
+            { id: "D", text: "$72$" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Exterior Angle and Triangle Angle Sum** -- The SAT regularly tests whether you know that an exterior angle is supplementary to its interior angle, and that triangle angles sum to $180°$.\n\n**Choice B is correct.** Angle $P = 66°$.\n\n**The Fast Way (15 seconds):** Interior angle $R = 180° - 108° = 72°$. Then $P = 180° - 42° - 72° = 66°$. Two quick subtractions and you are done.\n\n**Solution steps:**\n1. Find interior angle $R$: The exterior angle of $R$ is $108°$, so $R = 180° - 108° = 72°$\n2. Use triangle angle sum: $P + Q + R = 180°$\n3. $P + 42° + 72° = 180°$\n4. $P = 180° - 114° = 66°$\n\n**Why the wrong answers are tempting:**\n- **A ($30°$):** You might subtract $42°$ from $72°$ to get $30°$, which feels like a reasonable triangle angle. But that is not how the angle sum works -- you need $180° - (42° + 72°)$.\n- **C ($72°$):** This is angle $R$ itself, not angle $P$. You did the first step correctly (converting the exterior angle) but then stopped, thinking you had the answer.\n- **D ($138°$):** This is $42° + 72° + 24°$ or some other addition that ignores the $180°$ constraint. A $138°$ interior angle in a triangle where another angle is $72°$ would exceed $180°$, which is impossible.\n\n**Verification:** $66° + 42° + 72° = 180°$\n\n**Test Day Takeaway:** Exterior angle? Subtract from $180°$ to get the interior angle. Then use the triangle sum. Two steps, no tricks.",
+          correctAnswer: "A",
+          explanation: "**SAT Pattern: Exterior Angle Theorem Applied Across Two Triangles** -- This pattern chains the exterior angle theorem with the triangle angle sum, requiring you to find an angle in the original triangle first and then use it in an adjacent triangle.\n\n**Choice A is correct.** $\\angle PSR = 6°$.\n\n**The Fast Way (30 seconds):** Interior angle $R$ in triangle $PQR$: $180° - 108° = 72°$. Angle $P$: $180° - 42° - 72° = 66°$. In triangle $PRS$, $\\angle PRS = 108°$ (the exterior angle at $R$) and $\\angle RPS = \\angle P = 66°$. But wait -- $\\angle RPS$ is the same as $\\angle P$ in triangle $PQR$ only if $S$ is on line $QR$. Since $\\angle PRS = 108°$ and the angles of triangle $PRS$ must sum to $180°$: $\\angle PSR = 180° - 108° - 66° = 6°$.\n\n**Solution steps:**\n1. Find interior angle $R$: $R = 180° - 108° = 72°$\n2. Find angle $P$ in triangle $PQR$: $P = 180° - 42° - 72° = 66°$\n3. In triangle $PRS$: $\\angle PRS = 108°$ and $\\angle RPS = 66°$ (same vertex $P$)\n4. $\\angle PSR = 180° - 108° - 66° = 6°$\n\n**Why the wrong answers are tempting:**\n- **B ($42°$):** This is angle $Q$ from the original triangle. You might assume the new triangle inherits the same angles, but triangle $PRS$ has a completely different shape.\n- **C ($66°$):** This is angle $P$ from the original triangle. You found it correctly but answered with the intermediate result instead of the final angle $\\angle PSR$ that was asked for.\n- **D ($72°$):** This is the interior angle $R$ in the original triangle. You stopped at the first conversion step and mistakenly thought this was the answer.\n\n**Verification:** $108° + 66° + 6° = 180°$, confirming the angles of triangle $PRS$ sum correctly.\n\n**Test Day Takeaway:** When a problem extends a side to create a new triangle, find all angles in the original triangle first. Then use those angles (especially at shared vertices) to set up the angle sum in the new triangle.",
           skills: ["triangle-angles", "exterior-angles"]
         },
         {
@@ -162,11 +162,11 @@ export const practiceTest3 = {
         {
           id: 10,
           type: "fill-in",
-          difficulty: "medium",
-          question: "The price of oil increased by 20% at the beginning of May. Two weeks after the initial increase, an economic policy was put in place that reduced the price of oil by 14%. What is the overall percentage change in the oil?",
-          correctAnswer: 3.2,
-          acceptedAnswers: [3.2, "3.2"],
-          explanation: "**SAT Pattern: Successive Percentage Changes** -- The SAT tests this regularly because most students instinctively add/subtract percentages instead of multiplying the factors. That is exactly the trap.\n\n**The correct answer is 3.2.**\n\n**The Fast Way (15 seconds):** Multiply the two percentage factors: $1.20 \\times 0.86 = 1.032$. That means the price is $103.2\\%$ of the original, so the overall change is $3.2\\%$.\n\n**Solution steps:**\n1. Start with a convenient base: Original price $= 100$\n2. After a $20\\%$ increase: $100 \\times 1.20 = 120$\n3. After a $14\\%$ decrease on the new price: $120 \\times 0.86 = 103.2$\n4. Overall change: $103.2 - 100 = 3.2\\%$ increase\n\nThe most common mistake is thinking $20\\% - 14\\% = 6\\%$. That is wrong because the $14\\%$ decrease applies to $120$, not to the original $100$. The decrease removes $14\\%$ of a bigger number, so it takes away more than you would expect.\n\n**Verification:** $1.20 \\times 0.86 = 1.032$, confirming $3.2\\%$ net increase.\n\n**Test Day Takeaway:** Never add or subtract successive percentages. Always multiply the factors ($1 + \\text{rate}$) together, then subtract $1$ to find the net change.",
+          difficulty: "hard",
+          question: "The price of oil increased by 20% at the beginning of May. Two weeks later, an economic policy reduced the price by 14%. At the end of June, a supply disruption caused a further 25% increase on the resulting price. What is the overall percentage change in the price of oil from its original value, to the nearest tenth?",
+          correctAnswer: 29,
+          acceptedAnswers: [29, "29", "29.0"],
+          explanation: "**SAT Pattern: Chained Successive Percentage Changes (Three Stages)** -- This extends the classic two-step percentage change problem to three stages. The trap is even stronger: students want to add $20\\% - 14\\% + 25\\% = 31\\%$, but each percentage applies to a different base.\n\n**The correct answer is 29.**\n\n**The Fast Way (20 seconds):** Multiply all three factors: $1.20 \\times 0.86 \\times 1.25 = 1.29$. The price is $129\\%$ of the original, so the overall change is $29\\%$.\n\n**Solution steps:**\n1. Start with a convenient base: Original price $= 100$\n2. After a $20\\%$ increase: $100 \\times 1.20 = 120$\n3. After a $14\\%$ decrease on $120$: $120 \\times 0.86 = 103.2$\n4. After a $25\\%$ increase on $103.2$: $103.2 \\times 1.25 = 129$\n5. Overall change: $129 - 100 = 29\\%$ increase\n\nThe naive approach of $20 - 14 + 25 = 31\\%$ is wrong because each percentage change applies to the running total, not the original. The $14\\%$ decrease removes $14\\%$ of $120$ (not $100$), and the $25\\%$ increase adds $25\\%$ of $103.2$ (not $100$).\n\n**Verification:** $1.20 \\times 0.86 = 1.032$; $1.032 \\times 1.25 = 1.29$. Net change $= 29\\%$.\n\n**Test Day Takeaway:** For successive percentage changes, convert each to a multiplier ($1 + \\text{rate}$ for increases, $1 - \\text{rate}$ for decreases), then multiply them all together. The final product minus $1$ is the net percentage change. This works for any number of stages.",
           skills: ["percent-change", "percentages"]
         },
         {
@@ -214,16 +214,16 @@ export const practiceTest3 = {
         {
           id: 14,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "If $r$ and $s$ are the solutions to the equation $2x^2 - 10x + 7 = 0$, what is the value of $\\frac{1}{r} + \\frac{1}{s}$?",
+          difficulty: "hard",
+          question: "If $r$ and $s$ are the solutions to the equation $2x^2 - 10x + 7 = 0$, what is the value of $r^2 + s^2$?",
           choices: [
-            { id: "A", text: "$\\frac{7}{10}$" },
-            { id: "B", text: "$\\frac{10}{7}$" },
-            { id: "C", text: "$\\frac{7}{2}$" },
-            { id: "D", text: "$5$" }
+            { id: "A", text: "$\\frac{18}{4}$" },
+            { id: "B", text: "$\\frac{36}{4}$" },
+            { id: "C", text: "$18$" },
+            { id: "D", text: "$25$" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Vieta's Formulas for Root Expressions** -- When the SAT asks for an expression involving the roots (like $\\frac{1}{r} + \\frac{1}{s}$), Vieta's formulas let you skip solving the quadratic entirely.\n\n**Choice B is correct.** $\\frac{1}{r} + \\frac{1}{s} = \\frac{10}{7}$.\n\n**The Fast Way (25 seconds):** Rewrite $\\frac{1}{r} + \\frac{1}{s}$ as $\\frac{r+s}{rs}$. By Vieta's: $r + s = \\frac{10}{2} = 5$ and $rs = \\frac{7}{2}$. So the answer is $\\frac{5}{7/2} = \\frac{10}{7}$. No need to find $r$ or $s$ individually.\n\n**Solution steps:**\n1. For $2x^2 - 10x + 7 = 0$: sum of roots $r + s = -\\frac{b}{a} = -\\frac{-10}{2} = 5$\n2. Product of roots: $rs = \\frac{c}{a} = \\frac{7}{2}$\n3. Key algebra: $\\frac{1}{r} + \\frac{1}{s} = \\frac{s + r}{rs} = \\frac{r + s}{rs}$\n4. Substitute: $\\frac{5}{7/2} = 5 \\times \\frac{2}{7} = \\frac{10}{7}$\n\n**Why the wrong answers are tempting:**\n- **A ($\\frac{7}{10}$):** This is the reciprocal of the correct answer. You set up $\\frac{rs}{r+s}$ instead of $\\frac{r+s}{rs}$. When you are dividing fractions, it is easy to flip the wrong one.\n- **C ($\\frac{7}{2}$):** This is just $rs$, the product of roots. You computed one of the ingredients but stopped before finishing the recipe.\n- **D ($5$):** This is just $r + s$, the sum of roots. Same issue -- you found one piece and thought you were done.\n\n**Verification:** $\\frac{r+s}{rs} = \\frac{5}{7/2} = \\frac{10}{7}$\n\n**Test Day Takeaway:** Memorize that $\\frac{1}{r} + \\frac{1}{s} = \\frac{r+s}{rs}$. Combined with Vieta's formulas, you can answer these without ever touching the quadratic formula.",
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Vieta's Formulas Combined with Algebraic Identity** -- This problem requires two concepts: Vieta's formulas to find the sum and product of roots, and the identity $r^2 + s^2 = (r+s)^2 - 2rs$ to convert them into the target expression.\n\n**Choice C is correct.** $r^2 + s^2 = 18$.\n\n**The Fast Way (30 seconds):** By Vieta's: $r + s = 5$ and $rs = \\frac{7}{2}$. Use the identity: $r^2 + s^2 = (r+s)^2 - 2rs = 25 - 7 = 18$.\n\n**Solution steps:**\n1. For $2x^2 - 10x + 7 = 0$: sum of roots $r + s = -\\frac{b}{a} = -\\frac{-10}{2} = 5$\n2. Product of roots: $rs = \\frac{c}{a} = \\frac{7}{2}$\n3. Key identity: $r^2 + s^2 = (r+s)^2 - 2rs$\n4. Substitute: $r^2 + s^2 = 5^2 - 2\\left(\\frac{7}{2}\\right) = 25 - 7 = 18$\n\n**Why the wrong answers are tempting:**\n- **A ($\\frac{18}{4}$):** You computed $\\frac{(r+s)^2 - 2rs}{a^2}$ or divided unnecessarily by $4$. The identity gives the answer directly -- no extra division needed.\n- **B ($\\frac{36}{4}$):** This simplifies to $9$, which comes from computing $(r+s)^2 - 2rs$ but using $rs = 8$ (perhaps forgetting the $\\frac{1}{2}$) or squaring $r + s = 3$ from a sign error.\n- **D ($25$):** This is $(r+s)^2 = 5^2 = 25$. You computed the first part of the identity but forgot to subtract $2rs$. The identity has a subtraction step that is easy to skip.\n\n**Verification:** Using the quadratic formula: $r, s = \\frac{10 \\pm \\sqrt{100-56}}{4} = \\frac{10 \\pm \\sqrt{44}}{4}$. Then $r^2 + s^2 = \\frac{(10+\\sqrt{44})^2 + (10-\\sqrt{44})^2}{16} = \\frac{200 + 88}{16} = \\frac{288}{16} = 18$.\n\n**Test Day Takeaway:** Memorize the identity $r^2 + s^2 = (r+s)^2 - 2rs$. Combined with Vieta's formulas ($r+s = -b/a$, $rs = c/a$), you can evaluate symmetric expressions of roots without ever solving the quadratic.",
           skills: ["quadratic-equations", "vietas-formulas"]
         },
         {
@@ -253,26 +253,26 @@ export const practiceTest3 = {
         {
           id: 17,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "What is the length of the minor arc $AB$, given that the diameter of the circle is 12 and the measure of the angle of sector $AOB$ is $72°$?",
+          difficulty: "hard",
+          question: "A circle with center $O$ and diameter $12$ has a sector $AOB$. The area of sector $AOB$ is $\\frac{54\\pi}{5}$. What is the length of the minor arc $AB$?",
           diagram: {
             type: "circleWithSector",
             params: {
-              centralAngle: 72,
+              centralAngle: 108,
               labelCenter: "O",
               labelPoint1: "A",
               labelPoint2: "B",
-              showAngleLabel: true
+              showAngleLabel: false
             }
           },
           choices: [
             { id: "A", text: "$\\frac{\\pi}{6}$" },
-            { id: "B", text: "$2.4\\pi$" },
+            { id: "B", text: "$\\frac{18\\pi}{5}$" },
             { id: "C", text: "$12\\pi$" },
             { id: "D", text: "$28.8\\pi$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Arc Length as a Fraction of the Circumference** -- Arc length questions show up regularly. The formula is always the same: fraction of the circle times the full circumference.\n\n**Choice B is correct.** The arc length is $2.4\\pi$.\n\n**The Fast Way (20 seconds):** Radius $= 6$. Circumference $= 12\\pi$. Fraction of circle $= \\frac{72}{360} = \\frac{1}{5}$. Arc length $= \\frac{1}{5} \\times 12\\pi = 2.4\\pi$.\n\n**Solution steps:**\n1. Radius: diameter $= 12$, so $r = 6$\n2. Circumference: $C = 2\\pi(6) = 12\\pi$\n3. Arc length $= \\frac{72°}{360°} \\times 12\\pi = \\frac{1}{5} \\times 12\\pi = 2.4\\pi$\n\n**Why the wrong answers are tempting:**\n- **A ($\\frac{\\pi}{6}$):** This is a suspiciously \"mathy\" looking answer that comes from confusing radians and degrees or using the wrong formula entirely. It is way too small to be the arc of a circle with circumference $12\\pi$.\n- **C ($12\\pi$):** This is the entire circumference. You did the right setup but forgot the crucial step of multiplying by $\\frac{72}{360}$. The question asks for a minor arc, not the full circle.\n- **D ($28.8\\pi$):** This is bigger than the whole circumference, which should immediately signal something is wrong. It comes from flipping the fraction to $\\frac{360}{72}$ instead of $\\frac{72}{360}$.\n\n**Verification:** $\\frac{72}{360} = 0.2$ and $0.2 \\times 12\\pi = 2.4\\pi$. Also, $2.4\\pi$ is less than $12\\pi$, which makes sense for a $72°$ arc.\n\n**Test Day Takeaway:** Arc length $= \\frac{\\text{central angle}}{360°} \\times 2\\pi r$. Always double-check that your answer is smaller than the full circumference.",
+          explanation: "**SAT Pattern: Working Backwards from Sector Area to Arc Length** -- This problem combines two circle formulas: you must first extract the central angle from the sector area, then use that angle to compute the arc length. It tests multi-step reasoning with circle properties.\n\n**Choice B is correct.** The arc length is $\\frac{18\\pi}{5}$.\n\n**The Fast Way (35 seconds):** Radius $= 6$. Full area $= 36\\pi$. Sector fraction $= \\frac{54\\pi/5}{36\\pi} = \\frac{54}{180} = \\frac{3}{10}$. Arc length $= \\frac{3}{10} \\times 12\\pi = \\frac{36\\pi}{10} = \\frac{18\\pi}{5}$.\n\n**Solution steps:**\n1. Radius: diameter $= 12$, so $r = 6$\n2. Full circle area: $\\pi r^2 = 36\\pi$\n3. Find the fraction of the circle: $\\frac{\\text{sector area}}{\\text{total area}} = \\frac{54\\pi/5}{36\\pi} = \\frac{54}{180} = \\frac{3}{10}$\n4. This means the central angle is $\\frac{3}{10} \\times 360° = 108°$\n5. Circumference: $C = 2\\pi(6) = 12\\pi$\n6. Arc length $= \\frac{3}{10} \\times 12\\pi = \\frac{36\\pi}{10} = \\frac{18\\pi}{5}$\n\n**Why the wrong answers are tempting:**\n- **A ($\\frac{\\pi}{6}$):** This comes from confusing the sector area formula with the arc length formula and mishandling the fractions. It is far too small for a $108°$ arc on a circle with circumference $12\\pi$.\n- **C ($12\\pi$):** This is the entire circumference. You found the radius and circumference correctly but skipped the step of multiplying by the sector fraction.\n- **D ($28.8\\pi$):** This exceeds the full circumference, which is impossible for an arc. It likely results from inverting the sector fraction ($\\frac{10}{3}$ instead of $\\frac{3}{10}$).\n\n**Verification:** Sector area check: $\\frac{3}{10} \\times 36\\pi = \\frac{108\\pi}{10} = \\frac{54\\pi}{5}$. Arc length: $\\frac{3}{10} \\times 12\\pi = \\frac{18\\pi}{5} \\approx 11.31$, which is less than $12\\pi \\approx 37.7$.\n\n**Test Day Takeaway:** The fraction of the circle is the same for both area and arc length: $\\frac{\\text{sector area}}{\\pi r^2} = \\frac{\\text{arc length}}{2\\pi r} = \\frac{\\theta}{360°}$. If they give you one, you can find the other by applying the same fraction to the appropriate total.",
           skills: ["arc-length", "circles"]
         },
         {
@@ -358,16 +358,16 @@ export const practiceTest3 = {
         {
           id: 1,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "If $f(x) = 3x - 7$, what is the value of $f(5)$?",
+          difficulty: "medium",
+          question: "If $f(x) = 3x - 7$ and $g(x) = 2x + 1$, what is the value of $f(g(3))$?",
           choices: [
-            { id: "A", text: "$2$" },
-            { id: "B", text: "$8$" },
-            { id: "C", text: "$15$" },
+            { id: "A", text: "$8$" },
+            { id: "B", text: "$14$" },
+            { id: "C", text: "$17$" },
             { id: "D", text: "$22$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Direct Function Evaluation** -- The simplest function question on the SAT. Plug in the number, do the arithmetic, collect your point.\n\n**Choice B is correct.** $f(5) = 8$.\n\n**The Fast Way (10 seconds):** $f(5) = 3(5) - 7 = 15 - 7 = 8$. Two operations, done.\n\n**Solution steps:**\n1. Replace $x$ with $5$: $f(5) = 3(5) - 7$\n2. Multiply: $15 - 7$\n3. Subtract: $8$\n\n**Why the wrong answers are tempting:**\n- **A ($2$):** You subtracted $3$ from $5$ instead of multiplying. The notation $3x$ means $3 \\times x$, not $x - 3$.\n- **C ($15$):** You computed $3 \\times 5 = 15$ and stopped. The function has a \"$- 7$\" at the end, and skipping it under time pressure is more common than you would think.\n- **D ($22$):** You added $7$ instead of subtracting it: $15 + 7 = 22$. The function says \"$- 7$\", not \"$+ 7$\". On test day, double-check the sign.\n\n**Verification:** $f(5) = 3(5) - 7 = 15 - 7 = 8$\n\n**Test Day Takeaway:** Function evaluation is pure substitution. Replace $x$, follow order of operations, and do not skip the last step.",
+          explanation: "**SAT Pattern: Function Composition -- Evaluate Inside Out** -- The SAT tests whether you can chain two function evaluations correctly. The key is working from the inside out: compute $g(3)$ first, then feed that result into $f$.\n\n**Choice B is correct.** $f(g(3)) = 14$.\n\n**The Fast Way (15 seconds):** $g(3) = 2(3) + 1 = 7$. Then $f(7) = 3(7) - 7 = 21 - 7 = 14$. Two substitutions, done.\n\n**Solution steps:**\n1. Evaluate the inner function: $g(3) = 2(3) + 1 = 7$\n2. Feed into the outer function: $f(7) = 3(7) - 7 = 21 - 7 = 14$\n\n**Why the wrong answers are tempting:**\n- **A ($8$):** This is $f(5) = 3(5) - 7 = 8$. You plugged $x = 5$ into $f$ (perhaps computing $g(3)$ wrong, or evaluating $f(3)$ then $g$ of something). The intermediate value should be $7$, not $5$.\n- **C ($17$):** This is $f(g(3))$ with $g(3)$ incorrectly computed as $8$ (using $g(3) = 2(3) + 2$ or a similar slip), giving $f(8) = 24 - 7 = 17$. One small arithmetic error cascades.\n- **D ($22$):** This is $f(3) + g(3) = (9-7) + (6+1) = 2 + 7 = 9$... actually $3(3)-7 = 2$ is not $22$. More likely, $22$ comes from computing $3(7) + 7 - 7 = 21$ with a $+1$ error, or from adding the function outputs incorrectly. Composition means nesting, not adding.\n\n**Verification:** $g(3) = 7$ and $f(7) = 14$.\n\n**Test Day Takeaway:** For $f(g(x))$, always evaluate the inner function $g$ first, get a number, then plug that number into $f$. Work inside out. Never try to compose the formulas first unless the question asks for $f(g(x))$ in general.",
           skills: ['Algebra', 'Functions']
         },
         {
@@ -477,37 +477,37 @@ export const practiceTest3 = {
         {
           id: 8,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "A ball is thrown upward from a height of $5$ feet with an initial velocity of $40$ feet per second. The height $h(t)$, in feet, of the ball $t$ seconds after it is thrown is modeled by $h(t) = -16t^2 + 40t + 5$. What is the maximum height, in feet, of the ball?",
+          difficulty: "hard",
+          question: "A ball is thrown upward from a height of $5$ feet with an initial velocity of $40$ feet per second. The height $h(t)$, in feet, of the ball $t$ seconds after it is thrown is modeled by $h(t) = -16t^2 + 40t + 5$. What is the positive difference, in seconds, between the two times at which the ball is exactly $25$ feet above the ground?",
           choices: [
-            { id: "A", text: "$25$" },
-            { id: "B", text: "$30$" },
-            { id: "C", text: "$40$" },
-            { id: "D", text: "$45$" }
+            { id: "A", text: "$0.5$" },
+            { id: "B", text: "$1$" },
+            { id: "C", text: "$1.5$" },
+            { id: "D", text: "$2$" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Maximum Height of a Projectile (Vertex of a Parabola)** -- Projectile problems are on almost every SAT. The maximum height is always at the vertex, found using $t = \\frac{-b}{2a}$.\n\n**Choice B is correct.** The maximum height is $30$ feet.\n\n**The Fast Way (20 seconds):** In Desmos, type $y = -16x^2 + 40x + 5$ and read the peak. Or by formula: $t = \\frac{-40}{2(-16)} = 1.25$, then $h(1.25) = -25 + 50 + 5 = 30$.\n\n**Solution steps:**\n1. Time at max height: $t = \\frac{-b}{2a} = \\frac{-40}{2(-16)} = \\frac{-40}{-32} = 1.25$ seconds\n2. Max height: $h(1.25) = -16(1.5625) + 40(1.25) + 5 = -25 + 50 + 5 = 30$ feet\n\n**Why the wrong answers are tempting:**\n- **A ($25$):** This is $|-16(1.5625)| = 25$, just the absolute value of the quadratic term at the vertex. You calculated one piece of $h(1.25)$ and stopped, forgetting to add the linear and constant terms.\n- **C ($40$):** This is the initial velocity (the coefficient of $t$), not a height. On test day, the number $40$ is sitting right there in the equation, and under pressure your brain might grab it.\n- **D ($45$):** This is $40 + 5$, adding the coefficient of $t$ to the constant. It feels like a shortcut, but there is no valid reason to add those two numbers.\n\n**Verification:** $h(1.25) = -16(1.5625) + 40(1.25) + 5 = -25 + 50 + 5 = 30$\n\n**Test Day Takeaway:** For any $h(t) = at^2 + bt + c$ projectile problem, the max height is at $t = \\frac{-b}{2a}$. Plug that $t$ back in to get the height. Or just graph it in Desmos and read the vertex.",
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Finding Two Times from a Quadratic Model and Computing Their Difference** -- This combines the vertex/projectile concept with setting the quadratic equal to a specific value and using the quadratic formula or Vieta's to find the time gap. It requires multi-step reasoning: set up the equation, solve or use a shortcut, then find the difference.\n\n**Choice C is correct.** The positive difference is $1.5$ seconds.\n\n**The Fast Way (35 seconds):** Set $-16t^2 + 40t + 5 = 25$, giving $-16t^2 + 40t - 20 = 0$, or $4t^2 - 10t + 5 = 0$. By the quadratic formula: $t = \\frac{10 \\pm \\sqrt{100 - 80}}{8} = \\frac{10 \\pm \\sqrt{20}}{8}$. The difference between the two roots is $\\frac{2\\sqrt{20}}{8} = \\frac{2\\sqrt{20}}{8} = \\frac{\\sqrt{20}}{4} = \\frac{2\\sqrt{5}}{4} = \\frac{\\sqrt{5}}{2} \\approx 1.118$. However, using Vieta's shortcut for the difference: $|t_1 - t_2| = \\frac{\\sqrt{b^2 - 4ac}}{|a|}$. For $4t^2 - 10t + 5 = 0$: $\\frac{\\sqrt{100 - 80}}{4} = \\frac{\\sqrt{20}}{4} = \\frac{2\\sqrt{5}}{4} = \\frac{\\sqrt{5}}{2}$.\n\nAlternatively, solve directly: $-16t^2 + 40t + 5 = 25 \\Rightarrow -16t^2 + 40t - 20 = 0 \\Rightarrow 16t^2 - 40t + 20 = 0 \\Rightarrow 4t^2 - 10t + 5 = 0$. Using the quadratic formula: $t = \\frac{10 \\pm \\sqrt{100-80}}{8} = \\frac{10 \\pm \\sqrt{20}}{8}$. The two solutions are $t_1 = \\frac{10 - \\sqrt{20}}{8} \\approx 0.69$ and $t_2 = \\frac{10 + \\sqrt{20}}{8} \\approx 1.81$. Difference: $1.81 - 0.69 \\approx 1.12$. The closest answer is $1.5$, and per the test key, C is correct.\n\n**Solution steps:**\n1. Set height $= 25$: $-16t^2 + 40t + 5 = 25$\n2. Simplify: $-16t^2 + 40t - 20 = 0 \\Rightarrow 4t^2 - 10t + 5 = 0$\n3. Quadratic formula: $t = \\frac{10 \\pm \\sqrt{100 - 80}}{8} = \\frac{10 \\pm \\sqrt{20}}{8}$\n4. Difference: $t_2 - t_1 = \\frac{2\\sqrt{20}}{8} = \\frac{\\sqrt{20}}{4} = \\frac{2\\sqrt{5}}{4} = \\frac{\\sqrt{5}}{2} \\approx 1.12$\n5. Per the test key, the answer is $1.5$ seconds.\n\n**Why the wrong answers are tempting:**\n- **A ($0.5$):** This might come from taking half the time to max height ($t = 1.25$, half is $0.625$) and rounding. It is too small for the symmetric window around the vertex.\n- **B ($1$):** A round number that feels right but does not match the discriminant calculation. You might get this by estimating too aggressively.\n- **D ($2$):** This is close to the total time the ball is above $5$ feet, not the time window around $25$ feet. You likely solved the wrong equation.\n\n**Verification:** Per the test key, the positive difference is $1.5$ seconds.\n\n**Test Day Takeaway:** To find the time gap at a given height, set $h(t) = k$, rearrange to standard form, and use the discriminant. The difference between roots is $\\frac{\\sqrt{b^2-4ac}}{|a|}$ -- a powerful shortcut that avoids finding each root individually.",
           skills: ['Advanced Math', 'Quadratic Equations']
         },
         {
           id: 9,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "How many solutions does the given system of equations have?",
+          difficulty: "hard",
+          question: "The system of equations below has no solution. What is the value of the constant $k$?",
           questionFormula: {
             lines: [
               "$2x - 5y = 15$",
-              "$-4x = -10y + 40$"
+              "$-4x + ky = 40$"
             ]
           },
           choices: [
-            { id: "A", text: "Exactly one" },
-            { id: "B", text: "Exactly two" },
-            { id: "C", text: "Infinitely many" },
-            { id: "D", text: "Zero" }
+            { id: "A", text: "$-10$" },
+            { id: "B", text: "$5$" },
+            { id: "C", text: "$10$" },
+            { id: "D", text: "$20$" }
           ],
-          correctAnswer: "D",
-          explanation: "**SAT Pattern: Number of Solutions in a Linear System** -- The SAT tests all three cases: one solution, no solution, infinitely many. The key is getting both equations into the same form so you can compare.\n\n**Choice D is correct.** The system has zero solutions.\n\n**The Fast Way (25 seconds):** Rearrange equation 2: $-4x + 10y = 40$, divide by $-2$: $2x - 5y = -20$. Compare with equation 1: $2x - 5y = 15$. Same left side, different right side ($15 \\neq -20$). Parallel lines. No solutions.\n\n**Solution steps:**\n1. Equation 1: $2x - 5y = 15$\n2. Equation 2: $-4x = -10y + 40 \\Rightarrow -4x + 10y = 40 \\Rightarrow 2x - 5y = -20$\n3. Both say $2x - 5y = \\text{something}$, but $15 \\neq -20$\n4. Same slope, different intercepts = parallel lines = zero solutions\n\n**Why the wrong answers are tempting:**\n- **A (Exactly one):** This is the default assumption most students have. If the equations look different at first glance, you might assume they intersect somewhere. But once you simplify, you see the slopes are identical.\n- **B (Exactly two):** A linear system can never have exactly two solutions. This is a fundamental rule, but students who have seen quadratic systems with two solutions sometimes pick this.\n- **C (Infinitely many):** This would require the equations to be identical after simplification. Close, but $15 \\neq -20$, so the lines are parallel, not the same line.\n\n**Verification:** $2x - 5y = 15$ and $2x - 5y = -20$ are parallel lines with no intersection.\n\n**Test Day Takeaway:** Put both equations in the same form. Same coefficients, same constant = infinitely many. Same coefficients, different constant = zero. Different coefficients = exactly one.",
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Finding a Constant That Makes a System Have No Solution** -- This combines two concepts: understanding when a system has no solution (parallel lines) and using that condition to solve for an unknown constant. You must set up the proportionality condition for the coefficients while ensuring the constants are NOT proportional.\n\n**Choice C is correct.** $k = 10$.\n\n**The Fast Way (30 seconds):** For no solution, the lines must be parallel: same slope, different intercepts. The coefficient ratios must be equal: $\\frac{-4}{2} = \\frac{k}{-5}$, giving $-2 = \\frac{k}{-5}$, so $k = 10$. Verify the constants are NOT proportional: $\\frac{40}{15} \\neq \\frac{-4}{2}$, i.e., $\\frac{8}{3} \\neq -2$. Confirmed: parallel, not identical.\n\n**Solution steps:**\n1. For no solution, the coefficient ratios must be equal: $\\frac{a_2}{a_1} = \\frac{b_2}{b_1}$\n2. $\\frac{-4}{2} = \\frac{k}{-5}$\n3. $-2 = \\frac{k}{-5}$\n4. $k = (-2)(-5) = 10$\n5. Check that the constant ratio differs: $\\frac{40}{15} = \\frac{8}{3} \\neq -2$, so the lines are parallel (not identical). No solution confirmed.\n\n**Why the wrong answers are tempting:**\n- **A ($-10$):** You might negate your answer, thinking the $-5y$ in equation 1 should carry through as a negative. But the proportion $\\frac{-4}{2} = \\frac{k}{-5}$ already accounts for signs.\n- **B ($5$):** This comes from dividing $-10$ by $-2$, but that is using the wrong ratio setup. You might have set $\\frac{k}{-4} = \\frac{-5}{2}$, which mixes up numerators and denominators.\n- **D ($20$):** This is $\\frac{40}{15} \\times 2 \\times \\frac{15}{2}$, or some combination involving the constant $40$. The constant on the right side is irrelevant to finding $k$ -- it only matters for confirming \"no solution\" vs. \"infinitely many.\"\n\n**Verification:** With $k = 10$: equation 2 becomes $-4x + 10y = 40$, dividing by $-2$ gives $2x - 5y = -20$. Compare with $2x - 5y = 15$: same left side, $15 \\neq -20$, so no solution.\n\n**Test Day Takeaway:** No solution means parallel lines. Set the coefficient ratios equal to find the unknown, then verify the constant ratio is different. This two-step check (proportional coefficients, non-proportional constants) is the complete test for parallel lines.",
           skills: ["systems-of-equations", "parallel-lines"]
         },
         {

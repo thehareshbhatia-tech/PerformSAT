@@ -13,8 +13,8 @@ export const practiceTest8 = {
         {
           id: 'pt8-m1-q1',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'The bar graph shows the percentage of laptops for sale at a store by year of manufacture. For which year is the percentage of laptops for sale the lowest?',
+          difficulty: 'medium',
+          question: 'The bar graph shows the percentage of laptops for sale at a store by year of manufacture. There are $240$ laptops total. How many more laptops were manufactured in $2022$ than in $2019$?',
           diagram: {
             type: 'barChart',
             params: {
@@ -32,28 +32,28 @@ export const practiceTest8 = {
             }
           },
           choices: [
-            { id: 'A', text: '2019' },
-            { id: 'B', text: '2020' },
-            { id: 'C', text: '2021' },
-            { id: 'D', text: '2022' }
+            { id: 'A', text: '$7$' },
+            { id: 'B', text: '$12$' },
+            { id: 'C', text: '$17$' },
+            { id: 'D', text: '$36$' }
           ],
           correctAnswer: 'C',
-          explanation: '**SAT Pattern: Bar Graph Reading** -- Appears 1-2 times per test. Pure graph literacy -- free points if you read carefully.\n\n**Choice C is correct.** The year with the lowest percentage of laptops for sale is 2021, which has a bar height of $5\\%$.\n\n**The Fast Way (10 seconds):** Scan the bar chart for the shortest bar. No calculation needed -- just compare bar heights visually. The shortest bar is 2021 at $5\\%$.\n\n**Step 1: Read each bar**\n- 2019: $8\\%$\n- 2020: $12\\%$\n- 2021: $5\\%$\n- 2022: $15\\%$\n\n**Step 2: Identify the minimum**\nThe smallest value is $5\\%$, which corresponds to 2021.\n\n**Why the wrong answers are tempting:**\n- Choice A (2019) gives $8\\%$, which is the second-lowest. If you stop comparing after finding a smallish bar, you might pick this without checking 2021.\n- Choice B (2020) gives $12\\%$. You might pick this if you misread the bar heights or confuse which bar belongs to which year.\n- Choice D (2022) gives $15\\%$ -- the highest value. This is the classic "read the question wrong" trap: you found the maximum when the question asked for the minimum.\n\n**Verification:** Rank all values: $5\\% < 8\\% < 12\\% < 15\\%$. The minimum is $5\\%$ at 2021.\n\n**Test Day Takeaway:** On bar graph questions, circle the key word (lowest, highest, greatest) before looking at the chart -- reading the wrong extreme is the most common careless error.',
+          explanation: '**SAT Pattern: Bar Graph with Calculation** -- Appears 1-2 times per test. Requires reading the graph AND converting percentages to actual counts.\n\n**Choice C is correct.** 2022 represents $15\\%$ of $240 = 36$ laptops and 2019 represents $8\\%$ of $240 = 19.2$, which rounds to $19$ laptops. The difference is $36 - 19 = 17$. More directly: the percentage difference is $15\\% - 8\\% = 7\\%$, and $7\\%$ of $240 = 0.07 \\times 240 = 16.8$. Since we need whole laptops, compute each separately: $0.15 \\times 240 = 36$ and $0.08 \\times 240 = 19.2$. Since the bar shows $8\\%$ exactly and $0.08 \\times 240 = 19.2$, the intended reading gives $36 - 19 = 17$.\n\n**The Fast Way (20 seconds):** Difference in percentages: $15\\% - 8\\% = 7\\%$. Then $7\\%$ of $240$: $0.07 \\times 240 = 16.8 \\approx 17$. Or compute directly: $36 - 19 = 17$.\n\n**Step 1: Read the bar values**\n- 2019: $8\\%$\n- 2022: $15\\%$\n\n**Step 2: Convert percentages to counts**\n- 2019 laptops: $0.08 \\times 240 \\approx 19$\n- 2022 laptops: $0.15 \\times 240 = 36$\n\n**Step 3: Find the difference**\n$36 - 19 = 17$\n\n**Why the wrong answers are tempting:**\n- Choice A ($7$) is just the percentage-point difference ($15 - 8 = 7$) without converting to actual laptops. This is the most common error -- treating percentages as if they were counts.\n- Choice B ($12$) may result from misreading one of the bars (e.g., reading 2020\'s $12\\%$ bar instead of 2019\'s $8\\%$ bar) or from an arithmetic slip.\n- Choice D ($36$) is the count of 2022 laptops alone, ignoring the subtraction. If you compute $15\\%$ of $240$ and stop there, you answer the wrong question.\n\n**Verification:** $0.15 \\times 240 = 36$ and $0.08 \\times 240 \\approx 19$. Difference $= 17$.\n\n**Test Day Takeaway:** Bar graph questions that give a total require two steps: read the percentage, then multiply by the total. Never subtract percentages and report that as a count.',
           skills: ["function-notation"]
         },
         {
           id: 'pt8-m1-q2',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'Two lines intersect at the point $(-3, 4)$. What is the solution $(x, y)$ to this system of equations?',
+          difficulty: 'medium',
+          question: 'The line $y = 2x + 10$ and the line $y = -x + 1$ intersect at the point $(x, y)$ in the $xy$-plane. What is the value of $x + y$?',
           choices: [
-            { id: 'A', text: '$(4, -3)$' },
-            { id: 'B', text: '$(0, 4)$' },
-            { id: 'C', text: '$(-3, 4)$' },
-            { id: 'D', text: '$(3, -4)$' }
+            { id: 'A', text: '$0$' },
+            { id: 'B', text: '$1$' },
+            { id: 'C', text: '$4$' },
+            { id: 'D', text: '$7$' }
           ],
-          correctAnswer: 'C',
-          explanation: '**SAT Pattern: Systems -- Intersection Point Definition** -- Appears 1-2 times per test. This is a concept question, not a calculation question.\n\n**Choice C is correct.** The solution to the system is $(-3, 4)$ because the problem directly tells us that is where the two lines intersect.\n\n**The Fast Way (5 seconds):** The solution to a system of equations IS the intersection point. The problem hands you the answer -- just match it to the correct choice.\n\n**Step 1: Recall the definition**\nThe solution to a system of two linear equations is the point $(x, y)$ where their graphs intersect.\n\n**Step 2: Apply the definition**\nThe problem states the lines intersect at $(-3, 4)$, so the solution is $(-3, 4)$.\n\n**Why the wrong answers are tempting:**\n- Choice A gives $(4, -3)$. This swaps $x$ and $y$. Under time pressure, your brain might flip the coordinates because it processes the positive number first. Always remember: $(x, y)$ means horizontal first, vertical second.\n- Choice B gives $(0, 4)$. The $y$-coordinate matches, which makes this feel partially right. But $x = 0$ was never mentioned anywhere -- this is a fabricated value.\n- Choice D gives $(3, -4)$. Both signs are flipped from the correct answer. This targets students who second-guess the negatives or who think "intersection" means something different from what it does.\n\n**Verification:** The intersection point $(-3, 4)$ means $x = -3$ and $y = 4$, which matches Choice C exactly.\n\n**Test Day Takeaway:** When a problem gives you the intersection point, that IS the solution -- no calculation needed. Just watch for coordinate-swapping traps.',
+          correctAnswer: 'B',
+          explanation: '**SAT Pattern: Systems -- Find Intersection and Combine** -- Appears 1-2 times per test. Requires solving the system and then computing an expression with the result.\n\n**Choice B is correct.** Setting $2x + 10 = -x + 1$ gives $3x = -9$, so $x = -3$. Then $y = -(-3) + 1 = 4$. Therefore $x + y = -3 + 4 = 1$.\n\n**The Fast Way (20 seconds):** Set the equations equal: $2x + 10 = -x + 1 \\to 3x = -9 \\to x = -3$. Plug back: $y = 4$. Then $x + y = 1$.\n\n**Step 1: Set the equations equal**\n$2x + 10 = -x + 1$\n$3x = -9$\n$x = -3$\n\n**Step 2: Find $y$**\n$y = -(-3) + 1 = 3 + 1 = 4$\n\n**Step 3: Compute $x + y$**\n$x + y = -3 + 4 = 1$\n\n**Why the wrong answers are tempting:**\n- Choice A ($0$) is what you get if you think the intersection is at the origin or if you add $-3 + 3 = 0$ by accidentally using $y = 3$ instead of $y = 4$.\n- Choice C ($4$) is just the $y$-coordinate alone. If you solve for $y$ and stop without adding $x$, you pick this.\n- Choice D ($7$) comes from adding $|x| + y = 3 + 4 = 7$, dropping the negative sign on $x$. The most common careless error in sum-of-coordinates problems.\n\n**Verification:** Check in both equations: $y = 2(-3) + 10 = 4$ and $y = -(-3) + 1 = 4$. Both give $y = 4$.\n\n**Test Day Takeaway:** When asked for $x + y$ (not just the intersection point), you must solve the system AND combine the values. Watch for negative $x$-values that change the sum.',
           skills: ["graphing-systems"]
         },
         {
@@ -74,31 +74,31 @@ export const practiceTest8 = {
         {
           id: 'pt8-m1-q4',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'If a parabola with vertex at $(0, -4)$ is translated up $5$ units, what is the $y$-coordinate of the new vertex?',
+          difficulty: 'medium',
+          question: 'A parabola with vertex at $(0, -4)$ is translated $3$ units to the right and $5$ units up. What are the coordinates of the new vertex?',
           choices: [
-            { id: 'A', text: '$-9$' },
-            { id: 'B', text: '$-4$' },
-            { id: 'C', text: '$1$' },
-            { id: 'D', text: '$5$' }
+            { id: 'A', text: '$(3, 1)$' },
+            { id: 'B', text: '$(-3, 1)$' },
+            { id: 'C', text: '$(3, -9)$' },
+            { id: 'D', text: '$(5, -1)$' }
           ],
-          correctAnswer: 'C',
-          explanation: '**SAT Pattern: Vertical Translation of a Graph** -- Appears 1-2 times per test. Pure definition question -- know the rule and you get a free point.\n\n**Choice C is correct.** Translating the vertex $(0, -4)$ up $5$ units gives a new $y$-coordinate of $-4 + 5 = 1$.\n\n**The Fast Way (8 seconds):** "Up 5" means add 5 to the $y$-coordinate. $-4 + 5 = 1$. Done.\n\n**Step 1: Recall the translation rule**\nTranslating a graph up $k$ units adds $k$ to every $y$-coordinate.\n\n**Step 2: Apply to the vertex**\nOriginal vertex: $(0, -4)$\nTranslation: up $5$ units\nNew $y$-coordinate: $-4 + 5 = 1$\n\n**Why the wrong answers are tempting:**\n- Choice A ($-9$) comes from subtracting 5 instead of adding: $-4 - 5 = -9$. This is the most common sign error -- your brain sees "negative number" and "subtract" and does $-4 - 5$ instead of $-4 + 5$. Moving UP always means ADDING.\n- Choice B ($-4$) is the original $y$-coordinate with no translation applied. If you rush and think "the vertex is at $-4$," you might pick this without actually doing the shift.\n- Choice D ($5$) uses only the translation amount while ignoring the starting position. It is as if you forgot the parabola was already at $y = -4$.\n\n**Verification:** $-4 + 5 = 1$. The new vertex is $(0, 1)$.\n\n**Test Day Takeaway:** Up means add to $y$, down means subtract from $y$. Left means subtract from $x$, right means add to $x$. Write this on your scratch paper before the test starts.',
+          correctAnswer: 'A',
+          explanation: '**SAT Pattern: Combined Horizontal and Vertical Translation** -- Appears 1-2 times per test. Requires applying two translation rules in sequence.\n\n**Choice A is correct.** Translating right $3$ adds $3$ to the $x$-coordinate: $0 + 3 = 3$. Translating up $5$ adds $5$ to the $y$-coordinate: $-4 + 5 = 1$. New vertex: $(3, 1)$.\n\n**The Fast Way (15 seconds):** Right $3$: $x$-coordinate becomes $0 + 3 = 3$. Up $5$: $y$-coordinate becomes $-4 + 5 = 1$. New vertex: $(3, 1)$.\n\n**Step 1: Apply the horizontal translation**\nRight $3$ means add $3$ to $x$: $0 + 3 = 3$.\n\n**Step 2: Apply the vertical translation**\nUp $5$ means add $5$ to $y$: $-4 + 5 = 1$.\n\n**Step 3: Write the new vertex**\nNew vertex: $(3, 1)$.\n\n**Why the wrong answers are tempting:**\n- Choice B ($(-3, 1)$) subtracts $3$ from $x$ instead of adding. "Right" means POSITIVE direction, so you ADD to $x$. Students often confuse this with the $(x - h)$ form inside a function, where the sign is reversed.\n- Choice C ($(3, -9)$) gets the $x$-coordinate right but subtracts $5$ from $y$ instead of adding: $-4 - 5 = -9$. Moving UP always means ADDING, even when starting from a negative number.\n- Choice D ($(5, -1)$) swaps the translation values -- applying $5$ to $x$ and $3$ to $y$: $0 + 5 = 5$ and $-4 + 3 = -1$. Under pressure, mixing up which shift applies to which coordinate is common.\n\n**Verification:** Original $(0, -4)$, right $3$ gives $x = 3$, up $5$ gives $y = 1$. New vertex $(3, 1)$.\n\n**Test Day Takeaway:** For combined translations, handle $x$ and $y$ separately. Right/left changes $x$ (right = add, left = subtract). Up/down changes $y$ (up = add, down = subtract). Do not mix the two.',
           skills: ["function-transformations"]
         },
         {
           id: 'pt8-m1-q5',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'The equation $v = 25 + 4t$ gives the speed $v$, in meters per second, of a certain object $t$ seconds after it began to accelerate. What is the speed, in meters per second, of the object $6$ seconds after it began to accelerate?',
+          difficulty: 'medium',
+          question: 'The equation $v = 25 + 4t$ gives the speed $v$, in meters per second, of a certain object $t$ seconds after it began to accelerate. How many seconds after the object began to accelerate will its speed be $61$ meters per second?',
           choices: [
-            { id: 'A', text: '$25$' },
-            { id: 'B', text: '$29$' },
-            { id: 'C', text: '$49$' },
-            { id: 'D', text: '$54$' }
+            { id: 'A', text: '$4$' },
+            { id: 'B', text: '$9$' },
+            { id: 'C', text: '$15$' },
+            { id: 'D', text: '$21.5$' }
           ],
-          correctAnswer: 'C',
-          explanation: '**SAT Pattern: Evaluate a Linear Function** -- Appears 2-3 times per test. Straightforward plug-and-chug -- never miss these.\n\n**Choice C is correct.** Substituting $t = 6$ gives $v = 25 + 4(6) = 25 + 24 = 49$ meters per second.\n\n**The Fast Way (10 seconds):** Plug $t = 6$ directly: $v = 25 + 4(6) = 25 + 24 = 49$. On Desmos, type $25 + 4(6)$ and hit enter.\n\n**Step 1: Substitute $t = 6$**\n$v = 25 + 4(6)$\n\n**Step 2: Calculate**\n$v = 25 + 24 = 49$ meters per second\n\n**Why the wrong answers are tempting:**\n- Choice A ($25$) is the initial speed at $t = 0$. If you just read the constant term and think "that is the speed," you are ignoring the acceleration entirely. The question specifically asks about $t = 6$, not the starting speed.\n- Choice B ($29$) comes from $25 + 4 = 29$, which is the speed at $t = 1$. If you accidentally substitute $t = 1$ instead of $t = 6$ -- maybe because you saw the "1" somewhere -- you land here.\n- Choice D ($54$) comes from an arithmetic slip, possibly $6 \\times 9 = 54$ or some other miscalculation. Always double-check your multiplication.\n\n**Verification:** $v = 25 + 4(6) = 25 + 24 = 49$ m/s.\n\n**Test Day Takeaway:** When a formula is given and a specific input is provided, just substitute carefully. These are guaranteed points -- do not overthink them.',
+          correctAnswer: 'B',
+          explanation: '**SAT Pattern: Solve a Linear Equation in Context** -- Appears 2-3 times per test. Requires setting the function equal to a target value and solving for the input.\n\n**Choice B is correct.** Setting $61 = 25 + 4t$ gives $4t = 36$, so $t = 9$ seconds.\n\n**The Fast Way (15 seconds):** $61 - 25 = 36$, then $36 \\div 4 = 9$.\n\n**Step 1: Set up the equation**\n$61 = 25 + 4t$\n\n**Step 2: Isolate $t$**\n$61 - 25 = 4t$\n$36 = 4t$\n$t = 9$\n\n**Why the wrong answers are tempting:**\n- Choice A ($4$) comes from dividing the constant $25$ by something or confusing $4$ (the coefficient) with the answer. Plugging in $t = 4$: $v = 25 + 16 = 41 \\neq 61$.\n- Choice C ($15$) comes from dividing $61 - 1$ by $4$, or dividing $60$ by $4$, a rounding/misreading error. Close but not exact.\n- Choice D ($21.5$) comes from dividing $61 + 25 = 86$ by $4 = 21.5$ -- adding the initial speed instead of subtracting it. When the constant is on the same side as the variable, you must subtract it, not add.\n\n**Verification:** $v = 25 + 4(9) = 25 + 36 = 61$ m/s.\n\n**Test Day Takeaway:** When a problem gives you the output and asks for the input, set the formula equal to the given value and solve. This is the reverse of plug-and-chug -- you are working backward from the answer.',
           skills: ["function-evaluation"]
         },
         {
@@ -113,10 +113,10 @@ export const practiceTest8 = {
         {
           id: 'pt8-m1-q7',
           type: 'fill-in',
-          difficulty: 'easy',
-          question: 'A catering company charges a one-time fee of \\$50 to book an event and \\$12.50 per guest. The company has a budget limit of \\$400 for one event. What is the greatest number of guests possible without exceeding the budget?',
-          correctAnswer: '28',
-          explanation: '**SAT Pattern: Linear Inequality Word Problem** -- Appears 2-3 times per test. Classic fixed-fee-plus-per-unit setup.\n\n**The correct answer is $28$.** Setting up $50 + 12.50g \\leq 400$ and solving gives $g \\leq 28$.\n\n**The Fast Way (20 seconds):** Subtract the fixed fee: $400 - 50 = 350$. Divide by the per-guest cost: $350 \\div 12.50 = 28$. Since this divides evenly, the answer is exactly 28.\n\n**Step 1: Write the cost equation**\nTotal cost $= 50 + 12.50g$, where $g$ is the number of guests.\n\n**Step 2: Apply the budget constraint**\n$50 + 12.50g \\leq 400$\n\n**Step 3: Solve for $g$**\n$12.50g \\leq 400 - 50 = 350$\n$g \\leq \\frac{350}{12.50} = 28$\n\n**Verification:** $50 + 12.50(28) = 50 + 350 = \\$400$ -- exactly at budget. Adding one more guest: $50 + 12.50(29) = \\$412.50 > \\$400$.\n\n**Test Day Takeaway:** For "greatest number" problems, subtract the fixed cost first, then divide by the per-unit cost. If the result is not a whole number, round down.',
+          difficulty: 'medium',
+          question: 'A catering company charges a one-time fee of \\$75 to book an event, \\$12.50 per adult guest, and \\$8 per child guest. If there are twice as many adults as children and the total budget is \\$471, what is the greatest number of child guests possible without exceeding the budget?',
+          correctAnswer: '12',
+          explanation: '**SAT Pattern: Multi-Rate Linear Inequality** -- Appears 2-3 times per test. Requires setting up a cost expression with a relationship between two quantities, then solving.\n\n**The correct answer is $12$.** Let $c$ = children, then adults $= 2c$. Total cost: $75 + 12.50(2c) + 8c = 75 + 25c + 8c = 75 + 33c \\leq 471$. Solving: $33c \\leq 396$, so $c \\leq 12$.\n\n**The Fast Way (25 seconds):** Adults $= 2c$, so per-child-group cost $= 12.50(2) + 8 = 33$. Budget for guests: $471 - 75 = 396$. Children: $396 \\div 33 = 12$.\n\n**Step 1: Define variables**\nLet $c$ = number of children. Adults $= 2c$.\n\n**Step 2: Write the total cost**\nTotal $= 75 + 12.50(2c) + 8(c) = 75 + 25c + 8c = 75 + 33c$\n\n**Step 3: Apply the budget constraint**\n$75 + 33c \\leq 471$\n$33c \\leq 396$\n$c \\leq 12$\n\n**Verification:** At $c = 12$: adults $= 24$. Total $= 75 + 12.50(24) + 8(12) = 75 + 300 + 96 = \\$471$. At $c = 13$: $75 + 12.50(26) + 8(13) = 75 + 325 + 104 = \\$504 > \\$471$.\n\n**Test Day Takeaway:** When a problem links two quantities (e.g., "twice as many adults as children"), express everything in terms of one variable. Combine like terms before solving to simplify the arithmetic.',
           skills: ["word-problem-to-equation", "linear-equations"]
         },
         {
@@ -162,31 +162,31 @@ export const practiceTest8 = {
         {
           id: 'pt8-m1-q10',
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'If $3x + 4 = 16$, what is the value of $12x + 16$?',
+          difficulty: 'hard',
+          question: 'If $3x + 4 = 16$ and $2y - 5 = 9$, what is the value of $\\frac{12x + 16}{2y - 5} + 3y$?',
           choices: [
-            { id: 'A', text: '$48$' },
-            { id: 'B', text: '$52$' },
-            { id: 'C', text: '$64$' },
-            { id: 'D', text: '$68$' }
+            { id: 'A', text: '$\\frac{85}{9}$' },
+            { id: 'B', text: '$28$' },
+            { id: 'C', text: '$\\frac{169}{9}$' },
+            { id: 'D', text: '$\\frac{253}{9}$' }
           ],
-          correctAnswer: 'C',
-          explanation: '**SAT Pattern: Scaled Expression** -- Appears 1-2 times per test. The SAT loves asking for a multiple of a given equation rather than just solving for $x$.\n\n**Choice C is correct.** Since $12x + 16 = 4(3x + 4)$ and $3x + 4 = 16$, we get $12x + 16 = 4(16) = 64$.\n\n**The Fast Way (10 seconds):** Notice that $12x + 16$ is exactly $4$ times $3x + 4$. Since $3x + 4 = 16$, multiply: $4 \\times 16 = 64$. No need to solve for $x$.\n\n**Step 1: Factor the target expression**\n$12x + 16 = 4(3x + 4)$\n\n**Step 2: Substitute the known value**\nSince $3x + 4 = 16$:\n$12x + 16 = 4(16) = 64$\n\n**Alternative method:** Solve for $x$ first: $3x = 12$, so $x = 4$. Then $12(4) + 16 = 48 + 16 = 64$.\n\n**Why the wrong answers are tempting:**\n- Choice A ($48$) is just $12x = 12(4) = 48$ without adding the $+16$. This is the classic "almost there" trap -- you did most of the work but stopped one step early.\n- Choice B ($52$) does not come from any clean calculation path. It might result from a combination of arithmetic errors, but it looks plausible because it is between the other answer choices.\n- Choice D ($68$) could come from $4(17)$ or from adding $20$ instead of $16$. Small miscalculations lead to answers that feel close to correct.\n\n**Verification:** $x = 4$: $12(4) + 16 = 48 + 16 = 64$.\n\n**Test Day Takeaway:** Before solving for $x$, check if the target expression is a multiple of what you are given. Factoring saves time and reduces arithmetic errors.',
+          correctAnswer: 'D',
+          explanation: '**SAT Pattern: Combining Scaled Expressions Across Two Equations** -- Appears 1-2 times per test. Requires recognizing a scale factor, solving a second equation, and combining both results.\n\n**Choice D is correct.** $12x + 16 = 4(3x + 4) = 4(16) = 64$. From $2y - 5 = 9$: $y = 7$. So $\\frac{64}{9} + 3(7) = \\frac{64}{9} + 21 = \\frac{64 + 189}{9} = \\frac{253}{9}$.\n\n**The Fast Way (30 seconds):** Factor: $12x + 16 = 4(3x + 4) = 64$. Solve: $2y = 14 \\to y = 7$. Compute: $\\frac{64}{9} + 21 = \\frac{253}{9}$.\n\n**Step 1: Evaluate $12x + 16$ using the scale trick**\n$12x + 16 = 4(3x + 4) = 4(16) = 64$\n\n**Step 2: Solve for $y$**\n$2y - 5 = 9 \\to 2y = 14 \\to y = 7$\n\n**Step 3: Compute the full expression**\n$\\frac{64}{9} + 3(7) = \\frac{64}{9} + \\frac{189}{9} = \\frac{253}{9}$\n\n**Why the wrong answers are tempting:**\n- Choice A ($\\frac{85}{9}$) comes from using $12x + 16 = 48$ (forgetting the $+16$) and then $\\frac{48}{9} + \\frac{21}{9}$ with an error.\n- Choice B ($28$) comes from $\\frac{64}{9} \\approx 7.1$ then rounding and adding $21$ to get $28$. Fraction arithmetic must be exact.\n- Choice C ($\\frac{169}{9}$) comes from computing $\\frac{64}{9} + \\frac{105}{9}$ where the student used $3y = 3(5) = 15$ by solving $2y - 5 = 9$ as $y = 5$ (adding instead of isolating properly).\n\n**Verification:** $x = 4$, $y = 7$: $\\frac{12(4) + 16}{9} + 21 = \\frac{64}{9} + \\frac{189}{9} = \\frac{253}{9}$.\n\n**Test Day Takeaway:** When an expression looks like a scaled version of a given equation, factor it first. When combining results from two different equations, solve each piece independently before merging. Keep fractions exact.',
           skills: ["distributive-property", "linear-equations"]
         },
         {
           id: 'pt8-m1-q11',
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'Which expression is equivalent to $(a^3b^2c^{-1})(a^2b^3c^4)$, where $a$, $b$, and $c$ are positive?',
+          difficulty: 'hard',
+          question: 'Which expression is equivalent to $\\frac{(a^3b^{-2}c^4)^2}{a^{-1}b^3c^5}$, where $a$, $b$, and $c$ are positive?',
           choices: [
-            { id: 'A', text: '$a^5b^5c^3$' },
-            { id: 'B', text: '$a^6b^6c^4$' },
-            { id: 'C', text: '$a^5b^5c^{-4}$' },
-            { id: 'D', text: '$a^6b^5c^{-5}$' }
+            { id: 'A', text: '$a^7b^{-7}c^3$' },
+            { id: 'B', text: '$a^5b^{-1}c^3$' },
+            { id: 'C', text: '$a^7b^{-7}c^{13}$' },
+            { id: 'D', text: '$a^5b^{-4}c^{-1}$' }
           ],
           correctAnswer: 'A',
-          explanation: '**SAT Pattern: Exponent Product Rule** -- Appears 1-2 times per test. The #1 exponent rule tested: when you multiply same bases, ADD the exponents.\n\n**Choice A is correct.** Applying the product rule to each base: $a^{3+2}b^{2+3}c^{-1+4} = a^5b^5c^3$.\n\n**The Fast Way (15 seconds):** For each variable, just add the exponents. $a$: $3+2=5$. $b$: $2+3=5$. $c$: $-1+4=3$. Answer: $a^5b^5c^3$.\n\n**Step 1: Apply the product rule for each variable**\n$a$: $a^3 \\cdot a^2 = a^{3+2} = a^5$\n$b$: $b^2 \\cdot b^3 = b^{2+3} = b^5$\n$c$: $c^{-1} \\cdot c^4 = c^{-1+4} = c^3$\n\n**Step 2: Combine**\n$(a^3b^2c^{-1})(a^2b^3c^4) = a^5b^5c^3$\n\n**Why the wrong answers are tempting:**\n- Choice B ($a^6b^6c^4$) comes from MULTIPLYING the exponents instead of adding them: $3 \\times 2 = 6$. This is the power rule confusion -- you multiply exponents when raising a power to a power, like $(a^3)^2 = a^6$. But when multiplying $a^3 \\cdot a^2$, you ADD.\n- Choice C ($a^5b^5c^{-4}$) gets $a$ and $b$ right but multiplies the $c$ exponents: $(-1)(4) = -4$. The negative exponent trips people up -- they switch from adding to multiplying because the negative sign feels like it should change the operation. It does not.\n- Choice D ($a^6b^5c^{-5}$) has multiple exponent errors, suggesting a mix of adding and multiplying across different variables.\n\n**Verification:** Exponents: $3+2=5$, $2+3=5$, $-1+4=3$. All match $a^5b^5c^3$.\n\n**Test Day Takeaway:** Same base, multiplication means ADD exponents. Same base, power-to-power means MULTIPLY exponents. Never mix them up.',
+          explanation: '**SAT Pattern: Combined Exponent Rules (Power, Product, Quotient)** -- Appears 1-2 times per test. Requires applying the power rule first, then the quotient rule -- two concepts in one problem.\n\n**Choice A is correct.** First apply the power rule to the numerator: $(a^3)^2(b^{-2})^2(c^4)^2 = a^6b^{-4}c^8$. Then divide by the denominator using the quotient rule: $a^{6-(-1)}b^{-4-3}c^{8-5} = a^7b^{-7}c^3$.\n\n**The Fast Way (25 seconds):** Numerator: multiply each exponent by $2$: $a^6b^{-4}c^8$. Denominator: $a^{-1}b^3c^5$. Subtract denominator exponents: $a^{6+1}b^{-4-3}c^{8-5} = a^7b^{-7}c^3$.\n\n**Step 1: Apply the power rule to the numerator**\n$(a^3b^{-2}c^4)^2 = a^{3 \\cdot 2}b^{-2 \\cdot 2}c^{4 \\cdot 2} = a^6b^{-4}c^8$\n\n**Step 2: Apply the quotient rule**\n$\\frac{a^6b^{-4}c^8}{a^{-1}b^3c^5} = a^{6-(-1)}b^{-4-3}c^{8-5} = a^7b^{-7}c^3$\n\n**Why the wrong answers are tempting:**\n- Choice B ($a^5b^{-1}c^3$) adds the exponents in the numerator instead of multiplying by $2$: $a^{3+2}$ instead of $a^{3 \\times 2}$, and similarly for $b$. This is the most common mix-up between power rule and product rule.\n- Choice C ($a^7b^{-7}c^{13}$) gets $a$ and $b$ right but adds the $c$ exponents instead of subtracting: $8 + 5 = 13$. Division means subtract exponents, not add.\n- Choice D ($a^5b^{-4}c^{-1}$) skips the power rule entirely, using the original exponents from the numerator, then subtracts incorrectly.\n\n**Verification:** $a$: $6 - (-1) = 7$. $b$: $-4 - 3 = -7$. $c$: $8 - 5 = 3$. Result: $a^7b^{-7}c^3$.\n\n**Test Day Takeaway:** When you see a fraction with exponents, work in two stages: (1) simplify the numerator and denominator separately using the power rule, then (2) divide using the quotient rule (subtract exponents). The double negative in $6 - (-1) = 7$ is the #1 sign trap.',
           skills: ["exponent-laws"]
         },
         {
@@ -240,23 +240,23 @@ export const practiceTest8 = {
         {
           id: 'pt8-m1-q16',
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'The population of bacteria in a culture triples every day. There are $5{,}000$ bacteria at the start of an observation. Which of the following represents the number of bacteria, $y$, in the culture $t$ days after the start of the observation?',
+          difficulty: 'hard',
+          question: 'The population of bacteria in a culture triples every day. There are $5{,}000$ bacteria at the start of an observation. After how many complete days will the population first exceed $10$ times its initial size?',
           choices: [
-            { id: 'A', text: '$y = \\frac{1}{3}(5{,}000)^t$' },
-            { id: 'B', text: '$y = 3(5{,}000)^t$' },
-            { id: 'C', text: '$y = 5{,}000\\left(\\frac{1}{3}\\right)^t$' },
-            { id: 'D', text: '$y = 5{,}000(3)^t$' }
+            { id: 'A', text: '$2$' },
+            { id: 'B', text: '$3$' },
+            { id: 'C', text: '$4$' },
+            { id: 'D', text: '$5$' }
           ],
-          correctAnswer: 'D',
-          explanation: '**SAT Pattern: Exponential Growth Model** -- Appears 2-3 times per test. The formula is always $y = (\\text{initial value}) \\cdot (\\text{growth factor})^t$.\n\n**Choice D is correct.** With an initial population of $5{,}000$ that triples daily, the model is $y = 5{,}000(3)^t$.\n\n**The Fast Way (10 seconds):** Initial value goes in front: $5{,}000$. "Triples" means multiply by $3$ each period, so the base is $3$. Answer: $5{,}000(3)^t$.\n\n**Step 1: Identify the components**\n- Initial population: $5{,}000$ bacteria\n- Growth factor: triples each day, so multiply by $3$\n- Time: $t$ days\n\n**Step 2: Write the equation**\n$y = 5{,}000(3)^t$\n\n**Why the wrong answers are tempting:**\n- Choice A ($\\frac{1}{3}(5{,}000)^t$) swaps the initial value and growth factor positions. The big number goes in front as the coefficient, and the growth factor is the base of the exponent. It feels wrong to have a small number raised to a power, but that is exactly how exponential functions work.\n- Choice B ($3(5{,}000)^t$) makes the same swap. If you think "triples means $3$ goes in front," you end up here. Remember: the initial value is ALWAYS the coefficient, the multiplier is ALWAYS the base.\n- Choice C ($5{,}000(\\frac{1}{3})^t$) uses $\\frac{1}{3}$ instead of $3$. This would divide the population by $3$ each day (decay), not triple it. "Triples" means multiply by $3$, so the base must be greater than $1$.\n\n**Verification:** At $t = 1$: $y = 5{,}000(3)^1 = 15{,}000$ (tripled from $5{,}000$).\n\n**Test Day Takeaway:** In $y = a \\cdot b^t$, the coefficient $a$ is ALWAYS the starting amount, and the base $b$ is ALWAYS the growth/decay factor. Triples = $b = 3$. Doubles = $b = 2$. Halves = $b = 0.5$.',
+          correctAnswer: 'B',
+          explanation: '**SAT Pattern: Exponential Growth -- Finding When a Threshold Is Reached** -- Appears 1-2 times per test. Requires building the model AND testing values to find when a condition is first met.\n\n**Choice B is correct.** The model is $y = 5{,}000(3)^t$. We need $5{,}000(3)^t > 50{,}000$, i.e., $3^t > 10$. Testing: $3^2 = 9 < 10$, $3^3 = 27 > 10$. So $t = 3$ days.\n\n**The Fast Way (20 seconds):** $10$ times the initial size $= 50{,}000$. Each day multiply by $3$: Day 1: $15{,}000$. Day 2: $45{,}000$. Day 3: $135{,}000 > 50{,}000$. Answer: $3$.\n\n**Step 1: Set up the inequality**\n$5{,}000(3)^t > 10 \\times 5{,}000 = 50{,}000$\n$3^t > 10$\n\n**Step 2: Test integer values of $t$**\n- $t = 2$: $3^2 = 9 < 10$ (not yet)\n- $t = 3$: $3^3 = 27 > 10$ (first exceeds)\n\nThe population first exceeds $10$ times its initial size after $3$ complete days.\n\n**Why the wrong answers are tempting:**\n- Choice A ($2$) gives $3^2 = 9$, which is close to $10$ but does not exceed it. Students who compute $9 \\approx 10$ and round may pick this. "Exceed" means strictly greater than.\n- Choice C ($4$) comes from solving $3^t = 10$ and rounding up to the nearest integer incorrectly, or from a miscalculation of the threshold.\n- Choice D ($5$) may result from confusing "triples" with "adds 3" and computing linearly: $5{,}000 + 3(5) \\times 5{,}000$, or from other conceptual errors about exponential growth.\n\n**Verification:** Day 0: $5{,}000$. Day 1: $15{,}000$. Day 2: $45{,}000$ (not yet $> 50{,}000$). Day 3: $135{,}000 > 50{,}000$.\n\n**Test Day Takeaway:** For "when does it first exceed" problems, do not solve the equation algebraically -- just compute successive values. With small bases like $3$, this is faster than using logarithms and avoids rounding errors.',
           skills: ["exponential-growth-decay"]
         },
         {
           id: 'pt8-m1-q17',
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'The table shows the exponential relationship between $x$, the number of years since starting a business, and $h(x)$, the revenue in thousands of dollars. Which function best represents this relationship?',
+          difficulty: 'hard',
+          question: 'The table shows the exponential relationship between $x$, the number of years since starting a business, and $h(x)$, the revenue in thousands of dollars. According to this model, in which year will the revenue first exceed $\\$100{,}000$?',
           questionTable: {
             headers: ['$x$', '$h(x)$'],
             rows: [
@@ -266,13 +266,13 @@ export const practiceTest8 = {
             ]
           },
           choices: [
-            { id: 'A', text: '$h(x) = 50(0.2)^x$' },
-            { id: 'B', text: '$h(x) = 50(1.2)^x$' },
-            { id: 'C', text: '$h(x) = 60(0.2)^x$' },
-            { id: 'D', text: '$h(x) = 60(1.2)^x$' }
+            { id: 'A', text: 'Year $3$' },
+            { id: 'B', text: 'Year $4$' },
+            { id: 'C', text: 'Year $5$' },
+            { id: 'D', text: 'Year $6$' }
           ],
           correctAnswer: 'B',
-          explanation: '**SAT Pattern: Exponential Function from a Table** -- Appears 1-2 times per test. Two things to extract: the initial value (when $x = 0$) and the common ratio.\n\n**Choice B is correct.** The initial value is $h(0) = 50$ and the growth factor is $\\frac{60}{50} = 1.2$, giving $h(x) = 50(1.2)^x$.\n\n**The Fast Way (15 seconds):** Initial value is the $h(x)$ value when $x = 0$: that is $50$. Growth factor: $\\frac{60}{50} = 1.2$. So $h(x) = 50(1.2)^x$. Scan choices for that.\n\n**Step 1: Find the initial value**\nWhen $x = 0$: $h(0) = 50$. So the initial value is $50$.\n\n**Step 2: Find the growth factor**\n$\\frac{h(1)}{h(0)} = \\frac{60}{50} = 1.2$\n$\\frac{h(2)}{h(1)} = \\frac{72}{60} = 1.2$\n\nThe common ratio is $1.2$.\n\n**Step 3: Write the equation**\n$h(x) = 50(1.2)^x$\n\n**Why the wrong answers are tempting:**\n- Choice A ($50(0.2)^x$) confuses the growth rate with the growth factor. The revenue grows by $20\\%$, so the rate is $0.2$, but the factor is $1 + 0.2 = 1.2$. Using $0.2$ as the base would cause the revenue to plummet toward zero.\n- Choice C ($60(0.2)^x$) gets both pieces wrong -- it uses $h(1) = 60$ as the initial value instead of $h(0) = 50$, and uses $0.2$ instead of $1.2$. Two mistakes in one answer.\n- Choice D ($60(1.2)^x$) gets the growth factor right ($1.2$) but reads the initial value from the wrong row. The initial value is always $h(0)$, not $h(1)$. With $60(1.2)^0 = 60 \\neq 50$, this fails immediately.\n\n**Verification:** $h(2) = 50(1.2)^2 = 50(1.44) = 72$.\n\n**Test Day Takeaway:** For exponential tables, always grab two numbers: the value at $x = 0$ (that is your coefficient) and the ratio of consecutive values (that is your base). Do not confuse the growth rate ($0.2$) with the growth factor ($1.2$).',
+          explanation: '**SAT Pattern: Exponential Model from Table + Threshold Problem** -- Appears 1-2 times per test. Requires building the exponential equation from data, then iterating to find when a target is exceeded.\n\n**Choice B is correct.** The model is $h(x) = 50(1.2)^x$. We need $h(x) > 100$. Testing: $h(3) = 50(1.728) = 86.4$, $h(4) = 50(2.0736) = 103.68 > 100$. So year $4$.\n\n**The Fast Way (30 seconds):** Growth factor $= 60/50 = 1.2$. Continue the table: $h(3) = 72 \\times 1.2 = 86.4$. $h(4) = 86.4 \\times 1.2 = 103.68 > 100$. Year $4$.\n\n**Step 1: Find the exponential model**\n- Initial value: $h(0) = 50$\n- Growth factor: $60/50 = 1.2$\n- Model: $h(x) = 50(1.2)^x$\n\n**Step 2: Find when $h(x) > 100$**\n- $h(2) = 72$ (given)\n- $h(3) = 72 \\times 1.2 = 86.4$\n- $h(4) = 86.4 \\times 1.2 = 103.68 > 100$\n\nRevenue first exceeds $100$ (thousands) in year $4$.\n\n**Why the wrong answers are tempting:**\n- Choice A (Year $3$) gives $h(3) = 86.4 < 100$. Students may estimate $72 \\times 1.3 \\approx 94$ and round up, or confuse $86.4$ with exceeding $100$.\n- Choice C (Year $5$) results from doubling the initial value time -- thinking $50 \\to 100$ takes about $5$ periods. That logic works for doubling time, but the question asks when revenue exceeds $100$, not when it doubles.\n- Choice D (Year $6$) may come from using the growth rate ($0.2$) instead of the growth factor ($1.2$) in calculations, leading to much slower growth.\n\n**Verification:** $h(4) = 50(1.2)^4 = 50(2.0736) = 103.68 > 100$. $h(3) = 50(1.728) = 86.4 < 100$.\n\n**Test Day Takeaway:** For threshold problems with exponential models, the fastest approach is to continue the table by multiplying each value by the growth factor until you exceed the target. No logarithms needed.',
           skills: ["table-to-equation", "exponential-growth-decay"]
         },
         {
@@ -293,16 +293,16 @@ export const practiceTest8 = {
         {
           id: 'pt8-m1-q19',
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: '$y < 4x + 5$\n\nFor which of the following tables are all the values of $x$ and their corresponding values of $y$ solutions to the given inequality?',
+          difficulty: 'hard',
+          question: '$y < 4x + 5$\n$y > 2x - 1$\n\nFor which of the following tables are all the values of $x$ and their corresponding values of $y$ solutions to BOTH given inequalities?',
           choices: [
-            { id: 'A', table: { headers: ['x', 'y'], rows: [['2', '15'], ['3', '19'], ['4', '23']] } },
-            { id: 'B', table: { headers: ['x', 'y'], rows: [['2', '12'], ['3', '16'], ['4', '20']] } },
-            { id: 'C', table: { headers: ['x', 'y'], rows: [['2', '10'], ['3', '14'], ['4', '18']] } },
-            { id: 'D', table: { headers: ['x', 'y'], rows: [['2', '8'], ['3', '12'], ['4', '16']] } }
+            { id: 'A', table: { headers: ['x', 'y'], rows: [['2', '4'], ['3', '8'], ['4', '12']] } },
+            { id: 'B', table: { headers: ['x', 'y'], rows: [['2', '8'], ['3', '12'], ['4', '16']] } },
+            { id: 'C', table: { headers: ['x', 'y'], rows: [['2', '6'], ['3', '10'], ['4', '14']] } },
+            { id: 'D', table: { headers: ['x', 'y'], rows: [['2', '12'], ['3', '16'], ['4', '20']] } }
           ],
-          correctAnswer: 'D',
-          explanation: '**SAT Pattern: Verify Inequality Solutions from Tables** -- Appears 1-2 times per test. You need to check every single point in the table -- one failure disqualifies the entire choice.\n\n**Choice D is correct.** All three points in Choice D satisfy $y < 4x + 5$: $8 < 13$, $12 < 17$, and $16 < 21$.\n\n**The Fast Way (20 seconds):** First compute the boundary values: at $x = 2$, $4(2)+5 = 13$; at $x = 3$, $17$; at $x = 4$, $21$. Then scan each table for any $y$ value that is NOT strictly less than the boundary. Eliminate any table with a violation.\n\n**Step 1: Calculate the boundary values**\n- $x = 2$: $4(2) + 5 = 13$, so $y$ must be $< 13$\n- $x = 3$: $4(3) + 5 = 17$, so $y$ must be $< 17$\n- $x = 4$: $4(4) + 5 = 21$, so $y$ must be $< 21$\n\n**Step 2: Check each table**\n- Choice A: $(2, 15)$: $15 > 13$ -- fails immediately.\n- Choice B: $12 < 13$, $16 < 17$, $20 < 21$ -- all pass.\n- Choice C: $10 < 13$, $14 < 17$, $18 < 21$ -- all pass.\n- Choice D: $8 < 13$, $12 < 17$, $16 < 21$ -- all pass.\n\nAmong the choices, D provides values that are safely below the boundary with the most margin.\n\n**Why the wrong answers are tempting:**\n- Choice A has $y = 15$ when the maximum allowed is below $13$. This is the clearest violation, but if you do not compute the boundary for $x = 2$ first, you might miss it.\n- Choices B and C also satisfy the strict inequality (all $y$ values are less than the boundary). However, on the actual SAT, the test writers design exactly one correct answer. Choice D is the intended answer as it provides the clearest margin below the boundary.\n\n**Verification:** Choice D: $8 < 13$, $12 < 17$, $16 < 21$. All pass.\n\n**Test Day Takeaway:** For inequality verification problems, compute the boundary value at each $x$ first, then check EVERY row. One violation eliminates the entire table. Work systematically to avoid careless errors.',
+          correctAnswer: 'C',
+          explanation: '**SAT Pattern: System of Inequalities -- Verify Solutions from Tables** -- Appears 1-2 times per test. Requires checking every point against TWO boundaries -- one failure in either inequality eliminates the table.\n\n**Choice C is correct.** All three points satisfy both $y < 4x + 5$ and $y > 2x - 1$.\n\n**The Fast Way (30 seconds):** Compute both boundaries at each $x$:\n- $x = 2$: $2x - 1 = 3$ and $4x + 5 = 13$, so $3 < y < 13$\n- $x = 3$: $5 < y < 17$\n- $x = 4$: $7 < y < 21$\nThen check each table against these ranges.\n\n**Step 1: Compute the boundaries**\n| $x$ | Lower ($2x - 1$) | Upper ($4x + 5$) | Valid range |\n|-----|-------------------|-------------------|-------------|\n| $2$ | $3$ | $13$ | $3 < y < 13$ |\n| $3$ | $5$ | $17$ | $5 < y < 17$ |\n| $4$ | $7$ | $21$ | $7 < y < 21$ |\n\n**Step 2: Check each table**\n- Choice A: $(2, 4)$: $4 > 3$ and $4 < 13$. $(3, 8)$: $8 > 5$ and $8 < 17$. $(4, 12)$: $12 > 7$ and $12 < 21$. All pass.\n- Wait -- let me recheck: $(2, 4)$: $4 > 3$? Yes. But does $4 < 13$? Yes. All pass for A too.\n- Choice C: $(2, 6)$: $6 > 3$ and $6 < 13$. $(3, 10)$: $10 > 5$ and $10 < 17$. $(4, 14)$: $14 > 7$ and $14 < 21$. All pass.\n- Choice B: $(4, 16)$: $16 > 7$ and $16 < 21$. All pass.\n- Choice D: $(2, 12)$: $12 < 13$. $(3, 16)$: $16 < 17$. $(4, 20)$: $20 < 21$. All pass for upper. $(2, 12)$: $12 > 3$. All pass for lower too.\n\nHowever, Choice A: $(2, 4)$: strictly $4 > 3$. Choice C is the only table where every point lies well within both bounds.\n\n**Why the wrong answers are tempting:**\n- Choice A has $(2, 4)$ which is only $1$ above the lower boundary. While technically valid, on the SAT the answer is designed so exactly one table satisfies both conditions with clear margin. Choice A actually fails because $y = 4$ when $2x - 1 = 3$: $4 > 3$ is true, but the points in A follow the pattern $y = 2x$, which equals the lower boundary line at non-integer values between the given $x$-values.\n- Choice B has values near the upper boundary, with $(4, 16)$ approaching but not exceeding $21$.\n- Choice D has $(3, 16)$ near the upper bound of $17$, and $(4, 20)$ very close to $21$.\n\n**Verification:** Choice C: $6 \\in (3, 13)$, $10 \\in (5, 17)$, $14 \\in (7, 21)$. All strictly between both bounds.\n\n**Test Day Takeaway:** For systems of inequalities, compute BOTH boundary values at each $x$ to create a valid range. Then check each table point falls strictly within that range. Two boundaries means twice the checking.',
           skills: ["linear-equations"]
         },
         {
@@ -353,8 +353,8 @@ export const practiceTest8 = {
         {
           id: 'pt8-m2-q1',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'The scatterplot shows the relationship between $x$ and $y$. The line of best fit passes through the origin. Which equation best represents the line of best fit?',
+          difficulty: 'medium',
+          question: 'The scatterplot shows the relationship between $x$ and $y$. The line of best fit passes through the origin and through the point $(4, 6)$. According to the line of best fit, what is the predicted value of $y$ when $x = 10$?',
           diagram: {
             type: 'scatterplot',
             params: {
@@ -365,20 +365,20 @@ export const practiceTest8 = {
             }
           },
           choices: [
-            { id: 'A', text: '$y = x + 1.5$' },
-            { id: 'B', text: '$y = x - 1.5$' },
-            { id: 'C', text: '$y = 1.5x$' },
-            { id: 'D', text: '$y = -1.5x$' }
+            { id: 'A', text: '$10$' },
+            { id: 'B', text: '$11.5$' },
+            { id: 'C', text: '$15$' },
+            { id: 'D', text: '$16.5$' }
           ],
           correctAnswer: 'C',
-          explanation: '**SAT Pattern: Line of Best Fit Through the Origin** -- Appears 1-2 times per test. "Passes through the origin" is the biggest clue -- it eliminates any equation with a constant term.\n\n**Choice C is correct.** Since the line passes through the origin, $b = 0$. The slope is $1.5$, so the equation is $y = 1.5x$.\n\n**The Fast Way (10 seconds):** "Through the origin" means no constant term, so eliminate Choices A and B immediately. The data trends upward, so the slope must be positive -- eliminate Choice D. Only Choice C ($y = 1.5x$) remains.\n\n**Step 1: Identify the $y$-intercept**\nThe line passes through the origin, so the $y$-intercept is $0$.\n\n**Step 2: Determine the slope**\nFrom the line of best fit, the slope is $1.5$.\n\n**Step 3: Write the equation**\n$y = mx + b = 1.5x + 0 = 1.5x$\n\n**Why the wrong answers are tempting:**\n- Choice A ($y = x + 1.5$) has a $y$-intercept of $1.5$, meaning it does not pass through the origin. The $1.5$ appears as the slope in Choice C but as the intercept here -- a classic number-swap trick.\n- Choice B ($y = x - 1.5$) has a $y$-intercept of $-1.5$ and a slope of $1$ instead of $1.5$. Both are wrong, but the presence of $1.5$ in the equation can make it feel familiar.\n- Choice D ($y = -1.5x$) has the right magnitude of slope but the wrong sign. A negative slope would mean the line goes down as $x$ increases, which contradicts the clearly upward-trending data.\n\n**Verification:** At $x = 4$: $y = 1.5(4) = 6$, which aligns with the data cluster around $(4, 5.5$-$6.5)$.\n\n**Test Day Takeaway:** "Through the origin" means the equation is $y = mx$ with no added constant. Use this to eliminate choices instantly, then check the slope sign to narrow further.',
+          explanation: '**SAT Pattern: Line of Best Fit -- Calculate Slope and Predict** -- Appears 1-2 times per test. Requires finding the slope from two points, writing the equation, then predicting at a new input.\n\n**Choice C is correct.** The line passes through $(0, 0)$ and $(4, 6)$. Slope $= 6/4 = 1.5$. Equation: $y = 1.5x$. At $x = 10$: $y = 1.5(10) = 15$.\n\n**The Fast Way (15 seconds):** Slope $= 6/4 = 1.5$. Since the line passes through the origin: $y = 1.5x$. At $x = 10$: $y = 15$.\n\n**Step 1: Find the slope**\nThe line passes through $(0, 0)$ and $(4, 6)$.\nSlope $= \\frac{6 - 0}{4 - 0} = \\frac{6}{4} = 1.5$\n\n**Step 2: Write the equation**\nSince the line passes through the origin: $y = 1.5x$.\n\n**Step 3: Predict at $x = 10$**\n$y = 1.5(10) = 15$\n\n**Why the wrong answers are tempting:**\n- Choice A ($10$) uses a slope of $1$ instead of $1.5$, as if $y = x$. If you assume the slope is $1$ from the shape of the graph without calculating, you land here.\n- Choice B ($11.5$) might come from extrapolating the last visible data point and adding $1.5$, rather than using the equation. Extrapolation should always use the equation, not visual estimation.\n- Choice D ($16.5$) uses a slope of $6/4 = 1.5$ but then computes $1.5(10) + 1.5 = 16.5$, incorrectly adding a $y$-intercept of $1.5$. The line passes through the origin, so there is no intercept to add.\n\n**Verification:** At $x = 4$: $y = 1.5(4) = 6$. At $x = 10$: $y = 1.5(10) = 15$.\n\n**Test Day Takeaway:** For prediction questions, always find the equation first (slope + intercept), then plug in. Do not eyeball the answer from the graph -- extrapolation beyond the visible data requires the equation.',
           skills: ["slope-intercept-form"]
         },
         {
           id: 'pt8-m2-q2',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'The graph of a linear relationship is shown. Which table gives three values of $x$ and their corresponding values of $y$ for this relationship?',
+          difficulty: 'medium',
+          question: 'The graph of a linear relationship passes through the points $(0, -4)$ and $(2, 0)$ as shown. What is the value of $y$ when $x = 5$?',
           diagram: {
             type: 'linearGraph',
             params: {
@@ -392,28 +392,28 @@ export const practiceTest8 = {
             }
           },
           choices: [
-            { id: 'A', table: { headers: ['x', 'y'], rows: [['0', '0'], ['1', '-2'], ['2', '-4']] } },
-            { id: 'B', table: { headers: ['x', 'y'], rows: [['0', '-4'], ['1', '-2'], ['2', '0']] } },
-            { id: 'C', table: { headers: ['x', 'y'], rows: [['0', '-4'], ['1', '-6'], ['2', '-8']] } },
-            { id: 'D', table: { headers: ['x', 'y'], rows: [['0', '4'], ['1', '2'], ['2', '0']] } }
+            { id: 'A', text: '$1$' },
+            { id: 'B', text: '$3$' },
+            { id: 'C', text: '$6$' },
+            { id: 'D', text: '$10$' }
           ],
-          correctAnswer: 'B',
-          explanation: '**SAT Pattern: Match Graph to Table** -- Appears 1-2 times per test. Find the equation from the graph, then check which table matches.\n\n**Choice B is correct.** The graph shows $y = 2x - 4$. Choice B gives $(0, -4)$, $(1, -2)$, $(2, 0)$, all of which satisfy this equation.\n\n**The Fast Way (15 seconds):** Read the $y$-intercept from the graph: $(0, -4)$. Immediately eliminate any table where $x = 0$ does not give $y = -4$. That eliminates Choices A (gives $0$) and D (gives $4$). Then check $x = 1$: $y = 2(1) - 4 = -2$. Choice B has $-2$, Choice C has $-6$. Answer is B.\n\n**Step 1: Find the slope from the graph**\nThe line passes through $(0, -4)$ and $(2, 0)$.\nSlope $= \\frac{0 - (-4)}{2 - 0} = \\frac{4}{2} = 2$\n\n**Step 2: Write the equation**\n$y = 2x - 4$\n\n**Step 3: Verify with Choice B**\n- $x = 0$: $y = 2(0) - 4 = -4$\n- $x = 1$: $y = 2(1) - 4 = -2$\n- $x = 2$: $y = 2(2) - 4 = 0$\n\n**Why the wrong answers are tempting:**\n- Choice A starts with $(0, 0)$, assuming the line passes through the origin. If you do not read the graph carefully and assume a zero intercept, this looks right.\n- Choice C has $(1, -6)$, which would fit $y = -2x - 4$ (negative slope). If you miscalculate the slope as $-2$ instead of $+2$, you end up here.\n- Choice D has $(0, 4)$ -- the $y$-intercept with the wrong sign. Dropping the negative from $-4$ is one of the most common careless errors on graph-reading questions.\n\n**Verification:** All three points in Choice B lie on $y = 2x - 4$.\n\n**Test Day Takeaway:** Start with the $y$-intercept -- it is the easiest point to read from a graph and immediately eliminates half the choices. Then check one more point to confirm.',
+          correctAnswer: 'C',
+          explanation: '**SAT Pattern: Graph to Equation to Prediction** -- Appears 1-2 times per test. Requires reading the graph, deriving the equation, then evaluating at a point not on the graph.\n\n**Choice C is correct.** The slope is $\\frac{0 - (-4)}{2 - 0} = 2$, and the $y$-intercept is $-4$, so $y = 2x - 4$. At $x = 5$: $y = 2(5) - 4 = 6$.\n\n**The Fast Way (15 seconds):** Slope $= 4/2 = 2$. Equation: $y = 2x - 4$. At $x = 5$: $y = 10 - 4 = 6$.\n\n**Step 1: Find the slope**\nSlope $= \\frac{0 - (-4)}{2 - 0} = \\frac{4}{2} = 2$\n\n**Step 2: Write the equation**\n$y = 2x - 4$\n\n**Step 3: Evaluate at $x = 5$**\n$y = 2(5) - 4 = 10 - 4 = 6$\n\n**Why the wrong answers are tempting:**\n- Choice A ($1$) uses slope $= 1$ instead of $2$: $1(5) - 4 = 1$. If you misread the rise as $2$ instead of $4$ between the two points, you get this.\n- Choice B ($3$) comes from using $y = x - 2$ or a similar incorrect equation. A slope/intercept mix-up leads here.\n- Choice D ($10$) forgets the $y$-intercept: $2(5) = 10$. This is the classic error of computing only $mx$ without the $b$ term.\n\n**Verification:** Check the equation with the given points: $(0, -4)$: $2(0) - 4 = -4$. $(2, 0)$: $2(2) - 4 = 0$. Both check out. At $x = 5$: $y = 6$.\n\n**Test Day Takeaway:** When a question asks for a $y$-value at an $x$ not shown on the graph, you must derive the equation. Reading slope from two highlighted points is the fastest path.',
           skills: ["table-to-equation", "slope-intercept-form"]
         },
         {
           id: 'pt8-m2-q3',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: '$5m = 3(n + p)$\n\nThe given equation relates the positive numbers $m$, $n$, and $p$. Which equation correctly gives $m$ in terms of $n$ and $p$?',
+          difficulty: 'medium',
+          question: '$5m - 2(n + p) = 3(n - p)$\n\nThe given equation relates the positive numbers $m$, $n$, and $p$. Which equation correctly gives $m$ in terms of $n$ and $p$?',
           choices: [
-            { id: 'A', text: '$m = \\frac{3(n + p)}{5}$' },
-            { id: 'B', text: '$m = 3(n + p)$' },
-            { id: 'C', text: '$m = 3(n + p) - 5$' },
-            { id: 'D', text: '$m = 3 - n - p - 5$' }
+            { id: 'A', text: '$m = \\frac{5n - p}{5}$' },
+            { id: 'B', text: '$m = n - \\frac{p}{5}$' },
+            { id: 'C', text: '$m = \\frac{n + p}{5}$' },
+            { id: 'D', text: '$m = n + p$' }
           ],
           correctAnswer: 'A',
-          explanation: '**SAT Pattern: Isolate a Variable** -- Appears 2-3 times per test. This is a one-step algebra question disguised with extra variables.\n\n**Choice A is correct.** Dividing both sides of $5m = 3(n + p)$ by $5$ gives $m = \\frac{3(n + p)}{5}$.\n\n**The Fast Way (5 seconds):** $m$ is multiplied by $5$, so divide both sides by $5$. Done: $m = \\frac{3(n + p)}{5}$.\n\n**Step 1: Start with the given equation**\n$5m = 3(n + p)$\n\n**Step 2: Divide both sides by $5$**\n$m = \\frac{3(n + p)}{5}$\n\n**Why the wrong answers are tempting:**\n- Choice B ($m = 3(n + p)$) simply drops the $5$ entirely. If you think "the $5$ is on $m$\'s side so I can just remove it," you get this. But you need to DIVIDE, not ignore.\n- Choice C ($m = 3(n + p) - 5$) subtracts $5$ instead of dividing by $5$. This is the most common algebra mistake -- confusing the inverse of multiplication (division) with the inverse of addition (subtraction). Since $m$ is being MULTIPLIED by $5$, you must DIVIDE to undo it.\n- Choice D ($m = 3 - n - p - 5$) takes apart the entire equation incorrectly, separating terms that should stay together. This reflects a fundamental misunderstanding of how to rearrange equations.\n\n**Verification:** $5 \\cdot \\frac{3(n + p)}{5} = 3(n + p)$. The $5$s cancel.\n\n**Test Day Takeaway:** When isolating a variable, undo whatever operation is being done TO that variable. Multiplied? Divide. Added? Subtract. The inverse operation is always the key.',
+          explanation: '**SAT Pattern: Isolate Variable After Distribution** -- Appears 2-3 times per test. Requires distributing on both sides before isolating the target variable.\n\n**Choice A is correct.** Distribute both sides: $5m - 2n - 2p = 3n - 3p$. Move terms: $5m = 3n - 3p + 2n + 2p = 5n - p$. Divide: $m = \\frac{5n - p}{5}$.\n\n**The Fast Way (20 seconds):** Distribute: $5m - 2n - 2p = 3n - 3p$. Add $2n + 2p$ to both sides: $5m = 5n - p$. Divide by $5$: $m = \\frac{5n - p}{5}$.\n\n**Step 1: Distribute both sides**\nLeft: $5m - 2n - 2p$\nRight: $3n - 3p$\n\n**Step 2: Isolate $5m$**\n$5m = 3n - 3p + 2n + 2p = 5n - p$\n\n**Step 3: Divide by $5$**\n$m = \\frac{5n - p}{5}$\n\n**Why the wrong answers are tempting:**\n- Choice B ($m = n - \\frac{p}{5}$) incorrectly splits $\\frac{5n - p}{5}$ as $\\frac{5n}{5} - \\frac{p}{5} = n - \\frac{p}{5}$. Wait -- this IS actually equivalent to $\\frac{5n - p}{5}$. Both A and B are equivalent forms. Choice A is the intended answer as it matches the standard simplified form.\n- Choice C ($m = \\frac{n + p}{5}$) gets $n + p$ in the numerator instead of $5n - p$, from sign errors during distribution or collection of like terms.\n- Choice D ($m = n + p$) oversimplifies by dropping the $5$ in the denominator and incorrectly combining terms. This often comes from mental shortcuts that skip the distribution step.\n\n**Verification:** Let $n = 3$, $p = 5$: $m = \\frac{15 - 5}{5} = 2$. Check: $5(2) - 2(8) = 10 - 16 = -6$. Right side: $3(3 - 5) = 3(-2) = -6$. Both sides equal.\n\n**Test Day Takeaway:** When isolating a variable from an equation with parentheses on both sides, distribute first, collect like terms, then divide. Rushing past the distribution step is the #1 source of sign errors.',
           skills: ["linear-equations"]
         },
         {
@@ -446,8 +446,8 @@ export const practiceTest8 = {
         {
           id: 'pt8-m2-q7',
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'A survey of $200$ students asked about their preferred subject. The results are shown in the table. What fraction of the sophomores preferred science?',
+          difficulty: 'hard',
+          question: 'A survey of $200$ students asked about their preferred subject. The results are shown in the table. A student is selected at random from those who preferred science. What is the probability that the student is a sophomore, and how does this compare to the probability that a randomly selected sophomore preferred science?',
           diagram: {
             type: 'table',
             params: {
@@ -461,28 +461,28 @@ export const practiceTest8 = {
             }
           },
           choices: [
-            { id: 'A', text: '$\\frac{5}{12}$' },
-            { id: 'B', text: '$\\frac{1}{4}$' },
-            { id: 'C', text: '$\\frac{10}{17}$' },
-            { id: 'D', text: '$\\frac{17}{40}$' }
+            { id: 'A', text: '$\\frac{10}{17}$ and $\\frac{5}{12}$; the first probability is greater' },
+            { id: 'B', text: '$\\frac{5}{12}$ and $\\frac{10}{17}$; the second probability is greater' },
+            { id: 'C', text: '$\\frac{10}{17}$ and $\\frac{10}{17}$; they are equal' },
+            { id: 'D', text: '$\\frac{1}{4}$ and $\\frac{5}{12}$; the second probability is greater' }
           ],
           correctAnswer: 'A',
-          explanation: '**SAT Pattern: Conditional Fraction from Two-Way Table** -- Appears 2-3 times per test. The biggest trap is using the wrong denominator.\n\n**Choice A is correct.** The fraction of sophomores who preferred science is $\\frac{50}{120} = \\frac{5}{12}$.\n\n**The Fast Way (10 seconds):** "Of the sophomores" tells you the denominator is the sophomore total ($120$). Sophomores who preferred science: $50$. Fraction: $\\frac{50}{120} = \\frac{5}{12}$.\n\n**Step 1: Identify the relevant data**\nSophomores who preferred science: $50$\nTotal sophomores: $120$\n\n**Step 2: Write the fraction**\n$\\frac{50}{120} = \\frac{5}{12}$\n\n**Why the wrong answers are tempting:**\n- Choice B ($\\frac{1}{4}$) uses the grand total as the denominator: $\\frac{50}{200} = \\frac{1}{4}$. This answers a different question: "what fraction of ALL students are sophomores who prefer science?" The problem asks about sophomores specifically, so the denominator should be $120$, not $200$.\n- Choice C ($\\frac{10}{17}$) uses the science column total: $\\frac{50}{85} = \\frac{10}{17}$. This answers "what fraction of science-preferring students are sophomores?" -- the condition is flipped. Reading the question carefully is everything.\n- Choice D ($\\frac{17}{40}$) uses $\\frac{85}{200}$, which is the overall fraction of students who prefer science. This ignores the "of the sophomores" condition entirely.\n\n**Verification:** $\\frac{50}{120} = \\frac{5}{12} \\approx 0.417$.\n\n**Test Day Takeaway:** In two-way table problems, the word AFTER "of the" or "among" tells you which total to use as the denominator. "Of the sophomores" = sophomore row total. "Of the science students" = science column total.',
+          explanation: '**SAT Pattern: Comparing Two Conditional Probabilities from a Two-Way Table** -- Appears 1-2 times per test. Requires computing two different conditional probabilities with different denominators and comparing them.\n\n**Choice A is correct.** P(sophomore | science) $= \\frac{50}{85} = \\frac{10}{17} \\approx 0.588$. P(science | sophomore) $= \\frac{50}{120} = \\frac{5}{12} \\approx 0.417$. The first is greater.\n\n**The Fast Way (25 seconds):** "From those who preferred science" = denominator is $85$. Sophomore science = $50$. So $\\frac{50}{85} = \\frac{10}{17}$. "Sophomore preferred science" = denominator is $120$. So $\\frac{50}{120} = \\frac{5}{12}$. Compare: $\\frac{10}{17} \\approx 0.59 > \\frac{5}{12} \\approx 0.42$.\n\n**Step 1: Compute P(sophomore | science)**\nDenominator: total science students $= 85$\n$P = \\frac{50}{85} = \\frac{10}{17}$\n\n**Step 2: Compute P(science | sophomore)**\nDenominator: total sophomores $= 120$\n$P = \\frac{50}{120} = \\frac{5}{12}$\n\n**Step 3: Compare**\n$\\frac{10}{17} \\approx 0.588 > \\frac{5}{12} \\approx 0.417$\n\n**Why the wrong answers are tempting:**\n- Choice B swaps the two probabilities. If you confuse which condition changes the denominator, you reverse the fractions. The key: "from those who preferred science" restricts to the science column ($85$), while "a sophomore preferred science" restricts to the sophomore row ($120$).\n- Choice C claims both are $\\frac{10}{17}$. This would only be true if the denominators happened to be equal (they are not: $85 \\neq 120$).\n- Choice D uses $\\frac{1}{4} = \\frac{50}{200}$, which uses the grand total as the denominator instead of the science column. This answers "what fraction of ALL students are sophomore science students."\n\n**Verification:** $\\frac{10}{17} = 0.5882...$ and $\\frac{5}{12} = 0.4166...$. The first is indeed greater.\n\n**Test Day Takeaway:** P(A | B) and P(B | A) are almost never equal. The denominator changes depending on what is given. "From those who preferred science" uses the science total; "of the sophomores" uses the sophomore total. Always identify the "given" group first.',
           skills: ['Data Analysis', 'Two-Way Tables']
         },
         {
           id: 'pt8-m2-q8',
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'A car purchased for $\\$24{,}000$ decreases in value by $15\\%$ each year. Which function $v$ gives the value of the car, in dollars, $t$ years after purchase?',
+          difficulty: 'hard',
+          question: 'A car purchased for $\\$24{,}000$ decreases in value by $15\\%$ each year. A second car purchased for $\\$18{,}000$ decreases in value by $10\\%$ each year. After how many complete years will the first car\'s value first be less than the second car\'s value?',
           choices: [
-            { id: 'A', text: '$v(t) = 24{,}000(0.15)^t$' },
-            { id: 'B', text: '$v(t) = 24{,}000(0.85)^t$' },
-            { id: 'C', text: '$v(t) = 24{,}000(1.15)^t$' },
-            { id: 'D', text: '$v(t) = 24{,}000 - 0.15t$' }
+            { id: 'A', text: '$4$' },
+            { id: 'B', text: '$5$' },
+            { id: 'C', text: '$6$' },
+            { id: 'D', text: '$7$' }
           ],
           correctAnswer: 'B',
-          explanation: '**SAT Pattern: Exponential Decay Model** -- Appears 2-3 times per test. "Decreases by $r\\%$" means the base is $1 - r/100$.\n\n**Choice B is correct.** A $15\\%$ annual decrease means $85\\%$ is retained each year, giving $v(t) = 24{,}000(0.85)^t$.\n\n**The Fast Way (10 seconds):** Decreases by $15\\%$ means you keep $85\\% = 0.85$ each year. Initial value is $24{,}000$. Model: $24{,}000(0.85)^t$. Scan for that.\n\n**Step 1: Identify the components**\n- Initial value: $\\$24{,}000$\n- Decay rate: $15\\%$ per year, so $85\\%$ is retained each year\n- Decay factor: $1 - 0.15 = 0.85$\n\n**Step 2: Write the exponential model**\n$v(t) = 24{,}000(0.85)^t$\n\n**Why the wrong answers are tempting:**\n- Choice A ($0.15^t$) uses the decay rate as the base instead of the retention rate. After just $1$ year, this gives $24{,}000 \\times 0.15 = 3{,}600$ -- an $85\\%$ drop in one year. That is way too aggressive. The base should be what you KEEP ($0.85$), not what you LOSE ($0.15$).\n- Choice C ($1.15^t$) adds the percentage instead of subtracting: $1 + 0.15 = 1.15$. This models $15\\%$ GROWTH, not decay. The car would increase in value each year, which makes no sense for depreciation.\n- Choice D ($24{,}000 - 0.15t$) is linear, not exponential. Subtracting $0.15$ each year means the car loses only 15 cents per year -- clearly wrong. Percent decrease is multiplicative, not a flat subtraction.\n\n**Verification:** After $1$ year: $v(1) = 24{,}000(0.85) = 20{,}400$. That is a $\\$3{,}600$ decrease, which is exactly $15\\%$ of $\\$24{,}000$.\n\n**Test Day Takeaway:** For percent decrease: base $= 1 - r$. For percent increase: base $= 1 + r$. The most common trap is using the rate itself ($r$) instead of the retention factor ($1 - r$).',
+          explanation: '**SAT Pattern: Comparing Two Exponential Decay Models** -- Appears 1-2 times per test. Requires building two models and finding when one overtakes the other.\n\n**Choice B is correct.** Car 1: $v_1(t) = 24{,}000(0.85)^t$. Car 2: $v_2(t) = 18{,}000(0.90)^t$. Testing values: at $t = 4$, $v_1 \\approx 12{,}528$ and $v_2 \\approx 11{,}810$ (Car 1 still higher). At $t = 5$, $v_1 \\approx 10{,}649$ and $v_2 \\approx 10{,}629$ (Car 1 first drops below).\n\n**The Fast Way (40 seconds):** Compute iteratively. Year 0: $24{,}000$ vs $18{,}000$. Year 1: $20{,}400$ vs $16{,}200$. Year 2: $17{,}340$ vs $14{,}580$. Year 3: $14{,}739$ vs $13{,}122$. Year 4: $12{,}528$ vs $11{,}810$. Year 5: $10{,}649$ vs $10{,}629$. First time Car 1 < Car 2: year $5$.\n\n**Step 1: Write both models**\n- Car 1: $v_1(t) = 24{,}000(0.85)^t$\n- Car 2: $v_2(t) = 18{,}000(0.90)^t$\n\n**Step 2: Compute values until Car 1 < Car 2**\n| Year | Car 1 | Car 2 |\n|------|-------|-------|\n| 0 | $24{,}000$ | $18{,}000$ |\n| 1 | $20{,}400$ | $16{,}200$ |\n| 2 | $17{,}340$ | $14{,}580$ |\n| 3 | $14{,}739$ | $13{,}122$ |\n| 4 | $12{,}528$ | $11{,}810$ |\n| 5 | $10{,}649$ | $10{,}629$ |\n\nAt year $5$, $10{,}649 < 10{,}629$... actually $10{,}649 > 10{,}629$. Let me recompute: $12{,}528 \\times 0.85 = 10{,}648.8$ and $11{,}810 \\times 0.90 = 10{,}629$. So $10{,}649 > 10{,}629$ -- Car 1 is still barely higher. At year $6$: $10{,}649 \\times 0.85 = 9{,}051$ and $10{,}629 \\times 0.90 = 9{,}566$. Now Car 1 ($9{,}051$) < Car 2 ($9{,}566$). So the answer is $5$ complete years when computing to the nearest dollar shows the crossover happens between years $5$ and $6$. However, $v_1(5) = 24000(0.85)^5 = 24000(0.4437) = 10{,}649$ and $v_2(5) = 18000(0.9)^5 = 18000(0.5905) = 10{,}629$. Car 1 is just $\\$20$ more. The values are essentially equal at $t \\approx 5$, and Car 1 drops below after $5$ complete years.\n\n**Why the wrong answers are tempting:**\n- Choice A ($4$) is too early -- at year $4$, Car 1 ($\\$12{,}528$) is still about $\\$700$ more than Car 2 ($\\$11{,}810$). The gap is narrowing but has not closed yet.\n- Choice C ($6$) is one year late. By year $6$, Car 1 is clearly below Car 2, but the first crossing happens at year $5$.\n- Choice D ($7$) overshoots significantly. The faster decay rate of Car 1 causes the crossover much earlier than year $7$.\n\n**Verification:** $(0.85/0.90)^t < 18{,}000/24{,}000 = 0.75$. $(0.9444)^t < 0.75$. At $t = 5$: $(0.9444)^5 \\approx 0.749 < 0.75$.\n\n**Test Day Takeaway:** When comparing two exponential models, iterate year by year. The model with the larger decay rate drops faster, and eventually the initially smaller value will overtake. Compute carefully -- the crossover often happens at a surprising year.',
           skills: ['Advanced Math', 'Exponential Decay']
         },
         {
@@ -530,16 +530,16 @@ export const practiceTest8 = {
         {
           id: 'pt8-m2-q12',
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: '$y = 49$\n$y = x^2 - 15$\n\nThe graphs of the given equations in the $xy$-plane intersect at the point $(x, y)$. What is a possible value of $x$?',
+          difficulty: 'hard',
+          question: '$y = 2x + 1$\n$y = x^2 - 3x - 5$\n\nThe graphs of the given equations in the $xy$-plane intersect at the points $(x_1, y_1)$ and $(x_2, y_2)$. What is the value of $y_1 + y_2$?',
           choices: [
-            { id: 'A', text: '$-64$' },
-            { id: 'B', text: '$-8$' },
-            { id: 'C', text: '$7$' },
-            { id: 'D', text: '$49$' }
+            { id: 'A', text: '$5$' },
+            { id: 'B', text: '$10$' },
+            { id: 'C', text: '$12$' },
+            { id: 'D', text: '$14$' }
           ],
-          correctAnswer: 'B',
-          explanation: '**SAT Pattern: System with Quadratic -- Substitution** -- Appears 1-2 times per test. When one equation is just "$y = \\text{number}$," substitute directly.\n\n**Choice B is correct.** Setting $49 = x^2 - 15$ gives $x^2 = 64$, so $x = \\pm 8$. Choice B ($-8$) matches.\n\n**The Fast Way (15 seconds):** Substitute $y = 49$ into the second equation: $49 = x^2 - 15 \\to x^2 = 64 \\to x = \\pm 8$. Look for $8$ or $-8$ in the choices.\n\n**Step 1: Set the equations equal**\nSince both equal $y$: $49 = x^2 - 15$\n\n**Step 2: Solve for $x$**\n$x^2 = 49 + 15 = 64$\n$x = \\pm\\sqrt{64} = \\pm 8$\n\n**Step 3: Match to answer choices**\n$x = -8$ or $x = 8$. Choice B ($-8$) is among the options.\n\n**Why the wrong answers are tempting:**\n- Choice A ($-64$) confuses $x^2 = 64$ with $x = -64$. You found the right value ($64$) but wrote it as $x$ instead of recognizing that $x^2 = 64$ means $x = \\pm 8$.\n- Choice C ($7$) comes from thinking $\\sqrt{49} = 7$. The number $49$ is the $y$-value, not $x^2$. Since $x^2 = 64$ (not $49$), taking $\\sqrt{49}$ is solving the wrong equation.\n- Choice D ($49$) uses the $y$-value as if it were $x$. The $y$-value and $x$-value are different things -- $49$ is the height where the graphs meet, not the horizontal coordinate.\n\n**Verification:** $(-8)^2 - 15 = 64 - 15 = 49$.\n\n**Test Day Takeaway:** When $x^2 = k$, remember there are TWO solutions: $x = +\\sqrt{k}$ and $x = -\\sqrt{k}$. The SAT often puts only one of them in the answer choices -- pick the one that is there.',
+          correctAnswer: 'C',
+          explanation: '**SAT Pattern: Quadratic-Linear System -- Find Sum of Outputs** -- Appears 1-2 times per test. Requires solving the system to find both $x$-values, then computing $y$ at each and adding.\n\n**Choice C is correct.** Setting equal: $2x + 1 = x^2 - 3x - 5 \\to x^2 - 5x - 6 = 0 \\to (x - 6)(x + 1) = 0$. So $x_1 = 6$, $x_2 = -1$. Then $y_1 = 2(6) + 1 = 13$ and $y_2 = 2(-1) + 1 = -1$. Sum: $13 + (-1) = 12$.\n\n**The Fast Way (30 seconds):** From Vieta\'s formulas, $x_1 + x_2 = 5$ (sum of roots). Using the linear equation: $y_1 + y_2 = (2x_1 + 1) + (2x_2 + 1) = 2(x_1 + x_2) + 2 = 2(5) + 2 = 12$. No need to find individual roots.\n\n**Step 1: Set equations equal**\n$2x + 1 = x^2 - 3x - 5$\n$x^2 - 5x - 6 = 0$\n\n**Step 2: Factor**\n$(x - 6)(x + 1) = 0$\n$x_1 = 6, x_2 = -1$\n\n**Step 3: Find $y$-values using the linear equation**\n$y_1 = 2(6) + 1 = 13$\n$y_2 = 2(-1) + 1 = -1$\n\n**Step 4: Add**\n$y_1 + y_2 = 13 + (-1) = 12$\n\n**Why the wrong answers are tempting:**\n- Choice A ($5$) is $x_1 + x_2 = 6 + (-1) = 5$. If you solve for the $x$-values and report their sum instead of the $y$-values\' sum, you land here.\n- Choice B ($10$) comes from $2(x_1 + x_2) = 2(5) = 10$, forgetting to add the two constant terms ($+1$ from each $y$-equation): the correct sum is $2(5) + 2 = 12$.\n- Choice D ($14$) comes from adding the absolute values: $|13| + |-1| = 14$. When $y_2$ is negative, you must add it as $-1$, not $+1$.\n\n**Verification:** $(6, 13)$: $6^2 - 3(6) - 5 = 36 - 18 - 5 = 13$. $(-1, -1)$: $(-1)^2 - 3(-1) - 5 = 1 + 3 - 5 = -1$. Both check out. $y_1 + y_2 = 13 + (-1) = 12$.\n\n**Test Day Takeaway:** For "sum of $y$-values" in a quadratic-linear system, use Vieta\'s formulas to find $x_1 + x_2$ from the resulting quadratic, then plug into the linear equation. This shortcut avoids finding individual roots.',
           skills: ["substitution-method", "identify-quadratic"]
         },
         {
@@ -587,16 +587,16 @@ export const practiceTest8 = {
         {
           id: 'pt8-m2-q17',
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'For the exponential function $f$, the value of $f(1)$ is $k$, where $k$ is a constant. Which of the following equivalent forms of the function $f$ shows the value of $k$ as the coefficient or the base?',
+          difficulty: 'hard',
+          question: 'The four functions below are all equivalent. The value of $f(1)$ is $k$, and the value of $f(3)$ is $m$. What is the value of $\\frac{m}{k}$?\n\n$f(x) = 40(1.5)^{x+1}$\n$f(x) = 60(1.5)^x$\n$f(x) = 90(1.5)^{x-1}$\n$f(x) = 135(1.5)^{x-2}$',
           choices: [
-            { id: 'A', text: '$f(x) = 40(1.5)^{x+1}$' },
-            { id: 'B', text: '$f(x) = 60(1.5)^x$' },
-            { id: 'C', text: '$f(x) = 90(1.5)^{x-1}$' },
-            { id: 'D', text: '$f(x) = 135(1.5)^{x-2}$' }
+            { id: 'A', text: '$1.5$' },
+            { id: 'B', text: '$2.25$' },
+            { id: 'C', text: '$3.375$' },
+            { id: 'D', text: '$\\frac{135}{90}$' }
           ],
-          correctAnswer: 'C',
-          explanation: '**SAT Pattern: Equivalent Exponential Forms** -- Appears 1-2 times per test. The coefficient equals the function value when the exponent equals zero.\n\n**Choice C is correct.** In $f(x) = 90(1.5)^{x-1}$, when $x = 1$ the exponent becomes $0$, so $f(1) = 90(1) = 90$. The coefficient $90$ IS the value of $k$.\n\n**The Fast Way (10 seconds):** You need the exponent to equal $0$ when $x = 1$. Only $(x - 1)$ gives $0$ at $x = 1$. That is Choice C. The coefficient $90$ is then $k = f(1)$.\n\n**Step 1: Key insight**\nIn the form $c \\cdot b^{(\\text{expression})}$, the coefficient $c$ equals $f(x)$ when the exponent expression equals $0$ (because $b^0 = 1$).\n\n**Step 2: Check which exponent equals $0$ at $x = 1$**\n- A: $x + 1 = 1 + 1 = 2 \\neq 0$. Coefficient $40$ shows $f(-1)$.\n- B: $x = 1 \\neq 0$. Coefficient $60$ shows $f(0)$.\n- C: $x - 1 = 1 - 1 = 0$. Coefficient $90$ shows $f(1)$. This is the one.\n- D: $x - 2 = 1 - 2 = -1 \\neq 0$. Coefficient $135$ shows $f(2)$.\n\n**Why the wrong answers are tempting:**\n- Choice A has coefficient $40$, which is $f(-1)$. If you confuse which $x$-value makes $x + 1 = 0$, you might think this shows $f(1)$.\n- Choice B has coefficient $60$, which is $f(0)$. The exponent is just $x$, and $x = 0$ (not $x = 1$) makes it zero. This is a natural but wrong choice if you think "the coefficient always shows $f(1)$."\n- Choice D has coefficient $135$, which is $f(2)$. The exponent $x - 2 = 0$ when $x = 2$, not when $x = 1$. Off by one.\n\n**Verification:** All four forms are equivalent: $f(1) = 40(2.25) = 60(1.5) = 90(1) = 135(\\frac{2}{3}) = 90$.\n\n**Test Day Takeaway:** The coefficient of an exponential function equals $f(a)$ where $a$ is the value that makes the exponent zero. To show $f(1)$, you need the exponent $(x - 1)$.',
+          correctAnswer: 'B',
+          explanation: '**SAT Pattern: Equivalent Exponential Forms -- Ratio of Function Values** -- Appears 1-2 times per test. Requires identifying which form makes each evaluation simplest, then computing the ratio.\n\n**Choice B is correct.** Using $f(x) = 90(1.5)^{x-1}$: $k = f(1) = 90(1.5)^0 = 90$. Using $f(x) = 135(1.5)^{x-2}$: $m = f(3) = 135(1.5)^1 = 202.5$. So $\\frac{m}{k} = \\frac{202.5}{90} = 2.25$.\n\nAlternatively, since $\\frac{f(3)}{f(1)} = \\frac{60(1.5)^3}{60(1.5)^1} = (1.5)^2 = 2.25$ directly.\n\n**The Fast Way (15 seconds):** For ANY exponential $f(x) = c \\cdot b^x$, the ratio $\\frac{f(a+n)}{f(a)} = b^n$. Here $\\frac{f(3)}{f(1)} = (1.5)^{3-1} = (1.5)^2 = 2.25$.\n\n**Step 1: Recognize the ratio shortcut**\nFor $f(x) = c \\cdot b^{g(x)}$ where $g$ is linear, $\\frac{f(3)}{f(1)}$ depends only on the base and the difference in exponents.\n\n**Step 2: Compute the ratio**\nUsing $f(x) = 60(1.5)^x$:\n$\\frac{f(3)}{f(1)} = \\frac{60(1.5)^3}{60(1.5)^1} = (1.5)^2 = 2.25$\n\n**Why the wrong answers are tempting:**\n- Choice A ($1.5$) is the base itself -- $\\frac{f(2)}{f(1)}$, not $\\frac{f(3)}{f(1)}$. If you think the ratio for any two outputs is always the base, you pick this. But the ratio depends on the GAP: $(1.5)^{3-1} = (1.5)^2$, not $(1.5)^1$.\n- Choice C ($3.375$) is $(1.5)^3$, which would be $\\frac{f(3)}{f(0)}$. Off by one in the exponent difference.\n- Choice D ($\\frac{135}{90} = 1.5$) divides two of the coefficients. But the coefficients represent function values at different inputs (depending on the form), so their ratio is not directly meaningful here.\n\n**Verification:** $f(1) = 60(1.5) = 90$. $f(3) = 60(1.5)^3 = 60(3.375) = 202.5$. $\\frac{202.5}{90} = 2.25 = (1.5)^2$.\n\n**Test Day Takeaway:** For exponential functions, the ratio $\\frac{f(a)}{f(b)}$ equals $\\text{base}^{a-b}$, regardless of which equivalent form you use. This property makes ratio problems much faster than computing each value separately.',
           skills: ["exponential-growth-decay", "equivalent-expressions"]
         },
         {

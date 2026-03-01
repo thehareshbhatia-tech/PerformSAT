@@ -73,8 +73,8 @@ export const practiceTest11 = {
         {
           id: 'pt11-m1-q4',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'The bar graph above shows the number of books read by each of $20$ students during the summer. How many students read exactly $3$ books?',
+          difficulty: 'medium',
+          question: 'The bar graph above shows the number of books read by each of $20$ students during the summer. What fraction of the students read $3$ or more books?',
           diagram: {
             type: 'barChart',
             params: {
@@ -92,22 +92,22 @@ export const practiceTest11 = {
             }
           },
           choices: [
-            { id: 'A', text: '$3$' },
-            { id: 'B', text: '$5$' },
-            { id: 'C', text: '$6$' },
-            { id: 'D', text: '$8$' }
+            { id: 'A', text: '$\\frac{3}{10}$' },
+            { id: 'B', text: '$\\frac{3}{20}$' },
+            { id: 'C', text: '$\\frac{1}{2}$' },
+            { id: 'D', text: '$\\frac{7}{20}$' }
           ],
           correctAnswer: 'C',
-          explanation: '**SAT Pattern: Reading a Bar Graph / Frequency Chart** -- Shows up every test. Pure graph-reading -- no calculation needed.\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** Find "$3$" on the horizontal axis (Number of books). Look at the height of that bar. It reaches $6$ on the vertical axis. The answer is $6$.\n\n**Step 1: Locate the bar for $3$ books**\nOn the horizontal axis, find the bar labeled $3$.\n\n**Step 2: Read the height**\nThe bar reaches $6$ on the vertical axis, meaning $6$ students read exactly $3$ books.\n\n**Why the wrong answers are tempting:**\n- Choice A ($3$) is the number of books, not the number of students. College Board is testing whether you confuse the $x$-axis label with the $y$-axis value. This "axis swap" trap is devastatingly effective because the number $3$ appears right there in the question.\n- Choice B ($5$) is the height of the bar for $2$ books, not $3$ books. Students who read the adjacent bar to the left fall for this. Under time pressure, it is easy to land on the wrong bar.\n- Choice D ($8$) might come from adding bars together ($5 + 3$ or similar). This traps students who overthink a simple reading question and start combining values.\n\n**Verification:** The bar for $3$ books clearly reaches $6$, and all bars sum to $2 + 3 + 5 + 6 + 3 + 1 = 20$ total students, matching the problem statement.\n\n**Test Day Takeaway:** On bar graph questions, slow down for 3 seconds to confirm you are reading the right bar and the right axis. The most common mistake is reading the wrong bar or swapping axes.',
+          explanation: '**SAT Pattern: Bar Graph Reading + Fraction Computation** -- Shows up every test, 1-2 per test. Requires reading the graph AND performing a follow-up calculation.\n\n**Choice C is correct.**\n\n**The Fast Way (20 seconds):** Read the bars for $3$ or more books: $3$ books $= 6$, $4$ books $= 3$, $5$ books $= 1$. Total: $6 + 3 + 1 = 10$ students. Total students: $20$. Fraction: $\\frac{10}{20} = \\frac{1}{2}$.\n\n**Step 1: Read the relevant bars**\nStudents who read $3$ or more books:\n- $3$ books: $6$ students\n- $4$ books: $3$ students\n- $5$ books: $1$ student\n\n**Step 2: Sum and compute the fraction**\n$6 + 3 + 1 = 10$ students read $3$ or more books.\n$\\frac{10}{20} = \\frac{1}{2}$\n\n**Why the wrong answers are tempting:**\n- Choice A ($\\frac{3}{10}$) comes from reading only the bar for exactly $3$ books ($6$) and then dividing by $20$ to get $\\frac{6}{20} = \\frac{3}{10}$. The student missed the "$3$ or more" phrasing and only counted exactly $3$. College Board uses "at least" and "or more" to test whether students read the condition carefully.\n- Choice B ($\\frac{3}{20}$) corresponds to just the $3$ students who read $4$ books. The student may have misread "$3$ or more" as "more than $3$" and only counted $4$ and $5$ partially.\n- Choice D ($\\frac{7}{20}$) might come from miscounting -- perhaps adding only two of the three bars ($6 + 1 = 7$) and missing the bar for $4$ books entirely.\n\n**Verification:** All bars sum to $2 + 3 + 5 + 6 + 3 + 1 = 20$ total students. Students with $3+$ books: $10$. $\\frac{10}{20} = \\frac{1}{2}$.\n\n**Test Day Takeaway:** When a bar graph question says "$3$ or more" (or "at least $3$"), you must sum ALL bars from $3$ onward. Read the inequality carefully -- "exactly $3$" vs. "$3$ or more" vs. "more than $3$" all give different answers.',
           skills: ['Data Analysis', 'Bar Graphs']
         },
         {
           id: 'pt11-m1-q5',
           type: 'fill-in',
-          difficulty: 'easy',
-          question: 'A store originally has $400$ items in stock. If $35\\%$ of the items are sold during a sale, how many items were sold?',
-          correctAnswer: '140',
-          explanation: '**SAT Pattern: Basic Percent Calculation** -- Shows up every test, 1-2 per test.\n\n**The correct answer is $140$.**\n\n**The Fast Way (10 seconds):** $35\\%$ of $400$. Think: $10\\%$ of $400 = 40$, so $30\\% = 120$ and $5\\% = 20$. Total: $120 + 20 = 140$. Or just type $0.35 \\times 400$ into your calculator.\n\n**Step 1: Convert the percentage to a decimal**\n$35\\% = 0.35$\n\n**Step 2: Multiply**\n$0.35 \\times 400 = 140$ items sold.\n\n**Verification:** $\\frac{140}{400} = 0.35 = 35\\%$.\n\n**Test Day Takeaway:** For percent-of problems, just multiply the decimal form by the total. If you want a mental math shortcut, break the percent into 10% chunks.',
+          difficulty: 'medium',
+          question: 'A store originally has $400$ items in stock. During a weekend sale, $35\\%$ of the items are sold. On Monday, the store receives a new shipment that increases the remaining inventory by $20\\%$. How many items does the store have after the shipment?',
+          correctAnswer: '312',
+          explanation: '**SAT Pattern: Sequential Percent Calculations** -- Shows up 1-2 per test. Requires chaining two percent operations together.\n\n**The correct answer is $312$.**\n\n**The Fast Way (20 seconds):** Start with $400$. Sell $35\\%$: $400 \\times 0.65 = 260$ remaining. Increase by $20\\%$: $260 \\times 1.20 = 312$.\n\n**Step 1: Find items remaining after the sale**\nItems sold: $0.35 \\times 400 = 140$.\nRemaining: $400 - 140 = 260$ items.\n\n**Step 2: Apply the $20\\%$ increase from the shipment**\nIncrease: $0.20 \\times 260 = 52$ items.\nAfter shipment: $260 + 52 = 312$ items.\n\n**Common Mistakes:**\n- Computing $35\\% + 20\\% = 55\\%$ and applying it as a single operation. Successive percent changes must be applied sequentially to different bases, not added together.\n- Applying the $20\\%$ increase to the original $400$ instead of the remaining $260$. The shipment increases the REMAINING inventory, not the original stock.\n- Forgetting to subtract the sold items first and computing $400 \\times 1.20 = 480$.\n\n**Verification:** $400 \\times 0.65 = 260$. Then $260 \\times 1.20 = 312$.\n\n**Test Day Takeaway:** For sequential percent changes, apply each percent to the RESULT of the previous step, not the original amount. Use multipliers ($0.65$ for "lose $35\\%$," $1.20$ for "gain $20\\%$") for speed.',
           skills: ['Percentages', 'Arithmetic']
         },
         {
@@ -244,25 +244,25 @@ export const practiceTest11 = {
         {
           id: 'pt11-m1-q13',
           type: 'fill-in',
-          difficulty: 'medium',
-          question: 'The data set below shows the ages (in years) of $7$ members of a team.\n\n$22, 25, 27, 28, 30, 31, 39$\n\nWhat is the median age, in years, of the team members?',
-          correctAnswer: '28',
-          explanation: '**SAT Pattern: Finding the Median** -- Shows up 1-2 per test.\n\n**The correct answer is $28$.**\n\n**The Fast Way (10 seconds):** The data is already sorted. There are $7$ values, so the median is the middle one -- the 4th value. Count: $22, 25, 27, \\boxed{28}, 30, 31, 39$. It is $28$.\n\n**Step 1: Confirm the data is ordered**\n$22, 25, 27, 28, 30, 31, 39$ -- already in ascending order.\n\n**Step 2: Find the median**\nWith $7$ values, the median is the $\\frac{7+1}{2} = 4$th value.\nCounting: $22, 25, 27, \\boxed{28}, 30, 31, 39$\n\nThe median age is $28$ years.\n\n**Verification:** There are $3$ values below $28$ and $3$ values above $28$, confirming it is the middle value.\n\n**Test Day Takeaway:** For an odd number of data values, the median is simply the middle value. For $n$ values, it is the $\\frac{n+1}{2}$th value. For an even number, average the two middle values.',
+          difficulty: 'hard',
+          question: 'The data set below shows the ages (in years) of $7$ members of a team.\n\n$22, 25, 27, 28, 30, 31, 39$\n\nAn $8$th member joins the team. If the median age of all $8$ members is $27.5$ years, and the new member\'s age is a whole number, what is the greatest possible age of the new member?',
+          correctAnswer: '27',
+          explanation: '**SAT Pattern: Median with an Unknown Value** -- Shows up 1 per test. Requires understanding how inserting a value shifts the median.\n\n**The correct answer is $27$.**\n\n**Step 1: Understand the median condition for $8$ values**\nWith $8$ values, the median is the average of the 4th and 5th values when sorted in ascending order.\nWe need: $\\frac{\\text{4th value} + \\text{5th value}}{2} = 27.5$, so the 4th and 5th values must sum to $55$.\n\n**Step 2: Determine which pairs of values can occupy the 4th and 5th positions**\nThe only pair from the vicinity of the middle that sums to $55$ is $27$ and $28$. So we need the 4th value $= 27$ and 5th value $= 28$.\n\n**Step 3: Find the greatest possible age of the new member**\nFor $27$ and $28$ to remain in the 4th and 5th positions, the new member\'s age must be $\\leq 27$ (placing them at or before the 4th position). If the new member\'s age were $28$ or higher, it would push $28$ to the 5th or 6th position and shift $27$ to the 4th, but another value would also shift, potentially changing the median.\n\nLet\'s verify: if the new member is age $27$, the sorted data is $22, 25, 27, 27, 28, 30, 31, 39$. The 4th and 5th values are $27$ and $28$, giving median $= 27.5$.\n\nIf the new member is age $28$: sorted data is $22, 25, 27, 28, 28, 30, 31, 39$. Median $= \\frac{28 + 28}{2} = 28 \\neq 27.5$.\n\nSo the greatest possible whole-number age is $27$.\n\n**Verification:** Sorted with new member age $27$: $22, 25, 27, 27, 28, 30, 31, 39$. Median $= \\frac{27 + 28}{2} = 27.5$.\n\n**Test Day Takeaway:** When a problem asks about median with an unknown value, first determine what the 4th and 5th values (for even $n$) must be, then work backwards to find the constraint on the unknown.',
           skills: ['Statistics', 'Median']
         },
         {
           id: 'pt11-m1-q14',
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'In triangle $DEF$, the measure of angle $D$ is $52°$ and the measure of angle $E$ is $73°$. What is the measure, in degrees, of angle $F$?',
+          difficulty: 'hard',
+          question: 'In triangle $DEF$, the measure of angle $D$ is $52°$ and the measure of angle $E$ is $73°$. Side $\\overline{EF}$ is extended through $F$ to a point $G$, forming exterior angle $\\angle DFG$. What is the measure, in degrees, of the exterior angle $\\angle DFG$?',
           choices: [
-            { id: 'A', text: '$35°$' },
-            { id: 'B', text: '$45°$' },
-            { id: 'C', text: '$55°$' },
-            { id: 'D', text: '$65°$' }
+            { id: 'A', text: '$55°$' },
+            { id: 'B', text: '$107°$' },
+            { id: 'C', text: '$125°$' },
+            { id: 'D', text: '$128°$' }
           ],
           correctAnswer: 'C',
-          explanation: '**SAT Pattern: Triangle Angle Sum** -- Shows up 1-2 per test. The easiest geometry points on the SAT.\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** Angles in a triangle add to $180°$. So $\\angle F = 180° - 52° - 73° = 55°$. Done.\n\n**Step 1: Apply the angle sum**\n$\\angle D + \\angle E + \\angle F = 180°$\n$52° + 73° + \\angle F = 180°$\n\n**Step 2: Solve**\n$\\angle F = 180° - 52° - 73° = 55°$\n\n**Why the wrong answers are tempting:**\n- Choice A ($35°$) comes from a subtraction error, perhaps computing $180 - 52 - 73$ incorrectly as $180 - 52 = 128$, then $128 - 73 = 55$... wait, that is correct. But a student might get $180 - 72 - 73 = 35$ by misreading $52°$ as $72°$. College Board loves answers that result from misreading one digit.\n- Choice B ($45°$) could come from subtracting from $170°$ instead of $180°$: $170 - 52 - 73 = 45$. This traps students who misremember the triangle angle sum.\n- Choice D ($65°$) could come from $180 - 73 - 42 = 65$, misreading $52°$ as $42°$. Another digit-swap trap.\n\n**Verification:** $52° + 73° + 55° = 180°$.\n\n**Test Day Takeaway:** Triangle angles always sum to $180°$. Do the subtraction carefully and verify by adding all three angles back together.',
+          explanation: '**SAT Pattern: Exterior Angle Theorem + Triangle Angle Sum** -- Shows up 1 per test. Combines two geometry concepts.\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** By the Exterior Angle Theorem, an exterior angle of a triangle equals the sum of the two non-adjacent interior angles. So $\\angle DFG = \\angle D + \\angle E = 52° + 73° = 125°$.\n\n**Method 2 (Multi-step approach):**\n\n**Step 1: Find the interior angle $\\angle F$**\n$\\angle F = 180° - 52° - 73° = 55°$\n\n**Step 2: Find the exterior angle**\nSince $\\angle DFG$ and $\\angle DFE$ (which is $\\angle F$) form a linear pair:\n$\\angle DFG = 180° - 55° = 125°$\n\n**Why the wrong answers are tempting:**\n- Choice A ($55°$) is the interior angle $\\angle F$ itself, not the exterior angle. Students who correctly find $\\angle F = 55°$ but forget that the question asks for the EXTERIOR angle pick this. College Board counts on students not re-reading what is actually being asked.\n- Choice B ($107°$) might come from computing $180° - 73° = 107°$, using only one angle instead of both non-adjacent angles. This shows a partial application of the exterior angle theorem.\n- Choice D ($128°$) could come from $180° - 52° = 128°$, again using only one of the two non-adjacent angles.\n\n**Verification:** Exterior angle $= 52° + 73° = 125°$, and $125° + 55° = 180°$ (linear pair). Both methods confirm the answer.\n\n**Test Day Takeaway:** The Exterior Angle Theorem is a powerful shortcut: exterior angle = sum of the two remote interior angles. It saves a step compared to finding the interior angle first and then subtracting from $180°$.',
           skills: ['Geometry', 'Triangles']
         },
         {
@@ -420,25 +420,25 @@ export const practiceTest11 = {
         {
           id: 'pt11-m2-q3',
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'A car rental company charges a flat fee of \\$50 plus \\$0.25 per mile driven. If a customer drove $m$ miles, which equation gives the total cost $C$ in dollars?',
+          difficulty: 'medium',
+          question: 'A car rental company charges a flat fee of \\$50 plus \\$0.25 per mile driven. A second company charges no flat fee but \\$0.50 per mile. For what number of miles driven would the total cost be the same at both companies?',
           choices: [
-            { id: 'A', text: '$C = 50m + 0.25$' },
-            { id: 'B', text: '$C = 0.25m + 50$' },
-            { id: 'C', text: '$C = 50.25m$' },
-            { id: 'D', text: '$C = 50 - 0.25m$' }
+            { id: 'A', text: '$100$' },
+            { id: 'B', text: '$150$' },
+            { id: 'C', text: '$200$' },
+            { id: 'D', text: '$250$' }
           ],
-          correctAnswer: 'B',
-          explanation: '**SAT Pattern: Linear Model from Word Problem** -- Shows up every test. Same structure as the phone plan question.\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** Flat fee = constant = $50$. Per-mile rate = slope = $0.25$. Equation: $C = 0.25m + 50$. The rate multiplies the variable, the flat fee gets added.\n\n**Step 1: Identify the components**\n- Flat fee: $\\$50$ (constant, does not change with miles)\n- Per-mile cost: $\\$0.25 \\times m$ miles $= 0.25m$ (variable term)\n\n**Step 2: Write the total**\n$C = 0.25m + 50$\n\n**Why the wrong answers are tempting:**\n- Choice A swaps the rate and constant, multiplying $50$ by $m$. College Board puts the bigger number next to the variable because students instinctively associate "the bigger number" with "the important coefficient." But $50$ is fixed, not per-mile.\n- Choice C combines everything into one term: $50.25m$. This eliminates the flat fee as a separate component. A cost model with no constant means "0 miles = $0 cost," but the flat fee means you pay $50 even for zero miles.\n- Choice D subtracts the mileage cost. This would mean driving more costs LESS, which defies common sense. College Board includes sign-error answers because students do make sign mistakes under pressure.\n\n**Verification:** For $m = 100$ miles: $C = 0.25(100) + 50 = 25 + 50 = \\$75$. For $m = 0$ miles: $C = 50$. Both make sense.\n\n**Test Day Takeaway:** Flat fee = constant (the $b$ in $y = mx + b$). Per-unit rate = slope (the $m$). The variable always multiplies the rate, never the flat fee.',
+          correctAnswer: 'C',
+          explanation: '**SAT Pattern: Comparing Linear Models / Break-Even** -- Shows up 1-2 per test. Requires building two linear models and finding their intersection.\n\n**Choice C is correct.**\n\n**The Fast Way (20 seconds):** Company 1: $C_1 = 0.25m + 50$. Company 2: $C_2 = 0.50m$. Set equal: $0.25m + 50 = 0.50m$. Subtract: $50 = 0.25m$. So $m = 200$.\n\n**Step 1: Write the cost equations**\n- Company 1: $C_1 = 0.25m + 50$ (flat fee plus per-mile)\n- Company 2: $C_2 = 0.50m$ (per-mile only)\n\n**Step 2: Set them equal and solve**\n$0.25m + 50 = 0.50m$\n$50 = 0.25m$\n$m = 200$\n\n**Why the wrong answers are tempting:**\n- Choice A ($100$): Company 1 costs $0.25(100) + 50 = \\$75$ and Company 2 costs $0.50(100) = \\$50$. Not equal. Students might divide $50$ by $0.50$ instead of $0.25$.\n- Choice B ($150$): Might come from an arithmetic error in dividing $50 \\div 0.25$, or from averaging $100$ and $200$.\n- Choice D ($250$): Might come from dividing $50 \\div 0.20$ if the student miscalculates the rate difference as $0.20$ instead of $0.25$.\n\n**Verification:** At $m = 200$: Company 1 $= 0.25(200) + 50 = 50 + 50 = \\$100$. Company 2 $= 0.50(200) = \\$100$. Equal.\n\n**Test Day Takeaway:** When comparing two cost models, set the equations equal and solve for the break-even point. The difference in slopes determines how quickly the gap closes.',
           skills: ['Algebra', 'Linear Equations', 'Word Problems']
         },
         {
           id: 'pt11-m2-q4',
           type: 'fill-in',
-          difficulty: 'easy',
-          question: 'A recipe calls for $3$ cups of flour for every $2$ cups of sugar. If a baker uses $12$ cups of flour, how many cups of sugar are needed?',
-          correctAnswer: '8',
-          explanation: '**SAT Pattern: Basic Proportion** -- Shows up 1-2 per test.\n\n**The correct answer is $8$.**\n\n**The Fast Way (10 seconds):** $3$ cups flour goes with $2$ cups sugar. $12$ cups flour is $4$ times as much flour ($12 \\div 3 = 4$). So you need $4$ times as much sugar: $2 \\times 4 = 8$.\n\n**Step 1: Write the proportion**\n$\\frac{3 \\text{ flour}}{2 \\text{ sugar}} = \\frac{12 \\text{ flour}}{s \\text{ sugar}}$\n\n**Step 2: Cross-multiply and solve**\n$3s = 24$\n$s = 8$\n\n**Verification:** $\\frac{3}{2} = \\frac{12}{8} = 1.5$. The ratios match.\n\n**Test Day Takeaway:** For proportions, find the scale factor first (how many times bigger is the known quantity?), then multiply the other quantity by the same factor. It is faster than cross-multiplying.',
+          difficulty: 'medium',
+          question: 'A recipe calls for $3$ cups of flour for every $2$ cups of sugar. A baker wants to make a batch using $12$ cups of flour but only has $7$ cups of sugar. How many additional cups of sugar does the baker need?',
+          correctAnswer: '1',
+          explanation: '**SAT Pattern: Proportion with Comparison Step** -- Shows up 1-2 per test. Requires setting up a proportion AND comparing to a given quantity.\n\n**The correct answer is $1$.**\n\n**The Fast Way (15 seconds):** $12$ cups flour needs $\\frac{2}{3} \\times 12 = 8$ cups sugar. Baker has $7$. Needs $8 - 7 = 1$ more cup.\n\n**Step 1: Find the required amount of sugar**\nThe ratio is $3$ flour : $2$ sugar. For $12$ cups flour:\n$\\frac{3}{2} = \\frac{12}{s}$\n$3s = 24$\n$s = 8$ cups of sugar needed.\n\n**Step 2: Find the additional sugar needed**\nThe baker has $7$ cups but needs $8$:\n$8 - 7 = 1$ additional cup.\n\n**Common Mistakes:**\n- Answering $8$ (the total sugar needed) instead of the ADDITIONAL sugar needed. The question asks "how many additional," not "how many total." Always re-read what is being asked.\n- Setting up the proportion incorrectly, e.g., $\\frac{3}{2} = \\frac{s}{12}$, which gives $s = 18$. The flour and sugar must be in the same positions on both sides of the proportion.\n\n**Verification:** $\\frac{3}{2} = \\frac{12}{8} = 1.5$. Baker needs $8$ cups, has $7$, so $1$ more cup is needed.\n\n**Test Day Takeaway:** On proportion problems with a follow-up comparison, solve the proportion first, then perform the additional step. Watch for "additional" vs. "total" in the question wording.',
           skills: ['Ratios', 'Proportions']
         },
         {
@@ -483,25 +483,25 @@ export const practiceTest11 = {
         {
           id: 'pt11-m2-q8',
           type: 'multiple-choice',
-          difficulty: 'medium',
-          question: 'A bag contains $5$ red marbles, $3$ blue marbles, and $2$ green marbles. If one marble is selected at random, what is the probability that it is NOT red?',
+          difficulty: 'hard',
+          question: 'A bag contains $5$ red marbles, $3$ blue marbles, and $2$ green marbles. Two marbles are selected at random without replacement. What is the probability that the first marble is red and the second marble is NOT red?',
           choices: [
-            { id: 'A', text: '$\\frac{1}{10}$' },
-            { id: 'B', text: '$\\frac{1}{2}$' },
-            { id: 'C', text: '$\\frac{3}{5}$' },
-            { id: 'D', text: '$\\frac{4}{5}$' }
+            { id: 'A', text: '$\\frac{1}{4}$' },
+            { id: 'B', text: '$\\frac{5}{18}$' },
+            { id: 'C', text: '$\\frac{1}{2}$' },
+            { id: 'D', text: '$\\frac{1}{6}$' }
           ],
           correctAnswer: 'B',
-          explanation: '**SAT Pattern: Basic Probability (Complement)** -- Shows up every test.\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** Total marbles: $5 + 3 + 2 = 10$. Non-red: $3 + 2 = 5$. Probability: $\\frac{5}{10} = \\frac{1}{2}$. Or use the complement: $P(\\text{not red}) = 1 - \\frac{5}{10} = \\frac{1}{2}$.\n\n**Step 1: Find the total**\n$5 + 3 + 2 = 10$ marbles.\n\n**Step 2: Count non-red marbles**\n$3 \\text{ blue} + 2 \\text{ green} = 5$ non-red.\n\n**Step 3: Calculate**\n$P(\\text{not red}) = \\frac{5}{10} = \\frac{1}{2}$\n\n**Why the wrong answers are tempting:**\n- Choice A ($\\frac{1}{10}$) is the probability of picking one SPECIFIC marble, not all non-red marbles. A student might think "1 out of 10" without actually counting favorable outcomes.\n- Choice C ($\\frac{3}{5}$) might come from counting only blue marbles ($3$) as "not red" and ignoring the green ones, then simplifying $\\frac{3}{10}$... no, $\\frac{3}{5}$ does not come from that. More likely from $\\frac{6}{10}$ through a miscount.\n- Choice D ($\\frac{4}{5}$) might come from thinking there are $8$ non-red marbles (perhaps miscounting green as $4$ instead of $2$). This traps students who rush the addition.\n\n**Verification:** $P(\\text{not red}) = 1 - P(\\text{red}) = 1 - \\frac{5}{10} = 1 - \\frac{1}{2} = \\frac{1}{2}$.\n\n**Test Day Takeaway:** For "NOT" probability, either count the non-target outcomes directly or use $P(\\text{not A}) = 1 - P(A)$. Both should give the same answer -- use whichever is faster.',
+          explanation: '**SAT Pattern: Dependent Probability (Without Replacement)** -- Shows up 1 per test. Multi-step: requires adjusting the denominator after the first draw.\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** $P(\\text{1st red}) = \\frac{5}{10} = \\frac{1}{2}$. After removing a red marble, $9$ remain, $5$ non-red. $P(\\text{2nd not red} \\mid \\text{1st red}) = \\frac{5}{9}$. Multiply: $\\frac{1}{2} \\times \\frac{5}{9} = \\frac{5}{18}$.\n\n**Step 1: Find the probability of the first event**\nTotal marbles: $5 + 3 + 2 = 10$.\n$P(\\text{1st marble is red}) = \\frac{5}{10} = \\frac{1}{2}$\n\n**Step 2: Find the conditional probability of the second event**\nAfter removing one red marble: $4$ red, $3$ blue, $2$ green remain ($9$ total). Non-red: $3 + 2 = 5$.\n$P(\\text{2nd not red} \\mid \\text{1st red}) = \\frac{5}{9}$\n\n**Step 3: Multiply (dependent events)**\n$P(\\text{1st red AND 2nd not red}) = \\frac{1}{2} \\times \\frac{5}{9} = \\frac{5}{18}$\n\n**Why the wrong answers are tempting:**\n- Choice A ($\\frac{1}{4}$) comes from $\\frac{1}{2} \\times \\frac{1}{2}$, using $\\frac{5}{10}$ for the second draw instead of $\\frac{5}{9}$. This treats the draws as independent (with replacement), ignoring that the total changes after the first draw.\n- Choice C ($\\frac{1}{2}$) is just the probability of the first event. The student forgot to account for the second draw entirely.\n- Choice D ($\\frac{1}{6}$) might come from $\\frac{5}{10} \\times \\frac{3}{9}$, counting only blue marbles as "not red" and ignoring green. Or from other miscalculations.\n\n**Verification:** $\\frac{5}{18} \\approx 0.278$. Reasonable for a two-step probability.\n\n**Test Day Takeaway:** "Without replacement" means the total decreases by $1$ after each draw, and the composition changes. Always adjust the denominator AND the numerator for the second draw based on what was removed in the first draw.',
           skills: ['Probability', 'Data Analysis']
         },
         {
           id: 'pt11-m2-q9',
           type: 'fill-in',
-          difficulty: 'medium',
-          question: 'The function $p$ is defined by $p(x) = 2(3)^x$. What is the value of $p(4)$?',
-          correctAnswer: '162',
-          explanation: '**SAT Pattern: Evaluating an Exponential Function** -- Shows up 1 per test.\n\n**The correct answer is $162$.**\n\n**The Fast Way (10 seconds):** Type $2 \\times 3^4$ into your calculator: $2 \\times 81 = 162$. Or in Desmos, type $p(x) = 2(3)^x$ then evaluate $p(4)$.\n\n**Step 1: Substitute $x = 4$**\n$p(4) = 2(3)^4$\n\n**Step 2: Calculate**\n$3^4 = 81$\n$p(4) = 2 \\times 81 = 162$\n\n**Verification:** $3^1 = 3$, $3^2 = 9$, $3^3 = 27$, $3^4 = 81$. Then $2 \\times 81 = 162$.\n\n**Test Day Takeaway:** For exponential functions, compute the power FIRST, then multiply by the coefficient. A common error is computing $2 \\times 3 = 6$ first and then raising to the 4th power, which gives $(6)^4 = 1296$ -- way too big.',
+          difficulty: 'hard',
+          question: 'The function $p$ is defined by $p(x) = 2(3)^x$. What is the positive difference between $p(4)$ and $p(2) + p(3)$?',
+          correctAnswer: '90',
+          explanation: '**SAT Pattern: Exponential Function -- Multi-Step Evaluation and Comparison** -- Shows up 1 per test. Requires evaluating the function at multiple inputs and combining results.\n\n**The correct answer is $90$.**\n\n**The Fast Way (25 seconds):** $p(4) = 2(3)^4 = 2 \\times 81 = 162$. $p(2) = 2(9) = 18$. $p(3) = 2(27) = 54$. Sum: $18 + 54 = 72$. Difference: $162 - 72 = 90$.\n\n**Step 1: Evaluate $p(4)$**\n$p(4) = 2(3)^4 = 2 \\times 81 = 162$\n\n**Step 2: Evaluate $p(2)$ and $p(3)$**\n$p(2) = 2(3)^2 = 2 \\times 9 = 18$\n$p(3) = 2(3)^3 = 2 \\times 27 = 54$\n$p(2) + p(3) = 18 + 54 = 72$\n\n**Step 3: Find the positive difference**\n$|p(4) - (p(2) + p(3))| = |162 - 72| = 90$\n\n**Common Mistakes:**\n- Computing $p(2+3) = p(5)$ instead of $p(2) + p(3)$. Exponential functions do NOT distribute over addition: $f(a) + f(b) \\neq f(a+b)$.\n- Multiplying the base and coefficient first: $(2 \\times 3)^4 = 1296$ instead of $2 \\times 3^4 = 162$. The coefficient stays outside the exponent.\n- Forgetting "positive difference" and giving a negative answer.\n\n**Verification:** $p(4) = 162$, $p(2) + p(3) = 18 + 54 = 72$, difference $= 90$.\n\n**Test Day Takeaway:** For exponential functions, $f(a+b) \\neq f(a) + f(b)$. Exponentials do NOT distribute over addition. Always compute each function value separately and then combine.',
           skills: ['Functions', 'Exponential Functions']
         },
         {

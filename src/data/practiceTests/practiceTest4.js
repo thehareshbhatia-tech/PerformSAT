@@ -17,25 +17,25 @@ export const practiceTest4 = {
         {
           id: 1,
           type: "fill-in",
-          difficulty: "easy",
-          question: "A gym membership has a one-time signup fee and a monthly charge. The equation $3600 = 400 + 320t$ represents the total amount paid, in dollars, after $t$ months. How many months does it take to pay a total of \\$3600?",
+          difficulty: "medium",
+          question: "A gym membership has a one-time signup fee and a monthly charge. The equation $C = 400 + 320t$ gives the total amount paid $C$, in dollars, after $t$ months. A second gym charges no signup fee but a higher monthly rate. The total cost at the second gym after $t$ months is given by $C = 360t$. After how many months will the total cost at the two gyms be equal?",
           correctAnswer: 10,
-          explanation: "**SAT Pattern: Linear Equation Word Problem** -- One of the most common question types on the SAT. Expect 2-4 per test.\n\n**The correct answer is 10.**\n\n**The Fast Way (15 seconds):** Plug into Desmos or your calculator: $(3600 - 400) \\div 320 = 10$. Done.\n\n**Solution Steps:**\n• $3600 = 400 + 320t$\n• $3600 - 400 = 320t$\n• $3200 = 320t$\n• $t = 3200 \\div 320$\n• $t = 10$\n\nThe $400$ is the one-time signup fee, $320t$ is the monthly charges at \\$320/month, and $3600$ is the total paid.\n\n**Verification:** $400 + 320(10) = 400 + 3200 = 3600$\n\n**Test Day Takeaway:** Total = Fixed Cost + Rate x Time. Subtract the fixed cost first, then divide by the rate.",
+          explanation: "**SAT Pattern: Comparing Two Linear Cost Models** -- The SAT frequently asks you to set two linear equations equal and solve. This requires recognizing which terms to isolate.\n\n**The correct answer is 10.**\n\n**The Fast Way (20 seconds):** Set the two cost equations equal: $400 + 320t = 360t$. Subtract $320t$: $400 = 40t$, so $t = 10$.\n\n**Solution Steps:**\n• First gym: $C_1 = 400 + 320t$\n• Second gym: $C_2 = 360t$\n• Set equal: $400 + 320t = 360t$\n• $400 = 360t - 320t = 40t$\n• $t = 400 \\div 40 = 10$\n\nThe first gym has a higher upfront cost ($\\$400$ signup fee) but a lower monthly rate ($\\$320$ vs. $\\$360$). The break-even point is when the savings on monthly fees offset the signup fee.\n\n**Verification:** First gym at $t = 10$: $400 + 3{,}200 = 3{,}600$. Second gym at $t = 10$: $360 \\times 10 = 3{,}600$. Both equal $\\$3{,}600$.\n\n**Test Day Takeaway:** When comparing two linear models, set them equal and solve. The signup fee divided by the difference in monthly rates gives the break-even point: $400 \\div (360 - 320) = 400 \\div 40 = 10$.",
           skills: ["linear-equations", "word-problems"]
         },
         {
           id: 2,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "$5$ less than $6$ times a number $y$ is equal to $49$. Which equation represents this situation?",
+          difficulty: "medium",
+          question: "$5$ less than $6$ times a number $y$ is equal to $49$. When the value of $y$ that satisfies this condition is substituted into the expression $3y + 2$, what is the result?",
           choices: [
-            { id: "A", text: "$(5)(6)y = 49$" },
-            { id: "B", text: "$6y = 49 + 5$" },
-            { id: "C", text: "$5y - 6 = 49$" },
-            { id: "D", text: "$6y - 5 = 49$" }
+            { id: "A", text: "$20$" },
+            { id: "B", text: "$29$" },
+            { id: "C", text: "$47$" },
+            { id: "D", text: "$56$" }
           ],
-          correctAnswer: "D",
-          explanation: "**SAT Pattern: Translating Words to Equations** -- Shows up on almost every SAT. The College Board loves testing whether you can parse tricky phrasing.\n\n**Choice D is correct.** The equation that represents this situation is $6y - 5 = 49$.\n\n**The Fast Way (15 seconds):** Read backward from the phrase: \"is equal to 49\" gives the right side. \"5 less than 6 times y\" means start with $6y$, then subtract $5$. That gives $6y - 5 = 49$. Only Choice D.\n\n**Solution Steps:**\n• \"$6$ times a number $y$\" translates to $6y$\n• \"$5$ less than\" means subtract $5$ from that result: $6y - 5$\n• \"is equal to $49$\" gives $= 49$\n• Full equation: $6y - 5 = 49$\n\n**Why the wrong answers are tempting:**\n• Choice A combines $5$ and $6$ into a single product $(5)(6)y$, which misreads the sentence as \"5 times 6 times y.\" The phrase says \"5 less than,\" not \"5 times.\"\n• Choice B writes $6y = 49 + 5$, which adds $5$ instead of subtracting. Students who move $5$ to the other side before setting up the equation sometimes flip the sign.\n• Choice C swaps the numbers, giving $5y - 6$ instead of $6y - 5$. The phrase \"5 less than 6 times y\" means you start with $6y$ and then take away $5$ -- not the other way around.\n\n**Verification:** $6y - 5 = 49 \\Rightarrow 6y = 54 \\Rightarrow y = 9$. Check: $6(9) - 5 = 54 - 5 = 49$.\n\n**Test Day Takeaway:** \"A less than B\" always translates to $B - A$, not $A - B$. The thing after \"less than\" comes first.",
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Translate, Solve, Then Evaluate** -- A two-step problem that requires translating a word phrase into an equation, solving for the variable, and then evaluating a separate expression. The SAT uses this to test both translation accuracy and follow-through.\n\n**Choice B is correct.** The result is $29$.\n\n**The Fast Way (20 seconds):** Translate: $6y - 5 = 49$, so $6y = 54$, giving $y = 9$. Then $3(9) + 2 = 29$. Pick B.\n\n**Solution Steps:**\n• \"$5$ less than $6$ times $y$\" translates to $6y - 5$\n• Set equal to $49$: $6y - 5 = 49$\n• Solve: $6y = 54$, so $y = 9$\n• Evaluate: $3(9) + 2 = 27 + 2 = 29$\n\n**Why the wrong answers are tempting:**\n• Choice A ($20$) comes from using $y = 6$ (solving $5y - 6 = 49$ by swapping the coefficients) and then computing $3(6) + 2 = 20$. The phrase \"5 less than 6 times y\" means $6y - 5$, not $5y - 6$.\n• Choice C ($47$) results from computing $6y - 5 = 49$ correctly to get $y = 9$, but then evaluating $6(9) - 5 = 49$ — re-evaluating the original expression instead of $3y + 2$.\n• Choice D ($56$) comes from computing $6y + 2 = 6(9) + 2 = 56$, using $6y$ instead of $3y$ in the final expression.\n\n**Verification:** $6(9) - 5 = 54 - 5 = 49$. Then $3(9) + 2 = 29$.\n\n**Test Day Takeaway:** Read the full question before solving. Multi-step problems often ask you to solve for a variable and then plug it into a different expression — not just find the variable itself.",
           skills: ["Algebra", "Translating word problems"]
         },
         {
@@ -56,19 +56,19 @@ export const practiceTest4 = {
         {
           id: 4,
           type: "fill-in",
-          difficulty: "easy",
-          question: "A baker used \\$42 to purchase flour at \\$6 per bag. How many bags of flour did the baker purchase?",
-          correctAnswer: "7",
-          explanation: "**SAT Pattern: Unit Rate Division** -- A staple easy question on the SAT. Free points if you read carefully.\n\n**The correct answer is $7$.**\n\n**The Fast Way (5 seconds):** $42 \\div 6 = 7$. Done.\n\n**Solution Steps:**\n• Total spent: \\$42\n• Cost per bag: \\$6\n• Number of bags $=$ Total $\\div$ Cost per bag\n• Number of bags $= 42 \\div 6 = 7$\n\n**Verification:** $7 \\times 6 = 42$.\n\n**Test Day Takeaway:** Total cost divided by unit cost equals quantity. Do not overthink the easy ones -- bank the time for harder questions later.",
+          difficulty: "medium",
+          question: "A baker spent \\$42 on flour at \\$6 per bag and \\$28 on sugar at \\$4 per bag. How many total bags of ingredients did the baker purchase?",
+          correctAnswer: "14",
+          explanation: "**SAT Pattern: Multiple Unit Rates Combined** -- The SAT often requires you to compute two separate quantities and combine them. Read carefully to avoid mixing up which total goes with which rate.\n\n**The correct answer is $14$.**\n\n**The Fast Way (15 seconds):** Flour bags: $42 \\div 6 = 7$. Sugar bags: $28 \\div 4 = 7$. Total: $7 + 7 = 14$.\n\n**Solution Steps:**\n• Flour: $\\$42 \\div \\$6/\\text{bag} = 7$ bags\n• Sugar: $\\$28 \\div \\$4/\\text{bag} = 7$ bags\n• Total bags $= 7 + 7 = 14$\n\n**Common Mistakes:**\n• Dividing total spending ($42 + 28 = 70$) by one of the unit prices (e.g., $70 \\div 6 \\approx 11.7$). You cannot combine the dollar amounts first because the items have different prices.\n• Swapping the prices: dividing $\\$42$ by $\\$4$ and $\\$28$ by $\\$6$, which gives non-integer results — a signal that something is wrong on the SAT.\n\n**Verification:** $7 \\times 6 = 42$ and $7 \\times 4 = 28$. Total: $7 + 7 = 14$ bags.\n\n**Test Day Takeaway:** When a problem involves two different unit rates, compute each quantity separately before combining. Pooling the totals and dividing by a single rate is a common trap.",
           skills: ["Problem-Solving and Data Analysis", "Unit rates"]
         },
         {
           id: 5,
           type: 'fill-in',
-          difficulty: 'easy',
-          question: '$18, 24, 24, 31, 35, 38, 56$\n\nWhat is the range of the $7$ scores shown?',
-          correctAnswer: '38',
-          explanation: '**SAT Pattern: Range of a Data Set** -- Quick statistics question that appears on most SATs. Know the definition cold.\n\n**The correct answer is $38$.**\n\n**The Fast Way (10 seconds):** Scan for the biggest number ($56$) and the smallest ($18$). Subtract: $56 - 18 = 38$.\n\n**Solution Steps:**\n• Data in order: $18, 24, 24, 31, 35, 38, 56$\n• Minimum: $18$\n• Maximum: $56$\n• Range $= 56 - 18 = 38$\n\n**Verification:** $56 - 18 = 38$.\n\n**Test Day Takeaway:** Range = Max minus Min. Do not confuse range with median, mean, or interquartile range -- the SAT counts on you mixing up stat definitions under pressure.',
+          difficulty: 'medium',
+          question: '$18, 24, 24, 31, 35, 38, 56$\n\nA teacher curves the $7$ test scores shown by adding $12$ points to each score. What is the median of the curved scores?',
+          correctAnswer: '43',
+          explanation: '**SAT Pattern: Effect of a Constant Shift on Statistics** -- The SAT tests whether you understand how adding a constant to every data value affects measures of center and spread.\n\n**The correct answer is $43$.**\n\n**The Fast Way (15 seconds):** The data is already sorted. The median of the original $7$ values is the $4$th value: $31$. Adding $12$ to every score shifts the median by $12$: $31 + 12 = 43$.\n\n**Solution Steps:**\n• Original data in order: $18, 24, 24, 31, 35, 38, 56$\n• Median of $7$ values $=$ middle value $=$ $4$th value $= 31$\n• Curving adds $12$ to every score, so the median also increases by $12$\n• Curved median $= 31 + 12 = 43$\n\n**Common Mistakes:**\n• Computing the range ($56 - 18 = 38$) instead of the median. Range and median are different statistics — read the question carefully.\n• Forgetting to add the curve: reporting $31$ instead of $43$.\n• Computing the mean instead of the median: the mean of the original data is about $32.3$, which would give $44.3$ after the curve — not the same as $43$.\n\n**Verification:** Curved scores: $30, 36, 36, 43, 47, 50, 68$. Middle value: $43$.\n\n**Test Day Takeaway:** Adding a constant $c$ to every value shifts the mean and median by $c$ but does not change the range, IQR, or standard deviation. The SAT frequently tests this distinction.',
           skills: ["range-calculation"]
         },
         {
@@ -113,16 +113,16 @@ export const practiceTest4 = {
         {
           id: 9,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "A water tank contains $240$ gallons of water. Water drains from the tank at a rate of $15$ gallons per minute. Which equation models the amount of water $W$, in gallons, remaining in the tank after $m$ minutes?",
+          difficulty: "hard",
+          question: "Tank A contains $240$ gallons and drains at $15$ gallons per minute. Tank B contains $100$ gallons and is being filled at $5$ gallons per minute. After how many minutes will the two tanks contain the same amount of water?",
           choices: [
-            { id: "A", text: "$W = 240 + 15m$" },
-            { id: "B", text: "$W = 240 - 15m$" },
-            { id: "C", text: "$W = 15m - 240$" },
-            { id: "D", text: "$W = 240m - 15$" }
+            { id: "A", text: "$5$" },
+            { id: "B", text: "$7$" },
+            { id: "C", text: "$8$" },
+            { id: "D", text: "$10$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Linear Model for Decreasing Quantity** -- The SAT frequently presents draining, spending, or shrinking scenarios. The key is always the sign of the slope.\n\n**Choice B is correct.** The equation $W = 240 - 15m$ models the water remaining.\n\n**The Fast Way (15 seconds):** Draining means subtracting. Start with $240$, lose $15$ per minute. That is $W = 240 - 15m$. Only Choice B.\n\n**Solution Steps:**\n• Initial amount: $240$ gallons (the starting value)\n• Rate of change: $-15$ gallons per minute (draining = negative)\n• Equation: $W = 240 - 15m$\n\n**Why the wrong answers are tempting:**\n• Choice A ($W = 240 + 15m$) uses a positive slope, which would mean water is being added. Students who forget that draining is negative pick this one.\n• Choice C ($W = 15m - 240$) reverses the structure entirely. At $m = 0$, this gives $W = -240$, a negative water amount, which makes no physical sense.\n• Choice D ($W = 240m - 15$) treats $240$ as a rate and $15$ as a constant. This confuses the roles of the initial value and the rate.\n\n**Verification:** At $m = 0$: $W = 240$. At $m = 4$: $W = 180$. At $m = 16$: $W = 0$ (empty). All make sense.\n\n**Test Day Takeaway:** Decreasing = negative slope. Always check $m = 0$ to confirm your equation gives the correct starting value.",
+          explanation: "**SAT Pattern: Setting Two Linear Models Equal** -- This combines building two linear models (one decreasing, one increasing) and solving for their intersection. A multi-step problem that tests rate modeling and equation solving.\n\n**Choice B is correct.** The tanks contain the same amount after $7$ minutes.\n\n**The Fast Way (25 seconds):** Tank A: $240 - 15m$. Tank B: $100 + 5m$. Set equal: $240 - 15m = 100 + 5m$. So $140 = 20m$, giving $m = 7$.\n\n**Solution Steps:**\n• Tank A after $m$ minutes: $W_A = 240 - 15m$\n• Tank B after $m$ minutes: $W_B = 100 + 5m$\n• Set equal: $240 - 15m = 100 + 5m$\n• $240 - 100 = 15m + 5m$\n• $140 = 20m$, so $m = 7$\n\n**Why the wrong answers are tempting:**\n• Choice A ($5$) comes from dividing $100 \\div 20 = 5$, using the wrong starting difference. The gap is $240 - 100 = 140$, not $100$.\n• Choice C ($8$) results from computing $240 \\div (15 + 5) = 12$... no, more likely from an arithmetic slip like $140 \\div 17.5 = 8$. Under time pressure, mis-adding the rates ($15 + 5 = 17.5$?) can happen.\n• Choice D ($10$) comes from $240 \\div (15 + 5 + \\text{error}) = 10$ or from confusing Tank A's drain time ($240 \\div 15 = 16$) with the intersection time.\n\n**Verification:** At $m = 7$: Tank A $= 240 - 105 = 135$. Tank B $= 100 + 35 = 135$. Both equal $135$ gallons.\n\n**Test Day Takeaway:** When two quantities change at different rates, model each one separately and set the expressions equal. The closing rate is the sum of the individual rates when one is increasing and the other decreasing.",
           skills: ["linear-models", "rate-problems"]
         },
         {
@@ -153,10 +153,10 @@ export const practiceTest4 = {
         {
           id: 11,
           type: "fill-in",
-          difficulty: "medium",
-          question: "$18x + y = 36$\n$5x + y = 62$\n\nThe solution to the given system of equations is $(x, y)$. What is the value of $y$?",
-          correctAnswer: "72",
-          explanation: "**SAT Pattern: System of Equations by Elimination** -- Systems appear on every SAT. Elimination is usually faster than substitution when both equations have the same variable with matching coefficients.\n\n**The correct answer is $72$.**\n\n**The Fast Way (20 seconds):** Both equations have $+y$, so subtract them to eliminate $y$ and solve for $x$ first. Then back-substitute to find $y$. Or type both equations into Desmos and read the intersection point.\n\n**Solution Steps:**\n• Subtract the second equation from the first: $(18x + y) - (5x + y) = 36 - 62$\n• $13x = -26$, so $x = -2$\n• Substitute $x = -2$ into the second equation: $5(-2) + y = 62$\n• $-10 + y = 62$, so $y = 72$\n\n**Verification:**\n• Equation 1: $18(-2) + 72 = -36 + 72 = 36$\n• Equation 2: $5(-2) + 72 = -10 + 72 = 62$\n\n**Test Day Takeaway:** When both equations share a variable with the same coefficient (here, both have $+y$), subtract the equations to eliminate that variable instantly.",
+          difficulty: "hard",
+          question: "$18x + y = 36$\n$5x + y = 62$\n\nThe solution to the given system of equations is $(x, y)$. What is the value of $x^2 + y$?",
+          correctAnswer: "76",
+          explanation: "**SAT Pattern: System of Equations with Expression Evaluation** -- The SAT often asks for a combined expression rather than a single variable, requiring you to solve the full system and then compute an additional step.\n\n**The correct answer is $76$.**\n\n**The Fast Way (30 seconds):** Subtract the equations to eliminate $y$: $(18x + y) - (5x + y) = 36 - 62$, giving $13x = -26$, so $x = -2$. Back-substitute: $5(-2) + y = 62$, so $y = 72$. Then $x^2 + y = 4 + 72 = 76$.\n\n**Solution Steps:**\n• Subtract equation 2 from equation 1: $13x = -26$, so $x = -2$\n• Substitute into equation 2: $-10 + y = 62$, so $y = 72$\n• Compute: $x^2 + y = (-2)^2 + 72 = 4 + 72 = 76$\n\n**Common Mistakes:**\n• Reporting $y = 72$ without computing the requested expression $x^2 + y$. Always re-read what the question asks for.\n• Computing $x + y = -2 + 72 = 70$ instead of $x^2 + y$. The exponent on $x$ matters — missing it costs you the point.\n• Sign error: using $x^2 = -4$ instead of $(-2)^2 = 4$. Squaring a negative number always gives a positive result.\n\n**Verification:**\n• Equation 1: $18(-2) + 72 = -36 + 72 = 36$ ✓\n• Equation 2: $5(-2) + 72 = -10 + 72 = 62$ ✓\n• $x^2 + y = 4 + 72 = 76$ ✓\n\n**Test Day Takeaway:** When the SAT asks for an expression like $x^2 + y$ rather than just $x$ or $y$, solve the system completely first, then substitute into the expression. Watch for sign errors when squaring negative values.",
           skills: ["Algebra", "Systems of equations"]
         },
         {
@@ -243,16 +243,16 @@ export const practiceTest4 = {
         {
           id: 17,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "For a certain rectangular garden, the ratio of its length to its width is $24$ to $8$. If the width of the garden increases by $5$ feet, how must the length change to maintain this ratio?",
+          difficulty: "hard",
+          question: "A rectangular garden has a length-to-width ratio of $3:1$. If the perimeter of the garden is $96$ feet, and the gardener increases the width by $4$ feet while maintaining the $3:1$ ratio, what is the area, in square feet, of the new garden?",
           choices: [
-            { id: "A", text: "It must decrease by $15$ feet." },
-            { id: "B", text: "It must increase by $15$ feet." },
-            { id: "C", text: "It must decrease by $5$ feet." },
-            { id: "D", text: "It must increase by $5$ feet." }
+            { id: "A", text: "$432$" },
+            { id: "B", text: "$588$" },
+            { id: "C", text: "$768$" },
+            { id: "D", text: "$867$" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Maintaining a Ratio** -- Ratio problems show up frequently. The key insight is to simplify the ratio first, then apply it to the change.\n\n**Choice B is correct.** The length must increase by $15$ feet.\n\n**The Fast Way (15 seconds):** Simplify the ratio: $24:8 = 3:1$. Length is always $3$ times width. If width goes up by $5$, length must go up by $3 \\times 5 = 15$. Pick B.\n\n**Solution Steps:**\n• Original ratio: $\\frac{24}{8} = 3$, so length $= 3 \\times$ width\n• Width increases by $5$, so length must increase by $3 \\times 5 = 15$\n• Length must increase by $15$ feet\n\n**Why the wrong answers are tempting:**\n• Choice A says the length decreases by $15$. But if the width gets bigger, the length also needs to get bigger to keep the same ratio. Both dimensions must move in the same direction.\n• Choice C says the length decreases by $5$, which ignores the ratio entirely and uses the same change as the width (and in the wrong direction). The ratio is $3:1$, not $1:1$.\n• Choice D says the length increases by $5$, treating the change as if the ratio were $1:1$. But since the length is $3$ times the width, the length change must be $3$ times the width change.\n\n**Verification:** Original: $24/8 = 3$. After: width $= 13$, length should be $3 \\times 13 = 39$. Change in length $= 39 - 24 = 15$.\n\n**Test Day Takeaway:** Simplify the ratio first. If the ratio is $k:1$, then changes in the larger quantity are $k$ times the changes in the smaller one.",
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Ratio + Perimeter + Area (Multi-Concept)** -- This problem chains three concepts: using a ratio to express dimensions, solving via perimeter, and computing area after a change. Each step builds on the previous one.\n\n**Choice C is correct.** The area of the new garden is $768$ square feet.\n\n**The Fast Way (35 seconds):** Ratio $3:1$ means $l = 3w$. Perimeter: $2(3w + w) = 96$, so $8w = 96$, giving $w = 12$ and $l = 36$. After the increase: $w = 16$, $l = 3 \\times 16 = 48$. New area $= 48 \\times 16 = 768$.\n\n**Solution Steps:**\n• Ratio $3:1$ means $l = 3w$\n• Perimeter: $2(l + w) = 96$, so $2(3w + w) = 96$, giving $8w = 96$ and $w = 12$, $l = 36$\n• Width increases by $4$: new $w = 16$, new $l = 3 \\times 16 = 48$\n• New area $= 48 \\times 16 = 768$ sq ft\n\n**Why the wrong answers are tempting:**\n• Choice A ($432$) is the original area $36 \\times 12 = 432$. Students who find the dimensions correctly but forget to apply the increase end up here.\n• Choice B ($588$) comes from increasing only the width ($16$) but keeping the original length ($36$): $36 \\times 16 = 576$... close to $588$. This reflects the mistake of not updating the length to maintain the ratio.\n• Choice D ($867$) comes from increasing the width by $5$ instead of $4$: $w = 17$, $l = 51$, area $= 51 \\times 17 = 867$. A careless misread of the increase amount.\n\n**Verification:** $2(48 + 16) = 128$ (new perimeter). $48/16 = 3$ (ratio maintained). $48 \\times 16 = 768$.\n\n**Test Day Takeaway:** Multi-concept problems require chaining steps: ratio → dimensions → perimeter → change → area. Write down each intermediate value to avoid losing track.",
           skills: ["Problem-Solving and Data Analysis", "Ratios"]
         },
         {
@@ -302,10 +302,10 @@ export const practiceTest4 = {
         {
           id: 20,
           type: "fill-in",
-          difficulty: "medium",
-          question: "For what value of $x$ is the function $f(x) = \\frac{x + 5}{x - 3}$ undefined?",
+          difficulty: "hard",
+          question: "The function $f(x) = \\frac{x + 5}{x - 3}$ is defined for all real numbers except $x = a$. What is the value of $f(a + 4)$?",
           correctAnswer: 3,
-          explanation: "**SAT Pattern: Domain of a Rational Function** -- The SAT tests this concept directly: where is a fraction undefined? Answer: when the denominator is zero.\n\n**The correct answer is $3$.**\n\n**The Fast Way (5 seconds):** Set the denominator equal to zero: $x - 3 = 0$, so $x = 3$. Done.\n\n**Solution Steps:**\n• A rational function is undefined when the denominator equals zero\n• Set $x - 3 = 0$\n• $x = 3$\n\n**Verification:** $f(3) = \\frac{3+5}{3-3} = \\frac{8}{0}$, which is undefined (division by zero).\n\n**Test Day Takeaway:** \"Undefined\" on the SAT almost always means division by zero. Set the denominator equal to zero and solve. Do not accidentally set the numerator equal to zero -- that gives you where the function equals zero, not where it is undefined.",
+          explanation: "**SAT Pattern: Domain Restriction Combined with Function Evaluation** -- This problem chains two skills: identifying where a rational function is undefined and then using that value in a follow-up computation.\n\n**The correct answer is $3$.**\n\n**The Fast Way (25 seconds):** The function is undefined when $x - 3 = 0$, so $a = 3$. Then $f(a + 4) = f(7) = \\frac{7 + 5}{7 - 3} = \\frac{12}{4} = 3$.\n\n**Solution Steps:**\n• $f(x)$ is undefined when the denominator equals zero: $x - 3 = 0$, so $a = 3$\n• Compute $a + 4 = 3 + 4 = 7$\n• $f(7) = \\frac{7 + 5}{7 - 3} = \\frac{12}{4} = 3$\n\n**Common Mistakes:**\n• Setting the numerator equal to zero instead of the denominator, giving $a = -5$. Then $f(-1) = \\frac{4}{-4} = -1$, which is wrong.\n• Forgetting to add $4$ to $a$: computing $f(3)$ directly, which is undefined. The question asks for $f(a + 4)$, not $f(a)$.\n• Confusing $a + 4 = 7$ with $a \\times 4 = 12$, leading to $f(12) = \\frac{17}{9}$.\n\n**Verification:** $a = 3$ (since $f(3) = \\frac{8}{0}$ is undefined). $f(7) = \\frac{12}{4} = 3$ ✓.\n\n**Test Day Takeaway:** When a problem defines a value through a domain restriction, find that value first, then use it in the next step. Chain the skills: domain → evaluate.",
           skills: ["rational-functions", "domain"]
         },
         {
@@ -336,8 +336,8 @@ export const practiceTest4 = {
         {
           id: 1,
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'Helium is placed inside a container with a constant volume. The graph shows the estimated pressure $y$, in kilopascals (kPa), of the helium when its temperature is $x$ kelvins. What is the estimated pressure of the helium, in kPa, when the temperature is $500$ kelvins?',
+          difficulty: 'medium',
+          question: 'Helium is placed inside a container with a constant volume. The graph shows the estimated pressure $y$, in kilopascals (kPa), of the helium when its temperature is $x$ kelvins. According to the model, by how many kPa does the estimated pressure increase when the temperature rises from $200$ kelvins to $500$ kelvins?',
           diagram: {
             type: "linearGraph",
             params: {
@@ -352,28 +352,28 @@ export const practiceTest4 = {
             }
           },
           choices: [
-            { id: 'A', text: '$80$' },
-            { id: 'B', text: '$100$' },
-            { id: 'C', text: '$400$' },
-            { id: 'D', text: '$500$' }
+            { id: 'A', text: '$40$' },
+            { id: 'B', text: '$60$' },
+            { id: 'C', text: '$100$' },
+            { id: 'D', text: '$300$' }
           ],
           correctAnswer: 'B',
-          explanation: '**SAT Pattern: Reading and Extending a Linear Graph** -- The SAT often asks you to read a graph and then predict a value beyond what is directly shown. Find the equation first, then plug in.\n\n**Choice B is correct.** The estimated pressure at $500$ kelvins is $100$ kPa.\n\n**The Fast Way (15 seconds):** The line passes through $(0, 0)$ and $(400, 80)$, so slope $= 80/400 = 0.2$. Equation: $y = 0.2x$. At $x = 500$: $y = 0.2(500) = 100$. Pick B.\n\n**Solution Steps:**\n• From the graph: the line passes through $(0, 0)$ and $(400, 80)$\n• Slope $= 80/400 = 0.2$ kPa per kelvin\n• Since it passes through the origin: $y = 0.2x$\n• At $x = 500$: $y = 0.2 \\times 500 = 100$ kPa\n\n**Why the wrong answers are tempting:**\n• Choice A ($80$) is the pressure at $400$ K, not $500$ K. Students who read the graph at the wrong point -- or who stop one step early -- land here.\n• Choice C ($400$) is a temperature from the graph, not a pressure. This happens when you confuse the $x$-axis value with the $y$-axis value.\n• Choice D ($500$) is the temperature you were asked about, restated as the answer. Under pressure, students sometimes circle the number from the question itself.\n\n**Verification:** $y = 0.2 \\times 500 = 100$ kPa.\n\n**Test Day Takeaway:** When a graph question asks about a value beyond the visible data, find the equation of the line using two clear points, then plug in the given value.',
+          explanation: '**SAT Pattern: Using a Linear Graph to Find a Change** -- The SAT asks not just for a single value from a graph, but for the difference between two values. This requires finding the equation and evaluating at two points.\n\n**Choice B is correct.** The pressure increases by $60$ kPa.\n\n**The Fast Way (20 seconds):** The line passes through $(0, 0)$ and $(400, 80)$, so $y = 0.2x$. At $x = 500$: $y = 100$. At $x = 200$: $y = 40$. Increase $= 100 - 40 = 60$. Pick B.\n\n**Solution Steps:**\n• Slope $= 80/400 = 0.2$ kPa per kelvin, and the line passes through the origin\n• Equation: $y = 0.2x$\n• Pressure at $500$ K: $0.2(500) = 100$ kPa\n• Pressure at $200$ K: $0.2(200) = 40$ kPa\n• Increase $= 100 - 40 = 60$ kPa\n\n**Why the wrong answers are tempting:**\n• Choice A ($40$) is the pressure at $200$ K, not the change. Students who correctly compute $y = 40$ at $x = 200$ but forget to subtract from $y = 100$ at $x = 500$ land here.\n• Choice C ($100$) is the pressure at $500$ K. Students who compute only the endpoint without subtracting the starting pressure pick this.\n• Choice D ($300$) is the change in temperature ($500 - 200$), not the change in pressure. Confusing the $x$-axis quantity with the $y$-axis quantity is a common graph-reading error.\n\n**Verification:** $0.2(500) - 0.2(200) = 100 - 40 = 60$ kPa. Alternatively: $0.2 \\times (500 - 200) = 0.2 \\times 300 = 60$.\n\n**Test Day Takeaway:** When asked for a change, you need two values. Find the equation, evaluate at both points, and subtract. A shortcut: change in $y$ = slope $\\times$ change in $x$.',
           skills: ["slope-intercept-form", "function-evaluation"]
         },
         {
           id: 2,
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'The kinetic energy, in joules, of an object with mass $8$ kilograms traveling at a speed of $v$ meters per second is given by the function $K$, where $K(v) = 4v^2$. Which of the following is the best interpretation of $K(25) = 2{,}500$ in this context?',
+          difficulty: 'medium',
+          question: 'The kinetic energy, in joules, of an object with mass $8$ kilograms traveling at a speed of $v$ meters per second is given by the function $K$, where $K(v) = 4v^2$. If the speed of the object is doubled from $v$ to $2v$, the kinetic energy is multiplied by what factor?',
           choices: [
-            { id: 'A', text: 'The object traveling at $25$ meters per second has a kinetic energy of $2{,}500$ joules.' },
-            { id: 'B', text: 'The object traveling at $250$ meters per second has a kinetic energy of $2{,}500$ joules.' },
-            { id: 'C', text: 'The object traveling at $2{,}500$ meters per second has a kinetic energy of $25$ joules.' },
-            { id: 'D', text: 'The object traveling at $12{,}500$ meters per second has a kinetic energy of $25$ joules.' }
+            { id: 'A', text: '$2$' },
+            { id: 'B', text: '$4$' },
+            { id: 'C', text: '$8$' },
+            { id: 'D', text: '$16$' }
           ],
-          correctAnswer: 'A',
-          explanation: '**SAT Pattern: Interpreting Function Notation in Context** -- Another \"what does $f(a) = b$ mean\" question. The SAT tests this concept in many different real-world wrappings, but the underlying skill is always the same.\n\n**Choice A is correct.** An object traveling at $25$ m/s has a kinetic energy of $2{,}500$ joules.\n\n**The Fast Way (10 seconds):** In $K(v)$, the input $v$ is speed and the output $K(v)$ is energy. So $K(25) = 2{,}500$ means: speed $= 25$ m/s, energy $= 2{,}500$ joules. That is Choice A.\n\n**Solution Steps:**\n• $v = 25$ means the speed is $25$ m/s (the input)\n• $K(25) = 2{,}500$ means the kinetic energy at that speed is $2{,}500$ joules (the output)\n\n**Why the wrong answers are tempting:**\n• Choice B uses $250$ m/s instead of $25$. The input to the function is clearly $25$, but students sometimes mentally add a zero, especially when large numbers like $2{,}500$ appear nearby.\n• Choice C flips the input and output, saying the speed is $2{,}500$ and the energy is $25$. This is the classic input-output reversal that the SAT counts on under time pressure.\n• Choice D uses $12{,}500$ m/s, which does not correspond to anything in the problem. It may result from multiplying $25 \\times 500$ or some other stray calculation.\n\n**Verification:** $K(25) = 4(25)^2 = 4(625) = 2{,}500$.\n\n**Test Day Takeaway:** In function notation, the number inside the parentheses is always the input, and the value after the equals sign is always the output. Match each to the correct real-world quantity.',
+          correctAnswer: 'B',
+          explanation: '**SAT Pattern: Effect of Input Scaling on a Quadratic Function** -- The SAT tests whether you understand how scaling the input of $f(x) = ax^2$ affects the output. Doubling the input of a squared function quadruples the output.\n\n**Choice B is correct.** The kinetic energy is multiplied by $4$.\n\n**The Fast Way (15 seconds):** $K(2v) = 4(2v)^2 = 4 \\cdot 4v^2 = 16v^2$. Original: $K(v) = 4v^2$. Ratio: $16v^2 / 4v^2 = 4$. Pick B.\n\n**Solution Steps:**\n• Original energy: $K(v) = 4v^2$\n• New energy: $K(2v) = 4(2v)^2 = 4 \\cdot 4v^2 = 16v^2$\n• Factor $= \\frac{K(2v)}{K(v)} = \\frac{16v^2}{4v^2} = 4$\n\n**Why the wrong answers are tempting:**\n• Choice A ($2$) assumes energy scales linearly with speed. Since the speed doubled, students assume the energy also doubles. But $K$ depends on $v^2$, not $v$, so the factor is $2^2 = 4$, not $2$.\n• Choice C ($8$) might come from multiplying the mass ($8$ kg) by the scaling factor, or from confusing a cubic relationship with a quadratic one.\n• Choice D ($16$) comes from computing $K(2v) = 16v^2$ and mistaking the coefficient for the factor, without dividing by the original $K(v) = 4v^2$.\n\n**Verification:** Try specific values. $K(5) = 4(25) = 100$. $K(10) = 4(100) = 400$. Factor $= 400/100 = 4$.\n\n**Test Day Takeaway:** For any function $f(x) = ax^n$, scaling the input by factor $k$ scales the output by $k^n$. Doubling the input of a squared function multiplies the output by $2^2 = 4$.',
           skills: ["function-notation", "function-evaluation"]
         },
         {
@@ -394,16 +394,16 @@ export const practiceTest4 = {
         {
           id: 4,
           type: 'multiple-choice',
-          difficulty: 'easy',
-          question: 'What is $25\\%$ of $360$?',
+          difficulty: 'medium',
+          question: 'A school has $360$ students. If $25\\%$ of the students play a sport and $\\frac{1}{3}$ of the athletes also participate in a school club, how many athletes participate in a school club?',
           choices: [
-            { id: 'A', text: '$36$' },
-            { id: 'B', text: '$72$' },
+            { id: 'A', text: '$30$' },
+            { id: 'B', text: '$40$' },
             { id: 'C', text: '$90$' },
-            { id: 'D', text: '$900$' }
+            { id: 'D', text: '$120$' }
           ],
-          correctAnswer: 'C',
-          explanation: '**SAT Pattern: Percent of a Number** -- Basic percent calculations appear on every SAT. Knowing the common fraction equivalents ($25\\% = 1/4$, $50\\% = 1/2$, etc.) saves valuable seconds.\n\n**Choice C is correct.** $25\\%$ of $360$ is $90$.\n\n**The Fast Way (5 seconds):** $25\\%$ means one-quarter. $360 \\div 4 = 90$. Pick C.\n\n**Solution Steps:**\n• $25\\% = 0.25$\n• $0.25 \\times 360 = 90$\n\n**Why the wrong answers are tempting:**\n• Choice A ($36$) is $10\\%$ of $360$, not $25\\%$. Students who move the decimal point one place too far (using $0.10$ instead of $0.25$) get this.\n• Choice B ($72$) is $20\\%$ of $360$. It is close to the right answer, which makes it especially dangerous. The difference between $20\\%$ and $25\\%$ is the difference between dividing by $5$ and dividing by $4$.\n• Choice D ($900$) is $250\\%$ of $360$. This results from multiplying by $2.5$ instead of $0.25$, confusing $25\\%$ with $250\\%$.\n\n**Verification:** $360 \\div 4 = 90$.\n\n**Test Day Takeaway:** Memorize the common percent-to-fraction conversions: $25\\% = 1/4$, $33.3\\% = 1/3$, $50\\% = 1/2$, $75\\% = 3/4$. They make mental math much faster.',
+          correctAnswer: 'A',
+          explanation: '**SAT Pattern: Sequential Percent and Fraction of a Subset** -- The SAT tests whether you can apply percent and fraction calculations in sequence, working with a subset of the original group rather than the whole.\n\n**Choice A is correct.** $30$ athletes participate in a school club.\n\n**The Fast Way (15 seconds):** Athletes $= 25\\%$ of $360 = 90$. Club athletes $= \\frac{1}{3}$ of $90 = 30$. Pick A.\n\n**Solution Steps:**\n• Number of athletes: $0.25 \\times 360 = 90$\n• Athletes in a club: $\\frac{1}{3} \\times 90 = 30$\n\n**Why the wrong answers are tempting:**\n• Choice B ($40$) could come from computing $\\frac{1}{3}$ of $120$ (if a student mistakenly used $\\frac{1}{3}$ of $360 = 120$ first and then took a fraction of that) or from an arithmetic error.\n• Choice C ($90$) is the number of athletes, not the number who also participate in a club. Students who stop after the first step — finding $25\\%$ of $360$ — without applying the $\\frac{1}{3}$ condition land here.\n• Choice D ($120$) is $\\frac{1}{3}$ of $360$, applying the fraction to the entire school instead of just the athletes. The $\\frac{1}{3}$ applies only to the $90$ athletes, not all $360$ students.\n\n**Verification:** $360 \\times 0.25 = 90$ athletes. $90 \\times \\frac{1}{3} = 30$ athletes in a club.\n\n**Test Day Takeaway:** In multi-step percent problems, pay attention to which group each operation applies to. The second operation often applies to a subset, not the original total.',
           skills: ["percent-of-value"]
         },
         {
@@ -438,16 +438,16 @@ export const practiceTest4 = {
         {
           id: 6,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "An elevator can carry passengers if the combined weight of the passengers and cargo is no more than $2{,}400$ pounds. What is the maximum number of passengers this elevator can carry along with cargo weighing $300$ pounds if each passenger weighs $150$ pounds?",
+          difficulty: "hard",
+          question: "An elevator can carry passengers and cargo if the combined weight is no more than $2{,}400$ pounds. Adults weigh $200$ pounds each and children weigh $60$ pounds each. If the elevator is carrying $300$ pounds of cargo and at least $3$ adults must be present, what is the maximum number of children that can also ride?",
           choices: [
-            { id: "A", text: "$13$" },
-            { id: "B", text: "$14$" },
-            { id: "C", text: "$16$" },
-            { id: "D", text: "$17$" }
+            { id: "A", text: "$24$" },
+            { id: "B", text: "$25$" },
+            { id: "C", text: "$27$" },
+            { id: "D", text: "$30$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Linear Inequality Word Problem** -- The SAT frequently wraps inequalities in real-world contexts (weight limits, budgets, capacity). Translate the constraint carefully.\n\n**Choice B is correct.** The maximum number of passengers is $14$.\n\n**The Fast Way (15 seconds):** Subtract cargo first: $2{,}400 - 300 = 2{,}100$ pounds left for passengers. Divide by $150$ per person: $2{,}100 \\div 150 = 14$. Pick B.\n\n**Solution Steps:**\n• Constraint: $300 + 150p \\leq 2{,}400$\n• $150p \\leq 2{,}100$\n• $p \\leq 14$\n• Maximum passengers $= 14$\n\n**Why the wrong answers are tempting:**\n• Choice A ($13$) is a valid number of passengers, but it is not the maximum. With $13$ passengers the total is $2{,}250$, leaving $150$ pounds of unused capacity. The question asks for the maximum, not just any valid amount.\n• Choice C ($16$) comes from dividing $2{,}400 \\div 150 = 16$ but forgetting to subtract the $300$ pounds of cargo first. That oversight pushes you past the weight limit.\n• Choice D ($17$) is even further over the limit. It likely results from a different arithmetic error or from rounding up when you should round down.\n\n**Verification:** $300 + 150(14) = 300 + 2{,}100 = 2{,}400$. Exactly at the limit.\n\n**Test Day Takeaway:** In max/min word problems, always subtract fixed costs or weights first, then divide by the per-unit amount. If the result is not a whole number, round down (for maximums) or round up (for minimums).",
+          explanation: "**SAT Pattern: Optimization with Multiple Constraints** -- This problem requires handling a weight-limit inequality while satisfying a minimum-count condition. Maximize one variable by minimizing the other at its required minimum.\n\n**Choice B is correct.** The maximum number of children is $25$.\n\n**The Fast Way (30 seconds):** To maximize children, minimize adults at the required minimum of $3$. Weight used: $300 + 3(200) = 900$. Remaining: $2{,}400 - 900 = 1{,}500$. Children: $1{,}500 \\div 60 = 25$.\n\n**Solution Steps:**\n• To maximize children, use the minimum number of adults: $3$\n• Weight of cargo + adults: $300 + 3(200) = 900$ pounds\n• Remaining capacity: $2{,}400 - 900 = 1{,}500$ pounds\n• Maximum children: $1{,}500 \\div 60 = 25$\n\n**Why the wrong answers are tempting:**\n• Choice A ($24$) comes from using $4$ adults instead of the minimum $3$. The extra adult consumes $200$ pounds, reducing child capacity from $25$ to about $21.7$, which rounds to $21$. Students who misread \"at least $3$\" as \"at least $4$\" or who add a safety margin end up slightly off.\n• Choice C ($27$) comes from forgetting to include the cargo: $(2{,}400 - 600) \\div 60 = 30$. That is not $27$ either, so this answer likely results from a different arithmetic error such as miscomputing $3(200) = 500$.\n• Choice D ($30$) comes from ignoring the adults entirely: $(2{,}400 - 300) \\div 60 = 35$. Not even $30$. More likely from subtracting cargo but forgetting adults and making a rounding error.\n\n**Verification:** $300 + 3(200) + 25(60) = 300 + 600 + 1{,}500 = 2{,}400$. Exactly at the limit.\n\n**Test Day Takeaway:** To maximize one quantity under constraints, minimize everything else at their required minimums. Subtract fixed and required weights first, then divide the remainder by the per-unit weight.",
           skills: ["Algebra", "Linear inequalities"]
         },
         {
@@ -462,10 +462,10 @@ export const practiceTest4 = {
         {
           id: 8,
           type: 'fill-in',
-          difficulty: 'medium',
-          question: 'What is the slope of the graph of $y = \\frac{1}{4}(24x + 8) + 3x$ in the $xy$-plane?',
+          difficulty: 'hard',
+          question: 'What is the slope of the graph of $y = \\frac{1}{4}(24x + 8) + 2\\left(\\frac{3}{2}\\left(x + \\frac{2}{3}\\right)\\right)$ in the $xy$-plane?',
           correctAnswer: '9',
-          explanation: '**SAT Pattern: Simplify to Find the Slope** -- When an equation is not in $y = mx + b$ form, the SAT expects you to simplify it first. Distribute and combine like terms.\n\n**The correct answer is $9$.**\n\n**The Fast Way (15 seconds):** Distribute: $\\frac{1}{4}(24x) = 6x$ and $\\frac{1}{4}(8) = 2$. So $y = 6x + 2 + 3x = 9x + 2$. The slope is $9$.\n\n**Solution Steps:**\n• Distribute $\\frac{1}{4}$: $y = 6x + 2 + 3x$\n• Combine like terms: $y = 9x + 2$\n• The coefficient of $x$ is $9$, so the slope is $9$\n\n**Verification:** At $x = 0$: $y = 2$. At $x = 1$: $y = 11$. Change in $y$ over change in $x$ $= (11 - 2)/(1 - 0) = 9$.\n\n**Test Day Takeaway:** No matter how messy an equation looks, simplify it to $y = mx + b$ form and the slope is just the coefficient of $x$. Distribute first, then combine like terms.',
+          explanation: '**SAT Pattern: Nested Distribution to Slope-Intercept Form** -- This problem requires distributing through multiple nested parentheses before combining like terms. Each layer is straightforward, but the chain of operations tests algebraic precision.\n\n**The correct answer is $9$.**\n\n**The Fast Way (30 seconds):** Work inside out. Innermost: $\\frac{3}{2}(x + \\frac{2}{3}) = \\frac{3x}{2} + 1$. Then $2(\\frac{3x}{2} + 1) = 3x + 2$. First part: $\\frac{1}{4}(24x + 8) = 6x + 2$. Total: $y = 6x + 2 + 3x + 2 = 9x + 4$. Slope $= 9$.\n\n**Solution Steps:**\n• Distribute $\\frac{1}{4}$: $\\frac{1}{4}(24x + 8) = 6x + 2$\n• Innermost: $\\frac{3}{2}(x + \\frac{2}{3}) = \\frac{3x}{2} + 1$\n• Outer factor: $2(\\frac{3x}{2} + 1) = 3x + 2$\n• Combine: $y = 6x + 2 + 3x + 2 = 9x + 4$\n• Slope $= 9$\n\n**Common Mistakes:**\n• Forgetting to distribute the outer $2$ after simplifying the inner fraction, leaving $\\frac{3x}{2} + 1$ as the second term. This gives slope $= 6 + 1.5 = 7.5$.\n• Distributing $\\frac{3}{2}$ only to $x$ and forgetting $\\frac{2}{3}$, giving $\\frac{3x}{2}$ instead of $\\frac{3x}{2} + 1$. This drops the constant but does not affect the slope.\n• Treating $\\frac{1}{4}(24x + 8)$ as $\\frac{1}{4}(24x) + 8 = 6x + 8$ instead of $6x + 2$, by forgetting to distribute $\\frac{1}{4}$ to the $8$.\n\n**Verification:** At $x = 0$: $y = 4$. At $x = 1$: $y = 13$. Slope $= (13 - 4)/(1 - 0) = 9$.\n\n**Test Day Takeaway:** Nested expressions look intimidating but follow the same rules. Work from the innermost parentheses outward, distributing carefully at each layer. Then combine like terms to reach $y = mx + b$ form.',
           skills: ["slope-intercept-form", "equivalent-expressions"]
         },
         {
@@ -517,16 +517,16 @@ export const practiceTest4 = {
         {
           id: 12,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "For the function $f(x) = \\sqrt{x + 5}$, what is the least value of $x$ for which $f(x)$ is defined?",
+          difficulty: "hard",
+          question: "The function $g(x) = \\sqrt{3x - 12} + \\frac{1}{x - 6}$ is defined for a range of values of $x$. What is the least integer value of $x$ for which $g(x)$ is defined?",
           choices: [
-            { id: "A", text: "$-5$" },
-            { id: "B", text: "$0$" },
-            { id: "C", text: "$5$" },
-            { id: "D", text: "$25$" }
+            { id: "A", text: "$4$" },
+            { id: "B", text: "$5$" },
+            { id: "C", text: "$6$" },
+            { id: "D", text: "$7$" }
           ],
           correctAnswer: "A",
-          explanation: "**SAT Pattern: Domain of a Square Root Function** -- The SAT tests this concept directly. The expression under a square root must be greater than or equal to zero.\n\n**Choice A is correct.** The least value of $x$ for which $f(x)$ is defined is $-5$.\n\n**The Fast Way (10 seconds):** Set the inside of the square root $\\geq 0$: $x + 5 \\geq 0$, so $x \\geq -5$. The least value is $-5$. Pick A.\n\n**Solution Steps:**\n• For $\\sqrt{x + 5}$ to be defined, $x + 5 \\geq 0$\n• $x \\geq -5$\n• The least (minimum) value is $x = -5$\n\n**Why the wrong answers are tempting:**\n• Choice B ($0$) assumes the domain starts at zero. But the function is perfectly well-defined for negative values of $x$ like $x = -3$ (which gives $\\sqrt{2}$). Students who skip the inequality and default to \"$x$ starts at $0$\" get trapped here.\n• Choice C ($5$) comes from solving $x + 5 \\geq 0$ but dropping the negative sign, getting $x \\geq 5$ instead of $x \\geq -5$. Always be careful with the sign when you subtract.\n• Choice D ($25$) is much too large and likely results from squaring something unnecessarily. The problem only requires solving a simple linear inequality, not squaring.\n\n**Verification:** $f(-5) = \\sqrt{-5 + 5} = \\sqrt{0} = 0$. Defined.\n\n**Test Day Takeaway:** For $\\sqrt{\\text{stuff}}$, set stuff $\\geq 0$ and solve. The smallest $x$ that works is the left endpoint of the domain.",
+          explanation: "**SAT Pattern: Combined Domain Restrictions (Radical + Rational)** -- This problem combines two domain rules: the expression under a square root must be $\\geq 0$, and a denominator cannot be $0$. You must satisfy both conditions simultaneously.\n\n**Choice A is correct.** The least integer value of $x$ for which $g(x)$ is defined is $4$.\n\n**The Fast Way (25 seconds):** Square root requires $3x - 12 \\geq 0$, so $x \\geq 4$. Denominator requires $x \\neq 6$. The least integer satisfying both is $x = 4$ (since $4 \\geq 4$ and $4 \\neq 6$).\n\n**Solution Steps:**\n• Square root condition: $3x - 12 \\geq 0 \\Rightarrow x \\geq 4$\n• Rational condition: $x - 6 \\neq 0 \\Rightarrow x \\neq 6$\n• Domain: $x \\geq 4$ and $x \\neq 6$\n• Least integer: $x = 4$\n\n**Why the wrong answers are tempting:**\n• Choice B ($5$) might be chosen by students who incorrectly solve $3x - 12 > 0$ (strict inequality) and round up, or who confuse the boundary. The square root of $0$ is defined, so $x = 4$ works.\n• Choice C ($6$) is excluded from the domain because it makes the denominator zero. Students who only check the square root condition without checking the rational part might pick $6$ as a clean answer.\n• Choice D ($7$) is the least integer greater than the excluded value $6$. Students who think $x = 6$ is the lower bound (instead of $x = 4$) and skip to the next integer arrive here.\n\n**Verification:** $g(4) = \\sqrt{0} + \\frac{1}{-2} = 0 - 0.5 = -0.5$. Defined. $g(6) = \\sqrt{6} + \\frac{1}{0}$: undefined (division by zero).\n\n**Test Day Takeaway:** When a function has multiple components, find each restriction separately and combine them. The domain is the intersection of all individual domains.",
           skills: ["function-domain", "radical-functions"]
         },
         {
