@@ -2147,18 +2147,37 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         </div>
       </div>
 
+      {/* Desktop Nav Strip */}
+      {!isMobile && (
+        <div className="test-session-nav-strip">
+          <QuestionGrid
+            questions={questions}
+            currentIndex={currentQuestion}
+            answers={Object.fromEntries(
+              Object.entries(answers)
+                .filter(([key]) => key.startsWith(`${currentModule}-`))
+                .map(([key, val]) => [parseInt(key.split('-')[1]), val])
+            )}
+            markedForReview={markedForReview}
+            onNavigate={handleNavigate}
+          />
+        </div>
+      )}
+
       <div className="test-session-body">
         <div className="test-workspace-main">
 
-      {/* Desmos Calculator Modal */}
-      <DesmosCalculator isOpen={showCalculator} onClose={() => setShowCalculator(false)} />
+          {/* Left Pane - Question Stem */}
+          <div className="test-workspace-left">
 
-      {/* Question Card - SAT Style */}
-      <div className="question-panel">
+            {/* Desmos Calculator Modal */}
+            <DesmosCalculator isOpen={showCalculator} onClose={() => setShowCalculator(false)} />
+
+            {/* Question Card - SAT Style */}
+            <div className="question-panel">
         {/* Question number badge and mark button */}
         <div style={{
           display: 'flex',
-          justifyContent: 'space-between',
           alignItems: 'center',
           marginBottom: '2rem'
         }}>
@@ -2178,39 +2197,6 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           }}>
             {currentQuestion + 1}
           </div>
-          <button
-            onClick={handleToggleMark}
-            style={{
-              padding: '8px 14px',
-              background: isMarked ? colors.semantic.warningBg : 'transparent',
-              border: `2px solid ${isMarked ? colors.semantic.warning : colors.surface.grayMedium}`,
-              borderRadius: radius.sm,
-              fontSize: '13px',
-              fontWeight: '600',
-              color: isMarked ? colors.semantic.warning : colors.text.secondary,
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              transition: `all ${transitions.fast}`
-            }}
-          >
-            {/* Flag Icon */}
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill={isMarked ? colors.semantic.warning : 'none'}
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
-              <line x1="4" y1="22" x2="4" y2="15" />
-            </svg>
-            {isMarked ? 'Flagged - Come Back Later' : 'Flag for Later'}
-          </button>
         </div>
 
         {/* Formula if present */}
@@ -2348,6 +2334,69 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             }
           </p>
         )}
+      </div> {/* End question-panel */}
+      </div> {/* End test-workspace-left */}
+
+      <div className="test-workspace-right">
+        {/* Navigation buttons top right */}
+        <div className="test-controls-top">
+          <button
+            onClick={handlePrev}
+            disabled={currentQuestion === 0}
+            style={{
+              padding: '8px 16px',
+              background: currentQuestion === 0 ? 'var(--color-white)' : 'var(--color-white)',
+              color: currentQuestion === 0 ? 'var(--color-slate-400)' : 'var(--color-slate-700)',
+              border: `1px solid var(--color-slate-200)`,
+              borderRadius: 'var(--radius-sm)',
+              fontSize: '13px',
+              fontWeight: '600',
+              textTransform: 'uppercase',
+              cursor: currentQuestion === 0 ? 'not-allowed' : 'pointer',
+              transition: 'all 0.2s ease'
+            }}
+          >
+            Prev. Question
+          </button>
+
+          {currentQuestion === questions.length - 1 ? (
+            <button
+              onClick={handleSubmitModule}
+              style={{
+                padding: '8px 16px',
+                background: 'var(--color-info-600)',
+                color: 'var(--color-white)',
+                border: 'none',
+                borderRadius: 'var(--radius-sm)',
+                fontSize: '13px',
+                fontWeight: '600',
+                textTransform: 'uppercase',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease'
+              }}
+            >
+              Submit Section
+            </button>
+          ) : (
+            <button
+              onClick={handleNext}
+              style={{
+                padding: '8px 16px',
+                background: 'var(--color-info-600)',
+                color: 'var(--color-white)',
+                border: 'none',
+                borderRadius: 'var(--radius-sm)',
+                fontSize: '13px',
+                fontWeight: '600',
+                textTransform: 'uppercase',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease'
+              }}
+            >
+              Next Question
+            </button>
+          )}
+        </div>
 
         {/* Answer choices or fill-in */}
         {question?.type === 'fill-in' ? (
@@ -2428,66 +2477,43 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             })}
           </div>
         )}
-      </div>
-
-      {/* Navigation buttons */}
-      <div className="test-controls-bottom">
+      {/* Action bottom right */}
+      <div className="test-controls-bottom" style={{ justifyContent: 'center', marginTop: '1rem', borderTop: 'none', padding: '1rem 0' }}>
         <button
-          onClick={handlePrev}
-          disabled={currentQuestion === 0}
+          onClick={handleToggleMark}
           style={{
-            padding: '12px 24px',
-            background: currentQuestion === 0 ? 'var(--color-slate-100)' : 'var(--color-white)',
-            color: currentQuestion === 0 ? 'var(--color-slate-400)' : 'var(--color-slate-700)',
-            border: `1px solid var(--color-slate-200)`,
+            padding: '8px 16px',
+            background: isMarked ? 'var(--color-slate-100)' : 'transparent',
+            border: `1px solid var(--color-slate-300)`,
             borderRadius: 'var(--radius-sm)',
-            fontSize: '15px',
-            fontWeight: '500',
-            cursor: currentQuestion === 0 ? 'not-allowed' : 'pointer',
+            fontSize: '13px',
+            fontWeight: '600',
+            color: 'var(--color-slate-700)',
+            textTransform: 'uppercase',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
             transition: 'all 0.2s ease'
           }}
         >
-          Previous
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill={isMarked ? 'currentColor' : 'none'}
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+            <line x1="4" y1="22" x2="4" y2="15" />
+          </svg>
+          Come Back Later
         </button>
-
-        <div style={{ display: 'flex', gap: '12px' }}>
-          {currentQuestion === questions.length - 1 ? (
-            <button
-              onClick={handleSubmitModule}
-              style={{
-                padding: '12px 32px',
-                background: 'var(--color-success-600)',
-                color: 'var(--color-white)',
-                border: 'none',
-                borderRadius: 'var(--radius-sm)',
-                fontSize: '15px',
-                fontWeight: '600',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease'
-              }}
-            >
-              Submit {module.title}
-            </button>
-          ) : (
-            <button
-              onClick={handleNext}
-              style={{
-                padding: '12px 32px',
-                background: 'var(--color-slate-900)',
-                color: 'var(--color-white)',
-                border: 'none',
-                borderRadius: 'var(--radius-sm)',
-                fontSize: '15px',
-                fontWeight: '600',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease'
-              }}
-            >
-              Next
-            </button>
-          )}
-        </div>
       </div>
+      </div> {/* End test-workspace-right */}
 
       {/* Mobile Nav Grid & Legend */}
       {isMobile && (
@@ -2523,51 +2549,6 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       
       </div> {/* End test-workspace-main */}
 
-      {/* Desktop Navigation Rail */}
-      {!isMobile && (
-        <div className="test-nav-rail">
-          <div className="nav-rail-header">
-            <div style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-slate-900)', marginBottom: '0.25rem' }}>
-              Section {currentModule + 1}
-            </div>
-            <div style={{ fontSize: '0.8125rem', color: 'var(--color-slate-500)', fontWeight: 500 }}>
-              {module.title}
-            </div>
-          </div>
-          <div className="nav-rail-content">
-            <QuestionGrid
-              questions={questions}
-              currentIndex={currentQuestion}
-              answers={Object.fromEntries(
-                Object.entries(answers)
-                  .filter(([key]) => key.startsWith(`${currentModule}-`))
-                  .map(([key, val]) => [parseInt(key.split('-')[1]), val])
-              )}
-              markedForReview={markedForReview}
-              onNavigate={handleNavigate}
-            />
-
-            <div className="nav-legend">
-              <div className="nav-legend-item">
-                <div className="nav-legend-icon answered"></div>
-                <span>Answered</span>
-              </div>
-              <div className="nav-legend-item">
-                <div className="nav-legend-icon flagged"></div>
-                <span>Flagged for Later</span>
-              </div>
-              <div className="nav-legend-item">
-                <div className="nav-legend-icon current"></div>
-                <span>Current</span>
-              </div>
-              <div className="nav-legend-item">
-                <div className="nav-legend-icon"></div>
-                <span>Unanswered</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
       
       </div> {/* End test-session-body */}
 
