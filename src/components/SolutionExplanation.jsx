@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { MathText } from './MathText';
-import { colors, typography, radius, shadows } from '../design/tokens';
+import { colors, typography, spacing, radius, shadows, transitions } from '../design/tokens';
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // MATH PREPROCESSOR — \div and ÷ → \frac{}{}
@@ -22,211 +22,571 @@ function cvtSlash(s){s=s.replace(/\(([^)]+)\)\s*\/\s*(\d[\d,.]*)/g,(m,n,d)=>'$\\
 function preprocessMath(t){if(!t)return t;let r=t;r=r.replace(/\$\\div\$/g,'÷');r=r.replace(/\$\$([\s\S]*?)\$\$/g,(m,l)=>'$$'+convertSlashDiv(convertLatexDiv(l))+'$$');r=r.replace(/\$([^\$]+?)\$/g,(m,l)=>'$'+convertSlashDiv(convertLatexDiv(l))+'$');r=convertPlainDiv(r);r=convertPlainSlash(r);return r;}
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// PARSER
+// PRESENTATION ADAPTER — parses raw explanation into semantic sections
 // ═══════════════════════════════════════════════════════════════════════════════
 
-function parseExplanation(raw){
-  const text=preprocessMath(raw);
-  if(!text)return{answer:'',answerDetail:'',equation:null,sections:[]};
-  const lines=text.split('\n'),sections=[];
-  let answer='',answerDetail='',cur=null,stepN=0,equation=null;
+function parseExplanation(raw) {
+  const text = preprocessMath(raw);
+  if (!text) return { satPattern: '', answer: '', answerDetail: '', equation: null, fastWay: null, sections: [], whyWrong: null, verification: null, takeaway: null };
 
-  const flush=()=>{if(cur){cur.content=cur.content.trim();if(cur.content||cur.bullets.length)sections.push({...cur});}cur=null;};
-  const make=(type,extra={})=>{flush();cur={type,content:'',bullets:[],...extra};};
+  const lines = text.split('\n');
+  const sections = [];
+  let satPattern = '', answer = '', answerDetail = '', equation = null;
+  let fastWay = null, verification = null, takeaway = null, whyWrong = null;
+  let cur = null, stepN = 0;
 
-  const extractEq=(str)=>{
-    if(equation)return;
-    const m2=str.match(/\$\$(.+?)\$\$/);
-    if(m2){equation='$$'+m2[1]+'$$';return;}
-    const all=[...str.matchAll(/\$([^$]+?)\$/g)];
-    for(const a of all){if(/[=\\]/.test(a[1])&&a[1].length>3){equation='$'+a[1]+'$';return;}}
+  const flush = () => { if (cur) { cur.content = cur.content.trim(); if (cur.content || cur.bullets.length) sections.push({ ...cur }); } cur = null; };
+  const make = (type, extra = {}) => { flush(); cur = { type, content: '', bullets: [], ...extra }; };
+
+  const extractEq = (str) => {
+    if (equation) return;
+    const m2 = str.match(/\$\$(.+?)\$\$/);
+    if (m2) { equation = '$$' + m2[1] + '$$'; return; }
+    const all = [...str.matchAll(/\$([^$]+?)\$/g)];
+    for (const a of all) { if (/[=\\]/.test(a[1]) && a[1].length > 3) { equation = '$' + a[1] + '$'; return; } }
   };
 
-  for(const line of lines){
-    const t=line.trim();if(!t)continue;let m;
-    if((m=t.match(/^\*\*(?:Choice ([A-D]) is correct\.?|The correct answer is (.+?)\.?)\*\*(.*)$/))&&!answer){answer=m[1]?'Choice '+m[1]+' is correct':'The correct answer is '+m[2];answerDetail=(m[3]||'').trim();continue;}
-    if((m=t.match(/^\*\*Step (\d+)[:.]\*\*\s*(.*)$/))){stepN=+m[1];make('step',{number:stepN,title:m[2]});continue;}
-    if((m=t.match(/^\*\*Method (\d+)[:.]\*\*\s*(.*)$/))){make('method',{number:+m[1],title:m[2]});continue;}
-    if((m=t.match(/^\*\*Case (\d+)[:.]\*\*\s*(.*)$/))){make('case',{number:+m[1],title:m[2]});continue;}
-    if(/^\*\*Why (?:other )?choices/.test(t)||/^\*\*Why simple average/.test(t)){make('why-wrong');continue;}
-    if((m=t.match(/^\*\*Key (?:concept|insight|rule|principle|identities|ratios):?\*\*\s*(.*)$/i))){extractEq(m[1]||'');make('key-concept',{content:m[1]});continue;}
-    if((m=t.match(/^\*\*(?:Key )?[Ff]ormula:?\*\*\s*(.*)$/))){extractEq(m[1]||'');make('formula',{content:m[1]});continue;}
-    if((m=t.match(/^\*\*Key rule:?\*\*\s*(.*)$/i))){extractEq(m[1]||'');make('key-concept',{content:m[1]});continue;}
-    if((m=t.match(/^\*\*Calculator tip:?\*\*\s*(.*)$/i))){make('calculator-tip',{content:m[1]});continue;}
-    if((m=t.match(/^\*\*Verif(?:ication|y)(?:[^:]*)?:?\*\*\s*(.*)$/i))){make('verification',{content:m[1]});continue;}
-    if((m=t.match(/^\*\*Note:?\*\*\s*(.*)$/i))){make('note',{content:m[1]});continue;}
-    if((m=t.match(/^\*\*Alternative(?:\s+\w+)?(?:\s*\([^)]*\))?:?\*\*\s*(.*)$/i))){make('alternative',{content:m[1]});continue;}
-    if((m=t.match(/^\*\*([^*]+?):?\*\*\s*(.*)$/))&&!cur){const h=m[1].trim();if(/^(?:Choice|The correct)/i.test(h))continue;stepN++;make('step',{number:stepN,title:h,content:m[2]});continue;}
-    if((m=t.match(/^[•\-–]\s*(.+)$/))&&cur){cur.bullets.push(m[1]);continue;}
-    if(cur){cur.content+=(cur.content?'\n':'')+t;}
-    else{answerDetail=answerDetail?answerDetail+' '+t:t;}
+  for (const line of lines) {
+    const t = line.trim(); if (!t) continue; let m;
+
+    // SAT Pattern header (first bold line before the answer)
+    if ((m = t.match(/^\*\*SAT Pattern:\s*(.+?)\*\*(.*)$/)) && !satPattern) {
+      satPattern = m[1].trim();
+      const rest = (m[2] || '').replace(/^[\s—–-]+/, '').trim();
+      if (rest) answerDetail = rest;
+      continue;
+    }
+
+    // Answer verdict
+    if ((m = t.match(/^\*\*(?:Choice ([A-D]) is correct\.?|The correct answer is (.+?)\.?)\*\*(.*)$/)) && !answer) {
+      answer = m[1] ? 'Choice ' + m[1] + ' is correct' : 'The correct answer is ' + m[2];
+      const rest = (m[3] || '').trim();
+      if (rest) answerDetail = answerDetail ? answerDetail + ' ' + rest : rest;
+      continue;
+    }
+
+    // "The Fast Way"
+    if ((m = t.match(/^\*\*The Fast Way(?:\s*\([^)]*\))?:?\*\*\s*(.*)$/))) {
+      flush();
+      fastWay = { content: m[1] || '', bullets: [] };
+      cur = fastWay;
+      continue;
+    }
+
+    // "The Full Solution" header — treat subsequent Steps as the main body
+    if (/^\*\*The Full Solution:?\*\*/.test(t)) { flush(); continue; }
+
+    // Steps
+    if ((m = t.match(/^\*\*Step (\d+)[:.]\*\*\s*(.*)$/))) { stepN = +m[1]; make('step', { number: stepN, title: m[2] }); continue; }
+    if ((m = t.match(/^\*\*Step(?:\s+[^*]+)?:?\*\*\s*(.*)$/i))) { stepN++; make('step', { number: stepN, title: m[1] }); continue; }
+
+    // Methods / Cases
+    if ((m = t.match(/^\*\*Method (\d+)[:.]\*\*\s*(.*)$/))) { make('method', { number: +m[1], title: m[2] }); continue; }
+    if ((m = t.match(/^\*\*Case (\d+)[:.]\*\*\s*(.*)$/))) { make('case', { number: +m[1], title: m[2] }); continue; }
+
+    // Why wrong
+    if (/^\*\*Why (?:the )?(?:other )?(?:wrong )?(?:choices|answers)/.test(t) || /^\*\*Why simple average/.test(t) || /^\*\*Common (?:Mistakes|errors|wrong answers)/i.test(t)) {
+      flush();
+      whyWrong = { content: '', bullets: [] };
+      cur = whyWrong;
+      continue;
+    }
+
+    // Verification
+    if ((m = t.match(/^\*\*Verif(?:ication|y)(?:[^:]*)?:?\*\*\s*(.*)$/i))) {
+      flush();
+      verification = { content: m[1] || '', bullets: [] };
+      cur = verification;
+      continue;
+    }
+
+    // Test Day Takeaway
+    if ((m = t.match(/^\*\*Test Day (?:Takeaway|Tip):?\*\*\s*(.*)$/i))) {
+      flush();
+      takeaway = { content: m[1] || '', bullets: [] };
+      cur = takeaway;
+      continue;
+    }
+
+    // Key concept / formula / callouts
+    if ((m = t.match(/^\*\*Key (?:concept|insight|rule|principle|identities|ratios):?\*\*\s*(.*)$/i))) { extractEq(m[1] || ''); make('key-concept', { content: m[1] }); continue; }
+    if ((m = t.match(/^\*\*(?:Key )?[Ff]ormula:?\*\*\s*(.*)$/))) { extractEq(m[1] || ''); make('formula', { content: m[1] }); continue; }
+    if ((m = t.match(/^\*\*Calculator tip:?\*\*\s*(.*)$/i))) { make('calculator-tip', { content: m[1] }); continue; }
+    if ((m = t.match(/^\*\*Note:?\*\*\s*(.*)$/i))) { make('note', { content: m[1] }); continue; }
+    if ((m = t.match(/^\*\*Alternative(?:\s+\w+)?(?:\s*\([^)]*\))?:?\*\*\s*(.*)$/i))) { make('alternative', { content: m[1] }); continue; }
+    if ((m = t.match(/^\*\*Desmos (?:Shortcut|Tip|Verification):?\*\*\s*(.*)$/i))) { make('calculator-tip', { content: m[1] }); continue; }
+
+    // Generic bold heading fallback
+    if ((m = t.match(/^\*\*([^*]+?):?\*\*\s*(.*)$/)) && !cur) {
+      const h = m[1].trim();
+      if (/^(?:Choice|The correct)/i.test(h)) continue;
+      stepN++; make('step', { number: stepN, title: h, content: m[2] }); continue;
+    }
+
+    // Bullet lines
+    if ((m = t.match(/^[•\-–]\s*(.+)$/)) && cur) { cur.bullets.push(m[1]); continue; }
+
+    // Continuation text
+    if (cur) { cur.content += (cur.content ? '\n' : '') + t; }
+    else { answerDetail = answerDetail ? answerDetail + ' ' + t : t; }
   }
   flush();
 
-  if(!equation){
-    for(const s of sections){
-      if(s.type==='formula'||s.type==='key-concept'){
-        const c=s.content+' '+(s.bullets||[]).join(' ');
-        const m2=c.match(/\$\$(.+?)\$\$/);
-        if(m2){equation='$$'+m2[1]+'$$';break;}
-        const all=[...c.matchAll(/\$([^$]+?)\$/g)];
-        for(const a of all){if(/[=\\]/.test(a[1])&&a[1].length>3){equation='$'+a[1]+'$';break;}}
-        if(equation)break;
+  // Extract equation from callouts if not found yet
+  if (!equation) {
+    for (const s of sections) {
+      if (s.type === 'formula' || s.type === 'key-concept') {
+        const c = s.content + ' ' + (s.bullets || []).join(' ');
+        const m2 = c.match(/\$\$(.+?)\$\$/);
+        if (m2) { equation = '$$' + m2[1] + '$$'; break; }
+        const all = [...c.matchAll(/\$([^$]+?)\$/g)];
+        for (const a of all) { if (/[=\\]/.test(a[1]) && a[1].length > 3) { equation = '$' + a[1] + '$'; break; } }
+        if (equation) break;
       }
     }
   }
-  return{answer,answerDetail,equation,sections};
+
+  return { satPattern, answer, answerDetail, equation, fastWay, sections, whyWrong, verification, takeaway };
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// HELPERS
+// RENDERING HELPERS
 // ═══════════════════════════════════════════════════════════════════════════════
 
-const strip=t=>(t||'').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+const strip = t => (t || '').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
 
-const Lines=({text})=>{
-  if(!text)return null;
-  const ls=strip(text).split('\n').filter(l=>l.trim());
-  return <div style={{fontSize:'15px',color:colors.text.primary,letterSpacing:'-0.01em'}}>
-    {ls.map((l,i)=><div key={i} style={{lineHeight:'1.95',marginBottom:'1px'}}><MathText text={l}/></div>)}
-  </div>;
+const RichText = ({ text, size = '15px', color, lineHeight = '1.85' }) => {
+  if (!text) return null;
+  const ls = strip(text).split('\n').filter(l => l.trim());
+  return (
+    <div style={{ fontSize: size, color: color || colors.text.primary, letterSpacing: '-0.01em' }}>
+      {ls.map((l, i) => <div key={i} style={{ lineHeight, marginBottom: '2px' }}><MathText text={l} /></div>)}
+    </div>
+  );
 };
 
-const Bullets=({items})=>{
-  if(!items?.length)return null;
-  return <div>{items.map((b,i)=>(
-    <div key={i} style={{display:'flex',gap:'8px',marginBottom:'4px',fontSize:'15px',lineHeight:'1.85',color:colors.text.primary}}>
-      <span style={{color:colors.text.muted,flexShrink:0,marginTop:'2px',fontSize:'11px'}}>●</span>
-      <span style={{flex:1,minWidth:0}}><MathText text={strip(b)}/></span>
+const BulletList = ({ items, color }) => {
+  if (!items?.length) return null;
+  return (
+    <div style={{ marginTop: '6px' }}>
+      {items.map((b, i) => (
+        <div key={i} style={{ display: 'flex', gap: '10px', marginBottom: '6px', fontSize: '15px', lineHeight: '1.85', color: color || colors.text.primary }}>
+          <span style={{ color: colors.text.muted, flexShrink: 0, marginTop: '3px', fontSize: '7px' }}>●</span>
+          <span style={{ flex: 1, minWidth: 0 }}><MathText text={strip(b)} /></span>
+        </div>
+      ))}
     </div>
-  ))}</div>;
+  );
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// SECTION RENDERERS
+// SEMANTIC SECTION CARDS
 // ═══════════════════════════════════════════════════════════════════════════════
 
-const StepCard=({number,title,content,bullets,isLast})=>(
-  <div style={{display:'flex',gap:'20px'}}>
-    <div style={{display:'flex',flexDirection:'column',alignItems:'center',flexShrink:0,width:'24px'}}>
-      <div style={{width:'24px',height:'24px',borderRadius:'50%',background:colors.surface.gray,color:colors.text.muted,display:'flex',alignItems:'center',justifyContent:'center',fontSize:'12px',fontWeight:'600',flexShrink:0,position:'relative',zIndex:1}}>{number}</div>
-      {!isLast&&<div style={{width:'0.5px',flex:1,background:colors.surface.grayMedium,marginTop:'8px'}}/>}
+const SectionFade = ({ children, delay = 0 }) => (
+  <div style={{
+    animation: `solutionFadeIn 0.35s cubic-bezier(0.25, 0.1, 0.25, 1) ${delay}ms both`,
+  }}>
+    {children}
+  </div>
+);
+
+const StepCard = ({ number, title, content, bullets, isLast }) => (
+  <div style={{ display: 'flex', gap: '16px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0, width: '28px' }}>
+      <div style={{
+        width: '28px', height: '28px', borderRadius: '50%',
+        background: colors.semantic.info, color: colors.text.inverse,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        fontSize: '13px', fontWeight: '700', flexShrink: 0, position: 'relative', zIndex: 1
+      }}>{number}</div>
+      {!isLast && <div style={{ width: '2px', flex: 1, background: colors.semantic.infoLight, marginTop: '6px', borderRadius: '1px' }} />}
     </div>
-    <div style={{flex:1,paddingBottom:isLast?0:'24px',minWidth:0}}>
-      {title&&<div style={{fontSize:'14px',fontWeight:'600',color:colors.text.primary,letterSpacing:'-0.01em',lineHeight:'24px',marginBottom:'10px'}}><MathText text={strip(title)}/></div>}
-      {content&&<Lines text={content}/>}
-      {bullets?.length>0&&<div style={{marginTop:content?'8px':0}}><Bullets items={bullets}/></div>}
+    <div style={{ flex: 1, paddingBottom: isLast ? 0 : '20px', minWidth: 0 }}>
+      {title && (
+        <div style={{ fontSize: '15px', fontWeight: '600', color: colors.text.primary, lineHeight: '28px', marginBottom: '6px' }}>
+          <MathText text={strip(title)} />
+        </div>
+      )}
+      {content && <RichText text={content} />}
+      {bullets?.length > 0 && <BulletList items={bullets} />}
     </div>
   </div>
 );
 
-const MethodCard=({number,title,content,bullets,label})=>(
-  <div style={{background:colors.surface.gray,borderRadius:'14px',overflow:'hidden'}}>
-    <div style={{padding:'14px 20px 12px'}}>
-      <div style={{fontSize:'10px',fontWeight:'700',color:colors.text.muted,letterSpacing:'0.08em',marginBottom:'10px'}}>{label||'METHOD '+number}{title?' · ':''}{title&&<MathText text={strip(title)}/>}</div>
-      <div style={{fontSize:'15px',color:colors.text.primary,letterSpacing:'-0.01em'}}><Lines text={content}/>{bullets?.length>0&&<Bullets items={bullets}/>}</div>
+const MethodCard = ({ number, title, content, bullets, label }) => (
+  <div style={{
+    background: colors.surface.offWhite, borderRadius: radius.lg, overflow: 'hidden',
+    border: `1px solid ${colors.surface.grayDark}`
+  }}>
+    <div style={{ padding: '16px 20px' }}>
+      <div style={{
+        fontSize: typography.sizes.xs, fontWeight: typography.weights.bold,
+        color: colors.text.muted, letterSpacing: typography.letterSpacing.wider, marginBottom: '10px'
+      }}>
+        {label || 'METHOD ' + number}{title ? ' — ' : ''}{title && <MathText text={strip(title)} />}
+      </div>
+      <RichText text={content} />
+      {bullets?.length > 0 && <BulletList items={bullets} />}
     </div>
   </div>
 );
 
-const WhyWrongCard=({bullets,content})=>{
-  const[open,setOpen]=useState(false);
-  const items=bullets?.length?bullets:content?content.split('\n').filter(l=>l.trim()):[];
-  if(!items.length)return null;
-  return <div>
-    <button onClick={()=>setOpen(v=>!v)} style={{width:'100%',padding:'0 0 8px',background:'none',border:'none',cursor:'pointer',display:'flex',alignItems:'center',justifyContent:'space-between'}}>
-      <span style={{fontSize:'13px',fontWeight:'500',color:colors.text.muted,letterSpacing:'-0.01em'}}>Why other choices are incorrect</span>
-      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{transform:open?'rotate(180deg)':'rotate(0)',transition:'transform 0.3s cubic-bezier(0.25,0.1,0.25,1)'}}><path d="M3 4.5l3 3 3-3" stroke="#aeaeb2" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-    </button>
-    {open&&<div style={{overflow:'hidden'}}>
-      {items.map((item,idx)=>{
-        const cm=item.match(/^(?:Choice\s+)?([A-D])[\s:(]+(.+?)\)?$/);
-        return <div key={idx} style={{display:'flex',gap:'12px',padding:'14px 0',borderBottom:idx<items.length-1?'0.5px solid rgba(0,0,0,0.06)':'none',alignItems:'flex-start'}}>
-          {cm?<>
-            <div style={{width:'22px',height:'22px',borderRadius:'50%',background:colors.surface.gray,display:'flex',alignItems:'center',justifyContent:'center',fontSize:'11px',fontWeight:'600',color:colors.text.muted,flexShrink:0,marginTop:'2px'}}>{cm[1]}</div>
-            <span style={{fontSize:'14px',lineHeight:'1.8',color:colors.text.secondary,flex:1,minWidth:0}}><MathText text={strip(cm[2])}/></span>
-          </>:<>
-            <span style={{color:colors.text.muted,flexShrink:0,marginTop:'3px',fontSize:'9px'}}>●</span>
-            <span style={{fontSize:'14px',lineHeight:'1.8',color:colors.text.secondary,flex:1,minWidth:0}}><MathText text={strip(item)}/></span>
-          </>}
-        </div>;
-      })}
-    </div>}
-  </div>;
+const FastWayCard = ({ content, bullets }) => {
+  if (!content && !bullets?.length) return null;
+  return (
+    <div style={{
+      background: 'linear-gradient(135deg, var(--color-success-100) 0%, var(--color-success-100) 100%)',
+      border: `1px solid var(--color-success-600)`,
+      borderRadius: radius.lg, padding: '16px 20px', position: 'relative', overflow: 'hidden',
+    }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8.5 1.5L3 9.5h4.5l-1 5 5.5-8H7.5l1-5z" stroke="var(--color-success-600)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+        <span style={{
+          fontSize: typography.sizes.xs, fontWeight: typography.weights.bold,
+          color: colors.semantic.success, letterSpacing: typography.letterSpacing.wider
+        }}>FAST METHOD</span>
+      </div>
+      <RichText text={content} color={colors.text.primary} />
+      <BulletList items={bullets} />
+    </div>
+  );
 };
 
-const LABELS={'key-concept':'KEY CONCEPT','calculator-tip':'CALCULATOR TIP','verification':'VERIFICATION','note':'NOTE','formula':'FORMULA','alternative':'ALTERNATIVE'};
-
-const CalloutCard=({type,content,bullets})=>(
-  <div style={{padding:'18px 22px',background:colors.surface.gray,borderRadius:'14px'}}>
-    <div style={{fontSize:'10px',fontWeight:'700',color:colors.text.muted,letterSpacing:'0.08em',marginBottom:'8px'}}>{LABELS[type]||'NOTE'}</div>
-    {content&&<div style={{fontSize:'14px',lineHeight:'1.85',color:colors.text.primary,letterSpacing:'-0.01em'}}><MathText text={strip(content)}/></div>}
-    {bullets?.length>0&&<div style={{marginTop:content?'6px':0}}><Bullets items={bullets}/></div>}
-  </div>
-);
-
-// ═══════════════════════════════════════════════════════════════════════════════
-// MAIN
-// ═══════════════════════════════════════════════════════════════════════════════
-
-const SolutionExplanation=({explanation,isCorrect,accentColor})=>{
-  const parsed=useMemo(()=>parseExplanation(explanation),[explanation]);
-
-  if(!explanation)return <div style={{padding:'32px',textAlign:'center',color:colors.text.muted,fontSize:'14px'}}>No explanation available.</div>;
-
-  const{answer,answerDetail,equation,sections}=parsed;
-  const steps=sections.filter(s=>s.type==='step');
-  const methods=sections.filter(s=>s.type==='method');
-  const cases=sections.filter(s=>s.type==='case');
-  const whyWrong=sections.find(s=>s.type==='why-wrong');
-  const calloutTypes=['key-concept','calculator-tip','verification','note','formula','alternative'];
-  const callouts=sections.filter(s=>calloutTypes.includes(s.type));
-  const hasBody=steps.length||methods.length||cases.length||whyWrong||callouts.length;
+const WhyWrongCard = ({ content, bullets }) => {
+  const [open, setOpen] = useState(true);
+  const items = bullets?.length ? bullets : content ? content.split('\n').filter(l => l.trim()) : [];
+  if (!items.length) return null;
 
   return (
-    <div style={{background:colors.surface.white,borderRadius:'20px',overflow:'hidden',boxShadow:'0 0 0 0.5px rgba(0,0,0,0.05),0 2px 8px rgba(0,0,0,0.03),0 12px 36px rgba(0,0,0,0.05)'}}>
+    <div style={{
+      background: colors.surface.offWhite, borderRadius: radius.lg,
+      border: `1px solid ${colors.surface.grayDark}`, overflow: 'hidden',
+    }}>
+      <button
+        onClick={() => setOpen(v => !v)}
+        style={{
+          width: '100%', padding: '14px 20px', background: 'none', border: 'none', cursor: 'pointer',
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="6.5" stroke={colors.semantic.error} strokeWidth="1.5" />
+            <path d="M6 6l4 4M10 6l-4 4" stroke={colors.semantic.error} strokeWidth="1.5" strokeLinecap="round" />
+          </svg>
+          <span style={{
+            fontSize: '14px', fontWeight: typography.weights.semibold,
+            color: colors.text.primary, letterSpacing: '-0.01em'
+          }}>Why Other Choices Are Wrong</span>
+        </div>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{
+          transform: open ? 'rotate(180deg)' : 'rotate(0)',
+          transition: `transform ${transitions.normal}`
+        }}>
+          <path d="M3 4.5l3 3 3-3" stroke={colors.text.muted} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+      {open && (
+        <div style={{ padding: '0 20px 16px' }}>
+          {items.map((item, idx) => {
+            const cm = item.match(/^(?:Choice\s+)?([A-D])[\s:(]+(.+?)\)?$/);
+            return (
+              <div key={idx} style={{
+                display: 'flex', gap: '12px', padding: '10px 0',
+                borderTop: idx > 0 ? `1px solid ${colors.surface.grayDark}` : 'none',
+                alignItems: 'flex-start'
+              }}>
+                {cm ? <>
+                  <div style={{
+                    width: '24px', height: '24px', borderRadius: '6px',
+                    background: colors.semantic.errorLight,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontSize: '12px', fontWeight: typography.weights.bold,
+                    color: colors.semantic.error, flexShrink: 0, marginTop: '2px'
+                  }}>{cm[1]}</div>
+                  <span style={{ fontSize: '14px', lineHeight: '1.75', color: colors.text.secondary, flex: 1, minWidth: 0 }}>
+                    <MathText text={strip(cm[2])} />
+                  </span>
+                </> : <>
+                  <span style={{ color: colors.text.muted, flexShrink: 0, marginTop: '5px', fontSize: '7px' }}>●</span>
+                  <span style={{ fontSize: '14px', lineHeight: '1.75', color: colors.text.secondary, flex: 1, minWidth: 0 }}>
+                    <MathText text={strip(item)} />
+                  </span>
+                </>}
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+};
 
-      {/* Header */}
-      <div style={{padding:'32px 36px 0'}}>
-        <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'16px'}}>
-          <div style={{width:'8px',height:'8px',borderRadius:'50%',background:colors.semantic.success,flexShrink:0}}/>
-          <span style={{fontSize:'12px',fontWeight:'600',color:colors.text.muted,letterSpacing:'0.04em'}}>SOLUTION</span>
-        </div>
-        <div style={{fontSize:'24px',fontWeight:'600',color:colors.text.primary,letterSpacing:'-0.025em',lineHeight:'1.2'}}>
-          {answer?<MathText text={strip(answer)}/>:'Explanation'}
-        </div>
-        {answerDetail&&<div style={{marginTop:'12px',fontSize:'15px',lineHeight:'1.75',color:colors.text.secondary,letterSpacing:'-0.01em'}}><MathText text={strip(answerDetail)}/></div>}
+const VerificationCard = ({ content, bullets }) => {
+  if (!content && !bullets?.length) return null;
+  return (
+    <div style={{
+      background: colors.surface.offWhite, borderRadius: radius.lg,
+      border: `1px solid ${colors.surface.grayDark}`, padding: '16px 20px',
+    }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <circle cx="8" cy="8" r="6.5" stroke={colors.semantic.success} strokeWidth="1.5" />
+          <path d="M5.5 8l2 2 3.5-4" stroke={colors.semantic.success} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+        <span style={{
+          fontSize: typography.sizes.xs, fontWeight: typography.weights.bold,
+          color: colors.semantic.success, letterSpacing: typography.letterSpacing.wider
+        }}>VERIFICATION</span>
       </div>
+      <RichText text={content} size="14px" color={colors.text.secondary} />
+      <BulletList items={bullets} color={colors.text.secondary} />
+    </div>
+  );
+};
 
-      {/* Equation Used */}
-      {equation&&(
-        <div style={{margin:'24px 36px 0'}}>
-          <div style={{background:colors.surface.gray,borderRadius:'16px',padding:'24px 28px',textAlign:'center'}}>
-            <div style={{fontSize:'10px',fontWeight:'700',color:colors.text.muted,letterSpacing:'0.1em',marginBottom:'14px'}}>EQUATION USED</div>
-            <div style={{fontSize:'18px',color:colors.text.primary,lineHeight:'2.2'}}><MathText text={strip(equation)}/></div>
+const TakeawayCard = ({ content, bullets }) => {
+  if (!content && !bullets?.length) return null;
+  return (
+    <div style={{
+      background: 'linear-gradient(135deg, var(--color-info-100), var(--color-brand-peach-100))',
+      borderRadius: radius.lg, padding: '16px 20px',
+      border: `1px solid var(--color-info-600)`,
+    }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M8 2a4 4 0 014 4c0 1.5-.8 2.5-1.5 3.2-.4.4-.5.8-.5 1.3v.5H6v-.5c0-.5-.1-.9-.5-1.3C4.8 8.5 4 7.5 4 6a4 4 0 014-4z" stroke={colors.semantic.info} strokeWidth="1.5" />
+          <path d="M6 13h4M7 14.5h2" stroke={colors.semantic.info} strokeWidth="1.5" strokeLinecap="round" />
+        </svg>
+        <span style={{
+          fontSize: typography.sizes.xs, fontWeight: typography.weights.bold,
+          color: colors.semantic.info, letterSpacing: typography.letterSpacing.wider
+        }}>TEST DAY TAKEAWAY</span>
+      </div>
+      <RichText text={content} size="14px" color={colors.text.primary} />
+      <BulletList items={bullets} />
+    </div>
+  );
+};
+
+const CALLOUT_CONFIG = {
+  'key-concept': { label: 'KEY CONCEPT', icon: '📐', color: colors.semantic.info },
+  'calculator-tip': { label: 'CALCULATOR TIP', icon: '🖩', color: colors.semantic.info },
+  'note': { label: 'NOTE', icon: '📝', color: colors.text.muted },
+  'formula': { label: 'FORMULA', icon: '∑', color: colors.semantic.info },
+  'alternative': { label: 'ALTERNATIVE', icon: '↔', color: colors.text.muted },
+};
+
+const CalloutCard = ({ type, content, bullets }) => {
+  const cfg = CALLOUT_CONFIG[type] || { label: 'NOTE', color: colors.text.muted };
+  return (
+    <div style={{
+      padding: '16px 20px', background: colors.surface.offWhite,
+      borderRadius: radius.lg, border: `1px solid ${colors.surface.grayDark}`,
+    }}>
+      <div style={{
+        fontSize: typography.sizes.xs, fontWeight: typography.weights.bold,
+        color: cfg.color, letterSpacing: typography.letterSpacing.wider, marginBottom: '8px'
+      }}>{cfg.label}</div>
+      {content && <RichText text={content} size="14px" color={colors.text.primary} />}
+      {bullets?.length > 0 && <BulletList items={bullets} />}
+    </div>
+  );
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// KEYFRAME INJECTION
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const styleId = 'solution-explanation-keyframes';
+if (typeof document !== 'undefined' && !document.getElementById(styleId)) {
+  const style = document.createElement('style');
+  style.id = styleId;
+  style.textContent = `
+    @keyframes solutionFadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  `;
+  document.head.appendChild(style);
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// MAIN COMPONENT
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const SolutionExplanation = ({ explanation, isCorrect }) => {
+  const parsed = useMemo(() => parseExplanation(explanation), [explanation]);
+
+  if (!explanation) {
+    return (
+      <div style={{ padding: spacing.xl, textAlign: 'center', color: colors.text.muted, fontSize: typography.sizes.sm }}>
+        No explanation available.
+      </div>
+    );
+  }
+
+  const { satPattern, answer, answerDetail, equation, fastWay, sections, whyWrong, verification, takeaway } = parsed;
+  const steps = sections.filter(s => s.type === 'step');
+  const methods = sections.filter(s => s.type === 'method');
+  const cases = sections.filter(s => s.type === 'case');
+  const calloutTypes = ['key-concept', 'calculator-tip', 'note', 'formula', 'alternative'];
+  const callouts = sections.filter(s => calloutTypes.includes(s.type));
+  const hasBody = steps.length || methods.length || cases.length || whyWrong || callouts.length || fastWay || verification || takeaway;
+
+  let animDelay = 0;
+  const nextDelay = () => { animDelay += 60; return animDelay; };
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+
+      {/* ── SAT Pattern Badge ─────────────────────────────────────── */}
+      {satPattern && (
+        <SectionFade delay={nextDelay()}>
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: '8px',
+            padding: '6px 14px', background: colors.semantic.infoLight,
+            borderRadius: radius.full, marginBottom: '16px', alignSelf: 'flex-start',
+            border: `1px solid ${colors.semantic.info}`,
+          }}>
+            <span style={{
+              fontSize: typography.sizes.xs, fontWeight: typography.weights.bold,
+              color: colors.semantic.info, letterSpacing: '-0.01em'
+            }}>{satPattern}</span>
           </div>
-        </div>
+        </SectionFade>
       )}
 
-      {/* Body */}
-      {hasBody&&(
-        <div style={{padding:'28px 36px 36px'}}>
-          {steps.length>0&&<div style={{marginBottom:'4px'}}>{steps.map((s,i)=><StepCard key={i} {...s} isLast={i===steps.length-1}/>)}</div>}
-
-          {methods.length>0&&<div style={{display:'grid',gridTemplateColumns:methods.length===2?'1fr 1fr':'1fr',gap:'12px',marginTop:steps.length?'8px':0}}>{methods.map((m,i)=><MethodCard key={i} {...m}/>)}</div>}
-
-          {cases.length>0&&<div style={{display:'grid',gridTemplateColumns:cases.length===2?'1fr 1fr':'1fr',gap:'12px',marginTop:steps.length?'8px':0}}>{cases.map((c,i)=><MethodCard key={i} {...c} label={'CASE '+c.number}/>)}</div>}
-
-          {(whyWrong||callouts.length>0)&&<div style={{borderTop:'0.5px solid rgba(0,0,0,0.08)',margin:'24px 0 20px'}}/>}
-
-          {whyWrong&&<WhyWrongCard bullets={whyWrong.bullets} content={whyWrong.content}/>}
-
-          {callouts.map((c,i)=><div key={i} style={{marginTop:'16px'}}><CalloutCard type={c.type} content={c.content} bullets={c.bullets}/></div>)}
-        </div>
+      {/* ── Answer Verdict ────────────────────────────────────────── */}
+      {answer && (
+        <SectionFade delay={nextDelay()}>
+          <div style={{ marginBottom: '20px' }}>
+            <div style={{
+              fontSize: typography.sizes.xl, fontWeight: typography.weights.bold,
+              color: colors.text.primary, letterSpacing: typography.letterSpacing.tight, lineHeight: '1.3',
+            }}>
+              <MathText text={strip(answer)} />
+            </div>
+            {answerDetail && (
+              <div style={{
+                marginTop: '10px', fontSize: '15px', lineHeight: '1.75',
+                color: colors.text.secondary
+              }}>
+                <MathText text={strip(answerDetail)} />
+              </div>
+            )}
+          </div>
+        </SectionFade>
       )}
 
-      {/* Fallback */}
-      {!hasBody&&!answerDetail&&<div style={{padding:'0 36px 36px'}}><Lines text={explanation}/></div>}
+      {/* ── Equation Used ─────────────────────────────────────────── */}
+      {equation && (
+        <SectionFade delay={nextDelay()}>
+          <div style={{
+            background: colors.surface.offWhite, borderRadius: radius.lg,
+            padding: '20px 24px', textAlign: 'center', marginBottom: '20px',
+            border: `1px solid ${colors.surface.grayDark}`,
+          }}>
+            <div style={{
+              fontSize: typography.sizes.xs, fontWeight: typography.weights.bold,
+              color: colors.text.muted, letterSpacing: typography.letterSpacing.wider, marginBottom: '12px'
+            }}>EQUATION USED</div>
+            <div style={{ fontSize: '18px', color: colors.text.primary, lineHeight: '2' }}>
+              <MathText text={strip(equation)} />
+            </div>
+          </div>
+        </SectionFade>
+      )}
+
+      {/* ── Fast Way ──────────────────────────────────────────────── */}
+      {fastWay && (
+        <SectionFade delay={nextDelay()}>
+          <div style={{ marginBottom: '20px' }}>
+            <FastWayCard content={fastWay.content} bullets={fastWay.bullets} />
+          </div>
+        </SectionFade>
+      )}
+
+      {/* ── Steps ─────────────────────────────────────────────────── */}
+      {steps.length > 0 && (
+        <SectionFade delay={nextDelay()}>
+          <div style={{
+            background: colors.surface.white, borderRadius: radius.lg,
+            padding: '20px 24px', marginBottom: '20px',
+            border: `1px solid ${colors.surface.grayDark}`,
+          }}>
+            <div style={{
+              fontSize: typography.sizes.xs, fontWeight: typography.weights.bold,
+              color: colors.text.muted, letterSpacing: typography.letterSpacing.wider, marginBottom: '16px'
+            }}>SOLUTION STEPS</div>
+            {steps.map((s, i) => <StepCard key={i} {...s} isLast={i === steps.length - 1} />)}
+          </div>
+        </SectionFade>
+      )}
+
+      {/* ── Methods / Cases ───────────────────────────────────────── */}
+      {methods.length > 0 && (
+        <SectionFade delay={nextDelay()}>
+          <div style={{
+            display: 'grid', gridTemplateColumns: methods.length === 2 ? '1fr 1fr' : '1fr',
+            gap: '12px', marginBottom: '20px'
+          }}>
+            {methods.map((m, i) => <MethodCard key={i} {...m} />)}
+          </div>
+        </SectionFade>
+      )}
+      {cases.length > 0 && (
+        <SectionFade delay={nextDelay()}>
+          <div style={{
+            display: 'grid', gridTemplateColumns: cases.length === 2 ? '1fr 1fr' : '1fr',
+            gap: '12px', marginBottom: '20px'
+          }}>
+            {cases.map((c, i) => <MethodCard key={i} {...c} label={'CASE ' + c.number} />)}
+          </div>
+        </SectionFade>
+      )}
+
+      {/* ── Callouts ──────────────────────────────────────────────── */}
+      {callouts.map((c, i) => (
+        <SectionFade key={i} delay={nextDelay()}>
+          <div style={{ marginBottom: '12px' }}>
+            <CalloutCard type={c.type} content={c.content} bullets={c.bullets} />
+          </div>
+        </SectionFade>
+      ))}
+
+      {/* ── Why Wrong ─────────────────────────────────────────────── */}
+      {whyWrong && (
+        <SectionFade delay={nextDelay()}>
+          <div style={{ marginBottom: '12px' }}>
+            <WhyWrongCard bullets={whyWrong.bullets} content={whyWrong.content} />
+          </div>
+        </SectionFade>
+      )}
+
+      {/* ── Verification ──────────────────────────────────────────── */}
+      {verification && (
+        <SectionFade delay={nextDelay()}>
+          <div style={{ marginBottom: '12px' }}>
+            <VerificationCard content={verification.content} bullets={verification.bullets} />
+          </div>
+        </SectionFade>
+      )}
+
+      {/* ── Takeaway ──────────────────────────────────────────────── */}
+      {takeaway && (
+        <SectionFade delay={nextDelay()}>
+          <TakeawayCard content={takeaway.content} bullets={takeaway.bullets} />
+        </SectionFade>
+      )}
+
+      {/* ── Fallback ──────────────────────────────────────────────── */}
+      {!hasBody && !answerDetail && (
+        <div style={{ padding: '8px 0' }}>
+          <RichText text={explanation} />
+        </div>
+      )}
     </div>
   );
 };
