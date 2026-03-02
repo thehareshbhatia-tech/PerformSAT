@@ -20,6 +20,7 @@ export const useProgress = (userId) => {
   const [practiceTestResults, setPracticeTestResults] = useState({});
   const [inProgressTests, setInProgressTests] = useState({});
   const [studyPlan, setStudyPlan] = useState(null);
+  const [studyPlanMeta, setStudyPlanMeta] = useState({ artifactId: null, preview: null });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -71,8 +72,12 @@ export const useProgress = (userId) => {
           // Get in-progress tests
           setInProgressTests(data.inProgressTests || {});
 
-          // Get study plan
+          // Get study plan (prefer artifact-backed plan, fallback to legacy)
           setStudyPlan(data.studyPlan || null);
+          setStudyPlanMeta({
+            artifactId: data.currentStudyPlanArtifactId || null,
+            preview: data.studyPlanPreview || null,
+          });
         } else {
           setCompletedLessons({});
           setPracticeProgress({});
@@ -81,6 +86,7 @@ export const useProgress = (userId) => {
           setPracticeTestResults({});
           setInProgressTests({});
           setStudyPlan(null);
+          setStudyPlanMeta({ artifactId: null, preview: null });
         }
         setLoading(false);
       },
@@ -562,6 +568,7 @@ export const useProgress = (userId) => {
     practiceTestResults,
     inProgressTests,
     studyPlan,
+    studyPlanMeta,
     loading,
     error,
     markLessonComplete,

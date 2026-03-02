@@ -6,11 +6,120 @@ import { MathText } from './MathText';
 import SolutionExplanation from './SolutionExplanation';
 import QuestionRenderer from './QuestionRenderer';
 import { recordSkillAttempts } from '../services/skillService';
+import { generateStudyPlan as generateStudyPlanFromAI, saveStudyPlanArtifact } from '../services/studyPlanService';
+import { runDiagnostic } from '../services/diagnosticEngine';
 import DiagnosticReport from './DiagnosticReport';
 import { colors, typography, spacing, radius, shadows, transitions } from '../design/tokens';
 import { cardStyles, buttonStyles } from '../design/components';
 import './PracticeTest.css';
 import { CheckIcon, CrossIcon, LightBulbIcon, MicroscopeIcon } from '../design/icons';
+
+const ERROR_TYPE_LABELS = {
+  conceptual_gap: 'Conceptual Gap',
+  procedural_error: 'Procedural Error',
+  trap_susceptibility: 'Trap Answer',
+  time_pressure: 'Time Pressure',
+  careless_error: 'Careless Mistake',
+  unanswered: 'Unanswered',
+};
+
+function buildGroundTruthDiagnosis(diagReport, rawTelemetry) {
+  const { skillAnalysis, trendAnalysis, answerPatterns, stamina } = diagReport;
+  const questionAnalysis = diagReport.questionAnalysis || [];
+
+  const weakSkills = (skillAnalysis?.weakSkills || []).slice(0, 8).map(s => {
+    const errLabel = ERROR_TYPE_LABELS[s.primaryErrorType] || s.primaryErrorType || 'mixed';
+    const avgTime = computeAvgTimeForSkill(s.skillId, questionAnalysis);
+    const historyNote = s.historicalMastery !== null
+      ? `, historical mastery ${s.historicalMastery}%`
+      : ', first time tested';
+    const trendNote = s.trend === 'improving' ? ' (improving)' : s.trend === 'declining' ? ' (declining)' : '';
+    return {
+      skill: s.name,
+      evidence: `${s.correct}/${s.total} correct, primary error: ${errLabel}, avg ${avgTime}s/q${historyNote}${trendNote}`,
+      accuracy: s.testAccuracy,
+      errorType: errLabel,
+      domain: s.domain,
+      modules: s.modules || [],
+      sections: s.sections || [],
+    };
+  });
+
+  const strongSkills = (skillAnalysis?.strongSkills || []).slice(0, 5).map(s => {
+    const avgTime = computeAvgTimeForSkill(s.skillId, questionAnalysis);
+    const trendNote = s.trend === 'improving' ? ' and still improving' : '';
+    return {
+      skill: s.name,
+      evidence: `${s.correct}/${s.total} correct, avg ${avgTime}s/q${trendNote}`,
+      accuracy: s.testAccuracy,
+      domain: s.domain,
+    };
+  });
+
+  let calculatorDependency = null;
+  if (rawTelemetry && questionAnalysis.length > 0) {
+    let calcCount = 0;
+    let easyWithCalc = 0;
+    Object.entries(rawTelemetry).forEach(([key, telem]) => {
+      if (telem?.usedCalculator) {
+        calcCount++;
+        const qa = questionAnalysis.find(q => q.key === key);
+        if (qa?.difficulty === 'easy') easyWithCalc++;
+      }
+    });
+    const pct = Math.round((calcCount / questionAnalysis.length) * 100);
+    calculatorDependency = {
+      usagePercent: pct,
+      easyQuestionsWithCalculator: easyWithCalc,
+      insight: pct > 60
+        ? `Used calculator on ${pct}% of questions — consider building mental math fluency`
+        : pct > 30
+        ? `Calculator used on ${pct}% of questions — reasonable usage`
+        : `Light calculator usage (${pct}%) — strong mental math`,
+    };
+  }
+
+  let eliminationEffectiveness = null;
+  if (answerPatterns?.answerChanges) {
+    const { answerChanges } = answerPatterns;
+    if (answerChanges.total > 0) {
+      eliminationEffectiveness = {
+        totalChanges: answerChanges.total,
+        changedToCorrect: answerChanges.changedToCorrect,
+        changedToWrong: answerChanges.changedToWrong,
+        accuracy: answerChanges.firstInstinctAccuracy,
+        insight: answerChanges.advice,
+      };
+    }
+  }
+
+  const persistentWeaknesses = (trendAnalysis?.persistentWeaknesses || []).slice(0, 5).map(pw => ({
+    skill: pw.name,
+    testsWeak: pw.testCount,
+    insight: `Weak across ${pw.testCount} tests — needs focused remediation`,
+  }));
+
+  let staminaInsight = null;
+  if (stamina?.hasData) {
+    staminaInsight = {
+      score: stamina.staminaScore,
+      rating: stamina.rating,
+      dropoff: stamina.dropoff,
+      message: stamina.message,
+    };
+  }
+
+  return { strengths: strongSkills, weaknesses: weakSkills, calculatorDependency, eliminationEffectiveness, persistentWeaknesses, staminaInsight };
+}
+
+function computeAvgTimeForSkill(skillId, questionAnalysis) {
+  const relevant = (questionAnalysis || []).filter(q =>
+    (q.skillIds || []).includes(skillId)
+  );
+  if (relevant.length === 0) return 0;
+  const total = relevant.reduce((s, q) => s + (q.timeSpent || 0), 0);
+  return Math.round(total / relevant.length);
+}
 
 // SAT-Style Typography Constants - matches College Board format
 const SAT_TYPOGRAPHY = {
@@ -703,7 +812,7 @@ const renderChoice = (choice) => {
   return <MathText text={choice.text} />;
 };
 
-const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, onClearProgress, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onNavigateToModule, onStartPractice }) => {
+const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, onClearProgress, onSaveStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onNavigateToModule, onStartPractice }) => {
   // Initialize state from saved progress if available
   const [currentModule, setCurrentModule] = useState(savedProgress?.currentModule || 0);
   const [currentQuestion, setCurrentQuestion] = useState(savedProgress?.currentQuestion || 0);
@@ -815,6 +924,16 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
 
     // Only save if there are answers (user has started the test)
     if (Object.keys(answers).length > 0) {
+      const telemetrySnapshot = {};
+      Object.entries(questionTelemetry.current).forEach(([k, v]) => {
+        telemetrySnapshot[k] = {
+          timeSpent: Math.round((v.timeSpent || 0) * 10) / 10,
+          visits: v.visits || 0,
+          answerChanges: v.answerChanges || [],
+          usedCalculator: v.usedCalculator || false,
+          markedForReview: v.markedForReview || false,
+        };
+      });
       const progressData = {
         currentModule,
         currentQuestion,
@@ -823,8 +942,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         eliminatedChoices,
         isTimed,
         timeRemaining: timerSecondsRef.current,
+        questionTelemetry: telemetrySnapshot,
       };
-      console.log('[PracticeTest] Auto-saving progress:', progressData);
       onSaveProgress(progressData);
     }
   }, [answers, currentModule, currentQuestion, markedForReview, eliminatedChoices, testCompleted, reviewMode, onSaveProgress, isTimed]);
@@ -924,12 +1043,17 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             isCorrect = userAnswer === q.correctAnswer;
           }
           const telem = questionTelemetry.current[key] || {};
+          const elimKey = key;
           questionDetails[key] = {
             timeSpent: Math.round((telem.timeSpent || 0) * 10) / 10,
             visits: telem.visits || 0,
             answerChanges: (telem.answerChanges || []).length,
+            answerChangeEvents: (telem.answerChanges || []).map(ev => ({
+              from: ev.from, to: ev.to, timestamp: ev.timestamp
+            })),
             usedCalculator: telem.usedCalculator || false,
             markedForReview: telem.markedForReview || false,
+            eliminatedChoices: eliminatedChoices[elimKey] || [],
             isCorrect,
             difficulty: q.difficulty || null,
             skills: q.skills || [],
@@ -1025,6 +1149,69 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       }
     }
   }, [testCompleted, onSaveResult, onClearProgress, resultSaved, test, answers, isTimed, user]);
+
+  // Post-test: generate AI study plan once results are saved
+  const planGenerationAttempted = useRef(false);
+  useEffect(() => {
+    if (!resultSaved || planGenerationAttempted.current || !user?.uid) return;
+    planGenerationAttempted.current = true;
+
+    (async () => {
+      try {
+        console.log('[PracticeTest] Triggering AI study plan generation...');
+        const diagReport = runDiagnostic(
+          test,
+          answers,
+          { questionDetails: (() => {
+            const qd = {};
+            test.modules.forEach((mod, modIdx) => {
+              mod.questions.forEach((q, qIdx) => {
+                const key = `${modIdx}-${qIdx}`;
+                const telem = questionTelemetry.current[key] || {};
+                qd[key] = {
+                  timeSpent: Math.round((telem.timeSpent || 0) * 10) / 10,
+                  visits: telem.visits || 0,
+                  answerChanges: (telem.answerChanges || []).length,
+                  usedCalculator: telem.usedCalculator || false,
+                };
+              });
+            });
+            return qd;
+          })(), moduleTimeRemaining: { ...moduleTimeRemaining.current } },
+          skillProgress || {},
+          { targetScore: user.targetScore, currentScore: user.currentScore, testDate: user.testDate },
+          practiceTestResults || {}
+        );
+
+        const { plan, generatedAt, model } = await generateStudyPlanFromAI(
+          diagReport,
+          { targetScore: user.targetScore, testDate: user.testDate },
+          []
+        );
+
+        const groundTruth = buildGroundTruthDiagnosis(diagReport, questionTelemetry.current);
+        plan.strengths = groundTruth.strengths;
+        plan.weaknesses = groundTruth.weaknesses;
+        plan.calculatorDependency = groundTruth.calculatorDependency;
+        plan.eliminationEffectiveness = groundTruth.eliminationEffectiveness;
+        plan.persistentWeaknesses = groundTruth.persistentWeaknesses;
+        plan.staminaInsight = groundTruth.staminaInsight;
+
+        await saveStudyPlanArtifact(user.uid, plan, {
+          generatedAt,
+          sourceTestId: test.id,
+          model,
+        });
+
+        if (onSaveStudyPlan) {
+          onSaveStudyPlan(plan);
+        }
+        console.log('[PracticeTest] AI study plan saved successfully');
+      } catch (err) {
+        console.error('[PracticeTest] Study plan generation failed (non-blocking):', err);
+      }
+    })();
+  }, [resultSaved, user, test, answers, skillProgress, practiceTestResults, onSaveStudyPlan]);
 
   const handleSelectAnswer = (answerId) => {
     const key = `${currentModule}-${currentQuestion}`;
@@ -1194,6 +1381,16 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       finalAnswers = { ...answers, [key]: isNaN(numValue) ? fillInValue : numValue };
     }
     if (onSaveProgress) {
+      const telemetrySnapshot = {};
+      Object.entries(questionTelemetry.current).forEach(([k, v]) => {
+        telemetrySnapshot[k] = {
+          timeSpent: Math.round((v.timeSpent || 0) * 10) / 10,
+          visits: v.visits || 0,
+          answerChanges: v.answerChanges || [],
+          usedCalculator: v.usedCalculator || false,
+          markedForReview: v.markedForReview || false,
+        };
+      });
       onSaveProgress({
         currentModule,
         currentQuestion,
@@ -1202,6 +1399,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         eliminatedChoices,
         isTimed,
         timeRemaining: timerSecondsRef.current,
+        questionTelemetry: telemetrySnapshot,
       });
     }
     onBack();

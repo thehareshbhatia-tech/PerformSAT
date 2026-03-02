@@ -23,6 +23,7 @@ import AppShell from './components/ui/AppShell';
 import ErrorBoundary from './components/ui/ErrorBoundary';
 import Onboarding from './components/Onboarding';
 import Profile from './components/Profile';
+import StudyPlanDashboard from './components/StudyPlanDashboard';
 
 // Premium Design System - Clean, Modern, Professional
 const design = {
@@ -17302,6 +17303,7 @@ const PerformSAT = () => {
           if (navId === 'dashboard') { setView('dashboard'); setActiveModule(null); setActiveLesson(null); }
           else if (navId === 'modules') { setView('modules'); setActiveModule(null); setActiveLesson(null); }
           else if (navId === 'practiceTests') { setView('practiceTests'); setSelectedPracticeTest(null); }
+          else if (navId === 'studyPlan') { setView('studyPlan'); }
           else if (navId === 'tutor') { setView('tutor'); setShowAiTutor(true); }
           else if (navId === 'profile') { setView('profile'); }
           else { setView(navId); }
@@ -17312,7 +17314,7 @@ const PerformSAT = () => {
       >
       {/* Main Content */}
       <main id="main-content" style={{
-        maxWidth: view === 'learn' || view === 'takingTest' ? '100%' : view === 'lesson' ? '1100px' : (view === 'dashboard' || view === 'practiceTests' || view === 'diagnosticReport') ? '960px' : '800px',
+        maxWidth: view === 'learn' || view === 'takingTest' ? '100%' : view === 'lesson' ? '1100px' : (view === 'dashboard' || view === 'practiceTests' || view === 'diagnosticReport' || view === 'studyPlan') ? '960px' : '800px',
         margin: '0 auto',
         padding: view === 'learn' ? '0' : view === 'takingTest' ? '32px 0px 60px' : '32px 32px 100px',
         ...(view === 'learn' ? { overflow: 'hidden', height: 'calc(100vh - 64px)' } : {})
@@ -17533,6 +17535,33 @@ const PerformSAT = () => {
             />
           );
         })()}
+
+        {view === 'studyPlan' && (
+          <StudyPlanDashboard
+            studyPlan={studyPlan}
+            practiceTestResults={practiceTestResults}
+            practiceProgress={practiceProgress}
+            reviewQueue={reviewQueue}
+            user={user}
+            onNavigateToModule={(moduleId, lessonId) => {
+              setActiveModule(moduleId);
+              if (lessonId) {
+                const lessons = allLessons[moduleId] || [];
+                const lesson = lessons.find(l => l.id === lessonId);
+                if (lesson) setActiveLesson(lesson);
+              }
+              setView('list');
+            }}
+            onStartPractice={(moduleId, sectionName) => {
+              setActiveModule(moduleId);
+              startPrescriptivePractice(moduleId, sectionName);
+              setView('practice');
+            }}
+            onStartPracticeTest={() => setView('practiceTests')}
+            onCompleteActivity={markStudyActivityComplete}
+            onUncompleteActivity={unmarkStudyActivityComplete}
+          />
+        )}
 
         {view === 'modules' && (
           <>

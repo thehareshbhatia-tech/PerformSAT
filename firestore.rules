@@ -45,6 +45,13 @@ service cloud.firestore {
           isSameSchool(get(/databases/$(database)/documents/users/$(userId)).data.schoolId)));
       allow create, update: if isAuthenticated() && isOwner(userId);
       allow delete: if false;
+
+      // Versioned study plan artifacts
+      match /studyPlanArtifacts/{artifactId} {
+        allow read, create: if isAuthenticated() && isOwner(userId);
+        allow update: if isAuthenticated() && isOwner(userId);
+        allow delete: if false;
+      }
     }
   }
 }

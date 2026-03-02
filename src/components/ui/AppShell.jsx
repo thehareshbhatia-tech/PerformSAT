@@ -13,6 +13,7 @@ const VIEW_ROUTES = {
   practiceTests: '/app/tests',
   takingTest: '/app/tests/active',
   diagnosticReport: '/app/diagnostic',
+  studyPlan: '/app/study-plan',
 };
 
 const ROUTE_VIEWS = Object.fromEntries(
@@ -24,6 +25,7 @@ const NAV_ITEMS = [
   { id: 'dashboard', label: 'Home', route: '/app', icon: HomeIcon },
   { id: 'modules', label: 'Learn', route: '/app/learn', icon: BookIcon },
   { id: 'practiceTests', label: 'Tests', route: '/app/tests', icon: ClockIcon },
+  { id: 'studyPlan', label: 'Study Plan', route: '/app/study-plan', icon: StudyPlanIcon },
   { id: 'tutor', label: 'AI Tutor', route: '/app/tutor', icon: SparklesIcon },
   { id: 'profile', label: 'Profile', route: '/app/profile', icon: PersonIcon },
 ];
@@ -59,6 +61,16 @@ function SparklesIcon({ active }) {
   return (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={active ? colors.accent.orange : colors.text.tertiary} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z" />
+    </svg>
+  );
+}
+
+function StudyPlanIcon({ active }) {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={active ? colors.accent.orange : colors.text.tertiary} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" />
+      <rect x="9" y="3" width="6" height="4" rx="1" />
+      <path d="M9 14l2 2 4-4" />
     </svg>
   );
 }

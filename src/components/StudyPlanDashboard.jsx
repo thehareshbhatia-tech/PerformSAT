@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { colors, typography, spacing, radius, transitions, breakpoints } from '../design/tokens';
-import { cardStyles, buttonStyles } from '../design/components';
+import { cardStyles } from '../design/components';
 import { DataCard } from './ui/DataCard';
 import { PrimaryButton } from './ui/Button';
 import { reprioritizePlan } from '../services/adaptivePlanService';
@@ -16,12 +16,6 @@ import {
   CheckIcon,
   ChevronDownIcon,
 } from '../design/icons';
-
-/**
- * StudyPlanDashboard — Compact study plan widget for the StudentDashboard.
- * Shows the AI-generated weekly study plan with expandable weeks,
- * activity completion checkboxes, and progress tracking.
- */
 
 const StudyPlanDashboard = ({
   studyPlan,
@@ -57,56 +51,43 @@ const StudyPlanDashboard = ({
   }, []);
   const isMobile = windowWidth < breakpoints.tablet;
 
-  // If no study plan, show a prompt
   if (!studyPlan || !studyPlan.weeks || studyPlan.weeks.length === 0) {
     return (
-      <DataCard style={{
-        textAlign: 'center',
-        padding: `${spacing.xl} ${spacing.lg}`,
-      }}>
-        <div style={{ marginBottom: spacing.xs, display: 'flex', justifyContent: 'center' }}>
-          <ClipboardIcon size={28} color={colors.text.secondary} />
-        </div>
-        <div style={{ fontSize: typography.sizes.md, fontWeight: typography.weights.semibold, color: colors.text.primary, marginBottom: '4px' }}>
-          No Study Plan Yet
-        </div>
-        <div style={{ fontSize: typography.sizes.sm, color: colors.text.secondary, maxWidth: '320px', margin: '0 auto' }}>
-          Complete a practice test and view your diagnostic report to generate a personalized study plan.
-        </div>
-        {onStartPracticeTest && (
-          <PrimaryButton
-            onClick={onStartPracticeTest}
-            style={{
-              marginTop: spacing.md,
-            }}
-          >
-            Take a Practice Test
-          </PrimaryButton>
-        )}
-      </DataCard>
+      <div style={{ padding: `${spacing.xl} 0` }}>
+        <DataCard style={{ textAlign: 'center', padding: `${spacing.xl} ${spacing.lg}` }}>
+          <div style={{ marginBottom: spacing.xs, display: 'flex', justifyContent: 'center' }}>
+            <ClipboardIcon size={28} color={colors.text.secondary} />
+          </div>
+          <div style={{ fontSize: typography.sizes.lg, fontWeight: typography.weights.semibold, color: colors.text.primary, marginBottom: '4px' }}>
+            No Study Plan Yet
+          </div>
+          <div style={{ fontSize: typography.sizes.sm, color: colors.text.secondary, maxWidth: '360px', margin: '0 auto', lineHeight: '1.6' }}>
+            Complete a practice test and your personalized AI study plan will appear here automatically.
+          </div>
+          {onStartPracticeTest && (
+            <PrimaryButton onClick={onStartPracticeTest} style={{ marginTop: spacing.md }}>
+              Take a Practice Test
+            </PrimaryButton>
+          )}
+        </DataCard>
+      </div>
     );
   }
 
-  const { weeks, summary, intensity, currentScore, targetScore, milestones } = studyPlan;
+  const { weeks, summary, strengths, weaknesses, deltaFromPrevious, calculatorDependency, eliminationEffectiveness, persistentWeaknesses, staminaInsight } = studyPlan;
 
-  // Calculate overall progress
-  const totalActivities = weeks.reduce((sum, w) => sum + w.activities.length, 0);
+  const totalActivities = weeks.reduce((sum, w) => sum + (w.activities?.length || 0), 0);
   const completedActivities = weeks.reduce(
-    (sum, w) => sum + w.activities.filter(a => a.completed).length,
+    (sum, w) => sum + (w.activities?.filter(a => a.completed).length || 0),
     0
   );
   const progressPercent = totalActivities > 0 ? Math.round((completedActivities / totalActivities) * 100) : 0;
 
-  // Find current week (first week with incomplete activities)
-  const currentWeekIndex = weeks.findIndex(
-    w => w.activities.some(a => !a.completed)
-  );
+  const currentWeekIndex = weeks.findIndex(w => w.activities?.some(a => !a.completed));
   const displayCurrentWeek = currentWeekIndex >= 0 ? currentWeekIndex : weeks.length - 1;
-
-  // Auto-expand current week on first render
   const activeExpanded = expandedWeek !== null ? expandedWeek : displayCurrentWeek;
 
-  const handleActivityClick = (activity, weekIndex, activityIndex) => {
+  const handleActivityClick = (activity) => {
     if (activity.type === 'lesson' && onNavigateToModule && activity.moduleId) {
       onNavigateToModule(activity.moduleId, activity.lessonId);
     } else if (activity.type === 'practice' && onStartPractice && activity.moduleId) {
@@ -140,103 +121,264 @@ const StudyPlanDashboard = ({
   };
 
   const getActivityTypeLabel = (activity) => {
-    if (activity.type === 'lesson') return 'Lesson';
-    if (activity.type === 'practice') return 'Practice';
-    if (activity.type === 'strategy') return 'Strategy';
-    if (activity.type === 'review') return 'Review';
-    if (activity.type === 'test') return 'Practice Test';
-    return 'Activity';
+    const map = { lesson: 'Lesson', practice: 'Practice', strategy: 'Strategy', review: 'Review', test: 'Practice Test' };
+    return map[activity.type] || 'Activity';
   };
 
   const getActivityTypeColor = (activity) => {
-    if (activity.type === 'lesson') return { bg: colors.semantic.infoLight, text: colors.semantic.info };
-    if (activity.type === 'practice') return { bg: colors.semantic.successLight, text: colors.semantic.success };
-    if (activity.type === 'strategy') return { bg: colors.semantic.warningLight, text: colors.semantic.warning };
-    if (activity.type === 'review') return { bg: colors.semantic.warningBg, text: colors.badge.bronze };
-    if (activity.type === 'test') return { bg: colors.accent.purpleLight, text: colors.accent.purple };
-    return { bg: colors.surface.gray, text: colors.text.secondary };
+    const map = {
+      lesson: { bg: colors.semantic.infoLight, text: colors.semantic.info },
+      practice: { bg: colors.semantic.successLight, text: colors.semantic.success },
+      strategy: { bg: colors.semantic.warningLight, text: colors.semantic.warning },
+      review: { bg: colors.semantic.warningBg, text: colors.badge.bronze },
+      test: { bg: colors.accent.purpleLight, text: colors.accent.purple },
+    };
+    return map[activity.type] || { bg: colors.surface.gray, text: colors.text.secondary };
   };
 
   return (
-    <DataCard>
-      {/* Header */}
-      <div style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'flex-start',
-        marginBottom: '20px',
-      }}>
-        <div>
-          <div style={{
-            fontSize: typography.sizes.sm,
-            color: colors.text.secondary,
-            marginBottom: '4px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '6px',
-          }}>
-            <ClipboardIcon size={14} color={colors.text.secondary} /> AI Study Plan
-          </div>
-          <div style={{ fontSize: typography.sizes.lg, fontWeight: typography.weights.semibold, color: colors.text.primary }}>
-            {summary?.headline
-              ? (summary.headline.length > 60 ? summary.headline.slice(0, 60) + '...' : summary.headline)
-              : `${weeks.length}-Week Plan`
-            }
-          </div>
-        </div>
-        <div style={{
-          textAlign: 'right',
-          minWidth: '80px',
-        }}>
-          <div style={{ fontSize: typography.sizes['2xl'], fontWeight: typography.weights.bold, color: colors.accent.orange }}>
-            {progressPercent}%
-          </div>
-          <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary }}>
-            {completedActivities}/{totalActivities} done
-          </div>
-        </div>
+    <div style={{ padding: `${spacing.lg} 0`, display: 'flex', flexDirection: 'column', gap: spacing.lg }}>
+
+      {/* Page Header */}
+      <div>
+        <h1 style={{ fontSize: typography.sizes['2xl'], fontWeight: typography.weights.bold, color: colors.text.primary, marginBottom: '4px' }}>
+          Your Study Plan
+        </h1>
+        <p style={{ fontSize: typography.sizes.sm, color: colors.text.secondary }}>
+          AI-generated after your last practice test. Updated every time you complete a test.
+        </p>
       </div>
 
-      {/* Progress bar */}
-      <div
-        role="progressbar"
-        aria-valuenow={progressPercent}
-        aria-valuemin={0}
-        aria-valuemax={100}
-        aria-label={`Study plan progress: ${progressPercent}%`}
-        style={{
-          height: '6px',
-          background: colors.surface.gray,
-          borderRadius: radius.sm,
-          marginBottom: '20px',
-          overflow: 'hidden',
-        }}
-      >
-        <div style={{
-          height: '100%',
-          width: `${progressPercent}%`,
-          background: progressPercent >= 75 ? colors.semantic.success : progressPercent >= 40 ? colors.semantic.warning : colors.accent.orange,
-          borderRadius: radius.sm,
-          transition: `width ${transitions.slow}`,
-        }} />
-      </div>
+      {/* Progress + Summary Card */}
+      <DataCard>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontSize: typography.sizes.sm, color: colors.text.secondary, marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <ClipboardIcon size={14} color={colors.text.secondary} /> AI Study Plan
+            </div>
+            <div style={{ fontSize: typography.sizes.lg, fontWeight: typography.weights.semibold, color: colors.text.primary }}>
+              {summary?.headline
+                ? (summary.headline.length > 80 ? summary.headline.slice(0, 80) + '...' : summary.headline)
+                : `${weeks.length}-Week Plan`}
+            </div>
+            {summary?.diagnosis && (
+              <p style={{ fontSize: typography.sizes.sm, color: colors.text.secondary, marginTop: '6px', lineHeight: '1.5', maxWidth: '560px' }}>
+                {summary.diagnosis}
+              </p>
+            )}
+          </div>
+          <div style={{ textAlign: 'right', minWidth: '80px' }}>
+            <div style={{ fontSize: typography.sizes['2xl'], fontWeight: typography.weights.bold, color: colors.accent.orange }}>
+              {progressPercent}%
+            </div>
+            <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary }}>
+              {completedActivities}/{totalActivities} done
+            </div>
+          </div>
+        </div>
+
+        <div
+          role="progressbar"
+          aria-valuenow={progressPercent}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          style={{ height: '6px', background: colors.surface.gray, borderRadius: radius.sm, marginBottom: '16px', overflow: 'hidden' }}
+        >
+          <div style={{
+            height: '100%',
+            width: `${progressPercent}%`,
+            background: progressPercent >= 75 ? colors.semantic.success : progressPercent >= 40 ? colors.semantic.warning : colors.accent.orange,
+            borderRadius: radius.sm,
+            transition: `width ${transitions.slow}`,
+          }} />
+        </div>
+
+        {summary?.stats && (
+          <div style={{ display: 'flex', gap: spacing.md, flexWrap: 'wrap' }}>
+            {summary.stats.weeksInPlan && (
+              <Stat label="weeks" value={summary.stats.weeksInPlan} />
+            )}
+            {summary.stats.totalLessons > 0 && (
+              <Stat label="lessons" value={summary.stats.totalLessons} />
+            )}
+            {summary.stats.totalPractice > 0 && (
+              <Stat label="practice sets" value={summary.stats.totalPractice} />
+            )}
+            {summary.stats.minutesPerDay && (
+              <Stat label="min/day" value={summary.stats.minutesPerDay} />
+            )}
+          </div>
+        )}
+      </DataCard>
+
+      {/* Delta from Previous Plan */}
+      {deltaFromPrevious && (
+        <DataCard style={{
+          background: `linear-gradient(135deg, ${colors.semantic.infoLight}, ${colors.semantic.infoBg || colors.semantic.infoLight})`,
+          border: `1px solid ${colors.semantic.info}20`,
+        }}>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+            <span style={{ fontSize: '18px', flexShrink: 0 }}>&#x1F504;</span>
+            <div>
+              <div style={{ fontSize: typography.sizes.sm, fontWeight: typography.weights.semibold, color: colors.semantic.info, marginBottom: '4px' }}>
+                What Changed From Your Last Plan
+              </div>
+              <div style={{ fontSize: typography.sizes.sm, color: colors.text.primary, lineHeight: '1.5' }}>
+                {deltaFromPrevious}
+              </div>
+            </div>
+          </div>
+        </DataCard>
+      )}
+
+      {/* Strengths & Weaknesses */}
+      {(strengths?.length > 0 || weaknesses?.length > 0) && (
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: spacing.md }}>
+          {weaknesses?.length > 0 && (
+            <DataCard>
+              <div style={{ fontSize: typography.sizes.sm, fontWeight: typography.weights.semibold, color: colors.semantic.error, marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: colors.semantic.error }} />
+                Focus Areas
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                {weaknesses.slice(0, 5).map((w, i) => (
+                  <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontSize: typography.sizes.sm, fontWeight: typography.weights.medium, color: colors.text.primary, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                        {w.skill}
+                      </div>
+                      <div style={{ fontSize: typography.sizes.xs, color: colors.text.muted }}>
+                        {w.evidence || w.errorType}
+                      </div>
+                    </div>
+                    <span style={{
+                      fontSize: typography.sizes.xs, fontWeight: typography.weights.bold,
+                      color: w.accuracy < 30 ? colors.semantic.error : colors.semantic.warning,
+                      padding: '2px 8px', borderRadius: radius.sm,
+                      background: w.accuracy < 30 ? colors.semantic.errorLight : colors.semantic.warningBg,
+                      flexShrink: 0, marginLeft: '8px',
+                    }}>
+                      {w.accuracy}%
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </DataCard>
+          )}
+          {strengths?.length > 0 && (
+            <DataCard>
+              <div style={{ fontSize: typography.sizes.sm, fontWeight: typography.weights.semibold, color: colors.semantic.success, marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: colors.semantic.success }} />
+                Your Strengths
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                {strengths.slice(0, 5).map((s, i) => (
+                  <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontSize: typography.sizes.sm, fontWeight: typography.weights.medium, color: colors.text.primary, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                        {s.skill}
+                      </div>
+                      {s.evidence && (
+                        <div style={{ fontSize: typography.sizes.xs, color: colors.text.muted }}>{s.evidence}</div>
+                      )}
+                    </div>
+                    <span style={{
+                      fontSize: typography.sizes.xs, fontWeight: typography.weights.bold,
+                      color: colors.semantic.success,
+                      padding: '2px 8px', borderRadius: radius.sm,
+                      background: colors.semantic.successLight,
+                      flexShrink: 0, marginLeft: '8px',
+                    }}>
+                      {s.accuracy}%
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </DataCard>
+          )}
+        </div>
+      )}
+
+      {/* Diagnostic Insights Row */}
+      {(calculatorDependency || eliminationEffectiveness || staminaInsight || persistentWeaknesses?.length > 0) && (
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(200px, 1fr))', gap: spacing.md }}>
+          {staminaInsight && (
+            <DataCard style={{ padding: '16px' }}>
+              <div style={{ fontSize: typography.sizes.xs, fontWeight: typography.weights.semibold, color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px' }}>
+                Stamina
+              </div>
+              <div style={{ fontSize: typography.sizes['2xl'], fontWeight: typography.weights.bold, color: staminaInsight.score >= 70 ? colors.semantic.success : staminaInsight.score >= 50 ? colors.semantic.warning : colors.semantic.error, marginBottom: '4px' }}>
+                {staminaInsight.score}
+              </div>
+              <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary, lineHeight: '1.4' }}>
+                {staminaInsight.message}
+              </div>
+            </DataCard>
+          )}
+          {calculatorDependency && (
+            <DataCard style={{ padding: '16px' }}>
+              <div style={{ fontSize: typography.sizes.xs, fontWeight: typography.weights.semibold, color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px' }}>
+                Calculator Use
+              </div>
+              <div style={{ fontSize: typography.sizes['2xl'], fontWeight: typography.weights.bold, color: calculatorDependency.usagePercent > 60 ? colors.semantic.warning : colors.text.primary, marginBottom: '4px' }}>
+                {calculatorDependency.usagePercent}%
+              </div>
+              <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary, lineHeight: '1.4' }}>
+                {calculatorDependency.insight}
+                {calculatorDependency.easyQuestionsWithCalculator > 0 && (
+                  <span style={{ display: 'block', marginTop: '4px', color: colors.semantic.warning }}>
+                    {calculatorDependency.easyQuestionsWithCalculator} easy question{calculatorDependency.easyQuestionsWithCalculator > 1 ? 's' : ''} used calculator
+                  </span>
+                )}
+              </div>
+            </DataCard>
+          )}
+          {eliminationEffectiveness && (
+            <DataCard style={{ padding: '16px' }}>
+              <div style={{ fontSize: typography.sizes.xs, fontWeight: typography.weights.semibold, color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px' }}>
+                Answer Changes
+              </div>
+              <div style={{ fontSize: typography.sizes['2xl'], fontWeight: typography.weights.bold, color: eliminationEffectiveness.changedToCorrect >= eliminationEffectiveness.changedToWrong ? colors.semantic.success : colors.semantic.error, marginBottom: '4px' }}>
+                {eliminationEffectiveness.totalChanges}
+              </div>
+              <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary, lineHeight: '1.4' }}>
+                {eliminationEffectiveness.changedToCorrect} changed to correct, {eliminationEffectiveness.changedToWrong} changed to wrong.
+                {eliminationEffectiveness.insight && <span style={{ display: 'block', marginTop: '4px' }}>{eliminationEffectiveness.insight}</span>}
+              </div>
+            </DataCard>
+          )}
+          {persistentWeaknesses?.length > 0 && (
+            <DataCard style={{ padding: '16px' }}>
+              <div style={{ fontSize: typography.sizes.xs, fontWeight: typography.weights.semibold, color: colors.semantic.error, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px' }}>
+                Persistent Gaps
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                {persistentWeaknesses.map((pw, i) => (
+                  <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '8px' }}>
+                    <span style={{ fontSize: typography.sizes.xs, color: colors.text.primary, flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                      {pw.skill}
+                    </span>
+                    <span style={{ fontSize: '10px', color: colors.semantic.error, flexShrink: 0 }}>
+                      {pw.testsWeak} tests
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </DataCard>
+          )}
+        </div>
+      )}
 
       {/* Adaptive "Today's Focus" overlay */}
       {adaptiveOverlay?.today?.length > 0 && (
-        <div style={{
-          padding: '12px 16px',
-          background: adaptiveOverlay.isTriage ? 'rgba(220, 38, 38, 0.06)' : 'rgba(255, 149, 0, 0.06)',
-          borderRadius: radius.md,
-          marginBottom: '16px',
+        <DataCard style={{
+          background: adaptiveOverlay.isTriage ? 'rgba(220, 38, 38, 0.04)' : 'rgba(255, 149, 0, 0.04)',
           border: `1px solid ${adaptiveOverlay.isTriage ? 'rgba(220, 38, 38, 0.15)' : 'rgba(255, 149, 0, 0.15)'}`,
         }}>
           <div style={{
-            fontSize: typography.sizes.xs,
-            fontWeight: typography.weights.semibold,
+            fontSize: typography.sizes.xs, fontWeight: typography.weights.semibold,
             color: adaptiveOverlay.isTriage ? '#dc2626' : colors.accent.orange,
-            textTransform: 'uppercase',
-            letterSpacing: '0.04em',
-            marginBottom: '6px',
+            textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '6px',
           }}>
             {adaptiveOverlay.isTriage ? 'Triage Mode — Test in ' + adaptiveOverlay.daysUntilTest + ' days' : "Today's Focus"}
           </div>
@@ -245,306 +387,188 @@ const StudyPlanDashboard = ({
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
             {adaptiveOverlay.today.slice(0, 4).map((action, i) => (
-              <div key={i} style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                fontSize: typography.sizes.xs,
-                color: colors.text.primary,
-              }}>
+              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: typography.sizes.xs, color: colors.text.primary }}>
                 <span style={{
-                  width: '6px',
-                  height: '6px',
-                  borderRadius: '50%',
-                  background: action.type === 'review' ? colors.accent.orange :
-                    action.type === 'recovery' ? '#dc2626' : colors.semantic.success,
+                  width: '6px', height: '6px', borderRadius: '50%',
+                  background: action.type === 'review' ? colors.accent.orange : action.type === 'recovery' ? '#dc2626' : colors.semantic.success,
                   flexShrink: 0,
                 }} />
                 <span>{action.label}</span>
-                <span style={{ color: colors.text.tertiary, marginLeft: 'auto', fontSize: '11px' }}>
-                  ~{action.minutes} min
-                </span>
+                <span style={{ color: colors.text.tertiary, marginLeft: 'auto', fontSize: '11px' }}>~{action.minutes} min</span>
               </div>
             ))}
           </div>
-        </div>
+        </DataCard>
       )}
 
-      {/* Summary stats row */}
-      {summary?.stats && (
-        <div style={{
-          display: 'flex',
-          gap: spacing.sm,
-          marginBottom: '20px',
-          flexWrap: 'wrap',
-        }}>
-          {summary.stats.weeksInPlan && (
-            <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary, minWidth: isMobile ? '45%' : 'auto' }}>
-              <span style={{ fontWeight: typography.weights.semibold, color: colors.text.primary }}>{summary.stats.weeksInPlan}</span> weeks
-            </div>
-          )}
-          {summary.stats.totalLessons > 0 && (
-            <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary, minWidth: isMobile ? '45%' : 'auto' }}>
-              <span style={{ fontWeight: typography.weights.semibold, color: colors.text.primary }}>{summary.stats.totalLessons}</span> lessons
-            </div>
-          )}
-          {summary.stats.totalPractice > 0 && (
-            <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary, minWidth: isMobile ? '45%' : 'auto' }}>
-              <span style={{ fontWeight: typography.weights.semibold, color: colors.text.primary }}>{summary.stats.totalPractice}</span> practice sets
-            </div>
-          )}
-          {summary.stats.minutesPerDay && (
-            <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary, minWidth: isMobile ? '45%' : 'auto' }}>
-              <span style={{ fontWeight: typography.weights.semibold, color: colors.text.primary }}>{summary.stats.minutesPerDay}</span> min/day
-            </div>
-          )}
-        </div>
-      )}
+      {/* Weekly Plan Accordion */}
+      <div>
+        <h2 style={{ fontSize: typography.sizes.lg, fontWeight: typography.weights.semibold, color: colors.text.primary, marginBottom: spacing.sm }}>
+          Weekly Plan
+        </h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: spacing.xs }}>
+          {weeks.map((week, weekIdx) => {
+            const isExpanded = activeExpanded === weekIdx;
+            const weekCompleted = (week.activities || []).filter(a => a.completed).length;
+            const weekTotal = (week.activities || []).length;
+            const weekPercent = weekTotal > 0 ? Math.round((weekCompleted / weekTotal) * 100) : 0;
+            const isCurrent = weekIdx === displayCurrentWeek;
 
-      {/* Weekly plan accordion */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: spacing.xs }}>
-        {weeks.map((week, weekIdx) => {
-          const isExpanded = activeExpanded === weekIdx;
-          const weekCompleted = week.activities.filter(a => a.completed).length;
-          const weekTotal = week.activities.length;
-          const weekPercent = weekTotal > 0 ? Math.round((weekCompleted / weekTotal) * 100) : 0;
-          const isCurrent = weekIdx === displayCurrentWeek;
-
-          return (
-            <div key={weekIdx} style={{
-              border: isCurrent ? `2px solid ${colors.accent.orange}` : `1px solid ${colors.surface.grayDark}`,
-              borderRadius: radius.md,
-              overflow: 'hidden',
-            }}>
-              {/* Week header */}
-              <button
-                onClick={() => setExpandedWeek(isExpanded ? null : weekIdx)}
-                aria-expanded={isExpanded}
-                aria-label={`Week ${week.weekNumber}: ${week.title || `Week ${week.weekNumber}`}, ${weekCompleted} of ${weekTotal} activities completed`}
-                style={{
-                  width: '100%',
-                  padding: '14px 16px',
-                  background: isCurrent ? colors.accent.orangeLight : weekPercent === 100 ? colors.semantic.successLight : colors.surface.offWhite,
-                  border: 'none',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  textAlign: 'left',
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flex: 1 }}>
-                  <div style={{
-                    width: '28px',
-                    height: '28px',
-                    borderRadius: radius.full,
-                    background: weekPercent === 100 ? colors.semantic.success : isCurrent ? colors.accent.orange : colors.surface.grayMedium,
-                    color: colors.text.inverse,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: typography.sizes.xs,
-                    fontWeight: typography.weights.bold,
-                    flexShrink: 0,
-                  }}>
-                    {weekPercent === 100 ? <CheckIcon size={14} color={colors.text.inverse} /> : week.weekNumber}
-                  </div>
-                  <div style={{ flex: 1, minWidth: 0 }}>
+            return (
+              <div key={weekIdx} style={{
+                border: isCurrent ? `2px solid ${colors.accent.orange}` : `1px solid ${colors.surface.grayDark}`,
+                borderRadius: radius.md,
+                overflow: 'hidden',
+                background: colors.surface.white,
+              }}>
+                <button
+                  onClick={() => setExpandedWeek(isExpanded ? null : weekIdx)}
+                  aria-expanded={isExpanded}
+                  style={{
+                    width: '100%', padding: '14px 16px',
+                    background: isCurrent ? colors.accent.orangeLight : weekPercent === 100 ? colors.semantic.successLight : colors.surface.offWhite,
+                    border: 'none', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center', textAlign: 'left',
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flex: 1 }}>
                     <div style={{
-                      fontSize: typography.sizes.base,
-                      fontWeight: typography.weights.semibold,
-                      color: colors.text.primary,
-                      whiteSpace: 'nowrap',
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
+                      width: '28px', height: '28px', borderRadius: radius.full,
+                      background: weekPercent === 100 ? colors.semantic.success : isCurrent ? colors.accent.orange : colors.surface.grayMedium,
+                      color: colors.text.inverse, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      fontSize: typography.sizes.xs, fontWeight: typography.weights.bold, flexShrink: 0,
                     }}>
-                      {week.title || `Week ${week.weekNumber}`}
-                      {isCurrent && (
-                        <span style={{
-                          marginLeft: spacing.xs,
-                          fontSize: typography.sizes.xs,
-                          fontWeight: typography.weights.medium,
-                          color: colors.accent.orange,
-                          background: colors.accent.orangeLight,
-                          padding: '2px 6px',
-                          borderRadius: radius.sm,
-                        }}>
-                          Current
-                        </span>
+                      {weekPercent === 100 ? <CheckIcon size={14} color={colors.text.inverse} /> : week.weekNumber}
+                    </div>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{
+                        fontSize: typography.sizes.base, fontWeight: typography.weights.semibold, color: colors.text.primary,
+                        whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
+                      }}>
+                        {week.title || `Week ${week.weekNumber}`}
+                        {isCurrent && (
+                          <span style={{
+                            marginLeft: spacing.xs, fontSize: typography.sizes.xs, fontWeight: typography.weights.medium,
+                            color: colors.accent.orange, background: colors.accent.orangeLight,
+                            padding: '2px 6px', borderRadius: radius.sm,
+                          }}>Current</span>
+                        )}
+                      </div>
+                      {week.focusSkills && week.focusSkills.length > 0 && (
+                        <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                          {week.focusSkills.join(', ')}
+                        </div>
                       )}
                     </div>
-                    {week.focusSkills && week.focusSkills.length > 0 && (
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
+                    <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary }}>{weekCompleted}/{weekTotal}</div>
+                    <span style={{
+                      color: colors.text.muted, transform: isExpanded ? 'rotate(180deg)' : 'none',
+                      transition: `transform ${transitions.fast}`, display: 'flex', alignItems: 'center',
+                    }}>
+                      <ChevronDownIcon size={14} color={colors.text.muted} />
+                    </span>
+                  </div>
+                </button>
+
+                {isExpanded && (
+                  <div style={{ padding: `${spacing.xs} ${spacing.md} ${spacing.md}`, background: colors.surface.white }}>
+                    {week.goalDescription && (
                       <div style={{
-                        fontSize: typography.sizes.xs,
-                        color: colors.text.secondary,
-                        whiteSpace: 'nowrap',
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
+                        fontSize: typography.sizes.xs, color: colors.text.secondary, fontStyle: 'italic',
+                        padding: `${spacing.xs} 0`, marginBottom: spacing.xs,
+                        borderBottom: `1px solid ${colors.surface.gray}`,
                       }}>
-                        {week.focusSkills.join(', ')}
+                        Goal: {week.goalDescription}
                       </div>
                     )}
-                  </div>
-                </div>
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '10px',
-                  flexShrink: 0,
-                }}>
-                  <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary }}>
-                    {weekCompleted}/{weekTotal}
-                  </div>
-                  <span style={{
-                    color: colors.text.muted,
-                    transform: isExpanded ? 'rotate(180deg)' : 'none',
-                    transition: `transform ${transitions.fast}`,
-                    display: 'flex',
-                    alignItems: 'center',
-                  }}>
-                    <ChevronDownIcon size={14} color={colors.text.muted} />
-                  </span>
-                </div>
-              </button>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                      {(week.activities || []).map((activity, actIdx) => {
+                        const isCompleted = activity.completed;
+                        const typeColor = getActivityTypeColor(activity);
 
-              {/* Week activities (expanded) */}
-              {isExpanded && (
-                <div style={{
-                  padding: `${spacing.xs} ${spacing.md} ${spacing.md}`,
-                  background: colors.surface.white,
-                }}>
-                  {week.goalDescription && (
-                    <div style={{
-                      fontSize: typography.sizes.xs,
-                      color: colors.text.secondary,
-                      fontStyle: 'italic',
-                      padding: `${spacing.xs} 0`,
-                      marginBottom: spacing.xs,
-                      borderBottom: `1px solid ${colors.surface.gray}`,
-                    }}>
-                      Goal: {week.goalDescription}
-                    </div>
-                  )}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                    {week.activities.map((activity, actIdx) => {
-                      const isCompleted = activity.completed;
-                      const typeColor = getActivityTypeColor(activity);
-
-                      return (
-                        <div
-                          key={actIdx}
-                          style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '10px',
-                            padding: '10px 12px',
-                            borderRadius: radius.sm,
-                            background: isCompleted ? colors.surface.offWhite : colors.surface.white,
-                            border: `1px solid ${colors.surface.gray}`,
-                            cursor: 'pointer',
-                            opacity: isCompleted ? 0.7 : 1,
-                            transition: `all ${transitions.fast}`,
-                            minWidth: 0,
-                          }}
-                          onClick={() => handleActivityClick(activity, weekIdx, actIdx)}
-                          onMouseEnter={(e) => {
-                            e.currentTarget.style.background = isCompleted ? colors.surface.gray : colors.surface.offWhite;
-                          }}
-                          onMouseLeave={(e) => {
-                            e.currentTarget.style.background = isCompleted ? colors.surface.offWhite : colors.surface.white;
-                          }}
-                        >
-                          {/* Checkbox */}
-                          <button
-                            onClick={(e) => handleToggleComplete(e, weekIdx, actIdx, isCompleted)}
-                            role="checkbox"
-                            aria-checked={isCompleted}
-                            aria-label={`Mark "${activity.title}" as ${isCompleted ? 'incomplete' : 'complete'}`}
+                        return (
+                          <div
+                            key={actIdx}
                             style={{
-                              width: '22px',
-                              height: '22px',
-                              borderRadius: '6px',
-                              border: isCompleted ? 'none' : `2px solid ${colors.surface.grayMedium}`,
-                              background: isCompleted ? colors.semantic.success : colors.surface.white,
-                              color: colors.text.inverse,
-                              fontSize: typography.sizes.xs,
-                              cursor: 'pointer',
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                              flexShrink: 0,
-                              padding: 0,
+                              display: 'flex', alignItems: 'center', gap: '10px',
+                              padding: '10px 12px', borderRadius: radius.sm,
+                              background: isCompleted ? colors.surface.offWhite : colors.surface.white,
+                              border: `1px solid ${colors.surface.gray}`, cursor: 'pointer',
+                              opacity: isCompleted ? 0.7 : 1, transition: `all ${transitions.fast}`, minWidth: 0,
                             }}
+                            onClick={() => handleActivityClick(activity)}
                           >
-                            {isCompleted && <CheckIcon size={12} color={colors.text.inverse} />}
-                          </button>
+                            <button
+                              onClick={(e) => handleToggleComplete(e, weekIdx, actIdx, isCompleted)}
+                              role="checkbox"
+                              aria-checked={isCompleted}
+                              style={{
+                                width: '22px', height: '22px', borderRadius: '6px',
+                                border: isCompleted ? 'none' : `2px solid ${colors.surface.grayMedium}`,
+                                background: isCompleted ? colors.semantic.success : colors.surface.white,
+                                color: colors.text.inverse, fontSize: typography.sizes.xs,
+                                cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                flexShrink: 0, padding: 0,
+                              }}
+                            >
+                              {isCompleted && <CheckIcon size={12} color={colors.text.inverse} />}
+                            </button>
 
-                          {/* Icon */}
-                          <span style={{ flexShrink: 0, display: 'flex', alignItems: 'center' }}>
-                            {getActivityIcon(activity)}
-                          </span>
+                            <span style={{ flexShrink: 0, display: 'flex', alignItems: 'center' }}>
+                              {getActivityIcon(activity)}
+                            </span>
 
-                          {/* Content */}
-                          <div style={{ flex: 1, minWidth: 0 }}>
-                            <div style={{
-                              fontSize: typography.sizes.sm,
-                              fontWeight: typography.weights.medium,
-                              color: isCompleted ? colors.text.muted : colors.text.primary,
-                              textDecoration: isCompleted ? 'line-through' : 'none',
-                              whiteSpace: 'nowrap',
-                              overflow: 'hidden',
-                              textOverflow: 'ellipsis',
-                            }}>
-                              {activity.title}
-                            </div>
-                            {activity.subtitle && (
+                            <div style={{ flex: 1, minWidth: 0 }}>
                               <div style={{
-                                fontSize: typography.sizes.xs,
-                                color: colors.text.muted,
-                                whiteSpace: 'nowrap',
-                                overflow: 'hidden',
-                                textOverflow: 'ellipsis',
+                                fontSize: typography.sizes.sm, fontWeight: typography.weights.medium,
+                                color: isCompleted ? colors.text.muted : colors.text.primary,
+                                textDecoration: isCompleted ? 'line-through' : 'none',
+                                whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
                               }}>
-                                {activity.subtitle}
+                                {activity.title}
                               </div>
+                              {activity.subtitle && (
+                                <div style={{ fontSize: typography.sizes.xs, color: colors.text.muted, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                                  {activity.subtitle}
+                                </div>
+                              )}
+                            </div>
+
+                            <span style={{
+                              fontSize: typography.sizes.caption, fontWeight: typography.weights.semibold,
+                              color: typeColor.text, background: typeColor.bg,
+                              padding: `2px ${spacing.xs}`, borderRadius: radius.sm, flexShrink: 0,
+                            }}>
+                              {getActivityTypeLabel(activity)}
+                            </span>
+
+                            {activity.duration && (
+                              <span style={{ fontSize: typography.sizes.xs, color: colors.text.muted, flexShrink: 0 }}>
+                                {activity.duration}m
+                              </span>
                             )}
                           </div>
-
-                          {/* Type badge */}
-                          <span style={{
-                            fontSize: typography.sizes.caption,
-                            fontWeight: typography.weights.semibold,
-                            color: typeColor.text,
-                            background: typeColor.bg,
-                            padding: `2px ${spacing.xs}`,
-                            borderRadius: radius.sm,
-                            flexShrink: 0,
-                          }}>
-                            {getActivityTypeLabel(activity)}
-                          </span>
-
-                          {/* Duration */}
-                          {activity.duration && (
-                            <span style={{
-                              fontSize: typography.sizes.xs,
-                              color: colors.text.muted,
-                              flexShrink: 0,
-                            }}>
-                              {activity.duration}m
-                            </span>
-                          )}
-                        </div>
-                      );
-                    })}
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
-          );
-        })}
+                )}
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </DataCard>
+    </div>
   );
 };
+
+function Stat({ label, value }) {
+  return (
+    <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary }}>
+      <span style={{ fontWeight: typography.weights.semibold, color: colors.text.primary }}>{value}</span> {label}
+    </div>
+  );
+}
 
 export default StudyPlanDashboard;

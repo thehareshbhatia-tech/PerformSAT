@@ -179,8 +179,10 @@ export const saveTestProgress = async (userId, testId, progressData) => {
       currentQuestion: progressData.currentQuestion,
       answers: progressData.answers,
       markedForReview: progressData.markedForReview || [],
+      eliminatedChoices: progressData.eliminatedChoices || {},
       isTimed: progressData.isTimed,
       timeRemaining: progressData.timeRemaining,
+      questionTelemetry: progressData.questionTelemetry || {},
       lastSavedAt: new Date().toISOString()
     };
 

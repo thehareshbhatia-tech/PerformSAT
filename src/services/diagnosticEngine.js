@@ -1604,8 +1604,7 @@ const analyzeAnswerPatterns = (questionAnalysis, diagnosticData) => {
       if (q.isCorrect) choiceCorrect[choiceIds[answerIdx]]++;
     }
 
-    // Track answer changes
-    const telemetry = diagnosticData?.questionTelemetry?.[q.key] || {};
+    const telemetry = diagnosticData?.questionDetails?.[q.key] || diagnosticData?.questionTelemetry?.[q.key] || {};
     if (telemetry.answerChanges > 0) {
       totalChanged++;
       if (q.isCorrect) changedToCorrect++;
