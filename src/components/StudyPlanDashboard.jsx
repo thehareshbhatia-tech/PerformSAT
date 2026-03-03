@@ -87,6 +87,15 @@ const StudyPlanDashboard = ({
   const displayCurrentWeek = currentWeekIndex >= 0 ? currentWeekIndex : weeks.length - 1;
   const activeExpanded = expandedWeek !== null ? expandedWeek : displayCurrentWeek;
 
+  const [howYouTestOpen, setHowYouTestOpen] = useState(false);
+  const hasHowYouTestData = calculatorDependency || eliminationEffectiveness || staminaInsight || persistentWeaknesses?.length > 0;
+
+  const nextAction = (() => {
+    const currentWeek = weeks[displayCurrentWeek];
+    const nextTodo = currentWeek?.activities?.find(a => !a.completed);
+    return nextTodo || null;
+  })();
+
   const handleActivityClick = (activity) => {
     if (activity.type === 'lesson' && onNavigateToModule && activity.moduleId) {
       onNavigateToModule(activity.moduleId, activity.lessonId);
@@ -211,37 +220,57 @@ const StudyPlanDashboard = ({
         )}
       </DataCard>
 
+      {/* Do This Now — prominent single action */}
+      {nextAction && (
+        <DataCard style={{
+          background: `linear-gradient(135deg, ${colors.accent.orange} 0%, ${colors.accent.orangeHover} 100%)`,
+          border: 'none', cursor: 'pointer', padding: '18px 20px',
+        }} onClick={() => handleActivityClick(nextAction)}>
+          <div style={{ fontSize: typography.sizes.xs, fontWeight: typography.weights.semibold, color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '6px' }}>
+            Do This Now
+          </div>
+          <div style={{ fontSize: typography.sizes.base, fontWeight: typography.weights.bold, color: '#fff', marginBottom: '4px' }}>
+            {nextAction.title}
+          </div>
+          {nextAction.subtitle && (
+            <div style={{ fontSize: typography.sizes.sm, color: 'rgba(255,255,255,0.85)', lineHeight: '1.4' }}>
+              {nextAction.subtitle}
+            </div>
+          )}
+          {nextAction.duration && (
+            <span style={{ display: 'inline-block', marginTop: '8px', fontSize: typography.sizes.xs, background: 'rgba(255,255,255,0.2)', color: '#fff', padding: '3px 10px', borderRadius: radius.sm }}>
+              ~{nextAction.duration} min
+            </span>
+          )}
+        </DataCard>
+      )}
+
       {/* Delta from Previous Plan */}
       {deltaFromPrevious && (
         <DataCard style={{
           background: `linear-gradient(135deg, ${colors.semantic.infoLight}, ${colors.semantic.infoBg || colors.semantic.infoLight})`,
-          border: `1px solid ${colors.semantic.info}20`,
+          border: `1px solid ${colors.semantic.info}20`, padding: '14px 16px',
         }}>
-          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-            <span style={{ fontSize: '18px', flexShrink: 0 }}>&#x1F504;</span>
-            <div>
-              <div style={{ fontSize: typography.sizes.sm, fontWeight: typography.weights.semibold, color: colors.semantic.info, marginBottom: '4px' }}>
-                What Changed From Your Last Plan
-              </div>
-              <div style={{ fontSize: typography.sizes.sm, color: colors.text.primary, lineHeight: '1.5' }}>
-                {deltaFromPrevious}
-              </div>
-            </div>
+          <div style={{ fontSize: typography.sizes.xs, fontWeight: typography.weights.semibold, color: colors.semantic.info, marginBottom: '4px' }}>
+            What Changed From Your Last Plan
+          </div>
+          <div style={{ fontSize: typography.sizes.sm, color: colors.text.primary, lineHeight: '1.5' }}>
+            {deltaFromPrevious}
           </div>
         </DataCard>
       )}
 
-      {/* Strengths & Weaknesses */}
+      {/* Strengths & Weaknesses — trimmed to top 3 */}
       {(strengths?.length > 0 || weaknesses?.length > 0) && (
         <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: spacing.md }}>
           {weaknesses?.length > 0 && (
             <DataCard>
-              <div style={{ fontSize: typography.sizes.sm, fontWeight: typography.weights.semibold, color: colors.semantic.error, marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <div style={{ fontSize: typography.sizes.sm, fontWeight: typography.weights.semibold, color: colors.semantic.error, marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: colors.semantic.error }} />
                 Focus Areas
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                {weaknesses.slice(0, 5).map((w, i) => (
+                {weaknesses.slice(0, 3).map((w, i) => (
                   <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div style={{ fontSize: typography.sizes.sm, fontWeight: typography.weights.medium, color: colors.text.primary, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
@@ -267,27 +296,22 @@ const StudyPlanDashboard = ({
           )}
           {strengths?.length > 0 && (
             <DataCard>
-              <div style={{ fontSize: typography.sizes.sm, fontWeight: typography.weights.semibold, color: colors.semantic.success, marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <div style={{ fontSize: typography.sizes.sm, fontWeight: typography.weights.semibold, color: colors.semantic.success, marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: colors.semantic.success }} />
                 Your Strengths
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                {strengths.slice(0, 5).map((s, i) => (
+                {strengths.slice(0, 3).map((s, i) => (
                   <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div style={{ fontSize: typography.sizes.sm, fontWeight: typography.weights.medium, color: colors.text.primary, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                         {s.skill}
                       </div>
-                      {s.evidence && (
-                        <div style={{ fontSize: typography.sizes.xs, color: colors.text.muted }}>{s.evidence}</div>
-                      )}
                     </div>
                     <span style={{
                       fontSize: typography.sizes.xs, fontWeight: typography.weights.bold,
-                      color: colors.semantic.success,
-                      padding: '2px 8px', borderRadius: radius.sm,
-                      background: colors.semantic.successLight,
-                      flexShrink: 0, marginLeft: '8px',
+                      color: colors.semantic.success, padding: '2px 8px', borderRadius: radius.sm,
+                      background: colors.semantic.successLight, flexShrink: 0, marginLeft: '8px',
                     }}>
                       {s.accuracy}%
                     </span>
@@ -299,74 +323,70 @@ const StudyPlanDashboard = ({
         </div>
       )}
 
-      {/* Diagnostic Insights Row */}
-      {(calculatorDependency || eliminationEffectiveness || staminaInsight || persistentWeaknesses?.length > 0) && (
-        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(200px, 1fr))', gap: spacing.md }}>
-          {staminaInsight && (
-            <DataCard style={{ padding: '16px' }}>
-              <div style={{ fontSize: typography.sizes.xs, fontWeight: typography.weights.semibold, color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px' }}>
-                Stamina
-              </div>
-              <div style={{ fontSize: typography.sizes['2xl'], fontWeight: typography.weights.bold, color: staminaInsight.score >= 70 ? colors.semantic.success : staminaInsight.score >= 50 ? colors.semantic.warning : colors.semantic.error, marginBottom: '4px' }}>
-                {staminaInsight.score}
-              </div>
-              <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary, lineHeight: '1.4' }}>
-                {staminaInsight.message}
-              </div>
-            </DataCard>
-          )}
-          {calculatorDependency && (
-            <DataCard style={{ padding: '16px' }}>
-              <div style={{ fontSize: typography.sizes.xs, fontWeight: typography.weights.semibold, color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px' }}>
-                Calculator Use
-              </div>
-              <div style={{ fontSize: typography.sizes['2xl'], fontWeight: typography.weights.bold, color: calculatorDependency.usagePercent > 60 ? colors.semantic.warning : colors.text.primary, marginBottom: '4px' }}>
-                {calculatorDependency.usagePercent}%
-              </div>
-              <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary, lineHeight: '1.4' }}>
-                {calculatorDependency.insight}
-                {calculatorDependency.easyQuestionsWithCalculator > 0 && (
-                  <span style={{ display: 'block', marginTop: '4px', color: colors.semantic.warning }}>
-                    {calculatorDependency.easyQuestionsWithCalculator} easy question{calculatorDependency.easyQuestionsWithCalculator > 1 ? 's' : ''} used calculator
-                  </span>
+      {/* How You Test — collapsible diagnostic group */}
+      {hasHowYouTestData && (
+        <DataCard style={{ padding: 0, overflow: 'hidden' }}>
+          <button
+            onClick={() => setHowYouTestOpen(o => !o)}
+            style={{
+              width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+              padding: '14px 16px', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left',
+            }}
+          >
+            <div>
+              <div style={{ fontSize: typography.sizes.sm, fontWeight: typography.weights.semibold, color: colors.text.primary }}>How You Test</div>
+              {!howYouTestOpen && (
+                <div style={{ fontSize: typography.sizes.xs, color: colors.text.tertiary, marginTop: '2px' }}>
+                  {[
+                    staminaInsight && `Stamina: ${staminaInsight.score}/100`,
+                    calculatorDependency && `Calc: ${calculatorDependency.usagePercent}%`,
+                    eliminationEffectiveness && `${eliminationEffectiveness.totalChanges} answer changes`,
+                  ].filter(Boolean).join(' · ')}
+                </div>
+              )}
+            </div>
+            <span style={{ display: 'flex', alignItems: 'center', transition: `transform ${transitions.fast}`, transform: howYouTestOpen ? 'rotate(180deg)' : 'none' }}>
+              <ChevronDownIcon size={14} color={colors.text.muted} />
+            </span>
+          </button>
+          {howYouTestOpen && (
+            <div style={{ padding: '0 16px 16px', borderTop: `1px solid ${colors.surface.gray}` }}>
+              <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(180px, 1fr))', gap: spacing.sm, marginTop: '12px' }}>
+                {staminaInsight && (
+                  <div style={{ padding: '12px', background: colors.surface.offWhite, borderRadius: radius.sm }}>
+                    <div style={{ fontSize: typography.sizes.xs, fontWeight: typography.weights.semibold, color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '4px' }}>Stamina</div>
+                    <div style={{ fontSize: typography.sizes.xl, fontWeight: typography.weights.bold, color: staminaInsight.score >= 70 ? colors.semantic.success : staminaInsight.score >= 50 ? colors.semantic.warning : colors.semantic.error }}>{staminaInsight.score}</div>
+                    <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary, lineHeight: '1.3', marginTop: '4px' }}>{staminaInsight.message}</div>
+                  </div>
+                )}
+                {calculatorDependency && (
+                  <div style={{ padding: '12px', background: colors.surface.offWhite, borderRadius: radius.sm }}>
+                    <div style={{ fontSize: typography.sizes.xs, fontWeight: typography.weights.semibold, color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '4px' }}>Calculator</div>
+                    <div style={{ fontSize: typography.sizes.xl, fontWeight: typography.weights.bold, color: calculatorDependency.usagePercent > 60 ? colors.semantic.warning : colors.text.primary }}>{calculatorDependency.usagePercent}%</div>
+                    <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary, lineHeight: '1.3', marginTop: '4px' }}>{calculatorDependency.insight}</div>
+                  </div>
+                )}
+                {eliminationEffectiveness && (
+                  <div style={{ padding: '12px', background: colors.surface.offWhite, borderRadius: radius.sm }}>
+                    <div style={{ fontSize: typography.sizes.xs, fontWeight: typography.weights.semibold, color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '4px' }}>Answer Changes</div>
+                    <div style={{ fontSize: typography.sizes.xl, fontWeight: typography.weights.bold, color: eliminationEffectiveness.changedToCorrect >= eliminationEffectiveness.changedToWrong ? colors.semantic.success : colors.semantic.error }}>{eliminationEffectiveness.totalChanges}</div>
+                    <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary, lineHeight: '1.3', marginTop: '4px' }}>{eliminationEffectiveness.changedToCorrect} correct, {eliminationEffectiveness.changedToWrong} wrong</div>
+                  </div>
+                )}
+                {persistentWeaknesses?.length > 0 && (
+                  <div style={{ padding: '12px', background: colors.surface.offWhite, borderRadius: radius.sm }}>
+                    <div style={{ fontSize: typography.sizes.xs, fontWeight: typography.weights.semibold, color: colors.semantic.error, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '4px' }}>Persistent Gaps</div>
+                    {persistentWeaknesses.slice(0, 3).map((pw, i) => (
+                      <div key={i} style={{ fontSize: typography.sizes.xs, color: colors.text.primary, marginTop: '2px' }}>
+                        {pw.skill} <span style={{ color: colors.semantic.error }}>({pw.testsWeak} tests)</span>
+                      </div>
+                    ))}
+                  </div>
                 )}
               </div>
-            </DataCard>
+            </div>
           )}
-          {eliminationEffectiveness && (
-            <DataCard style={{ padding: '16px' }}>
-              <div style={{ fontSize: typography.sizes.xs, fontWeight: typography.weights.semibold, color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px' }}>
-                Answer Changes
-              </div>
-              <div style={{ fontSize: typography.sizes['2xl'], fontWeight: typography.weights.bold, color: eliminationEffectiveness.changedToCorrect >= eliminationEffectiveness.changedToWrong ? colors.semantic.success : colors.semantic.error, marginBottom: '4px' }}>
-                {eliminationEffectiveness.totalChanges}
-              </div>
-              <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary, lineHeight: '1.4' }}>
-                {eliminationEffectiveness.changedToCorrect} changed to correct, {eliminationEffectiveness.changedToWrong} changed to wrong.
-                {eliminationEffectiveness.insight && <span style={{ display: 'block', marginTop: '4px' }}>{eliminationEffectiveness.insight}</span>}
-              </div>
-            </DataCard>
-          )}
-          {persistentWeaknesses?.length > 0 && (
-            <DataCard style={{ padding: '16px' }}>
-              <div style={{ fontSize: typography.sizes.xs, fontWeight: typography.weights.semibold, color: colors.semantic.error, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px' }}>
-                Persistent Gaps
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                {persistentWeaknesses.map((pw, i) => (
-                  <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ fontSize: typography.sizes.xs, color: colors.text.primary, flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                      {pw.skill}
-                    </span>
-                    <span style={{ fontSize: '10px', color: colors.semantic.error, flexShrink: 0 }}>
-                      {pw.testsWeak} tests
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </DataCard>
-          )}
-        </div>
+        </DataCard>
       )}
 
       {/* Adaptive "Today's Focus" overlay */}

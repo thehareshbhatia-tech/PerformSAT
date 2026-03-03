@@ -1343,6 +1343,46 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
 
   const handlePauseToggle = () => setIsPaused(p => !p);
 
+  const isDevMode = typeof window !== 'undefined' && window.location.hostname === 'localhost';
+
+  const handleDevAutoSubmit = () => {
+    if (!isDevMode) return;
+    const autoAnswers = {};
+    const choices = ['A', 'B', 'C', 'D'];
+    test.modules.forEach((mod, modIdx) => {
+      mod.questions.forEach((q, qIdx) => {
+        const key = `${modIdx}-${qIdx}`;
+        if (q.type === 'fill-in') {
+          autoAnswers[key] = Math.floor(Math.random() * 20) + 1;
+        } else {
+          const correct = q.correctAnswer;
+          const shouldGetRight = Math.random() < 0.55;
+          if (shouldGetRight) {
+            autoAnswers[key] = correct;
+          } else {
+            const wrong = choices.filter(c => c !== correct);
+            autoAnswers[key] = wrong[Math.floor(Math.random() * wrong.length)];
+          }
+        }
+        const telem = getOrCreateTelemetry(modIdx, qIdx);
+        telem.timeSpent = 15 + Math.random() * 90;
+        telem.visits = 1 + Math.floor(Math.random() * 3);
+        telem.usedCalculator = Math.random() < 0.35;
+        if (Math.random() < 0.2) {
+          telem.markedForReview = true;
+        }
+        if (Math.random() < 0.15) {
+          const oldAns = choices[Math.floor(Math.random() * choices.length)];
+          telem.answerChanges.push({ from: oldAns, to: autoAnswers[key], timestamp: Date.now() });
+        }
+      });
+    });
+    setAnswers(autoAnswers);
+    setCurrentModule(test.modules.length - 1);
+    setCurrentQuestion(test.modules[test.modules.length - 1].questions.length - 1);
+    setTimeout(() => setTestCompleted(true), 100);
+  };
+
   const handleRequestEndTest = () => {
     setConfirmAction('endTest');
     setIsPaused(true);
@@ -2081,20 +2121,16 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             setReviewQuestion(0);
           }}
         />
-        {/* Diagnostic Report CTA - the core feature */}
-        <div style={{
-          maxWidth: '900px', margin: '0 auto', padding: '0 20px 40px',
-        }}>
+        {/* Diagnostic Report CTA */}
+        <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px 40px' }}>
           <div
             onClick={() => setShowDiagnosticReport(true)}
             style={{
               cursor: 'pointer',
               background: `linear-gradient(135deg, ${colors.accent.orange} 0%, ${colors.accent.orangeHover} 100%)`,
               borderRadius: radius.lg,
-              padding: '24px 28px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
+              padding: '20px 24px',
+              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
               boxShadow: '0 8px 24px rgba(234, 88, 12, 0.3)',
               transition: 'transform 0.2s ease, box-shadow 0.2s ease',
             }}
@@ -2102,14 +2138,14 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(234, 88, 12, 0.3)'; }}
           >
             <div>
-              <div style={{ fontSize: '18px', fontWeight: '700', color: colors.text.inverse, marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <MicroscopeIcon size={20} color={colors.text.inverse} /> View Your Diagnosis & Study Plan
+              <div style={{ fontSize: '16px', fontWeight: '700', color: colors.text.inverse, marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <MicroscopeIcon size={18} color={colors.text.inverse} /> 2-Minute Breakdown
               </div>
-              <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.85)', lineHeight: '1.5' }}>
-                See exactly why you missed each question, what to fix first, and your personalized week-by-week plan to reach your target score
+              <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.85)', lineHeight: '1.5' }}>
+                What cost you points, your top 3 priorities, and a personalized study plan
               </div>
             </div>
-            <div style={{ fontSize: '28px', color: colors.text.inverse, marginLeft: '16px', flexShrink: 0 }}>→</div>
+            <div style={{ fontSize: '24px', color: colors.text.inverse, marginLeft: '16px', flexShrink: 0 }}>→</div>
           </div>
         </div>
       </div>
@@ -2217,6 +2253,14 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           >
             End Test
           </button>
+          {isDevMode && (
+            <button
+              onClick={handleDevAutoSubmit}
+              style={{ width: 'auto', padding: '0 0.75rem', fontSize: '0.875rem', fontWeight: 600, color: '#fff', background: '#7c3aed', border: 'none', borderRadius: '6px', cursor: 'pointer' }}
+            >
+              DEV: Auto-Submit
+            </button>
+          )}
         </div>
       </div>
 
