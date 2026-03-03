@@ -800,28 +800,14 @@ const DiagnosticReport = ({
         </CollapsibleSection>
       )}
 
-      {/* Skill Clusters + Answer Patterns + Time Allocation + Learning Velocity — grouped */}
-      {(diagnostic.skillClusters?.length > 0 || diagnostic.answerPatterns || diagnostic.timeAllocation?.length > 0 || diagnostic.learningVelocity?.hasData) && (
+      {/* Answer Patterns + Learning Velocity — grouped (skill clusters omitted, handled by Study Plan) */}
+      {(diagnostic.answerPatterns || diagnostic.learningVelocity?.hasData) && (
         <CollapsibleSection
           title="Advanced Analytics"
           icon={<MicroscopeIcon size={18} color={colors.accent.orange} />}
-          summary="Skill clusters, answer patterns, time allocation, learning velocity"
+          summary="Answer patterns, learning velocity"
         >
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '12px' }}>
-            {diagnostic.skillClusters?.length > 0 && (
-              <div>
-                <div style={{ fontSize: '13px', fontWeight: '600', color: colors.text.primary, marginBottom: '8px' }}>Related Skill Gaps</div>
-                {diagnostic.skillClusters.map((cluster, i) => (
-                  <div key={i} style={{
-                    background: cluster.severity === 'critical' ? colors.semantic.errorLight : colors.semantic.warningLight,
-                    borderRadius: '8px', padding: '12px', marginBottom: '8px',
-                  }}>
-                    <div style={{ fontSize: '13px', fontWeight: '600', color: colors.text.primary }}>{cluster.name}</div>
-                    <div style={{ fontSize: '12px', color: colors.text.secondary, marginTop: '2px' }}>{cluster.recommendation}</div>
-                  </div>
-                ))}
-              </div>
-            )}
             {diagnostic.answerPatterns && diagnostic.answerPatterns.answerChanges.total > 0 && (
               <div>
                 <div style={{ fontSize: '13px', fontWeight: '600', color: colors.text.primary, marginBottom: '8px' }}>Answer Changes</div>
@@ -940,103 +926,9 @@ const DiagnosticReport = ({
         </Card>
       )}
 
-      {/* ── Spaced Repetition Schedule ── */}
-      {studyPlan.spacedRepetitionSchedule?.skills?.length > 0 && (
-        <Card>
-          <SectionTitle icon={<RefreshIcon size={18} color={colors.accent.orange} />} title="Spaced Repetition Schedule" subtitle="Skills that will be reviewed at increasing intervals to lock in learning" />
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            {studyPlan.spacedRepetitionSchedule.skills.slice(0, 6).map((skill, i) => (
-              <div key={i} style={{
-                display: 'flex', alignItems: 'center', gap: '12px',
-                padding: '10px 14px', borderRadius: radius.sm, background: colors.surface.offWhite,
-              }}>
-                <div style={{ flex: 1 }}>
-                  <div style={{ fontSize: '13px', fontWeight: '600', color: colors.text.primary }}>{skill.skillName}</div>
-                  <div style={{ fontSize: '11px', color: colors.text.tertiary }}>
-                    Current: {skill.currentMastery}% → Target: {skill.estimatedRetention}%
-                  </div>
-                </div>
-                <div style={{ display: 'flex', gap: '4px' }}>
-                  {skill.reviewDays.map((day, j) => (
-                    <span key={j} style={{
-                      fontSize: '10px', fontWeight: '600',
-                      background: j === 0 ? colors.accent.orangeMuted : colors.surface.gray,
-                      color: j === 0 ? colors.accent.orange : colors.text.secondary,
-                      padding: '2px 6px', borderRadius: '4px',
-                    }}>
-                      Day {day}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-          <div style={{ fontSize: '12px', color: colors.text.tertiary, marginTop: '12px', textAlign: 'center' }}>
-            {studyPlan.spacedRepetitionSchedule.message}
-          </div>
-        </Card>
-      )}
-
-      {/* ── Daily Micro-Goals ── */}
-      {studyPlan.microGoals?.goals?.length > 0 && (
-        <Card>
-          <SectionTitle icon={<LightningIcon size={18} color={colors.accent.orange} />} title="Daily Micro-Goals" subtitle="3-5 minute activities to keep your momentum" />
-          <div style={{ fontSize: '13px', color: colors.text.secondary, marginBottom: '16px' }}>
-            {studyPlan.microGoals.message}
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
-            {studyPlan.microGoals.goals.slice(0, 6).map((goal, i) => (
-              <div key={i} style={{
-                padding: '12px', borderRadius: radius.sm, background: colors.surface.offWhite,
-                border: `1px solid ${colors.surface.gray}`,
-              }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
-                  <span style={{ fontSize: '16px' }}>{goal.icon}</span>
-                  <span style={{ fontSize: '13px', fontWeight: '600', color: colors.text.primary }}>{goal.title}</span>
-                </div>
-                <div style={{ fontSize: '11px', color: colors.text.secondary }}>{goal.description}</div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '6px' }}>
-                  <span style={{ fontSize: '10px', color: colors.text.tertiary }}>{goal.duration} min</span>
-                  <span style={{ fontSize: '10px', color: colors.accent.orange }}>{goal.day}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-          {studyPlan.microGoals.goals.length > 6 && (
-            <div style={{ fontSize: '12px', color: colors.text.tertiary, marginTop: '8px', textAlign: 'center' }}>
-              +{studyPlan.microGoals.goals.length - 6} more micro-goals across your study plan
-            </div>
-          )}
-        </Card>
-      )}
-
-      {/* ── Focus Areas ── */}
-      <Card>
-        <SectionTitle icon={<TargetIcon size={18} color={colors.accent.orange} />} title="Top Focus Areas" subtitle="Skills your plan prioritizes most" />
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-          {planSummary.topFocusAreas.map((area, i) => (
-            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <div style={{
-                width: '24px', height: '24px', borderRadius: '50%', background: colors.semantic.errorLight,
-                color: colors.semantic.error, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: '12px', fontWeight: '700', flexShrink: 0,
-              }}>
-                {i + 1}
-              </div>
-              <div style={{ flex: 1 }}>
-                <div style={{ fontSize: '14px', fontWeight: '600', color: colors.text.primary }}>{area.name}</div>
-              </div>
-              <span style={{
-                fontSize: '12px', fontWeight: '600', padding: '3px 10px', borderRadius: radius.xl,
-                background: area.accuracy < 40 ? colors.semantic.errorLight : colors.semantic.warningLight,
-                color: area.accuracy < 40 ? colors.semantic.error : '#b45309',
-              }}>
-                {area.accuracy !== undefined ? `${area.accuracy}% on test` : 'New skill'}
-              </span>
-            </div>
-          ))}
-        </div>
-      </Card>
+      {/* Skill-level details (spaced repetition, micro-goals, focus areas)
+         are handled by the AI study plan generator and surfaced in the
+         Study Plan dashboard — omitted here to keep the report concise. */}
 
       {/* ── Milestones ── */}
       <Card>
@@ -1222,69 +1114,8 @@ const DiagnosticReport = ({
           )}
         </Card>
 
-        {/* Improving / Declining skills */}
-        {trendAnalysis.improvingSkills.length > 0 && (
-          <Card>
-            <SectionTitle icon={<CheckCircleIcon size={18} color={colors.semantic.success} />} title="Skills Improving" />
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-              {trendAnalysis.improvingSkills.map((skill, i) => (
-                <span key={i} style={{
-                  padding: '6px 12px', borderRadius: radius.xl, fontSize: '13px',
-                  background: colors.semantic.successLight, color: colors.semantic.success, fontWeight: '500',
-                  display: 'inline-flex', alignItems: 'center', gap: '4px',
-                }}>
-                  <TrendingUpIcon size={14} /> {skill}
-                </span>
-              ))}
-            </div>
-          </Card>
-        )}
-
-        {trendAnalysis.decliningSkills.length > 0 && (
-          <Card>
-            <SectionTitle icon={<WarningIcon size={18} color={colors.semantic.warning} />} title="Skills Needing Attention" />
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-              {trendAnalysis.decliningSkills.map((skill, i) => (
-                <span key={i} style={{
-                  padding: '6px 12px', borderRadius: radius.xl, fontSize: '13px',
-                  background: colors.semantic.errorLight, color: colors.semantic.error, fontWeight: '500',
-                  display: 'inline-flex', alignItems: 'center', gap: '4px',
-                }}>
-                  <TrendingDownIcon size={14} /> {skill}
-                </span>
-              ))}
-            </div>
-          </Card>
-        )}
-
-        {/* Persistent Weaknesses — skills weak across 2+ tests */}
-        {trendAnalysis.persistentWeaknesses && trendAnalysis.persistentWeaknesses.length > 0 && (
-          <Card>
-            <SectionTitle icon={<RepeatIcon size={18} color={colors.accent.orange} />} title="Persistent Weaknesses" />
-            <div style={{ fontSize: '13px', color: colors.text.tertiary, marginBottom: '12px' }}>
-              These skills have been weak across multiple practice tests — they need focused attention.
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              {trendAnalysis.persistentWeaknesses.map((pw, i) => (
-                <div key={i} style={{
-                  display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                  padding: '10px 14px', borderRadius: '10px',
-                  background: colors.semantic.errorLight, border: '1px solid #fecaca',
-                }}>
-                  <span style={{ fontSize: '14px', fontWeight: '600', color: colors.text.primary }}>
-                    {pw.name}
-                  </span>
-                  <span style={{
-                    padding: '3px 10px', borderRadius: radius.md, fontSize: '11px', fontWeight: '700',
-                    background: colors.semantic.error, color: 'white',
-                  }}>
-                    Weak in {pw.testCount} tests
-                  </span>
-                </div>
-              ))}
-            </div>
-          </Card>
-        )}
+        {/* Skill-level trend lists (improving, declining, persistent weaknesses)
+           are fed into the AI study plan — omitted from the report to reduce noise. */}
       </div>
     );
   };

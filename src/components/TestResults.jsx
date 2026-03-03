@@ -779,74 +779,91 @@ const TestResults = ({
     const questionEntries = Object.entries(questionDetails || {});
     const totalQ = questionEntries.length || totalQuestions;
 
-    // Time analysis
     const totalTimeSpent = questionEntries.reduce((sum, [, q]) => sum + (q.timeSpent || 0), 0);
     const avgTime = totalQ > 0 ? (totalTimeSpent / totalQ) : 0;
 
-    // Slowest 5 questions
     const slowest = [...questionEntries]
       .sort(([, a], [, b]) => (b.timeSpent || 0) - (a.timeSpent || 0))
       .slice(0, 5);
 
-    // Skill performance: group by skill
+    // Domain performance across all modules
+    const domainTotals = {};
+    test.modules.forEach((_, modIdx) => {
+      const domainBreak = calculateDomainBreakdown(modIdx);
+      Object.entries(domainBreak).forEach(([domain, data]) => {
+        if (!domainTotals[domain]) domainTotals[domain] = { correct: 0, total: 0 };
+        domainTotals[domain].correct += data.correct;
+        domainTotals[domain].total += data.total;
+      });
+    });
+    const domainLabels = {
+      algebra: 'Algebra',
+      'advanced-math': 'Advanced Math',
+      'problem-solving': 'Problem Solving & Data',
+      geometry: 'Geometry & Trig',
+    };
+
+    // Difficulty breakdown across all modules
+    const diffTotals = { easy: { correct: 0, total: 0 }, medium: { correct: 0, total: 0 }, hard: { correct: 0, total: 0 } };
+    test.modules.forEach((_, modIdx) => {
+      const db = calculateDifficultyBreakdown(modIdx);
+      ['easy', 'medium', 'hard'].forEach(d => {
+        diffTotals[d].correct += db[d].correct;
+        diffTotals[d].total += db[d].correct + db[d].incorrect + db[d].unanswered;
+      });
+    });
+
+    // Answer change analysis
+    const totalAnswerChanges = questionEntries.reduce((sum, [, q]) => sum + (q.answerChanges || 0), 0);
+    const changedCorrectly = questionEntries.filter(([, q]) => (q.answerChanges || 0) > 0 && q.isCorrect).length;
+    const changedIncorrectly = questionEntries.filter(([, q]) => (q.answerChanges || 0) > 0 && !q.isCorrect).length;
+
+    // Missed easy questions
+    const missedEasy = questionEntries.filter(([, q]) => (q.difficulty === 'easy') && !q.isCorrect);
+
+    // Study recommendations (skill-aware but concise)
     const skillMap = {};
     questionEntries.forEach(([, q]) => {
-      const skills = q.skills || [];
-      skills.forEach(skillId => {
-        if (!skillMap[skillId]) {
-          skillMap[skillId] = { correct: 0, total: 0 };
-        }
+      (q.skills || []).forEach(skillId => {
+        if (!skillMap[skillId]) skillMap[skillId] = { correct: 0, total: 0 };
         skillMap[skillId].total += 1;
         if (q.isCorrect) skillMap[skillId].correct += 1;
       });
     });
-
-    const skillPerformance = Object.entries(skillMap)
-      .map(([skillId, data]) => {
-        const skill = getSkillById(skillId);
-        const pct = data.total > 0 ? Math.round((data.correct / data.total) * 100) : 0;
-        return { skillId, name: skill?.name || skillId, ...data, pct };
-      })
-      .sort((a, b) => a.pct - b.pct);
-
-    // Study recommendations
     const recommendations = [];
-    const weakSkills = skillPerformance.filter(s => s.pct < 60 && s.total >= 1);
-    if (weakSkills.length > 0) {
-      const top3 = weakSkills.slice(0, 3);
-      top3.forEach(s => {
-        recommendations.push(`Focus on ${s.name} — you got ${s.correct}/${s.total} correct.`);
-      });
-    }
-    if (navigationPattern === 'jumping') {
-      recommendations.push('Try working through questions in order first, then revisit flagged ones.');
-    }
-    const wrongCount = questionEntries.filter(([, q]) => !q.isCorrect).length;
-    if (markedForReviewCount === 0 && wrongCount > 3) {
+    const weakSkills = Object.entries(skillMap)
+      .map(([id, d]) => ({ name: getSkillById(id)?.name || id, ...d, pct: d.total > 0 ? Math.round((d.correct / d.total) * 100) : 0 }))
+      .filter(s => s.pct < 60 && s.total >= 1)
+      .sort((a, b) => a.pct - b.pct)
+      .slice(0, 3);
+    weakSkills.forEach(s => recommendations.push(`Focus on ${s.name} — you got ${s.correct}/${s.total} correct.`));
+    if (navigationPattern === 'jumping') recommendations.push('Try working through questions in order first, then revisit flagged ones.');
+    if (markedForReviewCount === 0 && questionEntries.filter(([, q]) => !q.isCorrect).length > 3) {
       recommendations.push('Use mark-for-review to flag uncertain answers for a second pass.');
     }
-    if (recommendations.length === 0) {
-      recommendations.push('Great job! Keep practicing to maintain your skills.');
-    }
+    if (missedEasy.length > 0) recommendations.push(`You missed ${missedEasy.length} easy question${missedEasy.length > 1 ? 's' : ''} — these are the highest-value points to recover.`);
+    if (recommendations.length === 0) recommendations.push('Great job! Keep practicing to maintain your skills.');
 
-    const navPatternLabel = {
-      'linear': 'Linear',
-      'strategic-skip': 'Strategic Skip',
-      'jumping': 'Jumping'
+    const navPatternLabel = { 'linear': 'Linear', 'strategic-skip': 'Strategic Skip', 'jumping': 'Jumping' };
+    const navPatternTip = {
+      'linear': 'Steady and methodical — great for not missing questions.',
+      'strategic-skip': 'Smart approach — skipping hard ones and coming back.',
+      'jumping': 'Lots of jumping around — may cause careless errors.',
     };
 
-    const diagnosticCardStyle = {
+    const cardStyle = {
       background: colors.surface.white,
       border: `1px solid ${colors.surface.grayDark}`,
       borderRadius: radius.md,
       padding: '20px',
-      marginBottom: '24px',
+      marginBottom: '20px',
     };
 
-    const sectionTitle = (text) => (
-      <h3 style={{ fontSize: '16px', fontWeight: '600', color: colors.text.primary, marginBottom: '16px', marginTop: '0' }}>
-        {text}
-      </h3>
+    const heading = (text, subtitle) => (
+      <div style={{ marginBottom: '16px' }}>
+        <h3 style={{ fontSize: '15px', fontWeight: '700', color: colors.text.primary, margin: 0 }}>{text}</h3>
+        {subtitle && <div style={{ fontSize: '12px', color: colors.text.tertiary, marginTop: '2px' }}>{subtitle}</div>}
+      </div>
     );
 
     const formatTime = (seconds) => {
@@ -856,62 +873,98 @@ const TestResults = ({
       return `${m}m ${s}s`;
     };
 
-    // Get question label from key (e.g., "0-5" -> "M1 Q6")
     const questionLabel = (key) => {
       const [modIdx, qIdx] = key.split('-').map(Number);
       return `M${modIdx + 1} Q${qIdx + 1}`;
     };
 
+    const statBox = (label, value, color, sub) => (
+      <div style={{ background: `${color}12`, borderRadius: '10px', padding: '14px', textAlign: 'center', flex: 1, minWidth: '100px' }}>
+        <div style={{ fontSize: '12px', color: colors.text.secondary, marginBottom: '6px' }}>{label}</div>
+        <div style={{ fontSize: '22px', fontWeight: '700', color }}>{value}</div>
+        {sub && <div style={{ fontSize: '11px', color: colors.text.muted, marginTop: '3px' }}>{sub}</div>}
+      </div>
+    );
+
     return (
       <div>
-        {/* Section A: Test-Taking Behavior */}
-        <div style={diagnosticCardStyle}>
-          {sectionTitle('Test-Taking Behavior')}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
-            {/* Navigation Pattern */}
-            <div style={{ background: colors.accent.tealLight, borderRadius: '10px', padding: '16px', textAlign: 'center' }}>
-              <div style={{ fontSize: '13px', color: colors.text.secondary, marginBottom: '8px' }}>Navigation Pattern</div>
-              <div style={{ fontSize: '20px', fontWeight: '700', color: colors.accent.teal }}>
-                {navPatternLabel[navigationPattern] || 'Linear'}
-              </div>
-              <div style={{ fontSize: '12px', color: colors.text.muted, marginTop: '4px' }}>
-                {totalNavigationEvents} nav events
-              </div>
+        {/* Quick Stats Row */}
+        <div style={{ display: 'flex', gap: '12px', marginBottom: '20px', flexWrap: 'wrap' }}>
+          {statBox('Score', `${totalCorrect}/${totalQ}`, colors.accent.teal, `${Math.round((totalCorrect / totalQ) * 100)}% accuracy`)}
+          {statBox('Avg Time', formatTime(avgTime), colors.semantic.info, 'per question')}
+          {statBox('Answer Changes', totalAnswerChanges, colors.semantic.warning, totalAnswerChanges > 0 ? `${changedCorrectly} helped, ${changedIncorrectly} hurt` : 'none')}
+          {statBox('Flagged', markedForReviewCount, colors.accent.orange, `${questionsVisitedMultipleTimes} revisited`)}
+        </div>
+
+        {/* Domain Performance */}
+        <div style={cardStyle}>
+          {heading('Domain Performance', 'How you did across SAT content areas')}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            {Object.entries(domainTotals).map(([domain, data]) => {
+              const pct = data.total > 0 ? Math.round((data.correct / data.total) * 100) : 0;
+              const barColor = pct >= 80 ? colors.semantic.success : pct >= 60 ? colors.semantic.warning : colors.semantic.error;
+              return (
+                <div key={domain}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+                    <span style={{ fontSize: '14px', fontWeight: '600', color: colors.text.primary }}>{domainLabels[domain] || domain}</span>
+                    <span style={{ fontSize: '13px', fontWeight: '600', color: barColor }}>{data.correct}/{data.total} ({pct}%)</span>
+                  </div>
+                  <div style={{ background: colors.surface.gray, borderRadius: '4px', height: '8px', overflow: 'hidden' }}>
+                    <div style={{ width: `${pct}%`, height: '100%', background: barColor, borderRadius: '4px', transition: 'width 0.4s ease' }} />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Difficulty Breakdown */}
+        <div style={cardStyle}>
+          {heading('Difficulty Breakdown', 'Where you gained and lost points')}
+          <div style={{ display: 'flex', gap: '12px' }}>
+            {['easy', 'medium', 'hard'].map(level => {
+              const d = diffTotals[level];
+              const pct = d.total > 0 ? Math.round((d.correct / d.total) * 100) : 0;
+              const bgColor = level === 'easy' ? colors.semantic.successLight : level === 'medium' ? colors.semantic.warningLight : colors.semantic.errorLight;
+              const fgColor = level === 'easy' ? colors.semantic.success : level === 'medium' ? '#b45309' : colors.semantic.error;
+              return (
+                <div key={level} style={{ flex: 1, background: bgColor, borderRadius: '10px', padding: '16px', textAlign: 'center' }}>
+                  <div style={{ fontSize: '12px', fontWeight: '600', color: fgColor, textTransform: 'capitalize', marginBottom: '8px' }}>{level}</div>
+                  <div style={{ fontSize: '24px', fontWeight: '700', color: fgColor }}>{pct}%</div>
+                  <div style={{ fontSize: '12px', color: colors.text.secondary, marginTop: '4px' }}>{d.correct}/{d.total} correct</div>
+                </div>
+              );
+            })}
+          </div>
+          {missedEasy.length > 0 && (
+            <div style={{ marginTop: '12px', padding: '10px 14px', background: colors.semantic.errorLight, borderRadius: radius.sm, fontSize: '13px', color: colors.semantic.error, fontWeight: '500' }}>
+              You missed {missedEasy.length} easy question{missedEasy.length > 1 ? 's' : ''} — these are the quickest points to recover.
             </div>
-            {/* Calculator Usage */}
-            <div style={{ background: colors.semantic.infoLight, borderRadius: '10px', padding: '16px', textAlign: 'center' }}>
-              <div style={{ fontSize: '13px', color: colors.text.secondary, marginBottom: '8px' }}>Calculator Used</div>
-              <div style={{ fontSize: '20px', fontWeight: '700', color: colors.semantic.info }}>
-                {calculatorUsageCount}
-              </div>
-              <div style={{ fontSize: '12px', color: colors.text.muted, marginTop: '4px' }}>
-                of {totalQ} questions
-              </div>
+          )}
+        </div>
+
+        {/* Test-Taking Behavior */}
+        <div style={cardStyle}>
+          {heading('Test-Taking Behavior', navPatternTip[navigationPattern] || '')}
+          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+            <div style={{ flex: 1, minWidth: '140px', background: colors.accent.tealLight, borderRadius: '10px', padding: '14px', textAlign: 'center' }}>
+              <div style={{ fontSize: '12px', color: colors.text.secondary, marginBottom: '6px' }}>Navigation</div>
+              <div style={{ fontSize: '18px', fontWeight: '700', color: colors.accent.teal }}>{navPatternLabel[navigationPattern] || 'Linear'}</div>
             </div>
-            {/* Marked for Review */}
-            <div style={{ background: colors.semantic.warningLight, borderRadius: '10px', padding: '16px', textAlign: 'center' }}>
-              <div style={{ fontSize: '13px', color: colors.text.secondary, marginBottom: '8px' }}>Marked for Review</div>
-              <div style={{ fontSize: '20px', fontWeight: '700', color: colors.semantic.warning }}>
-                {markedForReviewCount}
-              </div>
-              <div style={{ fontSize: '12px', color: colors.text.muted, marginTop: '4px' }}>
-                {questionsVisitedMultipleTimes} revisited
-              </div>
+            <div style={{ flex: 1, minWidth: '140px', background: colors.semantic.infoLight, borderRadius: '10px', padding: '14px', textAlign: 'center' }}>
+              <div style={{ fontSize: '12px', color: colors.text.secondary, marginBottom: '6px' }}>Calculator Used</div>
+              <div style={{ fontSize: '18px', fontWeight: '700', color: colors.semantic.info }}>{calculatorUsageCount} <span style={{ fontSize: '12px', fontWeight: '400' }}>of {totalQ}</span></div>
             </div>
           </div>
         </div>
 
-        {/* Section B: Time Analysis */}
-        <div style={diagnosticCardStyle}>
-          {sectionTitle('Time Analysis')}
-          <div style={{ display: 'flex', gap: '24px', marginBottom: '20px', flexWrap: 'wrap' }}>
+        {/* Time Analysis */}
+        <div style={cardStyle}>
+          {heading('Time Analysis', 'Where your time went')}
+          <div style={{ display: 'flex', gap: '12px', marginBottom: '16px', flexWrap: 'wrap' }}>
             <div style={{ background: colors.surface.offWhite, borderRadius: radius.sm, padding: '12px 20px' }}>
               <div style={{ fontSize: '12px', color: colors.text.secondary }}>Total Time</div>
               <div style={{ fontSize: '18px', fontWeight: '600', color: colors.text.primary }}>{formatTime(totalTimeSpent)}</div>
-            </div>
-            <div style={{ background: colors.surface.offWhite, borderRadius: radius.sm, padding: '12px 20px' }}>
-              <div style={{ fontSize: '12px', color: colors.text.secondary }}>Avg per Question</div>
-              <div style={{ fontSize: '18px', fontWeight: '600', color: colors.text.primary }}>{formatTime(avgTime)}</div>
             </div>
             {Object.entries(modTimeRemaining || {}).map(([modIdx, remaining]) => (
               <div key={modIdx} style={{ background: colors.surface.offWhite, borderRadius: radius.sm, padding: '12px 20px' }}>
@@ -922,12 +975,9 @@ const TestResults = ({
               </div>
             ))}
           </div>
-
           {slowest.length > 0 && (
             <>
-              <div style={{ fontSize: '13px', fontWeight: '600', color: colors.text.secondary, marginBottom: '8px' }}>
-                Slowest Questions
-              </div>
+              <div style={{ fontSize: '13px', fontWeight: '600', color: colors.text.secondary, marginBottom: '8px' }}>Slowest Questions</div>
               {slowest.map(([key, q]) => {
                 const diffColor = q.difficulty === 'hard' ? colors.semantic.error : q.difficulty === 'medium' ? colors.semantic.warning : colors.semantic.success;
                 return (
@@ -937,21 +987,14 @@ const TestResults = ({
                     background: q.isCorrect ? colors.semantic.successLight : colors.semantic.errorLight,
                     marginBottom: '4px'
                   }}>
-                    <span style={{ fontWeight: '600', fontSize: '13px', color: colors.text.secondary, minWidth: '55px' }}>
-                      {questionLabel(key)}
-                    </span>
-                    <span style={{
-                      fontSize: '11px', fontWeight: '500', padding: '2px 8px',
-                      borderRadius: '4px', background: diffColor, color: colors.text.inverse, textTransform: 'capitalize'
-                    }}>
+                    <span style={{ fontWeight: '600', fontSize: '13px', color: colors.text.secondary, minWidth: '55px' }}>{questionLabel(key)}</span>
+                    <span style={{ fontSize: '11px', fontWeight: '500', padding: '2px 8px', borderRadius: '4px', background: diffColor, color: colors.text.inverse, textTransform: 'capitalize' }}>
                       {q.difficulty || 'medium'}
                     </span>
                     <span style={{ flex: 1, fontSize: '13px', color: q.isCorrect ? colors.semantic.success : colors.semantic.error, fontWeight: '500' }}>
                       {q.isCorrect ? 'Correct' : 'Incorrect'}
                     </span>
-                    <span style={{ fontWeight: '600', fontSize: '14px', color: colors.text.secondary }}>
-                      {formatTime(q.timeSpent || 0)}
-                    </span>
+                    <span style={{ fontWeight: '600', fontSize: '14px', color: colors.text.secondary }}>{formatTime(q.timeSpent || 0)}</span>
                   </div>
                 );
               })}
@@ -959,49 +1002,21 @@ const TestResults = ({
           )}
         </div>
 
-        {/* Section C: Skill Performance */}
-        <div style={diagnosticCardStyle}>
-          {sectionTitle('Skill Performance')}
-          {skillPerformance.length === 0 ? (
-            <p style={{ color: colors.text.muted, fontSize: '14px' }}>No skill data available.</p>
-          ) : (
-            <div>
-              {skillPerformance.map(skill => {
-                const barColor = skill.pct >= 80 ? colors.semantic.success : skill.pct >= 60 ? colors.semantic.warning : colors.semantic.error;
-                return (
-                  <div key={skill.skillId} style={{ marginBottom: '12px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
-                      <span style={{ fontSize: '13px', fontWeight: '500', color: colors.text.secondary }}>{skill.name}</span>
-                      <span style={{ fontSize: '13px', fontWeight: '600', color: barColor }}>
-                        {skill.correct}/{skill.total} ({skill.pct}%)
-                      </span>
-                    </div>
-                    <div style={{ background: colors.surface.gray, borderRadius: '4px', height: '8px', overflow: 'hidden' }}>
-                      <div style={{
-                        width: `${skill.pct}%`,
-                        height: '100%',
-                        background: barColor,
-                        borderRadius: '4px',
-                        transition: 'width 0.3s ease'
-                      }} />
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          )}
-        </div>
-
-        {/* Section D: Study Recommendations */}
-        <div style={{ ...diagnosticCardStyle, background: colors.accent.tealLight, border: `1px solid ${colors.surface.grayDark}` }}>
-          {sectionTitle('Study Recommendations')}
-          <ul style={{ margin: 0, paddingLeft: '20px' }}>
+        {/* What To Do Next */}
+        <div style={{ ...cardStyle, background: colors.accent.tealLight, border: `1px solid ${colors.accent.teal}22` }}>
+          {heading('What To Do Next', 'Personalized recommendations based on this test')}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {recommendations.map((rec, i) => (
-              <li key={i} style={{ fontSize: '14px', color: colors.text.secondary, marginBottom: '8px', lineHeight: '1.5' }}>
-                {rec}
-              </li>
+              <div key={i} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
+                <div style={{
+                  width: '22px', height: '22px', borderRadius: '50%', background: colors.accent.teal,
+                  color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontSize: '11px', fontWeight: '700', flexShrink: 0, marginTop: '1px',
+                }}>{i + 1}</div>
+                <span style={{ fontSize: '14px', color: colors.text.secondary, lineHeight: '1.5' }}>{rec}</span>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </div>
     );
