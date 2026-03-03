@@ -2099,6 +2099,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           test={test}
           answers={answers}
           diagnosticData={diagnosticDataRef.current}
+          onOpenDiagnosticReport={() => setShowDiagnosticReport(true)}
           onBack={onBack}
           onRetake={() => {
             setCurrentModule(0);
@@ -2139,10 +2140,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           >
             <div>
               <div style={{ fontSize: '16px', fontWeight: '700', color: colors.text.inverse, marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <MicroscopeIcon size={18} color={colors.text.inverse} /> 2-Minute Breakdown
+                <MicroscopeIcon size={18} color={colors.text.inverse} /> Full Report & Study Plan
               </div>
               <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.85)', lineHeight: '1.5' }}>
-                What cost you points, your top 3 priorities, and a personalized study plan
+                Strengths, weaknesses, and a personalized study plan
               </div>
             </div>
             <div style={{ fontSize: '24px', color: colors.text.inverse, marginLeft: '16px', flexShrink: 0 }}>→</div>
