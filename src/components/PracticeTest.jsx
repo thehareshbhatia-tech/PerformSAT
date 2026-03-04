@@ -8,6 +8,7 @@ import QuestionRenderer from './QuestionRenderer';
 import { recordSkillAttempts } from '../services/skillService';
 import { generateStudyPlan as generateStudyPlanFromAI, saveStudyPlanArtifact } from '../services/studyPlanService';
 import { runDiagnostic } from '../services/diagnosticEngine';
+import { getTargetedWeaknessSet } from '../data/questions/bank';
 import DiagnosticReport from './DiagnosticReport';
 import { colors, typography, spacing, radius, shadows, transitions } from '../design/tokens';
 import { cardStyles, buttonStyles } from '../design/components';
@@ -1196,6 +1197,25 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         plan.eliminationEffectiveness = groundTruth.eliminationEffectiveness;
         plan.persistentWeaknesses = groundTruth.persistentWeaknesses;
         plan.staminaInsight = groundTruth.staminaInsight;
+
+        const weakSkillPayload = (groundTruth.weaknesses || []).map(w => ({
+          skillId: w.skillId || w.skill,
+          domain: w.domain,
+        })).filter(w => w.skillId);
+        if (weakSkillPayload.length > 0) {
+          const targeted = getTargetedWeaknessSet({
+            weakSkills: weakSkillPayload,
+            count: 15,
+            difficultyMix: { easy: 0.3, medium: 0.45, hard: 0.25 },
+          });
+          plan.targetedQuestionIds = targeted.map(q => q.id);
+          plan.targetedQuestionMeta = targeted.map(q => ({
+            id: q.id,
+            domain: q.domain,
+            skills: q.skills,
+            difficulty: q.difficulty,
+          }));
+        }
 
         await saveStudyPlanArtifact(user.uid, plan, {
           generatedAt,

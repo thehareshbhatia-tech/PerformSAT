@@ -4,6 +4,7 @@ import { cardStyles } from '../design/components';
 import { DataCard } from './ui/DataCard';
 import { PrimaryButton } from './ui/Button';
 import { reprioritizePlan } from '../services/adaptivePlanService';
+import { getQuestionById } from '../data/questions/bank';
 import {
   ClipboardIcon,
   VideoCameraIcon,
@@ -30,6 +31,13 @@ const StudyPlanDashboard = ({
   onUncompleteActivity,
 }) => {
   const [expandedWeek, setExpandedWeek] = useState(null);
+  const [showTargeted, setShowTargeted] = useState(false);
+
+  const targetedQuestions = useMemo(() => {
+    const ids = studyPlan?.targetedQuestionIds || [];
+    if (ids.length === 0) return [];
+    return ids.map(id => getQuestionById(id)).filter(Boolean);
+  }, [studyPlan?.targetedQuestionIds]);
 
   const adaptiveOverlay = useMemo(() => {
     if (!studyPlan?.weeks?.length) return null;
@@ -241,6 +249,57 @@ const StudyPlanDashboard = ({
             <span style={{ display: 'inline-block', marginTop: '8px', fontSize: typography.sizes.xs, background: 'rgba(255,255,255,0.2)', color: '#fff', padding: '3px 10px', borderRadius: radius.sm }}>
               ~{nextAction.duration} min
             </span>
+          )}
+        </DataCard>
+      )}
+
+      {/* Targeted Practice Set */}
+      {targetedQuestions.length > 0 && (
+        <DataCard style={{ padding: '16px 18px' }}>
+          <div
+            onClick={() => setShowTargeted(!showTargeted)}
+            style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer' }}
+          >
+            <div>
+              <div style={{ fontSize: typography.sizes.sm, fontWeight: typography.weights.bold, color: colors.text.primary, marginBottom: '2px' }}>
+                Targeted Practice ({targetedQuestions.length} questions)
+              </div>
+              <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary }}>
+                Questions matched to your weak skills
+              </div>
+            </div>
+            <span style={{ fontSize: '16px', color: colors.text.muted, transform: showTargeted ? 'rotate(180deg)' : 'none', transition: `transform ${transitions.fast}` }}>
+              &#9660;
+            </span>
+          </div>
+          {showTargeted && (
+            <div style={{ marginTop: '12px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+              {targetedQuestions.map((q, i) => {
+                const diffColor = q.difficulty === 'hard' ? colors.semantic.error : q.difficulty === 'medium' ? colors.semantic.warning : colors.semantic.success;
+                const domainLabels = { algebra: 'ALG', 'problem-solving': 'PS', 'advanced-math': 'AM', geometry: 'GEO' };
+                return (
+                  <div key={q.id} style={{
+                    display: 'flex', alignItems: 'center', gap: '8px',
+                    padding: '8px 10px', borderRadius: radius.sm,
+                    background: colors.surface.offWhite, fontSize: typography.sizes.xs,
+                  }}>
+                    <span style={{ fontWeight: typography.weights.bold, color: colors.text.muted, minWidth: '22px' }}>{i + 1}</span>
+                    <span style={{ fontWeight: typography.weights.medium, padding: '1px 6px', borderRadius: '3px', background: diffColor, color: '#fff', textTransform: 'capitalize', fontSize: '10px' }}>
+                      {q.difficulty}
+                    </span>
+                    <span style={{ fontWeight: typography.weights.semibold, color: colors.accent.teal, fontSize: '10px' }}>
+                      {domainLabels[q.domain] || q.domain}
+                    </span>
+                    <span style={{ flex: 1, color: colors.text.secondary, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                      {q.question.length > 80 ? q.question.slice(0, 80) + '...' : q.question}
+                    </span>
+                  </div>
+                );
+              })}
+              <div style={{ marginTop: '8px', fontSize: typography.sizes.xs, color: colors.text.muted }}>
+                These questions target your weakest skills. Practice them through the module sections listed in your weekly plan.
+              </div>
+            </div>
           )}
         </DataCard>
       )}
