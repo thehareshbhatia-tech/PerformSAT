@@ -860,7 +860,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
                 color: design.colors.text.primary,
                 letterSpacing: '-0.03em'
               }}>
-                AI Coach
+                Assisted Help
               </span>
             </div>
             {lessonTitle && (
