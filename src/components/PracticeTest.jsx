@@ -828,6 +828,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   const [reviewMode, setReviewMode] = useState(false);
   const [reviewModule, setReviewModule] = useState(0);
   const [reviewQuestion, setReviewQuestion] = useState(0);
+  const [reviewTab, setReviewTab] = useState('question');
+  const [reviewRightPane, setReviewRightPane] = useState('both');
   const [resultSaved, setResultSaved] = useState(false);
   const [showDiagnosticReport, setShowDiagnosticReport] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
@@ -1664,30 +1666,37 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     const difficultyBg = reviewQ?.difficulty === 'hard' ? colors.semantic.errorLight : reviewQ?.difficulty === 'medium' ? colors.semantic.warningBg : colors.semantic.successLight;
 
     return (
-      <div style={{ maxWidth: '100%', margin: '0 auto', padding: '0', background: colors.surface.offWhite, minHeight: '100vh' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', background: '#F5F5F7', overflow: 'hidden' }}>
 
         {/* ── TOP BAR: Back + Progress + Nav ─────────────────────── */}
         <div style={{
-          position: 'sticky', top: 0, zIndex: 10,
-          background: colors.surface.white,
-          borderBottom: `1px solid ${colors.surface.grayDark}`,
-          padding: '10px 28px',
-          display: 'flex', alignItems: 'center', gap: '16px',
+          flexShrink: 0,
+          background: 'rgba(255, 255, 255, 0.85)',
+          backdropFilter: 'saturate(180%) blur(20px)',
+          WebkitBackdropFilter: 'saturate(180%) blur(20px)',
+          borderBottom: `1px solid rgba(0, 0, 0, 0.05)`,
+          padding: isMobile ? '8px 16px' : '10px 28px',
+          display: 'flex', alignItems: 'center', gap: isMobile ? '8px' : '16px',
+          overflowX: 'auto',
+          WebkitOverflowScrolling: 'touch',
+          zIndex: 10,
         }}>
           <button
             onClick={() => setReviewMode(false)}
             style={{
-              padding: '8px 16px', background: 'none', border: `1px solid ${colors.surface.grayDark}`,
-              borderRadius: radius.md, fontSize: '13px', fontWeight: typography.weights.semibold,
-              color: colors.text.secondary, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px',
+              padding: isMobile ? '6px 10px' : '8px 16px', background: 'rgba(0,0,0,0.04)', border: `none`,
+              borderRadius: '12px', fontSize: isMobile ? '12px' : '13px', fontWeight: typography.weights.semibold,
+              color: colors.text.primary, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px',
               transition: `all ${transitions.fast}`, flexShrink: 0,
             }}
+            onMouseOver={(e) => e.currentTarget.style.background = 'rgba(0,0,0,0.08)'}
+            onMouseOut={(e) => e.currentTarget.style.background = 'rgba(0,0,0,0.04)'}
           >
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            Results
+            {!isMobile && "Results"}
           </button>
 
-          <div style={{ width: '1px', height: '24px', background: colors.surface.grayDark, flexShrink: 0 }} />
+          <div style={{ width: '1px', height: '20px', background: 'rgba(0,0,0,0.1)', flexShrink: 0 }} />
 
           {/* Module tabs */}
           <div style={{ display: 'flex', gap: '4px', flexShrink: 0 }}>
@@ -1707,23 +1716,23 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                   key={modIdx}
                   onClick={() => { setReviewModule(modIdx); setReviewQuestion(0); }}
                   style={{
-                    padding: '6px 12px', borderRadius: radius.sm, border: 'none',
-                    background: isActiveModule ? colors.surface.dark : 'transparent',
+                    padding: isMobile ? '4px 10px' : '6px 14px', borderRadius: '12px', border: 'none',
+                    background: isActiveModule ? colors.text.primary : 'transparent',
                     color: isActiveModule ? colors.text.inverse : colors.text.secondary,
-                    fontSize: '13px', fontWeight: typography.weights.semibold,
+                    fontSize: isMobile ? '12px' : '13px', fontWeight: typography.weights.semibold,
                     cursor: 'pointer', whiteSpace: 'nowrap', transition: `all ${transitions.fast}`
                   }}
                 >
-                  M{modIdx + 1} ({correctCount}/{mod.questions.length})
+                  M{modIdx + 1} <span style={{ opacity: 0.7, marginLeft: '2px', fontWeight: 'normal' }}>({correctCount}/{mod.questions.length})</span>
                 </button>
               );
             })}
           </div>
 
-          <div style={{ width: '1px', height: '24px', background: colors.surface.grayDark, flexShrink: 0 }} />
+          <div style={{ width: '1px', height: '20px', background: 'rgba(0,0,0,0.1)', flexShrink: 0 }} />
 
           {/* Question pills */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', flex: 1 }}>
+          <div style={{ display: 'flex', gap: '6px', flex: 1, overflowX: 'auto', paddingRight: '10px', alignItems: 'center' }}>
             {(() => {
               const currentMod = test.modules[reviewModule];
               return currentMod.questions.map((q, qIdx) => {
@@ -1734,18 +1743,23 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                   : ans === q.correctAnswer;
                 const answered = ans !== undefined;
                 const isActive = qIdx === reviewQuestion;
-                const bgColor = !answered ? colors.surface.grayMedium : correct ? colors.semantic.success : colors.semantic.error;
+                
+                let bgColor = !answered ? 'rgba(0,0,0,0.06)' : correct ? colors.semantic.success : colors.semantic.error;
+                let textColor = !answered ? colors.text.secondary : colors.text.inverse;
+                
                 return (
                   <button
                     key={qIdx}
                     onClick={() => handleReviewJump(reviewModule, qIdx)}
                     style={{
-                      width: '28px', height: '28px', borderRadius: '6px',
-                      border: isActive ? `2px solid ${colors.text.primary}` : '1.5px solid transparent',
-                      background: bgColor, color: colors.text.inverse,
-                      fontSize: '11px', fontWeight: typography.weights.bold,
+                      width: isMobile ? '28px' : '32px', height: isMobile ? '28px' : '32px', borderRadius: '10px',
+                      border: isActive ? `2px solid ${colors.text.primary}` : '2px solid transparent',
+                      background: bgColor, color: textColor,
+                      fontSize: isMobile ? '11px' : '12px', fontWeight: typography.weights.bold,
                       cursor: 'pointer', transition: `all ${transitions.fast}`,
-                      transform: isActive ? 'scale(1.12)' : 'scale(1)',
+                      transform: isActive ? 'scale(1.08)' : 'scale(1)',
+                      flexShrink: 0,
+                      boxShadow: isActive ? '0 2px 8px rgba(0,0,0,0.1)' : 'none',
                     }}
                   >
                     {qIdx + 1}
@@ -1756,342 +1770,423 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           </div>
 
           {/* Legend */}
-          <div style={{ display: 'flex', gap: '10px', fontSize: '11px', flexShrink: 0 }}>
-            {[
-              { color: colors.semantic.success, label: 'Correct' },
-              { color: colors.semantic.error, label: 'Wrong' },
-              { color: colors.surface.grayMedium, label: 'Skipped' },
-            ].map(({ color, label }) => (
-              <span key={label} style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                <span style={{ width: '8px', height: '8px', borderRadius: '2px', background: color }} />
-                <span style={{ color: colors.text.muted }}>{label}</span>
-              </span>
-            ))}
-          </div>
+          {!isMobile && (
+            <div style={{ display: 'flex', gap: '12px', fontSize: '12px', flexShrink: 0, fontWeight: '500' }}>
+              {[
+                { color: colors.semantic.success, label: 'Correct' },
+                { color: colors.semantic.error, label: 'Wrong' },
+                { color: 'rgba(0,0,0,0.15)', label: 'Skipped' },
+              ].map(({ color, label }) => (
+                <span key={label} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: color }} />
+                  <span style={{ color: colors.text.secondary }}>{label}</span>
+                </span>
+              ))}
+            </div>
+          )}
         </div>
 
-        {/* ── MAIN CONTENT AREA ──────────────────────────────────── */}
-        <div style={{ padding: '24px 28px', maxWidth: '1400px', margin: '0 auto' }}>
+        {/* ── WORKSPACE ──────────────────────────────────── */}
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', padding: isMobile ? 0 : '16px', gap: isMobile ? 0 : '16px' }}>
 
-          {/* ── CONTEXT ZONE: Status + Question ──────────────────── */}
+          {/* DESKTOP RIGHT PANE TOGGLE (Apple Segmented Control Style) */}
+          {!isMobile && (
+            <div style={{ display: 'flex', justifyContent: 'center', flexShrink: 0 }}>
+              <div style={{
+                display: 'flex', background: 'rgba(118, 118, 128, 0.12)', borderRadius: '10px', padding: '3px',
+              }}>
+                {['explanation', 'both', 'ai'].map(pane => (
+                  <button
+                    key={pane}
+                    onClick={() => setReviewRightPane(pane)}
+                    style={{
+                      padding: '6px 20px', 
+                      background: reviewRightPane === pane ? colors.surface.white : 'transparent',
+                      border: 'none', 
+                      borderRadius: '7px',
+                      color: reviewRightPane === pane ? colors.text.primary : colors.text.secondary,
+                      fontSize: '13px', fontWeight: typography.weights.semibold, textTransform: 'capitalize',
+                      boxShadow: reviewRightPane === pane ? '0 3px 8px rgba(0,0,0,0.12), 0 3px 1px rgba(0,0,0,0.04)' : 'none',
+                      cursor: 'pointer', transition: `all ${transitions.fast}`,
+                    }}
+                  >
+                    {pane === 'ai' ? 'AI Tutor' : pane}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
           <div style={{
-            display: 'flex', gap: '12px', alignItems: 'center', marginBottom: '20px',
+            flex: 1, display: 'flex', overflow: 'hidden',
+            flexDirection: isMobile ? 'column' : 'row', gap: isMobile ? 0 : '16px'
           }}>
-            {/* Correctness badge */}
-            <div style={{
-              display: 'flex', alignItems: 'center', gap: '8px',
-              padding: '8px 16px', borderRadius: radius.full,
-              background: !userAnswer ? colors.surface.gray : isCorrect ? colors.semantic.successLight : colors.semantic.errorLight,
-              border: `1px solid ${!userAnswer ? colors.surface.grayDark : isCorrect ? colors.semantic.success : colors.semantic.error}`,
-            }}>
+            {/* LEFT / QUESTION PANE */}
+            {(!isMobile || reviewTab === 'question') && (
               <div style={{
-                width: '22px', height: '22px', borderRadius: '50%',
-                background: !userAnswer ? colors.text.muted : isCorrect ? colors.semantic.success : colors.semantic.error,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                color: colors.text.inverse, fontSize: '12px',
+                flex: isMobile ? 1 : '0 0 450px',
+                maxWidth: isMobile ? 'none' : '450px',
+                borderRadius: isMobile ? 0 : '24px',
+                boxShadow: isMobile ? 'none' : '0 8px 32px rgba(0,0,0,0.04)',
+                border: isMobile ? 'none' : `1px solid rgba(0,0,0,0.06)`,
+                overflowY: 'auto',
+                background: colors.surface.white,
+                padding: isMobile ? '16px' : '32px',
+                display: 'flex', flexDirection: 'column'
               }}>
-                {!userAnswer ? '?' : isCorrect ? <CheckIcon size={12} color={colors.text.inverse} /> : <CrossIcon size={12} color={colors.text.inverse} />}
-              </div>
-              <span style={{
-                fontSize: '13px', fontWeight: typography.weights.semibold,
-                color: !userAnswer ? colors.text.secondary : isCorrect ? colors.semantic.success : colors.semantic.error,
-              }}>
-                {!userAnswer ? 'Skipped' : isCorrect ? 'Correct' : 'Incorrect'}
-              </span>
-            </div>
-
-            {/* Question number */}
-            <span style={{
-              fontSize: '13px', fontWeight: typography.weights.semibold,
-              color: colors.text.muted,
-            }}>
-              Q{currentFlatIndex + 1} of {allQuestions.length}
-            </span>
-
-            {/* Difficulty chip */}
-            {reviewQ?.difficulty && (
-              <span style={{
-                fontSize: '11px', fontWeight: typography.weights.bold,
-                padding: '3px 10px', borderRadius: radius.full,
-                background: difficultyBg, color: difficultyColor,
-                letterSpacing: '0.02em',
-              }}>
-                {reviewQ.difficulty.charAt(0).toUpperCase() + reviewQ.difficulty.slice(1)}
-              </span>
-            )}
-
-            {/* Skill chips */}
-            {reviewQ?.skills?.slice(0, 2).map(skill => (
-              <span key={skill} style={{
-                fontSize: '11px', fontWeight: typography.weights.medium,
-                padding: '3px 10px', borderRadius: radius.full,
-                background: colors.surface.gray, color: colors.text.muted,
-              }}>
-                {skill.replace(/-/g, ' ')}
-              </span>
-            ))}
-
-            {/* Answer summary (right-aligned) */}
-            <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '12px', fontSize: '13px' }}>
-              <span style={{ color: colors.text.muted }}>
-                You: <span style={{ fontWeight: typography.weights.semibold, color: isCorrect ? colors.semantic.success : colors.semantic.error }}>{userAnswerDisplay}</span>
-              </span>
-              {!isCorrect && userAnswer !== undefined && (
-                <span style={{ color: colors.text.muted }}>
-                  Answer: <span style={{ fontWeight: typography.weights.semibold, color: colors.semantic.success }}>{correctAnswerDisplay}</span>
-                </span>
-              )}
-            </div>
-          </div>
-
-          {/* ── TWO-COLUMN SPLIT: Question + Explanation ─────────── */}
-          <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start', marginBottom: '24px' }}>
-
-            {/* LEFT: Question Card */}
-            <div style={{
-              flex: '0 0 420px', maxWidth: '420px', position: 'sticky', top: '70px',
-              background: colors.surface.white, borderRadius: radius.lg,
-              border: `1px solid ${colors.surface.grayDark}`,
-              padding: '24px', boxShadow: shadows.sm,
-              maxHeight: 'calc(100vh - 100px)', overflowY: 'auto',
-            }}>
-              {/* Question Text */}
-              <div style={{
-                marginBottom: '16px', fontSize: '15px', lineHeight: '1.7',
-                color: colors.text.primary, fontFamily: SAT_TYPOGRAPHY.questionFont,
-              }}>
-                {Array.isArray(reviewQ?.question) || (reviewQ?.question && typeof reviewQ.question === 'object')
-                  ? <QuestionRenderer content={reviewQ.question} />
-                  : <MathText text={reviewQ?.question || ''} />
-                }
-              </div>
-
-              {/* Formula if present */}
-              {reviewQ?.questionFormula && renderFormula(reviewQ.questionFormula)}
-
-              {/* Diagram */}
-              {reviewQ?.diagram && (
+                {/* ── CONTEXT ZONE: Status + Question ──────────────────── */}
                 <div style={{
-                  marginBottom: '16px', padding: '12px',
-                  background: colors.surface.offWhite, borderRadius: radius.md,
-                  border: `1px solid ${colors.surface.grayDark}`, display: 'flex', justifyContent: 'center',
+                  display: 'flex', gap: '12px', alignItems: 'center', marginBottom: '20px', flexWrap: 'wrap'
                 }}>
-                  <QuestionDiagram type={reviewQ.diagram.type} params={reviewQ.diagram.params} />
+                  {/* Correctness badge */}
+                  <div style={{
+                    display: 'flex', alignItems: 'center', gap: '8px',
+                    padding: '6px 12px', borderRadius: radius.full,
+                    background: !userAnswer ? colors.surface.gray : isCorrect ? colors.semantic.successLight : colors.semantic.errorLight,
+                    border: `1px solid ${!userAnswer ? colors.surface.grayDark : isCorrect ? colors.semantic.success : colors.semantic.error}`,
+                  }}>
+                    <div style={{
+                      width: '18px', height: '18px', borderRadius: '50%',
+                      background: !userAnswer ? colors.text.muted : isCorrect ? colors.semantic.success : colors.semantic.error,
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      color: colors.text.inverse, fontSize: '10px',
+                    }}>
+                      {!userAnswer ? '?' : isCorrect ? <CheckIcon size={10} color={colors.text.inverse} /> : <CrossIcon size={10} color={colors.text.inverse} />}
+                    </div>
+                    <span style={{
+                      fontSize: '12px', fontWeight: typography.weights.semibold,
+                      color: !userAnswer ? colors.text.secondary : isCorrect ? colors.semantic.success : colors.semantic.error,
+                    }}>
+                      {!userAnswer ? 'Skipped' : isCorrect ? 'Correct' : 'Incorrect'}
+                    </span>
+                  </div>
+
+                  {/* Question number */}
+                  <span style={{
+                    fontSize: '12px', fontWeight: typography.weights.semibold,
+                    color: colors.text.muted,
+                  }}>
+                    Q{currentFlatIndex + 1} of {allQuestions.length}
+                  </span>
+
+                  {/* Difficulty chip */}
+                  {reviewQ?.difficulty && (
+                    <span style={{
+                      fontSize: '10px', fontWeight: typography.weights.bold,
+                      padding: '2px 8px', borderRadius: radius.full,
+                      background: difficultyBg, color: difficultyColor,
+                      letterSpacing: '0.02em',
+                    }}>
+                      {reviewQ.difficulty.charAt(0).toUpperCase() + reviewQ.difficulty.slice(1)}
+                    </span>
+                  )}
+
+                  {/* Skill chips */}
+                  {reviewQ?.skills?.slice(0, 2).map(skill => (
+                    <span key={skill} style={{
+                      fontSize: '10px', fontWeight: typography.weights.medium,
+                      padding: '2px 8px', borderRadius: radius.full,
+                      background: colors.surface.gray, color: colors.text.muted,
+                    }}>
+                      {skill.replace(/-/g, ' ')}
+                    </span>
+                  ))}
                 </div>
-              )}
 
-              {/* Table */}
-              {reviewQ?.questionTable && (
-                <div style={{ marginBottom: '16px', display: 'flex', justifyContent: 'center' }}>
-                  <table style={{ borderCollapse: 'collapse', fontSize: '14px' }}>
-                    <thead>
-                      <tr>
-                        {reviewQ.questionTable.headers.map((header, i) => (
-                          <th key={i} style={{
-                            border: `1px solid ${colors.surface.grayMedium}`,
-                            padding: '6px 14px', background: colors.surface.gray, fontWeight: typography.weights.semibold,
-                          }}>
-                            <MathText text={header} />
-                          </th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {reviewQ.questionTable.rows.map((row, i) => (
-                        <tr key={i}>
-                          {row.map((cell, j) => (
-                            <td key={j} style={{
-                              border: `1px solid ${colors.surface.grayMedium}`,
-                              padding: '6px 14px', textAlign: 'center',
-                            }}>
-                              <MathText text={cell} />
-                            </td>
-                          ))}
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              )}
-
-              {/* Answer choices */}
-              {reviewQ?.type === 'multiple-choice' && reviewQ?.choices && (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  {reviewQ.choices.map((choice) => {
-                    const isUserChoice = userAnswer === choice.id;
-                    const isCorrectChoice = reviewQ.correctAnswer === choice.id;
-                    let bgColor = colors.surface.offWhite;
-                    let borderColor = colors.surface.grayDark;
-                    if (isCorrectChoice) { bgColor = colors.semantic.successLight; borderColor = colors.semantic.success; }
-                    else if (isUserChoice && !isCorrect) { bgColor = colors.semantic.errorLight; borderColor = colors.semantic.error; }
-
-                    return (
-                      <div key={choice.id} style={{
-                        padding: '10px 14px', borderRadius: radius.md,
-                        border: `1.5px solid ${borderColor}`, background: bgColor,
-                        display: 'flex', alignItems: 'center', gap: '12px',
-                      }}>
-                        <div style={{
-                          width: '24px', height: '24px', borderRadius: '4px',
-                          background: isCorrectChoice ? colors.semantic.success : isUserChoice ? colors.semantic.error : colors.surface.grayMedium,
-                          color: colors.text.inverse, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                          fontWeight: typography.weights.semibold, fontSize: '12px', flexShrink: 0,
-                        }}>
-                          {choice.id}
-                        </div>
-                        <div style={{ flex: 1, fontSize: '14px', color: colors.text.primary }}>
-                          {renderChoice(choice)}
-                        </div>
-                        {isCorrectChoice && (
-                          <CheckIcon size={14} color={colors.semantic.success} />
-                        )}
-                        {isUserChoice && !isCorrect && (
-                          <CrossIcon size={14} color={colors.semantic.error} />
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
-
-              {/* Fill-in display */}
-              {reviewQ?.type === 'fill-in' && (
-                <div style={{
-                  padding: '14px', background: colors.semantic.successLight,
-                  borderRadius: radius.md, border: `1.5px solid ${colors.semantic.success}`,
-                  textAlign: 'center',
-                }}>
-                  <p style={{ fontSize: '11px', fontWeight: typography.weights.bold, color: colors.semantic.success, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '4px' }}>
-                    Correct Answer
-                  </p>
-                  <p style={{ fontSize: '24px', fontWeight: typography.weights.bold, color: colors.semantic.success }}>
-                    {reviewQ.correctAnswer}
-                  </p>
+                {/* Answer summary */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', fontSize: '13px', marginBottom: '20px', padding: '12px', background: colors.surface.offWhite, borderRadius: radius.md, border: `1px solid ${colors.surface.grayDark}` }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <span style={{ color: colors.text.muted }}>Your Answer:</span>
+                    <span style={{ fontWeight: typography.weights.semibold, color: isCorrect ? colors.semantic.success : colors.semantic.error, textAlign: 'right' }}>{userAnswerDisplay}</span>
+                  </div>
                   {!isCorrect && userAnswer !== undefined && (
-                    <p style={{ fontSize: '13px', color: colors.semantic.error, marginTop: '6px' }}>
-                      Your answer: <strong>{userAnswer}</strong>
-                    </p>
+                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                      <span style={{ color: colors.text.muted }}>Correct Answer:</span>
+                      <span style={{ fontWeight: typography.weights.semibold, color: colors.semantic.success, textAlign: 'right' }}>{correctAnswerDisplay}</span>
+                    </div>
                   )}
                 </div>
-              )}
-            </div>
 
-            {/* RIGHT: Explanation + AI Chat (stacked) */}
-            <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '20px' }}>
-
-              {/* Explanation Card */}
-              <div style={{
-                background: colors.surface.white, borderRadius: radius.lg,
-                border: `1px solid ${colors.surface.grayDark}`,
-                padding: '28px', boxShadow: shadows.sm,
-              }}>
+                {/* Question Text */}
                 <div style={{
-                  display: 'flex', alignItems: 'center', gap: '10px',
-                  marginBottom: '20px', paddingBottom: '16px',
-                  borderBottom: `1px solid ${colors.surface.grayDark}`,
+                  marginBottom: '16px', fontSize: '15px', lineHeight: '1.7',
+                  color: colors.text.primary, fontFamily: SAT_TYPOGRAPHY.questionFont,
                 }}>
-                  <div style={{
-                    width: '32px', height: '32px', borderRadius: radius.md,
-                    background: colors.semantic.info, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  }}>
-                    <LightBulbIcon size={18} color={colors.text.inverse} />
-                  </div>
-                  <h3 style={{
-                    fontSize: typography.sizes.lg, fontWeight: typography.weights.bold,
-                    color: colors.text.primary, margin: 0,
-                  }}>
-                    Solution Explanation
-                  </h3>
+                  {Array.isArray(reviewQ?.question) || (reviewQ?.question && typeof reviewQ.question === 'object')
+                    ? <QuestionRenderer content={reviewQ.question} />
+                    : <MathText text={reviewQ?.question || ''} />
+                  }
                 </div>
-                {reviewQ?.explanation ? (
-                  <SolutionExplanation explanation={reviewQ.explanation} isCorrect={isCorrect} />
-                ) : (
-                  <p style={{ color: colors.text.muted, fontStyle: 'italic', fontSize: typography.sizes.sm }}>
-                    No explanation available for this question.
-                  </p>
-                )}
-              </div>
 
-              {/* AI Tutor Chat */}
-              <AiTutorChat
-                isOpen={true}
-                onClose={() => {}}
-                moduleId={test.id}
-                lessonId={`review-${reviewModule}-${reviewQuestion}`}
-                lessonTitle={`${test.title} - Question ${currentFlatIndex + 1}`}
-                isVideoLesson={false}
-                isPracticeQuestion={true}
-                skillProgress={skillProgress}
-                testDate={user?.testDate}
-                user={user}
-                practiceTestResults={practiceTestResults}
-                practiceContext={{
-                  question: reviewQ?.question || '',
-                  choices: reviewQ?.choices || [],
-                  hint: reviewQ?.hint || '',
-                  answerRevealed: true,
-                  correctAnswer: reviewQ?.type === 'fill-in'
-                    ? reviewQ?.correctAnswer
-                    : reviewQ?.choices?.find(c => c.id === reviewQ?.correctAnswer)?.text || reviewQ?.correctAnswer,
-                  explanation: reviewQ?.explanation || '',
-                  skills: reviewQ?.skills || []
-                }}
-              />
-            </div>
+                {/* Formula if present */}
+                {reviewQ?.questionFormula && renderFormula(reviewQ.questionFormula)}
+
+                {/* Diagram */}
+                {reviewQ?.diagram && (
+                  <div style={{
+                    marginBottom: '16px', padding: '12px',
+                    background: colors.surface.offWhite, borderRadius: radius.md,
+                    border: `1px solid ${colors.surface.grayDark}`, display: 'flex', justifyContent: 'center',
+                  }}>
+                    <QuestionDiagram type={reviewQ.diagram.type} params={reviewQ.diagram.params} />
+                  </div>
+                )}
+
+                {/* Table */}
+                {reviewQ?.questionTable && (
+                  <div style={{ marginBottom: '16px', display: 'flex', justifyContent: 'center' }}>
+                    <table style={{ borderCollapse: 'collapse', fontSize: '14px' }}>
+                      <thead>
+                        <tr>
+                          {reviewQ.questionTable.headers.map((header, i) => (
+                            <th key={i} style={{
+                              border: `1px solid ${colors.surface.grayMedium}`,
+                              padding: '6px 14px', background: colors.surface.gray, fontWeight: typography.weights.semibold,
+                            }}>
+                              <MathText text={header} />
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {reviewQ.questionTable.rows.map((row, i) => (
+                          <tr key={i}>
+                            {row.map((cell, j) => (
+                              <td key={j} style={{
+                                border: `1px solid ${colors.surface.grayMedium}`,
+                                padding: '6px 14px', textAlign: 'center',
+                              }}>
+                                <MathText text={cell} />
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+
+                {/* Answer choices */}
+                {reviewQ?.type === 'multiple-choice' && reviewQ?.choices && (
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', flex: 1 }}>
+                    {reviewQ.choices.map((choice) => {
+                      const isUserChoice = userAnswer === choice.id;
+                      const isCorrectChoice = reviewQ.correctAnswer === choice.id;
+                      let bgColor = colors.surface.offWhite;
+                      let borderColor = colors.surface.grayDark;
+                      if (isCorrectChoice) { bgColor = colors.semantic.successLight; borderColor = colors.semantic.success; }
+                      else if (isUserChoice && !isCorrect) { bgColor = colors.semantic.errorLight; borderColor = colors.semantic.error; }
+
+                      return (
+                        <div key={choice.id} style={{
+                          padding: '10px 14px', borderRadius: radius.md,
+                          border: `1.5px solid ${borderColor}`, background: bgColor,
+                          display: 'flex', alignItems: 'center', gap: '12px',
+                        }}>
+                          <div style={{
+                            width: '24px', height: '24px', borderRadius: '4px',
+                            background: isCorrectChoice ? colors.semantic.success : isUserChoice ? colors.semantic.error : colors.surface.grayMedium,
+                            color: colors.text.inverse, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                            fontWeight: typography.weights.semibold, fontSize: '12px', flexShrink: 0,
+                          }}>
+                            {choice.id}
+                          </div>
+                          <div style={{ flex: 1, fontSize: '14px', color: colors.text.primary }}>
+                            {renderChoice(choice)}
+                          </div>
+                          {isCorrectChoice && (
+                            <CheckIcon size={14} color={colors.semantic.success} />
+                          )}
+                          {isUserChoice && !isCorrect && (
+                            <CrossIcon size={14} color={colors.semantic.error} />
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+
+                {/* Fill-in display */}
+                {reviewQ?.type === 'fill-in' && (
+                  <div style={{
+                    padding: '16px', background: colors.semantic.successLight,
+                    borderRadius: '16px', border: `1px solid rgba(0,0,0,0.05)`,
+                    textAlign: 'center', flex: 1, boxShadow: '0 4px 12px rgba(0,0,0,0.02)'
+                  }}>
+                    <p style={{ fontSize: '11px', fontWeight: typography.weights.bold, color: colors.semantic.success, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '6px' }}>
+                      Correct Answer
+                    </p>
+                    <p style={{ fontSize: '28px', fontWeight: typography.weights.bold, color: colors.semantic.success, letterSpacing: '-0.02em' }}>
+                      {reviewQ.correctAnswer}
+                    </p>
+                    {!isCorrect && userAnswer !== undefined && (
+                      <p style={{ fontSize: '14px', color: colors.semantic.error, marginTop: '8px', fontWeight: '500' }}>
+                        Your answer: <strong>{userAnswer}</strong>
+                      </p>
+                    )}
+                  </div>
+                )}
+                
+                {/* Empty block to pad bottom for the floating navigation */}
+                <div style={{ height: '80px', flexShrink: 0 }}></div>
+
+              </div>
+            )}
+
+            {/* RIGHT / EXPLANATION + AI TUTOR PANE */}
+            {(!isMobile || reviewTab !== 'question') && (
+              <div style={{
+                flex: 1, display: 'flex', flexDirection: reviewRightPane === 'both' && !isMobile ? 'row' : 'column',
+                overflow: 'hidden', background: 'transparent', gap: isMobile ? 0 : '16px'
+              }}>
+                {/* Explanation */}
+                {(!isMobile && (reviewRightPane === 'explanation' || reviewRightPane === 'both')) || (isMobile && reviewTab === 'explanation') ? (
+                  <div style={{
+                    flex: reviewRightPane === 'both' ? 1.2 : 1, overflowY: 'auto', 
+                    padding: isMobile ? '16px' : '32px',
+                    background: colors.surface.white,
+                    borderRadius: isMobile ? 0 : '24px',
+                    boxShadow: isMobile ? 'none' : '0 8px 32px rgba(0,0,0,0.04)',
+                    border: isMobile ? 'none' : `1px solid rgba(0,0,0,0.06)`,
+                  }}>
+                    <div style={{
+                      display: 'flex', alignItems: 'center', gap: '12px',
+                      marginBottom: '24px', paddingBottom: '16px',
+                      borderBottom: `1px solid rgba(0,0,0,0.06)`,
+                    }}>
+                      <div style={{
+                        width: '36px', height: '36px', borderRadius: '12px',
+                        background: colors.semantic.info, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
+                      }}>
+                        <LightBulbIcon size={20} color={colors.text.inverse} />
+                      </div>
+                      <h3 style={{
+                        fontSize: typography.sizes.lg, fontWeight: typography.weights.bold,
+                        color: colors.text.primary, margin: 0, letterSpacing: '-0.01em'
+                      }}>
+                        Solution Explanation
+                      </h3>
+                    </div>
+                    {reviewQ?.explanation ? (
+                      <SolutionExplanation explanation={reviewQ.explanation} isCorrect={isCorrect} />
+                    ) : (
+                      <p style={{ color: colors.text.muted, fontStyle: 'italic', fontSize: typography.sizes.sm }}>
+                        No explanation available for this question.
+                      </p>
+                    )}
+                  </div>
+                ) : null}
+
+                {/* AI Tutor Chat */}
+                {(!isMobile && (reviewRightPane === 'ai' || reviewRightPane === 'both')) || (isMobile && reviewTab === 'ai') ? (
+                  <div style={{
+                    flex: 1, display: 'flex', flexDirection: 'column',
+                    background: colors.surface.white,
+                    borderRadius: isMobile ? 0 : '24px',
+                    boxShadow: isMobile ? 'none' : '0 8px 32px rgba(0,0,0,0.04)',
+                    border: isMobile ? 'none' : `1px solid rgba(0,0,0,0.06)`,
+                    overflow: 'hidden'
+                  }}>
+                    <AiTutorChat
+                        isOpen={true}
+                        onClose={() => {}}
+                        moduleId={test.id}
+                        lessonId={`review-${reviewModule}-${reviewQuestion}`}
+                        lessonTitle={`${test.title} - Question ${currentFlatIndex + 1}`}
+                        isVideoLesson={false}
+                        isPracticeQuestion={true}
+                        skillProgress={skillProgress}
+                        testDate={user?.testDate}
+                        user={user}
+                        practiceTestResults={practiceTestResults}
+                        practiceContext={{
+                          question: reviewQ?.question || '',
+                          choices: reviewQ?.choices || [],
+                          hint: reviewQ?.hint || '',
+                          answerRevealed: true,
+                          correctAnswer: reviewQ?.type === 'fill-in'
+                            ? reviewQ?.correctAnswer
+                            : reviewQ?.choices?.find(c => c.id === reviewQ?.correctAnswer)?.text || reviewQ?.correctAnswer,
+                          explanation: reviewQ?.explanation || '',
+                          skills: reviewQ?.skills || []
+                        }}
+                        embedded={true}
+                        headerCompact={true}
+                        standalone={false}
+                      />
+                  </div>
+                ) : null}
+              </div>
+            )}
           </div>
 
-          {/* ── NAVIGATION FOOTER ────────────────────────────────── */}
+          {/* ── FLOATING NAVIGATION PILL ────────────────────────────────── */}
           <div style={{
-            display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-            background: colors.surface.white, padding: '12px 20px',
-            borderRadius: radius.lg, border: `1px solid ${colors.surface.grayDark}`,
+            position: 'absolute',
+            bottom: isMobile ? '24px' : '32px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '16px',
+            background: 'rgba(255, 255, 255, 0.85)',
+            backdropFilter: 'saturate(180%) blur(24px)',
+            WebkitBackdropFilter: 'saturate(180%) blur(24px)',
+            padding: '8px 12px',
+            borderRadius: '100px', 
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.04)',
+            border: `1px solid rgba(255, 255, 255, 0.5)`,
+            zIndex: 100,
           }}>
             <button
               onClick={() => handleReviewNav(-1)}
               disabled={currentFlatIndex === 0}
               style={{
-                padding: '10px 20px',
-                background: currentFlatIndex === 0 ? colors.surface.gray : colors.surface.white,
-                color: currentFlatIndex === 0 ? colors.text.muted : colors.text.primary,
-                border: currentFlatIndex === 0 ? `1.5px solid ${colors.surface.grayDark}` : `1.5px solid ${colors.text.primary}`,
-                borderRadius: radius.md, fontSize: '14px', fontWeight: typography.weights.semibold,
+                padding: '10px',
+                background: currentFlatIndex === 0 ? 'transparent' : colors.surface.white,
+                color: currentFlatIndex === 0 ? 'rgba(0,0,0,0.2)' : colors.text.primary,
+                border: 'none',
+                borderRadius: '50%', 
+                width: '40px', height: '40px',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
                 cursor: currentFlatIndex === 0 ? 'not-allowed' : 'pointer',
-                display: 'flex', alignItems: 'center', gap: '6px', transition: `all ${transitions.fast}`,
+                transition: `all ${transitions.fast}`,
+                boxShadow: currentFlatIndex === 0 ? 'none' : '0 2px 8px rgba(0,0,0,0.06)',
               }}
             >
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-              Previous
+              <svg width="18" height="18" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </button>
-            <div style={{ textAlign: 'center' }}>
-              <span style={{ color: colors.text.primary, fontSize: '14px', fontWeight: typography.weights.semibold }}>
+            <div style={{ textAlign: 'center', minWidth: '60px' }}>
+              <span style={{ color: colors.text.primary, fontSize: '14px', fontWeight: typography.weights.bold }}>
                 {currentFlatIndex + 1}
               </span>
-              <span style={{ color: colors.text.muted, fontSize: '13px' }}>
-                {' '}/ {allQuestions.length}
+              <span style={{ color: colors.text.secondary, fontSize: '13px', fontWeight: '500' }}>
+                <span style={{ opacity: 0.5, margin: '0 4px' }}>/</span>{allQuestions.length}
               </span>
             </div>
             <button
               onClick={() => handleReviewNav(1)}
               disabled={currentFlatIndex === allQuestions.length - 1}
               style={{
-                padding: '10px 20px',
-                background: currentFlatIndex === allQuestions.length - 1 ? colors.surface.gray : colors.surface.dark,
-                color: currentFlatIndex === allQuestions.length - 1 ? colors.text.muted : colors.text.inverse,
-                border: 'none', borderRadius: radius.md,
-                fontSize: '14px', fontWeight: typography.weights.semibold,
+                padding: '10px',
+                background: currentFlatIndex === allQuestions.length - 1 ? 'transparent' : colors.text.primary,
+                color: currentFlatIndex === allQuestions.length - 1 ? 'rgba(0,0,0,0.2)' : colors.text.inverse,
+                border: 'none', 
+                borderRadius: '50%',
+                width: '40px', height: '40px',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
                 cursor: currentFlatIndex === allQuestions.length - 1 ? 'not-allowed' : 'pointer',
-                display: 'flex', alignItems: 'center', gap: '6px', transition: `all ${transitions.fast}`,
+                transition: `all ${transitions.fast}`,
+                boxShadow: currentFlatIndex === allQuestions.length - 1 ? 'none' : '0 4px 12px rgba(0,0,0,0.15)',
               }}
             >
-              Next
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              <svg width="18" height="18" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </button>
           </div>
+
         </div>
       </div>
     );
   }
-
   // Test completion screen - using TestResults or DiagnosticReport
   if (testCompleted) {
     // Show the full Diagnostic Report & Study Plan

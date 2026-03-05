@@ -274,7 +274,9 @@ const AiTutorChat = ({
   testDate = null,
   user = null,
   practiceTestResults = null,
-  standalone = false
+  standalone = false,
+  embedded = false,
+  headerCompact = false
 }) => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
@@ -570,13 +572,17 @@ Your goal is to build their problem-solving instincts. Every question they solve
   }, [messages]);
 
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && !embedded) {
       setTimeout(() => {
         inputRef.current?.focus();
         chatContainerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 100);
+    } else if (isOpen && embedded) {
+      setTimeout(() => {
+        inputRef.current?.focus();
+      }, 100);
     }
-  }, [isOpen]);
+  }, [isOpen, embedded]);
 
   // Generate proactive recommendations based on skill progress
   useEffect(() => {
@@ -711,82 +717,110 @@ Your goal is to build their problem-solving instincts. Every question they solve
       aria-modal="false"
       style={{
         marginTop: '0px',
-        borderRadius: standalone ? '16px' : '20px',
+        borderRadius: standalone ? '16px' : (embedded ? '0px' : '20px'),
         background: design.colors.surface.primary,
-        boxShadow: standalone ? 'none' : design.shadow.large,
+        boxShadow: standalone || embedded ? 'none' : design.shadow.large,
         overflow: 'hidden',
         fontFamily: design.typography.fontFamily,
-        animation: standalone ? 'fadeIn 0.3s ease' : 'chatSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-        border: `1px solid ${design.colors.border.light}`,
+        animation: standalone || embedded ? 'none' : 'chatSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+        border: embedded ? 'none' : `1px solid ${design.colors.border.light}`,
         display: 'flex',
         flexDirection: 'column',
-        height: standalone ? 'calc(100vh - 160px)' : '100%',
-        minHeight: standalone ? '500px' : undefined,
+        height: standalone ? 'calc(100vh - 160px)' : (embedded ? '100%' : '100%'),
+        minHeight: standalone ? '500px' : (embedded ? '0' : undefined),
       }}
     >
       {/* Header */}
-      <div
-        style={{
-          padding: '18px 24px',
-          background: design.colors.surface.primary,
-          borderBottom: `1px solid ${design.colors.border.light}`,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between'
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-          <span style={{
-            fontSize: '17px',
-            fontWeight: '600',
-            color: design.colors.text.primary,
-            letterSpacing: '-0.02em'
-          }}>
-            Perform
-          </span>
-          {isVideoLesson && videoTranscript && (
-            <span style={{
-              background: 'rgba(52, 199, 89, 0.12)',
-              color: designColors.semantic.success,
-              padding: '5px 12px',
-              borderRadius: '100px',
-              fontSize: '12px',
-              fontWeight: '500',
-              letterSpacing: '0.01em'
-            }}>
-              Watching with you
-            </span>
-          )}
-        </div>
-        <button
-          onClick={onClose}
-          aria-label="Close chat"
+      {!headerCompact && (
+        <div
           style={{
-            background: design.colors.surface.secondary,
-            border: 'none',
-            width: '30px',
-            height: '30px',
-            borderRadius: '50%',
-            cursor: 'pointer',
+            padding: '18px 24px',
+            background: design.colors.surface.primary,
+            borderBottom: `1px solid ${design.colors.border.light}`,
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
-            color: design.colors.text.secondary,
-            fontSize: '16px',
-            transition: 'all 0.2s ease',
-          }}
-          onMouseOver={(e) => {
-            e.currentTarget.style.background = design.colors.border.medium;
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.background = design.colors.surface.secondary;
+            justifyContent: 'space-between'
           }}
         >
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-            <path d="M1 1L11 11M1 11L11 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-          </svg>
-        </button>
-      </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+            <span style={{
+              fontSize: '17px',
+              fontWeight: '600',
+              color: design.colors.text.primary,
+              letterSpacing: '-0.02em'
+            }}>
+              Perform
+            </span>
+            {isVideoLesson && videoTranscript && (
+              <span style={{
+                background: 'rgba(52, 199, 89, 0.12)',
+                color: designColors.semantic.success,
+                padding: '5px 12px',
+                borderRadius: '100px',
+                fontSize: '12px',
+                fontWeight: '500',
+                letterSpacing: '0.01em'
+              }}>
+                Watching with you
+              </span>
+            )}
+          </div>
+          <button
+            onClick={onClose}
+            aria-label="Close chat"
+            style={{
+              background: design.colors.surface.secondary,
+              border: 'none',
+              width: '30px',
+              height: '30px',
+              borderRadius: '50%',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: design.colors.text.secondary,
+              fontSize: '16px',
+              transition: 'all 0.2s ease',
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.background = design.colors.border.medium;
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.background = design.colors.surface.secondary;
+            }}
+          >
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M1 1L11 11M1 11L11 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+            </svg>
+          </button>
+        </div>
+      )}
+
+      {headerCompact && (
+        <div style={{
+          display: 'flex', alignItems: 'center', gap: '10px',
+          padding: '28px 28px 16px',
+          borderBottom: `1px solid ${design.colors.border.light}`,
+          background: design.colors.surface.primary,
+        }}>
+          <div style={{
+            width: '32px', height: '32px', borderRadius: '8px',
+            background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            color: 'white'
+          }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <h3 style={{
+            fontSize: '18px', fontWeight: '700',
+            color: design.colors.text.primary, margin: 0,
+          }}>
+            AI Tutor
+          </h3>
+        </div>
+      )}
 
       {/* Messages Area */}
       <div
