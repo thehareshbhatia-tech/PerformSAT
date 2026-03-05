@@ -1824,8 +1824,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             {/* LEFT / QUESTION PANE */}
             {(!isMobile || reviewTab === 'question') && (
               <div style={{
-                flex: isMobile ? 1 : '0 0 450px',
-                maxWidth: isMobile ? 'none' : '450px',
+                flex: isMobile ? 1 : '0 0 520px',
+                maxWidth: isMobile ? 'none' : '520px',
                 borderRadius: isMobile ? 0 : '24px',
                 boxShadow: isMobile ? 'none' : '0 8px 32px rgba(0,0,0,0.04)',
                 border: isMobile ? 'none' : `1px solid rgba(0,0,0,0.06)`,
