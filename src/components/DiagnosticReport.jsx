@@ -359,7 +359,7 @@ const DiagnosticReport = ({
   onSaveStudyPlan,
   onBack,
 }) => {
-  const [activeSection, setActiveSection] = useState('diagnosis');
+  const [activeSection, setActiveSection] = useState('overview');
   const [expandedWeek, setExpandedWeek] = useState(1);
   const [planSaved, setPlanSaved] = useState(false);
   const planSaveAttempted = useRef(false);
@@ -428,7 +428,7 @@ const DiagnosticReport = ({
 
   // Navigation tabs
   const sections = [
-    { id: 'diagnosis', label: 'Your Diagnosis', icon: <MicroscopeIcon size={16} /> },
+    { id: 'overview', label: 'Overview', icon: <ChartBarIcon size={16} /> },
     { id: 'plan', label: 'Study Plan', icon: <ClipboardIcon size={16} /> },
   ];
 
@@ -437,421 +437,85 @@ const DiagnosticReport = ({
   }
 
   // ═══════════════════════════════════════════════════════════════════════
-  // RENDER: DIAGNOSIS SECTION
+  // RENDER: OVERVIEW SECTION (minimal Math score + percentile + target gap)
   // ═══════════════════════════════════════════════════════════════════════
 
-  const renderDiagnosis = () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+  const renderOverview = () => {
+    const percentile = diagnostic.percentile?.percentile;
+    const percentileTier = diagnostic.percentile?.tier;
+    const isAtTarget = score.gap <= 0;
 
-      {/* ═══ STEP 1: SNAPSHOT — always visible ═══ */}
+    const tierColor = percentileTier === 'elite' || percentileTier === 'excellent'
+      ? colors.semantic.success
+      : percentileTier === 'above_average' || percentileTier === 'average'
+        ? colors.semantic.info
+        : colors.semantic.warning;
 
-      {/* Key Insight */}
-      <Card style={{ background: planSummary.keyInsight.type === 'quick_win' ? colors.accent.orangeLight : colors.semantic.infoLight, border: 'none' }}>
-        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
-          <div style={{ lineHeight: '1', flexShrink: 0 }}>
-            {planSummary.keyInsight.type === 'quick_win' ? <LightningIcon size={24} color={colors.accent.orange} /> : planSummary.keyInsight.type === 'easy_wins' ? <TargetIcon size={24} color={colors.accent.orange} /> : planSummary.keyInsight.type === 'time' ? <TimerIcon size={24} color={colors.accent.orange} /> : <LightBulbIcon size={24} color={colors.accent.orange} />}
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '32px', padding: isMobile ? '20px 0' : '40px 0' }}>
+
+        {/* Math Score Ring */}
+        <div style={{ textAlign: 'center' }}>
+          <ScoreRing score={score.scaled} target={score.target} size={isMobile ? 180 : 200} />
+          <div style={{ marginTop: '16px', fontSize: '13px', fontWeight: '600', color: colors.text.tertiary, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+            Math Score
           </div>
-          <div>
-            <div style={{ fontSize: '15px', fontWeight: '700', color: colors.text.primary, marginBottom: '4px' }}>
-              {planSummary.keyInsight.title}
-            </div>
-            <div style={{ fontSize: '13px', color: colors.text.secondary, lineHeight: '1.55' }}>
-              {planSummary.keyInsight.message}
-            </div>
-          </div>
         </div>
-      </Card>
 
-      {/* Top 3 Error Types — compact summary */}
-      <Card>
-        <div style={{ fontSize: '15px', fontWeight: '700', color: colors.text.primary, marginBottom: '4px' }}>
-          Why You Lost Points
-        </div>
-        <div style={{ fontSize: '13px', color: colors.text.tertiary, marginBottom: '14px' }}>
-          {errorPatterns.totalWrong} wrong out of {score.total}
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-          {errorPatterns.summary.slice(0, 3).map(pattern => (
-            <div key={pattern.type} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <span style={{ fontSize: '16px', width: '28px', textAlign: 'center', flexShrink: 0 }}>{pattern.icon}</span>
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '3px' }}>
-                  <span style={{ fontSize: '13px', fontWeight: '600', color: colors.text.primary }}>{pattern.label}</span>
-                  <span style={{ fontSize: '13px', fontWeight: '700', color: pattern.color }}>{pattern.count}</span>
-                </div>
-                <ProgressBar value={pattern.count} max={errorPatterns.totalWrong} color={pattern.color} height={5} />
-              </div>
-            </div>
-          ))}
-        </div>
-        {errorPatterns.summary.length > 3 && (
-          <div style={{ fontSize: '12px', color: colors.text.tertiary, marginTop: '8px', textAlign: 'center' }}>
-            +{errorPatterns.summary.length - 3} more error type{errorPatterns.summary.length - 3 > 1 ? 's' : ''} in detailed view
-          </div>
-        )}
-      </Card>
-
-      {/* ═══ STEP 2: TOP PRIORITIES — always visible, max 3 ═══ */}
-      <Card>
-        <div style={{ fontSize: '15px', fontWeight: '700', color: colors.text.primary, marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <TargetIcon size={18} color={colors.accent.orange} /> Fix These First
-        </div>
-        <div style={{ fontSize: '13px', color: colors.text.tertiary, marginBottom: '14px' }}>
-          Highest-impact improvements for your score
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-          {prioritizedActions.slice(0, 3).map((action, idx) => (
-            <div key={idx} style={{
-              display: 'flex', gap: '12px', padding: '14px',
-              background: idx === 0 ? colors.accent.orangeLight : colors.surface.offWhite,
-              borderRadius: radius.md, border: idx === 0 ? `1px solid ${colors.accent.orangeMuted}` : `1px solid ${colors.surface.gray}`,
+        {/* Percentile + Target Gap */}
+        <div style={{
+          display: 'flex', gap: '16px', width: '100%', maxWidth: '400px',
+          flexDirection: isMobile ? 'column' : 'row',
+        }}>
+          {/* Percentile */}
+          {percentile != null && (
+            <div style={{
+              flex: 1, textAlign: 'center', padding: '20px 16px',
+              background: colors.surface.white, borderRadius: '20px',
+              border: `1px solid rgba(0,0,0,0.06)`,
+              boxShadow: '0 4px 16px rgba(0,0,0,0.03)',
             }}>
-              <div style={{
-                width: '26px', height: '26px', borderRadius: '50%',
-                background: idx === 0 ? colors.accent.orange : colors.surface.gray,
-                color: idx === 0 ? 'white' : colors.text.secondary,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: '12px', fontWeight: '700', flexShrink: 0,
-              }}>
-                {idx + 1}
+              <div style={{ fontSize: '36px', fontWeight: '800', color: tierColor, letterSpacing: '-0.02em', lineHeight: '1' }}>
+                {percentile}<span style={{ fontSize: '16px', fontWeight: '500' }}>th</span>
               </div>
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ fontSize: '14px', fontWeight: '600', color: colors.text.primary, marginBottom: '2px' }}>
-                  {action.title}
-                </div>
-                <div style={{ fontSize: '12px', color: colors.text.secondary, lineHeight: '1.5' }}>
-                  {action.description}
-                </div>
+              <div style={{ fontSize: '12px', fontWeight: '600', color: colors.text.tertiary, marginTop: '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                Percentile
               </div>
-              {action.estimatedGain > 0 && (
-                <span style={{
-                  padding: '3px 10px', borderRadius: radius.xl, alignSelf: 'flex-start',
-                  background: colors.semantic.successLight, color: colors.semantic.success,
-                  fontSize: '12px', fontWeight: '700', flexShrink: 0, whiteSpace: 'nowrap',
-                }}>
-                  +{action.estimatedGain} pts
-                </span>
-              )}
-            </div>
-          ))}
-        </div>
-      </Card>
-
-      {/* ═══ STEP 3: ACTION CTA ═══ */}
-      <Card style={{
-        background: `linear-gradient(135deg, ${colors.accent.orange} 0%, ${colors.accent.orangeHover} 100%)`,
-        border: 'none', cursor: 'pointer', textAlign: 'center', padding: '20px',
-      }} onClick={() => setActiveSection('plan')}>
-        <div style={{ fontSize: '16px', fontWeight: '700', color: 'white', marginBottom: '4px' }}>
-          See Your Personalized Study Plan
-        </div>
-        <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.85)' }}>
-          Week-by-week activities to close the gap
-        </div>
-      </Card>
-
-      {/* ═══ DEEP DIVES — collapsed by default ═══ */}
-
-      {/* Score Projection */}
-      <CollapsibleSection
-        title="How to Reach Your Target"
-        icon={<ChartBarIcon size={18} color={colors.accent.orange} />}
-        summary={score.gap > 0 ? `${scoreProjection.questionsNeededForTarget} more correct answers needed` : 'At or above target!'}
-      >
-        {scoreProjection.quickWins.count > 0 && (
-          <div style={{
-            background: colors.semantic.successLight, border: `1px solid ${colors.semantic.successBg}`,
-            borderRadius: radius.md, padding: '14px', marginTop: '12px', marginBottom: '12px',
-          }}>
-            <div style={{ fontSize: '13px', fontWeight: '600', color: colors.semantic.success, marginBottom: '2px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <TargetIcon size={14} color={colors.semantic.success} /> Quick Win: +{scoreProjection.quickWins.projectedGain} points possible
-            </div>
-            <div style={{ fontSize: '12px', color: colors.text.secondary }}>{scoreProjection.quickWins.description}</div>
-          </div>
-        )}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '12px' }}>
-          {scoreProjection.domainProjections.map(proj => (
-            <div key={proj.domain} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: proj.color, flexShrink: 0 }} />
-              <div style={{ flex: 1 }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '3px' }}>
-                  <span style={{ fontSize: '13px', fontWeight: '500', color: colors.text.primary }}>{proj.domainName}</span>
-                  <span style={{ fontSize: '13px', fontWeight: '700', color: colors.semantic.success }}>+{proj.projectedPointGain} pts</span>
-                </div>
-                <ProgressBar value={proj.questionsToFix} max={Math.max(...scoreProjection.domainProjections.map(p => p.questionsToFix))} color={proj.color} height={4} />
-              </div>
-            </div>
-          ))}
-        </div>
-      </CollapsibleSection>
-
-      {/* Domain Performance */}
-      <CollapsibleSection
-        title="Performance by SAT Domain"
-        icon={<RulerIcon size={18} color={colors.accent.orange} />}
-        summary={domainAnalysis.map(d => `${d.displayName}: ${d.accuracy}%`).join(' · ')}
-      >
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginTop: '12px' }}>
-          {domainAnalysis.map(domain => (
-            <div key={domain.domain}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
-                <span style={{ fontSize: '14px', fontWeight: '600', color: colors.text.primary }}>{domain.displayName}</span>
-                <span style={{ fontSize: '14px', fontWeight: '700', color: domain.accuracy >= 80 ? colors.semantic.success : domain.accuracy >= 60 ? colors.semantic.warning : colors.semantic.error }}>
-                  {domain.correct}/{domain.total} ({domain.accuracy}%)
-                </span>
-              </div>
-              <ProgressBar value={domain.accuracy} max={100} color={domain.accuracy >= 80 ? colors.semantic.success : domain.accuracy >= 60 ? colors.semantic.warning : colors.semantic.error} height={7} />
-              <div style={{ display: 'flex', gap: '12px', marginTop: '4px' }}>
-                {['easy', 'medium', 'hard'].map(diff => {
-                  const d = domain.byDifficulty[diff];
-                  if (d.total === 0) return null;
-                  return <span key={diff} style={{ fontSize: '11px', color: colors.text.tertiary }}><span style={{ textTransform: 'capitalize' }}>{diff}</span>: {d.correct}/{d.total}</span>;
-                })}
-              </div>
-            </div>
-          ))}
-        </div>
-      </CollapsibleSection>
-
-      {/* Difficulty Breakdown */}
-      <CollapsibleSection
-        title="Performance by Difficulty"
-        icon={<SignalIcon size={18} color={colors.accent.orange} />}
-        summary={['easy', 'medium', 'hard'].filter(l => difficultyAnalysis.levels[l].total > 0).map(l => `${l}: ${difficultyAnalysis.levels[l].accuracy}%`).join(' · ')}
-      >
-        <div style={{ display: 'flex', gap: '12px', marginTop: '12px' }}>
-          {['easy', 'medium', 'hard'].map(level => {
-            const data = difficultyAnalysis.levels[level];
-            if (data.total === 0) return null;
-            const pct = data.accuracy;
-            return (
-              <div key={level} style={{
-                flex: 1, textAlign: 'center', padding: '16px 10px',
-                background: pct >= 80 ? colors.semantic.successLight : pct >= 50 ? colors.semantic.warningLight : colors.semantic.errorLight,
-                borderRadius: radius.md,
-              }}>
-                <div style={{ fontSize: '24px', fontWeight: '700', color: pct >= 80 ? colors.semantic.success : pct >= 50 ? '#b45309' : colors.semantic.error }}>{pct}%</div>
-                <div style={{ fontSize: '12px', fontWeight: '600', color: colors.text.primary, textTransform: 'capitalize', marginTop: '4px' }}>{level}</div>
-                <div style={{ fontSize: '11px', color: colors.text.tertiary, marginTop: '2px' }}>{data.correct}/{data.total}</div>
-              </div>
-            );
-          })}
-        </div>
-        {difficultyAnalysis.difficultyCliff && (
-          <div style={{ marginTop: '10px', padding: '10px 14px', background: colors.semantic.warningLight, borderRadius: '8px', fontSize: '12px', color: '#92400e' }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}><WarningIcon size={14} color="#92400e" /> Accuracy drops at <strong>{difficultyAnalysis.difficultyCliff}</strong> difficulty.</span>
-          </div>
-        )}
-      </CollapsibleSection>
-
-      {/* Time Management */}
-      {timeAnalysis.insights.length > 0 && (
-        <CollapsibleSection
-          title="Time Management"
-          icon={<TimerIcon size={18} color={colors.accent.orange} />}
-          summary={`Avg ${timeAnalysis.avgTimePerQuestion}s/question · Correct: ${timeAnalysis.avgCorrectTime}s · Wrong: ${timeAnalysis.avgIncorrectTime}s`}
-        >
-          <div style={{ display: 'flex', gap: '10px', marginTop: '12px', flexWrap: 'wrap' }}>
-            <div style={{ padding: '10px 14px', background: colors.surface.gray, borderRadius: '8px', flex: 1, minWidth: '100px' }}>
-              <div style={{ fontSize: '10px', color: colors.text.tertiary, textTransform: 'uppercase', fontWeight: '600' }}>Correct</div>
-              <div style={{ fontSize: '16px', fontWeight: '700', color: colors.semantic.success }}>{timeAnalysis.avgCorrectTime}s</div>
-            </div>
-            <div style={{ padding: '10px 14px', background: colors.surface.gray, borderRadius: '8px', flex: 1, minWidth: '100px' }}>
-              <div style={{ fontSize: '10px', color: colors.text.tertiary, textTransform: 'uppercase', fontWeight: '600' }}>Wrong</div>
-              <div style={{ fontSize: '16px', fontWeight: '700', color: colors.semantic.error }}>{timeAnalysis.avgIncorrectTime}s</div>
-            </div>
-            {timeAnalysis.fadeEffect > 10 && (
-              <div style={{ padding: '10px 14px', background: colors.semantic.warningLight, borderRadius: '8px', flex: 1, minWidth: '100px' }}>
-                <div style={{ fontSize: '10px', color: colors.text.tertiary, textTransform: 'uppercase', fontWeight: '600' }}>Fade</div>
-                <div style={{ fontSize: '16px', fontWeight: '700', color: '#b45309' }}>-{timeAnalysis.fadeEffect}%</div>
-              </div>
-            )}
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '10px' }}>
-            {timeAnalysis.insights.slice(0, 3).map((insight, i) => (
-              <div key={i} style={{
-                padding: '8px 12px', borderRadius: radius.sm, fontSize: '12px', lineHeight: '1.5',
-                background: insight.type === 'warning' ? colors.semantic.warningLight : colors.semantic.infoLight,
-                color: insight.type === 'warning' ? '#92400e' : '#1e40af',
-              }}>
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>{insight.type === 'warning' ? <WarningIcon size={12} color="#92400e" /> : <InfoIcon size={12} color="#1e40af" />} {insight.message}</span>
-              </div>
-            ))}
-          </div>
-        </CollapsibleSection>
-      )}
-
-      {/* All Priorities (expanded list) */}
-      {prioritizedActions.length > 3 && (
-        <CollapsibleSection
-          title={`All ${prioritizedActions.length} Priorities`}
-          icon={<TargetIcon size={18} color={colors.accent.orange} />}
-          summary={`${prioritizedActions.length - 3} more beyond your top 3`}
-        >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '12px' }}>
-            {prioritizedActions.slice(3).map((action, idx) => (
-              <div key={idx} style={{ display: 'flex', gap: '10px', padding: '10px', background: colors.surface.offWhite, borderRadius: radius.sm, border: `1px solid ${colors.surface.gray}` }}>
-                <span style={{ fontSize: '12px', fontWeight: '700', color: colors.text.tertiary, minWidth: '20px', flexShrink: 0 }}>{idx + 4}</span>
-                <div style={{ flex: 1 }}>
-                  <div style={{ fontSize: '13px', fontWeight: '600', color: colors.text.primary }}>{action.title}</div>
-                  <div style={{ fontSize: '12px', color: colors.text.secondary }}>{action.description}</div>
-                </div>
-                {action.estimatedGain > 0 && <span style={{ fontSize: '11px', fontWeight: '700', color: colors.semantic.success, flexShrink: 0 }}>+{action.estimatedGain}</span>}
-              </div>
-            ))}
-          </div>
-        </CollapsibleSection>
-      )}
-
-      {/* Question-by-Question */}
-      {diagnostic.questionAnalysis && (
-        <CollapsibleSection
-          title="Question-by-Question Breakdown"
-          icon={<SearchIcon size={18} color={colors.accent.orange} />}
-          summary={`${diagnostic.questionAnalysis.filter(q => !q.isCorrect).length} wrong — each classified by root cause`}
-        >
-          <div style={{ marginTop: '12px' }}>
-            <QuestionBreakdown questionAnalysis={diagnostic.questionAnalysis} />
-          </div>
-        </CollapsibleSection>
-      )}
-
-      {/* Student Archetype */}
-      {diagnostic.mistakeFingerprint && (
-        <CollapsibleSection
-          title={`Your Profile: ${diagnostic.mistakeFingerprint.archetypeLabel}`}
-          icon={diagnostic.mistakeFingerprint.archetype === 'knowledge_builder' ? <BooksIcon size={18} color={colors.accent.orange} /> : diagnostic.mistakeFingerprint.archetype === 'trap_prone' ? <WarningIcon size={18} color={colors.accent.orange} /> : <StarIcon size={18} color={colors.accent.orange} />}
-          summary={diagnostic.mistakeFingerprint.archetypeDescription?.slice(0, 80) + '...'}
-        >
-          <div style={{ marginTop: '12px', fontSize: '13px', color: colors.text.secondary, lineHeight: 1.6 }}>
-            {diagnostic.mistakeFingerprint.archetypeDescription}
-          </div>
-          {diagnostic.mistakeFingerprint.traits?.length > 0 && (
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '10px' }}>
-              {diagnostic.mistakeFingerprint.traits.map((trait, i) => (
-                <div key={i} style={{
-                  background: trait.severity === 'high' ? colors.semantic.errorLight : colors.semantic.warningLight,
-                  borderRadius: radius.sm, padding: '6px 10px', fontSize: '11px',
-                }}>
-                  <span style={{ fontWeight: '600' }}>{trait.trait}</span>
-                  <span style={{ opacity: 0.8, marginLeft: '4px' }}>— {trait.tip}</span>
-                </div>
-              ))}
             </div>
           )}
-        </CollapsibleSection>
-      )}
 
-      {/* Statistical Analysis */}
-      {(diagnostic.confidenceInterval || diagnostic.percentile) && (
-        <CollapsibleSection
-          title="Statistical Score Analysis"
-          icon={<ChartBarIcon size={18} color={colors.accent.orange} />}
-          summary={diagnostic.percentile ? `${diagnostic.percentile.percentile}th percentile nationally` : '80% confidence interval'}
-        >
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginTop: '12px' }}>
-            {diagnostic.percentile && (
-              <div style={{ background: diagnostic.percentile.percentile >= 85 ? colors.semantic.successLight : diagnostic.percentile.percentile >= 50 ? colors.semantic.infoLight : colors.semantic.warningLight, borderRadius: radius.md, padding: '16px', textAlign: 'center' }}>
-                <div style={{ fontSize: '10px', color: colors.text.tertiary, textTransform: 'uppercase', marginBottom: '6px' }}>National Percentile</div>
-                <div style={{ fontSize: '30px', fontWeight: '800', color: colors.text.primary }}>{diagnostic.percentile.percentile}<span style={{ fontSize: '14px', fontWeight: '400' }}>th</span></div>
-              </div>
-            )}
-            {diagnostic.confidenceInterval && (
-              <div style={{ background: colors.surface.offWhite, borderRadius: radius.md, padding: '16px', textAlign: 'center' }}>
-                <div style={{ fontSize: '10px', color: colors.text.tertiary, textTransform: 'uppercase', marginBottom: '6px' }}>True Score Range</div>
-                <div style={{ fontSize: '22px', fontWeight: '700', color: colors.text.primary }}>{diagnostic.confidenceInterval.scaled80.low} — {diagnostic.confidenceInterval.scaled80.high}</div>
-              </div>
-            )}
-          </div>
-        </CollapsibleSection>
-      )}
-
-      {/* Stamina */}
-      {diagnostic.stamina?.hasData && (
-        <CollapsibleSection
-          title="Test Stamina"
-          icon={<RunnerIcon size={18} color={colors.accent.orange} />}
-          summary={`Score: ${diagnostic.stamina.staminaScore}/100 · ${diagnostic.stamina.rating}`}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginTop: '12px', marginBottom: '12px' }}>
-            <div style={{
-              width: '60px', height: '60px', borderRadius: '50%',
-              background: diagnostic.stamina.rating === 'excellent' ? colors.semantic.successLight : diagnostic.stamina.rating === 'good' ? colors.semantic.infoLight : diagnostic.stamina.rating === 'fair' ? colors.semantic.warningLight : colors.semantic.errorLight,
-              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-            }}>
-              <div style={{ fontSize: '20px', fontWeight: '800', color: colors.text.primary }}>{diagnostic.stamina.staminaScore}</div>
-            </div>
-            <div style={{ flex: 1, fontSize: '13px', color: colors.text.secondary }}>{diagnostic.stamina.message}</div>
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '6px' }}>
-            {diagnostic.stamina.quarters.map((q, i) => {
-              const barColor = q.accuracy >= 80 ? colors.semantic.success : q.accuracy >= 60 ? colors.semantic.warning : colors.semantic.error;
-              return (
-                <div key={i} style={{ textAlign: 'center' }}>
-                  <div style={{ fontSize: '10px', color: colors.text.tertiary, marginBottom: '4px' }}>{q.label}</div>
-                  <div style={{ height: '50px', background: colors.surface.gray, borderRadius: radius.sm, position: 'relative', overflow: 'hidden' }}>
-                    <div style={{ position: 'absolute', bottom: 0, width: '100%', height: `${q.accuracy}%`, background: barColor, borderRadius: radius.sm }} />
-                  </div>
-                  <div style={{ fontSize: '12px', fontWeight: '700', color: colors.text.primary, marginTop: '3px' }}>{q.accuracy}%</div>
+          {/* Target Gap */}
+          <div style={{
+            flex: 1, textAlign: 'center', padding: '20px 16px',
+            background: colors.surface.white, borderRadius: '20px',
+            border: `1px solid rgba(0,0,0,0.06)`,
+            boxShadow: '0 4px 16px rgba(0,0,0,0.03)',
+          }}>
+            {isAtTarget ? (
+              <>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
+                  <CheckCircleIcon size={28} color={colors.semantic.success} />
                 </div>
-              );
-            })}
-          </div>
-        </CollapsibleSection>
-      )}
-
-      {/* Answer Patterns + Learning Velocity — grouped (skill clusters omitted, handled by Study Plan) */}
-      {(diagnostic.answerPatterns || diagnostic.learningVelocity?.hasData) && (
-        <CollapsibleSection
-          title="Advanced Analytics"
-          icon={<MicroscopeIcon size={18} color={colors.accent.orange} />}
-          summary="Answer patterns, learning velocity"
-        >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '12px' }}>
-            {diagnostic.answerPatterns && diagnostic.answerPatterns.answerChanges.total > 0 && (
-              <div>
-                <div style={{ fontSize: '13px', fontWeight: '600', color: colors.text.primary, marginBottom: '8px' }}>Answer Changes</div>
-                <div style={{ display: 'flex', gap: '8px' }}>
-                  <div style={{ flex: 1, background: colors.semantic.successLight, borderRadius: radius.sm, padding: '10px', textAlign: 'center' }}>
-                    <div style={{ fontSize: '18px', fontWeight: '700', color: colors.semantic.success }}>{diagnostic.answerPatterns.answerChanges.changedToCorrect}</div>
-                    <div style={{ fontSize: '10px', color: colors.text.secondary }}>Changed to Correct</div>
-                  </div>
-                  <div style={{ flex: 1, background: colors.semantic.errorLight, borderRadius: radius.sm, padding: '10px', textAlign: 'center' }}>
-                    <div style={{ fontSize: '18px', fontWeight: '700', color: colors.semantic.error }}>{diagnostic.answerPatterns.answerChanges.changedToWrong}</div>
-                    <div style={{ fontSize: '10px', color: colors.text.secondary }}>Changed to Wrong</div>
-                  </div>
+                <div style={{ fontSize: '13px', fontWeight: '600', color: colors.semantic.success, marginTop: '8px' }}>
+                  At or above your {score.target} target
                 </div>
-              </div>
-            )}
-            {diagnostic.learningVelocity?.hasData && (
-              <div>
-                <div style={{ fontSize: '13px', fontWeight: '600', color: colors.text.primary, marginBottom: '8px' }}>Learning Velocity</div>
-                <div style={{ display: 'flex', gap: '8px' }}>
-                  <div style={{ flex: 1, background: colors.surface.offWhite, borderRadius: radius.sm, padding: '10px', textAlign: 'center' }}>
-                    <div style={{ fontSize: '18px', fontWeight: '700', color: diagnostic.learningVelocity.velocity >= 0 ? colors.semantic.success : colors.semantic.error }}>{diagnostic.learningVelocity.velocity > 0 ? '+' : ''}{diagnostic.learningVelocity.velocity}</div>
-                    <div style={{ fontSize: '10px', color: colors.text.secondary }}>pts/week</div>
-                  </div>
-                  <div style={{ flex: 1, background: colors.surface.offWhite, borderRadius: radius.sm, padding: '10px', textAlign: 'center' }}>
-                    <div style={{ fontSize: '18px', fontWeight: '700', color: colors.text.primary }}>{diagnostic.learningVelocity.testsCompleted}</div>
-                    <div style={{ fontSize: '10px', color: colors.text.secondary }}>tests</div>
-                  </div>
+              </>
+            ) : (
+              <>
+                <div style={{ fontSize: '36px', fontWeight: '800', color: colors.accent.orange, letterSpacing: '-0.02em', lineHeight: '1' }}>
+                  {score.gap}
                 </div>
-                <div style={{ fontSize: '12px', color: colors.text.secondary, marginTop: '6px', textAlign: 'center' }}>{diagnostic.learningVelocity.message}</div>
-              </div>
+                <div style={{ fontSize: '12px', fontWeight: '600', color: colors.text.tertiary, marginTop: '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  Points to {score.target} target
+                </div>
+              </>
             )}
           </div>
-        </CollapsibleSection>
-      )}
+        </div>
 
-      {/* Error Recovery Drills */}
-      <ErrorRecoveryDrills diagnostic={diagnostic} onStartDrill={(drill) => {
-        if (drill.steps?.[0]?.type === 'lesson' && onNavigateToModule) {
-          const moduleId = drill.affectedSkills?.[0]?.moduleId || drill.questions?.[0]?.moduleId;
-          if (moduleId) onNavigateToModule(moduleId);
-        }
-      }} />
-    </div>
-  );
+      </div>
+    );
+  };
 
   const renderStudyPlan = () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
@@ -1139,32 +803,8 @@ const DiagnosticReport = ({
           </button>
         )}
 
-        {/* Score overview */}
-        <div style={{
-          display: 'flex', alignItems: 'center', gap: isMobile ? '16px' : '24px',
-          padding: isMobile ? '16px' : '24px', background: colors.surface.offWhite, borderRadius: radius.xl,
-          border: `1px solid ${colors.surface.grayDark}`,
-          flexDirection: isMobile ? 'column' : 'row',
-          textAlign: isMobile ? 'center' : 'left',
-        }}>
-          <ScoreRing score={score.scaled} target={score.target} size={isMobile ? 120 : 140} />
-          <div style={{ flex: 1 }}>
-            <div style={{ fontSize: '14px', color: colors.text.tertiary, fontWeight: '500', marginBottom: '4px' }}>
-              {diagnostic.testTitle}
-            </div>
-            <div style={{ fontSize: isMobile ? '20px' : '24px', fontWeight: '700', color: colors.text.primary, marginBottom: '4px' }}>
-              {score.raw}/{score.total} correct ({score.percentCorrect}%)
-            </div>
-            {score.gap > 0 ? (
-              <div style={{ fontSize: '14px', color: colors.accent.orange, fontWeight: '600' }}>
-                {score.gap} points to your {score.target} target
-              </div>
-            ) : (
-              <div style={{ fontSize: '14px', color: colors.semantic.success, fontWeight: '600' }}>
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}><CheckCircleIcon size={14} color={colors.semantic.success} /> At or above your {score.target} target!</span>
-              </div>
-            )}
-          </div>
+        <div style={{ fontSize: isMobile ? '20px' : '24px', fontWeight: '700', color: colors.text.primary, letterSpacing: '-0.01em' }}>
+          {diagnostic.testTitle}
         </div>
       </div>
 
@@ -1221,7 +861,7 @@ const DiagnosticReport = ({
       </div>
 
       {/* ── Content ── */}
-      {activeSection === 'diagnosis' && <div role="tabpanel" id="panel-diagnosis" aria-labelledby="tab-diagnosis">{renderDiagnosis()}</div>}
+      {activeSection === 'overview' && <div role="tabpanel" id="panel-overview" aria-labelledby="tab-overview">{renderOverview()}</div>}
       {activeSection === 'plan' && <div role="tabpanel" id="panel-plan" aria-labelledby="tab-plan">{renderStudyPlan()}</div>}
       {activeSection === 'trends' && <div role="tabpanel" id="panel-trends" aria-labelledby="tab-trends">{renderTrends()}</div>}
 
