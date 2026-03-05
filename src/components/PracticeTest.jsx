@@ -2192,53 +2192,62 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     // Show the full Diagnostic Report & Study Plan
     if (showDiagnosticReport) {
       return (
-        <DiagnosticReport
-          test={test}
-          answers={answers}
-          diagnosticData={diagnosticDataRef.current}
-          skillProgress={skillProgress || {}}
-          user={user || {}}
-          practiceTestResults={practiceTestResults || {}}
-          completedLessons={completedLessons}
-          practiceProgress={practiceProgress}
-          onNavigateToModule={onNavigateToModule}
-          onStartPractice={onStartPractice}
-          onBack={() => setShowDiagnosticReport(false)}
-        />
+        <div style={{ minHeight: '100vh', background: '#F5F5F7' }}>
+          <DiagnosticReport
+            test={test}
+            answers={answers}
+            diagnosticData={diagnosticDataRef.current}
+            skillProgress={skillProgress || {}}
+            user={user || {}}
+            practiceTestResults={practiceTestResults || {}}
+            completedLessons={completedLessons}
+            practiceProgress={practiceProgress}
+            onNavigateToModule={onNavigateToModule}
+            onStartPractice={onStartPractice}
+            onBack={() => setShowDiagnosticReport(false)}
+          />
+        </div>
       );
     }
 
     return (
-      <div>
-        <TestResults
-          test={test}
-          answers={answers}
-          diagnosticData={diagnosticDataRef.current}
-          practiceTestResults={practiceTestResults}
-          onOpenDiagnosticReport={() => setShowDiagnosticReport(true)}
-          onBack={onBack}
-          user={user}
-          onRetake={() => {
-            setCurrentModule(0);
-            setCurrentQuestion(0);
-            setAnswers({});
-            setMarkedForReview([]);
-            setEliminatedChoices({});
-            setModuleCompleted(false);
-            setTestCompleted(false);
-            setShowDiagnosticReport(false);
-          }}
-          onReview={() => {
-            setReviewMode(true);
-            setReviewModule(0);
-            setReviewQuestion(0);
-          }}
-          onReviewModule={(moduleIndex) => {
-            setReviewMode(true);
-            setReviewModule(moduleIndex);
-            setReviewQuestion(0);
-          }}
-        />
+      <div style={{ 
+        minHeight: '100vh', 
+        background: '#F5F5F7',
+        backgroundImage: 'radial-gradient(circle at 50% 0%, rgba(255,255,255,0.8) 0%, rgba(245,245,247,0) 100%)',
+        padding: isMobile ? '16px' : '32px'
+      }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+          <TestResults
+            test={test}
+            answers={answers}
+            diagnosticData={diagnosticDataRef.current}
+            practiceTestResults={practiceTestResults}
+            onOpenDiagnosticReport={() => setShowDiagnosticReport(true)}
+            onBack={onBack}
+            user={user}
+            onRetake={() => {
+              setCurrentModule(0);
+              setCurrentQuestion(0);
+              setAnswers({});
+              setMarkedForReview([]);
+              setEliminatedChoices({});
+              setModuleCompleted(false);
+              setTestCompleted(false);
+              setShowDiagnosticReport(false);
+            }}
+            onReview={() => {
+              setReviewMode(true);
+              setReviewModule(0);
+              setReviewQuestion(0);
+            }}
+            onReviewModule={(moduleIndex) => {
+              setReviewMode(true);
+              setReviewModule(moduleIndex);
+              setReviewQuestion(0);
+            }}
+          />
+        </div>
       </div>
     );
   }

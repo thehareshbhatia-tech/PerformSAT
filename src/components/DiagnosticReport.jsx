@@ -45,7 +45,7 @@ import { useCountUp } from '../design/animations';
 
 // ── Score Ring with count-up animation ──
 const ScoreRing = ({ score, target, size = 160 }) => {
-  const strokeWidth = 10;
+  const strokeWidth = 12;
   const r = (size - strokeWidth) / 2 - 4;
   const circumference = 2 * Math.PI * r;
   const progress = Math.min(score / 800, 1);
@@ -57,23 +57,23 @@ const ScoreRing = ({ score, target, size = 160 }) => {
 
   return (
     <div style={{ position: 'relative', width: size, height: size }}>
-      <svg width={size} height={size} style={{ transform: 'rotate(-90deg)' }}>
+      <svg width={size} height={size} style={{ transform: 'rotate(-90deg)', filter: 'drop-shadow(0px 8px 16px rgba(0,0,0,0.06))' }}>
         {/* Background track */}
-        <circle cx={size/2} cy={size/2} r={r} fill="none" stroke={colors.surface.gray} strokeWidth={strokeWidth} />
+        <circle cx={size/2} cy={size/2} r={r} fill="none" stroke="rgba(0,0,0,0.04)" strokeWidth={strokeWidth} />
         {/* Target marker */}
-        <circle cx={size/2} cy={size/2} r={r} fill="none" stroke={colors.surface.grayDark} strokeWidth={strokeWidth}
-          strokeDasharray={`2 ${circumference - 2}`} strokeDashoffset={targetOffset} opacity={0.5} />
+        <circle cx={size/2} cy={size/2} r={r} fill="none" stroke="#f97316" strokeWidth={strokeWidth}
+          strokeDasharray={`2 ${circumference - 2}`} strokeDashoffset={targetOffset} opacity={0.6} />
         {/* Score progress */}
         <circle cx={size/2} cy={size/2} r={r} fill="none"
-          stroke={isAtTarget ? colors.semantic.success : colors.accent.orange} strokeWidth={strokeWidth}
+          stroke={isAtTarget ? '#22c55e' : '#06b6d4'} strokeWidth={strokeWidth}
           strokeDasharray={circumference} strokeDashoffset={offset}
-          strokeLinecap="round" style={{ transition: 'stroke-dashoffset 1s ease' }} />
+          strokeLinecap="round" style={{ transition: 'stroke-dashoffset 1s cubic-bezier(0.34, 1.56, 0.64, 1)' }} />
       </svg>
       <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center' }}>
-        <div style={{ fontSize: '36px', fontWeight: '700', color: colors.text.primary, letterSpacing: '-0.02em', lineHeight: '1' }}>
+        <div style={{ fontSize: '42px', fontWeight: '800', color: colors.text.primary, letterSpacing: '-0.04em', lineHeight: '1' }}>
           {displayScore}
         </div>
-        <div style={{ fontSize: '12px', color: colors.text.tertiary, marginTop: '4px', fontWeight: '500' }}>
+        <div style={{ fontSize: '13px', color: colors.text.secondary, marginTop: '4px', fontWeight: '600', letterSpacing: '0.02em' }}>
           out of 800
         </div>
       </div>
@@ -100,9 +100,11 @@ const ProgressBar = ({ value, max = 100, color = colors.accent.orange, height = 
 // ── Card Component ──
 const Card = ({ children, style = {}, onClick }) => (
   <div onClick={onClick} style={{
-    background: colors.surface.white, border: `1px solid ${colors.surface.grayDark}`, borderRadius: radius.lg,
-    padding: '24px', ...style,
-    ...(onClick ? { cursor: 'pointer', transition: 'box-shadow 0.2s ease' } : {}),
+    background: 'rgba(255, 255, 255, 0.85)', backdropFilter: 'saturate(180%) blur(24px)', WebkitBackdropFilter: 'saturate(180%) blur(24px)',
+    border: `1px solid rgba(255, 255, 255, 0.6)`, borderRadius: '24px',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02)',
+    padding: '32px', ...style,
+    ...(onClick ? { cursor: 'pointer', transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)', '&:hover': { transform: 'translateY(-2px)', boxShadow: '0 12px 40px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.03)' } } : {}),
   }}>
     {children}
   </div>
@@ -128,21 +130,22 @@ const CollapsibleSection = ({ title, icon, summary, defaultOpen = false, childre
         onClick={() => setOpen(o => !o)}
         style={{
           width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          padding: '16px 20px', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left',
+          padding: '20px 24px', background: open ? 'rgba(0,0,0,0.02)' : 'none', border: 'none', cursor: 'pointer', textAlign: 'left',
+          transition: 'background 0.2s ease'
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flex: 1, minWidth: 0 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1, minWidth: 0 }}>
           {icon && <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>{icon}</span>}
           <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ fontSize: '15px', fontWeight: '600', color: colors.text.primary }}>{title}</div>
-            {summary && !open && <div style={{ fontSize: '13px', color: colors.text.tertiary, marginTop: '2px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{summary}</div>}
+            <div style={{ fontSize: '16px', fontWeight: '700', color: colors.text.primary, letterSpacing: '-0.01em' }}>{title}</div>
+            {summary && !open && <div style={{ fontSize: '14px', color: colors.text.tertiary, marginTop: '4px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{summary}</div>}
           </div>
         </div>
-        <span style={{ display: 'flex', alignItems: 'center', transition: 'transform 0.2s', transform: open ? 'rotate(180deg)' : 'rotate(0deg)', flexShrink: 0, marginLeft: '8px' }}>
-          <ChevronDownIcon size={18} color={colors.text.tertiary} />
+        <span style={{ display: 'flex', alignItems: 'center', transition: 'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)', transform: open ? 'rotate(180deg)' : 'rotate(0deg)', flexShrink: 0, marginLeft: '12px' }}>
+          <ChevronDownIcon size={20} color={colors.text.tertiary} />
         </span>
       </button>
-      {open && <div style={{ padding: '0 20px 20px', borderTop: `1px solid ${colors.surface.gray}` }}>{children}</div>}
+      {open && <div style={{ padding: '0 24px 24px', borderTop: `1px solid rgba(0,0,0,0.04)`, paddingTop: '16px' }}>{children}</div>}
     </Card>
   );
 };
@@ -464,21 +467,22 @@ const DiagnosticReport = ({
 
         {/* Percentile + Target Gap */}
         <div style={{
-          display: 'flex', gap: '16px', width: '100%', maxWidth: '400px',
+          display: 'flex', gap: '16px', width: '100%', maxWidth: '440px',
           flexDirection: isMobile ? 'column' : 'row',
         }}>
           {/* Percentile */}
           {percentile != null && (
             <div style={{
-              flex: 1, textAlign: 'center', padding: '20px 16px',
-              background: colors.surface.white, borderRadius: '20px',
-              border: `1px solid rgba(0,0,0,0.06)`,
-              boxShadow: '0 4px 16px rgba(0,0,0,0.03)',
+              flex: 1, textAlign: 'center', padding: '24px 16px',
+              background: 'rgba(255, 255, 255, 0.85)', backdropFilter: 'saturate(180%) blur(24px)', WebkitBackdropFilter: 'saturate(180%) blur(24px)',
+              borderRadius: '24px',
+              border: `1px solid rgba(255, 255, 255, 0.6)`,
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02)',
             }}>
-              <div style={{ fontSize: '36px', fontWeight: '800', color: tierColor, letterSpacing: '-0.02em', lineHeight: '1' }}>
-                {percentile}<span style={{ fontSize: '16px', fontWeight: '500' }}>th</span>
+              <div style={{ fontSize: '40px', fontWeight: '800', color: tierColor, letterSpacing: '-0.03em', lineHeight: '1' }}>
+                {percentile}<span style={{ fontSize: '18px', fontWeight: '600', marginLeft: '2px' }}>th</span>
               </div>
-              <div style={{ fontSize: '12px', fontWeight: '600', color: colors.text.tertiary, marginTop: '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              <div style={{ fontSize: '12px', fontWeight: '700', color: colors.text.tertiary, marginTop: '8px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                 Percentile
               </div>
             </div>
@@ -486,27 +490,28 @@ const DiagnosticReport = ({
 
           {/* Target Gap */}
           <div style={{
-            flex: 1, textAlign: 'center', padding: '20px 16px',
-            background: colors.surface.white, borderRadius: '20px',
-            border: `1px solid rgba(0,0,0,0.06)`,
-            boxShadow: '0 4px 16px rgba(0,0,0,0.03)',
+            flex: 1, textAlign: 'center', padding: '24px 16px',
+            background: 'rgba(255, 255, 255, 0.85)', backdropFilter: 'saturate(180%) blur(24px)', WebkitBackdropFilter: 'saturate(180%) blur(24px)',
+            borderRadius: '24px',
+            border: `1px solid rgba(255, 255, 255, 0.6)`,
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02)',
           }}>
             {isAtTarget ? (
               <>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
-                  <CheckCircleIcon size={28} color={colors.semantic.success} />
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', height: '40px' }}>
+                  <CheckCircleIcon size={32} color={colors.semantic.success} />
                 </div>
-                <div style={{ fontSize: '13px', fontWeight: '600', color: colors.semantic.success, marginTop: '8px' }}>
-                  At or above your {score.target} target
+                <div style={{ fontSize: '13px', fontWeight: '700', color: colors.semantic.success, marginTop: '8px' }}>
+                  At or above {score.target} target
                 </div>
               </>
             ) : (
               <>
-                <div style={{ fontSize: '36px', fontWeight: '800', color: colors.accent.orange, letterSpacing: '-0.02em', lineHeight: '1' }}>
+                <div style={{ fontSize: '40px', fontWeight: '800', color: colors.accent.orange, letterSpacing: '-0.03em', lineHeight: '1' }}>
                   {score.gap}
                 </div>
-                <div style={{ fontSize: '12px', fontWeight: '600', color: colors.text.tertiary, marginTop: '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                  Points to {score.target} target
+                <div style={{ fontSize: '12px', fontWeight: '700', color: colors.text.tertiary, marginTop: '8px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                  Points to {score.target}
                 </div>
               </>
             )}
@@ -792,18 +797,22 @@ const DiagnosticReport = ({
     <div style={{ maxWidth: '720px', margin: '0 auto', padding: isMobile ? '12px' : '20px', fontFamily: typography.fontFamily }}>
 
       {/* ── Header ── */}
-      <div style={{ marginBottom: '24px' }}>
+      <div style={{ marginBottom: '32px' }}>
         {onBack && (
           <button onClick={onBack} style={{
-            background: 'none', border: 'none', color: colors.accent.orange,
-            fontSize: '14px', fontWeight: '500', cursor: 'pointer', padding: '4px 0',
-            marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '4px',
-          }}>
-            <ArrowLeftIcon size={14} color={colors.accent.orange} /> Back to Results
+            background: 'none', border: 'none', color: colors.text.secondary,
+            fontSize: '15px', fontWeight: '600', cursor: 'pointer', padding: '8px 0',
+            marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '6px',
+            transition: 'color 0.2s ease',
+          }}
+          onMouseEnter={(e) => e.target.style.color = colors.text.primary}
+          onMouseLeave={(e) => e.target.style.color = colors.text.secondary}
+          >
+            <ArrowLeftIcon size={16} /> Back to Results
           </button>
         )}
 
-        <div style={{ fontSize: isMobile ? '20px' : '24px', fontWeight: '700', color: colors.text.primary, letterSpacing: '-0.01em' }}>
+        <div style={{ fontSize: isMobile ? '28px' : '36px', fontWeight: '800', color: colors.text.primary, letterSpacing: '-0.04em' }}>
           {diagnostic.testTitle}
         </div>
       </div>
@@ -814,8 +823,8 @@ const DiagnosticReport = ({
         role="tablist"
         aria-label="Diagnostic report sections"
         style={{
-          display: 'flex', gap: '4px', marginBottom: '24px',
-          background: colors.surface.gray, borderRadius: radius.md, padding: '4px',
+          display: 'flex', gap: '4px', marginBottom: '32px',
+          background: 'rgba(0,0,0,0.06)', borderRadius: '14px', padding: '4px',
           position: 'relative',
         }}
       >
@@ -829,9 +838,9 @@ const DiagnosticReport = ({
             width: indicatorStyle.width,
             height: 'calc(100% - 8px)',
             borderRadius: '10px',
-            background: colors.surface.white,
-            boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-            transition: 'left 0.25s cubic-bezier(0.25, 0.1, 0.25, 1), width 0.25s cubic-bezier(0.25, 0.1, 0.25, 1)',
+            background: '#ffffff',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)',
+            transition: 'left 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)',
             zIndex: 0,
           }}
         />
