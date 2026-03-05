@@ -157,6 +157,7 @@ const LearnWorkspace = ({
           isVideoLesson={isVideoLesson}
           videoTranscript={videoTranscript}
           videoTimestamp={videoTimestamp}
+          premiumLearnMode={true}
         />
       </aside>
     </div>

@@ -276,7 +276,8 @@ const AiTutorChat = ({
   practiceTestResults = null,
   standalone = false,
   embedded = false,
-  headerCompact = false
+  headerCompact = false,
+  premiumLearnMode = false
 }) => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
@@ -715,7 +716,13 @@ Your goal is to build their problem-solving instincts. Every question they solve
       role="dialog"
       aria-label="AI Tutor Chat"
       aria-modal="false"
-      style={{
+      style={premiumLearnMode ? {
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%',
+        background: 'transparent',
+        fontFamily: design.typography.fontFamily,
+      } : {
         marginTop: '0px',
         borderRadius: standalone ? '16px' : (embedded ? '0px' : '20px'),
         background: design.colors.surface.primary,
@@ -731,7 +738,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
       }}
     >
       {/* Header */}
-      {!headerCompact && (
+      {!headerCompact && !premiumLearnMode && (
         <div
           style={{
             padding: '18px 24px',
@@ -796,7 +803,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
         </div>
       )}
 
-      {headerCompact && (
+      {headerCompact && !premiumLearnMode && (
         <div style={{
           display: 'flex', alignItems: 'center', gap: '10px',
           padding: '28px 28px 16px',
@@ -822,12 +829,81 @@ Your goal is to build their problem-solving instincts. Every question they solve
         </div>
       )}
 
+      {premiumLearnMode && (
+        <div
+          style={{
+            padding: '24px 24px 16px',
+            borderBottom: `1px solid rgba(0,0,0,0.06)`,
+            display: 'flex',
+            alignItems: 'flex-start',
+            justifyContent: 'space-between',
+            background: 'transparent',
+            flexShrink: 0,
+          }}
+        >
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+              <div style={{
+                width: '24px', height: '24px', borderRadius: '6px',
+                background: 'linear-gradient(135deg, #FF9F0A 0%, #FF5E3A 100%)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                color: 'white',
+                boxShadow: '0 2px 8px rgba(255, 149, 0, 0.25)'
+              }}>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
+              <span style={{
+                fontSize: '18px',
+                fontWeight: '800',
+                color: design.colors.text.primary,
+                letterSpacing: '-0.03em'
+              }}>
+                AI Coach
+              </span>
+            </div>
+            {lessonTitle && (
+              <div style={{ fontSize: '13px', color: design.colors.text.secondary, fontWeight: '500', marginTop: '2px' }}>
+                {lessonTitle}
+              </div>
+            )}
+            {isVideoLesson && videoTranscript && (
+              <div style={{ marginTop: '8px' }}>
+                <span style={{
+                  background: 'rgba(52, 199, 89, 0.1)',
+                  color: designColors.semantic.success,
+                  padding: '4px 10px',
+                  borderRadius: '100px',
+                  fontSize: '11px',
+                  fontWeight: '600',
+                  letterSpacing: '0.02em',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px'
+                }}>
+                  <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: designColors.semantic.success, animation: 'pulse 2s infinite' }} />
+                  Watching with you
+                </span>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
       {/* Messages Area */}
       <div
         role="log"
         aria-label="Chat messages"
         aria-live="polite"
-        style={{
+        style={premiumLearnMode ? {
+          flex: 1,
+          minHeight: '200px',
+          overflowY: 'auto',
+          padding: '24px',
+          background: 'transparent',
+          position: 'relative',
+        } : {
           flex: 1,
           minHeight: '200px',
           overflowY: 'auto',
@@ -845,7 +921,12 @@ Your goal is to build their problem-solving instincts. Every question they solve
         )}
 
         {messages.length === 0 ? (
-          <div style={{
+          <div style={premiumLearnMode ? {
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100%',
+            padding: '10px 0',
+          } : {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -853,47 +934,96 @@ Your goal is to build their problem-solving instincts. Every question they solve
             height: '100%',
             padding: '20px'
           }}>
-            <div style={{
-              fontSize: '32px',
-              marginBottom: '16px',
-              opacity: 0.15
-            }} aria-hidden="true">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-              </svg>
-            </div>
-            <div style={{
-              fontSize: '17px',
-              fontWeight: '600',
-              color: design.colors.text.primary,
-              marginBottom: '6px',
-              letterSpacing: '-0.02em'
-            }}>
-              {isPracticeQuestion
-                ? (practiceContext?.answerRevealed ? "Let's review" : "Need a hint?")
-                : (isVideoLesson && videoTranscript
-                  ? "Ask about any step"
-                  : "How can I help?")
-              }
-            </div>
-            <div style={{
-              fontSize: '14px',
-              color: design.colors.text.tertiary,
-              marginBottom: '28px',
-              textAlign: 'center',
-              maxWidth: '280px',
-              lineHeight: '1.5'
-            }}>
-              {isPracticeQuestion
-                ? (practiceContext?.answerRevealed
-                  ? "I can explain the solution and answer any questions."
-                  : "I can guide your thinking without giving away the answer.")
-                : (isVideoLesson && videoTranscript
-                  ? "I can see what's happening in the video and explain it."
-                  : "Ask me anything about this lesson.")
-              }
-            </div>
-            <div style={{
+            {premiumLearnMode ? (
+              <div style={{
+                background: 'rgba(255, 255, 255, 0.6)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                borderRadius: '20px',
+                padding: '24px',
+                border: '1px solid rgba(255, 255, 255, 0.8)',
+                boxShadow: '0 4px 24px rgba(0, 0, 0, 0.04)',
+                marginBottom: '24px'
+              }}>
+                <div style={{
+                  fontSize: '16px',
+                  fontWeight: '700',
+                  color: design.colors.text.primary,
+                  marginBottom: '8px',
+                  letterSpacing: '-0.02em'
+                }}>
+                  {isPracticeQuestion
+                    ? (practiceContext?.answerRevealed ? "Let's review" : "Need a hint?")
+                    : (isVideoLesson && videoTranscript
+                      ? "I'm watching with you"
+                      : "How can I help?")
+                  }
+                </div>
+                <div style={{
+                  fontSize: '14px',
+                  color: design.colors.text.secondary,
+                  lineHeight: '1.5'
+                }}>
+                  {isPracticeQuestion
+                    ? (practiceContext?.answerRevealed
+                      ? "I can explain the solution and answer any questions."
+                      : "I can guide your thinking without giving away the answer.")
+                    : (isVideoLesson && videoTranscript
+                      ? "Ask me about any step in the video, and I'll explain it."
+                      : "Ask me anything about this lesson or how it applies to the test.")
+                  }
+                </div>
+              </div>
+            ) : (
+              <>
+                <div style={{
+                  fontSize: '32px',
+                  marginBottom: '16px',
+                  opacity: 0.15
+                }} aria-hidden="true">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                  </svg>
+                </div>
+                <div style={{
+                  fontSize: '17px',
+                  fontWeight: '600',
+                  color: design.colors.text.primary,
+                  marginBottom: '6px',
+                  letterSpacing: '-0.02em'
+                }}>
+                  {isPracticeQuestion
+                    ? (practiceContext?.answerRevealed ? "Let's review" : "Need a hint?")
+                    : (isVideoLesson && videoTranscript
+                      ? "Ask about any step"
+                      : "How can I help?")
+                  }
+                </div>
+                <div style={{
+                  fontSize: '14px',
+                  color: design.colors.text.tertiary,
+                  marginBottom: '28px',
+                  textAlign: 'center',
+                  maxWidth: '280px',
+                  lineHeight: '1.5'
+                }}>
+                  {isPracticeQuestion
+                    ? (practiceContext?.answerRevealed
+                      ? "I can explain the solution and answer any questions."
+                      : "I can guide your thinking without giving away the answer.")
+                    : (isVideoLesson && videoTranscript
+                      ? "I can see what's happening in the video and explain it."
+                      : "Ask me anything about this lesson.")
+                  }
+                </div>
+              </>
+            )}
+            <div style={premiumLearnMode ? {
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '8px',
+              width: '100%'
+            } : {
               display: 'flex',
               flexWrap: 'wrap',
               gap: '10px',
@@ -931,7 +1061,23 @@ Your goal is to build their problem-solving instincts. Every question they solve
                 <button
                   key={i}
                   onClick={() => setInput(suggestion)}
-                  style={{
+                  style={premiumLearnMode ? {
+                    padding: '12px 16px',
+                    background: 'rgba(255, 255, 255, 0.5)',
+                    border: '1px solid rgba(255, 255, 255, 0.8)',
+                    borderRadius: '12px',
+                    fontSize: '14px',
+                    fontWeight: '500',
+                    color: design.colors.text.secondary,
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease',
+                    fontFamily: design.typography.fontFamily,
+                    textAlign: 'left',
+                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.02)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between'
+                  } : {
                     padding: '10px 18px',
                     background: design.colors.surface.primary,
                     border: `1px solid ${design.colors.border.medium}`,
@@ -944,15 +1090,33 @@ Your goal is to build their problem-solving instincts. Every question they solve
                     fontFamily: design.typography.fontFamily,
                   }}
                   onMouseOver={(e) => {
-                    e.currentTarget.style.background = design.colors.surface.secondary;
-                    e.currentTarget.style.borderColor = design.colors.border.medium;
+                    if (premiumLearnMode) {
+                      e.currentTarget.style.background = 'rgba(255, 255, 255, 0.8)';
+                      e.currentTarget.style.transform = 'translateY(-1px)';
+                      e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.05)';
+                    } else {
+                      e.currentTarget.style.background = design.colors.surface.secondary;
+                      e.currentTarget.style.borderColor = design.colors.border.medium;
+                    }
                   }}
                   onMouseOut={(e) => {
-                    e.currentTarget.style.background = design.colors.surface.primary;
-                    e.currentTarget.style.borderColor = design.colors.border.medium;
+                    if (premiumLearnMode) {
+                      e.currentTarget.style.background = 'rgba(255, 255, 255, 0.5)';
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.02)';
+                    } else {
+                      e.currentTarget.style.background = design.colors.surface.primary;
+                      e.currentTarget.style.borderColor = design.colors.border.medium;
+                    }
                   }}
                 >
                   {suggestion}
+                  {premiumLearnMode && (
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.5 }}>
+                      <line x1="22" y1="2" x2="11" y2="13"></line>
+                      <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                  )}
                 </button>
               ))}
             </div>
@@ -968,8 +1132,39 @@ Your goal is to build their problem-solving instincts. Every question they solve
                   justifyContent: msg.role === 'user' ? 'flex-end' : 'flex-start'
                 }}
               >
+                {premiumLearnMode && msg.role === 'assistant' && (
+                  <div style={{
+                    width: '28px', height: '28px', borderRadius: '8px',
+                    background: 'linear-gradient(135deg, #FF9F0A 0%, #FF5E3A 100%)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    color: 'white', marginRight: '12px', flexShrink: 0,
+                    boxShadow: '0 2px 8px rgba(255, 149, 0, 0.2)'
+                  }}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                  </div>
+                )}
                 <div
-                  style={{
+                  style={premiumLearnMode ? {
+                    maxWidth: msg.role === 'user' ? '80%' : '85%',
+                    padding: msg.role === 'user' ? '12px 18px' : '16px 20px',
+                    borderRadius: msg.role === 'user' ? '20px 20px 6px 20px' : '6px 20px 20px 20px',
+                    background: msg.role === 'user'
+                      ? 'linear-gradient(135deg, #007AFF 0%, #0056D2 100%)'
+                      : 'rgba(255, 255, 255, 0.85)',
+                    color: msg.role === 'user' ? 'white' : design.colors.text.primary,
+                    fontSize: '15px',
+                    lineHeight: '1.6',
+                    boxShadow: msg.role === 'user'
+                      ? '0 4px 12px rgba(0, 122, 255, 0.2)'
+                      : '0 4px 24px rgba(0, 0, 0, 0.04)',
+                    backdropFilter: msg.role === 'user' ? 'none' : 'saturate(180%) blur(24px)',
+                    WebkitBackdropFilter: msg.role === 'user' ? 'none' : 'saturate(180%) blur(24px)',
+                    border: msg.role === 'user' ? 'none' : '1px solid rgba(255, 255, 255, 0.8)',
+                    letterSpacing: '-0.01em',
+                    whiteSpace: msg.role === 'user' ? 'pre-wrap' : 'normal',
+                  } : {
                     maxWidth: '88%',
                     padding: msg.role === 'user' ? '12px 18px' : '16px 20px',
                     borderRadius: msg.role === 'user' ? '20px 20px 6px 20px' : '20px 20px 20px 6px',
@@ -983,6 +1178,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
                       ? 'none'
                       : design.shadow.small,
                     letterSpacing: '-0.01em',
+                    whiteSpace: msg.role === 'user' ? 'pre-wrap' : 'normal',
                   }}
                 >
                   {msg.role === 'assistant' ? renderMarkdown(msg.content) : msg.content}
@@ -991,8 +1187,29 @@ Your goal is to build their problem-solving instincts. Every question they solve
             ))}
             {isLoading && (
               <div style={{ display: 'flex', justifyContent: 'flex-start', marginBottom: '16px' }}>
+                {premiumLearnMode && (
+                  <div style={{
+                    width: '28px', height: '28px', borderRadius: '8px',
+                    background: 'linear-gradient(135deg, #FF9F0A 0%, #FF5E3A 100%)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    color: 'white', marginRight: '12px', flexShrink: 0,
+                    boxShadow: '0 2px 8px rgba(255, 149, 0, 0.2)'
+                  }}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                  </div>
+                )}
                 <div
-                  style={{
+                  style={premiumLearnMode ? {
+                    padding: '16px 20px',
+                    borderRadius: '6px 20px 20px 20px',
+                    background: 'rgba(255, 255, 255, 0.85)',
+                    boxShadow: '0 4px 24px rgba(0, 0, 0, 0.04)',
+                    backdropFilter: 'saturate(180%) blur(24px)',
+                    WebkitBackdropFilter: 'saturate(180%) blur(24px)',
+                    border: '1px solid rgba(255, 255, 255, 0.8)',
+                  } : {
                     padding: '16px 20px',
                     borderRadius: '20px 20px 20px 6px',
                     background: design.colors.surface.primary,
@@ -1023,7 +1240,12 @@ Your goal is to build their problem-solving instincts. Every question they solve
 
       {/* Input Area */}
       <div
-        style={{
+        style={premiumLearnMode ? {
+          padding: '16px 24px 24px',
+          background: 'linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 20%, rgba(255,255,255,1) 100%)',
+          position: 'relative',
+          zIndex: 10,
+        } : {
           padding: '16px 20px',
           background: design.colors.surface.primary,
           borderTop: `1px solid ${design.colors.border.light}`,
@@ -1043,10 +1265,28 @@ Your goal is to build their problem-solving instincts. Every question they solve
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="Message..."
+              placeholder={premiumLearnMode ? "Ask me anything..." : "Message..."}
               aria-label="Type your message"
               rows={1}
-              style={{
+              style={premiumLearnMode ? {
+                width: '100%',
+                padding: '16px 20px',
+                borderRadius: '24px',
+                border: '1px solid rgba(0, 0, 0, 0.08)',
+                fontSize: '15px',
+                fontFamily: design.typography.fontFamily,
+                resize: 'none',
+                outline: 'none',
+                maxHeight: '120px',
+                lineHeight: '1.5',
+                transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+                background: 'rgba(255, 255, 255, 0.8)',
+                color: design.colors.text.primary,
+                boxSizing: 'border-box',
+                boxShadow: '0 4px 24px rgba(0, 0, 0, 0.04), inset 0 2px 4px rgba(255, 255, 255, 0.5)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+              } : {
                 width: '100%',
                 padding: '14px 18px',
                 borderRadius: '24px',
@@ -1063,14 +1303,26 @@ Your goal is to build their problem-solving instincts. Every question they solve
                 boxSizing: 'border-box',
               }}
               onFocus={(e) => {
-                e.target.style.borderColor = design.colors.accent.orange;
-                e.target.style.boxShadow = `0 0 0 3px rgba(234, 88, 12, 0.1)`;
-                e.target.style.background = design.colors.surface.primary;
+                if (premiumLearnMode) {
+                  e.target.style.borderColor = 'rgba(0, 122, 255, 0.3)';
+                  e.target.style.boxShadow = `0 4px 24px rgba(0, 0, 0, 0.06), 0 0 0 3px rgba(0, 122, 255, 0.1), inset 0 2px 4px rgba(255, 255, 255, 0.5)`;
+                  e.target.style.background = '#ffffff';
+                } else {
+                  e.target.style.borderColor = design.colors.accent.orange;
+                  e.target.style.boxShadow = `0 0 0 3px rgba(234, 88, 12, 0.1)`;
+                  e.target.style.background = design.colors.surface.primary;
+                }
               }}
               onBlur={(e) => {
-                e.target.style.borderColor = design.colors.border.medium;
-                e.target.style.boxShadow = 'none';
-                e.target.style.background = design.colors.surface.secondary;
+                if (premiumLearnMode) {
+                  e.target.style.borderColor = 'rgba(0, 0, 0, 0.08)';
+                  e.target.style.boxShadow = '0 4px 24px rgba(0, 0, 0, 0.04), inset 0 2px 4px rgba(255, 255, 255, 0.5)';
+                  e.target.style.background = 'rgba(255, 255, 255, 0.8)';
+                } else {
+                  e.target.style.borderColor = design.colors.border.medium;
+                  e.target.style.boxShadow = 'none';
+                  e.target.style.background = design.colors.surface.secondary;
+                }
               }}
             />
           </div>
