@@ -269,11 +269,13 @@ const TestResults = ({
   test,
   answers,
   diagnosticData,
+  practiceTestResults,
   onBack,
   onRetake,
   onReview,
-  onReviewModule, // New: review specific module
+  onReviewModule,
   onOpenDiagnosticReport,
+  user,
 }) => {
   const [activeTab, setActiveTab] = useState('summary');
 
@@ -420,76 +422,475 @@ const TestResults = ({
 
   const renderSummaryView = () => {
     const mod2Hard = isModule2Hard();
-    const easyMisses = allQuestionEntries.filter(({ question, isCorrect }) => (question.difficulty || 'medium') === 'easy' && !isCorrect).length;
-    const unansweredCount = allQuestionEntries.filter(({ isAnswered }) => !isAnswered).length;
-    const totalIncorrect = allQuestionEntries.filter(e => e.isAnswered && !e.isCorrect).length;
+    const mod1 = calculateModuleScore(0);
+    const mod2 = test.modules.length > 1 ? calculateModuleScore(1) : null;
+    const targetScore = user?.targetScore || 700;
+    const gap = Math.max(0, targetScore - satScore);
+    const isAtTarget = gap <= 0;
+    const accuracyPct = Math.round((totalCorrect / totalQuestions) * 100);
 
-    const drivers = [
-      easyMisses > 0 && { text: `${easyMisses} easy-question miss${easyMisses > 1 ? 'es' : ''}`, tone: colors.semantic.error },
-      unansweredCount > 0 && { text: `${unansweredCount} unanswered`, tone: colors.semantic.warning },
-      totalIncorrect > easyMisses && { text: `${totalIncorrect - easyMisses} medium/hard miss${(totalIncorrect - easyMisses) > 1 ? 'es' : ''}`, tone: colors.text.secondary },
-    ].filter(Boolean).slice(0, 3);
+    const PERCENTILE_TABLE = {
+      200: 1, 210: 1, 220: 1, 230: 1, 240: 2, 250: 3, 260: 4, 270: 5,
+      280: 6, 290: 8, 300: 10, 310: 12, 320: 14, 330: 16, 340: 19,
+      350: 22, 360: 25, 370: 28, 380: 31, 390: 34, 400: 37, 410: 40,
+      420: 43, 430: 46, 440: 49, 450: 52, 460: 55, 470: 57, 480: 60,
+      490: 63, 500: 66, 510: 69, 520: 72, 530: 74, 540: 76, 550: 78,
+      560: 80, 570: 82, 580: 84, 590: 86, 600: 88, 610: 89, 620: 90,
+      630: 91, 640: 92, 650: 93, 660: 93, 670: 94, 680: 95, 690: 95,
+      700: 96, 710: 97, 720: 97, 730: 98, 740: 98, 750: 99, 760: 99,
+      770: 99, 780: 99, 790: 99, 800: 99,
+    };
+    const rounded = Math.round(satScore / 10) * 10;
+    const percentile = PERCENTILE_TABLE[Math.min(800, Math.max(200, rounded))] || 50;
 
-    const topAction = easyMisses > 0
-      ? `Lock in ${Math.min(4, easyMisses)} easy points you left on the table.`
-      : unansweredCount > 0
-        ? `Answer every question — even a guess recovers points.`
-        : totalIncorrect > 0
-          ? `Focus on your weakest domain to close the biggest gap.`
-          : `Great work! Keep practicing to stay sharp.`;
+    // ── Difficulty aggregates ──
+    const diffAll = { easy: { correct: 0, total: 0 }, medium: { correct: 0, total: 0 }, hard: { correct: 0, total: 0 } };
+    test.modules.forEach((_, modIdx) => {
+      const bd = calculateDifficultyBreakdown(modIdx);
+      ['easy', 'medium', 'hard'].forEach(d => {
+        diffAll[d].correct += bd[d].correct;
+        diffAll[d].total += bd[d].correct + bd[d].incorrect + bd[d].unanswered;
+      });
+    });
+
+    // ── Domain aggregates ──
+    const domAll = {};
+    test.modules.forEach((_, modIdx) => {
+      const bd = calculateDomainBreakdown(modIdx);
+      Object.entries(bd).forEach(([dom, vals]) => {
+        if (!domAll[dom]) domAll[dom] = { correct: 0, total: 0 };
+        domAll[dom].correct += vals.correct;
+        domAll[dom].total += vals.total;
+      });
+    });
+    const domEntries = Object.entries(domAll).filter(([, v]) => v.total > 0)
+      .sort((a, b) => (a[1].correct / a[1].total) - (b[1].correct / b[1].total));
+
+    // ── Telemetry extraction (current attempt) ──
+    const qDetails = diagnosticData?.questionDetails || {};
+    const qEntries = Object.entries(qDetails);
+    const hasTelemetry = qEntries.length > 0;
+    const totalTimeSpent = qEntries.reduce((s, [, q]) => s + (q.timeSpent || 0), 0);
+    const avgTimePerQ = hasTelemetry ? totalTimeSpent / qEntries.length : 0;
+
+    const incorrectEntries = qEntries.filter(([, q]) => !q.isCorrect);
+    const unansweredCount = qEntries.filter(([key]) => !answers[key]).length;
+
+    const carelessCount = incorrectEntries.filter(([, q]) =>
+      (q.difficulty === 'easy') || (avgTimePerQ > 0 && (q.timeSpent || 0) < avgTimePerQ * 0.5)
+    ).length;
+    const timePressureCount = incorrectEntries.filter(([, q]) =>
+      (q.timeSpent || 0) > avgTimePerQ * 1.5
+    ).length;
+    const contentGapCount = Math.max(0, incorrectEntries.length - carelessCount - timePressureCount);
+
+    const totalAnswerChanges = qEntries.reduce((s, [, q]) => s + (q.answerChanges || 0), 0);
+    const reviewedCount = diagnosticData?.markedForReviewCount || 0;
+    const navPattern = diagnosticData?.navigationPattern || 'linear';
+
+    // First-half vs second-half accuracy (stamina)
+    const halfIdx = Math.floor(qEntries.length / 2);
+    const firstHalf = qEntries.slice(0, halfIdx);
+    const secondHalf = qEntries.slice(halfIdx);
+    const firstHalfAcc = firstHalf.length > 0 ? firstHalf.filter(([, q]) => q.isCorrect).length / firstHalf.length : 0;
+    const secondHalfAcc = secondHalf.length > 0 ? secondHalf.filter(([, q]) => q.isCorrect).length / secondHalf.length : 0;
+    const staminaDrop = Math.round((firstHalfAcc - secondHalfAcc) * 100);
+
+    // Difficulty cliff: biggest accuracy drop between adjacent levels
+    const diffLevels = ['easy', 'medium', 'hard'];
+    const diffPcts = diffLevels.map(d => diffAll[d].total > 0 ? Math.round((diffAll[d].correct / diffAll[d].total) * 100) : null);
+    let diffCliff = null;
+    for (let i = 0; i < diffPcts.length - 1; i++) {
+      if (diffPcts[i] !== null && diffPcts[i + 1] !== null) {
+        const drop = diffPcts[i] - diffPcts[i + 1];
+        if (!diffCliff || drop > diffCliff.drop) {
+          diffCliff = { from: diffLevels[i], to: diffLevels[i + 1], drop };
+        }
+      }
+    }
+
+    // Weakest and strongest domain
+    const weakestDom = domEntries.length > 0 ? domEntries[0] : null;
+    const strongestDom = domEntries.length > 0 ? domEntries[domEntries.length - 1] : null;
+
+    // Easy misses (high-value recoverable points)
+    const easyMissed = qEntries.filter(([, q]) => q.difficulty === 'easy' && !q.isCorrect).length;
+
+    // Module delta
+    const mod1Pct = mod1.total > 0 ? Math.round((mod1.correct / mod1.total) * 100) : 0;
+    const mod2Pct = mod2 && mod2.total > 0 ? Math.round((mod2.correct / mod2.total) * 100) : null;
+
+    // ── Historical attempt data ──
+    const testHistory = practiceTestResults?.[test.id];
+    const attempts = testHistory?.attempts || [];
+    const pastAttempts = attempts.filter(a => a.scaledScore !== satScore || a.completedAt !== attempts[attempts.length - 1]?.completedAt);
+    const hasHistory = attempts.length > 1;
+    const bestScore = testHistory?.bestScaledScore || satScore;
+    const firstAttemptScore = attempts.length > 0 ? attempts[0].scaledScore : satScore;
+    const improvementFromFirst = satScore - firstAttemptScore;
+
+    // Score arc geometry
+    const arcSize = 200;
+    const strokeW = 14;
+    const arcR = (arcSize - strokeW) / 2 - 4;
+    const arcCirc = 2 * Math.PI * arcR;
+    const scoreProgress = Math.min((satScore - 200) / 600, 1);
+    const targetProgress = Math.min((targetScore - 200) / 600, 1);
+    const scoreOffset = arcCirc - scoreProgress * arcCirc;
+    const targetOffset = arcCirc - targetProgress * arcCirc;
+    const accentHex = isAtTarget ? '#22c55e' : '#06b6d4';
+
+    const formatTime = (seconds) => {
+      if (seconds < 60) return `${Math.round(seconds)}s`;
+      const m = Math.floor(seconds / 60);
+      const s = Math.round(seconds % 60);
+      return s > 0 ? `${m}m ${s}s` : `${m}m`;
+    };
+
+    const cardBase = {
+      background: colors.surface.white,
+      borderRadius: '20px',
+      border: '1px solid rgba(0,0,0,0.06)',
+      boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
+      padding: '24px',
+    };
+    const sectionTitle = { fontSize: '11px', fontWeight: '700', color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '16px' };
 
     return (
-      <div>
-        {/* Math Score Card */}
-        <div style={{
-          background: colors.accent.teal,
-          borderRadius: radius.md,
-          padding: '24px',
-          color: colors.text.inverse,
-          marginBottom: '32px'
-        }}>
-          <h3 style={{ fontSize: '18px', fontWeight: '500', marginBottom: '20px', textAlign: 'center' }}>
-            Your Math Score
-          </h3>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '24px', marginBottom: '20px' }}>
-            <div style={{
-              width: '80px', height: '80px', borderRadius: radius.full,
-              background: colors.surface.white, display: 'flex', alignItems: 'center', justifyContent: 'center',
-              color: colors.accent.teal, fontSize: '28px', fontWeight: '700'
-            }}>{satScore}</div>
-            <div style={{ flex: 1, maxWidth: '250px' }}>
-              <div style={{ height: '10px', background: 'rgba(255,255,255,0.3)', borderRadius: '5px', overflow: 'hidden' }}>
-                <div style={{ width: `${((satScore - 200) / 600) * 100}%`, height: '100%', background: colors.surface.white, borderRadius: '5px' }} />
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+
+        {/* ═══════════ BLOCK 1: SCORE + KEY METRICS ═══════════ */}
+        <div style={{ ...cardBase, padding: '32px 24px 28px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          {/* Score ring */}
+          <div style={{ position: 'relative', width: arcSize, height: arcSize, marginBottom: '4px' }}>
+            <svg width={arcSize} height={arcSize} style={{ transform: 'rotate(-90deg)' }}>
+              <defs>
+                <linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor={accentHex} />
+                  <stop offset="100%" stopColor={isAtTarget ? '#a3e635' : '#818cf8'} />
+                </linearGradient>
+              </defs>
+              <circle cx={arcSize/2} cy={arcSize/2} r={arcR} fill="none" stroke="rgba(0,0,0,0.05)" strokeWidth={strokeW} />
+              <circle cx={arcSize/2} cy={arcSize/2} r={arcR} fill="none"
+                stroke="rgba(0,0,0,0.12)" strokeWidth={2}
+                strokeDasharray={`5 ${arcCirc - 5}`} strokeDashoffset={targetOffset} />
+              <circle cx={arcSize/2} cy={arcSize/2} r={arcR} fill="none"
+                stroke="url(#scoreGrad)" strokeWidth={strokeW}
+                strokeDasharray={arcCirc} strokeDashoffset={scoreOffset}
+                strokeLinecap="round"
+                style={{ transition: 'stroke-dashoffset 1s ease' }} />
+            </svg>
+            <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center' }}>
+              <div style={{ fontSize: '48px', fontWeight: '800', color: colors.text.primary, letterSpacing: '-0.04em', lineHeight: 1 }}>
+                {satScore}
               </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '4px', fontSize: '12px', opacity: 0.8 }}>
-                <span>200</span><span>800</span>
-              </div>
+              <div style={{ fontSize: '11px', fontWeight: '500', color: colors.text.secondary, marginTop: '4px' }}>out of 800</div>
             </div>
           </div>
-          <div style={{ textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.2)', paddingTop: '16px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '8px', fontSize: '14px' }}>
-              <span style={{ background: 'rgba(255,255,255,0.2)', padding: '4px 12px', borderRadius: '4px' }}>Module 1</span>
-              <ArrowRightIcon size={20} color={colors.text.inverse} />
-              <span style={{ background: 'rgba(255,255,255,0.2)', padding: '4px 12px', borderRadius: '4px' }}>Module 2 {mod2Hard ? '(Hard)' : '(Standard)'}</span>
+
+          {/* Metric tiles */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', width: '100%', maxWidth: '420px', marginTop: '16px' }}>
+            {[
+              { label: 'Percentile', value: `${percentile}th`, sub: 'est.', color: percentile >= 75 ? '#22c55e' : percentile >= 50 ? '#06b6d4' : '#eab308' },
+              { label: isAtTarget ? 'Target' : 'Gap to Target', value: isAtTarget ? 'Reached' : `−${gap}`, sub: isAtTarget ? null : `target ${targetScore}`, color: isAtTarget ? '#22c55e' : '#f97316' },
+              { label: 'Accuracy', value: `${accuracyPct}%`, sub: `${totalCorrect}/${totalQuestions}`, color: accuracyPct >= 80 ? '#22c55e' : accuracyPct >= 60 ? '#06b6d4' : '#eab308' },
+            ].map((m, i) => (
+              <div key={i} style={{ textAlign: 'center', padding: '14px 8px', background: 'rgba(0,0,0,0.02)', borderRadius: '14px' }}>
+                <div style={{ fontSize: '20px', fontWeight: '800', color: m.color, lineHeight: 1, fontVariantNumeric: 'tabular-nums' }}>{m.value}</div>
+                <div style={{ fontSize: '10px', fontWeight: '600', color: colors.text.secondary, marginTop: '5px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>{m.label}</div>
+                {m.sub && <div style={{ fontSize: '10px', color: colors.text.muted, marginTop: '2px' }}>{m.sub}</div>}
+              </div>
+            ))}
+          </div>
+
+          {/* Module delta row */}
+          {mod2Pct !== null && (
+            <div style={{ display: 'flex', gap: '10px', width: '100%', maxWidth: '420px', marginTop: '10px' }}>
+              {[
+                { label: 'Module 1', value: `${mod1Pct}%`, sub: `${mod1.correct}/${mod1.total}` },
+                { label: `Module 2${mod2Hard ? ' (Hard)' : ''}`, value: `${mod2Pct}%`, sub: `${mod2.correct}/${mod2.total}` },
+              ].map((m, i) => (
+                <div key={i} style={{ flex: 1, textAlign: 'center', padding: '10px 8px', background: 'rgba(0,0,0,0.02)', borderRadius: '12px' }}>
+                  <div style={{ fontSize: '16px', fontWeight: '700', color: colors.text.primary, fontVariantNumeric: 'tabular-nums' }}>{m.value}</div>
+                  <div style={{ fontSize: '10px', fontWeight: '600', color: colors.text.secondary, marginTop: '3px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>{m.label}</div>
+                  <div style={{ fontSize: '10px', color: colors.text.muted, marginTop: '1px' }}>{m.sub}</div>
+                </div>
+              ))}
             </div>
-            <p style={{ fontSize: '13px', opacity: 0.9 }}>
-              {mod2Hard
-                ? "Your Module 1 performance unlocked Module 2 (Hard), raising your ceiling score."
-                : "Score 60%+ on Module 1 to unlock the harder Module 2 and raise your ceiling."
-              }
-            </p>
+          )}
+        </div>
+
+        {/* ═══════════ BLOCK 2: ATTEMPT INTELLIGENCE ═══════════ */}
+        <div style={cardBase}>
+          <div style={sectionTitle}>Attempt Intelligence</div>
+
+          {/* Signal grid: 2-col on desktop, 1-col on narrow */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px' }}>
+
+            {/* Pacing */}
+            {hasTelemetry && (
+              <div style={{ padding: '14px 16px', background: 'rgba(0,0,0,0.02)', borderRadius: '14px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                  <span style={{ fontSize: '12px', fontWeight: '700', color: colors.text.primary }}>Avg Time / Question</span>
+                  <span style={{ fontSize: '14px', fontWeight: '800', color: avgTimePerQ > 90 ? '#f97316' : '#06b6d4', fontVariantNumeric: 'tabular-nums' }}>
+                    {formatTime(avgTimePerQ)}
+                  </span>
+                </div>
+                <div style={{ fontSize: '11px', color: colors.text.secondary }}>
+                  Total time: {formatTime(totalTimeSpent)}
+                  {avgTimePerQ > 90 && <span style={{ color: '#f97316', fontWeight: '600' }}> — pacing risk</span>}
+                </div>
+              </div>
+            )}
+
+            {/* Point-loss attribution */}
+            {incorrectEntries.length > 0 && (
+              <div style={{ padding: '14px 16px', background: 'rgba(0,0,0,0.02)', borderRadius: '14px' }}>
+                <div style={{ fontSize: '12px', fontWeight: '700', color: colors.text.primary, marginBottom: '8px' }}>
+                  Why You Lost Points
+                </div>
+                <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                  {[
+                    { label: 'Careless', count: carelessCount, color: '#eab308' },
+                    { label: 'Time Pressure', count: timePressureCount, color: '#f97316' },
+                    { label: 'Content Gap', count: contentGapCount, color: '#ef4444' },
+                  ].filter(b => b.count > 0).map(b => (
+                    <div key={b.label} style={{
+                      display: 'inline-flex', alignItems: 'center', gap: '5px',
+                      padding: '4px 10px', borderRadius: '8px',
+                      background: `${b.color}10`, border: `1px solid ${b.color}20`,
+                    }}>
+                      <span style={{ fontSize: '13px', fontWeight: '800', color: b.color, fontVariantNumeric: 'tabular-nums' }}>{b.count}</span>
+                      <span style={{ fontSize: '11px', fontWeight: '600', color: b.color }}>{b.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Difficulty cliff */}
+            {diffCliff && diffCliff.drop > 10 && (
+              <div style={{ padding: '14px 16px', background: 'rgba(0,0,0,0.02)', borderRadius: '14px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                  <span style={{ fontSize: '12px', fontWeight: '700', color: colors.text.primary }}>Difficulty Cliff</span>
+                  <span style={{ fontSize: '14px', fontWeight: '800', color: '#ef4444', fontVariantNumeric: 'tabular-nums' }}>
+                    −{diffCliff.drop}%
+                  </span>
+                </div>
+                <div style={{ fontSize: '11px', color: colors.text.secondary }}>
+                  Accuracy drops <span style={{ fontWeight: '600' }}>{diffCliff.drop}pp</span> from{' '}
+                  <span style={{ textTransform: 'capitalize' }}>{diffCliff.from}</span> to{' '}
+                  <span style={{ textTransform: 'capitalize' }}>{diffCliff.to}</span>
+                </div>
+                {/* Mini inline bar comparison */}
+                <div style={{ display: 'flex', gap: '6px', marginTop: '8px', alignItems: 'center' }}>
+                  {diffLevels.map(d => {
+                    const p = diffAll[d].total > 0 ? Math.round((diffAll[d].correct / diffAll[d].total) * 100) : 0;
+                    const c = d === 'easy' ? '#22c55e' : d === 'medium' ? '#06b6d4' : '#f97316';
+                    return (
+                      <div key={d} style={{ flex: 1 }}>
+                        <div style={{ height: '6px', background: 'rgba(0,0,0,0.06)', borderRadius: '3px', overflow: 'hidden' }}>
+                          <div style={{ width: `${p}%`, height: '100%', background: c, borderRadius: '3px' }} />
+                        </div>
+                        <div style={{ fontSize: '9px', color: colors.text.muted, marginTop: '3px', textAlign: 'center', textTransform: 'capitalize' }}>{d} {p}%</div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* Weakest domain */}
+            {weakestDom && (
+              <div style={{ padding: '14px 16px', background: 'rgba(0,0,0,0.02)', borderRadius: '14px' }}>
+                <div style={{ fontSize: '12px', fontWeight: '700', color: colors.text.primary, marginBottom: '8px' }}>Weakest Domain</div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontSize: '13px', fontWeight: '600', color: colors.text.primary }}>
+                    {(domainDisplayNames[weakestDom[0]] || weakestDom[0]).replace('and', '&')}
+                  </span>
+                  <span style={{ fontSize: '14px', fontWeight: '800', color: '#ef4444', fontVariantNumeric: 'tabular-nums' }}>
+                    {weakestDom[1].total > 0 ? Math.round((weakestDom[1].correct / weakestDom[1].total) * 100) : 0}%
+                  </span>
+                </div>
+                <div style={{ fontSize: '11px', color: colors.text.secondary, marginTop: '4px' }}>
+                  {weakestDom[1].correct}/{weakestDom[1].total} correct
+                  {strongestDom && strongestDom[0] !== weakestDom[0] && (
+                    <> — strongest: {(domainDisplayNames[strongestDom[0]] || strongestDom[0]).replace('and', '&')} ({strongestDom[1].total > 0 ? Math.round((strongestDom[1].correct / strongestDom[1].total) * 100) : 0}%)</>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Recoverable points */}
+            {(easyMissed > 0 || unansweredCount > 0) && (
+              <div style={{ padding: '14px 16px', background: 'rgba(34,197,94,0.04)', borderRadius: '14px', border: '1px solid rgba(34,197,94,0.08)' }}>
+                <div style={{ fontSize: '12px', fontWeight: '700', color: '#22c55e', marginBottom: '6px' }}>Quick Wins Available</div>
+                <div style={{ fontSize: '11px', color: colors.text.secondary, lineHeight: 1.5 }}>
+                  {easyMissed > 0 && <div><span style={{ fontWeight: '700', color: colors.text.primary }}>{easyMissed}</span> easy question{easyMissed > 1 ? 's' : ''} missed — highest recovery value</div>}
+                  {unansweredCount > 0 && <div><span style={{ fontWeight: '700', color: colors.text.primary }}>{unansweredCount}</span> left unanswered — free points with guessing</div>}
+                </div>
+              </div>
+            )}
+
+            {/* Answer behavior */}
+            {hasTelemetry && totalAnswerChanges > 0 && (
+              <div style={{ padding: '14px 16px', background: 'rgba(0,0,0,0.02)', borderRadius: '14px' }}>
+                <div style={{ fontSize: '12px', fontWeight: '700', color: colors.text.primary, marginBottom: '6px' }}>Answer Changes</div>
+                <div style={{ fontSize: '11px', color: colors.text.secondary, lineHeight: 1.5 }}>
+                  <span style={{ fontWeight: '700', color: colors.text.primary }}>{totalAnswerChanges}</span> answer{totalAnswerChanges > 1 ? 's' : ''} changed during the test
+                  {reviewedCount > 0 && <div><span style={{ fontWeight: '700', color: colors.text.primary }}>{reviewedCount}</span> flagged for review</div>}
+                </div>
+              </div>
+            )}
+
+            {/* Stamina */}
+            {hasTelemetry && Math.abs(staminaDrop) > 5 && (
+              <div style={{ padding: '14px 16px', background: 'rgba(0,0,0,0.02)', borderRadius: '14px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                  <span style={{ fontSize: '12px', fontWeight: '700', color: colors.text.primary }}>Stamina</span>
+                  <span style={{ fontSize: '13px', fontWeight: '700', color: staminaDrop > 10 ? '#f97316' : staminaDrop > 0 ? '#eab308' : '#22c55e' }}>
+                    {staminaDrop > 0 ? `−${staminaDrop}pp` : `+${Math.abs(staminaDrop)}pp`}
+                  </span>
+                </div>
+                <div style={{ fontSize: '11px', color: colors.text.secondary }}>
+                  {staminaDrop > 10
+                    ? 'Significant accuracy drop in the second half — fatigue likely.'
+                    : staminaDrop > 0
+                      ? 'Slight dip in second-half accuracy.'
+                      : 'You got stronger as the test progressed.'}
+                </div>
+                <div style={{ display: 'flex', gap: '6px', marginTop: '8px', alignItems: 'center' }}>
+                  <div style={{ flex: 1, textAlign: 'center' }}>
+                    <div style={{ height: '6px', background: 'rgba(0,0,0,0.06)', borderRadius: '3px', overflow: 'hidden' }}>
+                      <div style={{ width: `${Math.round(firstHalfAcc * 100)}%`, height: '100%', background: '#06b6d4', borderRadius: '3px' }} />
+                    </div>
+                    <div style={{ fontSize: '9px', color: colors.text.muted, marginTop: '3px' }}>1st half {Math.round(firstHalfAcc * 100)}%</div>
+                  </div>
+                  <div style={{ flex: 1, textAlign: 'center' }}>
+                    <div style={{ height: '6px', background: 'rgba(0,0,0,0.06)', borderRadius: '3px', overflow: 'hidden' }}>
+                      <div style={{ width: `${Math.round(secondHalfAcc * 100)}%`, height: '100%', background: staminaDrop > 10 ? '#f97316' : '#06b6d4', borderRadius: '3px' }} />
+                    </div>
+                    <div style={{ fontSize: '9px', color: colors.text.muted, marginTop: '3px' }}>2nd half {Math.round(secondHalfAcc * 100)}%</div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
-        {/* Action Buttons */}
-        <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <button onClick={onBack} style={{ padding: '10px 24px', background: colors.surface.white, color: colors.text.secondary, border: `1px solid ${colors.surface.grayMedium}`, borderRadius: radius.sm, fontSize: '14px', fontWeight: '500', cursor: 'pointer' }}>
+        {/* ═══════════ BLOCK 3: SCORE HISTORY ═══════════ */}
+        {(() => {
+          if (!hasHistory && attempts.length <= 1) {
+            return (
+              <div style={cardBase}>
+                <div style={sectionTitle}>Score Trajectory</div>
+                <div style={{ textAlign: 'center', padding: '16px 0' }}>
+                  <div style={{ fontSize: '13px', color: colors.text.secondary }}>
+                    This is your first recorded attempt. Retake to start tracking progress.
+                  </div>
+                </div>
+              </div>
+            );
+          }
+
+          const sortedAttempts = [...attempts].sort((a, b) => new Date(a.completedAt) - new Date(b.completedAt));
+          const scores = sortedAttempts.map(a => a.scaledScore);
+          const minS = Math.min(...scores, targetScore) - 20;
+          const maxS = Math.max(...scores, targetScore) + 20;
+          const range = maxS - minS || 1;
+
+          const chartW = 340;
+          const chartH = 120;
+          const padX = 30;
+          const padY = 10;
+          const plotW = chartW - padX * 2;
+          const plotH = chartH - padY * 2;
+
+          const pts = scores.map((s, i) => ({
+            x: padX + (scores.length > 1 ? (i / (scores.length - 1)) * plotW : plotW / 2),
+            y: padY + plotH - ((s - minS) / range) * plotH,
+            score: s,
+            idx: i + 1,
+          }));
+          const targetY = padY + plotH - ((targetScore - minS) / range) * plotH;
+          const linePath = pts.map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x},${p.y}`).join(' ');
+
+          return (
+            <div style={cardBase}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
+                <div style={sectionTitle}>Score Trajectory</div>
+                <div style={{ display: 'flex', gap: '10px' }}>
+                  {[
+                    { label: 'Best', value: bestScore },
+                    { label: 'Attempts', value: attempts.length },
+                    ...(improvementFromFirst !== 0 ? [{ label: 'Change', value: `${improvementFromFirst > 0 ? '+' : ''}${improvementFromFirst}` }] : []),
+                  ].map((s, i) => (
+                    <div key={i} style={{ textAlign: 'right' }}>
+                      <div style={{ fontSize: '14px', fontWeight: '800', color: colors.text.primary, fontVariantNumeric: 'tabular-nums' }}>{s.value}</div>
+                      <div style={{ fontSize: '9px', fontWeight: '600', color: colors.text.muted, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <svg width={chartW} height={chartH} viewBox={`0 0 ${chartW} ${chartH}`}>
+                  {/* Grid lines */}
+                  {[0, 0.25, 0.5, 0.75, 1].map((f, i) => {
+                    const y = padY + plotH - f * plotH;
+                    const val = Math.round(minS + f * range);
+                    return (
+                      <g key={i}>
+                        <line x1={padX} y1={y} x2={chartW - padX} y2={y} stroke="rgba(0,0,0,0.04)" strokeWidth="1" />
+                        <text x={padX - 4} y={y + 3} textAnchor="end" fontSize="8" fill="rgba(0,0,0,0.25)" fontWeight="600">{val}</text>
+                      </g>
+                    );
+                  })}
+                  {/* Target line */}
+                  <line x1={padX} y1={targetY} x2={chartW - padX} y2={targetY}
+                    stroke="#f97316" strokeWidth="1" strokeDasharray="4 3" opacity="0.5" />
+                  <text x={chartW - padX + 4} y={targetY + 3} fontSize="8" fill="#f97316" fontWeight="700">Target</text>
+                  {/* Score line */}
+                  {pts.length > 1 && (
+                    <path d={linePath} fill="none" stroke="#06b6d4" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                  )}
+                  {/* Data points */}
+                  {pts.map((p, i) => (
+                    <g key={i}>
+                      <circle cx={p.x} cy={p.y} r={i === pts.length - 1 ? 5 : 3.5}
+                        fill={i === pts.length - 1 ? '#06b6d4' : '#fff'}
+                        stroke="#06b6d4" strokeWidth="2" />
+                      <text x={p.x} y={p.y - 10} textAnchor="middle" fontSize="9" fontWeight="700"
+                        fill={i === pts.length - 1 ? '#06b6d4' : 'rgba(0,0,0,0.4)'}>{p.score}</text>
+                    </g>
+                  ))}
+                </svg>
+              </div>
+            </div>
+          );
+        })()}
+
+        {/* ═══════════ ACTION BUTTONS ═══════════ */}
+        <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap', paddingTop: '4px' }}>
+          <button onClick={onBack} style={{
+            padding: '13px 28px', background: colors.surface.white, color: colors.text.secondary,
+            border: '1px solid rgba(0,0,0,0.1)', borderRadius: '14px',
+            fontSize: '14px', fontWeight: '600', cursor: 'pointer',
+          }}>
             Back to Tests
           </button>
-          <button onClick={onRetake} style={{ padding: '10px 24px', background: colors.surface.dark, color: colors.text.inverse, border: 'none', borderRadius: radius.sm, fontSize: '14px', fontWeight: '500', cursor: 'pointer' }}>
+          <button onClick={onRetake} style={{
+            padding: '13px 28px', background: colors.surface.dark, color: '#fff',
+            border: 'none', borderRadius: '14px',
+            fontSize: '14px', fontWeight: '600', cursor: 'pointer',
+          }}>
             Retake
           </button>
-          <button onClick={onReview} style={{ padding: '10px 24px', background: colors.accent.teal, color: colors.text.inverse, border: 'none', borderRadius: radius.sm, fontSize: '14px', fontWeight: '500', cursor: 'pointer' }}>
+          <button onClick={onReview} style={{
+            padding: '13px 28px', background: '#06b6d4', color: '#fff',
+            border: 'none', borderRadius: '14px',
+            fontSize: '14px', fontWeight: '600', cursor: 'pointer',
+            boxShadow: '0 4px 12px rgba(6,182,212,0.25)',
+          }}>
             Review Answers
           </button>
         </div>

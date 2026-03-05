@@ -2214,8 +2214,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           test={test}
           answers={answers}
           diagnosticData={diagnosticDataRef.current}
+          practiceTestResults={practiceTestResults}
           onOpenDiagnosticReport={() => setShowDiagnosticReport(true)}
           onBack={onBack}
+          user={user}
           onRetake={() => {
             setCurrentModule(0);
             setCurrentQuestion(0);
@@ -2237,33 +2239,6 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             setReviewQuestion(0);
           }}
         />
-        {/* Diagnostic Report CTA */}
-        <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px 40px' }}>
-          <div
-            onClick={() => setShowDiagnosticReport(true)}
-            style={{
-              cursor: 'pointer',
-              background: `linear-gradient(135deg, ${colors.accent.orange} 0%, ${colors.accent.orangeHover} 100%)`,
-              borderRadius: radius.lg,
-              padding: '20px 24px',
-              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-              boxShadow: '0 8px 24px rgba(234, 88, 12, 0.3)',
-              transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-            }}
-            onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 12px 32px rgba(234, 88, 12, 0.4)'; }}
-            onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(234, 88, 12, 0.3)'; }}
-          >
-            <div>
-              <div style={{ fontSize: '16px', fontWeight: '700', color: colors.text.inverse, marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <MicroscopeIcon size={18} color={colors.text.inverse} /> Full Report & Study Plan
-              </div>
-              <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.85)', lineHeight: '1.5' }}>
-                Strengths, weaknesses, and a personalized study plan
-              </div>
-            </div>
-            <div style={{ fontSize: '24px', color: colors.text.inverse, marginLeft: '16px', flexShrink: 0 }}>→</div>
-          </div>
-        </div>
       </div>
     );
   }
