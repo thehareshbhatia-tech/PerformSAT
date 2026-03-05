@@ -277,7 +277,7 @@ const AiTutorChat = ({
   standalone = false,
   embedded = false,
   headerCompact = false,
-  premiumLearnMode = false
+  premiumLearnMode = true
 }) => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
@@ -720,8 +720,11 @@ Your goal is to build their problem-solving instincts. Every question they solve
         display: 'flex',
         flexDirection: 'column',
         height: '100%',
-        background: 'transparent',
+        background: 'rgba(255, 255, 255, 0.6)',
+        backdropFilter: 'saturate(180%) blur(24px)',
+        WebkitBackdropFilter: 'saturate(180%) blur(24px)',
         fontFamily: design.typography.fontFamily,
+        borderRadius: standalone ? '16px' : (embedded ? '0px' : '24px'),
       } : {
         marginTop: '0px',
         borderRadius: standalone ? '16px' : (embedded ? '0px' : '20px'),
@@ -888,6 +891,36 @@ Your goal is to build their problem-solving instincts. Every question they solve
               </div>
             )}
           </div>
+          {onClose && onClose.toString() !== '() => {}' && (
+            <button
+              onClick={onClose}
+              aria-label="Close chat"
+              style={{
+                background: 'rgba(0, 0, 0, 0.04)',
+                border: 'none',
+                width: '28px',
+                height: '28px',
+                borderRadius: '50%',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: design.colors.text.secondary,
+                fontSize: '14px',
+                transition: 'all 0.2s ease',
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.background = 'rgba(0, 0, 0, 0.08)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.background = 'rgba(0, 0, 0, 0.04)';
+              }}
+            >
+              <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M1 1L11 11M1 11L11 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
+            </button>
+          )}
         </div>
       )}
 

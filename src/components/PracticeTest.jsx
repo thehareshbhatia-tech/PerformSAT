@@ -2082,7 +2082,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                 {(!isMobile && (reviewRightPane === 'ai' || reviewRightPane === 'both')) || (isMobile && reviewTab === 'ai') ? (
                   <div style={{
                     flex: 1, display: 'flex', flexDirection: 'column',
-                    background: colors.surface.white,
+                    background: 'transparent',
                     borderRadius: isMobile ? 0 : '24px',
                     boxShadow: isMobile ? 'none' : '0 8px 32px rgba(0,0,0,0.04)',
                     border: isMobile ? 'none' : `1px solid rgba(0,0,0,0.06)`,
