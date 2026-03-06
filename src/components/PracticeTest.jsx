@@ -116,7 +116,7 @@ function buildGroundTruthDiagnosis(diagReport, rawTelemetry) {
 
 function computeAvgTimeForSkill(skillId, questionAnalysis) {
   const relevant = (questionAnalysis || []).filter(q =>
-    (q.skillIds || []).includes(skillId)
+    (q.skills || []).includes(skillId)
   );
   if (relevant.length === 0) return 0;
   const total = relevant.reduce((s, q) => s + (q.timeSpent || 0), 0);
@@ -1107,29 +1107,11 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     (async () => {
       try {
         console.log('[PracticeTest] Triggering AI study plan generation...');
-        const diagReport = runDiagnostic(
-          test,
-          answers,
-          { questionDetails: (() => {
-            const qd = {};
-            test.modules.forEach((mod, modIdx) => {
-              mod.questions.forEach((q, qIdx) => {
-                const key = `${modIdx}-${qIdx}`;
-                const telem = questionTelemetry.current[key] || {};
-                qd[key] = {
-                  timeSpent: Math.round((telem.timeSpent || 0) * 10) / 10,
-                  visits: telem.visits || 0,
-                  answerChanges: (telem.answerChanges || []).length,
-                  usedCalculator: telem.usedCalculator || false,
-                };
-              });
-            });
-            return qd;
-          })(), moduleTimeRemaining: { ...moduleTimeRemaining.current } },
-          skillProgress || {},
-          { targetScore: user.targetScore, currentScore: user.currentScore, testDate: user.testDate },
-          practiceTestResults || {}
-        );
+        const diagReport = diagnosticReportRef.current;
+        if (!diagReport) {
+          console.warn('[PracticeTest] No diagnostic report available — skipping study plan generation');
+          return;
+        }
 
         const { plan, generatedAt, model } = await generateStudyPlanFromAI(
           diagReport,

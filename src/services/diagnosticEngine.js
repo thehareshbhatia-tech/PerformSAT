@@ -533,6 +533,27 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
 
       const isCorrect = isAnswerCorrect(q, userAnswer);
 
+      const rawSkillIds = q.skills || [];
+      const skillNames = rawSkillIds.map(s => { const sk = getSkillById(s); return sk ? sk.name : s; });
+      const domain = inferDomain(rawSkillIds);
+      const tSpent = telemetry.timeSpent || 0;
+
+      const rawChanges = telemetry.answerChanges;
+      const changeCount = typeof rawChanges === 'number' ? rawChanges : Array.isArray(rawChanges) ? rawChanges.length : 0;
+      const changeEvents = telemetry.answerChangeEvents || (Array.isArray(rawChanges) ? rawChanges : []);
+
+      const behaviorEvidence = {
+        answerChangeCount: changeCount,
+        answerChangeEvents: changeEvents.map(ev => ({
+          from: ev.from, to: ev.to, timestamp: ev.timestamp,
+        })),
+        usedCalculator: telemetry.usedCalculator || false,
+        markedForReview: telemetry.markedForReview || false,
+        eliminatedChoices: telemetry.eliminatedChoices || [],
+        visits: telemetry.visits || 0,
+        timeVsDifficulty: categorizeTimeForDifficulty(tSpent, q.difficulty),
+      };
+
       if (isCorrect) {
         totalCorrect++;
         questionAnalysis.push({
@@ -542,13 +563,13 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
           questionIndex: qIdx,
           isCorrect: true,
           difficulty: q.difficulty,
-          skills: (q.skills || []).map(s => { const sk = getSkillById(s); return sk ? sk.name : s; }),
-          skillIds: q.skills || [],
-          domain: inferDomain(q.skills),
-          timeSpent: telemetry.timeSpent || 0,
+          skills: rawSkillIds,
+          skillNames,
+          domain,
+          timeSpent: tSpent,
+          ...behaviorEvidence,
         });
       } else {
-        // Classify the error
         const errorClassification = classifyError(q, userAnswer, telemetry, skillProgress);
 
         questionAnalysis.push({
@@ -558,13 +579,14 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
           questionIndex: qIdx,
           isCorrect: false,
           difficulty: q.difficulty,
-          skills: (q.skills || []).map(s => { const sk = getSkillById(s); return sk ? sk.name : s; }),
-          skillIds: q.skills || [],
-          domain: inferDomain(q.skills),
-          timeSpent: telemetry.timeSpent || 0,
+          skills: rawSkillIds,
+          skillNames,
+          domain,
+          timeSpent: tSpent,
           userAnswer,
           correctAnswer: q.correctAnswer,
           questionText: q.question,
+          ...behaviorEvidence,
           ...errorClassification,
         });
       }
@@ -605,8 +627,13 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
     errorPatterns, domainAnalysis, skillAnalysis, scoreProjection, scoreGap
   );
 
+  // ═══ ADVANCED ANALYTICS ═══
+  const stamina = analyzeStamina(questionAnalysis);
+  const answerPatterns = analyzeAnswerPatterns(questionAnalysis, diagnosticData);
+  const skillClusters = analyzeSkillClusters(questionAnalysis);
+  const rootCauseClusters = analyzeRootCauseClusters(questionAnalysis, stamina);
+
   return {
-    // Core scores
     score: {
       raw: totalCorrect,
       total: totalQuestions,
@@ -616,63 +643,29 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
       percentCorrect: Math.round((totalCorrect / totalQuestions) * 100),
     },
 
-    // Detailed question-by-question analysis
     questionAnalysis,
-
-    // Error classification breakdown
     errorPatterns,
-
-    // Domain-level performance
     domainAnalysis,
-
-    // Skill-level analysis
     skillAnalysis,
-
-    // "If you fix X, you gain Y points"
     scoreProjection,
-
-    // Easy/medium/hard performance
     difficultyAnalysis,
-
-    // Time management insights
     timeAnalysis,
-
-    // Improvement trends across tests
     trendAnalysis,
-
-    // Ranked list of what to fix first
     prioritizedActions,
 
-    // ═══ ADVANCED ANALYTICS ═══
-
-    // Statistical confidence interval on the score
     confidenceInterval: calculateConfidenceInterval(totalCorrect, totalQuestions, scaledScore),
-
-    // Learning velocity — points per week trajectory
     learningVelocity: calculateLearningVelocity(previousTests, scaledScore),
-
-    // Skill clusters — related skills that fail together
-    skillClusters: analyzeSkillClusters(questionAnalysis),
-
-    // Answer pattern analysis — position bias, answer changes
-    answerPatterns: analyzeAnswerPatterns(questionAnalysis, diagnosticData),
-
-    // Stamina — performance degradation over test duration
-    stamina: analyzeStamina(questionAnalysis),
-
-    // National percentile estimate
+    skillClusters,
+    answerPatterns,
+    stamina,
     percentile: estimatePercentile(scaledScore),
-
-    // Mistake fingerprint — student archetype
     mistakeFingerprint: generateMistakeFingerprint(
       { errorPatterns, domainAnalysis, difficultyAnalysis, timeAnalysis },
       previousTests
     ),
-
-    // Time allocation efficiency per domain
     timeAllocation: analyzeTimeAllocation(questionAnalysis),
+    rootCauseClusters,
 
-    // Metadata
     testId: test.id,
     testTitle: test.title,
     analyzedAt: new Date().toISOString(),
@@ -1326,6 +1319,123 @@ const prioritizeActions = (errorPatterns, domainAnalysis, skillAnalysis, scorePr
 };
 
 // ═══════════════════════════════════════════════════════════════════════════
+// TIME-VS-DIFFICULTY HELPER
+// ═══════════════════════════════════════════════════════════════════════════
+
+const categorizeTimeForDifficulty = (timeSpent, difficulty) => {
+  const diff = difficulty || 'medium';
+  const thresholds = {
+    easy:   { fast: 30, normal: 90,  slow: 150 },
+    medium: { fast: 45, normal: 150, slow: 210 },
+    hard:   { fast: 60, normal: 210, slow: 300 },
+  };
+  const t = thresholds[diff] || thresholds.medium;
+  if (timeSpent < t.fast) return 'rushed';
+  if (timeSpent <= t.normal) return 'normal';
+  if (timeSpent <= t.slow) return 'slow';
+  return 'very_slow';
+};
+
+// ═══════════════════════════════════════════════════════════════════════════
+// ROOT-CAUSE CLUSTERING
+// ═══════════════════════════════════════════════════════════════════════════
+
+const analyzeRootCauseClusters = (questionAnalysis, stamina) => {
+  const wrong = questionAnalysis.filter(q => !q.isCorrect);
+  const clusters = [];
+
+  const conceptGaps = wrong.filter(q => q.errorType === ERROR_TYPES.CONCEPTUAL_GAP);
+  if (conceptGaps.length >= 2) {
+    const skillFreq = {};
+    conceptGaps.forEach(q => {
+      (q.skills || []).forEach(s => { skillFreq[s] = (skillFreq[s] || 0) + 1; });
+    });
+    const recurring = Object.entries(skillFreq).filter(([, c]) => c >= 2);
+    clusters.push({
+      id: 'recurring-concept-gaps',
+      label: 'Recurring Concept Gaps',
+      severity: conceptGaps.length >= 4 ? 'critical' : 'moderate',
+      count: conceptGaps.length,
+      description: recurring.length > 0
+        ? `${conceptGaps.length} questions missed due to concept gaps, with ${recurring.length} skill(s) appearing 2+ times`
+        : `${conceptGaps.length} questions missed from conceptual gaps across different skills`,
+      questions: conceptGaps.map(q => q.key),
+      recurringSkills: recurring.map(([id, c]) => ({ skillId: id, name: (getSkillById(id) || {}).name || id, count: c })),
+    });
+  }
+
+  const procedural = wrong.filter(q => q.errorType === ERROR_TYPES.PROCEDURAL_ERROR);
+  if (procedural.length >= 2) {
+    clusters.push({
+      id: 'execution-instability',
+      label: 'Execution / Procedural Instability',
+      severity: procedural.length >= 4 ? 'critical' : 'moderate',
+      count: procedural.length,
+      description: `${procedural.length} questions where you understood the concept but made errors in execution`,
+      questions: procedural.map(q => q.key),
+    });
+  }
+
+  const pacingMisses = wrong.filter(q =>
+    q.errorType === ERROR_TYPES.TIME_PRESSURE ||
+    q.timeVsDifficulty === 'rushed'
+  );
+  if (pacingMisses.length >= 2) {
+    clusters.push({
+      id: 'pacing-related-misses',
+      label: 'Pacing-Related Misses',
+      severity: pacingMisses.length >= 4 ? 'critical' : 'moderate',
+      count: pacingMisses.length,
+      description: `${pacingMisses.length} questions lost to rushing or time pressure`,
+      questions: pacingMisses.map(q => q.key),
+    });
+  }
+
+  const answerChangeLosses = wrong.filter(q => q.answerChangeCount > 0);
+  if (answerChangeLosses.length >= 2) {
+    clusters.push({
+      id: 'second-guessing-losses',
+      label: 'Second-Guessing / Answer-Change Losses',
+      severity: answerChangeLosses.length >= 3 ? 'critical' : 'moderate',
+      count: answerChangeLosses.length,
+      description: `${answerChangeLosses.length} wrong answers had at least one answer change — second-guessing may be hurting`,
+      questions: answerChangeLosses.map(q => q.key),
+    });
+  }
+
+  if (stamina?.hasData && stamina.dropoff > 15) {
+    const q3q4 = wrong.filter(q => {
+      const total = questionAnalysis.length;
+      return q.questionNumber > Math.floor(total * 0.5);
+    });
+    if (q3q4.length >= 2) {
+      clusters.push({
+        id: 'fatigue-related-decline',
+        label: 'Fatigue-Related Decline',
+        severity: stamina.dropoff > 25 ? 'critical' : 'moderate',
+        count: q3q4.length,
+        description: `${q3q4.length} of your misses came in the second half (${stamina.dropoff}% accuracy drop)`,
+        questions: q3q4.map(q => q.key),
+      });
+    }
+  }
+
+  const calcWrong = wrong.filter(q => q.usedCalculator);
+  if (calcWrong.length >= 2) {
+    clusters.push({
+      id: 'calculator-dependency',
+      label: 'Calculator Dependency',
+      severity: calcWrong.length >= 4 ? 'moderate' : 'low',
+      count: calcWrong.length,
+      description: `${calcWrong.length} wrong answers involved calculator use — computation errors or over-reliance`,
+      questions: calcWrong.map(q => q.key),
+    });
+  }
+
+  return clusters.sort((a, b) => b.count - a.count);
+};
+
+// ═══════════════════════════════════════════════════════════════════════════
 // HELPER FUNCTIONS
 // ═══════════════════════════════════════════════════════════════════════════
 
@@ -1596,6 +1706,18 @@ const analyzeAnswerPatterns = (questionAnalysis, diagnosticData) => {
         : 'Answer changes are 50/50 — only change if you find a clear reason'
     : 'Not enough data on answer changes yet';
 
+  let eliminationsUsed = 0;
+  let eliminationsCorrect = 0;
+  questionAnalysis.forEach(q => {
+    if ((q.eliminatedChoices || []).length > 0) {
+      eliminationsUsed++;
+      if (q.isCorrect) eliminationsCorrect++;
+    }
+  });
+  const eliminationAccuracy = eliminationsUsed > 0
+    ? Math.round((eliminationsCorrect / eliminationsUsed) * 100)
+    : null;
+
   return {
     positionBias,
     hasPositionBias: !!strongBias,
@@ -1606,6 +1728,16 @@ const analyzeAnswerPatterns = (questionAnalysis, diagnosticData) => {
       changedToWrong,
       firstInstinctAccuracy,
       advice: firstInstinctAdvice,
+    },
+    elimination: {
+      used: eliminationsUsed,
+      correct: eliminationsCorrect,
+      accuracy: eliminationAccuracy,
+      insight: eliminationsUsed === 0
+        ? 'No elimination used — try eliminating at least one wrong choice before answering'
+        : eliminationAccuracy >= 70
+          ? `Elimination used on ${eliminationsUsed} questions with ${eliminationAccuracy}% accuracy — effective strategy`
+          : `Elimination used on ${eliminationsUsed} questions but only ${eliminationAccuracy}% accuracy — refine your elimination criteria`,
     },
     totalAnswered,
   };
@@ -1803,4 +1935,5 @@ export {
   estimatePercentile,
   generateMistakeFingerprint,
   analyzeTimeAllocation,
+  analyzeRootCauseClusters,
 };

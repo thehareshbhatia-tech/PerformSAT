@@ -178,6 +178,254 @@ export const generateStudyPlan = onRequest(
   }
 );
 
+/**
+ * Diagnostic Narrative Generator — produces a structured AI diagnostic
+ * explanation from rich evidence. Separate from study plan generation.
+ */
+export const generateDiagnosticNarrative = onRequest(
+  {
+    cors: true,
+    secrets: [anthropicApiKey],
+    timeoutSeconds: 120,
+  },
+  async (request, response) => {
+    if (request.method !== "POST") {
+      response.status(405).json({error: "Method not allowed"});
+      return;
+    }
+
+    try {
+      const {evidence, userProfile} = request.body;
+
+      if (!evidence) {
+        response.status(400).json({error: "evidence payload is required"});
+        return;
+      }
+
+      const apiKey = anthropicApiKey.value();
+      if (!apiKey) {
+        logger.error("ANTHROPIC_API_KEY not configured");
+        response.status(500).json({error: "AI service not configured"});
+        return;
+      }
+
+      const systemPrompt = buildDiagnosticNarrativeSystemPrompt();
+      const userPrompt = buildDiagnosticNarrativeUserPrompt(evidence, userProfile || {});
+
+      const anthropicResponse = await fetch(
+        "https://api.anthropic.com/v1/messages",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-api-key": apiKey,
+            "anthropic-version": "2023-06-01",
+          },
+          body: JSON.stringify({
+            model: "claude-haiku-4-5-20251001",
+            max_tokens: 4096,
+            system: systemPrompt,
+            messages: [{role: "user", content: userPrompt}],
+          }),
+        }
+      );
+
+      if (!anthropicResponse.ok) {
+        const errorData = await anthropicResponse.json();
+        logger.error("Anthropic API error:", errorData);
+        response.status(anthropicResponse.status).json({
+          error: errorData.error?.message || "Failed to generate narrative",
+        });
+        return;
+      }
+
+      const data = await anthropicResponse.json();
+      const rawContent = data.content[0].text;
+
+      let narrative;
+      try {
+        const jsonMatch = rawContent.match(/\{[\s\S]*\}/);
+        narrative = jsonMatch ? JSON.parse(jsonMatch[0]) : null;
+      } catch {
+        logger.warn("Failed to parse narrative JSON, returning raw");
+        narrative = null;
+      }
+
+      if (!narrative) {
+        response.status(500).json({error: "Failed to parse structured narrative"});
+        return;
+      }
+
+      response.json({
+        narrative,
+        generatedAt: new Date().toISOString(),
+        model: "claude-haiku-4-5-20251001",
+      });
+    } catch (error) {
+      logger.error("Diagnostic narrative generation error:", error);
+      response.status(500).json({error: "Internal server error"});
+    }
+  }
+);
+
+function buildDiagnosticNarrativeSystemPrompt(): string {
+  return `You are a senior SAT diagnostician. Given rich evidence from a student's Digital SAT Math practice test, you produce a structured diagnostic narrative that explains WHAT the student is weak at, WHY those weaknesses are happening, and how they connect across the test.
+
+Your output MUST be valid JSON (no markdown fences) matching this schema:
+
+{
+  "learnerProfile": "string — 3-4 sentence synthesis of who this learner is, their archetype, and where they stand",
+  "topWeaknesses": [
+    {
+      "title": "string — concise weakness name",
+      "explanation": "string — 2-3 sentences explaining WHY this weakness exists, citing specific evidence (question counts, accuracy %, time data, skill names)",
+      "evidence": ["string — bullet-point evidence citations"],
+      "severity": "critical | significant | moderate"
+    }
+  ],
+  "behaviorInsights": "string — 2-3 sentences on how test-taking behaviors (answer changes, calculator use, pacing, flagging) affected the score, citing specific data",
+  "changesSinceLast": "string | null — what improved or worsened compared to prior test(s), or null if first test",
+  "strongestEvidence": ["string — the 3-5 most important data points the diagnosis rests on"],
+  "topNextFocus": "string — 1-2 sentences: the single highest-leverage thing to work on next and why",
+  "uncertainties": "string — 1-2 sentences on where the evidence is ambiguous or the classification confidence is low, if applicable"
+}
+
+RULES:
+- topWeaknesses should have 2-4 items, ordered by severity/impact
+- Always cite specific numbers: accuracy percentages, question counts, time spent, skill names
+- Be direct and specific — avoid vague advice like "review your mistakes"
+- If trend data shows persistent weaknesses, emphasize them
+- If error classifications have low confidence, mention it in uncertainties
+- The tone should be analytical but encouraging — a coach who respects the student's effort`;
+}
+
+function buildDiagnosticNarrativeUserPrompt(
+  evidence: Record<string, unknown>,
+  userProfile: Record<string, unknown>
+): string {
+  const sections: string[] = [];
+
+  const score = evidence.score as Record<string, unknown> || {};
+  sections.push(`## Score: ${score.scaled || "N/A"}/800 (${score.raw || 0}/${score.total || 44} raw, ${score.percentCorrect || 0}%)
+Target: ${score.target || 700} | Gap: ${score.gap || 0} points`);
+
+  if (userProfile.testDate) {
+    sections.push(`Test Date: ${userProfile.testDate}`);
+  }
+
+  const fp = evidence.mistakeFingerprint as Record<string, unknown>;
+  if (fp?.archetypeLabel) {
+    sections.push(`\n## Archetype: ${fp.archetypeLabel}\n${fp.archetypeDescription || ""}`);
+    const traits = fp.traits as Array<Record<string, unknown>>;
+    if (traits && traits.length > 0) {
+      sections.push("Traits: " + traits.map(t => `${t.trait} (${t.severity})`).join(", "));
+    }
+  }
+
+  const ep = evidence.errorPatterns as Record<string, unknown>;
+  if (ep?.summary) {
+    const errStr = (ep.summary as Array<Record<string, unknown>>)
+      .map(e => `- ${e.label}: ${e.count} (${e.percentage}%) — ${e.description || ""}`)
+      .join("\n");
+    sections.push(`\n## Error Patterns (${ep.totalWrong} wrong)\n${errStr}`);
+  }
+
+  const da = evidence.domainAnalysis as Array<Record<string, unknown>>;
+  if (da && da.length > 0) {
+    sections.push(`\n## Domain Performance\n${da.map(d =>
+      `- ${d.displayName}: ${d.accuracy}% (${d.correct}/${d.total}), error types: ${JSON.stringify(d.errorTypes || {})}`
+    ).join("\n")}`);
+  }
+
+  const sa = evidence.skillAnalysis as Record<string, unknown>;
+  const weak = (sa?.weakSkills as Array<Record<string, unknown>>) || [];
+  if (weak.length > 0) {
+    sections.push(`\n## Weak Skills\n${weak.map(s =>
+      `- ${s.name} (${s.domain}): ${s.testAccuracy}%, ${s.correct}/${s.total}, error: ${s.primaryErrorType || "mixed"}, ` +
+      `mastery: ${s.historicalMastery !== null && s.historicalMastery !== undefined ? s.historicalMastery + "%" : "first time"}, trend: ${s.trend || "unknown"}`
+    ).join("\n")}`);
+  }
+
+  const wq = evidence.wrongQuestions as Array<Record<string, unknown>>;
+  if (wq && wq.length > 0) {
+    sections.push(`\n## Wrong Questions (${wq.length} total)\n${wq.slice(0, 15).map(q =>
+      `- ${q.key} [${q.difficulty}/${q.domain}]: ${q.errorType} (conf ${q.confidence}), ` +
+      `${q.timeSpent}s (${q.timeVsDifficulty}), skills: ${(q.skillNames as string[] || []).join(", ")}` +
+      `${(q.answerChangeCount as number) > 0 ? `, ${q.answerChangeCount} answer change(s)` : ""}` +
+      `${q.usedCalculator ? ", used calc" : ""}` +
+      `${q.markedForReview ? ", flagged" : ""}` +
+      ` — ${q.reasoning || "no reasoning"}`
+    ).join("\n")}`);
+  }
+
+  const rcc = evidence.rootCauseClusters as Array<Record<string, unknown>>;
+  if (rcc && rcc.length > 0) {
+    sections.push(`\n## Root-Cause Clusters\n${rcc.map(c =>
+      `- ${c.label} (${c.severity}): ${c.description}`
+    ).join("\n")}`);
+  }
+
+  const sc = evidence.skillClusters as Array<Record<string, unknown>>;
+  if (sc && sc.length > 0) {
+    sections.push(`\n## Skill Clusters (related skills failing together)\n${sc.map(c =>
+      `- ${c.name}: ${(c.failedSkills as string[]).join(", ")} (${c.severity})`
+    ).join("\n")}`);
+  }
+
+  const diff = evidence.difficultyAnalysis as Record<string, unknown>;
+  if (diff?.levels) {
+    const lvl = diff.levels as Record<string, Record<string, unknown>>;
+    sections.push(`\n## Difficulty: Easy ${lvl.easy?.accuracy || 0}% | Medium ${lvl.medium?.accuracy || 0}% | Hard ${lvl.hard?.accuracy || 0}%`);
+  }
+
+  const ta = evidence.timeAnalysis as Record<string, unknown>;
+  if (ta) {
+    sections.push(`\n## Time: avg ${ta.avgTimePerQuestion}s/q, correct avg ${ta.avgCorrectTime}s, wrong avg ${ta.avgIncorrectTime}s, fade ${ta.fadeEffect}% (${ta.firstHalfAccuracy}% → ${ta.secondHalfAccuracy}%), time-related errors: ${ta.timeRelatedErrors}`);
+  }
+
+  const stam = evidence.stamina as Record<string, unknown>;
+  if (stam) {
+    sections.push(`Stamina: ${stam.staminaScore}/100 (${stam.rating}), ${stam.dropoff}% dropoff`);
+  }
+
+  const ap = evidence.answerPatterns as Record<string, unknown>;
+  if (ap) {
+    if (ap.biasWarning) sections.push(`Position bias: ${ap.biasWarning}`);
+    const ac = ap.answerChanges as Record<string, unknown>;
+    if (ac) sections.push(`Answer changes: ${ac.total} total, ${ac.changedToCorrect} helped, ${ac.changedToWrong} hurt`);
+    const elim = ap.elimination as Record<string, unknown>;
+    if (elim) sections.push(`Elimination: ${elim.used} used, ${elim.accuracy}% accurate`);
+  }
+
+  const trend = evidence.trendAnalysis as Record<string, unknown>;
+  if (trend?.hasHistory) {
+    const sc2 = Number(trend.scoreChange) || 0;
+    sections.push(`\n## Trend: ${trend.trend} (${sc2 > 0 ? "+" : ""}${sc2} pts)`);
+    const pw = trend.persistentWeaknesses as Array<Record<string, unknown>>;
+    if (pw && pw.length > 0) {
+      sections.push(`Persistent weaknesses: ${pw.map(p => `${p.name} (${p.testCount} tests)`).join(", ")}`);
+    }
+    const dec = trend.decliningSkills as string[];
+    if (dec && dec.length > 0) sections.push(`Declining: ${dec.join(", ")}`);
+    const imp = trend.improvingSkills as string[];
+    if (imp && imp.length > 0) sections.push(`Improving: ${imp.join(", ")}`);
+  }
+
+  const ci = evidence.confidenceInterval as Record<string, unknown>;
+  if (ci) {
+    const s80 = ci.scaled80 as Record<string, unknown>;
+    sections.push(`\n## Score confidence: ${s80?.low}–${s80?.high} (80% CI), reliability: ${ci.reliability}`);
+  }
+
+  const lv = evidence.learningVelocity as Record<string, unknown>;
+  if (lv) {
+    sections.push(`Learning velocity: ${lv.velocity} pts/week (${lv.trend}), ${lv.testsCompleted} tests, ${lv.totalGain} total gain`);
+  }
+
+  sections.push("\nGenerate the diagnostic narrative JSON now.");
+  return sections.join("\n");
+}
+
 function buildStudyPlanSystemPrompt(): string {
   return `You are the PerformSAT AI Study Strategist. You analyze Digital SAT Math practice test diagnostics and produce highly targeted, week-by-week study plans.
 

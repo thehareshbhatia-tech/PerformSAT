@@ -289,6 +289,219 @@ function buildScoreProjection(report) {
 }
 
 /**
+ * Build weakness clusters — groups of related misses by concept family
+ * or root-cause failure mode.
+ */
+function buildWeaknessClusters(report) {
+  const { skillClusters, rootCauseClusters } = report;
+  const clusters = [];
+
+  (skillClusters || []).forEach(c => {
+    clusters.push({
+      id: `skill-${c.rootConcept}`,
+      type: 'concept',
+      label: c.name,
+      severity: c.severity,
+      detail: c.recommendation,
+      failedSkills: c.failedSkills,
+      questionsAffected: c.questionsAffected,
+      failRate: c.failRate,
+    });
+  });
+
+  (rootCauseClusters || []).forEach(c => {
+    clusters.push({
+      id: c.id,
+      type: 'root-cause',
+      label: c.label,
+      severity: c.severity,
+      detail: c.description,
+      count: c.count,
+      questions: (c.questions || []).slice(0, 4).map(k => questionLabel(k)),
+      recurringSkills: c.recurringSkills,
+    });
+  });
+
+  return clusters;
+}
+
+/**
+ * Build persistent weaknesses — skills that reappear across multiple tests.
+ */
+function buildPersistentWeaknesses(report) {
+  const { trendAnalysis } = report;
+  if (!trendAnalysis?.hasHistory) return [];
+
+  const items = [];
+
+  (trendAnalysis.persistentWeaknesses || []).forEach(pw => {
+    items.push({
+      type: 'persistent-skill',
+      skill: pw.name,
+      skillId: pw.skillId,
+      testsWeak: pw.testCount,
+      detail: `Weak across ${pw.testCount} test${pw.testCount > 1 ? 's' : ''} — needs focused remediation`,
+      severity: pw.testCount >= 3 ? 'critical' : 'moderate',
+    });
+  });
+
+  (trendAnalysis.decliningSkills || []).forEach(name => {
+    items.push({
+      type: 'declining-skill',
+      skill: name,
+      detail: 'Performance trending downward across recent tests',
+      severity: 'warning',
+    });
+  });
+
+  return items;
+}
+
+/**
+ * Build behavior → outcome links — where specific test-taking behaviors
+ * hurt or helped performance.
+ */
+function buildBehaviorOutcomes(report, rawDiagnosticData) {
+  const { answerPatterns, questionAnalysis, timeAnalysis } = report;
+  const outcomes = [];
+
+  const changes = answerPatterns?.answerChanges;
+  if (changes && changes.total >= 2) {
+    const net = changes.changedToCorrect - changes.changedToWrong;
+    outcomes.push({
+      id: 'answer-changes',
+      behavior: 'Answer Changes',
+      stat: `${changes.total} changes (${changes.changedToCorrect} helped, ${changes.changedToWrong} hurt)`,
+      impact: net >= 0 ? 'positive' : 'negative',
+      detail: changes.advice,
+    });
+  }
+
+  const elimination = answerPatterns?.elimination;
+  if (elimination && elimination.used > 0) {
+    outcomes.push({
+      id: 'elimination',
+      behavior: 'Process of Elimination',
+      stat: `Used on ${elimination.used} questions, ${elimination.accuracy}% accuracy`,
+      impact: (elimination.accuracy || 0) >= 60 ? 'positive' : 'negative',
+      detail: elimination.insight,
+    });
+  }
+
+  if (questionAnalysis) {
+    const reviewed = questionAnalysis.filter(q => q.markedForReview);
+    if (reviewed.length > 0) {
+      const reviewedCorrect = reviewed.filter(q => q.isCorrect).length;
+      const reviewAcc = Math.round((reviewedCorrect / reviewed.length) * 100);
+      outcomes.push({
+        id: 'flagged-review',
+        behavior: 'Flagged for Review',
+        stat: `${reviewed.length} flagged, ${reviewAcc}% correct`,
+        impact: reviewAcc >= 50 ? 'positive' : 'negative',
+        detail: reviewAcc < 50
+          ? 'Most flagged questions were wrong — flagging may signal low confidence, not genuine uncertainty'
+          : 'Good review instinct — flagged questions were mostly answered correctly after revisiting',
+      });
+    }
+
+    const calcUsed = questionAnalysis.filter(q => q.usedCalculator);
+    if (calcUsed.length > 0) {
+      const calcAcc = Math.round((calcUsed.filter(q => q.isCorrect).length / calcUsed.length) * 100);
+      const easyCalc = calcUsed.filter(q => q.difficulty === 'easy').length;
+      outcomes.push({
+        id: 'calculator',
+        behavior: 'Calculator Usage',
+        stat: `${calcUsed.length} questions, ${calcAcc}% accuracy`,
+        impact: easyCalc > 3 ? 'negative' : 'neutral',
+        detail: easyCalc > 3
+          ? `Calculator used on ${easyCalc} easy questions — building mental math fluency could save time`
+          : 'Reasonable calculator usage pattern',
+      });
+    }
+  }
+
+  if (timeAnalysis && timeAnalysis.avgIncorrectTime > 0 && timeAnalysis.avgCorrectTime > 0) {
+    const ratio = timeAnalysis.avgIncorrectTime / timeAnalysis.avgCorrectTime;
+    if (ratio < 0.6) {
+      outcomes.push({
+        id: 'rushing-wrong',
+        behavior: 'Rushing on Wrong Answers',
+        stat: `Wrong answers: ${formatTime(timeAnalysis.avgIncorrectTime)} avg vs correct: ${formatTime(timeAnalysis.avgCorrectTime)} avg`,
+        impact: 'negative',
+        detail: 'You answered wrong questions much faster than correct ones — slowing down could recover points',
+      });
+    }
+  }
+
+  return outcomes;
+}
+
+/**
+ * Build time allocation by domain — where time was over/under-invested.
+ */
+function buildTimeAllocation(report) {
+  const { timeAllocation } = report;
+  if (!timeAllocation || timeAllocation.length === 0) return [];
+
+  return timeAllocation.map(ta => ({
+    domain: ta.domain,
+    displayName: DOMAIN_DISPLAY_NAMES[ta.domain] || ta.domain,
+    timePct: ta.timePct,
+    accuracy: ta.accuracy,
+    timeFormatted: formatTime(ta.timeSpent),
+    questionCount: ta.questionCount,
+    efficiency: ta.efficiency,
+    isOverinvested: ta.isOverinvested,
+  }));
+}
+
+/**
+ * Build confidence indicators — how reliable are different diagnosis sections.
+ */
+function buildConfidenceIndicators(report) {
+  const { confidenceInterval, questionAnalysis, trendAnalysis } = report;
+  const indicators = [];
+
+  if (confidenceInterval) {
+    indicators.push({
+      id: 'score-reliability',
+      area: 'Score Estimate',
+      confidence: confidenceInterval.reliability,
+      detail: confidenceInterval.message,
+    });
+  }
+
+  if (questionAnalysis) {
+    const withReasoning = questionAnalysis.filter(q => !q.isCorrect && q.confidence);
+    if (withReasoning.length > 0) {
+      const avgConf = Math.round(withReasoning.reduce((s, q) => s + q.confidence, 0) / withReasoning.length * 100);
+      const lowConf = withReasoning.filter(q => q.confidence < 0.6).length;
+      indicators.push({
+        id: 'error-classification',
+        area: 'Error Classifications',
+        confidence: avgConf >= 70 ? 'high' : avgConf >= 55 ? 'moderate' : 'low',
+        detail: lowConf > 0
+          ? `Average classification confidence: ${avgConf}%. ${lowConf} classification(s) are uncertain — treat those with caution.`
+          : `Average classification confidence: ${avgConf}%.`,
+      });
+    }
+  }
+
+  if (trendAnalysis) {
+    indicators.push({
+      id: 'trend-data',
+      area: 'Trend Analysis',
+      confidence: trendAnalysis.hasHistory ? 'high' : 'low',
+      detail: trendAnalysis.hasHistory
+        ? 'Cross-test comparison data is available.'
+        : 'No prior test data — trend insights will improve after more tests.',
+    });
+  }
+
+  return indicators;
+}
+
+/**
  * Main adapter entry point.
  *
  * @param {object} report       Full output from `runDiagnostic()`
@@ -307,8 +520,14 @@ export function adaptDiagnosticForUI(report, rawDiagData) {
     difficulty: buildDifficultyBreakdown(report),
     questionEvidence: buildQuestionEvidence(report),
     scoreProjection: buildScoreProjection(report),
+    weaknessClusters: buildWeaknessClusters(report),
+    persistentWeaknesses: buildPersistentWeaknesses(report),
+    behaviorOutcomes: buildBehaviorOutcomes(report, rawDiagData),
+    timeAllocation: buildTimeAllocation(report),
+    confidenceIndicators: buildConfidenceIndicators(report),
     score: report.score,
     percentile: report.percentile,
     fingerprint: report.mistakeFingerprint,
+    learningVelocity: report.learningVelocity,
   };
 }
