@@ -205,6 +205,21 @@ describe('adaptDiagnosticForUI', () => {
       expect(result).toHaveProperty('fingerprint');
     });
 
+    describe('quickStats', () => {
+      it('returns an array of quick stat objects', () => {
+        expect(Array.isArray(result.quickStats)).toBe(true);
+        expect(result.quickStats.length).toBeGreaterThan(0);
+      });
+
+      it('includes easy wins and score gap when present', () => {
+        const labels = result.quickStats.map(s => s.id);
+        expect(labels).toContain('score-gap');
+        expect(labels).toContain('easy-wins');
+        expect(labels).toContain('top-domain-drag');
+        expect(labels).toContain('trend');
+      });
+    });
+
     describe('keyFindings', () => {
       it('contains at most 4 findings', () => {
         expect(result.keyFindings.length).toBeLessThanOrEqual(4);

@@ -502,6 +502,65 @@ function buildConfidenceIndicators(report) {
 }
 
 /**
+ * Build quick stats strip for the diagnostic hero.
+ */
+function buildQuickStats(report) {
+  const stats = [];
+
+  if (report.score && report.score.gap > 0) {
+    stats.push({
+      id: 'score-gap',
+      label: 'Points to Target',
+      value: report.score.gap,
+      subtext: `Target: ${report.score.target}`,
+      type: 'neutral',
+    });
+  }
+
+  if (report.scoreProjection?.easyWins?.count > 0) {
+    stats.push({
+      id: 'easy-wins',
+      label: 'Easy Wins',
+      value: `+${report.scoreProjection.easyWins.projectedGain}`,
+      subtext: `${report.scoreProjection.easyWins.count} easy questions missed`,
+      type: 'warning',
+    });
+  }
+
+  const topDomain = report.scoreProjection?.domainProjections?.[0];
+  if (topDomain) {
+    stats.push({
+      id: 'top-domain-drag',
+      label: 'Biggest Lever',
+      value: topDomain.domainName,
+      subtext: `+${topDomain.projectedPointGain} potential points`,
+      type: 'info',
+    });
+  }
+
+  if (report.trendAnalysis?.hasHistory) {
+    const sc = report.trendAnalysis.scoreChange;
+    stats.push({
+      id: 'trend',
+      label: 'Recent Trend',
+      value: sc > 0 ? `+${sc} pts` : sc === 0 ? 'Flat' : `${sc} pts`,
+      subtext: report.trendAnalysis.trend.replace('_', ' '),
+      type: sc > 0 ? 'success' : sc < 0 ? 'error' : 'neutral',
+    });
+  } else if (report.learningVelocity?.hasData) {
+    stats.push({
+      id: 'velocity',
+      label: 'Learning Speed',
+      value: `+${report.learningVelocity.velocity}/wk`,
+      subtext: report.learningVelocity.trend,
+      type: report.learningVelocity.velocity > 0 ? 'success' : 'neutral',
+    });
+  }
+
+  return stats;
+}
+
+/**
  * Main adapter entry point.
  *
  * @param {object} report       Full output from `runDiagnostic()`
@@ -512,6 +571,7 @@ export function adaptDiagnosticForUI(report, rawDiagData) {
   if (!report) return null;
 
   return {
+    quickStats: buildQuickStats(report),
     keyFindings: buildKeyFindings(report),
     pointLoss: buildPointLoss(report),
     roiFixes: buildROIFixes(report),
