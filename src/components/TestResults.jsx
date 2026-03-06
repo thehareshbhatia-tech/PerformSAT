@@ -10,6 +10,7 @@ import { getSkillById } from '../data/skillTaxonomy';
 import { colors, radius, shadows } from '../design/tokens';
 import { cardStyles, buttonStyles } from '../design/components';
 import { ChartBarIcon, ArrowRightIcon, CircleDotIcon } from '../design/icons';
+import { convertToSATScore, isAnswerCorrect, estimatePercentile } from '../services/scoring';
 
 // Domain display names matching Test Innovators
 const domainDisplayNames = {
@@ -17,25 +18,6 @@ const domainDisplayNames = {
   'problem-solving': 'Problem Solving and Data Analysis',
   'advanced-math': 'Advanced Math',
   'geometry': 'Geometry and Trigonometry'
-};
-
-// SAT scoring table (same as PracticeTest.jsx)
-const scoringTable = {
-  44: 800, 43: 790, 42: 780, 41: 770, 40: 760,
-  39: 750, 38: 740, 37: 730, 36: 720, 35: 710,
-  34: 700, 33: 690, 32: 680, 31: 670, 30: 660,
-  29: 650, 28: 640, 27: 630, 26: 620, 25: 610,
-  24: 600, 23: 590, 22: 580, 21: 570, 20: 560,
-  19: 550, 18: 540, 17: 530, 16: 520, 15: 510,
-  14: 500, 13: 490, 12: 480, 11: 470, 10: 460,
-  9: 450, 8: 440, 7: 430, 6: 420, 5: 410,
-  4: 400, 3: 390, 2: 380, 1: 370, 0: 200
-};
-
-// Convert raw score to SAT scaled score
-const convertToSATScore = (rawScore, totalQuestions) => {
-  const scaledRaw = Math.round((rawScore / totalQuestions) * 44);
-  return scoringTable[Math.min(44, Math.max(0, scaledRaw))] || 200;
 };
 
 // Donut Chart Component for difficulty breakdown
@@ -285,16 +267,7 @@ const TestResults = ({
     let correct = 0;
     module.questions.forEach((q, qIdx) => {
       const key = `${moduleIndex}-${qIdx}`;
-      const userAnswer = answers[key];
-      if (q.type === 'fill-in') {
-        if (userAnswer === q.correctAnswer || parseFloat(userAnswer) === q.correctAnswer) {
-          correct++;
-        }
-      } else {
-        if (userAnswer === q.correctAnswer) {
-          correct++;
-        }
-      }
+      if (isAnswerCorrect(q, answers[key])) correct++;
     });
     return { correct, total: module.questions.length };
   };
@@ -323,19 +296,10 @@ const TestResults = ({
 
       if (!userAnswer) {
         breakdown[difficulty].unanswered++;
+      } else if (isAnswerCorrect(q, userAnswer)) {
+        breakdown[difficulty].correct++;
       } else {
-        let isCorrect = false;
-        if (q.type === 'fill-in') {
-          isCorrect = userAnswer === q.correctAnswer || parseFloat(userAnswer) === q.correctAnswer;
-        } else {
-          isCorrect = userAnswer === q.correctAnswer;
-        }
-
-        if (isCorrect) {
-          breakdown[difficulty].correct++;
-        } else {
-          breakdown[difficulty].incorrect++;
-        }
+        breakdown[difficulty].incorrect++;
       }
     });
 
@@ -365,16 +329,8 @@ const TestResults = ({
       }
       domains[domain].total++;
 
-      if (userAnswer) {
-        let isCorrect = false;
-        if (q.type === 'fill-in') {
-          isCorrect = userAnswer === q.correctAnswer || parseFloat(userAnswer) === q.correctAnswer;
-        } else {
-          isCorrect = userAnswer === q.correctAnswer;
-        }
-        if (isCorrect) {
-          domains[domain].correct++;
-        }
+      if (userAnswer && isAnswerCorrect(q, userAnswer)) {
+        domains[domain].correct++;
       }
     });
 
@@ -398,15 +354,7 @@ const TestResults = ({
       const key = `${modIdx}-${qIdx}`;
       const userAnswer = answers[key];
       const isAnswered = userAnswer !== undefined && userAnswer !== null && userAnswer !== '';
-      let isCorrect = false;
-      if (isAnswered) {
-        if (q.type === 'fill-in') {
-          isCorrect = userAnswer === q.correctAnswer || parseFloat(userAnswer) === q.correctAnswer;
-        } else {
-          isCorrect = userAnswer === q.correctAnswer;
-        }
-      }
-      return { key, question: q, isAnswered, isCorrect };
+      return { key, question: q, isAnswered, isCorrect: isAnswered && isAnswerCorrect(q, userAnswer) };
     })
   );
 
@@ -429,19 +377,7 @@ const TestResults = ({
     const isAtTarget = gap <= 0;
     const accuracyPct = Math.round((totalCorrect / totalQuestions) * 100);
 
-    const PERCENTILE_TABLE = {
-      200: 1, 210: 1, 220: 1, 230: 1, 240: 2, 250: 3, 260: 4, 270: 5,
-      280: 6, 290: 8, 300: 10, 310: 12, 320: 14, 330: 16, 340: 19,
-      350: 22, 360: 25, 370: 28, 380: 31, 390: 34, 400: 37, 410: 40,
-      420: 43, 430: 46, 440: 49, 450: 52, 460: 55, 470: 57, 480: 60,
-      490: 63, 500: 66, 510: 69, 520: 72, 530: 74, 540: 76, 550: 78,
-      560: 80, 570: 82, 580: 84, 590: 86, 600: 88, 610: 89, 620: 90,
-      630: 91, 640: 92, 650: 93, 660: 93, 670: 94, 680: 95, 690: 95,
-      700: 96, 710: 97, 720: 97, 730: 98, 740: 98, 750: 99, 760: 99,
-      770: 99, 780: 99, 790: 99, 800: 99,
-    };
-    const rounded = Math.round(satScore / 10) * 10;
-    const percentile = PERCENTILE_TABLE[Math.min(800, Math.max(200, rounded))] || 50;
+    const percentile = estimatePercentile(satScore);
 
     // ── Difficulty aggregates ──
     const diffAll = { easy: { correct: 0, total: 0 }, medium: { correct: 0, total: 0 }, hard: { correct: 0, total: 0 } };

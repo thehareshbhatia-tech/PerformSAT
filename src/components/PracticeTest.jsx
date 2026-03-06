@@ -10,6 +10,7 @@ import { generateStudyPlan as generateStudyPlanFromAI, saveStudyPlanArtifact } f
 import { runDiagnostic } from '../services/diagnosticEngine';
 import { getTargetedWeaknessSet } from '../data/questions/bank';
 import DiagnosticReport from './DiagnosticReport';
+import { scoreTest, isAnswerCorrect, convertToSATScore } from '../services/scoring';
 import { colors, typography, spacing, radius, shadows, transitions } from '../design/tokens';
 import { cardStyles, buttonStyles } from '../design/components';
 import './PracticeTest.css';
@@ -964,64 +965,6 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
 
     if (testCompleted && onSaveResult && !resultSaved) {
       console.log('[PracticeTest] Attempting to save results...');
-      const totalQuestions = test.modules.reduce((sum, m) => sum + m.questions.length, 0);
-
-      // Calculate total score
-      let totalScore = 0;
-      test.modules.forEach((mod, modIdx) => {
-        mod.questions.forEach((q, qIdx) => {
-          const key = `${modIdx}-${qIdx}`;
-          const userAnswer = answers[key];
-          if (q.type === 'fill-in') {
-            if (userAnswer === q.correctAnswer || parseFloat(userAnswer) === q.correctAnswer) {
-              totalScore++;
-            }
-          } else {
-            if (userAnswer === q.correctAnswer) {
-              totalScore++;
-            }
-          }
-        });
-      });
-
-      // Calculate module scores
-      const moduleScores = test.modules.map((mod, modIdx) => {
-        let modScore = 0;
-        mod.questions.forEach((q, qIdx) => {
-          const key = `${modIdx}-${qIdx}`;
-          const userAnswer = answers[key];
-          if (q.type === 'fill-in') {
-            if (userAnswer === q.correctAnswer || parseFloat(userAnswer) === q.correctAnswer) {
-              modScore++;
-            }
-          } else {
-            if (userAnswer === q.correctAnswer) {
-              modScore++;
-            }
-          }
-        });
-        return { moduleTitle: mod.title, score: modScore, total: mod.questions.length };
-      });
-
-      // Convert to SAT score
-      const scoringTable = {
-        44: 800, 43: 790, 42: 780, 41: 770, 40: 760,
-        39: 750, 38: 740, 37: 730, 36: 720, 35: 710,
-        34: 700, 33: 690, 32: 680, 31: 670, 30: 660,
-        29: 650, 28: 640, 27: 630, 26: 620, 25: 610,
-        24: 600, 23: 590, 22: 580, 21: 570, 20: 560,
-        19: 550, 18: 540, 17: 530, 16: 520, 15: 510,
-        14: 500, 13: 490, 12: 480, 11: 470, 10: 450,
-        9: 430, 8: 410, 7: 390, 6: 370, 5: 350,
-        4: 330, 3: 310, 2: 280, 1: 240, 0: 200
-      };
-      let scaledScore;
-      if (totalQuestions !== 44) {
-        const scaledRaw = Math.round((totalScore / totalQuestions) * 44);
-        scaledScore = scoringTable[Math.min(44, Math.max(0, scaledRaw))];
-      } else {
-        scaledScore = scoringTable[Math.min(44, Math.max(0, totalScore))];
-      }
 
       // Record time spent on the last question before test completion
       const now = Date.now();
@@ -1039,12 +982,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         mod.questions.forEach((q, qIdx) => {
           const key = `${modIdx}-${qIdx}`;
           const userAnswer = answers[key];
-          let isCorrect = false;
-          if (q.type === 'fill-in') {
-            isCorrect = userAnswer === q.correctAnswer || parseFloat(userAnswer) === q.correctAnswer;
-          } else {
-            isCorrect = userAnswer === q.correctAnswer;
-          }
+          const correct = isAnswerCorrect(q, userAnswer);
           const telem = questionTelemetry.current[key] || {};
           const elimKey = key;
           questionDetails[key] = {
@@ -1057,7 +995,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             usedCalculator: telem.usedCalculator || false,
             markedForReview: telem.markedForReview || false,
             eliminatedChoices: eliminatedChoices[elimKey] || [],
-            isCorrect,
+            isCorrect: correct,
             difficulty: q.difficulty || null,
             skills: q.skills || [],
           };
@@ -1096,13 +1034,19 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
 
       diagnosticDataRef.current = diagnosticData;
 
+      // IRT-based scoring via central engine
+      const scored = scoreTest(test, answers, { timedMode: isTimed, diagnosticData });
       const resultsToSave = {
-        rawScore: totalScore,
-        totalQuestions,
-        scaledScore,
+        rawScore: scored.rawScore,
+        totalQuestions: scored.totalQuestions,
+        scaledScore: scored.sectionScore,
         timedMode: isTimed,
-        moduleScores,
-        diagnosticData
+        moduleScores: scored.moduleScores,
+        diagnosticData,
+        scoringVersion: scored.scoringVersion,
+        thetaEstimate: scored.thetaEstimate,
+        standardError: scored.standardError,
+        routeTaken: scored.routeTaken,
       };
       console.log('[PracticeTest] Calling onSaveResult with:', resultsToSave);
       onSaveResult(resultsToSave);
@@ -1118,14 +1062,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           mod.questions.forEach((q, qIdx) => {
             if (q.skills && q.skills.length > 0) {
               const key = `${modIdx}-${qIdx}`;
-              const userAnswer = answers[key];
-              let isCorrect = false;
-              if (q.type === 'fill-in') {
-                isCorrect = userAnswer === q.correctAnswer || parseFloat(userAnswer) === q.correctAnswer;
-              } else {
-                isCorrect = userAnswer === q.correctAnswer;
-              }
-              skillEntries.push({ skills: q.skills, isCorrect });
+              skillEntries.push({ skills: q.skills, isCorrect: isAnswerCorrect(q, answers[key]) });
             }
           });
         });
@@ -1510,33 +1447,6 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       });
     });
     return total;
-  };
-
-  // Convert raw score (0-44) to SAT scaled score (200-800)
-  // Based on official College Board Digital SAT scoring tables
-  const convertToSATScore = (rawScore, totalQuestions = 44) => {
-    // SAT Math section scoring conversion table
-    // Raw scores map to scaled scores on a curve
-    // This is an approximation based on official College Board data
-    const scoringTable = {
-      44: 800, 43: 790, 42: 780, 41: 770, 40: 760,
-      39: 750, 38: 740, 37: 730, 36: 720, 35: 710,
-      34: 700, 33: 690, 32: 680, 31: 670, 30: 660,
-      29: 650, 28: 640, 27: 630, 26: 620, 25: 610,
-      24: 600, 23: 590, 22: 580, 21: 570, 20: 560,
-      19: 550, 18: 540, 17: 530, 16: 520, 15: 510,
-      14: 500, 13: 490, 12: 480, 11: 470, 10: 450,
-      9: 430, 8: 410, 7: 390, 6: 370, 5: 350,
-      4: 330, 3: 310, 2: 280, 1: 240, 0: 200
-    };
-
-    // If test has different number of questions, scale proportionally
-    if (totalQuestions !== 44) {
-      const scaledRaw = Math.round((rawScore / totalQuestions) * 44);
-      return scoringTable[Math.min(44, Math.max(0, scaledRaw))];
-    }
-
-    return scoringTable[Math.min(44, Math.max(0, rawScore))];
   };
 
   // Get score level description

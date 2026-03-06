@@ -21,6 +21,7 @@
  */
 
 import { getSkillById, skillTaxonomy, getSkillsForDomain } from '../data/skillTaxonomy';
+import { convertToSATScore, isAnswerCorrect, estimatePercentile as _estimatePercentile } from './scoring';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONSTANTS
@@ -42,18 +43,8 @@ const DOMAIN_QUESTION_COUNTS = {
   'geometry': 7,
 };
 
-// SAT scoring table (raw → scaled)
-const SCORING_TABLE = {
-  44: 800, 43: 790, 42: 780, 41: 770, 40: 760,
-  39: 750, 38: 740, 37: 730, 36: 720, 35: 710,
-  34: 700, 33: 690, 32: 680, 31: 670, 30: 660,
-  29: 650, 28: 640, 27: 630, 26: 620, 25: 610,
-  24: 600, 23: 590, 22: 580, 21: 570, 20: 560,
-  19: 550, 18: 540, 17: 530, 16: 520, 15: 510,
-  14: 500, 13: 490, 12: 480, 11: 470, 10: 460,
-  9: 450, 8: 440, 7: 430, 6: 420, 5: 410,
-  4: 400, 3: 390, 2: 380, 1: 370, 0: 200,
-};
+// Helper: convert a raw score count to a scaled SAT score via the IRT engine
+const rawToScaled = (raw, total) => convertToSATScore(raw, total);
 
 // Time thresholds (seconds) for classifying time-related issues
 const TIME_THRESHOLDS = {
@@ -540,13 +531,7 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
 
       totalQuestions++;
 
-      // Check correctness
-      let isCorrect = false;
-      if (q.type === 'fill-in') {
-        isCorrect = userAnswer === q.correctAnswer || parseFloat(userAnswer) === q.correctAnswer;
-      } else {
-        isCorrect = userAnswer === q.correctAnswer;
-      }
+      const isCorrect = isAnswerCorrect(q, userAnswer);
 
       if (isCorrect) {
         totalCorrect++;
@@ -587,8 +572,7 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
   });
 
   // ═══ PHASE 2: Calculate scores ═══
-  const scaledRaw = Math.round((totalCorrect / totalQuestions) * 44);
-  const scaledScore = SCORING_TABLE[Math.min(44, Math.max(0, scaledRaw))] || 200;
+  const scaledScore = rawToScaled(totalCorrect, totalQuestions);
   const targetScore = userProfile.targetScore || 700;
   const scoreGap = Math.max(0, targetScore - scaledScore);
 
@@ -876,7 +860,7 @@ const analyzeSkills = (questionAnalysis, skillProgress = {}) => {
  * Project how much score improvement is possible by fixing specific areas.
  */
 const projectScoreImprovements = (questionAnalysis, currentCorrect, totalQuestions, targetScore) => {
-  const currentScaled = SCORING_TABLE[Math.round((currentCorrect / totalQuestions) * 44)] || 200;
+  const currentScaled = rawToScaled(currentCorrect, totalQuestions);
   const wrongQuestions = questionAnalysis.filter(q => !q.isCorrect);
 
   // Group wrong questions by domain
@@ -894,7 +878,7 @@ const projectScoreImprovements = (questionAnalysis, currentCorrect, totalQuestio
       // How many additional correct if this domain is mastered?
       const additionalCorrect = questions.length;
       const newTotal = currentCorrect + additionalCorrect;
-      const newScaled = SCORING_TABLE[Math.round((newTotal / totalQuestions) * 44)] || 200;
+      const newScaled = rawToScaled(newTotal, totalQuestions);
       const pointGain = newScaled - currentScaled;
 
       return {
@@ -920,7 +904,7 @@ const projectScoreImprovements = (questionAnalysis, currentCorrect, totalQuestio
   const errorTypeProjections = Object.entries(errorTypeGains)
     .map(([type, count]) => {
       const newTotal = currentCorrect + count;
-      const newScaled = SCORING_TABLE[Math.round((newTotal / totalQuestions) * 44)] || 200;
+      const newScaled = rawToScaled(newTotal, totalQuestions);
       return {
         errorType: type,
         label: ERROR_TYPE_LABELS[type],
@@ -937,22 +921,20 @@ const projectScoreImprovements = (questionAnalysis, currentCorrect, totalQuestio
   const quickWins = wrongQuestions.filter(q => q.difficulty === 'easy' || q.difficulty === 'medium');
   const quickWinGain = (() => {
     const newTotal = currentCorrect + quickWins.length;
-    const newScaled = SCORING_TABLE[Math.round((newTotal / totalQuestions) * 44)] || 200;
-    return newScaled - currentScaled;
+    return rawToScaled(newTotal, totalQuestions) - currentScaled;
   })();
 
   // Calculate "just the easy ones" — absolute minimum effort path
   const easyWins = wrongQuestions.filter(q => q.difficulty === 'easy');
   const easyWinGain = (() => {
     const newTotal = currentCorrect + easyWins.length;
-    const newScaled = SCORING_TABLE[Math.round((newTotal / totalQuestions) * 44)] || 200;
-    return newScaled - currentScaled;
+    return rawToScaled(newTotal, totalQuestions) - currentScaled;
   })();
 
   // Path to target: how many more correct answers needed?
   let questionsNeeded = 0;
   for (let i = currentCorrect + 1; i <= totalQuestions; i++) {
-    const score = SCORING_TABLE[Math.round((i / totalQuestions) * 44)] || 200;
+    const score = rawToScaled(i, totalQuestions);
     if (score >= targetScore) {
       questionsNeeded = i - currentCorrect;
       break;
@@ -1438,19 +1420,15 @@ const calculateConfidenceInterval = (correct, total, scaledScore) => {
   const ci95 = wilson(z95);
   const ci80 = wilson(z80);
 
-  // Map raw ranges to scaled scores
-  const rawToScaled = (raw) => {
-    const scaledRaw = Math.round((raw / total) * 44);
-    return SCORING_TABLE[Math.min(44, Math.max(0, scaledRaw))] || 200;
-  };
+  const rawToScaledCI = (raw) => convertToSATScore(raw, total);
 
   return {
     raw95: ci95,
     raw80: ci80,
-    scaled95: { low: rawToScaled(ci95.low), high: rawToScaled(ci95.high) },
-    scaled80: { low: rawToScaled(ci80.low), high: rawToScaled(ci80.high) },
+    scaled95: { low: rawToScaledCI(ci95.low), high: rawToScaledCI(ci95.high) },
+    scaled80: { low: rawToScaledCI(ci80.low), high: rawToScaledCI(ci80.high) },
     reliability: total >= 30 ? 'high' : total >= 20 ? 'moderate' : 'low',
-    message: `Your true score is likely between ${rawToScaled(ci80.low)} and ${rawToScaled(ci80.high)} (80% confidence)`,
+    message: `Your true score is likely between ${rawToScaledCI(ci80.low)} and ${rawToScaledCI(ci80.high)} (80% confidence)`,
   };
 };
 
@@ -1717,21 +1695,7 @@ const analyzeStamina = (questionAnalysis) => {
  * Based on published College Board score distributions.
  */
 const estimatePercentile = (scaledScore) => {
-  // Approximate SAT Math percentile table (College Board data)
-  const PERCENTILE_TABLE = {
-    200: 1, 210: 1, 220: 1, 230: 1, 240: 2, 250: 3, 260: 4, 270: 5,
-    280: 6, 290: 8, 300: 10, 310: 12, 320: 14, 330: 16, 340: 19,
-    350: 22, 360: 25, 370: 28, 380: 31, 390: 34, 400: 37, 410: 40,
-    420: 43, 430: 46, 440: 49, 450: 52, 460: 55, 470: 57, 480: 60,
-    490: 63, 500: 65, 510: 68, 520: 70, 530: 73, 540: 75, 550: 77,
-    560: 79, 570: 81, 580: 83, 590: 85, 600: 86, 610: 88, 620: 89,
-    630: 90, 640: 91, 650: 92, 660: 93, 670: 94, 680: 95, 690: 96,
-    700: 96, 710: 97, 720: 97, 730: 98, 740: 98, 750: 99, 760: 99,
-    770: 99, 780: 99, 790: 99, 800: 99,
-  };
-
-  const rounded = Math.round(scaledScore / 10) * 10;
-  const percentile = PERCENTILE_TABLE[Math.min(800, Math.max(200, rounded))] || 50;
+  const percentile = _estimatePercentile(scaledScore);
 
   let tier;
   if (percentile >= 95) tier = 'elite';
@@ -1849,7 +1813,6 @@ export {
   ERROR_TYPE_COLORS,
   DOMAIN_WEIGHTS,
   DOMAIN_QUESTION_COUNTS,
-  SCORING_TABLE,
   calculateConfidenceInterval,
   calculateLearningVelocity,
   analyzeSkillClusters,

@@ -35,7 +35,11 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
       scaledScore: results.scaledScore,
       timedMode: results.timedMode,
       moduleScores: results.moduleScores,
-      diagnosticData: results.diagnosticData || null
+      diagnosticData: results.diagnosticData || null,
+      scoringVersion: results.scoringVersion || null,
+      thetaEstimate: results.thetaEstimate ?? null,
+      standardError: results.standardError ?? null,
+      routeTaken: results.routeTaken || null,
     };
 
     if (!progressSnap.exists()) {
