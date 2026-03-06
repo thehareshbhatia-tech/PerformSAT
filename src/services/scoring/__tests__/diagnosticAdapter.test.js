@@ -1,9 +1,5 @@
-import { adaptDiagnosticForUI } from '../diagnosticAdapter';
+import { adaptDiagnosticForUI, mergeAiIntoReport } from '../diagnosticAdapter';
 
-/**
- * Build a minimal diagnostic report fixture that matches the shape
- * returned by `runDiagnostic()`.
- */
 function buildReport(overrides = {}) {
   const base = {
     score: { raw: 30, total: 44, scaled: 650, target: 700, gap: 50, percentCorrect: 68 },
@@ -192,17 +188,22 @@ describe('adaptDiagnosticForUI', () => {
     });
 
     it('returns all expected top-level keys', () => {
+      expect(result).toHaveProperty('summary');
+      expect(result).toHaveProperty('behaviorHighlights');
+      expect(result).toHaveProperty('quickStats');
       expect(result).toHaveProperty('keyFindings');
-      expect(result).toHaveProperty('pointLoss');
-      expect(result).toHaveProperty('roiFixes');
-      expect(result).toHaveProperty('domains');
-      expect(result).toHaveProperty('behavior');
-      expect(result).toHaveProperty('difficulty');
-      expect(result).toHaveProperty('questionEvidence');
       expect(result).toHaveProperty('scoreProjection');
+      expect(result).toHaveProperty('behaviorOutcomes');
+      expect(result).toHaveProperty('timeAllocation');
+      expect(result).toHaveProperty('confidenceIndicators');
+      expect(result).toHaveProperty('report');
       expect(result).toHaveProperty('score');
       expect(result).toHaveProperty('percentile');
       expect(result).toHaveProperty('fingerprint');
+    });
+
+    it('does not expose standalone evidenceSummary', () => {
+      expect(result).not.toHaveProperty('evidenceSummary');
     });
 
     describe('quickStats', () => {
@@ -244,157 +245,12 @@ describe('adaptDiagnosticForUI', () => {
       });
     });
 
-    describe('pointLoss', () => {
-      it('has one entry per error type with non-zero count', () => {
-        expect(result.pointLoss.length).toBe(4);
-      });
-
-      it('first entry is the dominant error type (careless_error)', () => {
-        expect(result.pointLoss[0].type).toBe('careless_error');
-        expect(result.pointLoss[0].count).toBe(5);
-      });
-
-      it('includes sample questions with reasoning', () => {
-        expect(result.pointLoss[0].sampleQuestions.length).toBe(2);
-        expect(result.pointLoss[0].sampleQuestions[0].reasoning).toBeTruthy();
-      });
-    });
-
-    describe('roiFixes', () => {
-      it('returns at most 5 prioritized actions', () => {
-        expect(result.roiFixes.length).toBeLessThanOrEqual(5);
-      });
-
-      it('first fix has title, gain, and action items', () => {
-        const first = result.roiFixes[0];
-        expect(first.title).toBeTruthy();
-        expect(first.estimatedGain).toBeGreaterThan(0);
-        expect(first.actionItems.length).toBeGreaterThan(0);
-      });
-    });
-
-    describe('domains', () => {
-      it('returns all 4 SAT domains in stable order', () => {
-        expect(result.domains.map(d => d.domain)).toEqual([
-          'algebra', 'problem-solving', 'advanced-math', 'geometry',
-        ]);
-      });
-
-      it('each domain has accuracy and display name', () => {
-        result.domains.forEach(d => {
-          expect(typeof d.accuracy).toBe('number');
-          expect(d.displayName).toBeTruthy();
-        });
-      });
-
-      it('includes the top error type for domains with errors', () => {
-        const geo = result.domains.find(d => d.domain === 'geometry');
-        expect(geo.topErrorType).toBeTruthy();
-      });
-    });
-
-    describe('behavior', () => {
-      it('includes avg time, stamina, navigation, and calculator signals', () => {
-        const labels = result.behavior.map(b => b.label);
-        expect(labels).toContain('Avg time / question');
-        expect(labels).toContain('Navigation');
-        expect(labels).toContain('Calculator usage');
-        expect(labels).toContain('Stamina');
-      });
-
-      it('marks warnings as type=warning', () => {
-        const stamina = result.behavior.find(b => b.label === 'Stamina');
-        expect(stamina.type).toBe('warning');
-      });
-    });
-
-    describe('difficulty', () => {
-      it('returns easy/medium/hard in order', () => {
-        expect(result.difficulty.map(d => d.level)).toEqual(['easy', 'medium', 'hard']);
-      });
-    });
-
-    describe('questionEvidence', () => {
-      it('returns at most 6 classified misses', () => {
-        expect(result.questionEvidence.length).toBeLessThanOrEqual(6);
-      });
-
-      it('each entry has label, errorLabel, reasoning, and domain', () => {
-        result.questionEvidence.forEach(q => {
-          expect(q.label).toBeTruthy();
-          expect(q.errorLabel).toBeTruthy();
-          expect(q.reasoning).toBeTruthy();
-          expect(q.domainName).toBeTruthy();
-        });
-      });
-    });
-
     describe('scoreProjection', () => {
       it('includes currentScore, targetScore, gap, and easyWins', () => {
         expect(result.scoreProjection.currentScore).toBe(650);
         expect(result.scoreProjection.targetScore).toBe(700);
         expect(result.scoreProjection.gap).toBe(50);
         expect(result.scoreProjection.easyWins.count).toBe(3);
-      });
-    });
-
-    describe('weaknessClusters', () => {
-      it('is an array', () => {
-        expect(Array.isArray(result.weaknessClusters)).toBe(true);
-      });
-
-      it('includes entries from skillClusters and rootCauseClusters', () => {
-        expect(result.weaknessClusters.length).toBeGreaterThanOrEqual(2);
-      });
-
-      it('each entry has id, type, label, severity, detail', () => {
-        result.weaknessClusters.forEach(c => {
-          expect(c).toHaveProperty('id');
-          expect(c).toHaveProperty('type');
-          expect(c).toHaveProperty('label');
-          expect(c).toHaveProperty('severity');
-          expect(c).toHaveProperty('detail');
-        });
-      });
-
-      it('includes concept-type entries from skillClusters', () => {
-        const concept = result.weaknessClusters.find(c => c.type === 'concept');
-        expect(concept).toBeDefined();
-        expect(concept.label).toBe('Slope Mastery');
-      });
-
-      it('includes root-cause-type entries from rootCauseClusters', () => {
-        const rootCause = result.weaknessClusters.find(c => c.type === 'root-cause');
-        expect(rootCause).toBeDefined();
-        expect(rootCause.id).toBe('recurring-concept-gaps');
-      });
-    });
-
-    describe('persistentWeaknesses', () => {
-      it('is an array', () => {
-        expect(Array.isArray(result.persistentWeaknesses)).toBe(true);
-      });
-
-      it('entries have type, skill, detail, severity', () => {
-        result.persistentWeaknesses.forEach(pw => {
-          expect(pw).toHaveProperty('type');
-          expect(pw).toHaveProperty('skill');
-          expect(pw).toHaveProperty('detail');
-          expect(pw).toHaveProperty('severity');
-        });
-      });
-
-      it('includes persistent-skill entries from trendAnalysis.persistentWeaknesses', () => {
-        const persistent = result.persistentWeaknesses.find(pw => pw.type === 'persistent-skill');
-        expect(persistent).toBeDefined();
-        expect(persistent.skill).toBe('Factoring');
-        expect(persistent.severity).toBe('critical');
-      });
-
-      it('includes declining-skill entries from trendAnalysis.decliningSkills', () => {
-        const declining = result.persistentWeaknesses.find(pw => pw.type === 'declining-skill');
-        expect(declining).toBeDefined();
-        expect(declining.skill).toBe('Factoring');
       });
     });
 
@@ -417,12 +273,6 @@ describe('adaptDiagnosticForUI', () => {
         const changes = result.behaviorOutcomes.find(bo => bo.id === 'answer-changes');
         expect(changes).toBeDefined();
         expect(changes.behavior).toBe('Answer Changes');
-      });
-
-      it('includes elimination outcome when used > 0', () => {
-        const elim = result.behaviorOutcomes.find(bo => bo.id === 'elimination');
-        expect(elim).toBeDefined();
-        expect(elim.behavior).toBe('Process of Elimination');
       });
     });
 
@@ -475,6 +325,136 @@ describe('adaptDiagnosticForUI', () => {
     });
   });
 
+  describe('summary contract', () => {
+    let result;
+    beforeAll(() => {
+      result = adaptDiagnosticForUI(buildReport(), {});
+    });
+
+    it('exposes a summary object at the top level', () => {
+      expect(result.summary).toBeDefined();
+      expect(typeof result.summary.headline).toBe('string');
+      expect(result.summary.headline.length).toBeGreaterThan(0);
+    });
+
+    it('headline names the top weakness', () => {
+      expect(result.summary.headline).toMatch(/biggest challenge/i);
+    });
+
+    it('returns at most 3 top weaknesses', () => {
+      expect(result.summary.topWeaknesses.length).toBeLessThanOrEqual(3);
+      expect(result.summary.topWeaknesses.length).toBeGreaterThan(0);
+    });
+
+    it('each weakness has name, why, proof array, and severity', () => {
+      result.summary.topWeaknesses.forEach(w => {
+        expect(w.name).toBeTruthy();
+        expect(typeof w.why).toBe('string');
+        expect(w.why.length).toBeGreaterThan(0);
+        expect(Array.isArray(w.proof)).toBe(true);
+        expect(w.id).toBeTruthy();
+        expect(w.severity).toBeTruthy();
+      });
+    });
+
+    it('proof is attached directly to each weakness', () => {
+      const withProof = result.summary.topWeaknesses.filter(w => w.proof.length > 0);
+      expect(withProof.length).toBeGreaterThan(0);
+    });
+
+    it('weaknesses are sorted by severity (critical before moderate)', () => {
+      const order = { critical: 0, moderate: 1, warning: 2 };
+      for (let i = 1; i < result.summary.topWeaknesses.length; i++) {
+        const prev = order[result.summary.topWeaknesses[i - 1].severity] ?? 3;
+        const curr = order[result.summary.topWeaknesses[i].severity] ?? 3;
+        expect(prev).toBeLessThanOrEqual(curr);
+      }
+    });
+
+    it('does not include prescriptive fields', () => {
+      expect(result.summary).not.toHaveProperty('primaryAction');
+      expect(result.summary).not.toHaveProperty('secondaryActions');
+    });
+
+    it('provides a scoreImpact array', () => {
+      expect(Array.isArray(result.summary.scoreImpact)).toBe(true);
+      expect(result.summary.scoreImpact.length).toBeGreaterThan(0);
+      result.summary.scoreImpact.forEach(point => {
+        expect(typeof point).toBe('string');
+        expect(point.length).toBeGreaterThan(0);
+      });
+    });
+
+    it('scoreImpact points are non-prescriptive', () => {
+      const prescriptivePatterns = /\b(fix|practice|review|dedicate|should|must|try to)\b/i;
+      result.summary.scoreImpact.forEach(point => {
+        expect(point).not.toMatch(prescriptivePatterns);
+      });
+    });
+  });
+
+  describe('behaviorHighlights', () => {
+    it('returns an array of highlights', () => {
+      const result = adaptDiagnosticForUI(buildReport(), {
+        navigationPattern: 'strategic-skip',
+        calculatorUsageCount: 12,
+        markedForReviewCount: 4,
+      });
+      expect(Array.isArray(result.behaviorHighlights)).toBe(true);
+    });
+
+    it('each highlight has label, detail, type', () => {
+      const result = adaptDiagnosticForUI(buildReport(), {});
+      result.behaviorHighlights.forEach(h => {
+        expect(h).toHaveProperty('label');
+        expect(h).toHaveProperty('detail');
+        expect(['warning', 'good', 'neutral']).toContain(h.type);
+      });
+    });
+
+    it('returns at most 3 highlights', () => {
+      const result = adaptDiagnosticForUI(buildReport(), {});
+      expect(result.behaviorHighlights.length).toBeLessThanOrEqual(3);
+    });
+
+    it('surfaces negative behavior outcomes as warnings', () => {
+      const result = adaptDiagnosticForUI(buildReport(), {});
+      const warnings = result.behaviorHighlights.filter(h => h.type === 'warning');
+      expect(warnings.length).toBeGreaterThan(0);
+    });
+  });
+
+  describe('summary edge cases', () => {
+    it('returns a sensible headline when no weaknesses found', () => {
+      const report = buildReport({
+        skillClusters: [],
+        rootCauseClusters: [],
+        errorPatterns: { totalWrong: 0, summary: [], counts: {} },
+        trendAnalysis: { hasHistory: false },
+        answerPatterns: {},
+        questionAnalysis: [],
+        timeAnalysis: { avgCorrectTime: 60, avgIncorrectTime: 55, timeRelatedErrors: 0 },
+      });
+      const result = adaptDiagnosticForUI(report, {});
+      expect(result.summary.headline.length).toBeGreaterThan(0);
+      expect(result.summary.topWeaknesses.length).toBe(0);
+      expect(Array.isArray(result.summary.scoreImpact)).toBe(true);
+      expect(result.summary.scoreImpact.length).toBeGreaterThan(0);
+    });
+
+    it('scoreImpact surfaces score gap when available', () => {
+      const result = adaptDiagnosticForUI(buildReport(), {});
+      const hasGap = result.summary.scoreImpact.some(p => /below your target/i.test(p));
+      expect(hasGap).toBe(true);
+    });
+
+    it('scoreImpact mentions easy wins when present', () => {
+      const result = adaptDiagnosticForUI(buildReport(), {});
+      const hasEasyWins = result.summary.scoreImpact.some(p => /easy questions/i.test(p));
+      expect(hasEasyWins).toBe(true);
+    });
+  });
+
   describe('edge: balanced archetype', () => {
     it('omits archetype finding when fingerprint is balanced', () => {
       const report = buildReport({
@@ -499,11 +479,156 @@ describe('adaptDiagnosticForUI', () => {
     });
   });
 
-  describe('edge: no stamina data', () => {
-    it('omits stamina signal when hasData is false', () => {
-      const report = buildReport({ stamina: { hasData: false } });
-      const result = adaptDiagnosticForUI(report, {});
-      expect(result.behavior.find(b => b.label === 'Stamina')).toBeUndefined();
+  describe('report contract', () => {
+    let report;
+    beforeAll(() => {
+      const result = adaptDiagnosticForUI(buildReport(), {});
+      report = result.report;
     });
+
+    it('returns a report with hero, sections, and nextFocus', () => {
+      expect(report).toHaveProperty('hero');
+      expect(report).toHaveProperty('sections');
+      expect(report).toHaveProperty('nextFocus');
+      expect(typeof report.hero.headline).toBe('string');
+    });
+
+    it('has exactly 3 sections in the strict order', () => {
+      expect(report.sections).toHaveLength(3);
+      expect(report.sections.map(s => s.id)).toEqual([
+        'whyThisScore', 'patternsThatDroveScore', 'whereScoreBrokeDown',
+      ]);
+    });
+
+    it('every section has id, title, body, and source', () => {
+      report.sections.forEach(sec => {
+        expect(sec.id).toBeTruthy();
+        expect(typeof sec.title).toBe('string');
+        expect(typeof sec.body).toBe('string');
+        expect(sec.body.length).toBeGreaterThan(0);
+        expect(sec.source).toBe('deterministic');
+      });
+    });
+
+    it('patternsThatDroveScore section contains patterns array with evidence per item', () => {
+      const sec = report.sections.find(s => s.id === 'patternsThatDroveScore');
+      expect(Array.isArray(sec.patterns)).toBe(true);
+      sec.patterns.forEach(p => {
+        expect(p).toHaveProperty('title');
+        expect(p).toHaveProperty('why');
+        expect(p).toHaveProperty('severity');
+        expect(p).toHaveProperty('source');
+        expect(Array.isArray(p.evidence)).toBe(true);
+      });
+    });
+
+    it('whereScoreBrokeDown section has groups array', () => {
+      const sec = report.sections.find(s => s.id === 'whereScoreBrokeDown');
+      expect(Array.isArray(sec.groups)).toBe(true);
+    });
+
+    it('hero includes stats array', () => {
+      expect(Array.isArray(report.hero.stats)).toBe(true);
+    });
+
+    it('nextFocus has text', () => {
+      expect(typeof report.nextFocus.text).toBe('string');
+      expect(report.nextFocus.text.length).toBeGreaterThan(0);
+    });
+
+    it('no statement is duplicated between hero headline and nextFocus.text', () => {
+      expect(report.hero.headline).not.toBe(report.nextFocus.text);
+    });
+
+    it('severity order includes significant between critical and moderate', () => {
+      const sec = report.sections.find(s => s.id === 'patternsThatDroveScore');
+      const order = { critical: 0, significant: 1, moderate: 2, warning: 3 };
+      for (let i = 1; i < sec.patterns.length; i++) {
+        const prev = order[sec.patterns[i - 1].severity] ?? 4;
+        const curr = order[sec.patterns[i].severity] ?? 4;
+        expect(prev).toBeLessThanOrEqual(curr);
+      }
+    });
+  });
+});
+
+describe('mergeAiIntoReport', () => {
+  function getBaseReport() {
+    const result = adaptDiagnosticForUI(buildReport(), {});
+    return result.report;
+  }
+
+  const aiNarrative = {
+    diagnosis: 'AI says your biggest issue is algebraic reasoning.',
+    weaknesses: [
+      { title: 'Factoring', why: 'Repeated conceptual errors.', proof: ['0/3 on factoring'], impact: '~20 points', severity: 'critical' },
+      { title: 'Word Problems', why: 'Misreading the prompt.', proof: ['3/5 wrong'], impact: '~15 points', severity: 'moderate' },
+    ],
+    behaviorInsights: 'You changed answers 4 times, going from correct to incorrect.',
+    scoreImpact: 'Fixing algebra alone could lift your score by 30 points.',
+    topNextFocus: 'Master factoring fundamentals before next attempt.',
+    uncertainties: 'Only one attempt so far.',
+  };
+
+  it('returns the original report when AI is null', () => {
+    const report = getBaseReport();
+    const merged = mergeAiIntoReport(report, null);
+    expect(merged).toBe(report);
+  });
+
+  it('returns the original report when report is null', () => {
+    expect(mergeAiIntoReport(null, aiNarrative)).toBeNull();
+  });
+
+  it('overwrites hero headline with AI diagnosis', () => {
+    const merged = mergeAiIntoReport(getBaseReport(), aiNarrative);
+    expect(merged.hero.headline).toBe(aiNarrative.diagnosis);
+  });
+
+  it('replaces patterns with AI weaknesses', () => {
+    const merged = mergeAiIntoReport(getBaseReport(), aiNarrative);
+    const sec = merged.sections.find(s => s.id === 'patternsThatDroveScore');
+    expect(sec.source).toBe('ai');
+    expect(sec.patterns).toHaveLength(2);
+    expect(sec.patterns[0].title).toBe('Factoring');
+    expect(sec.patterns[0].source).toBe('ai');
+  });
+
+  it('sets whyThisScore section body and whereScoreBrokeDown note from AI', () => {
+    const merged = mergeAiIntoReport(getBaseReport(), aiNarrative);
+    const whySec = merged.sections.find(s => s.id === 'whyThisScore');
+    const whereSec = merged.sections.find(s => s.id === 'whereScoreBrokeDown');
+    expect(whySec.body).toBe(aiNarrative.scoreImpact);
+    expect(whySec.source).toBe('ai');
+    expect(whereSec.note).toBe(aiNarrative.uncertainties);
+  });
+
+  it('sets nextFocus from AI topNextFocus', () => {
+    const merged = mergeAiIntoReport(getBaseReport(), aiNarrative);
+    expect(merged.nextFocus.text).toBe(aiNarrative.topNextFocus);
+  });
+
+  it('does not mutate the original report', () => {
+    const original = getBaseReport();
+    const originalHero = original.hero.headline;
+    mergeAiIntoReport(original, aiNarrative);
+    expect(original.hero.headline).toBe(originalHero);
+    expect(original.sections[0].source).toBe('deterministic');
+  });
+
+  it('preserves section count and order', () => {
+    const merged = mergeAiIntoReport(getBaseReport(), aiNarrative);
+    expect(merged.sections).toHaveLength(3);
+    expect(merged.sections.map(s => s.id)).toEqual([
+      'whyThisScore', 'patternsThatDroveScore', 'whereScoreBrokeDown'
+    ]);
+  });
+
+  it('handles partial AI with only diagnosis', () => {
+    const partialAi = { diagnosis: 'Partial AI insight.' };
+    const merged = mergeAiIntoReport(getBaseReport(), partialAi);
+    expect(merged.hero.headline).toBe('Partial AI insight.');
+    const impSec = merged.sections.find(s => s.id === 'whyThisScore');
+    expect(impSec.source).toBe('deterministic');
   });
 });

@@ -7,6 +7,12 @@ import SolutionExplanation from './SolutionExplanation';
 import QuestionRenderer from './QuestionRenderer';
 import { recordSkillAttempts } from '../services/skillService';
 import { generateStudyPlan as generateStudyPlanFromAI, saveStudyPlanArtifact } from '../services/studyPlanService';
+import { generateDiagnosticNarrative } from '../services/diagnosticNarrativeService';
+import {
+  createAiDiagnosticArtifact,
+  completeAiDiagnosticArtifact,
+  failAiDiagnosticArtifact,
+} from '../services/practiceTestService';
 import { runDiagnostic } from '../services/diagnosticEngine';
 import { getTargetedWeaknessSet } from '../data/questions/bank';
 import DiagnosticReport from './DiagnosticReport';
@@ -1162,6 +1168,61 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     })();
   }, [resultSaved, user, test, answers, skillProgress, practiceTestResults, onSaveStudyPlan]);
 
+  // Post-test: generate AI diagnostic narrative automatically
+  const diagnosticNarrativeAttempted = useRef(false);
+  const [aiDiagnosticState, setAiDiagnosticState] = useState({ status: 'idle', narrative: null, error: null });
+
+  const retryAiDiagnostic = useCallback(() => {
+    const diagReport = diagnosticReportRef.current;
+    if (!diagReport || !user?.uid) return;
+
+    setAiDiagnosticState({ status: 'generating', narrative: null, error: null });
+
+    (async () => {
+      let artifactId = null;
+      try {
+        console.log('[PracticeTest] Generating AI diagnostic narrative...');
+
+        try {
+          artifactId = await createAiDiagnosticArtifact(user.uid, test.id, new Date().toISOString());
+        } catch (storeErr) {
+          console.warn('[PracticeTest] Artifact creation failed (non-blocking):', storeErr.message);
+        }
+
+        const { narrative, generatedAt, model } = await generateDiagnosticNarrative(
+          diagReport,
+          { targetScore: user.targetScore, testDate: user.testDate },
+        );
+
+        if (artifactId) {
+          await completeAiDiagnosticArtifact(user.uid, artifactId, narrative, { generatedAt, model }).catch(() => {});
+        }
+
+        setAiDiagnosticState({ status: 'ready', narrative, error: null });
+        console.log('[PracticeTest] AI diagnostic narrative ready');
+      } catch (err) {
+        console.error('[PracticeTest] AI diagnostic narrative failed:', err);
+        if (artifactId) {
+          await failAiDiagnosticArtifact(user.uid, artifactId, err.message).catch(() => {});
+        }
+        setAiDiagnosticState({ status: 'failed', narrative: null, error: err.message || 'Failed to generate AI analysis' });
+      }
+    })();
+  }, [user, test]);
+
+  useEffect(() => {
+    if (!resultSaved || diagnosticNarrativeAttempted.current || !user?.uid) return;
+    diagnosticNarrativeAttempted.current = true;
+
+    const diagReport = diagnosticReportRef.current;
+    if (!diagReport) {
+      console.warn('[PracticeTest] No diagnostic report — skipping AI narrative generation');
+      return;
+    }
+
+    retryAiDiagnostic();
+  }, [resultSaved, user, retryAiDiagnostic]);
+
   const handleSelectAnswer = (answerId) => {
     const key = `${currentModule}-${currentQuestion}`;
     const telemetry = getOrCreateTelemetry(currentModule, currentQuestion);
@@ -2124,6 +2185,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             diagnosticData={diagnosticDataRef.current}
             diagnosticReport={diagnosticReportRef.current}
             practiceTestResults={practiceTestResults}
+            aiDiagnosticState={aiDiagnosticState}
+            onRetryAiDiagnostic={retryAiDiagnostic}
             onOpenDiagnosticReport={() => setShowDiagnosticReport(true)}
             onBack={onBack}
             user={user}

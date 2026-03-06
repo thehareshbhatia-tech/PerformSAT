@@ -2,9 +2,7 @@ import { db } from '../firebase/config';
 import { doc, getDoc, updateDoc, setDoc, collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 const STUDY_PLAN_URL = process.env.REACT_APP_STUDY_PLAN_URL ||
-  (typeof window !== 'undefined' && window.location?.hostname === 'localhost'
-    ? 'http://127.0.0.1:5001/performsat-app/us-central1/generateStudyPlan'
-    : 'https://generatestudyplan-fhwrdxjela-uc.a.run.app');
+  'https://us-central1-performsat-production.cloudfunctions.net/generateStudyPlan';
 
 /**
  * Calls the Cloud Function to generate a study plan from diagnostic data.

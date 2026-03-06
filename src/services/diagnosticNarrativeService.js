@@ -7,9 +7,7 @@
  */
 
 const DIAGNOSTIC_NARRATIVE_URL = process.env.REACT_APP_DIAGNOSTIC_NARRATIVE_URL ||
-  (typeof window !== 'undefined' && window.location?.hostname === 'localhost'
-    ? 'http://127.0.0.1:5001/performsat-app/us-central1/generateDiagnosticNarrative'
-    : 'https://generatediagnosticnarrative-fhwrdxjela-uc.a.run.app');
+  'https://us-central1-performsat-production.cloudfunctions.net/generateDiagnosticNarrative';
 
 /**
  * Calls the Cloud Function to generate an AI diagnostic narrative

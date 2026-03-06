@@ -15,7 +15,7 @@ export { SCORING_VERSION, SECTIONS, DIFFICULTY, MODULE_ROUTE, createScoredResult
 export { inferDomain, SAT_MATH_DOMAINS, DOMAIN_DISPLAY_NAMES, getDomainDisplayOrder } from './domainInference';
 
 // Diagnostic → UI adapter
-export { adaptDiagnosticForUI } from './diagnosticAdapter';
+export { adaptDiagnosticForUI, mergeAiIntoReport } from './diagnosticAdapter';
 
 // Calibration management (for app-init or admin tooling)
 export {

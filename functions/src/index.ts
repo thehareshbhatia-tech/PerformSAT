@@ -7,45 +7,189 @@ import {setGlobalOptions} from "firebase-functions/v2/options";
 import {defineSecret} from "firebase-functions/params";
 import {onRequest} from "firebase-functions/v2/https";
 import * as logger from "firebase-functions/logger";
+import * as admin from "firebase-admin";
+
+admin.initializeApp();
+const db = admin.firestore();
 
 const anthropicApiKey = defineSecret("ANTHROPIC_API_KEY");
 
 setGlobalOptions({maxInstances: 10});
 
+interface TranscriptSegment {
+  start: number;
+  duration: number;
+  text: string;
+}
+
+interface TranscriptResult {
+  videoId: string;
+  segments: TranscriptSegment[];
+  fullText: string;
+  fetchedAt: number;
+}
+
+async function fetchFromYouTube(videoId: string): Promise<TranscriptResult | null> {
+  try {
+    const innertubeResponse = await fetch(
+      "https://www.youtube.com/youtubei/v1/player",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        },
+        body: JSON.stringify({
+          videoId,
+          context: {
+            client: {
+              clientName: "WEB",
+              clientVersion: "2.20240101.00.00",
+              hl: "en",
+              gl: "US",
+            },
+          },
+        }),
+      }
+    );
+
+    if (!innertubeResponse.ok) return null;
+
+    const data = await innertubeResponse.json() as Record<string, unknown>;
+    const captions = data?.captions as Record<string, unknown> | undefined;
+    const renderer = captions?.playerCaptionsTracklistRenderer as Record<string, unknown> | undefined;
+    const captionTracks = renderer?.captionTracks as Array<{languageCode: string; baseUrl: string}> | undefined;
+
+    if (!captionTracks || captionTracks.length === 0) return null;
+
+    const englishTrack = captionTracks.find((t) => t.languageCode === "en") || captionTracks[0];
+    let captionUrl = englishTrack.baseUrl;
+    if (!captionUrl.includes("fmt=json3")) captionUrl += "&fmt=json3";
+
+    const captionResponse = await fetch(captionUrl);
+    if (!captionResponse.ok) return null;
+
+    const captionData = await captionResponse.json() as {events?: Array<{tStartMs?: number; dDurationMs?: number; segs?: Array<{utf8?: string}>}>};
+    const segments: TranscriptSegment[] = [];
+
+    if (captionData.events) {
+      for (const event of captionData.events) {
+        if (event.segs) {
+          const text = event.segs.map((s) => s.utf8 || "").join("");
+          if (text.trim()) {
+            segments.push({
+              start: (event.tStartMs || 0) / 1000,
+              duration: (event.dDurationMs || 3000) / 1000,
+              text: text.trim(),
+            });
+          }
+        }
+      }
+    }
+
+    if (segments.length === 0) return null;
+
+    return {
+      videoId,
+      segments,
+      fullText: segments.map((s) => s.text).join(" "),
+      fetchedAt: Date.now(),
+    };
+  } catch (error) {
+    logger.warn(`YouTube fetch failed for ${videoId}:`, (error as Error).message);
+    return null;
+  }
+}
+
 /**
- * AI Tutor endpoint - proxies requests to Anthropic Claude API
- * This keeps the API key secure on the server
+ * Fetch YouTube transcript for a video.
+ * Checks Firestore cache first, then falls back to YouTube API.
+ */
+export const getTranscript = onRequest(
+  {cors: true},
+  async (request, response) => {
+    const videoId = (request.query.videoId as string) || request.body?.videoId;
+
+    if (!videoId) {
+      response.status(400).json({error: "videoId is required"});
+      return;
+    }
+
+    try {
+      logger.info(`Fetching transcript for video: ${videoId}`);
+
+      const docRef = db.collection("transcripts").doc(videoId);
+      const docSnap = await docRef.get();
+
+      if (docSnap.exists) {
+        const transcript = docSnap.data();
+        logger.info(`Found cached transcript for ${videoId}`);
+        response.json(transcript);
+        return;
+      }
+
+      logger.info(`No cached transcript for ${videoId}, trying YouTube API...`);
+      const transcript = await fetchFromYouTube(videoId);
+
+      if (transcript && transcript.segments && transcript.segments.length > 0) {
+        await docRef.set(transcript);
+        logger.info(`Cached new transcript for ${videoId}`);
+        response.json(transcript);
+        return;
+      }
+
+      response.status(404).json({
+        error: "Transcript not available for this video",
+        videoId,
+        hint: "Run the fetchTranscripts.js script locally to populate transcripts",
+      });
+    } catch (error) {
+      logger.error(`Transcript fetch error for ${videoId}:`, (error as Error).message);
+      response.status(500).json({
+        error: (error as Error).message || "Failed to fetch transcript",
+        videoId,
+      });
+    }
+  }
+);
+
+/**
+ * AI Tutor endpoint — proxies requests to Anthropic Claude API
+ *
+ * v2.0: Extended thinking enabled.
+ * The model reasons through each math problem internally before responding —
+ * like a tutor working the problem on scratch paper before explaining it.
  */
 export const aiTutor = onRequest(
   {
     cors: true,
     secrets: [anthropicApiKey],
+    timeoutSeconds: 120,
+    memory: "512MiB",
   },
   async (request, response) => {
-    // Only allow POST requests
     if (request.method !== "POST") {
       response.status(405).json({error: "Method not allowed"});
       return;
     }
 
     try {
-      const {messages, system} = request.body;
+      const {messages, system, thinking_budget} = request.body;
 
       if (!messages || !Array.isArray(messages)) {
         response.status(400).json({error: "Messages array is required"});
         return;
       }
 
-      // Get the API key from secrets
       const apiKey = anthropicApiKey.value();
-
       if (!apiKey) {
         logger.error("ANTHROPIC_API_KEY secret is not configured");
         response.status(500).json({error: "AI service not configured"});
         return;
       }
 
-      // Call Anthropic API
+      const budget = thinking_budget || 10000;
+
       const anthropicResponse = await fetch(
         "https://api.anthropic.com/v1/messages",
         {
@@ -56,8 +200,12 @@ export const aiTutor = onRequest(
             "anthropic-version": "2023-06-01",
           },
           body: JSON.stringify({
-            model: "claude-haiku-4-5-20251001",
-            max_tokens: 1024,
+            model: "claude-sonnet-4-5-20250929",
+            max_tokens: 16000,
+            thinking: {
+              type: "enabled",
+              budget_tokens: budget,
+            },
             system: system || "",
             messages: messages,
           }),
@@ -65,17 +213,25 @@ export const aiTutor = onRequest(
       );
 
       if (!anthropicResponse.ok) {
-        const errorData = await anthropicResponse.json();
+        const errorData = await anthropicResponse.json() as Record<string, unknown>;
         logger.error("Anthropic API error:", errorData);
         response.status(anthropicResponse.status).json({
-          error: errorData.error?.message || "Failed to get AI response",
+          error: (errorData.error as Record<string, string>)?.message || "Failed to get AI response",
         });
         return;
       }
 
-      const data = await anthropicResponse.json();
+      const data = await anthropicResponse.json() as {
+        content: Array<{type: string; text?: string}>;
+        usage: unknown;
+      };
+
+      const textBlocks = data.content.filter((block) => block.type === "text");
+      const responseText = textBlocks.map((block) => block.text).join("\n");
+
       response.json({
-        content: data.content[0].text,
+        content: responseText,
+        usage: data.usage,
       });
     } catch (error) {
       logger.error("AI Tutor error:", error);
@@ -269,33 +425,36 @@ export const generateDiagnosticNarrative = onRequest(
 );
 
 function buildDiagnosticNarrativeSystemPrompt(): string {
-  return `You are a senior SAT diagnostician. Given rich evidence from a student's Digital SAT Math practice test, you produce a structured diagnostic narrative that explains WHAT the student is weak at, WHY those weaknesses are happening, and how they connect across the test.
+  return `You are a senior SAT diagnostician. Given rich evidence from a student's Digital SAT Math practice test, produce a structured diagnostic narrative organized as a guided story: what's happening, why, proof, and what it means for the score.
 
 Your output MUST be valid JSON (no markdown fences) matching this schema:
 
 {
-  "learnerProfile": "string — 3-4 sentence synthesis of who this learner is, their archetype, and where they stand",
-  "topWeaknesses": [
+  "diagnosis": "string — 2-3 sentence plain-English summary of the student's overall performance and primary pattern. Written as if speaking directly to the student.",
+  "weaknesses": [
     {
-      "title": "string — concise weakness name",
-      "explanation": "string — 2-3 sentences explaining WHY this weakness exists, citing specific evidence (question counts, accuracy %, time data, skill names)",
-      "evidence": ["string — bullet-point evidence citations"],
+      "title": "string — concise weakness name (e.g. 'Algebraic Word Problems')",
+      "why": "string — 2-3 sentences explaining WHY this weakness exists, citing specific evidence",
+      "proof": ["string — 2-3 short bullet-point data citations that prove this claim (e.g. '3/4 algebra word problems wrong', '45s avg vs 70s on correct')"],
+      "impact": "string — 1 sentence on how this weakness affects the score (e.g. 'Costing roughly 30 points')",
       "severity": "critical | significant | moderate"
     }
   ],
-  "behaviorInsights": "string — 2-3 sentences on how test-taking behaviors (answer changes, calculator use, pacing, flagging) affected the score, citing specific data",
-  "changesSinceLast": "string | null — what improved or worsened compared to prior test(s), or null if first test",
-  "strongestEvidence": ["string — the 3-5 most important data points the diagnosis rests on"],
+  "behaviorInsights": "string | null — 2-3 sentences on how test-taking behaviors (pacing, answer changes, calculator use, flagging) affected the score, citing specific data. Null if no meaningful behavioral signal.",
+  "scoreImpact": "string — 1-2 sentences connecting the weaknesses to the student's score gap and potential for improvement",
   "topNextFocus": "string — 1-2 sentences: the single highest-leverage thing to work on next and why",
-  "uncertainties": "string — 1-2 sentences on where the evidence is ambiguous or the classification confidence is low, if applicable"
+  "changesSinceLast": "string | null — what improved or worsened compared to prior test(s), or null if first test",
+  "uncertainties": "string | null — 1-2 sentences on where the evidence is ambiguous, or null if classifications are confident"
 }
 
 RULES:
-- topWeaknesses should have 2-4 items, ordered by severity/impact
-- Always cite specific numbers: accuracy percentages, question counts, time spent, skill names
-- Be direct and specific — avoid vague advice like "review your mistakes"
-- If trend data shows persistent weaknesses, emphasize them
-- If error classifications have low confidence, mention it in uncertainties
+- weaknesses: 2-3 items, ordered by severity/impact. Each must have proof citations.
+- proof items must be specific data points, not opinions (e.g. "Geometry: 4/7 correct (57%)")
+- impact must quantify the effect on score where possible
+- Do NOT include prescriptive advice or study recommendations — a separate study plan handles that
+- Always cite specific numbers: accuracy %, question counts, time data, skill names
+- Be direct — avoid vague phrases like "review your mistakes" or "practice more"
+- If trend data shows persistent weaknesses, emphasize them in the weakness why field
 - The tone should be analytical but encouraging — a coach who respects the student's effort`;
 }
 

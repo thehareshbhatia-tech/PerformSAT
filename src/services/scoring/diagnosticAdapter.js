@@ -561,6 +561,552 @@ function buildQuickStats(report) {
 }
 
 /**
+ * Derive a trigger-context string for a weakness: when/where does it show up?
+ */
+function deriveTriggerContext(report, weaknessName) {
+  const { difficultyAnalysis, timeAnalysis, domainAnalysis, stamina } = report;
+
+  const lowestDiffLevel = (() => {
+    if (!difficultyAnalysis?.levels) return null;
+    const levels = ['easy', 'medium', 'hard'];
+    let worst = null;
+    let worstAcc = 101;
+    for (const l of levels) {
+      const d = difficultyAnalysis.levels[l];
+      if (d && d.total > 0 && d.accuracy < worstAcc) { worstAcc = d.accuracy; worst = l; }
+    }
+    return worst && worstAcc < 70 ? worst : null;
+  })();
+
+  if (stamina?.hasData && stamina.dropoff > 15) {
+    return `Appears mostly in the second half of the test (${stamina.dropoff}% accuracy drop).`;
+  }
+  if (lowestDiffLevel) {
+    const d = difficultyAnalysis.levels[lowestDiffLevel];
+    return `Worst on ${lowestDiffLevel} questions (${d.accuracy}% accuracy on ${d.total} questions).`;
+  }
+  if (domainAnalysis) {
+    const weakest = [...domainAnalysis].sort((a, b) => a.accuracy - b.accuracy)[0];
+    if (weakest && weakest.accuracy < 65) {
+      const name = DOMAIN_DISPLAY_NAMES[weakest.domain] || weakest.displayName;
+      return `Most visible in ${name} (${weakest.accuracy}% accuracy).`;
+    }
+  }
+  return null;
+}
+
+/**
+ * Derive a score-impact string for a weakness.
+ */
+function deriveImpact(report, weakness) {
+  const { scoreProjection, score } = report;
+  if (scoreProjection?.easyWins?.count >= 2 && weakness.id.includes('careless')) {
+    return `Costing roughly ${scoreProjection.easyWins.projectedGain} points from missed easy questions alone.`;
+  }
+  const topDomain = scoreProjection?.domainProjections?.[0];
+  if (topDomain) {
+    return `Your weakest domain could recover up to ${topDomain.projectedPointGain} points if addressed.`;
+  }
+  if (score?.gap > 0) {
+    return `You're ${score.gap} points below your target of ${score.target}.`;
+  }
+  return null;
+}
+
+/**
+ * Build a plain-English summary with ranked top weaknesses.
+ * Each weakness carries its own proof array so evidence is attached
+ * to the claim it supports, not shown in a separate section.
+ */
+function buildSimplifiedSummary(report, rawDiagData) {
+  const weaknesses = [];
+
+  const clusters = buildWeaknessClusters(report);
+  clusters
+    .filter(c => c.severity === 'critical' || c.severity === 'moderate')
+    .forEach(c => {
+      const why = c.type === 'concept'
+        ? `You're missing related skills in this area, with a ${c.failRate || '?'}% fail rate across ${c.questionsAffected || '?'} questions.`
+        : c.detail || 'A recurring pattern of errors clusters around this root cause.';
+
+      const proof = [];
+      if (c.type === 'concept') {
+        proof.push(`${c.questionsAffected || '?'} questions affected, ${c.failRate || '?'}% fail rate`);
+        if (c.failedSkills?.length) proof.push(`Related skills: ${c.failedSkills.slice(0, 3).map(s => s.replace(/-/g, ' ')).join(', ')}`);
+      } else if (c.questions?.length) {
+        proof.push(`Seen on ${c.questions.join(', ')}`);
+      }
+      const trigger = deriveTriggerContext(report, c.label);
+      if (trigger) proof.push(trigger);
+
+      weaknesses.push({
+        id: c.id,
+        name: c.label,
+        why,
+        proof,
+        impact: deriveImpact(report, { id: c.id }),
+        severity: c.severity,
+      });
+    });
+
+  const persistent = buildPersistentWeaknesses(report);
+  persistent.forEach(pw => {
+    if (!weaknesses.find(w => w.name === pw.skill)) {
+      const proof = [];
+      if (pw.testsWeak) proof.push(`Weak across ${pw.testsWeak} tests`);
+      if (pw.type === 'declining-skill') proof.push('Trending downward');
+      const trigger = deriveTriggerContext(report, pw.skill);
+      if (trigger) proof.push(trigger);
+
+      weaknesses.push({
+        id: `persistent-${pw.skillId || pw.skill}`,
+        name: pw.skill,
+        why: `This weakness has appeared across ${pw.testsWeak || 'multiple'} tests, indicating a gap that isn't closing through normal practice.`,
+        proof,
+        impact: deriveImpact(report, { id: `persistent-${pw.skillId}` }),
+        severity: pw.severity,
+      });
+    }
+  });
+
+  const { errorPatterns } = report;
+  const dominant = errorPatterns?.dominantPattern;
+  if (dominant && dominant.count >= 3) {
+    const display = ERROR_TYPE_DISPLAY[dominant.type] || { label: dominant.label };
+    if (!weaknesses.find(w => w.name === display.label)) {
+      const whyMap = {
+        careless_error: 'You understand the material but lose points to avoidable slips — often on questions you should get right.',
+        time_pressure: 'You run out of time or rush through questions, leading to mistakes on problems you could otherwise solve.',
+        conceptual_gap: 'There are underlying concepts you haven\'t fully learned, causing repeated misses on related questions.',
+        trap_susceptibility: 'You\'re drawn to distractor answer choices that look correct but test a common misconception.',
+        procedural_error: 'You know the concepts but make mistakes in execution — arithmetic slips, skipped steps, or sign errors.',
+      };
+
+      const proof = [
+        `${dominant.count} questions lost to this pattern (${dominant.percentage}% of all misses)`,
+        `${dominant.count} out of ${errorPatterns.totalWrong || '?'} wrong answers`,
+      ];
+      const trigger = deriveTriggerContext(report, display.label);
+      if (trigger) proof.push(trigger);
+
+      weaknesses.push({
+        id: `error-${dominant.type}`,
+        name: display.label,
+        why: whyMap[dominant.type] || dominant.description || `Your most common mistake pattern (${dominant.percentage}% of misses).`,
+        proof,
+        impact: deriveImpact(report, { id: `error-${dominant.type}` }),
+        severity: dominant.count >= 5 ? 'critical' : 'moderate',
+      });
+    }
+  }
+
+  const behaviors = buildBehaviorOutcomes(report, rawDiagData);
+  behaviors
+    .filter(b => b.impact === 'negative')
+    .slice(0, 1)
+    .forEach(b => {
+      if (!weaknesses.find(w => w.name === b.behavior)) {
+        const proof = [b.stat];
+        const trigger = deriveTriggerContext(report, b.behavior);
+        if (trigger) proof.push(trigger);
+
+        weaknesses.push({
+          id: `behavior-${b.id}`,
+          name: b.behavior,
+          why: b.detail,
+          proof,
+          impact: deriveImpact(report, { id: `behavior-${b.id}` }),
+          severity: 'moderate',
+        });
+      }
+    });
+
+  const severityOrder = { critical: 0, significant: 1, moderate: 2, warning: 3 };
+  weaknesses.sort((a, b) => (severityOrder[a.severity] ?? 3) - (severityOrder[b.severity] ?? 3));
+  const topWeaknesses = weaknesses.slice(0, 3);
+
+  let headline = 'Your performance analysis is ready.';
+  if (topWeaknesses.length > 0) {
+    headline = `Your biggest challenge: ${topWeaknesses[0].name}.`;
+    if (topWeaknesses.length > 1) {
+      const others = topWeaknesses.slice(1).map(w => w.name).join(' and ');
+      headline += ` Also affecting you: ${others}.`;
+    }
+  } else if (report.mistakeFingerprint?.archetypeLabel) {
+    headline = report.mistakeFingerprint.archetypeLabel;
+  }
+
+  return {
+    headline,
+    topWeaknesses,
+    scoreImpact: buildWhyThisMatters(report),
+  };
+}
+
+/**
+ * Build the behavior highlights chapter — top 2-3 actionable behavioral signals.
+ */
+function buildBehaviorHighlights(report, rawDiagData) {
+  const outcomes = buildBehaviorOutcomes(report, rawDiagData);
+  const signals = buildBehaviorSignals(report, rawDiagData);
+
+  const highlights = [];
+
+  outcomes
+    .filter(b => b.impact === 'negative' || b.impact === 'positive')
+    .slice(0, 2)
+    .forEach(b => {
+      highlights.push({
+        label: b.behavior,
+        detail: b.stat,
+        type: b.impact === 'negative' ? 'warning' : 'good',
+      });
+    });
+
+  signals
+    .filter(s => s.type === 'warning' || s.type === 'good')
+    .slice(0, 3 - highlights.length)
+    .forEach(s => {
+      if (!highlights.find(h => h.label === s.label)) {
+        highlights.push({ label: s.label, detail: s.value, type: s.type });
+      }
+    });
+
+  return highlights.slice(0, 3);
+}
+
+/**
+ * Build the "Why This Matters" card — non-prescriptive score-impact context.
+ */
+function buildWhyThisMatters(report) {
+  const points = [];
+  const { score, scoreProjection, stamina, trendAnalysis } = report;
+
+  if (score?.gap > 0) {
+    points.push(`You're currently ${score.gap} points below your target of ${score.target}.`);
+  }
+  if (scoreProjection?.easyWins?.count >= 2) {
+    points.push(`${scoreProjection.easyWins.count} missed easy questions alone account for roughly ${scoreProjection.easyWins.projectedGain} recoverable points.`);
+  }
+  const topDomain = scoreProjection?.domainProjections?.[0];
+  if (topDomain) {
+    points.push(`${topDomain.domainName} is your weakest domain with up to ${topDomain.projectedPointGain} points at stake.`);
+  }
+  if (stamina?.hasData && stamina.dropoff > 15) {
+    points.push(`Your accuracy drops ${stamina.dropoff}% by the end of the test, meaning late questions hurt disproportionately.`);
+  }
+  if (trendAnalysis?.hasHistory) {
+    const sc = trendAnalysis.scoreChange;
+    if (sc < 0) {
+      points.push(`Your score dropped ${Math.abs(sc)} points compared to your last test.`);
+    } else if (sc === 0) {
+      points.push('Your score hasn\'t changed since last test — you may have plateaued.');
+    }
+  }
+  if (points.length === 0) {
+    points.push('Understanding these patterns is the first step toward meaningful score improvement.');
+  }
+  return points;
+}
+
+/**
+ * Build a compressed, scan-friendly evidence summary.
+ *
+ * Returns an array of groups, each with { id, title, items[] }.
+ * Every item is a short row: { label, value, type? }.
+ * Components can render each group as a small card.
+ */
+function buildEvidenceSummary(report, rawDiagData) {
+  const groups = [];
+
+  const pointLoss = buildPointLoss(report);
+  if (pointLoss.length > 0) {
+    const topCauses = pointLoss
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 3);
+    groups.push({
+      id: 'causes',
+      title: 'Main Causes of Lost Points',
+      items: topCauses.map(p => ({
+        label: p.label,
+        value: `${p.count} questions (${p.percentage}%)`,
+        color: p.color,
+        type: 'neutral',
+      })),
+    });
+  }
+
+  const domains = buildDomainPerformance(report);
+  const weakDomains = domains.filter(d => d.accuracy < 75);
+  if (weakDomains.length > 0) {
+    groups.push({
+      id: 'domains',
+      title: 'Where This Shows Up',
+      items: weakDomains.map(d => ({
+        label: d.displayName,
+        value: `${d.correct}/${d.total} correct (${d.accuracy}%)`,
+        type: d.accuracy < 60 ? 'warning' : 'neutral',
+      })),
+    });
+  }
+
+  const behaviorSignals = buildBehaviorSignals(report, rawDiagData);
+  const relevantSignals = behaviorSignals.filter(s => s.type === 'warning' || s.type === 'good');
+  if (relevantSignals.length > 0) {
+    groups.push({
+      id: 'timing',
+      title: 'Timing & Behavior Signals',
+      items: relevantSignals.slice(0, 4).map(s => ({
+        label: s.label,
+        value: s.value,
+        type: s.type,
+      })),
+    });
+  }
+
+  const questions = buildQuestionEvidence(report);
+  if (questions.length > 0) {
+    groups.push({
+      id: 'examples',
+      title: 'Example Questions',
+      items: questions.slice(0, 3).map(q => ({
+        label: q.label,
+        value: `${q.errorLabel} — ${q.reasoning}`,
+        sublabel: `${q.domainName} · ${q.difficulty} · ${q.timeFormatted}`,
+        type: 'neutral',
+      })),
+    });
+  }
+
+  return groups;
+}
+
+/**
+ * Build a single diagnostic report — one top-to-bottom document the UI
+ * renders as a continuous page.
+ *
+ * Strict section order:
+ *   atAGlance → topWeaknesses → scoreImpact → proofDetails → nextFocus
+ *
+ * Each weakness carries its own evidence so proof is attached to the claim
+ * it supports.  Global proof sits in a separate tertiary section for
+ * optional drill-down.
+ *
+ * Shape:
+ *   { hero, sections[], footerCta }
+ */
+function buildDiagnosticReport(report, rawDiagData) {
+  const summary = buildSimplifiedSummary(report, rawDiagData);
+  const stats = buildQuickStats(report);
+  const scoreImpactPts = summary.scoreImpact || [];
+
+  const hero = {
+    headline: summary.headline,
+    stats: stats.slice(0, 5),
+    primaryAction: { label: 'View Study Plan', action: 'study_plan' },
+    secondaryAction: { label: 'Review Missed Questions', action: 'review' },
+    step: 1,
+  };
+
+  const proofGroups = buildEvidenceSummary(report, rawDiagData);
+  const confIndicators = buildConfidenceIndicators(report);
+  const overallConf = confIndicators.find(c => c.id === 'error-classification')?.confidence || 'moderate';
+
+  const sections = [];
+
+  const scoreGap = report.score?.gap || 0;
+  const easyWinsGain = report.scoreProjection?.easyWins?.projectedGain || 0;
+  const easyWinsCount = report.scoreProjection?.easyWins?.count || 0;
+  const weakestDomain = report.scoreProjection?.domainProjections?.[0] || null;
+  const staminaDrop = report.stamina?.hasData && report.stamina?.dropoff > 15 ? report.stamina.dropoff : 0;
+  const dominantError = report.errorPatterns?.dominantPattern || null;
+
+  const scoreProof = [];
+  if (scoreGap > 0) {
+    scoreProof.push({ label: 'Points to Target', value: `${scoreGap} points`, type: 'warning' });
+  }
+  if (easyWinsCount >= 2) {
+    scoreProof.push({ label: 'Missed Easy Qs', value: `${easyWinsCount} Qs (+${easyWinsGain} pts)`, type: 'warning' });
+  }
+  if (weakestDomain) {
+    scoreProof.push({ label: 'Weakest Domain', value: `${weakestDomain.domainName} (+${weakestDomain.projectedPointGain} pts)`, type: 'neutral' });
+  }
+  if (staminaDrop > 0) {
+    scoreProof.push({ label: 'Late Test Fatigue', value: `${staminaDrop}% accuracy drop`, type: 'warning' });
+  }
+  if (dominantError && dominantError.count >= 3) {
+    const errorLabel = (ERROR_TYPE_DISPLAY[dominantError.type] || {}).label || dominantError.label;
+    scoreProof.push({ label: 'Main Error Pattern', value: `${errorLabel} (${dominantError.percentage}%)`, type: 'neutral' });
+  }
+
+  sections.push({
+    id: 'whyThisScore',
+    title: 'Why You Got This Score',
+    step: 2,
+    body: scoreImpactPts.length > 0 ? scoreImpactPts.join(' ') : 'Understanding these patterns is the first step toward meaningful score improvement.',
+    proof: scoreProof,
+    source: 'deterministic',
+  });
+
+  const patterns = (summary.topWeaknesses || []).map(w => {
+    const evidenceForWeakness = [];
+    proofGroups.forEach(g => {
+      g.items.forEach(item => {
+        const val = `${item.label} ${item.value}`.toLowerCase();
+        const name = (w.name || '').toLowerCase();
+        if (name && val.includes(name)) {
+          evidenceForWeakness.push({ label: item.label, value: item.value, sublabel: item.sublabel, type: item.type || 'neutral' });
+        }
+      });
+    });
+
+    // Estimate point gain from score projection if available
+    let estimatedPointGain = null;
+    if (w.id.includes('careless') && report.scoreProjection?.easyWins?.projectedGain) {
+      estimatedPointGain = report.scoreProjection.easyWins.projectedGain;
+    } else if (report.scoreProjection?.domainProjections) {
+      const domProj = report.scoreProjection.domainProjections.find(dp => w.name.includes(dp.domainName));
+      if (domProj) estimatedPointGain = domProj.projectedPointGain;
+    }
+
+    const frequency = w.proof.find(p => p.includes('questions') || p.includes('test') || p.includes('wrong')) || null;
+    const whereSeen = w.proof.find(p => p.includes('Most visible in') || p.includes('Worst on') || p.includes('Appears mostly')) || null;
+
+    return {
+      id: w.id,
+      title: w.name,
+      why: w.why,
+      frequency,
+      whereSeen,
+      proof: w.proof || [],
+      evidence: evidenceForWeakness.slice(0, 3),
+      impact: w.impact,
+      severity: w.severity,
+      source: 'deterministic',
+      confidence: overallConf,
+      estimatedPointGain,
+      nextAction: { label: `Review ${w.name} Questions`, action: 'review_weakness', target: w.id }
+    };
+  });
+
+  sections.push({
+    id: 'patternsThatDroveScore',
+    title: 'Patterns That Drove The Score',
+    step: 3,
+    body: patterns.length > 0
+      ? `${patterns.length} score-driving pattern${patterns.length > 1 ? 's' : ''} detected.`
+      : 'No significant weakness patterns detected.',
+    patterns,
+    source: 'deterministic',
+  });
+
+  const showUpGroups = proofGroups.filter(g => g.id === 'domains' || g.id === 'timing' || g.id === 'causes');
+
+  sections.push({
+    id: 'whereScoreBrokeDown',
+    title: 'Where The Score Broke Down',
+    step: 4,
+    body: showUpGroups.length > 0 
+      ? 'Here is how these score drivers appear across the test.'
+      : 'No specific domain or timing patterns detected.',
+    groups: showUpGroups,
+    source: 'deterministic',
+  });
+
+  const topW = patterns[0];
+  const nextFocus = {
+    id: 'whatThisMeans',
+    title: 'What This Means',
+    step: 5,
+    text: topW 
+      ? `Prioritize ${topW.title} — it has the highest impact on your score.`
+      : (report.scoreProjection?.easyWins?.count >= 2 
+          ? `Start with the ${report.scoreProjection.easyWins.count} easy questions you missed — they are the fastest points to recover.`
+          : 'Continue consistent practice to build on your current performance.'),
+    primaryAction: { label: 'View Study Plan', action: 'study_plan' },
+    source: 'deterministic'
+  };
+
+  return { hero, sections, nextFocus };
+}
+
+/**
+ * Merge AI narrative into the deterministic report so the page always
+ * renders one unified story — AI prose where available, deterministic elsewhere.
+ *
+ * @param {object} report   Output of buildDiagnosticReport
+ * @param {object|null} ai  AI narrative object (from Cloud Function) or null
+ * @returns {object}        Same report shape with AI copy spliced in
+ */
+export function mergeAiIntoReport(report, ai) {
+  if (!report || !ai) return report;
+
+  const merged = {
+    hero: { ...report.hero },
+    sections: report.sections.map(s => ({ ...s })),
+    nextFocus: { ...report.nextFocus },
+  };
+
+  if (ai.diagnosis) {
+    merged.hero.headline = ai.diagnosis;
+  }
+
+  const scoreSec = merged.sections.find(s => s.id === 'whyThisScore');
+  if (scoreSec && ai.scoreImpact) {
+    scoreSec.body = ai.scoreImpact;
+    scoreSec.source = 'ai';
+  }
+
+  const aiWeaknesses = ai.weaknesses || [];
+  if (aiWeaknesses.length > 0) {
+    const sec = merged.sections.find(s => s.id === 'patternsThatDroveScore');
+    if (sec) {
+      sec.patterns = aiWeaknesses.map(w => {
+        // Try to carry over evidence and confidence from deterministic pattern
+        const existingW = sec.patterns.find(ew => 
+          ew.title.toLowerCase() === w.title.toLowerCase() || 
+          ew.title.toLowerCase().includes(w.title.toLowerCase()) || 
+          w.title.toLowerCase().includes(ew.title.toLowerCase())
+        ) || sec.patterns[0];
+
+        return {
+          id: w.title,
+          title: w.title,
+          why: w.why,
+          frequency: existingW ? existingW.frequency : null,
+          whereSeen: existingW ? existingW.whereSeen : null,
+          proof: w.proof || [],
+          evidence: existingW ? existingW.evidence : [], // carry over deterministic evidence
+          impact: w.impact,
+          severity: w.severity || 'moderate',
+          source: 'ai',
+          confidence: existingW ? existingW.confidence : 'high',
+          estimatedPointGain: existingW ? existingW.estimatedPointGain : null,
+          nextAction: existingW ? existingW.nextAction : { label: 'Review Questions', action: 'review' }
+        };
+      });
+      sec.body = `${aiWeaknesses.length} score-driving pattern${aiWeaknesses.length > 1 ? 's' : ''} detected.`;
+      sec.source = 'ai';
+    }
+  }
+
+  const whereSec = merged.sections.find(s => s.id === 'whereScoreBrokeDown');
+  if (whereSec) {
+    // Let deterministic groups stay as evidence
+    if (ai.uncertainties) {
+      whereSec.note = ai.uncertainties;
+    }
+  }
+
+  if (ai.topNextFocus) {
+    merged.nextFocus.text = ai.topNextFocus;
+    merged.nextFocus.source = 'ai';
+  }
+
+  return merged;
+}
+
+/**
  * Main adapter entry point.
  *
  * @param {object} report       Full output from `runDiagnostic()`
@@ -571,20 +1117,15 @@ export function adaptDiagnosticForUI(report, rawDiagData) {
   if (!report) return null;
 
   return {
+    summary: buildSimplifiedSummary(report, rawDiagData),
+    behaviorHighlights: buildBehaviorHighlights(report, rawDiagData),
     quickStats: buildQuickStats(report),
     keyFindings: buildKeyFindings(report),
-    pointLoss: buildPointLoss(report),
-    roiFixes: buildROIFixes(report),
-    domains: buildDomainPerformance(report),
-    behavior: buildBehaviorSignals(report, rawDiagData),
-    difficulty: buildDifficultyBreakdown(report),
-    questionEvidence: buildQuestionEvidence(report),
     scoreProjection: buildScoreProjection(report),
-    weaknessClusters: buildWeaknessClusters(report),
-    persistentWeaknesses: buildPersistentWeaknesses(report),
     behaviorOutcomes: buildBehaviorOutcomes(report, rawDiagData),
     timeAllocation: buildTimeAllocation(report),
     confidenceIndicators: buildConfidenceIndicators(report),
+    report: buildDiagnosticReport(report, rawDiagData),
     score: report.score,
     percentile: report.percentile,
     fingerprint: report.mistakeFingerprint,

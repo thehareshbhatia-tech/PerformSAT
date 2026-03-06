@@ -1,5 +1,5 @@
 import { db } from '../firebase/config';
-import { doc, getDoc, setDoc, updateDoc, serverTimestamp, arrayUnion } from 'firebase/firestore';
+import { doc, getDoc, setDoc, updateDoc, serverTimestamp, arrayUnion, collection, addDoc, query, where, orderBy, limit, getDocs } from 'firebase/firestore';
 
 /**
  * Records a practice test result to Firestore
@@ -274,4 +274,89 @@ export const getInProgressTestSummaries = (inProgressTests) => {
     lastSavedAt: test.lastSavedAt,
     isTimed: test.isTimed
   }));
+};
+
+// ===== AI Diagnostic Artifact Storage =====
+
+/**
+ * AI diagnostic status lifecycle:
+ *   'generating' -> 'ready' | 'failed'
+ *
+ * Stored per-attempt in a subcollection so each test run carries its own
+ * AI narrative artifact that the results page can hydrate from.
+ */
+
+export const AI_DIAGNOSTIC_STATUS = {
+  GENERATING: 'generating',
+  READY: 'ready',
+  FAILED: 'failed',
+};
+
+/**
+ * Creates a placeholder artifact when generation starts, returns its ID.
+ */
+export const createAiDiagnosticArtifact = async (userId, testId, attemptTimestamp) => {
+  if (!userId || !testId) return null;
+
+  const colRef = collection(db, 'progress', userId, 'aiDiagnostics');
+  const artifactRef = await addDoc(colRef, {
+    testId,
+    attemptTimestamp,
+    status: AI_DIAGNOSTIC_STATUS.GENERATING,
+    createdAt: serverTimestamp(),
+  });
+
+  return artifactRef.id;
+};
+
+/**
+ * Marks an artifact as ready with the full narrative payload.
+ */
+export const completeAiDiagnosticArtifact = async (userId, artifactId, narrative, meta = {}) => {
+  if (!userId || !artifactId) return;
+
+  const artifactRef = doc(db, 'progress', userId, 'aiDiagnostics', artifactId);
+  await updateDoc(artifactRef, {
+    status: AI_DIAGNOSTIC_STATUS.READY,
+    narrative,
+    generatedAt: meta.generatedAt || new Date().toISOString(),
+    model: meta.model || 'unknown',
+    completedAt: serverTimestamp(),
+  });
+};
+
+/**
+ * Marks an artifact as failed so the UI can show fallback + retry.
+ */
+export const failAiDiagnosticArtifact = async (userId, artifactId, errorMessage) => {
+  if (!userId || !artifactId) return;
+
+  const artifactRef = doc(db, 'progress', userId, 'aiDiagnostics', artifactId);
+  await updateDoc(artifactRef, {
+    status: AI_DIAGNOSTIC_STATUS.FAILED,
+    errorMessage: errorMessage || 'Unknown error',
+    failedAt: serverTimestamp(),
+  });
+};
+
+/**
+ * Fetches the latest AI diagnostic artifact for a specific test.
+ * Returns null if nothing exists or the artifact is still generating.
+ */
+export const getLatestAiDiagnostic = async (userId, testId) => {
+  if (!userId || !testId) return null;
+
+  const colRef = collection(db, 'progress', userId, 'aiDiagnostics');
+  const q = query(
+    colRef,
+    where('testId', '==', testId),
+    orderBy('createdAt', 'desc'),
+    limit(1),
+  );
+
+  const snap = await getDocs(q);
+  if (snap.empty) return null;
+
+  const docSnap = snap.docs[0];
+  return { id: docSnap.id, ...docSnap.data() };
 };
