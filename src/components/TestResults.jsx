@@ -5,13 +5,14 @@
  * difficulty donut charts, and content domain bars
  */
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { colors, radius, shadows } from '../design/tokens';
 import { cardStyles, buttonStyles } from '../design/components';
 import { ChartBarIcon, ArrowRightIcon, CircleDotIcon } from '../design/icons';
 import {
   convertToSATScore, isAnswerCorrect, estimatePercentile,
   inferDomain, SAT_MATH_DOMAINS, DOMAIN_DISPLAY_NAMES,
+  adaptDiagnosticForUI,
 } from '../services/scoring';
 
 // Donut Chart Component for difficulty breakdown
@@ -245,6 +246,7 @@ const TestResults = ({
   test,
   answers,
   diagnosticData,
+  diagnosticReport,
   practiceTestResults,
   onBack,
   onRetake,
@@ -254,6 +256,11 @@ const TestResults = ({
   user,
 }) => {
   const [activeTab, setActiveTab] = useState('summary');
+
+  const diagUI = useMemo(
+    () => adaptDiagnosticForUI(diagnosticReport, diagnosticData),
+    [diagnosticReport, diagnosticData]
+  );
 
   // Calculate scores
   const calculateModuleScore = (moduleIndex) => {
@@ -1092,10 +1099,10 @@ const TestResults = ({
     );
   };
 
-  const [showDetailedDiag, setShowDetailedDiag] = useState(false);
+  const [showEvidence, setShowEvidence] = useState(false);
 
   const renderDiagnosticView = () => {
-    if (!diagnosticData) {
+    if (!diagUI) {
       return (
         <div style={{ textAlign: 'center', padding: '60px 20px', color: colors.text.secondary }}>
           <div style={{ marginBottom: '16px', display: 'flex', justifyContent: 'center' }}>
@@ -1111,68 +1118,6 @@ const TestResults = ({
       );
     }
 
-    const { questionDetails, navigationPattern, totalNavigationEvents,
-      moduleTimeRemaining: modTimeRemaining, questionsVisitedMultipleTimes,
-      calculatorUsageCount, markedForReviewCount } = diagnosticData;
-
-    const questionEntries = Object.entries(questionDetails || {});
-    const totalQ = questionEntries.length || totalQuestions;
-
-    const totalTimeSpent = questionEntries.reduce((sum, [, q]) => sum + (q.timeSpent || 0), 0);
-    const avgTime = totalQ > 0 ? (totalTimeSpent / totalQ) : 0;
-
-    const slowest = [...questionEntries]
-      .sort(([, a], [, b]) => (b.timeSpent || 0) - (a.timeSpent || 0))
-      .slice(0, 3);
-
-    // Domain performance
-    const domainTotals = {};
-    test.modules.forEach((_, modIdx) => {
-      const domainBreak = calculateDomainBreakdown(modIdx);
-      Object.entries(domainBreak).forEach(([domain, data]) => {
-        if (!domainTotals[domain]) domainTotals[domain] = { correct: 0, total: 0 };
-        domainTotals[domain].correct += data.correct;
-        domainTotals[domain].total += data.total;
-      });
-    });
-    const sortedDomains = SAT_MATH_DOMAINS
-      .filter(d => domainTotals[d]?.total > 0)
-      .map(d => ({ domain: d, ...domainTotals[d], pct: domainTotals[d].total > 0 ? Math.round((domainTotals[d].correct / domainTotals[d].total) * 100) : 0 }))
-      .sort((a, b) => a.pct - b.pct);
-
-    const strengths = sortedDomains.filter(d => d.pct >= 70).slice(-2).reverse();
-    const weaknesses = sortedDomains.filter(d => d.pct < 70).slice(0, 2);
-
-    // Point-loss attribution
-    const incorrectEntries = questionEntries.filter(([, q]) => !q.isCorrect);
-    const carelessCount = incorrectEntries.filter(([, q]) => {
-      const qTime = q.timeSpent || 0;
-      return (q.difficulty === 'easy') || (avgTime > 0 && qTime > 0 && qTime < avgTime * 0.7);
-    }).length;
-    const timePressureCount = incorrectEntries.filter(([, q]) => (q.timeSpent || 0) > avgTime * 1.35).length;
-    const contentGapCount = Math.max(0, incorrectEntries.length - carelessCount - timePressureCount);
-    const biggestBucket = carelessCount >= timePressureCount && carelessCount >= contentGapCount
-      ? 'careless mistakes'
-      : timePressureCount >= contentGapCount ? 'time pressure' : 'content gaps';
-
-    // Difficulty totals
-    const diffTotals = { easy: { correct: 0, total: 0 }, medium: { correct: 0, total: 0 }, hard: { correct: 0, total: 0 } };
-    test.modules.forEach((_, modIdx) => {
-      const db = calculateDifficultyBreakdown(modIdx);
-      ['easy', 'medium', 'hard'].forEach(d => {
-        diffTotals[d].correct += db[d].correct;
-        diffTotals[d].total += db[d].correct + db[d].incorrect + db[d].unanswered;
-      });
-    });
-    const missedEasy = questionEntries.filter(([, q]) => (q.difficulty === 'easy') && !q.isCorrect);
-
-    // Top action
-    const topAction = weaknesses.length > 0
-      ? `Focus on ${DOMAIN_DISPLAY_NAMES[weaknesses[0].domain] || weaknesses[0].domain} (${weaknesses[0].pct}%) — your biggest opportunity.`
-      : missedEasy.length > 0
-        ? `Lock in ${missedEasy.length} easy question${missedEasy.length > 1 ? 's' : ''} you missed.`
-        : `Maintain consistency and keep practicing mixed sets.`;
-
     const cardStyle = {
       background: 'rgba(255, 255, 255, 0.85)',
       backdropFilter: 'saturate(180%) blur(24px)',
@@ -1184,245 +1129,298 @@ const TestResults = ({
       boxShadow: '0 8px 32px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02)',
     };
 
-    const formatTime = (seconds) => {
-      if (seconds < 60) return `${Math.round(seconds)}s`;
-      const m = Math.floor(seconds / 60);
-      const s = Math.round(seconds % 60);
-      return `${m}m ${s}s`;
+    const severityStyles = {
+      error:   { bg: 'rgba(239, 68, 68, 0.06)', border: 'rgba(239, 68, 68, 0.15)', dot: '#ef4444' },
+      warning: { bg: 'rgba(245, 158, 11, 0.06)', border: 'rgba(245, 158, 11, 0.15)', dot: '#f59e0b' },
+      info:    { bg: 'rgba(14, 165, 233, 0.06)', border: 'rgba(14, 165, 233, 0.15)', dot: '#0ea5e9' },
     };
 
-    const questionLabel = (key) => {
-      const [modIdx, qIdx] = key.split('-').map(Number);
-      return `M${modIdx + 1} Q${qIdx + 1}`;
-    };
-
-    const navPatternLabel = { 'linear': 'Linear', 'strategic-skip': 'Strategic Skip', 'jumping': 'Jumping' };
+    const { keyFindings, pointLoss, roiFixes, domains, behavior, difficulty, questionEvidence, scoreProjection } = diagUI;
 
     return (
       <div>
-        {/* Section 1: Strengths & Weaknesses */}
-        <div style={cardStyle}>
-          <h3 style={{ fontSize: '15px', fontWeight: '700', color: colors.text.primary, margin: 0, marginBottom: '16px' }}>
-            Your Performance at a Glance
-          </h3>
-          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-            {/* Strengths */}
-            <div style={{ flex: 1, minWidth: '220px' }}>
-              <div style={{ fontSize: '12px', fontWeight: '600', color: colors.semantic.success, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px' }}>
-                Doing well
-              </div>
-              {strengths.length > 0 ? strengths.map(s => (
-                <div key={s.domain} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 12px', background: colors.semantic.successLight, borderRadius: radius.sm, marginBottom: '6px' }}>
-                  <span style={{ fontSize: '14px', fontWeight: '500', color: colors.text.primary }}>{DOMAIN_DISPLAY_NAMES[s.domain] || s.domain}</span>
-                  <span style={{ fontSize: '13px', fontWeight: '700', color: colors.semantic.success }}>{s.pct}%</span>
-                </div>
-              )) : (
-                <div style={{ fontSize: '13px', color: colors.text.secondary, padding: '8px 12px' }}>Keep working — strengths will emerge with practice.</div>
-              )}
-            </div>
-            {/* Weaknesses */}
-            <div style={{ flex: 1, minWidth: '220px' }}>
-              <div style={{ fontSize: '12px', fontWeight: '600', color: colors.semantic.error, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px' }}>
-                Needs work
-              </div>
-              {weaknesses.length > 0 ? weaknesses.map(s => (
-                <div key={s.domain} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 12px', background: colors.semantic.errorLight, borderRadius: radius.sm, marginBottom: '6px' }}>
-                  <span style={{ fontSize: '14px', fontWeight: '500', color: colors.text.primary }}>{DOMAIN_DISPLAY_NAMES[s.domain] || s.domain}</span>
-                  <span style={{ fontSize: '13px', fontWeight: '700', color: colors.semantic.error }}>{s.pct}%</span>
-                </div>
-              )) : (
-                <div style={{ fontSize: '13px', color: colors.semantic.success, padding: '8px 12px', fontWeight: '500' }}>No major weak spots detected.</div>
-              )}
+        {/* ── 1. KEY FINDINGS ── */}
+        {keyFindings.length > 0 && (
+          <div style={cardStyle}>
+            <h3 style={{ fontSize: '15px', fontWeight: '700', color: colors.text.primary, margin: 0, marginBottom: '16px' }}>
+              Key Findings
+            </h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              {keyFindings.map(f => {
+                const sev = severityStyles[f.severity] || severityStyles.info;
+                return (
+                  <div key={f.id} style={{
+                    padding: '14px 16px', borderRadius: '16px',
+                    background: sev.bg, border: `1px solid ${sev.border}`,
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px' }}>
+                      <div style={{ width: 8, height: 8, borderRadius: '50%', background: sev.dot, flexShrink: 0 }} />
+                      <span style={{ fontSize: '14px', fontWeight: '600', color: colors.text.primary }}>{f.title}</span>
+                    </div>
+                    <div style={{ fontSize: '13px', color: colors.text.secondary, lineHeight: '1.5', paddingLeft: '18px' }}>
+                      {f.detail}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
-        </div>
+        )}
 
-        {/* Section 2: Biggest Score Lever */}
-        <div style={{
-          ...cardStyle,
-          background: 'linear-gradient(135deg, rgba(6,182,212,0.08) 0%, rgba(6,182,212,0.02) 100%)',
-          border: '1px solid rgba(6,182,212,0.15)',
-        }}>
-          <h3 style={{ fontSize: '15px', fontWeight: '700', color: colors.text.primary, margin: 0, marginBottom: '6px' }}>
-            Biggest Score Lever
-          </h3>
-          <p style={{ fontSize: '13px', color: colors.text.secondary, margin: 0, marginBottom: '12px' }}>
-            Most of your lost points came from <strong style={{ color: colors.text.primary }}>{biggestBucket}</strong>.
-          </p>
-          <div style={{
-            display: 'flex', alignItems: 'center', gap: '12px',
-            background: 'rgba(255,255,255,0.7)', borderRadius: '16px', padding: '12px 16px',
-            border: '1px solid rgba(255,255,255,0.8)',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.02)'
-          }}>
-            <div style={{
-              width: '28px', height: '28px', borderRadius: '50%',
-              background: 'linear-gradient(135deg, #06b6d4 0%, #0891b2 100%)', color: colors.text.inverse,
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontSize: '14px', fontWeight: '700', flexShrink: 0,
-              boxShadow: '0 2px 6px rgba(6,182,212,0.3)'
-            }}>1</div>
-            <span style={{ fontSize: '14px', color: colors.text.primary, lineHeight: '1.45', fontWeight: '500' }}>
-              {topAction}
-            </span>
-          </div>
-          {onOpenDiagnosticReport && (
-            <button
-              onClick={onOpenDiagnosticReport}
-              style={{
-                background: 'linear-gradient(180deg, #1e293b 0%, #0f172a 100%)',
-                color: '#fff', border: '1px solid #020617',
-                borderRadius: '14px', fontSize: '14px', fontWeight: '600',
-                padding: '12px 20px', width: '100%', textAlign: 'center',
-                marginTop: '16px', cursor: 'pointer',
-                boxShadow: '0 4px 12px rgba(15,23,42,0.15), inset 0 1px 1px rgba(255,255,255,0.1)',
-                transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
-              }}
-            >
-              Open Study Plan
-            </button>
-          )}
-        </div>
-
-        {/* Section 3: Point-Loss Summary (compact) */}
-        <div style={cardStyle}>
-          <h3 style={{ fontSize: '15px', fontWeight: '700', color: colors.text.primary, margin: 0, marginBottom: '12px' }}>
-            Where Points Were Lost
-          </h3>
-          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-            {[
-              { label: 'Careless', value: carelessCount, bg: colors.semantic.warningLight, fg: '#b45309' },
-              { label: 'Time pressure', value: timePressureCount, bg: colors.semantic.infoLight, fg: colors.semantic.info },
-              { label: 'Content gaps', value: contentGapCount, bg: colors.semantic.errorLight, fg: colors.semantic.error },
-            ].map((b) => (
-              <div key={b.label} style={{ flex: 1, minWidth: '100px', background: b.bg, borderRadius: '10px', padding: '12px', textAlign: 'center' }}>
-                <div style={{ fontSize: '20px', fontWeight: '700', color: b.fg }}>{b.value}</div>
-                <div style={{ fontSize: '11px', color: colors.text.secondary, marginTop: '4px' }}>{b.label}</div>
+        {/* ── 2. WHY POINTS WERE LOST ── */}
+        {pointLoss.length > 0 && (
+          <div style={cardStyle}>
+            <h3 style={{ fontSize: '15px', fontWeight: '700', color: colors.text.primary, margin: 0, marginBottom: '14px' }}>
+              Why Points Were Lost
+            </h3>
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: pointLoss.some(p => p.sampleQuestions.length > 0) ? '14px' : '0' }}>
+              {pointLoss.map(p => (
+                <div key={p.type} style={{
+                  flex: '1 1 0', minWidth: '110px', background: p.bg, borderRadius: '14px', padding: '14px', textAlign: 'center',
+                  border: `1px solid ${p.color}15`,
+                }}>
+                  <div style={{ fontSize: '22px', fontWeight: '700', color: p.color }}>{p.count}</div>
+                  <div style={{ fontSize: '12px', fontWeight: '600', color: p.color, marginTop: '2px' }}>{p.label}</div>
+                  <div style={{ fontSize: '11px', color: colors.text.muted, marginTop: '2px' }}>{p.percentage}% of misses</div>
+                </div>
+              ))}
+            </div>
+            {pointLoss.filter(p => p.sampleQuestions.length > 0).slice(0, 2).map(p => (
+              <div key={`sample-${p.type}`} style={{ marginBottom: '8px' }}>
+                <div style={{ fontSize: '11px', fontWeight: '600', color: p.color, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '6px' }}>
+                  {p.label} — example{p.sampleQuestions.length > 1 ? 's' : ''}
+                </div>
+                {p.sampleQuestions.map(sq => (
+                  <div key={sq.key} style={{
+                    display: 'flex', alignItems: 'center', gap: '8px',
+                    padding: '6px 10px', background: 'rgba(0,0,0,0.02)', borderRadius: '8px', marginBottom: '3px', fontSize: '12px',
+                  }}>
+                    <span style={{ fontWeight: '600', color: colors.text.secondary, minWidth: '52px' }}>{sq.label}</span>
+                    <span style={{
+                      fontSize: '10px', fontWeight: '600', padding: '1px 6px', borderRadius: '3px', textTransform: 'capitalize',
+                      background: sq.difficulty === 'hard' ? colors.semantic.error : sq.difficulty === 'medium' ? colors.semantic.warning : colors.semantic.success,
+                      color: colors.text.inverse,
+                    }}>{sq.difficulty || 'medium'}</span>
+                    <span style={{ flex: 1, fontSize: '12px', color: colors.text.secondary, lineHeight: '1.4' }}>{sq.reasoning}</span>
+                  </div>
+                ))}
               </div>
             ))}
           </div>
-        </div>
+        )}
 
-        {/* Collapsible: Detailed Breakdown */}
-        <button
-          onClick={() => setShowDetailedDiag(!showDetailedDiag)}
-          style={{
-            width: '100%', background: 'none', border: `1px solid ${colors.surface.grayDark}`,
-            borderRadius: radius.sm, padding: '12px 16px', cursor: 'pointer',
-            display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-            marginBottom: showDetailedDiag ? '16px' : '0',
-          }}
-        >
-          <span style={{ fontSize: '14px', fontWeight: '600', color: colors.text.secondary }}>
-            {showDetailedDiag ? 'Hide detailed breakdown' : 'See detailed breakdown'}
-          </span>
-          <span style={{ fontSize: '18px', color: colors.text.muted, transform: showDetailedDiag ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s ease' }}>
-            &#9660;
-          </span>
-        </button>
-
-        {showDetailedDiag && (
-          <div>
-            {/* Domain Performance Bars */}
-            <div style={cardStyle}>
-              <h3 style={{ fontSize: '14px', fontWeight: '700', color: colors.text.primary, margin: 0, marginBottom: '12px' }}>
-                Domain Performance
-              </h3>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                {sortedDomains.map(({ domain, correct, total, pct }) => {
-                  const barColor = pct >= 80 ? colors.semantic.success : pct >= 60 ? colors.semantic.warning : colors.semantic.error;
-                  return (
-                    <div key={domain}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '3px' }}>
-                        <span style={{ fontSize: '13px', fontWeight: '500', color: colors.text.primary }}>{DOMAIN_DISPLAY_NAMES[domain] || domain}</span>
-                        <span style={{ fontSize: '12px', fontWeight: '600', color: barColor }}>{correct}/{total} ({pct}%)</span>
-                      </div>
-                      <div style={{ background: colors.surface.gray, borderRadius: '4px', height: '6px', overflow: 'hidden' }}>
-                        <div style={{ width: `${pct}%`, height: '100%', background: barColor, borderRadius: '4px', transition: 'width 0.4s ease' }} />
-                      </div>
+        {/* ── 3. HIGHEST ROI FIXES ── */}
+        {roiFixes.length > 0 && (
+          <div style={{
+            ...cardStyle,
+            background: 'linear-gradient(135deg, rgba(6,182,212,0.08) 0%, rgba(6,182,212,0.02) 100%)',
+            border: '1px solid rgba(6,182,212,0.15)',
+          }}>
+            <h3 style={{ fontSize: '15px', fontWeight: '700', color: colors.text.primary, margin: 0, marginBottom: '14px' }}>
+              Highest ROI Fixes
+            </h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              {roiFixes.map((fix, idx) => (
+                <div key={idx} style={{
+                  display: 'flex', alignItems: 'flex-start', gap: '12px',
+                  background: 'rgba(255,255,255,0.7)', borderRadius: '16px', padding: '14px 16px',
+                  border: '1px solid rgba(255,255,255,0.8)', boxShadow: '0 2px 8px rgba(0,0,0,0.02)',
+                }}>
+                  <div style={{
+                    width: '28px', height: '28px', borderRadius: '50%', flexShrink: 0,
+                    background: 'linear-gradient(135deg, #06b6d4 0%, #0891b2 100%)', color: colors.text.inverse,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontSize: '13px', fontWeight: '700', boxShadow: '0 2px 6px rgba(6,182,212,0.3)',
+                  }}>{idx + 1}</div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                      <span style={{ fontSize: '14px', fontWeight: '600', color: colors.text.primary }}>{fix.title}</span>
+                      {fix.estimatedGain > 0 && (
+                        <span style={{
+                          fontSize: '11px', fontWeight: '700', color: '#0891b2',
+                          background: 'rgba(6,182,212,0.1)', padding: '2px 8px', borderRadius: '6px',
+                        }}>+{fix.estimatedGain} pts</span>
+                      )}
+                      {fix.effort && (
+                        <span style={{
+                          fontSize: '10px', fontWeight: '600', textTransform: 'capitalize',
+                          color: fix.effort === 'low' ? colors.semantic.success : fix.effort === 'high' ? colors.semantic.error : '#b45309',
+                          background: fix.effort === 'low' ? colors.semantic.successLight : fix.effort === 'high' ? colors.semantic.errorLight : colors.semantic.warningLight,
+                          padding: '2px 6px', borderRadius: '4px',
+                        }}>{fix.effort} effort</span>
+                      )}
                     </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Difficulty Breakdown */}
-            <div style={cardStyle}>
-              <h3 style={{ fontSize: '14px', fontWeight: '700', color: colors.text.primary, margin: 0, marginBottom: '12px' }}>
-                Difficulty Breakdown
-              </h3>
-              <div style={{ display: 'flex', gap: '10px' }}>
-                {['easy', 'medium', 'hard'].map(level => {
-                  const d = diffTotals[level];
-                  const pct = d.total > 0 ? Math.round((d.correct / d.total) * 100) : 0;
-                  const bgColor = level === 'easy' ? colors.semantic.successLight : level === 'medium' ? colors.semantic.warningLight : colors.semantic.errorLight;
-                  const fgColor = level === 'easy' ? colors.semantic.success : level === 'medium' ? '#b45309' : colors.semantic.error;
-                  return (
-                    <div key={level} style={{ flex: 1, background: bgColor, borderRadius: '8px', padding: '14px', textAlign: 'center' }}>
-                      <div style={{ fontSize: '11px', fontWeight: '600', color: fgColor, textTransform: 'capitalize', marginBottom: '6px' }}>{level}</div>
-                      <div style={{ fontSize: '22px', fontWeight: '700', color: fgColor }}>{pct}%</div>
-                      <div style={{ fontSize: '11px', color: colors.text.secondary, marginTop: '3px' }}>{d.correct}/{d.total}</div>
-                    </div>
-                  );
-                })}
-              </div>
-              {missedEasy.length > 0 && (
-                <div style={{ marginTop: '10px', padding: '8px 12px', background: colors.semantic.errorLight, borderRadius: radius.sm, fontSize: '12px', color: colors.semantic.error, fontWeight: '500' }}>
-                  {missedEasy.length} easy miss{missedEasy.length > 1 ? 'es' : ''} — quickest points to recover.
-                </div>
-              )}
-            </div>
-
-            {/* Behavior + Time (merged compact) */}
-            <div style={cardStyle}>
-              <h3 style={{ fontSize: '14px', fontWeight: '700', color: colors.text.primary, margin: 0, marginBottom: '12px' }}>
-                Test Behavior & Time
-              </h3>
-              <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '12px' }}>
-                <div style={{ background: colors.surface.offWhite, borderRadius: radius.sm, padding: '10px 16px', flex: 1, minWidth: '120px' }}>
-                  <div style={{ fontSize: '11px', color: colors.text.secondary }}>Navigation</div>
-                  <div style={{ fontSize: '16px', fontWeight: '700', color: colors.accent.teal }}>{navPatternLabel[navigationPattern] || 'Linear'}</div>
-                </div>
-                <div style={{ background: colors.surface.offWhite, borderRadius: radius.sm, padding: '10px 16px', flex: 1, minWidth: '120px' }}>
-                  <div style={{ fontSize: '11px', color: colors.text.secondary }}>Avg Time</div>
-                  <div style={{ fontSize: '16px', fontWeight: '700', color: colors.semantic.info }}>{formatTime(avgTime)}</div>
-                </div>
-                <div style={{ background: colors.surface.offWhite, borderRadius: radius.sm, padding: '10px 16px', flex: 1, minWidth: '120px' }}>
-                  <div style={{ fontSize: '11px', color: colors.text.secondary }}>Calculator</div>
-                  <div style={{ fontSize: '16px', fontWeight: '700', color: colors.semantic.info }}>{calculatorUsageCount}/{totalQ}</div>
-                </div>
-                <div style={{ background: colors.surface.offWhite, borderRadius: radius.sm, padding: '10px 16px', flex: 1, minWidth: '120px' }}>
-                  <div style={{ fontSize: '11px', color: colors.text.secondary }}>Flagged</div>
-                  <div style={{ fontSize: '16px', fontWeight: '700', color: colors.accent.orange }}>{markedForReviewCount}</div>
-                </div>
-              </div>
-              {slowest.length > 0 && (
-                <>
-                  <div style={{ fontSize: '12px', fontWeight: '600', color: colors.text.secondary, marginBottom: '6px' }}>Slowest Questions</div>
-                  {slowest.map(([key, q]) => {
-                    const diffColor = q.difficulty === 'hard' ? colors.semantic.error : q.difficulty === 'medium' ? colors.semantic.warning : colors.semantic.success;
-                    return (
-                      <div key={key} style={{
-                        display: 'flex', alignItems: 'center', gap: '10px',
-                        padding: '6px 10px', borderRadius: '6px',
-                        background: q.isCorrect ? colors.semantic.successLight : colors.semantic.errorLight,
-                        marginBottom: '3px', fontSize: '12px',
-                      }}>
-                        <span style={{ fontWeight: '600', color: colors.text.secondary, minWidth: '50px' }}>{questionLabel(key)}</span>
-                        <span style={{ fontWeight: '500', padding: '1px 6px', borderRadius: '3px', background: diffColor, color: colors.text.inverse, textTransform: 'capitalize', fontSize: '10px' }}>
-                          {q.difficulty || 'medium'}
-                        </span>
-                        <span style={{ flex: 1, color: q.isCorrect ? colors.semantic.success : colors.semantic.error, fontWeight: '500' }}>
-                          {q.isCorrect ? 'Correct' : 'Incorrect'}
-                        </span>
-                        <span style={{ fontWeight: '600', color: colors.text.secondary }}>{formatTime(q.timeSpent || 0)}</span>
+                    <div style={{ fontSize: '13px', color: colors.text.secondary, lineHeight: '1.45', marginTop: '4px' }}>{fix.description}</div>
+                    {fix.actionItems.length > 0 && (
+                      <div style={{ marginTop: '8px', display: 'flex', flexDirection: 'column', gap: '3px' }}>
+                        {fix.actionItems.slice(0, 2).map((item, i) => (
+                          <div key={i} style={{ fontSize: '12px', color: colors.text.secondary, paddingLeft: '10px', borderLeft: '2px solid rgba(6,182,212,0.3)' }}>
+                            {item}
+                          </div>
+                        ))}
                       </div>
-                    );
-                  })}
-                </>
-              )}
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+            {onOpenDiagnosticReport && (
+              <button
+                onClick={onOpenDiagnosticReport}
+                style={{
+                  background: 'linear-gradient(180deg, #1e293b 0%, #0f172a 100%)',
+                  color: '#fff', border: '1px solid #020617',
+                  borderRadius: '14px', fontSize: '14px', fontWeight: '600',
+                  padding: '12px 20px', width: '100%', textAlign: 'center',
+                  marginTop: '16px', cursor: 'pointer',
+                  boxShadow: '0 4px 12px rgba(15,23,42,0.15), inset 0 1px 1px rgba(255,255,255,0.1)',
+                  transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+                }}
+              >
+                Open Study Plan
+              </button>
+            )}
+          </div>
+        )}
+
+        {/* ── 4. DOMAIN PERFORMANCE ── */}
+        {domains.length > 0 && (
+          <div style={cardStyle}>
+            <h3 style={{ fontSize: '15px', fontWeight: '700', color: colors.text.primary, margin: 0, marginBottom: '14px' }}>
+              Domain Performance
+            </h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              {domains.map(d => {
+                const barColor = d.accuracy >= 80 ? colors.semantic.success : d.accuracy >= 60 ? colors.semantic.warning : colors.semantic.error;
+                return (
+                  <div key={d.domain}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span style={{ fontSize: '13px', fontWeight: '600', color: colors.text.primary }}>{d.displayName}</span>
+                        {d.topErrorType && (
+                          <span style={{ fontSize: '10px', color: colors.text.muted, fontWeight: '500' }}>
+                            top issue: {d.topErrorType}
+                          </span>
+                        )}
+                      </div>
+                      <span style={{ fontSize: '12px', fontWeight: '600', color: barColor }}>{d.correct}/{d.total} ({d.accuracy}%)</span>
+                    </div>
+                    <div style={{ background: colors.surface.gray || '#f1f5f9', borderRadius: '4px', height: '6px', overflow: 'hidden' }}>
+                      <div style={{ width: `${d.accuracy}%`, height: '100%', background: barColor, borderRadius: '4px', transition: 'width 0.4s ease' }} />
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
+        )}
+
+        {/* ── 5. DIFFICULTY BREAKDOWN ── */}
+        {difficulty && (
+          <div style={cardStyle}>
+            <h3 style={{ fontSize: '15px', fontWeight: '700', color: colors.text.primary, margin: 0, marginBottom: '14px' }}>
+              Difficulty Breakdown
+            </h3>
+            <div style={{ display: 'flex', gap: '10px' }}>
+              {difficulty.map(d => {
+                const bgColor = d.level === 'easy' ? colors.semantic.successLight : d.level === 'medium' ? colors.semantic.warningLight : colors.semantic.errorLight;
+                const fgColor = d.level === 'easy' ? colors.semantic.success : d.level === 'medium' ? '#b45309' : colors.semantic.error;
+                return (
+                  <div key={d.level} style={{ flex: 1, background: bgColor, borderRadius: '12px', padding: '16px', textAlign: 'center' }}>
+                    <div style={{ fontSize: '11px', fontWeight: '600', color: fgColor, textTransform: 'capitalize', marginBottom: '6px' }}>{d.level}</div>
+                    <div style={{ fontSize: '22px', fontWeight: '700', color: fgColor }}>{d.accuracy}%</div>
+                    <div style={{ fontSize: '11px', color: colors.text.secondary, marginTop: '3px' }}>{d.correct}/{d.total}</div>
+                  </div>
+                );
+              })}
+            </div>
+            {scoreProjection?.easyWins?.count > 0 && (
+              <div style={{ marginTop: '10px', padding: '8px 12px', background: colors.semantic.errorLight, borderRadius: radius.sm, fontSize: '12px', color: colors.semantic.error, fontWeight: '500' }}>
+                {scoreProjection.easyWins.count} easy miss{scoreProjection.easyWins.count > 1 ? 'es' : ''} — fixing them adds +{scoreProjection.easyWins.projectedGain} points.
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* ── 6. BEHAVIOR SIGNALS ── */}
+        {behavior.length > 0 && (
+          <div style={cardStyle}>
+            <h3 style={{ fontSize: '15px', fontWeight: '700', color: colors.text.primary, margin: 0, marginBottom: '14px' }}>
+              Behavior Signals
+            </h3>
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+              {behavior.map((s, i) => {
+                const isWarning = s.type === 'warning';
+                const isGood = s.type === 'good';
+                return (
+                  <div key={i} style={{
+                    background: isWarning ? 'rgba(245,158,11,0.06)' : isGood ? 'rgba(34,197,94,0.06)' : colors.surface.offWhite,
+                    border: isWarning ? '1px solid rgba(245,158,11,0.15)' : isGood ? '1px solid rgba(34,197,94,0.15)' : '1px solid transparent',
+                    borderRadius: '12px', padding: '10px 16px', flex: '1 1 140px', minWidth: '130px',
+                  }}>
+                    <div style={{ fontSize: '11px', color: isWarning ? '#b45309' : isGood ? colors.semantic.success : colors.text.secondary, fontWeight: '500' }}>{s.label}</div>
+                    <div style={{ fontSize: '15px', fontWeight: '700', color: isWarning ? '#b45309' : isGood ? colors.semantic.success : colors.text.primary, marginTop: '2px' }}>{s.value}</div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* ── 7. QUESTION EVIDENCE (collapsible) ── */}
+        {questionEvidence.length > 0 && (
+          <>
+            <button
+              onClick={() => setShowEvidence(!showEvidence)}
+              style={{
+                width: '100%', background: 'none', border: `1px solid ${colors.surface.grayDark || '#e2e8f0'}`,
+                borderRadius: radius.sm, padding: '12px 16px', cursor: 'pointer',
+                display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                marginBottom: showEvidence ? '16px' : '0',
+              }}
+            >
+              <span style={{ fontSize: '14px', fontWeight: '600', color: colors.text.secondary }}>
+                {showEvidence ? 'Hide question evidence' : `See question evidence (${questionEvidence.length})`}
+              </span>
+              <span style={{ fontSize: '18px', color: colors.text.muted, transform: showEvidence ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s ease' }}>
+                &#9660;
+              </span>
+            </button>
+
+            {showEvidence && (
+              <div style={cardStyle}>
+                <h3 style={{ fontSize: '14px', fontWeight: '700', color: colors.text.primary, margin: 0, marginBottom: '12px' }}>
+                  Classified Misses
+                </h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                  {questionEvidence.map(q => (
+                    <div key={q.key} style={{
+                      display: 'flex', alignItems: 'flex-start', gap: '10px',
+                      padding: '10px 12px', background: 'rgba(0,0,0,0.02)', borderRadius: '10px',
+                    }}>
+                      <span style={{ fontWeight: '600', color: colors.text.secondary, fontSize: '12px', minWidth: '52px', paddingTop: '1px' }}>{q.label}</span>
+                      <div style={{ flex: 1 }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap', marginBottom: '3px' }}>
+                          <span style={{
+                            fontSize: '10px', fontWeight: '600', padding: '1px 6px', borderRadius: '3px', textTransform: 'capitalize',
+                            background: q.difficulty === 'hard' ? colors.semantic.error : q.difficulty === 'medium' ? colors.semantic.warning : colors.semantic.success,
+                            color: colors.text.inverse,
+                          }}>{q.difficulty}</span>
+                          <span style={{
+                            fontSize: '10px', fontWeight: '600', padding: '1px 6px', borderRadius: '3px',
+                            color: q.errorColor, background: `${q.errorColor}12`,
+                          }}>{q.errorLabel}</span>
+                          <span style={{ fontSize: '11px', color: colors.text.muted }}>{q.domainName}</span>
+                          <span style={{ fontSize: '11px', color: colors.text.muted, marginLeft: 'auto' }}>{q.timeFormatted}</span>
+                        </div>
+                        <div style={{ fontSize: '12px', color: colors.text.secondary, lineHeight: '1.4' }}>{q.reasoning}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </>
         )}
       </div>
     );

@@ -856,6 +856,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   const timerSecondsRef = useRef(null);
   const currentModuleRef = useRef(currentModule);
   const diagnosticDataRef = useRef(null);
+  const diagnosticReportRef = useRef(null);
 
   const module = test.modules[currentModule];
   const questions = module?.questions || [];
@@ -1033,6 +1034,13 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       };
 
       diagnosticDataRef.current = diagnosticData;
+
+      diagnosticReportRef.current = runDiagnostic(
+        test, answers, diagnosticData,
+        skillProgress || {},
+        { targetScore: user?.targetScore, currentScore: user?.currentScore, testDate: user?.testDate },
+        practiceTestResults || {}
+      );
 
       // IRT-based scoring via central engine
       const scored = scoreTest(test, answers, { timedMode: isTimed, diagnosticData });
@@ -2132,6 +2140,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             test={test}
             answers={answers}
             diagnosticData={diagnosticDataRef.current}
+            diagnosticReport={diagnosticReportRef.current}
             practiceTestResults={practiceTestResults}
             onOpenDiagnosticReport={() => setShowDiagnosticReport(true)}
             onBack={onBack}

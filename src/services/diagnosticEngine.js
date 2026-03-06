@@ -846,31 +846,30 @@ const projectScoreImprovements = (questionAnalysis, currentCorrect, totalQuestio
   const currentScaled = rawToScaled(currentCorrect, totalQuestions);
   const wrongQuestions = questionAnalysis.filter(q => !q.isCorrect);
 
-  // Group wrong questions by domain
-  const domainGains = {};
-  wrongQuestions.forEach(q => {
+  // Group ALL questions by domain so we have correct + wrong totals
+  const domainAll = {};
+  questionAnalysis.forEach(q => {
     const domain = q.domain || 'unknown';
-    if (!domainGains[domain]) domainGains[domain] = [];
-    domainGains[domain].push(q);
+    if (!domainAll[domain]) domainAll[domain] = { correct: 0, wrong: [], total: 0 };
+    domainAll[domain].total++;
+    if (q.isCorrect) domainAll[domain].correct++;
+    else domainAll[domain].wrong.push(q);
   });
 
-  // Calculate projected gains if each domain is mastered
-  const projections = Object.entries(domainGains)
-    .filter(([domain]) => domain !== 'unknown')
-    .map(([domain, questions]) => {
-      // How many additional correct if this domain is mastered?
-      const additionalCorrect = questions.length;
+  const projections = Object.entries(domainAll)
+    .filter(([domain, d]) => domain !== 'unknown' && d.wrong.length > 0)
+    .map(([domain, d]) => {
+      const additionalCorrect = d.wrong.length;
       const newTotal = currentCorrect + additionalCorrect;
       const newScaled = rawToScaled(newTotal, totalQuestions);
-      const pointGain = newScaled - currentScaled;
 
       return {
         domain,
         domainName: skillTaxonomy.domains[domain]?.name || domain,
         color: skillTaxonomy.domains[domain]?.color || '#888',
         questionsToFix: additionalCorrect,
-        currentAccuracy: Math.round(((questions.length - additionalCorrect) / questions.length) * 100),
-        projectedPointGain: pointGain,
+        currentAccuracy: d.total > 0 ? Math.round((d.correct / d.total) * 100) : 0,
+        projectedPointGain: newScaled - currentScaled,
         projectedScore: newScaled,
       };
     })
