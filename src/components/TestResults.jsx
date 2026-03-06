@@ -6,19 +6,13 @@
  */
 
 import React, { useState } from 'react';
-import { getSkillById } from '../data/skillTaxonomy';
 import { colors, radius, shadows } from '../design/tokens';
 import { cardStyles, buttonStyles } from '../design/components';
 import { ChartBarIcon, ArrowRightIcon, CircleDotIcon } from '../design/icons';
-import { convertToSATScore, isAnswerCorrect, estimatePercentile } from '../services/scoring';
-
-// Domain display names matching Test Innovators
-const domainDisplayNames = {
-  'algebra': 'Algebra',
-  'problem-solving': 'Problem Solving and Data Analysis',
-  'advanced-math': 'Advanced Math',
-  'geometry': 'Geometry and Trigonometry'
-};
+import {
+  convertToSATScore, isAnswerCorrect, estimatePercentile,
+  inferDomain, SAT_MATH_DOMAINS, DOMAIN_DISPLAY_NAMES,
+} from '../services/scoring';
 
 // Donut Chart Component for difficulty breakdown
 const DonutChart = ({ correct, incorrect, unanswered, label, size = 100 }) => {
@@ -170,7 +164,7 @@ const ScoreBadge = ({ score, maxScore, size = 'large' }) => {
 
 // Domain Bar Component
 const DomainBar = ({ domain, correct, total, maxTotal }) => {
-  const displayName = domainDisplayNames[domain] || domain;
+  const displayName = DOMAIN_DISPLAY_NAMES[domain] || domain;
   const barWidth = maxTotal > 0 ? (correct / maxTotal) * 100 : 0;
 
   return (
@@ -306,29 +300,18 @@ const TestResults = ({
     return breakdown;
   };
 
-  // Calculate domain breakdown for a module
+  // Calculate domain breakdown for a module using the shared inferDomain helper
   const calculateDomainBreakdown = (moduleIndex) => {
     const module = test.modules[moduleIndex];
     const domains = {};
+    SAT_MATH_DOMAINS.forEach(d => { domains[d] = { correct: 0, total: 0 }; });
 
     module.questions.forEach((q, qIdx) => {
       const key = `${moduleIndex}-${qIdx}`;
       const userAnswer = answers[key];
+      const domain = inferDomain(q.skills);
 
-      // Get domain from first skill
-      let domain = 'algebra'; // default
-      if (q.skills && q.skills.length > 0) {
-        const skill = getSkillById(q.skills[0]);
-        if (skill && skill.domain) {
-          domain = skill.domain;
-        }
-      }
-
-      if (!domains[domain]) {
-        domains[domain] = { correct: 0, total: 0 };
-      }
       domains[domain].total++;
-
       if (userAnswer && isAnswerCorrect(q, userAnswer)) {
         domains[domain].correct++;
       }
@@ -389,8 +372,9 @@ const TestResults = ({
       });
     });
 
-    // ── Domain aggregates ──
+    // ── Domain aggregates (always all 4 SAT domains) ──
     const domAll = {};
+    SAT_MATH_DOMAINS.forEach(d => { domAll[d] = { correct: 0, total: 0 }; });
     test.modules.forEach((_, modIdx) => {
       const bd = calculateDomainBreakdown(modIdx);
       Object.entries(bd).forEach(([dom, vals]) => {
@@ -399,7 +383,9 @@ const TestResults = ({
         domAll[dom].total += vals.total;
       });
     });
-    const domEntries = Object.entries(domAll).filter(([, v]) => v.total > 0)
+    const domEntries = SAT_MATH_DOMAINS
+      .filter(d => domAll[d].total > 0)
+      .map(d => [d, domAll[d]])
       .sort((a, b) => (a[1].correct / a[1].total) - (b[1].correct / b[1].total));
 
     // ── Telemetry extraction (current attempt) ──
@@ -770,7 +756,7 @@ const TestResults = ({
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px', flexWrap: 'wrap', gap: '4px' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', minWidth: 0 }}>
                           <span style={{ fontSize: '14px', fontWeight: '600', color: colors.text.primary }}>
-                            {(domainDisplayNames[domain] || domain).replace('and', '&')}
+                            {DOMAIN_DISPLAY_NAMES[domain] || domain}
                           </span>
                           {isWeakest && <span style={{ fontSize: '10px', fontWeight: '700', color: '#ef4444', background: 'rgba(239,68,68,0.08)', padding: '2px 6px', borderRadius: '6px' }}>Weakest</span>}
                           {isStrongest && domEntries.length > 1 && <span style={{ fontSize: '10px', fontWeight: '700', color: '#22c55e', background: 'rgba(34,197,94,0.08)', padding: '2px 6px', borderRadius: '6px' }}>Strongest</span>}
@@ -1068,8 +1054,8 @@ const TestResults = ({
             How you did, by content domain:
           </h3>
 
-          {/* Sort domains by display order */}
-          {['advanced-math', 'algebra', 'geometry', 'problem-solving'].map(domainId => {
+          {/* Stable SAT domain order */}
+          {SAT_MATH_DOMAINS.map(domainId => {
             const data = domainBreakdown[domainId];
             if (!data || data.total === 0) return null;
             return (
@@ -1149,14 +1135,9 @@ const TestResults = ({
         domainTotals[domain].total += data.total;
       });
     });
-    const domainLabels = {
-      algebra: 'Algebra',
-      'advanced-math': 'Advanced Math',
-      'problem-solving': 'Problem Solving & Data',
-      geometry: 'Geometry & Trig',
-    };
-    const sortedDomains = Object.entries(domainTotals)
-      .map(([d, data]) => ({ domain: d, ...data, pct: data.total > 0 ? Math.round((data.correct / data.total) * 100) : 0 }))
+    const sortedDomains = SAT_MATH_DOMAINS
+      .filter(d => domainTotals[d]?.total > 0)
+      .map(d => ({ domain: d, ...domainTotals[d], pct: domainTotals[d].total > 0 ? Math.round((domainTotals[d].correct / domainTotals[d].total) * 100) : 0 }))
       .sort((a, b) => a.pct - b.pct);
 
     const strengths = sortedDomains.filter(d => d.pct >= 70).slice(-2).reverse();
@@ -1187,7 +1168,7 @@ const TestResults = ({
 
     // Top action
     const topAction = weaknesses.length > 0
-      ? `Focus on ${domainLabels[weaknesses[0].domain] || weaknesses[0].domain} (${weaknesses[0].pct}%) — your biggest opportunity.`
+      ? `Focus on ${DOMAIN_DISPLAY_NAMES[weaknesses[0].domain] || weaknesses[0].domain} (${weaknesses[0].pct}%) — your biggest opportunity.`
       : missedEasy.length > 0
         ? `Lock in ${missedEasy.length} easy question${missedEasy.length > 1 ? 's' : ''} you missed.`
         : `Maintain consistency and keep practicing mixed sets.`;
@@ -1232,7 +1213,7 @@ const TestResults = ({
               </div>
               {strengths.length > 0 ? strengths.map(s => (
                 <div key={s.domain} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 12px', background: colors.semantic.successLight, borderRadius: radius.sm, marginBottom: '6px' }}>
-                  <span style={{ fontSize: '14px', fontWeight: '500', color: colors.text.primary }}>{domainLabels[s.domain] || s.domain}</span>
+                  <span style={{ fontSize: '14px', fontWeight: '500', color: colors.text.primary }}>{DOMAIN_DISPLAY_NAMES[s.domain] || s.domain}</span>
                   <span style={{ fontSize: '13px', fontWeight: '700', color: colors.semantic.success }}>{s.pct}%</span>
                 </div>
               )) : (
@@ -1246,7 +1227,7 @@ const TestResults = ({
               </div>
               {weaknesses.length > 0 ? weaknesses.map(s => (
                 <div key={s.domain} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 12px', background: colors.semantic.errorLight, borderRadius: radius.sm, marginBottom: '6px' }}>
-                  <span style={{ fontSize: '14px', fontWeight: '500', color: colors.text.primary }}>{domainLabels[s.domain] || s.domain}</span>
+                  <span style={{ fontSize: '14px', fontWeight: '500', color: colors.text.primary }}>{DOMAIN_DISPLAY_NAMES[s.domain] || s.domain}</span>
                   <span style={{ fontSize: '13px', fontWeight: '700', color: colors.semantic.error }}>{s.pct}%</span>
                 </div>
               )) : (
@@ -1353,7 +1334,7 @@ const TestResults = ({
                   return (
                     <div key={domain}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '3px' }}>
-                        <span style={{ fontSize: '13px', fontWeight: '500', color: colors.text.primary }}>{domainLabels[domain] || domain}</span>
+                        <span style={{ fontSize: '13px', fontWeight: '500', color: colors.text.primary }}>{DOMAIN_DISPLAY_NAMES[domain] || domain}</span>
                         <span style={{ fontSize: '12px', fontWeight: '600', color: barColor }}>{correct}/{total} ({pct}%)</span>
                       </div>
                       <div style={{ background: colors.surface.gray, borderRadius: '4px', height: '6px', overflow: 'hidden' }}>

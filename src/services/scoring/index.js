@@ -11,6 +11,9 @@ export { scoreTest, convertToSATScore, isAnswerCorrect, estimatePercentile } fro
 // Schema / constants
 export { SCORING_VERSION, SECTIONS, DIFFICULTY, MODULE_ROUTE, createScoredResult } from './scoringSchema';
 
+// Domain inference
+export { inferDomain, SAT_MATH_DOMAINS, DOMAIN_DISPLAY_NAMES, getDomainDisplayOrder } from './domainInference';
+
 // Calibration management (for app-init or admin tooling)
 export {
   loadItemCalibration,

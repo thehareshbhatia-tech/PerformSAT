@@ -21,7 +21,7 @@
  */
 
 import { getSkillById, skillTaxonomy, getSkillsForDomain } from '../data/skillTaxonomy';
-import { convertToSATScore, isAnswerCorrect, estimatePercentile as _estimatePercentile } from './scoring';
+import { convertToSATScore, isAnswerCorrect, estimatePercentile as _estimatePercentile, inferDomain } from './scoring';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONSTANTS
@@ -683,24 +683,7 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
 // ANALYSIS FUNCTIONS
 // ═══════════════════════════════════════════════════════════════════════════
 
-/**
- * Infer the SAT domain from skill IDs.
- */
-const inferDomain = (skills = []) => {
-  for (const skillId of skills) {
-    const skill = getSkillById(skillId);
-    if (skill?.domain) return skill.domain;
-  }
-
-  // Fallback: infer from skill name patterns
-  const skillStr = (Array.isArray(skills) ? skills : []).join(' ').toLowerCase();
-  if (skillStr.match(/linear|slope|system|function|absolute|inequalit/)) return 'algebra';
-  if (skillStr.match(/percent|statistic|mean|median|probability|ratio|table|margin/)) return 'problem-solving';
-  if (skillStr.match(/quadratic|exponential|polynomial|radical|rational|factor|vertex/)) return 'advanced-math';
-  if (skillStr.match(/triangle|circle|angle|volume|area|geometry|trig|radian|polygon/)) return 'geometry';
-
-  return 'unknown';
-};
+// inferDomain is imported from ./scoring/domainInference via the scoring barrel.
 
 /**
  * Analyze error patterns across all wrong questions.
