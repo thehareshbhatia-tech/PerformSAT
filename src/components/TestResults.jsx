@@ -1323,9 +1323,29 @@ const TestResults = ({
               </div>
               <h3 style={{ fontFamily: 'var(--font-ui)', fontSize: '22px', fontWeight: '700', color: colors.text.primary, margin: 0, letterSpacing: '-0.02em' }}>Test Behavior</h3>
             </div>
-            {block.transition && (
-              <div style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: colors.text.secondary, fontWeight: '500', marginBottom: '24px', lineHeight: '1.5', padding: '0 36px' }}>{block.transition}</div>
-            )}
+            {block.transition && (() => {
+              const parts = block.transition.split(/(?:\(\d+\)|\d+\.)\s*/);
+              if (parts.length > 1) {
+                const intro = parts[0].trim();
+                const bullets = parts.slice(1).filter(p => p.trim().length > 0);
+                return (
+                  <div style={{ padding: '0 36px', marginBottom: '24px' }}>
+                    {intro && <div style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: colors.text.secondary, fontWeight: '500', marginBottom: '16px', lineHeight: '1.5' }}>{intro}</div>}
+                    <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                      {bullets.map((b, i) => (
+                        <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '15px', color: colors.text.secondary, lineHeight: '1.5', fontFamily: 'var(--font-ui)', fontWeight: '500' }}>
+                          <span style={{ flexShrink: 0, width: '6px', height: '6px', borderRadius: '50%', background: 'var(--color-info-400)', marginTop: '8px' }} />
+                          {b}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              }
+              return (
+                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: colors.text.secondary, fontWeight: '500', marginBottom: '24px', lineHeight: '1.5', padding: '0 36px' }}>{block.transition}</div>
+              );
+            })()}
             
             <ul style={{ 
               margin: 0, 
