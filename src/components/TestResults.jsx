@@ -1279,6 +1279,7 @@ const TestResults = ({
               flex: 1
             }}>
               {block.items.map((d, i) => {
+                const cleanedText = d.text ? d.text.replace(/^(\(\d+\)|\d+\.)\s*/, '') : '';
                 const sc = d.type === 'pattern' ? (sevColors[d.severity] || sevColors.moderate) : { bg: 'var(--color-slate-100)', border: 'rgba(0,0,0,0.05)', dot: 'var(--color-slate-400)' };
                 return (
                   <div key={i} style={{ 
@@ -1296,7 +1297,7 @@ const TestResults = ({
                     <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
                       <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: sc.bg, color: sc.dot, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px', fontWeight: '800', flexShrink: 0 }}>{i + 1}</div>
                       <div style={{ flex: 1 }}>
-                        <div style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', fontWeight: '600', color: colors.text.primary, lineHeight: '1.5' }}>{d.text}</div>
+                        <div style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', fontWeight: '600', color: colors.text.primary, lineHeight: '1.5' }}>{cleanedText}</div>
                         {d.impact && (
                           <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: colors.text.secondary, fontWeight: '500', marginTop: '12px' }}>{d.impact}</div>
                         )}
@@ -1326,33 +1327,41 @@ const TestResults = ({
               <div style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: colors.text.secondary, fontWeight: '500', marginBottom: '24px', lineHeight: '1.5', padding: '0 36px' }}>{block.transition}</div>
             )}
             
-            <div style={{ 
+            <ul style={{ 
+              margin: 0, 
+              padding: '0 36px 24px 36px', 
+              listStyle: 'none', 
               display: 'flex', 
-              flexDirection: 'column',
-              gap: '16px', 
-              padding: '0 36px 24px 36px',
-              flex: 1
+              flexDirection: 'column', 
+              gap: '16px' 
             }}>
-              {block.items.map((pt, i) => (
-                <div key={i} style={{ 
-                  padding: '24px', 
-                  borderRadius: '20px', 
-                  background: 'linear-gradient(145deg, #ffffff 0%, rgba(255,255,255,0.6) 100%)', 
-                  border: '1px solid rgba(255,255,255,0.8)', 
-                  boxShadow: '0 4px 16px rgba(0,0,0,0.03), inset 0 2px 4px rgba(255,255,255,0.5)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '16px'
-                }}>
-                  <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'var(--color-info-50)', color: 'var(--color-info-500)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 8px rgba(0,0,0,0.04)', flexShrink: 0 }}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  </div>
-                  <div style={{ fontSize: '16px', color: colors.text.secondary, lineHeight: '1.6', fontFamily: 'var(--font-ui)', fontWeight: '500' }}>
-                    {pt}
-                  </div>
-                </div>
-              ))}
-            </div>
+              {block.items.map((pt, i) => {
+                // Remove "(1) ", "1. ", "(2) ", etc from the start of the string if the AI generated it
+                const cleanedText = pt.replace(/^(\(\d+\)|\d+\.)\s*/, '');
+                return (
+                  <li key={i} style={{ 
+                    display: 'flex', 
+                    alignItems: 'flex-start', 
+                    gap: '14px', 
+                    fontSize: '16px', 
+                    color: colors.text.secondary, 
+                    lineHeight: '1.6', 
+                    fontFamily: 'var(--font-ui)',
+                    fontWeight: '500'
+                  }}>
+                    <span style={{ 
+                      flexShrink: 0, 
+                      width: '8px', 
+                      height: '8px', 
+                      borderRadius: '50%', 
+                      background: 'var(--color-info-500)', 
+                      marginTop: '8px' 
+                    }} />
+                    {cleanedText}
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         );
       }
@@ -1398,14 +1407,39 @@ const TestResults = ({
               {item.text}
             </div>
             {item.reasons?.length > 0 && (
-              <ul style={{ margin: '0 0 32px 0', padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                {item.reasons.map((r, i) => (
-                  <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '14px', fontSize: '16px', color: colors.text.secondary, lineHeight: '1.6', fontFamily: 'var(--font-ui)' }}>
-                    <span style={{ flexShrink: 0, width: '6px', height: '6px', borderRadius: '50%', background: 'var(--color-brand-orange-500)', marginTop: '10px' }} />
-                    {r}
+            <ul style={{ 
+              margin: 0, 
+              padding: '0 36px 24px 36px', 
+              listStyle: 'none', 
+              display: 'flex', 
+              flexDirection: 'column', 
+              gap: '12px' 
+            }}>
+              {item.reasons.map((r, i) => {
+                const cleanedReason = r.replace(/^(\(\d+\)|\d+\.)\s*/, '');
+                return (
+                  <li key={i} style={{ 
+                    display: 'flex', 
+                    alignItems: 'flex-start', 
+                    gap: '14px', 
+                    fontSize: '16px', 
+                    color: colors.text.secondary, 
+                    lineHeight: '1.6', 
+                    fontFamily: 'var(--font-ui)' 
+                  }}>
+                    <span style={{ 
+                      flexShrink: 0, 
+                      width: '6px', 
+                      height: '6px', 
+                      borderRadius: '50%', 
+                      background: 'var(--color-brand-orange-500)', 
+                      marginTop: '8px' 
+                    }} />
+                    {cleanedReason}
                   </li>
-                ))}
-              </ul>
+                );
+              })}
+            </ul>
             )}
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
               {onOpenDiagnosticReport && (
