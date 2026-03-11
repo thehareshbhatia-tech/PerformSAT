@@ -12,6 +12,7 @@ import {
   createAiDiagnosticArtifact,
   completeAiDiagnosticArtifact,
   failAiDiagnosticArtifact,
+  getReadyAiDiagnostic,
 } from '../services/practiceTestService';
 import { runDiagnostic } from '../services/diagnosticEngine';
 import { getTargetedWeaknessSet } from '../data/questions/bank';
@@ -863,6 +864,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   const currentModuleRef = useRef(currentModule);
   const diagnosticDataRef = useRef(null);
   const diagnosticReportRef = useRef(null);
+  const attemptTimestampRef = useRef(null);
 
   const module = test.modules[currentModule];
   const questions = module?.questions || [];
@@ -1064,6 +1066,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       };
       console.log('[PracticeTest] Calling onSaveResult with:', resultsToSave);
       onSaveResult(resultsToSave);
+      attemptTimestampRef.current = new Date().toISOString();
       setResultSaved(true);
       console.log('[PracticeTest] Results saved, resultSaved set to true');
 
@@ -1174,7 +1177,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
 
   const retryAiDiagnostic = useCallback(() => {
     const diagReport = diagnosticReportRef.current;
-    if (!diagReport || !user?.uid) return;
+    const attemptTs = attemptTimestampRef.current;
+    if (!diagReport || !user?.uid || !attemptTs) return;
 
     setAiDiagnosticState({ status: 'generating', narrative: null, error: null });
 
@@ -1184,18 +1188,18 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         console.log('[PracticeTest] Generating AI diagnostic narrative...');
 
         try {
-          artifactId = await createAiDiagnosticArtifact(user.uid, test.id, new Date().toISOString());
+          artifactId = await createAiDiagnosticArtifact(user.uid, test.id, attemptTs);
         } catch (storeErr) {
           console.warn('[PracticeTest] Artifact creation failed (non-blocking):', storeErr.message);
         }
 
-        const { narrative, generatedAt, model } = await generateDiagnosticNarrative(
+        const { narrative, generatedAt, model, promptVersion, quality } = await generateDiagnosticNarrative(
           diagReport,
           { targetScore: user.targetScore, testDate: user.testDate },
         );
 
         if (artifactId) {
-          await completeAiDiagnosticArtifact(user.uid, artifactId, narrative, { generatedAt, model }).catch(() => {});
+          await completeAiDiagnosticArtifact(user.uid, artifactId, narrative, { generatedAt, model, promptVersion, quality }).catch(() => {});
         }
 
         setAiDiagnosticState({ status: 'ready', narrative, error: null });
@@ -1220,8 +1224,22 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       return;
     }
 
-    retryAiDiagnostic();
-  }, [resultSaved, user, retryAiDiagnostic]);
+    const attemptTs = attemptTimestampRef.current;
+
+    (async () => {
+      try {
+        const existing = await getReadyAiDiagnostic(user.uid, test.id, attemptTs);
+        if (existing?.narrative) {
+          console.log('[PracticeTest] Rehydrated AI diagnostic from Firestore');
+          setAiDiagnosticState({ status: 'ready', narrative: existing.narrative, error: null });
+          return;
+        }
+      } catch (err) {
+        console.warn('[PracticeTest] Rehydration lookup failed (non-blocking):', err.message);
+      }
+      retryAiDiagnostic();
+    })();
+  }, [resultSaved, user, test, retryAiDiagnostic]);
 
   const handleSelectAnswer = (answerId) => {
     const key = `${currentModule}-${currentQuestion}`;
@@ -2199,6 +2217,14 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               setModuleCompleted(false);
               setTestCompleted(false);
               setShowDiagnosticReport(false);
+              setResultSaved(false);
+              setAiDiagnosticState({ status: 'idle', narrative: null, error: null });
+              diagnosticNarrativeAttempted.current = false;
+              diagnosticDataRef.current = null;
+              diagnosticReportRef.current = null;
+              attemptTimestampRef.current = null;
+              questionTelemetry.current = {};
+              navigationHistory.current = [];
             }}
             onReview={() => {
               setReviewMode(true);

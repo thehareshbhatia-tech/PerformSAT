@@ -902,6 +902,7 @@ function buildDiagnosticReport(report, rawDiagData) {
 
   const hero = {
     headline: summary.headline,
+    headlinePoints: [],
     stats: stats.slice(0, 5),
     primaryAction: { label: 'View Study Plan', action: 'study_plan' },
     secondaryAction: { label: 'Review Missed Questions', action: 'review' },
@@ -939,11 +940,18 @@ function buildDiagnosticReport(report, rawDiagData) {
     scoreProof.push({ label: 'Main Error Pattern', value: `${errorLabel} (${dominantError.percentage}%)`, type: 'neutral' });
   }
 
+  const behaviorHighlightsForSection = buildBehaviorHighlights(report, rawDiagData);
+  const behaviorPoints = behaviorHighlightsForSection
+    .filter(h => h.type === 'warning' || h.type === 'good')
+    .map(h => `${h.label}: ${h.detail}`);
+
   sections.push({
     id: 'whyThisScore',
     title: 'Why You Got This Score',
     step: 2,
     body: scoreImpactPts.length > 0 ? scoreImpactPts.join(' ') : 'Understanding these patterns is the first step toward meaningful score improvement.',
+    bodyPoints: scoreImpactPts.length > 0 ? scoreImpactPts : null,
+    behaviorPoints: behaviorPoints.length > 0 ? behaviorPoints : null,
     proof: scoreProof,
     source: 'deterministic',
   });
@@ -1014,6 +1022,19 @@ function buildDiagnosticReport(report, rawDiagData) {
   });
 
   const topW = patterns[0];
+  const nextFocusReasons = [];
+  if (topW) {
+    if (topW.estimatedPointGain) nextFocusReasons.push(`Addressing this could recover up to ${topW.estimatedPointGain} points.`);
+    if (topW.frequency) nextFocusReasons.push(topW.frequency);
+    if (topW.impact) nextFocusReasons.push(topW.impact);
+  }
+  if (report.scoreProjection?.easyWins?.count >= 2) {
+    nextFocusReasons.push(`${report.scoreProjection.easyWins.count} missed easy questions = ${report.scoreProjection.easyWins.projectedGain} quick points to recover.`);
+  }
+  if (report.stamina?.hasData && report.stamina.dropoff > 15) {
+    nextFocusReasons.push(`${report.stamina.dropoff}% accuracy drop in the second half — stamina is a factor.`);
+  }
+
   const nextFocus = {
     id: 'whatThisMeans',
     title: 'What This Means',
@@ -1023,6 +1044,7 @@ function buildDiagnosticReport(report, rawDiagData) {
       : (report.scoreProjection?.easyWins?.count >= 2 
           ? `Start with the ${report.scoreProjection.easyWins.count} easy questions you missed — they are the fastest points to recover.`
           : 'Continue consistent practice to build on your current performance.'),
+    reasons: nextFocusReasons.length > 0 ? nextFocusReasons : null,
     primaryAction: { label: 'View Study Plan', action: 'study_plan' },
     source: 'deterministic'
   };
@@ -1048,13 +1070,34 @@ export function mergeAiIntoReport(report, ai) {
   };
 
   if (ai.diagnosis) {
-    merged.hero.headline = ai.diagnosis;
+    const diagnosisPoints = normalizeToArray(ai.diagnosisPoints, ai.diagnosis);
+    if (diagnosisPoints.length > 0) {
+      merged.hero.headlinePoints = diagnosisPoints;
+      merged.hero.headline = diagnosisPoints[0];
+    } else {
+      merged.hero.headline = ai.diagnosis;
+    }
   }
 
+  // --- "Why You Got This Score" ---
+  // New schema: scoreImpactPoints (array). Old schema: scoreImpact (string).
   const scoreSec = merged.sections.find(s => s.id === 'whyThisScore');
-  if (scoreSec && ai.scoreImpact) {
-    scoreSec.body = ai.scoreImpact;
-    scoreSec.source = 'ai';
+  if (scoreSec) {
+    const points = normalizeToArray(ai.scoreImpactPoints, ai.scoreImpact);
+    if (points.length > 0) {
+      scoreSec.bodyPoints = points;
+      scoreSec.body = points.join(' ');
+      scoreSec.source = 'ai';
+    }
+
+    const behaviorPts = normalizeToArray(ai.behaviorInsightPoints, ai.behaviorInsights);
+    if (behaviorPts.length > 0) {
+      scoreSec.behaviorPoints = behaviorPts;
+    }
+
+    if (ai.changesSinceLast) {
+      scoreSec.changesSinceLast = ai.changesSinceLast;
+    }
   }
 
   const aiWeaknesses = ai.weaknesses || [];
@@ -1062,7 +1105,6 @@ export function mergeAiIntoReport(report, ai) {
     const sec = merged.sections.find(s => s.id === 'patternsThatDroveScore');
     if (sec) {
       sec.patterns = aiWeaknesses.map(w => {
-        // Try to carry over evidence and confidence from deterministic pattern
         const existingW = sec.patterns.find(ew => 
           ew.title.toLowerCase() === w.title.toLowerCase() || 
           ew.title.toLowerCase().includes(w.title.toLowerCase()) || 
@@ -1075,8 +1117,10 @@ export function mergeAiIntoReport(report, ai) {
           why: w.why,
           frequency: existingW ? existingW.frequency : null,
           whereSeen: existingW ? existingW.whereSeen : null,
-          proof: w.proof || [],
-          evidence: existingW ? existingW.evidence : [], // carry over deterministic evidence
+          proof: Array.isArray(w.proof)
+            ? w.proof.flatMap(p => typeof p === 'string' ? splitTextToBullets(p) : [])
+            : (typeof w.proof === 'string' ? splitTextToBullets(w.proof) : []),
+          evidence: existingW ? existingW.evidence : [],
           impact: w.impact,
           severity: w.severity || 'moderate',
           source: 'ai',
@@ -1092,18 +1136,146 @@ export function mergeAiIntoReport(report, ai) {
 
   const whereSec = merged.sections.find(s => s.id === 'whereScoreBrokeDown');
   if (whereSec) {
-    // Let deterministic groups stay as evidence
     if (ai.uncertainties) {
       whereSec.note = ai.uncertainties;
     }
   }
 
+  // --- "What This Means" ---
+  // New schema: topNextFocus { headline, reasons[] }. Old schema: topNextFocus (string).
   if (ai.topNextFocus) {
-    merged.nextFocus.text = ai.topNextFocus;
+    if (typeof ai.topNextFocus === 'object' && ai.topNextFocus.headline) {
+      merged.nextFocus.text = ai.topNextFocus.headline;
+      const reasons = normalizeReasons(ai.topNextFocus.reasons);
+      if (reasons.length > 0) merged.nextFocus.reasons = reasons;
+    } else if (typeof ai.topNextFocus === 'string') {
+      const parts = splitTextToBullets(ai.topNextFocus);
+      if (parts.length > 1) {
+        merged.nextFocus.text = parts[0];
+        merged.nextFocus.reasons = parts.slice(1);
+      } else {
+        merged.nextFocus.text = ai.topNextFocus;
+      }
+    }
     merged.nextFocus.source = 'ai';
   }
 
+  if (ai._quality) {
+    merged._aiQuality = ai._quality;
+  }
+  if (ai._promptVersion) {
+    merged._promptVersion = ai._promptVersion;
+  }
+  if (ai.consistencyFlags) {
+    merged._consistencyFlags = ai.consistencyFlags;
+  }
+
+  const diagClaims = normalizeToStructuredClaims(ai.diagnosisPoints, ai.diagnosis);
+  if (diagClaims.length > 0) {
+    merged._structuredDiagnosis = diagClaims;
+  }
+  const scoreClaims = normalizeToStructuredClaims(ai.scoreImpactPoints, ai.scoreImpact);
+  if (scoreClaims.length > 0) {
+    merged._structuredScoreImpact = scoreClaims;
+  }
+  const behaviorClaims = normalizeToStructuredClaims(ai.behaviorInsightPoints, ai.behaviorInsights);
+  if (behaviorClaims.length > 0) {
+    merged._structuredBehavior = behaviorClaims;
+  }
+
   return merged;
+}
+
+/**
+ * Split a text block into individual bullet-point strings.
+ * Handles newline-delimited, numbered ("1.", "2."), bullet-prefixed ("- ", "• "),
+ * and multi-sentence prose by splitting on sentence boundaries.
+ * Returns an array of trimmed, non-empty strings.
+ */
+function splitTextToBullets(text) {
+  if (typeof text !== 'string' || text.trim().length === 0) return [];
+
+  const trimmed = text.trim();
+
+  if (/\n/.test(trimmed)) {
+    const lines = trimmed.split(/\n+/)
+      .map(l => l.replace(/^[\s]*[-•*]\s*/, '').replace(/^\d+[.)]\s*/, '').trim())
+      .filter(l => l.length > 0);
+    if (lines.length > 1) return lines;
+  }
+
+  if (/^\s*(\d+[.)]|-|•)\s/m.test(trimmed)) {
+    const items = trimmed.split(/(?:^|\n)\s*(?:\d+[.)]|-|•)\s*/)
+      .map(s => s.trim())
+      .filter(s => s.length > 0);
+    if (items.length > 1) return items;
+  }
+
+  const sentences = trimmed
+    .split(/(?<=[.!?])\s+(?=[A-Z])/)
+    .map(s => s.trim())
+    .filter(s => s.length > 0);
+  if (sentences.length > 1) return sentences;
+
+  return [trimmed];
+}
+
+/**
+ * Normalize AI field to an array of bullet-point strings.
+ * Accepts either the new array-of-strings/objects field or the old single-string field,
+ * splitting multi-sentence strings into individual bullets.
+ * Structured claims ({claim, evidence, confidence}) are flattened to claim text.
+ */
+function normalizeToArray(arrayField, stringField) {
+  if (Array.isArray(arrayField) && arrayField.length > 0) {
+    const cleaned = arrayField
+      .flatMap(s => {
+        if (typeof s === 'string') return splitTextToBullets(s);
+        if (s && typeof s === 'object' && typeof s.claim === 'string') return splitTextToBullets(s.claim);
+        return [];
+      })
+      .filter(s => s.length > 0);
+    if (cleaned.length > 0) return cleaned;
+  }
+  if (typeof stringField === 'string' && stringField.length > 0) {
+    return splitTextToBullets(stringField);
+  }
+  return [];
+}
+
+/**
+ * Normalize AI field to structured claims with confidence metadata.
+ * Returns [{text, evidence, confidence}].
+ */
+function normalizeToStructuredClaims(arrayField, stringField) {
+  if (Array.isArray(arrayField) && arrayField.length > 0) {
+    return arrayField
+      .flatMap(s => {
+        if (typeof s === 'string') return splitTextToBullets(s).map(t => ({ text: t, evidence: null, confidence: 'medium' }));
+        if (s && typeof s === 'object' && typeof s.claim === 'string') {
+          return [{ text: s.claim, evidence: s.evidence || null, confidence: s.confidence || 'medium' }];
+        }
+        return [];
+      })
+      .filter(c => c.text.length > 0);
+  }
+  if (typeof stringField === 'string' && stringField.length > 0) {
+    return splitTextToBullets(stringField).map(t => ({ text: t, evidence: null, confidence: 'medium' }));
+  }
+  return [];
+}
+
+/**
+ * Normalize a reasons field that may be an array, a string, or missing.
+ */
+function normalizeReasons(reasons) {
+  if (Array.isArray(reasons)) {
+    return reasons.flatMap(r => typeof r === 'string' ? splitTextToBullets(r) : []);
+  }
+  if (typeof reasons === 'string') {
+    return splitTextToBullets(reasons);
+  }
+  return [];
 }
 
 /**
@@ -1132,3 +1304,417 @@ export function adaptDiagnosticForUI(report, rawDiagData) {
     learningVelocity: report.learningVelocity,
   };
 }
+
+/**
+ * Build a unified single-story diagnostic report from the merged
+ * (AI + deterministic) report. Deduplicates overlapping insights,
+ * enforces section budgets, and resolves conflicting signals so the
+ * UI renders one clean, non-redundant narrative.
+ *
+ * Shape:
+ *   { diagnosis, scoreDrivers, behaviorInsights, evidence, nextFocus, meta }
+ */
+export function buildUnifiedReport(mergedReport) {
+  if (!mergedReport) return null;
+  const { hero, sections, nextFocus } = mergedReport;
+
+  const whySec = sections.find(s => s.id === 'whyThisScore') || {};
+  const patternsSec = sections.find(s => s.id === 'patternsThatDroveScore') || {};
+  const whereSec = sections.find(s => s.id === 'whereScoreBrokeDown') || {};
+
+  const structuredDiag = mergedReport._structuredDiagnosis || [];
+  const structuredScore = mergedReport._structuredScoreImpact || [];
+  const structuredBehavior = mergedReport._structuredBehavior || [];
+  const consistencyFlags = mergedReport._consistencyFlags || {};
+  const aiQuality = mergedReport._aiQuality || null;
+  const qualityFailed = aiQuality && aiQuality.repairFailed;
+
+  // ─── 1. DIAGNOSIS: use structured claims if available, filter low-confidence ───
+  let diagnosisPoints;
+  if (structuredDiag.length > 0 && !qualityFailed) {
+    diagnosisPoints = dedup(
+      structuredDiag
+        .filter(c => c.confidence !== 'low')
+        .map(c => c.text)
+    ).slice(0, 4);
+  } else {
+    const rawDiagPoints = Array.isArray(hero.headlinePoints) ? hero.headlinePoints : [];
+    diagnosisPoints = dedup(rawDiagPoints).slice(0, 4);
+  }
+
+  // ─── 2. SCORE DRIVERS: ranked, prefer high-confidence + numeric ───
+  const seenDriverKeys = new Set();
+  const scoreDrivers = [];
+
+  const hasStructuredScore = structuredScore.length > 0 && !qualityFailed;
+  if (hasStructuredScore) {
+    structuredScore
+      .filter(c => c.confidence !== 'low')
+      .forEach(c => {
+        const key = canonicalKey(c.text);
+        if (!seenDriverKeys.has(key)) {
+          seenDriverKeys.add(key);
+          scoreDrivers.push({
+            text: c.text,
+            evidenceAnchor: c.evidence,
+            confidence: c.confidence,
+            type: 'insight',
+            source: 'ai',
+          });
+        }
+      });
+  }
+
+  if (!hasStructuredScore) {
+    const bodyPts = Array.isArray(whySec.bodyPoints) ? whySec.bodyPoints : [];
+    const flatSource = whySec.source || 'deterministic';
+    if (!(qualityFailed && flatSource === 'ai')) {
+      bodyPts.forEach(pt => {
+        const key = canonicalKey(pt);
+        if (!seenDriverKeys.has(key)) {
+          seenDriverKeys.add(key);
+          scoreDrivers.push({ text: pt, type: 'insight', source: flatSource });
+        }
+      });
+    }
+  }
+
+  const patterns = Array.isArray(patternsSec.patterns) ? patternsSec.patterns : [];
+  patterns.forEach(p => {
+    const impactText = p.impact || '';
+    const key = canonicalKey(p.title + ' ' + impactText);
+    if (!seenDriverKeys.has(key)) {
+      seenDriverKeys.add(key);
+      scoreDrivers.push({
+        text: p.title,
+        why: p.why,
+        impact: p.impact,
+        severity: p.severity,
+        estimatedPointGain: p.estimatedPointGain,
+        evidence: Array.isArray(p.evidence) ? p.evidence.slice(0, 2) : [],
+        type: 'pattern',
+        source: p.source || 'deterministic',
+      });
+    }
+  });
+
+  // ─── 3. BEHAVIOR: confidence-filtered, deduplicated ───
+  const behaviorInsights = [];
+  const hasStructuredBehavior = structuredBehavior.length > 0 && !qualityFailed;
+  if (hasStructuredBehavior) {
+    structuredBehavior
+      .filter(c => c.confidence !== 'low')
+      .forEach(c => {
+        const key = canonicalKey(c.text);
+        if (!seenDriverKeys.has(key)) {
+          seenDriverKeys.add(key);
+          behaviorInsights.push(c.text);
+        }
+      });
+  }
+  if (!hasStructuredBehavior) {
+    const behaviorPts = Array.isArray(whySec.behaviorPoints) ? whySec.behaviorPoints : [];
+    behaviorPts.forEach(pt => {
+      const key = canonicalKey(pt);
+      if (!seenDriverKeys.has(key)) {
+        seenDriverKeys.add(key);
+        behaviorInsights.push(pt);
+      }
+    });
+  }
+
+  // Contradiction guard: suppress behavior claims that conflict with trend direction
+  const trendDir = consistencyFlags.trendDirection || null;
+  const filteredBehavior = trendDir
+    ? behaviorInsights.filter(pt => !isContradictoryToTrend(pt, trendDir))
+    : behaviorInsights;
+
+  const changesSinceLast = whySec.changesSinceLast || null;
+
+  // ─── 4. EVIDENCE SNAPSHOT: compact proof grid, no repeated labels ───
+  const proofItems = Array.isArray(whySec.proof) ? whySec.proof : [];
+  const evidenceGroups = Array.isArray(whereSec.groups) ? whereSec.groups : [];
+
+  const evidence = [];
+  const seenEvidenceKeys = new Set();
+
+  proofItems.forEach(pf => {
+    const key = canonicalKey(pf.label + ' ' + pf.value);
+    if (!seenEvidenceKeys.has(key) && !seenDriverKeys.has(key)) {
+      seenEvidenceKeys.add(key);
+      evidence.push({ label: pf.label, value: pf.value, type: pf.type || 'neutral' });
+    }
+  });
+
+  evidenceGroups.forEach(g => {
+    (g.items || []).forEach(item => {
+      const key = canonicalKey(item.label + ' ' + item.value);
+      if (!seenEvidenceKeys.has(key) && !seenDriverKeys.has(key)) {
+        seenEvidenceKeys.add(key);
+        evidence.push({ label: item.label, value: item.value, type: item.type || 'neutral', group: g.title });
+      }
+    });
+  });
+
+  // ─── 5. NEXT FOCUS ───
+  const focus = {
+    text: nextFocus?.text || '',
+    reasons: Array.isArray(nextFocus?.reasons) ? dedup(nextFocus.reasons).slice(0, 3) : [],
+    source: nextFocus?.source || 'deterministic',
+    primaryAction: nextFocus?.primaryAction || null,
+  };
+
+  // ─── 6. META ───
+  const meta = {
+    stats: Array.isArray(hero.stats) ? hero.stats.slice(0, 4) : [],
+    hasAI: hero.headlinePoints?.length > 0 && (whySec.source === 'ai' || patternsSec.source === 'ai'),
+    uncertainties: whereSec.note || null,
+    promptVersion: mergedReport._promptVersion || null,
+    qualityScore: aiQuality?.total ?? null,
+    qualityRepaired: aiQuality?.repaired ?? false,
+    qualityFailed: !!qualityFailed,
+  };
+
+  return {
+    diagnosis: { points: diagnosisPoints, headline: hero.headline || '' },
+    scoreDrivers: scoreDrivers.slice(0, 5),
+    behaviorInsights: filteredBehavior.slice(0, 3),
+    changesSinceLast,
+    evidence: evidence.slice(0, 8),
+    nextFocus: focus,
+    meta,
+  };
+}
+
+function isContradictoryToTrend(claimText, trendDirection) {
+  const lower = claimText.toLowerCase();
+  if (trendDirection === 'improving') {
+    return /\b(declin|worsen|dropp|regress|deteriorat)/i.test(lower);
+  }
+  if (trendDirection === 'declining') {
+    return /\b(improv|better|gain|progress|recover)/i.test(lower);
+  }
+  return false;
+}
+
+function canonicalKey(text) {
+  if (!text) return '';
+  return text.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 60);
+}
+
+function dedup(arr) {
+  const seen = new Set();
+  return arr.filter(item => {
+    const key = canonicalKey(item);
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+/**
+ * Transform a unified report into ordered narrative blocks with transitions.
+ * Each block has: { id, items[], transition? }
+ * The "one fact appears once" invariant is enforced across all blocks.
+ *
+ * Block order: context -> primaryCause -> behaviorAmplifier -> evidence -> nextMove
+ */
+export function buildNarrativeFlow(uni) {
+  if (!uni) return null;
+
+  const mentionedKeys = new Set();
+  const blocks = [];
+
+  // ─── BLOCK 1: CONTEXT — where you are vs target ───
+  const contextItems = [];
+  if (uni.diagnosis.points.length > 0) {
+    uni.diagnosis.points.forEach(pt => {
+      const key = canonicalKey(pt);
+      if (!mentionedKeys.has(key)) {
+        mentionedKeys.add(key);
+        contextItems.push(pt);
+      }
+    });
+  } else if (uni.diagnosis.headline) {
+    mentionedKeys.add(canonicalKey(uni.diagnosis.headline));
+    contextItems.push(uni.diagnosis.headline);
+  }
+  blocks.push({
+    id: 'context',
+    label: 'Your Diagnosis',
+    items: contextItems.slice(0, 3),
+    style: 'headline',
+  });
+
+  // Always-visible stats strip (balanced mode): keep the top 3-4 highest-value stats.
+  const mainStats = Array.isArray(uni.meta?.stats)
+    ? [...uni.meta.stats]
+        .sort((a, b) => statPriority(a.id) - statPriority(b.id))
+        .slice(0, 4)
+    : [];
+  if (mainStats.length > 0) {
+    blocks.push({
+      id: 'metaStrip',
+      label: 'Key Numbers',
+      items: mainStats,
+      style: 'stats',
+    });
+  }
+
+  // ─── BLOCK 2: PRIMARY CAUSE — top 2-3 score drivers ───
+  const causeItems = [];
+  const allDrivers = uni.scoreDrivers || [];
+  allDrivers.slice(0, 3).forEach(d => {
+    const key = canonicalKey(d.text + (d.impact || ''));
+    if (!mentionedKeys.has(key)) {
+      mentionedKeys.add(key);
+      causeItems.push(d);
+    }
+  });
+  if (causeItems.length > 0) {
+    blocks.push({
+      id: 'primaryCause',
+      label: 'What Drove Your Score',
+      transition: causeItems.length === 1
+        ? 'The primary driver behind this:'
+        : 'The key drivers behind this:',
+      items: causeItems,
+      style: 'driver',
+    });
+  }
+
+  // ─── BLOCK 3: BEHAVIOR AMPLIFIER — only if not redundant with causes ───
+  const behaviorItems = [];
+  (uni.behaviorInsights || []).forEach(pt => {
+    const key = canonicalKey(pt);
+    if (!mentionedKeys.has(key)) {
+      mentionedKeys.add(key);
+      behaviorItems.push(pt);
+    }
+  });
+  if (uni.changesSinceLast) {
+    const csKey = canonicalKey(uni.changesSinceLast);
+    if (!mentionedKeys.has(csKey)) {
+      mentionedKeys.add(csKey);
+      behaviorItems.push(uni.changesSinceLast);
+    }
+  }
+  if (behaviorItems.length > 0) {
+    blocks.push({
+      id: 'behaviorAmplifier',
+      label: 'Behavior & Timing',
+      transition: 'Beyond content knowledge, your test-taking patterns also played a role:',
+      items: behaviorItems.slice(0, 2),
+      style: 'bullet',
+    });
+  }
+
+  // ─── BLOCK 4: EVIDENCE — compact support lines, with at least one always visible ───
+  const evidenceItems = [];
+  (uni.evidence || [])
+    .slice()
+    .sort((a, b) => evidencePriority(a.type) - evidencePriority(b.type))
+    .forEach(ev => {
+    const key = canonicalKey(ev.label + ' ' + ev.value);
+    if (!mentionedKeys.has(key)) {
+      mentionedKeys.add(key);
+      evidenceItems.push(ev);
+    }
+  });
+
+  // Ensure at least one strongest evidence line is visible in the main story.
+  if (evidenceItems.length === 0 && causeItems.length > 0) {
+    const topCause = causeItems[0];
+    if (topCause.evidenceAnchor) {
+      evidenceItems.push({
+        label: 'Evidence',
+        value: topCause.evidenceAnchor,
+        type: 'neutral',
+      });
+    } else if (topCause.estimatedPointGain) {
+      evidenceItems.push({
+        label: 'Projected Gain',
+        value: `+${topCause.estimatedPointGain} points`,
+        type: 'warning',
+      });
+    } else if (topCause.impact) {
+      evidenceItems.push({
+        label: 'Score Impact',
+        value: topCause.impact,
+        type: 'warning',
+      });
+    }
+  }
+
+  const visibleEvidence = evidenceItems.slice(0, 3);
+  const secondaryEvidence = evidenceItems.slice(3);
+  if (evidenceItems.length > 0) {
+    blocks.push({
+      id: 'evidence',
+      label: 'Supporting Data',
+      transition: 'The data confirms this:',
+      items: visibleEvidence,
+      style: 'grid',
+    });
+  }
+
+  // ─── BLOCK 5: NEXT MOVE — single focus + reasons ───
+  const focus = uni.nextFocus || {};
+  if (focus.text) {
+    const reasons = (focus.reasons || []).filter(r => {
+      const key = canonicalKey(r);
+      if (mentionedKeys.has(key)) return false;
+      mentionedKeys.add(key);
+      return true;
+    }).slice(0, 3);
+
+    blocks.push({
+      id: 'nextMove',
+      label: 'Your Next Move',
+      transition: 'Based on all of this, here is your highest-leverage focus:',
+      items: [{ text: focus.text, reasons }],
+      style: 'cta',
+      source: focus.source,
+      primaryAction: focus.primaryAction,
+    });
+  }
+
+  // Remaining score drivers go into details
+  const additionalDrivers = allDrivers.slice(2).filter(d => {
+    const key = canonicalKey(d.text + (d.impact || ''));
+    return !mentionedKeys.has(key);
+  });
+
+  const details = {
+    additionalDrivers,
+    secondaryEvidence,
+    uncertainties: uni.meta?.uncertainties || null,
+    qualityFailed: uni.meta?.qualityFailed || false,
+  };
+
+  return {
+    blocks,
+    details,
+    meta: uni.meta || {},
+  };
+}
+
+function statPriority(id) {
+  const order = {
+    'score-gap': 0,
+    'easy-wins': 1,
+    'top-domain-drag': 2,
+    trend: 3,
+    velocity: 4,
+  };
+  return order[id] ?? 10;
+}
+
+function evidencePriority(type) {
+  if (type === 'warning') return 0;
+  if (type === 'neutral') return 1;
+  if (type === 'good' || type === 'success') return 2;
+  return 3;
+}
+
+export { splitTextToBullets, normalizeReasons };

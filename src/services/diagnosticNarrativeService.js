@@ -27,8 +27,8 @@ export const generateDiagnosticNarrative = async (diagnosticReport, userProfile 
     throw new Error(err.error || `Diagnostic narrative generation failed (${response.status})`);
   }
 
-  const { narrative, generatedAt, model } = await response.json();
-  return { narrative, generatedAt, model };
+  const { narrative, generatedAt, model, promptVersion, quality } = await response.json();
+  return { narrative, generatedAt, model, promptVersion, quality };
 };
 
 /**

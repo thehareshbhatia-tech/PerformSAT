@@ -1,4 +1,4 @@
-import { adaptDiagnosticForUI, mergeAiIntoReport } from '../diagnosticAdapter';
+import { adaptDiagnosticForUI, mergeAiIntoReport, buildUnifiedReport, buildNarrativeFlow, splitTextToBullets, normalizeReasons } from '../diagnosticAdapter';
 
 function buildReport(overrides = {}) {
   const base = {
@@ -531,9 +531,33 @@ describe('adaptDiagnosticForUI', () => {
       expect(Array.isArray(report.hero.stats)).toBe(true);
     });
 
+    it('hero headlinePoints is an empty array in deterministic report (populated only after AI merge)', () => {
+      expect(Array.isArray(report.hero.headlinePoints)).toBe(true);
+      expect(report.hero.headlinePoints).toHaveLength(0);
+    });
+
     it('nextFocus has text', () => {
       expect(typeof report.nextFocus.text).toBe('string');
       expect(report.nextFocus.text.length).toBeGreaterThan(0);
+    });
+
+    it('nextFocus has reasons array for bullet rendering', () => {
+      expect(Array.isArray(report.nextFocus.reasons)).toBe(true);
+      expect(report.nextFocus.reasons.length).toBeGreaterThan(0);
+      report.nextFocus.reasons.forEach(r => {
+        expect(typeof r).toBe('string');
+        expect(r.length).toBeGreaterThan(0);
+      });
+    });
+
+    it('whyThisScore section has bodyPoints array for bullet rendering', () => {
+      const sec = report.sections.find(s => s.id === 'whyThisScore');
+      expect(Array.isArray(sec.bodyPoints)).toBe(true);
+      expect(sec.bodyPoints.length).toBeGreaterThan(0);
+      sec.bodyPoints.forEach(pt => {
+        expect(typeof pt).toBe('string');
+        expect(pt.length).toBeGreaterThan(0);
+      });
     });
 
     it('no statement is duplicated between hero headline and nextFocus.text', () => {
@@ -558,7 +582,8 @@ describe('mergeAiIntoReport', () => {
     return result.report;
   }
 
-  const aiNarrative = {
+  // Legacy (v1) narrative uses flat strings
+  const aiNarrativeLegacy = {
     diagnosis: 'AI says your biggest issue is algebraic reasoning.',
     weaknesses: [
       { title: 'Factoring', why: 'Repeated conceptual errors.', proof: ['0/3 on factoring'], impact: '~20 points', severity: 'critical' },
@@ -570,6 +595,31 @@ describe('mergeAiIntoReport', () => {
     uncertainties: 'Only one attempt so far.',
   };
 
+  // New (v2) narrative uses structured arrays/objects
+  const aiNarrativeV2 = {
+    diagnosis: 'Your careless errors on easy questions are the biggest score drag.',
+    weaknesses: [
+      { title: 'Factoring', why: 'Repeated conceptual errors.', proof: ['0/3 on factoring'], impact: '~20 points', severity: 'critical' },
+    ],
+    scoreImpactPoints: [
+      'Careless errors on 3 easy questions cost roughly 30 recoverable points',
+      'Geometry accuracy of 57% is dragging your score down by ~20 points',
+    ],
+    behaviorInsightPoints: [
+      'Answer changes hurt: 2 changed from correct to incorrect',
+      'Wrong answers averaged 35s vs 55s for correct — rushing is costing points',
+    ],
+    topNextFocus: {
+      headline: 'Eliminate careless errors on easy questions first.',
+      reasons: [
+        '3 easy misses account for 30 recoverable points',
+        'These are questions you already know how to solve',
+      ],
+    },
+    changesSinceLast: 'Score improved 20 points from your last attempt, but careless errors increased.',
+    uncertainties: 'Only one attempt so far.',
+  };
+
   it('returns the original report when AI is null', () => {
     const report = getBaseReport();
     const merged = mergeAiIntoReport(report, null);
@@ -577,16 +627,18 @@ describe('mergeAiIntoReport', () => {
   });
 
   it('returns the original report when report is null', () => {
-    expect(mergeAiIntoReport(null, aiNarrative)).toBeNull();
+    expect(mergeAiIntoReport(null, aiNarrativeLegacy)).toBeNull();
   });
 
   it('overwrites hero headline with AI diagnosis', () => {
-    const merged = mergeAiIntoReport(getBaseReport(), aiNarrative);
-    expect(merged.hero.headline).toBe(aiNarrative.diagnosis);
+    const merged = mergeAiIntoReport(getBaseReport(), aiNarrativeLegacy);
+    expect(merged.hero.headline).toBe(aiNarrativeLegacy.diagnosis);
+    expect(Array.isArray(merged.hero.headlinePoints)).toBe(true);
+    expect(merged.hero.headlinePoints).toEqual([aiNarrativeLegacy.diagnosis]);
   });
 
   it('replaces patterns with AI weaknesses', () => {
-    const merged = mergeAiIntoReport(getBaseReport(), aiNarrative);
+    const merged = mergeAiIntoReport(getBaseReport(), aiNarrativeLegacy);
     const sec = merged.sections.find(s => s.id === 'patternsThatDroveScore');
     expect(sec.source).toBe('ai');
     expect(sec.patterns).toHaveLength(2);
@@ -594,30 +646,16 @@ describe('mergeAiIntoReport', () => {
     expect(sec.patterns[0].source).toBe('ai');
   });
 
-  it('sets whyThisScore section body and whereScoreBrokeDown note from AI', () => {
-    const merged = mergeAiIntoReport(getBaseReport(), aiNarrative);
-    const whySec = merged.sections.find(s => s.id === 'whyThisScore');
-    const whereSec = merged.sections.find(s => s.id === 'whereScoreBrokeDown');
-    expect(whySec.body).toBe(aiNarrative.scoreImpact);
-    expect(whySec.source).toBe('ai');
-    expect(whereSec.note).toBe(aiNarrative.uncertainties);
-  });
-
-  it('sets nextFocus from AI topNextFocus', () => {
-    const merged = mergeAiIntoReport(getBaseReport(), aiNarrative);
-    expect(merged.nextFocus.text).toBe(aiNarrative.topNextFocus);
-  });
-
   it('does not mutate the original report', () => {
     const original = getBaseReport();
     const originalHero = original.hero.headline;
-    mergeAiIntoReport(original, aiNarrative);
+    mergeAiIntoReport(original, aiNarrativeLegacy);
     expect(original.hero.headline).toBe(originalHero);
     expect(original.sections[0].source).toBe('deterministic');
   });
 
   it('preserves section count and order', () => {
-    const merged = mergeAiIntoReport(getBaseReport(), aiNarrative);
+    const merged = mergeAiIntoReport(getBaseReport(), aiNarrativeLegacy);
     expect(merged.sections).toHaveLength(3);
     expect(merged.sections.map(s => s.id)).toEqual([
       'whyThisScore', 'patternsThatDroveScore', 'whereScoreBrokeDown'
@@ -630,5 +668,763 @@ describe('mergeAiIntoReport', () => {
     expect(merged.hero.headline).toBe('Partial AI insight.');
     const impSec = merged.sections.find(s => s.id === 'whyThisScore');
     expect(impSec.source).toBe('deterministic');
+  });
+
+  describe('legacy (v1) backward compatibility', () => {
+    it('wraps legacy scoreImpact string into bodyPoints array', () => {
+      const merged = mergeAiIntoReport(getBaseReport(), aiNarrativeLegacy);
+      const whySec = merged.sections.find(s => s.id === 'whyThisScore');
+      expect(whySec.source).toBe('ai');
+      expect(whySec.bodyPoints).toEqual([aiNarrativeLegacy.scoreImpact]);
+      expect(whySec.body).toBe(aiNarrativeLegacy.scoreImpact);
+    });
+
+    it('wraps legacy behaviorInsights string into behaviorPoints array', () => {
+      const merged = mergeAiIntoReport(getBaseReport(), aiNarrativeLegacy);
+      const whySec = merged.sections.find(s => s.id === 'whyThisScore');
+      expect(whySec.behaviorPoints).toEqual([aiNarrativeLegacy.behaviorInsights]);
+    });
+
+    it('sets nextFocus.text from legacy topNextFocus string, keeps deterministic reasons', () => {
+      const merged = mergeAiIntoReport(getBaseReport(), aiNarrativeLegacy);
+      expect(merged.nextFocus.text).toBe(aiNarrativeLegacy.topNextFocus);
+      expect(merged.nextFocus.source).toBe('ai');
+      // Deterministic reasons from the base report persist since legacy AI has no reasons
+      if (merged.nextFocus.reasons) {
+        expect(Array.isArray(merged.nextFocus.reasons)).toBe(true);
+      }
+    });
+
+    it('sets whereScoreBrokeDown note from uncertainties', () => {
+      const merged = mergeAiIntoReport(getBaseReport(), aiNarrativeLegacy);
+      const whereSec = merged.sections.find(s => s.id === 'whereScoreBrokeDown');
+      expect(whereSec.note).toBe(aiNarrativeLegacy.uncertainties);
+    });
+  });
+
+  describe('structured (v2) narrative', () => {
+    it('sets bodyPoints from scoreImpactPoints array', () => {
+      const merged = mergeAiIntoReport(getBaseReport(), aiNarrativeV2);
+      const whySec = merged.sections.find(s => s.id === 'whyThisScore');
+      expect(whySec.bodyPoints).toEqual(aiNarrativeV2.scoreImpactPoints);
+      expect(whySec.source).toBe('ai');
+    });
+
+    it('sets behaviorPoints from behaviorInsightPoints array', () => {
+      const merged = mergeAiIntoReport(getBaseReport(), aiNarrativeV2);
+      const whySec = merged.sections.find(s => s.id === 'whyThisScore');
+      expect(whySec.behaviorPoints).toEqual(aiNarrativeV2.behaviorInsightPoints);
+    });
+
+    it('sets changesSinceLast on whyThisScore section', () => {
+      const merged = mergeAiIntoReport(getBaseReport(), aiNarrativeV2);
+      const whySec = merged.sections.find(s => s.id === 'whyThisScore');
+      expect(whySec.changesSinceLast).toBe(aiNarrativeV2.changesSinceLast);
+    });
+
+    it('sets nextFocus headline and reasons from structured topNextFocus', () => {
+      const merged = mergeAiIntoReport(getBaseReport(), aiNarrativeV2);
+      expect(merged.nextFocus.text).toBe(aiNarrativeV2.topNextFocus.headline);
+      expect(merged.nextFocus.reasons).toEqual(aiNarrativeV2.topNextFocus.reasons);
+      expect(merged.nextFocus.source).toBe('ai');
+    });
+
+    it('body is a joined string of bodyPoints for fallback rendering', () => {
+      const merged = mergeAiIntoReport(getBaseReport(), aiNarrativeV2);
+      const whySec = merged.sections.find(s => s.id === 'whyThisScore');
+      expect(whySec.body).toBe(aiNarrativeV2.scoreImpactPoints.join(' '));
+    });
+  });
+
+  describe('multi-sentence legacy strings are split into bullets', () => {
+    it('splits diagnosis prose into hero headline points', () => {
+      const ai = {
+        ...aiNarrativeLegacy,
+        diagnosis: 'You are far below target because concept gaps dominate. Fatigue is causing a sharp second-half drop. Fast guesses on medium and hard questions add avoidable misses.',
+      };
+      const merged = mergeAiIntoReport(getBaseReport(), ai);
+      expect(Array.isArray(merged.hero.headlinePoints)).toBe(true);
+      expect(merged.hero.headlinePoints.length).toBe(3);
+      expect(merged.hero.headline).toBe(merged.hero.headlinePoints[0]);
+    });
+
+    it('splits scoreImpact prose into multiple bodyPoints', () => {
+      const ai = {
+        ...aiNarrativeLegacy,
+        scoreImpact: 'Algebra errors cost 30 points. Geometry accuracy of 57% adds another 20 points of drag. Easy-question misses are the fastest recovery path.',
+      };
+      const merged = mergeAiIntoReport(getBaseReport(), ai);
+      const whySec = merged.sections.find(s => s.id === 'whyThisScore');
+      expect(whySec.bodyPoints.length).toBe(3);
+      expect(whySec.bodyPoints[0]).toContain('Algebra errors');
+      expect(whySec.bodyPoints[2]).toContain('fastest recovery');
+    });
+
+    it('splits behaviorInsights prose into multiple behaviorPoints', () => {
+      const ai = {
+        ...aiNarrativeLegacy,
+        behaviorInsights: 'You changed answers 4 times. Two of those changes went from correct to incorrect. Rushing on easy questions is a consistent pattern.',
+      };
+      const merged = mergeAiIntoReport(getBaseReport(), ai);
+      const whySec = merged.sections.find(s => s.id === 'whyThisScore');
+      expect(whySec.behaviorPoints.length).toBe(3);
+    });
+
+    it('splits multi-sentence topNextFocus string into text + reasons', () => {
+      const ai = {
+        diagnosis: 'Test headline.',
+        topNextFocus: 'Focus on factoring first. It accounts for 20 lost points. You already know the underlying concepts.',
+      };
+      const merged = mergeAiIntoReport(getBaseReport(), ai);
+      expect(merged.nextFocus.text).toBe('Focus on factoring first.');
+      expect(merged.nextFocus.reasons).toEqual([
+        'It accounts for 20 lost points.',
+        'You already know the underlying concepts.',
+      ]);
+    });
+  });
+
+  describe('malformed topNextFocus.reasons as string', () => {
+    it('normalizes a string reasons field into an array', () => {
+      const ai = {
+        diagnosis: 'Test.',
+        topNextFocus: {
+          headline: 'Focus on algebra.',
+          reasons: 'Three easy misses cost 30 points. These are recoverable.',
+        },
+      };
+      const merged = mergeAiIntoReport(getBaseReport(), ai);
+      expect(Array.isArray(merged.nextFocus.reasons)).toBe(true);
+      expect(merged.nextFocus.reasons.length).toBe(2);
+    });
+
+    it('handles missing reasons gracefully', () => {
+      const ai = {
+        diagnosis: 'Test.',
+        topNextFocus: { headline: 'Focus on algebra.' },
+      };
+      const merged = mergeAiIntoReport(getBaseReport(), ai);
+      expect(merged.nextFocus.text).toBe('Focus on algebra.');
+    });
+  });
+
+  describe('structured diagnosis points', () => {
+    it('uses diagnosisPoints array when provided', () => {
+      const ai = {
+        diagnosis: 'Fallback diagnosis sentence.',
+        diagnosisPoints: [
+          'Conceptual gaps account for most of your misses.',
+          'Second-half accuracy drops sharply due to fatigue.',
+          'Rushing medium and hard items is compounding losses.',
+        ],
+      };
+      const merged = mergeAiIntoReport(getBaseReport(), ai);
+      expect(merged.hero.headlinePoints).toEqual(ai.diagnosisPoints);
+      expect(merged.hero.headline).toBe(ai.diagnosisPoints[0]);
+    });
+  });
+
+  describe('weakness proof normalization', () => {
+    it('splits a proof string into bullet array', () => {
+      const ai = {
+        weaknesses: [
+          { title: 'Factoring', why: 'Gaps.', proof: '0/3 on factoring. Most errors in Module 2.', impact: '~20 pts', severity: 'critical' },
+        ],
+      };
+      const merged = mergeAiIntoReport(getBaseReport(), ai);
+      const sec = merged.sections.find(s => s.id === 'patternsThatDroveScore');
+      expect(Array.isArray(sec.patterns[0].proof)).toBe(true);
+      expect(sec.patterns[0].proof.length).toBe(2);
+    });
+
+    it('preserves well-formed proof arrays', () => {
+      const ai = {
+        weaknesses: [
+          { title: 'Factoring', why: 'Gaps.', proof: ['0/3', 'Module 2'], impact: '~20 pts', severity: 'critical' },
+        ],
+      };
+      const merged = mergeAiIntoReport(getBaseReport(), ai);
+      const sec = merged.sections.find(s => s.id === 'patternsThatDroveScore');
+      expect(sec.patterns[0].proof).toEqual(['0/3', 'Module 2']);
+    });
+  });
+});
+
+describe('splitTextToBullets', () => {
+  it('returns empty array for non-string input', () => {
+    expect(splitTextToBullets(null)).toEqual([]);
+    expect(splitTextToBullets(undefined)).toEqual([]);
+    expect(splitTextToBullets(42)).toEqual([]);
+    expect(splitTextToBullets('')).toEqual([]);
+  });
+
+  it('returns single-element array for a single sentence', () => {
+    const result = splitTextToBullets('Your score is 650.');
+    expect(result).toEqual(['Your score is 650.']);
+  });
+
+  it('splits multi-sentence prose on sentence boundaries', () => {
+    const text = 'Algebra errors cost 30 points. Geometry accuracy is low. Easy misses are recoverable.';
+    const result = splitTextToBullets(text);
+    expect(result).toHaveLength(3);
+    expect(result[0]).toBe('Algebra errors cost 30 points.');
+    expect(result[2]).toBe('Easy misses are recoverable.');
+  });
+
+  it('splits newline-delimited text', () => {
+    const text = 'First insight\nSecond insight\nThird insight';
+    const result = splitTextToBullets(text);
+    expect(result).toHaveLength(3);
+  });
+
+  it('strips bullet prefixes from newline-delimited text', () => {
+    const text = '- First point\n- Second point\n- Third point';
+    const result = splitTextToBullets(text);
+    expect(result).toEqual(['First point', 'Second point', 'Third point']);
+  });
+
+  it('strips numbered prefixes', () => {
+    const text = '1. First\n2. Second\n3. Third';
+    const result = splitTextToBullets(text);
+    expect(result).toEqual(['First', 'Second', 'Third']);
+  });
+
+  it('strips Unicode bullet prefixes', () => {
+    const text = '• Alpha\n• Beta\n• Gamma';
+    const result = splitTextToBullets(text);
+    expect(result).toEqual(['Alpha', 'Beta', 'Gamma']);
+  });
+
+  it('handles mixed newline + empty lines', () => {
+    const text = 'Line one\n\nLine two\n\n\nLine three';
+    const result = splitTextToBullets(text);
+    expect(result).toHaveLength(3);
+  });
+});
+
+describe('normalizeReasons', () => {
+  it('returns empty array for undefined/null', () => {
+    expect(normalizeReasons(undefined)).toEqual([]);
+    expect(normalizeReasons(null)).toEqual([]);
+  });
+
+  it('splits a multi-sentence string into reasons', () => {
+    const result = normalizeReasons('First reason. Second reason. Third reason.');
+    expect(result).toHaveLength(3);
+  });
+
+  it('preserves a well-formed array', () => {
+    expect(normalizeReasons(['A', 'B', 'C'])).toEqual(['A', 'B', 'C']);
+  });
+
+  it('splits multi-sentence items within an array', () => {
+    const result = normalizeReasons(['Short.', 'Two sentences here. And another here.']);
+    expect(result).toHaveLength(3);
+  });
+
+  it('filters out non-string array elements', () => {
+    const result = normalizeReasons([42, null, 'Valid point']);
+    expect(result).toEqual(['Valid point']);
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════
+// buildUnifiedReport — deduplication, conflict guards, budgets
+// ═══════════════════════════════════════════════════════════════
+
+describe('buildUnifiedReport', () => {
+  function makeMergedReport(overrides = {}) {
+    const base = adaptDiagnosticForUI(buildReport(), {});
+    const merged = mergeAiIntoReport(base.report, null);
+    return { ...merged, ...overrides };
+  }
+
+  it('returns null when input is null', () => {
+    expect(buildUnifiedReport(null)).toBeNull();
+  });
+
+  describe('shape contract', () => {
+    let uni;
+    beforeAll(() => {
+      uni = buildUnifiedReport(makeMergedReport());
+    });
+
+    it('has all top-level keys', () => {
+      expect(uni).toHaveProperty('diagnosis');
+      expect(uni).toHaveProperty('scoreDrivers');
+      expect(uni).toHaveProperty('behaviorInsights');
+      expect(uni).toHaveProperty('changesSinceLast');
+      expect(uni).toHaveProperty('evidence');
+      expect(uni).toHaveProperty('nextFocus');
+      expect(uni).toHaveProperty('meta');
+    });
+
+    it('diagnosis has points array and headline', () => {
+      expect(Array.isArray(uni.diagnosis.points)).toBe(true);
+      expect(typeof uni.diagnosis.headline).toBe('string');
+    });
+
+    it('scoreDrivers is a non-empty array', () => {
+      expect(Array.isArray(uni.scoreDrivers)).toBe(true);
+      expect(uni.scoreDrivers.length).toBeGreaterThan(0);
+    });
+
+    it('nextFocus has text, reasons array, and source', () => {
+      expect(typeof uni.nextFocus.text).toBe('string');
+      expect(Array.isArray(uni.nextFocus.reasons)).toBe(true);
+      expect(typeof uni.nextFocus.source).toBe('string');
+    });
+
+    it('meta has stats array and hasAI boolean', () => {
+      expect(Array.isArray(uni.meta.stats)).toBe(true);
+      expect(typeof uni.meta.hasAI).toBe('boolean');
+    });
+  });
+
+  describe('deduplication', () => {
+    it('removes identical diagnosis points', () => {
+      const report = makeMergedReport();
+      report.hero.headlinePoints = ['Same insight.', 'Same insight.', 'Different insight.'];
+      const uni = buildUnifiedReport(report);
+      expect(uni.diagnosis.points).toHaveLength(2);
+    });
+
+    it('removes identical nextFocus reasons', () => {
+      const report = makeMergedReport();
+      report.nextFocus.reasons = ['Reason A', 'Reason A', 'Reason B'];
+      const uni = buildUnifiedReport(report);
+      expect(uni.nextFocus.reasons).toHaveLength(2);
+    });
+
+    it('does not show a behavior insight that already appears in scoreDrivers', () => {
+      const report = makeMergedReport();
+      const sharedText = 'You rushed through easy questions';
+      const whySec = report.sections.find(s => s.id === 'whyThisScore');
+      whySec.bodyPoints = [sharedText, 'Unique score insight'];
+      whySec.behaviorPoints = [sharedText, 'Unique behavior insight'];
+      const uni = buildUnifiedReport(report);
+      expect(uni.behaviorInsights).not.toContain(sharedText);
+      expect(uni.behaviorInsights.length).toBe(1);
+      expect(uni.behaviorInsights[0]).toBe('Unique behavior insight');
+    });
+  });
+
+  describe('section budgets', () => {
+    it('caps diagnosis points at 4', () => {
+      const report = makeMergedReport();
+      report.hero.headlinePoints = ['A.', 'B.', 'C.', 'D.', 'E.', 'F.'];
+      const uni = buildUnifiedReport(report);
+      expect(uni.diagnosis.points.length).toBeLessThanOrEqual(4);
+    });
+
+    it('caps scoreDrivers at 5', () => {
+      const report = makeMergedReport();
+      const whySec = report.sections.find(s => s.id === 'whyThisScore');
+      whySec.bodyPoints = Array.from({ length: 10 }, (_, i) => `Score insight ${i}`);
+      const uni = buildUnifiedReport(report);
+      expect(uni.scoreDrivers.length).toBeLessThanOrEqual(5);
+    });
+
+    it('caps behaviorInsights at 3', () => {
+      const report = makeMergedReport();
+      const whySec = report.sections.find(s => s.id === 'whyThisScore');
+      whySec.bodyPoints = [];
+      whySec.behaviorPoints = Array.from({ length: 6 }, (_, i) => `Behavior signal ${i}`);
+      const uni = buildUnifiedReport(report);
+      expect(uni.behaviorInsights.length).toBeLessThanOrEqual(3);
+    });
+
+    it('caps nextFocus reasons at 3', () => {
+      const report = makeMergedReport();
+      report.nextFocus.reasons = ['A', 'B', 'C', 'D', 'E'];
+      const uni = buildUnifiedReport(report);
+      expect(uni.nextFocus.reasons.length).toBeLessThanOrEqual(3);
+    });
+
+    it('caps evidence at 8', () => {
+      const report = makeMergedReport();
+      const whySec = report.sections.find(s => s.id === 'whyThisScore');
+      whySec.proof = Array.from({ length: 12 }, (_, i) => ({ label: `Stat ${i}`, value: `${i}`, type: 'neutral' }));
+      const uni = buildUnifiedReport(report);
+      expect(uni.evidence.length).toBeLessThanOrEqual(8);
+    });
+
+    it('caps meta stats at 4', () => {
+      const report = makeMergedReport();
+      report.hero.stats = Array.from({ length: 7 }, (_, i) => ({ label: `S${i}`, value: `${i}` }));
+      const uni = buildUnifiedReport(report);
+      expect(uni.meta.stats.length).toBeLessThanOrEqual(4);
+    });
+  });
+
+  describe('conflict resolution: evidence vs drivers', () => {
+    it('evidence items whose canonical key matches a scoreDriver are excluded', () => {
+      const report = makeMergedReport();
+      const whySec = report.sections.find(s => s.id === 'whyThisScore');
+      const sharedLabel = 'PointsToTarget';
+      const sharedValue = '50 points';
+      whySec.bodyPoints = [`${sharedLabel} ${sharedValue}`];
+      whySec.proof = [{ label: sharedLabel, value: sharedValue, type: 'warning' }];
+      const uni = buildUnifiedReport(report);
+      const matchingEvidence = uni.evidence.filter(e =>
+        (e.label + ' ' + e.value).toLowerCase().replace(/[^a-z0-9]/g, '').includes('pointstotarget50points')
+      );
+      expect(matchingEvidence).toHaveLength(0);
+    });
+
+    it('evidence items not in scoreDrivers are preserved', () => {
+      const report = makeMergedReport();
+      const whySec = report.sections.find(s => s.id === 'whyThisScore');
+      whySec.bodyPoints = ['Score insight X'];
+      whySec.proof = [{ label: 'Unique Stat', value: '42%', type: 'neutral' }];
+      const uni = buildUnifiedReport(report);
+      const found = uni.evidence.some(e => e.label === 'Unique Stat');
+      expect(found).toBe(true);
+    });
+  });
+
+  describe('AI merge flow', () => {
+    it('hasAI is true when hero has AI headline points and a section is sourced from AI', () => {
+      const base = adaptDiagnosticForUI(buildReport(), {});
+      const ai = {
+        diagnosis: 'AI top diagnosis.',
+        diagnosisPoints: ['AI bullet one', 'AI bullet two'],
+        scoreImpactPoints: ['AI score impact A'],
+        weaknesses: [],
+      };
+      const merged = mergeAiIntoReport(base.report, ai);
+      const uni = buildUnifiedReport(merged);
+      expect(uni.meta.hasAI).toBe(true);
+      expect(uni.diagnosis.points).toContain('AI bullet one');
+    });
+  });
+
+  describe('confidence-based arbitration', () => {
+    it('filters out low-confidence diagnosis claims', () => {
+      const base = adaptDiagnosticForUI(buildReport(), {});
+      const ai = {
+        diagnosis: 'Main headline.',
+        diagnosisPoints: [
+          { claim: 'High confidence claim', evidence: 'Data X', confidence: 'high' },
+          { claim: 'Low confidence claim', evidence: 'Weak signal', confidence: 'low' },
+          { claim: 'Medium confidence claim', evidence: 'Data Y', confidence: 'medium' },
+        ],
+        scoreImpactPoints: [],
+        weaknesses: [],
+      };
+      const merged = mergeAiIntoReport(base.report, ai);
+      const uni = buildUnifiedReport(merged);
+      expect(uni.diagnosis.points).toContain('High confidence claim');
+      expect(uni.diagnosis.points).toContain('Medium confidence claim');
+      expect(uni.diagnosis.points).not.toContain('Low confidence claim');
+    });
+
+    it('filters out low-confidence score impact claims', () => {
+      const base = adaptDiagnosticForUI(buildReport(), {});
+      const ai = {
+        diagnosis: 'Headline.',
+        diagnosisPoints: [{ claim: 'Diag', evidence: 'E', confidence: 'high' }],
+        scoreImpactPoints: [
+          { claim: 'Strong score insight', evidence: '3/4 wrong', confidence: 'high' },
+          { claim: 'Weak score guess', evidence: 'Maybe...', confidence: 'low' },
+        ],
+        weaknesses: [],
+      };
+      const merged = mergeAiIntoReport(base.report, ai);
+      const uni = buildUnifiedReport(merged);
+      const aiDriverTexts = uni.scoreDrivers.filter(d => d.source === 'ai').map(d => d.text);
+      expect(aiDriverTexts).toContain('Strong score insight');
+      expect(aiDriverTexts).not.toContain('Weak score guess');
+    });
+
+    it('filters out low-confidence behavior claims', () => {
+      const base = adaptDiagnosticForUI(buildReport(), {});
+      const ai = {
+        diagnosis: 'Headline.',
+        diagnosisPoints: [{ claim: 'Diag', evidence: 'E', confidence: 'high' }],
+        behaviorInsightPoints: [
+          { claim: 'Solid behavior signal', evidence: '3 answer changes', confidence: 'high' },
+          { claim: 'Dubious behavior claim', evidence: 'unclear', confidence: 'low' },
+        ],
+        weaknesses: [],
+      };
+      const merged = mergeAiIntoReport(base.report, ai);
+      const uni = buildUnifiedReport(merged);
+      expect(uni.behaviorInsights).toContain('Solid behavior signal');
+      expect(uni.behaviorInsights).not.toContain('Dubious behavior claim');
+    });
+  });
+
+  describe('contradiction suppression', () => {
+    it('suppresses behavior claims contradicting improving trend', () => {
+      const base = adaptDiagnosticForUI(buildReport(), {});
+      const ai = {
+        diagnosis: 'Overall improving.',
+        diagnosisPoints: [{ claim: 'Improving overall', evidence: '+40 pts', confidence: 'high' }],
+        behaviorInsightPoints: [
+          { claim: 'Stamina is declining sharply', evidence: 'Data', confidence: 'high' },
+          { claim: 'Pacing improved by 10%', evidence: 'Data', confidence: 'high' },
+        ],
+        consistencyFlags: { trendDirection: 'improving', dominantErrorCategory: 'careless' },
+        weaknesses: [],
+      };
+      const merged = mergeAiIntoReport(base.report, ai);
+      const uni = buildUnifiedReport(merged);
+      expect(uni.behaviorInsights).not.toContain('Stamina is declining sharply');
+      expect(uni.behaviorInsights).toContain('Pacing improved by 10%');
+    });
+
+    it('suppresses behavior claims contradicting declining trend', () => {
+      const base = adaptDiagnosticForUI(buildReport(), {});
+      const ai = {
+        diagnosis: 'Score dropped.',
+        diagnosisPoints: [{ claim: 'Score declined', evidence: '-30 pts', confidence: 'high' }],
+        behaviorInsightPoints: [
+          { claim: 'Time management is improving', evidence: 'Data', confidence: 'high' },
+          { claim: 'More careless errors than before', evidence: '5 vs 2', confidence: 'high' },
+        ],
+        consistencyFlags: { trendDirection: 'declining', dominantErrorCategory: 'careless' },
+        weaknesses: [],
+      };
+      const merged = mergeAiIntoReport(base.report, ai);
+      const uni = buildUnifiedReport(merged);
+      expect(uni.behaviorInsights).not.toContain('Time management is improving');
+      expect(uni.behaviorInsights).toContain('More careless errors than before');
+    });
+  });
+
+  describe('quality gate fallback', () => {
+    it('falls back to deterministic when quality gate failed', () => {
+      const base = adaptDiagnosticForUI(buildReport(), {});
+      const ai = {
+        diagnosis: 'AI headline',
+        diagnosisPoints: [{ claim: 'AI claim', evidence: 'E', confidence: 'high' }],
+        scoreImpactPoints: [{ claim: 'AI score claim', evidence: 'E', confidence: 'high' }],
+        behaviorInsightPoints: [{ claim: 'AI behavior', evidence: 'E', confidence: 'high' }],
+        weaknesses: [],
+        _quality: { total: 0.3, repairFailed: true, evidenceCoverage: 0.2, numericSpecificity: 0.2, schemaCompleteness: 0.5, contradictionPenalty: 0, redundancyPenalty: 0 },
+      };
+      const merged = mergeAiIntoReport(base.report, ai);
+      const uni = buildUnifiedReport(merged);
+      expect(uni.meta.qualityFailed).toBe(true);
+      const aiDrivers = uni.scoreDrivers.filter(d => d.source === 'ai');
+      expect(aiDrivers).toHaveLength(0);
+    });
+
+    it('uses AI claims when quality gate passed', () => {
+      const base = adaptDiagnosticForUI(buildReport(), {});
+      const ai = {
+        diagnosis: 'AI headline',
+        diagnosisPoints: [{ claim: 'Verified AI claim', evidence: 'Strong data', confidence: 'high' }],
+        scoreImpactPoints: [{ claim: 'Verified score claim', evidence: 'Strong data', confidence: 'high' }],
+        weaknesses: [],
+        _quality: { total: 0.85, repaired: false, evidenceCoverage: 0.9, numericSpecificity: 0.8, schemaCompleteness: 1.0, contradictionPenalty: 0, redundancyPenalty: 0 },
+      };
+      const merged = mergeAiIntoReport(base.report, ai);
+      const uni = buildUnifiedReport(merged);
+      expect(uni.meta.qualityFailed).toBe(false);
+      expect(uni.meta.qualityScore).toBe(0.85);
+      expect(uni.diagnosis.points).toContain('Verified AI claim');
+    });
+  });
+
+  describe('quality metadata in unified report', () => {
+    it('surfaces promptVersion and quality score', () => {
+      const base = adaptDiagnosticForUI(buildReport(), {});
+      const ai = {
+        diagnosis: 'Test.',
+        diagnosisPoints: [{ claim: 'Claim', evidence: 'E', confidence: 'high' }],
+        weaknesses: [],
+        _promptVersion: '2.0',
+        _quality: { total: 0.75, repaired: false, evidenceCoverage: 0.8, numericSpecificity: 0.7, schemaCompleteness: 0.83, contradictionPenalty: 0, redundancyPenalty: 0 },
+      };
+      const merged = mergeAiIntoReport(base.report, ai);
+      const uni = buildUnifiedReport(merged);
+      expect(uni.meta.promptVersion).toBe('2.0');
+      expect(uni.meta.qualityScore).toBe(0.75);
+      expect(uni.meta.qualityRepaired).toBe(false);
+    });
+
+    it('surfaces uncertainty in meta', () => {
+      const base = adaptDiagnosticForUI(buildReport(), {});
+      const ai = {
+        diagnosis: 'Test.',
+        diagnosisPoints: [{ claim: 'Claim', evidence: 'E', confidence: 'high' }],
+        weaknesses: [],
+        uncertainties: 'Only one test attempt available.',
+      };
+      const merged = mergeAiIntoReport(base.report, ai);
+      const uni = buildUnifiedReport(merged);
+      expect(uni.meta.uncertainties).toBe('Only one test attempt available.');
+    });
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════
+// buildNarrativeFlow — ordered story, single-mention, details toggle
+// ═══════════════════════════════════════════════════════════════
+
+describe('buildNarrativeFlow', () => {
+  function makeUnified(overrides = {}) {
+    const base = adaptDiagnosticForUI(buildReport(), {});
+    const uni = buildUnifiedReport(mergeAiIntoReport(base.report, null));
+    return { ...uni, ...overrides };
+  }
+
+  it('returns null when input is null', () => {
+    expect(buildNarrativeFlow(null)).toBeNull();
+  });
+
+  describe('block ordering', () => {
+    let flow;
+    beforeAll(() => {
+      flow = buildNarrativeFlow(makeUnified());
+    });
+
+    it('returns blocks and details', () => {
+      expect(flow).toHaveProperty('blocks');
+      expect(flow).toHaveProperty('details');
+      expect(flow).toHaveProperty('meta');
+      expect(Array.isArray(flow.blocks)).toBe(true);
+    });
+
+    it('context block is always first', () => {
+      expect(flow.blocks[0].id).toBe('context');
+    });
+
+    it('nextMove block is always last in blocks array', () => {
+      const last = flow.blocks[flow.blocks.length - 1];
+      expect(last.id).toBe('nextMove');
+    });
+
+    it('blocks follow strict order: context -> metaStrip -> primaryCause -> behaviorAmplifier -> evidence -> nextMove', () => {
+      const order = ['context', 'metaStrip', 'primaryCause', 'behaviorAmplifier', 'evidence', 'nextMove'];
+      const ids = flow.blocks.map(b => b.id);
+      let lastIdx = -1;
+      ids.forEach(id => {
+        const pos = order.indexOf(id);
+        expect(pos).toBeGreaterThan(lastIdx);
+        lastIdx = pos;
+      });
+    });
+  });
+
+  describe('single-mention invariant', () => {
+    it('no claim text appears in more than one block', () => {
+      const uni = makeUnified();
+      const flow = buildNarrativeFlow(uni);
+      const allTexts = [];
+      flow.blocks.forEach(block => {
+        if (block.style === 'headline' || block.style === 'bullet') {
+          block.items.forEach(item => allTexts.push(typeof item === 'string' ? item : item.text || item.title || ''));
+        }
+        if (block.style === 'driver') {
+          block.items.forEach(d => allTexts.push(d.text || ''));
+        }
+        if (block.style === 'grid') {
+          block.items.forEach(ev => allTexts.push(`${ev.label} ${ev.value}`));
+        }
+        if (block.style === 'cta') {
+          block.items.forEach(item => {
+            allTexts.push(item.text || '');
+            (item.reasons || []).forEach(r => allTexts.push(r));
+          });
+        }
+      });
+      const normalized = allTexts.map(t => t.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 60));
+      const unique = new Set(normalized);
+      expect(unique.size).toBe(normalized.length);
+    });
+  });
+
+  describe('transitions', () => {
+    it('non-context blocks have transition strings', () => {
+      const flow = buildNarrativeFlow(makeUnified());
+      flow.blocks.slice(1).forEach(block => {
+        if (block.id === 'metaStrip') return;
+        expect(typeof block.transition).toBe('string');
+        expect(block.transition.length).toBeGreaterThan(0);
+      });
+    });
+  });
+
+  describe('details contain secondary content', () => {
+    it('details has additionalDrivers, secondaryEvidence, uncertainties, qualityFailed', () => {
+      const flow = buildNarrativeFlow(makeUnified());
+      expect(flow.details).toHaveProperty('additionalDrivers');
+      expect(flow.details).toHaveProperty('secondaryEvidence');
+      expect(flow.details).toHaveProperty('uncertainties');
+      expect(flow.details).toHaveProperty('qualityFailed');
+      expect(Array.isArray(flow.details.additionalDrivers)).toBe(true);
+      expect(Array.isArray(flow.details.secondaryEvidence)).toBe(true);
+    });
+
+    it('stats are present in main narrative blocks, not in details', () => {
+      const flow = buildNarrativeFlow(makeUnified());
+      const statsBlock = flow.blocks.find(b => b.id === 'metaStrip');
+      expect(statsBlock).toBeDefined();
+      expect(Array.isArray(statsBlock.items)).toBe(true);
+      expect(statsBlock.items.length).toBeGreaterThan(0);
+    });
+  });
+
+  describe('budget limits', () => {
+    it('context block has at most 3 items', () => {
+      const uni = makeUnified({
+        diagnosis: { points: ['A', 'B', 'C', 'D', 'E'], headline: 'test' },
+      });
+      const flow = buildNarrativeFlow(uni);
+      const ctx = flow.blocks.find(b => b.id === 'context');
+      expect(ctx.items.length).toBeLessThanOrEqual(3);
+    });
+
+    it('primaryCause block has at most 3 items', () => {
+      const flow = buildNarrativeFlow(makeUnified());
+      const cause = flow.blocks.find(b => b.id === 'primaryCause');
+      if (cause) {
+        expect(cause.items.length).toBeLessThanOrEqual(3);
+      }
+    });
+
+    it('behaviorAmplifier block has at most 2 items', () => {
+      const flow = buildNarrativeFlow(makeUnified());
+      const beh = flow.blocks.find(b => b.id === 'behaviorAmplifier');
+      if (beh) {
+        expect(beh.items.length).toBeLessThanOrEqual(2);
+      }
+    });
+
+    it('evidence block has at most 3 items', () => {
+      const flow = buildNarrativeFlow(makeUnified());
+      const ev = flow.blocks.find(b => b.id === 'evidence');
+      if (ev) {
+        expect(ev.items.length).toBeLessThanOrEqual(3);
+      }
+    });
+
+    it('keeps at least one evidence item visible in the main story when causes exist', () => {
+      const flow = buildNarrativeFlow(makeUnified());
+      const cause = flow.blocks.find(b => b.id === 'primaryCause');
+      const ev = flow.blocks.find(b => b.id === 'evidence');
+      if (cause && cause.items.length > 0) {
+        expect(ev).toBeDefined();
+        expect(ev.items.length).toBeGreaterThan(0);
+      }
+    });
+  });
+
+  describe('overlap suppression', () => {
+    it('behavior items already in causes are excluded', () => {
+      const sharedText = 'Rushed through easy questions';
+      const uni = makeUnified({
+        scoreDrivers: [{ text: sharedText, type: 'insight', source: 'ai' }],
+        behaviorInsights: [sharedText, 'Unique behavior signal'],
+      });
+      const flow = buildNarrativeFlow(uni);
+      const beh = flow.blocks.find(b => b.id === 'behaviorAmplifier');
+      if (beh) {
+        expect(beh.items).not.toContain(sharedText);
+      }
+    });
   });
 });

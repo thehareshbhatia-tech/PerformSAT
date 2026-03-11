@@ -316,13 +316,23 @@ export const completeAiDiagnosticArtifact = async (userId, artifactId, narrative
   if (!userId || !artifactId) return;
 
   const artifactRef = doc(db, 'progress', userId, 'aiDiagnostics', artifactId);
-  await updateDoc(artifactRef, {
+  const updatePayload = {
     status: AI_DIAGNOSTIC_STATUS.READY,
     narrative,
     generatedAt: meta.generatedAt || new Date().toISOString(),
     model: meta.model || 'unknown',
     completedAt: serverTimestamp(),
-  });
+  };
+
+  if (meta.promptVersion) updatePayload.promptVersion = meta.promptVersion;
+  if (meta.quality) {
+    updatePayload.qualityScore = meta.quality.total ?? null;
+    updatePayload.qualityRepaired = meta.quality.repaired ?? false;
+    updatePayload.qualityFailed = meta.quality.repairFailed ?? false;
+    updatePayload.qualityOutcome = meta.quality.repairFailed ? 'fallback' : meta.quality.repaired ? 'repaired' : 'accepted';
+  }
+
+  await updateDoc(artifactRef, updatePayload);
 };
 
 /**
@@ -359,4 +369,45 @@ export const getLatestAiDiagnostic = async (userId, testId) => {
 
   const docSnap = snap.docs[0];
   return { id: docSnap.id, ...docSnap.data() };
+};
+
+/**
+ * Fetches a ready AI diagnostic artifact for a specific test attempt.
+ * Filters by attemptTimestamp (when provided) and status === 'ready'.
+ * Falls back to the latest ready artifact for the test if no
+ * attempt-specific match is found.
+ */
+export const getReadyAiDiagnostic = async (userId, testId, attemptTimestamp) => {
+  if (!userId || !testId) return null;
+
+  const colRef = collection(db, 'progress', userId, 'aiDiagnostics');
+
+  if (attemptTimestamp) {
+    const attemptQ = query(
+      colRef,
+      where('testId', '==', testId),
+      where('attemptTimestamp', '==', attemptTimestamp),
+      where('status', '==', AI_DIAGNOSTIC_STATUS.READY),
+      orderBy('createdAt', 'desc'),
+      limit(1),
+    );
+    const attemptSnap = await getDocs(attemptQ);
+    if (!attemptSnap.empty) {
+      const d = attemptSnap.docs[0];
+      return { id: d.id, ...d.data() };
+    }
+  }
+
+  const fallbackQ = query(
+    colRef,
+    where('testId', '==', testId),
+    where('status', '==', AI_DIAGNOSTIC_STATUS.READY),
+    orderBy('createdAt', 'desc'),
+    limit(1),
+  );
+  const fallbackSnap = await getDocs(fallbackQ);
+  if (fallbackSnap.empty) return null;
+
+  const d = fallbackSnap.docs[0];
+  return { id: d.id, ...d.data() };
 };
