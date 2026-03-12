@@ -8,6 +8,7 @@
 import React, { useState, useMemo } from 'react';
 import { colors, radius, shadows } from '../design/tokens';
 import { cardStyles, buttonStyles } from '../design/components';
+import './TestResults.css';
 import { ChartBarIcon, ArrowRightIcon } from '../design/icons';
 import {
   convertToSATScore, isAnswerCorrect, estimatePercentile,
@@ -51,6 +52,63 @@ function SupportText({ text, label, labelColor, textColor, textSize = '14px', do
       {text}
     </div>
   );
+}
+
+/**
+ * Extract parenthetical numeric metrics from diagnosis text, attaching each
+ * to the preceding clause so the bullet retains semantic meaning.
+ *
+ * Returns { cleanedText, metricItems: [{ label, value }] }.
+ * When a reliable label cannot be derived, the metric stays inline.
+ */
+const METRIC_PAREN_RE = /\s*\(([^)]*\d[^)]*)\)/g;
+const CLAUSE_SPLIT_RE = /[,;:—–]\s*/;
+function extractMetrics(text) {
+  if (!text || typeof text !== 'string') return { cleanedText: text || '', metricItems: [] };
+
+  const metricItems = [];
+  const kept = [];
+
+  let lastIdx = 0;
+  let match;
+  METRIC_PAREN_RE.lastIndex = 0;
+  while ((match = METRIC_PAREN_RE.exec(text)) !== null) {
+    const inner = match[1].trim();
+    if (inner.length < 3 || inner.length > 120) continue;
+    if (!/\d/.test(inner)) continue;
+    if (/^(e\.g\.|i\.e\.|vs\.?)$/i.test(inner)) continue;
+
+    const before = text.slice(lastIdx, match.index);
+    const clauses = before.split(CLAUSE_SPLIT_RE).map(s => s.trim()).filter(Boolean);
+    const label = clauses.length > 0 ? clauses[clauses.length - 1] : '';
+
+    if (label.length >= 4 && !/^\d+$/.test(label)) {
+      metricItems.push({ label, value: inner });
+      kept.push({ start: match.index, end: METRIC_PAREN_RE.lastIndex });
+    }
+  }
+
+  if (metricItems.length === 0) return { cleanedText: text, metricItems: [] };
+
+  let cleaned = '';
+  let cursor = 0;
+  for (const span of kept) {
+    cleaned += text.slice(cursor, span.start);
+    cursor = span.end;
+  }
+  cleaned += text.slice(cursor);
+  cleaned = cleaned.replace(/\s{2,}/g, ' ').replace(/\s+([.,;:])/g, '$1').trim();
+  if (cleaned.endsWith(' —') || cleaned.endsWith(' -')) cleaned = cleaned.slice(0, -2).trim();
+
+  const seen = new Set();
+  const deduped = metricItems.filter(m => {
+    const key = `${m.label}||${m.value}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+
+  return { cleanedText: cleaned, metricItems: deduped };
 }
 
 // Donut Chart Component for difficulty breakdown
@@ -1211,7 +1269,7 @@ const TestResults = ({
                     <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83" />
                   </svg>
                 </div>
-                <h2 style={{ fontFamily: 'var(--font-ui)', fontSize: '26px', fontWeight: '700', color: colors.text.primary, margin: 0, letterSpacing: '-0.03em' }}>
+                <h2 className="diag-title-display">
                   {block.label}
                 </h2>
               </div>
@@ -1231,75 +1289,96 @@ const TestResults = ({
             </div>
 
             {isGenerating ? (
-              <div style={{ padding: '80px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <div style={{ width: '48px', height: '48px', border: '3px solid rgba(251,146,60,0.1)', borderTopColor: aiColorText, borderRadius: '50%', margin: '0 auto 24px', animation: 'spin 1s cubic-bezier(0.5, 0.1, 0.5, 0.9) infinite' }} />
-                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '18px', fontWeight: '600', color: aiColorText }}>Crunching the numbers so you don't have to...</div>
+              <div style={{ padding: '100px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'var(--color-slate-50)', borderRadius: '24px', border: '1px solid var(--color-slate-200)', boxShadow: 'inset 0 2px 10px rgba(0,0,0,0.02)' }}>
+                <div style={{ width: '56px', height: '56px', border: '4px solid rgba(251,146,60,0.1)', borderTopColor: 'var(--color-brand-orange-500)', borderRadius: '50%', margin: '0 auto 24px', animation: 'spin 1s cubic-bezier(0.5, 0.1, 0.5, 0.9) infinite' }} />
+                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '20px', fontWeight: '700', color: 'var(--color-slate-800)', marginBottom: '8px' }}>Analyzing Your Test</div>
+                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: 'var(--color-slate-500)' }}>We're looking at your answers, timing, and patterns to explain what happened and why...</div>
               </div>
             ) : hasFailed ? (
-              <div style={{ padding: '24px', borderRadius: '20px', background: 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <span style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: 'var(--color-warning-600)', fontWeight: '500' }}>AI analysis could not load. Displaying underlying data insights.</span>
-                {onRetryAiDiagnostic && <button onClick={onRetryAiDiagnostic} style={{ fontFamily: 'var(--font-ui)', padding: '10px 20px', borderRadius: '12px', border: 'none', background: 'var(--color-warning-600)', color: '#fff', fontSize: '13px', fontWeight: '700', cursor: 'pointer', transition: 'transform 0.2s, box-shadow 0.2s', boxShadow: '0 4px 12px rgba(245,158,11,0.2)' }}>Retry AI</button>}
+              <div style={{ padding: '32px 40px', borderRadius: '24px', background: '#fff', border: '1px solid var(--color-warning-200)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', boxShadow: '0 8px 24px rgba(245,158,11,0.06)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                  <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'var(--color-warning-100)', color: 'var(--color-warning-600)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                  </div>
+                  <div>
+                    <div style={{ fontFamily: 'var(--font-ui)', fontSize: '18px', color: 'var(--color-slate-900)', fontWeight: '700', marginBottom: '4px' }}>Detailed Analysis Unavailable</div>
+                    <div style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: 'var(--color-slate-600)' }}>We couldn't complete the full analysis right now. Your basic score data and patterns are still shown below.</div>
+                  </div>
+                </div>
+                {onRetryAiDiagnostic && (
+                  <button onClick={onRetryAiDiagnostic} style={{ fontFamily: 'var(--font-ui)', padding: '12px 24px', borderRadius: '12px', border: 'none', background: 'var(--color-warning-600)', color: '#fff', fontSize: '15px', fontWeight: '700', cursor: 'pointer', transition: 'all 0.2s', boxShadow: '0 4px 12px rgba(245,158,11,0.2)' }}>
+                    Retry AI Analysis
+                  </button>
+                )}
               </div>
             ) : (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 <div style={{
-                  fontFamily: 'var(--font-ui)',
-                  fontSize: '20px', fontWeight: '700', color: 'var(--color-slate-900)',
-                  lineHeight: '1.4', letterSpacing: '-0.02em',
+                  display: 'flex', alignItems: 'baseline', gap: '12px',
+                  paddingBottom: '16px', borderBottom: '1px solid var(--color-slate-200)',
                   marginBottom: block.items.length > 0 ? '8px' : '0'
                 }}>
-                  Your Score: {satScore}
+                  <div style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--color-slate-500)' }}>
+                    Assessment Score
+                  </div>
+                  <div style={{ fontFamily: 'var(--font-ui)', fontSize: '36px', fontWeight: '800', color: 'var(--color-slate-900)', letterSpacing: '-0.03em', lineHeight: 1 }}>
+                    {satScore}
+                  </div>
                 </div>
-                {block.items.map((rawPt, i) => {
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                  {block.items.map((rawPt, i) => {
                   const isStructured = rawPt && typeof rawPt === 'object' && rawPt.text;
                   const ptText = isStructured ? rawPt.text : (typeof rawPt === 'string' ? rawPt : '');
-                  const colonIdx = ptText.indexOf(':');
-                  const periodIdx = ptText.indexOf('.');
-                  let splitIdx = -1;
-                  if (colonIdx !== -1 && colonIdx < 60) splitIdx = colonIdx;
-                  else if (periodIdx !== -1 && periodIdx < 60) splitIdx = periodIdx;
+                  const { cleanedText: diagClean, metricItems: diagMetrics } = extractMetrics(ptText);
 
                   const hasDetail = isStructured && (rawPt.causalMechanism || rawPt.estimatedImpact || rawPt.evidence);
 
                   return (
-                    <div key={i} style={{
-                      padding: '20px 24px',
-                      borderRadius: '20px',
-                      background: 'rgba(255, 255, 255, 0.5)',
-                      border: '1px solid rgba(255, 255, 255, 0.8)',
-                      boxShadow: '0 2px 10px rgba(0, 0, 0, 0.01)',
-                    }}>
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: hasDetail ? '6px' : '0' }}>
-                        <div style={{
-                          fontFamily: 'var(--font-ui)',
-                          fontSize: '17px', fontWeight: '500', color: 'var(--color-slate-700)',
-                          lineHeight: '1.6', letterSpacing: '-0.015em'
-                        }}>
-                          <strong style={{ fontWeight: '700', color: 'var(--color-slate-900)' }}>{i + 1}).{' '}</strong>
-                          {splitIdx !== -1 ? (
-                            <>
-                              <strong style={{ fontWeight: '700', color: 'var(--color-slate-900)' }}>{ptText.substring(0, splitIdx + 1)}</strong>
-                              <span>{ptText.substring(splitIdx + 1)}</span>
-                            </>
-                          ) : (
-                            ptText
-                          )}
+                    <div key={i} className="diag-primary-insight-card">
+                      <div style={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: '4px', background: 'var(--diag-accent-primary)' }} />
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: hasDetail || diagMetrics.length > 0 ? '20px' : '0' }}>
+                        {/* FINDING */}
+                        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                          <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'var(--color-brand-orange-100)', color: 'var(--color-brand-orange-600)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px', fontWeight: '800', flexShrink: 0, marginTop: '2px' }}>{i + 1}</div>
+                          <div>
+                            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-slate-400)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '6px' }}>What we found</div>
+                            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '17px', fontWeight: '600', color: 'var(--color-slate-900)', lineHeight: '1.55', letterSpacing: '-0.01em' }}>
+                              {diagClean}
+                            </div>
+                            {diagMetrics.length > 0 && (
+                              <div style={{ marginTop: '10px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-slate-400)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Key data points</div>
+                                <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '5px' }}>
+                                  {diagMetrics.map((m, mi) => (
+                                    <li key={mi} style={{ display: 'flex', alignItems: 'baseline', gap: '8px', fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--color-slate-700)', lineHeight: '1.45' }}>
+                                      <span style={{ flexShrink: 0, width: '6px', height: '6px', borderRadius: '50%', background: 'var(--color-brand-orange-400)', marginTop: '6px' }} />
+                                      <span><span style={{ fontWeight: '500' }}>{m.label}:</span> <span style={{ fontWeight: '700' }}>{m.value}</span></span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
+                          </div>
                         </div>
+
                         {hasDetail && (
-                          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', paddingLeft: '2px', borderLeft: '2px solid var(--color-slate-200)', marginLeft: '2px', paddingTop: '4px', paddingBottom: '2px' }}>
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginLeft: '40px' }}>
                             {rawPt.causalMechanism && (
-                              <div style={{ paddingLeft: '10px' }}>
-                                <SupportText text={rawPt.causalMechanism} label="Why" labelColor="var(--color-slate-600)" textColor="var(--color-slate-500)" />
+                              <div style={{ padding: '14px 18px', borderRadius: '12px', background: 'var(--color-slate-50)', border: '1px solid var(--color-slate-100)' }}>
+                                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-slate-400)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '6px' }}>Why this happens</div>
+                                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', fontWeight: '500', color: 'var(--color-slate-700)', lineHeight: '1.55' }}>{rawPt.causalMechanism}</div>
                               </div>
                             )}
                             {rawPt.evidence && (
-                              <div style={{ paddingLeft: '10px' }}>
-                                <SupportText text={rawPt.evidence} label="Evidence" labelColor="var(--color-slate-500)" textColor="var(--color-slate-400)" textSize="13px" dotColor="var(--color-slate-300)" />
+                              <div style={{ padding: '14px 18px', borderRadius: '12px', background: 'var(--color-slate-50)', border: '1px solid var(--color-slate-100)' }}>
+                                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-slate-400)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '6px' }}>The data behind it</div>
+                                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '500', color: 'var(--color-slate-600)', lineHeight: '1.5', fontStyle: 'italic' }}>{rawPt.evidence}</div>
                               </div>
                             )}
                             {rawPt.estimatedImpact && (
-                              <div style={{ paddingLeft: '10px' }}>
-                                <SupportText text={rawPt.estimatedImpact} label="Impact" labelColor="var(--color-warning-600)" textColor="var(--color-warning-600)" textSize="13px" dotColor="var(--color-warning-400)" />
+                              <div style={{ padding: '14px 18px', borderRadius: '12px', background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.15)' }}>
+                                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-warning-600)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '6px' }}>What it means for your score</div>
+                                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', fontWeight: '600', color: 'var(--color-warning-700)', lineHeight: '1.5' }}>{rawPt.estimatedImpact}</div>
                               </div>
                             )}
                           </div>
@@ -1308,6 +1387,7 @@ const TestResults = ({
                     </div>
                   );
                 })}
+              </div>
               </div>
             )}
           </div>
@@ -1321,7 +1401,7 @@ const TestResults = ({
               {block.items.map((s, i) => {
                 const valColor = s.type === 'warning' ? 'var(--color-warning-600)' : s.type === 'success' ? 'var(--color-success-600)' : s.type === 'info' ? 'var(--color-info-600)' : colors.text.primary;
                 return (
-                  <div key={i} className="stat-card" style={{ flex: '1 1 220px', maxWidth: '300px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+                  <div key={i} className="diag-stat-card" style={{ flex: '1 1 220px', maxWidth: '300px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
                     <div style={{ fontFamily: 'var(--font-ui)', fontSize: '36px', fontWeight: '800', color: valColor, lineHeight: 1, letterSpacing: '-0.03em', fontVariantNumeric: 'tabular-nums' }}>{s.value}</div>
                     <div style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '700', color: colors.text.secondary, marginTop: '16px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>{s.label}</div>
                     {s.subtext && <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: colors.text.muted, marginTop: '8px', fontWeight: '500' }}>{s.subtext}</div>}
@@ -1334,95 +1414,239 @@ const TestResults = ({
       }
 
       if (block.id === 'behaviorAmplifier') {
+        const confRank = { high: 0, medium: 1, low: 2 };
+        const sortedItems = [...block.items].sort((a, b) => {
+          const aStruct = typeof a === 'object' && a !== null;
+          const bStruct = typeof b === 'object' && b !== null;
+          const aFill = (aStruct ? [a.mechanism, a.evidence, a.estimatedImpact].filter(Boolean).length : 0);
+          const bFill = (bStruct ? [b.mechanism, b.evidence, b.estimatedImpact].filter(Boolean).length : 0);
+          const aConf = aStruct ? (confRank[a.confidence] ?? 1) : 1;
+          const bConf = bStruct ? (confRank[b.confidence] ?? 1) : 1;
+          if (aConf !== bConf) return aConf - bConf;
+          return bFill - aFill;
+        });
+
+        function deriveAction(claim, mech) {
+          const src = (mech || claim || '').toLowerCase();
+          if (/rush|too fast|speed/i.test(src)) return 'Practice slowing down on questions you find straightforward — the extra seconds catch careless errors.';
+          if (/slow|time.*(run|out|pressure)|overtime/i.test(src)) return 'Drill timed sets to build speed on familiar question types, freeing time for harder ones.';
+          if (/guess|random|eliminat/i.test(src)) return 'Before guessing, eliminate at least one option — even partial elimination boosts your odds.';
+          if (/stamina|fatigue|fade|drop.*off|later/i.test(src)) return 'Simulate full-length practice sessions to build endurance for the final section.';
+          if (/skip|unanswer|blank|omit/i.test(src)) return 'Answer every question — there is no penalty for guessing, so never leave a blank.';
+          if (/chang|switch|revis|erase/i.test(src)) return 'Trust your first instinct more often — data shows initial answers are usually right.';
+          if (/focus|attention|careless|silly/i.test(src)) return 'Flag tricky questions to revisit, and double-check your work on the easiest ones.';
+          return null;
+        }
+
         return (
           <div key={block.id} style={{ padding: '36px 0', display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px', padding: '0 36px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px', padding: '0 36px' }}>
               <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'var(--color-info-100)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-info-600)' }}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12h4l3-9 5 18 3-9h5"></path></svg>
               </div>
-              <h3 style={{ fontFamily: 'var(--font-ui)', fontSize: '22px', fontWeight: '700', color: colors.text.primary, margin: 0, letterSpacing: '-0.02em' }}>Test Behavior</h3>
+              <h3 className="diag-title-section">How You Took the Test</h3>
             </div>
-            {block.transition && (() => {
-              const parts = block.transition.split(/(?:\(\d+\)|\d+\.)\s*/);
-              if (parts.length > 1) {
-                const intro = parts[0].trim();
-                const bullets = parts.slice(1).filter(p => p.trim().length > 0);
+            <div className="diag-body-text" style={{ marginBottom: '24px', padding: '0 36px' }}>These patterns in your test-taking behavior affected your score.</div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', padding: '0 36px 24px 36px' }}>
+              {sortedItems.map((item, i) => {
+                const isStructured = typeof item === 'object' && item !== null;
+                const claimText = isStructured ? (item.text || '') : (typeof item === 'string' ? item : '');
+                const rawClaim = claimText.replace(/^(\(\d+\)|\d+\.)\s*/, '');
+                const { cleanedText: cleanedClaim, metricItems: behaviorMetrics } = extractMetrics(rawClaim);
+                const evidence = isStructured ? item.evidence : null;
+                const mechanism = isStructured ? item.mechanism : null;
+                const impact = isStructured ? item.estimatedImpact : null;
+                const confidence = isStructured ? item.confidence : null;
+                const action = deriveAction(rawClaim, mechanism);
+
+                const detailCount = [mechanism, evidence, impact].filter(Boolean).length;
+                const isPartial = confidence === 'low' || (confidence !== 'high' && detailCount === 0);
+
                 return (
-                  <div style={{ padding: '0 36px', marginBottom: '24px' }}>
-                    {intro && <div style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: colors.text.secondary, fontWeight: '500', marginBottom: '16px', lineHeight: '1.5' }}>{intro}</div>}
-                    <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                      {bullets.map((b, i) => (
-                        <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '15px', color: colors.text.secondary, lineHeight: '1.5', fontFamily: 'var(--font-ui)', fontWeight: '500' }}>
-                          <span style={{ flexShrink: 0, width: '6px', height: '6px', borderRadius: '50%', background: 'var(--color-info-400)', marginTop: '8px' }} />
-                          {b}
-                        </li>
-                      ))}
-                    </ul>
+                  <div key={i} className="diag-primary-insight-card" style={{
+                    background: isPartial ? 'var(--diag-bg)' : 'var(--diag-card-bg)',
+                    borderLeft: `4px solid ${isPartial ? 'var(--diag-muted)' : 'var(--diag-accent-info)'}`,
+                    boxShadow: isPartial ? 'none' : 'var(--shadow-sm)',
+                    opacity: isPartial ? 0.85 : 1,
+                  }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+
+                      {/* ── OBSERVATION ── */}
+                      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                        <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: isPartial ? 'var(--color-slate-200)' : 'var(--color-info-100)', color: isPartial ? 'var(--color-slate-500)' : 'var(--color-info-700)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: '800', flexShrink: 0, marginTop: '1px' }}>{i + 1}</div>
+                        <div style={{ flex: 1, minWidth: 0 }}>
+                          <div style={{ fontSize: '16px', color: 'var(--color-slate-900)', lineHeight: '1.55', fontFamily: 'var(--font-ui)', fontWeight: '600' }}>
+                            {cleanedClaim}
+                          </div>
+                          {behaviorMetrics.length > 0 && (
+                            <ul style={{ margin: '8px 0 0', padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                              {behaviorMetrics.map((m, mi) => (
+                                <li key={mi} style={{ display: 'flex', alignItems: 'baseline', gap: '8px', fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--color-slate-600)', lineHeight: '1.4' }}>
+                                  <span style={{ flexShrink: 0, width: '5px', height: '5px', borderRadius: '50%', background: 'var(--color-info-400)', marginTop: '6px' }} />
+                                  <span><span style={{ fontWeight: '500' }}>{m.label}:</span> <span style={{ fontWeight: '700', color: 'var(--color-slate-800)' }}>{m.value}</span></span>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </div>
+                        {confidence && (
+                          <div style={{ flexShrink: 0, fontSize: '10px', fontWeight: '700', color: confidence === 'high' ? 'var(--color-success-600)' : confidence === 'low' ? 'var(--color-warning-600)' : 'var(--color-info-600)', textTransform: 'uppercase', letterSpacing: '0.05em', padding: '3px 8px', borderRadius: '6px', background: confidence === 'high' ? 'var(--color-success-50)' : confidence === 'low' ? 'var(--color-warning-50)' : 'var(--color-info-50)', marginTop: '2px' }}>
+                            {confidence}
+                          </div>
+                        )}
+                      </div>
+
+                      {/* ── CAUSE + PROOF + IMPACT  ── */}
+                      {(mechanism || evidence || impact) && (
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginLeft: '40px', borderLeft: '2px solid var(--color-slate-150, #e8ecf0)', paddingLeft: '16px' }}>
+                          {mechanism && (
+                            <div>
+                              <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-slate-400)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '4px' }}>Why this happens</div>
+                              <div style={{ fontSize: '14px', color: 'var(--color-slate-700)', lineHeight: '1.5', fontFamily: 'var(--font-ui)', fontWeight: '500' }}>{mechanism}</div>
+                            </div>
+                          )}
+                          {evidence && (
+                            <div>
+                              <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-slate-400)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '4px' }}>The proof</div>
+                              <div style={{ fontSize: '13px', color: 'var(--color-slate-600)', lineHeight: '1.5', fontFamily: 'var(--font-ui)', fontWeight: '500', fontStyle: 'italic' }}>{evidence}</div>
+                            </div>
+                          )}
+                          {impact && (
+                            <div style={{ padding: '10px 14px', borderRadius: '10px', background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.12)' }}>
+                              <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-warning-600)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '4px' }}>Score consequence</div>
+                              <div style={{ fontSize: '14px', color: 'var(--color-warning-700)', lineHeight: '1.5', fontFamily: 'var(--font-ui)', fontWeight: '600' }}>{impact}</div>
+                            </div>
+                          )}
+                        </div>
+                      )}
+
+                      {/* ── ACTION ── */}
+                      {action && (
+                        <div style={{ marginLeft: '40px', padding: '10px 14px', borderRadius: '10px', background: 'var(--color-success-50)', border: '1px solid rgba(16,185,129,0.15)' }}>
+                          <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-success-700)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '4px' }}>What to do</div>
+                          <div style={{ fontSize: '14px', color: 'var(--color-success-800, #065f46)', lineHeight: '1.5', fontFamily: 'var(--font-ui)', fontWeight: '600' }}>{action}</div>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 );
-              }
-              return (
-                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: colors.text.secondary, fontWeight: '500', marginBottom: '24px', lineHeight: '1.5', padding: '0 36px' }}>{block.transition}</div>
-              );
-            })()}
-            
-            <ul style={{ 
-              margin: 0, 
-              padding: '0 36px 24px 36px', 
-              listStyle: 'none', 
-              display: 'flex', 
-              flexDirection: 'column', 
-              gap: '16px' 
-            }}>
-              {block.items.map((pt, i) => {
-                // Remove "(1) ", "1. ", "(2) ", etc from the start of the string if the AI generated it
-                const cleanedText = pt.replace(/^(\(\d+\)|\d+\.)\s*/, '');
-                return (
-                  <li key={i} style={{ 
-                    display: 'flex', 
-                    alignItems: 'flex-start', 
-                    gap: '14px', 
-                    fontSize: '16px', 
-                    color: colors.text.secondary, 
-                    lineHeight: '1.6', 
-                    fontFamily: 'var(--font-ui)',
-                    fontWeight: '500'
-                  }}>
-                    <span style={{ 
-                      flexShrink: 0, 
-                      width: '8px', 
-                      height: '8px', 
-                      borderRadius: '50%', 
-                      background: 'var(--color-info-500)', 
-                      marginTop: '8px' 
-                    }} />
-                    {cleanedText}
-                  </li>
-                );
               })}
-            </ul>
+            </div>
           </div>
         );
       }
 
       if (block.id === 'evidence') {
+        const TIME_RE = /time|speed|stamina|half|pace|rush|fast|slow|minute|second|avg.*time|timing/i;
+        const ACCURACY_RE = /accuracy|correct|miss|error|wrong|score|gap|wins|easy|domain|cause|lever|point|projected|impact/i;
+
+        function classifyEvidence(ev) {
+          const text = `${ev.label} ${ev.value} ${ev.group || ''}`;
+          if (TIME_RE.test(text)) return 'Time & Pacing';
+          if (ACCURACY_RE.test(text)) return 'Accuracy & Score';
+          return 'Other Signals';
+        }
+
+        function interpretEvidence(ev) {
+          const lbl = (ev.label || '').toLowerCase();
+          const val = (ev.value || '').toString();
+          const isWarning = ev.type === 'warning';
+          const isGood = ev.type === 'success' || ev.type === 'good';
+
+          if (/avg.*time|time.*question/i.test(lbl)) {
+            return isWarning ? 'You spent more time per question than ideal, which may signal hesitation.' : 'Your pacing per question looks healthy.';
+          }
+          if (/correct.*wrong.*speed|speed/i.test(lbl)) {
+            return isWarning ? 'Wrong answers came faster than correct ones — quick commits to trap answers.' : 'You spent similar time on correct and incorrect answers.';
+          }
+          if (/time.*error/i.test(lbl)) {
+            return `${val} question(s) were likely rushed, causing avoidable mistakes.`;
+          }
+          if (/stamina/i.test(lbl)) {
+            return isWarning ? 'Endurance dropped — later questions suffered from fatigue.' : 'You maintained consistent energy throughout the test.';
+          }
+          if (/half.*accuracy|1st.*2nd/i.test(lbl)) {
+            return isWarning ? 'Accuracy fell in the second half, suggesting fatigue or time pressure.' : 'Your accuracy stayed steady from start to finish.';
+          }
+          if (/navigation/i.test(lbl)) {
+            return isWarning ? 'Jumping between questions may reduce focus and waste time.' : 'You moved through questions in a steady order.';
+          }
+          if (/calculator/i.test(lbl)) {
+            return isWarning ? 'Heavy calculator use may slow you down on simpler problems.' : 'Calculator use was moderate and appropriate.';
+          }
+          if (/flag|review/i.test(lbl)) {
+            return isWarning ? 'Flagging many questions dilutes your review time on the hardest ones.' : 'You flagged selectively, keeping review focused.';
+          }
+          if (/easy.*win/i.test(lbl)) {
+            return `These are straightforward questions you missed — fixing them is the fastest path to more points.`;
+          }
+          if (/point.*target|gap/i.test(lbl)) {
+            return `You are ${val} point${val === '1' ? '' : 's'} away from your target score.`;
+          }
+          if (/lever|domain/i.test(lbl)) {
+            return `Focusing here has the highest potential point gain.`;
+          }
+          if (/trend/i.test(lbl)) {
+            return isGood ? 'Your scores are improving — keep up the momentum.' : isWarning ? 'Recent scores have dipped — revisit fundamentals.' : 'Scores are holding steady.';
+          }
+          if (/velocity|learning.*speed/i.test(lbl)) {
+            return isGood ? 'You are learning at a healthy pace.' : 'Progress has slowed — consider changing your study approach.';
+          }
+          if (/projected.*gain/i.test(lbl)) {
+            return `Fixing this area could recover ${val}.`;
+          }
+          if (isWarning) return 'This metric is outside the ideal range and may be costing you points.';
+          if (isGood) return 'This is a strength — keep it up.';
+          return 'A supporting data point for context.';
+        }
+
+        const themeOrder = ['Accuracy & Score', 'Time & Pacing', 'Other Signals'];
+        const grouped = {};
+        block.items.forEach(ev => {
+          const theme = classifyEvidence(ev);
+          if (!grouped[theme]) grouped[theme] = [];
+          grouped[theme].push(ev);
+        });
+
+        const themeIcons = {
+          'Accuracy & Score': <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>,
+          'Time & Pacing': <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>,
+          'Other Signals': <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12h4l3-9 5 18 3-9h5"/></svg>,
+        };
+
         return (
           <div key={block.id} style={{ padding: '36px' }}>
-            <h3 style={{ fontFamily: 'var(--font-ui)', fontSize: '20px', fontWeight: '700', color: colors.text.primary, marginBottom: '24px', letterSpacing: '-0.02em' }}>Data Evidence</h3>
-            {block.transition && (
-              <div style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: colors.text.secondary, fontWeight: '500', marginBottom: '24px', lineHeight: '1.5' }}>{block.transition}</div>
-            )}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '16px' }}>
-              {block.items.map((ev, i) => {
-                const evColor = ev.type === 'warning' ? 'var(--color-warning-600)' : ev.type === 'success' || ev.type === 'good' ? 'var(--color-success-600)' : colors.text.primary;
-                const evBg = ev.type === 'warning' ? 'var(--color-warning-100)' : ev.type === 'success' || ev.type === 'good' ? 'var(--color-success-100)' : 'rgba(255,255,255,0.9)';
-                return (
-                  <div key={i} style={{ padding: '20px', borderRadius: '16px', background: evBg, border: '1px solid rgba(0,0,0,0.04)', display: 'flex', flexDirection: 'column', gap: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.02)' }}>
-                    <span style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '700', color: colors.text.muted, textTransform: 'uppercase', letterSpacing: '0.05em' }}>{ev.label}</span>
-                    <span style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', fontWeight: '700', color: evColor }}>{ev.value}</span>
+            <h3 className="diag-title-section" style={{ marginBottom: '8px' }}>Your Numbers at a Glance</h3>
+            <div className="diag-body-text" style={{ marginBottom: '28px' }}>Key metrics from your test, grouped by theme so you can see what each number means.</div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
+              {themeOrder.filter(t => grouped[t]?.length > 0).map(theme => (
+                <div key={theme}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
+                    <div style={{ color: 'var(--color-slate-400)' }}>{themeIcons[theme]}</div>
+                    <div style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '700', color: 'var(--color-slate-500)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>{theme}</div>
                   </div>
-                );
-              })}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                    {grouped[theme].map((ev, i) => {
+                      const evColor = ev.type === 'warning' ? 'var(--color-warning-600)' : ev.type === 'success' || ev.type === 'good' ? 'var(--color-success-600)' : 'var(--color-slate-800)';
+                      const accentBg = ev.type === 'warning' ? 'rgba(245,158,11,0.08)' : ev.type === 'success' || ev.type === 'good' ? 'rgba(16,185,129,0.08)' : 'var(--color-slate-50)';
+                      const interpretation = interpretEvidence(ev);
+                      return (
+                        <div key={i} className="diag-supporting-evidence-card" style={{ background: accentBg }}>
+                          <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '12px' }}>
+                            <span style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '600', color: 'var(--color-slate-700)' }}>{ev.label}</span>
+                            <span style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', fontWeight: '800', color: evColor, whiteSpace: 'nowrap', fontVariantNumeric: 'tabular-nums' }}>{ev.value}</span>
+                          </div>
+                          <div style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '500', color: 'var(--color-slate-500)', lineHeight: '1.45' }}>
+                            {interpretation}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         );
@@ -1431,18 +1655,18 @@ const TestResults = ({
       if (block.id === 'nextMove') {
         const item = block.items[0] || {};
         return (
-          <div key={block.id} style={{ padding: '48px', background: 'linear-gradient(180deg, var(--color-slate-50) 0%, transparent 100%)' }}>
+          <div key={block.id} style={{ padding: '40px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
               <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'var(--color-slate-900)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', boxShadow: '0 8px 16px rgba(15,23,42,0.2)' }}>
                 <ArrowRightIcon size={20} />
               </div>
-              <h3 style={{ fontFamily: 'var(--font-ui)', fontSize: '24px', fontWeight: '700', color: colors.text.primary, margin: 0, letterSpacing: '-0.02em' }}>Action Plan</h3>
+              <h3 className="diag-title-section">What to Focus on Next</h3>
             </div>
             
             {block.transition && (
-              <div style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', color: colors.text.secondary, fontWeight: '500', marginBottom: '20px', lineHeight: '1.6' }}>{block.transition}</div>
+              <div className="diag-claim-text" style={{ color: 'var(--diag-muted)', marginBottom: '20px' }}>{block.transition}</div>
             )}
-            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '18px', fontWeight: '600', color: colors.text.primary, lineHeight: '1.6', marginBottom: item.reasons?.length > 0 ? '20px' : '32px' }}>
+            <div className="diag-claim-text" style={{ marginBottom: item.reasons?.length > 0 ? '20px' : '32px' }}>
               {item.text}
             </div>
             {item.reasons?.length > 0 && (
@@ -1488,7 +1712,7 @@ const TestResults = ({
                   background: 'linear-gradient(180deg, var(--color-slate-800) 0%, var(--color-slate-900) 100%)', color: '#fff',
                   fontSize: '15px', fontWeight: '600', cursor: 'pointer',
                   boxShadow: '0 8px 24px rgba(15,23,42,0.2)', transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)', display: 'flex', alignItems: 'center', gap: '10px'
-                }} className="action-btn-primary">
+                }} className="diag-action-btn-primary">
                   View Study Plan <ArrowRightIcon size={16} />
                 </button>
               )}
@@ -1497,7 +1721,7 @@ const TestResults = ({
                 padding: '16px 32px', background: '#fff', color: colors.text.primary,
                 border: '1px solid var(--color-slate-200)', borderRadius: '16px', fontSize: '15px', fontWeight: '600', cursor: 'pointer',
                 boxShadow: '0 4px 12px rgba(0,0,0,0.03)', transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
-              }} className="action-btn-secondary">
+              }} className="diag-action-btn-secondary">
                 Review Missed Questions
               </button>
             </div>
@@ -1509,145 +1733,133 @@ const TestResults = ({
     };
 
     const getBlock = (id) => blocks.find(b => b.id === id);
-    const hasDetails = details.additionalDrivers.length > 0 || (details.overflowDiagnosis && details.overflowDiagnosis.length > 0) || details.secondaryEvidence.length > 0 || details.uncertainties || details.qualityFailed;
+    const hasDetails = (details.overflowDiagnosis && details.overflowDiagnosis.length > 0) || details.uncertainties || details.qualityFailed;
+
+    const storyStepNum = { current: 0 };
+    const StorySection = ({ stepLabel, children, accent = 'var(--diag-muted)' }) => {
+      storyStepNum.current += 1;
+      const num = storyStepNum.current;
+      return (
+        <div className="diag-story-section">
+          <div className="diag-story-header">
+            <div className="diag-story-number" style={{ background: accent }}>{num}</div>
+            <div className="diag-story-title">{stepLabel}</div>
+            <div className="diag-story-line" />
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            {children}
+          </div>
+        </div>
+      );
+    };
+
+    const hasWhatHappened = getBlock('context') || getBlock('behaviorAmplifier');
+    const hasEvidence = getBlock('evidence');
+    const hasAction = getBlock('nextMove');
 
     return (
-      <div style={{ padding: '24px 0', display: 'flex', flexDirection: 'column', gap: '32px' }}>
-        {/* Row 1: Hero & Stats */}
-        <div className="premium-card" style={{ overflow: 'hidden' }}>
-          {getBlock('context') && renderBlock(getBlock('context'), 0)}
-          {getBlock('context') && getBlock('metaStrip') && <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent 0%, var(--color-slate-200) 10%, var(--color-slate-200) 90%, transparent 100%)', margin: '0 48px' }} />}
-          {getBlock('metaStrip') && renderBlock(getBlock('metaStrip'), 1)}
+      <div style={{ padding: '16px 0 40px', display: 'flex', flexDirection: 'column', gap: '48px' }}>
+
+        {/* ── TOP INTRO STRIP ── */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', padding: '0 8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <div style={{ padding: '6px 12px', borderRadius: '8px', background: 'var(--diag-accent-primary)', color: '#fff', fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Deep Dive</div>
+            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '600', color: 'var(--diag-muted)' }}>Generated for {user?.name || 'you'}</div>
+          </div>
+          <h2 style={{ fontFamily: 'var(--font-ui)', fontSize: '32px', fontWeight: '800', color: 'var(--diag-title)', letterSpacing: '-0.03em', margin: 0 }}>
+            Your Diagnostic Profile
+          </h2>
+          <div style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', color: 'var(--diag-text)', lineHeight: '1.5', maxWidth: '600px' }}>
+            We've analyzed your test behavior, timing, and accuracy to build a precise roadmap for your next practice session.
+          </div>
         </div>
 
-        {/* Row 2: Behavior */}
-        {getBlock('behaviorAmplifier') && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+        {/* ── STEP 1: WHAT HAPPENED ── */}
+        {hasWhatHappened && (
+          <StorySection stepLabel="What Happened" accent="var(--diag-accent-primary)">
+            {getBlock('context') && (
+              <div className="diag-card-base">
+                {renderBlock(getBlock('context'), 0)}
+                {getBlock('metaStrip') && <>
+                  <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent 0%, var(--diag-border) 10%, var(--diag-border) 90%, transparent 100%)', margin: '0 48px' }} />
+                  {renderBlock(getBlock('metaStrip'), 1)}
+                </>}
+              </div>
+            )}
             {getBlock('behaviorAmplifier') && (
-              <div className="premium-card">
+              <div className="diag-card-base">
                 {renderBlock(getBlock('behaviorAmplifier'), 2)}
               </div>
             )}
-          </div>
-        )}
 
-        {/* Row 3: Evidence */}
-        {getBlock('evidence') && (
-          <div className="premium-card">
-            {renderBlock(getBlock('evidence'), 4)}
-          </div>
-        )}
-
-        {/* Row 4: Next Move */}
-        {getBlock('nextMove') && (
-          <div className="premium-card" style={{ overflow: 'hidden' }}>
-            {renderBlock(getBlock('nextMove'), 5)}
-          </div>
-        )}
-
-        {/* Details Area */}
-        {hasDetails && (
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '16px' }}>
-            <button
-              className="details-button"
-              onClick={() => setShowNarrativeDetails(!showNarrativeDetails)}
-              style={{
-                fontFamily: 'var(--font-ui)',
-                background: 'rgba(255,255,255,0.7)',
-                border: '1px solid rgba(255,255,255,0.9)',
-                borderRadius: '30px',
-                cursor: 'pointer',
-                padding: '12px 24px',
-                fontSize: '14px',
-                fontWeight: '600',
-                color: colors.text.secondary,
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                backdropFilter: 'blur(20px)',
-                WebkitBackdropFilter: 'blur(20px)',
-                boxShadow: '0 4px 16px rgba(0,0,0,0.03), 0 1px 2px rgba(0,0,0,0.02)',
-              }}
-            >
-              <span>{showNarrativeDetails ? 'Hide additional details' : (details.overflowDiagnosis && details.overflowDiagnosis.length > 0) ? 'View more insights & details' : 'View technical details'}</span>
-              <span style={{ transform: showNarrativeDetails ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)', fontSize: '12px' }}>&#9662;</span>
-            </button>
-
-            {showNarrativeDetails && (
-              <div className="premium-card" style={{ width: '100%', marginTop: '24px', padding: '36px 48px', animation: 'slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1)' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-                  {details.overflowDiagnosis && details.overflowDiagnosis.length > 0 && (
-                    <div>
-                      <div style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '700', color: colors.text.muted, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '16px' }}>More Diagnosis Insights</div>
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                        {details.overflowDiagnosis.map((pt, i) => {
-                          const ptText = typeof pt === 'string' ? pt : pt.text || '';
-                          return (
-                            <div key={i} style={{ padding: '16px 20px', borderRadius: '16px', background: 'rgba(251,146,60,0.04)', border: '1px solid rgba(251,146,60,0.12)', display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                              <span style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', fontWeight: '600', color: colors.text.primary }}>{ptText}</span>
-                              {pt.evidence && (
-                                <SupportText text={pt.evidence} textColor={colors.text.muted} textSize="13px" dotColor="var(--color-slate-300)" />
-                              )}
-                              {pt.causalMechanism && (
-                                <SupportText text={pt.causalMechanism} label="Why" labelColor="var(--color-slate-500)" textColor={colors.text.muted} textSize="13px" dotColor="var(--color-slate-300)" />
-                              )}
-                            </div>
-                          );
-                        })}
+            {/* Overflow findings inline (high density) */}
+            {details.overflowDiagnosis && details.overflowDiagnosis.length > 0 && (
+              <div className="diag-card-base" style={{ padding: '28px 36px' }}>
+                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '700', color: 'var(--color-slate-400)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '16px' }}>Additional Findings</div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                  {details.overflowDiagnosis.map((pt, i) => {
+                    const ptText = typeof pt === 'string' ? pt : pt.text || '';
+                    const { cleanedText: overflowClean, metricItems: overflowMetrics } = extractMetrics(ptText);
+                    return (
+                      <div key={i} style={{ padding: '18px 22px', borderRadius: '14px', background: 'rgba(251,146,60,0.04)', border: '1px solid rgba(251,146,60,0.12)', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                        <div>
+                          <span style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', fontWeight: '600', color: colors.text.primary, lineHeight: '1.5' }}>{overflowClean}</span>
+                          {overflowMetrics.length > 0 && (
+                            <ul style={{ margin: '6px 0 0', padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '3px' }}>
+                              {overflowMetrics.map((m, mi) => (
+                                <li key={mi} style={{ display: 'flex', alignItems: 'baseline', gap: '8px', fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--color-slate-700)', lineHeight: '1.4' }}>
+                                  <span style={{ flexShrink: 0, width: '5px', height: '5px', borderRadius: '50%', background: 'var(--color-brand-orange-400)', marginTop: '5px' }} />
+                                  <span><span style={{ fontWeight: '500' }}>{m.label}:</span> <span style={{ fontWeight: '700' }}>{m.value}</span></span>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </div>
+                        {pt.causalMechanism && (
+                          <div style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '500', color: 'var(--color-slate-500)', lineHeight: '1.45' }}>
+                            <span style={{ fontWeight: '700', color: 'var(--color-slate-400)', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Why: </span>{pt.causalMechanism}
+                          </div>
+                        )}
                       </div>
-                    </div>
-                  )}
-
-                  {details.additionalDrivers.length > 0 && (
-                    <div>
-                      <div style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '700', color: colors.text.muted, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '16px' }}>Additional Patterns</div>
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                        {details.additionalDrivers.map((d, i) => {
-                          const sc = sevColors[d.severity] || sevColors.moderate;
-                          return (
-                            <div key={i} style={{ padding: '16px 20px', borderRadius: '16px', background: sc.bg, border: `1px solid ${sc.border}`, display: 'flex', alignItems: 'center', gap: '12px' }}>
-                              <span style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', fontWeight: '600', color: colors.text.primary }}>{d.text}</span>
-                              {d.estimatedPointGain && (
-                                <span style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '700', color: 'var(--color-success-600)', background: 'var(--color-success-100)', padding: '4px 10px', borderRadius: '8px', marginLeft: 'auto', whiteSpace: 'nowrap' }}>+{d.estimatedPointGain} pts</span>
-                              )}
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
-
-                  {details.secondaryEvidence.length > 0 && (
-                    <div>
-                      <div style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '700', color: colors.text.muted, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '16px' }}>Additional Evidence</div>
-                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px' }}>
-                        {details.secondaryEvidence.map((ev, i) => {
-                          const evColor = ev.type === 'warning' ? 'var(--color-warning-600)' : ev.type === 'success' || ev.type === 'good' ? 'var(--color-success-600)' : colors.text.secondary;
-                          const evBg = ev.type === 'warning' ? 'var(--color-warning-100)' : ev.type === 'success' || ev.type === 'good' ? 'var(--color-success-100)' : 'rgba(255,255,255,0.8)';
-                          return (
-                            <div key={i} style={{ padding: '16px', borderRadius: '16px', background: evBg, display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                              <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: colors.text.muted, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{ev.label}</span>
-                              <span style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', fontWeight: '700', color: evColor }}>{ev.value}</span>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
-
-                  {details.uncertainties && (
-                    <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--color-warning-700)', lineHeight: '1.6', fontStyle: 'italic', padding: '16px 20px', borderRadius: '16px', background: 'var(--color-warning-50)', border: '1px solid var(--color-warning-200)' }}>
-                      <span style={{ fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.04em', fontSize: '11px', marginRight: '8px' }}>Note:</span>
-                      {details.uncertainties}
-                    </div>
-                  )}
-
-                  {details.qualityFailed && (
-                    <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--color-warning-700)', fontWeight: '600', padding: '16px 20px', borderRadius: '16px', background: 'var(--color-warning-50)', border: '1px solid var(--color-warning-200)' }}>
-                      Some AI insights could not be fully verified. Data-driven analysis is shown where AI confidence was insufficient.
-                    </div>
-                  )}
+                    );
+                  })}
                 </div>
+              </div>
+            )}
+
+          </StorySection>
+        )}
+
+        {/* ── STEP 2: THE EVIDENCE ── */}
+        {hasEvidence && (
+          <StorySection stepLabel="The Evidence" accent="var(--diag-accent-info)">
+            <div className="diag-card-base">
+              {renderBlock(getBlock('evidence'), 3)}
+            </div>
+          </StorySection>
+        )}
+
+        {/* ── STEP 3: WHAT TO DO ── */}
+        {hasAction && (
+          <StorySection stepLabel="What to Do" accent="var(--diag-title)">
+            <div className="diag-action-card">
+              {renderBlock(getBlock('nextMove'), 4)}
+            </div>
+          </StorySection>
+        )}
+
+        {/* Caveats (always visible for transparency) */}
+        {(details.uncertainties || details.qualityFailed) && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', padding: '0 8px' }}>
+            {details.uncertainties && (
+              <div style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--color-warning-700)', lineHeight: '1.55', fontStyle: 'italic', padding: '14px 18px', borderRadius: '14px', background: 'var(--color-warning-50)', border: '1px solid var(--color-warning-200)' }}>
+                <span style={{ fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.04em', fontSize: '11px', marginRight: '6px' }}>Note:</span>
+                {details.uncertainties}
+              </div>
+            )}
+            {details.qualityFailed && (
+              <div style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--color-warning-700)', fontWeight: '600', padding: '14px 18px', borderRadius: '14px', background: 'var(--color-warning-50)', border: '1px solid var(--color-warning-200)' }}>
+                Some findings could not be fully verified. We're showing the data-backed analysis where we're most confident.
               </div>
             )}
           </div>
@@ -1658,56 +1870,6 @@ const TestResults = ({
 
   return (
     <div style={{ maxWidth: '1080px', margin: '0 auto', padding: '0 20px 40px', fontFamily: 'var(--font-ui)' }}>
-      <style>{`
-        .premium-card {
-          background: rgba(255, 255, 255, 0.7);
-          backdrop-filter: blur(24px);
-          -webkit-backdrop-filter: blur(24px);
-          border-radius: 28px;
-          box-shadow: 0 8px 32px rgba(0,0,0,0.03), 0 2px 8px rgba(0,0,0,0.02);
-          border: 1px solid rgba(255,255,255,0.9);
-          transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .premium-card:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 16px 48px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.03);
-        }
-        .details-button {
-          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .details-button:hover {
-          background: rgba(255,255,255,0.9) !important;
-          color: var(--color-brand-orange-600) !important;
-          transform: translateY(-1px);
-        }
-        .stat-card {
-          padding: 24px;
-          border-radius: 20px;
-          background: rgba(255,255,255,0.5);
-          border: 1px solid rgba(255,255,255,0.8);
-          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .stat-card:hover {
-          background: rgba(255,255,255,0.9) !important;
-          transform: translateY(-2px);
-          box-shadow: 0 8px 24px rgba(0,0,0,0.04);
-        }
-        .action-btn-primary:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 12px 32px rgba(15,23,42,0.3) !important;
-        }
-        .action-btn-secondary:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 24px rgba(0,0,0,0.06) !important;
-        }
-        .hide-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .hide-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
       {/* Header Area */}
       <div style={{
         marginBottom: '24px',
@@ -1769,7 +1931,7 @@ const TestResults = ({
         {activeTab === 'summary'
           ? renderSummaryView()
           : activeTab === 'diagnostic'
-          ? renderDiagnosticView()
+          ? <div className="diagnostic-ui">{renderDiagnosticView()}</div>
           : renderModuleSummary(parseInt(activeTab.split('-')[1]))
         }
       </div>

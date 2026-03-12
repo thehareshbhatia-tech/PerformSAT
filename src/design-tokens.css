@@ -52,6 +52,26 @@
   --radius-xl: 24px;
   --radius-2xl: 32px;
   --radius-full: 9999px;
+
+  /* Diagnostic Insights Scoped Tokens */
+  --diag-bg: var(--color-slate-50);
+  --diag-card-bg: var(--color-white);
+  --diag-border: rgba(0, 0, 0, 0.06);
+  --diag-title: var(--color-slate-900);
+  --diag-text: var(--color-slate-700);
+  --diag-muted: var(--color-slate-500);
+  --diag-accent-primary: var(--color-brand-orange-500);
+  --diag-accent-success: var(--color-success-600);
+  --diag-accent-success-bg: var(--color-success-100);
+  --diag-accent-warning: var(--color-warning-600);
+  --diag-accent-warning-bg: var(--color-warning-100);
+  --diag-accent-error: var(--color-error-600);
+  --diag-accent-error-bg: var(--color-error-100);
+  --diag-accent-info: var(--color-info-600);
+  --diag-accent-info-bg: var(--color-info-100);
+  --diag-shadow-card: var(--shadow-md);
+  --diag-radius-card: var(--radius-xl);
+  --diag-radius-inner: var(--radius-md);
 }
 
 body {

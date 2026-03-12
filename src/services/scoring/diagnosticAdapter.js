@@ -184,41 +184,98 @@ function buildBehaviorSignals(report, rawDiagnosticData) {
   const signals = [];
 
   if (timeAnalysis) {
-    signals.push({ label: 'Avg time / question', value: formatTime(timeAnalysis.avgTimePerQuestion), type: 'neutral' });
+    const avgT = timeAnalysis.avgTimePerQuestion;
+    const paceType = avgT > 75 ? 'warning' : avgT < 30 ? 'warning' : 'neutral';
+    signals.push({
+      label: 'Avg time / question',
+      value: formatTime(avgT),
+      type: paceType,
+      insight: paceType === 'warning' && avgT > 75
+        ? 'Slower pacing may indicate hesitation or re-reading — consider building first-pass speed'
+        : paceType === 'warning' && avgT < 30
+        ? 'Unusually fast pacing risks surface-level processing of question stems'
+        : null,
+    });
+    const speedType = timeAnalysis.avgIncorrectTime < timeAnalysis.avgCorrectTime * 0.6 ? 'warning' : 'neutral';
     signals.push({
       label: 'Correct vs wrong speed',
       value: `${formatTime(timeAnalysis.avgCorrectTime)} vs ${formatTime(timeAnalysis.avgIncorrectTime)}`,
-      type: timeAnalysis.avgIncorrectTime < timeAnalysis.avgCorrectTime * 0.6 ? 'warning' : 'neutral',
+      type: speedType,
+      insight: speedType === 'warning'
+        ? `Wrong answers took ${Math.round((1 - timeAnalysis.avgIncorrectTime / timeAnalysis.avgCorrectTime) * 100)}% less time than correct ones — premature commitment to trap answers`
+        : null,
     });
     if (timeAnalysis.timeRelatedErrors > 0) {
-      signals.push({ label: 'Time-related errors', value: `${timeAnalysis.timeRelatedErrors}`, type: 'warning' });
+      signals.push({
+        label: 'Time-related errors',
+        value: `${timeAnalysis.timeRelatedErrors}`,
+        type: 'warning',
+        insight: `${timeAnalysis.timeRelatedErrors} question(s) likely rushed — time pressure directly caused errors`,
+      });
     }
   }
 
   if (stamina?.hasData) {
+    const staminaType = stamina.staminaScore < 70 ? 'warning' : 'good';
     signals.push({
       label: 'Stamina',
       value: `${stamina.staminaScore}/100 (${stamina.rating.replace('_', ' ')})`,
-      type: stamina.staminaScore < 70 ? 'warning' : 'good',
+      type: staminaType,
+      insight: staminaType === 'warning'
+        ? `Stamina at ${stamina.staminaScore}/100 — endurance is limiting second-half performance`
+        : `Strong stamina at ${stamina.staminaScore}/100 — sustained focus is an asset`,
     });
+    const fadeType = (timeAnalysis?.fadeEffect ?? 0) > 15 ? 'warning' : 'neutral';
+    const firstH = timeAnalysis?.firstHalfAccuracy ?? 0;
+    const secondH = timeAnalysis?.secondHalfAccuracy ?? 0;
     signals.push({
       label: '1st half → 2nd half accuracy',
-      value: `${timeAnalysis?.firstHalfAccuracy ?? '?'}% → ${timeAnalysis?.secondHalfAccuracy ?? '?'}%`,
-      type: (timeAnalysis?.fadeEffect ?? 0) > 15 ? 'warning' : 'neutral',
+      value: `${firstH || '?'}% → ${secondH || '?'}%`,
+      type: fadeType,
+      insight: fadeType === 'warning'
+        ? `${Math.round(firstH - secondH)}pp accuracy drop signals fatigue or time-pressure escalation in later questions`
+        : null,
     });
   }
 
   if (raw.navigationPattern) {
     const navLabels = { 'linear': 'Linear', 'strategic-skip': 'Strategic Skip', 'jumping': 'Jumping' };
-    signals.push({ label: 'Navigation', value: navLabels[raw.navigationPattern] || 'Linear', type: 'neutral' });
+    const navVal = navLabels[raw.navigationPattern] || 'Linear';
+    signals.push({
+      label: 'Navigation',
+      value: navVal,
+      type: raw.navigationPattern === 'jumping' ? 'warning' : 'neutral',
+      insight: raw.navigationPattern === 'jumping'
+        ? 'Jumping between questions may indicate difficulty sustaining focus or over-monitoring remaining time'
+        : raw.navigationPattern === 'strategic-skip'
+        ? 'Strategic skipping can preserve time for harder items — watch for skipped-then-missed patterns'
+        : null,
+    });
   }
 
   if (raw.calculatorUsageCount != null) {
     const totalQ = Object.keys(raw.questionDetails || {}).length || 1;
-    signals.push({ label: 'Calculator usage', value: `${raw.calculatorUsageCount}/${totalQ}`, type: 'neutral' });
+    const calcPct = Math.round((raw.calculatorUsageCount / totalQ) * 100);
+    signals.push({
+      label: 'Calculator usage',
+      value: `${raw.calculatorUsageCount}/${totalQ} (${calcPct}%)`,
+      type: calcPct > 70 ? 'warning' : 'neutral',
+      insight: calcPct > 70
+        ? `Calculator used on ${calcPct}% of questions — over-reliance may slow pacing and weaken mental math`
+        : null,
+    });
   }
   if (raw.markedForReviewCount != null) {
-    signals.push({ label: 'Flagged for review', value: `${raw.markedForReviewCount}`, type: 'neutral' });
+    const totalQ = Object.keys(raw.questionDetails || {}).length || 1;
+    const flagPct = Math.round((raw.markedForReviewCount / totalQ) * 100);
+    signals.push({
+      label: 'Flagged for review',
+      value: `${raw.markedForReviewCount} (${flagPct}%)`,
+      type: flagPct > 40 ? 'warning' : 'neutral',
+      insight: flagPct > 40
+        ? `Flagging ${flagPct}% of questions suggests widespread uncertainty — may dilute review effectiveness`
+        : null,
+    });
   }
 
   return signals;
@@ -368,23 +425,37 @@ function buildBehaviorOutcomes(report, rawDiagnosticData) {
   const changes = answerPatterns?.answerChanges;
   if (changes && changes.total >= 2) {
     const net = changes.changedToCorrect - changes.changedToWrong;
+    const netLabel = net > 0 ? `net +${net} correct` : net < 0 ? `net ${net} correct` : 'net zero';
     outcomes.push({
       id: 'answer-changes',
       behavior: 'Answer Changes',
       stat: `${changes.total} changes (${changes.changedToCorrect} helped, ${changes.changedToWrong} hurt)`,
       impact: net >= 0 ? 'positive' : 'negative',
       detail: changes.advice,
+      evidence: `${changes.total} answer changes: ${changes.changedToCorrect} improved, ${changes.changedToWrong} worsened (${netLabel})`,
+      mechanism: net < 0
+        ? `Second-guessing correct answers under pressure — ${changes.changedToWrong} reversals from correct to incorrect suggest low confidence in initial responses`
+        : net > 0
+        ? `Effective self-monitoring — revisiting uncertain answers led to ${changes.changedToCorrect} corrections`
+        : 'Answer changes balanced out — some improved, others regressed',
+      estimatedImpact: changes.changedToWrong > 0 ? `~${changes.changedToWrong * 10}-${changes.changedToWrong * 15} pts lost from reversals` : null,
     });
   }
 
   const elimination = answerPatterns?.elimination;
   if (elimination && elimination.used > 0) {
+    const isEffective = (elimination.accuracy || 0) >= 60;
     outcomes.push({
       id: 'elimination',
       behavior: 'Process of Elimination',
       stat: `Used on ${elimination.used} questions, ${elimination.accuracy}% accuracy`,
-      impact: (elimination.accuracy || 0) >= 60 ? 'positive' : 'negative',
+      impact: isEffective ? 'positive' : 'negative',
       detail: elimination.insight,
+      evidence: `Elimination used ${elimination.used} times with ${elimination.accuracy}% success rate`,
+      mechanism: isEffective
+        ? `Strategic narrowing of choices is working — ${elimination.accuracy}% accuracy when eliminating suggests strong reasoning under uncertainty`
+        : `Elimination is underperforming at ${elimination.accuracy}% — possible trap-answer susceptibility or incomplete knowledge driving false eliminations`,
+      estimatedImpact: !isEffective && elimination.used > 2 ? `~${Math.round(elimination.used * (1 - elimination.accuracy / 100) * 10)} pts recoverable with better elimination strategy` : null,
     });
   }
 
@@ -393,6 +464,9 @@ function buildBehaviorOutcomes(report, rawDiagnosticData) {
     if (reviewed.length > 0) {
       const reviewedCorrect = reviewed.filter(q => q.isCorrect).length;
       const reviewAcc = Math.round((reviewedCorrect / reviewed.length) * 100);
+      const nonReviewed = questionAnalysis.filter(q => !q.markedForReview);
+      const nonReviewAcc = nonReviewed.length > 0 ? Math.round((nonReviewed.filter(q => q.isCorrect).length / nonReviewed.length) * 100) : null;
+      const accDelta = nonReviewAcc != null ? reviewAcc - nonReviewAcc : null;
       outcomes.push({
         id: 'flagged-review',
         behavior: 'Flagged for Review',
@@ -401,13 +475,23 @@ function buildBehaviorOutcomes(report, rawDiagnosticData) {
         detail: reviewAcc < 50
           ? 'Most flagged questions were wrong — flagging may signal low confidence, not genuine uncertainty'
           : 'Good review instinct — flagged questions were mostly answered correctly after revisiting',
+        evidence: `${reviewed.length} questions flagged at ${reviewAcc}% accuracy${nonReviewAcc != null ? ` vs ${nonReviewAcc}% on unflagged questions` : ''}`,
+        mechanism: reviewAcc < 50
+          ? `Flagging ${reviewed.length} questions but getting ${100 - reviewAcc}% wrong indicates calibration gap — you're uncertain on questions you ultimately can't solve, consuming review time without payoff`
+          : accDelta != null && accDelta > 0
+          ? `Review strategy is effective: flagged items at ${reviewAcc}% vs ${nonReviewAcc}% unflagged, showing you correctly identify items worth revisiting`
+          : `Review behavior is neutral — flagged accuracy (${reviewAcc}%) tracks overall accuracy`,
+        estimatedImpact: reviewAcc < 50 && reviewed.length > 2 ? `~${Math.round(reviewed.length * 0.3 * 10)} pts recoverable by improving review targeting` : null,
       });
     }
 
     const calcUsed = questionAnalysis.filter(q => q.usedCalculator);
     if (calcUsed.length > 0) {
       const calcAcc = Math.round((calcUsed.filter(q => q.isCorrect).length / calcUsed.length) * 100);
+      const noCalcItems = questionAnalysis.filter(q => !q.usedCalculator);
+      const noCalcAcc = noCalcItems.length > 0 ? Math.round((noCalcItems.filter(q => q.isCorrect).length / noCalcItems.length) * 100) : null;
       const easyCalc = calcUsed.filter(q => q.difficulty === 'easy').length;
+      const hardCalc = calcUsed.filter(q => q.difficulty === 'hard').length;
       outcomes.push({
         id: 'calculator',
         behavior: 'Calculator Usage',
@@ -416,6 +500,11 @@ function buildBehaviorOutcomes(report, rawDiagnosticData) {
         detail: easyCalc > 3
           ? `Calculator used on ${easyCalc} easy questions — building mental math fluency could save time`
           : 'Reasonable calculator usage pattern',
+        evidence: `Calculator on ${calcUsed.length} questions (${easyCalc} easy, ${hardCalc} hard) at ${calcAcc}% accuracy${noCalcAcc != null ? ` vs ${noCalcAcc}% without calculator` : ''}`,
+        mechanism: easyCalc > 3
+          ? `Over-reliance on calculator for ${easyCalc} easy items suggests weak mental math fluency — this costs ~${easyCalc * 15}s in overhead per test`
+          : `Calculator usage is appropriately focused on harder items (${hardCalc} hard questions)`,
+        estimatedImpact: easyCalc > 3 ? `~${Math.round(easyCalc * 15)}s saved per test by building mental math speed` : null,
       });
     }
   }
@@ -423,14 +512,36 @@ function buildBehaviorOutcomes(report, rawDiagnosticData) {
   if (timeAnalysis && timeAnalysis.avgIncorrectTime > 0 && timeAnalysis.avgCorrectTime > 0) {
     const ratio = timeAnalysis.avgIncorrectTime / timeAnalysis.avgCorrectTime;
     if (ratio < 0.6) {
+      const timeDelta = Math.round(timeAnalysis.avgCorrectTime - timeAnalysis.avgIncorrectTime);
+      const wrongCount = questionAnalysis ? questionAnalysis.filter(q => !q.isCorrect).length : 0;
       outcomes.push({
         id: 'rushing-wrong',
         behavior: 'Rushing on Wrong Answers',
         stat: `Wrong answers: ${formatTime(timeAnalysis.avgIncorrectTime)} avg vs correct: ${formatTime(timeAnalysis.avgCorrectTime)} avg`,
         impact: 'negative',
         detail: 'You answered wrong questions much faster than correct ones — slowing down could recover points',
+        evidence: `Wrong-answer avg ${formatTime(timeAnalysis.avgIncorrectTime)} vs correct avg ${formatTime(timeAnalysis.avgCorrectTime)} (${timeDelta}s gap, ratio ${Math.round(ratio * 100)}%)`,
+        mechanism: `Spending ${timeDelta}s less on wrong answers indicates premature commitment to trap answers or surface-level reading — the speed differential (${Math.round(ratio * 100)}% of correct-answer time) is too large for random variation`,
+        estimatedImpact: wrongCount > 0 ? `~${Math.round(wrongCount * 0.15 * 10)}-${Math.round(wrongCount * 0.25 * 10)} pts recoverable by slowing down on uncertain items` : null,
       });
     }
+  }
+
+  if (timeAnalysis?.fadeEffect > 15) {
+    const firstAcc = timeAnalysis.firstHalfAccuracy ?? 0;
+    const secondAcc = timeAnalysis.secondHalfAccuracy ?? 0;
+    const drop = Math.round(firstAcc - secondAcc);
+    const halfLen = questionAnalysis ? Math.floor(questionAnalysis.length / 2) : 0;
+    outcomes.push({
+      id: 'stamina-fade',
+      behavior: 'Stamina Decline',
+      stat: `${firstAcc}% → ${secondAcc}% accuracy (${drop}pp drop)`,
+      impact: 'negative',
+      detail: `Accuracy dropped ${drop} percentage points from first to second half, indicating fatigue or time pressure`,
+      evidence: `First-half accuracy ${firstAcc}% (${halfLen} Qs) → second-half accuracy ${secondAcc}% (${halfLen} Qs), ${drop}pp decline`,
+      mechanism: `A ${drop}pp accuracy drop across halves suggests cognitive fatigue, depleted working memory, or increasing time pressure in the second half — this is a structural performance limiter`,
+      estimatedImpact: `~${Math.round(drop * 0.4 * halfLen / 10)} pts recoverable with stamina training or pacing adjustment`,
+    });
   }
 
   return outcomes;
@@ -706,16 +817,17 @@ function buildSimplifiedSummary(report, rawDiagData) {
     .slice(0, 1)
     .forEach(b => {
       if (!weaknesses.find(w => w.name === b.behavior)) {
-        const proof = [b.stat];
+        const proof = [b.evidence || b.stat];
         const trigger = deriveTriggerContext(report, b.behavior);
         if (trigger) proof.push(trigger);
+        if (b.mechanism) proof.push(b.mechanism);
 
         weaknesses.push({
           id: `behavior-${b.id}`,
           name: b.behavior,
-          why: b.detail,
+          why: b.mechanism || b.detail,
           proof,
-          impact: deriveImpact(report, { id: `behavior-${b.id}` }),
+          impact: b.estimatedImpact || deriveImpact(report, { id: `behavior-${b.id}` }),
           severity: 'moderate',
         });
       }
@@ -744,7 +856,8 @@ function buildSimplifiedSummary(report, rawDiagData) {
 }
 
 /**
- * Build the behavior highlights chapter — top 2-3 actionable behavioral signals.
+ * Build the behavior highlights chapter — top 2-3 actionable behavioral signals
+ * with evidence, causal mechanism, and estimated impact.
  */
 function buildBehaviorHighlights(report, rawDiagData) {
   const outcomes = buildBehaviorOutcomes(report, rawDiagData);
@@ -760,6 +873,9 @@ function buildBehaviorHighlights(report, rawDiagData) {
         label: b.behavior,
         detail: b.stat,
         type: b.impact === 'negative' ? 'warning' : 'good',
+        evidence: b.evidence || b.stat,
+        mechanism: b.mechanism || null,
+        estimatedImpact: b.estimatedImpact || null,
       });
     });
 
@@ -768,7 +884,14 @@ function buildBehaviorHighlights(report, rawDiagData) {
     .slice(0, 3 - highlights.length)
     .forEach(s => {
       if (!highlights.find(h => h.label === s.label)) {
-        highlights.push({ label: s.label, detail: s.value, type: s.type });
+        highlights.push({
+          label: s.label,
+          detail: s.value,
+          type: s.type,
+          evidence: s.value,
+          mechanism: s.insight || null,
+          estimatedImpact: null,
+        });
       }
     });
 
@@ -941,6 +1064,7 @@ function buildDiagnosticReport(report, rawDiagData) {
   }
 
   const behaviorHighlightsForSection = buildBehaviorHighlights(report, rawDiagData);
+  const behaviorOutcomesForSection = buildBehaviorOutcomes(report, rawDiagData);
   const behaviorPoints = behaviorHighlightsForSection
     .filter(h => h.type === 'warning' || h.type === 'good')
     .map(h => `${h.label}: ${h.detail}`);
@@ -1049,7 +1173,11 @@ function buildDiagnosticReport(report, rawDiagData) {
     source: 'deterministic'
   };
 
-  return { hero, sections, nextFocus };
+  const detBehavior = behaviorOutcomesForSection
+    .filter(b => b.impact === 'negative' || b.impact === 'positive')
+    .slice(0, 3);
+
+  return { hero, sections, nextFocus, _deterministicBehavior: detBehavior };
 }
 
 /**
@@ -1067,6 +1195,7 @@ export function mergeAiIntoReport(report, ai) {
     hero: { ...report.hero },
     sections: report.sections.map(s => ({ ...s })),
     nextFocus: { ...report.nextFocus },
+    _deterministicBehavior: report._deterministicBehavior || [],
   };
 
   if (ai.diagnosis) {
@@ -1420,7 +1549,7 @@ export function buildUnifiedReport(mergedReport) {
     }
   });
 
-  // ─── 3. BEHAVIOR: confidence-filtered, deduplicated ───
+  // ─── 3. BEHAVIOR: confidence-filtered, deduplicated, structured ───
   const behaviorInsights = [];
   const hasStructuredBehavior = structuredBehavior.length > 0 && !qualityFailed;
   if (hasStructuredBehavior) {
@@ -1430,7 +1559,14 @@ export function buildUnifiedReport(mergedReport) {
         const key = canonicalKey(c.text);
         if (!seenDriverKeys.has(key)) {
           seenDriverKeys.add(key);
-          behaviorInsights.push(c.text);
+          behaviorInsights.push({
+            text: c.text,
+            evidence: c.evidence || null,
+            mechanism: c.causalMechanism || null,
+            estimatedImpact: c.estimatedImpact || null,
+            confidence: c.confidence || 'medium',
+            source: 'ai',
+          });
         }
       });
   }
@@ -1440,7 +1576,34 @@ export function buildUnifiedReport(mergedReport) {
       const key = canonicalKey(pt);
       if (!seenDriverKeys.has(key)) {
         seenDriverKeys.add(key);
-        behaviorInsights.push(pt);
+        behaviorInsights.push({
+          text: pt,
+          evidence: null,
+          mechanism: null,
+          estimatedImpact: null,
+          confidence: 'medium',
+          source: 'ai',
+        });
+      }
+    });
+  }
+
+  // Supplement with deterministic behavior outcomes when AI is thin (< 3 items)
+  if (behaviorInsights.length < 3) {
+    const detBehavior = mergedReport._deterministicBehavior || [];
+    detBehavior.forEach(db => {
+      if (behaviorInsights.length >= 3) return;
+      const key = canonicalKey(db.text || db.behavior || '');
+      if (key && !seenDriverKeys.has(key)) {
+        seenDriverKeys.add(key);
+        behaviorInsights.push({
+          text: db.text || `${db.behavior}: ${db.stat}`,
+          evidence: db.evidence || db.stat || null,
+          mechanism: db.mechanism || db.detail || null,
+          estimatedImpact: db.estimatedImpact || null,
+          confidence: db.confidence || 'medium',
+          source: 'deterministic',
+        });
       }
     });
   }
@@ -1448,7 +1611,7 @@ export function buildUnifiedReport(mergedReport) {
   // Contradiction guard: suppress claims that conflict with trend direction across ALL sections
   const trendDir = consistencyFlags.trendDirection || null;
   const filteredBehavior = trendDir
-    ? behaviorInsights.filter(pt => !isContradictoryToTrend(pt, trendDir))
+    ? behaviorInsights.filter(bi => !isContradictoryToTrend(bi.text || (typeof bi === 'string' ? bi : ''), trendDir))
     : behaviorInsights;
 
   const changesSinceLast = whySec.changesSinceLast || null;
@@ -1667,29 +1830,40 @@ export function buildNarrativeFlow(uni) {
     });
   }
 
-  // ─── BLOCK 2: BEHAVIOR AMPLIFIER — only if not redundant with causes ───
+  // ─── BLOCK 3: BEHAVIOR AMPLIFIER — only if not redundant with causes ───
   const behaviorItems = [];
-  (uni.behaviorInsights || []).forEach(pt => {
-    const key = canonicalKey(pt);
-    if (!mentionedKeys.has(key)) {
+  (uni.behaviorInsights || []).forEach(bi => {
+    const biText = typeof bi === 'string' ? bi : (bi.text || '');
+    const key = canonicalKey(biText);
+    if (!mentionedKeys.has(key) && biText.length > 0) {
       mentionedKeys.add(key);
-      behaviorItems.push(pt);
+      behaviorItems.push(typeof bi === 'string'
+        ? { text: bi, evidence: null, mechanism: null, estimatedImpact: null, confidence: 'medium', source: 'ai' }
+        : bi
+      );
     }
   });
   if (uni.changesSinceLast) {
     const csKey = canonicalKey(uni.changesSinceLast);
     if (!mentionedKeys.has(csKey)) {
       mentionedKeys.add(csKey);
-      behaviorItems.push(uni.changesSinceLast);
+      behaviorItems.push({
+        text: uni.changesSinceLast,
+        evidence: null,
+        mechanism: null,
+        estimatedImpact: null,
+        confidence: 'medium',
+        source: 'ai',
+      });
     }
   }
   if (behaviorItems.length > 0) {
     blocks.push({
       id: 'behaviorAmplifier',
       label: 'Behavior & Timing',
-      transition: 'Beyond content knowledge, your test-taking patterns also played a role:',
-      items: behaviorItems.slice(0, 2),
-      style: 'bullet',
+      transition: 'These patterns in how you took the test affected your score:',
+      items: behaviorItems.slice(0, 3),
+      style: 'behavior',
     });
   }
 
@@ -1736,7 +1910,7 @@ export function buildNarrativeFlow(uni) {
     blocks.push({
       id: 'evidence',
       label: 'Supporting Data',
-      transition: 'The data confirms this:',
+      transition: 'Here are the key numbers behind these findings:',
       items: visibleEvidence,
       style: 'grid',
     });
@@ -1755,7 +1929,7 @@ export function buildNarrativeFlow(uni) {
     blocks.push({
       id: 'nextMove',
       label: 'Your Next Move',
-      transition: 'Based on all of this, here is your highest-leverage focus:',
+      transition: 'Based on your results, here is the single best thing to work on:',
       items: [{ text: focus.text, reasons }],
       style: 'cta',
       source: focus.source,

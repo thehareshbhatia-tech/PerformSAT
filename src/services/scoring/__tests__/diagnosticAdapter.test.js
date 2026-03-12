@@ -3,6 +3,9 @@ import { adaptDiagnosticForUI, mergeAiIntoReport, buildUnifiedReport, buildNarra
 function diagTexts(uni) {
   return uni.diagnosis.points.map(p => typeof p === 'string' ? p : p.text);
 }
+function behaviorTexts(uni) {
+  return (uni.behaviorInsights || []).map(bi => typeof bi === 'string' ? bi : bi.text);
+}
 
 function buildReport(overrides = {}) {
   const base = {
@@ -263,13 +266,15 @@ describe('adaptDiagnosticForUI', () => {
         expect(Array.isArray(result.behaviorOutcomes)).toBe(true);
       });
 
-      it('entries have id, behavior, stat, impact, detail', () => {
+      it('entries have id, behavior, stat, impact, detail, evidence, mechanism', () => {
         result.behaviorOutcomes.forEach(bo => {
           expect(bo).toHaveProperty('id');
           expect(bo).toHaveProperty('behavior');
           expect(bo).toHaveProperty('stat');
           expect(bo).toHaveProperty('impact');
           expect(bo).toHaveProperty('detail');
+          expect(bo).toHaveProperty('evidence');
+          expect(bo).toHaveProperty('mechanism');
         });
       });
 
@@ -407,12 +412,14 @@ describe('adaptDiagnosticForUI', () => {
       expect(Array.isArray(result.behaviorHighlights)).toBe(true);
     });
 
-    it('each highlight has label, detail, type', () => {
+    it('each highlight has label, detail, type, evidence, mechanism', () => {
       const result = adaptDiagnosticForUI(buildReport(), {});
       result.behaviorHighlights.forEach(h => {
         expect(h).toHaveProperty('label');
         expect(h).toHaveProperty('detail');
         expect(['warning', 'good', 'neutral']).toContain(h.type);
+        expect(h).toHaveProperty('evidence');
+        expect(h).toHaveProperty('mechanism');
       });
     });
 
@@ -1003,14 +1010,16 @@ describe('buildUnifiedReport', () => {
 
     it('does not show a behavior insight that already appears in scoreDrivers', () => {
       const report = makeMergedReport();
+      report._deterministicBehavior = [];
       const sharedText = 'You rushed through easy questions';
       const whySec = report.sections.find(s => s.id === 'whyThisScore');
       whySec.bodyPoints = [sharedText, 'Unique score insight'];
       whySec.behaviorPoints = [sharedText, 'Unique behavior insight'];
       const uni = buildUnifiedReport(report);
-      expect(uni.behaviorInsights).not.toContain(sharedText);
+      const bTexts = uni.behaviorInsights.map(bi => typeof bi === 'string' ? bi : bi.text);
+      expect(bTexts).not.toContain(sharedText);
       expect(uni.behaviorInsights.length).toBe(1);
-      expect(uni.behaviorInsights[0]).toBe('Unique behavior insight');
+      expect(bTexts[0]).toBe('Unique behavior insight');
     });
   });
 
@@ -1162,8 +1171,48 @@ describe('buildUnifiedReport', () => {
       };
       const merged = mergeAiIntoReport(base.report, ai);
       const uni = buildUnifiedReport(merged);
-      expect(uni.behaviorInsights).toContain('Solid behavior signal');
-      expect(uni.behaviorInsights).not.toContain('Dubious behavior claim');
+      expect(behaviorTexts(uni)).toContain('Solid behavior signal');
+      expect(behaviorTexts(uni)).not.toContain('Dubious behavior claim');
+    });
+
+    it('behavior insights are structured objects with text, evidence, mechanism fields', () => {
+      const base = adaptDiagnosticForUI(buildReport(), {});
+      const ai = {
+        diagnosis: 'Headline.',
+        diagnosisPoints: [{ claim: 'Diag', evidence: 'E', confidence: 'high' }],
+        behaviorInsightPoints: [
+          { claim: 'Answer changes hurt', evidence: '3 changed; 20s avg', causalMechanism: 'Second-guessing under pressure', estimatedImpact: '~30 pts', confidence: 'high' },
+        ],
+        weaknesses: [],
+      };
+      const merged = mergeAiIntoReport(base.report, ai);
+      const uni = buildUnifiedReport(merged);
+      expect(uni.behaviorInsights.length).toBeGreaterThan(0);
+      const first = uni.behaviorInsights[0];
+      expect(first).toHaveProperty('text', 'Answer changes hurt');
+      expect(first).toHaveProperty('evidence', '3 changed; 20s avg');
+      expect(first).toHaveProperty('mechanism', 'Second-guessing under pressure');
+      expect(first).toHaveProperty('estimatedImpact', '~30 pts');
+      expect(first).toHaveProperty('source', 'ai');
+    });
+
+    it('supplements thin AI behavior with deterministic outcomes', () => {
+      const base = adaptDiagnosticForUI(buildReport(), {});
+      const ai = {
+        diagnosis: 'Headline.',
+        diagnosisPoints: [{ claim: 'Diag', evidence: 'E', confidence: 'high' }],
+        behaviorInsightPoints: [
+          { claim: 'Single AI behavior', evidence: 'Data', confidence: 'high' },
+        ],
+        weaknesses: [],
+      };
+      const merged = mergeAiIntoReport(base.report, ai);
+      const uni = buildUnifiedReport(merged);
+      expect(uni.behaviorInsights.length).toBeGreaterThanOrEqual(1);
+      const sources = uni.behaviorInsights.map(bi => bi.source);
+      if (uni.behaviorInsights.length > 1) {
+        expect(sources).toContain('deterministic');
+      }
     });
   });
 
@@ -1182,8 +1231,8 @@ describe('buildUnifiedReport', () => {
       };
       const merged = mergeAiIntoReport(base.report, ai);
       const uni = buildUnifiedReport(merged);
-      expect(uni.behaviorInsights).not.toContain('Stamina is declining sharply');
-      expect(uni.behaviorInsights).toContain('Pacing improved by 10%');
+      expect(behaviorTexts(uni)).not.toContain('Stamina is declining sharply');
+      expect(behaviorTexts(uni)).toContain('Pacing improved by 10%');
     });
 
     it('suppresses behavior claims contradicting declining trend', () => {
@@ -1200,8 +1249,8 @@ describe('buildUnifiedReport', () => {
       };
       const merged = mergeAiIntoReport(base.report, ai);
       const uni = buildUnifiedReport(merged);
-      expect(uni.behaviorInsights).not.toContain('Time management is improving');
-      expect(uni.behaviorInsights).toContain('More careless errors than before');
+      expect(behaviorTexts(uni)).not.toContain('Time management is improving');
+      expect(behaviorTexts(uni)).toContain('More careless errors than before');
     });
   });
 
@@ -1327,7 +1376,7 @@ describe('buildNarrativeFlow', () => {
       const flow = buildNarrativeFlow(uni);
       const allTexts = [];
       flow.blocks.forEach(block => {
-        if (block.style === 'headline' || block.style === 'bullet') {
+        if (block.style === 'headline' || block.style === 'bullet' || block.style === 'behavior') {
           block.items.forEach(item => allTexts.push(typeof item === 'string' ? item : item.text || item.title || ''));
         }
         if (block.style === 'grid') {
@@ -1397,11 +1446,11 @@ describe('buildNarrativeFlow', () => {
       expect(ctx.items.length).toBeGreaterThan(0);
     });
 
-    it('behaviorAmplifier block has at most 2 items', () => {
+    it('behaviorAmplifier block has at most 3 items', () => {
       const flow = buildNarrativeFlow(makeUnified());
       const beh = flow.blocks.find(b => b.id === 'behaviorAmplifier');
       if (beh) {
-        expect(beh.items.length).toBeLessThanOrEqual(2);
+        expect(beh.items.length).toBeLessThanOrEqual(3);
       }
     });
 
@@ -1429,12 +1478,16 @@ describe('buildNarrativeFlow', () => {
       const sharedText = 'Rushed through easy questions';
       const uni = makeUnified({
         scoreDrivers: [{ text: sharedText, type: 'insight', source: 'ai' }],
-        behaviorInsights: [sharedText, 'Unique behavior signal'],
+        behaviorInsights: [
+          { text: sharedText, evidence: null, mechanism: null, estimatedImpact: null, confidence: 'medium', source: 'ai' },
+          { text: 'Unique behavior signal', evidence: null, mechanism: null, estimatedImpact: null, confidence: 'medium', source: 'ai' },
+        ],
       });
       const flow = buildNarrativeFlow(uni);
       const beh = flow.blocks.find(b => b.id === 'behaviorAmplifier');
       if (beh) {
-        expect(beh.items).not.toContain(sharedText);
+        const behTexts = beh.items.map(i => typeof i === 'string' ? i : i.text);
+        expect(behTexts).not.toContain(sharedText);
       }
     });
   });

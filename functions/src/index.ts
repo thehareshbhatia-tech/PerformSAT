@@ -486,6 +486,7 @@ interface QualityScores {
   redundancyPenalty: number;
   genericPenalty: number;
   surfacePenalty: number;
+  behaviorDepthPenalty: number;
   total: number;
   repaired?: boolean;
   repairFailed?: boolean;
@@ -522,8 +523,11 @@ function scoreNarrativeQuality(narrative: Record<string, unknown>, hasHistory = 
   const behaviorPts = narrative.behaviorInsightPoints as Array<Record<string, unknown>> || [];
   behaviorPts.forEach((pt) => {
     evidenceTotal++;
+    numericTotal++;
+    const claim = typeof pt === "string" ? pt : (pt.claim as string || "");
     const ev = typeof pt === "string" ? "" : (pt.evidence as string || "");
     if (ev.length > 5) evidenceHits++;
+    if (numericPattern.test(claim)) numericHits++;
   });
 
   const weaknesses = narrative.weaknesses as Array<Record<string, unknown>> || [];
@@ -646,14 +650,34 @@ function scoreNarrativeQuality(narrative: Record<string, unknown>, hasHistory = 
     surfacePenalty = (surfaceCount / diagPts.length) * 0.15;
   }
 
+  // ─── Behavior depth: check behaviorInsightPoints for causalMechanism and estimatedImpact ───
+  let behaviorDepthPenalty = 0;
+  if (behaviorPts.length > 0) {
+    let shallowBehavior = 0;
+    behaviorPts.forEach((pt) => {
+      if (typeof pt !== "object") { shallowBehavior++; return; }
+      const claim = pt.claim as string || "";
+      const mechanism = pt.causalMechanism as string || "";
+      const impact = pt.estimatedImpact as string || "";
+      const ev = pt.evidence as string || "";
+      const isShallow =
+        mechanism.length < 20 ||
+        impact.length < 3 ||
+        !numericPattern.test(claim) ||
+        ev.split(";").length < 2;
+      if (isShallow) shallowBehavior++;
+    });
+    behaviorDepthPenalty = (shallowBehavior / behaviorPts.length) * 0.08;
+  }
+
   // ─── Weighted total ───
   const total = Math.max(0, Math.min(1,
-    (evidenceCoverage * 0.18) +
+    (evidenceCoverage * 0.16) +
     (numericSpecificity * 0.12) +
     (schemaCompleteness * 0.12) +
-    (causalDepth * 0.25) +
+    (causalDepth * 0.23) +
     (crossTestUtilization * 0.10) +
-    (0.23 - contradictionPenalty - redundancyPenalty - genericPenalty - surfacePenalty)
+    (0.27 - contradictionPenalty - redundancyPenalty - genericPenalty - surfacePenalty - behaviorDepthPenalty)
   ));
 
   return {
@@ -666,6 +690,7 @@ function scoreNarrativeQuality(narrative: Record<string, unknown>, hasHistory = 
     redundancyPenalty: Math.round(redundancyPenalty * 100) / 100,
     genericPenalty: Math.round(genericPenalty * 100) / 100,
     surfacePenalty: Math.round(surfacePenalty * 100) / 100,
+    behaviorDepthPenalty: Math.round(behaviorDepthPenalty * 100) / 100,
     total: Math.round(total * 100) / 100,
   };
 }
@@ -687,6 +712,7 @@ async function attemptNarrativeRepair(
   if (quality.redundancyPenalty > 0) issues.push("Some claims are redundant/duplicated across sections. Remove duplicates — each insight should appear only once, with a distinct angle in each section.");
   if (quality.genericPenalty > 0) issues.push("The narrative contains generic language (e.g. 'review your mistakes', 'practice more', 'needs improvement'). Replace every generic phrase with a specific, data-backed observation.");
   if (quality.surfacePenalty > 0.05) issues.push("Some diagnosis points are surface-level — they describe WHAT happened but not WHY. Each diagnosisPoints claim must follow a 3-part structure: observation (with number) -> mechanism (cognitive/strategic root cause) -> impact (point cost). The causalMechanism must go at least 2 levels deep and use causal language (because, leads to, driven by, stems from). Synthesize at least 2 data signals per claim.");
+  if (quality.behaviorDepthPenalty > 0.03) issues.push("behaviorInsightPoints are shallow. Each must follow: BEHAVIOR (specific numbers) -> MECHANISM (cognitive/strategic root cause in causalMechanism, >20 chars) -> CONSEQUENCE (quantified in estimatedImpact). Evidence must cite 2+ semicolon-separated data signals. Bad: 'You rushed.' Good: 'Wrong-answer avg 25s vs correct avg 55s (ratio 0.45x) — premature commitment to trap answers from surface-level reading, costing ~25 pts.'");
   if (quality.schemaCompleteness < 0.8) issues.push("Some required schema fields are missing. Ensure all fields from the schema are populated.");
 
   if (issues.length === 0) return null;
@@ -707,6 +733,8 @@ CRITICAL REQUIREMENTS FOR REPAIR:
 - Each claim must follow: OBSERVATION (specific number) -> MECHANISM (cognitive/strategic root cause) -> IMPACT (point cost)
 - causalMechanism must go 2 levels deep: not just "you missed geometry" but "missing coordinate geometry foundations leads to errors on both easy and hard questions, and time data confirms uncertainty"
 - Each claim must synthesize at least 2 data signals (e.g. error type + domain, or time + difficulty)
+- Every behaviorInsightPoint must have: claim, evidence (2+ semicolon-separated citations), causalMechanism (>20 chars, explaining WHY the behavior happens), estimatedImpact (quantified points or time), confidence
+- Each behavior claim must follow: BEHAVIOR (with numbers) -> MECHANISM (cognitive root cause) -> CONSEQUENCE (score/time cost)
 - Weakness 'why' must explain causal mechanism, not just restate the observation
 - Remove any generic language: "review", "practice more", "focus on", "struggling with"
 - Each claim must be unique across sections — no redundancy
@@ -784,8 +812,10 @@ Your output MUST be valid JSON (no markdown fences) matching this schema:
   ],
   "behaviorInsightPoints": [
     {
-      "claim": "string — one concise bullet about a test-taking behavior that causally affected the score, with the mechanism explained",
-      "evidence": "string — the data citation supporting this (e.g. 'Answer changes: 3 changed from correct to incorrect; avg time on changed answers: 20s')",
+      "claim": "string — one concise diagnostic bullet about a specific test-taking behavior that causally affected the score, following the pattern: BEHAVIOR (what happened, with numbers) -> MECHANISM (the cognitive/strategic root cause) -> CONSEQUENCE (quantified score impact). Bad: 'You changed some answers.' Good: 'You changed 3 answers from correct to incorrect, spending only 20s on each revision vs 55s on stable correct answers — this suggests second-guessing under time pressure rather than genuine reconsideration, costing ~30 points.'",
+      "evidence": "string — 2-3 semicolon-separated data citations that anchor the behavior claim (e.g. 'Answer changes: 3 correct→incorrect; avg time on changed: 20s vs 55s on stable correct; all 3 changes occurred in final 15 minutes')",
+      "causalMechanism": "string — the cognitive or strategic root cause of the behavior, going deeper than the surface description. Bad: 'You rushed.' Good: 'The speed differential on wrong answers (ratio 0.55x) combined with the late-test clustering suggests depleted working memory from sustained effort, leading to premature commitment to familiar-looking trap answers rather than systematic elimination.'",
+      "estimatedImpact": "string — quantified score consequence (e.g. '~30 points lost from answer reversals' or '~45s wasted per test from calculator over-reliance')",
       "confidence": "high | medium | low"
     }
   ],
@@ -818,8 +848,9 @@ CLINICAL ACCURACY RULES:
 === CAUSAL DEPTH ===
 5. CAUSAL MECHANISM REQUIRED: Every diagnosisPoints entry MUST include a causalMechanism field explaining WHY the pattern exists, not just describing it. Go at least TWO levels deeper than the surface observation. Level 1 (surface, BANNED alone): "You missed geometry questions." Level 2 (mechanism): "Missing foundational understanding of coordinate geometry." Level 3 (deep, REQUIRED): "Missing foundational understanding of coordinate geometry leads to systematic errors on both easy and hard questions in that domain, and the time data confirms this — you spent 45s on geometry wrongs vs 70s on topics you got right, suggesting you recognize your uncertainty but can't resolve it."
 6. CROSS-SIGNAL SYNTHESIS: EVERY diagnosisPoint claim MUST synthesize at least 2 distinct data signals (e.g. error type + domain accuracy, or time data + difficulty level, or trend data + current performance). Single-signal claims are surface-level. Combine domain accuracy with time patterns, error classifications with difficulty breakdowns, or behavior data with score outcomes.
-7. BEHAVIORAL CAUSATION: For behaviorInsightPoints, explain the causal link between the behavior and its score impact. Bad: "You changed 3 answers." Good: "You changed 3 answers from correct to incorrect, suggesting second-guessing under time pressure — your avg time on changed answers was 20s vs 55s on stable correct answers."
-7b. DEPTH OVER BREADTH: Prefer 3 deeply analyzed diagnosis points over 5 shallow ones. Each diagnosis point should feel like a mini-investigation that reveals something the student could not have figured out by looking at their score alone.
+7. BEHAVIORAL CAUSATION: Every behaviorInsightPoint MUST follow the 3-part causal chain: BEHAVIOR (specific observation with numbers) -> MECHANISM (cognitive/strategic root cause explaining WHY) -> CONSEQUENCE (quantified score or time impact). Each must include causalMechanism (>20 chars) and estimatedImpact (with a number). Bad: "You changed 3 answers." Good: "You changed 3 answers from correct to incorrect, suggesting second-guessing under time pressure — your avg time on changed answers was 20s vs 55s on stable correct answers, costing ~30 points."
+7b. BEHAVIOR EVIDENCE RIGOR: behaviorInsightPoints evidence must cite at least 2 distinct data signals (e.g. time data + accuracy, or answer-change count + timing pattern, or stamina score + accuracy drop). Single-signal behavior claims are surface-level and will be penalized.
+7c. DEPTH OVER BREADTH: Prefer 3 deeply analyzed diagnosis points over 5 shallow ones. Each diagnosis point should feel like a mini-investigation that reveals something the student could not have figured out by looking at their score alone.
 
 === CROSS-TEST INTELLIGENCE ===
 8. TREND EXPLOITATION: When trend data is available, EVERY diagnosis must incorporate it. Note persistent weaknesses explicitly. If a skill has been weak across 3+ tests, call it out as a structural gap, not a one-time miss. Use the persistenceFlag field on weaknesses.
@@ -836,7 +867,7 @@ CLINICAL ACCURACY RULES:
 15. diagnosisPoints: 2-5 items. Provide 2-3 by default; include 4-5 only when the data supports distinct, non-redundant insights. Each must have claim + evidence + causalMechanism + estimatedImpact + confidence.
 16. weaknesses: 2-3 items ordered by severity (critical first). Each must have proof citations with specific data points.
 17. scoreImpactPoints: 2-4 items. Each must cite a specific number.
-18. behaviorInsightPoints: 1-3 items or empty array if no behavioral signal in the data.
+18. behaviorInsightPoints: 1-3 items or empty array if no behavioral signal in the data. Each MUST have claim + evidence (2+ data citations) + causalMechanism (>20 chars, explaining WHY) + estimatedImpact (quantified) + confidence.
 19. topNextFocus.reasons: 1-3 items with claim + evidence.
 20. SEVERITY ORDERING: weaknesses MUST be ordered by severity (critical first), then by point impact (highest first).
 
