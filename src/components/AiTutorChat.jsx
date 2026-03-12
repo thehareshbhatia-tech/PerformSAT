@@ -542,7 +542,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
   // Generate storage key based on lesson
   const storageKey = `aiTutorChat_${moduleId}_${lessonId}`;
 
-  // Load chat history from sessionStorage on mount
+  // Load chat history from sessionStorage on lesson change (or mount)
   useEffect(() => {
     try {
       const saved = sessionStorage.getItem(storageKey);
@@ -550,11 +550,18 @@ Your goal is to build their problem-solving instincts. Every question they solve
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed) && parsed.length > 0) {
           setMessages(parsed);
+          return;
         }
       }
     } catch (e) {
       // Ignore parse errors
     }
+    // No saved history for this lesson — clear stale state
+    setMessages([]);
+    setInput('');
+    setIsLoading(false);
+    setProactiveRec(null);
+    setHintDismissed(false);
   }, [storageKey]);
 
   // Save chat history to sessionStorage when messages change
