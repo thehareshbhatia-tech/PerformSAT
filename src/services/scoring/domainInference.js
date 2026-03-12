@@ -97,6 +97,8 @@ const LABEL_TO_DOMAIN = {
 
   // ── Advanced Math ───────────────────────────────────────────────────
   'advanced math':                      'advanced-math',
+  'rational functions':                 'advanced-math',
+  'domain':                             'advanced-math',
   'quadratic equations':                'advanced-math',
   'quadratic expressions':              'advanced-math',
   'quadratic functions':                'advanced-math',
@@ -165,25 +167,46 @@ const LABEL_TO_DOMAIN = {
   'function identification':            'algebra',
   'function interpretation':            'algebra',
   'evaluating expressions':             'algebra',
+  'arithmetic sequences':               'algebra',
+  'summation':                          'algebra',
 };
 
 /**
  * Regex-based fallback patterns when neither the taxonomy nor the
  * label map produces a match.  Ordered from most-specific to broadest.
+ *
+ * Use word boundaries (\b) and negative lookaheads to prevent
+ * substring collisions (e.g. "rational" matching "ratio").
  */
 const DOMAIN_PATTERNS = [
-  { domain: 'geometry',         re: /triangle|circle|angle|volume|area|geometry|trig|radian|polygon|perpendicular|parallel|pythagor|tangent|surface|congruent|similar|transversal|coordinate\s*geo|soh.?cah/i },
-  { domain: 'problem-solving',  re: /percent|statistic|mean|median|probability|ratio|table|margin|scatter|bar\s*graph|frequency|line\s*of\s*best|regression|sampling|data\s*analysis|data\s*interpret|unit\s*rate|unit\s*conv|dimension|density|population|propor|two.?way/i },
-  { domain: 'advanced-math',    re: /quadratic|exponential|polynomial|radical|rational|factor|vertex|discriminant|exponent|parabola|completing|vieta|composition|transformation|horizontal\s*shift|translation/i },
-  { domain: 'algebra',          re: /linear|slope|system|function|absolute|inequalit|equation|algebraic|rearrang|substitut|eliminat|word\s*prob/i },
+  { domain: 'geometry',         re: /\btriangle|\bcircle|\bangle|\bvolume|\barea\b|\bgeometry|\btrig|\bradian|\bpolygon|\bperpendicular|\bpythagor|\btangent\b|\bsurface\b|\bcongruent|\bsimilar\b|\btransversal|\bcoordinate\s*geo|\bsoh.?cah/i },
+  { domain: 'problem-solving',  re: /\bpercent|\bstatistic|\bmean\b|\bmedian\b|\bprobability|\bratio(?!nal)|\btable\b|\bmargin|\bscatter|\bbar\s*graph|\bfrequency|\bline\s*of\s*best|\bregression|\bsampling|\bdata\s*analysis|\bdata\s*interpret|\bunit\s*rate|\bunit\s*conv|\bdimension|\bdensity|\bpopulation|\bpropor|\btwo.?way/i },
+  { domain: 'advanced-math',    re: /\bquadratic|\bexponential|\bpolynomial|\bradical|\brational|\bfactor(?!s?\b\s*of\b)|\bvertex|\bdiscriminant|\bexponent|\bparabola|\bcompleting|\bvieta|\bcomposition|\btransformation|\bhorizontal\s*shift|\btranslation/i },
+  { domain: 'algebra',          re: /\blinear|\bslope|\bsystem|\babsolute|\binequalit|\bequation|\balgebraic|\brearrang|\bsubstitut|\beliminat|\bword\s*prob/i },
 ];
+
+/**
+ * Normalize a skill string for label lookup: lowercase, trim, and
+ * convert hyphens/underscores to spaces so that "Quadratic-Functions",
+ * "quadratic_functions", and "Quadratic Functions" all match the same key.
+ */
+function normalizeLabel(raw) {
+  return String(raw).toLowerCase().trim().replace(/[-_]+/g, ' ');
+}
+
+/**
+ * Domain specificity tier — broad labels like "algebra" should not
+ * override specific ones like "quadratic functions".
+ */
+const BROAD_LABELS = new Set(['algebra', 'geometry', 'advanced math', 'problem solving']);
 
 /**
  * Infer the SAT Math domain for a question from its skill array.
  *
  * Resolution order:
  *  1. Taxonomy lookup on each skill ID
- *  2. Exact label match (case-insensitive)
+ *  2. Label match (case-insensitive, hyphen/underscore normalized)
+ *     — prefer the most-specific label when broad and specific disagree
  *  3. Regex pattern match
  *  4. Fallback to 'algebra'
  *
@@ -199,16 +222,22 @@ export function inferDomain(skills = []) {
     if (skill?.domain) return skill.domain;
   }
 
-  // 2. Exact label match (case-insensitive)
+  // 2. Label match with normalization and specificity preference
+  let broadMatch = null;
   for (const skillId of skills) {
-    const normalized = String(skillId).toLowerCase().trim();
-    if (LABEL_TO_DOMAIN[normalized]) {
-      return LABEL_TO_DOMAIN[normalized];
+    const norm = normalizeLabel(skillId);
+    const domain = LABEL_TO_DOMAIN[norm];
+    if (!domain) continue;
+    if (BROAD_LABELS.has(norm)) {
+      if (!broadMatch) broadMatch = domain;
+    } else {
+      return domain;
     }
   }
+  if (broadMatch) return broadMatch;
 
   // 3. Regex pattern match across all skills joined
-  const skillStr = skills.join(' ').toLowerCase();
+  const skillStr = skills.map(s => normalizeLabel(s)).join(' ');
   for (const { domain, re } of DOMAIN_PATTERNS) {
     if (re.test(skillStr)) return domain;
   }

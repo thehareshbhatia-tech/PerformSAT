@@ -97,6 +97,19 @@ describe('inferDomain', () => {
     it('prefers taxonomy lookup over label heuristic', () => {
       expect(inferDomain(['percent-change', 'Algebra'])).toBe('problem-solving');
     });
+
+    it('prefers specific label over broad "Algebra" label', () => {
+      expect(inferDomain(['Algebra', 'Quadratic Functions'])).toBe('advanced-math');
+      expect(inferDomain(['Algebra', 'Completing the Square'])).toBe('advanced-math');
+    });
+
+    it('prefers specific label over broad "Geometry" label', () => {
+      expect(inferDomain(['Geometry', 'Circle equations'])).toBe('geometry');
+    });
+
+    it('uses broad label when no specific label resolves', () => {
+      expect(inferDomain(['Algebra', 'unknown-skill-xyz'])).toBe('algebra');
+    });
   });
 
   describe('regex fallback', () => {
@@ -105,6 +118,35 @@ describe('inferDomain', () => {
       expect(inferDomain(['triangle congruence proof'])).toBe('geometry');
       expect(inferDomain(['quadratic formula application'])).toBe('advanced-math');
       expect(inferDomain(['linear inequality graph'])).toBe('algebra');
+    });
+  });
+
+  describe('hyphen/underscore normalization', () => {
+    it('resolves hyphenated labels to correct domain', () => {
+      expect(inferDomain(['rational-functions'])).toBe('advanced-math');
+      expect(inferDomain(['linear-equations'])).toBe('algebra');
+      expect(inferDomain(['parallel-lines'])).toBe('geometry');
+      expect(inferDomain(['two-way-tables'])).toBe('problem-solving');
+    });
+
+    it('resolves underscored labels to correct domain', () => {
+      expect(inferDomain(['quadratic_equations'])).toBe('advanced-math');
+      expect(inferDomain(['slope_intercept_form'])).toBe('algebra');
+      expect(inferDomain(['unit_rate'])).toBe('problem-solving');
+    });
+  });
+
+  describe('substring collision prevention', () => {
+    it('does not confuse "rational" with "ratio"', () => {
+      expect(inferDomain(['rational-functions', 'domain'])).toBe('advanced-math');
+    });
+
+    it('classifies ratio-based skills as problem-solving', () => {
+      expect(inferDomain(['ratios and proportions'])).toBe('problem-solving');
+    });
+
+    it('classifies "arithmetic sequences" as algebra not problem-solving', () => {
+      expect(inferDomain(['arithmetic-sequences', 'summation'])).toBe('algebra');
     });
   });
 

@@ -259,10 +259,13 @@ const ScoreBadge = ({ score, maxScore, size = 'large' }) => {
   );
 };
 
-// Domain Bar Component
-const DomainBar = ({ domain, correct, total, maxTotal }) => {
+// Domain Bar Component — shows per-domain accuracy percentage
+const DomainBar = ({ domain, correct, total }) => {
   const displayName = DOMAIN_DISPLAY_NAMES[domain] || domain;
-  const barWidth = maxTotal > 0 ? (correct / maxTotal) * 100 : 0;
+  const accuracyPct = total > 0 ? Math.round((correct / total) * 100) : 0;
+  const barColor = accuracyPct >= 70 ? colors.semantic.success
+    : accuracyPct >= 40 ? 'var(--color-warning-600)'
+    : colors.semantic.error;
 
   return (
     <div style={{
@@ -283,7 +286,7 @@ const DomainBar = ({ domain, correct, total, maxTotal }) => {
         flex: 1,
         display: 'flex',
         alignItems: 'center',
-        gap: '8px'
+        gap: '10px'
       }}>
         <div style={{
           flex: 1,
@@ -293,21 +296,31 @@ const DomainBar = ({ domain, correct, total, maxTotal }) => {
           overflow: 'hidden'
         }}>
           <div style={{
-            width: `${barWidth}%`,
+            width: `${accuracyPct}%`,
             height: '100%',
-            background: colors.semantic.success,
+            background: barColor,
             borderRadius: '4px',
             transition: 'width 0.3s ease'
           }} />
         </div>
         <span style={{
-          fontWeight: '600',
+          fontWeight: '700',
           fontSize: '14px',
           color: colors.text.secondary,
-          minWidth: '24px',
-          textAlign: 'right'
+          minWidth: '52px',
+          textAlign: 'right',
+          fontVariantNumeric: 'tabular-nums'
         }}>
-          {correct}
+          {accuracyPct}%
+        </span>
+        <span style={{
+          fontSize: '12px',
+          color: colors.text.muted,
+          minWidth: '36px',
+          textAlign: 'right',
+          fontVariantNumeric: 'tabular-nums'
+        }}>
+          {correct}/{total}
         </span>
       </div>
     </div>
@@ -424,9 +437,10 @@ const TestResults = ({
       const key = `${moduleIndex}-${qIdx}`;
       const userAnswer = answers[key];
       const domain = inferDomain(q.skills);
+      const isAnswered = userAnswer !== undefined && userAnswer !== null && userAnswer !== '';
 
       domains[domain].total++;
-      if (userAnswer && isAnswerCorrect(q, userAnswer)) {
+      if (isAnswered && isAnswerCorrect(q, userAnswer)) {
         domains[domain].correct++;
       }
     });
@@ -1058,82 +1072,46 @@ const TestResults = ({
     const domainBreakdown = calculateDomainBreakdown(moduleIndex);
     const moduleScore = calculateModuleScore(moduleIndex);
 
-    // Find max correct for scaling domain bars
-    const maxCorrect = Math.max(
-      ...Object.values(domainBreakdown).map(d => d.correct),
-      1
-    );
+    // Domain accuracy is now percentage-based; no max scaling needed.
 
     return (
-      <div>
+      <div className="mod-summary-container">
         {/* Module Header */}
-        <div style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginBottom: '32px'
-        }}>
-          <h2 style={{
-            fontSize: '24px',
-            fontWeight: '500',
-            color: colors.text.primary
-          }}>
-            Math: Module {moduleIndex + 1} Summary
-          </h2>
+        <div className="mod-summary-header">
+          <div>
+            <h2 className="mod-summary-title">Math: Module {moduleIndex + 1}</h2>
+            <div className="mod-summary-subtitle">Performance breakdown and accuracy insights</div>
+          </div>
           <button
             onClick={() => onReviewModule ? onReviewModule(moduleIndex) : onReview()}
-            style={{
-              padding: '10px 20px',
-              background: colors.accent.teal,
-              color: colors.text.inverse,
-              border: 'none',
-              borderRadius: '6px',
-              fontSize: '14px',
-              fontWeight: '500',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px'
-            }}
+            className="mod-action-btn"
           >
-            VIEW YOUR ANSWERS
-            <ArrowRightIcon size={16} color={colors.text.inverse} />
+            Review Answers
+            <ArrowRightIcon size={16} color="#fff" />
           </button>
         </div>
 
-        {/* Score Summary */}
-        <div style={{
-          background: colors.surface.offWhite,
-          borderRadius: radius.md,
-          padding: '20px',
-          marginBottom: '32px',
-          textAlign: 'center'
-        }}>
-          <span style={{ fontSize: '14px', color: colors.text.secondary }}>Module Score: </span>
-          <span style={{ fontSize: '24px', fontWeight: '600', color: colors.text.primary }}>
-            {moduleScore.correct}/{moduleScore.total}
-          </span>
-          <span style={{ fontSize: '14px', color: colors.text.secondary, marginLeft: '8px' }}>
-            ({Math.round((moduleScore.correct / moduleScore.total) * 100)}%)
-          </span>
+        {/* Score Snapshot */}
+        <div className="mod-summary-card" style={{ padding: '24px 32px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div>
+            <h3 className="mod-summary-card-title">Module Score</h3>
+            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--color-slate-500)', marginTop: '4px' }}>Total correct answers</div>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+            <span className="mod-summary-score-val">
+              {moduleScore.correct}/{moduleScore.total}
+            </span>
+          </div>
         </div>
 
         {/* Difficulty Breakdown */}
-        <div style={{ marginBottom: '40px' }}>
-          <h3 style={{
-            fontSize: '16px',
-            fontWeight: '600',
-            color: colors.text.primary,
-            marginBottom: '20px'
-          }}>
-            How you did, by difficulty:
-          </h3>
+        <div className="mod-summary-card">
+          <div>
+            <h3 className="mod-summary-card-title">Accuracy by Difficulty</h3>
+            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--color-slate-500)', marginTop: '4px' }}>How you performed across different question levels</div>
+          </div>
 
-          <div style={{
-            display: 'flex',
-            justifyContent: 'space-around',
-            gap: '24px'
-          }}>
+          <div className="mod-summary-donuts">
             <DonutChart
               correct={difficultyBreakdown.easy.correct}
               incorrect={difficultyBreakdown.easy.incorrect}
@@ -1158,48 +1136,36 @@ const TestResults = ({
         </div>
 
         {/* Domain Breakdown */}
-        <div style={{ marginBottom: '32px' }}>
-          <h3 style={{
-            fontSize: '16px',
-            fontWeight: '600',
-            color: colors.text.primary,
-            marginBottom: '20px'
-          }}>
-            How you did, by content domain:
-          </h3>
+        <div className="mod-summary-card">
+          <div>
+            <h3 className="mod-summary-card-title">Accuracy by Content Domain</h3>
+            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--color-slate-500)', marginTop: '4px' }}>Your performance across the four SAT Math areas</div>
+          </div>
 
-          {/* Stable SAT domain order */}
-          {SAT_MATH_DOMAINS.map(domainId => {
-            const data = domainBreakdown[domainId];
-            if (!data || data.total === 0) return null;
-            return (
-              <DomainBar
-                key={domainId}
-                domain={domainId}
-                correct={data.correct}
-                total={data.total}
-                maxTotal={Math.max(...Object.values(domainBreakdown).map(d => d.total))}
-              />
-            );
-          })}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '8px' }}>
+            {/* Stable SAT domain order */}
+            {SAT_MATH_DOMAINS.map(domainId => {
+              const data = domainBreakdown[domainId];
+              if (!data || data.total === 0) return null;
+              return (
+                <DomainBar
+                  key={domainId}
+                  domain={domainId}
+                  correct={data.correct}
+                  total={data.total}
+                />
+              );
+            })}
+          </div>
         </div>
 
         {/* Back to Summary */}
-        <div style={{ textAlign: 'center' }}>
+        <div style={{ textAlign: 'center', marginTop: '8px' }}>
           <button
             onClick={() => setActiveTab('summary')}
-            style={{
-              padding: '10px 24px',
-              background: colors.surface.white,
-              color: colors.text.secondary,
-              border: `1px solid ${colors.surface.grayMedium}`,
-              borderRadius: '6px',
-              fontSize: '14px',
-              fontWeight: '500',
-              cursor: 'pointer'
-            }}
+            className="mod-back-btn"
           >
-            Back to Summary
+            Back to Test Overview
           </button>
         </div>
       </div>
