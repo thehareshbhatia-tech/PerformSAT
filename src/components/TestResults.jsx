@@ -15,6 +15,44 @@ import {
   adaptDiagnosticForUI, mergeAiIntoReport, buildUnifiedReport, buildNarrativeFlow,
 } from '../services/scoring';
 
+const BULLET_LENGTH_THRESHOLD = 80;
+const BULLET_SPLIT_RE = /\s*;\s*|\s*\n\s*|\s*(?:(?:^|\s)[-•])\s+|\s*\d+\)\s+/;
+
+function bulletizeText(text) {
+  if (!text || typeof text !== 'string') return null;
+  if (text.length <= BULLET_LENGTH_THRESHOLD && !BULLET_SPLIT_RE.test(text)) return null;
+  const parts = text.split(BULLET_SPLIT_RE).map(s => s.trim()).filter(s => s.length > 0);
+  return parts.length >= 2 ? parts : null;
+}
+
+function SupportText({ text, label, labelColor, textColor, textSize = '14px', dotColor = 'var(--color-slate-400)' }) {
+  if (!text) return null;
+  const bullets = bulletizeText(text);
+  if (bullets) {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+        {label && (
+          <span style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '700', color: labelColor || 'var(--color-slate-600)', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '2px' }}>{label}</span>
+        )}
+        <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+          {bullets.map((b, i) => (
+            <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontFamily: 'var(--font-ui)', fontSize: textSize, fontWeight: '500', color: textColor || 'var(--color-slate-500)', lineHeight: '1.45' }}>
+              <span style={{ flexShrink: 0, width: '5px', height: '5px', borderRadius: '50%', background: dotColor, marginTop: '7px' }} />
+              {b}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+  return (
+    <div style={{ fontFamily: 'var(--font-ui)', fontSize: textSize, fontWeight: '500', color: textColor || 'var(--color-slate-500)', lineHeight: '1.45' }}>
+      {label && <span style={{ fontWeight: '600', color: labelColor || 'var(--color-slate-600)' }}>{label}: </span>}
+      {text}
+    </div>
+  );
+}
+
 // Donut Chart Component for difficulty breakdown
 const DonutChart = ({ correct, incorrect, unanswered, label, size = 100 }) => {
   const total = correct + incorrect + unanswered;
@@ -1195,7 +1233,7 @@ const TestResults = ({
             {isGenerating ? (
               <div style={{ padding: '80px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <div style={{ width: '48px', height: '48px', border: '3px solid rgba(251,146,60,0.1)', borderTopColor: aiColorText, borderRadius: '50%', margin: '0 auto 24px', animation: 'spin 1s cubic-bezier(0.5, 0.1, 0.5, 0.9) infinite' }} />
-                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '18px', fontWeight: '600', color: aiColorText }}>Synthesizing performance insights...</div>
+                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '18px', fontWeight: '600', color: aiColorText }}>Crunching the numbers so you don't have to...</div>
               </div>
             ) : hasFailed ? (
               <div style={{ padding: '24px', borderRadius: '20px', background: 'rgba(245,158,11,0.05)', border: '1px solid rgba(245,158,11,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -1204,30 +1242,67 @@ const TestResults = ({
               </div>
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                {block.items.map((pt, i) => {
-                  const colonIdx = pt.indexOf(':');
-                  const periodIdx = pt.indexOf('.');
+                <div style={{
+                  fontFamily: 'var(--font-ui)',
+                  fontSize: '20px', fontWeight: '700', color: 'var(--color-slate-900)',
+                  lineHeight: '1.4', letterSpacing: '-0.02em',
+                  marginBottom: block.items.length > 0 ? '8px' : '0'
+                }}>
+                  Your Score: {satScore}
+                </div>
+                {block.items.map((rawPt, i) => {
+                  const isStructured = rawPt && typeof rawPt === 'object' && rawPt.text;
+                  const ptText = isStructured ? rawPt.text : (typeof rawPt === 'string' ? rawPt : '');
+                  const colonIdx = ptText.indexOf(':');
+                  const periodIdx = ptText.indexOf('.');
                   let splitIdx = -1;
                   if (colonIdx !== -1 && colonIdx < 60) splitIdx = colonIdx;
                   else if (periodIdx !== -1 && periodIdx < 60) splitIdx = periodIdx;
-                  
+
+                  const hasDetail = isStructured && (rawPt.causalMechanism || rawPt.estimatedImpact || rawPt.evidence);
+
                   return (
-                    <div key={i} className="insight-row">
-                      <div className="insight-bullet">
-                        {i + 1}
-                      </div>
-                      <div style={{
-                        fontFamily: 'var(--font-ui)',
-                        fontSize: '17px', fontWeight: '500', color: 'var(--color-slate-700)',
-                        lineHeight: '1.5', letterSpacing: '-0.015em'
-                      }}>
-                        {splitIdx !== -1 ? (
-                          <>
-                            <strong style={{ fontWeight: '700', color: 'var(--color-slate-900)' }}>{pt.substring(0, splitIdx + 1)}</strong>
-                            <span>{pt.substring(splitIdx + 1)}</span>
-                          </>
-                        ) : (
-                          pt
+                    <div key={i} style={{
+                      padding: '20px 24px',
+                      borderRadius: '20px',
+                      background: 'rgba(255, 255, 255, 0.5)',
+                      border: '1px solid rgba(255, 255, 255, 0.8)',
+                      boxShadow: '0 2px 10px rgba(0, 0, 0, 0.01)',
+                    }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: hasDetail ? '6px' : '0' }}>
+                        <div style={{
+                          fontFamily: 'var(--font-ui)',
+                          fontSize: '17px', fontWeight: '500', color: 'var(--color-slate-700)',
+                          lineHeight: '1.6', letterSpacing: '-0.015em'
+                        }}>
+                          <strong style={{ fontWeight: '700', color: 'var(--color-slate-900)' }}>{i + 1}).{' '}</strong>
+                          {splitIdx !== -1 ? (
+                            <>
+                              <strong style={{ fontWeight: '700', color: 'var(--color-slate-900)' }}>{ptText.substring(0, splitIdx + 1)}</strong>
+                              <span>{ptText.substring(splitIdx + 1)}</span>
+                            </>
+                          ) : (
+                            ptText
+                          )}
+                        </div>
+                        {hasDetail && (
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', paddingLeft: '2px', borderLeft: '2px solid var(--color-slate-200)', marginLeft: '2px', paddingTop: '4px', paddingBottom: '2px' }}>
+                            {rawPt.causalMechanism && (
+                              <div style={{ paddingLeft: '10px' }}>
+                                <SupportText text={rawPt.causalMechanism} label="Why" labelColor="var(--color-slate-600)" textColor="var(--color-slate-500)" />
+                              </div>
+                            )}
+                            {rawPt.evidence && (
+                              <div style={{ paddingLeft: '10px' }}>
+                                <SupportText text={rawPt.evidence} label="Evidence" labelColor="var(--color-slate-500)" textColor="var(--color-slate-400)" textSize="13px" dotColor="var(--color-slate-300)" />
+                              </div>
+                            )}
+                            {rawPt.estimatedImpact && (
+                              <div style={{ paddingLeft: '10px' }}>
+                                <SupportText text={rawPt.estimatedImpact} label="Impact" labelColor="var(--color-warning-600)" textColor="var(--color-warning-600)" textSize="13px" dotColor="var(--color-warning-400)" />
+                              </div>
+                            )}
+                          </div>
                         )}
                       </div>
                     </div>
@@ -1250,62 +1325,6 @@ const TestResults = ({
                     <div style={{ fontFamily: 'var(--font-ui)', fontSize: '36px', fontWeight: '800', color: valColor, lineHeight: 1, letterSpacing: '-0.03em', fontVariantNumeric: 'tabular-nums' }}>{s.value}</div>
                     <div style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '700', color: colors.text.secondary, marginTop: '16px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>{s.label}</div>
                     {s.subtext && <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: colors.text.muted, marginTop: '8px', fontWeight: '500' }}>{s.subtext}</div>}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        );
-      }
-
-      if (block.id === 'primaryCause') {
-        return (
-          <div key={block.id} style={{ padding: '36px 0', display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px', padding: '0 36px' }}>
-              <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'var(--color-error-100)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-error-600)' }}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-              </div>
-              <h3 style={{ fontFamily: 'var(--font-ui)', fontSize: '22px', fontWeight: '700', color: colors.text.primary, margin: 0, letterSpacing: '-0.02em' }}>Core Issues</h3>
-            </div>
-            {block.transition && (
-              <div style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: colors.text.secondary, fontWeight: '500', marginBottom: '24px', lineHeight: '1.5', padding: '0 36px' }}>{block.transition}</div>
-            )}
-            
-            <div style={{ 
-              display: 'flex', 
-              flexDirection: 'column',
-              gap: '16px', 
-              padding: '0 36px 24px 36px',
-              flex: 1
-            }}>
-              {block.items.map((d, i) => {
-                const cleanedText = d.text ? d.text.replace(/^(\(\d+\)|\d+\.)\s*/, '') : '';
-                const sc = d.type === 'pattern' ? (sevColors[d.severity] || sevColors.moderate) : { bg: 'var(--color-slate-100)', border: 'rgba(0,0,0,0.05)', dot: 'var(--color-slate-400)' };
-                return (
-                  <div key={i} style={{ 
-                    padding: '24px', 
-                    borderRadius: '20px', 
-                    background: 'rgba(255,255,255,0.95)', 
-                    border: `1px solid ${sc.border}`, 
-                    position: 'relative', 
-                    overflow: 'hidden', 
-                    boxShadow: '0 4px 20px rgba(0,0,0,0.03), inset 0 2px 4px rgba(255,255,255,0.5)',
-                    display: 'flex',
-                    flexDirection: 'column'
-                  }}>
-                    <div style={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: '4px', background: sc.dot }} />
-                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
-                      <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: sc.bg, color: sc.dot, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px', fontWeight: '800', flexShrink: 0 }}>{i + 1}</div>
-                      <div style={{ flex: 1 }}>
-                        <div style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', fontWeight: '600', color: colors.text.primary, lineHeight: '1.5' }}>{cleanedText}</div>
-                        {d.impact && (
-                          <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: colors.text.secondary, fontWeight: '500', marginTop: '12px' }}>{d.impact}</div>
-                        )}
-                      </div>
-                      {d.estimatedPointGain && (
-                        <div style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '800', color: 'var(--color-success-600)', background: 'var(--color-success-100)', padding: '6px 12px', borderRadius: '10px', whiteSpace: 'nowrap', border: '1px solid var(--color-success-200)', flexShrink: 0 }}>+{d.estimatedPointGain} pts</div>
-                      )}
-                    </div>
                   </div>
                 );
               })}
@@ -1490,7 +1509,7 @@ const TestResults = ({
     };
 
     const getBlock = (id) => blocks.find(b => b.id === id);
-    const hasDetails = details.additionalDrivers.length > 0 || details.secondaryEvidence.length > 0 || details.uncertainties || details.qualityFailed;
+    const hasDetails = details.additionalDrivers.length > 0 || (details.overflowDiagnosis && details.overflowDiagnosis.length > 0) || details.secondaryEvidence.length > 0 || details.uncertainties || details.qualityFailed;
 
     return (
       <div style={{ padding: '24px 0', display: 'flex', flexDirection: 'column', gap: '32px' }}>
@@ -1501,17 +1520,12 @@ const TestResults = ({
           {getBlock('metaStrip') && renderBlock(getBlock('metaStrip'), 1)}
         </div>
 
-        {/* Row 2: Causes & Behavior (Vertical stack to give full width) */}
-        {(getBlock('primaryCause') || getBlock('behaviorAmplifier')) && (
+        {/* Row 2: Behavior */}
+        {getBlock('behaviorAmplifier') && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-            {getBlock('primaryCause') && (
-              <div className="premium-card">
-                {renderBlock(getBlock('primaryCause'), 2)}
-              </div>
-            )}
             {getBlock('behaviorAmplifier') && (
               <div className="premium-card">
-                {renderBlock(getBlock('behaviorAmplifier'), 3)}
+                {renderBlock(getBlock('behaviorAmplifier'), 2)}
               </div>
             )}
           </div>
@@ -1555,13 +1569,35 @@ const TestResults = ({
                 boxShadow: '0 4px 16px rgba(0,0,0,0.03), 0 1px 2px rgba(0,0,0,0.02)',
               }}
             >
-              <span>{showNarrativeDetails ? 'Hide technical details' : 'View technical details'}</span>
+              <span>{showNarrativeDetails ? 'Hide additional details' : (details.overflowDiagnosis && details.overflowDiagnosis.length > 0) ? 'View more insights & details' : 'View technical details'}</span>
               <span style={{ transform: showNarrativeDetails ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)', fontSize: '12px' }}>&#9662;</span>
             </button>
 
             {showNarrativeDetails && (
               <div className="premium-card" style={{ width: '100%', marginTop: '24px', padding: '36px 48px', animation: 'slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1)' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+                  {details.overflowDiagnosis && details.overflowDiagnosis.length > 0 && (
+                    <div>
+                      <div style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '700', color: colors.text.muted, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '16px' }}>More Diagnosis Insights</div>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                        {details.overflowDiagnosis.map((pt, i) => {
+                          const ptText = typeof pt === 'string' ? pt : pt.text || '';
+                          return (
+                            <div key={i} style={{ padding: '16px 20px', borderRadius: '16px', background: 'rgba(251,146,60,0.04)', border: '1px solid rgba(251,146,60,0.12)', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                              <span style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', fontWeight: '600', color: colors.text.primary }}>{ptText}</span>
+                              {pt.evidence && (
+                                <SupportText text={pt.evidence} textColor={colors.text.muted} textSize="13px" dotColor="var(--color-slate-300)" />
+                              )}
+                              {pt.causalMechanism && (
+                                <SupportText text={pt.causalMechanism} label="Why" labelColor="var(--color-slate-500)" textColor={colors.text.muted} textSize="13px" dotColor="var(--color-slate-300)" />
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+
                   {details.additionalDrivers.length > 0 && (
                     <div>
                       <div style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '700', color: colors.text.muted, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '16px' }}>Additional Patterns</div>
@@ -1635,46 +1671,6 @@ const TestResults = ({
         .premium-card:hover {
           transform: translateY(-2px);
           box-shadow: 0 16px 48px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.03);
-        }
-        .insight-row {
-          display: flex;
-          align-items: flex-start;
-          gap: 20px;
-          padding: 24px;
-          border-radius: 20px;
-          background: rgba(255, 255, 255, 0.5);
-          border: 1px solid rgba(255, 255, 255, 0.8);
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.01);
-          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .insight-row:hover {
-          background: rgba(255, 255, 255, 0.9);
-          border-color: rgba(251, 146, 60, 0.2);
-          box-shadow: 0 8px 24px rgba(251, 146, 60, 0.08);
-          transform: scale(1.01);
-        }
-        .insight-bullet {
-          flex-shrink: 0;
-          width: 32px;
-          height: 32px;
-          border-radius: 50%;
-          background: #ffffff;
-          color: var(--color-brand-orange-500);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-family: var(--font-ui);
-          font-size: 14px;
-          font-weight: 700;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
-          border: 1px solid rgba(0,0,0,0.02);
-          margin-top: 2px;
-          transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s, color 0.3s;
-        }
-        .insight-row:hover .insight-bullet {
-          background: var(--color-brand-orange-500);
-          color: #ffffff;
-          transform: scale(1.1);
         }
         .details-button {
           transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);

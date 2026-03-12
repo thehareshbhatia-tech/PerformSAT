@@ -1073,9 +1073,6 @@ export function mergeAiIntoReport(report, ai) {
     const diagnosisPoints = normalizeToArray(ai.diagnosisPoints, ai.diagnosis);
     if (diagnosisPoints.length > 0) {
       merged.hero.headlinePoints = diagnosisPoints;
-      merged.hero.headline = diagnosisPoints[0];
-    } else {
-      merged.hero.headline = ai.diagnosis;
     }
   }
 
@@ -1245,7 +1242,8 @@ function normalizeToArray(arrayField, stringField) {
 
 /**
  * Normalize AI field to structured claims with confidence metadata.
- * Returns [{text, evidence, confidence}].
+ * Preserves causalMechanism and estimatedImpact when the AI provides them.
+ * Returns [{text, evidence, confidence, causalMechanism?, estimatedImpact?}].
  */
 function normalizeToStructuredClaims(arrayField, stringField) {
   if (Array.isArray(arrayField) && arrayField.length > 0) {
@@ -1253,7 +1251,14 @@ function normalizeToStructuredClaims(arrayField, stringField) {
       .flatMap(s => {
         if (typeof s === 'string') return splitTextToBullets(s).map(t => ({ text: t, evidence: null, confidence: 'medium' }));
         if (s && typeof s === 'object' && typeof s.claim === 'string') {
-          return [{ text: s.claim, evidence: s.evidence || null, confidence: s.confidence || 'medium' }];
+          const claim = {
+            text: s.claim,
+            evidence: s.evidence || null,
+            confidence: s.confidence || 'medium',
+          };
+          if (s.causalMechanism) claim.causalMechanism = s.causalMechanism;
+          if (s.estimatedImpact) claim.estimatedImpact = s.estimatedImpact;
+          return [claim];
         }
         return [];
       })
@@ -1329,17 +1334,34 @@ export function buildUnifiedReport(mergedReport) {
   const aiQuality = mergedReport._aiQuality || null;
   const qualityFailed = aiQuality && aiQuality.repairFailed;
 
-  // ─── 1. DIAGNOSIS: use structured claims if available, filter low-confidence ───
+  // ─── 1. DIAGNOSIS: use structured claims, filter low-confidence + generic, rank by quality ───
+  // Preserve full structured shape {text, evidence, causalMechanism, estimatedImpact, confidence}
+  // so the UI can render richer diagnosis bullets with supporting detail.
   let diagnosisPoints;
   if (structuredDiag.length > 0 && !qualityFailed) {
-    diagnosisPoints = dedup(
-      structuredDiag
-        .filter(c => c.confidence !== 'low')
-        .map(c => c.text)
-    ).slice(0, 4);
+    const ranked = rankByClaimQuality(
+      structuredDiag.filter(c => c.confidence !== 'low' && !isGenericClaim(c.text))
+    );
+    const seen = new Set();
+    diagnosisPoints = [];
+    for (const c of ranked) {
+      const key = canonicalKey(c.text);
+      if (seen.has(key)) continue;
+      seen.add(key);
+      diagnosisPoints.push({
+        text: c.text,
+        evidence: c.evidence || null,
+        causalMechanism: c.causalMechanism || null,
+        estimatedImpact: c.estimatedImpact || null,
+        confidence: c.confidence || 'medium',
+      });
+      if (diagnosisPoints.length >= 5) break;
+    }
   } else {
     const rawDiagPoints = Array.isArray(hero.headlinePoints) ? hero.headlinePoints : [];
-    diagnosisPoints = dedup(rawDiagPoints).slice(0, 4);
+    diagnosisPoints = dedup(rawDiagPoints.filter(pt => !isGenericClaim(pt)))
+      .slice(0, 5)
+      .map(pt => ({ text: pt, evidence: null, causalMechanism: null, estimatedImpact: null, confidence: 'medium' }));
   }
 
   // ─── 2. SCORE DRIVERS: ranked, prefer high-confidence + numeric ───
@@ -1348,9 +1370,9 @@ export function buildUnifiedReport(mergedReport) {
 
   const hasStructuredScore = structuredScore.length > 0 && !qualityFailed;
   if (hasStructuredScore) {
-    structuredScore
-      .filter(c => c.confidence !== 'low')
-      .forEach(c => {
+    rankByClaimQuality(
+      structuredScore.filter(c => c.confidence !== 'low' && !isGenericClaim(c.text))
+    ).forEach(c => {
         const key = canonicalKey(c.text);
         if (!seenDriverKeys.has(key)) {
           seenDriverKeys.add(key);
@@ -1402,9 +1424,9 @@ export function buildUnifiedReport(mergedReport) {
   const behaviorInsights = [];
   const hasStructuredBehavior = structuredBehavior.length > 0 && !qualityFailed;
   if (hasStructuredBehavior) {
-    structuredBehavior
-      .filter(c => c.confidence !== 'low')
-      .forEach(c => {
+    rankByClaimQuality(
+      structuredBehavior.filter(c => c.confidence !== 'low' && !isGenericClaim(c.text))
+    ).forEach(c => {
         const key = canonicalKey(c.text);
         if (!seenDriverKeys.has(key)) {
           seenDriverKeys.add(key);
@@ -1414,7 +1436,7 @@ export function buildUnifiedReport(mergedReport) {
   }
   if (!hasStructuredBehavior) {
     const behaviorPts = Array.isArray(whySec.behaviorPoints) ? whySec.behaviorPoints : [];
-    behaviorPts.forEach(pt => {
+    behaviorPts.filter(pt => !isGenericClaim(pt)).forEach(pt => {
       const key = canonicalKey(pt);
       if (!seenDriverKeys.has(key)) {
         seenDriverKeys.add(key);
@@ -1423,7 +1445,7 @@ export function buildUnifiedReport(mergedReport) {
     });
   }
 
-  // Contradiction guard: suppress behavior claims that conflict with trend direction
+  // Contradiction guard: suppress claims that conflict with trend direction across ALL sections
   const trendDir = consistencyFlags.trendDirection || null;
   const filteredBehavior = trendDir
     ? behaviorInsights.filter(pt => !isContradictoryToTrend(pt, trendDir))
@@ -1475,15 +1497,76 @@ export function buildUnifiedReport(mergedReport) {
     qualityFailed: !!qualityFailed,
   };
 
+  // Apply trend contradiction filtering to diagnosis and score drivers too
+  const filteredDiagnosis = trendDir
+    ? diagnosisPoints.filter(pt => !isContradictoryToTrend(pt.text || '', trendDir))
+    : diagnosisPoints;
+  const filteredDrivers = trendDir
+    ? scoreDrivers.filter(d => !isContradictoryToTrend(d.text || '', trendDir))
+    : scoreDrivers;
+
   return {
-    diagnosis: { points: diagnosisPoints, headline: hero.headline || '' },
-    scoreDrivers: scoreDrivers.slice(0, 5),
+    diagnosis: { points: filteredDiagnosis, headline: '' },
+    scoreDrivers: filteredDrivers.slice(0, 5),
     behaviorInsights: filteredBehavior.slice(0, 3),
     changesSinceLast,
     evidence: evidence.slice(0, 8),
     nextFocus: focus,
     meta,
   };
+}
+
+const GENERIC_CLAIM_PATTERNS = /\b(review your mistakes|practice more|focus on weak areas|needs improvement|room for growth|work on your|struggling with|you should try|consider reviewing|keep practicing)\b/i;
+const SCORE_RESTATEMENT_PATTERNS = /^(you scored|your score (is|was)|you got \d+\/|you are \d+ points? (below|above|from)|your percentile)/i;
+
+function isGenericClaim(text) {
+  if (!text || typeof text !== 'string') return false;
+  if (GENERIC_CLAIM_PATTERNS.test(text)) return true;
+  if (SCORE_RESTATEMENT_PATTERNS.test(text.trim())) return true;
+  return false;
+}
+
+const CAUSAL_LANGUAGE_RE = /\b(because|leads to|causes|results in|due to|driven by|stems from|suggesting|indicates|compounded|rooted in|rather than|confirms|accounts for)\b/i;
+
+function rankByClaimQuality(claims) {
+  if (!Array.isArray(claims) || claims.length === 0) return claims;
+
+  const confRank = { high: 3, medium: 2, low: 1 };
+  const numericPattern = /\d+/;
+
+  function depthScore(c) {
+    let score = 0;
+    const text = c.text || c.claim || '';
+    const ev = c.evidence || '';
+    const mech = c.causalMechanism || '';
+    const impact = c.estimatedImpact || '';
+
+    if (ev.length > 20) score += 2;
+    else if (ev.length > 5) score += 1;
+
+    if (mech.length > 30 && CAUSAL_LANGUAGE_RE.test(mech)) score += 3;
+    else if (mech.length > 15) score += 1;
+
+    if (impact.length > 0 && numericPattern.test(impact)) score += 2;
+    else if (impact.length > 0) score += 1;
+
+    if (numericPattern.test(text)) score += 1;
+
+    if (CAUSAL_LANGUAGE_RE.test(text)) score += 1;
+
+    const semicolons = (ev.match(/;/g) || []).length;
+    if (semicolons >= 2) score += 1;
+
+    return score;
+  }
+
+  return [...claims].sort((a, b) => {
+    const aConf = confRank[a.confidence] || 1;
+    const bConf = confRank[b.confidence] || 1;
+    if (bConf !== aConf) return bConf - aConf;
+
+    return depthScore(b) - depthScore(a);
+  });
 }
 
 function isContradictoryToTrend(claimText, trendDirection) {
@@ -1517,7 +1600,7 @@ function dedup(arr) {
  * Each block has: { id, items[], transition? }
  * The "one fact appears once" invariant is enforced across all blocks.
  *
- * Block order: context -> primaryCause -> behaviorAmplifier -> evidence -> nextMove
+ * Block order: context -> behaviorAmplifier -> evidence -> nextMove
  */
 export function buildNarrativeFlow(uni) {
   if (!uni) return null;
@@ -1525,24 +1608,47 @@ export function buildNarrativeFlow(uni) {
   const mentionedKeys = new Set();
   const blocks = [];
 
-  // ─── BLOCK 1: CONTEXT — where you are vs target ───
+  // ─── BLOCK 1: CONTEXT — headline title + structured insight bullets ───
+  const contextTitle = uni.diagnosis.headline || '';
+  if (contextTitle) mentionedKeys.add(canonicalKey(contextTitle));
+
   const contextItems = [];
   if (uni.diagnosis.points.length > 0) {
     uni.diagnosis.points.forEach(pt => {
-      const key = canonicalKey(pt);
+      const ptText = typeof pt === 'string' ? pt : pt.text || '';
+      const key = canonicalKey(ptText);
       if (!mentionedKeys.has(key)) {
         mentionedKeys.add(key);
-        contextItems.push(pt);
+        contextItems.push(typeof pt === 'string' ? { text: pt } : pt);
       }
     });
-  } else if (uni.diagnosis.headline) {
-    mentionedKeys.add(canonicalKey(uni.diagnosis.headline));
-    contextItems.push(uni.diagnosis.headline);
   }
+
+  // Merge former primaryCause (score drivers) into diagnosis context
+  const allDrivers = uni.scoreDrivers || [];
+  allDrivers.slice(0, 3).forEach(d => {
+    const driverKey = canonicalKey(d.text + (d.impact || ''));
+    if (!mentionedKeys.has(driverKey)) {
+      mentionedKeys.add(driverKey);
+      const evidenceStr = d.evidenceAnchor
+        || (Array.isArray(d.evidence) && d.evidence.length > 0 ? d.evidence.join('; ') : null);
+      contextItems.push({
+        text: d.text + (d.impact ? ' — ' + d.impact : ''),
+        evidence: evidenceStr || null,
+        causalMechanism: d.why || null,
+        estimatedImpact: d.estimatedPointGain ? `~+${d.estimatedPointGain} pts recoverable` : null,
+        confidence: d.confidence || 'medium',
+      });
+    }
+  });
+
+  const mainDiagnosis = contextItems.slice(0, 5);
+  const overflowDiagnosis = contextItems.slice(5);
   blocks.push({
     id: 'context',
     label: 'Your Diagnosis',
-    items: contextItems.slice(0, 3),
+    title: contextTitle || null,
+    items: mainDiagnosis,
     style: 'headline',
   });
 
@@ -1561,29 +1667,7 @@ export function buildNarrativeFlow(uni) {
     });
   }
 
-  // ─── BLOCK 2: PRIMARY CAUSE — top 2-3 score drivers ───
-  const causeItems = [];
-  const allDrivers = uni.scoreDrivers || [];
-  allDrivers.slice(0, 3).forEach(d => {
-    const key = canonicalKey(d.text + (d.impact || ''));
-    if (!mentionedKeys.has(key)) {
-      mentionedKeys.add(key);
-      causeItems.push(d);
-    }
-  });
-  if (causeItems.length > 0) {
-    blocks.push({
-      id: 'primaryCause',
-      label: 'What Drove Your Score',
-      transition: causeItems.length === 1
-        ? 'The primary driver behind this:'
-        : 'The key drivers behind this:',
-      items: causeItems,
-      style: 'driver',
-    });
-  }
-
-  // ─── BLOCK 3: BEHAVIOR AMPLIFIER — only if not redundant with causes ───
+  // ─── BLOCK 2: BEHAVIOR AMPLIFIER — only if not redundant with causes ───
   const behaviorItems = [];
   (uni.behaviorInsights || []).forEach(pt => {
     const key = canonicalKey(pt);
@@ -1623,8 +1707,8 @@ export function buildNarrativeFlow(uni) {
   });
 
   // Ensure at least one strongest evidence line is visible in the main story.
-  if (evidenceItems.length === 0 && causeItems.length > 0) {
-    const topCause = causeItems[0];
+  if (evidenceItems.length === 0 && allDrivers.length > 0) {
+    const topCause = allDrivers[0];
     if (topCause.evidenceAnchor) {
       evidenceItems.push({
         label: 'Evidence',
@@ -1679,14 +1763,15 @@ export function buildNarrativeFlow(uni) {
     });
   }
 
-  // Remaining score drivers go into details
-  const additionalDrivers = allDrivers.slice(2).filter(d => {
+  // Remaining score drivers go into details (top 3 already merged into context)
+  const additionalDrivers = allDrivers.slice(3).filter(d => {
     const key = canonicalKey(d.text + (d.impact || ''));
     return !mentionedKeys.has(key);
   });
 
   const details = {
     additionalDrivers,
+    overflowDiagnosis,
     secondaryEvidence,
     uncertainties: uni.meta?.uncertainties || null,
     qualityFailed: uni.meta?.qualityFailed || false,
@@ -1717,4 +1802,4 @@ function evidencePriority(type) {
   return 3;
 }
 
-export { splitTextToBullets, normalizeReasons };
+export { splitTextToBullets, normalizeReasons, isGenericClaim, rankByClaimQuality };
