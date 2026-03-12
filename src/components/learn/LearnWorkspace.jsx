@@ -149,6 +149,7 @@ const LearnWorkspace = ({
       {/* RIGHT: AI Coach Pane (persistent) */}
       <aside className="ai-coach-pane">
         <AiTutorChat
+          key={`${moduleId}_${activeLessonId}`}
           isOpen={true}
           onClose={() => {}}
           moduleId={moduleId}
