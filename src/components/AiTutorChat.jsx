@@ -10,6 +10,7 @@ import {
 } from '../services/proactiveRecommendationService';
 import { getSkillById } from '../data/skillTaxonomy';
 import { colors as designColors, typography as designTypo, shadows as designShadows } from '../design/tokens';
+import normalizeFractions from '../utils/normalizeFractions';
 
 // Comprehensive markdown renderer for chat messages with full math/LaTeX support
 const renderMarkdown = (text) => {
@@ -44,7 +45,7 @@ const renderMarkdown = (text) => {
     return result;
   };
 
-  let cleanedText = renderKatexInline(text);
+  let cleanedText = renderKatexInline(normalizeFractions(text));
 
   const lines = cleanedText.split('\n');
   const elements = [];

@@ -5,7 +5,7 @@ import './design-tokens.css';
 import './design/global.css';
 import App from './App';
 
-// Fix for KaTeX semantic layer showing alongside visual content
+// Global KaTeX style fixes
 const style = document.createElement('style');
 style.textContent = `
   .katex-mathml {
@@ -17,6 +17,13 @@ style.textContent = `
     width: 1px !important;
     overflow: hidden !important;
   }
+  /* Premium KaTeX rendering inside chat bubbles */
+  .ai-coach-pane .katex {
+    font-size: 1.05em;
+    vertical-align: middle;
+  }
+  .ai-coach-pane .katex .frac-line { border-bottom-width: 0.06em !important; }
+  .ai-coach-pane .katex-display { margin: 0.75em 0; }
 `;
 document.head.appendChild(style);
 
