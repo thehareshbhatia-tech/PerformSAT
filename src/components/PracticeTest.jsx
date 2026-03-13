@@ -1805,8 +1805,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               <div style={{
                 flex: isMobile ? 1 : '0 0 520px',
                 maxWidth: isMobile ? 'none' : '520px',
-                borderRadius: isMobile ? 0 : '24px',
-                boxShadow: isMobile ? 'none' : '0 8px 32px rgba(0,0,0,0.04)',
+                borderRadius: isMobile ? 0 : '20px',
+                boxShadow: isMobile ? 'none' : '0 4px 20px rgba(0,0,0,0.03)',
                 border: isMobile ? 'none' : `1px solid rgba(0,0,0,0.06)`,
                 overflowY: 'auto',
                 background: colors.surface.white,
@@ -2024,8 +2024,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                     flex: reviewRightPane === 'both' ? 1.2 : 1, overflowY: 'auto', 
                     padding: isMobile ? '16px' : '32px',
                     background: colors.surface.white,
-                    borderRadius: isMobile ? 0 : '24px',
-                    boxShadow: isMobile ? 'none' : '0 8px 32px rgba(0,0,0,0.04)',
+                    borderRadius: isMobile ? 0 : '20px',
+                    boxShadow: isMobile ? 'none' : '0 4px 20px rgba(0,0,0,0.03)',
                     border: isMobile ? 'none' : `1px solid rgba(0,0,0,0.06)`,
                   }}>
                     <div style={{
@@ -2036,7 +2036,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                       <div style={{
                         width: '36px', height: '36px', borderRadius: '12px',
                         background: colors.semantic.info, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
+                        boxShadow: '0 2px 8px rgba(0,0,0,0.06)'
                       }}>
                         <LightBulbIcon size={20} color={colors.text.inverse} />
                       </div>
@@ -2062,8 +2062,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                   <div style={{
                     flex: 1, display: 'flex', flexDirection: 'column',
                     background: 'transparent',
-                    borderRadius: isMobile ? 0 : '24px',
-                    boxShadow: isMobile ? 'none' : '0 8px 32px rgba(0,0,0,0.04)',
+                    borderRadius: isMobile ? 0 : '20px',
+                    boxShadow: isMobile ? 'none' : '0 4px 20px rgba(0,0,0,0.03)',
                     border: isMobile ? 'none' : `1px solid rgba(0,0,0,0.06)`,
                     overflow: 'hidden'
                   }}>

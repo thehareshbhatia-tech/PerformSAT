@@ -155,12 +155,12 @@ function parseExplanation(raw) {
 
 const strip = t => (t || '').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
 
-const RichText = ({ text, size = '15px', color, lineHeight = '1.85' }) => {
+const RichText = ({ text, size = '15px', color, lineHeight = '1.55' }) => {
   if (!text) return null;
   const ls = strip(text).split('\n').filter(l => l.trim());
   return (
-    <div style={{ fontSize: size, color: color || colors.text.primary, letterSpacing: '-0.01em' }}>
-      {ls.map((l, i) => <div key={i} style={{ lineHeight, marginBottom: '2px' }}><MathText text={l} /></div>)}
+    <div style={{ fontSize: size, color: color || colors.text.primary, letterSpacing: '0' }}>
+      {ls.map((l, i) => <div key={i} style={{ lineHeight, marginBottom: '8px' }}><MathText text={l} /></div>)}
     </div>
   );
 };
@@ -170,8 +170,8 @@ const BulletList = ({ items, color }) => {
   return (
     <div style={{ marginTop: '6px' }}>
       {items.map((b, i) => (
-        <div key={i} style={{ display: 'flex', gap: '10px', marginBottom: '6px', fontSize: '15px', lineHeight: '1.85', color: color || colors.text.primary }}>
-          <span style={{ color: colors.text.muted, flexShrink: 0, marginTop: '3px', fontSize: '7px' }}>●</span>
+        <div key={i} style={{ display: 'flex', gap: '10px', marginBottom: '8px', fontSize: '15px', lineHeight: '1.55', color: color || colors.text.primary }}>
+          <span style={{ color: colors.text.muted, flexShrink: 0, marginTop: '5px', fontSize: '7px' }}>●</span>
           <span style={{ flex: 1, minWidth: 0 }}><MathText text={strip(b)} /></span>
         </div>
       ))}
@@ -216,13 +216,13 @@ const StepCard = ({ number, title, content, bullets, isLast }) => (
 
 const MethodCard = ({ number, title, content, bullets, label }) => (
   <div style={{
-    background: colors.surface.white, borderRadius: '20px', overflow: 'hidden',
-    border: `1px solid rgba(0,0,0,0.06)`, boxShadow: '0 4px 16px rgba(0,0,0,0.03)'
+    background: colors.surface.white, borderRadius: '16px', overflow: 'hidden',
+    border: `1px solid rgba(0,0,0,0.06)`, boxShadow: '0 2px 8px rgba(0,0,0,0.02)'
   }}>
     <div style={{ padding: '20px 24px' }}>
       <div style={{
         fontSize: typography.sizes.xs, fontWeight: typography.weights.bold,
-        color: colors.text.muted, letterSpacing: typography.letterSpacing.wider, marginBottom: '12px'
+        color: colors.text.muted, letterSpacing: '0.04em', marginBottom: '12px'
       }}>
         {label || 'METHOD ' + number}{title ? ' — ' : ''}{title && <MathText text={strip(title)} />}
       </div>
@@ -236,16 +236,16 @@ const FastWayCard = ({ content, bullets }) => {
   if (!content && !bullets?.length) return null;
   return (
     <div style={{
-      background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(34, 197, 94, 0.03) 100%)',
-      border: `1px solid rgba(34, 197, 94, 0.2)`,
-      borderRadius: '20px', padding: '20px 24px', position: 'relative', overflow: 'hidden',
-      boxShadow: '0 4px 16px rgba(34, 197, 94, 0.04)'
+      background: 'rgba(34, 197, 94, 0.04)',
+      border: `1px solid rgba(34, 197, 94, 0.15)`,
+      borderRadius: '16px', padding: '20px 24px', position: 'relative', overflow: 'hidden',
+      boxShadow: 'none'
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
         <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M8.5 1.5L3 9.5h4.5l-1 5 5.5-8H7.5l1-5z" stroke="var(--color-success-600)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
         <span style={{
           fontSize: typography.sizes.xs, fontWeight: typography.weights.bold,
-          color: colors.semantic.success, letterSpacing: typography.letterSpacing.wider
+          color: colors.semantic.success, letterSpacing: '0.04em'
         }}>FAST METHOD</span>
       </div>
       <RichText text={content} color={colors.text.primary} />
@@ -261,9 +261,9 @@ const WhyWrongCard = ({ content, bullets }) => {
 
   return (
     <div style={{
-      background: colors.surface.white, borderRadius: '20px',
+      background: colors.surface.white, borderRadius: '16px',
       border: `1px solid rgba(0,0,0,0.06)`, overflow: 'hidden',
-      boxShadow: '0 4px 16px rgba(0,0,0,0.03)'
+      boxShadow: '0 2px 8px rgba(0,0,0,0.02)'
     }}>
       <button
         onClick={() => setOpen(v => !v)}
@@ -279,7 +279,7 @@ const WhyWrongCard = ({ content, bullets }) => {
           </svg>
           <span style={{
             fontSize: '15px', fontWeight: typography.weights.semibold,
-            color: colors.text.primary, letterSpacing: '-0.01em'
+            color: colors.text.primary, letterSpacing: '0'
           }}>Why Other Choices Are Wrong</span>
         </div>
         <svg width="14" height="14" viewBox="0 0 12 12" fill="none" style={{
@@ -312,7 +312,7 @@ const WhyWrongCard = ({ content, bullets }) => {
                   </span>
                 </> : <>
                   <span style={{ color: colors.text.muted, flexShrink: 0, marginTop: '7px', fontSize: '8px' }}>●</span>
-                  <span style={{ fontSize: '15px', lineHeight: '1.75', color: colors.text.secondary, flex: 1, minWidth: 0 }}>
+                  <span style={{ fontSize: '15px', lineHeight: '1.55', color: colors.text.secondary, flex: 1, minWidth: 0 }}>
                     <MathText text={strip(item)} />
                   </span>
                 </>}
@@ -329,9 +329,9 @@ const VerificationCard = ({ content, bullets }) => {
   if (!content && !bullets?.length) return null;
   return (
     <div style={{
-      background: colors.surface.white, borderRadius: '20px',
+      background: colors.surface.white, borderRadius: '16px',
       border: `1px solid rgba(0,0,0,0.06)`, padding: '20px 24px',
-      boxShadow: '0 4px 16px rgba(0,0,0,0.03)'
+      boxShadow: '0 2px 8px rgba(0,0,0,0.02)'
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
         <svg width="18" height="18" viewBox="0 0 16 16" fill="none">
@@ -340,7 +340,7 @@ const VerificationCard = ({ content, bullets }) => {
         </svg>
         <span style={{
           fontSize: typography.sizes.xs, fontWeight: typography.weights.bold,
-          color: colors.semantic.success, letterSpacing: typography.letterSpacing.wider
+          color: colors.semantic.success, letterSpacing: '0.04em'
         }}>VERIFICATION</span>
       </div>
       <RichText text={content} size="15px" color={colors.text.secondary} />
@@ -353,10 +353,10 @@ const TakeawayCard = ({ content, bullets }) => {
   if (!content && !bullets?.length) return null;
   return (
     <div style={{
-      background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(249, 115, 22, 0.05) 100%)',
-      borderRadius: '20px', padding: '20px 24px',
+      background: 'rgba(59, 130, 246, 0.04)',
+      borderRadius: '16px', padding: '20px 24px',
       border: `1px solid rgba(59, 130, 246, 0.15)`,
-      boxShadow: '0 4px 16px rgba(59, 130, 246, 0.04)'
+      boxShadow: 'none'
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
         <svg width="18" height="18" viewBox="0 0 16 16" fill="none">
@@ -365,7 +365,7 @@ const TakeawayCard = ({ content, bullets }) => {
         </svg>
         <span style={{
           fontSize: typography.sizes.xs, fontWeight: typography.weights.bold,
-          color: colors.semantic.info, letterSpacing: typography.letterSpacing.wider
+          color: colors.semantic.info, letterSpacing: '0.04em'
         }}>TEST DAY TAKEAWAY</span>
       </div>
       <RichText text={content} size="15px" color={colors.text.primary} />
@@ -387,12 +387,12 @@ const CalloutCard = ({ type, content, bullets }) => {
   return (
     <div style={{
       padding: '20px 24px', background: colors.surface.white,
-      borderRadius: '20px', border: `1px solid rgba(0,0,0,0.06)`,
-      boxShadow: '0 4px 16px rgba(0,0,0,0.03)'
+      borderRadius: '16px', border: `1px solid rgba(0,0,0,0.06)`,
+      boxShadow: '0 2px 8px rgba(0,0,0,0.02)'
     }}>
       <div style={{
         fontSize: typography.sizes.xs, fontWeight: typography.weights.bold,
-        color: cfg.color, letterSpacing: typography.letterSpacing.wider, marginBottom: '10px',
+        color: cfg.color, letterSpacing: '0.04em', marginBottom: '10px',
         display: 'flex', alignItems: 'center', gap: '8px'
       }}>{cfg.label}</div>
       {content && <RichText text={content} size="15px" color={colors.text.primary} />}

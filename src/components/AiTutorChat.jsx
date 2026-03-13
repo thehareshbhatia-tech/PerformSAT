@@ -64,9 +64,9 @@ const renderMarkdown = (text) => {
     if (currentList.length > 0) {
       const Tag = listType === 'ol' ? 'ol' : 'ul';
       elements.push(
-        <Tag key={`list-${elements.length}`} style={{ margin: '12px 0', paddingLeft: '24px', lineHeight: '1.7' }}>
+        <Tag key={`list-${elements.length}`} style={{ margin: '12px 0 16px 0', paddingLeft: '24px', lineHeight: '1.55' }}>
           {currentList.map((item, i) => (
-            <li key={i} style={{ marginBottom: '6px' }} dangerouslySetInnerHTML={{ __html: processInlineMarkdown(item) }} />
+            <li key={i} style={{ marginBottom: '8px' }} dangerouslySetInnerHTML={{ __html: processInlineMarkdown(item) }} />
           ))}
         </Tag>
       );
@@ -111,9 +111,9 @@ const renderMarkdown = (text) => {
           style={{
             fontSize: sizes[level],
             fontWeight: weights[level],
-            margin: '20px 0 10px 0',
+            margin: '24px 0 12px 0',
             color: designColors.text.primary,
-            letterSpacing: '-0.01em'
+            letterSpacing: '-0.02em'
           }}
           dangerouslySetInnerHTML={{ __html: processInlineMarkdown(text) }}
         />
@@ -129,7 +129,7 @@ const renderMarkdown = (text) => {
     }
 
     elements.push(
-      <p key={idx} style={{ margin: '0 0 10px 0', lineHeight: '1.65' }} dangerouslySetInnerHTML={{ __html: processInlineMarkdown(line) }} />
+      <p key={idx} style={{ margin: '0 0 12px 0', lineHeight: '1.55' }} dangerouslySetInnerHTML={{ __html: processInlineMarkdown(line) }} />
     );
   });
 
@@ -1100,35 +1100,33 @@ Your goal is to build their problem-solving instincts. Every question they solve
                   style={premiumLearnMode ? {
                     maxWidth: msg.role === 'user' ? '80%' : '85%',
                     padding: msg.role === 'user' ? '12px 18px' : '16px 20px',
-                    borderRadius: msg.role === 'user' ? '20px 20px 6px 20px' : '6px 20px 20px 20px',
+                    borderRadius: msg.role === 'user' ? '18px 18px 4px 18px' : '4px 18px 18px 18px',
                     background: msg.role === 'user'
                       ? 'linear-gradient(135deg, #007AFF 0%, #0056D2 100%)'
-                      : 'rgba(255, 255, 255, 0.85)',
+                      : '#ffffff',
                     color: msg.role === 'user' ? 'white' : design.colors.text.primary,
                     fontSize: '15px',
-                    lineHeight: '1.6',
+                    lineHeight: '1.55',
                     boxShadow: msg.role === 'user'
                       ? '0 4px 12px rgba(0, 122, 255, 0.2)'
-                      : '0 4px 24px rgba(0, 0, 0, 0.04)',
-                    backdropFilter: msg.role === 'user' ? 'none' : 'saturate(180%) blur(24px)',
-                    WebkitBackdropFilter: msg.role === 'user' ? 'none' : 'saturate(180%) blur(24px)',
-                    border: msg.role === 'user' ? 'none' : '1px solid rgba(255, 255, 255, 0.8)',
-                    letterSpacing: '-0.01em',
+                      : '0 2px 12px rgba(0, 0, 0, 0.03)',
+                    border: msg.role === 'user' ? 'none' : '1px solid rgba(0, 0, 0, 0.06)',
+                    letterSpacing: '0',
                     whiteSpace: msg.role === 'user' ? 'pre-wrap' : 'normal',
                   } : {
                     maxWidth: '88%',
                     padding: msg.role === 'user' ? '12px 18px' : '16px 20px',
-                    borderRadius: msg.role === 'user' ? '20px 20px 6px 20px' : '20px 20px 20px 6px',
+                    borderRadius: msg.role === 'user' ? '18px 18px 4px 18px' : '18px 18px 18px 4px',
                     background: msg.role === 'user'
                       ? design.colors.accent.orange
                       : design.colors.surface.primary,
                     color: msg.role === 'user' ? 'white' : design.colors.text.primary,
                     fontSize: '15px',
-                    lineHeight: '1.6',
+                    lineHeight: '1.55',
                     boxShadow: msg.role === 'user'
                       ? 'none'
                       : design.shadow.small,
-                    letterSpacing: '-0.01em',
+                    letterSpacing: '0',
                     whiteSpace: msg.role === 'user' ? 'pre-wrap' : 'normal',
                   }}
                 >
@@ -1154,15 +1152,13 @@ Your goal is to build their problem-solving instincts. Every question they solve
                 <div
                   style={premiumLearnMode ? {
                     padding: '16px 20px',
-                    borderRadius: '6px 20px 20px 20px',
-                    background: 'rgba(255, 255, 255, 0.85)',
-                    boxShadow: '0 4px 24px rgba(0, 0, 0, 0.04)',
-                    backdropFilter: 'saturate(180%) blur(24px)',
-                    WebkitBackdropFilter: 'saturate(180%) blur(24px)',
-                    border: '1px solid rgba(255, 255, 255, 0.8)',
+                    borderRadius: '4px 18px 18px 18px',
+                    background: '#ffffff',
+                    boxShadow: '0 2px 12px rgba(0, 0, 0, 0.03)',
+                    border: '1px solid rgba(0, 0, 0, 0.06)',
                   } : {
                     padding: '16px 20px',
-                    borderRadius: '20px 20px 20px 6px',
+                    borderRadius: '18px 18px 18px 4px',
                     background: design.colors.surface.primary,
                     boxShadow: design.shadow.small,
                   }}

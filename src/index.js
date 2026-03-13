@@ -17,13 +17,14 @@ style.textContent = `
     width: 1px !important;
     overflow: hidden !important;
   }
-  /* Premium KaTeX rendering inside chat bubbles */
+  /* Premium KaTeX typography polish (Global) */
+  .katex .frac-line { border-bottom-width: 0.06em !important; }
+  .katex-display { margin: 0.75em 0 !important; }
+  /* Chat-specific sizing */
   .ai-coach-pane .katex {
     font-size: 1.05em;
     vertical-align: middle;
   }
-  .ai-coach-pane .katex .frac-line { border-bottom-width: 0.06em !important; }
-  .ai-coach-pane .katex-display { margin: 0.75em 0; }
 `;
 document.head.appendChild(style);
 
