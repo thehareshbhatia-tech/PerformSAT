@@ -762,15 +762,6 @@ const TestResults = ({
             }}>
               Retake
             </button>
-            <button onClick={onBack} style={{
-              flex: '0 1 auto',
-              padding: '16px 28px', background: 'transparent', color: colors.text.secondary,
-              border: '1px solid transparent', borderRadius: '18px',
-              fontSize: '15px', fontWeight: '600', cursor: 'pointer',
-              transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-            }}>
-              Back to Tests
-            </button>
           </div>
         </div>
 
@@ -1841,10 +1832,30 @@ const TestResults = ({
 
   return (
     <div style={{ maxWidth: '1080px', margin: '0 auto', padding: '0 20px 40px', fontFamily: 'var(--font-ui)' }}>
+      {/* Back navigation */}
+      <div style={{ paddingTop: '16px', marginBottom: '4px' }}>
+        <button
+          onClick={onBack}
+          style={{
+            display: 'inline-flex', alignItems: 'center', gap: '6px',
+            padding: '8px 14px', margin: '-8px -14px',
+            background: 'none', border: 'none', borderRadius: '10px',
+            fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '600',
+            color: colors.text.secondary, cursor: 'pointer',
+            transition: 'color 0.2s ease, background 0.2s ease',
+          }}
+          onMouseEnter={e => { e.currentTarget.style.color = colors.text.primary; e.currentTarget.style.background = 'rgba(0,0,0,0.04)'; }}
+          onMouseLeave={e => { e.currentTarget.style.color = colors.text.secondary; e.currentTarget.style.background = 'none'; }}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+          Back to Tests
+        </button>
+      </div>
+
       {/* Header Area */}
       <div style={{
         marginBottom: '24px',
-        paddingTop: '20px'
+        paddingTop: '8px'
       }}>
         <h1 style={{
           fontSize: '32px',
