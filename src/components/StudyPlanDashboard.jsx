@@ -23,6 +23,7 @@ const StudyPlanDashboard = ({
   studyPlan,
   practiceTestResults,
   practiceProgress,
+  skillProgress,
   reviewQueue,
   user,
   onNavigateToModule,
@@ -30,6 +31,8 @@ const StudyPlanDashboard = ({
   onStartPracticeTest,
   onCompleteActivity,
   onUncompleteActivity,
+  studyPlanHistory,
+  onSelectPlanVersion,
 }) => {
   const [expandedWeek, setExpandedWeek] = useState(null);
   const [showTargeted, setShowTargeted] = useState(false);
@@ -44,13 +47,13 @@ const StudyPlanDashboard = ({
     if (!studyPlan?.weeks?.length) return null;
     const adapted = reprioritizePlan(
       studyPlan,
-      practiceProgress,
+      skillProgress || {},
       practiceTestResults,
       reviewQueue,
       user?.testDate
     );
     return adapted?.adaptiveOverlay || null;
-  }, [studyPlan, practiceProgress, practiceTestResults, reviewQueue, user?.testDate]);
+  }, [studyPlan, skillProgress, practiceTestResults, reviewQueue, user?.testDate]);
 
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
   React.useEffect(() => {
@@ -306,17 +309,40 @@ const StudyPlanDashboard = ({
       )}
 
       {/* Delta from Previous Plan */}
-      {deltaFromPrevious && (
+      {(deltaFromPrevious || adaptiveOverlay?.focusSkills?.some(s => s.delta !== 'stagnant')) && (
         <DataCard style={{
           background: `linear-gradient(135deg, ${colors.semantic.infoLight}, ${colors.semantic.infoBg || colors.semantic.infoLight})`,
           border: `1px solid ${colors.semantic.info}20`, padding: '14px 16px',
         }}>
-          <div style={{ fontSize: typography.sizes.xs, fontWeight: typography.weights.semibold, color: colors.semantic.info, marginBottom: '4px' }}>
-            What Changed From Your Last Plan
+          <div style={{ fontSize: typography.sizes.xs, fontWeight: typography.weights.semibold, color: colors.semantic.info, marginBottom: '6px' }}>
+            What Changed Since Last Plan
           </div>
-          <div style={{ fontSize: typography.sizes.sm, color: colors.text.primary, lineHeight: '1.5' }}>
-            {deltaFromPrevious}
-          </div>
+          {deltaFromPrevious && (
+            <div style={{ fontSize: typography.sizes.sm, color: colors.text.primary, lineHeight: '1.5', marginBottom: '8px' }}>
+              {deltaFromPrevious}
+            </div>
+          )}
+          {adaptiveOverlay?.focusSkills?.filter(s => s.delta !== 'stagnant' && s.delta !== 'new').length > 0 && (
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+              {adaptiveOverlay.focusSkills
+                .filter(s => s.delta === 'improved' || s.delta === 'declined')
+                .slice(0, 6)
+                .map((skill, i) => (
+                  <span key={i} style={{
+                    display: 'inline-flex', alignItems: 'center', gap: '4px',
+                    fontSize: '11px', padding: '3px 8px', borderRadius: radius.sm,
+                    background: skill.delta === 'improved' ? colors.semantic.successLight : 'rgba(220,38,38,0.08)',
+                    color: skill.delta === 'improved' ? colors.semantic.success : '#dc2626',
+                  }}>
+                    <span>{skill.delta === 'improved' ? '↑' : '↓'}</span>
+                    <span>{skill.skillName}</span>
+                    {skill.currentAccuracy !== null && (
+                      <span style={{ opacity: 0.7 }}>({skill.currentAccuracy}%)</span>
+                    )}
+                  </span>
+                ))}
+            </div>
+          )}
         </DataCard>
       )}
 
@@ -449,6 +475,51 @@ const StudyPlanDashboard = ({
         </DataCard>
       )}
 
+      {/* Plan Version History */}
+      {studyPlanHistory?.length > 1 && (
+        <DataCard style={{ padding: '14px 16px' }}>
+          <div style={{
+            fontSize: typography.sizes.xs, fontWeight: typography.weights.semibold,
+            color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '10px',
+          }}>
+            Plan History ({studyPlanHistory.length} versions)
+          </div>
+          <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px' }}>
+            {studyPlanHistory.map((entry, i) => {
+              const isActive = i === 0;
+              const dateLabel = entry.generatedAt
+                ? new Date(entry.generatedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+                : `v${studyPlanHistory.length - i}`;
+              return (
+                <button
+                  key={entry.id || i}
+                  onClick={() => !isActive && onSelectPlanVersion?.(entry.id)}
+                  style={{
+                    padding: '8px 14px', borderRadius: radius.sm, border: 'none',
+                    background: isActive ? colors.accent.orange : colors.surface.offWhite,
+                    color: isActive ? '#fff' : colors.text.primary,
+                    fontSize: typography.sizes.xs, fontWeight: typography.weights.medium,
+                    cursor: isActive ? 'default' : 'pointer', flexShrink: 0,
+                    opacity: isActive ? 1 : 0.85,
+                    transition: `all ${transitions.fast}`,
+                  }}
+                >
+                  <div style={{ fontWeight: typography.weights.semibold }}>{dateLabel}</div>
+                  {entry.currentScore && (
+                    <div style={{ fontSize: '10px', marginTop: '2px', opacity: 0.8 }}>{entry.currentScore} pts</div>
+                  )}
+                  {entry.deltaChanges > 0 && !isActive && (
+                    <div style={{ fontSize: '10px', marginTop: '1px', color: isActive ? 'rgba(255,255,255,0.7)' : colors.text.muted }}>
+                      {entry.deltaChanges} change{entry.deltaChanges !== 1 ? 's' : ''}
+                    </div>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </DataCard>
+      )}
+
       {/* Adaptive "Today's Focus" overlay */}
       {adaptiveOverlay?.today?.length > 0 && (
         <DataCard style={{
@@ -462,19 +533,76 @@ const StudyPlanDashboard = ({
           }}>
             {adaptiveOverlay.isTriage ? 'Triage Mode — Test in ' + adaptiveOverlay.daysUntilTest + ' days' : "Today's Focus"}
           </div>
-          <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary, marginBottom: '8px' }}>
+          <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary, marginBottom: '10px' }}>
             {adaptiveOverlay.reprioritisationSummary}
           </div>
+
+          {/* Score trajectory mini-chart */}
+          {adaptiveOverlay.scoreTrajectory?.length > 1 && (
+            <div style={{
+              display: 'flex', alignItems: 'flex-end', gap: '4px', marginBottom: '12px',
+              padding: '8px 10px', background: 'rgba(255,255,255,0.6)', borderRadius: radius.sm,
+            }}>
+              <span style={{ fontSize: '10px', color: colors.text.muted, marginRight: '4px', alignSelf: 'center' }}>Scores:</span>
+              {adaptiveOverlay.scoreTrajectory.map((s, i) => {
+                const maxScore = Math.max(...adaptiveOverlay.scoreTrajectory.map(x => x.scaledScore || 0));
+                const minScore = Math.min(...adaptiveOverlay.scoreTrajectory.map(x => x.scaledScore || 0));
+                const range = Math.max(maxScore - minScore, 20);
+                const height = 8 + ((s.scaledScore - minScore) / range) * 24;
+                const isLast = i === adaptiveOverlay.scoreTrajectory.length - 1;
+                return (
+                  <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
+                    <div style={{
+                      width: '16px', height: `${height}px`, borderRadius: '3px',
+                      background: isLast ? colors.accent.orange : colors.surface.grayMedium,
+                    }} />
+                    <span style={{ fontSize: '9px', color: isLast ? colors.accent.orange : colors.text.muted, fontWeight: isLast ? typography.weights.bold : 'normal' }}>
+                      {s.scaledScore}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+
+          {/* Persistent weaknesses callout */}
+          {adaptiveOverlay.persistentWeaknesses?.length > 0 && (
+            <div style={{
+              padding: '8px 10px', marginBottom: '10px', borderRadius: radius.sm,
+              background: 'rgba(220, 38, 38, 0.05)', border: '1px solid rgba(220, 38, 38, 0.1)',
+            }}>
+              <div style={{ fontSize: '10px', fontWeight: typography.weights.semibold, color: '#dc2626', textTransform: 'uppercase', marginBottom: '4px' }}>
+                Persistent Weaknesses (across tests)
+              </div>
+              {adaptiveOverlay.persistentWeaknesses.slice(0, 3).map((pw, i) => (
+                <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: typography.sizes.xs, color: colors.text.primary, marginTop: '3px' }}>
+                  <span style={{ color: '#dc2626', fontSize: '8px' }}>●</span>
+                  <span>{pw.skillId?.replace(/-/g, ' ')}</span>
+                  <span style={{ color: colors.text.muted, marginLeft: 'auto', fontSize: '10px' }}>
+                    {pw.accuracy}% · {pw.testCount} test{pw.testCount !== 1 ? 's' : ''} · {pw.trend}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Today's action items */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-            {adaptiveOverlay.today.slice(0, 4).map((action, i) => (
+            {adaptiveOverlay.today.slice(0, 5).map((action, i) => (
               <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: typography.sizes.xs, color: colors.text.primary }}>
                 <span style={{
                   width: '6px', height: '6px', borderRadius: '50%',
-                  background: action.type === 'review' ? colors.accent.orange : action.type === 'recovery' ? '#dc2626' : colors.semantic.success,
+                  background: action.type === 'review' ? colors.accent.orange
+                    : action.type === 'recovery' ? '#dc2626'
+                    : action.type === 'deep_review' ? '#b45309'
+                    : colors.semantic.success,
                   flexShrink: 0,
                 }} />
-                <span>{action.label}</span>
-                <span style={{ color: colors.text.tertiary, marginLeft: 'auto', fontSize: '11px' }}>~{action.minutes} min</span>
+                <span style={{ flex: 1 }}>{action.label}</span>
+                {action.isPersistent && (
+                  <span style={{ fontSize: '9px', color: '#dc2626', background: 'rgba(220,38,38,0.08)', padding: '1px 4px', borderRadius: '3px' }}>persistent</span>
+                )}
+                <span style={{ color: colors.text.tertiary, fontSize: '11px' }}>~{action.minutes} min</span>
               </div>
             ))}
           </div>

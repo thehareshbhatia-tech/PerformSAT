@@ -8,15 +8,20 @@ const STUDY_PLAN_URL = process.env.REACT_APP_STUDY_PLAN_URL ||
  * Calls the Cloud Function to generate a study plan from diagnostic data.
  * Returns the structured plan object.
  */
-export const generateStudyPlan = async (diagnosticReport, userProfile = {}, previousPlans = []) => {
+export const generateStudyPlan = async (diagnosticReport, userProfile = {}, previousPlans = [], longitudinalContext = null) => {
+  const payload = {
+    diagnosticReport: sanitizeDiagnostic(diagnosticReport),
+    userProfile,
+    previousPlans: previousPlans.slice(-2).map(p => ({ summary: p.summary })),
+  };
+  if (longitudinalContext) {
+    payload.longitudinalContext = longitudinalContext;
+  }
+
   const response = await fetch(STUDY_PLAN_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      diagnosticReport: sanitizeDiagnostic(diagnosticReport),
-      userProfile,
-      previousPlans: previousPlans.slice(-2).map(p => ({ summary: p.summary })),
-    }),
+    body: JSON.stringify(payload),
   });
 
   if (!response.ok) {
@@ -94,7 +99,7 @@ export const getLatestStudyPlanArtifact = async (userId) => {
   return { id: artifactSnap.id, ...artifactSnap.data() };
 };
 
-function sanitizeDiagnostic(report) {
+export function sanitizeDiagnostic(report) {
   if (!report) return {};
   return {
     score: report.score,

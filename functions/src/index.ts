@@ -257,7 +257,7 @@ export const generateStudyPlan = onRequest(
     }
 
     try {
-      const {diagnosticReport, userProfile, previousPlans} = request.body;
+      const {diagnosticReport, userProfile, previousPlans, longitudinalContext} = request.body;
 
       if (!diagnosticReport) {
         response.status(400).json({error: "diagnosticReport is required"});
@@ -275,7 +275,8 @@ export const generateStudyPlan = onRequest(
       const userPrompt = buildStudyPlanUserPrompt(
         diagnosticReport,
         userProfile || {},
-        previousPlans || []
+        previousPlans || [],
+        longitudinalContext || null
       );
 
       const anthropicResponse = await fetch(
@@ -1047,7 +1048,8 @@ Your output MUST be valid JSON (no markdown fences) matching this schema:
       ]
     }
   ],
-  "deltaFromPrevious": "string|null — what changed vs the last plan"
+  "deltaFromPrevious": "string|null — what changed vs the last plan",
+  "persistentWeaknessStrategy": "string|null — if longitudinal context shows persistent weaknesses, describe the remediation approach here"
 }
 
 RULES:
@@ -1058,13 +1060,15 @@ RULES:
 - Each week should have 4-8 activities, each 10-30 minutes
 - Use moduleIds from the SAT Math domains: algebra, advanced-math, problem-solving, geometry
 - Always explain WHY each activity is assigned in the subtitle
-- If previous plans exist, note what changed and why`;
+- If previous plans exist, note what changed and why
+- When longitudinal context is provided, prioritize persistent weaknesses that span multiple tests — these require fundamentally different remediation (reteaching, not just more practice)`;
 }
 
 function buildStudyPlanUserPrompt(
   diagnosticReport: Record<string, unknown>,
   userProfile: Record<string, unknown>,
-  previousPlans: unknown[]
+  previousPlans: unknown[],
+  longitudinalContext: Record<string, unknown> | null = null
 ): string {
   const score = diagnosticReport.score as Record<string, unknown> || {};
   const errorPatterns = diagnosticReport.errorPatterns as Record<string, unknown> || {};
@@ -1145,6 +1149,32 @@ Fade effect: ${timeAnalysis.fadeEffect}% accuracy drop in second half`);
     const prevSummary = prev?.summary as Record<string, unknown>;
     sections.push(`\n## Previous Plan Summary: "${prevSummary?.headline || "N/A"}"
 Note what changed and why in your deltaFromPrevious field.`);
+  }
+
+  if (longitudinalContext) {
+    const lc = longitudinalContext;
+    sections.push(`\n## Longitudinal Evidence (across all tests)`);
+
+    const totalTests = lc.totalTests as number || 0;
+    const totalAttempts = lc.totalAttempts as number || 0;
+    if (totalTests > 0) {
+      sections.push(`Tests taken: ${totalTests} (${totalAttempts} total attempts)`);
+    }
+
+    const scoreTrajectory = lc.scoreTrajectory as Array<Record<string, unknown>> || [];
+    if (scoreTrajectory.length > 1) {
+      sections.push(`Score trajectory: ${scoreTrajectory.map(s => `${s.scaledScore}`).join(" → ")}`);
+    }
+
+    const persistentWeaknesses = lc.persistentWeaknesses as Array<Record<string, unknown>> || [];
+    if (persistentWeaknesses.length > 0) {
+      sections.push(`Persistent weaknesses (weak across multiple tests):`);
+      persistentWeaknesses.forEach(pw => {
+        sections.push(`- ${pw.skillId}: ${pw.accuracy}% accuracy across ${pw.testCount} tests (trend: ${pw.trend})`);
+      });
+    }
+
+    sections.push(`IMPORTANT: The plan must prioritize persistent weaknesses — skills that have been consistently weak across multiple tests need fundamentally different remediation than first-time misses.`);
   }
 
   sections.push(`\nGenerate the JSON study plan now.`);

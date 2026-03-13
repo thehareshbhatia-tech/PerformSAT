@@ -17541,6 +17541,7 @@ const PerformSAT = () => {
             studyPlan={studyPlan}
             practiceTestResults={practiceTestResults}
             practiceProgress={practiceProgress}
+            skillProgress={skillProgress}
             reviewQueue={reviewQueue}
             user={user}
             onNavigateToModule={(moduleId, lessonId) => {

@@ -2,6 +2,16 @@ import { db } from '../firebase/config';
 import { doc, getDoc, setDoc, updateDoc, serverTimestamp, arrayUnion, collection, addDoc, query, where, orderBy, limit, getDocs } from 'firebase/firestore';
 
 /**
+ * Generate a short unique attempt identifier.
+ * Format: timestamp-based hex + random suffix for collision safety.
+ */
+export const generateAttemptId = () => {
+  const ts = Date.now().toString(36);
+  const rand = Math.random().toString(36).slice(2, 8);
+  return `${ts}-${rand}`;
+};
+
+/**
  * Records a practice test result to Firestore
  * @param {string} userId - User ID
  * @param {string} testId - Test ID (e.g., "practice-test-1")
@@ -29,6 +39,7 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
     console.log('[practiceTestService] Progress document exists:', progressSnap.exists());
 
     const attemptData = {
+      attemptId: results.attemptId || generateAttemptId(),
       completedAt: new Date().toISOString(),
       rawScore: results.rawScore,
       totalQuestions: results.totalQuestions,
@@ -40,6 +51,8 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
       thetaEstimate: results.thetaEstimate ?? null,
       standardError: results.standardError ?? null,
       routeTaken: results.routeTaken || null,
+      aiArtifactId: results.aiArtifactId || null,
+      studyPlanArtifactId: results.studyPlanArtifactId || null,
     };
 
     if (!progressSnap.exists()) {
@@ -276,6 +289,47 @@ export const getInProgressTestSummaries = (inProgressTests) => {
   }));
 };
 
+/**
+ * Back-link artifact IDs onto a stored attempt record.
+ * Called after AI diagnostic or study plan artifacts are created,
+ * so the attempt carries pointers to its associated artifacts.
+ */
+export const linkArtifactToAttempt = async (userId, testId, attemptId, links = {}) => {
+  if (!userId || !testId || !attemptId) return;
+
+  try {
+    const progressRef = doc(db, 'progress', userId);
+    const snap = await getDoc(progressRef);
+    if (!snap.exists()) return;
+
+    const data = snap.data();
+    const testRecord = data.practiceTestResults?.[testId];
+    if (!testRecord?.attempts) return;
+
+    const attemptIdx = testRecord.attempts.findIndex(a => a.attemptId === attemptId);
+    if (attemptIdx === -1) return;
+
+    const updates = {};
+    if (links.aiArtifactId) {
+      updates[`practiceTestResults.${testId}.attempts`] = testRecord.attempts.map((a, i) =>
+        i === attemptIdx ? { ...a, aiArtifactId: links.aiArtifactId } : a
+      );
+    }
+    if (links.studyPlanArtifactId) {
+      const current = updates[`practiceTestResults.${testId}.attempts`] || testRecord.attempts;
+      updates[`practiceTestResults.${testId}.attempts`] = current.map((a, i) =>
+        i === attemptIdx ? { ...a, studyPlanArtifactId: links.studyPlanArtifactId } : a
+      );
+    }
+
+    if (Object.keys(updates).length > 0) {
+      await updateDoc(progressRef, updates);
+    }
+  } catch (err) {
+    console.warn('[practiceTestService] linkArtifactToAttempt error (non-blocking):', err.message);
+  }
+};
+
 // ===== AI Diagnostic Artifact Storage =====
 
 /**
@@ -295,17 +349,19 @@ export const AI_DIAGNOSTIC_STATUS = {
 /**
  * Creates a placeholder artifact when generation starts, returns its ID.
  */
-export const createAiDiagnosticArtifact = async (userId, testId, attemptTimestamp) => {
+export const createAiDiagnosticArtifact = async (userId, testId, attemptTimestamp, attemptId = null) => {
   if (!userId || !testId) return null;
 
   const colRef = collection(db, 'progress', userId, 'aiDiagnostics');
-  const artifactRef = await addDoc(colRef, {
+  const data = {
     testId,
     attemptTimestamp,
     status: AI_DIAGNOSTIC_STATUS.GENERATING,
     createdAt: serverTimestamp(),
-  });
+  };
+  if (attemptId) data.attemptId = attemptId;
 
+  const artifactRef = await addDoc(colRef, data);
   return artifactRef.id;
 };
 

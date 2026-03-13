@@ -6,14 +6,16 @@ import { MathText } from './MathText';
 import SolutionExplanation from './SolutionExplanation';
 import QuestionRenderer from './QuestionRenderer';
 import { recordSkillAttempts } from '../services/skillService';
-import { generateStudyPlan as generateStudyPlanFromAI, saveStudyPlanArtifact } from '../services/studyPlanService';
 import { generateDiagnosticNarrative } from '../services/diagnosticNarrativeService';
 import {
   createAiDiagnosticArtifact,
   completeAiDiagnosticArtifact,
   failAiDiagnosticArtifact,
   getReadyAiDiagnostic,
+  generateAttemptId,
+  linkArtifactToAttempt,
 } from '../services/practiceTestService';
+import { generateAndPersistHybridPlan } from '../services/hybridStudyPlanService';
 import { runDiagnostic } from '../services/diagnosticEngine';
 import { getTargetedWeaknessSet } from '../data/questions/bank';
 import DiagnosticReport from './DiagnosticReport';
@@ -865,6 +867,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   const diagnosticDataRef = useRef(null);
   const diagnosticReportRef = useRef(null);
   const attemptTimestampRef = useRef(null);
+  const attemptIdRef = useRef(null);
 
   const module = test.modules[currentModule];
   const questions = module?.questions || [];
@@ -1052,7 +1055,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
 
       // IRT-based scoring via central engine
       const scored = scoreTest(test, answers, { timedMode: isTimed, diagnosticData });
+      const newAttemptId = generateAttemptId();
+      attemptIdRef.current = newAttemptId;
       const resultsToSave = {
+        attemptId: newAttemptId,
         rawScore: scored.rawScore,
         totalQuestions: scored.totalQuestions,
         scaledScore: scored.sectionScore,
@@ -1107,7 +1113,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     }
   }, [testCompleted, onSaveResult, onClearProgress, resultSaved, test, answers, isTimed, user]);
 
-  // Post-test: generate AI study plan once results are saved
+  // Post-test: generate hybrid study plan once results are saved
   const planGenerationAttempted = useRef(false);
   useEffect(() => {
     if (!resultSaved || planGenerationAttempted.current || !user?.uid) return;
@@ -1115,20 +1121,28 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
 
     (async () => {
       try {
-        console.log('[PracticeTest] Triggering AI study plan generation...');
+        console.log('[PracticeTest] Triggering hybrid study plan generation...');
         const diagReport = diagnosticReportRef.current;
         if (!diagReport) {
           console.warn('[PracticeTest] No diagnostic report available — skipping study plan generation');
           return;
         }
 
-        const { plan, generatedAt, model } = await generateStudyPlanFromAI(
-          diagReport,
-          { targetScore: user.targetScore, testDate: user.testDate },
-          []
-        );
-
         const groundTruth = buildGroundTruthDiagnosis(diagReport, questionTelemetry.current);
+
+        const { artifactId, artifact } = await generateAndPersistHybridPlan({
+          userId: user.uid,
+          diagnostic: diagReport,
+          userProfile: { targetScore: user.targetScore, testDate: user.testDate },
+          completedLessons,
+          practiceProgress,
+          practiceTestResults: practiceTestResults || {},
+          previousPlan: null,
+          attemptId: attemptIdRef.current,
+          aiArtifactId: null,
+        });
+
+        const plan = artifact.plan || {};
         plan.strengths = groundTruth.strengths;
         plan.weaknesses = groundTruth.weaknesses;
         plan.calculatorDependency = groundTruth.calculatorDependency;
@@ -1155,21 +1169,21 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           }));
         }
 
-        await saveStudyPlanArtifact(user.uid, plan, {
-          generatedAt,
-          sourceTestId: test.id,
-          model,
-        });
+        if (attemptIdRef.current && artifactId) {
+          linkArtifactToAttempt(user.uid, test.id, attemptIdRef.current, {
+            studyPlanArtifactId: artifactId,
+          }).catch(() => {});
+        }
 
         if (onSaveStudyPlan) {
           onSaveStudyPlan(plan);
         }
-        console.log('[PracticeTest] AI study plan saved successfully');
+        console.log('[PracticeTest] Hybrid study plan saved successfully, artifactId:', artifactId);
       } catch (err) {
         console.error('[PracticeTest] Study plan generation failed (non-blocking):', err);
       }
     })();
-  }, [resultSaved, user, test, answers, skillProgress, practiceTestResults, onSaveStudyPlan]);
+  }, [resultSaved, user, test, answers, skillProgress, practiceTestResults, completedLessons, practiceProgress, onSaveStudyPlan]);
 
   // Post-test: generate AI diagnostic narrative automatically
   const diagnosticNarrativeAttempted = useRef(false);
@@ -1188,7 +1202,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         console.log('[PracticeTest] Generating AI diagnostic narrative...');
 
         try {
-          artifactId = await createAiDiagnosticArtifact(user.uid, test.id, attemptTs);
+          artifactId = await createAiDiagnosticArtifact(user.uid, test.id, attemptTs, attemptIdRef.current);
         } catch (storeErr) {
           console.warn('[PracticeTest] Artifact creation failed (non-blocking):', storeErr.message);
         }
@@ -1200,6 +1214,11 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
 
         if (artifactId) {
           await completeAiDiagnosticArtifact(user.uid, artifactId, narrative, { generatedAt, model, promptVersion, quality }).catch(() => {});
+          if (attemptIdRef.current) {
+            linkArtifactToAttempt(user.uid, test.id, attemptIdRef.current, {
+              aiArtifactId: artifactId,
+            }).catch(() => {});
+          }
         }
 
         setAiDiagnosticState({ status: 'ready', narrative, error: null });
