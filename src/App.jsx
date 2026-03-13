@@ -17310,14 +17310,14 @@ const PerformSAT = () => {
         }}
         user={user}
         onLogout={logout}
-        hideNav={view === 'takingTest'}
+        hideNav={view === 'takingTest' || view === 'learn'}
       >
       {/* Main Content */}
       <main id="main-content" style={{
         maxWidth: view === 'learn' || view === 'takingTest' ? '100%' : view === 'lesson' ? '1100px' : (view === 'dashboard' || view === 'practiceTests' || view === 'diagnosticReport' || view === 'studyPlan') ? '960px' : '800px',
         margin: '0 auto',
         padding: view === 'learn' ? '0' : view === 'takingTest' ? '32px 0px 60px' : '32px 32px 100px',
-        ...(view === 'learn' ? { overflow: 'hidden', height: 'calc(100vh - 64px)' } : {})
+        ...(view === 'learn' ? { overflow: 'hidden', height: '100vh' } : {})
       }}>
         {/* Standalone AI Tutor View */}
         {view === 'tutor' && (
