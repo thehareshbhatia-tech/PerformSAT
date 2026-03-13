@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { colors, typography, spacing, radius, transitions, breakpoints } from '../design/tokens';
 import { cardStyles } from '../design/components';
+import { MathText } from './MathText';
 import { DataCard } from './ui/DataCard';
 import { PrimaryButton } from './ui/Button';
 import { reprioritizePlan } from '../services/adaptivePlanService';
@@ -180,7 +181,7 @@ const StudyPlanDashboard = ({
             </div>
             {summary?.diagnosis && (
               <p style={{ fontSize: typography.sizes.sm, color: colors.text.secondary, marginTop: '6px', lineHeight: '1.5', maxWidth: '560px' }}>
-                {summary.diagnosis}
+                <MathText>{summary.diagnosis}</MathText>
               </p>
             )}
           </div>
@@ -238,11 +239,11 @@ const StudyPlanDashboard = ({
             Do This Now
           </div>
           <div style={{ fontSize: typography.sizes.base, fontWeight: typography.weights.bold, color: '#fff', marginBottom: '4px' }}>
-            {nextAction.title}
+            <MathText>{nextAction.title}</MathText>
           </div>
           {nextAction.subtitle && (
             <div style={{ fontSize: typography.sizes.sm, color: 'rgba(255,255,255,0.85)', lineHeight: '1.4' }}>
-              {nextAction.subtitle}
+              <MathText>{nextAction.subtitle}</MathText>
             </div>
           )}
           {nextAction.duration && (
@@ -291,7 +292,7 @@ const StudyPlanDashboard = ({
                       {domainLabels[q.domain] || q.domain}
                     </span>
                     <span style={{ flex: 1, color: colors.text.secondary, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                      {q.question.length > 80 ? q.question.slice(0, 80) + '...' : q.question}
+                      <MathText>{q.question.length > 80 ? q.question.slice(0, 80) + '...' : q.question}</MathText>
                     </span>
                   </div>
                 );
@@ -333,10 +334,10 @@ const StudyPlanDashboard = ({
                   <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div style={{ fontSize: typography.sizes.sm, fontWeight: typography.weights.medium, color: colors.text.primary, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                        {w.skill}
+                        <MathText>{w.skill}</MathText>
                       </div>
                       <div style={{ fontSize: typography.sizes.xs, color: colors.text.muted }}>
-                        {w.evidence || w.errorType}
+                        <MathText>{w.evidence || w.errorType}</MathText>
                       </div>
                     </div>
                     <span style={{
@@ -415,14 +416,14 @@ const StudyPlanDashboard = ({
                   <div style={{ padding: '12px', background: colors.surface.offWhite, borderRadius: radius.sm }}>
                     <div style={{ fontSize: typography.sizes.xs, fontWeight: typography.weights.semibold, color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '4px' }}>Stamina</div>
                     <div style={{ fontSize: typography.sizes.xl, fontWeight: typography.weights.bold, color: staminaInsight.score >= 70 ? colors.semantic.success : staminaInsight.score >= 50 ? colors.semantic.warning : colors.semantic.error }}>{staminaInsight.score}</div>
-                    <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary, lineHeight: '1.3', marginTop: '4px' }}>{staminaInsight.message}</div>
+                    <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary, lineHeight: '1.3', marginTop: '4px' }}><MathText>{staminaInsight.message}</MathText></div>
                   </div>
                 )}
                 {calculatorDependency && (
                   <div style={{ padding: '12px', background: colors.surface.offWhite, borderRadius: radius.sm }}>
                     <div style={{ fontSize: typography.sizes.xs, fontWeight: typography.weights.semibold, color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '4px' }}>Calculator</div>
                     <div style={{ fontSize: typography.sizes.xl, fontWeight: typography.weights.bold, color: calculatorDependency.usagePercent > 60 ? colors.semantic.warning : colors.text.primary }}>{calculatorDependency.usagePercent}%</div>
-                    <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary, lineHeight: '1.3', marginTop: '4px' }}>{calculatorDependency.insight}</div>
+                    <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary, lineHeight: '1.3', marginTop: '4px' }}><MathText>{calculatorDependency.insight}</MathText></div>
                   </div>
                 )}
                 {eliminationEffectiveness && (
@@ -558,7 +559,7 @@ const StudyPlanDashboard = ({
                         padding: `${spacing.xs} 0`, marginBottom: spacing.xs,
                         borderBottom: `1px solid ${colors.surface.gray}`,
                       }}>
-                        Goal: {week.goalDescription}
+                        Goal: <MathText>{week.goalDescription}</MathText>
                       </div>
                     )}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
@@ -605,11 +606,11 @@ const StudyPlanDashboard = ({
                                 textDecoration: isCompleted ? 'line-through' : 'none',
                                 whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
                               }}>
-                                {activity.title}
+                                <MathText>{activity.title}</MathText>
                               </div>
                               {activity.subtitle && (
                                 <div style={{ fontSize: typography.sizes.xs, color: colors.text.muted, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                                  {activity.subtitle}
+                                  <MathText>{activity.subtitle}</MathText>
                                 </div>
                               )}
                             </div>

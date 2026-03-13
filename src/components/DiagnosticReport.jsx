@@ -20,6 +20,7 @@ import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { runDiagnostic, ERROR_TYPES, ERROR_TYPE_LABELS, ERROR_TYPE_ICONS, ERROR_TYPE_COLORS } from '../services/diagnosticEngine';
 import { generateStudyPlan, compareDiagnostics } from '../services/studyPlanGenerator';
 import ErrorRecoveryDrills from './ErrorRecoveryDrills';
+import { MathText } from './MathText';
 import { colors, typography, spacing, radius, shadows, transitions } from '../design/tokens';
 import { cardStyles, buttonStyles } from '../design/components';
 import {
@@ -301,7 +302,7 @@ const QuestionBreakdown = ({ questionAnalysis }) => {
               {/* AI reasoning */}
               {!q.isCorrect && q.reasoning && (
                 <div style={{ fontSize: '13px', color: colors.text.secondary, lineHeight: '1.5' }}>
-                  {q.reasoning}
+                  <MathText>{q.reasoning}</MathText>
                 </div>
               )}
 
@@ -541,7 +542,7 @@ const DiagnosticReport = ({
           )}
         </div>
         <div style={{ fontSize: '14px', opacity: 0.8, marginBottom: '20px', lineHeight: '1.6' }}>
-          {planSummary.headline}
+          <MathText>{planSummary.headline}</MathText>
         </div>
         <div style={{ display: 'flex', gap: '1px', background: 'rgba(255,255,255,0.1)', borderRadius: radius.md, overflow: 'hidden' }}>
           <StatBox value={planSummary.stats.currentScore} label="Current" color="white" />
@@ -588,7 +589,7 @@ const DiagnosticReport = ({
                 <div style={{ fontSize: '26px', fontWeight: '800', color: colors.text.primary }}>{scenario.projectedScore}</div>
                 <div style={{ fontSize: '12px', fontWeight: '600', color: colors.text.secondary, marginTop: '2px' }}>{scenario.label}</div>
                 <div style={{ fontSize: '11px', color: colors.text.tertiary, marginTop: '4px' }}>{scenario.adherence}% completion</div>
-                <div style={{ fontSize: '10px', color: colors.text.tertiary, marginTop: '2px' }}>{scenario.description}</div>
+                <div style={{ fontSize: '10px', color: colors.text.tertiary, marginTop: '2px' }}><MathText>{scenario.description}</MathText></div>
               </div>
             ))}
           </div>
@@ -621,8 +622,8 @@ const DiagnosticReport = ({
                 {ms.type === 'goal' ? <StarFilledIcon size={14} color="white" /> : `W${ms.weekNumber}`}
               </div>
               <div style={{ flex: 1 }}>
-                <div style={{ fontSize: '14px', fontWeight: '600', color: colors.text.primary }}>{ms.title}</div>
-                <div style={{ fontSize: '13px', color: colors.text.tertiary, lineHeight: '1.5' }}>{ms.description}</div>
+                <div style={{ fontSize: '14px', fontWeight: '600', color: colors.text.primary }}><MathText>{ms.title}</MathText></div>
+                <div style={{ fontSize: '13px', color: colors.text.tertiary, lineHeight: '1.5' }}><MathText>{ms.description}</MathText></div>
               </div>
               <div style={{ fontSize: '14px', fontWeight: '700', color: ms.type === 'goal' ? colors.semantic.success : colors.accent.orange, flexShrink: 0 }}>
                 {ms.targetScore}
@@ -660,9 +661,9 @@ const DiagnosticReport = ({
                   }}>
                     Week {week.weekNumber}
                   </span>
-                  <span style={{ fontSize: '15px', fontWeight: '600', color: colors.text.primary }}>{week.title}</span>
+                  <span style={{ fontSize: '15px', fontWeight: '600', color: colors.text.primary }}><MathText>{week.title}</MathText></span>
                 </div>
-                <div style={{ fontSize: '13px', color: colors.text.tertiary, marginTop: '4px' }}>{week.goalDescription}</div>
+                <div style={{ fontSize: '13px', color: colors.text.tertiary, marginTop: '4px' }}><MathText>{week.goalDescription}</MathText></div>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                 <span style={{ fontSize: '12px', color: colors.text.tertiary }}>{week.totalMinutes} min</span>
@@ -696,8 +697,8 @@ const DiagnosticReport = ({
                       >
                         <span style={{ fontSize: '20px', flexShrink: 0 }}>{activity.icon}</span>
                         <div style={{ flex: 1, minWidth: 0 }}>
-                          <div style={{ fontSize: '14px', fontWeight: '600', color: colors.text.primary }}>{activity.title}</div>
-                          <div style={{ fontSize: '12px', color: colors.text.tertiary }}>{activity.subtitle}</div>
+                          <div style={{ fontSize: '14px', fontWeight: '600', color: colors.text.primary }}><MathText>{activity.title}</MathText></div>
+                          <div style={{ fontSize: '12px', color: colors.text.tertiary }}><MathText>{activity.subtitle}</MathText></div>
                         </div>
                         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', flexShrink: 0, gap: '2px' }}>
                           {activity.day && (
@@ -722,7 +723,7 @@ const DiagnosticReport = ({
                       .slice(0, 3)
                       .map((tip, i) => (
                         <div key={i} style={{ fontSize: '12px', color: '#1e40af', lineHeight: '1.5', paddingLeft: '12px', borderLeft: `2px solid ${colors.semantic.info}`, marginBottom: '6px' }}>
-                          {tip}
+                          <MathText>{tip}</MathText>
                         </div>
                       ))}
                   </div>

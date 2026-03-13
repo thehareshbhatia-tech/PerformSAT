@@ -1,6 +1,7 @@
 import React, { useMemo, useRef, useEffect } from 'react';
 import LearnRail from './LearnRail';
 import AiTutorChat from '../AiTutorChat';
+import { renderRichText } from '../RichMathText';
 import ContentTabRenderer from './ContentTabRenderer';
 import { PrimaryButton } from '../ui/Button';
 import { getContentTabForLesson } from '../../data/contentTabs/lessonContentIndex';
@@ -101,7 +102,7 @@ const LearnWorkspace = ({
               <div className="lesson-stage__video-summary">
                 <h3 className="lesson-stage__video-summary-title">Video summary</h3>
                 <p className="lesson-stage__video-summary-text">
-                  {contentTab.sections.learn.summary}
+                  {renderRichText(contentTab.sections.learn.summary)}
                 </p>
               </div>
             )}

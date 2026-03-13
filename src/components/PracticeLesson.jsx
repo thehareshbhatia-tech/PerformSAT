@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import SolutionExplanation from './SolutionExplanation';
+import { MathText } from './MathText';
 import { colors, typography, radius, shadows, transitions } from '../design/tokens';
 import { CheckIcon, CrossIcon } from '../design/icons';
 
@@ -157,16 +158,16 @@ const PracticeLesson = ({ lesson, onComplete, onBack }) => {
                       margin: '0 0 8px',
                       fontWeight: '500',
                     }}>
-                      {q?.question}
+                      <MathText>{q?.question}</MathText>
                     </p>
                     <p style={{
                       fontSize: '14px',
                       color: colors.text.secondary,
                       margin: '0',
                     }}>
-                      <span style={{ color: colors.semantic.error }}>Your answer: {answer.selected}</span>
+                      <span style={{ color: colors.semantic.error }}>Your answer: <MathText>{answer.selected}</MathText></span>
                       {' | '}
-                      <span style={{ color: colors.semantic.success }}>Correct: {answer.correct}</span>
+                      <span style={{ color: colors.semantic.success }}>Correct: <MathText>{answer.correct}</MathText></span>
                     </p>
                   </div>
                 );
@@ -283,7 +284,7 @@ const PracticeLesson = ({ lesson, onComplete, onBack }) => {
           lineHeight: '1.6',
           margin: '0 0 28px',
         }}>
-          {currentQuestion?.question}
+          <MathText>{currentQuestion?.question}</MathText>
         </p>
 
         {/* Answer Choices */}
@@ -372,7 +373,7 @@ const PracticeLesson = ({ lesson, onComplete, onBack }) => {
                   fontWeight: '500',
                   color: textColor,
                 }}>
-                  {choice.text}
+                  <MathText>{choice.text}</MathText>
                 </span>
               </button>
             );

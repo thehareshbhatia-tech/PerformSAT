@@ -9,19 +9,15 @@ import { MathText } from './MathText';
  * Renders a single segment (either text or math)
  */
 const Segment = ({ segment }) => {
-  // Handle string segments (plain text)
   if (typeof segment === 'string') {
-    return <span>{segment}</span>;
+    return <MathText>{segment}</MathText>;
   }
 
-  // Handle object segments
   if (segment.text) {
-    // Plain text segment
-    return <span>{segment.text}</span>;
+    return <MathText>{segment.text}</MathText>;
   }
 
   if (segment.math) {
-    // Math segment - use display mode or inline based on flag
     if (segment.display) {
       return (
         <div style={{ margin: '8px 0' }}>
@@ -32,8 +28,7 @@ const Segment = ({ segment }) => {
     return <InlineMath math={segment.math} />;
   }
 
-  // Fallback for unknown format
-  return <span>{String(segment)}</span>;
+  return <MathText>{String(segment)}</MathText>;
 };
 
 /**
@@ -82,7 +77,7 @@ const QuestionRenderer = ({ content, className = '', style = {} }) => {
   }
 
   // Fallback
-  return <span className={className} style={style}>{String(content)}</span>;
+  return <MathText className={className} style={style}>{String(content)}</MathText>;
 };
 
 /**

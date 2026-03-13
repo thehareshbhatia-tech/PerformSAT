@@ -8,6 +8,7 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { colors, radius, shadows } from '../design/tokens';
 import { cardStyles, buttonStyles } from '../design/components';
+import { MathText } from './MathText';
 import './TestResults.css';
 import { ChartBarIcon, ArrowRightIcon } from '../design/icons';
 import {
@@ -1322,7 +1323,7 @@ const TestResults = ({
                           <div>
                             <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-slate-400)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '6px' }}>What we found</div>
                             <div style={{ fontFamily: 'var(--font-ui)', fontSize: '17px', fontWeight: '600', color: 'var(--color-slate-900)', lineHeight: '1.55', letterSpacing: '-0.01em' }}>
-                              {diagClean}
+                              <MathText>{diagClean}</MathText>
                             </div>
                             {diagMetrics.length > 0 && (
                               <div style={{ marginTop: '10px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
@@ -1331,7 +1332,7 @@ const TestResults = ({
                                   {diagMetrics.map((m, mi) => (
                                     <li key={mi} style={{ display: 'flex', alignItems: 'baseline', gap: '8px', fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--color-slate-700)', lineHeight: '1.45' }}>
                                       <span style={{ flexShrink: 0, width: '6px', height: '6px', borderRadius: '50%', background: 'var(--color-brand-orange-400)', marginTop: '6px' }} />
-                                      <span><span style={{ fontWeight: '500' }}>{m.label}:</span> <span style={{ fontWeight: '700' }}>{m.value}</span></span>
+                                      <span><span style={{ fontWeight: '500' }}><MathText>{m.label}</MathText>:</span> <span style={{ fontWeight: '700' }}><MathText>{m.value}</MathText></span></span>
                                     </li>
                                   ))}
                                 </ul>
@@ -1345,19 +1346,19 @@ const TestResults = ({
                             {rawPt.causalMechanism && (
                               <div style={{ padding: '14px 18px', borderRadius: '12px', background: 'var(--color-slate-50)', border: '1px solid var(--color-slate-100)' }}>
                                 <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-slate-400)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '6px' }}>Why this happens</div>
-                                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', fontWeight: '500', color: 'var(--color-slate-700)', lineHeight: '1.55' }}>{rawPt.causalMechanism}</div>
+                                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', fontWeight: '500', color: 'var(--color-slate-700)', lineHeight: '1.55' }}><MathText>{rawPt.causalMechanism}</MathText></div>
                               </div>
                             )}
                             {rawPt.evidence && (
                               <div style={{ padding: '14px 18px', borderRadius: '12px', background: 'var(--color-slate-50)', border: '1px solid var(--color-slate-100)' }}>
                                 <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-slate-400)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '6px' }}>The data behind it</div>
-                                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '500', color: 'var(--color-slate-600)', lineHeight: '1.5', fontStyle: 'italic' }}>{rawPt.evidence}</div>
+                                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '500', color: 'var(--color-slate-600)', lineHeight: '1.5', fontStyle: 'italic' }}><MathText>{rawPt.evidence}</MathText></div>
                               </div>
                             )}
                             {rawPt.estimatedImpact && (
                               <div style={{ padding: '14px 18px', borderRadius: '12px', background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.15)' }}>
                                 <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-warning-600)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '6px' }}>What it means for your score</div>
-                                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', fontWeight: '600', color: 'var(--color-warning-700)', lineHeight: '1.5' }}>{rawPt.estimatedImpact}</div>
+                                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', fontWeight: '600', color: 'var(--color-warning-700)', lineHeight: '1.5' }}><MathText>{rawPt.estimatedImpact}</MathText></div>
                               </div>
                             )}
                           </div>
@@ -1456,14 +1457,14 @@ const TestResults = ({
                         <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: isPartial ? 'var(--color-slate-200)' : 'var(--color-info-100)', color: isPartial ? 'var(--color-slate-500)' : 'var(--color-info-700)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: '800', flexShrink: 0, marginTop: '1px' }}>{i + 1}</div>
                         <div style={{ flex: 1, minWidth: 0 }}>
                           <div style={{ fontSize: '16px', color: 'var(--color-slate-900)', lineHeight: '1.55', fontFamily: 'var(--font-ui)', fontWeight: '600' }}>
-                            {cleanedClaim}
+                            <MathText>{cleanedClaim}</MathText>
                           </div>
                           {behaviorMetrics.length > 0 && (
                             <ul style={{ margin: '8px 0 0', padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '4px' }}>
                               {behaviorMetrics.map((m, mi) => (
                                 <li key={mi} style={{ display: 'flex', alignItems: 'baseline', gap: '8px', fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--color-slate-600)', lineHeight: '1.4' }}>
                                   <span style={{ flexShrink: 0, width: '5px', height: '5px', borderRadius: '50%', background: 'var(--color-info-400)', marginTop: '6px' }} />
-                                  <span><span style={{ fontWeight: '500' }}>{m.label}:</span> <span style={{ fontWeight: '700', color: 'var(--color-slate-800)' }}>{m.value}</span></span>
+                                  <span><span style={{ fontWeight: '500' }}><MathText>{m.label}</MathText>:</span> <span style={{ fontWeight: '700', color: 'var(--color-slate-800)' }}><MathText>{m.value}</MathText></span></span>
                                 </li>
                               ))}
                             </ul>
@@ -1482,19 +1483,19 @@ const TestResults = ({
                           {mechanism && (
                             <div>
                               <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-slate-400)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '4px' }}>Why this happens</div>
-                              <div style={{ fontSize: '14px', color: 'var(--color-slate-700)', lineHeight: '1.5', fontFamily: 'var(--font-ui)', fontWeight: '500' }}>{mechanism}</div>
+                              <div style={{ fontSize: '14px', color: 'var(--color-slate-700)', lineHeight: '1.5', fontFamily: 'var(--font-ui)', fontWeight: '500' }}><MathText>{mechanism}</MathText></div>
                             </div>
                           )}
                           {evidence && (
                             <div>
                               <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-slate-400)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '4px' }}>The proof</div>
-                              <div style={{ fontSize: '13px', color: 'var(--color-slate-600)', lineHeight: '1.5', fontFamily: 'var(--font-ui)', fontWeight: '500', fontStyle: 'italic' }}>{evidence}</div>
+                              <div style={{ fontSize: '13px', color: 'var(--color-slate-600)', lineHeight: '1.5', fontFamily: 'var(--font-ui)', fontWeight: '500', fontStyle: 'italic' }}><MathText>{evidence}</MathText></div>
                             </div>
                           )}
                           {impact && (
                             <div style={{ padding: '10px 14px', borderRadius: '10px', background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.12)' }}>
                               <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', color: 'var(--color-warning-600)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '4px' }}>Score consequence</div>
-                              <div style={{ fontSize: '14px', color: 'var(--color-warning-700)', lineHeight: '1.5', fontFamily: 'var(--font-ui)', fontWeight: '600' }}>{impact}</div>
+                              <div style={{ fontSize: '14px', color: 'var(--color-warning-700)', lineHeight: '1.5', fontFamily: 'var(--font-ui)', fontWeight: '600' }}><MathText>{impact}</MathText></div>
                             </div>
                           )}
                         </div>
@@ -1614,11 +1615,11 @@ const TestResults = ({
                       return (
                         <div key={i} className="diag-supporting-evidence-card" style={{ background: accentBg }}>
                           <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: '12px' }}>
-                            <span style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '600', color: 'var(--color-slate-700)' }}>{ev.label}</span>
-                            <span style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', fontWeight: '800', color: evColor, whiteSpace: 'nowrap', fontVariantNumeric: 'tabular-nums' }}>{ev.value}</span>
+                            <span style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '600', color: 'var(--color-slate-700)' }}><MathText>{ev.label}</MathText></span>
+                            <span style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', fontWeight: '800', color: evColor, whiteSpace: 'nowrap', fontVariantNumeric: 'tabular-nums' }}><MathText>{ev.value}</MathText></span>
                           </div>
                           <div style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '500', color: 'var(--color-slate-500)', lineHeight: '1.45' }}>
-                            {interpretation}
+                            <MathText>{interpretation}</MathText>
                           </div>
                         </div>
                       );
@@ -1643,10 +1644,10 @@ const TestResults = ({
             </div>
             
             {block.transition && (
-              <div className="diag-claim-text" style={{ color: 'var(--diag-muted)', marginBottom: '20px' }}>{block.transition}</div>
+              <div className="diag-claim-text" style={{ color: 'var(--diag-muted)', marginBottom: '20px' }}><MathText>{block.transition}</MathText></div>
             )}
             <div className="diag-claim-text" style={{ marginBottom: item.reasons?.length > 0 ? '20px' : '32px' }}>
-              {item.text}
+              <MathText>{item.text}</MathText>
             </div>
             {item.reasons?.length > 0 && (
             <ul style={{ 
@@ -1677,7 +1678,7 @@ const TestResults = ({
                       background: 'var(--color-brand-orange-500)', 
                       marginTop: '8px' 
                     }} />
-                    {cleanedReason}
+                    <MathText>{cleanedReason}</MathText>
                   </li>
                 );
               })}
@@ -1765,13 +1766,13 @@ const TestResults = ({
                     return (
                       <div key={i} style={{ padding: '18px 22px', borderRadius: '14px', background: 'rgba(251,146,60,0.04)', border: '1px solid rgba(251,146,60,0.12)', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                         <div>
-                          <span style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', fontWeight: '600', color: colors.text.primary, lineHeight: '1.5' }}>{overflowClean}</span>
+                          <span style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', fontWeight: '600', color: colors.text.primary, lineHeight: '1.5' }}><MathText>{overflowClean}</MathText></span>
                           {overflowMetrics.length > 0 && (
                             <ul style={{ margin: '6px 0 0', padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '3px' }}>
                               {overflowMetrics.map((m, mi) => (
                                 <li key={mi} style={{ display: 'flex', alignItems: 'baseline', gap: '8px', fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--color-slate-700)', lineHeight: '1.4' }}>
                                   <span style={{ flexShrink: 0, width: '5px', height: '5px', borderRadius: '50%', background: 'var(--color-brand-orange-400)', marginTop: '5px' }} />
-                                  <span><span style={{ fontWeight: '500' }}>{m.label}:</span> <span style={{ fontWeight: '700' }}>{m.value}</span></span>
+                                  <span><span style={{ fontWeight: '500' }}><MathText>{m.label}</MathText>:</span> <span style={{ fontWeight: '700' }}><MathText>{m.value}</MathText></span></span>
                                 </li>
                               ))}
                             </ul>
@@ -1779,7 +1780,7 @@ const TestResults = ({
                         </div>
                         {pt.causalMechanism && (
                           <div style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '500', color: 'var(--color-slate-500)', lineHeight: '1.45' }}>
-                            <span style={{ fontWeight: '700', color: 'var(--color-slate-400)', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Why: </span>{pt.causalMechanism}
+                            <span style={{ fontWeight: '700', color: 'var(--color-slate-400)', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Why: </span><MathText>{pt.causalMechanism}</MathText>
                           </div>
                         )}
                       </div>
