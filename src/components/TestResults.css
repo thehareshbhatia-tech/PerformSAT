@@ -29,20 +29,37 @@
   display: flex;
   flex-direction: column;
   gap: 0;
-  animation: diagFadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.diag-story-section:nth-child(1) { animation-delay: 0.1s; }
-.diag-story-section:nth-child(2) { animation-delay: 0.2s; }
-.diag-story-section:nth-child(3) { animation-delay: 0.3s; }
+.diagnostic-ui.diag-entrance .diag-story-section {
+  animation: diagFadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.diagnostic-ui.diag-entrance .diag-story-section:nth-child(1) { animation-delay: 0.1s; }
+.diagnostic-ui.diag-entrance .diag-story-section:nth-child(2) { animation-delay: 0.2s; }
+.diagnostic-ui.diag-entrance .diag-story-section:nth-child(3) { animation-delay: 0.3s; }
 
 @keyframes diagFadeInUp {
   0% { opacity: 0; transform: translateY(16px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 
+/* Smooth status transitions (generating → ready, generating → failed) */
+.diag-status-panel,
+.diag-ready-content {
+  animation: diagFadeIn 0.4s ease-out both;
+}
+
+@keyframes diagFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .diag-story-section {
+  .diag-story-section,
+  .diag-status-panel,
+  .diag-ready-content {
     animation: none;
     opacity: 1;
     transform: none;

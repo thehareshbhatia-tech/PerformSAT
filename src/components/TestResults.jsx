@@ -5,7 +5,7 @@
  * difficulty donut charts, and content domain bars
  */
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { colors, radius, shadows } from '../design/tokens';
 import { cardStyles, buttonStyles } from '../design/components';
 import './TestResults.css';
@@ -371,6 +371,15 @@ const TestResults = ({
   const [showImpact, setShowImpact] = useState(false);
   const [showProof, setShowProof] = useState(false);
   const [showNarrativeDetails, setShowNarrativeDetails] = useState(false);
+  const [diagEntrance, setDiagEntrance] = useState(true);
+  const diagEntranceTimer = useRef(null);
+
+  useEffect(() => {
+    if (diagEntrance) {
+      diagEntranceTimer.current = setTimeout(() => setDiagEntrance(false), 1200);
+    }
+    return () => clearTimeout(diagEntranceTimer.current);
+  }, [diagEntrance]);
 
   const diagUI = useMemo(
     () => adaptDiagnosticForUI(diagnosticReport, diagnosticData),
@@ -1255,7 +1264,7 @@ const TestResults = ({
             </div>
 
             {isGenerating ? (
-              <div style={{ padding: '100px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'var(--color-slate-50)', borderRadius: '24px', border: '1px solid var(--color-slate-200)', boxShadow: 'inset 0 2px 10px rgba(0,0,0,0.02)' }}>
+              <div className="diag-status-panel" style={{ padding: '100px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'var(--color-slate-50)', borderRadius: '24px', border: '1px solid var(--color-slate-200)', boxShadow: 'inset 0 2px 10px rgba(0,0,0,0.02)' }}>
                 <div style={{ width: '56px', height: '56px', border: '4px solid rgba(251,146,60,0.1)', borderTopColor: 'var(--color-brand-orange-500)', borderRadius: '50%', margin: '0 auto 24px', animation: 'spin 1s cubic-bezier(0.5, 0.1, 0.5, 0.9) infinite' }} />
                 <div style={{ fontFamily: 'var(--font-ui)', fontSize: '20px', fontWeight: '700', color: 'var(--color-slate-800)', marginBottom: '8px' }}>Analyzing Your Test</div>
                 <div style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: 'var(--color-slate-500)' }}>We're looking at your answers, timing, and patterns to explain what happened and why...</div>
@@ -1278,7 +1287,7 @@ const TestResults = ({
                 )}
               </div>
             ) : (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <div className="diag-ready-content" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 <div style={{
                   display: 'flex', alignItems: 'baseline', gap: '12px',
                   paddingBottom: '16px', borderBottom: '1px solid var(--color-slate-200)',
@@ -1891,13 +1900,11 @@ const TestResults = ({
       </div>
 
       {/* Content Area */}
-      <div style={{
-        animation: 'fadeIn 0.4s ease-out'
-      }}>
+      <div>
         {activeTab === 'summary'
           ? renderSummaryView()
           : activeTab === 'diagnostic'
-          ? <div className="diagnostic-ui">{renderDiagnosticView()}</div>
+          ? <div className={`diagnostic-ui${diagEntrance ? ' diag-entrance' : ''}`}>{renderDiagnosticView()}</div>
           : renderModuleSummary(parseInt(activeTab.split('-')[1]))
         }
       </div>
