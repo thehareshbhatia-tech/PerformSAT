@@ -45,21 +45,8 @@
   100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Smooth status transitions (generating → ready, generating → failed) */
-.diag-status-panel,
-.diag-ready-content {
-  animation: diagFadeIn 0.4s ease-out both;
-}
-
-@keyframes diagFadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .diag-story-section,
-  .diag-status-panel,
-  .diag-ready-content {
+  .diag-story-section {
     animation: none;
     opacity: 1;
     transform: none;

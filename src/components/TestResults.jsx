@@ -351,6 +351,19 @@ const DonutLegend = () => (
   </div>
 );
 
+const StorySection = ({ stepNumber, stepLabel, children, accent = 'var(--diag-muted)' }) => (
+  <div className="diag-story-section">
+    <div className="diag-story-header">
+      <div className="diag-story-number" style={{ background: accent }}>{stepNumber}</div>
+      <div className="diag-story-title">{stepLabel}</div>
+      <div className="diag-story-line" />
+    </div>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      {children}
+    </div>
+  </div>
+);
+
 const TestResults = ({
   test,
   answers,
@@ -1264,7 +1277,7 @@ const TestResults = ({
             </div>
 
             {isGenerating ? (
-              <div className="diag-status-panel" style={{ padding: '100px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'var(--color-slate-50)', borderRadius: '24px', border: '1px solid var(--color-slate-200)', boxShadow: 'inset 0 2px 10px rgba(0,0,0,0.02)' }}>
+              <div style={{ padding: '100px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'var(--color-slate-50)', borderRadius: '24px', border: '1px solid var(--color-slate-200)', boxShadow: 'inset 0 2px 10px rgba(0,0,0,0.02)' }}>
                 <div style={{ width: '56px', height: '56px', border: '4px solid rgba(251,146,60,0.1)', borderTopColor: 'var(--color-brand-orange-500)', borderRadius: '50%', margin: '0 auto 24px', animation: 'spin 1s cubic-bezier(0.5, 0.1, 0.5, 0.9) infinite' }} />
                 <div style={{ fontFamily: 'var(--font-ui)', fontSize: '20px', fontWeight: '700', color: 'var(--color-slate-800)', marginBottom: '8px' }}>Analyzing Your Test</div>
                 <div style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: 'var(--color-slate-500)' }}>We're looking at your answers, timing, and patterns to explain what happened and why...</div>
@@ -1287,7 +1300,7 @@ const TestResults = ({
                 )}
               </div>
             ) : (
-              <div className="diag-ready-content" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 <div style={{
                   display: 'flex', alignItems: 'baseline', gap: '12px',
                   paddingBottom: '16px', borderBottom: '1px solid var(--color-slate-200)',
@@ -1710,27 +1723,10 @@ const TestResults = ({
     const getBlock = (id) => blocks.find(b => b.id === id);
     const hasDetails = (details.overflowDiagnosis && details.overflowDiagnosis.length > 0) || details.uncertainties || details.qualityFailed;
 
-    const storyStepNum = { current: 0 };
-    const StorySection = ({ stepLabel, children, accent = 'var(--diag-muted)' }) => {
-      storyStepNum.current += 1;
-      const num = storyStepNum.current;
-      return (
-        <div className="diag-story-section">
-          <div className="diag-story-header">
-            <div className="diag-story-number" style={{ background: accent }}>{num}</div>
-            <div className="diag-story-title">{stepLabel}</div>
-            <div className="diag-story-line" />
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            {children}
-          </div>
-        </div>
-      );
-    };
-
     const hasWhatHappened = getBlock('context') || getBlock('behaviorAmplifier');
     const hasEvidence = getBlock('evidence');
     const hasAction = getBlock('nextMove');
+    let stepCounter = 0;
 
     return (
       <div style={{ padding: '16px 0 40px', display: 'flex', flexDirection: 'column', gap: '48px' }}>
@@ -1751,7 +1747,7 @@ const TestResults = ({
 
         {/* ── STEP 1: WHAT HAPPENED ── */}
         {hasWhatHappened && (
-          <StorySection stepLabel="What Happened" accent="var(--diag-accent-primary)">
+          <StorySection stepNumber={++stepCounter} stepLabel="What Happened" accent="var(--diag-accent-primary)">
             {getBlock('context') && (
               <div className="diag-card-base">
                 {renderBlock(getBlock('context'), 0)}
@@ -1807,7 +1803,7 @@ const TestResults = ({
 
         {/* ── STEP 2: THE EVIDENCE ── */}
         {hasEvidence && (
-          <StorySection stepLabel="The Evidence" accent="var(--diag-accent-info)">
+          <StorySection stepNumber={++stepCounter} stepLabel="The Evidence" accent="var(--diag-accent-info)">
             <div className="diag-card-base">
               {renderBlock(getBlock('evidence'), 3)}
             </div>
@@ -1816,7 +1812,7 @@ const TestResults = ({
 
         {/* ── STEP 3: WHAT TO DO ── */}
         {hasAction && (
-          <StorySection stepLabel="What to Do" accent="var(--diag-title)">
+          <StorySection stepNumber={++stepCounter} stepLabel="What to Do" accent="var(--diag-title)">
             <div className="diag-action-card">
               {renderBlock(getBlock('nextMove'), 4)}
             </div>
