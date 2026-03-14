@@ -18,23 +18,20 @@ export const markLessonComplete = async (userId, moduleId, lessonId, lessonData)
     const progressSnap = await getDoc(progressRef);
 
     if (!progressSnap.exists()) {
-      // Create initial document
       await setDoc(progressRef, {
         userId,
-        completedLessons: {
-          [lessonKey]: {
-            completed: true,
-            completedAt: serverTimestamp(),
-            moduleId,
-            lessonId,
-            lessonTitle: lessonData.title,
-            lessonType: lessonData.type
-          }
+        [`completedLessons.${lessonKey}`]: {
+          completed: true,
+          completedAt: serverTimestamp(),
+          moduleId,
+          lessonId,
+          lessonTitle: lessonData.title,
+          lessonType: lessonData.type
         },
         lastUpdated: serverTimestamp(),
         totalLessonsCompleted: 1,
         totalModulesCompleted: 0
-      });
+      }, { merge: true });
     } else {
       // Update existing document
       const currentData = progressSnap.data();

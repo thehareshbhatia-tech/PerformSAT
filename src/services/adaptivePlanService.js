@@ -65,12 +65,17 @@ function extractLatestTestSkillAccuracy(practiceTestResults = {}) {
   const latest = allAttempts[0];
 
   const skillMap = {};
-  const questions = latest.diagnosticData?.questionDetails || [];
+  const rawDetails = latest.diagnosticData?.questionDetails;
+  const questions = Array.isArray(rawDetails)
+    ? rawDetails
+    : rawDetails && typeof rawDetails === 'object'
+      ? Object.values(rawDetails)
+      : [];
   questions.forEach(q => {
     (q.skills || []).forEach(skillId => {
       if (!skillMap[skillId]) skillMap[skillId] = { correct: 0, total: 0 };
       skillMap[skillId].total++;
-      if (q.correct) skillMap[skillId].correct++;
+      if (q.isCorrect || q.correct) skillMap[skillId].correct++;
     });
   });
 

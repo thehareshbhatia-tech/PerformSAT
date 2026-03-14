@@ -357,10 +357,12 @@ const DiagnosticReport = ({
   practiceTestResults = {},
   completedLessons = {},
   practiceProgress = {},
+  savedStudyPlan = null,
   onNavigateToModule,
   onStartPractice,
   onStartPracticeTest,
   onSaveStudyPlan,
+  onGoToStudyPlan,
   onBack,
 }) => {
   const [activeSection, setActiveSection] = useState('overview');
@@ -403,22 +405,29 @@ const DiagnosticReport = ({
     );
   }, [test, answers, diagnosticData, skillProgress, user, practiceTestResults]);
 
-  // ═══ Generate the study plan ═══
+  // Use the hybrid plan from PracticeTest when available (same plan shown on dashboard).
+  // Fall back to a local deterministic plan if not yet generated.
   const studyPlan = useMemo(() => {
+    if (savedStudyPlan) return savedStudyPlan;
     return generateStudyPlan(
       diagnostic,
       { targetScore: user?.targetScore || 700, testDate: user?.testDate },
       completedLessons,
       practiceProgress,
-      null // No previous plan for now
+      null
     );
-  }, [diagnostic, user, completedLessons, practiceProgress]);
+  }, [savedStudyPlan, diagnostic, user, completedLessons, practiceProgress]);
 
   const { score, errorPatterns, domainAnalysis, scoreProjection, difficultyAnalysis, timeAnalysis, trendAnalysis, prioritizedActions } = diagnostic;
   const { summary: planSummary } = studyPlan;
 
-  // ═══ Auto-save the study plan to Firestore ═══
+  // If the hybrid plan was passed in, it's already persisted by PracticeTest.
+  // Otherwise, try to auto-save the locally-generated plan.
   useEffect(() => {
+    if (savedStudyPlan) {
+      setPlanSaved(true);
+      return;
+    }
     if (onSaveStudyPlan && studyPlan && !planSaveAttempted.current) {
       planSaveAttempted.current = true;
       onSaveStudyPlan(studyPlan).then(() => {
@@ -428,7 +437,7 @@ const DiagnosticReport = ({
         console.error('[DiagnosticReport] Failed to auto-save study plan:', err);
       });
     }
-  }, [studyPlan, onSaveStudyPlan]);
+  }, [savedStudyPlan, studyPlan, onSaveStudyPlan]);
 
   // Navigation tabs
   const sections = [
@@ -523,216 +532,208 @@ const DiagnosticReport = ({
     );
   };
 
-  const renderStudyPlan = () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+  const getActivityTypeIcon = (activity) => {
+    const iconMap = {
+      lesson: <BooksIcon size={16} color={colors.semantic.info} />,
+      practice: <RulerIcon size={16} color={colors.semantic.success} />,
+      strategy: <LightBulbIcon size={16} color={colors.semantic.warning} />,
+      review: <SearchIcon size={16} color={colors.accent.orange} />,
+      test: <ClipboardIcon size={16} color={colors.accent.purple || colors.accent.orange} />,
+    };
+    return iconMap[activity.type] || <ClipboardIcon size={16} color={colors.text.secondary} />;
+  };
 
-      {/* ── Plan Overview ── */}
-      <Card style={{ background: colors.surface.dark, color: 'white', border: 'none' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '4px' }}>
-          <div style={{ fontSize: '22px', fontWeight: '700' }}>
-            Your {studyPlan.weeksUntilTest}-Week Study Plan
+  const getActivityTypeBadge = (activity) => {
+    const map = {
+      lesson: { bg: colors.semantic.infoLight || '#eff6ff', text: colors.semantic.info },
+      practice: { bg: colors.semantic.successLight || '#f0fdf4', text: colors.semantic.success },
+      strategy: { bg: colors.semantic.warningLight || '#fffbeb', text: colors.semantic.warning },
+      review: { bg: colors.accent.orangeLight || '#fff7ed', text: colors.accent.orange },
+      test: { bg: colors.surface.offWhite, text: colors.text.secondary },
+    };
+    const labels = { lesson: 'Lesson', practice: 'Practice', strategy: 'Strategy', review: 'Review', test: 'Test' };
+    return { ...(map[activity.type] || { bg: colors.surface.offWhite, text: colors.text.secondary }), label: labels[activity.type] || 'Activity' };
+  };
+
+  const planNextAction = studyPlan.nextAction || (() => {
+    const first = studyPlan.weeks?.[0]?.activities?.find(a => !a.completed);
+    return first ? { title: first.title, reason: first.subtitle, type: first.type, duration: first.duration, moduleId: first.moduleId, lessonId: first.lessonId } : null;
+  })();
+
+  const renderStudyPlan = () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+
+      {/* Compact Summary */}
+      <Card style={{ background: colors.surface.dark, color: 'white', border: 'none', padding: '24px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontSize: '11px', fontWeight: '600', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '6px' }}>
+              {studyPlan.weeksUntilTest}-Week Plan
+            </div>
+            <div style={{ fontSize: '18px', fontWeight: '700', lineHeight: '1.3' }}>
+              <MathText>{planSummary.headline}</MathText>
+            </div>
+            {planSummary.diagnosis && (
+              <p style={{ fontSize: typography.sizes.sm, color: 'rgba(255,255,255,0.7)', marginTop: '6px', lineHeight: '1.5', maxWidth: '520px' }}>
+                <MathText>{planSummary.diagnosis}</MathText>
+              </p>
+            )}
           </div>
           {planSaved && (
-            <span style={{
-              padding: '4px 10px', borderRadius: radius.xl, fontSize: '11px', fontWeight: '600',
-              background: 'rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.85)',
-            }}>
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}><CheckCircleIcon size={12} color="rgba(255,255,255,0.85)" /> Saved to Dashboard</span>
+            <span style={{ padding: '3px 8px', borderRadius: radius.sm, fontSize: '10px', fontWeight: '600', background: 'rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.8)', flexShrink: 0, marginLeft: '12px', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+              <CheckCircleIcon size={10} color="rgba(255,255,255,0.8)" /> Saved
             </span>
           )}
         </div>
-        <div style={{ fontSize: '14px', opacity: 0.8, marginBottom: '20px', lineHeight: '1.6' }}>
-          <MathText>{planSummary.headline}</MathText>
-        </div>
-        <div style={{ display: 'flex', gap: '1px', background: 'rgba(255,255,255,0.1)', borderRadius: radius.md, overflow: 'hidden' }}>
+
+        <div style={{ display: 'flex', gap: '1px', background: 'rgba(255,255,255,0.08)', borderRadius: radius.sm, overflow: 'hidden' }}>
           <StatBox value={planSummary.stats.currentScore} label="Current" color="white" />
-          <StatBox value={`→ ${planSummary.stats.targetScore}`} label="Target" color={colors.accent.orange} />
+          <StatBox value={planSummary.stats.targetScore} label="Target" color={colors.accent.orange} />
           <StatBox value={`${planSummary.stats.minutesPerDay}m`} label="Per Day" color="white" />
-          <StatBox value={planSummary.stats.daysUntilTest || '—'} label="Days Left" color={planSummary.stats.daysUntilTest && planSummary.stats.daysUntilTest < 30 ? colors.semantic.warning : 'white'} />
+          <StatBox value={planSummary.stats.weeksInPlan} label="Weeks" color="white" />
         </div>
       </Card>
 
-      {/* ── Plan Stats ── */}
-      <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-        <Card style={{ flex: 1, minWidth: '140px', textAlign: 'center', padding: '16px' }}>
-          <div style={{ fontSize: '11px', color: colors.text.tertiary, textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: '600' }}>Lessons</div>
-          <div style={{ fontSize: '24px', fontWeight: '700', color: colors.text.primary }}>{planSummary.stats.totalLessons}</div>
-        </Card>
-        <Card style={{ flex: 1, minWidth: '140px', textAlign: 'center', padding: '16px' }}>
-          <div style={{ fontSize: '11px', color: colors.text.tertiary, textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: '600' }}>Practice Sets</div>
-          <div style={{ fontSize: '24px', fontWeight: '700', color: colors.text.primary }}>{planSummary.stats.totalPractice}</div>
-        </Card>
-        <Card style={{ flex: 1, minWidth: '140px', textAlign: 'center', padding: '16px' }}>
-          <div style={{ fontSize: '11px', color: colors.text.tertiary, textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: '600' }}>Practice Tests</div>
-          <div style={{ fontSize: '24px', fontWeight: '700', color: colors.text.primary }}>{planSummary.stats.totalTests}</div>
-        </Card>
-        <Card style={{ flex: 1, minWidth: '140px', textAlign: 'center', padding: '16px' }}>
-          <div style={{ fontSize: '11px', color: colors.text.tertiary, textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: '600' }}>Total Hours</div>
-          <div style={{ fontSize: '24px', fontWeight: '700', color: colors.text.primary }}>{planSummary.stats.totalHours}</div>
-        </Card>
-      </div>
-
-      {/* ── Adherence Projection — What Your Effort Gets You ── */}
-      {studyPlan.adherenceProjection && (
-        <Card>
-          <SectionTitle icon={<TrendingUpIcon size={18} color={colors.accent.orange} />} title="What Your Effort Gets You" subtitle="Projected scores based on plan completion" />
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '10px' }}>
-            {studyPlan.adherenceProjection.scenarios.map((scenario, i) => (
-              <div key={i} style={{
-                textAlign: 'center',
-                padding: '16px 12px',
-                borderRadius: radius.md,
-                background: i === 0 ? colors.semantic.successLight : i === 1 ? colors.semantic.infoLight : i === 2 ? colors.semantic.warningLight : colors.surface.offWhite,
-                border: i === 0 ? `2px solid ${colors.semantic.success}` : `1px solid ${colors.surface.grayDark}`,
-              }}>
-                <div style={{ fontSize: '24px', marginBottom: '4px' }}>{scenario.emoji}</div>
-                <div style={{ fontSize: '26px', fontWeight: '800', color: colors.text.primary }}>{scenario.projectedScore}</div>
-                <div style={{ fontSize: '12px', fontWeight: '600', color: colors.text.secondary, marginTop: '2px' }}>{scenario.label}</div>
-                <div style={{ fontSize: '11px', color: colors.text.tertiary, marginTop: '4px' }}>{scenario.adherence}% completion</div>
-                <div style={{ fontSize: '10px', color: colors.text.tertiary, marginTop: '2px' }}><MathText>{scenario.description}</MathText></div>
-              </div>
-            ))}
+      {/* Do This First — single prominent action */}
+      {planNextAction && (
+        <Card
+          style={{
+            background: `linear-gradient(135deg, ${colors.accent.orange} 0%, ${colors.accent.orangeHover || '#c2410c'} 100%)`,
+            border: 'none', cursor: 'pointer', padding: '20px 24px',
+          }}
+          onClick={() => {
+            if (planNextAction.type === 'lesson' && planNextAction.moduleId && onNavigateToModule) {
+              onNavigateToModule(planNextAction.moduleId, planNextAction.lessonId);
+            } else if (planNextAction.type === 'practice' && planNextAction.moduleId && onStartPractice) {
+              onStartPractice(planNextAction.moduleId);
+            }
+          }}
+        >
+          <div style={{ fontSize: '10px', fontWeight: '700', color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '6px' }}>
+            Do This First
+          </div>
+          <div style={{ fontSize: '16px', fontWeight: '700', color: '#fff', marginBottom: '4px' }}>
+            <MathText>{planNextAction.title}</MathText>
+          </div>
+          {planNextAction.reason && (
+            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.85)', lineHeight: '1.4' }}>
+              <MathText>{planNextAction.reason}</MathText>
+            </div>
+          )}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '10px' }}>
+            {planNextAction.duration && (
+              <span style={{ fontSize: '11px', background: 'rgba(255,255,255,0.2)', color: '#fff', padding: '3px 10px', borderRadius: radius.sm }}>
+                ~{planNextAction.duration} min
+              </span>
+            )}
+            <span style={{ fontSize: '12px', fontWeight: '600', color: 'rgba(255,255,255,0.9)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+              Start now <ArrowRightIcon size={14} />
+            </span>
           </div>
         </Card>
       )}
 
-      {/* Skill-level details (spaced repetition, micro-goals, focus areas)
-         are handled by the AI study plan generator and surfaced in the
-         Study Plan dashboard — omitted here to keep the report concise. */}
-
-      {/* ── Milestones ── */}
-      <Card>
-        <SectionTitle icon={<FlagCheckeredIcon size={18} color={colors.accent.orange} />} title="Milestones" subtitle="Your checkpoints on the path to your target score" />
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0px', position: 'relative' }}>
-          {/* Vertical line */}
-          <div style={{
-            position: 'absolute', left: '15px', top: '16px', bottom: '16px', width: '2px',
-            background: `linear-gradient(to bottom, ${colors.accent.orange}, ${colors.semantic.success})`, borderRadius: '1px',
-          }} />
-          {studyPlan.milestones.map((ms, i) => (
-            <div key={i} style={{ display: 'flex', gap: '16px', padding: '12px 0', position: 'relative' }}>
-              <div style={{
-                width: '32px', height: '32px', borderRadius: '50%', flexShrink: 0,
-                background: ms.type === 'goal' ? colors.semantic.success : ms.type === 'test' ? colors.accent.orange : colors.surface.gray,
-                color: ms.type === 'goal' || ms.type === 'test' ? 'white' : colors.text.secondary,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: '13px', fontWeight: '700', zIndex: 1,
-                border: `3px solid ${colors.surface.white}`,
-              }}>
-                {ms.type === 'goal' ? <StarFilledIcon size={14} color="white" /> : `W${ms.weekNumber}`}
-              </div>
-              <div style={{ flex: 1 }}>
-                <div style={{ fontSize: '14px', fontWeight: '600', color: colors.text.primary }}><MathText>{ms.title}</MathText></div>
-                <div style={{ fontSize: '13px', color: colors.text.tertiary, lineHeight: '1.5' }}><MathText>{ms.description}</MathText></div>
-              </div>
-              <div style={{ fontSize: '14px', fontWeight: '700', color: ms.type === 'goal' ? colors.semantic.success : colors.accent.orange, flexShrink: 0 }}>
-                {ms.targetScore}
-              </div>
-            </div>
-          ))}
+      {/* Week-by-Week Plan */}
+      <div>
+        <div style={{ fontSize: '16px', fontWeight: '700', color: colors.text.primary, marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <CalendarIcon size={18} color={colors.accent.orange} /> Weekly Plan
         </div>
-      </Card>
 
-      {/* ── Weekly Breakdown ── */}
-      <SectionTitle icon={<CalendarIcon size={18} color={colors.accent.orange} />} title="Week-by-Week Plan" subtitle="Click a week to see your daily activities" />
-
-      {studyPlan.weeks.map(week => {
-        const isExpanded = expandedWeek === week.weekNumber;
-        return (
-          <Card
-            key={week.weekNumber}
-            onClick={() => setExpandedWeek(isExpanded ? null : week.weekNumber)}
-            style={{
-              cursor: 'pointer', padding: '0', overflow: 'hidden',
-              border: isExpanded ? `2px solid ${colors.accent.orange}` : `1px solid ${colors.surface.grayDark}`,
-            }}
-          >
-            {/* Week header */}
-            <div style={{
-              display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-              padding: '16px 20px', background: isExpanded ? colors.accent.orangeLight : colors.surface.white,
-            }}>
-              <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <span style={{
-                    fontSize: '11px', fontWeight: '700', color: 'white',
-                    background: week.isTestWeek ? colors.accent.orange : colors.surface.dark,
-                    padding: '2px 8px', borderRadius: '4px', textTransform: 'uppercase',
-                  }}>
-                    Week {week.weekNumber}
-                  </span>
-                  <span style={{ fontSize: '15px', fontWeight: '600', color: colors.text.primary }}><MathText>{week.title}</MathText></span>
-                </div>
-                <div style={{ fontSize: '13px', color: colors.text.tertiary, marginTop: '4px' }}><MathText>{week.goalDescription}</MathText></div>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <span style={{ fontSize: '12px', color: colors.text.tertiary }}>{week.totalMinutes} min</span>
-                <span style={{ display: 'flex', alignItems: 'center', transition: 'transform 0.2s', transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)' }}><ChevronDownIcon size={18} color={colors.text.tertiary} /></span>
-              </div>
-            </div>
-
-            {/* Expanded activities */}
-            {isExpanded && (
-              <div style={{ padding: '16px 20px', borderTop: `1px solid ${colors.surface.grayDark}` }}>
-                {week.activities.length === 0 ? (
-                  <div style={{ fontSize: '14px', color: colors.text.tertiary, textAlign: 'center', padding: '20px' }}>
-                    No specific activities scheduled — continue practicing at your own pace
-                  </div>
-                ) : (
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                    {week.activities.map((activity, aIdx) => (
-                      <div key={aIdx} style={{
-                        display: 'flex', alignItems: 'center', gap: '12px', padding: '12px 14px',
-                        background: activity.type === 'test' ? colors.accent.orangeLight : colors.surface.offWhite,
-                        borderRadius: '10px', border: `1px solid ${colors.surface.gray}`,
-                      }}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        if (activity.type === 'lesson' && activity.moduleId && onNavigateToModule) {
-                          onNavigateToModule(activity.moduleId, activity.lessonId);
-                        } else if (activity.type === 'practice' && activity.moduleId && onStartPractice) {
-                          onStartPractice(activity.moduleId, activity.sectionName);
-                        }
-                      }}
-                      >
-                        <span style={{ fontSize: '20px', flexShrink: 0 }}>{activity.icon}</span>
-                        <div style={{ flex: 1, minWidth: 0 }}>
-                          <div style={{ fontSize: '14px', fontWeight: '600', color: colors.text.primary }}><MathText>{activity.title}</MathText></div>
-                          <div style={{ fontSize: '12px', color: colors.text.tertiary }}><MathText>{activity.subtitle}</MathText></div>
-                        </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', flexShrink: 0, gap: '2px' }}>
-                          {activity.day && (
-                            <span style={{ fontSize: '11px', fontWeight: '600', color: colors.text.tertiary }}>{activity.day}</span>
-                          )}
-                          <span style={{ fontSize: '11px', color: colors.text.tertiary }}>{activity.duration} min</span>
-                        </div>
-                        {(activity.type === 'lesson' || activity.type === 'practice') && (
-                          <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}><ChevronRightIcon size={16} color={colors.accent.orange} /></span>
-                        )}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          {studyPlan.weeks.map(week => {
+            const isExpanded = expandedWeek === week.weekNumber;
+            const weekActivities = week.activities || [];
+            const isFirst = week.weekNumber === 1;
+            return (
+              <div key={week.weekNumber} style={{
+                border: isFirst ? `2px solid ${colors.accent.orange}` : `1px solid ${colors.surface.grayDark}`,
+                borderRadius: radius.md, overflow: 'hidden', background: colors.surface.white,
+              }}>
+                <button
+                  onClick={() => setExpandedWeek(isExpanded ? null : week.weekNumber)}
+                  style={{
+                    width: '100%', padding: '14px 16px', background: isExpanded ? colors.accent.orangeLight : colors.surface.white,
+                    border: 'none', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center', textAlign: 'left',
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flex: 1 }}>
+                    <div style={{
+                      width: '28px', height: '28px', borderRadius: '50%',
+                      background: isFirst ? colors.accent.orange : colors.surface.grayMedium || colors.surface.gray,
+                      color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      fontSize: '12px', fontWeight: '700', flexShrink: 0,
+                    }}>
+                      {week.weekNumber}
+                    </div>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontSize: '14px', fontWeight: '600', color: colors.text.primary, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                        <MathText>{week.title}</MathText>
+                        {isFirst && <span style={{ marginLeft: '8px', fontSize: '11px', fontWeight: '500', color: colors.accent.orange, background: colors.accent.orangeLight, padding: '2px 6px', borderRadius: radius.sm }}>Current</span>}
                       </div>
-                    ))}
-                  </div>
-                )}
-                {/* Week tips */}
-                {week.activities.some(a => a.tips) && (
-                  <div style={{ marginTop: '12px', padding: '12px 14px', background: colors.semantic.infoLight, borderRadius: '10px' }}>
-                    <div style={{ fontSize: '12px', fontWeight: '600', color: colors.semantic.info, marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}><LightBulbIcon size={14} color={colors.semantic.info} /> Tips for this week</div>
-                    {week.activities
-                      .filter(a => a.tips)
-                      .flatMap(a => a.tips)
-                      .slice(0, 3)
-                      .map((tip, i) => (
-                        <div key={i} style={{ fontSize: '12px', color: '#1e40af', lineHeight: '1.5', paddingLeft: '12px', borderLeft: `2px solid ${colors.semantic.info}`, marginBottom: '6px' }}>
-                          <MathText>{tip}</MathText>
+                      {(week.goalDescription || week.rationale) && (
+                        <div style={{ fontSize: '12px', color: colors.text.tertiary, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                          <MathText>{week.rationale || week.goalDescription}</MathText>
                         </div>
-                      ))}
+                      )}
+                    </div>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+                    <span style={{ fontSize: '12px', color: colors.text.tertiary }}>{weekActivities.length} tasks</span>
+                    <span style={{ display: 'flex', transition: 'transform 0.2s', transform: isExpanded ? 'rotate(180deg)' : 'none' }}>
+                      <ChevronDownIcon size={16} color={colors.text.tertiary} />
+                    </span>
+                  </div>
+                </button>
+
+                {isExpanded && weekActivities.length > 0 && (
+                  <div style={{ padding: '8px 16px 16px', borderTop: `1px solid ${colors.surface.gray}` }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                      {weekActivities.map((activity, aIdx) => {
+                        const badge = getActivityTypeBadge(activity);
+                        return (
+                          <div
+                            key={aIdx}
+                            style={{
+                              display: 'flex', alignItems: 'center', gap: '10px', padding: '10px 12px',
+                              borderRadius: radius.sm, background: colors.surface.offWhite,
+                              border: `1px solid ${colors.surface.gray}`, cursor: 'pointer',
+                            }}
+                            onClick={() => {
+                              if (activity.type === 'lesson' && activity.moduleId && onNavigateToModule) {
+                                onNavigateToModule(activity.moduleId, activity.lessonId);
+                              } else if (activity.type === 'practice' && activity.moduleId && onStartPractice) {
+                                onStartPractice(activity.moduleId, activity.sectionName);
+                              }
+                            }}
+                          >
+                            <span style={{ flexShrink: 0, display: 'flex' }}>{getActivityTypeIcon(activity)}</span>
+                            <div style={{ flex: 1, minWidth: 0 }}>
+                              <div style={{ fontSize: '13px', fontWeight: '600', color: colors.text.primary, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                                <MathText>{activity.title}</MathText>
+                              </div>
+                              {activity.subtitle && (
+                                <div style={{ fontSize: '11px', color: colors.text.tertiary, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                                  <MathText>{activity.subtitle}</MathText>
+                                </div>
+                              )}
+                            </div>
+                            <span style={{ fontSize: '10px', fontWeight: '600', color: badge.text, background: badge.bg, padding: '2px 6px', borderRadius: radius.sm, flexShrink: 0 }}>
+                              {badge.label}
+                            </span>
+                            {activity.duration && (
+                              <span style={{ fontSize: '11px', color: colors.text.tertiary, flexShrink: 0 }}>{activity.duration}m</span>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
                 )}
               </div>
-            )}
-          </Card>
-        );
-      })}
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 
@@ -885,12 +886,18 @@ const DiagnosticReport = ({
         </div>
         <div style={{ fontSize: '14px', color: colors.text.tertiary, marginBottom: '16px' }}>
           {activeSection === 'plan'
-            ? 'Go to your dashboard to begin Week 1 of your study plan'
+            ? 'Open your full Study Plan to begin Week 1'
             : 'Switch to the Study Plan tab to see your personalized weekly plan'
           }
         </div>
         <button
-          onClick={() => activeSection === 'plan' && onBack ? onBack() : setActiveSection('plan')}
+          onClick={() => {
+            if (activeSection === 'plan') {
+              (onGoToStudyPlan || onBack)?.();
+            } else {
+              setActiveSection('plan');
+            }
+          }}
           style={{
             padding: '12px 32px', borderRadius: radius.md, border: 'none',
             background: colors.accent.orange, color: 'white',
@@ -898,7 +905,7 @@ const DiagnosticReport = ({
             boxShadow: '0 4px 12px rgba(234, 88, 12, 0.3)',
           }}
         >
-          {activeSection === 'plan' ? 'Go to Dashboard' : <><span>View Study Plan</span> <ArrowRightIcon size={16} /></>}
+          {activeSection === 'plan' ? <>Open Study Plan <ArrowRightIcon size={16} /></> : <><span>View Study Plan</span> <ArrowRightIcon size={16} /></>}
         </button>
       </div>
     </div>

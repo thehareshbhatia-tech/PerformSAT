@@ -56,27 +56,20 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
     };
 
     if (!progressSnap.exists()) {
-      // Create new document with practice test results
       console.log('[practiceTestService] Creating new progress document...');
       await setDoc(progressRef, {
         userId,
-        completedLessons: {},
-        practiceProgress: {},
-        reviewQueue: {},
-        skillProgress: {},
-        practiceTestResults: {
-          [testId]: {
-            testId,
-            testTitle,
-            attempts: [attemptData],
-            bestScaledScore: results.scaledScore,
-            bestRawScore: results.rawScore,
-            totalAttempts: 1,
-            lastAttemptAt: serverTimestamp()
-          }
+        [`practiceTestResults.${testId}`]: {
+          testId,
+          testTitle,
+          attempts: [attemptData],
+          bestScaledScore: results.scaledScore,
+          bestRawScore: results.rawScore,
+          totalAttempts: 1,
+          lastAttemptAt: serverTimestamp()
         },
         lastUpdated: serverTimestamp()
-      });
+      }, { merge: true });
       console.log('[practiceTestService] New document created successfully!');
     } else {
       const currentData = progressSnap.data();
@@ -204,19 +197,11 @@ export const saveTestProgress = async (userId, testId, progressData) => {
     };
 
     if (!progressSnap.exists()) {
-      // Create new document with in-progress test
       await setDoc(progressRef, {
         userId,
-        completedLessons: {},
-        practiceProgress: {},
-        reviewQueue: {},
-        skillProgress: {},
-        practiceTestResults: {},
-        inProgressTests: {
-          [testId]: inProgressData
-        },
+        [`inProgressTests.${testId}`]: inProgressData,
         lastUpdated: serverTimestamp()
-      });
+      }, { merge: true });
     } else {
       // Update existing document
       await updateDoc(progressRef, {

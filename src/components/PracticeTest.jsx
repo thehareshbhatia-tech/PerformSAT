@@ -15,7 +15,8 @@ import {
   generateAttemptId,
   linkArtifactToAttempt,
 } from '../services/practiceTestService';
-import { generateAndPersistHybridPlan } from '../services/hybridStudyPlanService';
+import { generateAndPersistHybridPlan, fetchCurrentStudyPlan, persistDeterministicArtifact } from '../services/hybridStudyPlanService';
+import { generateStudyPlan as generateDeterministicPlan } from '../services/studyPlanGenerator';
 import { runDiagnostic } from '../services/diagnosticEngine';
 import { getTargetedWeaknessSet } from '../data/questions/bank';
 import DiagnosticReport from './DiagnosticReport';
@@ -46,6 +47,7 @@ function buildGroundTruthDiagnosis(diagReport, rawTelemetry) {
       : ', first time tested';
     const trendNote = s.trend === 'improving' ? ' (improving)' : s.trend === 'declining' ? ' (declining)' : '';
     return {
+      skillId: s.skillId,
       skill: s.name,
       evidence: `${s.correct}/${s.total} correct, primary error: ${errLabel}, avg ${avgTime}s/q${historyNote}${trendNote}`,
       accuracy: s.testAccuracy,
@@ -130,6 +132,36 @@ function computeAvgTimeForSkill(skillId, questionAnalysis) {
   if (relevant.length === 0) return 0;
   const total = relevant.reduce((s, q) => s + (q.timeSpent || 0), 0);
   return Math.round(total / relevant.length);
+}
+
+function enrichPlanWithGroundTruth(plan, groundTruth) {
+  if (!plan) return plan;
+  plan.strengths = groundTruth.strengths;
+  plan.weaknesses = groundTruth.weaknesses;
+  plan.calculatorDependency = groundTruth.calculatorDependency;
+  plan.eliminationEffectiveness = groundTruth.eliminationEffectiveness;
+  plan.persistentWeaknesses = groundTruth.persistentWeaknesses;
+  plan.staminaInsight = groundTruth.staminaInsight;
+
+  const weakSkillPayload = (groundTruth.weaknesses || []).map(w => ({
+    skillId: w.skillId || null,
+    domain: w.domain,
+  })).filter(w => w.skillId);
+  if (weakSkillPayload.length > 0) {
+    const targeted = getTargetedWeaknessSet({
+      weakSkills: weakSkillPayload,
+      count: 15,
+      difficultyMix: { easy: 0.3, medium: 0.45, hard: 0.25 },
+    });
+    plan.targetedQuestionIds = targeted.map(q => q.id);
+    plan.targetedQuestionMeta = targeted.map(q => ({
+      id: q.id,
+      domain: q.domain,
+      skills: q.skills,
+      difficulty: q.difficulty,
+    }));
+  }
+  return plan;
 }
 
 // SAT-Style Typography Constants - matches College Board format
@@ -823,7 +855,7 @@ const renderChoice = (choice) => {
   return <MathText text={choice.text} />;
 };
 
-const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, onClearProgress, onSaveStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onNavigateToModule, onStartPractice }) => {
+const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, onClearProgress, onSaveStudyPlan, onGoToStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onNavigateToModule, onStartPractice }) => {
   // Initialize state from saved progress if available
   const [currentModule, setCurrentModule] = useState(savedProgress?.currentModule || 0);
   const [currentQuestion, setCurrentQuestion] = useState(savedProgress?.currentQuestion || 0);
@@ -842,6 +874,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   const [reviewRightPane, setReviewRightPane] = useState('both');
   const [resultSaved, setResultSaved] = useState(false);
   const [showDiagnosticReport, setShowDiagnosticReport] = useState(false);
+  const [savedStudyPlan, setSavedStudyPlan] = useState(null);
   const [isPaused, setIsPaused] = useState(false);
   const [confirmAction, setConfirmAction] = useState(null);
   const [resumeTimeRemaining, setResumeTimeRemaining] = useState(savedProgress?.timeRemaining ?? null);
@@ -970,6 +1003,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     window.addEventListener('beforeunload', onBeforeUnload);
     return () => window.removeEventListener('beforeunload', onBeforeUnload);
   }, [testCompleted, reviewMode]);
+
+  const planGenerationAttempted = useRef(false);
 
   // Save test results when test completes
   useEffect(() => {
@@ -1110,80 +1145,84 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         console.log('[PracticeTest] Clearing in-progress data');
         onClearProgress();
       }
-    }
-  }, [testCompleted, onSaveResult, onClearProgress, resultSaved, test, answers, isTimed, user]);
 
-  // Post-test: generate hybrid study plan once results are saved
-  const planGenerationAttempted = useRef(false);
-  useEffect(() => {
-    if (!resultSaved || planGenerationAttempted.current || !user?.uid) return;
-    planGenerationAttempted.current = true;
+      // Generate study plan and persist via artifact subcollection.
+      // This runs inline so there is zero chance of a missed effect.
+      if (user?.uid && diagnosticReportRef.current && !planGenerationAttempted.current) {
+        planGenerationAttempted.current = true;
+        console.log('[PracticeTest] Study plan generation starting (artifact-first)');
+        try {
+          const diagReport = diagnosticReportRef.current;
+          const groundTruth = buildGroundTruthDiagnosis(diagReport, questionTelemetry.current);
+          const detPlan = generateDeterministicPlan(
+            diagReport,
+            { targetScore: user.targetScore, testDate: user.testDate },
+            completedLessons,
+            practiceProgress,
+            null,
+          );
+          const plan = enrichPlanWithGroundTruth({ ...detPlan }, groundTruth);
+          setSavedStudyPlan(plan);
 
-    (async () => {
-      try {
-        console.log('[PracticeTest] Triggering hybrid study plan generation...');
-        const diagReport = diagnosticReportRef.current;
-        if (!diagReport) {
-          console.warn('[PracticeTest] No diagnostic report available — skipping study plan generation');
-          return;
-        }
-
-        const groundTruth = buildGroundTruthDiagnosis(diagReport, questionTelemetry.current);
-
-        const { artifactId, artifact } = await generateAndPersistHybridPlan({
-          userId: user.uid,
-          diagnostic: diagReport,
-          userProfile: { targetScore: user.targetScore, testDate: user.testDate },
-          completedLessons,
-          practiceProgress,
-          practiceTestResults: practiceTestResults || {},
-          previousPlan: null,
-          attemptId: attemptIdRef.current,
-          aiArtifactId: null,
-        });
-
-        const plan = artifact.plan || {};
-        plan.strengths = groundTruth.strengths;
-        plan.weaknesses = groundTruth.weaknesses;
-        plan.calculatorDependency = groundTruth.calculatorDependency;
-        plan.eliminationEffectiveness = groundTruth.eliminationEffectiveness;
-        plan.persistentWeaknesses = groundTruth.persistentWeaknesses;
-        plan.staminaInsight = groundTruth.staminaInsight;
-
-        const weakSkillPayload = (groundTruth.weaknesses || []).map(w => ({
-          skillId: w.skillId || w.skill,
-          domain: w.domain,
-        })).filter(w => w.skillId);
-        if (weakSkillPayload.length > 0) {
-          const targeted = getTargetedWeaknessSet({
-            weakSkills: weakSkillPayload,
-            count: 15,
-            difficultyMix: { easy: 0.3, medium: 0.45, hard: 0.25 },
+          // Phase 1: persist deterministic artifact (subcollection write)
+          persistDeterministicArtifact(user.uid, plan, {
+            attemptId: attemptIdRef.current,
+            sourceTestId: test?.id || null,
+          }).then((result) => {
+            console.log('[PracticeTest] Phase 1 artifact persisted:', result?.artifactId);
+          }).catch((err) => {
+            console.error('[PracticeTest] Phase 1 artifact write FAILED:', err);
           });
-          plan.targetedQuestionIds = targeted.map(q => q.id);
-          plan.targetedQuestionMeta = targeted.map(q => ({
-            id: q.id,
-            domain: q.domain,
-            skills: q.skills,
-            difficulty: q.difficulty,
-          }));
-        }
 
-        if (attemptIdRef.current && artifactId) {
-          linkArtifactToAttempt(user.uid, test.id, attemptIdRef.current, {
-            studyPlanArtifactId: artifactId,
-          }).catch(() => {});
-        }
+          // Propagate to in-memory state for immediate rendering
+          if (onSaveStudyPlan) {
+            try { onSaveStudyPlan(plan); } catch (e) { console.error('[PracticeTest] onSaveStudyPlan error:', e); }
+          }
 
-        if (onSaveStudyPlan) {
-          onSaveStudyPlan(plan);
+          // Phase 2: async hybrid plan (AI-augmented) — replaces Phase 1 artifact
+          (async () => {
+            try {
+              console.log('[PracticeTest] Phase 2 — hybrid plan generation starting...');
+              const existingPlan = await fetchCurrentStudyPlan(user.uid);
+              const { artifactId, artifact } = await generateAndPersistHybridPlan({
+                userId: user.uid,
+                diagnostic: diagReport,
+                userProfile: { targetScore: user.targetScore, testDate: user.testDate },
+                completedLessons,
+                practiceProgress,
+                practiceTestResults: practiceTestResults || {},
+                previousPlan: existingPlan,
+                attemptId: attemptIdRef.current,
+                aiArtifactId: null,
+                groundTruth,
+              });
+
+              const hybridPlan = enrichPlanWithGroundTruth(
+                { ...(artifact.plan || {}) },
+                groundTruth,
+              );
+
+              if (attemptIdRef.current && artifactId) {
+                linkArtifactToAttempt(user.uid, test.id, attemptIdRef.current, {
+                  studyPlanArtifactId: artifactId,
+                }).catch(() => {});
+              }
+
+              setSavedStudyPlan(hybridPlan);
+              if (onSaveStudyPlan) {
+                try { onSaveStudyPlan(hybridPlan); } catch (e) { /* already logged */ }
+              }
+              console.log('[PracticeTest] Phase 2 — hybrid artifact saved:', artifactId);
+            } catch (err) {
+              console.error('[PracticeTest] Hybrid plan generation failed; deterministic artifact remains:', err);
+            }
+          })();
+        } catch (err) {
+          console.error('[PracticeTest] Study plan generation CRASHED:', err);
         }
-        console.log('[PracticeTest] Hybrid study plan saved successfully, artifactId:', artifactId);
-      } catch (err) {
-        console.error('[PracticeTest] Study plan generation failed (non-blocking):', err);
       }
-    })();
-  }, [resultSaved, user, test, answers, skillProgress, practiceTestResults, completedLessons, practiceProgress, onSaveStudyPlan]);
+    }
+  }, [testCompleted, onSaveResult, onClearProgress, resultSaved, test, answers, isTimed, user, completedLessons, practiceProgress, practiceTestResults, onSaveStudyPlan]);
 
   // Post-test: generate AI diagnostic narrative automatically
   const diagnosticNarrativeAttempted = useRef(false);
@@ -2200,8 +2239,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             practiceTestResults={practiceTestResults || {}}
             completedLessons={completedLessons}
             practiceProgress={practiceProgress}
+            savedStudyPlan={savedStudyPlan}
             onNavigateToModule={onNavigateToModule}
             onStartPractice={onStartPractice}
+            onGoToStudyPlan={onGoToStudyPlan}
             onBack={() => setShowDiagnosticReport(false)}
           />
         </div>
@@ -2237,6 +2278,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               setTestCompleted(false);
               setShowDiagnosticReport(false);
               setResultSaved(false);
+              setSavedStudyPlan(null);
               setAiDiagnosticState({ status: 'idle', narrative: null, error: null });
               diagnosticNarrativeAttempted.current = false;
               diagnosticDataRef.current = null;

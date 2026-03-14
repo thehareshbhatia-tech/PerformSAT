@@ -148,13 +148,16 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
     weeklyPlan, currentScore, targetScore, effectiveWeeks
   );
 
+  const nextAction = deriveSignalAwareNextAction(weeklyPlan, diagnostic);
+
   return {
     // Core plan data
     weeks: weeklyPlan,
     milestones,
     summary,
+    nextAction,
 
-    // ═══ NEW: Advanced features ═══
+    // Advanced features
     spacedRepetitionSchedule,
     microGoals,
     adherenceProjection,
@@ -395,7 +398,7 @@ const mapGapsToActivities = (skillGaps, completedLessons, practiceProgress, diag
           skillName: gap.skillName,
           previousAttempts: prevAttempts,
           previousBest: prevBest,
-          icon: '✏️',
+          icon: null,
         });
       });
     });
@@ -434,7 +437,7 @@ const generateStrategyActivities = (diagnostic) => {
       subtitle: 'Learn to spot the 6 most common College Board traps',
       duration: ACTIVITY_DURATIONS.strategyDrill,
       priority: 90,
-      icon: '🪤',
+      icon: null,
       tips: [
         'Before choosing, predict what trap answers might look like',
         'In percent problems: "increased by X%" ≠ "X% of"',
@@ -453,7 +456,7 @@ const generateStrategyActivities = (diagnostic) => {
       subtitle: `${diagnostic.timeAnalysis.timeRelatedErrors} questions affected by time`,
       duration: ACTIVITY_DURATIONS.strategyDrill,
       priority: 85,
-      icon: '⏱️',
+      icon: null,
       tips: [
         'Easy: max 90 seconds. Medium: max 2 minutes. Hard: max 3 minutes.',
         'If stuck, flag it and move on — come back with fresh eyes',
@@ -472,7 +475,7 @@ const generateStrategyActivities = (diagnostic) => {
       subtitle: `${errorCounts[ERROR_TYPES.CARELESS_ERROR]} avoidable mistakes last test`,
       duration: ACTIVITY_DURATIONS.strategyDrill,
       priority: 95,
-      icon: '⚡',
+      icon: null,
       tips: [
         'Re-read the last sentence of EVERY question before answering',
         'After solving, plug your answer back in to verify',
@@ -491,7 +494,7 @@ const generateStrategyActivities = (diagnostic) => {
       subtitle: `${diagnostic.errorPatterns.totalWrong} questions to review from ${diagnostic.testTitle}`,
       duration: ACTIVITY_DURATIONS.reviewMistakes,
       priority: 100, // Always high priority
-      icon: '🔍',
+      icon: null,
       tips: [
         'For each wrong answer, understand WHY the correct answer is right',
         'Write down what you would do differently next time',
@@ -608,7 +611,7 @@ const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minut
           : 'Take a practice test to measure improvement and adjust your plan',
         duration: ACTIVITY_DURATIONS.practiceTest,
         priority: 100,
-        icon: '📝',
+        icon: null,
         day: 'Saturday',
         weekPhase: 'end',
         tips: [
@@ -789,8 +792,13 @@ const generatePlanSummary = (diagnostic, weeklyPlan, intensity, totalWeeks, days
   const totalTests = weeklyPlan.filter(w => w.isTestWeek).length;
   const totalMinutes = weeklyPlan.reduce((s, w) => s + w.totalMinutes, 0);
 
+  // Build a concise, evidence-linked diagnosis sentence deterministically.
+  // This is the fallback when AI output is absent or fails.
+  const diagnosis = buildDeterministicDiagnosis(diagnostic, skillGaps);
+
   return {
     headline,
+    diagnosis,
     keyInsight,
     stats: {
       currentScore,
@@ -818,6 +826,91 @@ const generatePlanSummary = (diagnostic, weeklyPlan, intensity, totalWeeks, days
 // ═══════════════════════════════════════════════════════════════════════════
 // HELPER FUNCTIONS
 // ═══════════════════════════════════════════════════════════════════════════
+
+/**
+ * Derive the highest-leverage next action from week-1 activities using
+ * diagnosis signals: persistent weaknesses > dominant error type >
+ * quick-win opportunity > first incomplete activity.
+ */
+const deriveSignalAwareNextAction = (weeklyPlan, diagnostic) => {
+  const week1 = weeklyPlan[0];
+  if (!week1?.activities?.length) return null;
+
+  const incomplete = week1.activities.filter(a => !a.completed);
+  if (incomplete.length === 0) return null;
+
+  const errorCounts = diagnostic.errorPatterns?.counts || {};
+  const persistentIds = new Set(
+    (diagnostic.trendAnalysis?.persistentWeaknesses || []).map(pw => pw.skillId)
+  );
+  const carelessCount = errorCounts[ERROR_TYPES.CARELESS_ERROR] || 0;
+  const trapCount = errorCounts[ERROR_TYPES.TRAP_SUSCEPTIBILITY] || 0;
+
+  const scored = incomplete.map(a => {
+    let score = a.priority || 0;
+    // Boost persistent-weakness activities — they need reteaching, highest ROI
+    if (a.skillId && persistentIds.has(a.skillId)) score += 50;
+    // Boost review/strategy when careless+trap errors dominate
+    if ((a.type === 'review' || a.type === 'strategy') && carelessCount + trapCount >= 4) score += 40;
+    // Boost lessons for conceptual gaps
+    if (a.type === 'lesson' && a.activityType === 'watchLesson') score += 10;
+    return { activity: a, score };
+  });
+
+  scored.sort((a, b) => b.score - a.score);
+  const best = scored[0].activity;
+
+  const reason = best.skillId && persistentIds.has(best.skillId)
+    ? `Persistent weakness across multiple tests — highest leverage fix`
+    : best.type === 'review'
+      ? `${diagnostic.errorPatterns?.totalWrong || 0} wrong answers to learn from before new material`
+      : best.type === 'strategy' && carelessCount + trapCount >= 4
+        ? `${carelessCount + trapCount} avoidable errors — fastest path to points`
+        : best.subtitle || 'Highest-priority activity in your plan';
+
+  return {
+    title: best.title,
+    reason,
+    type: best.type,
+    duration: best.duration,
+    moduleId: best.moduleId || null,
+    lessonId: best.lessonId || null,
+  };
+};
+
+/**
+ * Build a concise, evidence-based diagnosis sentence from diagnostic signals.
+ * Prioritises the dominant root cause of the score gap so users understand
+ * *why* the plan is structured the way it is — even without AI.
+ */
+const buildDeterministicDiagnosis = (diagnostic, skillGaps) => {
+  const parts = [];
+  const errorCounts = diagnostic.errorPatterns?.counts || {};
+  const careless = errorCounts[ERROR_TYPES.CARELESS_ERROR] || 0;
+  const traps = errorCounts[ERROR_TYPES.TRAP_SUSCEPTIBILITY] || 0;
+  const conceptual = errorCounts[ERROR_TYPES.CONCEPTUAL_GAP] || 0;
+  const timePressure = errorCounts[ERROR_TYPES.TIME_PRESSURE] || 0;
+  const fadeEffect = diagnostic.timeAnalysis?.fadeEffect || 0;
+  const totalWrong = diagnostic.errorPatterns?.totalWrong || 0;
+  const topGaps = skillGaps.slice(0, 3);
+
+  if (careless + traps >= 4 && careless + traps >= totalWrong * 0.4) {
+    parts.push(`${careless + traps} of ${totalWrong} errors are avoidable (${careless} careless, ${traps} trap)`);
+  }
+  if (conceptual >= 3) {
+    const gapNames = topGaps.filter(g => g.primaryErrorType === ERROR_TYPES.CONCEPTUAL_GAP).map(g => g.skillName).slice(0, 2);
+    parts.push(`Concept gaps in ${gapNames.length > 0 ? gapNames.join(' and ') : 'foundational skills'} need reteaching`);
+  }
+  if (timePressure >= 3 || fadeEffect > 15) {
+    parts.push(`Time pressure caused ${timePressure} errors${fadeEffect > 15 ? ` with a ${fadeEffect}% accuracy drop in the second half` : ''}`);
+  }
+
+  if (parts.length === 0 && topGaps.length > 0) {
+    parts.push(`Weakest areas: ${topGaps.map(g => `${g.skillName} (${g.testAccuracy}%)`).join(', ')}`);
+  }
+
+  return parts.join('. ') + (parts.length > 0 ? '.' : '');
+};
 
 const getDaysUntil = (dateStr) => {
   if (!dateStr) return null;
@@ -1080,30 +1173,30 @@ const generateMicroGoals = (diagnostic, skillGaps, totalWeeks) => {
     {
       condition: () => errorPatterns?.summary?.find(s => s.type === 'CARELESS_ERROR' && s.count >= 1),
       goals: [
-        { title: 'Slow Down Challenge', description: 'Solve 3 easy questions but spend at least 90 seconds on each. Check every step.', duration: 5, category: 'precision', icon: '🎯' },
-        { title: 'Double-Check Drill', description: 'After solving each problem, re-read the question before submitting. Do 5 problems.', duration: 5, category: 'precision', icon: '✅' },
+        { title: 'Slow Down Challenge', description: 'Solve 3 easy questions but spend at least 90 seconds on each. Check every step.', duration: 5, category: 'precision', icon: null },
+        { title: 'Double-Check Drill', description: 'After solving each problem, re-read the question before submitting. Do 5 problems.', duration: 5, category: 'precision', icon: null },
       ]
     },
     {
       condition: () => errorPatterns?.summary?.find(s => s.type === 'TRAP_SUSCEPTIBILITY' && s.count >= 1),
       goals: [
-        { title: 'Trap Spotter', description: 'Look at 5 wrong answer choices and predict which trap each one sets. Check explanations.', duration: 5, category: 'strategy', icon: '🪤' },
-        { title: 'Eliminate First', description: 'Before solving, cross out 2 obviously wrong answers first. Do 5 problems this way.', duration: 5, category: 'strategy', icon: '❌' },
+        { title: 'Trap Spotter', description: 'Look at 5 wrong answer choices and predict which trap each one sets. Check explanations.', duration: 5, category: 'strategy', icon: null },
+        { title: 'Eliminate First', description: 'Before solving, cross out 2 obviously wrong answers first. Do 5 problems this way.', duration: 5, category: 'strategy', icon: null },
       ]
     },
     {
       condition: () => errorPatterns?.summary?.find(s => s.type === 'TIME_PRESSURE' && s.count >= 1),
       goals: [
-        { title: 'Speed Round', description: 'Set a 5-minute timer and solve as many easy questions as you can. Beat your record!', duration: 5, category: 'speed', icon: '⚡' },
-        { title: 'Quick Scan', description: 'Practice reading a word problem and identifying what formula/approach to use within 15 seconds. Do 10 problems.', duration: 5, category: 'speed', icon: '👁️' },
+        { title: 'Speed Round', description: 'Set a 5-minute timer and solve as many easy questions as you can. Beat your record!', duration: 5, category: 'speed', icon: null },
+        { title: 'Quick Scan', description: 'Practice reading a word problem and identifying what formula/approach to use within 15 seconds. Do 10 problems.', duration: 5, category: 'speed', icon: null },
       ]
     },
     {
       condition: () => true, // Always available
       goals: [
-        { title: 'Error Journal', description: 'Review 3 questions you got wrong. For each, write one sentence about what went wrong.', duration: 3, category: 'reflection', icon: '📝' },
-        { title: 'Mental Math Warm-Up', description: 'Do 10 arithmetic problems in your head: fractions, percents, squares. No calculator.', duration: 3, category: 'fundamentals', icon: '🧠' },
-        { title: 'Formula Flash', description: 'Write down 5 key formulas from memory, then check if you got them right.', duration: 3, category: 'memory', icon: '📋' },
+        { title: 'Error Journal', description: 'Review 3 questions you got wrong. For each, write one sentence about what went wrong.', duration: 3, category: 'reflection', icon: null },
+        { title: 'Mental Math Warm-Up', description: 'Do 10 arithmetic problems in your head: fractions, percents, squares. No calculator.', duration: 3, category: 'fundamentals', icon: null },
+        { title: 'Formula Flash', description: 'Write down 5 key formulas from memory, then check if you got them right.', duration: 3, category: 'memory', icon: null },
       ]
     },
   ];
@@ -1123,7 +1216,7 @@ const generateMicroGoals = (diagnostic, skillGaps, totalWeeks) => {
       description: `Solve 3 questions on ${gap.skillName}. Focus on understanding, not speed.`,
       duration: 5,
       category: 'practice',
-      icon: '💪',
+      icon: null,
       skillId: gap.skillId,
     });
   });
@@ -1185,7 +1278,7 @@ const calculateAdherenceProjection = (weeklyPlan, currentScore, targetScore, tot
         adherence: 100,
         activitiesPerWeek: Math.round(totalActivities / Math.max(1, totalWeeks)),
         projectedScore: projectScore(100),
-        emoji: '🔥',
+        emoji: null,
         description: 'Complete every activity in the plan',
       },
       {
@@ -1193,7 +1286,7 @@ const calculateAdherenceProjection = (weeklyPlan, currentScore, targetScore, tot
         adherence: 75,
         activitiesPerWeek: Math.round((totalActivities * 0.75) / Math.max(1, totalWeeks)),
         projectedScore: projectScore(75),
-        emoji: '💪',
+        emoji: null,
         description: 'Complete most activities, skip some practice sets',
       },
       {
@@ -1201,7 +1294,7 @@ const calculateAdherenceProjection = (weeklyPlan, currentScore, targetScore, tot
         adherence: 50,
         activitiesPerWeek: Math.round((totalActivities * 0.5) / Math.max(1, totalWeeks)),
         projectedScore: projectScore(50),
-        emoji: '📈',
+        emoji: null,
         description: 'Complete about half the activities',
       },
       {
@@ -1209,7 +1302,7 @@ const calculateAdherenceProjection = (weeklyPlan, currentScore, targetScore, tot
         adherence: 25,
         activitiesPerWeek: Math.round((totalActivities * 0.25) / Math.max(1, totalWeeks)),
         projectedScore: projectScore(25),
-        emoji: '🌱',
+        emoji: null,
         description: 'Minimal effort — a few activities per week',
       },
     ],

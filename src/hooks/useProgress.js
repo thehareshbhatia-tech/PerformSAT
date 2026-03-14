@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { db } from '../firebase/config';
 import { doc, onSnapshot, updateDoc, setDoc, getDoc, serverTimestamp } from 'firebase/firestore';
 import { markLessonComplete as markComplete, markLessonIncomplete } from '../services/progressService';
@@ -6,6 +6,7 @@ import { recordPracticeAttempt as recordAttempt } from '../services/practiceServ
 import { getDueReviewCount, getReviewStats } from '../services/reviewService';
 import { recordSkillAttempts, getSkillDiagnosticSummary as getDiagnostic, getSkillBreakdown as getBreakdown } from '../services/skillService';
 import { recordPracticeTestResult as recordTestResult, getPracticeTestBestScore, getPracticeTestAttempts, saveTestProgress as saveProgress, clearTestProgress as clearProgress, getInProgressTest } from '../services/practiceTestService';
+import { getStudyPlanArtifact, getLatestStudyPlanArtifact } from '../services/hybridStudyPlanService';
 
 /**
  * Hook for managing user progress with real-time Firestore sync
@@ -21,6 +22,8 @@ export const useProgress = (userId) => {
   const [inProgressTests, setInProgressTests] = useState({});
   const [studyPlan, setStudyPlan] = useState(null);
   const [studyPlanMeta, setStudyPlanMeta] = useState({ artifactId: null, preview: null });
+  const studyPlanWriteInFlight = useRef(false);
+  const hydratingArtifact = useRef(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -72,12 +75,54 @@ export const useProgress = (userId) => {
           // Get in-progress tests
           setInProgressTests(data.inProgressTests || {});
 
-          // Get study plan (prefer artifact-backed plan, fallback to legacy)
-          setStudyPlan(data.studyPlan || null);
+          // Hydrate study plan: artifact-first, with legacy root field fallback.
+          // Guard: never wipe an optimistic plan that saveStudyPlan() set while
+          // the artifact write is still in flight or hydration hasn't resolved.
+          const incomingPlan = data.studyPlan || null;
+          const artifactId = data.currentStudyPlanArtifactId || null;
+
           setStudyPlanMeta({
-            artifactId: data.currentStudyPlanArtifactId || null,
+            artifactId,
             preview: data.studyPlanPreview || null,
           });
+
+          if (incomingPlan?.weeks?.length) {
+            setStudyPlan(incomingPlan);
+            studyPlanWriteInFlight.current = false;
+          } else if (!hydratingArtifact.current) {
+            hydratingArtifact.current = true;
+
+            const hydrate = artifactId
+              ? getStudyPlanArtifact(userId, artifactId)
+              : getLatestStudyPlanArtifact(userId);
+
+            const source = artifactId ? `pointer:${artifactId}` : 'latest-query';
+            console.log('[useProgress] Hydrating study plan via', source);
+
+            hydrate.then(art => {
+              if (art?.plan?.weeks?.length) {
+                console.log('[useProgress] Artifact hydrated OK via', source, '— weeks:', art.plan.weeks.length);
+                setStudyPlan(art.plan);
+                studyPlanWriteInFlight.current = false;
+                setStudyPlanMeta(prev => ({
+                  ...prev,
+                  artifactId: art.id,
+                }));
+              } else if (!studyPlanWriteInFlight.current) {
+                // Only clear if no optimistic plan is in flight
+                setStudyPlan(prev => prev?.weeks?.length ? prev : null);
+              }
+            }).catch(err => {
+              console.error('[useProgress] Artifact hydration failed:', err);
+              if (!studyPlanWriteInFlight.current) {
+                setStudyPlan(prev => prev?.weeks?.length ? prev : null);
+              }
+            }).finally(() => {
+              hydratingArtifact.current = false;
+            });
+          }
+          // If hydratingArtifact is already in progress, don't touch studyPlan —
+          // the pending hydration or the optimistic value should remain.
         } else {
           setCompletedLessons({});
           setPracticeProgress({});
@@ -471,23 +516,11 @@ export const useProgress = (userId) => {
   const saveStudyPlan = async (plan) => {
     if (!userId || !plan) return;
 
-    // Optimistic update
+    console.log('[useProgress] saveStudyPlan called, hasWeeks:', !!plan?.weeks, 'weeksCount:', plan?.weeks?.length || 0);
+
+    // Set guard so onSnapshot hydration won't wipe this optimistic plan
+    studyPlanWriteInFlight.current = true;
     setStudyPlan(plan);
-
-    try {
-      const progressRef = doc(db, 'progress', userId);
-      const progressSnap = await getDoc(progressRef);
-
-      if (progressSnap.exists()) {
-        await updateDoc(progressRef, { studyPlan: plan });
-      } else {
-        await setDoc(progressRef, { userId, studyPlan: plan }, { merge: true });
-      }
-      console.log('[useProgress] Study plan saved');
-    } catch (err) {
-      console.error('[useProgress] Failed to save study plan:', err);
-      setError(err.message);
-    }
   };
 
   /**
@@ -510,12 +543,28 @@ export const useProgress = (userId) => {
     });
 
     try {
+      // Update the artifact doc if we have a pointer
+      const artId = studyPlanMeta.artifactId;
+      if (artId) {
+        const artRef = doc(db, 'progress', userId, 'studyPlanArtifacts', artId);
+        const artSnap = await getDoc(artRef);
+        if (artSnap.exists()) {
+          const artData = artSnap.data();
+          const plan = artData.plan ? JSON.parse(JSON.stringify(artData.plan)) : null;
+          if (plan?.weeks?.[weekIndex]?.activities?.[activityIndex]) {
+            plan.weeks[weekIndex].activities[activityIndex].completed = true;
+            plan.weeks[weekIndex].activities[activityIndex].completedAt = new Date().toISOString();
+            await updateDoc(artRef, { plan });
+          }
+        }
+      }
+      // Also update legacy root field if present
       const progressRef = doc(db, 'progress', userId);
       const progressSnap = await getDoc(progressRef);
       if (progressSnap.exists()) {
         const data = progressSnap.data();
-        const plan = data.studyPlan ? JSON.parse(JSON.stringify(data.studyPlan)) : null;
-        if (plan && plan.weeks && plan.weeks[weekIndex] && plan.weeks[weekIndex].activities[activityIndex]) {
+        if (data.studyPlan?.weeks?.[weekIndex]?.activities?.[activityIndex]) {
+          const plan = JSON.parse(JSON.stringify(data.studyPlan));
           plan.weeks[weekIndex].activities[activityIndex].completed = true;
           plan.weeks[weekIndex].activities[activityIndex].completedAt = new Date().toISOString();
           await updateDoc(progressRef, { studyPlan: plan });
@@ -547,12 +596,26 @@ export const useProgress = (userId) => {
     });
 
     try {
+      const artId = studyPlanMeta.artifactId;
+      if (artId) {
+        const artRef = doc(db, 'progress', userId, 'studyPlanArtifacts', artId);
+        const artSnap = await getDoc(artRef);
+        if (artSnap.exists()) {
+          const artData = artSnap.data();
+          const plan = artData.plan ? JSON.parse(JSON.stringify(artData.plan)) : null;
+          if (plan?.weeks?.[weekIndex]?.activities?.[activityIndex]) {
+            plan.weeks[weekIndex].activities[activityIndex].completed = false;
+            delete plan.weeks[weekIndex].activities[activityIndex].completedAt;
+            await updateDoc(artRef, { plan });
+          }
+        }
+      }
       const progressRef = doc(db, 'progress', userId);
       const progressSnap = await getDoc(progressRef);
       if (progressSnap.exists()) {
         const data = progressSnap.data();
-        const plan = data.studyPlan ? JSON.parse(JSON.stringify(data.studyPlan)) : null;
-        if (plan && plan.weeks && plan.weeks[weekIndex] && plan.weeks[weekIndex].activities[activityIndex]) {
+        if (data.studyPlan?.weeks?.[weekIndex]?.activities?.[activityIndex]) {
+          const plan = JSON.parse(JSON.stringify(data.studyPlan));
           plan.weeks[weekIndex].activities[activityIndex].completed = false;
           delete plan.weeks[weekIndex].activities[activityIndex].completedAt;
           await updateDoc(progressRef, { studyPlan: plan });

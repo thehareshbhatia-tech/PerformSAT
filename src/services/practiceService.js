@@ -21,23 +21,17 @@ export const recordPracticeAttempt = async (userId, moduleId, sectionName, answe
     const progressSnap = await getDoc(progressRef);
 
     if (!progressSnap.exists()) {
-      // Create initial document with practice progress
       await setDoc(progressRef, {
         userId,
-        completedLessons: {},
-        practiceProgress: {
-          [practiceKey]: {
-            bestScore: score,
-            totalAttempts: 1,
-            lastAttemptAt: serverTimestamp(),
-            lastAnswers: answers,
-            sectionName: sectionName
-          }
+        [`practiceProgress.${practiceKey}`]: {
+          bestScore: score,
+          totalAttempts: 1,
+          lastAttemptAt: serverTimestamp(),
+          lastAnswers: answers,
+          sectionName: sectionName
         },
         lastUpdated: serverTimestamp(),
-        totalLessonsCompleted: 0,
-        totalModulesCompleted: 0
-      });
+      }, { merge: true });
     } else {
       const currentData = progressSnap.data();
       const existingProgress = currentData.practiceProgress?.[practiceKey];

@@ -1016,28 +1016,37 @@ Target: ${score.target || 700} | Gap: ${score.gap || 0} points`);
 }
 
 function buildStudyPlanSystemPrompt(): string {
-  return `You are the PerformSAT AI Study Strategist. You analyze Digital SAT Math practice test diagnostics and produce highly targeted, week-by-week study plans.
+  return `You are the PerformSAT AI Study Strategist. Produce a focused, actionable weekly study plan from Digital SAT Math diagnostics.
 
-IMPORTANT: Strengths and weaknesses are computed deterministically by the diagnostic engine. Do NOT generate them — they will be injected after your response. Focus your output entirely on the weekly study plan and diagnosis narrative.
+IMPORTANT: Strengths and weaknesses are computed deterministically. Do NOT generate them. Focus entirely on the weekly plan and a brief diagnosis.
 
-Your output MUST be valid JSON (no markdown fences) matching this schema:
+Output MUST be valid JSON (no markdown fences) matching this schema:
 
 {
   "summary": {
-    "headline": "string — one-sentence plan title",
-    "diagnosis": "string — 2-3 sentence learner profile that synthesizes the diagnostic data into an insightful narrative",
+    "headline": "string — max 12 words. State the core strategy, not the score. Must reference this student's specific dominant error pattern or weakest skill by name.",
+    "diagnosis": "string — 2-3 sentences. Synthesize the root cause of the score gap using the exact data provided. Reference at least: (1) the dominant error type with count, (2) the weakest skill by name with accuracy %. No motivational filler. Example: 'You missed 6/8 algebra questions, mostly from conceptual gaps in slope-intercept form (25% accuracy). Careless errors on easy questions cost 3 more — fixing those alone adds ~30 points.'",
     "stats": { "weeksInPlan": number, "totalLessons": number, "totalPractice": number, "minutesPerDay": number }
+  },
+  "nextAction": {
+    "title": "string — max 10 words. The single most important thing to do first.",
+    "reason": "string — max 25 words. Why this is the highest-leverage action, citing the specific evidence (e.g. '3/4 wrong in linear equations — conceptual gap needs reteaching before practice').",
+    "type": "lesson|practice|strategy|review|test",
+    "duration": number,
+    "moduleId": "string|null",
+    "lessonId": "string|null"
   },
   "weeks": [
     {
       "weekNumber": number,
-      "title": "string",
-      "goalDescription": "string",
+      "title": "string — max 6 words",
+      "goalDescription": "string — max 20 words. One clear measurable outcome that references the specific skill or error type this week targets.",
+      "rationale": "string — max 25 words. Why this week's focus was chosen given the diagnosis (e.g. 'Slope-intercept is your biggest gap at 25% — fixing it unlocks 5+ questions per test').",
       "focusSkills": ["string"],
       "activities": [
         {
-          "title": "string",
-          "subtitle": "string — why this activity matters",
+          "title": "string — max 10 words. Be specific: name the skill or topic.",
+          "subtitle": "string — max 20 words. State WHY this activity matters for the score using evidence.",
           "type": "lesson|practice|strategy|review|test",
           "duration": number,
           "moduleId": "string|null",
@@ -1048,20 +1057,29 @@ Your output MUST be valid JSON (no markdown fences) matching this schema:
       ]
     }
   ],
-  "deltaFromPrevious": "string|null — what changed vs the last plan",
-  "persistentWeaknessStrategy": "string|null — if longitudinal context shows persistent weaknesses, describe the remediation approach here"
+  "deltaFromPrevious": "string|null — 1 sentence: what changed since the last plan and why, citing score or skill accuracy changes",
+  "persistentWeaknessStrategy": "string|null — 1 sentence: remediation approach for multi-test weaknesses, naming the specific skills and why a different approach is needed"
 }
 
-RULES:
-- Plan should be 2-4 weeks depending on score gap
-- Prioritize quick wins (careless errors, easy-question misses) in week 1
-- Address conceptual gaps before procedural polish
-- Include 1 timed practice test per plan cycle
-- Each week should have 4-8 activities, each 10-30 minutes
-- Use moduleIds from the SAT Math domains: algebra, advanced-math, problem-solving, geometry
-- Always explain WHY each activity is assigned in the subtitle
-- If previous plans exist, note what changed and why
-- When longitudinal context is provided, prioritize persistent weaknesses that span multiple tests — these require fundamentally different remediation (reteaching, not just more practice)`;
+PERSONALIZATION RULES (these differentiate plans between students):
+P1. summary.diagnosis MUST cite this student's actual data: dominant error type + count, weakest skill + accuracy %, and if available, stamina/timing evidence.
+P2. Each week's rationale MUST explain why that week targets what it does, referencing the student's specific gap data.
+P3. nextAction.reason MUST cite the specific evidence that makes this the highest-ROI activity for THIS student.
+P4. When persistent weaknesses exist (weak across multiple tests), the plan must escalate: reteach from scratch rather than just more practice. Name the specific skills.
+P5. When stamina/timing data shows accuracy drop-off, week 1 must include a pacing strategy activity.
+
+GENERAL RULES:
+1. NO EMOJIS anywhere in the output. This is strictly enforced.
+2. NO motivational filler — no "You can do it!", "Great job!", "Keep going!", "Don't worry!". State facts only.
+3. NO vague advice — never say "review your mistakes", "practice more", "focus on weak areas". Name the specific topic/skill.
+4. Plan 2-4 weeks depending on score gap. Week 1 = quick wins (careless errors, easy-question misses).
+5. Address conceptual gaps before procedural polish. Include 1 practice test per cycle.
+6. Each week: 4-8 activities, each 10-30 minutes.
+7. Use moduleIds: algebra, advanced-math, problem-solving, geometry.
+8. Every activity subtitle must answer "why this helps your score" in concrete terms (e.g. "You missed 3/4 of these — fixing them adds ~20 points").
+9. nextAction must be the single highest-ROI activity from week 1.
+10. When longitudinal context is provided, persistent weaknesses that span multiple tests get top priority — they need reteaching, not just more practice.
+11. Keep all text concise. Prefer short declarative sentences. No padding.`;
 }
 
 function buildStudyPlanUserPrompt(
@@ -1129,6 +1147,14 @@ Easy: ${lvl.easy?.accuracy || 0}% | Medium: ${lvl.medium?.accuracy || 0}% | Hard
     sections.push(`\n## Time & Stamina
 Avg time/question: ${timeAnalysis.avgTimePerQuestion || 0}s
 Fade effect: ${timeAnalysis.fadeEffect}% accuracy drop in second half`);
+  }
+
+  const stamina = diagnosticReport.stamina as Record<string, unknown> || {};
+  if (stamina.hasData) {
+    sections.push(`\n## Stamina
+Rating: ${stamina.rating} (score: ${stamina.staminaScore}/100)
+Accuracy drop-off: ${stamina.dropoff}% from first half to second half
+${stamina.message || ""}`);
   }
 
   if (trendAnalysis.hasHistory) {

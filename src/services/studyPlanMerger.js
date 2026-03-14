@@ -6,10 +6,25 @@
  * and delta computation without any side effects.
  */
 
-export const MERGE_VERSION = '1.0';
+export const MERGE_VERSION = '1.2';
+
+const EMOJI_REGEX = /[\u{1F300}-\u{1F9FF}\u{2600}-\u{27BF}\u{FE00}-\u{FE0F}\u{1FA00}-\u{1FAFF}\u{200D}\u{20E3}\u{E0020}-\u{E007F}]/gu;
+
+export function stripEmojis(str) {
+  if (typeof str !== 'string') return str;
+  return str.replace(EMOJI_REGEX, '').replace(/\s{2,}/g, ' ').trim();
+}
+
+function normalizeQuestionDetails(raw) {
+  if (!raw) return [];
+  if (Array.isArray(raw)) return raw;
+  if (typeof raw === 'object') return Object.values(raw);
+  return [];
+}
 
 /**
  * Build longitudinal evidence from all practice test attempts.
+ * Handles questionDetails stored as either an array or keyed object.
  */
 export const buildLongitudinalEvidence = (practiceTestResults = {}) => {
   const allAttempts = [];
@@ -33,7 +48,7 @@ export const buildLongitudinalEvidence = (practiceTestResults = {}) => {
 
   const skillHistory = {};
   allAttempts.forEach(attempt => {
-    const questions = attempt.diagnosticData?.questionDetails || [];
+    const questions = normalizeQuestionDetails(attempt.diagnosticData?.questionDetails);
     questions.forEach(q => {
       (q.skills || []).forEach(skillId => {
         if (!skillHistory[skillId]) {
@@ -119,8 +134,35 @@ export const computePlanDelta = (previousPlan, currentPlan) => {
   return { isFirst: false, changes };
 };
 
+function normalizeActivity(activity) {
+  return {
+    ...activity,
+    title: stripEmojis(activity.title || ''),
+    subtitle: stripEmojis(activity.subtitle || ''),
+    icon: null,
+  };
+}
+
+function deriveNextAction(weeks) {
+  for (const week of (weeks || [])) {
+    const activity = (week.activities || []).find(a => !a.completed);
+    if (activity) {
+      return {
+        title: stripEmojis(activity.title || ''),
+        reason: stripEmojis(activity.subtitle || 'Highest-priority activity in your plan'),
+        type: activity.type,
+        duration: activity.duration,
+        moduleId: activity.moduleId || null,
+        lessonId: activity.lessonId || null,
+      };
+    }
+  }
+  return null;
+}
+
 /**
  * Merge deterministic and AI plans into a single canonical artifact.
+ * Produces normalized, emoji-free output with a top-level nextAction.
  */
 export const mergeHybridPlan = (deterministicPlan, aiPlan = null) => {
   if (!deterministicPlan) return null;
@@ -131,10 +173,12 @@ export const mergeHybridPlan = (deterministicPlan, aiPlan = null) => {
     const ai = aiPlan.plan;
 
     if (ai.summary?.headline) {
+      const aiHeadline = stripEmojis(ai.summary.headline);
+      const aiDiagnosis = stripEmojis(ai.summary.diagnosis || ai.summary.keyInsight?.message || '');
       base.summary = {
         ...base.summary,
-        headline: ai.summary.headline,
-        aiDiagnosis: ai.summary.diagnosis || ai.summary.keyInsight?.message || null,
+        headline: aiHeadline.length > 0 ? aiHeadline : base.summary?.headline,
+        diagnosis: aiDiagnosis.length > 0 ? aiDiagnosis : base.summary?.diagnosis,
       };
     }
 
@@ -142,12 +186,62 @@ export const mergeHybridPlan = (deterministicPlan, aiPlan = null) => {
       base.weeks = base.weeks.map((week, i) => {
         const aiWeek = ai.weeks[i];
         if (!aiWeek) return week;
-        return { ...week, aiTitle: aiWeek.title || null, aiGoalDescription: aiWeek.goalDescription || null };
+        const aiTitle = stripEmojis(aiWeek.title || '');
+        const aiGoal = stripEmojis(aiWeek.goalDescription || '');
+        const aiRationale = stripEmojis(aiWeek.rationale || '');
+        return {
+          ...week,
+          title: (aiTitle.length > 0 && aiTitle.length <= week.title?.length * 1.5) ? aiTitle : week.title,
+          goalDescription: (aiGoal.length > 0 && aiGoal.length <= 120) ? aiGoal : week.goalDescription,
+          rationale: aiRationale.length > 0 ? aiRationale : week.rationale || null,
+        };
       });
+    }
+
+    if (ai.nextAction) {
+      base.nextAction = {
+        title: stripEmojis(ai.nextAction.title || ''),
+        reason: stripEmojis(ai.nextAction.reason || ''),
+        type: ai.nextAction.type,
+        duration: ai.nextAction.duration,
+        moduleId: ai.nextAction.moduleId || null,
+        lessonId: ai.nextAction.lessonId || null,
+      };
     }
 
     if (ai.targetedQuestions) {
       base.targetedQuestions = ai.targetedQuestions;
+    }
+
+    if (ai.deltaFromPrevious) {
+      base.deltaFromPrevious = stripEmojis(ai.deltaFromPrevious);
+    }
+    if (ai.persistentWeaknessStrategy) {
+      base.persistentWeaknessStrategy = stripEmojis(ai.persistentWeaknessStrategy);
+    }
+  }
+
+  // Normalize all activity fields across weeks
+  if (base.weeks) {
+    base.weeks = base.weeks.map(week => ({
+      ...week,
+      title: stripEmojis(week.title || ''),
+      goalDescription: stripEmojis(week.goalDescription || ''),
+      activities: (week.activities || []).map(normalizeActivity),
+    }));
+  }
+
+  // Ensure nextAction exists — derive from first incomplete activity if missing
+  if (!base.nextAction) {
+    base.nextAction = deriveNextAction(base.weeks);
+  }
+
+  // Sanitize top-level summary text
+  if (base.summary) {
+    base.summary.headline = stripEmojis(base.summary.headline || '');
+    if (base.summary.diagnosis) base.summary.diagnosis = stripEmojis(base.summary.diagnosis);
+    if (base.summary.keyInsight?.message) {
+      base.summary.keyInsight.message = stripEmojis(base.summary.keyInsight.message);
     }
   }
 

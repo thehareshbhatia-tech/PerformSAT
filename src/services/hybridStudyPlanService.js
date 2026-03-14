@@ -30,6 +30,90 @@ import {
 export { buildLongitudinalEvidence, computePlanDelta, mergeHybridPlan, MERGE_VERSION };
 
 /**
+ * Fetch the current studyPlan — first try loading the artifact pointed to
+ * by currentStudyPlanArtifactId; fall back to the legacy root field.
+ */
+export const fetchCurrentStudyPlan = async (userId) => {
+  if (!userId) return null;
+  try {
+    const progressRef = doc(db, 'progress', userId);
+    const snap = await getDoc(progressRef);
+    if (!snap.exists()) return null;
+    const data = snap.data();
+
+    // Prefer artifact-backed plan
+    const artId = data.currentStudyPlanArtifactId;
+    if (artId) {
+      const art = await getStudyPlanArtifact(userId, artId);
+      if (art?.plan?.weeks?.length) return art.plan;
+    }
+    return data.studyPlan || null;
+  } catch (err) {
+    console.warn('[hybridStudyPlanService] Failed to fetch current study plan:', err.message);
+    return null;
+  }
+};
+
+/**
+ * Persist a deterministic-only plan as an artifact (same schema as hybrid,
+ * with hasBothSources = false). Returns { artifactId, plan }.
+ * This is the primary write path — the full plan lives only in the
+ * subcollection doc; the root progress doc gets a lightweight pointer.
+ */
+export const persistDeterministicArtifact = async (userId, plan, { attemptId = null, sourceTestId = null } = {}) => {
+  if (!userId || !plan) return null;
+
+  const sanitized = JSON.parse(JSON.stringify(plan));
+
+  const artifact = {
+    plan: sanitized,
+    provenance: {
+      mergeVersion: MERGE_VERSION,
+      sourceDeterministic: { generatedAt: sanitized.generatedAt || new Date().toISOString() },
+      sourceAI: null,
+      hasBothSources: false,
+    },
+    longitudinal: { totalTests: 0, totalAttempts: 0, persistentWeaknesses: [], scoreTrajectory: [] },
+    delta: { isFirst: true, changes: [] },
+    linkage: { attemptId, aiArtifactId: null, sourceTestId },
+    version: 1,
+    status: 'active',
+    generatedAt: sanitized.generatedAt || new Date().toISOString(),
+    createdAt: serverTimestamp(),
+  };
+
+  const colRef = collection(db, 'progress', userId, 'studyPlanArtifacts');
+  const artifactRef = await addDoc(colRef, artifact);
+  console.log('[hybridStudyPlanService] Deterministic artifact written, id:', artifactRef.id);
+
+  const preview = {
+    headline: sanitized.summary?.headline || 'Study Plan',
+    weeksCount: sanitized.weeks?.length || 0,
+    generatedAt: artifact.generatedAt,
+    totalActivities: (sanitized.weeks || []).reduce((s, w) => s + (w.activities?.length || 0), 0),
+    version: 1,
+    hasBothSources: false,
+  };
+
+  const progressRef = doc(db, 'progress', userId);
+  const progressSnap = await getDoc(progressRef);
+  const pointer = {
+    currentStudyPlanArtifactId: artifactRef.id,
+    studyPlanPreview: preview,
+    lastUpdated: serverTimestamp(),
+  };
+
+  if (progressSnap.exists()) {
+    await updateDoc(progressRef, pointer);
+  } else {
+    await setDoc(progressRef, { userId, ...pointer }, { merge: true });
+  }
+  console.log('[hybridStudyPlanService] Root pointer updated for artifact:', artifactRef.id);
+
+  return { artifactId: artifactRef.id, plan: sanitized };
+};
+
+/**
  * Full hybrid plan generation pipeline.
  *
  * 1. Build longitudinal evidence from all test history
@@ -49,6 +133,7 @@ export const generateAndPersistHybridPlan = async ({
   previousPlan = null,
   attemptId = null,
   aiArtifactId = null,
+  groundTruth = null,
 }) => {
   const longitudinal = buildLongitudinalEvidence(practiceTestResults);
 
@@ -80,6 +165,18 @@ export const generateAndPersistHybridPlan = async ({
   }
 
   const mergedPlan = mergeHybridPlan(deterministicPlan, aiPlan);
+
+  // Embed diagnosis-personalization fields directly in the canonical plan
+  // so the persisted artifact is the single source of truth.
+  if (groundTruth) {
+    mergedPlan.strengths = groundTruth.strengths;
+    mergedPlan.weaknesses = groundTruth.weaknesses;
+    mergedPlan.calculatorDependency = groundTruth.calculatorDependency;
+    mergedPlan.eliminationEffectiveness = groundTruth.eliminationEffectiveness;
+    mergedPlan.persistentWeaknesses = groundTruth.persistentWeaknesses;
+    mergedPlan.staminaInsight = groundTruth.staminaInsight;
+  }
+
   const delta = computePlanDelta(previousPlan, mergedPlan);
 
   const artifact = {
@@ -117,6 +214,8 @@ export const generateAndPersistHybridPlan = async ({
 
 /**
  * Persist a hybrid study-plan artifact and update the progress-doc pointer.
+ * The full plan payload lives only in the subcollection doc; the root
+ * progress doc gets a lightweight pointer + preview.
  */
 async function persistHybridArtifact(userId, artifact) {
   if (!userId || !artifact) return null;
@@ -140,7 +239,6 @@ async function persistHybridArtifact(userId, artifact) {
   const updatePayload = {
     currentStudyPlanArtifactId: artifactRef.id,
     studyPlanPreview: preview,
-    studyPlan: artifact.plan,
     studyPlanHistory: buildHistoryEntry(artifactRef.id, artifact),
     lastUpdated: serverTimestamp(),
   };
@@ -201,4 +299,21 @@ export const getStudyPlanArtifact = async (userId, artifactId) => {
   if (!snap.exists()) return null;
 
   return { id: snap.id, ...snap.data() };
+};
+
+/**
+ * Fetch the most recent study-plan artifact for a user (regardless of
+ * whether the root pointer exists). Used as a last-resort fallback when
+ * `currentStudyPlanArtifactId` is missing from the root progress doc.
+ */
+export const getLatestStudyPlanArtifact = async (userId) => {
+  if (!userId) return null;
+
+  const colRef = collection(db, 'progress', userId, 'studyPlanArtifacts');
+  const q = query(colRef, orderBy('createdAt', 'desc'), limit(1));
+  const snap = await getDocs(q);
+  if (snap.empty) return null;
+
+  const d = snap.docs[0];
+  return { id: d.id, ...d.data() };
 };
