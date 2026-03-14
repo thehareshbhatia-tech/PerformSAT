@@ -377,7 +377,7 @@ const TestResults = ({
   onRetake,
   onReview,
   onReviewModule,
-  onOpenDiagnosticReport,
+  onGoToStudyPlan,
   user,
 }) => {
   const [activeTab, setActiveTab] = useState('summary');
@@ -1685,8 +1685,8 @@ const TestResults = ({
             </ul>
             )}
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-              {onOpenDiagnosticReport && (
-                <button onClick={onOpenDiagnosticReport} style={{
+              {onGoToStudyPlan && (
+                <button onClick={onGoToStudyPlan} style={{
                   fontFamily: 'var(--font-ui)',
                   padding: '16px 32px', borderRadius: '16px', border: 'none',
                   background: 'linear-gradient(180deg, var(--color-slate-800) 0%, var(--color-slate-900) 100%)', color: '#fff',

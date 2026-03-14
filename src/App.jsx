@@ -8,7 +8,6 @@ import AiTutorChat, { AiTutorButton } from './components/AiTutorChat';
 import QuestionDiagram from './components/QuestionDiagrams';
 import PracticeTest from './components/PracticeTest';
 import PracticeTestList from './components/PracticeTestList';
-import DiagnosticReport from './components/DiagnosticReport';
 import SolutionExplanation from './components/SolutionExplanation';
 import { allLessons } from './data/lessons';
 import { fetchTranscript } from './services/transcriptService';
@@ -129,7 +128,7 @@ const PerformSAT = () => {
   const [activeModule, setActiveModule] = useState(null);
   const [activeLesson, setActiveLesson] = useState(null);
   const [activeSection, setActiveSection] = useState(null); // For section-based practice
-  const [view, setView] = useState('dashboard'); // 'dashboard', 'modules', 'learn', 'practice', 'practiceTests', 'takingTest', 'profile', 'studyPlan', 'diagnosticReport', 'tutor'
+  const [view, setView] = useState('dashboard'); // 'dashboard', 'modules', 'learn', 'practice', 'practiceTests', 'takingTest', 'profile', 'studyPlan', 'tutor'
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [selectedPracticeTest, setSelectedPracticeTest] = useState(null);
   const [isTestTimed, setIsTestTimed] = useState(true);
@@ -8891,7 +8890,7 @@ const PerformSAT = () => {
       >
       {/* Main Content */}
       <main id="main-content" style={{
-        maxWidth: view === 'learn' || view === 'takingTest' ? '100%' : (view === 'dashboard' || view === 'practiceTests' || view === 'diagnosticReport' || view === 'studyPlan') ? '960px' : '800px',
+        maxWidth: view === 'learn' || view === 'takingTest' ? '100%' : (view === 'dashboard' || view === 'practiceTests' || view === 'studyPlan') ? '960px' : '800px',
         margin: '0 auto',
         padding: view === 'learn' ? '0' : view === 'takingTest' ? '32px 0px 60px' : '32px 32px 100px',
         ...(view === 'learn' ? { overflow: 'hidden', height: '100vh' } : {})
@@ -8964,7 +8963,7 @@ const PerformSAT = () => {
               console.log('Start review session');
             }}
             onStartPracticeTest={() => setView('practiceTests')}
-            onViewFullDiagnosis={() => setView('diagnosticReport')}
+            onViewFullDiagnosis={() => setView('studyPlan')}
             onCompleteActivity={markStudyActivityComplete}
             onUncompleteActivity={unmarkStudyActivityComplete}
           />
@@ -9067,61 +9066,6 @@ const PerformSAT = () => {
             }}
           />
         )}
-
-        {/* Standalone Diagnostic Report View (accessed from dashboard) */}
-        {view === 'diagnosticReport' && (() => {
-          // Find the latest test with full data
-          const testEntries = Object.entries(practiceTestResults || {})
-            .filter(([_, t]) => t.answers && t.test)
-            .sort((a, b) => new Date(b[1].completedAt || 0) - new Date(a[1].completedAt || 0));
-          const latestTestData = testEntries.length > 0 ? testEntries[0][1] : null;
-
-          if (!latestTestData) {
-            return (
-              <div style={{ textAlign: 'center', padding: '60px 20px' }}>
-                <div style={{ fontSize: '48px', marginBottom: '16px' }}>📊</div>
-                <h2 style={{ fontSize: '22px', fontWeight: '600', marginBottom: '8px' }}>No Diagnostic Data Yet</h2>
-                <p style={{ color: '#6b7280', marginBottom: '24px' }}>Complete a practice test to get your personalized diagnosis and study plan.</p>
-                <button onClick={() => setView('practiceTests')} style={{
-                  padding: '12px 24px', background: '#ea580c', color: 'white', border: 'none',
-                  borderRadius: '10px', fontSize: '15px', fontWeight: '600', cursor: 'pointer'
-                }}>
-                  Take a Practice Test →
-                </button>
-              </div>
-            );
-          }
-
-          return (
-            <DiagnosticReport
-              test={latestTestData.test}
-              answers={latestTestData.answers}
-              diagnosticData={latestTestData.diagnosticData || {}}
-              skillProgress={skillProgress}
-              user={user}
-              practiceTestResults={practiceTestResults}
-              completedLessons={completedLessons}
-              practiceProgress={practiceProgress}
-              onBack={() => setView('dashboard')}
-              onGoToStudyPlan={() => setView('studyPlan')}
-              onNavigateToModule={(moduleId, lessonId) => {
-                setActiveModule(moduleId);
-                if (lessonId) {
-                  setActiveLesson(lessonId);
-                } else {
-                  const lessons = allLessons[moduleId] || [];
-                  if (lessons.length > 0) setActiveLesson(lessons[0].id);
-                }
-                setView('learn');
-              }}
-              onStartPractice={(moduleId, sectionName) => {
-                setActiveModule(moduleId);
-                startPrescriptivePractice(moduleId, sectionName);
-                setView('practice');
-              }}
-            />
-          );
-        })()}
 
         {view === 'studyPlan' && (
           <StudyPlanDashboard

@@ -19,7 +19,6 @@ import { generateAndPersistHybridPlan, fetchCurrentStudyPlan, persistDeterminist
 import { generateStudyPlan as generateDeterministicPlan } from '../services/studyPlanGenerator';
 import { runDiagnostic } from '../services/diagnosticEngine';
 import { getTargetedWeaknessSet } from '../data/questions/bank';
-import DiagnosticReport from './DiagnosticReport';
 import { scoreTest, isAnswerCorrect, convertToSATScore } from '../services/scoring';
 import { colors, typography, spacing, radius, shadows, transitions } from '../design/tokens';
 import { cardStyles, buttonStyles } from '../design/components';
@@ -873,7 +872,6 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   const [reviewTab, setReviewTab] = useState('question');
   const [reviewRightPane, setReviewRightPane] = useState('both');
   const [resultSaved, setResultSaved] = useState(false);
-  const [showDiagnosticReport, setShowDiagnosticReport] = useState(false);
   const [savedStudyPlan, setSavedStudyPlan] = useState(null);
   const [isPaused, setIsPaused] = useState(false);
   const [confirmAction, setConfirmAction] = useState(null);
@@ -2224,31 +2222,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       </div>
     );
   }
-  // Test completion screen - using TestResults or DiagnosticReport
+  // Test completion screen - TestResults with direct navigation to Study Plan tab
   if (testCompleted) {
-    // Show the full Diagnostic Report & Study Plan
-    if (showDiagnosticReport) {
-      return (
-        <div style={{ minHeight: '100vh', background: '#F5F5F7' }}>
-          <DiagnosticReport
-            test={test}
-            answers={answers}
-            diagnosticData={diagnosticDataRef.current}
-            skillProgress={skillProgress || {}}
-            user={user || {}}
-            practiceTestResults={practiceTestResults || {}}
-            completedLessons={completedLessons}
-            practiceProgress={practiceProgress}
-            savedStudyPlan={savedStudyPlan}
-            onNavigateToModule={onNavigateToModule}
-            onStartPractice={onStartPractice}
-            onGoToStudyPlan={onGoToStudyPlan}
-            onBack={() => setShowDiagnosticReport(false)}
-          />
-        </div>
-      );
-    }
-
     return (
       <div style={{ 
         minHeight: '100vh', 
@@ -2265,7 +2240,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             practiceTestResults={practiceTestResults}
             aiDiagnosticState={aiDiagnosticState}
             onRetryAiDiagnostic={retryAiDiagnostic}
-            onOpenDiagnosticReport={() => setShowDiagnosticReport(true)}
+            onGoToStudyPlan={onGoToStudyPlan}
             onBack={onBack}
             user={user}
             onRetake={() => {
@@ -2276,7 +2251,6 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               setEliminatedChoices({});
               setModuleCompleted(false);
               setTestCompleted(false);
-              setShowDiagnosticReport(false);
               setResultSaved(false);
               setSavedStudyPlan(null);
               setAiDiagnosticState({ status: 'idle', narrative: null, error: null });
