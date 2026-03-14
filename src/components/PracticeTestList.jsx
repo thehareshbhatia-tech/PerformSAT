@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { getAllPracticeTests } from '../data/practiceTests';
 import { colors, radius, shadows, zIndex } from '../design/tokens';
-import { ArrowLeftIcon, CheckIcon, PlayIcon, ChevronDownIcon, TimerIcon, CircleDotIcon } from '../design/icons';
+import { ArrowLeftIcon, CheckIcon, PlayIcon, ChevronDownIcon, TimerIcon, CircleDotIcon, RefreshIcon } from '../design/icons';
 
 const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practiceTestResults, getTestBestScore, getTestAttempts, inProgressTests, onResumeTest }) => {
   const tests = getAllPracticeTests();
@@ -215,8 +215,35 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
                         />
                       </button>
                     </div>
+                  ) : attempts > 0 ? (
+                    /* Completed (has prior attempts, not in progress): show Retake */
+                    <button
+                      onClick={() => setOpenDropdown(isOpen ? null : test.id)}
+                      style={{
+                        padding: '12px 28px',
+                        background: colors.brand?.primary || '#f59e0b',
+                        color: colors.text.inverse,
+                        border: 'none',
+                        borderRadius: radius.sm,
+                        fontSize: '15px',
+                        fontWeight: '600',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '8px'
+                      }}
+                    >
+                      <RefreshIcon size={16} color={colors.text.inverse} />
+                      Retake
+                      <ChevronDownIcon
+                        size={14}
+                        color="currentColor"
+                        style={{ transition: 'transform 0.2s ease', transform: isOpen ? 'rotate(180deg)' : 'rotate(0)' }}
+                      />
+                    </button>
                   ) : (
-                    /* Normal: single Start button with dropdown */
+                    /* Never started: single Start button with dropdown */
                     <button
                       onClick={() => setOpenDropdown(isOpen ? null : test.id)}
                       style={{
