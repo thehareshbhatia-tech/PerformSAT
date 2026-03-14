@@ -5,6 +5,7 @@ import { DataCard } from './ui/DataCard';
 import { PrimaryButton } from './ui/Button';
 import { reprioritizePlan } from '../services/adaptivePlanService';
 import { getQuestionById } from '../data/questions/bank';
+import ImmersiveStudyPlanView from './ImmersiveStudyPlanView';
 import {
   ClipboardIcon,
   VideoCameraIcon,
@@ -109,6 +110,7 @@ function Badge({ text, bg, fg }) {
 // ---------------------------------------------------------------------------
 
 const StudyPlanDashboard = ({
+  variant = 'default',
   studyPlan,
   practiceTestResults,
   practiceProgress,
@@ -225,6 +227,34 @@ const StudyPlanDashboard = ({
   // ====================================================================
   // RENDER
   // ====================================================================
+
+  if (variant === 'immersive') {
+    return (
+      <ImmersiveStudyPlanView
+        studyPlan={studyPlan}
+        targetedQuestions={targetedQuestions}
+        adaptiveOverlay={adaptiveOverlay}
+        isMobile={isMobile}
+        progressPercent={progressPercent}
+        completedActivities={completedActivities}
+        totalActivities={totalActivities}
+        weeks={weeks}
+        displayCurrentWeek={displayCurrentWeek}
+        activeExpanded={activeExpanded}
+        expandedWeek={expandedWeek}
+        setExpandedWeek={setExpandedWeek}
+        nextAction={nextAction}
+        handleActivityClick={handleActivityClick}
+        handleToggleComplete={handleToggleComplete}
+        hasHowYouTestData={hasHowYouTestData}
+        hasDelta={hasDelta}
+        hasInsights={hasInsights}
+        studyPlanHistory={studyPlanHistory}
+        onSelectPlanVersion={onSelectPlanVersion}
+      />
+    );
+  }
+
   return (
     <div style={{ padding: `${spacing.lg} 0`, display: 'flex', flexDirection: 'column', gap: spacing.md }}>
 

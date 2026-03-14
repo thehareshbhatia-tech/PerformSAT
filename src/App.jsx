@@ -9069,6 +9069,7 @@ const PerformSAT = () => {
 
         {view === 'studyPlan' && (
           <StudyPlanDashboard
+            variant="immersive"
             studyPlan={studyPlan}
             practiceTestResults={practiceTestResults}
             practiceProgress={practiceProgress}
