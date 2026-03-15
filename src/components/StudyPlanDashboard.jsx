@@ -5,6 +5,7 @@ import { DataCard } from './ui/DataCard';
 import { PrimaryButton } from './ui/Button';
 import { reprioritizePlan } from '../services/adaptivePlanService';
 import { getQuestionById } from '../data/questions/bank';
+import { resolveAssignedQuestions, normalizeDomain, getDomainAssignmentPreview, CANONICAL_DOMAINS } from '../services/practiceAssignmentService';
 import ImmersiveStudyPlanView from './ImmersiveStudyPlanView';
 import {
   ClipboardIcon,
@@ -127,11 +128,23 @@ const StudyPlanDashboard = ({
 }) => {
   const [expandedWeek, setExpandedWeek] = useState(null);
 
-  const targetedQuestions = useMemo(() => {
+  const adaptivePoolSize = studyPlan?.adaptivePractice?.poolIds?.length || 0;
+  const hasAdaptivePool = adaptivePoolSize > 0;
+
+  const adaptiveState = studyPlan?.adaptivePracticeState || null;
+  const adaptiveAnswered = adaptiveState?.answered?.length || 0;
+  const adaptiveTarget = adaptiveState?.targetQuestions || studyPlan?.adaptivePractice?.targetQuestions || 15;
+  const adaptiveMastery = adaptiveAnswered > 0 ? Math.round(((adaptiveState?.correct || 0) / adaptiveAnswered) * 100) : 0;
+  const adaptiveIsCompleted = adaptiveState?.isCompleted || false;
+  const adaptiveHasProgress = adaptiveAnswered > 0 && !adaptiveIsCompleted;
+
+  const { targetedQuestions, staleCount } = useMemo(() => {
+    if (hasAdaptivePool) return { targetedQuestions: [], staleCount: 0 };
     const ids = studyPlan?.targetedQuestionIds || [];
-    if (ids.length === 0) return [];
-    return ids.map(id => getQuestionById(id)).filter(Boolean);
-  }, [studyPlan?.targetedQuestionIds]);
+    if (ids.length === 0) return { targetedQuestions: [], staleCount: 0 };
+    const resolved = ids.map(id => getQuestionById(id)).filter(Boolean);
+    return { targetedQuestions: resolved, staleCount: ids.length - resolved.length };
+  }, [studyPlan?.targetedQuestionIds, hasAdaptivePool]);
 
   const adaptiveOverlay = useMemo(() => {
     if (!studyPlan?.weeks?.length) return null;
@@ -251,6 +264,7 @@ const StudyPlanDashboard = ({
         hasInsights={hasInsights}
         studyPlanHistory={studyPlanHistory}
         onSelectPlanVersion={onSelectPlanVersion}
+        onStartPractice={onStartPractice}
       />
     );
   }
@@ -491,14 +505,38 @@ const StudyPlanDashboard = ({
             Insights
           </div>
 
-          {/* Strengths & Focus Areas */}
-          {(strengths?.length > 0 || weaknesses?.length > 0) && (
+          {/* Strengths & Focus Areas with per-domain assigned practice */}
+          {(strengths?.length > 0 || weaknesses?.length > 0) && (() => {
+            const DOMAIN_LABELS = { algebra: 'Algebra', 'problem-solving': 'Problem Solving', 'advanced-math': 'Advanced Math', geometry: 'Geometry' };
+            const groupByDomain = (items) => {
+              const map = {};
+              (items || []).forEach(item => {
+                const d = normalizeDomain(item.domain) || 'other';
+                if (!map[d]) map[d] = [];
+                map[d].push(item);
+              });
+              return map;
+            };
+            const weakByDomain = groupByDomain(weaknesses);
+            const strongByDomain = groupByDomain(strengths);
+
+            const domainsFromItems = [...new Set([...Object.keys(weakByDomain), ...Object.keys(strongByDomain)])].filter(d => d !== 'other');
+            const domainsFromAdaptive = (studyPlan?.adaptivePractice?.weakDomains || []).map(d => normalizeDomain(d)).filter(Boolean);
+            const allDomains = [...new Set([...domainsFromItems, ...domainsFromAdaptive])];
+            if (allDomains.length === 0) {
+              CANONICAL_DOMAINS.forEach(d => allDomains.push(d));
+            }
+
+            const previewSeed = studyPlan?.adaptivePractice?.createdAt || 'default';
+
+            return (
             <CollapsibleSection
               title="Strengths & Focus Areas"
               summary={[
                 weaknesses?.length > 0 && `${weaknesses.length} area${weaknesses.length !== 1 ? 's' : ''} to improve`,
                 strengths?.length > 0 && `${strengths.length} strength${strengths.length !== 1 ? 's' : ''}`,
               ].filter(Boolean).join(' · ')}
+              defaultOpen={true}
             >
               <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: spacing.sm }}>
                 {weaknesses?.length > 0 && (
@@ -536,8 +574,106 @@ const StudyPlanDashboard = ({
                   </div>
                 )}
               </div>
+
+              {/* Per-domain assigned practice with question previews */}
+              {allDomains.length > 0 && (
+                <div style={{ marginTop: spacing.sm, paddingTop: spacing.sm, borderTop: `1px solid ${colors.surface.grayDark}` }}>
+                  <div style={{ fontSize: typography.sizes.xs, fontWeight: typography.weights.semibold, color: colors.text.muted, marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                    Assigned Practice by Domain
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                    {allDomains.map(domain => {
+                      const label = DOMAIN_LABELS[domain] || domain;
+                      const isWeak = !!weakByDomain[domain];
+                      const preview = getDomainAssignmentPreview(domain, { seed: previewSeed, count: 3 });
+                      const totalAvailable = preview.total;
+                      const previewQs = preview.questions;
+
+                      return (
+                        <div key={domain} style={{
+                          border: `1px solid ${isWeak ? 'rgba(239,68,68,0.25)' : 'rgba(34,197,94,0.25)'}`,
+                          borderRadius: radius.sm, overflow: 'hidden',
+                          background: isWeak ? 'rgba(239,68,68,0.03)' : 'rgba(34,197,94,0.03)',
+                        }}>
+                          <div style={{ padding: '10px 12px' }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: previewQs.length > 0 ? '8px' : '0' }}>
+                              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                <span style={{
+                                  width: '7px', height: '7px', borderRadius: '50%',
+                                  background: isWeak ? colors.semantic.error : colors.semantic.success,
+                                  flexShrink: 0,
+                                }} />
+                                <span style={{ fontSize: typography.sizes.sm, fontWeight: typography.weights.bold, color: colors.text.primary }}>
+                                  {label}
+                                </span>
+                                <span style={{ fontSize: '11px', color: colors.text.muted }}>
+                                  {totalAvailable} question{totalAvailable !== 1 ? 's' : ''} available
+                                </span>
+                              </div>
+                              {onStartPractice && totalAvailable > 0 && (
+                                <button
+                                  onClick={() => onStartPractice(null, null, {
+                                    adaptive: true,
+                                    source: 'study-plan-adaptive',
+                                    enforcedDomain: domain,
+                                    label: `${label} Focus`,
+                                  })}
+                                  style={{
+                                    padding: '5px 12px', borderRadius: radius.sm,
+                                    border: `1px solid ${isWeak ? colors.semantic.error : colors.semantic.success}`,
+                                    background: isWeak ? colors.semantic.error : colors.semantic.success,
+                                    color: '#fff',
+                                    fontSize: '11px', fontWeight: typography.weights.bold,
+                                    cursor: 'pointer', transition: `opacity ${transitions.fast}`,
+                                    flexShrink: 0,
+                                  }}
+                                  onMouseEnter={e => { e.currentTarget.style.opacity = '0.85'; }}
+                                  onMouseLeave={e => { e.currentTarget.style.opacity = '1'; }}
+                                >
+                                  Practice {label}
+                                </button>
+                              )}
+                            </div>
+
+                            {/* Question previews */}
+                            {previewQs.length > 0 && (
+                              <div style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
+                                {previewQs.map((q, qi) => (
+                                  <div key={q.id} style={{
+                                    display: 'flex', alignItems: 'center', gap: '6px',
+                                    padding: '4px 8px', borderRadius: '4px',
+                                    background: 'rgba(255,255,255,0.7)', fontSize: typography.sizes.xs,
+                                  }}>
+                                    <span style={{ fontWeight: typography.weights.bold, color: colors.text.muted, minWidth: '16px' }}>{qi + 1}</span>
+                                    <span style={{
+                                      fontWeight: typography.weights.medium, padding: '1px 5px', borderRadius: '3px',
+                                      background: q.difficulty === 'hard' ? colors.semantic.error : q.difficulty === 'medium' ? colors.semantic.warning : colors.semantic.success,
+                                      color: '#fff', fontSize: '10px',
+                                    }}>
+                                      {q.difficulty}
+                                    </span>
+                                    <span style={{ flex: 1, color: colors.text.secondary, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                                      <MathText>{q.question?.length > 60 ? q.question.slice(0, 60) + '...' : (q.question || q.stem || '')}</MathText>
+                                    </span>
+                                  </div>
+                                ))}
+                                {totalAvailable > previewQs.length && (
+                                  <div style={{ fontSize: '11px', color: colors.text.muted, paddingLeft: '8px', marginTop: '2px' }}>
+                                    + {totalAvailable - previewQs.length} more questions
+                                  </div>
+                                )}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
             </CollapsibleSection>
-          )}
+            );
+          })()}
 
           {/* Delta from previous plan */}
           {hasDelta && (
@@ -573,35 +709,119 @@ const StudyPlanDashboard = ({
             </CollapsibleSection>
           )}
 
-          {/* Targeted Practice */}
-          {targetedQuestions.length > 0 && (
+          {/* Adaptive Practice (Acely-style) */}
+          {hasAdaptivePool && (
+            <div style={{
+              border: adaptiveIsCompleted
+                ? `2px solid ${colors.semantic.success}`
+                : `1px solid ${colors.surface.grayDark}`,
+              borderRadius: radius.md,
+              overflow: 'hidden', background: colors.surface.white,
+            }}>
+              <div style={{ padding: '16px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+                  <div style={{ fontSize: typography.sizes.sm, fontWeight: typography.weights.bold, color: colors.text.primary }}>
+                    Adaptive Practice
+                  </div>
+                  {adaptiveIsCompleted && (
+                    <span style={{ fontSize: '11px', fontWeight: typography.weights.bold, color: colors.semantic.success, background: colors.semantic.successLight, padding: '3px 10px', borderRadius: radius.sm }}>
+                      Completed
+                    </span>
+                  )}
+                </div>
+                <div style={{ fontSize: typography.sizes.xs, color: colors.text.secondary, marginBottom: '12px', lineHeight: '1.4' }}>
+                  {adaptiveIsCompleted
+                    ? `You answered ${adaptiveAnswered} questions with ${adaptiveMastery}% mastery.`
+                    : 'Questions adapt to your level after each answer. Difficulty adjusts as you go, and missed questions come back for review.'}
+                </div>
+
+                {/* Progress indicators */}
+                {adaptiveAnswered > 0 && (
+                  <div style={{ marginBottom: '12px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11px', color: colors.text.muted, marginBottom: '4px' }}>
+                      <span>{adaptiveAnswered}/{adaptiveTarget} questions</span>
+                      <span>{adaptiveMastery}% mastery {adaptiveMastery >= (adaptiveState?.minMasteryPercent || 80) ? '(met)' : `(need ${adaptiveState?.minMasteryPercent || 80}%)`}</span>
+                    </div>
+                    <div style={{ height: '4px', background: colors.surface.gray, borderRadius: radius.sm, overflow: 'hidden' }}>
+                      <div style={{
+                        height: '100%',
+                        width: `${Math.min(100, Math.round((adaptiveAnswered / adaptiveTarget) * 100))}%`,
+                        background: adaptiveIsCompleted ? colors.semantic.success : colors.accent.orange,
+                        borderRadius: radius.sm,
+                        transition: `width ${transitions.slow}`,
+                      }} />
+                    </div>
+                  </div>
+                )}
+
+                <div style={{ display: 'flex', gap: '8px', marginBottom: '12px', flexWrap: 'wrap' }}>
+                  <span style={{ fontSize: '11px', color: colors.text.muted, background: colors.surface.offWhite, padding: '3px 8px', borderRadius: radius.sm }}>
+                    {adaptivePoolSize} questions in pool
+                  </span>
+                  {studyPlan?.adaptivePractice?.weakSkillIds?.length > 0 && (
+                    <span style={{ fontSize: '11px', color: colors.accent.teal, background: 'rgba(0,180,160,0.08)', padding: '3px 8px', borderRadius: radius.sm }}>
+                      Targeting {studyPlan.adaptivePractice.weakSkillIds.length} weak skill{studyPlan.adaptivePractice.weakSkillIds.length !== 1 ? 's' : ''}
+                    </span>
+                  )}
+                </div>
+
+                {!adaptiveIsCompleted && (
+                  <button
+                    onClick={() => {
+                      if (onStartPractice) {
+                        onStartPractice(null, null, {
+                          source: 'study-plan-adaptive',
+                          adaptive: true,
+                        });
+                      }
+                    }}
+                    style={{
+                      width: '100%', padding: '14px 0',
+                      borderRadius: radius.sm, border: 'none',
+                      background: colors.accent.orange, color: '#fff',
+                      fontSize: typography.sizes.sm, fontWeight: typography.weights.bold,
+                      cursor: 'pointer', transition: `opacity ${transitions.fast}`,
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.opacity = '0.9'; }}
+                    onMouseLeave={e => { e.currentTarget.style.opacity = '1'; }}
+                  >
+                    {adaptiveHasProgress ? 'Resume Adaptive Practice' : 'Start Adaptive Practice'}
+                  </button>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Legacy Targeted Practice fallback */}
+          {!hasAdaptivePool && targetedQuestions.length > 0 && (
             <CollapsibleSection
-              title={`Targeted Practice (${targetedQuestions.length})`}
+              title={`Targeted Practice (${targetedQuestions.length}${staleCount > 0 ? `, ${staleCount} unavailable` : ''})`}
               summary="Questions matched to your weak skills"
             >
               <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                {targetedQuestions.slice(0, 10).map((q, i) => {
-                  const diffColor = q.difficulty === 'hard' ? colors.semantic.error : q.difficulty === 'medium' ? colors.semantic.warning : colors.semantic.success;
-                  const domainLabels = { algebra: 'ALG', 'problem-solving': 'PS', 'advanced-math': 'AM', geometry: 'GEO' };
-                  return (
-                    <div key={q.id} style={{
-                      display: 'flex', alignItems: 'center', gap: '8px',
-                      padding: '6px 8px', borderRadius: radius.sm,
-                      background: colors.surface.offWhite, fontSize: typography.sizes.xs,
-                    }}>
-                      <span style={{ fontWeight: typography.weights.bold, color: colors.text.muted, minWidth: '18px' }}>{i + 1}</span>
-                      <span style={{ fontWeight: typography.weights.medium, padding: '1px 6px', borderRadius: '3px', background: diffColor, color: '#fff', fontSize: '10px' }}>
-                        {q.difficulty}
-                      </span>
-                      <span style={{ fontWeight: typography.weights.semibold, color: colors.accent.teal, fontSize: '10px' }}>
-                        {domainLabels[q.domain] || q.domain}
-                      </span>
-                      <span style={{ flex: 1, color: colors.text.secondary, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                        <MathText>{q.question.length > 70 ? q.question.slice(0, 70) + '...' : q.question}</MathText>
-                      </span>
-                    </div>
-                  );
-                })}
+                {targetedQuestions.slice(0, 10).map((q, i) => (
+                  <QuestionRow key={q.id} q={q} index={i} />
+                ))}
+                {onStartPractice && (
+                  <button
+                    onClick={() => {
+                      onStartPractice(null, null, {
+                        questionIds: targetedQuestions.map(q => q.id),
+                        source: 'study-plan-assigned',
+                        label: 'Targeted Practice',
+                      });
+                    }}
+                    style={{
+                      marginTop: '8px', width: '100%', padding: '10px 0',
+                      borderRadius: radius.sm, border: `1.5px solid ${colors.accent.orange}`,
+                      background: '#fff', color: colors.accent.orange,
+                      fontSize: typography.sizes.xs, fontWeight: typography.weights.bold,
+                      cursor: 'pointer',
+                    }}
+                  >
+                    Start Practice ({targetedQuestions.length} questions)
+                  </button>
+                )}
               </div>
             </CollapsibleSection>
           )}
@@ -729,6 +949,114 @@ const StudyPlanDashboard = ({
     </div>
   );
 };
+
+// ---------------------------------------------------------------------------
+// Per-question row (shared between flat list and weekly view)
+// ---------------------------------------------------------------------------
+const DOMAIN_LABELS = { algebra: 'ALG', 'problem-solving': 'PS', 'advanced-math': 'AM', geometry: 'GEO' };
+
+function QuestionRow({ q, index }) {
+  const diffColor = q.difficulty === 'hard' ? colors.semantic.error
+    : q.difficulty === 'medium' ? colors.semantic.warning : colors.semantic.success;
+  return (
+    <div style={{
+      display: 'flex', alignItems: 'center', gap: '8px',
+      padding: '6px 8px', borderRadius: radius.sm,
+      background: colors.surface.offWhite, fontSize: typography.sizes.xs,
+    }}>
+      <span style={{ fontWeight: typography.weights.bold, color: colors.text.muted, minWidth: '18px' }}>{index + 1}</span>
+      <span style={{ fontWeight: typography.weights.medium, padding: '1px 6px', borderRadius: '3px', background: diffColor, color: '#fff', fontSize: '10px' }}>
+        {q.difficulty}
+      </span>
+      <span style={{ fontWeight: typography.weights.semibold, color: colors.accent.teal, fontSize: '10px' }}>
+        {DOMAIN_LABELS[q.domain] || q.domain}
+      </span>
+      <span style={{ flex: 1, color: colors.text.secondary, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+        <MathText>{q.question.length > 70 ? q.question.slice(0, 70) + '...' : q.question}</MathText>
+      </span>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Weekly assignment groups (structured practiceAssignments)
+// ---------------------------------------------------------------------------
+function WeeklyAssignmentView({ weekAssignments, isMobile, onStartWeekPractice }) {
+  const [openWeek, setOpenWeek] = useState(null);
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+      {weekAssignments.map((wa) => {
+        const isOpen = openWeek === wa.weekNumber;
+        const questions = (wa.questionIds || []).map(id => getQuestionById(id)).filter(Boolean);
+        const diff = wa.difficultyBreakdown || {};
+        return (
+          <div key={wa.weekNumber} style={{
+            border: `1px solid ${colors.surface.gray}`, borderRadius: radius.sm, overflow: 'hidden',
+          }}>
+            <button
+              onClick={() => setOpenWeek(isOpen ? null : wa.weekNumber)}
+              style={{
+                width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                padding: '8px 12px', background: colors.surface.offWhite, border: 'none', cursor: 'pointer', textAlign: 'left',
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{
+                  fontSize: typography.sizes.xs, fontWeight: typography.weights.bold, color: colors.accent.orange,
+                  background: colors.accent.orangeLight, padding: '2px 8px', borderRadius: radius.sm,
+                }}>
+                  Wk {wa.weekNumber}
+                </span>
+                <span style={{ fontSize: typography.sizes.xs, color: colors.text.secondary }}>
+                  {wa.count} question{wa.count !== 1 ? 's' : ''}
+                </span>
+                {Object.entries(wa.domainBreakdown || {}).map(([d, n]) => (
+                  <span key={d} style={{ fontSize: '10px', color: colors.text.muted }}>
+                    {DOMAIN_LABELS[d] || d}:{n}
+                  </span>
+                ))}
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                {diff.easy > 0 && <span style={{ fontSize: '10px', color: colors.semantic.success }}>E:{diff.easy}</span>}
+                {diff.medium > 0 && <span style={{ fontSize: '10px', color: colors.semantic.warning }}>M:{diff.medium}</span>}
+                {diff.hard > 0 && <span style={{ fontSize: '10px', color: colors.semantic.error }}>H:{diff.hard}</span>}
+                <ChevronDownIcon size={12} color={colors.text.muted} style={{ transition: `transform ${transitions.fast}`, transform: isOpen ? 'rotate(180deg)' : 'none' }} />
+              </div>
+            </button>
+            {isOpen && (
+              <div style={{ padding: '6px 10px 10px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                {questions.map((q, i) => (
+                  <QuestionRow key={q.id} q={q} index={i} />
+                ))}
+                {questions.length === 0 && (
+                  <div style={{ fontSize: typography.sizes.xs, color: colors.text.muted, padding: '8px' }}>
+                    No questions available for this week.
+                  </div>
+                )}
+                {onStartWeekPractice && questions.length > 0 && (
+                  <button
+                    onClick={() => onStartWeekPractice(wa.questionIds, wa.weekNumber)}
+                    style={{
+                      marginTop: '8px', width: '100%', padding: '10px 0',
+                      borderRadius: radius.sm, border: `1.5px solid ${colors.accent.orange}`,
+                      background: '#fff', color: colors.accent.orange,
+                      fontSize: typography.sizes.xs, fontWeight: typography.weights.bold,
+                      cursor: 'pointer', transition: `background ${transitions.fast}`,
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.background = colors.accent.orangeLight; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = '#fff'; }}
+                  >
+                    Start Week {wa.weekNumber} Practice ({questions.length} questions)
+                  </button>
+                )}
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
 
 // ---------------------------------------------------------------------------
 // Small insight tile used inside "How You Test"

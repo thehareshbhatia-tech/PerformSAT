@@ -91,6 +91,15 @@ export const persistDeterministicArtifact = async (userId, plan, { attemptId = n
     weeksCount: sanitized.weeks?.length || 0,
     generatedAt: artifact.generatedAt,
     totalActivities: (sanitized.weeks || []).reduce((s, w) => s + (w.activities?.length || 0), 0),
+    totalAssignedQuestions: sanitized.targetedQuestionIds?.length || 0,
+    adaptivePoolSize: sanitized.adaptivePractice?.poolIds?.length || 0,
+    adaptiveProgress: sanitized.adaptivePracticeState ? {
+      answered: sanitized.adaptivePracticeState.answered?.length || 0,
+      target: sanitized.adaptivePracticeState.targetQuestions || 15,
+      mastery: 0,
+      isCompleted: sanitized.adaptivePracticeState.isCompleted || false,
+      completedAt: sanitized.adaptivePracticeState.completedAt || null,
+    } : null,
     version: 1,
     hasBothSources: false,
   };
@@ -231,6 +240,15 @@ async function persistHybridArtifact(userId, artifact) {
     totalActivities: (artifact.plan?.weeks || []).reduce(
       (s, w) => s + (w.activities?.length || 0), 0
     ),
+    totalAssignedQuestions: artifact.plan?.targetedQuestionIds?.length || 0,
+    adaptivePoolSize: artifact.plan?.adaptivePractice?.poolIds?.length || 0,
+    adaptiveProgress: artifact.plan?.adaptivePracticeState ? {
+      answered: artifact.plan.adaptivePracticeState.answered?.length || 0,
+      target: artifact.plan.adaptivePracticeState.targetQuestions || 15,
+      mastery: 0,
+      isCompleted: artifact.plan.adaptivePracticeState.isCompleted || false,
+      completedAt: artifact.plan.adaptivePracticeState.completedAt || null,
+    } : null,
     version: artifact.version,
     hasBothSources: artifact.provenance?.hasBothSources || false,
   };
@@ -316,4 +334,35 @@ export const getLatestStudyPlanArtifact = async (userId) => {
 
   const d = snap.docs[0];
   return { id: d.id, ...d.data() };
+};
+
+/**
+ * Patch `plan.adaptivePracticeState` on the current artifact doc.
+ * Used after each adaptive answer to persist resume-able progress.
+ * Also updates the root preview with a lightweight progress summary.
+ */
+export const patchAdaptivePracticeState = async (userId, artifactId, serializedState) => {
+  if (!userId || !artifactId || !serializedState) return;
+
+  try {
+    const artRef = doc(db, 'progress', userId, 'studyPlanArtifacts', artifactId);
+    await updateDoc(artRef, { 'plan.adaptivePracticeState': serializedState });
+
+    const answeredCount = serializedState.answered?.length || 0;
+    const correctCount = serializedState.correct || 0;
+    const mastery = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
+
+    const progressRef = doc(db, 'progress', userId);
+    await updateDoc(progressRef, {
+      'studyPlanPreview.adaptiveProgress': {
+        answered: answeredCount,
+        target: serializedState.targetQuestions || 15,
+        mastery,
+        isCompleted: serializedState.isCompleted || false,
+        completedAt: serializedState.completedAt || null,
+      },
+    });
+  } catch (err) {
+    console.warn('[hybridStudyPlanService] Failed to patch adaptive state:', err.message);
+  }
 };

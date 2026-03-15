@@ -86,30 +86,50 @@ export const useProgress = (userId) => {
             preview: data.studyPlanPreview || null,
           });
 
-          if (incomingPlan?.weeks?.length) {
-            setStudyPlan(incomingPlan);
-            studyPlanWriteInFlight.current = false;
-          } else if (!hydratingArtifact.current) {
+          // When an artifact pointer exists, always hydrate from the artifact
+          // subcollection — it carries practiceAssignments and full plan data
+          // that the legacy root studyPlan field may lack.
+          if (artifactId && !hydratingArtifact.current && !studyPlanWriteInFlight.current) {
             hydratingArtifact.current = true;
-
-            const hydrate = artifactId
-              ? getStudyPlanArtifact(userId, artifactId)
-              : getLatestStudyPlanArtifact(userId);
-
-            const source = artifactId ? `pointer:${artifactId}` : 'latest-query';
+            const source = `pointer:${artifactId}`;
             console.log('[useProgress] Hydrating study plan via', source);
 
-            hydrate.then(art => {
+            getStudyPlanArtifact(userId, artifactId).then(art => {
               if (art?.plan?.weeks?.length) {
                 console.log('[useProgress] Artifact hydrated OK via', source, '— weeks:', art.plan.weeks.length);
                 setStudyPlan(art.plan);
                 studyPlanWriteInFlight.current = false;
-                setStudyPlanMeta(prev => ({
-                  ...prev,
-                  artifactId: art.id,
-                }));
+                setStudyPlanMeta(prev => ({ ...prev, artifactId: art.id }));
+              } else if (incomingPlan?.weeks?.length) {
+                setStudyPlan(incomingPlan);
+                studyPlanWriteInFlight.current = false;
               } else if (!studyPlanWriteInFlight.current) {
-                // Only clear if no optimistic plan is in flight
+                setStudyPlan(prev => prev?.weeks?.length ? prev : null);
+              }
+            }).catch(err => {
+              console.error('[useProgress] Artifact hydration failed:', err);
+              if (incomingPlan?.weeks?.length) {
+                setStudyPlan(incomingPlan);
+              } else if (!studyPlanWriteInFlight.current) {
+                setStudyPlan(prev => prev?.weeks?.length ? prev : null);
+              }
+            }).finally(() => {
+              hydratingArtifact.current = false;
+            });
+          } else if (incomingPlan?.weeks?.length && !studyPlanWriteInFlight.current) {
+            setStudyPlan(incomingPlan);
+            studyPlanWriteInFlight.current = false;
+          } else if (!artifactId && !hydratingArtifact.current && !studyPlanWriteInFlight.current) {
+            hydratingArtifact.current = true;
+            console.log('[useProgress] Hydrating study plan via latest-query');
+
+            getLatestStudyPlanArtifact(userId).then(art => {
+              if (art?.plan?.weeks?.length) {
+                console.log('[useProgress] Artifact hydrated OK via latest-query — weeks:', art.plan.weeks.length);
+                setStudyPlan(art.plan);
+                studyPlanWriteInFlight.current = false;
+                setStudyPlanMeta(prev => ({ ...prev, artifactId: art.id }));
+              } else if (!studyPlanWriteInFlight.current) {
                 setStudyPlan(prev => prev?.weeks?.length ? prev : null);
               }
             }).catch(err => {
@@ -121,8 +141,6 @@ export const useProgress = (userId) => {
               hydratingArtifact.current = false;
             });
           }
-          // If hydratingArtifact is already in progress, don't touch studyPlan —
-          // the pending hydration or the optimistic value should remain.
         } else {
           setCompletedLessons({});
           setPracticeProgress({});

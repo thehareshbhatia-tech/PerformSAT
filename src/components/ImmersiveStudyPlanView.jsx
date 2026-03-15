@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { colors, typography, spacing, radius, transitions } from '../design/tokens';
 import { MathText } from './MathText';
+import { normalizeDomain, getDomainAssignmentPreview, CANONICAL_DOMAINS } from '../services/practiceAssignmentService';
 import {
   VideoCameraIcon,
   BookOpenIcon,
@@ -129,7 +130,8 @@ const ImmersiveStudyPlanView = ({
   hasDelta,
   hasInsights,
   studyPlanHistory,
-  onSelectPlanVersion
+  onSelectPlanVersion,
+  onStartPractice,
 }) => {
   const { summary, strengths, weaknesses, deltaFromPrevious, persistentWeaknessStrategy, calculatorDependency, eliminationEffectiveness, persistentWeaknesses, staminaInsight } = studyPlan;
 
@@ -427,7 +429,26 @@ const ImmersiveStudyPlanView = ({
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '24px' }}>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              {(strengths?.length > 0 || weaknesses?.length > 0) && (
+              {(strengths?.length > 0 || weaknesses?.length > 0) && (() => {
+                const DOMAIN_LABELS = { algebra: 'Algebra', 'problem-solving': 'Problem Solving', 'advanced-math': 'Advanced Math', geometry: 'Geometry' };
+                const groupByDomain = (items) => {
+                  const map = {};
+                  (items || []).forEach(item => {
+                    const d = normalizeDomain(item.domain) || 'other';
+                    if (!map[d]) map[d] = [];
+                    map[d].push(item);
+                  });
+                  return map;
+                };
+                const weakByDomain = groupByDomain(weaknesses);
+                const strongByDomain = groupByDomain(strengths);
+                const domainsFromItems = [...new Set([...Object.keys(weakByDomain), ...Object.keys(strongByDomain)])].filter(d => d !== 'other');
+                const domainsFromAdaptive = (studyPlan?.adaptivePractice?.weakDomains || []).map(d => normalizeDomain(d)).filter(Boolean);
+                const allDomains = [...new Set([...domainsFromItems, ...domainsFromAdaptive])];
+                if (allDomains.length === 0) CANONICAL_DOMAINS.forEach(d => allDomains.push(d));
+                const previewSeed = studyPlan?.adaptivePractice?.createdAt || 'default';
+
+                return (
                 <ImmersiveCollapsible
                   title="Strengths & Focus Areas"
                   summary={`${weaknesses?.length || 0} focus areas · ${strengths?.length || 0} strengths`}
@@ -456,9 +477,106 @@ const ImmersiveStudyPlanView = ({
                         ))}
                       </div>
                     )}
+
+                    {/* Per-domain assigned practice with question previews */}
+                    {allDomains.length > 0 && (
+                      <div style={{ borderTop: `1px solid ${colors.surface.grayDark}`, paddingTop: '20px' }}>
+                        <div style={{ fontSize: '12px', fontWeight: '700', color: colors.text.muted, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '14px' }}>
+                          Assigned Practice by Domain
+                        </div>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                          {allDomains.map(domain => {
+                            const label = DOMAIN_LABELS[domain] || domain;
+                            const isWeak = !!weakByDomain[domain];
+                            const preview = getDomainAssignmentPreview(domain, { seed: previewSeed, count: 3 });
+                            const totalAvailable = preview.total;
+                            const previewQs = preview.questions;
+
+                            return (
+                              <div key={domain} style={{
+                                border: `1px solid ${isWeak ? 'rgba(239,68,68,0.2)' : 'rgba(34,197,94,0.2)'}`,
+                                borderRadius: '12px', overflow: 'hidden',
+                                background: isWeak ? 'rgba(239,68,68,0.02)' : 'rgba(34,197,94,0.02)',
+                              }}>
+                                <div style={{ padding: '14px 16px' }}>
+                                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: previewQs.length > 0 ? '10px' : '0' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                                      <span style={{
+                                        width: '8px', height: '8px', borderRadius: '50%',
+                                        background: isWeak ? colors.semantic.error : colors.semantic.success,
+                                        flexShrink: 0,
+                                      }} />
+                                      <span style={{ fontSize: '15px', fontWeight: '700', color: colors.text.primary }}>
+                                        {label}
+                                      </span>
+                                      <span style={{ fontSize: '12px', color: colors.text.muted, fontWeight: '500' }}>
+                                        {totalAvailable} question{totalAvailable !== 1 ? 's' : ''}
+                                      </span>
+                                    </div>
+                                    {onStartPractice && totalAvailable > 0 && (
+                                      <button
+                                        onClick={() => onStartPractice(null, null, {
+                                          adaptive: true,
+                                          source: 'study-plan-adaptive',
+                                          enforcedDomain: domain,
+                                          label: `${label} Focus`,
+                                        })}
+                                        style={{
+                                          padding: '6px 14px', borderRadius: '8px',
+                                          border: 'none',
+                                          background: isWeak ? colors.semantic.error : colors.semantic.success,
+                                          color: '#fff',
+                                          fontSize: '12px', fontWeight: '700',
+                                          cursor: 'pointer', transition: 'opacity 0.15s',
+                                          flexShrink: 0,
+                                        }}
+                                        onMouseEnter={e => { e.currentTarget.style.opacity = '0.85'; }}
+                                        onMouseLeave={e => { e.currentTarget.style.opacity = '1'; }}
+                                      >
+                                        Practice {label}
+                                      </button>
+                                    )}
+                                  </div>
+
+                                  {previewQs.length > 0 && (
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                                      {previewQs.map((q, qi) => (
+                                        <div key={q.id} style={{
+                                          display: 'flex', alignItems: 'center', gap: '8px',
+                                          padding: '6px 10px', borderRadius: '6px',
+                                          background: 'rgba(255,255,255,0.8)', fontSize: '13px',
+                                        }}>
+                                          <span style={{ fontWeight: '700', color: colors.text.muted, minWidth: '18px' }}>{qi + 1}</span>
+                                          <span style={{
+                                            fontWeight: '600', padding: '2px 6px', borderRadius: '4px',
+                                            background: q.difficulty === 'hard' ? colors.semantic.error : q.difficulty === 'medium' ? colors.semantic.warning : colors.semantic.success,
+                                            color: '#fff', fontSize: '11px',
+                                          }}>
+                                            {q.difficulty}
+                                          </span>
+                                          <span style={{ flex: 1, color: colors.text.secondary, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                                            <MathText>{q.question?.length > 55 ? q.question.slice(0, 55) + '...' : (q.question || q.stem || '')}</MathText>
+                                          </span>
+                                        </div>
+                                      ))}
+                                      {totalAvailable > previewQs.length && (
+                                        <div style={{ fontSize: '12px', color: colors.text.muted, paddingLeft: '10px', marginTop: '2px', fontWeight: '500' }}>
+                                          + {totalAvailable - previewQs.length} more questions
+                                        </div>
+                                      )}
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </ImmersiveCollapsible>
-              )}
+                );
+              })()}
 
               {hasDelta && (
                 <ImmersiveCollapsible title="What Changed" summary="Progress since last plan">

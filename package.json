@@ -18,6 +18,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "bank:official": "node scripts/officialQuestionBankPipeline.mjs all --variations=5",
+    "bank:official:extract": "node scripts/officialQuestionBankPipeline.mjs extract",
+    "bank:official:rewrite": "node scripts/officialQuestionBankPipeline.mjs rewrite",
+    "bank:official:validate": "node scripts/officialQuestionBankPipeline.mjs validate",
+    "bank:official:publish": "node scripts/officialQuestionBankPipeline.mjs publish",
+    "bank:validate": "node scripts/validateBank.mjs",
+    "bank:test": "node scripts/testPipeline.mjs",
     "eject": "react-scripts eject"
   },
   "browserslist": {

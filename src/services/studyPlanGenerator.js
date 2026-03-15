@@ -21,6 +21,7 @@ import { allLessons } from '../data/lessons';
 import { hasQuestionsForSection, getSectionsWithQuestions } from '../data/questions';
 import { getSkillById, skillTaxonomy } from '../data/skillTaxonomy';
 import { ERROR_TYPES, ERROR_TYPE_LABELS, ERROR_TYPE_ICONS } from './diagnosticEngine';
+import { generatePracticeAssignments, buildAdaptiveQueueSeed, serializeAdaptiveState, createAdaptiveSessionState } from './practiceAssignmentService';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONSTANTS
@@ -150,12 +151,45 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
 
   const nextAction = deriveSignalAwareNextAction(weeklyPlan, diagnostic);
 
+  const generatedAt = new Date().toISOString();
+
+  // ═══ Assign practice questions from the bank ═══
+  const assignmentSeed = `${diagnostic.testId || 'diag'}-${generatedAt}`;
+  const { targetedQuestionIds, practiceAssignments, summary: assignmentSummary } =
+    generatePracticeAssignments({
+      diagnostic,
+      weekCount: effectiveWeeks,
+      excludeIds: [],
+      seed: assignmentSeed,
+      questionsPerWeek: 10,
+      difficultyMix: { easy: 0.30, medium: 0.45, hard: 0.25 },
+    });
+
+  // ═══ Adaptive practice queue seed + initial state (Acely-style) ═══
+  const adaptivePractice = buildAdaptiveQueueSeed({
+    diagnostic,
+    seed: assignmentSeed,
+    poolSize: 80,
+  });
+  const adaptivePracticeState = serializeAdaptiveState(
+    createAdaptiveSessionState(adaptivePractice),
+  );
+
   return {
     // Core plan data
     weeks: weeklyPlan,
     milestones,
     summary,
     nextAction,
+
+    // Adaptive practice (primary — Acely-style)
+    adaptivePractice,
+    adaptivePracticeState,
+
+    // Legacy practice assignments (fallback)
+    targetedQuestionIds,
+    practiceAssignments,
+    assignmentSummary,
 
     // Advanced features
     spacedRepetitionSchedule,
@@ -177,7 +211,7 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
     skillGaps,
 
     // Timestamp
-    generatedAt: new Date().toISOString(),
+    generatedAt,
     basedOnTest: diagnostic.testId,
 
     // Adaptation data (for next plan generation)

@@ -2,12 +2,14 @@ import { algebraBank } from './algebra';
 import { problemSolvingBank } from './problemSolving';
 import { advancedMathBank } from './advancedMath';
 import { geometryBank } from './geometry';
+import { generatedOfficialBank } from './generatedOfficial';
 
 export const questionBank = [
   ...algebraBank,
   ...problemSolvingBank,
   ...advancedMathBank,
   ...geometryBank,
+  ...generatedOfficialBank,
 ];
 
 const bankIndex = new Map(questionBank.map(q => [q.id, q]));
@@ -27,13 +29,61 @@ questionBank.forEach(q => {
   difficultyIndex.get(q.difficulty).push(q);
 });
 
+const SKILL_ALIAS_MAP = {
+  'mean-median-mode': ['calculate-mean', 'find-median', 'find-mode'],
+  'statistics': ['calculate-mean', 'standard-deviation-concept'],
+  'percents': ['percent-change', 'percent-of-value'],
+  'probability': ['margin-of-error'],
+  'two-way-tables': ['margin-of-error'],
+  'linear-functions': ['slope-intercept-form', 'function-evaluation'],
+  'function-interpretation': ['function-notation', 'slope-intercept-form'],
+  'word-problems': ['word-problem-to-equation'],
+  'linear-equations': ['word-problem-to-equation', 'slope-intercept-form'],
+  'factoring': ['finding-roots-factoring', 'difference-of-squares'],
+  'polynomial-operations': ['distributive-property', 'combining-like-terms'],
+  'algebraic-manipulation': ['distributive-property', 'combining-like-terms'],
+  'formula-rearrangement': ['function-evaluation'],
+  'solving-equations': ['word-problem-to-equation'],
+  'exponential-functions': ['exponential-growth-decay', 'exponential-y-intercept'],
+  'half-life': ['exponential-growth-decay'],
+  'radical-equations': ['simplifying-rational-expressions'],
+  'absolute-value-equations': ['distributive-property'],
+  'quadratics': ['identify-quadratic', 'finding-roots-factoring'],
+  'quadratic-functions': ['identify-quadratic', 'vertex-formula'],
+  'polygons': ['triangle-angle-sum'],
+  'angles': ['triangle-angle-sum'],
+  'triangles': ['pythagorean-theorem', 'triangle-angle-sum'],
+  'right-triangles': ['pythagorean-theorem', 'soh-cah-toa'],
+  'circles': ['circle-equation', 'circle-area'],
+  'volume': ['volume-prism', 'volume-sphere'],
+  'trigonometry': ['soh-cah-toa', 'special-right-triangles'],
+  'data-interpretation': ['calculate-mean', 'standard-deviation-concept'],
+  'scatterplots': ['calculate-mean'],
+  'exponents': ['exponent-laws', 'zero-negative-exponents'],
+};
+
+function resolveSkillIds(rawIds) {
+  const resolved = new Set();
+  for (const id of rawIds) {
+    if (skillIndex.has(id)) {
+      resolved.add(id);
+    }
+    const aliases = SKILL_ALIAS_MAP[id];
+    if (aliases) {
+      aliases.forEach(a => resolved.add(a));
+    }
+  }
+  return [...resolved];
+}
+
 export const getQuestionById = (id) => bankIndex.get(id) || null;
 
 export const getQuestionsBySkillIds = (skillIds, opts = {}) => {
   const { difficulty, excludeIds = [], limit } = opts;
+  const resolved = resolveSkillIds(skillIds);
   const seen = new Set();
   let results = [];
-  skillIds.forEach(sid => {
+  resolved.forEach(sid => {
     (skillIndex.get(sid) || []).forEach(q => {
       if (!seen.has(q.id)) {
         seen.add(q.id);

@@ -21,6 +21,19 @@ import ErrorBoundary from './components/ui/ErrorBoundary';
 import Onboarding from './components/Onboarding';
 import Profile from './components/Profile';
 import StudyPlanDashboard from './components/StudyPlanDashboard';
+import AdaptivePracticeShell from './components/AdaptivePracticeShell';
+import {
+  resolveAssignedQuestions,
+  normalizeDomain,
+  buildDomainAdaptiveQueueSeed,
+  createAdaptiveSessionState,
+  getNextAdaptiveQuestion,
+  applyAdaptiveResult,
+  evaluateAdaptiveCompletion,
+  serializeAdaptiveState,
+  deserializeAdaptiveState,
+} from './services/practiceAssignmentService';
+import { patchAdaptivePracticeState } from './services/hybridStudyPlanService';
 
 // Premium Design System - Clean, Modern, Professional
 const design = {
@@ -169,7 +182,7 @@ const PerformSAT = () => {
   }, [showCalculator]);
 
   const { user, loading, logout, updateTestDate, updateTargetScore, updateCurrentScore, updateTargetSchools } = useAuth();
-  const { completedLessons, practiceProgress, reviewQueue, skillProgress, practiceTestResults, inProgressTests, studyPlan, markLessonComplete: markComplete, getModuleProgress: calcProgress, isLessonCompleted, recordPracticeAttempt, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete } = useProgress(user?.uid);
+  const { completedLessons, practiceProgress, reviewQueue, skillProgress, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, markLessonComplete: markComplete, getModuleProgress: calcProgress, isLessonCompleted, recordPracticeAttempt, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete } = useProgress(user?.uid);
 
   const markLessonComplete = (moduleId, lessonId) => {
     const moduleLessons = allLessons[moduleId] || [];
@@ -245,6 +258,79 @@ const PerformSAT = () => {
     setView('practice');
   };
 
+  const startAssignedPractice = (questionIds, meta = {}) => {
+    const { resolved } = resolveAssignedQuestions(questionIds);
+    if (resolved.length === 0) return;
+
+    setPracticeState({
+      currentQuestionIndex: 0,
+      selectedAnswer: null,
+      showFeedback: false,
+      showHint: false,
+      answers: {},
+      isComplete: false,
+      shuffledQuestions: resolved,
+      practiceMode: 'assigned',
+      assignmentMeta: {
+        label: meta.label || 'Assigned Practice',
+        weekNumber: meta.weekNumber ?? null,
+        source: 'study-plan-assigned',
+      },
+    });
+    setActiveModule(null);
+    setActiveSection('__assigned__');
+    setShowCalculator(false);
+    setView('practice');
+  };
+
+  const startAdaptivePractice = (opts = {}) => {
+    const rawDomain = opts.enforcedDomain;
+    const resolvedDomain = rawDomain ? normalizeDomain(rawDomain) : null;
+    const label = opts.label;
+
+    let queueSeed;
+    let sessionState;
+
+    if (resolvedDomain) {
+      queueSeed = buildDomainAdaptiveQueueSeed({
+        enforcedDomain: resolvedDomain,
+        existingPoolIds: studyPlan?.adaptivePractice?.poolIds || [],
+        seed: resolvedDomain + (studyPlan?.adaptivePractice?.createdAt || ''),
+      });
+      if (!queueSeed?.poolIds?.length) return;
+      sessionState = createAdaptiveSessionState(queueSeed);
+    } else {
+      queueSeed = studyPlan?.adaptivePractice;
+      if (!queueSeed?.poolIds?.length) return;
+
+      const persisted = studyPlan?.adaptivePracticeState;
+      sessionState = (persisted?.answered?.length > 0 && !persisted?.isCompleted)
+        ? deserializeAdaptiveState(persisted)
+        : createAdaptiveSessionState(queueSeed);
+    }
+
+    const { question } = getNextAdaptiveQuestion(queueSeed, sessionState);
+    if (!question) return;
+
+    setPracticeState({
+      currentQuestionIndex: 0,
+      selectedAnswer: null,
+      showFeedback: false,
+      showHint: false,
+      answers: {},
+      isComplete: false,
+      shuffledQuestions: [question],
+      practiceMode: 'adaptive',
+      adaptiveQueueSeed: queueSeed,
+      adaptiveSessionState: sessionState,
+      adaptiveDomainLabel: label || null,
+    });
+    setActiveModule(null);
+    setActiveSection('__adaptive__');
+    setShowCalculator(false);
+    setView('practice');
+  };
+
   const handleShowHint = () => {
     setPracticeState(prev => ({ ...prev, showHint: true }));
   };
@@ -253,6 +339,13 @@ const PerformSAT = () => {
     if (!practiceState.showFeedback) {
       setPracticeState(prev => ({ ...prev, selectedAnswer: answerId }));
     }
+  };
+
+  const handleNavigateToQuestion = (targetIdx) => {
+    setPracticeState(prev => {
+      if (targetIdx < 0 || targetIdx >= prev.shuffledQuestions.length) return prev;
+      return { ...prev, currentQuestionIndex: targetIdx, selectedAnswer: null, showFeedback: false, showHint: false };
+    });
   };
 
   const handleCheckAnswer = (question) => {
@@ -271,16 +364,74 @@ const PerformSAT = () => {
       }
     }));
 
-    // Add to review queue for spaced repetition tracking
-    if (user?.uid && activeModule && activeSection) {
+    const isAdaptiveOrAssigned = practiceState.practiceMode === 'assigned' || practiceState.practiceMode === 'adaptive';
+    if (user?.uid && activeModule && activeSection && !isAdaptiveOrAssigned) {
       addToReviewQueue(user.uid, activeModule, activeSection, question.id, isCorrect);
     }
   };
 
   const handleNextQuestion = (questions) => {
-    // Clear AI tutor chat when moving to next question
     setShowAiTutor(false);
-    sessionStorage.removeItem(`aiTutorChat_${activeModule}_practice-${activeSection}-q${practiceState.currentQuestionIndex}`);
+    const isAdaptiveOrAssigned = practiceState.practiceMode === 'assigned' || practiceState.practiceMode === 'adaptive';
+    if (!isAdaptiveOrAssigned) {
+      sessionStorage.removeItem(`aiTutorChat_${activeModule}_practice-${activeSection}-q${practiceState.currentQuestionIndex}`);
+    }
+
+    // Adaptive mode: ask the queue engine for the next question
+    if (practiceState.practiceMode === 'adaptive') {
+      const currentQ = questions[practiceState.currentQuestionIndex];
+      const lastAnswer = practiceState.answers[currentQ?.id];
+      const isRetry = practiceState.adaptiveSessionState?.seenIds?.has(currentQ?.id) &&
+        practiceState.adaptiveSessionState.answered.some(a => a.id === currentQ?.id);
+
+      let nextState = practiceState.adaptiveSessionState;
+      if (currentQ && lastAnswer) {
+        nextState = applyAdaptiveResult(nextState, currentQ.id, lastAnswer.correct, isRetry);
+      }
+
+      // Evaluate both-rule completion (target + mastery)
+      const completion = evaluateAdaptiveCompletion(nextState);
+
+      // Persist state after each answer
+      const artId = studyPlanMeta?.artifactId;
+      if (user?.uid && artId) {
+        const toSave = { ...serializeAdaptiveState(nextState) };
+        if (completion.isComplete) {
+          toSave.isCompleted = true;
+          toSave.completedAt = new Date().toISOString();
+          toSave.sessionsCompleted = (nextState.sessionsCompleted || 0) + 1;
+        }
+        patchAdaptivePracticeState(user.uid, artId, toSave);
+      }
+
+      const { question: nextQ, isComplete: queueExhausted } = getNextAdaptiveQuestion(
+        practiceState.adaptiveQueueSeed, nextState,
+      );
+
+      // Session ends when both rules are met OR queue is exhausted
+      if (completion.isComplete || queueExhausted || !nextQ) {
+        const finalState = completion.isComplete
+          ? { ...nextState, isCompleted: true, completedAt: new Date().toISOString(), sessionsCompleted: (nextState.sessionsCompleted || 0) + 1 }
+          : nextState;
+        setPracticeState(prev => ({
+          ...prev,
+          isComplete: true,
+          adaptiveSessionState: finalState,
+          adaptiveCompletion: completion,
+        }));
+      } else {
+        setPracticeState(prev => ({
+          ...prev,
+          shuffledQuestions: [...prev.shuffledQuestions, nextQ],
+          currentQuestionIndex: prev.shuffledQuestions.length,
+          selectedAnswer: null,
+          showFeedback: false,
+          showHint: false,
+          adaptiveSessionState: nextState,
+        }));
+      }
+      return;
+    }
 
     if (practiceState.currentQuestionIndex < questions.length - 1) {
       setPracticeState(prev => ({
@@ -291,9 +442,8 @@ const PerformSAT = () => {
         showHint: false
       }));
     } else {
-      // Calculate final score and save
       const correctCount = Object.values(practiceState.answers).filter(a => a.correct).length;
-      if (user && activeModule && activeSection) {
+      if (user && activeModule && activeSection && !isAdaptiveOrAssigned) {
         recordPracticeAttempt(activeModule, activeSection, practiceState.answers, correctCount, questions.length);
       }
       setPracticeState(prev => ({ ...prev, isComplete: true }));
@@ -8955,7 +9105,15 @@ const PerformSAT = () => {
             onUpdateTargetScore={updateTargetScore}
             onUpdateCurrentScore={updateCurrentScore}
             onUpdateTargetSchools={updateTargetSchools}
-            onStartPractice={(moduleId, sectionName) => {
+            onStartPractice={(moduleId, sectionName, opts) => {
+              if (opts?.adaptive) { startAdaptivePractice({ enforcedDomain: opts.enforcedDomain, label: opts.label }); return; }
+              if (opts?.questionIds?.length) {
+                startAssignedPractice(opts.questionIds, {
+                  label: opts.label,
+                  weekNumber: opts.weekNumber,
+                });
+                return;
+              }
               startPrescriptivePractice(moduleId, sectionName);
             }}
             onStartReview={() => {
@@ -9028,7 +9186,16 @@ const PerformSAT = () => {
               setSelectedPracticeTest(null);
               setView('learn');
             }}
-            onStartPractice={(moduleId, sectionName) => {
+            onStartPractice={(moduleId, sectionName, opts) => {
+              if (opts?.adaptive) { startAdaptivePractice({ enforcedDomain: opts.enforcedDomain, label: opts.label }); setSelectedPracticeTest(null); return; }
+              if (opts?.questionIds?.length) {
+                startAssignedPractice(opts.questionIds, {
+                  label: opts.label,
+                  weekNumber: opts.weekNumber,
+                });
+                setSelectedPracticeTest(null);
+                return;
+              }
               setActiveModule(moduleId);
               setActiveSection(sectionName);
               startPrescriptivePractice(moduleId, sectionName);
@@ -9086,7 +9253,15 @@ const PerformSAT = () => {
               }
               setView('learn');
             }}
-            onStartPractice={(moduleId, sectionName) => {
+            onStartPractice={(moduleId, sectionName, opts) => {
+              if (opts?.adaptive) { startAdaptivePractice({ enforcedDomain: opts.enforcedDomain, label: opts.label }); return; }
+              if (opts?.questionIds?.length) {
+                startAssignedPractice(opts.questionIds, {
+                  label: opts.label,
+                  weekNumber: opts.weekNumber,
+                });
+                return;
+              }
               setActiveModule(moduleId);
               startPrescriptivePractice(moduleId, sectionName);
               setView('practice');
@@ -9274,6 +9449,9 @@ const PerformSAT = () => {
 
         {/* Practice View */}
         {view === 'practice' && activeSection && (() => {
+          const isAssigned = practiceState.practiceMode === 'assigned';
+          const isAdaptive = practiceState.practiceMode === 'adaptive';
+          const isStudyPlanMode = isAssigned || isAdaptive;
           const questions = practiceState.shuffledQuestions.length > 0
             ? practiceState.shuffledQuestions
             : getQuestionsForSection(activeModule, activeSection);
@@ -9281,11 +9459,55 @@ const PerformSAT = () => {
           const currentQuestion = questions[practiceState.currentQuestionIndex];
           const difficultyBadge = currentQuestion?.difficulty ? getDifficultyBadge(currentQuestion.difficulty) : null;
 
+          const studyPlanBackHandler = () => {
+            setActiveSection(null);
+            setActiveModule(null);
+            setShowCalculator(false);
+            setView('studyPlan');
+          };
+          const moduleBackHandler = () => { setView('learn'); setActiveSection(null); setShowCalculator(false); };
+          const backHandler = isStudyPlanMode ? studyPlanBackHandler : moduleBackHandler;
+          const headerTitle = isAdaptive
+            ? (practiceState.adaptiveDomainLabel ? `Adaptive Practice — ${practiceState.adaptiveDomainLabel}` : 'Adaptive Practice')
+            : isAssigned
+              ? (practiceState.assignmentMeta?.label || 'Assigned Practice')
+              : activeSection;
+
+          const adaptiveProgress = isAdaptive && practiceState.adaptiveSessionState
+            ? `${practiceState.adaptiveSessionState.answered.length + (practiceState.showFeedback ? 0 : 0)}/${practiceState.adaptiveSessionState.sessionLength}`
+            : null;
+
+          // Adaptive mode uses its own test-style shell
+          if (isAdaptive) {
+            return (
+              <AdaptivePracticeShell
+                practiceState={practiceState}
+                questions={questions}
+                currentQuestion={currentQuestion}
+                headerTitle={headerTitle}
+                onBack={studyPlanBackHandler}
+                onSelectAnswer={handleSelectAnswer}
+                onCheckAnswer={handleCheckAnswer}
+                onNextQuestion={handleNextQuestion}
+                onShowHint={handleShowHint}
+                onNavigateToQuestion={handleNavigateToQuestion}
+                onToggleCalculator={() => setShowCalculator(!showCalculator)}
+                showCalculator={showCalculator}
+                onRelaunch={() => startAdaptivePractice({
+                  enforcedDomain: practiceState.adaptiveQueueSeed?.enforcedDomain,
+                  label: practiceState.adaptiveDomainLabel,
+                })}
+                getDifficultyBadge={getDifficultyBadge}
+              />
+            );
+          }
+
           // Results screen
           if (practiceState.isComplete) {
-            const totalQuestions = questions.length;
-            const correctCount = Object.values(practiceState.answers).filter(a => a.correct).length;
-            const percentage = Math.round((correctCount / totalQuestions) * 100);
+            const answeredEntries = Object.values(practiceState.answers);
+            const totalQuestions = isAdaptive ? answeredEntries.length : questions.length;
+            const correctCount = answeredEntries.filter(a => a.correct).length;
+            const percentage = totalQuestions > 0 ? Math.round((correctCount / totalQuestions) * 100) : 0;
             const isGood = percentage >= 80;
             const isOkay = percentage >= 40;
 
@@ -9302,7 +9524,7 @@ const PerformSAT = () => {
             return (
               <div style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
                 <button
-                  onClick={() => { setView('learn'); setActiveSection(null); setShowCalculator(false); }}
+                  onClick={backHandler}
                   style={{
                     background: 'none',
                     border: 'none',
@@ -9317,7 +9539,7 @@ const PerformSAT = () => {
                     fontWeight: '500'
                   }}
                 >
-                  ← Back to {currentModuleInfo?.title}
+                  ← {isStudyPlanMode ? 'Back to Study Plan' : `Back to ${currentModuleInfo?.title}`}
                 </button>
 
                 <div style={{
@@ -9343,9 +9565,26 @@ const PerformSAT = () => {
                 <h2 style={{ fontSize: '28px', fontWeight: '700', color: '#1d1d1f', marginBottom: '12px' }}>
                   {isGood ? 'Excellent!' : isOkay ? 'Good effort!' : 'Keep practicing!'}
                 </h2>
-                <p style={{ fontSize: '16px', color: '#6b7280', marginBottom: '32px' }}>
+                <p style={{ fontSize: '16px', color: '#6b7280', marginBottom: isAdaptive ? '16px' : '32px' }}>
                   You got {correctCount} out of {totalQuestions} questions correct ({percentage}%)
                 </p>
+
+                {isAdaptive && practiceState.adaptiveCompletion && (
+                  <div style={{
+                    background: practiceState.adaptiveCompletion.isComplete ? 'rgba(16,185,129,0.08)' : 'rgba(234,179,8,0.08)',
+                    borderRadius: '12px', padding: '14px 20px', marginBottom: '24px', textAlign: 'left',
+                    border: practiceState.adaptiveCompletion.isComplete ? '1px solid rgba(16,185,129,0.25)' : '1px solid rgba(234,179,8,0.25)',
+                  }}>
+                    <div style={{ fontSize: '13px', fontWeight: '600', color: practiceState.adaptiveCompletion.isComplete ? '#10b981' : '#f59e0b', marginBottom: '6px' }}>
+                      {practiceState.adaptiveCompletion.isComplete ? 'Assignment Complete' : 'Assignment In Progress'}
+                    </div>
+                    <div style={{ fontSize: '12px', color: '#6b7280', lineHeight: '1.5' }}>
+                      Target: {practiceState.adaptiveCompletion.answeredCount}/{practiceState.adaptiveCompletion.targetQuestions} questions
+                      {practiceState.adaptiveCompletion.meetsTarget ? ' (met)' : ''} &middot; Mastery: {practiceState.adaptiveCompletion.mastery}%/{practiceState.adaptiveCompletion.minMasteryPercent}%
+                      {practiceState.adaptiveCompletion.meetsMastery ? ' (met)' : ''}
+                    </div>
+                  </div>
+                )}
 
                 {/* Difficulty Breakdown */}
                 <div style={{
@@ -9394,23 +9633,63 @@ const PerformSAT = () => {
                 </div>
 
                 <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
+                  {isAdaptive ? (
+                    <button
+                      onClick={() => startAdaptivePractice({
+                        enforcedDomain: practiceState.adaptiveQueueSeed?.enforcedDomain,
+                        label: practiceState.adaptiveDomainLabel,
+                      })}
+                      style={{
+                        padding: '16px 32px',
+                        borderRadius: '12px',
+                        border: '2px solid #ea580c',
+                        background: '#fff',
+                        color: '#ea580c',
+                        fontSize: '16px',
+                        fontWeight: '600',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      {practiceState.adaptiveCompletion?.isComplete ? 'New Session' : 'Continue Practice'}
+                    </button>
+                  ) : isAssigned ? (
+                    <button
+                      onClick={() => startAssignedPractice(
+                        practiceState.shuffledQuestions.map(q => q.id),
+                        practiceState.assignmentMeta,
+                      )}
+                      style={{
+                        padding: '16px 32px',
+                        borderRadius: '12px',
+                        border: '2px solid #ea580c',
+                        background: '#fff',
+                        color: '#ea580c',
+                        fontSize: '16px',
+                        fontWeight: '600',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      Try Again
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => startSectionPractice(activeModule, activeSection)}
+                      style={{
+                        padding: '16px 32px',
+                        borderRadius: '12px',
+                        border: '2px solid #ea580c',
+                        background: '#fff',
+                        color: '#ea580c',
+                        fontSize: '16px',
+                        fontWeight: '600',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      Try Again
+                    </button>
+                  )}
                   <button
-                    onClick={() => startSectionPractice(activeModule, activeSection)}
-                    style={{
-                      padding: '16px 32px',
-                      borderRadius: '12px',
-                      border: '2px solid #ea580c',
-                      background: '#fff',
-                      color: '#ea580c',
-                      fontSize: '16px',
-                      fontWeight: '600',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    Try Again
-                  </button>
-                  <button
-                    onClick={() => { setView('learn'); setActiveSection(null); setShowCalculator(false); }}
+                    onClick={backHandler}
                     style={{
                       padding: '16px 32px',
                       borderRadius: '12px',
@@ -9422,7 +9701,7 @@ const PerformSAT = () => {
                       cursor: 'pointer'
                     }}
                   >
-                    Done
+                    {isStudyPlanMode ? 'Back to Study Plan' : 'Done'}
                   </button>
                 </div>
               </div>
@@ -9434,7 +9713,7 @@ const PerformSAT = () => {
               {/* Practice Header */}
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px' }}>
                 <button
-                  onClick={() => { setView('learn'); setActiveSection(null); setShowCalculator(false); }}
+                  onClick={backHandler}
                   style={{
                     background: 'none',
                     border: 'none',
@@ -9452,7 +9731,12 @@ const PerformSAT = () => {
                 </button>
 
                 <h1 style={{ fontSize: '20px', fontWeight: '600', color: '#1d1d1f' }}>
-                  {activeSection}
+                  {headerTitle}
+                  {adaptiveProgress && (
+                    <span style={{ fontSize: '13px', fontWeight: '500', color: '#6b7280', marginLeft: '8px' }}>
+                      {adaptiveProgress}
+                    </span>
+                  )}
                 </h1>
 
                 <button

@@ -213,6 +213,23 @@ export const mergeHybridPlan = (deterministicPlan, aiPlan = null) => {
       base.targetedQuestions = ai.targetedQuestions;
     }
 
+    // AI plan should never overwrite deterministic assignment data
+    if (deterministicPlan.targetedQuestionIds) {
+      base.targetedQuestionIds = deterministicPlan.targetedQuestionIds;
+    }
+    if (deterministicPlan.practiceAssignments) {
+      base.practiceAssignments = deterministicPlan.practiceAssignments;
+    }
+    if (deterministicPlan.assignmentSummary) {
+      base.assignmentSummary = deterministicPlan.assignmentSummary;
+    }
+    if (deterministicPlan.adaptivePractice) {
+      base.adaptivePractice = deterministicPlan.adaptivePractice;
+    }
+    if (deterministicPlan.adaptivePracticeState) {
+      base.adaptivePracticeState = deterministicPlan.adaptivePracticeState;
+    }
+
     if (ai.deltaFromPrevious) {
       base.deltaFromPrevious = stripEmojis(ai.deltaFromPrevious);
     }

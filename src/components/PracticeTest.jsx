@@ -142,23 +142,25 @@ function enrichPlanWithGroundTruth(plan, groundTruth) {
   plan.persistentWeaknesses = groundTruth.persistentWeaknesses;
   plan.staminaInsight = groundTruth.staminaInsight;
 
-  const weakSkillPayload = (groundTruth.weaknesses || []).map(w => ({
-    skillId: w.skillId || null,
-    domain: w.domain,
-  })).filter(w => w.skillId);
-  if (weakSkillPayload.length > 0) {
-    const targeted = getTargetedWeaknessSet({
-      weakSkills: weakSkillPayload,
-      count: 15,
-      difficultyMix: { easy: 0.3, medium: 0.45, hard: 0.25 },
-    });
-    plan.targetedQuestionIds = targeted.map(q => q.id);
-    plan.targetedQuestionMeta = targeted.map(q => ({
-      id: q.id,
-      domain: q.domain,
-      skills: q.skills,
-      difficulty: q.difficulty,
-    }));
+  if (!plan.targetedQuestionIds || plan.targetedQuestionIds.length === 0) {
+    const weakSkillPayload = (groundTruth.weaknesses || []).map(w => ({
+      skillId: w.skillId || null,
+      domain: w.domain,
+    })).filter(w => w.skillId);
+    if (weakSkillPayload.length > 0) {
+      const targeted = getTargetedWeaknessSet({
+        weakSkills: weakSkillPayload,
+        count: 15,
+        difficultyMix: { easy: 0.3, medium: 0.45, hard: 0.25 },
+      });
+      plan.targetedQuestionIds = targeted.map(q => q.id);
+      plan.targetedQuestionMeta = targeted.map(q => ({
+        id: q.id,
+        domain: q.domain,
+        skills: q.skills,
+        difficulty: q.difficulty,
+      }));
+    }
   }
   return plan;
 }

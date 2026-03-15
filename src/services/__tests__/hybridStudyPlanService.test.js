@@ -331,4 +331,32 @@ describe('mergeHybridPlan', () => {
     expect(result.deltaFromPrevious).toBe('Score improved 20 points; factoring is now a strength');
     expect(result.persistentWeaknessStrategy).toBe('Reteach slope-intercept from scratch — 3 tests at <30%');
   });
+
+  test('preserves deterministic targetedQuestionIds through AI merge', () => {
+    const det = {
+      summary: { headline: 'Plan' },
+      weeks: [],
+      targetedQuestionIds: ['q-1', 'q-2', 'q-3'],
+      practiceAssignments: [{ weekNumber: 1, questionIds: ['q-1', 'q-2', 'q-3'], count: 3 }],
+      assignmentSummary: { totalAssigned: 3 },
+    };
+    const ai = { plan: { targetedQuestions: [{ id: 'ai-q' }] } };
+    const result = mergeHybridPlan(det, ai);
+    expect(result.targetedQuestionIds).toEqual(['q-1', 'q-2', 'q-3']);
+    expect(result.practiceAssignments).toEqual(det.practiceAssignments);
+    expect(result.assignmentSummary).toEqual(det.assignmentSummary);
+    expect(result.targetedQuestions).toEqual([{ id: 'ai-q' }]);
+  });
+
+  test('carries assignment fields when no AI plan provided', () => {
+    const det = {
+      summary: { headline: 'Solo' },
+      weeks: [{ weekNumber: 1, title: 'W1', activities: [] }],
+      targetedQuestionIds: ['bank-off-alg-001'],
+      practiceAssignments: [{ weekNumber: 1, questionIds: ['bank-off-alg-001'], count: 1 }],
+    };
+    const result = mergeHybridPlan(det);
+    expect(result.targetedQuestionIds).toEqual(['bank-off-alg-001']);
+    expect(result.practiceAssignments).toHaveLength(1);
+  });
 });

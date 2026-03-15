@@ -36,3 +36,6 @@ check-*.js
 *-test.js
 # Firebase service account key (NEVER commit)
 scripts/serviceAccountKey.json
+
+# Pipeline intermediate artifacts (reproducible)
+scripts/generated/
