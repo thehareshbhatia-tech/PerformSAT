@@ -88,7 +88,7 @@ export const practiceTest9 = {
           type: "fill-in",
           difficulty: "easy",
           question: "Triangle $ABC$ is similar to triangle $DEF$. In triangle $ABC$, $AB = 8$ and $BC = 12$. In triangle $DEF$, $DE = 14$. What is the length of $EF$?",
-          correctAnswer: 21,
+          correctAnswer: '21',
           explanation: "**SAT Pattern: Similar Triangles Proportion** -- 1-2 per test. Set up the ratio carefully -- the order of corresponding sides matters.\n\n**The correct answer is 21.**\n\n**The Fast Way (20 seconds):** Scale factor from ABC to DEF: $\\frac{DE}{AB} = \\frac{14}{8} = \\frac{7}{4}$. So $EF = BC \\times \\frac{7}{4} = 12 \\times \\frac{7}{4} = 21$.\n\n**Step-by-step solution:**\n$AB$ corresponds to $DE$, and $BC$ corresponds to $EF$.\n\nSet up the proportion:\n$\\frac{AB}{DE} = \\frac{BC}{EF}$\n$\\frac{8}{14} = \\frac{12}{EF}$\n\nCross multiply:\n$8 \\times EF = 14 \\times 12$\n$8 \\times EF = 168$\n$EF = \\frac{168}{8} = 21$\n\n**Verification:** $\\frac{8}{14} = \\frac{12}{21}$ -- both simplify to $\\frac{4}{7}$.\n\n**Test Day Takeaway:** For similar triangles, find the scale factor first (one division), then multiply. It is faster than setting up and cross-multiplying a full proportion.",
           skills: ["similar-triangles", "proportions"]
         },
@@ -107,7 +107,7 @@ export const practiceTest9 = {
               showParallelMarks: false
             }
           },
-          correctAnswer: 55,
+          correctAnswer: '55',
           explanation: "**SAT Pattern: Parallel Lines and Transversals** -- 1 per test. Know your angle pairs and this is a 10-second problem.\n\n**The correct answer is 55.**\n\n**The Fast Way (10 seconds):** Angles $x$ and $125\u00B0$ are supplementary (they form a straight line). So $x = 180\u00B0 - 125\u00B0 = 55\u00B0$.\n\n**Step-by-step solution:**\nSupplementary angles on a straight line sum to $180\u00B0$.\n\n$x + 125\u00B0 = 180\u00B0$\n$x = 180\u00B0 - 125\u00B0 = 55\u00B0$\n\n**Verification:** $55\u00B0 + 125\u00B0 = 180\u00B0$. They form a straight line.\n\n**Test Day Takeaway:** With parallel lines and a transversal, there are really only two angle sizes: the acute one and the obtuse one. They always add to $180\u00B0$. If you know one angle, you know them all.",
           skills: ["parallel-lines", "angles"]
         },
@@ -223,7 +223,7 @@ export const practiceTest9 = {
           type: "fill-in",
           difficulty: "medium",
           question: "What is the sum of the solutions to the equation $(x - 3)(x + 7) = 0$?",
-          correctAnswer: -4,
+          correctAnswer: '-4',
           explanation: "**SAT Pattern: Sum/Product of Roots from Factored Form** -- 1-2 per test. Zero product property makes this fast.\n\n**The correct answer is -4.**\n\n**The Fast Way (10 seconds):** Roots are $3$ and $-7$ (flip the signs from the factors). Sum $= 3 + (-7) = -4$. Or use Vieta's shortcut: for $x^2 + bx + c = 0$, the sum of roots is $-b$. Expanding gives $x^2 + 4x - 21$, so sum $= -4$.\n\n**Step-by-step solution:**\n$(x - 3)(x + 7) = 0$\n\n$x - 3 = 0 \\rightarrow x = 3$\n$x + 7 = 0 \\rightarrow x = -7$\n\nSum of solutions: $3 + (-7) = -4$\n\n**Verification:** Expanding: $x^2 + 4x - 21 = 0$. By Vieta's formula, sum $= \\frac{-b}{a} = \\frac{-4}{1} = -4$.\n\n**Test Day Takeaway:** For $(x - a)(x - b) = 0$, the roots are $a$ and $b$. Watch the signs: $(x + 7)$ is really $(x - (-7))$, so the root is $-7$, not $+7$.",
           skills: ["quadratic-equations", "zero-product-property"]
         },
@@ -268,7 +268,7 @@ export const practiceTest9 = {
           type: "fill-in",
           difficulty: "medium",
           question: "A store increases the price of an item from \\$80 to \\$100. What is the percent increase in the price?",
-          correctAnswer: 25,
+          correctAnswer: '25',
           explanation: "**SAT Pattern: Percent Change** -- 1-2 per test. The single most common mistake is dividing by the wrong number.\n\n**The correct answer is 25.**\n\n**The Fast Way (10 seconds):** Change $= 100 - 80 = 20$. Divide by ORIGINAL: $\\frac{20}{80} = 0.25 = 25\\%$. Or think: what times $80$ gives $100$? That is $1.25$, so $25\\%$ increase.\n\n**Step-by-step solution:**\nPercent increase $= \\frac{\\text{New} - \\text{Original}}{\\text{Original}} \\times 100$\n\n$= \\frac{100 - 80}{80} \\times 100 = \\frac{20}{80} \\times 100 = 25\\%$\n\n**Verification:** $80 \\times 1.25 = 100$. Confirmed.\n\n**Test Day Takeaway:** Percent change ALWAYS divides by the ORIGINAL value. The classic wrong answer is $\\frac{20}{100} = 20\\%$ (dividing by the new value). Do not fall for it.",
           skills: ["percent-change"]
         },
@@ -296,7 +296,7 @@ export const practiceTest9 = {
           type: "fill-in",
           difficulty: "medium",
           question: "An equilateral triangle has a perimeter of $360$ centimeters. The height of this triangle can be written as $k\\sqrt{3}$ centimeters, where $k$ is a constant. What is the value of $k$?",
-          correctAnswer: 60,
+          correctAnswer: '60',
           explanation: "**SAT Pattern: Equilateral Triangle Height (30-60-90 Application)** -- 1 per test in the hard section. Know the formula and this is a 20-second problem.\n\n**The correct answer is $60$.**\n\n**The Fast Way (20 seconds):** Side $= 360 \\div 3 = 120$. Height of equilateral triangle $= \\frac{s\\sqrt{3}}{2} = \\frac{120\\sqrt{3}}{2} = 60\\sqrt{3}$. So $k = 60$.\n\n**Step-by-step solution:**\n\nStep 1: Find the side length.\nEach side $= \\frac{360}{3} = 120$ cm\n\nStep 2: Find the height.\nFor an equilateral triangle with side $s$, the height $= \\frac{s\\sqrt{3}}{2}$.\n$$h = \\frac{120\\sqrt{3}}{2} = 60\\sqrt{3}$$\n\nStep 3: Since $h = k\\sqrt{3}$ and $h = 60\\sqrt{3}$, we get $k = 60$.\n\n**Verification:** The height splits the triangle into two 30-60-90 right triangles with hypotenuse $120$, short leg $60$, and long leg $60\\sqrt{3}$. By Pythagorean theorem: $60^2 + (60\\sqrt{3})^2 = 3600 + 10800 = 14400 = 120^2$.\n\n**Test Day Takeaway:** Equilateral triangle height $= \\frac{s\\sqrt{3}}{2}$. This comes from the 30-60-90 ratio ($1 : \\sqrt{3} : 2$), which is on the SAT reference sheet. Memorize it.",
           skills: ['Geometry', 'Special Right Triangles']
         },
@@ -307,7 +307,7 @@ export const practiceTest9 = {
           type: "fill-in",
           difficulty: "hard",
           question: "In the $xy$-plane, line $\\ell_1$ has equation $ax + 3y = 12$ and line $\\ell_2$ has equation $6x - 4y = 8$. If the two lines are perpendicular, what is the value of $a$?",
-          correctAnswer: 2,
+          correctAnswer: '2',
           explanation: "**SAT Pattern: Perpendicular Lines Slope Condition** -- 1 per test. Perpendicular slopes multiply to $-1$.\n\n**The correct answer is $2$.**\n\n**The Fast Way (30 seconds):** Convert both to slope-intercept form. Line 2: $y = \\frac{3}{2}x - 2$, slope $= \\frac{3}{2}$. Perpendicular slope must be $-\\frac{2}{3}$. Line 1: slope $= -\\frac{a}{3}$. Set $-\\frac{a}{3} = -\\frac{2}{3}$, so $a = 2$.\n\n**Step-by-step solution:**\n\nStep 1: Find the slope of $\\ell_2$.\n$6x - 4y = 8 \\rightarrow -4y = -6x + 8 \\rightarrow y = \\frac{3}{2}x - 2$\nSlope of $\\ell_2 = \\frac{3}{2}$\n\nStep 2: Find the slope of $\\ell_1$.\n$ax + 3y = 12 \\rightarrow 3y = -ax + 12 \\rightarrow y = -\\frac{a}{3}x + 4$\nSlope of $\\ell_1 = -\\frac{a}{3}$\n\nStep 3: Apply the perpendicular condition.\n$$\\left(-\\frac{a}{3}\\right) \\cdot \\frac{3}{2} = -1$$\n$$-\\frac{a}{2} = -1$$\n$$a = 2$$\n\n**Verification:** With $a = 2$: slope of $\\ell_1 = -\\frac{2}{3}$. Product: $\\left(-\\frac{2}{3}\\right)\\left(\\frac{3}{2}\\right) = -1$.\n\n**Test Day Takeaway:** Perpendicular slopes are negative reciprocals -- their product is always $-1$. Convert to $y = mx + b$ form first to read the slopes clearly.",
           skills: ['Geometry', 'Perpendicular Lines']
         },
@@ -335,7 +335,7 @@ export const practiceTest9 = {
           type: "fill-in",
           difficulty: "hard",
           question: "In the $xy$-plane, the graph of $y = -x^2 + 12x - 40$ intersects the line $y = c$ at exactly one point. What is the value of $c$?",
-          correctAnswer: -4,
+          correctAnswer: '-4',
           explanation: "**SAT Pattern: Horizontal Line Tangent to Parabola** -- 1 per test. \"Exactly one point\" with a horizontal line means the line passes through the vertex.\n\n**The correct answer is $-4$.**\n\n**The Fast Way (20 seconds):** Type $y = -x^2 + 12x - 40$ into Desmos and read the vertex. It is at $(6, -4)$. The horizontal line tangent to the parabola is $y = -4$, so $c = -4$.\n\n**Step-by-step solution:**\n\nStep 1: Find the $x$-coordinate of the vertex.\n$$x = -\\frac{b}{2a} = -\\frac{12}{2(-1)} = 6$$\n\nStep 2: Find the $y$-coordinate.\n$$y = -(6)^2 + 12(6) - 40 = -36 + 72 - 40 = -4$$\n\nStep 3: A horizontal line $y = c$ hits a parabola at exactly one point only at the vertex.\n$$c = -4$$\n\n**Verification:** $-4 = -x^2 + 12x - 40$ gives $x^2 - 12x + 36 = 0$, which is $(x - 6)^2 = 0$. Exactly one solution: $x = 6$.\n\n**Test Day Takeaway:** \"Intersects $y = c$ at exactly one point\" is SAT code for \"find the vertex $y$-value.\" Use $x = -\\frac{b}{2a}$, plug back in, and report the $y$-coordinate.",
           skills: ['Advanced Math', 'Quadratic Equations']
         },
@@ -346,7 +346,7 @@ export const practiceTest9 = {
           type: "fill-in",
           difficulty: "hard",
           question: "$y + k = x + 10$\n$y - k = x^2 - 3x$\n\nIn the given system of equations, $k$ is a constant. The system has exactly one real solution. What is the value of $k$?",
-          correctAnswer: 7,
+          correctAnswer: '7',
           explanation: "**SAT Pattern: Nonlinear System with Discriminant Condition** -- 1 per test in the hard section. \"Exactly one solution\" = set the discriminant to zero.\n\n**The correct answer is $7$.**\n\n**The Fast Way (45 seconds):** Eliminate $y$ by solving equation 1 for $y$ and substituting into equation 2. You get a quadratic in $x$. Set discriminant $= 0$ and solve for $k$.\n\n**Step-by-step solution:**\n\nStep 1: From equation 1, $y = x + 10 - k$.\n\nStep 2: Substitute into equation 2.\n$(x + 10 - k) - k = x^2 - 3x$\n$x + 10 - 2k = x^2 - 3x$\n\nStep 3: Rearrange.\n$x^2 - 4x + 2k - 10 = 0$\n\nStep 4: For exactly one solution, discriminant $= 0$.\n$$(-4)^2 - 4(1)(2k - 10) = 0$$\n$$16 - 8k + 40 = 0$$\n$$56 - 8k = 0$$\n$$k = 7$$\n\n**Verification:** With $k = 7$: $x^2 - 4x + 4 = 0 \\rightarrow (x - 2)^2 = 0 \\rightarrow x = 2$. Then $y = 2 + 10 - 7 = 5$. Check equation 2: $5 - 7 = -2$ and $4 - 6 = -2$.\n\n**Test Day Takeaway:** Whenever a problem says \"exactly one solution\" and you end up with a quadratic, set $b^2 - 4ac = 0$ and solve for the unknown constant. This pattern appears on every SAT.",
           skills: ['Advanced Math', 'Systems of Equations']
         }
@@ -376,7 +376,7 @@ export const practiceTest9 = {
             }
           },
           questionContinued: "If a student is selected at random, what is the probability that the student read more than $5$ books? (Express your answer as a decimal.)",
-          correctAnswer: 0.4,
+          correctAnswer: '0.4',
           explanation: "**SAT Pattern: Probability from a Frequency Table** -- Requires identifying the relevant categories, summing their frequencies, and dividing by the total. An extra reasoning step beyond simply reading the table.\n\n**The correct answer is $0.4$.**\n\n**The Fast Way (15 seconds):** \"More than $5$ books\" means the $6$-$8$ and $9$-$11$ groups. That is $6 + 2 = 8$ students. Total $= 4 + 8 + 6 + 2 = 20$. Probability $= \\frac{8}{20} = 0.4$.\n\n**Step-by-step solution:**\n\nStep 1: Find the total number of students.\n$4 + 8 + 6 + 2 = 20$\n\nStep 2: Identify students who read MORE than $5$ books.\nThe categories $6$-$8$ and $9$-$11$ represent students who read more than $5$.\n$6 + 2 = 8$ students\n\nStep 3: Compute the probability.\n$$P(\\text{more than } 5) = \\frac{8}{20} = \\frac{2}{5} = 0.4$$\n\n**Common wrong answers and why they are tempting:**\n- $0.9$ (or $\\frac{18}{20}$): You included the $3$-$5$ group, interpreting \"more than $5$\" as \"$3$ or more.\" The $3$-$5$ category includes students who read exactly $5$, which is NOT more than $5$.\n- $0.3$ (or $\\frac{6}{20}$): You only counted the $6$-$8$ group and excluded the $9$-$11$ group. \"More than $5$\" includes ALL categories above $5$.\n- $0.1$ (or $\\frac{2}{20}$): You only counted the $9$-$11$ group, perhaps interpreting \"more than $5$\" as \"more than $8$.\"\n\n**Verification:** $\\frac{8}{20} = 0.40$. The $8$ students in categories $6$-$8$ and $9$-$11$ out of $20$ total.\n\n**Test Day Takeaway:** For probability from grouped data: (1) identify which groups satisfy the condition, (2) sum those frequencies, (3) divide by the total. Pay close attention to boundary values -- \"more than $5$\" does NOT include exactly $5$.",
           skills: ["data-analysis", "frequency-tables"]
         },
@@ -426,7 +426,7 @@ export const practiceTest9 = {
           type: "fill-in",
           difficulty: "medium",
           question: "A ladder is placed against a wall, forming a right triangle with the ground. The base of the ladder is $6$ feet from the wall, and the ladder reaches $8$ feet up the wall. What is the area, in square feet, of the triangle formed by the ladder, the wall, and the ground?",
-          correctAnswer: 24,
+          correctAnswer: '24',
           explanation: "**SAT Pattern: Pythagorean Theorem + Area Combination** -- Requires recognizing the right-triangle geometry AND applying the area formula. The extra reasoning step separates this from a basic Pythagorean theorem question.\n\n**The correct answer is $24$.**\n\n**The Fast Way (15 seconds):** The wall and ground are the two legs of the right triangle: $6$ and $8$. Area $= \\frac{1}{2}(6)(8) = 24$. The ladder length ($10$, from the $6$-$8$-$10$ triple) is not needed for the area.\n\n**Step-by-step solution:**\n\nStep 1: Identify the right triangle.\nThe wall (vertical) $= 8$ ft, the ground (horizontal) $= 6$ ft, and the ladder is the hypotenuse.\n\nStep 2: Compute the area.\nThe two legs of the right triangle serve as the base and height:\n$$A = \\frac{1}{2} \\times 6 \\times 8 = 24 \\text{ square feet}$$\n\n**Common wrong answers and why they are tempting:**\n- $48$: You forgot the $\\frac{1}{2}$ and computed $6 \\times 8 = 48$. This is the area of a rectangle, not a triangle.\n- $30$: You used the ladder length ($10$) as the base and one leg as the height: $\\frac{1}{2}(10)(6) = 30$. But $6$ is not the height relative to base $10$ -- in a right triangle, you must use the two legs as base and height.\n- $40$: You used $\\frac{1}{2}(10)(8) = 40$, making the same error with the other leg.\n\n**Verification:** $\\frac{1}{2}(6)(8) = 24$. Alternatively, ladder $= \\sqrt{36 + 64} = 10$. Using Heron's formula with sides $6, 8, 10$: $s = 12$, $A = \\sqrt{12 \\cdot 6 \\cdot 4 \\cdot 2} = \\sqrt{576} = 24$. ✓\n\n**Test Day Takeaway:** In a right triangle, the two legs are automatically the base and height for the area formula. You do NOT need to find the hypotenuse first. Recognizing which dimensions to use is the key reasoning step.",
           skills: ["pythagorean-theorem", "right-triangles"]
         },
@@ -452,7 +452,7 @@ export const practiceTest9 = {
           type: "fill-in",
           difficulty: "medium",
           question: "The function $h(x) = x^2 - 6x + 8$ is graphed in the $xy$-plane. What is the $y$-coordinate of the $y$-intercept?",
-          correctAnswer: 8,
+          correctAnswer: '8',
           explanation: "**SAT Pattern: Finding the Y-Intercept** -- 1-2 per test. Plug in $x = 0$. For a polynomial in standard form, it is just the constant term.\n\n**The correct answer is 8.**\n\n**The Fast Way (5 seconds):** The $y$-intercept is the constant term of the polynomial: $8$. No calculation needed.\n\n**Step-by-step solution:**\nThe $y$-intercept occurs when $x = 0$:\n$h(0) = (0)^2 - 6(0) + 8 = 8$\n\nThe $y$-intercept is at $(0, 8)$, so the $y$-coordinate is $8$.\n\n**Verification:** $h(0) = 0 - 0 + 8 = 8$.\n\n**Test Day Takeaway:** The $y$-intercept is always $f(0)$. For any polynomial $ax^2 + bx + c$, the $y$-intercept equals the constant term $c$. Do not overthink it.",
           skills: ["quadratic-functions", "intercepts"]
         },
@@ -494,7 +494,7 @@ export const practiceTest9 = {
           type: "fill-in",
           difficulty: "medium",
           question: "If $2x + 3y = 12$ and $4x - 3y = 6$, what is the value of $x + y$?",
-          correctAnswer: 5,
+          correctAnswer: '5',
           explanation: "**SAT Pattern: System of Equations -- Find an Expression** -- 2-3 per test. Sometimes you can find the requested expression without solving for each variable individually.\n\n**The correct answer is 5.**\n\n**The Fast Way (20 seconds):** Add the equations: $6x = 18$, so $x = 3$. Sub into equation 1: $6 + 3y = 12$, so $y = 2$. Therefore $x + y = 5$. Or type both into Desmos and read the intersection.\n\n**Step-by-step solution:**\nAdd the two equations ($+3y$ and $-3y$ cancel):\n$2x + 3y = 12$\n$4x - 3y = 6$\n\n$6x = 18$\n$x = 3$\n\nSubstitute into the first equation:\n$2(3) + 3y = 12$\n$3y = 6$\n$y = 2$\n\n$x + y = 3 + 2 = 5$\n\n**Verification:** $2(3) + 3(2) = 6 + 6 = 12$. $4(3) - 3(2) = 12 - 6 = 6$. Both check out.\n\n**Test Day Takeaway:** When opposite coefficients appear, add the equations to eliminate a variable instantly. Always double-check by verifying your solution in BOTH original equations.",
           skills: ["systems-of-equations"]
         },
@@ -520,7 +520,7 @@ export const practiceTest9 = {
           type: "fill-in",
           difficulty: "hard",
           question: "A triangle has vertices at points $(0, 0)$, $(14, 0)$, and $(6, 9)$ in the $xy$-plane. A rectangle is inscribed in the triangle with one side along the $x$-axis. If the rectangle has a height of $3$, what is the area of the rectangle, in square units?",
-          correctAnswer: 28,
+          correctAnswer: '28',
           explanation: "**SAT Pattern: Inscribed Shape + Coordinate Geometry** -- Combines the triangle area/proportion concept with coordinate geometry reasoning. Multi-step problems requiring two concepts appear in the hard section.\n\n**The correct answer is $28$.**\n\n**The Fast Way (45 seconds):** The triangle has base $14$ on the $x$-axis and height $9$ (from vertex $(6,9)$). At height $y = 3$, the triangle has shrunk by a factor. The cross-section at height $3$ needs the left and right edges of the triangle at $y = 3$.\n\n**Step-by-step solution:**\n\nStep 1: Find the equations of the two non-horizontal sides of the triangle.\nLeft side from $(0,0)$ to $(6,9)$: slope $= \\frac{9}{6} = \\frac{3}{2}$, so $y = \\frac{3}{2}x$, which gives $x = \\frac{2y}{3}$.\nRight side from $(14,0)$ to $(6,9)$: slope $= \\frac{9-0}{6-14} = -\\frac{9}{8}$, so $y = -\\frac{9}{8}(x - 14)$, which gives $x = 14 - \\frac{8y}{9}$.\n\nStep 2: Find the width of the triangle at height $y = 3$.\nLeft edge: $x_L = \\frac{2(3)}{3} = 2$\nRight edge: $x_R = 14 - \\frac{8(3)}{9} = 14 - \\frac{24}{9} = 14 - \\frac{8}{3} = \\frac{42 - 8}{3} = \\frac{34}{3}$\n\nWidth at $y = 3$: $\\frac{34}{3} - 2 = \\frac{34 - 6}{3} = \\frac{28}{3}$\n\nStep 3: Compute the rectangle's area.\nThe rectangle has height $3$ and width $\\frac{28}{3}$:\n$$A = 3 \\times \\frac{28}{3} = 28$$\n\n**Verification:** At $y = 0$ (base), width $= 14 - 0 = 14$. At $y = 9$ (apex), width $= 0$. At $y = 3$ (one-third of the height), the width should be $14 \\times \\frac{9-3}{9} = 14 \\times \\frac{2}{3} = \\frac{28}{3}$. Area $= 3 \\times \\frac{28}{3} = 28$. ✓\n\n**Test Day Takeaway:** For inscribed rectangles in triangles, find the boundary lines and evaluate them at the given height. The width of a triangle cross-section scales linearly with how far you are from the apex. Coordinate geometry makes this systematic.",
           skills: ["area", "triangles"]
         },
@@ -603,9 +603,9 @@ export const practiceTest9 = {
           explanation: "**SAT Pattern: Recovering a Function from a Composite Relationship** -- 1 per test in the hard section. Use the given relationship to find $f$ values from $g$ values.\n\n**Choice B is correct.**\n\n**The Fast Way (30 seconds):** Since $g(x) = \\frac{f(x)}{x + 2}$, we have $f(x) = g(x)(x + 2)$. At $x = 0$: $f(0) = 5 \\cdot 2 = 10$. The $y$-intercept is $(0, 10)$. Done.\n\n**Step-by-step solution:**\nSince $g(x) = \\frac{f(x)}{x + 2}$, multiply both sides: $f(x) = g(x) \\cdot (x + 2)$.\n\nUsing the table:\n- At $x = -5$: $f(-5) = 0 \\cdot (-3) = 0$\n- At $x = 0$: $f(0) = 5 \\cdot 2 = 10$\n- At $x = 4$: $f(4) = 3 \\cdot 6 = 18$\n\nSince $f$ is linear, verify with slope: $\\frac{10 - 0}{0 - (-5)} = 2$. So $f(x) = 2x + 10$.\nCheck: $f(4) = 8 + 10 = 18$.\n\nThe $y$-intercept is $(0, 10)$.\n\n**Why the wrong answers are tempting:**\n- Choice A ($(0, -5)$): Confuses the $x$-intercept value with the $y$-intercept. Since $f(-5) = 0$, the graph crosses the $x$-axis at $-5$, but that is not the $y$-intercept.\n- Choice C ($(0, 20)$): A computation error, possibly from doubling $f(0) = 10$ or using an incorrect slope.\n- Choice D ($(0, 30)$): Results from a different slope miscalculation.\n\n**Verification:** $f(x) = 2x + 10$: $f(-5) = 0$, $f(0) = 10$, $f(4) = 18$. All match.\n\n**Test Day Takeaway:** When given $g(x) = \\frac{f(x)}{\\text{something}}$, multiply both sides to isolate $f(x)$. Then use the table values to compute $f$ at each point. For the $y$-intercept specifically, just evaluate $f(0)$.",
           skills: ["function-operations", "linear-functions", "tables"]
         },
-        // Question 17: Radical exponents
+        // Question 1: Radical exponents
         {
-          id: 17,
+          id: 1,
           type: "multiple-choice",
           difficulty: "hard",
           question: "Which expression is equivalent to $x^{\\frac{2}{3}} \\cdot x^{\\frac{1}{6}}$?",
@@ -625,7 +625,7 @@ export const practiceTest9 = {
           type: "fill-in",
           difficulty: "hard",
           question: "What is the solution to the equation $\\sqrt{3x + 7} = x - 1$?",
-          correctAnswer: 6,
+          correctAnswer: '6',
           explanation: "**SAT Pattern: Radical Equation with Extraneous Solution** -- 1 per test. Square both sides, solve, then CHECK both solutions in the original.\n\n**The correct answer is $6$.**\n\n**The Fast Way (30 seconds):** Type $y = \\sqrt{3x + 7}$ and $y = x - 1$ into Desmos. They intersect at $x = 6$. Done.\n\n**Step-by-step solution:**\n\nStep 1: Square both sides.\n$$3x + 7 = (x - 1)^2 = x^2 - 2x + 1$$\n\nStep 2: Rearrange.\n$$x^2 - 5x - 6 = 0$$\n\nStep 3: Factor.\n$$(x - 6)(x + 1) = 0$$\n$$x = 6 \\text{ or } x = -1$$\n\nStep 4: Check for extraneous solutions.\n- $x = 6$: $\\sqrt{18 + 7} = \\sqrt{25} = 5$ and $6 - 1 = 5$. Valid.\n- $x = -1$: $\\sqrt{-3 + 7} = \\sqrt{4} = 2$ and $-1 - 1 = -2$. INVALID ($2 \\neq -2$).\n\nOnly $x = 6$ works.\n\n**Verification:** $\\sqrt{3(6) + 7} = \\sqrt{25} = 5 = 6 - 1$.\n\n**Test Day Takeaway:** When you square both sides of an equation, you can create fake solutions. ALWAYS plug your answers back into the ORIGINAL equation. The square root side must be non-negative, which is why $x = -1$ fails here.",
           skills: ['Advanced Math', 'Radical Equations']
         },
@@ -650,7 +650,7 @@ export const practiceTest9 = {
               label: "y = f(x)"
             }
           },
-          correctAnswer: 1,
+          correctAnswer: '1',
           explanation: "**SAT Pattern: Find Coefficients from a Graph** -- 1 per test in the hard section. Read the vertex from the graph, write vertex form, expand, match coefficients.\n\n**The correct answer is $1$.**\n\n**The Fast Way (30 seconds):** Vertex is $(3, -5)$ with $a = 2$. Vertex form: $2(x-3)^2 - 5$. Expand: $2x^2 - 12x + 18 - 5 = 2x^2 - 12x + 13$. So $b = -12$, $c = 13$, and $b + c = 1$.\n\n**Step-by-step solution:**\n\nStep 1: From the graph, vertex $= (3, -5)$ and the curve passes through $(0, 13)$.\n\nStep 2: Vertex form with $a = 2$:\n$f(x) = 2(x - 3)^2 - 5$\n\nStep 3: Expand.\n$f(x) = 2(x^2 - 6x + 9) - 5 = 2x^2 - 12x + 18 - 5 = 2x^2 - 12x + 13$\n\nStep 4: $b = -12$, $c = 13$.\n$b + c = -12 + 13 = 1$\n\n**Verification:** $f(0) = 0 - 0 + 13 = 13$ (matches graph). Vertex: $x = \\frac{12}{4} = 3$, $f(3) = 18 - 36 + 13 = -5$ (matches graph).\n\n**Test Day Takeaway:** When a graph shows a parabola, read the vertex and use vertex form $a(x-h)^2 + k$. Expand to standard form to find $b$ and $c$. Always verify with a second point from the graph.",
           skills: ['Advanced Math', 'Quadratic Equations']
         },
@@ -660,7 +660,7 @@ export const practiceTest9 = {
           type: "fill-in",
           difficulty: "hard",
           question: "In the $xy$-plane, the line $y = -2x + k$ is tangent to the parabola $y = x^2 - 6x + 5$. What is the value of $k$?",
-          correctAnswer: 1,
+          correctAnswer: '1',
           explanation: "**SAT Pattern: Tangent Line to Parabola (Discriminant = 0)** -- 1 per test in the hard section. Tangent means exactly one intersection, which means discriminant equals zero.\n\n**The correct answer is $1$.**\n\n**The Fast Way (30 seconds):** Set equal: $x^2 - 6x + 5 = -2x + k$ gives $x^2 - 4x + (5 - k) = 0$. Discriminant $= 16 - 4(5-k) = 0$ gives $16 - 20 + 4k = 0$, so $k = 1$.\n\n**Step-by-step solution:**\n\nStep 1: Set equal.\n$$x^2 - 6x + 5 = -2x + k$$\n$$x^2 - 4x + 5 - k = 0$$\n\nStep 2: Discriminant $= 0$ for tangency.\n$$(-4)^2 - 4(1)(5 - k) = 0$$\n$$16 - 20 + 4k = 0$$\n$$4k = 4$$\n$$k = 1$$\n\n**Verification:** With $k = 1$: $x^2 - 4x + 4 = 0 \\rightarrow (x-2)^2 = 0 \\rightarrow x = 2$. Parabola: $4 - 12 + 5 = -3$. Line: $-4 + 1 = -3$. One intersection at $(2, -3)$.\n\n**Test Day Takeaway:** \"Tangent\" or \"exactly one intersection\" between a line and a parabola means set them equal, rearrange to a quadratic, and force $b^2 - 4ac = 0$.",
           skills: ['Advanced Math', 'Quadratic Equations']
         },
@@ -686,7 +686,7 @@ export const practiceTest9 = {
           type: "fill-in",
           difficulty: "hard",
           question: "A quadratic function $h$ models the height, in feet, above the ground of a model rocket $t$ seconds after launch. The function estimates that the rocket reached its maximum height of $576$ feet $6$ seconds after launch and returned to the ground $12$ seconds after launch. Based on this function, what was the estimated height, in feet, of the rocket $9$ seconds after launch?",
-          correctAnswer: 432,
+          correctAnswer: '432',
           explanation: "**SAT Pattern: Quadratic Modeling with Vertex Form** -- 1 per test. Given vertex and another point, build the equation and evaluate.\n\n**The correct answer is 432.**\n\n**The Fast Way (30 seconds):** Vertex $= (6, 576)$, so $h(t) = a(t-6)^2 + 576$. Use $(12, 0)$: $0 = a(36) + 576$, so $a = -16$. Then $h(9) = -16(9) + 576 = -144 + 576 = 432$.\n\n**Step-by-step solution:**\n\nStep 1: Vertex form with vertex $(6, 576)$.\n$h(t) = a(t - 6)^2 + 576$\n\nStep 2: Find $a$ using the point $(12, 0)$.\n$0 = a(12 - 6)^2 + 576$\n$0 = 36a + 576$\n$a = -16$\n\nStep 3: $h(t) = -16(t - 6)^2 + 576$\n\nStep 4: Evaluate at $t = 9$.\n$h(9) = -16(9 - 6)^2 + 576 = -16(9) + 576 = -144 + 576 = 432$\n\n**Verification:** By symmetry, $t = 9$ is $3$ seconds after the vertex, and $t = 3$ is $3$ seconds before. $h(3) = -16(3-6)^2 + 576 = -16(9) + 576 = 432$. Both give the same height, confirming the parabola's symmetry.\n\n**Test Day Takeaway:** For projectile problems, use vertex form $a(t-h)^2 + k$ when you know the max height and timing. Find $a$ with one other point (usually where the object hits the ground), then plug in the requested time.",
           skills: ["quadratic-functions", "vertex-form", "modeling", "word-problems"]
         }

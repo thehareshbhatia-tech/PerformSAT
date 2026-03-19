@@ -4,11 +4,15 @@ How practice questions from the bank are assigned to users inside their study pl
 
 ## Overview
 
-Every generated study plan includes an **adaptive practice queue** (Acely-style) as
-the primary practice model, plus legacy deterministic per-week bundles as a fallback.
-The adaptive queue selects the next question dynamically based on in-session
-performance — difficulty adjusts after each answer and missed questions return for
-spaced retry.
+Every generated study plan includes three practice models:
+
+1. **Fixed domain assignments** — concrete MCQ question IDs per domain, persisted in
+   the plan as `domainAssignments`. These power the "Strengths & Focus Areas" section
+   and launch as fixed assigned practice (not adaptive).
+2. **Adaptive practice queue** (Acely-style) — dynamically selects the next question
+   based on in-session performance; difficulty adjusts after each answer and missed
+   questions return for spaced retry.
+3. **Legacy per-week bundles** — deterministic fallback for backward compatibility.
 
 ## Service
 
@@ -21,6 +25,7 @@ spaced retry.
 | `buildWeakSkillPayload(diagnostic)` | Normalizes diagnostic weak skills into `{ skillId, domain, priority, errorType }` sorted by priority |
 | `generatePracticeAssignments(opts)` | Legacy assignment generator — returns `targetedQuestionIds`, `practiceAssignments`, and `summary` |
 | `resolveAssignedQuestions(ids)` | Resolves persisted IDs back to full question objects; reports stale count |
+| `buildStrengthFocusAssignments(opts)` | Builds fixed MCQ question ID bundles per canonical domain for Strengths & Focus Areas |
 | `buildAdaptiveQueueSeed(opts)` | Builds the adaptive pool with difficulty buckets from diagnostic weak skills |
 | `buildDomainAdaptiveQueueSeed(opts)` | Builds an adaptive pool focused on a single enforced domain, with fallback to other domains |
 | `normalizeDomain(raw)` | Maps any domain string (alias, mixed case, display name) to a canonical ID or `null` |
@@ -142,22 +147,103 @@ serving more questions until either mastery is met or the pool is exhausted.
 | In progress (answered > 0, not complete) | "Resume Adaptive Practice" |
 | Completed (both rules met) | "Completed" badge, no button |
 
-### Domain-enforced adaptive practice
+### Fixed domain assignments (Strengths & Focus Areas)
 
-The "Strengths & Focus Areas" section in **both** the default (`StudyPlanDashboard`)
-and immersive (`ImmersiveStudyPlanView`) variants shows per-domain practice buttons
-that launch adaptive sessions targeted to a specific SAT math domain.
+The **primary** practice model for the Strengths & Focus Areas section. Every plan
+stores a `domainAssignments` object keyed by canonical domain, each containing a
+fixed set of MCQ question IDs persisted at plan generation time.
 
-#### Launch payload
+#### Schema
+
+```json
+{
+  "domainAssignments": {
+    "algebra": {
+      "domain": "algebra",
+      "questionIds": ["bank-off-alg-0001", "bank-off-alg-0015", ...],
+      "count": 10,
+      "source": "focus"
+    },
+    "problem-solving": {
+      "domain": "problem-solving",
+      "questionIds": [...],
+      "count": 10,
+      "source": "focus"
+    },
+    "advanced-math": {
+      "domain": "advanced-math",
+      "questionIds": [...],
+      "count": 10,
+      "source": "strength"
+    },
+    "geometry": {
+      "domain": "geometry",
+      "questionIds": [...],
+      "count": 10,
+      "source": "strength"
+    }
+  }
+}
+```
+
+| Field | Type | Description |
+|---|---|---|
+| `domain` | string | Canonical domain ID |
+| `questionIds` | string[] | Fixed MCQ question IDs assigned to this domain |
+| `count` | number | Length of `questionIds` |
+| `source` | `'focus'` \| `'strength'` | Whether this domain is a weak area or a strength |
+
+#### `buildStrengthFocusAssignments(opts)`
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `diagnostic` | Object | required | Output of `diagnosticEngine.runDiagnostic()` |
+| `seed` | string | `'domain-assign'` | Deterministic seed |
+| `countPerDomain` | number | 10 | Number of questions to assign per domain |
+| `excludeIds` | string[] | `[]` | IDs to skip (e.g. from legacy assignments) |
+
+Guarantees:
+- All assigned questions are MCQ-only (choices array length >= 2).
+- No duplicate IDs across domains.
+- Same seed + same diagnostic → same assignments.
+- Weak domains are tagged `source: 'focus'`, strong domains `source: 'strength'`.
+
+#### Launch payload (fixed assigned)
 
 ```js
 onStartPractice(null, null, {
-  adaptive: true,
-  source: 'study-plan-adaptive',
-  enforcedDomain: 'algebra',   // 'algebra' | 'problem-solving' | 'advanced-math' | 'geometry'
-  label: 'Algebra Focus',      // displayed in the practice header
+  questionIds: domainAssignments[domain].questionIds,
+  source: 'study-plan-assigned',
+  label: 'Algebra Assigned Practice',
 })
 ```
+
+This hits the `startAssignedPractice` branch in App.jsx (not adaptive).
+
+#### UI rendering
+
+Both `StudyPlanDashboard` and `ImmersiveStudyPlanView` resolve domain assignments:
+
+1. Read `studyPlan.domainAssignments[domain].questionIds`.
+2. Show first 2-3 questions as preview rows (resolved via `getQuestionById`).
+3. Show `+ N more questions` count.
+4. CTA button sends the full `questionIds` array for fixed assigned launch.
+
+#### Domain fallback for display
+
+The UI resolves which domains to show from two sources:
+
+1. `Object.keys(studyPlan.domainAssignments)` (preferred).
+2. Domains from `studyPlan.weaknesses` and `studyPlan.strengths` (normalized).
+3. All four `CANONICAL_DOMAINS` as a final fallback.
+
+This ensures at least one domain row is always visible.
+
+### Domain-enforced adaptive practice
+
+Adaptive sessions can still be launched from the general "Adaptive Practice" section.
+Per-domain adaptive sessions remain available via the `buildDomainAdaptiveQueueSeed`
+function but are **not** the default for Strengths & Focus Areas CTAs.
 
 #### `buildDomainAdaptiveQueueSeed(opts)`
 
@@ -172,22 +258,13 @@ Returns the same shape as `buildAdaptiveQueueSeed` plus an `enforcedDomain` fiel
 Pool is filled domain-first, with fallback to other domains when the target domain
 has fewer than 20 MCQ questions.
 
-#### Runtime behavior
+### Precedence (onStartPractice payloads)
 
-1. `App.jsx` receives `opts.enforcedDomain` in the `onStartPractice` handler.
-2. `startAdaptivePractice({ enforcedDomain, label })` builds a fresh domain-focused
-   queue via `buildDomainAdaptiveQueueSeed` instead of using the generic pool.
-3. Domain sessions are always fresh (no resume from persisted generic state).
-4. The same answer-by-answer adaptive loop and completion rules apply.
-5. Header displays "Adaptive Practice — {label}" (e.g. "Adaptive Practice — Algebra Focus").
-
-#### Precedence
-
-| Payload | Behavior |
-|---|---|
-| `adaptive: true, enforcedDomain: 'algebra'` | Domain-focused adaptive session |
-| `adaptive: true` (no domain) | Generic adaptive session (resume-aware) |
-| `questionIds: [...]` | Legacy fixed assigned practice |
+| Payload | Behavior | Used by |
+|---|---|---|
+| `questionIds: [...]` | Fixed assigned practice (MCQ set) | Strengths & Focus domain CTAs |
+| `adaptive: true, enforcedDomain: 'algebra'` | Domain-focused adaptive session | (available but not default for domain CTAs) |
+| `adaptive: true` (no domain) | Generic adaptive session (resume-aware) | General Adaptive Practice CTA |
 
 ### Domain normalization
 
@@ -269,6 +346,13 @@ All shuffling uses a seeded LCG (`s = (s * 1103515245 + 12345) & 0x7FFFFFFF`) �
 
 ```json
 {
+  "domainAssignments": {
+    "algebra": { "domain": "algebra", "questionIds": [...], "count": 10, "source": "focus" },
+    "problem-solving": { ... },
+    "advanced-math": { ... },
+    "geometry": { ... }
+  },
+
   "adaptivePractice": {
     "poolIds": [...],
     "byDifficulty": { "easy": [...], "medium": [...], "hard": [...] },
@@ -304,9 +388,9 @@ selection time so every assigned question can be rendered as a standard MCQ item
 
 ### Artifact
 
-The full `adaptivePractice`, `targetedQuestionIds`, `practiceAssignments`, and
-`assignmentSummary` are persisted inside the artifact's `plan` payload in
-`progress/{userId}/studyPlanArtifacts/{artifactId}`.
+The full `domainAssignments`, `adaptivePractice`, `targetedQuestionIds`,
+`practiceAssignments`, and `assignmentSummary` are persisted inside the artifact's
+`plan` payload in `progress/{userId}/studyPlanArtifacts/{artifactId}`.
 
 ### Preview
 
@@ -322,17 +406,20 @@ The root progress document's `studyPlanPreview` includes:
 ### Merge safety
 
 During hybrid merge (`studyPlanMerger.mergeHybridPlan`), deterministic fields
-(`adaptivePractice`, `targetedQuestionIds`, `practiceAssignments`, `assignmentSummary`)
-are explicitly preserved — the AI plan cannot overwrite them.
+(`domainAssignments`, `adaptivePractice`, `targetedQuestionIds`,
+`practiceAssignments`, `assignmentSummary`) are explicitly preserved — the AI plan
+cannot overwrite them.
 
 ## UI consumption
 
 `StudyPlanDashboard.jsx` (default variant) and `ImmersiveStudyPlanView.jsx`
-(immersive variant) both check for the adaptive payload first:
+(immersive variant) both render three practice surfaces:
 
-- If `adaptivePractice.poolIds` exists → renders **"Start Adaptive Practice"** button
-  with pool size and weak-skill count badges.
-- Otherwise falls back to the legacy `targetedQuestionIds` list with a "Start Practice" button.
+1. **Strengths & Focus Areas** — reads `domainAssignments` for per-domain fixed
+   assigned practice cards with preview rows and "Practice {Domain}" buttons.
+2. **Adaptive Practice** — if `adaptivePractice.poolIds` exists → renders
+   "Start Adaptive Practice" button with pool size and weak-skill count badges.
+3. **Legacy Targeted Practice** — fallback if no adaptive pool; uses `targetedQuestionIds`.
 
 ## Adaptive-practice launch flow
 
@@ -393,21 +480,21 @@ unchanged — the shell is purely a UI layer over the existing adaptive engine.
 
 ### Behavior differences by practice mode
 
-| Aspect | Module/section practice | Legacy assigned practice | Adaptive practice |
-|---|---|---|---|
-| Back button | → Learn view | → Study Plan view | → Study Plan view |
-| Header title | Section name | Assignment label | "Adaptive Practice" or "Adaptive Practice — {domain label}" |
-| UI shell | Generic practice renderer | Generic practice renderer | Test-style AdaptivePracticeShell |
-| Question selection | Fixed set from module | Fixed set from IDs | Dynamic per-answer |
-| Question navigation | Sequential only | Sequential only | Grid + Prev/Next among served questions |
-| Answer elimination | No | No | Yes (cross-out choices) |
-| Mark for review | No | No | Yes (flag icon per question) |
-| Difficulty | Static | Static | Adjusts after each answer |
-| Missed-question retry | No | No | Yes (spaced at +4 questions) |
-| Review queue writes | Yes | Skipped | Skipped |
-| `recordPracticeAttempt` | Yes | Skipped | Skipped |
-| Results "action" | Try Again (same set) | Try Again (same set) | New Session (fresh queue) |
-| Session length | All questions in set | All questions in set | Configurable (default 15) |
+| Aspect | Module/section practice | Domain assigned practice | Legacy assigned practice | Adaptive practice |
+|---|---|---|---|---|
+| Back button | → Learn view | → Study Plan view | → Study Plan view | → Study Plan view |
+| Header title | Section name | "{Domain} Assigned Practice" | Assignment label | "Adaptive Practice" or "Adaptive Practice — {domain label}" |
+| UI shell | Generic practice renderer | Generic practice renderer | Generic practice renderer | Test-style AdaptivePracticeShell |
+| Question selection | Fixed set from module | Fixed set from domainAssignments IDs | Fixed set from IDs | Dynamic per-answer |
+| Question navigation | Sequential only | Sequential only | Sequential only | Grid + Prev/Next among served questions |
+| Answer elimination | No | No | No | Yes (cross-out choices) |
+| Mark for review | No | No | No | Yes (flag icon per question) |
+| Difficulty | Static | Static | Static | Adjusts after each answer |
+| Missed-question retry | No | No | No | Yes (spaced at +4 questions) |
+| Review queue writes | Yes | Skipped | Skipped | Skipped |
+| `recordPracticeAttempt` | Yes | Skipped | Skipped | Skipped |
+| Results "action" | Try Again (same set) | Try Again (same set) | Try Again (same set) | New Session (fresh queue) |
+| Session length | All questions in set | All assigned IDs for domain | All questions in set | Configurable (default 15) |
 
 ## Artifact hydration
 
@@ -449,6 +536,7 @@ Hydration priority:
 - **CANONICAL_DOMAINS**: contains all four SAT math domains
 - **getDomainAssignmentPreview**: valid domain returns MCQ preview, deterministic with seed, normalizes input, respects count, all four domains have questions, different domains produce different previews, null/invalid returns empty
 - **Adaptive test-style UI contract**: domain queue provides MCQ pool for shell, session tracks answered/correct for progress bar, session has completion policy fields, evaluateAdaptiveCompletion returns structured result, serialize/deserialize preserves state for navigation, adaptive queue delivers questions one-by-one, all served questions have choices array, domain CTA payload normalizes correctly
+- **buildStrengthFocusAssignments**: entry for every canonical domain, MCQ-only guarantee, deterministic with same seed, weak domains tagged as focus, count matches questionIds length, no duplicate IDs across domains, respects countPerDomain, respects excludeIds, different seed produces different assignment, CTA contract (questionIds payload for fixed launch)
 
 ### `src/services/__tests__/assignedPracticeFlow.test.js`
 

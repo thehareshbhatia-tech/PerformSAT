@@ -534,7 +534,7 @@ export const practiceTest11 = {
               ['100', '1', '3']
             ]
           },
-          correctAnswer: 7,
+          correctAnswer: '7',
           explanation: '**SAT Pattern: Weighted Mean from Frequency Table** -- Shows up 1 per test. Tedious but mechanical.\n\n**The correct answer is $7$.**\n\n**The Fast Way (45 seconds):** Use your calculator for the weighted sums. Class X: $3(60) + 5(70) + 8(80) + 3(90) + 1(100) = 180 + 350 + 640 + 270 + 100 = 1540$. Mean X: $1540 \\div 20 = 77$. Class Y: $1(60) + 3(70) + 6(80) + 7(90) + 3(100) = 60 + 210 + 480 + 630 + 300 = 1680$. Mean Y: $1680 \\div 20 = 84$. Difference: $84 - 77 = 7$.\n\n**Step 1: Mean of Class X**\nTotal students $= 3 + 5 + 8 + 3 + 1 = 20$\n$$\\text{Sum} = 3(60) + 5(70) + 8(80) + 3(90) + 1(100) = 180 + 350 + 640 + 270 + 100 = 1{,}540$$\n$$\\text{Mean}_X = \\frac{1{,}540}{20} = 77$$\n\n**Step 2: Mean of Class Y**\nTotal students $= 1 + 3 + 6 + 7 + 3 = 20$\n$$\\text{Sum} = 1(60) + 3(70) + 6(80) + 7(90) + 3(100) = 60 + 210 + 480 + 630 + 300 = 1{,}680$$\n$$\\text{Mean}_Y = \\frac{1{,}680}{20} = 84$$\n\n**Step 3: Positive difference**\n$84 - 77 = 7$\n\n**Verification:** Class Y has more students at $90$ and $100$ than Class X, so its mean should be higher. $84 - 77 = 7$.\n\n**Test Day Takeaway:** For frequency tables, mean $= \\frac{\\sum(\\text{value} \\times \\text{frequency})}{\\text{total frequency}}$. Double-check your arithmetic by confirming the total frequencies first.',
           skills: ['Problem-Solving and Data Analysis', 'Statistics']
         },
@@ -542,8 +542,8 @@ export const practiceTest11 = {
           id: 'pt11-m2-q12',
           type: 'fill-in',
           difficulty: 'hard',
-          question: 'A line in the $xy$-plane passes through the points $(k, 14)$ and $(k + 6, -10)$. The $y$-intercept of this line is at the point $(k - 3, b)$. What is the value of $b$?',
-          correctAnswer: 26,
+          question: 'A line in the $xy$-plane passes through the points $(k, 14)$ and $(k + 6, -10)$. The line also passes through the point $(k - 3, b)$. What is the value of $b$?',
+          correctAnswer: '26',
           explanation: '**SAT Pattern: Slope and Point-Slope with Parameters** -- Shows up 1 per test. Do not let the variable $k$ intimidate you -- it cancels out.\n\n**The correct answer is $26$.**\n\n**The Fast Way (20 seconds):** The slope is $\\frac{-10 - 14}{(k+6) - k} = \\frac{-24}{6} = -4$. Notice $k$ cancels. Now from the point $(k, 14)$, moving $3$ units LEFT (to $x = k - 3$) means the $y$-value goes UP by $(-4)(-3) = 12$. So $b = 14 + 12 = 26$.\n\n**Step 1: Calculate the slope**\n$$m = \\frac{-10 - 14}{(k + 6) - k} = \\frac{-24}{6} = -4$$\n\n**Step 2: Find $b$ using point-slope**\nUsing the point $(k, 14)$ and slope $-4$:\n$$y - 14 = -4(x - k)$$\nAt $x = k - 3$:\n$$b - 14 = -4((k - 3) - k) = -4(-3) = 12$$\n$$b = 26$$\n\n**Verification:** From $(k - 3, 26)$ to $(k, 14)$: slope $= \\frac{14 - 26}{k - (k-3)} = \\frac{-12}{3} = -4$. Matches.\n\n**Test Day Takeaway:** When a problem uses a parameter like $k$, it usually cancels out. Do not try to find $k$ -- just work with the differences between coordinates.',
           skills: ['Algebra', 'Linear Equations']
         },
@@ -597,7 +597,7 @@ export const practiceTest11 = {
           type: 'fill-in',
           difficulty: 'hard',
           question: 'The function $f(x) = 2x^2 - 20x + 53$ has a minimum value. What is this minimum value?',
-          correctAnswer: 3,
+          correctAnswer: '3',
           explanation: '**SAT Pattern: Minimum Value via Completing the Square** -- Shows up 1 per test.\n\n**The correct answer is $3$.**\n\n**The Fast Way (15 seconds):** In Desmos, type $f(x) = 2x^2 - 20x + 53$ and find the vertex. Or use the vertex formula: $x = \\frac{-b}{2a} = \\frac{20}{4} = 5$. Then $f(5) = 2(25) - 100 + 53 = 50 - 100 + 53 = 3$.\n\n**Step 1: Factor out the leading coefficient**\n$$f(x) = 2(x^2 - 10x) + 53$$\n\n**Step 2: Complete the square**\n$$f(x) = 2(x^2 - 10x + 25 - 25) + 53 = 2(x - 5)^2 - 50 + 53 = 2(x - 5)^2 + 3$$\n\n**Step 3: Read the minimum**\nSince $(x - 5)^2 \\geq 0$, the minimum occurs when $(x - 5)^2 = 0$, giving $f(5) = 3$.\n\n**Verification:** $f(5) = 2(25) - 20(5) + 53 = 50 - 100 + 53 = 3$.\n\n**Test Day Takeaway:** The vertex formula $x = -\\frac{b}{2a}$ is faster than completing the square. Find the $x$-value, then plug it back in to get the min/max $y$-value.',
           skills: ['Advanced Math', 'Quadratic Equations']
         },
@@ -637,7 +637,7 @@ export const practiceTest11 = {
           type: 'fill-in',
           difficulty: 'hard',
           question: 'The system of equations $y = x^2 - 2x + 3$ and $y = kx - 1$ has exactly one solution. If $k > 0$, what is the value of $k$?',
-          correctAnswer: 2,
+          correctAnswer: '2',
           explanation: '**SAT Pattern: Discriminant = 0 for Tangent Line** -- Shows up 1 per test. Same concept as the earlier tangent-line question, but now you solve for the unknown slope.\n\n**The correct answer is $2$.**\n\n**The Fast Way (25 seconds):** Set equal: $x^2 - 2x + 3 = kx - 1$, so $x^2 - (2+k)x + 4 = 0$. For exactly one solution, discriminant $= 0$: $(2+k)^2 - 16 = 0$, so $(2+k)^2 = 16$, giving $2 + k = \\pm 4$. Since $k > 0$: $k = 2$.\n\n**Step 1: Set the equations equal**\n$$x^2 - 2x + 3 = kx - 1$$\n$$x^2 - (2 + k)x + 4 = 0$$\n\n**Step 2: Apply the discriminant condition**\nFor exactly one solution: $b^2 - 4ac = 0$\n$$(2 + k)^2 - 4(1)(4) = 0$$\n$$(2 + k)^2 = 16$$\n$$2 + k = \\pm 4$$\n\n**Step 3: Solve for $k$**\n$k = 4 - 2 = 2$ or $k = -4 - 2 = -6$.\nSince $k > 0$, we have $k = 2$.\n\n**Verification:** With $k = 2$: $x^2 - 4x + 4 = (x-2)^2 = 0$, so $x = 2$. Then $y = 2(2) - 1 = 3$ and $y = 4 - 4 + 3 = 3$. Both match.\n\n**Test Day Takeaway:** "Exactly one solution" in a quadratic-linear system means discriminant $= 0$. Set the equations equal, rearrange into standard form $ax^2 + bx + c = 0$, and solve $b^2 - 4ac = 0$ for the unknown.',
           skills: ['Advanced Math', 'Systems of Equations']
         },

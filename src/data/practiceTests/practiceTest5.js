@@ -84,7 +84,7 @@ export const practiceTest5 = {
           type: "fill-in",
           difficulty: "easy",
           question: "A store marks up every item by $8\\%$ of its wholesale cost. If the wholesale cost of a jacket is $\\$65$, what is the retail price, in dollars, of the jacket?",
-          correctAnswer: 70.2,
+          correctAnswer: '70.2',
           alternateAnswers: ["70.20", "351/5"],
           explanation: "**SAT Pattern: Percent Markup Applied to a Price** -- Shows up 1-2 times per test. You must calculate the markup AND add it back to the original.\n\n**The correct answer is $70.2$.**\n\n**The Fast Way (15 seconds):** Markup $= 0.08 \\times 65 = 5.2$. Retail $= 65 + 5.2 = 70.2$. Or even faster: $65 \\times 1.08 = 70.2$.\n\n**The Full Solution:**\nStep 1: Find $8\\%$ of $\\$65$.\n$8\\% = 0.08$. Markup $= 0.08 \\times 65 = 5.20$.\nStep 2: Add the markup to the wholesale cost.\nRetail price $= 65 + 5.20 = 70.20$.\n\nShortcut: Multiplying by $1.08$ combines both steps: $65 \\times 1.08 = 70.20$.\n\n**Common mistakes:**\n• Answering $5.2$: You found the markup but forgot to add it to the wholesale cost. The question asks for the retail price, not just the markup amount.\n• Answering $60.8$: You subtracted the $8\\%$ instead of adding it. A markup increases the price.\n• Answering $73$: You computed $8$ (not $8\\%$) of $65$ as $8$, then added $65 + 8$. Percent means \"per hundred\" -- $8\\%$ is $0.08$, not $8$.\n\n**Verification:** $70.2 - 65 = 5.2$, and $5.2 / 65 = 0.08 = 8\\%$ ✓\n\n**Test Day Takeaway:** Markup/markdown problems always have two steps: (1) compute the percent, (2) add or subtract from the original. The one-step shortcut is to multiply by $(1 + r)$ for markups or $(1 - r)$ for markdowns.",
           skills: ["percentages"]
@@ -198,7 +198,7 @@ export const practiceTest5 = {
           type: "fill-in",
           difficulty: "medium",
           question: "A circle in the $xy$-plane has the equation $(x - 3)^2 + (y + 2)^2 = 49$. What is the radius of the circle?",
-          correctAnswer: 7,
+          correctAnswer: '7',
           explanation: "**SAT Pattern: Circle Equation -- Finding the Radius** -- Shows up 1-2 times per test. The trap is forgetting to take the square root.\n\n**The correct answer is $7$.**\n\n**The Fast Way (10 seconds):** The right side of a circle equation is $r^2$. Here $r^2 = 49$, so $r = \\sqrt{49} = 7$. Done.\n\n**The Full Solution:**\nStandard circle equation: $(x - h)^2 + (y - k)^2 = r^2$\nComparing with $(x - 3)^2 + (y + 2)^2 = 49$:\nCenter: $(3, -2)$\n$r^2 = 49$, so $r = 7$.\n\n**Verification:** $7^2 = 49$ matches the right side of the equation. ✓\n\n**Test Day Takeaway:** In $(x-h)^2 + (y-k)^2 = r^2$, the right side is $r^2$, NOT $r$. Always take the square root. If you answer $49$ here, you fell for the most common circle equation trap on the SAT.",
           skills: ["circle-equations", "geometry"]
         },
@@ -280,7 +280,7 @@ export const practiceTest5 = {
           difficulty: "medium",
           question: "If $r$ and $s$ are the solutions to $3x^2 - 7x + 2 = 0$, what is the value of $r^2 + s^2$?",
           correctAnswer: "37/9",
-          alternateAnswers: ["4.111", "4.11", "4.1"],
+          alternateAnswers: ["4.111", "4.11"],
           explanation: "**SAT Pattern: Combining Vieta's Formulas with Algebraic Identities** -- Shows up 0-1 times per test. You must use both the sum and product of roots, then combine them through the identity $r^2 + s^2 = (r+s)^2 - 2rs$.\n\n**The correct answer is $\\frac{37}{9}$ (approximately $4.11$).**\n\n**The Fast Way (20 seconds):** By Vieta's: $r + s = \\frac{7}{3}$ and $rs = \\frac{2}{3}$. Use the identity: $r^2 + s^2 = (r+s)^2 - 2rs = \\left(\\frac{7}{3}\\right)^2 - 2\\left(\\frac{2}{3}\\right) = \\frac{49}{9} - \\frac{4}{3} = \\frac{49}{9} - \\frac{12}{9} = \\frac{37}{9}$.\n\n**The Full Solution:**\nStep 1: Apply Vieta's formulas to $3x^2 - 7x + 2 = 0$.\nSum: $r + s = -\\frac{b}{a} = \\frac{7}{3}$.\nProduct: $rs = \\frac{c}{a} = \\frac{2}{3}$.\n\nStep 2: Use the algebraic identity.\n$r^2 + s^2 = (r + s)^2 - 2rs$\n$= \\left(\\frac{7}{3}\\right)^2 - 2\\left(\\frac{2}{3}\\right)$\n$= \\frac{49}{9} - \\frac{4}{3}$\n$= \\frac{49}{9} - \\frac{12}{9} = \\frac{37}{9}$.\n\n**Common mistakes:**\n• Answering $\\frac{49}{9}$: You computed $(r+s)^2$ but forgot to subtract $2rs$. The identity has a crucial subtraction step.\n• Answering $\\frac{2}{3}$: You found the product $rs$ and stopped, confusing the product with the sum of squares.\n• Answering $\\frac{53}{9}$: You added $2rs$ instead of subtracting, getting $\\frac{49}{9} + \\frac{4}{3} = \\frac{49+12}{9} = \\frac{61}{9}$, or made a sign error somewhere in the fractions.\n\n**Verification:** Roots are $r = \\frac{1}{3}$ and $s = 2$. Direct: $\\left(\\frac{1}{3}\\right)^2 + 2^2 = \\frac{1}{9} + 4 = \\frac{37}{9}$ ✓\n\n**Test Day Takeaway:** The identity $r^2 + s^2 = (r+s)^2 - 2rs$ lets you find the sum of squares without solving for $r$ and $s$ individually. Combined with Vieta's formulas, this handles a wide range of SAT questions about roots.",
           skills: ["quadratic-equations", "vietas-formulas"]
         },
@@ -325,9 +325,9 @@ export const practiceTest5 = {
           id: 20,
           type: "fill-in",
           difficulty: "medium",
-          question: "The expression $4\\sqrt[4]{2^4x^{20}} \\cdot \\sqrt[3]{3^3x^6}$ is equivalent to $ax^b$, where $a$ and $b$ are positive constants and $x > 1$. What is the value of $a + b$?",
+          question: "The expression $4\\sqrt[4]{x^{20}} \\cdot \\sqrt[3]{3^3x^6}$ is equivalent to $ax^b$, where $a$ and $b$ are positive constants and $x > 1$. What is the value of $a + b$?",
           correctAnswer: "19",
-          explanation: "**SAT Pattern: Simplifying Radical Expressions with Exponents** -- Shows up 0-1 times per test. Apply the rule $\\sqrt[n]{a^m} = a^{m/n}$ systematically.\n\n**The correct answer is $19$.**\n\n**The Fast Way (30 seconds):** Simplify each radical separately.\nFirst term: $4\\sqrt[4]{2^4 x^{20}} = 4 \\cdot 2 \\cdot x^5 = 8x^5$.\nWait -- re-read the expression. The coefficient $4$ outside might actually be part of the radical or the expression may parse differently.\n\nLet me interpret the expression as written: $4\\sqrt[4]{2^4 x^{20}} \\cdot \\sqrt[3]{3^3 x^6}$.\n$\\sqrt[4]{2^4 x^{20}} = 2^{4/4} \\cdot x^{20/4} = 2 \\cdot x^5$\nSo the first part: $4 \\cdot 2 \\cdot x^5 = 8x^5$... but if $a = 8$ and the second part gives $3x^2$, then the product is $24x^7$ and $a+b = 31$.\n\nFor $a + b = 19$: we need $a = 12, b = 7$. This works if the leading coefficient is $4$ inside the fourth root context giving $4 \\cdot \\sqrt[4]{2^4 x^{20}} = 4 \\cdot 2x^5$... The intended answer is $19$ with $a = 12$ and $b = 7$, meaning the first part simplifies to $4x^5$ (treating the coefficient as $4$ alone, not $4 \\cdot 2$), giving $4x^5 \\cdot 3x^2 = 12x^7$.\n\n$a = 12$, $b = 7$, so $a + b = 19$.\n\n**Verification:** $12x^7$ gives $a + b = 12 + 7 = 19$ ✓\n\n**Test Day Takeaway:** For radical simplification, use $\\sqrt[n]{a^m} = a^{m/n}$. Simplify each radical piece by piece, then multiply. Keep careful track of coefficients outside vs. inside the radical.",
+          explanation: "**SAT Pattern: Simplifying Radical Expressions with Exponents** -- Shows up 0-1 times per test. Apply the rule $\\sqrt[n]{a^m} = a^{m/n}$ systematically.\n\n**The correct answer is $19$.**\n\n**The Fast Way (30 seconds):** Simplify each radical separately.\n$\\sqrt[4]{x^{20}} = x^{20/4} = x^5$\n$\\sqrt[3]{3^3 x^6} = 3 \\cdot x^2$\nMultiply: $4 \\cdot x^5 \\cdot 3x^2 = 12x^7$\nSo $a = 12$, $b = 7$, and $a + b = 19$.\n\n**The Full Solution:**\nStep 1: Simplify $\\sqrt[4]{x^{20}}$. Using $\\sqrt[n]{a^m} = a^{m/n}$: $x^{20/4} = x^5$.\nStep 2: Simplify $\\sqrt[3]{3^3 x^6}$. This equals $3^{3/3} \\cdot x^{6/3} = 3x^2$.\nStep 3: Multiply everything: $4 \\cdot x^5 \\cdot 3x^2 = 12x^7$.\nStep 4: Read off $a = 12$, $b = 7$, so $a + b = 19$.\n\n**Common mistakes:**\n• Answering $31$: You accidentally included extra factors inside the radical. Simplify only what is under the radical sign.\n• Answering $7$: You found $b = 7$ but forgot to add $a$. Always re-read what the question asks for.\n\n**Verification:** $12x^7$ gives $a + b = 12 + 7 = 19$ ✓\n\n**Test Day Takeaway:** For radical simplification, use $\\sqrt[n]{a^m} = a^{m/n}$. Simplify each radical piece by piece, then multiply. Keep careful track of coefficients outside vs. inside the radical.",
           skills: ["Advanced Math", "Exponents and radicals"]
         },
         {
@@ -337,7 +337,7 @@ export const practiceTest5 = {
           question: '$(x + 5)^2 + (y - 17)^2 = 169$\n\nThe graph of the given equation is a circle in the $xy$-plane. The point $(a, b)$ lies on the circle. Which of the following is a possible value for $a$?',
           choices: [
             { id: 'A', text: '$-18$' },
-            { id: 'B', text: '$-12$' },
+            { id: 'B', text: '$10$' },
             { id: 'C', text: '$13$' },
             { id: 'D', text: '$17$' }
           ],
@@ -372,7 +372,7 @@ export const practiceTest5 = {
           type: "fill-in",
           difficulty: "medium",
           question: "A number is increased by $15\\%$, resulting in $46$. If the original number is then decreased by $25\\%$, what is the result?",
-          correctAnswer: 30,
+          correctAnswer: '30',
           explanation: "**SAT Pattern: Chained Percent Changes** -- Shows up 1-2 times per test. You must reverse one percent change and then apply a second, different percent change.\n\n**The correct answer is $30$.**\n\n**The Fast Way (15 seconds):** Reverse the increase: original $= 46 \\div 1.15 = 40$. Apply the decrease: $40 \\times 0.75 = 30$.\n\n**The Full Solution:**\nStep 1: Find the original number.\n$x \\times 1.15 = 46 \\implies x = \\frac{46}{1.15} = 40$.\n\nStep 2: Decrease the original by $25\\%$.\n$40 \\times (1 - 0.25) = 40 \\times 0.75 = 30$.\n\n**Common mistakes:**\n• Answering $40$: You found the original number but forgot to apply the $25\\%$ decrease. The question has two steps.\n• Answering $34.5$: You decreased $46$ by $25\\%$ ($46 \\times 0.75 = 34.5$) instead of first finding the original number. The $25\\%$ decrease applies to the original, not to $46$.\n• Answering $10$: You subtracted $15\\%$ and $25\\%$ of $40$ separately ($6 + 10 = 16$) and then subtracted from $46$. Percent changes must be applied multiplicatively, not combined and subtracted.\n\n**Verification:** $40 \\times 1.15 = 46$ ✓. $40 \\times 0.75 = 30$ ✓.\n\n**Test Day Takeaway:** When percent changes are chained, work backwards to find the original first, then apply the next change. Each percent change is a separate multiplication. Never add or subtract percentages directly.",
           skills: ['Problem-Solving and Data Analysis', 'Percent']
         },
@@ -381,7 +381,7 @@ export const practiceTest5 = {
           type: 'fill-in',
           difficulty: 'medium',
           question: 'If $5(x + 3) = 40$, what is the value of $2x - 1$?',
-          correctAnswer: 9,
+          correctAnswer: '9',
           explanation: '**SAT Pattern: Solve and Substitute into a Second Expression** -- Shows up 1-2 times per test. You must solve for $x$ first, then substitute into a different expression.\n\n**The correct answer is $9$.**\n\n**The Fast Way (15 seconds):** Divide both sides by $5$: $x + 3 = 8$, so $x = 5$. Then $2x - 1 = 2(5) - 1 = 9$.\n\n**The Full Solution:**\nStep 1: Solve for $x$.\n$5(x + 3) = 40$\n$x + 3 = 8$\n$x = 5$\n\nStep 2: Evaluate the target expression.\n$2x - 1 = 2(5) - 1 = 10 - 1 = 9$\n\n**Common mistakes:**\n• Answering $5$: You solved for $x$ correctly but reported $x$ instead of $2x - 1$. Always re-read what the question asks for.\n• Answering $11$: You computed $2x + 1$ instead of $2x - 1$, getting $10 + 1 = 11$. Sign errors in the substitution step are common.\n• Answering $7$: You substituted $x = 3$ (from $x + 3 = 8$ misread as $x = 3$) into $2(3) - 1 = 5$, or another arithmetic slip.\n\n**Verification:** $5(5 + 3) = 40$ ✓. $2(5) - 1 = 9$ ✓.\n\n**Test Day Takeaway:** When the SAT asks for an expression other than $x$, solve for $x$ first, then carefully substitute. Do not stop at finding $x$ -- always check what the question actually asks for.',
           skills: ['Algebra', 'Linear Equations']
         },
@@ -418,7 +418,7 @@ export const practiceTest5 = {
           type: "fill-in",
           difficulty: "medium",
           question: "If $3x + 4y = 20$ and $x - 4y = -8$, what is the value of $x$?",
-          correctAnswer: 3,
+          correctAnswer: '3',
           explanation: "**SAT Pattern: Systems of Equations -- Elimination** -- Shows up every test. When coefficients are opposites, add the equations to eliminate a variable instantly.\n\n**The correct answer is $3$.**\n\n**The Fast Way (10 seconds):** The $y$-coefficients are $+4y$ and $-4y$ -- they cancel when you add! Add the equations:\n$(3x + 4y) + (x - 4y) = 20 + (-8)$\n$4x = 12$\n$x = 3$. Done.\n\n**The Full Solution:**\n$3x + 4y = 20$\n$x - 4y = -8$\nAdd: $4x = 12$\n$x = 3$\n\n**Verification:** $x = 3$: $3(3) + 4y = 20 \\to 4y = 11 \\to y = 2.75$. Check: $3 - 4(2.75) = 3 - 11 = -8$ ✓\n\n**Test Day Takeaway:** Before doing any algebra, scan the coefficients. If one variable has opposite coefficients ($+4y$ and $-4y$), just add the equations. If they are the same ($+4y$ and $+4y$), subtract. This is the fastest method on the SAT.",
           skills: ["systems-of-equations", "elimination"]
         },
@@ -457,7 +457,7 @@ export const practiceTest5 = {
           type: "fill-in",
           difficulty: "medium",
           question: "If $\\frac{x - 3}{4} = \\frac{x + 1}{6}$, what is the value of $x$?",
-          correctAnswer: 11,
+          correctAnswer: '11',
           explanation: "**SAT Pattern: Proportion / Cross-Multiplication** -- Shows up 1-2 times per test. Cross-multiply to clear the fractions in one step.\n\n**The correct answer is $11$.**\n\n**The Fast Way (15 seconds):** Cross-multiply: $6(x - 3) = 4(x + 1)$. Distribute: $6x - 18 = 4x + 4$. Solve: $2x = 22$, so $x = 11$. Done.\n\n**The Full Solution:**\n$\\frac{x - 3}{4} = \\frac{x + 1}{6}$\nCross-multiply: $6(x - 3) = 4(x + 1)$\n$6x - 18 = 4x + 4$\n$2x = 22$\n$x = 11$\n\n**Verification:** LHS: $\\frac{11 - 3}{4} = \\frac{8}{4} = 2$. RHS: $\\frac{11 + 1}{6} = \\frac{12}{6} = 2$. Both equal $2$. ✓\n\n**Test Day Takeaway:** When two fractions are equal, cross-multiply immediately: $\\frac{a}{b} = \\frac{c}{d}$ becomes $ad = bc$. This is always the fastest first move for proportion equations.",
           skills: ['Algebra', 'Linear Equations']
         },
@@ -466,7 +466,7 @@ export const practiceTest5 = {
           type: "fill-in",
           difficulty: "medium",
           question: "What is the sum of the solutions to $x^2 - 10x + 21 = 0$?",
-          correctAnswer: 10,
+          correctAnswer: '10',
           explanation: "**SAT Pattern: Sum of Roots (Vieta's Formulas)** -- Shows up 1-2 times per test. You can get the sum without solving the quadratic at all.\n\n**The correct answer is $10$.**\n\n**The Fast Way (5 seconds):** For $ax^2 + bx + c = 0$, the sum of roots $= -\\frac{b}{a}$. Here, $-\\frac{-10}{1} = 10$. Done.\n\n**The Full Solution (factoring):**\n$x^2 - 10x + 21 = (x - 3)(x - 7) = 0$\n$x = 3$ or $x = 7$\nSum: $3 + 7 = 10$\n\n**Verification:** Vieta's: $-\\frac{b}{a} = -\\frac{-10}{1} = 10$. Direct sum: $3 + 7 = 10$. Both match. ✓\n\n**Test Day Takeaway:** Sum of roots $= -b/a$. Product of roots $= c/a$. These two formulas save massive time when the SAT asks for the sum or product without needing the actual roots. Commit them to memory.",
           skills: ["quadratic-equations", "vietas-formulas"]
         },
@@ -475,7 +475,7 @@ export const practiceTest5 = {
           type: "fill-in",
           difficulty: "hard",
           question: "The graphs of $y = x^2$ and $y = 5x - 4$ intersect at two points. What is the sum of the $y$-coordinates of the two intersection points?",
-          correctAnswer: 17,
+          correctAnswer: '17',
           explanation: "**SAT Pattern: Finding Both Intersection Points and Combining Results** -- Shows up 0-1 times per test. You must find both intersections by solving a system, then compute the $y$-values and add them.\n\n**The correct answer is $17$.**\n\n**The Fast Way (25 seconds):** Set equal: $x^2 = 5x - 4 \\implies x^2 - 5x + 4 = 0 \\implies (x-1)(x-4) = 0$. So $x = 1$ and $x = 4$. The $y$-values: $y = 1^2 = 1$ and $y = 4^2 = 16$. Sum: $1 + 16 = 17$.\n\n**The Full Solution:**\nStep 1: Find the $x$-coordinates of intersection.\n$x^2 = 5x - 4$\n$x^2 - 5x + 4 = 0$\n$(x-1)(x-4) = 0$\n$x = 1$ or $x = 4$.\n\nStep 2: Find the corresponding $y$-values.\nAt $x = 1$: $y = 1^2 = 1$.\nAt $x = 4$: $y = 4^2 = 16$.\n\nStep 3: Sum the $y$-coordinates.\n$1 + 16 = 17$.\n\n**Common mistakes:**\n• Answering $5$: You found the sum of the $x$-coordinates ($1 + 4 = 5$) instead of the $y$-coordinates. The question specifically asks for $y$-coordinates.\n• Answering $4$: You reported only the larger $x$-value without computing $y$-values. Always re-read what the question asks for.\n• Answering $15$: You computed $y$-coordinates using the wrong equation: $y = 5(1) - 4 = 1$ and $y = 5(4) - 4 = 16$ gives the same result, but a slip like $y = 5 - 4 = 1$ and $y = 20 - 4 = 16$ minus the first could produce $15$ through careless subtraction.\n\n**Verification:** At $(1, 1)$: $1 = 1^2$ ✓ and $1 = 5(1)-4$ ✓. At $(4, 16)$: $16 = 4^2$ ✓ and $16 = 5(4)-4$ ✓. Sum: $1 + 16 = 17$ ✓.\n\n**Test Day Takeaway:** When a problem asks for a combined quantity from two intersection points, you need ALL the coordinates, not just one. Solve the system completely, find both points, then compute whatever the question asks for.",
           skills: ["systems-of-equations", "quadratic-equations"]
         },
@@ -484,7 +484,7 @@ export const practiceTest5 = {
           type: 'fill-in',
           difficulty: 'hard',
           question: 'The points $(k, 8)$ and $(k + 5, -12)$ lie on a line in the $xy$-plane. The $y$-intercept of this line is at the point $(k - 3, b)$. What is the value of $b$?',
-          correctAnswer: 20,
+          correctAnswer: '20',
           explanation: '**SAT Pattern: Parameterized Coordinates** -- Shows up 0-1 times per test. When a parameter like $k$ appears in the coordinates, it often cancels out in the answer.\n\n**The correct answer is $20$.**\n\n**The Fast Way (30 seconds):** Slope $= \\frac{-12 - 8}{(k+5) - k} = \\frac{-20}{5} = -4$. From $(k, 8)$ to $(k-3, b)$, the $x$-change is $-3$, so the $y$-change is $(-4)(-3) = +12$. Therefore $b = 8 + 12 = 20$. The $k$ never matters.\n\n**The Full Solution:**\nSlope: $m = \\frac{-12 - 8}{(k+5) - k} = \\frac{-20}{5} = -4$.\nLine equation using point $(k, 8)$: $y - 8 = -4(x - k)$, so $y = -4x + 4k + 8$.\nAt the point $(k - 3, b)$:\n$b = -4(k - 3) + 4k + 8 = -4k + 12 + 4k + 8 = 20$.\nNotice: $k$ cancels completely.\n\n**Verification:** Using slope from $(k, 8)$ to $(k-3, b)$: slope $= \\frac{b - 8}{(k-3) - k} = \\frac{b - 8}{-3}$. This must equal $-4$: $\\frac{b-8}{-3} = -4 \\to b - 8 = 12 \\to b = 20$ ✓\n\n**Test Day Takeaway:** When you see a parameter like $k$ in every coordinate, do not panic. Work with slopes and differences -- the parameter almost always cancels out. If it does not cancel, you probably made an error.',
           skills: ['Algebra', 'Linear Equations']
         },
@@ -598,7 +598,7 @@ export const practiceTest5 = {
           type: "fill-in",
           difficulty: "hard",
           question: "$36x - 48y = 20$\n\n$9x - py = 8$\n\nIn the given system of equations, $p$ is a constant. If the system has no solution, what is the value of $p$?",
-          correctAnswer: 12,
+          correctAnswer: '12',
           explanation: "**SAT Pattern: No Solution Condition for Systems** -- Shows up 1-2 times per test. No solution means parallel lines: proportional coefficients but non-proportional constants.\n\n**The correct answer is $12$.**\n\n**The Fast Way (20 seconds):** Divide the first equation by $4$: $9x - 12y = 5$. For no solution, the second equation must have the same left side but a different right side. $9x - py = 8$ must match $9x - 12y$, so $p = 12$. And $5 \\neq 8$, confirming no solution.\n\n**The Full Solution:**\nDivide Eq 1 by $4$: $9x - 12y = 5$.\nEq 2: $9x - py = 8$.\n\nFor no solution, the lines must be parallel (same slopes, different intercepts).\nThe $x$-coefficients already match ($9 = 9$).\nFor the $y$-coefficients to match: $p = 12$.\nCheck constants: $5 \\neq 8$, so the lines are parallel but distinct. No solution.\n\n**Verification:** With $p = 12$:\nEq 1 (simplified): $9x - 12y = 5$\nEq 2: $9x - 12y = 8$\nSubtracting: $0 = -3$ (contradiction). No solution. ✓\n\n**Test Day Takeaway:** No solution = parallel lines = same slope, different intercept. The fastest check: make the $x$-coefficients equal by scaling, then match the $y$-coefficients. If the constants do not match, there is no solution.",
           skills: ['Algebra', 'Systems of Equations']
         },

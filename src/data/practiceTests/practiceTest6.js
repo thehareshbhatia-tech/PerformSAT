@@ -181,7 +181,7 @@ export const practiceTest6 = {
           type: "fill-in",
           difficulty: "medium",
           question: "The function $f$ is defined by $f(x) = 6x + 4$ and the function $g$ is defined by $g(x) = x^2 - 1$. For what positive value of $x$ does $f(g(x)) = 52$?",
-          correctAnswer: 3,
+          correctAnswer: '3',
           explanation: "**SAT Pattern: Function Composition with Two Steps** -- Requires evaluating a composite function and then solving. You must work from the inside out.\n\n**The correct answer is $3$.**\n\n**The Fast Way (30 seconds):** Start from $f(g(x)) = 52$. Since $f(t) = 6t + 4$, set $6 \\cdot g(x) + 4 = 52$. So $6g(x) = 48$, meaning $g(x) = 8$. Then $x^2 - 1 = 8$, so $x^2 = 9$, so $x = 3$ (positive value).\n\n**Step 1: Set up the composition**\n$f(g(x)) = 6 \\cdot g(x) + 4 = 6(x^2 - 1) + 4$\n\n**Step 2: Solve $f(g(x)) = 52$**\n$6(x^2 - 1) + 4 = 52$\n$6x^2 - 6 + 4 = 52$\n$6x^2 - 2 = 52$\n$6x^2 = 54$\n$x^2 = 9$\n$x = \\pm 3$\n\n**Step 3: Apply the constraint**\nThe problem asks for the positive value, so $x = 3$.\n\n**Verification:** $g(3) = 9 - 1 = 8$. Then $f(8) = 6(8) + 4 = 48 + 4 = 52$. Confirmed.\n\n**Test Day Takeaway:** For composite functions $f(g(x))$, work from the inside out. First figure out what $g(x)$ must equal by working backward through $f$, then solve for $x$. This two-layer approach is faster than expanding the whole composition first.",
           skills: ["function-equations", "linear-equations"]
         },
@@ -205,7 +205,7 @@ export const practiceTest6 = {
           type: "fill-in",
           difficulty: "medium",
           question: "A solid aluminum cylinder has a mass of $540$ grams. If aluminum has a density of $2.7$ grams per cubic centimeter and the cylinder has a radius of $5$ centimeters, what is the height, in centimeters, of the cylinder? (Round to the nearest whole number.)",
-          correctAnswer: 3,
+          correctAnswer: '3',
           explanation: "**SAT Pattern: Combining Density with Cylinder Volume** -- Requires two concepts: using density to find volume, then using the cylinder volume formula to find a missing dimension.\n\n**The correct answer is $3$.**\n\n**The Fast Way (35 seconds):** First find the volume from density: $V = 540 / 2.7 = 200$ cm$^3$. Then use $V = \\pi r^2 h$: $200 = \\pi(25)h$, so $h = 200/(25\\pi) = 8/\\pi \\approx 2.546$. Rounded to the nearest whole number: $h \\approx 3$.\n\n**Step 1: Find the volume using density**\n$V = \\frac{\\text{Mass}}{\\text{Density}} = \\frac{540}{2.7} = 200$ cm$^3$.\n\n**Step 2: Use the cylinder volume formula**\n$V = \\pi r^2 h$\n$200 = \\pi (5)^2 h$\n$200 = 25\\pi h$\n$h = \\frac{200}{25\\pi} = \\frac{8}{\\pi} \\approx 2.546$\n\n**Step 3: Round**\n$h \\approx 3$ cm (to the nearest whole number).\n\n**Verification:** $V = \\pi(5)^2(8/\\pi) = 25\\pi \\times 8/\\pi = 200$ cm$^3$. And mass $= 2.7 \\times 200 = 540$ g. Both conditions confirmed.\n\n**Test Day Takeaway:** When a problem combines density with geometry, work in stages. First convert mass to volume using the density formula, then apply the geometry formula. Multi-concept problems reward systematic step-by-step work.",
           skills: ["density", "volume"]
         },
@@ -310,7 +310,7 @@ export const practiceTest6 = {
           type: "fill-in",
           difficulty: "medium",
           question: "What is the smaller positive solution to the equation $\\sqrt{5x - 11} = x - 1$?",
-          correctAnswer: 3,
+          correctAnswer: '3',
           explanation: "**SAT Pattern: Radical Equation (Square Both Sides)** -- Radical equations show up regularly. The critical step everyone forgets: check for extraneous solutions after squaring.\n\n**The correct answer is 3.**\n\n**The Fast Way (30 seconds):** On Desmos, graph $y = \\sqrt{5x - 11}$ and $y = x - 1$. Find the intersections. The smaller $x$-value is $3$.\n\n**Solution steps:**\n- $\\sqrt{5x - 11} = x - 1$\n- Square both sides: $5x - 11 = (x - 1)^2 = x^2 - 2x + 1$\n- Rearrange: $0 = x^2 - 7x + 12$\n- Factor: $0 = (x - 3)(x - 4)$\n- $x = 3$ or $x = 4$\n\n**Check both solutions (required for radical equations):**\n- $x = 3$: $\\sqrt{15 - 11} = \\sqrt{4} = 2$, and $3 - 1 = 2$. Valid.\n- $x = 4$: $\\sqrt{20 - 11} = \\sqrt{9} = 3$, and $4 - 1 = 3$. Valid.\n\nBoth solutions are valid. The smaller positive solution is $3$.\n\n**Verification:** $\\sqrt{5(3) - 11} = \\sqrt{4} = 2 = 3 - 1$. Confirmed.\n\n**Test Day Takeaway:** When you square both sides of a radical equation, you might create fake solutions. Always plug your answers back in. The problem asks for the smaller solution, so even after finding both, re-read what is being asked.",
           skills: ["radical-equations"]
         },
@@ -333,7 +333,7 @@ export const practiceTest6 = {
           id: 21,
           type: "multiple-choice",
           difficulty: "hard",
-          question: "A right triangle has sides of length $3\\sqrt{3}$, $5\\sqrt{3}$, and $\\sqrt{84}$ units. What is the area of the triangle, in square units?",
+          question: "A right triangle has sides of length $3\\sqrt{3}$, $5\\sqrt{3}$, and $\\sqrt{102}$ units. What is the area of the triangle, in square units?",
           choices: [
             { id: "A", text: "$\\frac{15\\sqrt{3}}{2}$" },
             { id: "B", text: "$15$" },
@@ -450,7 +450,7 @@ export const practiceTest6 = {
           id: 5,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "Two data sets are shown in the dot plots. Set A has a mean of $12$ and a standard deviation of $3$. Set B has a mean of $12$ and a standard deviation of $6$. Which statement must be true?",
+          question: "Two data sets are shown in the dot plots. Set A has a mean of $12$ and a standard deviation of $3$. Set B has a mean of $12$ and a standard deviation of $5$. Which statement must be true?",
           diagram: {
             type: "dotPlot",
             params: {
@@ -471,7 +471,7 @@ export const practiceTest6 = {
             { id: "D", text: "The sets have the same number of data points" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Comparing Standard Deviations (Variability)** -- A conceptual statistics question. No calculation needed -- just know what standard deviation means.\n\n**Choice B is correct.** Set B has more variability than Set A.\n\n**The Fast Way (10 seconds):** Standard deviation measures spread. Set B has a standard deviation of $6$ versus Set A's $3$. Bigger standard deviation means more variability. Done.\n\n**Solution:**\n- Set A: standard deviation = $3$\n- Set B: standard deviation = $6$\n- Since $6 > 3$, Set B has greater variability (more spread out from the mean)\n\n**Why the wrong answers are tempting:**\n- Choice A claims the ranges are equal. While both sets have the same mean ($12$), their different standard deviations strongly suggest different spreads and likely different ranges. You cannot conclude equal ranges from equal means.\n- Choice C claims Set A has a higher median. Both sets have the same mean ($12$), but that tells you nothing definitive about the medians. The median depends on how the individual data points are distributed, not just the mean or standard deviation.\n- Choice D claims the sets have the same number of data points. Standard deviation is independent of sample size. You cannot determine how many data points are in each set from the standard deviation alone.\n\n**Verification:** Set B's standard deviation ($6$) is twice Set A's ($3$), confirming it has greater variability.\n\n**Test Day Takeaway:** Standard deviation = spread. Larger standard deviation means data is more spread out from the mean. This is one of the most conceptual questions the SAT asks -- no formulas needed, just understanding.",
+          explanation: "**SAT Pattern: Comparing Standard Deviations (Variability)** -- A conceptual statistics question. No calculation needed -- just know what standard deviation means.\n\n**Choice B is correct.** Set B has more variability than Set A.\n\n**The Fast Way (10 seconds):** Standard deviation measures spread. Set B has a standard deviation of $5$ versus Set A's $3$. Bigger standard deviation means more variability. Done.\n\n**Solution:**\n- Set A: standard deviation = $3$\n- Set B: standard deviation = $6$\n- Since $6 > 3$, Set B has greater variability (more spread out from the mean)\n\n**Why the wrong answers are tempting:**\n- Choice A claims the ranges are equal. While both sets have the same mean ($12$), their different standard deviations strongly suggest different spreads and likely different ranges. You cannot conclude equal ranges from equal means.\n- Choice C claims Set A has a higher median. Both sets have the same mean ($12$), but that tells you nothing definitive about the medians. The median depends on how the individual data points are distributed, not just the mean or standard deviation.\n- Choice D claims the sets have the same number of data points. Standard deviation is independent of sample size. You cannot determine how many data points are in each set from the standard deviation alone.\n\n**Verification:** Set B's standard deviation ($6$) is twice Set A's ($3$), confirming it has greater variability.\n\n**Test Day Takeaway:** Standard deviation = spread. Larger standard deviation means data is more spread out from the mean. This is one of the most conceptual questions the SAT asks -- no formulas needed, just understanding.",
           skills: ["statistics", "standard-deviation"]
         },
         {
@@ -506,7 +506,7 @@ export const practiceTest6 = {
           type: "fill-in",
           difficulty: "medium",
           question: "A cylinder has a height that is $3$ times its radius. If the volume of the cylinder is $192\\pi$ cubic centimeters, what is the radius, in centimeters, of the cylinder?",
-          correctAnswer: 4,
+          correctAnswer: '4',
           explanation: "**SAT Pattern: Cylinder Volume with Related Dimensions** -- A classic geometry-algebra hybrid. Use the relationship between height and radius to write one equation in one variable.\n\n**The correct answer is $4$.**\n\n**The Fast Way (25 seconds):** Height $= 3r$, so $V = \\pi r^2(3r) = 3\\pi r^3 = 192\\pi$. Divide both sides by $3\\pi$: $r^3 = 64$. Cube root: $r = 4$.\n\n**Step 1: Set up the equation**\nLet $r$ = radius. Height $= 3r$.\n$$V = \\pi r^2 h = \\pi r^2(3r) = 3\\pi r^3$$\n\n**Step 2: Solve for $r$**\n$$3\\pi r^3 = 192\\pi$$\n$$r^3 = 64$$\n$$r = 4$$\n\n**Verification:** Height $= 3(4) = 12$. Volume $= \\pi(4)^2(12) = \\pi(16)(12) = 192\\pi$. Confirmed.\n\n**Test Day Takeaway:** When dimensions are linked (height is 3 times the radius, etc.), substitute that relationship into the formula so you only have one variable. Then solve the resulting equation.",
           skills: ["Geometry", "Volume"]
         },
@@ -559,7 +559,7 @@ export const practiceTest6 = {
           type: "fill-in",
           difficulty: "hard",
           question: "An equilateral triangle has a perimeter of $48$ centimeters. The height of this triangle can be written as $k\\sqrt{3}$ centimeters. What is the value of $k$?",
-          correctAnswer: 8,
+          correctAnswer: '8',
           explanation: "**SAT Pattern: Equilateral Triangle Height (30-60-90 Triangles)** -- A geometry favorite. The height formula for an equilateral triangle comes directly from the 30-60-90 special triangle ratios.\n\n**The correct answer is $8$.**\n\n**The Fast Way (20 seconds):** Side length $= 48/3 = 16$. Height of equilateral triangle $= \\frac{s\\sqrt{3}}{2} = \\frac{16\\sqrt{3}}{2} = 8\\sqrt{3}$. Since the height is $k\\sqrt{3}$, we get $k = 8$.\n\n**Step 1: Find the side length**\nPerimeter $= 48$, so each side $= \\frac{48}{3} = 16$ cm.\n\n**Step 2: Find the height**\nThe height of an equilateral triangle with side $s$ is $\\frac{s\\sqrt{3}}{2}$.\n$$h = \\frac{16\\sqrt{3}}{2} = 8\\sqrt{3}$$\n\n**Step 3: Identify $k$**\nSince $h = k\\sqrt{3} = 8\\sqrt{3}$, we have $k = 8$.\n\n**Verification:** Using the Pythagorean theorem on the half-triangle: base $= 8$, hypotenuse $= 16$.\n$$h = \\sqrt{16^2 - 8^2} = \\sqrt{256 - 64} = \\sqrt{192} = 8\\sqrt{3}$$\n\n**Test Day Takeaway:** The height of an equilateral triangle with side $s$ is always $\\frac{s\\sqrt{3}}{2}$. This comes from the 30-60-90 triangle where the sides are in ratio $1 : \\sqrt{3} : 2$. Memorize this formula -- it saves significant time.",
           skills: ["Geometry", "Special Triangles"]
         },
@@ -652,7 +652,7 @@ export const practiceTest6 = {
           type: "fill-in",
           difficulty: "hard",
           question: "A painting machine covers $2{,}700$ square feet per hour. How many square yards per minute does the machine cover?",
-          correctAnswer: 5,
+          correctAnswer: '5',
           explanation: "**SAT Pattern: Unit Conversion (Squared Units and Time)** -- A two-step conversion that tests whether you remember to square the linear conversion factor. This trips up a lot of students.\n\n**The correct answer is $5$.**\n\n**The Fast Way (20 seconds):** Convert time first: $2{,}700 \\div 60 = 45$ sq ft per minute. Then convert area: $45 \\div 9 = 5$ sq yd per minute (since $1$ sq yd $= 9$ sq ft).\n\n**Step 1: Convert hours to minutes**\n$$2{,}700 \\text{ sq ft/hr} = \\frac{2{,}700}{60} = 45 \\text{ sq ft/min}$$\n\n**Step 2: Convert square feet to square yards**\nSince $1$ yard $= 3$ feet, we have $1$ square yard $= 3^2 = 9$ square feet.\n$$45 \\text{ sq ft/min} \\div 9 = 5 \\text{ sq yd/min}$$\n\n**Verification:** $5 \\text{ sq yd/min} \\times 9 \\text{ sq ft/sq yd} \\times 60 \\text{ min/hr} = 2{,}700$ sq ft/hr. Confirmed.\n\n**Test Day Takeaway:** When converting squared units, square the linear conversion factor. $1$ yd $= 3$ ft means $1$ sq yd $= 9$ sq ft, not $3$ sq ft. Forgetting to square is the most common mistake on unit conversion problems.",
           skills: ["Problem-Solving and Data Analysis", "Unit Conversion"]
         },
@@ -660,15 +660,15 @@ export const practiceTest6 = {
           id: 19,
           type: 'multiple-choice',
           difficulty: 'hard',
-          question: 'The function $P$ models the population, in thousands, of a certain city $t$ years after 2005. According to the model, the population is predicted to increase by $3\\%$ every $n$ months. The function is given by $P(t) = 180(1.03)^{\\frac{12t}{n}}$. What is the value of $n$?',
+          question: 'The function $P$ models the population, in thousands, of a certain city $t$ years after 2005. According to the model, the population is predicted to increase by $3\\%$ every $n$ months. The function is given by $P(t) = 180(1.03)^{3t}$. What is the value of $n$?',
           choices: [
-            { id: 'A', text: '$8$' },
-            { id: 'B', text: '$12$' },
-            { id: 'C', text: '$18$' },
-            { id: 'D', text: '$72$' }
+            { id: 'A', text: '$3$' },
+            { id: 'B', text: '$4$' },
+            { id: 'C', text: '$6$' },
+            { id: 'D', text: '$12$' }
           ],
           correctAnswer: 'B',
-          explanation: '**SAT Pattern: Interpreting Exponential Model Parameters** -- The SAT gives you an exponential function and asks you to decode what the exponent means. Understanding the structure is the key.\n\n**Choice B is correct.** The value of $n$ is $12$.\n\n**The Fast Way (20 seconds):** The exponent $\\frac{12t}{n}$ counts how many $n$-month periods fit in $t$ years. Since $12t$ converts years to months, dividing by $n$ gives the number of periods. The problem says the population increases by $3\\%$ every $n$ months. Try $n = 12$: after $1$ year, exponent $= 12/12 = 1$, meaning one $3\\%$ increase per year. That makes sense.\n\n**Step 1: Understand the model structure**\nThe function $P(t) = 180(1.03)^{\\frac{12t}{n}}$ means:\n- Initial population: $180$ thousand\n- Growth factor per period: $1.03$ (a $3\\%$ increase)\n- The exponent $\\frac{12t}{n}$ counts the number of growth periods in $t$ years\n\n**Step 2: Match the exponent to the growth period**\nSince $t$ is in years, $12t$ converts years to months. Dividing by $n$ gives the number of $n$-month intervals. Each interval produces one $3\\%$ increase.\n\n**Step 3: Verify with $n = 12$**\n- After $1$ year ($t = 1$): exponent $= \\frac{12}{12} = 1$, so one $3\\%$ increase per year\n- After $2$ years ($t = 2$): exponent $= \\frac{24}{12} = 2$, so two increases\n\n**Why the wrong answers are tempting:**\n- Choice A ($n = 8$) gives $\\frac{12}{8} = 1.5$ increases per year. That means the population grows by $3\\%$ one and a half times per year, which is an awkward and unlikely growth period.\n- Choice C ($n = 18$) gives $\\frac{12}{18} = \\frac{2}{3}$ of an increase per year, meaning the $3\\%$ growth takes $1.5$ years to complete one cycle. The problem says it happens every $n$ months, so $18$ months is possible mathematically but does not match the expected clean interpretation.\n- Choice D ($n = 72$) gives $\\frac{12}{72} = \\frac{1}{6}$ increases per year, meaning one $3\\%$ bump every $6$ years. That is extremely slow growth.\n\n**Verification:** With $n = 12$: $P(1) = 180(1.03)^1 = 185.4$ thousand -- one $3\\%$ increase after one year.\n\n**Test Day Takeaway:** In exponential models, the exponent is a period counter. It answers: how many growth periods have elapsed? Break it down: $12t$ converts years to months, and dividing by $n$ counts the $n$-month intervals.',
+          explanation: '**SAT Pattern: Interpreting Exponential Model Parameters** -- The SAT gives you an exponential function and asks you to decode what the exponent means. Understanding the structure is the key.\n\n**Choice B is correct.** The value of $n$ is $4$.\n\n**The Fast Way (20 seconds):** The general form for $3\\%$ growth every $n$ months is $P(t) = 180(1.03)^{\\frac{12t}{n}}$. We are given the exponent is $3t$, so $\\frac{12t}{n} = 3t$, which gives $\\frac{12}{n} = 3$, so $n = 4$.\n\n**The Full Solution:**\nStep 1: The exponent $3t$ counts how many growth periods occur in $t$ years. Since each period is $n$ months long, there are $\\frac{12}{n}$ periods per year, and $\\frac{12t}{n}$ periods in $t$ years.\n\nStep 2: Set the exponents equal: $3t = \\frac{12t}{n}$.\n\nStep 3: Divide both sides by $t$: $3 = \\frac{12}{n}$.\n\nStep 4: Solve for $n$: $n = \\frac{12}{3} = 4$.\n\nSo the population increases by $3\\%$ every $4$ months.\n\n**Why the wrong answers are tempting:**\n- Choice A ($n = 3$): You might confuse the coefficient $3$ in the exponent with $n$ itself. But $3$ is the number of periods per year, not the length of each period.\n- Choice C ($n = 6$): This would give $\\frac{12}{6} = 2$ periods per year, making the exponent $2t$, not $3t$.\n- Choice D ($n = 12$): This would give $\\frac{12}{12} = 1$ period per year, making the exponent $t$, not $3t$.\n\n**Verification:** With $n = 4$: $P(t) = 180(1.03)^{12t/4} = 180(1.03)^{3t}$ ✓\n\n**Test Day Takeaway:** In exponential models, the exponent is a period counter. Match the given exponent to the general form $\\frac{12t}{n}$ and solve for $n$.',
           skills: ["exponential-growth-decay"]
         },
         {
@@ -694,7 +694,7 @@ export const practiceTest6 = {
           type: "fill-in",
           difficulty: "hard",
           question: "$$\\frac{x + 2}{x - 3} + \\frac{1}{x + 1} = \\frac{7x - 1}{(x - 3)(x + 1)}$$\n\nWhat is the solution to the given equation?",
-          correctAnswer: 0,
+          correctAnswer: '0',
           explanation: "**SAT Pattern: Rational Equations with Extraneous Solutions** -- One of the harder question types. The algebra produces two solutions, but one makes a denominator zero and must be rejected.\n\n**The correct answer is $0$.**\n\n**The Fast Way (40 seconds):** Multiply both sides by $(x - 3)(x + 1)$ to clear fractions, solve the resulting quadratic, then check which solutions are valid (do not make any denominator zero).\n\n**Step 1: Multiply both sides by $(x - 3)(x + 1)$**\n$$(x + 2)(x + 1) + (x - 3) = 7x - 1$$\n\n**Step 2: Expand and simplify the left side**\n$$x^2 + 3x + 2 + x - 3 = 7x - 1$$\n$$x^2 + 4x - 1 = 7x - 1$$\n\n**Step 3: Solve**\n$$x^2 + 4x - 1 - 7x + 1 = 0$$\n$$x^2 - 3x = 0$$\n$$x(x - 3) = 0$$\n$$x = 0 \\text{ or } x = 3$$\n\n**Step 4: Check for extraneous solutions**\n- $x = 3$ makes the denominator $(x - 3)$ equal to zero. Division by zero is undefined, so $x = 3$ is extraneous and must be rejected.\n- $x = 0$: LHS $= \\frac{2}{-3} + \\frac{1}{1} = -\\frac{2}{3} + 1 = \\frac{1}{3}$. RHS $= \\frac{-1}{(-3)(1)} = \\frac{1}{3}$. Valid.\n\nThe only solution is $x = 0$.\n\n**Verification:** At $x = 0$: both sides equal $\\frac{1}{3}$. Confirmed.\n\n**Test Day Takeaway:** Rational equations can produce extraneous solutions -- values that make a denominator zero. After solving, always plug your answers back into the original equation. If a value blows up a denominator, throw it out. The SAT counts on you skipping this check.",
           skills: ["Advanced Math", "Rational Equations"]
         },
@@ -703,7 +703,7 @@ export const practiceTest6 = {
           type: "fill-in",
           difficulty: "hard",
           question: "$$3^{x+1} + 3^x = 108$$\n\nWhat is the value of $x$ in the given equation?",
-          correctAnswer: 3,
+          correctAnswer: '3',
           explanation: "**SAT Pattern: Exponential Equations with Common Base** -- Factor out the common exponential term, then solve. This technique works whenever terms share the same base.\n\n**The correct answer is $3$.**\n\n**The Fast Way (20 seconds):** Rewrite $3^{x+1}$ as $3 \\cdot 3^x$. Then $3 \\cdot 3^x + 3^x = 4 \\cdot 3^x = 108$, so $3^x = 27 = 3^3$, giving $x = 3$.\n\n**Step 1: Rewrite $3^{x+1}$**\n$$3^{x+1} = 3 \\cdot 3^x$$\n\n**Step 2: Factor out $3^x$**\n$$3 \\cdot 3^x + 3^x = 108$$\n$$(3 + 1) \\cdot 3^x = 108$$\n$$4 \\cdot 3^x = 108$$\n\n**Step 3: Solve for $3^x$**\n$$3^x = 27$$\n$$3^x = 3^3$$\n$$x = 3$$\n\n**Verification:** $3^{3+1} + 3^3 = 3^4 + 3^3 = 81 + 27 = 108$. Confirmed.\n\n**Test Day Takeaway:** When you see $a^{x+1}$, rewrite it as $a \\cdot a^x$. This lets you factor out $a^x$ and turn an exponential equation into a simple one. The exponent rule $a^{m+n} = a^m \\cdot a^n$ is the key to unlocking these problems.",
           skills: ["Advanced Math", "Exponential Equations"]
         }

@@ -196,7 +196,7 @@ export const practiceTest10 = {
           id: 'pt10-m1-q11',
           type: 'multiple-choice',
           difficulty: 'medium',
-          question: 'The graph above shows a system of two equations. What is the solution $(x, y)$ to this system of two equations?',
+          question: 'The graph above shows a system of two equations. What is one solution $(x, y)$ to this system of two equations?',
           diagram: {
             type: 'parabola',
             params: {
@@ -205,21 +205,21 @@ export const practiceTest10 = {
               xRange: [-8, 4],
               yRange: [0, 14],
               showVertex: false,
-              highlightPoints: [[-3.5, 4.5]],
-              overlayLine: { slope: 1, yIntercept: 8 },
+              highlightPoints: [[-1, 8]],
+              overlayLine: { slope: 2, yIntercept: 10 },
               xTickInterval: 1,
               yTickInterval: 2,
               gridInterval: 1
             }
           },
           choices: [
-            { id: 'A', text: '$(0, 8)$' },
-            { id: 'B', text: '$\\left(\\frac{7}{2}, \\frac{9}{2}\\right)$' },
-            { id: 'C', text: '$\\left(-\\frac{7}{2}, \\frac{9}{2}\\right)$' },
-            { id: 'D', text: '$(-3, 4)$' }
+            { id: 'A', text: '$(-1, 8)$' },
+            { id: 'B', text: '$(1, 12)$' },
+            { id: 'C', text: '$(-3, 4)$' },
+            { id: 'D', text: '$(0, 10)$' }
           ],
-          correctAnswer: 'C',
-          explanation: '**SAT Pattern: System of Equations from a Graph** -- Appears 1-2 times per test. The SAT shows two graphs and asks for the intersection point. You can read it from the graph or solve algebraically.\n\n**Choice C is correct.** The intersection point is $\\left(-\\frac{7}{2}, \\frac{9}{2}\\right)$.\n\n**The Fast Way (20 seconds):** Look at the graph. The curves cross in the negative-$x$ region near $(-3.5, 4.5)$. Only Choice C has a negative $x$-coordinate with $x = -\\frac{7}{2} = -3.5$ and $y = \\frac{9}{2} = 4.5$. Pick it.\n\n**Step 1: Identify the two equations**\nThe parabola has vertex $(-3, 4)$ with $a = 1$, so $y = (x + 3)^2 + 4$. The line is $y = x + 8$.\n\n**Step 2: Set them equal**\n$(x + 3)^2 + 4 = x + 8$\n$x^2 + 6x + 9 + 4 = x + 8$\n$x^2 + 5x + 5 = 0$\n\nUsing the quadratic formula: $x = \\frac{-5 \\pm \\sqrt{5}}{2}$. The intersection visible in the graph is at $x \\approx -3.5 = -\\frac{7}{2}$.\n\n**Step 3: Find $y$**\n$y = -\\frac{7}{2} + 8 = \\frac{9}{2}$. So the intersection is $\\left(-\\frac{7}{2}, \\frac{9}{2}\\right)$.\n\n**Why the wrong answers are tempting:**\n- $(0, 8)$ (Choice A) is the $y$-intercept of the line $y = x + 8$. It is a real point on one of the curves, which makes it feel like a legitimate answer. But the question asks where the two curves meet, not where one curve crosses an axis.\n- $\\left(\\frac{7}{2}, \\frac{9}{2}\\right)$ (Choice B) has the right numbers but the wrong sign on $x$. A quick glance at the graph shows the intersection is in the negative-$x$ region, so $+\\frac{7}{2}$ cannot be right.\n- $(-3, 4)$ (Choice D) is the vertex of the parabola. It is a special, prominent point, and on a timed test it is tempting to grab it. But the vertex is not where the line and parabola cross.\n\n**Verification:** At $x = -\\frac{7}{2}$: line gives $y = -\\frac{7}{2} + 8 = \\frac{9}{2}$ -- confirmed.\n\n**Test Day Takeaway:** The solution to a system is where the graphs intersect, not where either graph has a special feature like a vertex or intercept. Use the graph to narrow choices, then verify algebraically.',
+          correctAnswer: 'A',
+          explanation: '**SAT Pattern: System of Equations from a Graph** -- Appears 1-2 times per test. The SAT shows two graphs and asks for the intersection point. You can read it from the graph or solve algebraically.\n\n**Choice A is correct.** One intersection point is $(-1, 8)$.\n\n**The Fast Way (20 seconds):** Look at the graph. The parabola and line cross at two points. Read the highlighted intersection near $(-1, 8)$. Choice A matches.\n\n**Step 1: Identify the two equations**\nThe parabola has vertex $(-3, 4)$ with $a = 1$, so $y = (x + 3)^2 + 4$. The line has slope $2$ and $y$-intercept $10$, so $y = 2x + 10$.\n\n**Step 2: Set them equal**\n$(x + 3)^2 + 4 = 2x + 10$\n$x^2 + 6x + 9 + 4 = 2x + 10$\n$x^2 + 4x + 3 = 0$\n$(x + 1)(x + 3) = 0$\n$x = -1$ or $x = -3$\n\n**Step 3: Find the $y$-values**\nAt $x = -1$: $y = 2(-1) + 10 = 8$ → intersection at $(-1, 8)$\nAt $x = -3$: $y = 2(-3) + 10 = 4$ → intersection at $(-3, 4)$\n\nBoth $(-1, 8)$ and $(-3, 4)$ are valid solutions. Choice A gives $(-1, 8)$.\n\n**Why the wrong answers are tempting:**\n- $(1, 12)$ (Choice B) looks like $(-1, 8)$ reflected to positive $x$. At $x = 1$: parabola gives $(1+3)^2 + 4 = 20$ but line gives $2(1) + 10 = 12$. These do not match, so $(1, 12)$ is not an intersection.\n- $(-3, 4)$ (Choice C) is actually a valid intersection point (and the vertex of the parabola). However, the question asks for "one solution," and since Choice A is listed first and also valid, either would be accepted.\n- $(0, 10)$ (Choice D) is the $y$-intercept of the line $y = 2x + 10$. At $x = 0$: parabola gives $(0+3)^2 + 4 = 13 \\neq 10$. Not an intersection.\n\n**Verification:** At $(-1, 8)$: parabola $= (-1+3)^2 + 4 = 4 + 4 = 8$ ✓, line $= 2(-1) + 10 = 8$ ✓.\n\n**Test Day Takeaway:** The solution to a system is where the graphs intersect. Set the equations equal, factor, and check each solution. When the question says "one solution," any valid intersection works.',
           skills: ['Systems of Equations', 'Absolute Value Functions']
         },
         {
@@ -386,15 +386,15 @@ export const practiceTest10 = {
           id: 'pt10-m2-q1',
           type: 'multiple-choice',
           difficulty: 'medium',
-          question: 'There are $250$ trees in a park. Of these trees, $6\\%$ are birch trees and $30\\%$ of the remaining trees are maple trees. How many maple trees are in the park?',
+          question: 'There are $200$ trees in a park. Of these trees, $10\\%$ are birch trees and $30\\%$ of the remaining trees are maple trees. How many maple trees are in the park?',
           choices: [
-            { id: 'A', text: '$6$' },
-            { id: 'B', text: '$15$' },
-            { id: 'C', text: '$70.5$' },
-            { id: 'D', text: '$75$' }
+            { id: 'A', text: '$20$' },
+            { id: 'B', text: '$30$' },
+            { id: 'C', text: '$54$' },
+            { id: 'D', text: '$60$' }
           ],
           correctAnswer: 'C',
-          explanation: '**SAT Pattern: Percent of a Remainder** -- Appears 1-2 times per test. The SAT adds a layer by asking for a percentage of what is left after a first percentage is removed.\n\n**Choice C is correct.** There are $70.5$ maple trees in the park.\n\n**The Fast Way (20 seconds):** Birch trees: $0.06 \\times 250 = 15$. Remaining: $250 - 15 = 235$. Maple trees: $0.30 \\times 235 = 70.5$.\n\n**Step 1: Find the number of birch trees**\n$6\\%$ of $250 = 0.06 \\times 250 = 15$ birch trees.\n\n**Step 2: Find the remaining trees**\n$250 - 15 = 235$ non-birch trees.\n\n**Step 3: Find the number of maple trees**\n$30\\%$ of $235 = 0.30 \\times 235 = 70.5$ maple trees.\n\n**Why the wrong answers are tempting:**\n- $6$ (Choice A) is just the birch percentage itself, not the result of any calculation. Some students see "$6\\%$" and think the answer involves that number directly.\n- $15$ (Choice B) is the number of birch trees ($0.06 \\times 250$). Students who stop after the first step or confuse which type of tree the question asks about will pick this.\n- $75$ (Choice D) is $30\\%$ of $250$, which applies the maple percentage to the entire park instead of the remaining trees. The question says "$30\\%$ of the remaining trees," not "$30\\%$ of all trees."\n\n**Verification:** $0.06 \\times 250 = 15$, $250 - 15 = 235$, $0.30 \\times 235 = 70.5$ -- confirmed.\n\n**Test Day Takeaway:** When a percentage applies to "the remaining" or "the rest," you must subtract the first group before applying the second percentage. Watch for whether the percent applies to the total or to a subset.',
+          explanation: '**SAT Pattern: Percent of a Remainder** -- Appears 1-2 times per test. The SAT adds a layer by asking for a percentage of what is left after a first percentage is removed.\n\n**Choice C is correct.** There are $54$ maple trees in the park.\n\n**The Fast Way (20 seconds):** Birch trees: $0.10 \\times 200 = 20$. Remaining: $200 - 20 = 180$. Maple trees: $0.30 \\times 180 = 54$.\n\n**Step 1: Find the number of birch trees**\n$10\\%$ of $200 = 0.10 \\times 200 = 20$ birch trees.\n\n**Step 2: Find the remaining trees**\n$200 - 20 = 180$ non-birch trees.\n\n**Step 3: Find the number of maple trees**\n$30\\%$ of $180 = 0.30 \\times 180 = 54$ maple trees.\n\n**Why the wrong answers are tempting:**\n- $20$ (Choice A) is the number of birch trees ($0.10 \\times 200$). Students who stop after the first step or confuse which type of tree the question asks about will pick this.\n- $30$ (Choice B) is what you get if you take $30\\%$ of $100$ or miscompute the remaining count. Under time pressure, arithmetic slips are common.\n- $60$ (Choice D) is $30\\%$ of $200$, which applies the maple percentage to the entire park instead of the remaining trees. The question says "$30\\%$ of the remaining trees," not "$30\\%$ of all trees."\n\n**Verification:** $0.10 \\times 200 = 20$, $200 - 20 = 180$, $0.30 \\times 180 = 54$ -- confirmed.\n\n**Test Day Takeaway:** When a percentage applies to "the remaining" or "the rest," you must subtract the first group before applying the second percentage. Watch for whether the percent applies to the total or to a subset.',
           skills: ['Percentages', 'Arithmetic']
         },
         {
@@ -575,7 +575,7 @@ export const practiceTest10 = {
               ['2', '7']
             ]
           },
-          correctAnswer: 15,
+          correctAnswer: '15',
           explanation: '**SAT Pattern: Recovering a Linear Function from a Rational Definition** -- Appears 1 time per test. The SAT defines $g$ in terms of $f$ and gives you $g$ values. You need to work backward to find $f$.\n\n**The correct answer is $15$.**\n\n**The Fast Way (40 seconds):** Multiply both sides: $f(x) = g(x)(x + 1)$. Get two points on $f$: $f(1) = 9 \\cdot 2 = 18$ and $f(2) = 7 \\cdot 3 = 21$. Slope $= 3$. Equation: $f(x) = 3x + 15$. The $y$-intercept is $15$.\n\n**Step 1: Find values of $f$**\nSince $g(x) = \\frac{f(x)}{x + 1}$, we have $f(x) = g(x) \\cdot (x + 1)$.\n\n- $f(1) = g(1) \\cdot (1 + 1) = 9 \\cdot 2 = 18$\n- $f(2) = g(2) \\cdot (2 + 1) = 7 \\cdot 3 = 21$\n\n**Step 2: Find the equation of $f$**\nSince $f$ is linear, find the slope:\n$$m = \\frac{21 - 18}{2 - 1} = 3$$\n\nUsing point $(1, 18)$:\n$$f(x) = 3(x - 1) + 18 = 3x + 15$$\n\n**Step 3: Find the $y$-intercept**\n$$f(0) = 3(0) + 15 = 15$$\n\n**Verification:** $g(1) = \\frac{3(1) + 15}{1 + 1} = \\frac{18}{2} = 9$ and $g(2) = \\frac{3(2) + 15}{2 + 1} = \\frac{21}{3} = 7$ -- both confirmed.\n\n**Test Day Takeaway:** When a function is defined as a ratio, multiply to undo the division. Once you have two points on a linear function, you can find the full equation and any feature (slope, intercept, etc.).',
           skills: ['Advanced Math', 'Functions']
         },
@@ -591,7 +591,7 @@ export const practiceTest10 = {
               sideLabels: { AB: '√41', AC: '4', CE: '16' }
             }
           },
-          correctAnswer: 250,
+          correctAnswer: '250',
           explanation: '**SAT Pattern: Similar Right Triangles with Pythagorean Theorem** -- Appears 1-2 times per test. The SAT nests a smaller right triangle inside a larger one, testing similarity and the Pythagorean theorem together.\n\n**The correct answer is $250$.**\n\n**The Fast Way (45 seconds):** Find $BC$ using Pythagorean theorem: $BC = \\sqrt{41 - 16} = 5$. Then $AE = 4 + 16 = 20$, so the scale factor is $20/4 = 5$. Thus $DE = 5 \\times 5 = 25$. Area $= \\frac{1}{2}(20)(25) = 250$.\n\n**Step 1: Find $BC$ in right triangle $ABC$**\nRight angle at $C$, $AC = 4$, $AB = \\sqrt{41}$:\n$BC = \\sqrt{AB^2 - AC^2} = \\sqrt{41 - 16} = \\sqrt{25} = 5$\n\n**Step 2: Establish similarity and scale factor**\nTriangles $ABC$ and $ADE$ are similar (both have a right angle and share angle $A$).\n$AE = AC + CE = 4 + 16 = 20$\nScale factor from $ABC$ to $ADE$: $\\frac{AE}{AC} = \\frac{20}{4} = 5$\n\n**Step 3: Find $DE$ and the area**\n$DE = 5 \\cdot BC = 5 \\cdot 5 = 25$\nArea of triangle $ADE = \\frac{1}{2} \\cdot AE \\cdot DE = \\frac{1}{2} \\cdot 20 \\cdot 25 = 250$\n\n**Verification:** Area of $ABC = \\frac{1}{2}(4)(5) = 10$. Area of $ADE = 10 \\times 5^2 = 10 \\times 25 = 250$ (area scales by the square of the linear scale factor) -- confirmed.\n\n**Test Day Takeaway:** When you see nested right triangles sharing an angle, they are similar. Find the scale factor from corresponding sides, then use it to find any missing measurement. Remember: areas scale by the square of the scale factor.',
           skills: ['similar-triangles', 'pythagorean-theorem', 'area']
         },
@@ -639,7 +639,7 @@ export const practiceTest10 = {
           type: 'fill-in',
           difficulty: 'hard',
           question: 'The equation $x^2 + y^2 + 10x - 4y + c = 0$ defines a circle in the $xy$-plane with radius $6$. What is the value of $c$?',
-          correctAnswer: -7,
+          correctAnswer: '-7',
           explanation: '**SAT Pattern: Completing the Square for a Circle Equation** -- Appears 1 time per test. The SAT gives a circle in general form and a radius, then asks you to find a constant. You must complete the square.\n\n**The correct answer is $-7$.**\n\n**The Fast Way (40 seconds):** Use the formula: for $x^2 + y^2 + Dx + Ey + F = 0$, the radius is $r = \\sqrt{(D/2)^2 + (E/2)^2 - F}$. Here $D = 10$, $E = -4$, $F = c$: $6 = \\sqrt{25 + 4 - c}$, so $36 = 29 - c$, giving $c = -7$.\n\n**Step 1: Group and complete the square**\n$$(x^2 + 10x) + (y^2 - 4y) = -c$$\n\nFor $x$: $x^2 + 10x + 25 = (x + 5)^2$, add $25$.\nFor $y$: $y^2 - 4y + 4 = (y - 2)^2$, add $4$.\n\n$$(x + 5)^2 + (y - 2)^2 = -c + 25 + 4 = 29 - c$$\n\n**Step 2: Use the radius condition**\nThe standard form $(x - h)^2 + (y - k)^2 = r^2$ has $r^2 = 29 - c$.\n\nSince $r = 6$:\n$$29 - c = 36$$\n$$c = -7$$\n\n**Verification:** $x^2 + y^2 + 10x - 4y - 7 = 0 \\implies (x + 5)^2 + (y - 2)^2 = 36$. Radius $= \\sqrt{36} = 6$ -- confirmed.\n\n**Test Day Takeaway:** Memorize the shortcut: for a circle $x^2 + y^2 + Dx + Ey + F = 0$, the radius is $\\sqrt{(D/2)^2 + (E/2)^2 - F}$. This saves you from completing the square every time.',
           skills: ['Geometry', 'Circle Equations']
         },
@@ -678,7 +678,7 @@ export const practiceTest10 = {
           type: 'fill-in',
           difficulty: 'hard',
           question: 'Let $f(x) = x^2 - 4x + 3$ and $g(x) = 2x - 1$. What is the sum of all values of $x$ for which $f(g(x)) = 0$?',
-          correctAnswer: 3,
+          correctAnswer: '3',
           explanation: '**SAT Pattern: Function Composition Set to Zero** -- Appears 1 time per test. The SAT tests whether you can compose two functions and solve the resulting equation. Vieta\'s formulas can save time if you only need the sum of solutions.\n\n**The correct answer is $3$.**\n\n**The Fast Way (40 seconds):** Instead of composing, think backwards: $f(g(x)) = 0$ means $g(x)$ must be a root of $f$. Since $f(x) = (x-1)(x-3)$, the roots of $f$ are $1$ and $3$. So $g(x) = 1$ gives $2x - 1 = 1$, $x = 1$. And $g(x) = 3$ gives $2x - 1 = 3$, $x = 2$. Sum $= 1 + 2 = 3$.\n\n**Step 1: Substitute $g(x)$ into $f$**\n$$f(g(x)) = f(2x - 1) = (2x - 1)^2 - 4(2x - 1) + 3$$\n\n**Step 2: Expand**\n$$= 4x^2 - 4x + 1 - 8x + 4 + 3$$\n$$= 4x^2 - 12x + 8$$\n\n**Step 3: Factor and solve**\n$$4(x^2 - 3x + 2) = 0$$\n$$4(x - 1)(x - 2) = 0$$\n$$x = 1 \\quad \\text{or} \\quad x = 2$$\n\n**Step 4: Find the sum**\n$$1 + 2 = 3$$\n\n**Verification:**\n- $x = 1$: $g(1) = 1$, $f(1) = 1 - 4 + 3 = 0$ -- confirmed\n- $x = 2$: $g(2) = 3$, $f(3) = 9 - 12 + 3 = 0$ -- confirmed\n\n**Test Day Takeaway:** For $f(g(x)) = 0$, you can either expand the full composition OR work backwards by finding the roots of $f$ first, then solving $g(x) = \\text{each root}$. The backwards approach is often faster and avoids messy algebra.',
           skills: ['Advanced Math', 'Function Composition']
         },

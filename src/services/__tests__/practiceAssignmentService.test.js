@@ -4,6 +4,7 @@ import {
   resolveAssignedQuestions,
   buildAdaptiveQueueSeed,
   buildDomainAdaptiveQueueSeed,
+  buildStrengthFocusAssignments,
   normalizeDomain,
   getDomainAssignmentPreview,
   CANONICAL_DOMAINS,
@@ -14,6 +15,7 @@ import {
   deserializeAdaptiveState,
   evaluateAdaptiveCompletion,
 } from '../practiceAssignmentService';
+import { getQuestionById } from '../../data/questions/bank';
 
 const makeDiagnostic = (weakSkills = []) => ({
   testId: 'test-1',
@@ -807,6 +809,112 @@ describe('adaptive test-style UI contract', () => {
       const seed = buildDomainAdaptiveQueueSeed({ enforcedDomain: normalized, seed: 'cta-' + domain });
       expect(seed.enforcedDomain).toBe(domain);
       expect(seed.poolIds.length).toBeGreaterThan(0);
+    }
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════════════════
+// buildStrengthFocusAssignments — fixed domain MCQ bundles
+// ═══════════════════════════════════════════════════════════════════════════
+
+describe('buildStrengthFocusAssignments', () => {
+  const diagnostic = {
+    testId: 'fix-1',
+    score: { scaled: 550, raw: 24, total: 44 },
+    skillAnalysis: {
+      weakSkills: [
+        { skillId: 'linear-equations', domain: 'algebra', testAccuracy: 20, primaryErrorType: 'conceptual_gap' },
+        { skillId: 'scatterplots', domain: 'problem-solving', testAccuracy: 35, primaryErrorType: 'procedural' },
+      ],
+    },
+  };
+
+  test('returns an entry for every canonical domain', () => {
+    const result = buildStrengthFocusAssignments({ diagnostic, seed: 'canon-test' });
+    for (const domain of CANONICAL_DOMAINS) {
+      expect(result).toHaveProperty(domain);
+      expect(result[domain].domain).toBe(domain);
+    }
+  });
+
+  test('all assigned question IDs are MCQ-only', () => {
+    const result = buildStrengthFocusAssignments({ diagnostic, seed: 'mcq-test' });
+    for (const domain of CANONICAL_DOMAINS) {
+      const ids = result[domain].questionIds;
+      for (const id of ids) {
+        const q = getQuestionById(id);
+        expect(q).toBeTruthy();
+        expect(Array.isArray(q.choices)).toBe(true);
+        expect(q.choices.length).toBeGreaterThanOrEqual(2);
+      }
+    }
+  });
+
+  test('output is deterministic for the same seed', () => {
+    const a = buildStrengthFocusAssignments({ diagnostic, seed: 'det-test' });
+    const b = buildStrengthFocusAssignments({ diagnostic, seed: 'det-test' });
+    for (const domain of CANONICAL_DOMAINS) {
+      expect(a[domain].questionIds).toEqual(b[domain].questionIds);
+    }
+  });
+
+  test('weak domains are tagged as focus, others as strength', () => {
+    const result = buildStrengthFocusAssignments({ diagnostic, seed: 'source-test' });
+    expect(result.algebra.source).toBe('focus');
+    expect(result['problem-solving'].source).toBe('focus');
+    expect(result.geometry.source).toBe('strength');
+    expect(result['advanced-math'].source).toBe('strength');
+  });
+
+  test('count matches questionIds length', () => {
+    const result = buildStrengthFocusAssignments({ diagnostic, seed: 'count-test' });
+    for (const domain of CANONICAL_DOMAINS) {
+      expect(result[domain].count).toBe(result[domain].questionIds.length);
+    }
+  });
+
+  test('no duplicate IDs across domains', () => {
+    const result = buildStrengthFocusAssignments({ diagnostic, seed: 'dup-test' });
+    const allIds = [];
+    for (const domain of CANONICAL_DOMAINS) {
+      allIds.push(...result[domain].questionIds);
+    }
+    expect(new Set(allIds).size).toBe(allIds.length);
+  });
+
+  test('respects countPerDomain parameter', () => {
+    const result = buildStrengthFocusAssignments({ diagnostic, seed: 'limit-test', countPerDomain: 5 });
+    for (const domain of CANONICAL_DOMAINS) {
+      expect(result[domain].questionIds.length).toBeLessThanOrEqual(5);
+    }
+  });
+
+  test('respects excludeIds parameter', () => {
+    const first = buildStrengthFocusAssignments({ diagnostic, seed: 'excl-test' });
+    const excludeIds = first.algebra.questionIds.slice(0, 3);
+    const second = buildStrengthFocusAssignments({ diagnostic, seed: 'excl-test', excludeIds });
+    for (const id of excludeIds) {
+      expect(second.algebra.questionIds).not.toContain(id);
+    }
+  });
+
+  test('different seed produces different assignment', () => {
+    const a = buildStrengthFocusAssignments({ diagnostic, seed: 'seed-A' });
+    const b = buildStrengthFocusAssignments({ diagnostic, seed: 'seed-B' });
+    const allSame = CANONICAL_DOMAINS.every(d =>
+      JSON.stringify(a[d].questionIds) === JSON.stringify(b[d].questionIds)
+    );
+    expect(allSame).toBe(false);
+  });
+
+  test('CTA contract: questionIds payload for fixed assigned launch', () => {
+    const result = buildStrengthFocusAssignments({ diagnostic, seed: 'cta-contract' });
+    for (const domain of CANONICAL_DOMAINS) {
+      const entry = result[domain];
+      expect(Array.isArray(entry.questionIds)).toBe(true);
+      expect(entry.questionIds.length).toBeGreaterThan(0);
+      expect(typeof entry.source).toBe('string');
+      expect(['focus', 'strength']).toContain(entry.source);
     }
   });
 });

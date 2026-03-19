@@ -19,7 +19,7 @@ export const practiceTest4 = {
           type: "fill-in",
           difficulty: "easy",
           question: "A gym membership has a one-time signup fee and a monthly charge. The equation $C = 400 + 320t$ gives the total amount paid $C$, in dollars, after $t$ months. A second gym charges no signup fee but a higher monthly rate. The total cost at the second gym after $t$ months is given by $C = 360t$. After how many months will the total cost at the two gyms be equal?",
-          correctAnswer: 10,
+          correctAnswer: '10',
           explanation: "**SAT Pattern: Comparing Two Linear Cost Models** -- The SAT frequently asks you to set two linear equations equal and solve. This requires recognizing which terms to isolate.\n\n**The correct answer is 10.**\n\n**The Fast Way (20 seconds):** Set the two cost equations equal: $400 + 320t = 360t$. Subtract $320t$: $400 = 40t$, so $t = 10$.\n\n**Solution Steps:**\n• First gym: $C_1 = 400 + 320t$\n• Second gym: $C_2 = 360t$\n• Set equal: $400 + 320t = 360t$\n• $400 = 360t - 320t = 40t$\n• $t = 400 \\div 40 = 10$\n\nThe first gym has a higher upfront cost ($\\$400$ signup fee) but a lower monthly rate ($\\$320$ vs. $\\$360$). The break-even point is when the savings on monthly fees offset the signup fee.\n\n**Verification:** First gym at $t = 10$: $400 + 3{,}200 = 3{,}600$. Second gym at $t = 10$: $360 \\times 10 = 3{,}600$. Both equal $\\$3{,}600$.\n\n**Test Day Takeaway:** When comparing two linear models, set them equal and solve. The signup fee divided by the difference in monthly rates gives the break-even point: $400 \\div (360 - 320) = 400 \\div 40 = 10$.",
           skills: ["linear-equations", "word-problems"]
         },
@@ -304,7 +304,7 @@ export const practiceTest4 = {
           type: "fill-in",
           difficulty: "hard",
           question: "The function $f(x) = \\frac{x + 5}{x - 3}$ is defined for all real numbers except $x = a$. What is the value of $f(a + 4)$?",
-          correctAnswer: 3,
+          correctAnswer: '3',
           explanation: "**SAT Pattern: Domain Restriction Combined with Function Evaluation** -- This problem chains two skills: identifying where a rational function is undefined and then using that value in a follow-up computation.\n\n**The correct answer is $3$.**\n\n**The Fast Way (25 seconds):** The function is undefined when $x - 3 = 0$, so $a = 3$. Then $f(a + 4) = f(7) = \\frac{7 + 5}{7 - 3} = \\frac{12}{4} = 3$.\n\n**Solution Steps:**\n• $f(x)$ is undefined when the denominator equals zero: $x - 3 = 0$, so $a = 3$\n• Compute $a + 4 = 3 + 4 = 7$\n• $f(7) = \\frac{7 + 5}{7 - 3} = \\frac{12}{4} = 3$\n\n**Common Mistakes:**\n• Setting the numerator equal to zero instead of the denominator, giving $a = -5$. Then $f(-1) = \\frac{4}{-4} = -1$, which is wrong.\n• Forgetting to add $4$ to $a$: computing $f(3)$ directly, which is undefined. The question asks for $f(a + 4)$, not $f(a)$.\n• Confusing $a + 4 = 7$ with $a \\times 4 = 12$, leading to $f(12) = \\frac{17}{9}$.\n\n**Verification:** $a = 3$ (since $f(3) = \\frac{8}{0}$ is undefined). $f(7) = \\frac{12}{4} = 3$ ✓.\n\n**Test Day Takeaway:** When a problem defines a value through a domain restriction, find that value first, then use it in the next step. Chain the skills: domain → evaluate.",
           skills: ["rational-functions", "domain"]
         },
@@ -543,7 +543,7 @@ export const practiceTest4 = {
           type: "fill-in",
           difficulty: "hard",
           question: "A store sells a jacket at a regular price of $\\$250$. During a clearance event, the jacket is first discounted by $20\\%$, and then an additional $10\\%$ is taken off the discounted price. If the final sale price is $25\\%$ above the store's cost, what is the store's cost, in dollars?",
-          correctAnswer: 144,
+          correctAnswer: '144',
           explanation: "**SAT Pattern: Sequential Percent Changes** -- The SAT loves multi-step percent problems because students often add percentages instead of multiplying. This is a high-value pattern to master.\n\n**The correct answer is $144$.**\n\n**The Fast Way (25 seconds):** $250 \\times 0.80 = 200$. Then $200 \\times 0.90 = 180$. The sale price (\\$180) is $125\\%$ of cost, so cost $= 180 / 1.25 = 144$.\n\n**Solution Steps:**\n• After $20\\%$ off: $250 \\times 0.80 = \\$200$\n• After additional $10\\%$ off: $200 \\times 0.90 = \\$180$\n• The final price is $25\\%$ above cost: Cost $\\times 1.25 = 180$\n• Cost $= 180 \\div 1.25 = 144$\n\n**Verification:** Cost $\\$144$ with $25\\%$ markup $= 144 \\times 1.25 = \\$180$. And $\\$250 \\to \\$200 \\to \\$180$ confirms the discount chain.\n\n**Test Day Takeaway:** Sequential percent changes multiply -- they do not add. A $20\\%$ discount followed by a $10\\%$ discount is $0.80 \\times 0.90 = 0.72$, which is a $28\\%$ total discount, not $30\\%$. Also, \"$25\\%$ above cost\" means you multiply cost by $1.25$, so to find cost, divide by $1.25$.",
           skills: ['Algebra', 'Percent']
         },
@@ -582,7 +582,7 @@ export const practiceTest4 = {
           type: "fill-in",
           difficulty: "hard",
           question: "$\\frac{5}{4}y - \\frac{3}{4}x = \\frac{2}{7} - \\frac{5}{4}y$\n\n$\\frac{3}{2}x + \\frac{3}{4} = py + \\frac{7}{4}$\n\nIn the given system of equations, $p$ is a constant. If the system has no solution, what is the value of $p$?",
-          correctAnswer: 5,
+          correctAnswer: '5',
           explanation: "**SAT Pattern: No-Solution System (Parallel Lines)** -- The SAT tests the no-solution condition for systems of linear equations on nearly every exam. Two lines have no solution when they are parallel: same slopes, different intercepts.\n\n**The correct answer is $5$.**\n\n**The Fast Way (45 seconds):** Simplify both equations into $ax + by = c$ form. If the $x$ and $y$ coefficients are proportional but the constants are not, the system has no solution. Match the ratios to find $p$.\n\n**Solution Steps:**\n• Simplify equation 1: move $\\frac{5}{4}y$ terms together and rearrange to get $3x - 10y = -\\frac{8}{7}$\n• Simplify equation 2: $\\frac{3}{2}x - py = 1$. Multiply by 2: $3x - 2py = 2$\n• For no solution, the coefficients must be proportional: the $x$-coefficients are both $3$, so the $y$-coefficients must match too: $2p = 10$, giving $p = 5$\n• Check constants: $-\\frac{8}{7} \\neq 2$, confirming the lines are parallel (not the same line)\n\n**Verification:** With $p = 5$, equation 2 becomes $3x - 10y = 2$. Equation 1 is $3x - 10y = -\\frac{8}{7}$. Same left side, different right side. Parallel lines with no intersection.\n\n**Test Day Takeaway:** No solution means parallel lines. Same ratio of $x$ and $y$ coefficients, different constant. Simplify both equations to standard form first, then match the coefficients.",
           skills: ["systems-of-equations", "no-solution"]
         },
@@ -606,7 +606,7 @@ export const practiceTest4 = {
           type: "fill-in",
           difficulty: "hard",
           question: "A cube has a surface area of $150$ square centimeters. What is the volume, in cubic centimeters, of the cube?",
-          correctAnswer: 125,
+          correctAnswer: '125',
           explanation: "**SAT Pattern: Surface Area to Volume Conversion** -- Geometry questions that connect surface area and volume require you to find the side length as an intermediate step. A cube makes this straightforward.\n\n**The correct answer is $125$.**\n\n**The Fast Way (15 seconds):** Surface area $= 6s^2 = 150$, so $s^2 = 25$, so $s = 5$. Volume $= s^3 = 125$.\n\n**Solution Steps:**\n• Surface area of a cube: $SA = 6s^2$\n• $150 = 6s^2$, so $s^2 = 25$, so $s = 5$ cm\n• Volume $= s^3 = 5^3 = 125$ cubic cm\n\n**Verification:** $6(5)^2 = 6 \\times 25 = 150$ (surface area checks out). $5^3 = 125$ (volume checks out).\n\n**Test Day Takeaway:** For cubes, surface area $= 6s^2$ and volume $= s^3$. To go from surface area to volume, first find $s$ from the surface area formula, then cube it. Do not try to shortcut directly from SA to volume -- always find the side length first.",
           skills: ["volume", "surface-area", "geometry"]
         },
@@ -624,7 +624,7 @@ export const practiceTest4 = {
           type: "fill-in",
           difficulty: "hard",
           question: "$\\frac{x}{x - 2} - \\frac{3}{x + 4} = \\frac{18}{(x - 2)(x + 4)}$\n\nWhat is the solution to the given equation?",
-          correctAnswer: 3,
+          correctAnswer: '3',
           explanation: "**SAT Pattern: Rational Equation with Extraneous Solutions** -- Rational equations are a harder SAT topic. The critical step most students miss is checking for extraneous solutions -- values that make a denominator zero.\n\n**The correct answer is $3$.**\n\n**The Fast Way (35 seconds):** Multiply everything by $(x - 2)(x + 4)$ to clear fractions: $x(x + 4) - 3(x - 2) = 18$. Expand: $x^2 + x - 12 = 0$. Factor: $(x + 4)(x - 3) = 0$. Reject $x = -4$ (makes a denominator zero). Answer: $x = 3$.\n\n**Solution Steps:**\n• Multiply both sides by $(x - 2)(x + 4)$, noting $x \\neq 2$ and $x \\neq -4$\n• $x(x + 4) - 3(x - 2) = 18$\n• $x^2 + 4x - 3x + 6 = 18$\n• $x^2 + x - 12 = 0$\n• $(x + 4)(x - 3) = 0$, so $x = -4$ or $x = 3$\n• $x = -4$ makes $(x + 4) = 0$, so it is extraneous. Reject it.\n• The only valid solution is $x = 3$\n\n**Verification:** $\\frac{3}{1} - \\frac{3}{7} = \\frac{21 - 3}{7} = \\frac{18}{7}$. RHS: $\\frac{18}{(1)(7)} = \\frac{18}{7}$. Both sides match.\n\n**Test Day Takeaway:** After solving a rational equation, always plug your solutions back into the original denominators. If a solution makes any denominator zero, throw it out. The SAT specifically designs these problems so that one solution is extraneous.",
           skills: ['Advanced Math', 'Rational Equations']
         },

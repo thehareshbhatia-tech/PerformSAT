@@ -100,7 +100,7 @@ export const practiceTest12 = {
         {
           id: 'pt12-m1-q6',
           type: 'multiple-choice',
-          difficulty: 'easy',
+          difficulty: 'medium',
           question: 'The graph above shows the estimated revenue, in thousands of dollars, for a new business as a function of the number of months since it opened. The business becomes profitable once its cumulative revenue exceeds its initial \\$60,000 startup cost. According to the model, what is the slope of the line, and after how many full months will the cumulative revenue first exceed the startup cost?',
           diagram: {
             type: 'linearGraph',
@@ -129,7 +129,7 @@ export const practiceTest12 = {
           id: 'pt12-m1-q7',
           type: 'multiple-choice',
           difficulty: 'medium',
-          question: 'The scatterplot above shows the relationship between the number of practice hours and race times for $10$ runners. A line of best fit is also shown. The runner at $x = 8$ has an actual race time that differs from the predicted value. What is the residual (actual minus predicted) for this runner, and what does a negative residual indicate about the runner\'s performance relative to the model?',
+          question: 'The scatterplot above shows the relationship between the number of practice hours and race times for $10$ runners. A line of best fit is also shown. The runner at $x = 8$ has an actual race time. What is the residual (actual minus predicted) for this runner, and what does a negative residual indicate about the runner\'s performance relative to the model?',
           diagram: {
             type: 'scatterplot',
             params: {
@@ -301,7 +301,7 @@ export const practiceTest12 = {
           type: 'fill-in',
           difficulty: 'hard',
           question: '$$x(kx - 40) = -16$$\n\nIn the given equation, $k$ is a positive integer constant. The equation has no real solution. What is the least possible value of $k$?',
-          correctAnswer: 26,
+          correctAnswer: '26',
           explanation: '**SAT Pattern: Discriminant and No Real Solutions** -- A harder SAT question, but the method is always the same: set up $b^2 - 4ac < 0$ and solve for the unknown.\n\n**The correct answer is $26$.** The least positive integer $k$ that makes $kx^2 - 40x + 16 = 0$ have no real solutions is $26$.\n\n**The Fast Way (30 seconds):** Rewrite in standard form, identify $a = k$, $b = -40$, $c = 16$. Set $b^2 - 4ac < 0$: $1600 - 64k < 0$, so $k > 25$. The smallest integer greater than $25$ is $26$.\n\n**Step 1: Expand and rewrite**\n$$kx^2 - 40x = -16$$\n$$kx^2 - 40x + 16 = 0$$\n\n**Step 2: Apply the discriminant condition**\nFor no real solution, the discriminant must be negative:\n$$b^2 - 4ac < 0$$\n$$(-40)^2 - 4(k)(16) < 0$$\n$$1{,}600 - 64k < 0$$\n$$64k > 1{,}600$$\n$$k > 25$$\n\n**Step 3: Find the least integer**\nSince $k > 25$ and $k$ must be a positive integer, the least possible value is $k = 26$.\n\n**Verification:**\n- $k = 25$: discriminant $= 1{,}600 - 1{,}600 = 0$ (one real solution, not "no real solution")\n- $k = 26$: discriminant $= 1{,}600 - 1{,}664 = -64 < 0$ (no real solution)\n\n**Test Day Takeaway:** "No real solutions" always means $b^2 - 4ac < 0$. Solve the boundary ($b^2 - 4ac = 0$) first, then decide whether you need the next integer above or below based on the strict inequality.',
           skills: ['Advanced Math', 'Discriminant']
         },
@@ -310,7 +310,7 @@ export const practiceTest12 = {
           type: 'fill-in',
           difficulty: 'hard',
           question: 'A store buys an item at cost, marks it up by $60\\%$, and then offers a $25\\%$ discount during a sale. If the sale price is \\$96, what was the cost, in dollars, of the item?',
-          correctAnswer: 80,
+          correctAnswer: '80',
           explanation: '**SAT Pattern: Successive Percent Changes** -- One of the most commonly missed concepts. Percent changes multiply -- they do not add or subtract.\n\n**The correct answer is $80$.** The original cost was $\\$80$.\n\n**The Fast Way (20 seconds):** Multiply the percent multipliers: $1.60 \\times 0.75 = 1.20$. So the sale price is $1.20$ times the cost. Solve: $1.20c = 96$, giving $c = 80$.\n\n**Step 1: Set up the equation**\nLet $c$ = cost.\n- After $60\\%$ markup: price $= c \\times 1.60$\n- After $25\\%$ discount: sale price $= c \\times 1.60 \\times 0.75$\n\n**Step 2: Solve**\n$$c \\times 1.60 \\times 0.75 = 96$$\n$$c \\times 1.20 = 96$$\n$$c = \\frac{96}{1.20} = 80$$\n\n**Verification:** Cost $= \\$80$. After $60\\%$ markup: $80 \\times 1.60 = \\$128$. After $25\\%$ discount: $128 \\times 0.75 = \\$96$.\n\n**Test Day Takeaway:** A $60\\%$ increase followed by a $25\\%$ decrease is NOT a net $35\\%$ increase -- it is $1.60 \\times 0.75 = 1.20$, which is only a $20\\%$ net increase. Percent changes always multiply, never add.',
           skills: ['Problem-Solving and Data Analysis', 'Percentages']
         },
@@ -550,7 +550,7 @@ export const practiceTest12 = {
           type: 'fill-in',
           difficulty: 'hard',
           question: 'A cone has a volume of $100\\pi$ cubic centimeters and a base area of $25\\pi$ square centimeters. What is the slant height, in centimeters, of the cone?',
-          correctAnswer: 13,
+          correctAnswer: '13',
           explanation: '**SAT Pattern: Cone Geometry (Volume + Slant Height)** -- A multi-step problem that combines volume, area, and the Pythagorean theorem. Take it one step at a time.\n\n**The correct answer is $13$.** The slant height of the cone is $13$ cm.\n\n**The Fast Way (30 seconds):** From the base area, $r = 5$. From the volume formula, $h = 12$. Slant height $= \\sqrt{5^2 + 12^2} = 13$ (recognize the $5$-$12$-$13$ triple).\n\n**Step 1: Find the radius**\nBase area $= \\pi r^2 = 25\\pi$, so $r^2 = 25$ and $r = 5$.\n\n**Step 2: Find the height**\n$$V = \\frac{1}{3}\\pi r^2 h$$\n$$100\\pi = \\frac{1}{3}(25\\pi)h$$\n$$100 = \\frac{25h}{3}$$\n$$h = 12$$\n\n**Step 3: Find the slant height**\nThe slant height $\\ell$ forms a right triangle with the radius and height:\n$$\\ell = \\sqrt{r^2 + h^2} = \\sqrt{25 + 144} = \\sqrt{169} = 13$$\n\n**Verification:** $V = \\frac{1}{3}\\pi(5)^2(12) = \\frac{1}{3}(300\\pi) = 100\\pi$.\n\n**Test Day Takeaway:** The slant height of a cone is the hypotenuse of the right triangle formed by the radius and the height. Whenever you see a cone problem, draw that right triangle inside the cone -- it unlocks most cone questions.',
           skills: ['Geometry', 'Volume']
         },
@@ -614,7 +614,7 @@ export const practiceTest12 = {
           type: 'fill-in',
           difficulty: 'hard',
           question: '$$\\sqrt{2x + 7} - x = 2$$\n\nWhat is the solution to the given equation?',
-          correctAnswer: 1,
+          correctAnswer: '1',
           explanation: '**SAT Pattern: Radical Equation (Squaring and Checking)** -- You must check for extraneous solutions. Squaring both sides can create "phantom" answers that do not actually work.\n\n**The correct answer is $1$.** After solving, only $x = 1$ satisfies the original equation.\n\n**The Fast Way (30 seconds):** Isolate the radical: $\\sqrt{2x + 7} = x + 2$. Square: $2x + 7 = x^2 + 4x + 4$, giving $x^2 + 2x - 3 = 0$, so $(x+3)(x-1) = 0$. Check both: $x = -3$ fails, $x = 1$ works.\n\n**Step 1: Isolate the radical**\n$$\\sqrt{2x + 7} = x + 2$$\n\n**Step 2: Square both sides**\n$$2x + 7 = (x + 2)^2 = x^2 + 4x + 4$$\n\n**Step 3: Solve the quadratic**\n$$0 = x^2 + 2x - 3$$\n$$0 = (x + 3)(x - 1)$$\n$$x = -3 \\quad \\text{or} \\quad x = 1$$\n\n**Step 4: Check for extraneous solutions**\n- $x = -3$: $\\sqrt{2(-3) + 7} - (-3) = \\sqrt{1} + 3 = 1 + 3 = 4 \\neq 2$ (extraneous)\n- $x = 1$: $\\sqrt{2(1) + 7} - 1 = \\sqrt{9} - 1 = 3 - 1 = 2$ (valid)\n\nThe only solution is $x = 1$.\n\n**Verification:** $\\sqrt{2(1) + 7} - 1 = \\sqrt{9} - 1 = 3 - 1 = 2$.\n\n**Test Day Takeaway:** Squaring both sides of an equation can introduce extraneous solutions. Always plug your answers back into the original equation. If a solution does not check out, discard it -- it is not real.',
           skills: ['Advanced Math', 'Radical Equations']
         },
@@ -623,7 +623,7 @@ export const practiceTest12 = {
           type: 'fill-in',
           difficulty: 'hard',
           question: 'In the $xy$-plane, the circle $x^2 + y^2 = 25$ and the line $y = x + 1$ intersect at two points. What is the sum of the $x$-coordinates of these two points?',
-          correctAnswer: -1,
+          correctAnswer: '-1',
           explanation: '**SAT Pattern: Circle-Line Intersection** -- Substitute the line into the circle equation and solve the resulting quadratic.\n\n**The correct answer is $-1$.** The sum of the $x$-coordinates of the two intersection points is $-1$.\n\n**The Fast Way (25 seconds):** Substitute $y = x + 1$ into $x^2 + y^2 = 25$ to get $x^2 + x - 12 = 0$. By Vieta\'s formulas, the sum of the roots is $-\\frac{b}{a} = -\\frac{1}{1} = -1$. You do not even need to find the individual roots.\n\n**Step 1: Substitute $y = x + 1$**\n$$x^2 + (x + 1)^2 = 25$$\n$$x^2 + x^2 + 2x + 1 = 25$$\n$$2x^2 + 2x - 24 = 0$$\n$$x^2 + x - 12 = 0$$\n\n**Step 2: Solve**\n$$(x + 4)(x - 3) = 0$$\n$$x = -4 \\quad \\text{or} \\quad x = 3$$\n\n**Step 3: Find the sum**\n$$-4 + 3 = -1$$\n\n**Verification:**\n- $(x, y) = (-4, -3)$: $(-4)^2 + (-3)^2 = 16 + 9 = 25$ and $-3 = -4 + 1$.\n- $(x, y) = (3, 4)$: $3^2 + 4^2 = 9 + 16 = 25$ and $4 = 3 + 1$.\n\n**Test Day Takeaway:** When a problem asks for the sum (or product) of roots, think Vieta\'s formulas first. For $ax^2 + bx + c = 0$, the sum of roots is $-b/a$ and the product is $c/a$. This can save you from solving the quadratic entirely.',
           skills: ['Advanced Math', 'Systems of Equations']
         },
@@ -632,7 +632,7 @@ export const practiceTest12 = {
           type: 'fill-in',
           difficulty: 'hard',
           question: 'If $3^a = 5$ and $3^b = 45$, what is the value of $b - a$?',
-          correctAnswer: 2,
+          correctAnswer: '2',
           explanation: '**SAT Pattern: Exponent Properties (Quotient Rule)** -- The SAT loves problems where you do not need to find $a$ and $b$ individually -- just their difference.\n\n**The correct answer is $2$.** $b - a = 2$.\n\n**The Fast Way (15 seconds):** $3^{b-a} = \\frac{3^b}{3^a} = \\frac{45}{5} = 9 = 3^2$. So $b - a = 2$. Done -- no logs, no calculators needed.\n\n**Step 1: Express $3^{b-a}$ using the quotient rule**\n$$3^{b-a} = \\frac{3^b}{3^a}$$\n\n**Step 2: Substitute the given values**\n$$3^{b-a} = \\frac{45}{5} = 9$$\n\n**Step 3: Solve for $b - a$**\n$$3^{b-a} = 9 = 3^2$$\n$$b - a = 2$$\n\n**Verification:** If $3^a = 5$ and $b - a = 2$, then $3^b = 3^{a+2} = 3^a \\cdot 3^2 = 5 \\cdot 9 = 45$.\n\n**Test Day Takeaway:** When you see $a^m$ and $a^n$ with the same base, think quotient rule: $\\frac{a^m}{a^n} = a^{m-n}$. This lets you find the difference of exponents without solving for each one -- especially powerful when the individual values are irrational.',
           skills: ['Advanced Math', 'Exponential Equations']
         },

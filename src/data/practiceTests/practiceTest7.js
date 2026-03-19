@@ -336,7 +336,7 @@ export const practiceTest7 = {
           choices: [
             { id: 'A', text: '$\\frac{2}{5}$' },
             { id: 'B', text: '$\\frac{3}{7}$' },
-            { id: 'C', text: '$\\frac{6}{14}$' },
+            { id: 'C', text: '$\\frac{2}{7}$' },
             { id: 'D', text: '$\\frac{6}{15}$' }
           ],
           correctAnswer: 'B',
@@ -459,7 +459,7 @@ export const practiceTest7 = {
           choices: [
             { id: 'A', text: '$\\left(r, \\frac{8 - 5r}{3}\\right)$' },
             { id: 'B', text: '$\\left(r, \\frac{5r + 8}{3}\\right)$' },
-            { id: 'C', text: '$\\left(\\frac{8 - 3r}{5}, r\\right)$' },
+            { id: 'C', text: '$\\left(\\frac{8 + 3r}{5}, r\\right)$' },
             { id: 'D', text: '$\\left(\\frac{5r + 8}{3}, r\\right)$' }
           ],
           correctAnswer: 'A',
@@ -617,7 +617,7 @@ export const practiceTest7 = {
               label: 'y = 3x\u00B2 + bx + c'
             }
           },
-          correctAnswer: 18,
+          correctAnswer: '18',
           explanation: '**SAT Pattern: Reading a Parabola Graph to Find Coefficients** -- Shows up 1 per test. Read the vertex from the graph, write vertex form, expand to standard form, and match coefficients.\n\n**The correct answer is $18$.**\n\n**The Fast Way (30 seconds):** Vertex is $(1, -6)$ with $a = 3$. Vertex form: $3(x-1)^2 - 6 = 3x^2 - 6x + 3 - 6 = 3x^2 - 6x - 3$. So $b = -6$, $c = -3$, and $bc = 18$.\n\n**The Full Solution:**\nFrom the graph: vertex at $(1, -6)$, $a = 3$\nVertex form: $y = 3(x - 1)^2 - 6$\nExpand: $y = 3(x^2 - 2x + 1) - 6 = 3x^2 - 6x + 3 - 6 = 3x^2 - 6x - 3$\nMatch with $y = 3x^2 + bx + c$: $b = -6$, $c = -3$\n$bc = (-6)(-3) = 18$\n\n**Verification:** Vertex check: $x = -b/(2a) = 6/6 = 1$ and $y(1) = 3 - 6 - 3 = -6$. Check.\n\n**Test Day Takeaway:** When given a parabola graph with $y = ax^2 + bx + c$, read the vertex $(h, k)$, write $y = a(x-h)^2 + k$, and expand. The expansion gives you $b$ and $c$ directly.',
           skills: ['Advanced Math', 'Quadratic Equations']
         },

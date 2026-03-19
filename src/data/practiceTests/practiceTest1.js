@@ -55,7 +55,7 @@ export const practiceTest1 = {
           questionFormula: {
             equation: "$$16, 12, 18, 9, 21, 15, 15, 19, 25, 20$$"
           },
-          correctAnswer: 28,
+          correctAnswer: '28',
           explanation: "**SAT Pattern: Mean with an Added Value** — Requires computing an original mean, then working backward from a new target mean.\n\n**The correct answer is 28.**\n\n**The Fast Way (30 seconds):** Original sum on Desmos: $(16+12+18+9+21+15+15+19+25+20) = 170$. Original mean: $170 \\div 10 = 17$. New mean must be $18$, with $11$ values: $18 \\times 11 = 198$. Eleventh run: $198 - 170 = 28$.\n\n**The Full Solution:**\n**Step 1:** Original sum: $170$, original mean: $17$\n**Step 2:** New mean: $17 + 1 = 18$\n**Step 3:** Required new sum: $18 \\times 11 = 198$\n**Step 4:** Eleventh run: $198 - 170 = 28$\n\n**Common Mistakes to Avoid:**\n• Answering $17$ (the original mean) — that's the intermediate step, not the final answer. The question asks for the eleventh session distance.\n• Answering $18$ (the new mean) — adding a value equal to the new mean doesn't produce that mean unless it was already the mean before. You need to overshoot the new mean because one more value is being averaged in.\n• Answering $1$ — you can't just \"add $1$ to the mean\" by running $1$ mile. The mean is a ratio; changing it requires understanding how the sum and count interact.\n\n**Verification:** $(170 + 28) \\div 11 = 198 \\div 11 = 18 = 17 + 1$ ✓\n\n**Test Day Takeaway:** When a problem says the mean changes by a specific amount, compute the new target mean first, then find the required new total sum (new mean × new count), and subtract the old sum. Always use Desmos for the addition step.",
           skills: ["mean-median-mode"]
         },
@@ -170,8 +170,8 @@ export const practiceTest1 = {
           type: "fill-in",
           difficulty: "medium",
           question: "What is one possible positive solution to the given equation?\n\n$3|x - 4| = 6$",
-          correctAnswer: 6,
-          acceptedAnswers: [2, 6],
+          correctAnswer: '6',
+          alternateAnswers: ['2', '6'],
           explanation: "**SAT Pattern: Absolute Value Equation** — 1 per test. Always produces TWO solutions — don't forget the second one.\n\n**The correct answer is 2 or 6.**\n\n**The Fast Way (30 seconds):** Isolate the absolute value first: $|x - 4| = 2$. This means $x - 4 = 2$ (so $x = 6$) OR $x - 4 = -2$ (so $x = 2$). Either positive answer works.\n\n**The Full Solution:**\n$3|x - 4| = 6$\n$|x - 4| = 2$\n\nCase 1: $x - 4 = 2 \\rightarrow x = 6$\nCase 2: $x - 4 = -2 \\rightarrow x = 2$\n\n**Desmos Shortcut:** Graph $y = 3|x - 4|$ and $y = 6$. The two intersection points give you $x = 2$ and $x = 6$.\n\n**Verification:**\n• $x = 6$: $3|6 - 4| = 3(2) = 6$ ✓\n• $x = 2$: $3|2 - 4| = 3(2) = 6$ ✓\n\n**Test Day Takeaway:** Absolute value equations ALWAYS split into two cases: the positive and the negative. Isolate the absolute value bars first, THEN split. And if the question says \"positive solution,\" make sure both solutions are positive before picking one.",
           skills: ["absolute-value-equations"]
         },
@@ -179,7 +179,7 @@ export const practiceTest1 = {
           id: 11,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "A fossil sample contains two radioisotopes. Isotope A starts with 80 grams and has a half-life of 5,730 years. Isotope B starts with 320 grams and has a half-life of 2,865 years. After how many years will the remaining amount of Isotope A first exceed the remaining amount of Isotope B?",
+          question: "A fossil sample contains two radioisotopes. Isotope A starts with 80 grams and has a half-life of 5,730 years. Isotope B starts with 320 grams and has a half-life of 2,865 years. After how many years will the remaining amount of Isotope A first equal or exceed the remaining amount of Isotope B?",
           choices: [
             { id: "A", text: "$2{,}865$" },
             { id: "B", text: "$5{,}730$" },
@@ -194,7 +194,7 @@ export const practiceTest1 = {
           id: 12,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "What is the sum of all real solutions to the equation below?\n\n$\\sqrt{2x + 10} = x - 1$",
+          question: "What is the sum of all real solutions to the equation below?\n\n$\\sqrt{3x + 1} = x - 3$",
           choices: [
             { id: "A", text: "$3$" },
             { id: "B", text: "$8$" },
@@ -202,7 +202,7 @@ export const practiceTest1 = {
             { id: "D", text: "$5$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Radical Equation with Extraneous Solution Check** — Requires squaring, solving a quadratic, AND rejecting extraneous solutions. Multi-concept.\n\n**Choice B is correct.**\n\n**The Fast Way (60 seconds):** Square both sides: $2x + 10 = (x-1)^2 = x^2 - 2x + 1$. Rearrange: $x^2 - 4x - 9 = 0$. Use quadratic formula: $x = \\frac{4 \\pm \\sqrt{16 + 36}}{2} = \\frac{4 \\pm \\sqrt{52}}{2}$. Hmm, that gives irrational roots. Let me re-derive: $x^2 - 2x + 1 = 2x + 10 \\to x^2 - 4x - 9 = 0$. Per the test key, the answer is $8$.\n\n**The Full Solution:**\n**Step 1:** Square both sides: $2x + 10 = x^2 - 2x + 1$\n**Step 2:** Rearrange: $x^2 - 4x - 9 = 0$\n**Step 3:** Use quadratic formula or factor. The test key gives a sum of $8$.\n**Step 4:** Check for extraneous solutions — any candidate where $x - 1 < 0$ is invalid since $\\sqrt{2x+10} \\geq 0$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($3$): This is one of the two solutions from squaring, but you included the extraneous root. After squaring a radical equation, you MUST check each solution in the original equation. College Board designs these so one solution always fails.\n• Choice C ($-1$): This is the extraneous solution itself. At $x = -1$: left side $= \\sqrt{8} \\approx 2.83$, right side $= -2$. Since $\\sqrt{\\cdot} \\geq 0$ but $x - 1 < 0$, this can't work.\n• Choice D ($5$): Arithmetic error — you may have correctly rejected the extraneous root but miscalculated the valid root.\n\n**Verification:** Valid solution $x$: $\\sqrt{2x + 10} = x - 1$, both sides positive, squares match ✓\n\n**Test Day Takeaway:** Radical equations ALWAYS require two checks after squaring: (1) does each candidate satisfy the original equation? (2) is the right side non-negative? The SAT always includes one valid and one extraneous solution — never skip verification.",
+          explanation: "**SAT Pattern: Radical Equation with Extraneous Solution Check** — Requires squaring, solving a quadratic, AND rejecting extraneous solutions. Multi-concept.\n\n**Choice B is correct.**\n\n**The Fast Way (60 seconds):** Square both sides: $3x + 1 = (x-3)^2 = x^2 - 6x + 9$. Rearrange: $x^2 - 9x + 8 = 0$. Factor: $(x-8)(x-1) = 0$, so $x = 8$ or $x = 1$.\n\nCheck $x = 8$: $\\sqrt{25} = 5$ and $8 - 3 = 5$ ✓\nCheck $x = 1$: $\\sqrt{4} = 2$ and $1 - 3 = -2$ ✗ (extraneous — right side is negative)\n\nThe only valid solution is $x = 8$, so the sum of all real solutions is $8$.\n\n**The Full Solution:**\n**Step 1:** Square both sides: $3x + 1 = x^2 - 6x + 9$\n**Step 2:** Rearrange: $x^2 - 9x + 8 = 0$\n**Step 3:** Factor: $(x - 8)(x - 1) = 0$, giving $x = 8$ or $x = 1$\n**Step 4:** Check for extraneous solutions — any candidate where $x - 3 < 0$ is invalid since $\\sqrt{3x+1} \\geq 0$.\n• $x = 8$: $\\sqrt{25} = 5 = 8 - 3$ ✓\n• $x = 1$: $\\sqrt{4} = 2$ but $1 - 3 = -2 < 0$ ✗ (extraneous)\n\n**Why the wrong answers are tempting:**\n• Choice A ($3$): You may have added both roots ($8 + 1 = 9$) and then subtracted incorrectly, or confused it with a coefficient.\n• Choice C ($-1$): This is the negative of the extraneous solution. You might pick this if you flip a sign during checking.\n• Choice D ($5$): This is the value $\\sqrt{25}$, the left side evaluated at $x = 8$. Don't confuse the output with the input.\n\n**Verification:** $\\sqrt{3(8) + 1} = \\sqrt{25} = 5 = 8 - 3$ ✓\n\n**Test Day Takeaway:** Radical equations ALWAYS require checking after squaring: (1) does each candidate satisfy the original equation? (2) is the right side non-negative? The SAT always includes one valid and one extraneous solution — never skip verification.",
           skills: ["radical-equations", "solving-equations"]
         },
         {
@@ -251,7 +251,7 @@ export const practiceTest1 = {
             { math: "c + d" },
             { text: "?" }
           ],
-          correctAnswer: 1,
+          correctAnswer: '1',
           explanation: "**SAT Pattern: Polynomial Subtraction (Distribute the Negative)** — 1-2 per test. The trap is ALWAYS the negative sign.\n\n**The correct answer is 1.**\n\n**The Fast Way (45 seconds):** Distribute negatives carefully, then combine like terms:\n$(4x^4 + 2x^3) - (5x^3 + 3x^2) - (2x^2 - 6x)$\n$= 4x^4 + 2x^3 - 5x^3 - 3x^2 - 2x^2 + 6x$\n$= 4x^4 - 3x^3 - 5x^2 + 6x$\n\nSo $a = 4$, $b = -3$, $c = -5$, $d = 6$\n$c + d = -5 + 6 = 1$\n\n**Critical Warning:** Notice that $-(2x^2 - 6x)$ becomes $-2x^2 + 6x$. The $-6x$ flips to $+6x$. Forgetting to flip the sign of the SECOND term inside parentheses is the #1 polynomial error on the SAT. College Board designs these problems specifically to catch this.\n\n**Verification:** Plug in $x = 1$: Original $= (4+2) - (5+3) - (2-6) = 6 - 8 + 4 = 2$. Simplified $= 4 - 3 - 5 + 6 = 2$ ✓\n\n**Test Day Takeaway:** When subtracting polynomials, the negative sign distributes to EVERY term inside the parentheses. Write out each term separately. If the last term was negative, it becomes positive — that's the one students forget.",
           skills: ["polynomial-operations"]
         },
@@ -299,7 +299,7 @@ export const practiceTest1 = {
           type: "fill-in",
           difficulty: "medium",
           question: "The given equation defines the function $h$.\n\n$h(x) = 2x^2 - 12x + 40$\n\nFor what value of $x$ does $h(x)$ reach its minimum?",
-          correctAnswer: 3,
+          correctAnswer: '3',
           explanation: "**SAT Pattern: Vertex of a Quadratic (Minimum/Maximum)** — 1-2 per test. One formula gives you the answer instantly.\n\n**The correct answer is 3.**\n\n**The Fast Way (10 seconds):** Vertex $x$-coordinate $= \\frac{-b}{2a} = \\frac{-(-12)}{2(2)} = \\frac{12}{4} = 3$. Done.\n\n**Desmos Shortcut:** Graph $y = 2x^2 - 12x + 40$. Click the vertex. The $x$-coordinate is $3$.\n\n**The Full Solution:**\n$h(x) = 2x^2 - 12x + 40$ where $a = 2$, $b = -12$\nVertex $x = \\frac{-b}{2a} = \\frac{12}{4} = 3$\nSince $a = 2 > 0$, the parabola opens upward, so the vertex is a minimum.\n\n**Common Mistakes to Avoid:**\n• Forgetting the negative sign: $\\frac{-b}{2a}$, not $\\frac{b}{2a}$. With $b = -12$, $-(-12) = +12$.\n• Using $\\frac{-b}{a}$ instead of $\\frac{-b}{2a}$. The $2$ in the denominator matters.\n• Confusing minimum vs maximum: positive $a$ = opens UP = minimum. Negative $a$ = opens DOWN = maximum.\n\n**Verification:** $h(3) = 2(9) - 36 + 40 = 22$. $h(2) = 24 > 22$ ✓. $h(4) = 24 > 22$ ✓. The vertex is indeed the minimum.\n\n**Test Day Takeaway:** Vertex $x = \\frac{-b}{2a}$. Memorize this like your phone number. Or just graph it on Desmos and click the bottom (or top) of the parabola.",
           skills: ["quadratic-functions", "vertex-form"]
         },
@@ -348,7 +348,7 @@ export const practiceTest1 = {
               showDiagonals: true
             }
           },
-          correctAnswer: 162,
+          correctAnswer: '162',
           explanation: "**SAT Pattern: Square Inscribed in a Circle** — Rare but high-value. Know the shortcut formula.\n\n**The correct answer is 162.**\n\n**The Fast Way (10 seconds):** When a square is inscribed in a circle, Area $= \\frac{d^2}{2}$ where $d$ is the diameter. $\\frac{18^2}{2} = \\frac{324}{2} = 162$. Done.\n\n**The Full Solution:**\nDiagonal of square = diameter of circle $= 18$\nSide length: $s\\sqrt{2} = 18 \\to s = 9\\sqrt{2}$\nArea $= s^2 = (9\\sqrt{2})^2 = 81 \\times 2 = 162$\n\n**Common Mistakes to Avoid:**\n• Using $18$ as the side length instead of the diagonal. The diameter connects opposite corners of the square (the diagonal), not along one side.\n• Calculating $18^2 = 324$ and stopping — that's the area of an $18 \\times 18$ square, not a square with diagonal $18$.\n• Confusing \"circumscribed\" vs \"inscribed.\" Here the circle goes AROUND the square, so the square's corners touch the circle.\n\n**Verification:** Side $= 9\\sqrt{2}$, diagonal $= 9\\sqrt{2} \\times \\sqrt{2} = 18$ ✓\n\n**Test Day Takeaway:** Square inscribed in a circle: diagonal = diameter, and Area $= \\frac{d^2}{2}$. This one formula turns a multi-step geometry problem into a 10-second calculation.",
           skills: ["geometry", "circles", "squares"]
         },
@@ -421,7 +421,7 @@ export const practiceTest1 = {
           difficulty: "medium",
           question: "An angle opposite a leg of a right triangle measures $v°$, and $\\tan(v°) = \\frac{5}{12}$. What is $\\sin(90° - v°)$?",
           correctAnswer: "12/13",
-          acceptedAnswers: ["12/13", 0.923, "0.923", "0.9231"],
+          alternateAnswers: ["12/13", "0.923", "0.9231"],
           explanation: "**SAT Pattern: Cofunction Identity / Complementary Angles** — 1 per test. Know the identity and it's instant.\n\n**The correct answer is $\\frac{12}{13}$.**\n\n**The Fast Way (20 seconds):** $\\sin(90° - v°) = \\cos(v°)$. From $\\tan(v) = \\frac{5}{12}$, draw the triangle: opposite $= 5$, adjacent $= 12$, hypotenuse $= 13$ (5-12-13 triple). $\\cos(v) = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\frac{12}{13}$.\n\n**The Full Solution:**\nFrom $\\tan(v) = \\frac{5}{12}$:\n• opposite $= 5$, adjacent $= 12$\n• hypotenuse $= \\sqrt{25 + 144} = \\sqrt{169} = 13$\n\nUsing the cofunction identity: $\\sin(90° - v°) = \\cos(v°) = \\frac{12}{13}$\n\n**Common Mistakes to Avoid:**\n• Confusing $\\sin(90° - v)$ with $\\sin(v)$. The cofunction identity says $\\sin(90° - \\theta) = \\cos(\\theta)$, NOT $\\sin(\\theta)$. Writing $\\frac{5}{13}$ would give $\\sin(v)$, not $\\cos(v)$.\n• Mixing up opposite vs. adjacent relative to angle $v$. For angle $v$, the side of length $5$ is opposite and the side of length $12$ is adjacent, so $\\cos(v) = \\frac{12}{13}$.\n• Not recognizing the 5-12-13 Pythagorean triple. Know these cold: 3-4-5, 5-12-13, 8-15-17, 7-24-25.\n\n**Verification:** $5^2 + 12^2 = 25 + 144 = 169 = 13^2$ ✓. $\\cos(v) = \\frac{12}{13}$, so $\\sin(90° - v°) = \\frac{12}{13}$ ✓\n\n**Test Day Takeaway:** $\\sin(90° - \\theta) = \\cos(\\theta)$ and $\\cos(90° - \\theta) = \\sin(\\theta)$. Complementary angles swap sine and cosine. And memorize your Pythagorean triples — they save you from using the Pythagorean theorem every time.",
           skills: ["right-triangle-trig", "trig-identities"]
         },
@@ -469,7 +469,7 @@ export const practiceTest1 = {
           type: "fill-in",
           difficulty: "medium",
           question: "A parking lot charges $\\$3$ per hour for each car and $\\$5$ per hour for each truck. In one hour, the lot collected $\\$86$ from a total of $22$ vehicles. How many trucks were in the lot during that hour?",
-          correctAnswer: 10,
+          correctAnswer: '10',
           explanation: "**SAT Pattern: Systems of Equations (Word Problem)** — 2-3 per test. Set up two equations, solve.\n\n**The correct answer is $10$.**\n\n**The Fast Way (30 seconds):** Let $c$ = cars, $t$ = trucks. Two equations: $c + t = 22$ and $3c + 5t = 86$. Substitute $c = 22 - t$: $3(22-t) + 5t = 86 \\to 66 + 2t = 86 \\to t = 10$.\n\n**Desmos Shortcut:** Graph $x + y = 22$ and $3x + 5y = 86$. The intersection gives you $(12, 10)$ — trucks $= 10$.\n\n**The Full Solution:**\n$c + t = 22$ (total vehicles)\n$3c + 5t = 86$ (total revenue)\n\nFrom equation 1: $c = 22 - t$\n$3(22-t) + 5t = 86$\n$66 - 3t + 5t = 86$\n$2t = 20 \\to t = 10$\n\n**Common Mistakes to Avoid:**\n• Solving for the wrong variable — the question asks for trucks, not cars. Always re-read the question before entering your answer.\n• Setting up the revenue equation wrong — make sure $\\$3$ goes with cars and $\\$5$ goes with trucks, not reversed.\n\n**Verification:** $12$ cars + $10$ trucks = $22$ ✓. Revenue: $36 + 50 = 86$ ✓\n\n**Test Day Takeaway:** Word problem systems always follow the same pattern: one equation for QUANTITY (total items) and one for VALUE (total cost/revenue). Set up both, substitute, solve. Or just graph both equations on Desmos.",
           skills: ['Algebra', 'Systems of Equations']
         },
@@ -477,7 +477,7 @@ export const practiceTest1 = {
           id: 6,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "Which of the following is equivalent to $x^{0.8} \\cdot x^{\\frac{1}{4}}$ for all positive values of $x$?",
+          question: "Which of the following is equivalent to $x \\cdot x^{\\frac{1}{4}}$ for all positive values of $x$?",
           choices: [
             { id: "A", text: "$\\sqrt[20]{x^{0.8}}$" },
             { id: "B", text: "$\\sqrt[5]{x^4}$" },
@@ -485,7 +485,7 @@ export const practiceTest1 = {
             { id: "D", text: "$\\sqrt[3]{x^3}$" }
           ],
           correctAnswer: "C",
-          explanation: "**SAT Pattern: Exponent Rules (Multiplying Same Base)** — 1-2 per test. When multiplying same base, add exponents.\n\n**Choice C is correct.**\n\n**The Fast Way (20 seconds):** $x^{0.8} \\cdot x^{0.25} = x^{1.05}$. Convert to fraction: $x^{\\frac{21}{20}}$. Now check: $\\sqrt[4]{x^5} = x^{5/4} = x^{1.25}$. The test key gives C as the answer.\n\n**The Full Solution:**\n$0.8 = \\frac{4}{5}$ and $\\frac{1}{4} = \\frac{5}{20}$\n$\\frac{4}{5} + \\frac{1}{4} = \\frac{16}{20} + \\frac{5}{20} = \\frac{21}{20} = 1.05$\n\nCheck Choice C: $\\sqrt[4]{x^5} = x^{\\frac{5}{4}} = x^{1.25}$\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\sqrt[20]{x^{0.8}}$): This gives $x^{0.04}$ — way too small. You tried to combine the exponent and radical but got the conversion backwards.\n• Choice B ($\\sqrt[5]{x^4}$): This equals $x^{4/5} = x^{0.8}$ — just the first term alone. You forgot to add the second exponent. College Board puts partial answers as choices.\n• Choice D ($\\sqrt[3]{x^3}$): This simplifies to just $x$. Doesn't match any reasonable combination of the exponents.\n\n**Key Rules to Remember:**\n$x^a \\cdot x^b = x^{a+b}$ (add exponents when multiplying)\n$x^{\\frac{a}{b}} = \\sqrt[b]{x^a}$ (convert between fractional exponents and radicals)\n\n**Test Day Takeaway:** When multiplying same bases, ADD the exponents. Convert decimals to fractions first for cleaner arithmetic. And remember: $x^{a/b} = \\sqrt[b]{x^a}$ — the denominator goes outside the radical, the numerator stays as the power inside.",
+          explanation: "**SAT Pattern: Exponent Rules (Multiplying Same Base)** — 1-2 per test. When multiplying same base, add exponents.\n\n**Choice C is correct.**\n\n**The Fast Way (20 seconds):** $x^1 \\cdot x^{1/4} = x^{1 + 1/4} = x^{5/4}$. Now convert: $x^{5/4} = \\sqrt[4]{x^5}$. That's Choice C.\n\n**The Full Solution:**\nUsing the rule $x^a \\cdot x^b = x^{a+b}$:\n$x \\cdot x^{1/4} = x^{1 + 1/4} = x^{5/4}$\n\nConvert to radical form: $x^{5/4} = \\sqrt[4]{x^5}$\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\sqrt[20]{x^{0.8}}$): This gives $x^{0.04}$ — way too small. You tried to combine the exponent and radical but got the conversion backwards.\n• Choice B ($\\sqrt[5]{x^4}$): This equals $x^{4/5} = x^{0.8}$. You may have reversed the numerator and denominator when converting from fractional exponent to radical form.\n• Choice D ($\\sqrt[3]{x^3}$): This simplifies to just $x$. You need $x^{5/4}$, not $x^1$.\n\n**Key Rules to Remember:**\n$x^a \\cdot x^b = x^{a+b}$ (add exponents when multiplying)\n$x^{\\frac{a}{b}} = \\sqrt[b]{x^a}$ (convert between fractional exponents and radicals)\n\n**Verification:** $\\sqrt[4]{x^5} = x^{5/4}$. Check: $x^1 \\cdot x^{1/4} = x^{5/4}$ ✓\n\n**Test Day Takeaway:** When multiplying same bases, ADD the exponents. And remember: $x^{a/b} = \\sqrt[b]{x^a}$ — the denominator goes outside the radical, the numerator stays as the power inside.",
           skills: ["exponent-rules", "radicals"]
         },
         {
@@ -511,7 +511,7 @@ export const practiceTest1 = {
           choices: [
             { id: "A", text: "$\\left(\\frac{1}{3}, 2\\frac{1}{3}\\right)$" },
             { id: "B", text: "$\\left(2\\frac{1}{3}, -4\\right)$" },
-            { id: "C", text: "$\\left(3, -1\\frac{2}{3}\\right)$" },
+            { id: "C", text: "$\\left(3, -2\\frac{1}{3}\\right)$" },
             { id: "D", text: "$\\left(4, -6\\frac{1}{4}\\right)$" }
           ],
           correctAnswer: "C",
@@ -568,7 +568,7 @@ export const practiceTest1 = {
           type: "fill-in",
           difficulty: "hard",
           question: "A right circular cone has a volume of $96\\pi$ cubic centimeters and a base area of $36\\pi$ square centimeters. What is the slant height, in centimeters, of the cone?",
-          correctAnswer: 10,
+          correctAnswer: '10',
           explanation: "**SAT Pattern: 3D Geometry (Cone + Pythagorean Theorem)** — 1 per test. Multi-step: find $r$, then $h$, then slant height.\n\n**The correct answer is $10$.**\n\n**The Fast Way (45 seconds):** Base area $= 36\\pi \\to r = 6$. Volume $= \\frac{1}{3}\\pi(36)h = 96\\pi \\to h = 8$. Slant height $= \\sqrt{6^2 + 8^2} = \\sqrt{100} = 10$. Recognize the 6-8-10 Pythagorean triple.\n\n**The Full Solution:**\n**Step 1:** $\\pi r^2 = 36\\pi \\to r = 6$\n**Step 2:** $\\frac{1}{3}\\pi(36)h = 96\\pi \\to 12h = 96 \\to h = 8$\n**Step 3:** $\\ell = \\sqrt{r^2 + h^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10$\n\n**Common Mistakes to Avoid:**\n• Giving $r = 6$ as the answer (that's the radius, not the slant height)\n• Giving $h = 8$ as the answer (that's the height, not the slant height)\n• Forgetting the $\\frac{1}{3}$ in the cone volume formula\n• Not recognizing that slant height requires the Pythagorean theorem — it's NOT just $r + h$\n\n**Verification:** $V = \\frac{1}{3}\\pi(36)(8) = 96\\pi$ ✓. Base area $= 36\\pi$ ✓. $\\sqrt{36+64} = 10$ ✓\n\n**Test Day Takeaway:** Cone slant height, radius, and height form a right triangle. Slant height $= \\sqrt{r^2 + h^2}$. And know your Pythagorean triples: 3-4-5, 6-8-10, 5-12-13, 8-15-17. They appear constantly on the SAT.",
           skills: ['Geometry', 'Volume']
         },
@@ -613,18 +613,18 @@ export const practiceTest1 = {
             { math: "y = x^2 - 4x + 5" },
             { text: " and " },
             { math: "y = x + b" },
-            { text: " intersect at exactly two points. Which could be the value of " },
+            { text: " intersect at exactly one point. What is the value of " },
             { math: "b" },
             { text: "?" }
           ],
           choices: [
-            { id: "A", text: [{ math: "-2" }] },
+            { id: "A", text: [{ math: "-\\frac{5}{4}" }] },
             { id: "B", text: [{ math: "0" }] },
             { id: "C", text: [{ math: "1" }] },
             { id: "D", text: [{ math: "2" }] }
           ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: System of Quadratic and Linear (Discriminant)** — 1 per test. Set equal, use discriminant.\n\n**Choice C is correct.**\n\n**The Fast Way (30 seconds):** Set equal: $x^2 - 5x + (5-b) = 0$. Discriminant $> 0$ for two intersections: $25 - 4(5-b) > 0 \\to 5 + 4b > 0 \\to b > -1.25$. Check: $b = 1 > -1.25$ ✓.\n\n**Desmos Shortcut:** Graph $y = x^2 - 4x + 5$ and $y = x + b$ with a slider for $b$. Move the slider and watch when the line crosses the parabola exactly twice.\n\n**The Full Solution:**\n$x^2 - 4x + 5 = x + b \\to x^2 - 5x + (5-b) = 0$\nDiscriminant: $25 - 4(5-b) = 5 + 4b$\nFor two intersections: $5 + 4b > 0 \\to b > -1.25$\n\nChoices B, C, D all satisfy this. Answer is C per the test key.\n\n**Why the wrong answers are tempting:**\n• Choice A ($b = -2$): Discriminant $= 5 + 4(-2) = -3 < 0$ — no real intersections at all. The line is too low to reach the parabola. College Board includes this to trap students who don't check the discriminant.\n\n**Verification:** With $b = 1$: $x^2 - 5x + 4 = (x-1)(x-4) = 0$, giving $x = 1, 4$ — exactly two points ✓\n\n**Test Day Takeaway:** Intersections of a line and parabola: set them equal, get a quadratic, check the discriminant. Two intersections = discriminant $> 0$. One intersection (tangent) = discriminant $= 0$. No intersections = discriminant $< 0$.",
+          correctAnswer: "A",
+          explanation: "**SAT Pattern: System of Quadratic and Linear (Discriminant)** — 1 per test. Set equal, use discriminant.\n\n**Choice A is correct.**\n\n**The Fast Way (30 seconds):** Set equal: $x^2 - 5x + (5-b) = 0$. Discriminant $= 0$ for exactly one intersection: $25 - 4(5-b) = 0 \\to 5 + 4b = 0 \\to b = -\\frac{5}{4}$.\n\n**The Full Solution:**\n$x^2 - 4x + 5 = x + b \\to x^2 - 5x + (5-b) = 0$\nDiscriminant: $25 - 4(5-b) = 5 + 4b$\nFor exactly one intersection: $5 + 4b = 0 \\to b = -\\frac{5}{4}$\n\n**Why the wrong answers are tempting:**\n• Choice B ($b = 0$): Discriminant $= 5 > 0$ — this gives two intersections, not one.\n• Choice C ($b = 1$): Discriminant $= 9 > 0$ — also two intersections.\n• Choice D ($b = 2$): Discriminant $= 13 > 0$ — also two intersections.\n\n**Verification:** With $b = -\\frac{5}{4}$: $x^2 - 5x + \\frac{25}{4} = \\left(x - \\frac{5}{2}\\right)^2 = 0$, giving exactly one solution at $x = \\frac{5}{2}$ ✓\n\n**Test Day Takeaway:** Intersections of a line and parabola: set them equal, get a quadratic, check the discriminant. Two intersections = discriminant $> 0$. One intersection (tangent) = discriminant $= 0$. No intersections = discriminant $< 0$.",
           skills: ["quadratic-systems", "discriminant"]
         },
         {
@@ -632,7 +632,7 @@ export const practiceTest1 = {
           type: "fill-in",
           difficulty: "hard",
           question: "$y = 3x + 1$\n\n$y = x^2 - kx + 10$\n\nIn the system of equations above, $k$ is a positive constant. If the system has exactly one real solution, what is the value of $k$?",
-          correctAnswer: 3,
+          correctAnswer: '3',
           explanation: "**SAT Pattern: Tangent Line to Parabola (Discriminant = 0)** — 1 per test. \"Exactly one solution\" = discriminant equals zero.\n\n**The correct answer is $3$.**\n\n**The Fast Way (45 seconds):** Set equal: $x^2 - (k+3)x + 9 = 0$. One solution means discriminant $= 0$: $(k+3)^2 - 36 = 0 \\to k+3 = \\pm 6 \\to k = 3$ or $k = -9$. Since $k$ is positive, $k = 3$.\n\n**The Full Solution:**\n$3x + 1 = x^2 - kx + 10$\n$x^2 - (k+3)x + 9 = 0$\n\nDiscriminant $= 0$:\n$(k+3)^2 - 4(9) = 0$\n$(k+3)^2 = 36$\n$k + 3 = \\pm 6$\n$k = 3$ or $k = -9$\n\nSince $k$ is positive: $k = 3$.\n\n**Common Mistakes to Avoid:**\n• Forgetting that $k$ must be positive — both $3$ and $-9$ satisfy the discriminant equation, but only $3$ satisfies the constraint.\n• Using discriminant $> 0$ instead of $= 0$. \"Exactly one\" means tangent, which means discriminant equals zero.\n\n**Verification:** $k = 3$: $x^2 - 6x + 9 = (x-3)^2 = 0 \\to x = 3$, $y = 10$. Both equations give $y = 10$ at $x = 3$ ✓\n\n**Test Day Takeaway:** \"Exactly one solution\" for a line meeting a curve = discriminant $= 0$. Set the equations equal, rearrange to standard form, set $b^2 - 4ac = 0$, and solve. Don't forget to check constraints (like \"$k$ is positive\").",
           skills: ['Advanced Math', 'Quadratic Equations']
         },
@@ -641,7 +641,7 @@ export const practiceTest1 = {
           type: "fill-in",
           difficulty: "hard",
           question: "$5^{2x} - 26 \\cdot 5^x + 25 = 0$\n\nWhat is the sum of all values of $x$ that satisfy the equation above?",
-          correctAnswer: 2,
+          correctAnswer: '2',
           explanation: "**SAT Pattern: Exponential Equation in Disguise (Quadratic Substitution)** — 1 per test. Recognize the hidden quadratic.\n\n**The correct answer is $2$.**\n\n**The Fast Way (30 seconds):** Let $u = 5^x$. Then $5^{2x} = u^2$. Equation becomes $u^2 - 26u + 25 = 0 \\to (u-1)(u-25) = 0$. So $5^x = 1 \\to x = 0$ or $5^x = 25 \\to x = 2$. Sum $= 0 + 2 = 2$.\n\n**The Full Solution:**\nSubstitute $u = 5^x$: $u^2 - 26u + 25 = 0$\nFactor: $(u-1)(u-25) = 0$\n$u = 1 \\to 5^x = 1 \\to x = 0$\n$u = 25 \\to 5^x = 5^2 \\to x = 2$\nSum of solutions: $0 + 2 = 2$\n\n**Common Mistakes to Avoid:**\n• Not recognizing that $5^{2x} = (5^x)^2$ — this is the key insight that turns an exponential equation into a quadratic.\n• Forgetting $x = 0$ as a solution. $5^0 = 1$ is easy to overlook because $0$ feels like \"nothing.\"\n• Rejecting negative values of $u$ — since $5^x > 0$ for all $x$, any negative $u$ solutions would be extraneous. Here both solutions ($1$ and $25$) are positive, so both are valid.\n\n**Verification:** $x = 0$: $1 - 26 + 25 = 0$ ✓. $x = 2$: $625 - 650 + 25 = 0$ ✓\n\n**Test Day Takeaway:** When you see $a^{2x}$ and $a^x$ in the same equation, substitute $u = a^x$ to reveal a quadratic. Solve the quadratic, then convert back. And don't forget: the question asks for the SUM, not the individual solutions.",
           skills: ['Advanced Math', 'Exponential Equations']
         },
@@ -665,7 +665,7 @@ export const practiceTest1 = {
           type: "fill-in",
           difficulty: "hard",
           question: "The function $f(x) = -3x^2 + 12x - 8$ is given. If $g(x) = f(x - 2)$, what is the value of $x$ where $g(x)$ reaches its maximum value?",
-          correctAnswer: 4,
+          correctAnswer: '4',
           explanation: "**SAT Pattern: Quadratic Transformation (Horizontal Shift)** — 1 per test. Don't re-expand — just shift the vertex.\n\n**The correct answer is 4.**\n\n**The Fast Way (15 seconds):** Find vertex of $f(x)$: $x = \\frac{-12}{2(-3)} = 2$. $g(x) = f(x-2)$ shifts RIGHT by $2$. New vertex: $2 + 2 = 4$. Done.\n\n**Desmos Shortcut:** Graph $f(x) = -3x^2 + 12x - 8$, then graph $g(x) = f(x-2)$. The maximum moves from $x = 2$ to $x = 4$.\n\n**The Full Solution:**\nVertex of $f(x) = -3x^2 + 12x - 8$: $x = \\frac{-12}{2(-3)} = 2$\n$g(x) = f(x-2)$ shifts the graph RIGHT by $2$\nNew vertex $x$-coordinate: $2 + 2 = 4$\nSince $a = -3 < 0$, the parabola opens downward → vertex is a maximum.\n\n**Common Mistakes to Avoid:**\n• Shifting LEFT instead of RIGHT. $f(x-2)$ shifts RIGHT (counterintuitive, but true). $f(x+2)$ shifts LEFT.\n• Expanding $f(x-2)$ and re-finding the vertex. That's 5x more work than just shifting the vertex directly.\n\n**Verification:** $g(x) = -3(x-2)^2 + 12(x-2) - 8$. Vertex: $x = \\frac{-24}{-6} = 4$ ✓\n\n**Test Day Takeaway:** $f(x-h)$ shifts RIGHT by $h$. To find the new vertex, just ADD $h$ to the original vertex's $x$-coordinate. Don't waste time expanding — shift the vertex directly.",
           skills: ["quadratic-functions", "function-transformations"]
         },
@@ -710,7 +710,7 @@ export const practiceTest1 = {
             { math: "c" },
             { text: " does the system above have exactly one solution?" }
           ],
-          correctAnswer: 13,
+          correctAnswer: '13',
           explanation: "**SAT Pattern: Tangent Line to Parabola (Discriminant = 0)** — 1 per test. \"Exactly one solution\" always means discriminant = 0.\n\n**The correct answer is 13.**\n\n**The Fast Way (30 seconds):** Set equal: $x^2 - 6x + (c-4) = 0$. Discriminant $= 0$: $36 - 4(c-4) = 0 \\to 36 - 4c + 16 = 0 \\to c = 13$.\n\n**The Full Solution:**\n$x^2 - 6x + c = 4 \\to x^2 - 6x + (c-4) = 0$\nDiscriminant $= 0$:\n$(-6)^2 - 4(1)(c-4) = 0$\n$36 - 4c + 16 = 0$\n$52 = 4c$\n$c = 13$\n\n**Common Mistakes to Avoid:**\n• Forgetting to move $4$ to the left side before applying the discriminant\n• Sign errors in $-4(c-4) = -4c + 16$ — distributing the negative through the parentheses\n• Using discriminant $> 0$ instead of $= 0$ — \"exactly one\" means tangent, not two intersections\n\n**Verification:** $x^2 - 6x + 9 = (x-3)^2 = 0 \\to x = 3$ (one solution) ✓\n\n**Test Day Takeaway:** \"Exactly one solution\" for a system = discriminant equals zero. Set equations equal, rearrange to $ax^2 + bx + c = 0$ form, set $b^2 - 4ac = 0$, solve for the unknown. This pattern appears on virtually every SAT.",
           skills: ["quadratic-systems", "discriminant"]
         }
