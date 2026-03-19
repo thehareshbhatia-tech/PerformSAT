@@ -30991,9 +30991,9 @@ export const generatedOfficialAlgebraBank = [
     ],
     "difficulty": "medium",
     "type": "multiple-choice",
-    "question": "Two parallel lines are cut by a transversal, as shown in the figure. One of the angles formed records $142°$. which option below could be the measure of another angle formed by the transversal?",
-    "correctAnswer": "D",
-    "explanation": "**SAT Pattern: Parallel Lines and Transversals** -- Shows up 1-2 per test. The key rule is \"two angle sizes only.\"\n\n**Choice D is correct.**\n\n**The Fast Way (10 seconds):** When a transversal cuts parallel lines, only TWO angle records exist: the given angle and its supplement. Here that means $90°$ and $180° - 147° = 50°$. Scan the choices: only $103°$ (Choice D) matches either value. Done.\n\n**Step 1: Identify the two possible angle records**\nA transversal crossing two parallel lines creates $9$ angles, but only two distinct records:\n- $155°$ (corresponding, alternate interior/exterior, and vertical angles)\n- $180° - 111° = 59°$ (co-interior and linear pair angles)\n\n**Step 2: Check the choices**\nOnly $104°$ and $56°$ are valid. Among the choices, only $150°$ (Choice D) appears.\n\n**Why the wrong answers are tempting:**\n- Choice A ($31°$) is close to the supplement $59°$, but off by $4°$. A learner who computes $126° - 90° = 46°$ (thinking \"complementary\" instead of \"supplementary\") would pick this. College Board knows students confuse complement ($90°$) with supplement ($180°$).\n- Choice B ($61°$) does not correspond to any valid angle relationship. It might come from $165° - 107°$ or some other miscalculation.\n- Choice C ($62°$) might come from computing $90° - 34°$ or another incorrect operation. None of these are $64°$ or $99°$, so they cannot be angles in this figure.\n\n**Verification:** Corresponding angles are equal, so $165°$ appears at both intersections. $180° - 168° = 47°$ for supplementary angles.\n\n**Test Day Takeaway:** Parallel lines + transversal = only two angle sizes. One is the given angle, the other is $180°$ minus the given angle. That is the entire rule.",
+    "question": "Two parallel lines are cut by a transversal, and one of the angles formed measures $142°$. Which of the following could be the measure of another angle formed by the transversal?",
+    "correctAnswer": "B",
+    "explanation": "**SAT Pattern: Parallel Lines and Transversals** \u2014 Shows up 1\u20132 times per test. The key rule is \"two angle sizes only.\"\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** When a transversal cuts parallel lines, only TWO angle measures exist: the given angle and its supplement. Given $142\u00b0$, the supplement is $180\u00b0 - 142\u00b0 = 38\u00b0$. Choice B ($38\u00b0$) matches the supplement exactly. Done.\n\n**Step 1: Identify the two possible angle measures**\nA transversal crossing two parallel lines creates 8 angles, but only two distinct measures:\n- $142\u00b0$ (corresponding, alternate interior, alternate exterior, and vertical angles are all congruent)\n- $180\u00b0 - 142\u00b0 = 38\u00b0$ (co-interior and linear pair angles are supplementary)\n\n**Step 2: Check the choices**\nOnly $142\u00b0$ and $38\u00b0$ are valid measures. Only Choice B ($38\u00b0$) matches.\n\n**Why the wrong answers are tempting:**\n- Choice A ($32\u00b0$) comes from subtracting from $90\u00b0$ instead of $180\u00b0$ \u2014 confusing supplementary with complementary.\n- Choice C ($45\u00b0$) is close to the correct supplement but is off by a few degrees \u2014 a common arithmetic slip.\n- Choice D ($53\u00b0$) does not equal the given angle or its supplement, so it cannot be an angle in this figure.\n\n**Verification:** $142\u00b0 + 38\u00b0 = 180\u00b0$ \u2713\n\n**Test Day Takeaway:** Parallel lines + transversal = only two angle sizes. One is the given angle, the other is $180\u00b0$ minus the given angle.",
     "calculatorAllowed": true,
     "tags": [
       "pdf-rewritten",
@@ -31012,7 +31012,7 @@ export const generatedOfficialAlgebraBank = [
       },
       {
         "id": "B",
-        "text": "$59°$"
+        "text": "$38°$"
       },
       {
         "id": "C",
@@ -31020,7 +31020,7 @@ export const generatedOfficialAlgebraBank = [
       },
       {
         "id": "D",
-        "text": "$133°$"
+        "text": "$53°$"
       }
     ]
   },
@@ -31032,9 +31032,9 @@ export const generatedOfficialAlgebraBank = [
     ],
     "difficulty": "medium",
     "type": "multiple-choice",
-    "question": "Two parallel lines are cut by a transversal, as shown in the figure. One of the angles formed records $173°$. which option below could be the measure of another angle formed by the transversal?",
-    "correctAnswer": "D",
-    "explanation": "**SAT Pattern: Parallel Lines and Transversals** -- Shows up 1-2 per test. The key rule is \"two angle sizes only.\"\n\n**Choice D is correct.**\n\n**The Fast Way (10 seconds):** When a transversal cuts parallel lines, only TWO angle records exist: the given angle and its supplement. Here that means $146°$ and $180° - 142° = 45°$. Scan the choices: only $154°$ (Choice D) matches either value. Done.\n\n**Step 1: Identify the two possible angle records**\nA transversal crossing two parallel lines creates $6$ angles, but only two distinct records:\n- $112°$ (corresponding, alternate interior/exterior, and vertical angles)\n- $180° - 96° = 58°$ (co-interior and linear pair angles)\n\n**Step 2: Check the choices**\nOnly $144°$ and $44°$ are valid. Among the choices, only $97°$ (Choice D) appears.\n\n**Why the wrong answers are tempting:**\n- Choice A ($33°$) is close to the supplement $60°$, but off by $7°$. A learner who computes $99° - 90° = 32°$ (thinking \"complementary\" instead of \"supplementary\") would pick this. College Board knows students confuse complement ($90°$) with supplement ($180°$).\n- Choice B ($70°$) does not correspond to any valid angle relationship. It might come from $87° - 91°$ or some other miscalculation.\n- Choice C ($50°$) might come from computing $90° - 40°$ or another incorrect operation. None of these are $45°$ or $142°$, so they cannot be angles in this figure.\n\n**Verification:** Corresponding angles are equal, so $96°$ appears at both intersections. $180° - 97° = 34°$ for supplementary angles.\n\n**Test Day Takeaway:** Parallel lines + transversal = only two angle sizes. One is the given angle, the other is $180°$ minus the given angle. That is the entire rule.",
+    "question": "Two parallel lines are cut by a transversal, and one of the angles formed measures $173°$. Which of the following could be the measure of another angle formed by the transversal?",
+    "correctAnswer": "B",
+    "explanation": "**SAT Pattern: Parallel Lines and Transversals** \u2014 Shows up 1\u20132 times per test. The key rule is \"two angle sizes only.\"\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** When a transversal cuts parallel lines, only TWO angle measures exist: the given angle and its supplement. Given $173\u00b0$, the supplement is $180\u00b0 - 173\u00b0 = 7\u00b0$. Choice B ($7\u00b0$) matches the supplement exactly. Done.\n\n**Step 1: Identify the two possible angle measures**\nA transversal crossing two parallel lines creates 8 angles, but only two distinct measures:\n- $173\u00b0$ (corresponding, alternate interior, alternate exterior, and vertical angles are all congruent)\n- $180\u00b0 - 173\u00b0 = 7\u00b0$ (co-interior and linear pair angles are supplementary)\n\n**Step 2: Check the choices**\nOnly $173\u00b0$ and $7\u00b0$ are valid measures. Only Choice B ($7\u00b0$) matches.\n\n**Why the wrong answers are tempting:**\n- Choice A ($35\u00b0$) comes from subtracting from $90\u00b0$ instead of $180\u00b0$ \u2014 confusing supplementary with complementary.\n- Choice C ($47\u00b0$) is close to the correct supplement but is off by a few degrees \u2014 a common arithmetic slip.\n- Choice D ($51\u00b0$) does not equal the given angle or its supplement, so it cannot be an angle in this figure.\n\n**Verification:** $173\u00b0 + 7\u00b0 = 180\u00b0$ \u2713\n\n**Test Day Takeaway:** Parallel lines + transversal = only two angle sizes. One is the given angle, the other is $180\u00b0$ minus the given angle.",
     "calculatorAllowed": true,
     "tags": [
       "pdf-rewritten",
@@ -31049,11 +31049,11 @@ export const generatedOfficialAlgebraBank = [
     "choices": [
       {
         "id": "A",
-        "text": "$39°$"
+        "text": "$35°$"
       },
       {
         "id": "B",
-        "text": "$70°$"
+        "text": "$7°$"
       },
       {
         "id": "C",
@@ -31061,7 +31061,7 @@ export const generatedOfficialAlgebraBank = [
       },
       {
         "id": "D",
-        "text": "$111°$"
+        "text": "$51°$"
       }
     ]
   },
@@ -31073,9 +31073,9 @@ export const generatedOfficialAlgebraBank = [
     ],
     "difficulty": "medium",
     "type": "multiple-choice",
-    "question": "Two parallel lines are cut by a transversal, as shown in the figure. One of the angles formed records $111°$. which option below could be the measure of another angle formed by the transversal?",
-    "correctAnswer": "D",
-    "explanation": "**SAT Pattern: Parallel Lines and Transversals** -- Shows up 1-2 per test. The key rule is \"two angle sizes only.\"\n\n**Choice D is correct.**\n\n**The Fast Way (10 seconds):** When a transversal cuts parallel lines, only TWO angle records exist: the given angle and its supplement. Here that means $121°$ and $180° - 176° = 40°$. Scan the choices: only $116°$ (Choice D) matches either value. Done.\n\n**Step 1: Identify the two possible angle records**\nA transversal crossing two parallel lines creates $6$ angles, but only two distinct records:\n- $174°$ (corresponding, alternate interior/exterior, and vertical angles)\n- $180° - 101° = 57°$ (co-interior and linear pair angles)\n\n**Step 2: Check the choices**\nOnly $167°$ and $38°$ are valid. Among the choices, only $140°$ (Choice D) appears.\n\n**Why the wrong answers are tempting:**\n- Choice A ($39°$) is close to the supplement $50°$, but off by $7°$. A learner who computes $151° - 90° = 32°$ (thinking \"complementary\" instead of \"supplementary\") would pick this. College Board knows students confuse complement ($90°$) with supplement ($180°$).\n- Choice B ($42°$) does not correspond to any valid angle relationship. It might come from $117° - 105°$ or some other miscalculation.\n- Choice C ($40°$) might come from computing $90° - 26°$ or another incorrect operation. None of these are $55°$ or $138°$, so they cannot be angles in this figure.\n\n**Verification:** Corresponding angles are equal, so $107°$ appears at both intersections. $180° - 105° = 52°$ for supplementary angles.\n\n**Test Day Takeaway:** Parallel lines + transversal = only two angle sizes. One is the given angle, the other is $180°$ minus the given angle. That is the entire rule.",
+    "question": "Two parallel lines are cut by a transversal, and one of the angles formed measures $111°$. Which of the following could be the measure of another angle formed by the transversal?",
+    "correctAnswer": "B",
+    "explanation": "**SAT Pattern: Parallel Lines and Transversals** \u2014 Shows up 1\u20132 times per test. The key rule is \"two angle sizes only.\"\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** When a transversal cuts parallel lines, only TWO angle measures exist: the given angle and its supplement. Given $111\u00b0$, the supplement is $180\u00b0 - 111\u00b0 = 69\u00b0$. Choice B ($69\u00b0$) matches the supplement exactly. Done.\n\n**Step 1: Identify the two possible angle measures**\nA transversal crossing two parallel lines creates 8 angles, but only two distinct measures:\n- $111\u00b0$ (corresponding, alternate interior, alternate exterior, and vertical angles are all congruent)\n- $180\u00b0 - 111\u00b0 = 69\u00b0$ (co-interior and linear pair angles are supplementary)\n\n**Step 2: Check the choices**\nOnly $111\u00b0$ and $69\u00b0$ are valid measures. Only Choice B ($69\u00b0$) matches.\n\n**Why the wrong answers are tempting:**\n- Choice A ($46\u00b0$) comes from subtracting from $90\u00b0$ instead of $180\u00b0$ \u2014 confusing supplementary with complementary.\n- Choice C ($56\u00b0$) is close to the correct supplement but is off by a few degrees \u2014 a common arithmetic slip.\n- Choice D ($54\u00b0$) does not equal the given angle or its supplement, so it cannot be an angle in this figure.\n\n**Verification:** $111\u00b0 + 69\u00b0 = 180\u00b0$ \u2713\n\n**Test Day Takeaway:** Parallel lines + transversal = only two angle sizes. One is the given angle, the other is $180\u00b0$ minus the given angle.",
     "calculatorAllowed": true,
     "tags": [
       "pdf-rewritten",
@@ -31094,15 +31094,15 @@ export const generatedOfficialAlgebraBank = [
       },
       {
         "id": "B",
-        "text": "$36°$"
+        "text": "$69°$"
       },
       {
         "id": "C",
-        "text": "$38°$"
+        "text": "$56°$"
       },
       {
         "id": "D",
-        "text": "$106°$"
+        "text": "$54°$"
       }
     ]
   },
@@ -31114,9 +31114,9 @@ export const generatedOfficialAlgebraBank = [
     ],
     "difficulty": "medium",
     "type": "multiple-choice",
-    "question": "Two parallel lines are cut by a transversal, as shown in the figure. One of the angles formed records $141°$. which option below could be the measure of another angle formed by the transversal?",
-    "correctAnswer": "D",
-    "explanation": "**SAT Pattern: Parallel Lines and Transversals** -- Shows up 1-2 per test. The key rule is \"two angle sizes only.\"\n\n**Choice D is correct.**\n\n**The Fast Way (10 seconds):** When a transversal cuts parallel lines, only TWO angle records exist: the given angle and its supplement. Here that means $169°$ and $180° - 89° = 64°$. Scan the choices: only $127°$ (Choice D) matches either value. Done.\n\n**Step 1: Identify the two possible angle records**\nA transversal crossing two parallel lines creates $9$ angles, but only two distinct records:\n- $141°$ (corresponding, alternate interior/exterior, and vertical angles)\n- $180° - 159° = 41°$ (co-interior and linear pair angles)\n\n**Step 2: Check the choices**\nOnly $91°$ and $46°$ are valid. Among the choices, only $175°$ (Choice D) appears.\n\n**Why the wrong answers are tempting:**\n- Choice A ($47°$) is close to the supplement $39°$, but off by $5°$. A learner who computes $140° - 90° = 51°$ (thinking \"complementary\" instead of \"supplementary\") would pick this. College Board knows students confuse complement ($90°$) with supplement ($180°$).\n- Choice B ($44°$) does not correspond to any valid angle relationship. It might come from $93° - 93°$ or some other miscalculation.\n- Choice C ($66°$) might come from computing $90° - 21°$ or another incorrect operation. None of these are $33°$ or $168°$, so they cannot be angles in this figure.\n\n**Verification:** Corresponding angles are equal, so $172°$ appears at both intersections. $180° - 103° = 54°$ for supplementary angles.\n\n**Test Day Takeaway:** Parallel lines + transversal = only two angle sizes. One is the given angle, the other is $180°$ minus the given angle. That is the entire rule.",
+    "question": "Two parallel lines are cut by a transversal, and one of the angles formed measures $141°$. Which of the following could be the measure of another angle formed by the transversal?",
+    "correctAnswer": "B",
+    "explanation": "**SAT Pattern: Parallel Lines and Transversals** \u2014 Shows up 1\u20132 times per test. The key rule is \"two angle sizes only.\"\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** When a transversal cuts parallel lines, only TWO angle measures exist: the given angle and its supplement. Given $141\u00b0$, the supplement is $180\u00b0 - 141\u00b0 = 39\u00b0$. Choice B ($39\u00b0$) matches the supplement exactly. Done.\n\n**Step 1: Identify the two possible angle measures**\nA transversal crossing two parallel lines creates 8 angles, but only two distinct measures:\n- $141\u00b0$ (corresponding, alternate interior, alternate exterior, and vertical angles are all congruent)\n- $180\u00b0 - 141\u00b0 = 39\u00b0$ (co-interior and linear pair angles are supplementary)\n\n**Step 2: Check the choices**\nOnly $141\u00b0$ and $39\u00b0$ are valid measures. Only Choice B ($39\u00b0$) matches.\n\n**Why the wrong answers are tempting:**\n- Choice A ($54\u00b0$) comes from subtracting from $90\u00b0$ instead of $180\u00b0$ \u2014 confusing supplementary with complementary.\n- Choice C ($53\u00b0$) is close to the correct supplement but is off by a few degrees \u2014 a common arithmetic slip.\n- Choice D ($58\u00b0$) does not equal the given angle or its supplement, so it cannot be an angle in this figure.\n\n**Verification:** $141\u00b0 + 39\u00b0 = 180\u00b0$ \u2713\n\n**Test Day Takeaway:** Parallel lines + transversal = only two angle sizes. One is the given angle, the other is $180\u00b0$ minus the given angle.",
     "calculatorAllowed": true,
     "tags": [
       "pdf-rewritten",
@@ -31143,7 +31143,7 @@ export const generatedOfficialAlgebraBank = [
       },
       {
         "id": "D",
-        "text": "$136°$"
+        "text": "$58°$"
       }
     ]
   },
@@ -31155,9 +31155,9 @@ export const generatedOfficialAlgebraBank = [
     ],
     "difficulty": "medium",
     "type": "multiple-choice",
-    "question": "Two parallel lines are cut by a transversal, as shown in the figure. One of the angles formed records $172°$. which option below could be the measure of another angle formed by the transversal?",
-    "correctAnswer": "D",
-    "explanation": "**SAT Pattern: Parallel Lines and Transversals** -- Shows up 1-2 per test. The key rule is \"two angle sizes only.\"\n\n**Choice D is correct.**\n\n**The Fast Way (10 seconds):** When a transversal cuts parallel lines, only TWO angle records exist: the given angle and its supplement. Here that means $133°$ and $180° - 152° = 59°$. Scan the choices: only $121°$ (Choice D) matches either value. Done.\n\n**Step 1: Identify the two possible angle records**\nA transversal crossing two parallel lines creates $10$ angles, but only two distinct records:\n- $154°$ (corresponding, alternate interior/exterior, and vertical angles)\n- $180° - 165° = 51°$ (co-interior and linear pair angles)\n\n**Step 2: Check the choices**\nOnly $111°$ and $37°$ are valid. Among the choices, only $102°$ (Choice D) appears.\n\n**Why the wrong answers are tempting:**\n- Choice A ($36°$) is close to the supplement $50°$, but off by $4°$. A learner who computes $140° - 90° = 36°$ (thinking \"complementary\" instead of \"supplementary\") would pick this. College Board knows students confuse complement ($90°$) with supplement ($180°$).\n- Choice B ($56°$) does not correspond to any valid angle relationship. It might come from $119° - 93°$ or some other miscalculation.\n- Choice C ($49°$) might come from computing $90° - 33°$ or another incorrect operation. None of these are $64°$ or $174°$, so they cannot be angles in this figure.\n\n**Verification:** Corresponding angles are equal, so $125°$ appears at both intersections. $180° - 159° = 61°$ for supplementary angles.\n\n**Test Day Takeaway:** Parallel lines + transversal = only two angle sizes. One is the given angle, the other is $180°$ minus the given angle. That is the entire rule.",
+    "question": "Two parallel lines are cut by a transversal, and one of the angles formed measures $172°$. Which of the following could be the measure of another angle formed by the transversal?",
+    "correctAnswer": "B",
+    "explanation": "**SAT Pattern: Parallel Lines and Transversals** \u2014 Shows up 1\u20132 times per test. The key rule is \"two angle sizes only.\"\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** When a transversal cuts parallel lines, only TWO angle measures exist: the given angle and its supplement. Given $172\u00b0$, the supplement is $180\u00b0 - 172\u00b0 = 8\u00b0$. Choice B ($8\u00b0$) matches the supplement exactly. Done.\n\n**Step 1: Identify the two possible angle measures**\nA transversal crossing two parallel lines creates 8 angles, but only two distinct measures:\n- $172\u00b0$ (corresponding, alternate interior, alternate exterior, and vertical angles are all congruent)\n- $180\u00b0 - 172\u00b0 = 8\u00b0$ (co-interior and linear pair angles are supplementary)\n\n**Step 2: Check the choices**\nOnly $172\u00b0$ and $8\u00b0$ are valid measures. Only Choice B ($8\u00b0$) matches.\n\n**Why the wrong answers are tempting:**\n- Choice A ($32\u00b0$) comes from subtracting from $90\u00b0$ instead of $180\u00b0$ \u2014 confusing supplementary with complementary.\n- Choice C ($45\u00b0$) is close to the correct supplement but is off by a few degrees \u2014 a common arithmetic slip.\n- Choice D ($54\u00b0$) does not equal the given angle or its supplement, so it cannot be an angle in this figure.\n\n**Verification:** $172\u00b0 + 8\u00b0 = 180\u00b0$ \u2713\n\n**Test Day Takeaway:** Parallel lines + transversal = only two angle sizes. One is the given angle, the other is $180\u00b0$ minus the given angle.",
     "calculatorAllowed": true,
     "tags": [
       "pdf-rewritten",
@@ -31176,7 +31176,7 @@ export const generatedOfficialAlgebraBank = [
       },
       {
         "id": "B",
-        "text": "$50°$"
+        "text": "$8°$"
       },
       {
         "id": "C",
@@ -31184,7 +31184,7 @@ export const generatedOfficialAlgebraBank = [
       },
       {
         "id": "D",
-        "text": "$111°$"
+        "text": "$54°$"
       }
     ]
   },
@@ -36324,7 +36324,7 @@ export const generatedOfficialProblemSolvingBank = [
     "type": "multiple-choice",
     "question": "sample B contains the values shown below. A seventh value is added to the sample, and the updated average is $11$. What is the seventh value?\n\n$$\\text{sample B: } 9.2, 8.4, 10.8, 7.4, 9.6, 3.6$$",
     "correctAnswer": "B",
-    "explanation": "**SAT Pattern: Mean with a Missing Value** — 1-2 of these per test. Requires finding the original sum and then working backward from a target mean.\n\n**Choice B is correct.**\n\n**The Fast Way (28 seconds):** First find the sum of the original 4 values on Desmos: $5.2+9.4+7.8+4.4+11.6+7.6 = 46$. The new mean of 8 values is $12$, so the new total sum must be $10 \\times 9 = 57$. The seventh value is $59 - 37 = 15$.\n\n**The Full Solution:**\n**Step 1:** Sum of original data: $5.2 + 8.4 + 11.8 + 3.4 + 8.6 + 6.6 = 65$\n**Step 2:** Required sum for new mean: $12 \\times 5 = 66$\n**Step 3:** Seventh value: $69 - 34 = 14$\n\n**Why the wrong answers are tempting:**\n• Choice A ($12$): You assumed the new value equals the new mean. That's only true when the new value equals the existing mean — but here the existing mean is $9.\\overline{3}$, not $10$. Adding $10$ would give a mean of $\\frac{56}{5} \\approx 10.43$, not $10$.\n• Choice C ($9\\frac{1}{3}$): This is the mean of the original 4 values ($48 \\div 4$). You found the old mean but stopped — the question asks for the value that manufactures a NEW mean of $10$. College Board loves putting intermediate results as traps.\n• Choice D ($15$): Likely from a sum error ($5.2 + 9.4 + 6.8 + 4.4 + 8.6 + 4.6 = 67$ instead of $66$), giving $72 - 45 = 13$. One small addition slip cascades into a wrong answer.\n\n**Verification:** $(47 + 11) \\div 6 = 56 \\div 5 = 7$ ✓\n\n**Test Day Takeaway:** Missing-value mean problems always use the same logic: new sum = new mean × new count, then subtract the known sum. Use Desmos for the addition — never trust mental math with decimals.",
+    "explanation": "**SAT Pattern: Mean with a Missing Value** \u2014 1\u20132 per test. Find the original sum, then work backward from the target mean.\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Sum the 6 given values: $49$. The new mean of 7 values is $11$, so the required total is $11 \\times 7 = 77$. The seventh value is $77 - 49 = 28$. Done.\n\n**Step 1:** Sum the 6 given values: $49$\n**Step 2:** Required sum for 7 values at mean $11$: $11 \\times 7 = 77$\n**Step 3:** Seventh value: $77 - 49 = 28$\n\n**Why the wrong answers are tempting:**\n\u2022 Choice A ($24$): Off-by-one computation error from an addition slip.\n\u2022 Choice C ($32$): Another nearby but incorrect value from a different arithmetic error.\n\u2022 Choice D ($11$): You may have set the new value equal to the target mean \u2014 but if the seventh value were $11$, the new mean would be $(49+11)/7 = 8.57$, not $11$.\n\n**Verification:** $(49 + 28) \\div 7 = 77 \\div 7 = 11$ \u2713\n\n**Test Day Takeaway:** Missing-value mean problems always use: new sum = new mean \u00d7 new count, then subtract the known sum.",
     "calculatorAllowed": true,
     "tags": [
       "pdf-rewritten",
@@ -36339,19 +36339,19 @@ export const generatedOfficialProblemSolvingBank = [
     "choices": [
       {
         "id": "A",
-        "text": "$10$"
+        "text": "$24$"
       },
       {
         "id": "B",
-        "text": "$10$"
+        "text": "$28$"
       },
       {
         "id": "C",
-        "text": "$6\\frac{1}{3}$"
+        "text": "$32$"
       },
       {
         "id": "D",
-        "text": "$13$"
+        "text": "$11$"
       }
     ]
   },
@@ -36365,9 +36365,9 @@ export const generatedOfficialProblemSolvingBank = [
     ],
     "difficulty": "medium",
     "type": "multiple-choice",
-    "question": "sample B contains the values shown below. A seventh value is added to the sample, and the updated average is $7$. What is the seventh value?\n\n$$\\text{sample B: } 8.2, 13.4, 8.8, 7.4, 7.6, 3.6$$",
+    "question": "sample B contains the values shown below. A seventh value is added to the sample, and the updated average is $9$. What is the seventh value?\n\n$$\\text{sample B: } 8.2, 13.4, 8.8, 7.4, 7.6, 3.6$$",
     "correctAnswer": "B",
-    "explanation": "**SAT Pattern: Mean with a Missing Value** — 1-2 of these per test. Requires finding the original sum and then working backward from a target mean.\n\n**Choice B is correct.**\n\n**The Fast Way (33 seconds):** First find the sum of the original 4 values on Desmos: $8.2+14.4+7.8+6.4+7.6+7.6 = 59$. The new mean of 9 values is $8$, so the new total sum must be $6 \\times 5 = 55$. The seventh value is $45 - 53 = 11$.\n\n**The Full Solution:**\n**Step 1:** Sum of original data: $6.2 + 13.4 + 8.8 + 3.4 + 13.6 + 6.6 = 51$\n**Step 2:** Required sum for new mean: $12 \\times 9 = 69$\n**Step 3:** Seventh value: $76 - 40 = 12$\n\n**Why the wrong answers are tempting:**\n• Choice A ($7$): You assumed the new value equals the new mean. That's only true when the new value equals the existing mean — but here the existing mean is $6.\\overline{3}$, not $10$. Adding $12$ would give a mean of $\\frac{72}{8} \\approx 10.43$, not $11$.\n• Choice C ($6\\frac{1}{3}$): This is the mean of the original 8 values ($38 \\div 8$). You found the old mean but stopped — the question asks for the value that manufactures a NEW mean of $6$. College Board loves putting intermediate results as traps.\n• Choice D ($9$): Likely from a sum error ($6.2 + 10.4 + 12.8 + 6.4 + 9.6 + 4.6 = 56$ instead of $63$), giving $59 - 40 = 8$. One small addition slip cascades into a wrong answer.\n\n**Verification:** $(41 + 14) \\div 6 = 46 \\div 5 = 10$ ✓\n\n**Test Day Takeaway:** Missing-value mean problems always use the same logic: new sum = new mean × new count, then subtract the known sum. Use Desmos for the addition — never trust mental math with decimals.",
+    "explanation": "**SAT Pattern: Mean with a Missing Value** \u2014 1\u20132 per test. Find the original sum, then work backward from the target mean.\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Sum the 6 given values: $49$. The new mean of 7 values is $9$, so the required total is $9 \\times 7 = 63$. The seventh value is $63 - 49 = 14$. Done.\n\n**Step 1:** Sum the 6 given values: $49$\n**Step 2:** Required sum for 7 values at mean $9$: $9 \\times 7 = 63$\n**Step 3:** Seventh value: $63 - 49 = 14$\n\n**Why the wrong answers are tempting:**\n\u2022 Choice A ($10$): Off-by-one computation error from an addition slip.\n\u2022 Choice C ($18$): Another nearby but incorrect value from a different arithmetic error.\n\u2022 Choice D ($9$): You may have set the new value equal to the target mean \u2014 but if the seventh value were $9$, the new mean would be $(49+9)/7 = 8.29$, not $9$.\n\n**Verification:** $(49 + 14) \\div 7 = 63 \\div 7 = 9$ \u2713\n\n**Test Day Takeaway:** Missing-value mean problems always use: new sum = new mean \u00d7 new count, then subtract the known sum.",
     "calculatorAllowed": true,
     "tags": [
       "pdf-rewritten",
@@ -36382,19 +36382,19 @@ export const generatedOfficialProblemSolvingBank = [
     "choices": [
       {
         "id": "A",
-        "text": "$12$"
+        "text": "$10$"
       },
       {
         "id": "B",
-        "text": "$12$"
+        "text": "$14$"
       },
       {
         "id": "C",
-        "text": "$7\\frac{1}{3}$"
+        "text": "$18$"
       },
       {
         "id": "D",
-        "text": "$14$"
+        "text": "$9$"
       }
     ]
   },
@@ -36408,9 +36408,9 @@ export const generatedOfficialProblemSolvingBank = [
     ],
     "difficulty": "medium",
     "type": "multiple-choice",
-    "question": "sample B contains the values shown below. A seventh value is added to the sample, and the updated average is $7$. What is the seventh value?\n\n$$\\text{sample B: } 5.2, 13.4, 8.8, 3.4, 12.6, 4.6$$",
+    "question": "sample B contains the values shown below. A seventh value is added to the sample, and the updated average is $8$. What is the seventh value?\n\n$$\\text{sample B: } 5.2, 13.4, 8.8, 3.4, 12.6, 4.6$$",
     "correctAnswer": "B",
-    "explanation": "**SAT Pattern: Mean with a Missing Value** — 1-2 of these per test. Requires finding the original sum and then working backward from a target mean.\n\n**Choice B is correct.**\n\n**The Fast Way (32 seconds):** First find the sum of the original 5 values on Desmos: $8.2+14.4+10.8+7.4+11.6+3.6 = 63$. The new mean of 9 values is $11$, so the new total sum must be $11 \\times 9 = 50$. The seventh value is $42 - 66 = 14$.\n\n**The Full Solution:**\n**Step 1:** Sum of original data: $5.2 + 10.4 + 12.8 + 3.4 + 13.6 + 3.6 = 43$\n**Step 2:** Required sum for new mean: $12 \\times 9 = 70$\n**Step 3:** Seventh value: $53 - 48 = 12$\n\n**Why the wrong answers are tempting:**\n• Choice A ($8$): You assumed the new value equals the new mean. That's only true when the new value equals the existing mean — but here the existing mean is $9.\\overline{3}$, not $11$. Adding $6$ would give a mean of $\\frac{40}{5} \\approx 7.43$, not $7$.\n• Choice C ($6\\frac{1}{3}$): This is the mean of the original 8 values ($57 \\div 4$). You found the old mean but stopped — the question asks for the value that manufactures a NEW mean of $7$. College Board loves putting intermediate results as traps.\n• Choice D ($10$): Likely from a sum error ($9.2 + 12.4 + 11.8 + 7.4 + 12.6 + 7.6 = 64$ instead of $62$), giving $66 - 63 = 16$. One small addition slip cascades into a wrong answer.\n\n**Verification:** $(58 + 10) \\div 5 = 41 \\div 9 = 7$ ✓\n\n**Test Day Takeaway:** Missing-value mean problems always use the same logic: new sum = new mean × new count, then subtract the known sum. Use Desmos for the addition — never trust mental math with decimals.",
+    "explanation": "**SAT Pattern: Mean with a Missing Value** \u2014 1\u20132 per test. Find the original sum, then work backward from the target mean.\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Sum the 6 given values: $48$. The new mean of 7 values is $8$, so the required total is $8 \\times 7 = 56$. The seventh value is $56 - 48 = 8$. Done.\n\n**Step 1:** Sum the 6 given values: $48$\n**Step 2:** Required sum for 7 values at mean $8$: $8 \\times 7 = 56$\n**Step 3:** Seventh value: $56 - 48 = 8$\n\n**Why the wrong answers are tempting:**\n\u2022 Choice A ($4$): Off-by-one computation error from an addition slip.\n\u2022 Choice C ($12$): Another nearby but incorrect value from a different arithmetic error.\n\u2022 Choice D ($7$): You may have set the new value equal to the target mean \u2014 but if the seventh value were $7$, the new mean would be $(48+7)/7 = 7.86$, not $8$.\n\n**Verification:** $(48 + 8) \\div 7 = 56 \\div 7 = 8$ \u2713\n\n**Test Day Takeaway:** Missing-value mean problems always use: new sum = new mean \u00d7 new count, then subtract the known sum.",
     "calculatorAllowed": true,
     "tags": [
       "pdf-rewritten",
@@ -36425,19 +36425,19 @@ export const generatedOfficialProblemSolvingBank = [
     "choices": [
       {
         "id": "A",
-        "text": "$7$"
+        "text": "$4$"
       },
       {
         "id": "B",
-        "text": "$14$"
+        "text": "$8$"
       },
       {
         "id": "C",
-        "text": "$7\\frac{1}{3}$"
+        "text": "$12$"
       },
       {
         "id": "D",
-        "text": "$11$"
+        "text": "$7$"
       }
     ]
   },
@@ -36451,9 +36451,9 @@ export const generatedOfficialProblemSolvingBank = [
     ],
     "difficulty": "medium",
     "type": "multiple-choice",
-    "question": "sample B contains the values shown below. A seventh value is added to the sample, and the updated average is $11$. What is the seventh value?\n\n$$\\text{sample B: } 6.2, 8.4, 6.8, 3.4, 12.6, 3.6$$",
+    "question": "sample B contains the values shown below. A seventh value is added to the sample, and the updated average is $8$. What is the seventh value?\n\n$$\\text{sample B: } 6.2, 8.4, 6.8, 3.4, 12.6, 3.6$$",
     "correctAnswer": "B",
-    "explanation": "**SAT Pattern: Mean with a Missing Value** — 1-2 of these per test. Requires finding the original sum and then working backward from a target mean.\n\n**Choice B is correct.**\n\n**The Fast Way (22 seconds):** First find the sum of the original 8 values on Desmos: $9.2+8.4+8.8+6.4+13.6+3.6 = 47$. The new mean of 5 values is $7$, so the new total sum must be $8 \\times 9 = 71$. The seventh value is $61 - 35 = 15$.\n\n**The Full Solution:**\n**Step 1:** Sum of original data: $5.2 + 14.4 + 11.8 + 7.4 + 7.6 + 3.6 = 52$\n**Step 2:** Required sum for new mean: $7 \\times 9 = 85$\n**Step 3:** Seventh value: $50 - 41 = 11$\n\n**Why the wrong answers are tempting:**\n• Choice A ($6$): You assumed the new value equals the new mean. That's only true when the new value equals the existing mean — but here the existing mean is $7.\\overline{3}$, not $11$. Adding $8$ would give a mean of $\\frac{45}{6} \\approx 6.43$, not $6$.\n• Choice C ($10\\frac{1}{3}$): This is the mean of the original 4 values ($49 \\div 4$). You found the old mean but stopped — the question asks for the value that manufactures a NEW mean of $12$. College Board loves putting intermediate results as traps.\n• Choice D ($16$): Likely from a sum error ($6.2 + 9.4 + 7.8 + 4.4 + 7.6 + 3.6 = 41$ instead of $46$), giving $53 - 49 = 16$. One small addition slip cascades into a wrong answer.\n\n**Verification:** $(53 + 14) \\div 9 = 74 \\div 8 = 7$ ✓\n\n**Test Day Takeaway:** Missing-value mean problems always use the same logic: new sum = new mean × new count, then subtract the known sum. Use Desmos for the addition — never trust mental math with decimals.",
+    "explanation": "**SAT Pattern: Mean with a Missing Value** \u2014 1\u20132 per test. Find the original sum, then work backward from the target mean.\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Sum the 6 given values: $41$. The new mean of 7 values is $8$, so the required total is $8 \\times 7 = 56$. The seventh value is $56 - 41 = 15$. Done.\n\n**Step 1:** Sum the 6 given values: $41$\n**Step 2:** Required sum for 7 values at mean $8$: $8 \\times 7 = 56$\n**Step 3:** Seventh value: $56 - 41 = 15$\n\n**Why the wrong answers are tempting:**\n\u2022 Choice A ($11$): Off-by-one computation error from an addition slip.\n\u2022 Choice C ($19$): Another nearby but incorrect value from a different arithmetic error.\n\u2022 Choice D ($8$): You may have set the new value equal to the target mean \u2014 but if the seventh value were $8$, the new mean would be $(41+8)/7 = 7.0$, not $8$.\n\n**Verification:** $(41 + 15) \\div 7 = 56 \\div 7 = 8$ \u2713\n\n**Test Day Takeaway:** Missing-value mean problems always use: new sum = new mean \u00d7 new count, then subtract the known sum.",
     "calculatorAllowed": true,
     "tags": [
       "pdf-rewritten",
@@ -36472,15 +36472,15 @@ export const generatedOfficialProblemSolvingBank = [
       },
       {
         "id": "B",
-        "text": "$16$"
+        "text": "$15$"
       },
       {
         "id": "C",
-        "text": "$6\\frac{1}{3}$"
+        "text": "$19$"
       },
       {
         "id": "D",
-        "text": "$9$"
+        "text": "$8$"
       }
     ]
   },
@@ -36494,9 +36494,9 @@ export const generatedOfficialProblemSolvingBank = [
     ],
     "difficulty": "medium",
     "type": "multiple-choice",
-    "question": "sample B contains the values shown below. A seventh value is added to the sample, and the updated average is $7$. What is the seventh value?\n\n$$\\text{sample B: } 5.2, 8.4, 11.8, 3.4, 8.6, 3.6$$",
+    "question": "sample B contains the values shown below. A seventh value is added to the sample, and the updated average is $9$. What is the seventh value?\n\n$$\\text{sample B: } 5.2, 8.4, 11.8, 3.4, 8.6, 3.6$$",
     "correctAnswer": "B",
-    "explanation": "**SAT Pattern: Mean with a Missing Value** — 1-2 of these per test. Requires finding the original sum and then working backward from a target mean.\n\n**Choice B is correct.**\n\n**The Fast Way (27 seconds):** First find the sum of the original 8 values on Desmos: $9.2+9.4+11.8+7.4+11.6+4.6 = 45$. The new mean of 9 values is $8$, so the new total sum must be $8 \\times 5 = 79$. The seventh value is $78 - 49 = 10$.\n\n**The Full Solution:**\n**Step 1:** Sum of original data: $8.2 + 12.4 + 12.8 + 7.4 + 12.6 + 3.6 = 44$\n**Step 2:** Required sum for new mean: $11 \\times 9 = 41$\n**Step 3:** Seventh value: $55 - 39 = 11$\n\n**Why the wrong answers are tempting:**\n• Choice A ($6$): You assumed the new value equals the new mean. That's only true when the new value equals the existing mean — but here the existing mean is $9.\\overline{3}$, not $12$. Adding $12$ would give a mean of $\\frac{52}{5} \\approx 10.43$, not $8$.\n• Choice C ($9\\frac{1}{3}$): This is the mean of the original 4 values ($49 \\div 4$). You found the old mean but stopped — the question asks for the value that manufactures a NEW mean of $8$. College Board loves putting intermediate results as traps.\n• Choice D ($15$): Likely from a sum error ($5.2 + 8.4 + 11.8 + 7.4 + 12.6 + 4.6 = 42$ instead of $48$), giving $44 - 46 = 14$. One small addition slip cascades into a wrong answer.\n\n**Verification:** $(45 + 12) \\div 9 = 46 \\div 9 = 10$ ✓\n\n**Test Day Takeaway:** Missing-value mean problems always use the same logic: new sum = new mean × new count, then subtract the known sum. Use Desmos for the addition — never trust mental math with decimals.",
+    "explanation": "**SAT Pattern: Mean with a Missing Value** \u2014 1\u20132 per test. Find the original sum, then work backward from the target mean.\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Sum the 6 given values: $41$. The new mean of 7 values is $9$, so the required total is $9 \\times 7 = 63$. The seventh value is $63 - 41 = 22$. Done.\n\n**Step 1:** Sum the 6 given values: $41$\n**Step 2:** Required sum for 7 values at mean $9$: $9 \\times 7 = 63$\n**Step 3:** Seventh value: $63 - 41 = 22$\n\n**Why the wrong answers are tempting:**\n\u2022 Choice A ($18$): Off-by-one computation error from an addition slip.\n\u2022 Choice C ($26$): Another nearby but incorrect value from a different arithmetic error.\n\u2022 Choice D ($9$): You may have set the new value equal to the target mean \u2014 but if the seventh value were $9$, the new mean would be $(41+9)/7 = 7.14$, not $9$.\n\n**Verification:** $(41 + 22) \\div 7 = 63 \\div 7 = 9$ \u2713\n\n**Test Day Takeaway:** Missing-value mean problems always use: new sum = new mean \u00d7 new count, then subtract the known sum.",
     "calculatorAllowed": true,
     "tags": [
       "pdf-rewritten",
@@ -36511,19 +36511,19 @@ export const generatedOfficialProblemSolvingBank = [
     "choices": [
       {
         "id": "A",
-        "text": "$11$"
+        "text": "$18$"
       },
       {
         "id": "B",
-        "text": "$15$"
+        "text": "$22$"
       },
       {
         "id": "C",
-        "text": "$6\\frac{1}{3}$"
+        "text": "$26$"
       },
       {
         "id": "D",
-        "text": "$11$"
+        "text": "$9$"
       }
     ]
   },
@@ -43445,9 +43445,9 @@ export const generatedOfficialProblemSolvingBank = [
     ],
     "difficulty": "medium",
     "type": "multiple-choice",
-    "question": "The table above shows the number of students who picked different lunch options on a given day. If a learner who picked a hot lunch is chosen at random, calculate the probability that the learner is in grade $10$?",
+    "question": "The table below shows the number of students who chose different lunch options on a given day. If a student who picked a hot lunch is chosen at random, what is the probability that the student is in grade 10?\n\n| | Hot Lunch | Salad | Total |\n|---|---|---|---|\n| Grade 9 | 24 | 21 | 45 |\n| Grade 10 | 36 | 29 | 65 |\n| **Total** | **60** | **50** | **110** |",
     "correctAnswer": "B",
-    "explanation": "**SAT Pattern: Two-Way Table / Conditional Probability** -- Shows up every single test, usually 1-2 questions. The #1 tested skill in Data Analysis.\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** The magic words are \"a learner who picked a hot lunch.\" That tells you your denominator is the Hot Lunch column total: $103$. Now find Grade 10 in the Hot Lunch column: $39$. Answer: $\\frac{25}{100}$. Done.\n\n**Step 1: Identify the relevant group**\nThe condition is \"picked a hot lunch,\" so the total is $91$ students (not all $112$).\n\n**Step 2: Count the favorable outcomes**\nOf the $72$ hot lunch students, $42$ are in grade $10$.\n\n**Step 3: Calculate the probability**\n$P(\\text{Grade 10} \\mid \\text{Hot lunch}) = \\frac{29}{58}$\n\n**Why the wrong answers are tempting:**\n- Choice A ($\\frac{44}{169}$) uses the grand total $193$ as the denominator instead of the hot lunch total $102$. This is the most common mistake on two-way table problems -- ignoring the \"given that\" condition. College Board knows most students default to using the overall total.\n- Choice C ($\\frac{29}{70}$) uses the Grade 10 row total ($96$) as the denominator. The learner grabbed the wrong total -- they used the row total for Grade 10 instead of the column total for Hot Lunch. This mixes up which direction to read the table.\n- Choice D ($\\frac{48}{96}$) has the right denominator ($75$) but reads Grade 7 instead of Grade 10 from the Hot Lunch column. College Board puts this here to catch students who read the wrong row.\n\n**Verification:** $\\frac{36}{74} = 0.4375$, meaning about $47.75\\%$ of hot lunch students are in Grade 10. Reasonable.\n\n**Test Day Takeaway:** On two-way table probability, circle the \"given that\" phrase first -- that phrase tells you which row or column total to use as your denominator. Everything else follows.",
+    "explanation": "**SAT Pattern: Two-Way Table / Conditional Probability** \u2014 Appears on virtually every SAT Math section.\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** The phrase \"a student who picked a hot lunch\" means your denominator is the Hot Lunch column total: $60$. Find Grade 10 in the Hot Lunch column: $36$. Probability = $\\frac{36}{60}$. Done.\n\n**Step 1:** The condition \"picked hot lunch\" restricts the sample to the Hot Lunch column. Total = $60$.\n**Step 2:** Grade 10 students in the Hot Lunch column = $36$.\n**Step 3:** $P(\\text{Grade 10} \\mid \\text{Hot Lunch}) = \\dfrac{36}{60}$\n\n**Why the wrong answers are tempting:**\n\u2022 Choice A ($\\frac{36}{110}$): Uses the grand total $110$ as denominator \u2014 ignoring the \"given that\" condition.\n\u2022 Choice C ($\\frac{36}{65}$): Uses the Grade 10 row total $65$ as denominator \u2014 mixing up row vs. column totals.\n\u2022 Choice D ($\\frac{24}{60}$): Correct denominator but reads Grade 9 instead of Grade 10.\n\n**Verification:** $\\frac{36}{60}$ of hot lunch students are in Grade 10. \u2713\n\n**Test Day Takeaway:** On two-way table probability, the \"given that\" phrase determines your denominator \u2014 it is always that row or column total.",
     "calculatorAllowed": true,
     "tags": [
       "pdf-rewritten",
@@ -43462,19 +43462,19 @@ export const generatedOfficialProblemSolvingBank = [
     "choices": [
       {
         "id": "A",
-        "text": "$\\frac{37}{114}$"
+        "text": "$\\frac{36}{110}$"
       },
       {
         "id": "B",
-        "text": "$\\frac{46}{83}$"
+        "text": "$\\frac{36}{60}$"
       },
       {
         "id": "C",
-        "text": "$\\frac{38}{80}$"
+        "text": "$\\frac{36}{65}$"
       },
       {
         "id": "D",
-        "text": "$\\frac{50}{76}$"
+        "text": "$\\frac{24}{60}$"
       }
     ]
   },
@@ -43486,9 +43486,9 @@ export const generatedOfficialProblemSolvingBank = [
     ],
     "difficulty": "medium",
     "type": "multiple-choice",
-    "question": "The table above shows the number of students who picked different lunch options on a given day. If a learner who picked a hot lunch is chosen at random, calculate the probability that the learner is in grade $10$?",
+    "question": "The table below shows the number of students who chose different lunch options on a given day. If a student who picked a hot lunch is chosen at random, what is the probability that the student is in grade 10?\n\n| | Hot Lunch | Salad | Total |\n|---|---|---|---|\n| Grade 9 | 20 | 25 | 45 |\n| Grade 10 | 28 | 27 | 55 |\n| **Total** | **48** | **52** | **100** |",
     "correctAnswer": "B",
-    "explanation": "**SAT Pattern: Two-Way Table / Conditional Probability** -- Shows up every single test, usually 1-2 questions. The #1 tested skill in Data Analysis.\n\n**Choice B is correct.**\n\n**The Fast Way (13 seconds):** The magic words are \"a learner who picked a hot lunch.\" That tells you your denominator is the Hot Lunch column total: $65$. Now find Grade 10 in the Hot Lunch column: $32$. Answer: $\\frac{41}{98}$. Done.\n\n**Step 1: Identify the relevant group**\nThe condition is \"picked a hot lunch,\" so the total is $87$ students (not all $158$).\n\n**Step 2: Count the favorable outcomes**\nOf the $68$ hot lunch students, $30$ are in grade $10$.\n\n**Step 3: Calculate the probability**\n$P(\\text{Grade 10} \\mid \\text{Hot lunch}) = \\frac{41}{53}$\n\n**Why the wrong answers are tempting:**\n- Choice A ($\\frac{29}{147}$) uses the grand total $178$ as the denominator instead of the hot lunch total $107$. This is the most common mistake on two-way table problems -- ignoring the \"given that\" condition. College Board knows most students default to using the overall total.\n- Choice C ($\\frac{36}{97}$) uses the Grade 10 row total ($84$) as the denominator. The learner grabbed the wrong total -- they used the row total for Grade 10 instead of the column total for Hot Lunch. This mixes up which direction to read the table.\n- Choice D ($\\frac{52}{59}$) has the right denominator ($90$) but reads Grade 8 instead of Grade 10 from the Hot Lunch column. College Board puts this here to catch students who read the wrong row.\n\n**Verification:** $\\frac{42}{69} = 0.4375$, meaning about $34.75\\%$ of hot lunch students are in Grade 10. Reasonable.\n\n**Test Day Takeaway:** On two-way table probability, circle the \"given that\" phrase first -- that phrase tells you which row or column total to use as your denominator. Everything else follows.",
+    "explanation": "**SAT Pattern: Two-Way Table / Conditional Probability** \u2014 Appears on virtually every SAT Math section.\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** The phrase \"a student who picked a hot lunch\" means your denominator is the Hot Lunch column total: $48$. Find Grade 10 in the Hot Lunch column: $28$. Probability = $\\frac{28}{48}$. Done.\n\n**Step 1:** The condition \"picked hot lunch\" restricts the sample to the Hot Lunch column. Total = $48$.\n**Step 2:** Grade 10 students in the Hot Lunch column = $28$.\n**Step 3:** $P(\\text{Grade 10} \\mid \\text{Hot Lunch}) = \\dfrac{28}{48}$\n\n**Why the wrong answers are tempting:**\n\u2022 Choice A ($\\frac{28}{100}$): Uses the grand total $100$ as denominator \u2014 ignoring the \"given that\" condition.\n\u2022 Choice C ($\\frac{28}{55}$): Uses the Grade 10 row total $55$ as denominator \u2014 mixing up row vs. column totals.\n\u2022 Choice D ($\\frac{20}{48}$): Correct denominator but reads Grade 9 instead of Grade 10.\n\n**Verification:** $\\frac{28}{48}$ of hot lunch students are in Grade 10. \u2713\n\n**Test Day Takeaway:** On two-way table probability, the \"given that\" phrase determines your denominator \u2014 it is always that row or column total.",
     "calculatorAllowed": true,
     "tags": [
       "pdf-rewritten",
@@ -43503,19 +43503,19 @@ export const generatedOfficialProblemSolvingBank = [
     "choices": [
       {
         "id": "A",
-        "text": "$\\frac{45}{140}$"
+        "text": "$\\frac{28}{100}$"
       },
       {
         "id": "B",
-        "text": "$\\frac{28}{86}$"
+        "text": "$\\frac{28}{48}$"
       },
       {
         "id": "C",
-        "text": "$\\frac{27}{101}$"
+        "text": "$\\frac{28}{55}$"
       },
       {
         "id": "D",
-        "text": "$\\frac{50}{87}$"
+        "text": "$\\frac{20}{48}$"
       }
     ]
   },
@@ -43527,9 +43527,9 @@ export const generatedOfficialProblemSolvingBank = [
     ],
     "difficulty": "medium",
     "type": "multiple-choice",
-    "question": "The table above shows the number of students who picked different lunch options on a given day. If a learner who picked a hot lunch is chosen at random, calculate the probability that the learner is in grade $10$?",
+    "question": "The table below shows the number of students who chose different lunch options on a given day. If a student who picked a hot lunch is chosen at random, what is the probability that the student is in grade 10?\n\n| | Hot Lunch | Salad | Total |\n|---|---|---|---|\n| Grade 9 | 15 | 20 | 35 |\n| Grade 10 | 33 | 32 | 65 |\n| **Total** | **48** | **52** | **100** |",
     "correctAnswer": "B",
-    "explanation": "**SAT Pattern: Two-Way Table / Conditional Probability** -- Shows up every single test, usually 1-2 questions. The #1 tested skill in Data Analysis.\n\n**Choice B is correct.**\n\n**The Fast Way (11 seconds):** The magic words are \"a learner who picked a hot lunch.\" That tells you your denominator is the Hot Lunch column total: $88$. Now find Grade 10 in the Hot Lunch column: $27$. Answer: $\\frac{38}{108}$. Done.\n\n**Step 1: Identify the relevant group**\nThe condition is \"picked a hot lunch,\" so the total is $108$ students (not all $168$).\n\n**Step 2: Count the favorable outcomes**\nOf the $102$ hot lunch students, $34$ are in grade $10$.\n\n**Step 3: Calculate the probability**\n$P(\\text{Grade 10} \\mid \\text{Hot lunch}) = \\frac{34}{96}$\n\n**Why the wrong answers are tempting:**\n- Choice A ($\\frac{47}{177}$) uses the grand total $151$ as the denominator instead of the hot lunch total $64$. This is the most common mistake on two-way table problems -- ignoring the \"given that\" condition. College Board knows most students default to using the overall total.\n- Choice C ($\\frac{31}{66}$) uses the Grade 10 row total ($101$) as the denominator. The learner grabbed the wrong total -- they used the row total for Grade 10 instead of the column total for Hot Lunch. This mixes up which direction to read the table.\n- Choice D ($\\frac{58}{71}$) has the right denominator ($66$) but reads Grade 7 instead of Grade 10 from the Hot Lunch column. College Board puts this here to catch students who read the wrong row.\n\n**Verification:** $\\frac{32}{61} = 0.4375$, meaning about $39.75\\%$ of hot lunch students are in Grade 10. Reasonable.\n\n**Test Day Takeaway:** On two-way table probability, circle the \"given that\" phrase first -- that phrase tells you which row or column total to use as your denominator. Everything else follows.",
+    "explanation": "**SAT Pattern: Two-Way Table / Conditional Probability** \u2014 Appears on virtually every SAT Math section.\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** The phrase \"a student who picked a hot lunch\" means your denominator is the Hot Lunch column total: $48$. Find Grade 10 in the Hot Lunch column: $33$. Probability = $\\frac{33}{48}$. Done.\n\n**Step 1:** The condition \"picked hot lunch\" restricts the sample to the Hot Lunch column. Total = $48$.\n**Step 2:** Grade 10 students in the Hot Lunch column = $33$.\n**Step 3:** $P(\\text{Grade 10} \\mid \\text{Hot Lunch}) = \\dfrac{33}{48}$\n\n**Why the wrong answers are tempting:**\n\u2022 Choice A ($\\frac{33}{100}$): Uses the grand total $100$ as denominator \u2014 ignoring the \"given that\" condition.\n\u2022 Choice C ($\\frac{33}{65}$): Uses the Grade 10 row total $65$ as denominator \u2014 mixing up row vs. column totals.\n\u2022 Choice D ($\\frac{15}{48}$): Correct denominator but reads Grade 9 instead of Grade 10.\n\n**Verification:** $\\frac{33}{48}$ of hot lunch students are in Grade 10. \u2713\n\n**Test Day Takeaway:** On two-way table probability, the \"given that\" phrase determines your denominator \u2014 it is always that row or column total.",
     "calculatorAllowed": true,
     "tags": [
       "pdf-rewritten",
@@ -43544,19 +43544,19 @@ export const generatedOfficialProblemSolvingBank = [
     "choices": [
       {
         "id": "A",
-        "text": "$\\frac{28}{167}$"
+        "text": "$\\frac{33}{100}$"
       },
       {
         "id": "B",
-        "text": "$\\frac{33}{107}$"
+        "text": "$\\frac{33}{48}$"
       },
       {
         "id": "C",
-        "text": "$\\frac{33}{57}$"
+        "text": "$\\frac{33}{65}$"
       },
       {
         "id": "D",
-        "text": "$\\frac{50}{107}$"
+        "text": "$\\frac{15}{48}$"
       }
     ]
   },
@@ -43568,9 +43568,9 @@ export const generatedOfficialProblemSolvingBank = [
     ],
     "difficulty": "medium",
     "type": "multiple-choice",
-    "question": "The table above shows the number of students who picked different lunch options on a given day. If a learner who picked a hot lunch is chosen at random, calculate the probability that the learner is in grade $10$?",
+    "question": "The table below shows the number of students who chose different lunch options on a given day. If a student who picked a hot lunch is chosen at random, what is the probability that the student is in grade 10?\n\n| | Hot Lunch | Salad | Total |\n|---|---|---|---|\n| Grade 9 | 18 | 22 | 40 |\n| Grade 10 | 42 | 28 | 70 |\n| **Total** | **60** | **50** | **110** |",
     "correctAnswer": "B",
-    "explanation": "**SAT Pattern: Two-Way Table / Conditional Probability** -- Shows up every single test, usually 1-2 questions. The #1 tested skill in Data Analysis.\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** The magic words are \"a learner who picked a hot lunch.\" That tells you your denominator is the Hot Lunch column total: $92$. Now find Grade 10 in the Hot Lunch column: $23$. Answer: $\\frac{36}{69}$. Done.\n\n**Step 1: Identify the relevant group**\nThe condition is \"picked a hot lunch,\" so the total is $96$ students (not all $172$).\n\n**Step 2: Count the favorable outcomes**\nOf the $77$ hot lunch students, $46$ are in grade $10$.\n\n**Step 3: Calculate the probability**\n$P(\\text{Grade 10} \\mid \\text{Hot lunch}) = \\frac{45}{101}$\n\n**Why the wrong answers are tempting:**\n- Choice A ($\\frac{42}{129}$) uses the grand total $108$ as the denominator instead of the hot lunch total $104$. This is the most common mistake on two-way table problems -- ignoring the \"given that\" condition. College Board knows most students default to using the overall total.\n- Choice C ($\\frac{47}{69}$) uses the Grade 10 row total ($70$) as the denominator. The learner grabbed the wrong total -- they used the row total for Grade 10 instead of the column total for Hot Lunch. This mixes up which direction to read the table.\n- Choice D ($\\frac{43}{78}$) has the right denominator ($63$) but reads Grade 8 instead of Grade 10 from the Hot Lunch column. College Board puts this here to catch students who read the wrong row.\n\n**Verification:** $\\frac{40}{72} = 0.4375$, meaning about $42.75\\%$ of hot lunch students are in Grade 10. Reasonable.\n\n**Test Day Takeaway:** On two-way table probability, circle the \"given that\" phrase first -- that phrase tells you which row or column total to use as your denominator. Everything else follows.",
+    "explanation": "**SAT Pattern: Two-Way Table / Conditional Probability** \u2014 Appears on virtually every SAT Math section.\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** The phrase \"a student who picked a hot lunch\" means your denominator is the Hot Lunch column total: $60$. Find Grade 10 in the Hot Lunch column: $42$. Probability = $\\frac{42}{60}$. Done.\n\n**Step 1:** The condition \"picked hot lunch\" restricts the sample to the Hot Lunch column. Total = $60$.\n**Step 2:** Grade 10 students in the Hot Lunch column = $42$.\n**Step 3:** $P(\\text{Grade 10} \\mid \\text{Hot Lunch}) = \\dfrac{42}{60}$\n\n**Why the wrong answers are tempting:**\n\u2022 Choice A ($\\frac{42}{110}$): Uses the grand total $110$ as denominator \u2014 ignoring the \"given that\" condition.\n\u2022 Choice C ($\\frac{42}{70}$): Uses the Grade 10 row total $70$ as denominator \u2014 mixing up row vs. column totals.\n\u2022 Choice D ($\\frac{18}{60}$): Correct denominator but reads Grade 9 instead of Grade 10.\n\n**Verification:** $\\frac{42}{60}$ of hot lunch students are in Grade 10. \u2713\n\n**Test Day Takeaway:** On two-way table probability, the \"given that\" phrase determines your denominator \u2014 it is always that row or column total.",
     "calculatorAllowed": true,
     "tags": [
       "pdf-rewritten",
@@ -43585,19 +43585,19 @@ export const generatedOfficialProblemSolvingBank = [
     "choices": [
       {
         "id": "A",
-        "text": "$\\frac{36}{194}$"
+        "text": "$\\frac{42}{110}$"
       },
       {
         "id": "B",
-        "text": "$\\frac{43}{78}$"
+        "text": "$\\frac{42}{60}$"
       },
       {
         "id": "C",
-        "text": "$\\frac{39}{61}$"
+        "text": "$\\frac{42}{70}$"
       },
       {
         "id": "D",
-        "text": "$\\frac{56}{75}$"
+        "text": "$\\frac{18}{60}$"
       }
     ]
   },
@@ -43609,9 +43609,9 @@ export const generatedOfficialProblemSolvingBank = [
     ],
     "difficulty": "medium",
     "type": "multiple-choice",
-    "question": "The table above shows the number of students who picked different lunch options on a given day. If a learner who picked a hot lunch is chosen at random, calculate the probability that the learner is in grade $10$?",
+    "question": "The table below shows the number of students who chose different lunch options on a given day. If a student who picked a hot lunch is chosen at random, what is the probability that the student is in grade 10?\n\n| | Hot Lunch | Salad | Total |\n|---|---|---|---|\n| Grade 9 | 21 | 19 | 40 |\n| Grade 10 | 35 | 25 | 60 |\n| **Total** | **56** | **44** | **100** |",
     "correctAnswer": "B",
-    "explanation": "**SAT Pattern: Two-Way Table / Conditional Probability** -- Shows up every single test, usually 1-2 questions. The #1 tested skill in Data Analysis.\n\n**Choice B is correct.**\n\n**The Fast Way (16 seconds):** The magic words are \"a learner who picked a hot lunch.\" That tells you your denominator is the Hot Lunch column total: $67$. Now find Grade 10 in the Hot Lunch column: $33$. Answer: $\\frac{47}{58}$. Done.\n\n**Step 1: Identify the relevant group**\nThe condition is \"picked a hot lunch,\" so the total is $58$ students (not all $174$).\n\n**Step 2: Count the favorable outcomes**\nOf the $79$ hot lunch students, $46$ are in grade $10$.\n\n**Step 3: Calculate the probability**\n$P(\\text{Grade 10} \\mid \\text{Hot lunch}) = \\frac{28}{107}$\n\n**Why the wrong answers are tempting:**\n- Choice A ($\\frac{26}{184}$) uses the grand total $132$ as the denominator instead of the hot lunch total $104$. This is the most common mistake on two-way table problems -- ignoring the \"given that\" condition. College Board knows most students default to using the overall total.\n- Choice C ($\\frac{46}{79}$) uses the Grade 10 row total ($51$) as the denominator. The learner grabbed the wrong total -- they used the row total for Grade 10 instead of the column total for Hot Lunch. This mixes up which direction to read the table.\n- Choice D ($\\frac{38}{100}$) has the right denominator ($92$) but reads Grade 8 instead of Grade 10 from the Hot Lunch column. College Board puts this here to catch students who read the wrong row.\n\n**Verification:** $\\frac{27}{62} = 0.4375$, meaning about $41.75\\%$ of hot lunch students are in Grade 10. Reasonable.\n\n**Test Day Takeaway:** On two-way table probability, circle the \"given that\" phrase first -- that phrase tells you which row or column total to use as your denominator. Everything else follows.",
+    "explanation": "**SAT Pattern: Two-Way Table / Conditional Probability** \u2014 Appears on virtually every SAT Math section.\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** The phrase \"a student who picked a hot lunch\" means your denominator is the Hot Lunch column total: $56$. Find Grade 10 in the Hot Lunch column: $35$. Probability = $\\frac{35}{56}$. Done.\n\n**Step 1:** The condition \"picked hot lunch\" restricts the sample to the Hot Lunch column. Total = $56$.\n**Step 2:** Grade 10 students in the Hot Lunch column = $35$.\n**Step 3:** $P(\\text{Grade 10} \\mid \\text{Hot Lunch}) = \\dfrac{35}{56}$\n\n**Why the wrong answers are tempting:**\n\u2022 Choice A ($\\frac{35}{100}$): Uses the grand total $100$ as denominator \u2014 ignoring the \"given that\" condition.\n\u2022 Choice C ($\\frac{35}{60}$): Uses the Grade 10 row total $60$ as denominator \u2014 mixing up row vs. column totals.\n\u2022 Choice D ($\\frac{21}{56}$): Correct denominator but reads Grade 9 instead of Grade 10.\n\n**Verification:** $\\frac{35}{56}$ of hot lunch students are in Grade 10. \u2713\n\n**Test Day Takeaway:** On two-way table probability, the \"given that\" phrase determines your denominator \u2014 it is always that row or column total.",
     "calculatorAllowed": true,
     "tags": [
       "pdf-rewritten",
@@ -43626,19 +43626,19 @@ export const generatedOfficialProblemSolvingBank = [
     "choices": [
       {
         "id": "A",
-        "text": "$\\frac{45}{116}$"
+        "text": "$\\frac{35}{100}$"
       },
       {
         "id": "B",
-        "text": "$\\frac{40}{84}$"
+        "text": "$\\frac{35}{56}$"
       },
       {
         "id": "C",
-        "text": "$\\frac{30}{52}$"
+        "text": "$\\frac{35}{60}$"
       },
       {
         "id": "D",
-        "text": "$\\frac{57}{88}$"
+        "text": "$\\frac{21}{56}$"
       }
     ]
   },
