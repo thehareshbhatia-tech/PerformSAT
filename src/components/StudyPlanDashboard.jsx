@@ -5,7 +5,7 @@ import { DataCard } from './ui/DataCard';
 import { PrimaryButton } from './ui/Button';
 import { reprioritizePlan } from '../services/adaptivePlanService';
 import { getQuestionById } from '../data/questions/bank';
-import { resolveAssignedQuestions, normalizeDomain, getDomainAssignmentPreview, CANONICAL_DOMAINS } from '../services/practiceAssignmentService';
+import { resolveAssignedQuestions, normalizeDomain, CANONICAL_DOMAINS } from '../services/practiceAssignmentService';
 import ImmersiveStudyPlanView from './ImmersiveStudyPlanView';
 import {
   ClipboardIcon,
@@ -520,14 +520,14 @@ const StudyPlanDashboard = ({
             const weakByDomain = groupByDomain(weaknesses);
             const strongByDomain = groupByDomain(strengths);
 
+            const domainAssign = studyPlan?.domainAssignments || {};
+
+            const domainsFromAssign = Object.keys(domainAssign);
             const domainsFromItems = [...new Set([...Object.keys(weakByDomain), ...Object.keys(strongByDomain)])].filter(d => d !== 'other');
-            const domainsFromAdaptive = (studyPlan?.adaptivePractice?.weakDomains || []).map(d => normalizeDomain(d)).filter(Boolean);
-            const allDomains = [...new Set([...domainsFromItems, ...domainsFromAdaptive])];
+            const allDomains = [...new Set([...domainsFromAssign, ...domainsFromItems])];
             if (allDomains.length === 0) {
               CANONICAL_DOMAINS.forEach(d => allDomains.push(d));
             }
-
-            const previewSeed = studyPlan?.adaptivePractice?.createdAt || 'default';
 
             return (
             <CollapsibleSection
@@ -575,7 +575,7 @@ const StudyPlanDashboard = ({
                 )}
               </div>
 
-              {/* Per-domain assigned practice with question previews */}
+              {/* Per-domain fixed assigned practice */}
               {allDomains.length > 0 && (
                 <div style={{ marginTop: spacing.sm, paddingTop: spacing.sm, borderTop: `1px solid ${colors.surface.grayDark}` }}>
                   <div style={{ fontSize: typography.sizes.xs, fontWeight: typography.weights.semibold, color: colors.text.muted, marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
@@ -585,9 +585,10 @@ const StudyPlanDashboard = ({
                     {allDomains.map(domain => {
                       const label = DOMAIN_LABELS[domain] || domain;
                       const isWeak = !!weakByDomain[domain];
-                      const preview = getDomainAssignmentPreview(domain, { seed: previewSeed, count: 3 });
-                      const totalAvailable = preview.total;
-                      const previewQs = preview.questions;
+                      const assignment = domainAssign[domain];
+                      const qIds = assignment?.questionIds || [];
+                      const previewQs = qIds.slice(0, 3).map(id => getQuestionById(id)).filter(Boolean);
+                      const totalAssigned = qIds.length;
 
                       return (
                         <div key={domain} style={{
@@ -607,16 +608,15 @@ const StudyPlanDashboard = ({
                                   {label}
                                 </span>
                                 <span style={{ fontSize: '11px', color: colors.text.muted }}>
-                                  {totalAvailable} question{totalAvailable !== 1 ? 's' : ''} available
+                                  {totalAssigned} question{totalAssigned !== 1 ? 's' : ''} assigned
                                 </span>
                               </div>
-                              {onStartPractice && totalAvailable > 0 && (
+                              {onStartPractice && totalAssigned > 0 && (
                                 <button
                                   onClick={() => onStartPractice(null, null, {
-                                    adaptive: true,
-                                    source: 'study-plan-adaptive',
-                                    enforcedDomain: domain,
-                                    label: `${label} Focus`,
+                                    questionIds: qIds,
+                                    source: 'study-plan-assigned',
+                                    label: `${label} Assigned Practice`,
                                   })}
                                   style={{
                                     padding: '5px 12px', borderRadius: radius.sm,
@@ -635,7 +635,7 @@ const StudyPlanDashboard = ({
                               )}
                             </div>
 
-                            {/* Question previews */}
+                            {/* Question previews from assigned IDs */}
                             {previewQs.length > 0 && (
                               <div style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
                                 {previewQs.map((q, qi) => (
@@ -657,9 +657,9 @@ const StudyPlanDashboard = ({
                                     </span>
                                   </div>
                                 ))}
-                                {totalAvailable > previewQs.length && (
+                                {totalAssigned > previewQs.length && (
                                   <div style={{ fontSize: '11px', color: colors.text.muted, paddingLeft: '8px', marginTop: '2px' }}>
-                                    + {totalAvailable - previewQs.length} more questions
+                                    + {totalAssigned - previewQs.length} more questions
                                   </div>
                                 )}
                               </div>

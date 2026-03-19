@@ -386,6 +386,55 @@ export function buildDomainAdaptiveQueueSeed({
   };
 }
 
+// ─── Fixed domain assignments for Strengths & Focus Areas ─────────────────
+
+const DEFAULT_DOMAIN_ASSIGN_COUNT = 10;
+
+/**
+ * Build fixed MCQ question ID bundles per canonical domain for the
+ * Strengths & Focus Areas section.  Each domain gets a deterministic
+ * set of MCQ-only question IDs persisted in the plan artifact.
+ *
+ * @param {Object}   opts
+ * @param {Object}   opts.diagnostic  — runDiagnostic() output
+ * @param {string}   opts.seed        — deterministic seed
+ * @param {number}   opts.countPerDomain — questions per domain (default 10)
+ * @param {string[]} opts.excludeIds  — IDs to skip
+ * @returns {Object} keyed by canonical domain, value = { domain, questionIds, count, source }
+ */
+export function buildStrengthFocusAssignments({
+  diagnostic,
+  seed = '',
+  countPerDomain = DEFAULT_DOMAIN_ASSIGN_COUNT,
+  excludeIds = [],
+} = {}) {
+  const weakPayload = buildWeakSkillPayload(diagnostic);
+  const numericSeed = hashString(seed || 'domain-assign');
+  const weakDomains = new Set(weakPayload.map(w => normalizeDomain(w.domain)).filter(Boolean));
+
+  const result = {};
+  const globalUsed = new Set(excludeIds);
+
+  for (const domain of DOMAIN_ORDER) {
+    const isWeak = weakDomains.has(domain);
+    const source = isWeak ? 'focus' : 'strength';
+
+    const candidates = getQuestionsByDomain(domain, { excludeIds: [...globalUsed] }).filter(isMCQGlobal);
+    const shuffled = seededShuffle(candidates, numericSeed + hashString(domain));
+    const picked = shuffled.slice(0, countPerDomain);
+    picked.forEach(q => globalUsed.add(q.id));
+
+    result[domain] = {
+      domain,
+      questionIds: picked.map(q => q.id),
+      count: picked.length,
+      source,
+    };
+  }
+
+  return result;
+}
+
 /**
  * Return a small deterministic preview of MCQ questions for a domain.
  * Used by the UI to show concrete assigned questions under each domain.

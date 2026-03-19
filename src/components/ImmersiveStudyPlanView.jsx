@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { colors, typography, spacing, radius, transitions } from '../design/tokens';
 import { MathText } from './MathText';
-import { normalizeDomain, getDomainAssignmentPreview, CANONICAL_DOMAINS } from '../services/practiceAssignmentService';
+import { normalizeDomain, CANONICAL_DOMAINS } from '../services/practiceAssignmentService';
+import { getQuestionById } from '../data/questions/bank';
 import {
   VideoCameraIcon,
   BookOpenIcon,
@@ -442,11 +443,13 @@ const ImmersiveStudyPlanView = ({
                 };
                 const weakByDomain = groupByDomain(weaknesses);
                 const strongByDomain = groupByDomain(strengths);
+
+                const domainAssign = studyPlan?.domainAssignments || {};
+
+                const domainsFromAssign = Object.keys(domainAssign);
                 const domainsFromItems = [...new Set([...Object.keys(weakByDomain), ...Object.keys(strongByDomain)])].filter(d => d !== 'other');
-                const domainsFromAdaptive = (studyPlan?.adaptivePractice?.weakDomains || []).map(d => normalizeDomain(d)).filter(Boolean);
-                const allDomains = [...new Set([...domainsFromItems, ...domainsFromAdaptive])];
+                const allDomains = [...new Set([...domainsFromAssign, ...domainsFromItems])];
                 if (allDomains.length === 0) CANONICAL_DOMAINS.forEach(d => allDomains.push(d));
-                const previewSeed = studyPlan?.adaptivePractice?.createdAt || 'default';
 
                 return (
                 <ImmersiveCollapsible
@@ -478,7 +481,7 @@ const ImmersiveStudyPlanView = ({
                       </div>
                     )}
 
-                    {/* Per-domain assigned practice with question previews */}
+                    {/* Per-domain fixed assigned practice */}
                     {allDomains.length > 0 && (
                       <div style={{ borderTop: `1px solid ${colors.surface.grayDark}`, paddingTop: '20px' }}>
                         <div style={{ fontSize: '12px', fontWeight: '700', color: colors.text.muted, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '14px' }}>
@@ -488,9 +491,10 @@ const ImmersiveStudyPlanView = ({
                           {allDomains.map(domain => {
                             const label = DOMAIN_LABELS[domain] || domain;
                             const isWeak = !!weakByDomain[domain];
-                            const preview = getDomainAssignmentPreview(domain, { seed: previewSeed, count: 3 });
-                            const totalAvailable = preview.total;
-                            const previewQs = preview.questions;
+                            const assignment = domainAssign[domain];
+                            const qIds = assignment?.questionIds || [];
+                            const previewQs = qIds.slice(0, 3).map(id => getQuestionById(id)).filter(Boolean);
+                            const totalAssigned = qIds.length;
 
                             return (
                               <div key={domain} style={{
@@ -510,16 +514,15 @@ const ImmersiveStudyPlanView = ({
                                         {label}
                                       </span>
                                       <span style={{ fontSize: '12px', color: colors.text.muted, fontWeight: '500' }}>
-                                        {totalAvailable} question{totalAvailable !== 1 ? 's' : ''}
+                                        {totalAssigned} question{totalAssigned !== 1 ? 's' : ''} assigned
                                       </span>
                                     </div>
-                                    {onStartPractice && totalAvailable > 0 && (
+                                    {onStartPractice && totalAssigned > 0 && (
                                       <button
                                         onClick={() => onStartPractice(null, null, {
-                                          adaptive: true,
-                                          source: 'study-plan-adaptive',
-                                          enforcedDomain: domain,
-                                          label: `${label} Focus`,
+                                          questionIds: qIds,
+                                          source: 'study-plan-assigned',
+                                          label: `${label} Assigned Practice`,
                                         })}
                                         style={{
                                           padding: '6px 14px', borderRadius: '8px',
@@ -559,9 +562,9 @@ const ImmersiveStudyPlanView = ({
                                           </span>
                                         </div>
                                       ))}
-                                      {totalAvailable > previewQs.length && (
+                                      {totalAssigned > previewQs.length && (
                                         <div style={{ fontSize: '12px', color: colors.text.muted, paddingLeft: '10px', marginTop: '2px', fontWeight: '500' }}>
-                                          + {totalAvailable - previewQs.length} more questions
+                                          + {totalAssigned - previewQs.length} more questions
                                         </div>
                                       )}
                                     </div>

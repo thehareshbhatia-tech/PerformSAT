@@ -21,7 +21,7 @@ import { allLessons } from '../data/lessons';
 import { hasQuestionsForSection, getSectionsWithQuestions } from '../data/questions';
 import { getSkillById, skillTaxonomy } from '../data/skillTaxonomy';
 import { ERROR_TYPES, ERROR_TYPE_LABELS, ERROR_TYPE_ICONS } from './diagnosticEngine';
-import { generatePracticeAssignments, buildAdaptiveQueueSeed, serializeAdaptiveState, createAdaptiveSessionState } from './practiceAssignmentService';
+import { generatePracticeAssignments, buildAdaptiveQueueSeed, buildStrengthFocusAssignments, serializeAdaptiveState, createAdaptiveSessionState } from './practiceAssignmentService';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONSTANTS
@@ -165,6 +165,14 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
       difficultyMix: { easy: 0.30, medium: 0.45, hard: 0.25 },
     });
 
+  // ═══ Fixed domain assignments for Strengths & Focus Areas ═══
+  const domainAssignments = buildStrengthFocusAssignments({
+    diagnostic,
+    seed: assignmentSeed,
+    countPerDomain: 10,
+    excludeIds: targetedQuestionIds,
+  });
+
   // ═══ Adaptive practice queue seed + initial state (Acely-style) ═══
   const adaptivePractice = buildAdaptiveQueueSeed({
     diagnostic,
@@ -185,6 +193,9 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
     // Adaptive practice (primary — Acely-style)
     adaptivePractice,
     adaptivePracticeState,
+
+    // Fixed domain assignments for Strengths & Focus Areas
+    domainAssignments,
 
     // Legacy practice assignments (fallback)
     targetedQuestionIds,

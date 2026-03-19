@@ -229,6 +229,9 @@ export const mergeHybridPlan = (deterministicPlan, aiPlan = null) => {
     if (deterministicPlan.adaptivePracticeState) {
       base.adaptivePracticeState = deterministicPlan.adaptivePracticeState;
     }
+    if (deterministicPlan.domainAssignments) {
+      base.domainAssignments = deterministicPlan.domainAssignments;
+    }
 
     if (ai.deltaFromPrevious) {
       base.deltaFromPrevious = stripEmojis(ai.deltaFromPrevious);
