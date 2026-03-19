@@ -36865,9 +36865,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0016",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["conditional-probability", "two-way-table"],
     "difficulty": "medium",
     "type": "multiple-choice",
     "question": "the data indicates the average biweekly juice sales at a café.\n\nIf a client who purchased iced juice is picked at random, calculate the probability that the client purchased a cappuccino?",
@@ -36879,7 +36877,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-1",
       "variation-1"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "conditional-probability",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-1-m1-q9",
@@ -36906,9 +36904,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0017",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["conditional-probability", "two-way-table"],
     "difficulty": "medium",
     "type": "multiple-choice",
     "question": "the data indicates the average biweekly juice sales at a café.\n\nIf a client who purchased iced juice is picked at random, calculate the probability that the client purchased a cappuccino?",
@@ -36920,7 +36916,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-1",
       "variation-2"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "conditional-probability",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-1-m1-q9",
@@ -36947,9 +36943,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0018",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["conditional-probability", "two-way-table"],
     "difficulty": "medium",
     "type": "multiple-choice",
     "question": "the data indicates the average biweekly juice sales at a café.\n\nIf a client who purchased iced juice is picked at random, calculate the probability that the client purchased a cappuccino?",
@@ -36961,7 +36955,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-1",
       "variation-3"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "conditional-probability",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-1-m1-q9",
@@ -36988,9 +36982,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0019",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["conditional-probability", "two-way-table"],
     "difficulty": "medium",
     "type": "multiple-choice",
     "question": "the data indicates the average biweekly juice sales at a café.\n\nIf a client who purchased iced juice is picked at random, calculate the probability that the client purchased a cappuccino?",
@@ -37002,7 +36994,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-1",
       "variation-4"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "conditional-probability",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-1-m1-q9",
@@ -37029,9 +37021,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0020",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["conditional-probability", "two-way-table"],
     "difficulty": "medium",
     "type": "multiple-choice",
     "question": "the data indicates the average biweekly juice sales at a café.\n\nIf a client who purchased iced juice is picked at random, calculate the probability that the client purchased a cappuccino?",
@@ -37043,7 +37033,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-1",
       "variation-5"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "conditional-probability",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-1-m1-q9",
@@ -37070,9 +37060,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0026",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["conditional-probability", "two-way-table"],
     "difficulty": "medium",
     "type": "multiple-choice",
     "question": "the data indicates the distribution of pizza preferences among the 23 members of the Tech Club. If a club member is picked at random, calculate the probability the member prefers no pepperoni, given that they prefer mushrooms?",
@@ -37084,7 +37072,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-1",
       "variation-1"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "conditional-probability",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-1-m2-q1",
@@ -37111,9 +37099,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0027",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["conditional-probability", "two-way-table"],
     "difficulty": "medium",
     "type": "multiple-choice",
     "question": "the data indicates the distribution of pizza preferences among the 30 members of the Tech Club. If a club member is picked at random, calculate the probability the member prefers no pepperoni, given that they prefer mushrooms?",
@@ -37125,7 +37111,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-1",
       "variation-2"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "conditional-probability",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-1-m2-q1",
@@ -37152,9 +37138,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0028",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["conditional-probability", "two-way-table"],
     "difficulty": "medium",
     "type": "multiple-choice",
     "question": "the data indicates the distribution of pizza preferences among the 38 members of the Tech Club. If a club member is picked at random, calculate the probability the member prefers no pepperoni, given that they prefer mushrooms?",
@@ -37166,7 +37150,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-1",
       "variation-3"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "conditional-probability",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-1-m2-q1",
@@ -37193,9 +37177,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0029",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["conditional-probability", "two-way-table"],
     "difficulty": "medium",
     "type": "multiple-choice",
     "question": "the data indicates the distribution of pizza preferences among the 23 members of the Tech Club. If a club member is picked at random, calculate the probability the member prefers no pepperoni, given that they prefer mushrooms?",
@@ -37207,7 +37189,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-1",
       "variation-4"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "conditional-probability",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-1-m2-q1",
@@ -37234,9 +37216,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0030",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["conditional-probability", "two-way-table"],
     "difficulty": "medium",
     "type": "multiple-choice",
     "question": "the data indicates the distribution of pizza preferences among the 30 members of the Tech Club. If a club member is picked at random, calculate the probability the member prefers no pepperoni, given that they prefer mushrooms?",
@@ -37248,7 +37228,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-1",
       "variation-5"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "conditional-probability",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-1-m2-q1",
@@ -38955,9 +38935,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0116",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["probability-basics"],
     "difficulty": "medium",
     "type": "multiple-choice",
     "question": "At a concert venue, there are altogether $545$ attendees. Each attendee is located in either section A, section B, or section C. If one of these attendees is picked at random, the probability of selecting an attendee in section A is $0.45$, and the probability of selecting an attendee in section B is $0.30$. what number of attendees are in section C?",
@@ -38969,7 +38947,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-5",
       "variation-1"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "probability-basics",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-5-m2-q6",
@@ -38996,9 +38974,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0117",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["probability-basics"],
     "difficulty": "medium",
     "type": "multiple-choice",
     "question": "At a concert venue, there are altogether $347$ attendees. Each attendee is located in either section A, section B, or section C. If one of these attendees is picked at random, the probability of selecting an attendee in section A is $0.45$, and the probability of selecting an attendee in section B is $0.30$. what number of attendees are in section C?",
@@ -39010,7 +38986,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-5",
       "variation-2"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "probability-basics",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-5-m2-q6",
@@ -39037,9 +39013,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0118",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["probability-basics"],
     "difficulty": "medium",
     "type": "multiple-choice",
     "question": "At a concert venue, there are altogether $445$ attendees. Each attendee is located in either section A, section B, or section C. If one of these attendees is picked at random, the probability of selecting an attendee in section A is $0.45$, and the probability of selecting an attendee in section B is $0.30$. what number of attendees are in section C?",
@@ -39051,7 +39025,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-5",
       "variation-3"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "probability-basics",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-5-m2-q6",
@@ -39078,9 +39052,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0119",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["probability-basics"],
     "difficulty": "medium",
     "type": "multiple-choice",
     "question": "At a concert venue, there are altogether $542$ attendees. Each attendee is located in either section A, section B, or section C. If one of these attendees is picked at random, the probability of selecting an attendee in section A is $0.45$, and the probability of selecting an attendee in section B is $0.30$. what number of attendees are in section C?",
@@ -39092,7 +39064,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-5",
       "variation-4"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "probability-basics",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-5-m2-q6",
@@ -39119,9 +39091,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0120",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["probability-basics"],
     "difficulty": "medium",
     "type": "multiple-choice",
     "question": "At a concert venue, there are altogether $344$ attendees. Each attendee is located in either section A, section B, or section C. If one of these attendees is picked at random, the probability of selecting an attendee in section A is $0.45$, and the probability of selecting an attendee in section B is $0.30$. what number of attendees are in section C?",
@@ -39133,7 +39103,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-5",
       "variation-5"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "probability-basics",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-5-m2-q6",
@@ -39570,9 +39540,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0151",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["probability-basics", "two-way-table"],
     "difficulty": "medium",
     "type": "fill-in",
     "question": "The table summarizes the distribution of size and color for 96 shirts. If one of these shirts is picked at random, calculate the probability of selecting a white jacket? (Express your answer as a decimal or fraction, not as a percent.)",
@@ -39584,7 +39552,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-6",
       "variation-1"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "probability-basics",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-6-m2-q10",
@@ -39593,9 +39561,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0152",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["probability-basics", "two-way-table"],
     "difficulty": "medium",
     "type": "fill-in",
     "question": "The table summarizes the distribution of size and color for 58 shirts. If one of these shirts is picked at random, calculate the probability of selecting a white jacket? (Express your answer as a decimal or fraction, not as a percent.)",
@@ -39607,7 +39573,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-6",
       "variation-2"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "probability-basics",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-6-m2-q10",
@@ -39616,9 +39582,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0153",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["probability-basics", "two-way-table"],
     "difficulty": "medium",
     "type": "fill-in",
     "question": "The table summarizes the distribution of size and color for 77 shirts. If one of these shirts is picked at random, calculate the probability of selecting a white jacket? (Express your answer as a decimal or fraction, not as a percent.)",
@@ -39630,7 +39594,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-6",
       "variation-3"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "probability-basics",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-6-m2-q10",
@@ -39639,9 +39603,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0154",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["probability-basics", "two-way-table"],
     "difficulty": "medium",
     "type": "fill-in",
     "question": "The table summarizes the distribution of size and color for 96 shirts. If one of these shirts is picked at random, calculate the probability of selecting a white jacket? (Express your answer as a decimal or fraction, not as a percent.)",
@@ -39653,7 +39615,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-6",
       "variation-4"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "probability-basics",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-6-m2-q10",
@@ -39662,9 +39624,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0155",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["probability-basics", "two-way-table"],
     "difficulty": "medium",
     "type": "fill-in",
     "question": "The table summarizes the distribution of size and color for 57 shirts. If one of these shirts is picked at random, calculate the probability of selecting a white jacket? (Express your answer as a decimal or fraction, not as a percent.)",
@@ -39676,7 +39636,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-6",
       "variation-5"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "probability-basics",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-6-m2-q10",
@@ -40825,9 +40785,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0196",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["probability-basics", "two-way-table"],
     "difficulty": "easy",
     "type": "multiple-choice",
     "question": "the data indicates the distribution of chose for class president by grade level. If a learner is picked at random, calculate the probability that the learner chose for Candidate A?",
@@ -40839,7 +40797,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-8",
       "variation-1"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "probability-basics",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-8-m1-q8",
@@ -40866,9 +40824,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0197",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["probability-basics", "two-way-table"],
     "difficulty": "easy",
     "type": "multiple-choice",
     "question": "the data indicates the distribution of chose for class president by grade level. If a learner is picked at random, calculate the probability that the learner chose for Candidate A?",
@@ -40880,7 +40836,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-8",
       "variation-2"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "probability-basics",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-8-m1-q8",
@@ -40907,9 +40863,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0198",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["probability-basics", "two-way-table"],
     "difficulty": "easy",
     "type": "multiple-choice",
     "question": "the data indicates the distribution of chose for class president by grade level. If a learner is picked at random, calculate the probability that the learner chose for Candidate A?",
@@ -40921,7 +40875,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-8",
       "variation-3"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "probability-basics",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-8-m1-q8",
@@ -40948,9 +40902,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0199",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["probability-basics", "two-way-table"],
     "difficulty": "easy",
     "type": "multiple-choice",
     "question": "the data indicates the distribution of chose for class president by grade level. If a learner is picked at random, calculate the probability that the learner chose for Candidate A?",
@@ -40962,7 +40914,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-8",
       "variation-4"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "probability-basics",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-8-m1-q8",
@@ -40989,9 +40941,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0200",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["probability-basics", "two-way-table"],
     "difficulty": "easy",
     "type": "multiple-choice",
     "question": "the data indicates the distribution of chose for class president by grade level. If a learner is picked at random, calculate the probability that the learner chose for Candidate A?",
@@ -41003,7 +40953,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-8",
       "variation-5"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "probability-basics",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-8-m1-q8",
@@ -41235,9 +41185,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0211",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["conditional-probability", "two-way-table"],
     "difficulty": "hard",
     "type": "multiple-choice",
     "question": "A survey of $255$ students asked about their preferred subject. The results are shown in the table. A learner is picked at random from those who preferred science. calculate the probability that the learner is a sophomore, and how does this compare to the probability that a randomly picked sophomore preferred science?",
@@ -41249,7 +41197,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-8",
       "variation-1"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "conditional-probability",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-8-m2-q7",
@@ -41276,9 +41224,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0212",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["conditional-probability", "two-way-table"],
     "difficulty": "hard",
     "type": "multiple-choice",
     "question": "A survey of $160$ students asked about their preferred subject. The results are shown in the table. A learner is picked at random from those who preferred science. calculate the probability that the learner is a sophomore, and how does this compare to the probability that a randomly picked sophomore preferred science?",
@@ -41290,7 +41236,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-8",
       "variation-2"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "conditional-probability",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-8-m2-q7",
@@ -41317,9 +41263,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0213",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["conditional-probability", "two-way-table"],
     "difficulty": "hard",
     "type": "multiple-choice",
     "question": "A survey of $207$ students asked about their preferred subject. The results are shown in the table. A learner is picked at random from those who preferred science. calculate the probability that the learner is a sophomore, and how does this compare to the probability that a randomly picked sophomore preferred science?",
@@ -41331,7 +41275,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-8",
       "variation-3"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "conditional-probability",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-8-m2-q7",
@@ -41358,9 +41302,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0214",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["conditional-probability", "two-way-table"],
     "difficulty": "hard",
     "type": "multiple-choice",
     "question": "A survey of $253$ students asked about their preferred subject. The results are shown in the table. A learner is picked at random from those who preferred science. calculate the probability that the learner is a sophomore, and how does this compare to the probability that a randomly picked sophomore preferred science?",
@@ -41372,7 +41314,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-8",
       "variation-4"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "conditional-probability",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-8-m2-q7",
@@ -41399,9 +41341,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0215",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["conditional-probability", "two-way-table"],
     "difficulty": "hard",
     "type": "multiple-choice",
     "question": "A survey of $158$ students asked about their preferred subject. The results are shown in the table. A learner is picked at random from those who preferred science. calculate the probability that the learner is a sophomore, and how does this compare to the probability that a randomly picked sophomore preferred science?",
@@ -41413,7 +41353,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-8",
       "variation-5"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "conditional-probability",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-8-m2-q7",
@@ -41650,9 +41590,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0221",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["probability-basics"],
     "difficulty": "easy",
     "type": "multiple-choice",
     "question": "A jar contains $19$ red marbles, $10$ blue marbles, and $26$ green marbles. If one marble is picked at random, calculate the probability that it is NOT green?",
@@ -41664,7 +41602,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-9",
       "variation-1"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "probability-basics",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-9-m1-q2",
@@ -41691,9 +41629,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0222",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["probability-basics"],
     "difficulty": "easy",
     "type": "multiple-choice",
     "question": "A jar contains $12$ red marbles, $10$ blue marbles, and $30$ green marbles. If one marble is picked at random, calculate the probability that it is NOT green?",
@@ -41705,7 +41641,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-9",
       "variation-2"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "probability-basics",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-9-m1-q2",
@@ -41732,9 +41668,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0223",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["probability-basics"],
     "difficulty": "easy",
     "type": "multiple-choice",
     "question": "A jar contains $16$ red marbles, $10$ blue marbles, and $18$ green marbles. If one marble is picked at random, calculate the probability that it is NOT green?",
@@ -41746,7 +41680,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-9",
       "variation-3"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "probability-basics",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-9-m1-q2",
@@ -41773,9 +41707,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0224",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["probability-basics"],
     "difficulty": "easy",
     "type": "multiple-choice",
     "question": "A jar contains $19$ red marbles, $10$ blue marbles, and $22$ green marbles. If one marble is picked at random, calculate the probability that it is NOT green?",
@@ -41787,7 +41719,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-9",
       "variation-4"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "probability-basics",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-9-m1-q2",
@@ -41814,9 +41746,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0225",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["probability-basics"],
     "difficulty": "easy",
     "type": "multiple-choice",
     "question": "A jar contains $12$ red marbles, $10$ blue marbles, and $26$ green marbles. If one marble is picked at random, calculate the probability that it is NOT green?",
@@ -41828,7 +41758,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-9",
       "variation-5"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "probability-basics",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-9-m1-q2",
@@ -42390,9 +42320,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0241",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["probability-basics"],
     "difficulty": "medium",
     "type": "fill-in",
     "question": "the data indicates the number of books read by students in a class.\n\nIf a learner is picked at random, calculate the probability that the learner read more than $6$ books? (Express your answer as a decimal.)",
@@ -42404,7 +42332,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-9",
       "variation-1"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "probability-basics",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-9-m2-q1",
@@ -42413,9 +42341,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0242",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["probability-basics"],
     "difficulty": "medium",
     "type": "fill-in",
     "question": "the data indicates the number of books read by students in a class.\n\nIf a learner is picked at random, calculate the probability that the learner read more than $7$ books? (Express your answer as a decimal.)",
@@ -42427,7 +42353,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-9",
       "variation-2"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "probability-basics",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-9-m2-q1",
@@ -42436,9 +42362,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0243",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["probability-basics"],
     "difficulty": "medium",
     "type": "fill-in",
     "question": "the data indicates the number of books read by students in a class.\n\nIf a learner is picked at random, calculate the probability that the learner read more than $4$ books? (Express your answer as a decimal.)",
@@ -42450,7 +42374,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-9",
       "variation-3"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "probability-basics",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-9-m2-q1",
@@ -42459,9 +42383,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0244",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["probability-basics"],
     "difficulty": "medium",
     "type": "fill-in",
     "question": "the data indicates the number of books read by students in a class.\n\nIf a learner is picked at random, calculate the probability that the learner read more than $6$ books? (Express your answer as a decimal.)",
@@ -42473,7 +42395,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-9",
       "variation-4"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "probability-basics",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-9-m2-q1",
@@ -42482,9 +42404,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0245",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["probability-basics"],
     "difficulty": "medium",
     "type": "fill-in",
     "question": "the data indicates the number of books read by students in a class.\n\nIf a learner is picked at random, calculate the probability that the learner read more than $7$ books? (Express your answer as a decimal.)",
@@ -42496,7 +42416,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-9",
       "variation-5"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "probability-basics",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-9-m2-q1",
@@ -43440,9 +43360,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0286",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["conditional-probability", "two-way-table"],
     "difficulty": "medium",
     "type": "multiple-choice",
     "question": "The table below shows the number of students who chose different lunch options on a given day. If a student who picked a hot lunch is chosen at random, what is the probability that the student is in grade 10?\n\n| | Hot Lunch | Salad | Total |\n|---|---|---|---|\n| Grade 9 | 24 | 21 | 45 |\n| Grade 10 | 36 | 29 | 65 |\n| **Total** | **60** | **50** | **110** |",
@@ -43454,7 +43372,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-11",
       "variation-1"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "conditional-probability",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-11-m1-q6",
@@ -43481,9 +43399,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0287",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["conditional-probability", "two-way-table"],
     "difficulty": "medium",
     "type": "multiple-choice",
     "question": "The table below shows the number of students who chose different lunch options on a given day. If a student who picked a hot lunch is chosen at random, what is the probability that the student is in grade 10?\n\n| | Hot Lunch | Salad | Total |\n|---|---|---|---|\n| Grade 9 | 20 | 25 | 45 |\n| Grade 10 | 28 | 27 | 55 |\n| **Total** | **48** | **52** | **100** |",
@@ -43495,7 +43411,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-11",
       "variation-2"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "conditional-probability",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-11-m1-q6",
@@ -43522,9 +43438,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0288",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["conditional-probability", "two-way-table"],
     "difficulty": "medium",
     "type": "multiple-choice",
     "question": "The table below shows the number of students who chose different lunch options on a given day. If a student who picked a hot lunch is chosen at random, what is the probability that the student is in grade 10?\n\n| | Hot Lunch | Salad | Total |\n|---|---|---|---|\n| Grade 9 | 15 | 20 | 35 |\n| Grade 10 | 33 | 32 | 65 |\n| **Total** | **48** | **52** | **100** |",
@@ -43536,7 +43450,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-11",
       "variation-3"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "conditional-probability",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-11-m1-q6",
@@ -43563,9 +43477,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0289",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["conditional-probability", "two-way-table"],
     "difficulty": "medium",
     "type": "multiple-choice",
     "question": "The table below shows the number of students who chose different lunch options on a given day. If a student who picked a hot lunch is chosen at random, what is the probability that the student is in grade 10?\n\n| | Hot Lunch | Salad | Total |\n|---|---|---|---|\n| Grade 9 | 18 | 22 | 40 |\n| Grade 10 | 42 | 28 | 70 |\n| **Total** | **60** | **50** | **110** |",
@@ -43577,7 +43489,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-11",
       "variation-4"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "conditional-probability",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-11-m1-q6",
@@ -43604,9 +43516,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0290",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["conditional-probability", "two-way-table"],
     "difficulty": "medium",
     "type": "multiple-choice",
     "question": "The table below shows the number of students who chose different lunch options on a given day. If a student who picked a hot lunch is chosen at random, what is the probability that the student is in grade 10?\n\n| | Hot Lunch | Salad | Total |\n|---|---|---|---|\n| Grade 9 | 21 | 19 | 40 |\n| Grade 10 | 35 | 25 | 60 |\n| **Total** | **56** | **44** | **100** |",
@@ -43618,7 +43528,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-11",
       "variation-5"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "conditional-probability",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-11-m1-q6",
@@ -44175,9 +44085,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0341",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["conditional-probability", "two-way-table"],
     "difficulty": "medium",
     "type": "multiple-choice",
     "question": "The table below shows the results of a survey asking students whether they prefer reading fiction or nonfiction, categorized by grade level. If a learner who prefers fiction is picked at random, calculate the probability that the learner is in grade $10$?",
@@ -44189,7 +44097,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-12",
       "variation-1"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "conditional-probability",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-12-m1-q8",
@@ -44216,9 +44124,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0342",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["conditional-probability", "two-way-table"],
     "difficulty": "medium",
     "type": "multiple-choice",
     "question": "The table below shows the results of a survey asking students whether they prefer reading fiction or nonfiction, categorized by grade level. If a learner who prefers fiction is picked at random, calculate the probability that the learner is in grade $13$?",
@@ -44230,7 +44136,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-12",
       "variation-2"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "conditional-probability",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-12-m1-q8",
@@ -44257,9 +44163,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0343",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["conditional-probability", "two-way-table"],
     "difficulty": "medium",
     "type": "multiple-choice",
     "question": "The table below shows the results of a survey asking students whether they prefer reading fiction or nonfiction, categorized by grade level. If a learner who prefers fiction is picked at random, calculate the probability that the learner is in grade $8$?",
@@ -44271,7 +44175,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-12",
       "variation-3"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "conditional-probability",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-12-m1-q8",
@@ -44298,9 +44202,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0344",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["conditional-probability", "two-way-table"],
     "difficulty": "medium",
     "type": "multiple-choice",
     "question": "The table below shows the results of a survey asking students whether they prefer reading fiction or nonfiction, categorized by grade level. If a learner who prefers fiction is picked at random, calculate the probability that the learner is in grade $10$?",
@@ -44312,7 +44214,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-12",
       "variation-4"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "conditional-probability",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-12-m1-q8",
@@ -44339,9 +44241,7 @@ export const generatedOfficialProblemSolvingBank = [
   {
     "id": "bank-off-psd-0345",
     "domain": "problem-solving",
-    "skills": [
-      "margin-of-error"
-    ],
+    "skills": ["conditional-probability", "two-way-table"],
     "difficulty": "medium",
     "type": "multiple-choice",
     "question": "The table below shows the results of a survey asking students whether they prefer reading fiction or nonfiction, categorized by grade level. If a learner who prefers fiction is picked at random, calculate the probability that the learner is in grade $13$?",
@@ -44353,7 +44253,7 @@ export const generatedOfficialProblemSolvingBank = [
       "source-test-12",
       "variation-5"
     ],
-    "sourceStyleRef": "margin-of-error",
+    "sourceStyleRef": "conditional-probability",
     "authoredBy": "performsat-engine",
     "createdAt": "2026-03-15",
     "sourceRef": "pdf-test-12-m1-q8",
