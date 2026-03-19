@@ -29,7 +29,7 @@ questionBank.forEach(q => {
   difficultyIndex.get(q.difficulty).push(q);
 });
 
-const SKILL_ALIAS_MAP = {
+export const SKILL_ALIAS_MAP = {
   // ── Statistics / Data ────────────────────────────────────────────────────
   'mean-median-mode':            ['calculate-mean', 'find-median', 'find-mode'],
   'statistics':                  ['calculate-mean', 'standard-deviation-concept', 'find-median'],

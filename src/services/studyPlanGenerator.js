@@ -22,6 +22,7 @@ import { hasQuestionsForSection, getSectionsWithQuestions } from '../data/questi
 import { getSkillById, skillTaxonomy } from '../data/skillTaxonomy';
 import { ERROR_TYPES, ERROR_TYPE_LABELS, ERROR_TYPE_ICONS } from './diagnosticEngine';
 import { generatePracticeAssignments, buildAdaptiveQueueSeed, buildStrengthFocusAssignments, serializeAdaptiveState, createAdaptiveSessionState } from './practiceAssignmentService';
+import { SKILL_ALIAS_MAP } from '../data/questions/bank';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONSTANTS
@@ -46,22 +47,22 @@ const ACTIVITY_DURATIONS = {
   strategyDrill: 10,      // Trap recognition or time management drill
 };
 
-// Module to skill mapping (which modules teach which skills)
+// Module to skill mapping — skill IDs must match canonical IDs in the question bank
 const MODULE_SKILL_MAP = {
-  'linear-equations': ['slope-from-points', 'slope-intercept-form', 'word-problem-to-equation', 'table-to-equation', 'function-evaluation', 'parallel-line-slope', 'writing-parallel-equation', 'perpendicular-negative-reciprocal', 'writing-perpendicular-equation'],
-  'functions': ['function-notation', 'domain-restrictions', 'function-composition', 'function-interpretation'],
-  'systems': ['system-solution-types', 'setting-up-systems', 'substitution-method', 'elimination-method', 'graphing-systems', 'infinite-solutions-condition'],
-  'transformations': ['graph-transformations', 'vertical-shifts', 'horizontal-shifts', 'reflections'],
-  'exponents': ['exponent-rules', 'exponential-growth', 'exponential-decay', 'compound-interest', 'half-life'],
-  'percents': ['percents', 'percent-change', 'sequential-percent-change'],
-  'quadratics': ['factoring', 'quadratic-formula', 'completing-the-square', 'vertex-form', 'discriminant', 'quadratic-functions'],
-  'triangles': ['pythagorean-theorem', 'right-triangles', 'special-right-triangles', 'similar-triangles', 'sohcahtoa', 'trigonometry'],
-  'circles': ['circle-equations', 'completing-the-square-circles', 'arc-length', 'sector-area'],
-  'statistics': ['mean-median-mode', 'standard-deviation', 'data-interpretation', 'margin-of-error', 'two-way-tables', 'probability'],
-  'radians-degrees': ['radian-degree-conversion', 'unit-circle'],
-  'dimensional-analysis': ['unit-conversion', 'rate-problems'],
-  'equivalent-expressions': ['simplifying-expressions', 'combining-like-terms', 'polynomial-operations'],
-  'volume': ['prism-volume', 'cylinder-volume', 'cone-sphere-volume'],
+  'linear-equations':      ['slope-from-points', 'slope-intercept-form', 'word-problem-to-equation', 'table-to-equation', 'function-evaluation', 'parallel-line-slope', 'writing-parallel-equation', 'perpendicular-negative-reciprocal', 'writing-perpendicular-equation'],
+  'functions':             ['function-notation', 'domain-restrictions', 'function-composition', 'function-transformations', 'finding-function-from-conditions'],
+  'systems':               ['system-solution-types', 'setting-up-systems', 'substitution-method', 'elimination-method', 'graphing-systems', 'infinite-solutions-condition'],
+  'transformations':       ['function-transformations', 'vertical-shifts', 'horizontal-shifts', 'reflections'],
+  'exponents':             ['exponent-laws', 'zero-negative-exponents', 'exponential-growth-decay', 'exponential-y-intercept', 'comparing-exponentials'],
+  'percents':              ['percent-decimal-conversion', 'percent-of-value', 'percent-change', 'percent-word-problems', 'successive-percent-change', 'ratio-proportion', 'unit-rates'],
+  'quadratics':            ['identify-quadratic', 'finding-roots-factoring', 'discriminant-analysis', 'vertex-formula', 'vertex-form', 'completing-square-circles', 'parabola-direction', 'roots-from-factors', 'converting-quadratic-forms'],
+  'triangles':             ['pythagorean-theorem', 'soh-cah-toa', 'special-right-triangles', 'similar-triangles', 'triangle-angle-sum', 'triangle-area'],
+  'circles':               ['circle-equation', 'circle-area', 'circle-parts', 'sector-area', 'degrees-to-radians', 'radians-to-degrees'],
+  'statistics':            ['calculate-mean', 'weighted-mean', 'find-median', 'find-mode', 'range-calculation', 'standard-deviation-concept', 'margin-of-error', 'two-way-table', 'probability-basics', 'conditional-probability'],
+  'radians-degrees':       ['degrees-to-radians', 'radians-to-degrees'],
+  'dimensional-analysis':  ['unit-conversion', 'squared-cubed-units', 'rate-conversion', 'ratio-proportion', 'unit-rates'],
+  'equivalent-expressions':['distributive-property', 'combining-like-terms', 'simplifying-rational-expressions', 'difference-of-squares', 'perfect-square-trinomial'],
+  'volume':                ['volume-prism', 'volume-sphere', 'volume-pyramid-cone'],
 };
 
 // Reverse mapping: skill → modules that teach it
@@ -291,10 +292,21 @@ const findModulesForSkill = (skillId) => {
   const skill = getSkillById(skillId);
   const results = [];
 
-  // Check direct module mapping
-  const directModules = SKILL_TO_MODULE_MAP[skillId] || [];
+  // Step 1: direct lookup in SKILL_TO_MODULE_MAP (canonical ID hits)
+  let directModules = SKILL_TO_MODULE_MAP[skillId] || [];
 
-  // Also check skill taxonomy for module associations
+  // Step 2: if not found directly, expand via SKILL_ALIAS_MAP to canonical IDs
+  // This handles practice-test skill IDs like "Quadratic Equations" or "solving-equations"
+  if (directModules.length === 0 && SKILL_ALIAS_MAP[skillId]) {
+    const canonicalIds = SKILL_ALIAS_MAP[skillId];
+    const expanded = new Set();
+    canonicalIds.forEach(cid => {
+      (SKILL_TO_MODULE_MAP[cid] || []).forEach(m => expanded.add(m));
+    });
+    directModules = [...expanded];
+  }
+
+  // Step 3: taxonomy module associations
   const taxonomyModules = skill?.modules || [];
 
   const allModuleIds = [...new Set([...directModules, ...taxonomyModules])];
@@ -312,7 +324,7 @@ const findModulesForSkill = (skillId) => {
     });
   });
 
-  // If no results found through mapping, try fuzzy matching
+  // Step 4: last resort — fuzzy match on the skill ID string
   if (results.length === 0) {
     const fuzzyModule = fuzzyMatchModule(skillId);
     if (fuzzyModule) {
@@ -1028,21 +1040,22 @@ const getModuleName = (moduleId) => {
 };
 
 const fuzzyMatchModule = (skillId) => {
-  const skillStr = skillId.toLowerCase();
-  if (skillStr.includes('linear') || skillStr.includes('slope')) return 'linear-equations';
-  if (skillStr.includes('function')) return 'functions';
+  const skillStr = skillId.toLowerCase().replace(/-/g, ' ');
+  if (skillStr.includes('linear') || skillStr.includes('slope') || skillStr.includes('solving') || skillStr.includes('algebra') || skillStr.includes('equation') || skillStr.includes('word problem')) return 'linear-equations';
+  if (skillStr.includes('function') && !skillStr.includes('quadratic')) return 'functions';
   if (skillStr.includes('system') || skillStr.includes('elimination') || skillStr.includes('substitution')) return 'systems';
-  if (skillStr.includes('quadratic') || skillStr.includes('factor') || skillStr.includes('vertex') || skillStr.includes('discriminant')) return 'quadratics';
-  if (skillStr.includes('triangle') || skillStr.includes('pythagorean') || skillStr.includes('trig') || skillStr.includes('sohcahtoa')) return 'triangles';
+  if (skillStr.includes('quadratic') || skillStr.includes('factor') || skillStr.includes('vertex') || skillStr.includes('discriminant') || skillStr.includes('parabola') || skillStr.includes('root') || skillStr.includes('zero')) return 'quadratics';
+  if (skillStr.includes('triangle') || skillStr.includes('pythagorean') || skillStr.includes('trig') || skillStr.includes('sohcahtoa') || skillStr.includes('soh cah toa') || skillStr.includes('sin') || skillStr.includes('cos') || skillStr.includes('tan')) return 'triangles';
   if (skillStr.includes('circle') || skillStr.includes('arc') || skillStr.includes('sector')) return 'circles';
-  if (skillStr.includes('exponent') || skillStr.includes('growth') || skillStr.includes('decay') || skillStr.includes('half-life')) return 'exponents';
-  if (skillStr.includes('percent')) return 'percents';
-  if (skillStr.includes('statistic') || skillStr.includes('mean') || skillStr.includes('median') || skillStr.includes('probability')) return 'statistics';
-  if (skillStr.includes('volume') || skillStr.includes('cylinder') || skillStr.includes('sphere')) return 'volume';
+  if (skillStr.includes('exponent') || skillStr.includes('exponential') || skillStr.includes('growth') || skillStr.includes('decay') || skillStr.includes('half life') || skillStr.includes('radical')) return 'exponents';
+  if (skillStr.includes('percent') || skillStr.includes('ratio') || skillStr.includes('proportion') || skillStr.includes('rate')) return 'percents';
+  if (skillStr.includes('statistic') || skillStr.includes('mean') || skillStr.includes('median') || skillStr.includes('mode') || skillStr.includes('standard deviation') || skillStr.includes('probability') || skillStr.includes('data')) return 'statistics';
+  if (skillStr.includes('volume') || skillStr.includes('cylinder') || skillStr.includes('sphere') || skillStr.includes('prism') || skillStr.includes('cone')) return 'volume';
   if (skillStr.includes('radian') || skillStr.includes('degree')) return 'radians-degrees';
-  if (skillStr.includes('polynomial') || skillStr.includes('expression')) return 'equivalent-expressions';
+  if (skillStr.includes('polynomial') || skillStr.includes('expression') || skillStr.includes('simplif') || skillStr.includes('combining') || skillStr.includes('distribut')) return 'equivalent-expressions';
   if (skillStr.includes('transform') || skillStr.includes('shift') || skillStr.includes('reflect')) return 'transformations';
-  if (skillStr.includes('unit') || skillStr.includes('dimensional') || skillStr.includes('rate')) return 'dimensional-analysis';
+  if (skillStr.includes('unit') || skillStr.includes('dimensional') || skillStr.includes('conversion')) return 'dimensional-analysis';
+  if (skillStr.includes('geometry') || skillStr.includes('area') || skillStr.includes('angle') || skillStr.includes('polygon')) return 'triangles';
   return null;
 };
 
