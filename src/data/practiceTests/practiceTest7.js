@@ -13,7 +13,7 @@ export const practiceTest7 = {
         {
           id: 'pt7-m1-q1',
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'easy',
           question: 'If $5x - 15 = 30$ and $y = 2(x - 3) + 7$, what is the value of $y$?',
           choices: [
             { id: 'A', text: '$19$' },
@@ -58,7 +58,7 @@ export const practiceTest7 = {
         {
           id: 'pt7-m1-q4',
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'easy',
           question: 'Which inequality represents all values of $x$ such that $3(2x - 5) - x > 2x + 10$?',
           choices: [
             { id: 'A', text: '$x > \\frac{25}{3}$' },
@@ -88,7 +88,7 @@ export const practiceTest7 = {
         {
           id: 'pt7-m1-q6',
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'easy',
           question: 'A survey of $240$ students asked whether they prefer math or science and whether they are in grade 10 or grade 11. Of the $100$ grade 10 students, $45$ prefer math. Of the $140$ grade 11 students, $80$ prefer science. What fraction of the students who prefer math are in grade 11?',
           choices: [
             { id: 'A', text: '$\\frac{45}{105}$' },
@@ -118,7 +118,7 @@ export const practiceTest7 = {
         {
           id: 'pt7-m1-q8',
           type: 'multiple-choice',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'The equation $2x^2 - 12x + 18 = k$ has exactly one real solution. The value of $x$ that satisfies this equation is substituted into the expression $x^2 - 2x + 5$. What is the resulting value?',
           choices: [
             { id: 'A', text: '$2$' },
@@ -133,7 +133,7 @@ export const practiceTest7 = {
         {
           id: 'pt7-m1-q9',
           type: 'multiple-choice',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'The parabola $y = 2x^2 - 8x + 10$ has vertex $(h, k)$ and $y$-intercept $(0, c)$. What is the value of $c - k$?',
           choices: [
             { id: 'A', text: '$2$' },
@@ -232,7 +232,7 @@ export const practiceTest7 = {
         {
           id: 'pt7-m1-q16',
           type: 'fill-in',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'The equation $x(kx - 42) = -9$ has no real solution. What is the least integer value of $k$?',
           correctAnswer: '50',
           explanation: '**SAT Pattern: Discriminant and No Real Solutions** -- Shows up 1 per test. "No real solutions" always means discriminant $< 0$.\n\n**The correct answer is $50$.**\n\n**The Fast Way (30 seconds):** Rewrite as $kx^2 - 42x + 9 = 0$. For no real solutions: $b^2 - 4ac < 0$. So $1764 - 36k < 0$, meaning $k > 49$. Least integer: $50$.\n\n**The Full Solution:**\n$x(kx - 42) = -9$\n$kx^2 - 42x + 9 = 0$\nDiscriminant: $(-42)^2 - 4(k)(9) = 1764 - 36k$\nFor no real solutions: $1764 - 36k < 0$\n$36k > 1764$\n$k > 49$\nLeast integer value: $k = 50$\n\n**Verification:** $k = 50$: discriminant $= 1764 - 1800 = -36 < 0$ (no real solutions). $k = 49$: discriminant $= 1764 - 1764 = 0$ (one real solution, not zero). So $49$ does not work but $50$ does.\n\n**Test Day Takeaway:** No real solutions means $b^2 - 4ac < 0$. One solution means $= 0$. Two solutions means $> 0$. When they ask for "least integer," solve the inequality and round up.',

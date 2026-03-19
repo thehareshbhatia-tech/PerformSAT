@@ -17,7 +17,7 @@ export const practiceTest4 = {
         {
           id: 1,
           type: "fill-in",
-          difficulty: "medium",
+          difficulty: "easy",
           question: "A gym membership has a one-time signup fee and a monthly charge. The equation $C = 400 + 320t$ gives the total amount paid $C$, in dollars, after $t$ months. A second gym charges no signup fee but a higher monthly rate. The total cost at the second gym after $t$ months is given by $C = 360t$. After how many months will the total cost at the two gyms be equal?",
           correctAnswer: 10,
           explanation: "**SAT Pattern: Comparing Two Linear Cost Models** -- The SAT frequently asks you to set two linear equations equal and solve. This requires recognizing which terms to isolate.\n\n**The correct answer is 10.**\n\n**The Fast Way (20 seconds):** Set the two cost equations equal: $400 + 320t = 360t$. Subtract $320t$: $400 = 40t$, so $t = 10$.\n\n**Solution Steps:**\n• First gym: $C_1 = 400 + 320t$\n• Second gym: $C_2 = 360t$\n• Set equal: $400 + 320t = 360t$\n• $400 = 360t - 320t = 40t$\n• $t = 400 \\div 40 = 10$\n\nThe first gym has a higher upfront cost ($\\$400$ signup fee) but a lower monthly rate ($\\$320$ vs. $\\$360$). The break-even point is when the savings on monthly fees offset the signup fee.\n\n**Verification:** First gym at $t = 10$: $400 + 3{,}200 = 3{,}600$. Second gym at $t = 10$: $360 \\times 10 = 3{,}600$. Both equal $\\$3{,}600$.\n\n**Test Day Takeaway:** When comparing two linear models, set them equal and solve. The signup fee divided by the difference in monthly rates gives the break-even point: $400 \\div (360 - 320) = 400 \\div 40 = 10$.",
@@ -26,7 +26,7 @@ export const practiceTest4 = {
         {
           id: 2,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "easy",
           question: "$5$ less than $6$ times a number $y$ is equal to $49$. When the value of $y$ that satisfies this condition is substituted into the expression $3y + 2$, what is the result?",
           choices: [
             { id: "A", text: "$20$" },
@@ -56,7 +56,7 @@ export const practiceTest4 = {
         {
           id: 4,
           type: "fill-in",
-          difficulty: "medium",
+          difficulty: "easy",
           question: "A baker spent \\$42 on flour at \\$6 per bag and \\$28 on sugar at \\$4 per bag. How many total bags of ingredients did the baker purchase?",
           correctAnswer: "14",
           explanation: "**SAT Pattern: Multiple Unit Rates Combined** -- The SAT often requires you to compute two separate quantities and combine them. Read carefully to avoid mixing up which total goes with which rate.\n\n**The correct answer is $14$.**\n\n**The Fast Way (15 seconds):** Flour bags: $42 \\div 6 = 7$. Sugar bags: $28 \\div 4 = 7$. Total: $7 + 7 = 14$.\n\n**Solution Steps:**\n• Flour: $\\$42 \\div \\$6/\\text{bag} = 7$ bags\n• Sugar: $\\$28 \\div \\$4/\\text{bag} = 7$ bags\n• Total bags $= 7 + 7 = 14$\n\n**Common Mistakes:**\n• Dividing total spending ($42 + 28 = 70$) by one of the unit prices (e.g., $70 \\div 6 \\approx 11.7$). You cannot combine the dollar amounts first because the items have different prices.\n• Swapping the prices: dividing $\\$42$ by $\\$4$ and $\\$28$ by $\\$6$, which gives non-integer results — a signal that something is wrong on the SAT.\n\n**Verification:** $7 \\times 6 = 42$ and $7 \\times 4 = 28$. Total: $7 + 7 = 14$ bags.\n\n**Test Day Takeaway:** When a problem involves two different unit rates, compute each quantity separately before combining. Pooling the totals and dividing by a single rate is a common trap.",
@@ -113,7 +113,7 @@ export const practiceTest4 = {
         {
           id: 9,
           type: "multiple-choice",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "Tank A contains $240$ gallons and drains at $15$ gallons per minute. Tank B contains $100$ gallons and is being filled at $5$ gallons per minute. After how many minutes will the two tanks contain the same amount of water?",
           choices: [
             { id: "A", text: "$5$" },
@@ -153,7 +153,7 @@ export const practiceTest4 = {
         {
           id: 11,
           type: "fill-in",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "$18x + y = 36$\n$5x + y = 62$\n\nThe solution to the given system of equations is $(x, y)$. What is the value of $x^2 + y$?",
           correctAnswer: "76",
           explanation: "**SAT Pattern: System of Equations with Expression Evaluation** -- The SAT often asks for a combined expression rather than a single variable, requiring you to solve the full system and then compute an additional step.\n\n**The correct answer is $76$.**\n\n**The Fast Way (30 seconds):** Subtract the equations to eliminate $y$: $(18x + y) - (5x + y) = 36 - 62$, giving $13x = -26$, so $x = -2$. Back-substitute: $5(-2) + y = 62$, so $y = 72$. Then $x^2 + y = 4 + 72 = 76$.\n\n**Solution Steps:**\n• Subtract equation 2 from equation 1: $13x = -26$, so $x = -2$\n• Substitute into equation 2: $-10 + y = 62$, so $y = 72$\n• Compute: $x^2 + y = (-2)^2 + 72 = 4 + 72 = 76$\n\n**Common Mistakes:**\n• Reporting $y = 72$ without computing the requested expression $x^2 + y$. Always re-read what the question asks for.\n• Computing $x + y = -2 + 72 = 70$ instead of $x^2 + y$. The exponent on $x$ matters — missing it costs you the point.\n• Sign error: using $x^2 = -4$ instead of $(-2)^2 = 4$. Squaring a negative number always gives a positive result.\n\n**Verification:**\n• Equation 1: $18(-2) + 72 = -36 + 72 = 36$ ✓\n• Equation 2: $5(-2) + 72 = -10 + 72 = 62$ ✓\n• $x^2 + y = 4 + 72 = 76$ ✓\n\n**Test Day Takeaway:** When the SAT asks for an expression like $x^2 + y$ rather than just $x$ or $y$, solve the system completely first, then substitute into the expression. Watch for sign errors when squaring negative values.",
@@ -243,7 +243,7 @@ export const practiceTest4 = {
         {
           id: 17,
           type: "multiple-choice",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "A rectangular garden has a length-to-width ratio of $3:1$. If the perimeter of the garden is $96$ feet, and the gardener increases the width by $4$ feet while maintaining the $3:1$ ratio, what is the area, in square feet, of the new garden?",
           choices: [
             { id: "A", text: "$432$" },

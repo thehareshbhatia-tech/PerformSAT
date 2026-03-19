@@ -73,7 +73,7 @@ export const practiceTest11 = {
         {
           id: 'pt11-m1-q4',
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'easy',
           question: 'The bar graph above shows the number of books read by each of $20$ students during the summer. What fraction of the students read $3$ or more books?',
           diagram: {
             type: 'barChart',
@@ -104,7 +104,7 @@ export const practiceTest11 = {
         {
           id: 'pt11-m1-q5',
           type: 'fill-in',
-          difficulty: 'medium',
+          difficulty: 'easy',
           question: 'A store originally has $400$ items in stock. During a weekend sale, $35\\%$ of the items are sold. On Monday, the store receives a new shipment that increases the remaining inventory by $20\\%$. How many items does the store have after the shipment?',
           correctAnswer: '312',
           explanation: '**SAT Pattern: Sequential Percent Calculations** -- Shows up 1-2 per test. Requires chaining two percent operations together.\n\n**The correct answer is $312$.**\n\n**The Fast Way (20 seconds):** Start with $400$. Sell $35\\%$: $400 \\times 0.65 = 260$ remaining. Increase by $20\\%$: $260 \\times 1.20 = 312$.\n\n**Step 1: Find items remaining after the sale**\nItems sold: $0.35 \\times 400 = 140$.\nRemaining: $400 - 140 = 260$ items.\n\n**Step 2: Apply the $20\\%$ increase from the shipment**\nIncrease: $0.20 \\times 260 = 52$ items.\nAfter shipment: $260 + 52 = 312$ items.\n\n**Common Mistakes:**\n- Computing $35\\% + 20\\% = 55\\%$ and applying it as a single operation. Successive percent changes must be applied sequentially to different bases, not added together.\n- Applying the $20\\%$ increase to the original $400$ instead of the remaining $260$. The shipment increases the REMAINING inventory, not the original stock.\n- Forgetting to subtract the sold items first and computing $400 \\times 1.20 = 480$.\n\n**Verification:** $400 \\times 0.65 = 260$. Then $260 \\times 1.20 = 312$.\n\n**Test Day Takeaway:** For sequential percent changes, apply each percent to the RESULT of the previous step, not the original amount. Use multipliers ($0.65$ for "lose $35\\%$," $1.20$ for "gain $20\\%$") for speed.',
@@ -113,7 +113,7 @@ export const practiceTest11 = {
         {
           id: 'pt11-m1-q6',
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'easy',
           question: 'The table above shows the number of students who selected different lunch options on a given day. If a student who selected a hot lunch is chosen at random, what is the probability that the student is in grade $10$?',
           diagram: {
             type: 'table',
@@ -244,7 +244,7 @@ export const practiceTest11 = {
         {
           id: 'pt11-m1-q13',
           type: 'fill-in',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'The data set below shows the ages (in years) of $7$ members of a team.\n\n$22, 25, 27, 28, 30, 31, 39$\n\nAn $8$th member joins the team. If the median age of all $8$ members is $27.5$ years, and the new member\'s age is a whole number, what is the greatest possible age of the new member?',
           correctAnswer: '27',
           explanation: '**SAT Pattern: Median with an Unknown Value** -- Shows up 1 per test. Requires understanding how inserting a value shifts the median.\n\n**The correct answer is $27$.**\n\n**Step 1: Understand the median condition for $8$ values**\nWith $8$ values, the median is the average of the 4th and 5th values when sorted in ascending order.\nWe need: $\\frac{\\text{4th value} + \\text{5th value}}{2} = 27.5$, so the 4th and 5th values must sum to $55$.\n\n**Step 2: Determine which pairs of values can occupy the 4th and 5th positions**\nThe only pair from the vicinity of the middle that sums to $55$ is $27$ and $28$. So we need the 4th value $= 27$ and 5th value $= 28$.\n\n**Step 3: Find the greatest possible age of the new member**\nFor $27$ and $28$ to remain in the 4th and 5th positions, the new member\'s age must be $\\leq 27$ (placing them at or before the 4th position). If the new member\'s age were $28$ or higher, it would push $28$ to the 5th or 6th position and shift $27$ to the 4th, but another value would also shift, potentially changing the median.\n\nLet\'s verify: if the new member is age $27$, the sorted data is $22, 25, 27, 27, 28, 30, 31, 39$. The 4th and 5th values are $27$ and $28$, giving median $= 27.5$.\n\nIf the new member is age $28$: sorted data is $22, 25, 27, 28, 28, 30, 31, 39$. Median $= \\frac{28 + 28}{2} = 28 \\neq 27.5$.\n\nSo the greatest possible whole-number age is $27$.\n\n**Verification:** Sorted with new member age $27$: $22, 25, 27, 27, 28, 30, 31, 39$. Median $= \\frac{27 + 28}{2} = 27.5$.\n\n**Test Day Takeaway:** When a problem asks about median with an unknown value, first determine what the 4th and 5th values (for even $n$) must be, then work backwards to find the constraint on the unknown.',
@@ -253,7 +253,7 @@ export const practiceTest11 = {
         {
           id: 'pt11-m1-q14',
           type: 'multiple-choice',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'In triangle $DEF$, the measure of angle $D$ is $52°$ and the measure of angle $E$ is $73°$. Side $\\overline{EF}$ is extended through $F$ to a point $G$, forming exterior angle $\\angle DFG$. What is the measure, in degrees, of the exterior angle $\\angle DFG$?',
           choices: [
             { id: 'A', text: '$55°$' },
@@ -283,7 +283,7 @@ export const practiceTest11 = {
         {
           id: 'pt11-m1-q16',
           type: 'multiple-choice',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: '$\\frac{3}{x - 2} + \\frac{5}{x + 1} = \\frac{17}{(x - 2)(x + 1)}$\n\nWhat is the solution to the given equation?',
           choices: [
             { id: 'A', text: '$x = -1$' },

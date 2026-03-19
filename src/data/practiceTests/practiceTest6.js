@@ -140,7 +140,7 @@ export const practiceTest6 = {
         {
           id: 8,
           type: "fill-in",
-          difficulty: "medium",
+          difficulty: "easy",
           question: "Elena bought $7$ identical picture frames. She used a coupon for \\$35 off the entire purchase. The cost for the entire purchase after using the coupon was \\$56. What was the original price, in dollars, for $1$ picture frame?",
           correctAnswer: "13",
           explanation: "**SAT Pattern: Linear Word Problem (Coupon/Discount)** -- Classic setup that appears often. Translate the story into one equation and solve.\n\n**The correct answer is $13$.**\n\n**The Fast Way (20 seconds):** Add the coupon back: $56 + 35 = 91$. That is the pre-coupon total. Divide by $7$ frames: $91 \\div 7 = 13$.\n\n**Solution steps:**\n- Let $p =$ original price per frame\n- Total before coupon: $7p$\n- After the \\$35 coupon: $7p - 35 = 56$\n- Solve: $7p = 56 + 35 = 91$\n- $p = 91 \\div 7 = 13$\n\n**Verification:** $7 \\times 13 = 91$, then $91 - 35 = 56$. Matches the problem.\n\n**Test Day Takeaway:** For discount problems, undo the discount first (add it back), then divide by the number of items. Working backward is faster than setting up the equation.",
@@ -149,7 +149,7 @@ export const practiceTest6 = {
         {
           id: 9,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "easy",
           question: "Triangles $PQR$ and $XYZ$ are similar, where $P$ corresponds to $X$ and $Q$ corresponds to $Y$. If $\\cos(P) = \\frac{5}{13}$, what is the value of $\\cos(X)$?",
           choices: [
             { id: "A", text: "$\\frac{5}{13}$" },
@@ -164,7 +164,7 @@ export const practiceTest6 = {
         {
           id: 10,
           type: "multiple-choice",
-          difficulty: "hard",
+          difficulty: "easy",
           question: "In a poll of $8{,}000$ voters, $66\\%$ said they support a new policy. After a public debate, $15\\%$ of the original supporters changed their minds and no longer support the policy, while $200$ voters who originally did not support the policy now do. What percent of the $8{,}000$ voters support the policy after the debate?",
           choices: [
             { id: "A", text: "$53.6\\%$" },
@@ -179,7 +179,7 @@ export const practiceTest6 = {
         {
           id: 11,
           type: "fill-in",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "The function $f$ is defined by $f(x) = 6x + 4$ and the function $g$ is defined by $g(x) = x^2 - 1$. For what positive value of $x$ does $f(g(x)) = 52$?",
           correctAnswer: 3,
           explanation: "**SAT Pattern: Function Composition with Two Steps** -- Requires evaluating a composite function and then solving. You must work from the inside out.\n\n**The correct answer is $3$.**\n\n**The Fast Way (30 seconds):** Start from $f(g(x)) = 52$. Since $f(t) = 6t + 4$, set $6 \\cdot g(x) + 4 = 52$. So $6g(x) = 48$, meaning $g(x) = 8$. Then $x^2 - 1 = 8$, so $x^2 = 9$, so $x = 3$ (positive value).\n\n**Step 1: Set up the composition**\n$f(g(x)) = 6 \\cdot g(x) + 4 = 6(x^2 - 1) + 4$\n\n**Step 2: Solve $f(g(x)) = 52$**\n$6(x^2 - 1) + 4 = 52$\n$6x^2 - 6 + 4 = 52$\n$6x^2 - 2 = 52$\n$6x^2 = 54$\n$x^2 = 9$\n$x = \\pm 3$\n\n**Step 3: Apply the constraint**\nThe problem asks for the positive value, so $x = 3$.\n\n**Verification:** $g(3) = 9 - 1 = 8$. Then $f(8) = 6(8) + 4 = 48 + 4 = 52$. Confirmed.\n\n**Test Day Takeaway:** For composite functions $f(g(x))$, work from the inside out. First figure out what $g(x)$ must equal by working backward through $f$, then solve for $x$. This two-layer approach is faster than expanding the whole composition first.",
@@ -203,7 +203,7 @@ export const practiceTest6 = {
         {
           id: 13,
           type: "fill-in",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "A solid aluminum cylinder has a mass of $540$ grams. If aluminum has a density of $2.7$ grams per cubic centimeter and the cylinder has a radius of $5$ centimeters, what is the height, in centimeters, of the cylinder? (Round to the nearest whole number.)",
           correctAnswer: 3,
           explanation: "**SAT Pattern: Combining Density with Cylinder Volume** -- Requires two concepts: using density to find volume, then using the cylinder volume formula to find a missing dimension.\n\n**The correct answer is $3$.**\n\n**The Fast Way (35 seconds):** First find the volume from density: $V = 540 / 2.7 = 200$ cm$^3$. Then use $V = \\pi r^2 h$: $200 = \\pi(25)h$, so $h = 200/(25\\pi) = 8/\\pi \\approx 2.546$. Rounded to the nearest whole number: $h \\approx 3$.\n\n**Step 1: Find the volume using density**\n$V = \\frac{\\text{Mass}}{\\text{Density}} = \\frac{540}{2.7} = 200$ cm$^3$.\n\n**Step 2: Use the cylinder volume formula**\n$V = \\pi r^2 h$\n$200 = \\pi (5)^2 h$\n$200 = 25\\pi h$\n$h = \\frac{200}{25\\pi} = \\frac{8}{\\pi} \\approx 2.546$\n\n**Step 3: Round**\n$h \\approx 3$ cm (to the nearest whole number).\n\n**Verification:** $V = \\pi(5)^2(8/\\pi) = 25\\pi \\times 8/\\pi = 200$ cm$^3$. And mass $= 2.7 \\times 200 = 540$ g. Both conditions confirmed.\n\n**Test Day Takeaway:** When a problem combines density with geometry, work in stages. First convert mass to volume using the density formula, then apply the geometry formula. Multi-concept problems reward systematic step-by-step work.",

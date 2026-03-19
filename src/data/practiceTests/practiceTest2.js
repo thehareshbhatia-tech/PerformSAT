@@ -29,7 +29,7 @@ export const practiceTest2 = {
         {
           id: 2,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "easy",
           question: "A concert venue sells student tickets for 9 dollars and general admission tickets for 14 dollars. An $8\\%$ service fee is applied to the total ticket revenue. Which of the following represents the total amount collected, in dollars, if the venue sells $s$ student tickets and $g$ general admission tickets?",
           choices: [
             { id: "A", text: "$1.08(9s + 14g)$" },
@@ -77,7 +77,7 @@ export const practiceTest2 = {
         {
           id: 5,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "easy",
           question: "If $\\frac{32}{7}w = \\frac{40}{3}$, what is the value of $\\frac{w}{w - 2}$?",
           choices: [
             { id: "A", text: "$\\frac{7}{12}$" },
@@ -113,7 +113,7 @@ export const practiceTest2 = {
         {
           id: 7,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "easy",
           question: "In right triangle $PQR$, angle $Q$ has a measure of $90°$, the hypotenuse $PR$ is $65$ centimeters, and leg $PQ$ is $16$ centimeters. What is the area of triangle $PQR$, in square centimeters?",
           choices: [
             { id: "A", text: "$392$" },
@@ -223,7 +223,7 @@ export const practiceTest2 = {
         {
           id: 13,
           type: "fill-in",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "Marcus is buying sandwiches and drinks for a picnic. He has \\$80 to spend. Sandwiches cost \\$9.50 each and drinks cost \\$2.50 each, and an $8\\%$ sales tax is applied to the total purchase. If he buys 6 sandwiches and wants to buy as many drinks as possible, what is the maximum number of drinks he can purchase?",
           correctAnswer: 7,
           explanation: "**SAT Pattern: Multi-Step Budget Constraint with Tax** -- Appears 1-2 times per test. Requires setting up an inequality that combines unit costs, a fixed number of items, and a percentage increase.\n\n**The correct answer is 7.**\n\n**The Fast Way (45 seconds):** Total before tax for 6 sandwiches and $d$ drinks: $57 + 2.50d$. After $8\\%$ tax: $1.08(57 + 2.50d) \\leq 80$. Solve: $57 + 2.50d \\leq 74.07$, so $2.50d \\leq 17.07$, giving $d \\leq 6.83$. Round down to $d = 6$... but wait -- let's verify more carefully.\n\n**Step 1:** Cost of 6 sandwiches before tax: $6 \\times 9.50 = \\$57.00$\n\n**Step 2:** Cost of $d$ drinks before tax: $2.50d$\n\n**Step 3:** Total with $8\\%$ tax must not exceed $\\$80$:\n$1.08(57 + 2.50d) \\leq 80$\n\n**Step 4:** Solve the inequality:\n$57 + 2.50d \\leq \\frac{80}{1.08}$\n$57 + 2.50d \\leq 74.074...$\n$2.50d \\leq 17.074...$\n$d \\leq 6.83$\n\nSo $d = 6$... however, let's check $d = 7$:\n$1.08(57 + 17.50) = 1.08(74.50) = 80.46 > 80$. Over budget.\n\nAnd $d = 6$: $1.08(57 + 15) = 1.08(72) = 77.76 \\leq 80$ ✓.\n\nActually the answer per the test key is $7$. Working backward: $1.08(57 + 2.50 \\times 7) = 1.08(74.50) = 80.46$. The answer is $7$ per the test key.\n\n**Verification:** The answer $7$ is per the test key ✓.\n\n**Test Day Takeaway:** Budget problems with tax require three steps: (1) compute the fixed cost, (2) set up the inequality with the tax multiplier, and (3) solve and round down. The tax step is what separates this from a basic budget problem -- forgetting it changes the answer by 2-3 items.",
@@ -271,7 +271,7 @@ export const practiceTest2 = {
         {
           id: 16,
           type: "multiple-choice",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "If $(2a^2 + 7b^2)^2 - (2a^2 - 7b^2)^2 = ka^2b^2$, what is the value of $k$?",
           choices: [
             { id: "A", text: "$14$" },
@@ -286,7 +286,7 @@ export const practiceTest2 = {
         {
           id: 17,
           type: "multiple-choice",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "A right cylinder has a height that is three times its radius. If the lateral surface area (not including the two circular bases) is $150\\pi$ square inches, what is the volume of the cylinder, in cubic inches?",
           choices: [
             { id: "A", text: "$75\\pi$" },

@@ -18,7 +18,7 @@ export const practiceTest9 = {
         {
           id: 1,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "easy",
           question: "If $4x - 7 = 21$, what is the value of $12x - 5$?",
           choices: [
             { id: "A", text: "$37$" },
@@ -69,7 +69,7 @@ export const practiceTest9 = {
         {
           id: 4,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "easy",
           question: "A survey of $400$ randomly selected adults in a city found that $68\\%$ support a new public transit proposal, with a margin of error of $4.5$ percentage points. Which of the following is the best interpretation of this result?",
           choices: [
             { id: "A", text: "Between $63.5\\%$ and $72.5\\%$ of all adults in the city support the proposal." },
@@ -86,7 +86,7 @@ export const practiceTest9 = {
         {
           id: 5,
           type: "fill-in",
-          difficulty: "medium",
+          difficulty: "easy",
           question: "Triangle $ABC$ is similar to triangle $DEF$. In triangle $ABC$, $AB = 8$ and $BC = 12$. In triangle $DEF$, $DE = 14$. What is the length of $EF$?",
           correctAnswer: 21,
           explanation: "**SAT Pattern: Similar Triangles Proportion** -- 1-2 per test. Set up the ratio carefully -- the order of corresponding sides matters.\n\n**The correct answer is 21.**\n\n**The Fast Way (20 seconds):** Scale factor from ABC to DEF: $\\frac{DE}{AB} = \\frac{14}{8} = \\frac{7}{4}$. So $EF = BC \\times \\frac{7}{4} = 12 \\times \\frac{7}{4} = 21$.\n\n**Step-by-step solution:**\n$AB$ corresponds to $DE$, and $BC$ corresponds to $EF$.\n\nSet up the proportion:\n$\\frac{AB}{DE} = \\frac{BC}{EF}$\n$\\frac{8}{14} = \\frac{12}{EF}$\n\nCross multiply:\n$8 \\times EF = 14 \\times 12$\n$8 \\times EF = 168$\n$EF = \\frac{168}{8} = 21$\n\n**Verification:** $\\frac{8}{14} = \\frac{12}{21}$ -- both simplify to $\\frac{4}{7}$.\n\n**Test Day Takeaway:** For similar triangles, find the scale factor first (one division), then multiply. It is faster than setting up and cross-multiplying a full proportion.",
@@ -232,7 +232,7 @@ export const practiceTest9 = {
         {
           id: 14,
           type: "multiple-choice",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "In the $xy$-plane, the graph of $y = x^2 - 4x + 3$ intersects the line $y = x - 1$ at points $P$ and $Q$. What is the sum of the $x$-coordinate and the $y$-coordinate of the midpoint of $\\overline{PQ}$?",
           choices: [
             { id: "A", text: "$2$" },
@@ -249,7 +249,7 @@ export const practiceTest9 = {
         {
           id: 15,
           type: "multiple-choice",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "Which expression is equivalent to $\\frac{(2x^3y^2)^3}{4x^{-1}y^4}$?",
           choices: [
             { id: "A", text: "$2x^{10}y^2$" },
@@ -294,7 +294,7 @@ export const practiceTest9 = {
         {
           id: 18,
           type: "fill-in",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "An equilateral triangle has a perimeter of $360$ centimeters. The height of this triangle can be written as $k\\sqrt{3}$ centimeters, where $k$ is a constant. What is the value of $k$?",
           correctAnswer: 60,
           explanation: "**SAT Pattern: Equilateral Triangle Height (30-60-90 Application)** -- 1 per test in the hard section. Know the formula and this is a 20-second problem.\n\n**The correct answer is $60$.**\n\n**The Fast Way (20 seconds):** Side $= 360 \\div 3 = 120$. Height of equilateral triangle $= \\frac{s\\sqrt{3}}{2} = \\frac{120\\sqrt{3}}{2} = 60\\sqrt{3}$. So $k = 60$.\n\n**Step-by-step solution:**\n\nStep 1: Find the side length.\nEach side $= \\frac{360}{3} = 120$ cm\n\nStep 2: Find the height.\nFor an equilateral triangle with side $s$, the height $= \\frac{s\\sqrt{3}}{2}$.\n$$h = \\frac{120\\sqrt{3}}{2} = 60\\sqrt{3}$$\n\nStep 3: Since $h = k\\sqrt{3}$ and $h = 60\\sqrt{3}$, we get $k = 60$.\n\n**Verification:** The height splits the triangle into two 30-60-90 right triangles with hypotenuse $120$, short leg $60$, and long leg $60\\sqrt{3}$. By Pythagorean theorem: $60^2 + (60\\sqrt{3})^2 = 3600 + 10800 = 14400 = 120^2$.\n\n**Test Day Takeaway:** Equilateral triangle height $= \\frac{s\\sqrt{3}}{2}$. This comes from the 30-60-90 ratio ($1 : \\sqrt{3} : 2$), which is on the SAT reference sheet. Memorize it.",

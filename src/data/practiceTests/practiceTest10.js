@@ -43,7 +43,7 @@ export const practiceTest10 = {
         {
           id: 'pt10-m1-q2',
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'easy',
           question: 'Rectangle $P$ has a length of $12$ inches and a width of $6$ inches. A smaller rectangle with a length of $5$ inches and a width of $4$ inches is removed from one corner of rectangle $P$. What is the area, in square inches, of the resulting figure?',
           choices: [
             { id: 'A', text: '$92$' },
@@ -58,7 +58,7 @@ export const practiceTest10 = {
         {
           id: 'pt10-m1-q3',
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'easy',
           question: '$|2p - 3| + 61 = 65$\n\nWhich value is a solution to the given equation?',
           choices: [
             { id: 'A', text: '$\\frac{65}{61}$' },
@@ -118,7 +118,7 @@ export const practiceTest10 = {
         {
           id: 'pt10-m1-q6',
           type: 'fill-in',
-          difficulty: 'hard',
+          difficulty: 'easy',
           question: 'Line $\\ell$ in the $xy$-plane passes through the point $(0, -5)$ and is parallel to the line defined by $y = 3(3x + 2) - 6$. The equation $y = px + r$ defines line $\\ell$, where $p$ and $r$ are constants. What is the value of $p + r$?',
           correctAnswer: '4',
           explanation: '**SAT Pattern: Parallel Lines and Slope-Intercept Form** -- Appears 1-2 times per test. The SAT combines parallel line reasoning (same slope) with algebraic simplification and multi-step evaluation.\n\n**The correct answer is $4$.**\n\n**The Fast Way (30 seconds):** Simplify the given line: $y = 3(3x + 2) - 6 = 9x + 6 - 6 = 9x$. Parallel lines have the same slope, so $p = 9$. The line passes through $(0, -5)$, so $r = -5$. Thus $p + r = 9 + (-5) = 4$.\n\n**Step 1: Simplify the given line equation**\n$y = 3(3x + 2) - 6 = 9x + 6 - 6 = 9x$\nThe slope of this line is $9$.\n\n**Step 2: Determine the slope of line $\\ell$**\nParallel lines have equal slopes, so $p = 9$.\n\n**Step 3: Determine the $y$-intercept of line $\\ell$**\nLine $\\ell$ passes through $(0, -5)$, so $r = -5$.\n\n**Step 4: Compute $p + r$**\n$p + r = 9 + (-5) = 4$\n\n**Verification:** Line $\\ell$: $y = 9x - 5$. At $(0, -5)$: $y = 9(0) - 5 = -5$ -- confirmed. The slope $9$ matches the parallel line -- confirmed. $p + r = 9 + (-5) = 4$ -- confirmed.\n\n**Test Day Takeaway:** Problems that combine parallel lines with disguised equations require multiple steps: simplify the reference line to find the slope, apply the parallel condition, use the given point to find the intercept, then compute the requested expression.',
@@ -180,7 +180,7 @@ export const practiceTest10 = {
         {
           id: 'pt10-m1-q10',
           type: 'multiple-choice',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'The function $f$ is defined by $f(x) = \\frac{1}{2}(x + 6)$. What is the value of $f(f(f(4)))$?',
           choices: [
             { id: 'A', text: '$20$' },
@@ -273,7 +273,7 @@ export const practiceTest10 = {
         {
           id: 'pt10-m1-q16',
           type: 'multiple-choice',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'The function $f$ is defined by $f(x) = |x - 4x|$. What value of $a$ satisfies $f(5) - f(a) = -15$?',
           choices: [
             { id: 'A', text: '$-20$' },

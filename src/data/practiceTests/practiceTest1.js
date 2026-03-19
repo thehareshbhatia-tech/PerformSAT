@@ -17,7 +17,7 @@ export const practiceTest1 = {
         {
           id: 1,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "easy",
           question: "Data set B contains the values shown below. A seventh value is added to the data set, and the new mean becomes $9$. What is the seventh value?",
           questionFormula: {
             equation: "$$\\text{Data set B: } 7.2, 11.4, 9.8, 5.4, 10.6, 5.6$$"
@@ -50,7 +50,7 @@ export const practiceTest1 = {
         {
           id: 3,
           type: "fill-in",
-          difficulty: "medium",
+          difficulty: "easy",
           question: "The values below represent how many miles Kenji ran in each of his last ten training sessions. Kenji goes on an eleventh run. After this run, his mean distance increases by exactly $1$ mile compared to his original ten-session mean. How many miles did Kenji run in his eleventh session?",
           questionFormula: {
             equation: "$$16, 12, 18, 9, 21, 15, 15, 19, 25, 20$$"
@@ -77,7 +77,7 @@ export const practiceTest1 = {
         {
           id: 5,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "easy",
           question: "A bakery sells muffins for \\$2.75 each and croissants for \\$4.25 each. On Saturday, the bakery sold the same number of muffins as croissants and made \\$38.25 from croissants alone. On Sunday, croissant sales dropped by $\\frac{1}{3}$, but muffin sales doubled compared to Saturday. What was the bakery's total revenue on Sunday, in dollars?",
           choices: [
             { id: "A", text: "$24.75$" },
@@ -122,7 +122,7 @@ export const practiceTest1 = {
         {
           id: 8,
           type: "multiple-choice",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "The equation above describes the relationship between four positive values: $v$, $d$, $a$, and $b$. If $v = 3$, $d = 72$, and $b = 2$, what is the value of $\\frac{1}{a} + b$?",
           questionFormula: {
             equation: "$v = \\sqrt{\\frac{d}{ab}}$"
@@ -178,7 +178,7 @@ export const practiceTest1 = {
         {
           id: 11,
           type: "multiple-choice",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "A fossil sample contains two radioisotopes. Isotope A starts with 80 grams and has a half-life of 5,730 years. Isotope B starts with 320 grams and has a half-life of 2,865 years. After how many years will the remaining amount of Isotope A first exceed the remaining amount of Isotope B?",
           choices: [
             { id: "A", text: "$2{,}865$" },
@@ -193,7 +193,7 @@ export const practiceTest1 = {
         {
           id: 12,
           type: "multiple-choice",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "What is the sum of all real solutions to the equation below?\n\n$\\sqrt{2x + 10} = x - 1$",
           choices: [
             { id: "A", text: "$3$" },

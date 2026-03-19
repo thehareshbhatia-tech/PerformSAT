@@ -76,7 +76,7 @@ export const practiceTest12 = {
         {
           id: 'pt12-m1-q4',
           type: 'fill-in',
-          difficulty: 'medium',
+          difficulty: 'easy',
           question: 'A survey of $600$ people found that $45\\%$ preferred brand A and $30\\%$ preferred brand B. The remaining people had no preference. How many more people preferred brand A than preferred brand B?',
           correctAnswer: '90',
           explanation: '**SAT Pattern: Comparing Percentages of a Total** -- Requires computing two percentages and finding their difference, a common two-step percent problem.\n\n**The correct answer is $90$.** $45\\%$ of $600$ is $270$ and $30\\%$ of $600$ is $180$, so $270 - 180 = 90$ more people preferred brand A.\n\n**The Fast Way (15 seconds):** The difference in percentages is $45\\% - 30\\% = 15\\%$. Then $15\\%$ of $600 = 0.15 \\times 600 = 90$. Done.\n\n**Step 1: Find the number who preferred brand A**\n$0.45 \\times 600 = 270$\n\n**Step 2: Find the number who preferred brand B**\n$0.30 \\times 600 = 180$\n\n**Step 3: Find the difference**\n$270 - 180 = 90$\n\n**Verification:** $\\frac{90}{600} = 0.15 = 15\\%$, which equals the difference between $45\\%$ and $30\\%$.\n\n**Test Day Takeaway:** When comparing two percentages of the same total, you can subtract the percentages first and then multiply once -- or compute each separately and subtract. Both paths should give the same answer.',
@@ -85,7 +85,7 @@ export const practiceTest12 = {
         {
           id: 'pt12-m1-q5',
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'easy',
           question: 'The ratio of cats to dogs at an animal shelter is $3:5$. If there are $40$ dogs, how many total animals (cats and dogs) are at the shelter?',
           choices: [
             { id: 'A', text: '$48$' },
@@ -100,7 +100,7 @@ export const practiceTest12 = {
         {
           id: 'pt12-m1-q6',
           type: 'multiple-choice',
-          difficulty: 'hard',
+          difficulty: 'easy',
           question: 'The graph above shows the estimated revenue, in thousands of dollars, for a new business as a function of the number of months since it opened. The business becomes profitable once its cumulative revenue exceeds its initial \\$60,000 startup cost. According to the model, what is the slope of the line, and after how many full months will the cumulative revenue first exceed the startup cost?',
           diagram: {
             type: 'linearGraph',
@@ -128,7 +128,7 @@ export const practiceTest12 = {
         {
           id: 'pt12-m1-q7',
           type: 'multiple-choice',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'The scatterplot above shows the relationship between the number of practice hours and race times for $10$ runners. A line of best fit is also shown. The runner at $x = 8$ has an actual race time that differs from the predicted value. What is the residual (actual minus predicted) for this runner, and what does a negative residual indicate about the runner\'s performance relative to the model?',
           diagram: {
             type: 'scatterplot',
@@ -275,7 +275,7 @@ export const practiceTest12 = {
         {
           id: 'pt12-m1-q16',
           type: 'multiple-choice',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'Which expression is equivalent to $\\frac{x^2 - 9}{x^2 + 5x + 6}$?',
           choices: [
             { id: 'A', text: '$\\frac{x - 3}{x + 2}$' },

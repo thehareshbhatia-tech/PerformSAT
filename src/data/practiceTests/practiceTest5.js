@@ -82,7 +82,7 @@ export const practiceTest5 = {
         {
           id: 4,
           type: "fill-in",
-          difficulty: "medium",
+          difficulty: "easy",
           question: "A store marks up every item by $8\\%$ of its wholesale cost. If the wholesale cost of a jacket is $\\$65$, what is the retail price, in dollars, of the jacket?",
           correctAnswer: 70.2,
           alternateAnswers: ["70.20", "351/5"],
@@ -92,7 +92,7 @@ export const practiceTest5 = {
         {
           id: 5,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "easy",
           question: "A bookstore sells novels for \\$8 each and journals for \\$3 each. A customer has a \\$50 gift card and buys $n$ novels and $j$ journals. Which expression represents the remaining balance, in dollars, on the gift card after the purchase?",
           choices: [
             { id: "A", text: "$50 - 11nj$" },
@@ -107,7 +107,7 @@ export const practiceTest5 = {
         {
           id: 6,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "easy",
           question: "A survey of $400$ residents found that $60$ prefer public transit. A second survey of $250$ residents in a neighboring city found that $50$ prefer public transit. How many percentage points greater is the transit preference rate in the second city than in the first city?",
           choices: [
             { id: "A", text: "$1$" },
@@ -223,7 +223,7 @@ export const practiceTest5 = {
         {
           id: 13,
           type: "fill-in",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "If $\\frac{x}{6} = 4$ and $\\frac{y}{3} = 5$, what is the value of $\\frac{6}{x} + \\frac{3}{y}$?",
           correctAnswer: "0.45",
           explanation: "**SAT Pattern: Combining Reciprocal Relationships** -- Shows up 0-1 times per test. You must recognize the reciprocal property in two separate fractions and then combine the results.\n\n**The correct answer is $0.45$ (or $\\frac{9}{20}$).**\n\n**The Fast Way (15 seconds):** $\\frac{6}{x}$ is the reciprocal of $\\frac{x}{6} = 4$, so $\\frac{6}{x} = \\frac{1}{4}$. Similarly, $\\frac{3}{y}$ is the reciprocal of $\\frac{y}{3} = 5$, so $\\frac{3}{y} = \\frac{1}{5}$. Sum: $\\frac{1}{4} + \\frac{1}{5} = \\frac{5+4}{20} = \\frac{9}{20} = 0.45$.\n\n**The Full Solution:**\nStep 1: From $\\frac{x}{6} = 4$: $x = 24$, so $\\frac{6}{x} = \\frac{6}{24} = \\frac{1}{4}$.\nStep 2: From $\\frac{y}{3} = 5$: $y = 15$, so $\\frac{3}{y} = \\frac{3}{15} = \\frac{1}{5}$.\nStep 3: $\\frac{1}{4} + \\frac{1}{5} = \\frac{5}{20} + \\frac{4}{20} = \\frac{9}{20} = 0.45$.\n\n**Common mistakes:**\n• Answering $0.25$: You computed only $\\frac{6}{x} = \\frac{1}{4}$ and forgot the second term. Multi-part expressions require evaluating every piece.\n• Answering $0.45$ incorrectly as $0.9$: You may have added $\\frac{1}{4} + \\frac{1}{5}$ as $\\frac{2}{9}$ or $\\frac{1}{9}$, or confused $\\frac{1}{4} + \\frac{1}{5} = \\frac{1}{9}$ (adding denominators is wrong).\n• Answering $9$: You computed $\\frac{x}{6} + \\frac{y}{3} = 4 + 5 = 9$ instead of the reciprocals. The question asks for $\\frac{6}{x} + \\frac{3}{y}$, not $\\frac{x}{6} + \\frac{y}{3}$.\n\n**Verification:** $\\frac{6}{24} + \\frac{3}{15} = 0.25 + 0.20 = 0.45$ ✓\n\n**Test Day Takeaway:** When you see reciprocal expressions, use $\\frac{b}{a} = \\frac{1}{(a/b)}$ to avoid solving for the variable. When adding fractions with unlike denominators, find the LCD first. This problem combines two concepts: reciprocals and fraction addition.",
@@ -277,7 +277,7 @@ export const practiceTest5 = {
         {
           id: 17,
           type: "fill-in",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "If $r$ and $s$ are the solutions to $3x^2 - 7x + 2 = 0$, what is the value of $r^2 + s^2$?",
           correctAnswer: "37/9",
           alternateAnswers: ["4.111", "4.11", "4.1"],
@@ -324,7 +324,7 @@ export const practiceTest5 = {
         {
           id: 20,
           type: "fill-in",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "The expression $4\\sqrt[4]{2^4x^{20}} \\cdot \\sqrt[3]{3^3x^6}$ is equivalent to $ax^b$, where $a$ and $b$ are positive constants and $x > 1$. What is the value of $a + b$?",
           correctAnswer: "19",
           explanation: "**SAT Pattern: Simplifying Radical Expressions with Exponents** -- Shows up 0-1 times per test. Apply the rule $\\sqrt[n]{a^m} = a^{m/n}$ systematically.\n\n**The correct answer is $19$.**\n\n**The Fast Way (30 seconds):** Simplify each radical separately.\nFirst term: $4\\sqrt[4]{2^4 x^{20}} = 4 \\cdot 2 \\cdot x^5 = 8x^5$.\nWait -- re-read the expression. The coefficient $4$ outside might actually be part of the radical or the expression may parse differently.\n\nLet me interpret the expression as written: $4\\sqrt[4]{2^4 x^{20}} \\cdot \\sqrt[3]{3^3 x^6}$.\n$\\sqrt[4]{2^4 x^{20}} = 2^{4/4} \\cdot x^{20/4} = 2 \\cdot x^5$\nSo the first part: $4 \\cdot 2 \\cdot x^5 = 8x^5$... but if $a = 8$ and the second part gives $3x^2$, then the product is $24x^7$ and $a+b = 31$.\n\nFor $a + b = 19$: we need $a = 12, b = 7$. This works if the leading coefficient is $4$ inside the fourth root context giving $4 \\cdot \\sqrt[4]{2^4 x^{20}} = 4 \\cdot 2x^5$... The intended answer is $19$ with $a = 12$ and $b = 7$, meaning the first part simplifies to $4x^5$ (treating the coefficient as $4$ alone, not $4 \\cdot 2$), giving $4x^5 \\cdot 3x^2 = 12x^7$.\n\n$a = 12$, $b = 7$, so $a + b = 19$.\n\n**Verification:** $12x^7$ gives $a + b = 12 + 7 = 19$ ✓\n\n**Test Day Takeaway:** For radical simplification, use $\\sqrt[n]{a^m} = a^{m/n}$. Simplify each radical piece by piece, then multiply. Keep careful track of coefficients outside vs. inside the radical.",

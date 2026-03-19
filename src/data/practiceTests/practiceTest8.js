@@ -13,7 +13,7 @@ export const practiceTest8 = {
         {
           id: 'pt8-m1-q1',
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'easy',
           question: 'The bar graph shows the percentage of laptops for sale at a store by year of manufacture. There are $240$ laptops total. How many more laptops were manufactured in $2022$ than in $2019$?',
           diagram: {
             type: 'barChart',
@@ -44,7 +44,7 @@ export const practiceTest8 = {
         {
           id: 'pt8-m1-q2',
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'easy',
           question: 'The line $y = 2x + 10$ and the line $y = -x + 1$ intersect at the point $(x, y)$ in the $xy$-plane. What is the value of $x + y$?',
           choices: [
             { id: 'A', text: '$0$' },
@@ -74,7 +74,7 @@ export const practiceTest8 = {
         {
           id: 'pt8-m1-q4',
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'easy',
           question: 'A parabola with vertex at $(0, -4)$ is translated $3$ units to the right and $5$ units up. What are the coordinates of the new vertex?',
           choices: [
             { id: 'A', text: '$(3, 1)$' },
@@ -162,7 +162,7 @@ export const practiceTest8 = {
         {
           id: 'pt8-m1-q10',
           type: 'multiple-choice',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'If $3x + 4 = 16$ and $2y - 5 = 9$, what is the value of $\\frac{12x + 16}{2y - 5} + 3y$?',
           choices: [
             { id: 'A', text: '$\\frac{85}{9}$' },
@@ -177,7 +177,7 @@ export const practiceTest8 = {
         {
           id: 'pt8-m1-q11',
           type: 'multiple-choice',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'Which expression is equivalent to $\\frac{(a^3b^{-2}c^4)^2}{a^{-1}b^3c^5}$, where $a$, $b$, and $c$ are positive?',
           choices: [
             { id: 'A', text: '$a^7b^{-7}c^3$' },
@@ -240,7 +240,7 @@ export const practiceTest8 = {
         {
           id: 'pt8-m1-q16',
           type: 'multiple-choice',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'The population of bacteria in a culture triples every day. There are $5{,}000$ bacteria at the start of an observation. After how many complete days will the population first exceed $10$ times its initial size?',
           choices: [
             { id: 'A', text: '$2$' },
