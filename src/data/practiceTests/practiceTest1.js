@@ -77,7 +77,7 @@ export const practiceTest1 = {
         {
           id: 5,
           type: "multiple-choice",
-          difficulty: "easy",
+          difficulty: "medium",
           question: "A bakery sells muffins for \\$2.75 each and croissants for \\$4.25 each. On Saturday, the bakery sold the same number of muffins as croissants and made \\$38.25 from croissants alone. On Sunday, croissant sales dropped by $\\frac{1}{3}$, but muffin sales doubled compared to Saturday. What was the bakery's total revenue on Sunday, in dollars?",
           choices: [
             { id: "A", text: "$24.75$" },
@@ -178,7 +178,7 @@ export const practiceTest1 = {
         {
           id: 11,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "A fossil sample contains two radioisotopes. Isotope A starts with 80 grams and has a half-life of 5,730 years. Isotope B starts with 320 grams and has a half-life of 2,865 years. After how many years will the remaining amount of Isotope A first equal or exceed the remaining amount of Isotope B?",
           choices: [
             { id: "A", text: "$2{,}865$" },
@@ -193,7 +193,7 @@ export const practiceTest1 = {
         {
           id: 12,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "What is the sum of all real solutions to the equation below?\n\n$\\sqrt{3x + 1} = x - 3$",
           choices: [
             { id: "A", text: "$3$" },
@@ -297,7 +297,7 @@ export const practiceTest1 = {
         {
           id: 17,
           type: "fill-in",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "The given equation defines the function $h$.\n\n$h(x) = 2x^2 - 12x + 40$\n\nFor what value of $x$ does $h(x)$ reach its minimum?",
           correctAnswer: '3',
           explanation: "**SAT Pattern: Vertex of a Quadratic (Minimum/Maximum)** — 1-2 per test. One formula gives you the answer instantly.\n\n**The correct answer is 3.**\n\n**The Fast Way (10 seconds):** Vertex $x$-coordinate $= \\frac{-b}{2a} = \\frac{-(-12)}{2(2)} = \\frac{12}{4} = 3$. Done.\n\n**Desmos Shortcut:** Graph $y = 2x^2 - 12x + 40$. Click the vertex. The $x$-coordinate is $3$.\n\n**The Full Solution:**\n$h(x) = 2x^2 - 12x + 40$ where $a = 2$, $b = -12$\nVertex $x = \\frac{-b}{2a} = \\frac{12}{4} = 3$\nSince $a = 2 > 0$, the parabola opens upward, so the vertex is a minimum.\n\n**Common Mistakes to Avoid:**\n• Forgetting the negative sign: $\\frac{-b}{2a}$, not $\\frac{b}{2a}$. With $b = -12$, $-(-12) = +12$.\n• Using $\\frac{-b}{a}$ instead of $\\frac{-b}{2a}$. The $2$ in the denominator matters.\n• Confusing minimum vs maximum: positive $a$ = opens UP = minimum. Negative $a$ = opens DOWN = maximum.\n\n**Verification:** $h(3) = 2(9) - 36 + 40 = 22$. $h(2) = 24 > 22$ ✓. $h(4) = 24 > 22$ ✓. The vertex is indeed the minimum.\n\n**Test Day Takeaway:** Vertex $x = \\frac{-b}{2a}$. Memorize this like your phone number. Or just graph it on Desmos and click the bottom (or top) of the parabola.",
@@ -321,7 +321,7 @@ export const practiceTest1 = {
         {
           id: 19,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "If the solution to the given equation is a positive whole number, what could be a value of $k$?",
           questionFormula: {
             equation: "$$kx^2 + 36 = 900$$"

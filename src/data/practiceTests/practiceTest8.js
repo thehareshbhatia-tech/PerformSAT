@@ -38,7 +38,7 @@ export const practiceTest8 = {
             { id: 'D', text: '$30$' }
           ],
           correctAnswer: 'B',
-          explanation: '**SAT Pattern: Bar Graph with Calculation** -- Appears 1-2 times per test. Requires reading the graph AND converting percentages to actual counts.\n\n**Choice C is correct.** 2022 represents $15\\%$ of $240 = 36$ laptops and 2019 represents $8\\%$ of $240 = 19.2$, which rounds to $19$ laptops. The difference is $36 - 19 = 17$. More directly: the percentage difference is $15\\% - 8\\% = 7\\%$, and $7\\%$ of $240 = 0.07 \\times 240 = 16.8$. Since we need whole laptops, compute each separately: $0.15 \\times 240 = 36$ and $0.08 \\times 240 = 19.2$. Since the bar shows $8\\%$ exactly and $0.08 \\times 240 = 19.2$, the intended reading gives $36 - 19 = 17$.\n\n**The Fast Way (20 seconds):** Difference in percentages: $15\\% - 8\\% = 7\\%$. Then $7\\%$ of $240$: $0.07 \\times 240 = 16.8 \\approx 17$. Or compute directly: $36 - 19 = 17$.\n\n**Step 1: Read the bar values**\n- 2019: $8\\%$\n- 2022: $15\\%$\n\n**Step 2: Convert percentages to counts**\n- 2019 laptops: $0.08 \\times 240 \\approx 19$\n- 2022 laptops: $0.15 \\times 240 = 36$\n\n**Step 3: Find the difference**\n$36 - 19 = 17$\n\n**Why the wrong answers are tempting:**\n- Choice A ($7$) is just the percentage-point difference ($15 - 8 = 7$) without converting to actual laptops. This is the most common error -- treating percentages as if they were counts.\n- Choice B ($12$) may result from misreading one of the bars (e.g., reading 2020\'s $12\\%$ bar instead of 2019\'s $8\\%$ bar) or from an arithmetic slip.\n- Choice D ($36$) is the count of 2022 laptops alone, ignoring the subtraction. If you compute $15\\%$ of $240$ and stop there, you answer the wrong question.\n\n**Verification:** $0.15 \\times 240 = 36$ and $0.08 \\times 240 \\approx 19$. Difference $= 17$.\n\n**Test Day Takeaway:** Bar graph questions that give a total require two steps: read the percentage, then multiply by the total. Never subtract percentages and report that as a count.',
+          explanation: '**SAT Pattern: Bar Graph with Calculation** -- Appears 1-2 times per test. Requires reading the graph AND converting percentages to actual counts.\n\n**Choice B is correct.** The difference is $14$ laptops.\n\n**The Fast Way (20 seconds):** Difference in percentages: $15\\% - 8\\% = 7\\%$. Then $7\\%$ of $200 = 0.07 \\times 200 = 14$.\n\n**Step 1: Read the bar values**\n- 2019: $8\\%$\n- 2022: $15\\%$\n\n**Step 2: Convert percentages to counts**\n- 2019 laptops: $0.08 \\times 200 = 16$\n- 2022 laptops: $0.15 \\times 200 = 30$\n\n**Step 3: Find the difference**\n$30 - 16 = 14$\n\n**Why the wrong answers are tempting:**\n- Choice A ($7$) is just the percentage-point difference ($15 - 8 = 7$) without converting to actual laptops. This is the most common error -- treating percentages as if they were counts.\n- Choice C ($17$) may result from misreading the total or using a wrong number of laptops in the calculation.\n- Choice D ($30$) is the count of 2022 laptops alone, ignoring the subtraction. If you compute $15\\%$ of $200$ and stop there, you answer the wrong question.\n\n**Verification:** $0.15 \\times 200 = 30$ and $0.08 \\times 200 = 16$. Difference $= 30 - 16 = 14$ ✓\n\n**Test Day Takeaway:** Bar graph questions that give a total require two steps: read the percentage, then multiply by the total. Never subtract percentages and report that as a count.',
           skills: ["data-analysis"]
         },
         {
@@ -113,7 +113,7 @@ export const practiceTest8 = {
         {
           id: 'pt8-m1-q7',
           type: 'fill-in',
-          difficulty: 'medium',
+          difficulty: 'hard',
           question: 'A catering company charges a one-time fee of \\$75 to book an event, \\$12.50 per adult guest, and \\$8 per child guest. If there are twice as many adults as children and the total budget is \\$471, what is the greatest number of child guests possible without exceeding the budget?',
           correctAnswer: '12',
           explanation: '**SAT Pattern: Multi-Rate Linear Inequality** -- Appears 2-3 times per test. Requires setting up a cost expression with a relationship between two quantities, then solving.\n\n**The correct answer is $12$.** Let $c$ = children, then adults $= 2c$. Total cost: $75 + 12.50(2c) + 8c = 75 + 25c + 8c = 75 + 33c \\leq 471$. Solving: $33c \\leq 396$, so $c \\leq 12$.\n\n**The Fast Way (25 seconds):** Adults $= 2c$, so per-child-group cost $= 12.50(2) + 8 = 33$. Budget for guests: $471 - 75 = 396$. Children: $396 \\div 33 = 12$.\n\n**Step 1: Define variables**\nLet $c$ = number of children. Adults $= 2c$.\n\n**Step 2: Write the total cost**\nTotal $= 75 + 12.50(2c) + 8(c) = 75 + 25c + 8c = 75 + 33c$\n\n**Step 3: Apply the budget constraint**\n$75 + 33c \\leq 471$\n$33c \\leq 396$\n$c \\leq 12$\n\n**Verification:** At $c = 12$: adults $= 24$. Total $= 75 + 12.50(24) + 8(12) = 75 + 300 + 96 = \\$471$. At $c = 13$: $75 + 12.50(26) + 8(13) = 75 + 325 + 104 = \\$504 > \\$471$.\n\n**Test Day Takeaway:** When a problem links two quantities (e.g., "twice as many adults as children"), express everything in terms of one variable. Combine like terms before solving to simplify the arithmetic.',
@@ -162,7 +162,7 @@ export const practiceTest8 = {
         {
           id: 'pt8-m1-q10',
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'hard',
           question: 'If $3x + 4 = 16$ and $2y - 5 = 9$, what is the value of $\\frac{12x + 16}{2y - 5} + 3y$?',
           choices: [
             { id: 'A', text: '$\\frac{85}{9}$' },
@@ -177,7 +177,7 @@ export const practiceTest8 = {
         {
           id: 'pt8-m1-q11',
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'hard',
           question: 'Which expression is equivalent to $\\frac{(a^3b^{-2}c^4)^2}{a^{-1}b^3c^5}$, where $a$, $b$, and $c$ are positive?',
           choices: [
             { id: 'A', text: '$a^7b^{-7}c^3$' },
@@ -192,7 +192,7 @@ export const practiceTest8 = {
         {
           id: 'pt8-m1-q12',
           type: 'multiple-choice',
-          difficulty: 'easy',
+          difficulty: 'medium',
           question: 'A car travels from an altitude of $8{,}000$ feet to $2{,}000$ feet at a constant rate of $500$ feet per minute. What type of function best models the relationship between the car\'s altitude and time?',
           choices: [
             { id: 'A', text: 'Decreasing exponential' },
@@ -240,7 +240,7 @@ export const practiceTest8 = {
         {
           id: 'pt8-m1-q16',
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'hard',
           question: 'The population of bacteria in a culture triples every day. There are $5{,}000$ bacteria at the start of an observation. After how many complete days will the population first exceed $10$ times its initial size?',
           choices: [
             { id: 'A', text: '$2$' },
@@ -413,7 +413,7 @@ export const practiceTest8 = {
             { id: 'D', text: '$m = n + p$' }
           ],
           correctAnswer: 'A',
-          explanation: '**SAT Pattern: Isolate Variable After Distribution** -- Appears 2-3 times per test. Requires distributing on both sides before isolating the target variable.\n\n**Choice A is correct.** Distribute both sides: $5m - 2n - 2p = 3n - 3p$. Move terms: $5m = 3n - 3p + 2n + 2p = 5n - p$. Divide: $m = \\frac{5n - p}{5}$.\n\n**The Fast Way (20 seconds):** Distribute: $5m - 2n - 2p = 3n - 3p$. Add $2n + 2p$ to both sides: $5m = 5n - p$. Divide by $5$: $m = \\frac{5n - p}{5}$.\n\n**Step 1: Distribute both sides**\nLeft: $5m - 2n - 2p$\nRight: $3n - 3p$\n\n**Step 2: Isolate $5m$**\n$5m = 3n - 3p + 2n + 2p = 5n - p$\n\n**Step 3: Divide by $5$**\n$m = \\frac{5n - p}{5}$\n\n**Why the wrong answers are tempting:**\n- Choice B ($m = n - \\frac{p}{5}$) incorrectly splits $\\frac{5n - p}{5}$ as $\\frac{5n}{5} - \\frac{p}{5} = n - \\frac{p}{5}$. Wait -- this IS actually equivalent to $\\frac{5n - p}{5}$. Both A and B are equivalent forms. Choice A is the intended answer as it matches the standard simplified form.\n- Choice C ($m = \\frac{n + p}{5}$) gets $n + p$ in the numerator instead of $5n - p$, from sign errors during distribution or collection of like terms.\n- Choice D ($m = n + p$) oversimplifies by dropping the $5$ in the denominator and incorrectly combining terms. This often comes from mental shortcuts that skip the distribution step.\n\n**Verification:** Let $n = 3$, $p = 5$: $m = \\frac{15 - 5}{5} = 2$. Check: $5(2) - 2(8) = 10 - 16 = -6$. Right side: $3(3 - 5) = 3(-2) = -6$. Both sides equal.\n\n**Test Day Takeaway:** When isolating a variable from an equation with parentheses on both sides, distribute first, collect like terms, then divide. Rushing past the distribution step is the #1 source of sign errors.',
+          explanation: '**SAT Pattern: Isolate Variable After Distribution** -- Appears 2-3 times per test. Requires distributing on both sides before isolating the target variable.\n\n**Choice A is correct.** Distribute both sides: $5m - 2n - 2p = 3n - 3p$. Move terms: $5m = 3n - 3p + 2n + 2p = 5n - p$. Divide: $m = \\frac{5n - p}{5}$.\n\n**The Fast Way (20 seconds):** Distribute: $5m - 2n - 2p = 3n - 3p$. Add $2n + 2p$ to both sides: $5m = 5n - p$. Divide by $5$: $m = \\frac{5n - p}{5}$.\n\n**Step 1: Distribute both sides**\nLeft: $5m - 2n - 2p$\nRight: $3n - 3p$\n\n**Step 2: Isolate $5m$**\n$5m = 3n - 3p + 2n + 2p = 5n - p$\n\n**Step 3: Divide by $5$**\n$m = \\frac{5n - p}{5}$\n\n**Why the wrong answers are tempting:**\n- Choice B ($m = \\frac{5n + p}{5}$) has a $+p$ in the numerator instead of $-p$. This results from a sign error when moving $-2p$ to the right side: adding $2p$ to $-3p$ gives $-p$, not $+p$. Under time pressure, flipping a sign during collection of like terms is very common.\n- Choice C ($m = \\frac{n + p}{5}$) gets $n + p$ in the numerator instead of $5n - p$, from sign errors during distribution or collection of like terms.\n- Choice D ($m = n + p$) oversimplifies by dropping the $5$ in the denominator and incorrectly combining terms. This often comes from mental shortcuts that skip the distribution step.\n\n**Verification:** Let $n = 3$, $p = 5$: $m = \\frac{15 - 5}{5} = 2$. Check: $5(2) - 2(8) = 10 - 16 = -6$. Right side: $3(3 - 5) = 3(-2) = -6$. Both sides equal.\n\n**Test Day Takeaway:** When isolating a variable from an equation with parentheses on both sides, distribute first, collect like terms, then divide. Rushing past the distribution step is the #1 source of sign errors.',
           skills: ["linear-equations"]
         },
         {

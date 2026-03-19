@@ -77,7 +77,7 @@ export const practiceTest2 = {
         {
           id: 5,
           type: "multiple-choice",
-          difficulty: "easy",
+          difficulty: "medium",
           question: "If $\\frac{32}{7}w = \\frac{40}{3}$, what is the value of $\\frac{w}{w - 2}$?",
           choices: [
             { id: "A", text: "$\\frac{7}{12}$" },
@@ -247,7 +247,7 @@ export const practiceTest2 = {
         {
           id: 15,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "The graph of a parabola is shown. What is the equation of the graph?",
           diagram: {
             type: "parabola",
@@ -271,7 +271,7 @@ export const practiceTest2 = {
         {
           id: 16,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "If $(2a^2 + 7b^2)^2 - (2a^2 - 7b^2)^2 = ka^2b^2$, what is the value of $k$?",
           choices: [
             { id: "A", text: "$14$" },
@@ -286,7 +286,7 @@ export const practiceTest2 = {
         {
           id: 17,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "A right cylinder has a height that is three times its radius. If the lateral surface area (not including the two circular bases) is $150\\pi$ square inches, what is the volume of the cylinder, in cubic inches?",
           choices: [
             { id: "A", text: "$75\\pi$" },
@@ -301,7 +301,7 @@ export const practiceTest2 = {
         {
           id: 18,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "What is the $x$-intercept of the given equation?\n\n$x = 3^{y-1} + \\frac{5}{3}$",
           choices: [
             { id: "A", text: "$\\frac{1}{3}$" },

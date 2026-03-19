@@ -268,7 +268,7 @@ export const practiceTest11 = {
         {
           id: 'pt11-m1-q15',
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'hard',
           question: 'What are the solutions to the equation $x^2 - 9x + 20 = 0$?',
           choices: [
             { id: 'A', text: '$x = 2$ and $x = 10$' },
@@ -283,7 +283,7 @@ export const practiceTest11 = {
         {
           id: 'pt11-m1-q16',
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'hard',
           question: '$\\frac{3}{x - 2} + \\frac{5}{x + 1} = \\frac{17}{(x - 2)(x + 1)}$\n\nWhat is the solution to the given equation?',
           choices: [
             { id: 'A', text: '$x = -1$' },

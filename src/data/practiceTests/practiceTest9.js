@@ -97,7 +97,7 @@ export const practiceTest9 = {
         {
           id: 6,
           type: "fill-in",
-          difficulty: "medium",
+          difficulty: "easy",
           question: "Two parallel lines are cut by a transversal as shown. What is the measure, in degrees, of angle $x$?",
           diagram: {
             type: 'parallelLines',
@@ -167,7 +167,7 @@ export const practiceTest9 = {
         {
           id: 10,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "The function $f(x) = -2(x - 4)^2 + 18$ is graphed in the $xy$-plane. Which of the following statements about the graph is true?",
           choices: [
             { id: "A", text: "The graph has a minimum value of $18$." },
@@ -232,7 +232,7 @@ export const practiceTest9 = {
         {
           id: 14,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "In the $xy$-plane, the graph of $y = x^2 - 4x + 3$ intersects the line $y = x - 1$ at points $P$ and $Q$. What is the sum of the $x$-coordinate and the $y$-coordinate of the midpoint of $\\overline{PQ}$?",
           choices: [
             { id: "A", text: "$2$" },
@@ -249,7 +249,7 @@ export const practiceTest9 = {
         {
           id: 15,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "Which expression is equivalent to $\\frac{(2x^3y^2)^3}{4x^{-1}y^4}$?",
           choices: [
             { id: "A", text: "$2x^{10}y^2$" },
@@ -294,7 +294,7 @@ export const practiceTest9 = {
         {
           id: 18,
           type: "fill-in",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "An equilateral triangle has a perimeter of $360$ centimeters. The height of this triangle can be written as $k\\sqrt{3}$ centimeters, where $k$ is a constant. What is the value of $k$?",
           correctAnswer: '60',
           explanation: "**SAT Pattern: Equilateral Triangle Height (30-60-90 Application)** -- 1 per test in the hard section. Know the formula and this is a 20-second problem.\n\n**The correct answer is $60$.**\n\n**The Fast Way (20 seconds):** Side $= 360 \\div 3 = 120$. Height of equilateral triangle $= \\frac{s\\sqrt{3}}{2} = \\frac{120\\sqrt{3}}{2} = 60\\sqrt{3}$. So $k = 60$.\n\n**Step-by-step solution:**\n\nStep 1: Find the side length.\nEach side $= \\frac{360}{3} = 120$ cm\n\nStep 2: Find the height.\nFor an equilateral triangle with side $s$, the height $= \\frac{s\\sqrt{3}}{2}$.\n$$h = \\frac{120\\sqrt{3}}{2} = 60\\sqrt{3}$$\n\nStep 3: Since $h = k\\sqrt{3}$ and $h = 60\\sqrt{3}$, we get $k = 60$.\n\n**Verification:** The height splits the triangle into two 30-60-90 right triangles with hypotenuse $120$, short leg $60$, and long leg $60\\sqrt{3}$. By Pythagorean theorem: $60^2 + (60\\sqrt{3})^2 = 3600 + 10800 = 14400 = 120^2$.\n\n**Test Day Takeaway:** Equilateral triangle height $= \\frac{s\\sqrt{3}}{2}$. This comes from the 30-60-90 ratio ($1 : \\sqrt{3} : 2$), which is on the SAT reference sheet. Memorize it.",
@@ -359,7 +359,7 @@ export const practiceTest9 = {
       questions: [
         // Question 2: Table data interpretation
         {
-          id: 2,
+          id: 1,
           type: "fill-in",
           difficulty: "medium",
           question: "The table shows the number of books read by students in a class.",
@@ -382,7 +382,7 @@ export const practiceTest9 = {
         },
         // Question 3: Parallel lines angle relationship
         {
-          id: 3,
+          id: 2,
           type: "multiple-choice",
           difficulty: "easy",
           question: "Two parallel lines are cut by a transversal as shown. What is the measure of the corresponding angle $x$?",
@@ -406,7 +406,7 @@ export const practiceTest9 = {
         },
         // Question 4: Cost equation
         {
-          id: 4,
+          id: 3,
           type: "multiple-choice",
           difficulty: "medium",
           question: "A gym charges a \\$50 registration fee plus \\$25 per month. A second gym charges no registration fee but \\$40 per month. After how many months will the total cost be the same at both gyms?",
@@ -422,7 +422,7 @@ export const practiceTest9 = {
         },
         // Question 5: Pythagorean theorem
         {
-          id: 5,
+          id: 4,
           type: "fill-in",
           difficulty: "medium",
           question: "A ladder is placed against a wall, forming a right triangle with the ground. The base of the ladder is $6$ feet from the wall, and the ladder reaches $8$ feet up the wall. What is the area, in square feet, of the triangle formed by the ladder, the wall, and the ground?",
@@ -432,7 +432,7 @@ export const practiceTest9 = {
         },
         // Question 6: Cubic function zeros
         {
-          id: 6,
+          id: 5,
           type: "multiple-choice",
           difficulty: "medium",
           question: "The function $f(x) = x(x - 2)(x + 5)$ has zeros at which values of $x$?",
@@ -448,7 +448,7 @@ export const practiceTest9 = {
         },
         // Question 7: Y-intercept from function
         {
-          id: 7,
+          id: 6,
           type: "fill-in",
           difficulty: "medium",
           question: "The function $h(x) = x^2 - 6x + 8$ is graphed in the $xy$-plane. What is the $y$-coordinate of the $y$-intercept?",
@@ -458,7 +458,7 @@ export const practiceTest9 = {
         },
         // Question 8: Linear equation from context
         {
-          id: 8,
+          id: 7,
           type: "multiple-choice",
           difficulty: "medium",
           question: "A video streaming service has $3$ million subscribers at the start of the year. Each month, the service gains $150{,}000$ new subscribers. Which equation represents the total number of subscribers $S$, in millions, after $m$ months?",
@@ -474,7 +474,7 @@ export const practiceTest9 = {
         },
         // Question 9: Function transformation
         {
-          id: 9,
+          id: 8,
           type: "multiple-choice",
           difficulty: "medium",
           question: "The graph of $y = f(x)$ passes through the point $(3, 7)$. Through which point must the graph of $y = f(x - 2) + 4$ pass?",
@@ -490,7 +490,7 @@ export const practiceTest9 = {
         },
         // Question 10: System of equations
         {
-          id: 10,
+          id: 9,
           type: "fill-in",
           difficulty: "medium",
           question: "If $2x + 3y = 12$ and $4x - 3y = 6$, what is the value of $x + y$?",
@@ -500,7 +500,7 @@ export const practiceTest9 = {
         },
         // Question 11: Multi-variable fraction equation
         {
-          id: 11,
+          id: 10,
           type: "multiple-choice",
           difficulty: "hard",
           question: "$\\frac{15}{a} = \\frac{15}{b} + \\frac{15}{c}$\n\nThe given equation relates the distinct positive numbers $a$, $b$, and $c$, where $c > a$. Which of the following correctly expresses $b$ in terms of $a$ and $c$?",
@@ -516,7 +516,7 @@ export const practiceTest9 = {
         },
         // Question 12: Area calculation
         {
-          id: 12,
+          id: 11,
           type: "fill-in",
           difficulty: "hard",
           question: "A triangle has vertices at points $(0, 0)$, $(14, 0)$, and $(6, 9)$ in the $xy$-plane. A rectangle is inscribed in the triangle with one side along the $x$-axis. If the rectangle has a height of $3$, what is the area of the rectangle, in square units?",
@@ -526,7 +526,7 @@ export const practiceTest9 = {
         },
         // Question 13: Poll proportion scaling
         {
-          id: 13,
+          id: 12,
           type: "fill-in",
           difficulty: "hard",
           question: "In a random poll of $600$ voters in a town, $420$ said they would support Candidate A. If the town has $45{,}000$ eligible voters, approximately how many of the eligible voters would be expected to support Candidate A based on this poll?",
@@ -536,7 +536,7 @@ export const practiceTest9 = {
         },
         // Question 14: Combined rates
         {
-          id: 14,
+          id: 13,
           type: "fill-in",
           difficulty: "hard",
           question: "Machine A can complete a job in $6$ hours, and Machine B can complete the same job in $4$ hours. If both machines work together at their respective rates, how many hours will it take to complete the job?",
@@ -546,7 +546,7 @@ export const practiceTest9 = {
         },
         // Question 15: Substitution
         {
-          id: 15,
+          id: 14,
           type: "multiple-choice",
           difficulty: "medium",
           question: "If $a = 3b$ and $2a + b = 35$, what is the value of $b$?",
@@ -562,7 +562,7 @@ export const practiceTest9 = {
         },
         // Question 16: Linear context interpretation
         {
-          id: 16,
+          id: 15,
           type: "multiple-choice",
           difficulty: "medium",
           question: "The equation $C = 0.08m + 35$ models the monthly cost $C$, in dollars, of a phone plan where $m$ is the number of minutes used over the plan limit. What does $35$ represent in this context?",
@@ -578,7 +578,7 @@ export const practiceTest9 = {
         },
         // Question 17: Data table - g(x) = f(x)/(x+2), find y-intercept of f
         {
-          id: 17,
+          id: 16,
           type: "multiple-choice",
           difficulty: "hard",
           question: "The table gives the values of the function $g$ for some values of $x$, where $g(x) = \\frac{f(x)}{x + 2}$ and $f$ is a linear function. What is the $y$-intercept of the graph of $y = f(x)$ in the $xy$-plane?",
@@ -603,9 +603,9 @@ export const practiceTest9 = {
           explanation: "**SAT Pattern: Recovering a Function from a Composite Relationship** -- 1 per test in the hard section. Use the given relationship to find $f$ values from $g$ values.\n\n**Choice B is correct.**\n\n**The Fast Way (30 seconds):** Since $g(x) = \\frac{f(x)}{x + 2}$, we have $f(x) = g(x)(x + 2)$. At $x = 0$: $f(0) = 5 \\cdot 2 = 10$. The $y$-intercept is $(0, 10)$. Done.\n\n**Step-by-step solution:**\nSince $g(x) = \\frac{f(x)}{x + 2}$, multiply both sides: $f(x) = g(x) \\cdot (x + 2)$.\n\nUsing the table:\n- At $x = -5$: $f(-5) = 0 \\cdot (-3) = 0$\n- At $x = 0$: $f(0) = 5 \\cdot 2 = 10$\n- At $x = 4$: $f(4) = 3 \\cdot 6 = 18$\n\nSince $f$ is linear, verify with slope: $\\frac{10 - 0}{0 - (-5)} = 2$. So $f(x) = 2x + 10$.\nCheck: $f(4) = 8 + 10 = 18$.\n\nThe $y$-intercept is $(0, 10)$.\n\n**Why the wrong answers are tempting:**\n- Choice A ($(0, -5)$): Confuses the $x$-intercept value with the $y$-intercept. Since $f(-5) = 0$, the graph crosses the $x$-axis at $-5$, but that is not the $y$-intercept.\n- Choice C ($(0, 20)$): A computation error, possibly from doubling $f(0) = 10$ or using an incorrect slope.\n- Choice D ($(0, 30)$): Results from a different slope miscalculation.\n\n**Verification:** $f(x) = 2x + 10$: $f(-5) = 0$, $f(0) = 10$, $f(4) = 18$. All match.\n\n**Test Day Takeaway:** When given $g(x) = \\frac{f(x)}{\\text{something}}$, multiply both sides to isolate $f(x)$. Then use the table values to compute $f$ at each point. For the $y$-intercept specifically, just evaluate $f(0)$.",
           skills: ["function-operations", "linear-functions", "tables"]
         },
-        // Question 1: Radical exponents
+        // Question 18: Radical exponents
         {
-          id: 1,
+          id: 17,
           type: "multiple-choice",
           difficulty: "hard",
           question: "Which expression is equivalent to $x^{\\frac{2}{3}} \\cdot x^{\\frac{1}{6}}$?",

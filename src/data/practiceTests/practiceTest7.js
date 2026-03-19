@@ -202,7 +202,7 @@ export const practiceTest7 = {
         {
           id: 'pt7-m1-q14',
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'hard',
           question: 'The function $h(x) = \\frac{x + 5}{x^2 - 9}$ is undefined for which of the following values of $x$?',
           choices: [
             { id: 'A', text: '$-5$ only' },
@@ -232,7 +232,7 @@ export const practiceTest7 = {
         {
           id: 'pt7-m1-q16',
           type: 'fill-in',
-          difficulty: 'medium',
+          difficulty: 'hard',
           question: 'The equation $x(kx - 42) = -9$ has no real solution. What is the least integer value of $k$?',
           correctAnswer: '50',
           explanation: '**SAT Pattern: Discriminant and No Real Solutions** -- Shows up 1 per test. "No real solutions" always means discriminant $< 0$.\n\n**The correct answer is $50$.**\n\n**The Fast Way (30 seconds):** Rewrite as $kx^2 - 42x + 9 = 0$. For no real solutions: $b^2 - 4ac < 0$. So $1764 - 36k < 0$, meaning $k > 49$. Least integer: $50$.\n\n**The Full Solution:**\n$x(kx - 42) = -9$\n$kx^2 - 42x + 9 = 0$\nDiscriminant: $(-42)^2 - 4(k)(9) = 1764 - 36k$\nFor no real solutions: $1764 - 36k < 0$\n$36k > 1764$\n$k > 49$\nLeast integer value: $k = 50$\n\n**Verification:** $k = 50$: discriminant $= 1764 - 1800 = -36 < 0$ (no real solutions). $k = 49$: discriminant $= 1764 - 1764 = 0$ (one real solution, not zero). So $49$ does not work but $50$ does.\n\n**Test Day Takeaway:** No real solutions means $b^2 - 4ac < 0$. One solution means $= 0$. Two solutions means $> 0$. When they ask for "least integer," solve the inequality and round up.',

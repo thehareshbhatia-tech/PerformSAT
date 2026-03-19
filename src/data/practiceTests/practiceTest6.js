@@ -203,7 +203,7 @@ export const practiceTest6 = {
         {
           id: 13,
           type: "fill-in",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "A solid aluminum cylinder has a mass of $540$ grams. If aluminum has a density of $2.7$ grams per cubic centimeter and the cylinder has a radius of $5$ centimeters, what is the height, in centimeters, of the cylinder? (Round to the nearest whole number.)",
           correctAnswer: '3',
           explanation: "**SAT Pattern: Combining Density with Cylinder Volume** -- Requires two concepts: using density to find volume, then using the cylinder volume formula to find a missing dimension.\n\n**The correct answer is $3$.**\n\n**The Fast Way (35 seconds):** First find the volume from density: $V = 540 / 2.7 = 200$ cm$^3$. Then use $V = \\pi r^2 h$: $200 = \\pi(25)h$, so $h = 200/(25\\pi) = 8/\\pi \\approx 2.546$. Rounded to the nearest whole number: $h \\approx 3$.\n\n**Step 1: Find the volume using density**\n$V = \\frac{\\text{Mass}}{\\text{Density}} = \\frac{540}{2.7} = 200$ cm$^3$.\n\n**Step 2: Use the cylinder volume formula**\n$V = \\pi r^2 h$\n$200 = \\pi (5)^2 h$\n$200 = 25\\pi h$\n$h = \\frac{200}{25\\pi} = \\frac{8}{\\pi} \\approx 2.546$\n\n**Step 3: Round**\n$h \\approx 3$ cm (to the nearest whole number).\n\n**Verification:** $V = \\pi(5)^2(8/\\pi) = 25\\pi \\times 8/\\pi = 200$ cm$^3$. And mass $= 2.7 \\times 200 = 540$ g. Both conditions confirmed.\n\n**Test Day Takeaway:** When a problem combines density with geometry, work in stages. First convert mass to volume using the density formula, then apply the geometry formula. Multi-concept problems reward systematic step-by-step work.",
@@ -271,7 +271,7 @@ export const practiceTest6 = {
         {
           id: 17,
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'hard',
           question: 'The graph of $f(x) = x^2 + bx + c$ is shown in the $xy$-plane, where $b$ and $c$ are constants. What is the value of $b$?',
           diagram: {
             type: "parabola",
@@ -299,7 +299,7 @@ export const practiceTest6 = {
         {
           id: 18,
           type: "fill-in",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "Point $P$ is the center of a circle. The measure of arc $QR$ on this circle is $85°$. What is the measure, in degrees, of its associated angle $QPR$?",
           correctAnswer: "85",
           explanation: "**SAT Pattern: Central Angle Equals Arc** -- A high-frequency circle concept. The SAT tests whether you know the difference between central angles and inscribed angles.\n\n**The correct answer is $85$.**\n\n**The Fast Way (5 seconds):** Central angle = intercepted arc. The arc is $85°$, so the angle is $85°$. That is the entire solution.\n\n**Solution:**\n- Point $P$ is the center, so angle $QPR$ is a central angle.\n- A central angle has the same measure as the arc it intercepts.\n- Arc $QR = 85°$, so $\\angle QPR = 85°$.\n\n**Verification:** The central angle equals its intercepted arc: $\\angle QPR = 85°$.\n\n**Test Day Takeaway:** Central angle = arc (same measure). Inscribed angle = half the arc. Know which one you are dealing with before you calculate.",
@@ -308,7 +308,7 @@ export const practiceTest6 = {
         {
           id: 19,
           type: "fill-in",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "What is the smaller positive solution to the equation $\\sqrt{5x - 11} = x - 1$?",
           correctAnswer: '3',
           explanation: "**SAT Pattern: Radical Equation (Square Both Sides)** -- Radical equations show up regularly. The critical step everyone forgets: check for extraneous solutions after squaring.\n\n**The correct answer is 3.**\n\n**The Fast Way (30 seconds):** On Desmos, graph $y = \\sqrt{5x - 11}$ and $y = x - 1$. Find the intersections. The smaller $x$-value is $3$.\n\n**Solution steps:**\n- $\\sqrt{5x - 11} = x - 1$\n- Square both sides: $5x - 11 = (x - 1)^2 = x^2 - 2x + 1$\n- Rearrange: $0 = x^2 - 7x + 12$\n- Factor: $0 = (x - 3)(x - 4)$\n- $x = 3$ or $x = 4$\n\n**Check both solutions (required for radical equations):**\n- $x = 3$: $\\sqrt{15 - 11} = \\sqrt{4} = 2$, and $3 - 1 = 2$. Valid.\n- $x = 4$: $\\sqrt{20 - 11} = \\sqrt{9} = 3$, and $4 - 1 = 3$. Valid.\n\nBoth solutions are valid. The smaller positive solution is $3$.\n\n**Verification:** $\\sqrt{5(3) - 11} = \\sqrt{4} = 2 = 3 - 1$. Confirmed.\n\n**Test Day Takeaway:** When you square both sides of a radical equation, you might create fake solutions. Always plug your answers back in. The problem asks for the smaller solution, so even after finding both, re-read what is being asked.",
@@ -471,7 +471,7 @@ export const practiceTest6 = {
             { id: "D", text: "The sets have the same number of data points" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Comparing Standard Deviations (Variability)** -- A conceptual statistics question. No calculation needed -- just know what standard deviation means.\n\n**Choice B is correct.** Set B has more variability than Set A.\n\n**The Fast Way (10 seconds):** Standard deviation measures spread. Set B has a standard deviation of $5$ versus Set A's $3$. Bigger standard deviation means more variability. Done.\n\n**Solution:**\n- Set A: standard deviation = $3$\n- Set B: standard deviation = $6$\n- Since $6 > 3$, Set B has greater variability (more spread out from the mean)\n\n**Why the wrong answers are tempting:**\n- Choice A claims the ranges are equal. While both sets have the same mean ($12$), their different standard deviations strongly suggest different spreads and likely different ranges. You cannot conclude equal ranges from equal means.\n- Choice C claims Set A has a higher median. Both sets have the same mean ($12$), but that tells you nothing definitive about the medians. The median depends on how the individual data points are distributed, not just the mean or standard deviation.\n- Choice D claims the sets have the same number of data points. Standard deviation is independent of sample size. You cannot determine how many data points are in each set from the standard deviation alone.\n\n**Verification:** Set B's standard deviation ($6$) is twice Set A's ($3$), confirming it has greater variability.\n\n**Test Day Takeaway:** Standard deviation = spread. Larger standard deviation means data is more spread out from the mean. This is one of the most conceptual questions the SAT asks -- no formulas needed, just understanding.",
+          explanation: "**SAT Pattern: Comparing Standard Deviations (Variability)** -- A conceptual statistics question. No calculation needed -- just know what standard deviation means.\n\n**Choice B is correct.** Set B has more variability than Set A.\n\n**The Fast Way (10 seconds):** Standard deviation measures spread. Set B has a standard deviation of $5$ versus Set A's $3$. Bigger standard deviation means more variability. Done.\n\n**Solution:**\n- Set A: standard deviation = $3$\n- Set B: standard deviation = $5$\n- Since $5 > 3$, Set B has greater variability (more spread out from the mean)\n\n**Why the wrong answers are tempting:**\n- Choice A claims the ranges are equal. While both sets have the same mean ($12$), their different standard deviations strongly suggest different spreads and likely different ranges. You cannot conclude equal ranges from equal means.\n- Choice C claims Set A has a higher median. Both sets have the same mean ($12$), but that tells you nothing definitive about the medians. The median depends on how the individual data points are distributed, not just the mean or standard deviation.\n- Choice D claims the sets have the same number of data points. Standard deviation is independent of sample size. You cannot determine how many data points are in each set from the standard deviation alone.\n\n**Verification:** Set B's standard deviation ($5$) is greater than Set A's ($3$), confirming it has greater variability.\n\n**Test Day Takeaway:** Standard deviation = spread. Larger standard deviation means data is more spread out from the mean. This is one of the most conceptual questions the SAT asks -- no formulas needed, just understanding.",
           skills: ["statistics", "standard-deviation"]
         },
         {

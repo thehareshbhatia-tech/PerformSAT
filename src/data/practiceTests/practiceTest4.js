@@ -153,7 +153,7 @@ export const practiceTest4 = {
         {
           id: 11,
           type: "fill-in",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "$18x + y = 36$\n$5x + y = 62$\n\nThe solution to the given system of equations is $(x, y)$. What is the value of $x^2 + y$?",
           correctAnswer: "76",
           explanation: "**SAT Pattern: System of Equations with Expression Evaluation** -- The SAT often asks for a combined expression rather than a single variable, requiring you to solve the full system and then compute an additional step.\n\n**The correct answer is $76$.**\n\n**The Fast Way (30 seconds):** Subtract the equations to eliminate $y$: $(18x + y) - (5x + y) = 36 - 62$, giving $13x = -26$, so $x = -2$. Back-substitute: $5(-2) + y = 62$, so $y = 72$. Then $x^2 + y = 4 + 72 = 76$.\n\n**Solution Steps:**\n• Subtract equation 2 from equation 1: $13x = -26$, so $x = -2$\n• Substitute into equation 2: $-10 + y = 62$, so $y = 72$\n• Compute: $x^2 + y = (-2)^2 + 72 = 4 + 72 = 76$\n\n**Common Mistakes:**\n• Reporting $y = 72$ without computing the requested expression $x^2 + y$. Always re-read what the question asks for.\n• Computing $x + y = -2 + 72 = 70$ instead of $x^2 + y$. The exponent on $x$ matters — missing it costs you the point.\n• Sign error: using $x^2 = -4$ instead of $(-2)^2 = 4$. Squaring a negative number always gives a positive result.\n\n**Verification:**\n• Equation 1: $18(-2) + 72 = -36 + 72 = 36$ ✓\n• Equation 2: $5(-2) + 72 = -10 + 72 = 62$ ✓\n• $x^2 + y = 4 + 72 = 76$ ✓\n\n**Test Day Takeaway:** When the SAT asks for an expression like $x^2 + y$ rather than just $x$ or $y$, solve the system completely first, then substitute into the expression. Watch for sign errors when squaring negative values.",
@@ -204,7 +204,7 @@ export const practiceTest4 = {
         {
           id: 14,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "Line $p$ in the $xy$-plane has a slope of $-\\frac{1}{4}$ and passes through the point $(8, 5)$. Which equation defines line $p$?",
           choices: [
             { id: "A", text: "$y = 8x - \\frac{1}{4}$" },
@@ -219,7 +219,7 @@ export const practiceTest4 = {
         {
           id: 15,
           type: 'fill-in',
-          difficulty: 'medium',
+          difficulty: 'hard',
           question: '$y = 5x$\n$y = x^2 - 6$\n\nA solution to the given system of equations is $(x, y)$, where $x > 0$. What is the value of $x$?',
           correctAnswer: '6',
           explanation: '**SAT Pattern: Linear-Quadratic System** -- When one equation is linear and the other is quadratic, set them equal and solve the resulting quadratic. The SAT tests this 1-2 times per exam.\n\n**The correct answer is $6$.**\n\n**The Fast Way (20 seconds):** Type both equations into Desmos ($y = 5x$ and $y = x^2 - 6$) and read the intersection point where $x > 0$. You will see $x = 6$.\n\n**Solution Steps:**\n• Set the $y$-expressions equal: $5x = x^2 - 6$\n• Rearrange to standard form: $x^2 - 5x - 6 = 0$\n• Factor: $(x - 6)(x + 1) = 0$\n• Solutions: $x = 6$ or $x = -1$\n• Since $x > 0$, the answer is $x = 6$\n\n**Verification:** When $x = 6$: $y = 5(6) = 30$ and $y = 6^2 - 6 = 36 - 6 = 30$. Both equations give the same $y$-value.\n\n**Test Day Takeaway:** When a problem says $x > 0$, that is a hint that you will get two solutions and need to discard one. Always re-read the constraint before entering your answer.',
@@ -228,7 +228,7 @@ export const practiceTest4 = {
         {
           id: 16,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "The function $f(x) = 315(1.028)^x$ models the value, in dollars, of a savings bond by the end of each year from 1985 through 2000, where $x$ is the number of years after 1985. Which of the following is the best interpretation of \"$f(4)$ is approximately equal to $352$\" in this context?",
           choices: [
             { id: "A", text: "The value of the savings bond is estimated to be approximately $4$ dollars greater in 1989 than in 1985." },
@@ -258,7 +258,7 @@ export const practiceTest4 = {
         {
           id: 18,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "The scatterplot shows the relationship between two variables, $x$ and $y$. Which of the following equations is the most appropriate linear model for the data shown?",
           diagram: {
             type: "scatterplot",

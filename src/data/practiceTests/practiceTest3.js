@@ -44,7 +44,7 @@ export const practiceTest3 = {
         {
           id: 2,
           type: "multiple-choice",
-          difficulty: "easy",
+          difficulty: "medium",
           question: "Of the 48,000 seats in a concert hall, 36,000 are in the general admission section. Out of those seats in general admission, 14,400 are in the front rows. Of the general admission seats that are NOT in the front rows, 40% are classified as premium. What percentage of ALL seats in the concert hall are general admission, non-front-row, premium seats?",
           choices: [
             { id: "A", text: "12%" },
@@ -162,7 +162,7 @@ export const practiceTest3 = {
         {
           id: 10,
           type: "fill-in",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "The price of oil increased by 20% at the beginning of May. Two weeks later, an economic policy reduced the price by 14%. At the end of June, a supply disruption caused a further 25% increase on the resulting price. What is the overall percentage change in the price of oil from its original value, to the nearest tenth?",
           correctAnswer: '29',
           acceptedAnswers: [29, "29", "29.0"],
@@ -199,7 +199,7 @@ export const practiceTest3 = {
         {
           id: 13,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "Which of the following is equivalent to the given expression?\n\n$9x^4 + 30x^2y + 25y^2$",
           choices: [
             { id: "A", text: "$(3x^2 + 5y)^2$" },
@@ -214,7 +214,7 @@ export const practiceTest3 = {
         {
           id: 14,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "If $r$ and $s$ are the solutions to the equation $2x^2 - 10x + 7 = 0$, what is the value of $r^2 + s^2$?",
           choices: [
             { id: "A", text: "$\\frac{18}{4}$" },
@@ -253,7 +253,7 @@ export const practiceTest3 = {
         {
           id: 17,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "A circle with center $O$ and diameter $12$ has a sector $AOB$. The area of sector $AOB$ is $\\frac{54\\pi}{5}$. What is the length of the minor arc $AB$?",
           diagram: {
             type: "circleWithSector",

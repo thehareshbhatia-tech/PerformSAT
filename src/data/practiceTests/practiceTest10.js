@@ -258,7 +258,7 @@ export const practiceTest10 = {
         {
           id: 'pt10-m1-q15',
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'hard',
           question: 'A circle in the $xy$-plane has the equation $(x - 13)^2 + (y - k)^2 = 64$. Which of the following gives the center of the circle and its radius?',
           choices: [
             { id: 'A', text: 'The center is at $(13, k)$ and the radius is $8$.' },
@@ -273,7 +273,7 @@ export const practiceTest10 = {
         {
           id: 'pt10-m1-q16',
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'hard',
           question: 'The function $f$ is defined by $f(x) = |x - 4x|$. What value of $a$ satisfies $f(5) - f(a) = -15$?',
           choices: [
             { id: 'A', text: '$-20$' },

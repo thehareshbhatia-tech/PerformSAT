@@ -260,7 +260,7 @@ export const practiceTest12 = {
         {
           id: 'pt12-m1-q15',
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'hard',
           question: 'In a right triangle, one leg has length $5$ and the hypotenuse has length $13$. What is the length of the other leg?',
           choices: [
             { id: 'A', text: '$8$' },
@@ -275,7 +275,7 @@ export const practiceTest12 = {
         {
           id: 'pt12-m1-q16',
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'hard',
           question: 'Which expression is equivalent to $\\frac{x^2 - 9}{x^2 + 5x + 6}$?',
           choices: [
             { id: 'A', text: '$\\frac{x - 3}{x + 2}$' },

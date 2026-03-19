@@ -205,7 +205,7 @@ export const practiceTest5 = {
         {
           id: 12,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "Which point lies in the solution region of the system of inequalities shown?",
           questionFormula: {
             lines: ["$y \\geq 2x - 3$", "$y \\leq -x + 4$"]
@@ -232,7 +232,7 @@ export const practiceTest5 = {
         {
           id: 14,
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'hard',
           question: 'A tailor used fabric measuring $4$ yards in length to make each curtain for a theater. The relationship between the number of curtains that the tailor made, $x$, and the total length of fabric that was purchased, $y$, in yards, is represented by the equation $y - 4x = 8$. What is the best interpretation of $8$ in this context?',
           choices: [
             { id: 'A', text: 'The tailor made $8$ curtains.' },
@@ -277,7 +277,7 @@ export const practiceTest5 = {
         {
           id: 17,
           type: "fill-in",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "If $r$ and $s$ are the solutions to $3x^2 - 7x + 2 = 0$, what is the value of $r^2 + s^2$?",
           correctAnswer: "37/9",
           alternateAnswers: ["4.111", "4.11"],
@@ -324,7 +324,7 @@ export const practiceTest5 = {
         {
           id: 20,
           type: "fill-in",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "The expression $4\\sqrt[4]{x^{20}} \\cdot \\sqrt[3]{3^3x^6}$ is equivalent to $ax^b$, where $a$ and $b$ are positive constants and $x > 1$. What is the value of $a + b$?",
           correctAnswer: "19",
           explanation: "**SAT Pattern: Simplifying Radical Expressions with Exponents** -- Shows up 0-1 times per test. Apply the rule $\\sqrt[n]{a^m} = a^{m/n}$ systematically.\n\n**The correct answer is $19$.**\n\n**The Fast Way (30 seconds):** Simplify each radical separately.\n$\\sqrt[4]{x^{20}} = x^{20/4} = x^5$\n$\\sqrt[3]{3^3 x^6} = 3 \\cdot x^2$\nMultiply: $4 \\cdot x^5 \\cdot 3x^2 = 12x^7$\nSo $a = 12$, $b = 7$, and $a + b = 19$.\n\n**The Full Solution:**\nStep 1: Simplify $\\sqrt[4]{x^{20}}$. Using $\\sqrt[n]{a^m} = a^{m/n}$: $x^{20/4} = x^5$.\nStep 2: Simplify $\\sqrt[3]{3^3 x^6}$. This equals $3^{3/3} \\cdot x^{6/3} = 3x^2$.\nStep 3: Multiply everything: $4 \\cdot x^5 \\cdot 3x^2 = 12x^7$.\nStep 4: Read off $a = 12$, $b = 7$, so $a + b = 19$.\n\n**Common mistakes:**\n• Answering $31$: You accidentally included extra factors inside the radical. Simplify only what is under the radical sign.\n• Answering $7$: You found $b = 7$ but forgot to add $a$. Always re-read what the question asks for.\n\n**Verification:** $12x^7$ gives $a + b = 12 + 7 = 19$ ✓\n\n**Test Day Takeaway:** For radical simplification, use $\\sqrt[n]{a^m} = a^{m/n}$. Simplify each radical piece by piece, then multiply. Keep careful track of coefficients outside vs. inside the radical.",
