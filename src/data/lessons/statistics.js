@@ -177,5 +177,95 @@ export const statisticsLessons = [
     }
   },
   { id: 24, title: "Simple Margin of Error Example #1", type: "video", duration: "8 min", section: "Margin of Error", videoId: "ToUn8E5a7Ho", hero: { tagline: "PRACTICE", subtitle: "Basic margin of error" } },
-  { id: 25, title: "Simple Margin of Error Example #2", type: "video", duration: "8 min", section: "Margin of Error", videoId: "By4TzkHujmc", hero: { tagline: "PRACTICE", subtitle: "More examples" } }
+  { id: 25, title: "Simple Margin of Error Example #2", type: "video", duration: "8 min", section: "Margin of Error", videoId: "By4TzkHujmc", hero: { tagline: "PRACTICE", subtitle: "More examples" } },
+  // Section: Probability
+  {
+    id: 26,
+    title: "What is Probability?",
+    type: "lesson",
+    duration: "6 min",
+    section: "Probability",
+    hero: {
+      tagline: "CHANCE & LIKELIHOOD",
+      subtitle: "From 0 to 1"
+    },
+    content: {
+      blocks: [
+        { type: "text", content: "**Probability** measures how likely an event is to occur. It is always a number between **0** (impossible) and **1** (certain)." },
+        { type: "text", content: "$$P(\\text{event}) = \\frac{\\text{favorable outcomes}}{\\text{total outcomes}}$$" },
+        { type: "list", items: [
+          "**P = 0** means the event cannot happen",
+          "**P = 1** means the event is certain",
+          "**P = 0.5** means it's equally likely to happen or not"
+        ]},
+        { type: "text", content: "On the SAT, probability questions usually give you a data set or table and ask you to find the probability of selecting a specific item or category." },
+        { type: "example", title: "Example", content: "A bag contains 3 red, 5 blue, and 2 green marbles.\n\nP(blue) = 5/10 = **1/2** or **0.5**" }
+      ]
+    }
+  },
+  {
+    id: 27,
+    title: "Complementary Probability",
+    type: "lesson",
+    duration: "5 min",
+    section: "Probability",
+    hero: {
+      tagline: "THE COMPLEMENT",
+      subtitle: "P(not A) = 1 − P(A)"
+    },
+    content: {
+      blocks: [
+        { type: "text", content: "The **complement** of an event is everything that is NOT the event. Their probabilities always add to 1." },
+        { type: "text", content: "$$P(\\text{not A}) = 1 - P(A)$$" },
+        { type: "text", content: "**SAT Tip:** If a problem asks \"what is the probability that it is NOT X?\" — find P(X) first and subtract from 1." },
+        { type: "example", title: "Example", content: "If P(rain) = 0.3, then P(no rain) = 1 − 0.3 = **0.7**" }
+      ]
+    }
+  },
+  // Section: Conditional Probability
+  {
+    id: 28,
+    title: "What is Conditional Probability?",
+    type: "lesson",
+    duration: "7 min",
+    section: "Conditional Probability",
+    hero: {
+      tagline: "GIVEN THAT…",
+      subtitle: "Probability with a condition"
+    },
+    content: {
+      blocks: [
+        { type: "text", content: "**Conditional probability** asks: what is the probability of event A, **given that** event B has already occurred?" },
+        { type: "text", content: "$$P(A \\mid B) = \\frac{\\text{outcomes in both A and B}}{\\text{outcomes in B}}$$" },
+        { type: "text", content: "The key word is **\"given\"** — it tells you to restrict your attention to only the rows or columns that match the condition." },
+        { type: "example", title: "Example", content: "200 students surveyed: 80 play sports, and of those 80, 30 also play music.\n\nP(music | sports) = 30/80 = **3/8** = **0.375**" },
+        { type: "text", content: "**SAT Strategy:** When you see \"given that\" or \"among those who…\", you are looking at conditional probability. Use the restricted total as your denominator." }
+      ]
+    }
+  },
+  // Section: Two-Way Tables
+  {
+    id: 29,
+    title: "Reading Two-Way Tables",
+    type: "lesson",
+    duration: "7 min",
+    section: "Two-Way Tables",
+    hero: {
+      tagline: "ROWS & COLUMNS",
+      subtitle: "Organizing categorical data"
+    },
+    content: {
+      blocks: [
+        { type: "text", content: "A **two-way table** (also called a contingency table) organizes data by two categorical variables — one across the rows, one across the columns." },
+        { type: "text", content: "Each cell shows the count (or frequency) for a specific combination of categories. The **margins** show row totals, column totals, and the grand total." },
+        { type: "list", items: [
+          "**Joint frequency**: a single cell value (e.g., 30 students who are female AND prefer math)",
+          "**Marginal frequency**: a row or column total",
+          "**Relative frequency**: a cell divided by the grand total, or by a row/column total"
+        ]},
+        { type: "text", content: "**SAT Questions** typically ask you to:\n1. Find a probability from the table\n2. Calculate a conditional probability (\"among those who…\")\n3. Compare relative frequencies across groups" },
+        { type: "example", title: "Example", content: "|          | Math | English | Total |\n|----------|------|---------|-------|\n| Female   |  30  |   20    |  50   |\n| Male     |  25  |   25    |  50   |\n| **Total**|  55  |   45    | 100   |\n\nP(Math | Female) = 30/50 = **0.6**\nP(Female | Math) = 30/55 ≈ **0.545**" }
+      ]
+    }
+  }
 ];

@@ -263,7 +263,7 @@ export const skillTaxonomy = {
       satConcept: 'Compound percent change'
     },
 
-    // Statistics (7 skills)
+    // Statistics (10 skills)
     'calculate-mean': {
       id: 'calculate-mean',
       name: 'Calculating Mean (Average)',
@@ -319,6 +319,30 @@ export const skillTaxonomy = {
       modules: ['statistics'],
       sections: ['Margin of Error'],
       satConcept: 'Statistical inference'
+    },
+    'probability-basics': {
+      id: 'probability-basics',
+      name: 'Basic Probability',
+      domain: 'problem-solving',
+      modules: ['statistics'],
+      sections: ['Probability'],
+      satConcept: 'Probability fundamentals'
+    },
+    'conditional-probability': {
+      id: 'conditional-probability',
+      name: 'Conditional Probability',
+      domain: 'problem-solving',
+      modules: ['statistics'],
+      sections: ['Conditional Probability'],
+      satConcept: 'Conditional probability'
+    },
+    'two-way-table': {
+      id: 'two-way-table',
+      name: 'Reading Two-Way Tables',
+      domain: 'problem-solving',
+      modules: ['statistics'],
+      sections: ['Two-Way Tables'],
+      satConcept: 'Categorical data analysis'
     },
 
     // Dimensional Analysis (3 skills)
