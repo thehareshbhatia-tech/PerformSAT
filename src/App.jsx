@@ -9477,8 +9477,8 @@ const PerformSAT = () => {
             ? `${practiceState.adaptiveSessionState.answered.length + (practiceState.showFeedback ? 0 : 0)}/${practiceState.adaptiveSessionState.sessionLength}`
             : null;
 
-          // Adaptive mode uses its own test-style shell
-          if (isAdaptive) {
+          // Adaptive and assigned practice both use the test-style shell
+          if (isAdaptive || isAssigned) {
             return (
               <AdaptivePracticeShell
                 practiceState={practiceState}
@@ -9493,10 +9493,13 @@ const PerformSAT = () => {
                 onNavigateToQuestion={handleNavigateToQuestion}
                 onToggleCalculator={() => setShowCalculator(!showCalculator)}
                 showCalculator={showCalculator}
-                onRelaunch={() => startAdaptivePractice({
-                  enforcedDomain: practiceState.adaptiveQueueSeed?.enforcedDomain,
-                  label: practiceState.adaptiveDomainLabel,
-                })}
+                onRelaunch={isAdaptive
+                  ? () => startAdaptivePractice({
+                      enforcedDomain: practiceState.adaptiveQueueSeed?.enforcedDomain,
+                      label: practiceState.adaptiveDomainLabel,
+                    })
+                  : studyPlanBackHandler
+                }
                 getDifficultyBadge={getDifficultyBadge}
               />
             );
