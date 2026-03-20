@@ -22,6 +22,7 @@ import Onboarding from './components/Onboarding';
 import Profile from './components/Profile';
 import StudyPlanDashboard from './components/StudyPlanDashboard';
 import AdaptivePracticeShell from './components/AdaptivePracticeShell';
+import AssignedPracticeShell from './components/AssignedPracticeShell';
 import {
   resolveAssignedQuestions,
   normalizeDomain,
@@ -9477,8 +9478,33 @@ const PerformSAT = () => {
             ? `${practiceState.adaptiveSessionState.answered.length + (practiceState.showFeedback ? 0 : 0)}/${practiceState.adaptiveSessionState.sessionLength}`
             : null;
 
-          // Adaptive and assigned practice both use the test-style shell
-          if (isAdaptive || isAssigned) {
+          // Assigned practice uses its own dedicated shell
+          if (isAssigned) {
+            return (
+              <AssignedPracticeShell
+                practiceState={practiceState}
+                questions={questions}
+                currentQuestion={currentQuestion}
+                headerTitle={headerTitle}
+                onBack={studyPlanBackHandler}
+                onSelectAnswer={handleSelectAnswer}
+                onCheckAnswer={handleCheckAnswer}
+                onNextQuestion={handleNextQuestion}
+                onShowHint={handleShowHint}
+                onNavigateToQuestion={handleNavigateToQuestion}
+                onToggleCalculator={() => setShowCalculator(!showCalculator)}
+                showCalculator={showCalculator}
+                onRetry={() => startAssignedPractice(
+                  practiceState.shuffledQuestions.map(q => q.id),
+                  practiceState.assignmentMeta,
+                )}
+                getDifficultyBadge={getDifficultyBadge}
+              />
+            );
+          }
+
+          // Adaptive practice uses the adaptive shell
+          if (isAdaptive) {
             return (
               <AdaptivePracticeShell
                 practiceState={practiceState}
@@ -9493,13 +9519,10 @@ const PerformSAT = () => {
                 onNavigateToQuestion={handleNavigateToQuestion}
                 onToggleCalculator={() => setShowCalculator(!showCalculator)}
                 showCalculator={showCalculator}
-                onRelaunch={isAdaptive
-                  ? () => startAdaptivePractice({
-                      enforcedDomain: practiceState.adaptiveQueueSeed?.enforcedDomain,
-                      label: practiceState.adaptiveDomainLabel,
-                    })
-                  : studyPlanBackHandler
-                }
+                onRelaunch={() => startAdaptivePractice({
+                  enforcedDomain: practiceState.adaptiveQueueSeed?.enforcedDomain,
+                  label: practiceState.adaptiveDomainLabel,
+                })}
                 getDifficultyBadge={getDifficultyBadge}
               />
             );
@@ -9508,7 +9531,7 @@ const PerformSAT = () => {
           // Results screen
           if (practiceState.isComplete) {
             const answeredEntries = Object.values(practiceState.answers);
-            const totalQuestions = isAdaptive ? answeredEntries.length : questions.length;
+            const totalQuestions = questions.length;
             const correctCount = answeredEntries.filter(a => a.correct).length;
             const percentage = totalQuestions > 0 ? Math.round((correctCount / totalQuestions) * 100) : 0;
             const isGood = percentage >= 80;
@@ -9568,26 +9591,9 @@ const PerformSAT = () => {
                 <h2 style={{ fontSize: '28px', fontWeight: '700', color: '#1d1d1f', marginBottom: '12px' }}>
                   {isGood ? 'Excellent!' : isOkay ? 'Good effort!' : 'Keep practicing!'}
                 </h2>
-                <p style={{ fontSize: '16px', color: '#6b7280', marginBottom: isAdaptive ? '16px' : '32px' }}>
+                <p style={{ fontSize: '16px', color: '#6b7280', marginBottom: '32px' }}>
                   You got {correctCount} out of {totalQuestions} questions correct ({percentage}%)
                 </p>
-
-                {isAdaptive && practiceState.adaptiveCompletion && (
-                  <div style={{
-                    background: practiceState.adaptiveCompletion.isComplete ? 'rgba(16,185,129,0.08)' : 'rgba(234,179,8,0.08)',
-                    borderRadius: '12px', padding: '14px 20px', marginBottom: '24px', textAlign: 'left',
-                    border: practiceState.adaptiveCompletion.isComplete ? '1px solid rgba(16,185,129,0.25)' : '1px solid rgba(234,179,8,0.25)',
-                  }}>
-                    <div style={{ fontSize: '13px', fontWeight: '600', color: practiceState.adaptiveCompletion.isComplete ? '#10b981' : '#f59e0b', marginBottom: '6px' }}>
-                      {practiceState.adaptiveCompletion.isComplete ? 'Assignment Complete' : 'Assignment In Progress'}
-                    </div>
-                    <div style={{ fontSize: '12px', color: '#6b7280', lineHeight: '1.5' }}>
-                      Target: {practiceState.adaptiveCompletion.answeredCount}/{practiceState.adaptiveCompletion.targetQuestions} questions
-                      {practiceState.adaptiveCompletion.meetsTarget ? ' (met)' : ''} &middot; Mastery: {practiceState.adaptiveCompletion.mastery}%/{practiceState.adaptiveCompletion.minMasteryPercent}%
-                      {practiceState.adaptiveCompletion.meetsMastery ? ' (met)' : ''}
-                    </div>
-                  </div>
-                )}
 
                 {/* Difficulty Breakdown */}
                 <div style={{
@@ -9636,61 +9642,21 @@ const PerformSAT = () => {
                 </div>
 
                 <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
-                  {isAdaptive ? (
-                    <button
-                      onClick={() => startAdaptivePractice({
-                        enforcedDomain: practiceState.adaptiveQueueSeed?.enforcedDomain,
-                        label: practiceState.adaptiveDomainLabel,
-                      })}
-                      style={{
-                        padding: '16px 32px',
-                        borderRadius: '12px',
-                        border: '2px solid #ea580c',
-                        background: '#fff',
-                        color: '#ea580c',
-                        fontSize: '16px',
-                        fontWeight: '600',
-                        cursor: 'pointer'
-                      }}
-                    >
-                      {practiceState.adaptiveCompletion?.isComplete ? 'New Session' : 'Continue Practice'}
-                    </button>
-                  ) : isAssigned ? (
-                    <button
-                      onClick={() => startAssignedPractice(
-                        practiceState.shuffledQuestions.map(q => q.id),
-                        practiceState.assignmentMeta,
-                      )}
-                      style={{
-                        padding: '16px 32px',
-                        borderRadius: '12px',
-                        border: '2px solid #ea580c',
-                        background: '#fff',
-                        color: '#ea580c',
-                        fontSize: '16px',
-                        fontWeight: '600',
-                        cursor: 'pointer'
-                      }}
-                    >
-                      Try Again
-                    </button>
-                  ) : (
-                    <button
-                      onClick={() => startSectionPractice(activeModule, activeSection)}
-                      style={{
-                        padding: '16px 32px',
-                        borderRadius: '12px',
-                        border: '2px solid #ea580c',
-                        background: '#fff',
-                        color: '#ea580c',
-                        fontSize: '16px',
-                        fontWeight: '600',
-                        cursor: 'pointer'
-                      }}
-                    >
-                      Try Again
-                    </button>
-                  )}
+                  <button
+                    onClick={() => startSectionPractice(activeModule, activeSection)}
+                    style={{
+                      padding: '16px 32px',
+                      borderRadius: '12px',
+                      border: '2px solid #ea580c',
+                      background: '#fff',
+                      color: '#ea580c',
+                      fontSize: '16px',
+                      fontWeight: '600',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    Try Again
+                  </button>
                   <button
                     onClick={backHandler}
                     style={{
