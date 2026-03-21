@@ -5,6 +5,10 @@
  */
 
 import { allLessons } from './lessons';
+import { getRelevantStrategies } from './satStrategies';
+
+// Module-level cache for knowledge base
+let _knowledgeCache = null;
 
 // Helper to extract text content from content blocks
 const extractTextFromBlocks = (blocks) => {
@@ -36,8 +40,10 @@ const extractTextFromBlocks = (blocks) => {
   return textContent;
 };
 
-// Build knowledge base from all lessons
+// Build knowledge base from all lessons (cached at module level)
 export const buildKnowledgeBase = () => {
+  if (_knowledgeCache) return _knowledgeCache;
+
   const knowledge = [];
 
   Object.entries(allLessons).forEach(([moduleId, lessons]) => {
@@ -74,7 +80,24 @@ export const buildKnowledgeBase = () => {
     });
   });
 
+  _knowledgeCache = knowledge;
   return knowledge;
+};
+
+// Invalidate cache (for testing or if lessons change dynamically)
+export const invalidateKnowledgeCache = () => {
+  _knowledgeCache = null;
+};
+
+/**
+ * Get relevant strategies for a student's specific weak areas and error patterns.
+ * Returns a compact string block (~300-500 tokens) for the AI system prompt.
+ * @param {Object} errorPatterns - Error type counts from diagnostic data
+ * @param {string[]} weakSkillIds - Skill IDs the student is weak on
+ * @returns {string} Strategy context string
+ */
+export const getRelevantStrategyContext = (errorPatterns, weakSkillIds) => {
+  return getRelevantStrategies(errorPatterns, weakSkillIds);
 };
 
 // Search knowledge base for relevant content

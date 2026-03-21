@@ -4,7 +4,7 @@
  * Uses Claude Haiku 4.5 via secure backend proxy
  */
 
-import { getLessonContext, searchKnowledge } from '../data/knowledgeBase';
+import { getLessonContext, searchKnowledge, getRelevantStrategyContext } from '../data/knowledgeBase';
 import { getTranscriptContext, formatTime } from './transcriptService';
 import { buildCoachContext } from './aiCoachModes';
 
@@ -332,6 +332,52 @@ const buildContextMessage = (lessonContext) => {
   return context;
 };
 
+// Build learning memory block for system prompt (~200-300 tokens)
+const buildLearningMemoryBlock = (learningMemoryContext) => {
+  if (!learningMemoryContext) return '';
+
+  const { memory, recentSessions } = learningMemoryContext;
+  const parts = [];
+
+  parts.push('\n\n=== STUDENT LEARNING MEMORY ===');
+  parts.push('(Cross-session context — use to personalize and avoid repeating what was already covered)');
+
+  // Recent session summaries
+  if (recentSessions && recentSessions.length > 0) {
+    parts.push('\nRecent sessions:');
+    recentSessions.slice(0, 3).forEach(session => {
+      const date = session.lastMessageAt
+        ? new Date(session.lastMessageAt.seconds ? session.lastMessageAt.seconds * 1000 : session.lastMessageAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+        : '?';
+      const title = session.lessonTitle || session.moduleId || 'Unknown';
+      const summary = session.summary || 'No summary';
+      const insights = session.keyInsights?.length > 0 ? session.keyInsights.join('; ') : '';
+      parts.push(`- [${date}] ${title}: ${summary}${insights ? '. Key: ' + insights : ''}`);
+    });
+  }
+
+  // Learning patterns from memory
+  if (memory) {
+    if (memory.effectiveApproaches?.length > 0) {
+      parts.push(`\nEffective approaches: ${memory.effectiveApproaches.slice(0, 3).join('. ')}`);
+    }
+    if (memory.persistentConfusions?.length > 0) {
+      parts.push(`Recurring confusions: ${memory.persistentConfusions.slice(0, 3).join('. ')}`);
+    }
+  }
+
+  // Pending interventions
+  if (memory?.pendingInterventions?.length > 0) {
+    const pending = memory.pendingInterventions.filter(i => !i.shown);
+    if (pending.length > 0) {
+      parts.push(`\nPriority focus: ${pending[0].message}`);
+    }
+  }
+
+  if (parts.length <= 2) return ''; // Only headers
+  return parts.join('\n');
+};
+
 // Build video transcript context
 const buildVideoContext = (transcriptContext, videoTimestamp) => {
   if (!transcriptContext) return '';
@@ -369,7 +415,9 @@ export const chatWithTutor = async (
   videoContext = null, // { transcript, currentTime }
   practiceContext = '', // Optional practice question context with restrictions
   studentProfile = '', // Student profile snapshot for personalization
-  coachMode = null // { modeId, context } — activates a structured coach mode
+  coachMode = null, // { modeId, context } — activates a structured coach mode
+  learningMemoryContext = null, // { memory, recentSessions } — persistent learning memory
+  strategyContext = null // { errorPatterns, weakSkillIds } — for targeted strategy injection
 ) => {
   // Get lesson context
   const lessonContext = getLessonContext(currentModuleId, currentLessonId);
@@ -390,6 +438,22 @@ export const chatWithTutor = async (
   // Add student profile right after system prompt (highest priority context)
   if (studentProfile) {
     enhancedSystem += '\n\n' + studentProfile;
+  }
+
+  // Add persistent learning memory (cross-session context)
+  if (learningMemoryContext) {
+    enhancedSystem += buildLearningMemoryBlock(learningMemoryContext);
+  }
+
+  // Add targeted strategy guides based on error patterns
+  if (strategyContext?.errorPatterns || strategyContext?.weakSkillIds) {
+    const strategies = getRelevantStrategyContext(
+      strategyContext.errorPatterns,
+      strategyContext.weakSkillIds
+    );
+    if (strategies) {
+      enhancedSystem += '\n' + strategies;
+    }
   }
 
   // Add video transcript context if available (most important for "why did he do that")

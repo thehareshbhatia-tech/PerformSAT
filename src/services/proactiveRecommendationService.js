@@ -320,10 +320,153 @@ ${relevantSkills.map(s =>
   return context;
 };
 
+/**
+ * Generate cross-session recommendation using practice test results + learning memory.
+ * Detects persistent weaknesses and recurring trap patterns across multiple sessions.
+ * @param {Object} skillProgress - Student's skill progress
+ * @param {Object} practiceTestResults - All practice test results
+ * @param {Object} learningMemory - Student's learning memory from Firestore
+ * @param {string[]} currentSkillIds - Skill IDs for the current lesson/question
+ * @returns {Object|null} Recommendation or null
+ */
+export const generateCrossSessionRecommendation = (
+  skillProgress, practiceTestResults, learningMemory, currentSkillIds
+) => {
+  if (!skillProgress || !currentSkillIds || currentSkillIds.length === 0) return null;
+
+  // Priority 0: Persistent weakness across 3+ tests on current topic
+  if (practiceTestResults) {
+    for (const skillId of currentSkillIds) {
+      const weakTestCount = countTestsWhereSkillWeak(practiceTestResults, skillId);
+      if (weakTestCount >= 3) {
+        const skill = getSkillById(skillId);
+        const skillData = skillProgress[skillId];
+        return {
+          type: 'persistent-weakness',
+          title: 'Persistent challenge detected',
+          message: `${skill?.name || skillId} has been a challenge across ${weakTestCount} practice tests (${skillData?.mastery || 0}% mastery). Let me help you approach it differently this time.`,
+          skillId,
+          skillName: skill?.name || skillId,
+          mastery: skillData?.mastery || 0,
+          actionLabel: 'Try a new approach',
+          action: 'reteach',
+          suggestedPrompt: `I keep getting ${skill?.name || 'this concept'} wrong on tests. Can you teach it to me from scratch, in a completely different way?`,
+          priority: 0,
+        };
+      }
+    }
+  }
+
+  // Priority 0.5: Recurring trap pattern across 3+ tests
+  if (practiceTestResults) {
+    const trapPattern = findRecurringTrapForSkills(practiceTestResults, currentSkillIds);
+    if (trapPattern) {
+      return {
+        type: 'recurring-trap',
+        title: 'Watch out for this trap',
+        message: `You've fallen for the "${trapPattern.trapType.replace(/_/g, ' ')}" trap ${trapPattern.count} times across tests. Let me show you how to spot it.`,
+        skillId: currentSkillIds[0],
+        skillName: trapPattern.trapType.replace(/_/g, ' '),
+        actionLabel: 'Show me the trap',
+        action: 'trap-awareness',
+        suggestedPrompt: `I keep falling for ${trapPattern.trapType.replace(/_/g, ' ')} traps. Can you show me how to recognize and avoid them?`,
+        priority: 0.5,
+      };
+    }
+  }
+
+  // Priority 0.8: Learning memory match — student asked about this topic before and was confused
+  if (learningMemory?.persistentConfusions) {
+    for (const skillId of currentSkillIds) {
+      const skill = getSkillById(skillId);
+      const confusion = learningMemory.persistentConfusions.find(c =>
+        c.toLowerCase().includes(skill?.name?.toLowerCase() || '') ||
+        c.toLowerCase().includes(skillId.toLowerCase())
+      );
+      if (confusion) {
+        return {
+          type: 'memory-match',
+          title: 'Let me help with this',
+          message: `Last time we talked about this, you mentioned confusion with: "${confusion}". Want to revisit that?`,
+          skillId,
+          skillName: skill?.name || skillId,
+          actionLabel: 'Yes, let\'s revisit',
+          action: 'revisit',
+          suggestedPrompt: `Last time I was confused about ${confusion}. Can you help me understand it better?`,
+          priority: 0.8,
+        };
+      }
+    }
+  }
+
+  return null;
+};
+
+/**
+ * Count how many tests a skill was weak in
+ */
+const countTestsWhereSkillWeak = (practiceTestResults, skillId) => {
+  let weakCount = 0;
+
+  Object.values(practiceTestResults).forEach(results => {
+    if (!results?.attempts) return;
+    results.attempts.forEach(attempt => {
+      const questions = attempt.diagnosticData?.questionDetails;
+      if (!questions) return;
+
+      let correct = 0, total = 0;
+      Object.values(questions).forEach(q => {
+        if (q?.skills?.includes(skillId)) {
+          total++;
+          if (q.isCorrect) correct++;
+        }
+      });
+
+      if (total >= 2 && (correct / total) < 0.5) {
+        weakCount++;
+      }
+    });
+  });
+
+  return weakCount;
+};
+
+/**
+ * Find recurring trap types across tests for given skills
+ */
+const findRecurringTrapForSkills = (practiceTestResults, skillIds) => {
+  const trapCounts = {};
+
+  Object.values(practiceTestResults).forEach(results => {
+    if (!results?.attempts) return;
+    results.attempts.forEach(attempt => {
+      const questions = attempt.diagnosticData?.questionDetails;
+      if (!questions) return;
+
+      Object.values(questions).forEach(q => {
+        if (!q || q.isCorrect) return;
+        if (q.errorType === 'trap_susceptibility' && q.trapType) {
+          const hasSkillOverlap = !skillIds.length || q.skills?.some(s => skillIds.includes(s));
+          if (hasSkillOverlap) {
+            trapCounts[q.trapType] = (trapCounts[q.trapType] || 0) + 1;
+          }
+        }
+      });
+    });
+  });
+
+  const topTrap = Object.entries(trapCounts)
+    .filter(([_, count]) => count >= 3)
+    .sort((a, b) => b[1] - a[1])[0];
+
+  return topTrap ? { trapType: topTrap[0], count: topTrap[1] } : null;
+};
+
 export default {
   generateProactiveRecommendation,
   shouldOfferProactiveHint,
   getRelatedSkillSuggestions,
   generateSmartPrompts,
-  buildSkillContextForAI
+  buildSkillContextForAI,
+  generateCrossSessionRecommendation
 };

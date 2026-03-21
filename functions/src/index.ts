@@ -6,6 +6,7 @@
 import {setGlobalOptions} from "firebase-functions/v2/options";
 import {defineSecret} from "firebase-functions/params";
 import {onRequest} from "firebase-functions/v2/https";
+import {onDocumentUpdated} from "firebase-functions/v2/firestore";
 import * as logger from "firebase-functions/logger";
 import * as admin from "firebase-admin";
 
@@ -200,7 +201,7 @@ export const aiTutor = onRequest(
             "anthropic-version": "2023-06-01",
           },
           body: JSON.stringify({
-            model: "claude-sonnet-4-5-20250929",
+            model: "claude-sonnet-4-6-20250514",
             max_tokens: 16000,
             thinking: {
               type: "enabled",
@@ -370,7 +371,7 @@ export const generateDiagnosticNarrative = onRequest(
       const userPrompt = buildDiagnosticNarrativeUserPrompt(evidence, userProfile || {});
 
       // ─── PASS 1: Generate diagnosis with Sonnet for maximum quality ───
-      const generateModel = "claude-sonnet-4-5-20250929";
+      const generateModel = "claude-opus-4-6";
       const anthropicResponse = await fetch(
         "https://api.anthropic.com/v1/messages",
         {
@@ -756,7 +757,7 @@ Return ONLY the corrected JSON.`;
           "anthropic-version": "2023-06-01",
         },
         body: JSON.stringify({
-          model: "claude-sonnet-4-5-20250929",
+          model: "claude-sonnet-4-6-20250514",
           max_tokens: 6000,
           system: "You are a quality assurance editor for diagnostic narratives. You enforce clinical precision, causal depth, evidence rigor, and cross-test awareness. Fix the issues and return valid JSON only.",
           messages: [{role: "user", content: repairPrompt}],
@@ -1206,3 +1207,167 @@ Note what changed and why in your deltaFromPrevious field.`);
   sections.push(`\nGenerate the JSON study plan now.`);
   return sections.join("\n");
 }
+
+/**
+ * Summarize Chat Session — triggered when an AI chat session is updated.
+ * Generates summary, keyInsights, and teachingApproachNotes using Haiku 4.5.
+ * Also updates the parent learningMemory.recentSessionSummaries.
+ */
+export const summarizeChatSession = onDocumentUpdated(
+  {
+    document: "progress/{userId}/aiChatSessions/{sessionId}",
+    secrets: [anthropicApiKey],
+  },
+  async (event) => {
+    const before = event.data?.before?.data();
+    const after = event.data?.after?.data();
+
+    if (!after) return;
+
+    // Only summarize if: messageCount >= 4, summary is null, and messages actually changed
+    if (after.summary !== null) return;
+    if ((after.messageCount || 0) < 4) return;
+    if (before?.messageCount === after.messageCount) return;
+
+    const userId = event.params.userId;
+    const sessionId = event.params.sessionId;
+
+    logger.info(`Summarizing chat session ${sessionId} for user ${userId}`);
+
+    const apiKey = anthropicApiKey.value();
+    if (!apiKey) {
+      logger.error("ANTHROPIC_API_KEY not configured for session summarization");
+      return;
+    }
+
+    const messages = after.messages || [];
+    const conversationText = messages
+      .map((m: {role: string; content: string}) => `${m.role}: ${m.content}`)
+      .join("\n")
+      .slice(0, 4000); // Limit to ~4000 chars
+
+    const summarizePrompt = `Analyze this SAT tutoring conversation and return JSON (no markdown fences):
+
+{
+  "summary": "1-2 sentence summary of what was discussed and learned",
+  "keyInsights": ["insight1", "insight2"],
+  "teachingApproachNotes": "What teaching approach worked or didn't work for this student",
+  "effectiveApproaches": ["approach that worked well"],
+  "confusionPoints": ["concept or step the student was confused about"],
+  "pendingInterventions": [{"targetSkillIds": ["skillId"], "message": "brief intervention note", "suggestedPrompt": "prompt to offer", "shown": false}]
+}
+
+Rules:
+- keyInsights: What the student learned or is still confused about (max 3)
+- teachingApproachNotes: How the student responds (concrete examples, Socratic, direct, etc.)
+- effectiveApproaches: Specific techniques that helped this student understand
+- confusionPoints: What they still don't get (be specific — not "math" but "sign errors when distributing negatives")
+- pendingInterventions: If the student left confused about something, create an intervention to address it next time (max 1)
+- Keep everything concise — this will be compressed into a system prompt
+
+Conversation:
+${conversationText}`;
+
+    try {
+      const response = await fetch(
+        "https://api.anthropic.com/v1/messages",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-api-key": apiKey,
+            "anthropic-version": "2023-06-01",
+          },
+          body: JSON.stringify({
+            model: "claude-haiku-4-5-20251001",
+            max_tokens: 1000,
+            messages: [{role: "user", content: summarizePrompt}],
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        logger.error("Summarization API error:", await response.text());
+        return;
+      }
+
+      const data = await response.json();
+      const rawContent = data.content[0].text;
+
+      let parsed;
+      try {
+        const jsonMatch = rawContent.match(/\{[\s\S]*\}/);
+        parsed = jsonMatch ? JSON.parse(jsonMatch[0]) : null;
+      } catch {
+        logger.warn("Failed to parse session summary JSON");
+        return;
+      }
+
+      if (!parsed) return;
+
+      // Update the session document with summary
+      const sessionRef = db.collection("progress").doc(userId)
+        .collection("aiChatSessions").doc(sessionId);
+
+      await sessionRef.update({
+        summary: parsed.summary || null,
+        keyInsights: parsed.keyInsights || null,
+        teachingApproachNotes: parsed.teachingApproachNotes || null,
+      });
+
+      // Update parent learningMemory
+      const progressRef = db.collection("progress").doc(userId);
+      const progressDoc = await progressRef.get();
+      const currentMemory = progressDoc.exists ? (progressDoc.data()?.learningMemory || {}) : {};
+
+      const recentSummaries = currentMemory.recentSessionSummaries || [];
+      recentSummaries.unshift({
+        sessionId,
+        moduleId: after.moduleId,
+        summary: parsed.summary,
+        keyInsights: parsed.keyInsights,
+        lastMessageAt: after.lastMessageAt,
+      });
+
+      // Merge effective approaches and confusions
+      const effectiveApproaches = [
+        ...(currentMemory.effectiveApproaches || []),
+        ...(parsed.effectiveApproaches || []),
+      ].slice(0, 10);
+
+      const persistentConfusions = [
+        ...(parsed.confusionPoints || []),
+        ...(currentMemory.persistentConfusions || []),
+      ].slice(0, 10);
+
+      // Merge pending interventions
+      const existingInterventions = (currentMemory.pendingInterventions || []).filter(
+        (i: {shown: boolean}) => !i.shown
+      );
+      const newInterventions = parsed.pendingInterventions || [];
+      const allInterventions = [...newInterventions, ...existingInterventions].slice(0, 5);
+
+      // Update topic frequency
+      const topicFrequency = currentMemory.topicFrequency || {};
+      (after.topicsDiscussed || []).forEach((skillId: string) => {
+        topicFrequency[skillId] = (topicFrequency[skillId] || 0) + 1;
+      });
+
+      await progressRef.set({
+        learningMemory: {
+          totalSessions: (currentMemory.totalSessions || 0) + 1,
+          lastSessionAt: admin.firestore.FieldValue.serverTimestamp(),
+          recentSessionSummaries: recentSummaries.slice(0, 5),
+          effectiveApproaches,
+          persistentConfusions,
+          pendingInterventions: allInterventions,
+          topicFrequency,
+        },
+      }, {merge: true});
+
+      logger.info(`Successfully summarized session ${sessionId}`);
+    } catch (error) {
+      logger.error("Session summarization error:", error);
+    }
+  }
+);

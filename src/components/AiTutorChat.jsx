@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import katex from 'katex';
 import { chatWithTutor } from '../services/aiTutorService';
 import ProactiveHint from './ProactiveHint';
@@ -6,11 +6,21 @@ import {
   generateProactiveRecommendation,
   shouldOfferProactiveHint,
   generateSmartPrompts,
-  buildSkillContextForAI
+  buildSkillContextForAI,
+  generateCrossSessionRecommendation
 } from '../services/proactiveRecommendationService';
 import { getSkillById } from '../data/skillTaxonomy';
 import { colors as designColors, typography as designTypo, shadows as designShadows } from '../design/tokens';
 import normalizeFractions from '../utils/normalizeFractions';
+import {
+  saveSession,
+  updateSessionMessages,
+  loadActiveSession,
+  getLearningMemory,
+  loadRecentSessions,
+  flushPendingWrites
+} from '../services/chatSessionService';
+import { buildTrendContext } from '../services/trendContextBuilder';
 
 // Comprehensive markdown renderer for chat messages with full math/LaTeX support
 const renderMarkdown = (text) => {
@@ -196,9 +206,14 @@ const AiTutorChat = ({
   const [lastSendTime, setLastSendTime] = useState(0);
   const [proactiveRec, setProactiveRec] = useState(null);
   const [hintDismissed, setHintDismissed] = useState(false);
+  const [sessionId, setSessionId] = useState(null);
+  const [learningMemory, setLearningMemory] = useState(null);
+  const [recentSessions, setRecentSessions] = useState([]);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
   const chatContainerRef = useRef(null);
+  const messageCountSinceWrite = useRef(0);
+  const messagesRef = useRef(messages);
 
   // Rate limiting: minimum 2 seconds between sends
   const RATE_LIMIT_MS = 2000;
@@ -304,6 +319,12 @@ const AiTutorChat = ({
         const avg = Math.round(testScores.reduce((a, b) => a + b, 0) / testScores.length);
         const best = Math.max(...testScores);
         parts.push(`Practice tests taken: ${testScores.length} | Average score: ${avg} | Best score: ${best}`);
+      }
+
+      // Inject cross-test trend context
+      const trendContext = buildTrendContext(practiceTestResults, skillProgress);
+      if (trendContext) {
+        parts.push(trendContext);
       }
     }
 
@@ -450,41 +471,139 @@ Your goal is to build their problem-solving instincts. Every question they solve
     return context;
   };
 
+  // Keep messagesRef in sync with state for unmount cleanup
+  messagesRef.current = messages;
+
   // Generate storage key based on lesson
   const storageKey = `aiTutorChat_${moduleId}_${lessonId}`;
+  const userId = user?.uid || null;
 
-  // Load chat history from sessionStorage on lesson change (or mount)
+  // Load chat history from Firestore (with sessionStorage cache fallback) on lesson change
   useEffect(() => {
-    try {
-      const saved = sessionStorage.getItem(storageKey);
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          setMessages(parsed);
+    let cancelled = false;
+
+    const loadSession = async () => {
+      // Reset state
+      setMessages([]);
+      setInput('');
+      setIsLoading(false);
+      setProactiveRec(null);
+      setHintDismissed(false);
+      setSessionId(null);
+      messageCountSinceWrite.current = 0;
+
+      if (!userId) {
+        // No user — fall back to sessionStorage
+        try {
+          const saved = sessionStorage.getItem(storageKey);
+          if (saved) {
+            const parsed = JSON.parse(saved);
+            if (Array.isArray(parsed) && parsed.length > 0) {
+              setMessages(parsed);
+            }
+          }
+        } catch (e) { /* ignore */ }
+        return;
+      }
+
+      // Try Firestore via chatSessionService (checks sessionStorage cache first)
+      try {
+        const session = await loadActiveSession(userId, moduleId, lessonId);
+        if (!cancelled && session?.messages?.length > 0) {
+          setMessages(session.messages);
+          setSessionId(session.sessionId);
           return;
         }
-      }
-    } catch (e) {
-      // Ignore parse errors
-    }
-    // No saved history for this lesson — clear stale state
-    setMessages([]);
-    setInput('');
-    setIsLoading(false);
-    setProactiveRec(null);
-    setHintDismissed(false);
-  }, [storageKey]);
-
-  // Save chat history to sessionStorage when messages change
-  useEffect(() => {
-    if (messages.length > 0) {
-      try {
-        sessionStorage.setItem(storageKey, JSON.stringify(messages));
       } catch (e) {
-        // Storage might be full
+        console.error('Failed to load session:', e);
       }
-    }
-  }, [messages, storageKey]);
+
+      // Final fallback: sessionStorage
+      if (!cancelled) {
+        try {
+          const saved = sessionStorage.getItem(storageKey);
+          if (saved) {
+            const parsed = JSON.parse(saved);
+            if (Array.isArray(parsed) && parsed.length > 0) {
+              setMessages(parsed);
+            }
+          }
+        } catch (e) { /* ignore */ }
+      }
+    };
+
+    loadSession();
+    return () => { cancelled = true; };
+  }, [storageKey, userId, moduleId, lessonId]);
+
+  // Load learning memory and recent sessions on mount
+  useEffect(() => {
+    if (!userId) return;
+
+    const loadMemory = async () => {
+      try {
+        const [memory, sessions] = await Promise.all([
+          getLearningMemory(userId),
+          loadRecentSessions(userId, 5),
+        ]);
+        setLearningMemory(memory);
+        setRecentSessions(sessions);
+      } catch (e) {
+        console.error('Failed to load learning memory:', e);
+      }
+    };
+
+    loadMemory();
+  }, [userId]);
+
+  // Save to Firestore (debounced) + sessionStorage (immediate) when messages change
+  useEffect(() => {
+    if (messages.length === 0) return;
+
+    // Always write-through to sessionStorage for instant restore
+    try {
+      sessionStorage.setItem(storageKey, JSON.stringify(messages));
+    } catch (e) { /* Storage full */ }
+
+    // Firestore persistence (debounced via chatSessionService)
+    if (!userId) return;
+
+    const persistToFirestore = async () => {
+      try {
+        if (!sessionId && messages.length >= 1) {
+          // Create new session
+          const newSessionId = await saveSession(userId, {
+            moduleId,
+            lessonId,
+            lessonTitle,
+            context: standalone ? 'standalone' : (isPracticeQuestion ? 'practice' : 'lesson'),
+            messages,
+            topicsDiscussed: practiceContext?.skills || [],
+          });
+          setSessionId(newSessionId);
+          messageCountSinceWrite.current = messages.length;
+        } else if (sessionId) {
+          // Update existing session (debounced)
+          messageCountSinceWrite.current++;
+          await updateSessionMessages(userId, sessionId, messages);
+        }
+      } catch (e) {
+        console.error('Firestore persist failed:', e);
+      }
+    };
+
+    persistToFirestore();
+  }, [messages, storageKey, userId, sessionId, moduleId, lessonId, lessonTitle, standalone, isPracticeQuestion]);
+
+  // Flush pending writes on unmount (read from ref to avoid stale closure)
+  useEffect(() => {
+    return () => {
+      if (userId && sessionId) {
+        updateSessionMessages(userId, sessionId, messagesRef.current, true).catch(() => {});
+        flushPendingWrites(userId, sessionId);
+      }
+    };
+  }, [userId, sessionId]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -525,6 +644,18 @@ Your goal is to build their problem-solving instincts. Every question they solve
       }
     }
 
+    // Priority 2.5: Cross-session pattern detection
+    if (practiceTestResults && learningMemory) {
+      const crossSessionRec = generateCrossSessionRecommendation(
+        skillProgress, practiceTestResults, learningMemory,
+        practiceContext?.skills || []
+      );
+      if (crossSessionRec) {
+        setProactiveRec(crossSessionRec);
+        return;
+      }
+    }
+
     // Otherwise, check for general recommendations (weak/declining skills)
     const rec = generateProactiveRecommendation(skillProgress, {
       currentSkillId: practiceContext?.skills?.[0],
@@ -536,7 +667,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
     if (rec) {
       setProactiveRec(rec);
     }
-  }, [skillProgress, isPracticeQuestion, practiceContext, testDate, hintDismissed, messages.length]);
+  }, [skillProgress, isPracticeQuestion, practiceContext, testDate, hintDismissed, messages.length, practiceTestResults, learningMemory]);
 
   // Handle accepting a proactive recommendation
   const handleProactiveAccept = (recommendation) => {
@@ -590,6 +721,34 @@ Your goal is to build their problem-solving instincts. Every question they solve
       // Build student profile for personalization
       const studentProfileStr = buildStudentProfile();
 
+      // Build learning memory context for cross-session awareness
+      const learningMemoryCtx = (learningMemory || recentSessions.length > 0)
+        ? { memory: learningMemory, recentSessions }
+        : null;
+
+      // Build strategy context from error patterns and weak skills
+      let strategyCtx = null;
+      if (skillProgress) {
+        const weakSkillIds = Object.entries(skillProgress)
+          .filter(([_, d]) => d.attempts >= 3 && d.mastery < 60)
+          .map(([id]) => id);
+        // Get error patterns from most recent test attempt
+        let errorPatterns = null;
+        if (practiceTestResults) {
+          const allAttempts = [];
+          Object.values(practiceTestResults).forEach(r => {
+            if (r?.attempts) allAttempts.push(...r.attempts);
+          });
+          allAttempts.sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt));
+          if (allAttempts[0]?.diagnosticData?.errorPatterns?.counts) {
+            errorPatterns = allAttempts[0].diagnosticData.errorPatterns.counts;
+          }
+        }
+        if (weakSkillIds.length > 0 || errorPatterns) {
+          strategyCtx = { errorPatterns, weakSkillIds };
+        }
+      }
+
       const response = await chatWithTutor(
         newMessages,
         moduleId,
@@ -597,7 +756,10 @@ Your goal is to build their problem-solving instincts. Every question they solve
         null,
         videoContext,
         practiceContextStr,
-        studentProfileStr
+        studentProfileStr,
+        null, // coachMode
+        learningMemoryCtx,
+        strategyCtx
       );
       setMessages([...newMessages, { role: 'assistant', content: response }]);
     } catch (error) {

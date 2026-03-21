@@ -1136,7 +1136,8 @@ const analyzeTrends = (currentTestId, currentScore, previousTests = {}, skillPro
   // Track which error types and weak skills appear across multiple tests
   // This identifies "sticky" problems the student hasn't fixed
   const persistentWeakSkills = [];
-  const persistentErrorTypes = {};
+  const errorTypeEvolution = []; // Error type counts per test over time
+  const trapPatternCounts = {}; // Recurring trap types across tests
 
   Object.entries(previousTests).forEach(([testId, testData]) => {
     if (testData.attempts) {
@@ -1145,13 +1146,35 @@ const analyzeTrends = (currentTestId, currentScore, previousTests = {}, skillPro
         if (diagData?.questionDetails) {
           // Collect weak skills from this test
           const skillHits = {};
+          const testErrorCounts = {};
           Object.values(diagData.questionDetails).forEach(qd => {
-            if (qd && !qd.isCorrect && Array.isArray(qd.skills)) {
-              qd.skills.forEach(s => {
-                skillHits[s] = (skillHits[s] || 0) + 1;
-              });
+            if (qd && !qd.isCorrect) {
+              // Track skills
+              if (Array.isArray(qd.skills)) {
+                qd.skills.forEach(s => {
+                  skillHits[s] = (skillHits[s] || 0) + 1;
+                });
+              }
+              // Track error types per test
+              if (qd.errorType) {
+                testErrorCounts[qd.errorType] = (testErrorCounts[qd.errorType] || 0) + 1;
+              }
+              // Track trap types across all tests
+              if (qd.errorType === 'trap_susceptibility' && qd.trapType) {
+                trapPatternCounts[qd.trapType] = (trapPatternCounts[qd.trapType] || 0) + 1;
+              }
             }
           });
+
+          // Store error type counts for this attempt
+          if (Object.keys(testErrorCounts).length > 0) {
+            errorTypeEvolution.push({
+              testId,
+              completedAt: attempt.completedAt,
+              counts: testErrorCounts,
+            });
+          }
+
           Object.entries(skillHits).forEach(([skillId, count]) => {
             if (count >= 1) {
               const existing = persistentWeakSkills.find(p => p.skillId === skillId);
@@ -1178,6 +1201,16 @@ const analyzeTrends = (currentTestId, currentScore, previousTests = {}, skillPro
     .sort((a, b) => b.testCount - a.testCount)
     .slice(0, 5);
 
+  // Trap patterns recurring across 3+ tests
+  const recurringTraps = Object.entries(trapPatternCounts)
+    .filter(([_, count]) => count >= 3)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5)
+    .map(([trapType, count]) => ({ trapType, count }));
+
+  // Sort error evolution by date
+  errorTypeEvolution.sort((a, b) => new Date(a.completedAt) - new Date(b.completedAt));
+
   return {
     hasHistory: true,
     testHistory,
@@ -1186,6 +1219,8 @@ const analyzeTrends = (currentTestId, currentScore, previousTests = {}, skillPro
     improvingSkills: improvingSkills.slice(0, 5),
     decliningSkills: decliningSkills.slice(0, 5),
     persistentWeaknesses: trulyPersistent,
+    errorTypeEvolution,
+    trapPatterns: recurringTraps,
     message: generateTrendMessage(scoreChange, trend),
   };
 };

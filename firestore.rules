@@ -59,6 +59,14 @@ service cloud.firestore {
         allow update: if isAuthenticated() && isOwner(userId);
         allow delete: if false;
       }
+
+      // AI chat session history
+      match /aiChatSessions/{sessionId} {
+        allow read: if isAuthenticated() && isOwner(userId);
+        allow create: if isAuthenticated() && isOwner(userId);
+        allow update: if isAuthenticated() && isOwner(userId);
+        allow delete: if false;
+      }
     }
   }
 }
