@@ -22,6 +22,9 @@ export const useProgress = (userId) => {
   const [inProgressTests, setInProgressTests] = useState({});
   const [studyPlan, setStudyPlan] = useState(null);
   const [studyPlanMeta, setStudyPlanMeta] = useState({ artifactId: null, preview: null });
+  const [studentFingerprint, setStudentFingerprint] = useState(null);
+  const [interventionLog, setInterventionLog] = useState([]);
+  const [predictionLog, setPredictionLog] = useState([]);
   const studyPlanWriteInFlight = useRef(false);
   const hydratingArtifact = useRef(false);
   const [loading, setLoading] = useState(true);
@@ -74,6 +77,11 @@ export const useProgress = (userId) => {
 
           // Get in-progress tests
           setInProgressTests(data.inProgressTests || {});
+
+          // Get data loop fields
+          setStudentFingerprint(data.studentFingerprint || null);
+          setInterventionLog(data.interventionLog || []);
+          setPredictionLog(data.predictionLog || []);
 
           // Hydrate study plan: artifact-first, with legacy root field fallback.
           // Guard: never wipe an optimistic plan that saveStudyPlan() set while
@@ -150,6 +158,9 @@ export const useProgress = (userId) => {
           setInProgressTests({});
           setStudyPlan(null);
           setStudyPlanMeta({ artifactId: null, preview: null });
+          setStudentFingerprint(null);
+          setInterventionLog([]);
+          setPredictionLog([]);
         }
         setLoading(false);
       },
@@ -654,6 +665,9 @@ export const useProgress = (userId) => {
     inProgressTests,
     studyPlan,
     studyPlanMeta,
+    studentFingerprint,
+    interventionLog,
+    predictionLog,
     loading,
     error,
     markLessonComplete,

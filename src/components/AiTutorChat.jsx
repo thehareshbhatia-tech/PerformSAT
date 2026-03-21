@@ -21,6 +21,8 @@ import {
   flushPendingWrites
 } from '../services/chatSessionService';
 import { buildTrendContext } from '../services/trendContextBuilder';
+import { startIntervention, inferApproach, computeApproachEffectiveness } from '../services/interventionTracker';
+import { buildIntelligenceContext, getRecommendedApproach } from '../services/intelligenceContextBuilder';
 
 // Comprehensive markdown renderer for chat messages with full math/LaTeX support
 const renderMarkdown = (text) => {
@@ -198,7 +200,10 @@ const AiTutorChat = ({
   standalone = false,
   embedded = false,
   headerCompact = false,
-  premiumLearnMode = true
+  premiumLearnMode = true,
+  studentFingerprint = null,
+  interventionLog = null,
+  predictionLog = null,
 }) => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
@@ -214,6 +219,7 @@ const AiTutorChat = ({
   const chatContainerRef = useRef(null);
   const messageCountSinceWrite = useRef(0);
   const messagesRef = useRef(messages);
+  const interventionStarted = useRef(false);
 
   // Rate limiting: minimum 2 seconds between sends
   const RATE_LIMIT_MS = 2000;
@@ -491,6 +497,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
       setHintDismissed(false);
       setSessionId(null);
       messageCountSinceWrite.current = 0;
+      interventionStarted.current = false;
 
       if (!userId) {
         // No user — fall back to sessionStorage
@@ -669,6 +676,50 @@ Your goal is to build their problem-solving instincts. Every question they solve
     }
   }, [skillProgress, isPracticeQuestion, practiceContext, testDate, hintDismissed, messages.length, practiceTestResults, learningMemory]);
 
+  // Track intervention when chat session reaches 4+ messages
+  useEffect(() => {
+    if (!userId || interventionStarted.current || messages.length < 4) return;
+    if (!skillProgress) return;
+
+    const currentSkills = practiceContext?.skills || [];
+    if (currentSkills.length === 0) return;
+
+    // Set flag AFTER validation so we don't permanently block if skills were empty on first check
+    interventionStarted.current = true;
+
+    // Build pre-metrics from current skill state
+    const skillMastery = {};
+    for (const skillId of currentSkills) {
+      skillMastery[skillId] = skillProgress[skillId]?.mastery ?? 0;
+    }
+
+    // Get error types from most recent test
+    let errorTypes = {};
+    if (practiceTestResults) {
+      const allAttempts = [];
+      Object.values(practiceTestResults).forEach(r => {
+        if (r?.attempts) allAttempts.push(...r.attempts);
+      });
+      allAttempts.sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt));
+      if (allAttempts[0]?.diagnosticData?.errorPatterns?.counts) {
+        errorTypes = allAttempts[0].diagnosticData.errorPatterns.counts;
+      }
+    }
+
+    const archetype = studentFingerprint?.archetype || 'unknown';
+    const approach = inferApproach(learningMemory, null);
+
+    startIntervention(userId, {
+      type: 'tutoring_session',
+      skillIds: currentSkills,
+      approach,
+      context: isPracticeQuestion ? 'practice' : 'lesson',
+      moduleId,
+      lessonId,
+      preMetrics: { skillMastery, errorTypes, archetype },
+    }).catch(err => console.error('[AiTutorChat] Failed to start intervention:', err));
+  }, [messages.length, userId, skillProgress, practiceContext, practiceTestResults, studentFingerprint, learningMemory, isPracticeQuestion, moduleId, lessonId]);
+
   // Handle accepting a proactive recommendation
   const handleProactiveAccept = (recommendation) => {
     if (recommendation.suggestedPrompt) {
@@ -749,6 +800,31 @@ Your goal is to build their problem-solving instincts. Every question they solve
         }
       }
 
+      // Build intelligence context from data loop
+      let intelligenceCtx = '';
+      if (studentFingerprint || interventionLog?.length > 0 || predictionLog?.length > 0) {
+        // Get approach guidance for current skills
+        let approachGuidance = null;
+        const currentSkills = practiceContext?.skills || [];
+        if (currentSkills.length > 0 && interventionLog?.length > 0) {
+          const effectiveness = computeApproachEffectiveness(interventionLog, currentSkills[0]);
+          approachGuidance = getRecommendedApproach(effectiveness, studentFingerprint, currentSkills);
+        } else if (studentFingerprint) {
+          approachGuidance = getRecommendedApproach(null, studentFingerprint, currentSkills);
+        }
+
+        const latestPrediction = predictionLog?.length > 0
+          ? predictionLog[predictionLog.length - 1]
+          : null;
+
+        intelligenceCtx = buildIntelligenceContext(
+          studentFingerprint,
+          latestPrediction,
+          interventionLog,
+          approachGuidance
+        );
+      }
+
       const response = await chatWithTutor(
         newMessages,
         moduleId,
@@ -759,7 +835,8 @@ Your goal is to build their problem-solving instincts. Every question they solve
         studentProfileStr,
         null, // coachMode
         learningMemoryCtx,
-        strategyCtx
+        strategyCtx,
+        intelligenceCtx
       );
       setMessages([...newMessages, { role: 'assistant', content: response }]);
     } catch (error) {

@@ -417,7 +417,8 @@ export const chatWithTutor = async (
   studentProfile = '', // Student profile snapshot for personalization
   coachMode = null, // { modeId, context } — activates a structured coach mode
   learningMemoryContext = null, // { memory, recentSessions } — persistent learning memory
-  strategyContext = null // { errorPatterns, weakSkillIds } — for targeted strategy injection
+  strategyContext = null, // { errorPatterns, weakSkillIds } — for targeted strategy injection
+  intelligenceContext = '' // Data loop intelligence context (fingerprint, predictions, approach guidance)
 ) => {
   // Get lesson context
   const lessonContext = getLessonContext(currentModuleId, currentLessonId);
@@ -443,6 +444,11 @@ export const chatWithTutor = async (
   // Add persistent learning memory (cross-session context)
   if (learningMemoryContext) {
     enhancedSystem += buildLearningMemoryBlock(learningMemoryContext);
+  }
+
+  // Add data loop intelligence context (fingerprint, predictions, approach guidance)
+  if (intelligenceContext) {
+    enhancedSystem += intelligenceContext;
   }
 
   // Add targeted strategy guides based on error patterns
