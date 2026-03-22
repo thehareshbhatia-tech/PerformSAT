@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
-import { colors, radius, shadows, transitions } from '../design/tokens';
+import './LandingPage.css';
 
 const LandingPage = () => {
   const [showAuth, setShowAuth] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
+  
+  // Auth Form State
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
@@ -38,205 +40,234 @@ const LandingPage = () => {
     }
   };
 
+  const openAuth = (loginMode = false) => {
+    setIsLogin(loginMode);
+    setShowAuth(true);
+  };
+
   return (
-    <div style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif' }}>
-      {/* Hero Section */}
-      <div style={{
-        minHeight: '100vh',
-        background: `linear-gradient(180deg, ${colors.accent.orangeLight} 0%, ${colors.surface.white} 100%)`,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '2rem',
-        textAlign: 'center'
-      }}>
-        <div style={{ marginBottom: '3rem' }}>
-          <div style={{
-            fontSize: '1.5rem',
-            fontWeight: '900',
-            color: colors.text.primary,
-            marginBottom: '1rem',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.5rem'
-          }}>
-            <div style={{
-              width: '36px',
-              height: '36px',
-              background: `linear-gradient(135deg, ${colors.accent.orange} 0%, ${colors.accent.orangeHover} 100%)`,
-              borderRadius: radius.md,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: colors.text.inverse,
-              fontSize: '1.1rem'
-            }}>P</div>
+    <div className="landing-container">
+      {/* Header */}
+      <header className="landing-header">
+        <div className="landing-header-content">
+          <a href="/" className="brand-logo">
+            <div className="brand-icon">P</div>
             Perform
+          </a>
+          <nav className="header-nav">
+            <a href="#features" className="header-nav-link">Features</a>
+            <a href="#how-it-works" className="header-nav-link">How it Works</a>
+          </nav>
+          <div className="header-actions">
+            <button className="btn-ghost" onClick={() => openAuth(true)}>Log in</button>
+            <button className="btn-primary" onClick={() => openAuth(false)}>Sign up</button>
           </div>
         </div>
+      </header>
 
-        <h1 style={{
-          fontSize: 'clamp(3rem, 10vw, 5rem)',
-          fontWeight: '900',
-          letterSpacing: '-0.04em',
-          lineHeight: '1.05',
-          marginBottom: '1.5rem',
-          color: colors.text.primary
-        }}>
-          Perform the SAT,<br />
-          <span style={{
-            background: `linear-gradient(135deg, ${colors.accent.orange} 0%, ${colors.accent.orangeMuted} 100%)`,
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            fontStyle: 'italic'
-          }}>Outperform</span> the Competition
-        </h1>
+      <main>
+        {/* Hero Section */}
+        <section className="hero-section section-container">
+          <div className="section-inner hero-grid">
+            <div className="hero-content">
+              <h1 className="hero-title">
+                Perform the SAT,<br />
+                <span className="hero-title-accent">Outperform</span> the Competition
+              </h1>
+              <p className="hero-description">
+                A comprehensive video course built on a proven curriculum. Master every concept, strategy, and technique you need to achieve your target score.
+              </p>
+              <div className="hero-actions">
+                <button className="btn-primary" onClick={() => openAuth(false)}>
+                  Enroll Now
+                </button>
+                <button className="btn-secondary" onClick={() => document.getElementById('features').scrollIntoView({ behavior: 'smooth' })}>
+                  Explore Curriculum
+                </button>
+              </div>
+            </div>
+            <div className="hero-visual">
+              {/* Optional: Insert hero image or video here */}
+              <span className="hero-visual-placeholder">Platform Preview</span>
+            </div>
+          </div>
+        </section>
 
-        <p style={{
-          fontSize: '1.2rem',
-          color: colors.text.tertiary,
-          maxWidth: '480px',
-          marginBottom: '2.5rem',
-          lineHeight: '1.7'
-        }}>
-          A comprehensive video course built on a proven curriculum. Master every concept, strategy, and technique you need.
-        </p>
+        {/* Features Section */}
+        <section id="features" className="section-container" style={{ background: 'var(--color-white)' }}>
+          <div className="section-inner">
+            <div className="section-header">
+              <h2 className="section-title">Everything you need to succeed</h2>
+              <p className="section-subtitle">
+                Stop jumping between resources. Our platform brings all the tools, practice, and instruction into one cohesive experience.
+              </p>
+            </div>
+            <div className="features-grid">
+              <div className="feature-card">
+                <div className="feature-icon-wrapper">📚</div>
+                <h3 className="feature-title">Structured Curriculum</h3>
+                <p className="feature-description">
+                  Follow a proven step-by-step path designed to cover every SAT topic without overwhelming you.
+                </p>
+              </div>
+              <div className="feature-card">
+                <div className="feature-icon-wrapper">🎥</div>
+                <h3 className="feature-title">Expert Video Lessons</h3>
+                <p className="feature-description">
+                  Learn from top instructors who break down complex problems into simple, repeatable strategies.
+                </p>
+              </div>
+              <div className="feature-card">
+                <div className="feature-icon-wrapper">🎯</div>
+                <h3 className="feature-title">Targeted Practice</h3>
+                <p className="feature-description">
+                  Apply what you learn immediately with practice questions tailored to your skill level.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <button
-          onClick={() => {
-            setShowAuth(true);
-            setIsLogin(false);
-          }}
-          style={{
-            background: colors.accent.orange,
-            color: colors.text.inverse,
-            padding: '1rem 2rem',
-            border: 'none',
-            borderRadius: radius.md,
-            fontSize: '1rem',
-            fontWeight: '700',
-            cursor: 'pointer',
-            transition: `all ${transitions.normal}`,
-            boxShadow: `0 10px 40px rgba(234, 88, 12, 0.3)`
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.background = colors.accent.orangeHover;
-            e.target.style.transform = 'translateY(-2px)';
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.background = colors.accent.orange;
-            e.target.style.transform = 'translateY(0)';
-          }}
-        >
-          Enroll Now →
-        </button>
+        {/* How It Works Section */}
+        <section id="how-it-works" className="how-it-works-section section-container">
+          <div className="section-inner">
+            <div className="section-header">
+              <h2 className="section-title">How Perform Works</h2>
+              <p className="section-subtitle">
+                A simple, effective process to maximize your score in the shortest amount of time.
+              </p>
+            </div>
+            <div className="steps-container">
+              <div className="step-item">
+                <div className="step-visual">
+                  <span className="hero-visual-placeholder">Diagnostic</span>
+                </div>
+                <div className="step-content">
+                  <span className="step-number">Step 01</span>
+                  <h3 className="step-title">Take a Diagnostic Test</h3>
+                  <p className="step-description">
+                    Start by identifying your baseline. We analyze your strengths and weaknesses to personalize your journey from day one.
+                  </p>
+                </div>
+              </div>
+              <div className="step-item">
+                <div className="step-visual">
+                  <span className="hero-visual-placeholder">Learn</span>
+                </div>
+                <div className="step-content">
+                  <span className="step-number">Step 02</span>
+                  <h3 className="step-title">Master the Concepts</h3>
+                  <p className="step-description">
+                    Watch concise video lessons and learn the most effective strategies for every question type on the digital SAT.
+                  </p>
+                </div>
+              </div>
+              <div className="step-item">
+                <div className="step-visual">
+                  <span className="hero-visual-placeholder">Practice</span>
+                </div>
+                <div className="step-content">
+                  <span className="step-number">Step 03</span>
+                  <h3 className="step-title">Practice & Review</h3>
+                  <p className="step-description">
+                    Take full-length practice tests under realistic conditions and review detailed explanations for every mistake.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <button
-          onClick={() => {
-            setShowAuth(true);
-            setIsLogin(true);
-          }}
-          style={{
-            background: 'transparent',
-            color: colors.text.tertiary,
-            padding: '0.75rem 1.5rem',
-            border: 'none',
-            fontSize: '0.9rem',
-            fontWeight: '600',
-            cursor: 'pointer',
-            marginTop: '1rem'
-          }}
-        >
-          Already have an account? Log in
-        </button>
-      </div>
+        {/* Conversion Section */}
+        <section className="section-container" style={{ padding: '0 5%' }}>
+          <div className="conversion-section">
+            <h2 className="conversion-title">Ready to reach your target score?</h2>
+            <p className="conversion-subtitle">
+              Join thousands of students who have already transformed their SAT scores with Perform.
+            </p>
+            <div className="conversion-actions">
+              <button className="btn-primary" onClick={() => openAuth(false)} style={{ fontSize: '1.125rem', padding: '1rem 2rem' }}>
+                Get Started for Free
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="landing-footer">
+        <div className="footer-grid">
+          <div className="footer-brand">
+            <div className="footer-logo">
+              <div className="brand-icon" style={{ width: 24, height: 24, fontSize: '0.875rem' }}>P</div>
+              Perform
+            </div>
+            <p className="footer-description">
+              The premier platform for Digital SAT preparation. Learn from experts and practice with realistic questions.
+            </p>
+          </div>
+          <div>
+            <h4 className="footer-col-title">Product</h4>
+            <ul className="footer-links">
+              <li><a href="#features" className="footer-link">Features</a></li>
+              <li><a href="#how-it-works" className="footer-link">Curriculum</a></li>
+              <li><a href="#" className="footer-link">Pricing</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="footer-col-title">Company</h4>
+            <ul className="footer-links">
+              <li><a href="#" className="footer-link">About Us</a></li>
+              <li><a href="#" className="footer-link">Contact</a></li>
+              <li><a href="#" className="footer-link">Privacy Policy</a></li>
+              <li><a href="#" className="footer-link">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <span>&copy; {new Date().getFullYear()} Perform. All rights reserved.</span>
+          <span>SAT&reg; is a trademark registered by the College Board.</span>
+        </div>
+      </footer>
 
       {/* Auth Modal */}
       {showAuth && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: colors.overlay,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          zIndex: 1000,
-          padding: '1rem'
-        }} onClick={() => setShowAuth(false)}>
-          <div style={{
-            background: colors.surface.white,
-            borderRadius: radius.xl,
-            padding: '3rem',
-            maxWidth: '440px',
-            width: '100%',
-            boxShadow: shadows.xl
-          }} onClick={(e) => e.stopPropagation()}>
-            <h2 style={{
-              fontSize: '1.75rem',
-              fontWeight: '800',
-              marginBottom: '0.5rem',
-              color: colors.text.primary
-            }}>
+        <div className="auth-modal-overlay" onClick={() => setShowAuth(false)}>
+          <div className="auth-modal-card" onClick={(e) => e.stopPropagation()}>
+            <button className="auth-modal-close" onClick={() => setShowAuth(false)} aria-label="Close modal">
+              &times;
+            </button>
+            <h2 className="auth-form-title">
               {isLogin ? 'Welcome Back' : 'Get Started'}
             </h2>
-            <p style={{
-              color: colors.text.tertiary,
-              marginBottom: '2rem'
-            }}>
+            <p className="auth-form-subtitle">
               {isLogin ? 'Log in to continue learning' : 'Create your account and start learning'}
             </p>
 
             <form onSubmit={handleSubmit}>
               {!isLogin && (
                 <>
-                  <div style={{ marginBottom: '1.25rem' }}>
-                    <label style={{
-                      display: 'block',
-                      fontSize: '0.9rem',
-                      fontWeight: '600',
-                      marginBottom: '0.5rem',
-                      color: colors.text.primary
-                    }}>
+                  <div className="auth-form-group">
+                    <label className="auth-form-label" htmlFor="firstName">
                       First Name
                     </label>
                     <input
+                      id="firstName"
                       type="text"
+                      className="auth-form-input"
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
                       placeholder="Your first name"
                       required
-                      style={{
-                        width: '100%',
-                        padding: '0.75rem 1rem',
-                        border: `2px solid ${colors.surface.grayDark}`,
-                        borderRadius: radius.md,
-                        fontSize: '1rem',
-                        outline: 'none',
-                        transition: `border-color ${transitions.fast}`,
-                        fontFamily: 'inherit',
-                        boxSizing: 'border-box'
-                      }}
-                      onFocus={(e) => e.target.style.borderColor = colors.accent.orange}
-                      onBlur={(e) => e.target.style.borderColor = colors.surface.grayDark}
                     />
                   </div>
 
-                  <div style={{ marginBottom: '1.25rem' }}>
-                    <label style={{
-                      display: 'block',
-                      fontSize: '0.9rem',
-                      fontWeight: '600',
-                      marginBottom: '0.5rem',
-                      color: colors.text.primary
-                    }}>
+                  <div className="auth-form-group">
+                    <label className="auth-form-label">
                       Have you taken the SAT before?
                     </label>
-                    <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                      <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
+                    <div className="auth-form-radio-group">
+                      <label className="auth-form-radio-label">
                         <input
                           type="radio"
                           name="hasTakenSAT"
@@ -244,11 +275,10 @@ const LandingPage = () => {
                           checked={hasTakenSAT === 'yes'}
                           onChange={(e) => setHasTakenSAT(e.target.value)}
                           required
-                          style={{ cursor: 'pointer' }}
                         />
-                        <span style={{ fontSize: '0.9rem', color: colors.text.primary }}>Yes</span>
+                        <span>Yes</span>
                       </label>
-                      <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
+                      <label className="auth-form-radio-label">
                         <input
                           type="radio"
                           name="hasTakenSAT"
@@ -259,11 +289,10 @@ const LandingPage = () => {
                             setSatScore('');
                           }}
                           required
-                          style={{ cursor: 'pointer' }}
                         />
-                        <span style={{ fontSize: '0.9rem', color: colors.text.primary }}>No</span>
+                        <span>No</span>
                       </label>
-                      <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
+                      <label className="auth-form-radio-label">
                         <input
                           type="radio"
                           name="hasTakenSAT"
@@ -274,50 +303,28 @@ const LandingPage = () => {
                             setSatScore('');
                           }}
                           required
-                          style={{ cursor: 'pointer' }}
                         />
-                        <span style={{ fontSize: '0.9rem', color: colors.text.primary }}>Prefer not to say</span>
+                        <span>Prefer not to say</span>
                       </label>
                     </div>
                   </div>
 
                   {hasTakenSAT === 'yes' && (
-                    <div style={{ marginBottom: '1.25rem' }}>
-                      <label style={{
-                        display: 'block',
-                        fontSize: '0.9rem',
-                        fontWeight: '600',
-                        marginBottom: '0.5rem',
-                        color: colors.text.primary
-                      }}>
+                    <div className="auth-form-group">
+                      <label className="auth-form-label" htmlFor="satScore">
                         What was your SAT Math score? (optional)
                       </label>
                       <input
+                        id="satScore"
                         type="number"
+                        className="auth-form-input"
                         value={satScore}
                         onChange={(e) => setSatScore(e.target.value)}
                         placeholder="e.g., 600"
                         min="200"
                         max="800"
-                        style={{
-                          width: '100%',
-                          padding: '0.75rem 1rem',
-                          border: `2px solid ${colors.surface.grayDark}`,
-                          borderRadius: radius.md,
-                          fontSize: '1rem',
-                          outline: 'none',
-                          transition: `border-color ${transitions.fast}`,
-                          fontFamily: 'inherit',
-                          boxSizing: 'border-box'
-                        }}
-                        onFocus={(e) => e.target.style.borderColor = colors.accent.orange}
-                        onBlur={(e) => e.target.style.borderColor = colors.surface.grayDark}
                       />
-                      <p style={{
-                        fontSize: '0.8rem',
-                        color: colors.text.muted,
-                        marginTop: '0.5rem'
-                      }}>
+                      <p className="auth-form-hint">
                         Score range: 200-800
                       </p>
                     </div>
@@ -325,131 +332,58 @@ const LandingPage = () => {
                 </>
               )}
 
-              <div style={{ marginBottom: '1.25rem' }}>
-                <label style={{
-                  display: 'block',
-                  fontSize: '0.9rem',
-                  fontWeight: '600',
-                  marginBottom: '0.5rem',
-                  color: colors.text.primary
-                }}>
+              <div className="auth-form-group">
+                <label className="auth-form-label" htmlFor="email">
                   Email
                 </label>
                 <input
+                  id="email"
                   type="email"
+                  className="auth-form-input"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
                   required
-                  style={{
-                    width: '100%',
-                    padding: '0.75rem 1rem',
-                    border: `2px solid ${colors.surface.grayDark}`,
-                    borderRadius: radius.md,
-                    fontSize: '1rem',
-                    outline: 'none',
-                    transition: `border-color ${transitions.fast}`,
-                    fontFamily: 'inherit',
-                    boxSizing: 'border-box'
-                  }}
-                  onFocus={(e) => e.target.style.borderColor = colors.accent.orange}
-                  onBlur={(e) => e.target.style.borderColor = colors.surface.grayDark}
                 />
               </div>
 
-              <div style={{ marginBottom: '1.5rem' }}>
-                <label style={{
-                  display: 'block',
-                  fontSize: '0.9rem',
-                  fontWeight: '600',
-                  marginBottom: '0.5rem',
-                  color: colors.text.primary
-                }}>
+              <div className="auth-form-group">
+                <label className="auth-form-label" htmlFor="password">
                   Password
                 </label>
                 <input
+                  id="password"
                   type="password"
+                  className="auth-form-input"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
                   required
                   minLength="6"
-                  style={{
-                    width: '100%',
-                    padding: '0.75rem 1rem',
-                    border: `2px solid ${colors.surface.grayDark}`,
-                    borderRadius: radius.md,
-                    fontSize: '1rem',
-                    outline: 'none',
-                    transition: `border-color ${transitions.fast}`,
-                    fontFamily: 'inherit',
-                    boxSizing: 'border-box'
-                  }}
-                  onFocus={(e) => e.target.style.borderColor = colors.accent.orange}
-                  onBlur={(e) => e.target.style.borderColor = colors.surface.grayDark}
                 />
-                <p style={{
-                  fontSize: '0.8rem',
-                  color: colors.text.muted,
-                  marginTop: '0.5rem'
-                }}>
+                <p className="auth-form-hint">
                   Minimum 6 characters
                 </p>
               </div>
 
               {error && (
-                <div style={{
-                  padding: '0.75rem 1rem',
-                  background: colors.semantic.errorLight,
-                  border: `2px solid ${colors.semantic.errorBg}`,
-                  borderRadius: radius.md,
-                  marginBottom: '1.5rem',
-                  fontSize: '0.9rem',
-                  color: colors.semantic.error
-                }}>
+                <div className="auth-form-error">
                   {error}
                 </div>
               )}
 
               <button
                 type="submit"
+                className="auth-form-submit"
                 disabled={loading}
-                style={{
-                  width: '100%',
-                  padding: '1rem',
-                  background: loading ? colors.surface.grayMedium : colors.accent.orange,
-                  color: colors.text.inverse,
-                  border: 'none',
-                  borderRadius: radius.md,
-                  fontSize: '1rem',
-                  fontWeight: '700',
-                  cursor: loading ? 'not-allowed' : 'pointer',
-                  transition: `all ${transitions.normal}`,
-                  marginBottom: '1rem'
-                }}
-                onMouseEnter={(e) => {
-                  if (!loading) e.target.style.background = colors.accent.orangeHover;
-                }}
-                onMouseLeave={(e) => {
-                  if (!loading) e.target.style.background = colors.accent.orange;
-                }}
               >
                 {loading ? 'Please wait...' : (isLogin ? 'Log In' : 'Create Account')}
               </button>
 
               <button
                 type="button"
+                className="auth-form-toggle"
                 onClick={() => setIsLogin(!isLogin)}
-                style={{
-                  width: '100%',
-                  background: 'transparent',
-                  color: colors.text.tertiary,
-                  border: 'none',
-                  padding: '0.75rem',
-                  fontSize: '0.9rem',
-                  fontWeight: '600',
-                  cursor: 'pointer'
-                }}
               >
                 {isLogin ? "Don't have an account? Sign up" : 'Already have an account? Log in'}
               </button>

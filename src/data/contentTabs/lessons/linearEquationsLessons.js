@@ -5,7 +5,7 @@ export const linearEquationsLessonTabs = {
     sections: {
       learn: {
         title: 'Learn',
-        summary: 'A linear equation is any equation whose graph is a straight line.',
+        summary: 'The SAT tests linear equations through three forms — each reveals different information instantly, and CB designs questions to punish students who pick the wrong form.',
         blocks: [
           {
             type: 'formulaGrid',
@@ -13,54 +13,36 @@ export const linearEquationsLessonTabs = {
               {
                 label: 'Slope-Intercept',
                 formula: '$y = mx + b$',
-                note: 'm = slope, b = y-intercept',
+                note: 'Read slope ($m$) & y-int ($b$) instantly',
               },
               {
                 label: 'Point-Slope',
                 formula: '$y - y_1 = m(x - x_1)$',
-                note: 'Uses one known point + slope',
+                note: 'Build from one point + slope — fastest for "through (a, b)" questions',
               },
               {
                 label: 'Standard Form',
                 formula: '$Ax + By = C$',
-                note: 'A, B, C are integers; A > 0',
+                note: 'x-int $= C/A$, y-int $= C/B$, slope $= -A/B$ — no rearranging needed',
               },
             ],
           },
           {
-            type: 'text',
-            content: 'A **linear equation** has variables raised only to the first power — no $x^2$, no $\\sqrt{x}$, no $\\frac{1}{x}$. When you plot its solutions on a coordinate plane, they always form a **straight line**. The "linear" label comes from this geometric fact: degree $1$ in $x$ guarantees a line.',
-          },
-          {
             type: 'keyInsight',
-            content: 'Every linear equation reduces to two numbers: the **slope** (rate of change) and the **y-intercept** (starting value). Most SAT linear-equation questions test whether you can extract, interpret, or apply these two numbers across equations, tables, graphs, and word problems.',
-          },
-          {
-            type: 'table',
-            headers: [
-              'Form',
-              'Best Used When',
-            ],
-            rows: [
-              [
-                '$y = mx + b$',
-                'Reading slope and intercept directly, quick graphing',
-              ],
-              [
-                '$y - y_1 = m(x - x_1)$',
-                'Building an equation from a point and a slope',
-              ],
-              [
-                '$Ax + By = C$',
-                'Systems of equations, integer-coefficient contexts',
-              ],
-            ],
+            content: 'The SAT never asks "what is a linear equation?" It gives you one and tests whether you can **read the right number from the right form**. Slope-intercept reveals slope and y-intercept. Standard form reveals both intercepts ($C/A$ and $C/B$) and slope ($-A/B$). Point-slope reveals a point the line passes through. CB designs answer choices so that students who convert to the wrong form waste 60+ seconds and still fall for sign errors mid-conversion. **Decision rule:** look at what the question asks, then pick the form that shows it directly — never convert unless forced.',
           },
           {
             type: 'trapCard',
-            title: 'Constants Are Linear Too',
-            wrong: 'Student sees $y = 5$ and marks it "not linear" because $x$ does not appear.',
-            correction: '$y = 5$ is a horizontal line — it equals $y = 0x + 5$. Linearity requires the highest power of $x$ to be at most $1$, and $0$ satisfies that.',
+            title: 'The "convert everything to slope-intercept" reflex',
+            wrong: 'Problem: "$3x + 4y = 24$. What is the $x$-intercept?" Student converts to $y = -\\frac{3}{4}x + 6$, sets $y = 0$, solves $\\frac{3}{4}x = 6$, gets $x = 8$ — correct but took 40 seconds.',
+            correction: 'In standard form the $x$-intercept is $C/A = 24/3 = 8$ — a 3-second read. CB puts the $y$-intercept ($6$) as a wrong answer because students who convert see it first and second-guess themselves. **Rule: if it\'s in standard form and asks for an intercept, read it directly.**',
+          },
+          {
+            type: 'strategyCard',
+            title: 'Answer-Choice Form Matching',
+            icon: '⚡',
+            timing: '~5s',
+            content: 'Before solving, glance at the answer choices. If they\'re all in standard form ($Ax + By = C$), work in standard form. If they\'re in slope-intercept form, convert once. Matching the answer-choice form eliminates a final conversion step and saves 15–20 seconds on medium/hard problems. This also catches sign-flip errors — if your answer doesn\'t match any choice, you likely have a sign wrong.',
           },
         ],
       },
@@ -69,27 +51,31 @@ export const linearEquationsLessonTabs = {
         blocks: [
           {
             type: 'example',
-            difficulty: 'Easy',
-            problem: 'Which of the following equations is linear?\n(A) $y = x^2 + 3$\n(B) $y = \\frac{2}{x}$\n(C) $y = 4x - 7$\n(D) $y = \\sqrt{x} + 1$',
+            difficulty: 'Medium',
+            problem: 'The equation $6x + 3y = 18$ represents a line in the $xy$-plane. What is the $y$-intercept of this line?\n(A) $2$\n(B) $3$\n(C) $6$\n(D) $18$',
             steps: [
               {
-                label: 'Scan exponents',
-                content: '(A) has $x^2$ — eliminate. (B) has $x$ in the denominator ($x^{-1}$) — eliminate. (D) has $\\sqrt{x}$ ($x^{1/2}$) — eliminate.',
+                label: 'Recognize the form',
+                content: 'The equation is in standard form $Ax + By = C$ with $A = 6$, $B = 3$, $C = 18$.',
               },
               {
-                label: 'Confirm remaining choice',
-                content: '(C) $y = 4x - 7$ matches $y = mx + b$ with $m = 4$, $b = -7$.',
+                label: 'Read the y-intercept directly',
+                content: 'In standard form, the $y$-intercept $= C/B = 18/3 = 6$.',
+              },
+              {
+                label: 'Trap check',
+                content: '(B) is the value of $B$ itself — trap for students who confuse the coefficient with the intercept. (A) $2$ is the slope magnitude $|{-A/B}| = 2$. (D) $18$ is $C$ undivided. CB always includes these three distractors on standard-form intercept questions.',
               },
               {
                 label: 'Answer',
-                content: '**(C)**',
+                content: '**(C) $6$**',
               },
             ],
           },
           {
             type: 'checkpointQuestion',
-            question: 'Convert $5x + 2y = 14$ to slope-intercept form. What are the slope and y-intercept?',
-            answer: 'Subtract $5x$: $2y = -5x + 14$. Divide by $2$: $y = -\\frac{5}{2}x + 7$. Slope $= -\\frac{5}{2}$, y-intercept $= 7$.',
+            question: 'The equation $5x - 2y = 20$ represents a line. Without converting to slope-intercept form, find both intercepts and the slope.',
+            answer: '$x$-intercept: $C/A = 20/5 = 4$. $y$-intercept: $C/B = 20/(-2) = -10$. Slope: $-A/B = -5/(-2) = 5/2$. Three values in under 10 seconds — no conversion needed.',
           },
         ],
       },
@@ -102,26 +88,29 @@ export const linearEquationsLessonTabs = {
     sections: {
       learn: {
         title: 'Learn',
-        summary: 'Slope measures steepness — how much $y$ changes for each 1-unit increase in $x$.',
+        summary: 'On the SAT, slope is never just "rise over run." It is always the **per-unit rate** in context — and CB always offers the y-intercept labeled as the slope to trap you.',
         blocks: [
           {
             type: 'formula',
             label: 'Slope Formula',
-            content: '$$m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{\\text{rise}}{\\text{run}}$$',
-          },
-          {
-            type: 'text',
-            content: 'Slope is the **rate of change** of a line. A slope of $3$ means "for every $1$ step right, go $3$ steps up." A slope of $-2$ means "for every $1$ step right, go $2$ steps down." The sign encodes direction; the magnitude encodes steepness.',
+            content: '$$m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{\\Delta y}{\\Delta x} = \\frac{\\text{rise}}{\\text{run}}$$',
           },
           {
             type: 'keyInsight',
-            content: 'In word problems, slope is always the **"per" quantity**: cost *per* item, miles *per* hour, points *per* game. The y-intercept is the **"starting" quantity**: initial fee, starting balance, base cost. Mapping these keywords to $m$ and $b$ solves most interpretation questions instantly.',
+            content: 'The SAT almost never asks "what is the slope?" in isolation. The question is always **"what does the slope MEAN in this context?"** A gym charges \\$25/month with a \\$50 sign-up fee: $y = 25x + 50$. CB offers both numbers as answer choices for both parts. The only way to not fall for the swap: **slope = the "per" quantity** (per month, per mile, per item). **Intercept = the flat/fixed/initial value.** The words "per," "each," "every" are the trigger — that number is always the slope.',
           },
           {
             type: 'trapCard',
-            title: 'Slope vs. Intercept in Context',
-            wrong: '"A gym charges \\$25/month with a \\$50 sign-up fee." Student identifies \\$50 as the slope.',
-            correction: '**Per-unit** = slope (\\$25/month). **One-time/initial** = intercept (\\$50). A value that repeats per unit is slope; a value that applies once is the intercept.',
+            title: 'The slope/intercept swap',
+            wrong: 'Problem: "A taxi charges \\$2.50 per mile plus a \\$3 base fare. What does the $3$ represent?" Student picks "the rate per mile."',
+            correction: '"Per mile" = slope (\\$2.50). The \\$3 is paid before any miles — it\'s the y-intercept (starting value). CB puts both numbers as answer choices labeled in reverse. **Fix: circle the word "per" — that number is always the slope. The other number is the intercept.**',
+          },
+          {
+            type: 'strategyCard',
+            title: 'The 5-Second Keyword Scan',
+            icon: '⚡',
+            timing: '~5s',
+            content: 'Before reading answer choices, circle two numbers in the word problem: the one attached to **"per/each/every"** (slope) and the one attached to **"initial/base/starting/fee/already"** (intercept). This 5-second scan prevents the #1 trap on linear context questions. If the problem says "decreases by" or "loses" — that slope is negative.',
           },
         ],
       },
@@ -131,15 +120,19 @@ export const linearEquationsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'A plumber charges a \\$60 service fee plus \\$45 per hour. The total cost $C$ for $h$ hours is $C = 45h + 60$. What does $45$ represent in context?\n(A) The total cost\n(B) The service fee\n(C) The cost for each additional hour of labor\n(D) The number of hours worked',
+            problem: 'A plumber charges a \\$60 service fee plus \\$45 per hour. The total cost $C$ for $h$ hours is $C = 45h + 60$. What does $45$ represent in this context?\n(A) The total cost after one hour\n(B) The service fee\n(C) The cost for each additional hour of labor\n(D) The number of hours worked',
             steps: [
               {
-                label: 'Identify position',
-                content: '$45$ is the coefficient of $h$ — the variable. That makes it the **slope**.',
+                label: 'Keyword scan',
+                content: '"\\$45 **per** hour" — the word "per" tags this as the slope.',
               },
               {
-                label: 'Interpret in context',
-                content: 'Slope = rate of change = cost **per hour** of labor.',
+                label: 'Confirm position in equation',
+                content: '$45$ is the coefficient of $h$ (the variable). Coefficient of the variable = slope.',
+              },
+              {
+                label: 'Trap check',
+                content: '(B) "the service fee" is the intercept (\\$60) — this is the classic CB swap, offering the other number for the wrong role. (A) is $45(1) + 60 = 105$, a calculation trap.',
               },
               {
                 label: 'Answer',
@@ -149,8 +142,8 @@ export const linearEquationsLessonTabs = {
           },
           {
             type: 'checkpointQuestion',
-            question: 'The equation $T = -3d + 72$ models the temperature $T$ (in °F) of a cooling drink $d$ minutes after being placed outside. What is the slope and what does it mean?',
-            answer: `Slope $= -3$. The drink's temperature decreases by $3$°F per minute.`,
+            question: 'The equation $T = -3d + 72$ models the temperature $T$ (°F) of a cooling drink $d$ minutes after being placed outside. What is the slope, and what does it mean?',
+            answer: 'Slope $= -3$. The drink\'s temperature **decreases** by $3$°F **per minute**. The negative sign means the quantity is going down. The $72$ is the starting temperature (y-intercept).',
           },
         ],
       },
@@ -163,7 +156,7 @@ export const linearEquationsLessonTabs = {
     sections: {
       learn: {
         title: 'Learn',
-        summary: 'Two points are all you need to find slope — and from there, the full equation.',
+        summary: 'Two points determine the slope — and from there, the full equation. The SAT tests whether you can keep the subtraction order consistent and avoid the sign trap.',
         blocks: [
           {
             type: 'formula',
@@ -171,18 +164,21 @@ export const linearEquationsLessonTabs = {
             content: '$$m = \\frac{y_2 - y_1}{x_2 - x_1}$$',
           },
           {
-            type: 'text',
-            content: 'Any two distinct points on a line determine its slope. Pick either point as "point 1" — the only requirement is subtracting in the **same order** for both numerator and denominator, which guarantees the correct sign.',
-          },
-          {
             type: 'keyInsight',
-            content: 'Once slope is known, plug it and either point into **point-slope form** $y - y_1 = m(x - x_1)$ to get the full equation. This two-step pipeline — slope first, then equation — handles nearly every "find the equation" SAT question.',
+            content: 'Once you have slope, the full equation is one step away: plug $m$ and either point into **point-slope form** $y - y_1 = m(x - x_1)$. This two-step pipeline — slope first, then equation — handles nearly every "find the equation" SAT question. The SAT gives you two points (sometimes disguised as function notation like $f(2) = 7$) and tests if you can execute this pipeline without a sign error.',
           },
           {
             type: 'trapCard',
-            title: 'Subtraction Order Mismatch',
+            title: 'Subtraction order mismatch',
             wrong: 'Points $(2, 5)$ and $(6, 17)$. Student writes $\\frac{17 - 5}{2 - 6} = \\frac{12}{-4} = -3$.',
-            correction: 'The numerator uses $(y_2 - y_1)$ but the denominator uses $(x_1 - x_2)$. Both must follow the same order: $\\frac{17 - 5}{6 - 2} = \\frac{12}{4} = 3$.',
+            correction: 'The numerator subtracts $(y_2 - y_1)$ but the denominator subtracts $(x_1 - x_2)$ — opposite order. Both must follow the same order: $\\frac{17 - 5}{6 - 2} = \\frac{12}{4} = 3$. **Rule: whichever point you put first on top, put first on the bottom too.**',
+          },
+          {
+            type: 'strategyCard',
+            title: 'Sign check shortcut',
+            icon: '⚡',
+            timing: '~3s',
+            content: 'Before computing, glance at the two points: does $y$ increase or decrease as $x$ increases? If $y$ goes up, slope is positive. If $y$ goes down, slope is negative. This 3-second visual check catches sign errors instantly — if your calculation disagrees with the direction, you flipped the order somewhere.',
           },
         ],
       },
@@ -195,16 +191,16 @@ export const linearEquationsLessonTabs = {
             problem: 'A line passes through $(2, 7)$ and $(5, 16)$. What is the equation in slope-intercept form?',
             steps: [
               {
+                label: 'Direction check',
+                content: 'As $x$ goes from $2$ to $5$ (increases), $y$ goes from $7$ to $16$ (increases). Slope must be positive.',
+              },
+              {
                 label: 'Compute slope',
-                content: '$m = \\frac{16 - 7}{5 - 2} = \\frac{9}{3} = 3$',
+                content: '$m = \\frac{16 - 7}{5 - 2} = \\frac{9}{3} = 3$ ✓ Positive, matches our check.',
               },
               {
-                label: 'Point-slope',
-                content: '$y - 7 = 3(x - 2)$',
-              },
-              {
-                label: 'Simplify',
-                content: '$y = 3x - 6 + 7 = 3x + 1$',
+                label: 'Point-slope → slope-intercept',
+                content: '$y - 7 = 3(x - 2) \\Rightarrow y = 3x - 6 + 7 = 3x + 1$',
               },
               {
                 label: 'Answer',
@@ -214,8 +210,8 @@ export const linearEquationsLessonTabs = {
           },
           {
             type: 'checkpointQuestion',
-            question: 'Find the slope of the line passing through $(-1, 4)$ and $(3, -8)$.',
-            answer: '$m = \\frac{-8 - 4}{3 - (-1)} = \\frac{-12}{4} = -3$.',
+            question: 'Find the slope of the line through $(-1, 4)$ and $(3, -8)$. Before calculating, predict: is the slope positive or negative?',
+            answer: 'As $x$ increases from $-1$ to $3$, $y$ decreases from $4$ to $-8$ — slope must be negative. $m = \\frac{-8 - 4}{3 - (-1)} = \\frac{-12}{4} = -3$. Confirmed negative.',
           },
         ],
       },
@@ -228,46 +224,34 @@ export const linearEquationsLessonTabs = {
     sections: {
       learn: {
         title: 'Learn',
-        summary: 'A table of $x$/$y$ pairs is a list of points — pick any two rows and apply the slope formula.',
+        summary: 'The SAT gives you a table and expects you to find slope — but the $x$-values don\'t always increase by $1$. Dividing by the actual $\\Delta x$ is the trap that catches most students.',
         blocks: [
           {
-            type: 'text',
-            content: 'Because the relationship is linear, **every pair of rows** produces the same slope. Choose two rows with small, convenient numbers and compute $\\frac{\\Delta y}{\\Delta x}$. The critical step most students skip: checking the actual $\\Delta x$, which is not always $1$.',
-          },
-          {
             type: 'keyInsight',
-            content: 'Using rows 1 and 2: $m = \\frac{7 - 1}{2 - 0} = \\frac{6}{2} = 3$. Every row pair yields the same result because the data is linear. If a row with $x = 0$ exists, it directly gives the y-intercept — no algebra needed.',
+            content: 'From any two rows in a table: slope $= \\frac{\\Delta y}{\\Delta x}$. The critical mistake: students read the $y$-column changes and write that as the slope, forgetting to divide by the actual $x$-column step. When $x$ increases by $1$, the shortcut works. When $x$ increases by $2$, $3$, or $5$, you **must divide**. The SAT deliberately uses non-unit $x$-steps to trigger this error.',
           },
           {
             type: 'table',
-            headers: [
-              '$x$',
-              '$y$',
-            ],
+            headers: ['$x$', '$y$'],
             rows: [
-              [
-                '$0$',
-                '$1$',
-              ],
-              [
-                '$2$',
-                '$7$',
-              ],
-              [
-                '$4$',
-                '$13$',
-              ],
-              [
-                '$6$',
-                '$19$',
-              ],
+              ['$0$', '$1$'],
+              ['$2$', '$7$'],
+              ['$4$', '$13$'],
+              ['$6$', '$19$'],
             ],
           },
           {
             type: 'trapCard',
-            title: 'Non-Uniform $x$ Steps',
-            wrong: 'Table has $x = 0, 2, 4, 6$. Student reads consecutive $\\Delta y = 6$ and writes slope $= 6$.',
-            correction: 'The $x$-step is $2$, not $1$. Slope $= \\frac{\\Delta y}{\\Delta x} = \\frac{6}{2} = 3$. Always divide by the actual $\\Delta x$.',
+            title: 'Non-uniform $x$-step ignored',
+            wrong: 'Table has $x = 0, 2, 4, 6$. Between rows, $y$ increases by $6$ each time. Student writes slope $= 6$.',
+            correction: 'The $x$-step is $2$, not $1$. Slope $= \\frac{\\Delta y}{\\Delta x} = \\frac{6}{2} = 3$. **Rule: always check the $x$-column spacing before dividing.** CB uses $x$-steps of $2$, $3$, $5$, or $10$ specifically to bait this trap.',
+          },
+          {
+            type: 'strategyCard',
+            title: 'The $x = 0$ row shortcut',
+            icon: '⚡',
+            timing: '~3s',
+            content: 'Scan the table for a row where $x = 0$. If it exists, the $y$-value in that row **is** the y-intercept — no algebra needed. In the table above, $x = 0$ gives $y = 1$, so $b = 1$ instantly. Combine with slope to get the equation in under 15 seconds.',
           },
         ],
       },
@@ -277,30 +261,30 @@ export const linearEquationsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Find the slope and equation for the linear relationship:\n| $x$ | $y$ |\n|---|---|\n| $1$ | $10$ |\n| $3$ | $16$ |\n| $5$ | $22$ |\n| $7$ | $28$ |',
+            problem: 'For the linear function $f$, the table shows three values of $x$ and their corresponding values of $f(x)$.\n| $x$ | $f(x)$ |\n|---|---|\n| $0$ | $29$ |\n| $1$ | $32$ |\n| $2$ | $35$ |\nWhich equation defines $f(x)$?\n(A) $f(x) = 3x + 29$\n(B) $f(x) = 29x + 3$\n(C) $f(x) = 32x + 29$\n(D) $f(x) = 29x + 32$',
             steps: [
               {
-                label: 'Pick two rows',
-                content: 'Use $(1, 10)$ and $(3, 16)$.',
+                label: 'Find slope',
+                content: '$\\Delta y = 32 - 29 = 3$, $\\Delta x = 1 - 0 = 1$. Slope $= 3/1 = 3$. Eliminate (B), (C), and (D) immediately — only (A) has slope $3$.',
               },
               {
-                label: 'Compute slope',
-                content: '$m = \\frac{16 - 10}{3 - 1} = \\frac{6}{2} = 3$',
+                label: 'Confirm y-intercept',
+                content: 'The $x = 0$ row gives $f(0) = 29$, so $b = 29$. Equation: $f(x) = 3x + 29$.',
               },
               {
-                label: 'Find intercept',
-                content: 'Using $(1, 10)$: $10 = 3(1) + b \\Rightarrow b = 7$',
+                label: 'Trap check',
+                content: '(B) swaps slope and intercept — the classic CB move. The "29" attached to $x$ would mean slope $= 29$, which is wrong.',
               },
               {
                 label: 'Answer',
-                content: '$y = 3x + 7$',
+                content: '**(A)**',
               },
             ],
           },
           {
             type: 'checkpointQuestion',
-            question: 'A table shows: $x = 3, 6, 9, 12$ and $y = 5, 11, 17, 23$. What is the slope?',
-            answer: '$\\Delta y = 11 - 5 = 6$, $\\Delta x = 6 - 3 = 3$. Slope $= \\frac{6}{3} = 2$.',
+            question: 'A table shows: $x = 3, 6, 9, 12$ and $y = 5, 11, 17, 23$. What is the slope? What mistake would students make if they didn\'t check $\\Delta x$?',
+            answer: '$\\Delta y = 6$, $\\Delta x = 3$. Slope $= 6/3 = 2$. Students who ignore $\\Delta x$ would write slope $= 6$, which is triple the actual answer.',
           },
         ],
       },
@@ -313,7 +297,7 @@ export const linearEquationsLessonTabs = {
     sections: {
       learn: {
         title: 'Learn',
-        summary: 'Pick two lattice points on the line, then count rise and run.',
+        summary: 'The SAT shows you a graph and gives four equation choices. Your first move: check whether the line goes up or down — that alone eliminates half the choices.',
         blocks: [
           {
             type: 'formula',
@@ -321,18 +305,21 @@ export const linearEquationsLessonTabs = {
             content: '$$m = \\frac{\\text{rise}}{\\text{run}} = \\frac{y_2 - y_1}{x_2 - x_1}$$',
           },
           {
-            type: 'text',
-            content: 'A **lattice point** is where the line crosses a grid intersection — coordinates are integers. Using lattice points eliminates rounding errors. Count the vertical distance (**rise**) and horizontal distance (**run**) between two such points to get slope $= \\frac{\\text{rise}}{\\text{run}}$.',
-          },
-          {
             type: 'keyInsight',
-            content: 'On the digital SAT, the built-in Desmos calculator can verify your count. Click two lattice points to read their coordinates, then compute $\\frac{y_2 - y_1}{x_2 - x_1}$ to confirm. This eliminates counting errors on tricky graphs.',
+            content: 'From the video: the instructor\'s first move on any graph question is to check **direction**. Line going downward left-to-right → slope is negative → immediately cross out every positive-slope answer choice. That one observation cuts the choices in half in 3 seconds. Then differentiate the remaining choices by the y-intercept (where the line crosses the $y$-axis). This two-step elimination — direction first, then y-intercept — solves most graph-to-equation questions without computing the exact slope.',
           },
           {
             type: 'trapCard',
-            title: 'Forgetting the Negative Sign',
-            wrong: 'Line goes downhill left to right. Student counts rise $= 3$, run $= 2$, writes slope $= \\frac{3}{2}$.',
-            correction: 'A downhill line has **negative** slope. Moving right while the line descends means rise is negative: slope $= -\\frac{3}{2}$.',
+            title: 'Forgetting the negative sign on a downhill line',
+            wrong: 'Line goes downhill. Student counts rise $= 10$, run $= 15$, writes slope $= \\frac{10}{15} = \\frac{2}{3}$.',
+            correction: 'A downhill line has **negative** slope. The rise is $-10$ (you\'re going down). Slope $= \\frac{-10}{15} = -\\frac{2}{3}$. CB always includes both $+\\frac{2}{3}$ and $-\\frac{2}{3}$ as answer choices to exploit this exact mistake.',
+          },
+          {
+            type: 'strategyCard',
+            title: 'Direction → Y-intercept → Eliminate',
+            icon: '⚡',
+            timing: '~10s',
+            content: 'Step 1: Line going up or down? Eliminate all choices with the wrong sign. Step 2: Where does the line cross the $y$-axis? Eliminate choices with the wrong intercept. Often this alone identifies the answer without computing the exact slope. Only calculate rise/run if two choices remain.',
           },
         ],
       },
@@ -340,31 +327,32 @@ export const linearEquationsLessonTabs = {
         title: 'Practice',
         blocks: [
           {
-            type: 'steps',
-            title: 'Graph → Slope',
-            items: [
-              'Locate two points where the line clearly crosses grid intersections (lattice points).',
-              'Check the axis scale — each grid square may represent more than $1$ unit.',
-              'Count squares **up or down** (rise) from the left point to the right point. Down = negative rise.',
-              'Count squares **right** (run) between those same two points.',
-              'Slope $= \\frac{\\text{rise}}{\\text{run}}$ — the sign of the rise determines the sign of the slope.',
-            ],
-          },
-          {
-            type: 'steps',
-            title: 'Graph → Slope',
-            items: [
-              'Locate two points where the line clearly crosses grid intersections (lattice points).',
-              'Check the axis scale — each grid square may represent more than $1$ unit.',
-              'Count squares **up or down** (rise) from the left point to the right point. Down = negative rise.',
-              'Count squares **right** (run) between those same two points.',
-              'Slope $= \\frac{\\text{rise}}{\\text{run}}$ — the sign of the rise determines the sign of the slope.',
+            type: 'example',
+            difficulty: 'Medium',
+            problem: 'A scatter plot shows data points with a line of best fit going **downward** from left to right, crossing the $y$-axis at approximately $10$. Which equation best models the data?\n(A) $y = 8x + 10$\n(B) $y = -\\frac{2}{3}x + 10$\n(C) $y = \\frac{2}{3}x - 10$\n(D) $y = -8x - 10$',
+            steps: [
+              {
+                label: 'Step 1: Direction',
+                content: 'Line goes **downward** → slope is negative. Eliminate (A) and (C) — both have positive slopes.',
+              },
+              {
+                label: 'Step 2: Y-intercept',
+                content: 'Line crosses $y$-axis at $\\approx 10$ (positive). Eliminate (D) — its intercept is $-10$.',
+              },
+              {
+                label: 'Confirm',
+                content: 'Only (B) remains: negative slope $(-\\frac{2}{3})$ and positive intercept $(10)$. No slope calculation needed.',
+              },
+              {
+                label: 'Answer',
+                content: '**(B)**',
+              },
             ],
           },
           {
             type: 'checkpointQuestion',
-            question: 'A line on a coordinate grid passes through $(1, 2)$ and $(4, 8)$. What is its slope?',
-            answer: '$m = \\frac{8 - 2}{4 - 1} = \\frac{6}{3} = 2$. The line rises left to right, confirming a positive slope.',
+            question: 'A line on a graph passes through $(0, 40)$ and $(60, 0)$. Using rise/run, what is the slope? Why is the sign negative?',
+            answer: 'Rise $= 0 - 40 = -40$, Run $= 60 - 0 = 60$. Slope $= -40/60 = -2/3$. The line goes downward (from $y = 40$ to $y = 0$), so rise is negative. The $y$-intercept is $40$ (where $x = 0$).',
           },
         ],
       },
@@ -373,11 +361,11 @@ export const linearEquationsLessonTabs = {
 
   6: {
     moduleId: 'linear-equations',
-    title: 'What Is the Y-Intercept?',
+    title: 'What is the Y-Intercept?',
     sections: {
       learn: {
         title: 'Learn',
-        summary: 'The y-intercept is where the line crosses the $y$-axis — the value of $y$ when $x = 0$.',
+        summary: 'The y-intercept is where $x = 0$ — the starting value before anything changes. The SAT tests whether you can identify it in context and not swap it with the slope.',
         blocks: [
           {
             type: 'formula',
@@ -385,43 +373,21 @@ export const linearEquationsLessonTabs = {
             content: '$$\\text{Set } x = 0: \\quad y = m(0) + b = b$$',
           },
           {
-            type: 'text',
-            content: 'In $y = mx + b$, the y-intercept is **$b$**. On a graph it is the point $(0, b)$. In real-world contexts it represents the **starting value** — the quantity that exists before any change occurs.',
-          },
-          {
             type: 'keyInsight',
-            content: 'Context clues map directly to position in $y = mx + b$. Words like "per," "each," "every" signal the slope (coefficient of $x$). Words like "initial," "base," "starting," "already" signal the y-intercept (constant term).',
-          },
-          {
-            type: 'table',
-            headers: [
-              'Context Clue',
-              'Role',
-            ],
-            rows: [
-              [
-                '"\\$5 per mile"',
-                'Slope (rate)',
-              ],
-              [
-                '"\\$10 base fare"',
-                'Y-intercept (starting value)',
-              ],
-              [
-                '"increases by $3$ each year"',
-                'Slope (rate)',
-              ],
-              [
-                '"originally had $200$"',
-                'Y-intercept (starting value)',
-              ],
-            ],
+            content: 'In every SAT word problem, the y-intercept is the **"before" number** — the value that exists before any $x$-activity happens. "A tank **starts with** 500 gallons" → $b = 500$. "A phone plan has a \\$40 **base** fee" → $b = 40$. "She **already had** 12 books" → $b = 12$. The intercept is always the quantity at $x = 0$, which in real-world terms means "before any time passes / before any units are purchased / before any miles are driven." CB tests this by asking "what does the constant term represent?" and offering the rate as a distractor.',
           },
           {
             type: 'trapCard',
-            title: 'Confusing Rate with Starting Value',
-            wrong: '"A tank drains at $8$ gallons/minute and starts with $200$ gallons." Student labels $8$ as the initial value.',
-            correction: 'The number attached to the variable ($8t$) is the rate. The standalone constant ($200$) is the starting value. Position in $y = mx + b$ determines meaning.',
+            title: 'Confusing rate with starting value',
+            wrong: 'Problem: "A water tank starts with $500$ gallons and drains at $15$ gallons per minute. What does $500$ represent?" Student picks "the rate of change."',
+            correction: '"Starts with" = initial value = y-intercept. "Per minute" = rate = slope. The $500$ is the y-intercept because it\'s what exists at $t = 0$ before any draining occurs. **Rule: "starts/initial/base/fee/already" = intercept. "Per/each/every" = slope.**',
+          },
+          {
+            type: 'strategyCard',
+            title: 'Plug in zero — always works',
+            icon: '⚡',
+            timing: '~5s',
+            content: 'Any time the question asks for the y-intercept: **set $x = 0$ and evaluate**. Works on all three forms without converting. For $Ax + By = C$: set $x = 0$, get $By = C$, so $y = C/B$. For point-slope: set $x = 0$ and simplify. Never rearrange the whole equation first — just plug in zero.',
           },
         ],
       },
@@ -434,31 +400,27 @@ export const linearEquationsLessonTabs = {
             problem: 'A water tank starts with $500$ gallons and drains at $15$ gallons per minute. Which equation models the water level $W$ after $t$ minutes, and what is the y-intercept in context?\n(A) $W = 15t + 500$\n(B) $W = -15t + 500$\n(C) $W = 500t - 15$\n(D) $W = -500t + 15$',
             steps: [
               {
-                label: 'Identify slope',
-                content: 'Draining means decreasing, so the rate is $-15$ gallons per minute.',
-              },
-              {
-                label: 'Identify intercept',
-                content: 'Starting amount is $500$ gallons.',
+                label: 'Keyword scan',
+                content: '"\\$15 **per** minute" → slope. "**Starts with** 500" → y-intercept. "Drains" → negative rate.',
               },
               {
                 label: 'Build equation',
-                content: '$W = -15t + 500$',
+                content: 'Slope $= -15$ (draining = decreasing). Intercept $= 500$. So $W = -15t + 500$.',
               },
               {
-                label: 'Interpret intercept',
-                content: 'At $t = 0$ the tank holds $500$ gallons — the y-intercept is the initial water volume.',
+                label: 'Trap check',
+                content: '(A) has $+15$ — misses the "drain" negative. (C) swaps slope and intercept completely. (D) swaps AND misapplies the negative.',
               },
               {
                 label: 'Answer',
-                content: '**(B)**',
+                content: '**(B)**. The y-intercept ($500$) means the tank holds 500 gallons at $t = 0$, before draining starts.',
               },
             ],
           },
           {
             type: 'checkpointQuestion',
-            question: 'In the equation $C = 0.12m + 40$, where $C$ is monthly cost in dollars and $m$ is the number of minutes used, what does $40$ represent?',
-            answer: '$40$ is the constant term (y-intercept). It represents the base monthly cost charged regardless of minutes used — the cost at $m = 0$.',
+            question: 'In the equation $C = 0.12m + 40$, where $C$ is monthly cost and $m$ is minutes used, what does $40$ represent? What does $0.12$ represent?',
+            answer: '$40$ is the y-intercept — the base monthly cost at $m = 0$ (before any minutes are used). $0.12$ is the slope — the cost **per** additional minute. At $m = 0$: $C = 0.12(0) + 40 = 40$.',
           },
         ],
       },
@@ -471,26 +433,24 @@ export const linearEquationsLessonTabs = {
     sections: {
       learn: {
         title: 'Learn',
-        summary: 'Translate a word problem into $y = mx + b$ by mapping the rate to slope and the starting value to intercept.',
+        summary: 'Context questions give you a story and expect $y = mx + b$. The video shows: find slope from the "for every" statement, then plug in the given coordinate to solve for $b$.',
         blocks: [
           {
-            type: 'formula',
-            label: 'Translation Template',
-            content: '$$\\text{Total} = (\\text{rate per unit}) \\times (\\text{number of units}) + \\text{starting value}$$',
-          },
-          {
-            type: 'text',
-            content: 'Every linear word problem encodes two numbers: a **rate** (slope) tied to words like "per," "each," or "every," and a **starting value** (y-intercept) tied to words like "initial," "already," or "base fee." Negative slopes appear when quantities **decrease** — "loses," "drains," "depreciates."',
-          },
-          {
             type: 'keyInsight',
-            content: 'After writing the equation, plug in one data point from the problem to verify. A quick substitution catches sign errors and swapped values before you commit to an answer.',
+            content: 'From the video: the approach is always the same two-step pipeline. **Step 1:** Find slope from context — "for every increase in $x$ by 1, $y$ increases by 8" means slope $= 8/1 = 8$. **Step 2:** Plug in the given coordinate to find $b$ — "when $x = 2$, $y = 18$" gives you $(2, 18)$, so $18 = 8(2) + b$, giving $b = 2$. Full equation: $y = 8x + 2$. This pipeline works for every context-to-equation question on the SAT.',
           },
           {
             type: 'trapCard',
-            title: 'Negative Rate Missed',
+            title: 'Negative rate missed',
             wrong: '"A candle is $12$ inches tall and burns at $0.5$ inches per hour." Student writes $h = 0.5t + 12$.',
-            correction: 'Burning **reduces** height. The rate is $-0.5$: $h = -0.5t + 12$. Words like "burns," "drains," or "loses" signal a negative slope.',
+            correction: 'Burning **reduces** height. The rate is $-0.5$: $h = -0.5t + 12$. Words like "burns," "drains," "loses," "decreases," "depreciates" all signal a **negative slope**. CB always offers the positive-slope version as answer choice (A) or (B).',
+          },
+          {
+            type: 'strategyCard',
+            title: 'Slope-first elimination',
+            icon: '⚡',
+            timing: '~8s',
+            content: 'From the video: "Right off the bat, the correct answer must be choice C because that has the correct slope." Find slope from context first, then immediately cross out every answer choice with the wrong slope. Often only one choice survives. If two remain, check the y-intercept by plugging in the given point.',
           },
         ],
       },
@@ -500,18 +460,30 @@ export const linearEquationsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: '"A candle is $12$ inches tall and burns at $0.5$ inches per hour." Student writes $h = 0.5t + 12$.',
+            problem: 'The relationship between two variables $x$ and $y$ is linear. For every increase in the value of $x$ by $1$, the value of $y$ increases by $8$. When the value of $x$ is $2$, the value of $y$ is $18$. Which equation represents this relationship?\n(A) $y = 2x + 18$\n(B) $y = 2x + 8$\n(C) $y = 8x + 2$\n(D) $y = 18x + 2$',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Burning **reduces** height. The rate is $-0.5$: $h = -0.5t + 12$. Words like "burns," "drains," or "loses" signal a negative slope.',
+                label: 'Find slope from context',
+                content: '"For every increase in $x$ by $1$, $y$ increases by $8$" → $m = \\frac{8}{1} = 8$. Eliminate (A) and (B) — wrong slope.',
+              },
+              {
+                label: 'Plug in coordinate to find $b$',
+                content: '"When $x = 2$, $y = 18$" → the point $(2, 18)$. Plug in: $18 = 8(2) + b \\Rightarrow b = 2$.',
+              },
+              {
+                label: 'Trap check',
+                content: '(D) uses $18$ as slope — it\'s the $y$-value, not the rate. (A) uses $2$ as slope — it\'s the $x$-value.',
+              },
+              {
+                label: 'Answer',
+                content: '**(C) $y = 8x + 2$**',
               },
             ],
           },
           {
             type: 'checkpointQuestion',
-            question: 'A pool contains $10{,}000$ gallons and drains at $250$ gallons per hour. Write the equation for the water level $W$ after $h$ hours.',
-            answer: '$W = -250h + 10{,}000$. Slope is $-250$ (draining decreases level); y-intercept is $10{,}000$ (starting amount).',
+            question: 'A streaming service charges a one-time activation fee of \\$15 plus \\$9.50 per month. Write the equation for total cost $C$ after $m$ months. Which number is slope, and which is intercept?',
+            answer: '"\\$9.50 **per** month" = slope. "One-time fee of \\$15" = y-intercept. $C = 9.50m + 15$. CB would offer $C = 15m + 9.50$ as a swap distractor.',
           },
         ],
       },
@@ -524,26 +496,24 @@ export const linearEquationsLessonTabs = {
     sections: {
       learn: {
         title: 'Learn',
-        summary: 'Read the y-intercept where the line crosses the $y$-axis, then use a second point to compute slope.',
+        summary: 'From the video: read the y-intercept where the line crosses the $y$-axis, check slope direction (up/down), then eliminate. Most graph questions don\'t require calculating exact slope.',
         blocks: [
           {
-            type: 'formula',
-            label: 'Graph to Equation (Visible Intercept)',
-            content: '$$b = y\\text{-intercept from graph}, \\quad m = \\frac{y_2 - b}{x_2 - 0}, \\quad y = mx + b$$',
-          },
-          {
-            type: 'text',
-            content: 'When the y-intercept is visible (the line crosses the $y$-axis at an integer grid point), read $b$ directly. Then pick any second lattice point and compute slope: $m = \\frac{y_2 - b}{x_2}$. Assemble: $y = mx + b$.',
-          },
-          {
             type: 'keyInsight',
-            content: 'Reading $b$ from the graph first lets you eliminate answer choices immediately — any choice with the wrong y-intercept is out. Then verify slope with only the remaining options.',
+            content: 'The video strategy for graph-to-equation questions: **(1)** Check slope direction — "this line is going downwards, so my slope must be **negative**. This allows me to cross out answer choices C and D." **(2)** Read the y-intercept — "my graph intercepts the y-axis around positive 10." **(3)** Only the choice matching both survives. This direction → intercept → eliminate pipeline solves most graph questions in under 15 seconds without computing exact slope.',
           },
           {
             type: 'trapCard',
-            title: 'Reading the Wrong Axis for the Intercept',
-            wrong: 'Student reads the $x$-intercept (where line crosses horizontal axis) and uses it as $b$.',
-            correction: 'The y-intercept is where the line crosses the **vertical** ($y$-) axis, at $x = 0$. The $x$-intercept is where $y = 0$ — a different value entirely.',
+            title: 'Reading the wrong axis for the intercept',
+            wrong: 'Student reads where the line crosses the $x$-axis (horizontal) at $x = 15$ and writes $b = 15$.',
+            correction: 'The **y**-intercept is where the line crosses the **vertical** ($y$-) axis at $x = 0$. The $x$-intercept is where $y = 0$. CB puts both intercept values as answer choices — make sure you\'re reading the right axis.',
+          },
+          {
+            type: 'strategyCard',
+            title: 'Answer choices not in $y = mx + b$? Convert first.',
+            icon: '⚡',
+            timing: '~15s',
+            content: 'From the video: when answer choices are in standard form like $8x + 12y = 480$, you can\'t see slope and intercept directly. The instructor converts: subtract $8x$, divide by $12$, giving $y = -\\frac{2}{3}x + 40$. Now slope $(-\\frac{2}{3})$ and intercept $(40)$ are visible. Only convert the choices that survived your direction/intercept elimination — never convert all four.',
           },
         ],
       },
@@ -553,18 +523,30 @@ export const linearEquationsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Student reads the $x$-intercept (where line crosses horizontal axis) and uses it as $b$.',
+            problem: 'A line on a graph goes **downward** from left to right, crossing the $y$-axis at $\\approx 40$. Two points on the line are $(0, 40)$ and $(60, 0)$. Which equation could represent this line?\n(A) $y = 8x + 10$\n(B) $8x + 12y = 480$\n(C) $y = \\frac{2}{3}x - 10$\n(D) $y = -\\frac{2}{3}x - 10$',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'The y-intercept is where the line crosses the **vertical** ($y$-) axis, at $x = 0$. The $x$-intercept is where $y = 0$ — a different value entirely.',
+                label: 'Direction check',
+                content: 'Line goes downward → slope is negative. Eliminate (A) (positive slope) and (C) (positive slope).',
+              },
+              {
+                label: 'Y-intercept check',
+                content: 'Line crosses $y$-axis at $+40$. (D) has intercept $-10$ — eliminate. Only (B) remains.',
+              },
+              {
+                label: 'Verify (B)',
+                content: 'Convert: $12y = -8x + 480 \\Rightarrow y = -\\frac{2}{3}x + 40$. Negative slope ✓ Intercept $40$ ✓',
+              },
+              {
+                label: 'Answer',
+                content: '**(B)**',
               },
             ],
           },
           {
             type: 'checkpointQuestion',
-            question: 'A line crosses the $y$-axis at $(0, -2)$ and passes through $(3, 7)$. What is the equation?',
-            answer: 'Slope $= \\frac{7 - (-2)}{3 - 0} = \\frac{9}{3} = 3$. Equation: $y = 3x - 2$.',
+            question: 'A line crosses the $y$-axis at $(0, 3)$ and passes through $(2, 9)$. What is the equation? Find it in under 15 seconds.',
+            answer: 'Y-intercept $= 3$ (read directly). Slope $= \\frac{9 - 3}{2 - 0} = 3$. Equation: $y = 3x + 3$. Total time: ~10 seconds.',
           },
         ],
       },
@@ -577,22 +559,24 @@ export const linearEquationsLessonTabs = {
     sections: {
       learn: {
         title: 'Learn',
-        summary: 'When the y-intercept is not visible on the graph, use two lattice points and point-slope form.',
+        summary: 'When the y-intercept isn\'t visible or the answer choices are in standard form, find two clear points, compute rise/run, and match to the choices.',
         blocks: [
           {
-            type: 'formula',
-            label: 'Point-Slope Form',
-            content: '$$y - y_1 = m(x - x_1)$$',
-          },
-          {
-            type: 'text',
-            content: 'Sometimes the y-intercept falls outside the graph window or lands between grid lines. In that case, pick **any two clear lattice points**, compute slope, then use **point-slope form** $y - y_1 = m(x - x_1)$ and simplify to find $b$ algebraically.',
+            type: 'keyInsight',
+            content: 'From the video: the instructor finds two clear lattice points on the graph, then counts "to get from this point to the next, I must rise $-10$ units and run $+15$ units, so my slope is $-10/15 = -2/3$." When answer choices are in standard form ($Ax + By = C$), you must convert each surviving choice to $y = mx + b$ to verify. The instructor converts choice B: $8x + 12y = 480$ → $y = -\\frac{2}{3}x + 40$ — matching both slope and intercept.',
           },
           {
             type: 'trapCard',
-            title: 'Estimating a Non-Integer Intercept by Eye',
-            wrong: 'Line appears to cross the $y$-axis at roughly $2.5$, so student writes $b = 2.5$ without verifying.',
-            correction: 'Eyeballing introduces errors. Compute slope from two lattice points, then solve $b = y_1 - mx_1$ for the exact intercept.',
+            title: 'Estimating a non-integer intercept by eye',
+            wrong: 'The y-intercept appears to be around $2.5$, so the student writes $b = 2.5$ and picks the closest answer.',
+            correction: 'Eyeballing introduces errors. Use two lattice points to compute slope algebraically, then solve $b = y_1 - mx_1$ for the exact intercept. A \\$0.5 error changes which answer choice is correct.',
+          },
+          {
+            type: 'strategyCard',
+            title: 'Desmos verification for graph questions',
+            icon: '⚡',
+            timing: '~15s',
+            content: 'On the digital SAT, type each surviving answer choice into Desmos and see which graph matches the one shown. This is especially useful when answer choices are in standard form and conversion is tedious. Type the equation, check if the line direction and intercepts match.',
           },
         ],
       },
@@ -602,18 +586,30 @@ export const linearEquationsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Line appears to cross the $y$-axis at roughly $2.5$, so student writes $b = 2.5$ without verifying.',
+            problem: 'A line passes through $(3, 5)$ and $(6, 11)$, but the $y$-axis is not visible. Write the equation in slope-intercept form.',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Eyeballing introduces errors. Compute slope from two lattice points, then solve $b = y_1 - mx_1$ for the exact intercept.',
+                label: 'Compute slope',
+                content: '$m = \\frac{11 - 5}{6 - 3} = \\frac{6}{3} = 2$',
+              },
+              {
+                label: 'Use point-slope',
+                content: '$y - 5 = 2(x - 3) \\Rightarrow y = 2x - 6 + 5 = 2x - 1$',
+              },
+              {
+                label: 'Verify with second point',
+                content: 'Check $(6, 11)$: $2(6) - 1 = 11$ ✓',
+              },
+              {
+                label: 'Answer',
+                content: '$y = 2x - 1$. The intercept $b = -1$ wasn\'t readable from the graph — algebra was required.',
               },
             ],
           },
           {
             type: 'checkpointQuestion',
-            question: 'A line passes through $(3, 1)$ and $(7, 9)$. Write the equation in slope-intercept form.',
-            answer: 'Slope $= \\frac{9 - 1}{7 - 3} = \\frac{8}{4} = 2$. Using $(3, 1)$: $y - 1 = 2(x - 3) \\Rightarrow y = 2x - 5$.',
+            question: 'A line passes through $(4, 3)$ and $(10, 0)$. Find the equation. What is the y-intercept?',
+            answer: 'Slope $= \\frac{0 - 3}{10 - 4} = \\frac{-3}{6} = -\\frac{1}{2}$. Using $(10, 0)$: $y - 0 = -\\frac{1}{2}(x - 10) \\Rightarrow y = -\\frac{1}{2}x + 5$. Y-intercept $= 5$.',
           },
         ],
       },
@@ -626,56 +622,24 @@ export const linearEquationsLessonTabs = {
     sections: {
       learn: {
         title: 'Learn',
-        summary: 'Find slope from any two rows, then use one row to solve for the y-intercept.',
+        summary: 'From the video: "$f(x)$ is just another way of saying $y$." Find slope from the change in $y$ over change in $x$, then check if $x = 0$ is in the table — that row gives you $b$ for free.',
         blocks: [
           {
-            type: 'formula',
-            label: 'Table to Equation',
-            content: '$$m = \\frac{y_2 - y_1}{x_2 - x_1}, \\qquad b = y_1 - m x_1$$',
-          },
-          {
-            type: 'text',
-            content: 'A table of $(x, y)$ values represents a linear relationship when $\\frac{\\Delta y}{\\Delta x}$ is constant between every pair of rows. To write the equation: compute slope from two rows, then use one row to solve $b = y - mx$.',
-          },
-          {
             type: 'keyInsight',
-            content: 'If the table includes a row where $x = 0$, the $y$-value in that row **is** the y-intercept — scan for this shortcut before doing any algebra.',
-          },
-          {
-            type: 'table',
-            headers: [
-              '$x$',
-              '$y$',
-              '$\\Delta y$',
-            ],
-            rows: [
-              [
-                '$0$',
-                '$4$',
-                '—',
-              ],
-              [
-                '$3$',
-                '$13$',
-                '$+9$',
-              ],
-              [
-                '$6$',
-                '$22$',
-                '$+9$',
-              ],
-              [
-                '$9$',
-                '$31$',
-                '$+9$',
-              ],
-            ],
+            content: 'The video\'s approach: **(1)** "The $x$ is the input, the $f(x)$ is just another way of saying $y$." Reframe the table as $(x, y)$ pairs. **(2)** Compute slope: $\\frac{\\Delta y}{\\Delta x}$ from any two rows. **(3)** Check if $x = 0$ exists in the table — "when $x$ is zero, the $y$ is $29$, and so that\'s our $b$ value." If $x = 0$ isn\'t there, plug any row into $y = mx + b$ and solve for $b$. **(4)** Eliminate by slope first — "answer A is the only one that has the correct slope."',
           },
           {
             type: 'trapCard',
-            title: 'Non-Uniform $x$ Spacing Ignored',
-            wrong: 'Table has $x = 2, 5, 8, 11$. Student subtracts consecutive $y$-values but divides by $1$ instead of $3$.',
-            correction: 'The $x$-step is $3$, not $1$. Slope $= \\frac{\\Delta y}{3}$. Always compute and use the actual $\\Delta x$.',
+            title: 'Slope/intercept swap in answer choices',
+            wrong: 'Table: $x = 0, 1, 2$ and $f(x) = 29, 32, 35$. Slope $= 3$, intercept $= 29$. Student picks $f(x) = 29x + 3$.',
+            correction: 'That answer has slope $29$ and intercept $3$ — the classic CB swap. The slope ($3$) is the **change per unit**, not the starting value. The intercept ($29$) is the $f(0)$ value. **Rule: slope is always the coefficient of $x$, intercept is always the standalone constant.**',
+          },
+          {
+            type: 'strategyCard',
+            title: 'Slope-first elimination from tables',
+            icon: '⚡',
+            timing: '~10s',
+            content: 'Compute slope from any two rows. Then scan all four answer choices for that slope value (the coefficient of $x$). From the video: finding slope = 3 instantly eliminated three choices. Most table-to-equation questions can be solved by slope alone without even finding $b$.',
           },
         ],
       },
@@ -685,18 +649,30 @@ export const linearEquationsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Table has $x = 2, 5, 8, 11$. Student subtracts consecutive $y$-values but divides by $1$ instead of $3$.',
+            problem: 'A table shows:\n| $x$ | $f(x)$ |\n|---|---|\n| $0$ | $29$ |\n| $1$ | $32$ |\n| $2$ | $35$ |\nWhich equation defines $f(x)$?\n(A) $f(x) = 3x + 29$\n(B) $f(x) = 29x + 3$\n(C) $f(x) = 32x$\n(D) $f(x) = 35x - 6$',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'The $x$-step is $3$, not $1$. Slope $= \\frac{\\Delta y}{3}$. Always compute and use the actual $\\Delta x$.',
+                label: 'Find slope',
+                content: '$\\Delta y = 32 - 29 = 3$, $\\Delta x = 1 - 0 = 1$. Slope $= 3$. Only (A) has slope $3$ — done.',
+              },
+              {
+                label: 'Verify with $x = 0$ row',
+                content: '$f(0) = 29$ → $b = 29$. Equation: $f(x) = 3x + 29$ ✓',
+              },
+              {
+                label: 'Trap check',
+                content: '(B) swaps slope and intercept. (C) uses $f(1) = 32$ as slope. (D) uses $f(2) = 35$ as slope.',
+              },
+              {
+                label: 'Answer',
+                content: '**(A)**',
               },
             ],
           },
           {
             type: 'checkpointQuestion',
-            question: 'A table shows $(0, 4)$, $(3, 13)$, $(6, 22)$. What is the equation?',
-            answer: 'Slope $= \\frac{13 - 4}{3 - 0} = \\frac{9}{3} = 3$. The row $x = 0$ gives $b = 4$ directly. Equation: $y = 3x + 4$.',
+            question: 'Table: $x = 2, 5, 8, 11$ and $y = 3, 12, 21, 30$. Find slope and the full equation. Watch the $x$-step.',
+            answer: '$\\Delta y = 12 - 3 = 9$, $\\Delta x = 5 - 2 = 3$. Slope $= 9/3 = 3$. Using $(2, 3)$: $3 = 3(2) + b \\Rightarrow b = -3$. Equation: $y = 3x - 3$.',
           },
         ],
       },
@@ -709,26 +685,24 @@ export const linearEquationsLessonTabs = {
     sections: {
       learn: {
         title: 'Learn',
-        summary: 'Function notation like $f(2) = 7$ gives a point $(2, 7)$ — two such statements yield two points.',
+        summary: 'From the video: "$f(0) = 8$ and $f(1) = 12$" — all function notation follows the form $f(x) = y$. Input is $x$, output is $y$. Two statements give you two points.',
         blocks: [
           {
-            type: 'formula',
-            label: 'Translation Rule',
-            content: '$$f(a) = c \\quad\\Longrightarrow\\quad \\text{the point } (a, c)$$',
-          },
-          {
-            type: 'text',
-            content: '$f(x) = mx + b$ is $y = mx + b$ with different notation. The statement $f(2) = 7$ translates to "when $x = 2$, $y = 7$" — the point $(2, 7)$. Two such statements produce two points, which determine the line.',
-          },
-          {
             type: 'keyInsight',
-            content: '$f(0)$ is the y-intercept. Seeing $f(0) = k$ means $b = k$ immediately — no slope calculation needed for the intercept.',
+            content: 'The video\'s key teaching: "All function notation always follows $f(x) = y$. This is your input, this is your output. You always input an $x$-value and get an output of a $y$-value." So $f(0) = 8$ gives the point $(0, 8)$ and $f(1) = 12$ gives $(1, 12)$. Two points → slope → equation. **Bonus:** $f(0)$ is always the y-intercept because it\'s the output when $x = 0$. The instructor emphasizes: "we\'re not always given that $x = 0$ coordinate, so you must know the algebraic approach."',
           },
           {
             type: 'trapCard',
-            title: 'Treating $f(3)$ as Multiplication',
-            wrong: 'Student interprets $f(3) = 10$ as "$f \\times 3 = 10$" and writes $f = \\frac{10}{3}$.',
-            correction: '$f(3) = 10$ means "the function $f$ evaluated at $x = 3$ outputs $10$." It represents the point $(3, 10)$, not a product.',
+            title: 'Treating $f(3)$ as multiplication',
+            wrong: 'Student sees $f(3) = 10$ and writes "$f \\times 3 = 10$, so $f = \\frac{10}{3}$."',
+            correction: '$f(3) = 10$ means "the function $f$ evaluated at $x = 3$ outputs $10$." It\'s the point $(3, 10)$, not a product. The parentheses in $f(3)$ mean "input," not "multiply."',
+          },
+          {
+            type: 'strategyCard',
+            title: '$f(0)$ = instant y-intercept',
+            icon: '⚡',
+            timing: '~3s',
+            content: 'If you see $f(0) = k$ in the problem, that\'s $b = k$ immediately — the y-intercept is handed to you. From the video: "the y-intercept is where the $x$-value happens to be zero, and that is luckily given to us." Scan for $f(0)$ before doing any other work.',
           },
         ],
       },
@@ -738,18 +712,30 @@ export const linearEquationsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Student interprets $f(3) = 10$ as "$f \\times 3 = 10$" and writes $f = \\frac{10}{3}$.',
+            problem: 'In the linear function $f$, $f(0) = 8$ and $f(1) = 12$. Which equation defines $f$?\n(A) $f(x) = 12x$\n(B) $f(x) = 8x + 12$\n(C) $f(x) = 12x + 8$\n(D) $f(x) = 4x + 8$',
             steps: [
               {
-                label: 'Correct approach',
-                content: '$f(3) = 10$ means "the function $f$ evaluated at $x = 3$ outputs $10$." It represents the point $(3, 10)$, not a product.',
+                label: 'Translate to coordinates',
+                content: '$f(0) = 8$ → $(0, 8)$. $f(1) = 12$ → $(1, 12)$.',
+              },
+              {
+                label: 'Slope',
+                content: '$m = \\frac{12 - 8}{1 - 0} = 4$. Eliminate (A) slope $12$, (B) slope $8$, (C) slope $12$.',
+              },
+              {
+                label: 'Y-intercept',
+                content: '$f(0) = 8$ → $b = 8$ directly. Equation: $f(x) = 4x + 8$.',
+              },
+              {
+                label: 'Answer',
+                content: '**(D)**. (A) uses the $f(1)$ value as slope. (C) also uses $12$ as slope — CB\'s favorite distractor here.',
               },
             ],
           },
           {
             type: 'checkpointQuestion',
-            question: 'A linear function satisfies $g(0) = 5$ and $g(4) = 17$. Find $g(x)$.',
-            answer: '$g(0) = 5$ gives $b = 5$ directly. Slope $= \\frac{17 - 5}{4 - 0} = \\frac{12}{4} = 3$. So $g(x) = 3x + 5$.',
+            question: 'A linear function satisfies $g(2) = 7$ and $g(5) = 16$. Find $g(x)$ and then evaluate $g(0)$.',
+            answer: 'Slope $= \\frac{16 - 7}{5 - 2} = 3$. Using $(2, 7)$: $7 = 3(2) + b \\Rightarrow b = 1$. $g(x) = 3x + 1$. $g(0) = 1$ (the y-intercept).',
           },
         ],
       },
@@ -762,32 +748,29 @@ export const linearEquationsLessonTabs = {
     sections: {
       learn: {
         title: 'Learn',
-        summary: 'Parallel lines never intersect because they share the same slope but have different y-intercepts.',
+        summary: 'From the videos: "No solution → no intersection → parallel → same slope, different intercept." This logic chain is the backbone of 5+ question types on the SAT.',
         blocks: [
           {
             type: 'formula',
             label: 'Parallel Condition',
-            content: '$$\\text{Lines are parallel} \\iff m_1 = m_2 \\text{ and } b_1 \\neq b_2$$',
-          },
-          {
-            type: 'text',
-            content: 'Two lines are **parallel** when they have the **same slope** but **different y-intercepts**. Because they rise and run at identical rates, they never cross — no matter how far they extend.',
+            content: '$$\\text{Parallel} \\iff m_1 = m_2 \\text{ and } b_1 \\neq b_2$$',
           },
           {
             type: 'keyInsight',
-            content: 'In standard form $Ax + By = C$, the slope is $-\\frac{A}{B}$. Two standard-form equations are parallel when $\\frac{A_1}{B_1} = \\frac{A_2}{B_2}$ but $\\frac{C_1}{B_1} \\neq \\frac{C_2}{B_2}$. This ratio comparison is often faster than converting to slope-intercept form.',
-          },
-          {
-            type: 'callout',
-            variant: 'warning',
-            title: 'Same Slope + Same Intercept = Same Line',
-            content: 'If both slope AND y-intercept match, the two equations describe the **same line** (infinitely many solutions), not parallel lines (zero solutions). This distinction drives many SAT questions about systems.',
+            content: 'The SAT tests parallel lines in two ways: **(1) Direct:** "Which line is parallel to $y = 3x + 5$?" — just match the slope. **(2) Systems:** "The system has no solution. Find $k$." — no solution means no intersection, which means the lines are parallel, which means same slope. The video teaches this chain: **no solution → no intersection → parallel → same slope, different intercept.** Memorize this chain — it appears on nearly every SAT.',
           },
           {
             type: 'trapCard',
-            title: 'Forgetting the Intercept Verification',
-            wrong: 'Student sets slopes equal, finds $k = 2$, but does not check whether the resulting intercepts differ.',
-            correction: 'Equal slopes with equal intercepts = same line (infinitely many solutions, not zero). After finding $k$, confirm the constant terms produce different intercepts.',
+            title: 'Same slope + same intercept = same line, not parallel',
+            wrong: 'Student sets slopes equal, finds $k = 4$, but at $k = 4$ the equations become identical ($y = 2x + 3$ and $y = 2x + 3$).',
+            correction: 'Same slope + same intercept = the **same line** (infinitely many solutions), not parallel (zero solutions). After finding $k$, always verify the intercepts are **different**. CB frequently includes the "same line" $k$-value as a distractor.',
+          },
+          {
+            type: 'strategyCard',
+            title: 'Coefficient ratio shortcut for systems',
+            icon: '⚡',
+            timing: '~10s',
+            content: 'For $A_1x + B_1y = C_1$ and $A_2x + B_2y = C_2$: compare $\\frac{A_1}{A_2}$ and $\\frac{B_1}{B_2}$ and $\\frac{C_1}{C_2}$. If the first two ratios match but the third doesn\'t → **no solution** (parallel). If all three match → **infinitely many** (same line). If the first two differ → **one solution** (intersecting).',
           },
         ],
       },
@@ -796,31 +779,27 @@ export const linearEquationsLessonTabs = {
         blocks: [
           {
             type: 'example',
-            difficulty: 'Medium',
-            problem: 'The system $3x + ky = 12$ and $6x + 4y = 5$ has no solution. What is $k$?\n(A) $1$ \n(B) $2$ \n(C) $3$ \n(D) $4$',
+            difficulty: 'Easy',
+            problem: 'The function $f$ is defined by $f(x) = 2x + 3$. The graph of $y = f(x)$ is parallel to line $j$. What is the slope of line $j$?',
             steps: [
               {
-                label: 'Extract slopes',
-                content: 'Equation 1: slope $= -\\frac{3}{k}$. Equation 2: slope $= -\\frac{6}{4} = -\\frac{3}{2}$.',
+                label: 'Identify slope of $f$',
+                content: '$f(x) = 2x + 3$ → slope $= 2$.',
               },
               {
-                label: 'Set equal',
-                content: '$-\\frac{3}{k} = -\\frac{3}{2} \\Rightarrow k = 2$',
+                label: 'Apply parallel rule',
+                content: 'Parallel lines have the **same slope**. Slope of line $j = 2$.',
               },
               {
-                label: 'Verify intercepts differ',
-                content: 'Eq 1 y-int: $\\frac{12}{2} = 6$. Eq 2 y-int: $\\frac{5}{4} = 1.25$. Since $6 \\neq 1.25$, the lines are parallel.',
-              },
-              {
-                label: 'Answer',
-                content: '**(B) $k = 2$**',
+                label: 'That\'s it',
+                content: 'From the video: "Function $f$ is parallel to line $j$ and parallel lines have the same slope. Therefore, the slope of line $j$ must be $2$." No calculation needed beyond reading the slope.',
               },
             ],
           },
           {
             type: 'checkpointQuestion',
             question: 'Write the equation of the line parallel to $y = 4x - 3$ that passes through $(2, 1)$.',
-            answer: 'Parallel slope $= 4$. Using $(2, 1)$: $y - 1 = 4(x - 2) \\Rightarrow y = 4x - 7$.',
+            answer: 'Parallel → same slope $= 4$. Point-slope: $y - 1 = 4(x - 2) \\Rightarrow y = 4x - 7$. Different intercept ($-7 \\neq -3$) ✓ — confirmed parallel, not the same line.',
           },
         ],
       },
@@ -833,22 +812,24 @@ export const linearEquationsLessonTabs = {
     sections: {
       learn: {
         title: 'Learn',
-        summary: 'Match the slope of the given line, then use a new point to find the y-intercept.',
+        summary: 'From the video: when told "parallel to $y = 7x + 4$ through $(0, 5)$," copy the slope, then plug in the point. The y-intercept is the only thing that changes.',
         blocks: [
           {
-            type: 'formula',
-            label: 'Parallel Line Through a Point',
-            content: '$$y - y_1 = m(x - x_1) \\quad\\text{where } m \\text{ matches the original line}$$',
-          },
-          {
-            type: 'text',
-            content: 'A "parallel through a given point" problem has two steps: (1) copy the slope from the original line, and (2) use the given point with point-slope form to find the new y-intercept. The slope stays the same; only the intercept changes.',
+            type: 'keyInsight',
+            content: 'The video shows: "If this line is parallel to $y = 7x + 4$, this line must clearly have the same exact slope as $y = 7x + 4$. Therefore, the slope must also be $7$." Then plug in the given point $(0, 5)$ to find $b = 5$. Final equation: $y = 7x + 5$. **Two-step process: (1) copy slope, (2) plug in point for $b$.** When the point is $(0, b)$, the y-intercept is handed to you — $b = 5$ instantly.',
           },
           {
             type: 'trapCard',
-            title: 'Using Perpendicular Slope Instead',
-            wrong: 'Student sees "parallel" but computes the negative reciprocal: slope $= -\\frac{1}{3}$ instead of $3$.',
-            correction: 'Parallel = **same slope**. Perpendicular = negative reciprocal. Underline the keyword before computing.',
+            title: 'Using perpendicular slope instead of parallel',
+            wrong: 'Problem says "parallel to $y = 3x + 1$." Student computes negative reciprocal: slope $= -\\frac{1}{3}$.',
+            correction: '**Parallel = same slope.** Perpendicular = negative reciprocal. These are the two most confused words on the SAT. **Rule: underline "parallel" or "perpendicular" before computing.** Parallel means copy the slope exactly.',
+          },
+          {
+            type: 'strategyCard',
+            title: 'Given $(0, b)$? Skip the algebra.',
+            icon: '⚡',
+            timing: '~5s',
+            content: 'When the given point has $x = 0$ (like $(0, 5)$), the y-intercept is the $y$-value directly — no need to solve $b = y - mx$. Copy the slope, write the intercept, done. From the video: "we can plug in $0$ for $x$ and $5$ for $y$... $b$ is clearly $5$."',
           },
         ],
       },
@@ -857,19 +838,31 @@ export const linearEquationsLessonTabs = {
         blocks: [
           {
             type: 'example',
-            difficulty: 'Medium',
-            problem: 'Student sees "parallel" but computes the negative reciprocal: slope $= -\\frac{1}{3}$ instead of $3$.',
+            difficulty: 'Easy',
+            problem: 'What is the equation of the line that passes through $(0, 5)$ and is parallel to $y = 7x + 4$?\n(A) $y = 4x + 5$\n(B) $y = 5x + 7$\n(C) $y = 7x + 5$\n(D) $y = 7x + 4$',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Parallel = **same slope**. Perpendicular = negative reciprocal. Underline the keyword before computing.',
+                label: 'Copy slope',
+                content: 'Parallel → same slope $= 7$. Eliminate (A) and (B) — wrong slopes.',
+              },
+              {
+                label: 'Check intercept',
+                content: 'Point $(0, 5)$ → $b = 5$. (D) has $b = 4$ (that\'s the original line). (C) has $b = 5$ ✓',
+              },
+              {
+                label: 'Trap check',
+                content: '(D) is the original line itself — a trap for students who copy the entire equation instead of just the slope.',
+              },
+              {
+                label: 'Answer',
+                content: '**(C)**',
               },
             ],
           },
           {
             type: 'checkpointQuestion',
-            question: 'Find the equation of the line parallel to $y = -2x + 5$ that passes through $(3, 1)$.',
-            answer: 'Slope $= -2$. Point-slope: $y - 1 = -2(x - 3) \\Rightarrow y = -2x + 6 + 1 = -2x + 7$.',
+            question: 'Find the equation parallel to $y = -2x + 5$ through $(3, 1)$.',
+            answer: 'Slope $= -2$. Point-slope: $y - 1 = -2(x - 3) \\Rightarrow y = -2x + 7$.',
           },
         ],
       },
@@ -882,22 +875,24 @@ export const linearEquationsLessonTabs = {
     sections: {
       learn: {
         title: 'Learn',
-        summary: 'When the original line is in standard form, extract slope as $-\\frac{A}{B}$ before building the parallel line.',
+        summary: 'When the original line is in standard form, you must first extract the slope as $-A/B$ before building the parallel line.',
         blocks: [
           {
-            type: 'formula',
-            label: 'Slope from Standard Form',
-            content: '$$m = -\\frac{A}{B}$$',
-          },
-          {
-            type: 'text',
-            content: 'Standard form $Ax + By = C$ hides the slope. Extract it as $m = -\\frac{A}{B}$, then use point-slope form with the given point. The parallel line inherits this same slope.',
+            type: 'keyInsight',
+            content: 'From the video: "In order to clearly tell what the slope is, I must first get this line into $y = mx + b$ form." For standard form $Ax + By = C$, the shortcut is slope $= -A/B$. But **watch the sign of $B$** — if $B$ is negative, the double negative flips the slope positive. This sign error is the #1 mistake on standard-form parallel questions.',
           },
           {
             type: 'trapCard',
-            title: 'Sign Error with Double Negative',
-            wrong: 'From $4x - 2y = 10$, student writes slope $= -\\frac{4}{2} = -2$, missing the $B = -2$ sign.',
-            correction: '$B = -2$ (the coefficient of $y$ including its sign). Slope $= -\\frac{4}{-2} = 2$. Track the sign of $B$ carefully when it is negative.',
+            title: 'Sign error with double negative',
+            wrong: 'From $4x - 2y = 10$, student writes slope $= -\\frac{4}{2} = -2$, forgetting that $B = -2$ (not $+2$).',
+            correction: '$B$ is $-2$ (include the sign). Slope $= -\\frac{A}{B} = -\\frac{4}{-2} = +2$. The negative $B$ flips the slope sign. **Rule: when you see a minus sign before $y$, the slope will be positive.**',
+          },
+          {
+            type: 'strategyCard',
+            title: 'Standard form → slope in 5 seconds',
+            icon: '⚡',
+            timing: '~5s',
+            content: 'For $Ax + By = C$: slope $= -A/B$. Don\'t rearrange the whole equation — just read $A$ and $B$ (with their signs) and compute the ratio. Then negate. Practice: $3x + 5y = 7$ → slope $= -3/5$. $2x - 3y = 9$ → slope $= -2/(-3) = +2/3$.',
           },
         ],
       },
@@ -907,18 +902,30 @@ export const linearEquationsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'From $4x - 2y = 10$, student writes slope $= -\\frac{4}{2} = -2$, missing the $B = -2$ sign.',
+            problem: 'Line $\\ell$: $4x - 2y = 10$. Write the equation of the line parallel to $\\ell$ through $(1, 3)$.',
             steps: [
               {
-                label: 'Correct approach',
-                content: '$B = -2$ (the coefficient of $y$ including its sign). Slope $= -\\frac{4}{-2} = 2$. Track the sign of $B$ carefully when it is negative.',
+                label: 'Extract slope from standard form',
+                content: '$A = 4$, $B = -2$. Slope $= -A/B = -4/(-2) = +2$. Note: $B$ is negative.',
+              },
+              {
+                label: 'Parallel line through $(1, 3)$',
+                content: '$y - 3 = 2(x - 1) \\Rightarrow y = 2x + 1$',
+              },
+              {
+                label: 'Verify',
+                content: 'At $(1, 3)$: $2(1) + 1 = 3$ ✓. Slopes match ($2 = 2$), intercepts differ ($1 \\neq -5$) ✓',
+              },
+              {
+                label: 'Answer',
+                content: '$y = 2x + 1$',
               },
             ],
           },
           {
             type: 'checkpointQuestion',
-            question: 'Find the equation of the line parallel to $6x - 3y = 9$ that passes through $(2, 4)$.',
-            answer: 'Slope $= -\\frac{6}{-3} = 2$. Using $(2, 4)$: $y - 4 = 2(x - 2) \\Rightarrow y = 2x$.',
+            question: 'Find the slope of $6x - 3y = 9$ using the $-A/B$ shortcut. Then write the parallel line through $(2, 4)$.',
+            answer: 'Slope $= -6/(-3) = 2$. Using $(2, 4)$: $y - 4 = 2(x - 2) \\Rightarrow y = 2x$.',
           },
         ],
       },
@@ -931,22 +938,24 @@ export const linearEquationsLessonTabs = {
     sections: {
       learn: {
         title: 'Learn',
-        summary: '"No solution" in a linear system means the lines are parallel — set slopes equal to find the unknown.',
+        summary: 'From the video: "No solution must mean no intersection. And no intersection must mean these lines are parallel. Parallel lines have the same slope but different y-intercept."',
         blocks: [
           {
-            type: 'formula',
-            label: 'No-Solution Condition (Standard Form)',
-            content: '$$\\frac{A_1}{B_1} = \\frac{A_2}{B_2} \\quad\\text{and}\\quad \\frac{C_1}{B_1} \\neq \\frac{C_2}{B_2}$$',
-          },
-          {
-            type: 'text',
-            content: 'A system of two linear equations has **no solution** when the lines are parallel: same slope, different intercepts. If one equation contains an unknown constant $k$, setting the slopes equal produces a solvable equation for $k$.',
+            type: 'keyInsight',
+            content: 'The video\'s logic chain for every "no solution" question: **No solution → no intersection → parallel → same slope, different intercept.** The instructor shows: given $y = 6x + 18$, the parallel line must have slope $6$ and a different intercept. Choice (A) has slope $6$ but also intercept $18$ — "making these the same exact lines and therefore not parallel." Choice (B) has slope $6$ and different intercept — "making these lines parallel, meaning they\'ll never intersect, meaning they\'ll have no solution."',
           },
           {
             type: 'trapCard',
-            title: 'Confusing No Solution with Infinitely Many',
-            wrong: 'Student sets all coefficient ratios proportional (making equations identical) when the question says "no solution."',
-            correction: 'No solution = slopes match, intercepts differ (parallel). Infinitely many = entire equations are proportional (same line). Read the stem precisely.',
+            title: 'Same slope + same intercept ≠ "no solution"',
+            wrong: 'Given $y = 6x + 18$. Student picks $y = 6x + 18$ because "it has the same slope." But same slope AND same intercept = same line = infinitely many solutions.',
+            correction: 'No solution requires **same slope, DIFFERENT intercept**. Same everything = same line = infinite solutions. CB always includes the "same line" option as a distractor. **Check both slope AND intercept.**',
+          },
+          {
+            type: 'strategyCard',
+            title: 'Elimination by slope, then intercept',
+            icon: '⚡',
+            timing: '~10s',
+            content: 'Step 1: Find the slope of the given equation. Eliminate any choice with a different slope (those would intersect). Step 2: From the surviving choices, eliminate any with the same intercept (that would be the same line). The remaining choice is the answer.',
           },
         ],
       },
@@ -956,18 +965,26 @@ export const linearEquationsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Student sets all coefficient ratios proportional (making equations identical) when the question says "no solution."',
+            problem: 'One equation in a system is $y = 6x + 18$. The system has no solution. Which could be the second equation?\n(A) $y = 6x + 18$\n(B) $y = 6x + 10$\n(C) $y = -6x + 18$\n(D) $y = 3x + 18$',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'No solution = slopes match, intercepts differ (parallel). Infinitely many = entire equations are proportional (same line). Read the stem precisely.',
+                label: 'No solution → parallel → same slope',
+                content: 'Given slope $= 6$. Eliminate (C) slope $-6$ and (D) slope $3$ — wrong slopes.',
+              },
+              {
+                label: 'Check intercepts differ',
+                content: '(A) has intercept $18$ — same as given, so it\'s the **same line** (infinite solutions, not zero). (B) has intercept $10 \\neq 18$ — different intercept ✓',
+              },
+              {
+                label: 'Answer',
+                content: '**(B)**. Same slope ($6$), different intercept ($10 \\neq 18$) → parallel → no solution.',
               },
             ],
           },
           {
             type: 'checkpointQuestion',
-            question: 'The system $5x + 2y = 8$ and $15x + ky = 3$ has no solution. What is $k$?',
-            answer: 'Set slope ratios equal: $\\frac{5}{2} = \\frac{15}{k} \\Rightarrow 5k = 30 \\Rightarrow k = 6$. Check intercepts: $\\frac{8}{2} = 4 \\neq \\frac{3}{6} = 0.5$. Confirmed parallel.',
+            question: 'The system $2x + 3y = 7$ and $6x + ky = 10$ has no solution. What is $k$?',
+            answer: 'No solution → parallel → slopes match. Slope 1: $-2/3$. Slope 2: $-6/k$. Set equal: $2/3 = 6/k \\Rightarrow 2k = 18 \\Rightarrow k = 9$. Check intercepts: $7/3 \\neq 10/9$ ✓',
           },
         ],
       },
@@ -980,26 +997,24 @@ export const linearEquationsLessonTabs = {
     sections: {
       learn: {
         title: 'Learn',
-        summary: 'Systems with expressions like $(k+1)$ as coefficients still reduce to the same parallel condition — extract slopes and set equal.',
+        summary: 'From the video: when coefficients are fractions, isolate $y$ in both equations, identify the slopes, set them equal, and cross-multiply to solve for the constant.',
         blocks: [
           {
-            type: 'formula',
-            label: 'No-Solution Condition',
-            content: '$$\\frac{A_1}{B_1} = \\frac{A_2}{B_2} \\quad\\text{and}\\quad \\frac{C_1}{B_1} \\neq \\frac{C_2}{B_2}$$',
-          },
-          {
-            type: 'text',
-            content: 'In harder parallel-line problems, coefficients may contain expressions like $(k+1)$ or $(2k-3)$. The "no solution" condition is unchanged: extract the slope expression from each equation, set them equal, and solve. The difficulty is purely algebraic.',
-          },
-          {
             type: 'keyInsight',
-            content: 'When the system is $ax + by = c$ and $dx + ey = f$ with unknowns in $a$ or $d$: the no-solution condition is $\\frac{a}{b} = \\frac{d}{e}$ with $\\frac{c}{b} \\neq \\frac{f}{e}$. Cross-multiplication converts the ratio equation into a standard linear equation in $k$.',
+            content: 'The video walks through a complex problem with fractional coefficients: $-\\frac{3}{2}y - \\frac{1}{4}x = \\frac{2}{3}$ and $py - \\frac{9}{2}x = 1$. The approach: **(1)** Isolate $y$ in each equation to find slope. **(2)** Equation 1 slope = $\\frac{1}{12}$, Equation 2 slope = $\\frac{1}{2p}$. **(3)** Set equal: $\\frac{1}{12} = \\frac{1}{2p}$. **(4)** Cross-multiply to solve: $2p = 12$, so $p = 6$. The difficulty is purely algebraic — the logic is always the same "no solution → parallel → same slope."',
           },
           {
             type: 'trapCard',
-            title: 'Dropping the Expression Parentheses',
+            title: 'Dropping the expression parentheses',
             wrong: 'From $(k+1)x + 4y = 10$, student writes $A = k$ instead of $A = k + 1$.',
-            correction: 'The entire expression $(k+1)$ is the coefficient of $x$. Slope $= -\\frac{k+1}{4}$. Preserve the full expression when setting up the ratio.',
+            correction: 'The entire expression $(k+1)$ is the coefficient of $x$. Slope $= -\\frac{k+1}{4}$. Preserve the full expression. **Rule: whatever is multiplied by $x$ — the whole thing — is $A$.**',
+          },
+          {
+            type: 'strategyCard',
+            title: 'Cross-multiply when fractions face each other',
+            icon: '⚡',
+            timing: '~10s',
+            content: 'From the video: "Whenever you have two fractions on opposite ends of an equal sign, you are able to cross multiply." $\\frac{a}{b} = \\frac{c}{d}$ becomes $ad = bc$. This eliminates fraction arithmetic entirely and is faster than finding common denominators.',
           },
         ],
       },
@@ -1008,19 +1023,31 @@ export const linearEquationsLessonTabs = {
         blocks: [
           {
             type: 'example',
-            difficulty: 'Medium',
-            problem: 'From $(k+1)x + 4y = 10$, student writes $A = k$ instead of $A = k + 1$.',
+            difficulty: 'Hard',
+            problem: 'The system $(k+1)x + 4y = 10$ and $3x + 2y = 7$ has no solution. What is the value of $k$?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'The entire expression $(k+1)$ is the coefficient of $x$. Slope $= -\\frac{k+1}{4}$. Preserve the full expression when setting up the ratio.',
+                label: 'Extract slopes',
+                content: 'Eq 1: slope $= -\\frac{k+1}{4}$. Eq 2: slope $= -\\frac{3}{2}$.',
+              },
+              {
+                label: 'Set slopes equal (parallel)',
+                content: '$\\frac{k+1}{4} = \\frac{3}{2}$',
+              },
+              {
+                label: 'Cross-multiply',
+                content: '$2(k+1) = 12 \\Rightarrow 2k + 2 = 12 \\Rightarrow k = 5$',
+              },
+              {
+                label: 'Verify intercepts differ',
+                content: 'Eq 1: $\\frac{10}{4} = 2.5$. Eq 2: $\\frac{7}{2} = 3.5$. Different ✓ → confirmed parallel, not same line.',
               },
             ],
           },
           {
             type: 'checkpointQuestion',
-            question: 'The system $(2k)x + 6y = 4$ and $5x + 3y = 9$ has no solution. What is $k$?',
-            answer: 'Set slope ratios equal: $\\frac{2k}{6} = \\frac{5}{3} \\Rightarrow 6k = 30 \\Rightarrow k = 5$. Intercepts: $\\frac{4}{6} \\neq \\frac{9}{3}$, so no solution confirmed.',
+            question: 'The system $(2k)x + 6y = 4$ and $5x + 3y = 9$ has no solution. Find $k$.',
+            answer: 'Slopes: $-\\frac{2k}{6} = -\\frac{k}{3}$ and $-\\frac{5}{3}$. Set equal: $\\frac{k}{3} = \\frac{5}{3} \\Rightarrow k = 5$. Intercepts: $\\frac{4}{6} \\neq \\frac{9}{3}$ ✓',
           },
         ],
       },
@@ -1033,26 +1060,24 @@ export const linearEquationsLessonTabs = {
     sections: {
       learn: {
         title: 'Learn',
-        summary: 'Use Desmos sliders to visually identify the $k$-value that makes two lines parallel.',
+        summary: 'From the video: graph both equations in Desmos, add a slider for the unknown constant, and adjust until the lines become parallel (no intersection).',
         blocks: [
           {
-            type: 'formula',
-            label: 'Parallel Condition',
-            content: '$$m_1 = m_2 \\iff \\text{lines are parallel (when } b_1 \\neq b_2\\text{)}$$',
-          },
-          {
-            type: 'text',
-            content: 'On the digital SAT, Desmos can verify parallel-line problems. Enter both equations with the unknown left as a parameter — Desmos auto-creates a slider. Adjust until the lines share the same direction and never intersect.',
-          },
-          {
             type: 'keyInsight',
-            content: 'Desmos is most valuable as a **verification tool**. Solve algebraically first, then enter both equations with your computed $k$-value to confirm the lines are parallel. Zoom out to ensure they never converge.',
+            content: 'The video\'s Desmos approach: **(1)** "We can graph these two equations just the way they\'re given on Desmos." **(2)** "We are able to add a slider for the $p$ value and manipulate the second equation until these lines are parallel." **(3)** "You will constantly adjust the $p$ value until you find the value that makes these two lines parallel." The key insight: parallel lines have **no intersection point** — Desmos shows this clearly when the lines run side-by-side at every zoom level.',
           },
           {
             type: 'trapCard',
-            title: 'Small Window Tricks the Eye',
-            wrong: 'Lines look parallel in a small window but actually intersect far off-screen.',
-            correction: 'Zoom out significantly. Truly parallel lines remain equidistant at every zoom level. If the gap between them shrinks as you zoom out, the slopes are close but not equal.',
+            title: 'Slider range doesn\'t include the answer',
+            wrong: 'Default slider is $-10$ to $10$, but the answer is $p = 28$. Student assumes no solution exists.',
+            correction: 'From the video: "Within this limit of $-10$ to $10$, there\'s no sign of this line becoming parallel. So let\'s change that limit. Let\'s make it $-30$ to $30$." **Always widen the slider range if you don\'t find the answer in the default window.**',
+          },
+          {
+            type: 'strategyCard',
+            title: 'Desmos parallel verification',
+            icon: '⚡',
+            timing: '~20s',
+            content: 'From the video: "If you zoom all the way out, Desmos always gives you the intersection point." If you see an intersection at any zoom level, the lines aren\'t parallel yet — keep adjusting. When you zoom all the way out and see **no intersection** and the lines run perfectly side-by-side, you\'ve found the right value.',
           },
         ],
       },
@@ -1062,18 +1087,30 @@ export const linearEquationsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Lines look parallel in a small window but actually intersect far off-screen.',
+            problem: 'Using Desmos, find the value of $p$ that makes $2x + 5y = 8$ and $px + 10y = 3$ have no solution.',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Zoom out significantly. Truly parallel lines remain equidistant at every zoom level. If the gap between them shrinks as you zoom out, the slopes are close but not equal.',
+                label: 'Enter in Desmos',
+                content: 'Type both equations. Desmos creates a slider for $p$ automatically.',
+              },
+              {
+                label: 'Adjust slider',
+                content: 'Move $p$ until the lines are parallel (no intersection visible at any zoom). This happens at $p = 4$.',
+              },
+              {
+                label: 'Verify algebraically',
+                content: 'Slopes: $-2/5$ and $-4/10 = -2/5$. Equal ✓. Intercepts: $8/5 \\neq 3/10$. Different ✓.',
+              },
+              {
+                label: 'Answer',
+                content: '$p = 4$',
               },
             ],
           },
           {
             type: 'checkpointQuestion',
             question: 'You enter $3x + 4y = 8$ and $kx + 8y = 5$ into Desmos. At what $k$-value do the lines become parallel?',
-            answer: 'Slopes must match: $\\frac{3}{4} = \\frac{k}{8} \\Rightarrow k = 6$. In Desmos the slider shows parallel lines at $k = 6$.',
+            answer: 'Slopes match: $3/4 = k/8 \\Rightarrow k = 6$. In Desmos, the slider shows no intersection at $k = 6$.',
           },
         ],
       },
@@ -1086,22 +1123,24 @@ export const linearEquationsLessonTabs = {
     sections: {
       learn: {
         title: 'Learn',
-        summary: 'Parallel systems where the unknown appears alongside other constants — simplify or rearrange before extracting slopes.',
+        summary: 'From the video: when coefficients involve $r$ and fractions, isolate $y$ in both equations, identify slopes, set them equal, and cross-multiply. The difficulty is algebraic, not conceptual.',
         blocks: [
           {
-            type: 'formula',
-            label: 'General Slope Extraction',
-            content: '$$\\text{From } Ax + By = C: \\quad m = -\\frac{A}{B}$$',
-          },
-          {
-            type: 'text',
-            content: 'In more advanced problems, you may need to expand, simplify, or rearrange equations before extracting slopes. An expression like $(k-1)x$ means $A = k - 1$, not $A = k$. The core logic is unchanged: **no solution = same slope, different intercepts**.',
+            type: 'keyInsight',
+            content: 'The video solves $48x - 64y = 48y + 24$ and $r(-12x + 3) = y$ by isolating $y$ in each: line 1 slope $= 48/112$, line 2 slope $= -12/r$. Since parallel means same slope: $48/112 = -12/r$. Cross-multiply: $48r = -12 \\times 112 \\Rightarrow r = -28$. **Key pattern: when the unknown is in the denominator, cross-multiplication is the move.**',
           },
           {
             type: 'trapCard',
-            title: 'Distribution Error in Coefficient',
-            wrong: 'From $(k-2)x + 3y = 7$, student writes slope $= -\\frac{k}{3}$, dropping the $-2$.',
-            correction: 'The full coefficient of $x$ is $(k-2)$, so slope $= -\\frac{k-2}{3}$. Preserve the entire expression when extracting coefficients.',
+            title: 'Distribution error in coefficient',
+            wrong: 'From $(k-2)x + 3y = 7$, student writes slope $= -k/3$, dropping the $-2$.',
+            correction: 'The full coefficient of $x$ is $(k-2)$. Slope $= -\\frac{k-2}{3}$. Preserve the entire expression. Distribute only when cross-multiplying.',
+          },
+          {
+            type: 'strategyCard',
+            title: 'Isolate $y$ first, always',
+            icon: '⚡',
+            timing: '~15s',
+            content: 'From the video: "In order to clearly tell what the slopes are, I must first get these lines into $y = mx + b$ form. Which means I must isolate the $y$ values." Rearranging to $y = mx + b$ makes slopes visible. Once both slopes are visible, set them equal and solve.',
           },
         ],
       },
@@ -1110,19 +1149,31 @@ export const linearEquationsLessonTabs = {
         blocks: [
           {
             type: 'example',
-            difficulty: 'Medium',
-            problem: 'From $(k-2)x + 3y = 7$, student writes slope $= -\\frac{k}{3}$, dropping the $-2$.',
+            difficulty: 'Hard',
+            problem: 'The system $(k-2)x + 3y = 7$ and $5x + 6y = 11$ has no solution. Find $k$.',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'The full coefficient of $x$ is $(k-2)$, so slope $= -\\frac{k-2}{3}$. Preserve the entire expression when extracting coefficients.',
+                label: 'Extract slopes',
+                content: 'Eq 1: slope $= -\\frac{k-2}{3}$. Eq 2: slope $= -\\frac{5}{6}$.',
+              },
+              {
+                label: 'Set equal and cross-multiply',
+                content: '$\\frac{k-2}{3} = \\frac{5}{6} \\Rightarrow 6(k-2) = 15 \\Rightarrow 6k - 12 = 15 \\Rightarrow k = \\frac{27}{6} = \\frac{9}{2}$',
+              },
+              {
+                label: 'Verify intercepts differ',
+                content: '$7/3 \\neq 11/6$ ✓ → confirmed parallel.',
+              },
+              {
+                label: 'Answer',
+                content: '$k = \\frac{9}{2}$',
               },
             ],
           },
           {
             type: 'checkpointQuestion',
             question: 'The system $(k-1)x + 6y = 10$ and $4x + 3y = 8$ has no solution. Find $k$.',
-            answer: 'Slopes: $-\\frac{k-1}{6}$ and $-\\frac{4}{3}$. Set equal: $\\frac{k-1}{6} = \\frac{4}{3} \\Rightarrow k - 1 = 8 \\Rightarrow k = 9$. Intercepts: $\\frac{10}{6} \\neq \\frac{8}{3}$, confirmed.',
+            answer: 'Slopes: $-\\frac{k-1}{6}$ and $-\\frac{4}{3}$. Set equal: $\\frac{k-1}{6} = \\frac{4}{3} \\Rightarrow 3(k-1) = 24 \\Rightarrow k = 9$.',
           },
         ],
       },
@@ -1135,27 +1186,24 @@ export const linearEquationsLessonTabs = {
     sections: {
       learn: {
         title: 'Learn',
-        summary: 'Desmos sliders handle expression coefficients like $(k-1)$ automatically — adjust and observe.',
+        summary: 'From the video: the same problem solved purely in Desmos — graph both equations, manipulate the slider, widen the range if needed, and watch for the lines to become parallel.',
         blocks: [
           {
-            type: 'formula',
-            label: 'Parallel Condition in DESMOS',
-            content: '$$m_1 = m_2 \\iff -\\frac{A_1}{B_1} = -\\frac{A_2}{B_2}$$',
-            note: 'Enter both equations with the unknown; adjust the slider until the lines share the same direction.',
-          },
-          {
-            type: 'text',
-            content: 'For systems with complex coefficients (e.g., $(k-1)x$ or $(2k+3)x$), Desmos treats $k$ as a parameter and creates a slider automatically. This bypasses distribution and cross-multiplication errors entirely — adjust the slider and observe when the lines become parallel.',
-          },
-          {
             type: 'keyInsight',
-            content: 'After finding the approximate slider value in Desmos, confirm with a quick algebraic check. If the slider lands at $k = 9$, verify: both slopes should evaluate to the same number at $k = 9$.',
+            content: 'The video demonstrates: "Within this limit of $-10$ to $+10$, there\'s no sign of the line becoming parallel. So let\'s change that limit to $-30$ to $+30$." Then: "if we move in the negative direction, it definitely looks like these lines will become parallel. If we make $r = -28$, there is no intersection. These lines are parallel, giving me my answer."',
           },
           {
             type: 'trapCard',
-            title: 'Slider Range Does Not Include the Answer',
-            wrong: 'Default slider range is $-10$ to $10$, but $k = 12$ falls outside it. Student assumes no solution exists.',
-            correction: 'Click the slider bounds in Desmos and widen the range. The answer might be outside the default window — always check.',
+            title: 'Lines look parallel but aren\'t',
+            wrong: 'At $r = -26$, lines look parallel in the default view. Student submits $r = -26$.',
+            correction: 'From the video: "If we make $r = -26$, notice there\'s an intersection right here and they\'re not parallel." Near-parallel lines can look identical in a small window. **Always zoom all the way out** — if there\'s an intersection anywhere, they\'re not parallel.',
+          },
+          {
+            type: 'strategyCard',
+            title: 'Desmos slider: when to widen the range',
+            icon: '⚡',
+            timing: '~20s',
+            content: 'If you sweep the entire default slider ($-10$ to $10$) and never see parallel lines, click the slider endpoints and change them to $-50$ to $50$. The answer is often outside the default range on hard problems. From the video: the answer was $r = -28$, well outside the default window.',
           },
         ],
       },
@@ -1165,18 +1213,30 @@ export const linearEquationsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Default slider range is $-10$ to $10$, but $k = 12$ falls outside it. Student assumes no solution exists.',
+            problem: 'Using Desmos, find $r$ that makes $(2r-1)x + 6y = 5$ parallel to $3x + 2y = 8$.',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Click the slider bounds in Desmos and widen the range. The answer might be outside the default window — always check.',
+                label: 'Enter equations in Desmos',
+                content: 'Type both. Desmos creates a slider for $r$.',
+              },
+              {
+                label: 'Algebraic setup',
+                content: 'Eq 2 slope: $-3/2$. Eq 1 slope: $-(2r-1)/6$. Set equal: $\\frac{2r-1}{6} = \\frac{3}{2}$.',
+              },
+              {
+                label: 'Cross-multiply',
+                content: '$2(2r-1) = 18 \\Rightarrow 4r - 2 = 18 \\Rightarrow r = 5$',
+              },
+              {
+                label: 'Desmos confirmation',
+                content: 'Set slider to $r = 5$. Zoom out — no intersection visible. Lines are parallel ✓',
               },
             ],
           },
           {
             type: 'checkpointQuestion',
             question: 'You enter $(3k)x + 8y = 5$ and $6x + 4y = 11$ into Desmos. At what $k$-value are the lines parallel?',
-            answer: 'Slopes match when $\\frac{3k}{8} = \\frac{6}{4} \\Rightarrow 3k = 12 \\Rightarrow k = 4$. Desmos shows parallel lines at $k = 4$.',
+            answer: 'Slopes match: $3k/8 = 6/4 \\Rightarrow 3k/8 = 3/2 \\Rightarrow 6k = 24 \\Rightarrow k = 4$.',
           },
         ],
       },
@@ -1189,27 +1249,24 @@ export const linearEquationsLessonTabs = {
     sections: {
       learn: {
         title: 'Learn',
-        summary: 'When $k$ appears in the $y$-coefficient, slope becomes $-\\frac{A}{k}$ — the unknown lands in the denominator.',
+        summary: 'From the video: an alternative approach — rearrange both sides of the equation into separate lines, then set slopes equal. "Since both sides are equal, I can set them equal to $y$."',
         blocks: [
           {
-            type: 'formula',
-            label: 'Equal Coefficient-Ratio Condition',
-            content: '$$\\frac{A_1}{B_1} = \\frac{A_2}{B_2} \\quad\\text{and}\\quad \\frac{C_1}{B_1} \\neq \\frac{C_2}{B_2}$$',
-            note: 'Cross-multiply to clear $k$ from the denominator.',
-          },
-          {
-            type: 'text',
-            content: 'The most challenging parallel-line problems place the unknown in the $y$-coefficient (e.g., $3x + ky = 10$). The slope becomes $-\\frac{3}{k}$, placing $k$ in the denominator. Cross-multiplying to clear the fraction requires extra care with signs.',
-          },
-          {
             type: 'keyInsight',
-            content: 'When $k$ is in the denominator of one slope expression, cross-multiply instead of dividing. From $\\frac{6}{k} = -\\frac{3}{5}$, multiply both sides by $5k$: $30 = -3k$, so $k = -10$. This avoids fraction-on-fraction algebra.',
+            content: 'The video shows a creative reframe for equations like $21px - 3x = 84$: "I will add $3x$ on both sides. Since both sides are equal to each other, I can set them equal to the same thing — I will set them equal to $y$." This creates two separate lines: line 1 ($y = 21px$) and line 2 ($y = 3x + 84$). No solution means these lines are parallel, so $21p = 3$, giving $p = 1/7$.',
           },
           {
             type: 'trapCard',
-            title: 'Denominator Sign Oversight',
-            wrong: 'From $3x - ky = 10$, student writes slope $= -\\frac{3}{k}$, ignoring the negative sign on $k$.',
-            correction: 'With $B = -k$: slope $= -\\frac{A}{B} = -\\frac{3}{-k} = \\frac{3}{k}$. The negative in front of $k$ flips the overall sign of the slope.',
+            title: 'Denominator sign oversight',
+            wrong: 'From $3x - ky = 10$, student writes slope $= -3/k$, ignoring the negative on $k$.',
+            correction: '$B = -k$. Slope $= -A/B = -3/(-k) = +3/k$. The negative in front of $k$ flips the slope sign. **Always include the sign of $B$ when extracting slope from standard form.**',
+          },
+          {
+            type: 'strategyCard',
+            title: 'Split into two lines when one equation looks weird',
+            icon: '⚡',
+            timing: '~15s',
+            content: 'From the video: when you see an equation like $21px - 3x = 84$ with no $y$, the trick is to set both sides equal to $y$: left side becomes line 1, right side becomes line 2 (a horizontal line $y = 84$ or add $3x$ first). Now it\'s a parallel lines problem. "The slope of line 1 is $21p$. The slope of line 2 is $3$. And so we set them equal."',
           },
         ],
       },
@@ -1218,19 +1275,31 @@ export const linearEquationsLessonTabs = {
         blocks: [
           {
             type: 'example',
-            difficulty: 'Medium',
-            problem: 'From $3x - ky = 10$, student writes slope $= -\\frac{3}{k}$, ignoring the negative sign on $k$.',
+            difficulty: 'Hard',
+            problem: 'In the equation $21px - 3x = 84$, $p$ is a constant. The equation has no solution. What is $p$?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'With $B = -k$: slope $= -\\frac{A}{B} = -\\frac{3}{-k} = \\frac{3}{k}$. The negative in front of $k$ flips the overall sign of the slope.',
+                label: 'Reframe as two lines',
+                content: 'Add $3x$ to both sides: $21px = 3x + 84$. Set both equal to $y$: Line 1: $y = 21px$. Line 2: $y = 3x + 84$.',
+              },
+              {
+                label: 'No solution → parallel → same slope',
+                content: 'Slope of line 1: $21p$. Slope of line 2: $3$. Set equal: $21p = 3$.',
+              },
+              {
+                label: 'Solve',
+                content: '$p = \\frac{3}{21} = \\frac{1}{7}$',
+              },
+              {
+                label: 'Answer',
+                content: '$p = \\frac{1}{7}$',
               },
             ],
           },
           {
             type: 'checkpointQuestion',
             question: 'The system $4x + ky = 20$ and $2x - 3y = 7$ has no solution. Find $k$.',
-            answer: 'Slopes: $-\\frac{4}{k}$ and $-\\frac{2}{-3} = \\frac{2}{3}$. Set equal: $-\\frac{4}{k} = \\frac{2}{3} \\Rightarrow -12 = 2k \\Rightarrow k = -6$.',
+            answer: 'Slopes: $-4/k$ and $-2/(-3) = 2/3$. Set equal: $-4/k = 2/3 \\Rightarrow -12 = 2k \\Rightarrow k = -6$.',
           },
         ],
       },
@@ -1243,27 +1312,24 @@ export const linearEquationsLessonTabs = {
     sections: {
       learn: {
         title: 'Learn',
-        summary: 'Plug each answer choice into the system and check whether slopes match — a fast alternative to algebra.',
+        summary: 'From the video: when algebra is messy, plug each answer choice into the equation and check if it produces "no solution" ($0 = \\text{non-zero}$).',
         blocks: [
           {
-            type: 'formula',
-            label: 'Backsolve Check',
-            content: '$$\\text{For each choice } k: \\quad -\\frac{A_1(k)}{B_1(k)} \\stackrel{?}{=} -\\frac{A_2}{B_2}$$',
-            note: 'Test each answer choice; the one producing equal slopes (with different intercepts) is correct.',
-          },
-          {
-            type: 'text',
-            content: 'On multiple-choice questions, **backsolving** replaces algebra: substitute each candidate $k$-value into both equations, compute slopes, and check for equality. With four choices, this takes at most four quick slope comparisons.',
-          },
-          {
             type: 'keyInsight',
-            content: 'Start with the middle-value choices. If the resulting slopes are "too far apart" in one direction, you can infer which remaining choice is correct without testing all four.',
+            content: 'The video shows the answer-choice plugging method: "Since this question gives us answer choices, we can plug them in." Plug $p = 0$: "$-28$... since $p = 0$ allows us to solve for $x$, that\'s definitely not no-solution." Plug $p = 1/7$: "gives us $0x$. Anything times $0$ is $0$, and $0$ is clearly not equal to $84$. Therefore, that is what no solution looks like." **No solution means: after simplifying, you get $0 = \\text{nonzero}$ — a contradiction.**',
           },
           {
             type: 'trapCard',
-            title: 'Matching Slopes but Missing the Intercept Check',
-            wrong: 'Student finds slopes match at $k = 6$ but does not verify intercepts differ — the lines could be identical.',
-            correction: 'Equal slopes + equal intercepts = same line (infinitely many solutions). After matching slopes, confirm the intercepts are different to ensure the system truly has no solution.',
+            title: 'Matching slopes but missing the intercept check',
+            wrong: 'Student finds slopes match at $k = 6$ but doesn\'t verify intercepts differ — the lines might be identical.',
+            correction: 'From the video on the earlier problem: "answer choice A has the same slope but also the same y-intercept, making these the same exact lines." Equal slopes + equal intercepts = same line = infinitely many solutions, NOT zero. **Always verify intercepts are different.**',
+          },
+          {
+            type: 'strategyCard',
+            title: 'The "0 = nonzero" test',
+            icon: '⚡',
+            timing: '~15s',
+            content: 'Plug each answer choice into the equation. Combine like terms. If the variable cancels out and you\'re left with $0 = \\text{some number}$ — that\'s no solution. If you can still solve for the variable — that\'s a valid solution. From the video: $0x = 84$ → "$0$ is clearly not equal to $84$. That is what no solution looks like."',
           },
         ],
       },
@@ -1272,19 +1338,31 @@ export const linearEquationsLessonTabs = {
         blocks: [
           {
             type: 'example',
-            difficulty: 'Medium',
-            problem: 'Student finds slopes match at $k = 6$ but does not verify intercepts differ — the lines could be identical.',
+            difficulty: 'Hard',
+            problem: 'In the equation $21px - 3x = 84$, $p$ is a constant. The equation has no solution. What is $p$?\n(A) $0$\n(B) $\\frac{1}{7}$\n(C) $3$\n(D) $7$',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Equal slopes + equal intercepts = same line (infinitely many solutions). After matching slopes, confirm the intercepts are different to ensure the system truly has no solution.',
+                label: 'Test (A): $p = 0$',
+                content: '$21(0)x - 3x = 84 \\Rightarrow -3x = 84 \\Rightarrow x = -28$. Has a solution — eliminate.',
+              },
+              {
+                label: 'Test (B): $p = 1/7$',
+                content: '$21(\\frac{1}{7})x - 3x = 84 \\Rightarrow 3x - 3x = 84 \\Rightarrow 0 = 84$. **Contradiction** — no solution ✓',
+              },
+              {
+                label: 'Why this works',
+                content: 'When $p = 1/7$, the $x$-terms cancel ($3x - 3x = 0x$), leaving $0 = 84$, which is impossible. That\'s the definition of "no solution."',
+              },
+              {
+                label: 'Answer',
+                content: '**(B) $p = \\frac{1}{7}$**',
               },
             ],
           },
           {
             type: 'checkpointQuestion',
             question: 'System: $kx + 4y = 12$ and $3x + 2y = 5$. Choices: (A) $2$ (B) $4$ (C) $6$ (D) $8$. Which gives no solution?',
-            answer: 'Test (C) $k = 6$: slopes $= -\\frac{6}{4} = -\\frac{3}{2}$ and $-\\frac{3}{2}$. Equal. Intercepts: $\\frac{12}{4} = 3$ vs. $\\frac{5}{2} = 2.5$. Different. Answer: **(C) $k = 6$**.',
+            answer: 'Test (C) $k = 6$: slopes $= -6/4 = -3/2$ and $-3/2$. Equal. Intercepts: $12/4 = 3$ vs $5/2 = 2.5$. Different. **Answer: (C)**.',
           },
         ],
       },
@@ -1297,56 +1375,29 @@ export const linearEquationsLessonTabs = {
     sections: {
       learn: {
         title: 'Learn',
-        summary: 'Perpendicular lines meet at $90°$ — their slopes are negative reciprocals whose product is $-1$.',
+        summary: 'From the video: perpendicular means "opposite reciprocal" — opposite (change the sign) AND reciprocal (flip the fraction). Two operations, not one.',
         blocks: [
           {
             type: 'formula',
-            label: 'Negative Reciprocal',
-            content: '$$\\text{If } m_1 = \\frac{a}{b}, \\text{ then } m_2 = -\\frac{b}{a}$$',
-          },
-          {
-            type: 'text',
-            content: 'Two lines are **perpendicular** when they intersect at a **right angle** ($90°$). This geometric relationship translates to an algebraic rule: the product of their slopes equals $-1$. $$m_1 \\cdot m_2 = -1$$',
+            label: 'Perpendicular Slope',
+            content: '$$m_1 \\cdot m_2 = -1 \\qquad\\text{i.e.}\\qquad m_2 = -\\frac{1}{m_1}$$',
           },
           {
             type: 'keyInsight',
-            content: 'The negative reciprocal requires **two operations**: flip the fraction AND change the sign. Missing either one is the most common error. Verify every time by checking that $m_1 \\cdot m_2 = -1$.',
-          },
-          {
-            type: 'table',
-            headers: [
-              'Original Slope',
-              'Perpendicular Slope',
-              'Product Check',
-            ],
-            rows: [
-              [
-                '$2$',
-                '$-\\frac{1}{2}$',
-                '$2 \\times (-\\frac{1}{2}) = -1$',
-              ],
-              [
-                '$-\\frac{3}{4}$',
-                '$\\frac{4}{3}$',
-                '$-\\frac{3}{4} \\times \\frac{4}{3} = -1$',
-              ],
-              [
-                '$\\frac{1}{5}$',
-                '$-5$',
-                '$\\frac{1}{5} \\times (-5) = -1$',
-              ],
-              [
-                '$-1$',
-                '$1$',
-                '$-1 \\times 1 = -1$',
-              ],
-            ],
+            content: 'From the video: "The slope of line $R$ must be the **opposite reciprocal** of the slope of line $P$. Opposite meaning that negative will now become a positive, and reciprocal meaning that we will flip this fraction." The slope was $-9$ ($= -9/1$). Opposite: $+9/1$. Reciprocal: $1/9$. So the perpendicular slope is $+1/9$. **Two operations.** CB gives answer choices with just the reciprocal (forgot the sign flip) or just the negative (forgot the flip) — every time.',
           },
           {
             type: 'trapCard',
-            title: 'Flip Without Negating',
-            wrong: 'Given slope $= 2$. Student writes perpendicular slope $= \\frac{1}{2}$ (flipped but not negated).',
-            correction: 'Both operations required: flip $2 \\to \\frac{1}{2}$ AND negate $\\to -\\frac{1}{2}$. Check: $2 \\times (-\\frac{1}{2}) = -1$.',
+            title: 'Flip without negating (or negate without flipping)',
+            wrong: 'Given slope $= -9$. Student writes perpendicular slope $= \\frac{1}{9}$ (flipped but didn\'t change the sign to get $\\frac{1}{9}$... wait, that\'s actually correct from $-9$). Alternative: Given slope $= 2$. Student writes $\\frac{1}{2}$ (flipped but not negated).',
+            correction: 'From slope $= 2$: the reciprocal is $1/2$, the opposite is $-1/2$. You need BOTH operations. Check: $2 \\times (-1/2) = -1$ ✓. CB always includes $+1/2$ (flipped only) and $-2$ (negated only) as wrong answers.',
+          },
+          {
+            type: 'strategyCard',
+            title: 'Product check: $m_1 \\times m_2 = -1$',
+            icon: '⚡',
+            timing: '~3s',
+            content: 'After computing the perpendicular slope, multiply it by the original. If the product is $-1$, you\'re correct. If it\'s $+1$, you forgot to negate. If it\'s anything else, you made an arithmetic error. This 3-second check catches the #1 perpendicular mistake.',
           },
         ],
       },
@@ -1356,38 +1407,30 @@ export const linearEquationsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Line $\\ell$ has equation $4x - 2y = 10$. A second line is perpendicular to $\\ell$ and passes through $(6, 1)$. What is the equation of the second line?\n(A) $y = 2x - 11$\n(B) $y = -\\frac{1}{2}x + 4$\n(C) $y = \\frac{1}{2}x - 2$\n(D) $y = -2x + 13$',
+            problem: 'Line $P$ is defined by $2y + 18x = 9$. Line $R$ is perpendicular to line $P$. What is the slope of line $R$?\n(A) $-9$\n(B) $9$\n(C) $\\frac{1}{9}$\n(D) $-\\frac{1}{9}$',
             steps: [
               {
-                label: 'Find slope of $\\ell$',
-                content: 'Slope $= -\\frac{A}{B} = -\\frac{4}{-2} = 2$',
+                label: 'Get line $P$ into $y = mx + b$',
+                content: 'From the video: subtract $18x$: $2y = -18x + 9$. Divide by $2$: $y = -9x + \\frac{9}{2}$. Slope of $P = -9$.',
               },
               {
-                label: 'Perpendicular slope',
-                content: 'Negative reciprocal of $2$ is $-\\frac{1}{2}$',
+                label: 'Opposite reciprocal',
+                content: 'Opposite: $-9 \\to +9$. Reciprocal: $9 \\to \\frac{1}{9}$. Perpendicular slope $= +\\frac{1}{9}$.',
               },
               {
-                label: 'Point-slope',
-                content: '$y - 1 = -\\frac{1}{2}(x - 6)$',
-              },
-              {
-                label: 'Simplify',
-                content: '$y = -\\frac{1}{2}x + 3 + 1 = -\\frac{1}{2}x + 4$',
-              },
-              {
-                label: 'Verify',
-                content: 'Slope product: $2 \\times (-\\frac{1}{2}) = -1$. Point check: $-\\frac{1}{2}(6) + 4 = 1$.',
+                label: 'Product check',
+                content: '$(-9) \\times (\\frac{1}{9}) = -1$ ✓',
               },
               {
                 label: 'Answer',
-                content: '**(B)**',
+                content: '**(C) $\\frac{1}{9}$**. (A) is the original slope. (D) forgot the sign change.',
               },
             ],
           },
           {
             type: 'checkpointQuestion',
-            question: 'What is the slope of a line perpendicular to $y = \\frac{3}{7}x - 4$?',
-            answer: 'Given slope $= \\frac{3}{7}$. Perpendicular slope $= -\\frac{7}{3}$. Check: $\\frac{3}{7} \\times (-\\frac{7}{3}) = -1$.',
+            question: 'What is the slope perpendicular to $y = \\frac{3}{7}x - 4$? Do the product check.',
+            answer: 'Given slope $= 3/7$. Opposite: $-3/7$. Reciprocal: $-7/3$. Check: $(3/7)(-7/3) = -1$ ✓. Perpendicular slope $= -7/3$.',
           },
         ],
       },
@@ -1400,22 +1443,24 @@ export const linearEquationsLessonTabs = {
     sections: {
       learn: {
         title: 'Learn',
-        summary: 'Compute the negative reciprocal of the given slope, then use point-slope form with the provided point.',
+        summary: 'Compute the opposite reciprocal, then use point-slope with the given point. The video eliminates wrong slopes first, then verifies the point.',
         blocks: [
           {
-            type: 'formula',
-            label: 'Quick Reference',
-            content: '$$m_{\\perp} = -\\frac{1}{m} \\qquad\\text{then}\\qquad y - y_1 = m_{\\perp}(x - x_1)$$',
-          },
-          {
-            type: 'text',
-            content: '"Perpendicular to $y = mx + b$ through $(x_1, y_1)$" is a two-step process: (1) compute $m_{\\perp} = -\\frac{1}{m}$, then (2) plug into $y - y_1 = m_{\\perp}(x - x_1)$ and simplify.',
+            type: 'keyInsight',
+            content: 'The answer-choice elimination strategy for perpendicular questions: if the original slope is $\\frac{2}{3}$, the perpendicular slope is $-\\frac{3}{2}$. CB always includes four traps among the choices: **(A)** the parallel slope $\\frac{2}{3}$, **(B)** the correct $-\\frac{3}{2}$, **(C)** the reciprocal without the sign flip $\\frac{3}{2}$, **(D)** the negative without the flip $-\\frac{2}{3}$. Know which operation you\'re missing and you\'ll never pick the wrong one.',
           },
           {
             type: 'trapCard',
-            title: 'Confusing Parallel and Perpendicular Keywords',
-            wrong: 'Student reads "perpendicular" but applies parallel logic, keeping the slope as $\\frac{2}{3}$ instead of flipping and negating.',
-            correction: 'Parallel = same slope. Perpendicular = negative reciprocal. Underlining the keyword in the question prevents this mix-up.',
+            title: 'Confusing parallel and perpendicular keywords',
+            wrong: 'Problem says "perpendicular." Student keeps slope $= 2/3$ (parallel behavior).',
+            correction: 'Parallel = **same** slope. Perpendicular = **opposite reciprocal** slope. The SAT relies on you misreading one word. **Underline "parallel" or "perpendicular" before touching the math.**',
+          },
+          {
+            type: 'strategyCard',
+            title: 'Eliminate by slope, then verify point',
+            icon: '⚡',
+            timing: '~10s',
+            content: 'Step 1: Compute the perpendicular slope. Eliminate every choice with the wrong slope (usually eliminates 3 of 4). Step 2: Plug the given point into the surviving choice to confirm. Most perpendicular questions are solved by slope elimination alone.',
           },
         ],
       },
@@ -1425,18 +1470,30 @@ export const linearEquationsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Student reads "perpendicular" but applies parallel logic, keeping the slope as $\\frac{2}{3}$ instead of flipping and negating.',
+            problem: 'What is the equation of the line perpendicular to $y = \\frac{2}{3}x + 1$ that passes through $(4, -2)$?\n(A) $y = \\frac{2}{3}x - \\frac{14}{3}$\n(B) $y = -\\frac{3}{2}x + 4$\n(C) $y = \\frac{3}{2}x - 8$\n(D) $y = -\\frac{2}{3}x + \\frac{2}{3}$',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Parallel = same slope. Perpendicular = negative reciprocal. Underlining the keyword in the question prevents this mix-up.',
+                label: 'Perpendicular slope',
+                content: 'Given slope $= 2/3$. Opposite reciprocal $= -3/2$. Only (B) has slope $-3/2$.',
+              },
+              {
+                label: 'Trap identification',
+                content: '(A) slope $2/3$ = parallel. (C) slope $3/2$ = flipped but not negated. (D) slope $-2/3$ = negated but not flipped.',
+              },
+              {
+                label: 'Verify point $(4, -2)$',
+                content: '$-\\frac{3}{2}(4) + 4 = -6 + 4 = -2$ ✓',
+              },
+              {
+                label: 'Answer',
+                content: '**(B)**',
               },
             ],
           },
           {
             type: 'checkpointQuestion',
-            question: 'Find the equation of the line perpendicular to $y = -4x + 3$ that passes through $(8, 5)$.',
-            answer: 'Perpendicular slope $= -\\frac{1}{-4} = \\frac{1}{4}$. Using $(8, 5)$: $y - 5 = \\frac{1}{4}(x - 8) \\Rightarrow y = \\frac{1}{4}x - 2 + 5 = \\frac{1}{4}x + 3$.',
+            question: 'Find the equation perpendicular to $y = -4x + 3$ through $(8, 5)$.',
+            answer: 'Perpendicular slope $= +1/4$. Check: $(-4)(1/4) = -1$ ✓. Point-slope: $y - 5 = \\frac{1}{4}(x - 8) \\Rightarrow y = \\frac{1}{4}x + 3$.',
           },
         ],
       },
@@ -1449,27 +1506,24 @@ export const linearEquationsLessonTabs = {
     sections: {
       learn: {
         title: 'Learn',
-        summary: 'Multi-step perpendicular problems: find a point from a condition, extract slope from standard form, then build the perpendicular line.',
+        summary: 'From the video: find unknown constants $a$ and $b$ by using the perpendicular relationship, then use Desmos to verify among the answer choices.',
         blocks: [
           {
-            type: 'formula',
-            label: 'Perpendicular Slope Rule',
-            content: '$$m_2 = -\\frac{1}{m_1}$$',
-            note: 'Flip the fraction and change the sign; verify by checking $m_1 \\cdot m_2 = -1$.',
-          },
-          {
-            type: 'text',
-            content: 'Complex perpendicular problems may give the reference line in standard form, require solving a system to find the point, or combine multiple conditions. The core rule is unchanged: $m_1 \\cdot m_2 = -1$. Handle the point and slope as separate tasks.',
-          },
-          {
             type: 'keyInsight',
-            content: 'A frequent hard variant: "Line $\\ell$ passes through the $x$-intercept of a given line and is perpendicular to it." Solve for the intercept point first, then apply the negative reciprocal slope with that point.',
+            content: 'The video\'s approach for complex perpendicular problems: **(1)** Get line 1 into $y = mx + b$ to find its slope ($-5/7$). **(2)** The perpendicular slope must be $+7/5$. **(3)** Get line 2 into $y = mx + b$ — the slope comes out as $-a/b$. **(4)** Set $-a/b = 7/5$ and solve: "the $b$ value must be $5$ and the $a$ value must be $-7$." **(5)** Plug $a$ and $b$ into the answer choices and graph in Desmos to verify which pair is perpendicular.',
           },
           {
             type: 'trapCard',
-            title: 'Standard Form Slope Extraction Omits the Negative',
-            wrong: 'From $5x + 3y = 15$, student writes slope $= \\frac{5}{3}$ instead of $-\\frac{5}{3}$.',
-            correction: 'Slope from $Ax + By = C$ is $-\\frac{A}{B} = -\\frac{5}{3}$. The perpendicular slope would then be $\\frac{3}{5}$ (flip and negate the negative).',
+            title: 'Standard form slope extraction omits the negative',
+            wrong: 'From $5x + 3y = 15$, student writes slope $= 5/3$ instead of $-5/3$.',
+            correction: 'Slope from $Ax + By = C$ is $-A/B = -5/3$, not $+5/3$. Missing the negative means the perpendicular slope will also be wrong (wrong sign). **Always include the negative in $-A/B$.**',
+          },
+          {
+            type: 'strategyCard',
+            title: 'Desmos to verify perpendicular',
+            icon: '⚡',
+            timing: '~20s',
+            content: 'From the video: "Now that I\'ve figured out what $a$ and $b$ are, I can rewrite the equations in my answer choices... and graph them onto Desmos." Graph each answer choice pair — perpendicular lines form a clear right angle (90°). "Answer choice A is clearly not perpendicular. Answer choice B clearly creates perpendicular lines because these lines create right angles."',
           },
         ],
       },
@@ -1478,19 +1532,31 @@ export const linearEquationsLessonTabs = {
         blocks: [
           {
             type: 'example',
-            difficulty: 'Medium',
-            problem: 'From $5x + 3y = 15$, student writes slope $= \\frac{5}{3}$ instead of $-\\frac{5}{3}$.',
+            difficulty: 'Hard',
+            problem: 'Line $\\ell$: $5x + 3y = 15$. Line $m$ is perpendicular to $\\ell$ and passes through the $x$-intercept of $\\ell$. What is the equation of line $m$?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Slope from $Ax + By = C$ is $-\\frac{A}{B} = -\\frac{5}{3}$. The perpendicular slope would then be $\\frac{3}{5}$ (flip and negate the negative).',
+                label: 'Find x-intercept of $\\ell$',
+                content: 'Set $y = 0$: $5x = 15 \\Rightarrow x = 3$. Point: $(3, 0)$.',
+              },
+              {
+                label: 'Slope of $\\ell$',
+                content: '$m_{\\ell} = -A/B = -5/3$',
+              },
+              {
+                label: 'Perpendicular slope',
+                content: 'Opposite reciprocal of $-5/3$: flip → $-3/5$, negate → $+3/5$. Check: $(-5/3)(3/5) = -1$ ✓',
+              },
+              {
+                label: 'Build equation through $(3, 0)$',
+                content: '$y - 0 = \\frac{3}{5}(x - 3) \\Rightarrow y = \\frac{3}{5}x - \\frac{9}{5}$',
               },
             ],
           },
           {
             type: 'checkpointQuestion',
-            question: `Line $\ell$ has equation $2x - 5y = 10$. A perpendicular line passes through the y-intercept of $\ell$. Find the perpendicular line's equation.`,
-            answer: 'Y-intercept of $\\ell$: set $x = 0 \\Rightarrow -5y = 10 \\Rightarrow y = -2$, giving $(0, -2)$. Slope of $\\ell$: $-\\frac{2}{-5} = \\frac{2}{5}$. Perpendicular slope: $-\\frac{5}{2}$. Equation: $y = -\\frac{5}{2}x - 2$.',
+            question: 'Line $\\ell$: $2x - 5y = 10$. A perpendicular line passes through the y-intercept of $\\ell$. Find the perpendicular line\'s equation.',
+            answer: 'Y-intercept of $\\ell$: set $x = 0 \\Rightarrow y = -2$, giving $(0, -2)$. Slope of $\\ell$: $-2/(-5) = 2/5$. Perpendicular slope: $-5/2$. Check: $(2/5)(-5/2) = -1$ ✓. Equation: $y = -\\frac{5}{2}x - 2$.',
           },
         ],
       },

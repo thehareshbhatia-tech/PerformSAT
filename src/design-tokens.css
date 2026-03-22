@@ -13,12 +13,12 @@
   --color-slate-800: #3A3A3C;
   --color-slate-900: #1D1D1F; /* Apple Primary Text */
 
-  /* Brand (Apple System Orange inspired) */
-  --color-brand-orange-400: #FF9F0A;
-  --color-brand-orange-500: #FF9500;
-  --color-brand-orange-600: #FF8A00;
-  --color-brand-amber-400: #FFCC00;
-  --color-brand-peach-100: #FFF5E5;
+  /* Brand (Acely Indigo inspired) */
+  --color-brand-orange-400: #6366f1;
+  --color-brand-orange-500: #4f46e5;
+  --color-brand-orange-600: #4338ca;
+  --color-brand-amber-400: #3b82f6;
+  --color-brand-peach-100: #e0e7ff;
 
   /* Semantic */
   --color-success-100: #E3F8E5;
@@ -31,15 +31,15 @@
   --color-info-600: #007AFF;
 
   /* Gradients (Smooth & Refined) */
-  --gradient-brand-primary: linear-gradient(135deg, #FF9F0A 0%, #FF5E3A 100%);
-  --gradient-brand-warm: linear-gradient(135deg, #FFF5E5 0%, #FFF0D4 100%);
-  --gradient-ambient: radial-gradient(circle at 50% 0%, rgba(255, 149, 0, 0.15) 0%, rgba(255, 94, 58, 0.05) 50%, transparent 100%);
+  --gradient-brand-primary: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  --gradient-brand-warm: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+  --gradient-ambient: radial-gradient(circle at 50% 0%, rgba(79, 70, 229, 0.15) 0%, rgba(67, 56, 202, 0.05) 50%, transparent 100%);
   
   /* Shadows (Ultra-diffuse Apple Glass style) */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.04);
   --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08), 0 8px 16px rgba(0, 0, 0, 0.04);
-  --shadow-brand-glow: 0 8px 24px rgba(255, 149, 0, 0.25);
+  --shadow-brand-glow: 0 8px 24px rgba(79, 70, 229, 0.25);
 
   /* Typography (San Francisco) */
   --font-ui: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
@@ -76,10 +76,8 @@
 
 body {
   font-family: var(--font-ui);
-  background-color: var(--color-slate-50);
-  background-image: 
-    radial-gradient(circle at 15% 50%, rgba(255, 149, 0, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 85% 30%, rgba(255, 94, 58, 0.06) 0%, transparent 50%);
+  background-color: #f8fafc;
+  background-image: none;
   background-attachment: fixed;
   color: var(--color-slate-900);
   -webkit-font-smoothing: antialiased;

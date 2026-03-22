@@ -130,11 +130,23 @@ export const exponentsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: '$x^4 \\cdot x^5 = x^{20}$ — student computed $4 \\times 5$ for the new exponent.',
+            problem: 'Simplify $\\dfrac{x^5 \\cdot x^{-2}}{x^3}$.',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Product rule: **add** exponents. $x^{4+5} = x^9$. Multiplying exponents applies only to the power rule: $(x^4)^5 = x^{20}$.',
+                label: 'Simplify the numerator using the product rule',
+                content: '$x^5 \\cdot x^{-2} = x^{5 + (-2)} = x^{3}$',
+              },
+              {
+                label: 'Apply the quotient rule',
+                content: '$\\dfrac{x^{3}}{x^3} = x^{3-3} = x^0$',
+              },
+              {
+                label: 'Apply the zero exponent rule',
+                content: '$x^0 = 1$',
+              },
+              {
+                label: 'Answer',
+                content: '$\\dfrac{x^5 \\cdot x^{-2}}{x^3} = 1$',
               },
             ],
           },
@@ -183,11 +195,23 @@ export const exponentsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: '$\\dfrac{x^3}{x^7} = x^4$ — student computed $7 - 3$ instead of $3 - 7$.',
+            problem: 'Simplify $\\dfrac{6x^3}{18x^7}$.',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Top minus bottom: $x^{3-7} = x^{-4} = \\dfrac{1}{x^4}$. The numerator exponent always comes first in the subtraction.',
+                label: 'Divide the coefficients',
+                content: '$\\dfrac{6}{18} = \\dfrac{1}{3}$',
+              },
+              {
+                label: 'Apply the quotient rule to the variable part',
+                content: '$\\dfrac{x^3}{x^7} = x^{3-7} = x^{-4}$',
+              },
+              {
+                label: 'Rewrite the negative exponent',
+                content: '$x^{-4} = \\dfrac{1}{x^4}$',
+              },
+              {
+                label: 'Combine',
+                content: '$\\dfrac{6x^3}{18x^7} = \\dfrac{1}{3} \\cdot \\dfrac{1}{x^4} = \\dfrac{1}{3x^4}$',
               },
             ],
           },
@@ -232,11 +256,23 @@ export const exponentsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: '$8^{2/3}$: student takes $\\sqrt{8}$ (square root) then cubes the result.',
+            problem: 'Evaluate $125^{2/3}$.',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Denominator $3$ = root index, numerator $2$ = power. Correct: $\\sqrt[3]{8} = 2$, then $2^2 = 4$. The root index is always the bottom of the fraction.',
+                label: 'Identify the root and power',
+                content: 'The denominator $3$ is the root index (cube root) and the numerator $2$ is the power.',
+              },
+              {
+                label: 'Take the cube root first (keeps numbers small)',
+                content: '$\\sqrt[3]{125} = 5$',
+              },
+              {
+                label: 'Raise to the power',
+                content: '$5^2 = 25$',
+              },
+              {
+                label: 'Answer',
+                content: '$125^{2/3} = 25$',
               },
             ],
           },
@@ -285,11 +321,23 @@ export const exponentsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: '$x^{2/3} \\cdot x^{1/2} = x^{3/5}$ — student added numerators and denominators separately.',
+            problem: 'Simplify $\\dfrac{x^{2/3} \\cdot x^{1/2}}{x^{1/6}}$.',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Fraction addition requires a common denominator: $\\dfrac{2}{3} + \\dfrac{1}{2} = \\dfrac{4}{6} + \\dfrac{3}{6} = \\dfrac{7}{6}$. Result: $x^{7/6}$.',
+                label: 'Apply the product rule in the numerator',
+                content: 'Add exponents: $\\dfrac{2}{3} + \\dfrac{1}{2}$. Find a common denominator: $\\dfrac{4}{6} + \\dfrac{3}{6} = \\dfrac{7}{6}$. So the numerator is $x^{7/6}$.',
+              },
+              {
+                label: 'Apply the quotient rule',
+                content: '$x^{7/6} \\div x^{1/6} = x^{7/6 - 1/6} = x^{6/6}$',
+              },
+              {
+                label: 'Simplify the exponent',
+                content: '$x^{6/6} = x^1 = x$',
+              },
+              {
+                label: 'Answer',
+                content: '$\\dfrac{x^{2/3} \\cdot x^{1/2}}{x^{1/6}} = x$',
               },
             ],
           },
@@ -440,11 +488,23 @@ export const exponentsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: '$4^6$ vs. $8^4$: student says $4^6$ is larger because $6 > 4$ and $4$ is close to $8$.',
+            problem: 'Which is greater: $4^6$ or $8^4$?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Rewrite in base 2: $4^6 = 2^{12}$ and $8^4 = 2^{12}$. They are **equal**. Exponents can only be compared directly when the bases match.',
+                label: 'Identify a common base',
+                content: 'Both $4$ and $8$ are powers of $2$: $4 = 2^2$ and $8 = 2^3$.',
+              },
+              {
+                label: 'Rewrite each expression',
+                content: '$4^6 = (2^2)^6 = 2^{12}$ and $8^4 = (2^3)^4 = 2^{12}$',
+              },
+              {
+                label: 'Compare the exponents',
+                content: 'Both expressions equal $2^{12}$, so they are **equal**.',
+              },
+              {
+                label: 'Key takeaway',
+                content: 'You cannot compare exponents directly unless the bases are the same. Always rewrite with a common base first.',
               },
             ],
           },
@@ -493,11 +553,27 @@ export const exponentsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: '$(\\frac{1}{2})^x > (\\frac{1}{2})^4$ — student concludes $x > 4$ by comparing exponents directly.',
+            problem: 'If $\\left(\\dfrac{1}{4}\\right)^{2x+1} = 8^x$, find $x$.',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'For a base between $0$ and $1$, larger exponents give smaller values. The correct conclusion is $x < 4$.',
+                label: 'Rewrite each base as a power of 2',
+                content: '$\\dfrac{1}{4} = 2^{-2}$ and $8 = 2^3$.',
+              },
+              {
+                label: 'Apply the power rule',
+                content: '$(2^{-2})^{2x+1} = 2^{-2(2x+1)} = 2^{-4x-2}$ and $(2^3)^x = 2^{3x}$.',
+              },
+              {
+                label: 'Set exponents equal (same base)',
+                content: '$-4x - 2 = 3x$',
+              },
+              {
+                label: 'Solve for $x$',
+                content: '$-2 = 7x \\Rightarrow x = -\\dfrac{2}{7}$',
+              },
+              {
+                label: 'Verify',
+                content: 'Substitute $x = -\\frac{2}{7}$: LHS exponent $= -4(-\\frac{2}{7}) - 2 = \\frac{8}{7} - 2 = -\\frac{6}{7}$. RHS exponent $= 3(-\\frac{2}{7}) = -\\frac{6}{7}$. Both sides equal $2^{-6/7}$.',
               },
             ],
           },
@@ -638,11 +714,23 @@ export const exponentsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: '$f(x) = 500 \\cdot 1.06^x$. At $x = 3$: student computes $1.06^3 \\approx 1.191$ and answers $1.191$.',
+            problem: 'A population of bacteria is modeled by $P(t) = 500(1.15)^t$, where $t$ is the number of hours. What does $500$ represent? What is the growth rate?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'The initial value is part of the function: $f(3) = 500 \\cdot 1.06^3 \\approx 500 \\times 1.191 = 595.5$.',
+                label: 'Identify the initial value',
+                content: 'In the model $P(t) = a \\cdot b^t$, the value $a = 500$ is the initial population — the number of bacteria when $t = 0$: $P(0) = 500(1.15)^0 = 500$.',
+              },
+              {
+                label: 'Identify the growth factor',
+                content: 'The base $b = 1.15$ is the **growth factor**. Each hour the population is multiplied by $1.15$.',
+              },
+              {
+                label: 'Compute the growth rate',
+                content: 'Growth rate $= b - 1 = 1.15 - 1 = 0.15 = 15\\%$. The population increases by $15\\%$ each hour.',
+              },
+              {
+                label: 'Key distinction',
+                content: 'The growth **factor** is $1.15$; the growth **rate** is $15\\%$. The College Board tests this difference frequently. If asked "what does $1.15$ represent?" the answer is the factor by which the population is multiplied each hour.',
               },
             ],
           },
@@ -667,6 +755,10 @@ export const exponentsLessonTabs = {
           {
             type: 'text',
             content: 'Given $P(t) = 2{,}400 \\cdot (1.03)^t$, a typical question asks: "What does $2{,}400$ represent? What does $1.03$ represent?" Each constant maps to a specific role: $a$ = **initial value**, $b$ = **factor per period**, and $b - 1$ or $1 - b$ = **rate of change**.',
+          },
+          {
+            type: 'keyInsight',
+            content: 'CB classic: "What does the value $150$ represent in $150(1.2)^t$?" The answer is always the **initial value** (the quantity when $t = 0$). It is NOT the rate, NOT the maximum, and NOT the growth factor. Similarly, "what does $1.2$ represent?" — it is the **growth factor**, meaning the quantity is multiplied by $1.2$ each period. The growth **rate** is $20\\%$, not $1.2$.',
           },
           {
             type: 'keyInsight',
@@ -717,11 +809,27 @@ export const exponentsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: '"$P(t) = 5{,}000(1.07)^t$" — student says the population grows by $1.07\\%$ each year.',
+            problem: 'The value of a car is modeled by $V = 28{,}000(0.85)^t$, where $t$ is the number of years after purchase. What does $0.85$ represent in this context?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'The factor is $1.07$, so the growth **rate** is $1.07 - 1 = 0.07 = 7\\%$. The population grows by $7\\%$ per year, not $1.07\\%$.',
+                label: 'Identify the initial value',
+                content: '$a = 28{,}000$ is the purchase price of the car (the value at $t = 0$).',
+              },
+              {
+                label: 'Identify the decay factor',
+                content: '$b = 0.85$ is the **decay factor**. Since $0 < b < 1$, the model represents exponential decay — the car loses value over time.',
+              },
+              {
+                label: 'Interpret what the factor means',
+                content: 'Each year the car retains $85\\%$ of its value from the previous year. Equivalently, it loses $1 - 0.85 = 0.15 = 15\\%$ of its value each year.',
+              },
+              {
+                label: 'SAT answer format',
+                content: '$0.85$ represents the fraction of the car\'s value that remains after each year. The car\'s value decreases by $15\\%$ annually.',
+              },
+              {
+                label: 'Common trap',
+                content: 'Do **not** say "$0.85$ is the rate of decrease." The decay **rate** is $15\\%$, while $0.85$ is the decay **factor**. The College Board specifically tests whether you confuse the two.',
               },
             ],
           },
@@ -770,11 +878,27 @@ export const exponentsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: '"Doubles every 3 years" with $t$ in years — student writes $f(t) = a \\cdot 2^{3t}$.',
+            problem: 'The number of users on a social media platform is modeled by $N(t) = 150(1.2)^t$, where $t$ is the number of months since launch. What does the value $150$ represent? By what percent does the user count grow each month?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'The exponent is $t/3$, not $3t$. Check: at $t = 3$, $2^{3/3} = 2$ (doubled). With $3t$: at $t = 3$, $2^{9} = 512$ — far too large.',
+                label: 'Identify the model components',
+                content: 'The model has the form $N(t) = a \\cdot b^t$ with $a = 150$ and $b = 1.2$.',
+              },
+              {
+                label: 'Interpret the initial value',
+                content: '$150$ is the **initial value** — the number of users at launch ($t = 0$): $N(0) = 150(1.2)^0 = 150$. It is not the rate, not the maximum, and not the growth factor.',
+              },
+              {
+                label: 'Identify growth factor vs. growth rate',
+                content: '$b = 1.2$ is the **growth factor**. Growth rate $= b - 1 = 1.2 - 1 = 0.2 = 20\\%$. The user count grows by $20\\%$ each month.',
+              },
+              {
+                label: 'Verify with a sample calculation',
+                content: 'After 1 month: $N(1) = 150(1.2) = 180$. Check: $\\frac{180 - 150}{150} = \\frac{30}{150} = 0.2 = 20\\%$ increase.',
+              },
+              {
+                label: 'SAT-style answer',
+                content: 'The value $150$ represents the number of users at launch. The user count increases by $20\\%$ per month.',
               },
             ],
           },

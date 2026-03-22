@@ -130,11 +130,23 @@ export const equivalentExpressionsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: '$(x + 4)(x - 3) = x^2 - 12$. Only the First and Last products were computed; the Outer and Inner terms were skipped entirely.',
+            problem: 'Which expression is equivalent to $(x + 4)(x - 3)$?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'FOIL yields four products: $x^2 - 3x + 4x - 12$. The two middle terms combine: $-3x + 4x = x$. Correct result: $x^2 + x - 12$.',
+                label: 'Apply FOIL',
+                content: 'First: $x \\cdot x = x^2$. Outer: $x \\cdot (-3) = -3x$. Inner: $4 \\cdot x = 4x$. Last: $4 \\cdot (-3) = -12$.',
+              },
+              {
+                label: 'Combine all four products',
+                content: '$x^2 - 3x + 4x - 12$',
+              },
+              {
+                label: 'Combine like terms',
+                content: '$-3x + 4x = x$',
+              },
+              {
+                label: 'Answer',
+                content: '$(x + 4)(x - 3) = x^2 + x - 12$',
               },
             ],
           },
@@ -198,11 +210,23 @@ export const equivalentExpressionsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: '$\\frac{x^2 + 3x}{x} = x + 3x = 4x$. The $x$ in the denominator was subtracted from one term of the numerator rather than divided from the whole expression.',
+            problem: 'Simplify $\\frac{x^2 + 3x}{x}$, where $x \\neq 0$.',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Factor the numerator first: $\\frac{x(x + 3)}{x} = x + 3$. Because $x$ is a factor of the entire numerator, it cancels with the denominator cleanly.',
+                label: 'Factor the numerator',
+                content: '$x^2 + 3x = x(x + 3)$',
+              },
+              {
+                label: 'Rewrite the fraction',
+                content: '$\\frac{x(x + 3)}{x}$',
+              },
+              {
+                label: 'Cancel the common factor',
+                content: 'The factor $x$ appears in both numerator and denominator, so they cancel.',
+              },
+              {
+                label: 'Answer',
+                content: '$\\frac{x^2 + 3x}{x} = x + 3$ for $x \\neq 0$',
               },
             ],
           },

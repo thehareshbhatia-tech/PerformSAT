@@ -287,11 +287,23 @@ export const functionsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: '$f(x) = x^2 - 4x$. Student evaluates $f(-2)$ as $-2^2 - 4(-2) = -4 + 8 = 4$.',
+            problem: 'If $f(x) = 3x^2 - 5x + 2$, what is $f(-2)$?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Wrap the input: $f(-2) = (-2)^2 - 4(-2) = 4 + 8 = 12$. Without parentheses, $-2^2$ becomes $-(2^2) = -4$ instead of $(-2)^2 = 4$.',
+                label: 'Substitute $-2$ for $x$',
+                content: '$f(-2) = 3(-2)^2 - 5(-2) + 2$',
+              },
+              {
+                label: 'Evaluate exponent',
+                content: '$(-2)^2 = 4$, so $f(-2) = 3(4) - 5(-2) + 2$',
+              },
+              {
+                label: 'Multiply',
+                content: '$= 12 + 10 + 2$',
+              },
+              {
+                label: 'Answer',
+                content: '$f(-2) = 24$',
               },
             ],
           },
@@ -340,11 +352,23 @@ export const functionsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: '"$f(x) = 10$" — student computes $f(10) = 4(10) - 7 = 33$ and selects $33$ as the answer.',
+            problem: 'The function $f$ is defined by $f(x) = 4x - 7$. For what value of $x$ does $f(x) = 10$?',
             steps: [
               {
-                label: 'Correct approach',
-                content: '$f(x) = 10$ means the output is $10$ and $x$ is unknown. Set the rule equal to $10$: $4x - 7 = 10 \\Rightarrow x = \\frac{17}{4}$. Forward evaluation ($f(10)$) is a different question.',
+                label: 'Set the rule equal to the output',
+                content: '$4x - 7 = 10$',
+              },
+              {
+                label: 'Isolate $x$',
+                content: '$4x = 17$',
+              },
+              {
+                label: 'Divide',
+                content: '$x = \\frac{17}{4}$',
+              },
+              {
+                label: 'Verify',
+                content: '$f\\!\\left(\\frac{17}{4}\\right) = 4\\!\\left(\\frac{17}{4}\\right) - 7 = 17 - 7 = 10$ \\checkmark',
               },
             ],
           },
@@ -418,11 +442,19 @@ export const functionsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Asked for $f(2)$, student scans the $f(x)$ column for the value $2$ and reads $x = 1$ or $x = -1$.',
+            problem: 'The table defines function $f$:\n\n| $x$ | $-1$ | $0$ | $1$ | $2$ | $3$ |\n|---|---|---|---|---|---|\n| $f(x)$ | $4$ | $1$ | $0$ | $1$ | $4$ |\n\nFind $f(f(2))$.',
             steps: [
               {
-                label: 'Correct approach',
-                content: '$f(2)$ means "input is $2$." Find $x = 2$ in the input column, then read across to the output: $f(2) = 1$.',
+                label: 'Evaluate the inner function',
+                content: 'Find $x = 2$ in the input row: $f(2) = 1$.',
+              },
+              {
+                label: 'Feed the result back into $f$',
+                content: 'Now evaluate $f(1)$: find $x = 1$ in the input row → $f(1) = 0$.',
+              },
+              {
+                label: 'Answer',
+                content: '$f(f(2)) = f(1) = 0$',
               },
             ],
           },
@@ -486,11 +518,19 @@ export const functionsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: '$C(n) = 15n + 50$. Student selects "$50$ is the cost per hour" and "$15$ is the flat fee."',
+            problem: 'A plumber charges a flat fee of $\\$75$ plus $\\$40$ per hour. The total cost is modeled by $C(h) = 40h + 75$. How much does a $3$-hour job cost, and what does the number $75$ represent?',
             steps: [
               {
-                label: 'Correct approach',
-                content: '$50$ is the constant term — the base fee when $n = 0$. $15$ is the coefficient of $n$ — the cost per additional hour. The coefficient always pairs with "per [unit]."',
+                label: 'Substitute $h = 3$',
+                content: '$C(3) = 40(3) + 75 = 120 + 75$',
+              },
+              {
+                label: 'Compute',
+                content: '$C(3) = 195$. The $3$-hour job costs $\\$195$.',
+              },
+              {
+                label: 'Interpret the constant',
+                content: '$75$ is the value of $C(0)$ — the cost when $h = 0$ hours. It represents the flat fee charged before any hourly work begins.',
               },
             ],
           },
@@ -539,11 +579,23 @@ export const functionsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'For $f(g(2))$ with $f(x) = x + 4$ and $g(x) = 2x$: student computes $f(2) = 6$ first, then $g(6) = 12$.',
+            problem: 'Let $f(x) = x + 4$ and $g(x) = 2x$. What is $f(g(2))$?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Inner first: $g(2) = 2(2) = 4$. Outer next: $f(4) = 4 + 4 = 8$. The function closest to the input number executes first.',
+                label: 'Evaluate the inner function first',
+                content: '$g(2) = 2(2) = 4$',
+              },
+              {
+                label: 'Feed the result into the outer function',
+                content: '$f(4) = 4 + 4 = 8$',
+              },
+              {
+                label: 'Answer',
+                content: '$f(g(2)) = 8$',
+              },
+              {
+                label: 'Verify order matters',
+                content: 'Compare: $g(f(2)) = g(6) = 12 \\neq 8$. Reversing the order changes the answer.',
               },
             ],
           },
@@ -592,11 +644,19 @@ export const functionsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Student evaluates $f(3)$ using the first piece $2x + 1$ and gets $2(3) + 1 = 7$.',
+            problem: 'Let $f(x) = \\begin{cases} 2x + 1 & \\text{if } x < 3 \\\\ x^2 - 4 & \\text{if } x \\geq 3 \\end{cases}$. Find $f(3) + f(1)$.',
             steps: [
               {
-                label: 'Correct approach',
-                content: '$3 \\geq 3$ satisfies the second condition, so $f(3) = 3^2 - 4 = 5$. The boundary belongs to whichever piece includes the "equal to" part ($\\leq$ or $\\geq$).',
+                label: 'Determine which piece to use for $f(3)$',
+                content: '$3 \\geq 3$, so use the second rule: $f(3) = (3)^2 - 4 = 9 - 4 = 5$.',
+              },
+              {
+                label: 'Determine which piece to use for $f(1)$',
+                content: '$1 < 3$, so use the first rule: $f(1) = 2(1) + 1 = 3$.',
+              },
+              {
+                label: 'Add',
+                content: '$f(3) + f(1) = 5 + 3 = 8$',
               },
             ],
           },
@@ -645,11 +705,23 @@ export const functionsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: '"$(x + 2)$ is a factor." Student substitutes $x = 2$: $p(2) = (2)^3 + (2)^2 - 6 = 6 \\neq 0$, gets confused.',
+            problem: 'If $(x + 2)$ is a factor of $p(x) = x^3 + 3x^2 - 4$, find the value of $p(-2)$ and explain why.',
             steps: [
               {
-                label: 'Correct approach',
-                content: '$(x + 2) = (x - (-2))$, so $a = -2$. Substitute $x = -2$. Set the factor equal to zero first: $x + 2 = 0 \\Rightarrow x = -2$.',
+                label: 'Identify $a$ from the factor',
+                content: '$(x + 2) = (x - (-2))$, so $a = -2$.',
+              },
+              {
+                label: 'Apply the Factor Theorem',
+                content: 'If $(x - a)$ is a factor, then $p(a) = 0$. Therefore $p(-2) = 0$.',
+              },
+              {
+                label: 'Verify by substitution',
+                content: '$p(-2) = (-2)^3 + 3(-2)^2 - 4 = -8 + 12 - 4 = 0$ \\checkmark',
+              },
+              {
+                label: 'Answer',
+                content: '$p(-2) = 0$ because $(x + 2)$ divides $p(x)$ with no remainder.',
               },
             ],
           },

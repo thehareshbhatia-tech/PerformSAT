@@ -11,6 +11,7 @@ import { PlayIcon, ChartBarIcon, TrendingUpIcon } from '../design/icons';
 import { injectAnimations, useCountUp } from '../design/animations';
 import { DataCard } from './ui/DataCard';
 import { PrimaryButton, SecondaryButton } from './ui/Button';
+import './StudentDashboard.css';
 
 // Official SAT Test Dates (from College Board)
 const SAT_TEST_DATES = [
@@ -265,7 +266,7 @@ const StudentDashboard = ({
         <circle cx={size/2} cy={size/2} r={r} fill="none" stroke="var(--color-slate-100)" strokeWidth={strokeWidth} />
         <circle
           cx={size/2} cy={size/2} r={r} fill="none"
-          stroke="url(#orange-gradient)"
+          stroke="url(#brand-gradient)"
           strokeWidth={strokeWidth}
           strokeDasharray={circumference}
           strokeDashoffset={offset}
@@ -273,7 +274,7 @@ const StudentDashboard = ({
           style={{ transition: 'stroke-dashoffset 1s cubic-bezier(0.25, 0.1, 0.25, 1)' }}
         />
         <defs>
-          <linearGradient id="orange-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <linearGradient id="brand-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" style={{ stopColor: 'var(--color-brand-orange-400)' }} />
             <stop offset="100%" style={{ stopColor: 'var(--color-brand-orange-600)' }} />
           </linearGradient>
@@ -283,211 +284,172 @@ const StudentDashboard = ({
   };
 
   return (
-    <div style={{ maxWidth: '1440px', margin: '0 auto', padding: isMobile ? '1rem' : '2rem 3rem', fontFamily: 'var(--font-ui)' }}>
+    <div className="student-dashboard-container">
       {/* Greeting */}
-      <h1 style={{
-        fontSize: '2rem',
-        fontWeight: '700',
-        letterSpacing: '-0.03em',
-        color: 'var(--color-slate-900)',
-        marginBottom: '1.5rem',
-      }}>
-        {getGreeting()}{user?.firstName ? `, ${user.firstName}` : ''}
-      </h1>
+      <div className="dashboard-header-row">
+        <h1 className="dashboard-greeting">
+          SAT Dashboard
+        </h1>
+        <p className="dashboard-subtitle">
+          Study with your personalized AI learning plan and get instant hints, explanations, and more with our AI Tutor.
+        </p>
+        <div className="dashboard-top-tabs">
+          <button className="dashboard-top-tab active">Math</button>
+          <button className="dashboard-top-tab">Reading & Writing</button>
+        </div>
+      </div>
 
-      {/* Score Hero Card - Apple Style (Clean, White, Content-First) */}
-      <div style={{
-        background: 'rgba(255, 255, 255, 0.65)',
-        backdropFilter: 'blur(24px)',
-        WebkitBackdropFilter: 'blur(24px)',
-        borderRadius: 'var(--radius-2xl)',
-        boxShadow: 'var(--shadow-md)',
-        border: '1px solid rgba(255, 255, 255, 0.8)',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.4)',
-        borderRight: '1px solid rgba(255, 255, 255, 0.4)',
-        marginBottom: '1.5rem',
-        padding: isMobile ? '1.5rem' : '2rem',
-        display: 'flex',
-        alignItems: isMobile ? 'flex-start' : 'center',
-        flexDirection: isMobile ? 'column' : 'row',
-        gap: '2.5rem',
-        position: 'relative',
-        overflow: 'hidden',
-        color: 'var(--color-slate-900)'
-      }}>
-        {/* Score Ring */}
-        <div style={{ position: 'relative', flexShrink: 0 }}>
+      {/* Performance Panel (Replaces old floating Score Hero) */}
+      <div className="performance-overview-panel">
+        <div className="overview-main-stat">
           <ScoreRing
             score={projectedScore || user?.currentScore || 0}
             target={user?.targetScore || 800}
-            size={isMobile ? 120 : 160}
+            size={100}
           />
-          <div style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            textAlign: 'center',
-          }}>
-            <div style={{
-              fontSize: isMobile ? '2.25rem' : '2.75rem',
-              fontWeight: '700',
-              lineHeight: 1,
-              letterSpacing: '-0.03em',
-            }}>
+          <div>
+            <div className="metric-label">{projectedScore ? 'Projected Score' : 'Current Score'}</div>
+            <div className="metric-value" style={{ fontSize: '2.5rem' }}>
               {animatedScore || '--'}
             </div>
-            <div style={{
-              fontSize: '0.8125rem',
-              color: 'var(--color-slate-500)',
-              fontWeight: '500',
-              marginTop: '4px',
-              textTransform: 'uppercase',
-              letterSpacing: '0.04em'
-            }}>
-              {projectedScore ? 'Projected' : 'Current'}
-            </div>
-          </div>
-        </div>
-
-        {/* Score Details */}
-        <div style={{ flex: 1, zIndex: 1 }}>
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem', marginBottom: '0.5rem' }}>
             {user?.targetScore && (
-              <span style={{ fontSize: '1.25rem', fontWeight: '500', letterSpacing: '-0.01em', color: 'var(--color-slate-700)' }}>
-                Target: <strong style={{ color: 'var(--color-slate-900)' }}>{user.targetScore}</strong>
-              </span>
-            )}
-            {user?.targetScore && (projectedScore || user?.currentScore) && (
-              <span style={{
-                fontSize: '0.875rem',
-                background: 'var(--color-brand-peach-100)',
-                color: 'var(--color-brand-orange-600)',
-                padding: '0.25rem 0.75rem',
-                borderRadius: 'var(--radius-full)',
-                fontWeight: '600',
-                letterSpacing: '-0.01em'
-              }}>
-                {user.targetScore - (projectedScore || user.currentScore || 0)} points to go
-              </span>
-            )}
-          </div>
-
-          <div style={{ display: 'flex', gap: isMobile ? '1.5rem' : '3rem', flexWrap: 'wrap', marginTop: '1.5rem' }}>
-            {daysUntilTest !== null && daysUntilTest > 0 && (
-              <div>
-                <div style={{ fontSize: '1.75rem', fontWeight: '700', letterSpacing: '-0.02em', color: 'var(--color-slate-900)' }}>{daysUntilTest}</div>
-                <div style={{ fontSize: '0.8125rem', color: 'var(--color-slate-500)', fontWeight: '500' }}>days to test</div>
+              <div style={{ marginTop: '0.5rem' }}>
+                <span className="accuracy-pill" style={{ marginLeft: 0 }}>
+                  Target: {user.targetScore}
+                </span>
               </div>
             )}
-            <div>
-              <div style={{ fontSize: '1.75rem', fontWeight: '700', letterSpacing: '-0.02em', color: 'var(--color-slate-900)' }}>{projectedTestsCount || 0}</div>
-              <div style={{ fontSize: '0.8125rem', color: 'var(--color-slate-500)', fontWeight: '500' }}>tests taken</div>
+          </div>
+        </div>
+
+        <div className="overview-metrics-grid">
+          <div className="overview-metric-item">
+            <div className="metric-label">Points to Go</div>
+            <div className="metric-value">
+              {user?.targetScore && (projectedScore || user?.currentScore) 
+                ? Math.max(0, user.targetScore - (projectedScore || user.currentScore || 0))
+                : '--'}
+              <span style={{ fontSize: '1rem', color: '#6b7280', fontWeight: '500' }}>pts</span>
             </div>
-            <div>
-              <div style={{ fontSize: '1.75rem', fontWeight: '700', letterSpacing: '-0.02em', color: 'var(--color-slate-900)' }}>{completionPercent}%</div>
-              <div style={{ fontSize: '0.8125rem', color: 'var(--color-slate-500)', fontWeight: '500' }}>lessons done</div>
+          </div>
+          <div className="overview-metric-item">
+            <div className="metric-label">Tests Taken</div>
+            <div className="metric-value">{projectedTestsCount || 0}</div>
+          </div>
+          <div className="overview-metric-item">
+            <div className="metric-label">Lessons Done</div>
+            <div className="metric-value">
+              {completionPercent}%
+              <span className="accuracy-pill">{totalCompleted} / {TOTAL_LESSONS}</span>
             </div>
-            
-            <div style={{ display: 'flex', alignItems: 'center', marginLeft: isMobile ? '0' : 'auto', marginTop: isMobile ? '0.5rem' : '0' }}>
-              <SecondaryButton onClick={() => { setTempCurrentScore(user?.currentScore || 500); setShowCurrentScorePicker(true); }} style={{ padding: '0.5rem 1rem', fontSize: '0.875rem', background: 'rgba(255,255,255,0.5)' }}>
-                Update Score
-              </SecondaryButton>
+          </div>
+          <div className="overview-metric-item">
+            <div className="metric-label">Days to Test</div>
+            <div className="metric-value">
+              {daysUntilTest !== null && daysUntilTest > 0 ? daysUntilTest : '--'}
             </div>
+            <SecondaryButton onClick={() => { setTempCurrentScore(user?.currentScore || 500); setShowCurrentScorePicker(true); }} style={{ marginTop: '0.5rem', padding: '0.375rem 0.75rem', fontSize: '0.75rem', alignSelf: 'flex-start' }}>
+              Update Score
+            </SecondaryButton>
           </div>
         </div>
       </div>
 
+      {/* Dashboard Content Grid */}
+      <div className="dashboard-grid">
+        <div className="dashboard-main-col">
+          {/* Current SAT Score Section (When Edit is clicked) */}
+          {showCurrentScorePicker && (
+            <ScoreSlider
+              value={tempCurrentScore}
+              onChange={setTempCurrentScore}
+              label="What's your current SAT Math score?"
+              description="Enter your most recent practice test or official score"
+              onSave={() => handleSelectCurrentScore(tempCurrentScore)}
+              onCancel={() => setShowCurrentScorePicker(false)}
+            />
+          )}
 
-      {/* Dashboard Content */}
-      <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '2rem',
-        marginBottom: '2rem'
-      }}>
-        {/* Current SAT Score Section (When Edit is clicked) */}
-        {showCurrentScorePicker && (
-          <ScoreSlider
-            value={tempCurrentScore}
-            onChange={setTempCurrentScore}
-            label="What's your current SAT Math score?"
-            description="Enter your most recent practice test or official score"
-            onSave={() => handleSelectCurrentScore(tempCurrentScore)}
-            onCancel={() => setShowCurrentScorePicker(false)}
-          />
-        )}
-
-        {/* YOUR NEXT STEP */}
-        {recommendations[0] && (
-          <DataCard style={{ background: 'rgba(255, 255, 255, 0.65)', border: '1px solid rgba(255,255,255,0.8)' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <div>
-                <div style={{ fontSize: '0.8125rem', color: 'var(--color-brand-orange-600)', fontWeight: '600', marginBottom: '0.25rem', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
-                  Recommended Next Step
+          {/* YOUR NEXT STEP - AI Banner */}
+          <h2 className="section-heading">Practice the Math Section</h2>
+          {recommendations[0] && (
+            <div className="ai-practice-banner">
+              <div className="ai-banner-content">
+                <div className="ai-banner-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
                 </div>
-                <div style={{ fontSize: '1.25rem', fontWeight: '700', color: 'var(--color-slate-900)', letterSpacing: '-0.02em' }}>
-                  {recommendations[0].title}
-                </div>
-                {recommendations[0].subtitle && (
-                  <div style={{ fontSize: '0.875rem', color: 'var(--color-slate-500)', marginTop: '0.25rem' }}>
-                    {recommendations[0].subtitle}
+                <div className="ai-banner-text-group">
+                  <div className="ai-banner-title">
+                    {recommendations[0].title}
                   </div>
-                )}
+                  <div className="ai-banner-desc">
+                    Practice all Math domains and subdomains
+                  </div>
+                </div>
               </div>
-              <PrimaryButton onClick={() => handleRecommendationClick(recommendations[0])} style={{ borderRadius: 'var(--radius-full)', padding: '0.5rem 1.25rem' }}>
-                Start →
-              </PrimaryButton>
+              <div className="ai-banner-controls">
+                <div className="accuracy-group">
+                  <span className="accuracy-label">Accuracy <span style={{fontSize: '0.75rem'}}>ⓘ</span></span>
+                  <span className="accuracy-pill">83%</span>
+                </div>
+                <button className="btn-launch" onClick={() => handleRecommendationClick(recommendations[0])}>
+                  Launch Practice
+                </button>
+              </div>
             </div>
-          </DataCard>
-        )}
+          )}
 
-        {/* DAILY REVIEW LOOP */}
-        <DailyReviewCard
-          reviewQueue={reviewQueue}
-          onStartReview={onStartReview}
-        />
+          <h2 className="section-heading">Targeted Practice by Domain & Subdomain</h2>
+          <div className="dashboard-actions-grid">
+            {/* DAILY REVIEW LOOP */}
+            <DailyReviewCard
+              reviewQueue={reviewQueue}
+              onStartReview={onStartReview}
+            />
 
-        {/* PACING TRAINING */}
-        <PacingDrillCard
-          questionTelemetry={(() => {
-            const allAttempts = Object.values(practiceTestResults || {}).flatMap(t => t.attempts || []);
-            return allAttempts.flatMap(a =>
-              (a.diagnosticData?.questionTelemetry || []).map((q, i) => ({ ...q, questionIndex: i }))
-            );
-          })()}
-          onStartPacing={onStartPracticeTest}
-        />
+            {/* PACING TRAINING */}
+            <PacingDrillCard
+              questionTelemetry={(() => {
+                const allAttempts = Object.values(practiceTestResults || {}).flatMap(t => t.attempts || []);
+                return allAttempts.flatMap(a =>
+                  (a.diagnosticData?.questionTelemetry || []).map((q, i) => ({ ...q, questionIndex: i }))
+                );
+              })()}
+              onStartPacing={onStartPracticeTest}
+            />
+          </div>
 
-        {/* AI STUDY PLAN */}
-        <StudyPlanDashboard
-          studyPlan={studyPlan}
-          practiceTestResults={practiceTestResults}
-          practiceProgress={practiceProgress}
-          skillProgress={skillProgress}
-          reviewQueue={reviewQueue}
-          user={user}
-          onNavigateToModule={onNavigateToModule}
-          onStartPractice={onStartPractice}
-          onStartPracticeTest={onStartPracticeTest}
-          onCompleteActivity={onCompleteActivity}
-          onUncompleteActivity={onUncompleteActivity}
-        />
+          {/* AI STUDY PLAN */}
+          <StudyPlanDashboard
+            studyPlan={studyPlan}
+            practiceTestResults={practiceTestResults}
+            practiceProgress={practiceProgress}
+            skillProgress={skillProgress}
+            reviewQueue={reviewQueue}
+            user={user}
+            onNavigateToModule={onNavigateToModule}
+            onStartPractice={onStartPractice}
+            onStartPracticeTest={onStartPracticeTest}
+            onCompleteActivity={onCompleteActivity}
+            onUncompleteActivity={onUncompleteActivity}
+          />
+        </div>
+        
+        <div className="dashboard-side-col">
+          {/* AI DIAGNOSTIC & INSIGHTS */}
+          <DashboardDiagnosticWidget
+            practiceTestResults={practiceTestResults}
+            skillProgress={skillProgress}
+            user={user}
+            completedLessons={completedLessons}
+            practiceProgress={practiceProgress}
+            onViewFullDiagnosis={onViewFullDiagnosis}
+            onStartPracticeTest={onStartPracticeTest}
+            onNavigateToModule={onNavigateToModule}
+            onStartPractice={onStartPractice}
+          />
+        </div>
       </div>
-
-      {/* AI DIAGNOSTIC & INSIGHTS */}
-      <DashboardDiagnosticWidget
-        practiceTestResults={practiceTestResults}
-        skillProgress={skillProgress}
-        user={user}
-        completedLessons={completedLessons}
-        practiceProgress={practiceProgress}
-        onViewFullDiagnosis={onViewFullDiagnosis}
-        onStartPracticeTest={onStartPracticeTest}
-        onNavigateToModule={onNavigateToModule}
-        onStartPractice={onStartPractice}
-      />
-
     </div>
   );
 };

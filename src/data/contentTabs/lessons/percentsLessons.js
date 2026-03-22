@@ -555,6 +555,12 @@ export const percentsLessonTabs = {
             wrong: 'Price goes from $\\$80$ to $\\$100$. Student computes $\\frac{20}{100} = 20\\%$ using the new value as denominator.',
             correction: 'The denominator must be the **original** value: $\\frac{100 - 80}{80} = \\frac{20}{80} = 25\\%$.',
           },
+          {
+            type: 'trapCard',
+            title: '"Percent OF" vs. "Increased BY"',
+            wrong: '"$150\\%$ of the original price" and "increased by $150\\%$" are the same — student computes both as $\\times 2.5$.',
+            correction: '"$150\\%$ **of**" means $\\times 1.5$ (direct multiplication). "Increased **by** $150\\%$" means the original plus $150\\%$ more, so $\\times (1 + 1.5) = \\times 2.5$. The word **"of"** maps directly to multiplication; **"by"** requires adding to $100\\%$ first. This exact distinction appears on nearly every SAT.',
+          },
         ],
       },
       practice: {
@@ -572,14 +578,30 @@ export const percentsLessonTabs = {
             ],
           },
           {
-            type: 'steps',
-            title: 'Percent Change Calculation',
-            items: [
-              'Identify the **original** (before) and **new** (after) values.',
-              'Compute the difference: $\\text{New} - \\text{Original}$.',
-              'Divide by the **original**: $\\frac{\\text{difference}}{\\text{Original}}$.',
-              'Multiply by $100$ to convert to a percent.',
-              'State whether the result is an increase or decrease.',
+            type: 'example',
+            difficulty: 'Medium',
+            problem: 'A store\'s original price is $\\$80$. A sign says "$150\\%$ of the original price." What is the new price? What would the price be if it were "increased by $150\\%$" instead?',
+            steps: [
+              {
+                label: 'Translate "150% of"',
+                content: '"$150\\%$ **of**" means multiply directly: $1.50 \\times 80 = \\$120$.',
+              },
+              {
+                label: 'Translate "increased by 150%"',
+                content: '"Increased **by** $150\\%$" means add $150\\%$ of the original on top of the original: $80 + 1.50 \\times 80 = 80 + 120 = \\$200$. Equivalently, $\\times (1 + 1.50) = \\times 2.50$, so $2.50 \\times 80 = \\$200$.',
+              },
+              {
+                label: 'Compare',
+                content: '"$150\\%$ of" gives $\\$120$; "increased by $150\\%$" gives $\\$200$. The difference is $\\$80$ — the entire original price.',
+              },
+              {
+                label: 'Decision rule',
+                content: '**"Of"** → multiply the percent directly. **"By"** → add to $100\\%$ first, then multiply.',
+              },
+              {
+                label: 'Answer',
+                content: '"$150\\%$ of the original price" = $\\$120$.',
+              },
             ],
           },
           {
@@ -719,30 +741,34 @@ export const percentsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'A stock rises $25\\%$ in January, then falls $20\\%$ in February. What is the net percent change?',
+            problem: 'A stock price increases by $25\\%$ on Monday and decreases by $25\\%$ on Tuesday. Is the price back to its original value?',
             steps: [
               {
-                label: 'Multipliers',
-                content: 'January: $1.25$; February: $0.80$',
+                label: 'Monday multiplier',
+                content: 'A $25\\%$ increase means $\\times 1.25$.',
               },
               {
-                label: 'Combine',
-                content: '$1.25 \\times 0.80 = 1.00$',
+                label: 'Tuesday multiplier',
+                content: 'A $25\\%$ decrease means $\\times 0.75$.',
               },
               {
-                label: 'Net change',
-                content: '$(1.00 - 1) \\times 100 = 0\\%$',
+                label: 'Combine multipliers',
+                content: '$1.25 \\times 0.75 = 0.9375$.',
+              },
+              {
+                label: 'Interpret',
+                content: '$0.9375 = 1 - 0.0625$, so the net effect is a $6.25\\%$ **decrease** — not $0\\%$. Equal-magnitude increases and decreases never cancel out.',
               },
               {
                 label: 'Answer',
-                content: 'No net change',
+                content: 'No. The stock ends $6.25\\%$ below its original price.',
               },
             ],
           },
           {
             type: 'checkpointQuestion',
-            question: 'A stock rises $25\\%$ in January, then falls $20\\%$ in February. What is the net percent change?',
-            answer: 'No net change',
+            question: 'A stock price increases by $25\\%$ on Monday and decreases by $25\\%$ on Tuesday. Is the price back to its original value?',
+            answer: 'No. Combined multiplier: $1.25 \\times 0.75 = 0.9375$, a net $6.25\\%$ decrease.',
           },
         ],
       },
@@ -784,30 +810,34 @@ export const percentsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'After a $30\\%$ discount, a television costs $\\$490$. What was the original price?',
+            problem: 'After a $20\\%$ discount, a jacket costs $\\$56$. What was the original price?',
             steps: [
               {
-                label: 'Multiplier',
-                content: '$30\\%$ decrease → $1 - 0.30 = 0.70$',
+                label: 'Identify the multiplier',
+                content: 'A $20\\%$ discount means the customer pays $80\\%$ of the original: multiplier $= 1 - 0.20 = 0.80$.',
               },
               {
-                label: 'Divide',
-                content: '$\\frac{490}{0.70} = 700$',
+                label: 'Set up the equation',
+                content: '$\\text{Original} \\times 0.80 = 56$.',
               },
               {
-                label: 'Verify',
-                content: '$700 \\times 0.70 = 490$ ✓',
+                label: 'Solve by dividing',
+                content: '$\\text{Original} = \\frac{56}{0.80} = 70$.',
+              },
+              {
+                label: 'Show the common mistake',
+                content: 'Wrong approach: $20\\%$ of $56 = 11.20$, then $56 + 11.20 = 67.20$. This fails because $20\\%$ of $56$ is not $20\\%$ of the original — the discount was applied to the unknown original, not to $56$.',
               },
               {
                 label: 'Answer',
-                content: '$\\$700$',
+                content: 'The original price was $\\$70$.',
               },
             ],
           },
           {
             type: 'checkpointQuestion',
-            question: 'After a $30\\%$ discount, a television costs $\\$490$. What was the original price?',
-            answer: '$\\$700$',
+            question: 'After a $20\\%$ discount, a jacket costs $\\$56$. What was the original price?',
+            answer: '$\\frac{56}{0.80} = \\$70$. Dividing by the multiplier reverses the discount correctly.',
           },
         ],
       },

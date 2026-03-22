@@ -252,11 +252,19 @@ export const trianglesLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'A triangle shows angles $70°$ and $60°$. An exterior angle of $110°$ is also marked. Student uses $110°$ as the third interior angle.',
+            problem: 'In $\\triangle PQR$, $\\angle P = 45°$ and an exterior angle at $R$ measures $115°$. What is $\\angle Q$?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'The third interior angle is $180° - 70° - 60° = 50°$. The $110°$ exterior angle is supplementary to the $70°$ angle, not a separate interior angle.',
+                label: 'Find interior angle at R',
+                content: 'The interior angle at $R$ is supplementary to the exterior angle: $\\angle R = 180° - 115° = 65°$.',
+              },
+              {
+                label: 'Apply angle sum property',
+                content: '$\\angle P + \\angle Q + \\angle R = 180°$, so $45° + \\angle Q + 65° = 180°$.',
+              },
+              {
+                label: 'Solve for angle Q',
+                content: '$\\angle Q = 180° - 45° - 65° = 70°$.',
               },
             ],
           },
@@ -305,11 +313,23 @@ export const trianglesLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Angles are $(2x)°$, $(3x)°$, and $50°$. Student solves $5x + 50 = 180$ → $x = 26$ and answers $26$.',
+            problem: 'In $\\triangle ABC$, $\\angle A = (2x + 5)°$, $\\angle B = (3x - 10)°$, and the exterior angle at $C$ is $(4x + 15)°$. Find $\\angle A$.',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'The question asks for an angle, not $x$. Substitute back: the angles are $52°$, $78°$, and $50°$. Read whether the question wants $x$ or a specific angle.',
+                label: 'Use the Exterior Angle Theorem',
+                content: 'The exterior angle at $C$ equals the sum of the two remote interior angles: $(4x + 15) = (2x + 5) + (3x - 10)$.',
+              },
+              {
+                label: 'Solve for x',
+                content: '$4x + 15 = 5x - 5$ gives $x = 20$.',
+              },
+              {
+                label: 'Substitute back',
+                content: '$\\angle A = 2(20) + 5 = 45°$.',
+              },
+              {
+                label: 'Verify',
+                content: '$\\angle B = 3(20) - 10 = 50°$. Exterior at $C = 4(20) + 15 = 95°$. Check: $45° + 50° = 95°$ ✓',
               },
             ],
           },
@@ -415,11 +435,19 @@ export const trianglesLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'A 3-4-5 right triangle. Student writes $A = \\frac{1}{2}(5)(3) = 7.5$.',
+            problem: 'A right triangle has legs of length $6$ and $8$. What is the area of the triangle?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'The hypotenuse ($5$) is not a leg. The two legs are $3$ and $4$. Area $= \\frac{1}{2}(3)(4) = 6$.',
+                label: 'Identify base and height',
+                content: 'In a right triangle, the two legs are perpendicular, so they serve as base and height directly.',
+              },
+              {
+                label: 'Apply the area formula',
+                content: '$A = \\frac{1}{2}(\\text{leg}_1)(\\text{leg}_2) = \\frac{1}{2}(6)(8)$.',
+              },
+              {
+                label: 'Compute',
+                content: '$A = \\frac{1}{2}(48) = 24$ square units.',
               },
             ],
           },
@@ -468,11 +496,19 @@ export const trianglesLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Hypotenuse $= 13$, one leg $= 5$. Student writes $A = \\frac{1}{2}(13)(5) = 32.5$.',
+            problem: 'A right triangle has a hypotenuse of $15$ and one leg of $9$. What is the area of the triangle?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Find the missing leg: $b = \\sqrt{13^2 - 5^2} = \\sqrt{144} = 12$. Area $= \\frac{1}{2}(5)(12) = 30$.',
+                label: 'Find the missing leg',
+                content: '$b = \\sqrt{15^2 - 9^2} = \\sqrt{225 - 81} = \\sqrt{144} = 12$.',
+              },
+              {
+                label: 'Identify base and height',
+                content: 'The two legs are $9$ and $12$. These are perpendicular, so use them as base and height.',
+              },
+              {
+                label: 'Compute the area',
+                content: '$A = \\frac{1}{2}(9)(12) = 54$ square units.',
               },
             ],
           },
@@ -677,11 +713,19 @@ export const trianglesLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Student writes $\\frac{3}{x} = \\frac{4}{6}$ instead of $\\frac{3}{4} = \\frac{x}{6}$ (or an equivalent correct setup).',
+            problem: '$\\triangle ABC \\sim \\triangle DEF$. If $AB = 3$, $DE = 5$, and $BC = 9$, find $EF$.',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Keep the same triangle on the same side of the equation. Both numerators from one triangle, both denominators from the other. Be consistent: $\\frac{\\text{small}}{\\text{large}} = \\frac{\\text{small}}{\\text{large}}$.',
+                label: 'Find the scale factor',
+                content: '$k = \\frac{DE}{AB} = \\frac{5}{3}$.',
+              },
+              {
+                label: 'Set up the proportion',
+                content: '$\\frac{AB}{DE} = \\frac{BC}{EF}$ gives $\\frac{3}{5} = \\frac{9}{EF}$.',
+              },
+              {
+                label: 'Cross-multiply and solve',
+                content: '$3 \\cdot EF = 5 \\cdot 9 = 45$, so $EF = 15$.',
               },
             ],
           },
@@ -726,11 +770,19 @@ export const trianglesLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: '$AD = 3$, $DB = 5$. Student sets up $\\frac{3}{5} = \\frac{DE}{BC}$ using the segment instead of the full side.',
+            problem: 'In $\\triangle ABC$, $\\overline{DE} \\parallel \\overline{BC}$ with $D$ on $\\overline{AB}$ and $E$ on $\\overline{AC}$. If $AD = 4$, $DB = 8$, and $BC = 18$, find $DE$.',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Use the full side: $AB = 3 + 5 = 8$. Correct proportion: $\\frac{AD}{AB} = \\frac{3}{8} = \\frac{DE}{BC}$.',
+                label: 'Compute the full side',
+                content: '$AB = AD + DB = 4 + 8 = 12$.',
+              },
+              {
+                label: 'Set up the proportion',
+                content: 'By AA similarity, $\\frac{AD}{AB} = \\frac{DE}{BC}$, so $\\frac{4}{12} = \\frac{DE}{18}$.',
+              },
+              {
+                label: 'Cross-multiply and solve',
+                content: '$12 \\cdot DE = 4 \\cdot 18 = 72$, so $DE = 6$.',
               },
             ],
           },
@@ -775,11 +827,19 @@ export const trianglesLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Student writes $\\frac{\\text{height}_1}{\\text{height}_2} = \\frac{\\text{shadow}_1}{\\text{height}_2}$, mixing measurement types.',
+            problem: 'A $6$-ft person casts a $4$-ft shadow at the same time a flagpole casts a $20$-ft shadow. How tall is the flagpole?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Keep consistent: height/shadow $=$ height/shadow, or equivalently height/height $=$ shadow/shadow. Both sides of the equation must pair the same measurement types.',
+                label: 'Recognize similar triangles',
+                content: 'Parallel sun rays create right triangles with equal angles, so the triangles are similar by AA.',
+              },
+              {
+                label: 'Set up the proportion',
+                content: '$\\frac{\\text{height}_{\\text{person}}}{\\text{shadow}_{\\text{person}}} = \\frac{\\text{height}_{\\text{pole}}}{\\text{shadow}_{\\text{pole}}}$, giving $\\frac{6}{4} = \\frac{h}{20}$.',
+              },
+              {
+                label: 'Cross-multiply and solve',
+                content: '$4h = 6 \\times 20 = 120$, so $h = 30$ ft.',
               },
             ],
           },
@@ -828,11 +888,19 @@ export const trianglesLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'In overlapping triangles, student uses the non-overlapping segment instead of the full side for the larger triangle.',
+            problem: '$\\triangle ADE$ shares vertex $A$ with $\\triangle ABC$, and $\\triangle ADE \\sim \\triangle ABC$. If $AD = 6$, $DB = 4$, and $DE = 9$, find $BC$.',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Each side of the larger triangle is the **sum** of the overlapping and non-overlapping segments. Always compute and use the complete side.',
+                label: 'Find the full side',
+                content: '$AB = AD + DB = 6 + 4 = 10$.',
+              },
+              {
+                label: 'Set up the proportion',
+                content: '$\\frac{AD}{AB} = \\frac{DE}{BC}$, so $\\frac{6}{10} = \\frac{9}{BC}$.',
+              },
+              {
+                label: 'Cross-multiply and solve',
+                content: '$6 \\cdot BC = 10 \\cdot 9 = 90$, so $BC = 15$.',
               },
             ],
           },
@@ -881,11 +949,19 @@ export const trianglesLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Side ratio $= 2:3$, so student says the area ratio is also $2:3$, giving area $= 18$.',
+            problem: '$\\triangle PQR \\sim \\triangle XYZ$ with $PQ = 4$ and $XY = 6$. The area of $\\triangle PQR$ is $20$. What is the area of $\\triangle XYZ$?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Area scales by $k^2$: ratio is $2^2 : 3^2 = 4 : 9$, not $2:3$.',
+                label: 'Find the side scale factor',
+                content: '$k = \\frac{XY}{PQ} = \\frac{6}{4} = \\frac{3}{2}$.',
+              },
+              {
+                label: 'Square for the area ratio',
+                content: 'Area ratio $= k^2 = \\left(\\frac{3}{2}\\right)^2 = \\frac{9}{4}$.',
+              },
+              {
+                label: 'Compute the area',
+                content: 'Area of $\\triangle XYZ = 20 \\times \\frac{9}{4} = 45$.',
               },
             ],
           },
@@ -1104,11 +1180,19 @@ export const trianglesLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Hypotenuse $= 10$, leg $= 6$. Student writes $c = \\sqrt{10^2 + 6^2} = \\sqrt{136}$.',
+            problem: 'A right triangle has a hypotenuse of $10$ and one leg of $6$. Find the other leg.',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'When finding a missing **leg**, subtract: $a = \\sqrt{10^2 - 6^2} = \\sqrt{64} = 8$.',
+                label: 'Write the Pythagorean equation',
+                content: '$a^2 + 6^2 = 10^2$.',
+              },
+              {
+                label: 'Isolate the unknown',
+                content: '$a^2 = 100 - 36 = 64$.',
+              },
+              {
+                label: 'Solve',
+                content: '$a = \\sqrt{64} = 8$. (This is the $6$-$8$-$10$ triple, a multiple of $3$-$4$-$5$.)',
               },
             ],
           },
@@ -1153,11 +1237,19 @@ export const trianglesLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Points $(1, 2)$ and $(4, 6)$. Student writes $d = \\sqrt{3 + 4} = \\sqrt{7}$.',
+            problem: 'What is the distance between the points $(1, 2)$ and $(4, 6)$?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Square first: $d = \\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$. ($3$-$4$-$5$ triple.)',
+                label: 'Find the horizontal and vertical distances',
+                content: '$\\Delta x = 4 - 1 = 3$ and $\\Delta y = 6 - 2 = 4$.',
+              },
+              {
+                label: 'Apply the distance formula',
+                content: '$d = \\sqrt{(\\Delta x)^2 + (\\Delta y)^2} = \\sqrt{3^2 + 4^2} = \\sqrt{9 + 16}$.',
+              },
+              {
+                label: 'Simplify',
+                content: '$d = \\sqrt{25} = 5$. (Recognize the $3$-$4$-$5$ triple.)',
               },
             ],
           },
@@ -1206,11 +1298,19 @@ export const trianglesLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'A field is $30$ by $40$ meters. Student says the diagonal is $30 + 40 = 70$ meters.',
+            problem: 'A rectangular field is $30$ meters wide and $40$ meters long. A runner wants to cut diagonally across the field. How far does the runner travel?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'The diagonal is the hypotenuse: $\\sqrt{30^2 + 40^2} = \\sqrt{2500} = 50$. ($3$-$4$-$5$ triple $\\times 10$.)',
+                label: 'Identify the right triangle',
+                content: 'The diagonal of the rectangle is the hypotenuse, and the width and length are the legs.',
+              },
+              {
+                label: 'Apply the Pythagorean theorem',
+                content: '$d = \\sqrt{30^2 + 40^2} = \\sqrt{900 + 1600} = \\sqrt{2500}$.',
+              },
+              {
+                label: 'Simplify',
+                content: '$d = 50$ meters. (This is the $3$-$4$-$5$ triple scaled by $10$.)',
               },
             ],
           },
@@ -1259,11 +1359,23 @@ export const trianglesLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Altitude splits base into $x$ and $y$. Student writes two equations but forgets $x + y = \\text{full base}$.',
+            problem: 'In $\\triangle ABC$, $AB = 10$, $AC = 17$, and $BC = 21$. An altitude from $A$ meets $\\overline{BC}$ at point $D$. Find $AD$.',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Two Pythagorean equations plus $x + y = \\text{base}$ give three equations for three unknowns ($x$, $y$, $h$). All three are needed.',
+                label: 'Set up variables',
+                content: 'Let $BD = x$, so $DC = 21 - x$, and let $AD = h$.',
+              },
+              {
+                label: 'Write two Pythagorean equations',
+                content: 'From $\\triangle ABD$: $x^2 + h^2 = 10^2 = 100$. From $\\triangle ACD$: $(21 - x)^2 + h^2 = 17^2 = 289$.',
+              },
+              {
+                label: 'Subtract to eliminate h',
+                content: '$(21 - x)^2 - x^2 = 189$. Expanding: $441 - 42x + x^2 - x^2 = 189$, so $441 - 42x = 189$.',
+              },
+              {
+                label: 'Solve for x, then h',
+                content: '$42x = 252$, so $x = 6$. Then $h = \\sqrt{100 - 36} = \\sqrt{64} = 8$.',
               },
             ],
           },
@@ -1406,11 +1518,23 @@ export const trianglesLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Question asks for $\\sin A$, but student computes $\\sin B$ by labeling sides relative to angle $B$ instead.',
+            problem: 'In right $\\triangle ABC$ with the right angle at $C$, $AC = 8$, $BC = 15$, and $AB = 17$. Find $\\sin A$, $\\cos A$, and $\\tan A$.',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Double-check which angle the question specifies. Re-label O and A relative to that specific angle before forming the ratio.',
+                label: 'Identify sides relative to angle A',
+                content: 'Opposite to $A$ is $BC = 15$. Adjacent to $A$ is $AC = 8$. Hypotenuse is $AB = 17$.',
+              },
+              {
+                label: 'Compute sin A',
+                content: '$\\sin A = \\frac{\\text{Opposite}}{\\text{Hypotenuse}} = \\frac{15}{17}$.',
+              },
+              {
+                label: 'Compute cos A',
+                content: '$\\cos A = \\frac{\\text{Adjacent}}{\\text{Hypotenuse}} = \\frac{8}{17}$.',
+              },
+              {
+                label: 'Compute tan A',
+                content: '$\\tan A = \\frac{\\text{Opposite}}{\\text{Adjacent}} = \\frac{15}{8}$.',
               },
             ],
           },
@@ -1474,11 +1598,23 @@ export const trianglesLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: '$\\cos 60° = \\frac{x}{20}$. Student writes $x = \\frac{\\cos 60°}{20} = 0.025$.',
+            problem: 'In a right triangle, the hypotenuse is $26$ and one acute angle is $30°$. Find the length of the side adjacent to the $30°$ angle.',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Cross-multiply: $x = 20 \\cos 60° = 20 \\times 0.5 = 10$. The unknown is in the numerator, so multiply the denominator by the trig value.',
+                label: 'Choose the right ratio',
+                content: 'We know the hypotenuse and want the adjacent side, so use cosine: $\\cos 30° = \\frac{\\text{Adj}}{\\text{Hyp}}$.',
+              },
+              {
+                label: 'Substitute known values',
+                content: '$\\cos 30° = \\frac{x}{26}$. From the reference sheet, $\\cos 30° = \\frac{\\sqrt{3}}{2}$.',
+              },
+              {
+                label: 'Solve for x',
+                content: '$x = 26 \\times \\frac{\\sqrt{3}}{2} = 13\\sqrt{3}$.',
+              },
+              {
+                label: 'Trap check',
+                content: 'A common mistake is dividing instead of multiplying: writing $x = \\frac{\\cos 30°}{26}$. Since the unknown is in the numerator, you multiply the hypotenuse by the trig value.',
               },
             ],
           },
@@ -1523,11 +1659,27 @@ export const trianglesLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: '$\\sin 25° = \\cos x°$. Student writes $x = 25$ because "the values are equal so the angles must be equal."',
+            problem: 'If $\\sin(4x - 10)° = \\cos(2x + 4)°$, what is the value of $x$?',
             steps: [
               {
-                label: 'Correct approach',
-                content: '$\\sin 25° = \\cos(90° - 25°) = \\cos 65°$. The correct answer is $x = 65$, not $25$.',
+                label: 'Recall the complementary identity',
+                content: '$\\sin \\theta = \\cos(90° - \\theta)$. So $\\sin A = \\cos B$ when $A + B = 90°$.',
+              },
+              {
+                label: 'Set up the equation',
+                content: '$(4x - 10) + (2x + 4) = 90$.',
+              },
+              {
+                label: 'Solve',
+                content: '$6x - 6 = 90$ gives $6x = 96$, so $x = 16$.',
+              },
+              {
+                label: 'Trap check',
+                content: 'Do not set the two angle expressions equal ($4x - 10 = 2x + 4$). The identity requires the angles to be **complementary** (sum to $90°$), not equal.',
+              },
+              {
+                label: 'Verify',
+                content: '$\\sin(4(16) - 10)° = \\sin 54°$ and $\\cos(2(16) + 4)° = \\cos 36°$. Since $54° + 36° = 90°$, these are equal.',
               },
             ],
           },
@@ -1577,11 +1729,23 @@ export const trianglesLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: '$\\sin A = \\frac{5}{13}$. Student writes $\\cos A = \\frac{13}{5}$ by flipping the fraction.',
+            problem: 'If $\\sin B = \\frac{5}{13}$ and $B$ is an acute angle, what is $\\cos B$?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Find the adjacent side: $\\sqrt{13^2 - 5^2} = 12$. Then $\\cos A = \\frac{12}{13}$, not $\\frac{13}{5}$.',
+                label: 'Identify known sides',
+                content: '$\\sin B = \\frac{\\text{Opposite}}{\\text{Hypotenuse}} = \\frac{5}{13}$, so Opposite $= 5$ and Hypotenuse $= 13$.',
+              },
+              {
+                label: 'Recognize the Pythagorean triple',
+                content: '$5$ and $13$ suggest a $5$-$12$-$13$ triple. Adjacent $= \\sqrt{13^2 - 5^2} = \\sqrt{169 - 25} = \\sqrt{144} = 12$.',
+              },
+              {
+                label: 'Compute cos B',
+                content: '$\\cos B = \\frac{\\text{Adjacent}}{\\text{Hypotenuse}} = \\frac{12}{13}$.',
+              },
+              {
+                label: 'Trap check',
+                content: 'Do not flip the fraction to get $\\cos B = \\frac{13}{5}$. Cosine is still a ratio with the hypotenuse in the denominator — it must be less than $1$ for an acute angle.',
               },
             ],
           },
@@ -1631,11 +1795,23 @@ export const trianglesLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Student places the elevation angle between the vertical (building) and the line of sight instead of between the horizontal and the line of sight.',
+            problem: 'From a point on the ground $60$ meters from the base of a building, the angle of elevation to the roof is $30°$. What is the height of the building?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Elevation and depression are always measured from the **horizontal**. If the angle is from the vertical, it is the complement of the elevation angle.',
+                label: 'Draw the right triangle',
+                content: 'The horizontal distance ($60$ m) is the adjacent side, the building height ($h$) is the opposite side, and the angle of elevation ($30°$) is measured from the horizontal.',
+              },
+              {
+                label: 'Choose the ratio',
+                content: 'We know adjacent and want opposite, so use tangent: $\\tan 30° = \\frac{h}{60}$.',
+              },
+              {
+                label: 'Solve',
+                content: '$h = 60 \\times \\tan 30° = 60 \\times \\frac{\\sqrt{3}}{3} = \\frac{60\\sqrt{3}}{3} = 20\\sqrt{3} \\approx 34.6$ meters.',
+              },
+              {
+                label: 'Trap check',
+                content: 'The elevation angle is measured from the **horizontal**, not the vertical. If you mistakenly measured from the vertical, you would use $\\tan 60°$ and get $60\\sqrt{3} \\approx 103.9$ m — a building taller than the distance to it, which should signal an error.',
               },
             ],
           },
@@ -1683,12 +1859,28 @@ export const trianglesLessonTabs = {
         blocks: [
           {
             type: 'example',
-            difficulty: 'Medium',
-            problem: 'Student writes $\\sin \\theta + \\cos \\theta = 1$ and solves as if it were a linear equation.',
+            difficulty: 'Hard',
+            problem: 'In a right triangle, $\\sin \\theta = \\frac{3}{5}$ where $\\theta$ is one of the acute angles. If the hypotenuse is $20$, what is the area of the triangle?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'The Pythagorean identity requires **squares**: $\\sin^2 \\theta + \\cos^2 \\theta = 1$. Without squaring, $\\sin \\theta + \\cos \\theta \\neq 1$ in general.',
+                label: 'Find the opposite side',
+                content: '$\\sin \\theta = \\frac{\\text{Opp}}{\\text{Hyp}} = \\frac{3}{5}$. With hypotenuse $= 20$: Opposite $= 20 \\times \\frac{3}{5} = 12$.',
+              },
+              {
+                label: 'Find the adjacent side',
+                content: 'Using the Pythagorean identity: $\\cos \\theta = \\sqrt{1 - \\sin^2 \\theta} = \\sqrt{1 - \\frac{9}{25}} = \\sqrt{\\frac{16}{25}} = \\frac{4}{5}$. So Adjacent $= 20 \\times \\frac{4}{5} = 16$.',
+              },
+              {
+                label: 'Trap check',
+                content: 'Do not write $\\sin \\theta + \\cos \\theta = 1$. The identity uses **squares**: $\\sin^2 \\theta + \\cos^2 \\theta = 1$. Also, the area formula uses the two legs, not the hypotenuse.',
+              },
+              {
+                label: 'Compute the area',
+                content: '$A = \\frac{1}{2} \\times 12 \\times 16 = 96$.',
+              },
+              {
+                label: 'Verify with triple',
+                content: 'The sides are $12$, $16$, $20$ — the $3$-$4$-$5$ triple scaled by $4$. Check: $12^2 + 16^2 = 144 + 256 = 400 = 20^2$.',
               },
             ],
           },
@@ -1753,12 +1945,24 @@ export const trianglesLessonTabs = {
         blocks: [
           {
             type: 'example',
-            difficulty: 'Easy',
-            problem: 'A 45-45-90 triangle has legs of length $7$. What is the hypotenuse?',
+            difficulty: 'Medium',
+            problem: 'A right isosceles triangle has a hypotenuse of $8$. What is the length of each leg?',
             steps: [
               {
-                label: 'Apply ratio',
-                content: 'Hypotenuse $= 7\\sqrt{2}$',
+                label: 'Identify the triangle type',
+                content: 'A right isosceles triangle is a 45-45-90 triangle, with sides in the ratio $x : x : x\\sqrt{2}$.',
+              },
+              {
+                label: 'Set up the equation',
+                content: 'Hypotenuse $= x\\sqrt{2} = 8$, so $x = \\frac{8}{\\sqrt{2}}$.',
+              },
+              {
+                label: 'Simplify',
+                content: '$x = \\frac{8}{\\sqrt{2}} \\times \\frac{\\sqrt{2}}{\\sqrt{2}} = \\frac{8\\sqrt{2}}{2} = 4\\sqrt{2}$.',
+              },
+              {
+                label: 'Trap check',
+                content: 'Do not multiply the hypotenuse by $\\sqrt{2}$ — that gives $8\\sqrt{2} \\approx 11.3$, which is larger than the hypotenuse. Going from hypotenuse to leg, you **divide** by $\\sqrt{2}$.',
               },
             ],
           },
@@ -1803,11 +2007,23 @@ export const trianglesLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Hypotenuse $= 6\\sqrt{2}$. Student writes both legs are $6\\sqrt{2}$ since "isosceles means all sides equal."',
+            problem: 'A square has a diagonal of length $12$. What is the perimeter of the square?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Isosceles means the two **legs** are equal, not that they equal the hypotenuse. Legs $= \\frac{6\\sqrt{2}}{\\sqrt{2}} = 6$.',
+                label: 'Connect to a 45-45-90 triangle',
+                content: 'A square\'s diagonal divides it into two 45-45-90 triangles. The diagonal is the hypotenuse and each side of the square is a leg.',
+              },
+              {
+                label: 'Apply the ratio',
+                content: 'In a 45-45-90 triangle: hypotenuse $= x\\sqrt{2}$. So $x\\sqrt{2} = 12$, giving $x = \\frac{12}{\\sqrt{2}} = \\frac{12\\sqrt{2}}{2} = 6\\sqrt{2}$.',
+              },
+              {
+                label: 'Trap check',
+                content: 'A common error is saying both legs equal the hypotenuse because the triangle is isosceles. Isosceles means the two **legs** are equal to each other, not equal to the hypotenuse.',
+              },
+              {
+                label: 'Find the perimeter',
+                content: '$P = 4 \\times 6\\sqrt{2} = 24\\sqrt{2}$.',
               },
             ],
           },
@@ -1851,12 +2067,24 @@ export const trianglesLessonTabs = {
         blocks: [
           {
             type: 'example',
-            difficulty: 'Medium',
-            problem: 'Area $= 18$. $\\frac{1}{2}x^2 = 18$ → $x^2 = 36$. Student writes leg $= 36$.',
+            difficulty: 'Hard',
+            problem: 'A 45-45-90 triangle has an area of $50$. What is the length of the hypotenuse?',
             steps: [
               {
-                label: 'Correct approach',
-                content: '$x^2 = 36$ means $x = 6$, not $36$. Hypotenuse $= 6\\sqrt{2}$.',
+                label: 'Set up the area equation',
+                content: 'Both legs of a 45-45-90 triangle equal $x$, so $A = \\frac{1}{2}x \\cdot x = \\frac{1}{2}x^2$.',
+              },
+              {
+                label: 'Solve for the leg',
+                content: '$\\frac{1}{2}x^2 = 50$, so $x^2 = 100$ and $x = 10$.',
+              },
+              {
+                label: 'Trap check',
+                content: 'Do not stop at $x^2 = 100$ and report the leg as $100$. You must take the square root: $x = \\sqrt{100} = 10$.',
+              },
+              {
+                label: 'Find the hypotenuse',
+                content: 'Hypotenuse $= x\\sqrt{2} = 10\\sqrt{2}$.',
               },
             ],
           },
@@ -1925,16 +2153,24 @@ export const trianglesLessonTabs = {
         blocks: [
           {
             type: 'example',
-            difficulty: 'Easy',
-            problem: 'In a 30-60-90 triangle, the hypotenuse is $14$. Find both legs.',
+            difficulty: 'Medium',
+            problem: 'In a 30-60-90 triangle, the hypotenuse is $18$. Find the lengths of both legs.',
             steps: [
               {
-                label: 'Short leg',
-                content: '$\\frac{14}{2} = 7$ (opposite $30°$)',
+                label: 'Recall the 30-60-90 ratio',
+                content: 'Short leg $:$ long leg $:$ hypotenuse $= x : x\\sqrt{3} : 2x$.',
               },
               {
-                label: 'Long leg',
-                content: '$7\\sqrt{3}$ (opposite $60°$)',
+                label: 'Find the short leg',
+                content: 'Hypotenuse $= 2x = 18$, so $x = 9$. The short leg (opposite $30°$) is $9$.',
+              },
+              {
+                label: 'Find the long leg',
+                content: 'Long leg $= x\\sqrt{3} = 9\\sqrt{3}$ (opposite $60°$).',
+              },
+              {
+                label: 'Trap check',
+                content: 'Do not confuse $\\sqrt{3}$ and $2$ in the ratio. The hypotenuse gets the factor of $2$, not $\\sqrt{3}$. Writing hypotenuse $= x\\sqrt{3}$ would give wrong side lengths.',
               },
             ],
           },
@@ -1979,11 +2215,23 @@ export const trianglesLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Long leg $= 5\\sqrt{3}$. Student writes hypotenuse $= 5\\sqrt{3} \\times \\sqrt{3} = 15$.',
+            problem: 'In a 30-60-90 triangle, the longer leg is $6\\sqrt{3}$. Find the shorter leg and the hypotenuse.',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'That yields a value larger than possible. From the long leg, divide by $\\sqrt{3}$ first: short leg $= 5$. Then hypotenuse $= 2 \\times 5 = 10$.',
+                label: 'Recall the ratio',
+                content: 'Short leg $:$ long leg $:$ hypotenuse $= x : x\\sqrt{3} : 2x$.',
+              },
+              {
+                label: 'Find the short leg from the long leg',
+                content: 'Long leg $= x\\sqrt{3} = 6\\sqrt{3}$, so $x = 6$. The short leg is $6$.',
+              },
+              {
+                label: 'Find the hypotenuse',
+                content: 'Hypotenuse $= 2x = 2(6) = 12$.',
+              },
+              {
+                label: 'Trap check',
+                content: 'Do not multiply the long leg by $\\sqrt{3}$ to get the hypotenuse. That gives $6\\sqrt{3} \\times \\sqrt{3} = 18$, which is too large. Always find the short leg first, then double it for the hypotenuse.',
               },
             ],
           },
@@ -2027,12 +2275,24 @@ export const trianglesLessonTabs = {
         blocks: [
           {
             type: 'example',
-            difficulty: 'Medium',
-            problem: 'Equilateral triangle with side $10$. Student writes area $= \\frac{1}{2}(10)(10) = 50$.',
+            difficulty: 'Hard',
+            problem: 'An equilateral triangle has a perimeter of $36$. What is the area of the triangle?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'The height is not the side. Height $= \\frac{10\\sqrt{3}}{2} = 5\\sqrt{3}$. Area $= \\frac{1}{2}(10)(5\\sqrt{3}) = 25\\sqrt{3}$.',
+                label: 'Find the side length',
+                content: 'Perimeter $= 3s = 36$, so $s = 12$.',
+              },
+              {
+                label: 'Find the height using 30-60-90',
+                content: 'Drop an altitude to split the equilateral triangle into two 30-60-90 triangles. The short leg (half the base) is $\\frac{12}{2} = 6$, and the height (long leg) is $6\\sqrt{3}$.',
+              },
+              {
+                label: 'Trap check',
+                content: 'Do not use the side as the height. The height of an equilateral triangle is $\\frac{s\\sqrt{3}}{2}$, which is **shorter** than the side. Using $A = \\frac{1}{2}(12)(12) = 72$ is incorrect.',
+              },
+              {
+                label: 'Compute the area',
+                content: '$A = \\frac{1}{2}bh = \\frac{1}{2}(12)(6\\sqrt{3}) = 36\\sqrt{3}$. (Or directly: $A = \\frac{s^2\\sqrt{3}}{4} = \\frac{144\\sqrt{3}}{4} = 36\\sqrt{3}$.)',
               },
             ],
           },
@@ -2080,12 +2340,24 @@ export const trianglesLessonTabs = {
         blocks: [
           {
             type: 'example',
-            difficulty: 'Medium',
-            problem: 'Student uses the apothem (center to midpoint of side) as the side length in the area formula.',
+            difficulty: 'Hard',
+            problem: 'A regular hexagon has an apothem (center to the midpoint of a side) of $5\\sqrt{3}$. What is the area of the hexagon?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'The apothem $= \\frac{s\\sqrt{3}}{2}$, which is shorter than $s$. If given the apothem, solve for $s$ first: $s = \\frac{2 \\cdot \\text{apothem}}{\\sqrt{3}}$.',
+                label: 'Find the side length from the apothem',
+                content: 'The apothem of a regular hexagon is $\\frac{s\\sqrt{3}}{2}$. Setting $\\frac{s\\sqrt{3}}{2} = 5\\sqrt{3}$ gives $s = 10$.',
+              },
+              {
+                label: 'Trap check',
+                content: 'Do not use the apothem directly as the side length. The apothem ($5\\sqrt{3} \\approx 8.66$) is shorter than the actual side ($10$). Plugging the apothem into the area formula without converting gives the wrong answer.',
+              },
+              {
+                label: 'Find the area of one equilateral triangle',
+                content: '$A_{\\text{triangle}} = \\frac{s^2\\sqrt{3}}{4} = \\frac{100\\sqrt{3}}{4} = 25\\sqrt{3}$.',
+              },
+              {
+                label: 'Compute the hexagon area',
+                content: '$A_{\\text{hex}} = 6 \\times 25\\sqrt{3} = 150\\sqrt{3}$. (Equivalently, $A = \\frac{3s^2\\sqrt{3}}{2} = \\frac{3(100)\\sqrt{3}}{2} = 150\\sqrt{3}$.)',
               },
             ],
           },

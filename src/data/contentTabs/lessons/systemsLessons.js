@@ -267,11 +267,27 @@ export const systemsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Problem says "40 pounds total" — student writes $40x + 40y$ instead of $x + y = 40$.',
+            problem: 'Tickets to a school play cost \\$5 for students and \\$8 for adults. A total of 200 tickets were sold for \\$1{,}180. How many student tickets were sold?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'The total quantity belongs on the **right side** of the count equation. Coefficients come from the per-unit rates, not the total amount.',
+                label: 'Define variables',
+                content: 'Let $s$ = student tickets and $a$ = adult tickets.',
+              },
+              {
+                label: 'Write the count equation',
+                content: '$s + a = 200$ (total tickets)',
+              },
+              {
+                label: 'Write the value equation',
+                content: '$5s + 8a = 1180$ (total revenue)',
+              },
+              {
+                label: 'Solve by substitution',
+                content: 'From the count equation: $a = 200 - s$. Substitute into the value equation:\n$$5s + 8(200 - s) = 1180$$\n$$5s + 1600 - 8s = 1180$$\n$$-3s = -420$$\n$$s = 140$$',
+              },
+              {
+                label: 'Verify',
+                content: '$a = 200 - 140 = 60$. Check revenue: $5(140) + 8(60) = 700 + 480 = 1180$ ✓. Answer: **140 student tickets**.',
               },
             ],
           },
@@ -320,11 +336,27 @@ export const systemsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: '"There are 3 times as many students as teachers" → student writes $3s = t$ instead of $s = 3t$.',
+            problem: 'A school has 3 times as many students as teachers. The total number of students and teachers is 120. How many teachers are there?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Students are the larger group: $s = 3t$. Read it as "students equals 3 times teachers." The multiplier attaches to the smaller quantity.',
+                label: 'Define variables',
+                content: 'Let $s$ = number of students and $t$ = number of teachers.',
+              },
+              {
+                label: 'Write the comparison equation',
+                content: '"3 times as many students as teachers" → $s = 3t$',
+              },
+              {
+                label: 'Write the total equation',
+                content: '$s + t = 120$',
+              },
+              {
+                label: 'Substitute',
+                content: 'Replace $s$ with $3t$:\n$$3t + t = 120$$\n$$4t = 120$$\n$$t = 30$$',
+              },
+              {
+                label: 'Verify',
+                content: '$s = 3(30) = 90$. Check: $90 + 30 = 120$ ✓ and $90 = 3(30)$ ✓. Answer: **30 teachers**.',
               },
             ],
           },
@@ -436,11 +468,23 @@ export const systemsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'From $x - 2y = 5$, student correctly writes $x = 5 + 2y$ but then substitutes $x = 5 - 2y$ from memory mid-problem.',
+            problem: 'Solve the system $y = 3x - 1$ and $2x + y = 9$. Which method is best, and what is $x$?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Write the isolation step clearly and box it. Copy that exact expression into the other equation — do not re-derive from memory.',
+                label: 'Choose the method',
+                content: 'Since $y$ is already isolated in the first equation, **substitution** is the natural choice — no rearranging needed.',
+              },
+              {
+                label: 'Substitute $y = 3x - 1$ into $2x + y = 9$',
+                content: '$$2x + (3x - 1) = 9$$\n$$5x - 1 = 9$$\n$$5x = 10$$\n$$x = 2$$',
+              },
+              {
+                label: 'Find $y$',
+                content: '$y = 3(2) - 1 = 5$',
+              },
+              {
+                label: 'Verify in the second equation',
+                content: '$2(2) + 5 = 4 + 5 = 9$ ✓. Answer: $x = 2$.',
               },
             ],
           },
@@ -552,11 +596,27 @@ export const systemsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Student multiplies $3x + 2y = 7$ by $4$ and writes $12x + 8y = 7$ instead of $12x + 8y = 28$.',
+            problem: 'Solve the system $3x + 4y = 10$ and $5x + 2y = 8$ using elimination.',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Scaling an equation means multiplying **every** term — both sides: $4(3x + 2y) = 4(7)$ → $12x + 8y = 28$.',
+                label: 'Choose which variable to eliminate',
+                content: 'The $y$-coefficients ($4$ and $2$) have a small LCM of $4$. Multiply Eq. 2 by $-2$ to create opposite $y$-coefficients.',
+              },
+              {
+                label: 'Scale Eq. 2',
+                content: '$-2(5x + 2y) = -2(8)$ gives $-10x - 4y = -16$. Remember: multiply **both** sides.',
+              },
+              {
+                label: 'Add the equations',
+                content: '$(3x + 4y) + (-10x - 4y) = 10 + (-16)$\n$$-7x = -6$$\n$$x = \\frac{6}{7}$$',
+              },
+              {
+                label: 'Back-substitute for $y$',
+                content: '$5\\!\\left(\\frac{6}{7}\\right) + 2y = 8$ → $\\frac{30}{7} + 2y = 8$ → $2y = \\frac{26}{7}$ → $y = \\frac{13}{7}$',
+              },
+              {
+                label: 'Verify in Eq. 1',
+                content: '$3\\!\\left(\\frac{6}{7}\\right) + 4\\!\\left(\\frac{13}{7}\\right) = \\frac{18}{7} + \\frac{52}{7} = \\frac{70}{7} = 10$ ✓',
               },
             ],
           },
@@ -672,11 +732,23 @@ export const systemsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'DESMOS shows intersection at $(3, 5)$. Question asks for $y$. Student selects $3$ instead of $5$.',
+            problem: 'Solve using DESMOS: $5x - 2y = 11$ and $3x + 4y = 1$. What is $y$?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'DESMOS always displays $(x, y)$ — the first value is $x$, the second is $y$. Match the requested variable to the correct position.',
+                label: 'Enter the equations',
+                content: 'Type $5x - 2y = 11$ on Line 1 and $3x + 4y = 1$ on Line 2 in DESMOS.',
+              },
+              {
+                label: 'Read the intersection',
+                content: 'DESMOS displays the intersection point. Click the dot to read the coordinates.',
+              },
+              {
+                label: 'Algebraic verification',
+                content: 'Multiply Eq. 1 by $2$: $10x - 4y = 22$. Add to Eq. 2: $13x = 23$ → $x = \\frac{23}{13}$.\nSubstitute back: $3\\!\\left(\\frac{23}{13}\\right) + 4y = 1$ → $4y = 1 - \\frac{69}{13} = -\\frac{56}{13}$ → $y = -\\frac{14}{13}$.',
+              },
+              {
+                label: 'Read the answer correctly',
+                content: 'DESMOS displays $(x, y)$ — the **first** coordinate is $x$, the **second** is $y$. The question asks for $y$, so the answer is $-\\frac{14}{13}$.',
               },
             ],
           },
@@ -748,12 +820,24 @@ export const systemsLessonTabs = {
         blocks: [
           {
             type: 'example',
-            difficulty: 'Medium',
-            problem: 'DESMOS shows $x = 3.666\\ldots$ and student rounds to $3.67$ — but the answer choice is $\\frac{11}{3}$.',
+            difficulty: 'Hard',
+            problem: 'Use DESMOS to solve $7x + 3y = 5$ and $2x - 9y = 1$. What is $x$?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'Convert repeating decimals: $3.\\overline{6} = 3\\frac{2}{3} = \\frac{11}{3}$. Match the exact value to the answer choices, not a rounded approximation.',
+                label: 'Graph both equations',
+                content: 'Enter $7x + 3y = 5$ and $2x - 9y = 1$ in DESMOS. Click the intersection point.',
+              },
+              {
+                label: 'Read the DESMOS output',
+                content: 'DESMOS shows a decimal value. If it reads $x \\approx 0.6923\\ldots$, recognize this as a repeating decimal.',
+              },
+              {
+                label: 'Convert to an exact fraction',
+                content: 'Algebraically: multiply Eq. 1 by $3$: $21x + 9y = 15$. Add to Eq. 2: $23x = 16$ → $x = \\frac{16}{23}$.\nCheck: $\\frac{16}{23} \\approx 0.6957$, confirming the DESMOS reading.',
+              },
+              {
+                label: 'Match the answer choice',
+                content: 'If the choices list $\\frac{16}{23}$, select it. Never round a repeating decimal — convert to the exact fraction.',
               },
             ],
           },
@@ -871,11 +955,23 @@ export const systemsLessonTabs = {
           {
             type: 'example',
             difficulty: 'Medium',
-            problem: 'Student makes the coefficient ratios equal but neglects the constant, accidentally producing the value for no solution instead of infinite.',
+            problem: 'The system $kx + 3y = 12$ and $4x + 6y = 8$ has no solution. What is the value of $k$?',
             steps: [
               {
-                label: 'Correct approach',
-                content: 'After setting the coefficient ratios equal, verify that $\\frac{C_1}{C_2}$ also matches. If it does → infinite solutions. If it differs → that parameter value actually gives no solution.',
+                label: 'Recall the no-solution condition',
+                content: 'No solution means parallel lines: the coefficient ratios are equal, but the constant ratio is different.\n$$\\frac{k}{4} = \\frac{3}{6} \\neq \\frac{12}{8}$$',
+              },
+              {
+                label: 'Set the coefficient ratios equal',
+                content: '$\\frac{k}{4} = \\frac{3}{6} = \\frac{1}{2}$, so $k = 4 \\cdot \\frac{1}{2} = 2$.',
+              },
+              {
+                label: 'Verify the constant ratio differs',
+                content: '$\\frac{12}{8} = \\frac{3}{2}$, but the coefficient ratio is $\\frac{1}{2}$. Since $\\frac{3}{2} \\neq \\frac{1}{2}$, the system is indeed inconsistent (parallel lines).',
+              },
+              {
+                label: 'Answer',
+                content: '$k = 2$. With this value, both equations have slope $-\\frac{1}{2}$ but different $y$-intercepts, confirming no solution.',
               },
             ],
           },
