@@ -9041,9 +9041,9 @@ const PerformSAT = () => {
       >
       {/* Main Content */}
       <main id="main-content" style={{
-        maxWidth: view === 'learn' || view === 'takingTest' || view === 'dashboard' ? '100%' : (view === 'practiceTests' || view === 'studyPlan') ? '960px' : '800px',
+        maxWidth: view === 'learn' || view === 'modules' || view === 'takingTest' || view === 'dashboard' ? '100%' : (view === 'practiceTests' || view === 'studyPlan') ? '960px' : '800px',
         margin: '0 auto',
-        padding: (view === 'learn' || view === 'dashboard') ? '0' : view === 'takingTest' ? '32px 0px 60px' : '32px 32px 100px',
+        padding: (view === 'learn' || view === 'modules' || view === 'dashboard') ? '0' : view === 'takingTest' ? '32px 0px 60px' : '32px 32px 100px',
         ...(view === 'learn' ? { overflow: 'hidden', height: '100vh' } : {})
       }}>
         {/* Standalone AI Tutor View */}
@@ -9274,159 +9274,278 @@ const PerformSAT = () => {
         )}
 
         {view === 'modules' && (
-          <>
-            {/* Page Title */}
-            <div style={{ marginBottom: '64px' }}>
-              {user && user.firstName && (
-                <p style={{
-                  fontSize: '16px',
-                  color: design.colors.accent.orange,
-                  marginBottom: '8px',
-                  fontWeight: '500'
-                }}>
-                  Welcome back, {user.firstName}
-                </p>
-              )}
-              <h1 style={{
-                fontSize: '52px',
-                fontWeight: '700',
-                letterSpacing: '-2px',
-                color: design.colors.text.primary,
-                marginBottom: '16px'
-              }}>
-                SAT Math Videos
+          <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '60px 32px', animation: 'fadeIn 0.8s ease-out' }}>
+            <style>{`
+              @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+              
+              .course-catalog-header {
+                margin-bottom: 64px;
+                text-align: center;
+              }
+              
+              .catalog-title {
+                font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
+                font-size: 56px;
+                font-weight: 800;
+                background: linear-gradient(135deg, #1d1d1f 0%, #43434b 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                letter-spacing: -0.02em;
+                margin-bottom: 16px;
+              }
+              
+              .catalog-subtitle {
+                font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+                font-size: 20px;
+                font-weight: 400;
+                color: #86868b;
+                line-height: 1.4;
+                max-width: 600px;
+                margin: 0 auto;
+              }
+
+              .catalog-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 24px;
+              }
+              @media (min-width: 768px) {
+                .catalog-grid {
+                  grid-template-columns: repeat(2, 1fr);
+                  gap: 32px;
+                }
+              }
+
+              .catalog-card {
+                background: rgba(255, 255, 255, 0.7);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.4);
+                border-radius: 28px;
+                padding: 32px;
+                cursor: pointer;
+                transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                overflow: hidden;
+                box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+              }
+              
+              .catalog-card:hover {
+                transform: translateY(-6px) scale(1.01);
+                box-shadow: 0 24px 48px rgba(0, 122, 255, 0.12), inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+                background: rgba(255, 255, 255, 1);
+              }
+
+              .catalog-card.completed {
+                background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(240,253,244,0.7) 100%);
+              }
+              .catalog-card.completed:hover {
+                background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(240,253,244,1) 100%);
+                box-shadow: 0 24px 48px rgba(52, 199, 89, 0.15), inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+              }
+
+              .catalog-card-header {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                margin-bottom: 24px;
+              }
+
+              .catalog-card-icon {
+                width: 56px;
+                height: 56px;
+                border-radius: 18px;
+                background: linear-gradient(135deg, #e5f0ff 0%, #cce0ff 100%);
+                color: #007aff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+                font-size: 24px;
+                font-weight: 700;
+                flex-shrink: 0;
+                box-shadow: inset 0 2px 4px rgba(255,255,255,0.5), 0 4px 12px rgba(0, 122, 255, 0.15);
+                transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+              }
+              
+              .catalog-card:hover .catalog-card-icon {
+                transform: scale(1.05);
+              }
+
+              .catalog-card.completed .catalog-card-icon {
+                background: linear-gradient(135deg, #e3f8e5 0%, #bbf7d0 100%);
+                color: #22c55e;
+                box-shadow: inset 0 2px 4px rgba(255,255,255,0.5), 0 4px 12px rgba(52, 199, 89, 0.15);
+              }
+
+              .catalog-card-meta {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+              }
+
+              .catalog-card-category {
+                font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+                font-size: 13px;
+                font-weight: 600;
+                color: #007aff;
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+              }
+              
+              .catalog-card.completed .catalog-card-category {
+                color: #22c55e;
+              }
+
+              .catalog-card-title {
+                font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+                font-size: 22px;
+                font-weight: 700;
+                color: #1d1d1f;
+                line-height: 1.2;
+                letter-spacing: -0.01em;
+              }
+
+              .catalog-card-desc {
+                font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+                font-size: 15px;
+                color: #86868b;
+                line-height: 1.5;
+                margin-bottom: 32px;
+                flex: 1;
+              }
+
+              .catalog-card-footer {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                margin-top: auto;
+              }
+
+              .catalog-progress-track {
+                width: 100%;
+                height: 6px;
+                background: #f5f5f7;
+                border-radius: 3px;
+                overflow: hidden;
+                box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+              }
+
+              .catalog-progress-fill {
+                height: 100%;
+                background: linear-gradient(90deg, #3399ff 0%, #007aff 100%);
+                border-radius: 3px;
+                transition: width 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+              }
+              
+              .catalog-card.completed .catalog-progress-fill {
+                background: linear-gradient(90deg, #4ade80 0%, #22c55e 100%);
+              }
+
+              .catalog-footer-meta {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              }
+
+              .catalog-progress-text {
+                font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+                font-size: 13px;
+                font-weight: 600;
+                color: #1d1d1f;
+              }
+
+              .catalog-lessons-text {
+                font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+                font-size: 13px;
+                font-weight: 500;
+                color: #86868b;
+              }
+              
+              .catalog-card-arrow {
+                color: #007aff;
+                opacity: 0;
+                transform: translateX(-8px);
+                transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+              }
+              
+              .catalog-card:hover .catalog-card-arrow {
+                opacity: 1;
+                transform: translateX(0);
+              }
+              
+              .catalog-card.completed .catalog-card-arrow {
+                color: #22c55e;
+              }
+            `}</style>
+            
+            <div className="course-catalog-header">
+              <h1 className="catalog-title">
+                SAT Math Course
               </h1>
-              <p style={{
-                fontSize: '18px',
-                color: design.colors.text.secondary,
-                lineHeight: 1.5
-              }}>
-                Master every concept. Outperform the competition.
+              <p className="catalog-subtitle">
+                Master all 4 domains of the SAT Math section through step-by-step video lessons and targeted practice.
               </p>
             </div>
 
-            {/* Module Cards */}
-            <div>
+            <div className="catalog-grid">
               {modules.map((module, idx) => {
                 const moduleLessons = allLessons[module.id] || [];
                 const progress = getModuleProgress(module.id, moduleLessons);
+                const isComplete = progress === 100;
+                
                 return (
-                <div
-                  key={module.id}
-                  className="module-card"
-                  onClick={() => {
-                    setActiveModule(module.id);
-                    const lessons = allLessons[module.id] || [];
-                    if (lessons.length > 0) setActiveLesson(lessons[0].id);
-                    setView('learn');
-                  }}
-                  style={{
-                    padding: '28px 32px',
-                    borderRadius: design.radius.md,
-                    border: progress === 100 ? '2px solid #10b981' : '1px solid rgba(0,0,0,0.08)',
-                    marginBottom: '12px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    background: progress === 100 ? 'linear-gradient(135deg, rgba(16, 185, 129, 0.03), rgba(16, 185, 129, 0.06))' : '#fff'
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '20px', flex: 1 }}>
-                    <span style={{
-                      fontSize: '14px',
-                      fontWeight: '600',
-                      color: progress === 100 ? '#10b981' : '#ea580c',
-                      fontFeatureSettings: '"tnum"',
-                      minWidth: '24px'
-                    }}>
-                      {progress === 100 ? '✓' : idx + 1}
-                    </span>
-                    <div style={{ flex: 1 }}>
-                      <span style={{
-                        fontSize: '11px',
-                        fontWeight: '600',
-                        color: '#ea580c',
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.5px',
-                        marginBottom: '4px',
-                        display: 'block'
-                      }}>
-                        {module.category}
-                      </span>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '6px' }}>
-                        <h2 style={{
-                          fontSize: '17px',
-                          fontWeight: '600',
-                          color: design.colors.text.primary,
-                          letterSpacing: '-0.2px'
-                        }}>
-                          {module.title}
-                        </h2>
-                        {progress === 100 && (
-                          <span style={{
-                            fontSize: '11px',
-                            fontWeight: '700',
-                            color: design.colors.surface.white,
-                            background: design.colors.semantic.success,
-                            padding: '4px 10px',
-                            borderRadius: design.radius.md,
-                            letterSpacing: '0.5px'
-                          }}>
-                            COMPLETE
-                          </span>
+                  <div
+                    key={module.id}
+                    className={`catalog-card ${isComplete ? 'completed' : ''}`}
+                    onClick={() => {
+                      setActiveModule(module.id);
+                      const lessons = allLessons[module.id] || [];
+                      if (lessons.length > 0) setActiveLesson(lessons[0].id);
+                      setView('learn');
+                    }}
+                  >
+                    <div className="catalog-card-header">
+                      <div className="catalog-card-icon">
+                        {isComplete ? (
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        ) : (
+                          idx + 1
                         )}
                       </div>
-                      <p style={{
-                        fontSize: '15px',
-                        color: design.colors.text.secondary,
-                        lineHeight: 1.4,
-                        marginBottom: progress > 0 && progress < 100 ? '12px' : '0'
-                      }}>
-                        {module.description}
-                      </p>
-                      {progress > 0 && progress < 100 && (
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                          <div style={{
-                            flex: 1,
-                            maxWidth: '200px',
-                            height: '4px',
-                            background: '#f3f4f6',
-                            borderRadius: '2px',
-                            overflow: 'hidden'
-                          }}>
-                            <div style={{
-                              width: `${progress}%`,
-                              height: '100%',
-                              background: design.colors.accent.orange,
-                              borderRadius: '2px'
-                            }} />
-                          </div>
-                          <span style={{
-                            fontSize: '12px',
-                            fontWeight: '600',
-                            color: design.colors.accent.orange
-                          }}>
+                      <div className="catalog-card-meta">
+                        <span className="catalog-card-category">{module.category}</span>
+                        <h2 className="catalog-card-title">{module.title}</h2>
+                      </div>
+                    </div>
+                    
+                    <p className="catalog-card-desc">
+                      {module.description}
+                    </p>
+
+                    <div className="catalog-card-footer">
+                      <div className="catalog-progress-track">
+                        <div className="catalog-progress-fill" style={{ width: `${progress}%` }} />
+                      </div>
+                      <div className="catalog-footer-meta">
+                        <span className="catalog-lessons-text">
+                          {moduleLessons.length} Lessons
+                        </span>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <span className="catalog-progress-text">
                             {progress}%
                           </span>
+                          <svg className="catalog-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </div>
-                      )}
+                      </div>
                     </div>
                   </div>
-                  <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    flexShrink: 0,
-                    marginLeft: '16px'
-                  }}>
-                    <span style={{ 
-                      color: progress === 100 ? '#10b981' : '#ea580c',
-                      fontSize: '18px'
-                    }}>→</span>
-                  </div>
-                </div>
-              );})}
+                );
+              })}
             </div>
-          </>
+          </div>
         )}
 
         {view === 'learn' && activeModule && (
