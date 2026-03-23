@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { SECTION_ORDER, SECTION_LABELS } from '../../data/contentTabs/schema';
 import { MathText } from '../MathText';
 import { renderRichText } from '../RichMathText';
@@ -30,11 +30,16 @@ const CheckpointBlock = ({ block, idx }) => {
 };
 
 const BlockRenderers = {
-  heading: (block, idx) => (
-    <h3 key={idx} className={`tb-heading ${idx > 0 ? 'tb-heading--spaced' : ''}`}>
-      <MathText>{block.content}</MathText>
-    </h3>
-  ),
+  heading: (block, idx) => {
+    // Generate a simple ID from the content, fallback to heading-idx if it's math/complex
+    const simpleText = block.content.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+    const id = simpleText ? `tb-heading-${simpleText}` : `tb-heading-${idx}`;
+    return (
+      <h3 key={idx} id={id} className={`tb-heading ${idx > 0 ? 'tb-heading--spaced' : ''}`}>
+        <MathText>{block.content}</MathText>
+      </h3>
+    );
+  },
 
   text: (block, idx) => (
     <p key={idx} className="tb-body">
@@ -283,38 +288,106 @@ const TAB_ICONS = { learn: '\u{1F4D6}', practice: '\u{270F}\uFE0F' };
 
 const ContentTabRenderer = ({ contentTab }) => {
   const [activeTab, setActiveTab] = useState(0);
+  const [activeHeadingId, setActiveHeadingId] = useState('');
 
-  if (!contentTab || !contentTab.sections) return null;
+  const tabs = useMemo(() => {
+    if (!contentTab || !contentTab.sections) return [];
+    return SECTION_ORDER
+      .filter(id => contentTab.sections[id])
+      .map(id => ({
+        id,
+        label: SECTION_LABELS[id],
+        section: contentTab.sections[id],
+      }));
+  }, [contentTab]);
 
-  const tabs = SECTION_ORDER
-    .filter(id => contentTab.sections[id])
-    .map(id => ({
-      id,
-      label: SECTION_LABELS[id],
-      section: contentTab.sections[id],
-    }));
+  const currentHeadings = useMemo(() => {
+    const currentSection = tabs[activeTab]?.section;
+    if (!currentSection || !currentSection.blocks) return [];
+    return currentSection.blocks
+      .filter(b => b.type === 'heading')
+      .map((b, idx) => {
+        const simpleText = b.content.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+        return {
+          id: simpleText ? `tb-heading-${simpleText}` : `tb-heading-${idx}`,
+          title: b.content.replace(/\\.?/g, '').replace(/[{}]/g, '') // Rough strip for math text in nav
+        };
+      });
+  }, [tabs, activeTab]);
+
+  useEffect(() => {
+    if (currentHeadings.length === 0) return;
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Find the last intersecting heading
+        const visible = entries.filter(e => e.isIntersecting);
+        if (visible.length > 0) {
+          setActiveHeadingId(visible[visible.length - 1].target.id);
+        }
+      },
+      { rootMargin: '-10% 0px -80% 0px' }
+    );
+
+    currentHeadings.forEach(h => {
+      const el = document.getElementById(h.id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, [currentHeadings, activeTab]);
 
   if (tabs.length === 0) return null;
 
   return (
-    <div className="tb-root">
-      <nav className="tb-tab-bar" role="tablist">
-        {tabs.map((tab, i) => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(i)}
-            role="tab"
-            aria-selected={activeTab === i}
-            className={`tb-tab ${activeTab === i ? 'tb-tab--active' : ''}`}
-          >
-            <span className="tb-tab-icon">{TAB_ICONS[tab.id] || ''}</span>
-            {tab.label}
-          </button>
-        ))}
-      </nav>
+    <div className="tb-stage">
+      <div className="tb-hero">
+        <nav className="tb-tab-bar" role="tablist">
+          {tabs.map((tab, i) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(i)}
+              role="tab"
+              aria-selected={activeTab === i}
+              className={`tb-tab ${activeTab === i ? 'tb-tab--active' : ''}`}
+            >
+              <span className="tb-tab-icon">{TAB_ICONS[tab.id] || ''}</span>
+              {tab.label}
+            </button>
+          ))}
+        </nav>
+      </div>
 
-      <div role="tabpanel" className="tb-panel" key={activeTab}>
-        <SectionContent section={tabs[activeTab]?.section} />
+      <div className="tb-stage-content">
+        <div className="tb-canvas">
+          <div role="tabpanel" className="tb-panel" key={activeTab}>
+            <SectionContent section={tabs[activeTab]?.section} />
+          </div>
+        </div>
+
+        {currentHeadings.length > 0 && (
+          <div className="tb-section-rail">
+            <div className="tb-section-rail-inner">
+              <h4 className="tb-rail-title">On this page</h4>
+              <ul className="tb-rail-list">
+                {currentHeadings.map(h => (
+                  <li key={h.id} className="tb-rail-item">
+                    <a 
+                      href={`#${h.id}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        document.getElementById(h.id)?.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      className={`tb-rail-link ${activeHeadingId === h.id ? 'tb-rail-link--active' : ''}`}
+                    >
+                      {h.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
