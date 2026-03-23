@@ -102,179 +102,98 @@
   border-left-color: var(--color-brand-orange-500);
 }
 
+/* ========================
+   Content Dashboard Grid
+   ======================== */
 .tb-article {
-  max-width: 720px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+  align-items: start;
 }
 
 .tb-article > * {
+  grid-column: span 12;
   margin: 0;
 }
 
-/* Prose-to-prose: tight rhythm */
-.tb-article > .tb-body + .tb-body {
-  margin-top: 0.5rem;
+/* Base typography elements take up central columns */
+.tb-article > .tb-body,
+.tb-article > .tb-lead,
+.tb-article > .tb-heading,
+.tb-article > .tb-subhead {
+  grid-column: span 12;
+  max-width: 800px;
 }
 
-/* Heading above prose: chapter feel */
-.tb-article > .tb-heading {
-  margin-top: 1.75rem;
-}
-.tb-article > .tb-heading:first-child {
-  margin-top: 0;
-}
-.tb-article > .tb-heading + .tb-body {
-  margin-top: 0.375rem;
+@media (min-width: 1200px) {
+  .tb-article > .tb-body,
+  .tb-article > .tb-lead,
+  .tb-article > .tb-heading,
+  .tb-article > .tb-subhead {
+    grid-column: 2 / 12; /* Center in the 12-col grid */
+  }
+
+  /* Specific widgets can span different sizes */
+  .tb-article > .tb-formula,
+  .tb-article > .tb-figure,
+  .tb-article > .tb-table-wrap,
+  .tb-article > .tb-aside {
+    grid-column: span 6; /* 50% width side-by-side */
+  }
+  
+  /* Complex interactive blocks take more space but not full width */
+  .tb-article > .tb-worked-example,
+  .tb-article > .tb-exercise,
+  .tb-article > .tb-prose-section {
+    grid-column: 2 / 12;
+  }
 }
 
-/* Lead paragraph */
-.tb-article > .tb-lead {
-  margin-bottom: 1rem;
-}
-
-/* Inserts (formula, figure, table, aside) breathe more */
-.tb-article > .tb-formula,
-.tb-article > .tb-figure,
-.tb-article > .tb-table-wrap,
-.tb-article > .tb-aside,
-.tb-article > .tb-comparison,
-.tb-article > .tb-formula-grid {
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
-}
-
-/* Prose sections (trap/strategy) */
-.tb-article > .tb-prose-section {
-  margin-top: 0.75rem;
-}
-
-/* Worked example + exercise */
-.tb-article > .tb-worked-example,
-.tb-article > .tb-exercise {
-  margin-top: 1.5rem;
-}
-
-/* Default spacing for anything else */
-.tb-article > * + * {
-  margin-top: 0.75rem;
-}
-
-/* ========================
-   Segmented tab bar
-   ======================== */
-.tb-tab-bar {
-  display: inline-flex;
-  gap: 0.5rem;
-  background: var(--color-white);
-  border-radius: 100px;
-  padding: 6px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
-  border: 1px solid rgba(0,0,0,0.06);
-}
-
-.tb-tab {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  font-family: var(--font-ui);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-slate-500);
-  padding: 0.75rem 2rem;
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  gap: 0.625rem;
-  border-radius: 100px;
-  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.tb-tab:hover {
-  color: var(--color-slate-900);
-  background: rgba(0, 0, 0, 0.02);
-}
-
-.tb-tab--active {
-  color: var(--color-white);
-  background: var(--color-slate-900);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.tb-tab-icon {
-  font-size: 1.125rem;
-  opacity: 0.7;
-}
-
-.tb-tab--active .tb-tab-icon {
-  opacity: 1;
-}
-
-.tb-tab:focus-visible {
-  outline: 2px solid var(--color-brand-orange-500);
-  outline-offset: 2px;
-}
-
-.tb-panel {
-  animation: tbFadeIn 0.2s ease;
-}
-
-@keyframes tbFadeIn {
-  from { opacity: 0; transform: translateY(4px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ========================
-   Typography
-   ======================== */
+/* Typography Overrides for Dashboard Scale */
 .tb-lead {
   font-family: var(--font-reading, var(--font-ui));
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-weight: 500;
-  line-height: 1.65;
+  line-height: 1.6;
   color: var(--color-slate-700);
   border-left: 4px solid var(--color-brand-orange-500);
-  padding-left: 1.25rem;
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .tb-heading {
   font-family: var(--font-ui);
-  font-size: 1.375rem;
+  font-size: 1.75rem;
   font-weight: 800;
   color: var(--color-slate-900);
   letter-spacing: -0.02em;
-  padding-bottom: 0.375rem;
-  border-bottom: 1px solid var(--color-slate-200);
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-slate-100);
+  margin-top: 3rem;
+  margin-bottom: 1rem;
 }
 
 .tb-heading--spaced {
-  margin-top: 0;
+  margin-top: 2rem;
 }
 
 .tb-subhead {
   font-family: var(--font-ui);
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--color-slate-900);
   letter-spacing: -0.01em;
-  margin: 0 0 0.375rem 0;
-}
-
-.tb-subhead--trap {
-  color: var(--color-error-600, #dc2626);
-}
-
-.tb-subhead--fix {
-  color: var(--color-success-600, #16a34a);
+  margin: 0 0 0.5rem 0;
 }
 
 .tb-body {
   font-family: var(--font-ui);
-  font-size: 1.0625rem;
-  line-height: 1.6;
-  color: var(--color-slate-800); /* #3A3A3C Apple Primary Text */
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--color-slate-800);
+  margin-bottom: 1rem;
 }
 
 .tb-caption {
@@ -708,6 +627,11 @@
 @media (max-width: 1024px) {
   .tb-canvas {
     padding: 32px 40px;
+  }
+  
+  .tb-article {
+    display: flex;
+    flex-direction: column;
   }
 }
 
