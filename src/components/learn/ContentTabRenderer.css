@@ -8,10 +8,17 @@
    ======================== */
 .tb-root {
   width: 100%;
+  max-width: 860px;
+  background: var(--color-white);
+  border-radius: 24px;
+  box-shadow: var(--shadow-sm);
+  padding: 48px 56px;
+  margin: 0 auto;
 }
 
 .tb-article {
-  max-width: 680px;
+  max-width: 720px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -73,12 +80,13 @@
    Segmented tab bar
    ======================== */
 .tb-tab-bar {
-  display: inline-flex;
+  display: flex;
+  width: max-content;
+  margin: 0 auto 2.5rem auto;
   gap: 0.25rem;
   background: var(--color-slate-100);
   border-radius: var(--radius-full);
   padding: 4px;
-  margin-bottom: 2rem;
 }
 
 .tb-tab {
@@ -106,7 +114,7 @@
   color: var(--color-slate-900);
   font-weight: 600;
   background: var(--color-white);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .tb-tab-icon {
@@ -139,22 +147,22 @@
    ======================== */
 .tb-lead {
   font-family: var(--font-reading, var(--font-ui));
-  font-size: 1.0625rem;
-  font-style: italic;
+  font-size: 1.125rem;
+  font-weight: 500;
   line-height: 1.65;
-  color: var(--color-slate-600);
-  border-left: 3px solid var(--color-brand-orange-400);
-  padding-left: 1rem;
+  color: var(--color-slate-700);
+  border-left: 4px solid var(--color-brand-orange-500);
+  padding-left: 1.25rem;
 }
 
 .tb-heading {
   font-family: var(--font-ui);
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 1.375rem;
+  font-weight: 800;
   color: var(--color-slate-900);
   letter-spacing: -0.02em;
-  padding-bottom: 0.25rem;
-  border-bottom: 2px solid var(--color-slate-100);
+  padding-bottom: 0.375rem;
+  border-bottom: 1px solid var(--color-slate-200);
 }
 
 .tb-heading--spaced {
@@ -163,11 +171,11 @@
 
 .tb-subhead {
   font-family: var(--font-ui);
-  font-size: 0.9375rem;
+  font-size: 1rem;
   font-weight: 700;
-  color: var(--color-slate-800);
+  color: var(--color-slate-900);
   letter-spacing: -0.01em;
-  margin: 0 0 0.25rem 0;
+  margin: 0 0 0.375rem 0;
 }
 
 .tb-subhead--trap {
@@ -180,9 +188,9 @@
 
 .tb-body {
   font-family: var(--font-ui);
-  font-size: 1rem;
-  line-height: 1.75;
-  color: var(--color-slate-700);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--color-slate-800); /* #3A3A3C Apple Primary Text */
 }
 
 .tb-caption {
@@ -198,211 +206,110 @@
    Prose sections (keyInsight, trap, strategy)
    ======================== */
 .tb-prose-section {
-  /* no card, just flowing prose */
+  background: var(--color-slate-50);
+  border-radius: 1rem;
+  padding: 1.5rem;
 }
 
 .tb-trap-section {
-  border-left: 3px solid var(--color-error-200, #fecaca);
-  padding-left: 1rem;
+  background: rgba(255, 59, 48, 0.04);
 }
 
 .tb-trap-wrong {
-  color: var(--color-slate-500);
-  text-decoration: line-through;
-  text-decoration-color: rgba(220, 38, 38, 0.3);
+  color: var(--color-slate-700);
+  margin-bottom: 1.25rem;
 }
 
 .tb-strategy-section {
-  border-left: 3px solid var(--color-brand-orange-200, #fed7aa);
-  padding-left: 1rem;
+  background: rgba(79, 70, 229, 0.04);
 }
 
-/* ========================
-   Formula (textbook insert)
-   ======================== */
-.tb-formula {
-  background: var(--color-slate-50);
-  border: 1px solid var(--color-slate-100);
-  border-radius: 0.75rem;
-  padding: 1.25rem 1.5rem;
-  text-align: center;
-}
-
-.tb-formula--compact {
-  padding: 1rem 1.25rem;
-}
-
-.tb-formula-label {
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--color-slate-500);
-  text-transform: uppercase;
-  letter-spacing: 0.015em;
-  margin-bottom: 0.5rem;
-}
-
-.tb-formula-math {
-  font-size: 1.375rem;
-  font-weight: 500;
-  color: var(--color-slate-900);
-  line-height: 1.8;
-}
-
-.tb-formula-note {
-  font-size: 0.8125rem;
-  color: var(--color-slate-500);
-  margin-top: 0.5rem;
-  line-height: 1.5;
-}
-
-.tb-formula-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 0.75rem;
-}
-
-/* ========================
-   Figure (diagrams)
-   ======================== */
-.tb-figure {
-  background: var(--color-slate-50);
-  border: 1px solid var(--color-slate-100);
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-  text-align: center;
-  overflow: hidden;
-}
-
-.tb-figcaption {
-  font-family: var(--font-ui);
-  font-size: 0.8125rem;
-  font-style: italic;
-  color: var(--color-slate-500);
-  margin-top: 0.75rem;
-  line-height: 1.5;
-  text-align: center;
-}
-
-/* ========================
-   Aside (callouts — used sparingly)
-   ======================== */
-.tb-aside {
-  background: var(--color-slate-50);
-  border-left: 3px solid var(--color-slate-300);
-  border-radius: 0 0.5rem 0.5rem 0;
-  padding: 0.875rem 1rem;
-}
-
-.tb-aside--example {
-  border-left-color: var(--color-success-400, #4ade80);
-  background: var(--color-success-50, #f0fdf4);
-}
-
-.tb-aside--warning {
-  border-left-color: var(--color-brand-orange-400);
-  background: var(--color-brand-peach-100, #fff7ed);
-}
-
-.tb-aside .tb-body {
-  font-size: 0.9375rem;
-}
-
-.tb-aside-title {
-  display: block;
-  font-size: 0.875rem;
+.tb-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  color: var(--color-slate-800);
-  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.375rem 0.75rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.75rem;
 }
 
-/* ========================
-   Table
-   ======================== */
-.tb-table-wrap {
-  overflow-x: auto;
+.tb-badge--error {
+  background: rgba(255, 59, 48, 0.1);
+  color: var(--color-error-600);
 }
 
-.tb-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-family: var(--font-ui);
-  font-size: 0.9375rem;
+.tb-badge--success {
+  background: rgba(52, 199, 89, 0.1);
+  color: var(--color-success-600);
 }
 
-.tb-table th {
-  padding: 0.625rem 0.75rem;
-  text-align: left;
-  font-weight: 600;
-  color: var(--color-slate-900);
-  border-bottom: 2px solid var(--color-slate-200);
-}
-
-.tb-table td {
-  padding: 0.625rem 0.75rem;
-  border-bottom: 1px solid var(--color-slate-100);
-  color: var(--color-slate-700);
+.tb-badge--strategy {
+  background: rgba(79, 70, 229, 0.1);
+  color: var(--color-brand-orange-600);
 }
 
 /* ========================
    Worked example (textbook-style)
    ======================== */
 .tb-worked-example {
-  border-top: 1px solid var(--color-slate-200);
-  padding-top: 1.25rem;
+  background: var(--color-slate-50);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  margin-top: 2rem;
 }
 
 .tb-problem {
-  font-size: 1rem;
-  line-height: 1.75;
+  font-size: 1.125rem;
+  line-height: 1.6;
   color: var(--color-slate-900);
-  font-weight: 500;
-  margin-bottom: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
 }
 
 .tb-solution-steps {
-  border-left: 2px solid var(--color-slate-200);
-  margin-left: 0.25rem;
-  padding-left: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1.25rem;
 }
 
 .tb-step {
   display: flex;
-  gap: 0.625rem;
-  align-items: baseline;
+  gap: 1rem;
+  align-items: flex-start;
 }
 
 .tb-step-num {
   flex-shrink: 0;
-  width: 1.375rem;
-  height: 1.375rem;
-  font-size: 0.6875rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  font-size: 0.8125rem;
   font-weight: 700;
-  color: var(--color-slate-400);
+  color: var(--color-white);
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  border: 1.5px solid var(--color-slate-200);
-  background: var(--color-white);
+  background: var(--color-slate-900);
+  margin-top: 0.125rem;
 }
 
 .tb-step--final .tb-step-num {
-  color: var(--color-success-600);
-  border-color: var(--color-success-400);
-  background: var(--color-success-50, #f0fdf4);
+  color: var(--color-white);
+  background: var(--color-success-600);
 }
 
 .tb-step-body {
-  font-size: 0.9375rem;
-  line-height: 1.65;
-  color: var(--color-slate-700);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--color-slate-800);
 }
 
 .tb-step-label {
-  color: var(--color-slate-800);
+  color: var(--color-slate-900);
   margin-right: 0.375rem;
 }
 
@@ -410,30 +317,34 @@
    Exercise / checkpoint
    ======================== */
 .tb-exercise {
-  border-top: 1px solid var(--color-slate-200);
-  padding-top: 1rem;
+  background: var(--color-slate-50);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  margin-top: 2rem;
 }
 
 .tb-reveal-btn {
-  background: var(--color-brand-orange-50, rgba(234, 88, 12, 0.08));
+  background: transparent;
   color: var(--color-brand-orange-600);
-  border: 1px solid var(--color-brand-orange-200, rgba(234, 88, 12, 0.2));
-  font-size: 0.8125rem;
-  font-weight: 600;
+  border: 2px solid var(--color-brand-orange-500);
+  font-size: 0.875rem;
+  font-weight: 700;
   cursor: pointer;
-  padding: 0.4375rem 0.875rem;
+  padding: 0.5rem 1.25rem;
   font-family: var(--font-ui);
-  border-radius: 0.375rem;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  border-radius: var(--radius-full);
+  transition: all 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
   display: inline-flex;
   align-items: center;
-  gap: 0.375rem;
-  margin-top: 0.5rem;
+  gap: 0.5rem;
+  margin-top: 1rem;
 }
 
 .tb-reveal-btn:hover {
-  background: var(--color-brand-orange-100, rgba(234, 88, 12, 0.12));
-  border-color: var(--color-brand-orange-300, rgba(234, 88, 12, 0.3));
+  background: var(--color-brand-orange-500);
+  color: var(--color-white);
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
 }
 
 .tb-reveal-btn:focus-visible {
@@ -442,7 +353,7 @@
 }
 
 .tb-reveal-chevron {
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   transition: transform 0.2s ease;
   display: inline-block;
 }
@@ -452,17 +363,16 @@
 }
 
 .tb-reveal-content {
-  margin-top: 0.75rem;
-  padding: 0.75rem 1rem;
-  border-radius: 0.375rem;
-  background: var(--color-success-50, #f0fdf4);
-  border-left: 3px solid var(--color-success-400, #4ade80);
-  animation: tbReveal 0.2s ease-out;
+  margin-top: 1.25rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: rgba(52, 199, 89, 0.08); /* Soft success tint */
+  animation: tbReveal 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes tbReveal {
-  from { opacity: 0; transform: translateY(-6px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(-10px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 /* ========================
@@ -501,6 +411,11 @@
    Mobile
    ======================== */
 @media (max-width: 640px) {
+  .tb-root {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+
   .tb-tab-bar {
     display: flex;
     width: 100%;

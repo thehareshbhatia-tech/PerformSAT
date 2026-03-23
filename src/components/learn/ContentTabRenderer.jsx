@@ -115,11 +115,15 @@ const BlockRenderers = {
 
   trapCard: (block, idx) => (
     <div key={idx} className="tb-prose-section tb-trap-section">
-      <h4 className="tb-subhead tb-subhead--trap">Common Mistake</h4>
+      <div className="tb-badge tb-badge--error">
+        <span>❌</span> Incorrect
+      </div>
       <p className="tb-body tb-trap-wrong">{renderRichText(block.wrong)}</p>
       {block.correction && (
         <>
-          <h4 className="tb-subhead tb-subhead--fix">Correct Approach</h4>
+          <div className="tb-badge tb-badge--success" style={{ marginTop: '0.5rem' }}>
+            <span>✅</span> Correct
+          </div>
           <p className="tb-body">{renderRichText(block.correction)}</p>
         </>
       )}
@@ -128,7 +132,9 @@ const BlockRenderers = {
 
   strategyCard: (block, idx) => (
     <div key={idx} className="tb-prose-section tb-strategy-section">
-      <h4 className="tb-subhead">{renderRichText(block.title)}</h4>
+      <div className="tb-badge tb-badge--strategy">
+        <span>💡</span> {renderRichText(block.title)}
+      </div>
       <p className="tb-body">{renderRichText(block.content)}</p>
     </div>
   ),
