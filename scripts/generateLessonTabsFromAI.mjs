@@ -360,15 +360,47 @@ function extractSeedBlock(seedTab, type) {
 }
 
 const VISUAL_RULES = [
+  // ── Linear equations ──
   { pattern: /slope.*table/i, visualType: 'slopeFromTableDiagram', caption: 'Finding slope from a table: compute Δy/Δx between any two rows.' },
   { pattern: /slope.*graph/i, visualType: 'slopeFromGraphDiagram', caption: 'Finding slope from a graph: count rise over run between two grid-intersection points.' },
   { pattern: /y.?intercept/i, visualType: 'yInterceptDiagram', caption: 'The y-intercept is the point where the line crosses the y-axis (x = 0).' },
-  { pattern: /parallel\s+lines?/i, visualType: 'parallelLinesDiagram', caption: 'Parallel lines have the same slope but different y-intercepts — they never cross.' },
-  { pattern: /perpendicular\s+lines?/i, visualType: 'perpendicularLinesDiagram', caption: 'Perpendicular lines meet at 90° — their slopes are negative reciprocals.' },
+  { pattern: /parallel\s+lines?/i, visualType: 'parallelLinesDiagram', caption: 'Parallel lines share equal slopes but different y-intercepts, so they never cross.' },
+  { pattern: /perpendicular\s+lines?/i, visualType: 'perpendicularLinesDiagram', caption: 'Perpendicular lines meet at 90° — their slopes are negative reciprocals that multiply to −1.' },
+  // ── Quadratics ──
   { pattern: /parabola|vertex\s+form|standard\s+form.*graph|graph.*equation/i, visualType: 'parabolaFromGraphDiagram', caption: 'A parabola with vertex, y-intercept, and mirror point labeled.' },
   { pattern: /deriving.*equation|graph.*quadratic/i, visualType: 'parabolaFromGraphDiagram', caption: 'Extract vertex and a second point from the graph to write the equation.' },
   { pattern: /discriminant/i, visualType: 'parabolaFromGraphDiagram', caption: 'The discriminant determines how many times the parabola crosses the x-axis.' },
   { pattern: /completing the square/i, visualType: 'parabolaFromGraphDiagram', caption: 'Completing the square converts standard form to vertex form, revealing the turning point.' },
+  { pattern: /introduction to quadratics/i, visualType: 'parabolaFromGraphDiagram', caption: 'Every quadratic makes a U-shaped parabola — the vertex is the turning point.' },
+  { pattern: /roots|zeros|x.?intercepts/i, visualType: 'parabolaFromGraphDiagram', caption: 'Roots are where the parabola crosses the x-axis (y = 0).' },
+  // ── Triangles ──
+  { pattern: /pythagorean/i, visualType: 'rightTriangleDiagram', caption: 'A right triangle with legs a, b and hypotenuse c illustrating a² + b² = c².' },
+  { pattern: /special right/i, visualType: 'specialTrianglesDiagram', caption: '45-45-90 and 30-60-90 triangles with their fixed side ratios.' },
+  { pattern: /similar/i, visualType: 'similarTrianglesDiagram', caption: 'Two similar triangles with matching angles and proportional sides.' },
+  { pattern: /area of a triangle/i, visualType: 'triangleAreaDiagram', caption: 'Triangle with base and height labeled: Area = ½ × base × height.' },
+  // ── Circles ──
+  { pattern: /parts of a circle/i, visualType: 'circlePartsDiagram', caption: 'Circle with radius, diameter, and circumference labeled.' },
+  { pattern: /arc length/i, visualType: 'arcLengthDiagram', caption: 'A central angle defines an arc — arc length is a fraction of the full circumference.' },
+  { pattern: /sector area/i, visualType: 'arcLengthDiagram', caption: 'Sector area is a fraction of the full circle area, determined by the central angle.' },
+  { pattern: /equation.*circle|circle.*equation|standard form.*circle/i, visualType: 'circleEquationDiagram', caption: 'Circle on a coordinate plane showing center (h, k) and radius r.' },
+  // ── Volume ──
+  { pattern: /volume of a cube|cube example/i, visualType: 'cubeDiagram', caption: 'A cube with edge length s — volume = s³.' },
+  { pattern: /rectangular prism|box/i, visualType: 'rectangularPrismDiagram', caption: 'A rectangular prism with length, width, and height labeled.' },
+  { pattern: /cylinder/i, visualType: 'cylinderDiagram', caption: 'A cylinder with radius r and height h labeled.' },
+  { pattern: /sphere/i, visualType: 'sphereDiagram', caption: 'A sphere with radius r labeled.' },
+  { pattern: /cone/i, visualType: 'coneDiagram', caption: 'A cone with radius r and height h labeled.' },
+  // ── Statistics ──
+  { pattern: /mean|average/i, visualType: 'meanMedianDiagram', caption: 'A number line showing how the mean is the balance point of the data.' },
+  { pattern: /median/i, visualType: 'meanMedianDiagram', caption: 'A sorted data set with the median (middle value) highlighted.' },
+  { pattern: /outlier/i, visualType: 'meanMedianDiagram', caption: 'Outliers pull the mean but barely affect the median.' },
+  // ── Transformations ──
+  { pattern: /horizontal translation/i, visualType: 'horizontalShiftDiagram', caption: 'f(x − h) shifts the graph right by h units; f(x + h) shifts left.' },
+  { pattern: /vertical translation/i, visualType: 'verticalShiftDiagram', caption: 'f(x) + k shifts the graph up by k units; f(x) − k shifts down.' },
+  { pattern: /what is a transformation/i, visualType: 'verticalShiftDiagram', caption: 'Transformations shift, stretch, or reflect a function graph.' },
+  // ── Exponents ──
+  { pattern: /exponential functions|exponential growth|exponential decay/i, visualType: 'exponentialGrowthDiagram', caption: 'Exponential growth (b > 1) curves up; exponential decay (0 < b < 1) curves down.' },
+  // ── Percents ──
+  { pattern: /percent change|increase|decrease/i, visualType: 'percentChangeDiagram', caption: 'Percent change = (new − old) / old × 100%. The denominator is always the original value.' },
 ];
 
 function pickVisual(lesson) {
@@ -386,30 +418,40 @@ const LESSON_SEMANTIC_RULES = {
       formula: '$$V=s^3$$',
       trap: 'using cylinder/cone/sphere formulas on cube problems',
       strategy: 'Identify the solid first: cube means one edge length, then cube it.',
+      visualType: 'cubeDiagram',
+      visualCaption: 'A cube with edge length s — volume = s³.',
     },
     {
       match: /rectangular prism|box/i,
       formula: '$$V=lwh$$',
       trap: 'mixing surface area with volume in prism questions',
       strategy: 'Label length, width, and height explicitly before multiplying.',
+      visualType: 'rectangularPrismDiagram',
+      visualCaption: 'A rectangular prism labeled with length, width, and height.',
     },
     {
       match: /cylinder/i,
       formula: '$$V=\\pi r^2h$$',
       trap: 'using diameter as radius in cylinder formulas',
       strategy: 'Convert diameter to radius before squaring.',
+      visualType: 'cylinderDiagram',
+      visualCaption: 'A cylinder with radius r and height h labeled.',
     },
     {
       match: /sphere/i,
       formula: '$$V=\\frac{4}{3}\\pi r^3$$',
       trap: 'using the area formula instead of sphere volume',
       strategy: 'Check exponent and coefficient: sphere volume always includes $\\frac{4}{3}$ and $r^3$.',
+      visualType: 'sphereDiagram',
+      visualCaption: 'A sphere with radius r labeled.',
     },
     {
       match: /cone/i,
       formula: '$$V=\\frac{1}{3}\\pi r^2h$$',
       trap: 'forgetting the $\\frac{1}{3}$ in cone volume',
       strategy: 'Compute cylinder volume first, then take one-third.',
+      visualType: 'coneDiagram',
+      visualCaption: 'A cone with radius r and height h labeled.',
     },
     {
       match: /triangular prism/i,
@@ -448,12 +490,16 @@ const LESSON_SEMANTIC_RULES = {
       formula: '$$\\bar{x}=\\frac{\\sum x}{n}$$',
       trap: 'averaging averages without weighting by group size',
       strategy: 'Compute total sum and total count first, then divide.',
+      visualType: 'meanMedianDiagram',
+      visualCaption: 'The mean is the balance point of the data set.',
     },
     {
       match: /median/i,
       formula: '$$\\text{Median}=\\text{middle value after sorting}$$',
       trap: 'taking the middle of an unsorted list',
       strategy: 'Sort first, then locate one middle value (odd n) or average two (even n).',
+      visualType: 'meanMedianDiagram',
+      visualCaption: 'A sorted data set with the median (middle value) highlighted.',
     },
     {
       match: /conditional probability|probability/i,
@@ -474,6 +520,8 @@ const LESSON_SEMANTIC_RULES = {
       formula: '$$\\text{Percent change}=\\frac{\\text{new}-\\text{old}}{\\text{old}}\\times100\\%$$',
       trap: 'dividing by new value instead of original value',
       strategy: 'Original value always belongs in the denominator.',
+      visualType: 'percentChangeDiagram',
+      visualCaption: 'Percent change always divides by the original (old) value.',
     },
     {
       match: /percent of|what percent/i,
@@ -488,12 +536,16 @@ const LESSON_SEMANTIC_RULES = {
       formula: '$$g(x)=f(x-h)\\Rightarrow\\text{shift right }h,\\quad g(x)=f(x+h)\\Rightarrow\\text{shift left }h$$',
       trap: 'moving graph in same direction as inside sign',
       strategy: 'Inside sign and horizontal shift direction are opposite.',
+      visualType: 'horizontalShiftDiagram',
+      visualCaption: 'f(x − h) shifts right, f(x + h) shifts left — opposite of the sign inside.',
     },
     {
       match: /vertical translation/i,
       formula: '$$g(x)=f(x)+k\\Rightarrow\\text{up }k,\\quad g(x)=f(x)-k\\Rightarrow\\text{down }k$$',
       trap: 'treating outside constants as horizontal shifts',
       strategy: 'Outside constants only move y-values.',
+      visualType: 'verticalShiftDiagram',
+      visualCaption: 'f(x) + k shifts the entire graph up by k units.',
     },
   ],
   circles: [
@@ -502,18 +554,40 @@ const LESSON_SEMANTIC_RULES = {
       formula: '$$A=\\pi r^2$$',
       trap: 'using diameter directly as radius in area formula',
       strategy: 'Convert diameter to radius before squaring.',
+      visualType: 'circlePartsDiagram',
+      visualCaption: 'Circle with radius r labeled — area fills the interior.',
     },
     {
       match: /circumference/i,
       formula: '$$C=2\\pi r=\\pi d$$',
       trap: 'using area formula when circumference is asked',
       strategy: 'Circumference is distance around, not interior area.',
+      visualType: 'circlePartsDiagram',
+      visualCaption: 'Circumference is the full distance around the circle.',
     },
     {
       match: /arc length/i,
       formula: '$$s=\\frac{\\theta}{360^\\circ}\\cdot2\\pi r\\quad\\text{or}\\quad s=r\\theta\\ (\\theta\\text{ in radians})$$',
       trap: 'using sector area formula for arc length',
       strategy: 'Arc length uses circumference proportion, not area proportion.',
+      visualType: 'arcLengthDiagram',
+      visualCaption: 'Arc length is a fraction of the circumference, determined by the central angle.',
+    },
+    {
+      match: /sector area/i,
+      formula: '$$A_{\\text{sector}}=\\frac{\\theta}{360^\\circ}\\cdot\\pi r^2$$',
+      trap: 'using arc length formula for sector area',
+      strategy: 'Sector area is a fraction of the full circle area.',
+      visualType: 'arcLengthDiagram',
+      visualCaption: 'Sector area is a pie-slice fraction of the total circle area.',
+    },
+    {
+      match: /equation.*circle|circle.*equation|standard form.*circle/i,
+      formula: '$$(x-h)^2+(y-k)^2=r^2$$',
+      trap: 'confusing center signs — (x − h) means center x is +h',
+      strategy: 'Read signs carefully: the center is (h, k), with opposite signs from the equation.',
+      visualType: 'circleEquationDiagram',
+      visualCaption: 'Circle on a coordinate plane showing center (h, k) and radius r.',
     },
   ],
   exponents: [
@@ -524,10 +598,12 @@ const LESSON_SEMANTIC_RULES = {
       strategy: 'Same base multiplication adds exponents; power of a power multiplies exponents.',
     },
     {
-      match: /exponential functions/i,
+      match: /exponential functions|exponential growth|exponential decay/i,
       formula: '$$f(x)=a\\cdot b^x,\\quad b=1+r\\text{ (growth)},\\ b=1-r\\text{ (decay)}$$',
       trap: 'using growth rate as base directly',
       strategy: 'Convert rate to factor before substituting.',
+      visualType: 'exponentialGrowthDiagram',
+      visualCaption: 'Exponential growth curves up (b > 1); decay curves down toward zero (0 < b < 1).',
     },
   ],
   'linear-equations': [
@@ -570,6 +646,40 @@ const LESSON_SEMANTIC_RULES = {
       strategy: 'Set x = 0 to verify y-intercept in any form.',
       visualType: 'yInterceptDiagram',
       visualCaption: 'The y-intercept is the point where the graph crosses the y-axis.',
+    },
+  ],
+  triangles: [
+    {
+      match: /pythagorean/i,
+      formula: '$$a^2+b^2=c^2$$',
+      trap: 'labeling the wrong side as the hypotenuse',
+      strategy: 'Hypotenuse is always opposite the 90° angle and alone on one side of the equation.',
+      visualType: 'rightTriangleDiagram',
+      visualCaption: 'A right triangle with legs a, b and hypotenuse c labeled.',
+    },
+    {
+      match: /special right/i,
+      formula: '$$45\\text{-}45\\text{-}90:\\ x:x:x\\sqrt{2}\\qquad 30\\text{-}60\\text{-}90:\\ x:x\\sqrt{3}:2x$$',
+      trap: 'mixing up which side gets √2 vs √3',
+      strategy: 'Shortest side is opposite the smallest angle; hypotenuse is always the longest.',
+      visualType: 'specialTrianglesDiagram',
+      visualCaption: '45-45-90 and 30-60-90 triangles with their fixed side ratios.',
+    },
+    {
+      match: /similar/i,
+      formula: '$$\\frac{a_1}{a_2}=\\frac{b_1}{b_2}=\\frac{c_1}{c_2}$$',
+      trap: 'setting up proportions with non-corresponding sides',
+      strategy: 'Match vertices first, then set up proportions with corresponding sides.',
+      visualType: 'similarTrianglesDiagram',
+      visualCaption: 'Two similar triangles with matching angles and proportional sides.',
+    },
+    {
+      match: /area of a triangle/i,
+      formula: '$$A=\\frac{1}{2}bh$$',
+      trap: 'using a slant side as the height instead of the perpendicular height',
+      strategy: 'Height must be perpendicular to the chosen base.',
+      visualType: 'triangleAreaDiagram',
+      visualCaption: 'Triangle with base and perpendicular height labeled.',
     },
   ],
 };

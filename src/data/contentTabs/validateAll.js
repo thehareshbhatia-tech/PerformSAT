@@ -29,6 +29,15 @@ const SUPPORTED_VISUAL_TYPES = [
   'parallelLinesDiagram', 'perpendicularLinesDiagram',
   'slopeFromGraphDiagram', 'slopeFromTableDiagram',
   'yInterceptDiagram', 'parabolaFromGraphDiagram',
+  'rightTriangleDiagram', 'specialTrianglesDiagram',
+  'similarTrianglesDiagram', 'triangleAreaDiagram',
+  'circlePartsDiagram', 'arcLengthDiagram', 'circleEquationDiagram',
+  'cubeDiagram', 'rectangularPrismDiagram', 'cylinderDiagram',
+  'sphereDiagram', 'coneDiagram',
+  'meanMedianDiagram',
+  'horizontalShiftDiagram', 'verticalShiftDiagram',
+  'exponentialGrowthDiagram',
+  'percentChangeDiagram',
 ];
 
 const SEMANTIC_RULES = [

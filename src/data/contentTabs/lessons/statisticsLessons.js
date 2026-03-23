@@ -17,7 +17,12 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "$\\bar{x} = \\frac{\\sum x}{n}$. On the SAT, mean questions usually involve: (1) finding a missing value given the mean, (2) understanding how adding/removing a value changes the mean, (3) combining two groups. For a missing value: $\\text{sum} = \\text{mean} \\times n$, then subtract the known values."
+            "content": "$\\bar{x} = \\frac{\\sum x}{n}$. On the SAT, mean questions usually involve: (1) finding a missing value given the mean, (2) understanding how adding/removing a value changes the mean, (3) combining two groups. For a missing value: $\\text{sum} = \\text{mean} \\times n$, then subtract the known values. A list of 10 data values is shown. What is the mean of these data? All right. Mean is a measure of the center. We attempt to measure the center of a data set. And the way in which we do that is that we add up every single data value and we divide by."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "meanMedianDiagram",
+            "description": "The mean is the balance point of the data set."
           },
           {
             "type": "formula",
@@ -99,7 +104,12 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Calculating Mean Example (Mean) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Compute total sum and total count first, then divide."
+            "content": "On the SAT, Simple Calculating Mean Example (Mean) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Compute total sum and total count first, then divide. A list of 10 data values is shown. What is the mean of these data? All right. Mean is a measure of the center. We attempt to measure the center of a data set. And the way in which we do that is that we add up every single data value and we divide by."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "meanMedianDiagram",
+            "description": "The mean is the balance point of the data set."
           },
           {
             "type": "formula",
@@ -175,7 +185,12 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Calculating Mean Example (DESMOS Method) (Mean) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Compute total sum and total count first, then divide."
+            "content": "On the SAT, Simple Calculating Mean Example (DESMOS Method) (Mean) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Compute total sum and total count first, then divide. Now this specific example can also be solved simply using Desmos. What happens is you simply write mean on Desmos and enter the data set as it is given to you. 6 comma 8 comma 16 comma 4 comma 17 comma 26 comma 8 and comma 5 three times. Clearly show."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "meanMedianDiagram",
+            "description": "The mean is the balance point of the data set."
           },
           {
             "type": "formula",
@@ -247,7 +262,12 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT: \"which measure is most affected by the outlier?\" → **mean**. \"Which measure best represents the typical value when there's an outlier?\" → **median**. A high outlier increases the mean; a low outlier decreases it. The median only shifts by one position at most."
+            "content": "On the SAT: \"which measure is most affected by the outlier?\" → **mean**. \"Which measure best represents the typical value when there's an outlier?\" → **median**. A high outlier increases the mean; a low outlier decreases it. The median only shifts by one position at most. A list of 10 data values is shown. What is the mean of these data? All right. Mean is a measure of the center. We attempt to measure the center of a data set. And the way in which we do that is that we add up every single data value and we divide by."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "meanMedianDiagram",
+            "description": "The mean is the balance point of the data set."
           },
           {
             "type": "formula",
@@ -329,7 +349,12 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT: \"which measure is most affected by the outlier?\" → **mean**. \"Which measure best represents the typical value when there's an outlier?\" → **median**. A high outlier increases the mean; a low outlier decreases it. The median only shifts by one position at most."
+            "content": "On the SAT: \"which measure is most affected by the outlier?\" → **mean**. \"Which measure best represents the typical value when there's an outlier?\" → **median**. A high outlier increases the mean; a low outlier decreases it. The median only shifts by one position at most. The list gives the values in data set X and Y. Which statement correctly compares the mean of data set X and the mean of data set Y? All right. I can clearly see that data set Y is made of data set X. It's the exact same data values. However, data se."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "meanMedianDiagram",
+            "description": "The mean is the balance point of the data set."
           },
           {
             "type": "formula",
@@ -411,7 +436,12 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT: \"which measure is most affected by the outlier?\" → **mean**. \"Which measure best represents the typical value when there's an outlier?\" → **median**. A high outlier increases the mean; a low outlier decreases it. The median only shifts by one position at most."
+            "content": "On the SAT: \"which measure is most affected by the outlier?\" → **mean**. \"Which measure best represents the typical value when there's an outlier?\" → **median**. A high outlier increases the mean; a low outlier decreases it. The median only shifts by one position at most. Five whatever a type of sea turtle each have a nest. The table shows an original data set of the number of eggs that each turtle laid in its nest. A six nest with 121 eggs is added to create a new data set. Which of the following correctly compares t."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "meanMedianDiagram",
+            "description": "The mean is the balance point of the data set."
           },
           {
             "type": "formula",
@@ -489,7 +519,12 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Finding Mean of a Combined Data Set (Mean) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Compute total sum and total count first, then divide."
+            "content": "On the SAT, Finding Mean of a Combined Data Set (Mean) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Compute total sum and total count first, then divide. Data set A consists of the heights of 75 buildings and has a mean of 32 m. Data set B consists the height of 50 buildings and has a mean of 62 m. Data set C consists of the heights of 125 buildings from data sets A and B. What does it mean in meters."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "meanMedianDiagram",
+            "description": "The mean is the balance point of the data set."
           },
           {
             "type": "formula",
@@ -569,7 +604,12 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Step 1: Sort all values from least to greatest. Step 2: If $n$ is odd, the median is the value at position $(n+1)/2$. If $n$ is even, the median is the average of the values at positions $n/2$ and $n/2 + 1$."
+            "content": "Step 1: Sort all values from least to greatest. Step 2: If $n$ is odd, the median is the value at position $(n+1)/2$. If $n$ is even, the median is the average of the values at positions $n/2$ and $n/2 + 1$. What is the median of the data shown? All right, median is a measure of the center of a data set. Now, we calculate median in a unique way. The method that we use to calculate median is that we arrange all data values lowest to greatest and we find t."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "meanMedianDiagram",
+            "description": "A sorted data set with the median (middle value) highlighted."
           },
           {
             "type": "formula",
@@ -651,7 +691,12 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Finding Median from a Frequency Table (Median) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Sort first, then locate one middle value (odd n) or average two (even n)."
+            "content": "On the SAT, Finding Median from a Frequency Table (Median) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Sort first, then locate one middle value (odd n) or average two (even n). What is the median of the data shown? All right, median is a measure of the center of a data set. Now, we calculate median in a unique way. The method that we use to calculate median is that we arrange all data values lowest to greatest and we find t."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "meanMedianDiagram",
+            "description": "A sorted data set with the median (middle value) highlighted."
           },
           {
             "type": "formula",
@@ -731,7 +776,12 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Calculating Median Example #1 (Median) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Sort first, then locate one middle value (odd n) or average two (even n)."
+            "content": "On the SAT, Simple Calculating Median Example #1 (Median) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Sort first, then locate one middle value (odd n) or average two (even n). What is the median of the data shown? All right, median is a measure of the center of a data set. Now, we calculate median in a unique way. The method that we use to calculate median is that we arrange all data values lowest to greatest and we find t."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "meanMedianDiagram",
+            "description": "A sorted data set with the median (middle value) highlighted."
           },
           {
             "type": "formula",
@@ -807,7 +857,12 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Calculating Median Example #1 (DESMOS Method) (Median) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Sort first, then locate one middle value (odd n) or average two (even n)."
+            "content": "On the SAT, Simple Calculating Median Example #1 (DESMOS Method) (Median) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Sort first, then locate one middle value (odd n) or average two (even n). Now this exact example can also be solved simply using Desmos. You would just simply type out median on Desmos and enter the data values within parenthesis. 73 comma 74 comma 75 comma 77 comma 79 comma 82 comma 84 comma 85 comma 91. And just like tha."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "meanMedianDiagram",
+            "description": "A sorted data set with the median (middle value) highlighted."
           },
           {
             "type": "formula",
@@ -883,7 +938,12 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Calculating Median Example #2 (Median) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Sort first, then locate one middle value (odd n) or average two (even n)."
+            "content": "On the SAT, Simple Calculating Median Example #2 (Median) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Sort first, then locate one middle value (odd n) or average two (even n). What is the median of the data set shown? All right, median is a measure of the center and it measures the center in a unique way. It arranges all values within a data set lowest to greatest and then it finds the number in the middle. So let's do jus."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "meanMedianDiagram",
+            "description": "A sorted data set with the median (middle value) highlighted."
           },
           {
             "type": "formula",
@@ -959,7 +1019,12 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Calculating Median Example #2 (DESMOS Method) (Median) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Sort first, then locate one middle value (odd n) or average two (even n)."
+            "content": "On the SAT, Simple Calculating Median Example #2 (DESMOS Method) (Median) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Sort first, then locate one middle value (odd n) or average two (even n). Now this exact question can also be solved simply using Desmos. What happens is you simply write median in Desmos and you just enter your data values with a comma in between each value. And we can clearly see that the median is five."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "meanMedianDiagram",
+            "description": "A sorted data set with the median (middle value) highlighted."
           },
           {
             "type": "formula",
@@ -1031,7 +1096,12 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Finding Median from Frequency Table (Median) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Sort first, then locate one middle value (odd n) or average two (even n)."
+            "content": "On the SAT, Finding Median from Frequency Table (Median) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Sort first, then locate one middle value (odd n) or average two (even n). The table shown summarizes the number of employees at each of the 17 restaurants in a town. Which of the following could be the median number of employees for the restaurants in this town? All right. This is the number of employees and this is the nu."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "meanMedianDiagram",
+            "description": "A sorted data set with the median (middle value) highlighted."
           },
           {
             "type": "formula",
@@ -1107,7 +1177,12 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Comparing Mean & Median of Two Data Sets (Median) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Compute total sum and total count first, then divide."
+            "content": "On the SAT, Comparing Mean & Median of Two Data Sets (Median) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Compute total sum and total count first, then divide. The frequency table summarizes a data set of the weights rounded to the nearest pound of 72 toes. A weight of 39 pounds is added to the original data set, creating a new data set of the weights rounded to the nearest pound of 72 toes. What statement."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "meanMedianDiagram",
+            "description": "The mean is the balance point of the data set."
           },
           {
             "type": "formula",
@@ -1183,7 +1258,7 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, What is the Mode? (Mode) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Decide the statistic type first, then apply its dedicated rule."
+            "content": "On the SAT, What is the Mode? (Mode) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Decide the statistic type first, then apply its dedicated rule. A list of 10 data values is shown. What is the mean of these data? All right. Mean is a measure of the center. We attempt to measure the center of a data set. And the way in which we do that is that we add up every single data value and we divide by."
           },
           {
             "type": "formula",
@@ -1255,7 +1330,7 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, What is the Range? (Range) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Decide the statistic type first, then apply its dedicated rule."
+            "content": "On the SAT, What is the Range? (Range) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Decide the statistic type first, then apply its dedicated rule. What is the range of the seven scores shown? Okay, range is very clearly just the maximum of a data set minus the minimum of a data set of this specific data set. The maximum value is clearly 52 and the minimum value is clearly 23. And so plugging ev."
           },
           {
             "type": "formula",
@@ -1327,7 +1402,7 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Calculating Range Example (Range) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Decide the statistic type first, then apply its dedicated rule."
+            "content": "On the SAT, Simple Calculating Range Example (Range) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Decide the statistic type first, then apply its dedicated rule. What is the range of the seven scores shown? Okay, range is very clearly just the maximum of a data set minus the minimum of a data set of this specific data set. The maximum value is clearly 52 and the minimum value is clearly 23. And so plugging ev."
           },
           {
             "type": "formula",
@@ -1399,7 +1474,12 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Comparing Median & Range of Two Data Sets (Range) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Sort first, then locate one middle value (odd n) or average two (even n)."
+            "content": "On the SAT, Comparing Median & Range of Two Data Sets (Range) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Sort first, then locate one middle value (odd n) or average two (even n). The dot plot represents the 15 values in data set A. Data set B is created by adding 56 each of the values in data set A. Which of the following correctly compares the medians and the ranges of data set A and B? All right, this is data set A. This is."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "meanMedianDiagram",
+            "description": "A sorted data set with the median (middle value) highlighted."
           },
           {
             "type": "formula",
@@ -1471,7 +1551,7 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, What is Standard Deviation? (Standard Deviation) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Decide the statistic type first, then apply its dedicated rule."
+            "content": "On the SAT, What is Standard Deviation? (Standard Deviation) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Decide the statistic type first, then apply its dedicated rule. Each of the dot plots shown represents the number of glue sticks brought in by each student for two classes, class A and class B. Which statement best compares the standard deviations of the number of glue sticks brought in by each student for these."
           },
           {
             "type": "formula",
@@ -1543,7 +1623,7 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Standard Deviation Example (Standard Deviation) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Decide the statistic type first, then apply its dedicated rule."
+            "content": "On the SAT, Simple Standard Deviation Example (Standard Deviation) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Decide the statistic type first, then apply its dedicated rule. Each of the dot plots shown represents the number of glue sticks brought in by each student for two classes, class A and class B. Which statement best compares the standard deviations of the number of glue sticks brought in by each student for these."
           },
           {
             "type": "formula",
@@ -1615,7 +1695,7 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Complex Standard Deviation Example (Standard Deviation) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Decide the statistic type first, then apply its dedicated rule."
+            "content": "On the SAT, Complex Standard Deviation Example (Standard Deviation) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Decide the statistic type first, then apply its dedicated rule. The dot plots represent the distribution of values in data sets A and B. Which of the following statements must be true? Statement one says the median of data set A is equal to the median of data set B. Statement two says the standard deviation of da."
           },
           {
             "type": "formula",
@@ -1691,7 +1771,7 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT: \"68% of respondents prefer X, with a margin of error of $\\pm 3\\%$\" means the true value is between $65\\%$ and $71\\%$. Larger sample → smaller margin of error. The SAT tests interpretation, not calculation."
+            "content": "On the SAT: \"68% of respondents prefer X, with a margin of error of $\\pm 3\\%$\" means the true value is between $65\\%$ and $71\\%$. Larger sample → smaller margin of error. The SAT tests interpretation, not calculation. To estimate the proportion of a population that has a certain characteristic, a random sample was selected from the population. Based on the sample, it is estimated that the proportion of the population that has a characteristic is 0.49 with an assoc."
           },
           {
             "type": "formula",
@@ -1773,7 +1853,7 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT: \"68% of respondents prefer X, with a margin of error of $\\pm 3\\%$\" means the true value is between $65\\%$ and $71\\%$. Larger sample → smaller margin of error. The SAT tests interpretation, not calculation."
+            "content": "On the SAT: \"68% of respondents prefer X, with a margin of error of $\\pm 3\\%$\" means the true value is between $65\\%$ and $71\\%$. Larger sample → smaller margin of error. The SAT tests interpretation, not calculation. To estimate the proportion of a population that has a certain characteristic, a random sample was selected from the population. Based on the sample, it is estimated that the proportion of the population that has a characteristic is 0.49 with an assoc."
           },
           {
             "type": "formula",
@@ -1855,7 +1935,7 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT: \"68% of respondents prefer X, with a margin of error of $\\pm 3\\%$\" means the true value is between $65\\%$ and $71\\%$. Larger sample → smaller margin of error. The SAT tests interpretation, not calculation."
+            "content": "On the SAT: \"68% of respondents prefer X, with a margin of error of $\\pm 3\\%$\" means the true value is between $65\\%$ and $71\\%$. Larger sample → smaller margin of error. The SAT tests interpretation, not calculation. An analyst collected data on the price of a carton of grape tomatoes at 30 locations selected at random in Utah. The mean price of a carton of grape tomatoes in Utah was estimated to be $4.23 with an estimated margin error of 8. Which of the followin."
           },
           {
             "type": "formula",
@@ -1937,7 +2017,7 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$. On the SAT, this usually appears with a two-way frequency table. \"Given that a student is male, what is the probability they prefer math?\" → look at the MALE row only, then find the math count divided by the male total."
+            "content": "$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$. On the SAT, this usually appears with a two-way frequency table. \"Given that a student is male, what is the probability they prefer math?\" → look at the MALE row only, then find the math count divided by the male total. A list of 10 data values is shown. What is the mean of these data? All right. Mean is a measure of the center. We attempt to measure the center of a data set. And the way in which we do that is that we add up every single data value and we divide by."
           },
           {
             "type": "formula",
@@ -2019,7 +2099,7 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$. On the SAT, this usually appears with a two-way frequency table. \"Given that a student is male, what is the probability they prefer math?\" → look at the MALE row only, then find the math count divided by the male total."
+            "content": "$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$. On the SAT, this usually appears with a two-way frequency table. \"Given that a student is male, what is the probability they prefer math?\" → look at the MALE row only, then find the math count divided by the male total. A list of 10 data values is shown. What is the mean of these data? All right. Mean is a measure of the center. We attempt to measure the center of a data set. And the way in which we do that is that we add up every single data value and we divide by."
           },
           {
             "type": "formula",
@@ -2097,7 +2177,7 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$. On the SAT, this usually appears with a two-way frequency table. \"Given that a student is male, what is the probability they prefer math?\" → look at the MALE row only, then find the math count divided by the male total."
+            "content": "$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$. On the SAT, this usually appears with a two-way frequency table. \"Given that a student is male, what is the probability they prefer math?\" → look at the MALE row only, then find the math count divided by the male total. A list of 10 data values is shown. What is the mean of these data? All right. Mean is a measure of the center. We attempt to measure the center of a data set. And the way in which we do that is that we add up every single data value and we divide by."
           },
           {
             "type": "formula",
@@ -2179,7 +2259,7 @@ export const statisticsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Reading Two-Way Tables (Two-Way Tables) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Decide the statistic type first, then apply its dedicated rule."
+            "content": "On the SAT, Reading Two-Way Tables (Two-Way Tables) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Decide the statistic type first, then apply its dedicated rule. A list of 10 data values is shown. What is the mean of these data? All right. Mean is a measure of the center. We attempt to measure the center of a data set. And the way in which we do that is that we add up every single data value and we divide by."
           },
           {
             "type": "formula",

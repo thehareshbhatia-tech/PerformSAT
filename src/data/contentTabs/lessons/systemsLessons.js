@@ -17,7 +17,7 @@ export const systemsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, systems appear in three flavors: (1) **One solution** — the lines cross at exactly one point (different slopes). (2) **No solution** — the lines are parallel (same slope, different intercepts). (3) **Infinitely many solutions** — the lines are identical (same slope AND same intercept). CB tests whether you can classify the system before solving."
+            "content": "On the SAT, systems appear in three flavors: (1) **One solution** — the lines cross at exactly one point (different slopes). (2) **No solution** — the lines are parallel (same slope, different intercepts). (3) **Infinitely many solutions** — the lines are identical (same slope AND same intercept). CB tests whether you can classify the system before solving. Jay walks at a speed of 3 mph and runs at a speed of 5 miles hour. He walks for W hours and runs for R hours for a combined of 14 miles. Which equation represents this situation? All right. He walks for W hours and for every hour of walking he covers."
           },
           {
             "type": "formula",
@@ -99,7 +99,7 @@ export const systemsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Compare the equations in slope-intercept form: Same slope + different intercept = parallel = **no solution**. Same slope + same intercept = same line = **infinitely many**. Different slopes = they must cross somewhere = **exactly one solution**. For standard form $ax + by = c$, compare the ratios $a_1/a_2$, $b_1/b_2$, $c_1/c_2$."
+            "content": "Compare the equations in slope-intercept form: Same slope + different intercept = parallel = **no solution**. Same slope + same intercept = same line = **infinitely many**. Different slopes = they must cross somewhere = **exactly one solution**. For standard form $ax + by = c$, compare the ratios $a_1/a_2$, $b_1/b_2$, $c_1/c_2$. Jay walks at a speed of 3 mph and runs at a speed of 5 miles hour. He walks for W hours and runs for R hours for a combined of 14 miles. Which equation represents this situation? All right. He walks for W hours and for every hour of walking he covers."
           },
           {
             "type": "formula",
@@ -181,7 +181,7 @@ export const systemsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Writing Systems from Word Problems (Setting Up Systems) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Classify solution type before computing exact values."
+            "content": "On the SAT, Writing Systems from Word Problems (Setting Up Systems) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Classify solution type before computing exact values. Jay walks at a speed of 3 mph and runs at a speed of 5 miles hour. He walks for W hours and runs for R hours for a combined of 14 miles. Which equation represents this situation? All right. He walks for W hours and for every hour of walking he covers."
           },
           {
             "type": "formula",
@@ -265,7 +265,7 @@ export const systemsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Deriving System of Equation from Context Example #1 (Setting Up Systems) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Classify solution type before computing exact values."
+            "content": "On the SAT, Deriving System of Equation from Context Example #1 (Setting Up Systems) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Classify solution type before computing exact values. Jay walks at a speed of 3 mph and runs at a speed of 5 miles hour. He walks for W hours and runs for R hours for a combined of 14 miles. Which equation represents this situation? All right. He walks for W hours and for every hour of walking he covers."
           },
           {
             "type": "diagramRef",
@@ -354,7 +354,7 @@ export const systemsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Deriving System of Equation from Context Example #2 (Setting Up Systems) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Classify solution type before computing exact values."
+            "content": "On the SAT, Deriving System of Equation from Context Example #2 (Setting Up Systems) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Classify solution type before computing exact values. A teacher is creating an assignment worth 70 points. The assignment will consist of questions worth one point and questions worth three points. Which equation represents this situation where X represents the number of onepoint questions and Y represe."
           },
           {
             "type": "diagramRef",
@@ -443,7 +443,7 @@ export const systemsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Step 1: Pick the equation where one variable is easiest to isolate. Step 2: Solve for that variable. Step 3: Substitute into the other equation. Step 4: Solve and back-substitute. Best when one equation already has a variable isolated (e.g., $y = 3x + 1$)."
+            "content": "Step 1: Pick the equation where one variable is easiest to isolate. Step 2: Solve for that variable. Step 3: Substitute into the other equation. Step 4: Solve and back-substitute. Best when one equation already has a variable isolated (e.g., $y = 3x + 1$). y = -3x 4x + y = 15. The solution to the given system of equations is x comma y. What is the value of x? All right, we're given these two equations here. This is equation one and this is equation two. Now, both of these equations have two variables a."
           },
           {
             "type": "formula",
@@ -529,7 +529,7 @@ export const systemsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Step 1: Pick the equation where one variable is easiest to isolate. Step 2: Solve for that variable. Step 3: Substitute into the other equation. Step 4: Solve and back-substitute. Best when one equation already has a variable isolated (e.g., $y = 3x + 1$)."
+            "content": "Step 1: Pick the equation where one variable is easiest to isolate. Step 2: Solve for that variable. Step 3: Substitute into the other equation. Step 4: Solve and back-substitute. Best when one equation already has a variable isolated (e.g., $y = 3x + 1$). y = -3x 4x + y = 15. The solution to the given system of equations is x comma y. What is the value of x? All right, we're given these two equations here. This is equation one and this is equation two. Now, both of these equations have two variables a."
           },
           {
             "type": "formula",
@@ -615,7 +615,7 @@ export const systemsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Step 1: Align equations in $ax + by = c$ form. Step 2: Multiply one or both equations so that one variable has equal (or opposite) coefficients. Step 3: Add or subtract to eliminate that variable. Step 4: Solve for the remaining variable and back-substitute."
+            "content": "Step 1: Align equations in $ax + by = c$ form. Step 2: Multiply one or both equations so that one variable has equal (or opposite) coefficients. Step 3: Add or subtract to eliminate that variable. Step 4: Solve for the remaining variable and back-substitute. 24x + y is equal to 48. 6x + y = 72. The solution to the given system of equations is x comma y. What is the value of y? All right. This is equation one. This is equation two. Whenever you are given two equations within a system of equations, you are."
           },
           {
             "type": "formula",
@@ -701,7 +701,7 @@ export const systemsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Step 1: Align equations in $ax + by = c$ form. Step 2: Multiply one or both equations so that one variable has equal (or opposite) coefficients. Step 3: Add or subtract to eliminate that variable. Step 4: Solve for the remaining variable and back-substitute."
+            "content": "Step 1: Align equations in $ax + by = c$ form. Step 2: Multiply one or both equations so that one variable has equal (or opposite) coefficients. Step 3: Add or subtract to eliminate that variable. Step 4: Solve for the remaining variable and back-substitute. 24x + y is equal to 48. 6x + y = 72. The solution to the given system of equations is x comma y. What is the value of y? All right. This is equation one. This is equation two. Whenever you are given two equations within a system of equations, you are."
           },
           {
             "type": "formula",
@@ -791,7 +791,7 @@ export const systemsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Solving with DESMOS (DESMOS Method) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Classify solution type before computing exact values."
+            "content": "On the SAT, Solving with DESMOS (DESMOS Method) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Classify solution type before computing exact values. Now any system of equations question can simply be solved by using Desmos. We can simply graph the equations just the way they are given to us on Desmos. And the point of intersection is the solution to our system of equations which in this case the."
           },
           {
             "type": "formula",
@@ -871,7 +871,7 @@ export const systemsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Solving System of Equations using DESMOS Example #1 (DESMOS Method) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Classify solution type before computing exact values."
+            "content": "On the SAT, Solving System of Equations using DESMOS Example #1 (DESMOS Method) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Classify solution type before computing exact values. Now any system of equations question can simply be solved by using Desmos. We can simply graph the equations just the way they are given to us on Desmos. And the point of intersection is the solution to our system of equations which in this case the."
           },
           {
             "type": "formula",
@@ -951,7 +951,7 @@ export const systemsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Solving System of Equations using DESMOS Example #2 (DESMOS Method) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Classify solution type before computing exact values."
+            "content": "On the SAT, Solving System of Equations using DESMOS Example #2 (DESMOS Method) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Classify solution type before computing exact values. Now again any system of equations question can be solved simply using desmos. We can graph the equations just the way they're given to us and the point of intersection is our solution. In this case, the point of intersection is -12, comma, -47, which."
           },
           {
             "type": "formula",
@@ -1031,7 +1031,7 @@ export const systemsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Infinite Solutions & Parametric Form (Infinite Solutions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Classify solution type before computing exact values."
+            "content": "On the SAT, Infinite Solutions & Parametric Form (Infinite Solutions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Classify solution type before computing exact values. For each real number r, which of the following points lies on the graph of each equation in the xy plane for the given system? All right, we are given these two equations. This is equation one. This is equation two. And these two equations exist in a."
           },
           {
             "type": "formula",
@@ -1111,7 +1111,7 @@ export const systemsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Infinite Solutions SAT Example (Infinite Solutions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Classify solution type before computing exact values."
+            "content": "On the SAT, Infinite Solutions SAT Example (Infinite Solutions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Classify solution type before computing exact values. For each real number r, which of the following points lies on the graph of each equation in the xy plane for the given system? All right, we are given these two equations. This is equation one. This is equation two. And these two equations exist in a."
           },
           {
             "type": "formula",

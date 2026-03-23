@@ -17,7 +17,7 @@ export const linearEquationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "The SAT tests linear equations through three forms — each reveals different information instantly. **Slope-intercept** ($y = mx + b$) shows slope and $y$-intercept directly. **Standard form** ($Ax + By = C$) reveals both intercepts ($C/A$ and $C/B$) and slope ($-A/B$). **Point-slope** ($y - y_1 = m(x - x_1)$) shows a specific point the line passes through. CB designs answer choices so students who convert to the wrong form waste time and make sign errors."
+            "content": "The SAT tests linear equations through three forms — each reveals different information instantly. **Slope-intercept** ($y = mx + b$) shows slope and $y$-intercept directly. **Standard form** ($Ax + By = C$) reveals both intercepts ($C/A$ and $C/B$) and slope ($-A/B$). **Point-slope** ($y - y_1 = m(x - x_1)$) shows a specific point the line passes through. CB designs answer choices so students who convert to the wrong form waste time and make sign errors. The relationship between two variables x and y is linear. For every increase in the value of x by one, the value of y increases by 8. When the value of x is 2, the value of y is 18. Which equation represents this relationship? Okay, this is a very si."
           },
           {
             "type": "formula",
@@ -103,7 +103,7 @@ export const linearEquationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "In context problems, slope is the \"**per**\" quantity. A gym that charges \"\\$25 **per** month plus a \\$50 sign-up fee\" gives $y = 25x + 50$ where slope $= 25$. The words \"per,\" \"each,\" \"every,\" and \"for each\" are the universal trigger — that number is always the slope. The constant/fixed/initial value is the $y$-intercept."
+            "content": "In context problems, slope is the \"**per**\" quantity. A gym that charges \"\\$25 **per** month plus a \\$50 sign-up fee\" gives $y = 25x + 50$ where slope $= 25$. The words \"per,\" \"each,\" \"every,\" and \"for each\" are the universal trigger — that number is always the slope. The constant/fixed/initial value is the $y$-intercept. The relationship between two variables x and y is linear. For every increase in the value of x by one, the value of y increases by 8. When the value of x is 2, the value of y is 18. Which equation represents this relationship? Okay, this is a very si."
           },
           {
             "type": "formula",
@@ -189,7 +189,7 @@ export const linearEquationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "The slope formula is $m = \\frac{y_2 - y_1}{x_2 - x_1}$. Plug in any two points $(x_1, y_1)$ and $(x_2, y_2)$. The order does not matter as long as you are consistent — both subtractions must go in the same direction."
+            "content": "The slope formula is $m = \\frac{y_2 - y_1}{x_2 - x_1}$. Plug in any two points $(x_1, y_1)$ and $(x_2, y_2)$. The order does not matter as long as you are consistent — both subtractions must go in the same direction. The relationship between two variables x and y is linear. For every increase in the value of x by one, the value of y increases by 8. When the value of x is 2, the value of y is 18. Which equation represents this relationship? Okay, this is a very si."
           },
           {
             "type": "formula",
@@ -275,7 +275,7 @@ export const linearEquationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "From any two rows: slope $= \\frac{\\Delta y}{\\Delta x} = \\frac{y_2 - y_1}{x_2 - x_1}$. If $x$ increases by $2$ and $y$ increases by $6$, the slope is $6/2 = 3$, not $6$. Always check the step size in the $x$-column."
+            "content": "From any two rows: slope $= \\frac{\\Delta y}{\\Delta x} = \\frac{y_2 - y_1}{x_2 - x_1}$. If $x$ increases by $2$ and $y$ increases by $6$, the slope is $6/2 = 3$, not $6$. Always check the step size in the $x$-column. The relationship between two variables x and y is linear. For every increase in the value of x by one, the value of y increases by 8. When the value of x is 2, the value of y is 18. Which equation represents this relationship? Okay, this is a very si."
           },
           {
             "type": "diagramRef",
@@ -366,7 +366,7 @@ export const linearEquationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "To find the exact slope from a graph: pick two points where the line clearly crosses grid intersections. Count the **rise** (vertical change) and **run** (horizontal change). Slope $= \\text{rise} / \\text{run}$. Remember: downward rise is negative."
+            "content": "To find the exact slope from a graph: pick two points where the line clearly crosses grid intersections. Count the **rise** (vertical change) and **run** (horizontal change). Slope $= \\text{rise} / \\text{run}$. Remember: downward rise is negative. The relationship between two variables x and y is linear. For every increase in the value of x by one, the value of y increases by 8. When the value of x is 2, the value of y is 18. Which equation represents this relationship? Okay, this is a very si."
           },
           {
             "type": "diagramRef",
@@ -457,7 +457,7 @@ export const linearEquationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "In slope-intercept form $y = mx + b$, the $y$-intercept is $b$. In standard form $Ax + By = C$, the $y$-intercept is $C/B$ (set $x = 0$ and solve). On a graph, it is the $y$-value where the line touches the vertical axis."
+            "content": "In slope-intercept form $y = mx + b$, the $y$-intercept is $b$. In standard form $Ax + By = C$, the $y$-intercept is $C/B$ (set $x = 0$ and solve). On a graph, it is the $y$-value where the line touches the vertical axis. The relationship between two variables x and y is linear. For every increase in the value of x by one, the value of y increases by 8. When the value of x is 2, the value of y is 18. Which equation represents this relationship? Okay, this is a very si."
           },
           {
             "type": "diagramRef",
@@ -548,7 +548,7 @@ export const linearEquationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Step 1: Identify the two quantities (what changes and what it depends on). Step 2: Find the rate of change — the \"per\" quantity is the slope. Step 3: Find the initial value — the fixed/starting amount is the $y$-intercept. Step 4: Assemble into $y = mx + b$."
+            "content": "Step 1: Identify the two quantities (what changes and what it depends on). Step 2: Find the rate of change — the \"per\" quantity is the slope. Step 3: Find the initial value — the fixed/starting amount is the $y$-intercept. Step 4: Assemble into $y = mx + b$. The relationship between two variables x and y is linear. For every increase in the value of x by one, the value of y increases by 8. When the value of x is 2, the value of y is 18. Which equation represents this relationship? Okay, this is a very si."
           },
           {
             "type": "diagramRef",
@@ -639,7 +639,7 @@ export const linearEquationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Step 1: Identify the two quantities (what changes and what it depends on). Step 2: Find the rate of change — the \"per\" quantity is the slope. Step 3: Find the initial value — the fixed/starting amount is the $y$-intercept. Step 4: Assemble into $y = mx + b$."
+            "content": "Step 1: Identify the two quantities (what changes and what it depends on). Step 2: Find the rate of change — the \"per\" quantity is the slope. Step 3: Find the initial value — the fixed/starting amount is the $y$-intercept. Step 4: Assemble into $y = mx + b$. Which of the following equations is the most appropriate linear model for the data shown in the scatter plot? Okay, we are given data within a scatter plot in that graph above and we're asked to define the linear model, which is another way of saying."
           },
           {
             "type": "diagramRef",
@@ -730,7 +730,7 @@ export const linearEquationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Step 1: Identify the two quantities (what changes and what it depends on). Step 2: Find the rate of change — the \"per\" quantity is the slope. Step 3: Find the initial value — the fixed/starting amount is the $y$-intercept. Step 4: Assemble into $y = mx + b$."
+            "content": "Step 1: Identify the two quantities (what changes and what it depends on). Step 2: Find the rate of change — the \"per\" quantity is the slope. Step 3: Find the initial value — the fixed/starting amount is the $y$-intercept. Step 4: Assemble into $y = mx + b$. The graph shows the relationship between the number of shares of stock from company A, which is the X value, and the number of shares of stock from company B, which is the y-value that Simone can purchase. Which equation could represent this relation."
           },
           {
             "type": "diagramRef",
@@ -821,7 +821,7 @@ export const linearEquationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Step 1: Identify the two quantities (what changes and what it depends on). Step 2: Find the rate of change — the \"per\" quantity is the slope. Step 3: Find the initial value — the fixed/starting amount is the $y$-intercept. Step 4: Assemble into $y = mx + b$."
+            "content": "Step 1: Identify the two quantities (what changes and what it depends on). Step 2: Find the rate of change — the \"per\" quantity is the slope. Step 3: Find the initial value — the fixed/starting amount is the $y$-intercept. Step 4: Assemble into $y = mx + b$. For the linear function f, the table shows three values of x and their corresponding values of f ofx. Which equation defines f ofx? Okay, this is a clear example of deriving a linear equation. We know it's a linear equation because it says linear fun."
           },
           {
             "type": "diagramRef",
@@ -912,7 +912,7 @@ export const linearEquationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Step 1: Identify the two quantities (what changes and what it depends on). Step 2: Find the rate of change — the \"per\" quantity is the slope. Step 3: Find the initial value — the fixed/starting amount is the $y$-intercept. Step 4: Assemble into $y = mx + b$."
+            "content": "Step 1: Identify the two quantities (what changes and what it depends on). Step 2: Find the rate of change — the \"per\" quantity is the slope. Step 3: Find the initial value — the fixed/starting amount is the $y$-intercept. Step 4: Assemble into $y = mx + b$. In the linear function f, f of 0 is equal to 8 and f of 1 is equal to 12. Which equation defines f? Okay, this is a linear function which means the function will be defined through a linear expression which means the function will follow the format y."
           },
           {
             "type": "diagramRef",
@@ -1003,7 +1003,7 @@ export const linearEquationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Two lines are parallel if and only if $m_1 = m_2$ and $b_1 \\neq b_2$. On the SAT, \"parallel\" questions often give you one equation and ask you to find or identify another line with the same slope. In system-of-equations contexts, parallel lines mean the system has **no solution**."
+            "content": "Two lines are parallel if and only if $m_1 = m_2$ and $b_1 \\neq b_2$. On the SAT, \"parallel\" questions often give you one equation and ask you to find or identify another line with the same slope. In system-of-equations contexts, parallel lines mean the system has **no solution**. For the given function f, the graph of y = f ofx in the xy plane is parallel to line j. What is the slope of line j? Okay, first things first. Function f is a linear function because the highest degree is x to the 1 and therefore it is a linear funct."
           },
           {
             "type": "diagramRef",
@@ -1090,7 +1090,7 @@ export const linearEquationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Two lines are parallel if and only if $m_1 = m_2$ and $b_1 \\neq b_2$. On the SAT, \"parallel\" questions often give you one equation and ask you to find or identify another line with the same slope. In system-of-equations contexts, parallel lines mean the system has **no solution**."
+            "content": "Two lines are parallel if and only if $m_1 = m_2$ and $b_1 \\neq b_2$. On the SAT, \"parallel\" questions often give you one equation and ask you to find or identify another line with the same slope. In system-of-equations contexts, parallel lines mean the system has **no solution**. For the given function f, the graph of y = f ofx in the xy plane is parallel to line j. What is the slope of line j? Okay, first things first. Function f is a linear function because the highest degree is x to the 1 and therefore it is a linear funct."
           },
           {
             "type": "diagramRef",
@@ -1181,7 +1181,7 @@ export const linearEquationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Two lines are parallel if and only if $m_1 = m_2$ and $b_1 \\neq b_2$. On the SAT, \"parallel\" questions often give you one equation and ask you to find or identify another line with the same slope. In system-of-equations contexts, parallel lines mean the system has **no solution**."
+            "content": "Two lines are parallel if and only if $m_1 = m_2$ and $b_1 \\neq b_2$. On the SAT, \"parallel\" questions often give you one equation and ask you to find or identify another line with the same slope. In system-of-equations contexts, parallel lines mean the system has **no solution**. What is the equation of the line that passes through the point 0a 5 and is parallel to the graph of y = 7x + 4 in the xy plane? Well, if this line is parallel to the graph of y = 7x + 4, this line must clearly have the same exact slope as y = 7 x + 4."
           },
           {
             "type": "diagramRef",
@@ -1272,7 +1272,7 @@ export const linearEquationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Two lines are parallel if and only if $m_1 = m_2$ and $b_1 \\neq b_2$. On the SAT, \"parallel\" questions often give you one equation and ask you to find or identify another line with the same slope. In system-of-equations contexts, parallel lines mean the system has **no solution**."
+            "content": "Two lines are parallel if and only if $m_1 = m_2$ and $b_1 \\neq b_2$. On the SAT, \"parallel\" questions often give you one equation and ask you to find or identify another line with the same slope. In system-of-equations contexts, parallel lines mean the system has **no solution**. One of the equations in a system of two linear equations is given. The system has no solution. Which equation could be the second equation in the system? Okay. Well, the system is a system of two linear equations, which means it's the system of two s."
           },
           {
             "type": "diagramRef",
@@ -1359,7 +1359,7 @@ export const linearEquationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Two lines are parallel if and only if $m_1 = m_2$ and $b_1 \\neq b_2$. On the SAT, \"parallel\" questions often give you one equation and ask you to find or identify another line with the same slope. In system-of-equations contexts, parallel lines mean the system has **no solution**."
+            "content": "Two lines are parallel if and only if $m_1 = m_2$ and $b_1 \\neq b_2$. On the SAT, \"parallel\" questions often give you one equation and ask you to find or identify another line with the same slope. In system-of-equations contexts, parallel lines mean the system has **no solution**. In the given system of equations, P is a constant. If the system has no solution, what is the value of P? Okay, let's first classify our lines. These lines, let's call this one line one. And let's call this one line two. I clearly know that these are."
           },
           {
             "type": "diagramRef",
@@ -1450,7 +1450,7 @@ export const linearEquationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Two lines are parallel if and only if $m_1 = m_2$ and $b_1 \\neq b_2$. On the SAT, \"parallel\" questions often give you one equation and ask you to find or identify another line with the same slope. In system-of-equations contexts, parallel lines mean the system has **no solution**."
+            "content": "Two lines are parallel if and only if $m_1 = m_2$ and $b_1 \\neq b_2$. On the SAT, \"parallel\" questions often give you one equation and ask you to find or identify another line with the same slope. In system-of-equations contexts, parallel lines mean the system has **no solution**. Okay. Now this exact question can also be solved by using only Desmos. We are given these two equations and we can graph these two equations just the way we are given on Desmos. But we are still required to do some logical thinking. We're required to."
           },
           {
             "type": "diagramRef",
@@ -1541,7 +1541,7 @@ export const linearEquationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Two lines are parallel if and only if $m_1 = m_2$ and $b_1 \\neq b_2$. On the SAT, \"parallel\" questions often give you one equation and ask you to find or identify another line with the same slope. In system-of-equations contexts, parallel lines mean the system has **no solution**."
+            "content": "Two lines are parallel if and only if $m_1 = m_2$ and $b_1 \\neq b_2$. On the SAT, \"parallel\" questions often give you one equation and ask you to find or identify another line with the same slope. In system-of-equations contexts, parallel lines mean the system has **no solution**. In the given system of equations, r is a constant. If the system has no solutions, what is the value of r? All right, we are dealing with a system of equations. Specifically, this is a system of linear equations where this is line one. This is line t."
           },
           {
             "type": "diagramRef",
@@ -1632,7 +1632,7 @@ export const linearEquationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Two lines are parallel if and only if $m_1 = m_2$ and $b_1 \\neq b_2$. On the SAT, \"parallel\" questions often give you one equation and ask you to find or identify another line with the same slope. In system-of-equations contexts, parallel lines mean the system has **no solution**."
+            "content": "Two lines are parallel if and only if $m_1 = m_2$ and $b_1 \\neq b_2$. On the SAT, \"parallel\" questions often give you one equation and ask you to find or identify another line with the same slope. In system-of-equations contexts, parallel lines mean the system has **no solution**. Okay, this exact question can be solved just the way it's given to us by simply using Desmos. Now, we already know that this is a system of equations and this is a system of equations of two lines. This is line one and this is line two. Both of these."
           },
           {
             "type": "diagramRef",
@@ -1723,7 +1723,7 @@ export const linearEquationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Two lines are parallel if and only if $m_1 = m_2$ and $b_1 \\neq b_2$. On the SAT, \"parallel\" questions often give you one equation and ask you to find or identify another line with the same slope. In system-of-equations contexts, parallel lines mean the system has **no solution**."
+            "content": "Two lines are parallel if and only if $m_1 = m_2$ and $b_1 \\neq b_2$. On the SAT, \"parallel\" questions often give you one equation and ask you to find or identify another line with the same slope. In system-of-equations contexts, parallel lines mean the system has **no solution**. In the given equation, P is a constant. The equation is no solution. What is the value of P? Since this question is asking us to solve for P, the logical thing must be to first isolate P and we can attempt to do that by adding 3x on both sides. Since."
           },
           {
             "type": "diagramRef",
@@ -1814,7 +1814,7 @@ export const linearEquationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Two lines are parallel if and only if $m_1 = m_2$ and $b_1 \\neq b_2$. On the SAT, \"parallel\" questions often give you one equation and ask you to find or identify another line with the same slope. In system-of-equations contexts, parallel lines mean the system has **no solution**."
+            "content": "Two lines are parallel if and only if $m_1 = m_2$ and $b_1 \\neq b_2$. On the SAT, \"parallel\" questions often give you one equation and ask you to find or identify another line with the same slope. In system-of-equations contexts, parallel lines mean the system has **no solution**. Okay, in the given equation, P is a constant. The equation has no solution. What is the value of P? Since this question asking is asking us to solve for the value of P and this question gives us answer choices, our answer choices must answer the ques."
           },
           {
             "type": "diagramRef",
@@ -1905,7 +1905,7 @@ export const linearEquationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "If line 1 has slope $m$, a perpendicular line has slope $-1/m$. The product of perpendicular slopes is always $-1$: $m_1 \\times m_2 = -1$. On the SAT, if you see a slope of $2/3$, the perpendicular slope is $-3/2$."
+            "content": "If line 1 has slope $m$, a perpendicular line has slope $-1/m$. The product of perpendicular slopes is always $-1$: $m_1 \\times m_2 = -1$. On the SAT, if you see a slope of $2/3$, the perpendicular slope is $-3/2$. Line P is defined by 2 Y + 18X = 9. Line R is perpendicular to line P in the XY plane. What is the slope of line R? Well, we are given the equation of line P, which is 2 Y + 18X = 9. And we are told that line P is perpendicular to line R or that line."
           },
           {
             "type": "diagramRef",
@@ -1996,7 +1996,7 @@ export const linearEquationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "If line 1 has slope $m$, a perpendicular line has slope $-1/m$. The product of perpendicular slopes is always $-1$: $m_1 \\times m_2 = -1$. On the SAT, if you see a slope of $2/3$, the perpendicular slope is $-3/2$."
+            "content": "If line 1 has slope $m$, a perpendicular line has slope $-1/m$. The product of perpendicular slopes is always $-1$: $m_1 \\times m_2 = -1$. On the SAT, if you see a slope of $2/3$, the perpendicular slope is $-3/2$. Line P is defined by 2 Y + 18X = 9. Line R is perpendicular to line P in the XY plane. What is the slope of line R? Well, we are given the equation of line P, which is 2 Y + 18X = 9. And we are told that line P is perpendicular to line R or that line."
           },
           {
             "type": "diagramRef",
@@ -2087,7 +2087,7 @@ export const linearEquationsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "If line 1 has slope $m$, a perpendicular line has slope $-1/m$. The product of perpendicular slopes is always $-1$: $m_1 \\times m_2 = -1$. On the SAT, if you see a slope of $2/3$, the perpendicular slope is $-3/2$."
+            "content": "If line 1 has slope $m$, a perpendicular line has slope $-1/m$. The product of perpendicular slopes is always $-1$: $m_1 \\times m_2 = -1$. On the SAT, if you see a slope of $2/3$, the perpendicular slope is $-3/2$. In the given pair of equations, A and B are constants. The graph of this pair of equations in the xy plane is a pair of perpendicular lines. Which of the following pair of equations also represents a pair of perpendicular lines? Okay. In this questio."
           },
           {
             "type": "diagramRef",

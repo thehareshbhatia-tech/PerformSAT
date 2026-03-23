@@ -17,7 +17,7 @@ export const exponentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "The three core rules: (1) **Product rule**: $a^m \\cdot a^n = a^{m+n}$ — same base, add exponents. (2) **Quotient rule**: $\\frac{a^m}{a^n} = a^{m-n}$ — same base, subtract exponents. (3) **Power rule**: $(a^m)^n = a^{mn}$ — power of a power, multiply exponents. These only work when the bases are the same."
+            "content": "The three core rules: (1) **Product rule**: $a^m \\cdot a^n = a^{m+n}$ — same base, add exponents. (2) **Quotient rule**: $\\frac{a^m}{a^n} = a^{m-n}$ — same base, subtract exponents. (3) **Power rule**: $(a^m)^n = a^{mn}$ — power of a power, multiply exponents. These only work when the bases are the same. Which expression is equivalent to m 4th q 4th z1* m q to 5th z 3r where mq and z are positive? Okay, this is a very simple and direct laws of x1's question. Let's rewrite this expression so we can clearly see what laws of exponents are at play here."
           },
           {
             "type": "formula",
@@ -99,7 +99,7 @@ export const exponentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "The three core rules: (1) **Product rule**: $a^m \\cdot a^n = a^{m+n}$ — same base, add exponents. (2) **Quotient rule**: $\\frac{a^m}{a^n} = a^{m-n}$ — same base, subtract exponents. (3) **Power rule**: $(a^m)^n = a^{mn}$ — power of a power, multiply exponents. These only work when the bases are the same."
+            "content": "The three core rules: (1) **Product rule**: $a^m \\cdot a^n = a^{m+n}$ — same base, add exponents. (2) **Quotient rule**: $\\frac{a^m}{a^n} = a^{m-n}$ — same base, subtract exponents. (3) **Power rule**: $(a^m)^n = a^{mn}$ — power of a power, multiply exponents. These only work when the bases are the same. Which expression is equivalent to m 4th q 4th z1* m q to 5th z 3r where mq and z are positive? Okay, this is a very simple and direct laws of x1's question. Let's rewrite this expression so we can clearly see what laws of exponents are at play here."
           },
           {
             "type": "formula",
@@ -185,7 +185,7 @@ export const exponentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "The three core rules: (1) **Product rule**: $a^m \\cdot a^n = a^{m+n}$ — same base, add exponents. (2) **Quotient rule**: $\\frac{a^m}{a^n} = a^{m-n}$ — same base, subtract exponents. (3) **Power rule**: $(a^m)^n = a^{mn}$ — power of a power, multiply exponents. These only work when the bases are the same."
+            "content": "The three core rules: (1) **Product rule**: $a^m \\cdot a^n = a^{m+n}$ — same base, add exponents. (2) **Quotient rule**: $\\frac{a^m}{a^n} = a^{m-n}$ — same base, subtract exponents. (3) **Power rule**: $(a^m)^n = a^{mn}$ — power of a power, multiply exponents. These only work when the bases are the same. Which expression is equivalent to h the 15th q to the 7th over h 5th q to the 21st power? Okay, this is a very simple laws of exponents example. Let's first break this expression into given terms so it's easier to look at. H to the 15th over H to 5th."
           },
           {
             "type": "formula",
@@ -271,7 +271,7 @@ export const exponentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Fractional Exponents Simple Example (Laws of Exponents) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Rewrite every exponent expression to a common base before comparing."
+            "content": "On the SAT, Fractional Exponents Simple Example (Laws of Exponents) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Rewrite every exponent expression to a common base before comparing. expression is equivalent to a^ the 112th power where a is greater than zero. Okay, this is a simple fractional exponent question. If we remember our fractional exponent rules when anything is to the fractional exponent power, we can rewrite it in its."
           },
           {
             "type": "formula",
@@ -351,7 +351,7 @@ export const exponentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Fractional Exponents Complex Example (Laws of Exponents) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Rewrite every exponent expression to a common base before comparing."
+            "content": "On the SAT, Fractional Exponents Complex Example (Laws of Exponents) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Rewrite every exponent expression to a common base before comparing. The expression is equivalent to a x to the b power where a and b are positive constants and x is greater than one. What is the value of a plus b? Okay, this question looks much more complex than it actually is. Let's first work with that unique radic."
           },
           {
             "type": "formula",
@@ -431,7 +431,7 @@ export const exponentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Strategy: express both sides as powers of the same base. $8^3$ vs $4^5$: rewrite as $(2^3)^3 = 2^9$ vs $(2^2)^5 = 2^{10}$. Since $2^{10} > 2^9$, $4^5 > 8^3$."
+            "content": "Strategy: express both sides as powers of the same base. $8^3$ vs $4^5$: rewrite as $(2^3)^3 = 2^9$ vs $(2^2)^5 = 2^{10}$. Since $2^{10} > 2^9$, $4^5 > 8^3$. If 4 to the 8 C power is equal to the cube root of 4 to the 7th power, what is the value of C? Okay, I'm just going to rewrite this radical in a fractional exponent form so it's just easier to compare and see. Okay, this is what we're told. This is w."
           },
           {
             "type": "formula",
@@ -513,7 +513,7 @@ export const exponentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Exponential Expression Comparison Example (Comparing Exponential Expressions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Rewrite every exponent expression to a common base before comparing."
+            "content": "On the SAT, Simple Exponential Expression Comparison Example (Comparing Exponential Expressions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Rewrite every exponent expression to a common base before comparing. If 4 to the 8 C power is equal to the cube root of 4 to the 7th power, what is the value of C? Okay, I'm just going to rewrite this radical in a fractional exponent form so it's just easier to compare and see. Okay, this is what we're told. This is w."
           },
           {
             "type": "formula",
@@ -593,7 +593,7 @@ export const exponentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Complex Exponential Expression Comparison Example (Comparing Exponential Expressions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Rewrite every exponent expression to a common base before comparing."
+            "content": "On the SAT, Complex Exponential Expression Comparison Example (Comparing Exponential Expressions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Rewrite every exponent expression to a common base before comparing. The function f is defined by the given equation. The equation can be rewritten as f ofx equals in parentheses 1 + p over 100 to the x power where p is a constant. Which of the following is the closest value of p. Okay, let's look at this question. We."
           },
           {
             "type": "formula",
@@ -677,7 +677,12 @@ export const exponentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "$a$ = initial value (when $x = 0$, $f(0) = a$). $b$ = growth/decay factor. Growth rate $r$: $b = 1 + r$ (growth) or $b = 1 - r$ (decay). The SAT tests interpretation: \"the value increases by $15\\%$ each year\" means $b = 1.15$."
+            "content": "$a$ = initial value (when $x = 0$, $f(0) = a$). $b$ = growth/decay factor. Growth rate $r$: $b = 1 + r$ (growth) or $b = 1 - r$ (decay). The SAT tests interpretation: \"the value increases by $15\\%$ each year\" means $b = 1.15$. Bacteria are growing in a liquid growth medium. There were 300,000 cells per milliliter during an initial observation. The number of cells per milliliter doubles every 3 hours. How many cells per milliliter will there be 15 hours after the initial ob."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "exponentialGrowthDiagram",
+            "description": "Exponential growth curves up (b > 1); decay curves down toward zero (0 < b < 1)."
           },
           {
             "type": "formula",
@@ -759,7 +764,12 @@ export const exponentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Exponential Function Example (Exponential Functions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Rewrite every exponent expression to a common base before comparing."
+            "content": "On the SAT, Simple Exponential Function Example (Exponential Functions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Rewrite every exponent expression to a common base before comparing. Bacteria are growing in a liquid growth medium. There were 300,000 cells per milliliter during an initial observation. The number of cells per milliliter doubles every 3 hours. How many cells per milliliter will there be 15 hours after the initial ob."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "exponentialGrowthDiagram",
+            "description": "Exponential growth (b > 1) curves up; exponential decay (0 < b < 1) curves down."
           },
           {
             "type": "formula",
@@ -839,7 +849,12 @@ export const exponentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "$a$ = initial value (when $x = 0$, $f(0) = a$). $b$ = growth/decay factor. Growth rate $r$: $b = 1 + r$ (growth) or $b = 1 - r$ (decay). The SAT tests interpretation: \"the value increases by $15\\%$ each year\" means $b = 1.15$."
+            "content": "$a$ = initial value (when $x = 0$, $f(0) = a$). $b$ = growth/decay factor. Growth rate $r$: $b = 1 + r$ (growth) or $b = 1 - r$ (decay). The SAT tests interpretation: \"the value increases by $15\\%$ each year\" means $b = 1.15$. The equation E of T = 5 * 1.8 to the T power gives the estimated number of employees at a restaurant where T is the number of years since the restaurant opened. Which of the following is the best interpretation of the number five in this context? Oka."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "exponentialGrowthDiagram",
+            "description": "Exponential growth curves up (b > 1); decay curves down toward zero (0 < b < 1)."
           },
           {
             "type": "formula",
@@ -929,7 +944,12 @@ export const exponentsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Complex Exponential Function Example (Exponential Functions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Rewrite every exponent expression to a common base before comparing."
+            "content": "On the SAT, Complex Exponential Function Example (Exponential Functions) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Rewrite every exponent expression to a common base before comparing. Okay, function f is defined by f ofx= a to the x power plus b where a and b are constants. In the xy plane, the graph of y = fx -5 has a y intercept at 0,99 / 7. The product of a and b is 65 over 7. What is the value of a? Okay, ton of information th."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "exponentialGrowthDiagram",
+            "description": "Exponential growth (b > 1) curves up; exponential decay (0 < b < 1) curves down."
           },
           {
             "type": "formula",

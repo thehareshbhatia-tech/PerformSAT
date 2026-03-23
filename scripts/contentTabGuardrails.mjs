@@ -31,14 +31,46 @@ const FORBIDDEN_VIDEO_PHRASES = [
 ];
 
 const VISUAL_EXPECTED_PATTERNS = [
+  // linear equations
   { titlePattern: /slope.*table/i, visualType: 'slopeFromTableDiagram' },
   { titlePattern: /slope.*graph/i, visualType: 'slopeFromGraphDiagram' },
   { titlePattern: /y.?intercept/i, visualType: 'yInterceptDiagram' },
   { titlePattern: /parallel\s+lines?/i, visualType: 'parallelLinesDiagram' },
   { titlePattern: /perpendicular\s+lines?/i, visualType: 'perpendicularLinesDiagram' },
+  // quadratics
   { titlePattern: /parabola|vertex\s+form|standard\s+form.*graph|graph.*equation/i, visualType: 'parabolaFromGraphDiagram' },
   { titlePattern: /discriminant/i, visualType: 'parabolaFromGraphDiagram' },
   { titlePattern: /completing the square/i, visualType: 'parabolaFromGraphDiagram' },
+  { titlePattern: /introduction to quadratics/i, visualType: 'parabolaFromGraphDiagram' },
+  { titlePattern: /roots|zeros|x.?intercepts/i, visualType: 'parabolaFromGraphDiagram' },
+  // triangles
+  { titlePattern: /pythagorean/i, visualType: 'rightTriangleDiagram' },
+  { titlePattern: /special right/i, visualType: 'specialTrianglesDiagram' },
+  { titlePattern: /similar/i, visualType: 'similarTrianglesDiagram' },
+  { titlePattern: /area of a triangle/i, visualType: 'triangleAreaDiagram' },
+  // circles
+  { titlePattern: /parts of a circle/i, visualType: 'circlePartsDiagram' },
+  { titlePattern: /area of a circle/i, visualType: 'circlePartsDiagram' },
+  { titlePattern: /circumference/i, visualType: 'circlePartsDiagram' },
+  { titlePattern: /arc length/i, visualType: 'arcLengthDiagram' },
+  { titlePattern: /sector area/i, visualType: 'arcLengthDiagram' },
+  { titlePattern: /equation.*circle|circle.*equation|standard form.*circle/i, visualType: 'circleEquationDiagram' },
+  // volume
+  { titlePattern: /volume of a cube|cube example/i, visualType: 'cubeDiagram' },
+  { titlePattern: /rectangular prism|box/i, visualType: 'rectangularPrismDiagram' },
+  { titlePattern: /cylinder/i, visualType: 'cylinderDiagram' },
+  { titlePattern: /sphere/i, visualType: 'sphereDiagram' },
+  { titlePattern: /cone/i, visualType: 'coneDiagram' },
+  // statistics
+  { titlePattern: /mean|average/i, visualType: 'meanMedianDiagram' },
+  { titlePattern: /median/i, visualType: 'meanMedianDiagram' },
+  // transformations
+  { titlePattern: /horizontal translation/i, visualType: 'horizontalShiftDiagram' },
+  { titlePattern: /vertical translation/i, visualType: 'verticalShiftDiagram' },
+  // exponents
+  { titlePattern: /exponential functions|exponential growth|exponential decay/i, visualType: 'exponentialGrowthDiagram' },
+  // percents
+  { titlePattern: /percent change|increase|decrease/i, visualType: 'percentChangeDiagram' },
 ];
 
 const NARRATIVE_LANDMARKS = ['heading', 'text', 'formula', 'heading', 'text'];
@@ -61,26 +93,31 @@ const LESSON_SEMANTIC_GUARDRAILS = [
     titlePattern: /volume of a cube|cube example/i,
     required: [/s\^3/i, /volume/i],
     forbidden: [/v_\{\\text\{cyl\}\}/i, /v_\{\\text\{cone\}\}/i, /v_\{\\text\{sphere\}\}/i, /\\pi\s*r\^2\s*h/i],
+    requiredVisual: 'cubeDiagram',
   },
   {
     titlePattern: /rectangular prism|box/i,
     required: [/(lwh|length.*width.*height)/i],
     forbidden: [/s\^3/i, /\\frac\{4\}\{3\}\\pi r\^3/i],
+    requiredVisual: 'rectangularPrismDiagram',
   },
   {
     titlePattern: /cylinder/i,
     required: [/\\pi\s*r\^2\s*h/i],
     forbidden: [/s\^3/i],
+    requiredVisual: 'cylinderDiagram',
   },
   {
     titlePattern: /sphere/i,
     required: [/\\frac\{4\}\{3\}\\pi r\^3/i],
     forbidden: [/\\pi\s*r\^2\s*h/i],
+    requiredVisual: 'sphereDiagram',
   },
   {
     titlePattern: /cone/i,
     required: [/\\frac\{1\}\{3\}\\pi r\^2h|\\frac\{1\}\{3\}\\pi r\^2\s*h/i],
     forbidden: [/s\^3/i],
+    requiredVisual: 'coneDiagram',
   },
   {
     titlePattern: /triangular prism/i,
@@ -91,11 +128,13 @@ const LESSON_SEMANTIC_GUARDRAILS = [
     titlePattern: /discriminant/i,
     required: [/(b\^2\s*-\s*4ac|\\Delta)/i],
     forbidden: [/s\^3/i],
+    requiredVisual: 'parabolaFromGraphDiagram',
   },
   {
     titlePattern: /vertex|vertex form/i,
     required: [/(-b\/2a|vertex)/i],
     forbidden: [/v_\{\\text\{cyl\}\}/i],
+    requiredVisual: 'parabolaFromGraphDiagram',
   },
   {
     titlePattern: /slope.*table/i,
@@ -111,6 +150,26 @@ const LESSON_SEMANTIC_GUARDRAILS = [
     titlePattern: /y.?intercept/i,
     required: [/(x\s*=\s*0|y-intercept)/i],
     requiredVisual: 'yInterceptDiagram',
+  },
+  {
+    titlePattern: /pythagorean/i,
+    required: [/a\^2\s*\+\s*b\^2\s*=\s*c\^2|pythagorean/i],
+    requiredVisual: 'rightTriangleDiagram',
+  },
+  {
+    titlePattern: /special right/i,
+    required: [/45.*45.*90|30.*60.*90/i],
+    requiredVisual: 'specialTrianglesDiagram',
+  },
+  {
+    titlePattern: /parallel\s+lines?/i,
+    required: [/(same slope|equal slope|m_1\s*=\s*m_2)/i],
+    requiredVisual: 'parallelLinesDiagram',
+  },
+  {
+    titlePattern: /perpendicular\s+lines?/i,
+    required: [/(negative reciprocal|m_1.*m_2.*=.*-1)/i],
+    requiredVisual: 'perpendicularLinesDiagram',
   },
 ];
 

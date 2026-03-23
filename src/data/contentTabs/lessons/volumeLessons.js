@@ -17,7 +17,7 @@ export const volumeLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, volume formulas are provided on the reference sheet — you do not need to memorize them. Your job is to (1) identify the correct shape, (2) plug in the right values (especially radius vs diameter), and (3) compute accurately."
+            "content": "On the SAT, volume formulas are provided on the reference sheet — you do not need to memorize them. Your job is to (1) identify the correct shape, (2) plug in the right values (especially radius vs diameter), and (3) compute accurately. All right. Here we are asked to find the volume of the rectangular prism. Well, volume of a rectangular prism is simply length * width time height. In this case, the width is 5 yards. The length is nine yards and the height is 10 yards. Making the vo."
           },
           {
             "type": "formula",
@@ -99,7 +99,12 @@ export const volumeLessonTabs = {
           },
           {
             "type": "text",
-            "content": "$V = lwh$. On the SAT, these appear in word problems: \"a box is $5$ cm long, $3$ cm wide, and $8$ cm tall.\" Just multiply the three dimensions. For surface area: $SA = 2(lw + lh + wh)$."
+            "content": "$V = lwh$. On the SAT, these appear in word problems: \"a box is $5$ cm long, $3$ cm wide, and $8$ cm tall.\" Just multiply the three dimensions. For surface area: $SA = 2(lw + lh + wh)$. All right. Here we are asked to find the volume of the rectangular prism. Well, volume of a rectangular prism is simply length * width time height. In this case, the width is 5 yards. The length is nine yards and the height is 10 yards. Making the vo."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "rectangularPrismDiagram",
+            "description": "A rectangular prism labeled with length, width, and height."
           },
           {
             "type": "formula",
@@ -181,7 +186,12 @@ export const volumeLessonTabs = {
           },
           {
             "type": "text",
-            "content": "$V = lwh$. On the SAT, these appear in word problems: \"a box is $5$ cm long, $3$ cm wide, and $8$ cm tall.\" Just multiply the three dimensions. For surface area: $SA = 2(lw + lh + wh)$."
+            "content": "$V = lwh$. On the SAT, these appear in word problems: \"a box is $5$ cm long, $3$ cm wide, and $8$ cm tall.\" Just multiply the three dimensions. For surface area: $SA = 2(lw + lh + wh)$. All right. Here we are asked to find the volume of the rectangular prism. Well, volume of a rectangular prism is simply length * width time height. In this case, the width is 5 yards. The length is nine yards and the height is 10 yards. Making the vo."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "rectangularPrismDiagram",
+            "description": "A rectangular prism labeled with length, width, and height."
           },
           {
             "type": "formula",
@@ -259,7 +269,12 @@ export const volumeLessonTabs = {
           },
           {
             "type": "text",
-            "content": "$V = lwh$. On the SAT, these appear in word problems: \"a box is $5$ cm long, $3$ cm wide, and $8$ cm tall.\" Just multiply the three dimensions. For surface area: $SA = 2(lw + lh + wh)$."
+            "content": "$V = lwh$. On the SAT, these appear in word problems: \"a box is $5$ cm long, $3$ cm wide, and $8$ cm tall.\" Just multiply the three dimensions. For surface area: $SA = 2(lw + lh + wh)$. A right rectangular prism has a height of 9 in. The length of the prison's base is x in which is 7 in more than the width of the prison's base. Which function v gives the volume of the prism in cubic inches in terms of the length of the prism's base?"
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "rectangularPrismDiagram",
+            "description": "A rectangular prism labeled with length, width, and height."
           },
           {
             "type": "formula",
@@ -337,7 +352,12 @@ export const volumeLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Volume of a Cube (Cube) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Identify the solid first: cube means one edge length, then cube it."
+            "content": "On the SAT, Volume of a Cube (Cube) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Identify the solid first: cube means one edge length, then cube it. cube has an edge length of 41 in. What is the volume in cubic inches of the cube? All right, we are dealing with a cube and we are asked to find the volume of a cube. Well, the volume of a cube is simply length time width time height. And since the l."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "cubeDiagram",
+            "description": "A cube with edge length s — volume = s³."
           },
           {
             "type": "formula",
@@ -409,7 +429,12 @@ export const volumeLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Volume of Cube Example (Cube) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Identify the solid first: cube means one edge length, then cube it."
+            "content": "On the SAT, Simple Volume of Cube Example (Cube) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Identify the solid first: cube means one edge length, then cube it. cube has an edge length of 41 in. What is the volume in cubic inches of the cube? All right, we are dealing with a cube and we are asked to find the volume of a cube. Well, the volume of a cube is simply length time width time height. And since the l."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "cubeDiagram",
+            "description": "A cube with edge length s — volume = s³."
           },
           {
             "type": "formula",
@@ -481,7 +506,12 @@ export const volumeLessonTabs = {
           },
           {
             "type": "text",
-            "content": "The formula $V = \\pi r^2 h$ combines the base area ($\\pi r^2$) with the height ($h$). On the SAT, the main trap is using diameter instead of radius."
+            "content": "The formula $V = \\pi r^2 h$ combines the base area ($\\pi r^2$) with the height ($h$). On the SAT, the main trap is using diameter instead of radius. A right circular cylinder has a base diameter of 22 cm and a height of 6 cm. What is the volume in cubic centimeters of the cylinder? All right, we are dealing with a cylinder and we want to find the volume of the cylinder and volume of a cylinder is."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "cylinderDiagram",
+            "description": "A cylinder with radius r and height h labeled."
           },
           {
             "type": "formula",
@@ -563,7 +593,12 @@ export const volumeLessonTabs = {
           },
           {
             "type": "text",
-            "content": "The formula $V = \\pi r^2 h$ combines the base area ($\\pi r^2$) with the height ($h$). On the SAT, the main trap is using diameter instead of radius."
+            "content": "The formula $V = \\pi r^2 h$ combines the base area ($\\pi r^2$) with the height ($h$). On the SAT, the main trap is using diameter instead of radius. A right circular cylinder has a base diameter of 22 cm and a height of 6 cm. What is the volume in cubic centimeters of the cylinder? All right, we are dealing with a cylinder and we want to find the volume of the cylinder and volume of a cylinder is."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "cylinderDiagram",
+            "description": "A cylinder with radius r and height h labeled."
           },
           {
             "type": "formula",
@@ -645,7 +680,12 @@ export const volumeLessonTabs = {
           },
           {
             "type": "text",
-            "content": "The formula $V = \\pi r^2 h$ combines the base area ($\\pi r^2$) with the height ($h$). On the SAT, the main trap is using diameter instead of radius."
+            "content": "The formula $V = \\pi r^2 h$ combines the base area ($\\pi r^2$) with the height ($h$). On the SAT, the main trap is using diameter instead of radius. A right circular cylinder has a volume of 432 cm. The area of the base of the cylinder is 24 square centimeters. What is the height in centimeters of a cylinder? All right, we know the volume of a cylinder is pi r 2h. And we are told that the volume."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "cylinderDiagram",
+            "description": "A cylinder with radius r and height h labeled."
           },
           {
             "type": "formula",
@@ -731,7 +771,12 @@ export const volumeLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Volume of a Sphere (Sphere) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Check exponent and coefficient: sphere volume always includes $\\frac{4}{3}$ and $r^3$."
+            "content": "On the SAT, Volume of a Sphere (Sphere) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Check exponent and coefficient: sphere volume always includes $\\frac{4}{3}$ and $r^3$. Find the volume of the sphere. All right. Volume of a sphere follows this formula. 4/3 pi r cubed. In this case, the r or the radius is given to us which is 3 ft. And so the volume of this sphere will be calculated like this. 3 cubed should give us 2."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "sphereDiagram",
+            "description": "A sphere with radius r labeled."
           },
           {
             "type": "formula",
@@ -807,7 +852,12 @@ export const volumeLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Volume of Sphere Example (Sphere) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Check exponent and coefficient: sphere volume always includes $\\frac{4}{3}$ and $r^3$."
+            "content": "On the SAT, Simple Volume of Sphere Example (Sphere) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Check exponent and coefficient: sphere volume always includes $\\frac{4}{3}$ and $r^3$. Find the volume of the sphere. All right. Volume of a sphere follows this formula. 4/3 pi r cubed. In this case, the r or the radius is given to us which is 3 ft. And so the volume of this sphere will be calculated like this. 3 cubed should give us 2."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "sphereDiagram",
+            "description": "A sphere with radius r labeled."
           },
           {
             "type": "formula",
@@ -883,7 +933,12 @@ export const volumeLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Complex Volume of Sphere Example (Sphere) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Check exponent and coefficient: sphere volume always includes $\\frac{4}{3}$ and $r^3$."
+            "content": "On the SAT, Complex Volume of Sphere Example (Sphere) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Check exponent and coefficient: sphere volume always includes $\\frac{4}{3}$ and $r^3$. A cube has an edge length of 68 in. A solid sphere with a radius of 34 in is inside the cube. Such that the sphere touches the center of each face of the cube. To the nearest cubic inch, what is the volume of the space in the cube not taken up by the."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "sphereDiagram",
+            "description": "A sphere with radius r labeled."
           },
           {
             "type": "formula",
@@ -955,7 +1010,12 @@ export const volumeLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Volume of a Cone (Cone) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Compute cylinder volume first, then take one-third."
+            "content": "On the SAT, Volume of a Cone (Cone) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Compute cylinder volume first, then take one-third. Find the volume of this cone. All right. Here we are asked to find the volume of this cone. And so the volume of a cone is 1/3 pi r 2h. In this case, our r or our radius is 2 and our height is seven. Which means this will produce four. This will prod."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "coneDiagram",
+            "description": "A cone with radius r and height h labeled."
           },
           {
             "type": "formula",
@@ -1031,7 +1091,12 @@ export const volumeLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Volume of Cone Example (Cone) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Compute cylinder volume first, then take one-third."
+            "content": "On the SAT, Simple Volume of Cone Example (Cone) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Compute cylinder volume first, then take one-third. Find the volume of this cone. All right. Here we are asked to find the volume of this cone. And so the volume of a cone is 1/3 pi r 2h. In this case, our r or our radius is 2 and our height is seven. Which means this will produce four. This will prod."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "coneDiagram",
+            "description": "A cone with radius r and height h labeled."
           },
           {
             "type": "formula",
@@ -1107,7 +1172,7 @@ export const volumeLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Volume of a Triangular Prism (Triangular Prism) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. First find the triangular base area, then multiply by prism length."
+            "content": "On the SAT, Volume of a Triangular Prism (Triangular Prism) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. First find the triangular base area, then multiply by prism length. Find the volume of this pyramid. All right. Volume of a pyramid or a triangular prism is 1/3 length * width time height. In this case, the length is 11 cm. The width is 11 cm and the height is 12 cm. And so the volume of this pyramid when we do the m."
           },
           {
             "type": "formula",
@@ -1183,7 +1248,7 @@ export const volumeLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Volume of Triangular Prism Example (Triangular Prism) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. First find the triangular base area, then multiply by prism length."
+            "content": "On the SAT, Simple Volume of Triangular Prism Example (Triangular Prism) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. First find the triangular base area, then multiply by prism length. Find the volume of this pyramid. All right. Volume of a pyramid or a triangular prism is 1/3 length * width time height. In this case, the length is 11 cm. The width is 11 cm and the height is 12 cm. And so the volume of this pyramid when we do the m."
           },
           {
             "type": "formula",

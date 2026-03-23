@@ -20,6 +20,11 @@ export const circlesLessonTabs = {
             "content": "Key parts: **Radius** ($r$) = center to edge. **Diameter** ($d = 2r$) = edge to edge through center. **Circumference** ($C = 2\\pi r$) = distance around. **Area** ($A = \\pi r^2$) = space inside. The SAT often gives the diameter and expects you to convert to radius before applying formulas."
           },
           {
+            "type": "diagramRef",
+            "visualType": "circlePartsDiagram",
+            "description": "Circle with radius, diameter, and circumference labeled."
+          },
+          {
             "type": "formula",
             "label": "Parts of a Circle — Core Rule",
             "content": "$$A = \\pi r^2,\\ C = 2\\pi r,\\ (x-h)^2 + (y-k)^2 = r^2$$",
@@ -106,6 +111,11 @@ export const circlesLessonTabs = {
             "content": "$A = \\pi r^2$. On the SAT, area questions test: (1) basic computation from radius or diameter, (2) reverse — given the area, find the radius, (3) comparison — how does area change when radius changes? Since $A \\propto r^2$, if $r$ doubles, $A$ quadruples."
           },
           {
+            "type": "diagramRef",
+            "visualType": "circlePartsDiagram",
+            "description": "Circle with radius r labeled — area fills the interior."
+          },
+          {
             "type": "formula",
             "label": "Area of a Circle — Core Rule",
             "content": "$$A=\\pi r^2$$",
@@ -186,6 +196,11 @@ export const circlesLessonTabs = {
           {
             "type": "text",
             "content": "On the SAT, Circumference of a Circle (Circle Fundamentals) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Circumference is distance around, not interior area."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "circlePartsDiagram",
+            "description": "Circumference is the full distance around the circle."
           },
           {
             "type": "formula",
@@ -329,7 +344,7 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Complex Circle Area Example (Area Problems) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately."
+            "content": "On the SAT, Complex Circle Area Example (Area Problems) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately. Circle A has a radius of 3 N and circle B has a radius of 129N where N is a positive constant. The area of circle B is how many times the area of circle A. All right, there are two circles. Circle A and then there is circle B. Circle A has a radius o."
           },
           {
             "type": "formula",
@@ -409,7 +424,12 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Arc length $= \\frac{\\theta}{360°} \\times 2\\pi r$ (degrees) or $s = r\\theta$ (radians). The SAT gives you the central angle and radius, and asks for the arc. The key: arc length is a **proportion** of the full circumference."
+            "content": "Arc length $= \\frac{\\theta}{360°} \\times 2\\pi r$ (degrees) or $s = r\\theta$ (radians). The SAT gives you the central angle and radius, and asks for the arc. The key: arc length is a **proportion** of the full circumference. What is the circumference of this circle? All right, circumference is 2 pi r or circumference is pi d. In other words, circumference is 2<unk>i * the radius or circumference is pi * the diameter. Essentially, these are the exact same formula because."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "arcLengthDiagram",
+            "description": "Arc length is a fraction of the circumference, determined by the central angle."
           },
           {
             "type": "formula",
@@ -491,7 +511,12 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Circumference Example (Circumference & Arc Length) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Circumference is distance around, not interior area."
+            "content": "On the SAT, Simple Circumference Example (Circumference & Arc Length) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Circumference is distance around, not interior area. What is the circumference of this circle? All right, circumference is 2 pi r or circumference is pi d. In other words, circumference is 2<unk>i * the radius or circumference is pi * the diameter. Essentially, these are the exact same formula because."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "circlePartsDiagram",
+            "description": "Circumference is the full distance around the circle."
           },
           {
             "type": "formula",
@@ -559,7 +584,12 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Arc length $= \\frac{\\theta}{360°} \\times 2\\pi r$ (degrees) or $s = r\\theta$ (radians). The SAT gives you the central angle and radius, and asks for the arc. The key: arc length is a **proportion** of the full circumference."
+            "content": "Arc length $= \\frac{\\theta}{360°} \\times 2\\pi r$ (degrees) or $s = r\\theta$ (radians). The SAT gives you the central angle and radius, and asks for the arc. The key: arc length is a **proportion** of the full circumference. Point O is the center of a circle. The measure of arc RS on this circle is 100°. What is the measure in degrees of its associated angle R O? All right, there's a circle. Point O is the center of the circle. The circle also consists of an arc which is."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "arcLengthDiagram",
+            "description": "Arc length is a fraction of the circumference, determined by the central angle."
           },
           {
             "type": "formula",
@@ -637,7 +667,12 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Arc length $= \\frac{\\theta}{360°} \\times 2\\pi r$ (degrees) or $s = r\\theta$ (radians). The SAT gives you the central angle and radius, and asks for the arc. The key: arc length is a **proportion** of the full circumference."
+            "content": "Arc length $= \\frac{\\theta}{360°} \\times 2\\pi r$ (degrees) or $s = r\\theta$ (radians). The SAT gives you the central angle and radius, and asks for the arc. The key: arc length is a **proportion** of the full circumference. The circle above with center O has a circumference of 36. What is the length of minor ark AC? Okay, so essentially all this question is asking us to do is find the length of ark AC which is this arc. In other words, we are trying to find arc length."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "arcLengthDiagram",
+            "description": "Arc length is a fraction of the circumference, determined by the central angle."
           },
           {
             "type": "formula",
@@ -723,12 +758,17 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Sector Area (Sector Area) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately."
+            "content": "On the SAT, Sector Area (Sector Area) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Sector area is a fraction of the full circle area. What is the area of the shaded region? All right, here we are asked to find the area of a sector because this shaded region is a sector and a sector is part of a whole circle. All right. The formula to find the sector area is sector area over whole c."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "arcLengthDiagram",
+            "description": "Sector area is a pie-slice fraction of the total circle area."
           },
           {
             "type": "formula",
             "label": "Sector Area — Core Rule",
-            "content": "$$A = \\pi r^2,\\ C = 2\\pi r,\\ (x-h)^2 + (y-k)^2 = r^2$$",
+            "content": "$$A_{\\text{sector}}=\\frac{\\theta}{360^\\circ}\\cdot\\pi r^2$$",
             "note": "Use this after identifying what the question asks. Do not apply blindly."
           },
           {
@@ -737,7 +777,7 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, the most common mistake in Sector Area (Sector Area) problems is arc length proportion error. This happens because students rush through the setup phase, reading the question quickly and making assumptions about what is being asked. Before computing, re-read the question and underline the exact quantity it asks for. After solving, verify that your answer matches the requested form (value, equation, expression, or description). This two-second check eliminates the most common trap."
+            "content": "On the SAT, the most common mistake in Sector Area (Sector Area) problems is using arc length formula for sector area. This happens because students rush through the setup phase, reading the question quickly and making assumptions about what is being asked. Before computing, re-read the question and underline the exact quantity it asks for. After solving, verify that your answer matches the requested form (value, equation, expression, or description). This two-second check eliminates the most common trap."
           },
           {
             "type": "heading",
@@ -745,7 +785,7 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Convert wording into radius-first quantities immediately. On test day, spend the first 5 seconds on recognition (what type of problem is this?) and the last 5 seconds on verification (does my answer match what was asked?)."
+            "content": "Sector area is a fraction of the full circle area. On test day, spend the first 5 seconds on recognition (what type of problem is this?) and the last 5 seconds on verification (does my answer match what was asked?)."
           }
         ]
       },
@@ -799,12 +839,17 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Sector Area Example (Sector Area) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately."
+            "content": "On the SAT, Simple Sector Area Example (Sector Area) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Sector area is a fraction of the full circle area. What is the area of the shaded region? All right, here we are asked to find the area of a sector because this shaded region is a sector and a sector is part of a whole circle. All right. The formula to find the sector area is sector area over whole c."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "arcLengthDiagram",
+            "description": "Sector area is a pie-slice fraction of the total circle area."
           },
           {
             "type": "formula",
             "label": "Simple Sector Area Example — Core Rule",
-            "content": "$$A = \\pi r^2,\\ C = 2\\pi r,\\ (x-h)^2 + (y-k)^2 = r^2$$",
+            "content": "$$A_{\\text{sector}}=\\frac{\\theta}{360^\\circ}\\cdot\\pi r^2$$",
             "note": "Use this after identifying what the question asks. Do not apply blindly."
           },
           {
@@ -813,7 +858,7 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, the most common mistake in Simple Sector Area Example (Sector Area) problems is center form sign flip. This happens because students rush through the setup phase, reading the question quickly and making assumptions about what is being asked. Before computing, re-read the question and underline the exact quantity it asks for. After solving, verify that your answer matches the requested form (value, equation, expression, or description). This two-second check eliminates the most common trap."
+            "content": "On the SAT, the most common mistake in Simple Sector Area Example (Sector Area) problems is using arc length formula for sector area. This happens because students rush through the setup phase, reading the question quickly and making assumptions about what is being asked. Before computing, re-read the question and underline the exact quantity it asks for. After solving, verify that your answer matches the requested form (value, equation, expression, or description). This two-second check eliminates the most common trap."
           },
           {
             "type": "heading",
@@ -821,7 +866,7 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Convert wording into radius-first quantities immediately. On test day, spend the first 5 seconds on recognition (what type of problem is this?) and the last 5 seconds on verification (does my answer match what was asked?)."
+            "content": "Sector area is a fraction of the full circle area. On test day, spend the first 5 seconds on recognition (what type of problem is this?) and the last 5 seconds on verification (does my answer match what was asked?)."
           }
         ]
       },
@@ -875,12 +920,17 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Complex Sector Area Example (Sector Area) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately."
+            "content": "On the SAT, Complex Sector Area Example (Sector Area) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Sector area is a fraction of the full circle area. What is the area of the shaded region? Okay, again the shaded region is simply a sector because it is a part of the whole circle. And so we are simply asked to find the area of the sector. Now again the formula for the area of a sector is sector area."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "arcLengthDiagram",
+            "description": "Sector area is a pie-slice fraction of the total circle area."
           },
           {
             "type": "formula",
             "label": "Complex Sector Area Example — Core Rule",
-            "content": "$$A = \\pi r^2,\\ C = 2\\pi r,\\ (x-h)^2 + (y-k)^2 = r^2$$",
+            "content": "$$A_{\\text{sector}}=\\frac{\\theta}{360^\\circ}\\cdot\\pi r^2$$",
             "note": "Use this after identifying what the question asks. Do not apply blindly."
           },
           {
@@ -889,7 +939,7 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, the most common mistake in Complex Sector Area Example (Sector Area) problems is radius/diameter confusion. This happens because students rush through the setup phase, reading the question quickly and making assumptions about what is being asked. Before computing, re-read the question and underline the exact quantity it asks for. After solving, verify that your answer matches the requested form (value, equation, expression, or description). This two-second check eliminates the most common trap."
+            "content": "On the SAT, the most common mistake in Complex Sector Area Example (Sector Area) problems is using arc length formula for sector area. This happens because students rush through the setup phase, reading the question quickly and making assumptions about what is being asked. Before computing, re-read the question and underline the exact quantity it asks for. After solving, verify that your answer matches the requested form (value, equation, expression, or description). This two-second check eliminates the most common trap."
           },
           {
             "type": "heading",
@@ -897,7 +947,7 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Convert wording into radius-first quantities immediately. On test day, spend the first 5 seconds on recognition (what type of problem is this?) and the last 5 seconds on verification (does my answer match what was asked?)."
+            "content": "Sector area is a fraction of the full circle area. On test day, spend the first 5 seconds on recognition (what type of problem is this?) and the last 5 seconds on verification (does my answer match what was asked?)."
           }
         ]
       },
@@ -951,12 +1001,17 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, the equation often appears in expanded form: $x^2 + y^2 + Dx + Ey + F = 0$. To find center and radius, you must **complete the square** for both $x$ and $y$ terms. The center is the opposite sign of what appears in the parentheses."
+            "content": "On the SAT, the equation often appears in expanded form: $x^2 + y^2 + Dx + Ey + F = 0$. To find center and radius, you must **complete the square** for both $x$ and $y$ terms. The center is the opposite sign of what appears in the parentheses. A circle in the xy plane has the equation parentheses x -3^2 plus partheses y - k ^2 = 64. Which of the following gives a center of the circle and its radius? Okay, we know we are dealing with the equation of a circle, more specifically the standard."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "circleEquationDiagram",
+            "description": "Circle on a coordinate plane showing center (h, k) and radius r."
           },
           {
             "type": "formula",
             "label": "Standard Form of a Circle Equation — Core Rule",
-            "content": "$$A = \\pi r^2,\\ C = 2\\pi r,\\ (x-h)^2 + (y-k)^2 = r^2$$",
+            "content": "$$(x-h)^2+(y-k)^2=r^2$$",
             "note": "Use this after identifying what the question asks. Do not apply blindly."
           },
           {
@@ -979,7 +1034,7 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Convert wording into radius-first quantities immediately. Use the correction rule above as your final verification step before selecting an answer."
+            "content": "Read signs carefully: the center is (h, k), with opposite signs from the equation. Use the correction rule above as your final verification step before selecting an answer."
           }
         ]
       },
@@ -1037,7 +1092,12 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Extracting Center & Radius from Standard Form (Equation of a Circle) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately."
+            "content": "On the SAT, Simple Extracting Center & Radius from Standard Form (Equation of a Circle) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately. A circle in the xy plane has the equation parentheses x -3^2 plus partheses y - k ^2 = 64. Which of the following gives a center of the circle and its radius? Okay, we know we are dealing with the equation of a circle, more specifically the standard."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "circleEquationDiagram",
+            "description": "Circle on a coordinate plane showing center (h, k) and radius r."
           },
           {
             "type": "formula",
@@ -1109,7 +1169,12 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Extracting Diameter from Standard Form (Equation of a Circle) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately."
+            "content": "On the SAT, Simple Extracting Diameter from Standard Form (Equation of a Circle) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately. What is the diameter of the circle in the xy plane with equation partheses x - 5^2 plus partheses y - 3^2 equ= 16. Okay, we are dealing with the equation of a circle. We know we are dealing with the equation of a circle because x and y are both being."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "circleEquationDiagram",
+            "description": "Circle on a coordinate plane showing center (h, k) and radius r."
           },
           {
             "type": "formula",
@@ -1181,7 +1246,12 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Complex Extracting Diameter (Conceptual Method) (Equation of a Circle) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately."
+            "content": "On the SAT, Complex Extracting Diameter (Conceptual Method) (Equation of a Circle) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately. A circle in the xy plane has a diameter with end points 2a 4 and 2a 14. An equation of this circle is x - 2^2 + y - 9^2 = r 2 where r is a positive constant. What is the value of r. All right. You are given a circle or you are told of a circle. Oops."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "circleEquationDiagram",
+            "description": "Circle on a coordinate plane showing center (h, k) and radius r."
           },
           {
             "type": "formula",
@@ -1261,7 +1331,12 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Complex Extracting Diameter (Plug-In Method) (Equation of a Circle) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately."
+            "content": "On the SAT, Complex Extracting Diameter (Plug-In Method) (Equation of a Circle) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately. Now we can simply solve this exact question by also plugging in a coordinate. Understand this. Both of the coordinates that you are given whether it's the 2a 4 or the 2a 14 are in the form of x comma y. You can plug in the x value with its correspond."
+          },
+          {
+            "type": "diagramRef",
+            "visualType": "circleEquationDiagram",
+            "description": "Circle on a coordinate plane showing center (h, k) and radius r."
           },
           {
             "type": "formula",
@@ -1341,7 +1416,7 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Transformations of Circles (Circle Transformations) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately."
+            "content": "On the SAT, Transformations of Circles (Circle Transformations) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately. The equation x^2 + y - 1^2 = 49 represents circle a. Circle b is obtained by shifting circle a down two units in the xy plane. Which of the following equations represent circle b. Okay. We are given the equation of circle a which is this x^2 + y - 1^."
           },
           {
             "type": "formula",
@@ -1421,7 +1496,7 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Simple Circle Transformations Example (Circle Transformations) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately."
+            "content": "On the SAT, Simple Circle Transformations Example (Circle Transformations) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately. The equation x^2 + y - 1^2 = 49 represents circle a. Circle b is obtained by shifting circle a down two units in the xy plane. Which of the following equations represent circle b. Okay. We are given the equation of circle a which is this x^2 + y - 1^."
           },
           {
             "type": "formula",
@@ -1497,7 +1572,7 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Complex Circle Transformations Example (Circle Transformations) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately."
+            "content": "On the SAT, Complex Circle Transformations Example (Circle Transformations) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately. Circle A which is shown is defined by the equation x + 2 ^2 + y^2 = 9. Circle B which is not shown is the result of shifting circle A down 6 units and increasing the radius so that the radius of circle B is 2 * the radius of circle A. Which equation."
           },
           {
             "type": "formula",
@@ -1577,7 +1652,7 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Domain & Range of a Circle (Domain, Range & Intersections) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately."
+            "content": "On the SAT, Domain & Range of a Circle (Domain, Range & Intersections) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately. The graph of the given equation is a circle in the xy plane. The point a comma b lies on the circle. Which of the following is a possible value for a? All right. We are given this equation. This equation is the equation of a circle. And more importan."
           },
           {
             "type": "formula",
@@ -1653,7 +1728,7 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Determining Domain & Range Example (Domain, Range & Intersections) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately."
+            "content": "On the SAT, Determining Domain & Range Example (Domain, Range & Intersections) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately. The graph of the given equation is a circle in the xy plane. The point a comma b lies on the circle. Which of the following is a possible value for a? All right. We are given this equation. This equation is the equation of a circle. And more importan."
           },
           {
             "type": "formula",
@@ -1733,7 +1808,7 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Intersecting Y-Axis at Exactly One Point Example (Domain, Range & Intersections) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately."
+            "content": "On the SAT, Intersecting Y-Axis at Exactly One Point Example (Domain, Range & Intersections) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately. Which of the following equations represents a circle in the xy plane that intersects the y-axis at exactly one point? All right. If we have an xy plane like this, this is my x. This is my y. And there's a circle in my plane. understand that in order."
           },
           {
             "type": "formula",
@@ -1813,7 +1888,7 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Intersecting Y-Axis at One Point (DESMOS Method) (Domain, Range & Intersections) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately."
+            "content": "On the SAT, Intersecting Y-Axis at One Point (DESMOS Method) (Domain, Range & Intersections) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately. Now, this exact question can also be solved using Desmos. You can simply enter the equations of your answer choices exactly the way they're given and see how many times they intersect the y- axis. If we look at answer choice A, notice that this circl."
           },
           {
             "type": "formula",
@@ -1889,7 +1964,7 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Completing the Square for Circles (Converting to Standard Form) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately."
+            "content": "On the SAT, Completing the Square for Circles (Converting to Standard Form) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately. The graph of x^2 + x + y^2 + y = 199 /2 in the xy plane is a circle. What is the length of the circle's radius? All right, we are given this equation and within this equation both the x and the y are being squared and since the x and the y both are b."
           },
           {
             "type": "diagramRef",
@@ -1978,7 +2053,7 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Deriving Standard Form to Determine Radius #1 (Converting to Standard Form) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately."
+            "content": "On the SAT, Deriving Standard Form to Determine Radius #1 (Converting to Standard Form) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately. The graph of x^2 + x + y^2 + y = 199 /2 in the xy plane is a circle. What is the length of the circle's radius? All right, we are given this equation and within this equation both the x and the y are being squared and since the x and the y both are b."
           },
           {
             "type": "formula",
@@ -2062,7 +2137,7 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Deriving Standard Form — Radius #1 (DESMOS) (Converting to Standard Form) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately."
+            "content": "On the SAT, Deriving Standard Form — Radius #1 (DESMOS) (Converting to Standard Form) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately. Now this exact question can also be solved using only Desmos. What you do is you take the equation just the way it is given to you and enter it into Desmos and you'll get the graph of a circle. Now Desmos always gives you the maximum and the minimum."
           },
           {
             "type": "formula",
@@ -2138,7 +2213,7 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Deriving Standard Form — Center #1 (DESMOS) (Converting to Standard Form) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately."
+            "content": "On the SAT, Deriving Standard Form — Center #1 (DESMOS) (Converting to Standard Form) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately. Now a lot of you might ask well okay this method works to find the radius but does this method also work to find the circle center. Yes it does. After you have extracted the maximum and the minimum point you can simply find the midpoint between the t."
           },
           {
             "type": "formula",
@@ -2214,7 +2289,7 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Deriving Standard Form to Determine Radius #2 (Converting to Standard Form) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately."
+            "content": "On the SAT, Deriving Standard Form to Determine Radius #2 (Converting to Standard Form) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately. In the xy plane, the graph of the given equation is a circle. What is the length of the circle's radius? All right. Notice that the given equation that we are dealing with is the equation of a circle. We know that it's the equation of a circle becaus."
           },
           {
             "type": "formula",
@@ -2294,7 +2369,7 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Deriving Standard Form — Radius #2 (DESMOS) (Converting to Standard Form) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately."
+            "content": "On the SAT, Deriving Standard Form — Radius #2 (DESMOS) (Converting to Standard Form) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately. In the xy plane, the graph of the given equation is a circle. What is the length of the circle's radius? All right. This exact question can also be solved only using Desmos. You can simply enter the equation that is given to you just the way it is gi."
           },
           {
             "type": "formula",
@@ -2370,7 +2445,7 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Deriving Standard Form — Center #2 (DESMOS) (Converting to Standard Form) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately."
+            "content": "On the SAT, Deriving Standard Form — Center #2 (DESMOS) (Converting to Standard Form) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately. Now, someone might ask, okay, this Desmos method works if I want to find the radius, but what if I wanted to find the center? This method still works. You can simply just find the midpoint between the max and minimum coordinates, and you will have th."
           },
           {
             "type": "formula",
@@ -2446,7 +2521,7 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Tangent Lines to a Circle (Tangent Lines) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately."
+            "content": "On the SAT, Tangent Lines to a Circle (Tangent Lines) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately. A circle in the xy plane has its center at -1 comma 1. Line t is tangent to this circle at the point 5, -4. Which of the following points also lies on line t. All right, let's draw out our given information. We are dealing with a circle that has a ce."
           },
           {
             "type": "formula",
@@ -2526,7 +2601,7 @@ export const circlesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Tangent Line to a Circle Example (Tangent Lines) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately."
+            "content": "On the SAT, Tangent Line to a Circle Example (Tangent Lines) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Convert wording into radius-first quantities immediately. A circle in the xy plane has its center at -1 comma 1. Line t is tangent to this circle at the point 5, -4. Which of the following points also lies on line t. All right, let's draw out our given information. We are dealing with a circle that has a ce."
           },
           {
             "type": "formula",

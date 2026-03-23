@@ -17,7 +17,7 @@ export const dimensionalAnalysisLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Set up a chain of fractions where the unit you want to cancel appears in the denominator. Write units on every number. Cancel units left to right. The remaining unit should be your target."
+            "content": "Set up a chain of fractions where the unit you want to cancel appears in the denominator. Write units on every number. Cancel units left to right. The remaining unit should be your target. A printer produces posters at a constant rate of 42 posters per minute. At what rate in posters per hour does a printer produce the posters? Okay, this is a simple dimensional analysis or a unit conversion question because we are simply converting fr."
           },
           {
             "type": "formula",
@@ -103,7 +103,7 @@ export const dimensionalAnalysisLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Set up a chain of fractions where the unit you want to cancel appears in the denominator. Write units on every number. Cancel units left to right. The remaining unit should be your target."
+            "content": "Set up a chain of fractions where the unit you want to cancel appears in the denominator. Write units on every number. Cancel units left to right. The remaining unit should be your target. A printer produces posters at a constant rate of 42 posters per minute. At what rate in posters per hour does a printer produce the posters? Okay, this is a simple dimensional analysis or a unit conversion question because we are simply converting fr."
           },
           {
             "type": "formula",
@@ -189,7 +189,7 @@ export const dimensionalAnalysisLessonTabs = {
           },
           {
             "type": "text",
-            "content": "$1\\ \\text{ft}^2 = (12\\ \\text{in})^2 = 144\\ \\text{in}^2$. $1\\ \\text{ft}^3 = (12\\ \\text{in})^3 = 1728\\ \\text{in}^3$. The conversion factor gets raised to the same power as the unit."
+            "content": "$1\\ \\text{ft}^2 = (12\\ \\text{in})^2 = 144\\ \\text{in}^2$. $1\\ \\text{ft}^3 = (12\\ \\text{in})^3 = 1728\\ \\text{in}^3$. The conversion factor gets raised to the same power as the unit. Certain town has an area of 4.36 square miles. What is the area in square yards of this town knowing that 1 mile is equal to 1,760 yard? Okay, this is a very simple unit conversion or dimensional analysis question. The units that we are given are squ."
           },
           {
             "type": "formula",
@@ -271,7 +271,7 @@ export const dimensionalAnalysisLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Squared Units Example (Squared & Cubic Units) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Write units on every number and cancel units left-to-right."
+            "content": "On the SAT, Squared Units Example (Squared & Cubic Units) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Write units on every number and cancel units left-to-right. Certain town has an area of 4.36 square miles. What is the area in square yards of this town knowing that 1 mile is equal to 1,760 yard? Okay, this is a very simple unit conversion or dimensional analysis question. The units that we are given are squ."
           },
           {
             "type": "formula",
@@ -351,7 +351,7 @@ export const dimensionalAnalysisLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Multi-Step Squared Units (Squared & Cubic Units) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Write units on every number and cancel units left-to-right."
+            "content": "On the SAT, Multi-Step Squared Units (Squared & Cubic Units) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Write units on every number and cancel units left-to-right. The speed of a vehicle is increasing at a rate of 7.3 m/s squared. What is this rate in miles per minute squared round to the nearest 10th? Use 1 mile is equal to 1,609 m. Okay, this is a little bit of advanced dimensional analysis or unit conversion."
           },
           {
             "type": "formula",

@@ -17,7 +17,7 @@ export const equivalentExpressionsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Three main strategies: (1) **Expand** — distribute and combine like terms to see if they match. (2) **Factor** — pull out common factors or use special identities ($a^2 - b^2 = (a-b)(a+b)$). (3) **Plug in** — substitute a simple value into both expressions; if the results differ, they are NOT equivalent."
+            "content": "Three main strategies: (1) **Expand** — distribute and combine like terms to see if they match. (2) **Factor** — pull out common factors or use special identities ($a^2 - b^2 = (a-b)(a+b)$). (3) **Plug in** — substitute a simple value into both expressions; if the results differ, they are NOT equivalent. Which expression is equivalent to the given expression where x is greater than 7? All right, this is clearly a equivalent expression question because the question is clearly asking us for an expression that is equivalent to our given expression. Now."
           },
           {
             "type": "formula",
@@ -103,7 +103,7 @@ export const equivalentExpressionsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Three main strategies: (1) **Expand** — distribute and combine like terms to see if they match. (2) **Factor** — pull out common factors or use special identities ($a^2 - b^2 = (a-b)(a+b)$). (3) **Plug in** — substitute a simple value into both expressions; if the results differ, they are NOT equivalent."
+            "content": "Three main strategies: (1) **Expand** — distribute and combine like terms to see if they match. (2) **Factor** — pull out common factors or use special identities ($a^2 - b^2 = (a-b)(a+b)$). (3) **Plug in** — substitute a simple value into both expressions; if the results differ, they are NOT equivalent. Which expression is equivalent to the given expression where x is greater than 7? All right, this is clearly a equivalent expression question because the question is clearly asking us for an expression that is equivalent to our given expression. Now."
           },
           {
             "type": "formula",
@@ -189,7 +189,7 @@ export const equivalentExpressionsLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Three main strategies: (1) **Expand** — distribute and combine like terms to see if they match. (2) **Factor** — pull out common factors or use special identities ($a^2 - b^2 = (a-b)(a+b)$). (3) **Plug in** — substitute a simple value into both expressions; if the results differ, they are NOT equivalent."
+            "content": "Three main strategies: (1) **Expand** — distribute and combine like terms to see if they match. (2) **Factor** — pull out common factors or use special identities ($a^2 - b^2 = (a-b)(a+b)$). (3) **Plug in** — substitute a simple value into both expressions; if the results differ, they are NOT equivalent. Which expression is equivalent to 42 a over k plus 42 a k where k is greater than zero? All right, we are dealing with an equivalent expression question. Now we can definitely do the math on this and find which expression is equivalent to our given e."
           },
           {
             "type": "formula",

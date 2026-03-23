@@ -17,7 +17,7 @@ export const radiansDegreesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Degrees → radians: multiply by $\\frac{\\pi}{180}$. Radians → degrees: multiply by $\\frac{180}{\\pi}$. Common values to memorize: $90° = \\frac{\\pi}{2}$, $60° = \\frac{\\pi}{3}$, $45° = \\frac{\\pi}{4}$, $30° = \\frac{\\pi}{6}$."
+            "content": "Degrees → radians: multiply by $\\frac{\\pi}{180}$. Radians → degrees: multiply by $\\frac{180}{\\pi}$. Common values to memorize: $90° = \\frac{\\pi}{2}$, $60° = \\frac{\\pi}{3}$, $45° = \\frac{\\pi}{4}$, $30° = \\frac{\\pi}{6}$. The measure of angle r is 2<unk> over 3 radians. The measure of angle t is 5<unk> / 12 radians greater than the measure of angle r. What is a measure of angle t in degrees? All right. Angle r is 2<unk> / 3 radians. That's a measure of angle r. We are."
           },
           {
             "type": "formula",
@@ -99,7 +99,7 @@ export const radiansDegreesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "Degrees → radians: multiply by $\\frac{\\pi}{180}$. Radians → degrees: multiply by $\\frac{180}{\\pi}$. Common values to memorize: $90° = \\frac{\\pi}{2}$, $60° = \\frac{\\pi}{3}$, $45° = \\frac{\\pi}{4}$, $30° = \\frac{\\pi}{6}$."
+            "content": "Degrees → radians: multiply by $\\frac{\\pi}{180}$. Radians → degrees: multiply by $\\frac{180}{\\pi}$. Common values to memorize: $90° = \\frac{\\pi}{2}$, $60° = \\frac{\\pi}{3}$, $45° = \\frac{\\pi}{4}$, $30° = \\frac{\\pi}{6}$. The measure of angle r is 2<unk> over 3 radians. The measure of angle t is 5<unk> / 12 radians greater than the measure of angle r. What is a measure of angle t in degrees? All right. Angle r is 2<unk> / 3 radians. That's a measure of angle r. We are."
           },
           {
             "type": "formula",
@@ -181,7 +181,7 @@ export const radiansDegreesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Using DESMOS Calculator in Radian Mode Example (Converting Angles) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Lock unit first (degrees or radians), then convert once."
+            "content": "On the SAT, Using DESMOS Calculator in Radian Mode Example (Converting Angles) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Lock unit first (degrees or radians), then convert once. What is the value of tan of 92 pi over 3? All right, we're finding tan of an angle measurement. But what's more important here to understand is that this angle measurement is given to us in radians and not degrees. I clearly know that this angle meas."
           },
           {
             "type": "formula",
@@ -261,7 +261,7 @@ export const radiansDegreesLessonTabs = {
           },
           {
             "type": "text",
-            "content": "On the SAT, Using DESMOS Calculator in Degree Mode Example (Converting Angles) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Lock unit first (degrees or radians), then convert once."
+            "content": "On the SAT, Using DESMOS Calculator in Degree Mode Example (Converting Angles) questions test your ability to translate wording into math. The key is a two-step decision process: first, identify exactly what the question is asking (value, relationship, count, or behavior). Second, choose the representation — algebraic, graphical, or numerical — that exposes the answer most directly. Lock unit first (degrees or radians), then convert once. What is the value of tan of 92 pi over 3? All right, we're finding tan of an angle measurement. But what's more important here to understand is that this angle measurement is given to us in radians and not degrees. I clearly know that this angle meas."
           },
           {
             "type": "formula",

@@ -39,3 +39,4 @@ scripts/serviceAccountKey.json
 
 # Pipeline intermediate artifacts (reproducible)
 scripts/generated/
+scripts/.last-content-tab-generation-report.json

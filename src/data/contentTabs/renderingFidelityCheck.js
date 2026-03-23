@@ -36,6 +36,15 @@ const VISUAL_REGISTRY = new Set([
   'parallelLinesDiagram', 'perpendicularLinesDiagram',
   'slopeFromGraphDiagram', 'slopeFromTableDiagram',
   'yInterceptDiagram', 'parabolaFromGraphDiagram',
+  'rightTriangleDiagram', 'specialTrianglesDiagram',
+  'similarTrianglesDiagram', 'triangleAreaDiagram',
+  'circlePartsDiagram', 'arcLengthDiagram', 'circleEquationDiagram',
+  'cubeDiagram', 'rectangularPrismDiagram', 'cylinderDiagram',
+  'sphereDiagram', 'coneDiagram',
+  'meanMedianDiagram',
+  'horizontalShiftDiagram', 'verticalShiftDiagram',
+  'exponentialGrowthDiagram',
+  'percentChangeDiagram',
 ]);
 
 const UNICODE_MATH_PATTERNS = [
