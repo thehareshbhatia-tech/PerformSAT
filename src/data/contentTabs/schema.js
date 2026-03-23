@@ -1,12 +1,17 @@
 /**
- * Content Tab Schema — Learn + Practice v1
+ * Content Tab Schema — Learn + Practice v2 (textbook-style)
  *
  * Every content tab (lesson-level or module fallback) uses exactly two sections:
- *   1. learn    — concise essentials: formulas, key insight, one trap/tip
+ *   1. learn    — textbook-style narrative: heading/text prose, formulas as
+ *                 inline inserts, callouts only for micro-examples.
+ *                 Trap and strategy guidance is integrated as prose subsections
+ *                 (heading + text), NOT as separate card blocks.
  *   2. practice — one worked example + one checkpoint question
  *
  * ── Authoring Principles ──
- *   - Keep learn blocks short; every sentence must teach
+ *   - Learn sections should read as a continuous story, not stacked cards
+ *   - Prefer heading + text blocks over keyInsight / trapCard / strategyCard
+ *   - Lesson semantics must match the exact topic title (formula/trap/strategy alignment)
  *   - Worked examples must be SAT-realistic
  *   - Checkpoints use retrieval practice: question → hidden answer
  *   - All math uses LaTeX dollar signs ($...$, $$...$$)
@@ -32,7 +37,7 @@ export const SECTION_ORDER = [
 ];
 
 export const BLOCK_BUDGET = {
-  [SECTION_IDS.LEARN]: 6,
+  [SECTION_IDS.LEARN]: 12,
   [SECTION_IDS.PRACTICE]: 4,
 };
 
@@ -59,6 +64,7 @@ export const CONTENT_BLOCK_TYPES = {
   PARALLEL_LINES_DIAGRAM: 'parallelLinesDiagram',
   PERPENDICULAR_LINES_DIAGRAM: 'perpendicularLinesDiagram',
   SLOPE_FROM_GRAPH_DIAGRAM: 'slopeFromGraphDiagram',
+  SLOPE_FROM_TABLE_DIAGRAM: 'slopeFromTableDiagram',
   Y_INTERCEPT_DIAGRAM: 'yInterceptDiagram',
 };
 
@@ -77,15 +83,18 @@ const BLOCK_REQUIRED_FIELDS = {
 
 const SUPPORTED_VISUAL_TYPES = [
   'parallelLinesDiagram', 'perpendicularLinesDiagram',
-  'slopeFromGraphDiagram', 'yInterceptDiagram',
-  'parabolaFromGraphDiagram',
+  'slopeFromGraphDiagram', 'slopeFromTableDiagram',
+  'yInterceptDiagram', 'parabolaFromGraphDiagram',
 ];
 
 export const SECTION_QUALITY = {
   learn: {
-    minBlocks: 2,
+    minBlocks: 6,
     requiredElements: [
-      { label: 'explanation or formula', matchTypes: ['text', 'keyInsight', 'formula', 'formulaGrid', 'callout', 'table'] },
+      { label: 'narrative prose', matchTypes: ['text'] },
+      { label: 'section heading', matchTypes: ['heading'] },
+      { label: 'formula or formalization', matchTypes: ['formula', 'formulaGrid', 'table'] },
+      { label: 'semantic coherence to lesson title', matchTypes: ['text', 'formula'] },
     ],
   },
   practice: {

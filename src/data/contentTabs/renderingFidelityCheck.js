@@ -28,13 +28,14 @@ const REGISTERED_BLOCK_TYPES = new Set([
   'example', 'steps', 'checkpointQuestion', 'comparison',
   'iconRow', 'diagramRef',
   'parallelLinesDiagram', 'perpendicularLinesDiagram',
-  'slopeFromGraphDiagram', 'yInterceptDiagram',
+  'slopeFromGraphDiagram', 'slopeFromTableDiagram',
+  'yInterceptDiagram',
 ]);
 
 const VISUAL_REGISTRY = new Set([
   'parallelLinesDiagram', 'perpendicularLinesDiagram',
-  'slopeFromGraphDiagram', 'yInterceptDiagram',
-  'parabolaFromGraphDiagram',
+  'slopeFromGraphDiagram', 'slopeFromTableDiagram',
+  'yInterceptDiagram', 'parabolaFromGraphDiagram',
 ]);
 
 const UNICODE_MATH_PATTERNS = [

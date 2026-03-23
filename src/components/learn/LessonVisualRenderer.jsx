@@ -335,10 +335,110 @@ const ParabolaFromGraphDiagram = () => {
   );
 };
 
+/**
+ * Slope from Table Diagram
+ * Shows a data table with x/y values, highlights Δy and Δx between consecutive
+ * rows, and derives the slope formula step at the bottom.
+ *
+ * Table data:  x: 1,3,5,7   y: 2,5,8,11
+ * Δx = 2, Δy = 3 → slope = 3/2
+ */
+const SlopeFromTableDiagram = () => {
+  const xs = [1, 3, 5, 7];
+  const ys = [2, 5, 8, 11];
+  const dx = 2;
+  const dy = 3;
+
+  const colW = 80;
+  const rowH = 44;
+  const tableX = 50;
+  const tableY = 30;
+  const cols = xs.length + 1;
+  const rows = 3;
+  const tW = cols * colW;
+  const tH = rows * rowH;
+
+  const arrowStartX = tableX + tW + 20;
+  const arrowEndX = arrowStartX + 60;
+  const dxY = tableY + rowH * 0.5;
+  const dyY = tableY + rowH * 1.5 + rowH;
+
+  return (
+    <div style={wrapStyle}>
+      <svg viewBox={`0 0 ${arrowEndX + 90} ${tableY + tH + 120}`} style={{ maxWidth: 600, width: '100%' }}>
+        <rect x="0" y="0" width={arrowEndX + 90} height={tableY + tH + 120} fill="#fff" rx="8"/>
+
+        {Array.from({ length: rows + 1 }, (_, i) => (
+          <line key={`h${i}`} x1={tableX} y1={tableY + i * rowH} x2={tableX + tW} y2={tableY + i * rowH} stroke="#d1d5db" strokeWidth="1.5"/>
+        ))}
+        {Array.from({ length: cols + 1 }, (_, i) => (
+          <line key={`v${i}`} x1={tableX + i * colW} y1={tableY} x2={tableX + i * colW} y2={tableY + tH} stroke="#d1d5db" strokeWidth="1.5"/>
+        ))}
+
+        <rect x={tableX} y={tableY} width={colW} height={rowH} fill="#f1f5f9"/>
+        <rect x={tableX} y={tableY + rowH} width={colW} height={rowH} fill="#f1f5f9"/>
+        <rect x={tableX} y={tableY + rowH * 2} width={colW} height={rowH} fill="#f1f5f9"/>
+        <rect x={tableX} y={tableY} width={tW} height={rowH} fill="#f1f5f9"/>
+
+        <text x={tableX + colW * 0.5} y={tableY + rowH * 0.5 + 6} textAnchor="middle" fontSize="16" fontWeight="700" fill="#334155" fontFamily="system-ui"> </text>
+        {xs.map((x, i) => (
+          <text key={`xh${i}`} x={tableX + (i + 1) * colW + colW * 0.5} y={tableY + rowH * 0.5 + 6} textAnchor="middle" fontSize="15" fontWeight="600" fill="#334155" fontFamily="system-ui">{x}</text>
+        ))}
+
+        <text x={tableX + colW * 0.5} y={tableY + rowH + rowH * 0.5 + 6} textAnchor="middle" fontSize="16" fontWeight="700" fill="#3b82f6" fontFamily="system-ui">x</text>
+        {xs.map((x, i) => (
+          <text key={`xv${i}`} x={tableX + (i + 1) * colW + colW * 0.5} y={tableY + rowH + rowH * 0.5 + 6} textAnchor="middle" fontSize="15" fill="#000" fontFamily="system-ui">{x}</text>
+        ))}
+
+        <text x={tableX + colW * 0.5} y={tableY + rowH * 2 + rowH * 0.5 + 6} textAnchor="middle" fontSize="16" fontWeight="700" fill="#ec4899" fontFamily="system-ui">y</text>
+        {ys.map((y, i) => (
+          <text key={`yv${i}`} x={tableX + (i + 1) * colW + colW * 0.5} y={tableY + rowH * 2 + rowH * 0.5 + 6} textAnchor="middle" fontSize="15" fill="#000" fontFamily="system-ui">{y}</text>
+        ))}
+
+        {xs.slice(0, -1).map((_, i) => {
+          const cx1 = tableX + (i + 1) * colW + colW * 0.5;
+          const cx2 = tableX + (i + 2) * colW + colW * 0.5;
+          const midX = (cx1 + cx2) / 2;
+          const arcY = tableY + rowH - 4;
+          return (
+            <g key={`dxa${i}`}>
+              <path d={`M ${cx1} ${arcY} Q ${midX} ${arcY - 24} ${cx2} ${arcY}`} fill="none" stroke="#3b82f6" strokeWidth="2" strokeDasharray="4 2"/>
+              <text x={midX} y={arcY - 26} textAnchor="middle" fontSize="12" fontWeight="700" fill="#3b82f6" fontFamily="system-ui">+{dx}</text>
+            </g>
+          );
+        })}
+
+        {ys.slice(0, -1).map((_, i) => {
+          const cx1 = tableX + (i + 1) * colW + colW * 0.5;
+          const cx2 = tableX + (i + 2) * colW + colW * 0.5;
+          const midX = (cx1 + cx2) / 2;
+          const arcY = tableY + rowH * 2 + rowH + 4;
+          return (
+            <g key={`dya${i}`}>
+              <path d={`M ${cx1} ${arcY} Q ${midX} ${arcY + 24} ${cx2} ${arcY}`} fill="none" stroke="#ec4899" strokeWidth="2" strokeDasharray="4 2"/>
+              <text x={midX} y={arcY + 36} textAnchor="middle" fontSize="12" fontWeight="700" fill="#ec4899" fontFamily="system-ui">+{dy}</text>
+            </g>
+          );
+        })}
+
+        <rect x={tableX + 30} y={tableY + tH + 60} width={tW - 60} height={50} rx="10" fill="#fff" stroke="#e5e7eb" strokeWidth="2"/>
+        <text x={tableX + tW * 0.35} y={tableY + tH + 78} fontSize="16" fill="#ec4899" fontWeight="700" fontFamily="system-ui">Δy</text>
+        <line x1={tableX + tW * 0.28} y1={tableY + tH + 82} x2={tableX + tW * 0.45} y2={tableY + tH + 82} stroke="#000" strokeWidth="2"/>
+        <text x={tableX + tW * 0.35} y={tableY + tH + 98} fontSize="16" fill="#3b82f6" fontWeight="700" fontFamily="system-ui">Δx</text>
+        <text x={tableX + tW * 0.52} y={tableY + tH + 90} fontSize="20" fill="#000" fontWeight="700" fontFamily="system-ui">=</text>
+        <text x={tableX + tW * 0.62} y={tableY + tH + 78} fontSize="16" fill="#000" fontWeight="700" fontFamily="system-ui">+{dy}</text>
+        <line x1={tableX + tW * 0.58} y1={tableY + tH + 82} x2={tableX + tW * 0.72} y2={tableY + tH + 82} stroke="#000" strokeWidth="2"/>
+        <text x={tableX + tW * 0.62} y={tableY + tH + 98} fontSize="16" fill="#000" fontWeight="700" fontFamily="system-ui">+{dx}</text>
+      </svg>
+    </div>
+  );
+};
+
 const visualRegistry = {
   parallelLinesDiagram: ParallelLinesDiagram,
   perpendicularLinesDiagram: PerpendicularLinesDiagram,
   slopeFromGraphDiagram: SlopeFromGraphDiagram,
+  slopeFromTableDiagram: SlopeFromTableDiagram,
   yInterceptDiagram: YInterceptDiagram,
   parabolaFromGraphDiagram: ParabolaFromGraphDiagram,
 };

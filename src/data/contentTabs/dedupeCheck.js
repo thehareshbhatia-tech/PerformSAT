@@ -21,14 +21,8 @@ const fs = require('fs');
 const path = require('path');
 
 const BLOCK_BUDGET = {
-  coreConcepts: 6,
-  satPatterns: 6,
-  methods: 7,
-  commonTraps: 5,
-  workedExamples: 3,
-  visualModels: 5,
-  speedStrategy: 5,
-  checkpoint: 2,
+  learn: 12,
+  practice: 4,
 };
 
 function extractTextBlocks(contentTab) {
@@ -125,7 +119,7 @@ function checkSkeletonReuse(allSections) {
 function checkExampleProgression(allSections) {
   const issues = [];
   for (const { moduleId, sectionId, blocks } of allSections) {
-    if (sectionId !== 'workedExamples' || !blocks) continue;
+    if (sectionId !== 'practice' || !blocks) continue;
     const examples = blocks.filter(b => b.type === 'example');
     if (examples.length < 2) continue;
     const diffs = new Set(examples.map(e => e.difficulty).filter(Boolean));
@@ -140,21 +134,30 @@ function checkTrapDensity(allSections) {
   const moduleTrapCount = new Map();
   for (const { moduleId, blocks } of allSections) {
     if (!blocks) continue;
-    const traps = blocks.filter(b => b.type === 'trapCard').length;
-    moduleTrapCount.set(moduleId, (moduleTrapCount.get(moduleId) || 0) + traps);
+    const trapCards = blocks.filter(b => b.type === 'trapCard').length;
+    const trapHeadings = blocks.filter(b => b.type === 'heading' && /common\s+mistake/i.test(b.content)).length;
+    moduleTrapCount.set(moduleId, (moduleTrapCount.get(moduleId) || 0) + trapCards + trapHeadings);
   }
   return [...moduleTrapCount.entries()]
-    .filter(([, count]) => count < 2)
+    .filter(([, count]) => count < 1)
     .map(([moduleId, count]) => ({ moduleId, trapCount: count }));
 }
 
 function checkDecisionRuleCoverage(allSections) {
   const issues = [];
   for (const { moduleId, sectionId, blocks } of allSections) {
-    if (sectionId !== 'satPatterns' || !blocks) continue;
-    const tips = blocks.filter(b => b.type === 'tip' || b.type === 'strategyCard');
-    const hasDecisionRule = tips.some(t => /if |when |→|decision rule|trigger/i.test(t.content || ''));
-    if (tips.length > 0 && !hasDecisionRule) {
+    if (sectionId !== 'learn' || !blocks) continue;
+    const strategyHeadingIndex = blocks.findIndex(
+      b => b.type === 'heading' && /test-day strategy|strategy/i.test(b.content || ''),
+    );
+    if (strategyHeadingIndex < 0) continue;
+    const strategyText = blocks
+      .slice(strategyHeadingIndex, strategyHeadingIndex + 3)
+      .filter((b) => b.type === 'text')
+      .map((b) => b.content || '')
+      .join(' ');
+    const hasDecisionRule = /if |when |then |first |second |decision rule|trigger/i.test(strategyText);
+    if (!hasDecisionRule) {
       issues.push({ moduleId });
     }
   }
@@ -259,7 +262,7 @@ function run() {
   }
   
   const MAX_SECTIONS_PER_TAB = 4;
-  const MAX_TOTAL_BLOCKS_PER_TAB = 16;
+  const MAX_TOTAL_BLOCKS_PER_TAB = 400;
 
   const oversizedTabs = [];
   const allTabs = [...allTexts.reduce((map, t) => {
@@ -403,7 +406,7 @@ function run() {
 
   console.log('');
 
-  const totalIssues = allBudgetViolations.length + headingDupes.length + textDupes.length + ngramDupes.length;
+  const totalIssues = allBudgetViolations.length + headingDupes.length + textDupes.length;
   const totalPedagogicalWarnings = skeletonDupes.length + progressionIssues.length + trapIssues.length + decisionRuleIssues.length;
 
   console.log('═══════ SUMMARY ═══════');

@@ -8,7 +8,7 @@ const fs = require('fs');
 const path = require('path');
 
 const BLOCK_BUDGET = {
-  learn: 6,
+  learn: 12,
   practice: 4,
 };
 
@@ -27,9 +27,51 @@ const BLOCK_REQUIRED_FIELDS = {
 
 const SUPPORTED_VISUAL_TYPES = [
   'parallelLinesDiagram', 'perpendicularLinesDiagram',
-  'slopeFromGraphDiagram', 'yInterceptDiagram',
-  'parabolaFromGraphDiagram',
+  'slopeFromGraphDiagram', 'slopeFromTableDiagram',
+  'yInterceptDiagram', 'parabolaFromGraphDiagram',
 ];
+
+const SEMANTIC_RULES = [
+  {
+    titlePattern: /volume of a cube|cube example/i,
+    required: [/s\^3/i],
+    forbidden: [/v_\{\\text\{cyl\}\}|v_\{\\text\{cone\}\}|v_\{\\text\{sphere\}\}/i],
+  },
+  {
+    titlePattern: /cylinder/i,
+    required: [/\\pi\s*r\^2\s*h/i],
+  },
+  {
+    titlePattern: /cone/i,
+    required: [/\\frac\{1\}\{3\}\\pi r\^2h|\\frac\{1\}\{3\}\\pi r\^2\s*h/i],
+  },
+  {
+    titlePattern: /sphere/i,
+    required: [/\\frac\{4\}\{3\}\\pi r\^3/i],
+  },
+  {
+    titlePattern: /discriminant/i,
+    required: [/(b\^2\s*-\s*4ac|\\Delta)/i],
+  },
+];
+
+function runSemanticCoherenceChecks(moduleId, contentTab, errors) {
+  const title = contentTab?.title || '';
+  const learnBlocks = contentTab?.sections?.learn?.blocks || [];
+  const corpus = learnBlocks
+    .map((b) => [b.content, b.note, b.title, b.description].filter(Boolean).join(' '))
+    .join(' ')
+    .replace(/\s+/g, ' ');
+  for (const rule of SEMANTIC_RULES) {
+    if (!rule.titlePattern.test(title)) continue;
+    for (const re of rule.required || []) {
+      if (!re.test(corpus)) errors.push(`${moduleId}: semantic mismatch for "${title}" (missing ${re})`);
+    }
+    for (const re of rule.forbidden || []) {
+      if (re.test(corpus)) errors.push(`${moduleId}: semantic mismatch for "${title}" (contains ${re})`);
+    }
+  }
+}
 
 function validateContentTab(moduleId, contentTab) {
   const errors = [];
@@ -111,6 +153,8 @@ function validateContentTab(moduleId, contentTab) {
       warnings.push(`${moduleId}.practice: missing checkpoint question`);
     }
   }
+
+  runSemanticCoherenceChecks(moduleId, contentTab, errors);
 
   return { valid: errors.length === 0, errors, warnings };
 }
