@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { SECTION_ORDER, SECTION_LABELS } from '../../data/contentTabs/schema';
 import { MathText } from '../MathText';
 import { renderRichText } from '../RichMathText';
@@ -288,7 +288,6 @@ const TAB_ICONS = { learn: '\u{1F4D6}', practice: '\u{270F}\uFE0F' };
 
 const ContentTabRenderer = ({ contentTab }) => {
   const [activeTab, setActiveTab] = useState(0);
-  const [activeHeadingId, setActiveHeadingId] = useState('');
 
   const tabs = useMemo(() => {
     if (!contentTab || !contentTab.sections) return [];
@@ -300,42 +299,6 @@ const ContentTabRenderer = ({ contentTab }) => {
         section: contentTab.sections[id],
       }));
   }, [contentTab]);
-
-  const currentHeadings = useMemo(() => {
-    const currentSection = tabs[activeTab]?.section;
-    if (!currentSection || !currentSection.blocks) return [];
-    return currentSection.blocks
-      .filter(b => b.type === 'heading')
-      .map((b, idx) => {
-        const simpleText = b.content.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
-        return {
-          id: simpleText ? `tb-heading-${simpleText}` : `tb-heading-${idx}`,
-          title: b.content.replace(/\\.?/g, '').replace(/[{}]/g, '') // Rough strip for math text in nav
-        };
-      });
-  }, [tabs, activeTab]);
-
-  useEffect(() => {
-    if (currentHeadings.length === 0) return;
-    
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // Find the last intersecting heading
-        const visible = entries.filter(e => e.isIntersecting);
-        if (visible.length > 0) {
-          setActiveHeadingId(visible[visible.length - 1].target.id);
-        }
-      },
-      { rootMargin: '-10% 0px -80% 0px' }
-    );
-
-    currentHeadings.forEach(h => {
-      const el = document.getElementById(h.id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, [currentHeadings, activeTab]);
 
   if (tabs.length === 0) return null;
 
