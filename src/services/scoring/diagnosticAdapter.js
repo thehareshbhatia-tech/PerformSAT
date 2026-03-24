@@ -8,6 +8,7 @@
  */
 
 import { DOMAIN_DISPLAY_NAMES, SAT_MATH_DOMAINS } from './domainInference';
+import { resolveRemediationLinks, buildLearningPathItems } from './remediationLinker';
 
 const ERROR_TYPE_DISPLAY = {
   careless_error:       { label: 'Careless Mistakes',   color: '#b45309', bg: 'rgba(245, 158, 11, 0.08)' },
@@ -1121,14 +1122,20 @@ function buildDiagnosticReport(report, rawDiagData) {
     };
   });
 
+  // Resolve remediation links: connect each pattern to specific lessons
+  const weakSkills = report.skillAnalysis?.weakSkills || [];
+  const patternsWithLinks = resolveRemediationLinks(patterns, weakSkills);
+  const learningPathItems = buildLearningPathItems(patternsWithLinks);
+
   sections.push({
     id: 'patternsThatDroveScore',
     title: 'Patterns That Drove The Score',
     step: 3,
-    body: patterns.length > 0
-      ? `${patterns.length} score-driving pattern${patterns.length > 1 ? 's' : ''} detected.`
+    body: patternsWithLinks.length > 0
+      ? `${patternsWithLinks.length} score-driving pattern${patternsWithLinks.length > 1 ? 's' : ''} detected.`
       : 'No significant weakness patterns detected.',
-    patterns,
+    patterns: patternsWithLinks,
+    learningPathItems,
     source: 'deterministic',
   });
 
@@ -1252,9 +1259,22 @@ export function mergeAiIntoReport(report, ai) {
           source: 'ai',
           confidence: existingW ? existingW.confidence : 'high',
           estimatedPointGain: existingW ? existingW.estimatedPointGain : null,
-          nextAction: existingW ? existingW.nextAction : { label: 'Review Questions', action: 'review' }
+          nextAction: existingW ? existingW.nextAction : { label: 'Review Questions', action: 'review' },
+          remediationLinks: existingW?.remediationLinks || [],
         };
       });
+      // Re-resolve remediation links for AI-only weaknesses (those with empty links)
+      const unresolvedPatterns = sec.patterns.filter(p => !p.remediationLinks || p.remediationLinks.length === 0);
+      if (unresolvedPatterns.length > 0) {
+        const weakSkills = report?.skillAnalysis?.weakSkills || merged._weakSkills || [];
+        const resolved = resolveRemediationLinks(unresolvedPatterns, weakSkills);
+        resolved.forEach(rp => {
+          const idx = sec.patterns.findIndex(p => p.id === rp.id);
+          if (idx >= 0) sec.patterns[idx] = rp;
+        });
+      }
+      // Rebuild learning path items from updated patterns
+      sec.learningPathItems = buildLearningPathItems(sec.patterns);
       sec.body = `${aiWeaknesses.length} score-driving pattern${aiWeaknesses.length > 1 ? 's' : ''} detected.`;
       sec.source = 'ai';
     }
@@ -1307,6 +1327,17 @@ export function mergeAiIntoReport(report, ai) {
   const behaviorClaims = normalizeToStructuredClaims(ai.behaviorInsightPoints, ai.behaviorInsights);
   if (behaviorClaims.length > 0) {
     merged._structuredBehavior = behaviorClaims;
+  }
+
+  // Store question-level AI insights as UI-ready shape
+  if (Array.isArray(ai.questionInsights) && ai.questionInsights.length > 0) {
+    merged._questionInsights = ai.questionInsights.map(qi => ({
+      questionKey: qi.questionKey,
+      trapType: qi.trapType || 'unknown',
+      trapExplanation: qi.trapExplanation || '',
+      correctApproach: qi.correctApproach || '',
+      relatedSkillId: qi.relatedSkillId || null,
+    }));
   }
 
   return merged;
@@ -1676,11 +1707,13 @@ export function buildUnifiedReport(mergedReport) {
     evidence: evidence.slice(0, 8),
     nextFocus: focus,
     meta,
+    learningPathItems: patternsSec.learningPathItems || [],
+    questionInsights: mergedReport._questionInsights || [],
   };
 }
 
 const GENERIC_CLAIM_PATTERNS = /\b(review your mistakes|practice more|focus on weak areas|needs improvement|room for growth|work on your|struggling with|you should try|consider reviewing|keep practicing)\b/i;
-const SCORE_RESTATEMENT_PATTERNS = /^(you scored|your score (is|was)|you got \d+\/|you are \d+ points? (below|above|from)|your percentile)/i;
+const SCORE_RESTATEMENT_PATTERNS = /^(you scored|you're scoring|your score (is|was)|you got \d+\/|you are \d+ points? (below|above|from)|your percentile|scoring at the \d+)/i;
 
 function isGenericClaim(text) {
   if (!text || typeof text !== 'string') return false;
@@ -1867,6 +1900,18 @@ export function buildNarrativeFlow(uni) {
     });
   }
 
+  // ─── BLOCK 3.5: REMEDIATION PATH — connect weaknesses to specific lessons ───
+  const learningPath = uni.learningPathItems || [];
+  if (learningPath.length > 0) {
+    blocks.push({
+      id: 'remediationPath',
+      label: 'Your Learning Path',
+      items: learningPath,
+      style: 'path',
+      visibility: 'primary',
+    });
+  }
+
   // ─── BLOCK 4: EVIDENCE — compact support lines, with at least one always visible ───
   const evidenceItems = [];
   (uni.evidence || [])
@@ -1949,6 +1994,7 @@ export function buildNarrativeFlow(uni) {
     secondaryEvidence,
     uncertainties: uni.meta?.uncertainties || null,
     qualityFailed: uni.meta?.qualityFailed || false,
+    questionInsights: uni.questionInsights || [],
   };
 
   return {

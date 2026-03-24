@@ -11,6 +11,8 @@ import { cardStyles, buttonStyles } from '../design/components';
 import { MathText } from './MathText';
 import './TestResults.css';
 import { ChartBarIcon, ArrowRightIcon } from '../design/icons';
+import RemediationPathBlock from './RemediationPathBlock';
+import QuestionInsightCard from './QuestionInsightCard';
 import {
   convertToSATScore, isAnswerCorrect, estimatePercentile,
   inferDomain, SAT_MATH_DOMAINS, DOMAIN_DISPLAY_NAMES,
@@ -25,6 +27,54 @@ function bulletizeText(text) {
   if (text.length <= BULLET_LENGTH_THRESHOLD && !BULLET_SPLIT_RE.test(text)) return null;
   const parts = text.split(BULLET_SPLIT_RE).map(s => s.trim()).filter(s => s.length > 0);
   return parts.length >= 2 ? parts : null;
+}
+
+/**
+ * Clean up a bullet point: capitalize first letter, strip leading conjunctions.
+ */
+function cleanBullet(text) {
+  if (!text || typeof text !== 'string') return typeof text === 'string' ? text : '';
+  // Strip leading conjunctions
+  let cleaned = text.replace(/^(and |or |but |while |plus )/i, '').trim();
+  // Capitalize first letter
+  if (cleaned.length > 0) {
+    cleaned = cleaned.charAt(0).toUpperCase() + cleaned.slice(1);
+  }
+  return cleaned;
+}
+
+/**
+ * Format a skill name for display: convert hyphens to spaces, title case.
+ */
+function formatSkillName(name) {
+  if (!name || typeof name !== 'string') return '';
+  return name
+    .replace(/-/g, ' ')
+    .replace(/\b\w/g, c => c.toUpperCase());
+}
+
+/**
+ * Aggressively split long text into short scannable bullets.
+ * Splits on: semicolons, em-dashes, sentence boundaries, commas before conjunctions.
+ * Returns array of cleaned strings, or null if text is already short enough.
+ */
+function splitToScannable(text) {
+  if (!text || typeof text !== 'string') return null;
+  if (text.length <= 120) return null;
+
+  // First try semicolons and em-dashes (strongest delimiters)
+  let parts = text.split(/\s*;\s*|\s*[—–]\s*/).map(s => cleanBullet(s)).filter(s => s.length > 5);
+  if (parts.length >= 2) return parts;
+
+  // Then try sentence boundaries
+  parts = text.split(/(?<=[.!?])\s+(?=[A-Z])/).map(s => cleanBullet(s)).filter(s => s.length > 5);
+  if (parts.length >= 2) return parts;
+
+  // Then try comma + conjunction ("losing X, gaining Y, and Z")
+  parts = text.split(/,\s*(?=and |or |but |while |plus |losing |gaining |~)/).map(s => cleanBullet(s)).filter(s => s.length > 5);
+  if (parts.length >= 2) return parts;
+
+  return null;
 }
 
 function SupportText({ text, label, labelColor, textColor, textSize = '14px', dotColor = 'var(--color-slate-400)' }) {
@@ -365,6 +415,39 @@ const StorySection = ({ stepNumber, stepLabel, children, accent = 'var(--diag-mu
   </div>
 );
 
+const CollapsibleSection = ({ icon, iconBg, iconColor, label, expanded, onToggle, children }) => (
+  <div style={{
+    background: '#fff', borderRadius: '14px',
+    border: '1px solid rgba(0,0,0,0.04)',
+    boxShadow: expanded ? '0 2px 12px rgba(0,0,0,0.04)' : 'none',
+    overflow: 'hidden', transition: 'box-shadow 0.3s ease',
+  }}>
+    <button
+      onClick={onToggle}
+      style={{
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        width: '100%', padding: '14px 20px', border: 'none', background: 'none',
+        cursor: 'pointer',
+      }}
+    >
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <div style={{ width: '28px', height: '28px', borderRadius: '8px', background: iconBg, display: 'flex', alignItems: 'center', justifyContent: 'center', color: iconColor }}>
+          {icon}
+        </div>
+        <span style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '600', color: 'var(--color-slate-700)' }}>
+          {label}
+        </span>
+      </div>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-slate-400)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: expanded ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s ease' }}>
+        <path d="M6 9l6 6 6-6" />
+      </svg>
+    </button>
+    <div className={`diag-collapsible${expanded ? ' diag-expanded' : ''}`}>
+      {children}
+    </div>
+  </div>
+);
+
 const TestResults = ({
   test,
   answers,
@@ -378,6 +461,8 @@ const TestResults = ({
   onReview,
   onReviewModule,
   onGoToStudyPlan,
+  onNavigateToModule,
+  savedStudyPlan,
   user,
 }) => {
   const [activeTab, setActiveTab] = useState('summary');
@@ -385,6 +470,9 @@ const TestResults = ({
   const [showImpact, setShowImpact] = useState(false);
   const [showProof, setShowProof] = useState(false);
   const [showNarrativeDetails, setShowNarrativeDetails] = useState(false);
+  const [showBehaviorDetail, setShowBehaviorDetail] = useState(false);
+  const [showEvidenceDetail, setShowEvidenceDetail] = useState(false);
+  const [showQuestionInsights, setShowQuestionInsights] = useState(false);
   const [diagEntrance, setDiagEntrance] = useState(true);
   const diagEntranceTimer = useRef(null);
 
@@ -1517,6 +1605,16 @@ const TestResults = ({
         );
       }
 
+      if (block.id === 'remediationPath') {
+        return (
+          <RemediationPathBlock
+            key={block.id}
+            items={block.items}
+            onNavigateToModule={onNavigateToModule}
+          />
+        );
+      }
+
       if (block.id === 'evidence') {
         const TIME_RE = /time|speed|stamina|half|pace|rush|fast|slow|minute|second|avg.*time|timing/i;
         const ACCURACY_RE = /accuracy|correct|miss|error|wrong|score|gap|wins|easy|domain|cause|lever|point|projected|impact/i;
@@ -1684,6 +1782,55 @@ const TestResults = ({
               })}
             </ul>
             )}
+            {/* Inline Study Plan Preview */}
+            {savedStudyPlan && savedStudyPlan.weeks && savedStudyPlan.weeks.length > 0 && (() => {
+              const week1 = savedStudyPlan.weeks[0];
+              const activities = (week1.activities || []).slice(0, 3);
+              const typeIcons = { lesson: '📖', practice: '✏️', strategy: '🎯', review: '🔄' };
+              return (
+                <div style={{
+                  padding: '20px 24px', borderRadius: '16px',
+                  background: 'var(--color-slate-50)', border: '1px solid var(--color-slate-150, #e8ecf0)',
+                  marginBottom: '16px',
+                }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+                    <div style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '700', color: 'var(--color-slate-500)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                      Week 1: {week1.theme || 'Getting Started'}
+                    </div>
+                    {onGoToStudyPlan && (
+                      <button onClick={onGoToStudyPlan} style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '600', color: 'var(--color-brand-orange-600)', background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        See full plan <ArrowRightIcon size={12} />
+                      </button>
+                    )}
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                    {activities.map((act, ai) => (
+                      <div key={ai} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '8px 0', borderTop: ai > 0 ? '1px solid var(--color-slate-100)' : 'none' }}>
+                        <span style={{ fontSize: '16px', flexShrink: 0 }}>{typeIcons[act.type] || '📋'}</span>
+                        <div style={{ flex: 1, minWidth: 0 }}>
+                          <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '600', color: 'var(--color-slate-800)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{act.title}</div>
+                        </div>
+                        {act.duration && (
+                          <div style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '500', color: 'var(--color-slate-400)', flexShrink: 0 }}>{act.duration}m</div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })()}
+            {!savedStudyPlan && (
+              <div style={{
+                padding: '20px 24px', borderRadius: '16px',
+                background: 'var(--color-slate-50)', border: '1px solid var(--color-slate-150, #e8ecf0)',
+                marginBottom: '16px', textAlign: 'center',
+              }}>
+                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--color-slate-400)' }}>
+                  Your personalized study plan is being generated...
+                </div>
+              </div>
+            )}
+
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
               {onGoToStudyPlan && (
                 <button onClick={onGoToStudyPlan} style={{
@@ -1720,119 +1867,265 @@ const TestResults = ({
     const hasAction = getBlock('nextMove');
     let stepCounter = 0;
 
-    return (
-      <div style={{ padding: '16px 0 40px', display: 'flex', flexDirection: 'column', gap: '48px' }}>
+    // ─── Extract the #1 hero finding from context block (skip score restatements) ───
+    const contextBlock = getBlock('context');
+    const contextItems = contextBlock?.items || [];
+    const scoreRestateRe = /^(you scored|you're scoring|your score|you got \d+\/|you are \d+ points|your percentile|scoring at the \d+)/i;
+    const heroItem = contextItems.find(item => {
+      const text = typeof item === 'string' ? item : item?.text || '';
+      return text.length > 0 && !scoreRestateRe.test(text.trim());
+    }) || contextItems[0] || null;
+    const heroIdx = heroItem ? contextItems.indexOf(heroItem) : 0;
+    const heroText = heroItem ? (typeof heroItem === 'string' ? heroItem : heroItem.text || '') : '';
+    const heroCause = heroItem?.causalMechanism || null;
+    const heroImpact = heroItem?.estimatedImpact || null;
+    const additionalFindings = contextItems.filter((_, i) => i !== heroIdx);
 
-        {/* ── TOP INTRO STRIP ── */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', padding: '0 8px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <div style={{ padding: '6px 12px', borderRadius: '8px', background: 'var(--diag-accent-primary)', color: '#fff', fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Deep Dive</div>
-            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '600', color: 'var(--diag-muted)' }}>Generated for {user?.name || 'you'}</div>
+    // Compute total recoverable points
+    const remPathBlock = getBlock('remediationPath');
+    const totalRecoverable = (remPathBlock?.items || [])
+      .reduce((sum, item) => sum + (item.estimatedGain || 0), 0);
+
+    // MetaStrip stats
+    const metaBlock = getBlock('metaStrip');
+    const metaStats = metaBlock?.items || [];
+
+    // All context items are diagnosis findings (no prescriptive content)
+    const allFindings = contextItems.filter(item => {
+      const text = typeof item === 'string' ? item : item?.text || '';
+      return text.length > 0 && !scoreRestateRe.test(text.trim());
+    });
+
+    const weakSkillsList = diagnosticReport?.skillAnalysis?.weakSkills || [];
+
+    return (
+      <div style={{ padding: '0 0 48px', display: 'flex', flexDirection: 'column', gap: '32px' }}>
+
+        {/* ═══════ 1. SCORE HEADER — dashboard style, not card ═══════ */}
+        <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '20px', paddingBottom: '20px', borderBottom: '1px solid var(--color-slate-150, #e8ecf0)' }}>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: '14px' }}>
+            <div style={{ fontSize: '54px', fontWeight: '800', color: 'var(--color-slate-900)', letterSpacing: '-0.04em', lineHeight: 1, fontFamily: 'var(--font-ui)' }}>{satScore}</div>
+            <div style={{ fontSize: '18px', fontWeight: '500', color: 'var(--color-slate-400)', fontFamily: 'var(--font-ui)', paddingBottom: '4px' }}>/ 800</div>
+            {(meta.hasAI || isGenerating) && (
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '4px 10px', borderRadius: '6px', background: 'rgba(251,146,60,0.06)', marginBottom: '4px' }}>
+                <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--color-brand-orange-500)', animation: isGenerating ? 'spin 1.5s linear infinite' : 'none' }} />
+                <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', letterSpacing: '0.04em', textTransform: 'uppercase', color: 'var(--color-brand-orange-600)' }}>{isGenerating ? 'Analyzing...' : 'AI Analysis'}</span>
+              </div>
+            )}
           </div>
-          <h2 style={{ fontFamily: 'var(--font-ui)', fontSize: '32px', fontWeight: '800', color: 'var(--diag-title)', letterSpacing: '-0.03em', margin: 0 }}>
-            Your Diagnostic Profile
-          </h2>
-          <div style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', color: 'var(--diag-text)', lineHeight: '1.5', maxWidth: '600px' }}>
-            We've analyzed your test behavior, timing, and accuracy to build a precise roadmap for your next practice session.
-          </div>
+          {metaStats.length > 0 && (
+            <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
+              {metaStats.slice(0, 4).map((s, i) => {
+                const valColor = s.type === 'warning' ? '#dc2626' : s.type === 'success' ? '#16a34a' : 'var(--color-slate-900)';
+                return (
+                  <div key={i}>
+                    <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '600', color: 'var(--color-slate-400)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>{s.label}</div>
+                    <div style={{ fontFamily: 'var(--font-ui)', fontSize: '22px', fontWeight: '700', color: valColor, fontVariantNumeric: 'tabular-nums' }}>{s.value}</div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
 
-        {/* ── STEP 1: WHAT HAPPENED ── */}
-        {hasWhatHappened && (
-          <StorySection stepNumber={++stepCounter} stepLabel="What Happened" accent="var(--diag-accent-primary)">
-            {getBlock('context') && (
-              <div className="diag-card-base">
-                {renderBlock(getBlock('context'), 0)}
-                {getBlock('metaStrip') && <>
-                  <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent 0%, var(--diag-border) 10%, var(--diag-border) 90%, transparent 100%)', margin: '0 48px' }} />
-                  {renderBlock(getBlock('metaStrip'), 1)}
-                </>}
-              </div>
-            )}
-            {getBlock('behaviorAmplifier') && (
-              <div className="diag-card-base">
-                {renderBlock(getBlock('behaviorAmplifier'), 2)}
-              </div>
-            )}
+        {/* ═══════ 2. WHY YOU GOT THIS SCORE ═══════ */}
+        {isGenerating ? (
+          <div style={{ padding: '48px 0', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+            <div style={{ width: '40px', height: '40px', border: '3px solid rgba(251,146,60,0.15)', borderTopColor: 'var(--color-brand-orange-500)', borderRadius: '50%', animation: 'spin 1s cubic-bezier(0.5, 0.1, 0.5, 0.9) infinite' }} />
+            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', fontWeight: '600', color: 'var(--color-slate-700)' }}>Analyzing your test...</div>
+          </div>
+        ) : hasFailed && allFindings.length === 0 ? (
+          <div style={{ padding: '24px', background: 'var(--color-warning-50)', borderRadius: '8px', border: '1px solid var(--color-warning-200)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '16px' }}>
+            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--color-slate-700)' }}>AI analysis unavailable. Your score data is shown above.</div>
+            {onRetryAiDiagnostic && <button onClick={onRetryAiDiagnostic} style={{ fontFamily: 'var(--font-ui)', padding: '8px 16px', borderRadius: '6px', border: 'none', background: 'var(--color-warning-600)', color: '#fff', fontSize: '13px', fontWeight: '600', cursor: 'pointer' }}>Retry</button>}
+          </div>
+        ) : allFindings.length > 0 ? (
+          <div>
+            <h3 style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '700', color: 'var(--color-slate-900)', textTransform: 'uppercase', letterSpacing: '0.05em', margin: '0 0 16px', borderLeft: '3px solid var(--color-brand-orange-500)', paddingLeft: '12px' }}>
+              Why You Got This Score
+            </h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              {allFindings.map((item, i) => {
+                const text = typeof item === 'string' ? item : item.text || '';
+                const cause = item?.causalMechanism || null;
+                const evidence = item?.evidence || null;
+                const impact = item?.estimatedImpact || null;
+                const claimBullets = splitToScannable(text);
+                const causeBullets = splitToScannable(cause);
+                const evidenceBullets = evidence ? evidence.split(/;\s*/).filter(e => e.length > 3) : [];
 
-            {/* Overflow findings inline (high density) */}
-            {details.overflowDiagnosis && details.overflowDiagnosis.length > 0 && (
-              <div className="diag-card-base" style={{ padding: '28px 36px' }}>
-                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '700', color: 'var(--color-slate-400)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '16px' }}>Additional Findings</div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                  {details.overflowDiagnosis.map((pt, i) => {
-                    const ptText = typeof pt === 'string' ? pt : pt.text || '';
-                    const { cleanedText: overflowClean, metricItems: overflowMetrics } = extractMetrics(ptText);
-                    return (
-                      <div key={i} style={{ padding: '18px 22px', borderRadius: '14px', background: 'rgba(251,146,60,0.04)', border: '1px solid rgba(251,146,60,0.12)', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                        <div>
-                          <span style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', fontWeight: '600', color: colors.text.primary, lineHeight: '1.5' }}><MathText>{overflowClean}</MathText></span>
-                          {overflowMetrics.length > 0 && (
-                            <ul style={{ margin: '6px 0 0', padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '3px' }}>
-                              {overflowMetrics.map((m, mi) => (
-                                <li key={mi} style={{ display: 'flex', alignItems: 'baseline', gap: '8px', fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--color-slate-700)', lineHeight: '1.4' }}>
-                                  <span style={{ flexShrink: 0, width: '5px', height: '5px', borderRadius: '50%', background: 'var(--color-brand-orange-400)', marginTop: '5px' }} />
-                                  <span><span style={{ fontWeight: '500' }}><MathText>{m.label}</MathText>:</span> <span style={{ fontWeight: '700' }}><MathText>{m.value}</MathText></span></span>
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-                        </div>
-                        {pt.causalMechanism && (
-                          <div style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '500', color: 'var(--color-slate-500)', lineHeight: '1.45' }}>
-                            <span style={{ fontWeight: '700', color: 'var(--color-slate-400)', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Why: </span><MathText>{pt.causalMechanism}</MathText>
+                return (
+                  <div key={i} style={{ paddingLeft: '16px', borderLeft: i === 0 ? '2px solid var(--color-brand-orange-400)' : '2px solid var(--color-slate-100)' }}>
+                    {claimBullets ? (
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                        {claimBullets.map((cb, ci) => (
+                          <div key={ci} style={{ fontFamily: 'var(--font-ui)', fontSize: ci === 0 ? '15px' : '14px', fontWeight: ci === 0 ? '600' : '400', color: ci === 0 ? 'var(--color-slate-900)' : 'var(--color-slate-600)', lineHeight: '1.6' }}>
+                            {ci > 0 && <span style={{ color: 'var(--color-slate-300)', marginRight: '8px' }}>—</span>}
+                            <MathText>{cb}</MathText>
                           </div>
-                        )}
+                        ))}
                       </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
-          </StorySection>
-        )}
-
-        {/* ── STEP 2: THE EVIDENCE ── */}
-        {hasEvidence && (
-          <StorySection stepNumber={++stepCounter} stepLabel="The Evidence" accent="var(--diag-accent-info)">
-            <div className="diag-card-base">
-              {renderBlock(getBlock('evidence'), 3)}
+                    ) : (
+                      <div style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', fontWeight: '600', color: 'var(--color-slate-900)', lineHeight: '1.6' }}><MathText>{text}</MathText></div>
+                    )}
+                    {cause && !causeBullets && (
+                      <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--color-slate-500)', lineHeight: '1.55', marginTop: '6px' }}><MathText>{cause}</MathText></div>
+                    )}
+                    {causeBullets && (
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginTop: '6px' }}>
+                        {causeBullets.map((mb, mi) => (
+                          <div key={mi} style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--color-slate-500)', lineHeight: '1.5' }}>
+                            <span style={{ color: 'var(--color-slate-300)', marginRight: '6px' }}>·</span><MathText>{mb}</MathText>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    {evidenceBullets.length > 0 && (
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '8px' }}>
+                        {evidenceBullets.map((eb, ei) => (
+                          <span key={ei} style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--color-slate-500)', padding: '3px 8px', borderRadius: '4px', background: 'var(--color-slate-50)', border: '1px solid var(--color-slate-100)' }}><MathText>{eb.trim()}</MathText></span>
+                        ))}
+                      </div>
+                    )}
+                    {impact && (
+                      <div style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '600', color: '#b45309', marginTop: '6px' }}><MathText>{impact}</MathText></div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
-          </StorySection>
-        )}
+          </div>
+        ) : null}
 
-        {/* ── STEP 3: WHAT TO DO ── */}
-        {hasAction && (
-          <StorySection stepNumber={++stepCounter} stepLabel="What to Do" accent="var(--diag-title)">
-            <div className="diag-action-card">
-              {renderBlock(getBlock('nextMove'), 4)}
+        {/* ═══════ SPECIFIC SKILL GAPS — grid layout ═══════ */}
+        {weakSkillsList.length > 0 && (
+          <div>
+            <h3 style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '700', color: 'var(--color-slate-900)', textTransform: 'uppercase', letterSpacing: '0.05em', margin: '0 0 16px', borderLeft: '3px solid #dc2626', paddingLeft: '12px' }}>
+              Skill Gaps <span style={{ fontWeight: '500', color: 'var(--color-slate-400)', textTransform: 'none', letterSpacing: '0' }}>({weakSkillsList.length} skills)</span>
+            </h3>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '8px' }}>
+              {weakSkillsList.slice(0, 15).map((ws, wi) => {
+                const pct = ws.total > 0 ? Math.round((ws.correct / ws.total) * 100) : 0;
+                const barColor = pct === 0 ? '#dc2626' : pct < 50 ? '#f59e0b' : '#06b6d4';
+                return (
+                  <div key={wi} style={{ padding: '10px 14px', borderRadius: '8px', background: '#fff', border: '1px solid var(--color-slate-100)', display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '600', color: 'var(--color-slate-800)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{formatSkillName(ws.name)}</div>
+                      <div style={{ height: '3px', background: 'var(--color-slate-100)', borderRadius: '2px', marginTop: '6px', overflow: 'hidden' }}>
+                        <div style={{ width: `${pct}%`, height: '100%', background: barColor, borderRadius: '2px' }} />
+                      </div>
+                    </div>
+                    <div style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '700', color: barColor, fontVariantNumeric: 'tabular-nums', flexShrink: 0 }}>{ws.correct}/{ws.total}</div>
+                  </div>
+                );
+              })}
             </div>
-          </StorySection>
-        )}
-
-        {/* Caveats (always visible for transparency) */}
-        {(details.uncertainties || details.qualityFailed) && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', padding: '0 8px' }}>
-            {details.uncertainties && (
-              <div style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--color-warning-700)', lineHeight: '1.55', fontStyle: 'italic', padding: '14px 18px', borderRadius: '14px', background: 'var(--color-warning-50)', border: '1px solid var(--color-warning-200)' }}>
-                <span style={{ fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.04em', fontSize: '11px', marginRight: '6px' }}>Note:</span>
-                {details.uncertainties}
-              </div>
-            )}
-            {details.qualityFailed && (
-              <div style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--color-warning-700)', fontWeight: '600', padding: '14px 18px', borderRadius: '14px', background: 'var(--color-warning-50)', border: '1px solid var(--color-warning-200)' }}>
-                Some findings could not be fully verified. We're showing the data-backed analysis where we're most confident.
-              </div>
-            )}
           </div>
         )}
+
+        {/* ═══════ BEHAVIOR & TIMING — always visible ═══════ */}
+        {getBlock('behaviorAmplifier') && getBlock('behaviorAmplifier').items.length > 0 && (() => {
+          const behaviorBlock = getBlock('behaviorAmplifier');
+          return (
+            <div>
+              <h3 style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '700', color: 'var(--color-slate-900)', textTransform: 'uppercase', letterSpacing: '0.05em', margin: '0 0 16px', borderLeft: '3px solid var(--color-info-500)', paddingLeft: '12px' }}>
+                Behavior & Timing
+              </h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                {behaviorBlock.items.map((item, i) => {
+                  const isStructured = typeof item === 'object' && item !== null;
+                  const claimText = isStructured ? (item.text || '') : (typeof item === 'string' ? item : '');
+                  const rawClaim = claimText.replace(/^(\(\d+\)|\d+\.)\s*/, '');
+                  const evidence = isStructured ? item.evidence : null;
+                  const mechanism = isStructured ? item.mechanism : null;
+                  const impact = isStructured ? item.estimatedImpact : null;
+                  const claimBullets = splitToScannable(rawClaim);
+                  const mechBullets = splitToScannable(mechanism);
+                  const evidenceBullets = evidence ? evidence.split(/;\s*/).filter(e => e.length > 3) : [];
+
+                  return (
+                    <div key={i} style={{ paddingLeft: '16px', borderLeft: '2px solid var(--color-info-200)' }}>
+                      {claimBullets ? (
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                          {claimBullets.map((cb, ci) => (
+                            <div key={ci} style={{ fontFamily: 'var(--font-ui)', fontSize: ci === 0 ? '14px' : '13px', fontWeight: ci === 0 ? '600' : '400', color: ci === 0 ? 'var(--color-slate-900)' : 'var(--color-slate-600)', lineHeight: '1.55' }}>
+                              {ci > 0 && <span style={{ color: 'var(--color-slate-300)', marginRight: '6px' }}>·</span>}
+                              <MathText>{cb}</MathText>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '600', color: 'var(--color-slate-900)', lineHeight: '1.55' }}><MathText>{rawClaim}</MathText></div>
+                      )}
+                      {mechanism && !mechBullets && (
+                        <div style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--color-slate-500)', lineHeight: '1.5', marginTop: '4px' }}><MathText>{mechanism}</MathText></div>
+                      )}
+                      {mechBullets && (
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', marginTop: '4px' }}>
+                          {mechBullets.map((mb, mi) => (
+                            <div key={mi} style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--color-slate-500)', lineHeight: '1.45' }}>
+                              <span style={{ color: 'var(--color-slate-300)', marginRight: '6px' }}>·</span><MathText>{mb}</MathText>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                      {evidenceBullets.length > 0 && (
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', marginTop: '6px' }}>
+                          {evidenceBullets.map((eb, ei) => (
+                            <span key={ei} style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', color: 'var(--color-slate-500)', padding: '2px 7px', borderRadius: '4px', background: 'var(--color-slate-50)', border: '1px solid var(--color-slate-100)' }}><MathText>{eb.trim()}</MathText></span>
+                          ))}
+                        </div>
+                      )}
+                      {impact && (
+                        <div style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '600', color: '#b45309', marginTop: '4px' }}><MathText>{impact}</MathText></div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })()}
+
+        {/* ═══════ SUPPORTING DATA (collapsed) ═══════ */}
+        {hasEvidence && (
+          <CollapsibleSection
+            icon={<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>}
+            iconBg="var(--color-info-100)" iconColor="var(--color-info-600)"
+            label="Supporting Data" expanded={showEvidenceDetail}
+            onToggle={() => setShowEvidenceDetail(!showEvidenceDetail)}
+          >
+            {renderBlock(getBlock('evidence'), 3)}
+          </CollapsibleSection>
+        )}
+
+        {/* ═══════ ACTIONS ═══════ */}
+        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', paddingTop: '8px', borderTop: '1px solid var(--color-slate-100)' }}>
+          {onGoToStudyPlan && (
+            <button onClick={onGoToStudyPlan} style={{
+              fontFamily: 'var(--font-ui)', padding: '12px 24px', borderRadius: '8px', border: 'none',
+              background: 'var(--color-slate-900)', color: '#fff',
+              fontSize: '14px', fontWeight: '600', cursor: 'pointer',
+              display: 'flex', alignItems: 'center', gap: '8px',
+              transition: 'background 0.15s ease',
+            }}>
+              View Study Plan <ArrowRightIcon size={14} />
+            </button>
+          )}
+          <button onClick={onReview} style={{
+            fontFamily: 'var(--font-ui)', padding: '12px 24px', background: '#fff', color: 'var(--color-slate-700)',
+            border: '1px solid var(--color-slate-200)', borderRadius: '8px', fontSize: '14px', fontWeight: '600', cursor: 'pointer',
+            transition: 'all 0.15s ease',
+          }}>
+            Review Answers
+          </button>
+        </div>
       </div>
     );
   };
 
   return (
-    <div style={{ maxWidth: '1080px', margin: '0 auto', padding: '0 20px 40px', fontFamily: 'var(--font-ui)' }}>
+    <div style={{ maxWidth: '100%', margin: '0 auto', padding: '0 0 40px', fontFamily: 'var(--font-ui)' }}>
       {/* Back navigation */}
       <div style={{ paddingTop: '16px', marginBottom: '4px' }}>
         <button

@@ -17,6 +17,9 @@ export { inferDomain, SAT_MATH_DOMAINS, DOMAIN_DISPLAY_NAMES, getDomainDisplayOr
 // Diagnostic → UI adapter
 export { adaptDiagnosticForUI, mergeAiIntoReport, buildUnifiedReport, buildNarrativeFlow } from './diagnosticAdapter';
 
+// Remediation links
+export { resolveSkillLink, resolveRemediationLinks, buildLearningPathItems } from './remediationLinker';
+
 // Calibration management (for app-init or admin tooling)
 export {
   loadItemCalibration,

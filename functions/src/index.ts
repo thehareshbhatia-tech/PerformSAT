@@ -383,7 +383,7 @@ export const generateDiagnosticNarrative = onRequest(
           },
           body: JSON.stringify({
             model: generateModel,
-            max_tokens: 6000,
+            max_tokens: 6500,
             system: systemPrompt,
             messages: [{role: "user", content: userPrompt}],
           }),
@@ -672,6 +672,10 @@ function scoreNarrativeQuality(narrative: Record<string, unknown>, hasHistory = 
     behaviorDepthPenalty = (shallowBehavior / behaviorPts.length) * 0.08;
   }
 
+  // ─── Question insights bonus (not mandatory — rewards but doesn't penalize) ───
+  const questionInsights = narrative.questionInsights as Array<Record<string, unknown>> || [];
+  const questionInsightsBonus = questionInsights.length >= 1 ? 0.01 : 0;
+
   // ─── Weighted total ───
   const total = Math.max(0, Math.min(1,
     (evidenceCoverage * 0.16) +
@@ -679,7 +683,8 @@ function scoreNarrativeQuality(narrative: Record<string, unknown>, hasHistory = 
     (schemaCompleteness * 0.12) +
     (causalDepth * 0.23) +
     (crossTestUtilization * 0.10) +
-    (0.27 - contradictionPenalty - redundancyPenalty - genericPenalty - surfacePenalty - behaviorDepthPenalty)
+    (0.27 - contradictionPenalty - redundancyPenalty - genericPenalty - surfacePenalty - behaviorDepthPenalty) +
+    questionInsightsBonus
   ));
 
   return {
@@ -716,6 +721,7 @@ async function attemptNarrativeRepair(
   if (quality.surfacePenalty > 0.05) issues.push("Some diagnosis points are surface-level — they describe WHAT happened but not WHY. Each diagnosisPoints claim must follow a 3-part structure: observation (with number) -> mechanism (cognitive/strategic root cause) -> impact (point cost). The causalMechanism must go at least 2 levels deep and use causal language (because, leads to, driven by, stems from). Synthesize at least 2 data signals per claim.");
   if (quality.behaviorDepthPenalty > 0.03) issues.push("behaviorInsightPoints are shallow. Each must follow: BEHAVIOR (specific numbers) -> MECHANISM (cognitive/strategic root cause in causalMechanism, >20 chars) -> CONSEQUENCE (quantified in estimatedImpact). Evidence must cite 2+ semicolon-separated data signals. Bad: 'You rushed.' Good: 'Wrong-answer avg 25s vs correct avg 55s (ratio 0.45x) — premature commitment to trap answers from surface-level reading, costing ~25 pts.'");
   if (quality.schemaCompleteness < 0.8) issues.push("Some required schema fields are missing. Ensure all fields from the schema are populated.");
+  if (questionInsights.length === 0) issues.push("questionInsights is missing or empty. Generate 3-5 question-level insights for the most instructive wrong questions. Each needs questionKey, trapType, trapExplanation, correctApproach, and relatedSkillId. Prioritize trap_susceptibility and conceptual_gap errors.");
 
   if (issues.length === 0) return null;
 
@@ -821,6 +827,15 @@ Your output MUST be valid JSON (no markdown fences) matching this schema:
       "confidence": "high | medium | low"
     }
   ],
+  "questionInsights": [
+    {
+      "questionKey": "string — question key from wrongQuestions (e.g. '0-4')",
+      "trapType": "partial_calculation | sign_error | misread_stem | wrong_formula | unit_confusion | distractor | conceptual_misunderstanding",
+      "trapExplanation": "string — 1-2 sentences: what trap this specific question set and why the student fell for it. Reference the student's actual answer choice if possible.",
+      "correctApproach": "string — 1-2 sentences: the specific technique or method to solve this correctly. Name the mathematical concept.",
+      "relatedSkillId": "string — the most relevant skill ID from the wrongQuestions data"
+    }
+  ],
   "topNextFocus": {
     "headline": "string — 1 sentence: the single highest-leverage area to focus on next, with quantified upside",
     "reasons": [
@@ -872,6 +887,7 @@ CLINICAL ACCURACY RULES:
 18. behaviorInsightPoints: 1-3 items or empty array if no behavioral signal in the data. Each MUST have claim + evidence (2+ data citations) + causalMechanism (>20 chars, explaining WHY) + estimatedImpact (quantified) + confidence.
 19. topNextFocus.reasons: 1-3 items with claim + evidence.
 20. SEVERITY ORDERING: weaknesses MUST be ordered by severity (critical first), then by point impact (highest first).
+20b. questionInsights: 3-5 items. Select the most instructive wrong questions — maximize coverage across distinct error types and difficulty levels. Prioritize trap_susceptibility and conceptual_gap errors. Skip unanswered and pure time_pressure errors. Each must reference a specific questionKey from the wrongQuestions data.
 
 === BANNED PATTERNS ===
 21. SCORE RESTATEMENT BAN: The student's score, percentile, and target gap are already displayed separately. Do NOT waste diagnosis or diagnosisPoints on restating these obvious numbers.

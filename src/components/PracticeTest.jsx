@@ -2273,6 +2273,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               setReviewModule(moduleIndex);
               setReviewQuestion(0);
             }}
+            savedStudyPlan={savedStudyPlan}
+            onNavigateToModule={onNavigateToModule}
           />
         </div>
       </div>
