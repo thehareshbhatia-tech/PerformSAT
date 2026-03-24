@@ -364,30 +364,6 @@ const ContentTabRenderer = ({ contentTab }) => {
             <SectionContent section={tabs[activeTab]?.section} />
           </div>
         </div>
-
-        {currentHeadings.length > 0 && (
-          <div className="tb-section-rail">
-            <div className="tb-section-rail-inner">
-              <h4 className="tb-rail-title">On this page</h4>
-              <ul className="tb-rail-list">
-                {currentHeadings.map(h => (
-                  <li key={h.id} className="tb-rail-item">
-                    <a 
-                      href={`#${h.id}`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        document.getElementById(h.id)?.scrollIntoView({ behavior: 'smooth' });
-                      }}
-                      className={`tb-rail-link ${activeHeadingId === h.id ? 'tb-rail-link--active' : ''}`}
-                    >
-                      {h.title}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );
