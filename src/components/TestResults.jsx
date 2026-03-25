@@ -1956,7 +1956,7 @@ const TestResults = ({
       <div style={{ padding: '0 0 48px', display: 'flex', flexDirection: 'column', gap: '0' }}>
 
         {/* ═══════ SCORE HEADER ═══════ */}
-        <div className="diag-story-section" style={{ marginBottom: '32px' }}>
+        <div className="diag-story-section">
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '20px', paddingBottom: '20px', borderBottom: '1px solid var(--color-slate-150, #e8ecf0)' }}>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: '14px' }}>
               <div style={{ fontSize: '54px', fontWeight: '800', color: 'var(--color-slate-900)', letterSpacing: '-0.04em', lineHeight: 1, fontFamily: 'var(--font-ui)' }}>{satScore}</div>
@@ -1986,21 +1986,21 @@ const TestResults = ({
 
         {/* ═══════ ① YOUR DIAGNOSIS (via renderBlock) ═══════ */}
         {isGenerating ? (
-          <div className="diag-story-section" style={{ marginBottom: '32px' }}>
+          <div className="diag-story-section">
             <div style={{ padding: '48px 0', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
               <div style={{ width: '40px', height: '40px', border: '3px solid rgba(251,146,60,0.15)', borderTopColor: 'var(--color-brand-orange-500)', borderRadius: '50%', animation: 'spin 1s cubic-bezier(0.5, 0.1, 0.5, 0.9) infinite' }} />
               <div style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', fontWeight: '600', color: 'var(--color-slate-700)' }}>Analyzing your test...</div>
             </div>
           </div>
         ) : hasFailed && allFindings.length === 0 ? (
-          <div className="diag-story-section" style={{ marginBottom: '32px' }}>
+          <div className="diag-story-section">
             <div style={{ padding: '24px', background: 'var(--color-warning-50)', borderRadius: '8px', border: '1px solid var(--color-warning-200)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '16px' }}>
               <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--color-slate-700)' }}>AI analysis unavailable. Your score data is shown above.</div>
               {onRetryAiDiagnostic && <button onClick={onRetryAiDiagnostic} style={{ fontFamily: 'var(--font-ui)', padding: '8px 16px', borderRadius: '6px', border: 'none', background: 'var(--color-warning-600)', color: '#fff', fontSize: '13px', fontWeight: '600', cursor: 'pointer' }}>Retry</button>}
             </div>
           </div>
         ) : getBlock('context') ? (
-          <div className="diag-story-section" style={{ marginBottom: '32px' }}>
+          <div className="diag-story-section">
             <div className="diag-story-header">
               <span className="diag-story-number" style={{ background: 'var(--color-brand-orange-500)' }}>{++sectionNum}</span>
               <span className="diag-story-title">Your Diagnosis</span>
@@ -2017,7 +2017,7 @@ const TestResults = ({
           const displaySkills = activeGroup.skills.slice(0, 8);
           const overflow = activeGroup.skills.length - 8;
           return (
-            <div className="diag-story-section" style={{ marginBottom: '32px' }}>
+            <div className="diag-story-section">
               <div className="diag-story-header">
                 <span className="diag-story-number" style={{ background: 'var(--color-brand-orange-500)' }}>{++sectionNum}</span>
                 <span className="diag-story-title">Skill Gaps by Domain</span>
@@ -2082,7 +2082,7 @@ const TestResults = ({
 
         {/* ═══════ ③ HOW YOU TOOK THE TEST (via renderBlock) ═══════ */}
         {getBlock('behaviorAmplifier') && getBlock('behaviorAmplifier').items.length > 0 && (
-          <div className="diag-story-section" style={{ marginBottom: '32px' }}>
+          <div className="diag-story-section">
             <div className="diag-story-header">
               <span className="diag-story-number" style={{ background: 'var(--color-brand-orange-500)' }}>{++sectionNum}</span>
               <span className="diag-story-title">How You Took the Test</span>
@@ -2094,7 +2094,7 @@ const TestResults = ({
 
         {/* ═══════ ④ WHAT TO FOCUS ON NEXT (via renderBlock) ═══════ */}
         {getBlock('nextMove') && (
-          <div className="diag-story-section" style={{ marginBottom: '32px' }}>
+          <div className="diag-story-section">
             <div className="diag-story-header">
               <span className="diag-story-number" style={{ background: 'var(--color-brand-orange-500)' }}>{++sectionNum}</span>
               <span className="diag-story-title">What to Focus on Next</span>
