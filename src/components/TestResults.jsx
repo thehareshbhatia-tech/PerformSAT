@@ -18,6 +18,7 @@ import {
   inferDomain, SAT_MATH_DOMAINS, DOMAIN_DISPLAY_NAMES,
   adaptDiagnosticForUI, mergeAiIntoReport, buildUnifiedReport, buildNarrativeFlow,
 } from '../services/scoring';
+import { getDomainInfo } from '../data/skillTaxonomy';
 
 const BULLET_LENGTH_THRESHOLD = 80;
 const BULLET_SPLIT_RE = /\s*;\s*|\s*\n\s*|\s*(?:(?:^|\s)[-•])\s+|\s*\d+\)\s+/;
@@ -472,6 +473,7 @@ const TestResults = ({
   const [showNarrativeDetails, setShowNarrativeDetails] = useState(false);
   const [showBehaviorDetail, setShowBehaviorDetail] = useState(false);
   const [showEvidenceDetail, setShowEvidenceDetail] = useState(false);
+  const [activeDomainTab, setActiveDomainTab] = useState(null);
   const [showQuestionInsights, setShowQuestionInsights] = useState(false);
   const [diagEntrance, setDiagEntrance] = useState(true);
   const diagEntranceTimer = useRef(null);
@@ -1898,194 +1900,194 @@ const TestResults = ({
 
     const weakSkillsList = diagnosticReport?.skillAnalysis?.weakSkills || [];
 
+    // ─── Deduplicate and group weak skills by domain ───
+    const seenSkills = new Set();
+    const domainGroups = {};
+    weakSkillsList.forEach(ws => {
+      const key = ws.skillId || ws.name;
+      if (seenSkills.has(key)) return;
+      seenSkills.add(key);
+      const domainId = ws.domain || 'algebra';
+      if (!domainGroups[domainId]) {
+        const info = getDomainInfo(domainId);
+        domainGroups[domainId] = {
+          id: domainId,
+          name: info?.name || domainId,
+          color: info?.color || '#94a3b8',
+          skills: [],
+          avgPct: 0,
+        };
+      }
+      const pct = ws.total > 0 ? Math.round((ws.correct / ws.total) * 100) : 0;
+      domainGroups[domainId].skills.push({ ...ws, pct });
+    });
+    Object.values(domainGroups).forEach(g => {
+      g.avgPct = g.skills.length > 0
+        ? Math.round(g.skills.reduce((s, sk) => s + sk.pct, 0) / g.skills.length)
+        : 0;
+      g.skills.sort((a, b) => a.pct - b.pct || a.name.localeCompare(b.name));
+    });
+    const sortedDomains = Object.values(domainGroups).sort((a, b) => a.avgPct - b.avgPct);
+
+    let sectionNum = 0;
+
     return (
-      <div style={{ padding: '0 0 48px', display: 'flex', flexDirection: 'column', gap: '32px' }}>
+      <div style={{ padding: '0 0 48px', display: 'flex', flexDirection: 'column', gap: '0' }}>
 
-        {/* ═══════ 1. SCORE HEADER — dashboard style, not card ═══════ */}
-        <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '20px', paddingBottom: '20px', borderBottom: '1px solid var(--color-slate-150, #e8ecf0)' }}>
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: '14px' }}>
-            <div style={{ fontSize: '54px', fontWeight: '800', color: 'var(--color-slate-900)', letterSpacing: '-0.04em', lineHeight: 1, fontFamily: 'var(--font-ui)' }}>{satScore}</div>
-            <div style={{ fontSize: '18px', fontWeight: '500', color: 'var(--color-slate-400)', fontFamily: 'var(--font-ui)', paddingBottom: '4px' }}>/ 800</div>
-            {(meta.hasAI || isGenerating) && (
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '4px 10px', borderRadius: '6px', background: 'rgba(251,146,60,0.06)', marginBottom: '4px' }}>
-                <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--color-brand-orange-500)', animation: isGenerating ? 'spin 1.5s linear infinite' : 'none' }} />
-                <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', letterSpacing: '0.04em', textTransform: 'uppercase', color: 'var(--color-brand-orange-600)' }}>{isGenerating ? 'Analyzing...' : 'AI Analysis'}</span>
-              </div>
-            )}
-          </div>
-          {metaStats.length > 0 && (
-            <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
-              {metaStats.slice(0, 4).map((s, i) => {
-                const valColor = s.type === 'warning' ? '#dc2626' : s.type === 'success' ? '#16a34a' : 'var(--color-slate-900)';
-                return (
-                  <div key={i}>
-                    <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '600', color: 'var(--color-slate-400)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>{s.label}</div>
-                    <div style={{ fontFamily: 'var(--font-ui)', fontSize: '22px', fontWeight: '700', color: valColor, fontVariantNumeric: 'tabular-nums' }}>{s.value}</div>
-                  </div>
-                );
-              })}
+        {/* ═══════ SCORE HEADER ═══════ */}
+        <div className="diag-story-section" style={{ marginBottom: '32px' }}>
+          <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '20px', paddingBottom: '20px', borderBottom: '1px solid var(--color-slate-150, #e8ecf0)' }}>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '14px' }}>
+              <div style={{ fontSize: '54px', fontWeight: '800', color: 'var(--color-slate-900)', letterSpacing: '-0.04em', lineHeight: 1, fontFamily: 'var(--font-ui)' }}>{satScore}</div>
+              <div style={{ fontSize: '18px', fontWeight: '500', color: 'var(--color-slate-400)', fontFamily: 'var(--font-ui)', paddingBottom: '4px' }}>/ 800</div>
+              {(meta.hasAI || isGenerating) && (
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '4px 10px', borderRadius: '6px', background: 'rgba(251,146,60,0.06)', marginBottom: '4px' }}>
+                  <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--color-brand-orange-500)', animation: isGenerating ? 'spin 1.5s linear infinite' : 'none' }} />
+                  <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '700', letterSpacing: '0.04em', textTransform: 'uppercase', color: 'var(--color-brand-orange-600)' }}>{isGenerating ? 'Analyzing...' : 'AI Analysis'}</span>
+                </div>
+              )}
             </div>
-          )}
-        </div>
-
-        {/* ═══════ 2. WHY YOU GOT THIS SCORE ═══════ */}
-        {isGenerating ? (
-          <div style={{ padding: '48px 0', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
-            <div style={{ width: '40px', height: '40px', border: '3px solid rgba(251,146,60,0.15)', borderTopColor: 'var(--color-brand-orange-500)', borderRadius: '50%', animation: 'spin 1s cubic-bezier(0.5, 0.1, 0.5, 0.9) infinite' }} />
-            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', fontWeight: '600', color: 'var(--color-slate-700)' }}>Analyzing your test...</div>
-          </div>
-        ) : hasFailed && allFindings.length === 0 ? (
-          <div style={{ padding: '24px', background: 'var(--color-warning-50)', borderRadius: '8px', border: '1px solid var(--color-warning-200)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '16px' }}>
-            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--color-slate-700)' }}>AI analysis unavailable. Your score data is shown above.</div>
-            {onRetryAiDiagnostic && <button onClick={onRetryAiDiagnostic} style={{ fontFamily: 'var(--font-ui)', padding: '8px 16px', borderRadius: '6px', border: 'none', background: 'var(--color-warning-600)', color: '#fff', fontSize: '13px', fontWeight: '600', cursor: 'pointer' }}>Retry</button>}
-          </div>
-        ) : allFindings.length > 0 ? (
-          <div>
-            <h3 style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '700', color: 'var(--color-slate-900)', textTransform: 'uppercase', letterSpacing: '0.05em', margin: '0 0 16px', borderLeft: '3px solid var(--color-brand-orange-500)', paddingLeft: '12px' }}>
-              Why You Got This Score
-            </h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-              {allFindings.map((item, i) => {
-                const text = typeof item === 'string' ? item : item.text || '';
-                const cause = item?.causalMechanism || null;
-                const evidence = item?.evidence || null;
-                const impact = item?.estimatedImpact || null;
-                const claimBullets = splitToScannable(text);
-                const causeBullets = splitToScannable(cause);
-                const evidenceBullets = evidence ? evidence.split(/;\s*/).filter(e => e.length > 3) : [];
-
-                return (
-                  <div key={i} style={{ paddingLeft: '16px', borderLeft: i === 0 ? '2px solid var(--color-brand-orange-400)' : '2px solid var(--color-slate-100)' }}>
-                    {claimBullets ? (
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                        {claimBullets.map((cb, ci) => (
-                          <div key={ci} style={{ fontFamily: 'var(--font-ui)', fontSize: ci === 0 ? '15px' : '14px', fontWeight: ci === 0 ? '600' : '400', color: ci === 0 ? 'var(--color-slate-900)' : 'var(--color-slate-600)', lineHeight: '1.6' }}>
-                            {ci > 0 && <span style={{ color: 'var(--color-slate-300)', marginRight: '8px' }}>—</span>}
-                            <MathText>{cb}</MathText>
-                          </div>
-                        ))}
-                      </div>
-                    ) : (
-                      <div style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', fontWeight: '600', color: 'var(--color-slate-900)', lineHeight: '1.6' }}><MathText>{text}</MathText></div>
-                    )}
-                    {cause && !causeBullets && (
-                      <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--color-slate-500)', lineHeight: '1.55', marginTop: '6px' }}><MathText>{cause}</MathText></div>
-                    )}
-                    {causeBullets && (
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginTop: '6px' }}>
-                        {causeBullets.map((mb, mi) => (
-                          <div key={mi} style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--color-slate-500)', lineHeight: '1.5' }}>
-                            <span style={{ color: 'var(--color-slate-300)', marginRight: '6px' }}>·</span><MathText>{mb}</MathText>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                    {evidenceBullets.length > 0 && (
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '8px' }}>
-                        {evidenceBullets.map((eb, ei) => (
-                          <span key={ei} style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--color-slate-500)', padding: '3px 8px', borderRadius: '4px', background: 'var(--color-slate-50)', border: '1px solid var(--color-slate-100)' }}><MathText>{eb.trim()}</MathText></span>
-                        ))}
-                      </div>
-                    )}
-                    {impact && (
-                      <div style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '600', color: '#b45309', marginTop: '6px' }}><MathText>{impact}</MathText></div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        ) : null}
-
-        {/* ═══════ SPECIFIC SKILL GAPS — grid layout ═══════ */}
-        {weakSkillsList.length > 0 && (
-          <div>
-            <h3 style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '700', color: 'var(--color-slate-900)', textTransform: 'uppercase', letterSpacing: '0.05em', margin: '0 0 16px', borderLeft: '3px solid #dc2626', paddingLeft: '12px' }}>
-              Skill Gaps <span style={{ fontWeight: '500', color: 'var(--color-slate-400)', textTransform: 'none', letterSpacing: '0' }}>({weakSkillsList.length} skills)</span>
-            </h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '8px' }}>
-              {weakSkillsList.slice(0, 15).map((ws, wi) => {
-                const pct = ws.total > 0 ? Math.round((ws.correct / ws.total) * 100) : 0;
-                const barColor = pct === 0 ? '#dc2626' : pct < 50 ? '#f59e0b' : '#06b6d4';
-                return (
-                  <div key={wi} style={{ padding: '10px 14px', borderRadius: '8px', background: '#fff', border: '1px solid var(--color-slate-100)', display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '600', color: 'var(--color-slate-800)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{formatSkillName(ws.name)}</div>
-                      <div style={{ height: '3px', background: 'var(--color-slate-100)', borderRadius: '2px', marginTop: '6px', overflow: 'hidden' }}>
-                        <div style={{ width: `${pct}%`, height: '100%', background: barColor, borderRadius: '2px' }} />
-                      </div>
-                    </div>
-                    <div style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '700', color: barColor, fontVariantNumeric: 'tabular-nums', flexShrink: 0 }}>{ws.correct}/{ws.total}</div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
-
-        {/* ═══════ BEHAVIOR & TIMING — always visible ═══════ */}
-        {getBlock('behaviorAmplifier') && getBlock('behaviorAmplifier').items.length > 0 && (() => {
-          const behaviorBlock = getBlock('behaviorAmplifier');
-          return (
-            <div>
-              <h3 style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '700', color: 'var(--color-slate-900)', textTransform: 'uppercase', letterSpacing: '0.05em', margin: '0 0 16px', borderLeft: '3px solid var(--color-info-500)', paddingLeft: '12px' }}>
-                Behavior & Timing
-              </h3>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                {behaviorBlock.items.map((item, i) => {
-                  const isStructured = typeof item === 'object' && item !== null;
-                  const claimText = isStructured ? (item.text || '') : (typeof item === 'string' ? item : '');
-                  const rawClaim = claimText.replace(/^(\(\d+\)|\d+\.)\s*/, '');
-                  const evidence = isStructured ? item.evidence : null;
-                  const mechanism = isStructured ? item.mechanism : null;
-                  const impact = isStructured ? item.estimatedImpact : null;
-                  const claimBullets = splitToScannable(rawClaim);
-                  const mechBullets = splitToScannable(mechanism);
-                  const evidenceBullets = evidence ? evidence.split(/;\s*/).filter(e => e.length > 3) : [];
-
+            {metaStats.length > 0 && (
+              <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
+                {metaStats.slice(0, 4).map((s, i) => {
+                  const valColor = s.type === 'warning' ? '#dc2626' : s.type === 'success' ? '#16a34a' : 'var(--color-slate-900)';
                   return (
-                    <div key={i} style={{ paddingLeft: '16px', borderLeft: '2px solid var(--color-info-200)' }}>
-                      {claimBullets ? (
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                          {claimBullets.map((cb, ci) => (
-                            <div key={ci} style={{ fontFamily: 'var(--font-ui)', fontSize: ci === 0 ? '14px' : '13px', fontWeight: ci === 0 ? '600' : '400', color: ci === 0 ? 'var(--color-slate-900)' : 'var(--color-slate-600)', lineHeight: '1.55' }}>
-                              {ci > 0 && <span style={{ color: 'var(--color-slate-300)', marginRight: '6px' }}>·</span>}
-                              <MathText>{cb}</MathText>
-                            </div>
-                          ))}
-                        </div>
-                      ) : (
-                        <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '600', color: 'var(--color-slate-900)', lineHeight: '1.55' }}><MathText>{rawClaim}</MathText></div>
-                      )}
-                      {mechanism && !mechBullets && (
-                        <div style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--color-slate-500)', lineHeight: '1.5', marginTop: '4px' }}><MathText>{mechanism}</MathText></div>
-                      )}
-                      {mechBullets && (
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', marginTop: '4px' }}>
-                          {mechBullets.map((mb, mi) => (
-                            <div key={mi} style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--color-slate-500)', lineHeight: '1.45' }}>
-                              <span style={{ color: 'var(--color-slate-300)', marginRight: '6px' }}>·</span><MathText>{mb}</MathText>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                      {evidenceBullets.length > 0 && (
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', marginTop: '6px' }}>
-                          {evidenceBullets.map((eb, ei) => (
-                            <span key={ei} style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', color: 'var(--color-slate-500)', padding: '2px 7px', borderRadius: '4px', background: 'var(--color-slate-50)', border: '1px solid var(--color-slate-100)' }}><MathText>{eb.trim()}</MathText></span>
-                          ))}
-                        </div>
-                      )}
-                      {impact && (
-                        <div style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '600', color: '#b45309', marginTop: '4px' }}><MathText>{impact}</MathText></div>
-                      )}
+                    <div key={i}>
+                      <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '600', color: 'var(--color-slate-400)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>{s.label}</div>
+                      <div style={{ fontFamily: 'var(--font-ui)', fontSize: '22px', fontWeight: '700', color: valColor, fontVariantNumeric: 'tabular-nums' }}>{s.value}</div>
                     </div>
                   );
                 })}
               </div>
+            )}
+          </div>
+        </div>
+
+        {/* ═══════ ① YOUR DIAGNOSIS (via renderBlock) ═══════ */}
+        {isGenerating ? (
+          <div className="diag-story-section" style={{ marginBottom: '32px' }}>
+            <div style={{ padding: '48px 0', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+              <div style={{ width: '40px', height: '40px', border: '3px solid rgba(251,146,60,0.15)', borderTopColor: 'var(--color-brand-orange-500)', borderRadius: '50%', animation: 'spin 1s cubic-bezier(0.5, 0.1, 0.5, 0.9) infinite' }} />
+              <div style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', fontWeight: '600', color: 'var(--color-slate-700)' }}>Analyzing your test...</div>
+            </div>
+          </div>
+        ) : hasFailed && allFindings.length === 0 ? (
+          <div className="diag-story-section" style={{ marginBottom: '32px' }}>
+            <div style={{ padding: '24px', background: 'var(--color-warning-50)', borderRadius: '8px', border: '1px solid var(--color-warning-200)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '16px' }}>
+              <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--color-slate-700)' }}>AI analysis unavailable. Your score data is shown above.</div>
+              {onRetryAiDiagnostic && <button onClick={onRetryAiDiagnostic} style={{ fontFamily: 'var(--font-ui)', padding: '8px 16px', borderRadius: '6px', border: 'none', background: 'var(--color-warning-600)', color: '#fff', fontSize: '13px', fontWeight: '600', cursor: 'pointer' }}>Retry</button>}
+            </div>
+          </div>
+        ) : getBlock('context') ? (
+          <div className="diag-story-section" style={{ marginBottom: '32px' }}>
+            <div className="diag-story-header">
+              <span className="diag-story-number" style={{ background: 'var(--color-brand-orange-500)' }}>{++sectionNum}</span>
+              <span className="diag-story-title">Your Diagnosis</span>
+              <div className="diag-story-line" />
+            </div>
+            <div className="diag-card-base">
+              {renderBlock(getBlock('context'), 0)}
+            </div>
+          </div>
+        ) : null}
+
+        {/* ═══════ ② SKILL GAPS BY DOMAIN (tabbed) ═══════ */}
+        {sortedDomains.length > 0 && (() => {
+          const selectedId = activeDomainTab || sortedDomains[0].id;
+          const activeGroup = sortedDomains.find(g => g.id === selectedId) || sortedDomains[0];
+          const displaySkills = activeGroup.skills.slice(0, 8);
+          const overflow = activeGroup.skills.length - 8;
+          return (
+            <div className="diag-story-section" style={{ marginBottom: '32px' }}>
+              <div className="diag-story-header">
+                <span className="diag-story-number" style={{ background: 'var(--color-brand-orange-500)' }}>{++sectionNum}</span>
+                <span className="diag-story-title">Skill Gaps by Domain</span>
+                <div className="diag-story-line" />
+              </div>
+
+              {/* Domain tabs */}
+              <div className="diag-domain-tabs">
+                {sortedDomains.map(group => {
+                  const isActive = group.id === selectedId;
+                  return (
+                    <button
+                      key={group.id}
+                      onClick={() => setActiveDomainTab(group.id)}
+                      className={`diag-domain-tab${isActive ? ' diag-domain-tab-active' : ''}`}
+                      style={{ '--domain-color': group.color }}
+                    >
+                      <span className="diag-domain-tab-dot" style={{ background: group.color }} />
+                      <span className="diag-domain-tab-name">{group.name}</span>
+                      <span className="diag-domain-tab-pct" style={{ color: group.avgPct >= 70 ? '#22c55e' : group.avgPct >= 50 ? '#f59e0b' : '#ef4444' }}>
+                        {group.avgPct}%
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Active domain skills panel */}
+              <div className="diag-domain-panel" style={{ '--domain-color': activeGroup.color }}>
+                <div className="diag-domain-panel-header">
+                  <span style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '500', color: 'var(--color-slate-400)' }}>
+                    {activeGroup.skills.length} skill{activeGroup.skills.length !== 1 ? 's' : ''} tested
+                  </span>
+                </div>
+                {displaySkills.map((sk, si) => {
+                  const barColor = sk.pct < 50 ? '#ef4444' : sk.pct < 70 ? '#f59e0b' : '#22c55e';
+                  return (
+                    <div key={si} className="diag-skill-row">
+                      <div className="diag-skill-info">
+                        <span style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '500', color: 'var(--color-slate-700)' }}>
+                          {formatSkillName(sk.name)}
+                        </span>
+                        <span style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '600', color: barColor, fontVariantNumeric: 'tabular-nums' }}>
+                          {sk.correct}/{sk.total} ({sk.pct}%)
+                        </span>
+                      </div>
+                      <div className="diag-progress-bar" role="progressbar" aria-label={`${formatSkillName(sk.name)} accuracy: ${sk.pct}%`} aria-valuenow={sk.pct} aria-valuemin={0} aria-valuemax={100}>
+                        <div className="diag-progress-fill" style={{ width: `${sk.pct}%`, background: barColor }} />
+                      </div>
+                    </div>
+                  );
+                })}
+                {overflow > 0 && (
+                  <div style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--color-slate-400)', marginTop: '8px', textAlign: 'center' }}>
+                    (+{overflow} more skill{overflow !== 1 ? 's' : ''})
+                  </div>
+                )}
+              </div>
             </div>
           );
         })()}
+
+        {/* ═══════ ③ HOW YOU TOOK THE TEST (via renderBlock) ═══════ */}
+        {getBlock('behaviorAmplifier') && getBlock('behaviorAmplifier').items.length > 0 && (
+          <div className="diag-story-section" style={{ marginBottom: '32px' }}>
+            <div className="diag-story-header">
+              <span className="diag-story-number" style={{ background: 'var(--color-brand-orange-500)' }}>{++sectionNum}</span>
+              <span className="diag-story-title">How You Took the Test</span>
+              <div className="diag-story-line" />
+            </div>
+            <div className="diag-card-base">
+              {renderBlock(getBlock('behaviorAmplifier'), 2)}
+            </div>
+          </div>
+        )}
+
+        {/* ═══════ ④ WHAT TO FOCUS ON NEXT (via renderBlock) ═══════ */}
+        {getBlock('nextMove') && (
+          <div className="diag-story-section" style={{ marginBottom: '32px' }}>
+            <div className="diag-story-header">
+              <span className="diag-story-number" style={{ background: 'var(--color-brand-orange-500)' }}>{++sectionNum}</span>
+              <span className="diag-story-title">What to Focus on Next</span>
+              <div className="diag-story-line" />
+            </div>
+            <div className="diag-card-base">
+              {renderBlock(getBlock('nextMove'), 3)}
+            </div>
+          </div>
+        )}
 
         {/* ═══════ SUPPORTING DATA (collapsed) ═══════ */}
         {hasEvidence && (
@@ -2095,31 +2097,33 @@ const TestResults = ({
             label="Supporting Data" expanded={showEvidenceDetail}
             onToggle={() => setShowEvidenceDetail(!showEvidenceDetail)}
           >
-            {renderBlock(getBlock('evidence'), 3)}
+            {renderBlock(getBlock('evidence'), 4)}
           </CollapsibleSection>
         )}
 
-        {/* ═══════ ACTIONS ═══════ */}
-        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', paddingTop: '8px', borderTop: '1px solid var(--color-slate-100)' }}>
-          {onGoToStudyPlan && (
-            <button onClick={onGoToStudyPlan} style={{
-              fontFamily: 'var(--font-ui)', padding: '12px 24px', borderRadius: '8px', border: 'none',
-              background: 'var(--color-slate-900)', color: '#fff',
-              fontSize: '14px', fontWeight: '600', cursor: 'pointer',
-              display: 'flex', alignItems: 'center', gap: '8px',
-              transition: 'background 0.15s ease',
+        {/* ═══════ FALLBACK ACTIONS (only if nextMove block is missing) ═══════ */}
+        {!getBlock('nextMove') && (
+          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', paddingTop: '8px', borderTop: '1px solid var(--color-slate-100)' }}>
+            {onGoToStudyPlan && (
+              <button onClick={onGoToStudyPlan} style={{
+                fontFamily: 'var(--font-ui)', padding: '12px 24px', borderRadius: '8px', border: 'none',
+                background: 'var(--color-slate-900)', color: '#fff',
+                fontSize: '14px', fontWeight: '600', cursor: 'pointer',
+                display: 'flex', alignItems: 'center', gap: '8px',
+                transition: 'background 0.15s ease',
+              }}>
+                View Study Plan <ArrowRightIcon size={14} />
+              </button>
+            )}
+            <button onClick={onReview} style={{
+              fontFamily: 'var(--font-ui)', padding: '12px 24px', background: '#fff', color: 'var(--color-slate-700)',
+              border: '1px solid var(--color-slate-200)', borderRadius: '8px', fontSize: '14px', fontWeight: '600', cursor: 'pointer',
+              transition: 'all 0.15s ease',
             }}>
-              View Study Plan <ArrowRightIcon size={14} />
+              Review Answers
             </button>
-          )}
-          <button onClick={onReview} style={{
-            fontFamily: 'var(--font-ui)', padding: '12px 24px', background: '#fff', color: 'var(--color-slate-700)',
-            border: '1px solid var(--color-slate-200)', borderRadius: '8px', fontSize: '14px', fontWeight: '600', cursor: 'pointer',
-            transition: 'all 0.15s ease',
-          }}>
-            Review Answers
-          </button>
-        </div>
+          </div>
+        )}
       </div>
     );
   };
