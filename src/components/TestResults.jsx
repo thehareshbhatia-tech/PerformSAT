@@ -1901,11 +1901,32 @@ const TestResults = ({
     const weakSkillsList = diagnosticReport?.skillAnalysis?.weakSkills || [];
 
     // ─── Deduplicate and group weak skills by domain ───
+    // Two-pass dedup: first build canonical keys, then filter duplicates.
+    // Canonical key: lowercase, strip non-alphanumeric, strip trailing 's'.
+    // Catches: "Systems of Equations" = "systems-of-equations", "Percents" = "percent".
+    const canonicalKey = (s) => {
+      const base = (s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+      return base.endsWith('s') && base.length > 3 ? base.slice(0, -1) : base;
+    };
+    const domainNameIds = new Set(['algebra', 'advancedmath', 'geometry', 'problemsolving', 'problemsolvinganddataanalysis', 'geometryandtrigonometry']);
+
+    // Pass 1: collect all canonical keys so we can detect generic-prefix overlaps
+    const allKeys = weakSkillsList.map(ws => canonicalKey(ws.skillId || ws.name));
+
+    // Pass 2: deduplicate + filter
     const seenSkills = new Set();
     const domainGroups = {};
-    weakSkillsList.forEach(ws => {
-      const key = ws.skillId || ws.name;
-      if (seenSkills.has(key)) return;
+    weakSkillsList.forEach((ws, idx) => {
+      const key = allKeys[idx];
+      if (!key || seenSkills.has(key)) return;
+      // Skip entries where the skill is just the domain name itself
+      if (domainNameIds.has(key)) return;
+      // Skip generic single-word skills that are a prefix of a more specific skill
+      // e.g., "circle" when "circleequation" exists — keep the more specific one
+      if (key.length <= 10) {
+        const hasMoreSpecific = allKeys.some(other => other !== key && other.startsWith(key) && other.length > key.length + 2);
+        if (hasMoreSpecific) return;
+      }
       seenSkills.add(key);
       const domainId = ws.domain || 'algebra';
       if (!domainGroups[domainId]) {
