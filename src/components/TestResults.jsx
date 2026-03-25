@@ -2006,9 +2006,7 @@ const TestResults = ({
               <span className="diag-story-title">Your Diagnosis</span>
               <div className="diag-story-line" />
             </div>
-            <div className="diag-card-base">
-              {renderBlock(getBlock('context'), 0)}
-            </div>
+            {renderBlock(getBlock('context'), 0)}
           </div>
         ) : null}
 
@@ -2090,9 +2088,7 @@ const TestResults = ({
               <span className="diag-story-title">How You Took the Test</span>
               <div className="diag-story-line" />
             </div>
-            <div className="diag-card-base">
-              {renderBlock(getBlock('behaviorAmplifier'), 2)}
-            </div>
+            {renderBlock(getBlock('behaviorAmplifier'), 2)}
           </div>
         )}
 
@@ -2104,9 +2100,7 @@ const TestResults = ({
               <span className="diag-story-title">What to Focus on Next</span>
               <div className="diag-story-line" />
             </div>
-            <div className="diag-card-base">
-              {renderBlock(getBlock('nextMove'), 3)}
-            </div>
+            {renderBlock(getBlock('nextMove'), 3)}
           </div>
         )}
 
