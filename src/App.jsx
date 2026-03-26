@@ -8,6 +8,8 @@ import AiTutorChat, { AiTutorButton } from './components/AiTutorChat';
 import QuestionDiagram from './components/QuestionDiagrams';
 import PracticeTest from './components/PracticeTest';
 import PracticeTestList from './components/PracticeTestList';
+import TestResults from './components/TestResults';
+import { runDiagnostic } from './services/diagnosticEngine';
 import SolutionExplanation from './components/SolutionExplanation';
 import { allLessons } from './data/lessons';
 import { fetchTranscript } from './services/transcriptService';
@@ -146,6 +148,7 @@ const PerformSAT = () => {
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [selectedPracticeTest, setSelectedPracticeTest] = useState(null);
   const [isTestTimed, setIsTestTimed] = useState(true);
+  const [viewingResultsData, setViewingResultsData] = useState(null); // { test, answers, diagnosticData, diagnosticReport }
   const [showAiTutor, setShowAiTutor] = useState(false);
   const [videoTimestamp, setVideoTimestamp] = useState(0);
   const [videoTranscript, setVideoTranscript] = useState(null);
@@ -9160,7 +9163,72 @@ const PerformSAT = () => {
             getTestBestScore={getTestBestScore}
             getTestAttempts={getTestAttempts}
             inProgressTests={inProgressTests}
+            onViewResults={(test) => {
+              // Get the last attempt from saved results
+              const testResults = practiceTestResults?.[test.id];
+              const lastAttempt = testResults?.attempts?.[testResults.attempts.length - 1];
+              if (!lastAttempt) return;
+
+              // Reconstruct answers from diagnosticData.questionDetails
+              const reconstructedAnswers = {};
+              const qDetails = lastAttempt.diagnosticData?.questionDetails || {};
+              Object.entries(qDetails).forEach(([key, detail]) => {
+                const [modIdx, qIdx] = key.split('-').map(Number);
+                const question = test.modules[modIdx]?.questions[qIdx];
+                if (!question) return;
+                if (detail.isCorrect) {
+                  reconstructedAnswers[key] = question.correctAnswer;
+                } else {
+                  // Use a placeholder wrong answer
+                  reconstructedAnswers[key] = '__wrong__';
+                }
+              });
+
+              // Regenerate diagnostic report from saved data
+              const diagReport = runDiagnostic(
+                test, reconstructedAnswers, lastAttempt.diagnosticData,
+                skillProgress || {},
+                { targetScore: user?.targetScore, currentScore: user?.currentScore, testDate: user?.testDate },
+                practiceTestResults || {}
+              );
+
+              setViewingResultsData({
+                test,
+                answers: reconstructedAnswers,
+                diagnosticData: lastAttempt.diagnosticData,
+                diagnosticReport: diagReport,
+              });
+              setSelectedPracticeTest(test);
+              setView('viewingResults');
+            }}
           />
+        )}
+
+        {/* Viewing Past Results */}
+        {view === 'viewingResults' && viewingResultsData && (
+          <div style={{ minHeight: '100vh', background: '#F5F5F7', padding: '32px' }}>
+            <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+              <TestResults
+                test={viewingResultsData.test}
+                answers={viewingResultsData.answers}
+                diagnosticData={viewingResultsData.diagnosticData}
+                diagnosticReport={viewingResultsData.diagnosticReport}
+                practiceTestResults={practiceTestResults}
+                aiDiagnosticState={{ status: 'idle', narrative: null, error: null }}
+                onBack={() => {
+                  setView('practiceTests');
+                  setViewingResultsData(null);
+                }}
+                onRetake={() => {
+                  setViewingResultsData(null);
+                  setView('takingTest');
+                }}
+                onReview={() => {}}
+                onGoToStudyPlan={() => setView('studyPlan')}
+                user={user}
+              />
+            </div>
+          </div>
         )}
 
         {/* Taking a Practice Test View */}
