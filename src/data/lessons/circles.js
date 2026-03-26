@@ -286,16 +286,20 @@ export const circlesLessons = [
     },
     content: {
       blocks: [
-        { type: "text", content: "A **Tangent Line** is a line that touches a circle at exactly **ONE point**, called the **Point of Tangency**." },
+        { type: "text", content: "A **tangent line** is a line that touches a circle at exactly **one point** — it \"kisses\" the circle and immediately moves away. That single contact point is called the **point of tangency**. Imagine a ball sitting on a flat floor: the floor is tangent to the ball, touching it at exactly one point on the bottom. This concept bridges circle geometry and line geometry, and the SAT uses it to create some of the most satisfying (and tricky) problems on the test." },
         { type: "tangentLine" },
         { type: "formula", label: "Key Rule", content: "The Tangent Line is PERPENDICULAR to the Radius at the Point of Tangency" },
-        { type: "text", content: "This means the tangent and radius form a **90° angle** where they meet." },
-        { type: "text", content: "**Why This Matters on the SAT:**" },
+        { type: "text", content: "This perpendicularity rule is the foundation of every tangent line problem. At the point where the tangent touches the circle, the radius and the tangent form a perfect **90° angle**. This isn't just a coincidence — it's a geometric necessity. If the angle were anything other than 90°, the line would cut into the circle (becoming a secant) or miss it entirely." },
+        { type: "text", content: "**Why this matters on the SAT — three powerful consequences:**" },
         { type: "list", items: [
-          "If you know the radius to a point, the tangent at that point is **perpendicular** to it",
-          "Perpendicular lines have **negative reciprocal slopes** (if one slope is m, the other is −1/m)",
-          "This often creates **right triangles** you can solve with the Pythagorean Theorem"
-        ]}
+          "**Right triangles appear:** Draw the radius to the tangent point, and you've created a 90° angle. If a line segment connects the center to any point on the tangent line, you have a right triangle — and the Pythagorean Theorem applies.",
+          "**Slope relationship:** Perpendicular lines have **negative reciprocal slopes**. If the radius has slope m, the tangent has slope −1/m. The SAT frequently asks you to find the tangent line's equation using this relationship.",
+          "**Distance calculations:** The shortest distance from the center of a circle to a tangent line always equals the radius. This fact helps you determine if a given line is tangent, secant, or misses the circle entirely."
+        ]},
+        { type: "text", content: "**SAT question patterns:** (1) \"Find the equation of the tangent line at point P.\" — Find the slope of the radius to P, take the negative reciprocal, use point-slope form. (2) \"A tangent from external point P to the circle has length L. Find L.\" — Draw the radius to the tangent point, creating a right triangle with the line from P to the center as the hypotenuse. Apply the Pythagorean Theorem. (3) \"Is this line tangent to the circle?\" — Find the distance from the center to the line; if it equals the radius, it's tangent." },
+        { type: "example", title: "Classic SAT Setup", content: "A circle has center (0, 0) and radius 5. A tangent line touches the circle at point (3, 4). Find the tangent line's slope.\n\nRadius slope from (0,0) to (3,4) = 4/3\nTangent is perpendicular → slope = −3/4\n\nThe radius slope and tangent slope are negative reciprocals — always!" },
+        { type: "text", content: "**Common SAT trap:** Students sometimes confuse tangent lines with secant lines. A **secant** crosses through the circle at two points; a **tangent** touches at exactly one point. If you calculate the distance from the center to the line and it's **less than** the radius, the line is a secant. If it **equals** the radius, it's a tangent. If it's **greater**, the line misses the circle entirely." },
+        { type: "text", content: "**Real-world connection:** When you ride a bicycle, each wheel is tangent to the ground. The axle (center) is exactly one radius above the ground (tangent line), and the ground makes a 90° angle with the spoke pointing straight down (radius). Engineers use this tangent-radius relationship when designing gears, pulleys, and roller coasters — anywhere a curved surface meets a flat one." }
       ]
     }
   },

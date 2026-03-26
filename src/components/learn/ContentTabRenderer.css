@@ -72,10 +72,14 @@
 
   /* Specific widgets can span different sizes */
   .tb-article > .tb-formula,
-  .tb-article > .tb-figure,
   .tb-article > .tb-table-wrap,
   .tb-article > .tb-aside {
     grid-column: span 6; /* 50% width side-by-side */
+    margin: 0;
+  }
+
+  .tb-article > .tb-figure {
+    grid-column: 1 / -1; /* Full width for diagrams */
     margin: 0;
   }
   
