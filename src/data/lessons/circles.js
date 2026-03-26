@@ -255,9 +255,15 @@ export const circlesLessons = [
     },
     content: {
       blocks: [
-        { type: "text", content: "Sometimes a circle equation is given in **Expanded Form**. You must convert it to **Standard Form** to find the Center and Radius." },
+        { type: "text", content: "Sometimes the SAT gives you a circle equation that doesn't look like the clean standard form you've learned. Instead of (x - h)² + (y - k)² = r², you see something messy like **x² + y² - 6x + 4y - 12 = 0**. This is the **expanded (general) form**, and you can't read the center or radius from it directly. To extract that information, you need a technique called **completing the square** — one of the most important algebraic tools on the entire SAT." },
+        { type: "text", content: "**Why does this come up?** Because expanding (x - 3)² gives x² - 6x + 9. The standard form is \"hiding\" inside the expanded form, and completing the square reverses the expansion to recover it. Think of it as \"un-FOILing\" — you're packaging loose terms back into neat squared binomials." },
         { type: "completingSquareSteps" },
-        { type: "completingSquareExample" }
+        { type: "text", content: "**The step-by-step process:** (1) Group x terms together and y terms together. Move the constant to the right side. (2) For each group, take **half** of the linear coefficient and **square it** — this is the number you add to both sides. (3) Factor each group into a perfect square binomial: (x - h)² and (y - k)². (4) Read off the center (h, k) and radius r = √(right side)." },
+        { type: "completingSquareExample" },
+        { type: "text", content: "**The key move that students forget:** Whatever you add to the left side, you MUST add to the right side too. This preserves the equation's balance. If you add 9 to the x-group and 4 to the y-group on the left, you must also add 9 + 4 = 13 to the right side. Forgetting this step is the #1 algebraic error on circle problems." },
+        { type: "text", content: "**SAT strategy — the DESMOS shortcut:** On the digital SAT, you can type the expanded equation directly into DESMOS, and it will graph the circle for you. You can then read the center and estimate the radius visually. However, completing the square algebraically gives you exact values and is faster once you've practiced it." },
+        { type: "text", content: "**SAT question patterns:** (1) \"What is the radius of the circle x² + y² + 8x - 6y = 0?\" — complete the square, find r. (2) \"What is the center?\" — complete the square, read (h, k). (3) \"What is the area/circumference?\" — complete the square to find r, then apply πr² or 2πr. The SAT rarely asks you to complete the square for its own sake — it's always a means to an end." },
+        { type: "text", content: "**Common SAT traps:** (1) If there's a coefficient in front of x² or y² (like 2x² + 2y²...), you must **divide the entire equation** by that coefficient first. Standard form requires the coefficients of x² and y² to both be 1. (2) Watch for sign errors when factoring — (x² - 6x + 9) factors to (x - 3)², not (x + 3)². (3) Don't forget to square root the right side to get r — if the right side is 25, the radius is 5." }
       ]
     }
   },
