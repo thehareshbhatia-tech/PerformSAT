@@ -37,6 +37,9 @@ import {
   deserializeAdaptiveState,
 } from './services/practiceAssignmentService';
 import { patchAdaptivePracticeState } from './services/hybridStudyPlanService';
+import { reprioritizePlan } from './services/adaptivePlanService';
+import { buildLongitudinalEvidence } from './services/studyPlanMerger';
+import { generateStudyPlan as generateAIPlan } from './services/studyPlanService';
 
 // Premium Design System - Clean, Modern, Professional
 const design = {
@@ -196,6 +199,67 @@ const PerformSAT = () => {
         title: lesson.title,
         type: lesson.type
       });
+    }
+  };
+
+  // Adaptive study plan pipeline: fast path (deterministic) + slow path (AI)
+  const handleSaveStudyPlan = async (deterministicPlan, diagnosticReport) => {
+    if (!deterministicPlan || !user?.uid) return;
+
+    const isFirstTest = Object.keys(practiceTestResults || {}).length <= 1;
+
+    // Step 1: Re-prioritize (skip on test 1 — no prior plan to reprioritize)
+    const planToSave = isFirstTest
+      ? deterministicPlan
+      : reprioritizePlan(
+          deterministicPlan,
+          skillProgress,
+          practiceTestResults,
+          reviewQueue,
+          user?.testDate
+        );
+
+    // Step 2: Build longitudinal context from all prior tests
+    const longitudinalContext = buildLongitudinalEvidence(practiceTestResults);
+
+    // Step 3: Collect previous plan summaries (last 2)
+    const previousPlans = [];
+    if (studyPlan?.summary) {
+      previousPlans.push({ summary: studyPlan.summary });
+    }
+
+    // Step 4: Save reprioritized deterministic plan immediately (fast path)
+    await saveStudyPlan(planToSave);
+
+    // Step 5: AI augmentation in background (slow path)
+    if (diagnosticReport && (longitudinalContext.totalTests > 0 || !isFirstTest)) {
+      try {
+        const { plan: aiPlan } = await generateAIPlan(
+          diagnosticReport,
+          { targetScore: user?.targetScore || 700, testDate: user?.testDate },
+          previousPlans,
+          longitudinalContext
+        );
+
+        if (aiPlan?.summary?.diagnosis) {
+          // Read-before-merge: use current studyPlan state to preserve any user changes
+          const currentPlan = studyPlan || planToSave;
+          const enhanced = {
+            ...currentPlan,
+            summary: {
+              ...currentPlan.summary,
+              diagnosis: aiPlan.summary.diagnosis,
+              headline: aiPlan.summary.headline || currentPlan.summary?.headline,
+            },
+            nextAction: aiPlan.nextAction || currentPlan.nextAction,
+            deltaFromPrevious: aiPlan.deltaFromPrevious || null,
+            persistentWeaknessStrategy: aiPlan.persistentWeaknessStrategy || null,
+          };
+          await saveStudyPlan(enhanced);
+        }
+      } catch (err) {
+        console.warn('[handleSaveStudyPlan] AI augmentation failed, using deterministic plan:', err.message);
+      }
     }
   };
 
@@ -9242,7 +9306,7 @@ const PerformSAT = () => {
             practiceTestResults={practiceTestResults}
             completedLessons={completedLessons}
             practiceProgress={practiceProgress}
-            onSaveStudyPlan={saveStudyPlan}
+            onSaveStudyPlan={handleSaveStudyPlan}
             onGoToStudyPlan={() => { setSelectedPracticeTest(null); setView('studyPlan'); }}
             onNavigateToModule={(moduleId, lessonId) => {
               setActiveModule(moduleId);

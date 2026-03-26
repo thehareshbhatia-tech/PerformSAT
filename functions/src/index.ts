@@ -272,12 +272,15 @@ export const generateStudyPlan = onRequest(
         return;
       }
 
-      const systemPrompt = buildStudyPlanSystemPrompt();
+      const lc = longitudinalContext || null;
+      const isFirstTest = !lc || ((lc as Record<string, unknown>).totalTests as number || 0) <= 1;
+      const persistentWeaknessCount = ((lc as Record<string, unknown>)?.persistentWeaknesses as unknown[] || []).length;
+      const systemPrompt = buildStudyPlanSystemPrompt(isFirstTest, persistentWeaknessCount);
       const userPrompt = buildStudyPlanUserPrompt(
         diagnosticReport,
         userProfile || {},
         previousPlans || [],
-        longitudinalContext || null
+        lc
       );
 
       const anthropicResponse = await fetch(
@@ -290,8 +293,12 @@ export const generateStudyPlan = onRequest(
             "anthropic-version": "2023-06-01",
           },
           body: JSON.stringify({
-            model: "claude-haiku-4-5-20251001",
-            max_tokens: 4096,
+            model: "claude-sonnet-4-6-20250514",
+            max_tokens: 6000,
+            thinking: {
+              type: "enabled",
+              budget_tokens: 3000,
+            },
             system: systemPrompt,
             messages: [{role: "user", content: userPrompt}],
           }),
@@ -308,7 +315,9 @@ export const generateStudyPlan = onRequest(
       }
 
       const data = await anthropicResponse.json();
-      const rawContent = data.content[0].text;
+      // With thinking enabled, content has both thinking and text blocks — find the text block
+      const textBlock = data.content.find((b: Record<string, unknown>) => b.type === "text");
+      const rawContent = (textBlock?.text as string) || (data.content[0]?.text as string) || "";
 
       let plan;
       try {
@@ -327,7 +336,7 @@ export const generateStudyPlan = onRequest(
       response.json({
         plan,
         generatedAt: new Date().toISOString(),
-        model: "claude-haiku-4-5-20251001",
+        model: "claude-sonnet-4-6-20250514",
       });
     } catch (error) {
       logger.error("Study plan generation error:", error);
@@ -1032,9 +1041,37 @@ Target: ${score.target || 700} | Gap: ${score.gap || 0} points`);
   return sections.join("\n");
 }
 
-function buildStudyPlanSystemPrompt(): string {
-  return `You are the PerformSAT AI Study Strategist. Produce a focused, actionable weekly study plan from Digital SAT Math diagnostics.
+function buildStudyPlanSystemPrompt(isFirstTest: boolean, persistentWeaknessCount: number): string {
+  const contextBlock = isFirstTest ? `
+## CONTEXT: FIRST TEST
+This is the student's first diagnostic. Build a comprehensive plan from scratch.
+Prioritize: (1) highest-frequency SAT domains by weight, (2) biggest error-type
+clusters, (3) easiest quick wins on careless/trap errors before conceptual gaps.
+Do NOT assume any prior PerformSAT lesson work.
+` : `
+## CONTEXT: RETURNING STUDENT (test 2+)
+The student has prior test history. The plan MUST differ from the previous one.
+Rules:
+1. Skills that IMPROVED since last test get ≤1 activity (reinforcement only).
+   Do not assign 3 lessons to a skill the student now gets 80%+ correct.
+2. Skills that REGRESSED or newly appeared get top priority.
+3. Skills that have been weak across EVERY test (persistent weaknesses) need
+   a different pedagogical approach — not "more practice" but "reteach from
+   concept level." Call this out explicitly in persistentWeaknessStrategy.
+4. deltaFromPrevious MUST be a specific 1-sentence summary of what changed
+   (e.g. "Quadratics improved 30→65% so removed 4 lessons; statistics added
+   as new priority at 40% accuracy").
+`;
 
+  const persistentBlock = persistentWeaknessCount > 0 ? `
+## PERSISTENT WEAKNESSES ALERT
+${persistentWeaknessCount} skill(s) have been weak across multiple tests.
+These students are stuck — not just untaught. The plan must include a
+"reteach from first principles" activity for each, not just practice questions.
+` : "";
+
+  return `You are the PerformSAT AI Study Strategist. Produce a focused, actionable weekly study plan from Digital SAT Math diagnostics.
+${contextBlock}${persistentBlock}
 IMPORTANT: Strengths and weaknesses are computed deterministically. Do NOT generate them. Focus entirely on the weekly plan and a brief diagnosis.
 
 Output MUST be valid JSON (no markdown fences) matching this schema:
@@ -1196,28 +1233,51 @@ Note what changed and why in your deltaFromPrevious field.`);
 
   if (longitudinalContext) {
     const lc = longitudinalContext;
-    sections.push(`\n## Longitudinal Evidence (across all tests)`);
-
     const totalTests = lc.totalTests as number || 0;
-    const totalAttempts = lc.totalAttempts as number || 0;
-    if (totalTests > 0) {
-      sections.push(`Tests taken: ${totalTests} (${totalAttempts} total attempts)`);
-    }
-
     const scoreTrajectory = lc.scoreTrajectory as Array<Record<string, unknown>> || [];
-    if (scoreTrajectory.length > 1) {
-      sections.push(`Score trajectory: ${scoreTrajectory.map(s => `${s.scaledScore}`).join(" → ")}`);
-    }
-
     const persistentWeaknesses = lc.persistentWeaknesses as Array<Record<string, unknown>> || [];
-    if (persistentWeaknesses.length > 0) {
-      sections.push(`Persistent weaknesses (weak across multiple tests):`);
-      persistentWeaknesses.forEach(pw => {
-        sections.push(`- ${pw.skillId}: ${pw.accuracy}% accuracy across ${pw.testCount} tests (trend: ${pw.trend})`);
-      });
+    const skillHistory = lc.skillHistory as Record<string, unknown> || {};
+
+    sections.push(`\n## Longitudinal Evidence (${totalTests} tests)`);
+
+    if (scoreTrajectory.length >= 2) {
+      const trend = scoreTrajectory.map(s => s.scaledScore).join(" → ");
+      const delta = Number(scoreTrajectory[scoreTrajectory.length - 1]?.scaledScore || 0) -
+                    Number(scoreTrajectory[0]?.scaledScore || 0);
+      sections.push(`Score trajectory: ${trend} (net change: ${delta >= 0 ? "+" : ""}${delta})`);
     }
 
-    sections.push(`IMPORTANT: The plan must prioritize persistent weaknesses — skills that have been consistently weak across multiple tests need fundamentally different remediation than first-time misses.`);
+    if (persistentWeaknesses.length > 0) {
+      sections.push(`\nPERSISTENT WEAKNESSES — weak across ${totalTests} tests. These need reteaching, not practice:`);
+      persistentWeaknesses.forEach(pw => {
+        const trend = pw.trend === "declining" ? "↓ declining" : pw.trend === "flat" ? "→ flat" : "↑ improving";
+        sections.push(`  - ${pw.skillId}: ${pw.accuracy}% avg accuracy across ${pw.testCount} tests (${trend})`);
+      });
+      sections.push(`For each persistent weakness: Week 1 activity MUST be "Reteach from concept level" not "More practice questions". These students have practiced incorrectly — practice reinforces the wrong approach.`);
+    }
+
+    // Identify skills that improved since last plan — de-emphasize these
+    const improvedSkills: string[] = [];
+    const newWeaknesses: string[] = [];
+    Object.entries(skillHistory).forEach(([skillId, hist]) => {
+      const h = hist as Record<string, unknown>;
+      const appearances = (h.appearances as Array<Record<string, unknown>>) || [];
+      if (appearances.length >= 2) {
+        const first = Number(appearances[0]?.accuracy || 0);
+        const last = Number(appearances[appearances.length - 1]?.accuracy || 0);
+        if (last - first >= 20) improvedSkills.push(`${skillId} (${first}%→${last}%)`);
+        if (first >= 70 && last < 50) newWeaknesses.push(`${skillId} (was ${first}%, now ${last}%)`);
+      }
+    });
+
+    if (improvedSkills.length > 0) {
+      sections.push(`\nImproved since last test — reduce plan weight on these: ${improvedSkills.join(", ")}`);
+    }
+    if (newWeaknesses.length > 0) {
+      sections.push(`\nNew regressions — add to plan immediately: ${newWeaknesses.join(", ")}`);
+    }
+
+    sections.push(`\nCRITICAL: The plan deltaFromPrevious field must explicitly name what changed and why. Example: "Removed 3 quadratic lessons (improved 30→65%); added statistics as week 1 priority (new weakness at 40%); escalated slope-intercept to reteach mode (weak across all 3 tests)".`);
   }
 
   sections.push(`\nGenerate the JSON study plan now.`);

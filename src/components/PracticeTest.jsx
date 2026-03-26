@@ -1179,9 +1179,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             console.error('[PracticeTest] Phase 1 artifact write FAILED:', err);
           });
 
-          // Propagate to in-memory state for immediate rendering
+          // Propagate to in-memory state for immediate rendering (pass diagnostic for AI augmentation)
           if (onSaveStudyPlan) {
-            try { onSaveStudyPlan(plan); } catch (e) { console.error('[PracticeTest] onSaveStudyPlan error:', e); }
+            try { onSaveStudyPlan(plan, diagReport); } catch (e) { console.error('[PracticeTest] onSaveStudyPlan error:', e); }
           }
 
           // Phase 2: async hybrid plan (AI-augmented) — replaces Phase 1 artifact
@@ -1215,7 +1215,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
 
               setSavedStudyPlan(hybridPlan);
               if (onSaveStudyPlan) {
-                try { onSaveStudyPlan(hybridPlan); } catch (e) { /* already logged */ }
+                try { onSaveStudyPlan(hybridPlan, null); } catch (e) { /* already logged */ }
               }
               console.log('[PracticeTest] Phase 2 — hybrid artifact saved:', artifactId);
             } catch (err) {

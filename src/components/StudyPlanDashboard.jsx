@@ -440,6 +440,15 @@ const StudyPlanDashboard = ({
             </div>
             <div style={{ fontSize: '24px', fontWeight: typography.weights.bold, lineHeight: 1.2 }}>
               {summary?.headline || 'Your Study Plan'}
+              {studyPlan.deltaFromPrevious && (
+                <span style={{
+                  padding: '2px 8px', borderRadius: '6px', fontSize: '10px', fontWeight: '700',
+                  background: 'rgba(34,197,94,0.2)', color: '#4ade80',
+                  marginLeft: '10px', verticalAlign: 'middle',
+                }}>
+                  Updated
+                </span>
+              )}
             </div>
           </div>
           <div style={{ textAlign: 'right' }}>
@@ -459,6 +468,47 @@ const StudyPlanDashboard = ({
             boxShadow: '0 0 10px rgba(79, 70, 229, 0.5)'
           }} />
         </div>
+        {/* What changed since your last test */}
+        {studyPlan.deltaFromPrevious && (
+          <div style={{
+            marginTop: '14px',
+            padding: '10px 14px',
+            borderRadius: '10px',
+            background: 'rgba(255,255,255,0.08)',
+            borderLeft: '3px solid rgba(255,255,255,0.25)',
+          }}>
+            <div style={{
+              fontSize: '10px', fontWeight: '700', color: 'rgba(255,255,255,0.45)',
+              textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px',
+            }}>
+              Updated since your last test
+            </div>
+            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.8)', lineHeight: '1.5' }}>
+              {studyPlan.deltaFromPrevious}
+            </div>
+          </div>
+        )}
+
+        {/* Persistent weakness callout */}
+        {studyPlan.persistentWeaknessStrategy && (
+          <div style={{
+            marginTop: '10px',
+            padding: '10px 14px',
+            borderRadius: '10px',
+            background: 'rgba(220,38,38,0.15)',
+            borderLeft: '3px solid rgba(220,38,38,0.5)',
+          }}>
+            <div style={{
+              fontSize: '10px', fontWeight: '700', color: 'rgba(252,165,165,0.9)',
+              textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px',
+            }}>
+              Stuck skill — different approach needed
+            </div>
+            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.8)', lineHeight: '1.5' }}>
+              {studyPlan.persistentWeaknessStrategy}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* ────────────────────────────────────────────────────────────────
