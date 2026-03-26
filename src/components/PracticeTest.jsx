@@ -16,6 +16,7 @@ import {
   linkArtifactToAttempt,
 } from '../services/practiceTestService';
 import { generateAndPersistHybridPlan, fetchCurrentStudyPlan, persistDeterministicArtifact } from '../services/hybridStudyPlanService';
+import { buildLongitudinalEvidence, computePlanDelta } from '../services/studyPlanMerger';
 import { generateStudyPlan as generateDeterministicPlan } from '../services/studyPlanGenerator';
 import { runDiagnostic } from '../services/diagnosticEngine';
 import { getTargetedWeaknessSet } from '../data/questions/bank';
@@ -1154,13 +1155,17 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         try {
           const diagReport = diagnosticReportRef.current;
           const groundTruth = buildGroundTruthDiagnosis(diagReport, questionTelemetry.current);
+          const longitudinalEvidence = buildLongitudinalEvidence(practiceTestResults || {});
           const detPlan = generateDeterministicPlan(
             diagReport,
             { targetScore: user.targetScore, testDate: user.testDate },
             completedLessons,
             practiceProgress,
-            null,
+            savedStudyPlan,
+            longitudinalEvidence,
           );
+          // Attach plan diff for the "What Changed" banner
+          detPlan._diff = computePlanDelta(savedStudyPlan, detPlan);
           const plan = enrichPlanWithGroundTruth({ ...detPlan }, groundTruth);
           setSavedStudyPlan(plan);
 

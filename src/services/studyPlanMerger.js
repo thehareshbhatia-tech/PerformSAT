@@ -101,7 +101,7 @@ function computeSkillTrend(appearances) {
  * Compute delta between previous and current plan.
  */
 export const computePlanDelta = (previousPlan, currentPlan) => {
-  if (!previousPlan) return { isFirst: true, changes: [] };
+  if (!previousPlan) return { isFirst: true, changes: [], skillChanges: [], headline: null };
 
   const changes = [];
   const prevScore = previousPlan.currentScore || 0;
@@ -115,8 +115,10 @@ export const computePlanDelta = (previousPlan, currentPlan) => {
     });
   }
 
-  const prevSkillIds = new Set((previousPlan.skillGaps || []).map(g => g.skillId));
-  const currSkillIds = new Set((currentPlan.skillGaps || []).map(g => g.skillId));
+  const prevGaps = previousPlan.skillGaps || [];
+  const currGaps = currentPlan.skillGaps || [];
+  const prevSkillIds = new Set(prevGaps.map(g => g.skillId));
+  const currSkillIds = new Set(currGaps.map(g => g.skillId));
   const newGaps = [...currSkillIds].filter(id => !prevSkillIds.has(id));
   const resolvedGaps = [...prevSkillIds].filter(id => !currSkillIds.has(id));
 
@@ -127,11 +129,90 @@ export const computePlanDelta = (previousPlan, currentPlan) => {
     changes.push({ type: 'resolved_gaps', label: `${resolvedGaps.length} skill gap${resolvedGaps.length > 1 ? 's' : ''} resolved`, skillIds: resolvedGaps });
   }
 
-  if (previousPlan.intensity !== currentPlan.intensity) {
-    changes.push({ type: 'intensity', label: `Study intensity: ${previousPlan.intensity} → ${currentPlan.intensity}` });
+  const intensityChange = previousPlan.intensity !== currentPlan.intensity
+    ? { old: previousPlan.intensity, new: currentPlan.intensity }
+    : null;
+  if (intensityChange) {
+    changes.push({ type: 'intensity', label: `Study intensity: ${intensityChange.old} → ${intensityChange.new}` });
   }
 
-  return { isFirst: false, changes };
+  // ═══ Per-skill accuracy deltas ═══
+  const prevSkillMap = {};
+  prevGaps.forEach(g => { prevSkillMap[g.skillId] = g; });
+  const currSkillMap = {};
+  currGaps.forEach(g => { currSkillMap[g.skillId] = g; });
+  const allSkillIds = new Set([...Object.keys(prevSkillMap), ...Object.keys(currSkillMap)]);
+
+  const skillChanges = [];
+  allSkillIds.forEach(skillId => {
+    const prev = prevSkillMap[skillId];
+    const curr = currSkillMap[skillId];
+    if (prev && curr) {
+      const oldAcc = prev.accuracy ?? prev.testAccuracy ?? 0;
+      const newAcc = curr.accuracy ?? curr.testAccuracy ?? 0;
+      if (oldAcc !== newAcc) {
+        skillChanges.push({
+          skill: curr.name || skillId,
+          skillId,
+          direction: newAcc > oldAcc ? 'improved' : 'worsened',
+          oldAccuracy: Math.round(oldAcc),
+          newAccuracy: Math.round(newAcc),
+        });
+      }
+    } else if (!prev && curr) {
+      skillChanges.push({
+        skill: curr.name || skillId,
+        skillId,
+        direction: 'new',
+        oldAccuracy: null,
+        newAccuracy: Math.round(curr.accuracy ?? curr.testAccuracy ?? 0),
+      });
+    } else if (prev && !curr) {
+      skillChanges.push({
+        skill: prev.name || skillId,
+        skillId,
+        direction: 'resolved',
+        oldAccuracy: Math.round(prev.accuracy ?? prev.testAccuracy ?? 0),
+        newAccuracy: null,
+      });
+    }
+  });
+  skillChanges.sort((a, b) => {
+    const order = { worsened: 0, new: 1, improved: 2, resolved: 3 };
+    return (order[a.direction] ?? 2) - (order[b.direction] ?? 2);
+  });
+
+  // ═══ Generate headline ═══
+  let headline = null;
+  const improved = skillChanges.filter(s => s.direction === 'improved');
+  const worsened = skillChanges.filter(s => s.direction === 'worsened');
+  const newSkills = skillChanges.filter(s => s.direction === 'new');
+  const resolved = skillChanges.filter(s => s.direction === 'resolved');
+
+  if (improved.length > 0 && worsened.length > 0) {
+    headline = `${improved[0].skill} improved! Shifting focus to ${worsened[0].skill} where you need more practice.`;
+  } else if (improved.length > 0) {
+    headline = `Great progress on ${improved[0].skill}${improved.length > 1 ? ` and ${improved.length - 1} more` : ''}! Your plan has been adjusted.`;
+  } else if (worsened.length > 0) {
+    headline = `${worsened[0].skill} needs more attention. Added extra practice sessions.`;
+  } else if (newSkills.length > 0) {
+    headline = `${newSkills.length} new skill gap${newSkills.length > 1 ? 's' : ''} detected. Your plan has been updated.`;
+  } else if (resolved.length > 0) {
+    headline = `${resolved.length} skill gap${resolved.length > 1 ? 's' : ''} resolved! Keep it up.`;
+  } else if (currScore > prevScore) {
+    headline = `Score improved from ${prevScore} to ${currScore}. Your plan has been recalibrated.`;
+  }
+
+  return {
+    isFirst: false,
+    changes,
+    skillChanges,
+    intensityChange,
+    headline,
+    scoreChange: currScore !== prevScore ? { old: prevScore, new: currScore, delta: currScore - prevScore } : null,
+    resolvedCount: resolved.length,
+    newGapCount: newSkills.length,
+  };
 };
 
 function normalizeActivity(activity) {

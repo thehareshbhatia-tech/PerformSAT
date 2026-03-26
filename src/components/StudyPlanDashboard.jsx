@@ -244,10 +244,50 @@ const StudyPlanDashboard = ({
     if (activities.length === 0) {
       return <div style={{ fontSize: '14px', color: colors.text.muted, padding: '12px 0', textAlign: 'center' }}>No activities this week.</div>;
     }
+
+    // ═══ RENDER-TIME RE-RANKING based on skillProgress ═══
+    // Compute mastery status for each activity's target skill
+    const rankedActivities = activities.map((act, origIdx) => {
+      let masteryStatus = null; // null = no data, 'mastered', 'needs-focus', or 'normal'
+      if (skillProgress && act.skillId) {
+        const sp = skillProgress[act.skillId];
+        if (sp && sp.attempts >= 2) {
+          const mastery = sp.mastery ?? (sp.correct / sp.attempts * 100);
+          if (mastery >= 70) masteryStatus = 'mastered';
+          else if (mastery < 40) masteryStatus = 'needs-focus';
+          else masteryStatus = 'normal';
+        }
+      }
+      return { act, origIdx, masteryStatus };
+    });
+
+    // Sort: needs-focus first, normal middle, mastered last (within uncompleted)
+    const sortOrder = { 'needs-focus': 0, normal: 1, null: 1, 'mastered': 2 };
+    const sorted = [...rankedActivities].sort((a, b) => {
+      // Completed always at end
+      if (a.act.completed && !b.act.completed) return 1;
+      if (!a.act.completed && b.act.completed) return -1;
+      if (a.act.completed && b.act.completed) return 0;
+      // Then by mastery status
+      return (sortOrder[a.masteryStatus] ?? 1) - (sortOrder[b.masteryStatus] ?? 1);
+    });
+
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-        {activities.map((act, i) => (
-          <ActivityRow key={i} act={act} weekIdx={weekIdx} actIdx={i} />
+        {sorted.map(({ act, origIdx, masteryStatus }) => (
+          <div key={origIdx} style={{ position: 'relative' }}>
+            <ActivityRow act={act} weekIdx={weekIdx} actIdx={origIdx} />
+            {masteryStatus === 'mastered' && !act.completed && (
+              <div style={{ position: 'absolute', top: '8px', right: '8px', fontSize: '10px', fontWeight: '700', color: '#16a34a', background: '#f0fdf4', border: '1px solid #86efac', padding: '2px 8px', borderRadius: '4px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                Mastered
+              </div>
+            )}
+            {masteryStatus === 'needs-focus' && !act.completed && (
+              <div style={{ position: 'absolute', top: '8px', right: '8px', fontSize: '10px', fontWeight: '700', color: '#dc2626', background: '#fef2f2', border: '1px solid #fca5a5', padding: '2px 8px', borderRadius: '4px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                Needs Focus
+              </div>
+            )}
+          </div>
         ))}
       </div>
     );
@@ -306,6 +346,74 @@ const StudyPlanDashboard = ({
         }
       `}</style>
       
+      {/* ────────────────────────────────────────────────────────────────
+          0. WHAT CHANGED BANNER (adaptive plan diff)
+      ──────────────────────────────────────────────────────────────── */}
+      {studyPlan._diff && !studyPlan._diff.isFirst && studyPlan._diff.headline && (
+        <div className="study-plan-section" style={{
+          background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
+          border: '1px solid #bae6fd',
+          borderRadius: radius.xl,
+          padding: '20px 24px',
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
+            <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#0284c7', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px' }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12h4l3-9 5 18 3-9h5"/></svg>
+            </div>
+            <span style={{ fontSize: '14px', fontWeight: typography.weights.bold, color: '#0c4a6e', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+              Plan Updated
+            </span>
+          </div>
+          <div style={{ fontSize: '15px', fontWeight: typography.weights.semibold, color: '#0c4a6e', lineHeight: '1.5', marginBottom: studyPlan._diff.skillChanges?.length > 0 ? '14px' : '0' }}>
+            {studyPlan._diff.headline}
+          </div>
+          {studyPlan._diff.skillChanges?.length > 0 && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+              {studyPlan._diff.skillChanges.slice(0, 5).map((sc, i) => {
+                const icon = sc.direction === 'improved' ? '✅' : sc.direction === 'worsened' ? '⚠️' : sc.direction === 'new' ? '🆕' : '✨';
+                const label = sc.direction === 'improved'
+                  ? `${sc.skill}: ${sc.oldAccuracy}% → ${sc.newAccuracy}%`
+                  : sc.direction === 'worsened'
+                  ? `${sc.skill}: ${sc.oldAccuracy}% → ${sc.newAccuracy}%`
+                  : sc.direction === 'new'
+                  ? `${sc.skill}: new weakness detected`
+                  : `${sc.skill}: resolved!`;
+                return (
+                  <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: '#334155' }}>
+                    <span>{icon}</span>
+                    <span>{label}</span>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+          {studyPlan._diff.scoreChange && (
+            <div style={{ marginTop: '10px', fontSize: '13px', color: '#64748b' }}>
+              Score: {studyPlan._diff.scoreChange.old} → {studyPlan._diff.scoreChange.new} ({studyPlan._diff.scoreChange.delta > 0 ? '+' : ''}{studyPlan._diff.scoreChange.delta} points)
+            </div>
+          )}
+        </div>
+      )}
+
+      {studyPlan._diff?.isFirst && (
+        <div className="study-plan-section" style={{
+          background: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)',
+          border: '1px solid #86efac',
+          borderRadius: radius.xl,
+          padding: '20px 24px',
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
+            <span style={{ fontSize: '20px' }}>🎯</span>
+            <span style={{ fontSize: '16px', fontWeight: typography.weights.bold, color: '#14532d' }}>
+              Your First Study Plan
+            </span>
+          </div>
+          <div style={{ fontSize: '14px', color: '#166534', lineHeight: '1.5' }}>
+            Based on your practice test results, here's your personalized weekly plan. Take another test to see how it adapts to your progress.
+          </div>
+        </div>
+      )}
+
       {/* ────────────────────────────────────────────────────────────────
           1. PROGRESS
       ──────────────────────────────────────────────────────────────── */}

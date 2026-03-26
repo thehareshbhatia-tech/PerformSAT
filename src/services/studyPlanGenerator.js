@@ -96,7 +96,7 @@ const DAY_NAMES = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Satu
  * @param {Object|null} previousPlan - Previous study plan (for adaptation)
  * @returns {Object} Complete study plan
  */
-export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons = {}, practiceProgress = {}, previousPlan = null) => {
+export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons = {}, practiceProgress = {}, previousPlan = null, longitudinal = null) => {
   const { targetScore = 700, testDate } = userProfile;
   const currentScore = diagnostic.score.scaled;
   const scoreGap = Math.max(0, targetScore - currentScore);
@@ -127,7 +127,8 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
     effectiveWeeks,
     minutesPerWeek,
     diagnostic,
-    previousPlan
+    previousPlan,
+    longitudinal
   );
 
   // ═══ Generate milestones ═══
@@ -575,13 +576,52 @@ const generateStrategyActivities = (diagnostic) => {
  * - End of week: More practice + self-assessment
  * - Every 3-4 weeks: Take a practice test
  */
-const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minutesPerWeek, diagnostic, previousPlan) => {
+const distributeAcrossWeeks = (activities, strategyActivities, totalWeeks, minutesPerWeek, diagnostic, previousPlan, longitudinal = null) => {
   const weeks = [];
+
+  // ═══ ADAPTIVE PRIORITY ADJUSTMENT ═══
+  // If we have a previous plan, adjust priorities based on what improved/worsened
+  const adaptedActivities = activities.map(act => {
+    let priorityBoost = 0;
+
+    // Check longitudinal persistent weaknesses — 2x priority for skills failing across multiple tests
+    if (longitudinal?.persistentWeaknesses?.length > 0 && act.skillId) {
+      const persistent = longitudinal.persistentWeaknesses.find(pw => pw.skillId === act.skillId);
+      if (persistent) {
+        priorityBoost += 20; // Significant boost for persistent weaknesses
+      }
+    }
+
+    // Check longitudinal skill trends — reduce priority for improving skills
+    if (longitudinal?.skillHistory && act.skillId) {
+      const history = longitudinal.skillHistory[act.skillId];
+      if (history && history.attempts >= 3) {
+        const accuracy = history.correct / history.attempts;
+        if (accuracy >= 0.7) {
+          priorityBoost -= 10; // Reduce priority for skills student is mastering
+        }
+      }
+    }
+
+    // If previous plan exists, skip activities the student already completed
+    if (previousPlan?.weeks && act.title) {
+      const wasCompleted = previousPlan.weeks.some(w =>
+        w.activities?.some(a => a.completed && a.title === act.title)
+      );
+      if (wasCompleted) {
+        priorityBoost -= 15; // Deprioritize already-completed activities
+      }
+    }
+
+    return priorityBoost !== 0
+      ? { ...act, priority: (act.priority || 0) + priorityBoost }
+      : act;
+  });
 
   // Build a pool of all activities sorted by priority
   const allActivities = [
     ...strategyActivities,
-    ...activities,
+    ...adaptedActivities,
   ].sort((a, b) => b.priority - a.priority);
 
   // Track which activities have been assigned
