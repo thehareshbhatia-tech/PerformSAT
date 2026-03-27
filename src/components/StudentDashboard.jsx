@@ -93,10 +93,13 @@ const StudentDashboard = ({
   allLessons,
   skillDiagnosticSummary,
   studyPlan,
+  studyPlanArtifact,
+  studyPlanMeta,
   skillProgress,
   onCompleteActivity,
   onUncompleteActivity
 }) => {
+  const [activeTab, setActiveTab] = useState('dashboard');
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [showTargetPicker, setShowTargetPicker] = useState(false);
   const [showCurrentScorePicker, setShowCurrentScorePicker] = useState(false);
@@ -294,11 +297,54 @@ const StudentDashboard = ({
           Study with your personalized AI learning plan and get instant hints, explanations, and more with our AI Tutor.
         </p>
         <div className="dashboard-top-tabs">
-          <button className="dashboard-top-tab active">Math</button>
-          <button className="dashboard-top-tab">Reading & Writing</button>
+          <button
+            className={`dashboard-top-tab${activeTab === 'dashboard' ? ' active' : ''}`}
+            onClick={() => setActiveTab('dashboard')}
+          >
+            Dashboard
+          </button>
+          <button
+            className={`dashboard-top-tab${activeTab === 'studyPlan' ? ' active' : ''}`}
+            onClick={() => setActiveTab('studyPlan')}
+          >
+            Study Plan
+            {studyPlanArtifact?.delta?.skillChanges?.length > 0 &&
+              !localStorage.getItem(`dismissedDelta:${studyPlanMeta?.artifactId}`) && (
+              <span className="tab-badge">Updated</span>
+            )}
+          </button>
         </div>
       </div>
 
+      {activeTab === 'studyPlan' ? (
+        <div className="studyplan-tab-content">
+          {studyPlan?.weeks?.length ? (
+            <StudyPlanDashboard
+              studyPlan={studyPlan}
+              studyPlanArtifact={studyPlanArtifact}
+              studyPlanMeta={studyPlanMeta}
+              practiceTestResults={practiceTestResults}
+              practiceProgress={practiceProgress}
+              skillProgress={skillProgress}
+              reviewQueue={reviewQueue}
+              user={user}
+              onNavigateToModule={onNavigateToModule}
+              onStartPractice={onStartPractice}
+              onStartPracticeTest={onStartPracticeTest}
+              onCompleteActivity={onCompleteActivity}
+              onUncompleteActivity={onUncompleteActivity}
+            />
+          ) : (
+            <div className="studyplan-empty-state">
+              <div className="empty-state-icon">📋</div>
+              <h3>No Study Plan Yet</h3>
+              <p>Take a practice test to generate your personalized study plan. Our AI will analyze your strengths and weaknesses to create a targeted plan.</p>
+              <button className="btn-primary" onClick={onStartPracticeTest}>Start Practice Test</button>
+            </div>
+          )}
+        </div>
+      ) : (
+      <>
       {/* Performance Panel (Replaces old floating Score Hero) */}
       <div className="performance-overview-panel">
         <div className="overview-main-stat">
@@ -419,20 +465,23 @@ const StudentDashboard = ({
             />
           </div>
 
-          {/* AI STUDY PLAN */}
-          <StudyPlanDashboard
-            studyPlan={studyPlan}
-            practiceTestResults={practiceTestResults}
-            practiceProgress={practiceProgress}
-            skillProgress={skillProgress}
-            reviewQueue={reviewQueue}
-            user={user}
-            onNavigateToModule={onNavigateToModule}
-            onStartPractice={onStartPractice}
-            onStartPracticeTest={onStartPracticeTest}
-            onCompleteActivity={onCompleteActivity}
-            onUncompleteActivity={onUncompleteActivity}
-          />
+          {/* STUDY PLAN TEASER — full plan lives in the Study Plan tab */}
+          {studyPlan?.weeks?.length ? (
+            <div className="studyplan-teaser-card" onClick={() => setActiveTab('studyPlan')} role="button" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && setActiveTab('studyPlan')}>
+              <div className="teaser-header">
+                <span className="teaser-icon">📋</span>
+                <h3>Your Study Plan</h3>
+                {studyPlanArtifact?.delta?.skillChanges?.length > 0 && (
+                  <span className="teaser-badge">Updated</span>
+                )}
+              </div>
+              <p className="teaser-summary">
+                {studyPlan.weeks.length}-week plan &bull; {studyPlan.weeks.reduce((sum, w) => sum + (w.activities?.length || 0), 0)} activities
+                {studyPlan.summary?.headline ? ` — ${studyPlan.summary.headline}` : ''}
+              </p>
+              <span className="teaser-cta">View Full Plan &rarr;</span>
+            </div>
+          ) : null}
         </div>
         
         <div className="dashboard-side-col">
@@ -450,6 +499,8 @@ const StudentDashboard = ({
           />
         </div>
       </div>
+      </>
+      )}
     </div>
   );
 };

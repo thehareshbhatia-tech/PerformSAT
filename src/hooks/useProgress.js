@@ -22,6 +22,7 @@ export const useProgress = (userId) => {
   const [inProgressTests, setInProgressTests] = useState({});
   const [studyPlan, setStudyPlan] = useState(null);
   const [studyPlanMeta, setStudyPlanMeta] = useState({ artifactId: null, preview: null });
+  const [studyPlanArtifact, setStudyPlanArtifact] = useState(null); // Full artifact: { plan, delta, longitudinal, version }
   const [studentFingerprint, setStudentFingerprint] = useState(null);
   const [answeredQuestionIds, setAnsweredQuestionIds] = useState([]);
   const [interventionLog, setInterventionLog] = useState([]);
@@ -108,6 +109,7 @@ export const useProgress = (userId) => {
               if (art?.plan?.weeks?.length) {
                 console.log('[useProgress] Artifact hydrated OK via', source, '— weeks:', art.plan.weeks.length);
                 setStudyPlan(art.plan);
+                setStudyPlanArtifact({ plan: art.plan, delta: art.delta || null, longitudinal: art.longitudinal || null, version: art.version || null });
                 studyPlanWriteInFlight.current = false;
                 setStudyPlanMeta(prev => ({ ...prev, artifactId: art.id }));
               } else if (incomingPlan?.weeks?.length) {
@@ -137,6 +139,7 @@ export const useProgress = (userId) => {
               if (art?.plan?.weeks?.length) {
                 console.log('[useProgress] Artifact hydrated OK via latest-query — weeks:', art.plan.weeks.length);
                 setStudyPlan(art.plan);
+                setStudyPlanArtifact({ plan: art.plan, delta: art.delta || null, longitudinal: art.longitudinal || null, version: art.version || null });
                 studyPlanWriteInFlight.current = false;
                 setStudyPlanMeta(prev => ({ ...prev, artifactId: art.id }));
               } else if (!studyPlanWriteInFlight.current) {
@@ -684,6 +687,7 @@ export const useProgress = (userId) => {
     inProgressTests,
     studyPlan,
     studyPlanMeta,
+    studyPlanArtifact,
     studentFingerprint,
     interventionLog,
     predictionLog,

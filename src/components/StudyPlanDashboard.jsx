@@ -42,9 +42,42 @@ function activityIcon(type) {
 // Main component
 // ---------------------------------------------------------------------------
 
+const ScoreTrajectory = ({ artifact }) => {
+  const trajectory = artifact?.longitudinal?.scoreTrajectory;
+  if (!trajectory?.length) return null;
+
+  return (
+    <div style={{
+      display: 'flex',
+      gap: '8px',
+      alignItems: 'center',
+      marginTop: '24px',
+      paddingTop: '16px',
+      borderTop: '1px solid #e5e7eb',
+      flexWrap: 'wrap',
+    }}>
+      <span style={{ fontSize: '13px', color: '#6b7280', fontWeight: 500, marginRight: '4px' }}>Score History:</span>
+      {trajectory.map((entry, i) => (
+        <span key={i} style={{
+          fontSize: '13px',
+          fontWeight: 600,
+          color: i === trajectory.length - 1 ? '#4f46e5' : '#374151',
+          background: i === trajectory.length - 1 ? '#e0e7ff' : '#f3f4f6',
+          padding: '4px 10px',
+          borderRadius: '8px',
+        }}>
+          {entry.scaledScore}
+        </span>
+      ))}
+    </div>
+  );
+};
+
 const StudyPlanDashboard = ({
   variant = 'default',
   studyPlan,
+  studyPlanArtifact,
+  studyPlanMeta,
   practiceTestResults,
   practiceProgress,
   skillProgress,
@@ -60,6 +93,9 @@ const StudyPlanDashboard = ({
   answeredQuestionIds = [],
 }) => {
   const [expandedWeek, setExpandedWeek] = useState(null);
+  const [deltaDismissed, setDeltaDismissed] = useState(() =>
+    !!studyPlanMeta?.artifactId && !!localStorage.getItem(`dismissedDelta:${studyPlanMeta.artifactId}`)
+  );
 
   // ── Empty state ──────────────────────────────────────────────────────
   if (!studyPlan || !studyPlan.weeks || studyPlan.weeks.length === 0) {
@@ -94,6 +130,8 @@ const StudyPlanDashboard = ({
   }
 
   // ── Derived data ─────────────────────────────────────────────────────
+  const delta = studyPlanArtifact?.delta || studyPlan._diff || null;
+  const longitudinal = studyPlanArtifact?.longitudinal || null;
   const { weeks, summary, weaknesses } = studyPlan;
   const totalActivities = weeks.reduce((s, w) => s + (w.activities?.length || 0), 0);
   const completedActivities = weeks.reduce((s, w) => s + (w.activities?.filter(a => a.completed).length || 0), 0);
@@ -376,8 +414,9 @@ const StudyPlanDashboard = ({
       
       {/* ────────────────────────────────────────────────────────────────
           0. WHAT CHANGED BANNER (adaptive plan diff)
+          Sources: studyPlanArtifact.delta (Firestore) or studyPlan._diff (legacy)
       ──────────────────────────────────────────────────────────────── */}
-      {studyPlan._diff && !studyPlan._diff.isFirst && studyPlan._diff.headline && (
+      {!deltaDismissed && delta && !delta.isFirst && delta.headline && (
         <div className="study-plan-section" style={{
           background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
           border: '1px solid #bae6fd',
@@ -388,16 +427,20 @@ const StudyPlanDashboard = ({
             <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#0284c7', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px' }}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12h4l3-9 5 18 3-9h5"/></svg>
             </div>
-            <span style={{ fontSize: '14px', fontWeight: typography.weights.bold, color: '#0c4a6e', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+            <span style={{ fontSize: '14px', fontWeight: typography.weights.bold, color: '#0c4a6e', textTransform: 'uppercase', letterSpacing: '0.04em', flex: 1 }}>
               Plan Updated
             </span>
+            <button onClick={() => {
+              if (studyPlanMeta?.artifactId) localStorage.setItem(`dismissedDelta:${studyPlanMeta.artifactId}`, '1');
+              setDeltaDismissed(true);
+            }} style={{ background: 'none', border: 'none', color: '#0284c7', cursor: 'pointer', fontSize: '18px', padding: '0 4px', lineHeight: 1 }}>&times;</button>
           </div>
-          <div style={{ fontSize: '15px', fontWeight: typography.weights.semibold, color: '#0c4a6e', lineHeight: '1.5', marginBottom: studyPlan._diff.skillChanges?.length > 0 ? '14px' : '0' }}>
-            {studyPlan._diff.headline}
+          <div style={{ fontSize: '15px', fontWeight: typography.weights.semibold, color: '#0c4a6e', lineHeight: '1.5', marginBottom: delta.skillChanges?.length > 0 ? '14px' : '0' }}>
+            {delta.headline}
           </div>
-          {studyPlan._diff.skillChanges?.length > 0 && (
+          {delta.skillChanges?.length > 0 && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-              {studyPlan._diff.skillChanges.slice(0, 5).map((sc, i) => {
+              {delta.skillChanges.slice(0, 5).map((sc, i) => {
                 const icon = sc.direction === 'improved' ? '✅' : sc.direction === 'worsened' ? '⚠️' : sc.direction === 'new' ? '🆕' : '✨';
                 const label = sc.direction === 'improved'
                   ? `${sc.skill}: ${sc.oldAccuracy}% → ${sc.newAccuracy}%`
@@ -415,15 +458,15 @@ const StudyPlanDashboard = ({
               })}
             </div>
           )}
-          {studyPlan._diff.scoreChange && (
+          {delta.scoreChange && (
             <div style={{ marginTop: '10px', fontSize: '13px', color: '#64748b' }}>
-              Score: {studyPlan._diff.scoreChange.old} → {studyPlan._diff.scoreChange.new} ({studyPlan._diff.scoreChange.delta > 0 ? '+' : ''}{studyPlan._diff.scoreChange.delta} points)
+              Score: {delta.scoreChange.old} → {delta.scoreChange.new} ({delta.scoreChange.delta > 0 ? '+' : ''}{delta.scoreChange.delta} points)
             </div>
           )}
         </div>
       )}
 
-      {studyPlan._diff?.isFirst && (
+      {delta?.isFirst && (
         <div className="study-plan-section" style={{
           background: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)',
           border: '1px solid #86efac',
@@ -730,6 +773,9 @@ const StudyPlanDashboard = ({
           )}
         </div>
       </div>
+
+      {/* Score Trajectory */}
+      <ScoreTrajectory artifact={studyPlanArtifact} />
     </div>
   );
 };

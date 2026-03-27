@@ -190,7 +190,7 @@ const PerformSAT = () => {
   }, [showCalculator]);
 
   const { user, loading, logout, updateTestDate, updateTargetScore, updateCurrentScore, updateTargetSchools } = useAuth();
-  const { completedLessons, practiceProgress, reviewQueue, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, markLessonComplete: markComplete, getModuleProgress: calcProgress, isLessonCompleted, recordPracticeAttempt, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete } = useProgress(user?.uid);
+  const { completedLessons, practiceProgress, reviewQueue, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, markLessonComplete: markComplete, getModuleProgress: calcProgress, isLessonCompleted, recordPracticeAttempt, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete } = useProgress(user?.uid);
 
   const markLessonComplete = (moduleId, lessonId) => {
     const moduleLessons = allLessons[moduleId] || [];
@@ -9176,6 +9176,8 @@ const PerformSAT = () => {
             skillDiagnosticSummary={getSkillDiagnosticSummary()}
             skillBreakdown={getSkillBreakdown()}
             studyPlan={studyPlan}
+            studyPlanArtifact={studyPlanArtifact}
+            studyPlanMeta={studyPlanMeta}
             skillProgress={skillProgress}
             onNavigateToModule={(moduleId) => {
               setActiveModule(moduleId);
