@@ -190,7 +190,7 @@ const PerformSAT = () => {
   }, [showCalculator]);
 
   const { user, loading, logout, updateTestDate, updateTargetScore, updateCurrentScore, updateTargetSchools } = useAuth();
-  const { completedLessons, practiceProgress, reviewQueue, skillProgress, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, markLessonComplete: markComplete, getModuleProgress: calcProgress, isLessonCompleted, recordPracticeAttempt, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete } = useProgress(user?.uid);
+  const { completedLessons, practiceProgress, reviewQueue, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, markLessonComplete: markComplete, getModuleProgress: calcProgress, isLessonCompleted, recordPracticeAttempt, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete } = useProgress(user?.uid);
 
   const markLessonComplete = (moduleId, lessonId) => {
     const moduleLessons = allLessons[moduleId] || [];
@@ -471,6 +471,19 @@ const PerformSAT = () => {
           toSave.sessionsCompleted = (nextState.sessionsCompleted || 0) + 1;
         }
         patchAdaptivePracticeState(user.uid, artId, toSave);
+
+        // Also write answered question ID to progress doc for cross-plan dedup
+        if (currentQ?.id) {
+          import('firebase/firestore').then(({ doc: fsDoc, updateDoc: fsUpdate, arrayUnion: fsUnion, serverTimestamp: fsTs }) => {
+            import('./firebase/config').then(({ db: fsDb }) => {
+              const progressRef = fsDoc(fsDb, 'progress', user.uid);
+              fsUpdate(progressRef, {
+                answeredQuestionIds: fsUnion(currentQ.id),
+                lastUpdated: fsTs(),
+              }).catch(err => console.warn('[App] Failed to save adaptive question ID:', err.message));
+            });
+          });
+        }
       }
 
       const { question: nextQ, isComplete: queueExhausted } = getNextAdaptiveQuestion(
@@ -9334,6 +9347,7 @@ const PerformSAT = () => {
             practiceTestResults={practiceTestResults}
             completedLessons={completedLessons}
             practiceProgress={practiceProgress}
+            answeredQuestionIds={answeredQuestionIds}
             onSaveStudyPlan={handleSaveStudyPlan}
             onGoToStudyPlan={() => { setSelectedPracticeTest(null); setView('studyPlan'); }}
             onNavigateToModule={(moduleId, lessonId) => {

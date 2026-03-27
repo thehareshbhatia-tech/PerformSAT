@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { db } from '../firebase/config';
-import { doc, onSnapshot, updateDoc, setDoc, getDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, onSnapshot, updateDoc, setDoc, getDoc, serverTimestamp, arrayUnion } from 'firebase/firestore';
 import { markLessonComplete as markComplete, markLessonIncomplete } from '../services/progressService';
 import { recordPracticeAttempt as recordAttempt } from '../services/practiceService';
 import { getDueReviewCount, getReviewStats } from '../services/reviewService';
@@ -23,6 +23,7 @@ export const useProgress = (userId) => {
   const [studyPlan, setStudyPlan] = useState(null);
   const [studyPlanMeta, setStudyPlanMeta] = useState({ artifactId: null, preview: null });
   const [studentFingerprint, setStudentFingerprint] = useState(null);
+  const [answeredQuestionIds, setAnsweredQuestionIds] = useState([]);
   const [interventionLog, setInterventionLog] = useState([]);
   const [predictionLog, setPredictionLog] = useState([]);
   const studyPlanWriteInFlight = useRef(false);
@@ -80,6 +81,7 @@ export const useProgress = (userId) => {
 
           // Get data loop fields
           setStudentFingerprint(data.studentFingerprint || null);
+          setAnsweredQuestionIds(data.answeredQuestionIds || []);
           setInterventionLog(data.interventionLog || []);
           setPredictionLog(data.predictionLog || []);
 
@@ -310,6 +312,21 @@ export const useProgress = (userId) => {
       for (const [questionId, answerData] of Object.entries(answers)) {
         if (answerData.skills && answerData.skills.length > 0) {
           await recordSkillAttempts(userId, answerData.skills, answerData.correct);
+        }
+      }
+
+      // Save answered question IDs for cross-plan deduplication
+      const qIds = Object.keys(answers);
+      if (qIds.length > 0) {
+        try {
+          const progressRef = doc(db, 'progress', userId);
+          const batch = qIds.slice(0, 400); // arrayUnion limit guard
+          await updateDoc(progressRef, {
+            answeredQuestionIds: arrayUnion(...batch),
+            lastUpdated: serverTimestamp(),
+          });
+        } catch (err2) {
+          console.warn('[useProgress] Failed to save answered question IDs:', err2.message);
         }
       }
     } catch (err) {
@@ -662,6 +679,7 @@ export const useProgress = (userId) => {
     practiceProgress,
     reviewQueue,
     skillProgress,
+    answeredQuestionIds,
     practiceTestResults,
     inProgressTests,
     studyPlan,

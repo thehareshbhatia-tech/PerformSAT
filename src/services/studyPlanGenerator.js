@@ -22,7 +22,7 @@ import { hasQuestionsForSection, getSectionsWithQuestions } from '../data/questi
 import { getSkillById, skillTaxonomy } from '../data/skillTaxonomy';
 import { ERROR_TYPES, ERROR_TYPE_LABELS, ERROR_TYPE_ICONS } from './diagnosticEngine';
 import { generatePracticeAssignments, buildAdaptiveQueueSeed, buildStrengthFocusAssignments, serializeAdaptiveState, createAdaptiveSessionState } from './practiceAssignmentService';
-import { SKILL_ALIAS_MAP } from '../data/questions/bank';
+import { SKILL_ALIAS_MAP, getQuestionById } from '../data/questions/bank';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CONSTANTS
@@ -87,6 +87,48 @@ const DAY_NAMES = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Satu
 // ═══════════════════════════════════════════════════════════════════════════
 
 /**
+ * Compute a difficulty mix tailored to the student's actual accuracy profile.
+ */
+function computeDifficultyMix(difficultyAnalysis) {
+  if (!difficultyAnalysis?.levels) {
+    return { easy: 0.30, medium: 0.45, hard: 0.25 };
+  }
+  const { easy, medium, hard } = difficultyAnalysis.levels;
+  const easyAcc = easy?.accuracy ?? 70;
+  const medAcc = medium?.accuracy ?? 50;
+  const hardAcc = hard?.accuracy ?? 30;
+  const cliff = difficultyAnalysis.difficultyCliff;
+
+  if (cliff === 'easy' || easyAcc < 60) {
+    return { easy: 0.55, medium: 0.35, hard: 0.10 };
+  }
+  if (cliff === 'medium' || (easyAcc >= 75 && medAcc < 55)) {
+    return { easy: 0.20, medium: 0.60, hard: 0.20 };
+  }
+  if (easyAcc >= 80 && medAcc >= 65) {
+    return { easy: 0.15, medium: 0.45, hard: 0.40 };
+  }
+  if (easyAcc >= 70 && medAcc >= 50) {
+    return { easy: 0.25, medium: 0.50, hard: 0.25 };
+  }
+  return { easy: 0.30, medium: 0.45, hard: 0.25 };
+}
+
+/**
+ * Extract question IDs the student answered incorrectly in the previous plan's
+ * adaptive session for cross-session wrong-answer reinsertion.
+ */
+function extractWrongAnswerIds(previousPlan, currentExcludeIds) {
+  if (!previousPlan?.adaptivePracticeState?.answered) return [];
+  const excludeSet = new Set(currentExcludeIds);
+  return previousPlan.adaptivePracticeState.answered
+    .filter(a => !a.correct && !a.isRetry)
+    .map(a => a.id)
+    .filter(id => id && !excludeSet.has(id))
+    .slice(-10);
+}
+
+/**
  * Generate a complete study plan from diagnostic results.
  *
  * @param {Object} diagnostic - Output from diagnosticEngine.runDiagnostic()
@@ -96,7 +138,7 @@ const DAY_NAMES = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Satu
  * @param {Object|null} previousPlan - Previous study plan (for adaptation)
  * @returns {Object} Complete study plan
  */
-export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons = {}, practiceProgress = {}, previousPlan = null, longitudinal = null) => {
+export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons = {}, practiceProgress = {}, previousPlan = null, longitudinal = null, answeredQuestionIds = []) => {
   const { targetScore = 700, testDate } = userProfile;
   const currentScore = diagnostic.score.scaled;
   const scoreGap = Math.max(0, targetScore - currentScore);
@@ -157,14 +199,15 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
 
   // ═══ Assign practice questions from the bank ═══
   const assignmentSeed = `${diagnostic.testId || 'diag'}-${generatedAt}`;
+  const dynamicMix = computeDifficultyMix(diagnostic.difficultyAnalysis);
   const { targetedQuestionIds, practiceAssignments, summary: assignmentSummary } =
     generatePracticeAssignments({
       diagnostic,
       weekCount: effectiveWeeks,
-      excludeIds: [],
+      excludeIds: answeredQuestionIds,
       seed: assignmentSeed,
       questionsPerWeek: 10,
-      difficultyMix: { easy: 0.30, medium: 0.45, hard: 0.25 },
+      difficultyMix: dynamicMix,
     });
 
   // ═══ Fixed domain assignments for Strengths & Focus Areas ═══
@@ -172,7 +215,7 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
     diagnostic,
     seed: assignmentSeed,
     countPerDomain: 10,
-    excludeIds: targetedQuestionIds,
+    excludeIds: [...targetedQuestionIds, ...answeredQuestionIds],
   });
 
   // ═══ Adaptive practice queue seed + initial state (Acely-style) ═══
@@ -180,10 +223,29 @@ export const generateStudyPlan = (diagnostic, userProfile = {}, completedLessons
     diagnostic,
     seed: assignmentSeed,
     poolSize: 80,
+    excludeIds: answeredQuestionIds,
   });
   const adaptivePracticeState = serializeAdaptiveState(
     createAdaptiveSessionState(adaptivePractice),
   );
+
+  // ═══ Cross-session wrong-answer reinsertion into week 1 ═══
+  const wrongQuestionIds = extractWrongAnswerIds(previousPlan, answeredQuestionIds);
+  if (wrongQuestionIds.length > 0 && weeklyPlan.length > 0) {
+    const wrongQuestions = wrongQuestionIds
+      .map(id => getQuestionById(id))
+      .filter(Boolean)
+      .slice(0, 5);
+    if (wrongQuestions.length > 0) {
+      const w1 = weeklyPlan[0];
+      const existingIds = w1.targetedQuestionIds || [];
+      w1.targetedQuestionIds = [
+        ...wrongQuestions.map(q => q.id),
+        ...existingIds.filter(id => !wrongQuestions.find(q => q.id === id)),
+      ];
+      w1.wrongAnswerReinsertion = wrongQuestions.length;
+    }
+  }
 
   return {
     // Core plan data

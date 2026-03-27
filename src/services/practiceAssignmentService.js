@@ -269,16 +269,17 @@ export function buildAdaptiveQueueSeed({
   diagnostic,
   seed = '',
   poolSize = 80,
+  excludeIds = [],
 } = {}) {
   const weakPayload = buildWeakSkillPayload(diagnostic);
   const numericSeed = hashString(seed || new Date().toISOString());
-  const usedIds = new Set();
+  const usedIds = new Set(excludeIds);
   let pool = [];
 
   // Phase 1 — skill-targeted
   if (weakPayload.length > 0) {
     const skillIds = weakPayload.map(w => w.skillId);
-    const candidates = getQuestionsBySkillIds(skillIds, { excludeIds: [] }).filter(isMCQGlobal);
+    const candidates = getQuestionsBySkillIds(skillIds, { excludeIds: [...usedIds] }).filter(isMCQGlobal);
     pool = seededShuffle(candidates, numericSeed).slice(0, poolSize);
   }
   pool.forEach(q => usedIds.add(q.id));
