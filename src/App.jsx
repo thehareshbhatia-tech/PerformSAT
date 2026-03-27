@@ -9417,6 +9417,7 @@ const PerformSAT = () => {
             practiceProgress={practiceProgress}
             skillProgress={skillProgress}
             reviewQueue={reviewQueue}
+            answeredQuestionIds={answeredQuestionIds}
             user={user}
             onNavigateToModule={(moduleId, lessonId) => {
               setActiveModule(moduleId);

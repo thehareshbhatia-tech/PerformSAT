@@ -3,7 +3,7 @@ import { colors, typography, spacing, radius, transitions, breakpoints, shadows 
 import { MathText } from './MathText';
 import { DataCard } from './ui/DataCard';
 import { PrimaryButton } from './ui/Button';
-import { getQuestionById, getQuestionsBySkillIds } from '../data/questions/bank';
+import { getQuestionById, getQuestionsBySkillIds, getTargetedWeaknessSet } from '../data/questions/bank';
 import {
   ClipboardIcon,
   VideoCameraIcon,
@@ -57,6 +57,7 @@ const StudyPlanDashboard = ({
   onUncompleteActivity,
   studyPlanHistory,
   onSelectPlanVersion,
+  answeredQuestionIds = [],
 }) => {
   const [expandedWeek, setExpandedWeek] = useState(null);
 
@@ -123,15 +124,42 @@ const StudyPlanDashboard = ({
   // ── Skill practice data ──────────────────────────────────────────────
   const skillPracticeRows = useMemo(() => {
     if (!weaknesses?.length || !onStartPractice) return [];
+
+    // Build a difficulty mix from the student's accuracy profile
+    // A student struggling at easy questions needs more easy practice
+    const diffMix = (() => {
+      const diffLevels = studyPlan?.difficultyAnalysis?.levels;
+      if (!diffLevels) return undefined; // let getTargetedWeaknessSet use default
+      const easyAcc = diffLevels.easy?.accuracy ?? 70;
+      const medAcc = diffLevels.medium?.accuracy ?? 50;
+      if (easyAcc < 60) return { easy: 0.55, medium: 0.35, hard: 0.10 };
+      if (easyAcc >= 75 && medAcc < 55) return { easy: 0.20, medium: 0.60, hard: 0.20 };
+      if (easyAcc >= 80 && medAcc >= 65) return { easy: 0.15, medium: 0.45, hard: 0.40 };
+      return undefined;
+    })();
+
     return weaknesses.slice(0, 6).map(w => {
-      const skillIds = w.skillId ? [w.skillId] : [];
-      const questions = skillIds.length > 0
-        ? getQuestionsBySkillIds(skillIds, { limit: 15 }).filter(q => Array.isArray(q.choices) && q.choices.length >= 2)
-        : [];
-      if (questions.length === 0) return null;
+      // Use getTargetedWeaknessSet for smarter question selection:
+      // - Filters by the student's weak skill
+      // - Applies difficulty mix matching their level
+      // - Excludes already-answered questions
+      const questions = getTargetedWeaknessSet({
+        weakSkills: [{ skillId: w.skillId, domain: w.domain }],
+        difficultyMix: diffMix,
+        count: 15,
+        excludeIds: answeredQuestionIds,
+      }).filter(q => Array.isArray(q.choices) && q.choices.length >= 2);
+
+      if (questions.length === 0) {
+        // Fallback: if targeted set is empty (all answered), use basic query without excludes
+        const fallback = getQuestionsBySkillIds(w.skillId ? [w.skillId] : [], { limit: 15 })
+          .filter(q => Array.isArray(q.choices) && q.choices.length >= 2);
+        if (fallback.length === 0) return null;
+        return { ...w, qCount: fallback.length, qIds: fallback.map(q => q.id) };
+      }
       return { ...w, qCount: questions.length, qIds: questions.map(q => q.id) };
     }).filter(Boolean);
-  }, [weaknesses, onStartPractice]);
+  }, [weaknesses, onStartPractice, answeredQuestionIds, studyPlan?.difficultyAnalysis]);
 
   // ── Activity row ─────────────────────────────────────────────────────
   const ActivityRow = ({ act, weekIdx, actIdx }) => {

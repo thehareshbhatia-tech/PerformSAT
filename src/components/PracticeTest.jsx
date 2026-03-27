@@ -1169,6 +1169,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           // Attach plan diff for the "What Changed" banner
           detPlan._diff = computePlanDelta(savedStudyPlan, detPlan);
           const plan = enrichPlanWithGroundTruth({ ...detPlan }, groundTruth);
+          // Attach difficulty profile so dashboard can match question difficulty to student level
+          if (diagReport.difficultyAnalysis) {
+            plan.difficultyAnalysis = diagReport.difficultyAnalysis;
+          }
           setSavedStudyPlan(plan);
 
           // Phase 1: persist deterministic artifact (subcollection write)
