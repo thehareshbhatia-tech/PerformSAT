@@ -37,6 +37,7 @@ import {
   deserializeAdaptiveState,
 } from './services/practiceAssignmentService';
 import { patchAdaptivePracticeState } from './services/hybridStudyPlanService';
+import { getReadyAiDiagnostic } from './services/practiceTestService';
 import { reprioritizePlan } from './services/adaptivePlanService';
 import { buildLongitudinalEvidence } from './services/studyPlanMerger';
 import { generateStudyPlan as generateAIPlan } from './services/studyPlanService';
@@ -9227,7 +9228,7 @@ const PerformSAT = () => {
             getTestBestScore={getTestBestScore}
             getTestAttempts={getTestAttempts}
             inProgressTests={inProgressTests}
-            onViewResults={(test) => {
+            onViewResults={async (test) => {
               // Get the last attempt from saved results
               const testResults = practiceTestResults?.[test.id];
               const lastAttempt = testResults?.attempts?.[testResults.attempts.length - 1];
@@ -9243,7 +9244,6 @@ const PerformSAT = () => {
                 if (detail.isCorrect) {
                   reconstructedAnswers[key] = question.correctAnswer;
                 } else {
-                  // Use a placeholder wrong answer
                   reconstructedAnswers[key] = '__wrong__';
                 }
               });
@@ -9256,11 +9256,25 @@ const PerformSAT = () => {
                 practiceTestResults || {}
               );
 
+              // Load saved AI diagnostic narrative from Firestore
+              let aiState = { status: 'idle', narrative: null, error: null };
+              if (user?.uid) {
+                try {
+                  const savedAi = await getReadyAiDiagnostic(user.uid, test.id, lastAttempt.timestamp);
+                  if (savedAi?.narrative) {
+                    aiState = { status: 'ready', narrative: savedAi.narrative, error: null };
+                  }
+                } catch (err) {
+                  console.warn('[ViewResults] AI narrative load failed:', err.message);
+                }
+              }
+
               setViewingResultsData({
                 test,
                 answers: reconstructedAnswers,
                 diagnosticData: lastAttempt.diagnosticData,
                 diagnosticReport: diagReport,
+                aiDiagnosticState: aiState,
               });
               setSelectedPracticeTest(test);
               setView('viewingResults');
@@ -9268,9 +9282,14 @@ const PerformSAT = () => {
           />
         )}
 
-        {/* Viewing Past Results */}
+        {/* Viewing Past Results — same screen as post-test completion */}
         {view === 'viewingResults' && viewingResultsData && (
-          <div style={{ minHeight: '100vh', background: '#F5F5F7', padding: '32px' }}>
+          <div style={{
+            minHeight: '100vh',
+            background: '#F5F5F7',
+            backgroundImage: 'radial-gradient(circle at 50% 0%, rgba(255,255,255,0.8) 0%, rgba(245,245,247,0) 100%)',
+            padding: '32px',
+          }}>
             <div style={{ maxWidth: '800px', margin: '0 auto' }}>
               <TestResults
                 test={viewingResultsData.test}
@@ -9278,17 +9297,26 @@ const PerformSAT = () => {
                 diagnosticData={viewingResultsData.diagnosticData}
                 diagnosticReport={viewingResultsData.diagnosticReport}
                 practiceTestResults={practiceTestResults}
-                aiDiagnosticState={{ status: 'idle', narrative: null, error: null }}
+                aiDiagnosticState={viewingResultsData.aiDiagnosticState}
                 onBack={() => {
                   setView('practiceTests');
                   setViewingResultsData(null);
                 }}
                 onRetake={() => {
                   setViewingResultsData(null);
+                  setSelectedPracticeTest(viewingResultsData.test);
                   setView('takingTest');
                 }}
                 onReview={() => {}}
-                onGoToStudyPlan={() => setView('studyPlan')}
+                onReviewModule={() => {}}
+                onGoToStudyPlan={() => { setViewingResultsData(null); setView('studyPlan'); }}
+                onNavigateToModule={(moduleId, lessonId) => {
+                  setViewingResultsData(null);
+                  setActiveModule(moduleId);
+                  if (lessonId) setActiveLesson(lessonId);
+                  setView('learn');
+                }}
+                savedStudyPlan={studyPlan}
                 user={user}
               />
             </div>
