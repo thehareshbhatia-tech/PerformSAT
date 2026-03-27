@@ -516,14 +516,23 @@ const StudyPlanDashboard = ({
       ──────────────────────────────────────────────────────────────── */}
       {skillPracticeRows.length > 0 && (
         <div className="study-plan-section">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: summary?.diagnosis ? '8px' : '16px' }}>
             <div style={{ width: '4px', height: '18px', background: colors.accent.orange, borderRadius: '2px' }} />
             <h3 style={{ fontSize: '15px', fontWeight: typography.weights.bold, color: colors.text.primary, margin: 0, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
               Focus Areas
             </h3>
           </div>
-          <div style={{ 
-            display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))', gap: '12px' 
+          {/* AI diagnosis narrative — explains WHY these are the focus areas */}
+          {summary?.diagnosis && (
+            <div style={{
+              fontSize: '13px', color: colors.text.secondary, lineHeight: '1.55',
+              marginBottom: '14px', padding: '0 2px',
+            }}>
+              {summary.diagnosis}
+            </div>
+          )}
+          <div style={{
+            display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))', gap: '12px'
           }}>
             {skillPracticeRows.map((w, i) => (
               <div key={w.skillId || i} className="skill-card" style={{
@@ -544,7 +553,7 @@ const StudyPlanDashboard = ({
                   {w.accuracy}%
                 </div>
 
-                {/* Skill name */}
+                {/* Skill name + error type from AI diagnosis */}
                 <div style={{ flex: 1, overflow: 'hidden' }}>
                   <div style={{
                     fontSize: '14px', fontWeight: typography.weights.semibold,
@@ -552,8 +561,17 @@ const StudyPlanDashboard = ({
                   }}>
                     {w.skill}
                   </div>
-                  <div style={{ fontSize: '12px', color: colors.text.secondary }}>
-                    {w.qCount} practice questions
+                  {w.errorType && (
+                    <div style={{
+                      fontSize: '11px', fontWeight: typography.weights.semibold,
+                      color: w.accuracy < 30 ? colors.semantic.error : colors.semantic.warning,
+                      marginTop: '2px',
+                    }}>
+                      {w.errorType}
+                    </div>
+                  )}
+                  <div style={{ fontSize: '11px', color: colors.text.tertiary, marginTop: '2px' }}>
+                    {w.qCount} questions {w.domain ? `\u00B7 ${w.domain}` : ''}
                   </div>
                 </div>
 
