@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo, memo } from 'react';
 import QuestionDiagram from './QuestionDiagrams';
 import AiTutorChat from './AiTutorChat';
 import TestResults from './TestResults';
@@ -210,7 +210,6 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
   const calculatorRef = useRef(null);
   const [position, setPosition] = useState({ x: 50, y: 80 });
   const [isDragging, setIsDragging] = useState(false);
-  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const [calcMode, setCalcMode] = useState('graphing'); // 'graphing' or 'scientific'
   const [isMinimized, setIsMinimized] = useState(false);
 
@@ -220,38 +219,38 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
 
   const isMobileCalc = typeof window !== 'undefined' && window.innerWidth < 768;
 
-  // Drag handlers
+  // Drag handlers — use ref for offset so the effect only re-subscribes on isDragging change
+  const dragOffsetRef = useRef({ x: 0, y: 0 });
+
   const handleMouseDown = (e) => {
-    if (e.target.tagName === 'BUTTON') return; // Don't drag when clicking buttons
-    setIsDragging(true);
-    setDragOffset({
+    if (e.target.tagName === 'BUTTON') return;
+    dragOffsetRef.current = {
       x: e.clientX - position.x,
       y: e.clientY - position.y
-    });
+    };
+    setIsDragging(true);
   };
 
   useEffect(() => {
+    if (!isDragging) return;
+
     const handleMouseMove = (e) => {
-      if (isDragging) {
-        setPosition({
-          x: Math.max(0, Math.min(window.innerWidth - CALC_WIDTH, e.clientX - dragOffset.x)),
-          y: Math.max(0, Math.min(window.innerHeight - 50, e.clientY - dragOffset.y))
-        });
-      }
+      setPosition({
+        x: Math.max(0, Math.min(window.innerWidth - CALC_WIDTH, e.clientX - dragOffsetRef.current.x)),
+        y: Math.max(0, Math.min(window.innerHeight - 50, e.clientY - dragOffsetRef.current.y))
+      });
     };
 
     const handleMouseUp = () => setIsDragging(false);
 
-    if (isDragging) {
-      document.addEventListener('mousemove', handleMouseMove);
-      document.addEventListener('mouseup', handleMouseUp);
-    }
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
 
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseup', handleMouseUp);
     };
-  }, [isDragging, dragOffset]);
+  }, [isDragging]);
 
   // Initialize/switch calculator
   useEffect(() => {
@@ -470,20 +469,24 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
 const Timer = ({ initialMinutes, onTimeUp, isPaused, timeRef, initialSeconds: savedSeconds }) => {
   const [seconds, setSeconds] = useState(() => savedSeconds != null ? savedSeconds : initialMinutes * 60);
 
+  const onTimeUpRef = useRef(onTimeUp);
+  useEffect(() => { onTimeUpRef.current = onTimeUp; }, [onTimeUp]);
+
   useEffect(() => {
-    if (isPaused || seconds <= 0) return;
+    if (isPaused) return;
 
     const interval = setInterval(() => {
       setSeconds(s => {
-        const next = s <= 1 ? 0 : s - 1;
+        if (s <= 0) return 0;
+        const next = s - 1;
         if (timeRef) timeRef.current = next;
-        if (next === 0) onTimeUp?.();
+        if (next === 0) onTimeUpRef.current?.();
         return next;
       });
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [isPaused, seconds, onTimeUp, timeRef]);
+  }, [isPaused, timeRef]);
 
   const mins = Math.floor(seconds / 60);
   const secs = seconds % 60;
@@ -505,7 +508,7 @@ const Timer = ({ initialMinutes, onTimeUp, isPaused, timeRef, initialSeconds: sa
 };
 
 // Question navigation grid - SAT Style
-const QuestionGrid = ({ questions, currentIndex, answers, markedForReview, onNavigate }) => {
+const QuestionGrid = memo(({ questions, currentIndex, answers, markedForReview, onNavigate }) => {
   return (
     <div className="nav-grid">
       {questions.map((_, idx) => {
@@ -531,7 +534,7 @@ const QuestionGrid = ({ questions, currentIndex, answers, markedForReview, onNav
       })}
     </div>
   );
-};
+});
 
 // OLD MathText component - NOW USING KaTeX-based version from ./MathText.jsx
 // Keeping for reference only
@@ -883,9 +886,16 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   // Responsive: track window width for mobile layout
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
   useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
+    let resizeTimer;
+    const handleResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => setWindowWidth(window.innerWidth), 150);
+    };
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {
+      clearTimeout(resizeTimer);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
   const isMobile = windowWidth < 768;
 
@@ -907,13 +917,25 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   const questions = module?.questions || [];
   const question = questions[currentQuestion];
 
+  // Memoize the per-module answers for QuestionGrid (avoids O(n) filter on every render)
+  const moduleAnswersForGrid = useMemo(() => {
+    return Object.fromEntries(
+      Object.entries(answers)
+        .filter(([key]) => key.startsWith(`${currentModule}-`))
+        .map(([key, val]) => [parseInt(key.split('-')[1]), val])
+    );
+  }, [answers, currentModule]);
+
   // Reset fill-in value when question changes
+  // Reset fill-in value when navigating to a different question
+  const answersRef = useRef(answers);
+  useEffect(() => { answersRef.current = answers; }, [answers]);
   useEffect(() => {
     if (question?.type === 'fill-in') {
-      const existingAnswer = answers[`${currentModule}-${currentQuestion}`];
+      const existingAnswer = answersRef.current[`${currentModule}-${currentQuestion}`];
       setFillInValue(existingAnswer !== undefined ? String(existingAnswer) : '');
     }
-  }, [currentQuestion, currentModule, question?.type, answers]);
+  }, [currentQuestion, currentModule, question?.type]);
 
   // Keep currentModuleRef in sync for handleTimeUp
   useEffect(() => {
@@ -967,13 +989,14 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     prevQuestion.current = { module: currentModule, question: currentQuestion };
   }, [currentModule, currentQuestion]);
 
-  // Auto-save progress when answers, module, or question changes
+  // Auto-save progress when answers, module, or question changes (debounced to reduce I/O)
+  const saveTimerRef = useRef(null);
   useEffect(() => {
-    // Don't save if test is completed or we're in review mode
     if (testCompleted || reviewMode || !onSaveProgress) return;
+    if (Object.keys(answers).length === 0) return;
 
-    // Only save if there are answers (user has started the test)
-    if (Object.keys(answers).length > 0) {
+    clearTimeout(saveTimerRef.current);
+    saveTimerRef.current = setTimeout(() => {
       const telemetrySnapshot = {};
       Object.entries(questionTelemetry.current).forEach(([k, v]) => {
         telemetrySnapshot[k] = {
@@ -995,7 +1018,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         questionTelemetry: telemetrySnapshot,
       };
       onSaveProgress(progressData);
-    }
+    }, 2000);
+
+    return () => clearTimeout(saveTimerRef.current);
   }, [answers, currentModule, currentQuestion, markedForReview, eliminatedChoices, testCompleted, reviewMode, onSaveProgress, isTimed]);
 
   useEffect(() => {
@@ -1004,6 +1029,13 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     window.addEventListener('beforeunload', onBeforeUnload);
     return () => window.removeEventListener('beforeunload', onBeforeUnload);
   }, [testCompleted, reviewMode]);
+
+  // Flush any pending auto-save when test completes
+  useEffect(() => {
+    if (testCompleted && saveTimerRef.current) {
+      clearTimeout(saveTimerRef.current);
+    }
+  }, [testCompleted]);
 
   const planGenerationAttempted = useRef(false);
 
@@ -1315,13 +1347,13 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     const telemetry = getOrCreateTelemetry(currentModule, currentQuestion);
     const now = Date.now();
 
-    setAnswers(prev => {
-      const oldAnswer = prev[key];
-      // Track answer change
-      telemetry.answerChanges.push({ from: oldAnswer || null, to: answerId, timestamp: now });
-      if (!telemetry.firstAnswerTime) telemetry.firstAnswerTime = now;
-      telemetry.finalAnswerTime = now;
+    // Track telemetry outside setState to avoid side effects in updater
+    const oldAnswer = answers[key];
+    telemetry.answerChanges.push({ from: oldAnswer || null, to: answerId, timestamp: now });
+    if (!telemetry.firstAnswerTime) telemetry.firstAnswerTime = now;
+    telemetry.finalAnswerTime = now;
 
+    setAnswers(prev => {
       // If clicking the already-selected answer, deselect it
       if (prev[key] === answerId) {
         const newAnswers = { ...prev };
@@ -1396,12 +1428,17 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     }
   };
 
-  const handleNavigate = (idx) => {
-    if (question?.type === 'fill-in') {
-      handleFillInSubmit();
-    }
+  const fillInSubmitRef = useRef(null);
+  useEffect(() => {
+    fillInSubmitRef.current = () => {
+      if (question?.type === 'fill-in') handleFillInSubmit();
+    };
+  });
+
+  const handleNavigate = useCallback((idx) => {
+    fillInSubmitRef.current?.();
     setCurrentQuestion(idx);
-  };
+  }, []);
 
   const handleSubmitModule = () => {
     if (question?.type === 'fill-in') {
@@ -1433,7 +1470,11 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     }
   };
 
+  const moduleCompletedRef = useRef(false);
+  useEffect(() => { moduleCompletedRef.current = moduleCompleted; }, [moduleCompleted]);
+
   const handleTimeUp = useCallback(() => {
+    if (moduleCompletedRef.current) return; // Guard against double-fire with manual submit
     moduleTimeRemaining.current[currentModuleRef.current] = 0;
     setModuleCompleted(true);
   }, []);
@@ -2410,11 +2451,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           <QuestionGrid
             questions={questions}
             currentIndex={currentQuestion}
-            answers={Object.fromEntries(
-              Object.entries(answers)
-                .filter(([key]) => key.startsWith(`${currentModule}-`))
-                .map(([key, val]) => [parseInt(key.split('-')[1]), val])
-            )}
+            answers={moduleAnswersForGrid}
             markedForReview={markedForReview}
             onNavigate={handleNavigate}
           />
@@ -2779,11 +2816,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           <QuestionGrid
             questions={questions}
             currentIndex={currentQuestion}
-            answers={Object.fromEntries(
-              Object.entries(answers)
-                .filter(([key]) => key.startsWith(`${currentModule}-`))
-                .map(([key, val]) => [parseInt(key.split('-')[1]), val])
-            )}
+            answers={moduleAnswersForGrid}
             markedForReview={markedForReview}
             onNavigate={handleNavigate}
           />
