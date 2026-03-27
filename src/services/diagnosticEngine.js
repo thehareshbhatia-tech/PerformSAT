@@ -21,6 +21,28 @@
  */
 
 import { getSkillById, skillTaxonomy, getSkillsForDomain } from '../data/skillTaxonomy';
+import { SKILL_ALIAS_MAP } from '../data/questions/bank';
+
+/**
+ * Convert a raw skill ID (which may be an alias like "mean-median-mode")
+ * into a human-readable display name.
+ */
+const humanizeSkillId = (id) => {
+  // Try taxonomy first
+  const skill = getSkillById(id);
+  if (skill?.name) return skill.name;
+  // Try resolving the first canonical target from the alias map for a better name
+  const aliases = SKILL_ALIAS_MAP[id];
+  if (aliases && aliases.length > 0) {
+    const canonical = getSkillById(aliases[0]);
+    if (canonical?.name) {
+      // Use the alias key itself but humanized, since it's broader than any single canonical
+      return id.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    }
+  }
+  // Last resort: humanize the kebab-case ID
+  return id.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+};
 import { convertToSATScore, isAnswerCorrect, estimatePercentile as _estimatePercentile, inferDomain } from './scoring';
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -793,7 +815,7 @@ const analyzeSkills = (questionAnalysis, skillProgress = {}) => {
         const progress = skillProgress[skillId];
         skillMap[skillId] = {
           skillId,
-          name: skill?.name || skillId,
+          name: skill?.name || humanizeSkillId(skillId),
           domain: skill?.domain || inferDomain([skillId]),
           satConcept: skill?.satConcept || '',
           modules: skill?.modules || [],
