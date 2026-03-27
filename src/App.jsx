@@ -9248,8 +9248,8 @@ const PerformSAT = () => {
                 }
               });
 
-              // Regenerate diagnostic report from saved data
-              const diagReport = runDiagnostic(
+              // Load saved diagnostic report — only regenerate if not saved (legacy attempts)
+              const diagReport = lastAttempt.diagnosticReport || runDiagnostic(
                 test, reconstructedAnswers, lastAttempt.diagnosticData,
                 skillProgress || {},
                 { targetScore: user?.targetScore, currentScore: user?.currentScore, testDate: user?.testDate },

@@ -47,6 +47,7 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
       timedMode: results.timedMode,
       moduleScores: results.moduleScores,
       diagnosticData: results.diagnosticData || null,
+      diagnosticReport: results.diagnosticReport || null,
       scoringVersion: results.scoringVersion || null,
       thetaEstimate: results.thetaEstimate ?? null,
       standardError: results.standardError ?? null,
