@@ -56,13 +56,13 @@ const MODULE_SKILL_MAP = {
   'exponents':             ['exponent-laws', 'zero-negative-exponents', 'exponential-growth-decay', 'exponential-y-intercept', 'comparing-exponentials'],
   'percents':              ['percent-decimal-conversion', 'percent-of-value', 'percent-change', 'percent-word-problems', 'successive-percent-change', 'ratio-proportion', 'unit-rates'],
   'quadratics':            ['identify-quadratic', 'finding-roots-factoring', 'discriminant-analysis', 'vertex-formula', 'vertex-form', 'completing-square-circles', 'parabola-direction', 'roots-from-factors', 'converting-quadratic-forms'],
-  'triangles':             ['pythagorean-theorem', 'soh-cah-toa', 'special-right-triangles', 'similar-triangles', 'triangle-angle-sum', 'triangle-area'],
-  'circles':               ['circle-equation', 'circle-area', 'circle-parts', 'sector-area', 'degrees-to-radians', 'radians-to-degrees'],
+  'triangles':             ['pythagorean-theorem', 'soh-cah-toa', 'special-right-triangles', 'similar-triangles', 'triangle-angle-sum', 'triangle-area', 'triangle-inequality', 'triangle-types'],
+  'circles':               ['circle-equation', 'circle-area', 'circle-parts', 'sector-area', 'degrees-to-radians', 'radians-to-degrees', 'arc-length', 'circumference', 'tangent-lines'],
   'statistics':            ['calculate-mean', 'weighted-mean', 'find-median', 'find-mode', 'range-calculation', 'standard-deviation-concept', 'margin-of-error', 'two-way-table', 'probability-basics', 'conditional-probability'],
-  'radians-degrees':       ['degrees-to-radians', 'radians-to-degrees'],
+  'radians-degrees':       ['degrees-to-radians', 'radians-to-degrees', 'radian-measure-understanding'],
   'dimensional-analysis':  ['unit-conversion', 'squared-cubed-units', 'rate-conversion', 'ratio-proportion', 'unit-rates'],
   'equivalent-expressions':['distributive-property', 'combining-like-terms', 'simplifying-rational-expressions', 'difference-of-squares', 'perfect-square-trinomial'],
-  'volume':                ['volume-prism', 'volume-sphere', 'volume-pyramid-cone'],
+  'volume':                ['volume-prism', 'volume-sphere', 'volume-pyramid-cone', 'volume-scaling'],
 };
 
 // Reverse mapping: skill → modules that teach it
