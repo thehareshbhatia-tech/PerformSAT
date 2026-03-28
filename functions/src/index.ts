@@ -6,6 +6,7 @@
 import {setGlobalOptions} from "firebase-functions/v2/options";
 import {defineSecret} from "firebase-functions/params";
 import {onRequest} from "firebase-functions/v2/https";
+import {onSchedule} from "firebase-functions/v2/scheduler";
 import {onDocumentUpdated} from "firebase-functions/v2/firestore";
 import * as logger from "firebase-functions/logger";
 import * as admin from "firebase-admin";
@@ -21,6 +22,8 @@ setGlobalOptions({maxInstances: 10});
 const ALLOWED_ORIGINS = [
   "https://performsat-production.web.app",
   "https://performsat-production.firebaseapp.com",
+  "https://performsat.com",
+  "https://www.performsat.com",
   "http://localhost:3000",
   "http://localhost:3001",
 ];
@@ -807,7 +810,8 @@ async function attemptNarrativeRepair(
   if (quality.surfacePenalty > 0.05) issues.push("Some diagnosis points are surface-level — they describe WHAT happened but not WHY. Each diagnosisPoints claim must follow a 3-part structure: observation (with number) -> mechanism (cognitive/strategic root cause) -> impact (point cost). The causalMechanism must go at least 2 levels deep and use causal language (because, leads to, driven by, stems from). Synthesize at least 2 data signals per claim.");
   if (quality.behaviorDepthPenalty > 0.03) issues.push("behaviorInsightPoints are shallow. Each must follow: BEHAVIOR (specific numbers) -> MECHANISM (cognitive/strategic root cause in causalMechanism, >20 chars) -> CONSEQUENCE (quantified in estimatedImpact). Evidence must cite 2+ semicolon-separated data signals. Bad: 'You rushed.' Good: 'Wrong-answer avg 25s vs correct avg 55s (ratio 0.45x) — premature commitment to trap answers from surface-level reading, costing ~25 pts.'");
   if (quality.schemaCompleteness < 0.8) issues.push("Some required schema fields are missing. Ensure all fields from the schema are populated.");
-  if (questionInsights.length === 0) issues.push("questionInsights is missing or empty. Generate 3-5 question-level insights for the most instructive wrong questions. Each needs questionKey, trapType, trapExplanation, correctApproach, and relatedSkillId. Prioritize trap_susceptibility and conceptual_gap errors.");
+  const repairQuestionInsights = Array.isArray(original.questionInsights) ? original.questionInsights : [];
+  if (repairQuestionInsights.length === 0) issues.push("questionInsights is missing or empty. Generate 3-5 question-level insights for the most instructive wrong questions. Each needs questionKey, trapType, trapExplanation, correctApproach, and relatedSkillId. Prioritize trap_susceptibility and conceptual_gap errors.");
 
   if (issues.length === 0) return null;
 
@@ -1909,3 +1913,25 @@ function predictScoreRangeServer(
 function clampVal(val: number, min: number, max: number): number {
   return Math.max(min, Math.min(max, val));
 }
+
+/**
+ * Scheduled cleanup: purge stale rate limit documents daily.
+ * Runs every day at 3:00 AM UTC.
+ */
+export const cleanupRateLimits = onSchedule("every day 03:00", async () => {
+  const cutoff = new Date(Date.now() - 24 * 60 * 60 * 1000); // 24 hours ago
+  const snapshot = await db.collection("_rateLimits")
+    .where("updatedAt", "<", cutoff)
+    .limit(500)
+    .get();
+
+  if (snapshot.empty) {
+    logger.info("[cleanupRateLimits] No stale docs to clean up");
+    return;
+  }
+
+  const batch = db.batch();
+  snapshot.docs.forEach((doc) => batch.delete(doc.ref));
+  await batch.commit();
+  logger.info(`[cleanupRateLimits] Deleted ${snapshot.size} stale rate limit docs`);
+});
