@@ -9299,6 +9299,7 @@ const PerformSAT = () => {
 
         {/* Viewing Past Results — same screen as post-test completion */}
         {view === 'viewingResults' && viewingResultsData && (
+          <ErrorBoundary message="Unable to load test results. Please go back and try again.">
           <div style={{
             minHeight: '100vh',
             background: '#F5F5F7',
@@ -9336,10 +9337,12 @@ const PerformSAT = () => {
               />
             </div>
           </div>
+          </ErrorBoundary>
         )}
 
         {/* Taking a Practice Test View */}
         {view === 'takingTest' && selectedPracticeTest && (
+          <ErrorBoundary message="Something went wrong during the test. Your progress has been saved.">
           <PracticeTest
             test={selectedPracticeTest}
             isTimed={isTestTimed}
@@ -9409,6 +9412,7 @@ const PerformSAT = () => {
               }
             }}
           />
+          </ErrorBoundary>
         )}
 
         {view === 'studyPlan' && (

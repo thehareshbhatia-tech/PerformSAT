@@ -17,6 +17,48 @@ const anthropicApiKey = defineSecret("ANTHROPIC_API_KEY");
 
 setGlobalOptions({maxInstances: 10});
 
+// Allowed CORS origins — restrict to your production domains
+const ALLOWED_ORIGINS = [
+  "https://performsat-production.web.app",
+  "https://performsat-production.firebaseapp.com",
+  "http://localhost:3000",
+  "http://localhost:3001",
+];
+
+// Auth helper — verifies Firebase ID token from Authorization header
+async function verifyAuth(request: {headers: {authorization?: string}}): Promise<admin.auth.DecodedIdToken | null> {
+  const authHeader = request.headers.authorization;
+  if (!authHeader?.startsWith("Bearer ")) return null;
+  try {
+    return await admin.auth().verifyIdToken(authHeader.substring(7));
+  } catch {
+    return null;
+  }
+}
+
+// Simple per-user rate limiter using Firestore
+const RATE_LIMIT_COLLECTION = "_rateLimits";
+async function checkRateLimit(userId: string, endpoint: string, maxPerHour = 60): Promise<boolean> {
+  const key = `${userId}_${endpoint}`;
+  const ref = db.collection(RATE_LIMIT_COLLECTION).doc(key);
+  const now = Date.now();
+  const hourAgo = now - 3600000;
+
+  try {
+    const snap = await ref.get();
+    const data = snap.data();
+    const timestamps: number[] = (data?.timestamps || []).filter((t: number) => t > hourAgo);
+
+    if (timestamps.length >= maxPerHour) return false;
+
+    timestamps.push(now);
+    await ref.set({timestamps, updatedAt: admin.firestore.FieldValue.serverTimestamp()});
+    return true;
+  } catch {
+    return true; // Allow on rate limit check failure
+  }
+}
+
 interface TranscriptSegment {
   start: number;
   duration: number;
@@ -107,7 +149,7 @@ async function fetchFromYouTube(videoId: string): Promise<TranscriptResult | nul
  * Checks Firestore cache first, then falls back to YouTube API.
  */
 export const getTranscript = onRequest(
-  {cors: true},
+  {cors: ALLOWED_ORIGINS},
   async (request, response) => {
     const videoId = (request.query.videoId as string) || request.body?.videoId;
 
@@ -163,7 +205,7 @@ export const getTranscript = onRequest(
  */
 export const aiTutor = onRequest(
   {
-    cors: true,
+    cors: ALLOWED_ORIGINS,
     secrets: [anthropicApiKey],
     timeoutSeconds: 120,
     memory: "512MiB",
@@ -174,11 +216,24 @@ export const aiTutor = onRequest(
       return;
     }
 
+    // Auth check
+    const user = await verifyAuth(request);
+    if (!user) {
+      response.status(401).json({error: "Authentication required"});
+      return;
+    }
+
+    // Rate limit: 60 AI tutor calls per hour per user
+    if (!(await checkRateLimit(user.uid, "aiTutor", 60))) {
+      response.status(429).json({error: "Too many requests. Please try again later."});
+      return;
+    }
+
     try {
       const {messages, system, thinking_budget} = request.body;
 
-      if (!messages || !Array.isArray(messages)) {
-        response.status(400).json({error: "Messages array is required"});
+      if (!messages || !Array.isArray(messages) || messages.length > 100) {
+        response.status(400).json({error: "Messages array is required (max 100)"});
         return;
       }
 
@@ -247,13 +302,24 @@ export const aiTutor = onRequest(
  */
 export const generateStudyPlan = onRequest(
   {
-    cors: true,
+    cors: ALLOWED_ORIGINS,
     secrets: [anthropicApiKey],
     timeoutSeconds: 120,
   },
   async (request, response) => {
     if (request.method !== "POST") {
       response.status(405).json({error: "Method not allowed"});
+      return;
+    }
+
+    const user = await verifyAuth(request);
+    if (!user) {
+      response.status(401).json({error: "Authentication required"});
+      return;
+    }
+
+    if (!(await checkRateLimit(user.uid, "studyPlan", 10))) {
+      response.status(429).json({error: "Too many requests. Please try again later."});
       return;
     }
 
@@ -351,13 +417,24 @@ export const generateStudyPlan = onRequest(
  */
 export const generateDiagnosticNarrative = onRequest(
   {
-    cors: true,
+    cors: ALLOWED_ORIGINS,
     secrets: [anthropicApiKey],
     timeoutSeconds: 120,
   },
   async (request, response) => {
     if (request.method !== "POST") {
       response.status(405).json({error: "Method not allowed"});
+      return;
+    }
+
+    const user = await verifyAuth(request);
+    if (!user) {
+      response.status(401).json({error: "Authentication required"});
+      return;
+    }
+
+    if (!(await checkRateLimit(user.uid, "diagnosticNarrative", 10))) {
+      response.status(429).json({error: "Too many requests. Please try again later."});
       return;
     }
 

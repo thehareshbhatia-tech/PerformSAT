@@ -102,14 +102,15 @@ export const flushEvents = async (userId) => {
  * @returns {Object} trajectory
  */
 export const computeScoreTrajectory = (practiceTestResults = {}) => {
-  const attempts = Object.values(practiceTestResults)
-    .flatMap(t => (t.attempts || []).map(a => ({
-      date: a.completedAt,
-      score: a.scaledScore,
-      raw: a.rawScore,
-      total: a.totalQuestions,
-    })))
-    .filter(a => a.score)
+  const attempts = Object.values(practiceTestResults || {})
+    .flatMap(t => (t?.attempts || [])
+      .filter(a => a && a.completedAt && a.scaledScore)
+      .map(a => ({
+        date: a.completedAt,
+        score: a.scaledScore,
+        raw: a.rawScore,
+        total: a.totalQuestions,
+      })))
     .sort((a, b) => new Date(a.date) - new Date(b.date));
 
   if (attempts.length < 2) {

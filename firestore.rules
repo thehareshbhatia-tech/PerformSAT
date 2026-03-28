@@ -23,10 +23,12 @@ service cloud.firestore {
       return getUserData().schoolId == schoolId;
     }
 
-    // Schools collection - read-only for validation
+    // Schools collection - read-only for school code validation during signup
+    // NOTE: Intentionally unauthenticated — students validate school codes before login.
+    // Only stores school name, code, and isActive. No sensitive data.
     match /schools/{schoolId} {
-      allow read: if true; // Allow unauthenticated reads for school code validation
-      allow write: if false; // Only via admin SDK or Firebase console
+      allow read: if true;
+      allow write: if false;
     }
 
     // Users collection

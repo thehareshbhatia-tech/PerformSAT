@@ -610,7 +610,7 @@ const TestResults = ({
     const targetScore = user?.targetScore || 700;
     const gap = Math.max(0, targetScore - satScore);
     const isAtTarget = gap <= 0;
-    const accuracyPct = Math.round((totalCorrect / totalQuestions) * 100);
+    const accuracyPct = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
 
     const percentile = estimatePercentile(satScore);
 

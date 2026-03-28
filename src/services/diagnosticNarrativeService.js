@@ -6,6 +6,8 @@
  * rather than weekly plan generation.
  */
 
+import { authFetch } from './authFetch';
+
 const DIAGNOSTIC_NARRATIVE_URL = process.env.REACT_APP_DIAGNOSTIC_NARRATIVE_URL ||
   'https://us-central1-performsat-production.cloudfunctions.net/generateDiagnosticNarrative';
 
@@ -16,9 +18,8 @@ const DIAGNOSTIC_NARRATIVE_URL = process.env.REACT_APP_DIAGNOSTIC_NARRATIVE_URL 
 export const generateDiagnosticNarrative = async (diagnosticReport, userProfile = {}) => {
   const payload = serializeForNarrative(diagnosticReport);
 
-  const response = await fetch(DIAGNOSTIC_NARRATIVE_URL, {
+  const response = await authFetch(DIAGNOSTIC_NARRATIVE_URL, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ evidence: payload, userProfile }),
   });
 

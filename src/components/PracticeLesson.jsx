@@ -51,7 +51,7 @@ const PracticeLesson = ({ lesson, onComplete, onBack }) => {
   };
 
   const correctCount = answers.filter(a => a.isCorrect).length;
-  const scorePercentage = Math.round((correctCount / totalQuestions) * 100);
+  const scorePercentage = totalQuestions > 0 ? Math.round((correctCount / totalQuestions) * 100) : 0;
 
   // Results View
   if (showResults) {

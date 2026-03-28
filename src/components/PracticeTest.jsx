@@ -222,11 +222,13 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
   // Drag handlers — use ref for offset so the effect only re-subscribes on isDragging change
   const dragOffsetRef = useRef({ x: 0, y: 0 });
 
-  const handleMouseDown = (e) => {
+  const handleDragStart = (e) => {
     if (e.target.tagName === 'BUTTON') return;
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
     dragOffsetRef.current = {
-      x: e.clientX - position.x,
-      y: e.clientY - position.y
+      x: clientX - position.x,
+      y: clientY - position.y
     };
     setIsDragging(true);
   };
@@ -234,21 +236,31 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
   useEffect(() => {
     if (!isDragging) return;
 
-    const handleMouseMove = (e) => {
+    const getClientPos = (e) => {
+      if (e.touches) return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+      return { x: e.clientX, y: e.clientY };
+    };
+
+    const handleMove = (e) => {
+      const pos = getClientPos(e);
       setPosition({
-        x: Math.max(0, Math.min(window.innerWidth - CALC_WIDTH, e.clientX - dragOffsetRef.current.x)),
-        y: Math.max(0, Math.min(window.innerHeight - 50, e.clientY - dragOffsetRef.current.y))
+        x: Math.max(0, Math.min(window.innerWidth - CALC_WIDTH, pos.x - dragOffsetRef.current.x)),
+        y: Math.max(0, Math.min(window.innerHeight - 50, pos.y - dragOffsetRef.current.y))
       });
     };
 
-    const handleMouseUp = () => setIsDragging(false);
+    const handleEnd = () => setIsDragging(false);
 
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseup', handleMouseUp);
+    document.addEventListener('mousemove', handleMove);
+    document.addEventListener('mouseup', handleEnd);
+    document.addEventListener('touchmove', handleMove, { passive: true });
+    document.addEventListener('touchend', handleEnd);
 
     return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseup', handleMouseUp);
+      document.removeEventListener('mousemove', handleMove);
+      document.removeEventListener('mouseup', handleEnd);
+      document.removeEventListener('touchmove', handleMove);
+      document.removeEventListener('touchend', handleEnd);
     };
   }, [isDragging]);
 
@@ -380,7 +392,8 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
     >
       {/* Calculator Header - Draggable on desktop only */}
       <div
-        onMouseDown={isMobileCalc ? undefined : handleMouseDown}
+        onMouseDown={isMobileCalc ? undefined : handleDragStart}
+        onTouchStart={isMobileCalc ? undefined : handleDragStart}
         style={{
           display: 'flex',
           justifyContent: 'space-between',

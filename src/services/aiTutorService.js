@@ -7,9 +7,10 @@
 import { getLessonContext, searchKnowledge, getRelevantStrategyContext } from '../data/knowledgeBase';
 import { getTranscriptContext, formatTime } from './transcriptService';
 import { buildCoachContext } from './aiCoachModes';
+import { authFetch } from './authFetch';
 
 // Cloud Function URL
-const AI_TUTOR_URL = 'https://aitutor-ki77ua6x2a-uc.a.run.app';
+const AI_TUTOR_URL = process.env.REACT_APP_AI_TUTOR_URL || 'https://aitutor-ki77ua6x2a-uc.a.run.app';
 
 // System prompt that defines the teaching style — v2.0 Elite Tutor
 const SYSTEM_PROMPT = `You are the SAT math tutor that every parent wishes they could afford — the one who has personally coached 400+ students past 750 and knows exactly what College Board is doing on every single question. You do not teach "math." You teach students how to dismantle this specific test.
@@ -512,11 +513,8 @@ export const chatWithTutor = async (
   }));
 
   try {
-    const response = await fetch(AI_TUTOR_URL, {
+    const response = await authFetch(AI_TUTOR_URL, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
       body: JSON.stringify({
         messages: claudeMessages,
         system: enhancedSystem,
@@ -544,11 +542,8 @@ export const chatWithTutor = async (
 // Quick answer for simple questions (uses less context)
 export const quickAnswer = async (question) => {
   try {
-    const response = await fetch(AI_TUTOR_URL, {
+    const response = await authFetch(AI_TUTOR_URL, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
       body: JSON.stringify({
         messages: [{ role: 'user', content: question }],
         system: SYSTEM_PROMPT,

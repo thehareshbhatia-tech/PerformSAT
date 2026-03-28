@@ -1,5 +1,6 @@
 import { db } from '../firebase/config';
 import { doc, getDoc, updateDoc, setDoc, collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { authFetch } from './authFetch';
 
 const STUDY_PLAN_URL = process.env.REACT_APP_STUDY_PLAN_URL ||
   'https://us-central1-performsat-production.cloudfunctions.net/generateStudyPlan';
@@ -18,9 +19,8 @@ export const generateStudyPlan = async (diagnosticReport, userProfile = {}, prev
     payload.longitudinalContext = longitudinalContext;
   }
 
-  const response = await fetch(STUDY_PLAN_URL, {
+  const response = await authFetch(STUDY_PLAN_URL, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
   });
 

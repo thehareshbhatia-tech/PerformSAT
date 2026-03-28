@@ -202,7 +202,7 @@ const Profile = ({
           <div style={{ borderTop: `1px solid ${colors.surface.gray}` }} />
           <EditableField
             label="Target Schools"
-            value={user?.targetSchools?.map(s => s.name).join(', ')}
+            value={user?.targetSchools?.map(s => s?.name || 'Unknown').join(', ') || 'Not set'}
             onSave={(val) => onUpdateTargetSchools(val.split(',').map(s => ({ name: s.trim() })))}
           />
         </div>

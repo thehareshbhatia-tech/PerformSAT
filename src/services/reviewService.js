@@ -119,7 +119,8 @@ export const getDueReviews = async (userId) => {
 export const getDueReviewCount = (reviewQueue = {}) => {
   const now = new Date();
 
-  return Object.values(reviewQueue).filter(item => {
+  return Object.values(reviewQueue || {}).filter(item => {
+    if (!item || !item.nextReviewDate) return false;
     const nextReview = new Date(item.nextReviewDate);
     return nextReview <= now;
   }).length;
@@ -205,7 +206,7 @@ export const updateReviewItem = async (userId, key, wasCorrect) => {
  */
 export const getReviewStats = (reviewQueue = {}) => {
   const now = new Date();
-  const items = Object.values(reviewQueue);
+  const items = Object.values(reviewQueue || {}).filter(item => item && item.nextReviewDate);
 
   const dueCount = items.filter(item => new Date(item.nextReviewDate) <= now).length;
   const totalCount = items.length;
