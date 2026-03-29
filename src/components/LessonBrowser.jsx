@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { colors, typography, spacing, radius, shadows, transitions, breakpoints } from '../design/tokens';
-import { cardStyles, buttonStyles, inputStyles, badgeStyles } from '../design/components';
+import { cardStyles, inputStyles, badgeStyles } from '../design/components';
 import { injectAnimations } from '../design/animations';
+import { Button } from './ui/Button';
 
 const MODULES = [
   { id: 'linear-equations', title: 'Linear Equations', lessonCount: 24, domain: 'Algebra' },
@@ -100,20 +101,17 @@ const LessonBrowser = ({ completedLessons = {}, skillProgress = {}, onSelectModu
         }}>
           Learn
         </h1>
-        <button
+        <Button
           onClick={() => setShowSearch(!showSearch)}
           aria-label="Search modules"
-          style={{
-            ...buttonStyles.base,
-            ...buttonStyles.ghost,
-            padding: spacing.xs,
-          }}
+          variant="ghost"
+          style={{ padding: spacing.xs }}
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={colors.text.secondary} strokeWidth="2">
             <circle cx="11" cy="11" r="8" />
             <line x1="21" y1="21" x2="16.65" y2="16.65" />
           </svg>
-        </button>
+        </Button>
       </div>
 
       {/* Search Bar */}
@@ -278,9 +276,9 @@ const LessonBrowser = ({ completedLessons = {}, skillProgress = {}, onSelectModu
               <p style={{ fontSize: typography.sizes.md, marginBottom: spacing.xs }}>
                 No modules match this filter.
               </p>
-              <button onClick={() => setFilter('all')} style={{ ...buttonStyles.base, ...buttonStyles.tertiary }}>
+              <Button onClick={() => setFilter('all')} variant="tertiary">
                 Show All
-              </button>
+              </Button>
             </>
           )}
         </div>

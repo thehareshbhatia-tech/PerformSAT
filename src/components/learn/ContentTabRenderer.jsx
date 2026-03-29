@@ -278,7 +278,13 @@ const SectionContent = ({ section }) => {
           }
           return null;
         }
-        return renderer(block, idx);
+        const element = renderer(block, idx);
+        if (React.isValidElement(element)) {
+          return React.cloneElement(element, {
+            style: { ...element.props.style, animation: `fadeInUp 0.5s ease ${idx * 0.05}s both` }
+          });
+        }
+        return element;
       })}
     </article>
   );

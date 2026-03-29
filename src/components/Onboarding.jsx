@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { colors, typography, spacing, radius, shadows, transitions } from '../design/tokens';
-import { buttonStyles, cardStyles, inputStyles } from '../design/components';
+import { cardStyles, inputStyles } from '../design/components';
 import { injectAnimations } from '../design/animations';
 import { CheckIcon, DocumentIcon } from '../design/icons';
+import { Button } from './ui/Button';
 
 const Onboarding = ({ user, onUpdateTargetScore, onUpdateTestDate, onUpdateCurrentScore, onComplete }) => {
   const [step, setStep] = useState(0);
@@ -90,18 +91,13 @@ const Onboarding = ({ user, onUpdateTargetScore, onUpdateTestDate, onUpdateCurre
           Let's set up your personalized SAT Math study plan.
         </p>
 
-        <button
+        <Button
           onClick={() => setStep(1)}
-          style={{
-            ...buttonStyles.base,
-            ...buttonStyles.primary,
-            width: '100%',
-            maxWidth: '320px',
-            fontSize: typography.sizes.md,
-          }}
+          variant="primary"
+          style={{ width: '100%', maxWidth: '320px', fontSize: typography.sizes.md }}
         >
           Get Started
-        </button>
+        </Button>
       </div>
     ),
 
@@ -190,12 +186,12 @@ const Onboarding = ({ user, onUpdateTargetScore, onUpdateTestDate, onUpdateCurre
         </div>
 
         <div style={{ display: 'flex', gap: spacing.sm }}>
-          <button onClick={() => setStep(0)} style={{ ...buttonStyles.base, ...buttonStyles.ghost, flex: 1 }}>
+          <Button onClick={() => setStep(0)} variant="ghost" style={{ flex: 1 }}>
             Back
-          </button>
-          <button onClick={() => setStep(2)} style={{ ...buttonStyles.base, ...buttonStyles.primary, flex: 2 }}>
+          </Button>
+          <Button onClick={() => setStep(2)} variant="primary" style={{ flex: 2 }}>
             Continue
-          </button>
+          </Button>
         </div>
       </div>
     ),
@@ -284,22 +280,17 @@ const Onboarding = ({ user, onUpdateTargetScore, onUpdateTestDate, onUpdateCurre
         </div>
 
         <div style={{ display: 'flex', gap: spacing.sm }}>
-          <button onClick={() => setStep(1)} style={{ ...buttonStyles.base, ...buttonStyles.ghost, flex: 1 }}>
+          <Button onClick={() => setStep(1)} variant="ghost" style={{ flex: 1 }}>
             Back
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={() => setStep(3)}
             disabled={!testDateOption}
-            style={{
-              ...buttonStyles.base,
-              ...buttonStyles.primary,
-              flex: 2,
-              opacity: testDateOption ? 1 : 0.5,
-              cursor: testDateOption ? 'pointer' : 'not-allowed',
-            }}
+            variant="primary"
+            style={{ flex: 2, opacity: testDateOption ? 1 : 0.5 }}
           >
             Continue
-          </button>
+          </Button>
         </div>
       </div>
     ),
@@ -405,22 +396,17 @@ const Onboarding = ({ user, onUpdateTargetScore, onUpdateTestDate, onUpdateCurre
         )}
 
         <div style={{ display: 'flex', gap: spacing.sm }}>
-          <button onClick={() => setStep(2)} style={{ ...buttonStyles.base, ...buttonStyles.ghost, flex: 1 }}>
+          <Button onClick={() => setStep(2)} variant="ghost" style={{ flex: 1 }}>
             Back
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={handleFinish}
             disabled={hasScore === null || saving || (hasScore && (!currentScore || parseInt(currentScore) < 200 || parseInt(currentScore) > 800))}
-            style={{
-              ...buttonStyles.base,
-              ...buttonStyles.primary,
-              flex: 2,
-              opacity: (hasScore === null || saving) ? 0.5 : 1,
-              cursor: (hasScore === null || saving) ? 'not-allowed' : 'pointer',
-            }}
+            variant="primary"
+            style={{ flex: 2, opacity: (hasScore === null || saving) ? 0.5 : 1 }}
           >
             {saving ? 'Saving...' : hasScore === false ? 'Take Practice Test' : 'Go to Dashboard'}
-          </button>
+          </Button>
         </div>
       </div>
     ),

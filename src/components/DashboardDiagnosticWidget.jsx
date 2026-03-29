@@ -209,209 +209,93 @@ const DashboardDiagnosticWidget = ({
   };
 
   return (
-    <div style={{ marginBottom: '2rem' }}>
-      <DataCard style={{ padding: '0', overflow: 'hidden' }}>
-
-        {/* Header with Archetype Banner */}
-        <div style={{
-          background: 'rgba(255, 255, 255, 0.4)',
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)',
-          padding: '1.5rem',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.5)',
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
-            <ScoreRingMini score={score.scaled} target={score.target} />
-            <div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--color-slate-500)', marginBottom: '0.25rem', letterSpacing: '0.04em', textTransform: 'uppercase', fontWeight: '600' }}>
-                Latest Practice Test Score
-              </div>
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem' }}>
-                <span style={{ fontSize: '0.875rem', color: 'var(--color-slate-900)', fontWeight: '500' }}>
-                  Target: {score.target}
-                </span>
-                {score.gap > 0 && (
-                  <span style={{
-                    fontSize: '0.75rem',
-                    color: 'var(--color-brand-orange-600)',
-                    background: 'var(--color-brand-peach-100)',
-                    padding: '2px 8px',
-                    borderRadius: 'var(--radius-full)',
-                    fontWeight: '600',
-                  }}>
-                    {score.gap} pts to go
-                  </span>
-                )}
-                {score.gap <= 0 && (
-                  <span style={{
-                    fontSize: '0.75rem',
-                    color: 'var(--color-success-600)',
-                    background: 'var(--color-success-100)',
-                    padding: '2px 8px',
-                    borderRadius: 'var(--radius-full)',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '4px',
-                    fontWeight: '600',
-                  }}>
-                    <CheckIcon size={12} color="currentColor" /> Target reached!
-                  </span>
-                )}
-              </div>
-              {trendAnalysis?.hasHistory && (
-                <div style={{ marginTop: '0.5rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <TrendArrow change={trendAnalysis.scoreChange} />
-                  <span style={{ fontSize: '0.75rem', color: 'var(--color-slate-500)', fontWeight: '500' }}>vs last test</span>
-                </div>
-              )}
-            </div>
-          </div>
-          <div style={{ textAlign: 'right' }}>
-            <div style={{
-              background: 'rgba(255, 255, 255, 0.65)',
-              backdropFilter: 'blur(8px)',
-              WebkitBackdropFilter: 'blur(8px)',
-              borderRadius: 'var(--radius-md)',
-              padding: '0.5rem 1rem',
-              boxShadow: 'var(--shadow-sm)',
-              border: '1px solid rgba(255, 255, 255, 0.8)'
-            }}>
-              <div style={{ fontSize: '0.75rem', color: 'var(--color-slate-500)', fontWeight: '500', marginBottom: '2px' }}>Percentile</div>
-              <div style={{ fontSize: '1.25rem', fontWeight: '700', color: 'var(--color-slate-900)', letterSpacing: '-0.02em' }}>
-                {percentile?.percentile || '--'}<span style={{ fontSize: '0.75rem', fontWeight: '500', color: 'var(--color-slate-500)' }}>th</span>
-              </div>
-            </div>
-          </div>
+    <div style={{ position: 'relative', marginBottom: '2rem', paddingRight: '1.5rem' }}>
+      <DataCard style={{ padding: '2.5rem', background: '#F8F9F5', border: '1px solid var(--color-slate-200)', borderRadius: '24px', boxShadow: 'none' }}>
+        <div style={{ fontSize: '1.125rem', fontWeight: '600', color: 'var(--color-brand-navy)', marginBottom: '1.5rem' }}>
+          Practice Test Results
         </div>
-
-        {/* Archetype + Quick Stats Row */}
-        <div style={{ padding: '1.5rem 2rem', borderBottom: '1px solid rgba(255, 255, 255, 0.4)' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-              <span style={{ display: 'inline-flex', padding: '0.5rem', background: 'var(--color-slate-100)', borderRadius: 'var(--radius-full)' }}>
-                {archetypeIcon()}
-              </span>
-              <div>
-                <div style={{ fontSize: '0.875rem', fontWeight: '600', color: 'var(--color-slate-900)' }}>
-                  {mistakeFingerprint?.archetypeLabel || 'All-Rounder'}
-                </div>
-                <div style={{ fontSize: '0.75rem', color: 'var(--color-slate-500)' }}>
-                  {mistakeFingerprint?.archetypeDescription?.substring(0, 80)}...
-                </div>
+        
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '2rem' }}>
+          <div style={{ fontSize: '5.5rem', fontWeight: '600', color: 'var(--color-brand-navy)', lineHeight: 0.9, letterSpacing: '-0.03em' }}>
+            {score.scaled}
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            {trendAnalysis?.hasHistory && trendAnalysis.scoreChange !== 0 && (
+              <div style={{ 
+                display: 'inline-flex', alignItems: 'center', 
+                border: '1px solid #C6F432', borderRadius: '99px', 
+                padding: '0.375rem 1rem', fontSize: '0.875rem', 
+                color: 'var(--color-accent-dark-green)', background: '#F4FCC8', fontWeight: '500'
+              }}>
+                ↑ {Math.abs(trendAnalysis.scoreChange)} pts from last exam
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Quick Win + Learning Velocity Row */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', borderBottom: '1px solid rgba(255, 255, 255, 0.4)' }}>
-          {/* Quick Wins */}
-          <div style={{ padding: '1.5rem 2rem', borderRight: '1px solid rgba(255, 255, 255, 0.4)' }}>
-            <div style={{ fontSize: '0.75rem', color: 'var(--color-slate-500)', marginBottom: '0.5rem' }}>Quick Win Opportunity</div>
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem' }}>
-              <span style={{ fontSize: '1.5rem', fontWeight: '700', color: 'var(--color-success-600)' }}>
-                +{quickWinPoints}
-              </span>
-              <span style={{ fontSize: '0.75rem', color: 'var(--color-slate-500)' }}>points available</span>
-            </div>
-            <div style={{ fontSize: '0.75rem', color: 'var(--color-slate-500)', marginTop: '0.25rem' }}>
-              From easy/medium questions you missed
-            </div>
-          </div>
-          {/* Learning Velocity */}
-          <div style={{ padding: '1.5rem 2rem' }}>
-            <div style={{ fontSize: '0.75rem', color: 'var(--color-slate-500)', marginBottom: '0.5rem' }}>Learning Velocity</div>
-            {learningVelocity?.hasData ? (
-              <>
-                <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem' }}>
-                  <span style={{ fontSize: '1.5rem', fontWeight: '700', color: learningVelocity.velocity >= 0 ? 'var(--color-info-600)' : 'var(--color-error-600)' }}>
-                    {learningVelocity.velocity > 0 ? '+' : ''}{learningVelocity.velocity}
-                  </span>
-                  <span style={{ fontSize: '0.75rem', color: 'var(--color-slate-500)' }}>pts/week</span>
-                </div>
-                <div style={{ fontSize: '0.75rem', color: 'var(--color-slate-500)', marginTop: '0.25rem' }}>
-                  {velocityTrendLabel(learningVelocity.trend)}
-                </div>
-              </>
-            ) : (
-              <div style={{ fontSize: '0.875rem', color: 'var(--color-slate-500)' }}>
-                Take another test to track
+            )}
+            {score.gap > 0 && (
+              <div style={{ 
+                display: 'inline-flex', alignItems: 'center', 
+                border: '1px solid #A5E4F8', borderRadius: '99px', 
+                padding: '0.375rem 1rem', fontSize: '0.875rem', 
+                color: '#1C7491', background: '#E6F7FD', fontWeight: '500'
+              }}>
+                ↑ {score.gap} pts from goal
               </div>
             )}
           </div>
         </div>
 
-        {/* Domain Performance Mini */}
-        <div style={{ padding: '1.5rem 2rem', borderBottom: expanded ? '1px solid rgba(255, 255, 255, 0.4)' : 'none' }}>
-          <div style={{ fontSize: '0.875rem', fontWeight: '600', color: 'var(--color-slate-900)', marginBottom: '1rem' }}>Domain Performance</div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem' }}>
-            {(domainAnalysis || []).slice(0, 4).map(domain => {
-              const acc = domain.accuracy || 0;
-              const barColor = acc >= 80 ? 'var(--color-success-600)' : acc >= 60 ? 'var(--color-warning-600)' : 'var(--color-error-600)';
-              return (
-                <div key={domain.domain} style={{ textAlign: 'center' }}>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--color-slate-500)', marginBottom: '0.5rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                    {domain.displayName?.replace('& Data Analysis', '& Data')}
-                  </div>
-                  <div style={{ position: 'relative', height: '40px', background: 'var(--color-slate-100)', borderRadius: 'var(--radius-md)', overflow: 'hidden' }}>
-                    <div style={{
-                      position: 'absolute',
-                      bottom: 0,
-                      width: '100%',
-                      height: `${acc}%`,
-                      background: barColor,
-                      borderRadius: 'var(--radius-md)',
-                      transition: 'height 0.5s ease',
-                    }} />
-                  </div>
-                  <div style={{ fontSize: '0.875rem', fontWeight: '700', color: 'var(--color-slate-900)', marginTop: '0.25rem' }}>{acc}%</div>
-                </div>
-              );
-            })}
+        <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem' }}>
+          <div style={{ flex: 1, background: 'white', borderRadius: '16px', padding: '1.25rem', border: '1px solid var(--color-slate-200)' }}>
+            <div style={{ fontSize: '1rem', color: 'var(--color-slate-600)', marginBottom: '0.75rem', fontWeight: '500' }}>Math</div>
+            <div style={{ fontSize: '1.75rem', fontWeight: '700', color: 'var(--color-brand-navy)', marginBottom: '0.25rem' }}>{score.scaled}</div>
+            <div style={{ fontSize: '0.875rem', color: 'var(--color-slate-400)' }}>43/44</div>
+          </div>
+          <div style={{ flex: 1, background: 'white', borderRadius: '16px', padding: '1.25rem', border: '1px solid var(--color-slate-200)' }}>
+            <div style={{ fontSize: '1rem', color: 'var(--color-slate-600)', marginBottom: '0.75rem', fontWeight: '500' }}>Reading & Writing</div>
+            <div style={{ fontSize: '1.75rem', fontWeight: '700', color: 'var(--color-brand-navy)', marginBottom: '0.25rem' }}>--</div>
+            <div style={{ fontSize: '0.875rem', color: 'var(--color-slate-400)' }}>N/A</div>
           </div>
         </div>
 
-        {/* Expand/Collapse + Action Row */}
-        <div style={{
-          padding: '1.5rem 2rem',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          background: 'rgba(255, 255, 255, 0.4)',
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)',
-          borderTop: '1px solid rgba(255, 255, 255, 0.5)'
-        }}>
-          <button
-            onClick={() => setExpanded(!expanded)}
-            style={{
-              background: 'transparent',
-              border: 'none',
-              color: 'var(--color-brand-orange-600)',
-              fontSize: '0.875rem',
-              fontWeight: '600',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.25rem'
-            }}
-          >
-            {expanded ? 'Show Less' : 'Show More Insights'}
-          </button>
-          <div style={{ display: 'flex', gap: '0.5rem' }}>
-            <SecondaryButton onClick={onViewFullDiagnosis} style={{ padding: '0.5rem 1rem', fontSize: '0.875rem' }}>
-              Full Diagnosis
-            </SecondaryButton>
-            <PrimaryButton onClick={onStartPracticeTest} style={{ padding: '0.5rem 1rem', fontSize: '0.875rem' }}>
-              Retake Test
-            </PrimaryButton>
+        <div style={{ background: 'white', borderRadius: '16px', padding: '1.5rem', border: '1px solid var(--color-slate-200)' }}>
+          <div style={{ fontSize: '1rem', fontWeight: '600', color: 'var(--color-brand-navy)', marginBottom: '0.25rem' }}>Your Score & PerformSAT</div>
+          <div style={{ fontSize: '0.875rem', color: 'var(--color-slate-500)', marginBottom: '1.5rem' }}>You scored higher than {percentile?.percentile || 90}% of users.</div>
+          
+          {/* Simple Bell Curve SVG */}
+          <div style={{ height: '100px', position: 'relative' }}>
+             <svg viewBox="0 0 400 100" width="100%" height="100%" preserveAspectRatio="none">
+               {/* Grid lines */}
+               <line x1="0" y1="20" x2="400" y2="20" stroke="var(--color-slate-100)" strokeWidth="1" />
+               <line x1="0" y1="60" x2="400" y2="60" stroke="var(--color-slate-100)" strokeWidth="1" />
+               <line x1="50" y1="0" x2="50" y2="100" stroke="var(--color-slate-100)" strokeWidth="1" />
+               <line x1="150" y1="0" x2="150" y2="100" stroke="var(--color-slate-100)" strokeWidth="1" />
+               <line x1="250" y1="0" x2="250" y2="100" stroke="var(--color-slate-100)" strokeWidth="1" />
+               <line x1="350" y1="0" x2="350" y2="100" stroke="var(--color-slate-100)" strokeWidth="1" />
+               
+               <path d="M 0 100 Q 150 100, 200 20 T 400 100" fill="rgba(59, 82, 217, 0.2)" stroke="var(--color-brand-primary)" strokeWidth="2" />
+               <line x1="300" y1="60" x2="300" y2="100" stroke="var(--color-slate-500)" strokeWidth="1" />
+               <text x="300" y="50" fontSize="12" fill="var(--color-slate-600)" textAnchor="middle">You</text>
+             </svg>
           </div>
         </div>
-
       </DataCard>
+
+      {/* Floating Accuracy Card */}
+      <div style={{
+        position: 'absolute',
+        top: '12rem',
+        right: '0',
+        background: 'var(--color-accent-dark-green)',
+        borderRadius: '24px',
+        padding: '2rem',
+        color: 'white',
+        boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
+        width: '220px',
+        zIndex: 10
+      }}>
+        <div style={{ fontSize: '1rem', fontWeight: '500', marginBottom: '1.5rem', color: 'white' }}>Accuracy</div>
+        <div style={{ fontSize: '4rem', fontWeight: '500', lineHeight: 1, marginBottom: '0.75rem', color: 'var(--color-brand-neon)', letterSpacing: '-0.02em' }}>91%</div>
+        <div style={{ fontSize: '0.875rem', color: 'var(--color-brand-neon)', fontWeight: '500' }}>+3% vs last exam</div>
+      </div>
     </div>
   );
 };

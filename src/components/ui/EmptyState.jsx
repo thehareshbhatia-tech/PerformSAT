@@ -1,6 +1,6 @@
 import React from 'react';
 import { colors, typography, spacing, radius } from '../../design/tokens';
-import { buttonStyles } from '../../design/components';
+import { Button } from './Button';
 
 const EmptyState = ({
   icon,
@@ -56,16 +56,13 @@ const EmptyState = ({
       )}
     </div>
     {actionLabel && onAction && (
-      <button
+      <Button
         onClick={onAction}
-        style={{
-          ...buttonStyles.base,
-          ...buttonStyles.primary,
-          marginTop: spacing.xs,
-        }}
+        variant="primary"
+        style={{ marginTop: spacing.xs }}
       >
         {actionLabel}
-      </button>
+      </Button>
     )}
   </div>
 );

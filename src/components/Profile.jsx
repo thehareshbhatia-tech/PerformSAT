@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { colors, typography, spacing, radius, shadows, transitions } from '../design/tokens';
-import { buttonStyles, cardStyles, inputStyles } from '../design/components';
+import { cardStyles, inputStyles } from '../design/components';
+import { Button } from './ui/Button';
 
 const StatCard = ({ label, value, total }) => (
   <div
@@ -61,12 +62,12 @@ const EditableField = ({ label, value, onSave, type = 'text', min, max }) => {
           autoFocus
           aria-label={label}
         />
-        <button onClick={handleSave} disabled={saving} style={{ ...buttonStyles.base, ...buttonStyles.primary, height: '40px', padding: `0 ${spacing.md}`, fontSize: typography.sizes.sm }}>
+        <Button onClick={handleSave} disabled={saving} variant="primary" size="sm">
           {saving ? '...' : 'Save'}
-        </button>
-        <button onClick={() => { setEditing(false); setDraft(value || ''); }} style={{ ...buttonStyles.base, ...buttonStyles.ghost, height: '40px', padding: `0 ${spacing.sm}`, fontSize: typography.sizes.sm }}>
+        </Button>
+        <Button onClick={() => { setEditing(false); setDraft(value || ''); }} variant="ghost" size="sm">
           Cancel
-        </button>
+        </Button>
       </div>
     );
   }
@@ -79,12 +80,13 @@ const EditableField = ({ label, value, onSave, type = 'text', min, max }) => {
           {value || 'Not set'}
         </div>
       </div>
-      <button
+      <Button
         onClick={() => setEditing(true)}
-        style={{ ...buttonStyles.base, ...buttonStyles.tertiary, height: '32px', fontSize: typography.sizes.sm }}
+        variant="tertiary"
+        size="sm"
       >
         Edit
-      </button>
+      </Button>
     </div>
   );
 };
@@ -245,28 +247,23 @@ const Profile = ({
               Are you sure you want to log out?
             </p>
             <div style={{ display: 'flex', gap: spacing.sm, justifyContent: 'center' }}>
-              <button onClick={() => setShowLogoutConfirm(false)} style={{ ...buttonStyles.base, ...buttonStyles.secondary }}>
+              <Button onClick={() => setShowLogoutConfirm(false)} variant="secondary">
                 Cancel
-              </button>
-              <button onClick={onLogout} style={{ ...buttonStyles.base, ...buttonStyles.destructive }}>
+              </Button>
+              <Button onClick={onLogout} variant="destructive">
                 Log Out
-              </button>
+              </Button>
             </div>
           </div>
         ) : (
-          <button
+          <Button
             onClick={() => setShowLogoutConfirm(true)}
-            style={{
-              ...buttonStyles.base,
-              ...buttonStyles.destructive,
-              width: '100%',
-              backgroundColor: 'transparent',
-              color: colors.semantic.error,
-              border: `1px solid ${colors.semantic.error}`,
-            }}
+            variant="destructive"
+            className="w-full"
+            style={{ width: '100%', backgroundColor: 'transparent', color: colors.semantic.error, border: `1px solid ${colors.semantic.error}` }}
           >
             Log Out
-          </button>
+          </Button>
         )}
       </div>
     </div>

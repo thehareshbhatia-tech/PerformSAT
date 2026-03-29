@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
+import { Modal } from './ui/Modal';
 import './LandingPage.css';
 
 const LandingPage = () => {
@@ -231,20 +232,17 @@ const LandingPage = () => {
       </footer>
 
       {/* Auth Modal */}
-      {showAuth && (
-        <div className="auth-modal-overlay" onClick={() => setShowAuth(false)}>
-          <div className="auth-modal-card" onClick={(e) => e.stopPropagation()}>
-            <button className="auth-modal-close" onClick={() => setShowAuth(false)} aria-label="Close modal">
-              &times;
-            </button>
-            <h2 className="auth-form-title">
-              {isLogin ? 'Welcome Back' : 'Get Started'}
-            </h2>
-            <p className="auth-form-subtitle">
-              {isLogin ? 'Log in to continue learning' : 'Create your account and start learning'}
-            </p>
+      <Modal
+        isOpen={showAuth}
+        onClose={() => setShowAuth(false)}
+        title={isLogin ? 'Welcome Back' : 'Get Started'}
+        maxWidth="480px"
+      >
+        <p className="auth-form-subtitle" style={{ marginTop: '-0.5rem', marginBottom: '1.5rem', color: 'var(--color-slate-500)' }}>
+          {isLogin ? 'Log in to continue learning' : 'Create your account and start learning'}
+        </p>
 
-            <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
               {!isLogin && (
                 <>
                   <div className="auth-form-group">
@@ -388,9 +386,7 @@ const LandingPage = () => {
                 {isLogin ? "Don't have an account? Sign up" : 'Already have an account? Log in'}
               </button>
             </form>
-          </div>
-        </div>
-      )}
+      </Modal>
     </div>
   );
 };

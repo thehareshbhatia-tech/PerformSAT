@@ -208,96 +208,108 @@ const StudyPlanDashboard = ({
     const meta = TYPE_META[act.type] || TYPE_META.lesson;
 
     return (
-      <div className="activity-row" style={{
-        padding: '12px 16px', borderRadius: radius.md,
-        background: done ? colors.surface.offWhite : colors.surface.white,
-        border: `1px solid ${done ? colors.surface.gray : colors.surface.grayDark}`,
-        opacity: done ? 0.7 : 1,
-        marginBottom: '6px',
-        position: 'relative',
+      <div className="activity-row acely-task-card" style={{
+        background: '#fff',
+        borderRadius: '16px',
+        border: `1px solid var(--color-slate-200)`,
+        marginBottom: '16px',
         overflow: 'hidden',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
       }}>
-        {done && <div style={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: '4px', background: colors.semantic.success }} />}
-        
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          {/* Checkbox */}
-          <button
-            onClick={(e) => handleToggle(e, weekIdx, actIdx, done)}
-            role="checkbox" aria-checked={done}
-            style={{
-              width: '24px', height: '24px', borderRadius: '6px',
-              border: done ? 'none' : `2px solid ${colors.surface.grayMedium}`,
-              background: done ? colors.semantic.success : '#fff',
-              color: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center',
-              justifyContent: 'center', flexShrink: 0, padding: 0,
-              boxShadow: done ? '0 2px 8px rgba(34, 197, 94, 0.4)' : 'none',
-              animation: done ? 'scaleIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)' : 'none'
-            }}
-          >
-            {done && <CheckIcon size={14} color="#fff" />}
-          </button>
-
-          {/* Icon */}
-          <div style={{ 
-            width: '32px', height: '32px', borderRadius: '50%', background: `${meta.fg}15`,
-            display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 
-          }}>
-            {activityIcon(act.type)}
-          </div>
-
-          {/* Title & Badge */}
-          <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '2px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{
-                fontSize: '10px', fontWeight: typography.weights.bold,
-                color: meta.fg, background: `${meta.fg}15`,
-                padding: '2px 6px', borderRadius: radius.sm, textTransform: 'uppercase', letterSpacing: '0.05em'
-              }}>
+        <div style={{ padding: '20px' }}>
+          {/* Header */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
+            <div>
+              <div style={{ fontSize: '1.125rem', fontWeight: '700', color: 'var(--color-brand-navy)', marginBottom: '4px' }}>
+                <MathText>{act.title}</MathText>
+              </div>
+              <div style={{ fontSize: '0.875rem', color: 'var(--color-slate-500)', marginBottom: '12px' }}>
                 {meta.label}
-              </span>
+              </div>
+              <div style={{ 
+                display: 'inline-block', background: 'var(--color-brand-primary-light)', 
+                color: 'var(--color-brand-primary)', padding: '4px 12px', 
+                borderRadius: '99px', fontSize: '0.75rem', fontWeight: '600' 
+              }}>
+                {act.type === 'test' ? 'High Priority' : 'Medium Priority'}
+              </div>
             </div>
-            <div style={{
-              fontSize: '14px', fontWeight: typography.weights.semibold,
-              color: done ? colors.text.muted : colors.text.primary,
-              textDecoration: done ? 'line-through' : 'none',
-              overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
-            }}>
-              <MathText>{act.title}</MathText>
-            </div>
+            {/* Toggle */}
+            <button
+              onClick={(e) => handleToggle(e, weekIdx, actIdx, done)}
+              style={{
+                width: '24px', height: '24px', borderRadius: '6px',
+                border: done ? 'none' : `2px solid var(--color-slate-300)`,
+                background: done ? 'var(--color-success-600)' : '#fff',
+                color: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center',
+                justifyContent: 'center', padding: 0
+              }}
+            >
+              {done && <CheckIcon size={14} color="#fff" />}
+            </button>
           </div>
+
+          {/* Progress / Info */}
+          {!done && isNavigable && (
+            <div style={{ marginBottom: '20px' }}>
+              <div style={{ fontSize: '0.875rem', color: 'var(--color-slate-600)', marginBottom: '8px' }}>
+                0 of 10 Questions Completed
+              </div>
+              <div style={{ height: '8px', background: 'var(--color-slate-100)', borderRadius: '4px', overflow: 'hidden' }}>
+                <div style={{ width: '15%', height: '100%', background: 'var(--color-brand-primary)' }}></div>
+              </div>
+            </div>
+          )}
 
           {/* Action button */}
           {!done && isNavigable && (
             <button
-              className="practice-btn"
               onClick={(e) => { e.stopPropagation(); handleGo(act); }}
               style={{
-                padding: '6px 16px', borderRadius: '20px', border: 'none',
-                background: meta.fg, color: '#fff',
-                fontSize: '12px', fontWeight: typography.weights.bold,
-                cursor: 'pointer', flexShrink: 0,
-                boxShadow: `0 2px 6px ${meta.fg}40`,
-                display: 'flex', alignItems: 'center', gap: '4px'
+                width: '100%', padding: '14px', borderRadius: '12px', border: 'none',
+                background: 'var(--color-brand-primary)', color: '#fff',
+                fontSize: '1rem', fontWeight: '600', cursor: 'pointer',
+                transition: 'background 0.2s',
               }}
+              onMouseOver={(e) => e.target.style.background = 'var(--color-brand-primary-hover)'}
+              onMouseOut={(e) => e.target.style.background = 'var(--color-brand-primary)'}
             >
-              Go <ChevronDownIcon size={10} color="#fff" style={{ transform: 'rotate(-90deg)' }} />
+              Practice {act.title.replace(/Practice/i, '').trim() || meta.label}
             </button>
+          )}
+
+          {/* Tips for strategy/review */}
+          {isTip && tips.length > 0 && !done && (
+            <div style={{ marginTop: '12px' }}>
+              {tips.map((tip, i) => (
+                <div key={i} style={{
+                  fontSize: '0.875rem', color: 'var(--color-slate-600)', lineHeight: '1.5',
+                  paddingLeft: '12px', borderLeft: `2px solid ${meta.fg}`,
+                  marginBottom: i < tips.length - 1 ? '8px' : 0,
+                  background: `${meta.fg}10`, padding: '12px', borderRadius: '0 8px 8px 0'
+                }}>
+                  <MathText>{tip}</MathText>
+                </div>
+              ))}
+            </div>
           )}
         </div>
 
-        {/* Tips for strategy/review — shown inline below title */}
-        {isTip && tips.length > 0 && !done && (
-          <div style={{ marginTop: '10px', paddingLeft: '48px' }}>
-            {tips.map((tip, i) => (
-              <div key={i} style={{
-                fontSize: '13px', color: colors.text.secondary, lineHeight: '1.5',
-                paddingLeft: '12px', borderLeft: `2px solid ${meta.fg}60`,
-                marginBottom: i < tips.length - 1 ? '6px' : 0,
-                background: `${meta.fg}08`, padding: '8px 12px', borderRadius: '0 8px 8px 0'
-              }}>
-                <MathText>{tip}</MathText>
-              </div>
-            ))}
+        {/* Completed Footer */}
+        {done && (
+          <div style={{
+            background: 'var(--color-brand-neon)',
+            color: 'var(--color-accent-dark-green)',
+            padding: '16px',
+            textAlign: 'center',
+            fontSize: '1rem',
+            fontWeight: '600',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '8px'
+          }}>
+            Complete <CheckIcon size={16} color="currentColor" />
           </div>
         )}
       </div>

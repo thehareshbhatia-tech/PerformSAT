@@ -73,7 +73,7 @@ const LearnWorkspace = ({
       />
 
       {/* CENTER: Lesson Stage */}
-      <main className="lesson-stage" ref={stageRef}>
+      <div className="lesson-stage" ref={stageRef}>
         {currentLesson && (
           <>
             {/* Header */}
@@ -145,7 +145,7 @@ const LearnWorkspace = ({
             </div>
           </>
         )}
-      </main>
+      </div>
 
       {/* RIGHT: AI Coach Pane (persistent) */}
       <aside className="ai-coach-pane">

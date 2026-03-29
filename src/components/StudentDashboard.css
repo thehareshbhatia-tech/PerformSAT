@@ -72,9 +72,9 @@
 
 /* AI Practice Banner */
 .ai-practice-banner {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
+  background: var(--color-white);
+  border: 1px solid var(--color-slate-200);
+  border-radius: 20px;
   padding: 1.5rem 2rem;
   display: flex;
   flex-direction: column;
@@ -99,14 +99,14 @@
 .ai-banner-icon {
   width: 48px;
   height: 48px;
-  background: #eff6ff;
-  border: 1px solid #dbeafe;
+  background: var(--color-brand-primary-light);
+  border: 1px solid rgba(59, 82, 217, 0.2);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
-  color: #3b82f6;
+  color: var(--color-brand-primary);
 }
 
 .ai-banner-text-group {
@@ -148,21 +148,21 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #bef264; /* Acely lime green */
-  color: #3f6212;
-  padding: 0.125rem 0.625rem;
+  background: var(--color-brand-neon);
+  color: var(--color-accent-dark-green);
+  padding: 0.25rem 0.75rem;
   border-radius: 9999px;
   font-size: 0.75rem;
   font-weight: 700;
 }
 
 .accuracy-pill.blue {
-  background: #dbeafe;
-  color: #1e40af;
+  background: var(--color-brand-primary-light);
+  color: var(--color-brand-primary);
 }
 
 .btn-launch {
-  background-color: #4f46e5;
+  background-color: var(--color-brand-primary);
   color: #ffffff;
   padding: 0.625rem 1.5rem;
   border-radius: 8px;
@@ -171,16 +171,16 @@
   border: none;
   cursor: pointer;
   transition: background-color 0.2s;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  box-shadow: none;
 }
 
 .btn-launch:hover {
-  background-color: #4338ca;
+  background-color: var(--color-brand-primary-hover);
 }
 
 .btn-ghost-blue {
   background-color: transparent;
-  color: #4f46e5;
+  color: var(--color-brand-primary);
   font-weight: 600;
   font-size: 0.875rem;
   border: none;
@@ -189,7 +189,7 @@
 }
 
 .btn-ghost-blue:hover {
-  color: #4338ca;
+  color: var(--color-brand-primary-hover);
   text-decoration: underline;
 }
 
@@ -302,87 +302,168 @@
   color: #4b5563;
 }
 
-/* Performance Overview specific */
-.performance-overview-panel {
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  background: #ffffff;
+/* Acely Performance Grid */
+.acely-performance-grid {
   display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
   flex-direction: column;
-  margin-bottom: 2.5rem;
-  overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
 }
 
-@media (min-width: 1024px) {
-  .performance-overview-panel {
+@media (min-width: 768px) {
+  .acely-performance-grid {
     flex-direction: row;
   }
 }
 
-.overview-main-stat {
+.acely-accuracy-card {
+  background-color: var(--color-brand-primary);
+  color: white;
+  border-radius: 20px;
   padding: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  border-bottom: 1px solid #e5e7eb;
-  background: #fafafa;
-}
-
-@media (min-width: 1024px) {
-  .overview-main-stat {
-    border-bottom: none;
-    border-right: 1px solid #e5e7eb;
-    min-width: 320px;
-  }
-}
-
-.overview-metrics-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
   flex: 1;
-}
-
-@media (min-width: 768px) {
-  .overview-metrics-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-.overview-metric-item {
-  padding: 1.5rem;
-  border-right: 1px solid #e5e7eb;
-  border-bottom: 1px solid #e5e7eb;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-@media (min-width: 768px) {
-  .overview-metric-item {
-    border-bottom: none;
-  }
-  .overview-metric-item:last-child {
-    border-right: none;
-  }
+.acely-accuracy-card .acely-metric-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
 }
 
-.metric-label {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: 600;
-  color: #6b7280;
-  margin-bottom: 0.5rem;
+.acely-accuracy-card .acely-metric-value {
+  font-size: 4.5rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
 }
 
-.metric-value {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #111827;
+.acely-accuracy-card .acely-metric-lines {
   display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 1.5rem;
+}
+
+.acely-accuracy-card .acely-metric-lines .line {
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  width: 60%;
+}
+.acely-accuracy-card .acely-metric-lines .line.short {
+  width: 40%;
+}
+
+.acely-metric-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1.5;
+}
+
+.acely-split-card {
+  display: flex;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 100%;
+}
+
+.acely-split-left {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: white;
+  width: 35%;
+}
+
+.acely-split-right {
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
+.acely-split-right .acely-metric-label {
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.acely-split-right .acely-metric-lines {
+  display: flex;
+  gap: 8px;
+}
+
+.acely-split-right .acely-metric-lines .line {
+  height: 6px;
+  border-radius: 4px;
+  background-color: rgba(0,0,0,0.08);
+  width: 40px;
+}
+.acely-split-right .acely-metric-lines .line.short {
+  width: 20px;
+}
+
+/* Colors for split cards */
+.acely-strongest-card .acely-split-left { background-color: var(--color-accent-dark-green); color: var(--color-brand-neon); }
+.acely-strongest-card .acely-split-right { background-color: var(--color-brand-neon); color: var(--color-accent-dark-green); }
+
+.acely-weakest-card .acely-split-left { background-color: #9C7AC9; } /* Darker purple */
+.acely-weakest-card .acely-split-right { background-color: var(--color-accent-purple); color: white; }
+.acely-weakest-card .acely-split-right .acely-metric-lines .line { background-color: rgba(255,255,255,0.3); }
+
+/* Projected Card */
+.acely-projected-card {
+  background-color: var(--color-accent-light-blue);
+  border-radius: 20px;
+  padding: 2.5rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.acely-projected-graph {
+  flex: 1;
+  height: 140px;
+  position: relative;
+  z-index: 1;
+}
+
+.acely-projected-info {
+  text-align: right;
+  z-index: 2;
+  margin-left: 2rem;
+}
+
+.acely-projected-info .acely-metric-value {
+  font-size: 4.5rem;
+  font-weight: 400;
+  color: var(--color-brand-navy);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.acely-projected-info .acely-metric-label {
+  font-size: 1.125rem;
+  color: var(--color-brand-navy);
+  margin-top: 0.5rem;
+}
+
+/* Action Cards overrides for Acely style */
+.action-card {
+  border: 1px solid var(--color-slate-200);
+  box-shadow: none;
+  border-radius: 20px;
 }
 
 /* Tab badge (Updated indicator) */

@@ -30,44 +30,44 @@ const NAV_ITEMS = [
   { id: 'profile', label: 'Profile', route: '/app/profile', icon: PersonIcon },
 ];
 
-function HomeIcon({ active }) {
+function HomeIcon({ color }) {
   return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={active ? colors.accent.orange : colors.text.tertiary} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
       <polyline points="9 22 9 12 15 12 15 22" />
     </svg>
   );
 }
 
-function BookIcon({ active }) {
+function BookIcon({ color }) {
   return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={active ? colors.accent.orange : colors.text.tertiary} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
       <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
     </svg>
   );
 }
 
-function ClockIcon({ active }) {
+function ClockIcon({ color }) {
   return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={active ? colors.accent.orange : colors.text.tertiary} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="12" r="10" />
       <polyline points="12 6 12 12 16 14" />
     </svg>
   );
 }
 
-function SparklesIcon({ active }) {
+function SparklesIcon({ color }) {
   return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={active ? colors.accent.orange : colors.text.tertiary} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z" />
     </svg>
   );
 }
 
-function StudyPlanIcon({ active }) {
+function StudyPlanIcon({ color }) {
   return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={active ? colors.accent.orange : colors.text.tertiary} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" />
       <rect x="9" y="3" width="6" height="4" rx="1" />
       <path d="M9 14l2 2 4-4" />
@@ -75,9 +75,9 @@ function StudyPlanIcon({ active }) {
   );
 }
 
-function PersonIcon({ active }) {
+function PersonIcon({ color }) {
   return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={active ? colors.accent.orange : colors.text.tertiary} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
       <circle cx="12" cy="7" r="4" />
     </svg>
@@ -141,8 +141,8 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
       {isDesktop && (
         <aside role="navigation" aria-label="Desktop navigation" style={{
           width: '240px',
-          backgroundColor: colors.surface.white,
-          borderRight: `1px solid ${colors.surface.grayDark}`,
+          backgroundColor: 'var(--color-brand-navy)',
+          borderRight: 'none',
           position: 'fixed',
           top: 0,
           left: 0,
@@ -154,7 +154,7 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
         }}>
           {/* Logo */}
           <div style={{
-            padding: `${spacing.lg} ${spacing.lg}`,
+            padding: `${spacing.xl} ${spacing.xl} ${spacing.lg}`,
             display: 'flex',
             alignItems: 'center',
             gap: '6px',
@@ -165,25 +165,25 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
             <div style={{
               width: '32px',
               height: '32px',
-              background: `linear-gradient(135deg, ${colors.accent.orange} 0%, ${colors.accent.orangeHover} 100%)`,
+              background: 'var(--color-brand-neon)',
               borderRadius: '8px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: 'white',
+              color: 'var(--color-brand-navy)',
               fontSize: '14px',
               fontWeight: '700',
             }}>P</div>
-            <span style={{ fontSize: '18px', fontWeight: '600', color: colors.text.primary, letterSpacing: '-0.3px' }}>
+            <span style={{ fontSize: '18px', fontWeight: '600', color: 'var(--color-white)', letterSpacing: '-0.3px' }}>
               Perform
             </span>
-            <span style={{ fontSize: '18px', fontWeight: '700', color: colors.accent.orange, letterSpacing: '-0.3px' }}>
+            <span style={{ fontSize: '18px', fontWeight: '700', color: 'var(--color-brand-primary)', letterSpacing: '-0.3px' }}>
               SAT
             </span>
           </div>
 
           {/* Nav Items */}
-          <nav aria-label="Main navigation" style={{ flex: 1, padding: `${spacing.sm} ${spacing.sm}`, display: 'flex', flexDirection: 'column', gap: '4px' }}>
+          <nav aria-label="Main navigation" style={{ flex: 1, padding: `0 ${spacing.md}`, display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {NAV_ITEMS.map(item => {
               const isActive = activeNavId === item.id;
               const Icon = item.icon;
@@ -200,18 +200,18 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
                     padding: `${spacing.sm} ${spacing.md}`,
                     borderRadius: radius.md,
                     border: 'none',
-                    background: isActive ? colors.accent.orangeLight : 'transparent',
+                    background: isActive ? 'var(--color-brand-primary)' : 'transparent',
                     cursor: 'pointer',
                     transition: `all ${transitions.fast}`,
                     width: '100%',
                     textAlign: 'left',
                   }}
                 >
-                  <Icon active={isActive} />
+                  <Icon color={isActive ? 'var(--color-white)' : 'var(--color-slate-400)'} />
                   <span style={{
                     fontSize: typography.sizes.base,
                     fontWeight: isActive ? typography.weights.semibold : typography.weights.medium,
-                    color: isActive ? colors.accent.orange : colors.text.primary,
+                    color: isActive ? 'var(--color-white)' : 'var(--color-slate-400)',
                   }}>
                     {item.label}
                   </span>
@@ -224,7 +224,7 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
           {user && (
             <div style={{
               padding: spacing.lg,
-              borderTop: `1px solid ${colors.surface.grayDark}`,
+              borderTop: '1px solid rgba(255, 255, 255, 0.1)',
               display: 'flex',
               alignItems: 'center',
               gap: spacing.sm,
@@ -233,7 +233,7 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
                 width: '36px',
                 height: '36px',
                 borderRadius: radius.full,
-                background: `linear-gradient(135deg, ${colors.accent.orange}, ${colors.accent.orangeHover})`,
+                background: 'var(--color-brand-primary)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -248,7 +248,7 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
                 <div style={{
                   fontSize: typography.sizes.sm,
                   fontWeight: typography.weights.medium,
-                  color: colors.text.primary,
+                  color: 'var(--color-white)',
                   overflow: 'hidden',
                   textOverflow: 'ellipsis',
                   whiteSpace: 'nowrap',
@@ -257,7 +257,7 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
                 </div>
                 <div style={{
                   fontSize: typography.sizes.xs,
-                  color: colors.text.tertiary,
+                  color: 'var(--color-slate-400)',
                   overflow: 'hidden',
                   textOverflow: 'ellipsis',
                   whiteSpace: 'nowrap',
@@ -279,8 +279,8 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
           onMouseLeave={() => setSidebarExpanded(false)}
           style={{
             width: sidebarExpanded ? '240px' : '72px',
-            backgroundColor: colors.surface.white,
-            borderRight: `1px solid ${colors.surface.grayDark}`,
+            backgroundColor: 'var(--color-brand-navy)',
+            borderRight: 'none',
             position: 'fixed',
             top: 0,
             left: 0,
@@ -306,20 +306,20 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
             <div style={{
               width: '32px',
               height: '32px',
-              background: `linear-gradient(135deg, ${colors.accent.orange} 0%, ${colors.accent.orangeHover} 100%)`,
+              background: 'var(--color-brand-neon)',
               borderRadius: '8px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: 'white',
+              color: 'var(--color-brand-navy)',
               fontSize: '14px',
               fontWeight: '700',
               flexShrink: 0,
             }}>P</div>
             {sidebarExpanded && (
               <>
-                <span style={{ fontSize: '18px', fontWeight: '600', color: colors.text.primary }}>Perform</span>
-                <span style={{ fontSize: '18px', fontWeight: '700', color: colors.accent.orange }}>SAT</span>
+                <span style={{ fontSize: '18px', fontWeight: '600', color: 'var(--color-white)' }}>Perform</span>
+                <span style={{ fontSize: '18px', fontWeight: '700', color: 'var(--color-brand-primary)' }}>SAT</span>
               </>
             )}
           </div>
@@ -343,19 +343,19 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
                     padding: `${spacing.sm} ${sidebarExpanded ? spacing.md : '0'}`,
                     borderRadius: radius.md,
                     border: 'none',
-                    background: isActive ? colors.accent.orangeLight : 'transparent',
+                    background: isActive ? 'var(--color-brand-primary)' : 'transparent',
                     cursor: 'pointer',
                     transition: `all ${transitions.fast}`,
                     width: '100%',
                     justifyContent: sidebarExpanded ? 'flex-start' : 'center',
                   }}
                 >
-                  <Icon active={isActive} />
+                  <Icon color={isActive ? 'var(--color-white)' : 'var(--color-slate-400)'} />
                   {sidebarExpanded && (
                     <span style={{
                       fontSize: typography.sizes.base,
                       fontWeight: isActive ? typography.weights.semibold : typography.weights.medium,
-                      color: isActive ? colors.accent.orange : colors.text.primary,
+                      color: isActive ? 'var(--color-white)' : 'var(--color-slate-400)',
                       whiteSpace: 'nowrap',
                     }}>
                       {item.label}
@@ -369,13 +369,39 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
       )}
 
       {/* Main Content Area */}
-      <main style={{
+      <div style={{
         flex: 1,
         marginLeft: isDesktop ? '240px' : isTablet ? '72px' : 0,
         marginBottom: isMobile ? '56px' : 0,
         minHeight: '100vh',
         transition: `margin-left ${transitions.normal}`,
+        display: 'flex',
+        flexDirection: 'column',
       }}>
+        {/* Desktop/Tablet Header */}
+        {!isMobile && !hideNav && (
+          <header style={{
+            height: '64px',
+            padding: `0 ${spacing.xl}`,
+            display: 'flex',
+            alignItems: 'center',
+            borderBottom: `1px solid ${colors.surface.grayDark}`,
+            backgroundColor: 'var(--color-white)',
+            position: 'sticky',
+            top: 0,
+            zIndex: zIndex.sticky - 1,
+          }}>
+            <h1 style={{
+              fontSize: typography.sizes.lg,
+              fontWeight: typography.weights.semibold,
+              color: colors.text.primary,
+              margin: 0,
+            }}>
+              {NAV_ITEMS.find(item => item.id === activeNavId)?.label || 'PerformSAT'}
+            </h1>
+          </header>
+        )}
+
         {/* Mobile Header */}
         {isMobile && (
           <header style={{
@@ -397,17 +423,17 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
               <div style={{
                 width: '24px',
                 height: '24px',
-                background: `linear-gradient(135deg, ${colors.accent.orange}, ${colors.accent.orangeHover})`,
+                background: 'var(--color-brand-neon)',
                 borderRadius: '6px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: 'white',
+                color: 'var(--color-brand-navy)',
                 fontSize: '11px',
                 fontWeight: '700',
               }}>P</div>
-              <span style={{ fontSize: '16px', fontWeight: '600', color: colors.text.primary }}>Perform</span>
-              <span style={{ fontSize: '16px', fontWeight: '700', color: colors.accent.orange }}>SAT</span>
+              <span style={{ fontSize: '16px', fontWeight: '600', color: 'var(--color-brand-navy)' }}>Perform</span>
+              <span style={{ fontSize: '16px', fontWeight: '700', color: 'var(--color-brand-primary)' }}>SAT</span>
             </div>
           </header>
         )}
@@ -418,7 +444,7 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
         }}>
           {children}
         </div>
-      </main>
+      </div>
 
       {/* Mobile Bottom Tab Bar */}
       {isMobile && (
@@ -466,11 +492,11 @@ const AppShell = ({ children, currentView, onNavigate, user, onLogout, hideNav =
                   transition: `all ${transitions.fast}`,
                 }}
               >
-                <Icon active={isActive} />
+                <Icon color={isActive ? 'var(--color-brand-primary)' : 'var(--color-slate-400)'} />
                 <span style={{
                   fontSize: '10px',
                   fontWeight: isActive ? typography.weights.semibold : typography.weights.medium,
-                  color: isActive ? colors.accent.orange : colors.text.tertiary,
+                  color: isActive ? 'var(--color-brand-primary)' : 'var(--color-slate-500)',
                   lineHeight: 1,
                 }}>
                   {item.label}

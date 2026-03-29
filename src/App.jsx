@@ -9121,7 +9121,7 @@ const PerformSAT = () => {
         hideNav={view === 'takingTest' || view === 'learn'}
       >
       {/* Main Content */}
-      <main id="main-content" style={{
+      <div id="main-content" style={{
         maxWidth: view === 'learn' || view === 'modules' || view === 'takingTest' || view === 'dashboard' ? '100%' : (view === 'practiceTests' || view === 'studyPlan') ? '960px' : '800px',
         margin: '0 auto',
         padding: (view === 'learn' || view === 'modules' || view === 'dashboard') ? '0' : view === 'takingTest' ? '32px 0px 60px' : '32px 32px 100px',
@@ -10870,7 +10870,7 @@ const PerformSAT = () => {
           );
         })()}
 
-      </main>
+      </div>
 
       </AppShell>
     </div>

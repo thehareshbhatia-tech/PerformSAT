@@ -345,59 +345,55 @@ const StudentDashboard = ({
         </div>
       ) : (
       <>
-      {/* Performance Panel (Replaces old floating Score Hero) */}
-      <div className="performance-overview-panel">
-        <div className="overview-main-stat">
-          <ScoreRing
-            score={projectedScore || user?.currentScore || 0}
-            target={user?.targetScore || 800}
-            size={100}
-          />
-          <div>
-            <div className="metric-label">{projectedScore ? 'Projected Score' : 'Current Score'}</div>
-            <div className="metric-value" style={{ fontSize: '2.5rem' }}>
-              {animatedScore || '--'}
-            </div>
-            {user?.targetScore && (
-              <div style={{ marginTop: '0.5rem' }}>
-                <span className="accuracy-pill" style={{ marginLeft: 0 }}>
-                  Target: {user.targetScore}
-                </span>
-              </div>
-            )}
+      {/* Performance Panel (Acely AI Redesign) */}
+      <div className="acely-performance-grid">
+        <div className="acely-metric-card acely-accuracy-card">
+          <div className="acely-metric-label">Today's Accuracy:</div>
+          <div className="acely-metric-value">{practicePercent || 0}%</div>
+          <div className="acely-metric-lines">
+            <div className="line"></div>
+            <div className="line short"></div>
           </div>
         </div>
-
-        <div className="overview-metrics-grid">
-          <div className="overview-metric-item">
-            <div className="metric-label">Points to Go</div>
-            <div className="metric-value">
-              {user?.targetScore && (projectedScore || user?.currentScore) 
-                ? Math.max(0, user.targetScore - (projectedScore || user.currentScore || 0))
-                : '--'}
-              <span style={{ fontSize: '1rem', color: '#6b7280', fontWeight: '500' }}>pts</span>
+        <div className="acely-metric-stack">
+          <div className="acely-split-card acely-strongest-card">
+            <div className="acely-split-left">{strongest ? strongest.percent + '%' : '--'}</div>
+            <div className="acely-split-right">
+              <div className="acely-metric-label">Strongest Section</div>
+              <div className="acely-metric-lines">
+                <div className="line"></div>
+                <div className="line short"></div>
+              </div>
             </div>
           </div>
-          <div className="overview-metric-item">
-            <div className="metric-label">Tests Taken</div>
-            <div className="metric-value">{projectedTestsCount || 0}</div>
-          </div>
-          <div className="overview-metric-item">
-            <div className="metric-label">Lessons Done</div>
-            <div className="metric-value">
-              {completionPercent}%
-              <span className="accuracy-pill">{totalCompleted} / {TOTAL_LESSONS}</span>
+          <div className="acely-split-card acely-weakest-card">
+            <div className="acely-split-left">{weakest ? weakest.percent + '%' : '--'}</div>
+            <div className="acely-split-right">
+              <div className="acely-metric-label">Biggest Opportunity</div>
+              <div className="acely-metric-lines">
+                <div className="line"></div>
+                <div className="line short"></div>
+              </div>
             </div>
           </div>
-          <div className="overview-metric-item">
-            <div className="metric-label">Days to Test</div>
-            <div className="metric-value">
-              {daysUntilTest !== null && daysUntilTest > 0 ? daysUntilTest : '--'}
-            </div>
-            <SecondaryButton onClick={() => { setTempCurrentScore(user?.currentScore || 500); setShowCurrentScorePicker(true); }} style={{ marginTop: '0.5rem', padding: '0.375rem 0.75rem', fontSize: '0.75rem', alignSelf: 'flex-start' }}>
-              Update Score
-            </SecondaryButton>
-          </div>
+        </div>
+      </div>
+      <div className="acely-projected-card">
+        <div className="acely-projected-graph">
+          <svg width="100%" height="100%" viewBox="0 0 400 120" preserveAspectRatio="none">
+            <line x1="20" y1="0" x2="20" y2="120" stroke="rgba(255,255,255,0.7)" strokeWidth="2" />
+            <line x1="60" y1="0" x2="60" y2="120" stroke="rgba(255,255,255,0.7)" strokeWidth="2" />
+            <line x1="100" y1="0" x2="100" y2="120" stroke="rgba(255,255,255,0.7)" strokeWidth="2" />
+            <line x1="140" y1="0" x2="140" y2="120" stroke="rgba(255,255,255,0.7)" strokeWidth="2" />
+            <line x1="180" y1="0" x2="180" y2="120" stroke="rgba(255,255,255,0.7)" strokeWidth="2" />
+            <line x1="220" y1="0" x2="220" y2="120" stroke="rgba(255,255,255,0.7)" strokeWidth="2" />
+            <line x1="260" y1="0" x2="260" y2="120" stroke="rgba(255,255,255,0.7)" strokeWidth="2" />
+            <path d="M 20 100 Q 60 90, 100 60 T 180 50 T 260 20 L 300 10" fill="none" stroke="var(--color-brand-primary)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </div>
+        <div className="acely-projected-info">
+          <div className="acely-metric-value">{animatedScore || '--'}</div>
+          <div className="acely-metric-label">Projected Score</div>
         </div>
       </div>
 

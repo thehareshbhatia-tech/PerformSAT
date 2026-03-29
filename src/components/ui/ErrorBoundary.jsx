@@ -1,6 +1,6 @@
 import React from 'react';
 import { colors, typography, spacing, radius, shadows } from '../../design/tokens';
-import { buttonStyles } from '../../design/components';
+import { Button } from './Button';
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -68,15 +68,12 @@ class ErrorBoundary extends React.Component {
           }}>
             {this.props.message || "We hit an unexpected error. Try refreshing, or come back in a moment."}
           </p>
-          <button
+          <Button
             onClick={this.handleRetry}
-            style={{
-              ...buttonStyles.base,
-              ...buttonStyles.secondary,
-            }}
+            variant="secondary"
           >
             Try Again
-          </button>
+          </Button>
         </div>
       );
     }

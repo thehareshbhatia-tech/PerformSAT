@@ -12,14 +12,14 @@ export const colors = {
     inverse: 'var(--color-white)',
   },
   accent: {
-    orange: 'var(--color-brand-orange-500)',
-    orangeHover: 'var(--color-brand-orange-600)',
-    orangeLight: 'var(--color-brand-peach-100)',
-    orangeMuted: 'var(--color-brand-peach-100)', // Using peach-100 for muted
+    orange: 'var(--color-brand-primary)',
+    orangeHover: 'var(--color-brand-primary-hover)',
+    orangeLight: 'var(--color-brand-primary-light)',
+    orangeMuted: 'var(--color-brand-primary-light)', // Using primary-light for muted
     teal: 'var(--color-info-600)', // Mapping legacy teal to semantic info
     tealLight: 'var(--color-info-100)',
-    purple: 'var(--color-brand-orange-500)', // Mapping legacy purple to brand orange
-    purpleLight: 'var(--color-brand-peach-100)',
+    purple: 'var(--color-brand-primary)', // Mapping legacy purple to brand primary
+    purpleLight: 'var(--color-brand-primary-light)',
   },
   surface: {
     white: 'var(--color-white)',
@@ -45,7 +45,7 @@ export const colors = {
   },
   overlay: 'rgba(15, 23, 42, 0.4)', // slate-900 with opacity
   skeleton: 'var(--color-slate-200)',
-  focus: 'var(--color-brand-orange-400)',
+  focus: 'var(--color-brand-primary)',
   badge: {
     gold: 'var(--color-warning-600)',
     silver: 'var(--color-slate-400)',
@@ -117,7 +117,7 @@ export const shadows = {
   lg: 'var(--shadow-lg)',
   xl: 'var(--shadow-lg)',
   inner: 'inset 0 2px 4px rgba(0, 0, 0, 0.05)',
-  focus: '0 0 0 3px rgba(79, 70, 229, 0.4)', // indigo-600
+  focus: '0 0 0 3px rgba(59, 82, 217, 0.4)', // brand primary
 };
 
 export const transitions = {

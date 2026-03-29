@@ -22,7 +22,9 @@ import { runDiagnostic } from '../services/diagnosticEngine';
 import { getTargetedWeaknessSet } from '../data/questions/bank';
 import { scoreTest, isAnswerCorrect, convertToSATScore } from '../services/scoring';
 import { colors, typography, spacing, radius, shadows, transitions } from '../design/tokens';
-import { cardStyles, buttonStyles } from '../design/components';
+import { cardStyles } from '../design/components';
+import { Modal } from './ui/Modal';
+import { Button } from './ui/Button';
 import './PracticeTest.css';
 import { CheckIcon, CrossIcon, LightBulbIcon, MicroscopeIcon } from '../design/icons';
 
@@ -2856,150 +2858,71 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       </div> {/* End test-session-body */}
 
       {/* Pause Overlay */}
-      {isPaused && !confirmAction && (
-        <div className="overlay-backdrop">
-          <div className="modal-card">
-            <div style={{
-              width: '64px', height: '64px', borderRadius: '50%',
-              background: 'var(--color-slate-100)', display: 'flex',
-              alignItems: 'center', justifyContent: 'center',
-              margin: '0 auto 1.5rem', fontSize: '28px',
-              border: '1px solid var(--color-slate-200)'
-            }}>⏸</div>
-            <h2 className="modal-title">Test Paused</h2>
-            <p className="modal-text">
-              {isTimed ? 'Timer is frozen. ' : ''}Your progress has been saved.
-            </p>
-            <div className="modal-actions">
-              <button
-                onClick={handlePauseToggle}
-                style={{
-                  padding: '14px 32px', width: '100%',
-                  background: 'var(--color-slate-900)', color: 'var(--color-white)',
-                  border: 'none', borderRadius: 'var(--radius-sm)',
-                  fontSize: '1rem', fontWeight: '600', cursor: 'pointer',
-                  transition: 'all 0.2s ease'
-                }}
-              >
-                Resume Test
-              </button>
-              <div className="modal-actions-row">
-                <button
-                  onClick={handleRequestEndTest}
-                  style={{
-                    flex: 1, padding: '12px 20px',
-                    background: 'transparent', color: 'var(--color-error-600)',
-                    border: `1px solid var(--color-error-600)`,
-                    borderRadius: 'var(--radius-sm)', fontSize: '0.875rem', fontWeight: '600', cursor: 'pointer',
-                    transition: 'all 0.2s ease'
-                  }}
-                >
-                  End Test
-                </button>
-                <button
-                  onClick={handleRequestLeave}
-                  style={{
-                    flex: 1, padding: '12px 20px',
-                    background: 'transparent', color: 'var(--color-slate-600)',
-                    border: `1px solid var(--color-slate-300)`,
-                    borderRadius: 'var(--radius-sm)', fontSize: '0.875rem', fontWeight: '600', cursor: 'pointer',
-                    transition: 'all 0.2s ease'
-                  }}
-                >
-                  Save & Leave
-                </button>
-              </div>
-            </div>
+      <Modal
+        isOpen={isPaused && !confirmAction}
+        onClose={handlePauseToggle}
+        title="Test Paused"
+        hideCloseButton
+        footer={
+          <div style={{ display: 'flex', width: '100%', gap: '0.75rem' }}>
+            <Button onClick={handleRequestEndTest} variant="destructive" style={{ flex: 1 }}>End Test</Button>
+            <Button onClick={handleRequestLeave} variant="secondary" style={{ flex: 1 }}>Save & Leave</Button>
+            <Button onClick={handlePauseToggle} variant="primary" style={{ flex: 2 }}>Resume Test</Button>
           </div>
-        </div>
-      )}
+        }
+      >
+        <div style={{
+          width: '64px', height: '64px', borderRadius: '50%',
+          background: 'var(--color-slate-100)', display: 'flex',
+          alignItems: 'center', justifyContent: 'center',
+          margin: '0 auto 1.5rem', fontSize: '28px',
+          border: '1px solid var(--color-slate-200)'
+        }}>⏸</div>
+        <p className="modal-text" style={{ textAlign: 'center' }}>
+          {isTimed ? 'Timer is frozen. ' : ''}Your progress has been saved.
+        </p>
+      </Modal>
 
       {/* Confirmation Modal */}
-      {confirmAction && (
-        <div className="overlay-backdrop">
-          <div className="modal-card">
-            {confirmAction === 'endTest' ? (
-              <>
-                <div style={{
-                  width: '48px', height: '48px', borderRadius: '50%',
-                  background: 'var(--color-error-100)', color: 'var(--color-error-600)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  margin: '0 auto 1.25rem', fontSize: '22px',
-                }}>⚠</div>
-                <h2 className="modal-title">End Test Early?</h2>
-                <p className="modal-text">
-                  Unanswered questions will be marked wrong. Your score will be calculated from what you've completed so far.
-                </p>
-                <div className="modal-actions-row">
-                  <button
-                    onClick={handleCancelAction}
-                    style={{
-                      flex: 1, padding: '12px 20px',
-                      background: 'transparent', color: 'var(--color-slate-700)',
-                      border: `1px solid var(--color-slate-300)`,
-                      borderRadius: 'var(--radius-sm)', fontSize: '0.875rem', fontWeight: '600', cursor: 'pointer',
-                      transition: 'all 0.2s ease'
-                    }}
-                  >
-                    Continue Test
-                  </button>
-                  <button
-                    onClick={handleConfirmEndTest}
-                    style={{
-                      flex: 1, padding: '12px 20px',
-                      background: 'var(--color-error-600)', color: 'var(--color-white)',
-                      border: 'none', borderRadius: 'var(--radius-sm)',
-                      fontSize: '0.875rem', fontWeight: '600', cursor: 'pointer',
-                      transition: 'all 0.2s ease'
-                    }}
-                  >
-                    End Test
-                  </button>
-                </div>
-              </>
-            ) : (
-              <>
-                <div style={{
-                  width: '48px', height: '48px', borderRadius: '50%',
-                  background: 'var(--color-info-100)', color: 'var(--color-info-600)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  margin: '0 auto 1.25rem', fontSize: '22px',
-                }}>💾</div>
-                <h2 className="modal-title">Save & Leave?</h2>
-                <p className="modal-text">
-                  Your progress will be saved. You can resume this test later from the test list.
-                </p>
-                <div className="modal-actions-row">
-                  <button
-                    onClick={handleCancelAction}
-                    style={{
-                      flex: 1, padding: '12px 20px',
-                      background: 'transparent', color: 'var(--color-slate-700)',
-                      border: `1px solid var(--color-slate-300)`,
-                      borderRadius: 'var(--radius-sm)', fontSize: '0.875rem', fontWeight: '600', cursor: 'pointer',
-                      transition: 'all 0.2s ease'
-                    }}
-                  >
-                    Continue Test
-                  </button>
-                  <button
-                    onClick={handleConfirmLeave}
-                    style={{
-                      flex: 1, padding: '12px 20px',
-                      background: 'var(--color-slate-900)', color: 'var(--color-white)',
-                      border: 'none', borderRadius: 'var(--radius-sm)',
-                      fontSize: '0.875rem', fontWeight: '600', cursor: 'pointer',
-                      transition: 'all 0.2s ease'
-                    }}
-                  >
-                    Save & Leave
-                  </button>
-                </div>
-              </>
-            )}
+      <Modal
+        isOpen={!!confirmAction}
+        onClose={handleCancelAction}
+        title={confirmAction === 'endTest' ? "End Test Early?" : "Save & Leave?"}
+        footer={
+          <div style={{ display: 'flex', width: '100%', gap: '0.75rem' }}>
+            <Button onClick={handleCancelAction} variant="secondary" style={{ flex: 1 }}>Continue Test</Button>
+            <Button 
+              onClick={confirmAction === 'endTest' ? handleConfirmEndTest : handleConfirmLeave} 
+              variant={confirmAction === 'endTest' ? "destructive" : "primary"}
+              style={{ flex: 1 }}
+            >
+              {confirmAction === 'endTest' ? "End Test" : "Save & Leave"}
+            </Button>
           </div>
-        </div>
-      )}
+        }
+      >
+        {confirmAction === 'endTest' ? (
+          <div style={{
+            width: '48px', height: '48px', borderRadius: '50%',
+            background: 'var(--color-error-100)', color: 'var(--color-error-600)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            margin: '0 auto 1.25rem', fontSize: '22px',
+          }}>⚠</div>
+        ) : (
+          <div style={{
+            width: '48px', height: '48px', borderRadius: '50%',
+            background: 'var(--color-info-100)', color: 'var(--color-info-600)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            margin: '0 auto 1.25rem', fontSize: '22px',
+          }}>💾</div>
+        )}
+        <p className="modal-text" style={{ textAlign: 'center' }}>
+          {confirmAction === 'endTest' 
+            ? "Unanswered questions will be marked wrong. Your score will be calculated from what you've completed so far."
+            : "Your progress will be saved. You can resume this test later from the test list."
+          }
+        </p>
+      </Modal>
     </div>
   );
 };

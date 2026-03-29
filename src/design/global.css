@@ -6,7 +6,7 @@
   top: -100px;
   left: 16px;
   padding: 12px 24px;
-  background: #ea580c;
+  background: var(--color-brand-primary);
   color: white;
   font-size: 14px;
   font-weight: 600;
@@ -21,7 +21,7 @@
 
 /* Focus rings for all interactive elements */
 *:focus-visible {
-  outline: 2px solid rgba(234, 88, 12, 0.6);
+  outline: 2px solid var(--color-brand-primary);
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -33,7 +33,7 @@
 
 /* Selection color */
 ::selection {
-  background: rgba(234, 88, 12, 0.15);
+  background: var(--color-brand-primary-light);
 }
 
 /* Smooth scrolling */
@@ -64,9 +64,9 @@ input[type="range"]::-webkit-slider-thumb {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: #ea580c;
+  background: var(--color-brand-primary);
   border: 3px solid white;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-md);
   cursor: pointer;
   margin-top: -8px;
 }
@@ -74,9 +74,9 @@ input[type="range"]::-moz-range-thumb {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: #ea580c;
+  background: var(--color-brand-primary);
   border: 3px solid white;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-md);
   cursor: pointer;
 }
 
@@ -101,9 +101,9 @@ input[type="range"]::-moz-range-thumb {
   transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 .card-interactive:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-md);
   transform: translateY(-2px);
-  border-color: rgba(234, 88, 12, 0.3);
+  border-color: var(--color-brand-primary-light);
 }
 
 /* Button press effect */
