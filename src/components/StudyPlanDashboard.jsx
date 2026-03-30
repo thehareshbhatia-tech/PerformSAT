@@ -51,20 +51,22 @@ const ScoreTrajectory = ({ artifact }) => {
       display: 'flex',
       gap: '8px',
       alignItems: 'center',
-      marginTop: '24px',
-      paddingTop: '16px',
-      borderTop: '1px solid #e5e7eb',
+      marginTop: '32px',
+      paddingTop: '20px',
+      borderTop: '1px solid var(--color-slate-200)',
       flexWrap: 'wrap',
+      fontFamily: 'var(--font-ui)'
     }}>
-      <span style={{ fontSize: '13px', color: '#6b7280', fontWeight: 500, marginRight: '4px' }}>Score History:</span>
+      <span style={{ fontSize: '13px', color: 'var(--color-slate-500)', fontWeight: '600', marginRight: '4px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Score History</span>
       {trajectory.map((entry, i) => (
         <span key={i} style={{
           fontSize: '13px',
-          fontWeight: 600,
-          color: i === trajectory.length - 1 ? '#4f46e5' : '#374151',
-          background: i === trajectory.length - 1 ? '#e0e7ff' : '#f3f4f6',
-          padding: '4px 10px',
-          borderRadius: '8px',
+          fontWeight: '700',
+          color: i === trajectory.length - 1 ? 'var(--color-brand-primary)' : 'var(--color-slate-700)',
+          background: i === trajectory.length - 1 ? 'var(--color-accent-light-blue)' : 'var(--color-slate-100)',
+          padding: '6px 12px',
+          borderRadius: '9999px',
+          fontVariantNumeric: 'tabular-nums'
         }}>
           {entry.scaledScore}
         </span>
@@ -100,26 +102,26 @@ const StudyPlanDashboard = ({
   // ── Empty state ──────────────────────────────────────────────────────
   if (!studyPlan || !studyPlan.weeks || studyPlan.weeks.length === 0) {
     return (
-      <div style={{ padding: `${spacing.xl} 0`, animation: 'fadeInUp 0.5s ease-out' }}>
+      <div style={{ padding: `${spacing.xl} 0`, animation: 'fadeInUp 0.5s ease-out', fontFamily: 'var(--font-ui)' }}>
         <style>{`
           @keyframes fadeInUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-          @keyframes pulseGlow { 0% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(79, 70, 229, 0); } 100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); } }
+          @keyframes pulseGlowBlue { 0% { box-shadow: 0 0 0 0 rgba(59, 82, 217, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(59, 82, 217, 0); } 100% { box-shadow: 0 0 0 0 rgba(59, 82, 217, 0); } }
         `}</style>
-        <div style={{ textAlign: 'center', padding: '50px 20px', borderRadius: radius.xl, background: `linear-gradient(to bottom, ${colors.surface.white}, ${colors.surface.offWhite})`, border: `1px solid ${colors.surface.grayDark}`, boxShadow: '0 20px 40px rgba(0,0,0,0.03)' }}>
+        <div style={{ textAlign: 'center', padding: '60px 20px', borderRadius: 'var(--radius-xl)', background: '#ffffff', border: '1px solid rgba(0,0,0,0.05)', boxShadow: 'var(--shadow-md)' }}>
           <div style={{ marginBottom: spacing.md, display: 'flex', justifyContent: 'center' }}>
-            <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: `${colors.accent.orangeLight}40`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: colors.accent.orange }}>
+            <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'var(--color-accent-light-blue)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-brand-primary)' }}>
               <ClipboardIcon size={40} />
             </div>
           </div>
-          <div style={{ fontSize: '24px', fontWeight: typography.weights.bold, color: colors.text.primary, marginBottom: '12px' }}>
+          <div style={{ fontSize: '24px', fontWeight: '800', color: 'var(--color-brand-navy)', marginBottom: '12px', letterSpacing: '-0.02em' }}>
             No Study Plan Yet
           </div>
-          <div style={{ fontSize: '15px', color: colors.text.secondary, maxWidth: '420px', margin: '0 auto', lineHeight: '1.6' }}>
+          <div style={{ fontSize: '16px', color: 'var(--color-slate-500)', maxWidth: '420px', margin: '0 auto', lineHeight: '1.6' }}>
             Complete a practice test and our AI will generate a highly personalized study plan tailored to your exact weaknesses.
           </div>
           {onStartPracticeTest && (
-            <div style={{ marginTop: '28px' }}>
-              <button onClick={onStartPracticeTest} style={{ padding: '14px 28px', fontSize: '15px', fontWeight: typography.weights.bold, color: '#fff', background: colors.accent.orange, border: 'none', borderRadius: '30px', cursor: 'pointer', animation: 'pulseGlow 2s infinite', transition: 'transform 0.2s', ':hover': { transform: 'scale(1.05)' } }}>
+            <div style={{ marginTop: '32px' }}>
+              <button onClick={onStartPracticeTest} style={{ fontFamily: 'var(--font-ui)', padding: '14px 28px', fontSize: '15px', fontWeight: '700', color: '#fff', background: 'var(--color-brand-primary)', border: 'none', borderRadius: '9999px', cursor: 'pointer', animation: 'pulseGlowBlue 2s infinite', transition: 'transform 0.2s', boxShadow: 'var(--shadow-sm)' }} onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'} onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}>
                 Take a Practice Test
               </button>
             </div>
@@ -214,22 +216,23 @@ const StudyPlanDashboard = ({
         border: `1px solid var(--color-slate-200)`,
         marginBottom: '16px',
         overflow: 'hidden',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+        boxShadow: 'var(--shadow-sm)',
       }}>
         <div style={{ padding: '20px' }}>
           {/* Header */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
             <div>
-              <div style={{ fontSize: '1.125rem', fontWeight: '700', color: 'var(--color-brand-navy)', marginBottom: '4px' }}>
+              <div style={{ fontFamily: 'var(--font-ui)', fontSize: '1.125rem', fontWeight: '800', color: 'var(--color-brand-navy)', marginBottom: '4px', letterSpacing: '-0.01em' }}>
                 <MathText>{act.title}</MathText>
               </div>
-              <div style={{ fontSize: '0.875rem', color: 'var(--color-slate-500)', marginBottom: '12px' }}>
+              <div style={{ fontFamily: 'var(--font-ui)', fontSize: '0.875rem', fontWeight: '500', color: 'var(--color-slate-500)', marginBottom: '12px' }}>
                 {meta.label}
               </div>
               <div style={{ 
-                display: 'inline-block', background: 'var(--color-brand-primary-light)', 
-                color: 'var(--color-brand-primary)', padding: '4px 12px', 
-                borderRadius: '99px', fontSize: '0.75rem', fontWeight: '600' 
+                display: 'inline-block', background: 'var(--color-accent-light-blue)', 
+                color: 'var(--color-brand-primary)', padding: '6px 12px', 
+                borderRadius: '9999px', fontFamily: 'var(--font-ui)', fontSize: '0.75rem', fontWeight: '700',
+                letterSpacing: '0.02em', textTransform: 'uppercase'
               }}>
                 {act.type === 'test' ? 'High Priority' : 'Medium Priority'}
               </div>
@@ -238,25 +241,25 @@ const StudyPlanDashboard = ({
             <button
               onClick={(e) => handleToggle(e, weekIdx, actIdx, done)}
               style={{
-                width: '24px', height: '24px', borderRadius: '6px',
+                width: '28px', height: '28px', borderRadius: '8px',
                 border: done ? 'none' : `2px solid var(--color-slate-300)`,
-                background: done ? 'var(--color-success-600)' : '#fff',
+                background: done ? 'var(--color-success-500)' : '#fff',
                 color: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center',
-                justifyContent: 'center', padding: 0
+                justifyContent: 'center', padding: 0, transition: 'all 0.2s'
               }}
             >
-              {done && <CheckIcon size={14} color="#fff" />}
+              {done && <CheckIcon size={16} color="#fff" />}
             </button>
           </div>
 
           {/* Progress / Info */}
           {!done && isNavigable && (
             <div style={{ marginBottom: '20px' }}>
-              <div style={{ fontSize: '0.875rem', color: 'var(--color-slate-600)', marginBottom: '8px' }}>
+              <div style={{ fontFamily: 'var(--font-ui)', fontSize: '0.875rem', fontWeight: '600', color: 'var(--color-slate-500)', marginBottom: '8px' }}>
                 0 of 10 Questions Completed
               </div>
-              <div style={{ height: '8px', background: 'var(--color-slate-100)', borderRadius: '4px', overflow: 'hidden' }}>
-                <div style={{ width: '15%', height: '100%', background: 'var(--color-brand-primary)' }}></div>
+              <div style={{ height: '8px', background: 'var(--color-slate-100)', borderRadius: '9999px', overflow: 'hidden' }}>
+                <div style={{ width: '15%', height: '100%', background: 'var(--color-brand-primary)', borderRadius: '9999px' }}></div>
               </div>
             </div>
           )}
@@ -268,11 +271,11 @@ const StudyPlanDashboard = ({
               style={{
                 width: '100%', padding: '14px', borderRadius: '12px', border: 'none',
                 background: 'var(--color-brand-primary)', color: '#fff',
-                fontSize: '1rem', fontWeight: '600', cursor: 'pointer',
-                transition: 'background 0.2s',
+                fontFamily: 'var(--font-ui)', fontSize: '1rem', fontWeight: '700', cursor: 'pointer',
+                transition: 'all 0.2s ease', boxShadow: 'var(--shadow-sm)'
               }}
-              onMouseOver={(e) => e.target.style.background = 'var(--color-brand-primary-hover)'}
-              onMouseOut={(e) => e.target.style.background = 'var(--color-brand-primary)'}
+              onMouseOver={(e) => { e.target.style.background = 'var(--color-brand-primary-hover)'; e.target.style.transform = 'translateY(-1px)'; }}
+              onMouseOut={(e) => { e.target.style.background = 'var(--color-brand-primary)'; e.target.style.transform = 'none'; }}
             >
               Practice {act.title.replace(/Practice/i, '').trim() || meta.label}
             </button>
@@ -283,10 +286,10 @@ const StudyPlanDashboard = ({
             <div style={{ marginTop: '12px' }}>
               {tips.map((tip, i) => (
                 <div key={i} style={{
-                  fontSize: '0.875rem', color: 'var(--color-slate-600)', lineHeight: '1.5',
-                  paddingLeft: '12px', borderLeft: `2px solid ${meta.fg}`,
+                  fontFamily: 'var(--font-ui)', fontSize: '0.875rem', color: 'var(--color-slate-700)', lineHeight: '1.6',
+                  paddingLeft: '12px', borderLeft: `3px solid ${meta.fg}`,
                   marginBottom: i < tips.length - 1 ? '8px' : 0,
-                  background: `${meta.fg}10`, padding: '12px', borderRadius: '0 8px 8px 0'
+                  background: `${meta.fg}10`, padding: '12px 16px', borderRadius: '0 8px 8px 0'
                 }}>
                   <MathText>{tip}</MathText>
                 </div>
@@ -298,16 +301,18 @@ const StudyPlanDashboard = ({
         {/* Completed Footer */}
         {done && (
           <div style={{
-            background: 'var(--color-brand-neon)',
-            color: 'var(--color-accent-dark-green)',
+            background: 'var(--color-success-50)',
+            color: 'var(--color-success-700)',
             padding: '16px',
             textAlign: 'center',
+            fontFamily: 'var(--font-ui)',
             fontSize: '1rem',
-            fontWeight: '600',
+            fontWeight: '700',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '8px'
+            gap: '8px',
+            borderTop: '1px solid var(--color-success-100)'
           }}>
             Complete <CheckIcon size={16} color="currentColor" />
           </div>
@@ -500,34 +505,34 @@ const StudyPlanDashboard = ({
       {/* ────────────────────────────────────────────────────────────────
           1. PROGRESS
       ──────────────────────────────────────────────────────────────── */}
-      <div className="study-plan-section" style={{
-        background: `linear-gradient(135deg, ${colors.surface.dark} 0%, #0f172a 100%)`, 
-        color: '#fff', 
-        borderRadius: radius.xl,
-        padding: '28px',
+      <div className="study-plan-section acely-projected-card" style={{
+        background: '#ffffff', 
+        borderRadius: 'var(--radius-xl)',
+        padding: '32px',
         position: 'relative',
         overflow: 'hidden',
-        boxShadow: '0 12px 30px rgba(15, 23, 42, 0.25)'
+        border: '1px solid rgba(0,0,0,0.05)',
+        boxShadow: 'var(--shadow-md)'
       }}>
-        {/* Decorative orb */}
+        {/* Decorative background radial (subtle blue) */}
         <div style={{
-          position: 'absolute', top: '-50px', right: '-20px', width: '200px', height: '200px',
-          background: 'radial-gradient(circle, rgba(79, 70, 229, 0.3) 0%, rgba(79, 70, 229, 0) 70%)',
-          borderRadius: '50%', opacity: 0.8, animation: 'pulseSoft 4s infinite ease-in-out'
+          position: 'absolute', top: '-50px', right: '-20px', width: '250px', height: '250px',
+          background: 'radial-gradient(circle, rgba(59, 82, 217, 0.08) 0%, rgba(59, 82, 217, 0) 70%)',
+          borderRadius: '50%', opacity: 1
         }} />
 
-        <div style={{ position: 'relative', zIndex: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '20px' }}>
+        <div style={{ position: 'relative', zIndex: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '24px' }}>
           <div>
-            <div style={{ fontSize: '13px', color: colors.accent.orangeLight, textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: typography.weights.bold, marginBottom: '6px' }}>
+            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--color-brand-primary)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: '800', marginBottom: '8px' }}>
               Current Objective
             </div>
-            <div style={{ fontSize: '24px', fontWeight: typography.weights.bold, lineHeight: 1.2 }}>
+            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '28px', fontWeight: '800', color: 'var(--color-brand-navy)', lineHeight: 1.2, letterSpacing: '-0.02em' }}>
               {summary?.headline || 'Your Study Plan'}
               {studyPlan.deltaFromPrevious && (
                 <span style={{
-                  padding: '2px 8px', borderRadius: '6px', fontSize: '10px', fontWeight: '700',
-                  background: 'rgba(34,197,94,0.2)', color: '#4ade80',
-                  marginLeft: '10px', verticalAlign: 'middle',
+                  padding: '4px 10px', borderRadius: '6px', fontSize: '11px', fontWeight: '700',
+                  background: 'var(--color-accent-light-blue)', color: 'var(--color-brand-primary)',
+                  marginLeft: '12px', verticalAlign: 'middle', textTransform: 'uppercase', letterSpacing: '0.04em'
                 }}>
                   Updated
                 </span>
@@ -535,38 +540,39 @@ const StudyPlanDashboard = ({
             </div>
           </div>
           <div style={{ textAlign: 'right' }}>
-            <div style={{ fontSize: '32px', fontWeight: typography.weights.heavy, color: colors.accent.orange, lineHeight: 1 }}>
+            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '36px', fontWeight: '800', color: 'var(--color-brand-primary)', lineHeight: 1, fontVariantNumeric: 'tabular-nums' }}>
               {progressPercent}%
             </div>
-            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.7)', fontWeight: typography.weights.medium, marginTop: '6px' }}>
+            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--color-slate-500)', fontWeight: '600', marginTop: '8px' }}>
               {completedActivities} of {totalActivities} tasks
             </div>
           </div>
         </div>
-        <div style={{ height: '8px', background: 'rgba(255,255,255,0.1)', borderRadius: '4px', overflow: 'hidden', position: 'relative' }}>
+        <div style={{ height: '8px', background: 'rgba(59, 82, 217, 0.1)', borderRadius: '9999px', overflow: 'hidden', position: 'relative' }}>
           <div style={{ 
             position: 'absolute', top: 0, left: 0, height: '100%', width: `${progressPercent}%`, 
-            borderRadius: '4px', background: `linear-gradient(90deg, ${colors.accent.orange}, #c7d2fe)`, 
-            transition: 'width 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-            boxShadow: '0 0 10px rgba(79, 70, 229, 0.5)'
+            borderRadius: '9999px', background: 'var(--color-brand-primary)', 
+            transition: 'width 1s cubic-bezier(0.16, 1, 0.3, 1)',
           }} />
         </div>
+        
         {/* What changed since your last test */}
         {studyPlan.deltaFromPrevious && (
           <div style={{
-            marginTop: '14px',
-            padding: '10px 14px',
-            borderRadius: '10px',
-            background: 'rgba(255,255,255,0.08)',
-            borderLeft: '3px solid rgba(255,255,255,0.25)',
+            marginTop: '20px',
+            padding: '12px 16px',
+            borderRadius: '12px',
+            background: 'var(--color-slate-50)',
+            border: '1px solid var(--color-slate-200)',
+            borderLeft: '3px solid var(--color-brand-primary)',
           }}>
             <div style={{
-              fontSize: '10px', fontWeight: '700', color: 'rgba(255,255,255,0.45)',
-              textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px',
+              fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '800', color: 'var(--color-slate-500)',
+              textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '6px',
             }}>
               Updated since your last test
             </div>
-            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.8)', lineHeight: '1.5' }}>
+            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--color-slate-700)', lineHeight: '1.5' }}>
               {studyPlan.deltaFromPrevious}
             </div>
           </div>
@@ -575,19 +581,20 @@ const StudyPlanDashboard = ({
         {/* Persistent weakness callout */}
         {studyPlan.persistentWeaknessStrategy && (
           <div style={{
-            marginTop: '10px',
-            padding: '10px 14px',
-            borderRadius: '10px',
-            background: 'rgba(220,38,38,0.15)',
-            borderLeft: '3px solid rgba(220,38,38,0.5)',
+            marginTop: '12px',
+            padding: '12px 16px',
+            borderRadius: '12px',
+            background: 'var(--color-error-50)',
+            border: '1px solid var(--color-error-200)',
+            borderLeft: '3px solid var(--color-error-500)',
           }}>
             <div style={{
-              fontSize: '10px', fontWeight: '700', color: 'rgba(252,165,165,0.9)',
-              textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px',
+              fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '800', color: 'var(--color-error-700)',
+              textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '6px',
             }}>
               Stuck skill — different approach needed
             </div>
-            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.8)', lineHeight: '1.5' }}>
+            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--color-error-900)', lineHeight: '1.5' }}>
               {studyPlan.persistentWeaknessStrategy}
             </div>
           </div>
@@ -599,39 +606,43 @@ const StudyPlanDashboard = ({
       ──────────────────────────────────────────────────────────────── */}
       {skillPracticeRows.length > 0 && (
         <div className="study-plan-section">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: summary?.diagnosis ? '8px' : '16px' }}>
-            <div style={{ width: '4px', height: '18px', background: colors.accent.orange, borderRadius: '2px' }} />
-            <h3 style={{ fontSize: '15px', fontWeight: typography.weights.bold, color: colors.text.primary, margin: 0, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: summary?.diagnosis ? '12px' : '20px' }}>
+            <h3 style={{ fontFamily: 'var(--font-ui)', fontSize: '1.25rem', fontWeight: '800', color: 'var(--color-brand-navy)', margin: 0, letterSpacing: '-0.01em' }}>
               Focus Areas
             </h3>
           </div>
           {/* AI diagnosis narrative — explains WHY these are the focus areas */}
           {summary?.diagnosis && (
             <div style={{
-              fontSize: '13px', color: colors.text.secondary, lineHeight: '1.55',
-              marginBottom: '14px', padding: '0 2px',
+              fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--color-slate-600)', lineHeight: '1.6',
+              marginBottom: '20px', padding: '0 4px', maxWidth: '800px'
             }}>
               {summary.diagnosis}
             </div>
           )}
           <div style={{
-            display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))', gap: '12px'
+            display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))', gap: '16px'
           }}>
             {skillPracticeRows.map((w, i) => (
               <div key={w.skillId || i} className="skill-card" style={{
-                display: 'flex', alignItems: 'center', gap: '12px',
-                padding: '14px 16px', borderRadius: radius.lg,
-                background: colors.surface.white,
-                boxShadow: shadows.sm,
-              }}>
+                display: 'flex', alignItems: 'center', gap: '16px',
+                padding: '16px 20px', borderRadius: '16px',
+                background: '#ffffff',
+                border: '1px solid rgba(0,0,0,0.05)',
+                boxShadow: 'var(--shadow-sm)',
+                transition: 'all 0.2s ease'
+              }}
+              onMouseOver={e => { e.currentTarget.style.borderColor = 'var(--color-brand-primary)'; e.currentTarget.style.boxShadow = 'var(--shadow-md)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+              onMouseOut={e => { e.currentTarget.style.borderColor = 'rgba(0,0,0,0.05)'; e.currentTarget.style.boxShadow = 'var(--shadow-sm)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+              >
                 {/* Accuracy indicator */}
                 <div style={{
-                  width: '40px', height: '40px', borderRadius: '50%', flexShrink: 0,
-                  background: w.accuracy < 30 ? colors.semantic.errorLight : colors.semantic.warningLight,
-                  color: w.accuracy < 30 ? colors.semantic.error : colors.semantic.warning,
+                  padding: '6px 12px', borderRadius: '9999px', flexShrink: 0,
+                  background: w.accuracy < 30 ? 'var(--color-error-50)' : 'var(--color-warning-50)',
+                  color: w.accuracy < 30 ? 'var(--color-error-700)' : 'var(--color-warning-700)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: '12px', fontWeight: typography.weights.bold,
-                  boxShadow: `0 0 0 2px ${w.accuracy < 30 ? colors.semantic.errorLight : colors.semantic.warningLight}50 inset`
+                  fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '800',
+                  border: `1px solid ${w.accuracy < 30 ? 'var(--color-error-200)' : 'var(--color-warning-200)'}`
                 }}>
                   {w.accuracy}%
                 </div>
@@ -639,21 +650,21 @@ const StudyPlanDashboard = ({
                 {/* Skill name + error type from AI diagnosis */}
                 <div style={{ flex: 1, overflow: 'hidden' }}>
                   <div style={{
-                    fontSize: '14px', fontWeight: typography.weights.semibold,
-                    color: colors.text.primary, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+                    fontFamily: 'var(--font-ui)', fontSize: '15px', fontWeight: '700',
+                    color: 'var(--color-brand-navy)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
                   }}>
                     {w.skill}
                   </div>
                   {w.errorType && (
                     <div style={{
-                      fontSize: '11px', fontWeight: typography.weights.semibold,
-                      color: w.accuracy < 30 ? colors.semantic.error : colors.semantic.warning,
-                      marginTop: '2px',
+                      fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '600',
+                      color: w.accuracy < 30 ? 'var(--color-error-600)' : 'var(--color-warning-600)',
+                      marginTop: '4px',
                     }}>
                       {w.errorType}
                     </div>
                   )}
-                  <div style={{ fontSize: '11px', color: colors.text.tertiary, marginTop: '2px' }}>
+                  <div style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--color-slate-500)', marginTop: '4px' }}>
                     {w.qCount} questions {w.domain ? `\u00B7 ${w.domain}` : ''}
                   </div>
                 </div>
@@ -663,13 +674,15 @@ const StudyPlanDashboard = ({
                   className="practice-btn"
                   onClick={() => onStartPractice(null, null, { questionIds: w.qIds, source: 'study-plan-assigned', label: `${w.skill} Practice` })}
                   style={{
-                    padding: '8px 14px', borderRadius: '20px', border: `1.5px solid ${colors.accent.orangeLight}`,
-                    background: '#fff', color: colors.accent.orange,
-                    fontSize: '12px', fontWeight: typography.weights.bold, cursor: 'pointer', flexShrink: 0,
-                    display: 'flex', alignItems: 'center', gap: '6px'
+                    padding: '8px 16px', borderRadius: '9999px', border: 'none',
+                    background: 'var(--color-brand-primary)', color: '#fff',
+                    fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '700', cursor: 'pointer', flexShrink: 0,
+                    display: 'flex', alignItems: 'center', gap: '6px', boxShadow: 'var(--shadow-sm)', transition: 'background 0.2s'
                   }}
+                  onMouseOver={e => e.currentTarget.style.background = 'var(--color-brand-primary-hover)'}
+                  onMouseOut={e => e.currentTarget.style.background = 'var(--color-brand-primary)'}
                 >
-                  <PencilIcon size={12} /> Practice
+                  <PencilIcon size={14} /> Practice
                 </button>
               </div>
             ))}
@@ -681,46 +694,46 @@ const StudyPlanDashboard = ({
           3. WEEKLY PLAN — visually distinct cards
       ──────────────────────────────────────────────────────────────── */}
       <div className="study-plan-section">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px', marginTop: '8px' }}>
-          <div style={{ width: '4px', height: '18px', background: colors.accent.orange, borderRadius: '2px' }} />
-          <h3 style={{ fontSize: '15px', fontWeight: typography.weights.bold, color: colors.text.primary, margin: 0, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px', marginTop: '8px' }}>
+          <h3 style={{ fontFamily: 'var(--font-ui)', fontSize: '1.25rem', fontWeight: '800', color: 'var(--color-brand-navy)', margin: 0, letterSpacing: '-0.01em' }}>
             Action Plan
           </h3>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           {/* Current week */}
           <div style={{
-            borderRadius: radius.xl,
-            background: colors.surface.white,
-            boxShadow: '0 8px 30px rgba(0,0,0,0.08)',
-            position: 'relative', overflow: 'hidden'
+            borderRadius: 'var(--radius-xl)',
+            background: '#ffffff',
+            boxShadow: 'var(--shadow-md)',
+            position: 'relative', overflow: 'hidden',
+            border: '1px solid rgba(0,0,0,0.05)'
           }}>
-            <div style={{ position: 'absolute', top: 0, left: 0, width: '6px', height: '100%', background: colors.accent.orange }} />
+            <div style={{ position: 'absolute', top: 0, left: 0, width: '6px', height: '100%', background: 'var(--color-brand-primary)' }} />
             <div style={{
-              padding: '16px 24px', background: `linear-gradient(to right, ${colors.accent.orangeLight}40, transparent)`,
+              padding: '20px 24px', background: 'linear-gradient(to right, rgba(59, 82, 217, 0.08), transparent)',
               display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-              borderBottom: `1px solid ${colors.surface.grayDark}`
+              borderBottom: '1px solid rgba(0,0,0,0.05)'
             }}>
               <div>
-                <span style={{ fontSize: '11px', fontWeight: typography.weights.bold, color: colors.accent.orange, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '800', color: 'var(--color-brand-primary)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                   Current Task List
                 </span>
-                <div style={{ fontSize: '18px', fontWeight: typography.weights.bold, color: colors.text.primary, marginTop: '2px' }}>
+                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '20px', fontWeight: '800', color: 'var(--color-brand-navy)', marginTop: '4px', letterSpacing: '-0.01em' }}>
                   Week {displayCurrentWeek + 1}{currentWeek?.title ? ` — ${currentWeek.title}` : ''}
                 </div>
               </div>
-              <div style={{ background: colors.surface.white, padding: '6px 14px', borderRadius: '20px', fontSize: '13px', fontWeight: typography.weights.bold, color: colors.accent.orange, boxShadow: shadows.md }}>
+              <div style={{ background: '#ffffff', padding: '8px 16px', borderRadius: '9999px', fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '800', color: 'var(--color-brand-primary)', boxShadow: 'var(--shadow-sm)', fontVariantNumeric: 'tabular-nums' }}>
                 {currentDone} / {currentTotal}
               </div>
             </div>
-            <div style={{ padding: '20px', background: colors.surface.white }}>
+            <div style={{ padding: '24px', background: '#ffffff' }}>
               {renderWeekActivities(currentWeek, displayCurrentWeek)}
             </div>
           </div>
 
           {/* Other weeks — collapsed sleek cards */}
           {otherWeeks.length > 0 && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {otherWeeks.map(week => {
                 const realIdx = weeks.indexOf(week);
                 const isOpen = expandedWeek === realIdx;
@@ -731,10 +744,10 @@ const StudyPlanDashboard = ({
 
                 return (
                   <div key={realIdx} style={{
-                    borderRadius: radius.lg, border: `1px solid ${isComplete ? colors.semantic.successLight : colors.surface.grayDark}`,
-                    background: isComplete ? `${colors.semantic.successLight}30` : colors.surface.white,
+                    borderRadius: '16px', border: `1px solid ${isComplete ? 'var(--color-success-200)' : 'rgba(0,0,0,0.06)'}`,
+                    background: isComplete ? 'var(--color-success-50)' : '#ffffff',
                     overflow: 'hidden', transition: 'all 0.3s ease',
-                    boxShadow: isOpen ? shadows.md : shadows.none
+                    boxShadow: isOpen ? 'var(--shadow-md)' : 'var(--shadow-sm)'
                   }}>
                     <button
                       onClick={() => setExpandedWeek(isOpen ? null : realIdx)}
@@ -745,36 +758,37 @@ const StudyPlanDashboard = ({
                         display: 'flex', justifyContent: 'space-between', alignItems: 'center', textAlign: 'left',
                       }}
                     >
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                         <div style={{
-                          width: '28px', height: '28px', borderRadius: '50%',
-                          background: isComplete ? colors.semantic.success : colors.surface.grayMedium,
-                          color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                          width: '32px', height: '32px', borderRadius: '50%',
+                          background: isComplete ? 'var(--color-success-500)' : 'var(--color-slate-100)',
+                          color: isComplete ? '#fff' : 'var(--color-slate-500)', display: 'flex', alignItems: 'center', justifyContent: 'center',
                           boxShadow: isComplete ? '0 2px 8px rgba(34, 197, 94, 0.4)' : 'none'
                         }}>
-                          {isComplete ? <CheckIcon size={14} color="#fff" /> : <span style={{ fontSize: '11px', fontWeight: 'bold' }}>{realIdx + 1}</span>}
+                          {isComplete ? <CheckIcon size={16} color="#fff" /> : <span style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '800' }}>{realIdx + 1}</span>}
                         </div>
-                        <span style={{ fontSize: '15px', fontWeight: typography.weights.semibold, color: isComplete ? colors.text.secondary : colors.text.primary }}>
+                        <span style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', fontWeight: '700', color: isComplete ? 'var(--color-slate-500)' : 'var(--color-brand-navy)' }}>
                           Week {week.weekNumber}{week.title ? ` — ${week.title}` : ''}
                         </span>
                       </div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                        <span style={{ fontSize: '13px', fontWeight: typography.weights.medium, color: colors.text.secondary }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                        <span style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '600', color: 'var(--color-slate-500)', fontVariantNumeric: 'tabular-nums' }}>
                           {done} / {total}
                         </span>
                         <div style={{ 
                           display: 'flex', alignItems: 'center', justifyContent: 'center',
-                          width: '28px', height: '28px', borderRadius: '50%', background: colors.surface.gray,
+                          width: '32px', height: '32px', borderRadius: '50%', background: 'var(--color-slate-50)',
+                          border: '1px solid var(--color-slate-200)',
                           transition: 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)', 
                           transform: isOpen ? 'rotate(180deg)' : 'none' 
                         }}>
-                          <ChevronDownIcon size={16} color={colors.text.secondary} />
+                          <ChevronDownIcon size={16} color="var(--color-slate-500)" />
                         </div>
                       </div>
                     </button>
                     {isOpen && (
                       <div style={{ padding: '0 20px 20px', animation: 'fadeInUp 0.4s ease forwards' }}>
-                        <div style={{ height: '1px', background: colors.surface.grayDark, marginBottom: '16px' }} />
+                        <div style={{ height: '1px', background: 'rgba(0,0,0,0.05)', marginBottom: '16px' }} />
                         {renderWeekActivities(week, realIdx)}
                       </div>
                     )}
