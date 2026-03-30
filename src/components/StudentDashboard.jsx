@@ -44,35 +44,6 @@ const MODULES = [
 
 const TOTAL_LESSONS = 199;
 
-const DonutChart = ({ percent, size = 120, strokeWidth = 10, color = 'var(--color-success-600)' }) => {
-  const radius = (size - strokeWidth) / 2;
-  const circumference = 2 * Math.PI * radius;
-  const offset = circumference - (percent / 100) * circumference;
-
-  return (
-    <svg width={size} height={size} role="progressbar" aria-valuenow={percent} aria-valuemin={0} aria-valuemax={100} style={{ transform: 'rotate(-90deg)' }}>
-      <circle
-        cx={size / 2}
-        cy={size / 2}
-        r={radius}
-        fill="none"
-        stroke="var(--color-slate-200)"
-        strokeWidth={strokeWidth}
-      />
-      <circle
-        cx={size / 2}
-        cy={size / 2}
-        r={radius}
-        fill="none"
-        stroke={color}
-        strokeWidth={strokeWidth}
-        strokeDasharray={circumference}
-        strokeDashoffset={offset}
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-};
 
 const StudentDashboard = ({
   user,
@@ -134,24 +105,24 @@ const StudentDashboard = ({
   }));
 
   const practiceEntries = Object.entries(practiceProgress || {});
-  const totalPracticed = practiceEntries.length;
   const totalCorrect = practiceEntries.reduce((sum, [_, p]) => sum + (p.bestScore || 0), 0);
-  const totalQuestions = totalPracticed * 5;
+  const totalQuestions = practiceEntries.reduce((sum, [_, p]) => sum + (p.totalQuestions || 5), 0);
   const practicePercent = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
 
-  const calculateProjectedScore = () => {
+  const { projectedScore, projectedTestsCount, scoreHistory } = useMemo(() => {
     if (!practiceTestResults || Object.keys(practiceTestResults).length === 0) {
-      return { score: null, testsCount: 0 };
+      return { projectedScore: null, projectedTestsCount: 0, scoreHistory: [] };
     }
     const tests = Object.values(practiceTestResults)
       .filter(t => t.bestScaledScore)
       .sort((a, b) => {
         const dateA = a.lastAttemptAt?.toDate?.() || new Date(a.lastAttemptAt);
         const dateB = b.lastAttemptAt?.toDate?.() || new Date(b.lastAttemptAt);
-        return dateB - dateA;
+        return dateA - dateB;
       });
-    if (tests.length === 0) return { score: null, testsCount: 0 };
-    const recentTests = tests.slice(0, 3);
+    if (tests.length === 0) return { projectedScore: null, projectedTestsCount: 0, scoreHistory: [] };
+    const history = tests.map(t => t.bestScaledScore);
+    const recentTests = tests.slice(-3).reverse();
     const weights = [0.5, 0.3, 0.2];
     let totalWeight = 0;
     let weightedSum = 0;
@@ -161,12 +132,11 @@ const StudentDashboard = ({
       totalWeight += weight;
     });
     return {
-      score: Math.round(weightedSum / totalWeight),
-      testsCount: tests.length
+      projectedScore: Math.round(weightedSum / totalWeight),
+      projectedTestsCount: tests.length,
+      scoreHistory: history
     };
-  };
-
-  const { score: projectedScore, testsCount: projectedTestsCount } = calculateProjectedScore();
+  }, [practiceTestResults]);
 
   const startedModules = moduleProgress.filter(m => m.completed > 0);
   const strongest = startedModules.length > 0
@@ -240,14 +210,6 @@ const StudentDashboard = ({
 
   useEffect(() => { injectAnimations(); }, []);
 
-  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
-  useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-  const isMobile = windowWidth < 768;
-
   const getGreeting = () => {
     const hour = new Date().getHours();
     if (hour < 12) return 'Good morning';
@@ -257,33 +219,32 @@ const StudentDashboard = ({
 
   const animatedScore = useCountUp(projectedScore || user?.currentScore || 0, 800, 300);
 
-  const ScoreRing = ({ score, target, size = 120 }) => {
-    const strokeWidth = 10;
-    const r = (size - strokeWidth) / 2;
-    const circumference = 2 * Math.PI * r;
-    const progress = target ? Math.min((score || 0) / target, 1) : 0;
-    const offset = circumference - progress * circumference;
+  const dismissedDelta = useMemo(() => {
+    try { return studyPlanMeta?.artifactId ? localStorage.getItem(`dismissedDelta:${studyPlanMeta.artifactId}`) : null; }
+    catch { return null; }
+  }, [studyPlanMeta?.artifactId]);
 
-    return (
-      <svg width={size} height={size} role="progressbar" style={{ transform: 'rotate(-90deg)' }}>
-        <circle cx={size/2} cy={size/2} r={r} fill="none" stroke="var(--color-slate-100)" strokeWidth={strokeWidth} />
-        <circle
-          cx={size/2} cy={size/2} r={r} fill="none"
-          stroke="url(#brand-gradient)"
-          strokeWidth={strokeWidth}
-          strokeDasharray={circumference}
-          strokeDashoffset={offset}
-          strokeLinecap="round"
-          style={{ transition: 'stroke-dashoffset 1s cubic-bezier(0.25, 0.1, 0.25, 1)' }}
-        />
-        <defs>
-          <linearGradient id="brand-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style={{ stopColor: 'var(--color-brand-orange-400)' }} />
-            <stop offset="100%" style={{ stopColor: 'var(--color-brand-orange-600)' }} />
-          </linearGradient>
-        </defs>
-      </svg>
-    );
+  const buildScorePath = () => {
+    if (!scoreHistory || scoreHistory.length === 0) {
+      return "M 20 100 Q 60 90, 100 60 T 180 50 T 260 20 L 300 10";
+    }
+    const minScore = Math.min(...scoreHistory) - 20;
+    const maxScore = Math.max(...scoreHistory) + 20;
+    const range = maxScore - minScore || 1;
+    const points = scoreHistory.map((s, i) => {
+      const x = 20 + (i / Math.max(scoreHistory.length - 1, 1)) * 280;
+      const y = 110 - ((s - minScore) / range) * 100;
+      return { x, y };
+    });
+    if (points.length === 1) {
+      return `M ${points[0].x} ${points[0].y} L ${points[0].x + 1} ${points[0].y}`;
+    }
+    let path = `M ${points[0].x} ${points[0].y}`;
+    for (let i = 1; i < points.length; i++) {
+      const cpx = (points[i - 1].x + points[i].x) / 2;
+      path += ` C ${cpx} ${points[i - 1].y}, ${cpx} ${points[i].y}, ${points[i].x} ${points[i].y}`;
+    }
+    return path;
   };
 
   return (
@@ -291,7 +252,7 @@ const StudentDashboard = ({
       {/* Greeting */}
       <div className="dashboard-header-row">
         <h1 className="dashboard-greeting">
-          SAT Dashboard
+          {getGreeting()}{user?.displayName ? `, ${user.displayName.split(' ')[0]}` : ''}
         </h1>
         <p className="dashboard-subtitle">
           Study with your personalized AI learning plan and get instant hints, explanations, and more with our AI Tutor.
@@ -308,8 +269,7 @@ const StudentDashboard = ({
             onClick={() => setActiveTab('studyPlan')}
           >
             Study Plan
-            {studyPlanArtifact?.delta?.skillChanges?.length > 0 &&
-              !localStorage.getItem(`dismissedDelta:${studyPlanMeta?.artifactId}`) && (
+            {studyPlanArtifact?.delta?.skillChanges?.length > 0 && !dismissedDelta && (
               <span className="tab-badge">Updated</span>
             )}
           </button>
@@ -345,55 +305,65 @@ const StudentDashboard = ({
         </div>
       ) : (
       <>
-      {/* Performance Panel (Acely AI Redesign) */}
+      {/* Performance Panel */}
       <div className="acely-performance-grid">
         <div className="acely-metric-card acely-accuracy-card">
-          <div className="acely-metric-label">Today's Accuracy:</div>
+          <div className="acely-metric-label">Practice Accuracy</div>
           <div className="acely-metric-value">{practicePercent || 0}%</div>
-          <div className="acely-metric-lines">
-            <div className="line"></div>
-            <div className="line short"></div>
+          <div className="acely-metric-detail">
+            {totalCorrect} of {totalQuestions} questions correct
           </div>
         </div>
         <div className="acely-metric-stack">
           <div className="acely-split-card acely-strongest-card">
-            <div className="acely-split-left">{strongest ? strongest.percent + '%' : '--'}</div>
-            <div className="acely-split-right">
-              <div className="acely-metric-label">Strongest Section</div>
-              <div className="acely-metric-lines">
-                <div className="line"></div>
-                <div className="line short"></div>
+            {strongest ? (
+              <>
+                <div className="acely-split-left">{strongest.percent}%</div>
+                <div className="acely-split-right">
+                  <div className="acely-metric-label">Strongest Section</div>
+                  <div className="acely-section-name">{strongest.title}</div>
+                </div>
+              </>
+            ) : (
+              <div className="acely-split-empty">
+                <div className="acely-metric-label">Strongest Section</div>
+                <div className="acely-empty-hint">Complete a module to see your strongest area</div>
               </div>
-            </div>
+            )}
           </div>
           <div className="acely-split-card acely-weakest-card">
-            <div className="acely-split-left">{weakest ? weakest.percent + '%' : '--'}</div>
-            <div className="acely-split-right">
-              <div className="acely-metric-label">Biggest Opportunity</div>
-              <div className="acely-metric-lines">
-                <div className="line"></div>
-                <div className="line short"></div>
+            {weakest ? (
+              <>
+                <div className="acely-split-left">{weakest.percent}%</div>
+                <div className="acely-split-right">
+                  <div className="acely-metric-label">Biggest Opportunity</div>
+                  <div className="acely-section-name">{weakest.title}</div>
+                </div>
+              </>
+            ) : (
+              <div className="acely-split-empty">
+                <div className="acely-metric-label">Biggest Opportunity</div>
+                <div className="acely-empty-hint">Start two modules to compare strengths</div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
       <div className="acely-projected-card">
         <div className="acely-projected-graph">
           <svg width="100%" height="100%" viewBox="0 0 400 120" preserveAspectRatio="none">
-            <line x1="20" y1="0" x2="20" y2="120" stroke="rgba(255,255,255,0.7)" strokeWidth="2" />
-            <line x1="60" y1="0" x2="60" y2="120" stroke="rgba(255,255,255,0.7)" strokeWidth="2" />
-            <line x1="100" y1="0" x2="100" y2="120" stroke="rgba(255,255,255,0.7)" strokeWidth="2" />
-            <line x1="140" y1="0" x2="140" y2="120" stroke="rgba(255,255,255,0.7)" strokeWidth="2" />
-            <line x1="180" y1="0" x2="180" y2="120" stroke="rgba(255,255,255,0.7)" strokeWidth="2" />
-            <line x1="220" y1="0" x2="220" y2="120" stroke="rgba(255,255,255,0.7)" strokeWidth="2" />
-            <line x1="260" y1="0" x2="260" y2="120" stroke="rgba(255,255,255,0.7)" strokeWidth="2" />
-            <path d="M 20 100 Q 60 90, 100 60 T 180 50 T 260 20 L 300 10" fill="none" stroke="var(--color-brand-primary)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+            {[60, 120, 180, 240].map(x => (
+              <line key={x} x1={x} y1="0" x2={x} y2="120" stroke="rgba(0,0,0,0.06)" strokeWidth="1" />
+            ))}
+            <path d={buildScorePath()} fill="none" stroke="var(--color-brand-primary)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
         <div className="acely-projected-info">
           <div className="acely-metric-value">{animatedScore || '--'}</div>
           <div className="acely-metric-label">Projected Score</div>
+          {projectedTestsCount > 0 && (
+            <div className="acely-metric-detail">Based on {projectedTestsCount} test{projectedTestsCount !== 1 ? 's' : ''}</div>
+          )}
         </div>
       </div>
 
@@ -432,7 +402,7 @@ const StudentDashboard = ({
               <div className="ai-banner-controls">
                 <div className="accuracy-group">
                   <span className="accuracy-label">Accuracy <span style={{fontSize: '0.75rem'}}>ⓘ</span></span>
-                  <span className="accuracy-pill">83%</span>
+                  <span className="accuracy-pill">{practicePercent || 0}%</span>
                 </div>
                 <button className="btn-launch" onClick={() => handleRecommendationClick(recommendations[0])}>
                   Launch Practice
