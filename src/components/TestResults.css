@@ -5,7 +5,7 @@
   --diag-title: var(--color-slate-900);
   --diag-text: var(--color-slate-700);
   --diag-muted: var(--color-slate-500);
-  --diag-accent-primary: var(--color-brand-orange-500);
+  --diag-accent-primary: var(--color-brand-primary);
   --diag-accent-success: var(--color-success-600);
   --diag-accent-success-bg: var(--color-success-100);
   --diag-accent-warning: var(--color-warning-600);
@@ -25,20 +25,20 @@
   gap: 36px;
 }
 
-.diag-story-section {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+.diagnostic-ui > div > div {
   opacity: 1;
   transform: translateY(0);
 }
 
-.diagnostic-ui.diag-entrance .diag-story-section {
+.diagnostic-ui.diag-entrance > div > div {
   animation: diagFadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
-.diagnostic-ui.diag-entrance .diag-story-section:nth-child(1) { animation-delay: 0.1s; }
-.diagnostic-ui.diag-entrance .diag-story-section:nth-child(2) { animation-delay: 0.2s; }
-.diagnostic-ui.diag-entrance .diag-story-section:nth-child(3) { animation-delay: 0.3s; }
+
+.diagnostic-ui.diag-entrance > div > div:nth-child(1) { animation-delay: 0.1s; }
+.diagnostic-ui.diag-entrance > div > div:nth-child(2) { animation-delay: 0.2s; }
+.diagnostic-ui.diag-entrance > div > div:nth-child(3) { animation-delay: 0.3s; }
+.diagnostic-ui.diag-entrance > div > div:nth-child(4) { animation-delay: 0.4s; }
+.diagnostic-ui.diag-entrance > div > div:nth-child(5) { animation-delay: 0.5s; }
 
 @keyframes diagFadeInUp {
   0% { opacity: 0; transform: translateY(16px); }
@@ -46,53 +46,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .diag-story-section {
+  .diagnostic-ui > div > div {
     animation: none;
     opacity: 1;
     transform: none;
   }
-  .diag-primary-insight-card,
-  .diag-supporting-evidence-card,
-  .diag-stat-card {
-    transition: none;
-  }
-}
-
-.diag-story-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 0 8px;
-  margin-bottom: 20px;
-}
-
-.diag-story-number {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  font-weight: 700;
-  flex-shrink: 0;
-  box-shadow: 0 2px 6px rgba(251, 146, 60, 0.3);
-}
-
-.diag-story-title {
-  font-family: var(--font-ui);
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--color-slate-700, #334155);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.diag-story-line {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, var(--diag-border) 0%, transparent 100%);
 }
 
 .diag-card-base {
@@ -559,3 +517,240 @@
     gap: 8px;
   }
 }
+
+/* ==========================================================================
+   ACELY DASHBOARD STYLES (Migrated)
+   ========================================================================== */
+
+/* Acely Performance Grid */
+.acely-performance-grid {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .acely-performance-grid {
+    flex-direction: row;
+  }
+}
+
+.acely-accuracy-card {
+  background-color: var(--color-brand-primary);
+  color: white;
+  border-radius: 20px;
+  padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.acely-accuracy-card .acely-metric-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-ui);
+}
+
+.acely-accuracy-card .acely-metric-value {
+  font-size: 4.5rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-family: var(--font-ui);
+}
+
+.acely-accuracy-card .acely-metric-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 1.5rem;
+}
+
+.acely-accuracy-card .acely-metric-lines .line {
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  width: 60%;
+}
+.acely-accuracy-card .acely-metric-lines .line.short {
+  width: 40%;
+}
+
+.acely-metric-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1.5;
+}
+
+.acely-split-card {
+  display: flex;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 100%;
+}
+
+.acely-split-left {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: white;
+  width: 35%;
+  font-family: var(--font-ui);
+}
+
+.acely-split-right {
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  font-family: var(--font-ui);
+}
+
+.acely-split-right .acely-metric-label {
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-ui);
+}
+
+.acely-split-right .acely-metric-lines {
+  display: flex;
+  gap: 8px;
+}
+
+.acely-split-right .acely-metric-lines .line {
+  height: 6px;
+  border-radius: 4px;
+  background-color: rgba(0,0,0,0.08);
+  width: 40px;
+}
+.acely-split-right .acely-metric-lines .line.short {
+  width: 20px;
+}
+
+/* Colors for split cards */
+.acely-strongest-card .acely-split-left { background-color: var(--color-accent-dark-green); color: var(--color-brand-neon); }
+.acely-strongest-card .acely-split-right { background-color: var(--color-brand-neon); color: var(--color-accent-dark-green); }
+
+.acely-weakest-card .acely-split-left { background-color: #9C7AC9; } /* Darker purple */
+.acely-weakest-card .acely-split-right { background-color: var(--color-accent-purple); color: white; }
+.acely-weakest-card .acely-split-right .acely-metric-lines .line { background-color: rgba(255,255,255,0.3); }
+
+/* Projected Card */
+.acely-projected-card {
+  background-color: var(--color-accent-light-blue);
+  border-radius: 20px;
+  padding: 2.5rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.acely-projected-graph {
+  flex: 1;
+  height: 140px;
+  position: relative;
+  z-index: 1;
+}
+
+.acely-projected-info {
+  text-align: right;
+  z-index: 2;
+  margin-left: 2rem;
+}
+
+.acely-projected-info .acely-metric-value {
+  font-size: 4.5rem;
+  font-weight: 400;
+  color: var(--color-brand-navy);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-family: var(--font-ui);
+}
+
+.acely-projected-info .acely-metric-label {
+  font-size: 1.125rem;
+  color: var(--color-brand-navy);
+  margin-top: 0.5rem;
+  font-family: var(--font-ui);
+}
+
+/* ==========================================================================
+   DIAGNOSTIC-SPECIFIC CHART WIDGETS
+   ========================================================================== */
+
+.diag-hero-card {
+  background: radial-gradient(circle at 0% 50%, rgba(59, 82, 217, 0.08) 0%, rgba(216, 243, 251, 1) 100%), var(--color-accent-light-blue);
+}
+
+.diag-hero-graph {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 2rem;
+  opacity: 0.8;
+}
+
+.diag-metric-dial-card {
+  display: flex;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 100%;
+  background-color: var(--color-accent-dark-green);
+  align-items: center;
+  padding: 0 2rem;
+  justify-content: space-between;
+}
+
+.diag-metric-dial-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.diag-metric-dial-chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.1);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.diag-metric-bar-card {
+  display: flex;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 100%;
+  background-color: var(--color-accent-purple);
+  align-items: center;
+  padding: 0 2rem;
+  justify-content: space-between;
+}
+
+.diag-metric-bar-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
+.diag-metric-bar-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+  height: 40px;
+}
+
