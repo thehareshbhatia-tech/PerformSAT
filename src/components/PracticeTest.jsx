@@ -1403,8 +1403,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   const handleFillInSubmit = () => {
     if (fillInValue.trim()) {
       const key = `${currentModule}-${currentQuestion}`;
-      const numValue = parseFloat(fillInValue);
-      const value = isNaN(numValue) ? fillInValue : numValue;
+      const value = fillInValue.trim();
 
       const telemetry = getOrCreateTelemetry(currentModule, currentQuestion);
       const now = Date.now();
@@ -1632,16 +1631,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     let correct = 0;
     questions.forEach((q, idx) => {
       const key = `${currentModule}-${idx}`;
-      const userAnswer = answers[key];
-      if (q.type === 'fill-in') {
-        if (userAnswer === q.correctAnswer || parseFloat(userAnswer) === q.correctAnswer) {
-          correct++;
-        }
-      } else {
-        if (userAnswer === q.correctAnswer) {
-          correct++;
-        }
-      }
+      if (isAnswerCorrect(q, answers[key])) correct++;
     });
     return correct;
   };
@@ -1651,17 +1641,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     let total = 0;
     test.modules.forEach((mod, modIdx) => {
       mod.questions.forEach((q, qIdx) => {
-        const key = `${modIdx}-${qIdx}`;
-        const userAnswer = answers[key];
-        if (q.type === 'fill-in') {
-          if (userAnswer === q.correctAnswer || parseFloat(userAnswer) === q.correctAnswer) {
-            total++;
-          }
-        } else {
-          if (userAnswer === q.correctAnswer) {
-            total++;
-          }
-        }
+        if (isAnswerCorrect(q, answers[`${modIdx}-${qIdx}`])) total++;
       });
     });
     return total;
@@ -1749,9 +1729,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     const userAnswer = answers[reviewKey];
 
     // Check if answer is correct
-    const isCorrect = reviewQ?.type === 'fill-in'
-      ? userAnswer === reviewQ.correctAnswer || parseFloat(userAnswer) === reviewQ.correctAnswer
-      : userAnswer === reviewQ?.correctAnswer;
+    const isCorrect = reviewQ ? isAnswerCorrect(reviewQ, userAnswer) : false;
 
     // Build flat list of all questions for navigation
     const allQuestions = [];
@@ -1759,10 +1737,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       mod.questions.forEach((q, qIdx) => {
         const key = `${modIdx}-${qIdx}`;
         const ans = answers[key];
-        const correct = q.type === 'fill-in'
-          ? ans === q.correctAnswer || parseFloat(ans) === q.correctAnswer
-          : ans === q.correctAnswer;
-        allQuestions.push({ modIdx, qIdx, correct, answered: ans !== undefined });
+        allQuestions.push({ modIdx, qIdx, correct: isAnswerCorrect(q, ans), answered: ans !== undefined });
       });
     });
 
@@ -1832,10 +1807,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               const modQuestions = mod.questions.map((q, qIdx) => {
                 const key = `${modIdx}-${qIdx}`;
                 const ans = answers[key];
-                const correct = q.type === 'fill-in'
-                  ? ans === q.correctAnswer || parseFloat(ans) === q.correctAnswer
-                  : ans === q.correctAnswer;
-                return { correct, answered: ans !== undefined };
+                return { correct: isAnswerCorrect(q, ans), answered: ans !== undefined };
               });
               const correctCount = modQuestions.filter(q => q.answered && q.correct).length;
               const isActiveModule = modIdx === reviewModule;
@@ -1866,9 +1838,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               return currentMod.questions.map((q, qIdx) => {
                 const key = `${reviewModule}-${qIdx}`;
                 const ans = answers[key];
-                const correct = q.type === 'fill-in'
-                  ? ans === q.correctAnswer || parseFloat(ans) === q.correctAnswer
-                  : ans === q.correctAnswer;
+                const correct = isAnswerCorrect(q, ans);
                 const answered = ans !== undefined;
                 const isActive = qIdx === reviewQuestion;
                 

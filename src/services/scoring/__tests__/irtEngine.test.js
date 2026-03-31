@@ -74,7 +74,7 @@ describe('isAnswerCorrect', () => {
     expect(isAnswerCorrect(q, 'A')).toBe(false);
   });
 
-  it('handles fill-in with exact match', () => {
+  it('handles fill-in with exact match (number correctAnswer)', () => {
     const q = { type: 'fill-in', correctAnswer: 42 };
     expect(isAnswerCorrect(q, 42)).toBe(true);
   });
@@ -82,6 +82,53 @@ describe('isAnswerCorrect', () => {
   it('handles fill-in with string-to-number coercion', () => {
     const q = { type: 'fill-in', correctAnswer: 42 };
     expect(isAnswerCorrect(q, '42')).toBe(true);
+  });
+
+  // THE CORE BUG: real data uses string correctAnswers like '1', '28'
+  it('handles string correctAnswer with number userAnswer', () => {
+    const q = { type: 'fill-in', correctAnswer: '1' };
+    expect(isAnswerCorrect(q, 1)).toBe(true);
+  });
+
+  it('handles string correctAnswer with string userAnswer', () => {
+    const q = { type: 'fill-in', correctAnswer: '28' };
+    expect(isAnswerCorrect(q, '28')).toBe(true);
+  });
+
+  it('handles string correctAnswer "6" with number 6', () => {
+    const q = { type: 'fill-in', correctAnswer: '6' };
+    expect(isAnswerCorrect(q, 6)).toBe(true);
+  });
+
+  it('handles decimal string correctAnswer with numeric equivalence', () => {
+    const q = { type: 'fill-in', correctAnswer: '28.0' };
+    expect(isAnswerCorrect(q, '28')).toBe(true);
+    expect(isAnswerCorrect(q, 28)).toBe(true);
+  });
+
+  it('handles fraction correctAnswer via string match', () => {
+    const q = { type: 'fill-in', correctAnswer: '12/13', acceptedAnswers: ['12/13', 0.923, '0.923'] };
+    expect(isAnswerCorrect(q, '12/13')).toBe(true);
+  });
+
+  it('handles fraction correctAnswer via decimal acceptedAnswer', () => {
+    const q = { type: 'fill-in', correctAnswer: '12/13', acceptedAnswers: ['12/13', 0.923, '0.923'] };
+    expect(isAnswerCorrect(q, '0.923')).toBe(true);
+    expect(isAnswerCorrect(q, 0.923)).toBe(true);
+  });
+
+  it('does NOT match partial numeric parse of fractions', () => {
+    // "12/13" should NOT match "12" — Number("12/13") is NaN, not 12
+    const q = { type: 'fill-in', correctAnswer: '12/13' };
+    expect(isAnswerCorrect(q, '12')).toBe(false);
+    expect(isAnswerCorrect(q, 12)).toBe(false);
+  });
+
+  it('handles negative fraction with acceptedAnswers', () => {
+    const q = { type: 'fill-in', correctAnswer: '-3/2', acceptedAnswers: ['-3/2', -1.5, '-1.5'] };
+    expect(isAnswerCorrect(q, '-3/2')).toBe(true);
+    expect(isAnswerCorrect(q, '-1.5')).toBe(true);
+    expect(isAnswerCorrect(q, -1.5)).toBe(true);
   });
 
   it('handles fill-in with acceptedAnswers', () => {
@@ -94,6 +141,12 @@ describe('isAnswerCorrect', () => {
     expect(isAnswerCorrect(q, undefined)).toBe(false);
     expect(isAnswerCorrect(q, null)).toBe(false);
     expect(isAnswerCorrect(q, '')).toBe(false);
+  });
+
+  it('returns false for wrong fill-in answer', () => {
+    const q = { type: 'fill-in', correctAnswer: '28' };
+    expect(isAnswerCorrect(q, '29')).toBe(false);
+    expect(isAnswerCorrect(q, 'abc')).toBe(false);
   });
 });
 

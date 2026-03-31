@@ -125,17 +125,25 @@ export function isAnswerCorrect(question, userAnswer) {
     return false;
   }
   if (question.type === 'fill-in') {
-    if (userAnswer === question.correctAnswer) return true;
-    const parsed = parseFloat(userAnswer);
-    if (!isNaN(parsed) && parsed === question.correctAnswer) return true;
+    // Normalise both sides to strings so '1' vs 1 never causes a false negative
+    const ua = String(userAnswer).trim();
+    const ca = String(question.correctAnswer).trim();
+    if (ua === ca) return true;
+    // Numeric comparison — Number() (not parseFloat) so "12/13" → NaN, not 12
+    const numUser = Number(ua);
+    const numCorrect = Number(ca);
+    if (!isNaN(numUser) && !isNaN(numCorrect) && numUser === numCorrect) return true;
     if (Array.isArray(question.acceptedAnswers)) {
-      return question.acceptedAnswers.some(a =>
-        userAnswer === a || (!isNaN(parsed) && parsed === a)
-      );
+      return question.acceptedAnswers.some(a => {
+        const as = String(a).trim();
+        if (ua === as) return true;
+        const numA = Number(as);
+        return !isNaN(numUser) && !isNaN(numA) && numUser === numA;
+      });
     }
     return false;
   }
-  return userAnswer === question.correctAnswer;
+  return String(userAnswer) === String(question.correctAnswer);
 }
 
 /**
