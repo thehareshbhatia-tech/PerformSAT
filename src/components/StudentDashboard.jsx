@@ -104,7 +104,7 @@ const StudentDashboard = ({
     percent: Math.round((getModuleCompleted(m.id) / m.lessonCount) * 100)
   }));
 
-  const practiceEntries = Object.entries(practiceProgress || {});
+  const practiceEntries = Object.entries(practiceProgress || {}).filter(([_, p]) => p.bestScore !== undefined);
   const totalCorrect = practiceEntries.reduce((sum, [_, p]) => sum + (p.bestScore || 0), 0);
   const totalQuestions = practiceEntries.reduce((sum, [_, p]) => sum + (p.totalQuestions || 5), 0);
   const practicePercent = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
@@ -138,12 +138,35 @@ const StudentDashboard = ({
     };
   }, [practiceTestResults]);
 
-  const startedModules = moduleProgress.filter(m => m.completed > 0);
-  const strongest = startedModules.length > 0
-    ? startedModules.reduce((a, b) => a.percent > b.percent ? a : b)
+  // Compute per-module practice accuracy (correct / total questions attempted)
+  const moduleAccuracy = useMemo(() => {
+    const acc = {};
+    const moduleIds = MODULES.map(m => m.id);
+    Object.entries(practiceProgress || {}).forEach(([key, data]) => {
+      if (data.bestScore === undefined) return;
+      // Match key against known module IDs (handles hyphenated IDs like "linear-equations")
+      const matchedModule = moduleIds.find(id => key.startsWith(id + '-'));
+      if (!matchedModule) return;
+      if (!acc[matchedModule]) acc[matchedModule] = { correct: 0, total: 0 };
+      acc[matchedModule].correct += (data.bestScore || 0);
+      acc[matchedModule].total += (data.totalQuestions || 5);
+    });
+    return acc;
+  }, [practiceProgress]);
+
+  const practicedModules = MODULES
+    .map(m => {
+      const a = moduleAccuracy[m.id];
+      if (!a || a.total === 0) return null;
+      return { ...m, accuracy: Math.round((a.correct / a.total) * 100) };
+    })
+    .filter(Boolean);
+
+  const strongest = practicedModules.length > 0
+    ? practicedModules.reduce((a, b) => a.accuracy > b.accuracy ? a : b)
     : null;
-  const weakest = startedModules.length > 1
-    ? startedModules.reduce((a, b) => a.percent < b.percent ? a : b)
+  const weakest = practicedModules.length > 1
+    ? practicedModules.reduce((a, b) => a.accuracy < b.accuracy ? a : b)
     : null;
 
   const getDaysUntilTest = () => {
@@ -186,7 +209,7 @@ const StudentDashboard = ({
     if (rec.action.type === 'startPractice' && onStartPractice) {
       onStartPractice(rec.action.moduleId, rec.action.sectionName);
     } else if (rec.action.type === 'startReview' && onStartReview) {
-      onStartReview();
+      onStartReview(rec.action.questions);
     } else if (rec.action.type === 'startLesson' && onNavigateToModule) {
       onNavigateToModule(rec.action.moduleId);
     } else if (rec.action.type === 'browseModules') {
@@ -318,7 +341,7 @@ const StudentDashboard = ({
           <div className="acely-split-card acely-strongest-card">
             {strongest ? (
               <>
-                <div className="acely-split-left">{strongest.percent}%</div>
+                <div className="acely-split-left">{strongest.accuracy}%</div>
                 <div className="acely-split-right">
                   <div className="acely-metric-label">Strongest Section</div>
                   <div className="acely-section-name">{strongest.title}</div>
@@ -327,14 +350,14 @@ const StudentDashboard = ({
             ) : (
               <div className="acely-split-empty">
                 <div className="acely-metric-label">Strongest Section</div>
-                <div className="acely-empty-hint">Complete a module to see your strongest area</div>
+                <div className="acely-empty-hint">Practice a module to see your strongest area</div>
               </div>
             )}
           </div>
           <div className="acely-split-card acely-weakest-card">
             {weakest ? (
               <>
-                <div className="acely-split-left">{weakest.percent}%</div>
+                <div className="acely-split-left">{weakest.accuracy}%</div>
                 <div className="acely-split-right">
                   <div className="acely-metric-label">Biggest Opportunity</div>
                   <div className="acely-section-name">{weakest.title}</div>
@@ -343,7 +366,7 @@ const StudentDashboard = ({
             ) : (
               <div className="acely-split-empty">
                 <div className="acely-metric-label">Biggest Opportunity</div>
-                <div className="acely-empty-hint">Start two modules to compare strengths</div>
+                <div className="acely-empty-hint">Practice two modules to compare strengths</div>
               </div>
             )}
           </div>
@@ -411,7 +434,7 @@ const StudentDashboard = ({
             </div>
           )}
 
-          <h2 className="section-heading">Targeted Practice by Domain & Subdomain</h2>
+          <h2 className="section-heading">Review & Pacing</h2>
           <div className="dashboard-actions-grid">
             {/* DAILY REVIEW LOOP */}
             <DailyReviewCard

@@ -9200,9 +9200,35 @@ const PerformSAT = () => {
               }
               startPrescriptivePractice(moduleId, sectionName);
             }}
-            onStartReview={() => {
-              // TODO: Implement review session start
-              console.log('Start review session');
+            onStartReview={(items) => {
+              const reviewItems = items || [];
+              // Resolve review queue items to actual questions from the question bank
+              const questions = [];
+              reviewItems.forEach(item => {
+                if (!item.moduleId || !item.sectionName) return;
+                const sectionQuestions = getQuestionsForSection(item.moduleId, item.sectionName);
+                const qIndex = typeof item.questionId === 'number' ? item.questionId : parseInt(item.questionId, 10);
+                if (sectionQuestions[qIndex]) {
+                  questions.push(sectionQuestions[qIndex]);
+                }
+              });
+              if (questions.length > 0) {
+                setPracticeState({
+                  currentQuestionIndex: 0,
+                  selectedAnswer: null,
+                  showFeedback: false,
+                  showHint: false,
+                  answers: {},
+                  isComplete: false,
+                  shuffledQuestions: questions.slice(0, 15),
+                  practiceMode: 'assigned',
+                  assignmentMeta: { label: 'Review Session', source: 'review-queue' },
+                });
+                setActiveModule(null);
+                setActiveSection('__assigned__');
+                setShowCalculator(false);
+                setView('practice');
+              }
             }}
             onStartPracticeTest={() => setView('practiceTests')}
             onViewFullDiagnosis={() => setView('studyPlan')}
