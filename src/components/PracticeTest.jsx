@@ -922,7 +922,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   const moduleTimeRemaining = useRef({});
   const visitedQuestions = useRef(new Set());
   const timerSecondsRef = useRef(null);
+  const leftPaneRef = useRef(null);
+  const rightPaneRef = useRef(null);
   const currentModuleRef = useRef(currentModule);
+  const currentQuestionRef = useRef(currentQuestion);
   const diagnosticDataRef = useRef(null);
   const diagnosticReportRef = useRef(null);
   const attemptTimestampRef = useRef(null);
@@ -952,10 +955,17 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     }
   }, [currentQuestion, currentModule, question?.type]);
 
-  // Keep currentModuleRef in sync for handleTimeUp
+  // Keep refs in sync so useCallback handlers always read current values
   useEffect(() => {
     currentModuleRef.current = currentModule;
   }, [currentModule]);
+
+  useEffect(() => {
+    currentQuestionRef.current = currentQuestion;
+    // Scroll both panes to top when question changes
+    leftPaneRef.current?.scrollTo(0, 0);
+    rightPaneRef.current?.scrollTo(0, 0);
+  }, [currentQuestion]);
 
   // Helper: get or create telemetry entry for a question
   const getOrCreateTelemetry = (modIdx, qIdx) => {
@@ -1055,10 +1065,13 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   const planGenerationAttempted = useRef(false);
 
   // Save test results when test completes
+  const completionInFlight = useRef(false);
   useEffect(() => {
-    console.log('[PracticeTest] Save effect triggered:', { testCompleted, hasOnSaveResult: !!onSaveResult, resultSaved });
+    if (!testCompleted || !onSaveResult || resultSaved || completionInFlight.current) return;
+    completionInFlight.current = true;
 
-    if (testCompleted && onSaveResult && !resultSaved) {
+    // Yield to browser so the completion UI paints before heavy scoring computation
+    const completionTimer = setTimeout(() => {
       console.log('[PracticeTest] Attempting to save results...');
 
       // Record time spent on the last question before test completion
@@ -1279,7 +1292,12 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           console.error('[PracticeTest] Study plan generation CRASHED:', err);
         }
       }
-    }
+    }, 0);
+
+    return () => {
+      clearTimeout(completionTimer);
+      completionInFlight.current = false;
+    };
   }, [testCompleted, onSaveResult, onClearProgress, resultSaved, test, answers, isTimed, user, completedLessons, practiceProgress, practiceTestResults, onSaveStudyPlan]);
 
   // Post-test: generate AI diagnostic narrative automatically
@@ -1357,13 +1375,15 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     })();
   }, [resultSaved, user, test, retryAiDiagnostic]);
 
-  const handleSelectAnswer = (answerId) => {
-    const key = `${currentModule}-${currentQuestion}`;
-    const telemetry = getOrCreateTelemetry(currentModule, currentQuestion);
+  const handleSelectAnswer = useCallback((answerId) => {
+    const mod = currentModuleRef.current;
+    const q = currentQuestionRef.current;
+    const key = `${mod}-${q}`;
+    const telemetry = getOrCreateTelemetry(mod, q);
     const now = Date.now();
 
     // Track telemetry outside setState to avoid side effects in updater
-    const oldAnswer = answers[key];
+    const oldAnswer = answersRef.current[key];
     telemetry.answerChanges.push({ from: oldAnswer || null, to: answerId, timestamp: now });
     if (!telemetry.firstAnswerTime) telemetry.firstAnswerTime = now;
     telemetry.finalAnswerTime = now;
@@ -1378,7 +1398,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       // Otherwise, select the new answer
       return { ...prev, [key]: answerId };
     });
-  };
+  }, []);
 
   const handleFillInSubmit = () => {
     if (fillInValue.trim()) {
@@ -1396,20 +1416,22 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     }
   };
 
-  const handleToggleMark = () => {
-    const telemetry = getOrCreateTelemetry(currentModule, currentQuestion);
+  const handleToggleMark = useCallback(() => {
+    const mod = currentModuleRef.current;
+    const q = currentQuestionRef.current;
+    const telemetry = getOrCreateTelemetry(mod, q);
     setMarkedForReview(prev => {
-      if (prev.includes(currentQuestion)) {
-        return prev.filter(i => i !== currentQuestion);
+      if (prev.includes(q)) {
+        return prev.filter(i => i !== q);
       }
       // Mark for review — record in telemetry
       telemetry.markedForReview = true;
-      return [...prev, currentQuestion];
+      return [...prev, q];
     });
-  };
+  }, []);
 
-  const handleToggleEliminate = (choiceId) => {
-    const key = `${currentModule}-${currentQuestion}`;
+  const handleToggleEliminate = useCallback((choiceId) => {
+    const key = `${currentModuleRef.current}-${currentQuestionRef.current}`;
     setEliminatedChoices(prev => {
       const current = prev[key] || [];
       if (current.includes(choiceId)) {
@@ -1423,25 +1445,26 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       }
       return { ...prev, [key]: [...current, choiceId] };
     });
-  };
+  }, []);
 
-  const handleNext = () => {
-    if (question?.type === 'fill-in') {
-      handleFillInSubmit();
-    }
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-    }
-  };
+  // Frame-based debounce prevents rapid clicks from overwhelming KaTeX re-renders
+  const navDebounceRef = useRef(false);
 
-  const handlePrev = () => {
-    if (question?.type === 'fill-in') {
-      handleFillInSubmit();
-    }
-    if (currentQuestion > 0) {
-      setCurrentQuestion(currentQuestion - 1);
-    }
-  };
+  const handleNext = useCallback(() => {
+    if (navDebounceRef.current) return;
+    navDebounceRef.current = true;
+    requestAnimationFrame(() => { navDebounceRef.current = false; });
+    fillInSubmitRef.current?.();
+    setCurrentQuestion(prev => (prev < questions.length - 1 ? prev + 1 : prev));
+  }, [questions.length]);
+
+  const handlePrev = useCallback(() => {
+    if (navDebounceRef.current) return;
+    navDebounceRef.current = true;
+    requestAnimationFrame(() => { navDebounceRef.current = false; });
+    fillInSubmitRef.current?.();
+    setCurrentQuestion(prev => (prev > 0 ? prev - 1 : prev));
+  }, []);
 
   const fillInSubmitRef = useRef(null);
   useEffect(() => {
@@ -1451,39 +1474,44 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   });
 
   const handleNavigate = useCallback((idx) => {
+    if (navDebounceRef.current) return;
+    navDebounceRef.current = true;
+    requestAnimationFrame(() => { navDebounceRef.current = false; });
     fillInSubmitRef.current?.();
     setCurrentQuestion(idx);
   }, []);
 
-  const handleSubmitModule = () => {
-    if (question?.type === 'fill-in') {
-      handleFillInSubmit();
-    }
-    // Record time spent on current question before submitting
+  const handleSubmitModule = useCallback(() => {
+    fillInSubmitRef.current?.();
+    // Record time spent on current question before submitting (read from refs, not stale closures)
+    const mod = currentModuleRef.current;
+    const q = currentQuestionRef.current;
     const now = Date.now();
     const elapsed = (now - questionStartTime.current) / 1000;
     if (elapsed > 0 && elapsed < 3600) {
-      const telemetry = getOrCreateTelemetry(currentModule, currentQuestion);
+      const telemetry = getOrCreateTelemetry(mod, q);
       telemetry.timeSpent += elapsed;
     }
-    moduleTimeRemaining.current[currentModule] = timerSecondsRef.current;
+    moduleTimeRemaining.current[mod] = timerSecondsRef.current;
     setModuleCompleted(true);
-  };
+  }, []);
 
-  const handleNextModule = () => {
-    if (currentModule < test.modules.length - 1) {
-      setCurrentModule(currentModule + 1);
+  const handleNextModule = useCallback(() => {
+    const curMod = currentModuleRef.current;
+    if (curMod < test.modules.length - 1) {
+      const nextMod = curMod + 1;
+      setCurrentModule(nextMod);
       setCurrentQuestion(0);
       setMarkedForReview([]);
       setEliminatedChoices({});
       setModuleCompleted(false);
       setResumeTimeRemaining(null);
       questionStartTime.current = Date.now();
-      prevQuestion.current = { module: currentModule + 1, question: 0 };
+      prevQuestion.current = { module: nextMod, question: 0 };
     } else {
       setTestCompleted(true);
     }
-  };
+  }, [test.modules.length]);
 
   const moduleCompletedRef = useRef(false);
   useEffect(() => { moduleCompletedRef.current = moduleCompleted; }, [moduleCompleted]);
@@ -1546,34 +1574,30 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     setIsPaused(true);
   };
 
-  const handleConfirmEndTest = () => {
+  const handleConfirmEndTest = useCallback(() => {
     setConfirmAction(null);
     setIsPaused(false);
-    if (question?.type === 'fill-in' && fillInValue.trim()) {
-      const key = `${currentModule}-${currentQuestion}`;
-      const numValue = parseFloat(fillInValue);
-      setAnswers(prev => ({ ...prev, [key]: isNaN(numValue) ? fillInValue : numValue }));
-    }
+    fillInSubmitRef.current?.();
+    const mod = currentModuleRef.current;
+    const q = currentQuestionRef.current;
     const now = Date.now();
     const elapsed = (now - questionStartTime.current) / 1000;
     if (elapsed > 0 && elapsed < 3600) {
-      const telemetry = getOrCreateTelemetry(currentModule, currentQuestion);
+      const telemetry = getOrCreateTelemetry(mod, q);
       telemetry.timeSpent += elapsed;
     }
-    moduleTimeRemaining.current[currentModule] = timerSecondsRef.current;
+    moduleTimeRemaining.current[mod] = timerSecondsRef.current;
     setTestCompleted(true);
-  };
+  }, []);
 
-  const handleConfirmLeave = () => {
+  const handleConfirmLeave = useCallback(() => {
     setConfirmAction(null);
     setIsPaused(false);
-    let finalAnswers = answers;
-    if (question?.type === 'fill-in' && fillInValue.trim()) {
-      const key = `${currentModule}-${currentQuestion}`;
-      const numValue = parseFloat(fillInValue);
-      finalAnswers = { ...answers, [key]: isNaN(numValue) ? fillInValue : numValue };
-    }
+    // Save fill-in value via ref (reads current question type and value)
+    fillInSubmitRef.current?.();
     if (onSaveProgress) {
+      const mod = currentModuleRef.current;
+      const q = currentQuestionRef.current;
       const telemetrySnapshot = {};
       Object.entries(questionTelemetry.current).forEach(([k, v]) => {
         telemetrySnapshot[k] = {
@@ -1585,9 +1609,9 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         };
       });
       onSaveProgress({
-        currentModule,
-        currentQuestion,
-        answers: finalAnswers,
+        currentModule: mod,
+        currentQuestion: q,
+        answers: answersRef.current,
         markedForReview,
         eliminatedChoices,
         isTimed,
@@ -1596,7 +1620,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       });
     }
     onBack();
-  };
+  }, [onSaveProgress, markedForReview, eliminatedChoices, isTimed, onBack]);
 
   const handleCancelAction = () => {
     setConfirmAction(null);
@@ -2375,7 +2399,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           {/* Calculator Button */}
           <button
             onClick={() => {
-              const telemetry = getOrCreateTelemetry(currentModule, currentQuestion);
+              const telemetry = getOrCreateTelemetry(currentModuleRef.current, currentQuestionRef.current);
               telemetry.usedCalculator = true;
               setShowCalculator(true);
             }}
@@ -2420,7 +2444,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               >
                 {showTimer ? 'Hide Timer' : 'Show Timer'}
               </button>
-              {showTimer && (
+              <div style={{ display: showTimer ? undefined : 'none' }}>
                 <Timer
                   initialMinutes={module.timeLimit || 35}
                   onTimeUp={handleTimeUp}
@@ -2428,7 +2452,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                   timeRef={timerSecondsRef}
                   initialSeconds={resumeTimeRemaining}
                 />
-              )}
+              </div>
             </div>
           ) : (
             <span style={{
@@ -2477,7 +2501,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         <div className="test-workspace-main">
 
           {/* Left Pane - Question Stem */}
-          <div className="test-workspace-left">
+          <div className="test-workspace-left" ref={leftPaneRef}>
 
             {/* Desmos Calculator Modal */}
             <DesmosCalculator isOpen={showCalculator} onClose={() => setShowCalculator(false)} />
@@ -2646,7 +2670,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       </div> {/* End question-panel */}
       </div> {/* End test-workspace-left */}
 
-      <div className="test-workspace-right">
+      <div className="test-workspace-right" ref={rightPaneRef}>
         {/* Navigation buttons top right */}
         <div className="test-controls-top">
           <button
@@ -2728,7 +2752,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               }}
               onKeyDown={(e) => {
                 if (e.key === 'Enter') {
-                  handleFillInSubmit();
+                  // handleNext already calls fillInSubmitRef which saves the fill-in value
                   handleNext();
                 }
               }}
