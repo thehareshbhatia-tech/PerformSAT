@@ -568,9 +568,25 @@ export const useProgress = (userId) => {
 
     console.log('[useProgress] saveStudyPlan called, hasWeeks:', !!plan?.weeks, 'weeksCount:', plan?.weeks?.length || 0);
 
-    // Set guard so onSnapshot hydration won't wipe this optimistic plan
+    // Optimistic update — show the plan immediately in the UI
     studyPlanWriteInFlight.current = true;
     setStudyPlan(plan);
+
+    // Persist to Firestore so the plan survives page reloads
+    try {
+      const progressRef = doc(db, 'progress', userId);
+      const progressSnap = await getDoc(progressRef);
+      if (progressSnap.exists()) {
+        await updateDoc(progressRef, { studyPlan: plan, lastUpdated: serverTimestamp() });
+      } else {
+        await setDoc(progressRef, { userId, studyPlan: plan, lastUpdated: serverTimestamp() }, { merge: true });
+      }
+      console.log('[useProgress] Study plan persisted to Firestore');
+    } catch (err) {
+      console.error('[useProgress] Failed to persist study plan to Firestore:', err);
+    } finally {
+      studyPlanWriteInFlight.current = false;
+    }
   };
 
   /**
