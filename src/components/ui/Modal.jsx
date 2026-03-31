@@ -15,14 +15,18 @@ export const Modal = ({
   useEffect(() => {
     if (isOpen) {
       setRenderState('entering');
-      // small delay to allow display:block before adding opacity/transform classes
-      requestAnimationFrame(() => setRenderState('entered'));
-    } else if (renderState === 'entered') {
-      setRenderState('exiting');
-      const timer = setTimeout(() => setRenderState('unmounted'), 300); // match transition duration
+      // RAF ensures the DOM element exists before adding the visible class for CSS transition
+      const raf = requestAnimationFrame(() => {
+        setRenderState('entered');
+      });
+      return () => cancelAnimationFrame(raf);
+    } else {
+      // Transition to exiting (unless already unmounted)
+      setRenderState(prev => (prev === 'unmounted' ? 'unmounted' : 'exiting'));
+      const timer = setTimeout(() => setRenderState('unmounted'), 300);
       return () => clearTimeout(timer);
     }
-  }, [isOpen, renderState]);
+  }, [isOpen]); // Only depend on isOpen — renderState in deps caused exit timer to be cancelled
 
   useEffect(() => {
     const handleKeyDown = (e) => {
