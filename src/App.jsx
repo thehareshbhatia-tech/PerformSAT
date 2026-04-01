@@ -9349,8 +9349,14 @@ const PerformSAT = () => {
                   setSelectedPracticeTest(viewingResultsData.test);
                   setView('takingTest');
                 }}
-                onReview={() => {}}
-                onReviewModule={() => {}}
+                onReview={() => {
+                  setViewingResultsData(prev => ({ ...prev, reviewModule: 0 }));
+                  setView('reviewingPastResults');
+                }}
+                onReviewModule={(moduleIndex) => {
+                  setViewingResultsData(prev => ({ ...prev, reviewModule: moduleIndex }));
+                  setView('reviewingPastResults');
+                }}
                 onGoToStudyPlan={() => { setViewingResultsData(null); setView('studyPlan'); }}
                 onNavigateToModule={(moduleId, lessonId) => {
                   setViewingResultsData(null);
@@ -9363,6 +9369,33 @@ const PerformSAT = () => {
               />
             </div>
           </div>
+          </ErrorBoundary>
+        )}
+
+        {/* Reviewing answers from past results */}
+        {view === 'reviewingPastResults' && viewingResultsData && (
+          <ErrorBoundary message="Unable to load answer review. Please go back and try again.">
+          <PracticeTest
+            test={viewingResultsData.test}
+            savedProgress={{ answers: viewingResultsData.answers }}
+            initialReviewModule={viewingResultsData.reviewModule ?? 0}
+            isTimed={false}
+            skillProgress={skillProgress}
+            user={user}
+            practiceTestResults={practiceTestResults}
+            completedLessons={completedLessons}
+            practiceProgress={practiceProgress}
+            answeredQuestionIds={answeredQuestionIds}
+            onBack={() => {
+              setView('viewingResults');
+            }}
+            onNavigateToModule={(moduleId, lessonId) => {
+              setViewingResultsData(null);
+              setActiveModule(moduleId);
+              if (lessonId) setActiveLesson(lessonId);
+              setView('learn');
+            }}
+          />
           </ErrorBoundary>
         )}
 

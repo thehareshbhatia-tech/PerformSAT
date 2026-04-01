@@ -875,7 +875,7 @@ const renderChoice = (choice) => {
   return <MathText text={choice.text} />;
 };
 
-const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, onClearProgress, onSaveStudyPlan, onGoToStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onNavigateToModule, onStartPractice, answeredQuestionIds = [] }) => {
+const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, onClearProgress, onSaveStudyPlan, onGoToStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onNavigateToModule, onStartPractice, answeredQuestionIds = [], initialReviewModule = null }) => {
   // Initialize state from saved progress if available
   const [currentModule, setCurrentModule] = useState(savedProgress?.currentModule || 0);
   const [currentQuestion, setCurrentQuestion] = useState(savedProgress?.currentQuestion || 0);
@@ -884,11 +884,11 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   const [eliminatedChoices, setEliminatedChoices] = useState(savedProgress?.eliminatedChoices || {});
   const [showTimer, setShowTimer] = useState(isTimed);
   const [moduleCompleted, setModuleCompleted] = useState(false);
-  const [testCompleted, setTestCompleted] = useState(false);
+  const [testCompleted, setTestCompleted] = useState(initialReviewModule !== null);
   const [fillInValue, setFillInValue] = useState('');
   const [showCalculator, setShowCalculator] = useState(false);
-  const [reviewMode, setReviewMode] = useState(false);
-  const [reviewModule, setReviewModule] = useState(0);
+  const [reviewMode, setReviewMode] = useState(initialReviewModule !== null);
+  const [reviewModule, setReviewModule] = useState(initialReviewModule !== null ? initialReviewModule : 0);
   const [reviewQuestion, setReviewQuestion] = useState(0);
   const [reviewTab, setReviewTab] = useState('question');
   const [reviewRightPane, setReviewRightPane] = useState('both');
@@ -1785,7 +1785,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           zIndex: 10,
         }}>
           <button
-            onClick={() => setReviewMode(false)}
+            onClick={() => initialReviewModule !== null ? onBack?.() : setReviewMode(false)}
             style={{
               padding: isMobile ? '6px 10px' : '8px 16px', background: 'rgba(0,0,0,0.04)', border: `none`,
               borderRadius: '12px', fontSize: isMobile ? '12px' : '13px', fontWeight: typography.weights.semibold,
