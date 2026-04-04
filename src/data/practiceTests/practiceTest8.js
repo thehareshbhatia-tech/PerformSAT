@@ -89,7 +89,7 @@ export const practiceTest8 = {
         {
           id: 'pt8-m1-q5',
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'easy',
           question: 'The equation $v = 25 + 4t$ gives the speed $v$, in meters per second, of a certain object $t$ seconds after it began to accelerate. How many seconds after the object began to accelerate will its speed be $61$ meters per second?',
           choices: [
             { id: 'A', text: '$4$' },
@@ -113,7 +113,7 @@ export const practiceTest8 = {
         {
           id: 'pt8-m1-q7',
           type: 'fill-in',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'A catering company charges a one-time fee of \\$75 to book an event, \\$12.50 per adult guest, and \\$8 per child guest. If there are twice as many adults as children and the total budget is \\$471, what is the greatest number of child guests possible without exceeding the budget?',
           correctAnswer: '12',
           explanation: '**SAT Pattern: Multi-Rate Linear Inequality** -- Appears 2-3 times per test. Requires setting up a cost expression with a relationship between two quantities, then solving.\n\n**The correct answer is $12$.** Let $c$ = children, then adults $= 2c$. Total cost: $75 + 12.50(2c) + 8c = 75 + 25c + 8c = 75 + 33c \\leq 471$. Solving: $33c \\leq 396$, so $c \\leq 12$.\n\n**The Fast Way (25 seconds):** Adults $= 2c$, so per-child-group cost $= 12.50(2) + 8 = 33$. Budget for guests: $471 - 75 = 396$. Children: $396 \\div 33 = 12$.\n\n**Step 1: Define variables**\nLet $c$ = number of children. Adults $= 2c$.\n\n**Step 2: Write the total cost**\nTotal $= 75 + 12.50(2c) + 8(c) = 75 + 25c + 8c = 75 + 33c$\n\n**Step 3: Apply the budget constraint**\n$75 + 33c \\leq 471$\n$33c \\leq 396$\n$c \\leq 12$\n\n**Verification:** At $c = 12$: adults $= 24$. Total $= 75 + 12.50(24) + 8(12) = 75 + 300 + 96 = \\$471$. At $c = 13$: $75 + 12.50(26) + 8(13) = 75 + 325 + 104 = \\$504 > \\$471$.\n\n**Test Day Takeaway:** When a problem links two quantities (e.g., "twice as many adults as children"), express everything in terms of one variable. Combine like terms before solving to simplify the arithmetic.',
@@ -162,7 +162,7 @@ export const practiceTest8 = {
         {
           id: 'pt8-m1-q10',
           type: 'multiple-choice',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'If $3x + 4 = 16$ and $2y - 5 = 9$, what is the value of $\\frac{12x + 16}{2y - 5} + 3y$?',
           choices: [
             { id: 'A', text: '$\\frac{85}{9}$' },
@@ -177,7 +177,7 @@ export const practiceTest8 = {
         {
           id: 'pt8-m1-q11',
           type: 'multiple-choice',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'Which expression is equivalent to $\\frac{(a^3b^{-2}c^4)^2}{a^{-1}b^3c^5}$, where $a$, $b$, and $c$ are positive?',
           choices: [
             { id: 'A', text: '$a^7b^{-7}c^3$' },

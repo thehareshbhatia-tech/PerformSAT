@@ -77,7 +77,7 @@ export const practiceTest1 = {
         {
           id: 5,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "easy",
           question: "A bakery sells muffins for \\$2.75 each and croissants for \\$4.25 each. On Saturday, the bakery sold the same number of muffins as croissants and made \\$38.25 from croissants alone. On Sunday, croissant sales dropped by $\\frac{1}{3}$, but muffin sales doubled compared to Saturday. What was the bakery's total revenue on Sunday, in dollars?",
           choices: [
             { id: "A", text: "$24.75$" },
@@ -178,7 +178,7 @@ export const practiceTest1 = {
         {
           id: 11,
           type: "multiple-choice",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "A fossil sample contains two radioisotopes. Isotope A starts with 80 grams and has a half-life of 5,730 years. Isotope B starts with 320 grams and has a half-life of 2,865 years. After how many years will the remaining amount of Isotope A first equal or exceed the remaining amount of Isotope B?",
           choices: [
             { id: "A", text: "$2{,}865$" },
@@ -193,7 +193,7 @@ export const practiceTest1 = {
         {
           id: 12,
           type: "multiple-choice",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "What is the sum of all real solutions to the equation below?\n\n$\\sqrt{3x + 1} = x - 3$",
           choices: [
             { id: "A", text: "$3$" },
@@ -297,7 +297,7 @@ export const practiceTest1 = {
         {
           id: 17,
           type: "fill-in",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "The given equation defines the function $h$.\n\n$h(x) = 2x^2 - 12x + 40$\n\nFor what value of $x$ does $h(x)$ reach its minimum?",
           correctAnswer: '3',
           explanation: "**SAT Pattern: Vertex of a Quadratic (Minimum/Maximum)** — 1-2 per test. One formula gives you the answer instantly.\n\n**The correct answer is 3.**\n\n**The Fast Way (10 seconds):** Vertex $x$-coordinate $= \\frac{-b}{2a} = \\frac{-(-12)}{2(2)} = \\frac{12}{4} = 3$. Done.\n\n**Desmos Shortcut:** Graph $y = 2x^2 - 12x + 40$. Click the vertex. The $x$-coordinate is $3$.\n\n**The Full Solution:**\n$h(x) = 2x^2 - 12x + 40$ where $a = 2$, $b = -12$\nVertex $x = \\frac{-b}{2a} = \\frac{12}{4} = 3$\nSince $a = 2 > 0$, the parabola opens upward, so the vertex is a minimum.\n\n**Common Mistakes to Avoid:**\n• Forgetting the negative sign: $\\frac{-b}{2a}$, not $\\frac{b}{2a}$. With $b = -12$, $-(-12) = +12$.\n• Using $\\frac{-b}{a}$ instead of $\\frac{-b}{2a}$. The $2$ in the denominator matters.\n• Confusing minimum vs maximum: positive $a$ = opens UP = minimum. Negative $a$ = opens DOWN = maximum.\n\n**Verification:** $h(3) = 2(9) - 36 + 40 = 22$. $h(2) = 24 > 22$ ✓. $h(4) = 24 > 22$ ✓. The vertex is indeed the minimum.\n\n**Test Day Takeaway:** Vertex $x = \\frac{-b}{2a}$. Memorize this like your phone number. Or just graph it on Desmos and click the bottom (or top) of the parabola.",
@@ -307,16 +307,16 @@ export const practiceTest1 = {
           id: 18,
           type: "multiple-choice",
           difficulty: "hard",
-          question: "If $f(x) = 2(x + 4)^2 - 3(x - 4)^2 + 4x$, what is the value of $f(x)$ when $x$ is the positive root of $x^2 - 44x + 16 = 0$ that makes $f(x) = 0$?",
+          question: "A clothing store marks up all items by $60\\%$ above cost. During a clearance sale, the store offers a $25\\%$ discount off the marked price. What is the store's profit on a sale item as a percent of the store's original cost for that item?",
           choices: [
-            { id: "A", text: "$0$" },
-            { id: "B", text: "$44 - 4\\sqrt{117}$" },
-            { id: "C", text: "$44 + 4\\sqrt{117}$" },
-            { id: "D", text: "No positive root makes $f(x) = 0$" }
+            { id: "A", text: "$15\\%$" },
+            { id: "B", text: "$20\\%$" },
+            { id: "C", text: "$35\\%$" },
+            { id: "D", text: "$40\\%$" }
           ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Polynomial Expansion + Quadratic Root Connection** — Requires expanding and simplifying a polynomial, recognizing it as a quadratic, then connecting its roots to a given equation.\n\n**Choice A is correct.**\n\n**The Full Solution:**\n**Step 1:** Expand $f(x)$:\n$2(x^2+8x+16) - 3(x^2-8x+16) + 4x$\n$= 2x^2+16x+32 - 3x^2+24x-48 + 4x$\n$= -x^2 + 44x - 16$\n\n**Step 2:** Set $f(x) = 0$: $-x^2 + 44x - 16 = 0$, which is $x^2 - 44x + 16 = 0$ (multiply by $-1$).\n\n**Step 3:** This is exactly the equation given in the problem! So the positive root of $x^2 - 44x + 16 = 0$ is already a root of $f(x) = 0$. The value of $f(x)$ at that root is $0$ by definition.\n\n**Why the wrong answers are tempting:**\n• Choice B ($44 - 4\\sqrt{117}$): You used the quadratic formula on $x^2 - 44x + 16 = 0$ to find $x = \\frac{44 \\pm \\sqrt{1936 - 64}}{2} = 22 \\pm 2\\sqrt{117}$, and then tried to substitute back into $f(x)$ without realizing $f(x)$ simplifies to $-(x^2 - 44x + 16)$. Massive unnecessary work — the key insight is recognizing the connection.\n• Choice C ($44 + 4\\sqrt{117}$): Same mistake as B but with the other root. You computed the actual root value and attempted numerical evaluation, missing that $f(x) = 0$ IS the same equation.\n• Choice D: You may have expanded $f(x)$ incorrectly (sign errors) and gotten a different quadratic that doesn't match $x^2 - 44x + 16 = 0$, concluding no root works. Sign errors when distributing $-3$ through $(x^2 - 8x + 16)$ are the usual culprit.\n\n**Verification:** $f(x) = -x^2 + 44x - 16 = -(x^2 - 44x + 16)$. If $x$ satisfies $x^2 - 44x + 16 = 0$, then $f(x) = -(0) = 0$ ✓\n\n**Test Day Takeaway:** Before grinding through calculations, look for structural connections. Expand and simplify first — the resulting expression may directly relate to another part of the problem. Recognizing that two equations are equivalent saves minutes of unnecessary computation.",
-          skills: ["polynomial-expansion", "combining-like-terms"]
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Successive Percent Changes (Markup then Discount)** — The SAT tests whether you understand that adding a percent and subtracting a percent do NOT cancel to simple subtraction. This pattern appears 1-2 times per test.\n\n**Choice B is correct.** The store's profit is $20\\%$ of its original cost.\n\n**The Fast Way (30 seconds):** Pick a cost. Let cost $= \\$100$. Marked price $= 100 \\times 1.60 = \\$160$. Sale price $= 160 \\times 0.75 = \\$120$. Profit $= 120 - 100 = \\$20$. That's $20\\%$ of cost.\n\n**The Full Solution:**\nLet cost $= C$.\n• Marked price $= 1.60C$\n• Sale price $= 0.75 \\times 1.60C = 1.20C$\n• Profit $= 1.20C - C = 0.20C$\n• Profit as percent of cost $= 20\\%$\n\n**Why the wrong answers are tempting:**\n• Choice A ($15\\%$): This comes from multiplying the two percentages: $60\\% \\times 25\\% = 15\\%$. Percentages don't work this way — you multiply the multipliers ($1.60 \\times 0.75$), not the percentages themselves.\n• Choice C ($35\\%$): This is THE classic SAT percent trap. You subtracted: $60\\% - 25\\% = 35\\%$. This feels logical (\"I added $60\\%$, then took away $25\\%$, so I'm up $35\\%$\"), but the $25\\%$ discount applies to the MARKED price, not the original cost. $25\\%$ of a bigger number is more than $25\\%$ of the original.\n• Choice D ($40\\%$): This comes from computing the discount amount ($25\\%$ of $1.60C = 0.40C$) and reporting THAT as the profit percentage, confusing the discount given with the profit kept.\n\n**Verification:** With cost $= \\$100$: marked $= \\$160$, sale $= \\$120$, profit $= \\$20 = 20\\%$ of $\\$100$ ✓\n\n**Test Day Takeaway:** When a problem chains percentage changes (markup then discount, or two successive increases), never add or subtract the percentages. Multiply the multipliers: $1.60 \\times 0.75 = 1.20$. Or just pick $\\$100$ as the starting value and track the dollar amounts — it takes 15 seconds and eliminates all confusion.",
+          skills: ["percents", "word-problems"]
         },
         {
           id: 19,

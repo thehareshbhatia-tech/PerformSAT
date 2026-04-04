@@ -103,7 +103,7 @@ export const practiceTest7 = {
         {
           id: 'pt7-m1-q7',
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'easy',
           question: 'The system of equations $3x + 2y = 19$ and $x - y = 3$ has the solution $(x, y)$. What is the value of $x + y$?',
           choices: [
             { id: 'A', text: '$7$' },
@@ -202,7 +202,7 @@ export const practiceTest7 = {
         {
           id: 'pt7-m1-q14',
           type: 'multiple-choice',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'The function $h(x) = \\frac{x + 5}{x^2 - 9}$ is undefined for which of the following values of $x$?',
           choices: [
             { id: 'A', text: '$-5$ only' },
@@ -232,7 +232,7 @@ export const practiceTest7 = {
         {
           id: 'pt7-m1-q16',
           type: 'fill-in',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'The equation $x(kx - 42) = -9$ has no real solution. What is the least integer value of $k$?',
           correctAnswer: '50',
           explanation: '**SAT Pattern: Discriminant and No Real Solutions** -- Shows up 1 per test. "No real solutions" always means discriminant $< 0$.\n\n**The correct answer is $50$.**\n\n**The Fast Way (30 seconds):** Rewrite as $kx^2 - 42x + 9 = 0$. For no real solutions: $b^2 - 4ac < 0$. So $1764 - 36k < 0$, meaning $k > 49$. Least integer: $50$.\n\n**The Full Solution:**\n$x(kx - 42) = -9$\n$kx^2 - 42x + 9 = 0$\nDiscriminant: $(-42)^2 - 4(k)(9) = 1764 - 36k$\nFor no real solutions: $1764 - 36k < 0$\n$36k > 1764$\n$k > 49$\nLeast integer value: $k = 50$\n\n**Verification:** $k = 50$: discriminant $= 1764 - 1800 = -36 < 0$ (no real solutions). $k = 49$: discriminant $= 1764 - 1764 = 0$ (one real solution, not zero). So $49$ does not work but $50$ does.\n\n**Test Day Takeaway:** No real solutions means $b^2 - 4ac < 0$. One solution means $= 0$. Two solutions means $> 0$. When they ask for "least integer," solve the inequality and round up.',
@@ -241,7 +241,7 @@ export const practiceTest7 = {
         {
           id: 'pt7-m1-q17',
           type: 'multiple-choice',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'In the $xy$-plane, the graph of the equation $y = -x^2 + 8x - 21$ intersects the line $y = c$ at exactly one point. What is the value of $c$?',
           choices: [
             { id: 'A', text: '$-5$' },
@@ -272,16 +272,16 @@ export const practiceTest7 = {
           id: 'pt7-m1-q19',
           type: 'multiple-choice',
           difficulty: 'hard',
-          question: 'If $\\frac{10}{n} = \\frac{10}{a} - \\frac{10}{b}$, which of the following correctly expresses $n$ in terms of $a$ and $b$?',
+          question: 'Machine A produces $10$ widgets per hour. Machine B produces $15$ widgets per hour. Machine A starts running at $8{:}00$ AM. Machine B starts running at $10{:}00$ AM. At what time will Machine B have produced the same total number of widgets as Machine A?',
           choices: [
-            { id: 'A', text: '$n = \\frac{ab}{b - a}$' },
-            { id: 'B', text: '$n = \\frac{ab}{a - b}$' },
-            { id: 'C', text: '$n = a - b$' },
-            { id: 'D', text: '$n = \\frac{a + b}{ab}$' }
+            { id: 'A', text: '$2{:}00$ PM' },
+            { id: 'B', text: '$1{:}00$ PM' },
+            { id: 'C', text: '$12{:}00$ PM' },
+            { id: 'D', text: '$2{:}00$ PM the next day' }
           ],
           correctAnswer: 'A',
-          explanation: '**SAT Pattern: Solving Rational Equations for a Variable** -- Shows up 1 per test. The key technique is combining fractions over a common denominator, then taking the reciprocal.\n\n**Choice A is correct.**\n\n**The Fast Way (30 seconds):** Plug in easy numbers. Let $a = 2$, $b = 3$: $\\frac{10}{n} = \\frac{10}{2} - \\frac{10}{3} = 5 - \\frac{10}{3} = \\frac{5}{3}$. So $n = \\frac{10 \\times 3}{5} = 6$. Now check: $\\frac{ab}{b-a} = \\frac{6}{1} = 6$. That matches Choice A.\n\n**The Full Solution:**\n$\\frac{10}{n} = \\frac{10}{a} - \\frac{10}{b}$\nDivide by $10$: $\\frac{1}{n} = \\frac{1}{a} - \\frac{1}{b} = \\frac{b - a}{ab}$\nTake the reciprocal: $n = \\frac{ab}{b - a}$\n\n**Why the wrong answers are tempting:**\n• Choice B ($\\frac{ab}{a - b}$): You subtracted in the wrong order. This gives $\\frac{1}{b} - \\frac{1}{a}$ instead of $\\frac{1}{a} - \\frac{1}{b}$. College Board knows that sign errors in fraction subtraction are extremely common, and this trap catches exactly that mistake.\n• Choice C ($a - b$): You treated $\\frac{1}{a} - \\frac{1}{b}$ as $\\frac{1}{a-b}$. This is a fundamental fraction error -- you CANNOT subtract denominators directly. College Board exploits this because many students misremember fraction rules under pressure.\n• Choice D ($\\frac{a + b}{ab}$): This is $\\frac{1}{a} + \\frac{1}{b}$, not the reciprocal of $\\frac{1}{a} - \\frac{1}{b}$. You used addition instead of subtraction. This catches students who lose track of the operation while working with fractions.\n\n**Verification:** With $a = 2$, $b = 3$: $n = \\frac{6}{1} = 6$. $\\frac{10}{6} = \\frac{5}{3}$, and $\\frac{10}{2} - \\frac{10}{3} = 5 - \\frac{10}{3} = \\frac{5}{3}$. Check.\n\n**Test Day Takeaway:** When a problem has variables in denominators with multiple-choice answers, plug in small numbers to test each choice. It is often faster and less error-prone than algebraic manipulation.',
-          skills: ['Advanced Math', 'Rational Equations']
+          explanation: '**SAT Pattern: Rate Problem with a Head Start** -- Shows up 1-2 times per test. The math is simple (just rates), but the question is hard because you must carefully account for the head start before setting up the equation. Most students waste time on the wrong equation.\n\n**Choice A is correct.**\n\n**The Fast Way (30 seconds):** By $10{:}00$ AM, Machine A has a $2$-hour head start: $10 \\times 2 = 20$ widgets. After $10{:}00$ AM, Machine B gains $15 - 10 = 5$ widgets per hour on Machine A. To close a $20$-widget gap at $5$ per hour: $20 \\div 5 = 4$ hours. $10{:}00$ AM $+ 4$ hours $= 2{:}00$ PM.\n\n**The Full Solution:**\nStep 1: Find Machine A\'s head start.\nA runs from $8{:}00$ to $10{:}00$ AM $= 2$ hours.\nWidgets produced: $10 \\times 2 = 20$.\n\nStep 2: After $10{:}00$ AM, let $h$ = hours Machine B has been running.\nMachine A total: $20 + 10h$\nMachine B total: $15h$\n\nStep 3: Set them equal.\n$15h = 20 + 10h$\n$5h = 20$\n$h = 4$\n\nStep 4: $10{:}00$ AM $+ 4$ hours $= 2{:}00$ PM.\n\n**Why the wrong answers are tempting:**\n- Choice B ($1{:}00$ PM): You set $15h = 10h$ (equal rates from $10{:}00$ AM) without including the $20$-widget head start. Without the head start, the equation gives $5h = 0$, so you might guess $h = 3$ hours by estimating. This answer is $3$ hours after $10{:}00$ AM.\n- Choice C ($12{:}00$ PM): You might think B catches up in $2$ hours because A had a $2$-hour head start. But B is only $50\\%$ faster, not infinitely faster, so closing a $2$-hour gap takes longer than $2$ hours.\n- Choice D ($2{:}00$ PM the next day): You set up the equation using the total time from $8{:}00$ AM for both machines, getting $10t = 15(t-2)$, which gives $10t = 15t - 30$, so $t = 6$ hours after $8{:}00$ AM $= 2{:}00$ PM. This actually gives the right time, but some students who get confused with AM/PM and the next day misinterpret a large number.\n\n**Verification:** At $2{:}00$ PM: Machine A has run $6$ hours ($8$ AM to $2$ PM): $10 \\times 6 = 60$ widgets. Machine B has run $4$ hours ($10$ AM to $2$ PM): $15 \\times 4 = 60$ widgets. Both have $60$. ✓\n\n**Test Day Takeaway:** In "catch-up" rate problems, find the head start first, then figure out how fast the gap closes. The gap-closing rate is the DIFFERENCE of the two rates. Divide the head start by the rate difference to get the catch-up time.',
+          skills: ['linear-equations', 'word-problem-to-equation']
         },
         {
           id: 'pt7-m1-q20',

@@ -116,7 +116,7 @@ export const practiceTest9 = {
         {
           id: 7,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "easy",
           question: "A scientist is studying a bacteria population that doubles every $3$ hours. If the initial population is $500$ bacteria, which function $P(t)$ models the population after $t$ hours?",
           choices: [
             { id: "A", text: "$P(t) = 500(2)^{\\frac{t}{3}}$" },
@@ -167,7 +167,7 @@ export const practiceTest9 = {
         {
           id: 10,
           type: "multiple-choice",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "The function $f(x) = -2(x - 4)^2 + 18$ is graphed in the $xy$-plane. Which of the following statements about the graph is true?",
           choices: [
             { id: "A", text: "The graph has a minimum value of $18$." },
@@ -232,7 +232,7 @@ export const practiceTest9 = {
         {
           id: 14,
           type: "multiple-choice",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "In the $xy$-plane, the graph of $y = x^2 - 4x + 3$ intersects the line $y = x - 1$ at points $P$ and $Q$. What is the sum of the $x$-coordinate and the $y$-coordinate of the midpoint of $\\overline{PQ}$?",
           choices: [
             { id: "A", text: "$2$" },
@@ -249,7 +249,7 @@ export const practiceTest9 = {
         {
           id: 15,
           type: "multiple-choice",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "Which expression is equivalent to $\\frac{(2x^3y^2)^3}{4x^{-1}y^4}$?",
           choices: [
             { id: "A", text: "$2x^{10}y^2$" },
@@ -317,16 +317,16 @@ export const practiceTest9 = {
           id: 20,
           type: "multiple-choice",
           difficulty: "hard",
-          question: "$7x + 6y = 5$\n$28x + 24y = 20$\n\nFor each real number $r$, which of the following points lies on the graph of each equation in the $xy$-plane?",
+          question: "A store sells small and large gift boxes. Each small box costs $\\$7$ and weighs $6$ pounds. Each large box costs $\\$28$ and weighs $24$ pounds. A customer has exactly $\\$84$ to spend. What is the maximum number of gift boxes (small and large combined) the customer can buy without exceeding the budget?",
           choices: [
-            { id: "A", text: "$\\left(r, \\frac{5 - 7r}{6}\\right)$" },
-            { id: "B", text: "$\\left(r, \\frac{5 + 7r}{6}\\right)$" },
-            { id: "C", text: "$\\left(r, \\frac{5 - 7r}{24}\\right)$" },
-            { id: "D", text: "$\\left(r, \\frac{7r - 5}{6}\\right)$" }
+            { id: "A", text: "$4$" },
+            { id: "B", text: "$8$" },
+            { id: "C", text: "$10$" },
+            { id: "D", text: "$12$" }
           ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Infinite Solutions / Parametric Representation** -- 1 per test in the hard section. Recognize identical lines, then solve for $y$ in terms of $r$.\n\n**Choice A is correct.**\n\n**The Fast Way (20 seconds):** Notice $28x + 24y = 20$ is $4 \\times (7x + 6y = 5)$ -- same line. Set $x = r$ in the simpler equation: $7r + 6y = 5$, so $6y = 5 - 7r$, giving $y = \\frac{5 - 7r}{6}$. Pick A.\n\n**Step-by-step solution:**\n\nStep 1: $28x + 24y = 20$ is exactly $4 \\times (7x + 6y = 5)$. Same line, infinitely many solutions.\n\nStep 2: Substitute $x = r$ into $7x + 6y = 5$:\n$7r + 6y = 5$\n$6y = 5 - 7r$\n$y = \\frac{5 - 7r}{6}$\n\n**Why the wrong answers are tempting:**\n- Choice B ($\\frac{5 + 7r}{6}$): Uses $5 + 7r$ instead of $5 - 7r$. When you move $7r$ to the other side, you subtract it. College Board knows sign errors during rearrangement are extremely common.\n- Choice C ($\\frac{5 - 7r}{24}$): Uses denominator $24$ from the second equation instead of $6$. If you solve from $28r + 24y = 20$ without simplifying first, you might keep $24$ as the denominator without properly adjusting the numerator.\n- Choice D ($\\frac{7r - 5}{6}$): Reverses the subtraction order: $7r - 5$ instead of $5 - 7r$. This is the negative of the correct numerator.\n\n**Verification:** Plug into $7x + 6y = 5$: $7r + 6 \\cdot \\frac{5 - 7r}{6} = 7r + 5 - 7r = 5$.\n\n**Test Day Takeaway:** When two equations are multiples of each other, they represent the same line. Use the simpler equation, substitute $x = r$, and solve for $y$ carefully -- especially the signs.",
-          skills: ['Algebra', 'Systems of Equations']
+          correctAnswer: "D",
+          explanation: "**SAT Pattern: Optimization with Hidden Equivalence** -- The SAT loves giving you two options that look different but are secretly related. The critical insight is recognizing the relationship between small and large boxes, then optimizing.\n\n**Choice D is correct.**\n\n**The Fast Way (30 seconds):** Notice that $1$ large box costs $\\$28 = 4 \\times \\$7$, which is the same as $4$ small boxes. So buying large boxes never gives you MORE boxes per dollar -- it gives you exactly the same rate. Since small boxes cost $\\$7$ each, the customer can buy $84 \\div 7 = 12$ small boxes. Any swap of $4$ small boxes for $1$ large box keeps the cost the same but REDUCES the total count by $3$. So the maximum is $12$.\n\n**Step-by-step solution:**\n\nStep 1: Compare the two options.\n- Small box: $\\$7$ each\n- Large box: $\\$28$ each $= 4 \\times \\$7$\n\nSo $1$ large box costs the same as $4$ small boxes.\n\nStep 2: To maximize the NUMBER of boxes, buy the cheapest boxes.\n$84 \\div 7 = 12$ small boxes.\n\nStep 3: Check other combinations.\n- $1$ large + $8$ small $= \\$28 + \\$56 = \\$84$ -- that is $9$ boxes.\n- $2$ large + $4$ small $= \\$56 + \\$28 = \\$84$ -- that is $6$ boxes.\n- $3$ large + $0$ small $= \\$84$ -- that is $3$ boxes.\n\nEvery large box you add replaces $4$ small boxes, reducing the count by $3$.\n\nStep 4: Maximum is $12$ boxes (all small).\n\n**Why the wrong answers are tempting:**\n- Choice A ($4$): This is the number of small boxes equivalent to $1$ large box. A student who fixates on the equivalence ratio might pick this.\n- Choice B ($8$): This is the number of small boxes if the budget were $\\$56$ (perhaps subtracting $\\$28$ for a large box and then dividing the rest). Students who feel they MUST buy at least one large box get trapped here or at $9$.\n- Choice C ($10$): A student might try to split evenly -- say $6$ small and $1$ large $= \\$42 + \\$28 = \\$70$ -- and then miscalculate, or try another mix and round up.\n\n**Verification:** $12 \\times \\$7 = \\$84$, which exactly matches the budget.\n\n**Test Day Takeaway:** When a problem asks you to maximize the count of items, always check whether the cheapest item gives you the most units per dollar. If so, buy only the cheapest item. The large option is a distraction.",
+          skills: ['Algebra', 'Systems of Equations', 'Optimization']
         },
 
         // Question 21: Parabola tangent to horizontal line
@@ -340,15 +340,21 @@ export const practiceTest9 = {
           skills: ['Advanced Math', 'Quadratic Equations']
         },
 
-        // Question 22: Nonlinear system — exactly one solution
+        // Question 22: Function transformation — zeros of shifted function
         {
           id: 22,
-          type: "fill-in",
+          type: "multiple-choice",
           difficulty: "hard",
-          question: "$y + k = x + 10$\n$y - k = x^2 - 3x$\n\nIn the given system of equations, $k$ is a constant. The system has exactly one real solution. What is the value of $k$?",
-          correctAnswer: '7',
-          explanation: "**SAT Pattern: Nonlinear System with Discriminant Condition** -- 1 per test in the hard section. \"Exactly one solution\" = set the discriminant to zero.\n\n**The correct answer is $7$.**\n\n**The Fast Way (45 seconds):** Eliminate $y$ by solving equation 1 for $y$ and substituting into equation 2. You get a quadratic in $x$. Set discriminant $= 0$ and solve for $k$.\n\n**Step-by-step solution:**\n\nStep 1: From equation 1, $y = x + 10 - k$.\n\nStep 2: Substitute into equation 2.\n$(x + 10 - k) - k = x^2 - 3x$\n$x + 10 - 2k = x^2 - 3x$\n\nStep 3: Rearrange.\n$x^2 - 4x + 2k - 10 = 0$\n\nStep 4: For exactly one solution, discriminant $= 0$.\n$$(-4)^2 - 4(1)(2k - 10) = 0$$\n$$16 - 8k + 40 = 0$$\n$$56 - 8k = 0$$\n$$k = 7$$\n\n**Verification:** With $k = 7$: $x^2 - 4x + 4 = 0 \\rightarrow (x - 2)^2 = 0 \\rightarrow x = 2$. Then $y = 2 + 10 - 7 = 5$. Check equation 2: $5 - 7 = -2$ and $4 - 6 = -2$.\n\n**Test Day Takeaway:** Whenever a problem says \"exactly one solution\" and you end up with a quadratic, set $b^2 - 4ac = 0$ and solve for the unknown constant. This pattern appears on every SAT.",
-          skills: ['Advanced Math', 'Systems of Equations']
+          question: "The function $f$ is defined by $f(x) = (x - 1)(x - 7)$. The function $g$ is defined by $g(x) = f(x - 3)$. What is the sum of the zeros of $g$?",
+          choices: [
+            { id: "A", text: "$5$" },
+            { id: "B", text: "$8$" },
+            { id: "C", text: "$11$" },
+            { id: "D", text: "$14$" }
+          ],
+          correctAnswer: "D",
+          explanation: "**SAT Pattern: Horizontal Shift of a Function** -- The SAT tests whether you truly understand what $f(x - 3)$ does to a graph. Many students shift the wrong direction.\n\n**Choice D is correct.**\n\n**The Fast Way (20 seconds):** $f(x - 3) = 0$ means $(x - 3 - 1)(x - 3 - 7) = 0$, so $(x - 4)(x - 10) = 0$. The zeros of $g$ are $4$ and $10$. Their sum is $14$.\n\n**Step-by-step solution:**\n\nStep 1: Understand the transformation.\n$g(x) = f(x - 3)$ means we replace every $x$ in $f$ with $(x - 3)$. This shifts the graph of $f$ to the RIGHT by $3$ units.\n\nStep 2: Find the zeros of $g$.\n$g(x) = 0$ when $f(x - 3) = 0$, which means $(x - 3 - 1)(x - 3 - 7) = 0$.\n$(x - 4)(x - 10) = 0$\n$x = 4$ or $x = 10$\n\nStep 3: Sum the zeros.\n$4 + 10 = 14$\n\n**Why the wrong answers are tempting:**\n- Choice A ($5$): This is just half the sum of the ORIGINAL zeros ($1 + 7 = 8$, and $8/2 = 4$... actually $5$ comes from subtracting $3$ from the sum of the original zeros: $8 - 3 = 5$). A student who thinks shifting right by $3$ subtracts $3$ from the sum (instead of adding $3$ to each zero) lands here.\n- Choice B ($8$): This is the sum of the ORIGINAL zeros of $f$: $1 + 7 = 8$. The student completely ignores the transformation. This is the most common mistake -- reading the question as asking about $f$ instead of $g$.\n- Choice C ($11$): This adds $3$ to the sum once instead of twice: $8 + 3 = 11$. The shift moves EACH zero right by $3$, so the sum increases by $3 + 3 = 6$. A student who adds $3$ only once is treating the shift as if it applies to the sum rather than to each zero individually.\n\n**Verification:** $g(4) = f(1) = (0)(-6) = 0$. $g(10) = f(7) = (6)(0) = 0$. Both are zeros. Sum $= 14$.\n\n**Test Day Takeaway:** $f(x - h)$ shifts the graph RIGHT by $h$, which adds $h$ to every $x$-coordinate -- including each zero. If a function has zeros at $a$ and $b$, then $f(x - h)$ has zeros at $a + h$ and $b + h$.",
+          skills: ['Algebra', 'Function Transformations']
         }
       ]
     },

@@ -127,7 +127,7 @@ export const practiceTest10 = {
         {
           id: 'pt10-m1-q7',
           type: 'fill-in',
-          difficulty: 'medium',
+          difficulty: 'easy',
           question: 'What is an $x$-coordinate of an $x$-intercept of the graph of $y = 3(x - 14)(x + 5)(x + 4)$ in the $xy$-plane?',
           correctAnswer: '14',
           alternateAnswers: ['-5', '-4'],
@@ -258,7 +258,7 @@ export const practiceTest10 = {
         {
           id: 'pt10-m1-q15',
           type: 'multiple-choice',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'A circle in the $xy$-plane has the equation $(x - 13)^2 + (y - k)^2 = 64$. Which of the following gives the center of the circle and its radius?',
           choices: [
             { id: 'A', text: 'The center is at $(13, k)$ and the radius is $8$.' },
@@ -273,7 +273,7 @@ export const practiceTest10 = {
         {
           id: 'pt10-m1-q16',
           type: 'multiple-choice',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'The function $f$ is defined by $f(x) = |x - 4x|$. What value of $a$ satisfies $f(5) - f(a) = -15$?',
           choices: [
             { id: 'A', text: '$-20$' },
@@ -288,7 +288,7 @@ export const practiceTest10 = {
         {
           id: 'pt10-m1-q17',
           type: 'multiple-choice',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'For the exponential function $f$, the value of $f(0)$ is $c$, where $c$ is a constant. Of the following equations that define the function $f$, which equation shows the value of $c$ as the coefficient or the base?',
           choices: [
             { id: 'A', text: '$f(x) = 22(1.5)^{x+1}$' },
@@ -319,16 +319,16 @@ export const practiceTest10 = {
           id: 'pt10-m1-q19',
           type: 'multiple-choice',
           difficulty: 'hard',
-          question: '$\\frac{12}{n} - \\frac{2}{t} = -\\frac{2}{w}$\n\nThe given equation relates the variables $n$, $t$, and $w$, where $n > 0$, $t > 0$, and $w > t$. Which expression is equivalent to $n$?',
+          question: 'Machine A can fill a tank in $6$ hours working alone. Machine B can fill the same tank in $12$ hours working alone. Both machines start filling the tank together, but after $2$ hours Machine A breaks down and only Machine B continues. How many more hours will it take Machine B to finish filling the tank alone?',
           choices: [
-            { id: 'A', text: '$12tw$' },
-            { id: 'B', text: '$6(t - w)$' },
-            { id: 'C', text: '$\\frac{w - t}{6tw}$' },
-            { id: 'D', text: '$\\frac{6tw}{w - t}$' }
+            { id: 'A', text: '$4$' },
+            { id: 'B', text: '$5$' },
+            { id: 'C', text: '$6$' },
+            { id: 'D', text: '$8$' }
           ],
-          correctAnswer: 'D',
-          explanation: '**SAT Pattern: Isolating a Variable in a Rational Equation** -- Appears 1-2 times per test. These look intimidating but follow a predictable recipe: combine fractions, then cross-multiply.\n\n**Choice D is correct.** $n = \\frac{6tw}{w - t}$.\n\n**The Fast Way (45 seconds):** Move terms without $n$ to the right, combine them into one fraction, then flip to solve for $n$. Or plug in easy numbers like $t = 2, w = 3$ and test each choice.\n\n**Step 1: Move terms without $n$ to the right**\n$\\frac{12}{n} = \\frac{2}{t} - \\frac{2}{w}$\n\n**Step 2: Combine the right side over a common denominator**\n$\\frac{12}{n} = \\frac{2w - 2t}{tw} = \\frac{2(w - t)}{tw}$\n\n**Step 3: Solve for $n$ by cross-multiplying**\n$12 \\cdot tw = n \\cdot 2(w - t)$\n$n = \\frac{12tw}{2(w - t)} = \\frac{6tw}{w - t}$\n\n**Why the wrong answers are tempting:**\n- $12tw$ (Choice A) looks clean and simple, which is appealing on a hard problem. But it ignores the subtraction on the right side entirely. Students who rush the cross-multiplication step can end up here.\n- $6(t - w)$ (Choice B) has the subtraction reversed ($t - w$ instead of $w - t$) and drops the $tw$ from the numerator. It feels close to the right answer because the $6$ is correct, but the structure is wrong.\n- $\\frac{w - t}{6tw}$ (Choice C) is actually $\\frac{1}{n}$, not $n$. This is the most insidious trap: you do all the algebra correctly to find $\\frac{1}{n} = \\frac{2(w-t)}{12tw}$ and then forget to take the reciprocal. Always check whether you solved for $n$ or for $\\frac{1}{n}$.\n\n**Verification:** Let $t = 2, w = 3$: $n = \\frac{6(2)(3)}{3 - 2} = 36$. Check: $\\frac{12}{36} - \\frac{2}{2} = \\frac{1}{3} - 1 = -\\frac{2}{3}$ and $-\\frac{2}{3} = -\\frac{2}{3}$ -- confirmed.\n\n**Test Day Takeaway:** On rational equation problems, plugging in simple numbers (like $t = 2, w = 3$) and testing each answer choice is often faster than doing all the algebra.',
-          skills: ['Algebra', 'Rational Equations']
+          correctAnswer: 'C',
+          explanation: '**SAT Pattern: Combined Work Rates with a Twist** -- The SAT tests whether you can think in rates (fraction of a job per hour) rather than trying to work with total times directly. The critical insight is that rates ADD when working together, and you must track what fraction of the job remains.\n\n**Choice C is correct.**\n\n**The Fast Way (40 seconds):** Machine A does $\\frac{1}{6}$ per hour, Machine B does $\\frac{1}{12}$ per hour. Together for $2$ hours: $2 \\times \\left(\\frac{1}{6} + \\frac{1}{12}\\right) = 2 \\times \\frac{3}{12} = \\frac{1}{2}$. Half the tank remains. Machine B alone at $\\frac{1}{12}$ per hour needs $\\frac{1/2}{1/12} = 6$ hours.\n\n**Step-by-step solution:**\n\nStep 1: Find each machine\'s rate.\n- Machine A: $\\frac{1}{6}$ tank per hour\n- Machine B: $\\frac{1}{12}$ tank per hour\n\nStep 2: Find the combined rate.\n$\\frac{1}{6} + \\frac{1}{12} = \\frac{2}{12} + \\frac{1}{12} = \\frac{3}{12} = \\frac{1}{4}$ tank per hour\n\nStep 3: Find how much they complete together in $2$ hours.\n$2 \\times \\frac{1}{4} = \\frac{1}{2}$ of the tank\n\nStep 4: Find the remaining work.\n$1 - \\frac{1}{2} = \\frac{1}{2}$ of the tank\n\nStep 5: Find how long Machine B takes to finish alone.\n$\\frac{1/2}{1/12} = \\frac{1}{2} \\times 12 = 6$ hours\n\n**Why the wrong answers are tempting:**\n- Choice A ($4$): This comes from thinking the combined rate is $\\frac{1}{6}$ (just Machine A\'s rate) or from computing $\\frac{1/2}{1/8}$, using a wrong combined rate. Under time pressure, fraction errors are very common.\n- Choice B ($5$): A student might estimate or make an arithmetic error when dividing $\\frac{1}{2}$ by $\\frac{1}{12}$, perhaps confusing it with $\\frac{1}{2} \\times 10 = 5$.\n- Choice D ($8$): This comes from forgetting that Machine B was already running during the first $2$ hours. If you think Machine B starts fresh on the whole tank, you get $12$ hours minus some estimate, or if you think only $\\frac{1}{3}$ was done (Machine A\'s contribution only) and then compute $\\frac{2/3}{1/12} = 8$, you land here.\n\n**Verification:** In the first $2$ hours, both machines fill $\\frac{1}{2}$ the tank. Then Machine B works $6$ more hours at $\\frac{1}{12}$ per hour, filling another $\\frac{6}{12} = \\frac{1}{2}$. Total: $\\frac{1}{2} + \\frac{1}{2} = 1$ full tank.\n\n**Test Day Takeaway:** For work-rate problems, always convert to "fraction of the job per hour" first. Rates add when machines (or people) work together. Then use $\\text{time} = \\frac{\\text{remaining work}}{\\text{rate}}$ to finish.',
+          skills: ['Algebra', 'Rates and Ratios']
         },
         {
           id: 'pt10-m1-q20',

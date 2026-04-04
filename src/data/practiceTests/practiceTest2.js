@@ -77,7 +77,7 @@ export const practiceTest2 = {
         {
           id: 5,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "easy",
           question: "If $\\frac{32}{7}w = \\frac{40}{3}$, what is the value of $\\frac{w}{w - 2}$?",
           choices: [
             { id: "A", text: "$\\frac{7}{12}$" },
@@ -247,7 +247,7 @@ export const practiceTest2 = {
         {
           id: 15,
           type: "multiple-choice",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "The graph of a parabola is shown. What is the equation of the graph?",
           diagram: {
             type: "parabola",
@@ -271,7 +271,7 @@ export const practiceTest2 = {
         {
           id: 16,
           type: "multiple-choice",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "If $(2a^2 + 7b^2)^2 - (2a^2 - 7b^2)^2 = ka^2b^2$, what is the value of $k$?",
           choices: [
             { id: "A", text: "$14$" },
@@ -286,7 +286,7 @@ export const practiceTest2 = {
         {
           id: 17,
           type: "multiple-choice",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "A right cylinder has a height that is three times its radius. If the lateral surface area (not including the two circular bases) is $150\\pi$ square inches, what is the volume of the cylinder, in cubic inches?",
           choices: [
             { id: "A", text: "$75\\pi$" },
@@ -317,19 +317,16 @@ export const practiceTest2 = {
           id: 19,
           type: "multiple-choice",
           difficulty: "hard",
-          question: "In the given equation, $x < 0$ and $a = 3$. What is the value of $x - 3$?",
-          questionFormula: {
-            equation: "$$\\frac{\\sqrt{x^2 - 16}}{a} = 1$$"
-          },
+          question: "A delivery truck travels from a warehouse to a store, a distance of $120$ miles, at an average speed of $40$ miles per hour. The truck then returns from the store to the warehouse along the same route at an average speed of $60$ miles per hour. The truck used $8$ gallons of fuel for the trip to the store and $6$ gallons of fuel for the return trip. What was the truck's average speed, in miles per hour, for the entire round trip?",
           choices: [
-            { id: "A", text: "$-11$" },
-            { id: "B", text: "$-8$" },
-            { id: "C", text: "$-3$" },
-            { id: "D", text: "$-5$" }
+            { id: "A", text: "$45$" },
+            { id: "B", text: "$48$" },
+            { id: "C", text: "$50$" },
+            { id: "D", text: "$55$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Radical Equations with a Constraint** -- Appears 1-2 times per test. Solve the radical equation, but then use the constraint to pick the right root, and answer what was actually asked.\n\n**Choice B is correct.** $x - 3 = -8$.\n\n**The Fast Way (30 seconds):** Graph $y = \\frac{\\sqrt{x^2 - 16}}{3}$ and $y = 1$ in Desmos. You see intersections at $x = 5$ and $x = -5$. Since $x < 0$, take $x = -5$. Then $x - 3 = -5 - 3 = -8$.\n\n**Algebraic solution:**\n$$\\frac{\\sqrt{x^2 - 16}}{3} = 1$$\n$$\\sqrt{x^2 - 16} = 3$$\n$$x^2 - 16 = 9$$\n$$x^2 = 25$$\n$$x = \\pm 5$$\n\nSince $x < 0$, we have $x = -5$.\n\nThe question asks for $x - 3$: $-5 - 3 = -8$.\n\n**Why the wrong answers are tempting:**\n- Choice A ($-11$) would require $x = -8$, but $\\sqrt{64 - 16} = \\sqrt{48} \\neq 3$. This does not satisfy the original equation. You may have made an arithmetic error when squaring both sides.\n- Choice C ($-3$) would require $x = 0$, but $\\sqrt{0 - 16}$ is not a real number. This trap catches students who ignore the constraint or who set $x - 3 = -(\\text{something})$ incorrectly.\n- Choice D ($-5$) is the value of $x$ itself, not $x - 3$. This is the cruelest trap on the problem -- you do all the hard work correctly, find $x = -5$, and then forget to subtract $3$ because the problem asked for $x - 3$, not $x$. Always re-read what the question is actually asking.\n\n**Verification:** $\\frac{\\sqrt{(-5)^2 - 16}}{3} = \\frac{\\sqrt{9}}{3} = \\frac{3}{3} = 1$ ✓; $x - 3 = -5 - 3 = -8$ ✓\n\n**Test Day Takeaway:** Three things to watch for in radical equations: (1) square both sides carefully, (2) check the constraint ($x < 0$) to pick the right root, and (3) answer the actual question ($x - 3$, not $x$).",
-          skills: ["radical-equations"]
+          explanation: "**SAT Pattern: Average Speed for a Round Trip (with Irrelevant Information)** -- Appears 1-2 times per test. The SAT includes extra data (here, fuel usage) to see if you can filter out what matters. Average speed is ALWAYS total distance divided by total time — never the average of the two speeds.\n\n**Choice B is correct.** The average speed is $48$ mph.\n\n**The Fast Way (30 seconds):** Ignore the fuel information entirely — it is irrelevant to average speed. Total distance $= 120 + 120 = 240$ miles. Time going $= \\frac{120}{40} = 3$ hours. Time returning $= \\frac{120}{60} = 2$ hours. Average speed $= \\frac{240}{3 + 2} = \\frac{240}{5} = 48$ mph.\n\n**The Full Solution:**\n**Step 1:** Total distance $= 120 \\times 2 = 240$ miles.\n**Step 2:** Time for outbound trip $= \\frac{120}{40} = 3$ hours.\n**Step 3:** Time for return trip $= \\frac{120}{60} = 2$ hours.\n**Step 4:** Total time $= 3 + 2 = 5$ hours.\n**Step 5:** Average speed $= \\frac{\\text{total distance}}{\\text{total time}} = \\frac{240}{5} = 48$ mph.\n\n**Why the wrong answers are tempting:**\n• Choice C ($50$): This is the arithmetic mean of the two speeds: $\\frac{40 + 60}{2} = 50$. This is the single most common mistake on average-speed problems. You can only average speeds directly when the TIME spent at each speed is equal — but here the truck spends MORE time at the slower speed ($3$ hours vs. $2$ hours), pulling the average below $50$.\n• Choice A ($45$): This could result from a student who recognizes that the answer should be less than $50$ but overcorrects, perhaps by weighting the fuel consumption into the calculation ($\\frac{40 \\times 8 + 60 \\times 6}{8 + 6} = \\frac{680}{14} \\approx 48.6$, rounded down).\n• Choice D ($55$): This comes from weighting toward the faster speed, perhaps by accidentally using the return trip's shorter time as if it meant more distance was covered at $60$ mph.\n\n**Verification:** $48 \\times 5 = 240$ miles ✓. Note that $48 < 50$ makes sense because the truck spent more time traveling at the slower speed.\n\n**Test Day Takeaway:** Average speed $=$ total distance $\\div$ total time. NEVER average the two speeds. And when a problem includes extra information (fuel, cost, number of stops), ask yourself: \"Does this affect distance or time?\" If not, ignore it completely.",
+          skills: ["rates", "word-problems", "data-filtering"]
         },
         {
           id: 20,
@@ -376,15 +373,15 @@ export const practiceTest2 = {
           id: 22,
           type: "multiple-choice",
           difficulty: "hard",
-          question: "$5x + 4y = 20$\n\n$15x + 12y = 60$\n\nFor each real number $r$, which of the following points lies on the graph of each equation in the $xy$-plane?",
+          question: "A school cafeteria offers two lunch options: a sandwich meal for $\\$4$ and a pasta meal for $\\$6$. On Tuesday, the cafeteria collected $\\$420$ from lunch sales. The cafeteria manager writes the following two equations, where $s$ is the number of sandwich meals sold and $p$ is the number of pasta meals sold.\n\n$4s + 6p = 420$\n\n$2s + 3p = 210$\n\nWhich of the following best describes what can be determined from this system of equations?",
           choices: [
-            { id: "A", text: "$\\left(r,\\, 5 - \\frac{5r}{4}\\right)$" },
-            { id: "B", text: "$\\left(r,\\, 4 - \\frac{4r}{5}\\right)$" },
-            { id: "C", text: "$\\left(r,\\, 20 - 5r\\right)$" },
-            { id: "D", text: "$\\left(r,\\, 5 - 5r\\right)$" }
+            { id: "A", text: "Exactly $70$ sandwich meals and $0$ pasta meals were sold." },
+            { id: "B", text: "Exactly $30$ sandwich meals and $50$ pasta meals were sold." },
+            { id: "C", text: "The exact number of each meal sold cannot be determined, but the total number of meals sold was $105$." },
+            { id: "D", text: "The exact number of each meal sold cannot be determined, but any combination of sandwich and pasta meals totaling $\\$420$ in revenue is possible." }
           ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Infinitely Many Solutions -- Parametric Points on a Line** -- Appears 1-2 times per test. When two equations are the same line, every point on that line is a solution.\n\n**Choice A is correct.** $\\left(r,\\, 5 - \\frac{5r}{4}\\right)$.\n\n**The Fast Way (30 seconds):** Notice the second equation is just $3$ times the first ($5 \\times 3 = 15$, $4 \\times 3 = 12$, $20 \\times 3 = 60$), so they are the same line. Solve the simpler equation for $y$: $4y = 20 - 5x$, so $y = 5 - \\frac{5x}{4}$. Replace $x$ with $r$.\n\n**Step 1:** Recognize the equations are equivalent:\nMultiply the first equation by $3$: $15x + 12y = 60$ -- identical to the second equation.\n\n**Step 2:** Express $y$ in terms of $x$:\n$5x + 4y = 20$\n$4y = 20 - 5x$\n$y = 5 - \\frac{5x}{4}$\n\n**Step 3:** Substitute $x = r$: the point is $\\left(r,\\, 5 - \\frac{5r}{4}\\right)$.\n\n**Why the wrong answers are tempting:**\n- Choice B ($y = 4 - \\frac{4r}{5}$) swaps the coefficients. When isolating $y$ from $5x + 4y = 20$, you divide by $4$ (not $5$). But if you accidentally divide by $5$ instead, you get this wrong expression. The numbers $4$ and $5$ are close enough that it feels right.\n- Choice C ($y = 20 - 5r$) forgets to divide by $4$ entirely. You moved $5x$ to the right side ($4y = 20 - 5x$) and then reported the right side without completing the division. Always finish isolating $y$.\n- Choice D ($y = 5 - 5r$) divides the constant term by $4$ ($\\frac{20}{4} = 5$) but forgets to divide the $x$-coefficient too. The $\\frac{5}{4}$ becomes $5$ -- a partial division error that happens when you divide term by term and lose track.\n\n**Verification:** Let $r = 4$: point $= (4, 5 - 5) = (4, 0)$. Check: $5(4) + 4(0) = 20$ ✓\n\n**Test Day Takeaway:** When two equations in a system are multiples of each other, they have infinitely many solutions. Solve the simpler one for $y$ in terms of $x$, and that parametric expression describes every solution.",
+          correctAnswer: "D",
+          explanation: "**SAT Pattern: Recognizing Dependent Equations (Infinitely Many Solutions)** -- Appears 1-2 times per test. The SAT tests whether you recognize when two equations give you the SAME information, leaving the system underdetermined.\n\n**Choice D is correct.** The exact number of each meal sold cannot be determined.\n\n**The Fast Way (20 seconds):** Multiply the second equation by $2$: $2(2s + 3p) = 2(210)$ gives $4s + 6p = 420$ — identical to the first equation. The two equations are the same constraint written differently. You have one equation with two unknowns, so there are infinitely many valid combinations.\n\n**The Full Solution:**\n**Step 1:** Check whether the equations are independent:\n• Equation 1: $4s + 6p = 420$\n• Equation 2: $2s + 3p = 210$\n• Multiply Equation 2 by $2$: $4s + 6p = 420$ — this IS Equation 1.\n\n**Step 2:** Since both equations represent the same line, you effectively have just one equation: $2s + 3p = 210$. This has infinitely many solutions. For example: $(s, p) = (105, 0)$, or $(0, 70)$, or $(30, 50)$, or $(60, 30)$ — all satisfy the equation and represent valid meal combinations.\n\n**Step 3:** The system tells you the revenue was $\\$420$, but it cannot pin down the individual quantities.\n\n**Why the wrong answers are tempting:**\n• Choice A ($70$ sandwiches, $0$ pasta): This satisfies $4(70) + 6(0) = 280 \\neq 420$. Actually, with $0$ pasta: $4s = 420$, so $s = 105$. Choice A uses $s = 70$ which is wrong. But even $s = 105, p = 0$ is just ONE of many solutions, not THE solution.\n• Choice B ($30$ sandwiches, $50$ pasta): Check: $4(30) + 6(50) = 120 + 300 = 420$ ✓. This IS a valid solution — but it is not the ONLY one. Students who find one solution often assume it is unique without checking whether the system is determined.\n• Choice C (total $= 105$): This assumes the total number of meals is fixed, but it is not. With $(105, 0)$, total $= 105$. With $(0, 70)$, total $= 70$. With $(30, 50)$, total $= 80$. The total varies depending on the mix.\n\n**Verification:** Multiple solutions exist: $4(30) + 6(50) = 420$ ✓, $4(60) + 6(30) = 420$ ✓, $4(0) + 6(70) = 420$ ✓. All satisfy both equations.\n\n**Test Day Takeaway:** When two equations in a system are multiples of each other, they carry the same information. You have one equation, two unknowns, and infinitely many solutions. The system tells you the relationship between the variables but cannot determine their exact values. Always check: is one equation just a scaled version of the other?",
           skills: ['Algebra', 'Systems of Equations']
         }
       ]

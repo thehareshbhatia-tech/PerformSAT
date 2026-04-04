@@ -100,7 +100,7 @@ export const practiceTest12 = {
         {
           id: 'pt12-m1-q6',
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'easy',
           question: 'The graph above shows the estimated revenue, in thousands of dollars, for a new business as a function of the number of months since it opened. The business becomes profitable once its cumulative revenue exceeds its initial \\$60,000 startup cost. According to the model, what is the slope of the line, and after how many full months will the cumulative revenue first exceed the startup cost?',
           diagram: {
             type: 'linearGraph',
@@ -128,7 +128,7 @@ export const practiceTest12 = {
         {
           id: 'pt12-m1-q7',
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'easy',
           question: 'The scatterplot above shows the relationship between the number of practice hours and race times for $10$ runners. A line of best fit is also shown. The runner at $x = 8$ has an actual race time. What is the residual (actual minus predicted) for this runner, and what does a negative residual indicate about the runner\'s performance relative to the model?',
           diagram: {
             type: 'scatterplot',
@@ -260,7 +260,7 @@ export const practiceTest12 = {
         {
           id: 'pt12-m1-q15',
           type: 'multiple-choice',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'In a right triangle, one leg has length $5$ and the hypotenuse has length $13$. What is the length of the other leg?',
           choices: [
             { id: 'A', text: '$8$' },
@@ -275,7 +275,7 @@ export const practiceTest12 = {
         {
           id: 'pt12-m1-q16',
           type: 'multiple-choice',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'Which expression is equivalent to $\\frac{x^2 - 9}{x^2 + 5x + 6}$?',
           choices: [
             { id: 'A', text: '$\\frac{x - 3}{x + 2}$' },
@@ -290,7 +290,7 @@ export const practiceTest12 = {
         {
           id: 'pt12-m1-q17',
           type: 'fill-in',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: '$-3 \\leq 2x + 1 \\leq 9$\n\nHow many integer values of $x$ satisfy the compound inequality above?',
           correctAnswer: '7',
           explanation: '**SAT Pattern: Compound Inequality / Counting Integers** -- Two skills in one: solving the inequality AND counting correctly with the fence-post formula.\n\n**The correct answer is $7$.** The inequality simplifies to $-2 \\leq x \\leq 4$, which contains $7$ integers.\n\n**The Fast Way (20 seconds):** Solve the compound inequality in one shot by subtracting $1$ then dividing by $2$ across all three parts. Then use the formula: number of integers from $a$ to $b$ inclusive $= b - a + 1 = 4 - (-2) + 1 = 7$.\n\n**Step 1: Solve all parts**\nSubtract $1$: $-4 \\leq 2x \\leq 8$\nDivide by $2$: $-2 \\leq x \\leq 4$\n\n**Step 2: Count the integers**\nThe integers satisfying $-2 \\leq x \\leq 4$ are: $-2, -1, 0, 1, 2, 3, 4$.\nThat is $7$ integers.\n\n**Verification:** $4 - (-2) + 1 = 7$. Check endpoints: $2(-2) + 1 = -3$ and $2(4) + 1 = 9$.\n\n**Test Day Takeaway:** When counting integers from $a$ to $b$ inclusive, the answer is $b - a + 1$. The classic off-by-one error is forgetting the $+1$ -- always count the endpoints.',
@@ -300,10 +300,10 @@ export const practiceTest12 = {
           id: 'pt12-m1-q18',
           type: 'fill-in',
           difficulty: 'hard',
-          question: '$$x(kx - 40) = -16$$\n\nIn the given equation, $k$ is a positive integer constant. The equation has no real solution. What is the least possible value of $k$?',
-          correctAnswer: '26',
-          explanation: '**SAT Pattern: Discriminant and No Real Solutions** -- A harder SAT question, but the method is always the same: set up $b^2 - 4ac < 0$ and solve for the unknown.\n\n**The correct answer is $26$.** The least positive integer $k$ that makes $kx^2 - 40x + 16 = 0$ have no real solutions is $26$.\n\n**The Fast Way (30 seconds):** Rewrite in standard form, identify $a = k$, $b = -40$, $c = 16$. Set $b^2 - 4ac < 0$: $1600 - 64k < 0$, so $k > 25$. The smallest integer greater than $25$ is $26$.\n\n**Step 1: Expand and rewrite**\n$$kx^2 - 40x = -16$$\n$$kx^2 - 40x + 16 = 0$$\n\n**Step 2: Apply the discriminant condition**\nFor no real solution, the discriminant must be negative:\n$$b^2 - 4ac < 0$$\n$$(-40)^2 - 4(k)(16) < 0$$\n$$1{,}600 - 64k < 0$$\n$$64k > 1{,}600$$\n$$k > 25$$\n\n**Step 3: Find the least integer**\nSince $k > 25$ and $k$ must be a positive integer, the least possible value is $k = 26$.\n\n**Verification:**\n- $k = 25$: discriminant $= 1{,}600 - 1{,}600 = 0$ (one real solution, not "no real solution")\n- $k = 26$: discriminant $= 1{,}600 - 1{,}664 = -64 < 0$ (no real solution)\n\n**Test Day Takeaway:** "No real solutions" always means $b^2 - 4ac < 0$. Solve the boundary ($b^2 - 4ac = 0$) first, then decide whether you need the next integer above or below based on the strict inequality.',
-          skills: ['Advanced Math', 'Discriminant']
+          question: '$y = 3x + 5$\n$y = 3x + b$\n\nIn the system of equations above, $b$ is a constant. The system has no solution. The value of $b$ is an integer, and $|b| < 10$. How many possible values of $b$ are there?',
+          correctAnswer: '18',
+          explanation: '**SAT Pattern: Parallel Lines and No Solution** -- The SAT tests whether you understand that "no solution" for a system of linear equations means the lines are parallel (same slope, different $y$-intercepts). The twist here is the counting step.\n\n**The correct answer is $18$.**\n\n**The Fast Way (30 seconds):** Two lines with the same slope ($3$) are parallel and have no solution UNLESS they are the same line (same $y$-intercept). So $b \\neq 5$ is the only restriction. The integers with $|b| < 10$ are $-9, -8, -7, \\ldots, 8, 9$, which is $19$ integers total. Remove $b = 5$ (which would make the lines identical, giving infinitely many solutions). That leaves $18$ values.\n\n**Step-by-step solution:**\n\nStep 1: Recognize the structure.\nBoth equations have slope $3$. Lines with the same slope are either parallel (no solution) or identical (infinitely many solutions).\n\nStep 2: Determine when the system has no solution.\nThe lines are identical when $b = 5$. For any other value of $b$, the lines are parallel and the system has no solution.\n\nStep 3: Count the valid values of $b$.\n$|b| < 10$ means $-9 \\leq b \\leq 9$ (since $b$ is an integer and $|b|$ is strictly less than $10$).\nThat gives $19$ integers: $-9, -8, -7, \\ldots, 8, 9$.\nRemove $b = 5$: $19 - 1 = 18$ possible values.\n\n**Common mistakes:**\n- Answering $19$: Forgetting to exclude $b = 5$. When $b = 5$, the two equations are the same line, which means infinitely many solutions, NOT no solution.\n- Answering $17$: Excluding both $b = 5$ and $b = -5$, perhaps thinking the negative of $5$ is also special. But $b = -5$ gives two distinct parallel lines, which DO have no solution.\n- Answering $20$ or $21$: Including $b = 10$ or $b = -10$, misreading $|b| < 10$ as $|b| \\leq 10$.\n\n**Verification:** With $b = 5$: both equations become $y = 3x + 5$ (same line, infinitely many solutions -- not "no solution"). With $b = 4$: the lines $y = 3x + 5$ and $y = 3x + 4$ are parallel, so no solution.\n\n**Test Day Takeaway:** Same slope, different intercept means parallel lines and no solution. Same slope, same intercept means the same line and infinitely many solutions. When a "no solution" question includes counting, be precise about boundary conditions like strict vs. non-strict inequalities.',
+          skills: ['Algebra', 'Systems of Equations', 'Counting']
         },
         {
           id: 'pt12-m1-q19',
@@ -333,26 +333,25 @@ export const practiceTest12 = {
           id: 'pt12-m1-q21',
           type: 'fill-in',
           difficulty: 'hard',
-          question: 'If $(x - 3)$ is a factor of $x^3 - 7x^2 + 15x - 9$, what is one of the other zeros of the polynomial? Enter one value.',
-          correctAnswer: '1',
-          alternateAnswers: ['3'],
-          explanation: '**SAT Pattern: Polynomial Zeros / Synthetic Division** -- When the SAT gives you one factor, divide it out to find the rest.\n\n**The correct answer is $1$ (also accepted: $3$).** The polynomial factors as $(x - 3)^2(x - 1)$, so the other zeros are $x = 1$ and $x = 3$.\n\n**The Fast Way (30 seconds):** Use synthetic division with $x = 3$. Bring down the coefficients $1, -7, 15, -9$ and divide. The quotient is $x^2 - 4x + 3 = (x-1)(x-3)$. Zeros: $1$ and $3$.\n\n**Step 1: Divide by $(x - 3)$**\nUsing synthetic division with $x = 3$:\n$x^3 - 7x^2 + 15x - 9 = (x - 3)(x^2 - 4x + 3)$\n\n**Step 2: Factor the quotient**\n$x^2 - 4x + 3 = (x - 1)(x - 3)$\n\n**Step 3: Identify all zeros**\nThe polynomial factors as $(x - 3)^2(x - 1)$.\nThe zeros are $x = 3$ (double root) and $x = 1$.\n\n**Verification:** $f(1) = 1 - 7 + 15 - 9 = 0$. $f(3) = 27 - 63 + 45 - 9 = 0$.\n\n**Test Day Takeaway:** When you are given one factor of a polynomial, synthetic division is your fastest path to finding the remaining zeros. Practice it until it is automatic.',
-          skills: ['Algebra', 'Polynomial Functions', 'Zeros']
+          question: 'The graph of $y = f(x)$ is a parabola that opens downward with vertex at $(4, 10)$. The graph of $y = g(x)$ is a horizontal line. The system $y = f(x)$ and $y = g(x)$ has exactly one solution. What is the value of $g(2)$?',
+          correctAnswer: '10',
+          explanation: '**SAT Pattern: Parabola-Line Intersection -- Exactly One Solution** -- The SAT tests whether you understand what "exactly one solution" means geometrically. No formulas needed -- just a picture in your head.\n\n**The correct answer is $10$.**\n\n**The Fast Way (20 seconds):** A downward-opening parabola has a maximum at its vertex. A horizontal line that intersects this parabola at exactly one point must touch the very top -- the vertex. So the horizontal line is $y = 10$. Since $g$ is a horizontal line, $g(x) = 10$ for ALL values of $x$, including $x = 2$. So $g(2) = 10$.\n\n**Step-by-step solution:**\n\nStep 1: Visualize the setup.\nA downward-opening parabola with vertex at $(4, 10)$ looks like an upside-down U with its highest point at $y = 10$.\n\nStep 2: Think about what "exactly one solution" means.\nA horizontal line $y = c$ can intersect this parabola at $0$, $1$, or $2$ points:\n- If $c > 10$: the line is above the parabola entirely -- $0$ intersections.\n- If $c = 10$: the line touches the vertex only -- exactly $1$ intersection.\n- If $c < 10$ (but still within the parabola\'s range): the line crosses at $2$ points.\n\nStep 3: Determine $g(x)$.\nFor exactly one solution, the horizontal line must be $y = 10$. So $g(x) = 10$ for all $x$.\n\nStep 4: Evaluate $g(2)$.\n$g(2) = 10$.\n\n**Common mistakes:**\n- Answering $4$: Confusing the $x$-coordinate of the vertex with the $y$-value. The question asks for $g(2)$, which is the HEIGHT of the line, not the $x$-coordinate where the intersection occurs.\n- Answering $6$ or $14$: Trying to plug $x = 2$ into some version of the parabola equation, rather than recognizing that $g$ is a constant function.\n- Setting up a discriminant equation: Some students try to write $f(x)$ in standard form and use $b^2 - 4ac = 0$. That works but wastes minutes. The geometric insight is instant.\n\n**Verification:** The parabola peaks at $(4, 10)$. The line $y = 10$ touches only at $x = 4$. That is exactly one solution. $g(2) = 10$.\n\n**Test Day Takeaway:** When a horizontal line intersects a parabola at exactly one point, the line passes through the vertex. For a downward parabola, that is the maximum; for an upward parabola, that is the minimum. And a horizontal line $y = c$ has the same value at EVERY $x$.',
+          skills: ['Algebra', 'Quadratic Functions', 'Graph Interpretation']
         },
         {
           id: 'pt12-m1-q22',
           type: 'multiple-choice',
           difficulty: 'hard',
-          question: 'Which of the following is equivalent to $2x^2 + 12x + 23$?',
+          question: 'If $x^2 + 8x + 16 = 49$, what is the value of $|x + 4|$?',
           choices: [
-            { id: 'A', text: '$2(x + 3)^2 + 5$' },
-            { id: 'B', text: '$2(x + 3)^2 + 23$' },
-            { id: 'C', text: '$2(x + 6)^2 - 49$' },
-            { id: 'D', text: '$2(x + 3)^2 + 14$' }
+            { id: 'A', text: '$3$' },
+            { id: 'B', text: '$7$' },
+            { id: 'C', text: '$11$' },
+            { id: 'D', text: '$45$' }
           ],
-          correctAnswer: 'A',
-          explanation: '**SAT Pattern: Completing the Square** -- A must-know technique. The SAT specifically designs wrong answers around the most common completing-the-square mistakes.\n\n**Choice A is correct.** $2x^2 + 12x + 23 = 2(x + 3)^2 + 5$.\n\n**The Fast Way (20 seconds):** Expand each answer choice and see which equals $2x^2 + 12x + 23$. Choice A: $2(x+3)^2 + 5 = 2(x^2 + 6x + 9) + 5 = 2x^2 + 12x + 18 + 5 = 2x^2 + 12x + 23$. Match.\n\n**Step 1: Factor out the leading coefficient from the first two terms**\n$2x^2 + 12x + 23 = 2(x^2 + 6x) + 23$\n\n**Step 2: Complete the square inside the parentheses**\n$x^2 + 6x = (x + 3)^2 - 9$\n\n**Step 3: Substitute back**\n$2[(x + 3)^2 - 9] + 23 = 2(x + 3)^2 - 18 + 23 = 2(x + 3)^2 + 5$\n\n**Why the wrong answers are tempting:**\n- Choice B keeps the constant as $23$ instead of adjusting it. When you add $9$ inside the parentheses to complete the square, you must subtract $2 \\times 9 = 18$ outside (because of the leading $2$). Forgetting this adjustment is the most common completing-the-square mistake.\n- Choice C uses $(x + 6)^2$ instead of $(x + 3)^2$. When completing the square for $x^2 + 6x$, you halve the coefficient of $x$: half of $6$ is $3$, not $6$. It is tempting to just use the coefficient as-is.\n- Choice D subtracts $9$ instead of $18$, forgetting to account for the leading coefficient $2$. Inside the parentheses you added $9$, but since those parentheses are multiplied by $2$, you actually added $2 \\times 9 = 18$ to the expression.\n\n**Verification:** $2(x+3)^2 + 5 = 2(x^2 + 6x + 9) + 5 = 2x^2 + 12x + 18 + 5 = 2x^2 + 12x + 23$.\n\n**Test Day Takeaway:** When completing the square with a leading coefficient, factor it out first. And remember: whatever you add inside the parentheses gets multiplied by that leading coefficient, so subtract accordingly.',
-          skills: ['Algebra', 'Completing the Square', 'Quadratic Functions']
+          correctAnswer: 'B',
+          explanation: '**SAT Pattern: Recognizing a Perfect Square Trinomial** -- The SAT tests whether you can see the structure of an expression rather than blindly applying the quadratic formula. The critical insight is recognizing the left side as a perfect square.\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Notice that $x^2 + 8x + 16 = (x + 4)^2$. So $(x + 4)^2 = 49$, which means $x + 4 = \\pm 7$. Therefore $|x + 4| = 7$.\n\n**Step-by-step solution:**\n\nStep 1: Recognize the perfect square.\n$x^2 + 8x + 16 = (x + 4)^2$\n(Check: $(x+4)^2 = x^2 + 2(4)(x) + 4^2 = x^2 + 8x + 16$.)\n\nStep 2: Rewrite the equation.\n$(x + 4)^2 = 49$\n\nStep 3: Take the square root of both sides.\n$x + 4 = \\pm 7$\n$x = 3$ or $x = -11$\n\nStep 4: Find $|x + 4|$.\nIf $x = 3$: $|3 + 4| = |7| = 7$.\nIf $x = -11$: $|-11 + 4| = |-7| = 7$.\nEither way, $|x + 4| = 7$.\n\n**Why the wrong answers are tempting:**\n- Choice A ($3$): This is one of the values of $x$ itself ($x = 3$). A student who solves correctly but then reports $x$ instead of $|x + 4|$ picks this. Always re-read what the question asks for.\n- Choice C ($11$): This is $|x|$ when $x = -11$. Again, the student solved the equation but reported the wrong quantity.\n- Choice D ($45$): This comes from subtracting $4$ from $49$, as if you could "move the $16$ over" by subtracting from $49$. But $x^2 + 8x + 16$ is not $x^2 + 8x$ plus $16$ in a way that lets you just subtract -- the whole expression is $(x + 4)^2$.\n\n**Verification:** $x = 3$: $9 + 24 + 16 = 49$. $x = -11$: $121 - 88 + 16 = 49$. Both check out, and $|x + 4| = 7$ in both cases.\n\n**Test Day Takeaway:** Before reaching for the quadratic formula, check whether the expression is a perfect square. $a^2 + 2ab + b^2 = (a + b)^2$ appears constantly on the SAT. When the question asks for an expression like $|x + 4|$ rather than $x$ itself, the perfect square shortcut gives you the answer directly without needing to find $x$ at all.',
+          skills: ['Algebra', 'Quadratic Equations', 'Pattern Recognition']
         }
       ]
     },

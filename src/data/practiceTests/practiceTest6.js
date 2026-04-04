@@ -13,7 +13,7 @@ export const practiceTest6 = {
         {
           id: 1,
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'easy',
           question: '$s + 5r = 32$\n$2r - 3 = 5$\n\nWhat is the solution $(r, s)$ to the given system of equations?',
           choices: [
             { id: 'A', text: '$(4, 12)$' },
@@ -203,7 +203,7 @@ export const practiceTest6 = {
         {
           id: 13,
           type: "fill-in",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "A solid aluminum cylinder has a mass of $540$ grams. If aluminum has a density of $2.7$ grams per cubic centimeter and the cylinder has a radius of $5$ centimeters, what is the height, in centimeters, of the cylinder? (Round to the nearest whole number.)",
           correctAnswer: '3',
           explanation: "**SAT Pattern: Combining Density with Cylinder Volume** -- Requires two concepts: using density to find volume, then using the cylinder volume formula to find a missing dimension.\n\n**The correct answer is $3$.**\n\n**The Fast Way (35 seconds):** First find the volume from density: $V = 540 / 2.7 = 200$ cm$^3$. Then use $V = \\pi r^2 h$: $200 = \\pi(25)h$, so $h = 200/(25\\pi) = 8/\\pi \\approx 2.546$. Rounded to the nearest whole number: $h \\approx 3$.\n\n**Step 1: Find the volume using density**\n$V = \\frac{\\text{Mass}}{\\text{Density}} = \\frac{540}{2.7} = 200$ cm$^3$.\n\n**Step 2: Use the cylinder volume formula**\n$V = \\pi r^2 h$\n$200 = \\pi (5)^2 h$\n$200 = 25\\pi h$\n$h = \\frac{200}{25\\pi} = \\frac{8}{\\pi} \\approx 2.546$\n\n**Step 3: Round**\n$h \\approx 3$ cm (to the nearest whole number).\n\n**Verification:** $V = \\pi(5)^2(8/\\pi) = 25\\pi \\times 8/\\pi = 200$ cm$^3$. And mass $= 2.7 \\times 200 = 540$ g. Both conditions confirmed.\n\n**Test Day Takeaway:** When a problem combines density with geometry, work in stages. First convert mass to volume using the density formula, then apply the geometry formula. Multi-concept problems reward systematic step-by-step work.",
@@ -256,7 +256,7 @@ export const practiceTest6 = {
         {
           id: 16,
           type: "multiple-choice",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "An animal shelter can house at most $70$ animals. Each cat requires $3.5$ units of space and each dog requires $4$ units of space. The shelter currently houses $8$ dogs. If the shelter takes in $4$ more dogs, what is the maximum number of cats the shelter can house?",
           choices: [
             { id: "A", text: "$6$" },
@@ -271,7 +271,7 @@ export const practiceTest6 = {
         {
           id: 17,
           type: 'multiple-choice',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'The graph of $f(x) = x^2 + bx + c$ is shown in the $xy$-plane, where $b$ and $c$ are constants. What is the value of $b$?',
           diagram: {
             type: "parabola",
@@ -309,10 +309,11 @@ export const practiceTest6 = {
           id: 19,
           type: "fill-in",
           difficulty: "hard",
-          question: "What is the smaller positive solution to the equation $\\sqrt{5x - 11} = x - 1$?",
-          correctAnswer: '3',
-          explanation: "**SAT Pattern: Radical Equation (Square Both Sides)** -- Radical equations show up regularly. The critical step everyone forgets: check for extraneous solutions after squaring.\n\n**The correct answer is 3.**\n\n**The Fast Way (30 seconds):** On Desmos, graph $y = \\sqrt{5x - 11}$ and $y = x - 1$. Find the intersections. The smaller $x$-value is $3$.\n\n**Solution steps:**\n- $\\sqrt{5x - 11} = x - 1$\n- Square both sides: $5x - 11 = (x - 1)^2 = x^2 - 2x + 1$\n- Rearrange: $0 = x^2 - 7x + 12$\n- Factor: $0 = (x - 3)(x - 4)$\n- $x = 3$ or $x = 4$\n\n**Check both solutions (required for radical equations):**\n- $x = 3$: $\\sqrt{15 - 11} = \\sqrt{4} = 2$, and $3 - 1 = 2$. Valid.\n- $x = 4$: $\\sqrt{20 - 11} = \\sqrt{9} = 3$, and $4 - 1 = 3$. Valid.\n\nBoth solutions are valid. The smaller positive solution is $3$.\n\n**Verification:** $\\sqrt{5(3) - 11} = \\sqrt{4} = 2 = 3 - 1$. Confirmed.\n\n**Test Day Takeaway:** When you square both sides of a radical equation, you might create fake solutions. Always plug your answers back in. The problem asks for the smaller solution, so even after finding both, re-read what is being asked.",
-          skills: ["radical-equations"]
+          question: "The function $f$ is defined by $f(x) = 3x - 5$. The function $g$ is defined by $g(x) = f(2x) + f(x)$. For what value of $x$ does $g(x) = 0$?",
+          correctAnswer: "10/9",
+          alternateAnswers: ["1.111", "1.11"],
+          explanation: "**SAT Pattern: Function Composition with a Hidden Shortcut** -- Shows up 1 per test. College Board defines functions in terms of other functions to make the problem LOOK complicated. The trick is to expand $g(x)$ into a single simplified expression before solving, not to solve each piece separately.\n\n**The correct answer is $\\frac{10}{9}$.**\n\n**The Fast Way (30 seconds):** Expand $g(x)$ all at once.\n$f(2x) = 3(2x) - 5 = 6x - 5$\n$f(x) = 3x - 5$\n$g(x) = (6x - 5) + (3x - 5) = 9x - 10$\nSet $g(x) = 0$: $9x - 10 = 0$, so $x = \\frac{10}{9}$.\n\n**The Full Solution:**\nStep 1: Find $f(2x)$ by replacing $x$ with $2x$ in the rule for $f$.\n$f(2x) = 3(2x) - 5 = 6x - 5$\n\nStep 2: Write $g(x) = f(2x) + f(x) = (6x - 5) + (3x - 5) = 9x - 10$.\n\nStep 3: Solve $9x - 10 = 0$.\n$9x = 10$\n$x = \\frac{10}{9}$\n\n**Common mistakes:**\n• Answering $\\frac{5}{3}$: You solved $f(x) = 0$ (giving $3x - 5 = 0$, $x = \\frac{5}{3}$) instead of $g(x) = 0$. The question asks when $g$ equals zero, not $f$. This is the classic trap of answering a simpler question than the one asked.\n• Answering $\\frac{5}{6}$: You solved $f(2x) = 0$ alone (giving $6x - 5 = 0$, $x = \\frac{5}{6}$) instead of adding both function values together. You forgot the $+ f(x)$ part of $g(x)$.\n• Answering $\\frac{10}{6}$ or $\\frac{5}{3}$: You computed $f(2x) + f(x)$ but forgot to distribute the $3$ into $2x$, getting $3x - 5 + 3x - 5 = 6x - 10$ instead of $9x - 10$. The coefficient on $x$ in $f(2x)$ is $6$, not $3$.\n\n**Verification:** At $x = \\frac{10}{9}$: $f\\left(\\frac{10}{9}\\right) = 3 \\cdot \\frac{10}{9} - 5 = \\frac{10}{3} - 5 = -\\frac{5}{3}$. $f\\left(\\frac{20}{9}\\right) = 3 \\cdot \\frac{20}{9} - 5 = \\frac{20}{3} - 5 = \\frac{5}{3}$. $g\\left(\\frac{10}{9}\\right) = \\frac{5}{3} + \\left(-\\frac{5}{3}\\right) = 0$. ✓\n\n**Test Day Takeaway:** When $g$ is built from $f$, write out $g(x)$ as a single simplified expression first. Do not try to solve piece by piece. Expanding and combining like terms turns a scary-looking composition into a basic linear equation.",
+          skills: ["function-notation", "linear-equations"]
         },
         {
           id: 20,
@@ -333,16 +334,16 @@ export const practiceTest6 = {
           id: 21,
           type: "multiple-choice",
           difficulty: "hard",
-          question: "A right triangle has sides of length $3\\sqrt{3}$, $5\\sqrt{3}$, and $\\sqrt{102}$ units. What is the area of the triangle, in square units?",
+          question: "A rectangular garden has a width of $11$ feet. The garden is divided into $4$ equal smaller rectangles by $3$ cuts parallel to the width. If the perimeter of each small rectangle is $30$ feet, what is the perimeter, in feet, of the original garden?",
           choices: [
-            { id: "A", text: "$\\frac{15\\sqrt{3}}{2}$" },
-            { id: "B", text: "$15$" },
-            { id: "C", text: "$7.5\\sqrt{3}$" },
-            { id: "D", text: "$22.5$" }
+            { id: "A", text: "$48$" },
+            { id: "B", text: "$60$" },
+            { id: "C", text: "$54$" },
+            { id: "D", text: "$120$" }
           ],
-          correctAnswer: "D",
-          explanation: "**SAT Pattern: Triangle Area with Radicals** -- Combines geometry with radical simplification. The trap is not simplifying $\\sqrt{3} \\times \\sqrt{3}$ correctly.\n\n**Choice D is correct.** The area of the triangle is $22.5$ square units.\n\n**The Fast Way (20 seconds):** The two shorter sides ($3\\sqrt{3}$ and $5\\sqrt{3}$) are the legs of the right triangle. Area $= \\frac{1}{2}(3\\sqrt{3})(5\\sqrt{3}) = \\frac{1}{2}(15)(3) = 22.5$. The key step is recognizing that $\\sqrt{3} \\times \\sqrt{3} = 3$.\n\n**Solution steps:**\n- Identify the legs: $3\\sqrt{3}$ and $5\\sqrt{3}$ (the two shorter sides)\n- Area $= \\frac{1}{2} \\times 3\\sqrt{3} \\times 5\\sqrt{3}$\n- $= \\frac{1}{2} \\times (3 \\times 5) \\times (\\sqrt{3} \\times \\sqrt{3})$\n- $= \\frac{1}{2} \\times 15 \\times 3$\n- $= \\frac{45}{2} = 22.5$\n\n**Why the wrong answers are tempting:**\n- Choice A ($\\frac{15\\sqrt{3}}{2}$) comes from computing $\\frac{1}{2} \\times 3 \\times 5 \\times \\sqrt{3}$ -- treating the two $\\sqrt{3}$ factors as just one $\\sqrt{3}$ instead of multiplying them together. Remember: $\\sqrt{3} \\times \\sqrt{3} = 3$, not $\\sqrt{3}$.\n- Choice B ($15$) gets the product $3\\sqrt{3} \\times 5\\sqrt{3} = 45$ correctly but then either forgets the $\\frac{1}{2}$ or makes an error reducing it. The area formula requires multiplying by $\\frac{1}{2}$.\n- Choice C ($7.5\\sqrt{3}$) is just Choice A rewritten in decimal form ($\\frac{15}{2}\\sqrt{3} = 7.5\\sqrt{3}$). It makes the same mistake of not simplifying the radical product.\n\n**Verification:** $\\frac{1}{2} \\times 3\\sqrt{3} \\times 5\\sqrt{3} = \\frac{1}{2} \\times 15 \\times 3 = 22.5$.\n\n**Test Day Takeaway:** When multiplying radicals, $\\sqrt{a} \\times \\sqrt{a} = a$. This simplification turns a messy-looking problem into a clean integer or decimal answer.",
-          skills: ["Geometry", "Triangle area"]
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Geometry with Hidden Dimensional Relationships** -- Shows up 1-2 times per test. No complex formulas needed. The difficulty is entirely in figuring out HOW the dimensions of the small rectangles relate to the dimensions of the original.\n\n**Choice C is correct.** The perimeter of the original garden is $54$ feet.\n\n**The Fast Way (30 seconds):** The $3$ cuts are parallel to the width, so they divide the length into $4$ equal parts. Each small rectangle has dimensions $11$ by $\\frac{\\ell}{4}$. Use the small perimeter to find $\\ell$:\n$2\\left(11 + \\frac{\\ell}{4}\\right) = 30$\n$11 + \\frac{\\ell}{4} = 15$\n$\\frac{\\ell}{4} = 4$, so $\\ell = 16$.\nOriginal perimeter $= 2(11 + 16) = 54$.\n\n**The Full Solution:**\nStep 1: Understand the cuts. Cutting parallel to the width means we slice across the length. The length $\\ell$ is divided into $4$ equal segments of $\\frac{\\ell}{4}$ each. The width ($11$ ft) stays the same for every small rectangle.\n\nStep 2: Each small rectangle is $11$ ft by $\\frac{\\ell}{4}$ ft.\nPerimeter of small rectangle $= 2\\left(11 + \\frac{\\ell}{4}\\right) = 30$\n$11 + \\frac{\\ell}{4} = 15$\n$\\frac{\\ell}{4} = 4$\n$\\ell = 16$\n\nStep 3: Original garden is $11$ ft by $16$ ft.\nPerimeter $= 2(11 + 16) = 2(27) = 54$ ft.\n\n**Why the wrong answers are tempting:**\n- Choice A ($48$): You found $\\frac{\\ell}{4} = 4$ and $\\ell = 16$ correctly, but then used $2(8 + 16) = 48$, confusing the small rectangle's short side ($4$) with the original width ($11$). The width does not change when you cut parallel to it.\n- Choice B ($60$): You assumed the original perimeter is $2$ times the small perimeter ($2 \\times 30 = 60$). This seems logical but is wrong because the internal cuts add edges to the small rectangles that do not appear on the original garden's boundary.\n- Choice D ($120$): You multiplied the small perimeter by $4$ ($4 \\times 30 = 120$), reasoning that $4$ small rectangles combine to form the original. But the small rectangles share internal edges. Adding all $4$ perimeters double-counts every internal cut.\n\n**Verification:** Small rectangle: $11 \\times 4$, perimeter $= 2(11 + 4) = 30$ ✓. Original: $11 \\times 16$, perimeter $= 2(11 + 16) = 54$ ✓.\n\n**Test Day Takeaway:** On geometry problems involving subdivisions, sketch the figure and label every dimension. The key is translating between the small shape's dimensions and the large shape's dimensions. Cuts parallel to one side preserve that side's length while dividing the other side.",
+          skills: ["geometry", "spatial-reasoning"]
         },
         {
           id: 22,

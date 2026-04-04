@@ -65,7 +65,7 @@ export const practiceTest4 = {
         {
           id: 5,
           type: 'fill-in',
-          difficulty: 'medium',
+          difficulty: 'easy',
           question: '$18, 24, 24, 31, 35, 38, 56$\n\nA teacher curves the $7$ test scores shown by adding $12$ points to each score. What is the median of the curved scores?',
           correctAnswer: '43',
           explanation: '**SAT Pattern: Effect of a Constant Shift on Statistics** -- The SAT tests whether you understand how adding a constant to every data value affects measures of center and spread.\n\n**The correct answer is $43$.**\n\n**The Fast Way (15 seconds):** The data is already sorted. The median of the original $7$ values is the $4$th value: $31$. Adding $12$ to every score shifts the median by $12$: $31 + 12 = 43$.\n\n**Solution Steps:**\n• Original data in order: $18, 24, 24, 31, 35, 38, 56$\n• Median of $7$ values $=$ middle value $=$ $4$th value $= 31$\n• Curving adds $12$ to every score, so the median also increases by $12$\n• Curved median $= 31 + 12 = 43$\n\n**Common Mistakes:**\n• Computing the range ($56 - 18 = 38$) instead of the median. Range and median are different statistics — read the question carefully.\n• Forgetting to add the curve: reporting $31$ instead of $43$.\n• Computing the mean instead of the median: the mean of the original data is about $32.3$, which would give $44.3$ after the curve — not the same as $43$.\n\n**Verification:** Curved scores: $30, 36, 36, 43, 47, 50, 68$. Middle value: $43$.\n\n**Test Day Takeaway:** Adding a constant $c$ to every value shifts the mean and median by $c$ but does not change the range, IQR, or standard deviation. The SAT frequently tests this distinction.',
@@ -153,7 +153,7 @@ export const practiceTest4 = {
         {
           id: 11,
           type: "fill-in",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "$18x + y = 36$\n$5x + y = 62$\n\nThe solution to the given system of equations is $(x, y)$. What is the value of $x^2 + y$?",
           correctAnswer: "76",
           explanation: "**SAT Pattern: System of Equations with Expression Evaluation** -- The SAT often asks for a combined expression rather than a single variable, requiring you to solve the full system and then compute an additional step.\n\n**The correct answer is $76$.**\n\n**The Fast Way (30 seconds):** Subtract the equations to eliminate $y$: $(18x + y) - (5x + y) = 36 - 62$, giving $13x = -26$, so $x = -2$. Back-substitute: $5(-2) + y = 62$, so $y = 72$. Then $x^2 + y = 4 + 72 = 76$.\n\n**Solution Steps:**\n• Subtract equation 2 from equation 1: $13x = -26$, so $x = -2$\n• Substitute into equation 2: $-10 + y = 62$, so $y = 72$\n• Compute: $x^2 + y = (-2)^2 + 72 = 4 + 72 = 76$\n\n**Common Mistakes:**\n• Reporting $y = 72$ without computing the requested expression $x^2 + y$. Always re-read what the question asks for.\n• Computing $x + y = -2 + 72 = 70$ instead of $x^2 + y$. The exponent on $x$ matters — missing it costs you the point.\n• Sign error: using $x^2 = -4$ instead of $(-2)^2 = 4$. Squaring a negative number always gives a positive result.\n\n**Verification:**\n• Equation 1: $18(-2) + 72 = -36 + 72 = 36$ ✓\n• Equation 2: $5(-2) + 72 = -10 + 72 = 62$ ✓\n• $x^2 + y = 4 + 72 = 76$ ✓\n\n**Test Day Takeaway:** When the SAT asks for an expression like $x^2 + y$ rather than just $x$ or $y$, solve the system completely first, then substitute into the expression. Watch for sign errors when squaring negative values.",
@@ -204,7 +204,7 @@ export const practiceTest4 = {
         {
           id: 14,
           type: "multiple-choice",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "Line $p$ in the $xy$-plane has a slope of $-\\frac{1}{4}$ and passes through the point $(8, 5)$. Which equation defines line $p$?",
           choices: [
             { id: "A", text: "$y = 8x - \\frac{1}{4}$" },
@@ -219,7 +219,7 @@ export const practiceTest4 = {
         {
           id: 15,
           type: 'fill-in',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: '$y = 5x$\n$y = x^2 - 6$\n\nA solution to the given system of equations is $(x, y)$, where $x > 0$. What is the value of $x$?',
           correctAnswer: '6',
           explanation: '**SAT Pattern: Linear-Quadratic System** -- When one equation is linear and the other is quadratic, set them equal and solve the resulting quadratic. The SAT tests this 1-2 times per exam.\n\n**The correct answer is $6$.**\n\n**The Fast Way (20 seconds):** Type both equations into Desmos ($y = 5x$ and $y = x^2 - 6$) and read the intersection point where $x > 0$. You will see $x = 6$.\n\n**Solution Steps:**\n• Set the $y$-expressions equal: $5x = x^2 - 6$\n• Rearrange to standard form: $x^2 - 5x - 6 = 0$\n• Factor: $(x - 6)(x + 1) = 0$\n• Solutions: $x = 6$ or $x = -1$\n• Since $x > 0$, the answer is $x = 6$\n\n**Verification:** When $x = 6$: $y = 5(6) = 30$ and $y = 6^2 - 6 = 36 - 6 = 30$. Both equations give the same $y$-value.\n\n**Test Day Takeaway:** When a problem says $x > 0$, that is a hint that you will get two solutions and need to discard one. Always re-read the constraint before entering your answer.',
@@ -312,10 +312,10 @@ export const practiceTest4 = {
           id: 21,
           type: "fill-in",
           difficulty: "hard",
-          question: "$x(kx - 30) = -9$\n\nIn the given equation, $k$ is a positive integer constant. The equation has no real solution. What is the least possible value of $k$?",
-          correctAnswer: '26',
-          explanation: "**SAT Pattern: Discriminant and No Real Solutions** -- The SAT tests discriminant conditions regularly, especially with \"no real solution\" or \"exactly one solution\" phrasing. Know the three cases cold.\n\n**The correct answer is $26$.**\n\n**The Fast Way (30 seconds):** Expand to standard form $kx^2 - 30x + 9 = 0$. For no real solutions, the discriminant must be strictly negative: $(-30)^2 - 4(k)(9) < 0$, which gives $900 - 36k < 0$, so $k > 25$. The smallest integer greater than $25$ is $26$.\n\n**Solution Steps:**\n• Rewrite: $kx^2 - 30x + 9 = 0$\n• Discriminant condition for no real solutions: $b^2 - 4ac < 0$\n• $900 - 36k < 0$\n• $k > 25$\n• Since $k$ is a positive integer, the least value is $k = 26$\n\n**Verification:** With $k = 26$: discriminant $= 900 - 936 = -36 < 0$ (no real solutions). With $k = 25$: discriminant $= 900 - 900 = 0$ (one real solution, which does not satisfy \"no real solution\").\n\n**Test Day Takeaway:** Discriminant $> 0$ means two solutions. Discriminant $= 0$ means exactly one. Discriminant $< 0$ means none. When the problem says \"no real solution,\" use strict inequality ($< 0$), not $\\leq 0$.",
-          skills: ['Advanced Math', 'Discriminant']
+          question: "A parabola in the $xy$-plane has the equation $y = (x - 4)^2 - k$, where $k$ is a positive constant. The parabola crosses the $x$-axis at two points that are $10$ units apart. What is the value of $k$?",
+          correctAnswer: '25',
+          explanation: "**SAT Pattern: Using Vertex Form to Find x-Intercept Distance** -- The SAT tests whether you understand vertex form deeply enough to avoid expanding and using the quadratic formula. The insight: in vertex form, the roots are symmetric around the vertex, each $\\sqrt{k}$ away.\n\n**The correct answer is $25$.**\n\n**The Fast Way (20 seconds):** In vertex form $y = (x - 4)^2 - k$, the vertex is at $x = 4$. The $x$-intercepts are where $(x - 4)^2 = k$, giving $x = 4 + \\sqrt{k}$ and $x = 4 - \\sqrt{k}$. The distance between them is $2\\sqrt{k}$. Set $2\\sqrt{k} = 10$, so $\\sqrt{k} = 5$, and $k = 25$.\n\n**The Full Solution:**\n**Step 1:** Find the $x$-intercepts by setting $y = 0$:\n$(x - 4)^2 - k = 0$\n$(x - 4)^2 = k$\n$x - 4 = \\pm\\sqrt{k}$\n$x = 4 + \\sqrt{k}$ or $x = 4 - \\sqrt{k}$\n\n**Step 2:** The distance between the two intercepts:\nDistance $= (4 + \\sqrt{k}) - (4 - \\sqrt{k}) = 2\\sqrt{k}$\n\n**Step 3:** Set equal to $10$ and solve:\n$2\\sqrt{k} = 10$\n$\\sqrt{k} = 5$\n$k = 25$\n\n**Common mistakes that lead to wrong answers:**\n• Getting $k = 50$: from forgetting to square the $5$. If you solve $2\\sqrt{k} = 10$ and write $k = 2 \\times 5 = 10$, or $\\sqrt{k} = 10$ (forgetting the $2$), then $k = 100$. Follow each algebraic step carefully.\n• Getting $k = 10$: from setting $\\sqrt{k} = 10$ instead of $2\\sqrt{k} = 10$. The distance between the roots is TWICE $\\sqrt{k}$, not $\\sqrt{k}$ itself.\n• Expanding to standard form and trying the quadratic formula — this works but wastes time and introduces more opportunities for error. The vertex form gives you the answer directly.\n\n**Verification:** With $k = 25$: $y = (x - 4)^2 - 25$. Set $y = 0$: $(x - 4)^2 = 25$, so $x = 9$ or $x = -1$. Distance $= 9 - (-1) = 10$ ✓\n\n**Test Day Takeaway:** When a quadratic is in vertex form $y = (x - h)^2 - k$, the $x$-intercepts are at $h \\pm \\sqrt{k}$ and the distance between them is $2\\sqrt{k}$. This shortcut lets you skip expanding and using the quadratic formula entirely. Vertex form is your friend — learn to read information directly from it.",
+          skills: ['quadratic-functions', 'vertex-form']
         },
         {
           id: 22,

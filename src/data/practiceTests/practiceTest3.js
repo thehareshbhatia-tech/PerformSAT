@@ -44,7 +44,7 @@ export const practiceTest3 = {
         {
           id: 2,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "easy",
           question: "Of the 48,000 seats in a concert hall, 36,000 are in the general admission section. Out of those seats in general admission, 14,400 are in the front rows. Of the general admission seats that are NOT in the front rows, 40% are classified as premium. What percentage of ALL seats in the concert hall are general admission, non-front-row, premium seats?",
           choices: [
             { id: "A", text: "12%" },
@@ -162,7 +162,7 @@ export const practiceTest3 = {
         {
           id: 10,
           type: "fill-in",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "The price of oil increased by 20% at the beginning of May. Two weeks later, an economic policy reduced the price by 14%. At the end of June, a supply disruption caused a further 25% increase on the resulting price. What is the overall percentage change in the price of oil from its original value, to the nearest tenth?",
           correctAnswer: '29',
           acceptedAnswers: [29, "29", "29.0"],
@@ -199,7 +199,7 @@ export const practiceTest3 = {
         {
           id: 13,
           type: "multiple-choice",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "Which of the following is equivalent to the given expression?\n\n$9x^4 + 30x^2y + 25y^2$",
           choices: [
             { id: "A", text: "$(3x^2 + 5y)^2$" },
@@ -214,7 +214,7 @@ export const practiceTest3 = {
         {
           id: 14,
           type: "multiple-choice",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "If $r$ and $s$ are the solutions to the equation $2x^2 - 10x + 7 = 0$, what is the value of $r^2 + s^2$?",
           choices: [
             { id: "A", text: "$\\frac{18}{4}$" },
@@ -254,26 +254,16 @@ export const practiceTest3 = {
           id: 17,
           type: "multiple-choice",
           difficulty: "hard",
-          question: "A circle with center $O$ and diameter $12$ has a sector $AOB$. The area of sector $AOB$ is $\\frac{54\\pi}{5}$. What is the length of the minor arc $AB$?",
-          diagram: {
-            type: "circleWithSector",
-            params: {
-              centralAngle: 108,
-              labelCenter: "O",
-              labelPoint1: "A",
-              labelPoint2: "B",
-              showAngleLabel: false
-            }
-          },
+          question: "A square garden has a side length of $10$ feet. A sprinkler is placed at one corner of the garden and waters a circular area with a radius of $10$ feet. What is the area, in square feet, of the part of the garden that does NOT get watered by the sprinkler?",
           choices: [
-            { id: "A", text: "$\\frac{\\pi}{6}$" },
-            { id: "B", text: "$\\frac{18\\pi}{5}$" },
-            { id: "C", text: "$12\\pi$" },
-            { id: "D", text: "$28.8\\pi$" }
+            { id: "A", text: "$100 - 100\\pi$" },
+            { id: "B", text: "$100 - 25\\pi$" },
+            { id: "C", text: "$75\\pi$" },
+            { id: "D", text: "$100 - 50\\pi$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Working Backwards from Sector Area to Arc Length** -- This problem combines two circle formulas: you must first extract the central angle from the sector area, then use that angle to compute the arc length. It tests multi-step reasoning with circle properties.\n\n**Choice B is correct.** The arc length is $\\frac{18\\pi}{5}$.\n\n**The Fast Way (35 seconds):** Radius $= 6$. Full area $= 36\\pi$. Sector fraction $= \\frac{54\\pi/5}{36\\pi} = \\frac{54}{180} = \\frac{3}{10}$. Arc length $= \\frac{3}{10} \\times 12\\pi = \\frac{36\\pi}{10} = \\frac{18\\pi}{5}$.\n\n**Solution steps:**\n1. Radius: diameter $= 12$, so $r = 6$\n2. Full circle area: $\\pi r^2 = 36\\pi$\n3. Find the fraction of the circle: $\\frac{\\text{sector area}}{\\text{total area}} = \\frac{54\\pi/5}{36\\pi} = \\frac{54}{180} = \\frac{3}{10}$\n4. This means the central angle is $\\frac{3}{10} \\times 360\u00b0 = 108\u00b0$\n5. Circumference: $C = 2\\pi(6) = 12\\pi$\n6. Arc length $= \\frac{3}{10} \\times 12\\pi = \\frac{36\\pi}{10} = \\frac{18\\pi}{5}$\n\n**Why the wrong answers are tempting:**\n- **A ($\\frac{\\pi}{6}$):** This comes from confusing the sector area formula with the arc length formula and mishandling the fractions. It is far too small for a $108\u00b0$ arc on a circle with circumference $12\\pi$.\n- **C ($12\\pi$):** This is the entire circumference. You found the radius and circumference correctly but skipped the step of multiplying by the sector fraction.\n- **D ($28.8\\pi$):** This exceeds the full circumference, which is impossible for an arc. It likely results from inverting the sector fraction ($\\frac{10}{3}$ instead of $\\frac{3}{10}$).\n\n**Verification:** Sector area check: $\\frac{3}{10} \\times 36\\pi = \\frac{108\\pi}{10} = \\frac{54\\pi}{5}$. Arc length: $\\frac{3}{10} \\times 12\\pi = \\frac{18\\pi}{5} \\approx 11.31$, which is less than $12\\pi \\approx 37.7$.\n\n**Test Day Takeaway:** The fraction of the circle is the same for both area and arc length: $\\frac{\\text{sector area}}{\\pi r^2} = \\frac{\\text{arc length}}{2\\pi r} = \\frac{\\theta}{360\u00b0}$. If they give you one, you can find the other by applying the same fraction to the appropriate total.",
-          skills: ["arc-length", "circles"]
+          explanation: "**SAT Pattern: Shaded Region with Spatial Reasoning** -- The SAT tests whether you can visualize HOW a shape overlaps with another, then use simple area formulas. The insight here is figuring out what fraction of the circle lies inside the square.\n\n**Choice B is correct.** The unwatered area is $100 - 25\\pi$ square feet.\n\n**The Fast Way (30 seconds):** The sprinkler is at a corner. A circle centered at a corner of a square, with radius equal to the side length, covers exactly one-quarter of the full circle inside the square (the other three-quarters extend outside). Watered area inside garden $= \\frac{1}{4}\\pi(10)^2 = 25\\pi$. Unwatered area $= 100 - 25\\pi$.\n\n**The Full Solution:**\n**Step 1:** Visualize the setup. The sprinkler sits at a corner of the $10 \\times 10$ square. The circle has radius $10$, so it extends $10$ feet in all directions — but the square only occupies one quadrant (the $90°$ sector) from that corner.\n\n**Step 2:** The portion of the circle inside the square is a quarter circle:\nWatered area $= \\frac{1}{4} \\times \\pi r^2 = \\frac{1}{4} \\times 100\\pi = 25\\pi$\n\n**Step 3:** The unwatered area is the total garden area minus the watered area:\nUnwatered $= 100 - 25\\pi \\approx 100 - 78.5 = 21.5$ square feet\n\n**Why the wrong answers are tempting:**\n• Choice A ($100 - 100\\pi$): Uses the FULL circle area ($\\pi \\times 10^2 = 100\\pi$) instead of just the quarter that falls inside the square. This also gives a negative number ($100 - 314 < 0$), which is impossible for an area — a red flag that should make you reconsider.\n• Choice C ($75\\pi$): Computes $100\\pi - 25\\pi = 75\\pi$, subtracting the quarter circle from the full circle. This finds the part of the circle OUTSIDE the garden, which is not what the question asks. Always re-read: the question asks for the part of the GARDEN not watered.\n• Choice D ($100 - 50\\pi$): Uses a semicircle ($\\frac{1}{2} \\times 100\\pi = 50\\pi$) instead of a quarter circle. A semicircle would apply if the sprinkler were at the midpoint of a side, not at a corner. The corner location means only $90°$ (one-quarter) of the circle falls inside.\n\n**Verification:** $25\\pi \\approx 78.5$ square feet watered, which is less than the $100$ square foot garden. Unwatered $\\approx 21.5$ square feet. This makes sense — the sprinkler covers most but not all of the garden (it misses the far corner area). ✓\n\n**Test Day Takeaway:** For \"shaded region\" problems, the key insight is always WHAT FRACTION of one shape overlaps with another. A circle at a corner of a square gives a quarter circle inside ($90°$ out of $360°$). At a midpoint of a side, it would be a semicircle. Visualize first, then compute.",
+          skills: ["geometry", "circles", "spatial-reasoning"]
         },
         {
           id: 18,

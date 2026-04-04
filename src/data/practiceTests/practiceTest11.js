@@ -139,7 +139,7 @@ export const practiceTest11 = {
         {
           id: 'pt11-m1-q7',
           type: 'multiple-choice',
-          difficulty: 'medium',
+          difficulty: 'easy',
           question: '$3x + 2y = 19$\n$x - 2y = -3$\n\nWhat is the solution $(x, y)$ to the given system of equations?',
           choices: [
             { id: 'A', text: '$(4, 3.5)$' },
@@ -268,7 +268,7 @@ export const practiceTest11 = {
         {
           id: 'pt11-m1-q15',
           type: 'multiple-choice',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'What are the solutions to the equation $x^2 - 9x + 20 = 0$?',
           choices: [
             { id: 'A', text: '$x = 2$ and $x = 10$' },
@@ -283,7 +283,7 @@ export const practiceTest11 = {
         {
           id: 'pt11-m1-q16',
           type: 'multiple-choice',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: '$\\frac{3}{x - 2} + \\frac{5}{x + 1} = \\frac{17}{(x - 2)(x + 1)}$\n\nWhat is the solution to the given equation?',
           choices: [
             { id: 'A', text: '$x = -1$' },
@@ -298,7 +298,7 @@ export const practiceTest11 = {
         {
           id: 'pt11-m1-q17',
           type: 'fill-in',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'A bakery sells cupcakes for \\$3 each and cookies for \\$2 each. On a given day, the bakery sold a total of $85$ items and collected \\$210. How many cupcakes did the bakery sell?',
           correctAnswer: '40',
           explanation: '**SAT Pattern: System of Equations Word Problem** -- Shows up 1-2 per test. "Total items + total cost" is the classic two-equation setup.\n\n**The correct answer is $40$.**\n\n**The Fast Way (30 seconds):** In Desmos, type $c + k = 85$ and $3c + 2k = 210$. Find the intersection: $c = 40$, $k = 45$. The answer is $40$.\n\n**Step 1: Define variables**\nLet $c$ = number of cupcakes and $k$ = number of cookies.\n\n**Step 2: Write the system**\n$c + k = 85$ (total items)\n$3c + 2k = 210$ (total revenue)\n\n**Step 3: Solve by substitution**\nFrom the first equation: $k = 85 - c$.\nSubstitute into the second:\n$3c + 2(85 - c) = 210$\n$3c + 170 - 2c = 210$\n$c = 40$\n\n**Verification:** $c = 40$, $k = 45$. Revenue: $3(40) + 2(45) = 120 + 90 = 210$. Items: $40 + 45 = 85$. Both check out.\n\n**Test Day Takeaway:** When a word problem gives you two pieces of information about two unknowns (total count and total value), set up two equations and solve. Always verify both conditions at the end.',
@@ -369,16 +369,16 @@ export const practiceTest11 = {
           id: 'pt11-m1-q22',
           type: 'multiple-choice',
           difficulty: 'hard',
-          question: '$x^2 + y^2 - 6x + 10y + 18 = 0$\n\nThe equation above defines a circle in the $xy$-plane. What are the center and radius of this circle?',
+          question: 'A circle in the $xy$-plane has its center at $(3, -5)$ and passes through the point $(3, -1)$. Which of the following points is also on the circle?',
           choices: [
-            { id: 'A', text: 'Center: $(3, -5)$\nRadius: $4$' },
-            { id: 'B', text: 'Center: $(-3, 5)$\nRadius: $4$' },
-            { id: 'C', text: 'Center: $(3, -5)$\nRadius: $16$' },
-            { id: 'D', text: 'Center: $(-3, 5)$\nRadius: $16$' }
+            { id: 'A', text: '$(7, -1)$' },
+            { id: 'B', text: '$(7, -5)$' },
+            { id: 'C', text: '$(3, -8)$' },
+            { id: 'D', text: '$(0, -5)$' }
           ],
-          correctAnswer: 'A',
-          explanation: '**SAT Pattern: Circle Equation (Completing the Square)** -- Shows up 1 per test. One of the hardest algebra questions, but very formulaic.\n\n**Choice A is correct.**\n\n**The Fast Way (30 seconds):** In Desmos, type $x^2 + y^2 - 6x + 10y + 18 = 0$. Desmos graphs the circle, and you can identify the center at $(3, -5)$ and measure the radius as $4$. Pick A.\n\n**Step 1: Group the $x$ and $y$ terms**\n$(x^2 - 6x) + (y^2 + 10y) = -18$\n\n**Step 2: Complete the square**\nFor $x$: half of $-6$ is $-3$, squared is $9$. Add $9$ to both sides.\nFor $y$: half of $10$ is $5$, squared is $25$. Add $25$ to both sides.\n$(x - 3)^2 + (y + 5)^2 = -18 + 9 + 25 = 16$\n\n**Step 3: Read the center and radius**\nCenter: $(3, -5)$, Radius: $\\sqrt{16} = 4$.\n\n**Why the wrong answers are tempting:**\n- Choice B has the center signs flipped to $(-3, 5)$. This is the most common mistake on completing-the-square problems. In $(x - 3)^2$, the center $x$-coordinate is $+3$, not $-3$. College Board knows that students see the "$-6x$" and reflexively write $-3$ for the center, forgetting that $(x - h)^2$ means $h$ is positive when the sign in the equation is negative.\n- Choice C has the correct center but lists the radius as $16$ instead of $4$. This comes from forgetting to take the square root: $r^2 = 16$, so $r = 4$, not $16$. College Board regularly puts $r^2$ as an answer choice to catch this.\n- Choice D combines both errors -- wrong center signs AND forgetting the square root.\n\n**Verification:** Plug the center $(3, -5)$ into the original: $(3)^2 + (-5)^2 - 6(3) + 10(-5) + 18 = 9 + 25 - 18 - 50 + 18 = -16$. Wait -- that equals $-16$, not $0$. But that is because the center is NOT on the circle; the center is $r = 4$ units away from every point on the circle. Check: $(x - 3)^2 + (y + 5)^2 = 16$ is correct.\n\n**Test Day Takeaway:** When completing the square for a circle, remember two things: (1) the signs of the center are OPPOSITE to what appears in the squared terms, and (2) the radius is the SQUARE ROOT of the number on the right side.',
-          skills: ['Geometry', 'Circle Equations']
+          correctAnswer: 'B',
+          explanation: '**SAT Pattern: Circle Concepts -- Center, Radius, and Distance** -- Instead of grinding through completing the square, this question tests whether you truly understand what a circle IS: all points at a fixed distance (the radius) from the center.\n\n**Choice B is correct.**\n\n**The Fast Way (30 seconds):** The center is $(3, -5)$ and the circle passes through $(3, -1)$. These two points share the same $x$-coordinate, so the distance is just $|-1 - (-5)| = 4$. The radius is $4$. Now check which answer choice is exactly $4$ units from $(3, -5)$.\n\n- $(7, -5)$: same $y$-coordinate as center, distance $= |7 - 3| = 4$. That is on the circle.\n\n**Step-by-step solution:**\n\nStep 1: Find the radius.\nCenter: $(3, -5)$. Known point on circle: $(3, -1)$.\nSince both have $x = 3$, the distance is purely vertical: $|-1 - (-5)| = |-1 + 5| = 4$.\nRadius $= 4$.\n\nStep 2: Check each answer choice.\n- Choice A: $(7, -1)$. Distance from $(3, -5)$: $\\sqrt{(7-3)^2 + (-1-(-5))^2} = \\sqrt{16 + 16} = \\sqrt{32} \\approx 5.66$. Not $4$.\n- Choice B: $(7, -5)$. Distance from $(3, -5)$: $\\sqrt{(7-3)^2 + (-5-(-5))^2} = \\sqrt{16 + 0} = 4$. This is on the circle.\n- Choice C: $(3, -8)$. Distance from $(3, -5)$: $|-8 - (-5)| = 3$. Not $4$.\n- Choice D: $(0, -5)$. Distance from $(3, -5)$: $|0 - 3| = 3$. Not $4$.\n\n**Why the wrong answers are tempting:**\n- Choice A $(7, -1)$: This point is both $4$ units to the right AND $4$ units up from the center. Students who think "move $4$ in the $x$-direction and $4$ in the $y$-direction" will pick this, but diagonal distance is $\\sqrt{4^2 + 4^2} = 4\\sqrt{2} \\neq 4$. This is the most dangerous trap because it feels like it should be exactly $4$ away.\n- Choice C $(3, -8)$: This is only $3$ units below the center, not $4$. A student who miscounts $|-8 - (-5)| = |-8 + 5| = |-3| = 3$ as $4$ falls for this.\n- Choice D $(0, -5)$: Also $3$ units from the center ($|0 - 3| = 3$). The nice round coordinates make it look plausible.\n\n**Verification:** $(7 - 3)^2 + (-5 - (-5))^2 = 16 + 0 = 16 = 4^2$. The point $(7, -5)$ is exactly $4$ units from the center.\n\n**Test Day Takeaway:** A circle is all points at distance $r$ from the center. When the given point and center share a coordinate, the radius is just the difference in the other coordinate. Then test each choice by computing its distance from the center -- checking horizontal/vertical distances first is fastest.',
+          skills: ['Geometry', 'Circle Equations', 'Distance']
         }
       ]
     },

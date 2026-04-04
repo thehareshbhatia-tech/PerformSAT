@@ -122,7 +122,7 @@ export const practiceTest5 = {
         {
           id: 7,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "easy",
           question: "A survey asked employees to rate their favorite office snack. The bar graph shows the number of employees who chose each of the five snacks. What fraction of the surveyed employees chose either Fruit or Granola as their favorite snack?",
           diagram: {
             type: "barChart",
@@ -205,7 +205,7 @@ export const practiceTest5 = {
         {
           id: 12,
           type: "multiple-choice",
-          difficulty: "hard",
+          difficulty: "medium",
           question: "Which point lies in the solution region of the system of inequalities shown?",
           questionFormula: {
             lines: ["$y \\geq 2x - 3$", "$y \\leq -x + 4$"]
@@ -232,7 +232,7 @@ export const practiceTest5 = {
         {
           id: 14,
           type: 'multiple-choice',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'A tailor used fabric measuring $4$ yards in length to make each curtain for a theater. The relationship between the number of curtains that the tailor made, $x$, and the total length of fabric that was purchased, $y$, in yards, is represented by the equation $y - 4x = 8$. What is the best interpretation of $8$ in this context?',
           choices: [
             { id: 'A', text: 'The tailor made $8$ curtains.' },
@@ -247,7 +247,7 @@ export const practiceTest5 = {
         {
           id: 15,
           type: 'multiple-choice',
-          difficulty: 'hard',
+          difficulty: 'medium',
           question: 'If $5x - 35 = -20$, what is the value of $3(x - 7)^2 + 2(x - 7)$?',
           choices: [
             { id: 'A', text: '$40$' },
@@ -278,11 +278,10 @@ export const practiceTest5 = {
           id: 17,
           type: "fill-in",
           difficulty: "hard",
-          question: "If $r$ and $s$ are the solutions to $3x^2 - 7x + 2 = 0$, what is the value of $r^2 + s^2$?",
-          correctAnswer: "37/9",
-          alternateAnswers: ["4.111", "4.11"],
-          explanation: "**SAT Pattern: Combining Vieta's Formulas with Algebraic Identities** -- Shows up 0-1 times per test. You must use both the sum and product of roots, then combine them through the identity $r^2 + s^2 = (r+s)^2 - 2rs$.\n\n**The correct answer is $\\frac{37}{9}$ (approximately $4.11$).**\n\n**The Fast Way (20 seconds):** By Vieta's: $r + s = \\frac{7}{3}$ and $rs = \\frac{2}{3}$. Use the identity: $r^2 + s^2 = (r+s)^2 - 2rs = \\left(\\frac{7}{3}\\right)^2 - 2\\left(\\frac{2}{3}\\right) = \\frac{49}{9} - \\frac{4}{3} = \\frac{49}{9} - \\frac{12}{9} = \\frac{37}{9}$.\n\n**The Full Solution:**\nStep 1: Apply Vieta's formulas to $3x^2 - 7x + 2 = 0$.\nSum: $r + s = -\\frac{b}{a} = \\frac{7}{3}$.\nProduct: $rs = \\frac{c}{a} = \\frac{2}{3}$.\n\nStep 2: Use the algebraic identity.\n$r^2 + s^2 = (r + s)^2 - 2rs$\n$= \\left(\\frac{7}{3}\\right)^2 - 2\\left(\\frac{2}{3}\\right)$\n$= \\frac{49}{9} - \\frac{4}{3}$\n$= \\frac{49}{9} - \\frac{12}{9} = \\frac{37}{9}$.\n\n**Common mistakes:**\n• Answering $\\frac{49}{9}$: You computed $(r+s)^2$ but forgot to subtract $2rs$. The identity has a crucial subtraction step.\n• Answering $\\frac{2}{3}$: You found the product $rs$ and stopped, confusing the product with the sum of squares.\n• Answering $\\frac{53}{9}$: You added $2rs$ instead of subtracting, getting $\\frac{49}{9} + \\frac{4}{3} = \\frac{49+12}{9} = \\frac{61}{9}$, or made a sign error somewhere in the fractions.\n\n**Verification:** Roots are $r = \\frac{1}{3}$ and $s = 2$. Direct: $\\left(\\frac{1}{3}\\right)^2 + 2^2 = \\frac{1}{9} + 4 = \\frac{37}{9}$ ✓\n\n**Test Day Takeaway:** The identity $r^2 + s^2 = (r+s)^2 - 2rs$ lets you find the sum of squares without solving for $r$ and $s$ individually. Combined with Vieta's formulas, this handles a wide range of SAT questions about roots.",
-          skills: ["quadratic-equations", "vietas-formulas"]
+          question: "A ball is thrown upward from the top of a building. The height of the ball, in feet, $t$ seconds after it is thrown is modeled by $h(t) = -16t^2 + 64t + 80$. After how many seconds does the ball return to the same height as the top of the building?",
+          correctAnswer: "4",
+          explanation: "**SAT Pattern: Quadratic Word Problem -- Reading What the Question Actually Asks** -- Shows up 1-2 times per test. College Board hides simple algebra behind a scenario that sounds complicated. The trap is diving into the quadratic formula when the question only requires basic reasoning.\n\n**The correct answer is $4$.**\n\n**The Fast Way (15 seconds):** The height of the building is the starting height: $h(0) = -16(0) + 64(0) + 80 = 80$ feet. Set $h(t) = 80$: $-16t^2 + 64t + 80 = 80$. Subtract $80$: $-16t^2 + 64t = 0$. Factor: $-16t(t - 4) = 0$. So $t = 0$ (the start) or $t = 4$. The ball returns to building height at $t = 4$ seconds.\n\n**The Full Solution:**\nStep 1: Find the starting height.\nThe ball is thrown from the top of the building at $t = 0$:\n$h(0) = -16(0)^2 + 64(0) + 80 = 80$ feet.\n\nStep 2: Set $h(t)$ equal to the starting height.\n$-16t^2 + 64t + 80 = 80$\n\nStep 3: Simplify.\n$-16t^2 + 64t = 0$\n$-16t(t - 4) = 0$\n$t = 0$ or $t = 4$\n\nSince $t = 0$ is the initial moment, the ball returns to the same height at $t = 4$ seconds.\n\n**Common mistakes:**\n• Answering $2$: You found the time of maximum height using $t = -\\frac{b}{2a} = -\\frac{64}{2(-16)} = 2$. That is when the ball is at its peak, not when it returns to building height. The question asks when the ball is back at the STARTING height, not the maximum.\n• Answering $5$: You set $h(t) = 0$ (ground level) instead of $h(t) = 80$ (building height). The ball hits the ground at $t = 5$, but the question asks when it returns to building height, not ground level.\n• Answering $80$: You found the starting height but reported it as the time. Always re-read whether the question asks for height or time.\n\n**Verification:** $h(4) = -16(16) + 64(4) + 80 = -256 + 256 + 80 = 80$ feet, which equals $h(0) = 80$ feet. ✓\n\n**Test Day Takeaway:** When a question mentions \"returns to the same height\" or \"reaches the starting height,\" find $h(0)$ first. Then set $h(t) = h(0)$ and the constant terms cancel, leaving a simple equation. The hard part is reading the question -- the math is easy.",
+          skills: ["quadratic-equations", "word-problem-to-equation"]
         },
         {
           id: 18,
@@ -323,12 +322,18 @@ export const practiceTest5 = {
         },
         {
           id: 20,
-          type: "fill-in",
+          type: "multiple-choice",
           difficulty: "hard",
-          question: "The expression $4\\sqrt[4]{x^{20}} \\cdot \\sqrt[3]{3^3x^6}$ is equivalent to $ax^b$, where $a$ and $b$ are positive constants and $x > 1$. What is the value of $a + b$?",
-          correctAnswer: "19",
-          explanation: "**SAT Pattern: Simplifying Radical Expressions with Exponents** -- Shows up 0-1 times per test. Apply the rule $\\sqrt[n]{a^m} = a^{m/n}$ systematically.\n\n**The correct answer is $19$.**\n\n**The Fast Way (30 seconds):** Simplify each radical separately.\n$\\sqrt[4]{x^{20}} = x^{20/4} = x^5$\n$\\sqrt[3]{3^3 x^6} = 3 \\cdot x^2$\nMultiply: $4 \\cdot x^5 \\cdot 3x^2 = 12x^7$\nSo $a = 12$, $b = 7$, and $a + b = 19$.\n\n**The Full Solution:**\nStep 1: Simplify $\\sqrt[4]{x^{20}}$. Using $\\sqrt[n]{a^m} = a^{m/n}$: $x^{20/4} = x^5$.\nStep 2: Simplify $\\sqrt[3]{3^3 x^6}$. This equals $3^{3/3} \\cdot x^{6/3} = 3x^2$.\nStep 3: Multiply everything: $4 \\cdot x^5 \\cdot 3x^2 = 12x^7$.\nStep 4: Read off $a = 12$, $b = 7$, so $a + b = 19$.\n\n**Common mistakes:**\n• Answering $31$: You accidentally included extra factors inside the radical. Simplify only what is under the radical sign.\n• Answering $7$: You found $b = 7$ but forgot to add $a$. Always re-read what the question asks for.\n\n**Verification:** $12x^7$ gives $a + b = 12 + 7 = 19$ ✓\n\n**Test Day Takeaway:** For radical simplification, use $\\sqrt[n]{a^m} = a^{m/n}$. Simplify each radical piece by piece, then multiply. Keep careful track of coefficients outside vs. inside the radical.",
-          skills: ["Advanced Math", "Exponents and radicals"]
+          question: "A colony of bacteria has a population of $800$ at noon and doubles every $3$ hours. A separate colony of yeast has a population of $200$ at noon and triples every $3$ hours. Which of the following is the first $3$-hour period after noon during which the yeast population exceeds the bacteria population?",
+          choices: [
+            { id: "A", text: "Between $6$ and $9$ hours after noon" },
+            { id: "B", text: "Between $9$ and $12$ hours after noon" },
+            { id: "C", text: "Between $12$ and $15$ hours after noon" },
+            { id: "D", text: "Between $15$ and $18$ hours after noon" }
+          ],
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Exponential Growth Comparison -- Strategic Table Building** -- Shows up 1 per test. The math is just repeated multiplication, but the question is hard because you must track two quantities simultaneously and resist the urge to set up complicated equations.\n\n**Choice B is correct.**\n\n**The Fast Way (45 seconds):** Both populations change at the same interval ($3$ hours), so make a simple table. Bacteria multiply by $2$ and yeast multiply by $3$ every $3$ hours:\n\n| Hours after noon | Bacteria ($\\times 2$) | Yeast ($\\times 3$) |\n|---|---|---|\n| $0$ | $800$ | $200$ |\n| $3$ | $1{,}600$ | $600$ |\n| $6$ | $3{,}200$ | $1{,}800$ |\n| $9$ | $6{,}400$ | $5{,}400$ |\n| $12$ | $12{,}800$ | $16{,}200$ |\n\nAt hour $9$: bacteria ($6{,}400$) still leads yeast ($5{,}400$).\nAt hour $12$: yeast ($16{,}200$) passes bacteria ($12{,}800$).\nSo the crossover happens during the period from $9$ to $12$ hours after noon.\n\n**The Full Solution:**\nBacteria at time $t$: $800 \\times 2^{t/3}$. Yeast at time $t$: $200 \\times 3^{t/3}$.\nAt each $3$-hour mark, just multiply the previous value by the growth factor.\n\nThe key insight is that tripling beats doubling in the long run, but bacteria start $4$ times higher ($800$ vs $200$). Each period, yeast gains ground because $3 > 2$, and eventually the compounding catches up.\n\n**Why the wrong answers are tempting:**\n- Choice A (between $6$ and $9$): At hour $6$, bacteria have $3{,}200$ and yeast have $1{,}800$. At hour $9$, bacteria have $6{,}400$ and yeast have $5{,}400$. Yeast is gaining but has not overtaken yet. Students who round loosely or miscalculate the hour-$9$ values may think yeast is already ahead.\n- Choice C (between $12$ and $15$): Yeast already passed bacteria at hour $12$. Students who accidentally swap the growth factors (doubling yeast, tripling bacteria) would get a later crossover.\n- Choice D (between $15$ and $18$): Much too late. This catches students who try to set up a logarithmic equation and make an error.\n\n**Verification:** Hour $9$: $800 \\times 2^3 = 6{,}400 > 5{,}400 = 200 \\times 3^3$. Hour $12$: $800 \\times 2^4 = 12{,}800 < 16{,}200 = 200 \\times 3^4$. ✓\n\n**Test Day Takeaway:** When comparing exponential growth, do not jump to algebra. Make a table and multiply step by step. A bigger starting value can mask a slower growth rate for several periods -- track actual numbers, not just rates.",
+          skills: ["exponential-growth", "strategic-reasoning"]
         },
         {
           id: 21,
