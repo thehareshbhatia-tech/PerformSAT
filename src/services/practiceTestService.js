@@ -56,6 +56,21 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
       studyPlanArtifactId: results.studyPlanArtifactId || null,
     };
 
+    // Keep only the last MAX_ATTEMPTS per test to prevent document bloat.
+    // Older attempts are trimmed and diagnosticReport is stripped from non-latest attempts.
+    const MAX_ATTEMPTS = 5;
+
+    const trimAttempts = (attempts) => {
+      const sorted = [...attempts].sort((a, b) =>
+        new Date(b.completedAt) - new Date(a.completedAt)
+      );
+      return sorted.slice(0, MAX_ATTEMPTS).map((a, i) => {
+        if (i === 0) return a; // keep latest attempt fully intact
+        const { diagnosticReport, diagnosticData, ...slim } = a;
+        return slim;
+      });
+    };
+
     if (!progressSnap.exists()) {
       console.log('[practiceTestService] Creating new progress document...');
       await setDoc(progressRef, {
@@ -77,10 +92,11 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
       const existingTest = currentData.practiceTestResults?.[testId];
 
       if (existingTest) {
-        // Update existing test results
+        // Update existing test results, trimming old attempts to stay under Firestore 1MB limit
         console.log('[practiceTestService] Updating existing test results...');
+        const updatedAttempts = trimAttempts([attemptData, ...(existingTest.attempts || [])]);
         await updateDoc(progressRef, {
-          [`practiceTestResults.${testId}.attempts`]: arrayUnion(attemptData),
+          [`practiceTestResults.${testId}.attempts`]: updatedAttempts,
           [`practiceTestResults.${testId}.bestScaledScore`]: Math.max(existingTest.bestScaledScore, results.scaledScore),
           [`practiceTestResults.${testId}.bestRawScore`]: Math.max(existingTest.bestRawScore, results.rawScore),
           [`practiceTestResults.${testId}.totalAttempts`]: existingTest.totalAttempts + 1,
@@ -193,7 +209,8 @@ export const saveTestProgress = async (userId, testId, progressData) => {
       eliminatedChoices: progressData.eliminatedChoices || {},
       isTimed: progressData.isTimed,
       timeRemaining: progressData.timeRemaining,
-      questionTelemetry: progressData.questionTelemetry || {},
+      // questionTelemetry omitted from Firestore saves to reduce document size.
+      // It's only needed during the active session and is kept in local state.
       lastSavedAt: new Date().toISOString()
     };
 

@@ -1521,7 +1521,12 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     setModuleCompleted(true);
   }, []);
 
-  const handlePauseToggle = () => setIsPaused(p => !p);
+  const handlePauseToggle = () => {
+    setIsPaused(p => {
+      if (!p) setShowCalculator(false); // close calculator when pausing
+      return !p;
+    });
+  };
 
   const isDevMode = typeof window !== 'undefined' && window.location.hostname === 'localhost';
 

@@ -29,6 +29,7 @@ export const useProgress = (userId) => {
   const [predictionLog, setPredictionLog] = useState([]);
   const studyPlanWriteInFlight = useRef(false);
   const hydratingArtifact = useRef(false);
+  const artifactHydrationFailed = useRef(false); // prevent retry flood on permission errors
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -100,7 +101,7 @@ export const useProgress = (userId) => {
           // When an artifact pointer exists, always hydrate from the artifact
           // subcollection — it carries practiceAssignments and full plan data
           // that the legacy root studyPlan field may lack.
-          if (artifactId && !hydratingArtifact.current && !studyPlanWriteInFlight.current) {
+          if (artifactId && !hydratingArtifact.current && !studyPlanWriteInFlight.current && !artifactHydrationFailed.current) {
             hydratingArtifact.current = true;
             const source = `pointer:${artifactId}`;
             console.log('[useProgress] Hydrating study plan via', source);
@@ -120,6 +121,7 @@ export const useProgress = (userId) => {
               }
             }).catch(err => {
               console.error('[useProgress] Artifact hydration failed:', err);
+              artifactHydrationFailed.current = true; // stop retrying on every snapshot
               if (incomingPlan?.weeks?.length) {
                 setStudyPlan(incomingPlan);
               } else if (!studyPlanWriteInFlight.current) {
@@ -131,7 +133,7 @@ export const useProgress = (userId) => {
           } else if (incomingPlan?.weeks?.length && !studyPlanWriteInFlight.current) {
             setStudyPlan(incomingPlan);
             studyPlanWriteInFlight.current = false;
-          } else if (!artifactId && !hydratingArtifact.current && !studyPlanWriteInFlight.current) {
+          } else if (!artifactId && !hydratingArtifact.current && !studyPlanWriteInFlight.current && !artifactHydrationFailed.current) {
             hydratingArtifact.current = true;
             console.log('[useProgress] Hydrating study plan via latest-query');
 
@@ -147,6 +149,7 @@ export const useProgress = (userId) => {
               }
             }).catch(err => {
               console.error('[useProgress] Artifact hydration failed:', err);
+              artifactHydrationFailed.current = true; // stop retrying on every snapshot
               if (!studyPlanWriteInFlight.current) {
                 setStudyPlan(prev => prev?.weeks?.length ? prev : null);
               }
