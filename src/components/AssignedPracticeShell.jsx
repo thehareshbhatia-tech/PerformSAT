@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MathText } from './MathText';
 import QuestionDiagram from './QuestionDiagrams';
+import QuestionRenderer from './QuestionRenderer';
 import SolutionExplanation from './SolutionExplanation';
 
 const C = {
@@ -353,9 +354,45 @@ const AssignedPracticeShell = ({
             </div>
           )}
 
+          {/* Question table */}
+          {currentQuestion.questionTable && (
+            <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
+              <table style={{ borderCollapse: 'collapse', fontSize: '15px' }}>
+                <thead>
+                  <tr>
+                    {currentQuestion.questionTable.headers.map((header, i) => (
+                      <th key={i} style={{
+                        border: `1px solid ${C.border}`, padding: '8px 16px',
+                        background: '#f5f5f7', fontWeight: '600'
+                      }}>
+                        <MathText>{header}</MathText>
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {currentQuestion.questionTable.rows.map((row, i) => (
+                    <tr key={i}>
+                      {row.map((cell, j) => (
+                        <td key={j} style={{
+                          border: `1px solid ${C.border}`, padding: '8px 16px', textAlign: 'center'
+                        }}>
+                          <MathText>{cell}</MathText>
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+
           {/* Question text */}
           <div style={{ fontSize: '17px', fontWeight: '500', color: C.text, lineHeight: '1.6', marginBottom: '24px' }}>
-            <MathText>{currentQuestion.question}</MathText>
+            {Array.isArray(currentQuestion.question) || (currentQuestion.question && typeof currentQuestion.question === 'object')
+              ? <QuestionRenderer content={currentQuestion.question} />
+              : <MathText>{currentQuestion.question}</MathText>
+            }
           </div>
 
           {/* Formula */}
@@ -381,7 +418,10 @@ const AssignedPracticeShell = ({
           {/* Continued text */}
           {currentQuestion.questionContinued && (
             <div style={{ fontSize: '16px', color: C.text, lineHeight: '1.6', marginBottom: '20px' }}>
-              <MathText>{typeof currentQuestion.questionContinued === 'string' ? currentQuestion.questionContinued : ''}</MathText>
+              {Array.isArray(currentQuestion.questionContinued) || (typeof currentQuestion.questionContinued === 'object')
+                ? <QuestionRenderer content={currentQuestion.questionContinued} />
+                : <MathText>{currentQuestion.questionContinued}</MathText>
+              }
             </div>
           )}
         </div>
@@ -454,16 +494,46 @@ const AssignedPracticeShell = ({
                   }}>
                     {showResult && isCorrect ? '✓' : showResult && isSelected && !isCorrect ? '✗' : choice.id}
                   </span>
-                  <span style={{ fontSize: '15px', color: C.text, display: 'flex', alignItems: 'center' }}>
-                    <MathText>{choice.text || ''}</MathText>
-                    {choice.fraction && (
-                      <span style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'center', marginLeft: choice.text ? '4px' : '0', fontFamily: 'Georgia, serif', fontStyle: 'italic' }}>
-                        <span style={{ padding: '0 4px' }}>{choice.fraction.numerator}</span>
-                        <span style={{ width: '100%', height: '1px', background: C.text, margin: '2px 0' }} />
-                        <span style={{ padding: '0 4px' }}>{choice.fraction.denominator}</span>
+                  <span style={{ fontSize: '15px', color: C.text, display: 'flex', alignItems: 'center', flex: 1 }}>
+                    {choice.table ? (
+                      <table style={{ borderCollapse: 'collapse', fontSize: '14px' }}>
+                        <thead>
+                          <tr>
+                            {choice.table.headers.map((h, i) => (
+                              <th key={i} style={{
+                                border: `1px solid ${C.border}`, padding: '4px 12px',
+                                background: '#f5f5f7', fontWeight: '600', fontStyle: 'italic'
+                              }}>{h}</th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {choice.table.rows.map((row, i) => (
+                            <tr key={i}>
+                              {row.map((cell, j) => (
+                                <td key={j} style={{
+                                  border: `1px solid ${C.border}`, padding: '4px 12px', textAlign: 'center'
+                                }}>{cell}</td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    ) : choice.fraction ? (
+                      <span style={{ display: 'inline-flex', alignItems: 'center' }}>
+                        {choice.text && <MathText>{choice.text}</MathText>}
+                        <span style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'center', marginLeft: choice.text ? '4px' : '0', fontFamily: 'Georgia, serif', fontStyle: 'italic' }}>
+                          <span style={{ padding: '0 4px' }}>{choice.fraction.numerator}</span>
+                          <span style={{ width: '100%', height: '1px', background: C.text, margin: '2px 0' }} />
+                          <span style={{ padding: '0 4px' }}>{choice.fraction.denominator}</span>
+                        </span>
+                        {choice.textAfter && <span style={{ marginLeft: '4px' }}>{choice.textAfter}</span>}
                       </span>
+                    ) : Array.isArray(choice.text) || (choice.text && typeof choice.text === 'object') ? (
+                      <QuestionRenderer content={choice.text} />
+                    ) : (
+                      <MathText>{choice.text || ''}</MathText>
                     )}
-                    {choice.textAfter && <span style={{ marginLeft: '4px' }}>{choice.textAfter}</span>}
                   </span>
                 </div>
               );
