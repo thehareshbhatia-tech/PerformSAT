@@ -93,6 +93,19 @@
   gap: 1rem;
 }
 
+@media (max-width: 768px) {
+  .test-session-header {
+    padding: 0.5rem 0.75rem;
+    flex-wrap: wrap;
+  }
+  .header-left, .header-right {
+    gap: 0.5rem;
+  }
+  .header-right {
+    gap: 0.375rem;
+  }
+}
+
 .header-center {
   display: flex;
   flex-direction: column;
@@ -242,6 +255,20 @@
 .is-eliminated .answer-eliminate-btn {
   color: var(--color-slate-600);
   background-color: var(--color-slate-200);
+}
+
+.answer-select-btn {
+  display: flex;
+  align-items: flex-start;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex: 1;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  min-width: 0;
 }
 
 /* Nav Strip Container */

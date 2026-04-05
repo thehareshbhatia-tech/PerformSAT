@@ -2435,19 +2435,22 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               background: colors.semantic.successLight,
               color: colors.semantic.success,
               borderRadius: radius.sm,
-              fontSize: '0.875rem',
-              fontWeight: 500
+              fontSize: isMobile ? '0.75rem' : '0.875rem',
+              fontWeight: 500,
+              whiteSpace: 'nowrap'
             }}>
-              Untimed Mode
+              {isMobile ? 'Untimed' : 'Untimed Mode'}
             </span>
           )}
-          <button
-            onClick={handleRequestEndTest}
-            className="btn-icon-subtle"
-            style={{ width: 'auto', padding: '0 0.75rem', fontSize: '0.875rem', fontWeight: 600, color: colors.semantic.error, border: `1px solid ${colors.semantic.error}` }}
-          >
-            End Test
-          </button>
+          {!isMobile && (
+            <button
+              onClick={handleRequestEndTest}
+              className="btn-icon-subtle"
+              style={{ width: 'auto', padding: '0 0.75rem', fontSize: '0.875rem', fontWeight: 600, color: colors.semantic.error, border: `1px solid ${colors.semantic.error}` }}
+            >
+              End Test
+            </button>
+          )}
           {isDevMode && (
             <button
               onClick={handleDevAutoSubmit}
@@ -2749,20 +2752,17 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                   key={choice.id}
                   className={cardClass}
                   onClick={() => handleSelectAnswer(choice.id)}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault();
-                      handleSelectAnswer(choice.id);
-                    }
-                  }}
                 >
                   <button
                     className="answer-eliminate-btn"
                     onClick={(e) => {
                       e.stopPropagation();
                       handleToggleEliminate(choice.id);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.stopPropagation();
+                      }
                     }}
                     title={isEliminated ? 'Undo cross-out' : 'Cross out choice'}
                     aria-label={isEliminated ? `Undo elimination of choice ${choice.id}` : `Eliminate choice ${choice.id}`}
@@ -2773,13 +2773,23 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                     </svg>
                   </button>
 
-                  <div className="answer-letter-bubble">
-                    {choice.id}
-                  </div>
-                  
-                  <div className="answer-text-content">
-                    {renderChoice(choice)}
-                  </div>
+                  <button
+                    className="answer-select-btn"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleSelectAnswer(choice.id);
+                    }}
+                    aria-label={`Select choice ${choice.id}`}
+                    aria-pressed={isSelected}
+                  >
+                    <div className="answer-letter-bubble">
+                      {choice.id}
+                    </div>
+
+                    <div className="answer-text-content">
+                      {renderChoice(choice)}
+                    </div>
+                  </button>
                 </div>
               );
             })}

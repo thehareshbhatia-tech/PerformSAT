@@ -120,7 +120,7 @@ export const useProgress = (userId) => {
                 setStudyPlan(prev => prev?.weeks?.length ? prev : null);
               }
             }).catch(err => {
-              console.error('[useProgress] Artifact hydration failed:', err);
+              console.warn('[useProgress] Artifact hydration skipped:', err.code || err.message);
               artifactHydrationFailed.current = true; // stop retrying on every snapshot
               if (incomingPlan?.weeks?.length) {
                 setStudyPlan(incomingPlan);
@@ -148,7 +148,7 @@ export const useProgress = (userId) => {
                 setStudyPlan(prev => prev?.weeks?.length ? prev : null);
               }
             }).catch(err => {
-              console.error('[useProgress] Artifact hydration failed:', err);
+              console.warn('[useProgress] Artifact hydration skipped:', err.code || err.message);
               artifactHydrationFailed.current = true; // stop retrying on every snapshot
               if (!studyPlanWriteInFlight.current) {
                 setStudyPlan(prev => prev?.weeks?.length ? prev : null);
