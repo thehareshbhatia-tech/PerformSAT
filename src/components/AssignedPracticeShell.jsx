@@ -3,6 +3,7 @@ import { MathText } from './MathText';
 import QuestionDiagram from './QuestionDiagrams';
 import QuestionRenderer from './QuestionRenderer';
 import SolutionExplanation from './SolutionExplanation';
+import AiTutorChat from './AiTutorChat';
 
 const C = {
   brand: '#ea580c',
@@ -76,6 +77,9 @@ const AssignedPracticeShell = ({
   showCalculator,
   onRetry,
   getDifficultyBadge,
+  user,
+  skillProgress,
+  practiceTestResults,
 }) => {
   const [eliminatedChoices, setEliminatedChoices] = useState({});
   const [showNav, setShowNav] = useState(false);
@@ -241,7 +245,7 @@ const AssignedPracticeShell = ({
   const progressPct = total > 0 ? Math.round((answeredCount / total) * 100) : 0;
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', minHeight: 'calc(100vh - 120px)' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', padding: '16px', boxSizing: 'border-box' }}>
 
       {/* ── HEADER ── */}
       <div style={{
@@ -323,11 +327,11 @@ const AssignedPracticeShell = ({
       )}
 
       {/* ── MAIN CONTENT ── */}
-      <div style={{ flex: 1, display: 'flex', gap: '24px', minHeight: 0 }}>
+      <div style={{ flex: 1, display: 'flex', gap: '16px', minHeight: 0 }}>
 
         {/* Left: Question */}
         <div style={{
-          flex: '1 1 55%', background: C.white, borderRadius: '16px',
+          flex: '1 1 40%', background: C.white, borderRadius: '16px',
           border: `1px solid ${C.border}`, padding: '32px',
           overflow: 'auto', display: 'flex', flexDirection: 'column',
         }}>
@@ -426,11 +430,11 @@ const AssignedPracticeShell = ({
           )}
         </div>
 
-        {/* Right: Answer Panel */}
+        {/* Middle: Answer Panel */}
         <div style={{
-          flex: '1 1 45%', display: 'flex', flexDirection: 'column',
+          flex: '1 1 35%', display: 'flex', flexDirection: 'column',
           background: C.white, borderRadius: '16px',
-          border: `1px solid ${C.border}`, padding: '32px', overflow: 'auto',
+          border: `1px solid ${C.border}`, padding: '24px', overflow: 'auto',
         }}>
           {/* Answer choices */}
           <div style={{ flex: 1 }}>
@@ -602,6 +606,45 @@ const AssignedPracticeShell = ({
               {idx < total - 1 ? 'Next Question →' : 'See Results'}
             </button>
           )}
+        </div>
+
+        {/* Right: AI Tutor */}
+        <div style={{
+          flex: '1 1 25%', display: 'flex', flexDirection: 'column',
+          borderRadius: '16px', overflow: 'hidden', minWidth: 0,
+          border: `1px solid ${C.border}`,
+          boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
+        }}>
+          <AiTutorChat
+            key={`assigned-${idx}`}
+            isOpen={true}
+            onClose={() => {}}
+            moduleId="assigned-practice"
+            lessonId={`assigned-${currentQuestion?.id || idx}`}
+            lessonTitle={headerTitle}
+            isVideoLesson={false}
+            isPracticeQuestion={true}
+            practiceContext={{
+              question: currentQuestion?.question || '',
+              choices: currentQuestion?.choices || [],
+              hint: currentQuestion?.hint || '',
+              answerRevealed: practiceState.showFeedback,
+              correctAnswer: practiceState.showFeedback
+                ? (currentQuestion?.type === 'fill-in'
+                    ? currentQuestion?.correctAnswer
+                    : currentQuestion?.choices?.find(c => c.id === currentQuestion?.correctAnswer)?.text || currentQuestion?.correctAnswer)
+                : undefined,
+              explanation: practiceState.showFeedback ? (currentQuestion?.explanation || '') : '',
+              skills: currentQuestion?.skills || [],
+            }}
+            embedded={true}
+            headerCompact={true}
+            standalone={false}
+            skillProgress={skillProgress}
+            testDate={user?.testDate}
+            user={user}
+            practiceTestResults={practiceTestResults}
+          />
         </div>
       </div>
 
