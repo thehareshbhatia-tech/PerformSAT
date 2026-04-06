@@ -9118,13 +9118,13 @@ const PerformSAT = () => {
         }}
         user={user}
         onLogout={logout}
-        hideNav={view === 'takingTest' || view === 'learn'}
+        hideNav={view === 'takingTest' || view === 'learn' || view === 'reviewingPastResults'}
       >
       {/* Main Content */}
       <div id="main-content" style={{
-        maxWidth: view === 'learn' || view === 'modules' || view === 'takingTest' || view === 'dashboard' ? '100%' : (view === 'practiceTests' || view === 'studyPlan') ? '960px' : '800px',
+        maxWidth: view === 'learn' || view === 'modules' || view === 'takingTest' || view === 'reviewingPastResults' || view === 'dashboard' ? '100%' : (view === 'practiceTests' || view === 'studyPlan') ? '960px' : '800px',
         margin: '0 auto',
-        padding: (view === 'learn' || view === 'modules' || view === 'dashboard') ? '0' : view === 'takingTest' ? '32px 0px 60px' : '32px 32px 100px',
+        padding: (view === 'learn' || view === 'modules' || view === 'dashboard' || view === 'reviewingPastResults') ? '0' : view === 'takingTest' ? '32px 0px 60px' : '32px 32px 100px',
         ...(view === 'learn' ? { overflow: 'hidden', height: '100vh' } : {})
       }}>
         {/* Standalone AI Tutor View */}
