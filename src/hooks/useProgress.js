@@ -579,10 +579,12 @@ export const useProgress = (userId) => {
     try {
       const progressRef = doc(db, 'progress', userId);
       const progressSnap = await getDoc(progressRef);
+      // Strip undefined values — Firestore rejects them
+      const sanitizedPlan = JSON.parse(JSON.stringify(plan));
       if (progressSnap.exists()) {
-        await updateDoc(progressRef, { studyPlan: plan, lastUpdated: serverTimestamp() });
+        await updateDoc(progressRef, { studyPlan: sanitizedPlan, lastUpdated: serverTimestamp() });
       } else {
-        await setDoc(progressRef, { userId, studyPlan: plan, lastUpdated: serverTimestamp() }, { merge: true });
+        await setDoc(progressRef, { userId, studyPlan: sanitizedPlan, lastUpdated: serverTimestamp() }, { merge: true });
       }
       console.log('[useProgress] Study plan persisted to Firestore');
     } catch (err) {
