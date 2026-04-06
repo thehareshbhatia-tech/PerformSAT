@@ -329,9 +329,9 @@ const AssignedPracticeShell = ({
       {/* ── MAIN CONTENT ── */}
       <div style={{ flex: 1, display: 'flex', gap: '16px', minHeight: 0 }}>
 
-        {/* Left: Question */}
+        {/* Left: Question + Answers */}
         <div style={{
-          flex: '1 1 40%', background: C.white, borderRadius: '16px',
+          flex: '3 1 0%', background: C.white, borderRadius: '16px',
           border: `1px solid ${C.border}`, padding: '32px',
           overflow: 'auto', display: 'flex', flexDirection: 'column',
         }}>
@@ -428,16 +428,10 @@ const AssignedPracticeShell = ({
               }
             </div>
           )}
-        </div>
 
-        {/* Middle: Answer Panel */}
-        <div style={{
-          flex: '1 1 35%', display: 'flex', flexDirection: 'column',
-          background: C.white, borderRadius: '16px',
-          border: `1px solid ${C.border}`, padding: '24px', overflow: 'auto',
-        }}>
-          {/* Answer choices */}
-          <div style={{ flex: 1 }}>
+          {/* ── Answer choices (inline below question) ── */}
+          <div style={{ borderTop: `1px solid ${C.border}`, paddingTop: '20px' }}>
+            <div>
             {currentQuestion.choices?.map((choice) => {
               const isSelected = practiceState.selectedAnswer === choice.id;
               const isCorrect = choice.id === currentQuestion.correctAnswer;
@@ -606,11 +600,12 @@ const AssignedPracticeShell = ({
               {idx < total - 1 ? 'Next Question →' : 'See Results'}
             </button>
           )}
+          </div>
         </div>
 
         {/* Right: AI Tutor */}
         <div style={{
-          flex: '1 1 25%', display: 'flex', flexDirection: 'column',
+          flex: '2 1 0%', display: 'flex', flexDirection: 'column',
           borderRadius: '16px', overflow: 'hidden', minWidth: 0,
           border: `1px solid ${C.border}`,
           boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
