@@ -2374,24 +2374,13 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         <div className="header-right">
           {/* Calculator Button */}
           <button
+            className="btn-launch"
             onClick={() => {
               const telemetry = getOrCreateTelemetry(currentModuleRef.current, currentQuestionRef.current);
               telemetry.usedCalculator = true;
               setShowCalculator(true);
             }}
-            style={{
-              padding: isMobile ? '6px 10px' : '8px 14px',
-              background: colors.semantic.info,
-              border: 'none',
-              borderRadius: radius.sm,
-              fontSize: isMobile ? '12px' : '13px',
-              fontWeight: '500',
-              color: colors.text.inverse,
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px'
-            }}
+            style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <rect x="4" y="2" width="16" height="20" rx="2" />
@@ -2406,8 +2395,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           </button>
           <button
             onClick={handlePauseToggle}
-            className="btn-icon-subtle"
-            style={{ width: 'auto', padding: '0 0.75rem', fontSize: '0.875rem', fontWeight: 600, background: isPaused ? colors.semantic.success : 'transparent', color: isPaused ? colors.text.inverse : colors.text.secondary, border: isPaused ? 'none' : `1px solid ${colors.surface.grayMedium}` }}
+            className="btn-ghost-blue"
           >
             {isPaused ? '▶ Resume' : '⏸ Pause'}
           </button>
@@ -2415,8 +2403,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <button
                 onClick={() => setShowTimer(!showTimer)}
-                className="btn-icon-subtle"
-                style={{ width: 'auto', padding: '0 0.75rem', fontSize: '0.875rem', border: `1px solid ${colors.surface.grayMedium}` }}
+                className="btn-ghost-blue"
               >
                 {showTimer ? 'Hide Timer' : 'Show Timer'}
               </button>
@@ -2433,11 +2420,11 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           ) : (
             <span style={{
               padding: '0.25rem 0.75rem',
-              background: colors.semantic.successLight,
-              color: colors.semantic.success,
-              borderRadius: radius.sm,
+              background: 'var(--color-success-100)',
+              color: 'var(--color-success-600)',
+              borderRadius: '9999px',
               fontSize: isMobile ? '0.75rem' : '0.875rem',
-              fontWeight: 500,
+              fontWeight: 700,
               whiteSpace: 'nowrap'
             }}>
               {isMobile ? 'Untimed' : 'Untimed Mode'}
@@ -2446,8 +2433,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           {!isMobile && (
             <button
               onClick={handleRequestEndTest}
-              className="btn-icon-subtle"
-              style={{ width: 'auto', padding: '0 0.75rem', fontSize: '0.875rem', fontWeight: 600, color: colors.semantic.error, border: `1px solid ${colors.semantic.error}` }}
+              className="btn-ghost-blue"
+              style={{ color: 'var(--color-error-600)' }}
             >
               End Test
             </button>
@@ -2455,7 +2442,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           {isDevMode && (
             <button
               onClick={handleDevAutoSubmit}
-              style={{ width: 'auto', padding: '0 0.75rem', fontSize: '0.875rem', fontWeight: 600, color: '#fff', background: '#7c3aed', border: 'none', borderRadius: '6px', cursor: 'pointer' }}
+              className="btn-launch"
+              style={{ background: '#7c3aed' }}
             >
               DEV: Auto-Submit
             </button>
@@ -2656,15 +2644,17 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             onClick={handlePrev}
             disabled={currentQuestion === 0}
             style={{
-              padding: '8px 16px',
-              background: currentQuestion === 0 ? 'var(--color-white)' : 'var(--color-white)',
-              color: currentQuestion === 0 ? 'var(--color-slate-400)' : 'var(--color-slate-700)',
-              border: `1px solid var(--color-slate-200)`,
-              borderRadius: 'var(--radius-sm)',
-              fontSize: '13px',
+              padding: '0.625rem 1.25rem',
+              background: 'transparent',
+              color: currentQuestion === 0 ? 'var(--color-slate-400)' : 'var(--color-slate-600)',
+              border: '1px solid var(--color-slate-200)',
+              borderRadius: '8px',
+              fontSize: '0.75rem',
               fontWeight: '600',
               textTransform: 'uppercase',
+              letterSpacing: '0.05em',
               cursor: currentQuestion === 0 ? 'not-allowed' : 'pointer',
+              opacity: currentQuestion === 0 ? 0.5 : 1,
               transition: 'all 0.2s ease'
             }}
           >
@@ -2673,37 +2663,17 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
 
           {currentQuestion === questions.length - 1 ? (
             <button
+              className="btn-launch"
               onClick={handleSubmitModule}
-              style={{
-                padding: '8px 16px',
-                background: 'var(--color-info-600)',
-                color: 'var(--color-white)',
-                border: 'none',
-                borderRadius: 'var(--radius-sm)',
-                fontSize: '13px',
-                fontWeight: '600',
-                textTransform: 'uppercase',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease'
-              }}
+              style={{ textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em', padding: '0.625rem 1.25rem' }}
             >
               Submit Section
             </button>
           ) : (
             <button
+              className="btn-launch"
               onClick={handleNext}
-              style={{
-                padding: '8px 16px',
-                background: 'var(--color-info-600)',
-                color: 'var(--color-white)',
-                border: 'none',
-                borderRadius: 'var(--radius-sm)',
-                fontSize: '13px',
-                fontWeight: '600',
-                textTransform: 'uppercase',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease'
-              }}
+              style={{ textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.05em', padding: '0.625rem 1.25rem' }}
             >
               Next Question
             </button>
@@ -2797,22 +2767,23 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           </div>
         )}
       {/* Action bottom right */}
-      <div className="test-controls-bottom" style={{ justifyContent: 'center', marginTop: '1rem', borderTop: 'none', padding: '1rem 0' }}>
+      <div className="test-controls-bottom" style={{ justifyContent: 'center', marginTop: '1.5rem', borderTop: 'none', padding: '1rem 0' }}>
         <button
           onClick={handleToggleMark}
           style={{
-            padding: '8px 16px',
+            padding: '0.625rem 1.25rem',
             background: isMarked ? 'var(--color-slate-100)' : 'transparent',
-            border: `1px solid var(--color-slate-300)`,
-            borderRadius: 'var(--radius-sm)',
-            fontSize: '13px',
+            border: '1px solid var(--color-slate-300)',
+            borderRadius: '8px',
+            fontSize: '0.75rem',
             fontWeight: '600',
-            color: 'var(--color-slate-700)',
+            color: 'var(--color-slate-600)',
             textTransform: 'uppercase',
+            letterSpacing: '0.05em',
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
-            gap: '8px',
+            gap: '0.5rem',
             transition: 'all 0.2s ease'
           }}
         >
