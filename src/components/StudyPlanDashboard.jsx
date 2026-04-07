@@ -16,6 +16,8 @@ import {
   CheckIcon,
   ChevronDownIcon,
 } from '../design/icons';
+import './StudyPlanDashboard.css';
+import './StudentDashboard.css';
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -24,17 +26,17 @@ import {
 const TYPE_META = {
   lesson:   { label: 'Lesson',   fg: colors.semantic.info },
   practice: { label: 'Practice', fg: colors.semantic.success },
-  strategy: { label: 'Tip',      fg: colors.semantic.warning },
+  strategy: { label: 'Tip',      fg: colors.semantic.info },
   review:   { label: 'Tip',      fg: colors.badge.bronze },
-  test:     { label: 'Test',     fg: colors.accent.orange },
+  test:     { label: 'Test',     fg: colors.semantic.info },
 };
 
 function activityIcon(type) {
   if (type === 'lesson')   return <BookOpenIcon size={16} color={colors.semantic.info} />;
   if (type === 'practice') return <PencilIcon size={16} color={colors.semantic.success} />;
-  if (type === 'strategy') return <BrainIcon size={16} color={colors.semantic.warning} />;
+  if (type === 'strategy') return <BrainIcon size={16} color={colors.semantic.info} />;
   if (type === 'review')   return <SearchIcon size={16} color={colors.badge.bronze} />;
-  if (type === 'test')     return <DocumentIcon size={16} color={colors.accent.orange} />;
+  if (type === 'test')     return <DocumentIcon size={16} color={colors.semantic.info} />;
   return <PinIcon size={16} color={colors.text.secondary} />;
 }
 
@@ -47,27 +49,10 @@ const ScoreTrajectory = ({ artifact }) => {
   if (!trajectory?.length) return null;
 
   return (
-    <div style={{
-      display: 'flex',
-      gap: '8px',
-      alignItems: 'center',
-      marginTop: '32px',
-      paddingTop: '20px',
-      borderTop: '1px solid var(--color-slate-200)',
-      flexWrap: 'wrap',
-      fontFamily: 'var(--font-ui)'
-    }}>
-      <span style={{ fontSize: '13px', color: 'var(--color-slate-500)', fontWeight: '600', marginRight: '4px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Score History</span>
+    <div className="sp-trajectory">
+      <span className="sp-trajectory-label">Score History</span>
       {trajectory.map((entry, i) => (
-        <span key={i} style={{
-          fontSize: '13px',
-          fontWeight: '700',
-          color: i === trajectory.length - 1 ? 'var(--color-brand-primary)' : 'var(--color-slate-700)',
-          background: i === trajectory.length - 1 ? 'var(--color-accent-light-blue)' : 'var(--color-slate-100)',
-          padding: '6px 12px',
-          borderRadius: '9999px',
-          fontVariantNumeric: 'tabular-nums'
-        }}>
+        <span key={i} className={`sp-trajectory-node ${i === trajectory.length - 1 ? 'is-latest' : ''}`}>
           {entry.scaledScore}
         </span>
       ))}
@@ -102,29 +87,21 @@ const StudyPlanDashboard = ({
   // ── Empty state ──────────────────────────────────────────────────────
   if (!studyPlan || !studyPlan.weeks || studyPlan.weeks.length === 0) {
     return (
-      <div style={{ padding: `${spacing.xl} 0`, animation: 'fadeInUp 0.5s ease-out', fontFamily: 'var(--font-ui)' }}>
-        <style>{`
-          @keyframes fadeInUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-          @keyframes pulseGlowBlue { 0% { box-shadow: 0 0 0 0 rgba(59, 82, 217, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(59, 82, 217, 0); } 100% { box-shadow: 0 0 0 0 rgba(59, 82, 217, 0); } }
-        `}</style>
-        <div style={{ textAlign: 'center', padding: '60px 20px', borderRadius: 'var(--radius-xl)', background: '#ffffff', border: '1px solid rgba(0,0,0,0.05)', boxShadow: 'var(--shadow-md)' }}>
-          <div style={{ marginBottom: spacing.md, display: 'flex', justifyContent: 'center' }}>
-            <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'var(--color-accent-light-blue)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-brand-primary)' }}>
-              <ClipboardIcon size={40} />
-            </div>
+      <div className="study-plan-dashboard">
+        <div className="sp-empty-state">
+          <div className="sp-empty-icon">
+            <ClipboardIcon size={40} />
           </div>
-          <div style={{ fontSize: '24px', fontWeight: '800', color: 'var(--color-brand-navy)', marginBottom: '12px', letterSpacing: '-0.02em' }}>
+          <div className="sp-empty-title">
             No Study Plan Yet
           </div>
-          <div style={{ fontSize: '16px', color: 'var(--color-slate-500)', maxWidth: '420px', margin: '0 auto', lineHeight: '1.6' }}>
+          <div className="sp-empty-desc">
             Complete a practice test and our AI will generate a highly personalized study plan tailored to your exact weaknesses.
           </div>
           {onStartPracticeTest && (
-            <div style={{ marginTop: '32px' }}>
-              <button onClick={onStartPracticeTest} style={{ fontFamily: 'var(--font-ui)', padding: '14px 28px', fontSize: '15px', fontWeight: '700', color: '#fff', background: 'var(--color-brand-primary)', border: 'none', borderRadius: '9999px', cursor: 'pointer', animation: 'pulseGlowBlue 2s infinite', transition: 'transform 0.2s', boxShadow: 'var(--shadow-sm)' }} onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'} onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}>
-                Take a Practice Test
-              </button>
-            </div>
+            <button onClick={onStartPracticeTest} className="sp-empty-btn">
+              Take a Practice Test
+            </button>
           )}
         </div>
       </div>
@@ -210,111 +187,59 @@ const StudyPlanDashboard = ({
     const meta = TYPE_META[act.type] || TYPE_META.lesson;
 
     return (
-      <div className="activity-row acely-task-card" style={{
-        background: '#fff',
-        borderRadius: '16px',
-        border: `1px solid var(--color-slate-200)`,
-        marginBottom: '16px',
-        overflow: 'hidden',
-        boxShadow: 'var(--shadow-sm)',
-      }}>
-        <div style={{ padding: '20px' }}>
-          {/* Header */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
-            <div>
-              <div style={{ fontFamily: 'var(--font-ui)', fontSize: '1.125rem', fontWeight: '800', color: 'var(--color-brand-navy)', marginBottom: '4px', letterSpacing: '-0.01em' }}>
-                <MathText>{act.title}</MathText>
-              </div>
-              <div style={{ fontFamily: 'var(--font-ui)', fontSize: '0.875rem', fontWeight: '500', color: 'var(--color-slate-500)', marginBottom: '12px' }}>
-                {meta.label}
-              </div>
-              <div style={{ 
-                display: 'inline-block', background: 'var(--color-accent-light-blue)', 
-                color: 'var(--color-brand-primary)', padding: '6px 12px', 
-                borderRadius: '9999px', fontFamily: 'var(--font-ui)', fontSize: '0.75rem', fontWeight: '700',
-                letterSpacing: '0.02em', textTransform: 'uppercase'
-              }}>
-                {act.type === 'test' ? 'High Priority' : 'Medium Priority'}
-              </div>
-            </div>
-            {/* Toggle */}
-            <button
-              onClick={(e) => handleToggle(e, weekIdx, actIdx, done)}
-              style={{
-                width: '28px', height: '28px', borderRadius: '8px',
-                border: done ? 'none' : `2px solid var(--color-slate-300)`,
-                background: done ? 'var(--color-success-500)' : '#fff',
-                color: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center',
-                justifyContent: 'center', padding: 0, transition: 'all 0.2s'
-              }}
-            >
-              {done && <CheckIcon size={16} color="#fff" />}
-            </button>
+      <div className="ai-practice-banner" style={{ marginBottom: '16px', opacity: done ? 0.6 : 1, filter: done ? 'grayscale(1)' : 'none', position: 'relative' }}>
+        {/* Toggle checkmark */}
+        <button
+          onClick={(e) => handleToggle(e, weekIdx, actIdx, done)}
+          style={{
+            position: 'absolute', top: '-10px', right: '-10px',
+            width: '28px', height: '28px', borderRadius: '50%',
+            border: done ? 'none' : `2px solid var(--color-slate-300)`,
+            background: done ? 'var(--color-success-500)' : '#fff',
+            color: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center',
+            justifyContent: 'center', padding: 0, transition: 'all 0.2s',
+            zIndex: 10, boxShadow: 'var(--shadow-sm)'
+          }}
+        >
+          {done && <CheckIcon size={16} color="#fff" />}
+        </button>
+
+        <div className="ai-banner-content" style={{ flex: 1 }}>
+          <div className="ai-banner-icon" style={{ 
+            background: done ? 'var(--color-slate-100)' : `${meta.fg}15`, 
+            color: done ? 'var(--color-slate-400)' : meta.fg,
+            borderColor: done ? 'var(--color-slate-200)' : `${meta.fg}40`
+          }}>
+            {activityIcon(act.type)}
           </div>
-
-          {/* Progress / Info */}
-          {!done && isNavigable && (
-            <div style={{ marginBottom: '20px' }}>
-              <div style={{ fontFamily: 'var(--font-ui)', fontSize: '0.875rem', fontWeight: '600', color: 'var(--color-slate-500)', marginBottom: '8px' }}>
-                0 of 10 Questions Completed
-              </div>
-              <div style={{ height: '8px', background: 'var(--color-slate-100)', borderRadius: '9999px', overflow: 'hidden' }}>
-                <div style={{ width: '15%', height: '100%', background: 'var(--color-brand-primary)', borderRadius: '9999px' }}></div>
-              </div>
+          <div className="ai-banner-text-group" style={{ flex: 1 }}>
+            <div className="ai-banner-title">
+              <MathText>{act.title}</MathText>
             </div>
-          )}
-
-          {/* Action button */}
-          {!done && isNavigable && (
-            <button
-              onClick={(e) => { e.stopPropagation(); handleGo(act); }}
-              style={{
-                width: '100%', padding: '14px', borderRadius: '12px', border: 'none',
-                background: 'var(--color-brand-primary)', color: '#fff',
-                fontFamily: 'var(--font-ui)', fontSize: '1rem', fontWeight: '700', cursor: 'pointer',
-                transition: 'all 0.2s ease', boxShadow: 'var(--shadow-sm)'
-              }}
-              onMouseOver={(e) => { e.target.style.background = 'var(--color-brand-primary-hover)'; e.target.style.transform = 'translateY(-1px)'; }}
-              onMouseOut={(e) => { e.target.style.background = 'var(--color-brand-primary)'; e.target.style.transform = 'none'; }}
-            >
-              Practice {act.title.replace(/Practice/i, '').trim() || meta.label}
-            </button>
-          )}
-
-          {/* Tips for strategy/review */}
-          {isTip && tips.length > 0 && !done && (
-            <div style={{ marginTop: '12px' }}>
-              {tips.map((tip, i) => (
-                <div key={i} style={{
-                  fontFamily: 'var(--font-ui)', fontSize: '0.875rem', color: 'var(--color-slate-700)', lineHeight: '1.6',
-                  paddingLeft: '12px', borderLeft: `3px solid ${meta.fg}`,
-                  marginBottom: i < tips.length - 1 ? '8px' : 0,
-                  background: `${meta.fg}10`, padding: '12px 16px', borderRadius: '0 8px 8px 0'
-                }}>
-                  <MathText>{tip}</MathText>
-                </div>
-              ))}
+            <div className="ai-banner-desc">
+              {meta.label} {act.type === 'test' ? '· High Priority' : ''}
             </div>
-          )}
+            {isTip && tips.length > 0 && !done && (
+              <div style={{ marginTop: '0.5rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                {tips.map((tip, i) => (
+                  <div key={i} style={{
+                    fontSize: '0.875rem', color: 'var(--color-slate-700)', lineHeight: '1.5',
+                    paddingLeft: '12px', borderLeft: `3px solid ${meta.fg}`,
+                    background: `${meta.fg}10`, padding: '8px 12px', borderRadius: '0 8px 8px 0'
+                  }}>
+                    <MathText>{tip}</MathText>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
 
-        {/* Completed Footer */}
-        {done && (
-          <div style={{
-            background: 'var(--color-success-50)',
-            color: 'var(--color-success-700)',
-            padding: '16px',
-            textAlign: 'center',
-            fontFamily: 'var(--font-ui)',
-            fontSize: '1rem',
-            fontWeight: '700',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '8px',
-            borderTop: '1px solid var(--color-success-100)'
-          }}>
-            Complete <CheckIcon size={16} color="currentColor" />
+        {!done && isNavigable && (
+          <div className="ai-banner-controls">
+            <button className="btn-launch" onClick={(e) => { e.stopPropagation(); handleGo(act); }}>
+              Launch {meta.label}
+            </button>
           </div>
         )}
       </div>
@@ -361,12 +286,12 @@ const StudyPlanDashboard = ({
           <div key={origIdx} style={{ position: 'relative' }}>
             <ActivityRow act={act} weekIdx={weekIdx} actIdx={origIdx} />
             {masteryStatus === 'mastered' && !act.completed && (
-              <div style={{ position: 'absolute', top: '8px', right: '8px', fontSize: '10px', fontWeight: '700', color: '#16a34a', background: '#f0fdf4', border: '1px solid #86efac', padding: '2px 8px', borderRadius: '4px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+              <div className="sp-activity-status-tag mastered">
                 Mastered
               </div>
             )}
             {masteryStatus === 'needs-focus' && !act.completed && (
-              <div style={{ position: 'absolute', top: '8px', right: '8px', fontSize: '10px', fontWeight: '700', color: '#dc2626', background: '#fef2f2', border: '1px solid #fca5a5', padding: '2px 8px', borderRadius: '4px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+              <div className="sp-activity-status-tag needs-focus">
                 Needs Focus
               </div>
             )}
@@ -386,73 +311,25 @@ const StudyPlanDashboard = ({
   // ====================================================================
 
   return (
-    <div style={{ padding: `${spacing.lg} 0`, display: 'flex', flexDirection: 'column', gap: '24px' }}>
-      <style>{`
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(15px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes scaleIn {
-          from { transform: scale(0.8); opacity: 0; }
-          to { transform: scale(1); opacity: 1; }
-        }
-        @keyframes pulseSoft {
-          0% { opacity: 0.6; transform: scale(0.95); }
-          50% { opacity: 1; transform: scale(1.05); }
-          100% { opacity: 0.6; transform: scale(0.95); }
-        }
-        .study-plan-section {
-          animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-          opacity: 0;
-        }
-        .study-plan-section:nth-child(2) { animation-delay: 0.1s; }
-        .study-plan-section:nth-child(3) { animation-delay: 0.2s; }
-        .study-plan-section:nth-child(4) { animation-delay: 0.3s; }
-        
-        .activity-row { transition: all 0.2s ease; }
-        .activity-row:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-          border-color: ${colors.accent.orangeLight} !important;
-          z-index: 10;
-        }
-        .practice-btn { transition: all 0.2s ease; }
-        .practice-btn:hover {
-          transform: translateY(-1px);
-          filter: brightness(1.1);
-        }
-        .skill-card { transition: all 0.2s ease; border: 1px solid transparent; }
-        .skill-card:hover {
-          transform: translateY(-3px);
-          border-color: ${colors.accent.orangeLight};
-          box-shadow: 0 8px 24px rgba(79, 70, 229, 0.12);
-        }
-      `}</style>
+    <div className="study-plan-dashboard">
       
       {/* ────────────────────────────────────────────────────────────────
           0. WHAT CHANGED BANNER (adaptive plan diff)
           Sources: studyPlanArtifact.delta (Firestore) or studyPlan._diff (legacy)
       ──────────────────────────────────────────────────────────────── */}
       {!deltaDismissed && delta && !delta.isFirst && delta.headline && (
-        <div className="study-plan-section" style={{
-          background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)',
-          border: '1px solid #bae6fd',
-          borderRadius: radius.xl,
-          padding: '20px 24px',
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
-            <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#0284c7', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px' }}>
+        <div className="sp-section sp-banner sp-banner-info">
+          <div className="sp-banner-header">
+            <div className="sp-banner-icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12h4l3-9 5 18 3-9h5"/></svg>
             </div>
-            <span style={{ fontSize: '14px', fontWeight: typography.weights.bold, color: '#0c4a6e', textTransform: 'uppercase', letterSpacing: '0.04em', flex: 1 }}>
-              Plan Updated
-            </span>
-            <button onClick={() => {
+            <span className="sp-banner-title">Plan Updated</span>
+            <button className="sp-banner-close" onClick={() => {
               if (studyPlanMeta?.artifactId) localStorage.setItem(`dismissedDelta:${studyPlanMeta.artifactId}`, '1');
               setDeltaDismissed(true);
-            }} style={{ background: 'none', border: 'none', color: '#0284c7', cursor: 'pointer', fontSize: '18px', padding: '0 4px', lineHeight: 1 }}>&times;</button>
+            }}>&times;</button>
           </div>
-          <div style={{ fontSize: '15px', fontWeight: typography.weights.semibold, color: '#0c4a6e', lineHeight: '1.5', marginBottom: delta.skillChanges?.length > 0 ? '14px' : '0' }}>
+          <div className="sp-banner-content" style={{ marginBottom: delta.skillChanges?.length > 0 ? '0.5rem' : '0' }}>
             {delta.headline}
           </div>
           {delta.skillChanges?.length > 0 && (
@@ -484,208 +361,116 @@ const StudyPlanDashboard = ({
       )}
 
       {delta?.isFirst && (
-        <div className="study-plan-section" style={{
-          background: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)',
-          border: '1px solid #86efac',
-          borderRadius: radius.xl,
-          padding: '20px 24px',
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
-            <span style={{ fontSize: '20px' }}>🎯</span>
-            <span style={{ fontSize: '16px', fontWeight: typography.weights.bold, color: '#14532d' }}>
-              Your First Study Plan
-            </span>
+        <div className="sp-section sp-banner sp-banner-success">
+          <div className="sp-banner-header">
+            <span className="sp-banner-icon"><CheckIcon size={20} /></span>
+            <span className="sp-banner-title">Your First Study Plan</span>
           </div>
-          <div style={{ fontSize: '14px', color: '#166534', lineHeight: '1.5' }}>
+          <div className="sp-banner-content">
             Based on your practice test results, here's your personalized weekly plan. Take another test to see how it adapts to your progress.
           </div>
         </div>
       )}
 
       {/* ────────────────────────────────────────────────────────────────
-          1. PROGRESS
+          1. PROGRESS (Acely Performance Grid)
       ──────────────────────────────────────────────────────────────── */}
-      <div className="study-plan-section acely-projected-card" style={{
-        background: '#ffffff', 
-        borderRadius: 'var(--radius-xl)',
-        padding: '32px',
-        position: 'relative',
-        overflow: 'hidden',
-        border: '1px solid rgba(0,0,0,0.05)',
-        boxShadow: 'var(--shadow-md)'
-      }}>
-        {/* Decorative background radial (subtle blue) */}
-        <div style={{
-          position: 'absolute', top: '-50px', right: '-20px', width: '250px', height: '250px',
-          background: 'radial-gradient(circle, rgba(59, 82, 217, 0.08) 0%, rgba(59, 82, 217, 0) 70%)',
-          borderRadius: '50%', opacity: 1
-        }} />
-
-        <div style={{ position: 'relative', zIndex: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '24px' }}>
-          <div>
-            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--color-brand-primary)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: '800', marginBottom: '8px' }}>
-              Current Objective
-            </div>
-            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '28px', fontWeight: '800', color: 'var(--color-brand-navy)', lineHeight: 1.2, letterSpacing: '-0.02em' }}>
-              {summary?.headline || 'Your Study Plan'}
+      <div className="sp-section acely-performance-grid">
+        <div className="acely-metric-card acely-accuracy-card">
+          <div className="acely-metric-label">Plan Progress</div>
+          <div className="acely-metric-value">{progressPercent}%</div>
+          <div className="acely-metric-detail">
+            {completedActivities} of {totalActivities} tasks completed
+          </div>
+        </div>
+        <div className="acely-metric-stack">
+          <div className="acely-split-card acely-strongest-card">
+            <div className="acely-split-left"><ClipboardIcon size={48} /></div>
+            <div className="acely-split-right">
+              <div className="acely-metric-label">Current Objective</div>
+              <div className="acely-section-name">
+                {summary?.headline || 'Your Study Plan'}
+              </div>
               {studyPlan.deltaFromPrevious && (
-                <span style={{
-                  padding: '4px 10px', borderRadius: '6px', fontSize: '11px', fontWeight: '700',
-                  background: 'var(--color-accent-light-blue)', color: 'var(--color-brand-primary)',
-                  marginLeft: '12px', verticalAlign: 'middle', textTransform: 'uppercase', letterSpacing: '0.04em'
-                }}>
-                  Updated
-                </span>
+                <span className="sp-progress-badge" style={{ alignSelf: 'flex-start', marginTop: '8px' }}>Updated</span>
               )}
             </div>
           </div>
-          <div style={{ textAlign: 'right' }}>
-            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '36px', fontWeight: '800', color: 'var(--color-brand-primary)', lineHeight: 1, fontVariantNumeric: 'tabular-nums' }}>
-              {progressPercent}%
-            </div>
-            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--color-slate-500)', fontWeight: '600', marginTop: '8px' }}>
-              {completedActivities} of {totalActivities} tasks
+          <div className="acely-split-card" style={{ border: '1px solid var(--color-slate-200)', boxShadow: 'var(--shadow-sm)' }}>
+            <div className="acely-split-left" style={{ backgroundColor: 'var(--color-brand-primary, #3B52D9)', color: 'white' }}><PinIcon size={48} /></div>
+            <div className="acely-split-right" style={{ backgroundColor: 'var(--color-slate-50)' }}>
+              <div className="acely-metric-label">Next Milestone</div>
+              <div className="acely-section-name">Complete Week {displayCurrentWeek + 1}</div>
             </div>
           </div>
         </div>
-        <div style={{ height: '8px', background: 'rgba(59, 82, 217, 0.1)', borderRadius: '9999px', overflow: 'hidden', position: 'relative' }}>
-          <div style={{ 
-            position: 'absolute', top: 0, left: 0, height: '100%', width: `${progressPercent}%`, 
-            borderRadius: '9999px', background: 'var(--color-brand-primary)', 
-            transition: 'width 1s cubic-bezier(0.16, 1, 0.3, 1)',
-          }} />
-        </div>
-        
-        {/* What changed since your last test */}
-        {studyPlan.deltaFromPrevious && (
-          <div style={{
-            marginTop: '20px',
-            padding: '12px 16px',
-            borderRadius: '12px',
-            background: 'var(--color-slate-50)',
-            border: '1px solid var(--color-slate-200)',
-            borderLeft: '3px solid var(--color-brand-primary)',
-          }}>
-            <div style={{
-              fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '800', color: 'var(--color-slate-500)',
-              textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '6px',
-            }}>
-              Updated since your last test
-            </div>
-            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--color-slate-700)', lineHeight: '1.5' }}>
-              {studyPlan.deltaFromPrevious}
-            </div>
-          </div>
-        )}
-
-        {/* Persistent weakness callout */}
-        {studyPlan.persistentWeaknessStrategy && (
-          <div style={{
-            marginTop: '12px',
-            padding: '12px 16px',
-            borderRadius: '12px',
-            background: 'var(--color-error-50)',
-            border: '1px solid var(--color-error-200)',
-            borderLeft: '3px solid var(--color-error-500)',
-          }}>
-            <div style={{
-              fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '800', color: 'var(--color-error-700)',
-              textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '6px',
-            }}>
-              Stuck skill — different approach needed
-            </div>
-            <div style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--color-error-900)', lineHeight: '1.5' }}>
-              {studyPlan.persistentWeaknessStrategy}
-            </div>
-          </div>
-        )}
       </div>
+
+      {/* What changed & Persistent weakness callouts moved out of the progress card for cleaner design */}
+      {(studyPlan.deltaFromPrevious || studyPlan.persistentWeaknessStrategy) && (
+        <div className="sp-section" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          {studyPlan.deltaFromPrevious && (
+            <div className="sp-banner sp-banner-info" style={{ background: 'var(--color-slate-50)', borderLeft: '3px solid var(--color-brand-primary)' }}>
+              <div className="sp-banner-title" style={{ color: 'var(--color-slate-500)' }}>Updated since your last test</div>
+              <div className="sp-banner-content" style={{ color: 'var(--color-slate-700)', fontWeight: 400 }}>{studyPlan.deltaFromPrevious}</div>
+            </div>
+          )}
+          {studyPlan.persistentWeaknessStrategy && (
+            <div className="sp-banner sp-banner-info" style={{ background: 'var(--color-slate-50)', borderLeft: '3px solid var(--color-brand-primary)' }}>
+              <div className="sp-banner-title" style={{ color: 'var(--color-slate-700)' }}>Stuck skill — different approach needed</div>
+              <div className="sp-banner-content" style={{ color: 'var(--color-slate-600)', fontWeight: 400 }}>{studyPlan.persistentWeaknessStrategy}</div>
+            </div>
+          )}
+        </div>
+      )}
 
       {/* ────────────────────────────────────────────────────────────────
           2. SKILLS TO IMPROVE — weakness list with Practice buttons
       ──────────────────────────────────────────────────────────────── */}
       {skillPracticeRows.length > 0 && (
-        <div className="study-plan-section">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: summary?.diagnosis ? '12px' : '20px' }}>
-            <h3 style={{ fontFamily: 'var(--font-ui)', fontSize: '1.25rem', fontWeight: '800', color: 'var(--color-brand-navy)', margin: 0, letterSpacing: '-0.01em' }}>
-              Focus Areas
-            </h3>
-          </div>
+        <div className="sp-section">
+          <h3 className="sp-section-header">Focus Areas</h3>
+          
           {/* AI diagnosis narrative — explains WHY these are the focus areas */}
           {summary?.diagnosis && (
-            <div style={{
-              fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--color-slate-600)', lineHeight: '1.6',
-              marginBottom: '20px', padding: '0 4px', maxWidth: '800px'
-            }}>
+            <div className="sp-section-desc">
               {summary.diagnosis}
             </div>
           )}
-          <div style={{
-            display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))', gap: '16px'
-          }}>
-            {skillPracticeRows.map((w, i) => (
-              <div key={w.skillId || i} className="skill-card" style={{
-                display: 'flex', alignItems: 'center', gap: '16px',
-                padding: '16px 20px', borderRadius: '16px',
-                background: '#ffffff',
-                border: '1px solid rgba(0,0,0,0.05)',
-                boxShadow: 'var(--shadow-sm)',
-                transition: 'all 0.2s ease'
-              }}
-              onMouseOver={e => { e.currentTarget.style.borderColor = 'var(--color-brand-primary)'; e.currentTarget.style.boxShadow = 'var(--shadow-md)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-              onMouseOut={e => { e.currentTarget.style.borderColor = 'rgba(0,0,0,0.05)'; e.currentTarget.style.boxShadow = 'var(--shadow-sm)'; e.currentTarget.style.transform = 'translateY(0)'; }}
-              >
-                {/* Accuracy indicator */}
-                <div style={{
-                  padding: '6px 12px', borderRadius: '9999px', flexShrink: 0,
-                  background: w.accuracy < 30 ? 'var(--color-error-50)' : 'var(--color-warning-50)',
-                  color: w.accuracy < 30 ? 'var(--color-error-700)' : 'var(--color-warning-700)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '800',
-                  border: `1px solid ${w.accuracy < 30 ? 'var(--color-error-200)' : 'var(--color-warning-200)'}`
-                }}>
-                  {w.accuracy}%
-                </div>
-
-                {/* Skill name + error type from AI diagnosis */}
-                <div style={{ flex: 1, overflow: 'hidden' }}>
-                  <div style={{
-                    fontFamily: 'var(--font-ui)', fontSize: '15px', fontWeight: '700',
-                    color: 'var(--color-brand-navy)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
-                  }}>
-                    {w.skill}
+          <div className="dashboard-actions-grid">
+            {skillPracticeRows.map((w, i) => {
+              const isGreen = w.accuracy >= 70;
+              const isRed = w.accuracy < 40;
+              const bgColorLeft = isGreen ? 'var(--color-success-600)' : (isRed ? 'var(--color-error-600)' : 'var(--color-brand-primary)');
+              const colorLeft = 'white';
+              const bgColorRight = isGreen ? 'var(--color-success-50)' : (isRed ? 'var(--color-error-50)' : 'var(--color-accent-light-blue)');
+              
+              return (
+                <div key={w.skillId || i} className="acely-split-card" style={{ border: '1px solid var(--color-slate-200)', boxShadow: 'var(--shadow-sm)' }}>
+                  <div className="acely-split-left" style={{ backgroundColor: bgColorLeft, color: colorLeft, width: '120px', flex: 'none' }}>
+                    {w.accuracy}%
                   </div>
-                  {w.errorType && (
-                    <div style={{
-                      fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '600',
-                      color: w.accuracy < 30 ? 'var(--color-error-600)' : 'var(--color-warning-600)',
-                      marginTop: '4px',
-                    }}>
-                      {w.errorType}
+                  <div className="acely-split-right" style={{ backgroundColor: bgColorRight, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '1.5rem' }}>
+                    <div style={{ flex: 1, minWidth: 0, paddingRight: '1rem' }}>
+                      <div className="acely-metric-label">{w.domain || 'Skill'}</div>
+                      <div className="acely-section-name" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{w.skill}</div>
+                      {w.errorType && (
+                        <div style={{ fontSize: '0.8125rem', marginTop: '0.25rem', opacity: 0.8, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                          {w.errorType}
+                        </div>
+                      )}
                     </div>
-                  )}
-                  <div style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--color-slate-500)', marginTop: '4px' }}>
-                    {w.qCount} questions {w.domain ? `\u00B7 ${w.domain}` : ''}
+                    <button
+                      className="btn-launch"
+                      style={{ flexShrink: 0, padding: '0.5rem 1rem' }}
+                      onClick={() => onStartPractice(null, null, { questionIds: w.qIds, source: 'study-plan-assigned', label: `${w.skill} Practice` })}
+                    >
+                      <PencilIcon size={14} style={{ marginRight: '6px', verticalAlign: 'text-bottom' }} /> Practice
+                    </button>
                   </div>
                 </div>
-
-                {/* Practice button */}
-                <button
-                  className="practice-btn"
-                  onClick={() => onStartPractice(null, null, { questionIds: w.qIds, source: 'study-plan-assigned', label: `${w.skill} Practice` })}
-                  style={{
-                    padding: '8px 16px', borderRadius: '9999px', border: 'none',
-                    background: 'var(--color-brand-primary)', color: '#fff',
-                    fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '700', cursor: 'pointer', flexShrink: 0,
-                    display: 'flex', alignItems: 'center', gap: '6px', boxShadow: 'var(--shadow-sm)', transition: 'background 0.2s'
-                  }}
-                  onMouseOver={e => e.currentTarget.style.background = 'var(--color-brand-primary-hover)'}
-                  onMouseOut={e => e.currentTarget.style.background = 'var(--color-brand-primary)'}
-                >
-                  <PencilIcon size={14} /> Practice
-                </button>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       )}
@@ -693,47 +478,36 @@ const StudyPlanDashboard = ({
       {/* ────────────────────────────────────────────────────────────────
           3. WEEKLY PLAN — visually distinct cards
       ──────────────────────────────────────────────────────────────── */}
-      <div className="study-plan-section">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px', marginTop: '8px' }}>
-          <h3 style={{ fontFamily: 'var(--font-ui)', fontSize: '1.25rem', fontWeight: '800', color: 'var(--color-brand-navy)', margin: 0, letterSpacing: '-0.01em' }}>
-            Action Plan
-          </h3>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      <div className="sp-section">
+        <h3 className="sp-section-header">Action Plan</h3>
+        
+        <div className="sp-timeline">
           {/* Current week */}
-          <div style={{
-            borderRadius: 'var(--radius-xl)',
-            background: '#ffffff',
-            boxShadow: 'var(--shadow-md)',
-            position: 'relative', overflow: 'hidden',
-            border: '1px solid rgba(0,0,0,0.05)'
-          }}>
-            <div style={{ position: 'absolute', top: 0, left: 0, width: '6px', height: '100%', background: 'var(--color-brand-primary)' }} />
-            <div style={{
-              padding: '20px 24px', background: 'linear-gradient(to right, rgba(59, 82, 217, 0.08), transparent)',
-              display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-              borderBottom: '1px solid rgba(0,0,0,0.05)'
-            }}>
-              <div>
-                <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', fontWeight: '800', color: 'var(--color-brand-primary)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-                  Current Task List
-                </span>
-                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '20px', fontWeight: '800', color: 'var(--color-brand-navy)', marginTop: '4px', letterSpacing: '-0.01em' }}>
-                  Week {displayCurrentWeek + 1}{currentWeek?.title ? ` — ${currentWeek.title}` : ''}
+          <div className="sp-week-card is-current">
+            <div className="sp-week-indicator" />
+            <div className="sp-week-header" style={{ cursor: 'default' }}>
+              <div className="sp-week-title-area">
+                <div>
+                  <div className="sp-week-label">Current Task List</div>
+                  <div className="sp-week-title">
+                    Week {displayCurrentWeek + 1}{currentWeek?.title ? ` — ${currentWeek.title}` : ''}
+                  </div>
                 </div>
               </div>
-              <div style={{ background: '#ffffff', padding: '8px 16px', borderRadius: '9999px', fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '800', color: 'var(--color-brand-primary)', boxShadow: 'var(--shadow-sm)', fontVariantNumeric: 'tabular-nums' }}>
-                {currentDone} / {currentTotal}
+              <div className="sp-week-meta">
+                <div className="sp-week-progress">
+                  {currentDone} / {currentTotal}
+                </div>
               </div>
             </div>
-            <div style={{ padding: '24px', background: '#ffffff' }}>
+            <div className="sp-week-body">
               {renderWeekActivities(currentWeek, displayCurrentWeek)}
             </div>
           </div>
 
           {/* Other weeks — collapsed sleek cards */}
           {otherWeeks.length > 0 && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <div className="sp-timeline" style={{ gap: '0.75rem' }}>
               {otherWeeks.map(week => {
                 const realIdx = weeks.indexOf(week);
                 const isOpen = expandedWeek === realIdx;
@@ -743,52 +517,30 @@ const StudyPlanDashboard = ({
                 const isComplete = pct === 100;
 
                 return (
-                  <div key={realIdx} style={{
-                    borderRadius: '16px', border: `1px solid ${isComplete ? 'var(--color-success-200)' : 'rgba(0,0,0,0.06)'}`,
-                    background: isComplete ? 'var(--color-success-50)' : '#ffffff',
-                    overflow: 'hidden', transition: 'all 0.3s ease',
-                    boxShadow: isOpen ? 'var(--shadow-md)' : 'var(--shadow-sm)'
-                  }}>
-                    <button
+                  <div key={realIdx} className={`sp-week-card ${isComplete ? 'is-complete' : ''}`}>
+                    <div
+                      className="sp-week-header"
                       onClick={() => setExpandedWeek(isOpen ? null : realIdx)}
-                      style={{
-                        width: '100%', padding: '16px 20px',
-                        background: 'transparent',
-                        border: 'none', cursor: 'pointer',
-                        display: 'flex', justifyContent: 'space-between', alignItems: 'center', textAlign: 'left',
-                      }}
                     >
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                        <div style={{
-                          width: '32px', height: '32px', borderRadius: '50%',
-                          background: isComplete ? 'var(--color-success-500)' : 'var(--color-slate-100)',
-                          color: isComplete ? '#fff' : 'var(--color-slate-500)', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                          boxShadow: isComplete ? '0 2px 8px rgba(34, 197, 94, 0.4)' : 'none'
-                        }}>
-                          {isComplete ? <CheckIcon size={16} color="#fff" /> : <span style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '800' }}>{realIdx + 1}</span>}
+                      <div className="sp-week-title-area">
+                        <div className="sp-week-icon">
+                          {isComplete ? <CheckIcon size={16} color="currentColor" /> : realIdx + 1}
                         </div>
-                        <span style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', fontWeight: '700', color: isComplete ? 'var(--color-slate-500)' : 'var(--color-brand-navy)' }}>
+                        <div className="sp-week-title" style={{ fontSize: '1rem' }}>
                           Week {week.weekNumber}{week.title ? ` — ${week.title}` : ''}
-                        </span>
+                        </div>
                       </div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                        <span style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '600', color: 'var(--color-slate-500)', fontVariantNumeric: 'tabular-nums' }}>
+                      <div className="sp-week-meta">
+                        <span style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-slate-500)' }}>
                           {done} / {total}
                         </span>
-                        <div style={{ 
-                          display: 'flex', alignItems: 'center', justifyContent: 'center',
-                          width: '32px', height: '32px', borderRadius: '50%', background: 'var(--color-slate-50)',
-                          border: '1px solid var(--color-slate-200)',
-                          transition: 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)', 
-                          transform: isOpen ? 'rotate(180deg)' : 'none' 
-                        }}>
-                          <ChevronDownIcon size={16} color="var(--color-slate-500)" />
+                        <div className={`sp-week-toggle ${isOpen ? 'is-open' : ''}`}>
+                          <ChevronDownIcon size={16} color="currentColor" />
                         </div>
                       </div>
-                    </button>
+                    </div>
                     {isOpen && (
-                      <div style={{ padding: '0 20px 20px', animation: 'fadeInUp 0.4s ease forwards' }}>
-                        <div style={{ height: '1px', background: 'rgba(0,0,0,0.05)', marginBottom: '16px' }} />
+                      <div className="sp-week-body" style={{ borderTop: '1px solid var(--color-slate-100)' }}>
                         {renderWeekActivities(week, realIdx)}
                       </div>
                     )}
