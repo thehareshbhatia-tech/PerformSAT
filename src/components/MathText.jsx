@@ -14,6 +14,41 @@ export const MathText = ({ children, text, className = '', style = {} }) => {
     const ESCAPED_DOLLAR_PLACEHOLDER = '\uFFFD';
     result = result.replace(/\\\$/g, ESCAPED_DOLLAR_PLACEHOLDER);
 
+    // Step 0.5: Convert Markdown tables to HTML BEFORE newline conversion
+    // Detects consecutive lines starting/ending with | and converts to <table>
+    result = result.replace(
+      /(^|\n)((?:\|[^\n]*\|\s*\n){2,}\|[^\n]*\|)/g,
+      (match, prefix, tableBlock) => {
+        const lines = tableBlock.split('\n').filter(l => l.trim());
+        if (lines.length < 2) return match;
+        // Second line must be the separator (|---|---|)
+        if (!/^\|[\s\-:|]+\|$/.test(lines[1].trim())) return match;
+
+        const parseCells = (row) =>
+          row.split('|').slice(1, -1).map(c => c.trim());
+
+        const headers = parseCells(lines[0]);
+        const dataRows = lines.slice(2).map(parseCells);
+
+        let html = '<table style="border-collapse:collapse;margin:12px auto;font-size:15px;">';
+        html += '<thead><tr>';
+        for (const h of headers) {
+          html += '<th style="border:1px solid rgba(0,0,0,0.15);padding:8px 16px;background:#f5f5f7;font-weight:600;text-align:center;">' + h + '</th>';
+        }
+        html += '</tr></thead><tbody>';
+        for (const row of dataRows) {
+          html += '<tr>';
+          for (const cell of row) {
+            html += '<td style="border:1px solid rgba(0,0,0,0.15);padding:8px 16px;text-align:center;">' + cell + '</td>';
+          }
+          html += '</tr>';
+        }
+        html += '</tbody></table>';
+
+        return prefix + html;
+      }
+    );
+
     // Step 1: Convert newlines to <br> BEFORE math processing
     // This must happen before KaTeX renders, as KaTeX SVG output contains newlines
     // that should NOT be converted to <br> tags
