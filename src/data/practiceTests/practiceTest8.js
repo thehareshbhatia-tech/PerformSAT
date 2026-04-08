@@ -322,299 +322,176 @@ export const practiceTest8 = {
       title: "Module 2",
       timeLimit: 35,
       questions: [
-        // ===== EASY (Q1-Q5) =====
-        {
-          id: 1,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "If $x - 9 = 3$, what is the value of $x$?",
-          choices: [
-            { id: "A", text: "$-6$" },
-            { id: "B", text: "$3$" },
-            { id: "C", text: "$6$" },
-            { id: "D", text: "$12$" }
-          ],
-          correctAnswer: "D",
-          explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (5 seconds):** $x = 3 + 9 = 12$.\n\n**The Full Solution:**\n$x - 9 = 3$\n$x = 3 + 9$\n$x = 12$\n\n**Why the wrong answers are tempting:**\n• Choice A ($-6$): From $3 - 9 = -6$.\n• Choice B ($3$): Uses the right side of the equation.\n• Choice C ($6$): From $9 - 3 = 6$.\n\n**Test Day Takeaway:** To undo subtraction, add the same number to both sides.",
-          skills: ["solving-equations"]
-        },
-        {
-          id: 2,
-          type: "fill-in",
-          difficulty: "easy",
-          question: "A train travels at $60$ miles per hour. How many miles does the train travel in $3.5$ hours?",
-          correctAnswer: "210",
-          explanation: "**SAT Pattern: Distance = Rate x Time**\n\n**The correct answer is 210.**\n\n**The Fast Way (5 seconds):** $60 \\times 3.5 = 210$.\n\n**The Full Solution:**\n$d = rt = 60 \\times 3.5 = 210$ miles\n\n**Common Mistakes to Avoid:**\n• Dividing: $60 \\div 3.5 \\approx 17.1$.\n• Using $3$ hours instead of $3.5$: $60 \\times 3 = 180$.\n\n**Verification:** $210 \\div 60 = 3.5$ hours ✓\n\n**Test Day Takeaway:** Distance $=$ rate $\\times$ time.",
-          skills: ["word-problems", "ratios-proportions"]
-        },
-        {
-          id: 3,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "Which of the following equations represents \"$5$ less than $3$ times a number $n$ is $19$\"?",
-          choices: [
-            { id: "A", text: "$5 - 3n = 19$" },
-            { id: "B", text: "$3n - 5 = 19$" },
-            { id: "C", text: "$3(n - 5) = 19$" },
-            { id: "D", text: "$5n - 3 = 19$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Translating Words to Equations**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** \"$3$ times $n$\" $= 3n$. \"$5$ less than that\" $= 3n - 5$. \"Is $19$\" $= 3n - 5 = 19$.\n\n**The Full Solution:**\nBreak the sentence into parts:\n- \"$3$ times a number $n$\": $3n$\n- \"$5$ less than\" that: $3n - 5$\n- \"is $19$\": $3n - 5 = 19$\n\n**Why the wrong answers are tempting:**\n• Choice A ($5 - 3n$): Reverses the subtraction order. \"$5$ less than $3n$\" means $3n - 5$, not $5 - 3n$.\n• Choice C ($3(n-5)$): Distributes to $3n - 15$, not $3n - 5$.\n• Choice D ($5n - 3$): Swaps the $5$ and $3$.\n\n**Test Day Takeaway:** \"$A$ less than $B$\" means $B - A$, not $A - B$.",
-          skills: ["linear-equations", "word-problems"]
-        },
-        {
-          id: 4,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "A photographer takes $15$ photos in $5$ minutes. At this rate, how many photos will she take in $20$ minutes?",
-          choices: [
-            { id: "A", text: "$45$" },
-            { id: "B", text: "$60$" },
-            { id: "C", text: "$75$" },
-            { id: "D", text: "$100$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Proportional Reasoning**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** Rate $= \\frac{15}{5} = 3$ photos/min. In $20$ min: $3 \\times 20 = 60$.\n\n**The Full Solution:**\n$\\frac{15 \\text{ photos}}{5 \\text{ min}} = \\frac{x \\text{ photos}}{20 \\text{ min}}$\n$x = \\frac{15 \\times 20}{5} = \\frac{300}{5} = 60$\n\n**Why the wrong answers are tempting:**\n• Choice A ($45$): $15 \\times 3$, but $20 \\div 5 = 4$, not $3$.\n• Choice C ($75$): $15 \\times 5$, using the wrong multiplier.\n• Choice D ($100$): $5 \\times 20$, using $5$ instead of $3$ as the rate.\n\n**Test Day Takeaway:** Find the unit rate first, then multiply by the desired quantity.",
-          skills: ["ratios-proportions"]
-        },
-        {
-          id: 5,
-          type: "fill-in",
-          difficulty: "easy",
-          question: "What is the value of $|-7|$?",
-          correctAnswer: "7",
-          explanation: "**SAT Pattern: Absolute Value**\n\n**The correct answer is 7.**\n\n**The Fast Way (5 seconds):** $|-7| = 7$. Absolute value gives the distance from zero.\n\n**The Full Solution:**\nAbsolute value removes the sign: $|-7| = 7$.\n\n**Common Mistakes to Avoid:**\n• Answering $-7$ (keeping the negative sign).\n\n**Verification:** $7$ is $7$ units from $0$ on the number line ✓\n\n**Test Day Takeaway:** $|x|$ is always non-negative.",
-          skills: ["absolute-value-equations"]
-        },
-
-        // ===== MEDIUM (Q6-Q15) =====
-        {
-          id: 6,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "The mean of five numbers is $14$. Four of the numbers are $10$, $12$, $16$, and $18$. What is the fifth number?",
-          choices: [
-            { id: "A", text: "$12$" },
-            { id: "B", text: "$14$" },
-            { id: "C", text: "$16$" },
-            { id: "D", text: "$20$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Finding a Missing Value from the Mean**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Total sum needed: $14 \\times 5 = 70$. Known sum: $10 + 12 + 16 + 18 = 56$. Fifth number: $70 - 56 = 14$.\n\n**The Full Solution:**\nMean $= \\frac{\\text{sum}}{5} = 14$, so sum $= 70$.\n$10 + 12 + 16 + 18 + x = 70$\n$56 + x = 70$\n$x = 14$\n\n**Why the wrong answers are tempting:**\n• Choice A ($12$): From a miscalculation of the known sum.\n• Choice C ($16$): From $70 - 54 = 16$ (wrong partial sum).\n• Choice D ($20$): From $70 - 50 = 20$.\n\n**Test Day Takeaway:** Sum $=$ mean $\\times$ count. Subtract the known values to find the missing one.",
-          skills: ["mean-median-mode", "statistics"]
-        },
-        {
-          id: 7,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "If $3x + 2y = 18$ and $x + 2y = 10$, what is the value of $x$?",
-          choices: [
-            { id: "A", text: "$2$" },
-            { id: "B", text: "$4$" },
-            { id: "C", text: "$6$" },
-            { id: "D", text: "$8$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: System of Equations — Elimination**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** Subtract the second equation from the first: $(3x + 2y) - (x + 2y) = 18 - 10$, so $2x = 8$, $x = 4$.\n\n**The Full Solution:**\n$3x + 2y = 18$\n$x + 2y = 10$\nSubtract: $2x = 8$\n$x = 4$\n\n**Why the wrong answers are tempting:**\n• Choice A ($2$): From dividing $8$ by $4$.\n• Choice C ($6$): From $18 - 10 = 8$, then $18 \\div 3 = 6$.\n• Choice D ($8$): This is $2x$, not $x$.\n\n**Test Day Takeaway:** When the same term appears in both equations, subtract to eliminate it.",
-          skills: ["systems-of-equations"]
-        },
-        {
-          id: 8,
-          type: "fill-in",
-          difficulty: "medium",
-          question: "A rectangle has an area of $72$ square inches and a width of $6$ inches. What is the perimeter of the rectangle, in inches?",
-          correctAnswer: "36",
-          explanation: "**SAT Pattern: Area to Perimeter**\n\n**The correct answer is 36.**\n\n**The Fast Way (15 seconds):** Length $= 72 \\div 6 = 12$. Perimeter $= 2(12 + 6) = 2(18) = 36$.\n\n**The Full Solution:**\nArea $= l \\times w$\n$72 = l \\times 6$\n$l = 12$\nPerimeter $= 2l + 2w = 2(12) + 2(6) = 24 + 12 = 36$\n\n**Common Mistakes to Avoid:**\n• Stopping at the length ($12$) — the question asks for perimeter.\n• Computing $2 \\times 12 \\times 6 = 144$ (using $2lw$ instead of $2l + 2w$).\n\n**Verification:** Area $= 12 \\times 6 = 72$ ✓, Perimeter $= 24 + 12 = 36$ ✓\n\n**Test Day Takeaway:** Area uses multiplication ($lw$). Perimeter uses addition ($2l + 2w$).",
-          skills: ["area", "word-problems"]
-        },
-        {
-          id: 9,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "If $g(x) = 4x - 1$ and $g(a) = 15$, what is the value of $a$?",
-          choices: [
-            { id: "A", text: "$3$" },
-            { id: "B", text: "$3.5$" },
-            { id: "C", text: "$4$" },
-            { id: "D", text: "$59$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Solving Through Function Notation**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** $4a - 1 = 15$, $4a = 16$, $a = 4$.\n\n**The Full Solution:**\n$g(a) = 15$\n$4a - 1 = 15$\n$4a = 16$\n$a = 4$\n\n**Why the wrong answers are tempting:**\n• Choice A ($3$): From $15 \\div 4 \\approx 3.75$, rounded incorrectly.\n• Choice B ($3.5$): From $\\frac{15 - 1}{4} = 3.5$, subtracting $1$ in the wrong direction.\n• Choice D ($59$): From $g(15) = 4(15) - 1 = 59$.\n\n**Test Day Takeaway:** $g(a) = 15$ means \"plug $a$ into $g$ and set the output equal to $15$.\"",
-          skills: ["function-evaluation", "linear-functions"]
-        },
-        {
-          id: 10,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "The table below shows the results of a fitness survey.\n\n| | Under 30 | 30 and Over | Total |\n|---|---|---|---|\n| Gym member | $25$ | $20$ | $45$ |\n| Not a member | $15$ | $40$ | $55$ |\n| Total | $40$ | $60$ | $100$ |\n\nWhat fraction of people $30$ and over are gym members?",
-          choices: [
-            { id: "A", text: "$\\frac{20}{45}$" },
-            { id: "B", text: "$\\frac{20}{60}$" },
-            { id: "C", text: "$\\frac{20}{100}$" },
-            { id: "D", text: "$\\frac{45}{100}$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** \"Of people $30$ and over\" = restrict to that column (total $60$). Gym members in that group $= 20$. Fraction $= \\frac{20}{60}$.\n\n**The Full Solution:**\n$\\frac{\\text{Gym member AND 30+}}{\\text{Total 30+}} = \\frac{20}{60} = \\frac{1}{3}$\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{20}{45}$): Uses the gym member total as denominator.\n• Choice C ($\\frac{20}{100}$): Uses the grand total.\n• Choice D ($\\frac{45}{100}$): Gives the overall gym member fraction.\n\n**Test Day Takeaway:** \"Of [group]\" means that group's total is your denominator.",
-          skills: ["two-way-tables", "probability"]
-        },
-        {
-          id: 11,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "Which of the following is equivalent to $\\frac{6x^2 + 9x}{3x}$ for $x \\neq 0$?",
-          choices: [
-            { id: "A", text: "$2x + 3$" },
-            { id: "B", text: "$2x + 9$" },
-            { id: "C", text: "$6x + 3$" },
-            { id: "D", text: "$2x^2 + 3x$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Simplifying a Rational Expression**\n\n**Choice A is correct.**\n\n**The Fast Way (10 seconds):** Split the fraction: $\\frac{6x^2}{3x} + \\frac{9x}{3x} = 2x + 3$.\n\n**The Full Solution:**\n$\\frac{6x^2 + 9x}{3x} = \\frac{3x(2x + 3)}{3x} = 2x + 3$\n\n**Why the wrong answers are tempting:**\n• Choice B ($2x + 9$): Only divided the first term by $3$, not the second.\n• Choice C ($6x + 3$): Only divided by $x$, not by $3x$.\n• Choice D ($2x^2 + 3x$): Divided by $3$ only, not $3x$.\n\n**Test Day Takeaway:** When dividing a polynomial by a monomial, divide each term separately.",
-          skills: ["algebraic-manipulation", "polynomial-operations"]
-        },
-        {
-          id: 12,
-          type: "fill-in",
-          difficulty: "medium",
-          question: "A bus charges $\\$2.50$ per ride. If Marcus has $\\$20$ and needs to save at least $\\$5$ for lunch, what is the maximum number of rides he can take?",
-          correctAnswer: "6",
-          explanation: "**SAT Pattern: Inequality Word Problem**\n\n**The correct answer is 6.**\n\n**The Fast Way (15 seconds):** Available for rides: $20 - 5 = 15$. Rides: $15 \\div 2.50 = 6$.\n\n**The Full Solution:**\n$2.50r \\leq 20 - 5$\n$2.50r \\leq 15$\n$r \\leq 6$\n\nMaximum rides $= 6$.\n\n**Common Mistakes to Avoid:**\n• Using $20 \\div 2.50 = 8$ (forgetting to save $\\$5$).\n• Getting $5$ from rounding $\\$15 \\div \\$2.50$ incorrectly.\n\n**Verification:** $6 \\times 2.50 = 15$, leaving $20 - 15 = 5$ for lunch ✓\n\n**Test Day Takeaway:** Subtract fixed costs first, then divide by the per-unit cost.",
-          skills: ["inequalities", "word-problems"]
-        },
-        {
-          id: 13,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "In a right triangle, one angle is $90°$ and another is $40°$. What is the measure of the third angle?",
-          choices: [
-            { id: "A", text: "$40°$" },
-            { id: "B", text: "$50°$" },
-            { id: "C", text: "$60°$" },
-            { id: "D", text: "$140°$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Triangle Angle Sum**\n\n**Choice B is correct.**\n\n**The Fast Way (5 seconds):** $180° - 90° - 40° = 50°$.\n\n**The Full Solution:**\nSum of angles in a triangle $= 180°$\n$90° + 40° + x = 180°$\n$x = 180° - 130° = 50°$\n\n**Why the wrong answers are tempting:**\n• Choice A ($40°$): Assumes the triangle is isosceles.\n• Choice C ($60°$): From $180° - 120°$, possibly adding $90° + 30°$.\n• Choice D ($140°$): From $180° - 40°$, forgetting the $90°$ angle.\n\n**Test Day Takeaway:** Triangle angles sum to $180°$. In a right triangle, the two acute angles sum to $90°$.",
-          skills: ["triangles", "angles"]
-        },
-        {
-          id: 14,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "If $x^2 = 81$, which of the following is a possible value of $x - 3$?",
-          choices: [
-            { id: "A", text: "$-12$" },
-            { id: "B", text: "$-6$" },
-            { id: "C", text: "$6$" },
-            { id: "D", text: "$78$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Square Root with Two Solutions**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** $x^2 = 81$ means $x = 9$ or $x = -9$. If $x = 9$: $x - 3 = 6$. If $x = -9$: $x - 3 = -12$. Choice C gives $6$.\n\n**The Full Solution:**\n$x = \\pm 9$\nIf $x = 9$: $x - 3 = 6$ (Choice C)\nIf $x = -9$: $x - 3 = -12$ (Choice A)\nBoth C and A are valid, but checking the choices, C is correct.\n\n**Why the wrong answers are tempting:**\n• Choice A ($-12$): Also valid ($x = -9$), but C is the expected answer.\n• Choice B ($-6$): From $9 - 3 = 6$, then flipping the sign.\n• Choice D ($78$): From $81 - 3 = 78$, subtracting from $x^2$ instead of $x$.\n\n**Test Day Takeaway:** $x^2 = k$ has two solutions: $x = \\pm \\sqrt{k}$. Check both in the expression.",
-          skills: ["quadratic-equations", "solving-equations"]
-        },
-        {
-          id: 15,
-          type: "fill-in",
-          difficulty: "medium",
-          question: "A fitness class has $24$ participants. The ratio of women to men is $5 : 3$. How many women are in the class?",
-          correctAnswer: "15",
-          explanation: "**SAT Pattern: Ratio Problem**\n\n**The correct answer is 15.**\n\n**The Fast Way (10 seconds):** Total parts $= 5 + 3 = 8$. Each part $= 24 \\div 8 = 3$. Women $= 5 \\times 3 = 15$.\n\n**The Full Solution:**\nRatio is $5:3$, total parts $= 8$.\nEach part represents $\\frac{24}{8} = 3$ people.\nWomen $= 5 \\times 3 = 15$.\n\n**Common Mistakes to Avoid:**\n• Computing $24 \\times \\frac{5}{3} = 40$ — using the ratio wrong.\n• Getting $9$ (the number of men) instead of $15$.\n\n**Verification:** Women $= 15$, Men $= 9$, Total $= 24$ ✓, Ratio $= 15:9 = 5:3$ ✓\n\n**Test Day Takeaway:** For ratio problems, find the value of one \"part\" first: total $\\div$ sum of ratio parts.",
-          skills: ["ratios-proportions"]
-        },
-
-        // ===== HARD (Q16-Q22) =====
-        {
-          id: 16,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "Which of the following is equivalent to $\\frac{\\sqrt{50}}{\\sqrt{2}}$?",
-          choices: [
-            { id: "A", text: "$5$" },
-            { id: "B", text: "$\\sqrt{25}$" },
-            { id: "C", text: "$5\\sqrt{2}$" },
-            { id: "D", text: "$\\sqrt{48}$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Simplifying Radicals**\n\n**Choice A is correct.**\n\n**The Fast Way (10 seconds):** $\\frac{\\sqrt{50}}{\\sqrt{2}} = \\sqrt{\\frac{50}{2}} = \\sqrt{25} = 5$.\n\n**The Full Solution:**\n$\\frac{\\sqrt{50}}{\\sqrt{2}} = \\sqrt{\\frac{50}{2}} = \\sqrt{25} = 5$\n\n**Why the wrong answers are tempting:**\n• Choice B ($\\sqrt{25}$): Equals $5$, same as A. But students might think it's different.\n• Choice C ($5\\sqrt{2}$): This is $\\sqrt{50}$ itself, not divided by $\\sqrt{2}$.\n• Choice D ($\\sqrt{48}$): From $50 - 2 = 48$, subtracting instead of dividing.\n\n**Test Day Takeaway:** $\\frac{\\sqrt{a}}{\\sqrt{b}} = \\sqrt{\\frac{a}{b}}$.",
-          skills: ["radicals", "exponent-rules"]
-        },
-        {
-          id: 17,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "A parabola has the equation $y = x^2 - 6x + 5$. What is the minimum value of $y$?",
-          choices: [
-            { id: "A", text: "$-4$" },
-            { id: "B", text: "$-1$" },
-            { id: "C", text: "$3$" },
-            { id: "D", text: "$5$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Finding the Minimum of a Quadratic**\n\n**Choice A is correct.**\n\n**The Fast Way (20 seconds):** Vertex $x = -\\frac{-6}{2(1)} = 3$. Then $y = 9 - 18 + 5 = -4$.\n\n**The Full Solution:**\n$x = -\\frac{b}{2a} = -\\frac{-6}{2} = 3$\n$y(3) = (3)^2 - 6(3) + 5 = 9 - 18 + 5 = -4$\n\nAlternatively, complete the square:\n$y = (x^2 - 6x + 9) - 9 + 5 = (x - 3)^2 - 4$\nMinimum $y = -4$.\n\n**Why the wrong answers are tempting:**\n• Choice B ($-1$): From an arithmetic error in $9 - 18 + 5$.\n• Choice C ($3$): This is the $x$-coordinate of the vertex, not the minimum $y$.\n• Choice D ($5$): This is $y(0)$, the $y$-intercept.\n\n**Test Day Takeaway:** Minimum of $y = ax^2 + bx + c$ (when $a > 0$) is $y$ at $x = -\\frac{b}{2a}$.",
-          skills: ["quadratic-functions", "vertex-form"]
-        },
-        {
-          id: 18,
-          type: "fill-in",
-          difficulty: "hard",
-          question: "If $2^{x+1} = 32$, what is the value of $x$?",
-          correctAnswer: "4",
-          explanation: "**SAT Pattern: Exponential Equation with Same Base**\n\n**The correct answer is 4.**\n\n**The Fast Way (10 seconds):** $32 = 2^5$. So $2^{x+1} = 2^5$, meaning $x + 1 = 5$, $x = 4$.\n\n**The Full Solution:**\n$2^{x+1} = 32$\n$2^{x+1} = 2^5$\n$x + 1 = 5$\n$x = 4$\n\n**Common Mistakes to Avoid:**\n• Answering $5$ — that's $x + 1$, not $x$.\n• Answering $16$ from $32 \\div 2 = 16$.\n\n**Verification:** $2^{4+1} = 2^5 = 32$ ✓\n\n**Test Day Takeaway:** Express both sides as powers of the same base, then set exponents equal.",
-          skills: ["exponent-rules", "exponential-functions"]
-        },
-        {
-          id: 19,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "The system of equations below has no solution. What is the value of $a$?\n\n$2x + 3y = 7$\n$6x + ay = 10$",
-          choices: [
-            { id: "A", text: "$3$" },
-            { id: "B", text: "$6$" },
-            { id: "C", text: "$9$" },
-            { id: "D", text: "$21$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: No Solution — Parallel Lines**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** No solution means parallel lines (same slope, different intercepts). Multiply the first equation by $3$: $6x + 9y = 21$. For no solution, $a = 9$ (same coefficients) but $10 \\neq 21$ (different constants). ✓\n\n**The Full Solution:**\nMultiply the first equation by $3$:\n$6x + 9y = 21$\n\nCompare with $6x + ay = 10$:\nFor no solution, the left sides must be proportional but the right sides must not be:\n$a = 9$ and $10 \\neq 21$ ✓\n\n**Why the wrong answers are tempting:**\n• Choice A ($3$): The original coefficient, not the scaled one.\n• Choice B ($6$): Uses the $x$-coefficient from the second equation.\n• Choice D ($21$): This is the scaled constant, not the coefficient.\n\n**Test Day Takeaway:** No solution means the equations represent parallel lines: same slopes, different intercepts.",
-          skills: ["systems-of-equations", "linear-equations"]
-        },
-        {
-          id: 20,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "A sphere has a volume of $36\\pi$ cubic inches. What is the radius of the sphere? (Volume of a sphere: $V = \\frac{4}{3}\\pi r^3$)",
-          choices: [
-            { id: "A", text: "$3$" },
-            { id: "B", text: "$6$" },
-            { id: "C", text: "$9$" },
-            { id: "D", text: "$27$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Solving a Volume Formula for Radius**\n\n**Choice A is correct.**\n\n**The Fast Way (20 seconds):** $\\frac{4}{3}\\pi r^3 = 36\\pi$. Divide by $\\pi$: $\\frac{4}{3}r^3 = 36$. Multiply by $\\frac{3}{4}$: $r^3 = 27$. $r = 3$.\n\n**The Full Solution:**\n$\\frac{4}{3}\\pi r^3 = 36\\pi$\n$\\frac{4}{3}r^3 = 36$\n$r^3 = 36 \\times \\frac{3}{4} = 27$\n$r = \\sqrt[3]{27} = 3$\n\n**Why the wrong answers are tempting:**\n• Choice B ($6$): From $36 \\div 6 = 6$ or confusing diameter with radius.\n• Choice C ($9$): From $36 \\div 4 = 9$.\n• Choice D ($27$): This is $r^3$, not $r$.\n\n**Test Day Takeaway:** Isolate $r^3$ first, then take the cube root.",
-          skills: ["volume", "solving-equations"]
-        },
-        {
-          id: 21,
-          type: "fill-in",
-          difficulty: "hard",
-          question: "If $f(x) = x^2 + 2x$ and $g(x) = x + 3$, what is $f(g(1))$?",
-          correctAnswer: "24",
-          explanation: "**SAT Pattern: Composite Functions**\n\n**The correct answer is 24.**\n\n**The Fast Way (15 seconds):** $g(1) = 1 + 3 = 4$. $f(4) = 16 + 8 = 24$.\n\n**The Full Solution:**\nStep 1: $g(1) = 1 + 3 = 4$\nStep 2: $f(g(1)) = f(4) = (4)^2 + 2(4) = 16 + 8 = 24$\n\n**Common Mistakes to Avoid:**\n• Computing $f(1) \\cdot g(1) = 3 \\times 4 = 12$ — that's not composition.\n• Computing $g(f(1)) = g(3) = 6$ — wrong order.\n\n**Verification:** $g(1) = 4$, $f(4) = 16 + 8 = 24$ ✓\n\n**Test Day Takeaway:** For $f(g(x))$: evaluate the inner function first, then plug the result into the outer function.",
-          skills: ["function-evaluation", "function-transformations"]
-        },
-        {
-          id: 22,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "In triangle $ABC$, $\\angle A = 90°$, $BC = 10$, and $\\sin(B) = 0.6$. What is the length of $AC$?",
-          choices: [
-            { id: "A", text: "$4$" },
-            { id: "B", text: "$6$" },
-            { id: "C", text: "$8$" },
-            { id: "D", text: "$10$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Right Triangle Trig — Finding a Side**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** $\\sin(B) = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{AC}{BC} = \\frac{AC}{10} = 0.6$. So $AC = 6$.\n\n**The Full Solution:**\n$\\angle A = 90°$, so $BC$ is the hypotenuse.\n$\\sin(B) = \\frac{\\text{side opposite B}}{\\text{hypotenuse}} = \\frac{AC}{BC}$\n$0.6 = \\frac{AC}{10}$\n$AC = 6$\n\n**Why the wrong answers are tempting:**\n• Choice A ($4$): From $10 \\times 0.4$.\n• Choice C ($8$): This is $AB$ (the other leg): $\\sqrt{10^2 - 6^2} = \\sqrt{64} = 8$.\n• Choice D ($10$): This is the hypotenuse, not the leg.\n\n**Test Day Takeaway:** $\\sin = \\frac{\\text{opposite}}{\\text{hypotenuse}}$. Identify which side is opposite the angle in question.",
-          skills: ["right-triangle-trig", "triangles"]
-        }
+{
+  id: 1, type: "multiple-choice", difficulty: "easy",
+  question: "What is the value of $\\frac{3^6}{3^4}$?",
+  choices: [{ id: "A", text: "3" }, { id: "B", text: "6" }, { id: "C", text: "9" }, { id: "D", text: "27" }],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Exponent Division Rule**\n\n**Choice C is correct.**\n\n**The Fast Way:** $\\frac{3^6}{3^4} = 3^{6-4} = 3^2 = 9$.\n\n**The Full Solution:**\nWhen dividing powers with the same base, subtract exponents: $\\frac{a^m}{a^n} = a^{m-n}$.\n$\\frac{3^6}{3^4} = 3^{6-4} = 3^2 = 9$.\n\n**Why the wrong answers are tempting:**\n• A: Computes $6 - 4 = 2$ but then uses $3$ instead of $3^2$.\n• B: Divides the exponents: $6/4 \\approx 1.5$ and rounds to 6.\n• D: Computes $3^3 = 27$ (subtracting exponents incorrectly as $6 - 3$).\n\n**Test Day Takeaway:** Division subtracts exponents. Then compute the resulting power.",
+  skills: ["exponent-rules"]
+},
+{
+  id: 2, type: "multiple-choice", difficulty: "easy",
+  question: "A store marks up the price of an item by 40%. If the wholesale price is \\$50, what is the retail price?",
+  choices: [{ id: "A", text: "\\$20" }, { id: "B", text: "\\$40" }, { id: "C", text: "\\$70" }, { id: "D", text: "\\$90" }],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Percent Markup**\n\n**Choice C is correct.**\n\n**The Fast Way:** $50 \\times 1.40 = 70$. Or: $40\\%$ of $50 = 20$, so $50 + 20 = 70$.\n\n**The Full Solution:**\nMarkup $= 40\\%$ of $\\$50 = 0.40 \\times 50 = \\$20$.\nRetail price $= \\$50 + \\$20 = \\$70$.\n\n**Why the wrong answers are tempting:**\n• A: Computes only the markup amount ($20$) and gives it as the price.\n• B: Subtracts the markup: $50 - 10 = 40$.\n• D: Adds $40$ to $50$ (confuses 40% with \\$40).\n\n**Test Day Takeaway:** A markup of $p\\%$ means the new price is $(1 + p/100)$ times the original.",
+  skills: ["percents", "word-problems"]
+},
+{
+  id: 3, type: "multiple-choice", difficulty: "easy",
+  question: "The number of books read by students in a class is recorded:\n\n- 0 books: 3 students\n- 1 book: 5 students\n- 2 books: 8 students\n- 3 books: 4 students\n\nWhat is the median number of books read?",
+  choices: [{ id: "A", text: "1" }, { id: "B", text: "1.5" }, { id: "C", text: "2" }, { id: "D", text: "2.5" }],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Median from Frequency Data**\n\n**Choice C is correct.**\n\n**The Fast Way:** Total students $= 3 + 5 + 8 + 4 = 20$. Median is average of 10th and 11th values. Count up: positions 1-3 have 0 books, 4-8 have 1 book, 9-16 have 2 books. Both the 10th and 11th values are 2.\n\n**The Full Solution:**\nWith 20 data points, the median is the average of the 10th and 11th values when sorted.\n\nCumulative count:\n- 0 books: positions 1-3 (cumulative: 3)\n- 1 book: positions 4-8 (cumulative: 8)\n- 2 books: positions 9-16 (cumulative: 16)\n- 3 books: positions 17-20\n\nBoth the 10th and 11th values fall in the \"2 books\" group.\nMedian $= \\frac{2 + 2}{2} = 2$.\n\n**Why the wrong answers are tempting:**\n• A: Picks the mode of the first two categories.\n• B: Averages 1 and 2 without counting positions.\n• D: Averages 2 and 3.\n\n**Test Day Takeaway:** For grouped data, use cumulative frequencies to find which group contains the median position.",
+  skills: ["statistics"]
+},
+{
+  id: 4, type: "multiple-choice", difficulty: "easy",
+  question: "Which expression is equivalent to $(2x + 3)(x - 4)$?",
+  choices: [{ id: "A", text: "$2x^2 - 12$" }, { id: "B", text: "$2x^2 - 5x - 12$" }, { id: "C", text: "$2x^2 + 5x - 12$" }, { id: "D", text: "$2x^2 - 8x + 3x - 12$" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: FOIL / Polynomial Multiplication**\n\n**Choice B is correct.**\n\n**The Fast Way:** $(2x+3)(x-4) = 2x^2 - 8x + 3x - 12 = 2x^2 - 5x - 12$.\n\n**The Full Solution:**\nFirst: $2x \\cdot x = 2x^2$\nOuter: $2x \\cdot (-4) = -8x$\nInner: $3 \\cdot x = 3x$\nLast: $3 \\cdot (-4) = -12$\n\nCombine: $2x^2 - 8x + 3x - 12 = 2x^2 - 5x - 12$.\n\n**Why the wrong answers are tempting:**\n• A: Keeps only the first and last terms.\n• C: Gets the sign wrong on the middle term: $-8x + 3x = -5x$, not $+5x$.\n• D: This is correct but not fully simplified (it equals B).\n\n**Test Day Takeaway:** After FOIL, always combine like terms. Check the sign of the middle term carefully.",
+  skills: ["polynomial-operations"]
+},
+{
+  id: 5, type: "multiple-choice", difficulty: "easy",
+  question: "A data set has values: 12, 15, 18, 20, 25. What is the range of this data set?",
+  choices: [{ id: "A", text: "5" }, { id: "B", text: "13" }, { id: "C", text: "18" }, { id: "D", text: "25" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Range of a Data Set**\n\n**Choice B is correct.**\n\n**The Fast Way:** Range $= 25 - 12 = 13$.\n\n**The Full Solution:**\nThe range is the difference between the maximum and minimum values.\nRange $= 25 - 12 = 13$.\n\n**Why the wrong answers are tempting:**\n• A: Computes the difference between consecutive values.\n• C: Uses the median (18) as the range.\n• D: Uses the maximum value.\n\n**Test Day Takeaway:** Range = max $-$ min. It measures the total spread of the data.",
+  skills: ["statistics"]
+},
+{
+  id: 6, type: "multiple-choice", difficulty: "medium",
+  question: "The table below shows the results of a survey of 250 employees about their commute method and department.\n\n|  | Car | Public Transit | Bike | Total |\n|---|---|---|---|---|\n| Marketing | 40 | 25 | 10 | 75 |\n| Engineering | 30 | 45 | 25 | 100 |\n| Sales | 50 | 15 | 10 | 75 |\n| Total | 120 | 85 | 45 | 250 |\n\nWhat percentage of employees who use public transit work in Engineering?",
+  choices: [{ id: "A", text: "18%" }, { id: "B", text: "45%" }, { id: "C", text: "About 53%" }, { id: "D", text: "About 29%" }],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Conditional Percentage from Two-Way Table**\n\n**Choice C is correct.**\n\n**The Fast Way:** Of public transit users (85 total), 45 are in Engineering. $\\frac{45}{85} \\approx 0.529 \\approx 53\\%$.\n\n**The Full Solution:**\n\"Of employees who use public transit\" means the denominator is the public transit column total: 85.\n\n$\\frac{45}{85} = \\frac{9}{17} \\approx 0.5294 \\approx 53\\%$.\n\n**Why the wrong answers are tempting:**\n• A: Computes $\\frac{45}{250} = 18\\%$ (uses grand total as denominator).\n• B: Computes $\\frac{45}{100} = 45\\%$ (uses Engineering row total).\n• D: Computes $\\frac{25}{85} \\approx 29\\%$ (uses wrong cell -- Engineering/Bike).\n\n**Test Day Takeaway:** The phrase after 'of' or 'among' defines your denominator. Column condition = column total.",
+  skills: ["two-way-tables", "percents"]
+},
+{
+  id: 7, type: "multiple-choice", difficulty: "medium",
+  question: "If $\\sqrt{5x + 1} = x + 1$, what are all values of $x$ that satisfy the equation?",
+  choices: [{ id: "A", text: "$x = 0$ only" }, { id: "B", text: "$x = 3$ only" }, { id: "C", text: "$x = 0$ and $x = 3$" }, { id: "D", text: "$x = -1$ and $x = 0$" }],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Radical Equation**\n\n**Choice C is correct.**\n\n**The Fast Way:** Square both sides: $5x + 1 = x^2 + 2x + 1$, so $x^2 - 3x = 0$, $x(x-3) = 0$, $x = 0$ or $x = 3$. Both check out.\n\n**The Full Solution:**\n$\\sqrt{5x + 1} = x + 1$\n\nSquare both sides: $5x + 1 = (x+1)^2 = x^2 + 2x + 1$.\n$0 = x^2 - 3x$\n$0 = x(x - 3)$\n$x = 0$ or $x = 3$.\n\nCheck for extraneous solutions:\n- $x = 0$: $\\sqrt{1} = 1$ and $0 + 1 = 1$. ✓\n- $x = 3$: $\\sqrt{16} = 4$ and $3 + 1 = 4$. ✓\n\nBoth solutions are valid.\n\n**Why the wrong answers are tempting:**\n• A: Only finds $x = 0$ and stops.\n• B: Only finds $x = 3$ and stops.\n• D: Tries $x = -1$: $\\sqrt{-4}$ is not real, so $x = -1$ is invalid.\n\n**Test Day Takeaway:** After squaring a radical equation, ALWAYS check your solutions in the original equation to eliminate extraneous roots.",
+  skills: ["radical-expressions", "solving-equations"]
+},
+{
+  id: 8, type: "fill-in", difficulty: "medium",
+  question: "A researcher surveyed 400 randomly selected adults and found that 240 support a new policy. She wants to construct a 95% confidence interval.\n\nUsing the formula: margin of error $\\approx \\frac{1}{\\sqrt{n}}$, what is the approximate margin of error, expressed as a percentage? Round to the nearest whole number.",
+  correctAnswer: "5",
+  explanation: "**SAT Pattern: Quick Margin of Error Estimate**\n\n**The answer is 5.**\n\n**The Fast Way:** $\\frac{1}{\\sqrt{400}} = \\frac{1}{20} = 0.05 = 5\\%$.\n\n**The Full Solution:**\nThe quick-estimate formula for a 95% margin of error is $\\frac{1}{\\sqrt{n}}$.\n\n$\\frac{1}{\\sqrt{400}} = \\frac{1}{20} = 0.05 = 5\\%$.\n\nSo the confidence interval is approximately $60\\% \\pm 5\\%$, or $[55\\%, 65\\%]$.\n\n**Common Mistakes:**\n• Using $n = 240$ (the number who support) instead of $n = 400$ (the sample size).\n• Forgetting to convert to a percentage: $0.05$ vs $5\\%$.\n\n**Test Day Takeaway:** The margin of error formula uses the total sample size $n$, not the count of favorable responses.",
+  skills: ["margin-of-error", "statistics"]
+},
+{
+  id: 9, type: "multiple-choice", difficulty: "medium",
+  question: "480 is what percent greater than 120?",
+  choices: [{ id: "A", text: "75%" }, { id: "B", text: "300%" }, { id: "C", text: "360%" }, { id: "D", text: "400%" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Percent Greater Than**\n\n**Choice B is correct.**\n\n**The Fast Way:** Percent greater $= \\frac{480 - 120}{120} \\times 100 = \\frac{360}{120} \\times 100 = 300\\%$.\n\n**The Full Solution:**\n\"$A$ is what percent greater than $B$\" means $\\frac{A - B}{B} \\times 100$.\n\n$\\frac{480 - 120}{120} \\times 100 = \\frac{360}{120} \\times 100 = 3 \\times 100 = 300\\%$.\n\n**Why the wrong answers are tempting:**\n• A: Computes $\\frac{120}{480} \\times 100 = 25\\%$, then $100\\% - 25\\% = 75\\%$.\n• C: Computes $\\frac{360}{100}$ instead of $\\frac{360}{120}$.\n• D: Computes $\\frac{480}{120} = 4 = 400\\%$ (this is \"what percent OF,\" not \"what percent GREATER\").\n\n**Test Day Takeaway:** \"Percent greater than\" uses the difference over the base. \"Percent of\" uses the whole over the base. They differ by 100%.",
+  skills: ["percents", "word-problems"]
+},
+{
+  id: 10, type: "multiple-choice", difficulty: "medium",
+  question: "The equation $2x^2 + bx + 18 = 0$ has exactly one real solution. Which of the following could be the value of $b$?",
+  choices: [{ id: "A", text: "$-10$" }, { id: "B", text: "$-12$" }, { id: "C", text: "$10$" }, { id: "D", text: "$14$" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Discriminant Equals Zero**\n\n**Choice B is correct.**\n\n**The Fast Way:** One real solution means discriminant $= 0$: $b^2 - 4(2)(18) = 0$, so $b^2 = 144$, $b = \\pm 12$.\n\n**The Full Solution:**\nFor exactly one real solution: $b^2 - 4ac = 0$.\n$b^2 - 4(2)(18) = 0$\n$b^2 = 144$\n$b = 12$ or $b = -12$.\n\nAmong the choices, $b = -12$ is listed.\n\n**Why the wrong answers are tempting:**\n• A: $(-10)^2 = 100 \neq 144$, giving $100 - 144 = -44 < 0$ (no real solutions).\n• C: $(10)^2 = 100 \neq 144$, also no real solutions.\n• D: $(14)^2 = 196 \neq 144$, giving $196 - 144 = 52 > 0$ (two real solutions).\n\n**Test Day Takeaway:** Exactly one solution means discriminant $= 0$. Two solutions: $> 0$. No solutions: $< 0$.",
+  skills: ["discriminant", "quadratic-equations"]
+},
+{
+  id: 11, type: "fill-in", difficulty: "medium",
+  question: "A taxi company charges a \\$3.50 base fare plus \\$2.25 per mile. A ride costs \\$21.50. How many miles was the ride?",
+  correctAnswer: "8",
+  explanation: "**SAT Pattern: Linear Equation Word Problem**\n\n**The answer is 8.**\n\n**The Fast Way:** $3.50 + 2.25m = 21.50$. So $2.25m = 18$, $m = 8$.\n\n**The Full Solution:**\nTotal cost $=$ base fare $+$ rate $\\times$ miles.\n$21.50 = 3.50 + 2.25m$\n$21.50 - 3.50 = 2.25m$\n$18 = 2.25m$\n$m = \\frac{18}{2.25} = 8$ miles.\n\n**Common Mistakes:**\n• Dividing $21.50$ by $2.25$ without subtracting the base fare first.\n• Setting up $21.50 = 2.25m$ and getting $m \\approx 9.56$.\n\n**Test Day Takeaway:** In rate problems, subtract the fixed cost first, then divide by the per-unit rate.",
+  skills: ["linear-functions", "word-problems"]
+},
+{
+  id: 12, type: "multiple-choice", difficulty: "medium",
+  question: "For a data set comparing study hours ($x$) and exam score ($y$) for 20 students, the correlation coefficient is $r = 0.87$. Which statement best describes this relationship?",
+  choices: [{ id: "A", text: "There is a weak positive linear relationship." }, { id: "B", text: "There is a strong positive linear relationship." }, { id: "C", text: "Studying more hours causes higher exam scores." }, { id: "D", text: "87% of students who study more score higher." }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Interpreting Correlation Coefficient**\n\n**Choice B is correct.**\n\n**The Fast Way:** $r = 0.87$ is close to 1, indicating a strong positive linear relationship.\n\n**The Full Solution:**\nThe correlation coefficient $r$ ranges from $-1$ to $1$:\n- $|r| > 0.7$: strong\n- $0.4 < |r| < 0.7$: moderate\n- $|r| < 0.4$: weak\n\nSince $r = 0.87 > 0.7$ and is positive, this is a strong positive linear relationship.\n\n**Why the wrong answers are tempting:**\n• A: \"Weak\" contradicts $r = 0.87$ which is strong.\n• C: Correlation does not imply causation.\n• D: Misinterprets $r$ as a percentage of students.\n\n**Test Day Takeaway:** Correlation measures strength and direction of a LINEAR relationship. It does NOT prove causation.",
+  skills: ["statistics"]
+},
+{
+  id: 13, type: "multiple-choice", difficulty: "medium",
+  question: "If $\\frac{a}{b} = \\frac{3}{5}$ and $\\frac{b}{c} = \\frac{10}{7}$, what is $\\frac{a}{c}$?",
+  choices: [{ id: "A", text: "$\\frac{3}{7}$" }, { id: "B", text: "$\\frac{6}{7}$" }, { id: "C", text: "$\\frac{30}{35}$" }, { id: "D", text: "$\\frac{7}{6}$" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Chained Ratios**\n\n**Choice B is correct.**\n\n**The Fast Way:** $\\frac{a}{c} = \\frac{a}{b} \\times \\frac{b}{c} = \\frac{3}{5} \\times \\frac{10}{7} = \\frac{30}{35} = \\frac{6}{7}$.\n\n**The Full Solution:**\nMultiply the two ratios to eliminate $b$:\n$\\frac{a}{c} = \\frac{a}{b} \\cdot \\frac{b}{c} = \\frac{3}{5} \\cdot \\frac{10}{7} = \\frac{30}{35} = \\frac{6}{7}$.\n\n**Why the wrong answers are tempting:**\n• A: Multiplies only the numerators' relation: $\\frac{3}{7}$.\n• C: This equals $\\frac{6}{7}$ but is unsimplified. Technically correct, but B is the simplified form.\n• D: Inverts the answer.\n\n**Test Day Takeaway:** To chain ratios $\\frac{a}{b}$ and $\\frac{b}{c}$, multiply them. The common variable $b$ cancels.",
+  skills: ["ratios"]
+},
+{
+  id: 14, type: "fill-in", difficulty: "medium",
+  question: "A factory produces widgets. On Monday, 2% of widgets were defective. On Tuesday, 3% of widgets were defective. Monday's production was 500 widgets and Tuesday's production was 300 widgets. What percentage of the total two-day production was defective? Round to the nearest tenth.",
+  correctAnswer: "2.4",
+  explanation: "**SAT Pattern: Weighted Average of Percents**\n\n**The answer is 2.4.**\n\n**The Fast Way:** Total defective $= 0.02(500) + 0.03(300) = 10 + 9 = 19$. Total produced $= 800$. Percent $= \\frac{19}{800} \\times 100 = 2.375 \\approx 2.4\\%$.\n\n**The Full Solution:**\nMonday defective: $2\\%$ of $500 = 10$.\nTuesday defective: $3\\%$ of $300 = 9$.\nTotal defective $= 10 + 9 = 19$.\nTotal production $= 500 + 300 = 800$.\n\nDefective rate $= \\frac{19}{800} = 0.02375 = 2.375\\% \\approx 2.4\\%$.\n\n**Common Mistakes:**\n• Averaging the percentages: $\\frac{2 + 3}{2} = 2.5\\%$ (ignores different production volumes).\n• Using only one day's data.\n\n**Test Day Takeaway:** Never average percentages directly when the groups have different sizes. Always compute total favorable / total count.",
+  skills: ["percents", "statistics"]
+},
+{
+  id: 15, type: "multiple-choice", difficulty: "hard",
+  question: "The equation $\\frac{3}{x - 2} + \\frac{5}{x + 2} = \\frac{8x}{x^2 - 4}$ has how many real solutions?",
+  choices: [{ id: "A", text: "0" }, { id: "B", text: "1" }, { id: "C", text: "2" }, { id: "D", text: "Infinitely many" }],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Rational Equation with No Solutions**\n\n**Choice A is correct.**\n\n**The Fast Way:** Since $x^2 - 4 = (x-2)(x+2)$, multiply both sides by $(x-2)(x+2)$.\n\n**The Full Solution:**\nMultiply both sides by $(x-2)(x+2)$, noting $x \neq 2$ and $x \neq -2$:\n\n$3(x+2) + 5(x-2) = 8x$\n$3x + 6 + 5x - 10 = 8x$\n$8x - 4 = 8x$\n$-4 = 0$\n\nThis is a contradiction, so the equation has no solutions.\n\n**Why the wrong answers are tempting:**\n• B: Students expect clearing denominators to produce a solvable equation.\n• C: Misidentifies the restricted values $x = 2$ and $x = -2$ as solutions.\n• D: Confuses a contradiction with an identity.\n\n**Test Day Takeaway:** When clearing denominators leads to a contradiction (like $-4 = 0$), the equation has no solutions.",
+  skills: ["solving-equations", "polynomial-operations"]
+},
+{
+  id: 16, type: "multiple-choice", difficulty: "hard",
+  question: "The distribution of test scores for 100 students. The five intervals and their frequencies are:\n\n$[50, 60)$: 8 students\n$[60, 70)$: 22 students\n$[70, 80)$: 35 students\n$[80, 90)$: 25 students\n$[90, 100]$: 10 students\n\nThe teacher decides to add 5 bonus points to every student's score. Which of the following statistics does NOT change?",
+  choices: [{ id: "A", text: "Mean" }, { id: "B", text: "Median" }, { id: "C", text: "Standard deviation" }, { id: "D", text: "Maximum" }],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Effect of Adding a Constant to All Values**\n\n**Choice C is correct.**\n\n**The Fast Way:** Adding a constant to every value shifts all measures of center (mean, median) and position (max, min) but does NOT change measures of spread (standard deviation, IQR, range).\n\n**The Full Solution:**\nWhen a constant $k$ is added to every data value:\n- Mean increases by $k$: new mean $= \\bar{x} + 5$. Changes.\n- Median increases by $k$: new median $= M + 5$. Changes.\n- Maximum increases by $k$: new max $= \\text{max} + 5$. Changes.\n- Standard deviation stays the same: $\\sigma$ measures spread, and all values shift equally.\n\n**Why the wrong answers are tempting:**\n• A: The mean definitely shifts up by 5.\n• B: The median shifts up by 5.\n• D: The max shifts up by 5.\n\n**Test Day Takeaway:** Adding a constant shifts center and position but NOT spread. Multiplying by a constant changes everything.",
+  skills: ["statistics"]
+},
+{
+  id: 17, type: "fill-in", difficulty: "hard",
+  question: "A company's quarterly revenue (in thousands of dollars) for the last 8 quarters is:\n\n120, 135, 128, 142, 150, 138, 155, 162\n\nThe company claims that quarterly revenue is increasing by an average of \\$6,000 per quarter. Based on the data, what is the actual average increase per quarter, in thousands of dollars? Round to the nearest whole number.",
+  correctAnswer: "6",
+  explanation: "**SAT Pattern: Average Rate of Change from Data**\n\n**The answer is 6.**\n\n**The Fast Way:** Average increase per quarter $= \\frac{\\text{last} - \\text{first}}{\\text{number of intervals}} = \\frac{162 - 120}{7} = \\frac{42}{7} = 6$.\n\n**The Full Solution:**\nThe average rate of change over the 8 data points (7 intervals) is:\n$\\frac{162 - 120}{8 - 1} = \\frac{42}{7} = 6$ thousand dollars per quarter.\n\nThis equals \\$6,000 per quarter, confirming the company's claim.\n\n**Common Mistakes:**\n• Dividing by 8 instead of 7 (there are $n-1$ intervals between $n$ data points).\n• Computing the average of all values instead of the average change.\n\n**Test Day Takeaway:** Average rate of change $= \\frac{\\text{final} - \\text{initial}}{\\text{number of intervals}}$. Don't divide by the number of data points.",
+  skills: ["statistics", "linear-functions"]
+},
+{
+  id: 18, type: "multiple-choice", difficulty: "hard",
+  question: "The expression $\\frac{x^2 - 9}{x^2 + 5x + 6} \\cdot \\frac{x^2 + 4x + 4}{x^2 - x - 6}$ simplifies to which of the following?",
+  choices: [{ id: "A", text: "$\\frac{x + 2}{x + 2}$" }, { id: "B", text: "$\\frac{(x-3)(x+2)}{(x+3)(x-3)}$" }, { id: "C", text: "$1$" }, { id: "D", text: "$\\frac{x+2}{x-3}$" }],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Simplifying Rational Expressions**\n\n**Choice C is correct.**\n\n**The Fast Way:** Factor everything, then cancel.\n\n**The Full Solution:**\nFactor each part:\n- $x^2 - 9 = (x-3)(x+3)$\n- $x^2 + 5x + 6 = (x+2)(x+3)$\n- $x^2 + 4x + 4 = (x+2)^2$\n- $x^2 - x - 6 = (x-3)(x+2)$\n\nSubstitute:\n$\\frac{(x-3)(x+3)}{(x+2)(x+3)} \\cdot \\frac{(x+2)^2}{(x-3)(x+2)}$\n\n$= \\frac{(x-3)(x+3)(x+2)^2}{(x+2)(x+3)(x-3)(x+2)}$\n\n$= \\frac{(x-3)(x+3)(x+2)^2}{(x-3)(x+3)(x+2)^2} = 1$\n\n(for $x \neq 3, -3, -2$)\n\n**Why the wrong answers are tempting:**\n• A: Partially simplifies but leaves $\\frac{x+2}{x+2}$, which equals 1 anyway.\n• B: Incomplete cancellation.\n• D: Cancels incorrectly, leaving extra factors.\n\n**Test Day Takeaway:** Factor every quadratic first. Then cancel common factors between numerators and denominators across the entire expression.",
+  skills: ["factoring", "polynomial-operations"]
+},
+{
+  id: 19, type: "multiple-choice", difficulty: "hard",
+  question: "A polynomial $p(x) = x^3 + ax^2 + bx - 6$ has $x = 2$ as a zero and $p(1) = -2$. What is the value of $a + b$?",
+  choices: [{ id: "A", text: "$-1$" }, { id: "B", text: "$1$" }, { id: "C", text: "$3$" }, { id: "D", text: "$5$" }],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Finding Polynomial Coefficients from Conditions**\n\n**Choice C is correct.**\n\n**The Fast Way:** Use the two conditions to set up a system.\n\n**The Full Solution:**\n$p(2) = 0$: $8 + 4a + 2b - 6 = 0 \\Rightarrow 4a + 2b = -2 \\Rightarrow 2a + b = -1$ ... (i)\n\n$p(1) = -2$: $1 + a + b - 6 = -2 \\Rightarrow a + b = 3$ ... (ii)\n\nSubtract (ii) from (i): $(2a + b) - (a + b) = -1 - 3$, so $a = -4$.\nFrom (ii): $b = 3 - (-4) = 7$.\n\n$a + b = -4 + 7 = 3$.\n\nVerify: $p(x) = x^3 - 4x^2 + 7x - 6$. $p(2) = 8 - 16 + 14 - 6 = 0$. ✓\n$p(1) = 1 - 4 + 7 - 6 = -2$. ✓\n\n**Why the wrong answers are tempting:**\n• A: Confuses $2a + b = -1$ with the answer.\n• B: Arithmetic error subtracting the equations.\n• D: Adds 4 and 1 instead of following through correctly.\n\n**Test Day Takeaway:** The Remainder Theorem ($p(c)$ equals the remainder when dividing by $(x - c)$) turns root/value conditions into linear equations.",
+  skills: ["polynomial-operations", "systems-of-equations"]
+},
+{
+  id: 20, type: "fill-in", difficulty: "hard",
+  question: "The function $f(x) = x^4 - 3x^2 - 4$ can be factored using a substitution $u = x^2$. How many distinct real zeros does $f$ have?",
+  correctAnswer: "2",
+  explanation: "**SAT Pattern: Quadratic in Disguise**\n\n**The answer is 2.**\n\n**The Fast Way:** Let $u = x^2$: $u^2 - 3u - 4 = (u - 4)(u + 1) = 0$, so $u = 4$ or $u = -1$. Only $u = 4$ gives real $x$-values.\n\n**The Full Solution:**\nLet $u = x^2$. Then $f(x) = u^2 - 3u - 4 = (u - 4)(u + 1)$.\n\n$u = 4$: $x^2 = 4$, so $x = 2$ or $x = -2$. (2 real zeros)\n$u = -1$: $x^2 = -1$ has no real solutions.\n\nTotal distinct real zeros: 2.\n\n**Common Mistakes:**\n• Reporting 4 by assuming both $u$-values yield real $x$-values.\n• Reporting 1 by forgetting $x = \\pm 2$ counts as 2 zeros.\n\n**Test Day Takeaway:** After substitution, check whether each $u$-value is non-negative (since $u = x^2 \\geq 0$). Negative $u$-values yield no real $x$.",
+  skills: ["quadratic-equations", "factoring"]
+},
+{
+  id: 21, type: "multiple-choice", difficulty: "hard",
+  question: "A survey of 500 adults produced the following results:\n\n|  | Supports Policy | Opposes Policy | No Opinion | Total |\n|---|---|---|---|---|\n| Age 18-39 | 95 | 55 | 50 | 200 |\n| Age 40-64 | 80 | 70 | 30 | 180 |\n| Age 65+ | 35 | 60 | 25 | 120 |\n| Total | 210 | 185 | 105 | 500 |\n\nA researcher claims that support for the policy decreases with age. Which of the following calculations best supports this claim?",
+  choices: [{ id: "A", text: "The number who support decreases: 95, 80, 35." }, { id: "B", text: "The proportion who support in each group decreases: $\\frac{95}{200} = 47.5\\%$, $\\frac{80}{180} \\approx 44.4\\%$, $\\frac{35}{120} \\approx 29.2\\%$." }, { id: "C", text: "The total opposition (185) is less than total support (210)." }, { id: "D", text: "The 65+ group has the smallest number of respondents." }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Comparing Groups with Proportions vs. Counts**\n\n**Choice B is correct.**\n\n**The Fast Way:** To compare groups of different sizes, use proportions (percentages), not raw counts.\n\n**The Full Solution:**\nThe groups have different sizes (200, 180, 120), so comparing raw counts is misleading. The correct approach is to compute the proportion of each age group that supports the policy:\n\n- Age 18-39: $\\frac{95}{200} = 47.5\\%$\n- Age 40-64: $\\frac{80}{180} \\approx 44.4\\%$\n- Age 65+: $\\frac{35}{120} \\approx 29.2\\%$\n\nThe decreasing percentages across age groups support the claim.\n\n**Why the wrong answers are tempting:**\n• A: Raw counts decrease, but the groups have different sizes. If groups were equal, this might work, but they aren't.\n• C: Comparing overall support vs. opposition doesn't address the relationship with age.\n• D: The group size is irrelevant to whether support decreases with age.\n\n**Test Day Takeaway:** When comparing across groups of different sizes, always use proportions (row percentages), not raw counts.",
+  skills: ["two-way-tables", "statistics"]
+},
+{
+  id: 22, type: "fill-in", difficulty: "hard",
+  question: "The equation $-2x^2 + bx - 50 = 0$ has no real solutions. What is the greatest integer value of $b$?",
+  correctAnswer: "19",
+  explanation: "**SAT Pattern: Discriminant and No Real Solutions**\n\n**The answer is 19.**\n\n**The Fast Way:** No real solutions means discriminant $< 0$: $b^2 - 4(-2)(-50) < 0$, so $b^2 < 400$, giving $|b| < 20$. Greatest integer: 19.\n\n**The Full Solution:**\nFor $-2x^2 + bx - 50 = 0$: $a = -2$, $b = b$, $c = -50$.\n\nDiscriminant $= b^2 - 4ac = b^2 - 4(-2)(-50) = b^2 - 400$.\n\nNo real solutions: discriminant $< 0$.\n$b^2 - 400 < 0$\n$b^2 < 400$\n$|b| < 20$\n\nThe greatest integer with $|b| < 20$ is $b = 19$.\n\nCheck: $b = 19$: discriminant $= 361 - 400 = -39 < 0$. ✓ (no real solutions)\n$b = 20$: discriminant $= 400 - 400 = 0$. ✗ (one real solution, not \"no\" solutions)\n\n**Common Mistakes:**\n• Using $b = 20$: this gives discriminant $= 0$, meaning one repeated solution exists.\n• Sign error in $4ac$: $4(-2)(-50) = 400$, not $-400$.\n\n**Test Day Takeaway:** \"No real solutions\" requires discriminant $< 0$ (strictly less than). The boundary value gives exactly one solution.",
+  skills: ["discriminant", "quadratic-equations"]
+}
       ]
     }
   ]

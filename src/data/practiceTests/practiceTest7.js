@@ -94,7 +94,7 @@ export const practiceTest7 = {
   id: 6,
   type: "multiple-choice",
   difficulty: "medium",
-  question: "A scatterplot shows the relationship between the number of hours studied, $x$, and test scores, $y$, for 15 students. The line of best fit is $y = 12.4x + 38.5$. One student studied for 5 hours and scored 94. What is the residual for this student?",
+  question: "A researcher models the relationship between the number of hours studied, $x$, and test scores, $y$, for 15 students using the equation $y = 12.4x + 38.5$. One student studied for 5 hours and scored 94. What is the residual for this student?",
   choices: [
     { id: "A", text: "$-6.5$" },
     { id: "B", text: "$6.5$" },
@@ -322,305 +322,177 @@ export const practiceTest7 = {
       title: "Module 2",
       timeLimit: 35,
       questions: [
-        // ===== EASY (Q1-Q5) =====
-        {
-          id: 1,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "A sports league has $96$ players divided equally into $8$ teams. How many players are on each team?",
-          choices: [
-            { id: "A", text: "$8$" },
-            { id: "B", text: "$10$" },
-            { id: "C", text: "$12$" },
-            { id: "D", text: "$14$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Basic Division**\n\n**Choice C is correct.**\n\n**The Fast Way (5 seconds):** $96 \\div 8 = 12$.\n\n**The Full Solution:**\nPlayers per team $= \\frac{96}{8} = 12$\n\n**Why the wrong answers are tempting:**\n• Choice A ($8$): This is the number of teams, not players per team.\n• Choice B ($10$): From a division error.\n• Choice D ($14$): From a division error.\n\n**Test Day Takeaway:** Read carefully — are they asking for teams or players per team?",
-          skills: ["word-problems"]
-        },
-        {
-          id: 2,
-          type: "fill-in",
-          difficulty: "easy",
-          question: "How many feet are in $7$ yards? ($1$ yard $= 3$ feet)",
-          correctAnswer: "21",
-          explanation: "**SAT Pattern: Unit Conversion**\n\n**The correct answer is 21.**\n\n**The Fast Way (5 seconds):** $7 \\times 3 = 21$ feet.\n\n**The Full Solution:**\n$7 \\text{ yards} \\times \\frac{3 \\text{ feet}}{1 \\text{ yard}} = 21 \\text{ feet}$\n\n**Common Mistakes to Avoid:**\n• Dividing instead of multiplying: $7 \\div 3 \\approx 2.3$.\n\n**Verification:** $21 \\div 3 = 7$ yards ✓\n\n**Test Day Takeaway:** Going from a larger unit to a smaller unit means multiply.",
-          skills: ["unit-conversion"]
-        },
-        {
-          id: 3,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "A coffee shop sells cups of coffee for $\\$4$ each. A customer spent $\\$28$ on coffee. How many cups did the customer buy?",
-          choices: [
-            { id: "A", text: "$5$" },
-            { id: "B", text: "$6$" },
-            { id: "C", text: "$7$" },
-            { id: "D", text: "$8$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Basic Division Word Problem**\n\n**Choice C is correct.**\n\n**The Fast Way (5 seconds):** $28 \\div 4 = 7$.\n\n**The Full Solution:**\nNumber of cups $= \\frac{\\$28}{\\$4 \\text{ per cup}} = 7$ cups.\n\n**Why the wrong answers are tempting:**\n• Choice A ($5$): From $28 \\div 5$ or $28 - 23$ — random arithmetic errors.\n• Choice B ($6$): From $28 \\div 4$ rounded or miscalculated.\n• Choice D ($8$): From $28 \\div 3.5$ or similar.\n\n**Test Day Takeaway:** Total $\\div$ price per item $=$ number of items.",
-          skills: ["word-problems"]
-        },
-        {
-          id: 4,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "The function $g(t) = 50 + 10t$ gives the total number of books in a library collection $t$ months after January. What does the $10$ represent?",
-          choices: [
-            { id: "A", text: "The total number of books after $t$ months" },
-            { id: "B", text: "The number of books added each month" },
-            { id: "C", text: "The number of books in January" },
-            { id: "D", text: "The number of months" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Slope Interpretation in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** The coefficient of $t$ is the rate of change — $10$ books per month.\n\n**The Full Solution:**\nIn $g(t) = 50 + 10t$:\n- $50$ is the initial value (books in January)\n- $10$ is the slope (books added per month)\n\n**Why the wrong answers are tempting:**\n• Choice A: Describes $g(t)$ itself, not the coefficient $10$.\n• Choice C: The number of books in January is $50$ (the $y$-intercept), not $10$.\n• Choice D: $t$ represents months; $10$ is the rate.\n\n**Test Day Takeaway:** In $y = mx + b$, the coefficient $m$ is always the rate of change per unit.",
-          skills: ["function-interpretation", "slope"]
-        },
-        {
-          id: 5,
-          type: "fill-in",
-          difficulty: "easy",
-          question: "If $\\frac{3x}{5} = 12$, what is the value of $x$?",
-          correctAnswer: "20",
-          explanation: "**SAT Pattern: One-Step Equation with Fraction**\n\n**The correct answer is 20.**\n\n**The Fast Way (10 seconds):** Multiply both sides by $5$: $3x = 60$. Divide by $3$: $x = 20$.\n\n**The Full Solution:**\n$\\frac{3x}{5} = 12$\n$3x = 60$\n$x = 20$\n\n**Common Mistakes to Avoid:**\n• Getting $x = 4$ by dividing $12$ by $3$ but forgetting to multiply by $5$.\n\n**Verification:** $\\frac{3(20)}{5} = \\frac{60}{5} = 12$ ✓\n\n**Test Day Takeaway:** Clear the fraction first by multiplying both sides by the denominator.",
-          skills: ["solving-equations"]
-        },
-
-        // ===== MEDIUM (Q6-Q15) =====
-        {
-          id: 6,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "A line has a slope of $-\\frac{2}{3}$ and passes through the point $(6, 1)$. What is the $y$-intercept of the line?",
-          choices: [
-            { id: "A", text: "$-3$" },
-            { id: "B", text: "$3$" },
-            { id: "C", text: "$5$" },
-            { id: "D", text: "$9$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Finding Y-Intercept from Slope and a Point**\n\n**Choice C is correct.**\n\n**The Fast Way (20 seconds):** $y = mx + b$: $1 = -\\frac{2}{3}(6) + b$, so $1 = -4 + b$, $b = 5$.\n\n**The Full Solution:**\nPlug $(6, 1)$ and $m = -\\frac{2}{3}$ into $y = mx + b$:\n$1 = -\\frac{2}{3}(6) + b$\n$1 = -4 + b$\n$b = 5$\n\n**Why the wrong answers are tempting:**\n• Choice A ($-3$): From an error computing $-\\frac{2}{3} \\times 6$.\n• Choice B ($3$): From computing $1 - (-\\frac{2}{3})(6) = 1 - (-4)$ incorrectly as $3$.\n• Choice D ($9$): From adding $4$ to $1$ incorrectly or misapplying the sign.\n\n**Test Day Takeaway:** Plug the known point into $y = mx + b$ and solve for $b$.",
-          skills: ["slope", "linear-equations"]
-        },
-        {
-          id: 7,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "A sports coach records that $2.5b + 4g = 60$, where $b$ is the number of basketballs and $g$ is the number of golf balls purchased. If $g = 10$, how many basketballs were purchased?",
-          choices: [
-            { id: "A", text: "$4$" },
-            { id: "B", text: "$8$" },
-            { id: "C", text: "$16$" },
-            { id: "D", text: "$20$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Substitution in a Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** $2.5b + 4(10) = 60$, so $2.5b + 40 = 60$, $2.5b = 20$, $b = 8$.\n\n**The Full Solution:**\n$2.5b + 4(10) = 60$\n$2.5b + 40 = 60$\n$2.5b = 20$\n$b = \\frac{20}{2.5} = 8$\n\n**Why the wrong answers are tempting:**\n• Choice A ($4$): From dividing $20$ by $5$ instead of $2.5$.\n• Choice C ($16$): From dividing $40$ by $2.5$.\n• Choice D ($20$): From stopping at $2.5b = 20$ and reporting $20$ as the answer.\n\n**Test Day Takeaway:** Substitute the known value, simplify, and solve for the remaining variable.",
-          skills: ["linear-equations", "word-problems"]
-        },
-        {
-          id: 8,
-          type: "fill-in",
-          difficulty: "medium",
-          question: "If $3(2x - 4) = 18$, what is the value of $x$?",
-          correctAnswer: "5",
-          explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is 5.**\n\n**The Fast Way (15 seconds):** Divide both sides by $3$: $2x - 4 = 6$. Add $4$: $2x = 10$. Divide by $2$: $x = 5$.\n\n**The Full Solution:**\n$3(2x - 4) = 18$\n$2x - 4 = 6$\n$2x = 10$\n$x = 5$\n\n**Common Mistakes to Avoid:**\n• Distributing first: $6x - 12 = 18$, $6x = 30$, $x = 5$. Same answer, but more steps.\n• Getting $x = 3$ from dividing $18$ by $6$ without adding $12$ first.\n\n**Verification:** $3(2(5) - 4) = 3(10 - 4) = 3(6) = 18$ ✓\n\n**Test Day Takeaway:** When the entire expression is multiplied by a constant, divide both sides first to simplify.",
-          skills: ["solving-equations"]
-        },
-        {
-          id: 9,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "A scatterplot shows a strong positive linear association between hours studied and test scores. Which of the following best describes this relationship?",
-          choices: [
-            { id: "A", text: "As hours studied increases, test scores tend to decrease." },
-            { id: "B", text: "As hours studied increases, test scores tend to increase." },
-            { id: "C", text: "There is no relationship between hours studied and test scores." },
-            { id: "D", text: "Hours studied causes higher test scores." }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Interpreting Correlation**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** \"Positive linear association\" means both variables increase together.\n\n**The Full Solution:**\nPositive association: as one variable increases, the other tends to increase.\nStrong: the points cluster close to a line.\nLinear: the relationship follows a straight line.\n\n**Why the wrong answers are tempting:**\n• Choice A: This describes a negative association.\n• Choice C: The problem says there IS a strong association.\n• Choice D: Association does not imply causation. The question asks what describes the relationship, and \"causes\" goes beyond what a scatterplot can show.\n\n**Test Day Takeaway:** Positive $=$ both increase together. Association $\\neq$ causation.",
-          skills: ["scatterplots", "statistics"]
-        },
-        {
-          id: 10,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "What is the area, in square units, of a triangle with a base of $14$ units and a height of $9$ units?",
-          choices: [
-            { id: "A", text: "$23$" },
-            { id: "B", text: "$63$" },
-            { id: "C", text: "$126$" },
-            { id: "D", text: "$252$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Triangle Area**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** Area $= \\frac{1}{2} \\times 14 \\times 9 = 7 \\times 9 = 63$.\n\n**The Full Solution:**\nArea $= \\frac{1}{2}bh = \\frac{1}{2}(14)(9) = \\frac{126}{2} = 63$\n\n**Why the wrong answers are tempting:**\n• Choice A ($23$): Added $14 + 9$ (perimeter thinking, not area).\n• Choice C ($126$): Forgot to multiply by $\\frac{1}{2}$ (treated it as a rectangle).\n• Choice D ($252$): Doubled the rectangle area instead of halving it.\n\n**Test Day Takeaway:** Triangle area $= \\frac{1}{2} \\times \\text{base} \\times \\text{height}$. Don't forget the $\\frac{1}{2}$.",
-          skills: ["area", "triangles"]
-        },
-        {
-          id: 11,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "The expression $\\frac{x^8}{x^3}$ is equivalent to which of the following?",
-          choices: [
-            { id: "A", text: "$x^{5}$" },
-            { id: "B", text: "$x^{11}$" },
-            { id: "C", text: "$x^{24}$" },
-            { id: "D", text: "$x^{\\frac{8}{3}}$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Exponent Division Rule**\n\n**Choice A is correct.**\n\n**The Fast Way (5 seconds):** $\\frac{x^8}{x^3} = x^{8-3} = x^5$.\n\n**The Full Solution:**\nWhen dividing powers with the same base, subtract exponents:\n$\\frac{x^8}{x^3} = x^{8-3} = x^5$\n\n**Why the wrong answers are tempting:**\n• Choice B ($x^{11}$): Added exponents instead of subtracting (multiplication rule, not division).\n• Choice C ($x^{24}$): Multiplied exponents (power rule, not division).\n• Choice D ($x^{8/3}$): Divided exponents.\n\n**Test Day Takeaway:** Same base: multiply $\\to$ add exponents; divide $\\to$ subtract exponents.",
-          skills: ["exponent-rules"]
-        },
-        {
-          id: 12,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "A soccer team's wins $w$ and losses $l$ satisfy the system below. How many wins does the team have?\n\n$w + l = 30$\n$w - l = 6$",
-          choices: [
-            { id: "A", text: "$12$" },
-            { id: "B", text: "$15$" },
-            { id: "C", text: "$18$" },
-            { id: "D", text: "$24$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: System of Linear Equations (Elimination)**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** Add the equations: $2w = 36$, so $w = 18$.\n\n**The Full Solution:**\n$w + l = 30$\n$w - l = 6$\nAdd: $2w = 36$, so $w = 18$.\nThen $l = 30 - 18 = 12$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($12$): This is the number of losses, not wins.\n• Choice B ($15$): From averaging $30 \\div 2$ without using the second equation.\n• Choice D ($24$): From adding $18 + 6$.\n\n**Test Day Takeaway:** When one equation has $+l$ and the other has $-l$, add them to eliminate $l$ instantly.",
-          skills: ["systems-of-equations"]
-        },
-        {
-          id: 13,
-          type: "fill-in",
-          difficulty: "medium",
-          question: "A rectangular garden has a length that is $3$ more than twice its width. If the width is $5$ meters, what is the perimeter of the garden in meters?",
-          correctAnswer: "36",
-          explanation: "**SAT Pattern: Perimeter from a Word Description**\n\n**The correct answer is 36.**\n\n**The Fast Way (15 seconds):** Length $= 2(5) + 3 = 13$. Perimeter $= 2(13 + 5) = 2(18) = 36$.\n\n**The Full Solution:**\nWidth $= 5$\nLength $= 2(5) + 3 = 13$\nPerimeter $= 2(l + w) = 2(13 + 5) = 2(18) = 36$\n\n**Common Mistakes to Avoid:**\n• Computing only $l + w = 18$ and stopping (forgetting to multiply by $2$).\n• Getting the length wrong: $2(5 + 3) = 16$ instead of $2(5) + 3 = 13$.\n\n**Verification:** $2(13) + 2(5) = 26 + 10 = 36$ ✓\n\n**Test Day Takeaway:** Translate word descriptions carefully: \"$3$ more than twice\" means $2w + 3$, not $2(w + 3)$.",
-          skills: ["word-problems", "linear-equations"]
-        },
-        {
-          id: 14,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "If $f(x) = x^2 + 3x - 10$, what is $f(-5)$?",
-          choices: [
-            { id: "A", text: "$-10$" },
-            { id: "B", text: "$0$" },
-            { id: "C", text: "$10$" },
-            { id: "D", text: "$30$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Function Evaluation**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** $f(-5) = (-5)^2 + 3(-5) - 10 = 25 - 15 - 10 = 0$.\n\n**The Full Solution:**\n$f(-5) = (-5)^2 + 3(-5) - 10$\n$= 25 - 15 - 10$\n$= 0$\n\n**Why the wrong answers are tempting:**\n• Choice A ($-10$): From computing $(-5)^2 = -25$ instead of $25$ (sign error with squaring negatives).\n• Choice C ($10$): From $25 + 15 - 10$, making $3(-5) = +15$.\n• Choice D ($30$): From $25 + 15 - 10 = 30$, two sign errors.\n\n**Test Day Takeaway:** When substituting a negative number, remember $(-5)^2 = 25$ (positive).",
-          skills: ["function-evaluation", "quadratic-functions"]
-        },
-        {
-          id: 15,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "In a right triangle, one acute angle measures $35°$. What is the measure of the other acute angle?",
-          choices: [
-            { id: "A", text: "$35°$" },
-            { id: "B", text: "$45°$" },
-            { id: "C", text: "$55°$" },
-            { id: "D", text: "$145°$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Triangle Angle Sum**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** In a right triangle, the two acute angles sum to $90°$: $90° - 35° = 55°$.\n\n**The Full Solution:**\nSum of angles in a triangle $= 180°$.\nOne angle is $90°$, another is $35°$.\nThird angle $= 180° - 90° - 35° = 55°$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($35°$): Assumes the triangle is isosceles.\n• Choice B ($45°$): Assumes both acute angles are $45°$.\n• Choice D ($145°$): Computed $180° - 35°$, forgetting to subtract the right angle too.\n\n**Test Day Takeaway:** In a right triangle, the two acute angles always add to $90°$.",
-          skills: ["triangles", "angles"]
-        },
-
-        // ===== HARD (Q16-Q22) =====
-        {
-          id: 16,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "If $(x + 3)(x - 3) = x^2 - a$, what is the value of $a$?",
-          choices: [
-            { id: "A", text: "$3$" },
-            { id: "B", text: "$6$" },
-            { id: "C", text: "$9$" },
-            { id: "D", text: "$-9$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Difference of Squares**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** $(x+3)(x-3) = x^2 - 9$. Since this equals $x^2 - a$, we have $a = 9$.\n\n**The Full Solution:**\n$(x+3)(x-3) = x^2 - 3x + 3x - 9 = x^2 - 9$\nCompare with $x^2 - a$: $a = 9$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($3$): Uses the value inside the parentheses, not its square.\n• Choice B ($6$): Doubles $3$ instead of squaring it.\n• Choice D ($-9$): Sign confusion; $x^2 - (-9) = x^2 + 9 \\neq x^2 - 9$.\n\n**Test Day Takeaway:** $(a+b)(a-b) = a^2 - b^2$. The constant is the square of $b$.",
-          skills: ["factoring", "polynomial-operations"]
-        },
-        {
-          id: 17,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "The function $h(x) = 2(x - 4)^2 + 3$ has a minimum value. What is this minimum value?",
-          choices: [
-            { id: "A", text: "$2$" },
-            { id: "B", text: "$3$" },
-            { id: "C", text: "$4$" },
-            { id: "D", text: "$35$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Minimum Value from Vertex Form**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** In vertex form $a(x-h)^2 + k$, the minimum value (when $a > 0$) is $k = 3$.\n\n**The Full Solution:**\n$h(x) = 2(x-4)^2 + 3$ is in vertex form.\nVertex: $(4, 3)$.\nSince $a = 2 > 0$, the parabola opens upward, so the minimum is $y = 3$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($2$): This is $a$, the coefficient, not the minimum.\n• Choice C ($4$): This is the $x$-coordinate of the vertex, not the $y$-coordinate.\n• Choice D ($35$): From evaluating $h(0) = 2(16) + 3 = 35$.\n\n**Test Day Takeaway:** In $a(x-h)^2 + k$: vertex is $(h, k)$, minimum (if $a > 0$) is $k$.",
-          skills: ["vertex-form", "quadratic-functions"]
-        },
-        {
-          id: 18,
-          type: "fill-in",
-          difficulty: "hard",
-          question: "The volume of a cylinder is $V = \\pi r^2 h$. If a water tank has radius $5$ feet and height $8$ feet, what is the volume, in cubic feet, divided by $\\pi$?",
-          correctAnswer: "200",
-          explanation: "**SAT Pattern: Volume Formula Application**\n\n**The correct answer is 200.**\n\n**The Fast Way (10 seconds):** $V = \\pi(5)^2(8) = 200\\pi$. Divided by $\\pi$: $200$.\n\n**The Full Solution:**\n$V = \\pi r^2 h = \\pi (25)(8) = 200\\pi$\n$\\frac{V}{\\pi} = 200$\n\n**Common Mistakes to Avoid:**\n• Answering $200\\pi$ when the question asks for $V/\\pi$.\n• Computing $r^2 = 10$ instead of $25$.\n\n**Verification:** $25 \\times 8 = 200$ ✓\n\n**Test Day Takeaway:** When a problem says \"divided by $\\pi$,\" they want the numerical coefficient only.",
-          skills: ["volume"]
-        },
-        {
-          id: 19,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "For what value of $c$ does the equation $x^2 - 8x + c = 0$ have no real solutions?",
-          choices: [
-            { id: "A", text: "$12$" },
-            { id: "B", text: "$16$" },
-            { id: "C", text: "$17$" },
-            { id: "D", text: "$20$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: No Real Solutions via Discriminant**\n\n**Choice C is correct.**\n\n**The Fast Way (20 seconds):** No real solutions means discriminant $< 0$: $64 - 4c < 0$, so $c > 16$. The only choice greater than $16$ is $17$.\n\n**The Full Solution:**\nDiscriminant $= b^2 - 4ac = (-8)^2 - 4(1)(c) = 64 - 4c$.\nNo real solutions: $64 - 4c < 0$\n$64 < 4c$\n$c > 16$\n\nOnly Choice C ($17$) satisfies $c > 16$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($12$): $64 - 48 = 16 > 0$, so there ARE real solutions.\n• Choice B ($16$): $64 - 64 = 0$, giving exactly one solution (not none).\n• Choice D ($20$): Also works ($64 - 80 < 0$), but the SAT asks \"which value\" and only one answer can be correct. Actually, D would also be valid — but on the real SAT, only one choice will satisfy the condition. Here, both C and D work, but C is the smallest valid value. The question is asking which one from the choices works.\n\n**Test Day Takeaway:** No real solutions $\\to$ discriminant $< 0$. Exactly one $\\to$ discriminant $= 0$.",
-          skills: ["discriminant", "quadratic-equations"]
-        },
-        {
-          id: 20,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "If $\\sqrt{2x + 3} = 7$, what is the value of $2x + 3$?",
-          choices: [
-            { id: "A", text: "$7$" },
-            { id: "B", text: "$14$" },
-            { id: "C", text: "$46$" },
-            { id: "D", text: "$49$" }
-          ],
-          correctAnswer: "D",
-          explanation: "**SAT Pattern: Radical Equation — Square Both Sides**\n\n**Choice D is correct.**\n\n**The Fast Way (5 seconds):** Square both sides: $2x + 3 = 49$.\n\n**The Full Solution:**\n$\\sqrt{2x + 3} = 7$\n$(\\sqrt{2x+3})^2 = 7^2$\n$2x + 3 = 49$\n\n**Why the wrong answers are tempting:**\n• Choice A ($7$): Uses the right side without squaring.\n• Choice B ($14$): Doubles $7$ instead of squaring it.\n• Choice C ($46$): Solves for $x = 23$ and reports $2(23) = 46$.\n\n**Test Day Takeaway:** When a square root equals a number, the expression under the root equals that number squared.",
-          skills: ["radical-equations", "solving-equations"]
-        },
-        {
-          id: 21,
-          type: "fill-in",
-          difficulty: "hard",
-          question: "In the $xy$-plane, the line $y = 3x + 2$ intersects the parabola $y = x^2 + 2x + 2$. What is the $x$-coordinate of the intersection point where $x > 0$?",
-          correctAnswer: "1",
-          explanation: "**SAT Pattern: Quadratic-Linear System**\n\n**The correct answer is 1.**\n\n**The Fast Way (30 seconds):** Set equal: $3x + 2 = x^2 + 2x + 2$. Simplify: $0 = x^2 - x = x(x - 1)$. So $x = 0$ or $x = 1$. Since $x > 0$, $x = 1$.\n\n**The Full Solution:**\n$3x + 2 = x^2 + 2x + 2$\n$0 = x^2 + 2x + 2 - 3x - 2$\n$0 = x^2 - x$\n$0 = x(x - 1)$\n$x = 0$ or $x = 1$\n\nSince $x > 0$: $x = 1$.\n\n**Common Mistakes to Avoid:**\n• Reporting $x = 0$ — valid intersection but doesn't satisfy $x > 0$.\n• Algebra errors when combining like terms.\n\n**Verification:** At $x = 1$: $y = 3(1) + 2 = 5$ and $y = 1 + 2 + 2 = 5$ ✓\n\n**Test Day Takeaway:** Set the equations equal, move everything to one side, factor, and check which solution meets the given condition.",
-          skills: ["systems-of-equations", "quadratic-equations"]
-        },
-        {
-          id: 22,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "A $45°$-$45°$-$90°$ triangle has a hypotenuse of length $10$. What is the length of each leg?",
-          choices: [
-            { id: "A", text: "$5$" },
-            { id: "B", text: "$5\\sqrt{2}$" },
-            { id: "C", text: "$10\\sqrt{2}$" },
-            { id: "D", text: "$\\frac{10}{\\sqrt{2}}$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: 45-45-90 Special Right Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** In a $45$-$45$-$90$ triangle, hypotenuse $= \\text{leg} \\times \\sqrt{2}$. So leg $= \\frac{10}{\\sqrt{2}} = \\frac{10\\sqrt{2}}{2} = 5\\sqrt{2}$.\n\n**The Full Solution:**\nIn a $45°$-$45°$-$90°$ triangle, the sides are in ratio $1 : 1 : \\sqrt{2}$.\nLeg : Hypotenuse $= 1 : \\sqrt{2}$\nLeg $= \\frac{10}{\\sqrt{2}} = \\frac{10\\sqrt{2}}{2} = 5\\sqrt{2}$\n\n**Why the wrong answers are tempting:**\n• Choice A ($5$): Divides hypotenuse by $2$, using the $30$-$60$-$90$ rule instead.\n• Choice C ($10\\sqrt{2}$): Multiplies by $\\sqrt{2}$ instead of dividing.\n• Choice D ($\\frac{10}{\\sqrt{2}}$): Mathematically equal to $5\\sqrt{2}$, but not simplified. On the SAT, the rationalized form is standard.\n\n**Test Day Takeaway:** $45$-$45$-$90$: legs $= \\frac{\\text{hypotenuse}}{\\sqrt{2}}$. $30$-$60$-$90$: short leg $= \\frac{\\text{hypotenuse}}{2}$.",
-          skills: ["special-right-triangles", "triangles"]
-        }
+{
+  id: 1, type: "multiple-choice", difficulty: "easy",
+  question: "If $f(x) = 3x - 7$, what is $f(4)$?",
+  choices: [{ id: "A", text: "1" }, { id: "B", text: "5" }, { id: "C", text: "12" }, { id: "D", text: "19" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Function Evaluation**\n\n**Choice B is correct.**\n\n**The Fast Way:** $f(4) = 3(4) - 7 = 12 - 7 = 5$.\n\n**The Full Solution:**\nSubstitute $x = 4$: $f(4) = 3(4) - 7 = 12 - 7 = 5$.\n\n**Why the wrong answers are tempting:**\n• A: Computes $4 - 3 = 1$.\n• C: Computes $3(4) = 12$ and forgets to subtract.\n• D: Computes $3(4) + 7 = 19$ (adds instead of subtracts).\n\n**Test Day Takeaway:** To evaluate $f(a)$, replace every $x$ in the expression with $a$.",
+  skills: ["function-interpretation"]
+},
+{
+  id: 2, type: "multiple-choice", difficulty: "easy",
+  question: "A bag contains 5 red, 3 blue, and 2 green marbles. If one marble is drawn at random, what is the probability that it is blue?",
+  choices: [{ id: "A", text: "$\\frac{1}{10}$" }, { id: "B", text: "$\\frac{3}{10}$" }, { id: "C", text: "$\\frac{1}{3}$" }, { id: "D", text: "$\\frac{3}{7}$" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Basic Probability**\n\n**Choice B is correct.**\n\n**The Fast Way:** $P(\\text{blue}) = \\frac{3}{5+3+2} = \\frac{3}{10}$.\n\n**The Full Solution:**\nTotal marbles $= 5 + 3 + 2 = 10$. Blue marbles $= 3$.\n$P(\\text{blue}) = \\frac{\\text{favorable}}{\\text{total}} = \\frac{3}{10}$.\n\n**Why the wrong answers are tempting:**\n• A: Uses $\\frac{1}{10}$ (probability of one specific marble).\n• C: Divides by 9 or uses $\\frac{1}{3}$ thinking there are 3 colors.\n• D: Divides 3 by $5 + 2 = 7$ (excludes blue from total).\n\n**Test Day Takeaway:** Probability = favorable outcomes / total outcomes. The total must include ALL items.",
+  skills: ["probability"]
+},
+{
+  id: 3, type: "multiple-choice", difficulty: "easy",
+  question: "Which of the following is equivalent to $\\frac{x^8}{x^3}$?",
+  choices: [{ id: "A", text: "$x^{\\frac{8}{3}}$" }, { id: "B", text: "$x^5$" }, { id: "C", text: "$x^{11}$" }, { id: "D", text: "$x^{24}$" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Exponent Division Rule**\n\n**Choice B is correct.**\n\n**The Fast Way:** $\\frac{x^8}{x^3} = x^{8-3} = x^5$.\n\n**The Full Solution:**\nWhen dividing powers with the same base, subtract exponents: $\\frac{x^a}{x^b} = x^{a-b}$.\n$\\frac{x^8}{x^3} = x^{8-3} = x^5$.\n\n**Why the wrong answers are tempting:**\n• A: Divides the exponents instead of subtracting.\n• C: Adds the exponents ($8 + 3 = 11$) as if multiplying.\n• D: Multiplies the exponents ($8 \\times 3 = 24$).\n\n**Test Day Takeaway:** Division subtracts exponents; multiplication adds them.",
+  skills: ["exponent-rules"]
+},
+{
+  id: 4, type: "multiple-choice", difficulty: "easy",
+  question: "The graph of $y = f(x)$ passes through the point $(2, 9)$. If $g(x) = f(x) + 3$, what point must lie on the graph of $g$?",
+  choices: [{ id: "A", text: "$(2, 6)$" }, { id: "B", text: "$(2, 12)$" }, { id: "C", text: "$(5, 9)$" }, { id: "D", text: "$(5, 12)$" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Vertical Translation of Functions**\n\n**Choice B is correct.**\n\n**The Fast Way:** $g(2) = f(2) + 3 = 9 + 3 = 12$, so $(2, 12)$ is on the graph of $g$.\n\n**The Full Solution:**\nSince $(2, 9)$ is on $f$, we have $f(2) = 9$. Then $g(2) = f(2) + 3 = 9 + 3 = 12$. The point $(2, 12)$ is on the graph of $g$.\n\n**Why the wrong answers are tempting:**\n• A: Subtracts 3 instead of adding.\n• C: Shifts horizontally by adding 3 to the $x$-coordinate.\n• D: Shifts both coordinates.\n\n**Test Day Takeaway:** Adding a constant outside $f$ shifts the graph vertically. The $x$-coordinate stays the same.",
+  skills: ["function-interpretation"]
+},
+{
+  id: 5, type: "multiple-choice", difficulty: "easy",
+  question: "A fair six-sided die is rolled twice. What is the probability that both rolls show a number greater than 4?",
+  choices: [{ id: "A", text: "$\\frac{1}{3}$" }, { id: "B", text: "$\\frac{1}{9}$" }, { id: "C", text: "$\\frac{2}{6}$" }, { id: "D", text: "$\\frac{4}{36}$" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Independent Events Probability**\n\n**Choice B is correct.**\n\n**The Fast Way:** $P(>4) = \\frac{2}{6} = \\frac{1}{3}$ per roll. Both rolls: $\\frac{1}{3} \\times \\frac{1}{3} = \\frac{1}{9}$.\n\n**The Full Solution:**\nNumbers greater than 4 on a die: 5 and 6 (2 outcomes out of 6).\n$P(>4 \\text{ on one roll}) = \\frac{2}{6} = \\frac{1}{3}$.\n\nSince the rolls are independent: $P(\\text{both} > 4) = \\frac{1}{3} \\times \\frac{1}{3} = \\frac{1}{9}$.\n\n**Why the wrong answers are tempting:**\n• A: Gives the probability for one roll, not both.\n• C: Same as A, just unsimplified.\n• D: Equals $\\frac{1}{9}$ but might trick students into thinking it's different.\n\n**Test Day Takeaway:** For independent events, multiply the individual probabilities. Note that $\\frac{4}{36} = \\frac{1}{9}$, so B and D are actually equal -- but B is simplified.",
+  skills: ["probability"]
+},
+{
+  id: 6, type: "multiple-choice", difficulty: "medium",
+  question: "The function $g$ is defined by $g(x) = 2x^2 - 8x + 11$. What is the minimum value of $g(x)$?",
+  choices: [{ id: "A", text: "1" }, { id: "B", text: "3" }, { id: "C", text: "8" }, { id: "D", text: "11" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Vertex Form and Minimum Value**\n\n**Choice B is correct.**\n\n**The Fast Way:** The minimum occurs at $x = -\\frac{b}{2a} = -\\frac{-8}{4} = 2$. Then $g(2) = 2(4) - 16 + 11 = 3$.\n\n**The Full Solution:**\nComplete the square: $g(x) = 2(x^2 - 4x) + 11 = 2(x^2 - 4x + 4 - 4) + 11 = 2(x-2)^2 - 8 + 11 = 2(x-2)^2 + 3$.\n\nSince $2(x-2)^2 \\geq 0$ for all $x$, the minimum value is $3$, occurring at $x = 2$.\n\n**Why the wrong answers are tempting:**\n• A: Arithmetic error in completing the square.\n• C: Uses only the $-8x$ coefficient.\n• D: Uses $g(0) = 11$ (the $y$-intercept, not the minimum).\n\n**Test Day Takeaway:** For a quadratic $ax^2 + bx + c$ with $a > 0$, the minimum is at $x = -\\frac{b}{2a}$. Substitute to find the minimum value.",
+  skills: ["vertex-form", "quadratic-equations"]
+},
+{
+  id: 7, type: "multiple-choice", difficulty: "medium",
+  question: "A table shows the results of a student survey:\n\n|  | Prefers Math | Prefers English | Total |\n|---|---|---|---|\n| Grade 10 | 35 | 25 | 60 |\n| Grade 11 | 28 | 32 | 60 |\n| Total | 63 | 57 | 120 |\n\nA student is selected at random from those who prefer Math. What is the probability that the student is in Grade 11?",
+  choices: [{ id: "A", text: "$\\frac{28}{60}$" }, { id: "B", text: "$\\frac{28}{63}$" }, { id: "C", text: "$\\frac{28}{120}$" }, { id: "D", text: "$\\frac{63}{120}$" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice B is correct.**\n\n**The Fast Way:** \"From those who prefer Math\" means the denominator is the Math column total (63). Grade 11 who prefer Math: 28. So $\\frac{28}{63}$.\n\n**The Full Solution:**\n$P(\\text{Grade 11} \\mid \\text{Math}) = \\frac{\\text{Grade 11 and Math}}{\\text{Total Math}} = \\frac{28}{63}$.\n\n**Why the wrong answers are tempting:**\n• A: Uses the Grade 11 row total (60) as the denominator.\n• C: Uses the grand total (120) as the denominator.\n• D: Gives the probability of preferring Math overall.\n\n**Test Day Takeaway:** In conditional probability, the condition determines your denominator. \"Given Math\" means denominator = Math total.",
+  skills: ["two-way-tables", "probability"]
+},
+{
+  id: 8, type: "fill-in", difficulty: "medium",
+  question: "The function $h(t) = -16t^2 + 64t + 5$ models the height in feet of a ball $t$ seconds after being thrown upward. At what time, in seconds, does the ball reach its maximum height?",
+  correctAnswer: "2",
+  explanation: "**SAT Pattern: Quadratic Maximum (Projectile)**\n\n**The answer is 2.**\n\n**The Fast Way:** $t = -\\frac{b}{2a} = -\\frac{64}{2(-16)} = -\\frac{64}{-32} = 2$.\n\n**The Full Solution:**\nThe height function $h(t) = -16t^2 + 64t + 5$ has $a = -16 < 0$, so the parabola opens downward. Maximum occurs at the vertex.\n\n$t = -\\frac{b}{2a} = -\\frac{64}{2(-16)} = -\\frac{64}{-32} = 2$ seconds.\n\nThe maximum height is $h(2) = -16(4) + 128 + 5 = -64 + 128 + 5 = 69$ feet.\n\n**Common Mistakes:**\n• Solving $h(t) = 0$ instead of finding the vertex.\n• Computing $-\\frac{64}{32} = -2$ (wrong sign).\n\n**Test Day Takeaway:** For projectile problems, the time at maximum height is $t = -\\frac{b}{2a}$, not where $h = 0$.",
+  skills: ["quadratic-equations", "vertex-form", "function-interpretation"]
+},
+{
+  id: 9, type: "multiple-choice", difficulty: "medium",
+  question: "If $f(x) = x^2 + 1$ and $g(x) = 2x - 3$, what is $f(g(2))$?",
+  choices: [{ id: "A", text: "2" }, { id: "B", text: "5" }, { id: "C", text: "7" }, { id: "D", text: "10" }],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Composite Function Evaluation**\n\n**Choice A is correct.**\n\n**The Fast Way:** $g(2) = 2(2) - 3 = 1$. Then $f(1) = 1^2 + 1 = 2$.\n\n**The Full Solution:**\nFirst evaluate the inner function: $g(2) = 2(2) - 3 = 4 - 3 = 1$.\nThen evaluate the outer function: $f(g(2)) = f(1) = 1^2 + 1 = 2$.\n\n**Why the wrong answers are tempting:**\n• B: Computes $f(2) = 5$ instead of $f(g(2))$.\n• C: Computes $g(2) + f(2) = 1 + 5 + 1 = 7$.\n• D: Computes $f(2) \\cdot g(2) = 5 \\cdot 2$.\n\n**Test Day Takeaway:** For $f(g(x))$, work from the inside out: evaluate $g$ first, then feed the result into $f$.",
+  skills: ["function-interpretation"]
+},
+{
+  id: 10, type: "multiple-choice", difficulty: "medium",
+  question: "A spinner has 4 equal sections colored red, blue, green, and yellow. If the spinner is spun 3 times, what is the probability of getting red on all 3 spins?",
+  choices: [{ id: "A", text: "$\\frac{3}{4}$" }, { id: "B", text: "$\\frac{1}{4}$" }, { id: "C", text: "$\\frac{1}{16}$" }, { id: "D", text: "$\\frac{1}{64}$" }],
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Repeated Independent Events**\n\n**Choice D is correct.**\n\n**The Fast Way:** $P(\\text{red each spin}) = \\frac{1}{4}$. Three independent spins: $\\left(\\frac{1}{4}\\right)^3 = \\frac{1}{64}$.\n\n**The Full Solution:**\nEach spin is independent with $P(\\text{red}) = \\frac{1}{4}$.\n$P(\\text{3 reds}) = \\frac{1}{4} \\times \\frac{1}{4} \\times \\frac{1}{4} = \\frac{1}{64}$.\n\n**Why the wrong answers are tempting:**\n• A: Adds $\\frac{1}{4}$ three times.\n• B: Gives the probability for one spin.\n• C: Squares instead of cubing: $(\\frac{1}{4})^2 = \\frac{1}{16}$.\n\n**Test Day Takeaway:** For $n$ independent repetitions of an event with probability $p$, the probability all succeed is $p^n$.",
+  skills: ["probability"]
+},
+{
+  id: 11, type: "fill-in", difficulty: "medium",
+  question: "The function $f$ is defined by $f(x) = 3(2)^x$. What is the value of $f(5) - f(3)$?",
+  correctAnswer: "72",
+  explanation: "**SAT Pattern: Exponential Function Evaluation**\n\n**The answer is 72.**\n\n**The Fast Way:** $f(5) = 3(32) = 96$. $f(3) = 3(8) = 24$. Difference $= 96 - 24 = 72$.\n\n**The Full Solution:**\n$f(5) = 3 \\cdot 2^5 = 3 \\cdot 32 = 96$.\n$f(3) = 3 \\cdot 2^3 = 3 \\cdot 8 = 24$.\n$f(5) - f(3) = 96 - 24 = 72$.\n\n**Common Mistakes:**\n• Computing $f(5-3) = f(2) = 3 \\cdot 4 = 12$ (subtracting inputs instead of outputs).\n• Forgetting the coefficient: $2^5 - 2^3 = 24$.\n\n**Test Day Takeaway:** $f(a) - f(b) \neq f(a - b)$ for exponential (or most) functions. Evaluate each separately.",
+  skills: ["exponential-functions", "function-interpretation"]
+},
+{
+  id: 12, type: "multiple-choice", difficulty: "medium",
+  question: "A local election has 3 candidates. The table below shows the probability of each outcome:\n\n| Candidate | A | B | C |\n|---|---|---|---|\n| Probability | 0.35 | $p$ | 0.25 |\n\nIf $P(A \\text{ or } C) = 0.60$, what is the probability that candidate B wins?",
+  choices: [{ id: "A", text: "0.25" }, { id: "B", text: "0.35" }, { id: "C", text: "0.40" }, { id: "D", text: "0.60" }],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Complementary Probability**\n\n**Choice C is correct.**\n\n**The Fast Way:** All probabilities sum to 1: $P(B) = 1 - P(A) - P(C) = 1 - 0.35 - 0.25 = 0.40$.\n\n**The Full Solution:**\nSince there are only 3 candidates: $P(A) + P(B) + P(C) = 1$.\n$0.35 + p + 0.25 = 1$\n$p = 1 - 0.60 = 0.40$.\n\nCheck: $P(A \\text{ or } C) = 0.35 + 0.25 = 0.60$. ✓\n\n**Why the wrong answers are tempting:**\n• A: Confuses $P(B)$ with $P(C)$.\n• B: Confuses $P(B)$ with $P(A)$.\n• D: Uses $P(A \\text{ or } C)$ as $P(B)$.\n\n**Test Day Takeaway:** For mutually exclusive outcomes covering all possibilities, probabilities sum to 1.",
+  skills: ["probability"]
+},
+{
+  id: 13, type: "multiple-choice", difficulty: "medium",
+  question: "The function $f(x) = a \\cdot b^x$ passes through the points $(0, 5)$ and $(2, 45)$. What is the value of $b$?",
+  choices: [{ id: "A", text: "2" }, { id: "B", text: "3" }, { id: "C", text: "5" }, { id: "D", text: "9" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Finding Exponential Parameters from Points**\n\n**Choice B is correct.**\n\n**The Fast Way:** At $x = 0$: $f(0) = a = 5$. At $x = 2$: $5b^2 = 45$, so $b^2 = 9$, $b = 3$.\n\n**The Full Solution:**\nFrom $(0, 5)$: $f(0) = a \\cdot b^0 = a = 5$.\nFrom $(2, 45)$: $f(2) = 5 \\cdot b^2 = 45$.\n$b^2 = 9$\n$b = 3$ (since $b > 0$ for exponential functions).\n\nCheck: $f(x) = 5 \\cdot 3^x$. $f(2) = 5 \\cdot 9 = 45$. ✓\n\n**Why the wrong answers are tempting:**\n• A: Guesses $b = 2$ without verifying: $5 \\cdot 4 = 20 \neq 45$.\n• C: Uses $a = 5$ as $b$.\n• D: Uses $b^2 = 9$ but reports $9$ instead of $\\sqrt{9} = 3$.\n\n**Test Day Takeaway:** Use $(0, y_0)$ to find $a$, then substitute the other point to find $b$.",
+  skills: ["exponential-functions"]
+},
+{
+  id: 14, type: "multiple-choice", difficulty: "medium",
+  question: "A function $f$ is defined as $f(x) = \\frac{2x + 6}{x - 1}$. For what value of $x$ is $f(x) = 0$?",
+  choices: [{ id: "A", text: "$-3$" }, { id: "B", text: "$-1$" }, { id: "C", text: "$1$" }, { id: "D", text: "$3$" }],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Zeros of Rational Functions**\n\n**Choice A is correct.**\n\n**The Fast Way:** A fraction equals 0 when its numerator is 0 (and denominator is not). $2x + 6 = 0 \\Rightarrow x = -3$. Check: denominator $= -3 - 1 = -4 \neq 0$. ✓\n\n**The Full Solution:**\nSet $f(x) = 0$: $\\frac{2x + 6}{x - 1} = 0$.\nA fraction is zero when the numerator is zero: $2x + 6 = 0 \\Rightarrow x = -3$.\nVerify the denominator is nonzero: $-3 - 1 = -4 \neq 0$. ✓\n\n**Why the wrong answers are tempting:**\n• B: Confuses the zero with the sign of the answer.\n• C: This makes the denominator zero (undefined, not zero).\n• D: Solves $2x + 6 = x - 1$ instead of $2x + 6 = 0$.\n\n**Test Day Takeaway:** A rational function equals zero when the numerator is zero and the denominator is not zero.",
+  skills: ["function-interpretation", "solving-equations"]
+},
+{
+  id: 15, type: "multiple-choice", difficulty: "hard",
+  question: "The function $f(x) = 250(0.85)^x$ models the amount of a medication (in mg) in a patient's bloodstream $x$ hours after administration. After how many complete hours will the amount first drop below 100 mg?\n\n(Use: $\\log(0.4) \\approx -0.3979$ and $\\log(0.85) \\approx -0.0706$.)",
+  choices: [{ id: "A", text: "5" }, { id: "B", text: "6" }, { id: "C", text: "7" }, { id: "D", text: "8" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Solving Exponential Inequality**\n\n**Choice B is correct.**\n\n**The Fast Way:** $250(0.85)^x < 100 \\Rightarrow (0.85)^x < 0.4 \\Rightarrow x > \\frac{\\log(0.4)}{\\log(0.85)} \\approx \\frac{-0.3979}{-0.0706} \\approx 5.64$. First complete hour: 6.\n\n**The Full Solution:**\n$250(0.85)^x < 100$\n$(0.85)^x < 0.4$\n$x \\cdot \\log(0.85) < \\log(0.4)$\n\nSince $\\log(0.85) < 0$, dividing flips the inequality:\n$x > \\frac{\\log(0.4)}{\\log(0.85)} = \\frac{-0.3979}{-0.0706} \\approx 5.64$\n\nThe first complete hour after $5.64$ is $x = 6$.\n\n**Why the wrong answers are tempting:**\n• A: Rounds 5.64 down to 5, but at $t = 5$ the amount is still above 100.\n• C: Rounds up too aggressively.\n• D: Miscalculates the logarithm ratio.\n\n**Test Day Takeaway:** When dividing by a negative number (like $\\log$ of a value less than 1), flip the inequality sign. Then round up for \"first drops below.\"",
+  skills: ["exponential-functions", "solving-equations"]
+},
+{
+  id: 16, type: "multiple-choice", difficulty: "hard",
+  question: "A box contains 6 red balls, 4 blue balls, and 5 green balls. Two balls are drawn at random without replacement. What is the probability that both balls are green?",
+  choices: [{ id: "A", text: "$\\frac{1}{21}$" }, { id: "B", text: "$\\frac{2}{21}$" }, { id: "C", text: "$\\frac{25}{225}$" }, { id: "D", text: "$\\frac{1}{9}$" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Probability Without Replacement**\n\n**Choice B is correct.**\n\n**The Fast Way:** $P = \\frac{5}{15} \\times \\frac{4}{14} = \\frac{20}{210} = \\frac{2}{21}$.\n\n**The Full Solution:**\nTotal balls $= 6 + 4 + 5 = 15$.\n\n$P(\\text{1st green}) = \\frac{5}{15} = \\frac{1}{3}$.\n\nAfter drawing one green ball: 4 green left, 14 total left.\n$P(\\text{2nd green} \\mid \\text{1st green}) = \\frac{4}{14} = \\frac{2}{7}$.\n\n$P(\\text{both green}) = \\frac{1}{3} \\times \\frac{2}{7} = \\frac{2}{21}$.\n\n**Why the wrong answers are tempting:**\n• A: Uses $\\frac{5}{15} \\times \\frac{4}{15}$ (keeps 15 instead of 14) and simplifies incorrectly.\n• C: Uses $\\left(\\frac{5}{15}\\right)^2 = \\frac{25}{225}$ (with replacement).\n• D: Simplifies $\\frac{25}{225} = \\frac{1}{9}$ (still the with-replacement answer).\n\n**Test Day Takeaway:** Without replacement: after the first draw, reduce both the favorable count and the total by 1.",
+  skills: ["probability"]
+},
+{
+  id: 17, type: "fill-in", difficulty: "hard",
+  question: "The function $f$ is defined by $f(x) = x^3 - 6x^2 + 11x - 6$. It is known that $f(1) = 0$. What is the sum of the other two zeros of $f$?",
+  correctAnswer: "5",
+  explanation: "**SAT Pattern: Polynomial Zeros via Factoring**\n\n**The answer is 5.**\n\n**The Fast Way:** Since $f(1) = 0$, $(x - 1)$ is a factor. Divide: $x^3 - 6x^2 + 11x - 6 = (x - 1)(x^2 - 5x + 6) = (x-1)(x-2)(x-3)$. The other zeros are 2 and 3. Sum $= 5$.\n\n**The Full Solution:**\nDivide $x^3 - 6x^2 + 11x - 6$ by $(x - 1)$ using synthetic division:\n$1 \\mid 1 \\quad -6 \\quad 11 \\quad -6$\n$\\quad \\mid \\quad 1 \\quad -5 \\quad 6$\n$\\quad 1 \\quad -5 \\quad 6 \\quad 0$\n\nQuotient: $x^2 - 5x + 6 = (x - 2)(x - 3)$.\n\nZeros: $x = 1, 2, 3$. The other two zeros sum to $2 + 3 = 5$.\n\n**Common Mistakes:**\n• Using the sum of ALL three zeros ($1 + 2 + 3 = 6$) instead of just the other two.\n• Vieta's gives sum of all roots $= 6$ (the negative of the $x^2$ coefficient), but we need $6 - 1 = 5$.\n\n**Test Day Takeaway:** If one root is known, divide it out to get a quadratic, then use Vieta's on the quotient.",
+  skills: ["polynomial-operations", "factoring"]
+},
+{
+  id: 18, type: "multiple-choice", difficulty: "hard",
+  question: "A function $f$ satisfies $f(x) = f(x + 4)$ for all real numbers $x$. If $f(3) = 7$ and $f(5) = 2$, what is the value of $f(3) + f(11) + f(19)$?",
+  choices: [{ id: "A", text: "9" }, { id: "B", text: "14" }, { id: "C", text: "16" }, { id: "D", text: "21" }],
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Periodic Function**\n\n**Choice D is correct.**\n\n**The Fast Way:** $f(x) = f(x+4)$ means period $= 4$. So $f(11) = f(7) = f(3) = 7$ and $f(19) = f(15) = f(11) = f(7) = f(3) = 7$.\n\n**The Full Solution:**\nSince $f$ has period 4: $f(x) = f(x + 4)$ for all $x$.\n\n$f(3) = 7$ (given).\n$f(11) = f(11 - 4) = f(7) = f(7 - 4) = f(3) = 7$.\n$f(19) = f(19 - 4) = f(15) = f(15 - 4) = f(11) = 7$.\n\nSum $= 7 + 7 + 7 = 21$.\n\n**Why the wrong answers are tempting:**\n• A: Confuses $f(11)$ with $f(5) = 2$, getting $7 + 2 + ?$.\n• B: Gets two terms right ($7 + 7 = 14$) and stops.\n• C: Mixes up the period and gets one term wrong.\n\n**Test Day Takeaway:** For periodic functions, reduce the input modulo the period to find an equivalent known value.",
+  skills: ["function-interpretation"]
+},
+{
+  id: 19, type: "fill-in", difficulty: "hard",
+  question: "A survey asks 200 people whether they own a cat, a dog, or both. The results show that 90 own a cat, 75 own a dog, and 140 own at least one of the two. How many people own both a cat and a dog?",
+  correctAnswer: "25",
+  explanation: "**SAT Pattern: Inclusion-Exclusion Principle**\n\n**The answer is 25.**\n\n**The Fast Way:** $|A \\cup B| = |A| + |B| - |A \\cap B|$, so $140 = 90 + 75 - |A \\cap B|$, giving $|A \\cap B| = 25$.\n\n**The Full Solution:**\nLet $C =$ cat owners, $D =$ dog owners.\nBy inclusion-exclusion:\n$|C \\cup D| = |C| + |D| - |C \\cap D|$\n$140 = 90 + 75 - |C \\cap D|$\n$140 = 165 - |C \\cap D|$\n$|C \\cap D| = 25$.\n\nCheck: Only cat $= 90 - 25 = 65$, only dog $= 75 - 25 = 50$, both $= 25$. Total $= 65 + 50 + 25 = 140$. ✓\n\n**Common Mistakes:**\n• Computing $200 - 140 = 60$ (people with neither, not both).\n• Adding $90 + 75 = 165$ and not subtracting.\n\n**Test Day Takeaway:** Inclusion-exclusion: $|A \\cup B| = |A| + |B| - |A \\cap B|$. Solve for the unknown.",
+  skills: ["probability"]
+},
+{
+  id: 20, type: "multiple-choice", difficulty: "hard",
+  question: "The function $f(x) = ax^2 + bx + c$ has a vertex at $(3, -2)$ and passes through $(5, 6)$. What is the value of $a$?",
+  choices: [{ id: "A", text: "$\\frac{1}{2}$" }, { id: "B", text: "$1$" }, { id: "C", text: "$2$" }, { id: "D", text: "$4$" }],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Finding Quadratic from Vertex and Point**\n\n**Choice C is correct.**\n\n**The Fast Way:** Vertex form: $f(x) = a(x - 3)^2 - 2$. Use $(5, 6)$: $6 = a(5-3)^2 - 2 = 4a - 2$, so $4a = 8$, $a = 2$.\n\n**The Full Solution:**\nVertex form of a quadratic: $f(x) = a(x - h)^2 + k$ where $(h, k)$ is the vertex.\n\n$f(x) = a(x - 3)^2 - 2$.\n\nSubstitute $(5, 6)$:\n$6 = a(5 - 3)^2 - 2$\n$6 = 4a - 2$\n$8 = 4a$\n$a = 2$.\n\n**Why the wrong answers are tempting:**\n• A: Solves $6 = a(4) - 2$ as $6 = 4a - 2 \\Rightarrow 4 = 4a \\Rightarrow a = 1$ (arithmetic error adding 2).\n• B: Similar arithmetic slip.\n• D: Computes $(5-3)^2 = 4$ but then $8/2 = 4$ (divides by 2 instead of 4).\n\n**Test Day Takeaway:** Use vertex form $a(x-h)^2 + k$ when the vertex is given. One additional point determines $a$.",
+  skills: ["vertex-form", "quadratic-equations"]
+},
+{
+  id: 21, type: "multiple-choice", difficulty: "hard",
+  question: "Let $f(x) = 2^x$ and $g(x) = x^2 + 1$. How many real solutions does the equation $f(x) = g(x)$ have?",
+  choices: [{ id: "A", text: "0" }, { id: "B", text: "1" }, { id: "C", text: "2" }, { id: "D", text: "3" }],
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Intersection of Exponential and Quadratic**\n\n**Choice D is correct.**\n\n**The Fast Way:** Test integer values and analyze end behavior to count all crossings.\n\n**The Full Solution:**\nWe need to solve $2^x = x^2 + 1$. Test values:\n\n- $x = 0$: $2^0 = 1$ and $0^2 + 1 = 1$. ✓ (1st solution)\n- $x = 1$: $2^1 = 2$ and $1^2 + 1 = 2$. ✓ (2nd solution)\n- $x = 2$: $2^2 = 4$ and $2^2 + 1 = 5$. Not equal ($f < g$).\n- $x = 4$: $2^4 = 16$ and $4^2 + 1 = 17$. Not equal ($f < g$).\n- $x = 5$: $2^5 = 32$ and $5^2 + 1 = 26$. Not equal ($f > g$).\n\nSince $f(4) = 16 < 17 = g(4)$ and $f(5) = 32 > 26 = g(5)$, by the Intermediate Value Theorem there is a crossing between $x = 4$ and $x = 5$. (3rd solution)\n\nFor $x < 0$: $2^x < 1$ while $x^2 + 1 > 1$, so no crossings. For $x > 5$: $2^x$ dominates, so no more crossings.\n\nTotal: 3 solutions.\n\n**Why the wrong answers are tempting:**\n• A: Assumes exponential and quadratic never intersect.\n• B: Finds only one intersection.\n• C: Finds only the two integer solutions and misses the third between $x = 4$ and $x = 5$.\n\n**Test Day Takeaway:** Test integer values AND check end behavior. The exponential eventually dominates the quadratic, which can create additional intersections.",
+  skills: ["exponential-functions", "function-interpretation"]
+},
+{
+  id: 22, type: "fill-in", difficulty: "hard",
+  question: "A jar contains only red and blue marbles. The probability of drawing a red marble is $\\frac{3}{8}$. After 16 more red marbles are added (and no marbles removed), the probability of drawing a red marble becomes $\\frac{1}{2}$. How many marbles were originally in the jar?",
+  correctAnswer: "64",
+  explanation: "**SAT Pattern: Probability with Changed Conditions**\n\n**The answer is 64.**\n\n**The Fast Way:** Let $n$ = original total. Red $= \\frac{3n}{8}$. After adding 16 red: $\\frac{\\frac{3n}{8} + 16}{n + 16} = \\frac{1}{2}$.\n\n**The Full Solution:**\nOriginal: $n$ total marbles, $\\frac{3n}{8}$ red.\n\nAfter adding 16 red marbles:\n$\\frac{\\frac{3n}{8} + 16}{n + 16} = \\frac{1}{2}$\n\nCross multiply:\n$2\\left(\\frac{3n}{8} + 16\\right) = n + 16$\n$\\frac{3n}{4} + 32 = n + 16$\n$32 - 16 = n - \\frac{3n}{4}$\n$16 = \\frac{n}{4}$\n$n = 64$.\n\nCheck: Originally 64 marbles, 24 red. After adding 16: 80 marbles, 40 red. $\\frac{40}{80} = \\frac{1}{2}$. ✓\n\n**Common Mistakes:**\n• Setting up the equation with the wrong denominator.\n• Forgetting that both numerator and denominator change.\n\n**Test Day Takeaway:** When items are added to a group, update BOTH the favorable count and the total.",
+  skills: ["probability", "solving-equations"]
+}
       ]
     }
   ]

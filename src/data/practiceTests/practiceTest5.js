@@ -327,300 +327,177 @@ export const practiceTest5 = {
       title: "Module 2",
       timeLimit: 35,
       questions: [
-        {
-          id: 1,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "A nutrition label shows that one serving of cereal contains $120$ calories. How many calories are in $3$ servings?",
-          choices: [
-            { id: "A", text: "$40$" },
-            { id: "B", text: "$123$" },
-            { id: "C", text: "$360$" },
-            { id: "D", text: "$480$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Multiplication with Unit Rates**\n\n**Choice C is correct.**\n\n**The Fast Way (5 seconds):** $120 \\times 3 = 360$.\n\n**The Full Solution:**\n$3$ servings $\\times 120$ calories per serving $= 360$ calories.\n\n**Why the wrong answers are tempting:**\n• Choice A ($40$): Divides $120 \\div 3$ instead of multiplying.\n• Choice B ($123$): Adds $3$ to $120$.\n• Choice D ($480$): Multiplies by $4$ instead of $3$.\n\n**Test Day Takeaway:** Total $=$ rate per unit $\\times$ number of units.",
-          skills: ["word-problems", "ratios-proportions"]
-        },
-        {
-          id: 2,
-          type: "fill-in",
-          difficulty: "easy",
-          question: "What is $25\\%$ of $200$?",
-          correctAnswer: "50",
-          explanation: "**SAT Pattern: Basic Percent Calculation**\n\n**The correct answer is $50$.**\n\n**The Fast Way (5 seconds):** $25\\%$ of $200 = 0.25 \\times 200 = 50$. Or: $25\\%$ is one quarter, so $200 \\div 4 = 50$.\n\n**The Full Solution:**\n$25\\% \\times 200 = \\frac{25}{100} \\times 200 = 50$\n\n**Common Mistakes to Avoid:**\n• Writing $25 \\times 200 = 5{,}000$ (forgetting to convert percent to decimal).\n\n**Verification:** $50$ is one quarter of $200$. ✓\n\n**Test Day Takeaway:** $25\\% = \\frac{1}{4}$. Memorize common percent-fraction equivalents.",
-          skills: ["percents", "word-problems"]
-        },
-        {
-          id: 3,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "The scatterplot shows a relationship between $x$ and $y$ that is best described by $y = mx + b$ where $m < 0$ and $b > 0$. Which of the following could be the equation?",
-          choices: [
-            { id: "A", text: "$y = 2x + 5$" },
-            { id: "B", text: "$y = -3x + 7$" },
-            { id: "C", text: "$y = -2x - 4$" },
-            { id: "D", text: "$y = 3x - 1$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Identifying Slope and Intercept Signs**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** We need $m < 0$ (negative slope) and $b > 0$ (positive $y$-intercept). Only $y = -3x + 7$ has both: $m = -3 < 0$ and $b = 7 > 0$.\n\n**The Full Solution:**\n• Choice A: $m = 2 > 0$. Eliminated.\n• Choice B: $m = -3 < 0$ ✓ and $b = 7 > 0$ ✓.\n• Choice C: $m = -2 < 0$ ✓ but $b = -4 < 0$. Eliminated.\n• Choice D: $m = 3 > 0$. Eliminated.\n\n**Why the wrong answers are tempting:**\n• Choices A and D have positive slopes.\n• Choice C has the right slope sign but wrong intercept sign.\n\n**Test Day Takeaway:** In $y = mx + b$: $m$ controls slope direction, $b$ is where the line crosses the $y$-axis.",
-          skills: ["linear-functions", "scatterplots"]
-        },
-        {
-          id: 4,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "If $2(x + 4) = 18$, what is the value of $x + 4$?",
-          choices: [
-            { id: "A", text: "$5$" },
-            { id: "B", text: "$7$" },
-            { id: "C", text: "$9$" },
-            { id: "D", text: "$11$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Solve for an Expression, Not the Variable**\n\n**Choice C is correct.**\n\n**The Fast Way (5 seconds):** $2(x + 4) = 18$, so $x + 4 = 9$.\n\n**The Full Solution:**\nDivide both sides by $2$: $x + 4 = 9$.\nNote: You do not need to find $x$ itself.\n\n**Why the wrong answers are tempting:**\n• Choice A ($5$): The value of $x$ (from $x = 9 - 4 = 5$), not $x + 4$.\n• Choice B ($7$): From $18 - 4 = 14$, then $14/2 = 7$.\n• Choice D ($11$): From $18/2 = 9$ then $9 + 2 = 11$.\n\n**Test Day Takeaway:** Read what the question asks. If it asks for $x + 4$, you can stop once you have that expression.",
-          skills: ["solving-equations", "algebraic-manipulation"]
-        },
-        {
-          id: 5,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "A manufacturer packages $8$ items per box. Which expression gives the number of boxes needed to package $n$ items?",
-          choices: [
-            { id: "A", text: "$8n$" },
-            { id: "B", text: "$n + 8$" },
-            { id: "C", text: "$n - 8$" },
-            { id: "D", text: "$\\frac{n}{8}$" }
-          ],
-          correctAnswer: "D",
-          explanation: "**SAT Pattern: Setting Up a Division Expression**\n\n**Choice D is correct.**\n\n**The Fast Way (10 seconds):** $n$ items $\\div$ $8$ items per box $= n/8$ boxes.\n\n**The Full Solution:**\nNumber of boxes $= \\frac{\\text{total items}}{\\text{items per box}} = \\frac{n}{8}$\n\n**Why the wrong answers are tempting:**\n• Choice A ($8n$): Multiplies instead of dividing.\n• Choice B ($n + 8$): Adds instead of dividing.\n• Choice C ($n - 8$): Subtracts instead of dividing.\n\n**Test Day Takeaway:** When distributing items into equal groups, divide the total by the group size.",
-          skills: ["word-problems", "algebraic-manipulation"]
-        },
-        {
-          id: 6,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "A nutritionist recommends that $40\\%$ of daily calories come from carbohydrates. On a $2{,}000$-calorie diet, how many calories should come from carbohydrates?",
-          choices: [
-            { id: "A", text: "$400$" },
-            { id: "B", text: "$600$" },
-            { id: "C", text: "$800$" },
-            { id: "D", text: "$1{,}200$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Percent of a Total**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** $40\\%$ of $2{,}000 = 0.40 \\times 2{,}000 = 800$.\n\n**The Full Solution:**\n$0.40 \\times 2{,}000 = 800$ calories from carbohydrates.\n\n**Why the wrong answers are tempting:**\n• Choice A ($400$): Uses $20\\%$ instead of $40\\%$.\n• Choice B ($600$): Uses $30\\%$.\n• Choice D ($1{,}200$): Uses $60\\%$ (the complement of $40\\%$).\n\n**Test Day Takeaway:** Convert percent to decimal (move the point two places left), then multiply.",
-          skills: ["percents", "word-problems"]
-        },
-        {
-          id: 7,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "The function $f$ is defined by $f(x) = 3x - 7$. What is the value of $x$ when $f(x) = 20$?",
-          choices: [
-            { id: "A", text: "$7$" },
-            { id: "B", text: "$9$" },
-            { id: "C", text: "$13$" },
-            { id: "D", text: "$53$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Finding Input from Output**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** $3x - 7 = 20$, so $3x = 27$ and $x = 9$.\n\n**The Full Solution:**\n$f(x) = 20$\n$3x - 7 = 20$\n$3x = 27$\n$x = 9$\n\n**Why the wrong answers are tempting:**\n• Choice A ($7$): $f(7) = 21 - 7 = 14$, not $20$.\n• Choice C ($13$): From $(20 + 7 + 12)/3$, an arithmetic error.\n• Choice D ($53$): $f(20) = 60 - 7 = 53$. This finds $f(20)$ instead of solving $f(x) = 20$.\n\n**Verification:** $f(9) = 3(9) - 7 = 27 - 7 = 20$ ✓\n\n**Test Day Takeaway:** $f(x) = c$ means set the function expression equal to $c$ and solve for $x$.",
-          skills: ["function-evaluation", "linear-functions"]
-        },
-        {
-          id: 8,
-          type: "fill-in",
-          difficulty: "medium",
-          question: "A scale model of a building is built at a ratio of $1:50$. If the model is $14$ inches tall, how tall is the actual building, in inches?",
-          correctAnswer: "700",
-          explanation: "**SAT Pattern: Scale Factor / Ratio**\n\n**The correct answer is $700$.**\n\n**The Fast Way (10 seconds):** $14 \\times 50 = 700$ inches.\n\n**The Full Solution:**\nScale $1:50$ means the actual building is $50$ times taller than the model.\nActual height $= 14 \\times 50 = 700$ inches.\n\n**Common Mistakes to Avoid:**\n• Dividing: $14 \\div 50 = 0.28$ (going the wrong direction).\n• Using addition: $14 + 50 = 64$.\n\n**Verification:** $700 \\div 50 = 14$ inches (model height). ✓\n\n**Test Day Takeaway:** In a $1:k$ scale, multiply the model measurement by $k$ to get the actual size.",
-          skills: ["ratios-proportions", "word-problems"]
-        },
-        {
-          id: 9,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "Which of the following is a solution to the equation $x^2 - 5x - 6 = 0$?",
-          choices: [
-            { id: "A", text: "$-6$" },
-            { id: "B", text: "$-1$" },
-            { id: "C", text: "$2$" },
-            { id: "D", text: "$6$" }
-          ],
-          correctAnswer: "D",
-          explanation: "**SAT Pattern: Solving a Quadratic by Factoring**\n\n**Choice D is correct.**\n\n**The Fast Way (15 seconds):** Factor: $x^2 - 5x - 6 = (x - 6)(x + 1) = 0$. Solutions: $x = 6$ or $x = -1$. Both B and D are solutions, but the correct answer is D ($6$).\n\nActually, let me check Choice B: $(-1)^2 - 5(-1) - 6 = 1 + 5 - 6 = 0$ ✓. Both are correct, but since D is also correct, and the question says \"a solution,\" D is the intended answer.\n\n**The Full Solution:**\nFind two numbers that multiply to $-6$ and add to $-5$: $-6$ and $1$.\n$x^2 - 5x - 6 = (x - 6)(x + 1) = 0$\n$x = 6$ or $x = -1$\n\n**Why the wrong answers are tempting:**\n• Choice A ($-6$): One of the factors is $(x - 6)$, but the solution is $x = 6$, not $x = -6$.\n• Choice C ($2$): $4 - 10 - 6 = -12 \\neq 0$. Not a solution.\n\n**Verification:** $6^2 - 5(6) - 6 = 36 - 30 - 6 = 0$ ✓\n\n**Test Day Takeaway:** Factor, set each factor to zero, and solve. Watch the signs carefully.",
-          skills: ["quadratic-equations", "factoring"]
-        },
-        {
-          id: 10,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "The table shows the number of students in a biology class by grade level and lab section.\n\n|  | Section 1 | Section 2 | Total |\n|---|---|---|---|\n| Sophomores | $14$ | $10$ | $24$ |\n| Juniors | $8$ | $18$ | $26$ |\n| Total | $22$ | $28$ | $50$ |\n\nWhat percentage of students in Section 2 are juniors?",
-          choices: [
-            { id: "A", text: "$36\\%$" },
-            { id: "B", text: "$56\\%$" },
-            { id: "C", text: "$\\approx 64\\%$" },
-            { id: "D", text: "$\\approx 69\\%$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Two-Way Table — Conditional Percentage**\n\n**Choice C is correct.**\n\n**The Fast Way (20 seconds):** Section 2 total $= 28$. Juniors in Section 2 $= 18$. Percentage $= 18/28 \\approx 0.643 \\approx 64\\%$.\n\n**The Full Solution:**\n\"Of students in Section 2\" $=$ denominator is $28$.\nJuniors in Section 2 $= 18$.\n$\\frac{18}{28} = \\frac{9}{14} \\approx 0.6429 \\approx 64\\%$\n\n**Why the wrong answers are tempting:**\n• Choice A ($36\\%$): Uses $18/50$ (total students instead of Section 2 only).\n• Choice B ($56\\%$): Uses $28/50$ (fraction of all students in Section 2).\n• Choice D ($\\approx 69\\%$): Uses $18/26$ (fraction of all juniors in Section 2 — flipped condition).\n\n**Test Day Takeaway:** The group you are restricting to is the denominator. Read the question word by word.",
-          skills: ["two-way-tables", "probability"]
-        },
-        {
-          id: 11,
-          type: "fill-in",
-          difficulty: "medium",
-          question: "If $\\frac{2x + 3}{5} = 7$, what is the value of $x$?",
-          correctAnswer: "16",
-          explanation: "**SAT Pattern: Solving an Equation with a Fraction**\n\n**The correct answer is $16$.**\n\n**The Fast Way (15 seconds):** Multiply both sides by $5$: $2x + 3 = 35$. Subtract $3$: $2x = 32$. Divide by $2$: $x = 16$.\n\n**The Full Solution:**\n$\\frac{2x + 3}{5} = 7$\n$2x + 3 = 35$\n$2x = 32$\n$x = 16$\n\n**Common Mistakes to Avoid:**\n• Only multiplying part of the fraction by $5$: $\\frac{2x}{5} + 3 = 7$.\n• Subtracting $3$ before multiplying: $\\frac{2x}{5} = 4$, then $2x = 20$, $x = 10$.\n\n**Verification:** $\\frac{2(16) + 3}{5} = \\frac{35}{5} = 7$ ✓\n\n**Test Day Takeaway:** When a fraction equals a number, multiply both sides by the denominator first to clear it.",
-          skills: ["solving-equations", "linear-equations"]
-        },
-        {
-          id: 12,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "Lines $p$ and $q$ are parallel. A transversal crosses both lines. One of the angles formed at line $p$ is $65°$. Which of the following must be the measure of the corresponding angle at line $q$?",
-          choices: [
-            { id: "A", text: "$25°$" },
-            { id: "B", text: "$65°$" },
-            { id: "C", text: "$115°$" },
-            { id: "D", text: "$180°$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Corresponding Angles with Parallel Lines**\n\n**Choice B is correct.**\n\n**The Fast Way (5 seconds):** Corresponding angles formed by parallel lines and a transversal are equal. So the angle is $65°$.\n\n**The Full Solution:**\nWhen a transversal crosses parallel lines, corresponding angles are congruent.\nThe angle at line $p$ is $65°$, so the corresponding angle at line $q$ is also $65°$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($25°$): From $90 - 65 = 25$ (complementary angle).\n• Choice C ($115°$): From $180 - 65 = 115$ (supplementary angle — this would be a co-interior/same-side interior angle, not corresponding).\n• Choice D ($180°$): A straight line, not an angle measure.\n\n**Test Day Takeaway:** Corresponding angles are equal. Alternate interior angles are equal. Co-interior angles are supplementary ($180°$).",
-          skills: ["parallel-lines", "angles"]
-        },
-        {
-          id: 13,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "A biologist models the decay of a substance with $A(t) = 800(0.75)^t$, where $t$ is in days. By what percent does the substance decrease each day?",
-          choices: [
-            { id: "A", text: "$0.25\\%$" },
-            { id: "B", text: "$7.5\\%$" },
-            { id: "C", text: "$25\\%$" },
-            { id: "D", text: "$75\\%$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Percent Decrease in Exponential Decay**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** The base is $0.75$, meaning $75\\%$ remains. So $25\\%$ decreases each day.\n\n**The Full Solution:**\n$A(t) = 800(0.75)^t$\nEach day, the amount is multiplied by $0.75$.\nPercentage remaining $= 75\\%$.\nPercentage decrease $= 100\\% - 75\\% = 25\\%$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($0.25\\%$): Confuses the decimal $0.25$ with $0.25\\%$.\n• Choice B ($7.5\\%$): Reads $0.75$ as $7.5\\%$.\n• Choice D ($75\\%$): The amount remaining, not the amount lost.\n\n**Test Day Takeaway:** In $f(t) = a(r)^t$, the decay rate is $1 - r$ expressed as a percent.",
-          skills: ["exponential-functions", "percents"]
-        },
-        {
-          id: 14,
-          type: "fill-in",
-          difficulty: "medium",
-          question: "What is the value of $x$ if $|2x - 6| = 10$? Give the positive solution.",
-          correctAnswer: "8",
-          explanation: "**SAT Pattern: Absolute Value Equation**\n\n**The correct answer is $8$.**\n\n**The Fast Way (20 seconds):** $2x - 6 = 10$ or $2x - 6 = -10$.\nCase 1: $2x = 16$, $x = 8$.\nCase 2: $2x = -4$, $x = -2$.\nThe positive solution is $8$.\n\n**The Full Solution:**\n$|2x - 6| = 10$ means:\n$2x - 6 = 10$ → $x = 8$\n$2x - 6 = -10$ → $x = -2$\n\nThe positive solution is $x = 8$.\n\n**Common Mistakes to Avoid:**\n• Only solving one case and missing the second solution.\n• Reporting $-2$ (the negative solution).\n\n**Verification:** $|2(8) - 6| = |16 - 6| = |10| = 10$ ✓\n\n**Test Day Takeaway:** $|A| = B$ means $A = B$ or $A = -B$. Always solve both cases.",
-          skills: ["absolute-value-equations", "solving-equations"]
-        },
-        {
-          id: 15,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "A study of $500$ adults found that $280$ exercise regularly. The margin of error is $\\pm 3\\%$. Which is a plausible range for the proportion of all adults who exercise regularly?",
-          choices: [
-            { id: "A", text: "$53\\%$ to $59\\%$" },
-            { id: "B", text: "$50\\%$ to $62\\%$" },
-            { id: "C", text: "$56\\%$ to $62\\%$" },
-            { id: "D", text: "$55\\%$ to $57\\%$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Confidence Interval from Margin of Error**\n\n**Choice A is correct.**\n\n**The Fast Way (20 seconds):** Sample proportion $= 280/500 = 56\\%$. Margin of error $= \\pm 3\\%$. Range: $56 - 3 = 53\\%$ to $56 + 3 = 59\\%$.\n\n**The Full Solution:**\n$\\hat{p} = \\frac{280}{500} = 0.56 = 56\\%$\nConfidence interval: $56\\% \\pm 3\\% = [53\\%, 59\\%]$\n\n**Why the wrong answers are tempting:**\n• Choice B ($50\\%$ to $62\\%$): Uses $\\pm 6\\%$ (doubled the margin of error).\n• Choice C ($56\\%$ to $62\\%$): Only adds the margin of error, does not subtract.\n• Choice D ($55\\%$ to $57\\%$): Uses $\\pm 1\\%$ instead of $\\pm 3\\%$.\n\n**Test Day Takeaway:** Confidence interval $=$ sample statistic $\\pm$ margin of error. Apply it in both directions.",
-          skills: ["margin-of-error", "statistics"]
-        },
-        {
-          id: 16,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "The equation $x^2 + y^2 - 6x + 4y = 12$ represents a circle in the $xy$-plane. What is the radius of this circle?",
-          choices: [
-            { id: "A", text: "$3$" },
-            { id: "B", text: "$5$" },
-            { id: "C", text: "$12$" },
-            { id: "D", text: "$25$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Circle Equation — Completing the Square**\n\n**Choice B is correct.**\n\n**The Fast Way (40 seconds):** Complete the square for $x$ and $y$:\n$x^2 - 6x + 9 + y^2 + 4y + 4 = 12 + 9 + 4$\n$(x - 3)^2 + (y + 2)^2 = 25$\nRadius $= \\sqrt{25} = 5$.\n\n**The Full Solution:**\n$x^2 - 6x + y^2 + 4y = 12$\nComplete the square for $x$: half of $-6$ is $-3$, square is $9$. Add $9$ to both sides.\nComplete the square for $y$: half of $4$ is $2$, square is $4$. Add $4$ to both sides.\n$(x - 3)^2 + (y + 2)^2 = 12 + 9 + 4 = 25$\nCenter: $(3, -2)$. Radius: $\\sqrt{25} = 5$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($3$): Half of $6$ (used when completing the square but not the final radius).\n• Choice C ($12$): The constant from the original equation.\n• Choice D ($25$): The value of $r^2$, not $r$.\n\n**Test Day Takeaway:** To find the radius, complete the square to get $(x-h)^2 + (y-k)^2 = r^2$, then take the square root.",
-          skills: ["circle-equations", "coordinate-geometry"]
-        },
-        {
-          id: 17,
-          type: "fill-in",
-          difficulty: "hard",
-          question: "If $f(x) = 2x + 1$ and $g(x) = x^2 - 3$, what is the value of $f(g(2))$?",
-          correctAnswer: "3",
-          explanation: "**SAT Pattern: Function Composition**\n\n**The correct answer is $3$.**\n\n**The Fast Way (20 seconds):** First find $g(2) = 4 - 3 = 1$. Then $f(1) = 2(1) + 1 = 3$.\n\n**The Full Solution:**\nStep 1: $g(2) = (2)^2 - 3 = 4 - 3 = 1$\nStep 2: $f(g(2)) = f(1) = 2(1) + 1 = 3$\n\n**Common Mistakes to Avoid:**\n• Computing $g(f(2))$ instead: $f(2) = 5$, then $g(5) = 22$. Wrong order.\n• Computing $f(2) \\cdot g(2) = 5 \\times 1 = 5$ (multiplying instead of composing).\n\n**Verification:** $g(2) = 1$, $f(1) = 3$. ✓\n\n**Test Day Takeaway:** For $f(g(x))$, work inside out. Compute $g(x)$ first, then plug the result into $f$.",
-          skills: ["function-evaluation", "function-transformations"]
-        },
-        {
-          id: 18,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "A right triangle has legs of length $a$ and $b$, and hypotenuse of length $c$. If $a = 8$ and $c = 17$, what is the value of $b$?",
-          choices: [
-            { id: "A", text: "$9$" },
-            { id: "B", text: "$13$" },
-            { id: "C", text: "$15$" },
-            { id: "D", text: "$\\sqrt{353}$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Pythagorean Theorem**\n\n**Choice C is correct.**\n\n**The Fast Way (20 seconds):** $a^2 + b^2 = c^2$. $64 + b^2 = 289$. $b^2 = 225$. $b = 15$.\n\n**The Full Solution:**\n$8^2 + b^2 = 17^2$\n$64 + b^2 = 289$\n$b^2 = 225$\n$b = 15$\n\nNote: $8, 15, 17$ is a Pythagorean triple.\n\n**Why the wrong answers are tempting:**\n• Choice A ($9$): $17 - 8 = 9$. Subtracting the sides instead of using the theorem.\n• Choice B ($13$): $\\sqrt{8^2 + 17^2} \\neq 13$. An arithmetic error.\n• Choice D ($\\sqrt{353}$): $\\sqrt{8^2 + 17^2} = \\sqrt{353}$. This treats $17$ as a leg, not the hypotenuse.\n\n**Verification:** $8^2 + 15^2 = 64 + 225 = 289 = 17^2$ ✓\n\n**Test Day Takeaway:** Know common Pythagorean triples: $(3,4,5)$, $(5,12,13)$, $(8,15,17)$, $(7,24,25)$.",
-          skills: ["right-triangle-trig", "triangles"]
-        },
-        {
-          id: 19,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "The expression $\\frac{x^2 - 9}{x + 3}$ is equivalent to which of the following for $x \\neq -3$?",
-          choices: [
-            { id: "A", text: "$x - 3$" },
-            { id: "B", text: "$x + 3$" },
-            { id: "C", text: "$x^2 - 3$" },
-            { id: "D", text: "$x - 9$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Simplifying Rational Expressions**\n\n**Choice A is correct.**\n\n**The Fast Way (10 seconds):** $x^2 - 9 = (x-3)(x+3)$. Cancel $(x+3)$: $\\frac{(x-3)(x+3)}{x+3} = x - 3$.\n\n**The Full Solution:**\n$\\frac{x^2 - 9}{x + 3} = \\frac{(x - 3)(x + 3)}{x + 3}$\n\nFor $x \\neq -3$, cancel the common factor:\n$= x - 3$\n\n**Why the wrong answers are tempting:**\n• Choice B ($x + 3$): Cancels the wrong factor.\n• Choice C ($x^2 - 3$): Tries to \"cancel\" the $9$ and $3$: $x^2 - 9/3 = x^2 - 3$.\n• Choice D ($x - 9$): Subtracts $\\frac{9}{x+3}$ incorrectly.\n\n**Test Day Takeaway:** Factor the numerator using difference of squares: $a^2 - b^2 = (a-b)(a+b)$. Then cancel.",
-          skills: ["factoring", "algebraic-manipulation"]
-        },
-        {
-          id: 20,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "A manufacturing defect occurs in $2\\%$ of products. A factory produces $5{,}000$ products per day. If the factory operates for $d$ days, which expression represents the expected number of defective products?",
-          choices: [
-            { id: "A", text: "$100d$" },
-            { id: "B", text: "$10d$" },
-            { id: "C", text: "$1{,}000d$" },
-            { id: "D", text: "$250d$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Expected Value from a Rate**\n\n**Choice A is correct.**\n\n**The Fast Way (15 seconds):** Defective per day $= 2\\%$ of $5{,}000 = 0.02 \\times 5{,}000 = 100$. Over $d$ days: $100d$.\n\n**The Full Solution:**\nDefective products per day $= 0.02 \\times 5{,}000 = 100$.\nIn $d$ days: $100 \\times d = 100d$.\n\n**Why the wrong answers are tempting:**\n• Choice B ($10d$): Uses $0.2\\%$ instead of $2\\%$.\n• Choice C ($1{,}000d$): Uses $20\\%$ instead of $2\\%$.\n• Choice D ($250d$): Uses $5\\%$ instead of $2\\%$.\n\n**Test Day Takeaway:** Expected count $=$ rate $\\times$ total. Convert the percent to a decimal before multiplying.",
-          skills: ["percents", "word-problems"]
-        },
-        {
-          id: 21,
-          type: "fill-in",
-          difficulty: "hard",
-          question: "The quadratic $y = x^2 - 14x + 48$ has two $x$-intercepts. What is the sum of the two $x$-intercepts?",
-          correctAnswer: "14",
-          explanation: "**SAT Pattern: Sum of Roots**\n\n**The correct answer is $14$.**\n\n**The Fast Way (10 seconds):** By Vieta's formulas, the sum of the roots of $x^2 - 14x + 48 = 0$ is $-(-14)/1 = 14$.\n\n**The Full Solution:**\nFactor: $x^2 - 14x + 48 = (x - 6)(x - 8) = 0$\nRoots: $x = 6$ and $x = 8$.\nSum $= 6 + 8 = 14$.\n\nAlternatively: for $ax^2 + bx + c = 0$, the sum of roots $= -b/a = -(-14)/1 = 14$.\n\n**Common Mistakes to Avoid:**\n• Finding the product of roots instead: $6 \\times 8 = 48$.\n• Reporting just one root.\n\n**Verification:** $(x-6)(x-8) = x^2 - 14x + 48$ ✓. Sum $= 6 + 8 = 14$ ✓.\n\n**Test Day Takeaway:** Sum of roots $= -b/a$. Product of roots $= c/a$. These shortcuts (Vieta's formulas) save time.",
-          skills: ["quadratic-equations", "factoring"]
-        },
-        {
-          id: 22,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "A sphere has a volume of $\\frac{256}{3}\\pi$ cubic centimeters. What is the radius of the sphere, in centimeters? (Volume of a sphere: $V = \\frac{4}{3}\\pi r^3$)",
-          choices: [
-            { id: "A", text: "$3$" },
-            { id: "B", text: "$4$" },
-            { id: "C", text: "$8$" },
-            { id: "D", text: "$16$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Working Backward from Volume**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** $\\frac{4}{3}\\pi r^3 = \\frac{256}{3}\\pi$. Cancel $\\pi$: $\\frac{4}{3}r^3 = \\frac{256}{3}$. Multiply by $\\frac{3}{4}$: $r^3 = \\frac{256}{4} = 64$. So $r = 4$.\n\n**The Full Solution:**\n$\\frac{4}{3}\\pi r^3 = \\frac{256}{3}\\pi$\n$\\frac{4}{3}r^3 = \\frac{256}{3}$\n$4r^3 = 256$\n$r^3 = 64$\n$r = \\sqrt[3]{64} = 4$\n\n**Why the wrong answers are tempting:**\n• Choice A ($3$): $\\frac{4}{3}\\pi(27) = 36\\pi \\neq \\frac{256}{3}\\pi$.\n• Choice C ($8$): $r^3 = 512$ gives $V = \\frac{2048}{3}\\pi$. Too large.\n• Choice D ($16$): Confuses $r^3 = 64$ with $r = 16$ (or uses $\\sqrt{256} = 16$).\n\n**Verification:** $V = \\frac{4}{3}\\pi(4)^3 = \\frac{4}{3}\\pi(64) = \\frac{256}{3}\\pi$ ✓\n\n**Test Day Takeaway:** To find radius from volume, isolate $r^3$ and take the cube root. Know your perfect cubes: $2^3=8$, $3^3=27$, $4^3=64$, $5^3=125$.",
-          skills: ["volume", "solving-equations"]
-        }
+{
+  id: 1, type: "multiple-choice", difficulty: "easy",
+  question: "A survey of 200 students found that 45% preferred online classes. How many students preferred online classes?",
+  choices: [{ id: "A", text: "45" }, { id: "B", text: "80" }, { id: "C", text: "90" }, { id: "D", text: "110" }],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Percent of a Total**\n\n**Choice C is correct.**\n\n**The Fast Way:** $200 \\times 0.45 = 90$.\n\n**The Full Solution:**\n45% of 200 means $\\frac{45}{100} \\times 200 = 90$ students.\n\n**Why the wrong answers are tempting:**\n• A: Confuses the percentage (45) with the count.\n• B: Computes $200 \\times 0.40$.\n• D: Computes $200 \\times 0.55$, the complement.\n\n**Test Day Takeaway:** \"Percent of\" means multiply the decimal form by the total.",
+  skills: ["percents"]
+},
+{
+  id: 2, type: "multiple-choice", difficulty: "easy",
+  question: "A data set has a mean of 24 and a standard deviation of 3. Which value is more than 2 standard deviations above the mean?",
+  choices: [{ id: "A", text: "27" }, { id: "B", text: "29" }, { id: "C", text: "30" }, { id: "D", text: "31" }],
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Standard Deviation Interpretation**\n\n**Choice D is correct.**\n\n**The Fast Way:** $24 + 2(3) = 30$. Any value greater than 30 qualifies, so 31.\n\n**The Full Solution:**\nTwo standard deviations above the mean is $24 + 2 \\times 3 = 30$. The question asks for more than 2 standard deviations above, so the value must exceed 30. Only 31 > 30.\n\n**Why the wrong answers are tempting:**\n• A: This is exactly 1 standard deviation above.\n• B: This is between 1 and 2 standard deviations above.\n• C: This is exactly 2 standard deviations above, not more than 2.\n\n**Test Day Takeaway:** \"More than\" means strictly greater than the boundary value.",
+  skills: ["statistics"]
+},
+{
+  id: 3, type: "multiple-choice", difficulty: "easy",
+  question: "The function $f(x) = 350(1.04)^x$ models the value of an investment after $x$ years. What does the number 350 represent in this context?",
+  choices: [{ id: "A", text: "The annual interest rate" }, { id: "B", text: "The value after 1 year" }, { id: "C", text: "The initial value of the investment" }, { id: "D", text: "The number of years" }],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Exponential Model Interpretation**\n\n**Choice C is correct.**\n\n**The Fast Way:** In $f(x) = a \\cdot b^x$, the coefficient $a$ is the initial value when $x = 0$.\n\n**The Full Solution:**\nWhen $x = 0$, $f(0) = 350(1.04)^0 = 350 \\times 1 = 350$. So 350 is the value at time zero, which is the initial investment.\n\n**Why the wrong answers are tempting:**\n• A: The interest rate comes from the base: $1.04 - 1 = 0.04 = 4\\%$.\n• B: The value after 1 year is $350(1.04) = 364$.\n• D: $x$ represents the number of years, not 350.\n\n**Test Day Takeaway:** In exponential models $a \\cdot b^x$, the coefficient $a$ is always the starting value.",
+  skills: ["exponential-functions", "function-interpretation"]
+},
+{
+  id: 4, type: "multiple-choice", difficulty: "easy",
+  question: "A line passes through the points $(2, 5)$ and $(6, 13)$. What is the slope of the line?",
+  choices: [{ id: "A", text: "$\\frac{1}{2}$" }, { id: "B", text: "$2$" }, { id: "C", text: "$4$" }, { id: "D", text: "$8$" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Slope from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way:** $m = \\frac{13 - 5}{6 - 2} = \\frac{8}{4} = 2$.\n\n**The Full Solution:**\nSlope $= \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{13 - 5}{6 - 2} = \\frac{8}{4} = 2$.\n\n**Why the wrong answers are tempting:**\n• A: Inverts the fraction to get $\\frac{4}{8}$.\n• C: Uses only the $x$-difference.\n• D: Uses only the $y$-difference.\n\n**Test Day Takeaway:** Slope is rise over run: change in $y$ divided by change in $x$.",
+  skills: ["slope"]
+},
+{
+  id: 5, type: "multiple-choice", difficulty: "easy",
+  question: "In a class of 30 students, 18 play soccer and 7 play both soccer and basketball. If 20 students play at least one of the two sports, how many play only basketball?",
+  choices: [{ id: "A", text: "2" }, { id: "B", text: "5" }, { id: "C", text: "7" }, { id: "D", text: "9" }],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Two-Group Overlap**\n\n**Choice A is correct.**\n\n**The Fast Way:** Only soccer $= 18 - 7 = 11$. Only basketball $= 20 - 11 - 7 = 2$.\n\n**The Full Solution:**\nUsing the inclusion-exclusion principle: Soccer $\\cup$ Basketball $=$ Soccer $+$ Basketball $-$ Both. So $20 = 18 + B - 7$, giving $B = 9$ total basketball players. Only basketball $= 9 - 7 = 2$.\n\n**Why the wrong answers are tempting:**\n• B: Subtracts 7 from a wrong total.\n• C: This is the overlap (both sports), not only basketball.\n• D: This is the total basketball count, not only basketball.\n\n**Test Day Takeaway:** Draw a Venn diagram and fill in the overlap first.",
+  skills: ["probability"]
+},
+{
+  id: 6, type: "multiple-choice", difficulty: "medium",
+  question: "A researcher collected data on the hours studied and test scores for 15 students. The line of best fit is $y = 8.2x + 42$, where $x$ is hours studied and $y$ is the predicted test score. One student studied for 5 hours and scored 89. What is the residual for this student?",
+  choices: [{ id: "A", text: "$-6$" }, { id: "B", text: "$-3$" }, { id: "C", text: "$3$" }, { id: "D", text: "$6$" }],
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Residual Calculation**\n\n**Choice D is correct.**\n\n**The Fast Way:** Predicted $= 8.2(5) + 42 = 83$. Residual $= 89 - 83 = 6$.\n\n**The Full Solution:**\nThe residual is actual minus predicted. Predicted score: $y = 8.2(5) + 42 = 41 + 42 = 83$. Residual $= 89 - 83 = 6$. A positive residual means the actual score was above the line of best fit.\n\n**Why the wrong answers are tempting:**\n• A: Computes predicted minus actual and makes an arithmetic error.\n• B: Arithmetic error in the predicted value.\n• C: Gets the magnitude right but the sign reversed (predicted minus actual).\n\n**Test Day Takeaway:** Residual = actual $-$ predicted. Positive means the point is above the line.",
+  skills: ["statistics"]
+},
+{
+  id: 7, type: "multiple-choice", difficulty: "medium",
+  question: "The population of a town was 12,000 in 2010 and has been decreasing by 3% per year since then. Which function models the population $P$ after $t$ years since 2010?",
+  choices: [{ id: "A", text: "$P(t) = 12000(0.03)^t$" }, { id: "B", text: "$P(t) = 12000(0.97)^t$" }, { id: "C", text: "$P(t) = 12000(1.03)^t$" }, { id: "D", text: "$P(t) = 12000 - 360t$" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Exponential Decay Model**\n\n**Choice B is correct.**\n\n**The Fast Way:** Decreasing by 3% means the base is $1 - 0.03 = 0.97$.\n\n**The Full Solution:**\nExponential decay: $P(t) = P_0(1 - r)^t$ where $P_0 = 12000$ and $r = 0.03$. So $P(t) = 12000(0.97)^t$.\n\n**Why the wrong answers are tempting:**\n• A: Uses $0.03$ as the base instead of $1 - 0.03$.\n• C: Uses $1.03$, which models 3% growth, not decay.\n• D: Models linear decrease ($12000 \\times 0.03 = 360$ per year), but population decrease is compounding.\n\n**Test Day Takeaway:** For percent decrease, the base is $1 - r$. For percent increase, the base is $1 + r$.",
+  skills: ["exponential-functions"]
+},
+{
+  id: 8, type: "fill-in", difficulty: "medium",
+  question: "A dataset has the following five-number summary:\n\nMinimum: 12, $Q_1$: 18, Median: 25, $Q_3$: 34, Maximum: 47\n\nWhat is the interquartile range (IQR) of the dataset?",
+  correctAnswer: "16",
+  explanation: "**SAT Pattern: Five-Number Summary and IQR**\n\n**The answer is 16.**\n\n**The Fast Way:** $IQR = Q_3 - Q_1 = 34 - 18 = 16$.\n\n**The Full Solution:**\nThe interquartile range measures the spread of the middle 50% of data. It is calculated as $Q_3 - Q_1 = 34 - 18 = 16$.\n\n**Common Mistakes:**\n• Computing the range instead: $47 - 12 = 35$.\n• Using the median: $34 - 25 = 9$ or $25 - 18 = 7$.\n\n**Test Day Takeaway:** IQR is always $Q_3 - Q_1$. It ignores the minimum, maximum, and median.",
+  skills: ["statistics"]
+},
+{
+  id: 9, type: "multiple-choice", difficulty: "medium",
+  question: "A study of 12 stores compares advertising spending (in thousands of dollars) and monthly revenue (in thousands of dollars). The linear model for the data has the equation $y = 2.4x + 15$. According to this model, what is the predicted monthly revenue for a store that spends \\$8,000 on advertising?",
+  choices: [{ id: "A", text: "\\$19,200" }, { id: "B", text: "\\$34,200" }, { id: "C", text: "\\$34,000" }, { id: "D", text: "\\$192,000" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Line of Best Fit Prediction with Unit Conversion**\n\n**Choice B is correct.**\n\n**The Fast Way:** $x = 8$ (thousands), so $y = 2.4(8) + 15 = 19.2 + 15 = 34.2$ thousand $= \\$34{,}200$.\n\n**The Full Solution:**\nSince both axes are in thousands, \\$8,000 means $x = 8$. Substituting: $y = 2.4(8) + 15 = 19.2 + 15 = 34.2$. Since $y$ is in thousands, the revenue is $34.2 \\times 1000 = \\$34{,}200$.\n\n**Why the wrong answers are tempting:**\n• A: Forgets to add the $y$-intercept.\n• C: Rounds $34.2$ to $34$ before converting.\n• D: Substitutes $x = 8000$ instead of $x = 8$.\n\n**Test Day Takeaway:** Always check the units on the axes before substituting values.",
+  skills: ["statistics", "linear-functions"]
+},
+{
+  id: 10, type: "multiple-choice", difficulty: "medium",
+  question: "A bacteria culture triples every 4 hours. If the culture starts with 200 bacteria, which expression gives the number of bacteria after $h$ hours?",
+  choices: [{ id: "A", text: "$200(3)^{4h}$" }, { id: "B", text: "$200(3)^{h/4}$" }, { id: "C", text: "$200(3)^{h-4}$" }, { id: "D", text: "$600^{h/4}$" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Exponential Growth with Period**\n\n**Choice B is correct.**\n\n**The Fast Way:** Triples every 4 hours means the exponent counts how many 4-hour periods have passed: $h/4$.\n\n**The Full Solution:**\nThe general form is $N = N_0 \\cdot r^{t/p}$ where $N_0 = 200$ is the initial amount, $r = 3$ is the growth factor, and $p = 4$ is the period. So $N = 200(3)^{h/4}$.\n\nCheck: at $h = 4$, $N = 200(3)^1 = 600$ (tripled). At $h = 8$, $N = 200(3)^2 = 1800$ (tripled again). Correct.\n\n**Why the wrong answers are tempting:**\n• A: Multiplies the exponent by 4 instead of dividing, making it grow far too fast.\n• C: Subtracts 4 from $h$, which shifts the function rather than scaling the rate.\n• D: Incorrectly combines $200 \\times 3 = 600$ into the base.\n\n**Test Day Takeaway:** When something changes every $p$ units, the exponent is $t/p$.",
+  skills: ["exponential-functions"]
+},
+{
+  id: 11, type: "multiple-choice", difficulty: "medium",
+  question: "A random sample of 500 voters in a city found that 58% support a new park initiative, with a margin of error of 4 percentage points at a 95% confidence level. Which statement is the best interpretation of this result?",
+  choices: [{ id: "A", text: "Exactly 58% of all voters in the city support the initiative." }, { id: "B", text: "Between 54% and 62% of the sample support the initiative." }, { id: "C", text: "It is plausible that between 54% and 62% of all voters in the city support the initiative." }, { id: "D", text: "95% of all voters support the initiative with 4% uncertainty." }],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Margin of Error Interpretation**\n\n**Choice C is correct.**\n\n**The Fast Way:** The confidence interval is $58\\% \\pm 4\\%$, so $[54\\%, 62\\%]$. This interval estimates the true population proportion.\n\n**The Full Solution:**\nA margin of error of 4% at 95% confidence means we are 95% confident that the true population proportion is within $58\\% \\pm 4\\% = [54\\%, 62\\%]$. The interval applies to the population, not the sample.\n\n**Why the wrong answers are tempting:**\n• A: A sample statistic estimates but does not equal the population parameter.\n• B: We already know the sample result; the interval is about the population.\n• D: Misinterprets both the confidence level and the margin of error.\n\n**Test Day Takeaway:** Margin of error creates an interval for the population parameter, not the sample.",
+  skills: ["margin-of-error", "statistics"]
+},
+{
+  id: 12, type: "fill-in", difficulty: "medium",
+  question: "The number of subscribers to a streaming service is modeled by $S(t) = 8000(1.06)^t$, where $t$ is the number of years after 2020. According to the model, in what year will the number of subscribers first exceed 12,000?\n\n(Use the fact that $\\log(1.5) \\approx 0.176$ and $\\log(1.06) \\approx 0.025$.)",
+  correctAnswer: "2028",
+  explanation: "**SAT Pattern: Solving Exponential Inequality**\n\n**The answer is 2028.**\n\n**The Fast Way:** $8000(1.06)^t > 12000 \\Rightarrow (1.06)^t > 1.5 \\Rightarrow t > \\frac{\\log 1.5}{\\log 1.06} \\approx \\frac{0.176}{0.025} = 7.04$. So $t = 8$, meaning the year is $2020 + 8 = 2028$.\n\n**The Full Solution:**\nDivide both sides by 8000: $(1.06)^t > 1.5$.\nTake logarithms: $t \\cdot \\log(1.06) > \\log(1.5)$.\n$t > \\frac{0.176}{0.025} = 7.04$.\nSince $t$ must be a whole number and we need to exceed (not equal), $t = 8$.\nYear $= 2020 + 8 = 2028$.\n\n**Common Mistakes:**\n• Writing 2027 by rounding $7.04$ down to $7$ instead of up to $8$.\n• Forgetting to add 2020.\n\n**Test Day Takeaway:** For \"first exceeds,\" always round up to the next whole number.",
+  skills: ["exponential-functions", "solving-equations"]
+},
+{
+  id: 13, type: "multiple-choice", difficulty: "medium",
+  question: "The table below shows the results of a survey about preferred exercise type by age group.\n\n|  | Running | Swimming | Cycling | Total |\n|---|---|---|---|---|\n| Under 30 | 45 | 30 | 25 | 100 |\n| 30 and over | 20 | 35 | 45 | 100 |\n| Total | 65 | 65 | 70 | 200 |\n\nWhat proportion of people who prefer cycling are under 30?",
+  choices: [{ id: "A", text: "$\\frac{25}{100}$" }, { id: "B", text: "$\\frac{25}{70}$" }, { id: "C", text: "$\\frac{45}{70}$" }, { id: "D", text: "$\\frac{70}{200}$" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice B is correct.**\n\n**The Fast Way:** \"Of people who prefer cycling\" means the denominator is the cycling column total (70). Under 30 who prefer cycling: 25. So $\\frac{25}{70}$.\n\n**The Full Solution:**\nThis is a conditional probability: $P(\\text{Under 30} \\mid \\text{Cycling}) = \\frac{25}{70}$. The condition (cycling) determines the denominator.\n\n**Why the wrong answers are tempting:**\n• A: Uses 100 (Under 30 row total) as denominator instead of 70.\n• C: Uses 45 (the 30+ cycling count) as the numerator.\n• D: Gives the proportion of all people who prefer cycling, ignoring the age condition.\n\n**Test Day Takeaway:** The word after \"of\" or \"given\" determines your denominator.",
+  skills: ["two-way-tables", "probability"]
+},
+{
+  id: 14, type: "multiple-choice", difficulty: "medium",
+  question: "A statistician wants to estimate the average commute time of employees in a large company. She takes a random sample of 80 employees and finds a mean commute of 34 minutes with a margin of error of 3 minutes. If she wants to reduce the margin of error to approximately 1.5 minutes, which sample size is closest to what she needs?",
+  choices: [{ id: "A", text: "160" }, { id: "B", text: "240" }, { id: "C", text: "320" }, { id: "D", text: "640" }],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Margin of Error and Sample Size**\n\n**Choice C is correct.**\n\n**The Fast Way:** Halving the margin of error requires quadrupling the sample size: $80 \\times 4 = 320$.\n\n**The Full Solution:**\nThe margin of error is proportional to $\\frac{1}{\\sqrt{n}}$. To reduce the margin of error by a factor of $k$, you must multiply $n$ by $k^2$.\n\nShe wants to go from 3 to 1.5, which is a factor of $\\frac{3}{1.5} = 2$. So she needs $80 \\times 2^2 = 80 \\times 4 = 320$ employees.\n\n**Why the wrong answers are tempting:**\n• A: Doubles the sample size, but that only reduces MOE by factor $\\sqrt{2} \\approx 1.41$.\n• B: Triples the sample size.\n• D: Over-quadruples unnecessarily.\n\n**Test Day Takeaway:** To cut margin of error in half, multiply sample size by 4.",
+  skills: ["margin-of-error", "statistics"]
+},
+{
+  id: 15, type: "multiple-choice", difficulty: "hard",
+  question: "The function $f(x) = 8600(0.72)^{x/6}$ models the value, in dollars, of a piece of equipment $x$ months after purchase. Which of the following is closest to the percent decrease in value per year?",
+  choices: [{ id: "A", text: "28%" }, { id: "B", text: "48%" }, { id: "C", text: "52%" }, { id: "D", text: "72%" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Converting Exponential Period to Annual Rate**\n\n**Choice B is correct.**\n\n**The Fast Way:** One year = 12 months, so the annual factor is $(0.72)^{12/6} = (0.72)^2 = 0.5184$. The annual decrease is $1 - 0.5184 = 0.4816 \\approx 48\\%$.\n\n**The Full Solution:**\nThe function decreases by factor $0.72$ every 6 months. In one year (12 months):\n$f(12) = 8600(0.72)^{12/6} = 8600(0.72)^2 = 8600(0.5184) = 4458.24$.\n\nPercent decrease $= \\frac{8600 - 4458.24}{8600} \\times 100 = 48.16\\% \\approx 48\\%$.\n\n**Why the wrong answers are tempting:**\n• A: This is the 6-month decrease ($1 - 0.72 = 0.28$), not the annual decrease.\n• C: Confuses $1 - 0.4816$ with $0.5184$.\n• D: Uses the base $0.72$ as if it were the annual rate.\n\n**Test Day Takeaway:** To convert periods, raise the base to the ratio of desired period to given period.",
+  skills: ["exponential-functions", "percents"]
+},
+{
+  id: 16, type: "multiple-choice", difficulty: "hard",
+  question: "A researcher measures the heights (in cm) of plants under two different fertilizers. Fertilizer A has $n_A = 40$ plants with mean $\\bar{x}_A = 24.3$ and standard deviation $s_A = 3.1$. Fertilizer B has $n_B = 40$ plants with mean $\\bar{x}_B = 22.7$ and standard deviation $s_B = 4.5$. Which of the following is the most appropriate conclusion?",
+  choices: [{ id: "A", text: "Fertilizer A causes taller plants because its mean is higher." }, { id: "B", text: "The difference in means provides evidence that Fertilizer A is associated with taller plants, but a causal claim requires knowing whether this was a randomized experiment." }, { id: "C", text: "There is no meaningful difference because the standard deviations overlap." }, { id: "D", text: "Fertilizer B is better because it has more variability, indicating it works on more plant types." }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Observational vs. Experimental Study Conclusions**\n\n**Choice B is correct.**\n\n**The Fast Way:** Without knowing if this was a randomized experiment, we can note an association but cannot claim causation.\n\n**The Full Solution:**\nThe data shows Fertilizer A has a higher mean (24.3 vs 22.7). However, to claim that Fertilizer A causes taller growth, the study must be a randomized controlled experiment. If plants were not randomly assigned to fertilizers, confounding variables could explain the difference. The correct conclusion acknowledges the observed difference while noting the limitation.\n\n**Why the wrong answers are tempting:**\n• A: Jumps to a causal claim without knowing the study design.\n• C: Standard deviations measure spread within groups, not whether the means differ meaningfully.\n• D: Higher variability is not an advantage; it makes results less consistent.\n\n**Test Day Takeaway:** Only randomized experiments support causal claims. Observational studies show association only.",
+  skills: ["statistics"]
+},
+{
+  id: 17, type: "fill-in", difficulty: "hard",
+  question: "A data set contains the following values:\n\n2, 3, 3, 4, 4, 4, 5, 5, 6, 7\n\nA new value of 48 is added to the data set. What is the new median of the 11 values?",
+  correctAnswer: "4",
+  explanation: "**SAT Pattern: Effect of Outlier on Median**\n\n**The answer is 4.**\n\n**The Fast Way:** With 11 values, the median is the 6th value when sorted. The original sorted data plus 48 at the end: 2, 3, 3, 4, 4, **4**, 5, 5, 6, 7, 48. The 6th value is 4.\n\n**The Full Solution:**\nOriginal data sorted: 2, 3, 3, 4, 4, 4, 5, 5, 6, 7 (10 values, median is average of 5th and 6th = $\\frac{4+4}{2} = 4$).\n\nAdding 48 gives 11 values. Since 48 is appended at the end of the sorted list, the 6th value (median of 11) is 4.\n\n**Common Mistakes:**\n• Recalculating the mean instead of the median (mean would change dramatically).\n• Thinking the outlier shifts the median significantly.\n\n**Test Day Takeaway:** The median is resistant to outliers. Adding an extreme value at one end shifts the median position by at most one spot.",
+  skills: ["statistics"]
+},
+{
+  id: 18, type: "multiple-choice", difficulty: "hard",
+  question: "The equation $-x^2 + bx - 484 = 0$ has no real solutions. What is the greatest integer value of $b$?",
+  choices: [{ id: "A", text: "43" }, { id: "B", text: "44" }, { id: "C", text: "45" }, { id: "D", text: "88" }],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Discriminant and No Real Solutions**\n\n**Choice A is correct.**\n\n**The Fast Way:** No real solutions means discriminant $< 0$: $b^2 - 4(-1)(-484) < 0$, so $b^2 < 1936$, giving $|b| < 44$. Greatest integer is 43.\n\n**The Full Solution:**\nFor $-x^2 + bx - 484 = 0$, we have $a = -1$, $b = b$, $c = -484$.\n\nDiscriminant $= b^2 - 4ac = b^2 - 4(-1)(-484) = b^2 - 1936$.\n\nNo real solutions requires discriminant $< 0$:\n$b^2 - 1936 < 0$\n$b^2 < 1936$\n$|b| < \\sqrt{1936} = 44$\n\nThe greatest integer with $|b| < 44$ is $b = 43$.\n\n**Why the wrong answers are tempting:**\n• B: At $b = 44$, the discriminant equals 0 (one repeated real solution, not \"no\" real solutions).\n• C: $45^2 = 2025 > 1936$, so there would be two real solutions.\n• D: $88 = 2 \\times 44$; a common arithmetic error doubling the boundary.\n\n**Test Day Takeaway:** \"No real solutions\" means $b^2 - 4ac < 0$ (strictly less than, not $\\leq$).",
+  skills: ["discriminant", "quadratic-equations"]
+},
+{
+  id: 19, type: "fill-in", difficulty: "hard",
+  question: "In a study, the relationship between the number of hours of sunlight ($x$) and the yield of a crop in kilograms ($y$) is modeled by $y = -0.5x^2 + 12x + 5$. What number of hours of sunlight produces the maximum yield?",
+  correctAnswer: "12",
+  explanation: "**SAT Pattern: Vertex of a Quadratic (Maximum)**\n\n**The answer is 12.**\n\n**The Fast Way:** The vertex $x$-coordinate is $x = -\\frac{b}{2a} = -\\frac{12}{2(-0.5)} = -\\frac{12}{-1} = 12$.\n\n**The Full Solution:**\nSince $a = -0.5 < 0$, the parabola opens downward, so the vertex gives the maximum. The $x$-coordinate of the vertex is:\n$x = -\\frac{b}{2a} = -\\frac{12}{2(-0.5)} = -\\frac{12}{-1} = 12$\n\nSo 12 hours of sunlight produces the maximum yield.\n\n**Common Mistakes:**\n• Computing the maximum yield (77) instead of the hours that produce it.\n• Sign error: $-\\frac{12}{2(-0.5)} = -\\frac{12}{-1}$, not $-\\frac{12}{1}$.\n\n**Test Day Takeaway:** For maximum/minimum of $ax^2 + bx + c$, the input is $x = -\\frac{b}{2a}$.",
+  skills: ["vertex-form", "quadratic-equations", "function-interpretation"]
+},
+{
+  id: 20, type: "multiple-choice", difficulty: "hard",
+  question: "A survey of 600 randomly selected adults found that 264 support a new policy. A 95% confidence interval for the true proportion is constructed. The survey organizer wants to claim that a majority of all adults support the policy. Is this claim supported?\n\n(Note: For 95% confidence, the margin of error is approximately $1.96\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$.)",
+  choices: [{ id: "A", text: "Yes, because 264 out of 600 is 44%, and the interval extends above 50%." }, { id: "B", text: "Yes, because the sample size is large enough." }, { id: "C", text: "No, because the entire 95% confidence interval is below 50%." }, { id: "D", text: "No, because 264 is less than half of 600." }],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Confidence Interval and Majority Claim**\n\n**Choice C is correct.**\n\n**The Fast Way:** $\\hat{p} = \\frac{264}{600} = 0.44$. MOE $\\approx 1.96\\sqrt{\\frac{0.44 \\times 0.56}{600}} \\approx 1.96 \\times 0.0203 \\approx 0.04$. Interval: $[0.40, 0.48]$. The entire interval is below 0.50.\n\n**The Full Solution:**\n$\\hat{p} = 0.44$. Standard error $= \\sqrt{\\frac{0.44 \\times 0.56}{600}} = \\sqrt{\\frac{0.2464}{600}} = \\sqrt{0.000411} \\approx 0.0203$.\n\nMOE $= 1.96 \\times 0.0203 \\approx 0.0398$.\n\n95% CI: $(0.44 - 0.04, 0.44 + 0.04) = (0.40, 0.48)$.\n\nSince the upper bound (0.48) is still below 0.50, we cannot claim majority support.\n\n**Why the wrong answers are tempting:**\n• A: Gets $\\hat{p} = 0.44$ right but incorrectly claims the interval goes above 50%.\n• B: Large sample size reduces margin of error but does not guarantee the interval crosses 50%.\n• D: While true that 264 < 300, the reasoning should be based on the confidence interval, not just the sample count.\n\n**Test Day Takeaway:** A majority claim requires the entire confidence interval to be above 50%.",
+  skills: ["margin-of-error", "statistics"]
+},
+{
+  id: 21, type: "fill-in", difficulty: "hard",
+  question: "In a study, the value of a certain quantity $Q$ doubles every 5 years. The value of $Q$ was 800 at the start of the study. What is the value of $Q$ after 20 years?\n\nExpress your answer as a whole number.",
+  correctAnswer: "12800",
+  explanation: "**SAT Pattern: Repeated Doubling**\n\n**The answer is 12800.**\n\n**The Fast Way:** In 20 years, the quantity doubles $\\frac{20}{5} = 4$ times. $800 \\times 2^4 = 800 \\times 16 = 12800$.\n\n**The Full Solution:**\nThe model is $Q(t) = 800 \\cdot 2^{t/5}$.\n\nAt $t = 20$: $Q(20) = 800 \\cdot 2^{20/5} = 800 \\cdot 2^4 = 800 \\times 16 = 12{,}800$.\n\n**Common Mistakes:**\n• Computing $800 \\times 2 \\times 20 = 32000$ (linear instead of exponential).\n• Using $2^{20} = 1{,}048{,}576$ instead of $2^{20/5} = 2^4 = 16$.\n\n**Test Day Takeaway:** For repeated doubling, count the number of doubling periods and use $2^{\\text{periods}}$.",
+  skills: ["exponential-functions"]
+},
+{
+  id: 22, type: "multiple-choice", difficulty: "hard",
+  question: "A data analyst collects a random sample of 150 customer wait times and finds that the sample mean is 7.2 minutes. She then collects another independent random sample of 600 customer wait times from the same population. Which of the following is most likely true about the second sample?",
+  choices: [{ id: "A", text: "The sample mean will be exactly 7.2 minutes." }, { id: "B", text: "The sample mean will be closer to the population mean, and the margin of error will be smaller." }, { id: "C", text: "The sample mean will be farther from the population mean because more data introduces more error." }, { id: "D", text: "The margin of error will be the same because both samples are random." }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Effect of Sample Size on Estimates**\n\n**Choice B is correct.**\n\n**The Fast Way:** Larger samples produce estimates closer to the population parameter and have smaller margins of error.\n\n**The Full Solution:**\nThe margin of error is proportional to $\\frac{1}{\\sqrt{n}}$. Quadrupling the sample size from 150 to 600 cuts the margin of error in half. The Law of Large Numbers tells us that larger samples tend to produce means closer to the true population mean. So the second sample will likely have a mean closer to the true value and a smaller margin of error.\n\n**Why the wrong answers are tempting:**\n• A: The second sample mean will likely be close to 7.2 but not exactly equal.\n• C: Larger samples reduce sampling variability, not increase it.\n• D: The margin of error depends on sample size; larger $n$ means smaller MOE.\n\n**Test Day Takeaway:** Increasing sample size always reduces margin of error and improves precision.",
+  skills: ["statistics", "margin-of-error"]
+}
       ]
     }
   ]

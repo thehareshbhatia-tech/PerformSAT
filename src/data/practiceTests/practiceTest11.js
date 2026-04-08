@@ -326,299 +326,177 @@ export const practiceTest11 = {
       title: "Module 2",
       timeLimit: 35,
       questions: [
-        // ===== EASY (Q1-Q5) =====
-        {
-          id: 1,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "A pet groomer charges $\\$35$ per dog. If the groomer washes $8$ dogs in one day, how much does the groomer earn?",
-          choices: [
-            { id: "A", text: "$\\$240$" },
-            { id: "B", text: "$\\$280$" },
-            { id: "C", text: "$\\$315$" },
-            { id: "D", text: "$\\$350$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Multiplication Word Problem**\n\n**Choice B is correct.**\n\n**The Fast Way (5 seconds):** $35 \\times 8 = 280$.\n\n**The Full Solution:**\nEarnings $= \\$35 \\times 8 = \\$280$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($240$): Computes $30 \\times 8 = 240$.\n• Choice C ($315$): Computes $35 \\times 9 = 315$.\n• Choice D ($350$): Computes $35 \\times 10 = 350$.\n\n**Test Day Takeaway:** Price per item $\\times$ number of items $=$ total earnings.",
-          skills: ["word-problems"]
-        },
-        {
-          id: 2,
-          type: "fill-in",
-          difficulty: "easy",
-          question: "If $5x = 45$, what is the value of $x$?",
-          correctAnswer: "9",
-          explanation: "**SAT Pattern: One-Step Equation**\n\n**The correct answer is $9$.**\n\n**The Fast Way (5 seconds):** $x = 45 \\div 5 = 9$.\n\n**The Full Solution:**\n$5x = 45$\n$x = \\frac{45}{5} = 9$\n\n**Common Mistakes to Avoid:**\n• Computing $5 \\times 45 = 225$ (multiplying instead of dividing).\n\n**Verification:** $5(9) = 45$. Correct.\n\n**Test Day Takeaway:** To isolate $x$, divide both sides by the coefficient.",
-          skills: ["linear-equations", "solving-equations"]
-        },
-        {
-          id: 3,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "An energy company installed solar panels on $120$ homes. If $75\\%$ of these homes are in rural areas, how many homes with solar panels are in rural areas?",
-          choices: [
-            { id: "A", text: "$75$" },
-            { id: "B", text: "$80$" },
-            { id: "C", text: "$90$" },
-            { id: "D", text: "$100$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Percent of a Total**\n\n**Choice C is correct.**\n\n**The Fast Way (5 seconds):** $75\\%$ of $120 = \\frac{3}{4} \\times 120 = 90$.\n\n**The Full Solution:**\n$0.75 \\times 120 = 90$ homes.\n\n**Why the wrong answers are tempting:**\n• Choice A ($75$): Uses the percentage as the answer.\n• Choice B ($80$): Computes $\\frac{2}{3} \\times 120$.\n• Choice D ($100$): A round number guess.\n\n**Test Day Takeaway:** $75\\% = \\frac{3}{4}$. Divide by $4$, multiply by $3$.",
-          skills: ["percents"]
-        },
-        {
-          id: 4,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "Which of the following is equivalent to $5(2x + 3)$?",
-          choices: [
-            { id: "A", text: "$10x + 3$" },
-            { id: "B", text: "$10x + 15$" },
-            { id: "C", text: "$7x + 8$" },
-            { id: "D", text: "$10x + 8$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Distributive Property**\n\n**Choice B is correct.**\n\n**The Fast Way (5 seconds):** $5 \\times 2x = 10x$ and $5 \\times 3 = 15$. So $10x + 15$.\n\n**The Full Solution:**\n$5(2x + 3) = 5 \\cdot 2x + 5 \\cdot 3 = 10x + 15$\n\n**Why the wrong answers are tempting:**\n• Choice A ($10x + 3$): Multiplies only the $2x$ by $5$, not the $3$.\n• Choice C ($7x + 8$): Adds instead of multiplying: $5 + 2x + 3$.\n• Choice D ($10x + 8$): Adds $5 + 3 = 8$ for the constant.\n\n**Test Day Takeaway:** Distribute to every term inside the parentheses.",
-          skills: ["algebraic-manipulation"]
-        },
-        {
-          id: 5,
-          type: "fill-in",
-          difficulty: "easy",
-          question: "A printing job requires $250$ sheets of paper. If each ream contains $500$ sheets, what fraction of a ream is needed?",
-          correctAnswer: "0.5",
-          explanation: "**SAT Pattern: Fraction/Ratio**\n\n**The correct answer is $0.5$ (or $\\frac{1}{2}$).**\n\n**The Fast Way (5 seconds):** $\\frac{250}{500} = \\frac{1}{2} = 0.5$.\n\n**The Full Solution:**\nFraction needed $= \\frac{250}{500} = 0.5$.\n\n**Common Mistakes to Avoid:**\n• Computing $\\frac{500}{250} = 2$ (dividing in the wrong order).\n\n**Verification:** $0.5 \\times 500 = 250$ sheets. Correct.\n\n**Test Day Takeaway:** Fraction $= \\frac{\\text{part}}{\\text{whole}}$.",
-          skills: ["ratios-proportions"]
-        },
-
-        // ===== MEDIUM (Q6-Q15) =====
-        {
-          id: 6,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "The median of the data set $\\{3, 7, 9, 12, 15\\}$ is $9$. If a sixth value of $20$ is added to the data set, what is the new median?",
-          choices: [
-            { id: "A", text: "$9$" },
-            { id: "B", text: "$10.5$" },
-            { id: "C", text: "$11$" },
-            { id: "D", text: "$12$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Median with Even Number of Values**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** New set in order: $\\{3, 7, 9, 12, 15, 20\\}$. Six values, so median $= \\frac{9 + 12}{2} = 10.5$.\n\n**The Full Solution:**\nOrdered set: $3, 7, 9, 12, 15, 20$\nWith $6$ values, the median is the average of the $3$rd and $4$th values:\n$\\frac{9 + 12}{2} = \\frac{21}{2} = 10.5$\n\n**Why the wrong answers are tempting:**\n• Choice A ($9$): The old median, not updated.\n• Choice C ($11$): The mean of $9$ and $13$.\n• Choice D ($12$): Just the $4$th value, not the average of the $3$rd and $4$th.\n\n**Test Day Takeaway:** For an even number of data points, the median is the average of the two middle values.",
-          skills: ["mean-median-mode", "statistics"]
-        },
-        {
-          id: 7,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "If $3x + 2y = 18$ and $x = 4$, what is the value of $y$?",
-          choices: [
-            { id: "A", text: "$2$" },
-            { id: "B", text: "$3$" },
-            { id: "C", text: "$5$" },
-            { id: "D", text: "$6$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Substitution in a Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $3(4) + 2y = 18$, so $12 + 2y = 18$, $2y = 6$, $y = 3$.\n\n**The Full Solution:**\n$3x + 2y = 18$\n$3(4) + 2y = 18$\n$12 + 2y = 18$\n$2y = 6$\n$y = 3$\n\n**Why the wrong answers are tempting:**\n• Choice A ($2$): Computes $\\frac{18 - 12}{4}$ incorrectly.\n• Choice C ($5$): Computes $\\frac{18 - 8}{2}$, using $2 \\times 4 = 8$ instead of $3 \\times 4 = 12$.\n• Choice D ($6$): Stops at $2y = 6$ without dividing.\n\n**Test Day Takeaway:** Substitute the known value, simplify, and solve for the remaining variable.",
-          skills: ["linear-equations", "solving-equations"]
-        },
-        {
-          id: 8,
-          type: "fill-in",
-          difficulty: "medium",
-          question: "An archaeologist dates an artifact to be $2{,}400$ years old, with a margin of error of $150$ years. What is the minimum possible age, in years, of the artifact?",
-          correctAnswer: "2250",
-          explanation: "**SAT Pattern: Margin of Error Application**\n\n**The correct answer is $2{,}250$.**\n\n**The Fast Way (5 seconds):** $2{,}400 - 150 = 2{,}250$.\n\n**The Full Solution:**\nThe age is $2{,}400 \\pm 150$ years.\nMinimum age $= 2{,}400 - 150 = 2{,}250$ years.\nMaximum age $= 2{,}400 + 150 = 2{,}550$ years.\n\n**Common Mistakes to Avoid:**\n• Adding instead of subtracting for the minimum: $2{,}400 + 150 = 2{,}550$ (that's the maximum).\n\n**Verification:** The range $[2{,}250, 2{,}550]$ is centered at $2{,}400$ with half-width $150$.\n\n**Test Day Takeaway:** Minimum $=$ estimate $-$ margin of error. Maximum $=$ estimate $+$ margin of error.",
-          skills: ["margin-of-error", "statistics"]
-        },
-        {
-          id: 9,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "The graph of $y = f(x)$ is a line that passes through the points $(0, -2)$ and $(4, 6)$. What is the value of $f(2)$?",
-          choices: [
-            { id: "A", text: "$0$" },
-            { id: "B", text: "$2$" },
-            { id: "C", text: "$4$" },
-            { id: "D", text: "$6$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Linear Function Evaluation**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Slope $= \\frac{6 - (-2)}{4 - 0} = \\frac{8}{4} = 2$. $y$-intercept $= -2$. So $f(x) = 2x - 2$. $f(2) = 4 - 2 = 2$.\n\n**The Full Solution:**\n$m = \\frac{6 - (-2)}{4 - 0} = 2$\n$f(x) = 2x - 2$\n$f(2) = 2(2) - 2 = 2$\n\n**Why the wrong answers are tempting:**\n• Choice A ($0$): Might guess the midpoint $x$-value gives $0$.\n• Choice C ($4$): Computes $2 \\times 2 = 4$, forgetting $-2$.\n• Choice D ($6$): Uses $f(4) = 6$.\n\n**Test Day Takeaway:** Find the equation of the line first, then plug in the $x$-value.",
-          skills: ["linear-functions", "function-evaluation"]
-        },
-        {
-          id: 10,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "Which of the following is a solution to $x^2 - 5x - 6 = 0$?",
-          choices: [
-            { id: "A", text: "$-6$" },
-            { id: "B", text: "$-1$" },
-            { id: "C", text: "$2$" },
-            { id: "D", text: "$6$" }
-          ],
-          correctAnswer: "D",
-          explanation: "**SAT Pattern: Factoring a Quadratic**\n\n**Choice D is correct.**\n\n**The Fast Way (10 seconds):** $x^2 - 5x - 6 = (x - 6)(x + 1) = 0$. So $x = 6$ or $x = -1$. Choice D ($6$) is a solution.\n\n**The Full Solution:**\nFind two numbers that multiply to $-6$ and add to $-5$: $-6$ and $1$.\n$x^2 - 5x - 6 = (x - 6)(x + 1) = 0$\n$x = 6$ or $x = -1$\n\n**Why the wrong answers are tempting:**\n• Choice A ($-6$): A factor of the constant but $(-6)^2 - 5(-6) - 6 = 36 + 30 - 6 = 60 \\neq 0$.\n• Choice B ($-1$): This IS also a solution (though Choice D was listed).\n• Choice C ($2$): $4 - 10 - 6 = -12 \\neq 0$.\n\n**Test Day Takeaway:** Factor, then set each factor to zero. If multiple answers are solutions, pick the one in the choices.",
-          skills: ["factoring", "quadratic-equations"]
-        },
-        {
-          id: 11,
-          type: "fill-in",
-          difficulty: "medium",
-          question: "A solar farm produces $850$ megawatt-hours per month. At this rate, how many megawatt-hours does it produce in $6$ months?",
-          correctAnswer: "5100",
-          explanation: "**SAT Pattern: Rate Times Time**\n\n**The correct answer is $5{,}100$.**\n\n**The Fast Way (10 seconds):** $850 \\times 6 = 5{,}100$.\n\n**The Full Solution:**\nTotal $= 850 \\text{ MWh/month} \\times 6 \\text{ months} = 5{,}100$ MWh.\n\n**Common Mistakes to Avoid:**\n• Dividing instead of multiplying: $850 \\div 6 \\approx 141.7$.\n\n**Verification:** $5{,}100 \\div 6 = 850$. Correct.\n\n**Test Day Takeaway:** When finding a total from a rate, multiply rate by time.",
-          skills: ["ratios-proportions", "word-problems"]
-        },
-        {
-          id: 12,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "If $|2x - 3| = 7$, which of the following is a possible value of $x$?",
-          choices: [
-            { id: "A", text: "$-3$" },
-            { id: "B", text: "$-2$" },
-            { id: "C", text: "$2$" },
-            { id: "D", text: "$5$" }
-          ],
-          correctAnswer: "D",
-          explanation: "**SAT Pattern: Absolute Value Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (15 seconds):** $2x - 3 = 7$ gives $x = 5$. $2x - 3 = -7$ gives $x = -2$. Choice D ($5$) is in the answer choices.\n\n**The Full Solution:**\n$|2x - 3| = 7$\nCase 1: $2x - 3 = 7 \\Rightarrow 2x = 10 \\Rightarrow x = 5$\nCase 2: $2x - 3 = -7 \\Rightarrow 2x = -4 \\Rightarrow x = -2$\nBoth $x = 5$ and $x = -2$ are solutions. Choice D ($5$) is a match.\n\n**Why the wrong answers are tempting:**\n• Choice A ($-3$): $|2(-3) - 3| = |-9| = 9 \\neq 7$.\n• Choice B ($-2$): This IS also a solution.\n• Choice C ($2$): $|2(2) - 3| = |1| = 1 \\neq 7$.\n\n**Test Day Takeaway:** Split absolute value into two cases: positive and negative.",
-          skills: ["absolute-value-equations", "solving-equations"]
-        },
-        {
-          id: 13,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "A line passes through the origin and the point $(3, 6)$. Which of the following points also lies on this line?",
-          choices: [
-            { id: "A", text: "$(1, 3)$" },
-            { id: "B", text: "$(2, 4)$" },
-            { id: "C", text: "$(4, 8)$" },
-            { id: "D", text: "$(5, 12)$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Points on a Line Through the Origin**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** Slope $= \\frac{6}{3} = 2$. Line: $y = 2x$. Check $(4, 8)$: $2(4) = 8$. Yes.\n\n**The Full Solution:**\n$m = \\frac{6 - 0}{3 - 0} = 2$. Line: $y = 2x$.\nCheck each:\nA: $2(1) = 2 \\neq 3$. No.\nB: $2(2) = 4$. Yes, but let me check C too.\nC: $2(4) = 8$. Yes.\nD: $2(5) = 10 \\neq 12$. No.\n\n**Why the wrong answers are tempting:**\n• Choice A ($(1, 3)$): The slope is $3$, not $2$.\n• Choice B ($(2, 4)$): Also lies on the line $y = 2x$, but let me recheck: $2(2) = 4$. This is actually also correct, but $(4, 8)$ is the intended answer.\n• Choice D ($(5, 12)$): Uses slope $\\frac{12}{5} \\neq 2$.\n\n**Test Day Takeaway:** Find the slope from the origin, write $y = mx$, and test each point.",
-          skills: ["slope", "linear-functions"]
-        },
-        {
-          id: 14,
-          type: "fill-in",
-          difficulty: "medium",
-          question: "If $\\frac{2}{5}$ of a number is $16$, what is the number?",
-          correctAnswer: "40",
-          explanation: "**SAT Pattern: Fraction of a Number**\n\n**The correct answer is $40$.**\n\n**The Fast Way (10 seconds):** $\\frac{2}{5}n = 16$, so $n = 16 \\times \\frac{5}{2} = 40$.\n\n**The Full Solution:**\n$\\frac{2}{5}n = 16$\n$n = 16 \\times \\frac{5}{2}$\n$n = \\frac{80}{2} = 40$\n\n**Common Mistakes to Avoid:**\n• Computing $16 \\times \\frac{2}{5} = 6.4$ (multiplying by the fraction instead of its reciprocal).\n\n**Verification:** $\\frac{2}{5} \\times 40 = \\frac{80}{5} = 16$. Correct.\n\n**Test Day Takeaway:** \"$\\frac{a}{b}$ of a number is $c$\" means multiply $c$ by $\\frac{b}{a}$.",
-          skills: ["solving-equations", "ratios-proportions"]
-        },
-        {
-          id: 15,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "Two angles are supplementary. One angle measures $52°$. What is the measure of the other angle?",
-          choices: [
-            { id: "A", text: "$38°$" },
-            { id: "B", text: "$52°$" },
-            { id: "C", text: "$128°$" },
-            { id: "D", text: "$308°$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Supplementary Angles**\n\n**Choice C is correct.**\n\n**The Fast Way (5 seconds):** $180° - 52° = 128°$.\n\n**The Full Solution:**\nSupplementary angles add to $180°$.\nOther angle $= 180° - 52° = 128°$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($38°$): Computes $90° - 52°$ (complementary, not supplementary).\n• Choice B ($52°$): Assumes the angles are equal.\n• Choice D ($308°$): Computes $360° - 52°$.\n\n**Test Day Takeaway:** Supplementary $= 180°$. Complementary $= 90°$. Don't mix them up.",
-          skills: ["angles"]
-        },
-
-        // ===== HARD (Q16-Q22) =====
-        {
-          id: 16,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "The function $h(x) = -(x - 4)^2 + 9$ represents the height of a ball. What is the maximum height?",
-          choices: [
-            { id: "A", text: "$4$" },
-            { id: "B", text: "$5$" },
-            { id: "C", text: "$9$" },
-            { id: "D", text: "$13$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Maximum from Vertex Form**\n\n**Choice C is correct.**\n\n**The Fast Way (5 seconds):** In $h(x) = -(x-4)^2 + 9$, the vertex is $(4, 9)$. Since $a < 0$, the maximum height is $9$.\n\n**The Full Solution:**\n$h(x) = -(x - 4)^2 + 9$ is in vertex form $a(x - h)^2 + k$.\nVertex: $(4, 9)$.\nSince $a = -1 < 0$, the parabola opens downward, and the vertex is a maximum.\nMaximum height $= 9$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($4$): The $x$-coordinate of the vertex (when the max occurs), not the max height.\n• Choice B ($5$): A distractor.\n• Choice D ($13$): Adds $4 + 9$.\n\n**Test Day Takeaway:** In $a(x-h)^2 + k$, the value $k$ is the max (if $a < 0$) or min (if $a > 0$).",
-          skills: ["vertex-form", "quadratic-functions"]
-        },
-        {
-          id: 17,
-          type: "fill-in",
-          difficulty: "hard",
-          question: "A pet population triples every $5$ years. If there are currently $200$ pets, how many will there be in $10$ years?",
-          correctAnswer: "1800",
-          explanation: "**SAT Pattern: Exponential Growth**\n\n**The correct answer is $1{,}800$.**\n\n**The Fast Way (10 seconds):** In $10$ years $= 2$ periods of $5$ years. Triples twice: $200 \\times 3 \\times 3 = 200 \\times 9 = 1{,}800$.\n\n**The Full Solution:**\n$P(t) = 200 \\cdot 3^{t/5}$\n$P(10) = 200 \\cdot 3^{10/5} = 200 \\cdot 3^2 = 200 \\cdot 9 = 1{,}800$\n\n**Common Mistakes to Avoid:**\n• Only tripling once: $200 \\times 3 = 600$ (that's after $5$ years, not $10$).\n• Adding instead of multiplying: $200 + 3(10) = 230$.\n\n**Verification:** After $5$ years: $200 \\times 3 = 600$. After $10$ years: $600 \\times 3 = 1{,}800$.\n\n**Test Day Takeaway:** Count the number of growth periods, then apply the growth factor that many times.",
-          skills: ["exponential-functions"]
-        },
-        {
-          id: 18,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "If $f(x) = x^2 + 4x - 12$, which of the following is an equivalent form that reveals the zeros of $f$?",
-          choices: [
-            { id: "A", text: "$(x + 6)(x - 2)$" },
-            { id: "B", text: "$(x - 6)(x + 2)$" },
-            { id: "C", text: "$(x + 2)^2 - 16$" },
-            { id: "D", text: "$(x + 4)(x - 3)$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Factored Form Reveals Zeros**\n\n**Choice A is correct.**\n\n**The Fast Way (15 seconds):** Find two numbers that multiply to $-12$ and add to $4$: $6$ and $-2$. So $(x + 6)(x - 2)$.\n\n**The Full Solution:**\n$x^2 + 4x - 12$\nNeed factors of $-12$ that add to $4$: $6$ and $-2$.\n$(x + 6)(x - 2) = x^2 - 2x + 6x - 12 = x^2 + 4x - 12$. Correct.\n\n**Why the wrong answers are tempting:**\n• Choice B: $(x-6)(x+2) = x^2 - 4x - 12$. The sign on $4x$ is wrong.\n• Choice C: This is vertex form, which shows the minimum, not directly the zeros.\n• Choice D: $(x+4)(x-3) = x^2 + x - 12$. The coefficient of $x$ is wrong.\n\n**Test Day Takeaway:** Factored form $(x-r)(x-s)$ reveals zeros at $x = r$ and $x = s$.",
-          skills: ["factoring", "quadratic-equations"]
-        },
-        {
-          id: 19,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "A sphere has a volume of $36\\pi$ cubic inches. What is the radius of the sphere? (Volume: $V = \\frac{4}{3}\\pi r^3$)",
-          choices: [
-            { id: "A", text: "$3$" },
-            { id: "B", text: "$6$" },
-            { id: "C", text: "$9$" },
-            { id: "D", text: "$27$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Working Backwards with Volume Formula**\n\n**Choice A is correct.**\n\n**The Fast Way (15 seconds):** $\\frac{4}{3}\\pi r^3 = 36\\pi$. Divide by $\\pi$: $\\frac{4}{3}r^3 = 36$. Multiply by $\\frac{3}{4}$: $r^3 = 27$. So $r = 3$.\n\n**The Full Solution:**\n$\\frac{4}{3}\\pi r^3 = 36\\pi$\n$\\frac{4}{3}r^3 = 36$\n$r^3 = 36 \\times \\frac{3}{4} = 27$\n$r = \\sqrt[3]{27} = 3$\n\n**Why the wrong answers are tempting:**\n• Choice B ($6$): Confuses radius with diameter.\n• Choice C ($9$): Computes $\\frac{36}{4} = 9$.\n• Choice D ($27$): Uses $r^3 = 27$ but gives $r^3$ instead of $r$.\n\n**Test Day Takeaway:** Plug in the volume, cancel $\\pi$, and solve step by step. Don't forget to take the cube root.",
-          skills: ["volume", "solving-equations"]
-        },
-        {
-          id: 20,
-          type: "fill-in",
-          difficulty: "hard",
-          question: "The system of equations $y = 3x - 1$ and $y = x^2 + x - 1$ has two solutions. What is the positive $x$-value of these solutions?",
-          correctAnswer: "2",
-          explanation: "**SAT Pattern: Linear-Quadratic System**\n\n**The correct answer is $2$.**\n\n**The Fast Way (20 seconds):** Set equal: $3x - 1 = x^2 + x - 1$. Simplify: $x^2 - 2x = 0$, so $x(x-2) = 0$. $x = 0$ or $x = 2$. The positive value is $2$.\n\n**The Full Solution:**\n$3x - 1 = x^2 + x - 1$\n$0 = x^2 + x - 3x - 1 + 1$\n$0 = x^2 - 2x$\n$0 = x(x - 2)$\n$x = 0$ or $x = 2$\n\n**Common Mistakes to Avoid:**\n• Giving both solutions instead of just the positive one.\n• Sign errors when rearranging.\n\n**Verification:** At $x = 2$: $y = 3(2) - 1 = 5$ and $y = 4 + 2 - 1 = 5$. Both equations give $y = 5$.\n\n**Test Day Takeaway:** Set the two equations equal, rearrange to standard form, and solve.",
-          skills: ["systems-of-equations", "quadratic-equations"]
-        },
-        {
-          id: 21,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "In the $xy$-plane, a parabola has the equation $y = 2(x - 1)^2 - 8$. At what values of $x$ does the parabola intersect the $x$-axis?",
-          choices: [
-            { id: "A", text: "$x = -1$ and $x = 3$" },
-            { id: "B", text: "$x = -3$ and $x = 1$" },
-            { id: "C", text: "$x = -1$ and $x = 1$" },
-            { id: "D", text: "$x = 1$ and $x = 3$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: $x$-intercepts from Vertex Form**\n\n**Choice A is correct.**\n\n**The Fast Way (20 seconds):** Set $y = 0$: $2(x-1)^2 = 8$, $(x-1)^2 = 4$, $x - 1 = \\pm 2$. $x = 3$ or $x = -1$.\n\n**The Full Solution:**\n$0 = 2(x - 1)^2 - 8$\n$2(x - 1)^2 = 8$\n$(x - 1)^2 = 4$\n$x - 1 = \\pm 2$\n$x = 1 + 2 = 3$ or $x = 1 - 2 = -1$\n\n**Why the wrong answers are tempting:**\n• Choice B: Uses $x + 1 = \\pm 2$ (wrong sign in vertex form).\n• Choice C: Only considers $\\pm 1$.\n• Choice D: Only takes the positive square root.\n\n**Test Day Takeaway:** Set $y = 0$, isolate the squared term, take $\\pm$ square root, then add back the vertex $x$-coordinate.",
-          skills: ["vertex-form", "quadratic-functions"]
-        },
-        {
-          id: 22,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "In a right triangle, one acute angle measures $30°$. The side opposite this angle has length $7$. What is the length of the hypotenuse?",
-          choices: [
-            { id: "A", text: "$7$" },
-            { id: "B", text: "$7\\sqrt{2}$" },
-            { id: "C", text: "$7\\sqrt{3}$" },
-            { id: "D", text: "$14$" }
-          ],
-          correctAnswer: "D",
-          explanation: "**SAT Pattern: 30-60-90 Special Right Triangle**\n\n**Choice D is correct.**\n\n**The Fast Way (10 seconds):** In a $30$-$60$-$90$ triangle, the side opposite $30°$ is half the hypotenuse. So hypotenuse $= 2 \\times 7 = 14$.\n\n**The Full Solution:**\nIn a $30$-$60$-$90$ triangle, the side ratios are $1 : \\sqrt{3} : 2$.\nSide opposite $30° = 7$ corresponds to the $1$ ratio.\nHypotenuse $= 2 \\times 7 = 14$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($7$): Uses the given side as the hypotenuse.\n• Choice B ($7\\sqrt{2}$): Applies the $45$-$45$-$90$ ratio instead.\n• Choice C ($7\\sqrt{3}$): This is the side opposite $60°$, not the hypotenuse.\n\n**Test Day Takeaway:** In a $30$-$60$-$90$ triangle: shortest side $: \\sqrt{3} \\times$ shortest $: 2 \\times$ shortest.",
-          skills: ["special-right-triangles", "triangles"]
-        }
+{
+  id: 1, type: "multiple-choice", difficulty: "easy",
+  question: "An angle in a triangle measures $55°$. A second angle measures $70°$. What is the measure, in degrees, of the third angle?",
+  choices: [{ id: "A", text: "45" }, { id: "B", text: "55" }, { id: "C", text: "65" }, { id: "D", text: "125" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Triangle Angle Sum**\n\n**Choice B is correct.**\n\n**The Fast Way:** $180 - 55 - 70 = 55$.\n\n**The Full Solution:**\nThe sum of angles in a triangle is $180°$. The third angle is $180° - 55° - 70° = 55°$.\n\n**Why the wrong answers are tempting:**\n• A: Subtracts incorrectly.\n• C: Confuses with supplementary angle concepts.\n• D: This is the supplement of 55°, not the missing triangle angle.\n\n**Test Day Takeaway:** The three angles of any triangle sum to exactly 180°.",
+  skills: ["angles", "triangles"]
+},
+{
+  id: 2, type: "multiple-choice", difficulty: "easy",
+  question: "A rectangular garden has a length of 12 feet and a width of 8 feet. What is the area of the garden, in square feet?",
+  choices: [{ id: "A", text: "40" }, { id: "B", text: "80" }, { id: "C", text: "96" }, { id: "D", text: "20" }],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Rectangle Area**\n\n**Choice C is correct.**\n\n**The Fast Way:** Area $= 12 \\times 8 = 96$ square feet.\n\n**The Full Solution:**\nArea of a rectangle $= \\text{length} \\times \\text{width} = 12 \\times 8 = 96$ square feet.\n\n**Why the wrong answers are tempting:**\n• A: This is the perimeter divided by something, or half the perimeter.\n• B: Computes $2 \\times (12 + 8) \\times 2 = 80$, confusing area with perimeter-related calculations.\n• D: Uses half of 40 (half-perimeter).\n\n**Test Day Takeaway:** Area = length $\\times$ width. Perimeter = $2(\\text{length} + \\text{width})$. Don't confuse them.",
+  skills: ["area"]
+},
+{
+  id: 3, type: "multiple-choice", difficulty: "easy",
+  question: "A car's value depreciates by 12% each year. If the car is currently worth \\$20,000, which expression gives its value after $t$ years?",
+  choices: [{ id: "A", text: "$20000(0.12)^t$" }, { id: "B", text: "$20000(1.12)^t$" }, { id: "C", text: "$20000(0.88)^t$" }, { id: "D", text: "$20000 - 0.12t$" }],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Exponential Decay Model**\n\n**Choice C is correct.**\n\n**The Fast Way:** Depreciates 12% means 88% remains each year. Multiply by $0.88$ each year: $20000(0.88)^t$.\n\n**The Full Solution:**\nA 12% annual depreciation means the car retains $100\\% - 12\\% = 88\\% = 0.88$ of its value each year. After $t$ years: $V(t) = 20000(0.88)^t$.\n\n**Why the wrong answers are tempting:**\n• A: Uses the depreciation rate (0.12) as the base instead of the retention rate.\n• B: This models 12% growth, not decay.\n• D: This is a linear model, but depreciation is exponential.\n\n**Test Day Takeaway:** For exponential decay of $r\\%$, the base is $(1 - r/100)$, not $r/100$.",
+  skills: ["exponential-functions"]
+},
+{
+  id: 4, type: "multiple-choice", difficulty: "easy",
+  question: "Two parallel lines are cut by a transversal. One of the angles formed is $118°$. Which of the following could NOT be the measure of another angle formed by the transversal and the parallel lines?",
+  choices: [{ id: "A", text: "$62°$" }, { id: "B", text: "$118°$" }, { id: "C", text: "$72°$" }, { id: "D", text: "$62°$" }],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Parallel Lines and Transversals**\n\n**Choice C is correct.**\n\n**The Fast Way:** When parallel lines are cut by a transversal, all angles are either $118°$ or its supplement $180° - 118° = 62°$. The value $72°$ is neither.\n\n**The Full Solution:**\nParallel lines cut by a transversal create 8 angles. These angles come in two types: the given angle ($118°$) and its supplementary angle ($180° - 118° = 62°$). All corresponding, alternate interior, and alternate exterior angles are either $118°$ or $62°$. Since $72°$ is neither of these values, it cannot be formed.\n\n**Why the wrong answers are tempting:**\n• A: $62°$ is the supplement of $118°$, so it appears.\n• B: $118°$ appears as a corresponding or vertical angle.\n• D: Same as A — $62°$ is valid.\n\n**Test Day Takeaway:** With parallel lines and a transversal, there are only two distinct angle measures, and they are supplementary.",
+  skills: ["angles"]
+},
+{
+  id: 5, type: "multiple-choice", difficulty: "easy",
+  question: "The function $h(t) = 500(2)^t$ models the number of bacteria in a sample after $t$ hours. How many bacteria are in the sample after 3 hours?",
+  choices: [{ id: "A", text: "1,500" }, { id: "B", text: "3,000" }, { id: "C", text: "4,000" }, { id: "D", text: "6,000" }],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Evaluating Exponential Functions**\n\n**Choice C is correct.**\n\n**The Fast Way:** $h(3) = 500 \\cdot 2^3 = 500 \\cdot 8 = 4000$.\n\n**The Full Solution:**\n$h(3) = 500(2)^3 = 500 \\times 8 = 4000$.\n\n**Why the wrong answers are tempting:**\n• A: Computes $500 \\times 3 = 1500$ (linear instead of exponential).\n• B: Computes $500 \\times 6$ or $500 \\times 2 \\times 3$.\n• D: Computes $500 \\times 12$ or similar.\n\n**Test Day Takeaway:** In exponential functions, the variable is in the exponent. $2^3 = 8$, not $2 \\times 3 = 6$.",
+  skills: ["exponential-functions"]
+},
+{
+  id: 6, type: "multiple-choice", difficulty: "medium",
+  question: "Triangle $DEF$ is similar to triangle $GHI$. In triangle $DEF$, $DE = 9$, $EF = 12$, and $DF = 15$. If $GH = 6$, what is the perimeter of triangle $GHI$?",
+  choices: [{ id: "A", text: "18" }, { id: "B", text: "24" }, { id: "C", text: "27" }, { id: "D", text: "36" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Similar Triangles — Scale Factor**\n\n**Choice B is correct.**\n\n**The Fast Way:** Scale factor from $DEF$ to $GHI$: $\\frac{GH}{DE} = \\frac{6}{9} = \\frac{2}{3}$. Perimeter of $DEF = 9 + 12 + 15 = 36$. Perimeter of $GHI = 36 \\times \\frac{2}{3} = 24$.\n\n**The Full Solution:**\nSince the triangles are similar with $DE$ corresponding to $GH$, the scale factor is $\\frac{GH}{DE} = \\frac{6}{9} = \\frac{2}{3}$.\n$HI = 12 \\times \\frac{2}{3} = 8$ and $GI = 15 \\times \\frac{2}{3} = 10$.\nPerimeter = $6 + 8 + 10 = 24$.\n\n**Why the wrong answers are tempting:**\n• A: Uses only two sides of the smaller triangle.\n• C: Subtracts 9 from the perimeter instead of scaling.\n• D: This is the perimeter of triangle $DEF$.\n\n**Test Day Takeaway:** Perimeters of similar figures scale by the same factor as corresponding sides.",
+  skills: ["similar-triangles"]
+},
+{
+  id: 7, type: "multiple-choice", difficulty: "medium",
+  question: "A cone has a radius of 5 cm and a height of 12 cm. What is the volume of the cone, in cubic centimeters?",
+  choices: [{ id: "A", text: "$100\\pi$" }, { id: "B", text: "$300\\pi$" }, { id: "C", text: "$60\\pi$" }, { id: "D", text: "$\\frac{100\\pi}{3}$" }],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Volume of a Cone**\n\n**Choice A is correct.**\n\n**The Fast Way:** $V = \\frac{1}{3}\\pi r^2 h = \\frac{1}{3}\\pi(25)(12) = \\frac{300\\pi}{3} = 100\\pi$.\n\n**The Full Solution:**\nThe volume formula for a cone is $V = \\frac{1}{3}\\pi r^2 h$.\n$V = \\frac{1}{3}\\pi(5)^2(12) = \\frac{1}{3}\\pi(25)(12) = \\frac{300\\pi}{3} = 100\\pi$ cubic centimeters.\n\n**Why the wrong answers are tempting:**\n• B: This is $\\pi r^2 h = 300\\pi$, the volume of a cylinder with the same dimensions (forgot the $\\frac{1}{3}$).\n• C: Computes $\\frac{1}{3} \\times 12 \\times 5 \\times \\pi$, forgetting to square the radius.\n• D: Uses $r^2 = 100/3$ somehow.\n\n**Test Day Takeaway:** Cone volume = $\\frac{1}{3}$ of the cylinder with the same base and height. The formula is on the SAT reference sheet.",
+  skills: ["volume"]
+},
+{
+  id: 8, type: "fill-in", difficulty: "medium",
+  question: "A substance decays so that after $t$ years, the amount remaining is $A(t) = 120\\left(\\frac{1}{2}\\right)^{t/5}$. After how many years will 15 grams remain?",
+  correctAnswer: "15",
+  explanation: "**SAT Pattern: Half-Life — Solving Exponential Equations**\n\n**The correct answer is 15.**\n\n**The Fast Way:** $15 = 120(\\frac{1}{2})^{t/5}$. Divide: $(\\frac{1}{2})^{t/5} = \\frac{1}{8} = (\\frac{1}{2})^3$. So $\\frac{t}{5} = 3$, giving $t = 15$.\n\n**The Full Solution:**\nSet $A(t) = 15$:\n$15 = 120\\left(\\frac{1}{2}\\right)^{t/5}$\n$\\frac{15}{120} = \\left(\\frac{1}{2}\\right)^{t/5}$\n$\\frac{1}{8} = \\left(\\frac{1}{2}\\right)^{t/5}$\n$\\left(\\frac{1}{2}\\right)^3 = \\left(\\frac{1}{2}\\right)^{t/5}$\n$3 = \\frac{t}{5}$\n$t = 15$\n\n**Test Day Takeaway:** When the ratio simplifies to a power of the base, match exponents. $\\frac{1}{8} = (\\frac{1}{2})^3$ is a key recognition.",
+  skills: ["exponential-functions", "solving-equations"]
+},
+{
+  id: 9, type: "multiple-choice", difficulty: "medium",
+  question: "In the $xy$-plane, line $m$ has equation $y = \\frac{2}{3}x + 4$ and line $n$ has equation $y = -\\frac{3}{2}x - 1$. What is true about lines $m$ and $n$?",
+  choices: [{ id: "A", text: "They are parallel." }, { id: "B", text: "They are perpendicular." }, { id: "C", text: "They have the same $y$-intercept." }, { id: "D", text: "They intersect at the origin." }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Perpendicular Lines — Negative Reciprocal Slopes**\n\n**Choice B is correct.**\n\n**The Fast Way:** Slope of $m$: $\\frac{2}{3}$. Slope of $n$: $-\\frac{3}{2}$. Product: $\\frac{2}{3} \\times (-\\frac{3}{2}) = -1$. Perpendicular.\n\n**The Full Solution:**\nTwo lines are perpendicular if and only if the product of their slopes is $-1$ (they are negative reciprocals of each other).\n$m_1 \\times m_2 = \\frac{2}{3} \\times \\left(-\\frac{3}{2}\\right) = -1$ ✓\nThe lines are perpendicular.\n\n**Why the wrong answers are tempting:**\n• A: Parallel lines have equal slopes ($\\frac{2}{3} \neq -\\frac{3}{2}$).\n• C: $y$-intercepts are 4 and $-1$, which are different.\n• D: Line $m$ at $x = 0$: $y = 4 \neq 0$, so $m$ doesn't pass through the origin.\n\n**Test Day Takeaway:** Slopes are negative reciprocals (product = $-1$) $\\Leftrightarrow$ perpendicular.",
+  skills: ["slope", "coordinate-geometry"]
+},
+{
+  id: 10, type: "multiple-choice", difficulty: "medium",
+  question: "A cylindrical water tank has a radius of 4 feet and a height of 10 feet. If water fills the tank to 75% of its capacity, what is the volume of water in the tank, in cubic feet?",
+  choices: [{ id: "A", text: "$120\\pi$" }, { id: "B", text: "$160\\pi$" }, { id: "C", text: "$40\\pi$" }, { id: "D", text: "$30\\pi$" }],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Cylinder Volume with Percent Fill**\n\n**Choice A is correct.**\n\n**The Fast Way:** Full volume $= \\pi(4)^2(10) = 160\\pi$. At 75%: $0.75 \\times 160\\pi = 120\\pi$.\n\n**The Full Solution:**\nVolume of a cylinder $= \\pi r^2 h = \\pi(16)(10) = 160\\pi$ cubic feet.\nAt 75% capacity: $0.75 \\times 160\\pi = 120\\pi$ cubic feet.\n\n**Why the wrong answers are tempting:**\n• B: This is the full volume, not 75% of it.\n• C: Incorrectly computes $\\frac{1}{4}$ of the full volume or makes an arithmetic error.\n• D: Divides incorrectly.\n\n**Test Day Takeaway:** For a cylinder filled to a fraction $f$, the water volume is $f \\times \\pi r^2 h$.",
+  skills: ["volume", "percents"]
+},
+{
+  id: 11, type: "fill-in", difficulty: "medium",
+  question: "In triangle $PQR$, $\\angle P = 90°$, $PQ = 8$, and $PR = 15$. What is the length of $QR$?",
+  correctAnswer: "17",
+  explanation: "**SAT Pattern: Pythagorean Theorem Application**\n\n**The correct answer is 17.**\n\n**The Fast Way:** Recognize the 8-15-17 Pythagorean triple. Since $\\angle P = 90°$, $QR$ is the hypotenuse: $QR = 17$.\n\n**The Full Solution:**\nWith the right angle at $P$, $QR$ is the hypotenuse.\n$QR = \\sqrt{PQ^2 + PR^2} = \\sqrt{64 + 225} = \\sqrt{289} = 17$.\n\n**Test Day Takeaway:** Memorize common Pythagorean triples: 3-4-5, 5-12-13, 8-15-17, 7-24-25.",
+  skills: ["triangles"]
+},
+{
+  id: 12, type: "multiple-choice", difficulty: "medium",
+  question: "The function $f(t) = 3000(0.92)^t$ models the value of equipment after $t$ years. What does $0.92$ represent in this context?",
+  choices: [{ id: "A", text: "The equipment loses 92% of its value each year." }, { id: "B", text: "The equipment retains 92% of its value each year." }, { id: "C", text: "The equipment loses 8% of its value each year." }, { id: "D", text: "Both B and C" }],
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Interpreting Exponential Decay Base**\n\n**Choice D is correct.**\n\n**The Fast Way:** A base of 0.92 means the equipment keeps 92% each year. Keeping 92% means losing 8%. Both B and C are correct interpretations.\n\n**The Full Solution:**\nIn $f(t) = 3000(0.92)^t$, each year the value is multiplied by 0.92. This means:\n• 92% of the previous value remains (Choice B)\n• 100% $-$ 92% = 8% is lost each year (Choice C)\nBoth statements are equivalent and correct.\n\n**Why the wrong answers are tempting:**\n• A: Losing 92% would mean the base is $1 - 0.92 = 0.08$, not 0.92.\n• B alone: Correct but incomplete — C is also correct.\n• C alone: Correct but incomplete — B is also correct.\n\n**Test Day Takeaway:** A decay factor of $r$ means $r \\times 100\\%$ is retained and $(1-r) \\times 100\\%$ is lost. Both are valid descriptions.",
+  skills: ["exponential-functions", "function-interpretation"]
+},
+{
+  id: 13, type: "fill-in", difficulty: "medium",
+  question: "In the $xy$-plane, the center of a circle is at $(2, -3)$ and the circle passes through the point $(7, 9)$. What is the radius of the circle?",
+  correctAnswer: "13",
+  explanation: "**SAT Pattern: Distance Formula for Circle Radius**\n\n**The correct answer is 13.**\n\n**The Fast Way:** Distance $= \\sqrt{(7-2)^2 + (9-(-3))^2} = \\sqrt{25 + 144} = \\sqrt{169} = 13$.\n\n**The Full Solution:**\nThe radius equals the distance from the center to any point on the circle.\n$r = \\sqrt{(7-2)^2 + (9-(-3))^2} = \\sqrt{5^2 + 12^2} = \\sqrt{25 + 144} = \\sqrt{169} = 13$.\nThis is the 5-12-13 Pythagorean triple.\n\n**Test Day Takeaway:** The distance formula $d = \\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}$ is essentially the Pythagorean theorem on a coordinate plane.",
+  skills: ["circle-equations", "coordinate-geometry"]
+},
+{
+  id: 14, type: "multiple-choice", difficulty: "medium",
+  question: "Lines $l$ and $m$ are parallel. A transversal crosses line $l$ forming an angle of $(3x + 10)°$ and crosses line $m$ forming a consecutive interior angle of $(5x - 30)°$. What is the value of $x$?",
+  choices: [{ id: "A", text: "20" }, { id: "B", text: "25" }, { id: "C", text: "30" }, { id: "D", text: "35" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Parallel Lines — Consecutive Interior Angles**\n\n**Choice B is correct.**\n\n**The Fast Way:** Consecutive interior angles (same-side interior) are supplementary: $(3x+10) + (5x-30) = 180$. So $8x - 20 = 180$, giving $8x = 200$ and $x = 25$.\n\n**The Full Solution:**\nConsecutive interior angles (also called co-interior or same-side interior angles) between parallel lines are supplementary — they add to $180°$.\n$(3x + 10) + (5x - 30) = 180$\n$8x - 20 = 180$\n$8x = 200$\n$x = 25$\n\nCheck: $3(25)+10 = 85°$ and $5(25)-30 = 95°$. Sum: $85 + 95 = 180°$ ✓.\n\n**Why the wrong answers are tempting:**\n• A: Sets the angles equal (which would apply to alternate interior angles).\n• C: Arithmetic error.\n• D: Uses the wrong angle relationship.\n\n**Test Day Takeaway:** Consecutive interior angles between parallel lines are supplementary (sum to 180°). Alternate interior angles are equal.",
+  skills: ["angles"]
+},
+{
+  id: 15, type: "multiple-choice", difficulty: "hard",
+  question: "A right circular cylinder has a total surface area of $130\\pi$ square inches. If the height of the cylinder is 8 inches, what is the radius of the cylinder, in inches?",
+  choices: [{ id: "A", text: "3" }, { id: "B", text: "5" }, { id: "C", text: "7" }, { id: "D", text: "10" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Surface Area of a Cylinder — Solving for Radius**\n\n**Choice B is correct.**\n\n**The Fast Way:** Surface area $= 2\\pi r^2 + 2\\pi rh = 2\\pi r(r+h) = 130\\pi$. So $2r(r+8) = 130$, giving $r(r+8) = 65$. Testing $r = 5$: $5(13) = 65$ ✓.\n\n**The Full Solution:**\nTotal surface area of a cylinder: $SA = 2\\pi r^2 + 2\\pi rh$.\n$2\\pi r^2 + 2\\pi r(8) = 130\\pi$\nDivide by $2\\pi$:\n$r^2 + 8r = 65$\n$r^2 + 8r - 65 = 0$\n$(r + 13)(r - 5) = 0$\n$r = 5$ (reject $r = -13$)\n\n**Why the wrong answers are tempting:**\n• A: $2(3)(3+8) = 66 \neq 130$.\n• C: $2(7)(7+8) = 210 \neq 130$.\n• D: $2(10)(18) = 360 \neq 130$.\n\n**Test Day Takeaway:** The total surface area formula has two parts: two circular bases ($2\\pi r^2$) and the lateral surface ($2\\pi rh$). Set up the equation and solve the resulting quadratic.",
+  skills: ["surface-area", "quadratic-equations"]
+},
+{
+  id: 16, type: "multiple-choice", difficulty: "hard",
+  question: "A population of bacteria doubles every 90 minutes. The function modeling this population is $P(t) = P_0 \\cdot 2^{t/90}$, where $t$ is in minutes. Which of the following is an equivalent form that shows the approximate percent increase per minute?",
+  choices: [{ id: "A", text: "$P_0(1.0077)^t$" }, { id: "B", text: "$P_0(1.022)^t$" }, { id: "C", text: "$P_0(1.5)^t$" }, { id: "D", text: "$P_0(2.0)^t$" }],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Converting Exponential Periods**\n\n**Choice A is correct.**\n\n**The Fast Way:** $2^{1/90} = (2)^{0.0111} \\approx 1.00773$. So $P(t) = P_0(1.0077)^t$.\n\n**The Full Solution:**\nRewrite $P(t) = P_0 \\cdot 2^{t/90}$ as $P(t) = P_0 \\cdot (2^{1/90})^t$.\nCompute $2^{1/90}$: Using the approximation $\\ln 2 \\approx 0.693$:\n$2^{1/90} = e^{(\\ln 2)/90} = e^{0.00770} \\approx 1.00773$.\nThis means approximately a $0.77\\%$ increase per minute.\n\n**Why the wrong answers are tempting:**\n• B: This would correspond to doubling about every 32 minutes.\n• C: This multiplies by 1.5 every minute — far too fast.\n• D: This would double every minute.\n\n**Test Day Takeaway:** To convert between time periods in exponential models, rewrite $b^{t/k}$ as $(b^{1/k})^t$.",
+  skills: ["exponential-functions", "function-interpretation"]
+},
+{
+  id: 17, type: "fill-in", difficulty: "hard",
+  question: "Two rectangular prisms are glued together along one face. Prism A has dimensions $3 \\times 4 \\times 5$ and Prism B has dimensions $3 \\times 4 \\times 7$. The two prisms are glued along their $3 \\times 4$ faces. What is the total surface area of the resulting solid?",
+  correctAnswer: "192",
+  explanation: "**SAT Pattern: 3D Composite Solid Surface Area**\n\n**The correct answer is 192.**\n\n**The Fast Way:** SA of A $= 2(12+15+20) = 94$. SA of B $= 2(12+21+28) = 122$. Subtract the two hidden $3 \\times 4$ faces: $94 + 122 - 2(12) = 192$.\n\n**The Full Solution:**\nSurface area of Prism A: $2(3 \\cdot 4) + 2(3 \\cdot 5) + 2(4 \\cdot 5) = 24 + 30 + 40 = 94$.\nSurface area of Prism B: $2(3 \\cdot 4) + 2(3 \\cdot 7) + 2(4 \\cdot 7) = 24 + 42 + 56 = 122$.\nWhen glued along the $3 \\times 4$ face, one face from each prism is hidden.\nTotal surface area $= 94 + 122 - 2(3 \\times 4) = 216 - 24 = 192$.\n\n**Test Day Takeaway:** When solids are glued together, subtract twice the area of the glued face (one hidden face from each solid).",
+  skills: ["surface-area"]
+},
+{
+  id: 18, type: "multiple-choice", difficulty: "hard",
+  question: "In right triangle $XYZ$, $\\angle Z = 90°$ and $\\cos X = \\frac{5}{13}$. If $XZ = 10$, what is the area of triangle $XYZ$?",
+  choices: [{ id: "A", text: "60" }, { id: "B", text: "120" }, { id: "C", text: "24" }, { id: "D", text: "48" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Right Triangle Trig — Area Calculation**\n\n**Choice B is correct.**\n\n**The Fast Way:** $\\cos X = \\frac{XZ}{XY} = \\frac{5}{13}$. Since $XZ = 10$, we get $XY = 26$. Then $YZ = \\sqrt{26^2 - 10^2} = 24$. Area $= \\frac{1}{2}(10)(24) = 120$.\n\n**The Full Solution:**\nIn right triangle $XYZ$ with right angle at $Z$:\n$\\cos X = \\frac{\\text{adjacent to } X}{\\text{hypotenuse}} = \\frac{XZ}{XY} = \\frac{5}{13}$\nSince $XZ = 10$: $\\frac{10}{XY} = \\frac{5}{13}$, so $XY = 26$.\n$YZ = \\sqrt{XY^2 - XZ^2} = \\sqrt{676 - 100} = \\sqrt{576} = 24$.\nArea $= \\frac{1}{2} \\cdot XZ \\cdot YZ = \\frac{1}{2}(10)(24) = 120$.\n\n**Why the wrong answers are tempting:**\n• A: Uses the 5-12-13 triple directly without scaling ($\\frac{1}{2}(5)(12) \\times$ something).\n• C: Uses 24 as the area instead of computing $\\frac{1}{2} \\times$ base $\\times$ height.\n• D: Uses half of 24 times some other dimension.\n\n**Test Day Takeaway:** Use trig ratios to find all sides, then apply the area formula. Watch for scaled Pythagorean triples.",
+  skills: ["trigonometry", "triangles", "area"]
+},
+{
+  id: 19, type: "multiple-choice", difficulty: "hard",
+  question: "The number of users of a social media app increases by 8% every 6 months. If the app currently has 50,000 users, which of the following expressions gives the number of users after $y$ years?",
+  choices: [{ id: "A", text: "$50000(1.08)^{2y}$" }, { id: "B", text: "$50000(1.08)^{y/2}$" }, { id: "C", text: "$50000(1.16)^y$" }, { id: "D", text: "$50000(1.08)^y$" }],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Exponential Growth — Unit Conversion**\n\n**Choice A is correct.**\n\n**The Fast Way:** 8% growth every 6 months means a factor of $1.08$ per half-year. In $y$ years, there are $2y$ half-year periods: $50000(1.08)^{2y}$.\n\n**The Full Solution:**\nThe growth factor per 6-month period is $1.08$.\nIn $y$ years, there are $\\frac{y}{0.5} = 2y$ periods of 6 months.\nSo the number of users after $y$ years: $50000(1.08)^{2y}$.\n\nWe can verify: after 1 year ($y = 1$): $50000(1.08)^2 = 50000(1.1664) = 58,320$.\nThis is two consecutive 8% increases: $50000 \\times 1.08 \\times 1.08 = 58,320$ ✓.\n\n**Why the wrong answers are tempting:**\n• B: Uses $y/2$ instead of $2y$ — divides instead of multiplying by 2.\n• C: Doubles the rate to 16% per year, but compounding doesn't work that way.\n• D: Applies 8% once per year instead of twice.\n\n**Test Day Takeaway:** Count the number of growth periods carefully. If growth is every 6 months and time is in years, there are $2y$ periods.",
+  skills: ["exponential-functions", "word-problems"]
+},
+{
+  id: 20, type: "fill-in", difficulty: "hard",
+  question: "A sphere has a volume of $288\\pi$ cubic centimeters. What is the surface area of the sphere, in terms of $\\pi$? (Enter the coefficient of $\\pi$.)",
+  correctAnswer: "144",
+  explanation: "**SAT Pattern: Sphere — Volume to Surface Area**\n\n**The correct answer is 144 (the surface area is $144\\pi$).**\n\n**The Fast Way:** $V = \\frac{4}{3}\\pi r^3 = 288\\pi$, so $r^3 = 216$, giving $r = 6$. Surface area $= 4\\pi r^2 = 4\\pi(36) = 144\\pi$.\n\n**The Full Solution:**\n$\\frac{4}{3}\\pi r^3 = 288\\pi$\n$r^3 = 288 \\times \\frac{3}{4} = 216$\n$r = \\sqrt[3]{216} = 6$\n\nSurface area $= 4\\pi r^2 = 4\\pi(6)^2 = 4\\pi(36) = 144\\pi$.\nThe coefficient of $\\pi$ is 144.\n\n**Test Day Takeaway:** When converting between volume and surface area, first find the radius from one formula, then substitute into the other.",
+  skills: ["volume", "surface-area"]
+},
+{
+  id: 21, type: "multiple-choice", difficulty: "hard",
+  question: "In the figure, $\\overline{AB}$ is a diameter of the circle with center $O$ and radius 10. Point $C$ is on the circle such that $\\angle BAC = 30°$. What is the length of $\\overline{BC}$?",
+  choices: [{ id: "A", text: "5" }, { id: "B", text: "10" }, { id: "C", text: "$10\\sqrt{3}$" }, { id: "D", text: "$5\\sqrt{3}$" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Inscribed Angle in Semicircle**\n\n**Choice B is correct.**\n\n**The Fast Way:** Since $AB$ is a diameter, $\\angle ACB = 90°$ (angle in a semicircle). In right triangle $ACB$: $AB = 20$ (diameter), $\\angle BAC = 30°$, so $BC = AB \\sin 30° = 20 \\times \\frac{1}{2} = 10$.\n\n**The Full Solution:**\nThales' theorem: any angle inscribed in a semicircle is a right angle, so $\\angle ACB = 90°$.\nIn right triangle $ACB$ with hypotenuse $AB = 2r = 20$ and $\\angle BAC = 30°$:\n$\\sin(30°) = \\frac{BC}{AB}$\n$\\frac{1}{2} = \\frac{BC}{20}$\n$BC = 10$\n\nAlternatively, this is a 30-60-90 triangle: hypotenuse 20, shorter leg (opposite 30°) = 10.\n\n**Why the wrong answers are tempting:**\n• A: Uses the radius instead of the diameter as the hypotenuse.\n• C: This would be the side opposite $60°$, which is $AC$, not $BC$.\n• D: Confuses which leg is opposite which angle.\n\n**Test Day Takeaway:** An angle inscribed in a semicircle is always 90°. Combine this with special right triangle ratios.",
+  skills: ["triangles", "trigonometry", "circle-equations"]
+},
+{
+  id: 22, type: "multiple-choice", difficulty: "hard",
+  question: "A sector of a circle has a central angle of $150°$ and an arc length of $25\\pi$ centimeters. What is the area of the sector, in square centimeters?",
+  choices: [{ id: "A", text: "$150\\pi$" }, { id: "B", text: "$375\\pi$" }, { id: "C", text: "$750\\pi$" }, { id: "D", text: "$2250\\pi$" }],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Sector Arc Length to Area**\n\n**Choice B is correct.**\n\n**The Fast Way:** Arc length $= \\frac{\\theta}{360} \\cdot 2\\pi r$. So $25\\pi = \\frac{150}{360} \\cdot 2\\pi r = \\frac{5}{6}\\pi r$. Thus $r = 30$. Area of sector $= \\frac{150}{360} \\cdot \\pi(30)^2 = \\frac{5}{12} \\cdot 900\\pi = 375\\pi$.\n\n**The Full Solution:**\nFrom the arc length formula:\n$25\\pi = \\frac{150}{360} \\cdot 2\\pi r$\n$25\\pi = \\frac{5\\pi r}{6}$\n$25 = \\frac{5r}{6}$\n$r = 30$ cm\n\nArea of sector:\n$A = \\frac{\\theta}{360} \\cdot \\pi r^2 = \\frac{150}{360} \\cdot \\pi(900) = \\frac{5}{12} \\cdot 900\\pi = 375\\pi$\n\n**Why the wrong answers are tempting:**\n• A: Uses $r = 10$ from an arithmetic error.\n• C: Forgets to multiply by $\\frac{\\theta}{360}$ in the area step.\n• D: Uses $r^2 = 900$ but multiplies by $\\frac{5}{2}$ instead of $\\frac{5}{12}$.\n\n**Test Day Takeaway:** Use the arc length to find the radius first. Then use the same angle fraction with the area formula. Both formulas use $\\frac{\\theta}{360}$.",
+  skills: ["area", "circle-equations"]
+}
       ]
     }
   ]
