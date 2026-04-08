@@ -15,146 +15,147 @@ export const practiceTest9 = {
       title: "Module 1",
       timeLimit: 35,
       questions: [
-        // ===== EASY (Q1-Q7) =====
+        // ===== EASY (Q1-Q5) =====
         {
           id: 1,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "A restaurant served $180$ meals on Friday. If $\\frac{1}{3}$ of the meals were vegetarian, how many vegetarian meals were served?",
+          question: "A restaurant tracked the number of meals served each day for one week.\n\n| Day | Meals Served |\n|---|---|\n| Monday | $120$ |\n| Tuesday | $145$ |\n| Wednesday | $130$ |\n| Thursday | $155$ |\n| Friday | $200$ |\n\nAccording to the table, on which day were the most meals served?",
           choices: [
-            { id: "A", text: "$3$" },
-            { id: "B", text: "$45$" },
-            { id: "C", text: "$60$" },
-            { id: "D", text: "$120$" }
+            { id: "A", text: "Tuesday" },
+            { id: "B", text: "Wednesday" },
+            { id: "C", text: "Thursday" },
+            { id: "D", text: "Friday" }
           ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Fraction of a Whole**\n\n**Choice C is correct.**\n\n**The Fast Way (5 seconds):** $\\frac{180}{3} = 60$.\n\n**The Full Solution:**\n$\\frac{1}{3} \\times 180 = 60$ vegetarian meals.\n\n**Why the wrong answers are tempting:**\n• Choice A ($3$): Uses the denominator of the fraction.\n• Choice B ($45$): Computes $\\frac{180}{4}$ instead of $\\frac{180}{3}$.\n• Choice D ($120$): This is $\\frac{2}{3}$ of $180$ — the NON-vegetarian meals.\n\n**Test Day Takeaway:** \"$\\frac{1}{n}$ of\" means divide by $n$.",
-          skills: ["ratios-proportions"]
+          correctAnswer: "D",
+          explanation: "**SAT Pattern: Reading Data from a Table**\n\n**Choice D is correct.**\n\n**The Fast Way (10 seconds):** Scan the \"Meals Served\" column for the largest value: $200$ on Friday.\n\n**The Full Solution:**\nCompare all values: $120, 145, 130, 155, 200$. The maximum is $200$, which corresponds to Friday.\n\n**Why the wrong answers are tempting:**\n• Choice A (Tuesday): $145$ is the second-smallest, not the largest.\n• Choice B (Wednesday): $130$ is less than Thursday and Friday.\n• Choice C (Thursday): $155$ is large but not the maximum.\n\n**Test Day Takeaway:** For \"which is the greatest/most\" questions, scan the column and compare all values before choosing.",
+          skills: ["word-problems", "statistics"]
         },
         {
           id: 2,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "If $7x = 42$, what is the value of $x + 5$?",
+          question: "Seven more than $3$ times a number $n$ is $52$. Which equation represents this situation?",
           choices: [
-            { id: "A", text: "$6$" },
-            { id: "B", text: "$11$" },
-            { id: "C", text: "$35$" },
-            { id: "D", text: "$47$" }
+            { id: "A", text: "$7n + 3 = 52$" },
+            { id: "B", text: "$3n + 7 = 52$" },
+            { id: "C", text: "$3(n + 7) = 52$" },
+            { id: "D", text: "$7(n + 3) = 52$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Solve-Then-Evaluate**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $x = 42 \\div 7 = 6$. Then $x + 5 = 6 + 5 = 11$.\n\n**The Full Solution:**\n$7x = 42$\n$x = 6$\n$x + 5 = 6 + 5 = 11$\n\n**Why the wrong answers are tempting:**\n• Choice A ($6$): This is just $x$, not $x + 5$.\n• Choice C ($35$): $42 - 7 = 35$.\n• Choice D ($47$): $42 + 5 = 47$, adding $5$ to $42$ instead of to $x$.\n\n**Test Day Takeaway:** Solve for $x$ first, THEN compute the expression the question asks for.",
-          skills: ["linear-equations", "solving-equations"]
+          explanation: "**SAT Pattern: Translating Words to an Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** \"$3$ times a number\" $= 3n$. \"Seven more than that\" $= 3n + 7$. Set equal to $52$: $3n + 7 = 52$.\n\n**The Full Solution:**\nParse the sentence step by step:\n• \"$3$ times a number $n$\" $\\rightarrow 3n$\n• \"Seven more than $3n$\" $\\rightarrow 3n + 7$\n• \"is $52$\" $\\rightarrow = 52$\nEquation: $3n + 7 = 52$\n\n**Why the wrong answers are tempting:**\n• Choice A ($7n + 3 = 52$): Swaps the multiplier and the addend.\n• Choice C ($3(n + 7) = 52$): Adds $7$ inside the multiplication — this means \"$3$ times the quantity $n + 7$.\"\n• Choice D ($7(n + 3) = 52$): Reverses everything.\n\n**Test Day Takeaway:** \"$k$ more than\" means $+ k$ (added after). \"$k$ times\" means $\\times k$ (multiplied first). Build from the inside out.",
+          skills: ["word-problems", "linear-equations"]
         },
         {
           id: 3,
-          type: "fill-in",
+          type: "multiple-choice",
           difficulty: "easy",
-          question: "An online store received $85$ orders on Monday and $127$ orders on Tuesday. How many more orders were received on Tuesday than on Monday?",
-          correctAnswer: "42",
-          explanation: "**SAT Pattern: Basic Subtraction Word Problem**\n\n**The correct answer is 42.**\n\n**The Fast Way (5 seconds):** $127 - 85 = 42$.\n\n**The Full Solution:**\nDifference $= 127 - 85 = 42$\n\n**Common Mistakes to Avoid:**\n• Adding instead of subtracting: $127 + 85 = 212$.\n\n**Verification:** $85 + 42 = 127$ ✓\n\n**Test Day Takeaway:** \"How many more\" always means subtract.",
-          skills: ["word-problems"]
+          question: "The function $f(t) = 200 + 30t$ models the number of songs in a music producer's library $t$ months after she started collecting. What does the number $30$ represent in this function?",
+          choices: [
+            { id: "A", text: "The total number of songs after $30$ months" },
+            { id: "B", text: "The number of songs she started with" },
+            { id: "C", text: "The number of songs added per month" },
+            { id: "D", text: "The number of months she has been collecting" }
+          ],
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Interpreting Slope in a Linear Function**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** In $f(t) = 200 + 30t$, the coefficient of $t$ is the rate of change: $30$ songs per month.\n\n**The Full Solution:**\nIn a linear function $f(t) = b + mt$:\n• $m$ (the coefficient of $t$) is the slope, or rate of change\n• $b$ is the initial value (the $y$-intercept)\nHere $m = 30$, meaning she adds $30$ songs each month.\n\n**Why the wrong answers are tempting:**\n• Choice A: To find the total at $30$ months, you'd compute $f(30) = 200 + 30(30) = 1{,}100$. The number $30$ itself is not a total.\n• Choice B: The starting number is $200$, not $30$.\n• Choice D: The variable $t$ represents months; $30$ is the rate, not a time.\n\n**Test Day Takeaway:** Slope $=$ rate of change. The $y$-intercept $=$ starting value. Know which is which.",
+          skills: ["linear-functions", "function-interpretation"]
         },
         {
           id: 4,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "A music producer earns $\\$500$ per week plus $\\$50$ for each song completed. Which expression gives the total weekly earnings for completing $s$ songs?",
+          question: "A wildlife biologist tagged animals in a nature reserve and recorded the results in the table below.\n\n| Animal | Number Tagged |\n|---|---|\n| Deer | $48$ |\n| Foxes | $15$ |\n| Rabbits | $72$ |\n| Owls | $25$ |\n| **Total** | **$160$** |\n\nWhat percentage of the tagged animals were deer?",
           choices: [
-            { id: "A", text: "$50s$" },
-            { id: "B", text: "$500s + 50$" },
-            { id: "C", text: "$500 + 50s$" },
-            { id: "D", text: "$550s$" }
+            { id: "A", text: "$20\\%$" },
+            { id: "B", text: "$25\\%$" },
+            { id: "C", text: "$30\\%$" },
+            { id: "D", text: "$48\\%$" }
           ],
           correctAnswer: "C",
-          explanation: "**SAT Pattern: Writing a Linear Expression**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** Base pay $= 500$. Song bonus $= 50s$. Total $= 500 + 50s$.\n\n**The Full Solution:**\nWeekly earnings $= \\text{base pay} + \\text{per-song pay} \\times \\text{songs}$\n$= 500 + 50s$\n\n**Why the wrong answers are tempting:**\n• Choice A ($50s$): Ignores the base pay.\n• Choice B ($500s + 50$): Swaps the base pay and per-song rate.\n• Choice D ($550s$): Adds the rates together instead of keeping them separate.\n\n**Test Day Takeaway:** Total $=$ fixed amount $+$ (rate $\\times$ variable).",
-          skills: ["linear-functions", "word-problems"]
+          explanation: "**SAT Pattern: Percentage from a Data Table**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** $\\frac{48}{160} = \\frac{3}{10} = 30\\%$.\n\n**The Full Solution:**\nPercentage of deer $= \\frac{48}{160} \\times 100\\% = 30\\%$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($20\\%$): From $\\frac{48}{240}$ or a mental math error.\n• Choice B ($25\\%$): From $\\frac{48}{192}$ or confusing with $\\frac{1}{4}$.\n• Choice D ($48\\%$): Uses the count $48$ directly as a percentage.\n\n**Test Day Takeaway:** Percentage $= \\frac{\\text{part}}{\\text{total}} \\times 100$. Read the total from the table — don't guess it.",
+          skills: ["percents", "statistics"]
         },
+        // ===== EASY-MEDIUM (Q5-Q7) =====
         {
           id: 5,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "What percentage of $200$ is $50$?",
+          question: "An online store sells bins for $\\$9$ each. A customer has a $\\$63$ store coupon. After applying the coupon, the customer pays $\\$27$ for an order of bins. How many bins did the customer order?",
           choices: [
-            { id: "A", text: "$15\\%$" },
-            { id: "B", text: "$20\\%$" },
-            { id: "C", text: "$25\\%$" },
-            { id: "D", text: "$50\\%$" }
+            { id: "A", text: "$3$" },
+            { id: "B", text: "$7$" },
+            { id: "C", text: "$9$" },
+            { id: "D", text: "$10$" }
           ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Finding a Percentage**\n\n**Choice C is correct.**\n\n**The Fast Way (5 seconds):** $\\frac{50}{200} = \\frac{1}{4} = 25\\%$.\n\n**The Full Solution:**\n$\\frac{50}{200} \\times 100\\% = 25\\%$\n\n**Why the wrong answers are tempting:**\n• Choice A ($15\\%$): Random calculation error.\n• Choice B ($20\\%$): From $\\frac{50}{250}$ or similar.\n• Choice D ($50\\%$): From using $50$ as the percentage directly.\n\n**Test Day Takeaway:** Percentage $= \\frac{\\text{part}}{\\text{whole}} \\times 100$.",
-          skills: ["percents"]
+          correctAnswer: "D",
+          explanation: "**SAT Pattern: Two-Step Word Problem**\n\n**Choice D is correct.**\n\n**The Fast Way (15 seconds):** Total before coupon $= 27 + 63 = 90$. Number of bins $= 90 \\div 9 = 10$.\n\n**The Full Solution:**\nLet $n =$ number of bins.\nTotal cost before coupon $= 9n$.\nAfter coupon: $9n - 63 = 27$.\n$9n = 90$.\n$n = 10$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($3$): From $27 \\div 9 = 3$ (using only the amount paid, ignoring the coupon).\n• Choice B ($7$): From $63 \\div 9 = 7$ (dividing the coupon by the price).\n• Choice C ($9$): The price per bin, not the quantity.\n\n**Test Day Takeaway:** Work backward: add the coupon back to find the original total, then divide by the unit price.",
+          skills: ["word-problems", "linear-equations"]
         },
         {
           id: 6,
           type: "fill-in",
-          difficulty: "easy",
-          question: "A wildlife reserve has $360$ animals. If $\\frac{2}{9}$ of them are birds, how many birds are in the reserve?",
-          correctAnswer: "80",
-          explanation: "**SAT Pattern: Fraction of a Whole**\n\n**The correct answer is 80.**\n\n**The Fast Way (10 seconds):** $\\frac{360}{9} = 40$. Then $40 \\times 2 = 80$.\n\n**The Full Solution:**\n$\\frac{2}{9} \\times 360 = \\frac{720}{9} = 80$\n\n**Common Mistakes to Avoid:**\n• Computing $\\frac{360}{2} = 180$ (dividing by the numerator instead of the denominator).\n• Getting $40$ (which is $\\frac{1}{9}$ of $360$, not $\\frac{2}{9}$).\n\n**Verification:** $80 \\div 360 = \\frac{2}{9}$ ✓\n\n**Test Day Takeaway:** Divide by the denominator first, then multiply by the numerator.",
-          skills: ["ratios-proportions"]
+          difficulty: "medium",
+          question: "The equation $k^2 - 53 = 91$ is true for $k > 0$. What is the value of $k$?",
+          correctAnswer: "12",
+          explanation: "**SAT Pattern: Solving a Quadratic for a Positive Root**\n\n**The correct answer is $12$.**\n\n**The Fast Way (15 seconds):** $k^2 = 91 + 53 = 144$. Since $k > 0$, $k = \\sqrt{144} = 12$.\n\n**The Full Solution:**\n$k^2 - 53 = 91$\n$k^2 = 144$\n$k = \\pm 12$\nSince $k > 0$, $k = 12$.\n\n**Common Mistakes to Avoid:**\n• Getting $k = -12$ (valid algebraically, but the problem specifies $k > 0$).\n• Computing $91 - 53 = 38$ instead of $91 + 53 = 144$ (subtracting instead of adding).\n• Forgetting to take the square root: answering $144$ instead of $12$.\n\n**Verification:** $12^2 - 53 = 144 - 53 = 91$ ✓\n\n**Test Day Takeaway:** Isolate $k^2$ first, then take the square root. Check whether the problem restricts to positive values.",
+          skills: ["quadratic-equations", "solving-equations"]
         },
         {
           id: 7,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "Which of the following is equivalent to $5x + 3x - 2x$?",
+          difficulty: "medium",
+          question: "Which of the following is equivalent to $(3x^2 + 2x - 5) + (x^2 + 4x + 3)$?",
           choices: [
-            { id: "A", text: "$6x$" },
-            { id: "B", text: "$6x^3$" },
-            { id: "C", text: "$10x$" },
-            { id: "D", text: "$30x$" }
+            { id: "A", text: "$4x^2 + 6x - 2$" },
+            { id: "B", text: "$3x^4 + 6x^2 - 2$" },
+            { id: "C", text: "$4x^2 + 2x - 2$" },
+            { id: "D", text: "$4x^2 + 6x + 8$" }
           ],
           correctAnswer: "A",
-          explanation: "**SAT Pattern: Combining Like Terms**\n\n**Choice A is correct.**\n\n**The Fast Way (5 seconds):** $5 + 3 - 2 = 6$, so $6x$.\n\n**The Full Solution:**\n$5x + 3x - 2x = (5 + 3 - 2)x = 6x$\n\n**Why the wrong answers are tempting:**\n• Choice B ($6x^3$): Incorrectly multiplies the exponents.\n• Choice C ($10x$): From $5 + 3 + 2 = 10$ (adding instead of subtracting).\n• Choice D ($30x$): From $5 \\times 3 \\times 2 = 30$.\n\n**Test Day Takeaway:** Combining like terms means adding/subtracting coefficients. The variable part stays the same.",
+          explanation: "**SAT Pattern: Adding Polynomials**\n\n**Choice A is correct.**\n\n**The Fast Way (15 seconds):** Combine like terms: $3x^2 + x^2 = 4x^2$, $2x + 4x = 6x$, $-5 + 3 = -2$. Result: $4x^2 + 6x - 2$.\n\n**The Full Solution:**\n$(3x^2 + 2x - 5) + (x^2 + 4x + 3)$\n$= (3 + 1)x^2 + (2 + 4)x + (-5 + 3)$\n$= 4x^2 + 6x - 2$\n\n**Why the wrong answers are tempting:**\n• Choice B ($3x^4 + 6x^2 - 2$): Multiplies the $x^2$ terms instead of adding their coefficients.\n• Choice C ($4x^2 + 2x - 2$): Forgets to add the $x$-term coefficients ($2x$ instead of $6x$).\n• Choice D ($4x^2 + 6x + 8$): Computes $-5 + 3$ as $+8$ instead of $-2$.\n\n**Test Day Takeaway:** When adding polynomials, add the coefficients of terms with the same degree. Do not multiply exponents.",
           skills: ["polynomial-operations"]
         },
 
-        // ===== MEDIUM (Q8-Q15) =====
+        // ===== MEDIUM (Q8-Q13) =====
         {
           id: 8,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "A restaurant charges $\\$12$ for adult meals and $\\$7$ for children's meals. On one evening, $45$ meals were served and the total revenue was $\\$430$. How many adult meals were served?",
+          question: "A music streaming service charges a $\\$10$ monthly fee plus $\\$1.50$ per album downloaded. A competing service charges no monthly fee but $\\$3$ per album. For how many albums in a month would the two services cost the same?",
           choices: [
-            { id: "A", text: "$17$" },
-            { id: "B", text: "$20$" },
-            { id: "C", text: "$23$" },
-            { id: "D", text: "$25$" }
+            { id: "A", text: "$4$" },
+            { id: "B", text: "$5$" },
+            { id: "C", text: "$6$" },
+            { id: "D", text: "$\\ \\frac{20}{3}$" }
           ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: System of Linear Equations from Context**\n\n**Choice C is correct.**\n\n**The Fast Way (30 seconds):** Let $a$ = adult, $c$ = children. $a + c = 45$ and $12a + 7c = 430$. Substitute $c = 45 - a$: $12a + 7(45 - a) = 430$. $12a + 315 - 7a = 430$. $5a = 115$. $a = 23$.\n\n**The Full Solution:**\n$a + c = 45$\n$12a + 7c = 430$\n\n$c = 45 - a$\n$12a + 7(45 - a) = 430$\n$12a + 315 - 7a = 430$\n$5a = 115$\n$a = 23$\n\n**Why the wrong answers are tempting:**\n• Choice A ($17$): From a substitution error.\n• Choice B ($20$): From $430 \\div 21.5$.\n• Choice D ($25$): If $a = 25$, revenue $= 12(25) + 7(20) = 440 \\neq 430$.\n\n**Verification:** $12(23) + 7(22) = 276 + 154 = 430$ ✓\n\n**Test Day Takeaway:** Set up two equations (quantity and value), substitute, and solve.",
-          skills: ["systems-of-equations", "word-problems"]
+          correctAnswer: "D",
+          explanation: "**SAT Pattern: Setting Two Linear Expressions Equal**\n\n**Choice D is correct.**\n\n**The Fast Way (20 seconds):** Set $10 + 1.50a = 3a$. Then $10 = 1.50a$, so $a = \\frac{10}{1.5} = \\frac{20}{3}$.\n\n**The Full Solution:**\nService 1: $10 + 1.50a$\nService 2: $3a$\nSet equal: $10 + 1.50a = 3a$\n$10 = 3a - 1.50a = 1.50a$\n$a = \\frac{10}{1.50} = \\frac{20}{3} \\approx 6.67$\n\n**Why the wrong answers are tempting:**\n• Choice A ($4$): Service 1 costs $16$, Service 2 costs $12$ — not equal.\n• Choice B ($5$): Service 1 costs $17.50$, Service 2 costs $15$ — not equal.\n• Choice C ($6$): Service 1 costs $19$, Service 2 costs $18$ — close but not equal.\n\n**Verification:** $10 + 1.5 \\cdot \\frac{20}{3} = 10 + 10 = 20$. $3 \\cdot \\frac{20}{3} = 20$. Both equal $20$ ✓\n\n**Test Day Takeaway:** \"Same cost\" means set the two expressions equal and solve. The answer can be a fraction.",
+          skills: ["linear-equations", "systems-of-equations"]
         },
         {
           id: 9,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "A line has slope $-\\frac{1}{4}$ and passes through the point $(8, 3)$. What is the equation of the line?",
+          question: "The table below shows data from a survey of $200$ restaurant customers.\n\n| | Dine-in | Takeout | Total |\n|---|---|---|---|\n| Lunch | $50$ | $70$ | $120$ |\n| Dinner | $60$ | $20$ | $80$ |\n| Total | $110$ | $90$ | $200$ |\n\nWhat fraction of dine-in customers ordered dinner?",
           choices: [
-            { id: "A", text: "$y = -\\frac{1}{4}x + 5$" },
-            { id: "B", text: "$y = -\\frac{1}{4}x + 1$" },
-            { id: "C", text: "$y = -\\frac{1}{4}x - 3$" },
-            { id: "D", text: "$y = -\\frac{1}{4}x + 11$" }
+            { id: "A", text: "$\\frac{60}{200}$" },
+            { id: "B", text: "$\\frac{60}{110}$" },
+            { id: "C", text: "$\\frac{60}{80}$" },
+            { id: "D", text: "$\\frac{110}{200}$" }
           ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Equation of a Line from Slope and Point**\n\n**Choice A is correct.**\n\n**The Fast Way (15 seconds):** $y = mx + b$: $3 = -\\frac{1}{4}(8) + b = -2 + b$, so $b = 5$. Equation: $y = -\\frac{1}{4}x + 5$.\n\n**The Full Solution:**\nPlug $(8, 3)$ and $m = -\\frac{1}{4}$ into $y = mx + b$:\n$3 = -\\frac{1}{4}(8) + b$\n$3 = -2 + b$\n$b = 5$\nEquation: $y = -\\frac{1}{4}x + 5$\n\n**Why the wrong answers are tempting:**\n• Choice B ($y = -\\frac{1}{4}x + 1$): From $3 - \\frac{8}{4} = 3 - 2 = 1$, stopping at $3 - 2$ instead of solving $3 = -2 + b$.\n• Choice C ($y = -\\frac{1}{4}x - 3$): From a sign error.\n• Choice D ($y = -\\frac{1}{4}x + 11$): From $3 + 8 = 11$.\n\n**Test Day Takeaway:** Plug the point into $y = mx + b$ and solve for $b$.",
-          skills: ["slope", "linear-equations"]
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Conditional Probability from a Two-Way Table**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** \"Of dine-in customers\" restricts the denominator to dine-in total $= 110$. Dine-in AND dinner $= 60$. Fraction $= \\frac{60}{110}$.\n\n**The Full Solution:**\n$P(\\text{dinner} \\mid \\text{dine-in}) = \\frac{\\text{dine-in dinner}}{\\text{total dine-in}} = \\frac{60}{110} = \\frac{6}{11}$\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{60}{200}$): Uses the grand total — this is joint probability, not conditional.\n• Choice C ($\\frac{60}{80}$): Uses total dinner as denominator — this answers \"what fraction of dinner customers dined in.\"\n• Choice D ($\\frac{110}{200}$): Fraction of all customers who dined in, ignoring meal type.\n\n**Test Day Takeaway:** \"Of [group]\" means the denominator is that group's total (conditional probability). \"Of all\" means the denominator is the grand total (joint probability).",
+          skills: ["probability", "two-way-tables"]
         },
         {
           id: 10,
-          type: "multiple-choice",
+          type: "fill-in",
           difficulty: "medium",
-          question: "The table below shows music streaming data.\n\n| | Pop | Rock | Total |\n|---|---|---|---|\n| Free users | $35$ | $25$ | $60$ |\n| Premium users | $15$ | $25$ | $40$ |\n| Total | $50$ | $50$ | $100$ |\n\nWhat is the probability that a randomly selected user is a Premium user who listens to Rock?",
-          choices: [
-            { id: "A", text: "$\\frac{25}{40}$" },
-            { id: "B", text: "$\\frac{25}{50}$" },
-            { id: "C", text: "$\\frac{25}{100}$" },
-            { id: "D", text: "$\\frac{40}{100}$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Joint Probability from a Two-Way Table**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** Premium AND Rock $= 25$. Total $= 100$. Probability $= \\frac{25}{100}$.\n\n**The Full Solution:**\n$P(\\text{Premium AND Rock}) = \\frac{25}{100} = \\frac{1}{4}$\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{25}{40}$): Uses Premium total as denominator — this is conditional probability, not joint.\n• Choice B ($\\frac{25}{50}$): Uses Rock total as denominator.\n• Choice D ($\\frac{40}{100}$): Probability of being Premium (ignoring Rock).\n\n**Test Day Takeaway:** Joint probability uses the grand total as denominator. Conditional probability restricts the denominator to a subgroup.",
-          skills: ["probability", "two-way-tables"]
+          question: "The function $g(x) = 3(x - 14)(x + 5)(x + 4)$ is graphed in the $xy$-plane. What is the $x$-intercept with the greatest $x$-value?",
+          correctAnswer: "14",
+          explanation: "**SAT Pattern: Finding $x$-intercepts from Factored Form**\n\n**The correct answer is $14$.**\n\n**The Fast Way (10 seconds):** Set each factor to zero: $x - 14 = 0 \\Rightarrow x = 14$, $x + 5 = 0 \\Rightarrow x = -5$, $x + 4 = 0 \\Rightarrow x = -4$. The greatest is $14$.\n\n**The Full Solution:**\n$g(x) = 0$ when any factor is zero:\n$x - 14 = 0 \\Rightarrow x = 14$\n$x + 5 = 0 \\Rightarrow x = -5$\n$x + 4 = 0 \\Rightarrow x = -4$\nThe $x$-intercepts are $-5, -4, 14$. The greatest value is $14$.\n\n**Common Mistakes to Avoid:**\n• Choosing $-4$ because it is the \"largest\" negative number (but $14 > -4$).\n• Setting the leading coefficient $3$ equal to zero.\n• Confusing $x$-intercepts with the $y$-intercept.\n\n**Verification:** $g(14) = 3(0)(19)(18) = 0$ ✓\n\n**Test Day Takeaway:** $x$-intercepts of a factored polynomial come from setting each factor equal to zero.",
+          skills: ["polynomial-operations", "factoring"]
         },
         {
           id: 11,
@@ -195,29 +196,30 @@ export const practiceTest9 = {
           explanation: "**SAT Pattern: Margin of Error — Confidence Interval**\n\n**Choice A is correct.**\n\n**The Fast Way (10 seconds):** $42\\% \\pm 3\\% = [39\\%, 45\\%]$.\n\n**The Full Solution:**\nLower bound: $42\\% - 3\\% = 39\\%$\nUpper bound: $42\\% + 3\\% = 45\\%$\nRange: $39\\%$ to $45\\%$\n\n**Why the wrong answers are tempting:**\n• Choice B ($42\\%$ to $45\\%$): Only adds the margin, forgetting to subtract.\n• Choice C ($36\\%$ to $48\\%$): Uses $\\pm 6\\%$ instead of $\\pm 3\\%$.\n• Choice D ($40\\%$ to $44\\%$): Uses $\\pm 2\\%$ instead of $\\pm 3\\%$.\n\n**Test Day Takeaway:** Margin of error $\\pm m$ creates the interval $[\\text{result} - m, \\text{result} + m]$.",
           skills: ["margin-of-error", "statistics"]
         },
+        // ===== HARD (Q14-Q15) =====
         {
           id: 14,
           type: "fill-in",
-          difficulty: "medium",
-          question: "In a triangle, one angle measures $70°$ and another measures $65°$. What is the measure, in degrees, of the third angle?",
-          correctAnswer: "45",
-          explanation: "**SAT Pattern: Triangle Angle Sum**\n\n**The correct answer is 45.**\n\n**The Fast Way (5 seconds):** $180 - 70 - 65 = 45$.\n\n**The Full Solution:**\nSum of angles in a triangle $= 180°$\n$70° + 65° + x = 180°$\n$x = 180° - 135° = 45°$\n\n**Common Mistakes to Avoid:**\n• Adding the two given angles and reporting $135°$.\n• Using $360°$ instead of $180°$.\n\n**Verification:** $70° + 65° + 45° = 180°$ ✓\n\n**Test Day Takeaway:** Triangle angles always sum to $180°$.",
-          skills: ["triangles", "angles"]
+          difficulty: "hard",
+          question: "A system of equations is given:\n\n$3x + 2y = 19$\n$x - y = 3$\n\nWhat is the value of $x + y$?",
+          correctAnswer: "7",
+          explanation: "**SAT Pattern: System of Equations — Solve Then Compute an Expression**\n\n**The correct answer is $7$.**\n\n**The Fast Way (30 seconds):** From the second equation, $x = y + 3$. Substitute into the first: $3(y + 3) + 2y = 19$, so $3y + 9 + 2y = 19$, $5y = 10$, $y = 2$. Then $x = 2 + 3 = 5$. So $x + y = 5 + 2 = 7$.\n\n**The Full Solution:**\n$x - y = 3 \\Rightarrow x = y + 3$\n$3(y + 3) + 2y = 19$\n$3y + 9 + 2y = 19$\n$5y = 10$\n$y = 2$, $x = 5$\n$x + y = 7$\n\n**Common Mistakes to Avoid:**\n• Reporting just $x = 5$ or $y = 2$ instead of the sum.\n• Substitution error: using $x = y - 3$ instead of $x = y + 3$.\n\n**Verification:** $3(5) + 2(2) = 15 + 4 = 19$ ✓. $5 - 2 = 3$ ✓.\n\n**Test Day Takeaway:** Read what the question asks for. It may ask for an expression like $x + y$ rather than individual values.",
+          skills: ["systems-of-equations", "solving-equations"]
         },
         {
           id: 15,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "The function $f(x) = 4x - 3$ models the total cost in dollars to download $x$ albums from a music platform. What is $f(8)$?",
+          difficulty: "hard",
+          question: "A music producer invests $\\$5{,}000$ in equipment that depreciates at $15\\%$ per year. Which expression gives the value of the equipment after $t$ years?",
           choices: [
-            { id: "A", text: "$24$" },
-            { id: "B", text: "$29$" },
-            { id: "C", text: "$32$" },
-            { id: "D", text: "$35$" }
+            { id: "A", text: "$5000(0.15)^t$" },
+            { id: "B", text: "$5000(0.85)^t$" },
+            { id: "C", text: "$5000 - 0.15t$" },
+            { id: "D", text: "$5000(1.15)^t$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Function Evaluation in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $f(8) = 4(8) - 3 = 32 - 3 = 29$.\n\n**The Full Solution:**\n$f(8) = 4(8) - 3 = 32 - 3 = 29$\n\n**Why the wrong answers are tempting:**\n• Choice A ($24$): From $4(8) - 8 = 24$.\n• Choice C ($32$): From $4(8) = 32$, forgetting to subtract $3$.\n• Choice D ($35$): From $4(8) + 3 = 35$, adding instead of subtracting.\n\n**Test Day Takeaway:** Substitute, multiply, then add/subtract. Follow order of operations carefully.",
-          skills: ["function-evaluation", "linear-functions"]
+          explanation: "**SAT Pattern: Exponential Decay Model**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** Depreciation of $15\\%$ means $85\\%$ of the value remains each year. Decay factor $= 1 - 0.15 = 0.85$. Model: $5000(0.85)^t$.\n\n**The Full Solution:**\nDecay rate $= 15\\% = 0.15$\nDecay factor $= 1 - 0.15 = 0.85$\nValue after $t$ years $= 5000(0.85)^t$\n\n**Why the wrong answers are tempting:**\n• Choice A ($5000(0.15)^t$): Uses the decay rate as the base. After $1$ year this gives $750$, which is only $15\\%$ of $5000$, not $85\\%$.\n• Choice C ($5000 - 0.15t$): Models linear decay of $\\$0.15$ per year, which is unrealistic and not exponential.\n• Choice D ($5000(1.15)^t$): This is $15\\%$ growth, not depreciation.\n\n**Test Day Takeaway:** For decay, the base is $1 - \\text{rate}$. For growth, the base is $1 + \\text{rate}$.",
+          skills: ["exponential-functions"]
         },
 
         // ===== HARD (Q16-Q22) =====

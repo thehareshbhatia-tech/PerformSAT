@@ -15,102 +15,103 @@ export const practiceTest10 = {
       title: "Module 1",
       timeLimit: 35,
       questions: [
-        // ===== EASY (Q1-Q7) =====
+        // ===== EASY (Q1-Q5) =====
         {
           id: 1,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "A bakery sold $240$ muffins on Saturday. If $25\\%$ of the muffins sold were blueberry, how many blueberry muffins were sold?",
+          question: "A bakery surveyed $240$ customers about their favorite muffin flavor. The results are shown in the table.\n\n| Flavor | Number of Customers |\n|---|---|\n| Blueberry | $84$ |\n| Chocolate | $60$ |\n| Lemon | $48$ |\n| Banana | $48$ |\n| **Total** | **$240$** |\n\nWhat fraction of the customers chose blueberry?",
           choices: [
-            { id: "A", text: "$25$" },
-            { id: "B", text: "$48$" },
-            { id: "C", text: "$60$" },
-            { id: "D", text: "$96$" }
+            { id: "A", text: "$\\frac{1}{4}$" },
+            { id: "B", text: "$\\frac{7}{20}$" },
+            { id: "C", text: "$\\frac{1}{3}$" },
+            { id: "D", text: "$\\frac{2}{5}$" }
           ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Percent of a Whole**\n\n**Choice C is correct.**\n\n**The Fast Way (5 seconds):** $25\\%$ of $240 = \\frac{240}{4} = 60$.\n\n**The Full Solution:**\n$0.25 \\times 240 = 60$ blueberry muffins.\n\n**Why the wrong answers are tempting:**\n• Choice A ($25$): Uses the percentage itself as the answer.\n• Choice B ($48$): Computes $\\frac{240}{5}$ instead of $\\frac{240}{4}$.\n• Choice D ($96$): Computes $40\\%$ of $240$ instead of $25\\%$.\n\n**Test Day Takeaway:** $25\\%$ means divide by $4$.",
-          skills: ["percents"]
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Reading a Data Table to Compute a Fraction**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $\\frac{84}{240}$. Simplify: $\\frac{84}{240} = \\frac{42}{120} = \\frac{21}{60} = \\frac{7}{20}$.\n\n**The Full Solution:**\nBlueberry $= 84$. Total $= 240$.\n$\\frac{84}{240} = \\frac{7}{20}$\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{1}{4} = \\frac{60}{240}$): This is the fraction for chocolate.\n• Choice C ($\\frac{1}{3} = \\frac{80}{240}$): Close to $84$ but not exact.\n• Choice D ($\\frac{2}{5} = \\frac{96}{240}$): Overestimates the blueberry count.\n\n**Test Day Takeaway:** Read the exact value from the table, then simplify the fraction. Don't estimate.",
+          skills: ["ratios-proportions", "statistics"]
         },
         {
           id: 2,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "If $4x + 7 = 31$, what is the value of $x$?",
+          question: "A marine biologist recorded $f(t) = 200 + 15t$, where $f(t)$ is the number of fish in a coral reef $t$ months after the study began. What does the $200$ represent in this function?",
           choices: [
-            { id: "A", text: "$4$" },
-            { id: "B", text: "$6$" },
-            { id: "C", text: "$8$" },
-            { id: "D", text: "$24$" }
+            { id: "A", text: "The increase in fish per month" },
+            { id: "B", text: "The number of fish at the start of the study" },
+            { id: "C", text: "The number of months in the study" },
+            { id: "D", text: "The total number of fish after $200$ months" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $4x = 31 - 7 = 24$, so $x = 6$.\n\n**The Full Solution:**\n$4x + 7 = 31$\n$4x = 24$\n$x = 6$\n\n**Why the wrong answers are tempting:**\n• Choice A ($4$): The coefficient, not the solution.\n• Choice C ($8$): Divides $31$ by $4$ and rounds, skipping the subtraction step.\n• Choice D ($24$): Stops after subtracting $7$ but forgets to divide by $4$.\n\n**Test Day Takeaway:** Always finish both steps -- subtract the constant, then divide by the coefficient.",
-          skills: ["linear-equations", "solving-equations"]
+          explanation: "**SAT Pattern: Interpreting the $y$-intercept in a Linear Function**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** In $f(t) = 200 + 15t$, when $t = 0$, $f(0) = 200$. This is the starting value.\n\n**The Full Solution:**\nIn a linear function $f(t) = b + mt$:\n• $b$ is the $y$-intercept (the value when $t = 0$, i.e., the initial value)\n• $m$ is the slope (rate of change)\nHere $b = 200$, which represents the number of fish at $t = 0$, the start of the study.\n\n**Why the wrong answers are tempting:**\n• Choice A: The increase per month is $15$, not $200$.\n• Choice C: $t$ represents months; $200$ is a fish count, not a time.\n• Choice D: To find fish after $200$ months, compute $f(200) = 200 + 15(200) = 3{,}200$.\n\n**Test Day Takeaway:** The constant term in $f(t) = b + mt$ is the initial value (when $t = 0$). The coefficient of $t$ is the rate.",
+          skills: ["linear-functions", "function-interpretation"]
         },
         {
           id: 3,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "A movie theater charges $\\$9$ per ticket. A group spent $\\$63$ on tickets. How many tickets did the group buy?",
+          question: "A pilot earns $8$ more than $5$ times the number of flight hours completed in a week. If the pilot completed $h$ flight hours, which expression represents the pilot's weekly pay in hundreds of dollars?",
           choices: [
-            { id: "A", text: "$6$" },
-            { id: "B", text: "$7$" },
-            { id: "C", text: "$8$" },
-            { id: "D", text: "$9$" }
+            { id: "A", text: "$8h + 5$" },
+            { id: "B", text: "$5h + 8$" },
+            { id: "C", text: "$5(h + 8)$" },
+            { id: "D", text: "$8(h + 5)$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Division Word Problem**\n\n**Choice B is correct.**\n\n**The Fast Way (5 seconds):** $63 \\div 9 = 7$.\n\n**The Full Solution:**\nTotal cost $\\div$ price per ticket $= 63 \\div 9 = 7$ tickets.\n\n**Why the wrong answers are tempting:**\n• Choice A ($6$): May come from $63 \\div 10$ rounded down.\n• Choice C ($8$): Confuses with $72 \\div 9$.\n• Choice D ($9$): Uses the ticket price as the count.\n\n**Test Day Takeaway:** Total $\\div$ rate $=$ quantity.",
-          skills: ["word-problems"]
+          explanation: "**SAT Pattern: Translating Words to an Algebraic Expression**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** \"$5$ times $h$\" $= 5h$. \"$8$ more than that\" $= 5h + 8$.\n\n**The Full Solution:**\nParse step by step:\n• \"$5$ times the number of flight hours\" $\\rightarrow 5h$\n• \"$8$ more than $5h$\" $\\rightarrow 5h + 8$\n\n**Why the wrong answers are tempting:**\n• Choice A ($8h + 5$): Swaps the multiplier and the addend.\n• Choice C ($5(h + 8)$): Puts the $8$ inside the multiplication, giving $5h + 40$ instead of $5h + 8$.\n• Choice D ($8(h + 5)$): Reverses everything.\n\n**Test Day Takeaway:** \"$k$ more than\" means $+ k$ (added after). \"$k$ times\" means $\\times k$ (multiplied first).",
+          skills: ["word-problems", "linear-equations"]
         },
         {
           id: 4,
-          type: "fill-in",
-          difficulty: "easy",
-          question: "A pilot flies at a constant speed of $450$ miles per hour. How many miles does the pilot fly in $3$ hours?",
-          correctAnswer: "1350",
-          explanation: "**SAT Pattern: Distance = Rate x Time**\n\n**The correct answer is $1{,}350$.**\n\n**The Fast Way (5 seconds):** $450 \\times 3 = 1{,}350$.\n\n**The Full Solution:**\nDistance $= \\text{rate} \\times \\text{time} = 450 \\times 3 = 1{,}350$ miles.\n\n**Common Mistakes to Avoid:**\n• Dividing instead of multiplying: $450 \\div 3 = 150$.\n\n**Verification:** $1{,}350 \\div 3 = 450$ mph. Correct.\n\n**Test Day Takeaway:** Distance $=$ rate $\\times$ time.",
-          skills: ["word-problems", "ratios-proportions"]
-        },
-        {
-          id: 5,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "Which expression is equivalent to $9x^2 - 4x^2$?",
+          question: "A movie theater tracked daily ticket sales for $5$ days. The results are shown below.\n\n| Day | Tickets Sold |\n|---|---|\n| Monday | $85$ |\n| Tuesday | $120$ |\n| Wednesday | $95$ |\n| Thursday | $110$ |\n| Friday | $190$ |\n\nHow many more tickets were sold on Friday than on Tuesday?",
           choices: [
-            { id: "A", text: "$5x$" },
-            { id: "B", text: "$5x^2$" },
-            { id: "C", text: "$5x^4$" },
-            { id: "D", text: "$13x^2$" }
+            { id: "A", text: "$30$" },
+            { id: "B", text: "$70$" },
+            { id: "C", text: "$80$" },
+            { id: "D", text: "$105$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Combining Like Terms**\n\n**Choice B is correct.**\n\n**The Fast Way (5 seconds):** $9x^2 - 4x^2 = (9-4)x^2 = 5x^2$.\n\n**The Full Solution:**\nBoth terms have the same variable part $x^2$, so subtract the coefficients: $9 - 4 = 5$. The result is $5x^2$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($5x$): Drops the exponent.\n• Choice C ($5x^4$): Adds the exponents instead of keeping them.\n• Choice D ($13x^2$): Adds $9 + 4$ instead of subtracting.\n\n**Test Day Takeaway:** When combining like terms, only the coefficients change; the variable part stays the same.",
-          skills: ["polynomial-operations"]
+          explanation: "**SAT Pattern: Reading and Comparing Data from a Table**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** Friday $= 190$, Tuesday $= 120$. Difference $= 190 - 120 = 70$.\n\n**The Full Solution:**\nFrom the table: Friday tickets $= 190$, Tuesday tickets $= 120$.\nDifference $= 190 - 120 = 70$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($30$): Difference between Thursday and Wednesday ($110 - 95 = 15$) or another pair.\n• Choice C ($80$): Difference between Friday and Thursday ($190 - 110 = 80$) — wrong pair.\n• Choice D ($105$): Difference between Friday and Monday ($190 - 85 = 105$) — wrong pair.\n\n**Test Day Takeaway:** Read the correct values from the table before computing. Misreading the row is the most common error.",
+          skills: ["word-problems", "statistics"]
+        },
+        // ===== EASY-MEDIUM (Q5-Q7) =====
+        {
+          id: 5,
+          type: "fill-in",
+          difficulty: "easy",
+          question: "A bakery sells $6$ cupcakes per box at $\\$4$ per cupcake. A customer buys $5$ boxes and uses a $\\$15$ coupon. What is the total amount paid, in dollars?",
+          correctAnswer: "105",
+          explanation: "**SAT Pattern: Multi-Step Arithmetic Word Problem**\n\n**The correct answer is $105$.**\n\n**The Fast Way (15 seconds):** Total before coupon: $5 \\times 6 \\times 4 = 120$. After coupon: $120 - 15 = 105$.\n\n**The Full Solution:**\nCupcakes per box $= 6$. Boxes $= 5$. Total cupcakes $= 30$.\nCost $= 30 \\times 4 = 120$.\nAfter coupon: $120 - 15 = 105$.\n\n**Common Mistakes to Avoid:**\n• Forgetting the coupon: answering $120$.\n• Computing $5 \\times 4 = 20$ (forgetting the $6$ cupcakes per box).\n• Subtracting incorrectly: $120 - 15 = 115$.\n\n**Verification:** $5$ boxes $\\times$ $6$ cupcakes $= 30$ cupcakes. $30 \\times \\$4 = \\$120$. $\\$120 - \\$15 = \\$105$ ✓\n\n**Test Day Takeaway:** Break multi-step problems into clear stages: find the total, then apply adjustments.",
+          skills: ["word-problems"]
         },
         {
           id: 6,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "A marine biologist recorded $f(t) = 200 + 15t$, where $f(t)$ is the number of fish in a coral reef $t$ months after the study began. What does the $15$ represent in this function?",
+          difficulty: "medium",
+          question: "The function $g(x) = 2(x - 7)(x + 3)(x + 1)$ is graphed in the $xy$-plane. Which of the following is an $x$-intercept of the graph?",
           choices: [
-            { id: "A", text: "The initial number of fish" },
-            { id: "B", text: "The number of fish after $15$ months" },
-            { id: "C", text: "The increase in the number of fish per month" },
-            { id: "D", text: "The total number of months in the study" }
+            { id: "A", text: "$(2, 0)$" },
+            { id: "B", text: "$(7, 0)$" },
+            { id: "C", text: "$(-7, 0)$" },
+            { id: "D", text: "$(3, 0)$" }
           ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Interpreting Linear Functions**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** In $f(t) = 200 + 15t$, the coefficient of $t$ is the slope, which represents the rate of change: $15$ more fish per month.\n\n**The Full Solution:**\nIn a linear function $f(t) = b + mt$, $m$ is the slope (rate of change) and $b$ is the $y$-intercept (initial value). Here, $m = 15$, meaning the population grows by $15$ fish each month.\n\n**Why the wrong answers are tempting:**\n• Choice A: The initial number is $200$, not $15$.\n• Choice B: This would require evaluating $f(15)$, which is $425$.\n• Choice D: The variable $t$ represents months, but $15$ is not the total.\n\n**Test Day Takeaway:** Slope $=$ rate of change. $y$-intercept $=$ starting value.",
-          skills: ["linear-functions", "function-interpretation"]
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: $x$-intercepts from Factored Form**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** Set each factor to zero: $x - 7 = 0 \\Rightarrow x = 7$, $x + 3 = 0 \\Rightarrow x = -3$, $x + 1 = 0 \\Rightarrow x = -1$. The $x$-intercepts are $(7, 0)$, $(-3, 0)$, $(-1, 0)$. Only $(7, 0)$ is a choice.\n\n**The Full Solution:**\n$g(x) = 0$ when any factor equals zero:\n$x - 7 = 0 \\Rightarrow x = 7$\n$x + 3 = 0 \\Rightarrow x = -3$\n$x + 1 = 0 \\Rightarrow x = -1$\nThe point $(7, 0)$ matches Choice B.\n\n**Why the wrong answers are tempting:**\n• Choice A ($(2, 0)$): The leading coefficient $2$ is not a root.\n• Choice C ($(-7, 0)$): Sign error — the factor is $(x - 7)$, giving $x = 7$, not $x = -7$.\n• Choice D ($(3, 0)$): Sign error — the factor is $(x + 3)$, giving $x = -3$, not $x = 3$.\n\n**Test Day Takeaway:** For $(x - a)$, the root is $x = a$ (positive). For $(x + a)$, the root is $x = -a$ (negative). Watch the signs.",
+          skills: ["polynomial-operations", "factoring"]
         },
         {
           id: 7,
           type: "fill-in",
-          difficulty: "easy",
-          question: "If $p + 5 + 12 = 10$, what is the value of $p$?",
-          correctAnswer: "-7",
-          explanation: "**SAT Pattern: One-Step Equation**\n\n**The correct answer is $-7$.**\n\n**The Fast Way (5 seconds):** $p + 17 = 10$, so $p = 10 - 17 = -7$.\n\n**The Full Solution:**\n$p + 5 + 12 = 10$\n$p + 17 = 10$\n$p = 10 - 17 = -7$\n\n**Common Mistakes to Avoid:**\n• Getting $p = 7$ by ignoring the negative sign.\n\n**Verification:** $-7 + 5 + 12 = -7 + 17 = 10$. Correct.\n\n**Test Day Takeaway:** Combine constants first, then isolate the variable.",
-          skills: ["linear-equations", "solving-equations"]
+          difficulty: "medium",
+          question: "The equation $m^2 - 17 = 64$ is true for $m > 0$. What is the value of $m$?",
+          correctAnswer: "9",
+          explanation: "**SAT Pattern: Solving a Quadratic for a Positive Root**\n\n**The correct answer is $9$.**\n\n**The Fast Way (10 seconds):** $m^2 = 64 + 17 = 81$. Since $m > 0$, $m = \\sqrt{81} = 9$.\n\n**The Full Solution:**\n$m^2 - 17 = 64$\n$m^2 = 81$\n$m = \\pm 9$\nSince $m > 0$, $m = 9$.\n\n**Common Mistakes to Avoid:**\n• Computing $64 - 17 = 47$ instead of $64 + 17 = 81$.\n• Answering $81$ (that is $m^2$, not $m$).\n• Answering $-9$ (violates $m > 0$).\n\n**Verification:** $9^2 - 17 = 81 - 17 = 64$ ✓\n\n**Test Day Takeaway:** Isolate the squared term first, then take the square root. Check whether the problem restricts to positive values.",
+          skills: ["quadratic-equations", "solving-equations"]
         },
 
-        // ===== MEDIUM (Q8-Q15) =====
+        // ===== MEDIUM (Q8-Q13) =====
         {
           id: 8,
           type: "multiple-choice",
@@ -130,30 +131,30 @@ export const practiceTest10 = {
           id: 9,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "A line passes through the points $(2, 5)$ and $(6, 13)$. What is the slope of the line?",
+          question: "A line has slope $-\\frac{2}{3}$ and passes through the point $(6, 1)$. What is the equation of this line in slope-intercept form?",
           choices: [
-            { id: "A", text: "$\\frac{1}{2}$" },
-            { id: "B", text: "$2$" },
-            { id: "C", text: "$4$" },
-            { id: "D", text: "$8$" }
+            { id: "A", text: "$y = -\\frac{2}{3}x - 3$" },
+            { id: "B", text: "$y = -\\frac{2}{3}x + 5$" },
+            { id: "C", text: "$y = -\\frac{2}{3}x + 7$" },
+            { id: "D", text: "$y = -\\frac{2}{3}x + 1$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Slope from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** Slope $= \\frac{13 - 5}{6 - 2} = \\frac{8}{4} = 2$.\n\n**The Full Solution:**\n$m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{13 - 5}{6 - 2} = \\frac{8}{4} = 2$\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{1}{2}$): Flips the fraction (run over rise).\n• Choice C ($4$): Uses only the $x$-difference.\n• Choice D ($8$): Uses only the $y$-difference.\n\n**Test Day Takeaway:** Slope $= \\frac{\\text{rise}}{\\text{run}} = \\frac{\\Delta y}{\\Delta x}$.",
-          skills: ["slope", "linear-functions"]
+          explanation: "**SAT Pattern: Equation of a Line from Slope and Point**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** $y = mx + b$: $1 = -\\frac{2}{3}(6) + b = -4 + b$, so $b = 5$. Equation: $y = -\\frac{2}{3}x + 5$.\n\n**The Full Solution:**\nPlug $(6, 1)$ and $m = -\\frac{2}{3}$ into $y = mx + b$:\n$1 = -\\frac{2}{3}(6) + b$\n$1 = -4 + b$\n$b = 5$\nEquation: $y = -\\frac{2}{3}x + 5$\n\n**Why the wrong answers are tempting:**\n• Choice A ($y = -\\frac{2}{3}x - 3$): From $1 - \\frac{2}{3}(6) = 1 - 4 = -3$, computing the wrong expression.\n• Choice C ($y = -\\frac{2}{3}x + 7$): From $1 + 6 = 7$.\n• Choice D ($y = -\\frac{2}{3}x + 1$): Uses the $y$-coordinate directly as the intercept.\n\n**Test Day Takeaway:** Plug the point into $y = mx + b$ and solve for $b$. Don't confuse the $y$-coordinate of a point with the $y$-intercept.",
+          skills: ["slope", "linear-equations"]
         },
         {
           id: 10,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "At a movie theater, $120$ people were surveyed about their snack preference. The results are shown in the table.\n\n| | Popcorn | Candy | Total |\n|---|---|---|---|\n| Adults | $35$ | $25$ | $60$ |\n| Children | $40$ | $20$ | $60$ |\n| Total | $75$ | $45$ | $120$ |\n\nWhat is the probability that a randomly selected person is a child who prefers popcorn?",
+          question: "At a movie theater, $120$ people were surveyed about their snack preference. The results are shown in the table.\n\n| | Popcorn | Candy | Total |\n|---|---|---|---|\n| Adults | $35$ | $25$ | $60$ |\n| Children | $40$ | $20$ | $60$ |\n| Total | $75$ | $45$ | $120$ |\n\nOf the children surveyed, what fraction preferred candy?",
           choices: [
-            { id: "A", text: "$\\frac{1}{6}$" },
-            { id: "B", text: "$\\frac{1}{3}$" },
-            { id: "C", text: "$\\frac{1}{2}$" },
-            { id: "D", text: "$\\frac{2}{3}$" }
+            { id: "A", text: "$\\frac{20}{120}$" },
+            { id: "B", text: "$\\frac{20}{45}$" },
+            { id: "C", text: "$\\frac{20}{60}$" },
+            { id: "D", text: "$\\frac{60}{120}$" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Two-Way Table Probability**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** Children who prefer popcorn $= 40$. Total $= 120$. Probability $= \\frac{40}{120} = \\frac{1}{3}$.\n\n**The Full Solution:**\n$P(\\text{child and popcorn}) = \\frac{40}{120} = \\frac{1}{3}$\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{1}{6}$): Divides $20$ (children who prefer candy) by $120$.\n• Choice C ($\\frac{1}{2}$): Uses $\\frac{60}{120}$ (all children).\n• Choice D ($\\frac{2}{3}$): Uses $\\frac{40}{60}$ (popcorn given child, conditional probability).\n\n**Test Day Takeaway:** For \"randomly selected from the whole group,\" the denominator is always the grand total.",
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Conditional Probability from a Two-Way Table**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** \"Of the children\" restricts the denominator to total children $= 60$. Children who prefer candy $= 20$. Fraction $= \\frac{20}{60} = \\frac{1}{3}$.\n\n**The Full Solution:**\n$P(\\text{candy} | \\text{child}) = \\frac{20}{60} = \\frac{1}{3}$\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{20}{120}$): Uses the grand total as denominator — this is joint probability, not conditional.\n• Choice B ($\\frac{20}{45}$): Uses the candy column total as denominator — this answers \"of candy lovers, what fraction are children.\"\n• Choice D ($\\frac{60}{120}$): Fraction of all respondents who are children, ignoring snack preference.\n\n**Test Day Takeaway:** \"Of [group]\" means the denominator is that group's row or column total, not the grand total.",
           skills: ["probability", "two-way-tables"]
         },
         {
@@ -169,21 +170,6 @@ export const practiceTest10 = {
           id: 12,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "A line has a slope of $-\\frac{2}{3}$ and passes through the point $(6, 1)$. What is the $y$-intercept of this line?",
-          choices: [
-            { id: "A", text: "$-3$" },
-            { id: "B", text: "$1$" },
-            { id: "C", text: "$5$" },
-            { id: "D", text: "$7$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Slope-Intercept Form**\n\n**Choice C is correct.**\n\n**The Fast Way (20 seconds):** Use $y = mx + b$. Plug in: $1 = -\\frac{2}{3}(6) + b$, so $1 = -4 + b$, giving $b = 5$.\n\n**The Full Solution:**\n$y = mx + b$\n$1 = -\\frac{2}{3}(6) + b$\n$1 = -4 + b$\n$b = 5$\n\n**Why the wrong answers are tempting:**\n• Choice A ($-3$): Computes $1 - \\frac{2}{3}(6) = 1 - 4 = -3$, subtracting instead of solving for $b$.\n• Choice B ($1$): Uses the $y$-coordinate of the given point.\n• Choice D ($7$): Adds $1 + 6 = 7$, ignoring the slope.\n\n**Test Day Takeaway:** To find the $y$-intercept, plug the given point into $y = mx + b$ and solve for $b$.",
-          skills: ["slope", "linear-equations"]
-        },
-        {
-          id: 13,
-          type: "multiple-choice",
-          difficulty: "medium",
           question: "A survey of $500$ airline passengers found that $68\\%$ preferred aisle seats, with a margin of error of $4\\%$. Which of the following is the best interpretation of this result?",
           choices: [
             { id: "A", text: "Exactly $68\\%$ of all airline passengers prefer aisle seats." },
@@ -196,28 +182,44 @@ export const practiceTest10 = {
           skills: ["margin-of-error", "statistics"]
         },
         {
-          id: 14,
+          id: 13,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "Two parallel lines are cut by a transversal. One of the angles formed is $65°$. Which of the following could NOT be the measure of another angle formed?",
+          question: "Which of the following is equivalent to $(2x + 5)(x - 3)$?",
           choices: [
-            { id: "A", text: "$65°$" },
-            { id: "B", text: "$115°$" },
-            { id: "C", text: "$125°$" },
-            { id: "D", text: "$65°$" }
+            { id: "A", text: "$2x^2 - x - 15$" },
+            { id: "B", text: "$2x^2 + x - 15$" },
+            { id: "C", text: "$2x^2 - 11x - 15$" },
+            { id: "D", text: "$2x^2 - x + 15$" }
           ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Parallel Lines and Transversals**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** When parallel lines are cut by a transversal, the only angle measures are the given angle and its supplement. Here: $65°$ and $180° - 65° = 115°$. The value $125°$ is neither.\n\n**The Full Solution:**\nParallel lines cut by a transversal create two types of angles: the acute angle ($65°$) and its supplement ($115°$). All eight angles are either $65°$ or $115°$. Since $125°$ is neither, it could NOT be formed.\n\n**Why the wrong answers are tempting:**\n• Choices A and D ($65°$): Corresponding, alternate interior, or vertical angles equal $65°$.\n• Choice B ($115°$): The supplement of $65°$, which is a valid co-interior or supplementary angle.\n\n**Test Day Takeaway:** Parallel lines + transversal = only two angle measures, and they add to $180°$.",
-          skills: ["parallel-lines", "angles"]
+          correctAnswer: "A",
+          explanation: "**SAT Pattern: FOIL / Expanding Binomials**\n\n**Choice A is correct.**\n\n**The Fast Way (15 seconds):** $(2x+5)(x-3) = 2x^2 - 6x + 5x - 15 = 2x^2 - x - 15$.\n\n**The Full Solution:**\nF: $2x \\cdot x = 2x^2$\nO: $2x \\cdot (-3) = -6x$\nI: $5 \\cdot x = 5x$\nL: $5 \\cdot (-3) = -15$\nCombine: $2x^2 - 6x + 5x - 15 = 2x^2 - x - 15$\n\n**Why the wrong answers are tempting:**\n• Choice B ($2x^2 + x - 15$): Gets $+x$ from $6x - 5x$ instead of $-6x + 5x$.\n• Choice C ($2x^2 - 11x - 15$): Adds $-6x$ and $-5x$ (wrong sign on $5x$).\n• Choice D ($2x^2 - x + 15$): Wrong sign on the constant.\n\n**Test Day Takeaway:** FOIL carefully: watch the signs, especially when the leading coefficient is not $1$.",
+          skills: ["polynomial-operations", "factoring"]
+        },
+        // ===== HARD (Q14-Q15) =====
+        {
+          id: 14,
+          type: "multiple-choice",
+          difficulty: "hard",
+          question: "Two parallel lines are cut by a transversal. One of the angles formed measures $(3x + 10)°$ and a co-interior angle measures $(5x - 30)°$. What is the value of $x$?",
+          choices: [
+            { id: "A", text: "$20$" },
+            { id: "B", text: "$25$" },
+            { id: "C", text: "$30$" },
+            { id: "D", text: "$35$" }
+          ],
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Parallel Lines with Algebraic Angle Measures**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** Co-interior angles (same-side interior) are supplementary: $(3x + 10) + (5x - 30) = 180$. So $8x - 20 = 180$, $8x = 200$, $x = 25$.\n\n**The Full Solution:**\nCo-interior angles sum to $180°$:\n$(3x + 10) + (5x - 30) = 180$\n$8x - 20 = 180$\n$8x = 200$\n$x = 25$\n\n**Why the wrong answers are tempting:**\n• Choice A ($20$): From $8x = 160$ (using $180 - 20 = 160$ erroneously).\n• Choice C ($30$): From setting the angles equal instead of supplementary.\n• Choice D ($35$): From $8x + 20 = 300$ or another setup error.\n\n**Verification:** $(3(25) + 10)° = 85°$ and $(5(25) - 30)° = 95°$. $85° + 95° = 180°$ ✓\n\n**Test Day Takeaway:** Co-interior (same-side interior) angles sum to $180°$. Alternate interior angles are equal. Know which relationship to use.",
+          skills: ["parallel-lines", "angles", "linear-equations"]
         },
         {
           id: 15,
           type: "fill-in",
-          difficulty: "medium",
-          question: "The function $f$ is defined by $f(x) = 3x - 7$. What is the value of $f(5)$?",
-          correctAnswer: "8",
-          explanation: "**SAT Pattern: Function Evaluation**\n\n**The correct answer is $8$.**\n\n**The Fast Way (5 seconds):** $f(5) = 3(5) - 7 = 15 - 7 = 8$.\n\n**The Full Solution:**\n$f(x) = 3x - 7$\n$f(5) = 3(5) - 7 = 15 - 7 = 8$\n\n**Common Mistakes to Avoid:**\n• Forgetting order of operations: computing $3(5) = 15$ then $15 - 7 = 8$ is correct, but $3 \\times (5 - 7) = -6$ is wrong.\n\n**Verification:** $f(5) = 3(5) - 7 = 8$.\n\n**Test Day Takeaway:** Replace $x$ with the input value and simplify.",
-          skills: ["function-evaluation", "linear-functions"]
+          difficulty: "hard",
+          question: "The function $f$ is defined by $f(x) = 3x^2 - 12x + 7$. What is the minimum value of $f(x)$?",
+          correctAnswer: "-5",
+          explanation: "**SAT Pattern: Minimum Value of a Quadratic**\n\n**The correct answer is $-5$.**\n\n**The Fast Way (20 seconds):** $x = \\frac{-b}{2a} = \\frac{12}{6} = 2$. $f(2) = 3(4) - 12(2) + 7 = 12 - 24 + 7 = -5$.\n\n**The Full Solution:**\nSince $a = 3 > 0$, the parabola opens upward, so the vertex is a minimum.\nVertex $x$-coordinate: $x = \\frac{-(-12)}{2(3)} = \\frac{12}{6} = 2$\nMinimum value: $f(2) = 3(2)^2 - 12(2) + 7 = 12 - 24 + 7 = -5$\n\n**Common Mistakes to Avoid:**\n• Reporting $x = 2$ instead of $f(2) = -5$ — the question asks for the minimum value of $f(x)$, not the $x$ where it occurs.\n• Computing $f(2) = 12 - 24 + 7 = -19$ from an arithmetic error.\n\n**Verification:** $f(1) = 3 - 12 + 7 = -2$. $f(3) = 27 - 36 + 7 = -2$. Both neighbors are $-2 > -5$, confirming $-5$ is the minimum ✓\n\n**Test Day Takeaway:** For a quadratic $ax^2 + bx + c$ with $a > 0$, the minimum value is $f\\left(\\frac{-b}{2a}\\right)$.",
+          skills: ["quadratic-functions", "vertex-form"]
         },
 
         // ===== HARD (Q16-Q22) =====

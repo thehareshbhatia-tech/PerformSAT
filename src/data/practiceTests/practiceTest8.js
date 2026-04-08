@@ -15,60 +15,60 @@ export const practiceTest8 = {
       title: "Module 1",
       timeLimit: 35,
       questions: [
-        // ===== EASY (Q1-Q7) =====
+        // ===== EASY (Q1-Q5) =====
         {
           id: 1,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "A photographer charges $\\$75$ per session. If she completed $12$ sessions last month, how much did she earn?",
+          question: "A geologist recorded the number of rock samples collected at four different sites.\n\n| Site | Samples Collected |\n|---|---|\n| Canyon A | $38$ |\n| Ridge B | $52$ |\n| Valley C | $27$ |\n| Peak D | $63$ |\n\nAt which site were the fewest samples collected?",
           choices: [
-            { id: "A", text: "$\\$87$" },
-            { id: "B", text: "$\\$750$" },
-            { id: "C", text: "$\\$900$" },
-            { id: "D", text: "$\\$1{,}200$" }
+            { id: "A", text: "Canyon A" },
+            { id: "B", text: "Ridge B" },
+            { id: "C", text: "Valley C" },
+            { id: "D", text: "Peak D" }
           ],
           correctAnswer: "C",
-          explanation: "**SAT Pattern: Basic Multiplication Word Problem**\n\n**Choice C is correct.**\n\n**The Fast Way (5 seconds):** $75 \\times 12 = 900$.\n\n**The Full Solution:**\nTotal earnings $= \\$75 \\times 12 = \\$900$\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\$87$): Added $75 + 12$ instead of multiplying.\n• Choice B ($\\$750$): Multiplied $75 \\times 10$, forgetting the last $2$ sessions.\n• Choice D ($\\$1{,}200$): Likely from $100 \\times 12$.\n\n**Test Day Takeaway:** Total $=$ rate $\\times$ quantity.",
-          skills: ["word-problems"]
+          explanation: "**SAT Pattern: Reading a Table**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** Compare all values: $38, 52, 27, 63$. The smallest is $27$ at Valley C.\n\n**The Full Solution:**\nCanyon A: $38$, Ridge B: $52$, Valley C: $27$, Peak D: $63$.\n$27 < 38 < 52 < 63$, so Valley C had the fewest.\n\n**Why the wrong answers are tempting:**\n• Choice A ($38$): Canyon A — not the smallest.\n• Choice B ($52$): Ridge B — second highest.\n• Choice D ($63$): Peak D — the largest value.\n\n**Test Day Takeaway:** For table-reading questions, compare all values carefully before selecting.",
+          skills: ["data-interpretation", "statistics"]
         },
         {
           id: 2,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "If $2x - 3 = 11$, what is the value of $x$?",
+          question: "A photographer's total charge $C$ in dollars for a session is given by $C = 75 + 15p$, where $p$ is the number of prints ordered. What does $15$ represent in this equation?",
           choices: [
-            { id: "A", text: "$4$" },
-            { id: "B", text: "$5.5$" },
-            { id: "C", text: "$7$" },
-            { id: "D", text: "$8$" }
+            { id: "A", text: "The total charge for the session" },
+            { id: "B", text: "The session fee before any prints" },
+            { id: "C", text: "The cost per print" },
+            { id: "D", text: "The number of prints ordered" }
           ],
           correctAnswer: "C",
-          explanation: "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** $2x = 14$, $x = 7$.\n\n**The Full Solution:**\n$2x - 3 = 11$\n$2x = 14$\n$x = 7$\n\n**Why the wrong answers are tempting:**\n• Choice A ($4$): From computing $11 - 3 = 8$, then $8 \\div 2 = 4$.\n• Choice B ($5.5$): From dividing $11$ by $2$.\n• Choice D ($8$): From adding $11 + 3 = 14$ but forgetting to divide by $2$.\n\n**Test Day Takeaway:** Undo operations in reverse order: add/subtract first, then multiply/divide.",
-          skills: ["linear-equations", "solving-equations"]
+          explanation: "**SAT Pattern: Interpreting the Slope of a Linear Model**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** In $C = 75 + 15p$, the coefficient $15$ is multiplied by $p$ (number of prints), so it represents the cost per print.\n\n**The Full Solution:**\nIn $C = 75 + 15p$:\n- $75$ is the constant (session fee when $p = 0$)\n- $15$ is the slope (additional cost per print)\n\n**Why the wrong answers are tempting:**\n• Choice A: $C$ gives the total charge, not $15$.\n• Choice B: The session fee is $75$ (when $p = 0$), not $15$.\n• Choice D: $p$ represents the number of prints.\n\n**Test Day Takeaway:** In $y = b + mx$, the coefficient $m$ is the rate of change per unit of $x$.",
+          skills: ["function-interpretation", "linear-functions"]
         },
         {
           id: 3,
-          type: "fill-in",
+          type: "multiple-choice",
           difficulty: "easy",
-          question: "A geologist collected $45$ rock samples on Monday and $63$ rock samples on Tuesday. What is the total number of rock samples collected?",
-          correctAnswer: "108",
-          explanation: "**SAT Pattern: Basic Addition**\n\n**The correct answer is 108.**\n\n**The Fast Way (5 seconds):** $45 + 63 = 108$.\n\n**The Full Solution:**\n$45 + 63 = 108$\n\n**Common Mistakes to Avoid:**\n• Subtraction instead of addition: $63 - 45 = 18$.\n\n**Verification:** $108 - 63 = 45$ ✓\n\n**Test Day Takeaway:** Read the question carefully — \"total\" means add.",
-          skills: ["word-problems"]
+          question: "$5$ less than $4$ times a number $n$ equals $31$. Which equation represents this statement?",
+          choices: [
+            { id: "A", text: "$5n - 4 = 31$" },
+            { id: "B", text: "$4n - 5 = 31$" },
+            { id: "C", text: "$5 - 4n = 31$" },
+            { id: "D", text: "$4(n - 5) = 31$" }
+          ],
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Translating Words to an Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** \"$4$ times $n$\" $= 4n$. \"$5$ less than that\" $= 4n - 5$. \"Equals $31$\" $\\Rightarrow 4n - 5 = 31$.\n\n**The Full Solution:**\n- \"$4$ times a number $n$\": $4n$\n- \"$5$ less than\" that: $4n - 5$\n- \"equals $31$\": $4n - 5 = 31$\n\n**Why the wrong answers are tempting:**\n• Choice A ($5n - 4 = 31$): Swaps the $4$ and $5$.\n• Choice C ($5 - 4n = 31$): Reverses the subtraction order.\n• Choice D ($4(n - 5) = 31$): Distributes to $4n - 20$, not $4n - 5$.\n\n**Test Day Takeaway:** \"$A$ less than $B$\" means $B - A$, not $A - B$.",
+          skills: ["linear-equations", "word-problems"]
         },
         {
           id: 4,
-          type: "multiple-choice",
+          type: "fill-in",
           difficulty: "easy",
-          question: "What is $40\\%$ of $150$?",
-          choices: [
-            { id: "A", text: "$40$" },
-            { id: "B", text: "$60$" },
-            { id: "C", text: "$90$" },
-            { id: "D", text: "$110$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Percent of a Number**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $40\\% = 0.4$. $0.4 \\times 150 = 60$.\n\n**The Full Solution:**\n$40\\%$ of $150 = \\frac{40}{100} \\times 150 = 0.4 \\times 150 = 60$\n\n**Why the wrong answers are tempting:**\n• Choice A ($40$): Uses the percentage itself as the answer.\n• Choice C ($90$): This is $60\\%$ of $150$.\n• Choice D ($110$): This is $150 - 40$.\n\n**Test Day Takeaway:** \"$X\\%$ of $Y$\" means $\\frac{X}{100} \\times Y$.",
-          skills: ["percents"]
+          question: "A fitness studio buys $8$ identical yoga mats. After applying a $\\$32$ discount coupon, the total cost is $\\$88$. What was the original price per mat, in dollars?",
+          correctAnswer: "15",
+          explanation: "**SAT Pattern: Multi-Step Word Problem**\n\n**The correct answer is $15$.**\n\n**The Fast Way (15 seconds):** Total before discount $= 88 + 32 = 120$. Price per mat $= 120 \\div 8 = 15$.\n\n**The Full Solution:**\nOriginal total $= \\$88 + \\$32 = \\$120$.\nPrice per mat $= \\frac{120}{8} = \\$15$.\n\n**Common Mistakes to Avoid:**\n• Dividing first: $88/8 = 11$ (ignoring the coupon).\n• Subtracting: $88 - 32 = 56$, then $56/8 = 7$.\n\n**Verification:** $8 \\times 15 = 120$. After $\\$32$ discount: $120 - 32 = 88$ ✓\n\n**Test Day Takeaway:** When a discount has been applied, add it back to find the original total before dividing.",
+          skills: ["word-problems", "solving-equations"]
         },
         {
           id: 5,
@@ -85,32 +85,40 @@ export const practiceTest8 = {
           explanation: "**SAT Pattern: Y-Intercept Interpretation**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** When $c = 0$: $I = 200 + 30(0) = 200$. The $200$ is the income with zero clients — the base income.\n\n**The Full Solution:**\nIn $I = 200 + 30c$:\n- $200$ is the constant (income when $c = 0$)\n- $30$ is the coefficient (additional income per client)\n\n**Why the wrong answers are tempting:**\n• Choice A: The amount per client is $30$, not $200$.\n• Choice B: $I$ is the total; $200$ is just part of it.\n• Choice D: $200$ is in dollars, not a count of clients.\n\n**Test Day Takeaway:** The constant in $y = mx + b$ is the value when the input is zero.",
           skills: ["function-interpretation", "linear-functions"]
         },
+
+        // ===== EASY-MEDIUM (Q6-Q7) =====
         {
           id: 6,
-          type: "fill-in",
-          difficulty: "easy",
-          question: "A bus route is $18$ miles long. If $1$ mile $= 1.6$ kilometers, how many kilometers long is the route? (Round to the nearest tenth if needed.)",
-          correctAnswer: "28.8",
-          explanation: "**SAT Pattern: Unit Conversion**\n\n**The correct answer is 28.8.**\n\n**The Fast Way (10 seconds):** $18 \\times 1.6 = 28.8$.\n\n**The Full Solution:**\n$18 \\text{ miles} \\times \\frac{1.6 \\text{ km}}{1 \\text{ mile}} = 28.8 \\text{ km}$\n\n**Common Mistakes to Avoid:**\n• Dividing instead of multiplying: $18 \\div 1.6 = 11.25$.\n\n**Verification:** $28.8 \\div 1.6 = 18$ ✓\n\n**Test Day Takeaway:** To convert to a smaller unit equivalent, multiply by the conversion factor.",
-          skills: ["unit-conversion"]
+          type: "multiple-choice",
+          difficulty: "medium",
+          question: "The equation $n^2 + 7 = 56$ has two solutions. What is the positive solution for $n$?",
+          choices: [
+            { id: "A", text: "$6$" },
+            { id: "B", text: "$7$" },
+            { id: "C", text: "$8$" },
+            { id: "D", text: "$49$" }
+          ],
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Solving a Quadratic (No Middle Term)**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $n^2 = 56 - 7 = 49$. $n = \\sqrt{49} = 7$ (positive solution).\n\n**The Full Solution:**\n$n^2 + 7 = 56$\n$n^2 = 49$\n$n = \\pm 7$\nThe positive solution is $7$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($6$): $6^2 = 36$, not $49$.\n• Choice C ($8$): $8^2 = 64$, not $49$.\n• Choice D ($49$): This is $n^2$, not $n$.\n\n**Test Day Takeaway:** Isolate the squared term first, then take the square root. Read whether the question asks for the positive solution.",
+          skills: ["quadratic-equations", "solving-equations"]
         },
         {
           id: 7,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "Which expression is equivalent to $3(x + 4) - 2x$?",
+          difficulty: "medium",
+          question: "A transit authority surveys riders about which improvement they most want. The results show $42\\%$ want more frequent service, $28\\%$ want lower fares, $18\\%$ want cleaner vehicles, and $12\\%$ want extended hours. What percentage of riders did NOT choose more frequent service?",
           choices: [
-            { id: "A", text: "$x + 4$" },
-            { id: "B", text: "$x + 12$" },
-            { id: "C", text: "$5x + 4$" },
-            { id: "D", text: "$5x + 12$" }
+            { id: "A", text: "$28\\%$" },
+            { id: "B", text: "$42\\%$" },
+            { id: "C", text: "$58\\%$" },
+            { id: "D", text: "$68\\%$" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Distribute and Combine Like Terms**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $3x + 12 - 2x = x + 12$.\n\n**The Full Solution:**\n$3(x + 4) - 2x$\n$= 3x + 12 - 2x$\n$= x + 12$\n\n**Why the wrong answers are tempting:**\n• Choice A ($x + 4$): Distributed $3$ to $x$ but not to $4$.\n• Choice C ($5x + 4$): Added $3x + 2x$ instead of subtracting, and didn't distribute to $4$.\n• Choice D ($5x + 12$): Added $3x + 2x$ instead of subtracting.\n\n**Test Day Takeaway:** Distribute first, then combine like terms. Watch the sign in front of $2x$.",
-          skills: ["polynomial-operations", "algebraic-manipulation"]
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Complement of a Percentage**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** Did NOT choose more frequent service $= 100\\% - 42\\% = 58\\%$.\n\n**The Full Solution:**\n$42\\%$ chose more frequent service.\nThe complement: $100\\% - 42\\% = 58\\%$ did NOT choose it.\n\nAlternatively: $28\\% + 18\\% + 12\\% = 58\\%$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($28\\%$): Just the lower fares percentage.\n• Choice B ($42\\%$): The percentage who DID choose it, not the complement.\n• Choice D ($68\\%$): From $100\\% - 28\\% - 12\\%$ or another miscalculation.\n\n**Test Day Takeaway:** \"Did NOT\" means use the complement: $100\\% - \\text{given}\\%$.",
+          skills: ["percents", "data-interpretation"]
         },
 
-        // ===== MEDIUM (Q8-Q15) =====
+        // ===== MEDIUM (Q8-Q13) =====
         {
           id: 8,
           type: "multiple-choice",
@@ -195,19 +203,20 @@ export const practiceTest8 = {
           explanation: "**SAT Pattern: Supplementary Angles**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** $(3x + 10) + (2x + 20) = 180$, so $5x + 30 = 180$, $5x = 150$, $x = 30$.\n\n**The Full Solution:**\nSupplementary angles sum to $180°$:\n$(3x + 10) + (2x + 20) = 180$\n$5x + 30 = 180$\n$5x = 150$\n$x = 30$\n\n**Why the wrong answers are tempting:**\n• Choice A ($20$): From setting the angles equal instead of summing to $180°$.\n• Choice B ($25$): From an arithmetic error.\n• Choice D ($35$): From $180 - 5 = 175$, $175 \\div 5 = 35$.\n\n**Test Day Takeaway:** Supplementary $= 180°$. Complementary $= 90°$.",
           skills: ["angles", "solving-equations"]
         },
+        // ===== HARD (Q14-Q22) =====
         {
           id: 14,
           type: "fill-in",
-          difficulty: "medium",
-          question: "A transit system surveyed $400$ riders. The results showed that $55\\%$ use the bus daily. How many riders use the bus daily?",
-          correctAnswer: "220",
-          explanation: "**SAT Pattern: Percent of a Total**\n\n**The correct answer is 220.**\n\n**The Fast Way (10 seconds):** $0.55 \\times 400 = 220$.\n\n**The Full Solution:**\n$55\\%$ of $400 = \\frac{55}{100} \\times 400 = 0.55 \\times 400 = 220$\n\n**Common Mistakes to Avoid:**\n• Computing $400 \\div 55$.\n• Getting $55 \\times 4 = 220$ is actually a fast shortcut: $55\\%$ of $400 = 55 \\times 4$.\n\n**Verification:** $\\frac{220}{400} = 0.55 = 55\\%$ ✓\n\n**Test Day Takeaway:** To find $X\\%$ of $N$: compute $\\frac{X}{100} \\times N$.",
-          skills: ["percents", "word-problems"]
+          difficulty: "hard",
+          question: "The expression $(4x^2 - 3x + 2) + (x^2 + 5x - 9)$ can be written as $ax^2 + bx + c$. What is the value of $c$?",
+          correctAnswer: "-7",
+          explanation: "**SAT Pattern: Adding Polynomials**\n\n**The correct answer is $-7$.**\n\n**The Fast Way (15 seconds):** Combine the constant terms: $2 + (-9) = -7$. So $c = -7$.\n\n**The Full Solution:**\n$(4x^2 - 3x + 2) + (x^2 + 5x - 9)$\n$= (4 + 1)x^2 + (-3 + 5)x + (2 - 9)$\n$= 5x^2 + 2x - 7$\n\nSo $a = 5$, $b = 2$, $c = -7$.\n\n**Common Mistakes to Avoid:**\n• Adding $2 + 9 = 11$ instead of $2 + (-9) = -7$ (watch the sign on $-9$).\n• Reporting $a$ or $b$ instead of $c$.\n\n**Verification:** $5x^2 + 2x - 7$ ✓\n\n**Test Day Takeaway:** When adding polynomials, combine like terms. Pay careful attention to signs on negative terms.",
+          skills: ["polynomial-operations", "algebraic-manipulation"]
         },
         {
           id: 15,
           type: "multiple-choice",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "A line passes through the points $(0, 4)$ and $(3, -2)$. Which of the following is the equation of the line?",
           choices: [
             { id: "A", text: "$y = 2x + 4$" },

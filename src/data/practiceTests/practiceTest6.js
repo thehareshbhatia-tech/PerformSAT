@@ -15,58 +15,59 @@ export const practiceTest6 = {
       title: "Module 1",
       timeLimit: 35,
       questions: [
+        // ===== EASY (Q1-Q5) =====
         {
           id: 1,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "An artist buys $15$ paintbrushes at $\\$4$ each. What is the total cost, in dollars?",
+          question: "A survey asked $200$ art students which medium they prefer. The results are shown in the table.\n\n| Medium | Number of Students |\n|---|---|\n| Painting | $72$ |\n| Sculpture | $48$ |\n| Digital Art | $56$ |\n| Photography | $24$ |\n\nAccording to the table, what fraction of the students surveyed prefer sculpture?",
           choices: [
-            { id: "A", text: "$\\$19$" },
-            { id: "B", text: "$\\$45$" },
-            { id: "C", text: "$\\$60$" },
-            { id: "D", text: "$\\$75$" }
+            { id: "A", text: "$\\frac{48}{200}$" },
+            { id: "B", text: "$\\frac{48}{72}$" },
+            { id: "C", text: "$\\frac{48}{56}$" },
+            { id: "D", text: "$\\frac{200}{48}$" }
           ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Total Cost Calculation**\n\n**Choice C is correct.**\n\n**The Fast Way (5 seconds):** $15 \\times 4 = 60$.\n\n**The Full Solution:**\nTotal cost $= 15 \\times \\$4 = \\$60$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\$19$): Adds $15 + 4$ instead of multiplying.\n• Choice B ($\\$45$): From $15 \\times 3$ (wrong unit price).\n• Choice D ($\\$75$): From $15 \\times 5$ (wrong unit price).\n\n**Test Day Takeaway:** Total cost $=$ number of items $\\times$ price per item.",
-          skills: ["word-problems", "solving-equations"]
+          correctAnswer: "A",
+          explanation: "**SAT Pattern: Reading a Table — Part-to-Whole Fraction**\n\n**Choice A is correct.**\n\n**The Fast Way (10 seconds):** Students who prefer sculpture $= 48$. Total students $= 200$. Fraction $= \\frac{48}{200}$.\n\n**The Full Solution:**\nThe question asks what fraction of ALL students prefer sculpture.\nNumerator: students who prefer sculpture $= 48$.\nDenominator: total students $= 200$.\nFraction $= \\frac{48}{200} = \\frac{6}{25}$.\n\n**Why the wrong answers are tempting:**\n• Choice B: Uses painting ($72$) as the denominator — wrong group.\n• Choice C: Uses digital art ($56$) as the denominator.\n• Choice D: Inverts the fraction (whole over part).\n\n**Test Day Takeaway:** \"Fraction of all\" means part $\\div$ total. The total goes in the denominator.",
+          skills: ["data-interpretation", "ratios-proportions"]
         },
         {
           id: 2,
-          type: "fill-in",
+          type: "multiple-choice",
           difficulty: "easy",
-          question: "A farmer has $180$ acres of land. If $60\\%$ of the land is used for crops, how many acres are used for crops?",
-          correctAnswer: "108",
-          explanation: "**SAT Pattern: Percent of a Whole**\n\n**The correct answer is $108$.**\n\n**The Fast Way (10 seconds):** $60\\%$ of $180 = 0.60 \\times 180 = 108$.\n\n**The Full Solution:**\n$0.60 \\times 180 = 108$ acres.\n\n**Common Mistakes to Avoid:**\n• Computing $40\\%$ instead ($0.40 \\times 180 = 72$).\n• Using $6\\%$: $0.06 \\times 180 = 10.8$.\n\n**Verification:** $108/180 = 0.60 = 60\\%$ ✓\n\n**Test Day Takeaway:** Percent of a number $=$ decimal form $\\times$ the number.",
-          skills: ["percents", "word-problems"]
+          question: "A farmer's crop yield $Y$ in bushels is modeled by $Y = 120 + 8w$, where $w$ is the number of weeks after planting. What is the best interpretation of $8$ in this equation?",
+          choices: [
+            { id: "A", text: "The total yield after $w$ weeks" },
+            { id: "B", text: "The yield at the time of planting" },
+            { id: "C", text: "The increase in yield per week" },
+            { id: "D", text: "The number of weeks after planting" }
+          ],
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Interpreting the Slope of a Linear Model**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** In $Y = 120 + 8w$, the coefficient $8$ is multiplied by $w$ (weeks), so it represents the rate of change: $8$ bushels per week.\n\n**The Full Solution:**\nIn $Y = 120 + 8w$:\n- $120$ is the $y$-intercept (yield at $w = 0$, the time of planting)\n- $8$ is the slope (additional bushels per week)\n\n**Why the wrong answers are tempting:**\n• Choice A: $Y$ is the total yield, not $8$.\n• Choice B: The yield at planting is $120$ (when $w = 0$).\n• Choice D: $w$ represents weeks, not $8$.\n\n**Test Day Takeaway:** In $y = b + mx$, the coefficient $m$ is always the rate of change per unit of $x$.",
+          skills: ["function-interpretation", "linear-functions"]
         },
         {
           id: 3,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "If $7m = 56$, what is the value of $m$?",
+          question: "$4$ less than $6$ times a number $x$ equals $38$. Which equation represents this statement?",
           choices: [
-            { id: "A", text: "$6$" },
-            { id: "B", text: "$7$" },
-            { id: "C", text: "$8$" },
-            { id: "D", text: "$49$" }
+            { id: "A", text: "$4x - 6 = 38$" },
+            { id: "B", text: "$6x - 4 = 38$" },
+            { id: "C", text: "$4 - 6x = 38$" },
+            { id: "D", text: "$6(x - 4) = 38$" }
           ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: One-Step Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (5 seconds):** $m = 56 \\div 7 = 8$.\n\n**The Full Solution:**\n$7m = 56$\n$m = 56/7 = 8$\n\n**Why the wrong answers are tempting:**\n• Choice A ($6$): $7 \\times 6 = 42 \\neq 56$.\n• Choice B ($7$): $7 \\times 7 = 49 \\neq 56$.\n• Choice D ($49$): $56 - 7 = 49$ (subtracting instead of dividing).\n\n**Test Day Takeaway:** To isolate a variable being multiplied, divide both sides by the coefficient.",
-          skills: ["linear-equations", "solving-equations"]
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Translating Words to an Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** \"$6$ times $x$\" $= 6x$. \"$4$ less than that\" $= 6x - 4$. \"Equals $38$\" $\\Rightarrow 6x - 4 = 38$.\n\n**The Full Solution:**\n- \"$6$ times a number $x$\": $6x$\n- \"$4$ less than\" that: $6x - 4$\n- \"equals $38$\": $6x - 4 = 38$\n\n**Why the wrong answers are tempting:**\n• Choice A ($4x - 6 = 38$): Swaps the $4$ and $6$.\n• Choice C ($4 - 6x = 38$): Reverses the subtraction order.\n• Choice D ($6(x-4) = 38$): Distributes to $6x - 24$, not $6x - 4$.\n\n**Test Day Takeaway:** \"$A$ less than $B$\" means $B - A$, not $A - B$.",
+          skills: ["linear-equations", "word-problems"]
         },
         {
           id: 4,
-          type: "multiple-choice",
+          type: "fill-in",
           difficulty: "easy",
-          question: "A marine biologist records ocean temperatures of $68°F, 72°F, 71°F, 69°F,$ and $70°F$ over $5$ days. What is the mean temperature?",
-          choices: [
-            { id: "A", text: "$69°F$" },
-            { id: "B", text: "$70°F$" },
-            { id: "C", text: "$71°F$" },
-            { id: "D", text: "$72°F$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Computing the Mean**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Sum $= 68 + 72 + 71 + 69 + 70 = 350$. Mean $= 350 \\div 5 = 70$.\n\n**The Full Solution:**\nMean $= \\frac{68 + 72 + 71 + 69 + 70}{5} = \\frac{350}{5} = 70°F$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($69$): From a sum error.\n• Choice C ($71$): The median, not the mean.\n• Choice D ($72$): The maximum, not the mean.\n\n**Test Day Takeaway:** Mean $=$ sum $\\div$ count. The mean and median can be different values.",
+          question: "A marine biologist records ocean temperatures of $68°F, 72°F, 71°F, 69°F,$ and $70°F$ over $5$ days. What is the mean temperature, in degrees Fahrenheit?",
+          correctAnswer: "70",
+          explanation: "**SAT Pattern: Computing the Mean**\n\n**The correct answer is $70$.**\n\n**The Fast Way (15 seconds):** Sum $= 68 + 72 + 71 + 69 + 70 = 350$. Mean $= 350 \\div 5 = 70$.\n\n**The Full Solution:**\nMean $= \\frac{68 + 72 + 71 + 69 + 70}{5} = \\frac{350}{5} = 70°F$.\n\n**Common Mistakes to Avoid:**\n• Reporting the median ($70$) — which happens to be the same here, but the process differs.\n• Sum error: double-check $68 + 72 = 140$, $140 + 71 = 211$, $211 + 69 = 280$, $280 + 70 = 350$.\n\n**Verification:** $350 \\div 5 = 70$ ✓\n\n**Test Day Takeaway:** Mean $=$ sum $\\div$ count. Carefully add all values before dividing.",
           skills: ["mean-median-mode", "statistics"]
         },
         {
@@ -84,19 +85,21 @@ export const practiceTest6 = {
           explanation: "**SAT Pattern: Interpreting a Coefficient in a Linear Model**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** In $P = 12w$, $12$ is multiplied by $w$ (number of sides). Since perimeter $=$ side length $\\times$ number of sides, $12$ must be the side length.\n\n**The Full Solution:**\nPerimeter of a regular polygon $=$ side length $\\times$ number of sides.\n$P = 12w$ matches this form, with side length $= 12$.\n\n**Why the wrong answers are tempting:**\n• Choice A: $w$ is the number of sides, not $12$.\n• Choice B: $P$ is the perimeter.\n• Choice D: Area is not calculated this way.\n\n**Test Day Takeaway:** In $y = kx$, the coefficient $k$ represents the rate (here, length per side).",
           skills: ["function-interpretation", "linear-functions"]
         },
+
+        // ===== EASY-MEDIUM (Q6-Q7) =====
         {
           id: 6,
           type: "fill-in",
-          difficulty: "easy",
-          question: "A medical clinic sees $36$ patients per day for $5$ days. How many patients does the clinic see in total?",
-          correctAnswer: "180",
-          explanation: "**SAT Pattern: Total from a Daily Rate**\n\n**The correct answer is $180$.**\n\n**The Fast Way (10 seconds):** $36 \\times 5 = 180$.\n\n**The Full Solution:**\nTotal patients $= 36 \\times 5 = 180$.\n\n**Common Mistakes to Avoid:**\n• Adding: $36 + 5 = 41$.\n\n**Verification:** $180 \\div 5 = 36$ per day. ✓\n\n**Test Day Takeaway:** Total $=$ rate per period $\\times$ number of periods.",
-          skills: ["word-problems", "unit-conversion"]
+          difficulty: "medium",
+          question: "A medical clinic charges $\\$35$ per visit. A patient has a $\\$90$ insurance credit that is applied first. If the patient makes $4$ visits, what is the total out-of-pocket cost, in dollars?",
+          correctAnswer: "50",
+          explanation: "**SAT Pattern: Multi-Step Word Problem**\n\n**The correct answer is $50$.**\n\n**The Fast Way (15 seconds):** Total before credit $= 4 \\times 35 = 140$. After credit: $140 - 90 = 50$.\n\n**The Full Solution:**\nTotal cost $= 4 \\times \\$35 = \\$140$\nAfter insurance credit: $\\$140 - \\$90 = \\$50$\n\n**Common Mistakes to Avoid:**\n• Applying the credit per visit: $35 - 90 < 0$ (the credit covers the entire bill, not per-visit).\n• Forgetting to subtract the credit: answering $140$.\n\n**Verification:** $4 \\times 35 = 140$. $140 - 90 = 50$ ✓\n\n**Test Day Takeaway:** Read carefully whether a credit/discount is applied once to the total or per item.",
+          skills: ["word-problems", "solving-equations"]
         },
         {
           id: 7,
           type: "multiple-choice",
-          difficulty: "easy",
+          difficulty: "medium",
           question: "Which expression is equivalent to $\\frac{8x^6}{4x^3}$?",
           choices: [
             { id: "A", text: "$2x^2$" },
@@ -108,19 +111,21 @@ export const practiceTest6 = {
           explanation: "**SAT Pattern: Simplifying with Exponent Rules**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $8/4 = 2$ and $x^{6-3} = x^3$. Answer: $2x^3$.\n\n**The Full Solution:**\n$\\frac{8x^6}{4x^3} = \\frac{8}{4} \\cdot x^{6-3} = 2x^3$\n\n**Why the wrong answers are tempting:**\n• Choice A ($2x^2$): Divides the exponent ($6/3 = 2$) instead of subtracting.\n• Choice C ($4x^2$): Subtracts the coefficients ($8 - 4 = 4$) and divides exponents.\n• Choice D ($4x^3$): Subtracts the coefficients instead of dividing.\n\n**Test Day Takeaway:** When dividing: divide coefficients, subtract exponents.",
           skills: ["exponent-rules", "algebraic-manipulation"]
         },
+
+        // ===== MEDIUM (Q8-Q13) =====
         {
           id: 8,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "An artist mixes paint colors. She uses $3$ parts blue to $5$ parts white. If she uses $24$ ounces of blue, how many ounces of white does she use?",
+          question: "An artist mixes paint colors. She uses $3$ parts blue to $5$ parts white. If she needs a total of $56$ ounces of the mixture, how many ounces of blue paint does she need?",
           choices: [
-            { id: "A", text: "$8$" },
-            { id: "B", text: "$30$" },
-            { id: "C", text: "$40$" },
-            { id: "D", text: "$72$" }
+            { id: "A", text: "$7$" },
+            { id: "B", text: "$21$" },
+            { id: "C", text: "$24$" },
+            { id: "D", text: "$35$" }
           ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Ratio Problem**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** $\\frac{3}{5} = \\frac{24}{w}$. Cross multiply: $3w = 120$, so $w = 40$.\n\nOr: $24 \\div 3 = 8$ per part. White $= 5 \\times 8 = 40$.\n\n**The Full Solution:**\nBlue to white ratio is $3:5$.\nEach \"part\" $= 24 \\div 3 = 8$ ounces.\nWhite $= 5 \\times 8 = 40$ ounces.\n\n**Why the wrong answers are tempting:**\n• Choice A ($8$): The size of one part, not the total white.\n• Choice B ($30$): From $24 + 6$ or $5 \\times 6$.\n• Choice D ($72$): From $24 \\times 3$ (multiplying blue by the blue ratio).\n\n**Test Day Takeaway:** Find the value of one \"part\" first, then multiply by the number of parts you need.",
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Ratio Problem — Finding a Part from the Total**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Total parts $= 3 + 5 = 8$. Each part $= 56 \\div 8 = 7$ ounces. Blue $= 3 \\times 7 = 21$.\n\n**The Full Solution:**\nBlue to white ratio is $3:5$, so total parts $= 8$.\nValue of one part $= \\frac{56}{8} = 7$ ounces.\nBlue $= 3 \\times 7 = 21$ ounces.\n\n**Why the wrong answers are tempting:**\n• Choice A ($7$): The value of one part, not the blue amount.\n• Choice C ($24$): From $56 \\times \\frac{3}{7}$ (wrong denominator).\n• Choice D ($35$): The white amount ($5 \\times 7$), not blue.\n\n**Verification:** Blue $= 21$, White $= 35$. Total $= 21 + 35 = 56$ ✓. Ratio $= 21:35 = 3:5$ ✓.\n\n**Test Day Takeaway:** For ratio problems, add the parts to get the total ratio, find the value of one part, then multiply.",
           skills: ["ratios-proportions", "word-problems"]
         },
         {
@@ -192,29 +197,31 @@ export const practiceTest6 = {
           explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**Choice B is correct.**\n\n**The Fast Way (25 seconds):** From $2x - y = 0$, we get $y = 2x$. Substitute into the first: $x + 3(2x) = 14$, so $7x = 14$ and $x = 2$.\n\n**The Full Solution:**\nFrom the second equation: $y = 2x$.\nSubstitute into the first: $x + 3(2x) = 14$.\n$x + 6x = 14$\n$7x = 14$\n$x = 2$\n\n**Why the wrong answers are tempting:**\n• Choice A ($1$): From $14/14$ or an arithmetic slip.\n• Choice C ($4$): The value of $y$ ($y = 2 \\times 2 = 4$).\n• Choice D ($7$): From $14/2$, perhaps solving $2x = 14$ without proper substitution.\n\n**Verification:** $x = 2$, $y = 4$. Check: $2 + 3(4) = 14$ ✓ and $2(2) - 4 = 0$ ✓\n\n**Test Day Takeaway:** If one equation easily gives a variable in terms of the other, use substitution.",
           skills: ["systems-of-equations", "solving-equations"]
         },
+
+        // ===== HARD (Q14-Q22) =====
         {
           id: 14,
           type: "fill-in",
-          difficulty: "medium",
-          question: "An oceanographer measures the depth of a coral reef at $48$ feet below sea level. A submarine dives to a depth $3$ times as deep as the reef. How many feet below sea level is the submarine?",
-          correctAnswer: "144",
-          explanation: "**SAT Pattern: Multiplication in Context**\n\n**The correct answer is $144$.**\n\n**The Fast Way (10 seconds):** $48 \\times 3 = 144$ feet.\n\n**The Full Solution:**\nSubarine depth $= 3 \\times 48 = 144$ feet below sea level.\n\n**Common Mistakes to Avoid:**\n• Dividing: $48 \\div 3 = 16$ (going one-third as deep).\n• Adding: $48 + 3 = 51$.\n\n**Verification:** $144 \\div 3 = 48$ (the reef depth). ✓\n\n**Test Day Takeaway:** \"$k$ times as deep\" means multiply by $k$.",
-          skills: ["word-problems", "solving-equations"]
+          difficulty: "hard",
+          question: "The function $y = 3(x - 14)(x + 5)(x + 4)$ is graphed in the $xy$-plane. What is the greatest $x$-intercept of this graph?",
+          correctAnswer: "14",
+          explanation: "**SAT Pattern: Finding x-Intercepts from Factored Form**\n\n**The correct answer is $14$.**\n\n**The Fast Way (15 seconds):** Set each factor to $0$: $x - 14 = 0 \\Rightarrow x = 14$; $x + 5 = 0 \\Rightarrow x = -5$; $x + 4 = 0 \\Rightarrow x = -4$. The greatest is $14$.\n\n**The Full Solution:**\n$x$-intercepts occur where $y = 0$:\n$3(x - 14)(x + 5)(x + 4) = 0$\n$x = 14$, $x = -5$, or $x = -4$\nThe greatest $x$-intercept is $14$.\n\n**Common Mistakes to Avoid:**\n• Reporting $-14$ instead of $14$ (sign error from $(x - 14)$).\n• Reporting $-4$ (the greatest of the two negative values, but not the overall greatest).\n\n**Verification:** At $x = 14$: $y = 3(0)(19)(18) = 0$ ✓\n\n**Test Day Takeaway:** To find $x$-intercepts, set each factor equal to zero. The leading coefficient ($3$) does not affect the $x$-intercepts.",
+          skills: ["polynomial-operations", "coordinate-geometry"]
         },
         {
           id: 15,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "A farmer plants seeds in rows. Each row has $24$ seeds, and the total number of seeds is given by $S = 24r$, where $r$ is the number of rows. If the farmer has $360$ seeds, how many complete rows can be planted?",
+          difficulty: "hard",
+          question: "A medicine loses $10\\%$ of its potency each year. If the initial potency is $P$, which expression gives the potency after $5$ years?",
           choices: [
-            { id: "A", text: "$12$" },
-            { id: "B", text: "$15$" },
-            { id: "C", text: "$16$" },
-            { id: "D", text: "$24$" }
+            { id: "A", text: "$P(0.10)^5$" },
+            { id: "B", text: "$P(0.90)^5$" },
+            { id: "C", text: "$P - 0.50P$" },
+            { id: "D", text: "$P(0.50)$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Solving a Linear Equation in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $360 = 24r$, so $r = 360 \\div 24 = 15$.\n\n**The Full Solution:**\n$S = 24r$\n$360 = 24r$\n$r = 360/24 = 15$\n\n**Why the wrong answers are tempting:**\n• Choice A ($12$): From $360/30$ (wrong divisor).\n• Choice C ($16$): From $360/22.5$ or a calculation error.\n• Choice D ($24$): The number of seeds per row, not the number of rows.\n\n**Verification:** $24 \\times 15 = 360$ ✓\n\n**Test Day Takeaway:** Substitute the known value and solve for the unknown. Check by multiplying back.",
-          skills: ["linear-equations", "word-problems"]
+          explanation: "**SAT Pattern: Exponential Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** Loses $10\\%$ per year means $90\\%$ remains each year. After $5$ years: $P(0.90)^5$.\n\n**The Full Solution:**\nAnnual retention rate $= 1 - 0.10 = 0.90$.\nAfter $t$ years: $P(0.90)^t$.\nAfter $5$ years: $P(0.90)^5$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($P(0.10)^5$): Uses the loss rate as the base instead of the retention rate.\n• Choice C ($P - 0.50P = 0.50P$): Assumes $10\\% \\times 5 = 50\\%$ total loss. This is the linear (simple) approach, but exponential decay does not work this way.\n• Choice D ($P(0.50)$): Same error as C, just written differently.\n\n**Test Day Takeaway:** Exponential decay: multiply by the retention rate $(1 - \\text{decay rate})$ raised to the number of periods.",
+          skills: ["exponential-functions", "percents"]
         },
         {
           id: 16,

@@ -18,139 +18,145 @@ export const practiceTest1 = {
           id: 1,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "A runner burns $12$ calories per minute while jogging. How many calories does the runner burn in $45$ minutes?",
+          question: "A survey asked $200$ students to name their favorite sport. The results are shown in the table below.\n\n| Sport | Number of Students |\n|---|---|\n| Soccer | $68$ |\n| Basketball | $52$ |\n| Tennis | $44$ |\n| Swimming | $36$ |\n\nAccording to the table, what percentage of the students surveyed chose basketball?",
           choices: [
-            { id: "A", text: "$480$" },
-            { id: "B", text: "$540$" },
-            { id: "C", text: "$57$" },
-            { id: "D", text: "$600$" }
+            { id: "A", text: "$20\\%$" },
+            { id: "B", text: "$26\\%$" },
+            { id: "C", text: "$34\\%$" },
+            { id: "D", text: "$52\\%$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Unit Rate Multiplication**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** $12 \\times 45 = 540$.\n\n**The Full Solution:**\nCalories burned $= 12 \\text{ cal/min} \\times 45 \\text{ min} = 540$ calories.\n\n**Why the wrong answers are tempting:**\n• Choice A ($480$): Comes from multiplying $12 \\times 40$, forgetting the last $5$ minutes.\n• Choice C ($57$): Comes from adding $12 + 45$ instead of multiplying.\n• Choice D ($600$): Comes from multiplying $12 \\times 50$, rounding up the time.\n\n**Test Day Takeaway:** Rate times time equals total. Just multiply.",
-          skills: ["word-problems", "unit-conversion"]
+          explanation: "**SAT Pattern: Reading a Table and Calculating a Percentage**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Basketball $= 52$ out of $200$. $\\frac{52}{200} = 0.26 = 26\\%$.\n\n**The Full Solution:**\nPercentage $= \\frac{\\text{part}}{\\text{whole}} \\times 100 = \\frac{52}{200} \\times 100 = 26\\%$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($20\\%$): From $\\frac{40}{200}$, a misread of the table.\n• Choice C ($34\\%$): From $\\frac{68}{200}$, using soccer instead of basketball.\n• Choice D ($52\\%$): Using the count ($52$) as the percentage directly.\n\n**Test Day Takeaway:** Percentage = (part / total) times $100$. Always divide by the total, not a subcategory.",
+          skills: ["percents", "statistics"]
         },
         {
           id: 2,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "What is $25\\%$ of $240$?",
+          question: "The equation $\\frac{2x}{5} = 18$ is true for what value of $x$?",
           choices: [
-            { id: "A", text: "$48$" },
-            { id: "B", text: "$60$" },
-            { id: "C", text: "$80$" },
-            { id: "D", text: "$96$" }
+            { id: "A", text: "$7.2$" },
+            { id: "B", text: "$36$" },
+            { id: "C", text: "$45$" },
+            { id: "D", text: "$90$" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Basic Percent Calculation**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $25\\%$ means one-quarter. $240 \\div 4 = 60$.\n\n**The Full Solution:**\n$25\\%$ of $240 = 0.25 \\times 240 = 60$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($48$): This is $20\\%$ of $240$.\n• Choice C ($80$): This is $\\frac{240}{3}$, confusing $25\\%$ with one-third.\n• Choice D ($96$): This is $40\\%$ of $240$.\n\n**Test Day Takeaway:** $25\\%$ = divide by $4$. Know your common percent shortcuts.",
-          skills: ["percents"]
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Solving an Equation with a Fraction**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** Multiply both sides by $5$: $2x = 90$. Divide by $2$: $x = 45$.\n\n**The Full Solution:**\n$\\frac{2x}{5} = 18$\n$2x = 18 \\times 5 = 90$\n$x = \\frac{90}{2} = 45$\n\n**Why the wrong answers are tempting:**\n• Choice A ($7.2$): From dividing $18 \\div 2.5$ or $18 \\div 5 \\times 2$.\n• Choice B ($36$): From $18 \\times 2 = 36$, forgetting to multiply by $5$.\n• Choice D ($90$): From $18 \\times 5 = 90$, forgetting to divide by $2$.\n\n**Test Day Takeaway:** Clear the fraction by multiplying both sides by the denominator, then solve the remaining equation.",
+          skills: ["solving-equations"]
         },
         {
           id: 3,
-          type: "fill-in",
+          type: "multiple-choice",
           difficulty: "easy",
-          question: "If $p + 5 + 7 = 15$, what is the value of $p$?",
-          correctAnswer: "3",
-          explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**The correct answer is 3.**\n\n**The Fast Way (10 seconds):** $p + 12 = 15$, so $p = 3$.\n\n**The Full Solution:**\n$p + 5 + 7 = 15$\n$p + 12 = 15$\n$p = 15 - 12 = 3$\n\n**Common Mistakes to Avoid:**\n• Adding $5 + 7$ incorrectly\n• Forgetting to subtract from both sides\n\n**Verification:** $3 + 5 + 7 = 15$ ✓\n\n**Test Day Takeaway:** Combine constants first, then isolate the variable.",
-          skills: ["solving-equations"]
+          question: "A biologist counts bacteria in a lab sample every hour. The table below shows the results.\n\n| Time (hours) | $0$ | $1$ | $2$ | $3$ | $4$ |\n|---|---|---|---|---|---|\n| Count | $50$ | $100$ | $200$ | $400$ | $800$ |\n\nWhich type of function best models the relationship between time and bacteria count?",
+          choices: [
+            { id: "A", text: "Linear, because the count increases by a constant amount" },
+            { id: "B", text: "Exponential, because the count doubles each hour" },
+            { id: "C", text: "Quadratic, because the count increases faster over time" },
+            { id: "D", text: "Linear, because the count always increases" }
+          ],
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Identifying Growth Type from a Table**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Check the ratios: $100/50 = 2$, $200/100 = 2$, $400/200 = 2$, $800/400 = 2$. Constant ratio = exponential.\n\n**The Full Solution:**\nThe count doubles each hour (multiplied by $2$). A constant multiplicative factor indicates exponential growth.\nDifferences: $50, 100, 200, 400$ — not constant, so not linear.\nRatios: $2, 2, 2, 2$ — constant, so exponential.\n\n**Why the wrong answers are tempting:**\n• Choice A: The differences are NOT constant ($50, 100, 200, 400$), so it is not linear.\n• Choice C: Quadratic growth has constant second differences, not a constant ratio.\n• Choice D: \"Always increases\" does not determine the type — linear, exponential, and quadratic can all increase.\n\n**Test Day Takeaway:** Constant differences = linear. Constant ratios = exponential. Check both to decide.",
+          skills: ["exponential-functions", "function-interpretation"]
         },
         {
           id: 4,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "A recipe calls for $3$ cups of flour for every $2$ cups of sugar. If a baker uses $9$ cups of flour, how many cups of sugar are needed?",
+          question: "A teacher has $5$ more than $3$ times the number of pens a student has. If the teacher has $23$ pens, which equation can be used to find $p$, the number of pens the student has?",
           choices: [
-            { id: "A", text: "$4$" },
-            { id: "B", text: "$5$" },
-            { id: "C", text: "$6$" },
-            { id: "D", text: "$8$" }
+            { id: "A", text: "$3p + 5 = 23$" },
+            { id: "B", text: "$5p + 3 = 23$" },
+            { id: "C", text: "$3(p + 5) = 23$" },
+            { id: "D", text: "$3p - 5 = 23$" }
           ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Basic Proportion**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** Flour tripled from $3$ to $9$, so sugar also triples: $2 \\times 3 = 6$.\n\n**The Full Solution:**\n$\\frac{3}{2} = \\frac{9}{x}$\n$3x = 18$\n$x = 6$\n\n**Why the wrong answers are tempting:**\n• Choice A ($4$): Doubling instead of tripling the sugar.\n• Choice B ($5$): Adding $3$ to sugar instead of multiplying.\n• Choice D ($8$): Multiplying $2 \\times 4$ from a wrong scale factor.\n\n**Test Day Takeaway:** Find the scale factor first, then apply it to the other quantity.",
-          skills: ["ratios-proportions"]
+          correctAnswer: "A",
+          explanation: "**SAT Pattern: Translating Words into an Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (15 seconds):** \"$3$ times the number\" $= 3p$. \"$5$ more than that\" $= 3p + 5$. Set equal to $23$.\n\n**The Full Solution:**\n\"$5$ more than $3$ times $p$\" translates to $3p + 5$.\n$3p + 5 = 23$\n\n**Why the wrong answers are tempting:**\n• Choice B ($5p + 3 = 23$): Swaps the $3$ and $5$.\n• Choice C ($3(p + 5) = 23$): Adds $5$ to $p$ before multiplying, which changes the meaning.\n• Choice D ($3p - 5 = 23$): Uses \"less\" instead of \"more.\"\n\n**Test Day Takeaway:** Read word problems carefully. \"$a$ more than $b$ times $x$\" translates to $bx + a$.",
+          skills: ["word-problems", "solving-equations"]
         },
         {
           id: 5,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "Which expression is equivalent to $9x^2 - 4x^2$?",
+          question: "The function $f(t) = 200 + 15t$ models the amount of water, in gallons, in a tank $t$ minutes after a pump is turned on. What does the number $15$ represent in this function?",
           choices: [
-            { id: "A", text: "$5x^2$" },
-            { id: "B", text: "$5x$" },
-            { id: "C", text: "$5x^4$" },
-            { id: "D", text: "$13x^2$" }
+            { id: "A", text: "The total capacity of the tank" },
+            { id: "B", text: "The amount of water in the tank when the pump starts" },
+            { id: "C", text: "The number of gallons added per minute" },
+            { id: "D", text: "The number of minutes the pump runs" }
           ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Combining Like Terms**\n\n**Choice A is correct.**\n\n**The Fast Way (10 seconds):** $9x^2 - 4x^2 = (9-4)x^2 = 5x^2$.\n\n**The Full Solution:**\nSubtract the coefficients of like terms: $9 - 4 = 5$. The variable part $x^2$ stays the same.\n\n**Why the wrong answers are tempting:**\n• Choice B ($5x$): Incorrectly reduces the exponent when subtracting.\n• Choice C ($5x^4$): Subtracts coefficients but incorrectly adds exponents.\n• Choice D ($13x^2$): Adds the coefficients instead of subtracting.\n\n**Test Day Takeaway:** When combining like terms, only the coefficients change. The exponent stays the same.",
-          skills: ["polynomial-operations"]
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Interpreting Slope in Context**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** In $f(t) = 200 + 15t$, the coefficient of $t$ is the rate of change: $15$ gallons per minute.\n\n**The Full Solution:**\nIn a linear function $f(t) = b + mt$, the slope $m$ is the rate of change. Here $m = 15$, which means $15$ gallons are added to the tank per minute. The $200$ is the starting amount ($y$-intercept).\n\n**Why the wrong answers are tempting:**\n• Choice A: Total capacity is not represented by the slope.\n• Choice B: The starting amount is $200$, not $15$.\n• Choice D: The number of minutes is the input variable $t$, not a constant.\n\n**Test Day Takeaway:** In a linear model $y = b + mx$, the slope $m$ always represents the rate of change per unit of the input variable.",
+          skills: ["linear-functions", "function-interpretation"]
         },
         {
           id: 6,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "A gym membership costs $\\$35$ per month plus a one-time registration fee of $\\$50$. Which function $f(m)$ gives the total cost, in dollars, for $m$ months?",
-          choices: [
-            { id: "A", text: "$f(m) = 35m + 50$" },
-            { id: "B", text: "$f(m) = 50m + 35$" },
-            { id: "C", text: "$f(m) = 85m$" },
-            { id: "D", text: "$f(m) = 35m - 50$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Linear Function from Context**\n\n**Choice A is correct.**\n\n**The Fast Way (15 seconds):** Monthly cost is the slope ($35$), one-time fee is the $y$-intercept ($50$). So $f(m) = 35m + 50$.\n\n**The Full Solution:**\nTotal cost = (cost per month)(number of months) + registration fee\n$f(m) = 35m + 50$\n\n**Why the wrong answers are tempting:**\n• Choice B: Swaps the monthly cost and registration fee.\n• Choice C: Adds $35 + 50 = 85$ and treats it as a single monthly rate.\n• Choice D: Subtracts the registration fee instead of adding it.\n\n**Test Day Takeaway:** In linear models, the repeated cost is the slope and the one-time cost is the $y$-intercept.",
-          skills: ["linear-functions", "word-problems"]
+          type: "fill-in",
+          difficulty: "medium",
+          question: "A school orders $8$ identical microscopes using a $\\$50$ coupon. After applying the coupon, the school pays $\\$350$ total. What was the original price, in dollars, of each microscope?",
+          correctAnswer: "50",
+          explanation: "**SAT Pattern: Two-Step Word Problem**\n\n**The correct answer is $50$.**\n\n**The Fast Way (15 seconds):** Total before coupon $= 350 + 50 = 400$. Price per microscope $= 400 \\div 8 = 50$.\n\n**The Full Solution:**\nLet $p$ be the price per microscope.\n$8p - 50 = 350$\n$8p = 400$\n$p = 50$\n\n**Common Mistakes to Avoid:**\n• Forgetting to add back the coupon: $350 \\div 8 = 43.75$.\n• Subtracting the coupon instead of adding: $(350 - 50) \\div 8 = 37.5$.\n\n**Verification:** $8 \\times 50 - 50 = 400 - 50 = 350$ ✓\n\n**Test Day Takeaway:** When a coupon is applied, add it back to the paid amount to find the original total, then divide.",
+          skills: ["word-problems", "solving-equations"]
         },
         {
           id: 7,
-          type: "fill-in",
-          difficulty: "easy",
-          question: "A coach spent $\\$72$ on water bottles at $\\$4$ per bottle. How many bottles did the coach buy?",
-          correctAnswer: "18",
-          explanation: "**SAT Pattern: Simple Division Word Problem**\n\n**The correct answer is 18.**\n\n**The Fast Way (10 seconds):** $72 \\div 4 = 18$.\n\n**The Full Solution:**\nNumber of bottles $= \\frac{\\text{total cost}}{\\text{cost per bottle}} = \\frac{72}{4} = 18$.\n\n**Common Mistakes to Avoid:**\n• Multiplying instead of dividing ($72 \\times 4 = 288$)\n• Division error: $72 \\div 4 \\neq 16$\n\n**Verification:** $18 \\times 4 = 72$ ✓\n\n**Test Day Takeaway:** Total divided by rate gives the quantity.",
-          skills: ["word-problems"]
+          type: "multiple-choice",
+          difficulty: "medium",
+          question: "The equation $k^2 - 25 = 56$ is true. What is the positive value of $k$?",
+          choices: [
+            { id: "A", text: "$7$" },
+            { id: "B", text: "$9$" },
+            { id: "C", text: "$31$" },
+            { id: "D", text: "$81$" }
+          ],
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Solving for a Squared Variable**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** $k^2 = 56 + 25 = 81$. $k = \\sqrt{81} = 9$.\n\n**The Full Solution:**\n$k^2 - 25 = 56$\n$k^2 = 81$\n$k = \\pm 9$\nThe positive value is $9$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($7$): From mistakenly computing $\\sqrt{49}$.\n• Choice C ($31$): From adding $25 + 56 = 81$ but forgetting to take the square root.\n• Choice D ($81$): From $k^2 = 81$ but reporting $k^2$ instead of $k$.\n\n**Test Day Takeaway:** Isolate $k^2$ first, then take the square root. Remember to check if the question asks for the positive root only.",
+          skills: ["solving-equations", "quadratic-equations"]
         },
         {
           id: 8,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "A savings account starts with $\\$500$ and earns $\\$25$ each month. A second account starts with $\\$200$ and earns $\\$50$ each month. After how many months will both accounts have the same balance?",
+          question: "Line $\\ell$ passes through the points $(-1, 3)$ and $(3, 11)$. Which of the following is an equation of line $\\ell$?",
           choices: [
-            { id: "A", text: "$8$" },
-            { id: "B", text: "$10$" },
-            { id: "C", text: "$12$" },
-            { id: "D", text: "$15$" }
+            { id: "A", text: "$y = 2x + 5$" },
+            { id: "B", text: "$y = 2x + 3$" },
+            { id: "C", text: "$y = 4x + 7$" },
+            { id: "D", text: "$y = \\frac{1}{2}x + 5$" }
           ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Setting Two Linear Expressions Equal**\n\n**Choice C is correct.**\n\n**The Fast Way (30 seconds):** $500 + 25m = 200 + 50m$. Subtract: $300 = 25m$, so $m = 12$.\n\n**The Full Solution:**\nAccount 1: $500 + 25m$\nAccount 2: $200 + 50m$\nSet equal: $500 + 25m = 200 + 50m$\n$500 - 200 = 50m - 25m$\n$300 = 25m$\n$m = 12$\n\n**Why the wrong answers are tempting:**\n• Choice A ($8$): From $200 \\div 25 = 8$, dividing the difference by the wrong rate.\n• Choice B ($10$): From $500 \\div 50 = 10$, a common setup error.\n• Choice D ($15$): From $300 \\div 20$, subtracting rates incorrectly.\n\n**Test Day Takeaway:** When two quantities start differently and grow at different rates, set their expressions equal and solve for the variable.",
-          skills: ["linear-equations", "systems-of-equations"]
+          correctAnswer: "A",
+          explanation: "**SAT Pattern: Finding the Equation of a Line from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (25 seconds):** Slope $= \\frac{11 - 3}{3 - (-1)} = \\frac{8}{4} = 2$. Use point $(-1, 3)$: $3 = 2(-1) + b$, so $b = 5$. Equation: $y = 2x + 5$.\n\n**The Full Solution:**\n$m = \\frac{11 - 3}{3 - (-1)} = \\frac{8}{4} = 2$\nUsing point-slope with $(-1, 3)$:\n$y - 3 = 2(x + 1)$\n$y = 2x + 2 + 3 = 2x + 5$\n\n**Why the wrong answers are tempting:**\n• Choice B ($y = 2x + 3$): Correct slope but uses the $y$-coordinate of the first point as the intercept.\n• Choice C ($y = 4x + 7$): Doubles the slope.\n• Choice D ($y = \\frac{1}{2}x + 5$): Uses the reciprocal of the slope (run/rise).\n\n**Test Day Takeaway:** Find slope first (rise/run), then plug one point into $y = mx + b$ to find $b$.",
+          skills: ["slope", "linear-functions"]
         },
         {
           id: 9,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "Line $\\ell$ has a slope of $\\frac{2}{3}$ and passes through the point $(6, 5)$. What is the $y$-intercept of line $\\ell$?",
+          question: "The table below shows values of a function $f$.\n\n| $x$ | $0$ | $2$ | $4$ | $6$ |\n|---|---|---|---|---|\n| $f(x)$ | $-3$ | $1$ | $5$ | $9$ |\n\nWhich of the following defines $f(x)$?",
           choices: [
-            { id: "A", text: "$1$" },
-            { id: "B", text: "$3$" },
-            { id: "C", text: "$-1$" },
-            { id: "D", text: "$9$" }
+            { id: "A", text: "$f(x) = x - 3$" },
+            { id: "B", text: "$f(x) = 2x - 3$" },
+            { id: "C", text: "$f(x) = x + 1$" },
+            { id: "D", text: "$f(x) = \\frac{1}{2}x - 3$" }
           ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Finding y-intercept from Slope and a Point**\n\n**Choice A is correct.**\n\n**The Fast Way (20 seconds):** Use $y = mx + b$: $5 = \\frac{2}{3}(6) + b = 4 + b$, so $b = 1$.\n\n**The Full Solution:**\n$y = \\frac{2}{3}x + b$\nPlug in $(6, 5)$: $5 = \\frac{2}{3}(6) + b$\n$5 = 4 + b$\n$b = 1$\n\n**Why the wrong answers are tempting:**\n• Choice B ($3$): Confusing the slope numerator with the intercept.\n• Choice C ($-1$): Sign error when solving for $b$.\n• Choice D ($9$): Adding $5 + 4$ instead of subtracting.\n\n**Test Day Takeaway:** Plug the point into $y = mx + b$ and solve for $b$.",
-          skills: ["slope", "linear-functions"]
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Finding a Linear Equation from a Table**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** From $x = 0$, $f(0) = -3$, so the $y$-intercept is $-3$. Slope $= \\frac{1 - (-3)}{2 - 0} = \\frac{4}{2} = 2$. So $f(x) = 2x - 3$.\n\n**The Full Solution:**\nThe $y$-intercept is the value when $x = 0$: $f(0) = -3$, so $b = -3$.\nSlope: $\\frac{f(2) - f(0)}{2 - 0} = \\frac{1 - (-3)}{2} = \\frac{4}{2} = 2$.\n$f(x) = 2x - 3$.\n\nVerify: $f(4) = 2(4) - 3 = 5$ ✓ and $f(6) = 2(6) - 3 = 9$ ✓\n\n**Why the wrong answers are tempting:**\n• Choice A ($x - 3$): Correct intercept but slope of $1$ instead of $2$. $f(2) = -1 \\neq 1$.\n• Choice C ($x + 1$): $f(0) = 1 \\neq -3$.\n• Choice D ($\\frac{1}{2}x - 3$): Uses the reciprocal slope. $f(2) = -2 \\neq 1$.\n\n**Test Day Takeaway:** Use the table to find slope (change in $f$ / change in $x$) and $y$-intercept ($f(0)$). Then verify with another point.",
+          skills: ["linear-functions", "function-interpretation"]
         },
         {
           id: 10,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "A travel agency surveyed $200$ customers about their preferred vacation type. $80$ chose beach, $60$ chose mountain, $40$ chose city, and $20$ chose cruise. What is the probability that a randomly selected customer preferred beach or mountain?",
+          question: "The table below shows data from a survey of $250$ students.\n\n| | Prefers In-Person | Prefers Online | Total |\n|---|---|---|---|\n| Grade $10$ | $50$ | $40$ | $90$ |\n| Grade $11$ | $65$ | $35$ | $100$ |\n| Grade $12$ | $45$ | $15$ | $60$ |\n| Total | $160$ | $90$ | $250$ |\n\nOf the students who prefer online classes, what fraction are in Grade $10$?",
           choices: [
-            { id: "A", text: "$0.40$" },
-            { id: "B", text: "$0.60$" },
-            { id: "C", text: "$0.70$" },
-            { id: "D", text: "$0.80$" }
+            { id: "A", text: "$\\frac{40}{250}$" },
+            { id: "B", text: "$\\frac{40}{90}$" },
+            { id: "C", text: "$\\frac{90}{250}$" },
+            { id: "D", text: "$\\frac{40}{100}$" }
           ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Probability from Data**\n\n**Choice C is correct.**\n\n**The Fast Way (20 seconds):** Beach + Mountain $= 80 + 60 = 140$. Probability $= \\frac{140}{200} = 0.70$.\n\n**The Full Solution:**\n$P(\\text{beach or mountain}) = \\frac{80 + 60}{200} = \\frac{140}{200} = 0.70$\n\n**Why the wrong answers are tempting:**\n• Choice A ($0.40$): This is just $P(\\text{beach}) = \\frac{80}{200}$.\n• Choice B ($0.60$): This is just $P(\\text{mountain}) + P(\\text{city}) = \\frac{60+60}{200}$, a misread.\n• Choice D ($0.80$): This is $\\frac{80+60+20}{200}$, accidentally including cruise.\n\n**Test Day Takeaway:** For \"or\" probability with non-overlapping categories, just add the individual counts and divide by the total.",
-          skills: ["probability", "statistics"]
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Conditional Probability from a Two-Way Table**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** \"Of the students who prefer online\" = denominator is $90$ (online total). Grade $10$ online $= 40$. Fraction $= \\frac{40}{90}$.\n\n**The Full Solution:**\nThe condition restricts us to online-preferring students only (total $= 90$).\nOf those, $40$ are in Grade $10$.\nFraction $= \\frac{40}{90} = \\frac{4}{9}$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{40}{250}$): Uses the grand total as the denominator instead of just online students.\n• Choice C ($\\frac{90}{250}$): Finds the overall fraction who prefer online, ignoring the grade condition.\n• Choice D ($\\frac{40}{100}$): Uses the Grade $11$ total as the denominator (wrong row).\n\n**Test Day Takeaway:** In conditional probability, the group described after \"of\" or \"given\" determines the denominator.",
+          skills: ["two-way-tables", "probability"]
         },
         {
           id: 11,
@@ -165,16 +171,16 @@ export const practiceTest1 = {
           id: 12,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "The function $f$ is defined by $f(x) = 3(2)^x$. What is the value of $f(4)$?",
+          question: "A population of $400$ bacteria increases by $25\\%$ every hour. Which expression gives the population after $t$ hours?",
           choices: [
-            { id: "A", text: "$24$" },
-            { id: "B", text: "$48$" },
-            { id: "C", text: "$96$" },
-            { id: "D", text: "$1{,}296$" }
+            { id: "A", text: "$400(0.25)^t$" },
+            { id: "B", text: "$400 + 25t$" },
+            { id: "C", text: "$400(1.25)^t$" },
+            { id: "D", text: "$400(0.75)^t$" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Evaluating an Exponential Function**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** $f(4) = 3 \\cdot 2^4 = 3 \\cdot 16 = 48$.\n\n**The Full Solution:**\n$f(4) = 3(2)^4 = 3 \\times 16 = 48$\n\n**Why the wrong answers are tempting:**\n• Choice A ($24$): From $3 \\cdot 2^3 = 24$, using the wrong exponent.\n• Choice C ($96$): From $3 \\cdot 2^5 = 96$, using exponent $5$ instead of $4$.\n• Choice D ($1{,}296$): From $(3 \\cdot 2)^4 = 6^4 = 1296$, multiplying before exponentiating.\n\n**Test Day Takeaway:** In $a \\cdot b^x$, the exponent applies only to $b$, not to $a \\cdot b$.",
-          skills: ["exponential-functions", "function-evaluation"]
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Exponential Growth Model**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** Increasing by $25\\%$ means multiplying by $1.25$ each hour. Starting value $400$: $400(1.25)^t$.\n\n**The Full Solution:**\nGrowth rate $= 25\\% = 0.25$.\nGrowth factor $= 1 + 0.25 = 1.25$.\nAfter $t$ hours: $400(1.25)^t$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($400(0.25)^t$): Uses $0.25$ (the rate) as the base. This shrinks rapidly toward $0$.\n• Choice B ($400 + 25t$): Models linear growth (adding $25$ per hour), not percentage growth.\n• Choice D ($400(0.75)^t$): Models a $25\\%$ decrease each hour, not an increase.\n\n**Test Day Takeaway:** Growth by $r\\%$ means multiply by $(1 + r/100)$ each period. Decay by $r\\%$ means multiply by $(1 - r/100)$.",
+          skills: ["exponential-functions", "word-problems"]
         },
         {
           id: 13,
@@ -194,26 +200,32 @@ export const practiceTest1 = {
         {
           id: 14,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "A fitness tracker recorded the following daily step counts over $5$ days: $8{,}200$, $9{,}400$, $7{,}800$, $10{,}600$, and $9{,}000$. What is the mean daily step count?",
+          difficulty: "hard",
+          question: "A data set has $7$ values with a mean of $12$. An $8$th value of $20$ is added to the set. What is the mean of the new data set?",
           choices: [
-            { id: "A", text: "$8{,}800$" },
-            { id: "B", text: "$9{,}000$" },
-            { id: "C", text: "$9{,}200$" },
-            { id: "D", text: "$9{,}400$" }
+            { id: "A", text: "$12.5$" },
+            { id: "B", text: "$13$" },
+            { id: "C", text: "$14$" },
+            { id: "D", text: "$16$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Calculating the Mean**\n\n**Choice B is correct.**\n\n**The Fast Way (30 seconds):** Sum $= 8200 + 9400 + 7800 + 10600 + 9000 = 45{,}000$. Mean $= 45{,}000 \\div 5 = 9{,}000$.\n\n**The Full Solution:**\nMean $= \\frac{8200 + 9400 + 7800 + 10600 + 9000}{5} = \\frac{45{,}000}{5} = 9{,}000$\n\n**Why the wrong answers are tempting:**\n• Choice A ($8{,}800$): From a summation error giving $44{,}000$.\n• Choice C ($9{,}200$): From a summation error giving $46{,}000$.\n• Choice D ($9{,}400$): Confusing the mean with the median (middle value when ordered).\n\n**Test Day Takeaway:** Mean = sum of all values divided by number of values. Use Desmos for the addition.",
+          explanation: "**SAT Pattern: Recalculating the Mean After Adding a Value**\n\n**Choice B is correct.**\n\n**The Fast Way (25 seconds):** Original sum $= 7 \\times 12 = 84$. New sum $= 84 + 20 = 104$. New mean $= \\frac{104}{8} = 13$.\n\n**The Full Solution:**\nMean $= \\frac{\\text{sum}}{\\text{count}}$, so original sum $= 7 \\times 12 = 84$.\nAfter adding $20$: new sum $= 84 + 20 = 104$, new count $= 8$.\nNew mean $= \\frac{104}{8} = 13$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($12.5$): From averaging $12$ and $13$, or from $\\frac{12 + 20}{2.5}$.\n• Choice C ($14$): From computing $(12 + 20) \\div 2 = 16$... no. Possibly from $\\frac{84 + 28}{8}$.\n• Choice D ($16$): From averaging $12$ and $20$ directly: $\\frac{12+20}{2} = 16$, ignoring the other $6$ values.\n\n**Test Day Takeaway:** To find a new mean: compute the original sum (old mean $\\times$ count), add the new value, then divide by the new count.",
           skills: ["mean-median-mode", "statistics"]
         },
         {
           id: 15,
-          type: "fill-in",
-          difficulty: "medium",
-          question: "If $\\frac{x}{5} = 12$, what is the value of $x$?",
-          correctAnswer: "60",
-          explanation: "**SAT Pattern: Solving a One-Step Equation**\n\n**The correct answer is 60.**\n\n**The Fast Way (10 seconds):** Multiply both sides by $5$: $x = 60$.\n\n**The Full Solution:**\n$\\frac{x}{5} = 12$\n$x = 12 \\times 5 = 60$\n\n**Common Mistakes to Avoid:**\n• Dividing instead of multiplying: $12 \\div 5 = 2.4$\n• Subtracting: $12 - 5 = 7$\n\n**Verification:** $\\frac{60}{5} = 12$ ✓\n\n**Test Day Takeaway:** To undo division, multiply both sides by the denominator.",
-          skills: ["solving-equations"]
+          type: "multiple-choice",
+          difficulty: "hard",
+          question: "A company ships boxes that weigh between $10$ and $50$ pounds. The shipping cost $C$, in dollars, is modeled by $C = 3.50 + 0.75w$, where $w$ is the weight in pounds. For a shipment, the total cost was between $\\$14.00$ and $\\$30.50$. Which inequality represents the possible weights $w$?",
+          choices: [
+            { id: "A", text: "$10 \\leq w \\leq 50$" },
+            { id: "B", text: "$14 \\leq w \\leq 36$" },
+            { id: "C", text: "$14.75 \\leq w \\leq 34.25$" },
+            { id: "D", text: "$10.50 \\leq w \\leq 27$" }
+          ],
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Solving a Compound Inequality in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (30 seconds):** Solve $14 = 3.50 + 0.75w$: $0.75w = 10.50$, $w = 14$. Solve $30.50 = 3.50 + 0.75w$: $0.75w = 27$, $w = 36$.\n\n**The Full Solution:**\n$14.00 \\leq 3.50 + 0.75w \\leq 30.50$\n$14.00 - 3.50 \\leq 0.75w \\leq 30.50 - 3.50$\n$10.50 \\leq 0.75w \\leq 27.00$\n$\\frac{10.50}{0.75} \\leq w \\leq \\frac{27.00}{0.75}$\n$14 \\leq w \\leq 36$\n\n**Why the wrong answers are tempting:**\n• Choice A ($10 \\leq w \\leq 50$): This is the weight range, not derived from the cost constraint.\n• Choice C ($14.75 \\leq w \\leq 34.25$): Arithmetic error in subtraction or division.\n• Choice D ($10.50 \\leq w \\leq 27$): Subtracted $3.50$ but forgot to divide by $0.75$.\n\n**Test Day Takeaway:** Solve compound inequalities by performing the same operations on all three parts. Subtract constants, then divide by the coefficient.",
+          skills: ["linear-equations", "word-problems"]
         },
         {
           id: 16,

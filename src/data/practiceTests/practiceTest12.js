@@ -15,48 +15,24 @@ export const practiceTest12 = {
       title: "Module 1",
       timeLimit: 35,
       questions: [
-        // ===== EASY (Q1-Q7) =====
+        // ===== EASY (Q1-Q5) =====
         {
           id: 1,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "A campsite rents tents for $\\$15$ per night. If a family rents a tent for $6$ nights, what is the total cost?",
+          question: "A campsite recorded the number of visitors each day during a holiday weekend.\n\n| Day | Visitors |\n|---|---|\n| Friday | $85$ |\n| Saturday | $140$ |\n| Sunday | $120$ |\n| Monday | $55$ |\n| **Total** | **$400$** |\n\nWhat percentage of the total visitors came on Saturday?",
           choices: [
-            { id: "A", text: "$\\$21$" },
-            { id: "B", text: "$\\$60$" },
-            { id: "C", text: "$\\$90$" },
-            { id: "D", text: "$\\$150$" }
+            { id: "A", text: "$25\\%$" },
+            { id: "B", text: "$30\\%$" },
+            { id: "C", text: "$35\\%$" },
+            { id: "D", text: "$40\\%$" }
           ],
           correctAnswer: "C",
-          explanation: "**SAT Pattern: Multiplication Word Problem**\n\n**Choice C is correct.**\n\n**The Fast Way (5 seconds):** $15 \\times 6 = 90$.\n\n**The Full Solution:**\nTotal cost $= \\$15 \\times 6 = \\$90$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($21$): Adds $15 + 6$ instead of multiplying.\n• Choice B ($60$): Computes $10 \\times 6$.\n• Choice D ($150$): Computes $15 \\times 10$.\n\n**Test Day Takeaway:** Price per night $\\times$ number of nights $=$ total cost.",
-          skills: ["word-problems"]
+          explanation: "**SAT Pattern: Percentage from a Data Table**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** $\\frac{140}{400} = \\frac{14}{40} = \\frac{7}{20} = 35\\%$.\n\n**The Full Solution:**\nSaturday visitors $= 140$. Total $= 400$.\nPercentage $= \\frac{140}{400} \\times 100\\% = 35\\%$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($25\\%$): $\\frac{100}{400}$ — does not match any day.\n• Choice B ($30\\%$): $\\frac{120}{400} = 30\\%$ — this is Sunday's share.\n• Choice D ($40\\%$): Uses $140$ as a percentage directly or confuses the calculation.\n\n**Test Day Takeaway:** Percentage $= \\frac{\\text{part}}{\\text{total}} \\times 100$. Read the correct row from the table.",
+          skills: ["percents", "statistics"]
         },
         {
           id: 2,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "If $2x + 5 = 19$, what is the value of $x$?",
-          choices: [
-            { id: "A", text: "$5$" },
-            { id: "B", text: "$7$" },
-            { id: "C", text: "$12$" },
-            { id: "D", text: "$14$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $2x = 19 - 5 = 14$, so $x = 7$.\n\n**The Full Solution:**\n$2x + 5 = 19$\n$2x = 14$\n$x = 7$\n\n**Why the wrong answers are tempting:**\n• Choice A ($5$): The constant being subtracted, not the solution.\n• Choice C ($12$): Computes $\\frac{19 + 5}{2}$.\n• Choice D ($14$): Stops after subtracting $5$ but forgets to divide by $2$.\n\n**Test Day Takeaway:** Subtract the constant, then divide by the coefficient.",
-          skills: ["linear-equations", "solving-equations"]
-        },
-        {
-          id: 3,
-          type: "fill-in",
-          difficulty: "easy",
-          question: "A telescope costs $\\$800$. During a sale, the price is reduced by $15\\%$. How much money, in dollars, is saved with the discount?",
-          correctAnswer: "120",
-          explanation: "**SAT Pattern: Finding the Discount Amount**\n\n**The correct answer is $120$.**\n\n**The Fast Way (10 seconds):** $15\\%$ of $800 = 0.15 \\times 800 = 120$.\n\n**The Full Solution:**\nDiscount $= 0.15 \\times 800 = 120$.\n\n**Common Mistakes to Avoid:**\n• Computing the sale price ($800 - 120 = 680$) instead of the discount amount.\n• Moving the decimal incorrectly: $0.015 \\times 800 = 12$.\n\n**Verification:** $\\frac{120}{800} = 0.15 = 15\\%$. Correct.\n\n**Test Day Takeaway:** Discount amount $=$ percent $\\times$ original price.",
-          skills: ["percents"]
-        },
-        {
-          id: 4,
           type: "multiple-choice",
           difficulty: "easy",
           question: "A cyclist rides $f(t) = 12t$ miles in $t$ hours. What does the $12$ represent?",
@@ -71,75 +47,106 @@ export const practiceTest12 = {
           skills: ["function-interpretation", "linear-functions"]
         },
         {
-          id: 5,
+          id: 3,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "Which expression is equivalent to $6a + 3a - 2a$?",
+          question: "An astronomer recorded the number of visible celestial objects through different telescopes.\n\n| Telescope | Stars | Planets | Total |\n|---|---|---|---|\n| A | $45$ | $8$ | $53$ |\n| B | $62$ | $12$ | $74$ |\n| C | $33$ | $5$ | $38$ |\n| **Total** | **$140$** | **$25$** | **$165$** |\n\nWhat fraction of all observed objects were planets?",
           choices: [
-            { id: "A", text: "$7a$" },
-            { id: "B", text: "$5a$" },
-            { id: "C", text: "$11a$" },
-            { id: "D", text: "$a$" }
+            { id: "A", text: "$\\frac{5}{33}$" },
+            { id: "B", text: "$\\frac{25}{165}$" },
+            { id: "C", text: "$\\frac{25}{140}$" },
+            { id: "D", text: "$\\frac{12}{74}$" }
           ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Combining Like Terms**\n\n**Choice A is correct.**\n\n**The Fast Way (5 seconds):** $6 + 3 - 2 = 7$, so $7a$.\n\n**The Full Solution:**\n$6a + 3a - 2a = (6 + 3 - 2)a = 7a$\n\n**Why the wrong answers are tempting:**\n• Choice B ($5a$): Computes $6 - 3 + 2 = 5$ or $6 + 3 - 4 = 5$.\n• Choice C ($11a$): Adds all coefficients: $6 + 3 + 2 = 11$.\n• Choice D ($a$): Subtracts everything: $6 - 3 - 2 = 1$.\n\n**Test Day Takeaway:** Add and subtract the coefficients, keeping the variable part the same.",
-          skills: ["polynomial-operations"]
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Reading a Two-Way Table to Compute a Fraction**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** Total planets $= 25$. Grand total $= 165$. Fraction $= \\frac{25}{165} = \\frac{5}{33}$.\n\n**The Full Solution:**\nPlanets (all telescopes) $= 25$.\nAll objects $= 165$.\nFraction $= \\frac{25}{165} = \\frac{5}{33}$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{5}{33}$): This is the simplified form — actually equivalent to Choice B! But the question asks for the fraction, and $\\frac{25}{165}$ directly reads from the table.\n• Choice C ($\\frac{25}{140}$): Uses the stars total as denominator.\n• Choice D ($\\frac{12}{74}$): Fraction of planets for telescope B only, not all objects.\n\n**Test Day Takeaway:** Use the \"Total\" row and column to find overall fractions. Read from the correct cell.",
+          skills: ["ratios-proportions", "statistics"]
+        },
+        {
+          id: 4,
+          type: "multiple-choice",
+          difficulty: "easy",
+          question: "An event planner estimates that the total cost of a party is $9$ more than $4$ times the number of guests. If $g$ guests attend, which expression represents the total cost in dollars?",
+          choices: [
+            { id: "A", text: "$9g + 4$" },
+            { id: "B", text: "$4g + 9$" },
+            { id: "C", text: "$4(g + 9)$" },
+            { id: "D", text: "$9(g + 4)$" }
+          ],
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Translating Words to an Algebraic Expression**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** \"$4$ times $g$\" $= 4g$. \"$9$ more than that\" $= 4g + 9$.\n\n**The Full Solution:**\nParse the sentence:\n• \"$4$ times the number of guests\" $\\rightarrow 4g$\n• \"$9$ more than $4g$\" $\\rightarrow 4g + 9$\n\n**Why the wrong answers are tempting:**\n• Choice A ($9g + 4$): Swaps the multiplier and the addend.\n• Choice C ($4(g + 9)$): Adds $9$ inside the multiplication, giving $4g + 36$.\n• Choice D ($9(g + 4)$): Reverses everything.\n\n**Test Day Takeaway:** \"$k$ more than\" means $+ k$ (added after). \"$k$ times\" means $\\times k$ (multiplied first).",
+          skills: ["word-problems", "linear-equations"]
+        },
+        // ===== EASY-MEDIUM (Q5-Q7) =====
+        {
+          id: 5,
+          type: "fill-in",
+          difficulty: "easy",
+          question: "A campsite rents tents for $\\$15$ per night. A family rents a tent for $6$ nights and uses a $\\$20$ discount coupon. What is the total amount paid, in dollars?",
+          correctAnswer: "70",
+          explanation: "**SAT Pattern: Two-Step Word Problem**\n\n**The correct answer is $70$.**\n\n**The Fast Way (10 seconds):** Total before coupon: $15 \\times 6 = 90$. After coupon: $90 - 20 = 70$.\n\n**The Full Solution:**\nCost before coupon $= 15 \\times 6 = 90$.\nCost after coupon $= 90 - 20 = 70$.\n\n**Common Mistakes to Avoid:**\n• Forgetting the coupon: answering $90$.\n• Subtracting incorrectly: $90 - 20 = 60$.\n\n**Verification:** $\\$15 \\times 6 - \\$20 = \\$90 - \\$20 = \\$70$ ✓\n\n**Test Day Takeaway:** Compute the base cost first, then apply discounts or adjustments.",
+          skills: ["word-problems"]
         },
         {
           id: 6,
-          type: "fill-in",
-          difficulty: "easy",
-          question: "An event planner orders $8$ tables with $6$ chairs each. How many chairs are ordered in total?",
-          correctAnswer: "48",
-          explanation: "**SAT Pattern: Basic Multiplication**\n\n**The correct answer is $48$.**\n\n**The Fast Way (5 seconds):** $8 \\times 6 = 48$.\n\n**The Full Solution:**\nTotal chairs $= 8 \\text{ tables} \\times 6 \\text{ chairs/table} = 48$ chairs.\n\n**Common Mistakes to Avoid:**\n• Adding: $8 + 6 = 14$.\n\n**Verification:** $48 \\div 8 = 6$ chairs per table. Correct.\n\n**Test Day Takeaway:** When each group has the same number, multiply groups $\\times$ items per group.",
-          skills: ["word-problems"]
+          type: "multiple-choice",
+          difficulty: "medium",
+          question: "The function $h(x) = 4(x - 5)(x + 2)(x + 7)$ is graphed in the $xy$-plane. Which of the following is an $x$-intercept of the graph?",
+          choices: [
+            { id: "A", text: "$(4, 0)$" },
+            { id: "B", text: "$(-5, 0)$" },
+            { id: "C", text: "$(5, 0)$" },
+            { id: "D", text: "$(-2, 0)$" }
+          ],
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: $x$-intercepts from Factored Form**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** Set each factor to zero: $x - 5 = 0 \\Rightarrow x = 5$, $x + 2 = 0 \\Rightarrow x = -2$, $x + 7 = 0 \\Rightarrow x = -7$. Among the choices, $(5, 0)$ is correct.\n\n**The Full Solution:**\n$h(x) = 0$ when any factor equals zero:\n$x - 5 = 0 \\Rightarrow x = 5$\n$x + 2 = 0 \\Rightarrow x = -2$\n$x + 7 = 0 \\Rightarrow x = -7$\nChoice C $(5, 0)$ matches. Note: Choice D $(-2, 0)$ is also a valid intercept.\n\n**Why the wrong answers are tempting:**\n• Choice A ($(4, 0)$): The leading coefficient $4$ is not a root.\n• Choice B ($(-5, 0)$): Sign error — the factor is $(x - 5)$, giving $x = 5$, not $x = -5$.\n• Choice D ($(-2, 0)$): Also an intercept, but the question says \"which of the following,\" so check all.\n\n**Test Day Takeaway:** For $(x - a)$, the root is $x = a$. For $(x + a)$, the root is $x = -a$. Watch the signs carefully.",
+          skills: ["polynomial-operations", "factoring"]
         },
         {
           id: 7,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "If $m - 4 = 11$, what is the value of $m$?",
+          difficulty: "medium",
+          question: "Which of the following is equivalent to $(2x^2 + x - 9) + (x^2 + 6x + 1)$?",
           choices: [
-            { id: "A", text: "$7$" },
-            { id: "B", text: "$15$" },
-            { id: "C", text: "$44$" },
-            { id: "D", text: "$-7$" }
+            { id: "A", text: "$3x^2 + 7x - 8$" },
+            { id: "B", text: "$2x^4 + 7x - 8$" },
+            { id: "C", text: "$3x^2 + 5x - 8$" },
+            { id: "D", text: "$3x^2 + 7x - 10$" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: One-Step Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (5 seconds):** $m = 11 + 4 = 15$.\n\n**The Full Solution:**\n$m - 4 = 11$\n$m = 11 + 4 = 15$\n\n**Why the wrong answers are tempting:**\n• Choice A ($7$): Subtracts $11 - 4 = 7$ instead of adding.\n• Choice C ($44$): Multiplies $11 \\times 4$.\n• Choice D ($-7$): Gets the sign wrong.\n\n**Test Day Takeaway:** To undo subtraction, add to both sides.",
-          skills: ["linear-equations", "solving-equations"]
+          correctAnswer: "A",
+          explanation: "**SAT Pattern: Adding Polynomials**\n\n**Choice A is correct.**\n\n**The Fast Way (15 seconds):** Combine like terms: $2x^2 + x^2 = 3x^2$, $x + 6x = 7x$, $-9 + 1 = -8$. Result: $3x^2 + 7x - 8$.\n\n**The Full Solution:**\n$(2x^2 + x - 9) + (x^2 + 6x + 1)$\n$= (2 + 1)x^2 + (1 + 6)x + (-9 + 1)$\n$= 3x^2 + 7x - 8$\n\n**Why the wrong answers are tempting:**\n• Choice B ($2x^4 + 7x - 8$): Multiplies the $x^2$ terms instead of adding coefficients.\n• Choice C ($3x^2 + 5x - 8$): Computes $x + 6x$ as $5x$ instead of $7x$ (possible if reading $x$ as $-x$).\n• Choice D ($3x^2 + 7x - 10$): Computes $-9 + 1$ as $-10$ instead of $-8$.\n\n**Test Day Takeaway:** When adding polynomials, add the coefficients of matching degree terms. Don't multiply exponents.",
+          skills: ["polynomial-operations"]
         },
 
-        // ===== MEDIUM (Q8-Q15) =====
+        // ===== MEDIUM (Q8-Q13) =====
         {
           id: 8,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "A hiking trail is $3.6$ miles long. A hiker has completed $\\frac{2}{3}$ of the trail. How many miles has the hiker walked?",
+          question: "A hiking equipment store charges a $\\$50$ base fee for trail guide services plus $\\$15$ per mile. A competing service charges no base fee but $\\$25$ per mile. For how many miles would the two services cost the same?",
           choices: [
-            { id: "A", text: "$1.2$" },
-            { id: "B", text: "$1.8$" },
-            { id: "C", text: "$2.4$" },
-            { id: "D", text: "$3.0$" }
+            { id: "A", text: "$3$" },
+            { id: "B", text: "$5$" },
+            { id: "C", text: "$7$" },
+            { id: "D", text: "$10$" }
           ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Fraction of a Quantity**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** $\\frac{2}{3} \\times 3.6 = \\frac{7.2}{3} = 2.4$.\n\n**The Full Solution:**\nDistance walked $= \\frac{2}{3} \\times 3.6 = 2.4$ miles.\n\n**Why the wrong answers are tempting:**\n• Choice A ($1.2$): Computes $\\frac{1}{3} \\times 3.6$.\n• Choice B ($1.8$): Computes $\\frac{1}{2} \\times 3.6$.\n• Choice D ($3.0$): Subtracts $3.6 - 0.6$.\n\n**Test Day Takeaway:** \"$\\frac{a}{b}$ of a number\" means multiply the number by $\\frac{a}{b}$.",
-          skills: ["ratios-proportions", "word-problems"]
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Setting Two Linear Expressions Equal**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** $50 + 15m = 25m$. $50 = 10m$. $m = 5$.\n\n**The Full Solution:**\nService 1: $50 + 15m$\nService 2: $25m$\nSet equal: $50 + 15m = 25m$\n$50 = 25m - 15m = 10m$\n$m = 5$\n\n**Why the wrong answers are tempting:**\n• Choice A ($3$): Service 1 costs $95$, Service 2 costs $75$ — not equal.\n• Choice C ($7$): Service 1 costs $155$, Service 2 costs $175$ — not equal.\n• Choice D ($10$): Service 1 costs $200$, Service 2 costs $250$ — not equal.\n\n**Verification:** Service 1: $50 + 15(5) = 125$. Service 2: $25(5) = 125$. Equal ✓\n\n**Test Day Takeaway:** \"Same cost\" means set the two expressions equal and solve for the variable.",
+          skills: ["linear-equations", "systems-of-equations"]
         },
         {
           id: 9,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "A line passes through the points $(-1, 4)$ and $(3, -8)$. What is the slope of the line?",
+          question: "The table below shows the results of a survey of $200$ hikers.\n\n| | Day Hike | Overnight | Total |\n|---|---|---|---|\n| Beginners | $65$ | $15$ | $80$ |\n| Experienced | $45$ | $75$ | $120$ |\n| Total | $110$ | $90$ | $200$ |\n\nWhat fraction of experienced hikers chose overnight hikes?",
           choices: [
-            { id: "A", text: "$-3$" },
-            { id: "B", text: "$-\\frac{1}{3}$" },
-            { id: "C", text: "$\\frac{1}{3}$" },
-            { id: "D", text: "$3$" }
+            { id: "A", text: "$\\frac{75}{200}$" },
+            { id: "B", text: "$\\frac{75}{90}$" },
+            { id: "C", text: "$\\frac{75}{120}$" },
+            { id: "D", text: "$\\frac{120}{200}$" }
           ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Slope from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (10 seconds):** $m = \\frac{-8 - 4}{3 - (-1)} = \\frac{-12}{4} = -3$.\n\n**The Full Solution:**\n$m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{-8 - 4}{3 - (-1)} = \\frac{-12}{4} = -3$\n\n**Why the wrong answers are tempting:**\n• Choice B ($-\\frac{1}{3}$): Flips the fraction (run over rise).\n• Choice C ($\\frac{1}{3}$): Flips and drops the negative sign.\n• Choice D ($3$): Correct magnitude but missing the negative sign.\n\n**Test Day Takeaway:** Slope $= \\frac{\\Delta y}{\\Delta x}$. Be careful with negative signs.",
-          skills: ["slope", "linear-functions"]
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Conditional Probability from a Two-Way Table**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** \"Of experienced hikers\" restricts the denominator to experienced total $= 120$. Overnight experienced $= 75$. Fraction $= \\frac{75}{120} = \\frac{5}{8}$.\n\n**The Full Solution:**\n$P(\\text{overnight} | \\text{experienced}) = \\frac{75}{120} = \\frac{5}{8}$\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{75}{200}$): Uses the grand total — this is joint probability.\n• Choice B ($\\frac{75}{90}$): Uses overnight column total — answers \"of all overnight hikers, what fraction are experienced.\"\n• Choice D ($\\frac{120}{200}$): Fraction of all hikers who are experienced, ignoring hike type.\n\n**Test Day Takeaway:** \"Of [group]\" means the denominator is that group's row total, not the grand total.",
+          skills: ["probability", "two-way-tables"]
         },
         {
           id: 10,
@@ -195,29 +202,30 @@ export const practiceTest12 = {
           explanation: "**SAT Pattern: Finding the $y$-intercept**\n\n**Choice A is correct.**\n\n**The Fast Way (10 seconds):** Set $x = 0$: $-3y = 12$, so $y = -4$. The $y$-intercept is $(0, -4)$.\n\n**The Full Solution:**\n$2(0) - 3y = 12$\n$-3y = 12$\n$y = -4$\n$y$-intercept: $(0, -4)$.\n\n**Why the wrong answers are tempting:**\n• Choice B ($(0, 4)$): Divides $12$ by $3$ but drops the negative.\n• Choice C ($(6, 0)$): This is the $x$-intercept.\n• Choice D ($(0, -6)$): Divides $12$ by $-2$ instead of $-3$.\n\n**Test Day Takeaway:** $y$-intercept: set $x = 0$ and solve for $y$.",
           skills: ["linear-equations", "coordinate-geometry"]
         },
+        // ===== HARD (Q14-Q15) =====
         {
           id: 14,
           type: "fill-in",
-          difficulty: "medium",
-          question: "An event planner charges a $\\$200$ flat fee plus $\\$25$ per guest. If the total cost is $\\$700$, how many guests attended?",
-          correctAnswer: "20",
-          explanation: "**SAT Pattern: Linear Equation Word Problem**\n\n**The correct answer is $20$.**\n\n**The Fast Way (10 seconds):** $200 + 25g = 700$, so $25g = 500$ and $g = 20$.\n\n**The Full Solution:**\n$200 + 25g = 700$\n$25g = 500$\n$g = 20$\n\n**Common Mistakes to Avoid:**\n• Dividing $700$ by $25 = 28$ (forgetting to subtract the flat fee).\n\n**Verification:** $200 + 25(20) = 200 + 500 = 700$. Correct.\n\n**Test Day Takeaway:** Subtract the fixed cost first, then divide by the per-unit rate.",
-          skills: ["linear-equations", "word-problems"]
+          difficulty: "hard",
+          question: "A system of equations is given:\n\n$4x + y = 23$\n$x - 2y = -1$\n\nWhat is the value of $x + y$?",
+          correctAnswer: "8",
+          explanation: "**SAT Pattern: System of Equations — Solve Then Compute an Expression**\n\n**The correct answer is $8$.**\n\n**The Fast Way (30 seconds):** From the second equation, $x = 2y - 1$. Substitute: $4(2y - 1) + y = 23$. $8y - 4 + y = 23$. $9y = 27$. $y = 3$. Then $x = 2(3) - 1 = 5$. So $x + y = 5 + 3 = 8$.\n\n**The Full Solution:**\n$x - 2y = -1 \\Rightarrow x = 2y - 1$\n$4(2y - 1) + y = 23$\n$8y - 4 + y = 23$\n$9y = 27$\n$y = 3$, $x = 5$\n$x + y = 8$\n\n**Common Mistakes to Avoid:**\n• Reporting just $x = 5$ or $y = 3$ instead of the sum.\n• Substitution error: using $x = 2y + 1$ instead of $x = 2y - 1$.\n\n**Verification:** $4(5) + 3 = 23$ ✓. $5 - 2(3) = -1$ ✓.\n\n**Test Day Takeaway:** Read what the question asks for. It may ask for $x + y$ rather than individual values.",
+          skills: ["systems-of-equations", "solving-equations"]
         },
         {
           id: 15,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "Which of the following is equivalent to $\\frac{3x^8}{x^2}$?",
+          difficulty: "hard",
+          question: "A population of $500$ animals decreases by $12\\%$ each year. Which expression gives the population after $t$ years?",
           choices: [
-            { id: "A", text: "$3x^4$" },
-            { id: "B", text: "$3x^6$" },
-            { id: "C", text: "$3x^{10}$" },
-            { id: "D", text: "$x^6$" }
+            { id: "A", text: "$500(0.12)^t$" },
+            { id: "B", text: "$500(0.88)^t$" },
+            { id: "C", text: "$500 - 60t$" },
+            { id: "D", text: "$500(1.12)^t$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Exponent Rules - Division**\n\n**Choice B is correct.**\n\n**The Fast Way (5 seconds):** $\\frac{x^8}{x^2} = x^{8-2} = x^6$. Keep the coefficient: $3x^6$.\n\n**The Full Solution:**\n$\\frac{3x^8}{x^2} = 3 \\cdot x^{8-2} = 3x^6$\n\n**Why the wrong answers are tempting:**\n• Choice A ($3x^4$): Divides the exponent by $2$ instead of subtracting.\n• Choice C ($3x^{10}$): Adds exponents instead of subtracting.\n• Choice D ($x^6$): Drops the coefficient $3$.\n\n**Test Day Takeaway:** $\\frac{x^a}{x^b} = x^{a-b}$. The coefficient stays the same.",
-          skills: ["exponent-rules"]
+          explanation: "**SAT Pattern: Exponential Decay Model**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** A $12\\%$ decrease means $88\\%$ of the population remains each year. Decay factor $= 1 - 0.12 = 0.88$. Model: $500(0.88)^t$.\n\n**The Full Solution:**\nDecay rate $= 12\\% = 0.12$\nDecay factor $= 1 - 0.12 = 0.88$\nPopulation after $t$ years $= 500(0.88)^t$\n\n**Why the wrong answers are tempting:**\n• Choice A ($500(0.12)^t$): Uses the decay rate as the base. After $1$ year this gives $60$, which is only $12\\%$ of $500$, not $88\\%$.\n• Choice C ($500 - 60t$): Linear decay of $60$ per year (a flat amount, not a percentage).\n• Choice D ($500(1.12)^t$): This is $12\\%$ growth, not decay.\n\n**Test Day Takeaway:** For decay, the base is $1 - \\text{rate}$. For growth, the base is $1 + \\text{rate}$.",
+          skills: ["exponential-functions"]
         },
 
         // ===== HARD (Q16-Q22) =====

@@ -15,131 +15,138 @@ export const practiceTest11 = {
       title: "Module 1",
       timeLimit: 35,
       questions: [
-        // ===== EASY (Q1-Q7) =====
+        // ===== EASY (Q1-Q5) =====
         {
           id: 1,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "A solar panel produces $6$ kilowatt-hours of energy per day. How many kilowatt-hours does it produce in $14$ days?",
+          question: "A renewable energy company tracked solar panel installations over $5$ months.\n\n| Month | Panels Installed |\n|---|---|\n| January | $45$ |\n| February | $60$ |\n| March | $55$ |\n| April | $80$ |\n| May | $60$ |\n| **Total** | **$300$** |\n\nWhat percentage of the total panels were installed in April?",
           choices: [
-            { id: "A", text: "$20$" },
-            { id: "B", text: "$56$" },
-            { id: "C", text: "$84$" },
-            { id: "D", text: "$140$" }
+            { id: "A", text: "$20\\%$" },
+            { id: "B", text: "$\\frac{80}{300}\\%$" },
+            { id: "C", text: "$\\frac{4}{15} \\approx 26.7\\%$" },
+            { id: "D", text: "$80\\%$" }
           ],
           correctAnswer: "C",
-          explanation: "**SAT Pattern: Basic Multiplication Word Problem**\n\n**Choice C is correct.**\n\n**The Fast Way (5 seconds):** $6 \\times 14 = 84$.\n\n**The Full Solution:**\nEnergy $= 6 \\text{ kWh/day} \\times 14 \\text{ days} = 84$ kWh.\n\n**Why the wrong answers are tempting:**\n• Choice A ($20$): Adds $6 + 14$ instead of multiplying.\n• Choice B ($56$): Computes $4 \\times 14$.\n• Choice D ($140$): Computes $10 \\times 14$.\n\n**Test Day Takeaway:** Rate $\\times$ time $=$ total.",
-          skills: ["word-problems", "ratios-proportions"]
+          explanation: "**SAT Pattern: Percentage from a Data Table**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** $\\frac{80}{300} = \\frac{4}{15} \\approx 26.7\\%$.\n\n**The Full Solution:**\nApril panels $= 80$. Total $= 300$.\nPercentage $= \\frac{80}{300} \\times 100\\% = \\frac{4}{15} \\times 100\\% \\approx 26.7\\%$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($20\\%$): $\\frac{60}{300} = 20\\%$ — this is February's or May's share.\n• Choice B: Writes the fraction as a percent incorrectly (doesn't multiply by $100$).\n• Choice D ($80\\%$): Uses the raw count $80$ as a percentage.\n\n**Test Day Takeaway:** Percentage $= \\frac{\\text{part}}{\\text{total}} \\times 100$. Read the total from the table, don't use the count directly as a percent.",
+          skills: ["percents", "statistics"]
         },
         {
           id: 2,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "If $3x - 9 = 0$, what is the value of $x$?",
+          question: "The function $C(t) = 150 + 25t$ gives the total cost, in dollars, of a pet grooming membership after $t$ months. What does the number $25$ represent?",
           choices: [
-            { id: "A", text: "$-3$" },
-            { id: "B", text: "$0$" },
-            { id: "C", text: "$3$" },
-            { id: "D", text: "$9$" }
+            { id: "A", text: "The one-time signup fee" },
+            { id: "B", text: "The monthly cost" },
+            { id: "C", text: "The total cost after $25$ months" },
+            { id: "D", text: "The number of grooming sessions" }
           ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: One-Variable Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (5 seconds):** $3x = 9$, so $x = 3$.\n\n**The Full Solution:**\n$3x - 9 = 0$\n$3x = 9$\n$x = 3$\n\n**Why the wrong answers are tempting:**\n• Choice A ($-3$): Sign error when moving $9$ to the right side.\n• Choice B ($0$): Confuses the right-hand side $0$ with the answer.\n• Choice D ($9$): Forgets to divide by $3$.\n\n**Test Day Takeaway:** Add $9$, then divide by $3$. Always plug back in to verify.",
-          skills: ["linear-equations", "solving-equations"]
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Interpreting the Slope of a Linear Function**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** In $C(t) = 150 + 25t$, the coefficient of $t$ is the rate of change: $\\$25$ per month.\n\n**The Full Solution:**\nIn $C(t) = 150 + 25t$:\n• $150$ is the initial value ($y$-intercept), which represents the signup fee.\n• $25$ is the slope (coefficient of $t$), which represents the cost per month.\n\n**Why the wrong answers are tempting:**\n• Choice A: The signup fee is $150$, not $25$.\n• Choice C: The total at $25$ months would be $C(25) = 150 + 25(25) = 775$.\n• Choice D: Nothing in the function describes the number of sessions.\n\n**Test Day Takeaway:** In $f(t) = b + mt$, the slope $m$ is always the rate of change (per unit of $t$).",
+          skills: ["linear-functions", "function-interpretation"]
         },
         {
           id: 3,
-          type: "fill-in",
+          type: "multiple-choice",
           difficulty: "easy",
-          question: "What percentage of $400$ is $60$?",
-          correctAnswer: "15",
-          explanation: "**SAT Pattern: Finding the Percent**\n\n**The correct answer is $15$.**\n\n**The Fast Way (10 seconds):** $\\frac{60}{400} = \\frac{15}{100} = 15\\%$.\n\n**The Full Solution:**\n$\\frac{60}{400} \\times 100 = 15\\%$.\n\n**Common Mistakes to Avoid:**\n• Computing $\\frac{400}{60} \\approx 6.67$ (dividing in the wrong order).\n• Forgetting to multiply by $100$ and writing $0.15$ instead of $15$.\n\n**Verification:** $15\\%$ of $400 = 0.15 \\times 400 = 60$. Correct.\n\n**Test Day Takeaway:** Percent $= \\frac{\\text{part}}{\\text{whole}} \\times 100$.",
-          skills: ["percents"]
+          question: "An archaeologist cataloged artifacts found at a dig site.\n\n| Type | Count |\n|---|---|\n| Pottery | $36$ |\n| Tools | $24$ |\n| Jewelry | $12$ |\n| Bones | $48$ |\n| **Total** | **$120$** |\n\nWhat fraction of the artifacts were tools?",
+          choices: [
+            { id: "A", text: "$\\frac{1}{6}$" },
+            { id: "B", text: "$\\frac{1}{5}$" },
+            { id: "C", text: "$\\frac{1}{4}$" },
+            { id: "D", text: "$\\frac{2}{5}$" }
+          ],
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Reading a Data Table to Compute a Fraction**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $\\frac{24}{120} = \\frac{1}{5}$.\n\n**The Full Solution:**\nTools $= 24$. Total $= 120$.\n$\\frac{24}{120} = \\frac{1}{5}$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{1}{6}$): This would be $\\frac{20}{120}$, not $\\frac{24}{120}$.\n• Choice C ($\\frac{1}{4}$): This is $\\frac{30}{120}$ — confusing tools with pottery count.\n• Choice D ($\\frac{2}{5}$): This is $\\frac{48}{120}$ — the bones fraction.\n\n**Test Day Takeaway:** Read the exact row from the table and use the total row for the denominator.",
+          skills: ["ratios-proportions", "statistics"]
         },
         {
           id: 4,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "A pet store has $c$ cats and $d$ dogs. Which expression represents the total number of animals in the store?",
+          question: "A pet store owner estimates that the weekly cost of running the store is $4$ more than $6$ times the number of animals boarded. If $n$ animals are boarded, which expression represents the weekly cost in hundreds of dollars?",
           choices: [
-            { id: "A", text: "$c \\times d$" },
-            { id: "B", text: "$c + d$" },
-            { id: "C", text: "$c - d$" },
-            { id: "D", text: "$\\frac{c}{d}$" }
+            { id: "A", text: "$4n + 6$" },
+            { id: "B", text: "$6n + 4$" },
+            { id: "C", text: "$6(n + 4)$" },
+            { id: "D", text: "$4(n + 6)$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Translating Words to Expressions**\n\n**Choice B is correct.**\n\n**The Fast Way (5 seconds):** Total means add: $c + d$.\n\n**The Full Solution:**\nThe total number of animals is the sum of cats and dogs: $c + d$.\n\n**Why the wrong answers are tempting:**\n• Choice A: Multiplying gives combinations, not totals.\n• Choice C: Subtracting gives the difference, not the total.\n• Choice D: Dividing gives the ratio.\n\n**Test Day Takeaway:** \"Total\" almost always means addition.",
-          skills: ["word-problems", "algebraic-manipulation"]
+          explanation: "**SAT Pattern: Translating Words to an Algebraic Expression**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** \"$6$ times $n$\" $= 6n$. \"$4$ more than that\" $= 6n + 4$.\n\n**The Full Solution:**\nParse the sentence step by step:\n• \"$6$ times the number of animals boarded\" $\\rightarrow 6n$\n• \"$4$ more than $6n$\" $\\rightarrow 6n + 4$\n\n**Why the wrong answers are tempting:**\n• Choice A ($4n + 6$): Swaps the multiplier and the addend.\n• Choice C ($6(n + 4)$): Adds $4$ inside the multiplication, giving $6n + 24$ instead of $6n + 4$.\n• Choice D ($4(n + 6)$): Reverses everything.\n\n**Test Day Takeaway:** \"$k$ more than\" means $+ k$ (added after). \"$k$ times\" means $\\times k$ (multiplied first).",
+          skills: ["word-problems", "linear-equations"]
         },
+        // ===== EASY-MEDIUM (Q5-Q7) =====
         {
           id: 5,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "A wind turbine costs $\\$4{,}200$ to install. The owner receives a $30\\%$ tax rebate. How much is the rebate?",
+          question: "A printing company charges $\\$0.08$ per page for black-and-white printing and $\\$0.25$ per page for color printing. A customer prints $200$ black-and-white pages and $50$ color pages. What is the total cost?",
           choices: [
-            { id: "A", text: "$\\$420$" },
-            { id: "B", text: "$\\$1{,}260$" },
-            { id: "C", text: "$\\$2{,}940$" },
-            { id: "D", text: "$\\$3{,}780$" }
+            { id: "A", text: "$\\$16.00$" },
+            { id: "B", text: "$\\$28.50$" },
+            { id: "C", text: "$\\$20.00$" },
+            { id: "D", text: "$\\$41.50$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Percent of a Total**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $30\\%$ of $4{,}200 = 0.30 \\times 4{,}200 = 1{,}260$.\n\n**The Full Solution:**\nRebate $= 0.30 \\times 4{,}200 = 1{,}260$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($420$): Computes $10\\%$ instead of $30\\%$.\n• Choice C ($2{,}940$): This is $4{,}200 - 1{,}260$, the amount paid after the rebate.\n• Choice D ($3{,}780$): This is $4{,}200 - 420$, using the wrong percent.\n\n**Test Day Takeaway:** \"$30\\%$ rebate\" means multiply by $0.30$ to find the rebate amount.",
-          skills: ["percents", "word-problems"]
+          explanation: "**SAT Pattern: Two-Part Cost Calculation**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** B&W: $200 \\times 0.08 = 16$. Color: $50 \\times 0.25 = 12.50$. Total: $16 + 12.50 = 28.50$.\n\n**The Full Solution:**\nBlack-and-white cost $= 200 \\times 0.08 = \\$16.00$\nColor cost $= 50 \\times 0.25 = \\$12.50$\nTotal $= \\$16.00 + \\$12.50 = \\$28.50$\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\$16.00$): Only the B&W cost, ignoring color.\n• Choice C ($\\$20.00$): May compute $250 \\times 0.08$ (adding all pages at the B&W rate).\n• Choice D ($\\$41.50$): Uses an incorrect calculation mixing up rates.\n\n**Test Day Takeaway:** Compute each part separately, then add. Don't mix up the rates.",
+          skills: ["word-problems"]
         },
         {
           id: 6,
           type: "fill-in",
-          difficulty: "easy",
-          question: "An archaeologist finds $7$ artifacts on the first day and $5$ more artifacts each additional day. How many artifacts has the archaeologist found after $4$ days total?",
-          correctAnswer: "22",
-          explanation: "**SAT Pattern: Arithmetic Pattern**\n\n**The correct answer is $22$.**\n\n**The Fast Way (10 seconds):** Day 1: $7$. Days 2-4: $5 \\times 3 = 15$. Total: $7 + 15 = 22$.\n\n**The Full Solution:**\nDay 1: $7$ artifacts\nDay 2: $7 + 5 = 12$ total\nDay 3: $12 + 5 = 17$ total\nDay 4: $17 + 5 = 22$ total\n\n**Common Mistakes to Avoid:**\n• Adding $5 \\times 4 = 20$ additional artifacts (but day 1 already has the $7$, so only $3$ additional days of $5$).\n• Getting $27 = 7 + 5 \\times 4$ by counting day 1 as an additional day.\n\n**Verification:** $7 + 5(3) = 7 + 15 = 22$.\n\n**Test Day Takeaway:** Carefully count the number of additional days vs. total days.",
-          skills: ["word-problems"]
+          difficulty: "medium",
+          question: "The equation $n^2 + 19 = 100$ is true for $n > 0$. What is the value of $n$?",
+          correctAnswer: "9",
+          explanation: "**SAT Pattern: Solving a Quadratic for a Positive Root**\n\n**The correct answer is $9$.**\n\n**The Fast Way (10 seconds):** $n^2 = 100 - 19 = 81$. Since $n > 0$, $n = \\sqrt{81} = 9$.\n\n**The Full Solution:**\n$n^2 + 19 = 100$\n$n^2 = 81$\n$n = \\pm 9$\nSince $n > 0$, $n = 9$.\n\n**Common Mistakes to Avoid:**\n• Computing $100 + 19 = 119$ instead of $100 - 19 = 81$.\n• Reporting $81$ instead of $\\sqrt{81} = 9$.\n• Choosing $n = -9$ (violates $n > 0$).\n\n**Verification:** $9^2 + 19 = 81 + 19 = 100$ ✓\n\n**Test Day Takeaway:** Isolate the squared term, then take the square root. Check the sign restriction.",
+          skills: ["quadratic-equations", "solving-equations"]
         },
         {
           id: 7,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "Which expression is equivalent to $8y - 3y + 2y$?",
+          difficulty: "medium",
+          question: "Which of the following is equivalent to $(4x^2 - 3x + 7) + (2x^2 + 5x - 2)$?",
           choices: [
-            { id: "A", text: "$7y$" },
-            { id: "B", text: "$3y$" },
-            { id: "C", text: "$13y$" },
-            { id: "D", text: "$48y$" }
+            { id: "A", text: "$6x^2 + 2x + 5$" },
+            { id: "B", text: "$8x^4 + 2x + 5$" },
+            { id: "C", text: "$6x^2 - 8x + 5$" },
+            { id: "D", text: "$6x^2 + 2x + 9$" }
           ],
           correctAnswer: "A",
-          explanation: "**SAT Pattern: Combining Like Terms**\n\n**Choice A is correct.**\n\n**The Fast Way (5 seconds):** $8 - 3 + 2 = 7$, so $7y$.\n\n**The Full Solution:**\n$8y - 3y + 2y = (8 - 3 + 2)y = 7y$\n\n**Why the wrong answers are tempting:**\n• Choice B ($3y$): Computes $8 - 3 - 2 = 3$, subtracting instead of adding the last term.\n• Choice C ($13y$): Adds all coefficients: $8 + 3 + 2 = 13$.\n• Choice D ($48y$): Multiplies $8 \\times 3 \\times 2 = 48$.\n\n**Test Day Takeaway:** When combining like terms, keep track of signs carefully.",
+          explanation: "**SAT Pattern: Adding Polynomials**\n\n**Choice A is correct.**\n\n**The Fast Way (15 seconds):** Combine like terms: $4x^2 + 2x^2 = 6x^2$, $-3x + 5x = 2x$, $7 + (-2) = 5$. Result: $6x^2 + 2x + 5$.\n\n**The Full Solution:**\n$(4x^2 - 3x + 7) + (2x^2 + 5x - 2)$\n$= (4 + 2)x^2 + (-3 + 5)x + (7 - 2)$\n$= 6x^2 + 2x + 5$\n\n**Why the wrong answers are tempting:**\n• Choice B ($8x^4 + 2x + 5$): Multiplies the $x^2$ terms instead of adding coefficients.\n• Choice C ($6x^2 - 8x + 5$): Adds $-3x$ and $-5x$ (wrong sign on $5x$).\n• Choice D ($6x^2 + 2x + 9$): Computes $7 + 2 = 9$ instead of $7 + (-2) = 5$.\n\n**Test Day Takeaway:** When adding polynomials, add coefficients of terms with the same degree. Don't multiply exponents.",
           skills: ["polynomial-operations"]
         },
 
-        // ===== MEDIUM (Q8-Q15) =====
+        // ===== MEDIUM (Q8-Q13) =====
         {
           id: 8,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "A printer prints $12$ pages per minute. The function $p(t) = 12t$ gives the number of pages printed after $t$ minutes. If a document has $180$ pages, how many minutes will it take to print?",
+          question: "A solar installation company charges a $\\$500$ base fee plus $\\$75$ per panel installed. A competing company charges no base fee but $\\$125$ per panel. For how many panels would the two companies charge the same total amount?",
           choices: [
-            { id: "A", text: "$12$" },
-            { id: "B", text: "$15$" },
-            { id: "C", text: "$18$" },
-            { id: "D", text: "$20$" }
+            { id: "A", text: "$5$" },
+            { id: "B", text: "$8$" },
+            { id: "C", text: "$10$" },
+            { id: "D", text: "$12$" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Using a Linear Function**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $180 \\div 12 = 15$.\n\n**The Full Solution:**\n$p(t) = 12t$\n$180 = 12t$\n$t = 15$ minutes\n\n**Why the wrong answers are tempting:**\n• Choice A ($12$): The rate, not the time.\n• Choice C ($18$): Confuses $180 \\div 10 = 18$.\n• Choice D ($20$): Computes $180 \\div 9$.\n\n**Test Day Takeaway:** Set the function equal to the target value and solve for the variable.",
-          skills: ["linear-functions", "solving-equations"]
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Setting Two Linear Expressions Equal**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** $500 + 75p = 125p$. $500 = 50p$. $p = 10$.\n\n**The Full Solution:**\nCompany 1: $500 + 75p$\nCompany 2: $125p$\nSet equal: $500 + 75p = 125p$\n$500 = 125p - 75p = 50p$\n$p = 10$\n\n**Why the wrong answers are tempting:**\n• Choice A ($5$): Company 1 costs $875$, Company 2 costs $625$ — not equal.\n• Choice B ($8$): Company 1 costs $1{,}100$, Company 2 costs $1{,}000$ — not equal.\n• Choice D ($12$): Company 1 costs $1{,}400$, Company 2 costs $1{,}500$ — not equal.\n\n**Verification:** Company 1: $500 + 75(10) = 1{,}250$. Company 2: $125(10) = 1{,}250$. Equal ✓\n\n**Test Day Takeaway:** \"Same cost\" means set the two expressions equal and solve for the variable.",
+          skills: ["linear-equations", "systems-of-equations"]
         },
         {
           id: 9,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "A line has slope $-\\frac{1}{4}$ and passes through the point $(8, 3)$. What is the equation of this line in slope-intercept form?",
+          question: "The table below shows the results of a survey of $150$ pet owners.\n\n| | Indoor | Outdoor | Total |\n|---|---|---|---|\n| Cat owners | $55$ | $20$ | $75$ |\n| Dog owners | $30$ | $45$ | $75$ |\n| Total | $85$ | $65$ | $150$ |\n\nWhat fraction of dog owners keep their pets outdoors?",
           choices: [
-            { id: "A", text: "$y = -\\frac{1}{4}x + 1$" },
-            { id: "B", text: "$y = -\\frac{1}{4}x + 5$" },
-            { id: "C", text: "$y = -\\frac{1}{4}x + 11$" },
-            { id: "D", text: "$y = \\frac{1}{4}x + 1$" }
+            { id: "A", text: "$\\frac{45}{150}$" },
+            { id: "B", text: "$\\frac{45}{65}$" },
+            { id: "C", text: "$\\frac{45}{75}$" },
+            { id: "D", text: "$\\frac{75}{150}$" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Slope-Intercept Form from Point and Slope**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** $y = mx + b$. Plug in: $3 = -\\frac{1}{4}(8) + b$, so $3 = -2 + b$, giving $b = 5$. Equation: $y = -\\frac{1}{4}x + 5$.\n\n**The Full Solution:**\n$y = -\\frac{1}{4}x + b$\n$3 = -\\frac{1}{4}(8) + b$\n$3 = -2 + b$\n$b = 5$\n$y = -\\frac{1}{4}x + 5$\n\n**Why the wrong answers are tempting:**\n• Choice A: Computes $3 - \\frac{1}{4}(8) = 1$ (subtracts instead of solving for $b$).\n• Choice C: Uses $3 + 8 = 11$.\n• Choice D: Wrong sign on slope.\n\n**Test Day Takeaway:** Plug the point into $y = mx + b$ and solve for $b$.",
-          skills: ["slope", "linear-equations"]
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Conditional Probability from a Two-Way Table**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** \"Of dog owners\" restricts the denominator to dog owner total $= 75$. Outdoor dog owners $= 45$. Fraction $= \\frac{45}{75} = \\frac{3}{5}$.\n\n**The Full Solution:**\n$P(\\text{outdoor} | \\text{dog owner}) = \\frac{45}{75} = \\frac{3}{5}$\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{45}{150}$): Uses the grand total — this is joint probability, not conditional.\n• Choice B ($\\frac{45}{65}$): Uses the outdoor column total — this answers \"of outdoor pets, what fraction are dogs.\"\n• Choice D ($\\frac{75}{150}$): Fraction of all owners who have dogs, ignoring indoor/outdoor.\n\n**Test Day Takeaway:** \"Of [group]\" means the denominator is that group's total. \"Of all\" means the grand total.",
+          skills: ["probability", "two-way-tables"]
         },
         {
           id: 10,
@@ -153,7 +160,7 @@ export const practiceTest11 = {
             { id: "D", text: "$80$" }
           ],
           correctAnswer: "C",
-          explanation: "**SAT Pattern: Two-Way Table / Venn Diagram**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** At least one pet $= 110 + 70 - 30 = 150$. Neither $= 200 - 150 = 50$.\n\n**The Full Solution:**\nUsing inclusion-exclusion:\nDog or cat $= 110 + 70 - 30 = 150$\nNeither $= 200 - 150 = 50$\n\n**Why the wrong answers are tempting:**\n• Choice A ($20$): Subtracts $200 - 110 - 70 = 20$, forgetting to add back the overlap.\n• Choice B ($30$): Uses the overlap count as the answer.\n• Choice D ($80$): Computes $200 - (110 + 70) + 30 - 30 = 80$ through a calculation error.\n\n**Test Day Takeaway:** Inclusion-exclusion: $|A \\cup B| = |A| + |B| - |A \\cap B|$.",
+          explanation: "**SAT Pattern: Inclusion-Exclusion / Venn Diagram**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** At least one pet $= 110 + 70 - 30 = 150$. Neither $= 200 - 150 = 50$.\n\n**The Full Solution:**\nUsing inclusion-exclusion:\nDog or cat $= 110 + 70 - 30 = 150$\nNeither $= 200 - 150 = 50$\n\n**Why the wrong answers are tempting:**\n• Choice A ($20$): Subtracts $200 - 110 - 70 = 20$, forgetting to add back the overlap.\n• Choice B ($30$): Uses the overlap count as the answer.\n• Choice D ($80$): Computation error such as $200 - (110 + 70) + 30 - 30$.\n\n**Test Day Takeaway:** Inclusion-exclusion: $|A \\cup B| = |A| + |B| - |A \\cap B|$. Then subtract from the total to find \"neither.\"",
           skills: ["probability", "two-way-tables"]
         },
         {
@@ -195,29 +202,30 @@ export const practiceTest11 = {
           explanation: "**SAT Pattern: Linear Function from Table**\n\n**Choice A is correct.**\n\n**The Fast Way (15 seconds):** Slope $= \\frac{13 - 7}{3 - 1} = \\frac{6}{2} = 3$. Using $(1, 7)$: $7 = 3(1) + b$, so $b = 4$. $g(x) = 3x + 4$.\n\n**The Full Solution:**\n$m = \\frac{\\Delta y}{\\Delta x} = \\frac{13 - 7}{3 - 1} = \\frac{6}{2} = 3$\n$g(x) = 3x + b$\n$7 = 3(1) + b \\Rightarrow b = 4$\n$g(x) = 3x + 4$\n\n**Why the wrong answers are tempting:**\n• Choice B ($3x + 7$): Uses $(0, 7)$ as if $g(0) = 7$, but $g(1) = 7$.\n• Choice C ($6x + 1$): Uses the $\\Delta y = 6$ as the slope without dividing by $\\Delta x = 2$.\n• Choice D ($7x$): Uses the first output value as the slope.\n\n**Test Day Takeaway:** Find slope from two rows, then use a point to find the $y$-intercept.",
           skills: ["linear-functions", "slope"]
         },
+        // ===== HARD (Q14-Q15) =====
         {
           id: 14,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "If the system of equations $x + y = 10$ and $x - y = 4$ is solved, what is the value of $x$?",
+          difficulty: "hard",
+          question: "A renewable energy fund starts with $\\$2{,}000$ and earns $8\\%$ interest compounded annually. Which expression gives the value of the fund after $t$ years?",
           choices: [
-            { id: "A", text: "$3$" },
-            { id: "B", text: "$5$" },
-            { id: "C", text: "$7$" },
-            { id: "D", text: "$14$" }
+            { id: "A", text: "$2000 + 0.08t$" },
+            { id: "B", text: "$2000(0.08)^t$" },
+            { id: "C", text: "$2000(1.08)^t$" },
+            { id: "D", text: "$2000(0.92)^t$" }
           ],
           correctAnswer: "C",
-          explanation: "**SAT Pattern: System of Linear Equations (Elimination)**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** Add the equations: $2x = 14$, so $x = 7$.\n\n**The Full Solution:**\n$x + y = 10$\n$x - y = 4$\nAdd: $2x = 14$\n$x = 7$\n\n**Why the wrong answers are tempting:**\n• Choice A ($3$): This is $y$ ($10 - 7 = 3$), not $x$.\n• Choice B ($5$): Averages $10$ and $4$ instead of adding.\n• Choice D ($14$): Forgets to divide by $2$.\n\n**Test Day Takeaway:** When one equation has $+y$ and the other has $-y$, add them to eliminate $y$.",
-          skills: ["systems-of-equations"]
+          explanation: "**SAT Pattern: Exponential Growth Model**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** Growth of $8\\%$ means the fund is multiplied by $1 + 0.08 = 1.08$ each year. Model: $2000(1.08)^t$.\n\n**The Full Solution:**\nGrowth rate $= 8\\% = 0.08$\nGrowth factor $= 1 + 0.08 = 1.08$\nValue after $t$ years $= 2000(1.08)^t$\n\n**Why the wrong answers are tempting:**\n• Choice A ($2000 + 0.08t$): This is linear growth of $\\$0.08$ per year, not compound interest.\n• Choice B ($2000(0.08)^t$): Uses the rate as the base; after $1$ year this gives $160$, losing almost all value.\n• Choice D ($2000(0.92)^t$): This is $8\\%$ decay, not growth.\n\n**Test Day Takeaway:** For growth, the base is $1 + \\text{rate}$. For decay, the base is $1 - \\text{rate}$. Compound interest is exponential, not linear.",
+          skills: ["exponential-functions"]
         },
         {
           id: 15,
           type: "fill-in",
-          difficulty: "medium",
-          question: "A rectangular pet enclosure has a length of $12$ feet and a width of $8$ feet. What is the perimeter, in feet, of the enclosure?",
-          correctAnswer: "40",
-          explanation: "**SAT Pattern: Perimeter of a Rectangle**\n\n**The correct answer is $40$.**\n\n**The Fast Way (5 seconds):** $P = 2(12 + 8) = 2(20) = 40$.\n\n**The Full Solution:**\n$P = 2l + 2w = 2(12) + 2(8) = 24 + 16 = 40$ feet.\n\n**Common Mistakes to Avoid:**\n• Computing area instead: $12 \\times 8 = 96$.\n• Adding only two sides: $12 + 8 = 20$.\n\n**Verification:** $12 + 8 + 12 + 8 = 40$.\n\n**Test Day Takeaway:** Perimeter $= 2l + 2w$. Area $= l \\times w$. Don't mix them up.",
-          skills: ["area", "word-problems"]
+          difficulty: "hard",
+          question: "A system of equations is given:\n\n$2x + 3y = 26$\n$x - y = 2$\n\nWhat is the value of $y$?",
+          correctAnswer: "4.4",
+          explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**The correct answer is $4.4$.**\n\n**The Fast Way (30 seconds):** From the second equation, $x = y + 2$. Substitute: $2(y + 2) + 3y = 26$. $2y + 4 + 3y = 26$. $5y = 22$. $y = \\frac{22}{5} = 4.4$.\n\n**The Full Solution:**\n$x - y = 2 \\Rightarrow x = y + 2$\n$2(y + 2) + 3y = 26$\n$2y + 4 + 3y = 26$\n$5y = 22$\n$y = \\frac{22}{5} = 4.4$\n\n**Common Mistakes to Avoid:**\n• Reporting $x$ instead of $y$: $x = 4.4 + 2 = 6.4$.\n• Substitution error: using $x = y - 2$ instead of $x = y + 2$.\n\n**Verification:** $x = 6.4$. $2(6.4) + 3(4.4) = 12.8 + 13.2 = 26$ ✓. $6.4 - 4.4 = 2$ ✓.\n\n**Test Day Takeaway:** Solve one equation for a variable, substitute into the other, and check which variable the question asks for.",
+          skills: ["systems-of-equations", "solving-equations"]
         },
 
         // ===== HARD (Q16-Q22) =====

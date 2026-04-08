@@ -18,30 +18,30 @@ export const practiceTest2 = {
           id: 1,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "A music streaming service has $1{,}200$ songs in its library. If $30\\%$ of the songs are pop music, how many pop songs are in the library?",
+          question: "A factory inspects $500$ light bulbs and finds that $29$ out of every $100$ bulbs have a minor defect. Based on this rate, what is the probability that a randomly selected bulb from this factory has a minor defect?",
           choices: [
-            { id: "A", text: "$30$" },
-            { id: "B", text: "$300$" },
-            { id: "C", text: "$360$" },
-            { id: "D", text: "$400$" }
+            { id: "A", text: "$\\frac{29}{500}$" },
+            { id: "B", text: "$\\frac{29}{100}$" },
+            { id: "C", text: "$\\frac{100}{29}$" },
+            { id: "D", text: "$\\frac{29}{1{,}000}$" }
           ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Finding a Percentage of a Number**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** $30\\%$ of $1{,}200 = 0.30 \\times 1{,}200 = 360$.\n\n**The Full Solution:**\n$30\\%$ of $1{,}200 = \\frac{30}{100} \\times 1{,}200 = 360$\n\n**Why the wrong answers are tempting:**\n• Choice A ($30$): This is the percentage itself, not the count.\n• Choice B ($300$): From $1{,}200 \\div 4$, confusing $30\\%$ with $25\\%$.\n• Choice D ($400$): From $1{,}200 \\div 3$, confusing $30\\%$ with $\\frac{1}{3}$.\n\n**Test Day Takeaway:** To find X% of a number, multiply by X/100.",
-          skills: ["percents", "word-problems"]
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Probability from a Rate**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** \"$29$ out of every $100$\" directly gives the probability as $\\frac{29}{100}$.\n\n**The Full Solution:**\nThe rate is $29$ per $100$, so the probability $= \\frac{29}{100} = 0.29$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{29}{500}$): Uses the total inspected as the denominator, but the rate is given per $100$.\n• Choice C ($\\frac{100}{29}$): Flips the fraction.\n• Choice D ($\\frac{29}{1{,}000}$): Arbitrarily increases the denominator.\n\n**Test Day Takeaway:** When a rate is given as \"$X$ out of every $Y$,\" the probability is simply $\\frac{X}{Y}$.",
+          skills: ["probability", "word-problems"]
         },
         {
           id: 2,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "Which expression is equivalent to $8x + 3x - 2x$?",
+          question: "Which expression is equivalent to $(3x^2 + 2x - 5) + (x^2 + 4x + 1)$?",
           choices: [
-            { id: "A", text: "$9x$" },
-            { id: "B", text: "$9x^3$" },
-            { id: "C", text: "$13x$" },
-            { id: "D", text: "$3x$" }
+            { id: "A", text: "$4x^2 + 6x - 4$" },
+            { id: "B", text: "$3x^4 + 6x - 4$" },
+            { id: "C", text: "$4x^2 + 2x - 4$" },
+            { id: "D", text: "$4x^2 + 6x - 6$" }
           ],
           correctAnswer: "A",
-          explanation: "**SAT Pattern: Combining Like Terms**\n\n**Choice A is correct.**\n\n**The Fast Way (10 seconds):** $8 + 3 - 2 = 9$, so $8x + 3x - 2x = 9x$.\n\n**The Full Solution:**\nAll three terms have the same variable part ($x$), so combine the coefficients: $8 + 3 - 2 = 9$. The result is $9x$.\n\n**Why the wrong answers are tempting:**\n• Choice B ($9x^3$): Adds the exponents (there are three terms, each with $x^1$), which is wrong.\n• Choice C ($13x$): Adds all coefficients without subtracting: $8 + 3 + 2 = 13$.\n• Choice D ($3x$): Subtracts everything: $8 - 3 - 2 = 3$.\n\n**Test Day Takeaway:** When combining like terms, only the coefficients change. Watch the signs.",
+          explanation: "**SAT Pattern: Adding Polynomials**\n\n**Choice A is correct.**\n\n**The Fast Way (20 seconds):** Combine like terms: $3x^2 + x^2 = 4x^2$, $2x + 4x = 6x$, $-5 + 1 = -4$. Result: $4x^2 + 6x - 4$.\n\n**The Full Solution:**\n$(3x^2 + 2x - 5) + (x^2 + 4x + 1)$\n$= (3+1)x^2 + (2+4)x + (-5+1)$\n$= 4x^2 + 6x - 4$\n\n**Why the wrong answers are tempting:**\n• Choice B ($3x^4$): Multiplies the $x^2$ terms instead of adding: $3 \\cdot 1 = 3$ and $x^2 \\cdot x^2 = x^4$.\n• Choice C ($4x^2 + 2x - 4$): Adds $x^2$ terms correctly but misses $4x$ from the second polynomial.\n• Choice D ($4x^2 + 6x - 6$): Subtracts constants incorrectly: $-5 + 1 = -4$, not $-6$.\n\n**Test Day Takeaway:** When adding polynomials, combine like terms (same variable, same exponent). Do not multiply exponents.",
           skills: ["polynomial-operations"]
         },
         {
@@ -57,55 +57,55 @@ export const practiceTest2 = {
           id: 4,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "A pet shelter has dogs and cats in a ratio of $5$ to $3$. If there are $40$ dogs, how many cats are there?",
+          question: "Lorenzo buys a box of cereal for $\\$2$ and strawberries at $\\$1.90$ per pound. His total bill is $\\$9.60$. Which equation can be used to find $p$, the number of pounds of strawberries Lorenzo bought?",
           choices: [
-            { id: "A", text: "$15$" },
-            { id: "B", text: "$24$" },
-            { id: "C", text: "$30$" },
-            { id: "D", text: "$32$" }
+            { id: "A", text: "$1.90p + 2 = 9.60$" },
+            { id: "B", text: "$2p + 1.90 = 9.60$" },
+            { id: "C", text: "$1.90(p + 2) = 9.60$" },
+            { id: "D", text: "$1.90p = 9.60$" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Basic Ratio Problem**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** $5$ parts = $40$, so $1$ part = $8$. Cats = $3$ parts = $24$.\n\n**The Full Solution:**\n$\\frac{5}{3} = \\frac{40}{x}$\n$5x = 120$\n$x = 24$\n\n**Why the wrong answers are tempting:**\n• Choice A ($15$): From $40 - 25 = 15$, subtracting instead of using the ratio.\n• Choice C ($30$): From $40 \\times \\frac{3}{4}$, using the wrong fraction.\n• Choice D ($32$): From $40 \\times \\frac{4}{5}$.\n\n**Test Day Takeaway:** Find what one \"part\" equals, then multiply by the number of parts needed.",
-          skills: ["ratios-proportions"]
+          correctAnswer: "A",
+          explanation: "**SAT Pattern: Translating a Word Problem into an Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (15 seconds):** Total $=$ cereal $+$ strawberries $= 2 + 1.90p$. Set equal to $9.60$.\n\n**The Full Solution:**\nCereal cost: $\\$2$ (fixed).\nStrawberry cost: $\\$1.90 \\times p$ pounds.\nTotal: $2 + 1.90p = 9.60$, which is the same as $1.90p + 2 = 9.60$.\n\n**Why the wrong answers are tempting:**\n• Choice B ($2p + 1.90 = 9.60$): Swaps the cost per unit and the fixed cost.\n• Choice C ($1.90(p + 2) = 9.60$): Applies the $\\$1.90$ rate to both the pounds and the cereal.\n• Choice D ($1.90p = 9.60$): Forgets the $\\$2$ cereal cost entirely.\n\n**Test Day Takeaway:** Fixed costs are added as constants. Variable costs multiply the quantity. Total = fixed + (rate)(quantity).",
+          skills: ["word-problems", "linear-equations"]
         },
         {
           id: 5,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "An app developer earns $\\$150$ for each app downloaded plus a $\\$500$ base salary per month. Which function $f(d)$ represents the developer's total monthly earnings for $d$ downloads?",
+          question: "The function $g(x) = 500(0.80)^x$ models the value in dollars of a smartphone after $x$ years. What does $0.80$ represent in this context?",
           choices: [
-            { id: "A", text: "$f(d) = 150d + 500$" },
-            { id: "B", text: "$f(d) = 500d + 150$" },
-            { id: "C", text: "$f(d) = 650d$" },
-            { id: "D", text: "$f(d) = 150d - 500$" }
+            { id: "A", text: "The phone loses $80\\%$ of its value each year." },
+            { id: "B", text: "The phone retains $80\\%$ of its value each year." },
+            { id: "C", text: "The phone was purchased for $\\$80$." },
+            { id: "D", text: "The phone loses $\\$0.80$ each year." }
           ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Linear Function from Context**\n\n**Choice A is correct.**\n\n**The Fast Way (10 seconds):** Per-download rate is the slope ($150$), base salary is the $y$-intercept ($500$). So $f(d) = 150d + 500$.\n\n**The Full Solution:**\nTotal earnings = (earnings per download)(number of downloads) + base salary\n$f(d) = 150d + 500$\n\n**Why the wrong answers are tempting:**\n• Choice B: Swaps the per-download and base salary values.\n• Choice C: Combines $150 + 500 = 650$ into one rate.\n• Choice D: Subtracts the base salary.\n\n**Test Day Takeaway:** The repeated value is the slope; the one-time value is the y-intercept.",
-          skills: ["linear-functions", "word-problems"]
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Interpreting Exponential Functions**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** In $a \\cdot b^x$, the base $b = 0.80$ means $80\\%$ of the value remains each year (a $20\\%$ loss per year).\n\n**The Full Solution:**\nIn the exponential model $g(x) = 500(0.80)^x$:\n- $500$ is the initial value\n- $0.80$ is the decay factor, meaning the phone retains $80\\%$ of its value each year\n\n**Why the wrong answers are tempting:**\n• Choice A: Confuses losing $80\\%$ with retaining $80\\%$. The phone loses $20\\%$.\n• Choice C: $500$ is the purchase price, not $80$.\n• Choice D: This would be linear decay, not exponential.\n\n**Test Day Takeaway:** A base of $0.80$ means retaining $80\\%$ (losing $20\\%$). The base is the retention rate.",
+          skills: ["exponential-functions", "function-interpretation"]
         },
         {
           id: 6,
           type: "fill-in",
-          difficulty: "easy",
-          question: "If $\\frac{3x}{4} = 15$, what is the value of $x$?",
-          correctAnswer: "20",
-          explanation: "**SAT Pattern: Solving a Simple Equation with a Fraction**\n\n**The correct answer is 20.**\n\n**The Fast Way (10 seconds):** Multiply both sides by $4$: $3x = 60$. Divide by $3$: $x = 20$.\n\n**The Full Solution:**\n$\\frac{3x}{4} = 15$\n$3x = 60$\n$x = 20$\n\n**Common Mistakes to Avoid:**\n• Dividing by $4$ instead of multiplying: $\\frac{15}{4} = 3.75$\n• Forgetting to divide by $3$: answering $60$\n\n**Verification:** $\\frac{3(20)}{4} = \\frac{60}{4} = 15$ ✓\n\n**Test Day Takeaway:** Clear the fraction first by multiplying both sides by the denominator, then solve.",
-          skills: ["solving-equations"]
+          difficulty: "medium",
+          question: "A school fundraiser sells $12$ identical gift baskets using a $\\$36$ discount code. After applying the discount, the total paid is $\\$180$. What was the original price, in dollars, of each gift basket?",
+          correctAnswer: "18",
+          explanation: "**SAT Pattern: Two-Step Word Problem with Coupon**\n\n**The correct answer is $18$.**\n\n**The Fast Way (15 seconds):** Total before discount $= 180 + 36 = 216$. Price per basket $= 216 \\div 12 = 18$.\n\n**The Full Solution:**\nLet $p$ be the original price per basket.\n$12p - 36 = 180$\n$12p = 216$\n$p = 18$\n\n**Common Mistakes to Avoid:**\n• Forgetting to add back the discount: $180 \\div 12 = 15$.\n• Subtracting the discount instead of adding: $(180 - 36) \\div 12 = 12$.\n\n**Verification:** $12 \\times 18 - 36 = 216 - 36 = 180$ ✓\n\n**Test Day Takeaway:** When a discount is applied to the total, add it back to find the pre-discount amount, then divide by the number of items.",
+          skills: ["word-problems", "solving-equations"]
         },
         {
           id: 7,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "A garden has $84$ flowers planted in $7$ equal rows. How many flowers are in each row?",
+          difficulty: "medium",
+          question: "The function $y = 3(x - 14)(x + 5)(x + 4)$ is graphed in the $xy$-plane. What is one of the $x$-intercepts of the graph?",
           choices: [
-            { id: "A", text: "$10$" },
-            { id: "B", text: "$11$" },
-            { id: "C", text: "$12$" },
-            { id: "D", text: "$14$" }
+            { id: "A", text: "$(3, 0)$" },
+            { id: "B", text: "$(14, 0)$" },
+            { id: "C", text: "$(-14, 0)$" },
+            { id: "D", text: "$(5, 0)$" }
           ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Simple Division**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** $84 \\div 7 = 12$.\n\n**The Full Solution:**\nFlowers per row $= \\frac{84}{7} = 12$\n\n**Why the wrong answers are tempting:**\n• Choice A ($10$): From $\\frac{70}{7}$, using a round number.\n• Choice B ($11$): From $\\frac{77}{7}$, a nearby multiple.\n• Choice D ($14$): From $\\frac{84}{6}$, dividing by the wrong number.\n\n**Test Day Takeaway:** Total divided by number of groups gives the size of each group.",
-          skills: ["word-problems"]
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Finding x-intercepts from Factored Form**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** Set each factor to $0$: $x - 14 = 0 \\Rightarrow x = 14$; $x + 5 = 0 \\Rightarrow x = -5$; $x + 4 = 0 \\Rightarrow x = -4$. The $x$-intercept $(14, 0)$ matches choice B.\n\n**The Full Solution:**\nThe $x$-intercepts occur where $y = 0$. Setting each factor equal to zero:\n$x - 14 = 0 \\Rightarrow x = 14$\n$x + 5 = 0 \\Rightarrow x = -5$\n$x + 4 = 0 \\Rightarrow x = -4$\nThe $x$-intercepts are $(14, 0)$, $(-5, 0)$, and $(-4, 0)$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($(3, 0)$): Uses the leading coefficient $3$ as an $x$-intercept.\n• Choice C ($(-14, 0)$): Flips the sign from $(x - 14) = 0$.\n• Choice D ($(5, 0)$): Flips the sign from $(x + 5) = 0$.\n\n**Test Day Takeaway:** To find $x$-intercepts, set each factor equal to zero and solve. Watch the signs: $(x - a) = 0$ gives $x = a$, and $(x + a) = 0$ gives $x = -a$.",
+          skills: ["quadratic-equations", "factoring"]
         },
         {
           id: 8,
@@ -126,30 +126,30 @@ export const practiceTest2 = {
           id: 9,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "The equation of line $m$ is $y = -2x + 8$. Line $n$ is parallel to line $m$ and passes through the point $(3, 1)$. What is the $y$-intercept of line $n$?",
+          question: "Line $n$ passes through the points $(1, -2)$ and $(5, 6)$. Which of the following is an equation of line $n$?",
           choices: [
-            { id: "A", text: "$5$" },
-            { id: "B", text: "$7$" },
-            { id: "C", text: "$-5$" },
-            { id: "D", text: "$-7$" }
+            { id: "A", text: "$y = 2x - 4$" },
+            { id: "B", text: "$y = 2x + 4$" },
+            { id: "C", text: "$y = \\frac{1}{2}x - 4$" },
+            { id: "D", text: "$y = -2x + 4$" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Parallel Lines and Slope**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** Parallel means same slope $= -2$. Use $y = -2x + b$ with $(3,1)$: $1 = -6 + b$, so $b = 7$.\n\n**The Full Solution:**\nParallel lines have the same slope, so line $n$ has slope $-2$.\n$y = -2x + b$\nPlug in $(3, 1)$: $1 = -2(3) + b = -6 + b$\n$b = 7$\n\n**Why the wrong answers are tempting:**\n• Choice A ($5$): From $1 - (-6) = 5$... no. Sign error: $1 + 6 = 7$, not $5$.\n• Choice C ($-5$): Subtracting instead of adding.\n• Choice D ($-7$): Getting the right magnitude but wrong sign.\n\n**Test Day Takeaway:** Parallel lines = same slope. Plug in the given point to find the new $y$-intercept.",
+          correctAnswer: "A",
+          explanation: "**SAT Pattern: Finding Equation of a Line from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (20 seconds):** Slope $= \\frac{6 - (-2)}{5 - 1} = \\frac{8}{4} = 2$. Use $(1, -2)$: $-2 = 2(1) + b$, so $b = -4$. Equation: $y = 2x - 4$.\n\n**The Full Solution:**\n$m = \\frac{6 - (-2)}{5 - 1} = \\frac{8}{4} = 2$\nUsing point $(1, -2)$:\n$y - (-2) = 2(x - 1)$\n$y + 2 = 2x - 2$\n$y = 2x - 4$\n\n**Why the wrong answers are tempting:**\n• Choice B ($y = 2x + 4$): Correct slope but wrong sign on the intercept.\n• Choice C ($y = \\frac{1}{2}x - 4$): Uses the reciprocal of the slope (run over rise).\n• Choice D ($y = -2x + 4$): Negates the slope.\n\n**Test Day Takeaway:** Find slope first ($\\frac{\\Delta y}{\\Delta x}$), then plug a point into $y = mx + b$ to find $b$. Verify with the other point.",
           skills: ["slope", "linear-functions"]
         },
         {
           id: 10,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "The table below shows the number of animals at a shelter.\n\n| | Adopted | Not Adopted | Total |\n|---|---|---|---|\n| Dogs | $35$ | $15$ | $50$ |\n| Cats | $25$ | $25$ | $50$ |\n| Total | $60$ | $40$ | $100$ |\n\nWhat is the probability that a randomly selected animal is a dog that was adopted?",
+          question: "The table below shows the number of animals at a shelter.\n\n| | Adopted | Not Adopted | Total |\n|---|---|---|---|\n| Dogs | $35$ | $15$ | $50$ |\n| Cats | $25$ | $25$ | $50$ |\n| Total | $60$ | $40$ | $100$ |\n\nOf the dogs at the shelter, what fraction were adopted?",
           choices: [
-            { id: "A", text: "$0.25$" },
-            { id: "B", text: "$0.35$" },
-            { id: "C", text: "$0.50$" },
-            { id: "D", text: "$0.70$" }
+            { id: "A", text: "$\\frac{35}{100}$" },
+            { id: "B", text: "$\\frac{35}{60}$" },
+            { id: "C", text: "$\\frac{35}{50}$" },
+            { id: "D", text: "$\\frac{50}{100}$" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Probability from a Two-Way Table**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Adopted dogs $= 35$, total animals $= 100$. $P = \\frac{35}{100} = 0.35$.\n\n**The Full Solution:**\n$P(\\text{adopted dog}) = \\frac{35}{100} = 0.35$\n\n**Why the wrong answers are tempting:**\n• Choice A ($0.25$): From $\\frac{25}{100}$, using the cats adopted count.\n• Choice C ($0.50$): From $\\frac{50}{100}$, using the total dogs instead of adopted dogs.\n• Choice D ($0.70$): From $\\frac{35}{50}$, the probability of adoption given it's a dog.\n\n**Test Day Takeaway:** Read the table carefully. The denominator for simple probability is always the grand total.",
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Conditional Probability from a Two-Way Table**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** \"Of the dogs\" = denominator is $50$ (total dogs). Adopted dogs $= 35$. Fraction $= \\frac{35}{50}$.\n\n**The Full Solution:**\nThe condition restricts us to dogs only (total $= 50$).\nOf those, $35$ were adopted.\nFraction $= \\frac{35}{50} = \\frac{7}{10}$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{35}{100}$): Uses the grand total as the denominator. This would be the probability a random animal is an adopted dog.\n• Choice B ($\\frac{35}{60}$): Uses total adopted as the denominator. This would be the probability an adopted animal is a dog.\n• Choice D ($\\frac{50}{100}$): Finds the fraction that are dogs overall.\n\n**Test Day Takeaway:** In conditional probability, the group described after \"of\" determines the denominator. \"Of the dogs\" means denominator = total dogs.",
           skills: ["two-way-tables", "probability"]
         },
         {
@@ -165,16 +165,16 @@ export const practiceTest2 = {
           id: 12,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "The function $g(x) = 500(0.80)^x$ models the value in dollars of a smartphone after $x$ years. What does $0.80$ represent in this context?",
+          question: "A savings account earns simple interest. The balance after $t$ years is given by $B(t) = 3{,}000 + 120t$. What is the annual interest rate?",
           choices: [
-            { id: "A", text: "The phone loses $80\\%$ of its value each year." },
-            { id: "B", text: "The phone retains $80\\%$ of its value each year." },
-            { id: "C", text: "The phone was purchased for $\\$80$." },
-            { id: "D", text: "The phone loses $\\$0.80$ each year." }
+            { id: "A", text: "$0.4\\%$" },
+            { id: "B", text: "$4\\%$" },
+            { id: "C", text: "$12\\%$" },
+            { id: "D", text: "$40\\%$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Interpreting Exponential Functions**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** In $a \\cdot b^x$, the base $b = 0.80$ means $80\\%$ of the value remains each year (a $20\\%$ loss per year).\n\n**The Full Solution:**\nIn the exponential model $g(x) = 500(0.80)^x$:\n- $500$ is the initial value\n- $0.80$ is the decay factor, meaning the phone retains $80\\%$ of its value each year\n\n**Why the wrong answers are tempting:**\n• Choice A: Confuses losing $80\\%$ with retaining $80\\%$. The phone loses $20\\%$.\n• Choice C: $500$ is the purchase price, not $80$.\n• Choice D: This would be linear decay, not exponential.\n\n**Test Day Takeaway:** A base of $0.80$ means retaining $80\\%$ (losing $20\\%$). The base is the retention rate.",
-          skills: ["exponential-functions", "function-interpretation"]
+          explanation: "**SAT Pattern: Interpreting a Linear Model as Simple Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** The principal is $\\$3{,}000$ and the annual interest is $\\$120$. Rate $= \\frac{120}{3{,}000} = 0.04 = 4\\%$.\n\n**The Full Solution:**\nSimple interest formula: $B = P + Prt = P(1 + rt)$, or equivalently $B = P + (Pr)t$.\nHere $P = 3{,}000$ and $Pr = 120$, so $r = \\frac{120}{3{,}000} = 0.04 = 4\\%$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($0.4\\%$): Divides by $30{,}000$ instead of $3{,}000$.\n• Choice C ($12\\%$): Uses $\\frac{120}{1{,}000}$ (wrong principal).\n• Choice D ($40\\%$): Uses $\\frac{120}{300}$ (wrong decimal place).\n\n**Test Day Takeaway:** Interest rate = annual interest / principal. Identify the principal ($y$-intercept) and interest per year (slope) from the equation.",
+          skills: ["function-interpretation", "percents"]
         },
         {
           id: 13,
@@ -194,32 +194,32 @@ export const practiceTest2 = {
         {
           id: 14,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "A dataset has a mean of $45$ and a median of $42$. A new data point of $45$ is added. Which of the following must be true?",
+          difficulty: "hard",
+          question: "The system of equations below has solution $(x, y)$.\n\n$x + 3y = 13$\n$2x - y = 5$\n\nWhat is the value of $x + y$?",
           choices: [
-            { id: "A", text: "The mean increases." },
-            { id: "B", text: "The mean stays the same." },
-            { id: "C", text: "The median increases." },
-            { id: "D", text: "Both the mean and median increase." }
+            { id: "A", text: "$4$" },
+            { id: "B", text: "$5$" },
+            { id: "C", text: "$6$" },
+            { id: "D", text: "$7$" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Effect of Adding a Data Point Equal to the Mean**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** Adding a value equal to the mean does not change the mean. The median might change, but we cannot be certain how.\n\n**The Full Solution:**\nIf the current mean is $45$ and we add $45$, the new mean is still $45$ because the new value equals the mean.\n\nMore precisely: if the original sum is $S$ with $n$ values and mean $= \\frac{S}{n} = 45$, then $S = 45n$. New mean $= \\frac{45n + 45}{n+1} = \\frac{45(n+1)}{n+1} = 45$.\n\n**Why the wrong answers are tempting:**\n• Choice A: The new value equals the mean, so it does not pull the mean up.\n• Choice C: We do not have enough information to determine how the median changes.\n• Choice D: The mean stays the same and the median effect is uncertain.\n\n**Test Day Takeaway:** Adding a value equal to the mean does not change the mean.",
-          skills: ["mean-median-mode", "statistics"]
+          correctAnswer: "D",
+          explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**Choice D is correct.**\n\n**The Fast Way (30 seconds):** From the second equation, $y = 2x - 5$. Substitute into the first: $x + 3(2x - 5) = 13$, so $7x - 15 = 13$, $7x = 28$, $x = 4$. Then $y = 2(4) - 5 = 3$. So $x + y = 7$.\n\n**The Full Solution:**\n$x + 3y = 13$ ... (1)\n$2x - y = 5$ ... (2)\nFrom (2): $y = 2x - 5$.\nSubstitute into (1): $x + 3(2x - 5) = 13$\n$x + 6x - 15 = 13$\n$7x = 28$\n$x = 4$, $y = 2(4) - 5 = 3$\n$x + y = 4 + 3 = 7$\n\n**Why the wrong answers are tempting:**\n• Choice A ($4$): This is the value of $x$ alone.\n• Choice B ($5$): From $\\frac{13 - 5}{2} + 1$, an incorrect shortcut.\n• Choice C ($6$): From $13 - 7$, a calculation error.\n\n**Verification:** $4 + 3(3) = 4 + 9 = 13$ ✓ and $2(4) - 3 = 5$ ✓\n\n**Test Day Takeaway:** Use substitution when one equation is easy to solve for a variable. Always check both equations.",
+          skills: ["systems-of-equations", "solving-equations"]
         },
         {
           id: 15,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "Which of the following is a solution to the equation $x^2 - 5x - 14 = 0$?",
+          difficulty: "hard",
+          question: "A survey of $400$ students found that $60\\%$ plan to attend a school event. The margin of error is $\\pm 4\\%$. A second survey of $1{,}600$ students from the same school found that $58\\%$ plan to attend. Which of the following is the best conclusion?",
           choices: [
-            { id: "A", text: "$-7$" },
-            { id: "B", text: "$-2$" },
-            { id: "C", text: "$5$" },
-            { id: "D", text: "$7$" }
+            { id: "A", text: "The first survey overestimated, so it is unreliable." },
+            { id: "B", text: "The second survey's result is within the first survey's margin of error, so both surveys are consistent." },
+            { id: "C", text: "The second survey proves that exactly $58\\%$ of students will attend." },
+            { id: "D", text: "Neither survey is accurate because they give different results." }
           ],
-          correctAnswer: "D",
-          explanation: "**SAT Pattern: Solving a Quadratic by Factoring**\n\n**Choice D is correct.**\n\n**The Fast Way (20 seconds):** Factor: $x^2 - 5x - 14 = (x-7)(x+2) = 0$. So $x = 7$ or $x = -2$. Both B and D are solutions, but $7$ matches choice D.\n\n**The Full Solution:**\nFind two numbers that multiply to $-14$ and add to $-5$: $-7$ and $+2$.\n$x^2 - 5x - 14 = (x - 7)(x + 2) = 0$\n$x = 7$ or $x = -2$\n\n**Why the wrong answers are tempting:**\n• Choice A ($-7$): Sign error when factoring. The factors are $(x-7)$ and $(x+2)$, not $(x+7)$.\n• Choice B ($-2$): This IS a valid solution. But the question asks for \"a solution\" and $7$ is listed as an option.\n• Choice C ($5$): This is the coefficient of $x$, not a root.\n\n**Test Day Takeaway:** To factor $x^2 + bx + c$, find two numbers that multiply to $c$ and add to $b$.",
-          skills: ["quadratic-equations", "factoring"]
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Margin of Error and Survey Comparison**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** First survey: $60\\% \\pm 4\\%$ gives the interval $[56\\%, 64\\%]$. Second survey result of $58\\%$ falls within this interval, so the results are consistent.\n\n**The Full Solution:**\nThe first survey's confidence interval is $60\\% - 4\\% = 56\\%$ to $60\\% + 4\\% = 64\\%$.\nThe second survey found $58\\%$, which is between $56\\%$ and $64\\%$.\nSince $58\\%$ is within the first survey's margin of error, the two surveys are consistent.\n\n**Why the wrong answers are tempting:**\n• Choice A: A result within the margin of error does not mean the survey overestimated.\n• Choice C: Surveys provide estimates, never exact values.\n• Choice D: Different point estimates do not mean inaccuracy — margins of error account for this variation.\n\n**Test Day Takeaway:** A margin of error creates a plausible range. If another result falls within that range, the results are consistent.",
+          skills: ["margin-of-error", "statistics"]
         },
         {
           id: 16,

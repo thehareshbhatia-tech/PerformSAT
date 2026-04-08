@@ -18,16 +18,16 @@ export const practiceTest3 = {
           id: 1,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "A construction crew builds $8$ feet of fence per hour. How many feet of fence can the crew build in $6$ hours?",
+          question: "A researcher records the heights, in inches, of $5$ plants. The results are shown in the table below.\n\n| Plant | A | B | C | D | E |\n|---|---|---|---|---|---|\n| Height (inches) | $12$ | $18$ | $9$ | $15$ | $6$ |\n\nWhat is the median height of the $5$ plants?",
           choices: [
-            { id: "A", text: "$14$" },
-            { id: "B", text: "$42$" },
-            { id: "C", text: "$48$" },
-            { id: "D", text: "$54$" }
+            { id: "A", text: "$9$" },
+            { id: "B", text: "$12$" },
+            { id: "C", text: "$15$" },
+            { id: "D", text: "$18$" }
           ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Unit Rate Multiplication**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** $8 \\times 6 = 48$.\n\n**The Full Solution:**\nFence built $= 8 \\text{ ft/hr} \\times 6 \\text{ hr} = 48$ feet.\n\n**Why the wrong answers are tempting:**\n• Choice A ($14$): From adding $8 + 6$ instead of multiplying.\n• Choice B ($42$): From $7 \\times 6$, a multiplication error.\n• Choice D ($54$): From $9 \\times 6$, a multiplication error.\n\n**Test Day Takeaway:** Rate times time equals total. Just multiply.",
-          skills: ["word-problems"]
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Finding the Median from a Data Table**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Order the values: $6, 9, 12, 15, 18$. The middle value (3rd of 5) is $12$.\n\n**The Full Solution:**\nArrange in order: $6, 9, 12, 15, 18$.\nWith $5$ values, the median is the $\\frac{5+1}{2} = 3$rd value $= 12$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($9$): The second value, not the middle.\n• Choice C ($15$): The value of plant D, which appears in the middle of the unordered table.\n• Choice D ($18$): Confusing the median with the maximum.\n\n**Test Day Takeaway:** Median = middle value after ordering from least to greatest. For $n$ values, it is the $\\frac{n+1}{2}$th value.",
+          skills: ["mean-median-mode", "statistics"]
         },
         {
           id: 2,
@@ -46,66 +46,72 @@ export const practiceTest3 = {
         },
         {
           id: 3,
-          type: "fill-in",
+          type: "multiple-choice",
           difficulty: "easy",
-          question: "If $7x = 63$, what is the value of $x$?",
-          correctAnswer: "9",
-          explanation: "**SAT Pattern: One-Step Equation**\n\n**The correct answer is 9.**\n\n**The Fast Way (5 seconds):** $x = 63 \\div 7 = 9$.\n\n**The Full Solution:**\n$7x = 63$\n$x = \\frac{63}{7} = 9$\n\n**Common Mistakes to Avoid:**\n• Subtracting: $63 - 7 = 56$\n• Division error: $63 \\div 7 = 8$\n\n**Verification:** $7(9) = 63$ ✓\n\n**Test Day Takeaway:** To undo multiplication, divide both sides by the coefficient.",
-          skills: ["solving-equations"]
+          question: "The table below shows selected values of a linear function $g$.\n\n| $x$ | $1$ | $3$ | $5$ | $7$ |\n|---|---|---|---|---|\n| $g(x)$ | $10$ | $16$ | $22$ | $28$ |\n\nWhat is the value of $g(x)$ when $x = 0$?",
+          choices: [
+            { id: "A", text: "$4$" },
+            { id: "B", text: "$7$" },
+            { id: "C", text: "$8$" },
+            { id: "D", text: "$10$" }
+          ],
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Finding y-intercept from a Table**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** Slope $= \\frac{16 - 10}{3 - 1} = \\frac{6}{2} = 3$. Using $(1, 10)$: $g(0) = 10 - 3(1) = 7$.\n\n**The Full Solution:**\nFind the slope: $m = \\frac{16 - 10}{3 - 1} = 3$.\nUsing $g(x) = 3x + b$ with the point $(1, 10)$:\n$10 = 3(1) + b$, so $b = 7$.\n$g(0) = 3(0) + 7 = 7$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($4$): From $10 - 6 = 4$, subtracting the slope change incorrectly.\n• Choice C ($8$): From $10 - 2 = 8$, subtracting the $x$-step instead of the slope.\n• Choice D ($10$): Using $g(1) = 10$ as the value at $x = 0$.\n\n**Verification:** $g(1) = 3(1) + 7 = 10$ ✓, $g(3) = 3(3) + 7 = 16$ ✓\n\n**Test Day Takeaway:** To find the $y$-intercept from a table: first find the slope, then work backward to $x = 0$.",
+          skills: ["linear-functions", "function-interpretation"]
         },
         {
           id: 4,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "A school has $600$ students. The ratio of students who walk to school to students who take the bus is $2$ to $3$. How many students take the bus?",
+          question: "A club has $7$ more than twice the number of members it had last year. If the club now has $31$ members, which equation can be used to find $m$, the number of members last year?",
           choices: [
-            { id: "A", text: "$200$" },
-            { id: "B", text: "$240$" },
-            { id: "C", text: "$300$" },
-            { id: "D", text: "$360$" }
+            { id: "A", text: "$2m + 7 = 31$" },
+            { id: "B", text: "$7m + 2 = 31$" },
+            { id: "C", text: "$2(m + 7) = 31$" },
+            { id: "D", text: "$2m - 7 = 31$" }
           ],
-          correctAnswer: "D",
-          explanation: "**SAT Pattern: Ratio with Total**\n\n**Choice D is correct.**\n\n**The Fast Way (15 seconds):** Total parts $= 2 + 3 = 5$. Bus students $= \\frac{3}{5} \\times 600 = 360$.\n\n**The Full Solution:**\nWalk : Bus $= 2 : 3$, total parts $= 5$\nEach part $= \\frac{600}{5} = 120$\nBus students $= 3 \\times 120 = 360$\n\n**Why the wrong answers are tempting:**\n• Choice A ($200$): The number who walk ($2 \\times 100$), but using wrong part size.\n• Choice B ($240$): From $\\frac{2}{5} \\times 600 = 240$, which is walkers.\n• Choice C ($300$): From $\\frac{600}{2}$, splitting evenly.\n\n**Test Day Takeaway:** Total parts = sum of ratio numbers. Each part = total / sum of parts.",
-          skills: ["ratios-proportions", "word-problems"]
+          correctAnswer: "A",
+          explanation: "**SAT Pattern: Translating Words into an Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (10 seconds):** \"Twice the number\" $= 2m$. \"$7$ more than that\" $= 2m + 7$. This equals $31$.\n\n**The Full Solution:**\n\"$7$ more than twice $m$\" translates to $2m + 7$.\nSet equal to $31$: $2m + 7 = 31$.\n\n**Why the wrong answers are tempting:**\n• Choice B ($7m + 2 = 31$): Swaps the coefficients.\n• Choice C ($2(m + 7) = 31$): Adds $7$ before multiplying, changing the meaning to \"twice the sum.\"\n• Choice D ($2m - 7 = 31$): Uses subtraction instead of addition.\n\n**Test Day Takeaway:** \"$a$ more than $b$ times $x$\" = $bx + a$. Order of operations matters: multiply first, then add.",
+          skills: ["word-problems", "solving-equations"]
         },
         {
           id: 5,
-          type: "multiple-choice",
+          type: "fill-in",
           difficulty: "easy",
-          question: "Which expression is equivalent to $3(2x + 5)$?",
-          choices: [
-            { id: "A", text: "$6x + 5$" },
-            { id: "B", text: "$6x + 15$" },
-            { id: "C", text: "$5x + 15$" },
-            { id: "D", text: "$6x + 8$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Distributive Property**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $3 \\times 2x = 6x$ and $3 \\times 5 = 15$. So $6x + 15$.\n\n**The Full Solution:**\n$3(2x + 5) = 3(2x) + 3(5) = 6x + 15$\n\n**Why the wrong answers are tempting:**\n• Choice A ($6x + 5$): Only multiplied $3 \\times 2x$ but forgot to distribute to $5$.\n• Choice C ($5x + 15$): From $3 + 2x = 5x$, adding instead of multiplying.\n• Choice D ($6x + 8$): From $3 + 5 = 8$, adding instead of multiplying.\n\n**Test Day Takeaway:** Distribute means multiply each term inside the parentheses by the factor outside.",
-          skills: ["polynomial-operations"]
+          question: "A movie theater has $6$ screens, each showing a different film. A total of $\\$450$ in tickets was collected, and each screen earned the same amount. Additionally, the theater paid a $\\$90$ licensing fee from this revenue. How much revenue, in dollars, did each screen keep after the licensing fee was deducted from the total?",
+          correctAnswer: "60",
+          explanation: "**SAT Pattern: Two-Step Division Word Problem**\n\n**The correct answer is $60$.**\n\n**The Fast Way (15 seconds):** After fee: $450 - 90 = 360$. Per screen: $360 \\div 6 = 60$.\n\n**The Full Solution:**\nTotal revenue after fee $= 450 - 90 = 360$.\nPer screen $= \\frac{360}{6} = 60$.\n\n**Common Mistakes to Avoid:**\n• Dividing before subtracting the fee: $450 \\div 6 = 75$.\n• Subtracting the fee from each screen's share: $75 - 90$ (negative, which signals an error).\n\n**Verification:** $6 \\times 60 = 360$ and $360 + 90 = 450$ ✓\n\n**Test Day Takeaway:** When a fee applies to the total, subtract it first, then divide among the groups.",
+          skills: ["word-problems", "solving-equations"]
         },
         {
           id: 6,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "A retail store pays its employees $\\$14$ per hour. The store also pays a $\\$100$ weekly bonus to each employee. Which function $f(h)$ gives the total weekly pay for an employee who works $h$ hours?",
+          difficulty: "medium",
+          question: "The function $f(t) = 800 + 40t$ models the number of gallons of water in a pool $t$ hours after filling begins. What does $40$ represent in this function?",
           choices: [
-            { id: "A", text: "$f(h) = 14h + 100$" },
-            { id: "B", text: "$f(h) = 100h + 14$" },
-            { id: "C", text: "$f(h) = 114h$" },
-            { id: "D", text: "$f(h) = 14h - 100$" }
+            { id: "A", text: "The total capacity of the pool in gallons" },
+            { id: "B", text: "The number of gallons in the pool when filling begins" },
+            { id: "C", text: "The number of gallons added per hour" },
+            { id: "D", text: "The number of hours needed to fill the pool" }
           ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Linear Function from Context**\n\n**Choice A is correct.**\n\n**The Fast Way (10 seconds):** Hourly pay is the slope ($14$), bonus is the $y$-intercept ($100$). So $f(h) = 14h + 100$.\n\n**The Full Solution:**\nTotal pay = (hourly rate)(hours) + bonus = $14h + 100$\n\n**Why the wrong answers are tempting:**\n• Choice B: Swaps the hourly rate and bonus.\n• Choice C: Adds $14 + 100 = 114$ into one rate.\n• Choice D: Subtracts the bonus.\n\n**Test Day Takeaway:** Repeated cost = slope, one-time amount = y-intercept.",
-          skills: ["linear-functions", "word-problems"]
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Interpreting Slope in a Linear Model**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** In $f(t) = 800 + 40t$, the coefficient of $t$ is the rate of change: $40$ gallons per hour.\n\n**The Full Solution:**\nIn a linear function $f(t) = b + mt$, the slope $m$ is the rate of change. Here $m = 40$, meaning $40$ gallons are added each hour. The constant $800$ is the starting amount.\n\n**Why the wrong answers are tempting:**\n• Choice A: The total capacity is not stated in the equation.\n• Choice B: The starting amount is $800$, not $40$.\n• Choice D: The number of hours is the variable $t$.\n\n**Test Day Takeaway:** In a linear model, the slope always represents the rate of change per unit of the input variable.",
+          skills: ["linear-functions", "function-interpretation"]
         },
         {
           id: 7,
-          type: "fill-in",
-          difficulty: "easy",
-          question: "A package of $12$ notebooks costs $\\$36$. What is the cost per notebook, in dollars?",
-          correctAnswer: "3",
-          explanation: "**SAT Pattern: Unit Cost**\n\n**The correct answer is 3.**\n\n**The Fast Way (5 seconds):** $36 \\div 12 = 3$.\n\n**The Full Solution:**\nCost per notebook $= \\frac{36}{12} = 3$ dollars.\n\n**Common Mistakes to Avoid:**\n• Multiplying: $36 \\times 12 = 432$\n• Wrong division: $12 \\div 36 = \\frac{1}{3}$\n\n**Verification:** $12 \\times 3 = 36$ ✓\n\n**Test Day Takeaway:** Unit cost = total cost divided by number of items.",
-          skills: ["word-problems"]
+          type: "multiple-choice",
+          difficulty: "medium",
+          question: "The equation $m^2 - 16 = 48$ is true. What is the positive value of $m$?",
+          choices: [
+            { id: "A", text: "$4$" },
+            { id: "B", text: "$8$" },
+            { id: "C", text: "$32$" },
+            { id: "D", text: "$64$" }
+          ],
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Solving for a Squared Variable**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** $m^2 = 48 + 16 = 64$. $m = \\sqrt{64} = 8$.\n\n**The Full Solution:**\n$m^2 - 16 = 48$\n$m^2 = 64$\n$m = \\pm 8$\nThe positive value is $8$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($4$): From $\\sqrt{16}$, using the subtracted constant.\n• Choice C ($32$): From $48 - 16 = 32$, subtracting instead of adding.\n• Choice D ($64$): Reporting $m^2 = 64$ instead of $m = 8$.\n\n**Test Day Takeaway:** Isolate $m^2$ first (add $16$), then take the square root. Check if the question asks for the positive root.",
+          skills: ["solving-equations", "quadratic-equations"]
         },
         {
           id: 8,
@@ -126,31 +132,31 @@ export const practiceTest3 = {
           id: 9,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "Line $k$ passes through the points $(-2, 5)$ and $(4, -1)$. What is the slope of line $k$?",
+          question: "Line $k$ passes through the points $(-2, 5)$ and $(4, -1)$. Which of the following is an equation of line $k$?",
           choices: [
-            { id: "A", text: "$-1$" },
-            { id: "B", text: "$-\\frac{2}{3}$" },
-            { id: "C", text: "$\\frac{2}{3}$" },
-            { id: "D", text: "$1$" }
+            { id: "A", text: "$y = -x + 3$" },
+            { id: "B", text: "$y = -x + 5$" },
+            { id: "C", text: "$y = x + 3$" },
+            { id: "D", text: "$y = -\\frac{2}{3}x + 3$" }
           ],
           correctAnswer: "A",
-          explanation: "**SAT Pattern: Slope from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (15 seconds):** $m = \\frac{-1 - 5}{4 - (-2)} = \\frac{-6}{6} = -1$.\n\n**The Full Solution:**\n$m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{-1 - 5}{4 - (-2)} = \\frac{-6}{6} = -1$\n\n**Why the wrong answers are tempting:**\n• Choice B ($-\\frac{2}{3}$): From miscounting the differences.\n• Choice C ($\\frac{2}{3}$): Wrong sign and wrong calculation.\n• Choice D ($1$): Dropping the negative sign.\n\n**Test Day Takeaway:** Slope = rise over run. Be careful with negative signs in subtraction.",
+          explanation: "**SAT Pattern: Finding the Equation of a Line from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (20 seconds):** Slope $= \\frac{-1 - 5}{4 - (-2)} = \\frac{-6}{6} = -1$. Use $(-2, 5)$: $5 = -1(-2) + b = 2 + b$, so $b = 3$. Equation: $y = -x + 3$.\n\n**The Full Solution:**\n$m = \\frac{-1 - 5}{4 - (-2)} = \\frac{-6}{6} = -1$\nUsing point $(-2, 5)$: $5 = -1(-2) + b$, so $b = 3$.\n$y = -x + 3$.\n\nVerify with $(4, -1)$: $-4 + 3 = -1$ ✓\n\n**Why the wrong answers are tempting:**\n• Choice B ($y = -x + 5$): Uses the $y$-coordinate of $(-2, 5)$ as the intercept without calculating.\n• Choice C ($y = x + 3$): Correct intercept but wrong sign on slope.\n• Choice D ($y = -\\frac{2}{3}x + 3$): Incorrect slope calculation.\n\n**Test Day Takeaway:** Find the slope from two points, then plug one point into $y = mx + b$ to find the intercept. Verify with the other point.",
           skills: ["slope", "linear-functions"]
         },
         {
           id: 10,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "A survey asked $250$ students about their favorite school subject. The results were: Math $85$, Science $70$, English $55$, History $40$. What is the probability that a randomly selected student chose Math or Science?",
+          question: "The table below shows data from a survey of students.\n\n| | Plays a Sport | Does Not Play | Total |\n|---|---|---|---|\n| Grade $9$ | $40$ | $20$ | $60$ |\n| Grade $10$ | $55$ | $25$ | $80$ |\n| Grade $11$ | $35$ | $25$ | $60$ |\n| Total | $130$ | $70$ | $200$ |\n\nOf the Grade $10$ students, what fraction play a sport?",
           choices: [
-            { id: "A", text: "$0.34$" },
-            { id: "B", text: "$0.55$" },
-            { id: "C", text: "$0.62$" },
-            { id: "D", text: "$0.70$" }
+            { id: "A", text: "$\\frac{55}{200}$" },
+            { id: "B", text: "$\\frac{55}{130}$" },
+            { id: "C", text: "$\\frac{55}{80}$" },
+            { id: "D", text: "$\\frac{80}{200}$" }
           ],
           correctAnswer: "C",
-          explanation: "**SAT Pattern: Probability from Data**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** Math + Science $= 85 + 70 = 155$. $P = \\frac{155}{250} = 0.62$.\n\n**The Full Solution:**\n$P(\\text{Math or Science}) = \\frac{85 + 70}{250} = \\frac{155}{250} = 0.62$\n\n**Why the wrong answers are tempting:**\n• Choice A ($0.34$): Just $P(\\text{Math}) = \\frac{85}{250} = 0.34$.\n• Choice B ($0.55$): From $\\frac{85 + 55}{250}$, using English instead of Science.\n• Choice D ($0.70$): From $\\frac{70}{250} \\times 2.5$... a miscalculation.\n\n**Test Day Takeaway:** For \"or\" probability with no overlap, add the counts and divide by the total.",
-          skills: ["probability", "statistics"]
+          explanation: "**SAT Pattern: Conditional Probability from a Two-Way Table**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** \"Of the Grade $10$ students\" = denominator is $80$. Sport-playing Grade $10$ students $= 55$. Fraction $= \\frac{55}{80}$.\n\n**The Full Solution:**\nThe condition restricts us to Grade $10$ students only (total $= 80$).\nOf those, $55$ play a sport.\nFraction $= \\frac{55}{80} = \\frac{11}{16}$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{55}{200}$): Uses grand total as the denominator.\n• Choice B ($\\frac{55}{130}$): Uses total sport players as the denominator (wrong condition).\n• Choice D ($\\frac{80}{200}$): Finds the fraction of all students who are in Grade $10$.\n\n**Test Day Takeaway:** The group after \"of\" determines your denominator. \"Of the Grade $10$ students\" means denominator = total Grade $10$.",
+          skills: ["two-way-tables", "probability"]
         },
         {
           id: 11,
@@ -165,16 +171,16 @@ export const practiceTest3 = {
           id: 12,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "The temperature in a city at $6$ AM was $28°$F. By noon, the temperature had risen by $18°$F. By $6$ PM, the temperature had dropped by $12°$F from the noon temperature. What was the temperature at $6$ PM?",
+          question: "A population of $800$ bacteria decreases by $10\\%$ each hour. Which expression gives the population after $t$ hours?",
           choices: [
-            { id: "A", text: "$22°$F" },
-            { id: "B", text: "$34°$F" },
-            { id: "C", text: "$38°$F" },
-            { id: "D", text: "$46°$F" }
+            { id: "A", text: "$800(0.10)^t$" },
+            { id: "B", text: "$800(0.90)^t$" },
+            { id: "C", text: "$800 - 80t$" },
+            { id: "D", text: "$800(1.10)^t$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Multi-Step Arithmetic Word Problem**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** $28 + 18 - 12 = 34°$F.\n\n**The Full Solution:**\nNoon temp $= 28 + 18 = 46°$F\n$6$ PM temp $= 46 - 12 = 34°$F\n\n**Why the wrong answers are tempting:**\n• Choice A ($22°$F): From $28 + 18 - 12 - 12 = 22$, subtracting $12$ twice.\n• Choice C ($38°$F): From $28 + 18 - 8 = 38$, wrong subtraction.\n• Choice D ($46°$F): The noon temperature; forgetting the evening drop.\n\n**Test Day Takeaway:** Follow the sequence of changes step by step.",
-          skills: ["word-problems"]
+          explanation: "**SAT Pattern: Exponential Decay Model**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Decreasing by $10\\%$ means retaining $90\\% = 0.90$ each hour. Starting at $800$: $800(0.90)^t$.\n\n**The Full Solution:**\nDecay rate $= 10\\% = 0.10$.\nRetention factor $= 1 - 0.10 = 0.90$.\nAfter $t$ hours: $800(0.90)^t$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($800(0.10)^t$): Uses the loss rate as the base. This would shrink the population to nearly $0$ after $1$ hour.\n• Choice C ($800 - 80t$): Models linear decay (losing $80$ per hour), not percentage decay.\n• Choice D ($800(1.10)^t$): Models $10\\%$ growth, not decay.\n\n**Test Day Takeaway:** Decrease by $r\\%$ means multiply by $(1 - r/100)$ each period. This is exponential decay.",
+          skills: ["exponential-functions", "word-problems"]
         },
         {
           id: 13,
@@ -194,26 +200,32 @@ export const practiceTest3 = {
         {
           id: 14,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "A school survey found that $45$ out of $300$ students ride bikes to school. The margin of error is $\\pm 3\\%$. Which of the following is a valid conclusion?",
+          difficulty: "hard",
+          question: "A chemistry student mixes $x$ milliliters of a $30\\%$ acid solution with $200$ milliliters of a $10\\%$ acid solution to create a $15\\%$ acid solution. What is the value of $x$, rounded to the nearest tenth?",
           choices: [
-            { id: "A", text: "Exactly $15\\%$ of all students ride bikes to school." },
-            { id: "B", text: "Between $12\\%$ and $18\\%$ of all students likely ride bikes to school." },
-            { id: "C", text: "At most $12\\%$ of students ride bikes." },
-            { id: "D", text: "More than $18\\%$ of students ride bikes." }
+            { id: "A", text: "$50.0$" },
+            { id: "B", text: "$66.7$" },
+            { id: "C", text: "$100.0$" },
+            { id: "D", text: "$200.0$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Margin of Error Interpretation**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** Sample proportion $= \\frac{45}{300} = 15\\%$. With $\\pm 3\\%$: interval is $[12\\%, 18\\%]$.\n\n**The Full Solution:**\n$\\frac{45}{300} = 0.15 = 15\\%$\nMargin of error $\\pm 3\\%$ gives the interval $15\\% - 3\\% = 12\\%$ to $15\\% + 3\\% = 18\\%$.\n\n**Why the wrong answers are tempting:**\n• Choice A: Surveys give estimates, not exact values.\n• Choice C: $12\\%$ is the lower bound, not an upper limit.\n• Choice D: $18\\%$ is the upper bound.\n\n**Test Day Takeaway:** Margin of error = confidence interval around the estimate.",
-          skills: ["margin-of-error", "statistics"]
+          explanation: "**SAT Pattern: Mixture Problem**\n\n**Choice B is correct.**\n\n**The Fast Way (30 seconds):** Set up the equation: $0.30x + 0.10(200) = 0.15(x + 200)$.\n$0.30x + 20 = 0.15x + 30$\n$0.15x = 10$\n$x = 66.\\overline{6} \\approx 66.7$\n\n**The Full Solution:**\nAcid from $30\\%$ solution: $0.30x$.\nAcid from $10\\%$ solution: $0.10 \\times 200 = 20$.\nTotal acid in mixture: $0.15(x + 200)$.\n\n$0.30x + 20 = 0.15x + 30$\n$0.15x = 10$\n$x = \\frac{10}{0.15} = \\frac{200}{3} \\approx 66.7$\n\n**Why the wrong answers are tempting:**\n• Choice A ($50$): From $10/0.20$, a setup error.\n• Choice C ($100$): From $30/0.30$, ignoring the mixture equation.\n• Choice D ($200$): Assumes equal amounts of each solution.\n\n**Test Day Takeaway:** Mixture problems: (amount 1)(concentration 1) + (amount 2)(concentration 2) = (total amount)(target concentration).",
+          skills: ["solving-equations", "percents"]
         },
         {
           id: 15,
-          type: "fill-in",
-          difficulty: "medium",
-          question: "If $f(x) = x^2 + 3x$, what is the value of $f(5)$?",
-          correctAnswer: "40",
-          explanation: "**SAT Pattern: Function Evaluation**\n\n**The correct answer is 40.**\n\n**The Fast Way (10 seconds):** $f(5) = 25 + 15 = 40$.\n\n**The Full Solution:**\n$f(5) = (5)^2 + 3(5) = 25 + 15 = 40$\n\n**Common Mistakes to Avoid:**\n• Computing $5^2 = 10$ instead of $25$\n• Forgetting to add: answering $25$ or $15$\n\n**Verification:** $25 + 15 = 40$ ✓\n\n**Test Day Takeaway:** Substitute the input for every $x$ and follow order of operations.",
-          skills: ["function-evaluation", "quadratic-functions"]
+          type: "multiple-choice",
+          difficulty: "hard",
+          question: "A store marks up the wholesale cost of an item by $40\\%$ to set the retail price. During a clearance sale, the retail price is reduced by $30\\%$. What is the overall percent change from the wholesale cost to the clearance price?",
+          choices: [
+            { id: "A", text: "$2\\%$ decrease" },
+            { id: "B", text: "$2\\%$ increase" },
+            { id: "C", text: "$10\\%$ decrease" },
+            { id: "D", text: "$10\\%$ increase" }
+          ],
+          correctAnswer: "A",
+          explanation: "**SAT Pattern: Successive Percent Changes**\n\n**Choice A is correct.**\n\n**The Fast Way (20 seconds):** Multiply the factors: $1.40 \\times 0.70 = 0.98$. That is a $2\\%$ decrease from the original.\n\n**The Full Solution:**\nLet wholesale cost $= 100$.\nAfter $40\\%$ markup: $100 \\times 1.40 = 140$.\nAfter $30\\%$ reduction: $140 \\times 0.70 = 98$.\nChange: $\\frac{98 - 100}{100} = -2\\%$, a $2\\%$ decrease.\n\n**Why the wrong answers are tempting:**\n• Choice B ($2\\%$ increase): Correct magnitude but wrong direction.\n• Choice C ($10\\%$ decrease): From $40\\% - 30\\% = 10\\%$, subtracting percentages directly.\n• Choice D ($10\\%$ increase): From adding $40 - 30 = 10$, treating it as an increase.\n\n**Test Day Takeaway:** You cannot add or subtract successive percentage changes. Multiply the factors: $(1 + r_1)(1 - r_2)$.",
+          skills: ["percents", "word-problems"]
         },
         {
           id: 16,

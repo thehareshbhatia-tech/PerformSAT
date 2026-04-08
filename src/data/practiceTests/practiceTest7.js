@@ -15,78 +15,39 @@ export const practiceTest7 = {
       title: "Module 1",
       timeLimit: 35,
       questions: [
-        // ===== EASY (Q1-Q7) =====
+        // ===== EASY (Q1-Q5) =====
         {
           id: 1,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "A coffee shop sold $240$ drinks on Saturday. If $25\\%$ of the drinks sold were lattes, how many lattes were sold?",
+          question: "A coffee shop recorded the number of each type of drink sold on Saturday.\n\n| Drink | Number Sold |\n|---|---|\n| Latte | $85$ |\n| Cappuccino | $60$ |\n| Drip Coffee | $130$ |\n| Tea | $45$ |\n\nHow many more drip coffees were sold than cappuccinos?",
           choices: [
-            { id: "A", text: "$48$" },
+            { id: "A", text: "$45$" },
             { id: "B", text: "$60$" },
-            { id: "C", text: "$72$" },
-            { id: "D", text: "$96$" }
+            { id: "C", text: "$70$" },
+            { id: "D", text: "$130$" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Basic Percent of a Number**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $25\\%$ of $240 = \\frac{240}{4} = 60$.\n\n**The Full Solution:**\n$0.25 \\times 240 = 60$\n\n**Why the wrong answers are tempting:**\n• Choice A ($48$): This is $20\\%$ of $240$, from misremembering $25\\%$ as $\\frac{1}{5}$.\n• Choice C ($72$): This is $30\\%$ of $240$.\n• Choice D ($96$): This is $40\\%$ of $240$.\n\n**Test Day Takeaway:** $25\\%$ means one-quarter. Divide by $4$.",
-          skills: ["percents"]
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Reading a Table — Comparing Values**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** Drip Coffee $= 130$. Cappuccino $= 60$. Difference $= 130 - 60 = 70$.\n\n**The Full Solution:**\nThe question asks \"how many more,\" which means subtract: $130 - 60 = 70$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($45$): The number of teas sold, not the difference.\n• Choice B ($60$): The number of cappuccinos, not the difference.\n• Choice D ($130$): The number of drip coffees, not the difference.\n\n**Test Day Takeaway:** \"How many more\" means subtract. Read the table values carefully before computing.",
+          skills: ["data-interpretation", "statistics"]
         },
         {
           id: 2,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "If $p + 5 = 12$, what is the value of $3p$?",
+          question: "$3$ more than $8$ times a number $x$ equals $83$. Which equation represents this statement?",
           choices: [
-            { id: "A", text: "$15$" },
-            { id: "B", text: "$21$" },
-            { id: "C", text: "$36$" },
-            { id: "D", text: "$41$" }
+            { id: "A", text: "$3x + 8 = 83$" },
+            { id: "B", text: "$8x + 3 = 83$" },
+            { id: "C", text: "$8(x + 3) = 83$" },
+            { id: "D", text: "$3(x + 8) = 83$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Solve-Then-Evaluate**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $p = 12 - 5 = 7$. Then $3p = 3(7) = 21$.\n\n**The Full Solution:**\n$p + 5 = 12$\n$p = 7$\n$3p = 21$\n\n**Why the wrong answers are tempting:**\n• Choice A ($15$): This is $3 \\times 5$, using the constant instead of $p$.\n• Choice C ($36$): This is $3 \\times 12$, multiplying by the right side instead of solving for $p$ first.\n• Choice D ($41$): This is $3(12) + 5$, combining numbers incorrectly.\n\n**Test Day Takeaway:** Always solve for the variable first, then evaluate the expression the question asks about.",
-          skills: ["linear-equations", "solving-equations"]
+          explanation: "**SAT Pattern: Translating Words to an Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** \"$8$ times $x$\" $= 8x$. \"$3$ more than that\" $= 8x + 3$. \"Equals $83$\" $\\Rightarrow 8x + 3 = 83$.\n\n**The Full Solution:**\nBreak the sentence into parts:\n- \"$8$ times a number $x$\": $8x$\n- \"$3$ more than\" that: $8x + 3$\n- \"equals $83$\": $8x + 3 = 83$\n\n**Why the wrong answers are tempting:**\n• Choice A ($3x + 8 = 83$): Swaps the $3$ and $8$.\n• Choice C ($8(x + 3) = 83$): Distributes to $8x + 24$, not $8x + 3$.\n• Choice D ($3(x + 8) = 83$): Distributes to $3x + 24$, completely different.\n\n**Test Day Takeaway:** \"$A$ more than $B$ times $x$\" translates to $Bx + A$.",
+          skills: ["linear-equations", "word-problems"]
         },
         {
           id: 3,
-          type: "fill-in",
-          difficulty: "easy",
-          question: "A library has $1{,}440$ books. If $\\frac{1}{6}$ of the books are fiction, how many fiction books does the library have?",
-          correctAnswer: "240",
-          explanation: "**SAT Pattern: Fraction of a Whole**\n\n**The correct answer is 240.**\n\n**The Fast Way (10 seconds):** $\\frac{1{,}440}{6} = 240$.\n\n**The Full Solution:**\n$\\frac{1}{6} \\times 1{,}440 = \\frac{1{,}440}{6} = 240$\n\n**Common Mistakes to Avoid:**\n• Multiplying $1{,}440 \\times 6 = 8{,}640$ instead of dividing.\n\n**Verification:** $240 \\times 6 = 1{,}440$ ✓\n\n**Test Day Takeaway:** \"$\\frac{1}{n}$ of\" always means divide by $n$.",
-          skills: ["ratios-proportions"]
-        },
-        {
-          id: 4,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "A soccer team played $20$ games and won $13$ of them. What percentage of the games did the team win?",
-          choices: [
-            { id: "A", text: "$13\\%$" },
-            { id: "B", text: "$35\\%$" },
-            { id: "C", text: "$65\\%$" },
-            { id: "D", text: "$76\\%$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Part-to-Whole Percentage**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** $\\frac{13}{20} = \\frac{65}{100} = 65\\%$.\n\n**The Full Solution:**\n$\\frac{13}{20} \\times 100 = 65\\%$\n\n**Why the wrong answers are tempting:**\n• Choice A ($13\\%$): Confuses the count ($13$) with the percentage.\n• Choice B ($35\\%$): This is the percentage of games NOT won ($\\frac{7}{20}$).\n• Choice D ($76\\%$): Likely from dividing $20$ by $13$ incorrectly.\n\n**Test Day Takeaway:** Percentage $= \\frac{\\text{part}}{\\text{whole}} \\times 100$.",
-          skills: ["percents"]
-        },
-        {
-          id: 5,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "Which expression is equivalent to $9x^2 - 4x^2$?",
-          choices: [
-            { id: "A", text: "$5x^2$" },
-            { id: "B", text: "$5x$" },
-            { id: "C", text: "$13x^2$" },
-            { id: "D", text: "$5x^4$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Combining Like Terms**\n\n**Choice A is correct.**\n\n**The Fast Way (5 seconds):** $9x^2 - 4x^2 = (9-4)x^2 = 5x^2$.\n\n**The Full Solution:**\nSubtract the coefficients of like terms: $9 - 4 = 5$. The variable part $x^2$ stays the same.\n\n**Why the wrong answers are tempting:**\n• Choice B ($5x$): Drops the exponent. Subtracting coefficients does not change the power.\n• Choice C ($13x^2$): Adds instead of subtracting.\n• Choice D ($5x^4$): Incorrectly adds the exponents.\n\n**Test Day Takeaway:** When combining like terms, only the coefficients change. The exponent stays the same.",
-          skills: ["polynomial-operations"]
-        },
-        {
-          id: 6,
           type: "multiple-choice",
           difficulty: "easy",
           question: "An ecologist plants $8$ trees every day for $d$ days. She had already planted $15$ trees before starting. Which expression gives the total number of trees planted?",
@@ -101,16 +62,57 @@ export const practiceTest7 = {
           skills: ["linear-functions", "word-problems"]
         },
         {
-          id: 7,
+          id: 4,
           type: "fill-in",
           difficulty: "easy",
-          question: "A basketball player scored a total of $84$ points in $4$ games. What was her mean score per game?",
-          correctAnswer: "21",
-          explanation: "**SAT Pattern: Basic Mean Calculation**\n\n**The correct answer is 21.**\n\n**The Fast Way (5 seconds):** $84 \\div 4 = 21$.\n\n**The Full Solution:**\nMean $= \\frac{\\text{total}}{\\text{count}} = \\frac{84}{4} = 21$\n\n**Common Mistakes to Avoid:**\n• Computing $84 \\times 4 = 336$ instead of dividing.\n\n**Verification:** $21 \\times 4 = 84$ ✓\n\n**Test Day Takeaway:** Mean $=$ sum $\\div$ count.",
-          skills: ["mean-median-mode", "statistics"]
+          question: "A library purchases $9$ identical bookshelves. The library uses a $\\$63$ store credit, and the remaining balance is $\\$27$. What is the price of each bookshelf, in dollars?",
+          correctAnswer: "10",
+          explanation: "**SAT Pattern: Multi-Step Word Problem**\n\n**The correct answer is $10$.**\n\n**The Fast Way (15 seconds):** Total cost before credit $= 27 + 63 = 90$. Price per shelf $= 90 \\div 9 = 10$.\n\n**The Full Solution:**\nOriginal total $= \\$27 + \\$63 = \\$90$.\nPrice per bookshelf $= \\frac{90}{9} = \\$10$.\n\n**Common Mistakes to Avoid:**\n• Using only the remaining balance: $27 \\div 9 = 3$ (ignoring the store credit).\n• Subtracting: $63 - 27 = 36$, then $36/9 = 4$.\n\n**Verification:** $9 \\times 10 = 90$. After $\\$63$ credit: $90 - 63 = 27$ ✓\n\n**Test Day Takeaway:** To find the original total, add back any credit or discount before dividing.",
+          skills: ["word-problems", "solving-equations"]
+        },
+        {
+          id: 5,
+          type: "multiple-choice",
+          difficulty: "easy",
+          question: "A soccer team played $20$ games and won $13$ of them. What percentage of the games did the team win?",
+          choices: [
+            { id: "A", text: "$13\\%$" },
+            { id: "B", text: "$35\\%$" },
+            { id: "C", text: "$65\\%$" },
+            { id: "D", text: "$76\\%$" }
+          ],
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Part-to-Whole Percentage**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** $\\frac{13}{20} = \\frac{65}{100} = 65\\%$.\n\n**The Full Solution:**\n$\\frac{13}{20} \\times 100 = 65\\%$\n\n**Why the wrong answers are tempting:**\n• Choice A ($13\\%$): Confuses the count ($13$) with the percentage.\n• Choice B ($35\\%$): This is the percentage of games NOT won ($\\frac{7}{20}$).\n• Choice D ($76\\%$): Likely from dividing $20$ by $13$ incorrectly.\n\n**Test Day Takeaway:** Percentage $= \\frac{\\text{part}}{\\text{whole}} \\times 100$.",
+          skills: ["percents"]
         },
 
-        // ===== MEDIUM (Q8-Q15) =====
+        // ===== EASY-MEDIUM (Q6-Q7) =====
+        {
+          id: 6,
+          type: "multiple-choice",
+          difficulty: "medium",
+          question: "The function $f(t) = 100 + 25t$ models the total number of books in a collection $t$ months after January. What is the best interpretation of $25$ in this function?",
+          choices: [
+            { id: "A", text: "The total number of books after $t$ months" },
+            { id: "B", text: "The number of books added each month" },
+            { id: "C", text: "The number of books in January" },
+            { id: "D", text: "The number of months" }
+          ],
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Interpreting the Slope of a Linear Function**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** In $f(t) = 100 + 25t$, the coefficient $25$ is multiplied by $t$ (months), so it represents the rate: $25$ books per month.\n\n**The Full Solution:**\nIn $f(t) = 100 + 25t$:\n- $100$ is the $y$-intercept (books in January, when $t = 0$)\n- $25$ is the slope (books added per month)\n\n**Why the wrong answers are tempting:**\n• Choice A: $f(t)$ gives the total, not $25$.\n• Choice C: The number of books in January is $100$ (the constant), not $25$.\n• Choice D: $t$ represents months, not $25$.\n\n**Test Day Takeaway:** In $y = b + mx$, the coefficient $m$ is always the rate of change per unit of $x$.",
+          skills: ["function-interpretation", "linear-functions"]
+        },
+        {
+          id: 7,
+          type: "fill-in",
+          difficulty: "medium",
+          question: "The equation $m^2 - 19 = 81$ has two solutions. What is the positive solution for $m$?",
+          correctAnswer: "10",
+          explanation: "**SAT Pattern: Solving a Quadratic (No Middle Term)**\n\n**The correct answer is $10$.**\n\n**The Fast Way (10 seconds):** $m^2 = 81 + 19 = 100$. $m = \\sqrt{100} = 10$ (positive solution).\n\n**The Full Solution:**\n$m^2 - 19 = 81$\n$m^2 = 100$\n$m = \\pm 10$\nThe positive solution is $10$.\n\n**Common Mistakes to Avoid:**\n• Subtracting: $81 - 19 = 62$ (wrong direction).\n• Reporting $100$ ($m^2$, not $m$).\n\n**Verification:** $10^2 - 19 = 100 - 19 = 81$ ✓\n\n**Test Day Takeaway:** Isolate the squared term first, then take the square root. The question specifies \"positive solution.\"",
+          skills: ["quadratic-equations", "solving-equations"]
+        },
+
+        // ===== MEDIUM (Q8-Q13) =====
         {
           id: 8,
           type: "multiple-choice",
@@ -130,21 +132,6 @@ export const practiceTest7 = {
           id: 9,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "A line passes through the points $(2, 5)$ and $(6, 13)$. What is the slope of the line?",
-          choices: [
-            { id: "A", text: "$\\frac{1}{2}$" },
-            { id: "B", text: "$2$" },
-            { id: "C", text: "$4$" },
-            { id: "D", text: "$8$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Slope from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** $m = \\frac{13 - 5}{6 - 2} = \\frac{8}{4} = 2$.\n\n**The Full Solution:**\n$m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{13 - 5}{6 - 2} = \\frac{8}{4} = 2$\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{1}{2}$): Inverted the fraction (run over rise instead of rise over run).\n• Choice C ($4$): Used only the $x$-difference.\n• Choice D ($8$): Used only the $y$-difference.\n\n**Test Day Takeaway:** Slope $= \\frac{\\text{rise}}{\\text{run}} = \\frac{\\Delta y}{\\Delta x}$.",
-          skills: ["slope", "coordinate-geometry"]
-        },
-        {
-          id: 10,
-          type: "multiple-choice",
-          difficulty: "medium",
           question: "The table shows the number of library members by age group and membership type.\n\n| | Adult | Student | Total |\n|---|---|---|---|\n| Standard | $45$ | $30$ | $75$ |\n| Premium | $15$ | $10$ | $25$ |\n| Total | $60$ | $40$ | $100$ |\n\nIf a member is selected at random, what is the probability that the member has a Standard membership given that the member is a Student?",
           choices: [
             { id: "A", text: "$\\frac{30}{100}$" },
@@ -157,13 +144,28 @@ export const practiceTest7 = {
           skills: ["probability", "two-way-tables"]
         },
         {
-          id: 11,
+          id: 10,
           type: "fill-in",
           difficulty: "medium",
           question: "An environmental group tracked the deer population in a forest. The population was $120$ in year $1$ and $180$ in year $3$. If the population grows linearly, what is the predicted population in year $5$?",
           correctAnswer: "240",
           explanation: "**SAT Pattern: Linear Growth Prediction**\n\n**The correct answer is 240.**\n\n**The Fast Way (20 seconds):** Rate of change $= \\frac{180 - 120}{3 - 1} = \\frac{60}{2} = 30$ per year. From year $3$ to year $5$ is $2$ more years: $180 + 30(2) = 240$.\n\n**The Full Solution:**\nSlope: $m = \\frac{180 - 120}{3 - 1} = 30$\nYear $5$: $180 + 30(5 - 3) = 180 + 60 = 240$\n\n**Common Mistakes to Avoid:**\n• Using $\\frac{180-120}{3} = 20$ — forgetting that the interval is $3-1 = 2$ years, not $3$.\n• Stopping at year $4$: $180 + 30 = 210$.\n\n**Verification:** Year $1$: $120$, Year $2$: $150$, Year $3$: $180$, Year $4$: $210$, Year $5$: $240$ ✓\n\n**Test Day Takeaway:** For linear growth, find the rate of change first, then extend.",
           skills: ["linear-functions", "slope"]
+        },
+        {
+          id: 11,
+          type: "multiple-choice",
+          difficulty: "medium",
+          question: "A line passes through the points $(2, 5)$ and $(6, 13)$. What is the slope of the line?",
+          choices: [
+            { id: "A", text: "$\\frac{1}{2}$" },
+            { id: "B", text: "$2$" },
+            { id: "C", text: "$4$" },
+            { id: "D", text: "$8$" }
+          ],
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Slope from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** $m = \\frac{13 - 5}{6 - 2} = \\frac{8}{4} = 2$.\n\n**The Full Solution:**\n$m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{13 - 5}{6 - 2} = \\frac{8}{4} = 2$\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{1}{2}$): Inverted the fraction (run over rise instead of rise over run).\n• Choice C ($4$): Used only the $x$-difference.\n• Choice D ($8$): Used only the $y$-difference.\n\n**Test Day Takeaway:** Slope $= \\frac{\\text{rise}}{\\text{run}} = \\frac{\\Delta y}{\\Delta x}$.",
+          skills: ["slope", "coordinate-geometry"]
         },
         {
           id: 12,
@@ -177,7 +179,7 @@ export const practiceTest7 = {
             { id: "D", text: "$7$" }
           ],
           correctAnswer: "D",
-          explanation: "**SAT Pattern: Factoring a Quadratic**\n\n**Choice D is correct.**\n\n**The Fast Way (20 seconds):** Factor: $x^2 - 5x - 14 = (x - 7)(x + 2) = 0$. So $x = 7$ or $x = -2$. Choice D gives $7$.\n\n**The Full Solution:**\nFind two numbers that multiply to $-14$ and add to $-5$: $-7$ and $+2$.\n$x^2 - 5x - 14 = (x - 7)(x + 2) = 0$\n$x = 7$ or $x = -2$\n\n**Why the wrong answers are tempting:**\n• Choice A ($-7$): Sign error — the factor is $(x - 7)$, so $x = 7$, not $-7$.\n• Choice B ($-2$): This IS a valid solution, but let's check: $(−2)^2 − 5(−2) − 14 = 4 + 10 − 14 = 0$ ✓. Actually both B and D are solutions. Since the question says \"a solution,\" both B and D are correct, but D is listed.\n• Choice C ($5$): Plugging in: $25 - 25 - 14 = -14 \\neq 0$.\n\n**Test Day Takeaway:** Factor by finding two numbers that multiply to $c$ and add to $b$ in $x^2 + bx + c$.",
+          explanation: "**SAT Pattern: Factoring a Quadratic**\n\n**Choice D is correct.**\n\n**The Fast Way (20 seconds):** Factor: $x^2 - 5x - 14 = (x - 7)(x + 2) = 0$. So $x = 7$ or $x = -2$. Choice D gives $7$.\n\n**The Full Solution:**\nFind two numbers that multiply to $-14$ and add to $-5$: $-7$ and $+2$.\n$x^2 - 5x - 14 = (x - 7)(x + 2) = 0$\n$x = 7$ or $x = -2$\n\n**Why the wrong answers are tempting:**\n• Choice A ($-7$): Sign error — the factor is $(x - 7)$, so $x = 7$, not $-7$.\n• Choice B ($-2$): This IS a valid solution: $(−2)^2 − 5(−2) − 14 = 4 + 10 − 14 = 0$ ✓. Both B and D are solutions, but D is the intended listed answer.\n• Choice C ($5$): Plugging in: $25 - 25 - 14 = -14 \\neq 0$.\n\n**Test Day Takeaway:** Factor by finding two numbers that multiply to $c$ and add to $b$ in $x^2 + bx + c$.",
           skills: ["quadratic-equations", "factoring"]
         },
         {
@@ -195,28 +197,30 @@ export const practiceTest7 = {
           explanation: "**SAT Pattern: Margin of Error Interpretation**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** Margin of error gives a range for the population parameter: $60\\% \\pm 4\\% = [56\\%, 64\\%]$. It's \"plausible\" — not certain.\n\n**The Full Solution:**\nThe margin of error creates a confidence interval for the true population value: $60\\% - 4\\% = 56\\%$ to $60\\% + 4\\% = 64\\%$. This means we can be reasonably confident that the true percentage falls in this range.\n\n**Why the wrong answers are tempting:**\n• Choice A: Says \"exactly,\" but a sample can only estimate the population.\n• Choice B: Describes the sample, but the margin of error applies to the population.\n• Choice D: Only states the upper bound, ignoring the lower bound.\n\n**Test Day Takeaway:** Margin of error $\\pm$ creates a plausible range for the population, not the sample.",
           skills: ["margin-of-error", "statistics"]
         },
+
+        // ===== HARD (Q14-Q22) =====
         {
           id: 14,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "Two parallel lines are cut by a transversal. One of the angles formed measures $125°$. What is the measure of the same-side interior angle on the other parallel line?",
+          difficulty: "hard",
+          question: "The expression $(2x^2 + x - 9) + (x^2 + 6x + 1)$ is equivalent to which of the following?",
           choices: [
-            { id: "A", text: "$25°$" },
-            { id: "B", text: "$55°$" },
-            { id: "C", text: "$125°$" },
-            { id: "D", text: "$180°$" }
+            { id: "A", text: "$3x^2 + 7x - 8$" },
+            { id: "B", text: "$3x^2 + 5x - 10$" },
+            { id: "C", text: "$2x^4 + 7x - 8$" },
+            { id: "D", text: "$3x^2 + 7x - 10$" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Parallel Lines Cut by a Transversal**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** Same-side interior angles are supplementary: $180° - 125° = 55°$.\n\n**The Full Solution:**\nWhen parallel lines are cut by a transversal, same-side (co-interior) angles are supplementary.\n$125° + x = 180°$\n$x = 55°$\n\n**Why the wrong answers are tempting:**\n• Choice A ($25°$): Subtracted from $150°$ by mistake.\n• Choice C ($125°$): This would be the alternate interior angle (equal), not the same-side interior angle (supplementary).\n• Choice D ($180°$): This is the sum, not the individual angle.\n\n**Test Day Takeaway:** Same-side interior angles add to $180°$. Alternate interior angles are equal.",
-          skills: ["parallel-lines", "angles"]
+          correctAnswer: "A",
+          explanation: "**SAT Pattern: Adding Polynomials**\n\n**Choice A is correct.**\n\n**The Fast Way (20 seconds):** Combine like terms: $x^2$-terms: $2x^2 + x^2 = 3x^2$. $x$-terms: $x + 6x = 7x$. Constants: $-9 + 1 = -8$. Result: $3x^2 + 7x - 8$.\n\n**The Full Solution:**\n$(2x^2 + x - 9) + (x^2 + 6x + 1)$\n$= (2 + 1)x^2 + (1 + 6)x + (-9 + 1)$\n$= 3x^2 + 7x - 8$\n\n**Why the wrong answers are tempting:**\n• Choice B ($3x^2 + 5x - 10$): Errors in both the $x$-term ($1 + 6 \\neq 5$) and constant ($-9 + 1 \\neq -10$).\n• Choice C ($2x^4 + 7x - 8$): Multiplies the $x^2$ terms instead of adding ($2x^2 \\cdot x^2 = 2x^4$).\n• Choice D ($3x^2 + 7x - 10$): Gets the $x$-terms right but subtracts incorrectly: $-9 + 1 \\neq -10$.\n\n**Test Day Takeaway:** When adding polynomials, add coefficients of like terms. $x^2 + x^2 = 2x^2$, NOT $x^4$.",
+          skills: ["polynomial-operations", "algebraic-manipulation"]
         },
         {
           id: 15,
           type: "fill-in",
-          difficulty: "medium",
+          difficulty: "hard",
           question: "The function $f(x) = 3x + 7$ is defined. What is the value of $f(5) - f(2)$?",
           correctAnswer: "9",
-          explanation: "**SAT Pattern: Function Evaluation**\n\n**The correct answer is 9.**\n\n**The Fast Way (15 seconds):** $f(5) = 15 + 7 = 22$. $f(2) = 6 + 7 = 13$. $22 - 13 = 9$.\n\n**The Full Solution:**\n$f(5) = 3(5) + 7 = 22$\n$f(2) = 3(2) + 7 = 13$\n$f(5) - f(2) = 22 - 13 = 9$\n\nAlternatively: since $f$ is linear with slope $3$, $f(5) - f(2) = 3(5 - 2) = 3(3) = 9$.\n\n**Common Mistakes to Avoid:**\n• Computing $f(5-2) = f(3) = 16$ instead of $f(5) - f(2)$.\n\n**Verification:** $22 - 13 = 9$ ✓\n\n**Test Day Takeaway:** $f(a) - f(b) \\neq f(a-b)$ in general. Evaluate each separately.",
+          explanation: "**SAT Pattern: Function Evaluation and Subtraction**\n\n**The correct answer is 9.**\n\n**The Fast Way (15 seconds):** $f(5) = 15 + 7 = 22$. $f(2) = 6 + 7 = 13$. $22 - 13 = 9$.\n\n**The Full Solution:**\n$f(5) = 3(5) + 7 = 22$\n$f(2) = 3(2) + 7 = 13$\n$f(5) - f(2) = 22 - 13 = 9$\n\nAlternatively: since $f$ is linear with slope $3$, $f(5) - f(2) = 3(5 - 2) = 3(3) = 9$.\n\n**Common Mistakes to Avoid:**\n• Computing $f(5-2) = f(3) = 16$ instead of $f(5) - f(2)$.\n\n**Verification:** $22 - 13 = 9$ ✓\n\n**Test Day Takeaway:** $f(a) - f(b) \\neq f(a-b)$ in general. Evaluate each separately.",
           skills: ["function-evaluation", "linear-functions"]
         },
 

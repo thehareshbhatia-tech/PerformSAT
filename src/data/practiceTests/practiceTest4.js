@@ -19,43 +19,34 @@ export const practiceTest4 = {
           id: 1,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "A telescope costs $\\$450$. A store offers a $20\\%$ discount on the telescope. What is the discounted price, in dollars?",
+          question: "A telescope store records the number of telescopes sold each month. The table below shows the data.\n\n| Month | Jan | Feb | Mar | Apr | May |\n|---|---|---|---|---|---|\n| Telescopes Sold | $15$ | $22$ | $18$ | $30$ | $25$ |\n\nIn which month were the most telescopes sold?",
           choices: [
-            { id: "A", text: "$\\$90$" },
-            { id: "B", text: "$\\$360$" },
-            { id: "C", text: "$\\$430$" },
-            { id: "D", text: "$\\$540$" }
+            { id: "A", text: "February" },
+            { id: "B", text: "March" },
+            { id: "C", text: "April" },
+            { id: "D", text: "May" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Percent Discount**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** $20\\%$ of $450 = 0.20 \\times 450 = 90$. Discounted price $= 450 - 90 = 360$.\n\n**The Full Solution:**\nA $20\\%$ discount means you pay $80\\%$ of the original price.\n$0.80 \\times 450 = 360$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\$90$) is the discount amount, not the final price.\n• Choice C ($\\$430$) subtracts $20$ instead of $20\\%$.\n• Choice D ($\\$540$) adds $20\\%$ instead of subtracting it.\n\n**Test Day Takeaway:** For a discount of $p\\%$, multiply the original price by $(1 - p/100)$.",
-          skills: ["percents", "word-problems"]
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Reading a Data Table**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** Scan the values: $15, 22, 18, 30, 25$. The largest is $30$, which is April.\n\n**The Full Solution:**\nCompare all values:\nJan: $15$, Feb: $22$, Mar: $18$, Apr: $30$, May: $25$.\nThe maximum is $30$ in April.\n\n**Why the wrong answers are tempting:**\n• Choice A (February): $22$ is the second month but not the highest.\n• Choice B (March): $18$ is less than April's $30$.\n• Choice D (May): $25$ is the second-highest but still less than $30$.\n\n**Test Day Takeaway:** When asked to identify a maximum or minimum from a table, compare all values carefully.",
+          skills: ["statistics", "word-problems"]
         },
         {
           id: 2,
-          type: "fill-in",
+          type: "multiple-choice",
           difficulty: "easy",
-          question: "A rocket travels at a constant speed of $8$ miles per second. How many miles does the rocket travel in $45$ seconds?",
-          correctAnswer: "360",
-          explanation: "**SAT Pattern: Distance = Rate x Time**\n\n**The correct answer is $360$.**\n\n**The Fast Way (10 seconds):** Distance $= 8 \\times 45 = 360$ miles.\n\n**The Full Solution:**\nUsing $d = rt$: $d = 8 \\cdot 45 = 360$ miles.\n\n**Common Mistakes to Avoid:**\n• Dividing instead of multiplying: $45 \\div 8 = 5.625$ is the time it takes to travel $45$ miles, not the distance in $45$ seconds.\n\n**Verification:** $360 \\div 8 = 45$ seconds. Confirmed.\n\n**Test Day Takeaway:** Distance $=$ rate $\\times$ time. Make sure the units match.",
-          skills: ["word-problems", "unit-conversion"]
+          question: "What percentage of $300$ is $75$?",
+          choices: [
+            { id: "A", text: "$4\\%$" },
+            { id: "B", text: "$22.5\\%$" },
+            { id: "C", text: "$25\\%$" },
+            { id: "D", text: "$75\\%$" }
+          ],
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Finding What Percent One Number Is of Another**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** $\\frac{75}{300} = 0.25 = 25\\%$.\n\n**The Full Solution:**\n\"What percentage of $300$ is $75$\" means $\\frac{75}{300} \\times 100\\%$.\n$\\frac{75}{300} = 0.25 = 25\\%$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($4\\%$): From $\\frac{300}{75} = 4$, dividing in the wrong direction.\n• Choice B ($22.5\\%$): From $\\frac{75}{333}$ or a calculation error.\n• Choice D ($75\\%$): Using the number $75$ as the percentage directly.\n\n**Test Day Takeaway:** \"What percent of $A$ is $B$\" = $\\frac{B}{A} \\times 100$. The number after \"of\" is always the denominator.",
+          skills: ["percents"]
         },
         {
           id: 3,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "Which expression is equivalent to $9x^4 - 3x^4$?",
-          choices: [
-            { id: "A", text: "$6$" },
-            { id: "B", text: "$6x$" },
-            { id: "C", text: "$6x^4$" },
-            { id: "D", text: "$6x^8$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Combining Like Terms**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** $9x^4 - 3x^4 = (9-3)x^4 = 6x^4$.\n\n**The Full Solution:**\nWhen subtracting like terms (same variable, same exponent), subtract the coefficients and keep the variable part unchanged.\n$9x^4 - 3x^4 = 6x^4$\n\n**Why the wrong answers are tempting:**\n• Choice A ($6$) drops the variable entirely.\n• Choice B ($6x$) changes the exponent to $1$.\n• Choice D ($6x^8$) adds the exponents, which only applies to multiplication, not subtraction.\n\n**Test Day Takeaway:** When combining like terms, subtract the coefficients. The exponent stays the same.",
-          skills: ["polynomial-operations", "algebraic-manipulation"]
-        },
-        {
-          id: 4,
           type: "multiple-choice",
           difficulty: "easy",
           question: "The equation $y = 15{,}000 - 1{,}200x$ models the value $y$, in dollars, of a car $x$ years after purchase. What does the number $1{,}200$ represent in this equation?",
@@ -70,43 +61,58 @@ export const practiceTest4 = {
           skills: ["function-interpretation", "linear-functions"]
         },
         {
-          id: 5,
+          id: 4,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "A chemist has $\\frac{3x}{7}$ liters of solution A and $\\frac{2x}{7}$ liters of solution B. Which expression gives the total amount of solution, in liters?",
+          question: "A shuttle service charges $\\$5$ per ride plus $\\$2$ for each additional stop. Maria took a ride with $4$ additional stops. Which equation gives the total cost $C$ for a ride with $s$ additional stops?",
           choices: [
-            { id: "A", text: "$\\frac{5x}{14}$" },
-            { id: "B", text: "$\\frac{5x}{7}$" },
-            { id: "C", text: "$\\frac{6x}{14}$" },
-            { id: "D", text: "$\\frac{5x^2}{49}$" }
+            { id: "A", text: "$C = 2s + 5$" },
+            { id: "B", text: "$C = 5s + 2$" },
+            { id: "C", text: "$C = 7s$" },
+            { id: "D", text: "$C = 2s - 5$" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Adding Fractions with Common Denominators**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** Same denominator, so add numerators: $\\frac{3x}{7} + \\frac{2x}{7} = \\frac{5x}{7}$.\n\n**The Full Solution:**\nWhen fractions have the same denominator, add the numerators:\n$\\frac{3x}{7} + \\frac{2x}{7} = \\frac{3x + 2x}{7} = \\frac{5x}{7}$\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{5x}{14}$) adds the denominators instead of keeping them the same.\n• Choice C ($\\frac{6x}{14}$) multiplies the numerators and denominators.\n• Choice D ($\\frac{5x^2}{49}$) multiplies the fractions instead of adding them.\n\n**Test Day Takeaway:** Same denominator? Just add the numerators. Never add the denominators.",
-          skills: ["algebraic-manipulation", "solving-equations"]
+          correctAnswer: "A",
+          explanation: "**SAT Pattern: Translating a Word Problem into a Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (10 seconds):** Base cost $= \\$5$ (flat fee). Per-stop cost $= \\$2$. Total: $C = 2s + 5$.\n\n**The Full Solution:**\nThe $\\$5$ is a one-time charge (y-intercept), and $\\$2$ per stop is the rate (slope).\n$C = 2s + 5$.\n\nVerification with Maria's ride ($s = 4$): $C = 2(4) + 5 = 13$.\n\n**Why the wrong answers are tempting:**\n• Choice B ($5s + 2$): Swaps the per-stop rate and flat fee.\n• Choice C ($7s$): Adds $5 + 2 = 7$ and treats it as a single rate.\n• Choice D ($2s - 5$): Subtracts the flat fee.\n\n**Test Day Takeaway:** The repeated cost is the slope and the one-time cost is the $y$-intercept. $C = (\\text{rate})(\\text{variable}) + \\text{flat fee}$.",
+          skills: ["linear-functions", "word-problems"]
+        },
+        {
+          id: 5,
+          type: "fill-in",
+          difficulty: "easy",
+          question: "A group of $9$ friends buys concert tickets using a $\\$63$ group coupon. After applying the coupon, the group pays $\\$27$ total. What was the original price, in dollars, of each ticket?",
+          correctAnswer: "10",
+          explanation: "**SAT Pattern: Two-Step Word Problem**\n\n**The correct answer is $10$.**\n\n**The Fast Way (15 seconds):** Total before coupon $= 27 + 63 = 90$. Price per ticket $= 90 \\div 9 = 10$.\n\n**The Full Solution:**\nLet $p$ be the original price per ticket.\n$9p - 63 = 27$\n$9p = 90$\n$p = 10$\n\n**Common Mistakes to Avoid:**\n• Forgetting to add back the coupon: $27 \\div 9 = 3$.\n• Subtracting the coupon instead of adding: $(27 - 63) \\div 9$ gives a negative number.\n\n**Verification:** $9 \\times 10 - 63 = 90 - 63 = 27$ ✓\n\n**Test Day Takeaway:** When a coupon is applied, add it back to the amount paid to find the original total, then divide.",
+          skills: ["word-problems", "solving-equations"]
         },
         {
           id: 6,
-          type: "fill-in",
-          difficulty: "easy",
-          question: "An astronomer observes $84$ stars in $12$ equal sectors of the sky. On average, how many stars are in each sector?",
-          correctAnswer: "7",
-          explanation: "**SAT Pattern: Finding the Mean**\n\n**The correct answer is $7$.**\n\n**The Fast Way (10 seconds):** $84 \\div 12 = 7$.\n\n**The Full Solution:**\nAverage $=$ total $\\div$ number of groups $= 84 \\div 12 = 7$ stars per sector.\n\n**Common Mistakes to Avoid:**\n• Multiplying instead of dividing: $84 \\times 12 = 1{,}008$.\n\n**Verification:** $7 \\times 12 = 84$ stars total. Confirmed.\n\n**Test Day Takeaway:** Average $=$ total $\\div$ count.",
-          skills: ["mean-median-mode", "word-problems"]
+          type: "multiple-choice",
+          difficulty: "medium",
+          question: "The table below shows values for a function $h$.\n\n| $x$ | $0$ | $1$ | $2$ | $3$ |\n|---|---|---|---|---|\n| $h(x)$ | $5$ | $10$ | $20$ | $40$ |\n\nWhich type of function best models the data in the table?",
+          choices: [
+            { id: "A", text: "Linear, because the differences are constant" },
+            { id: "B", text: "Quadratic, because the values increase" },
+            { id: "C", text: "Exponential, because the ratios are constant" },
+            { id: "D", text: "Linear, because $h(x)$ is always positive" }
+          ],
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Identifying Function Type from a Table**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** Check ratios: $10/5 = 2$, $20/10 = 2$, $40/20 = 2$. Constant ratio $= 2$, so exponential.\n\n**The Full Solution:**\nDifferences: $5, 10, 20$ — not constant, so not linear.\nRatios: $2, 2, 2$ — constant, so exponential.\nThe function doubles each time $x$ increases by $1$: $h(x) = 5 \\cdot 2^x$.\n\n**Why the wrong answers are tempting:**\n• Choice A: The differences ($5, 10, 20$) are NOT constant.\n• Choice B: Quadratic growth would have constant second differences, not constant ratios.\n• Choice D: Being positive does not determine the function type.\n\n**Test Day Takeaway:** Constant differences = linear. Constant ratios = exponential.",
+          skills: ["exponential-functions", "function-interpretation"]
         },
         {
           id: 7,
           type: "multiple-choice",
-          difficulty: "easy",
-          question: "If $4p + 7 = 31$, what is the value of $4p - 3$?",
+          difficulty: "medium",
+          question: "The equation $n^2 - 53 = 91$ is true. What is the positive value of $n$?",
           choices: [
-            { id: "A", text: "$17$" },
-            { id: "B", text: "$21$" },
-            { id: "C", text: "$24$" },
-            { id: "D", text: "$28$" }
+            { id: "A", text: "$6$" },
+            { id: "B", text: "$12$" },
+            { id: "C", text: "$38$" },
+            { id: "D", text: "$144$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Solve Then Evaluate**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** From $4p + 7 = 31$, we get $4p = 24$. Then $4p - 3 = 24 - 3 = 21$.\n\n**The Full Solution:**\n$4p + 7 = 31$\n$4p = 24$\nNow evaluate: $4p - 3 = 24 - 3 = 21$.\n\nNote: You do not need to find $p$ itself. Just find $4p$ and subtract $3$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($17$) subtracts $7$ and then $7$ again: $31 - 7 - 7 = 17$.\n• Choice C ($24$) is the value of $4p$, not $4p - 3$.\n• Choice D ($28$) subtracts $3$ from $31$ instead of from $4p$.\n\n**Test Day Takeaway:** When asked for an expression (not the variable), solve for that expression directly.",
-          skills: ["solving-equations", "algebraic-manipulation"]
+          explanation: "**SAT Pattern: Solving for a Squared Variable**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** $n^2 = 91 + 53 = 144$. $n = \\sqrt{144} = 12$.\n\n**The Full Solution:**\n$n^2 - 53 = 91$\n$n^2 = 144$\n$n = \\pm 12$\nThe positive value is $12$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($6$): From $\\sqrt{36}$, a common perfect square but wrong.\n• Choice C ($38$): From $91 - 53 = 38$, subtracting instead of adding.\n• Choice D ($144$): Reporting $n^2$ instead of $n$.\n\n**Test Day Takeaway:** Isolate $n^2$ first, then take the square root. Remember to check whether the question asks for the positive solution.",
+          skills: ["solving-equations", "quadratic-equations"]
         },
         {
           id: 8,
@@ -127,36 +133,42 @@ export const practiceTest4 = {
           id: 9,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "A savings account earns simple interest. The balance after $t$ years is given by $B(t) = 2{,}000 + 80t$. What is the annual interest rate?",
+          question: "Line $j$ passes through the points $(1, 3)$ and $(4, 12)$. Which of the following is an equation of line $j$?",
           choices: [
-            { id: "A", text: "$0.4\\%$" },
-            { id: "B", text: "$4\\%$" },
-            { id: "C", text: "$8\\%$" },
-            { id: "D", text: "$40\\%$" }
+            { id: "A", text: "$y = 3x$" },
+            { id: "B", text: "$y = 3x + 3$" },
+            { id: "C", text: "$y = 4x - 1$" },
+            { id: "D", text: "$y = \\frac{1}{3}x + 3$" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Interpreting a Linear Model as Simple Interest**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** The principal is $\\$2{,}000$ and the annual interest is $\\$80$. Rate $= 80/2{,}000 = 0.04 = 4\\%$.\n\n**The Full Solution:**\nSimple interest formula: $B = P + Prt = P(1 + rt)$, or equivalently $B = P + (Pr)t$.\nHere $P = 2{,}000$ and $Pr = 80$, so $r = 80/2{,}000 = 0.04 = 4\\%$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($0.4\\%$) divides by $20{,}000$ instead of $2{,}000$.\n• Choice C ($8\\%$) uses $80/1{,}000$ (halving the principal).\n• Choice D ($40\\%$) uses $80/200$ (wrong decimal place).\n\n**Test Day Takeaway:** Interest rate $=$ annual interest $\\div$ principal. Make sure you identify the principal correctly from the equation.",
-          skills: ["function-interpretation", "percents"]
+          correctAnswer: "A",
+          explanation: "**SAT Pattern: Finding the Equation of a Line from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (20 seconds):** Slope $= \\frac{12 - 3}{4 - 1} = \\frac{9}{3} = 3$. Use $(1, 3)$: $3 = 3(1) + b$, so $b = 0$. Equation: $y = 3x$.\n\n**The Full Solution:**\n$m = \\frac{12 - 3}{4 - 1} = \\frac{9}{3} = 3$\nUsing point $(1, 3)$: $3 = 3(1) + b$, so $b = 0$.\n$y = 3x$.\n\nVerify with $(4, 12)$: $3(4) = 12$ ✓\n\n**Why the wrong answers are tempting:**\n• Choice B ($y = 3x + 3$): Correct slope but uses $y$-coordinate as the intercept instead of computing $b$.\n• Choice C ($y = 4x - 1$): Incorrect slope and intercept.\n• Choice D ($y = \\frac{1}{3}x + 3$): Uses the reciprocal of the slope.\n\n**Test Day Takeaway:** Find slope from two points, plug one point into $y = mx + b$ to find $b$, and verify with the other point.",
+          skills: ["slope", "linear-functions"]
         },
         {
           id: 10,
-          type: "fill-in",
+          type: "multiple-choice",
           difficulty: "medium",
-          question: "Line $k$ passes through the points $(2, 5)$ and $(6, 13)$. What is the slope of line $k$?",
-          correctAnswer: "2",
-          explanation: "**SAT Pattern: Slope from Two Points**\n\n**The correct answer is $2$.**\n\n**The Fast Way (15 seconds):** Slope $= \\frac{13 - 5}{6 - 2} = \\frac{8}{4} = 2$.\n\n**The Full Solution:**\n$m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{13 - 5}{6 - 2} = \\frac{8}{4} = 2$\n\n**Common Mistakes to Avoid:**\n• Flipping the fraction: $\\frac{6 - 2}{13 - 5} = \\frac{4}{8} = 0.5$ (this is the reciprocal).\n• Subtracting in different orders: $(13 - 5)$ in the numerator but $(2 - 6)$ in the denominator gives $-2$.\n\n**Verification:** Starting at $(2, 5)$ with slope $2$: $5 + 2(4) = 13$ at $x = 6$. Confirmed.\n\n**Test Day Takeaway:** Slope $= \\frac{\\text{rise}}{\\text{run}} = \\frac{y_2 - y_1}{x_2 - x_1}$. Keep the order consistent.",
-          skills: ["slope", "coordinate-geometry"]
+          question: "The table below shows the number of passengers on different bus routes during morning and evening.\n\n|  | Route A | Route B | Route C | Total |\n|---|---|---|---|---|\n| Morning | $42$ | $35$ | $23$ | $100$ |\n| Evening | $28$ | $40$ | $32$ | $100$ |\n| Total | $70$ | $75$ | $55$ | $200$ |\n\nOf the passengers who rode Route B, what fraction rode in the evening?",
+          choices: [
+            { id: "A", text: "$\\frac{40}{200}$" },
+            { id: "B", text: "$\\frac{40}{100}$" },
+            { id: "C", text: "$\\frac{40}{75}$" },
+            { id: "D", text: "$\\frac{75}{200}$" }
+          ],
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Conditional Probability from a Two-Way Table**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** \"Of the passengers who rode Route B\" = denominator is $75$ (total Route B). Evening Route B $= 40$. Fraction $= \\frac{40}{75}$.\n\n**The Full Solution:**\nThe condition restricts us to Route B passengers (total $= 75$).\nOf those, $40$ rode in the evening.\nFraction $= \\frac{40}{75} = \\frac{8}{15}$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{40}{200}$): Uses the grand total as the denominator.\n• Choice B ($\\frac{40}{100}$): Uses the evening total as the denominator (this answers a different question).\n• Choice D ($\\frac{75}{200}$): Finds the fraction of all passengers on Route B.\n\n**Test Day Takeaway:** The group after \"of\" determines the denominator. \"Of Route B passengers\" means denominator = total Route B.",
+          skills: ["probability", "two-way-tables"]
         },
         {
           id: 11,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "A chemistry student mixes $x$ milliliters of a $30\\%$ acid solution with $200$ milliliters of a $10\\%$ acid solution to create a $15\\%$ acid solution. What is the value of $x$?",
+          question: "A chemistry student mixes $x$ milliliters of a $30\\%$ acid solution with $200$ milliliters of a $10\\%$ acid solution to create a $15\\%$ acid solution. What is the value of $x$, rounded to the nearest tenth?",
           choices: [
-            { id: "A", text: "$50$" },
+            { id: "A", text: "$50.0$" },
             { id: "B", text: "$66.7$" },
-            { id: "C", text: "$100$" },
-            { id: "D", text: "$200$" }
+            { id: "C", text: "$100.0$" },
+            { id: "D", text: "$200.0$" }
           ],
           correctAnswer: "B",
           explanation: "**SAT Pattern: Mixture Problems**\n\n**Choice B is correct.**\n\n**The Fast Way (30 seconds):** Set up the equation: $0.30x + 0.10(200) = 0.15(x + 200)$.\n$0.30x + 20 = 0.15x + 30$\n$0.15x = 10$\n$x = 66.\\overline{6} \\approx 66.7$\n\n**The Full Solution:**\nAcid from $30\\%$ solution: $0.30x$\nAcid from $10\\%$ solution: $0.10 \\times 200 = 20$\nTotal acid in mixture: $0.15(x + 200)$\n\n$0.30x + 20 = 0.15x + 30$\n$0.15x = 10$\n$x = \\frac{10}{0.15} = \\frac{200}{3} \\approx 66.7$\n\n**Why the wrong answers are tempting:**\n• Choice A ($50$): Comes from $10/0.20$, a setup error.\n• Choice C ($100$): Comes from dividing $30/0.30$, ignoring the mixture equation.\n• Choice D ($200$): Assumes equal amounts of each solution.\n\n**Test Day Takeaway:** For mixture problems: (amount 1)(concentration 1) + (amount 2)(concentration 2) = (total amount)(target concentration).",
@@ -164,21 +176,6 @@ export const practiceTest4 = {
         },
         {
           id: 12,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "The table shows the number of passengers on different bus routes during morning and evening.\n\n|  | Route A | Route B | Route C | Total |\n|---|---|---|---|---|\n| Morning | $42$ | $35$ | $23$ | $100$ |\n| Evening | $28$ | $40$ | $32$ | $100$ |\n| Total | $70$ | $75$ | $55$ | $200$ |\n\nIf a passenger is selected at random from those who rode in the evening, what is the probability that the passenger rode Route B?",
-          choices: [
-            { id: "A", text: "$\\frac{40}{200}$" },
-            { id: "B", text: "$\\frac{40}{100}$" },
-            { id: "C", text: "$\\frac{40}{75}$" },
-            { id: "D", text: "$\\frac{75}{200}$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Two-Way Table Conditional Probability**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** \"From those who rode in the evening\" = denominator is $100$ (evening total). Route B in evening $= 40$. Probability $= \\frac{40}{100}$.\n\n**The Full Solution:**\nThe condition restricts us to evening passengers only (total $= 100$).\nOf those, $40$ rode Route B.\nProbability $= \\frac{40}{100} = \\frac{2}{5}$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{40}{200}$) uses the grand total instead of just evening passengers.\n• Choice C ($\\frac{40}{75}$) uses the total Route B riders as the denominator (flips the condition).\n• Choice D ($\\frac{75}{200}$) finds the probability of riding Route B overall, ignoring the evening condition.\n\n**Test Day Takeaway:** In conditional probability, the group after \"from\" or \"given\" is your denominator.",
-          skills: ["probability", "two-way-tables"]
-        },
-        {
-          id: 13,
           type: "multiple-choice",
           difficulty: "medium",
           question: "The system of equations below has solution $(x, y)$.\n\n$3x + 2y = 19$\n$x - 2y = -3$\n\nWhat is the value of $x$?",
@@ -193,28 +190,49 @@ export const practiceTest4 = {
           skills: ["systems-of-equations", "solving-equations"]
         },
         {
-          id: 14,
-          type: "fill-in",
-          difficulty: "medium",
-          question: "A taxi charges a flat fee of $\\$3.50$ plus $\\$2.25$ per mile. If a ride costs $\\$17.00$, how many miles was the ride?",
-          correctAnswer: "6",
-          explanation: "**SAT Pattern: Linear Equation from a Word Problem**\n\n**The correct answer is $6$.**\n\n**The Fast Way (20 seconds):** $3.50 + 2.25m = 17.00$. So $2.25m = 13.50$, and $m = 6$.\n\n**The Full Solution:**\n$3.50 + 2.25m = 17.00$\n$2.25m = 17.00 - 3.50 = 13.50$\n$m = \\frac{13.50}{2.25} = 6$\n\n**Common Mistakes to Avoid:**\n• Forgetting to subtract the flat fee: $17.00 \\div 2.25 \\approx 7.6$.\n• Subtracting the rate from the total: $17.00 - 2.25 = 14.75$ then dividing by $3.50$.\n\n**Verification:** $3.50 + 2.25(6) = 3.50 + 13.50 = 17.00$ ✓\n\n**Test Day Takeaway:** Total cost $=$ flat fee $+$ rate $\\times$ quantity. Subtract the flat fee first, then divide.",
-          skills: ["linear-equations", "word-problems"]
-        },
-        {
-          id: 15,
+          id: 13,
           type: "multiple-choice",
           difficulty: "medium",
           question: "A sample of a chemical compound decays so that the amount remaining, in grams, after $t$ hours is modeled by $A(t) = 500(0.85)^t$. What does $0.85$ represent in this model?",
           choices: [
             { id: "A", text: "The compound decays by $85\\%$ each hour" },
-            { id: "B", text: "The compound decays by $15\\%$ each hour" },
+            { id: "B", text: "The compound retains $85\\%$ of its amount each hour" },
             { id: "C", text: "The initial amount is $85$ grams" },
             { id: "D", text: "After $1$ hour, $85$ grams remain" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Interpreting Exponential Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** The base $0.85$ means $85\\%$ remains each hour, so $15\\%$ decays each hour.\n\n**The Full Solution:**\nIn $A(t) = A_0 \\cdot r^t$, the base $r = 0.85$ means that each hour, the amount is multiplied by $0.85$. Since $1 - 0.85 = 0.15 = 15\\%$, the compound loses $15\\%$ of its amount each hour.\n\n**Why the wrong answers are tempting:**\n• Choice A: Confuses $85\\%$ remaining with $85\\%$ decaying. If $85\\%$ decayed, only $15\\%$ would remain.\n• Choice C: $500$ is the initial amount, not $85$.\n• Choice D: After $1$ hour, $A(1) = 500(0.85) = 425$ grams, not $85$.\n\n**Test Day Takeaway:** In exponential decay $f(t) = a \\cdot r^t$, the decay rate is $1 - r$, not $r$ itself.",
+          explanation: "**SAT Pattern: Interpreting Exponential Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** The base $0.85$ means $85\\%$ remains each hour, so $15\\%$ decays each hour.\n\n**The Full Solution:**\nIn $A(t) = A_0 \\cdot r^t$, the base $r = 0.85$ means that each hour, the amount is multiplied by $0.85$. Since $1 - 0.85 = 0.15 = 15\\%$, the compound loses $15\\%$ of its amount each hour.\n\n**Why the wrong answers are tempting:**\n• Choice A: Confuses $85\\%$ remaining with $85\\%$ decaying. If $85\\%$ decayed, only $15\\%$ would remain.\n• Choice C: $500$ is the initial amount, not $85$.\n• Choice D: After $1$ hour, $A(1) = 500(0.85) = 425$ grams, not $85$.\n\n**Test Day Takeaway:** In exponential decay $f(t) = a \\cdot r^t$, the base $r$ is the retention rate. The decay rate is $1 - r$.",
           skills: ["exponential-functions", "function-interpretation"]
+        },
+        {
+          id: 14,
+          type: "multiple-choice",
+          difficulty: "hard",
+          question: "A taxi company charges a flat fee of $\\$3.00$ plus $\\$2.50$ per mile. A rideshare service charges no flat fee but $\\$4.00$ per mile. For what number of miles will the two services charge the same amount?",
+          choices: [
+            { id: "A", text: "$1$" },
+            { id: "B", text: "$2$" },
+            { id: "C", text: "$3$" },
+            { id: "D", text: "$4$" }
+          ],
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Setting Two Linear Expressions Equal**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** Taxi: $3 + 2.50m$. Rideshare: $4m$. Set equal: $3 + 2.50m = 4m$, so $3 = 1.50m$, $m = 2$.\n\n**The Full Solution:**\nTaxi cost: $C_1 = 3.00 + 2.50m$\nRideshare cost: $C_2 = 4.00m$\nSet equal: $3.00 + 2.50m = 4.00m$\n$3.00 = 4.00m - 2.50m$\n$3.00 = 1.50m$\n$m = 2$\n\nVerify: Taxi $= 3 + 2.50(2) = 8$. Rideshare $= 4(2) = 8$ ✓\n\n**Why the wrong answers are tempting:**\n• Choice A ($1$): Taxi $= 5.50$, Rideshare $= 4.00$. Not equal.\n• Choice C ($3$): Taxi $= 10.50$, Rideshare $= 12.00$. Not equal.\n• Choice D ($4$): Taxi $= 13.00$, Rideshare $= 16.00$. Not equal.\n\n**Test Day Takeaway:** Set two cost expressions equal and solve. The break-even point tells you when one becomes cheaper than the other.",
+          skills: ["linear-equations", "systems-of-equations"]
+        },
+        {
+          id: 15,
+          type: "multiple-choice",
+          difficulty: "hard",
+          question: "A survey of $300$ voters found that $\\frac{45}{300}$ support a new policy. The mean estimate is $15\\%$ with a margin of error of $\\pm 4\\%$. Another pollster claims that exactly $12\\%$ of voters support the policy. Which statement is best supported by the survey data?",
+          choices: [
+            { id: "A", text: "The other pollster's claim is definitely incorrect." },
+            { id: "B", text: "The other pollster's claim is plausible because $12\\%$ is within the margin of error." },
+            { id: "C", text: "The survey proves that exactly $15\\%$ of all voters support the policy." },
+            { id: "D", text: "The margin of error is too large to draw any conclusion." }
+          ],
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Margin of Error Interpretation**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** Survey estimate: $15\\%$. Margin of error $\\pm 4\\%$ gives interval $[11\\%, 19\\%]$. Since $12\\%$ is within $[11\\%, 19\\%]$, the other pollster's claim is plausible.\n\n**The Full Solution:**\nThe confidence interval is $15\\% - 4\\% = 11\\%$ to $15\\% + 4\\% = 19\\%$.\nThe other pollster's claim of $12\\%$ falls within this interval, so it is a plausible value.\n\n**Why the wrong answers are tempting:**\n• Choice A: $12\\%$ is within the margin of error, so it cannot be ruled out.\n• Choice C: Surveys produce estimates, not exact values.\n• Choice D: A margin of error of $\\pm 4\\%$ still allows meaningful conclusions.\n\n**Test Day Takeaway:** The margin of error creates a plausible range around the estimate. Any value within this range is consistent with the survey data.",
+          skills: ["margin-of-error", "statistics"]
         },
         {
           id: 16,

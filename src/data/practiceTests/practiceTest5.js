@@ -15,64 +15,97 @@ export const practiceTest5 = {
       title: "Module 1",
       timeLimit: 35,
       questions: [
+        // ===== EASY (Q1-Q5) =====
         {
           id: 1,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "A biologist counted $240$ cells in a sample. If $30\\%$ of the cells are red blood cells, how many red blood cells are in the sample?",
+          question: "A biologist recorded the number of bird species observed at four different nature reserves.\n\n| Reserve | Species Observed |\n|---|---|\n| Pine Valley | $42$ |\n| Oak Ridge | $58$ |\n| Cedar Lake | $35$ |\n| Maple Creek | $65$ |\n\nAccording to the table, which reserve had the greatest number of species observed?",
           choices: [
-            { id: "A", text: "$30$" },
-            { id: "B", text: "$72$" },
-            { id: "C", text: "$168$" },
-            { id: "D", text: "$210$" }
+            { id: "A", text: "Pine Valley" },
+            { id: "B", text: "Oak Ridge" },
+            { id: "C", text: "Cedar Lake" },
+            { id: "D", text: "Maple Creek" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Finding a Percent of a Number**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $30\\%$ of $240 = 0.30 \\times 240 = 72$.\n\n**The Full Solution:**\n$0.30 \\times 240 = 72$ red blood cells.\n\n**Why the wrong answers are tempting:**\n• Choice A ($30$): Uses $30$ as the answer instead of $30\\%$.\n• Choice C ($168$): Finds $70\\%$ of $240$ (the non-red cells).\n• Choice D ($210$): Subtracts $30$ from $240$ instead of finding $30\\%$.\n\n**Test Day Takeaway:** Percent of a number: convert the percent to a decimal and multiply.",
-          skills: ["percents", "word-problems"]
+          correctAnswer: "D",
+          explanation: "**SAT Pattern: Reading a Table**\n\n**Choice D is correct.**\n\n**The Fast Way (10 seconds):** Compare all values: $42, 58, 35, 65$. The greatest is $65$ at Maple Creek.\n\n**The Full Solution:**\nPine Valley: $42$, Oak Ridge: $58$, Cedar Lake: $35$, Maple Creek: $65$.\n$65 > 58 > 42 > 35$, so Maple Creek had the most species.\n\n**Why the wrong answers are tempting:**\n• Choice A ($42$): Pine Valley — not the largest.\n• Choice B ($58$): Oak Ridge — second highest.\n• Choice C ($35$): Cedar Lake — the smallest value.\n\n**Test Day Takeaway:** For table-reading questions, compare all values carefully. Do not rush and pick the first large number you see.",
+          skills: ["data-interpretation", "statistics"]
         },
         {
           id: 2,
-          type: "fill-in",
+          type: "multiple-choice",
           difficulty: "easy",
-          question: "An architect designs a room that is $18$ feet long and $12$ feet wide. What is the area of the room, in square feet?",
-          correctAnswer: "216",
-          explanation: "**SAT Pattern: Area of a Rectangle**\n\n**The correct answer is $216$.**\n\n**The Fast Way (10 seconds):** Area $= 18 \\times 12 = 216$ square feet.\n\n**The Full Solution:**\n$A = l \\times w = 18 \\times 12 = 216$ sq ft.\n\n**Common Mistakes to Avoid:**\n• Computing the perimeter: $2(18 + 12) = 60$.\n\n**Verification:** $18 \\times 12 = 216$ ✓\n\n**Test Day Takeaway:** Area of a rectangle $= l \\times w$. Perimeter $= 2l + 2w$. Make sure you use the right formula.",
-          skills: ["area", "word-problems"]
+          question: "$7$ more than $5$ times a number $n$ equals $52$. Which equation represents this statement?",
+          choices: [
+            { id: "A", text: "$7n + 5 = 52$" },
+            { id: "B", text: "$5n + 7 = 52$" },
+            { id: "C", text: "$5(n + 7) = 52$" },
+            { id: "D", text: "$7(n + 5) = 52$" }
+          ],
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Translating Words to an Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** \"$5$ times $n$\" $= 5n$. \"$7$ more than that\" $= 5n + 7$. \"Equals $52$\" $\\Rightarrow 5n + 7 = 52$.\n\n**The Full Solution:**\nBreak the sentence into parts:\n- \"$5$ times a number $n$\": $5n$\n- \"$7$ more than\" that: $5n + 7$\n- \"equals $52$\": $5n + 7 = 52$\n\n**Why the wrong answers are tempting:**\n• Choice A ($7n + 5 = 52$): Swaps the $5$ and $7$.\n• Choice C ($5(n + 7) = 52$): Distributes to $5n + 35$, not $5n + 7$.\n• Choice D ($7(n + 5) = 52$): Distributes to $7n + 35$, completely different.\n\n**Test Day Takeaway:** \"$k$ more than $m$ times $n$\" translates to $mn + k$, not $k(n + m)$.",
+          skills: ["linear-equations", "word-problems"]
         },
         {
           id: 3,
           type: "multiple-choice",
           difficulty: "easy",
-          question: "If $p + 12 = 5$, what is the value of $p$?",
+          question: "An architect charges a flat fee of $\\$200$ plus $\\$45$ per hour. The function $C(h) = 200 + 45h$ gives the total cost for $h$ hours of work. What is the best interpretation of the number $45$ in this function?",
           choices: [
-            { id: "A", text: "$-17$" },
-            { id: "B", text: "$-7$" },
-            { id: "C", text: "$7$" },
-            { id: "D", text: "$17$" }
+            { id: "A", text: "The total cost for all hours worked" },
+            { id: "B", text: "The number of hours the architect works" },
+            { id: "C", text: "The additional cost for each hour of work" },
+            { id: "D", text: "The cost before any hours are worked" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: One-Step Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (5 seconds):** $p = 5 - 12 = -7$.\n\n**The Full Solution:**\n$p + 12 = 5$\n$p = 5 - 12 = -7$\n\n**Why the wrong answers are tempting:**\n• Choice A ($-17$): Subtracts $5 + 12 = 17$ and makes it negative.\n• Choice C ($7$): Drops the negative sign.\n• Choice D ($17$): Adds $5 + 12$ instead of subtracting.\n\n**Test Day Takeaway:** To isolate a variable, do the opposite operation on both sides.",
-          skills: ["linear-equations", "solving-equations"]
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Interpreting the Slope of a Linear Model**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** In $C(h) = 200 + 45h$, the coefficient $45$ is multiplied by $h$ (hours), so it is the rate: $\\$45$ per hour.\n\n**The Full Solution:**\nIn $C(h) = 200 + 45h$:\n- $200$ is the flat fee (the $y$-intercept, or cost when $h = 0$)\n- $45$ is the slope (the additional cost per hour)\n\n**Why the wrong answers are tempting:**\n• Choice A: $C(h)$ gives the total cost, not $45$.\n• Choice B: $h$ represents hours, not $45$.\n• Choice D: The cost before any hours is $200$ (the flat fee), not $45$.\n\n**Test Day Takeaway:** In $y = b + mx$, the coefficient $m$ is the rate of change per unit of $x$.",
+          skills: ["function-interpretation", "linear-functions"]
         },
         {
           id: 4,
-          type: "multiple-choice",
+          type: "fill-in",
           difficulty: "easy",
-          question: "A factory produces $350$ units per day. The equation $U = 350d$ gives the number of units $U$ produced after $d$ days. What is the best interpretation of $350$ in this equation?",
-          choices: [
-            { id: "A", text: "The total number of units produced" },
-            { id: "B", text: "The number of days of production" },
-            { id: "C", text: "The number of units produced per day" },
-            { id: "D", text: "The number of units remaining to be produced" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Interpreting the Slope of a Linear Model**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** $350$ is multiplied by $d$ (days), so it represents the rate: $350$ units per day.\n\n**The Full Solution:**\nIn $U = 350d$, the coefficient of $d$ is the rate of change. Since $U$ is units and $d$ is days, $350$ means $350$ units per day.\n\n**Why the wrong answers are tempting:**\n• Choice A: $U$ is the total, not $350$.\n• Choice B: $d$ is the number of days, not $350$.\n• Choice D: Nothing in the model describes remaining units.\n\n**Test Day Takeaway:** In $y = mx$, the coefficient $m$ is the rate per unit of $x$.",
-          skills: ["function-interpretation", "linear-functions"]
+          question: "A factory uses a $\\$54$ coupon on an order of $6$ identical parts. After the coupon, the total cost is $\\$78$. What was the original price per part, in dollars?",
+          correctAnswer: "22",
+          explanation: "**SAT Pattern: Multi-Step Word Problem**\n\n**The correct answer is $22$.**\n\n**The Fast Way (15 seconds):** Total before coupon $= 78 + 54 = 132$. Price per part $= 132 \\div 6 = 22$.\n\n**The Full Solution:**\nOriginal total $= \\$78 + \\$54 = \\$132$.\nPrice per part $= \\frac{132}{6} = \\$22$.\n\n**Common Mistakes to Avoid:**\n• Subtracting the coupon instead of adding: $78 - 54 = 24$, then $24/6 = 4$.\n• Dividing first: $78/6 = 13$ (ignoring the coupon).\n\n**Verification:** $6 \\times 22 = 132$. After $\\$54$ coupon: $132 - 54 = 78$ ✓\n\n**Test Day Takeaway:** The coupon reduces the total, so to find the original you must add it back before dividing.",
+          skills: ["word-problems", "solving-equations"]
         },
         {
           id: 5,
           type: "multiple-choice",
           difficulty: "easy",
+          question: "What percentage of $300$ is $75$?",
+          choices: [
+            { id: "A", text: "$15\\%$" },
+            { id: "B", text: "$20\\%$" },
+            { id: "C", text: "$25\\%$" },
+            { id: "D", text: "$30\\%$" }
+          ],
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Finding a Percentage**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** $\\frac{75}{300} = \\frac{1}{4} = 25\\%$.\n\n**The Full Solution:**\n$\\frac{75}{300} \\times 100 = 0.25 \\times 100 = 25\\%$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($15\\%$): From a division error.\n• Choice B ($20\\%$): Confuses $\\frac{75}{300}$ with $\\frac{60}{300}$.\n• Choice D ($30\\%$): From $\\frac{75}{250}$ or mixing up numerator/denominator.\n\n**Test Day Takeaway:** \"What percent of $A$ is $B$?\" means $\\frac{B}{A} \\times 100$. The whole goes in the denominator.",
+          skills: ["percents", "word-problems"]
+        },
+
+        // ===== EASY-MEDIUM (Q6-Q7) =====
+        {
+          id: 6,
+          type: "multiple-choice",
+          difficulty: "medium",
+          question: "The equation $k^2 - 53 = 91$ has two solutions. What is the positive solution for $k$?",
+          choices: [
+            { id: "A", text: "$9$" },
+            { id: "B", text: "$12$" },
+            { id: "C", text: "$38$" },
+            { id: "D", text: "$144$" }
+          ],
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: Solving a Quadratic (No Middle Term)**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** $k^2 = 91 + 53 = 144$. $k = \\sqrt{144} = 12$ (positive solution).\n\n**The Full Solution:**\n$k^2 - 53 = 91$\n$k^2 = 144$\n$k = \\pm 12$\nThe positive solution is $12$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($9$): $9^2 = 81$, not $144$.\n• Choice C ($38$): Adds $91 - 53 = 38$ instead of $91 + 53$.\n• Choice D ($144$): This is $k^2$, not $k$.\n\n**Test Day Takeaway:** Isolate $k^2$ first, then take the square root. Don't forget $\\pm$, but read whether the question asks for the positive solution.",
+          skills: ["quadratic-equations", "solving-equations"]
+        },
+        {
+          id: 7,
+          type: "multiple-choice",
+          difficulty: "medium",
           question: "A nutritionist recommends that a meal contain no more than $600$ calories. If a meal has $c$ calories, which inequality represents this recommendation?",
           choices: [
             { id: "A", text: "$c > 600$" },
@@ -84,35 +117,13 @@ export const practiceTest5 = {
           explanation: "**SAT Pattern: Translating Words to Inequalities**\n\n**Choice D is correct.**\n\n**The Fast Way (10 seconds):** \"No more than $600$\" means $c$ can be $600$ or less: $c \\leq 600$.\n\n**The Full Solution:**\n\"No more than\" means \"less than or equal to.\" The calories $c$ must satisfy $c \\leq 600$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($c > 600$): The opposite of the recommendation.\n• Choice B ($c \\geq 600$): Means \"at least $600$,\" which is the reverse.\n• Choice C ($c < 600$): Close, but \"no more than\" includes exactly $600$.\n\n**Test Day Takeaway:** \"No more than\" $=$ $\\leq$. \"At least\" $=$ $\\geq$. \"Less than\" $=$ $<$. \"More than\" $=$ $>$.",
           skills: ["inequalities", "word-problems"]
         },
-        {
-          id: 6,
-          type: "fill-in",
-          difficulty: "easy",
-          question: "How many inches are equivalent to $7$ feet? ($1$ foot $= 12$ inches)",
-          correctAnswer: "84",
-          explanation: "**SAT Pattern: Unit Conversion**\n\n**The correct answer is $84$.**\n\n**The Fast Way (10 seconds):** $7 \\times 12 = 84$ inches.\n\n**The Full Solution:**\n$7$ feet $\\times \\frac{12 \\text{ inches}}{1 \\text{ foot}} = 84$ inches.\n\n**Common Mistakes to Avoid:**\n• Dividing instead of multiplying: $7 \\div 12 \\approx 0.58$.\n\n**Verification:** $84 \\div 12 = 7$ feet. ✓\n\n**Test Day Takeaway:** Converting from a larger unit to a smaller unit: multiply. Smaller to larger: divide.",
-          skills: ["unit-conversion", "word-problems"]
-        },
-        {
-          id: 7,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "Which expression is equivalent to $5(2x + 3) - 4x$?",
-          choices: [
-            { id: "A", text: "$6x + 3$" },
-            { id: "B", text: "$6x + 15$" },
-            { id: "C", text: "$14x + 3$" },
-            { id: "D", text: "$14x + 15$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Distribute and Combine Like Terms**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** $5(2x + 3) - 4x = 10x + 15 - 4x = 6x + 15$.\n\n**The Full Solution:**\nStep 1: Distribute $5$: $5 \\cdot 2x + 5 \\cdot 3 = 10x + 15$\nStep 2: Combine: $10x + 15 - 4x = 6x + 15$\n\n**Why the wrong answers are tempting:**\n• Choice A ($6x + 3$): Distributes $5$ to $2x$ only and not to $3$.\n• Choice C ($14x + 3$): Adds $10x + 4x = 14x$ instead of subtracting.\n• Choice D ($14x + 15$): Adds the $x$-terms instead of subtracting.\n\n**Test Day Takeaway:** Distribute first, then combine like terms. Watch the sign in front of subtracted terms.",
-          skills: ["algebraic-manipulation", "polynomial-operations"]
-        },
+
+        // ===== MEDIUM (Q8-Q13) =====
         {
           id: 8,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "A biologist records the population of bacteria at different times. The data shows: at $t = 0$ hours, population $= 100$; at $t = 1$, population $= 200$; at $t = 2$, population $= 400$; at $t = 3$, population $= 800$. Which type of function best models this data?",
+          question: "A biologist records the population of bacteria at different times:\n\n| Time (hours) | Population |\n|---|---|\n| $0$ | $100$ |\n| $1$ | $200$ |\n| $2$ | $400$ |\n| $3$ | $800$ |\n\nBased on the data, which type of function best models the relationship between time and population?",
           choices: [
             { id: "A", text: "Decreasing linear" },
             { id: "B", text: "Increasing linear" },
@@ -120,32 +131,32 @@ export const practiceTest5 = {
             { id: "D", text: "Increasing exponential" }
           ],
           correctAnswer: "D",
-          explanation: "**SAT Pattern: Linear vs. Exponential from Data**\n\n**Choice D is correct.**\n\n**The Fast Way (15 seconds):** Check ratios: $200/100 = 2$, $400/200 = 2$, $800/400 = 2$. Constant ratio $= $ exponential. Values increasing $=$ increasing exponential.\n\n**The Full Solution:**\nDifferences: $200 - 100 = 100$, $400 - 200 = 200$, $800 - 400 = 400$. Not constant, so not linear.\nRatios: $200/100 = 2$, $400/200 = 2$, $800/400 = 2$. Constant ratio of $2$, so exponential.\nSince values increase, this is an increasing exponential.\n\n**Why the wrong answers are tempting:**\n• Choice A: Values are increasing, not decreasing.\n• Choice B: Differences are not constant, so it is not linear.\n• Choice C: Values increase, so this is not decreasing.\n\n**Test Day Takeaway:** Constant differences $=$ linear. Constant ratios $=$ exponential.",
+          explanation: "**SAT Pattern: Linear vs. Exponential from a Table**\n\n**Choice D is correct.**\n\n**The Fast Way (15 seconds):** Check ratios: $200/100 = 2$, $400/200 = 2$, $800/400 = 2$. Constant ratio $=$ exponential. Values increasing $=$ increasing exponential.\n\n**The Full Solution:**\nDifferences: $200 - 100 = 100$, $400 - 200 = 200$, $800 - 400 = 400$. Not constant, so not linear.\nRatios: $200/100 = 2$, $400/200 = 2$, $800/400 = 2$. Constant ratio of $2$, so exponential.\nSince values increase, this is an increasing exponential.\n\n**Why the wrong answers are tempting:**\n• Choice A: Values are increasing, not decreasing.\n• Choice B: Differences are not constant, so it is not linear.\n• Choice C: Values increase, so this is not decreasing.\n\n**Test Day Takeaway:** Constant differences $=$ linear. Constant ratios $=$ exponential.",
           skills: ["exponential-functions", "function-interpretation"]
         },
         {
           id: 9,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "The system of equations below has solution $(x, y)$.\n\n$2x + y = 11$\n$x - y = 1$\n\nWhat is the value of $y$?",
+          question: "The table below shows the results of a survey of $200$ factory workers.\n\n| | Day Shift | Night Shift | Total |\n|---|---|---|---|\n| Full-time | $70$ | $50$ | $120$ |\n| Part-time | $45$ | $35$ | $80$ |\n| Total | $115$ | $85$ | $200$ |\n\nWhat fraction of night shift workers are full-time?",
           choices: [
-            { id: "A", text: "$2$" },
-            { id: "B", text: "$3$" },
-            { id: "C", text: "$4$" },
-            { id: "D", text: "$7$" }
+            { id: "A", text: "$\\frac{50}{200}$" },
+            { id: "B", text: "$\\frac{50}{120}$" },
+            { id: "C", text: "$\\frac{50}{85}$" },
+            { id: "D", text: "$\\frac{85}{200}$" }
           ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: System of Equations — Elimination**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** Add the two equations: $(2x + y) + (x - y) = 11 + 1$, so $3x = 12$ and $x = 4$. Substitute: $4 - y = 1$, so $y = 3$.\n\n**The Full Solution:**\nAdding the equations eliminates $y$:\n$2x + x + y - y = 12$\n$3x = 12$\n$x = 4$\n\nSubstitute $x = 4$ into $x - y = 1$:\n$4 - y = 1$\n$y = 3$\n\n**Why the wrong answers are tempting:**\n• Choice A ($2$): May come from $12/6$ or another setup error.\n• Choice C ($4$): This is $x$, not $y$.\n• Choice D ($7$): From $11 - 4 = 7$, substituting into the wrong equation form.\n\n**Verification:** $2(4) + 3 = 11$ ✓ and $4 - 3 = 1$ ✓\n\n**Test Day Takeaway:** When one variable has opposite signs in the two equations, add to eliminate it.",
-          skills: ["systems-of-equations", "solving-equations"]
+          correctAnswer: "C",
+          explanation: "**SAT Pattern: Two-Way Table — Conditional Fraction**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** \"Of night shift workers\" means the denominator is $85$ (total night shift). Full-time night shift $= 50$. Fraction $= \\frac{50}{85}$.\n\n**The Full Solution:**\nRestrict to night shift workers: total $= 85$.\nFull-time among night shift $= 50$.\nFraction $= \\frac{50}{85}$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{50}{200}$): Uses grand total as denominator instead of night shift total.\n• Choice B ($\\frac{50}{120}$): Uses full-time total as denominator (flips the condition).\n• Choice D ($\\frac{85}{200}$): Fraction of all workers on night shift, ignoring the full-time condition.\n\n**Test Day Takeaway:** The group mentioned in the question (\"of night shift workers\") determines the denominator.",
+          skills: ["two-way-tables", "probability"]
         },
         {
           id: 10,
           type: "fill-in",
           difficulty: "medium",
-          question: "A manufacturing plant operates $8$ hours per day, $5$ days per week. How many hours does the plant operate in $4$ weeks?",
-          correctAnswer: "160",
-          explanation: "**SAT Pattern: Multi-Step Unit Calculation**\n\n**The correct answer is $160$.**\n\n**The Fast Way (15 seconds):** $8 \\times 5 = 40$ hours per week. $40 \\times 4 = 160$ hours.\n\n**The Full Solution:**\nHours per week $= 8 \\times 5 = 40$\nHours in $4$ weeks $= 40 \\times 4 = 160$\n\n**Common Mistakes to Avoid:**\n• Adding instead of multiplying: $8 + 5 + 4 = 17$.\n• Forgetting one step: $8 \\times 4 = 32$ (skipping the $5$ days per week).\n\n**Verification:** $160 \\div 4 = 40$ hours per week. $40 \\div 5 = 8$ hours per day. ✓\n\n**Test Day Takeaway:** Chain the unit conversions: hours/day $\\times$ days/week $\\times$ weeks.",
-          skills: ["unit-conversion", "word-problems"]
+          question: "The function $f(t) = 150 + 25t$ models the total number of parts manufactured after $t$ hours. How many more parts are manufactured between hour $3$ and hour $7$?",
+          correctAnswer: "100",
+          explanation: "**SAT Pattern: Using a Linear Function Over an Interval**\n\n**The correct answer is $100$.**\n\n**The Fast Way (15 seconds):** $f(7) - f(3) = (150 + 175) - (150 + 75) = 325 - 225 = 100$. Or: the rate is $25$ parts per hour over $4$ hours $= 100$.\n\n**The Full Solution:**\n$f(7) = 150 + 25(7) = 150 + 175 = 325$\n$f(3) = 150 + 25(3) = 150 + 75 = 225$\n$f(7) - f(3) = 325 - 225 = 100$\n\n**Common Mistakes to Avoid:**\n• Computing $f(7)$ alone ($325$) instead of the difference.\n• Computing $f(7-3) = f(4) = 250$ — you cannot subtract the inputs.\n\n**Verification:** Over $4$ hours at $25$ parts/hour $= 100$ additional parts ✓\n\n**Test Day Takeaway:** For \"how many more\" between two times, compute $f(b) - f(a)$, not $f(b-a)$.",
+          skills: ["linear-functions", "function-evaluation"]
         },
         {
           id: 11,
@@ -166,21 +177,6 @@ export const practiceTest5 = {
           id: 12,
           type: "multiple-choice",
           difficulty: "medium",
-          question: "A nutritionist tracks the calorie content of $6$ meals: $420, 510, 480, 630, 480, 540$. What is the mean calorie content?",
-          choices: [
-            { id: "A", text: "$480$" },
-            { id: "B", text: "$495$" },
-            { id: "C", text: "$510$" },
-            { id: "D", text: "$525$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Computing the Mean**\n\n**Choice C is correct.**\n\n**The Fast Way (30 seconds):** Sum $= 420 + 510 + 480 + 630 + 480 + 540 = 3{,}060$. Mean $= 3{,}060 \\div 6 = 510$.\n\n**The Full Solution:**\nMean $= \\frac{\\text{sum}}{\\text{count}} = \\frac{420 + 510 + 480 + 630 + 480 + 540}{6} = \\frac{3{,}060}{6} = 510$\n\n**Why the wrong answers are tempting:**\n• Choice A ($480$): The median (and the mode), not the mean.\n• Choice B ($495$): May come from a calculation error in the sum.\n• Choice D ($525$): From dividing by $5$ instead of $6$ (or a sum error).\n\n**Test Day Takeaway:** Mean $=$ sum $\\div$ count. The mean and median are usually different unless the data is symmetric.",
-          skills: ["mean-median-mode", "statistics"]
-        },
-        {
-          id: 13,
-          type: "multiple-choice",
-          difficulty: "medium",
           question: "In the $xy$-plane, a line has a $y$-intercept of $8$ and an $x$-intercept of $4$. What is the slope of this line?",
           choices: [
             { id: "A", text: "$-2$" },
@@ -193,19 +189,36 @@ export const practiceTest5 = {
           skills: ["slope", "coordinate-geometry"]
         },
         {
+          id: 13,
+          type: "multiple-choice",
+          difficulty: "medium",
+          question: "The system of equations below has solution $(x, y)$.\n\n$2x + y = 11$\n$x - y = 1$\n\nWhat is the value of $y$?",
+          choices: [
+            { id: "A", text: "$2$" },
+            { id: "B", text: "$3$" },
+            { id: "C", text: "$4$" },
+            { id: "D", text: "$7$" }
+          ],
+          correctAnswer: "B",
+          explanation: "**SAT Pattern: System of Equations — Elimination**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** Add the two equations: $(2x + y) + (x - y) = 11 + 1$, so $3x = 12$ and $x = 4$. Substitute: $4 - y = 1$, so $y = 3$.\n\n**The Full Solution:**\nAdding the equations eliminates $y$:\n$2x + x + y - y = 12$\n$3x = 12$\n$x = 4$\n\nSubstitute $x = 4$ into $x - y = 1$:\n$4 - y = 1$\n$y = 3$\n\n**Why the wrong answers are tempting:**\n• Choice A ($2$): May come from $12/6$ or another setup error.\n• Choice C ($4$): This is $x$, not $y$.\n• Choice D ($7$): From $11 - 4 = 7$, substituting into the wrong equation form.\n\n**Verification:** $2(4) + 3 = 11$ ✓ and $4 - 3 = 1$ ✓\n\n**Test Day Takeaway:** When one variable has opposite signs in the two equations, add to eliminate it.",
+          skills: ["systems-of-equations", "solving-equations"]
+        },
+
+        // ===== HARD (Q14-Q22) =====
+        {
           id: 14,
           type: "fill-in",
-          difficulty: "medium",
-          question: "If $5(x - 2) = 3x + 6$, what is the value of $x$?",
-          correctAnswer: "8",
-          explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $8$.**\n\n**The Fast Way (20 seconds):** Distribute: $5x - 10 = 3x + 6$. Subtract $3x$: $2x - 10 = 6$. Add $10$: $2x = 16$. Divide: $x = 8$.\n\n**The Full Solution:**\n$5(x - 2) = 3x + 6$\n$5x - 10 = 3x + 6$\n$5x - 3x = 6 + 10$\n$2x = 16$\n$x = 8$\n\n**Common Mistakes to Avoid:**\n• Distributing incorrectly: $5(x - 2) = 5x - 2$ (forgetting to multiply $-2$ by $5$).\n• Sign errors: moving $-10$ to the right side as $-10$ instead of $+10$.\n\n**Verification:** $5(8 - 2) = 5(6) = 30$. $3(8) + 6 = 24 + 6 = 30$. ✓\n\n**Test Day Takeaway:** Distribute, collect variable terms on one side, constants on the other, then divide.",
-          skills: ["linear-equations", "solving-equations"]
+          difficulty: "hard",
+          question: "The expression $(3x^2 + 2x - 5) + (x^2 - 4x + 8)$ can be written as $ax^2 + bx + c$. What is the value of $b$?",
+          correctAnswer: "-2",
+          explanation: "**SAT Pattern: Adding Polynomials**\n\n**The correct answer is $-2$.**\n\n**The Fast Way (15 seconds):** Combine the $x$-terms: $2x + (-4x) = -2x$. So $b = -2$.\n\n**The Full Solution:**\n$(3x^2 + 2x - 5) + (x^2 - 4x + 8)$\n$= (3 + 1)x^2 + (2 - 4)x + (-5 + 8)$\n$= 4x^2 - 2x + 3$\n\nSo $a = 4$, $b = -2$, $c = 3$.\n\n**Common Mistakes to Avoid:**\n• Adding $2 + 4 = 6$ instead of $2 + (-4) = -2$ (watch the sign on $-4x$).\n• Reporting $a$ or $c$ instead of $b$.\n\n**Verification:** $4x^2 - 2x + 3$ ✓\n\n**Test Day Takeaway:** When adding polynomials, combine like terms. Pay careful attention to signs.",
+          skills: ["polynomial-operations", "algebraic-manipulation"]
         },
         {
           id: 15,
           type: "multiple-choice",
-          difficulty: "medium",
-          question: "A building casts a shadow that is $40$ feet long. At the same time, a $6$-foot-tall person standing nearby casts a shadow $8$ feet long. How tall is the building, in feet?",
+          difficulty: "hard",
+          question: "A building casts a shadow that is $40$ feet long. At the same time, a $6$-foot-tall person standing nearby casts a shadow $8$ feet long. The equation $\\frac{h}{40} = \\frac{6}{8}$ can be used to find the building's height $h$. What is the height of the building, in feet?",
           choices: [
             { id: "A", text: "$24$" },
             { id: "B", text: "$30$" },
@@ -213,7 +226,7 @@ export const practiceTest5 = {
             { id: "D", text: "$48$" }
           ],
           correctAnswer: "B",
-          explanation: "**SAT Pattern: Similar Triangles / Proportions**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** Set up proportion: $\\frac{h}{40} = \\frac{6}{8}$. So $h = 40 \\times \\frac{6}{8} = 40 \\times \\frac{3}{4} = 30$.\n\n**The Full Solution:**\n$\\frac{\\text{building height}}{\\text{building shadow}} = \\frac{\\text{person height}}{\\text{person shadow}}$\n$\\frac{h}{40} = \\frac{6}{8}$\n$h = \\frac{6 \\times 40}{8} = \\frac{240}{8} = 30$\n\n**Why the wrong answers are tempting:**\n• Choice A ($24$): From $6 \\times 4 = 24$ (using an incorrect ratio).\n• Choice C ($42$): From $40 + 6/3 = 42$ (an addition error).\n• Choice D ($48$): From $6 \\times 8 = 48$ (multiplying height by shadow length).\n\n**Verification:** $30/40 = 3/4$ and $6/8 = 3/4$. Same ratio. ✓\n\n**Test Day Takeaway:** Objects and their shadows form similar triangles. Set up $\\frac{h_1}{s_1} = \\frac{h_2}{s_2}$.",
+          explanation: "**SAT Pattern: Similar Triangles / Proportions**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** $\\frac{h}{40} = \\frac{6}{8} = \\frac{3}{4}$. So $h = 40 \\times \\frac{3}{4} = 30$.\n\n**The Full Solution:**\n$\\frac{h}{40} = \\frac{6}{8}$\n$h = \\frac{6 \\times 40}{8} = \\frac{240}{8} = 30$\n\n**Why the wrong answers are tempting:**\n• Choice A ($24$): From $6 \\times 4 = 24$ (using an incorrect ratio).\n• Choice C ($42$): From $40 + 6/3 = 42$ (an addition error).\n• Choice D ($48$): From $6 \\times 8 = 48$ (multiplying height by shadow length).\n\n**Verification:** $30/40 = 3/4$ and $6/8 = 3/4$. Same ratio. ✓\n\n**Test Day Takeaway:** Objects and their shadows form similar triangles. Set up $\\frac{h_1}{s_1} = \\frac{h_2}{s_2}$ and cross-multiply.",
           skills: ["ratios-proportions", "word-problems"]
         },
         {
