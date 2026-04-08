@@ -5,6 +5,7 @@ import TestResults from './TestResults';
 import { MathText } from './MathText';
 import SolutionExplanation from './SolutionExplanation';
 import QuestionRenderer from './QuestionRenderer';
+import SATReferenceSheet from './SATReferenceSheet';
 import { recordSkillAttempts } from '../services/skillService';
 import { generateDiagnosticNarrative } from '../services/diagnosticNarrativeService';
 import {
@@ -215,9 +216,9 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
   const [calcMode, setCalcMode] = useState('graphing'); // 'graphing' or 'scientific'
   const [isMinimized, setIsMinimized] = useState(false);
 
-  const CALC_WIDTH = 480;
-  const CALC_HEIGHT = 420;
-  const CALC_MOBILE_HEIGHT = '60vh';
+  const CALC_WIDTH = 560;
+  const CALC_HEIGHT = 500;
+  const CALC_MOBILE_HEIGHT = '70vh';
 
   const isMobileCalc = typeof window !== 'undefined' && window.innerWidth < 768;
 
@@ -287,7 +288,15 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
           pointsOfInterest: true,
           trace: true,
           border: false,
-          lockViewport: false
+          lockViewport: false,
+          notes: true,
+          sliders: true,
+          links: false,
+          images: false,
+          folders: true,
+          actions: true,
+          advancedStyling: true,
+          autosize: true,
         };
 
         if (calcMode === 'scientific') {
@@ -300,7 +309,7 @@ const DesmosCalculator = ({ isOpen, onClose }) => {
       // Load Desmos script if not already loaded
       if (!window.Desmos) {
         const script = document.createElement('script');
-        script.src = 'https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6';
+        script.src = 'https://www.desmos.com/api/v1.11/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6';
         script.async = true;
         script.onload = initCalculator;
         document.head.appendChild(script);
@@ -887,6 +896,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   const [testCompleted, setTestCompleted] = useState(initialReviewModule !== null);
   const [fillInValue, setFillInValue] = useState('');
   const [showCalculator, setShowCalculator] = useState(false);
+  const [showReference, setShowReference] = useState(false);
   const [reviewMode, setReviewMode] = useState(initialReviewModule !== null);
   const [reviewModule, setReviewModule] = useState(initialReviewModule !== null ? initialReviewModule : 0);
   const [reviewQuestion, setReviewQuestion] = useState(0);
@@ -2394,6 +2404,17 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             Calculator
           </button>
           <button
+            className="btn-launch"
+            onClick={() => setShowReference(true)}
+            style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+            </svg>
+            Reference
+          </button>
+          <button
             onClick={handlePauseToggle}
             className="btn-ghost-blue"
           >
@@ -2472,6 +2493,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
 
             {/* Desmos Calculator Modal */}
             <DesmosCalculator isOpen={showCalculator} onClose={() => setShowCalculator(false)} />
+            {/* SAT Reference Sheet Modal */}
+            <SATReferenceSheet isOpen={showReference} onClose={() => setShowReference(false)} />
 
             {/* Question Card - SAT Style */}
             <div className="question-panel">
