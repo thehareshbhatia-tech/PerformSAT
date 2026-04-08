@@ -15,313 +15,310 @@ export const practiceTest12 = {
       title: "Module 1",
       timeLimit: 35,
       questions: [
-        // ===== EASY (Q1-Q5) =====
-        {
-          id: 1,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "A campsite recorded the number of visitors each day during a holiday weekend.\n\n| Day | Visitors |\n|---|---|\n| Friday | $85$ |\n| Saturday | $140$ |\n| Sunday | $120$ |\n| Monday | $55$ |\n| **Total** | **$400$** |\n\nWhat percentage of the total visitors came on Saturday?",
-          choices: [
-            { id: "A", text: "$25\\%$" },
-            { id: "B", text: "$30\\%$" },
-            { id: "C", text: "$35\\%$" },
-            { id: "D", text: "$40\\%$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Percentage from a Data Table**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** $\\frac{140}{400} = \\frac{14}{40} = \\frac{7}{20} = 35\\%$.\n\n**The Full Solution:**\nSaturday visitors $= 140$. Total $= 400$.\nPercentage $= \\frac{140}{400} \\times 100\\% = 35\\%$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($25\\%$): $\\frac{100}{400}$ — does not match any day.\n• Choice B ($30\\%$): $\\frac{120}{400} = 30\\%$ — this is Sunday's share.\n• Choice D ($40\\%$): Uses $140$ as a percentage directly or confuses the calculation.\n\n**Test Day Takeaway:** Percentage $= \\frac{\\text{part}}{\\text{total}} \\times 100$. Read the correct row from the table.",
-          skills: ["percents", "statistics"]
-        },
-        {
-          id: 2,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "A cyclist rides $f(t) = 12t$ miles in $t$ hours. What does the $12$ represent?",
-          choices: [
-            { id: "A", text: "The total distance traveled" },
-            { id: "B", text: "The number of hours cycled" },
-            { id: "C", text: "The speed in miles per hour" },
-            { id: "D", text: "The number of stops made" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Interpreting a Linear Function**\n\n**Choice C is correct.**\n\n**The Fast Way (5 seconds):** In $f(t) = 12t$, the coefficient $12$ is the rate of change -- miles per hour.\n\n**The Full Solution:**\nIn $f(t) = 12t$, the coefficient of $t$ gives the rate: $12$ miles per hour. This is the speed.\n\n**Why the wrong answers are tempting:**\n• Choice A: Total distance depends on $t$; it's not a fixed number.\n• Choice B: The number of hours is $t$, not $12$.\n• Choice D: Nothing in the function refers to stops.\n\n**Test Day Takeaway:** The coefficient of the variable in a linear function is the rate of change.",
-          skills: ["function-interpretation", "linear-functions"]
-        },
-        {
-          id: 3,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "An astronomer recorded the number of visible celestial objects through different telescopes.\n\n| Telescope | Stars | Planets | Total |\n|---|---|---|---|\n| A | $45$ | $8$ | $53$ |\n| B | $62$ | $12$ | $74$ |\n| C | $33$ | $5$ | $38$ |\n| **Total** | **$140$** | **$25$** | **$165$** |\n\nWhat fraction of all observed objects were planets?",
-          choices: [
-            { id: "A", text: "$\\frac{5}{33}$" },
-            { id: "B", text: "$\\frac{25}{165}$" },
-            { id: "C", text: "$\\frac{25}{140}$" },
-            { id: "D", text: "$\\frac{12}{74}$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Reading a Two-Way Table to Compute a Fraction**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** Total planets $= 25$. Grand total $= 165$. Fraction $= \\frac{25}{165} = \\frac{5}{33}$.\n\n**The Full Solution:**\nPlanets (all telescopes) $= 25$.\nAll objects $= 165$.\nFraction $= \\frac{25}{165} = \\frac{5}{33}$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{5}{33}$): This is the simplified form — actually equivalent to Choice B! But the question asks for the fraction, and $\\frac{25}{165}$ directly reads from the table.\n• Choice C ($\\frac{25}{140}$): Uses the stars total as denominator.\n• Choice D ($\\frac{12}{74}$): Fraction of planets for telescope B only, not all objects.\n\n**Test Day Takeaway:** Use the \"Total\" row and column to find overall fractions. Read from the correct cell.",
-          skills: ["ratios-proportions", "statistics"]
-        },
-        {
-          id: 4,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "An event planner estimates that the total cost of a party is $9$ more than $4$ times the number of guests. If $g$ guests attend, which expression represents the total cost in dollars?",
-          choices: [
-            { id: "A", text: "$9g + 4$" },
-            { id: "B", text: "$4g + 9$" },
-            { id: "C", text: "$4(g + 9)$" },
-            { id: "D", text: "$9(g + 4)$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Translating Words to an Algebraic Expression**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** \"$4$ times $g$\" $= 4g$. \"$9$ more than that\" $= 4g + 9$.\n\n**The Full Solution:**\nParse the sentence:\n• \"$4$ times the number of guests\" $\\rightarrow 4g$\n• \"$9$ more than $4g$\" $\\rightarrow 4g + 9$\n\n**Why the wrong answers are tempting:**\n• Choice A ($9g + 4$): Swaps the multiplier and the addend.\n• Choice C ($4(g + 9)$): Adds $9$ inside the multiplication, giving $4g + 36$.\n• Choice D ($9(g + 4)$): Reverses everything.\n\n**Test Day Takeaway:** \"$k$ more than\" means $+ k$ (added after). \"$k$ times\" means $\\times k$ (multiplied first).",
-          skills: ["word-problems", "linear-equations"]
-        },
-        // ===== EASY-MEDIUM (Q5-Q7) =====
-        {
-          id: 5,
-          type: "fill-in",
-          difficulty: "easy",
-          question: "A campsite rents tents for $\\$15$ per night. A family rents a tent for $6$ nights and uses a $\\$20$ discount coupon. What is the total amount paid, in dollars?",
-          correctAnswer: "70",
-          explanation: "**SAT Pattern: Two-Step Word Problem**\n\n**The correct answer is $70$.**\n\n**The Fast Way (10 seconds):** Total before coupon: $15 \\times 6 = 90$. After coupon: $90 - 20 = 70$.\n\n**The Full Solution:**\nCost before coupon $= 15 \\times 6 = 90$.\nCost after coupon $= 90 - 20 = 70$.\n\n**Common Mistakes to Avoid:**\n• Forgetting the coupon: answering $90$.\n• Subtracting incorrectly: $90 - 20 = 60$.\n\n**Verification:** $\\$15 \\times 6 - \\$20 = \\$90 - \\$20 = \\$70$ ✓\n\n**Test Day Takeaway:** Compute the base cost first, then apply discounts or adjustments.",
-          skills: ["word-problems"]
-        },
-        {
-          id: 6,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "The function $h(x) = 4(x - 5)(x + 2)(x + 7)$ is graphed in the $xy$-plane. Which of the following is an $x$-intercept of the graph?",
-          choices: [
-            { id: "A", text: "$(4, 0)$" },
-            { id: "B", text: "$(-5, 0)$" },
-            { id: "C", text: "$(5, 0)$" },
-            { id: "D", text: "$(-2, 0)$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: $x$-intercepts from Factored Form**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** Set each factor to zero: $x - 5 = 0 \\Rightarrow x = 5$, $x + 2 = 0 \\Rightarrow x = -2$, $x + 7 = 0 \\Rightarrow x = -7$. Among the choices, $(5, 0)$ is correct.\n\n**The Full Solution:**\n$h(x) = 0$ when any factor equals zero:\n$x - 5 = 0 \\Rightarrow x = 5$\n$x + 2 = 0 \\Rightarrow x = -2$\n$x + 7 = 0 \\Rightarrow x = -7$\nChoice C $(5, 0)$ matches. Note: Choice D $(-2, 0)$ is also a valid intercept.\n\n**Why the wrong answers are tempting:**\n• Choice A ($(4, 0)$): The leading coefficient $4$ is not a root.\n• Choice B ($(-5, 0)$): Sign error — the factor is $(x - 5)$, giving $x = 5$, not $x = -5$.\n• Choice D ($(-2, 0)$): Also an intercept, but the question says \"which of the following,\" so check all.\n\n**Test Day Takeaway:** For $(x - a)$, the root is $x = a$. For $(x + a)$, the root is $x = -a$. Watch the signs carefully.",
-          skills: ["polynomial-operations", "factoring"]
-        },
-        {
-          id: 7,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "Which of the following is equivalent to $(2x^2 + x - 9) + (x^2 + 6x + 1)$?",
-          choices: [
-            { id: "A", text: "$3x^2 + 7x - 8$" },
-            { id: "B", text: "$2x^4 + 7x - 8$" },
-            { id: "C", text: "$3x^2 + 5x - 8$" },
-            { id: "D", text: "$3x^2 + 7x - 10$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Adding Polynomials**\n\n**Choice A is correct.**\n\n**The Fast Way (15 seconds):** Combine like terms: $2x^2 + x^2 = 3x^2$, $x + 6x = 7x$, $-9 + 1 = -8$. Result: $3x^2 + 7x - 8$.\n\n**The Full Solution:**\n$(2x^2 + x - 9) + (x^2 + 6x + 1)$\n$= (2 + 1)x^2 + (1 + 6)x + (-9 + 1)$\n$= 3x^2 + 7x - 8$\n\n**Why the wrong answers are tempting:**\n• Choice B ($2x^4 + 7x - 8$): Multiplies the $x^2$ terms instead of adding coefficients.\n• Choice C ($3x^2 + 5x - 8$): Computes $x + 6x$ as $5x$ instead of $7x$ (possible if reading $x$ as $-x$).\n• Choice D ($3x^2 + 7x - 10$): Computes $-9 + 1$ as $-10$ instead of $-8$.\n\n**Test Day Takeaway:** When adding polynomials, add the coefficients of matching degree terms. Don't multiply exponents.",
-          skills: ["polynomial-operations"]
-        },
+// Practice Test 12 — Math Module 1
+// Theme: Comprehensive Mix (Capstone Difficulty)
+// 22 questions: Easy (1-5), Medium (6-14), Hard (15-22)
 
-        // ===== MEDIUM (Q8-Q13) =====
-        {
-          id: 8,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "A hiking equipment store charges a $\\$50$ base fee for trail guide services plus $\\$15$ per mile. A competing service charges no base fee but $\\$25$ per mile. For how many miles would the two services cost the same?",
-          choices: [
-            { id: "A", text: "$3$" },
-            { id: "B", text: "$5$" },
-            { id: "C", text: "$7$" },
-            { id: "D", text: "$10$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Setting Two Linear Expressions Equal**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** $50 + 15m = 25m$. $50 = 10m$. $m = 5$.\n\n**The Full Solution:**\nService 1: $50 + 15m$\nService 2: $25m$\nSet equal: $50 + 15m = 25m$\n$50 = 25m - 15m = 10m$\n$m = 5$\n\n**Why the wrong answers are tempting:**\n• Choice A ($3$): Service 1 costs $95$, Service 2 costs $75$ — not equal.\n• Choice C ($7$): Service 1 costs $155$, Service 2 costs $175$ — not equal.\n• Choice D ($10$): Service 1 costs $200$, Service 2 costs $250$ — not equal.\n\n**Verification:** Service 1: $50 + 15(5) = 125$. Service 2: $25(5) = 125$. Equal ✓\n\n**Test Day Takeaway:** \"Same cost\" means set the two expressions equal and solve for the variable.",
-          skills: ["linear-equations", "systems-of-equations"]
-        },
-        {
-          id: 9,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "The table below shows the results of a survey of $200$ hikers.\n\n| | Day Hike | Overnight | Total |\n|---|---|---|---|\n| Beginners | $65$ | $15$ | $80$ |\n| Experienced | $45$ | $75$ | $120$ |\n| Total | $110$ | $90$ | $200$ |\n\nWhat fraction of experienced hikers chose overnight hikes?",
-          choices: [
-            { id: "A", text: "$\\frac{75}{200}$" },
-            { id: "B", text: "$\\frac{75}{90}$" },
-            { id: "C", text: "$\\frac{75}{120}$" },
-            { id: "D", text: "$\\frac{120}{200}$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Conditional Probability from a Two-Way Table**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** \"Of experienced hikers\" restricts the denominator to experienced total $= 120$. Overnight experienced $= 75$. Fraction $= \\frac{75}{120} = \\frac{5}{8}$.\n\n**The Full Solution:**\n$P(\\text{overnight} | \\text{experienced}) = \\frac{75}{120} = \\frac{5}{8}$\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{75}{200}$): Uses the grand total — this is joint probability.\n• Choice B ($\\frac{75}{90}$): Uses overnight column total — answers \"of all overnight hikers, what fraction are experienced.\"\n• Choice D ($\\frac{120}{200}$): Fraction of all hikers who are experienced, ignoring hike type.\n\n**Test Day Takeaway:** \"Of [group]\" means the denominator is that group's row total, not the grand total.",
-          skills: ["probability", "two-way-tables"]
-        },
-        {
-          id: 10,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "An astronomer records the brightness of $5$ stars as $2.1$, $3.4$, $2.8$, $3.0$, and $3.7$ magnitudes. What is the mean brightness?",
-          choices: [
-            { id: "A", text: "$2.8$" },
-            { id: "B", text: "$3.0$" },
-            { id: "C", text: "$3.2$" },
-            { id: "D", text: "$3.4$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Calculating the Mean**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Sum $= 2.1 + 3.4 + 2.8 + 3.0 + 3.7 = 15.0$. Mean $= \\frac{15.0}{5} = 3.0$.\n\n**The Full Solution:**\nMean $= \\frac{2.1 + 3.4 + 2.8 + 3.0 + 3.7}{5} = \\frac{15.0}{5} = 3.0$\n\n**Why the wrong answers are tempting:**\n• Choice A ($2.8$): The median value, not the mean.\n• Choice C ($3.2$): An arithmetic error in the sum.\n• Choice D ($3.4$): The second-largest value.\n\n**Test Day Takeaway:** Mean $= \\frac{\\text{sum of all values}}{\\text{number of values}}$.",
-          skills: ["mean-median-mode", "statistics"]
-        },
-        {
-          id: 11,
-          type: "fill-in",
-          difficulty: "medium",
-          question: "If $3(2x - 5) = 4x + 1$, what is the value of $x$?",
-          correctAnswer: "8",
-          explanation: "**SAT Pattern: Linear Equation with Distribution**\n\n**The correct answer is $8$.**\n\n**The Fast Way (15 seconds):** $6x - 15 = 4x + 1$, so $2x = 16$ and $x = 8$.\n\n**The Full Solution:**\n$3(2x - 5) = 4x + 1$\n$6x - 15 = 4x + 1$\n$6x - 4x = 1 + 15$\n$2x = 16$\n$x = 8$\n\n**Common Mistakes to Avoid:**\n• Distributing incorrectly: $3(2x - 5) = 6x - 5$ (forgetting to multiply $-5$ by $3$).\n\n**Verification:** $3(2(8) - 5) = 3(16 - 5) = 3(11) = 33$. $4(8) + 1 = 32 + 1 = 33$. Both sides equal.\n\n**Test Day Takeaway:** Distribute first, then collect variable terms on one side.",
-          skills: ["linear-equations", "solving-equations"]
-        },
-        {
-          id: 12,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "At a camping event, $80$ people were surveyed about their preferred activity. The results are shown.\n\n| | Hiking | Fishing | Total |\n|---|---|---|---|\n| Adults | $25$ | $15$ | $40$ |\n| Teens | $20$ | $20$ | $40$ |\n| Total | $45$ | $35$ | $80$ |\n\nWhat fraction of adults prefer hiking?",
-          choices: [
-            { id: "A", text: "$\\frac{5}{16}$" },
-            { id: "B", text: "$\\frac{1}{2}$" },
-            { id: "C", text: "$\\frac{5}{8}$" },
-            { id: "D", text: "$\\frac{5}{9}$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Two-Way Table Conditional Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** Adults who hike $= 25$. Total adults $= 40$. Fraction $= \\frac{25}{40} = \\frac{5}{8}$.\n\n**The Full Solution:**\n$P(\\text{hiking} | \\text{adult}) = \\frac{25}{40} = \\frac{5}{8}$\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{5}{16}$): Divides $25$ by $80$ (total, not just adults).\n• Choice B ($\\frac{1}{2}$): Uses $\\frac{40}{80}$ (all adults out of total).\n• Choice D ($\\frac{5}{9}$): Uses $\\frac{25}{45}$ (adults who hike out of all hikers).\n\n**Test Day Takeaway:** \"Fraction of adults\" means the denominator is total adults, not the grand total.",
-          skills: ["two-way-tables", "probability"]
-        },
-        {
-          id: 13,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "The equation $2x - 3y = 12$ is graphed in the $xy$-plane. What is the $y$-intercept of this line?",
-          choices: [
-            { id: "A", text: "$(0, -4)$" },
-            { id: "B", text: "$(0, 4)$" },
-            { id: "C", text: "$(6, 0)$" },
-            { id: "D", text: "$(0, -6)$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Finding the $y$-intercept**\n\n**Choice A is correct.**\n\n**The Fast Way (10 seconds):** Set $x = 0$: $-3y = 12$, so $y = -4$. The $y$-intercept is $(0, -4)$.\n\n**The Full Solution:**\n$2(0) - 3y = 12$\n$-3y = 12$\n$y = -4$\n$y$-intercept: $(0, -4)$.\n\n**Why the wrong answers are tempting:**\n• Choice B ($(0, 4)$): Divides $12$ by $3$ but drops the negative.\n• Choice C ($(6, 0)$): This is the $x$-intercept.\n• Choice D ($(0, -6)$): Divides $12$ by $-2$ instead of $-3$.\n\n**Test Day Takeaway:** $y$-intercept: set $x = 0$ and solve for $y$.",
-          skills: ["linear-equations", "coordinate-geometry"]
-        },
-        // ===== HARD (Q14-Q15) =====
-        {
-          id: 14,
-          type: "fill-in",
-          difficulty: "hard",
-          question: "A system of equations is given:\n\n$4x + y = 23$\n$x - 2y = -1$\n\nWhat is the value of $x + y$?",
-          correctAnswer: "8",
-          explanation: "**SAT Pattern: System of Equations — Solve Then Compute an Expression**\n\n**The correct answer is $8$.**\n\n**The Fast Way (30 seconds):** From the second equation, $x = 2y - 1$. Substitute: $4(2y - 1) + y = 23$. $8y - 4 + y = 23$. $9y = 27$. $y = 3$. Then $x = 2(3) - 1 = 5$. So $x + y = 5 + 3 = 8$.\n\n**The Full Solution:**\n$x - 2y = -1 \\Rightarrow x = 2y - 1$\n$4(2y - 1) + y = 23$\n$8y - 4 + y = 23$\n$9y = 27$\n$y = 3$, $x = 5$\n$x + y = 8$\n\n**Common Mistakes to Avoid:**\n• Reporting just $x = 5$ or $y = 3$ instead of the sum.\n• Substitution error: using $x = 2y + 1$ instead of $x = 2y - 1$.\n\n**Verification:** $4(5) + 3 = 23$ ✓. $5 - 2(3) = -1$ ✓.\n\n**Test Day Takeaway:** Read what the question asks for. It may ask for $x + y$ rather than individual values.",
-          skills: ["systems-of-equations", "solving-equations"]
-        },
-        {
-          id: 15,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "A population of $500$ animals decreases by $12\\%$ each year. Which expression gives the population after $t$ years?",
-          choices: [
-            { id: "A", text: "$500(0.12)^t$" },
-            { id: "B", text: "$500(0.88)^t$" },
-            { id: "C", text: "$500 - 60t$" },
-            { id: "D", text: "$500(1.12)^t$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Exponential Decay Model**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** A $12\\%$ decrease means $88\\%$ of the population remains each year. Decay factor $= 1 - 0.12 = 0.88$. Model: $500(0.88)^t$.\n\n**The Full Solution:**\nDecay rate $= 12\\% = 0.12$\nDecay factor $= 1 - 0.12 = 0.88$\nPopulation after $t$ years $= 500(0.88)^t$\n\n**Why the wrong answers are tempting:**\n• Choice A ($500(0.12)^t$): Uses the decay rate as the base. After $1$ year this gives $60$, which is only $12\\%$ of $500$, not $88\\%$.\n• Choice C ($500 - 60t$): Linear decay of $60$ per year (a flat amount, not a percentage).\n• Choice D ($500(1.12)^t$): This is $12\\%$ growth, not decay.\n\n**Test Day Takeaway:** For decay, the base is $1 - \\text{rate}$. For growth, the base is $1 + \\text{rate}$.",
-          skills: ["exponential-functions"]
-        },
-
-        // ===== HARD (Q16-Q22) =====
-        {
-          id: 16,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "The function $f(x) = x^2 - 10x + 21$ can be rewritten as $f(x) = (x - h)^2 + k$. What is the value of $k$?",
-          choices: [
-            { id: "A", text: "$-4$" },
-            { id: "B", text: "$-3$" },
-            { id: "C", text: "$4$" },
-            { id: "D", text: "$21$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Converting to Vertex Form**\n\n**Choice A is correct.**\n\n**The Fast Way (20 seconds):** $h = \\frac{10}{2} = 5$. $k = f(5) = 25 - 50 + 21 = -4$.\n\n**The Full Solution:**\n$f(x) = x^2 - 10x + 21$\n$= (x^2 - 10x + 25) - 25 + 21$\n$= (x - 5)^2 - 4$\nSo $k = -4$.\n\n**Why the wrong answers are tempting:**\n• Choice B ($-3$): May come from factoring roots: $(x-3)(x-7)$ and confusing a root with $k$.\n• Choice C ($4$): Wrong sign.\n• Choice D ($21$): Uses the original constant without completing the square.\n\n**Test Day Takeaway:** To find $k$ in vertex form, complete the square or use $k = f\\left(\\frac{-b}{2a}\\right)$.",
-          skills: ["vertex-form", "quadratic-functions"]
-        },
-        {
-          id: 17,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "A cyclist's distance from home is modeled by $d(t) = -2t^2 + 16t$, where $t$ is in hours. At what time $t$ is the cyclist farthest from home?",
-          choices: [
-            { id: "A", text: "$2$" },
-            { id: "B", text: "$4$" },
-            { id: "C", text: "$8$" },
-            { id: "D", text: "$16$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Vertex of a Parabola (Maximum)**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $t = \\frac{-b}{2a} = \\frac{-16}{2(-2)} = \\frac{-16}{-4} = 4$.\n\n**The Full Solution:**\n$d(t) = -2t^2 + 16t$\nSince $a = -2 < 0$, the parabola opens downward (maximum).\n$t = \\frac{-16}{-4} = 4$ hours\n\n**Why the wrong answers are tempting:**\n• Choice A ($2$): Half of $4$, perhaps from $\\frac{16}{8}$.\n• Choice C ($8$): The time when the cyclist returns home ($d(8) = -128 + 128 = 0$).\n• Choice D ($16$): The coefficient of $t$, not the vertex.\n\n**Test Day Takeaway:** The maximum of $at^2 + bt$ (with $a < 0$) occurs at $t = \\frac{-b}{2a}$.",
-          skills: ["quadratic-functions", "vertex-form"]
-        },
-        {
-          id: 18,
-          type: "fill-in",
-          difficulty: "hard",
-          question: "The number of visible stars decreases by $10\\%$ each hour after sunset due to light pollution. If $300$ stars are visible at sunset, how many are visible $2$ hours later?",
-          correctAnswer: "243",
-          explanation: "**SAT Pattern: Exponential Decay**\n\n**The correct answer is $243$.**\n\n**The Fast Way (15 seconds):** After $1$ hour: $300 \\times 0.9 = 270$. After $2$ hours: $270 \\times 0.9 = 243$.\n\n**The Full Solution:**\n$S(t) = 300(0.9)^t$\n$S(2) = 300(0.9)^2 = 300(0.81) = 243$\n\n**Common Mistakes to Avoid:**\n• Subtracting $10\\%$ of the original each time: $300 - 30 - 30 = 240$ (linear instead of exponential).\n• Using $0.10$ instead of $0.90$ as the base.\n\n**Verification:** $300 \\to 270 \\to 243$. Each step is $90\\%$ of the previous. Correct.\n\n**Test Day Takeaway:** A $10\\%$ decrease means multiply by $0.90$ each period, not subtract a fixed amount.",
-          skills: ["exponential-functions", "percents"]
-        },
-        {
-          id: 19,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "The equation $x^2 + y^2 - 6x + 2y = 6$ represents a circle. What is the radius?",
-          choices: [
-            { id: "A", text: "$3$" },
-            { id: "B", text: "$4$" },
-            { id: "C", text: "$6$" },
-            { id: "D", text: "$16$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Completing the Square for Circle Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (25 seconds):** Complete the square: $(x^2 - 6x + 9) + (y^2 + 2y + 1) = 6 + 9 + 1 = 16$. So $r^2 = 16$ and $r = 4$.\n\n**The Full Solution:**\n$x^2 - 6x + y^2 + 2y = 6$\n$(x^2 - 6x + 9) + (y^2 + 2y + 1) = 6 + 9 + 1$\n$(x - 3)^2 + (y + 1)^2 = 16$\n$r = \\sqrt{16} = 4$\n\n**Why the wrong answers are tempting:**\n• Choice A ($3$): Half the coefficient of $x$.\n• Choice C ($6$): The original right-hand side.\n• Choice D ($16$): This is $r^2$, not $r$.\n\n**Test Day Takeaway:** Complete the square for $x$ and $y$, add the same values to both sides, then take the square root of the right side.",
-          skills: ["circle-equations", "circles"]
-        },
-        {
-          id: 20,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "For what value of $b$ does the equation $x^2 + bx + 9 = 0$ have exactly one real solution where $b > 0$?",
-          choices: [
-            { id: "A", text: "$3$" },
-            { id: "B", text: "$6$" },
-            { id: "C", text: "$9$" },
-            { id: "D", text: "$18$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Discriminant = 0**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** For one solution: $b^2 - 4ac = 0$. $b^2 - 4(1)(9) = 0$, so $b^2 = 36$ and $b = 6$ (since $b > 0$).\n\n**The Full Solution:**\n$b^2 - 4(1)(9) = 0$\n$b^2 - 36 = 0$\n$b^2 = 36$\n$b = \\pm 6$\nSince $b > 0$, $b = 6$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($3$): $9 - 36 = -27 < 0$, no real solutions.\n• Choice C ($9$): $81 - 36 = 45 > 0$, two solutions.\n• Choice D ($18$): $324 - 36 = 288 > 0$, two solutions.\n\n**Test Day Takeaway:** Exactly one solution means $b^2 - 4ac = 0$. Solve for the unknown parameter.",
-          skills: ["discriminant", "quadratic-equations"]
-        },
-        {
-          id: 21,
-          type: "fill-in",
-          difficulty: "hard",
-          question: "An event planner arranges chairs in rows. The first row has $8$ chairs and each subsequent row has $4$ more chairs than the previous row. If the last row has $32$ chairs, how many rows are there?",
-          correctAnswer: "7",
-          explanation: "**SAT Pattern: Arithmetic Sequence**\n\n**The correct answer is $7$.**\n\n**The Fast Way (10 seconds):** $a_n = a_1 + (n-1)d$. $32 = 8 + (n-1)(4)$. $24 = 4(n-1)$. $n - 1 = 6$. $n = 7$.\n\n**The Full Solution:**\n$a_n = 8 + (n-1) \\times 4$\n$32 = 8 + 4(n-1)$\n$24 = 4(n - 1)$\n$6 = n - 1$\n$n = 7$\n\n**Common Mistakes to Avoid:**\n• Getting $n = 6$ by forgetting the $+1$ (fencepost error).\n• Using $\\frac{32}{4} = 8$ or $\\frac{32 - 8}{4} = 6$.\n\n**Verification:** Row $7$: $8 + (7-1)(4) = 8 + 24 = 32$. Correct.\n\n**Test Day Takeaway:** In an arithmetic sequence, $n = \\frac{\\text{last} - \\text{first}}{\\text{difference}} + 1$.",
-          skills: ["word-problems", "algebraic-manipulation"]
-        },
-        {
-          id: 22,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "A right triangle has one leg of length $8$ and a hypotenuse of length $17$. What is the length of the other leg?",
-          choices: [
-            { id: "A", text: "$9$" },
-            { id: "B", text: "$12$" },
-            { id: "C", text: "$15$" },
-            { id: "D", text: "$\\sqrt{225}$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Pythagorean Theorem**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** $b = \\sqrt{17^2 - 8^2} = \\sqrt{289 - 64} = \\sqrt{225} = 15$.\n\n**The Full Solution:**\n$a^2 + b^2 = c^2$\n$64 + b^2 = 289$\n$b^2 = 225$\n$b = 15$\n\n**Why the wrong answers are tempting:**\n• Choice A ($9$): Computes $17 - 8$.\n• Choice B ($12$): A common Pythagorean triple leg, but $8^2 + 12^2 = 64 + 144 = 208 \\neq 289$.\n• Choice D ($\\sqrt{225}$): This equals $15$, so it's the same as C. The SAT would not list both, but the point is to recognize $\\sqrt{225} = 15$.\n\n**Test Day Takeaway:** $8$-$15$-$17$ is a Pythagorean triple. Know the common ones: $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$.",
-          skills: ["right-triangle-trig", "triangles"]
-        }
+{
+  id: 1,
+  type: "multiple-choice",
+  difficulty: "easy",
+  question: "A jar contains 60 marbles. If 40% of the marbles are blue, how many marbles are NOT blue?",
+  choices: [
+    { id: "A", text: "20" },
+    { id: "B", text: "24" },
+    { id: "C", text: "36" },
+    { id: "D", text: "40" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Percent Complement**\n\n**Choice C is correct.**\n\n**The Fast Way (10s):** If 40% are blue, then 60% are not blue. $0.60 \\times 60 = 36$.\n\n**The Full Solution:**\nBlue marbles: $0.40 \\times 60 = 24$. Not blue: $60 - 24 = 36$.\n\n**Why the wrong answers are tempting:**\n• A: Confuses 40% with $\\frac{40}{60}$ or uses the wrong total.\n• B: Computes the number of blue marbles, not the non-blue ones.\n• D: Uses 40 as the count (confusing percent with number).\n\n**Test Day Takeaway:** If you want the complement, use $100\\% - \\text{given}\\%$, or subtract the count from the total.",
+  skills: ["percents"]
+},
+{
+  id: 2,
+  type: "multiple-choice",
+  difficulty: "easy",
+  question: "The mean of five numbers is 14. If four of the numbers are 10, 12, 16, and 18, what is the fifth number?",
+  choices: [
+    { id: "A", text: "12" },
+    { id: "B", text: "14" },
+    { id: "C", text: "16" },
+    { id: "D", text: "10" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Find a Value from the Mean**\n\n**Choice B is correct.**\n\n**The Fast Way (15s):** Total must be $5 \\times 14 = 70$. Sum of four numbers: $10 + 12 + 16 + 18 = 56$. Fifth number: $70 - 56 = 14$.\n\n**The Full Solution:**\nMean $= \\frac{\\text{sum}}{n}$, so sum $= \\text{mean} \\times n = 14 \\times 5 = 70$.\nSum of known values: $10 + 12 + 16 + 18 = 56$.\nFifth number: $70 - 56 = 14$.\n\n**Why the wrong answers are tempting:**\n• A: Guesses the median of the four numbers.\n• C: Uses $72 - 56 = 16$ from a miscalculated total.\n• D: Picks the smallest existing number.\n\n**Test Day Takeaway:** Mean = total / count. Rearrange to find the total, then subtract the known values.",
+  skills: ["statistics"]
+},
+{
+  id: 3,
+  type: "multiple-choice",
+  difficulty: "easy",
+  question: "If $5x + 12 = 47$, what is the value of $x$?",
+  choices: [
+    { id: "A", text: "5" },
+    { id: "B", text: "7" },
+    { id: "C", text: "8" },
+    { id: "D", text: "9" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (5s):** $5x = 47 - 12 = 35$, so $x = 7$.\n\n**The Full Solution:**\n$5x + 12 = 47$\n$5x = 35$\n$x = 7$\n\nVerification: $5(7) + 12 = 35 + 12 = 47$ ✓.\n\n**Why the wrong answers are tempting:**\n• A: Divides 47 by 5 and rounds down.\n• C: Subtracts 7 instead of 12.\n• D: Adds 12 instead of subtracting, getting $5x = 59$.\n\n**Test Day Takeaway:** Isolate the variable by undoing operations in reverse order.",
+  skills: ["solving-equations"]
+},
+{
+  id: 4,
+  type: "multiple-choice",
+  difficulty: "easy",
+  question: "The ratio of cats to dogs at an animal shelter is $5:3$. If there are 40 cats, how many dogs are there?",
+  choices: [
+    { id: "A", text: "15" },
+    { id: "B", text: "20" },
+    { id: "C", text: "24" },
+    { id: "D", text: "30" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Ratio and Proportion**\n\n**Choice C is correct.**\n\n**The Fast Way (10s):** $\\frac{5}{3} = \\frac{40}{d}$. Cross-multiply: $5d = 120$, so $d = 24$.\n\n**The Full Solution:**\nThe ratio $5:3$ means for every 5 cats there are 3 dogs. The multiplier is $40 / 5 = 8$. So dogs $= 3 \\times 8 = 24$.\n\n**Why the wrong answers are tempting:**\n• A: Uses $40 \\times \\frac{3}{8}$ incorrectly.\n• B: Uses $40/2 = 20$, halving instead of using the ratio.\n• D: Uses $40 \\times \\frac{3}{4}$.\n\n**Test Day Takeaway:** Find the multiplier by dividing the known quantity by its ratio number, then multiply the other ratio number.",
+  skills: ["ratios"]
+},
+{
+  id: 5,
+  type: "multiple-choice",
+  difficulty: "easy",
+  question: "A function $h$ is defined by $h(x) = -2x + 9$. What is the value of $h(3)$?",
+  choices: [
+    { id: "A", text: "1" },
+    { id: "B", text: "3" },
+    { id: "C", text: "5" },
+    { id: "D", text: "15" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Function Evaluation**\n\n**Choice B is correct.**\n\n**The Fast Way (5s):** $h(3) = -2(3) + 9 = -6 + 9 = 3$.\n\n**The Full Solution:**\nSubstitute $x = 3$: $h(3) = -2(3) + 9 = -6 + 9 = 3$.\n\n**Why the wrong answers are tempting:**\n• A: Computes $-2(3) + 9 = -6 + 9$ but gets $-5 + 6 = 1$ by error.\n• C: Drops the negative: $2(3) + 9 = 15$, then realizes that is too big and guesses 5.\n• D: Computes $2(3) + 9 = 15$ (forgets the negative).\n\n**Test Day Takeaway:** Substitute carefully and watch negative signs.",
+  skills: ["function-interpretation"]
+},
+{
+  id: 6,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "\n\n| | Prefers Coffee | Prefers Tea | Total |\n|---|---|---|---|\n| Morning Shift | 45 | 30 | 75 |\n| Evening Shift | 35 | 40 | 75 |\n| Total | 80 | 70 | 150 |\n\nAn employee is chosen at random. Given that the employee prefers tea, what is the probability that the employee works the evening shift?",
+  choices: [
+    { id: "A", text: "$\\frac{40}{75}$" },
+    { id: "B", text: "$\\frac{40}{70}$" },
+    { id: "C", text: "$\\frac{40}{150}$" },
+    { id: "D", text: "$\\frac{30}{70}$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice B is correct.**\n\n**The Fast Way (10s):** \"Given prefers tea\" restricts to the Tea column (total 70). Evening shift and tea = 40. Probability $= \\frac{40}{70}$.\n\n**The Full Solution:**\n$P(\\text{Evening} \\mid \\text{Tea}) = \\frac{\\text{Evening AND Tea}}{\\text{Tea total}} = \\frac{40}{70}$.\n\nSimplified: $\\frac{40}{70} = \\frac{4}{7}$.\n\n**Why the wrong answers are tempting:**\n• A: Uses the Evening Shift row total (75) as the denominator.\n• C: Uses the grand total (150) as the denominator.\n• D: Gives $P(\\text{Morning} \\mid \\text{Tea})$ instead.\n\n**Test Day Takeaway:** The word \"given\" tells you the denominator. Restrict to that group first.",
+  skills: ["two-way-tables", "probability"]
+},
+{
+  id: 7,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "If $\\frac{x + 3}{4} = \\frac{2x - 1}{6}$, what is the value of $x$?",
+  choices: [
+    { id: "A", text: "7" },
+    { id: "B", text: "9" },
+    { id: "C", text: "11" },
+    { id: "D", text: "13" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Proportion with Linear Expressions**\n\n**Choice C is correct.**\n\n**The Fast Way (20s):** Cross-multiply: $6(x + 3) = 4(2x - 1)$, so $6x + 18 = 8x - 4$, giving $22 = 2x$, so $x = 11$.\n\n**The Full Solution:**\n$\\frac{x + 3}{4} = \\frac{2x - 1}{6}$\nCross-multiply: $6(x + 3) = 4(2x - 1)$\n$6x + 18 = 8x - 4$\n$18 + 4 = 8x - 6x$\n$22 = 2x$\n$x = 11$\n\nVerification: LHS $= \\frac{11 + 3}{4} = \\frac{14}{4} = \\frac{7}{2}$. RHS $= \\frac{2(11) - 1}{6} = \\frac{21}{6} = \\frac{7}{2}$. ✓\n\n**Why the wrong answers are tempting:**\n• A: Cross-multiplies incorrectly as $4(x+3) = 6(2x-1)$.\n• B: Arithmetic error when combining like terms.\n• D: Adds instead of subtracting when moving $6x$ to the right.\n\n**Test Day Takeaway:** Cross-multiply, distribute, then collect like terms.",
+  skills: ["solving-equations"]
+},
+{
+  id: 8,
+  type: "fill-in",
+  difficulty: "medium",
+  question: "A scatterplot shows data for 12 cities comparing population density ($x$, in thousands per square mile) and average commute time ($y$, in minutes). The line of best fit is $y = 4.2x + 15$. One city has a population density of 5 thousand per square mile and an actual average commute time of 32 minutes. What is the residual for this city?",
+  correctAnswer: "-4",
+  explanation: "**SAT Pattern: Residual Calculation**\n\nThe correct answer is $-4$.\n\n**Solution:**\nPredicted value at $x = 5$: $y = 4.2(5) + 15 = 21 + 15 = 36$.\nResidual = actual $-$ predicted = $32 - 36 = -4$.\nA negative residual means the actual value was below the prediction.\n\n**Verification:** $36 - 4 = 32$. ✓\n\n**Common Mistakes:**\n• Computing predicted $-$ actual ($36 - 32 = 4$) and getting a positive value.\n• Using the wrong $x$ value in the equation.",
+  skills: ["scatterplots", "statistics"]
+},
+{
+  id: 9,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "The function $f(t) = 2{,}400(0.92)^t$ models the value, in dollars, of a piece of equipment $t$ years after purchase. Which statement best describes the meaning of 0.92 in this context?",
+  choices: [
+    { id: "A", text: "The equipment loses 92% of its value each year." },
+    { id: "B", text: "The equipment retains 92% of its value each year." },
+    { id: "C", text: "The equipment was purchased for \\$0.92." },
+    { id: "D", text: "The equipment loses \\$0.92 in value each year." }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Interpret Exponential Base**\n\n**Choice B is correct.**\n\n**The Fast Way (10s):** The base $0.92$ means each year the value is $92\\%$ of the previous year's value. It retains 92% (loses 8%).\n\n**The Full Solution:**\nIn $f(t) = 2{,}400(0.92)^t$, the base 0.92 is the growth/decay factor. Since $0.92 < 1$, the function is decaying. Each year, the new value is $0.92$ times the old value, meaning 92% is retained and 8% is lost.\n\n**Why the wrong answers are tempting:**\n• A: Confuses retaining 92% with losing 92%.\n• C: Misidentifies the base as a dollar amount.\n• D: Treats the exponential model as a linear one.\n\n**Test Day Takeaway:** In $a \\cdot b^t$: if $b < 1$, the quantity decays; $b$ is the retention rate, and $1 - b$ is the loss rate.",
+  skills: ["exponential-functions", "function-interpretation"]
+},
+{
+  id: 10,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "A system of equations is shown below.\n\n$2x + 5y = 19$\n$3x - 2y = 0$\n\nWhat is the value of $x + y$?",
+  choices: [
+    { id: "A", text: "3" },
+    { id: "B", text: "5" },
+    { id: "C", text: "7" },
+    { id: "D", text: "9" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Systems of Linear Equations**\n\n**Choice B is correct.**\n\n**The Full Solution:**\nFrom $3x - 2y = 0$: $3x = 2y$, so $x = \\frac{2y}{3}$.\nSubstitute into $2x + 5y = 19$:\n$2 \\cdot \\frac{2y}{3} + 5y = 19$\n$\\frac{4y}{3} + 5y = 19$\n$\\frac{4y + 15y}{3} = 19$\n$\\frac{19y}{3} = 19$\n$y = 3$\n\nThen $x = \\frac{2(3)}{3} = 2$.\nSo $x + y = 2 + 3 = 5$.\n\nVerification: $2(2) + 5(3) = 4 + 15 = 19$ ✓. $3(2) - 2(3) = 6 - 6 = 0$ ✓.\n\n**Why the wrong answers are tempting:**\n• A: Gives just the value of $y$.\n• C: Adds wrong values or makes an arithmetic error.\n• D: Computes $19/2$ or a similar slip.\n\n**Test Day Takeaway:** When the question asks for a combination like $x + y$, solve the system fully first.",
+  skills: ["systems-of-equations"]
+},
+{
+  id: 11,
+  type: "fill-in",
+  difficulty: "medium",
+  question: "A triangle in the $xy$-plane has vertices at $(0, 0)$, $(8, 0)$, and $(3, 6)$. What is the area of the triangle?",
+  correctAnswer: "24",
+  explanation: "**SAT Pattern: Triangle Area from Coordinates**\n\nThe correct answer is $24$.\n\n**Solution:**\nThe base lies along the $x$-axis from $(0,0)$ to $(8,0)$, so the base $= 8$.\nThe height is the perpendicular distance from $(3, 6)$ to the $x$-axis, which is $6$.\n\nArea $= \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(8)(6) = 24$.\n\n**Verification:** Using the coordinate formula: $\\frac{1}{2}|x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2)|$\n$= \\frac{1}{2}|0(0 - 6) + 8(6 - 0) + 3(0 - 0)| = \\frac{1}{2}|0 + 48 + 0| = 24$. ✓\n\n**Common Mistakes:**\n• Forgetting the $\\frac{1}{2}$ factor: $8 \\times 6 = 48$.\n• Using the $x$-coordinate of the third vertex (3) as the height instead of the $y$-coordinate (6).",
+  skills: ["area", "coordinate-geometry"]
+},
+{
+  id: 12,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "If $f(x) = 3x - 7$ and $f(a) = 20$, what is the value of $a$?",
+  choices: [
+    { id: "A", text: "7" },
+    { id: "B", text: "8" },
+    { id: "C", text: "9" },
+    { id: "D", text: "10" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Solving via Function Notation**\n\n**Choice C is correct.**\n\n**The Fast Way (10s):** $3a - 7 = 20$, so $3a = 27$, giving $a = 9$.\n\n**The Full Solution:**\n$f(a) = 20$ means $3a - 7 = 20$.\n$3a = 27$\n$a = 9$\n\nVerification: $f(9) = 3(9) - 7 = 27 - 7 = 20$ ✓.\n\n**Why the wrong answers are tempting:**\n• A: Solves $3a = 21$ instead of $3a = 27$.\n• B: Uses $3a - 7 = 20 \\Rightarrow 3a = 24$.\n• D: Uses $2a = 20$.\n\n**Test Day Takeaway:** $f(a) = k$ just means replace $x$ with $a$ and solve.",
+  skills: ["function-interpretation", "solving-equations"]
+},
+{
+  id: 13,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "Two similar triangles have a scale factor of $3:5$. If the area of the smaller triangle is 27 square centimeters, what is the area of the larger triangle?",
+  choices: [
+    { id: "A", text: "45" },
+    { id: "B", text: "75" },
+    { id: "C", text: "108" },
+    { id: "D", text: "135" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Similar Triangles and Area Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (15s):** Area ratio = square of the linear scale factor $= (3/5)^2 = 9/25$. So $\\frac{27}{A} = \\frac{9}{25}$, giving $A = \\frac{27 \\times 25}{9} = 75$.\n\n**The Full Solution:**\nIf the linear scale factor is $k$, the area ratio is $k^2$.\nLinear ratio: $\\frac{\\text{small}}{\\text{large}} = \\frac{3}{5}$, so area ratio $= \\frac{9}{25}$.\n$\\frac{27}{\\text{large area}} = \\frac{9}{25}$\n$\\text{large area} = 27 \\times \\frac{25}{9} = 3 \\times 25 = 75$.\n\n**Why the wrong answers are tempting:**\n• A: Multiplies by $\\frac{5}{3}$ (linear scale, not area scale).\n• C: Squares only the numerator: $27 \\times 4 = 108$.\n• D: Multiplies $27 \\times 5 = 135$.\n\n**Test Day Takeaway:** Areas scale as the square of the linear factor. Perimeters scale linearly.",
+  skills: ["similar-triangles", "area", "ratios"]
+},
+{
+  id: 14,
+  type: "fill-in",
+  difficulty: "medium",
+  question: "If $4^{x+1} = 8^x$, what is the value of $x$?",
+  correctAnswer: "2",
+  explanation: "**SAT Pattern: Exponential Equation with Common Base**\n\nThe correct answer is $2$.\n\n**Solution:**\nRewrite with base 2: $4 = 2^2$ and $8 = 2^3$.\n$(2^2)^{x+1} = (2^3)^x$\n$2^{2(x+1)} = 2^{3x}$\n$2^{2x+2} = 2^{3x}$\n\nSince the bases are equal: $2x + 2 = 3x$, so $x = 2$.\n\n**Verification:** $4^{2+1} = 4^3 = 64$ and $8^2 = 64$. ✓\n\n**Common Mistakes:**\n• Writing $8 = 2^2$ instead of $2^3$.\n• Distributing incorrectly: $2(x+1) = 2x + 1$ instead of $2x + 2$.",
+  skills: ["exponent-rules", "solving-equations"]
+},
+{
+  id: 15,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "The equation $3x^2 + kx + 12 = 0$ has no real solutions. Which of the following could be the value of $k$?",
+  choices: [
+    { id: "A", text: "$-13$" },
+    { id: "B", text: "$-12$" },
+    { id: "C", text: "$11$" },
+    { id: "D", text: "$12$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Discriminant Inequality**\n\n**Choice C is correct.**\n\n**The Full Solution:**\nNo real solutions means discriminant $< 0$:\n$k^2 - 4(3)(12) < 0$\n$k^2 - 144 < 0$\n$k^2 < 144$\n$-12 < k < 12$\n\nCheck each choice:\n• A: $k = -13$. $|-13| = 13 > 12$. Not in range.\n• B: $k = -12$. $|-12| = 12$. Not strictly less than 12 (gives zero discriminant = one solution, not none).\n• C: $k = 11$. $|11| = 11 < 12$. In range. ✓\n• D: $k = 12$. $|12| = 12$. Not strictly less than 12.\n\nVerification: $k = 11$: discriminant $= 121 - 144 = -23 < 0$. ✓\n\n**Why the wrong answers are tempting:**\n• A: $k = -13$ gives $169 - 144 = 25 > 0$ (two real solutions).\n• B: $k = -12$ gives $144 - 144 = 0$ (exactly one solution, not none).\n• D: $k = 12$ also gives discriminant $= 0$.\n\n**Test Day Takeaway:** No real solutions means $b^2 - 4ac < 0$ (strictly less than zero).",
+  skills: ["quadratic-equations", "discriminant"]
+},
+{
+  id: 16,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "In the $xy$-plane, the graph of $y = x^2 - 10x + 21$ crosses the $x$-axis at points $A$ and $B$. What is the length of $\\overline{AB}$?",
+  choices: [
+    { id: "A", text: "2" },
+    { id: "B", text: "4" },
+    { id: "C", text: "6" },
+    { id: "D", text: "10" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Distance Between x-Intercepts**\n\n**Choice B is correct.**\n\n**The Full Solution:**\nFind the $x$-intercepts by factoring: $x^2 - 10x + 21 = 0$.\n$(x - 3)(x - 7) = 0$\n$x = 3$ or $x = 7$.\n\nThe points are $A = (3, 0)$ and $B = (7, 0)$.\nDistance $= |7 - 3| = 4$.\n\nVerification: $3^2 - 10(3) + 21 = 9 - 30 + 21 = 0$ ✓. $7^2 - 10(7) + 21 = 49 - 70 + 21 = 0$ ✓.\n\n**Why the wrong answers are tempting:**\n• A: Miscalculates one root as 5.\n• C: Uses the sum of roots ($3 + 7 = 10$) minus something.\n• D: Uses the sum of the roots instead of the difference.\n\n**Test Day Takeaway:** Factor the quadratic to find the roots, then subtract to find the distance between $x$-intercepts.",
+  skills: ["quadratic-equations", "factoring", "coordinate-geometry"]
+},
+{
+  id: 17,
+  type: "fill-in",
+  difficulty: "hard",
+  question: "If $\\sqrt{5x + 11} = x + 1$, what is the sum of all real solutions?",
+  correctAnswer: "5",
+  explanation: "**SAT Pattern: Radical Equation with Potential Extraneous Solution**\n\nThe correct answer is $5$.\n\n**Solution:**\nSquare both sides: $5x + 11 = (x + 1)^2 = x^2 + 2x + 1$\n$x^2 + 2x + 1 - 5x - 11 = 0$\n$x^2 - 3x - 10 = 0$\n$(x - 5)(x + 2) = 0$\n$x = 5$ or $x = -2$\n\nCheck for extraneous solutions:\n$x = 5$: $\\sqrt{25 + 11} = \\sqrt{36} = 6$ and $5 + 1 = 6$. ✓\n$x = -2$: $\\sqrt{-10 + 11} = \\sqrt{1} = 1$ and $-2 + 1 = -1$. Since $1 \\neq -1$, this is extraneous. ✗\n\nOnly $x = 5$ is valid, so the sum of all real solutions is $5$.\n\n**Common Mistakes:**\n• Including $x = -2$ without checking: sum would be $3$ (incorrect).\n• Squaring incorrectly: $(x+1)^2 = x^2 + 1$ (missing the $2x$ term).",
+  skills: ["radical-expressions", "solving-equations"]
+},
+{
+  id: 18,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "The expression $\\frac{(2x^3y^{-2})^3 \\cdot (3x^{-1}y^4)^2}{12x^5y^2}$ simplifies to which of the following?",
+  choices: [
+    { id: "A", text: "$6x^2y^4$" },
+    { id: "B", text: "$6x^{-2}y^4$" },
+    { id: "C", text: "$6y^2$" },
+    { id: "D", text: "$6x^2$" }
+  ],
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Complex Exponent Simplification**\n\n**Choice D is correct.**\n\n**The Full Solution:**\n$(2x^3y^{-2})^3 = 2^3 x^{9} y^{-6} = 8x^9y^{-6}$\n$(3x^{-1}y^4)^2 = 9x^{-2}y^8$\n\nNumerator product: $8x^9y^{-6} \\cdot 9x^{-2}y^8 = 72x^{9+(-2)}y^{-6+8} = 72x^7y^2$.\n\nDivide by $12x^5y^2$:\n$\\frac{72x^7y^2}{12x^5y^2} = 6x^{7-5}y^{2-2} = 6x^2$.\n\n**Why the wrong answers are tempting:**\n• A: Miscalculates the $y$ exponents, keeping $y^4$ instead of $y^0$.\n• B: Subtracts $x$ exponents as $7 - 9$ instead of $7 - 5$.\n• C: Gets the coefficient and $y$ exponent wrong.\n\n**Test Day Takeaway:** Simplify one piece at a time: apply power-of-a-product, then combine with multiplication, then divide. Track each variable separately.",
+  skills: ["exponent-rules"]
+},
+{
+  id: 19,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "The quadratic function $g(x) = ax^2 + bx + c$ has roots at $x = -1$ and $x = 5$, and its maximum value is 18. What is the value of $a$?",
+  choices: [
+    { id: "A", text: "$-3$" },
+    { id: "B", text: "$-2$" },
+    { id: "C", text: "$2$" },
+    { id: "D", text: "$3$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Quadratic from Roots and Vertex Constraint**\n\n**Choice B is correct.**\n\n**The Full Solution:**\nRoots at $x = -1$ and $x = 5$ mean $g(x) = a(x + 1)(x - 5)$.\nThe vertex $x$-coordinate is the midpoint of the roots: $\\frac{-1 + 5}{2} = 2$.\n\nAt the vertex: $g(2) = a(2 + 1)(2 - 5) = a(3)(-3) = -9a$.\nSince the maximum value is 18: $-9a = 18$, so $a = -2$.\n\nNote: $a < 0$ confirms the parabola opens downward, so a maximum exists. ✓\n\nVerification: $g(x) = -2(x + 1)(x - 5) = -2(x^2 - 4x - 5) = -2x^2 + 8x + 10$.\n$g(2) = -8 + 16 + 10 = 18$ ✓. $g(-1) = -2 + (-8) + 10 = 0$ ✓. $g(5) = -50 + 40 + 10 = 0$ ✓.\n\n**Why the wrong answers are tempting:**\n• A: Uses vertex at $x = 3$ instead of $x = 2$.\n• C: Positive $a$ would give a minimum, not a maximum.\n• D: Same issue as C, plus miscalculation.\n\n**Test Day Takeaway:** From roots, write factored form. The vertex is at the midpoint of the roots. Plug in to find $a$.",
+  skills: ["quadratic-equations", "vertex-form"]
+},
+{
+  id: 20,
+  type: "fill-in",
+  difficulty: "hard",
+  question: "In the $xy$-plane, the circle $x^2 + y^2 - 6x + 4y = 12$ has center $(h, k)$ and radius $r$. What is the value of $h + k + r$?",
+  correctAnswer: "6",
+  explanation: "**SAT Pattern: Circle Equation — Completing the Square**\n\nThe correct answer is $6$.\n\n**Solution:**\nGroup and complete the square:\n$(x^2 - 6x) + (y^2 + 4y) = 12$\n$(x^2 - 6x + 9) + (y^2 + 4y + 4) = 12 + 9 + 4$\n$(x - 3)^2 + (y + 2)^2 = 25$\n\nCenter: $(h, k) = (3, -2)$, radius $r = 5$.\n$h + k + r = 3 + (-2) + 5 = 6$.\n\n**Verification:** $(x - 3)^2 + (y + 2)^2 = 25$. Expand: $x^2 - 6x + 9 + y^2 + 4y + 4 = 25$, so $x^2 + y^2 - 6x + 4y = 25 - 13 = 12$ ✓.\n\n**Common Mistakes:**\n• Forgetting to add the completing-the-square constants to both sides.\n• Writing the center as $(3, 2)$ instead of $(3, -2)$ from $(y + 2)^2$.\n• Using $r = 25$ (the $r^2$ value) instead of $r = 5$.",
+  skills: ["circle-equations", "coordinate-geometry"]
+},
+{
+  id: 21,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "For what value of $m$ does the system below have infinitely many solutions?\n\n$6x - 9y = 12$\n$-2x + 3y = m$",
+  choices: [
+    { id: "A", text: "$-6$" },
+    { id: "B", text: "$-4$" },
+    { id: "C", text: "$4$" },
+    { id: "D", text: "$6$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Infinitely Many Solutions (Dependent System)**\n\n**Choice B is correct.**\n\n**The Full Solution:**\nFor infinitely many solutions, the two equations must be proportional (one is a multiple of the other).\n\nCompare: $6x - 9y = 12$ and $-2x + 3y = m$.\nMultiply the second equation by $-3$: $6x - 9y = -3m$.\nFor this to equal the first equation: $-3m = 12$, so $m = -4$.\n\nVerification: With $m = -4$: $-2x + 3y = -4$, multiply by $-3$: $6x - 9y = 12$ ✓. Same line.\n\n**Why the wrong answers are tempting:**\n• A: Uses multiplier of $-2$ instead of $-3$.\n• C: Drops the negative sign: $3m = 12$.\n• D: Uses a multiplier of 2 from comparing individual terms incorrectly.\n\n**Test Day Takeaway:** Infinitely many solutions means the equations represent the same line. Make one equation a constant multiple of the other.",
+  skills: ["systems-of-equations", "linear-functions"]
+},
+{
+  id: 22,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "In the $xy$-plane, a parabola with equation $y = a(x - h)^2 + k$, where $a < 0$, has its vertex in the first quadrant and passes through the origin and the point $(8, 0)$. If the maximum value of $y$ is 48, what is the value of $h + k$?",
+  choices: [
+    { id: "A", text: "48" },
+    { id: "B", text: "52" },
+    { id: "C", text: "56" },
+    { id: "D", text: "64" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Vertex Form with Root and Maximum Constraints**\n\n**Choice B is correct.**\n\n**The Full Solution:**\nThe parabola passes through $(0, 0)$ and $(8, 0)$, so its $x$-intercepts are $0$ and $8$.\nThe vertex $x$-coordinate is the midpoint: $h = \\frac{0 + 8}{2} = 4$.\nSince $a < 0$, the parabola opens downward, so the vertex gives the maximum. Thus $k = 48$.\n\nNow find $a$: at $x = 0$, $y = 0$:\n$0 = a(0 - 4)^2 + 48 = 16a + 48$\n$a = -3$.\n\nSo $h + k = 4 + 48 = 52$.\n\nVerification: $y = -3(x-4)^2 + 48$.\nAt $x = 0$: $-3(16) + 48 = -48 + 48 = 0$ ✓.\nAt $x = 8$: $-3(16) + 48 = 0$ ✓.\nMaximum at $x = 4$: $y = 48$ ✓.\n\n**Why the wrong answers are tempting:**\n• A: Gives just $k = 48$, forgetting to add $h$.\n• C: Uses $h = 8$ (an endpoint instead of the midpoint).\n• D: Adds $16 + 48 = 64$, confusing $h^2$ with $h$.\n\n**Test Day Takeaway:** The vertex of a parabola with roots $r_1$ and $r_2$ is at $x = \\frac{r_1 + r_2}{2}$. The $k$ value in vertex form is the max or min.",
+  skills: ["vertex-form", "quadratic-equations", "coordinate-geometry"]
+}
       ]
     },
     {

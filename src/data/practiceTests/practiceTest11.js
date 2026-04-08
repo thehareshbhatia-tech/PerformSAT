@@ -15,313 +15,310 @@ export const practiceTest11 = {
       title: "Module 1",
       timeLimit: 35,
       questions: [
-        // ===== EASY (Q1-Q5) =====
-        {
-          id: 1,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "A renewable energy company tracked solar panel installations over $5$ months.\n\n| Month | Panels Installed |\n|---|---|\n| January | $45$ |\n| February | $60$ |\n| March | $55$ |\n| April | $80$ |\n| May | $60$ |\n| **Total** | **$300$** |\n\nWhat percentage of the total panels were installed in April?",
-          choices: [
-            { id: "A", text: "$20\\%$" },
-            { id: "B", text: "$\\frac{80}{300}\\%$" },
-            { id: "C", text: "$\\frac{4}{15} \\approx 26.7\\%$" },
-            { id: "D", text: "$80\\%$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Percentage from a Data Table**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** $\\frac{80}{300} = \\frac{4}{15} \\approx 26.7\\%$.\n\n**The Full Solution:**\nApril panels $= 80$. Total $= 300$.\nPercentage $= \\frac{80}{300} \\times 100\\% = \\frac{4}{15} \\times 100\\% \\approx 26.7\\%$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($20\\%$): $\\frac{60}{300} = 20\\%$ — this is February's or May's share.\n• Choice B: Writes the fraction as a percent incorrectly (doesn't multiply by $100$).\n• Choice D ($80\\%$): Uses the raw count $80$ as a percentage.\n\n**Test Day Takeaway:** Percentage $= \\frac{\\text{part}}{\\text{total}} \\times 100$. Read the total from the table, don't use the count directly as a percent.",
-          skills: ["percents", "statistics"]
-        },
-        {
-          id: 2,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "The function $C(t) = 150 + 25t$ gives the total cost, in dollars, of a pet grooming membership after $t$ months. What does the number $25$ represent?",
-          choices: [
-            { id: "A", text: "The one-time signup fee" },
-            { id: "B", text: "The monthly cost" },
-            { id: "C", text: "The total cost after $25$ months" },
-            { id: "D", text: "The number of grooming sessions" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Interpreting the Slope of a Linear Function**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** In $C(t) = 150 + 25t$, the coefficient of $t$ is the rate of change: $\\$25$ per month.\n\n**The Full Solution:**\nIn $C(t) = 150 + 25t$:\n• $150$ is the initial value ($y$-intercept), which represents the signup fee.\n• $25$ is the slope (coefficient of $t$), which represents the cost per month.\n\n**Why the wrong answers are tempting:**\n• Choice A: The signup fee is $150$, not $25$.\n• Choice C: The total at $25$ months would be $C(25) = 150 + 25(25) = 775$.\n• Choice D: Nothing in the function describes the number of sessions.\n\n**Test Day Takeaway:** In $f(t) = b + mt$, the slope $m$ is always the rate of change (per unit of $t$).",
-          skills: ["linear-functions", "function-interpretation"]
-        },
-        {
-          id: 3,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "An archaeologist cataloged artifacts found at a dig site.\n\n| Type | Count |\n|---|---|\n| Pottery | $36$ |\n| Tools | $24$ |\n| Jewelry | $12$ |\n| Bones | $48$ |\n| **Total** | **$120$** |\n\nWhat fraction of the artifacts were tools?",
-          choices: [
-            { id: "A", text: "$\\frac{1}{6}$" },
-            { id: "B", text: "$\\frac{1}{5}$" },
-            { id: "C", text: "$\\frac{1}{4}$" },
-            { id: "D", text: "$\\frac{2}{5}$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Reading a Data Table to Compute a Fraction**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $\\frac{24}{120} = \\frac{1}{5}$.\n\n**The Full Solution:**\nTools $= 24$. Total $= 120$.\n$\\frac{24}{120} = \\frac{1}{5}$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{1}{6}$): This would be $\\frac{20}{120}$, not $\\frac{24}{120}$.\n• Choice C ($\\frac{1}{4}$): This is $\\frac{30}{120}$ — confusing tools with pottery count.\n• Choice D ($\\frac{2}{5}$): This is $\\frac{48}{120}$ — the bones fraction.\n\n**Test Day Takeaway:** Read the exact row from the table and use the total row for the denominator.",
-          skills: ["ratios-proportions", "statistics"]
-        },
-        {
-          id: 4,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "A pet store owner estimates that the weekly cost of running the store is $4$ more than $6$ times the number of animals boarded. If $n$ animals are boarded, which expression represents the weekly cost in hundreds of dollars?",
-          choices: [
-            { id: "A", text: "$4n + 6$" },
-            { id: "B", text: "$6n + 4$" },
-            { id: "C", text: "$6(n + 4)$" },
-            { id: "D", text: "$4(n + 6)$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Translating Words to an Algebraic Expression**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** \"$6$ times $n$\" $= 6n$. \"$4$ more than that\" $= 6n + 4$.\n\n**The Full Solution:**\nParse the sentence step by step:\n• \"$6$ times the number of animals boarded\" $\\rightarrow 6n$\n• \"$4$ more than $6n$\" $\\rightarrow 6n + 4$\n\n**Why the wrong answers are tempting:**\n• Choice A ($4n + 6$): Swaps the multiplier and the addend.\n• Choice C ($6(n + 4)$): Adds $4$ inside the multiplication, giving $6n + 24$ instead of $6n + 4$.\n• Choice D ($4(n + 6)$): Reverses everything.\n\n**Test Day Takeaway:** \"$k$ more than\" means $+ k$ (added after). \"$k$ times\" means $\\times k$ (multiplied first).",
-          skills: ["word-problems", "linear-equations"]
-        },
-        // ===== EASY-MEDIUM (Q5-Q7) =====
-        {
-          id: 5,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "A printing company charges $\\$0.08$ per page for black-and-white printing and $\\$0.25$ per page for color printing. A customer prints $200$ black-and-white pages and $50$ color pages. What is the total cost?",
-          choices: [
-            { id: "A", text: "$\\$16.00$" },
-            { id: "B", text: "$\\$28.50$" },
-            { id: "C", text: "$\\$20.00$" },
-            { id: "D", text: "$\\$41.50$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Two-Part Cost Calculation**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** B&W: $200 \\times 0.08 = 16$. Color: $50 \\times 0.25 = 12.50$. Total: $16 + 12.50 = 28.50$.\n\n**The Full Solution:**\nBlack-and-white cost $= 200 \\times 0.08 = \\$16.00$\nColor cost $= 50 \\times 0.25 = \\$12.50$\nTotal $= \\$16.00 + \\$12.50 = \\$28.50$\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\$16.00$): Only the B&W cost, ignoring color.\n• Choice C ($\\$20.00$): May compute $250 \\times 0.08$ (adding all pages at the B&W rate).\n• Choice D ($\\$41.50$): Uses an incorrect calculation mixing up rates.\n\n**Test Day Takeaway:** Compute each part separately, then add. Don't mix up the rates.",
-          skills: ["word-problems"]
-        },
-        {
-          id: 6,
-          type: "fill-in",
-          difficulty: "medium",
-          question: "The equation $n^2 + 19 = 100$ is true for $n > 0$. What is the value of $n$?",
-          correctAnswer: "9",
-          explanation: "**SAT Pattern: Solving a Quadratic for a Positive Root**\n\n**The correct answer is $9$.**\n\n**The Fast Way (10 seconds):** $n^2 = 100 - 19 = 81$. Since $n > 0$, $n = \\sqrt{81} = 9$.\n\n**The Full Solution:**\n$n^2 + 19 = 100$\n$n^2 = 81$\n$n = \\pm 9$\nSince $n > 0$, $n = 9$.\n\n**Common Mistakes to Avoid:**\n• Computing $100 + 19 = 119$ instead of $100 - 19 = 81$.\n• Reporting $81$ instead of $\\sqrt{81} = 9$.\n• Choosing $n = -9$ (violates $n > 0$).\n\n**Verification:** $9^2 + 19 = 81 + 19 = 100$ ✓\n\n**Test Day Takeaway:** Isolate the squared term, then take the square root. Check the sign restriction.",
-          skills: ["quadratic-equations", "solving-equations"]
-        },
-        {
-          id: 7,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "Which of the following is equivalent to $(4x^2 - 3x + 7) + (2x^2 + 5x - 2)$?",
-          choices: [
-            { id: "A", text: "$6x^2 + 2x + 5$" },
-            { id: "B", text: "$8x^4 + 2x + 5$" },
-            { id: "C", text: "$6x^2 - 8x + 5$" },
-            { id: "D", text: "$6x^2 + 2x + 9$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Adding Polynomials**\n\n**Choice A is correct.**\n\n**The Fast Way (15 seconds):** Combine like terms: $4x^2 + 2x^2 = 6x^2$, $-3x + 5x = 2x$, $7 + (-2) = 5$. Result: $6x^2 + 2x + 5$.\n\n**The Full Solution:**\n$(4x^2 - 3x + 7) + (2x^2 + 5x - 2)$\n$= (4 + 2)x^2 + (-3 + 5)x + (7 - 2)$\n$= 6x^2 + 2x + 5$\n\n**Why the wrong answers are tempting:**\n• Choice B ($8x^4 + 2x + 5$): Multiplies the $x^2$ terms instead of adding coefficients.\n• Choice C ($6x^2 - 8x + 5$): Adds $-3x$ and $-5x$ (wrong sign on $5x$).\n• Choice D ($6x^2 + 2x + 9$): Computes $7 + 2 = 9$ instead of $7 + (-2) = 5$.\n\n**Test Day Takeaway:** When adding polynomials, add coefficients of terms with the same degree. Don't multiply exponents.",
-          skills: ["polynomial-operations"]
-        },
+// Practice Test 11 — Math Module 1
+// Theme: Coordinate Geometry + Exponentials
+// 22 questions: Easy (1-5), Medium (6-14), Hard (15-22)
 
-        // ===== MEDIUM (Q8-Q13) =====
-        {
-          id: 8,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "A solar installation company charges a $\\$500$ base fee plus $\\$75$ per panel installed. A competing company charges no base fee but $\\$125$ per panel. For how many panels would the two companies charge the same total amount?",
-          choices: [
-            { id: "A", text: "$5$" },
-            { id: "B", text: "$8$" },
-            { id: "C", text: "$10$" },
-            { id: "D", text: "$12$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Setting Two Linear Expressions Equal**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** $500 + 75p = 125p$. $500 = 50p$. $p = 10$.\n\n**The Full Solution:**\nCompany 1: $500 + 75p$\nCompany 2: $125p$\nSet equal: $500 + 75p = 125p$\n$500 = 125p - 75p = 50p$\n$p = 10$\n\n**Why the wrong answers are tempting:**\n• Choice A ($5$): Company 1 costs $875$, Company 2 costs $625$ — not equal.\n• Choice B ($8$): Company 1 costs $1{,}100$, Company 2 costs $1{,}000$ — not equal.\n• Choice D ($12$): Company 1 costs $1{,}400$, Company 2 costs $1{,}500$ — not equal.\n\n**Verification:** Company 1: $500 + 75(10) = 1{,}250$. Company 2: $125(10) = 1{,}250$. Equal ✓\n\n**Test Day Takeaway:** \"Same cost\" means set the two expressions equal and solve for the variable.",
-          skills: ["linear-equations", "systems-of-equations"]
-        },
-        {
-          id: 9,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "The table below shows the results of a survey of $150$ pet owners.\n\n| | Indoor | Outdoor | Total |\n|---|---|---|---|\n| Cat owners | $55$ | $20$ | $75$ |\n| Dog owners | $30$ | $45$ | $75$ |\n| Total | $85$ | $65$ | $150$ |\n\nWhat fraction of dog owners keep their pets outdoors?",
-          choices: [
-            { id: "A", text: "$\\frac{45}{150}$" },
-            { id: "B", text: "$\\frac{45}{65}$" },
-            { id: "C", text: "$\\frac{45}{75}$" },
-            { id: "D", text: "$\\frac{75}{150}$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Conditional Probability from a Two-Way Table**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** \"Of dog owners\" restricts the denominator to dog owner total $= 75$. Outdoor dog owners $= 45$. Fraction $= \\frac{45}{75} = \\frac{3}{5}$.\n\n**The Full Solution:**\n$P(\\text{outdoor} | \\text{dog owner}) = \\frac{45}{75} = \\frac{3}{5}$\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{45}{150}$): Uses the grand total — this is joint probability, not conditional.\n• Choice B ($\\frac{45}{65}$): Uses the outdoor column total — this answers \"of outdoor pets, what fraction are dogs.\"\n• Choice D ($\\frac{75}{150}$): Fraction of all owners who have dogs, ignoring indoor/outdoor.\n\n**Test Day Takeaway:** \"Of [group]\" means the denominator is that group's total. \"Of all\" means the grand total.",
-          skills: ["probability", "two-way-tables"]
-        },
-        {
-          id: 10,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "In a survey of $200$ pet owners, $110$ own dogs, $70$ own cats, and $30$ own both dogs and cats. How many pet owners own neither a dog nor a cat?",
-          choices: [
-            { id: "A", text: "$20$" },
-            { id: "B", text: "$30$" },
-            { id: "C", text: "$50$" },
-            { id: "D", text: "$80$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Inclusion-Exclusion / Venn Diagram**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** At least one pet $= 110 + 70 - 30 = 150$. Neither $= 200 - 150 = 50$.\n\n**The Full Solution:**\nUsing inclusion-exclusion:\nDog or cat $= 110 + 70 - 30 = 150$\nNeither $= 200 - 150 = 50$\n\n**Why the wrong answers are tempting:**\n• Choice A ($20$): Subtracts $200 - 110 - 70 = 20$, forgetting to add back the overlap.\n• Choice B ($30$): Uses the overlap count as the answer.\n• Choice D ($80$): Computation error such as $200 - (110 + 70) + 30 - 30$.\n\n**Test Day Takeaway:** Inclusion-exclusion: $|A \\cup B| = |A| + |B| - |A \\cap B|$. Then subtract from the total to find \"neither.\"",
-          skills: ["probability", "two-way-tables"]
-        },
-        {
-          id: 11,
-          type: "fill-in",
-          difficulty: "medium",
-          question: "If $4(x + 3) = 2(x + 9)$, what is the value of $x$?",
-          correctAnswer: "3",
-          explanation: "**SAT Pattern: Distributive Property Equation**\n\n**The correct answer is $3$.**\n\n**The Fast Way (15 seconds):** $4x + 12 = 2x + 18$, so $2x = 6$ and $x = 3$.\n\n**The Full Solution:**\n$4(x + 3) = 2(x + 9)$\n$4x + 12 = 2x + 18$\n$4x - 2x = 18 - 12$\n$2x = 6$\n$x = 3$\n\n**Common Mistakes to Avoid:**\n• Distributing incorrectly: $4(x+3) = 4x + 3$ (forgetting to multiply $3$ by $4$).\n\n**Verification:** $4(3 + 3) = 4(6) = 24$. $2(3 + 9) = 2(12) = 24$. Both sides equal.\n\n**Test Day Takeaway:** Distribute on both sides, then collect like terms.",
-          skills: ["linear-equations", "solving-equations"]
-        },
-        {
-          id: 12,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "An archaeological site is divided into a grid. Artifacts are found at the coordinates $(2, 1)$, $(6, 1)$, $(6, 4)$, and $(2, 4)$. What is the area of the rectangular region containing these artifacts?",
-          choices: [
-            { id: "A", text: "$8$" },
-            { id: "B", text: "$12$" },
-            { id: "C", text: "$14$" },
-            { id: "D", text: "$16$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Area from Coordinates**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** Length $= 6 - 2 = 4$, width $= 4 - 1 = 3$. Area $= 4 \\times 3 = 12$.\n\n**The Full Solution:**\nThe rectangle has vertices at $(2,1)$, $(6,1)$, $(6,4)$, $(2,4)$.\nLength $= 6 - 2 = 4$\nWidth $= 4 - 1 = 3$\nArea $= 4 \\times 3 = 12$\n\n**Why the wrong answers are tempting:**\n• Choice A ($8$): Uses $4 \\times 2$.\n• Choice C ($14$): Computes the perimeter ($2 \\times 4 + 2 \\times 3 = 14$).\n• Choice D ($16$): Uses $4 \\times 4$.\n\n**Test Day Takeaway:** For a rectangle on a grid, find the side lengths by subtracting coordinates, then multiply.",
-          skills: ["area", "coordinate-geometry"]
-        },
-        {
-          id: 13,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "The table shows values of a linear function $g$.\n\n| $x$ | $g(x)$ |\n|---|---|\n| $1$ | $7$ |\n| $3$ | $13$ |\n| $5$ | $19$ |\n\nWhich equation defines $g(x)$?",
-          choices: [
-            { id: "A", text: "$g(x) = 3x + 4$" },
-            { id: "B", text: "$g(x) = 3x + 7$" },
-            { id: "C", text: "$g(x) = 6x + 1$" },
-            { id: "D", text: "$g(x) = 7x$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Linear Function from Table**\n\n**Choice A is correct.**\n\n**The Fast Way (15 seconds):** Slope $= \\frac{13 - 7}{3 - 1} = \\frac{6}{2} = 3$. Using $(1, 7)$: $7 = 3(1) + b$, so $b = 4$. $g(x) = 3x + 4$.\n\n**The Full Solution:**\n$m = \\frac{\\Delta y}{\\Delta x} = \\frac{13 - 7}{3 - 1} = \\frac{6}{2} = 3$\n$g(x) = 3x + b$\n$7 = 3(1) + b \\Rightarrow b = 4$\n$g(x) = 3x + 4$\n\n**Why the wrong answers are tempting:**\n• Choice B ($3x + 7$): Uses $(0, 7)$ as if $g(0) = 7$, but $g(1) = 7$.\n• Choice C ($6x + 1$): Uses the $\\Delta y = 6$ as the slope without dividing by $\\Delta x = 2$.\n• Choice D ($7x$): Uses the first output value as the slope.\n\n**Test Day Takeaway:** Find slope from two rows, then use a point to find the $y$-intercept.",
-          skills: ["linear-functions", "slope"]
-        },
-        // ===== HARD (Q14-Q15) =====
-        {
-          id: 14,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "A renewable energy fund starts with $\\$2{,}000$ and earns $8\\%$ interest compounded annually. Which expression gives the value of the fund after $t$ years?",
-          choices: [
-            { id: "A", text: "$2000 + 0.08t$" },
-            { id: "B", text: "$2000(0.08)^t$" },
-            { id: "C", text: "$2000(1.08)^t$" },
-            { id: "D", text: "$2000(0.92)^t$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Exponential Growth Model**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** Growth of $8\\%$ means the fund is multiplied by $1 + 0.08 = 1.08$ each year. Model: $2000(1.08)^t$.\n\n**The Full Solution:**\nGrowth rate $= 8\\% = 0.08$\nGrowth factor $= 1 + 0.08 = 1.08$\nValue after $t$ years $= 2000(1.08)^t$\n\n**Why the wrong answers are tempting:**\n• Choice A ($2000 + 0.08t$): This is linear growth of $\\$0.08$ per year, not compound interest.\n• Choice B ($2000(0.08)^t$): Uses the rate as the base; after $1$ year this gives $160$, losing almost all value.\n• Choice D ($2000(0.92)^t$): This is $8\\%$ decay, not growth.\n\n**Test Day Takeaway:** For growth, the base is $1 + \\text{rate}$. For decay, the base is $1 - \\text{rate}$. Compound interest is exponential, not linear.",
-          skills: ["exponential-functions"]
-        },
-        {
-          id: 15,
-          type: "fill-in",
-          difficulty: "hard",
-          question: "A system of equations is given:\n\n$2x + 3y = 26$\n$x - y = 2$\n\nWhat is the value of $y$?",
-          correctAnswer: "4.4",
-          explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**The correct answer is $4.4$.**\n\n**The Fast Way (30 seconds):** From the second equation, $x = y + 2$. Substitute: $2(y + 2) + 3y = 26$. $2y + 4 + 3y = 26$. $5y = 22$. $y = \\frac{22}{5} = 4.4$.\n\n**The Full Solution:**\n$x - y = 2 \\Rightarrow x = y + 2$\n$2(y + 2) + 3y = 26$\n$2y + 4 + 3y = 26$\n$5y = 22$\n$y = \\frac{22}{5} = 4.4$\n\n**Common Mistakes to Avoid:**\n• Reporting $x$ instead of $y$: $x = 4.4 + 2 = 6.4$.\n• Substitution error: using $x = y - 2$ instead of $x = y + 2$.\n\n**Verification:** $x = 6.4$. $2(6.4) + 3(4.4) = 12.8 + 13.2 = 26$ ✓. $6.4 - 4.4 = 2$ ✓.\n\n**Test Day Takeaway:** Solve one equation for a variable, substitute into the other, and check which variable the question asks for.",
-          skills: ["systems-of-equations", "solving-equations"]
-        },
-
-        // ===== HARD (Q16-Q22) =====
-        {
-          id: 16,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "The expression $x^2 + 6x + 9$ can be written as $(x + a)^2$ for some constant $a$. What is the value of $a$?",
-          choices: [
-            { id: "A", text: "$2$" },
-            { id: "B", text: "$3$" },
-            { id: "C", text: "$6$" },
-            { id: "D", text: "$9$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Perfect Square Trinomial**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $x^2 + 6x + 9 = (x + 3)^2$, so $a = 3$.\n\n**The Full Solution:**\n$(x + a)^2 = x^2 + 2ax + a^2$\nCompare with $x^2 + 6x + 9$:\n$2a = 6 \\Rightarrow a = 3$\nCheck: $a^2 = 9$. Correct.\n\n**Why the wrong answers are tempting:**\n• Choice A ($2$): $(x+2)^2 = x^2 + 4x + 4 \\neq x^2 + 6x + 9$.\n• Choice C ($6$): The coefficient of $x$, not half of it.\n• Choice D ($9$): The constant term, not its square root.\n\n**Test Day Takeaway:** In $(x + a)^2 = x^2 + 2ax + a^2$, the value of $a$ is half the coefficient of $x$.",
-          skills: ["factoring", "quadratic-equations"]
-        },
-        {
-          id: 17,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "A renewable energy company's revenue is modeled by $R(t) = -2t^2 + 24t + 10$, where $t$ is years after $2020$. In what year does the company achieve maximum revenue?",
-          choices: [
-            { id: "A", text: "$2024$" },
-            { id: "B", text: "$2026$" },
-            { id: "C", text: "$2030$" },
-            { id: "D", text: "$2034$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Vertex of a Parabola (Maximum)**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** $t = \\frac{-b}{2a} = \\frac{-24}{2(-2)} = \\frac{-24}{-4} = 6$. Year $= 2020 + 6 = 2026$.\n\n**The Full Solution:**\n$R(t) = -2t^2 + 24t + 10$\nSince $a = -2 < 0$, the parabola opens downward, so the vertex is a maximum.\n$t = \\frac{-b}{2a} = \\frac{-24}{-4} = 6$\nYear $= 2020 + 6 = 2026$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($2024$): Uses $t = 4$ (perhaps from $\\frac{24}{6}$).\n• Choice C ($2030$): Uses $t = 10$ (the constant term).\n• Choice D ($2034$): Uses $t = 14$ from an incorrect calculation.\n\n**Test Day Takeaway:** Maximum or minimum of a quadratic occurs at $t = \\frac{-b}{2a}$. Don't forget to add this to the starting year.",
-          skills: ["quadratic-functions", "vertex-form"]
-        },
-        {
-          id: 18,
-          type: "fill-in",
-          difficulty: "hard",
-          question: "If $2^{3x} = 64$, what is the value of $x$?",
-          correctAnswer: "2",
-          explanation: "**SAT Pattern: Exponential Equation with Same Base**\n\n**The correct answer is $2$.**\n\n**The Fast Way (10 seconds):** $64 = 2^6$, so $2^{3x} = 2^6$. Therefore $3x = 6$ and $x = 2$.\n\n**The Full Solution:**\n$2^{3x} = 64$\n$2^{3x} = 2^6$\n$3x = 6$\n$x = 2$\n\n**Common Mistakes to Avoid:**\n• Getting $x = 6$ by solving $3x = 6$ as $x = 6$ (forgetting to divide).\n• Getting $x = 3$ by thinking $2^3 = 8$ and confusing exponents.\n\n**Verification:** $2^{3(2)} = 2^6 = 64$. Correct.\n\n**Test Day Takeaway:** Rewrite both sides with the same base, then set exponents equal.",
-          skills: ["exponent-rules", "exponential-functions"]
-        },
-        {
-          id: 19,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "The equation $x^2 + y^2 + 4x - 10y + 20 = 0$ represents a circle. What is the center of this circle?",
-          choices: [
-            { id: "A", text: "$(2, -5)$" },
-            { id: "B", text: "$(-2, 5)$" },
-            { id: "C", text: "$(4, -10)$" },
-            { id: "D", text: "$(-4, 10)$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Completing the Square for Circle Center**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** For $x^2 + 4x$, half of $4$ is $2$, center $x = -2$. For $y^2 - 10y$, half of $-10$ is $-5$, center $y = 5$. Center: $(-2, 5)$.\n\n**The Full Solution:**\n$x^2 + 4x + y^2 - 10y = -20$\n$(x^2 + 4x + 4) + (y^2 - 10y + 25) = -20 + 4 + 25$\n$(x + 2)^2 + (y - 5)^2 = 9$\nCenter: $(-2, 5)$, radius $= 3$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($(2, -5)$): Correct magnitudes but wrong signs.\n• Choice C ($(4, -10)$): Uses the full coefficients instead of halving them.\n• Choice D ($(-4, 10)$): Uses the full coefficients with correct signs but doesn't halve.\n\n**Test Day Takeaway:** The center of $(x-h)^2 + (y-k)^2 = r^2$ is $(h, k)$. When completing the square, the center coordinates are the opposite of what's inside the parentheses.",
-          skills: ["circle-equations", "circles"]
-        },
-        {
-          id: 20,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "For what value of $k$ does the equation $x^2 + kx + 16 = 0$ have exactly one real solution?",
-          choices: [
-            { id: "A", text: "$4$" },
-            { id: "B", text: "$8$" },
-            { id: "C", text: "$12$" },
-            { id: "D", text: "$16$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Discriminant Equals Zero**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Discriminant $= k^2 - 4(1)(16) = k^2 - 64 = 0$, so $k^2 = 64$ and $k = 8$ (positive value).\n\n**The Full Solution:**\nFor exactly one real solution: $b^2 - 4ac = 0$\n$k^2 - 4(1)(16) = 0$\n$k^2 = 64$\n$k = \\pm 8$\nThe positive value is $k = 8$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($4$): $4^2 - 64 = -48 < 0$, no real solutions.\n• Choice C ($12$): $12^2 - 64 = 80 > 0$, two solutions.\n• Choice D ($16$): The constant, not the answer.\n\n**Test Day Takeaway:** One real solution means discriminant $= 0$: solve $b^2 - 4ac = 0$ for the unknown.",
-          skills: ["discriminant", "quadratic-equations"]
-        },
-        {
-          id: 21,
-          type: "fill-in",
-          difficulty: "hard",
-          question: "A printing company models its daily profit with $P(x) = -3x^2 + 36x - 48$, where $x$ is the number of units produced (in thousands). How many thousand units should be produced to maximize profit?",
-          correctAnswer: "6",
-          explanation: "**SAT Pattern: Maximizing a Quadratic**\n\n**The correct answer is $6$.**\n\n**The Fast Way (10 seconds):** $x = \\frac{-b}{2a} = \\frac{-36}{2(-3)} = \\frac{-36}{-6} = 6$.\n\n**The Full Solution:**\n$P(x) = -3x^2 + 36x - 48$\nSince $a = -3 < 0$, the parabola opens downward (maximum).\n$x = \\frac{-b}{2a} = \\frac{-36}{-6} = 6$\n\n**Common Mistakes to Avoid:**\n• Computing $\\frac{36}{2(3)} = 6$ gets the right answer but the signs need to be tracked for harder problems.\n• Confusing the $x$-value of the vertex with the maximum profit value.\n\n**Verification:** $P(6) = -3(36) + 36(6) - 48 = -108 + 216 - 48 = 60$. The maximum profit is $60$.\n\n**Test Day Takeaway:** The vertex $x$-value is $\\frac{-b}{2a}$. This gives the input that maximizes/minimizes the quadratic.",
-          skills: ["quadratic-functions", "vertex-form"]
-        },
-        {
-          id: 22,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "In right triangle $PQR$, angle $R = 90°$ and $PQ = 10$. If $\\cos(P) = \\frac{3}{5}$, what is the length of side $QR$?",
-          choices: [
-            { id: "A", text: "$4$" },
-            { id: "B", text: "$6$" },
-            { id: "C", text: "$8$" },
-            { id: "D", text: "$10$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Right Triangle Trigonometry**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** $\\cos(P) = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\frac{PR}{10} = \\frac{3}{5}$, so $PR = 6$. Then $QR = \\sqrt{10^2 - 6^2} = \\sqrt{64} = 8$.\n\n**The Full Solution:**\n$\\cos(P) = \\frac{PR}{PQ} = \\frac{PR}{10} = \\frac{3}{5}$\n$PR = \\frac{3}{5} \\times 10 = 6$\n$QR = \\sqrt{PQ^2 - PR^2} = \\sqrt{100 - 36} = \\sqrt{64} = 8$\n\n**Why the wrong answers are tempting:**\n• Choice A ($4$): May confuse with a $3$-$4$-$5$ triple scaled differently.\n• Choice B ($6$): This is the adjacent side $PR$, not the opposite side $QR$.\n• Choice D ($10$): This is the hypotenuse.\n\n**Test Day Takeaway:** Use $\\cos = \\frac{\\text{adj}}{\\text{hyp}}$ to find one side, then Pythagorean theorem for the other. Recognize $6$-$8$-$10$ as a scaled $3$-$4$-$5$ triple.",
-          skills: ["right-triangle-trig", "triangles"]
-        }
+{
+  id: 1,
+  type: "multiple-choice",
+  difficulty: "easy",
+  question: "What is 18% of 250?",
+  choices: [
+    { id: "A", text: "35" },
+    { id: "B", text: "40" },
+    { id: "C", text: "45" },
+    { id: "D", text: "50" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Percent of a Total**\n\n**Choice C is correct.**\n\n**The Fast Way (10s):** $0.18 \\times 250 = 45$.\n\n**The Full Solution:**\n$18\\%$ of $250 = \\frac{18}{100} \\times 250 = \\frac{4500}{100} = 45$.\n\nAlternatively: $10\\%$ of $250 = 25$, $8\\%$ of $250 = 20$, so $18\\% = 25 + 20 = 45$.\n\n**Why the wrong answers are tempting:**\n• A: Computes $14\\%$ of $250$.\n• B: Computes $16\\%$ of $250$.\n• D: Computes $20\\%$ of $250$.\n\n**Test Day Takeaway:** Break percents into easy pieces: 10% + 8%, or just multiply the decimal.",
+  skills: ["percents"]
+},
+{
+  id: 2,
+  type: "multiple-choice",
+  difficulty: "easy",
+  question: "A line has a slope of $-3$ and passes through the point $(0, 7)$. What is the equation of the line?",
+  choices: [
+    { id: "A", text: "$y = -3x + 7$" },
+    { id: "B", text: "$y = 3x + 7$" },
+    { id: "C", text: "$y = -3x - 7$" },
+    { id: "D", text: "$y = 7x - 3$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Slope-Intercept Form**\n\n**Choice A is correct.**\n\n**The Fast Way (5s):** The point $(0, 7)$ is the $y$-intercept, so $b = 7$. With slope $m = -3$: $y = -3x + 7$.\n\n**The Full Solution:**\nSlope-intercept form: $y = mx + b$. Given $m = -3$ and the line passes through $(0, 7)$, the $y$-intercept is $7$. So $y = -3x + 7$.\n\n**Why the wrong answers are tempting:**\n• B: Drops the negative sign on the slope.\n• C: Uses $-7$ instead of $+7$.\n• D: Swaps the slope and intercept.\n\n**Test Day Takeaway:** When given a point at $x = 0$, you already have the $y$-intercept directly.",
+  skills: ["linear-functions", "slope"]
+},
+{
+  id: 3,
+  type: "multiple-choice",
+  difficulty: "easy",
+  question: "If $4x - 9 = 23$, what is the value of $x$?",
+  choices: [
+    { id: "A", text: "5" },
+    { id: "B", text: "7" },
+    { id: "C", text: "8" },
+    { id: "D", text: "9" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: One-Step Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (5s):** $4x = 23 + 9 = 32$, so $x = 8$.\n\n**The Full Solution:**\n$4x - 9 = 23$\n$4x = 32$\n$x = 8$\n\nVerification: $4(8) - 9 = 32 - 9 = 23$ ✓.\n\n**Why the wrong answers are tempting:**\n• A: Subtracts 9 from 23 first, getting $4x = 14$.\n• B: Adds 9 to get 32 but divides by $5$ instead of $4$.\n• D: Confuses $32/4$ with $36/4$.\n\n**Test Day Takeaway:** Isolate the variable: add/subtract first, then divide.",
+  skills: ["solving-equations"]
+},
+{
+  id: 4,
+  type: "multiple-choice",
+  difficulty: "easy",
+  question: "The value of a certain collectible increases by \\$150 each year. If the collectible was worth \\$800 at the beginning of 2020, which function gives the value $V$, in dollars, $t$ years after 2020?",
+  choices: [
+    { id: "A", text: "$V(t) = 800(150)^t$" },
+    { id: "B", text: "$V(t) = 150t + 800$" },
+    { id: "C", text: "$V(t) = 800t + 150$" },
+    { id: "D", text: "$V(t) = 150(800)^t$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Linear Growth Model**\n\n**Choice B is correct.**\n\n**The Fast Way (10s):** Constant increase of \\$150/year means linear growth. Starting value 800 is the $y$-intercept. $V(t) = 150t + 800$.\n\n**The Full Solution:**\nSince the value increases by a fixed amount (\\$150) each year, the model is linear: $V(t) = (\\text{rate})t + (\\text{start})$.\nRate = 150, start = 800.\nSo $V(t) = 150t + 800$.\n\nCheck: at $t = 0$, $V = 800$ ✓. At $t = 1$, $V = 950$ ✓.\n\n**Why the wrong answers are tempting:**\n• A: Uses exponential form, which applies to percent growth, not fixed-dollar growth.\n• C: Swaps the rate and starting value.\n• D: Another exponential form with swapped values.\n\n**Test Day Takeaway:** Fixed amount per period = linear ($mt + b$). Fixed percent per period = exponential ($a \\cdot b^t$).",
+  skills: ["linear-functions", "word-problems"]
+},
+{
+  id: 5,
+  type: "multiple-choice",
+  difficulty: "easy",
+  question: "Point $A$ has coordinates $(3, 5)$ and point $B$ has coordinates $(3, -2)$. What is the distance between $A$ and $B$?",
+  choices: [
+    { id: "A", text: "3" },
+    { id: "B", text: "5" },
+    { id: "C", text: "7" },
+    { id: "D", text: "8" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Vertical Distance**\n\n**Choice C is correct.**\n\n**The Fast Way (5s):** Same $x$-coordinate, so distance = $|5 - (-2)| = |7| = 7$.\n\n**The Full Solution:**\nSince both points share $x = 3$, they lie on a vertical line. The distance is simply $|y_1 - y_2| = |5 - (-2)| = |5 + 2| = 7$.\n\n**Why the wrong answers are tempting:**\n• A: Uses the $x$-coordinate value.\n• B: Uses only the $y$-coordinate of $A$ without subtracting.\n• D: Adds $5 + 3$ or makes another arithmetic error.\n\n**Test Day Takeaway:** When $x$-coordinates match, the distance is just the difference in $y$-values (and vice versa).",
+  skills: ["coordinate-geometry"]
+},
+{
+  id: 6,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "The function $f$ is defined by $f(x) = 3{,}000(1.06)^x$. What is the value of $f(x)$ when $x = 5$, to the nearest whole number?",
+  choices: [
+    { id: "A", text: "3,900" },
+    { id: "B", text: "4,015" },
+    { id: "C", text: "3,382" },
+    { id: "D", text: "4,200" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Exponential Evaluation**\n\n**Choice B is correct.**\n\n**The Fast Way (30s):** $(1.06)^5 \\approx 1.3382$, so $f(5) \\approx 3{,}000 \\times 1.3382 \\approx 4{,}015$.\n\n**The Full Solution:**\nCompute $(1.06)^5$ step by step:\n$(1.06)^2 = 1.1236$\n$(1.06)^3 = 1.1236 \\times 1.06 = 1.191016$\n$(1.06)^4 = 1.191016 \\times 1.06 \\approx 1.26248$\n$(1.06)^5 = 1.26248 \\times 1.06 \\approx 1.33823$\n$f(5) = 3{,}000 \\times 1.33823 \\approx 4{,}015$.\n\n**Why the wrong answers are tempting:**\n• A: Estimates $(1.06)^5 \\approx 1.30$ (too low).\n• C: Computes $3{,}000 \\times 1.1272$ (only squares it).\n• D: Overestimates the growth.\n\n**Test Day Takeaway:** Build up powers step by step, or know that $(1.06)^5 \\approx 1.338$.",
+  skills: ["exponential-functions"]
+},
+{
+  id: 7,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "In the $xy$-plane, a line passes through the point $(4, 1)$ and is perpendicular to the line $y = \\frac{2}{3}x - 5$. What is the equation of this line?",
+  choices: [
+    { id: "A", text: "$y = \\frac{2}{3}x - \\frac{5}{3}$" },
+    { id: "B", text: "$y = -\\frac{3}{2}x + 7$" },
+    { id: "C", text: "$y = \\frac{3}{2}x - 5$" },
+    { id: "D", text: "$y = -\\frac{2}{3}x + \\frac{11}{3}$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Perpendicular Line through a Point**\n\n**Choice B is correct.**\n\n**The Fast Way (20s):** Perpendicular slope = negative reciprocal of $\\frac{2}{3}$ = $-\\frac{3}{2}$. Through $(4, 1)$: $1 = -\\frac{3}{2}(4) + b$, so $1 = -6 + b$, giving $b = 7$.\n\n**The Full Solution:**\nThe given line has slope $\\frac{2}{3}$. A perpendicular line has slope $-\\frac{3}{2}$.\nUsing point $(4, 1)$: $y - 1 = -\\frac{3}{2}(x - 4)$\n$y - 1 = -\\frac{3}{2}x + 6$\n$y = -\\frac{3}{2}x + 7$\n\nVerification: at $x = 4$: $y = -\\frac{3}{2}(4) + 7 = -6 + 7 = 1$ ✓. Slopes multiply to $\\frac{2}{3} \\times (-\\frac{3}{2}) = -1$ ✓.\n\n**Why the wrong answers are tempting:**\n• A: Uses the same slope (parallel, not perpendicular).\n• C: Uses the reciprocal but forgets the negative.\n• D: Uses the negative of the original slope, not the negative reciprocal.\n\n**Test Day Takeaway:** Perpendicular slopes are negative reciprocals: $m_1 \\cdot m_2 = -1$.",
+  skills: ["linear-functions", "slope", "coordinate-geometry"]
+},
+{
+  id: 8,
+  type: "fill-in",
+  difficulty: "medium",
+  question: "The midpoint of segment $\\overline{PQ}$ is $(5, -1)$. If $P = (2, 3)$, what is the $x$-coordinate of point $Q$?",
+  correctAnswer: "8",
+  explanation: "**SAT Pattern: Midpoint Formula**\n\nThe correct answer is $8$.\n\n**Solution:**\nMidpoint formula: $\\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right) = (5, -1)$.\nFor the $x$-coordinate: $\\frac{2 + x_2}{2} = 5$, so $2 + x_2 = 10$, giving $x_2 = 8$.\n\n**Verification:** Midpoint $x$-coordinate: $\\frac{2 + 8}{2} = 5$ ✓.\nFor completeness: $\\frac{3 + y_2}{2} = -1$ gives $y_2 = -5$, so $Q = (8, -5)$. Midpoint: $(5, -1)$ ✓.\n\n**Common Mistakes:**\n• Subtracting instead of setting up the midpoint equation: $5 - 2 = 3$, then using 3.\n• Confusing midpoint with distance formula.",
+  skills: ["coordinate-geometry"]
+},
+{
+  id: 9,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "An investment of \\$5,000 earns 4% interest compounded annually. Which expression represents the value of the investment after 10 years?",
+  choices: [
+    { id: "A", text: "$5{,}000(0.04)^{10}$" },
+    { id: "B", text: "$5{,}000(1.04)^{10}$" },
+    { id: "C", text: "$5{,}000(1.4)^{10}$" },
+    { id: "D", text: "$5{,}000 + 5{,}000(0.04)(10)$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Compound Interest Expression**\n\n**Choice B is correct.**\n\n**The Fast Way (10s):** Compound interest: $A = P(1 + r)^t = 5{,}000(1 + 0.04)^{10} = 5{,}000(1.04)^{10}$.\n\n**The Full Solution:**\nFor annual compounding, $A = P(1 + r)^t$ where $P = 5{,}000$, $r = 0.04$, $t = 10$.\n$A = 5{,}000(1.04)^{10}$.\n\n**Why the wrong answers are tempting:**\n• A: Uses $0.04$ as the base instead of $1.04$ — this shrinks to nearly zero.\n• C: Writes the rate as $0.4$ (40%) instead of $0.04$ (4%).\n• D: Uses simple interest formula $P + Prt$ instead of compound interest.\n\n**Test Day Takeaway:** Compound interest = $P(1 + r)^t$. The base is always $1 +$ rate, never just the rate.",
+  skills: ["exponential-functions", "word-problems"]
+},
+{
+  id: 10,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "The graph of $y = f(x)$ in the $xy$-plane passes through the points $(0, 3)$ and $(2, 48)$. If $f$ is an exponential function, which of the following could define $f$?",
+  choices: [
+    { id: "A", text: "$f(x) = 3(4)^x$" },
+    { id: "B", text: "$f(x) = 3(16)^x$" },
+    { id: "C", text: "$f(x) = 3 + 4x$" },
+    { id: "D", text: "$f(x) = 48(3)^x$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Determine Exponential from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (15s):** At $x = 0$: $f(0) = 3$, so the initial value is 3. At $x = 2$: $3 \\cdot b^2 = 48$, so $b^2 = 16$, giving $b = 4$. Thus $f(x) = 3(4)^x$.\n\n**The Full Solution:**\nExponential form: $f(x) = a \\cdot b^x$.\nFrom $(0, 3)$: $a \\cdot b^0 = a = 3$.\nFrom $(2, 48)$: $3 \\cdot b^2 = 48$, so $b^2 = 16$, giving $b = 4$ (positive base).\nSo $f(x) = 3(4)^x$.\n\nVerification: $f(0) = 3(1) = 3$ ✓. $f(2) = 3(16) = 48$ ✓.\n\n**Why the wrong answers are tempting:**\n• B: Uses $b = 16$ instead of $b^2 = 16$.\n• C: Linear function, not exponential.\n• D: $f(0) = 48 \\neq 3$.\n\n**Test Day Takeaway:** Use the point at $x = 0$ to find $a$, then use the second point to find $b$.",
+  skills: ["exponential-functions", "coordinate-geometry"]
+},
+{
+  id: 11,
+  type: "fill-in",
+  difficulty: "medium",
+  question: "What is the distance between the points $(-1, 4)$ and $(5, -4)$ in the $xy$-plane?",
+  correctAnswer: "10",
+  explanation: "**SAT Pattern: Distance Formula**\n\nThe correct answer is $10$.\n\n**Solution:**\nDistance $= \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$\n$= \\sqrt{(5 - (-1))^2 + (-4 - 4)^2}$\n$= \\sqrt{6^2 + (-8)^2}$\n$= \\sqrt{36 + 64}$\n$= \\sqrt{100} = 10$\n\n**Verification:** This is a 6-8-10 right triangle (a multiple of 3-4-5). ✓\n\n**Common Mistakes:**\n• Forgetting to square both differences: $\\sqrt{6 + 8} = \\sqrt{14}$.\n• Sign error: $5 - (-1) = 4$ instead of $6$.",
+  skills: ["coordinate-geometry"]
+},
+{
+  id: 12,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "The amount of a radioactive substance remaining after $t$ years is modeled by $A(t) = 120 \\left(\\frac{1}{2}\\right)^{t/5}$. What is the half-life of this substance, in years?",
+  choices: [
+    { id: "A", text: "2" },
+    { id: "B", text: "5" },
+    { id: "C", text: "10" },
+    { id: "D", text: "60" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Interpret Exponential Half-Life**\n\n**Choice B is correct.**\n\n**The Fast Way (10s):** The exponent $t/5$ means the substance halves when $t/5 = 1$, i.e., $t = 5$ years.\n\n**The Full Solution:**\nThe half-life is the time for the amount to decrease to half its current value.\n$A(t) = 120 \\left(\\frac{1}{2}\\right)^{t/5}$.\nSet $A(t) = 60$ (half of 120): $60 = 120 \\left(\\frac{1}{2}\\right)^{t/5}$\n$\\frac{1}{2} = \\left(\\frac{1}{2}\\right)^{t/5}$\n$t/5 = 1$, so $t = 5$.\n\n**Why the wrong answers are tempting:**\n• A: Confuses the exponent denominator with something else.\n• C: Doubles the half-life, thinking it takes 10 years.\n• D: Divides the initial amount by 2 to get 60 and confuses it with the half-life.\n\n**Test Day Takeaway:** In $A_0(1/2)^{t/d}$, the half-life is $d$.",
+  skills: ["exponential-functions", "function-interpretation"]
+},
+{
+  id: 13,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "In the $xy$-plane, the line $3x - 4y = 12$ intersects the $x$-axis at point $A$ and the $y$-axis at point $B$. What is the length of $\\overline{AB}$?",
+  choices: [
+    { id: "A", text: "4" },
+    { id: "B", text: "5" },
+    { id: "C", text: "7" },
+    { id: "D", text: "3" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Intercepts and Distance**\n\n**Choice B is correct.**\n\n**The Full Solution:**\n$x$-intercept (set $y = 0$): $3x = 12$, so $x = 4$. Point $A = (4, 0)$.\n$y$-intercept (set $x = 0$): $-4y = 12$, so $y = -3$. Point $B = (0, -3)$.\n\nDistance: $AB = \\sqrt{(4-0)^2 + (0-(-3))^2} = \\sqrt{16 + 9} = \\sqrt{25} = 5$.\n\n**Why the wrong answers are tempting:**\n• A: Uses only the $x$-intercept value.\n• C: Adds the intercept values: $4 + 3 = 7$.\n• D: Uses only the $y$-intercept value.\n\n**Test Day Takeaway:** Find both intercepts, then apply the distance formula. Watch for 3-4-5 triangles.",
+  skills: ["coordinate-geometry", "linear-functions"]
+},
+{
+  id: 14,
+  type: "fill-in",
+  difficulty: "medium",
+  question: "If $27^{x} = 9^{x+1}$, what is the value of $x$?",
+  correctAnswer: "2",
+  explanation: "**SAT Pattern: Exponential Equation with Common Base**\n\nThe correct answer is $2$.\n\n**Solution:**\nRewrite with base 3: $27 = 3^3$ and $9 = 3^2$.\n$(3^3)^x = (3^2)^{x+1}$\n$3^{3x} = 3^{2(x+1)}$\n$3^{3x} = 3^{2x+2}$\n\nSince the bases are equal: $3x = 2x + 2$, so $x = 2$.\n\n**Verification:** $27^2 = 729$ and $9^3 = 729$. ✓\n\n**Common Mistakes:**\n• Writing $9 = 3^3$ instead of $3^2$.\n• Distributing incorrectly: $2(x + 1) = 2x + 1$ instead of $2x + 2$.",
+  skills: ["exponent-rules", "solving-equations"]
+},
+{
+  id: 15,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "In the $xy$-plane, the line $y = 2x + k$ intersects the parabola $y = x^2 - 6x + 14$ at exactly one point. What is the value of $k$?",
+  choices: [
+    { id: "A", text: "$-4$" },
+    { id: "B", text: "$-2$" },
+    { id: "C", text: "$2$" },
+    { id: "D", text: "$6$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Quadratic-Linear System with One Intersection**\n\n**Choice B is correct.**\n\n**The Full Solution:**\nSet equal: $2x + k = x^2 - 6x + 14$\n$x^2 - 8x + (14 - k) = 0$\n\nFor exactly one intersection, the discriminant must equal zero:\n$(-8)^2 - 4(1)(14 - k) = 0$\n$64 - 56 + 4k = 0$\n$8 + 4k = 0$\n$k = -2$\n\nVerification: $x^2 - 8x + 16 = 0 \\Rightarrow (x - 4)^2 = 0 \\Rightarrow x = 4$. Then $y = 2(4) - 2 = 6$. Check on parabola: $16 - 24 + 14 = 6$ ✓.\n\n**Why the wrong answers are tempting:**\n• A: Miscomputes $64 - 56$ as $4$ instead of $8$.\n• C: Drops the negative sign on $k$.\n• D: Uses $14 + k$ instead of $14 - k$ when rearranging.\n\n**Test Day Takeaway:** Set the equations equal, rearrange to standard form, and set the discriminant to zero for exactly one intersection.",
+  skills: ["quadratic-equations", "discriminant", "systems-of-equations"]
+},
+{
+  id: 16,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "Which of the following is equivalent to $\\frac{x^{5/2} \\cdot x^{-1/3}}{x^{1/6}}$?",
+  choices: [
+    { id: "A", text: "$x^2$" },
+    { id: "B", text: "$x^3$" },
+    { id: "C", text: "$x^{5/3}$" },
+    { id: "D", text: "$x^{7/3}$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Fractional Exponent Rules**\n\n**Choice A is correct.**\n\n**The Full Solution:**\nNumerator: $x^{5/2} \\cdot x^{-1/3} = x^{5/2 - 1/3}$.\nFind common denominator: $\\frac{5}{2} - \\frac{1}{3} = \\frac{15}{6} - \\frac{2}{6} = \\frac{13}{6}$.\nSo numerator = $x^{13/6}$.\nDivide by $x^{1/6}$: $x^{13/6 - 1/6} = x^{12/6} = x^2$.\n\n**Why the wrong answers are tempting:**\n• B: Adds all exponents instead of subtracting the denominator's.\n• C: Miscalculates $\\frac{5}{2} - \\frac{1}{3} = \\frac{13}{6}$ as $\\frac{10}{6}$.\n• D: Forgets to subtract $\\frac{1}{6}$ in the final step.\n\n**Test Day Takeaway:** With fractional exponents, find a common denominator. Multiply = add exponents; divide = subtract.",
+  skills: ["exponent-rules", "radical-expressions"]
+},
+{
+  id: 17,
+  type: "fill-in",
+  difficulty: "hard",
+  question: "In the $xy$-plane, the circle $(x + 1)^2 + (y - 3)^2 = 20$ and the line $y = 2x + b$ intersect at exactly one point. If $b > 3$, what is the value of $b$?",
+  correctAnswer: "15",
+  explanation: "**SAT Pattern: Circle-Line Tangency**\n\nThe correct answer is $15$.\n\n**Solution:**\nCircle center: $(-1, 3)$, radius: $\\sqrt{20} = 2\\sqrt{5}$.\nLine: $2x - y + b = 0$.\n\nFor tangency, the distance from the center to the line equals the radius:\n$\\frac{|2(-1) - 1(3) + b|}{\\sqrt{4 + 1}} = 2\\sqrt{5}$\n$\\frac{|-2 - 3 + b|}{\\sqrt{5}} = 2\\sqrt{5}$\n$\\frac{|b - 5|}{\\sqrt{5}} = 2\\sqrt{5}$\n$|b - 5| = 2\\sqrt{5} \\cdot \\sqrt{5} = 10$\n\nCase 1: $b - 5 = 10 \\Rightarrow b = 15$.\nCase 2: $b - 5 = -10 \\Rightarrow b = -5$.\n\nSince $b > 3$: $b = 15$.\n\n**Verification:** Substitute $y = 2x + 15$ into the circle equation:\n$(x+1)^2 + (2x + 15 - 3)^2 = 20$\n$(x+1)^2 + (2x + 12)^2 = 20$\n$x^2 + 2x + 1 + 4x^2 + 48x + 144 = 20$\n$5x^2 + 50x + 125 = 0$\n$x^2 + 10x + 25 = 0$\n$(x + 5)^2 = 0 \\Rightarrow x = -5$. Exactly one solution, confirming tangency. ✓\n\n**Common Mistakes:**\n• Forgetting to multiply $\\sqrt{5} \\cdot \\sqrt{5} = 5$ when clearing the denominator.\n• Sign errors with the center coordinates $(-1, 3)$.",
+  skills: ["circle-equations", "coordinate-geometry"]
+},
+{
+  id: 18,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "A right triangle has legs of length $\\sqrt{3}+1$ and $\\sqrt{3}-1$. What is the area of the triangle?",
+  choices: [
+    { id: "A", text: "$\\sqrt{3}$" },
+    { id: "B", text: "1" },
+    { id: "C", text: "2" },
+    { id: "D", text: "$\\sqrt{3} - 1$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Area with Surds (Difference of Squares)**\n\n**Choice B is correct.**\n\n**The Fast Way (15s):** Area $= \\frac{1}{2}(\\sqrt{3}+1)(\\sqrt{3}-1) = \\frac{1}{2}(3 - 1) = \\frac{1}{2}(2) = 1$.\n\n**The Full Solution:**\nArea of a right triangle $= \\frac{1}{2} \\times \\text{leg}_1 \\times \\text{leg}_2$.\n$= \\frac{1}{2}(\\sqrt{3}+1)(\\sqrt{3}-1)$\n\nUsing the difference of squares: $(a+b)(a-b) = a^2 - b^2$.\n$= \\frac{1}{2}((\\sqrt{3})^2 - 1^2) = \\frac{1}{2}(3 - 1) = \\frac{1}{2}(2) = 1$.\n\n**Why the wrong answers are tempting:**\n• A: Computes the product without the $\\frac{1}{2}$: $(\\sqrt{3})^2 - 1 = 2$, then writes $\\sqrt{3}$ by confusion.\n• C: Forgets the $\\frac{1}{2}$, getting $3 - 1 = 2$.\n• D: Subtracts the legs instead of multiplying.\n\n**Test Day Takeaway:** Recognize $(a+b)(a-b) = a^2 - b^2$ to simplify surd products instantly.",
+  skills: ["area", "triangles", "radical-expressions"]
+},
+{
+  id: 19,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "The function $g(x) = a \\cdot b^x$ has a $y$-intercept of 6 and passes through the point $(3, 162)$. What is the value of $a + b$?",
+  choices: [
+    { id: "A", text: "7" },
+    { id: "B", text: "9" },
+    { id: "C", text: "30" },
+    { id: "D", text: "33" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Exponential with y-Intercept and Point Constraint**\n\n**Choice B is correct.**\n\n**The Full Solution:**\n$y$-intercept means $g(0) = a \\cdot b^0 = a = 6$.\nSo $g(x) = 6b^x$.\nUsing $(3, 162)$: $6b^3 = 162$, so $b^3 = 27$, giving $b = 3$.\n\nTherefore $a + b = 6 + 3 = 9$.\n\nVerification: $g(3) = 6 \\cdot 3^3 = 6 \\cdot 27 = 162$ ✓.\n\n**Why the wrong answers are tempting:**\n• A: Gets $b = 3$ but uses $a = 4$ from a miscalculation.\n• C: Computes $ab = 6 \\times 3 = 18$ and adds 12 by error.\n• D: Computes $b^3 = 27$ and uses $a + b^3 = 33$.\n\n**Test Day Takeaway:** The $y$-intercept of $ab^x$ directly gives $a$. Then use any other point to solve for $b$.",
+  skills: ["exponential-functions", "coordinate-geometry"]
+},
+{
+  id: 20,
+  type: "fill-in",
+  difficulty: "hard",
+  question: "In triangle $ABC$, angle $B$ is a right angle. If $\\sin A = \\frac{5}{13}$, what is the value of $\\cos C$?",
+  correctAnswer: "5/13",
+  explanation: "**SAT Pattern: Complementary Angle Trig Identity**\n\nThe correct answer is $\\frac{5}{13}$.\n\n**Solution:**\nIn a right triangle with the right angle at $B$, angles $A$ and $C$ are complementary: $A + C = 90°$.\nTherefore $\\cos C = \\cos(90° - A) = \\sin A = \\frac{5}{13}$.\n\n**Alternative approach:** If $\\sin A = \\frac{5}{13}$, then the side opposite $A$ is 5 and the hypotenuse is 13 (or proportional). By the Pythagorean theorem, the remaining side is $\\sqrt{169 - 25} = 12$.\n$\\cos C = \\frac{\\text{adjacent to } C}{\\text{hypotenuse}} = \\frac{5}{13}$ (the side adjacent to $C$ is opposite $A$).\n\n**Verification:** $\\sin A = 5/13$, $\\cos C = 5/13$. Since $A + C = 90°$, $\\sin A = \\cos C$. ✓\n\n**Common Mistakes:**\n• Confusing $\\cos C$ with $\\cos A$, giving $12/13$.\n• Using $\\sin C$ instead of $\\cos C$.",
+  skills: ["triangles", "angles"]
+},
+{
+  id: 21,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "The expression $(hx + 3)(x + j)$ is equivalent to $2x^2 + 11x + 12$, where $h$ and $j$ are positive constants. What is the value of $h + j$?",
+  choices: [
+    { id: "A", text: "5" },
+    { id: "B", text: "6" },
+    { id: "C", text: "7" },
+    { id: "D", text: "8" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Factoring Analysis with Parameters**\n\n**Choice B is correct.**\n\n**The Full Solution:**\nExpand $(hx + 3)(x + j) = hx^2 + hjx + 3x + 3j = hx^2 + (hj + 3)x + 3j$.\n\nMatch coefficients with $2x^2 + 11x + 12$:\n$h = 2$\n$3j = 12 \\Rightarrow j = 4$\n$hj + 3 = 11 \\Rightarrow 2(4) + 3 = 11$ ✓\n\nSo $h + j = 2 + 4 = 6$.\n\nVerification: $(2x + 3)(x + 4) = 2x^2 + 8x + 3x + 12 = 2x^2 + 11x + 12$ ✓.\n\n**Why the wrong answers are tempting:**\n• A: Uses $j = 3$ and $h = 2$, not checking the middle term.\n• C: Tries $h = 3$, $j = 4$ but then $3j = 12$ works yet $h \\neq 2$.\n• D: Uses $h = 4$ and $j = 4$.\n\n**Test Day Takeaway:** Match the leading coefficient and constant first, then verify the middle term.",
+  skills: ["factoring", "polynomial-operations"]
+},
+{
+  id: 22,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "In the $xy$-plane, the graph of $y = (x - a)^2 + b$ has vertex $(4, -3)$ and passes through $(0, c)$. The graph of $y = (x - a)^2 + d$ has the same vertex $x$-coordinate but passes through $(0, c + 10)$. What is the value of $d$?",
+  choices: [
+    { id: "A", text: "4" },
+    { id: "B", text: "7" },
+    { id: "C", text: "10" },
+    { id: "D", text: "13" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Vertex Form with Multiple Constraints**\n\n**Choice B is correct.**\n\n**The Full Solution:**\nFirst parabola: vertex $(4, -3)$ means $a = 4$ and $b = -3$.\n$y = (x - 4)^2 - 3$.\nAt $x = 0$: $c = (0 - 4)^2 - 3 = 16 - 3 = 13$.\n\nSecond parabola: $y = (x - 4)^2 + d$ (same $a = 4$).\nAt $x = 0$: $c + 10 = (0 - 4)^2 + d = 16 + d$.\n$13 + 10 = 16 + d$\n$23 = 16 + d$\n$d = 7$.\n\nVerification: Second parabola at $x = 0$: $(16) + 7 = 23 = c + 10 = 13 + 10$ ✓.\nVertex of second parabola: $(4, 7)$. ✓\n\n**Why the wrong answers are tempting:**\n• A: Subtracts $b$ from the shift amount: $-3 + 7 = 4$.\n• C: Assumes the $y$-intercept shift of 10 directly equals $d$, not accounting for the algebra.\n• D: Uses $c = 13$ as the value of $d$.\n\n**Test Day Takeaway:** Work through each constraint step by step. Don't assume the vertical shift of the vertex equals the shift at $x = 0$.",
+  skills: ["vertex-form", "quadratic-equations", "coordinate-geometry"]
+}
       ]
     },
     {

@@ -14,318 +14,300 @@ export const practiceTest1 = {
       title: "Module 1",
       timeLimit: 35,
       questions: [
-        {
-          id: 1,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "A survey asked $200$ students to name their favorite sport. The results are shown in the table below.\n\n| Sport | Number of Students |\n|---|---|\n| Soccer | $68$ |\n| Basketball | $52$ |\n| Tennis | $44$ |\n| Swimming | $36$ |\n\nAccording to the table, what percentage of the students surveyed chose basketball?",
-          choices: [
-            { id: "A", text: "$20\\%$" },
-            { id: "B", text: "$26\\%$" },
-            { id: "C", text: "$34\\%$" },
-            { id: "D", text: "$52\\%$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Reading a Table and Calculating a Percentage**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Basketball $= 52$ out of $200$. $\\frac{52}{200} = 0.26 = 26\\%$.\n\n**The Full Solution:**\nPercentage $= \\frac{\\text{part}}{\\text{whole}} \\times 100 = \\frac{52}{200} \\times 100 = 26\\%$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($20\\%$): From $\\frac{40}{200}$, a misread of the table.\n• Choice C ($34\\%$): From $\\frac{68}{200}$, using soccer instead of basketball.\n• Choice D ($52\\%$): Using the count ($52$) as the percentage directly.\n\n**Test Day Takeaway:** Percentage = (part / total) times $100$. Always divide by the total, not a subcategory.",
-          skills: ["percents", "statistics"]
-        },
-        {
-          id: 2,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "The equation $\\frac{2x}{5} = 18$ is true for what value of $x$?",
-          choices: [
-            { id: "A", text: "$7.2$" },
-            { id: "B", text: "$36$" },
-            { id: "C", text: "$45$" },
-            { id: "D", text: "$90$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Solving an Equation with a Fraction**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** Multiply both sides by $5$: $2x = 90$. Divide by $2$: $x = 45$.\n\n**The Full Solution:**\n$\\frac{2x}{5} = 18$\n$2x = 18 \\times 5 = 90$\n$x = \\frac{90}{2} = 45$\n\n**Why the wrong answers are tempting:**\n• Choice A ($7.2$): From dividing $18 \\div 2.5$ or $18 \\div 5 \\times 2$.\n• Choice B ($36$): From $18 \\times 2 = 36$, forgetting to multiply by $5$.\n• Choice D ($90$): From $18 \\times 5 = 90$, forgetting to divide by $2$.\n\n**Test Day Takeaway:** Clear the fraction by multiplying both sides by the denominator, then solve the remaining equation.",
-          skills: ["solving-equations"]
-        },
-        {
-          id: 3,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "A biologist counts bacteria in a lab sample every hour. The table below shows the results.\n\n| Time (hours) | $0$ | $1$ | $2$ | $3$ | $4$ |\n|---|---|---|---|---|---|\n| Count | $50$ | $100$ | $200$ | $400$ | $800$ |\n\nWhich type of function best models the relationship between time and bacteria count?",
-          choices: [
-            { id: "A", text: "Linear, because the count increases by a constant amount" },
-            { id: "B", text: "Exponential, because the count doubles each hour" },
-            { id: "C", text: "Quadratic, because the count increases faster over time" },
-            { id: "D", text: "Linear, because the count always increases" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Identifying Growth Type from a Table**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Check the ratios: $100/50 = 2$, $200/100 = 2$, $400/200 = 2$, $800/400 = 2$. Constant ratio = exponential.\n\n**The Full Solution:**\nThe count doubles each hour (multiplied by $2$). A constant multiplicative factor indicates exponential growth.\nDifferences: $50, 100, 200, 400$ — not constant, so not linear.\nRatios: $2, 2, 2, 2$ — constant, so exponential.\n\n**Why the wrong answers are tempting:**\n• Choice A: The differences are NOT constant ($50, 100, 200, 400$), so it is not linear.\n• Choice C: Quadratic growth has constant second differences, not a constant ratio.\n• Choice D: \"Always increases\" does not determine the type — linear, exponential, and quadratic can all increase.\n\n**Test Day Takeaway:** Constant differences = linear. Constant ratios = exponential. Check both to decide.",
-          skills: ["exponential-functions", "function-interpretation"]
-        },
-        {
-          id: 4,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "A teacher has $5$ more than $3$ times the number of pens a student has. If the teacher has $23$ pens, which equation can be used to find $p$, the number of pens the student has?",
-          choices: [
-            { id: "A", text: "$3p + 5 = 23$" },
-            { id: "B", text: "$5p + 3 = 23$" },
-            { id: "C", text: "$3(p + 5) = 23$" },
-            { id: "D", text: "$3p - 5 = 23$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Translating Words into an Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (15 seconds):** \"$3$ times the number\" $= 3p$. \"$5$ more than that\" $= 3p + 5$. Set equal to $23$.\n\n**The Full Solution:**\n\"$5$ more than $3$ times $p$\" translates to $3p + 5$.\n$3p + 5 = 23$\n\n**Why the wrong answers are tempting:**\n• Choice B ($5p + 3 = 23$): Swaps the $3$ and $5$.\n• Choice C ($3(p + 5) = 23$): Adds $5$ to $p$ before multiplying, which changes the meaning.\n• Choice D ($3p - 5 = 23$): Uses \"less\" instead of \"more.\"\n\n**Test Day Takeaway:** Read word problems carefully. \"$a$ more than $b$ times $x$\" translates to $bx + a$.",
-          skills: ["word-problems", "solving-equations"]
-        },
-        {
-          id: 5,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "The function $f(t) = 200 + 15t$ models the amount of water, in gallons, in a tank $t$ minutes after a pump is turned on. What does the number $15$ represent in this function?",
-          choices: [
-            { id: "A", text: "The total capacity of the tank" },
-            { id: "B", text: "The amount of water in the tank when the pump starts" },
-            { id: "C", text: "The number of gallons added per minute" },
-            { id: "D", text: "The number of minutes the pump runs" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Interpreting Slope in Context**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** In $f(t) = 200 + 15t$, the coefficient of $t$ is the rate of change: $15$ gallons per minute.\n\n**The Full Solution:**\nIn a linear function $f(t) = b + mt$, the slope $m$ is the rate of change. Here $m = 15$, which means $15$ gallons are added to the tank per minute. The $200$ is the starting amount ($y$-intercept).\n\n**Why the wrong answers are tempting:**\n• Choice A: Total capacity is not represented by the slope.\n• Choice B: The starting amount is $200$, not $15$.\n• Choice D: The number of minutes is the input variable $t$, not a constant.\n\n**Test Day Takeaway:** In a linear model $y = b + mx$, the slope $m$ always represents the rate of change per unit of the input variable.",
-          skills: ["linear-functions", "function-interpretation"]
-        },
-        {
-          id: 6,
-          type: "fill-in",
-          difficulty: "medium",
-          question: "A school orders $8$ identical microscopes using a $\\$50$ coupon. After applying the coupon, the school pays $\\$350$ total. What was the original price, in dollars, of each microscope?",
-          correctAnswer: "50",
-          explanation: "**SAT Pattern: Two-Step Word Problem**\n\n**The correct answer is $50$.**\n\n**The Fast Way (15 seconds):** Total before coupon $= 350 + 50 = 400$. Price per microscope $= 400 \\div 8 = 50$.\n\n**The Full Solution:**\nLet $p$ be the price per microscope.\n$8p - 50 = 350$\n$8p = 400$\n$p = 50$\n\n**Common Mistakes to Avoid:**\n• Forgetting to add back the coupon: $350 \\div 8 = 43.75$.\n• Subtracting the coupon instead of adding: $(350 - 50) \\div 8 = 37.5$.\n\n**Verification:** $8 \\times 50 - 50 = 400 - 50 = 350$ ✓\n\n**Test Day Takeaway:** When a coupon is applied, add it back to the paid amount to find the original total, then divide.",
-          skills: ["word-problems", "solving-equations"]
-        },
-        {
-          id: 7,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "The equation $k^2 - 25 = 56$ is true. What is the positive value of $k$?",
-          choices: [
-            { id: "A", text: "$7$" },
-            { id: "B", text: "$9$" },
-            { id: "C", text: "$31$" },
-            { id: "D", text: "$81$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Solving for a Squared Variable**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** $k^2 = 56 + 25 = 81$. $k = \\sqrt{81} = 9$.\n\n**The Full Solution:**\n$k^2 - 25 = 56$\n$k^2 = 81$\n$k = \\pm 9$\nThe positive value is $9$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($7$): From mistakenly computing $\\sqrt{49}$.\n• Choice C ($31$): From adding $25 + 56 = 81$ but forgetting to take the square root.\n• Choice D ($81$): From $k^2 = 81$ but reporting $k^2$ instead of $k$.\n\n**Test Day Takeaway:** Isolate $k^2$ first, then take the square root. Remember to check if the question asks for the positive root only.",
-          skills: ["solving-equations", "quadratic-equations"]
-        },
-        {
-          id: 8,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "Line $\\ell$ passes through the points $(-1, 3)$ and $(3, 11)$. Which of the following is an equation of line $\\ell$?",
-          choices: [
-            { id: "A", text: "$y = 2x + 5$" },
-            { id: "B", text: "$y = 2x + 3$" },
-            { id: "C", text: "$y = 4x + 7$" },
-            { id: "D", text: "$y = \\frac{1}{2}x + 5$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Finding the Equation of a Line from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (25 seconds):** Slope $= \\frac{11 - 3}{3 - (-1)} = \\frac{8}{4} = 2$. Use point $(-1, 3)$: $3 = 2(-1) + b$, so $b = 5$. Equation: $y = 2x + 5$.\n\n**The Full Solution:**\n$m = \\frac{11 - 3}{3 - (-1)} = \\frac{8}{4} = 2$\nUsing point-slope with $(-1, 3)$:\n$y - 3 = 2(x + 1)$\n$y = 2x + 2 + 3 = 2x + 5$\n\n**Why the wrong answers are tempting:**\n• Choice B ($y = 2x + 3$): Correct slope but uses the $y$-coordinate of the first point as the intercept.\n• Choice C ($y = 4x + 7$): Doubles the slope.\n• Choice D ($y = \\frac{1}{2}x + 5$): Uses the reciprocal of the slope (run/rise).\n\n**Test Day Takeaway:** Find slope first (rise/run), then plug one point into $y = mx + b$ to find $b$.",
-          skills: ["slope", "linear-functions"]
-        },
-        {
-          id: 9,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "The table below shows values of a function $f$.\n\n| $x$ | $0$ | $2$ | $4$ | $6$ |\n|---|---|---|---|---|\n| $f(x)$ | $-3$ | $1$ | $5$ | $9$ |\n\nWhich of the following defines $f(x)$?",
-          choices: [
-            { id: "A", text: "$f(x) = x - 3$" },
-            { id: "B", text: "$f(x) = 2x - 3$" },
-            { id: "C", text: "$f(x) = x + 1$" },
-            { id: "D", text: "$f(x) = \\frac{1}{2}x - 3$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Finding a Linear Equation from a Table**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** From $x = 0$, $f(0) = -3$, so the $y$-intercept is $-3$. Slope $= \\frac{1 - (-3)}{2 - 0} = \\frac{4}{2} = 2$. So $f(x) = 2x - 3$.\n\n**The Full Solution:**\nThe $y$-intercept is the value when $x = 0$: $f(0) = -3$, so $b = -3$.\nSlope: $\\frac{f(2) - f(0)}{2 - 0} = \\frac{1 - (-3)}{2} = \\frac{4}{2} = 2$.\n$f(x) = 2x - 3$.\n\nVerify: $f(4) = 2(4) - 3 = 5$ ✓ and $f(6) = 2(6) - 3 = 9$ ✓\n\n**Why the wrong answers are tempting:**\n• Choice A ($x - 3$): Correct intercept but slope of $1$ instead of $2$. $f(2) = -1 \\neq 1$.\n• Choice C ($x + 1$): $f(0) = 1 \\neq -3$.\n• Choice D ($\\frac{1}{2}x - 3$): Uses the reciprocal slope. $f(2) = -2 \\neq 1$.\n\n**Test Day Takeaway:** Use the table to find slope (change in $f$ / change in $x$) and $y$-intercept ($f(0)$). Then verify with another point.",
-          skills: ["linear-functions", "function-interpretation"]
-        },
-        {
-          id: 10,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "The table below shows data from a survey of $250$ students.\n\n| | Prefers In-Person | Prefers Online | Total |\n|---|---|---|---|\n| Grade $10$ | $50$ | $40$ | $90$ |\n| Grade $11$ | $65$ | $35$ | $100$ |\n| Grade $12$ | $45$ | $15$ | $60$ |\n| Total | $160$ | $90$ | $250$ |\n\nOf the students who prefer online classes, what fraction are in Grade $10$?",
-          choices: [
-            { id: "A", text: "$\\frac{40}{250}$" },
-            { id: "B", text: "$\\frac{40}{90}$" },
-            { id: "C", text: "$\\frac{90}{250}$" },
-            { id: "D", text: "$\\frac{40}{100}$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Conditional Probability from a Two-Way Table**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** \"Of the students who prefer online\" = denominator is $90$ (online total). Grade $10$ online $= 40$. Fraction $= \\frac{40}{90}$.\n\n**The Full Solution:**\nThe condition restricts us to online-preferring students only (total $= 90$).\nOf those, $40$ are in Grade $10$.\nFraction $= \\frac{40}{90} = \\frac{4}{9}$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{40}{250}$): Uses the grand total as the denominator instead of just online students.\n• Choice C ($\\frac{90}{250}$): Finds the overall fraction who prefer online, ignoring the grade condition.\n• Choice D ($\\frac{40}{100}$): Uses the Grade $11$ total as the denominator (wrong row).\n\n**Test Day Takeaway:** In conditional probability, the group described after \"of\" or \"given\" determines the denominator.",
-          skills: ["two-way-tables", "probability"]
-        },
-        {
-          id: 11,
-          type: "fill-in",
-          difficulty: "medium",
-          question: "If $3x + 7 = 28$, what is the value of $6x + 14$?",
-          correctAnswer: "56",
-          explanation: "**SAT Pattern: Algebraic Manipulation Shortcut**\n\n**The correct answer is 56.**\n\n**The Fast Way (10 seconds):** $6x + 14 = 2(3x + 7) = 2(28) = 56$.\n\n**The Full Solution:**\nNotice that $6x + 14 = 2(3x + 7)$.\nSince $3x + 7 = 28$:\n$6x + 14 = 2(28) = 56$\n\n**Common Mistakes to Avoid:**\n• Solving for $x$ first (unnecessary extra work): $3x = 21$, $x = 7$, then $6(7) + 14 = 56$. Correct but slower.\n• Not recognizing the factor-of-$2$ relationship.\n\n**Verification:** $x = 7$: $6(7) + 14 = 42 + 14 = 56$ ✓\n\n**Test Day Takeaway:** Before solving for a variable, check if the expression you need is a multiple of what you already have.",
-          skills: ["algebraic-manipulation", "solving-equations"]
-        },
-        {
-          id: 12,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "A population of $400$ bacteria increases by $25\\%$ every hour. Which expression gives the population after $t$ hours?",
-          choices: [
-            { id: "A", text: "$400(0.25)^t$" },
-            { id: "B", text: "$400 + 25t$" },
-            { id: "C", text: "$400(1.25)^t$" },
-            { id: "D", text: "$400(0.75)^t$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Exponential Growth Model**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** Increasing by $25\\%$ means multiplying by $1.25$ each hour. Starting value $400$: $400(1.25)^t$.\n\n**The Full Solution:**\nGrowth rate $= 25\\% = 0.25$.\nGrowth factor $= 1 + 0.25 = 1.25$.\nAfter $t$ hours: $400(1.25)^t$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($400(0.25)^t$): Uses $0.25$ (the rate) as the base. This shrinks rapidly toward $0$.\n• Choice B ($400 + 25t$): Models linear growth (adding $25$ per hour), not percentage growth.\n• Choice D ($400(0.75)^t$): Models a $25\\%$ decrease each hour, not an increase.\n\n**Test Day Takeaway:** Growth by $r\\%$ means multiply by $(1 + r/100)$ each period. Decay by $r\\%$ means multiply by $(1 - r/100)$.",
-          skills: ["exponential-functions", "word-problems"]
-        },
-        {
-          id: 13,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "Two parallel lines are cut by a transversal. One of the angles formed measures $65°$. Which of the following could NOT be the measure of another angle formed?",
-          choices: [
-            { id: "A", text: "$65°$" },
-            { id: "B", text: "$115°$" },
-            { id: "C", text: "$125°$" },
-            { id: "D", text: "$180° - 65°$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Parallel Lines and Transversals**\n\n**Choice C is correct.**\n\n**The Fast Way (20 seconds):** When parallel lines are cut by a transversal, all angles are either $65°$ or $180° - 65° = 115°$. $125°$ is neither.\n\n**The Full Solution:**\nParallel lines cut by a transversal create only two distinct angle measures that are supplementary: $65°$ and $115°$.\n• Choice A: $65°$ (corresponding or alternate interior angle) ✓\n• Choice B: $115°$ (supplementary angle) ✓\n• Choice C: $125°$ is not $65°$ or $115°$ ✗\n• Choice D: $180° - 65° = 115°$ ✓\n\n**Why the wrong answers are tempting:**\n• Choice C ($125°$) looks close to $115°$ and could be confused with a supplementary calculation.\n\n**Test Day Takeaway:** Parallel lines + transversal = only two angle measures that add to $180°$.",
-          skills: ["angles", "parallel-lines"]
-        },
-        {
-          id: 14,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "A data set has $7$ values with a mean of $12$. An $8$th value of $20$ is added to the set. What is the mean of the new data set?",
-          choices: [
-            { id: "A", text: "$12.5$" },
-            { id: "B", text: "$13$" },
-            { id: "C", text: "$14$" },
-            { id: "D", text: "$16$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Recalculating the Mean After Adding a Value**\n\n**Choice B is correct.**\n\n**The Fast Way (25 seconds):** Original sum $= 7 \\times 12 = 84$. New sum $= 84 + 20 = 104$. New mean $= \\frac{104}{8} = 13$.\n\n**The Full Solution:**\nMean $= \\frac{\\text{sum}}{\\text{count}}$, so original sum $= 7 \\times 12 = 84$.\nAfter adding $20$: new sum $= 84 + 20 = 104$, new count $= 8$.\nNew mean $= \\frac{104}{8} = 13$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($12.5$): From averaging $12$ and $13$, or from $\\frac{12 + 20}{2.5}$.\n• Choice C ($14$): From computing $(12 + 20) \\div 2 = 16$... no. Possibly from $\\frac{84 + 28}{8}$.\n• Choice D ($16$): From averaging $12$ and $20$ directly: $\\frac{12+20}{2} = 16$, ignoring the other $6$ values.\n\n**Test Day Takeaway:** To find a new mean: compute the original sum (old mean $\\times$ count), add the new value, then divide by the new count.",
-          skills: ["mean-median-mode", "statistics"]
-        },
-        {
-          id: 15,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "A company ships boxes that weigh between $10$ and $50$ pounds. The shipping cost $C$, in dollars, is modeled by $C = 3.50 + 0.75w$, where $w$ is the weight in pounds. For a shipment, the total cost was between $\\$14.00$ and $\\$30.50$. Which inequality represents the possible weights $w$?",
-          choices: [
-            { id: "A", text: "$10 \\leq w \\leq 50$" },
-            { id: "B", text: "$14 \\leq w \\leq 36$" },
-            { id: "C", text: "$14.75 \\leq w \\leq 34.25$" },
-            { id: "D", text: "$10.50 \\leq w \\leq 27$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Solving a Compound Inequality in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (30 seconds):** Solve $14 = 3.50 + 0.75w$: $0.75w = 10.50$, $w = 14$. Solve $30.50 = 3.50 + 0.75w$: $0.75w = 27$, $w = 36$.\n\n**The Full Solution:**\n$14.00 \\leq 3.50 + 0.75w \\leq 30.50$\n$14.00 - 3.50 \\leq 0.75w \\leq 30.50 - 3.50$\n$10.50 \\leq 0.75w \\leq 27.00$\n$\\frac{10.50}{0.75} \\leq w \\leq \\frac{27.00}{0.75}$\n$14 \\leq w \\leq 36$\n\n**Why the wrong answers are tempting:**\n• Choice A ($10 \\leq w \\leq 50$): This is the weight range, not derived from the cost constraint.\n• Choice C ($14.75 \\leq w \\leq 34.25$): Arithmetic error in subtraction or division.\n• Choice D ($10.50 \\leq w \\leq 27$): Subtracted $3.50$ but forgot to divide by $0.75$.\n\n**Test Day Takeaway:** Solve compound inequalities by performing the same operations on all three parts. Subtract constants, then divide by the coefficient.",
-          skills: ["linear-equations", "word-problems"]
-        },
-        {
-          id: 16,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "The equation $y = 2x^2 - 12x + 22$ can be rewritten in the form $y = a(x - h)^2 + k$. What is the value of $k$?",
-          choices: [
-            { id: "A", text: "$4$" },
-            { id: "B", text: "$-4$" },
-            { id: "C", text: "$22$" },
-            { id: "D", text: "$18$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Converting to Vertex Form**\n\n**Choice A is correct.**\n\n**The Fast Way (45 seconds):** Factor out $2$: $y = 2(x^2 - 6x) + 22$. Complete the square: $y = 2(x^2 - 6x + 9 - 9) + 22 = 2(x-3)^2 - 18 + 22 = 2(x-3)^2 + 4$. So $k = 4$.\n\n**The Full Solution:**\n$y = 2x^2 - 12x + 22$\n$y = 2(x^2 - 6x) + 22$\n$y = 2(x^2 - 6x + 9 - 9) + 22$\n$y = 2(x - 3)^2 - 18 + 22$\n$y = 2(x - 3)^2 + 4$\n\nSo $k = 4$.\n\n**Why the wrong answers are tempting:**\n• Choice B ($-4$): Sign error on the last step.\n• Choice C ($22$): Using the original constant term without completing the square.\n• Choice D ($18$): Using $2 \\times 9 = 18$ but forgetting to subtract and add back.\n\n**Test Day Takeaway:** To find the vertex, complete the square. Remember to multiply the adjustment by the leading coefficient when adding it back.",
-          skills: ["vertex-form", "quadratic-functions"]
-        },
-        {
-          id: 17,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "A ball is kicked into the air. Its height, in feet, after $t$ seconds is modeled by $h(t) = -16t^2 + 48t$. What is the maximum height the ball reaches?",
-          choices: [
-            { id: "A", text: "$36$ feet" },
-            { id: "B", text: "$48$ feet" },
-            { id: "C", text: "$64$ feet" },
-            { id: "D", text: "$32$ feet" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Maximum of a Quadratic Function**\n\n**Choice A is correct.**\n\n**The Fast Way (30 seconds):** The vertex is at $t = \\frac{-b}{2a} = \\frac{-48}{2(-16)} = \\frac{-48}{-32} = 1.5$. Then $h(1.5) = -16(2.25) + 48(1.5) = -36 + 72 = 36$.\n\n**The Full Solution:**\n$h(t) = -16t^2 + 48t$\nVertex at $t = \\frac{-48}{2(-16)} = 1.5$\n$h(1.5) = -16(1.5)^2 + 48(1.5) = -16(2.25) + 72 = -36 + 72 = 36$\n\n**Why the wrong answers are tempting:**\n• Choice B ($48$): Using the coefficient of $t$ as the max height.\n• Choice C ($64$): From $-16 \\times 4 + 48 \\times 4$, evaluating at $t = 4$ instead of $t = 1.5$. Actually gives $64$... wait, $h(4)= -256+192 = -64$. Likely from a calculation error.\n• Choice D ($32$): From evaluating at $t = 1$: $-16 + 48 = 32$, close but not the maximum.\n\n**Test Day Takeaway:** Maximum height = plug $t = \\frac{-b}{2a}$ back into the function.",
-          skills: ["quadratic-functions", "function-evaluation"]
-        },
-        {
-          id: 18,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "The function $g$ is defined by $g(x) = (x-4)(x+6)$. The graph of $y = g(x)$ in the $xy$-plane has $x$-intercepts at $(a, 0)$ and $(b, 0)$, where $a < b$. What is the value of $b - a$?",
-          choices: [
-            { id: "A", text: "$2$" },
-            { id: "B", text: "$8$" },
-            { id: "C", text: "$10$" },
-            { id: "D", text: "$24$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Distance Between x-intercepts**\n\n**Choice C is correct.**\n\n**The Fast Way (20 seconds):** The $x$-intercepts are $x = 4$ and $x = -6$. Distance $= 4 - (-6) = 10$.\n\n**The Full Solution:**\nSet $g(x) = 0$: $(x-4)(x+6) = 0$\n$x = 4$ or $x = -6$\nSince $a < b$: $a = -6$ and $b = 4$\n$b - a = 4 - (-6) = 10$\n\n**Why the wrong answers are tempting:**\n• Choice A ($2$): From $4 + (-6) = -2$, taking absolute value.\n• Choice B ($8$): From subtracting without the double negative: $4 - 6 = -2$... no. Possibly from a sign confusion.\n• Choice D ($24$): From multiplying $4 \\times 6$.\n\n**Test Day Takeaway:** The $x$-intercepts of $(x - r)(x - s)$ are $r$ and $s$. Watch the signs carefully.",
-          skills: ["quadratic-equations", "factoring"]
-        },
-        {
-          id: 19,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "A right triangle has legs of length $5$ and $12$. What is the area of a square whose side length equals the hypotenuse of the triangle?",
-          choices: [
-            { id: "A", text: "$144$" },
-            { id: "B", text: "$169$" },
-            { id: "C", text: "$60$" },
-            { id: "D", text: "$289$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Pythagorean Theorem + Area**\n\n**Choice B is correct.**\n\n**The Fast Way (30 seconds):** Hypotenuse $= \\sqrt{5^2 + 12^2} = \\sqrt{25 + 144} = \\sqrt{169} = 13$. Area of square $= 13^2 = 169$.\n\n**The Full Solution:**\nBy the Pythagorean theorem: $c = \\sqrt{5^2 + 12^2} = \\sqrt{169} = 13$.\nArea of square $= c^2 = 13^2 = 169$.\n\nAlternatively, the area of the square equals $c^2 = 5^2 + 12^2 = 169$ directly, without finding $c$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($144$): Using only $12^2$.\n• Choice C ($60$): Computing the area of the triangle: $\\frac{1}{2}(5)(12) = 30$... actually $60$ would be $2 \\times 30$, a common error.\n• Choice D ($289$): From $(5+12)^2 = 17^2 = 289$, adding legs instead of using Pythagorean theorem.\n\n**Test Day Takeaway:** Know $5$-$12$-$13$ as a Pythagorean triple. Also, the area of a square with side = hypotenuse is just $a^2 + b^2$.",
-          skills: ["triangles", "area"]
-        },
-        {
-          id: 20,
-          type: "fill-in",
-          difficulty: "hard",
-          question: "If $3(x - 4) + 2 = 20$, what is the value of $x$?",
-          correctAnswer: "10",
-          explanation: "**SAT Pattern: Multi-Step Equation with Distribution**\n\n**The correct answer is 10.**\n\n**The Fast Way (20 seconds):** $3(x-4) + 2 = 20$. $3(x-4) = 18$. $x - 4 = 6$. $x = 10$.\n\n**The Full Solution:**\n$3(x - 4) + 2 = 20$\n$3x - 12 + 2 = 20$\n$3x - 10 = 20$\n$3x = 30$\n$x = 10$\n\n**Common Mistakes to Avoid:**\n• Distributing incorrectly: $3(x-4) = 3x - 4$ instead of $3x - 12$\n• Combining $-12 + 2 = -14$ instead of $-10$\n\n**Verification:** $3(10-4) + 2 = 3(6) + 2 = 18 + 2 = 20$ ✓\n\n**Test Day Takeaway:** Distribute first, combine like terms, then isolate the variable.",
-          skills: ["solving-equations", "algebraic-manipulation"]
-        },
-        {
-          id: 21,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "A circle in the $xy$-plane has center $(3, -2)$ and radius $5$. Which of the following is an equation of the circle?",
-          choices: [
-            { id: "A", text: "$(x+3)^2 + (y-2)^2 = 25$" },
-            { id: "B", text: "$(x-3)^2 + (y+2)^2 = 25$" },
-            { id: "C", text: "$(x-3)^2 + (y+2)^2 = 5$" },
-            { id: "D", text: "$(x+3)^2 + (y-2)^2 = 5$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Equation of a Circle**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Standard form: $(x-h)^2 + (y-k)^2 = r^2$. Center $(3,-2)$: $h=3, k=-2$. Radius $5$: $r^2 = 25$.\n$(x-3)^2 + (y-(-2))^2 = 25$ → $(x-3)^2 + (y+2)^2 = 25$.\n\n**The Full Solution:**\nThe standard equation of a circle with center $(h,k)$ and radius $r$ is $(x-h)^2 + (y-k)^2 = r^2$.\nPlugging in: $(x-3)^2 + (y+2)^2 = 25$.\n\n**Why the wrong answers are tempting:**\n• Choice A: Flips the signs on both $h$ and $k$.\n• Choice C: Uses $r = 5$ instead of $r^2 = 25$.\n• Choice D: Both errors combined.\n\n**Test Day Takeaway:** Circle formula uses subtraction: $(x - h)$. If center has a negative coordinate, you get a plus sign. Radius is squared.",
-          skills: ["circle-equations", "coordinate-geometry"]
-        },
-        {
-          id: 22,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "The quadratic equation $x^2 - 10x + c = 0$ has exactly one real solution. What is the value of $c$?",
-          choices: [
-            { id: "A", text: "$10$" },
-            { id: "B", text: "$20$" },
-            { id: "C", text: "$25$" },
-            { id: "D", text: "$100$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Discriminant Equals Zero**\n\n**Choice C is correct.**\n\n**The Fast Way (30 seconds):** One real solution means discriminant $= 0$: $b^2 - 4ac = 0$. Here $a=1, b=-10$: $100 - 4c = 0$, so $c = 25$.\n\n**The Full Solution:**\nFor exactly one solution, the discriminant must equal zero:\n$b^2 - 4ac = 0$\n$(-10)^2 - 4(1)(c) = 0$\n$100 - 4c = 0$\n$4c = 100$\n$c = 25$\n\n**Why the wrong answers are tempting:**\n• Choice A ($10$): Half of $b$ value, a common guess.\n• Choice B ($20$): From $100 \\div 5$ instead of $100 \\div 4$.\n• Choice D ($100$): Using $b^2$ without dividing by $4a$.\n\n**Test Day Takeaway:** Exactly one solution = discriminant is zero. The formula $b^2 - 4ac = 0$ directly gives you the missing value.",
-          skills: ["discriminant", "quadratic-equations"]
-        }
+{
+  id: 1,
+  type: "multiple-choice",
+  difficulty: "easy",
+  question: "A store sells notebooks for $\\$4$ each. If a student buys $n$ notebooks and pays with a $\\$50$ bill, which expression represents the change the student receives, in dollars?",
+  choices: [
+    { id: "A", text: "$50 - 4n$" },
+    { id: "B", text: "$4n - 50$" },
+    { id: "C", text: "$50 + 4n$" },
+    { id: "D", text: "$\\frac{50}{4n}$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Word-to-Expression Translation**\n\n**Choice A is correct.**\n\n**The Fast Way (10 seconds):** Change = amount paid minus cost. Cost of $n$ notebooks at $\\$4$ each is $4n$. Change = $50 - 4n$.\n\n**The Full Solution:**\nThe total cost for $n$ notebooks is $4 \\times n = 4n$ dollars. The student pays $\\$50$, so the change received is $50 - 4n$ dollars.\n\n**Why the wrong answers are tempting:**\n• Choice B: Reverses the subtraction order, giving a negative value when $n < 12.5$.\n• Choice C: Adds instead of subtracts, as if the student receives more money.\n• Choice D: Divides instead of subtracts, confusing the operation.\n\n**Test Day Takeaway:** Change = Payment minus Cost. Translate word problems one phrase at a time.",
+  skills: ["word-problems", "solving-equations"]
+},
+{
+  id: 2,
+  type: "multiple-choice",
+  difficulty: "easy",
+  question: "In a survey of $240$ students, $15\\%$ said they prefer reading on a tablet. How many students prefer reading on a tablet?",
+  choices: [
+    { id: "A", text: "$24$" },
+    { id: "B", text: "$30$" },
+    { id: "C", text: "$36$" },
+    { id: "D", text: "$40$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Percent of a Whole**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** $15\\%$ of $240 = 0.15 \\times 240 = 36$.\n\n**The Full Solution:**\nTo find $15\\%$ of $240$:\n$\\frac{15}{100} \\times 240 = \\frac{3600}{100} = 36$\n\n**Why the wrong answers are tempting:**\n• Choice A: This is $10\\%$ of $240$, omitting the extra $5\\%$.\n• Choice B: This would be $12.5\\%$ of $240$, a miscalculation.\n• Choice D: This is $\\frac{240}{6}$, confusing the percentage operation.\n\n**Test Day Takeaway:** Convert percent to decimal and multiply. Estimate first: $10\\%$ of $240 = 24$, so $15\\%$ must be more than $24$.",
+  skills: ["percents"]
+},
+{
+  id: 3,
+  type: "multiple-choice",
+  difficulty: "easy",
+  question: "If $\\frac{3x}{14} = \\frac{27}{7}$, what is the value of $x$?",
+  choices: [
+    { id: "A", text: "$6$" },
+    { id: "B", text: "$9$" },
+    { id: "C", text: "$18$" },
+    { id: "D", text: "$21$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Proportion Solving**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** Cross-multiply: $3x \\times 7 = 27 \\times 14$, so $21x = 378$, giving $x = 18$.\n\n**The Full Solution:**\n$\\frac{3x}{14} = \\frac{27}{7}$\n\nCross-multiply: $7 \\cdot 3x = 14 \\cdot 27$\n$21x = 378$\n$x = \\frac{378}{21} = 18$\n\nVerification: $\\frac{3(18)}{14} = \\frac{54}{14} = \\frac{27}{7}$ \\checkmark\n\n**Why the wrong answers are tempting:**\n• Choice A: Divides $378$ by $63$ instead of $21$.\n• Choice B: Solves $3x = 27$ ignoring the denominators entirely.\n• Choice D: Divides $378$ by $18$ instead of $21$.\n\n**Test Day Takeaway:** Cross-multiply carefully and verify by plugging back in.",
+  skills: ["solving-equations", "ratios"]
+},
+{
+  id: 4,
+  type: "multiple-choice",
+  difficulty: "easy",
+  question: "The function $f(t) = 85 + 12t$ models the temperature, in degrees Fahrenheit, of a liquid $t$ minutes after heating begins. What does the number $12$ represent in this context?",
+  choices: [
+    { id: "A", text: "The temperature of the liquid before heating begins" },
+    { id: "B", text: "The temperature of the liquid after $12$ minutes" },
+    { id: "C", text: "The increase in temperature, in degrees Fahrenheit, each minute" },
+    { id: "D", text: "The number of minutes needed to increase $1$ degree" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Interpret Slope in Context**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** In $f(t) = 85 + 12t$, the coefficient of $t$ is the rate of change: $12$ degrees per minute.\n\n**The Full Solution:**\nThe function is in slope-intercept form $f(t) = b + mt$ where $m = 12$ is the slope and $b = 85$ is the $y$-intercept. The slope represents the rate of change: the temperature increases by $12$ degrees Fahrenheit for each additional minute.\n\n**Why the wrong answers are tempting:**\n• Choice A: Confuses $12$ with the initial value $85$.\n• Choice B: Treats $12$ as an input rather than a rate.\n• Choice D: Inverts the relationship (that would be $\\frac{1}{12}$).\n\n**Test Day Takeaway:** In $y = b + mx$, the coefficient of the variable is always the rate of change per unit.",
+  skills: ["function-interpretation", "linear-functions", "slope"]
+},
+{
+  id: 5,
+  type: "multiple-choice",
+  difficulty: "easy",
+  question: "A recipe requires $\\frac{3}{4}$ cup of sugar for every $2$ cups of flour. If a baker uses $8$ cups of flour, how many cups of sugar are needed?",
+  choices: [
+    { id: "A", text: "$2$" },
+    { id: "B", text: "$3$" },
+    { id: "C", text: "$4$" },
+    { id: "D", text: "$6$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Ratio and Proportion**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** $8$ cups of flour is $4$ times $2$ cups, so multiply sugar by $4$: $\\frac{3}{4} \\times 4 = 3$ cups.\n\n**The Full Solution:**\nSet up a proportion: $\\frac{3/4}{2} = \\frac{x}{8}$\n\nCross-multiply: $2x = \\frac{3}{4} \\times 8 = 6$\n$x = 3$\n\n**Why the wrong answers are tempting:**\n• Choice A: Computes $\\frac{3}{4} \\times \\frac{8}{3}$ incorrectly.\n• Choice C: Uses $\\frac{3}{4} \\times 8 \\div \\frac{3}{2}$ with an error.\n• Choice D: Computes $\\frac{3}{4} \\times 8 = 6$ but forgets to account for the $2$-cup base.\n\n**Test Day Takeaway:** Find the scale factor first (how many times bigger?), then multiply.",
+  skills: ["ratios", "word-problems"]
+},
+{
+  id: 6,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "A line passes through the points $(3, -2)$ and $(7, 10)$. What is the $y$-intercept of this line?",
+  choices: [
+    { id: "A", text: "$-11$" },
+    { id: "B", text: "$-9$" },
+    { id: "C", text: "$-8$" },
+    { id: "D", text: "$-5$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Line from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (20 seconds):** Slope $= \\frac{10 - (-2)}{7 - 3} = \\frac{12}{4} = 3$. Using point $(3, -2)$: $-2 = 3(3) + b$, so $b = -2 - 9 = -11$.\n\n**The Full Solution:**\nStep 1: Find the slope.\n$m = \\frac{10 - (-2)}{7 - 3} = \\frac{12}{4} = 3$\n\nStep 2: Use slope-intercept form with $(3, -2)$.\n$y = mx + b$\n$-2 = 3(3) + b$\n$-2 = 9 + b$\n$b = -11$\n\nThe equation is $y = 3x - 11$, so the $y$-intercept is $-11$.\n\nVerification: At $(7, 10)$: $3(7) - 11 = 21 - 11 = 10$ \\checkmark\n\n**Why the wrong answers are tempting:**\n• Choice B: Computes $-2 - 3(3)$ but writes $-9$ instead of $-11$, dropping the $-2$.\n• Choice C: Uses slope $= 2$ instead of $3$.\n• Choice D: Computes $-2 - 3 = -5$, using the $x$-coordinate directly.\n\n**Test Day Takeaway:** Always verify the $y$-intercept by checking that both original points satisfy your equation.",
+  skills: ["linear-functions", "slope", "coordinate-geometry"]
+},
+{
+  id: 7,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "\n\n| | Prefer Coffee | Prefer Tea | Total |\n|---|---|---|---|\n| Age 18-30 | $42$ | $58$ | $100$ |\n| Age 31-50 | $65$ | $35$ | $100$ |\n| Total | $107$ | $93$ | $200$ |\n\nBased on the table above, what percentage of people who prefer tea are in the 18-30 age group? (Round to the nearest whole number.)",
+  choices: [
+    { id: "A", text: "$29\\%$" },
+    { id: "B", text: "$58\\%$" },
+    { id: "C", text: "$62\\%$" },
+    { id: "D", text: "$38\\%$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Two-Way Table Conditional Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** Tea preferrers who are 18-30: $58$. Total tea preferrers: $93$. Percentage: $\\frac{58}{93} \\approx 0.624 = 62\\%$.\n\n**The Full Solution:**\nThe question asks: of those who prefer tea, what percentage are aged 18-30? This is a conditional probability.\n\n$\\frac{\\text{Age 18-30 and Tea}}{\\text{Total Tea}} = \\frac{58}{93} \\approx 0.6237 \\approx 62\\%$\n\n**Why the wrong answers are tempting:**\n• Choice A: Computes $\\frac{58}{200} = 29\\%$, dividing by the grand total instead of the tea column total.\n• Choice B: Reads $58$ directly as a percentage from the table.\n• Choice D: Computes $\\frac{35}{93} \\approx 38\\%$, using the wrong row (31-50 instead of 18-30).\n\n**Test Day Takeaway:** In conditional probability, the denominator is the total of the given condition, not the grand total.",
+  skills: ["two-way-tables", "probability", "percents"]
+},
+{
+  id: 8,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "The system of equations below has the solution $(x, y)$.\n\n$5x - 3y = 19$\n$2x + 3y = 16$\n\nWhat is the value of $y$?",
+  choices: [
+    { id: "A", text: "$1$" },
+    { id: "B", text: "$2$" },
+    { id: "C", text: "$3$" },
+    { id: "D", text: "$5$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Systems of Linear Equations**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** Add the two equations: $7x = 35$, so $x = 5$. Substitute into the second equation: $2(5) + 3y = 16$, so $3y = 6$, giving $y = 2$.\n\n**The Full Solution:**\nAdding the equations eliminates $y$:\n$(5x - 3y) + (2x + 3y) = 19 + 16$\n$7x = 35$\n$x = 5$\n\nSubstitute $x = 5$ into $2x + 3y = 16$:\n$10 + 3y = 16$\n$3y = 6$\n$y = 2$\n\nVerification: $5(5) - 3(2) = 25 - 6 = 19$ \\checkmark and $2(5) + 3(2) = 10 + 6 = 16$ \\checkmark\n\n**Why the wrong answers are tempting:**\n• Choice A: Arithmetic error in the substitution step.\n• Choice C: Confuses with a coefficient in the system.\n• Choice D: Gives the value of $x$, not $y$.\n\n**Test Day Takeaway:** When coefficients of one variable are opposites, add the equations to eliminate it instantly.",
+  skills: ["systems-of-equations", "solving-equations"]
+},
+{
+  id: 9,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "A scatterplot shows data points that closely follow the line of best fit $y = 1.8x + 12.5$. According to this model, what is the predicted value of $y$ when $x = 15$?",
+  choices: [
+    { id: "A", text: "$27.0$" },
+    { id: "B", text: "$34.5$" },
+    { id: "C", text: "$39.5$" },
+    { id: "D", text: "$42.0$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** $y = 1.8(15) + 12.5 = 27.0 + 12.5 = 39.5$.\n\n**The Full Solution:**\nSubstitute $x = 15$ into the equation:\n$y = 1.8(15) + 12.5$\n$y = 27.0 + 12.5$\n$y = 39.5$\n\n**Why the wrong answers are tempting:**\n• Choice A: Computes $1.8 \\times 15 = 27$ but forgets to add $12.5$.\n• Choice B: Computes $1.8 \\times 15 = 27$ and adds only part of the intercept.\n• Choice D: Rounds $1.8$ to $2$ and computes $2(15) + 12 = 42$.\n\n**Test Day Takeaway:** Plug in carefully and don't forget the constant term. Double-check decimal multiplication.",
+  skills: ["scatterplots", "linear-functions"]
+},
+{
+  id: 10,
+  type: "fill-in",
+  difficulty: "medium",
+  question: "If $4(2w - 3) + 5 = 3w + 12$, what is the value of $w$?",
+  correctAnswer: "19/5",
+  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $\\frac{19}{5}$.**\n\n**The Fast Way (20 seconds):** Expand: $8w - 12 + 5 = 3w + 12$, so $8w - 7 = 3w + 12$, then $5w = 19$, giving $w = \\frac{19}{5}$.\n\n**The Full Solution:**\n$4(2w - 3) + 5 = 3w + 12$\n$8w - 12 + 5 = 3w + 12$\n$8w - 7 = 3w + 12$\n$8w - 3w = 12 + 7$\n$5w = 19$\n$w = \\frac{19}{5}$\n\n**Common Mistakes to Avoid:**\n• Forgetting to distribute the $4$ to both terms inside the parentheses.\n• Sign errors when combining $-12 + 5 = -7$.\n\n**Verification:** Left: $4(2 \\cdot \\frac{19}{5} - 3) + 5 = 4(\\frac{38}{5} - \\frac{15}{5}) + 5 = 4 \\cdot \\frac{23}{5} + 5 = \\frac{92}{5} + \\frac{25}{5} = \\frac{117}{5}$.\nRight: $3 \\cdot \\frac{19}{5} + 12 = \\frac{57}{5} + \\frac{60}{5} = \\frac{117}{5}$ \\checkmark\n\n**Test Day Takeaway:** Distribute first, combine like terms, then isolate the variable.",
+  skills: ["solving-equations"]
+},
+{
+  id: 11,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "A population of bacteria doubles every $3$ hours. If the initial population is $500$, which function $P(t)$ models the population after $t$ hours?",
+  choices: [
+    { id: "A", text: "$P(t) = 500(2)^{3t}$" },
+    { id: "B", text: "$P(t) = 500(2)^{t/3}$" },
+    { id: "C", text: "$P(t) = 500(3)^{t/2}$" },
+    { id: "D", text: "$P(t) = 1000(2)^{t}$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Exponential Growth Model**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Doubles every $3$ hours means the exponent must equal $1$ when $t = 3$: $\\frac{t}{3}$ gives $\\frac{3}{3} = 1$. Initial value is $500$, base is $2$.\n\n**The Full Solution:**\nThe general exponential growth model is $P(t) = P_0 \\cdot b^{t/d}$ where $P_0 = 500$ is the initial population, $b = 2$ (doubling), and $d = 3$ (doubling period in hours).\n\n$P(t) = 500(2)^{t/3}$\n\nCheck: At $t = 3$: $P(3) = 500(2)^1 = 1000$ (doubled) \\checkmark\nAt $t = 6$: $P(6) = 500(2)^2 = 2000$ (doubled again) \\checkmark\n\n**Why the wrong answers are tempting:**\n• Choice A: Uses $3t$ instead of $t/3$, which would triple the exponent each hour.\n• Choice C: Swaps the base and period.\n• Choice D: Starts at $1000$ and uses the wrong exponent.\n\n**Test Day Takeaway:** For 'doubles every $d$ hours,' the exponent is $t/d$, not $dt$.",
+  skills: ["exponential-functions", "function-interpretation"]
+},
+{
+  id: 12,
+  type: "fill-in",
+  difficulty: "medium",
+  question: "Line $p$ has a slope of $-\\frac{2}{5}$. Line $q$ is perpendicular to line $p$ and passes through the point $(4, -1)$. What is the $y$-intercept of line $q$?",
+  correctAnswer: "-11",
+  explanation: "**SAT Pattern: Perpendicular Lines**\n\n**The correct answer is $-11$.**\n\n**The Fast Way (20 seconds):** Perpendicular slope is $\\frac{5}{2}$. Using $(4, -1)$: $-1 = \\frac{5}{2}(4) + b$, so $-1 = 10 + b$, giving $b = -11$.\n\n**The Full Solution:**\nPerpendicular lines have slopes that are negative reciprocals.\nSlope of $p$: $-\\frac{2}{5}$\nSlope of $q$: $\\frac{5}{2}$\n\nUsing slope-intercept form with $(4, -1)$:\n$y = \\frac{5}{2}x + b$\n$-1 = \\frac{5}{2}(4) + b$\n$-1 = 10 + b$\n$b = -11$\n\n**Common Mistakes to Avoid:**\n• Using the same slope (parallel) instead of the negative reciprocal.\n• Getting $\\frac{2}{5}$ instead of $\\frac{5}{2}$ (forgetting to flip).\n\n**Verification:** At $(4, -1)$: $\\frac{5}{2}(4) - 11 = 10 - 11 = -1$ \\checkmark\n\n**Test Day Takeaway:** Perpendicular slopes are negative reciprocals: flip the fraction and change the sign.",
+  skills: ["slope", "linear-functions", "coordinate-geometry"]
+},
+{
+  id: 13,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "In a right triangle, one angle measures $90°$ and another measures $35°$. The side opposite the $35°$ angle has length $9$. Which expression gives the length of the hypotenuse?",
+  choices: [
+    { id: "A", text: "$\\frac{9}{\\sin 35°}$" },
+    { id: "B", text: "$\\frac{9}{\\cos 35°}$" },
+    { id: "C", text: "$9 \\sin 35°$" },
+    { id: "D", text: "$9 \\cos 35°$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Right Triangle Trigonometry**\n\n**Choice A is correct.**\n\n**The Fast Way (10 seconds):** $\\sin 35° = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{9}{h}$, so $h = \\frac{9}{\\sin 35°}$.\n\n**The Full Solution:**\nIn a right triangle, $\\sin(\\theta) = \\frac{\\text{opposite}}{\\text{hypotenuse}}$.\n\nFor the $35°$ angle:\n$\\sin 35° = \\frac{9}{\\text{hypotenuse}}$\n$\\text{hypotenuse} = \\frac{9}{\\sin 35°}$\n\n**Why the wrong answers are tempting:**\n• Choice B: Uses cosine, which relates the adjacent side to the hypotenuse, not the opposite.\n• Choice C: Multiplies instead of divides; this would give a value less than $9$.\n• Choice D: Uses cosine and multiplies, applying the wrong ratio entirely.\n\n**Test Day Takeaway:** SOH-CAH-TOA: Sine = Opposite/Hypotenuse. To find the hypotenuse from the opposite side, divide by sine.",
+  skills: ["triangles", "angles"]
+},
+{
+  id: 14,
+  type: "fill-in",
+  difficulty: "medium",
+  question: "If $f(x) = 2x^2 - 5x + 1$, what is the value of $f(-3)$?",
+  correctAnswer: "34",
+  explanation: "**SAT Pattern: Function Evaluation**\n\n**The correct answer is $34$.**\n\n**The Fast Way (15 seconds):** $f(-3) = 2(9) - 5(-3) + 1 = 18 + 15 + 1 = 34$.\n\n**The Full Solution:**\n$f(-3) = 2(-3)^2 - 5(-3) + 1$\n$= 2(9) - (-15) + 1$\n$= 18 + 15 + 1$\n$= 34$\n\n**Common Mistakes to Avoid:**\n• Computing $(-3)^2 = -9$ instead of $9$ (squaring always makes it positive).\n• Computing $-5(-3) = -15$ instead of $+15$ (negative times negative is positive).\n\n**Verification:** $2(9) = 18$, $-5(-3) = 15$, and $18 + 15 + 1 = 34$ \\checkmark\n\n**Test Day Takeaway:** Use parentheses when substituting negative numbers. A negative number squared is always positive.",
+  skills: ["function-interpretation", "quadratic-equations"]
+},
+{
+  id: 15,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "Which expression is equivalent to $\\frac{4x^2 - 25}{2x^2 + x - 15}$ for all values of $x$ where the expression is defined?",
+  choices: [
+    { id: "A", text: "$\\frac{2}{x}$" },
+    { id: "B", text: "$\\frac{2x + 5}{x + 3}$" },
+    { id: "C", text: "$\\frac{2x - 5}{x + 3}$" },
+    { id: "D", text: "$\\frac{2x + 5}{2x - 5}$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (30 seconds):** Factor numerator as difference of squares: $(2x-5)(2x+5)$. Factor denominator: $(2x-5)(x+3)$. Cancel $(2x-5)$ to get $\\frac{2x+5}{x+3}$.\n\n**The Full Solution:**\nNumerator: $4x^2 - 25 = (2x)^2 - 5^2 = (2x - 5)(2x + 5)$\n\nDenominator: $2x^2 + x - 15$. Find two numbers that multiply to $2 \\times (-15) = -30$ and add to $1$: those are $6$ and $-5$.\n$2x^2 + 6x - 5x - 15 = 2x(x + 3) - 5(x + 3) = (2x - 5)(x + 3)$\n\nSimplify: $\\frac{(2x-5)(2x+5)}{(2x-5)(x+3)} = \\frac{2x+5}{x+3}$\n\nVerification with $x = 1$: Original $= \\frac{4-25}{2+1-15} = \\frac{-21}{-12} = \\frac{7}{4}$. Choice B: $\\frac{2+5}{1+3} = \\frac{7}{4}$ \\checkmark\n\n**Why the wrong answers are tempting:**\n• Choice A: A guess that doesn't factor correctly.\n• Choice C: Uses $(2x-5)$ in numerator instead of $(2x+5)$, canceling the wrong factor.\n• Choice D: Keeps both numerator factors but drops the $(x+3)$.\n\n**Test Day Takeaway:** Factor both numerator and denominator completely before canceling common factors.",
+  skills: ["factoring", "polynomial-operations"]
+},
+{
+  id: 16,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "The equation of a circle in the $xy$-plane is $x^2 + y^2 - 6x + 10y + 18 = 0$. What is the radius of the circle?",
+  choices: [
+    { id: "A", text: "$4$" },
+    { id: "B", text: "$\\sqrt{7}$" },
+    { id: "C", text: "$\\sqrt{18}$" },
+    { id: "D", text: "$16$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Circle Equation -- Complete the Square**\n\n**Choice A is correct.**\n\n**The Fast Way (30 seconds):** Complete the square: $(x-3)^2 + (y+5)^2 = 9 + 25 - 18 = 16$. Radius $= \\sqrt{16} = 4$.\n\n**The Full Solution:**\nGroup $x$ and $y$ terms:\n$(x^2 - 6x) + (y^2 + 10y) = -18$\n\nComplete the square for $x$: half of $-6$ is $-3$, square is $9$.\n$(x^2 - 6x + 9) = (x - 3)^2$\n\nComplete the square for $y$: half of $10$ is $5$, square is $25$.\n$(y^2 + 10y + 25) = (y + 5)^2$\n\nAdd $9$ and $25$ to both sides:\n$(x - 3)^2 + (y + 5)^2 = -18 + 9 + 25 = 16$\n\nRadius $= \\sqrt{16} = 4$.\n\n**Why the wrong answers are tempting:**\n• Choice B: Completes only one square or miscalculates the right side.\n• Choice C: Uses $\\sqrt{18}$, confusing the constant $18$ with $r^2$.\n• Choice D: Reports $r^2 = 16$ as the radius instead of $r = \\sqrt{16} = 4$.\n\n**Test Day Takeaway:** Complete the square for both variables. The radius is $\\sqrt{r^2}$, not $r^2$ itself.",
+  skills: ["circle-equations", "coordinate-geometry"]
+},
+{
+  id: 17,
+  type: "fill-in",
+  difficulty: "hard",
+  question: "If $\\sqrt[3]{x^5} \\cdot \\sqrt{x^3} = x^k$ for $x > 0$, what is the value of $k$? Express your answer as a fraction.",
+  correctAnswer: "19/6",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $\\frac{19}{6}$.**\n\n**The Fast Way (20 seconds):** Convert: $x^{5/3} \\cdot x^{3/2} = x^{5/3 + 3/2} = x^{10/6 + 9/6} = x^{19/6}$.\n\n**The Full Solution:**\n$\\sqrt[3]{x^5} = x^{5/3}$\n$\\sqrt{x^3} = x^{3/2}$\n\nWhen multiplying powers with the same base, add the exponents:\n$x^{5/3} \\cdot x^{3/2} = x^{5/3 + 3/2}$\n\nFind a common denominator ($6$):\n$\\frac{5}{3} = \\frac{10}{6}$ and $\\frac{3}{2} = \\frac{9}{6}$\n$\\frac{10}{6} + \\frac{9}{6} = \\frac{19}{6}$\n\nSo $k = \\frac{19}{6}$.\n\n**Common Mistakes to Avoid:**\n• Writing $\\sqrt[3]{x^5} = x^{3/5}$ instead of $x^{5/3}$. The power goes in the numerator, the root in the denominator.\n• Multiplying exponents instead of adding them when the bases are being multiplied.\n\n**Verification:** $\\frac{5}{3} + \\frac{3}{2} = 1.667 + 1.5 = 3.167 = \\frac{19}{6}$ \\checkmark\n\n**Test Day Takeaway:** Convert radicals to fractional exponents, then add exponents when multiplying same bases.",
+  skills: ["exponent-rules", "radical-expressions"]
+},
+{
+  id: 18,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "For what value of $c$ does the system of equations below have exactly one solution?\n\n$y = 2x^2 + 11x + 2$\n$y = 4x + c$",
+  choices: [
+    { id: "A", text: "$c = -\\frac{41}{8}$" },
+    { id: "B", text: "$c = -\\frac{33}{8}$" },
+    { id: "C", text: "$c = -3$" },
+    { id: "D", text: "$c = \\frac{33}{8}$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Quadratic-Linear System with Tangency**\n\n**Choice B is correct.**\n\n**The Fast Way (40 seconds):** Set equal: $2x^2 + 11x + 2 = 4x + c$, so $2x^2 + 7x + (2 - c) = 0$. For exactly one solution, set discriminant $= 0$: $49 - 8(2 - c) = 0$, giving $33 + 8c = 0$, so $c = -\\frac{33}{8}$.\n\n**The Full Solution:**\nSet the equations equal:\n$2x^2 + 11x + 2 = 4x + c$\n$2x^2 + 7x + (2 - c) = 0$\n\nFor exactly one solution, the discriminant must equal zero:\n$b^2 - 4ac = 0$\n$(7)^2 - 4(2)(2 - c) = 0$\n$49 - 8(2 - c) = 0$\n$49 - 16 + 8c = 0$\n$33 + 8c = 0$\n$c = -\\frac{33}{8}$\n\nVerification: With $c = -\\frac{33}{8}$, the constant term is $2 - (-\\frac{33}{8}) = \\frac{16}{8} + \\frac{33}{8} = \\frac{49}{8}$.\nDiscriminant: $49 - 4(2)(\\frac{49}{8}) = 49 - \\frac{392}{8} = 49 - 49 = 0$ \\checkmark\n\n**Why the wrong answers are tempting:**\n• Choice A: Miscalculates $-8(2-c)$ with a sign error in distributing.\n• Choice C: Sets $2 - c = 0$ instead of using the discriminant.\n• Choice D: Gets the right magnitude but wrong sign.\n\n**Test Day Takeaway:** A quadratic-linear system has exactly one solution when the discriminant of the combined equation equals zero.",
+  skills: ["quadratic-equations", "systems-of-equations", "discriminant"]
+},
+{
+  id: 19,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "A quadratic function has vertex $(4, -7)$ and passes through the point $(10, 5)$. What is the value of $a + b + c$ if the function is written as $f(x) = ax^2 + bx + c$?",
+  choices: [
+    { id: "A", text: "$-10$" },
+    { id: "B", text: "$-4$" },
+    { id: "C", text: "$2$" },
+    { id: "D", text: "$5$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice B is correct.**\n\n**The Fast Way (30 seconds):** Note that $a + b + c = f(1)$. Vertex form: $f(x) = a(x-4)^2 - 7$. Use $(10, 5)$: $5 = a(10-4)^2 - 7 = 36a - 7$, so $36a = 12$ and $a = \\frac{1}{3}$. Then $f(1) = \\frac{1}{3}(1-4)^2 - 7 = \\frac{1}{3}(9) - 7 = 3 - 7 = -4$.\n\n**The Full Solution:**\nVertex form: $f(x) = a(x - 4)^2 - 7$\n\nUsing point $(10, 5)$:\n$5 = a(10 - 4)^2 - 7$\n$5 = 36a - 7$\n$12 = 36a$\n$a = \\frac{1}{3}$\n\nSince $a + b + c = f(1)$:\n$f(1) = \\frac{1}{3}(1 - 4)^2 - 7 = \\frac{1}{3}(9) - 7 = 3 - 7 = -4$\n\nVerification by expanding: $f(x) = \\frac{1}{3}(x^2 - 8x + 16) - 7 = \\frac{1}{3}x^2 - \\frac{8}{3}x + \\frac{16}{3} - 7 = \\frac{1}{3}x^2 - \\frac{8}{3}x - \\frac{5}{3}$\n$a + b + c = \\frac{1}{3} - \\frac{8}{3} - \\frac{5}{3} = \\frac{1 - 8 - 5}{3} = \\frac{-12}{3} = -4$ \\checkmark\n\n**Why the wrong answers are tempting:**\n• Choice A: Evaluates $f(0) = c = -\\frac{5}{3}$ and rounds or confuses with another value.\n• Choice C: Miscalculates $a$ as $\\frac{1}{2}$.\n• Choice D: Uses $f(2)$ instead of $f(1)$.\n\n**Test Day Takeaway:** $f(1) = a + b + c$ is a powerful shortcut. Start from vertex form, find $a$, then evaluate at $x = 1$.",
+  skills: ["vertex-form", "quadratic-equations", "coordinate-geometry"]
+},
+{
+  id: 20,
+  type: "fill-in",
+  difficulty: "hard",
+  question: "If $(3x + k)(x + 2) = 3x^2 + 17x + m$ for all values of $x$, what is the value of $m$?",
+  correctAnswer: "22",
+  explanation: "**SAT Pattern: Matching Coefficients**\n\n**The correct answer is $22$.**\n\n**The Fast Way (20 seconds):** Expand: $3x^2 + 6x + kx + 2k = 3x^2 + (6+k)x + 2k$. Match the $x$-coefficient: $6 + k = 17$, so $k = 11$. Then $m = 2k = 22$.\n\n**The Full Solution:**\nExpand the left side:\n$(3x + k)(x + 2) = 3x^2 + 6x + kx + 2k = 3x^2 + (6 + k)x + 2k$\n\nMatch coefficients with $3x^2 + 17x + m$:\n- $x^2$ coefficient: $3 = 3$ \\checkmark\n- $x$ coefficient: $6 + k = 17 \\Rightarrow k = 11$\n- constant term: $2k = m \\Rightarrow m = 2(11) = 22$\n\n**Common Mistakes to Avoid:**\n• Finding $k = 11$ but reporting $k$ instead of $m$.\n• Expanding incorrectly and forgetting the $6x$ cross term.\n\n**Verification:** $(3x + 11)(x + 2) = 3x^2 + 6x + 11x + 22 = 3x^2 + 17x + 22$ \\checkmark\n\n**Test Day Takeaway:** When two polynomials are equal for all $x$, their corresponding coefficients must match.",
+  skills: ["factoring", "polynomial-operations"]
+},
+{
+  id: 21,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "In the $xy$-plane, the parabola $y = -2x^2 + bx + c$ has its vertex at $(-3, 8)$. What is the value of $c$?",
+  choices: [
+    { id: "A", text: "$-28$" },
+    { id: "B", text: "$-10$" },
+    { id: "C", text: "$-8$" },
+    { id: "D", text: "$10$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Parabola from Vertex and Leading Coefficient**\n\n**Choice B is correct.**\n\n**The Fast Way (30 seconds):** Vertex form: $y = -2(x + 3)^2 + 8$. Expand: $-2(x^2 + 6x + 9) + 8 = -2x^2 - 12x - 18 + 8 = -2x^2 - 12x - 10$. So $c = -10$.\n\n**The Full Solution:**\nSince the vertex is at $(-3, 8)$ and $a = -2$, write vertex form:\n$y = -2(x - (-3))^2 + 8 = -2(x + 3)^2 + 8$\n\nExpand:\n$y = -2(x^2 + 6x + 9) + 8$\n$y = -2x^2 - 12x - 18 + 8$\n$y = -2x^2 - 12x - 10$\n\nSo $b = -12$ and $c = -10$.\n\nVerification: Vertex $x$-coordinate $= -\\frac{b}{2a} = -\\frac{-12}{2(-2)} = \\frac{12}{-4} = -3$ \\checkmark\nVertex $y$-coordinate: $f(-3) = -2(9) - 12(-3) - 10 = -18 + 36 - 10 = 8$ \\checkmark\n\n**Why the wrong answers are tempting:**\n• Choice A: Computes $-18 - 10 = -28$, adding the two negative terms.\n• Choice C: Confuses the vertex $y$-value with $c$.\n• Choice D: Gets $+10$ by making a sign error with $-18 + 8$.\n\n**Test Day Takeaway:** Write vertex form first, then expand to standard form to identify individual coefficients.",
+  skills: ["vertex-form", "quadratic-equations", "coordinate-geometry"]
+},
+{
+  id: 22,
+  type: "fill-in",
+  difficulty: "hard",
+  question: "If $\\frac{8^{x+1} \\cdot 4^{2x}}{2^{5x-2}} = 2^{n}$ and $x = 2$, what is the value of $n$?",
+  correctAnswer: "9",
+  explanation: "**SAT Pattern: Exponent Simplification with Common Base**\n\n**The correct answer is $9$.**\n\n**The Fast Way (30 seconds):** Convert to base $2$ with $x = 2$: $8^3 = 2^9$, $4^4 = 2^8$, $2^8$ in denominator. So $\\frac{2^9 \\cdot 2^8}{2^8} = 2^9$. Thus $n = 9$.\n\n**The Full Solution:**\nSubstitute $x = 2$:\n$\\frac{8^{2+1} \\cdot 4^{2(2)}}{2^{5(2)-2}} = \\frac{8^3 \\cdot 4^4}{2^8}$\n\nConvert to base $2$:\n$8^3 = (2^3)^3 = 2^9$\n$4^4 = (2^2)^4 = 2^8$\n$2^8$ stays as is.\n\nCombine: $\\frac{2^9 \\cdot 2^8}{2^8} = \\frac{2^{17}}{2^8} = 2^{17-8} = 2^9$\n\nSo $n = 9$.\n\n**Common Mistakes to Avoid:**\n• Writing $8^3 = 2^{3 \\cdot 3}$ correctly but then $4^4 = 2^{4 \\cdot 4}$ instead of $2^{2 \\cdot 4}$.\n• Subtracting exponents incorrectly when dividing.\n\n**Verification:** $\\frac{512 \\cdot 256}{256} = 512 = 2^9$ \\checkmark\n\n**Test Day Takeaway:** Convert all bases to the same prime base, then use exponent rules: multiply = add exponents, divide = subtract exponents.",
+  skills: ["exponent-rules"]
+}
       ]
     },
     {

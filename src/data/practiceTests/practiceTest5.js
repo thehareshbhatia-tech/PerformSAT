@@ -15,313 +15,311 @@ export const practiceTest5 = {
       title: "Module 1",
       timeLimit: 35,
       questions: [
-        // ===== EASY (Q1-Q5) =====
-        {
-          id: 1,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "A biologist recorded the number of bird species observed at four different nature reserves.\n\n| Reserve | Species Observed |\n|---|---|\n| Pine Valley | $42$ |\n| Oak Ridge | $58$ |\n| Cedar Lake | $35$ |\n| Maple Creek | $65$ |\n\nAccording to the table, which reserve had the greatest number of species observed?",
-          choices: [
-            { id: "A", text: "Pine Valley" },
-            { id: "B", text: "Oak Ridge" },
-            { id: "C", text: "Cedar Lake" },
-            { id: "D", text: "Maple Creek" }
-          ],
-          correctAnswer: "D",
-          explanation: "**SAT Pattern: Reading a Table**\n\n**Choice D is correct.**\n\n**The Fast Way (10 seconds):** Compare all values: $42, 58, 35, 65$. The greatest is $65$ at Maple Creek.\n\n**The Full Solution:**\nPine Valley: $42$, Oak Ridge: $58$, Cedar Lake: $35$, Maple Creek: $65$.\n$65 > 58 > 42 > 35$, so Maple Creek had the most species.\n\n**Why the wrong answers are tempting:**\n• Choice A ($42$): Pine Valley — not the largest.\n• Choice B ($58$): Oak Ridge — second highest.\n• Choice C ($35$): Cedar Lake — the smallest value.\n\n**Test Day Takeaway:** For table-reading questions, compare all values carefully. Do not rush and pick the first large number you see.",
-          skills: ["data-interpretation", "statistics"]
-        },
-        {
-          id: 2,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "$7$ more than $5$ times a number $n$ equals $52$. Which equation represents this statement?",
-          choices: [
-            { id: "A", text: "$7n + 5 = 52$" },
-            { id: "B", text: "$5n + 7 = 52$" },
-            { id: "C", text: "$5(n + 7) = 52$" },
-            { id: "D", text: "$7(n + 5) = 52$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Translating Words to an Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** \"$5$ times $n$\" $= 5n$. \"$7$ more than that\" $= 5n + 7$. \"Equals $52$\" $\\Rightarrow 5n + 7 = 52$.\n\n**The Full Solution:**\nBreak the sentence into parts:\n- \"$5$ times a number $n$\": $5n$\n- \"$7$ more than\" that: $5n + 7$\n- \"equals $52$\": $5n + 7 = 52$\n\n**Why the wrong answers are tempting:**\n• Choice A ($7n + 5 = 52$): Swaps the $5$ and $7$.\n• Choice C ($5(n + 7) = 52$): Distributes to $5n + 35$, not $5n + 7$.\n• Choice D ($7(n + 5) = 52$): Distributes to $7n + 35$, completely different.\n\n**Test Day Takeaway:** \"$k$ more than $m$ times $n$\" translates to $mn + k$, not $k(n + m)$.",
-          skills: ["linear-equations", "word-problems"]
-        },
-        {
-          id: 3,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "An architect charges a flat fee of $\\$200$ plus $\\$45$ per hour. The function $C(h) = 200 + 45h$ gives the total cost for $h$ hours of work. What is the best interpretation of the number $45$ in this function?",
-          choices: [
-            { id: "A", text: "The total cost for all hours worked" },
-            { id: "B", text: "The number of hours the architect works" },
-            { id: "C", text: "The additional cost for each hour of work" },
-            { id: "D", text: "The cost before any hours are worked" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Interpreting the Slope of a Linear Model**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** In $C(h) = 200 + 45h$, the coefficient $45$ is multiplied by $h$ (hours), so it is the rate: $\\$45$ per hour.\n\n**The Full Solution:**\nIn $C(h) = 200 + 45h$:\n- $200$ is the flat fee (the $y$-intercept, or cost when $h = 0$)\n- $45$ is the slope (the additional cost per hour)\n\n**Why the wrong answers are tempting:**\n• Choice A: $C(h)$ gives the total cost, not $45$.\n• Choice B: $h$ represents hours, not $45$.\n• Choice D: The cost before any hours is $200$ (the flat fee), not $45$.\n\n**Test Day Takeaway:** In $y = b + mx$, the coefficient $m$ is the rate of change per unit of $x$.",
-          skills: ["function-interpretation", "linear-functions"]
-        },
-        {
-          id: 4,
-          type: "fill-in",
-          difficulty: "easy",
-          question: "A factory uses a $\\$54$ coupon on an order of $6$ identical parts. After the coupon, the total cost is $\\$78$. What was the original price per part, in dollars?",
-          correctAnswer: "22",
-          explanation: "**SAT Pattern: Multi-Step Word Problem**\n\n**The correct answer is $22$.**\n\n**The Fast Way (15 seconds):** Total before coupon $= 78 + 54 = 132$. Price per part $= 132 \\div 6 = 22$.\n\n**The Full Solution:**\nOriginal total $= \\$78 + \\$54 = \\$132$.\nPrice per part $= \\frac{132}{6} = \\$22$.\n\n**Common Mistakes to Avoid:**\n• Subtracting the coupon instead of adding: $78 - 54 = 24$, then $24/6 = 4$.\n• Dividing first: $78/6 = 13$ (ignoring the coupon).\n\n**Verification:** $6 \\times 22 = 132$. After $\\$54$ coupon: $132 - 54 = 78$ ✓\n\n**Test Day Takeaway:** The coupon reduces the total, so to find the original you must add it back before dividing.",
-          skills: ["word-problems", "solving-equations"]
-        },
-        {
-          id: 5,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "What percentage of $300$ is $75$?",
-          choices: [
-            { id: "A", text: "$15\\%$" },
-            { id: "B", text: "$20\\%$" },
-            { id: "C", text: "$25\\%$" },
-            { id: "D", text: "$30\\%$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Finding a Percentage**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** $\\frac{75}{300} = \\frac{1}{4} = 25\\%$.\n\n**The Full Solution:**\n$\\frac{75}{300} \\times 100 = 0.25 \\times 100 = 25\\%$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($15\\%$): From a division error.\n• Choice B ($20\\%$): Confuses $\\frac{75}{300}$ with $\\frac{60}{300}$.\n• Choice D ($30\\%$): From $\\frac{75}{250}$ or mixing up numerator/denominator.\n\n**Test Day Takeaway:** \"What percent of $A$ is $B$?\" means $\\frac{B}{A} \\times 100$. The whole goes in the denominator.",
-          skills: ["percents", "word-problems"]
-        },
+// Practice Test 5 — Math Module 1 (22 questions)
+// Theme: algebra-heavy (complex equations, function transformations, absolute value), plus probability
 
-        // ===== EASY-MEDIUM (Q6-Q7) =====
-        {
-          id: 6,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "The equation $k^2 - 53 = 91$ has two solutions. What is the positive solution for $k$?",
-          choices: [
-            { id: "A", text: "$9$" },
-            { id: "B", text: "$12$" },
-            { id: "C", text: "$38$" },
-            { id: "D", text: "$144$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Solving a Quadratic (No Middle Term)**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** $k^2 = 91 + 53 = 144$. $k = \\sqrt{144} = 12$ (positive solution).\n\n**The Full Solution:**\n$k^2 - 53 = 91$\n$k^2 = 144$\n$k = \\pm 12$\nThe positive solution is $12$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($9$): $9^2 = 81$, not $144$.\n• Choice C ($38$): Adds $91 - 53 = 38$ instead of $91 + 53$.\n• Choice D ($144$): This is $k^2$, not $k$.\n\n**Test Day Takeaway:** Isolate $k^2$ first, then take the square root. Don't forget $\\pm$, but read whether the question asks for the positive solution.",
-          skills: ["quadratic-equations", "solving-equations"]
-        },
-        {
-          id: 7,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "A nutritionist recommends that a meal contain no more than $600$ calories. If a meal has $c$ calories, which inequality represents this recommendation?",
-          choices: [
-            { id: "A", text: "$c > 600$" },
-            { id: "B", text: "$c \\geq 600$" },
-            { id: "C", text: "$c < 600$" },
-            { id: "D", text: "$c \\leq 600$" }
-          ],
-          correctAnswer: "D",
-          explanation: "**SAT Pattern: Translating Words to Inequalities**\n\n**Choice D is correct.**\n\n**The Fast Way (10 seconds):** \"No more than $600$\" means $c$ can be $600$ or less: $c \\leq 600$.\n\n**The Full Solution:**\n\"No more than\" means \"less than or equal to.\" The calories $c$ must satisfy $c \\leq 600$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($c > 600$): The opposite of the recommendation.\n• Choice B ($c \\geq 600$): Means \"at least $600$,\" which is the reverse.\n• Choice C ($c < 600$): Close, but \"no more than\" includes exactly $600$.\n\n**Test Day Takeaway:** \"No more than\" $=$ $\\leq$. \"At least\" $=$ $\\geq$. \"Less than\" $=$ $<$. \"More than\" $=$ $>$.",
-          skills: ["inequalities", "word-problems"]
-        },
+// ===== EASY (Q1–Q5) =====
 
-        // ===== MEDIUM (Q8-Q13) =====
-        {
-          id: 8,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "A biologist records the population of bacteria at different times:\n\n| Time (hours) | Population |\n|---|---|\n| $0$ | $100$ |\n| $1$ | $200$ |\n| $2$ | $400$ |\n| $3$ | $800$ |\n\nBased on the data, which type of function best models the relationship between time and population?",
-          choices: [
-            { id: "A", text: "Decreasing linear" },
-            { id: "B", text: "Increasing linear" },
-            { id: "C", text: "Decreasing exponential" },
-            { id: "D", text: "Increasing exponential" }
-          ],
-          correctAnswer: "D",
-          explanation: "**SAT Pattern: Linear vs. Exponential from a Table**\n\n**Choice D is correct.**\n\n**The Fast Way (15 seconds):** Check ratios: $200/100 = 2$, $400/200 = 2$, $800/400 = 2$. Constant ratio $=$ exponential. Values increasing $=$ increasing exponential.\n\n**The Full Solution:**\nDifferences: $200 - 100 = 100$, $400 - 200 = 200$, $800 - 400 = 400$. Not constant, so not linear.\nRatios: $200/100 = 2$, $400/200 = 2$, $800/400 = 2$. Constant ratio of $2$, so exponential.\nSince values increase, this is an increasing exponential.\n\n**Why the wrong answers are tempting:**\n• Choice A: Values are increasing, not decreasing.\n• Choice B: Differences are not constant, so it is not linear.\n• Choice C: Values increase, so this is not decreasing.\n\n**Test Day Takeaway:** Constant differences $=$ linear. Constant ratios $=$ exponential.",
-          skills: ["exponential-functions", "function-interpretation"]
-        },
-        {
-          id: 9,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "The table below shows the results of a survey of $200$ factory workers.\n\n| | Day Shift | Night Shift | Total |\n|---|---|---|---|\n| Full-time | $70$ | $50$ | $120$ |\n| Part-time | $45$ | $35$ | $80$ |\n| Total | $115$ | $85$ | $200$ |\n\nWhat fraction of night shift workers are full-time?",
-          choices: [
-            { id: "A", text: "$\\frac{50}{200}$" },
-            { id: "B", text: "$\\frac{50}{120}$" },
-            { id: "C", text: "$\\frac{50}{85}$" },
-            { id: "D", text: "$\\frac{85}{200}$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Two-Way Table — Conditional Fraction**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** \"Of night shift workers\" means the denominator is $85$ (total night shift). Full-time night shift $= 50$. Fraction $= \\frac{50}{85}$.\n\n**The Full Solution:**\nRestrict to night shift workers: total $= 85$.\nFull-time among night shift $= 50$.\nFraction $= \\frac{50}{85}$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($\\frac{50}{200}$): Uses grand total as denominator instead of night shift total.\n• Choice B ($\\frac{50}{120}$): Uses full-time total as denominator (flips the condition).\n• Choice D ($\\frac{85}{200}$): Fraction of all workers on night shift, ignoring the full-time condition.\n\n**Test Day Takeaway:** The group mentioned in the question (\"of night shift workers\") determines the denominator.",
-          skills: ["two-way-tables", "probability"]
-        },
-        {
-          id: 10,
-          type: "fill-in",
-          difficulty: "medium",
-          question: "The function $f(t) = 150 + 25t$ models the total number of parts manufactured after $t$ hours. How many more parts are manufactured between hour $3$ and hour $7$?",
-          correctAnswer: "100",
-          explanation: "**SAT Pattern: Using a Linear Function Over an Interval**\n\n**The correct answer is $100$.**\n\n**The Fast Way (15 seconds):** $f(7) - f(3) = (150 + 175) - (150 + 75) = 325 - 225 = 100$. Or: the rate is $25$ parts per hour over $4$ hours $= 100$.\n\n**The Full Solution:**\n$f(7) = 150 + 25(7) = 150 + 175 = 325$\n$f(3) = 150 + 25(3) = 150 + 75 = 225$\n$f(7) - f(3) = 325 - 225 = 100$\n\n**Common Mistakes to Avoid:**\n• Computing $f(7)$ alone ($325$) instead of the difference.\n• Computing $f(7-3) = f(4) = 250$ — you cannot subtract the inputs.\n\n**Verification:** Over $4$ hours at $25$ parts/hour $= 100$ additional parts ✓\n\n**Test Day Takeaway:** For \"how many more\" between two times, compute $f(b) - f(a)$, not $f(b-a)$.",
-          skills: ["linear-functions", "function-evaluation"]
-        },
-        {
-          id: 11,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "An architect designs a ramp that rises $3$ feet over a horizontal distance of $12$ feet. What is the slope of the ramp?",
-          choices: [
-            { id: "A", text: "$\\frac{1}{4}$" },
-            { id: "B", text: "$\\frac{1}{3}$" },
-            { id: "C", text: "$3$" },
-            { id: "D", text: "$4$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Slope as Rise Over Run**\n\n**Choice A is correct.**\n\n**The Fast Way (10 seconds):** Slope $= \\frac{\\text{rise}}{\\text{run}} = \\frac{3}{12} = \\frac{1}{4}$.\n\n**The Full Solution:**\nThe ramp rises $3$ feet (vertical) over $12$ feet (horizontal).\nSlope $= \\frac{3}{12} = \\frac{1}{4}$.\n\n**Why the wrong answers are tempting:**\n• Choice B ($\\frac{1}{3}$): Divides $12$ by something else, or confuses the numbers.\n• Choice C ($3$): The rise alone, not the slope.\n• Choice D ($4$): Computes run $\\div$ rise instead of rise $\\div$ run.\n\n**Test Day Takeaway:** Slope $= \\frac{\\text{rise}}{\\text{run}} = \\frac{\\text{vertical change}}{\\text{horizontal change}}$.",
-          skills: ["slope", "word-problems"]
-        },
-        {
-          id: 12,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "In the $xy$-plane, a line has a $y$-intercept of $8$ and an $x$-intercept of $4$. What is the slope of this line?",
-          choices: [
-            { id: "A", text: "$-2$" },
-            { id: "B", text: "$-\\frac{1}{2}$" },
-            { id: "C", text: "$\\frac{1}{2}$" },
-            { id: "D", text: "$2$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Slope from Intercepts**\n\n**Choice A is correct.**\n\n**The Fast Way (15 seconds):** The line passes through $(0, 8)$ and $(4, 0)$. Slope $= \\frac{0 - 8}{4 - 0} = \\frac{-8}{4} = -2$.\n\n**The Full Solution:**\n$y$-intercept: $(0, 8)$. $x$-intercept: $(4, 0)$.\nSlope $= \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{0 - 8}{4 - 0} = -2$\n\n**Why the wrong answers are tempting:**\n• Choice B ($-\\frac{1}{2}$): Computes $\\frac{4 - 0}{0 - 8} = -\\frac{1}{2}$ (rise and run swapped).\n• Choice C ($\\frac{1}{2}$): Swaps rise/run and drops the negative.\n• Choice D ($2$): Correct magnitude but wrong sign (the line goes downward).\n\n**Test Day Takeaway:** Given two intercepts, use slope $= \\frac{y_2 - y_1}{x_2 - x_1}$. A line falling from left to right has a negative slope.",
-          skills: ["slope", "coordinate-geometry"]
-        },
-        {
-          id: 13,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "The system of equations below has solution $(x, y)$.\n\n$2x + y = 11$\n$x - y = 1$\n\nWhat is the value of $y$?",
-          choices: [
-            { id: "A", text: "$2$" },
-            { id: "B", text: "$3$" },
-            { id: "C", text: "$4$" },
-            { id: "D", text: "$7$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: System of Equations — Elimination**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** Add the two equations: $(2x + y) + (x - y) = 11 + 1$, so $3x = 12$ and $x = 4$. Substitute: $4 - y = 1$, so $y = 3$.\n\n**The Full Solution:**\nAdding the equations eliminates $y$:\n$2x + x + y - y = 12$\n$3x = 12$\n$x = 4$\n\nSubstitute $x = 4$ into $x - y = 1$:\n$4 - y = 1$\n$y = 3$\n\n**Why the wrong answers are tempting:**\n• Choice A ($2$): May come from $12/6$ or another setup error.\n• Choice C ($4$): This is $x$, not $y$.\n• Choice D ($7$): From $11 - 4 = 7$, substituting into the wrong equation form.\n\n**Verification:** $2(4) + 3 = 11$ ✓ and $4 - 3 = 1$ ✓\n\n**Test Day Takeaway:** When one variable has opposite signs in the two equations, add to eliminate it.",
-          skills: ["systems-of-equations", "solving-equations"]
-        },
+{
+  id: 1,
+  type: "multiple-choice",
+  difficulty: "easy",
+  question: "What is $15\\%$ of $360$?",
+  choices: [
+    { id: "A", text: "$24$" },
+    { id: "B", text: "$45$" },
+    { id: "C", text: "$54$" },
+    { id: "D", text: "$315$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Basic Percent Calculation**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** $10\\%$ of $360 = 36$. $5\\%$ of $360 = 18$. Total: $36 + 18 = 54$.\n\n**The Full Solution:**\n$15\\%$ of $360 = 0.15 \\times 360 = 54$.\n\n**Why the wrong answers are tempting:**\n• Choice A: Computes $\\frac{360}{15} = 24$ (divides instead of multiplying).\n• Choice B: Confuses $15\\%$ with $\\frac{1}{8}$: $360 \\div 8 = 45$.\n• Choice D: Computes $360 - 45 = 315$ (subtracts a wrong amount).\n\n**Test Day Takeaway:** Break percentages into $10\\%$ and $5\\%$ for fast mental math.",
+  skills: ["percents"]
+},
+{
+  id: 2,
+  type: "multiple-choice",
+  difficulty: "easy",
+  question: "The equation $5$ more than $7$ times a number $n$ equals $61$ can be written as which of the following?",
+  choices: [
+    { id: "A", text: "$5n + 7 = 61$" },
+    { id: "B", text: "$7n + 5 = 61$" },
+    { id: "C", text: "$7(n + 5) = 61$" },
+    { id: "D", text: "$5(n + 7) = 61$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Word-to-Equation Translation**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** \"$7$ times a number\" $= 7n$. \"$5$ more than that\" $= 7n + 5$. Set equal to $61$: $7n + 5 = 61$.\n\n**The Full Solution:**\n\"$7$ times a number $n$\" translates to $7n$.\n\"$5$ more than $7n$\" means $7n + 5$.\nThe equation: $7n + 5 = 61$.\n\n**Why the wrong answers are tempting:**\n• Choice A: Swaps the $5$ and $7$ — \"$5$ times $n$ plus $7$\".\n• Choice C: Interprets \"$5$ more than $7$ times $n$\" as $7$ times the quantity $(n + 5)$.\n• Choice D: Completely scrambles the structure.\n\n**Test Day Takeaway:** \"$a$ more than $b$ times $n$\" always means $bn + a$, not $b(n + a)$.",
+  skills: ["word-problems", "solving-equations"]
+},
+{
+  id: 3,
+  type: "multiple-choice",
+  difficulty: "easy",
+  question: "A car travels at a constant speed of $55$ miles per hour. Which equation gives the distance $d$, in miles, the car travels in $h$ hours?",
+  choices: [
+    { id: "A", text: "$d = \\frac{h}{55}$" },
+    { id: "B", text: "$d = h + 55$" },
+    { id: "C", text: "$d = 55h$" },
+    { id: "D", text: "$h = 55d$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Rate × Time = Distance**\n\n**Choice C is correct.**\n\n**The Fast Way (5 seconds):** Distance = rate × time = $55 \\times h = 55h$.\n\n**The Full Solution:**\nThe formula for distance at constant speed is $d = rt$, where $r = 55$ mph and $t = h$ hours.\n$d = 55h$\n\n**Why the wrong answers are tempting:**\n• Choice A: Divides $h$ by $55$ instead of multiplying.\n• Choice B: Adds rate and time instead of multiplying.\n• Choice D: Solves for $h$ instead of $d$, and the relationship is inverted.\n\n**Test Day Takeaway:** Distance = rate × time. Always check that the variable you're solving for is on the correct side.",
+  skills: ["word-problems", "linear-functions"]
+},
+{
+  id: 4,
+  type: "multiple-choice",
+  difficulty: "easy",
+  question: "If $f(x) = 3x - 10$, what is $f(7)$?",
+  choices: [
+    { id: "A", text: "$-31$" },
+    { id: "B", text: "$-1$" },
+    { id: "C", text: "$11$" },
+    { id: "D", text: "$31$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Evaluating a Function**\n\n**Choice C is correct.**\n\n**The Fast Way (5 seconds):** $f(7) = 3(7) - 10 = 21 - 10 = 11$.\n\n**The Full Solution:**\nSubstitute $x = 7$ into $f(x) = 3x - 10$:\n$f(7) = 3(7) - 10 = 21 - 10 = 11$\n\n**Why the wrong answers are tempting:**\n• Choice A: Computes $-(3 \\times 7) - 10 = -31$ (incorrect sign on $3x$).\n• Choice B: Computes $3(7 - 10) = 3(-3) = -9$... not quite, but a subtraction-first error.\n• Choice D: Computes $3(7) + 10 = 31$ (adds instead of subtracts).\n\n**Test Day Takeaway:** Substitute carefully and follow order of operations — multiply before you subtract.",
+  skills: ["function-interpretation"]
+},
+{
+  id: 5,
+  type: "multiple-choice",
+  difficulty: "easy",
+  question: "A recipe uses $\\frac{3}{4}$ cup of sugar for every $2$ cups of flour. How many cups of sugar are needed for $8$ cups of flour?",
+  choices: [
+    { id: "A", text: "$\\frac{3}{2}$" },
+    { id: "B", text: "$3$" },
+    { id: "C", text: "$4$" },
+    { id: "D", text: "$6$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Proportional Reasoning**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $8$ cups of flour is $4$ times $2$ cups. So sugar $= 4 \\times \\frac{3}{4} = 3$ cups.\n\n**The Full Solution:**\nSet up a proportion: $\\frac{3/4}{2} = \\frac{x}{8}$.\nCross multiply: $2x = 8 \\cdot \\frac{3}{4} = 6$.\n$x = 3$.\n\n**Why the wrong answers are tempting:**\n• Choice A: Doubles the sugar instead of quadrupling: $2 \\times \\frac{3}{4} = \\frac{3}{2}$.\n• Choice C: Multiplies $\\frac{3}{4} \\times 8 = 6$ then divides by something... or confuses the ratio.\n• Choice D: Computes $\\frac{3}{4} \\times 8 = 6$ without accounting for the \"per $2$ cups\" part.\n\n**Test Day Takeaway:** Find the scale factor first (how many times bigger is the new amount?), then multiply.",
+  skills: ["ratios", "word-problems"]
+},
 
-        // ===== HARD (Q14-Q22) =====
-        {
-          id: 14,
-          type: "fill-in",
-          difficulty: "hard",
-          question: "The expression $(3x^2 + 2x - 5) + (x^2 - 4x + 8)$ can be written as $ax^2 + bx + c$. What is the value of $b$?",
-          correctAnswer: "-2",
-          explanation: "**SAT Pattern: Adding Polynomials**\n\n**The correct answer is $-2$.**\n\n**The Fast Way (15 seconds):** Combine the $x$-terms: $2x + (-4x) = -2x$. So $b = -2$.\n\n**The Full Solution:**\n$(3x^2 + 2x - 5) + (x^2 - 4x + 8)$\n$= (3 + 1)x^2 + (2 - 4)x + (-5 + 8)$\n$= 4x^2 - 2x + 3$\n\nSo $a = 4$, $b = -2$, $c = 3$.\n\n**Common Mistakes to Avoid:**\n• Adding $2 + 4 = 6$ instead of $2 + (-4) = -2$ (watch the sign on $-4x$).\n• Reporting $a$ or $c$ instead of $b$.\n\n**Verification:** $4x^2 - 2x + 3$ ✓\n\n**Test Day Takeaway:** When adding polynomials, combine like terms. Pay careful attention to signs.",
-          skills: ["polynomial-operations", "algebraic-manipulation"]
-        },
-        {
-          id: 15,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "A building casts a shadow that is $40$ feet long. At the same time, a $6$-foot-tall person standing nearby casts a shadow $8$ feet long. The equation $\\frac{h}{40} = \\frac{6}{8}$ can be used to find the building's height $h$. What is the height of the building, in feet?",
-          choices: [
-            { id: "A", text: "$24$" },
-            { id: "B", text: "$30$" },
-            { id: "C", text: "$42$" },
-            { id: "D", text: "$48$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Similar Triangles / Proportions**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** $\\frac{h}{40} = \\frac{6}{8} = \\frac{3}{4}$. So $h = 40 \\times \\frac{3}{4} = 30$.\n\n**The Full Solution:**\n$\\frac{h}{40} = \\frac{6}{8}$\n$h = \\frac{6 \\times 40}{8} = \\frac{240}{8} = 30$\n\n**Why the wrong answers are tempting:**\n• Choice A ($24$): From $6 \\times 4 = 24$ (using an incorrect ratio).\n• Choice C ($42$): From $40 + 6/3 = 42$ (an addition error).\n• Choice D ($48$): From $6 \\times 8 = 48$ (multiplying height by shadow length).\n\n**Verification:** $30/40 = 3/4$ and $6/8 = 3/4$. Same ratio. ✓\n\n**Test Day Takeaway:** Objects and their shadows form similar triangles. Set up $\\frac{h_1}{s_1} = \\frac{h_2}{s_2}$ and cross-multiply.",
-          skills: ["ratios-proportions", "word-problems"]
-        },
-        {
-          id: 16,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "The function $f(x) = -x^2 + 8x - 12$ can be written as $f(x) = -(x - h)^2 + k$. What is the value of $k$?",
-          choices: [
-            { id: "A", text: "$-12$" },
-            { id: "B", text: "$-4$" },
-            { id: "C", text: "$4$" },
-            { id: "D", text: "$12$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Completing the Square to Find Vertex**\n\n**Choice C is correct.**\n\n**The Fast Way (30 seconds):** Factor out $-1$: $f(x) = -(x^2 - 8x) - 12 = -(x^2 - 8x + 16 - 16) - 12 = -(x - 4)^2 + 16 - 12 = -(x - 4)^2 + 4$. So $k = 4$.\n\nAlternatively, use $h = -b/(2a) = -8/(2 \\cdot -1) = 4$. Then $k = f(4) = -16 + 32 - 12 = 4$.\n\n**The Full Solution:**\n$f(x) = -x^2 + 8x - 12$\n$= -(x^2 - 8x) - 12$\n$= -(x^2 - 8x + 16) + 16 - 12$\n$= -(x - 4)^2 + 4$\n\nSo $h = 4$ and $k = 4$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($-12$): The constant term before completing the square.\n• Choice B ($-4$): From subtracting $16$ instead of adding it (sign error with the factored $-1$).\n• Choice D ($12$): From adding $16 - 12$ incorrectly.\n\n**Test Day Takeaway:** To find $k$ (the vertex $y$-value), use $k = f(-b/(2a))$. It is faster than completing the square.",
-          skills: ["vertex-form", "quadratic-functions"]
-        },
-        {
-          id: 17,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "A population of bacteria triples every $4$ hours. If the initial population is $500$, which expression gives the population after $t$ hours?",
-          choices: [
-            { id: "A", text: "$500(3)^{t/4}$" },
-            { id: "B", text: "$500(3)^{4t}$" },
-            { id: "C", text: "$500(4)^{t/3}$" },
-            { id: "D", text: "$1{,}500^t$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Exponential Growth with Period**\n\n**Choice A is correct.**\n\n**The Fast Way (20 seconds):** Triples every $4$ hours means growth factor of $3$ every $4$ hours. In $t$ hours, there are $t/4$ periods of $4$ hours. Population $= 500(3)^{t/4}$.\n\n**The Full Solution:**\nGeneral form: $P(t) = P_0 \\cdot r^{t/\\text{period}}$\n$P_0 = 500$, $r = 3$ (triples), period $= 4$ hours.\n$P(t) = 500(3)^{t/4}$\n\n**Why the wrong answers are tempting:**\n• Choice B ($500(3)^{4t}$): Multiplies by $4t$ instead of dividing by $4$. This would make it triple $4$ times per hour.\n• Choice C ($500(4)^{t/3}$): Swaps the growth factor and the period.\n• Choice D ($1{,}500^t$): Multiplies $500 \\times 3$ and uses it as the base.\n\n**Verification:** At $t = 4$: $500(3)^{4/4} = 500 \\times 3 = 1{,}500$. At $t = 8$: $500(3)^2 = 4{,}500$. Each quadrupling of time triples the population. ✓\n\n**Test Day Takeaway:** \"Multiplies by $r$ every $p$ units\" translates to $A_0 \\cdot r^{t/p}$.",
-          skills: ["exponential-functions", "function-interpretation"]
-        },
-        {
-          id: 18,
-          type: "fill-in",
-          difficulty: "hard",
-          question: "What is the positive solution of $2x^2 - 7x - 15 = 0$?",
-          correctAnswer: "5",
-          explanation: "**SAT Pattern: Solving a Quadratic by Factoring**\n\n**The correct answer is $5$.**\n\n**The Fast Way (30 seconds):** Factor: $2x^2 - 7x - 15 = (2x + 3)(x - 5) = 0$. Solutions: $x = -3/2$ or $x = 5$. The positive solution is $5$.\n\n**The Full Solution:**\nWe need two numbers that multiply to $2 \\times (-15) = -30$ and add to $-7$: those are $-10$ and $3$.\n$2x^2 - 10x + 3x - 15 = 0$\n$2x(x - 5) + 3(x - 5) = 0$\n$(2x + 3)(x - 5) = 0$\n$x = -\\frac{3}{2}$ or $x = 5$\n\nThe positive solution is $5$.\n\n**Common Mistakes to Avoid:**\n• Reporting $-3/2$ (the negative solution).\n• Factoring errors: check by expanding $(2x + 3)(x - 5) = 2x^2 - 10x + 3x - 15 = 2x^2 - 7x - 15$ ✓\n\n**Verification:** $2(25) - 7(5) - 15 = 50 - 35 - 15 = 0$ ✓\n\n**Test Day Takeaway:** For $ax^2 + bx + c$, find two numbers that multiply to $ac$ and add to $b$, then factor by grouping.",
-          skills: ["quadratic-equations", "factoring"]
-        },
-        {
-          id: 19,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "A cylindrical water tank has a radius of $5$ feet and a height of $8$ feet. What is the volume of the tank? (Use $\\pi \\approx 3.14$)",
-          choices: [
-            { id: "A", text: "$200\\pi$ cubic feet" },
-            { id: "B", text: "$80\\pi$ cubic feet" },
-            { id: "C", text: "$40\\pi$ cubic feet" },
-            { id: "D", text: "$25\\pi$ cubic feet" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Volume of a Cylinder**\n\n**Choice A is correct.**\n\n**The Fast Way (15 seconds):** $V = \\pi r^2 h = \\pi(25)(8) = 200\\pi$.\n\n**The Full Solution:**\n$V = \\pi r^2 h$\n$= \\pi (5)^2 (8)$\n$= \\pi \\cdot 25 \\cdot 8$\n$= 200\\pi$ cubic feet\n\n**Why the wrong answers are tempting:**\n• Choice B ($80\\pi$): Uses $2 \\times 5 = 10$ for the radius-squared term: $\\pi(10)(8) = 80\\pi$. But $r^2 = 25$, not $2r = 10$.\n• Choice C ($40\\pi$): Uses $r$ instead of $r^2$: $\\pi(5)(8) = 40\\pi$.\n• Choice D ($25\\pi$): Just $\\pi r^2$ without the height.\n\n**Test Day Takeaway:** Volume of a cylinder $= \\pi r^2 h$. Always square the radius.",
-          skills: ["volume", "circles"]
-        },
-        {
-          id: 20,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "In the $xy$-plane, line $m$ has equation $y = 3x - 2$ and line $n$ has equation $y = -\\frac{1}{3}x + 4$. Which statement about lines $m$ and $n$ is true?",
-          choices: [
-            { id: "A", text: "The lines are parallel" },
-            { id: "B", text: "The lines are perpendicular" },
-            { id: "C", text: "The lines have the same $y$-intercept" },
-            { id: "D", text: "The lines have the same $x$-intercept" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Parallel vs. Perpendicular Lines**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Slope of $m$: $3$. Slope of $n$: $-1/3$. Product: $3 \\times (-1/3) = -1$. Perpendicular.\n\n**The Full Solution:**\nTwo lines are perpendicular when the product of their slopes is $-1$.\nSlope of $m = 3$, slope of $n = -\\frac{1}{3}$.\n$3 \\times (-\\frac{1}{3}) = -1$ ✓\n\nSo the lines are perpendicular.\n\n**Why the wrong answers are tempting:**\n• Choice A: Parallel lines have equal slopes. $3 \\neq -1/3$.\n• Choice C: $y$-intercepts are $-2$ and $4$, which are different.\n• Choice D: $x$-intercept of $m$: $2/3$. $x$-intercept of $n$: $12$. Different.\n\n**Test Day Takeaway:** Parallel $=$ same slope. Perpendicular $=$ slopes multiply to $-1$ (negative reciprocals).",
-          skills: ["slope", "parallel-lines"]
-        },
-        {
-          id: 21,
-          type: "fill-in",
-          difficulty: "hard",
-          question: "A triangle has angles measuring $x°$, $2x°$, and $(x + 40)°$. What is the value of $x$?",
-          correctAnswer: "35",
-          explanation: "**SAT Pattern: Triangle Angle Sum**\n\n**The correct answer is $35$.**\n\n**The Fast Way (20 seconds):** $x + 2x + (x + 40) = 180$. So $4x + 40 = 180$, $4x = 140$, $x = 35$.\n\n**The Full Solution:**\nThe sum of angles in a triangle is $180°$:\n$x + 2x + (x + 40) = 180$\n$4x + 40 = 180$\n$4x = 140$\n$x = 35$\n\n**Common Mistakes to Avoid:**\n• Forgetting to include the $40$: $x + 2x + x = 180$ gives $x = 45$.\n• Setting equal to $360°$ (that is for a quadrilateral).\n\n**Verification:** Angles: $35°, 70°, 75°$. Sum: $35 + 70 + 75 = 180°$ ✓\n\n**Test Day Takeaway:** Angles of a triangle sum to $180°$. Angles of a quadrilateral sum to $360°$.",
-          skills: ["triangles", "angles"]
-        },
-        {
-          id: 22,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "If $4^{x+1} = 8^x$, what is the value of $x$?",
-          choices: [
-            { id: "A", text: "$1$" },
-            { id: "B", text: "$2$" },
-            { id: "C", text: "$3$" },
-            { id: "D", text: "$4$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Exponential Equation — Common Base**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** Rewrite with base $2$: $4^{x+1} = (2^2)^{x+1} = 2^{2(x+1)} = 2^{2x+2}$ and $8^x = (2^3)^x = 2^{3x}$.\nSet exponents equal: $2x + 2 = 3x$, so $x = 2$.\n\n**The Full Solution:**\n$4 = 2^2$ and $8 = 2^3$\n$(2^2)^{x+1} = (2^3)^x$\n$2^{2x+2} = 2^{3x}$\n$2x + 2 = 3x$\n$x = 2$\n\n**Why the wrong answers are tempting:**\n• Choice A ($1$): $4^2 = 16$ vs $8^1 = 8$. Not equal.\n• Choice C ($3$): $4^4 = 256$ vs $8^3 = 512$. Not equal.\n• Choice D ($4$): $4^5 = 1{,}024$ vs $8^4 = 4{,}096$. Not equal.\n\n**Verification:** $4^{2+1} = 4^3 = 64$ and $8^2 = 64$. ✓\n\n**Test Day Takeaway:** When both bases can be written as powers of the same number, rewrite them and set the exponents equal.",
-          skills: ["exponent-rules", "exponential-functions"]
-        }
+// ===== MEDIUM (Q6–Q14) =====
+
+{
+  id: 6,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "If $|2x - 7| = 13$, what is the sum of all possible values of $x$?",
+  choices: [
+    { id: "A", text: "$3$" },
+    { id: "B", text: "$7$" },
+    { id: "C", text: "$10$" },
+    { id: "D", text: "$13$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Absolute Value Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** Case 1: $2x - 7 = 13 \\Rightarrow x = 10$. Case 2: $2x - 7 = -13 \\Rightarrow x = -3$. Sum: $10 + (-3) = 7$.\n\n**The Full Solution:**\n$|2x - 7| = 13$ means $2x - 7 = 13$ or $2x - 7 = -13$.\nCase 1: $2x - 7 = 13 \\Rightarrow 2x = 20 \\Rightarrow x = 10$.\nCase 2: $2x - 7 = -13 \\Rightarrow 2x = -6 \\Rightarrow x = -3$.\nSum: $10 + (-3) = 7$.\n\n**Why the wrong answers are tempting:**\n• Choice A: Computes only $|10 - 7| = 3$ or makes a different error.\n• Choice C: Uses only the positive solution $x = 10$.\n• Choice D: Uses the right-hand side $13$ as the answer.\n\n**Test Day Takeaway:** Absolute value equations always have two cases. The question often asks for the sum or product, so solve both.",
+  skills: ["solving-equations"]
+},
+{
+  id: 7,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "The graph of $y = f(x)$ passes through the point $(2, 5)$. If $g(x) = f(x - 3) + 4$, which point must lie on the graph of $y = g(x)$?",
+  choices: [
+    { id: "A", text: "$(5, 9)$" },
+    { id: "B", text: "$(-1, 9)$" },
+    { id: "C", text: "$(5, 1)$" },
+    { id: "D", text: "$(-1, 1)$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Function Transformations**\n\n**Choice A is correct.**\n\n**The Fast Way (15 seconds):** $f(x-3)$ shifts right $3$, so $x$-coordinate goes from $2$ to $5$. Adding $4$ shifts up $4$, so $y$ goes from $5$ to $9$. Point: $(5, 9)$.\n\n**The Full Solution:**\nWe know $f(2) = 5$.\nWe need $g(x) = f(x-3) + 4$ to use the known value $f(2) = 5$.\nSet $x - 3 = 2$, so $x = 5$.\n$g(5) = f(5 - 3) + 4 = f(2) + 4 = 5 + 4 = 9$.\nSo $(5, 9)$ is on the graph of $g$.\n\n**Why the wrong answers are tempting:**\n• Choice B: Shifts left by $3$ instead of right: $2 - 3 = -1$.\n• Choice C: Subtracts $4$ instead of adding: $5 - 4 = 1$.\n• Choice D: Both errors combined.\n\n**Test Day Takeaway:** $f(x - h) + k$ shifts right $h$ and up $k$. To find the new point, add $h$ to $x$ and $k$ to $y$.",
+  skills: ["function-interpretation"]
+},
+{
+  id: 8,
+  type: "fill-in",
+  difficulty: "medium",
+  question: "If $\\frac{x}{3} + \\frac{x}{6} = 10$, what is the value of $x$?",
+  correctAnswer: "20",
+  explanation: "**SAT Pattern: Solving Equations with Fractions**\n\n**The correct answer is $20$.**\n\n**The Fast Way (15 seconds):** Multiply everything by $6$: $2x + x = 60$, so $3x = 60$, $x = 20$.\n\n**The Full Solution:**\n$\\frac{x}{3} + \\frac{x}{6} = 10$\nThe LCD is $6$. Multiply both sides by $6$:\n$\\frac{6x}{3} + \\frac{6x}{6} = 60$\n$2x + x = 60$\n$3x = 60$\n$x = 20$\n\n**Common Mistakes to Avoid:**\n• Using LCD $= 18$ (an unnecessary multiple that complicates arithmetic).\n• Forgetting to multiply the right side by the LCD.\n\n**Verification:** $\\frac{20}{3} + \\frac{20}{6} = \\frac{40}{6} + \\frac{20}{6} = \\frac{60}{6} = 10$. \\u2713\n\n**Test Day Takeaway:** Multiply through by the LCD to clear all fractions at once.",
+  skills: ["solving-equations"]
+},
+{
+  id: 9,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "A bag contains $4$ red balls, $6$ blue balls, and $5$ green balls. Two balls are drawn at random without replacement. What is the probability that both balls are blue?",
+  choices: [
+    { id: "A", text: "$\\frac{36}{225}$" },
+    { id: "B", text: "$\\frac{6}{15}$" },
+    { id: "C", text: "$\\frac{1}{7}$" },
+    { id: "D", text: "$\\frac{2}{15}$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Probability Without Replacement**\n\n**Choice C is correct.**\n\n**The Fast Way (20 seconds):** $P = \\frac{6}{15} \\times \\frac{5}{14} = \\frac{30}{210} = \\frac{1}{7}$.\n\n**The Full Solution:**\nTotal balls $= 4 + 6 + 5 = 15$.\n$P(\\text{1st blue}) = \\frac{6}{15}$.\nAfter drawing one blue ball: $5$ blue remain out of $14$ total.\n$P(\\text{2nd blue} | \\text{1st blue}) = \\frac{5}{14}$.\n$P(\\text{both blue}) = \\frac{6}{15} \\times \\frac{5}{14} = \\frac{30}{210} = \\frac{1}{7}$.\n\n**Why the wrong answers are tempting:**\n• Choice A: Uses replacement: $(\\frac{6}{15})^2 = \\frac{36}{225}$.\n• Choice B: Gives only the first probability $\\frac{6}{15}$, not the combined probability.\n• Choice D: A common incorrect simplification.\n\n**Test Day Takeaway:** \"Without replacement\" means the second draw has one fewer in both numerator and denominator.",
+  skills: ["probability"]
+},
+{
+  id: 10,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "The function $h$ is defined by $h(x) = 2(x - 4)^2 - 18$. What is the minimum value of $h(x)$?",
+  choices: [
+    { id: "A", text: "$-18$" },
+    { id: "B", text: "$-4$" },
+    { id: "C", text: "$4$" },
+    { id: "D", text: "$14$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Vertex Form of a Quadratic**\n\n**Choice A is correct.**\n\n**The Fast Way (5 seconds):** In vertex form $a(x-h)^2 + k$, the minimum value is $k$ when $a > 0$. Here $k = -18$.\n\n**The Full Solution:**\n$h(x) = 2(x - 4)^2 - 18$ is in vertex form with $a = 2 > 0$ (opens upward), vertex at $(4, -18)$.\nSince the parabola opens upward, the vertex gives the minimum.\nMinimum value $= -18$, occurring at $x = 4$.\n\n**Why the wrong answers are tempting:**\n• Choice B: Uses the $x$-coordinate of the vertex ($-4$ with a sign error) instead of the $y$-value.\n• Choice C: Uses the $x$-coordinate of the vertex.\n• Choice D: Computes $2(0-4)^2 - 18 = 32 - 18 = 14$ (evaluates at $x = 0$ instead of reading the vertex).\n\n**Test Day Takeaway:** In $a(x-h)^2 + k$, the vertex is at $(h, k)$. If $a > 0$, $k$ is the minimum.",
+  skills: ["vertex-form", "quadratic-equations"]
+},
+{
+  id: 11,
+  type: "fill-in",
+  difficulty: "medium",
+  question: "If $3(2x - 5) - 4(x + 3) = 7$, what is the value of $x$?",
+  correctAnswer: "17",
+  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $17$.**\n\n**The Fast Way (20 seconds):** Distribute: $6x - 15 - 4x - 12 = 7$. Combine: $2x - 27 = 7$. Solve: $2x = 34$, $x = 17$.\n\n**The Full Solution:**\n$3(2x - 5) - 4(x + 3) = 7$\n$6x - 15 - 4x - 12 = 7$\n$(6x - 4x) + (-15 - 12) = 7$\n$2x - 27 = 7$\n$2x = 34$\n$x = 17$\n\n**Common Mistakes to Avoid:**\n• Distributing the negative sign incorrectly: $-4(x + 3) = -4x - 12$, not $-4x + 12$.\n• Combining constants wrong: $-15 - 12 = -27$, not $-3$.\n\n**Verification:** $3(34 - 5) - 4(17 + 3) = 3(29) - 4(20) = 87 - 80 = 7$. \\u2713\n\n**Test Day Takeaway:** Distribute carefully, especially with negative signs, then combine like terms.",
+  skills: ["solving-equations"]
+},
+{
+  id: 12,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "A company's revenue $R$ in thousands of dollars is modeled by $R(t) = 150(1.08)^t$, where $t$ is the number of years since $2020$. What does the value $1.08$ represent?",
+  choices: [
+    { id: "A", text: "The revenue increases by $\\$1.08$ thousand each year." },
+    { id: "B", text: "The revenue increases by $8\\%$ each year." },
+    { id: "C", text: "The revenue increases by $108\\%$ each year." },
+    { id: "D", text: "The revenue will be $\\$1.08$ thousand in year $t$." }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Interpreting Exponential Growth Rate**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** In $a \\cdot b^t$, the base $b = 1.08 = 1 + 0.08$, so the growth rate is $0.08 = 8\\%$ per year.\n\n**The Full Solution:**\nThe exponential model $R(t) = 150(1.08)^t$ has the form $P_0(1 + r)^t$.\nHere $1 + r = 1.08$, so $r = 0.08 = 8\\%$.\nThis means the revenue grows by $8\\%$ each year.\n\n**Why the wrong answers are tempting:**\n• Choice A: Confuses exponential growth (percent) with linear growth (constant amount).\n• Choice C: Interprets $1.08$ as $108\\%$ increase, rather than a $1.08$ multiplier (which is $8\\%$ increase).\n• Choice D: Misinterprets the base as an output value.\n\n**Test Day Takeaway:** In $P_0(1 + r)^t$, the growth rate is $r$, not the entire base. Subtract $1$ from the base to find the rate.",
+  skills: ["exponential-functions", "function-interpretation"]
+},
+{
+  id: 13,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "The line passes through the points $(-2, 9)$ and $(4, -3)$. What is the equation of this line?",
+  choices: [
+    { id: "A", text: "$y = -2x + 5$" },
+    { id: "B", text: "$y = 2x + 13$" },
+    { id: "C", text: "$y = -2x - 5$" },
+    { id: "D", text: "$y = -\\frac{1}{2}x + 8$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Equation of Line from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (20 seconds):** Slope $= \\frac{-3 - 9}{4 - (-2)} = \\frac{-12}{6} = -2$. Using $(4, -3)$: $-3 = -2(4) + b \\Rightarrow b = 5$. So $y = -2x + 5$.\n\n**The Full Solution:**\nSlope $m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{-3 - 9}{4 - (-2)} = \\frac{-12}{6} = -2$.\nUsing point-slope with $(4, -3)$:\n$y - (-3) = -2(x - 4)$\n$y + 3 = -2x + 8$\n$y = -2x + 5$\n\n**Why the wrong answers are tempting:**\n• Choice B: Uses positive slope $+2$ instead of $-2$.\n• Choice C: Correct slope but wrong $y$-intercept calculation.\n• Choice D: Uses $\\frac{6}{-12} = -\\frac{1}{2}$ (reciprocal of the slope).\n\n**Test Day Takeaway:** Calculate slope first with $(y_2 - y_1)/(x_2 - x_1)$, then plug one point back in to find the intercept.",
+  skills: ["slope", "linear-functions"]
+},
+{
+  id: 14,
+  type: "fill-in",
+  difficulty: "medium",
+  question: "In a class of $30$ students, $18$ play soccer, $12$ play basketball, and $5$ play both. How many students play neither soccer nor basketball?",
+  correctAnswer: "5",
+  explanation: "**SAT Pattern: Inclusion-Exclusion Principle**\n\n**The correct answer is $5$.**\n\n**The Fast Way (15 seconds):** At least one sport: $18 + 12 - 5 = 25$. Neither: $30 - 25 = 5$.\n\n**The Full Solution:**\nUsing inclusion-exclusion:\n$|\\text{Soccer} \\cup \\text{Basketball}| = |\\text{Soccer}| + |\\text{Basketball}| - |\\text{Both}|$\n$= 18 + 12 - 5 = 25$\nStudents playing neither: $30 - 25 = 5$.\n\n**Common Mistakes to Avoid:**\n• Forgetting to subtract the overlap: $18 + 12 = 30$, then thinking everyone plays a sport.\n• Subtracting the overlap twice.\n\n**Verification:** Soccer only: $13$. Basketball only: $7$. Both: $5$. Neither: $5$. Total: $13 + 7 + 5 + 5 = 30$. \\u2713\n\n**Test Day Takeaway:** $|A \\cup B| = |A| + |B| - |A \\cap B|$. Then subtract from total for \"neither.\"",
+  skills: ["probability", "statistics"]
+},
+
+// ===== HARD (Q15–Q22) =====
+
+{
+  id: 15,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "The function $f$ is defined by $f(x) = -2(x + 3)^2 + 50$. The function $g$ is defined by $g(x) = -2(x - 5)^2 + 50$. Which of the following correctly describes the relationship between the graphs of $f$ and $g$?",
+  choices: [
+    { id: "A", text: "The graph of $g$ is the graph of $f$ translated $2$ units to the right." },
+    { id: "B", text: "The graph of $g$ is the graph of $f$ translated $8$ units to the right." },
+    { id: "C", text: "The graph of $g$ is the graph of $f$ translated $8$ units to the left." },
+    { id: "D", text: "The graph of $g$ is the graph of $f$ reflected over the $y$-axis." }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Comparing Function Transformations**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Vertex of $f$: $(-3, 50)$. Vertex of $g$: $(5, 50)$. Horizontal shift: $5 - (-3) = 8$ units right.\n\n**The Full Solution:**\n$f(x) = -2(x + 3)^2 + 50$ has vertex at $(-3, 50)$.\n$g(x) = -2(x - 5)^2 + 50$ has vertex at $(5, 50)$.\nSame $a$ value ($-2$) and same $k$ value ($50$), so the shape and vertical position are identical.\nThe vertex moved from $x = -3$ to $x = 5$, a shift of $5 - (-3) = 8$ units to the right.\n\n**Why the wrong answers are tempting:**\n• Choice A: Computes $5 - 3 = 2$ by ignoring the negative sign in $-3$.\n• Choice C: Gets the direction backwards.\n• Choice D: A reflection over the $y$-axis would change $f(x)$ to $f(-x)$, which would give a different expression.\n\n**Test Day Takeaway:** Compare vertices of quadratics in vertex form to determine horizontal and vertical shifts.",
+  skills: ["vertex-form", "function-interpretation"]
+},
+{
+  id: 16,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "For what value of $c$ does the equation $3x^2 - 12x + c = 0$ have exactly one real solution?",
+  choices: [
+    { id: "A", text: "$-12$" },
+    { id: "B", text: "$4$" },
+    { id: "C", text: "$12$" },
+    { id: "D", text: "$36$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Discriminant Equals Zero**\n\n**Choice C is correct.**\n\n**The Fast Way (20 seconds):** Discriminant $= 0$: $(-12)^2 - 4(3)(c) = 0 \\Rightarrow 144 - 12c = 0 \\Rightarrow c = 12$.\n\n**The Full Solution:**\nA quadratic $ax^2 + bx + c = 0$ has exactly one real solution when the discriminant equals zero:\n$b^2 - 4ac = 0$\nHere $a = 3$, $b = -12$:\n$(-12)^2 - 4(3)(c) = 0$\n$144 - 12c = 0$\n$12c = 144$\n$c = 12$\n\n**Why the wrong answers are tempting:**\n• Choice A: Sets $b^2 + 4ac = 0$ (adding instead of subtracting): $144 + 12c = 0 \\Rightarrow c = -12$.\n• Choice B: Divides $-12$ by $-3$: confuses the discriminant formula with solving $-12/3$.\n• Choice D: Computes $(-12)^2 = 144$ but sets $c = 144/4 = 36$ (divides by $4$ instead of $12$).\n\n**Test Day Takeaway:** Exactly one solution means discriminant $= 0$: set $b^2 - 4ac = 0$ and solve for the unknown.",
+  skills: ["discriminant", "quadratic-equations"]
+},
+{
+  id: 17,
+  type: "fill-in",
+  difficulty: "hard",
+  question: "If $\\frac{2}{x - 3} + \\frac{5}{x + 3} = \\frac{19}{x^2 - 9}$, what is the value of $x$?",
+  correctAnswer: "4",
+  explanation: "**SAT Pattern: Rational Equation**\n\n**The correct answer is $4$.**\n\n**The Fast Way (30 seconds):** Note $x^2 - 9 = (x-3)(x+3)$. Multiply through by $(x-3)(x+3)$: $2(x+3) + 5(x-3) = 19$. Simplify: $7x - 9 = 19$, so $x = 4$.\n\n**The Full Solution:**\nNote $x^2 - 9 = (x-3)(x+3)$. Multiply both sides by $(x-3)(x+3)$:\n$2(x+3) + 5(x-3) = 19$\n$2x + 6 + 5x - 15 = 19$\n$7x - 9 = 19$\n$7x = 28$\n$x = 4$\n\nCheck that $x = 4$ doesn't make any denominator zero: $4 - 3 = 1 \neq 0$, $4 + 3 = 7 \neq 0$. \\u2713\n\n**Common Mistakes to Avoid:**\n• Forgetting to check that the solution doesn't create a zero denominator.\n• Distributing the $5$ incorrectly: $5(x - 3) = 5x - 15$, not $5x - 3$.\n\n**Verification:** $\\frac{2}{1} + \\frac{5}{7} = \\frac{14}{7} + \\frac{5}{7} = \\frac{19}{7}$. And $\\frac{19}{4^2 - 9} = \\frac{19}{7}$. \\u2713\n\n**Test Day Takeaway:** Factor the denominator, multiply through by the LCD, and always check for extraneous solutions.",
+  skills: ["solving-equations"]
+},
+{
+  id: 18,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "A quadratic function $f$ has roots at $x = -2$ and $x = 7$. If $f(1) = 36$, what is $f(0)$?",
+  choices: [
+    { id: "A", text: "$-28$" },
+    { id: "B", text: "$28$" },
+    { id: "C", text: "$-42$" },
+    { id: "D", text: "$42$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Quadratic from Roots and a Condition**\n\n**Choice B is correct.**\n\n**The Fast Way (30 seconds):** $f(x) = a(x + 2)(x - 7)$. Use $f(1) = 36$: $a(3)(-6) = 36 \\Rightarrow -18a = 36 \\Rightarrow a = -2$. Then $f(0) = -2(2)(-7) = 28$.\n\n**The Full Solution:**\nSince the roots are $-2$ and $7$:\n$f(x) = a(x + 2)(x - 7)$ for some constant $a$.\nUsing $f(1) = 36$:\n$a(1 + 2)(1 - 7) = 36$\n$a(3)(-6) = 36$\n$-18a = 36$\n$a = -2$\n\nNow find $f(0)$:\n$f(0) = -2(0 + 2)(0 - 7) = -2(2)(-7) = -2 \\times (-14) = 28$.\n\n**Why the wrong answers are tempting:**\n• Choice A: Computes $-2(2)(-7)$ but mishandles signs to get $-28$.\n• Choice C: Uses $a = -2$ and computes $-2 \\cdot 2 \\cdot 7 \\cdot 3 = -84$... or another sign error leading to $-42$.\n• Choice D: Computes $(2)(7) \\times 3 = 42$ without properly using $a$.\n\n**Test Day Takeaway:** Write the factored form from the roots, use the given condition to find $a$, then evaluate.",
+  skills: ["quadratic-equations", "factoring"]
+},
+{
+  id: 19,
+  type: "fill-in",
+  difficulty: "hard",
+  question: "If $9^{x+1} = 27^{x}$, what is the value of $x$?",
+  correctAnswer: "2",
+  explanation: "**SAT Pattern: Exponential Equation with Common Base**\n\n**The correct answer is $2$.**\n\n**The Fast Way (20 seconds):** Rewrite: $3^{2(x+1)} = 3^{3x}$. So $2x + 2 = 3x$, giving $x = 2$.\n\n**The Full Solution:**\n$9^{x+1} = 27^x$\n$(3^2)^{x+1} = (3^3)^x$\n$3^{2(x+1)} = 3^{3x}$\n$3^{2x+2} = 3^{3x}$\nSince the bases are equal, set exponents equal:\n$2x + 2 = 3x$\n$2 = x$\n$x = 2$\n\n**Common Mistakes to Avoid:**\n• Forgetting to distribute: $2(x + 1) = 2x + 2$, not $2x + 1$.\n• Writing $27 = 3^2$ instead of $3^3$.\n\n**Verification:** $9^{2+1} = 9^3 = 729$. $27^2 = 729$. \\u2713\n\n**Test Day Takeaway:** Convert both sides to the same base, then set exponents equal.",
+  skills: ["exponent-rules", "exponential-functions"]
+},
+{
+  id: 20,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "In the $xy$-plane, the graph of $y = x^2 - 6x + k$ is tangent to the $x$-axis. What is the value of $k$?",
+  choices: [
+    { id: "A", text: "$-9$" },
+    { id: "B", text: "$0$" },
+    { id: "C", text: "$6$" },
+    { id: "D", text: "$9$" }
+  ],
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Tangent to Axis Means Discriminant = 0**\n\n**Choice D is correct.**\n\n**The Fast Way (15 seconds):** Tangent to $x$-axis means exactly one $x$-intercept, so discriminant $= 0$. $(-6)^2 - 4(1)(k) = 0 \\Rightarrow 36 - 4k = 0 \\Rightarrow k = 9$.\n\n**The Full Solution:**\n\"Tangent to the $x$-axis\" means the parabola touches the $x$-axis at exactly one point, i.e., the equation $x^2 - 6x + k = 0$ has exactly one solution.\nThis requires discriminant $= 0$:\n$b^2 - 4ac = 0$\n$(-6)^2 - 4(1)(k) = 0$\n$36 - 4k = 0$\n$4k = 36$\n$k = 9$\n\nAlternatively, complete the square: $y = (x - 3)^2 - 9 + k$. Tangent to $x$-axis means vertex on $x$-axis: $-9 + k = 0$, so $k = 9$.\n\n**Why the wrong answers are tempting:**\n• Choice A: Sets $-9 + k = 0$ but gets $k = -9$ from a sign error.\n• Choice B: Assumes tangent means passing through the origin.\n• Choice C: Uses $b = 6$ and confuses it with $k$.\n\n**Test Day Takeaway:** \"Tangent to the $x$-axis\" = discriminant is zero = vertex sits on the $x$-axis.",
+  skills: ["discriminant", "quadratic-equations", "vertex-form"]
+},
+{
+  id: 21,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "A deck contains $10$ red cards numbered $1$–$10$ and $10$ blue cards numbered $1$–$10$. One card is drawn at random. What is the probability that the card is red OR has a number greater than $7$?",
+  choices: [
+    { id: "A", text: "$\\frac{10}{20}$" },
+    { id: "B", text: "$\\frac{13}{20}$" },
+    { id: "C", text: "$\\frac{16}{20}$" },
+    { id: "D", text: "$\\frac{7}{10}$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Probability with OR (Inclusion-Exclusion)**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** $P(\\text{red}) = \\frac{10}{20}$. $P(>7) = \\frac{6}{20}$ (cards 8, 9, 10 in each color). $P(\\text{red AND} > 7) = \\frac{3}{20}$. By inclusion-exclusion: $\\frac{10 + 6 - 3}{20} = \\frac{13}{20}$.\n\n**The Full Solution:**\n$P(\\text{red}) = \\frac{10}{20}$ (all $10$ red cards).\n$P(\\text{number} > 7) = \\frac{6}{20}$ (red $8, 9, 10$ and blue $8, 9, 10$).\n$P(\\text{red AND number} > 7) = \\frac{3}{20}$ (red $8, 9, 10$).\n$P(\\text{red OR number} > 7) = \\frac{10}{20} + \\frac{6}{20} - \\frac{3}{20} = \\frac{13}{20}$.\n\n**Why the wrong answers are tempting:**\n• Choice A: Only counts $P(\\text{red}) = \\frac{10}{20}$ and ignores the \"OR\" part.\n• Choice C: Adds without subtracting overlap: $\\frac{10 + 6}{20} = \\frac{16}{20}$.\n• Choice D: Simplifies $\\frac{14}{20}$ from a different calculation.\n\n**Test Day Takeaway:** $P(A \\text{ or } B) = P(A) + P(B) - P(A \\text{ and } B)$. Always subtract the overlap.",
+  skills: ["probability"]
+},
+{
+  id: 22,
+  type: "fill-in",
+  difficulty: "hard",
+  question: "The system of equations below has the solution $(x, y)$.\n\n$4x - 3y = 0$\n$x^2 + y = 13$\n\nIf $x > 0$, what is the value of $y$?",
+  correctAnswer: "4",
+  explanation: "**SAT Pattern: Nonlinear System of Equations**\n\n**The correct answer is $4$.**\n\n**The Fast Way (45 seconds):** From the second equation: $y = 13 - x^2$. Substitute into the first: $4x - 3(13 - x^2) = 0$. Simplify: $3x^2 + 4x - 39 = 0$. Factor: $(3x + 13)(x - 3) = 0$. Since $x > 0$, $x = 3$, so $y = 13 - 9 = 4$.\n\n**The Full Solution:**\nFrom the second equation: $y = 13 - x^2$.\nSubstitute into the first: $4x - 3(13 - x^2) = 0$\n$4x - 39 + 3x^2 = 0$\n$3x^2 + 4x - 39 = 0$\n$(3x + 13)(x - 3) = 0$\n$x = -\\frac{13}{3}$ or $x = 3$\n\nSince $x > 0$: $x = 3$.\n$y = 13 - 3^2 = 13 - 9 = 4$.\n\n**Common Mistakes to Avoid:**\n• Choosing $x = -\\frac{13}{3}$ instead of $x = 3$.\n• Substituting into the wrong equation to find $y$.\n\n**Verification:** $4(3) - 3(4) = 12 - 12 = 0$. \\u2713. $9 + 4 = 13$. \\u2713\n\n**Test Day Takeaway:** For nonlinear systems, isolate one variable and substitute into the other equation.",
+  skills: ["systems-of-equations", "quadratic-equations"]
+}
       ]
     },
     {

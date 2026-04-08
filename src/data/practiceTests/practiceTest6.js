@@ -15,307 +15,311 @@ export const practiceTest6 = {
       title: "Module 1",
       timeLimit: 35,
       questions: [
-        // ===== EASY (Q1-Q5) =====
-        {
-          id: 1,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "A survey asked $200$ art students which medium they prefer. The results are shown in the table.\n\n| Medium | Number of Students |\n|---|---|\n| Painting | $72$ |\n| Sculpture | $48$ |\n| Digital Art | $56$ |\n| Photography | $24$ |\n\nAccording to the table, what fraction of the students surveyed prefer sculpture?",
-          choices: [
-            { id: "A", text: "$\\frac{48}{200}$" },
-            { id: "B", text: "$\\frac{48}{72}$" },
-            { id: "C", text: "$\\frac{48}{56}$" },
-            { id: "D", text: "$\\frac{200}{48}$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Reading a Table — Part-to-Whole Fraction**\n\n**Choice A is correct.**\n\n**The Fast Way (10 seconds):** Students who prefer sculpture $= 48$. Total students $= 200$. Fraction $= \\frac{48}{200}$.\n\n**The Full Solution:**\nThe question asks what fraction of ALL students prefer sculpture.\nNumerator: students who prefer sculpture $= 48$.\nDenominator: total students $= 200$.\nFraction $= \\frac{48}{200} = \\frac{6}{25}$.\n\n**Why the wrong answers are tempting:**\n• Choice B: Uses painting ($72$) as the denominator — wrong group.\n• Choice C: Uses digital art ($56$) as the denominator.\n• Choice D: Inverts the fraction (whole over part).\n\n**Test Day Takeaway:** \"Fraction of all\" means part $\\div$ total. The total goes in the denominator.",
-          skills: ["data-interpretation", "ratios-proportions"]
-        },
-        {
-          id: 2,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "A farmer's crop yield $Y$ in bushels is modeled by $Y = 120 + 8w$, where $w$ is the number of weeks after planting. What is the best interpretation of $8$ in this equation?",
-          choices: [
-            { id: "A", text: "The total yield after $w$ weeks" },
-            { id: "B", text: "The yield at the time of planting" },
-            { id: "C", text: "The increase in yield per week" },
-            { id: "D", text: "The number of weeks after planting" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Interpreting the Slope of a Linear Model**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** In $Y = 120 + 8w$, the coefficient $8$ is multiplied by $w$ (weeks), so it represents the rate of change: $8$ bushels per week.\n\n**The Full Solution:**\nIn $Y = 120 + 8w$:\n- $120$ is the $y$-intercept (yield at $w = 0$, the time of planting)\n- $8$ is the slope (additional bushels per week)\n\n**Why the wrong answers are tempting:**\n• Choice A: $Y$ is the total yield, not $8$.\n• Choice B: The yield at planting is $120$ (when $w = 0$).\n• Choice D: $w$ represents weeks, not $8$.\n\n**Test Day Takeaway:** In $y = b + mx$, the coefficient $m$ is always the rate of change per unit of $x$.",
-          skills: ["function-interpretation", "linear-functions"]
-        },
-        {
-          id: 3,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "$4$ less than $6$ times a number $x$ equals $38$. Which equation represents this statement?",
-          choices: [
-            { id: "A", text: "$4x - 6 = 38$" },
-            { id: "B", text: "$6x - 4 = 38$" },
-            { id: "C", text: "$4 - 6x = 38$" },
-            { id: "D", text: "$6(x - 4) = 38$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Translating Words to an Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** \"$6$ times $x$\" $= 6x$. \"$4$ less than that\" $= 6x - 4$. \"Equals $38$\" $\\Rightarrow 6x - 4 = 38$.\n\n**The Full Solution:**\n- \"$6$ times a number $x$\": $6x$\n- \"$4$ less than\" that: $6x - 4$\n- \"equals $38$\": $6x - 4 = 38$\n\n**Why the wrong answers are tempting:**\n• Choice A ($4x - 6 = 38$): Swaps the $4$ and $6$.\n• Choice C ($4 - 6x = 38$): Reverses the subtraction order.\n• Choice D ($6(x-4) = 38$): Distributes to $6x - 24$, not $6x - 4$.\n\n**Test Day Takeaway:** \"$A$ less than $B$\" means $B - A$, not $A - B$.",
-          skills: ["linear-equations", "word-problems"]
-        },
-        {
-          id: 4,
-          type: "fill-in",
-          difficulty: "easy",
-          question: "A marine biologist records ocean temperatures of $68°F, 72°F, 71°F, 69°F,$ and $70°F$ over $5$ days. What is the mean temperature, in degrees Fahrenheit?",
-          correctAnswer: "70",
-          explanation: "**SAT Pattern: Computing the Mean**\n\n**The correct answer is $70$.**\n\n**The Fast Way (15 seconds):** Sum $= 68 + 72 + 71 + 69 + 70 = 350$. Mean $= 350 \\div 5 = 70$.\n\n**The Full Solution:**\nMean $= \\frac{68 + 72 + 71 + 69 + 70}{5} = \\frac{350}{5} = 70°F$.\n\n**Common Mistakes to Avoid:**\n• Reporting the median ($70$) — which happens to be the same here, but the process differs.\n• Sum error: double-check $68 + 72 = 140$, $140 + 71 = 211$, $211 + 69 = 280$, $280 + 70 = 350$.\n\n**Verification:** $350 \\div 5 = 70$ ✓\n\n**Test Day Takeaway:** Mean $=$ sum $\\div$ count. Carefully add all values before dividing.",
-          skills: ["mean-median-mode", "statistics"]
-        },
-        {
-          id: 5,
-          type: "multiple-choice",
-          difficulty: "easy",
-          question: "The equation $P = 12w$ gives the perimeter $P$ of a regular polygon with $w$ sides, where each side has length $12$. What does the number $12$ represent?",
-          choices: [
-            { id: "A", text: "The number of sides" },
-            { id: "B", text: "The perimeter of the polygon" },
-            { id: "C", text: "The length of one side" },
-            { id: "D", text: "The area of the polygon" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Interpreting a Coefficient in a Linear Model**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** In $P = 12w$, $12$ is multiplied by $w$ (number of sides). Since perimeter $=$ side length $\\times$ number of sides, $12$ must be the side length.\n\n**The Full Solution:**\nPerimeter of a regular polygon $=$ side length $\\times$ number of sides.\n$P = 12w$ matches this form, with side length $= 12$.\n\n**Why the wrong answers are tempting:**\n• Choice A: $w$ is the number of sides, not $12$.\n• Choice B: $P$ is the perimeter.\n• Choice D: Area is not calculated this way.\n\n**Test Day Takeaway:** In $y = kx$, the coefficient $k$ represents the rate (here, length per side).",
-          skills: ["function-interpretation", "linear-functions"]
-        },
+// Practice Test 6 — Math Module 1 (22 questions)
+// Theme: geometry-heavy (similar triangles, circle theorems, coordinate geometry), plus exponentials
 
-        // ===== EASY-MEDIUM (Q6-Q7) =====
-        {
-          id: 6,
-          type: "fill-in",
-          difficulty: "medium",
-          question: "A medical clinic charges $\\$35$ per visit. A patient has a $\\$90$ insurance credit that is applied first. If the patient makes $4$ visits, what is the total out-of-pocket cost, in dollars?",
-          correctAnswer: "50",
-          explanation: "**SAT Pattern: Multi-Step Word Problem**\n\n**The correct answer is $50$.**\n\n**The Fast Way (15 seconds):** Total before credit $= 4 \\times 35 = 140$. After credit: $140 - 90 = 50$.\n\n**The Full Solution:**\nTotal cost $= 4 \\times \\$35 = \\$140$\nAfter insurance credit: $\\$140 - \\$90 = \\$50$\n\n**Common Mistakes to Avoid:**\n• Applying the credit per visit: $35 - 90 < 0$ (the credit covers the entire bill, not per-visit).\n• Forgetting to subtract the credit: answering $140$.\n\n**Verification:** $4 \\times 35 = 140$. $140 - 90 = 50$ ✓\n\n**Test Day Takeaway:** Read carefully whether a credit/discount is applied once to the total or per item.",
-          skills: ["word-problems", "solving-equations"]
-        },
-        {
-          id: 7,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "Which expression is equivalent to $\\frac{8x^6}{4x^3}$?",
-          choices: [
-            { id: "A", text: "$2x^2$" },
-            { id: "B", text: "$2x^3$" },
-            { id: "C", text: "$4x^2$" },
-            { id: "D", text: "$4x^3$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Simplifying with Exponent Rules**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $8/4 = 2$ and $x^{6-3} = x^3$. Answer: $2x^3$.\n\n**The Full Solution:**\n$\\frac{8x^6}{4x^3} = \\frac{8}{4} \\cdot x^{6-3} = 2x^3$\n\n**Why the wrong answers are tempting:**\n• Choice A ($2x^2$): Divides the exponent ($6/3 = 2$) instead of subtracting.\n• Choice C ($4x^2$): Subtracts the coefficients ($8 - 4 = 4$) and divides exponents.\n• Choice D ($4x^3$): Subtracts the coefficients instead of dividing.\n\n**Test Day Takeaway:** When dividing: divide coefficients, subtract exponents.",
-          skills: ["exponent-rules", "algebraic-manipulation"]
-        },
+// ===== EASY (Q1–Q5) =====
 
-        // ===== MEDIUM (Q8-Q13) =====
-        {
-          id: 8,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "An artist mixes paint colors. She uses $3$ parts blue to $5$ parts white. If she needs a total of $56$ ounces of the mixture, how many ounces of blue paint does she need?",
-          choices: [
-            { id: "A", text: "$7$" },
-            { id: "B", text: "$21$" },
-            { id: "C", text: "$24$" },
-            { id: "D", text: "$35$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Ratio Problem — Finding a Part from the Total**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Total parts $= 3 + 5 = 8$. Each part $= 56 \\div 8 = 7$ ounces. Blue $= 3 \\times 7 = 21$.\n\n**The Full Solution:**\nBlue to white ratio is $3:5$, so total parts $= 8$.\nValue of one part $= \\frac{56}{8} = 7$ ounces.\nBlue $= 3 \\times 7 = 21$ ounces.\n\n**Why the wrong answers are tempting:**\n• Choice A ($7$): The value of one part, not the blue amount.\n• Choice C ($24$): From $56 \\times \\frac{3}{7}$ (wrong denominator).\n• Choice D ($35$): The white amount ($5 \\times 7$), not blue.\n\n**Verification:** Blue $= 21$, White $= 35$. Total $= 21 + 35 = 56$ ✓. Ratio $= 21:35 = 3:5$ ✓.\n\n**Test Day Takeaway:** For ratio problems, add the parts to get the total ratio, find the value of one part, then multiply.",
-          skills: ["ratios-proportions", "word-problems"]
-        },
-        {
-          id: 9,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "The equation $y = -2x + 10$ represents a line in the $xy$-plane. At what point does this line cross the $x$-axis?",
-          choices: [
-            { id: "A", text: "$(0, 10)$" },
-            { id: "B", text: "$(5, 0)$" },
-            { id: "C", text: "$(10, 0)$" },
-            { id: "D", text: "$(-5, 0)$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Finding the x-Intercept**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Set $y = 0$: $0 = -2x + 10$, so $2x = 10$ and $x = 5$. The point is $(5, 0)$.\n\n**The Full Solution:**\nThe $x$-intercept is where $y = 0$:\n$0 = -2x + 10$\n$2x = 10$\n$x = 5$\nThe line crosses the $x$-axis at $(5, 0)$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($0, 10$): This is the $y$-intercept, not the $x$-intercept.\n• Choice C ($10, 0$): Uses $b = 10$ as the $x$-intercept directly.\n• Choice D ($-5, 0$): Sign error when solving $-2x = -10$.\n\n**Test Day Takeaway:** $x$-intercept: set $y = 0$ and solve for $x$. $y$-intercept: set $x = 0$ and solve for $y$.",
-          skills: ["linear-functions", "coordinate-geometry"]
-        },
-        {
-          id: 10,
-          type: "fill-in",
-          difficulty: "medium",
-          question: "A rectangular garden has a perimeter of $56$ feet. If the length is $18$ feet, what is the width, in feet?",
-          correctAnswer: "10",
-          explanation: "**SAT Pattern: Perimeter of a Rectangle**\n\n**The correct answer is $10$.**\n\n**The Fast Way (15 seconds):** $P = 2l + 2w$. $56 = 2(18) + 2w = 36 + 2w$. $2w = 20$. $w = 10$.\n\n**The Full Solution:**\n$2l + 2w = 56$\n$2(18) + 2w = 56$\n$36 + 2w = 56$\n$2w = 20$\n$w = 10$\n\n**Common Mistakes to Avoid:**\n• Using $P = l + w$: $56 - 18 = 38$ (forgetting there are two of each side).\n• Dividing perimeter by $4$: $56/4 = 14$ (assumes a square).\n\n**Verification:** $P = 2(18) + 2(10) = 36 + 20 = 56$ ✓\n\n**Test Day Takeaway:** Rectangle perimeter: $P = 2l + 2w$. Subtract $2l$ first, then divide by $2$.",
-          skills: ["area", "solving-equations"]
-        },
-        {
-          id: 11,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "A doctor prescribes $250$ milligrams of medicine $3$ times per day. How many milligrams does a patient take in $1$ week?",
-          choices: [
-            { id: "A", text: "$750$" },
-            { id: "B", text: "$1{,}750$" },
-            { id: "C", text: "$5{,}250$" },
-            { id: "D", text: "$7{,}500$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Multi-Step Rate Problem**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** Per day: $250 \\times 3 = 750$ mg. Per week: $750 \\times 7 = 5{,}250$ mg.\n\n**The Full Solution:**\nDaily dose $= 250 \\times 3 = 750$ mg.\nWeekly dose $= 750 \\times 7 = 5{,}250$ mg.\n\n**Why the wrong answers are tempting:**\n• Choice A ($750$): The daily total, not the weekly total.\n• Choice B ($1{,}750$): $250 \\times 7 = 1{,}750$ (forgets the $3$ times per day).\n• Choice D ($7{,}500$): $250 \\times 30 = 7{,}500$ (uses $30$ days instead of $7$).\n\n**Test Day Takeaway:** Chain the rates: dose per time $\\times$ times per day $\\times$ days per week.",
-          skills: ["word-problems", "unit-conversion"]
-        },
-        {
-          id: 12,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "The table shows the results of a survey of $150$ students.\n\n|  | Prefer Art | Prefer Music | Total |\n|---|---|---|---|\n| Grade 10 | $30$ | $45$ | $75$ |\n| Grade 11 | $40$ | $35$ | $75$ |\n| Total | $70$ | $80$ | $150$ |\n\nWhat fraction of Grade 11 students prefer art?",
-          choices: [
-            { id: "A", text: "$\\frac{40}{150}$" },
-            { id: "B", text: "$\\frac{40}{75}$" },
-            { id: "C", text: "$\\frac{40}{70}$" },
-            { id: "D", text: "$\\frac{70}{150}$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Two-Way Table Conditional Fraction**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** \"Of Grade 11 students\" $=$ denominator is $75$. Art preference in Grade 11 $= 40$. Fraction $= 40/75$.\n\n**The Full Solution:**\nRestrict to Grade 11 students: total $= 75$.\nGrade 11 who prefer art $= 40$.\nFraction $= \\frac{40}{75}$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($40/150$): Uses total students as denominator instead of just Grade 11.\n• Choice C ($40/70$): Uses total art students as denominator (flips the condition).\n• Choice D ($70/150$): Fraction of all students who prefer art (ignores the grade condition).\n\n**Test Day Takeaway:** The group mentioned in the question (\"of Grade 11\") is your denominator.",
-          skills: ["two-way-tables", "probability"]
-        },
-        {
-          id: 13,
-          type: "multiple-choice",
-          difficulty: "medium",
-          question: "The system of equations below has solution $(x, y)$.\n\n$x + 3y = 14$\n$2x - y = 0$\n\nWhat is the value of $x$?",
-          choices: [
-            { id: "A", text: "$1$" },
-            { id: "B", text: "$2$" },
-            { id: "C", text: "$4$" },
-            { id: "D", text: "$7$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**Choice B is correct.**\n\n**The Fast Way (25 seconds):** From $2x - y = 0$, we get $y = 2x$. Substitute into the first: $x + 3(2x) = 14$, so $7x = 14$ and $x = 2$.\n\n**The Full Solution:**\nFrom the second equation: $y = 2x$.\nSubstitute into the first: $x + 3(2x) = 14$.\n$x + 6x = 14$\n$7x = 14$\n$x = 2$\n\n**Why the wrong answers are tempting:**\n• Choice A ($1$): From $14/14$ or an arithmetic slip.\n• Choice C ($4$): The value of $y$ ($y = 2 \\times 2 = 4$).\n• Choice D ($7$): From $14/2$, perhaps solving $2x = 14$ without proper substitution.\n\n**Verification:** $x = 2$, $y = 4$. Check: $2 + 3(4) = 14$ ✓ and $2(2) - 4 = 0$ ✓\n\n**Test Day Takeaway:** If one equation easily gives a variable in terms of the other, use substitution.",
-          skills: ["systems-of-equations", "solving-equations"]
-        },
+{
+  id: 1,
+  type: "multiple-choice",
+  difficulty: "easy",
+  question: "A triangle has angles measuring $47°$, $65°$, and $x°$. What is the value of $x$?",
+  choices: [
+    { id: "A", text: "$22$" },
+    { id: "B", text: "$68$" },
+    { id: "C", text: "$78$" },
+    { id: "D", text: "$112$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Triangle Angle Sum**\n\n**Choice B is correct.**\n\n**The Fast Way (5 seconds):** $x = 180 - 47 - 65 = 68$.\n\n**The Full Solution:**\nThe sum of angles in any triangle is $180°$.\n$47 + 65 + x = 180$\n$112 + x = 180$\n$x = 68$\n\n**Why the wrong answers are tempting:**\n• Choice A: Computes $65 - 47 = 18$, then adds $4$... a random error.\n• Choice C: Computes $180 - 47 - 65$ incorrectly as $78$ (arithmetic slip).\n• Choice D: Computes $47 + 65 = 112$ and stops, giving the sum of the two known angles.\n\n**Test Day Takeaway:** All triangle angles sum to $180°$. Subtract the known angles.",
+  skills: ["triangles", "angles"]
+},
+{
+  id: 2,
+  type: "multiple-choice",
+  difficulty: "easy",
+  question: "A map uses a scale of $1$ inch $= 15$ miles. Two cities are $4.5$ inches apart on the map. What is the actual distance, in miles, between the two cities?",
+  choices: [
+    { id: "A", text: "$19.5$" },
+    { id: "B", text: "$60$" },
+    { id: "C", text: "$67.5$" },
+    { id: "D", text: "$75$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Scale Factor / Unit Rate**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** $4.5 \\times 15 = 67.5$ miles.\n\n**The Full Solution:**\nIf $1$ inch represents $15$ miles, then $4.5$ inches represents:\n$4.5 \\times 15 = 67.5$ miles.\n\n**Why the wrong answers are tempting:**\n• Choice A: Adds $15 + 4.5 = 19.5$ instead of multiplying.\n• Choice B: Computes $4 \\times 15 = 60$, ignoring the $0.5$.\n• Choice D: Computes $5 \\times 15 = 75$, rounding $4.5$ up to $5$.\n\n**Test Day Takeaway:** Scale problems are multiplication: map distance × scale factor = actual distance.",
+  skills: ["ratios", "word-problems"]
+},
+{
+  id: 3,
+  type: "multiple-choice",
+  difficulty: "easy",
+  question: "If $4x - 9 = 23$, what is the value of $x$?",
+  choices: [
+    { id: "A", text: "$3.5$" },
+    { id: "B", text: "$7$" },
+    { id: "C", text: "$8$" },
+    { id: "D", text: "$14$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (5 seconds):** $4x = 32$, so $x = 8$.\n\n**The Full Solution:**\n$4x - 9 = 23$\n$4x = 23 + 9 = 32$\n$x = \\frac{32}{4} = 8$\n\n**Why the wrong answers are tempting:**\n• Choice A: Computes $\\frac{23 - 9}{4} = \\frac{14}{4} = 3.5$ (subtracts $9$ instead of adding).\n• Choice B: Computes $\\frac{23 + 5}{4} = 7$... an arithmetic error.\n• Choice D: Computes $23 - 9 = 14$ but forgets to divide by $4$.\n\n**Test Day Takeaway:** Isolate $x$: add/subtract first, then divide.",
+  skills: ["solving-equations"]
+},
+{
+  id: 4,
+  type: "multiple-choice",
+  difficulty: "easy",
+  question: "The area of a rectangle is $72$ square centimeters. If the length of the rectangle is $12$ cm, what is the width, in centimeters?",
+  choices: [
+    { id: "A", text: "$4$" },
+    { id: "B", text: "$6$" },
+    { id: "C", text: "$8$" },
+    { id: "D", text: "$60$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Area of a Rectangle**\n\n**Choice B is correct.**\n\n**The Fast Way (5 seconds):** Width $= \\frac{72}{12} = 6$.\n\n**The Full Solution:**\nArea = length × width\n$72 = 12 \\times w$\n$w = \\frac{72}{12} = 6$ cm\n\n**Why the wrong answers are tempting:**\n• Choice A: Might divide $72$ by $18$ or make another arithmetic error.\n• Choice C: Confuses with $\\frac{72}{9} = 8$.\n• Choice D: Subtracts: $72 - 12 = 60$.\n\n**Test Day Takeaway:** If you know area and one dimension, divide area by the known dimension to find the other.",
+  skills: ["area"]
+},
+{
+  id: 5,
+  type: "multiple-choice",
+  difficulty: "easy",
+  question: "The value of a certain stock increases by $\\$3$ each week. If the stock is worth $\\$41$ now, what will it be worth in $6$ weeks?",
+  choices: [
+    { id: "A", text: "$\\$44$" },
+    { id: "B", text: "$\\$47$" },
+    { id: "C", text: "$\\$59$" },
+    { id: "D", text: "$\\$246$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Linear Growth**\n\n**Choice C is correct.**\n\n**The Fast Way (5 seconds):** $41 + 3(6) = 41 + 18 = 59$.\n\n**The Full Solution:**\nIncrease over $6$ weeks: $3 \\times 6 = 18$ dollars.\nFuture value: $41 + 18 = 59$ dollars.\n\n**Why the wrong answers are tempting:**\n• Choice A: Adds only one week's increase: $41 + 3 = 44$.\n• Choice B: Adds two weeks' increase: $41 + 6 = 47$ (confuses $6$ weeks with $\\$6$).\n• Choice D: Multiplies instead of adding: $41 \\times 6 = 246$.\n\n**Test Day Takeaway:** Linear growth: future value = initial value + rate × time.",
+  skills: ["linear-functions", "word-problems"]
+},
 
-        // ===== HARD (Q14-Q22) =====
-        {
-          id: 14,
-          type: "fill-in",
-          difficulty: "hard",
-          question: "The function $y = 3(x - 14)(x + 5)(x + 4)$ is graphed in the $xy$-plane. What is the greatest $x$-intercept of this graph?",
-          correctAnswer: "14",
-          explanation: "**SAT Pattern: Finding x-Intercepts from Factored Form**\n\n**The correct answer is $14$.**\n\n**The Fast Way (15 seconds):** Set each factor to $0$: $x - 14 = 0 \\Rightarrow x = 14$; $x + 5 = 0 \\Rightarrow x = -5$; $x + 4 = 0 \\Rightarrow x = -4$. The greatest is $14$.\n\n**The Full Solution:**\n$x$-intercepts occur where $y = 0$:\n$3(x - 14)(x + 5)(x + 4) = 0$\n$x = 14$, $x = -5$, or $x = -4$\nThe greatest $x$-intercept is $14$.\n\n**Common Mistakes to Avoid:**\n• Reporting $-14$ instead of $14$ (sign error from $(x - 14)$).\n• Reporting $-4$ (the greatest of the two negative values, but not the overall greatest).\n\n**Verification:** At $x = 14$: $y = 3(0)(19)(18) = 0$ ✓\n\n**Test Day Takeaway:** To find $x$-intercepts, set each factor equal to zero. The leading coefficient ($3$) does not affect the $x$-intercepts.",
-          skills: ["polynomial-operations", "coordinate-geometry"]
-        },
-        {
-          id: 15,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "A medicine loses $10\\%$ of its potency each year. If the initial potency is $P$, which expression gives the potency after $5$ years?",
-          choices: [
-            { id: "A", text: "$P(0.10)^5$" },
-            { id: "B", text: "$P(0.90)^5$" },
-            { id: "C", text: "$P - 0.50P$" },
-            { id: "D", text: "$P(0.50)$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Exponential Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** Loses $10\\%$ per year means $90\\%$ remains each year. After $5$ years: $P(0.90)^5$.\n\n**The Full Solution:**\nAnnual retention rate $= 1 - 0.10 = 0.90$.\nAfter $t$ years: $P(0.90)^t$.\nAfter $5$ years: $P(0.90)^5$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($P(0.10)^5$): Uses the loss rate as the base instead of the retention rate.\n• Choice C ($P - 0.50P = 0.50P$): Assumes $10\\% \\times 5 = 50\\%$ total loss. This is the linear (simple) approach, but exponential decay does not work this way.\n• Choice D ($P(0.50)$): Same error as C, just written differently.\n\n**Test Day Takeaway:** Exponential decay: multiply by the retention rate $(1 - \\text{decay rate})$ raised to the number of periods.",
-          skills: ["exponential-functions", "percents"]
-        },
-        {
-          id: 16,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "A parabola in the $xy$-plane has equation $y = x^2 - 6x + 5$. What are the $x$-coordinates of the points where the parabola crosses the $x$-axis?",
-          choices: [
-            { id: "A", text: "$x = 1$ and $x = 5$" },
-            { id: "B", text: "$x = -1$ and $x = -5$" },
-            { id: "C", text: "$x = 2$ and $x = 3$" },
-            { id: "D", text: "$x = -1$ and $x = 5$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Finding x-Intercepts of a Quadratic**\n\n**Choice A is correct.**\n\n**The Fast Way (20 seconds):** Set $y = 0$: $x^2 - 6x + 5 = 0$. Factor: $(x - 1)(x - 5) = 0$. So $x = 1$ and $x = 5$.\n\n**The Full Solution:**\n$x^2 - 6x + 5 = 0$\nFind two numbers that multiply to $5$ and add to $-6$: $-1$ and $-5$.\n$(x - 1)(x - 5) = 0$\n$x = 1$ or $x = 5$\n\n**Why the wrong answers are tempting:**\n• Choice B ($-1, -5$): Uses the factors with wrong signs: $(x + 1)(x + 5)$ gives $x^2 + 6x + 5$.\n• Choice C ($2, 3$): Numbers that multiply to $6$ but add to $5$, a mix-up.\n• Choice D ($-1, 5$): Mixes signs from different factoring attempts.\n\n**Verification:** $(1)^2 - 6(1) + 5 = 0$ ✓ and $(5)^2 - 6(5) + 5 = 0$ ✓\n\n**Test Day Takeaway:** To find $x$-intercepts, set $y = 0$ and factor. The solutions of $(x - a)(x - b) = 0$ are $x = a$ and $x = b$.",
-          skills: ["quadratic-equations", "factoring"]
-        },
-        {
-          id: 17,
-          type: "fill-in",
-          difficulty: "hard",
-          question: "The vertex of the parabola $y = 2x^2 - 16x + 30$ is at the point $(h, k)$. What is the value of $k$?",
-          correctAnswer: "-2",
-          explanation: "**SAT Pattern: Finding the Vertex y-Coordinate**\n\n**The correct answer is $-2$.**\n\n**The Fast Way (20 seconds):** $h = -b/(2a) = 16/4 = 4$. Then $k = 2(16) - 16(4) + 30 = 32 - 64 + 30 = -2$.\n\n**The Full Solution:**\n$h = -\\frac{b}{2a} = -\\frac{-16}{2(2)} = \\frac{16}{4} = 4$\n$k = f(4) = 2(4)^2 - 16(4) + 30 = 32 - 64 + 30 = -2$\n\nVertex: $(4, -2)$.\n\n**Common Mistakes to Avoid:**\n• Reporting $h = 4$ instead of $k = -2$.\n• Arithmetic error: $32 - 64 = -32$, then $-32 + 30 = -2$. Watch the signs.\n\n**Verification:** $f(4) = 2(16) - 64 + 30 = 32 - 64 + 30 = -2$ ✓\n\n**Test Day Takeaway:** Find the vertex $x$-value with $h = -b/(2a)$, then plug back in to find $k$.",
-          skills: ["vertex-form", "quadratic-functions"]
-        },
-        {
-          id: 18,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "An art gallery has dimensions $20$ feet by $30$ feet. The gallery owner wants to increase each dimension by $x$ feet so that the new area is $800$ square feet. Which equation can be used to find $x$?",
-          choices: [
-            { id: "A", text: "$(20 + x)(30 + x) = 800$" },
-            { id: "B", text: "$20x + 30x = 800$" },
-            { id: "C", text: "$(20)(30) + x = 800$" },
-            { id: "D", text: "$20x \\cdot 30x = 800$" }
-          ],
-          correctAnswer: "A",
-          explanation: "**SAT Pattern: Setting Up an Area Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (15 seconds):** New length $= 20 + x$. New width $= 30 + x$. Area $= (20 + x)(30 + x) = 800$.\n\n**The Full Solution:**\nIncreasing each dimension by $x$:\nNew length $= 20 + x$\nNew width $= 30 + x$\nNew area $= (20 + x)(30 + x) = 800$\n\n**Why the wrong answers are tempting:**\n• Choice B: Adds the \"increases\" instead of multiplying the new dimensions.\n• Choice C: Adds $x$ to the original area instead of increasing each dimension.\n• Choice D: Multiplies $20x$ by $30x$, which gives $600x^2$.\n\n**Test Day Takeaway:** Area $=$ length $\\times$ width. If each dimension increases by $x$, the new area is $(l + x)(w + x)$.",
-          skills: ["quadratic-equations", "area"]
-        },
-        {
-          id: 19,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "A medicine loses $10\\%$ of its potency each year. If the initial potency is $P$, which expression gives the potency after $5$ years?",
-          choices: [
-            { id: "A", text: "$P(0.10)^5$" },
-            { id: "B", text: "$P(0.90)^5$" },
-            { id: "C", text: "$P - 0.50P$" },
-            { id: "D", text: "$P(0.50)$" }
-          ],
-          correctAnswer: "B",
-          explanation: "**SAT Pattern: Exponential Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** Loses $10\\%$ per year means $90\\%$ remains. After $5$ years: $P(0.90)^5$.\n\n**The Full Solution:**\nAnnual retention rate $= 1 - 0.10 = 0.90$.\nAfter $t$ years: $P(0.90)^t$.\nAfter $5$ years: $P(0.90)^5$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($P(0.10)^5$): Uses the loss rate as the base instead of the retention rate.\n• Choice C ($P - 0.50P = 0.50P$): Assumes $10\\% \\times 5 = 50\\%$ total loss. This is the linear (simple) approach, but exponential decay does not work this way.\n• Choice D ($P(0.50)$): Same error as C, just written differently.\n\n**Test Day Takeaway:** Exponential decay: multiply by the retention rate $(1 - \\text{decay rate})$ raised to the number of periods.",
-          skills: ["exponential-functions", "percents"]
-        },
-        {
-          id: 20,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "In a right triangle, one acute angle measures $35°$. What is the measure of the other acute angle?",
-          choices: [
-            { id: "A", text: "$35°$" },
-            { id: "B", text: "$45°$" },
-            { id: "C", text: "$55°$" },
-            { id: "D", text: "$145°$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Angles in a Right Triangle**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** The three angles sum to $180°$. One is $90°$, one is $35°$. The third $= 180 - 90 - 35 = 55°$.\n\n**The Full Solution:**\nIn a right triangle, one angle is $90°$.\n$90 + 35 + x = 180$\n$x = 180 - 125 = 55°$\n\n**Why the wrong answers are tempting:**\n• Choice A ($35°$): Assumes the two acute angles are equal (only true for a $45$-$45$-$90$ triangle).\n• Choice B ($45°$): A common angle but not the correct one here.\n• Choice D ($145°$): From $180 - 35 = 145$, forgetting to subtract the right angle.\n\n**Test Day Takeaway:** In a right triangle, the two acute angles sum to $90°$.",
-          skills: ["triangles", "angles"]
-        },
-        {
-          id: 21,
-          type: "fill-in",
-          difficulty: "hard",
-          question: "If $\\sqrt{5x - 1} = 7$, what is the value of $x$?",
-          correctAnswer: "10",
-          explanation: "**SAT Pattern: Solving a Radical Equation**\n\n**The correct answer is $10$.**\n\n**The Fast Way (15 seconds):** Square both sides: $5x - 1 = 49$. So $5x = 50$ and $x = 10$.\n\n**The Full Solution:**\n$\\sqrt{5x - 1} = 7$\n$(\\sqrt{5x - 1})^2 = 7^2$\n$5x - 1 = 49$\n$5x = 50$\n$x = 10$\n\n**Common Mistakes to Avoid:**\n• Squaring only the left side: $5x - 1 = 7$ gives $x = 8/5$.\n• Forgetting to add $1$: $5x = 49$, $x = 9.8$.\n\n**Verification:** $\\sqrt{5(10) - 1} = \\sqrt{49} = 7$ ✓\n\n**Test Day Takeaway:** To solve $\\sqrt{A} = B$, square both sides to get $A = B^2$, then solve the resulting equation.",
-          skills: ["radical-equations", "solving-equations"]
-        },
-        {
-          id: 22,
-          type: "multiple-choice",
-          difficulty: "hard",
-          question: "The equation $-3x^2 + bx - 48 = 0$ has exactly one real solution. What is a possible value of $b$?",
-          choices: [
-            { id: "A", text: "$12$" },
-            { id: "B", text: "$18$" },
-            { id: "C", text: "$24$" },
-            { id: "D", text: "$30$" }
-          ],
-          correctAnswer: "C",
-          explanation: "**SAT Pattern: Discriminant Equals Zero for One Solution**\n\n**Choice C is correct.**\n\n**The Fast Way (30 seconds):** One real solution means $b^2 - 4ac = 0$.\n$a = -3$, $c = -48$.\n$b^2 - 4(-3)(-48) = 0$\n$b^2 - 576 = 0$\n$b^2 = 576$\n$b = \\pm 24$\n\n**The Full Solution:**\nDiscriminant $= b^2 - 4ac = b^2 - 4(-3)(-48) = b^2 - 576$.\nFor exactly one solution: $b^2 - 576 = 0$, so $b = \\pm 24$.\nSince $24$ is a choice, $b = 24$.\n\n**Why the wrong answers are tempting:**\n• Choice A ($12$): $144 - 576 = -432 < 0$ (no real solutions).\n• Choice B ($18$): $324 - 576 = -252 < 0$ (no real solutions).\n• Choice D ($30$): $900 - 576 = 324 > 0$ (two real solutions).\n\n**Test Day Takeaway:** Exactly one solution: $b^2 = 4ac$. Compute $4ac$ carefully — watch the signs.",
-          skills: ["discriminant", "quadratic-equations"]
-        }
+// ===== MEDIUM (Q6–Q14) =====
+
+{
+  id: 6,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "Two similar triangles have corresponding sides in the ratio $3:5$. If the shorter side of the larger triangle is $20$ cm, what is the corresponding side of the smaller triangle?",
+  choices: [
+    { id: "A", text: "$8$ cm" },
+    { id: "B", text: "$12$ cm" },
+    { id: "C", text: "$15$ cm" },
+    { id: "D", text: "$33.3$ cm" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Similar Triangle Side Ratios**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** Ratio is $3:5$, and the larger triangle's side is $20$. So the smaller triangle's side is $\\frac{3}{5} \\times 20 = 12$.\n\n**The Full Solution:**\nThe ratio $3:5$ means smaller : larger $= 3 : 5$.\nIf the larger triangle's corresponding side is $20$:\n$\\frac{\\text{smaller}}{20} = \\frac{3}{5}$\n$\\text{smaller} = \\frac{3 \\times 20}{5} = \\frac{60}{5} = 12$ cm.\n\n**Why the wrong answers are tempting:**\n• Choice A: Computes $\\frac{2}{5} \\times 20 = 8$ using the wrong numerator.\n• Choice C: Computes $\\frac{3}{4} \\times 20 = 15$, using the wrong ratio.\n• Choice D: Computes $\\frac{5}{3} \\times 20 = 33.3$, using the inverse ratio.\n\n**Test Day Takeaway:** With similar figures, set up the ratio carefully: smaller/larger = smaller ratio/larger ratio.",
+  skills: ["similar-triangles", "ratios"]
+},
+{
+  id: 7,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "In the $xy$-plane, what is the distance between the points $(-3, 4)$ and $(5, -2)$?",
+  choices: [
+    { id: "A", text: "$2$" },
+    { id: "B", text: "$10$" },
+    { id: "C", text: "$14$" },
+    { id: "D", text: "$\\sqrt{28}$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Distance Formula**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** $d = \\sqrt{(5-(-3))^2 + (-2-4)^2} = \\sqrt{64 + 36} = \\sqrt{100} = 10$.\n\n**The Full Solution:**\n$d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$\n$= \\sqrt{(5 - (-3))^2 + (-2 - 4)^2}$\n$= \\sqrt{8^2 + (-6)^2}$\n$= \\sqrt{64 + 36}$\n$= \\sqrt{100} = 10$\n\n**Why the wrong answers are tempting:**\n• Choice A: Computes $|5 + (-3)| - |(-2) + 4| = 2 - 2 = 0$... or some misguided shortcut.\n• Choice C: Adds the differences without squaring: $8 + 6 = 14$.\n• Choice D: Computes $\\sqrt{(5+3)^2 + (-2+4)^2}$ incorrectly as $\\sqrt{28}$... from a subtraction error.\n\n**Test Day Takeaway:** The distance formula is the Pythagorean theorem in disguise: $d = \\sqrt{(\\Delta x)^2 + (\\Delta y)^2}$.",
+  skills: ["coordinate-geometry"]
+},
+{
+  id: 8,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "A circle in the $xy$-plane has the equation $(x - 4)^2 + (y + 1)^2 = 36$. What is the radius of the circle?",
+  choices: [
+    { id: "A", text: "$4$" },
+    { id: "B", text: "$6$" },
+    { id: "C", text: "$18$" },
+    { id: "D", text: "$36$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Reading Circle Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (5 seconds):** $(x-h)^2 + (y-k)^2 = r^2$, so $r^2 = 36$ and $r = 6$.\n\n**The Full Solution:**\nThe standard form of a circle is $(x-h)^2 + (y-k)^2 = r^2$.\nHere $r^2 = 36$, so $r = \\sqrt{36} = 6$.\n\n**Why the wrong answers are tempting:**\n• Choice A: Reads the $h$ value ($4$) from the center instead of finding $r$.\n• Choice C: Divides $36$ by $2$ instead of taking the square root.\n• Choice D: Uses $r^2 = 36$ but reports $r^2$ as the radius.\n\n**Test Day Takeaway:** In $(x-h)^2 + (y-k)^2 = r^2$, the right side is $r^2$, not $r$. Take the square root.",
+  skills: ["circle-equations"]
+},
+{
+  id: 9,
+  type: "fill-in",
+  difficulty: "medium",
+  question: "The function $f$ is defined by $f(x) = 800(0.85)^x$. What is the value of $f(0)$?",
+  correctAnswer: "800",
+  explanation: "**SAT Pattern: Evaluating Exponential at Zero**\n\n**The correct answer is $800$.**\n\n**The Fast Way (5 seconds):** Any nonzero number raised to the $0$ power is $1$. So $f(0) = 800(0.85)^0 = 800(1) = 800$.\n\n**The Full Solution:**\n$f(0) = 800(0.85)^0$\n$(0.85)^0 = 1$ (any nonzero base to the power $0$ equals $1$)\n$f(0) = 800 \\times 1 = 800$\n\n**Common Mistakes to Avoid:**\n• Thinking $(0.85)^0 = 0$.\n• Computing $800 \\times 0.85 = 680$ (evaluating at $x = 1$ instead of $x = 0$).\n\n**Verification:** By definition, $a^0 = 1$ for any $a \neq 0$. \\u2713\n\n**Test Day Takeaway:** $f(0)$ in an exponential $a \\cdot b^x$ always equals $a$, the initial value.",
+  skills: ["exponential-functions", "function-interpretation"]
+},
+{
+  id: 10,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "A right triangle has legs of length $9$ and $12$. What is the length of the hypotenuse?",
+  choices: [
+    { id: "A", text: "$\\sqrt{63}$" },
+    { id: "B", text: "$15$" },
+    { id: "C", text: "$21$" },
+    { id: "D", text: "$\\sqrt{135}$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Pythagorean Theorem**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $c = \\sqrt{9^2 + 12^2} = \\sqrt{81 + 144} = \\sqrt{225} = 15$.\n\n**The Full Solution:**\nBy the Pythagorean theorem: $c^2 = a^2 + b^2$\n$c^2 = 9^2 + 12^2 = 81 + 144 = 225$\n$c = \\sqrt{225} = 15$\n\nNote: $9$-$12$-$15$ is a multiple of the $3$-$4$-$5$ right triangle (multiplied by $3$).\n\n**Why the wrong answers are tempting:**\n• Choice A: Computes $\\sqrt{12^2 - 9^2} = \\sqrt{63}$ (subtracts instead of adds, treating one leg as the hypotenuse).\n• Choice C: Adds the legs directly: $9 + 12 = 21$.\n• Choice D: Computes $\\sqrt{9 \\times 12} = \\sqrt{108}$... or $\\sqrt{9 \\times 15} = \\sqrt{135}$, confusing the Pythagorean theorem with a geometric mean.\n\n**Test Day Takeaway:** Know the common Pythagorean triples: $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, and their multiples.",
+  skills: ["triangles"]
+},
+{
+  id: 11,
+  type: "fill-in",
+  difficulty: "medium",
+  question: "The midpoint of a line segment has coordinates $(5, -3)$. One endpoint of the segment is at $(2, 1)$. What is the $x$-coordinate of the other endpoint?",
+  correctAnswer: "8",
+  explanation: "**SAT Pattern: Midpoint Formula**\n\n**The correct answer is $8$.**\n\n**The Fast Way (10 seconds):** Midpoint $x = \\frac{2 + x_2}{2} = 5$, so $2 + x_2 = 10$, $x_2 = 8$.\n\n**The Full Solution:**\nThe midpoint formula gives: $\\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right) = (5, -3)$.\nFor the $x$-coordinate:\n$\\frac{2 + x_2}{2} = 5$\n$2 + x_2 = 10$\n$x_2 = 8$\n\n**Common Mistakes to Avoid:**\n• Subtracting instead of adding: $5 - 2 = 3$ and writing $x_2 = 3$.\n• Confusing midpoint with distance formula.\n\n**Verification:** Midpoint of $(2, 1)$ and $(8, -7)$: $\\left(\\frac{2+8}{2}, \\frac{1+(-7)}{2}\\right) = (5, -3)$. \\u2713\n\n**Test Day Takeaway:** The midpoint is the average of coordinates. If you know the midpoint and one endpoint, double the midpoint coordinate and subtract the known endpoint.",
+  skills: ["coordinate-geometry"]
+},
+{
+  id: 12,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "An investment of $\\$2{,}000$ earns $5\\%$ interest compounded annually. Which expression represents the value of the investment after $t$ years?",
+  choices: [
+    { id: "A", text: "$2000(1.5)^t$" },
+    { id: "B", text: "$2000(1.05)^t$" },
+    { id: "C", text: "$2000 + 100t$" },
+    { id: "D", text: "$2000(0.95)^t$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Compound Interest Model**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $5\\%$ annual growth means multiplying by $1.05$ each year. Value $= 2000(1.05)^t$.\n\n**The Full Solution:**\nCompound interest formula: $A = P(1 + r)^t$ where $P = 2000$, $r = 0.05$.\n$A = 2000(1 + 0.05)^t = 2000(1.05)^t$\n\n**Why the wrong answers are tempting:**\n• Choice A: Writes $5\\%$ as $0.5$ instead of $0.05$: $1 + 0.5 = 1.5$.\n• Choice C: Models simple interest ($\\$100$/year) as linear growth instead of compound.\n• Choice D: Uses $1 - 0.05 = 0.95$, modeling decay instead of growth.\n\n**Test Day Takeaway:** Compound interest: $P(1 + r)^t$. Always convert the percentage to a decimal.",
+  skills: ["exponential-functions"]
+},
+{
+  id: 13,
+  type: "multiple-choice",
+  difficulty: "medium",
+  question: "In a coordinate plane, line $\\ell$ passes through the origin and has a slope of $\\frac{3}{4}$. Which of the following points lies on line $\\ell$?",
+  choices: [
+    { id: "A", text: "$(3, 4)$" },
+    { id: "B", text: "$(6, 8)$" },
+    { id: "C", text: "$(8, 6)$" },
+    { id: "D", text: "$(4, 6)$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Points on a Line**\n\n**Choice C is correct.**\n\n**The Fast Way (15 seconds):** Line: $y = \\frac{3}{4}x$ (through origin). Check $(8, 6)$: $\\frac{3}{4}(8) = 6$. \\u2713\n\n**The Full Solution:**\nSince the line passes through the origin with slope $\\frac{3}{4}$: $y = \\frac{3}{4}x$.\nCheck $(3, 4)$: $\\frac{3}{4}(3) = 2.25 \neq 4$. \\u2717\nCheck $(6, 8)$: $\\frac{3}{4}(6) = 4.5 \neq 8$. \\u2717\nCheck $(8, 6)$: $\\frac{3}{4}(8) = 6$. \\u2713\nCheck $(4, 6)$: $\\frac{3}{4}(4) = 3 \neq 6$. \\u2717\n\n**Why the wrong answers are tempting:**\n• Choice A $(3, 4)$: Students may swap the slope values, thinking rise $= 4$, run $= 3$.\n• Choice B $(6, 8)$: Uses the inverse slope $\\frac{4}{3}$: $\\frac{4}{3}(6) = 8$.\n• Choice D $(4, 6)$: Uses $y = \\frac{3}{2}x$, confusing the denominator.\n\n**Test Day Takeaway:** For a point to be on $y = mx$, the ratio $y/x$ must equal the slope $m$.",
+  skills: ["slope", "coordinate-geometry", "linear-functions"]
+},
+{
+  id: 14,
+  type: "fill-in",
+  difficulty: "medium",
+  question: "The exterior angle of a regular polygon measures $24°$. How many sides does the polygon have?",
+  correctAnswer: "15",
+  explanation: "**SAT Pattern: Regular Polygon Exterior Angle**\n\n**The correct answer is $15$.**\n\n**The Fast Way (5 seconds):** Exterior angles of a regular polygon sum to $360°$. Number of sides $= \\frac{360}{24} = 15$.\n\n**The Full Solution:**\nFor a regular polygon, all exterior angles are equal and their sum is $360°$.\nEach exterior angle $= \\frac{360°}{n}$ where $n$ is the number of sides.\n$24 = \\frac{360}{n}$\n$n = \\frac{360}{24} = 15$\n\n**Common Mistakes to Avoid:**\n• Using interior angle formula instead: interior $= 180 - 24 = 156$, then using wrong formula.\n• Computing $\\frac{180}{24}$ instead of $\\frac{360}{24}$.\n\n**Verification:** A regular $15$-gon has exterior angles of $\\frac{360}{15} = 24°$ each. \\u2713\n\n**Test Day Takeaway:** Exterior angles of any convex polygon sum to $360°$. For regular polygons, each one is $360°/n$.",
+  skills: ["angles"]
+},
+
+// ===== HARD (Q15–Q22) =====
+
+{
+  id: 15,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "Two similar triangles have areas in the ratio $16:49$. What is the ratio of their corresponding perimeters?",
+  choices: [
+    { id: "A", text: "$4:7$" },
+    { id: "B", text: "$16:49$" },
+    { id: "C", text: "$256:2401$" },
+    { id: "D", text: "$8:24.5$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Area Ratio to Side Ratio in Similar Figures**\n\n**Choice A is correct.**\n\n**The Fast Way (10 seconds):** Area ratio = (side ratio)$^2$. So side ratio $= \\sqrt{16:49} = 4:7$. Perimeter ratio equals side ratio.\n\n**The Full Solution:**\nFor similar figures, if the ratio of corresponding sides is $k$, then:\n• Perimeter ratio $= k$\n• Area ratio $= k^2$\nGiven area ratio $= 16:49 = \\frac{16}{49}$.\nSide ratio $= \\sqrt{\\frac{16}{49}} = \\frac{4}{7}$.\nPerimeter ratio $= 4:7$.\n\n**Why the wrong answers are tempting:**\n• Choice B: Assumes perimeter ratio equals area ratio.\n• Choice C: Squares the area ratio instead of taking the square root: $(16)^2 : (49)^2$.\n• Choice D: Divides $16$ and $49$ by $2$, which is not a valid operation.\n\n**Test Day Takeaway:** Area ratio $= k^2$, so take the square root to get the side/perimeter ratio $= k$.",
+  skills: ["similar-triangles", "ratios"]
+},
+{
+  id: 16,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "The equation of a circle is $x^2 + y^2 - 10x + 6y + 18 = 0$. What are the coordinates of the center and the radius of the circle?",
+  choices: [
+    { id: "A", text: "Center $(5, -3)$, radius $4$" },
+    { id: "B", text: "Center $(-5, 3)$, radius $4$" },
+    { id: "C", text: "Center $(5, -3)$, radius $16$" },
+    { id: "D", text: "Center $(10, -6)$, radius $\\sqrt{18}$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Complete the Square for Circle Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (30 seconds):** Group and complete the square:\n$(x^2 - 10x + 25) + (y^2 + 6y + 9) = -18 + 25 + 9$\n$(x - 5)^2 + (y + 3)^2 = 16$\nCenter: $(5, -3)$, radius $= \\sqrt{16} = 4$.\n\n**The Full Solution:**\n$x^2 + y^2 - 10x + 6y + 18 = 0$\nRearrange: $(x^2 - 10x) + (y^2 + 6y) = -18$\nComplete the square for $x$: $x^2 - 10x + 25 = (x-5)^2$, add $25$ to both sides.\nComplete the square for $y$: $y^2 + 6y + 9 = (y+3)^2$, add $9$ to both sides.\n$(x-5)^2 + (y+3)^2 = -18 + 25 + 9 = 16$\nCenter: $(5, -3)$, radius $= \\sqrt{16} = 4$.\n\n**Why the wrong answers are tempting:**\n• Choice B: Gets the signs wrong from completing the square.\n• Choice C: Reports $r^2 = 16$ as the radius instead of $r = 4$.\n• Choice D: Uses the coefficients $-10$ and $6$ directly as center coordinates.\n\n**Test Day Takeaway:** To convert general form to standard form, complete the square for both $x$ and $y$. The radius is $\\sqrt{r^2}$, not $r^2$.",
+  skills: ["circle-equations", "coordinate-geometry"]
+},
+{
+  id: 17,
+  type: "fill-in",
+  difficulty: "hard",
+  question: "In right triangle $PQR$, angle $Q$ is the right angle. If $PQ = 5$ and $PR = 13$, what is the length of $QR$?",
+  correctAnswer: "12",
+  explanation: "**SAT Pattern: Pythagorean Theorem**\n\n**The correct answer is $12$.**\n\n**The Fast Way (10 seconds):** $QR = \\sqrt{PR^2 - PQ^2} = \\sqrt{169 - 25} = \\sqrt{144} = 12$.\n\n**The Full Solution:**\nIn right triangle $PQR$ with right angle at $Q$, $PR$ is the hypotenuse.\nBy the Pythagorean theorem:\n$PQ^2 + QR^2 = PR^2$\n$25 + QR^2 = 169$\n$QR^2 = 144$\n$QR = 12$\n\nThis is a $5$-$12$-$13$ Pythagorean triple.\n\n**Common Mistakes to Avoid:**\n• Adding instead of subtracting: $\\sqrt{169 + 25} = \\sqrt{194}$.\n• Confusing which side is the hypotenuse (the hypotenuse is always opposite the right angle).\n\n**Verification:** $5^2 + 12^2 = 25 + 144 = 169 = 13^2$. \\u2713\n\n**Test Day Takeaway:** Know common Pythagorean triples: $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$.",
+  skills: ["triangles"]
+},
+{
+  id: 18,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "The function $g$ is defined by $g(x) = 3 \\cdot 2^x - 12$. For what value of $x$ does $g(x) = 0$?",
+  choices: [
+    { id: "A", text: "$0$" },
+    { id: "B", text: "$2$" },
+    { id: "C", text: "$3$" },
+    { id: "D", text: "$4$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Solving Exponential Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Set $3 \\cdot 2^x - 12 = 0$. So $3 \\cdot 2^x = 12$, thus $2^x = 4 = 2^2$, so $x = 2$.\n\n**The Full Solution:**\n$g(x) = 0$\n$3 \\cdot 2^x - 12 = 0$\n$3 \\cdot 2^x = 12$\n$2^x = 4$\n$2^x = 2^2$\n$x = 2$\n\n**Why the wrong answers are tempting:**\n• Choice A: $g(0) = 3(1) - 12 = -9 \neq 0$.\n• Choice C: $g(3) = 3(8) - 12 = 12 \neq 0$.\n• Choice D: $g(4) = 3(16) - 12 = 36 \neq 0$.\n\n**Test Day Takeaway:** Isolate the exponential term first, then match bases to solve for the exponent.",
+  skills: ["exponential-functions", "solving-equations"]
+},
+{
+  id: 19,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "In the $xy$-plane, the vertices of a triangle are $A(1, 1)$, $B(7, 1)$, and $C(5, 9)$. What is the equation of the line containing the median from vertex $C$ to side $AB$?",
+  choices: [
+    { id: "A", text: "$y = 8x - 23$" },
+    { id: "B", text: "$y = -8x + 41$" },
+    { id: "C", text: "$y = 8x - 31$" },
+    { id: "D", text: "$y = -8x + 33$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Median of a Triangle in Coordinate Geometry**\n\n**Choice C is correct.**\n\n**The Fast Way (30 seconds):** Midpoint of $AB$: $M = (4, 1)$. Slope from $C(5, 9)$ to $M(4, 1)$: $\\frac{9-1}{5-4} = 8$. Line: $y - 1 = 8(x - 4)$, so $y = 8x - 31$.\n\n**The Full Solution:**\nThe median from $C$ to $AB$ goes from $C$ to the midpoint of $AB$.\nMidpoint of $AB$: $M = \\left(\\frac{1+7}{2}, \\frac{1+1}{2}\\right) = (4, 1)$.\nSlope of $CM$: $m = \\frac{9-1}{5-4} = 8$.\nUsing point $(4, 1)$: $y - 1 = 8(x - 4)$, so $y = 8x - 31$.\n\nVerification: At $C(5, 9)$: $8(5) - 31 = 9$. \\u2713. At $M(4, 1)$: $8(4) - 31 = 1$. \\u2713.\n\n**Why the wrong answers are tempting:**\n• Choice A: Uses $y$-intercept error: $y = 8x - 23$ doesn't pass through $(4, 1)$.\n• Choice B: Uses negative slope $-8$.\n• Choice D: Uses negative slope and wrong intercept.\n\n**Test Day Takeaway:** A median goes from a vertex to the midpoint of the opposite side. Find the midpoint first, then compute the slope.",
+  skills: ["coordinate-geometry", "triangles", "slope"]
+},
+{
+  id: 20,
+  type: "fill-in",
+  difficulty: "hard",
+  question: "If $4^{2x} \\cdot 8^{x+1} = 2^{17}$, what is the value of $x$?",
+  correctAnswer: "2",
+  explanation: "**SAT Pattern: Exponential Equation — Common Base**\n\n**The correct answer is $2$.**\n\n**The Fast Way (30 seconds):** Convert to base $2$: $4^{2x} = 2^{4x}$ and $8^{x+1} = 2^{3x+3}$. So $2^{7x+3} = 2^{17}$, giving $7x = 14$, $x = 2$.\n\n**The Full Solution:**\nConvert everything to base $2$:\n$4^{2x} = (2^2)^{2x} = 2^{4x}$\n$8^{x+1} = (2^3)^{x+1} = 2^{3x+3}$\nSo: $2^{4x} \\cdot 2^{3x+3} = 2^{17}$\n$2^{4x + 3x + 3} = 2^{17}$\n$2^{7x + 3} = 2^{17}$\n$7x + 3 = 17$\n$7x = 14$\n$x = 2$\n\n**Common Mistakes to Avoid:**\n• Forgetting that $8 = 2^3$, not $2^2$.\n• Not distributing: $3(x+1) = 3x + 3$, not $3x + 1$.\n\n**Verification:** $4^4 \\cdot 8^3 = 256 \\cdot 512 = 131{,}072 = 2^{17}$. \\u2713\n\n**Test Day Takeaway:** Convert all bases to the smallest common base, combine exponents, then set exponents equal.",
+  skills: ["exponent-rules", "exponential-functions"]
+},
+{
+  id: 21,
+  type: "multiple-choice",
+  difficulty: "hard",
+  question: "In the $xy$-plane, a line with slope $2$ is tangent to the circle $(x - 1)^2 + (y - 2)^2 = 5$. Which of the following could be the $y$-intercept of this tangent line?",
+  choices: [
+    { id: "A", text: "$2$" },
+    { id: "B", text: "$-5$" },
+    { id: "C", text: "$\\sqrt{5}$" },
+    { id: "D", text: "$0$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Tangent Line to Circle**\n\n**Choice B is correct.**\n\n**The Fast Way (45 seconds):** Line: $y = 2x + b$, or $2x - y + b = 0$. Distance from center $(1, 2)$ to this line must equal $\\sqrt{5}$.\nDistance $= \\frac{|2(1) - 2 + b|}{\\sqrt{4 + 1}} = \\frac{|b|}{\\sqrt{5}}$.\nSet equal to $\\sqrt{5}$: $\\frac{|b|}{\\sqrt{5}} = \\sqrt{5}$, so $|b| = 5$, giving $b = 5$ or $b = -5$.\nAmong the choices, $b = -5$ is listed.\n\n**The Full Solution:**\nThe tangent line has the form $y = 2x + b$, which can be rewritten as $2x - y + b = 0$.\nThe distance from center $(1, 2)$ to this line is:\n$d = \\frac{|2(1) - 1(2) + b|}{\\sqrt{2^2 + (-1)^2}} = \\frac{|2 - 2 + b|}{\\sqrt{5}} = \\frac{|b|}{\\sqrt{5}}$\nFor tangency, this distance equals the radius $\\sqrt{5}$:\n$\\frac{|b|}{\\sqrt{5}} = \\sqrt{5}$\n$|b| = 5$\n$b = 5$ or $b = -5$\n\n**Why the wrong answers are tempting:**\n• Choice A: $b = 2$ gives distance $\\frac{2}{\\sqrt{5}} \neq \\sqrt{5}$.\n• Choice C: $\\sqrt{5}$ is the radius, not a valid $y$-intercept for a tangent with this slope.\n• Choice D: $b = 0$ gives distance $0$, meaning the line passes through the center.\n\n**Test Day Takeaway:** A tangent line's distance from the circle's center equals the radius. Use the point-to-line distance formula: $d = |Ax_0 + By_0 + C|/\\sqrt{A^2 + B^2}$.",
+  skills: ["circle-equations", "coordinate-geometry"]
+},
+{
+  id: 22,
+  type: "fill-in",
+  difficulty: "hard",
+  question: "In triangle $ABC$, $\\overline{DE}$ is parallel to $\\overline{BC}$ where $D$ is on $\\overline{AB}$ and $E$ is on $\\overline{AC}$. If $AD = 6$, $DB = 9$, and $AE = 8$, what is the length of $EC$?",
+  correctAnswer: "12",
+  explanation: "**SAT Pattern: Similar Triangles (Side Splitter Theorem)**\n\n**The correct answer is $12$.**\n\n**The Fast Way (15 seconds):** Since $DE \\parallel BC$, triangle $ADE \\sim$ triangle $ABC$. By the side splitter theorem: $\\frac{AD}{DB} = \\frac{AE}{EC}$. So $\\frac{6}{9} = \\frac{8}{EC}$, giving $EC = \\frac{9 \\times 8}{6} = 12$.\n\n**The Full Solution:**\nSince $DE \\parallel BC$, by the basic proportionality theorem (or side splitter theorem):\n$\\frac{AD}{DB} = \\frac{AE}{EC}$\n$\\frac{6}{9} = \\frac{8}{EC}$\n$6 \\cdot EC = 9 \\cdot 8$\n$6 \\cdot EC = 72$\n$EC = 12$\n\n**Common Mistakes to Avoid:**\n• Using $\\frac{AD}{AB} = \\frac{AE}{EC}$ (wrong — should use $\\frac{AD}{AB} = \\frac{AE}{AC}$, or equivalently $\\frac{AD}{DB} = \\frac{AE}{EC}$).\n• Computing $AC$ instead of $EC$: $AC = AE + EC = 8 + 12 = 20$, but the question asks for $EC$.\n\n**Verification:** $\\frac{AD}{DB} = \\frac{6}{9} = \\frac{2}{3}$. $\\frac{AE}{EC} = \\frac{8}{12} = \\frac{2}{3}$. \\u2713. Also $\\frac{AD}{AB} = \\frac{6}{15} = \\frac{2}{5}$, and $\\frac{AE}{AC} = \\frac{8}{20} = \\frac{2}{5}$. \\u2713\n\n**Test Day Takeaway:** When a line parallel to one side of a triangle intersects the other two sides, it divides them proportionally.",
+  skills: ["similar-triangles", "ratios"]
+}
       ]
     },
     {
