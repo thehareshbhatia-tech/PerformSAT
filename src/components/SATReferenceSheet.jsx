@@ -24,7 +24,7 @@ const SATReferenceSheet = ({ isOpen, onClose }) => {
         top: isMobile ? '5%' : '50%',
         left: isMobile ? '3%' : '50%',
         transform: isMobile ? 'none' : 'translate(-50%, -50%)',
-        width: isMobile ? '94%' : '680px',
+        width: isMobile ? '94%' : '720px',
         maxHeight: isMobile ? '90vh' : '85vh',
         background: '#fff',
         borderRadius: '16px',
@@ -76,43 +76,28 @@ const SATReferenceSheet = ({ isOpen, onClose }) => {
           color: '#1d1d1f',
         }}>
           {/* Geometry Formulas */}
-          <div style={{ marginBottom: '28px' }}>
-            <h3 style={{ fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#6e6e73', marginBottom: '16px' }}>
-              Geometry
-            </h3>
-            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '12px 24px' }}>
-              <FormulaRow label="Area of a circle" formula="$A = \pi r^2$" />
-              <FormulaRow label="Circumference of a circle" formula="$C = 2\pi r$" />
-              <FormulaRow label="Area of a rectangle" formula="$A = \ell w$" />
-              <FormulaRow label="Area of a triangle" formula="$A = \frac{1}{2}bh$" />
-              <FormulaRow label="Pythagorean theorem" formula="$a^2 + b^2 = c^2$" />
-            </div>
-          </div>
+          <Section title="Geometry" isMobile={isMobile}>
+            <FormulaCard label="Area of a circle" diagram={<CircleDiagram />} formula="$A = \pi r^2$" />
+            <FormulaCard label="Circumference of a circle" diagram={<CircleDiagram />} formula="$C = 2\pi r$" />
+            <FormulaCard label="Area of a rectangle" diagram={<RectangleDiagram />} formula="$A = \ell w$" />
+            <FormulaCard label="Area of a triangle" diagram={<TriangleDiagram />} formula="$A = \tfrac{1}{2}bh$" />
+            <FormulaCard label="Pythagorean theorem" diagram={<RightTriangleDiagram />} formula="$a^2 + b^2 = c^2$" />
+          </Section>
 
           {/* Volume Formulas */}
-          <div style={{ marginBottom: '28px' }}>
-            <h3 style={{ fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#6e6e73', marginBottom: '16px' }}>
-              Volume
-            </h3>
-            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '12px 24px' }}>
-              <FormulaRow label="Rectangular prism" formula="$V = \ell wh$" />
-              <FormulaRow label="Cylinder" formula="$V = \pi r^2 h$" />
-              <FormulaRow label="Sphere" formula="$V = \frac{4}{3}\pi r^3$" />
-              <FormulaRow label="Cone" formula="$V = \frac{1}{3}\pi r^2 h$" />
-              <FormulaRow label="Pyramid" formula="$V = \frac{1}{3}\ell wh$" />
-            </div>
-          </div>
+          <Section title="Volume" isMobile={isMobile}>
+            <FormulaCard label="Rectangular prism" diagram={<PrismDiagram />} formula="$V = \ell wh$" />
+            <FormulaCard label="Cylinder" diagram={<CylinderDiagram />} formula="$V = \pi r^2 h$" />
+            <FormulaCard label="Sphere" diagram={<SphereDiagram />} formula="$V = \tfrac{4}{3}\pi r^3$" />
+            <FormulaCard label="Cone" diagram={<ConeDiagram />} formula="$V = \tfrac{1}{3}\pi r^2 h$" />
+            <FormulaCard label="Pyramid" diagram={<PyramidDiagram />} formula="$V = \tfrac{1}{3}\ell wh$" />
+          </Section>
 
           {/* Special Right Triangles */}
-          <div style={{ marginBottom: '28px' }}>
-            <h3 style={{ fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#6e6e73', marginBottom: '16px' }}>
-              Special Right Triangles
-            </h3>
-            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '12px 24px' }}>
-              <FormulaRow label="45-45-90 triangle" formula="$x,\; x,\; x\sqrt{2}$" />
-              <FormulaRow label="30-60-90 triangle" formula="$x,\; x\sqrt{3},\; 2x$" />
-            </div>
-          </div>
+          <Section title="Special Right Triangles" isMobile={isMobile}>
+            <FormulaCard label="45°–45°–90°" diagram={<Triangle454590 />} formula="sides: $x,\; x,\; x\sqrt{2}$" />
+            <FormulaCard label="30°–60°–90°" diagram={<Triangle306090 />} formula="sides: $x,\; x\sqrt{3},\; 2x$" />
+          </Section>
 
           {/* Key Facts */}
           <div style={{ marginBottom: '8px' }}>
@@ -131,20 +116,49 @@ const SATReferenceSheet = ({ isOpen, onClose }) => {
   );
 };
 
-const FormulaRow = ({ label, formula }) => (
+const Section = ({ title, children, isMobile }) => (
+  <div style={{ marginBottom: '28px' }}>
+    <h3 style={{ fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#6e6e73', marginBottom: '16px' }}>
+      {title}
+    </h3>
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)',
+      gap: '12px',
+    }}>
+      {children}
+    </div>
+  </div>
+);
+
+const FormulaCard = ({ label, diagram, formula }) => (
   <div style={{
     display: 'flex',
-    justifyContent: 'space-between',
+    flexDirection: 'column',
     alignItems: 'center',
-    padding: '8px 12px',
+    justifyContent: 'space-between',
+    gap: '10px',
+    padding: '14px 10px',
     background: '#f5f5f7',
-    borderRadius: '8px',
-    gap: '12px',
+    borderRadius: '10px',
+    minHeight: '180px',
   }}>
-    <span style={{ color: '#1d1d1f', fontSize: '13px', flexShrink: 0 }}>{label}</span>
-    <span style={{ fontFamily: 'KaTeX_Main, serif', whiteSpace: 'nowrap' }}>
+    <div style={{
+      flex: 1,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '100%',
+      minHeight: '90px',
+    }}>
+      {diagram}
+    </div>
+    <div style={{ fontFamily: 'KaTeX_Main, serif', fontSize: '14px', textAlign: 'center' }}>
       <MathText text={formula} />
-    </span>
+    </div>
+    <div style={{ fontSize: '11px', color: '#6e6e73', textAlign: 'center', letterSpacing: '-0.01em' }}>
+      {label}
+    </div>
   </div>
 );
 
@@ -157,6 +171,165 @@ const FactRow = ({ text }) => (
   }}>
     <MathText text={text} />
   </div>
+);
+
+/* ---------- Diagrams ---------- */
+
+const STROKE = '#1d1d1f';
+const SHADE = 'rgba(0,0,0,0.06)';
+const LABEL_STYLE = {
+  fontFamily: 'KaTeX_Math, "Times New Roman", serif',
+  fontStyle: 'italic',
+  fontSize: '13px',
+  fill: '#1d1d1f',
+};
+
+const svgProps = {
+  width: 150,
+  height: 100,
+  viewBox: '0 0 150 100',
+};
+
+// Centered text helper for clean middle alignment
+const labelCenter = { textAnchor: 'middle' };
+const labelLeft = { textAnchor: 'end' };
+
+const CircleDiagram = () => (
+  <svg {...svgProps}>
+    <circle cx="75" cy="50" r="30" fill="none" stroke={STROKE} strokeWidth="1.5" />
+    <line x1="75" y1="50" x2="105" y2="50" stroke={STROKE} strokeWidth="1.2" />
+    <circle cx="75" cy="50" r="1.6" fill={STROKE} />
+    <text x="90" y="44" {...LABEL_STYLE} {...labelCenter}>r</text>
+  </svg>
+);
+
+const RectangleDiagram = () => (
+  <svg {...svgProps}>
+    <rect x="30" y="28" width="90" height="44" fill="none" stroke={STROKE} strokeWidth="1.5" />
+    <text x="75" y="88" {...LABEL_STYLE} {...labelCenter}>ℓ</text>
+    <text x="130" y="54" {...LABEL_STYLE}>w</text>
+  </svg>
+);
+
+const TriangleDiagram = () => (
+  <svg {...svgProps}>
+    <polygon points="20,82 130,82 75,16" fill="none" stroke={STROKE} strokeWidth="1.5" />
+    <line x1="75" y1="16" x2="75" y2="82" stroke={STROKE} strokeWidth="1" strokeDasharray="3,2" />
+    <path d="M 75 76 L 69 76 L 69 82" fill="none" stroke={STROKE} strokeWidth="0.8" />
+    <text x="75" y="96" {...LABEL_STYLE} {...labelCenter}>b</text>
+    <text x="82" y="52" {...LABEL_STYLE}>h</text>
+  </svg>
+);
+
+const RightTriangleDiagram = () => (
+  <svg {...svgProps}>
+    <polygon points="26,80 116,80 26,18" fill="none" stroke={STROKE} strokeWidth="1.5" />
+    <path d="M 26 74 L 32 74 L 32 80" fill="none" stroke={STROKE} strokeWidth="0.8" />
+    <text x="71" y="94" {...LABEL_STYLE} {...labelCenter}>b</text>
+    <text x="18" y="52" {...LABEL_STYLE} {...labelLeft}>a</text>
+    <text x="78" y="44" {...LABEL_STYLE}>c</text>
+  </svg>
+);
+
+const PrismDiagram = () => (
+  <svg {...svgProps}>
+    {/* front face */}
+    <rect x="22" y="32" width="64" height="48" fill={SHADE} stroke={STROKE} strokeWidth="1.5" />
+    {/* top face */}
+    <polygon points="22,32 42,16 106,16 86,32" fill={SHADE} stroke={STROKE} strokeWidth="1.5" />
+    {/* right face */}
+    <polygon points="86,32 106,16 106,64 86,80" fill={SHADE} stroke={STROKE} strokeWidth="1.5" />
+    {/* labels */}
+    <text x="54" y="94" {...LABEL_STYLE} {...labelCenter}>ℓ</text>
+    <text x="118" y="52" {...LABEL_STYLE}>h</text>
+    <text x="74" y="11" {...LABEL_STYLE} {...labelCenter}>w</text>
+  </svg>
+);
+
+const CylinderDiagram = () => (
+  <svg {...svgProps}>
+    {/* body sides */}
+    <path d="M 49 24 L 49 78" stroke={STROKE} strokeWidth="1.5" fill="none" />
+    <path d="M 101 24 L 101 78" stroke={STROKE} strokeWidth="1.5" fill="none" />
+    {/* bottom ellipse */}
+    <ellipse cx="75" cy="78" rx="26" ry="7" fill={SHADE} stroke={STROKE} strokeWidth="1.5" />
+    {/* top ellipse */}
+    <ellipse cx="75" cy="24" rx="26" ry="7" fill="#fff" stroke={STROKE} strokeWidth="1.5" />
+    {/* radius line on top */}
+    <line x1="75" y1="24" x2="101" y2="24" stroke={STROKE} strokeWidth="1" />
+    <circle cx="75" cy="24" r="1.4" fill={STROKE} />
+    <text x="88" y="20" {...LABEL_STYLE} {...labelCenter}>r</text>
+    <text x="113" y="54" {...LABEL_STYLE}>h</text>
+  </svg>
+);
+
+const SphereDiagram = () => (
+  <svg {...svgProps}>
+    <circle cx="75" cy="50" r="30" fill={SHADE} stroke={STROKE} strokeWidth="1.5" />
+    {/* equator (dashed for 3D feel) */}
+    <ellipse cx="75" cy="50" rx="30" ry="8" fill="none" stroke={STROKE} strokeWidth="1" strokeDasharray="3,2" />
+    {/* radius line going UP from center to avoid the equator line */}
+    <line x1="75" y1="50" x2="75" y2="20" stroke={STROKE} strokeWidth="1.2" />
+    <circle cx="75" cy="50" r="1.6" fill={STROKE} />
+    <text x="82" y="35" {...LABEL_STYLE}>r</text>
+  </svg>
+);
+
+const ConeDiagram = () => (
+  <svg {...svgProps}>
+    {/* cone sides */}
+    <path d="M 75 14 L 49 76 L 101 76 Z" fill={SHADE} stroke={STROKE} strokeWidth="1.5" />
+    {/* base ellipse */}
+    <ellipse cx="75" cy="76" rx="26" ry="7" fill={SHADE} stroke={STROKE} strokeWidth="1.5" />
+    {/* height line (dashed) */}
+    <line x1="75" y1="14" x2="75" y2="76" stroke={STROKE} strokeWidth="1" strokeDasharray="3,2" />
+    {/* radius line */}
+    <line x1="75" y1="76" x2="101" y2="76" stroke={STROKE} strokeWidth="1" />
+    <text x="68" y="48" {...LABEL_STYLE} {...labelLeft}>h</text>
+    <text x="88" y="94" {...LABEL_STYLE} {...labelCenter}>r</text>
+  </svg>
+);
+
+const PyramidDiagram = () => (
+  <svg {...svgProps}>
+    {/* base (parallelogram) */}
+    <polygon points="22,76 82,76 118,58 58,58" fill={SHADE} stroke={STROKE} strokeWidth="1.5" />
+    {/* edges from apex to front base corners (solid) */}
+    <line x1="75" y1="14" x2="22" y2="76" stroke={STROKE} strokeWidth="1.5" />
+    <line x1="75" y1="14" x2="82" y2="76" stroke={STROKE} strokeWidth="1.5" />
+    {/* edge to back-right base corner (solid, visible) */}
+    <line x1="75" y1="14" x2="118" y2="58" stroke={STROKE} strokeWidth="1.5" />
+    {/* altitude from apex to base centroid (dashed) */}
+    <line x1="75" y1="14" x2="70" y2="67" stroke={STROKE} strokeWidth="1" strokeDasharray="3,2" />
+    {/* labels */}
+    <text x="52" y="92" {...LABEL_STYLE} {...labelCenter}>ℓ</text>
+    <text x="108" y="76" {...LABEL_STYLE}>w</text>
+    <text x="60" y="42" {...LABEL_STYLE} {...labelLeft}>h</text>
+  </svg>
+);
+
+const Triangle454590 = () => (
+  <svg {...svgProps}>
+    {/* equal-leg right triangle */}
+    <polygon points="30,82 90,82 30,22" fill="none" stroke={STROKE} strokeWidth="1.5" />
+    <path d="M 30 76 L 36 76 L 36 82" fill="none" stroke={STROKE} strokeWidth="0.8" />
+    {/* side labels — outside the triangle, no overlap */}
+    <text x="60" y="96" {...LABEL_STYLE} {...labelCenter}>x</text>
+    <text x="22" y="56" {...LABEL_STYLE} {...labelLeft}>x</text>
+    <text x="72" y="46" {...LABEL_STYLE}>x√2</text>
+  </svg>
+);
+
+const Triangle306090 = () => (
+  <svg {...svgProps}>
+    {/* 30-60-90: vertical leg shorter, horizontal leg ~√3× longer */}
+    <polygon points="30,82 116,82 30,32" fill="none" stroke={STROKE} strokeWidth="1.5" />
+    <path d="M 30 76 L 36 76 L 36 82" fill="none" stroke={STROKE} strokeWidth="0.8" />
+    {/* side labels — outside the triangle */}
+    <text x="73" y="96" {...LABEL_STYLE} {...labelCenter}>x√3</text>
+    <text x="22" y="60" {...LABEL_STYLE} {...labelLeft}>x</text>
+    <text x="84" y="50" {...LABEL_STYLE}>2x</text>
+  </svg>
 );
 
 export default SATReferenceSheet;
