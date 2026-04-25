@@ -15,13 +15,18 @@
  *   node scripts/calibrateModule.mjs --all --module=1                      # all 12, M1
  *   node scripts/calibrateModule.mjs --test=1 --module=2 --track=hard      # M2 hard track
  *   node scripts/calibrateModule.mjs --test=1 --module=2 --track=easy      # M2 easy track
+ *   node scripts/calibrateModule.mjs --lint --test=1                       # rubric lint (CB authenticity)
  *
- * Output:
+ * Output (calibration mode):
  *   scripts/generated/module{1|2}-calibration-test-{N}[-{track}].md
+ *
+ * Output (lint mode):
+ *   stdout: file:line violation: <description> per failure; exit 1 on any failure.
  *
  * Exports:
  *   - analyzeDomainCoverage(testJsModule)       — current/target domain table
  *   - checkUniqueness(authoredText, qbankItems) — Jaccard + 3-gram dupe gate
+ *   - lintPracticeTest({ testN, qbankItems })   — rubric checks, returns violation list
  *   - SKILL_TO_CB                                — internal skill → CB skill_desc map
  */
 
@@ -52,10 +57,22 @@ function parseArgs(argv) {
   const MODULE_ARG = args.find(a => a.startsWith('--module='));
   const TRACK_ARG = args.find(a => a.startsWith('--track='));
   const ALL = args.includes('--all');
+  const LINT = args.includes('--lint');
 
   const testNumbers = ALL
     ? Array.from({ length: 12 }, (_, i) => i + 1)
     : (TEST_ARG ? TEST_ARG.split('=')[1].split(',').map(n => parseInt(n, 10)) : [1]);
+
+  for (const n of testNumbers) {
+    if (!Number.isInteger(n) || n < 1 || n > 12) {
+      throw new Error(`--test value must be 1-12 (got ${n})`);
+    }
+  }
+
+  if (LINT) {
+    // Lint mode operates on whole tests (both modules) and ignores --module/--track.
+    return { mode: 'lint', testNumbers };
+  }
 
   const moduleNum = MODULE_ARG ? parseInt(MODULE_ARG.split('=')[1], 10) : 1;
   const track = TRACK_ARG ? TRACK_ARG.split('=')[1] : null;
@@ -66,13 +83,8 @@ function parseArgs(argv) {
   if (![1, 2].includes(moduleNum)) {
     throw new Error(`--module must be 1 or 2 (got ${moduleNum})`);
   }
-  for (const n of testNumbers) {
-    if (!Number.isInteger(n) || n < 1 || n > 12) {
-      throw new Error(`--test value must be 1-12 (got ${n})`);
-    }
-  }
 
-  return { testNumbers, moduleNum, track };
+  return { mode: 'calibrate', testNumbers, moduleNum, track };
 }
 
 // ---------------------------------------------------------------------------
@@ -460,6 +472,388 @@ export function checkUniqueness(authoredText, qbankItems) {
 }
 
 // ---------------------------------------------------------------------------
+// Lint mode — CB authenticity rubric checks
+// ---------------------------------------------------------------------------
+//
+// See docs/CB_AUTHENTICITY_RUBRIC.md §8 for the lint rule list. This module
+// enforces the mechanical subset (LaTeX delimiters, choice count, explanation
+// pattern, distractor misconception annotation, band field, and uniqueness
+// against the cached QBank). Semantic rubric items (top-of-band stem patterns,
+// the four-misconception rule of distractor logic) cannot be linted and are
+// enforced by the calibration set instead.
+
+const LINT_BAND_MIN = 1;
+const LINT_BAND_MAX = 7;
+
+const APPROVED_PATTERN_NAMES = new Set([
+  'Word-to-Expression Translation',
+  'Percent of a Whole',
+  'Reverse-Percent',
+  'Percent Increase/Decrease',
+  'Percent Increase',
+  'Percent Decrease',
+  'Proportion Solving',
+  'Interpret Slope in Context',
+  'Interpret Intercept in Context',
+  'Interpret Coefficient in Context',
+  'Line from Two Points',
+  'Perpendicular Slope',
+  'Parallel Slope',
+  'Two-Way Table Conditional Probability',
+  'Marginal Probability',
+  'Quadratic — Discriminant Test',
+  "Quadratic — Vieta's Sum/Product",
+  'Quadratic — Completing the Square',
+  'Function Composition',
+  'Function Transformation',
+  'Shifted Output',
+  'System of Equations — Elimination',
+  'System of Equations — Substitution',
+  'Circle in Standard Form',
+  'Circle in General Form',
+  'Right Triangle — Pythagorean',
+  'Right Triangle — Trig Ratios',
+  'Volume Scaling',
+  'Surface Area',
+  'Exponential Growth/Decay',
+  'Compound Interest',
+]);
+
+/**
+ * Walk a practice-test source file and produce a flat list of
+ *   { questionId, type, moduleIndex, modulePosition, startLine, endLine }
+ * mapping each authored question's object literal back to the line range
+ * occupied in source. Used to attach line numbers to lint violations.
+ *
+ * Approach: track `modules:` opener, then for each `questions:` array, count
+ * top-level `{ ... }` siblings via brace depth. Each top-level `{` at depth 0
+ * inside a questions array starts a question.
+ */
+export function indexQuestionLines(src) {
+  const lines = src.split('\n');
+  const result = [];
+
+  // Find each `questions:` array opening (handles two modules). We require a
+  // `modules: [` opener to appear before the first `questions: [` so that
+  // unrelated test fixtures with their own `questions` keyword don't confuse
+  // the walker.
+  const moduleStarts = [];
+  let modulesOpened = false;
+  for (let i = 0; i < lines.length; i++) {
+    const ln = lines[i];
+    if (!modulesOpened && /modules\s*:\s*\[/.test(ln)) {
+      modulesOpened = true;
+    }
+    if (modulesOpened && /questions\s*:\s*\[/.test(ln)) {
+      moduleStarts.push(i);
+    }
+  }
+
+  // For each `questions: [` block, walk lines forward and split by depth-0
+  // braces *inside* the questions array. We have to begin scanning AT the
+  // `questions: [` line (not after it) so the question's opening `{` on the
+  // same line is included. We also walk character-by-character past the `[`
+  // so we don't double-count the array-open as a brace.
+  for (let mi = 0; mi < moduleStarts.length; mi++) {
+    const startIdx = moduleStarts[mi];
+    let depth = 0; // brace depth inside the questions array (0 = between questions)
+    let qStart = -1;
+    let posInModule = 0;
+    let inString = false;
+    let stringChar = '';
+    let prevChar = '';
+    let arrayClosed = false;
+    let pastArrayOpen = false;
+
+    for (let i = startIdx; i < lines.length && !arrayClosed; i++) {
+      const ln = lines[i];
+      // On the questions: [ line itself, advance past everything up to and
+      // including the opening `[` so we only count tokens inside the array.
+      let j = 0;
+      if (!pastArrayOpen) {
+        const m = ln.match(/questions\s*:\s*\[/);
+        if (m) {
+          j = m.index + m[0].length;
+          pastArrayOpen = true;
+        }
+      }
+      for (; j < ln.length; j++) {
+        const c = ln[j];
+        if (inString) {
+          if (c === stringChar && prevChar !== '\\') inString = false;
+          prevChar = c;
+          continue;
+        }
+        if (c === '"' || c === "'" || c === '`') {
+          inString = true;
+          stringChar = c;
+          prevChar = c;
+          continue;
+        }
+        if (c === '/' && j + 1 < ln.length && ln[j + 1] === '/') {
+          // single-line comment — skip rest of line
+          break;
+        }
+        if (c === '{') {
+          if (depth === 0) qStart = i;
+          depth++;
+        } else if (c === '}') {
+          depth--;
+          if (depth === 0 && qStart >= 0) {
+            posInModule++;
+            result.push({
+              moduleIndex: mi,
+              modulePosition: posInModule,
+              startLine: qStart + 1, // 1-indexed
+              endLine: i + 1,
+            });
+            qStart = -1;
+          }
+        } else if (c === ']' && depth === 0) {
+          arrayClosed = true;
+          break;
+        }
+        prevChar = c;
+      }
+    }
+  }
+
+  return result;
+}
+
+/**
+ * Examine the LaTeX delimiters in a chunk of text. Returns a list of offending
+ * delimiter forms found. Currently catches `\(` and `\[` (KaTeX-style), which
+ * the rubric forbids in favor of `$...$` and `$$...$$`.
+ */
+function findBadLatexDelimiters(text) {
+  if (!text || typeof text !== 'string') return [];
+  const found = [];
+  if (/\\\(/.test(text)) found.push('\\(...\\)');
+  if (/\\\[/.test(text)) found.push('\\[...\\]');
+  return found;
+}
+
+/** Extract the SAT Pattern name from an explanation string, if present. */
+function extractPatternName(explanation) {
+  if (!explanation) return null;
+  const m = explanation.match(/\*\*SAT Pattern:\s*([^*]+?)\*\*/);
+  return m ? m[1].trim() : null;
+}
+
+/**
+ * Reads `practiceTest{N}.js` raw source and pulls the inline `// distractor: ...`
+ * comments out per question. The map is keyed by `${moduleIndex}-${modulePosition}`
+ * (1-indexed) and each entry is a count of distractor comments inside the
+ * question's source range.
+ */
+function countDistractorCommentsByQuestion(src, lineIndex) {
+  const lines = src.split('\n');
+  const counts = {};
+  for (const entry of lineIndex) {
+    let n = 0;
+    for (let i = entry.startLine - 1; i < entry.endLine; i++) {
+      const ln = lines[i] || '';
+      if (/\/\/\s*distractor:/i.test(ln)) n++;
+    }
+    counts[`${entry.moduleIndex}-${entry.modulePosition}`] = n;
+  }
+  return counts;
+}
+
+/**
+ * Lint a single practice test file against the CB authenticity rubric.
+ *
+ * @param {object} args
+ * @param {number} args.testN - 1-12
+ * @param {object} args.qbankItems - { [externalId]: { stemPlain, ... } } from cbEducatorQBank.json
+ * @returns {{ file: string, violations: Array<{ line: number, rule: string, message: string }> }}
+ */
+export function lintPracticeTest({ testN, qbankItems }) {
+  const file = path.join(TESTS_DIR, `practiceTest${testN}.js`);
+  if (!fs.existsSync(file)) {
+    throw new Error(`practice test missing at ${file}`);
+  }
+  const src = fs.readFileSync(file, 'utf8');
+  const pt = loadPracticeTest(testN);
+  const lineIndex = indexQuestionLines(src);
+  const distractorCommentCounts = countDistractorCommentsByQuestion(src, lineIndex);
+
+  const violations = [];
+  const push = (line, rule, message) => violations.push({ line, rule, message });
+
+  const modules = pt.modules || [];
+  modules.forEach((mod, mi) => {
+    const qs = mod.questions || [];
+    qs.forEach((q, qi) => {
+      const idxEntry = lineIndex.find(e => e.moduleIndex === mi && e.modulePosition === qi + 1);
+      const startLine = idxEntry ? idxEntry.startLine : 1;
+      const moduleLabel = `module ${mi + 1}`;
+      const qLabel = `Q${qi + 1} (id=${q.id})`;
+      const prefix = `${moduleLabel} ${qLabel}`;
+
+      // Rule 1a — MC items have exactly 4 choices
+      if (q.type === 'multiple-choice') {
+        const choices = q.choices || [];
+        if (choices.length !== 4) {
+          push(startLine, 'choice-count',
+            `${prefix} MC must have exactly 4 choices (found ${choices.length})`);
+        }
+        // Each choice id must be one of A-D and text non-empty
+        const ids = choices.map(c => (c && c.id) || '');
+        const expected = ['A', 'B', 'C', 'D'];
+        for (let k = 0; k < choices.length; k++) {
+          const c = choices[k];
+          if (!c || typeof c !== 'object') {
+            push(startLine, 'choice-shape', `${prefix} choice index ${k} is not an object`);
+            continue;
+          }
+          if (!c.text || typeof c.text !== 'string' || !c.text.trim()) {
+            push(startLine, 'choice-shape', `${prefix} choice ${c.id || `#${k}`} has empty text`);
+          }
+        }
+        if (choices.length === 4 && JSON.stringify(ids) !== JSON.stringify(expected)) {
+          push(startLine, 'choice-ids',
+            `${prefix} choice ids must be A,B,C,D in order (got ${ids.join(',') || '∅'})`);
+        }
+      }
+
+      // Rule 1b — Fill-in items have correctAnswer set
+      if (q.type === 'fill-in') {
+        if (q.correctAnswer === undefined || q.correctAnswer === null
+          || (typeof q.correctAnswer === 'string' && q.correctAnswer.trim() === '')) {
+          push(startLine, 'fill-answer', `${prefix} fill-in missing correctAnswer`);
+        }
+      }
+
+      // Rule 4 — correctAnswer letter is one of the actual choices (MC only)
+      if (q.type === 'multiple-choice') {
+        const choices = q.choices || [];
+        const ids = new Set(choices.map(c => (c && c.id) || ''));
+        if (!q.correctAnswer || !ids.has(q.correctAnswer)) {
+          push(startLine, 'answer-orphan',
+            `${prefix} correctAnswer "${q.correctAnswer}" is not one of the choice ids [${[...ids].join(',')}]`);
+        }
+      }
+
+      // Rule 2 — band field present and in 1..7
+      const band = q.band;
+      if (band === undefined || band === null) {
+        push(startLine, 'band-missing', `${prefix} missing 'band' field (rubric requires 1-7)`);
+      } else if (!Number.isInteger(band) || band < LINT_BAND_MIN || band > LINT_BAND_MAX) {
+        push(startLine, 'band-range',
+          `${prefix} band=${JSON.stringify(band)} must be integer in ${LINT_BAND_MIN}-${LINT_BAND_MAX}`);
+      }
+
+      // Rule 3 — LaTeX delimiters
+      const latexFields = [
+        ['question', q.question],
+        ['explanation', q.explanation],
+      ];
+      if (q.choices) {
+        q.choices.forEach((c, k) => {
+          latexFields.push([`choice ${c && c.id || k}`, c && c.text]);
+        });
+      }
+      for (const [field, text] of latexFields) {
+        const bad = findBadLatexDelimiters(text);
+        if (bad.length) {
+          push(startLine, 'latex-delim',
+            `${prefix} ${field} uses forbidden LaTeX delimiter ${bad.join(', ')} — use $...$ / $$...$$`);
+        }
+      }
+
+      // Rule 5 — Explanation opens with **SAT Pattern: ...** and contains **Choice X is correct.**
+      const exp = q.explanation || '';
+      if (!exp.startsWith('**SAT Pattern:')) {
+        push(startLine, 'explanation-pattern-opener',
+          `${prefix} explanation must open with "**SAT Pattern: ..."`);
+      }
+      const patternName = extractPatternName(exp);
+      // Pattern-name registry check (advisory, but treated as a violation per rubric §8).
+      if (patternName && !APPROVED_PATTERN_NAMES.has(patternName)) {
+        push(startLine, 'pattern-name-registry',
+          `${prefix} pattern name "${patternName}" not in approved registry (see CB_AUTHENTICITY_RUBRIC.md §5)`);
+      }
+      if (q.type === 'multiple-choice') {
+        // Must contain "**Choice X is correct.**" with X being a single letter.
+        if (!/\*\*Choice\s+[A-D]\s+is correct\.\*\*/.test(exp)) {
+          push(startLine, 'explanation-choice-correct',
+            `${prefix} explanation must contain "**Choice X is correct.**" (X = A-D)`);
+        }
+      }
+
+      // Rule 6 — Each distractor (non-correct MC choice) has a `// distractor: ` comment
+      // OR a `misconception:` field. We allow either convention.
+      if (q.type === 'multiple-choice') {
+        const choices = q.choices || [];
+        const correctId = q.correctAnswer;
+        const distractorCount = choices.filter(c => c && c.id !== correctId).length;
+        const hasMisconception = choices.some(c => c && c.misconception);
+        const commentsInRange = distractorCommentCounts[`${mi}-${qi + 1}`] || 0;
+        // Pass if EITHER every distractor has a misconception field OR the
+        // source has at least one `// distractor:` comment per distractor.
+        const allHaveMisconceptionField = choices
+          .filter(c => c && c.id !== correctId)
+          .every(c => typeof c.misconception === 'string' && c.misconception.trim());
+        if (!allHaveMisconceptionField && commentsInRange < distractorCount) {
+          push(startLine, 'distractor-annotation',
+            `${prefix} ${distractorCount} distractor(s) but only ${commentsInRange} '// distractor:' comment(s) and no 'misconception' fields — annotate each distractor with its misconception`);
+        }
+      }
+
+      // Rule 7 — Uniqueness gate vs cached QBank stems
+      const stem = (q.question || '').toString();
+      if (stem.trim()) {
+        const u = checkUniqueness(stem, qbankItems);
+        if (!u.pass) {
+          push(startLine, 'uniqueness',
+            `${prefix} stem too close to QBank item ${u.closestQbankId} (jaccard=${u.jaccard}, 3-gram=${u.ngramOverlap}; thresholds 0.78 / 0.60)`);
+        }
+      }
+    });
+  });
+
+  return { file, violations };
+}
+
+/**
+ * Run lint mode for a list of test numbers and print violations to stdout.
+ * Returns the total violation count.
+ */
+export function runLint({ testNumbers }) {
+  const qbank = loadQBank();
+  const qbankItems = qbank.items || {};
+  let total = 0;
+  const byCategory = {};
+  for (const testN of testNumbers) {
+    let report;
+    try {
+      report = lintPracticeTest({ testN, qbankItems });
+    } catch (e) {
+      console.error(`practiceTest${testN}.js: lint failed: ${e.message}`);
+      total++;
+      byCategory['load-error'] = (byCategory['load-error'] || 0) + 1;
+      continue;
+    }
+    for (const v of report.violations) {
+      console.log(`${report.file}:${v.line} violation: ${v.message}`);
+      byCategory[v.rule] = (byCategory[v.rule] || 0) + 1;
+      total++;
+    }
+  }
+  console.log('');
+  console.log(`Lint summary: ${total} violation(s) across ${testNumbers.length} test(s)`);
+  if (total > 0) {
+    const cats = Object.entries(byCategory).sort((a, b) => b[1] - a[1]);
+    for (const [rule, count] of cats) {
+      console.log(`  ${rule}: ${count}`);
+    }
+  }
+  return { total, byCategory };
+}
+
+// ---------------------------------------------------------------------------
 // Report generator
 // ---------------------------------------------------------------------------
 
@@ -667,7 +1061,12 @@ function isMainModule() {
 if (isMainModule()) {
   try {
     const opts = parseArgs(process.argv);
-    runCalibration(opts);
+    if (opts.mode === 'lint') {
+      const { total } = runLint(opts);
+      process.exit(total > 0 ? 1 : 0);
+    } else {
+      runCalibration(opts);
+    }
   } catch (e) {
     console.error(e.message);
     process.exit(1);

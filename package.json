@@ -29,6 +29,8 @@
     "bank:official:publish": "node scripts/officialQuestionBankPipeline.mjs publish",
     "bank:validate": "node scripts/validateBank.mjs",
     "bank:test": "node scripts/testPipeline.mjs",
+    "bank:lint:rubric": "node scripts/calibrateModule.mjs --lint --test=1",
+    "bank:lint:rubric:all": "node scripts/calibrateModule.mjs --lint --all",
     "eject": "react-scripts eject"
   },
   "browserslist": {
