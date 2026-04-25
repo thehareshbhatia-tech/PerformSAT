@@ -1,5 +1,11 @@
 import { db } from '../firebase/config';
-import { doc, getDoc, setDoc, updateDoc, serverTimestamp, arrayUnion, collection, addDoc, query, where, orderBy, limit, getDocs } from 'firebase/firestore';
+import { doc, getDoc, setDoc, updateDoc, serverTimestamp, arrayUnion, collection, addDoc, query, where, orderBy, limit, getDocs, writeBatch } from 'firebase/firestore';
+
+/**
+ * Schema version for the per-attempt snapshot doc.
+ * Bump when shape of `progress/{userId}/attempts/{attemptId}` changes.
+ */
+export const SNAPSHOT_VERSION = 1;
 
 /**
  * Generate a short unique attempt identifier.
@@ -12,7 +18,19 @@ export const generateAttemptId = () => {
 };
 
 /**
- * Records a practice test result to Firestore
+ * Records a practice test result to Firestore.
+ *
+ * Writes are atomic via Firestore writeBatch:
+ *  1. Main aggregate doc at progress/{userId} (existing behavior).
+ *  2. Per-attempt snapshot doc at progress/{userId}/attempts/{attemptId} —
+ *     contains the question objects the student saw (stem/choices/explanation),
+ *     so Review Answers can render the original problem even after content
+ *     swaps under the same question ID.
+ *
+ * If results.questionsSnapshot is missing, the snapshot doc is skipped (a
+ * warning is logged) but the main doc is still written so existing flows
+ * continue to work during rollout.
+ *
  * @param {string} userId - User ID
  * @param {string} testId - Test ID (e.g., "practice-test-1")
  * @param {string} testTitle - Test title (e.g., "Practice Test 1")
@@ -22,6 +40,8 @@ export const generateAttemptId = () => {
  * @param {number} results.scaledScore - SAT scaled score (200-800)
  * @param {boolean} results.timedMode - Whether test was taken in timed mode
  * @param {Array} results.moduleScores - Array of module score objects
+ * @param {Array} [results.questionsSnapshot] - Per-question snapshot ([{id, type, stem, choices, ...}])
+ * @param {Object} [results.answers] - Answers map { "modIdx-qIdx": userAnswer }
  * @returns {Promise<void>}
  */
 export const recordPracticeTestResult = async (userId, testId, testTitle, results) => {
@@ -38,9 +58,12 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
     const progressSnap = await getDoc(progressRef);
     console.log('[practiceTestService] Progress document exists:', progressSnap.exists());
 
+    const attemptId = results.attemptId || generateAttemptId();
+    const completedAt = new Date().toISOString();
+
     const attemptData = {
-      attemptId: results.attemptId || generateAttemptId(),
-      completedAt: new Date().toISOString(),
+      attemptId,
+      completedAt,
       rawScore: results.rawScore,
       totalQuestions: results.totalQuestions,
       scaledScore: results.scaledScore,
@@ -58,6 +81,9 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
 
     // Keep only the last MAX_ATTEMPTS per test to prevent document bloat.
     // Older attempts are trimmed and diagnosticReport is stripped from non-latest attempts.
+    // NOTE: subcollection snapshot docs are NOT trimmed here — they live under
+    // progress/{userId}/attempts/{attemptId} and remain available for Review Answers
+    // even when the aggregate row falls off the main doc. Cleanup is a future task.
     const MAX_ATTEMPTS = 5;
 
     const trimAttempts = (attempts) => {
@@ -71,9 +97,33 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
       });
     };
 
+    // Build the snapshot doc payload (or null when caller didn't provide one).
+    // Without a snapshot, Review Answers will fall back to the live test file —
+    // acceptable during rollout, but the eventual contract is "every attempt
+    // carries its own snapshot."
+    const hasSnapshot = Array.isArray(results.questionsSnapshot) && results.questionsSnapshot.length > 0;
+    if (!hasSnapshot) {
+      console.warn('[practiceTestService] No questionsSnapshot provided — skipping per-attempt snapshot write. Review Answers will fall back to live test for this attempt.');
+    }
+
+    const snapshotRef = hasSnapshot ? doc(db, 'progress', userId, 'attempts', attemptId) : null;
+    const snapshotPayload = hasSnapshot ? {
+      attemptId,
+      testId,
+      completedAt,
+      questionsSnapshot: results.questionsSnapshot,
+      answers: results.answers || {},
+      snapshotVersion: SNAPSHOT_VERSION,
+    } : null;
+
+    // Atomic batched write: either both writes (main + snapshot) succeed, or both
+    // are rolled back. Eliminates the silent-drift partial-failure flagged in
+    // the recalibration plan's failure-mode table.
+    const batch = writeBatch(db);
+
     if (!progressSnap.exists()) {
       console.log('[practiceTestService] Creating new progress document...');
-      await setDoc(progressRef, {
+      batch.set(progressRef, {
         userId,
         [`practiceTestResults.${testId}`]: {
           testId,
@@ -86,7 +136,6 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
         },
         lastUpdated: serverTimestamp()
       }, { merge: true });
-      console.log('[practiceTestService] New document created successfully!');
     } else {
       const currentData = progressSnap.data();
       const existingTest = currentData.practiceTestResults?.[testId];
@@ -95,7 +144,7 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
         // Update existing test results, trimming old attempts to stay under Firestore 1MB limit
         console.log('[practiceTestService] Updating existing test results...');
         const updatedAttempts = trimAttempts([attemptData, ...(existingTest.attempts || [])]);
-        await updateDoc(progressRef, {
+        batch.update(progressRef, {
           [`practiceTestResults.${testId}.attempts`]: updatedAttempts,
           [`practiceTestResults.${testId}.bestScaledScore`]: Math.max(existingTest.bestScaledScore, results.scaledScore),
           [`practiceTestResults.${testId}.bestRawScore`]: Math.max(existingTest.bestRawScore, results.rawScore),
@@ -103,11 +152,10 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
           [`practiceTestResults.${testId}.lastAttemptAt`]: serverTimestamp(),
           lastUpdated: serverTimestamp()
         });
-        console.log('[practiceTestService] Existing test updated successfully!');
       } else {
         // Add new test to results
         console.log('[practiceTestService] Adding new test to existing document...');
-        await updateDoc(progressRef, {
+        batch.update(progressRef, {
           [`practiceTestResults.${testId}`]: {
             testId,
             testTitle,
@@ -119,13 +167,43 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
           },
           lastUpdated: serverTimestamp()
         });
-        console.log('[practiceTestService] New test added successfully!');
       }
     }
-    console.log('[practiceTestService] Save complete!');
+
+    if (snapshotRef && snapshotPayload) {
+      // Per-attempt snapshot doc — bounded ~90KB so well under Firestore's 1MB limit.
+      batch.set(snapshotRef, snapshotPayload);
+    }
+
+    await batch.commit();
+    console.log('[practiceTestService] Save complete (attemptId=' + attemptId + ', snapshot=' + hasSnapshot + ')');
   } catch (error) {
     console.error('[practiceTestService] Error recording practice test result:', error);
     throw error;
+  }
+};
+
+/**
+ * Loads the per-attempt snapshot doc (questionsSnapshot + answers).
+ * Returns null when the doc is missing — typical for legacy attempts recorded
+ * before the snapshot subcollection was wired in. Callers should treat null as
+ * "fall back to the live practiceTest{N}.js content + show stale-content notice."
+ *
+ * @param {string} userId
+ * @param {string} attemptId
+ * @returns {Promise<Object|null>}
+ */
+export const loadAttemptSnapshot = async (userId, attemptId) => {
+  if (!userId || !attemptId) return null;
+
+  try {
+    const snapshotRef = doc(db, 'progress', userId, 'attempts', attemptId);
+    const snap = await getDoc(snapshotRef);
+    if (!snap.exists()) return null;
+    return { id: snap.id, ...snap.data() };
+  } catch (error) {
+    console.warn('[practiceTestService] loadAttemptSnapshot error (non-blocking):', error.message);
+    return null;
   }
 };
 

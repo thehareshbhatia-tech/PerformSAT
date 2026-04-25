@@ -884,7 +884,7 @@ const renderChoice = (choice) => {
   return <MathText text={choice.text} />;
 };
 
-const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, onClearProgress, onSaveStudyPlan, onGoToStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onNavigateToModule, onStartPractice, answeredQuestionIds = [], initialReviewModule = null }) => {
+const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, onClearProgress, onSaveStudyPlan, onGoToStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onNavigateToModule, onStartPractice, answeredQuestionIds = [], initialReviewModule = null, reviewSnapshotMissing = false, reviewAttemptId = null }) => {
   // Initialize state from saved progress if available
   const [currentModule, setCurrentModule] = useState(savedProgress?.currentModule || 0);
   const [currentQuestion, setCurrentQuestion] = useState(savedProgress?.currentQuestion || 0);
@@ -902,6 +902,23 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   const [reviewQuestion, setReviewQuestion] = useState(0);
   const [reviewTab, setReviewTab] = useState('question');
   const [reviewRightPane, setReviewRightPane] = useState('both');
+
+  // Stale-content notice: shown only when the per-attempt snapshot is missing
+  // (legacy attempts predate the snapshot subcollection). Dismissible per attempt
+  // via localStorage so the user only sees it once per legacy attempt.
+  const snapshotNoticeKey = reviewAttemptId ? `dismissedSnapshotNotice:${reviewAttemptId}` : null;
+  const [snapshotNoticeDismissed, setSnapshotNoticeDismissed] = useState(() => {
+    if (!snapshotNoticeKey || typeof window === 'undefined') return false;
+    try { return window.localStorage.getItem(snapshotNoticeKey) === '1'; }
+    catch (_) { return false; }
+  });
+  const showSnapshotNotice = reviewSnapshotMissing && !snapshotNoticeDismissed;
+  const dismissSnapshotNotice = () => {
+    setSnapshotNoticeDismissed(true);
+    if (snapshotNoticeKey && typeof window !== 'undefined') {
+      try { window.localStorage.setItem(snapshotNoticeKey, '1'); } catch (_) { /* ignore */ }
+    }
+  };
   const [resultSaved, setResultSaved] = useState(false);
   const [savedStudyPlan, setSavedStudyPlan] = useState(null);
   const [isPaused, setIsPaused] = useState(false);
@@ -1163,6 +1180,29 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       const scored = scoreTest(test, answers, { timedMode: isTimed, diagnosticData });
       const newAttemptId = generateAttemptId();
       attemptIdRef.current = newAttemptId;
+
+      // Build per-question snapshot of the exact items the student saw.
+      // Persisted to progress/{userId}/attempts/{attemptId} so Review Answers
+      // shows the original problem even after content swaps under the same id.
+      const questionsSnapshot = [];
+      test.modules.forEach((mod, modIdx) => {
+        mod.questions.forEach((q, qIdx) => {
+          questionsSnapshot.push({
+            id: q.id,
+            type: q.type,
+            stem: q.stem ?? q.question ?? null,
+            choices: q.choices || null,
+            correctAnswer: q.correctAnswer,
+            explanation: q.explanation ?? null,
+            difficulty: q.difficulty || null,
+            band: q.band ?? null,
+            skills: q.skills || [],
+            moduleIndex: modIdx,
+            questionIndex: qIdx,
+          });
+        });
+      });
+
       const resultsToSave = {
         attemptId: newAttemptId,
         rawScore: scored.rawScore,
@@ -1176,6 +1216,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         thetaEstimate: scored.thetaEstimate,
         standardError: scored.standardError,
         routeTaken: scored.routeTaken,
+        questionsSnapshot,
+        answers: { ...answers },
       };
       console.log('[PracticeTest] Calling onSaveResult with:', resultsToSave);
       onSaveResult(resultsToSave);
@@ -1785,6 +1827,47 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
 
     return (
       <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', background: '#F5F5F7', overflow: 'hidden' }}>
+
+        {/* Stale-content notice (legacy attempts only, dismissible per-attempt) */}
+        {showSnapshotNotice && (
+          <div
+            role="status"
+            style={{
+              flexShrink: 0,
+              background: '#FEF3C7',
+              borderBottom: '1px solid #F59E0B',
+              color: '#78350F',
+              padding: isMobile ? '10px 14px' : '12px 24px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '12px',
+              fontSize: isMobile ? '12px' : '13px',
+              fontWeight: 500,
+            }}
+          >
+            <span>
+              Questions have been updated since this attempt. Original problems are not available for review — what you see may differ from what you answered.
+            </span>
+            <button
+              onClick={dismissSnapshotNotice}
+              aria-label="Dismiss notice"
+              style={{
+                flexShrink: 0,
+                background: 'transparent',
+                border: '1px solid #B45309',
+                color: '#78350F',
+                borderRadius: '8px',
+                padding: '4px 10px',
+                fontSize: '12px',
+                fontWeight: 600,
+                cursor: 'pointer',
+              }}
+            >
+              Dismiss
+            </button>
+          </div>
+        )}
 
         {/* ── TOP BAR: Back + Progress + Nav ─────────────────────── */}
         <div style={{

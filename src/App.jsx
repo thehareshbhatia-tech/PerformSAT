@@ -37,7 +37,7 @@ import {
   deserializeAdaptiveState,
 } from './services/practiceAssignmentService';
 import { patchAdaptivePracticeState } from './services/hybridStudyPlanService';
-import { getReadyAiDiagnostic } from './services/practiceTestService';
+import { getReadyAiDiagnostic, loadAttemptSnapshot } from './services/practiceTestService';
 import { reprioritizePlan } from './services/adaptivePlanService';
 import { buildLongitudinalEvidence } from './services/studyPlanMerger';
 import { generateStudyPlan as generateAIPlan } from './services/studyPlanService';
@@ -9275,23 +9275,79 @@ const PerformSAT = () => {
               const lastAttempt = testResults?.attempts?.[testResults.attempts.length - 1];
               if (!lastAttempt) return;
 
-              // Reconstruct answers from diagnosticData.questionDetails
-              const reconstructedAnswers = {};
-              const qDetails = lastAttempt.diagnosticData?.questionDetails || {};
-              Object.entries(qDetails).forEach(([key, detail]) => {
-                const [modIdx, qIdx] = key.split('-').map(Number);
-                const question = test.modules[modIdx]?.questions[qIdx];
-                if (!question) return;
-                if (detail.isCorrect) {
-                  reconstructedAnswers[key] = question.correctAnswer;
-                } else {
-                  reconstructedAnswers[key] = '__wrong__';
+              // Try to load the per-attempt snapshot. When present, Review Answers
+              // renders the *original* question objects the student saw; otherwise
+              // we fall back to the live test file and surface a stale-content
+              // notice (legacy attempts predate the snapshot subcollection).
+              let snapshotDoc = null;
+              if (user?.uid && lastAttempt.attemptId) {
+                try {
+                  snapshotDoc = await loadAttemptSnapshot(user.uid, lastAttempt.attemptId);
+                } catch (err) {
+                  console.warn('[ViewResults] Snapshot load failed:', err.message);
                 }
-              });
+              }
+
+              // Build a `reviewTest` shaped like the live `test` but populated
+              // from the snapshot when available. Falls back to the live test.
+              let reviewTest = test;
+              let reconstructedAnswers = {};
+              const snapshotMissing = !snapshotDoc;
+
+              if (snapshotDoc?.questionsSnapshot?.length) {
+                // Group snapshot rows back into modules so the review UI sees the
+                // same shape it gets from a live test object.
+                const moduleMap = new Map();
+                snapshotDoc.questionsSnapshot.forEach(snap => {
+                  const modIdx = snap.moduleIndex ?? 0;
+                  if (!moduleMap.has(modIdx)) {
+                    const liveMod = test.modules?.[modIdx];
+                    moduleMap.set(modIdx, {
+                      title: liveMod?.title || `Module ${modIdx + 1}`,
+                      questions: [],
+                    });
+                  }
+                  moduleMap.get(modIdx).questions.push({
+                    id: snap.id,
+                    type: snap.type,
+                    question: snap.stem,
+                    stem: snap.stem,
+                    choices: snap.choices,
+                    correctAnswer: snap.correctAnswer,
+                    explanation: snap.explanation,
+                    difficulty: snap.difficulty,
+                    band: snap.band,
+                    skills: snap.skills || [],
+                  });
+                });
+                reviewTest = {
+                  ...test,
+                  modules: Array.from(moduleMap.keys())
+                    .sort((a, b) => a - b)
+                    .map(k => moduleMap.get(k)),
+                };
+                // Snapshot-derived attempts persist exact answers, so use those.
+                reconstructedAnswers = { ...(snapshotDoc.answers || {}) };
+              } else {
+                // Legacy fallback: rebuild a synthetic answer map from
+                // diagnosticData.questionDetails so the review UI can color-code
+                // correct/incorrect even without the saved per-attempt snapshot.
+                const qDetails = lastAttempt.diagnosticData?.questionDetails || {};
+                Object.entries(qDetails).forEach(([key, detail]) => {
+                  const [modIdx, qIdx] = key.split('-').map(Number);
+                  const question = test.modules[modIdx]?.questions[qIdx];
+                  if (!question) return;
+                  if (detail.isCorrect) {
+                    reconstructedAnswers[key] = question.correctAnswer;
+                  } else {
+                    reconstructedAnswers[key] = '__wrong__';
+                  }
+                });
+              }
 
               // Load saved diagnostic report — only regenerate if not saved (legacy attempts)
               const diagReport = lastAttempt.diagnosticReport || runDiagnostic(
-                test, reconstructedAnswers, lastAttempt.diagnosticData,
+                reviewTest, reconstructedAnswers, lastAttempt.diagnosticData,
                 skillProgress || {},
                 { targetScore: user?.targetScore, currentScore: user?.currentScore, testDate: user?.testDate },
                 practiceTestResults || {}
@@ -9311,11 +9367,14 @@ const PerformSAT = () => {
               }
 
               setViewingResultsData({
-                test,
+                test: reviewTest,
+                liveTest: test,
                 answers: reconstructedAnswers,
                 diagnosticData: lastAttempt.diagnosticData,
                 diagnosticReport: diagReport,
                 aiDiagnosticState: aiState,
+                attemptId: lastAttempt.attemptId || null,
+                snapshotMissing,
               });
               setSelectedPracticeTest(test);
               setView('viewingResults');
@@ -9386,6 +9445,8 @@ const PerformSAT = () => {
             completedLessons={completedLessons}
             practiceProgress={practiceProgress}
             answeredQuestionIds={answeredQuestionIds}
+            reviewSnapshotMissing={viewingResultsData.snapshotMissing}
+            reviewAttemptId={viewingResultsData.attemptId}
             onBack={() => {
               setView('viewingResults');
             }}
