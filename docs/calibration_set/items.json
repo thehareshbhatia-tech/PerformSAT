@@ -1,0 +1,1002 @@
+[
+  {
+    "id": "item-001",
+    "stem": "At how many points do the graphs of the equations $y = x + 20$ and $y = 8 x$ intersect in the xy -plane?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$0$"
+      },
+      {
+        "id": "B",
+        "text": "$1$"
+      },
+      {
+        "id": "C",
+        "text": "$2$"
+      },
+      {
+        "id": "D",
+        "text": "$8$"
+      }
+    ],
+    "correctAnswer": "B",
+    "claimedDifficulty": "medium",
+    "claimedDomain": "Algebra"
+  },
+  {
+    "id": "item-002",
+    "stem": "In a bag, there are $7$ red, $4$ white, $33$ blue, and $33$ yellow cubes. If one of these cubes is selected at random, what is the probability of selecting a cube that is neither blue nor yellow?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$\\frac{6}{7}$"
+      },
+      {
+        "id": "B",
+        "text": "$\\frac{7}{11}$"
+      },
+      {
+        "id": "C",
+        "text": "$\\frac{1}{3}$"
+      },
+      {
+        "id": "D",
+        "text": "$\\frac{1}{7}$"
+      }
+    ],
+    "correctAnswer": "D",
+    "claimedDifficulty": "medium",
+    "claimedDomain": "Problem-Solving and Data Analysis"
+  },
+  {
+    "id": "item-003",
+    "stem": "The system of equations below has the solution $(x, y)$.\n\n$5x - 3y = 19$\n$2x + 3y = 16$\n\nWhat is the value of $y$?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$1$"
+      },
+      {
+        "id": "B",
+        "text": "$2$"
+      },
+      {
+        "id": "C",
+        "text": "$3$"
+      },
+      {
+        "id": "D",
+        "text": "$5$"
+      }
+    ],
+    "correctAnswer": "B",
+    "claimedDifficulty": "medium",
+    "claimedDomain": "Algebra"
+  },
+  {
+    "id": "item-004",
+    "stem": "A circle in the $xy$-plane has the equation $(x - 3)^2 + (y + 2)^2 = 25$. If the circle is shifted 4 units to the right and 5 units up, what is the equation of the new circle?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$(x - 7)^2 + (y - 3)^2 = 25$"
+      },
+      {
+        "id": "B",
+        "text": "$(x + 1)^2 + (y - 3)^2 = 25$"
+      },
+      {
+        "id": "C",
+        "text": "$(x - 7)^2 + (y + 7)^2 = 25$"
+      },
+      {
+        "id": "D",
+        "text": "$(x - 7)^2 + (y - 3)^2 = 34$"
+      }
+    ],
+    "correctAnswer": "A",
+    "claimedDifficulty": "medium",
+    "claimedDomain": "Geometry and Trigonometry"
+  },
+  {
+    "id": "item-005",
+    "stem": "A researcher models the relationship between the age $x$ of a car, in years, and its value $y$, in thousands of dollars using the equation $y = -2.8x + 32$. A car that is 5 years old has a value of $\\$19{,}500$. What is the residual, in thousands of dollars?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$-1.5$"
+      },
+      {
+        "id": "B",
+        "text": "$1.5$"
+      },
+      {
+        "id": "C",
+        "text": "$3.5$"
+      },
+      {
+        "id": "D",
+        "text": "$18$"
+      }
+    ],
+    "correctAnswer": "B",
+    "claimedDifficulty": "medium",
+    "claimedDomain": "Problem-Solving and Data Analysis"
+  },
+  {
+    "id": "item-006",
+    "stem": "The value of an investment account is modeled by $A(t) = 5000(1.06)^t$, where $t$ is the number of years since the account was opened. What is the best interpretation of the number $1.06$ in this expression?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "The account earns $\\$1.06$ in interest each year"
+      },
+      {
+        "id": "B",
+        "text": "The account value increases by $6\\%$ each year"
+      },
+      {
+        "id": "C",
+        "text": "The account value increases by $106\\%$ each year"
+      },
+      {
+        "id": "D",
+        "text": "The account will be worth $\\$1.06$ after one year"
+      }
+    ],
+    "correctAnswer": "B",
+    "claimedDifficulty": "medium",
+    "claimedDomain": "Advanced Math"
+  },
+  {
+    "id": "item-007",
+    "stem": "$5 x ^{2} + 10 x + 16 = 0$ How many distinct real solutions does the given equation have?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Exactly one"
+      },
+      {
+        "id": "B",
+        "text": "Exactly two"
+      },
+      {
+        "id": "C",
+        "text": "Infinitely many"
+      },
+      {
+        "id": "D",
+        "text": "Zero"
+      }
+    ],
+    "correctAnswer": "D",
+    "claimedDifficulty": "hard",
+    "claimedDomain": "Advanced Math"
+  },
+  {
+    "id": "item-008",
+    "stem": "What percentage of $300$ is $75$ ?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$25\\%$"
+      },
+      {
+        "id": "B",
+        "text": "$50\\%$"
+      },
+      {
+        "id": "C",
+        "text": "$75\\%$"
+      },
+      {
+        "id": "D",
+        "text": "$225\\%$"
+      }
+    ],
+    "correctAnswer": "A",
+    "claimedDifficulty": "easy",
+    "claimedDomain": "Problem-Solving and Data Analysis"
+  },
+  {
+    "id": "item-009",
+    "stem": "The function $f$ is defined by $f ( x ) = 3 x - 8$ . What is the value of $f ( 7 )$ ?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$29$"
+      },
+      {
+        "id": "B",
+        "text": "$13$"
+      },
+      {
+        "id": "C",
+        "text": "$-5$"
+      },
+      {
+        "id": "D",
+        "text": "$-29$"
+      }
+    ],
+    "correctAnswer": "B",
+    "claimedDifficulty": "easy",
+    "claimedDomain": "Algebra"
+  },
+  {
+    "id": "item-010",
+    "stem": "A right triangle has legs with lengths of $28$ centimeters and $20$ centimeters. What is the length of this triangle's hypotenuse, in centimeters?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$8 \\sqrt{6}$"
+      },
+      {
+        "id": "B",
+        "text": "$4 \\sqrt{74}$"
+      },
+      {
+        "id": "C",
+        "text": "$48$"
+      },
+      {
+        "id": "D",
+        "text": "$1,184$"
+      }
+    ],
+    "correctAnswer": "B",
+    "claimedDifficulty": "medium",
+    "claimedDomain": "Geometry and Trigonometry"
+  },
+  {
+    "id": "item-011",
+    "stem": "$2$ , $9$ , $14$ , $23$ , $32$ What is the mean of the data shown?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$14$"
+      },
+      {
+        "id": "B",
+        "text": "$16$"
+      },
+      {
+        "id": "C",
+        "text": "$17$"
+      },
+      {
+        "id": "D",
+        "text": "$32$"
+      }
+    ],
+    "correctAnswer": "B",
+    "claimedDifficulty": "easy",
+    "claimedDomain": "Problem-Solving and Data Analysis"
+  },
+  {
+    "id": "item-012",
+    "stem": "What is the value of $\\cos \\frac{565 \\pi}{6}$ ?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$\\frac{1}{2}$"
+      },
+      {
+        "id": "B",
+        "text": "$1$"
+      },
+      {
+        "id": "C",
+        "text": "$\\frac{\\sqrt{3}}{2}$"
+      },
+      {
+        "id": "D",
+        "text": "$\\sqrt{3}$"
+      }
+    ],
+    "correctAnswer": "C",
+    "claimedDifficulty": "easy",
+    "claimedDomain": "Geometry and Trigonometry"
+  },
+  {
+    "id": "item-013",
+    "stem": "A scientist recorded that a plant grew $1.3$ centimeters per day over a $d$-day observation period. The plant was $5.2$ centimeters tall at the start. Which function $h(d)$ gives the height of the plant, in centimeters, after $d$ days?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$h(d) = 5.2d + 1.3$"
+      },
+      {
+        "id": "B",
+        "text": "$h(d) = 1.3d + 5.2$"
+      },
+      {
+        "id": "C",
+        "text": "$h(d) = 5.2(1.3)^d$"
+      },
+      {
+        "id": "D",
+        "text": "$h(d) = 1.3(5.2)^d$"
+      }
+    ],
+    "correctAnswer": "B",
+    "claimedDifficulty": "easy",
+    "claimedDomain": "Algebra"
+  },
+  {
+    "id": "item-014",
+    "stem": "If $4x^2 + 12x + 9 = 0$ and $x = a$ is the solution, what is the value of $2a + 3$?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$-3$"
+      },
+      {
+        "id": "B",
+        "text": "$0$"
+      },
+      {
+        "id": "C",
+        "text": "$\\frac{3}{2}$"
+      },
+      {
+        "id": "D",
+        "text": "$3$"
+      }
+    ],
+    "correctAnswer": "B",
+    "claimedDifficulty": "hard",
+    "claimedDomain": "Advanced Math"
+  },
+  {
+    "id": "item-015",
+    "stem": "The equation $x^2 + y^2 + 8x - 14y + 40 = 0$ represents a circle in the $xy$-plane. What is the area of this circle?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$5\\pi$"
+      },
+      {
+        "id": "B",
+        "text": "$9\\pi$"
+      },
+      {
+        "id": "C",
+        "text": "$25\\pi$"
+      },
+      {
+        "id": "D",
+        "text": "$81\\pi$"
+      }
+    ],
+    "correctAnswer": "C",
+    "claimedDifficulty": "hard",
+    "claimedDomain": "Geometry and Trigonometry"
+  },
+  {
+    "id": "item-016",
+    "stem": "Two lines intersect at exactly one point, forming two acute angles and two obtuse angles. The measure of one of these angles is $( 9 x - 140 )^{\\circ}$ . Which of the following could NOT be the sum of the measures of any two of these angles?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$( -18 x + 280 )^{\\circ}$"
+      },
+      {
+        "id": "B",
+        "text": "$( -18 x + 640 )^{\\circ}$"
+      },
+      {
+        "id": "C",
+        "text": "$( 18 x - 280 )^{\\circ}$"
+      },
+      {
+        "id": "D",
+        "text": "$180^{\\circ}$"
+      }
+    ],
+    "correctAnswer": "A",
+    "claimedDifficulty": "hard",
+    "claimedDomain": "Geometry and Trigonometry"
+  },
+  {
+    "id": "item-017",
+    "stem": "$g ( x ) = x ^{2} + 55$ What is the minimum value of the given function?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$0$"
+      },
+      {
+        "id": "B",
+        "text": "$55$"
+      },
+      {
+        "id": "C",
+        "text": "$110$"
+      },
+      {
+        "id": "D",
+        "text": "$3,025$"
+      }
+    ],
+    "correctAnswer": "B",
+    "claimedDifficulty": "medium",
+    "claimedDomain": "Advanced Math"
+  },
+  {
+    "id": "item-018",
+    "stem": "$140$ is $p \\%$ greater than $10$ . What is the value of $p$ ?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$1,400$"
+      },
+      {
+        "id": "B",
+        "text": "$1,300$"
+      },
+      {
+        "id": "C",
+        "text": "$140$"
+      },
+      {
+        "id": "D",
+        "text": "$130$"
+      }
+    ],
+    "correctAnswer": "B",
+    "claimedDifficulty": "hard",
+    "claimedDomain": "Problem-Solving and Data Analysis"
+  },
+  {
+    "id": "item-019",
+    "stem": "The average monthly rainfall for a city was recorded. In March, the average rainfall was 2.4 inches, and in July, the average rainfall was 3.6 inches. What is the percent increase in average rainfall from March to July?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "12%"
+      },
+      {
+        "id": "B",
+        "text": "33%"
+      },
+      {
+        "id": "C",
+        "text": "50%"
+      },
+      {
+        "id": "D",
+        "text": "120%"
+      }
+    ],
+    "correctAnswer": "C",
+    "claimedDifficulty": "easy",
+    "claimedDomain": "Problem-Solving and Data Analysis"
+  },
+  {
+    "id": "item-020",
+    "stem": "A cube has a side length of $s$. A second cube has a side length that is $50\\%$ greater than $s$. The volume of the larger cube is what percent greater than the volume of the smaller cube?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$50\\%$"
+      },
+      {
+        "id": "B",
+        "text": "$125\\%$"
+      },
+      {
+        "id": "C",
+        "text": "$150\\%$"
+      },
+      {
+        "id": "D",
+        "text": "$237.5\\%$"
+      }
+    ],
+    "correctAnswer": "D",
+    "claimedDifficulty": "hard",
+    "claimedDomain": "Problem-Solving and Data Analysis"
+  },
+  {
+    "id": "item-021",
+    "stem": "An object has a mass of $168$ grams and a volume of $24$ cubic centimeters. What is the density, in grams per cubic centimeter, of the object?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$7$"
+      },
+      {
+        "id": "B",
+        "text": "$144$"
+      },
+      {
+        "id": "C",
+        "text": "$192$"
+      },
+      {
+        "id": "D",
+        "text": "$4,032$"
+      }
+    ],
+    "correctAnswer": "A",
+    "claimedDifficulty": "medium",
+    "claimedDomain": "Problem-Solving and Data Analysis"
+  },
+  {
+    "id": "item-022",
+    "stem": "Which expression is equivalent to $(3x^2 + 7x - 4) - (x^2 - 3x + 5)$?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$2x^2 + 4x + 1$"
+      },
+      {
+        "id": "B",
+        "text": "$2x^2 + 10x - 9$"
+      },
+      {
+        "id": "C",
+        "text": "$4x^2 + 4x + 1$"
+      },
+      {
+        "id": "D",
+        "text": "$4x^2 + 10x - 9$"
+      }
+    ],
+    "correctAnswer": "B",
+    "claimedDifficulty": "easy",
+    "claimedDomain": "Advanced Math"
+  },
+  {
+    "id": "item-023",
+    "stem": "A gym charges a one-time registration fee of $\\$25$ and a monthly membership fee of $\\$40$. Which expression represents the total cost, in dollars, for $m$ months of membership?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$25m + 40$"
+      },
+      {
+        "id": "B",
+        "text": "$40m + 25$"
+      },
+      {
+        "id": "C",
+        "text": "$65m$"
+      },
+      {
+        "id": "D",
+        "text": "$25(m + 40)$"
+      }
+    ],
+    "correctAnswer": "B",
+    "claimedDifficulty": "easy",
+    "claimedDomain": "Algebra"
+  },
+  {
+    "id": "item-024",
+    "stem": "A map uses a scale of $1$ inch to $15$ miles. If two cities are $3.5$ inches apart on the map, what is the actual distance between them, in miles?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$45.0$"
+      },
+      {
+        "id": "B",
+        "text": "$47.5$"
+      },
+      {
+        "id": "C",
+        "text": "$52.5$"
+      },
+      {
+        "id": "D",
+        "text": "$55.0$"
+      }
+    ],
+    "correctAnswer": "C",
+    "claimedDifficulty": "easy",
+    "claimedDomain": "Problem-Solving and Data Analysis"
+  },
+  {
+    "id": "item-025",
+    "stem": "The minimum value of $x$ is $12$ less than $6$ times another number $n$ . Which inequality shows the possible values of $x$ ?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$x \\leq 6 n - 12$"
+      },
+      {
+        "id": "B",
+        "text": "$x \\geq 6 n - 12$"
+      },
+      {
+        "id": "C",
+        "text": "$x \\leq 12 - 6 n$"
+      },
+      {
+        "id": "D",
+        "text": "$x \\geq 12 - 6 n$"
+      }
+    ],
+    "correctAnswer": "B",
+    "claimedDifficulty": "medium",
+    "claimedDomain": "Algebra"
+  },
+  {
+    "id": "item-026",
+    "stem": "A car purchased for $\\$24{,}000$ depreciates in value by $12\\%$ each year. Which function models the value $V(t)$ of the car, in dollars, after $t$ years?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$V(t) = 24000(0.12)^t$"
+      },
+      {
+        "id": "B",
+        "text": "$V(t) = 24000(0.88)^t$"
+      },
+      {
+        "id": "C",
+        "text": "$V(t) = 24000(1.12)^t$"
+      },
+      {
+        "id": "D",
+        "text": "$V(t) = 24000 - 0.12t$"
+      }
+    ],
+    "correctAnswer": "B",
+    "claimedDifficulty": "medium",
+    "claimedDomain": "Advanced Math"
+  },
+  {
+    "id": "item-027",
+    "stem": "\n\n| | Passed | Failed | Total |\n|---|---|---|---|\n| Studied | $72$ | $8$ | $80$ |\n| Did Not Study | $33$ | $27$ | $60$ |\n| Total | $105$ | $35$ | $140$ |\n\nBased on the table above, a student is selected at random from those who passed. What is the probability that this student studied?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$\\frac{72}{140}$"
+      },
+      {
+        "id": "B",
+        "text": "$\\frac{72}{105}$"
+      },
+      {
+        "id": "C",
+        "text": "$\\frac{72}{80}$"
+      },
+      {
+        "id": "D",
+        "text": "$\\frac{105}{140}$"
+      }
+    ],
+    "correctAnswer": "B",
+    "claimedDifficulty": "medium",
+    "claimedDomain": "Problem-Solving and Data Analysis"
+  },
+  {
+    "id": "item-028",
+    "stem": "The circle $(x - 2)^2 + (y + 3)^2 = 36$ and the line $y = -3$ intersect at two points. What is the distance between these two points?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$6$"
+      },
+      {
+        "id": "B",
+        "text": "$10$"
+      },
+      {
+        "id": "C",
+        "text": "$12$"
+      },
+      {
+        "id": "D",
+        "text": "$36$"
+      }
+    ],
+    "correctAnswer": "C",
+    "claimedDifficulty": "hard",
+    "claimedDomain": "Geometry and Trigonometry"
+  },
+  {
+    "id": "item-029",
+    "stem": "Which expression is equivalent to $12 x + 27$ ?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$12 ( 9 x + 1 )$"
+      },
+      {
+        "id": "B",
+        "text": "$27 ( 12 x + 1 )$"
+      },
+      {
+        "id": "C",
+        "text": "$3 ( 4 x + 9 )$"
+      },
+      {
+        "id": "D",
+        "text": "$3 ( 9 x + 24 )$"
+      }
+    ],
+    "correctAnswer": "C",
+    "claimedDifficulty": "easy",
+    "claimedDomain": "Advanced Math"
+  },
+  {
+    "id": "item-030",
+    "stem": "The equation of a circle in the $xy$-plane is $x^2 + y^2 + 8x - 12y = 0$. What is the radius of the circle?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$2\\sqrt{13}$"
+      },
+      {
+        "id": "B",
+        "text": "$\\sqrt{20}$"
+      },
+      {
+        "id": "C",
+        "text": "$10$"
+      },
+      {
+        "id": "D",
+        "text": "$52$"
+      }
+    ],
+    "correctAnswer": "A",
+    "claimedDifficulty": "medium",
+    "claimedDomain": "Geometry and Trigonometry"
+  },
+  {
+    "id": "item-031",
+    "stem": "A circle has a radius of $43$ meters. What is the area, in square meters, of the circle?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$\\frac{43 \\pi}{2}$"
+      },
+      {
+        "id": "B",
+        "text": "$43 \\pi$"
+      },
+      {
+        "id": "C",
+        "text": "$86 \\pi$"
+      },
+      {
+        "id": "D",
+        "text": "$1,849 \\pi$"
+      }
+    ],
+    "correctAnswer": "D",
+    "claimedDifficulty": "medium",
+    "claimedDomain": "Geometry and Trigonometry"
+  },
+  {
+    "id": "item-032",
+    "stem": "The area of a rectangle is $72$ square centimeters. If the length of the rectangle is $12$ cm, what is the width, in centimeters?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$4$"
+      },
+      {
+        "id": "B",
+        "text": "$6$"
+      },
+      {
+        "id": "C",
+        "text": "$8$"
+      },
+      {
+        "id": "D",
+        "text": "$60$"
+      }
+    ],
+    "correctAnswer": "B",
+    "claimedDifficulty": "easy",
+    "claimedDomain": "Geometry and Trigonometry"
+  },
+  {
+    "id": "item-033",
+    "stem": "What is the value of $\\sin 42 \\pi$ ?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$0$"
+      },
+      {
+        "id": "B",
+        "text": "$\\frac{1}{2}$"
+      },
+      {
+        "id": "C",
+        "text": "$\\frac{\\sqrt{2}}{2}$"
+      },
+      {
+        "id": "D",
+        "text": "$1$"
+      }
+    ],
+    "correctAnswer": "A",
+    "claimedDifficulty": "hard",
+    "claimedDomain": "Geometry and Trigonometry"
+  },
+  {
+    "id": "item-034",
+    "stem": "Let $g(x) = 2x + 1$ and $h(x) = x^2 - 3$. If $h(g(a)) = 46$, what is a positive value of $a$?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$2$"
+      },
+      {
+        "id": "B",
+        "text": "$3$"
+      },
+      {
+        "id": "C",
+        "text": "$7$"
+      },
+      {
+        "id": "D",
+        "text": "$10$"
+      }
+    ],
+    "correctAnswer": "B",
+    "claimedDifficulty": "hard",
+    "claimedDomain": "Algebra"
+  },
+  {
+    "id": "item-035",
+    "stem": "Line $j$ passes through the points $(1, 7)$ and $(5, -1)$. Line $k$ is perpendicular to line $j$. What is the slope of line $k$?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$-2$"
+      },
+      {
+        "id": "B",
+        "text": "$-\\frac{1}{2}$"
+      },
+      {
+        "id": "C",
+        "text": "$\\frac{1}{2}$"
+      },
+      {
+        "id": "D",
+        "text": "$2$"
+      }
+    ],
+    "correctAnswer": "C",
+    "claimedDifficulty": "medium",
+    "claimedDomain": "Algebra"
+  },
+  {
+    "id": "item-036",
+    "stem": "If $7 x = 28$ , what is the value of $8 x$ ?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$21$"
+      },
+      {
+        "id": "B",
+        "text": "$32$"
+      },
+      {
+        "id": "C",
+        "text": "$168$"
+      },
+      {
+        "id": "D",
+        "text": "$224$"
+      }
+    ],
+    "correctAnswer": "B",
+    "claimedDifficulty": "easy",
+    "claimedDomain": "Algebra"
+  },
+  {
+    "id": "item-037",
+    "stem": "Line $h$ is defined by $\\frac{1}{5} x + \\frac{1}{7} y - 70 = 0$ . Line $j$ is perpendicular to line $h$ in the xy -plane. What is the slope of line $j$ ?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$-\\frac{7}{5}$"
+      },
+      {
+        "id": "B",
+        "text": "$-\\frac{5}{7}$"
+      },
+      {
+        "id": "C",
+        "text": "$\\frac{7}{5}$"
+      },
+      {
+        "id": "D",
+        "text": "$\\frac{5}{7}$"
+      }
+    ],
+    "correctAnswer": "D",
+    "claimedDifficulty": "hard",
+    "claimedDomain": "Algebra"
+  },
+  {
+    "id": "item-038",
+    "stem": "The equation $5x^2 - bx + 45 = 0$ has no real solutions. What is the greatest integer value of $b$?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$29$"
+      },
+      {
+        "id": "B",
+        "text": "$30$"
+      },
+      {
+        "id": "C",
+        "text": "$31$"
+      },
+      {
+        "id": "D",
+        "text": "$900$"
+      }
+    ],
+    "correctAnswer": "A",
+    "claimedDifficulty": "hard",
+    "claimedDomain": "Advanced Math"
+  },
+  {
+    "id": "item-039",
+    "stem": "$x ^{2} - 40 x - 10 = 0$ What is the sum of the solutions to the given equation?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$0$"
+      },
+      {
+        "id": "B",
+        "text": "$5$"
+      },
+      {
+        "id": "C",
+        "text": "$10$"
+      },
+      {
+        "id": "D",
+        "text": "$40$"
+      }
+    ],
+    "correctAnswer": "D",
+    "claimedDifficulty": "hard",
+    "claimedDomain": "Advanced Math"
+  },
+  {
+    "id": "item-040",
+    "stem": "If $4 \\sqrt{2 x} = 16$ , what is the value of $6 x$ ?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "$24$"
+      },
+      {
+        "id": "B",
+        "text": "$48$"
+      },
+      {
+        "id": "C",
+        "text": "$72$"
+      },
+      {
+        "id": "D",
+        "text": "$96$"
+      }
+    ],
+    "correctAnswer": "B",
+    "claimedDifficulty": "medium",
+    "claimedDomain": "Advanced Math"
+  }
+]

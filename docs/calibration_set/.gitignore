@@ -1,0 +1,4 @@
+# Source mapping — never commit. Reveals which items are CB vs PerformSAT,
+# defeating the blind-rating premise. Re-derive locally by re-running _build.mjs
+# if you need it for diagnostic purposes.
+.answer_key.json
