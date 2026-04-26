@@ -1,7 +1,9 @@
 // Practice Test 5 - SAT Math
 // 2 Modules, 22 questions each (44 total)
-// Questions calibrated to College Board official practice test difficulty
-// Contexts: biology, architecture, manufacturing, nutrition
+// Round-6 propagation: M1 lifted to band-3 ceiling on easy items, domain
+// rebalanced to 7/6/5/4 (swaps Q3/Q13 to Geo-Trig, Q15/Q20 to Geo-Trig).
+// M2 hardened to 0E/6M/16H with band-7 ceilings on most hard items and
+// concept-fusion items added at the top end. Domain mix mirrors M1.
 
 export const practiceTest5 = {
   id: "practice-test-5",
@@ -15,309 +17,359 @@ export const practiceTest5 = {
       title: "Module 1",
       timeLimit: 35,
       questions: [
-// Practice Test 5 — Math Module 1 (22 questions)
-// Theme: algebra-heavy (complex equations, function transformations, absolute value), plus probability
-
-// ===== EASY (Q1–Q5) =====
-
 {
   id: 1,
   type: "multiple-choice",
   difficulty: "easy",
-  question: "What is $15\\%$ of $360$?",
+  band: 3,
+  question: "If $4x + 9 = 33$, what is the value of $4x - 5$?",
   choices: [
-    { id: "A", text: "$24$" },
-    { id: "B", text: "$45$" },
-    { id: "C", text: "$54$" },
-    { id: "D", text: "$315$" }
+    // distractor: stops one step early — reports x = 6 instead of 4x - 5
+    { id: "A", text: "$6$" },
+    { id: "B", text: "$19$" },
+    // distractor: applies the inverse operation — adds 5 instead of subtracting
+    { id: "C", text: "$29$" },
+    // distractor: wrong base — uses 4x = 33 - 9 then drops the -5
+    { id: "D", text: "$24$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Basic Percent Calculation**\n\n**Choice C is correct.**\n\n**The Fast Way (10 seconds):** $10\\%$ of $360 = 36$. $5\\%$ of $360 = 18$. Total: $36 + 18 = 54$.\n\n**The Full Solution:**\n$15\\%$ of $360 = 0.15 \\times 360 = 54$.\n\n**Why the wrong answers are tempting:**\n• Choice A: Computes $\\frac{360}{15} = 24$ (divides instead of multiplying).\n• Choice B: Confuses $15\\%$ with $\\frac{1}{8}$: $360 \\div 8 = 45$.\n• Choice D: Computes $360 - 45 = 315$ (subtracts a wrong amount).\n\n**Test Day Takeaway:** Break percentages into $10\\%$ and $5\\%$ for fast mental math.",
-  skills: ["percents"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Shifted Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Notice $4x - 5 = (4x + 9) - 14 = 33 - 14 = 19$. No need to find $x$ at all.\n\n**The Full Solution:**\nGiven $4x + 9 = 33$, subtract $9$: $4x = 24$, so $x = 6$.\nThe question asks for $4x - 5$, not $x$: $4(6) - 5 = 24 - 5 = 19$.\n\nShortcut: $(4x - 5) - (4x + 9) = -14$, so $4x - 5 = 33 - 14 = 19$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reports $x = 6$ instead of evaluating $4x - 5$.\n* Choice C: \"applies the inverse operation\" — adds $5$ to $4x$ instead of subtracting.\n* Choice D: \"wrong base\" — gives $4x = 24$ but forgets to subtract $5$.\n\n**Test Day Takeaway:** When the question asks for an expression in $x$ rather than $x$ itself, look for a one-step shift before computing $x$.",
+  skills: ["solving-equations"]
 },
 {
   id: 2,
   type: "multiple-choice",
   difficulty: "easy",
-  question: "The equation $5$ more than $7$ times a number $n$ equals $61$ can be written as which of the following?",
+  band: 3,
+  question: "The cost, in dollars, of $n$ identical lawn chairs is given by $C(n) = 18n + 12$, where the $\\$12$ is a one-time delivery fee. Which of the following best interprets the value $18$ in this context?",
   choices: [
-    { id: "A", text: "$5n + 7 = 61$" },
-    { id: "B", text: "$7n + 5 = 61$" },
-    { id: "C", text: "$7(n + 5) = 61$" },
-    { id: "D", text: "$5(n + 7) = 61$" }
+    // distractor: confuses 18 with delivery fee instead of unit price
+    { id: "A", text: "The one-time delivery fee, in dollars" },
+    { id: "B", text: "The price of one lawn chair, in dollars" },
+    // distractor: applies the inverse — uses 18 as a count instead of a rate
+    { id: "C", text: "The number of lawn chairs purchased" },
+    // distractor: off-by-one — confuses 18 with the total cost when n = 0
+    { id: "D", text: "The cost when no lawn chairs are purchased, in dollars" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Word-to-Equation Translation**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** \"$7$ times a number\" $= 7n$. \"$5$ more than that\" $= 7n + 5$. Set equal to $61$: $7n + 5 = 61$.\n\n**The Full Solution:**\n\"$7$ times a number $n$\" translates to $7n$.\n\"$5$ more than $7n$\" means $7n + 5$.\nThe equation: $7n + 5 = 61$.\n\n**Why the wrong answers are tempting:**\n• Choice A: Swaps the $5$ and $7$ — \"$5$ times $n$ plus $7$\".\n• Choice C: Interprets \"$5$ more than $7$ times $n$\" as $7$ times the quantity $(n + 5)$.\n• Choice D: Completely scrambles the structure.\n\n**Test Day Takeaway:** \"$a$ more than $b$ times $n$\" always means $bn + a$, not $b(n + a)$.",
-  skills: ["word-problems", "solving-equations"]
+  explanation: "**SAT Pattern: Interpret Slope in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** In $C(n) = 18n + 12$, the coefficient of $n$ is the rate per chair: each additional chair costs $\\$18$.\n\n**The Full Solution:**\nThe function is in the form $C(n) = mn + b$, where $m = 18$ is the slope and $b = 12$ is the fixed delivery fee. The slope is the cost per chair: each additional chair adds $\\$18$ to the total.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — confuses the slope ($18$) with the constant term ($12$).\n* Choice C: \"applies the inverse operation\" — treats $18$ as a quantity instead of a rate.\n* Choice D: \"off-by-one\" — that would be $C(0) = 12$, not $18$.\n\n**Test Day Takeaway:** In $y = mn + b$, the coefficient of the variable is the rate of change per unit of that variable.",
+  skills: ["function-interpretation", "linear-functions", "slope"]
 },
 {
   id: 3,
   type: "multiple-choice",
   difficulty: "easy",
-  question: "A car travels at a constant speed of $55$ miles per hour. Which equation gives the distance $d$, in miles, the car travels in $h$ hours?",
+  band: 3,
+  question: "In a triangle, two of the interior angles measure $42^{\\circ}$ and $73^{\\circ}$. What is the measure, in degrees, of the third angle?",
   choices: [
-    { id: "A", text: "$d = \\frac{h}{55}$" },
-    { id: "B", text: "$d = h + 55$" },
-    { id: "C", text: "$d = 55h$" },
-    { id: "D", text: "$h = 55d$" }
+    // distractor: subtracts only one angle from 180 (180 - 73 = 107)
+    { id: "A", text: "$107$" },
+    // distractor: adds the two angles (42 + 73 = 115)
+    { id: "B", text: "$115$" },
+    { id: "C", text: "$65$" },
+    // distractor: subtracts from 360 instead of 180 (360 - 115 = 245... but reports 245/2 ≈ 123?)
+    { id: "D", text: "$245$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Rate × Time = Distance**\n\n**Choice C is correct.**\n\n**The Fast Way (5 seconds):** Distance = rate × time = $55 \\times h = 55h$.\n\n**The Full Solution:**\nThe formula for distance at constant speed is $d = rt$, where $r = 55$ mph and $t = h$ hours.\n$d = 55h$\n\n**Why the wrong answers are tempting:**\n• Choice A: Divides $h$ by $55$ instead of multiplying.\n• Choice B: Adds rate and time instead of multiplying.\n• Choice D: Solves for $h$ instead of $d$, and the relationship is inverted.\n\n**Test Day Takeaway:** Distance = rate × time. Always check that the variable you're solving for is on the correct side.",
-  skills: ["word-problems", "linear-functions"]
+  explanation: "**SAT Pattern: Triangle Angle Sum**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Angles in a triangle sum to $180^{\\circ}$. Third angle $= 180 - 42 - 73 = 65$.\n\n**The Full Solution:**\nThe interior angles of any triangle add to $180^{\\circ}$.\nIf two angles are $42^{\\circ}$ and $73^{\\circ}$, the third must be:\n$180^{\\circ} - 42^{\\circ} - 73^{\\circ} = 180^{\\circ} - 115^{\\circ} = 65^{\\circ}$.\n\nVerification: $42 + 73 + 65 = 180$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — subtracts only one angle ($180 - 73 = 107$).\n* Choice B: \"applies the inverse operation\" — adds the two given angles ($42 + 73 = 115$) instead of subtracting from $180$.\n* Choice D: \"wrong base\" — uses $360^{\\circ}$ (a quadrilateral) instead of $180^{\\circ}$.\n\n**Test Day Takeaway:** Triangle interior angles always sum to $180^{\\circ}$. Subtract the known angles from $180$ to find the missing one.",
+  skills: ["triangles", "angles"]
 },
 {
   id: 4,
   type: "multiple-choice",
   difficulty: "easy",
-  question: "If $f(x) = 3x - 10$, what is $f(7)$?",
+  band: 3,
+  question: "If $f(x) = 3x - 10$, what is the value of $f(7) - 4$?",
   choices: [
-    { id: "A", text: "$-31$" },
-    { id: "B", text: "$-1$" },
-    { id: "C", text: "$11$" },
-    { id: "D", text: "$31$" }
+    // distractor: stops one step early — reports f(7) without subtracting 4
+    { id: "A", text: "$11$" },
+    { id: "B", text: "$7$" },
+    // distractor: applies inverse operation — adds 4 instead of subtracting
+    { id: "C", text: "$15$" },
+    // distractor: subtracts 4 inside the function: f(7 - 4) = f(3) = -1
+    { id: "D", text: "$-1$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Evaluating a Function**\n\n**Choice C is correct.**\n\n**The Fast Way (5 seconds):** $f(7) = 3(7) - 10 = 21 - 10 = 11$.\n\n**The Full Solution:**\nSubstitute $x = 7$ into $f(x) = 3x - 10$:\n$f(7) = 3(7) - 10 = 21 - 10 = 11$\n\n**Why the wrong answers are tempting:**\n• Choice A: Computes $-(3 \\times 7) - 10 = -31$ (incorrect sign on $3x$).\n• Choice B: Computes $3(7 - 10) = 3(-3) = -9$... not quite, but a subtraction-first error.\n• Choice D: Computes $3(7) + 10 = 31$ (adds instead of subtracts).\n\n**Test Day Takeaway:** Substitute carefully and follow order of operations — multiply before you subtract.",
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Shifted Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $f(7) = 3(7) - 10 = 11$. Then $f(7) - 4 = 11 - 4 = 7$.\n\n**The Full Solution:**\nFirst evaluate $f$ at $x = 7$:\n$f(7) = 3(7) - 10 = 21 - 10 = 11$.\n\nThe question asks for $f(7) - 4$, not $f(7)$ alone:\n$f(7) - 4 = 11 - 4 = 7$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reports $f(7) = 11$ without subtracting $4$.\n* Choice C: \"applies the inverse operation\" — adds $4$ instead of subtracting.\n* Choice D: \"wrong base\" — subtracts $4$ inside the function: $f(7 - 4) = f(3) = -1$.\n\n**Test Day Takeaway:** Always re-read the last operation: $f(a) - 4$ means evaluate $f$ first, THEN subtract $4$ from the output.",
   skills: ["function-interpretation"]
 },
 {
   id: 5,
   type: "multiple-choice",
   difficulty: "easy",
-  question: "A recipe uses $\\frac{3}{4}$ cup of sugar for every $2$ cups of flour. How many cups of sugar are needed for $8$ cups of flour?",
+  band: 3,
+  question: "A trail mix combines almonds and raisins in a ratio of $4$ ounces of almonds to $7$ ounces of raisins. If the total weight of the trail mix is $66$ ounces, how many ounces of almonds does the mix contain?",
   choices: [
-    { id: "A", text: "$\\frac{3}{2}$" },
-    { id: "B", text: "$3$" },
-    { id: "C", text: "$4$" },
-    { id: "D", text: "$6$" }
+    // distractor: picks the ratio number (4) directly
+    { id: "A", text: "$4$" },
+    { id: "B", text: "$24$" },
+    // distractor: uses 4/7 of total instead of 4/11 (gives ~37.7)
+    { id: "C", text: "$37.7$" },
+    // distractor: solves for raisins instead of almonds (7/11 of 66 = 42)
+    { id: "D", text: "$42$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Proportional Reasoning**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** $8$ cups of flour is $4$ times $2$ cups. So sugar $= 4 \\times \\frac{3}{4} = 3$ cups.\n\n**The Full Solution:**\nSet up a proportion: $\\frac{3/4}{2} = \\frac{x}{8}$.\nCross multiply: $2x = 8 \\cdot \\frac{3}{4} = 6$.\n$x = 3$.\n\n**Why the wrong answers are tempting:**\n• Choice A: Doubles the sugar instead of quadrupling: $2 \\times \\frac{3}{4} = \\frac{3}{2}$.\n• Choice C: Multiplies $\\frac{3}{4} \\times 8 = 6$ then divides by something... or confuses the ratio.\n• Choice D: Computes $\\frac{3}{4} \\times 8 = 6$ without accounting for the \"per $2$ cups\" part.\n\n**Test Day Takeaway:** Find the scale factor first (how many times bigger is the new amount?), then multiply.",
+  explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Almonds make up $\\dfrac{4}{4 + 7} = \\dfrac{4}{11}$ of the total. Almonds $= \\dfrac{4}{11} \\cdot 66 = 24$ ounces.\n\n**The Full Solution:**\nLet almonds $= 4k$ and raisins $= 7k$ (so the ratio is $4 : 7$).\nTotal: $4k + 7k = 11k = 66$, so $k = 6$.\nAlmonds $= 4k = 4 \\cdot 6 = 24$ ounces.\n\nVerification: raisins $= 7 \\cdot 6 = 42$, total $= 24 + 42 = 66$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reports $4$ (the almonds part of the ratio) instead of solving the proportion.\n* Choice C: \"wrong base\" — uses $\\dfrac{4}{7}$ of the total instead of $\\dfrac{4}{11}$.\n* Choice D: \"applies the inverse operation\" — solves for raisins ($\\dfrac{7}{11} \\cdot 66 = 42$) instead of almonds.\n\n**Test Day Takeaway:** When two parts are given as a ratio AND the combined total is known, divide the total by the SUM of the ratio parts to get the unit value.",
   skills: ["ratios", "word-problems"]
 },
-
-// ===== MEDIUM (Q6–Q14) =====
-
 {
   id: 6,
   type: "multiple-choice",
   difficulty: "medium",
+  band: 5,
   question: "If $|2x - 7| = 13$, what is the sum of all possible values of $x$?",
   choices: [
+    // distractor: computes only |10 - 7| = 3 (uses one solution and subtracts)
     { id: "A", text: "$3$" },
     { id: "B", text: "$7$" },
+    // distractor: stops one step early — uses only the positive solution x = 10
     { id: "C", text: "$10$" },
+    // distractor: wrong base — reports the right-hand side 13 as the answer
     { id: "D", text: "$13$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Absolute Value Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** Case 1: $2x - 7 = 13 \\Rightarrow x = 10$. Case 2: $2x - 7 = -13 \\Rightarrow x = -3$. Sum: $10 + (-3) = 7$.\n\n**The Full Solution:**\n$|2x - 7| = 13$ means $2x - 7 = 13$ or $2x - 7 = -13$.\nCase 1: $2x - 7 = 13 \\Rightarrow 2x = 20 \\Rightarrow x = 10$.\nCase 2: $2x - 7 = -13 \\Rightarrow 2x = -6 \\Rightarrow x = -3$.\nSum: $10 + (-3) = 7$.\n\n**Why the wrong answers are tempting:**\n• Choice A: Computes only $|10 - 7| = 3$ or makes a different error.\n• Choice C: Uses only the positive solution $x = 10$.\n• Choice D: Uses the right-hand side $13$ as the answer.\n\n**Test Day Takeaway:** Absolute value equations always have two cases. The question often asks for the sum or product, so solve both.",
+  explanation: "**SAT Pattern: Absolute Value Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Case 1: $2x - 7 = 13 \\Rightarrow x = 10$. Case 2: $2x - 7 = -13 \\Rightarrow x = -3$. Sum: $10 + (-3) = 7$.\n\n**The Full Solution:**\n$|2x - 7| = 13$ splits into two cases:\nCase 1: $2x - 7 = 13 \\Rightarrow 2x = 20 \\Rightarrow x = 10$.\nCase 2: $2x - 7 = -13 \\Rightarrow 2x = -6 \\Rightarrow x = -3$.\nSum: $10 + (-3) = 7$.\n\nShortcut: For $|ax + b| = c$ the two roots sum to $-\\dfrac{2b}{a}$. Here $-\\dfrac{2 \\cdot (-7)}{2} = 7$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — computes a difference instead of a sum.\n* Choice C: \"stops one step early\" — uses only the positive case $x = 10$.\n* Choice D: \"wrong base\" — reads off the right-hand side $13$ without solving.\n\n**Test Day Takeaway:** $|f(x)| = c$ always splits into two cases. The sum of solutions is $-\\dfrac{2b}{a}$ when $f(x) = ax + b$.",
   skills: ["solving-equations"]
 },
 {
   id: 7,
   type: "multiple-choice",
   difficulty: "medium",
-  question: "The graph of $y = f(x)$ passes through the point $(2, 5)$. If $g(x) = f(x - 3) + 4$, which point must lie on the graph of $y = g(x)$?",
+  band: 5,
+  question: "The scatterplot of a set of data is modeled by the equation $y = 2.4x + 18.5$. According to this model, what is the predicted value of $y$ when $x = 12$?",
   choices: [
-    { id: "A", text: "$(5, 9)$" },
-    { id: "B", text: "$(-1, 9)$" },
-    { id: "C", text: "$(5, 1)$" },
-    { id: "D", text: "$(-1, 1)$" }
+    // distractor: stops at 2.4 * 12 = 28.8 — forgets to add the 18.5 intercept
+    { id: "A", text: "$28.8$" },
+    // distractor: adds only part of the intercept (e.g., 8.5)
+    { id: "B", text: "$37.3$" },
+    { id: "C", text: "$47.3$" },
+    // distractor: rounds 2.4 to 2 and 18.5 to 19 — wrong base
+    { id: "D", text: "$43.0$" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Function Transformations**\n\n**Choice A is correct.**\n\n**The Fast Way (15 seconds):** $f(x-3)$ shifts right $3$, so $x$-coordinate goes from $2$ to $5$. Adding $4$ shifts up $4$, so $y$ goes from $5$ to $9$. Point: $(5, 9)$.\n\n**The Full Solution:**\nWe know $f(2) = 5$.\nWe need $g(x) = f(x-3) + 4$ to use the known value $f(2) = 5$.\nSet $x - 3 = 2$, so $x = 5$.\n$g(5) = f(5 - 3) + 4 = f(2) + 4 = 5 + 4 = 9$.\nSo $(5, 9)$ is on the graph of $g$.\n\n**Why the wrong answers are tempting:**\n• Choice B: Shifts left by $3$ instead of right: $2 - 3 = -1$.\n• Choice C: Subtracts $4$ instead of adding: $5 - 4 = 1$.\n• Choice D: Both errors combined.\n\n**Test Day Takeaway:** $f(x - h) + k$ shifts right $h$ and up $k$. To find the new point, add $h$ to $x$ and $k$ to $y$.",
-  skills: ["function-interpretation"]
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $y = 2.4(12) + 18.5 = 28.8 + 18.5 = 47.3$.\n\n**The Full Solution:**\nSubstitute $x = 12$ into $y = 2.4x + 18.5$:\n$y = 2.4(12) + 18.5 = 28.8 + 18.5 = 47.3$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — computes $2.4 \\times 12 = 28.8$ but forgets to add the intercept $18.5$.\n* Choice B: \"off-by-one\" — adds part of the intercept (e.g., $8.5$ instead of $18.5$).\n* Choice D: \"wrong base\" — rounds $2.4 \\to 2$ and $18.5 \\to 19$, getting $2(12) + 19 = 43$.\n\n**Test Day Takeaway:** When you plug a value into $y = mx + b$, do not forget the constant term. Decimal multiplication is easy to slip on under time pressure.",
+  skills: ["scatterplots", "linear-functions"]
 },
 {
   id: 8,
   type: "fill-in",
   difficulty: "medium",
-  question: "If $\\frac{x}{3} + \\frac{x}{6} = 10$, what is the value of $x$?",
-  correctAnswer: "20",
-  explanation: "**SAT Pattern: Solving Equations with Fractions**\n\n**The correct answer is $20$.**\n\n**The Fast Way (15 seconds):** Multiply everything by $6$: $2x + x = 60$, so $3x = 60$, $x = 20$.\n\n**The Full Solution:**\n$\\frac{x}{3} + \\frac{x}{6} = 10$\nThe LCD is $6$. Multiply both sides by $6$:\n$\\frac{6x}{3} + \\frac{6x}{6} = 60$\n$2x + x = 60$\n$3x = 60$\n$x = 20$\n\n**Common Mistakes to Avoid:**\n• Using LCD $= 18$ (an unnecessary multiple that complicates arithmetic).\n• Forgetting to multiply the right side by the LCD.\n\n**Verification:** $\\frac{20}{3} + \\frac{20}{6} = \\frac{40}{6} + \\frac{20}{6} = \\frac{60}{6} = 10$. \\u2713\n\n**Test Day Takeaway:** Multiply through by the LCD to clear all fractions at once.",
+  band: 5,
+  question: "If $\\dfrac{x}{3} + \\dfrac{x}{4} = 14$, what is the value of $x$?",
+  correctAnswer: "24",
+  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $24$.**\n\n**The Fast Way (~15s):** Multiply everything by $12$: $4x + 3x = 168$, so $7x = 168$ and $x = 24$.\n\n**The Full Solution:**\n$\\dfrac{x}{3} + \\dfrac{x}{4} = 14$\nThe LCD is $12$. Multiply both sides by $12$:\n$\\dfrac{12x}{3} + \\dfrac{12x}{4} = 168$\n$4x + 3x = 168$\n$7x = 168$\n$x = 24$\n\n**Common Mistakes to Avoid:**\n* Using LCD $= 24$ (an unnecessary multiple that complicates arithmetic).\n* Forgetting to multiply the right side by the LCD.\n\n**Verification:** $\\dfrac{24}{3} + \\dfrac{24}{4} = 8 + 6 = 14$ \\checkmark.\n\n**Test Day Takeaway:** Multiply through by the LCD to clear all fractions at once.",
   skills: ["solving-equations"]
 },
 {
   id: 9,
   type: "multiple-choice",
   difficulty: "medium",
-  question: "A bag contains $4$ red balls, $6$ blue balls, and $5$ green balls. Two balls are drawn at random without replacement. What is the probability that both balls are blue?",
+  band: 5,
+  question: "A bag contains $5$ red marbles, $6$ blue marbles, and $9$ green marbles. Two marbles are drawn at random without replacement. What is the probability that both marbles are blue?",
   choices: [
-    { id: "A", text: "$\\frac{36}{225}$" },
-    { id: "B", text: "$\\frac{6}{15}$" },
-    { id: "C", text: "$\\frac{1}{7}$" },
-    { id: "D", text: "$\\frac{2}{15}$" }
+    // distractor: uses replacement — (6/20)^2 = 36/400 = 9/100
+    { id: "A", text: "$\\dfrac{9}{100}$" },
+    // distractor: stops at first probability — gives 6/20 = 3/10
+    { id: "B", text: "$\\dfrac{3}{10}$" },
+    { id: "C", text: "$\\dfrac{3}{38}$" },
+    // distractor: off-by-one — uses 6/20 * 6/19 (forgets to remove drawn ball)
+    { id: "D", text: "$\\dfrac{18}{190}$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Probability Without Replacement**\n\n**Choice C is correct.**\n\n**The Fast Way (20 seconds):** $P = \\frac{6}{15} \\times \\frac{5}{14} = \\frac{30}{210} = \\frac{1}{7}$.\n\n**The Full Solution:**\nTotal balls $= 4 + 6 + 5 = 15$.\n$P(\\text{1st blue}) = \\frac{6}{15}$.\nAfter drawing one blue ball: $5$ blue remain out of $14$ total.\n$P(\\text{2nd blue} | \\text{1st blue}) = \\frac{5}{14}$.\n$P(\\text{both blue}) = \\frac{6}{15} \\times \\frac{5}{14} = \\frac{30}{210} = \\frac{1}{7}$.\n\n**Why the wrong answers are tempting:**\n• Choice A: Uses replacement: $(\\frac{6}{15})^2 = \\frac{36}{225}$.\n• Choice B: Gives only the first probability $\\frac{6}{15}$, not the combined probability.\n• Choice D: A common incorrect simplification.\n\n**Test Day Takeaway:** \"Without replacement\" means the second draw has one fewer in both numerator and denominator.",
+  explanation: "**SAT Pattern: Probability Without Replacement**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $P = \\dfrac{6}{20} \\times \\dfrac{5}{19} = \\dfrac{30}{380} = \\dfrac{3}{38}$.\n\n**The Full Solution:**\nTotal marbles $= 5 + 6 + 9 = 20$.\n$P(\\text{1st blue}) = \\dfrac{6}{20}$.\nAfter drawing one blue marble: $5$ blue remain out of $19$ total.\n$P(\\text{2nd blue} \\mid \\text{1st blue}) = \\dfrac{5}{19}$.\n$P(\\text{both blue}) = \\dfrac{6}{20} \\times \\dfrac{5}{19} = \\dfrac{30}{380} = \\dfrac{3}{38}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — assumes replacement: $\\left(\\dfrac{6}{20}\\right)^2$.\n* Choice B: \"stops one step early\" — gives only $P(\\text{1st blue}) = \\dfrac{3}{10}$.\n* Choice D: \"off-by-one\" — keeps the same numerator $6$ instead of $5$ for the second draw.\n\n**Test Day Takeaway:** \"Without replacement\" means the second draw has one fewer in BOTH numerator and denominator (when the relevant color is removed).",
   skills: ["probability"]
 },
 {
   id: 10,
   type: "multiple-choice",
   difficulty: "medium",
+  band: 5,
   question: "The function $h$ is defined by $h(x) = 2(x - 4)^2 - 18$. What is the minimum value of $h(x)$?",
   choices: [
     { id: "A", text: "$-18$" },
+    // distractor: confuses x-coordinate of vertex with the y-value
     { id: "B", text: "$-4$" },
+    // distractor: stops one step early — gives the x-coordinate 4 instead of y
     { id: "C", text: "$4$" },
+    // distractor: wrong base — evaluates h(0) = 2(16) - 18 = 14 instead of reading the vertex
     { id: "D", text: "$14$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Vertex Form of a Quadratic**\n\n**Choice A is correct.**\n\n**The Fast Way (5 seconds):** In vertex form $a(x-h)^2 + k$, the minimum value is $k$ when $a > 0$. Here $k = -18$.\n\n**The Full Solution:**\n$h(x) = 2(x - 4)^2 - 18$ is in vertex form with $a = 2 > 0$ (opens upward), vertex at $(4, -18)$.\nSince the parabola opens upward, the vertex gives the minimum.\nMinimum value $= -18$, occurring at $x = 4$.\n\n**Why the wrong answers are tempting:**\n• Choice B: Uses the $x$-coordinate of the vertex ($-4$ with a sign error) instead of the $y$-value.\n• Choice C: Uses the $x$-coordinate of the vertex.\n• Choice D: Computes $2(0-4)^2 - 18 = 32 - 18 = 14$ (evaluates at $x = 0$ instead of reading the vertex).\n\n**Test Day Takeaway:** In $a(x-h)^2 + k$, the vertex is at $(h, k)$. If $a > 0$, $k$ is the minimum.",
+  explanation: "**SAT Pattern: Vertex Form Maximum**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** In vertex form $a(x-h)^2 + k$ with $a > 0$, the minimum value is $k$. Here $k = -18$.\n\n**The Full Solution:**\n$h(x) = 2(x - 4)^2 - 18$ is in vertex form with $a = 2 > 0$, vertex at $(4, -18)$.\nSince the parabola opens upward ($a > 0$), the vertex gives the minimum.\nMinimum value $= -18$, attained at $x = 4$.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"applies the inverse operation\" — uses the negative of the $x$-coordinate of the vertex.\n* Choice C: \"stops one step early\" — gives the $x$-coordinate $4$ instead of the $y$-value $-18$.\n* Choice D: \"wrong base\" — evaluates $h(0) = 2(16) - 18 = 14$ instead of reading off the vertex form.\n\n**Test Day Takeaway:** In $a(x - h)^2 + k$ with $a > 0$, the minimum is $k$. Read it off without expanding.",
   skills: ["vertex-form", "quadratic-equations"]
 },
 {
   id: 11,
   type: "fill-in",
   difficulty: "medium",
+  band: 5,
   question: "If $3(2x - 5) - 4(x + 3) = 7$, what is the value of $x$?",
   correctAnswer: "17",
-  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $17$.**\n\n**The Fast Way (20 seconds):** Distribute: $6x - 15 - 4x - 12 = 7$. Combine: $2x - 27 = 7$. Solve: $2x = 34$, $x = 17$.\n\n**The Full Solution:**\n$3(2x - 5) - 4(x + 3) = 7$\n$6x - 15 - 4x - 12 = 7$\n$(6x - 4x) + (-15 - 12) = 7$\n$2x - 27 = 7$\n$2x = 34$\n$x = 17$\n\n**Common Mistakes to Avoid:**\n• Distributing the negative sign incorrectly: $-4(x + 3) = -4x - 12$, not $-4x + 12$.\n• Combining constants wrong: $-15 - 12 = -27$, not $-3$.\n\n**Verification:** $3(34 - 5) - 4(17 + 3) = 3(29) - 4(20) = 87 - 80 = 7$. \\u2713\n\n**Test Day Takeaway:** Distribute carefully, especially with negative signs, then combine like terms.",
+  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $17$.**\n\n**The Fast Way (~20s):** Distribute: $6x - 15 - 4x - 12 = 7$. Combine: $2x - 27 = 7$. Solve: $2x = 34$, $x = 17$.\n\n**The Full Solution:**\n$3(2x - 5) - 4(x + 3) = 7$\n$6x - 15 - 4x - 12 = 7$\n$(6x - 4x) + (-15 - 12) = 7$\n$2x - 27 = 7$\n$2x = 34$\n$x = 17$\n\n**Common Mistakes to Avoid:**\n* Distributing the negative sign incorrectly: $-4(x + 3) = -4x - 12$, not $-4x + 12$.\n* Combining constants wrong: $-15 - 12 = -27$, not $-3$.\n\n**Verification:** $3(34 - 5) - 4(17 + 3) = 3(29) - 4(20) = 87 - 80 = 7$ \\checkmark.\n\n**Test Day Takeaway:** Distribute carefully, especially with negative signs, then combine like terms.",
   skills: ["solving-equations"]
 },
 {
   id: 12,
   type: "multiple-choice",
   difficulty: "medium",
-  question: "A company's revenue $R$ in thousands of dollars is modeled by $R(t) = 150(1.08)^t$, where $t$ is the number of years since $2020$. What does the value $1.08$ represent?",
+  band: 5,
+  question: "A company's revenue $R$, in thousands of dollars, is modeled by $R(t) = 150(1.08)^t$, where $t$ is the number of years since $2020$. Which of the following is the best interpretation of the value $1.08$?",
   choices: [
+    // distractor: confuses exponential with linear growth (constant amount)
     { id: "A", text: "The revenue increases by $\\$1.08$ thousand each year." },
     { id: "B", text: "The revenue increases by $8\\%$ each year." },
+    // distractor: applies the inverse — interprets 1.08 as 108%
     { id: "C", text: "The revenue increases by $108\\%$ each year." },
-    { id: "D", text: "The revenue will be $\\$1.08$ thousand in year $t$." }
+    // distractor: wrong base — misinterprets 1.08 as an output value
+    { id: "D", text: "The revenue is $\\$1.08$ thousand in year $t$." }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Interpreting Exponential Growth Rate**\n\n**Choice B is correct.**\n\n**The Fast Way (10 seconds):** In $a \\cdot b^t$, the base $b = 1.08 = 1 + 0.08$, so the growth rate is $0.08 = 8\\%$ per year.\n\n**The Full Solution:**\nThe exponential model $R(t) = 150(1.08)^t$ has the form $P_0(1 + r)^t$.\nHere $1 + r = 1.08$, so $r = 0.08 = 8\\%$.\nThis means the revenue grows by $8\\%$ each year.\n\n**Why the wrong answers are tempting:**\n• Choice A: Confuses exponential growth (percent) with linear growth (constant amount).\n• Choice C: Interprets $1.08$ as $108\\%$ increase, rather than a $1.08$ multiplier (which is $8\\%$ increase).\n• Choice D: Misinterprets the base as an output value.\n\n**Test Day Takeaway:** In $P_0(1 + r)^t$, the growth rate is $r$, not the entire base. Subtract $1$ from the base to find the rate.",
+  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** In $a \\cdot b^t$, the base $b = 1.08 = 1 + 0.08$, so the growth rate is $0.08 = 8\\%$ per year.\n\n**The Full Solution:**\nThe model $R(t) = 150(1.08)^t$ has the form $P_0(1 + r)^t$.\nHere $1 + r = 1.08$, so $r = 0.08 = 8\\%$.\nEach year the revenue grows by $8\\%$ of the previous year's value.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — confuses exponential growth with linear growth.\n* Choice C: \"applies the inverse operation\" — interprets $1.08$ as a $108\\%$ increase rather than a $1.08$ multiplier.\n* Choice D: \"stops one step early\" — misreads the base as an output value.\n\n**Test Day Takeaway:** In $P_0(1 + r)^t$, the growth rate is $r$, not the entire base. Subtract $1$ from the base to find the rate.",
   skills: ["exponential-functions", "function-interpretation"]
 },
 {
   id: 13,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "medium",
-  question: "The line passes through the points $(-2, 9)$ and $(4, -3)$. What is the equation of this line?",
-  choices: [
-    { id: "A", text: "$y = -2x + 5$" },
-    { id: "B", text: "$y = 2x + 13$" },
-    { id: "C", text: "$y = -2x - 5$" },
-    { id: "D", text: "$y = -\\frac{1}{2}x + 8$" }
-  ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Equation of Line from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (20 seconds):** Slope $= \\frac{-3 - 9}{4 - (-2)} = \\frac{-12}{6} = -2$. Using $(4, -3)$: $-3 = -2(4) + b \\Rightarrow b = 5$. So $y = -2x + 5$.\n\n**The Full Solution:**\nSlope $m = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{-3 - 9}{4 - (-2)} = \\frac{-12}{6} = -2$.\nUsing point-slope with $(4, -3)$:\n$y - (-3) = -2(x - 4)$\n$y + 3 = -2x + 8$\n$y = -2x + 5$\n\n**Why the wrong answers are tempting:**\n• Choice B: Uses positive slope $+2$ instead of $-2$.\n• Choice C: Correct slope but wrong $y$-intercept calculation.\n• Choice D: Uses $\\frac{6}{-12} = -\\frac{1}{2}$ (reciprocal of the slope).\n\n**Test Day Takeaway:** Calculate slope first with $(y_2 - y_1)/(x_2 - x_1)$, then plug one point back in to find the intercept.",
-  skills: ["slope", "linear-functions"]
+  band: 5,
+  question: "A solid right circular cylinder has a radius of $5$ centimeters and a height of $8$ centimeters. The volume of the cylinder, in cubic centimeters, can be expressed as $k\\pi$. What is the value of $k$?",
+  correctAnswer: "200",
+  explanation: "**SAT Pattern: Cylinder Volume**\n\n**The correct answer is $200$.**\n\n**The Fast Way (~10s):** $V = \\pi r^2 h = \\pi(5)^2(8) = 25 \\cdot 8 \\cdot \\pi = 200\\pi$. So $k = 200$.\n\n**The Full Solution:**\nThe volume formula for a right circular cylinder is $V = \\pi r^2 h$.\nWith $r = 5$ cm and $h = 8$ cm:\n$V = \\pi (5)^2 (8) = \\pi (25)(8) = 200\\pi$ cubic centimeters.\nSo $k = 200$.\n\n**Common Mistakes to Avoid:**\n* Forgetting to square the radius: $\\pi r h = 40\\pi$, giving $k = 40$.\n* Confusing the cylinder formula with the cone formula $V = \\dfrac{1}{3}\\pi r^2 h$, giving $k = \\dfrac{200}{3}$.\n\n**Verification:** $\\pi(25)(8) = 200\\pi$ \\checkmark.\n\n**Test Day Takeaway:** For a cylinder, square the radius first, then multiply by the height. $V = \\pi r^2 h$ is on the Reference Sheet.",
+  skills: ["volume", "geometry"]
 },
 {
   id: 14,
   type: "fill-in",
   difficulty: "medium",
+  band: 5,
   question: "In a class of $30$ students, $18$ play soccer, $12$ play basketball, and $5$ play both. How many students play neither soccer nor basketball?",
   correctAnswer: "5",
-  explanation: "**SAT Pattern: Inclusion-Exclusion Principle**\n\n**The correct answer is $5$.**\n\n**The Fast Way (15 seconds):** At least one sport: $18 + 12 - 5 = 25$. Neither: $30 - 25 = 5$.\n\n**The Full Solution:**\nUsing inclusion-exclusion:\n$|\\text{Soccer} \\cup \\text{Basketball}| = |\\text{Soccer}| + |\\text{Basketball}| - |\\text{Both}|$\n$= 18 + 12 - 5 = 25$\nStudents playing neither: $30 - 25 = 5$.\n\n**Common Mistakes to Avoid:**\n• Forgetting to subtract the overlap: $18 + 12 = 30$, then thinking everyone plays a sport.\n• Subtracting the overlap twice.\n\n**Verification:** Soccer only: $13$. Basketball only: $7$. Both: $5$. Neither: $5$. Total: $13 + 7 + 5 + 5 = 30$. \\u2713\n\n**Test Day Takeaway:** $|A \\cup B| = |A| + |B| - |A \\cap B|$. Then subtract from total for \"neither.\"",
+  explanation: "**SAT Pattern: Marginal Probability**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~15s):** Played at least one sport: $18 + 12 - 5 = 25$. Neither: $30 - 25 = 5$.\n\n**The Full Solution:**\nUsing inclusion-exclusion:\n$|\\text{Soccer} \\cup \\text{Basketball}| = |\\text{Soccer}| + |\\text{Basketball}| - |\\text{Both}|$\n$= 18 + 12 - 5 = 25$\nStudents who play neither: $30 - 25 = 5$.\n\n**Common Mistakes to Avoid:**\n* Forgetting to subtract the overlap: $18 + 12 = 30$ would imply everyone plays.\n* Subtracting the overlap twice.\n\n**Verification:** Soccer only: $13$. Basketball only: $7$. Both: $5$. Neither: $5$. Total: $13 + 7 + 5 + 5 = 30$ \\checkmark.\n\n**Test Day Takeaway:** $|A \\cup B| = |A| + |B| - |A \\cap B|$. Then subtract from total for \"neither.\"",
   skills: ["probability", "statistics"]
 },
-
-// ===== HARD (Q15–Q22) =====
-
 {
   id: 15,
   type: "multiple-choice",
   difficulty: "hard",
-  question: "The function $f$ is defined by $f(x) = -2(x + 3)^2 + 50$. The function $g$ is defined by $g(x) = -2(x - 5)^2 + 50$. Which of the following correctly describes the relationship between the graphs of $f$ and $g$?",
+  band: 7,
+  question: "The equation of a circle in the $xy$-plane is $x^2 + y^2 + 4x - 12y + 15 = 0$. What is the radius of the circle?",
   choices: [
-    { id: "A", text: "The graph of $g$ is the graph of $f$ translated $2$ units to the right." },
-    { id: "B", text: "The graph of $g$ is the graph of $f$ translated $8$ units to the right." },
-    { id: "C", text: "The graph of $g$ is the graph of $f$ translated $8$ units to the left." },
-    { id: "D", text: "The graph of $g$ is the graph of $f$ reflected over the $y$-axis." }
+    // distractor: completes only one square or drops a constant
+    { id: "A", text: "$\\sqrt{15}$" },
+    { id: "B", text: "$5$" },
+    // distractor: stops one step early — reports r^2 = 25 instead of r
+    { id: "C", text: "$25$" },
+    // distractor: wrong base — confuses constant 15 with r^2
+    { id: "D", text: "$\\sqrt{40}$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Comparing Function Transformations**\n\n**Choice B is correct.**\n\n**The Fast Way (15 seconds):** Vertex of $f$: $(-3, 50)$. Vertex of $g$: $(5, 50)$. Horizontal shift: $5 - (-3) = 8$ units right.\n\n**The Full Solution:**\n$f(x) = -2(x + 3)^2 + 50$ has vertex at $(-3, 50)$.\n$g(x) = -2(x - 5)^2 + 50$ has vertex at $(5, 50)$.\nSame $a$ value ($-2$) and same $k$ value ($50$), so the shape and vertical position are identical.\nThe vertex moved from $x = -3$ to $x = 5$, a shift of $5 - (-3) = 8$ units to the right.\n\n**Why the wrong answers are tempting:**\n• Choice A: Computes $5 - 3 = 2$ by ignoring the negative sign in $-3$.\n• Choice C: Gets the direction backwards.\n• Choice D: A reflection over the $y$-axis would change $f(x)$ to $f(-x)$, which would give a different expression.\n\n**Test Day Takeaway:** Compare vertices of quadratics in vertex form to determine horizontal and vertical shifts.",
-  skills: ["vertex-form", "function-interpretation"]
+  explanation: "**SAT Pattern: Circle in General Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Complete the square: $(x+2)^2 + (y-6)^2 = 4 + 36 - 15 = 25$. Radius $= \\sqrt{25} = 5$.\n\n**The Full Solution:**\nGroup $x$- and $y$-terms:\n$(x^2 + 4x) + (y^2 - 12y) = -15$\n\nComplete the square: half of $4$ is $2$, $2^2 = 4$. Half of $-12$ is $-6$, $(-6)^2 = 36$.\n\n$(x^2 + 4x + 4) + (y^2 - 12y + 36) = -15 + 4 + 36$\n$(x + 2)^2 + (y - 6)^2 = 25$\n\nRadius $= \\sqrt{25} = 5$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses the constant $15$ as $r^2$ without completing the square.\n* Choice C: \"stops one step early\" — reports $r^2 = 25$ instead of $r = 5$.\n* Choice D: \"off-by-one\" — adds the completing-square constants to the wrong side: $4 + 36 = 40$.\n\n**Test Day Takeaway:** Complete the square for BOTH variables. Add the completing-square constants to the right side, not subtract. Then radius is $\\sqrt{r^2}$.",
+  skills: ["circle-equations", "coordinate-geometry"]
 },
 {
   id: 16,
   type: "multiple-choice",
   difficulty: "hard",
+  band: 7,
   question: "For what value of $c$ does the equation $3x^2 - 12x + c = 0$ have exactly one real solution?",
   choices: [
+    // distractor: sets b^2 + 4ac = 0 (sign error in discriminant)
     { id: "A", text: "$-12$" },
+    // distractor: divides -12 by -3 instead of using discriminant
     { id: "B", text: "$4$" },
     { id: "C", text: "$12$" },
+    // distractor: stops one step early — gives 144/4 = 36 instead of dividing by 12
     { id: "D", text: "$36$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Discriminant Equals Zero**\n\n**Choice C is correct.**\n\n**The Fast Way (20 seconds):** Discriminant $= 0$: $(-12)^2 - 4(3)(c) = 0 \\Rightarrow 144 - 12c = 0 \\Rightarrow c = 12$.\n\n**The Full Solution:**\nA quadratic $ax^2 + bx + c = 0$ has exactly one real solution when the discriminant equals zero:\n$b^2 - 4ac = 0$\nHere $a = 3$, $b = -12$:\n$(-12)^2 - 4(3)(c) = 0$\n$144 - 12c = 0$\n$12c = 144$\n$c = 12$\n\n**Why the wrong answers are tempting:**\n• Choice A: Sets $b^2 + 4ac = 0$ (adding instead of subtracting): $144 + 12c = 0 \\Rightarrow c = -12$.\n• Choice B: Divides $-12$ by $-3$: confuses the discriminant formula with solving $-12/3$.\n• Choice D: Computes $(-12)^2 = 144$ but sets $c = 144/4 = 36$ (divides by $4$ instead of $12$).\n\n**Test Day Takeaway:** Exactly one solution means discriminant $= 0$: set $b^2 - 4ac = 0$ and solve for the unknown.",
+  explanation: "**SAT Pattern: Discriminant Analysis**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Discriminant $= 0$: $(-12)^2 - 4(3)(c) = 0 \\Rightarrow 144 - 12c = 0 \\Rightarrow c = 12$.\n\n**The Full Solution:**\nA quadratic $ax^2 + bx + c = 0$ has exactly one real solution iff the discriminant is zero:\n$b^2 - 4ac = 0$\nWith $a = 3$, $b = -12$:\n$(-12)^2 - 4(3)(c) = 0$\n$144 - 12c = 0$\n$12c = 144$\n$c = 12$\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — sign error gives $144 + 12c = 0$, so $c = -12$.\n* Choice B: \"wrong base\" — divides $-12$ by $-3$ ignoring the discriminant.\n* Choice D: \"stops one step early\" — divides $144$ by $4$ instead of by $12$.\n\n**Test Day Takeaway:** \"Exactly one solution\" means discriminant equals zero. Set $b^2 - 4ac = 0$ and solve for the unknown.",
   skills: ["discriminant", "quadratic-equations"]
 },
 {
   id: 17,
   type: "fill-in",
   difficulty: "hard",
-  question: "If $\\frac{2}{x - 3} + \\frac{5}{x + 3} = \\frac{19}{x^2 - 9}$, what is the value of $x$?",
+  band: 7,
+  question: "If $\\dfrac{2}{x - 3} + \\dfrac{5}{x + 3} = \\dfrac{19}{x^2 - 9}$, what is the value of $x$?",
   correctAnswer: "4",
-  explanation: "**SAT Pattern: Rational Equation**\n\n**The correct answer is $4$.**\n\n**The Fast Way (30 seconds):** Note $x^2 - 9 = (x-3)(x+3)$. Multiply through by $(x-3)(x+3)$: $2(x+3) + 5(x-3) = 19$. Simplify: $7x - 9 = 19$, so $x = 4$.\n\n**The Full Solution:**\nNote $x^2 - 9 = (x-3)(x+3)$. Multiply both sides by $(x-3)(x+3)$:\n$2(x+3) + 5(x-3) = 19$\n$2x + 6 + 5x - 15 = 19$\n$7x - 9 = 19$\n$7x = 28$\n$x = 4$\n\nCheck that $x = 4$ doesn't make any denominator zero: $4 - 3 = 1 \neq 0$, $4 + 3 = 7 \neq 0$. \\u2713\n\n**Common Mistakes to Avoid:**\n• Forgetting to check that the solution doesn't create a zero denominator.\n• Distributing the $5$ incorrectly: $5(x - 3) = 5x - 15$, not $5x - 3$.\n\n**Verification:** $\\frac{2}{1} + \\frac{5}{7} = \\frac{14}{7} + \\frac{5}{7} = \\frac{19}{7}$. And $\\frac{19}{4^2 - 9} = \\frac{19}{7}$. \\u2713\n\n**Test Day Takeaway:** Factor the denominator, multiply through by the LCD, and always check for extraneous solutions.",
+  explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~30s):** Note $x^2 - 9 = (x - 3)(x + 3)$. Multiply through by $(x - 3)(x + 3)$: $2(x + 3) + 5(x - 3) = 19$. Simplify: $7x - 9 = 19$, so $x = 4$.\n\n**The Full Solution:**\nNote $x^2 - 9 = (x - 3)(x + 3)$. Multiply both sides by $(x - 3)(x + 3)$:\n$2(x + 3) + 5(x - 3) = 19$\n$2x + 6 + 5x - 15 = 19$\n$7x - 9 = 19$\n$7x = 28$\n$x = 4$\n\nCheck that $x = 4$ doesn't make any denominator zero: $4 - 3 = 1 \\neq 0$, $4 + 3 = 7 \\neq 0$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting to check that the solution doesn't create a zero denominator.\n* Distributing the $5$ incorrectly: $5(x - 3) = 5x - 15$, not $5x - 3$.\n\n**Verification:** $\\dfrac{2}{1} + \\dfrac{5}{7} = \\dfrac{14}{7} + \\dfrac{5}{7} = \\dfrac{19}{7}$. And $\\dfrac{19}{4^2 - 9} = \\dfrac{19}{7}$ \\checkmark.\n\n**Test Day Takeaway:** Factor the denominator, multiply through by the LCD, and always check for extraneous solutions.",
   skills: ["solving-equations"]
 },
 {
   id: 18,
   type: "multiple-choice",
   difficulty: "hard",
-  question: "A quadratic function $f$ has roots at $x = -2$ and $x = 7$. If $f(1) = 36$, what is $f(0)$?",
+  band: 7,
+  question: "A quadratic function $f$ has roots at $x = -2$ and $x = 7$. If $f(1) = 36$, what is the value of $f(0)$?",
   choices: [
+    // distractor: sign error in computing -2 * 2 * (-7)
     { id: "A", text: "$-28$" },
     { id: "B", text: "$28$" },
+    // distractor: applies the inverse — uses a = +2 with sign error
     { id: "C", text: "$-42$" },
+    // distractor: stops one step early — computes (2)(7)(3) = 42 without using a
     { id: "D", text: "$42$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Quadratic from Roots and a Condition**\n\n**Choice B is correct.**\n\n**The Fast Way (30 seconds):** $f(x) = a(x + 2)(x - 7)$. Use $f(1) = 36$: $a(3)(-6) = 36 \\Rightarrow -18a = 36 \\Rightarrow a = -2$. Then $f(0) = -2(2)(-7) = 28$.\n\n**The Full Solution:**\nSince the roots are $-2$ and $7$:\n$f(x) = a(x + 2)(x - 7)$ for some constant $a$.\nUsing $f(1) = 36$:\n$a(1 + 2)(1 - 7) = 36$\n$a(3)(-6) = 36$\n$-18a = 36$\n$a = -2$\n\nNow find $f(0)$:\n$f(0) = -2(0 + 2)(0 - 7) = -2(2)(-7) = -2 \\times (-14) = 28$.\n\n**Why the wrong answers are tempting:**\n• Choice A: Computes $-2(2)(-7)$ but mishandles signs to get $-28$.\n• Choice C: Uses $a = -2$ and computes $-2 \\cdot 2 \\cdot 7 \\cdot 3 = -84$... or another sign error leading to $-42$.\n• Choice D: Computes $(2)(7) \\times 3 = 42$ without properly using $a$.\n\n**Test Day Takeaway:** Write the factored form from the roots, use the given condition to find $a$, then evaluate.",
+  explanation: "**SAT Pattern: Quadratic — Vieta's Sum/Product**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $f(x) = a(x + 2)(x - 7)$. Use $f(1) = 36$: $a(3)(-6) = 36 \\Rightarrow -18a = 36 \\Rightarrow a = -2$. Then $f(0) = -2(2)(-7) = 28$.\n\n**The Full Solution:**\nWith roots $-2$ and $7$:\n$f(x) = a(x + 2)(x - 7)$ for some constant $a$.\nUsing $f(1) = 36$:\n$a(1 + 2)(1 - 7) = 36$\n$a(3)(-6) = 36$\n$-18a = 36 \\Rightarrow a = -2$.\n\nNow find $f(0)$:\n$f(0) = -2(0 + 2)(0 - 7) = -2(2)(-7) = -2 \\cdot (-14) = 28$.\n\nVerification: $f(1) = -2(3)(-6) = 36$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — sign error in the product.\n* Choice C: \"wrong base\" — uses incorrect $a$ or mishandles signs.\n* Choice D: \"stops one step early\" — computes $(2)(7)(3) = 42$ without using $a = -2$.\n\n**Test Day Takeaway:** Write the factored form from the roots, use the given condition to find $a$, then evaluate.",
   skills: ["quadratic-equations", "factoring"]
 },
 {
   id: 19,
   type: "fill-in",
   difficulty: "hard",
+  band: 7,
   question: "If $9^{x+1} = 27^{x}$, what is the value of $x$?",
   correctAnswer: "2",
-  explanation: "**SAT Pattern: Exponential Equation with Common Base**\n\n**The correct answer is $2$.**\n\n**The Fast Way (20 seconds):** Rewrite: $3^{2(x+1)} = 3^{3x}$. So $2x + 2 = 3x$, giving $x = 2$.\n\n**The Full Solution:**\n$9^{x+1} = 27^x$\n$(3^2)^{x+1} = (3^3)^x$\n$3^{2(x+1)} = 3^{3x}$\n$3^{2x+2} = 3^{3x}$\nSince the bases are equal, set exponents equal:\n$2x + 2 = 3x$\n$2 = x$\n$x = 2$\n\n**Common Mistakes to Avoid:**\n• Forgetting to distribute: $2(x + 1) = 2x + 2$, not $2x + 1$.\n• Writing $27 = 3^2$ instead of $3^3$.\n\n**Verification:** $9^{2+1} = 9^3 = 729$. $27^2 = 729$. \\u2713\n\n**Test Day Takeaway:** Convert both sides to the same base, then set exponents equal.",
+  explanation: "**SAT Pattern: Common-Base Exponent Simplification**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~20s):** Rewrite both sides with base $3$: $3^{2(x+1)} = 3^{3x}$. Equate exponents: $2x + 2 = 3x \\Rightarrow x = 2$.\n\n**The Full Solution:**\n$9^{x+1} = 27^x$\n$(3^2)^{x+1} = (3^3)^x$\n$3^{2(x+1)} = 3^{3x}$\n$3^{2x+2} = 3^{3x}$\nSince the bases match, set exponents equal:\n$2x + 2 = 3x$\n$2 = x$\n\n**Common Mistakes to Avoid:**\n* Forgetting to distribute: $2(x + 1) = 2x + 2$, not $2x + 1$.\n* Writing $27 = 3^2$ instead of $3^3$.\n\n**Verification:** $9^{2+1} = 9^3 = 729$. $27^2 = 729$ \\checkmark.\n\n**Test Day Takeaway:** Convert all sides to a common base, then set exponents equal.",
   skills: ["exponent-rules", "exponential-functions"]
 },
 {
   id: 20,
   type: "multiple-choice",
   difficulty: "hard",
-  question: "In the $xy$-plane, the graph of $y = x^2 - 6x + k$ is tangent to the $x$-axis. What is the value of $k$?",
+  band: 7,
+  question: "In a right triangle, the two legs have lengths $a$ and $a + 7$, and the hypotenuse has length $13$. What is the perimeter of the triangle?",
   choices: [
-    { id: "A", text: "$-9$" },
-    { id: "B", text: "$0$" },
-    { id: "C", text: "$6$" },
-    { id: "D", text: "$9$" }
+    // distractor: stops one step early — sums only two legs (5 + 12 = 17)
+    { id: "A", text: "$17$" },
+    // distractor: off-by-one — uses a + 7 = 7 instead of 12 (5 + 7 + 13 = 25)
+    { id: "B", text: "$25$" },
+    { id: "C", text: "$30$" },
+    // distractor: wrong base — double-counts a leg (5 + 12 + 13 + 5 = 35)
+    { id: "D", text: "$35$" }
   ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Tangent to Axis Means Discriminant = 0**\n\n**Choice D is correct.**\n\n**The Fast Way (15 seconds):** Tangent to $x$-axis means exactly one $x$-intercept, so discriminant $= 0$. $(-6)^2 - 4(1)(k) = 0 \\Rightarrow 36 - 4k = 0 \\Rightarrow k = 9$.\n\n**The Full Solution:**\n\"Tangent to the $x$-axis\" means the parabola touches the $x$-axis at exactly one point, i.e., the equation $x^2 - 6x + k = 0$ has exactly one solution.\nThis requires discriminant $= 0$:\n$b^2 - 4ac = 0$\n$(-6)^2 - 4(1)(k) = 0$\n$36 - 4k = 0$\n$4k = 36$\n$k = 9$\n\nAlternatively, complete the square: $y = (x - 3)^2 - 9 + k$. Tangent to $x$-axis means vertex on $x$-axis: $-9 + k = 0$, so $k = 9$.\n\n**Why the wrong answers are tempting:**\n• Choice A: Sets $-9 + k = 0$ but gets $k = -9$ from a sign error.\n• Choice B: Assumes tangent means passing through the origin.\n• Choice C: Uses $b = 6$ and confuses it with $k$.\n\n**Test Day Takeaway:** \"Tangent to the $x$-axis\" = discriminant is zero = vertex sits on the $x$-axis.",
-  skills: ["discriminant", "quadratic-equations", "vertex-form"]
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Recognize the $5$-$12$-$13$ Pythagorean triple. So $a = 5$ and $a + 7 = 12$. Perimeter $= 5 + 12 + 13 = 30$.\n\n**The Full Solution:**\nApply the Pythagorean theorem: $a^2 + (a + 7)^2 = 13^2$.\n$a^2 + a^2 + 14a + 49 = 169$\n$2a^2 + 14a - 120 = 0$\n$a^2 + 7a - 60 = 0$\n$(a + 12)(a - 5) = 0$\n\nSo $a = 5$ (rejecting the negative root). Then $a + 7 = 12$.\n\nPerimeter $= 5 + 12 + 13 = 30$.\n\nVerification: $5^2 + 12^2 = 25 + 144 = 169 = 13^2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — adds only the two legs ($5 + 12 = 17$) and forgets the hypotenuse.\n* Choice B: \"off-by-one\" — uses $a + 7 = 7$ instead of $12$.\n* Choice D: \"wrong base\" — double-counts the leg $a = 5$.\n\n**Test Day Takeaway:** Memorize the common Pythagorean triples ($3$-$4$-$5$, $5$-$12$-$13$, $7$-$24$-$25$, $8$-$15$-$17$). When the hypotenuse is $13$, the legs are usually $5$ and $12$.",
+  skills: ["triangles", "right-triangles"]
 },
 {
   id: 21,
   type: "multiple-choice",
   difficulty: "hard",
-  question: "A deck contains $10$ red cards numbered $1$–$10$ and $10$ blue cards numbered $1$–$10$. One card is drawn at random. What is the probability that the card is red OR has a number greater than $7$?",
+  band: 7,
+  question: "A deck contains $10$ red cards numbered $1$ through $10$ and $10$ blue cards numbered $1$ through $10$. One card is drawn at random. What is the probability that the card is red OR has a number greater than $7$?",
   choices: [
-    { id: "A", text: "$\\frac{10}{20}$" },
-    { id: "B", text: "$\\frac{13}{20}$" },
-    { id: "C", text: "$\\frac{16}{20}$" },
-    { id: "D", text: "$\\frac{7}{10}$" }
+    // distractor: only counts P(red) = 10/20 and ignores the OR
+    { id: "A", text: "$\\dfrac{1}{2}$" },
+    { id: "B", text: "$\\dfrac{13}{20}$" },
+    // distractor: applies the inverse — adds without subtracting overlap
+    { id: "C", text: "$\\dfrac{4}{5}$" },
+    // distractor: off-by-one — simplifies a wrong sum (e.g., 14/20)
+    { id: "D", text: "$\\dfrac{7}{10}$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Probability with OR (Inclusion-Exclusion)**\n\n**Choice B is correct.**\n\n**The Fast Way (20 seconds):** $P(\\text{red}) = \\frac{10}{20}$. $P(>7) = \\frac{6}{20}$ (cards 8, 9, 10 in each color). $P(\\text{red AND} > 7) = \\frac{3}{20}$. By inclusion-exclusion: $\\frac{10 + 6 - 3}{20} = \\frac{13}{20}$.\n\n**The Full Solution:**\n$P(\\text{red}) = \\frac{10}{20}$ (all $10$ red cards).\n$P(\\text{number} > 7) = \\frac{6}{20}$ (red $8, 9, 10$ and blue $8, 9, 10$).\n$P(\\text{red AND number} > 7) = \\frac{3}{20}$ (red $8, 9, 10$).\n$P(\\text{red OR number} > 7) = \\frac{10}{20} + \\frac{6}{20} - \\frac{3}{20} = \\frac{13}{20}$.\n\n**Why the wrong answers are tempting:**\n• Choice A: Only counts $P(\\text{red}) = \\frac{10}{20}$ and ignores the \"OR\" part.\n• Choice C: Adds without subtracting overlap: $\\frac{10 + 6}{20} = \\frac{16}{20}$.\n• Choice D: Simplifies $\\frac{14}{20}$ from a different calculation.\n\n**Test Day Takeaway:** $P(A \\text{ or } B) = P(A) + P(B) - P(A \\text{ and } B)$. Always subtract the overlap.",
+  explanation: "**SAT Pattern: Marginal Probability**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $P(\\text{red}) = \\dfrac{10}{20}$. $P(>7) = \\dfrac{6}{20}$ (cards $8, 9, 10$ in each color). $P(\\text{red AND} > 7) = \\dfrac{3}{20}$. By inclusion-exclusion: $\\dfrac{10 + 6 - 3}{20} = \\dfrac{13}{20}$.\n\n**The Full Solution:**\n$P(\\text{red}) = \\dfrac{10}{20}$ (all $10$ red cards).\n$P(\\text{number} > 7) = \\dfrac{6}{20}$ (red $8, 9, 10$ and blue $8, 9, 10$).\n$P(\\text{red AND number} > 7) = \\dfrac{3}{20}$ (red $8, 9, 10$).\n$P(\\text{red OR number} > 7) = \\dfrac{10 + 6 - 3}{20} = \\dfrac{13}{20}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — only counts $P(\\text{red}) = \\dfrac{10}{20}$ and ignores the OR.\n* Choice C: \"applies the inverse operation\" — adds without subtracting the overlap: $\\dfrac{16}{20}$.\n* Choice D: \"off-by-one\" — simplifies $\\dfrac{14}{20}$ from a different miscalculation.\n\n**Test Day Takeaway:** $P(A \\text{ or } B) = P(A) + P(B) - P(A \\text{ and } B)$. Always subtract the overlap.",
   skills: ["probability"]
 },
 {
   id: 22,
   type: "fill-in",
   difficulty: "hard",
+  band: 7,
   question: "The system of equations below has the solution $(x, y)$.\n\n$4x - 3y = 0$\n$x^2 + y = 13$\n\nIf $x > 0$, what is the value of $y$?",
   correctAnswer: "4",
-  explanation: "**SAT Pattern: Nonlinear System of Equations**\n\n**The correct answer is $4$.**\n\n**The Fast Way (45 seconds):** From the second equation: $y = 13 - x^2$. Substitute into the first: $4x - 3(13 - x^2) = 0$. Simplify: $3x^2 + 4x - 39 = 0$. Factor: $(3x + 13)(x - 3) = 0$. Since $x > 0$, $x = 3$, so $y = 13 - 9 = 4$.\n\n**The Full Solution:**\nFrom the second equation: $y = 13 - x^2$.\nSubstitute into the first: $4x - 3(13 - x^2) = 0$\n$4x - 39 + 3x^2 = 0$\n$3x^2 + 4x - 39 = 0$\n$(3x + 13)(x - 3) = 0$\n$x = -\\frac{13}{3}$ or $x = 3$\n\nSince $x > 0$: $x = 3$.\n$y = 13 - 3^2 = 13 - 9 = 4$.\n\n**Common Mistakes to Avoid:**\n• Choosing $x = -\\frac{13}{3}$ instead of $x = 3$.\n• Substituting into the wrong equation to find $y$.\n\n**Verification:** $4(3) - 3(4) = 12 - 12 = 0$. \\u2713. $9 + 4 = 13$. \\u2713\n\n**Test Day Takeaway:** For nonlinear systems, isolate one variable and substitute into the other equation.",
+  explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~45s):** From the second equation: $y = 13 - x^2$. Substitute into the first: $4x - 3(13 - x^2) = 0 \\Rightarrow 3x^2 + 4x - 39 = 0 \\Rightarrow (3x + 13)(x - 3) = 0$. Since $x > 0$, $x = 3$, so $y = 13 - 9 = 4$.\n\n**The Full Solution:**\nFrom equation 2: $y = 13 - x^2$.\nSubstitute into equation 1:\n$4x - 3(13 - x^2) = 0$\n$4x - 39 + 3x^2 = 0$\n$3x^2 + 4x - 39 = 0$\n$(3x + 13)(x - 3) = 0$\n$x = -\\dfrac{13}{3}$ or $x = 3$\n\nSince $x > 0$: $x = 3$.\n$y = 13 - 3^2 = 13 - 9 = 4$.\n\n**Common Mistakes to Avoid:**\n* Choosing $x = -\\dfrac{13}{3}$ instead of $x = 3$.\n* Substituting into the wrong equation to find $y$.\n\n**Verification:** $4(3) - 3(4) = 12 - 12 = 0$ \\checkmark. $3^2 + 4 = 9 + 4 = 13$ \\checkmark.\n\n**Test Day Takeaway:** For nonlinear systems, isolate one variable and substitute into the other equation, then enforce sign or domain constraints.",
   skills: ["systems-of-equations", "quadratic-equations"]
 }
       ]
@@ -328,175 +380,377 @@ export const practiceTest5 = {
       timeLimit: 35,
       questions: [
 {
-  id: 1, type: "multiple-choice", difficulty: "easy",
-  question: "A survey of 200 students found that 45% preferred online classes. How many students preferred online classes?",
-  choices: [{ id: "A", text: "45" }, { id: "B", text: "80" }, { id: "C", text: "90" }, { id: "D", text: "110" }],
+  id: 1,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "If $432$ is $p\\%$ greater than $48$, what is the value of $p$?",
+  choices: [
+    // distractor: divides 432 by 48 to get 9, then converts wrong (gives 900)
+    { id: "A", text: "$900$" },
+    { id: "B", text: "$800$" },
+    // distractor: stops one step early — gives ratio 432/48 = 9 as percent
+    { id: "C", text: "$9$" },
+    // distractor: divides 432 - 48 = 384 by 432 instead of by 48
+    { id: "D", text: "$89$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Percent Greater Than**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** \"$432$ is $p\\%$ greater than $48$\" means $432 = 48 + \\dfrac{p}{100}(48)$, so $\\dfrac{p}{100} = \\dfrac{432 - 48}{48} = \\dfrac{384}{48} = 8$, giving $p = 800$.\n\n**The Full Solution:**\n$432 = 48 + \\dfrac{p}{100} \\cdot 48$\n$432 - 48 = \\dfrac{p}{100} \\cdot 48$\n$384 = \\dfrac{48p}{100}$\n$\\dfrac{p}{100} = \\dfrac{384}{48} = 8$\n$p = 800$.\n\nVerification: $48 + 800\\% \\text{ of } 48 = 48 + 384 = 432$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — confuses $432/48 = 9$ with the percent and reports $900$.\n* Choice C: \"stops one step early\" — gives $432/48 = 9$ without converting to a percent increase.\n* Choice D: \"wrong base\" — divides $384$ by $432$ instead of $48$.\n\n**Test Day Takeaway:** \"$A$ is $p\\%$ greater than $B$\" $\\iff$ $A = B(1 + \\dfrac{p}{100})$. Solve via $\\dfrac{A - B}{B} = \\dfrac{p}{100}$.",
+  skills: ["percents", "word-problems"]
+},
+{
+  id: 2,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "A workshop produces $10$-inch, $6$-inch, and $4$-inch dowels. During one day, the number of $10$-inch dowels produced is $4$ times the number $n$ of $6$-inch dowels, and the number of $4$-inch dowels is $50$ more than the number of $6$-inch dowels. The workshop produces a total of $818$ dowels that day. How many $6$-inch dowels does the workshop produce that day?",
+  correctAnswer: "128",
+  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $128$.**\n\n**The Fast Way (~40s):** Total $= 4n + n + (n + 50) = 6n + 50 = 818$. So $6n = 768$ and $n = 128$.\n\n**The Full Solution:**\nLet $n$ be the number of $6$-inch dowels.\nNumber of $10$-inch dowels: $4n$.\nNumber of $4$-inch dowels: $n + 50$.\n\nTotal: $4n + n + (n + 50) = 6n + 50 = 818$.\n$6n = 768 \\Rightarrow n = 128$.\n\nVerification: $4(128) + 128 + (128 + 50) = 512 + 128 + 178 = 818$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting the $+50$ offset.\n* Computing $818/6$ directly without subtracting $50$ first.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$50$ more than\".",
+  skills: ["word-problems", "solving-equations"]
+},
+{
+  id: 3,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "If $x > 0$, the expression $\\sqrt[4]{x^3} \\cdot \\sqrt{x^7}$ is equivalent to $x^{p/q}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
+  choices: [
+    // distractor: gives p alone (= 17) instead of p + q
+    { id: "A", text: "$17$" },
+    // distractor: sums numerator + index (3 + 4 + 7 + 2 = 16)
+    { id: "B", text: "$16$" },
+    { id: "C", text: "$21$" },
+    // distractor: stops at p/q = 17/4 but reports 4 only
+    { id: "D", text: "$4$" }
+  ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Percent of a Total**\n\n**Choice C is correct.**\n\n**The Fast Way:** $200 \\times 0.45 = 90$.\n\n**The Full Solution:**\n45% of 200 means $\\frac{45}{100} \\times 200 = 90$ students.\n\n**Why the wrong answers are tempting:**\n• A: Confuses the percentage (45) with the count.\n• B: Computes $200 \\times 0.40$.\n• D: Computes $200 \\times 0.55$, the complement.\n\n**Test Day Takeaway:** \"Percent of\" means multiply the decimal form by the total.",
-  skills: ["percents"]
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[4]{x^3} = x^{3/4}$. $\\sqrt{x^7} = x^{7/2}$. Add: $\\dfrac{3}{4} + \\dfrac{7}{2} = \\dfrac{3}{4} + \\dfrac{14}{4} = \\dfrac{17}{4}$. So $p + q = 17 + 4 = 21$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[4]{x^3} = x^{3/4}, \\quad \\sqrt{x^7} = x^{7/2}$.\n\nWhen multiplying same bases, add exponents:\n$x^{3/4} \\cdot x^{7/2} = x^{3/4 + 14/4} = x^{17/4}$.\n\n$\\gcd(17, 4) = 1$, so $\\dfrac{17}{4}$ is already in lowest terms. Then $p = 17$, $q = 4$, and $p + q = 21$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 17$ without adding $q$.\n* Choice B: \"applies the inverse operation\" — sums all the integers in the expression ($3 + 4 + 7 + 2 = 16$).\n* Choice D: \"wrong base\" — gives just the denominator $q = 4$.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{m/n}$ — power on top, root on bottom. Add fractional exponents when multiplying same bases.",
+  skills: ["polynomial-operations", "exponent-rules", "radical-expressions"]
 },
 {
-  id: 2, type: "multiple-choice", difficulty: "easy",
-  question: "A data set has a mean of 24 and a standard deviation of 3. Which value is more than 2 standard deviations above the mean?",
-  choices: [{ id: "A", text: "27" }, { id: "B", text: "29" }, { id: "C", text: "30" }, { id: "D", text: "31" }],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Standard Deviation Interpretation**\n\n**Choice D is correct.**\n\n**The Fast Way:** $24 + 2(3) = 30$. Any value greater than 30 qualifies, so 31.\n\n**The Full Solution:**\nTwo standard deviations above the mean is $24 + 2 \\times 3 = 30$. The question asks for more than 2 standard deviations above, so the value must exceed 30. Only 31 > 30.\n\n**Why the wrong answers are tempting:**\n• A: This is exactly 1 standard deviation above.\n• B: This is between 1 and 2 standard deviations above.\n• C: This is exactly 2 standard deviations above, not more than 2.\n\n**Test Day Takeaway:** \"More than\" means strictly greater than the boundary value.",
-  skills: ["statistics"]
-},
-{
-  id: 3, type: "multiple-choice", difficulty: "easy",
-  question: "The function $f(x) = 350(1.04)^x$ models the value of an investment after $x$ years. What does the number 350 represent in this context?",
-  choices: [{ id: "A", text: "The annual interest rate" }, { id: "B", text: "The value after 1 year" }, { id: "C", text: "The initial value of the investment" }, { id: "D", text: "The number of years" }],
+  id: 4,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "In the system of equations below, $a$ is a constant.\n\n$ax + 6y = 18$\n$5x + 4y = 11$\n\nIf the system has no solution, what is the value of $a$?",
+  choices: [
+    // distractor: stops at a = 5 (just copies coefficient from second equation)
+    { id: "A", text: "$5$" },
+    // distractor: applies inverse — uses 4/6 instead of 6/4
+    { id: "B", text: "$\\dfrac{10}{3}$" },
+    { id: "C", text: "$\\dfrac{15}{2}$" },
+    // distractor: off-by-one — uses 18/4 = 4.5 ratio
+    { id: "D", text: "$\\dfrac{9}{2}$" }
+  ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Exponential Model Interpretation**\n\n**Choice C is correct.**\n\n**The Fast Way:** In $f(x) = a \\cdot b^x$, the coefficient $a$ is the initial value when $x = 0$.\n\n**The Full Solution:**\nWhen $x = 0$, $f(0) = 350(1.04)^0 = 350 \\times 1 = 350$. So 350 is the value at time zero, which is the initial investment.\n\n**Why the wrong answers are tempting:**\n• A: The interest rate comes from the base: $1.04 - 1 = 0.04 = 4\\%$.\n• B: The value after 1 year is $350(1.04) = 364$.\n• D: $x$ represents the number of years, not 350.\n\n**Test Day Takeaway:** In exponential models $a \\cdot b^x$, the coefficient $a$ is always the starting value.",
-  skills: ["exponential-functions", "function-interpretation"]
+  explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** No solution $\\iff$ the lines are parallel (proportional coefficients) but NOT identical. Match coefficients of $x$ and $y$: $\\dfrac{a}{5} = \\dfrac{6}{4}$, so $a = \\dfrac{30}{4} = \\dfrac{15}{2}$. Verify constants do NOT match: $\\dfrac{18}{11} \\neq \\dfrac{6}{4}$ \\checkmark.\n\n**The Full Solution:**\nFor a $2 \\times 2$ linear system to have no solution, the coefficient ratios must be equal but the constant ratio must differ:\n$\\dfrac{a}{5} = \\dfrac{6}{4} \\neq \\dfrac{18}{11}$\n\nFrom $\\dfrac{a}{5} = \\dfrac{6}{4}$: $a = \\dfrac{6 \\cdot 5}{4} = \\dfrac{30}{4} = \\dfrac{15}{2}$.\n\nCheck: $\\dfrac{18}{11} \\approx 1.64$ and $\\dfrac{6}{4} = 1.5$, so the constants are NOT in the same ratio — confirming no solution.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — copies the coefficient $5$ from the other equation.\n* Choice B: \"applies the inverse operation\" — uses $\\dfrac{4}{6}$ ratio in the wrong direction.\n* Choice D: \"off-by-one\" — uses the constant ratio $\\dfrac{18}{4}$ instead of the coefficient ratio.\n\n**Test Day Takeaway:** No-solution condition: $\\dfrac{a_1}{a_2} = \\dfrac{b_1}{b_2} \\neq \\dfrac{c_1}{c_2}$. Match coefficients but NOT constants.",
+  skills: ["systems-of-equations", "solving-equations"]
 },
 {
-  id: 4, type: "multiple-choice", difficulty: "easy",
-  question: "A line passes through the points $(2, 5)$ and $(6, 13)$. What is the slope of the line?",
-  choices: [{ id: "A", text: "$\\frac{1}{2}$" }, { id: "B", text: "$2$" }, { id: "C", text: "$4$" }, { id: "D", text: "$8$" }],
+  id: 5,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The function $f$ is defined by $f(x) = (x + 4)^2 - 9$. If the function $g$ is defined by $g(x) = f(x - 6)$, what is the minimum value of $g$?",
+  choices: [
+    // distractor: gives the x at minimum (x = 2) instead of g(x)
+    { id: "A", text: "$2$" },
+    { id: "B", text: "$-9$" },
+    // distractor: forgets the constant -9
+    { id: "C", text: "$0$" },
+    // distractor: combines -9 + 6 = -3 (wrong shift)
+    { id: "D", text: "$-3$" }
+  ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Slope from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way:** $m = \\frac{13 - 5}{6 - 2} = \\frac{8}{4} = 2$.\n\n**The Full Solution:**\nSlope $= \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{13 - 5}{6 - 2} = \\frac{8}{4} = 2$.\n\n**Why the wrong answers are tempting:**\n• A: Inverts the fraction to get $\\frac{4}{8}$.\n• C: Uses only the $x$-difference.\n• D: Uses only the $y$-difference.\n\n**Test Day Takeaway:** Slope is rise over run: change in $y$ divided by change in $x$.",
-  skills: ["slope"]
+  explanation: "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f$ has minimum value $-9$ (at $x = -4$). $g(x) = f(x - 6)$ shifts $f$ horizontally; horizontal shifts do NOT change the minimum value. So $g$ has minimum value $-9$.\n\n**The Full Solution:**\n$g(x) = f(x - 6) = ((x - 6) + 4)^2 - 9 = (x - 2)^2 - 9$.\n\nThis is vertex form with vertex $(2, -9)$. The minimum value is $-9$, attained at $x = 2$.\n\nVerification: $(x - 2)^2 \\geq 0$ for all real $x$, so $g(x) \\geq -9$ with equality at $x = 2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the $x$-coordinate of the minimum ($2$) instead of $g(x) = -9$.\n* Choice C: \"off-by-one\" — forgets the constant $-9$ in the original function.\n* Choice D: \"applies the inverse operation\" — combines $-9$ and $+6$ via incorrect shift.\n\n**Test Day Takeaway:** Horizontal shifts (replacing $x$ with $x \\pm h$) do NOT change the min/max value. Only vertical shifts ($+k$ outside) do.",
+  skills: ["function-interpretation", "vertex-form", "quadratic-equations"]
 },
 {
-  id: 5, type: "multiple-choice", difficulty: "easy",
-  question: "In a class of 30 students, 18 play soccer and 7 play both soccer and basketball. If 20 students play at least one of the two sports, how many play only basketball?",
-  choices: [{ id: "A", text: "2" }, { id: "B", text: "5" }, { id: "C", text: "7" }, { id: "D", text: "9" }],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Two-Group Overlap**\n\n**Choice A is correct.**\n\n**The Fast Way:** Only soccer $= 18 - 7 = 11$. Only basketball $= 20 - 11 - 7 = 2$.\n\n**The Full Solution:**\nUsing the inclusion-exclusion principle: Soccer $\\cup$ Basketball $=$ Soccer $+$ Basketball $-$ Both. So $20 = 18 + B - 7$, giving $B = 9$ total basketball players. Only basketball $= 9 - 7 = 2$.\n\n**Why the wrong answers are tempting:**\n• B: Subtracts 7 from a wrong total.\n• C: This is the overlap (both sports), not only basketball.\n• D: This is the total basketball count, not only basketball.\n\n**Test Day Takeaway:** Draw a Venn diagram and fill in the overlap first.",
-  skills: ["probability"]
-},
-{
-  id: 6, type: "multiple-choice", difficulty: "medium",
-  question: "A researcher collected data on the hours studied and test scores for 15 students. The line of best fit is $y = 8.2x + 42$, where $x$ is hours studied and $y$ is the predicted test score. One student studied for 5 hours and scored 89. What is the residual for this student?",
-  choices: [{ id: "A", text: "$-6$" }, { id: "B", text: "$-3$" }, { id: "C", text: "$3$" }, { id: "D", text: "$6$" }],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Residual Calculation**\n\n**Choice D is correct.**\n\n**The Fast Way:** Predicted $= 8.2(5) + 42 = 83$. Residual $= 89 - 83 = 6$.\n\n**The Full Solution:**\nThe residual is actual minus predicted. Predicted score: $y = 8.2(5) + 42 = 41 + 42 = 83$. Residual $= 89 - 83 = 6$. A positive residual means the actual score was above the line of best fit.\n\n**Why the wrong answers are tempting:**\n• A: Computes predicted minus actual and makes an arithmetic error.\n• B: Arithmetic error in the predicted value.\n• C: Gets the magnitude right but the sign reversed (predicted minus actual).\n\n**Test Day Takeaway:** Residual = actual $-$ predicted. Positive means the point is above the line.",
-  skills: ["statistics"]
-},
-{
-  id: 7, type: "multiple-choice", difficulty: "medium",
-  question: "The population of a town was 12,000 in 2010 and has been decreasing by 3% per year since then. Which function models the population $P$ after $t$ years since 2010?",
-  choices: [{ id: "A", text: "$P(t) = 12000(0.03)^t$" }, { id: "B", text: "$P(t) = 12000(0.97)^t$" }, { id: "C", text: "$P(t) = 12000(1.03)^t$" }, { id: "D", text: "$P(t) = 12000 - 360t$" }],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Exponential Decay Model**\n\n**Choice B is correct.**\n\n**The Fast Way:** Decreasing by 3% means the base is $1 - 0.03 = 0.97$.\n\n**The Full Solution:**\nExponential decay: $P(t) = P_0(1 - r)^t$ where $P_0 = 12000$ and $r = 0.03$. So $P(t) = 12000(0.97)^t$.\n\n**Why the wrong answers are tempting:**\n• A: Uses $0.03$ as the base instead of $1 - 0.03$.\n• C: Uses $1.03$, which models 3% growth, not decay.\n• D: Models linear decrease ($12000 \\times 0.03 = 360$ per year), but population decrease is compounding.\n\n**Test Day Takeaway:** For percent decrease, the base is $1 - r$. For percent increase, the base is $1 + r$.",
-  skills: ["exponential-functions"]
-},
-{
-  id: 8, type: "fill-in", difficulty: "medium",
-  question: "A dataset has the following five-number summary:\n\nMinimum: 12, $Q_1$: 18, Median: 25, $Q_3$: 34, Maximum: 47\n\nWhat is the interquartile range (IQR) of the dataset?",
-  correctAnswer: "16",
-  explanation: "**SAT Pattern: Five-Number Summary and IQR**\n\n**The answer is 16.**\n\n**The Fast Way:** $IQR = Q_3 - Q_1 = 34 - 18 = 16$.\n\n**The Full Solution:**\nThe interquartile range measures the spread of the middle 50% of data. It is calculated as $Q_3 - Q_1 = 34 - 18 = 16$.\n\n**Common Mistakes:**\n• Computing the range instead: $47 - 12 = 35$.\n• Using the median: $34 - 25 = 9$ or $25 - 18 = 7$.\n\n**Test Day Takeaway:** IQR is always $Q_3 - Q_1$. It ignores the minimum, maximum, and median.",
-  skills: ["statistics"]
-},
-{
-  id: 9, type: "multiple-choice", difficulty: "medium",
-  question: "A study of 12 stores compares advertising spending (in thousands of dollars) and monthly revenue (in thousands of dollars). The linear model for the data has the equation $y = 2.4x + 15$. According to this model, what is the predicted monthly revenue for a store that spends \\$8,000 on advertising?",
-  choices: [{ id: "A", text: "\\$19,200" }, { id: "B", text: "\\$34,200" }, { id: "C", text: "\\$34,000" }, { id: "D", text: "\\$192,000" }],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Line of Best Fit Prediction with Unit Conversion**\n\n**Choice B is correct.**\n\n**The Fast Way:** $x = 8$ (thousands), so $y = 2.4(8) + 15 = 19.2 + 15 = 34.2$ thousand $= \\$34{,}200$.\n\n**The Full Solution:**\nSince both axes are in thousands, \\$8,000 means $x = 8$. Substituting: $y = 2.4(8) + 15 = 19.2 + 15 = 34.2$. Since $y$ is in thousands, the revenue is $34.2 \\times 1000 = \\$34{,}200$.\n\n**Why the wrong answers are tempting:**\n• A: Forgets to add the $y$-intercept.\n• C: Rounds $34.2$ to $34$ before converting.\n• D: Substitutes $x = 8000$ instead of $x = 8$.\n\n**Test Day Takeaway:** Always check the units on the axes before substituting values.",
-  skills: ["statistics", "linear-functions"]
-},
-{
-  id: 10, type: "multiple-choice", difficulty: "medium",
-  question: "A bacteria culture triples every 4 hours. If the culture starts with 200 bacteria, which expression gives the number of bacteria after $h$ hours?",
-  choices: [{ id: "A", text: "$200(3)^{4h}$" }, { id: "B", text: "$200(3)^{h/4}$" }, { id: "C", text: "$200(3)^{h-4}$" }, { id: "D", text: "$600^{h/4}$" }],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Exponential Growth with Period**\n\n**Choice B is correct.**\n\n**The Fast Way:** Triples every 4 hours means the exponent counts how many 4-hour periods have passed: $h/4$.\n\n**The Full Solution:**\nThe general form is $N = N_0 \\cdot r^{t/p}$ where $N_0 = 200$ is the initial amount, $r = 3$ is the growth factor, and $p = 4$ is the period. So $N = 200(3)^{h/4}$.\n\nCheck: at $h = 4$, $N = 200(3)^1 = 600$ (tripled). At $h = 8$, $N = 200(3)^2 = 1800$ (tripled again). Correct.\n\n**Why the wrong answers are tempting:**\n• A: Multiplies the exponent by 4 instead of dividing, making it grow far too fast.\n• C: Subtracts 4 from $h$, which shifts the function rather than scaling the rate.\n• D: Incorrectly combines $200 \\times 3 = 600$ into the base.\n\n**Test Day Takeaway:** When something changes every $p$ units, the exponent is $t/p$.",
-  skills: ["exponential-functions"]
-},
-{
-  id: 11, type: "multiple-choice", difficulty: "medium",
-  question: "A random sample of 500 voters in a city found that 58% support a new park initiative, with a margin of error of 4 percentage points at a 95% confidence level. Which statement is the best interpretation of this result?",
-  choices: [{ id: "A", text: "Exactly 58% of all voters in the city support the initiative." }, { id: "B", text: "Between 54% and 62% of the sample support the initiative." }, { id: "C", text: "It is plausible that between 54% and 62% of all voters in the city support the initiative." }, { id: "D", text: "95% of all voters support the initiative with 4% uncertainty." }],
+  id: 6,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A polling organization surveyed a random sample of $400$ likely voters and reported a margin of error of $\\pm 4$ percentage points at $95\\%$ confidence. The pollsters want to reduce the margin of error to approximately $\\pm 2$ percentage points using the same confidence level. Approximately what total sample size is needed?",
+  choices: [
+    // distractor: doubles to 800 (would only reduce MOE by sqrt(2))
+    { id: "A", text: "$800$" },
+    // distractor: 400 * 3 = 1200 (triples instead of quadruples)
+    { id: "B", text: "$1{,}200$" },
+    { id: "C", text: "$1{,}600$" },
+    // distractor: 400 * 8 = 3200 (over-quadruples)
+    { id: "D", text: "$3{,}200$" }
+  ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Margin of Error Interpretation**\n\n**Choice C is correct.**\n\n**The Fast Way:** The confidence interval is $58\\% \\pm 4\\%$, so $[54\\%, 62\\%]$. This interval estimates the true population proportion.\n\n**The Full Solution:**\nA margin of error of 4% at 95% confidence means we are 95% confident that the true population proportion is within $58\\% \\pm 4\\% = [54\\%, 62\\%]$. The interval applies to the population, not the sample.\n\n**Why the wrong answers are tempting:**\n• A: A sample statistic estimates but does not equal the population parameter.\n• B: We already know the sample result; the interval is about the population.\n• D: Misinterprets both the confidence level and the margin of error.\n\n**Test Day Takeaway:** Margin of error creates an interval for the population parameter, not the sample.",
+  explanation: "**SAT Pattern: Margin of Error**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Margin of error $\\propto \\dfrac{1}{\\sqrt{n}}$. To halve the margin of error, multiply $n$ by $4$: $400 \\cdot 4 = 1{,}600$.\n\n**The Full Solution:**\nThe margin of error scales as $\\dfrac{1}{\\sqrt{n}}$. To reduce the margin of error by a factor of $k$, multiply $n$ by $k^2$.\n\nDesired ratio of margins: $\\dfrac{4}{2} = 2$. So multiply $n$ by $2^2 = 4$.\nNew sample size: $400 \\times 4 = 1{,}600$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — doubles $n$, but that only reduces MOE by $\\sqrt{2}$.\n* Choice B: \"off-by-one\" — triples instead of quadrupling.\n* Choice D: \"wrong base\" — multiplies by $8$ (over-corrects).\n\n**Test Day Takeaway:** To CUT the margin of error in half, MULTIPLY the sample size by $4$. In general, the multiplier on $n$ is the square of the desired MOE ratio.",
   skills: ["margin-of-error", "statistics"]
 },
 {
-  id: 12, type: "fill-in", difficulty: "medium",
-  question: "The number of subscribers to a streaming service is modeled by $S(t) = 8000(1.06)^t$, where $t$ is the number of years after 2020. According to the model, in what year will the number of subscribers first exceed 12,000?\n\n(Use the fact that $\\log(1.5) \\approx 0.176$ and $\\log(1.06) \\approx 0.025$.)",
-  correctAnswer: "2028",
-  explanation: "**SAT Pattern: Solving Exponential Inequality**\n\n**The answer is 2028.**\n\n**The Fast Way:** $8000(1.06)^t > 12000 \\Rightarrow (1.06)^t > 1.5 \\Rightarrow t > \\frac{\\log 1.5}{\\log 1.06} \\approx \\frac{0.176}{0.025} = 7.04$. So $t = 8$, meaning the year is $2020 + 8 = 2028$.\n\n**The Full Solution:**\nDivide both sides by 8000: $(1.06)^t > 1.5$.\nTake logarithms: $t \\cdot \\log(1.06) > \\log(1.5)$.\n$t > \\frac{0.176}{0.025} = 7.04$.\nSince $t$ must be a whole number and we need to exceed (not equal), $t = 8$.\nYear $= 2020 + 8 = 2028$.\n\n**Common Mistakes:**\n• Writing 2027 by rounding $7.04$ down to $7$ instead of up to $8$.\n• Forgetting to add 2020.\n\n**Test Day Takeaway:** For \"first exceeds,\" always round up to the next whole number.",
-  skills: ["exponential-functions", "solving-equations"]
+  id: 7,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "Consider the system of equations:\n\n$x + y + z = 11$\n$x + 2y + z = 16$\n$2x + y + 3z = 19$\n\nWhat is the value of $x + y$?",
+  correctAnswer: "9",
+  explanation: "**SAT Pattern: Three-Variable Elimination**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~30s):** Subtract equation 1 from equation 2 to isolate $y$: $y = 5$. From equation 1: $x + z = 6$. From equation 3: $2x + 3z = 14$. Solving: $z = 2$, $x = 4$. So $x + y = 4 + 5 = 9$.\n\n**The Full Solution:**\nLabel the equations:\n$(1) \\; x + y + z = 11$\n$(2) \\; x + 2y + z = 16$\n$(3) \\; 2x + y + 3z = 19$\n\nSubtract $(1)$ from $(2)$: $y = 5$.\n\nSubstitute $y = 5$ into $(1)$: $x + 5 + z = 11 \\Rightarrow x + z = 6$.\nSubstitute $y = 5$ into $(3)$: $2x + 5 + 3z = 19 \\Rightarrow 2x + 3z = 14$.\n\nFrom $x + z = 6$: $x = 6 - z$. Substitute: $2(6 - z) + 3z = 14 \\Rightarrow 12 + z = 14 \\Rightarrow z = 2$, so $x = 4$.\n\nVerification: equation $(1)$: $4 + 5 + 2 = 11$ \\checkmark; equation $(2)$: $4 + 10 + 2 = 16$ \\checkmark; equation $(3)$: $8 + 5 + 6 = 19$ \\checkmark.\n\nSo $x + y = 4 + 5 = 9$.\n\n**Common Mistakes to Avoid:**\n* Solving for each variable individually when only $x + y$ is needed.\n* Forgetting that subtracting two near-identical equations isolates one variable instantly.\n\n**Test Day Takeaway:** When two equations differ in only one variable, subtract them to isolate that variable.",
+  skills: ["systems-of-equations", "word-problems"]
 },
 {
-  id: 13, type: "multiple-choice", difficulty: "medium",
-  question: "The table below shows the results of a survey about preferred exercise type by age group.\n\n|  | Running | Swimming | Cycling | Total |\n|---|---|---|---|---|\n| Under 30 | 45 | 30 | 25 | 100 |\n| 30 and over | 20 | 35 | 45 | 100 |\n| Total | 65 | 65 | 70 | 200 |\n\nWhat proportion of people who prefer cycling are under 30?",
-  choices: [{ id: "A", text: "$\\frac{25}{100}$" }, { id: "B", text: "$\\frac{25}{70}$" }, { id: "C", text: "$\\frac{45}{70}$" }, { id: "D", text: "$\\frac{70}{200}$" }],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice B is correct.**\n\n**The Fast Way:** \"Of people who prefer cycling\" means the denominator is the cycling column total (70). Under 30 who prefer cycling: 25. So $\\frac{25}{70}$.\n\n**The Full Solution:**\nThis is a conditional probability: $P(\\text{Under 30} \\mid \\text{Cycling}) = \\frac{25}{70}$. The condition (cycling) determines the denominator.\n\n**Why the wrong answers are tempting:**\n• A: Uses 100 (Under 30 row total) as denominator instead of 70.\n• C: Uses 45 (the 30+ cycling count) as the numerator.\n• D: Gives the proportion of all people who prefer cycling, ignoring the age condition.\n\n**Test Day Takeaway:** The word after \"of\" or \"given\" determines your denominator.",
-  skills: ["two-way-tables", "probability"]
-},
-{
-  id: 14, type: "multiple-choice", difficulty: "medium",
-  question: "A statistician wants to estimate the average commute time of employees in a large company. She takes a random sample of 80 employees and finds a mean commute of 34 minutes with a margin of error of 3 minutes. If she wants to reduce the margin of error to approximately 1.5 minutes, which sample size is closest to what she needs?",
-  choices: [{ id: "A", text: "160" }, { id: "B", text: "240" }, { id: "C", text: "320" }, { id: "D", text: "640" }],
+  id: 8,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The parabola defined by $y = -3(x - h)^2 + k$ has its vertex at the point $(2, 12)$ and passes through the point $(4, 0)$. What is the value of $h - k$?",
+  choices: [
+    // distractor: stops one step early — gives just h = 2
+    { id: "A", text: "$2$" },
+    // distractor: applies inverse — gives h + k = 14
+    { id: "B", text: "$14$" },
+    { id: "C", text: "$-10$" },
+    // distractor: wrong base — gives k - h = 10
+    { id: "D", text: "$10$" }
+  ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Margin of Error and Sample Size**\n\n**Choice C is correct.**\n\n**The Fast Way:** Halving the margin of error requires quadrupling the sample size: $80 \\times 4 = 320$.\n\n**The Full Solution:**\nThe margin of error is proportional to $\\frac{1}{\\sqrt{n}}$. To reduce the margin of error by a factor of $k$, you must multiply $n$ by $k^2$.\n\nShe wants to go from 3 to 1.5, which is a factor of $\\frac{3}{1.5} = 2$. So she needs $80 \\times 2^2 = 80 \\times 4 = 320$ employees.\n\n**Why the wrong answers are tempting:**\n• A: Doubles the sample size, but that only reduces MOE by factor $\\sqrt{2} \\approx 1.41$.\n• B: Triples the sample size.\n• D: Over-quadruples unnecessarily.\n\n**Test Day Takeaway:** To cut margin of error in half, multiply sample size by 4.",
-  skills: ["margin-of-error", "statistics"]
+  explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Vertex $(h, k) = (2, 12)$. Verify the parabola passes through $(4, 0)$: $y = -3(4 - 2)^2 + 12 = -3(4) + 12 = 0$ \\checkmark. So $h - k = 2 - 12 = -10$.\n\n**The Full Solution:**\nIn vertex form $y = a(x - h)^2 + k$, the vertex is $(h, k)$.\nGiven vertex $(2, 12)$: $h = 2$ and $k = 12$.\nVerify with the second point $(4, 0)$ and $a = -3$:\n$y = -3(4 - 2)^2 + 12 = -3(4) + 12 = 0$ \\checkmark.\n\nSo $h - k = 2 - 12 = -10$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reports just $h = 2$ without subtracting $k$.\n* Choice B: \"applies the inverse operation\" — computes $h + k = 14$.\n* Choice D: \"wrong base\" — computes $k - h = 10$ (sign reversed).\n\n**Test Day Takeaway:** In $y = a(x - h)^2 + k$, the vertex is exactly $(h, k)$. The other point only verifies $a$.",
+  skills: ["vertex-form", "function-interpretation"]
 },
 {
-  id: 15, type: "multiple-choice", difficulty: "hard",
-  question: "The function $f(x) = 8600(0.72)^{x/6}$ models the value, in dollars, of a piece of equipment $x$ months after purchase. Which of the following is closest to the percent decrease in value per year?",
-  choices: [{ id: "A", text: "28%" }, { id: "B", text: "48%" }, { id: "C", text: "52%" }, { id: "D", text: "72%" }],
+  id: 9,
+  type: "fill-in",
+  difficulty: "medium",
+  band: 5,
+  question: "The equation $5(2x - 4) + 14 = 10x + k$ has infinitely many solutions. What is the value of $k$?",
+  correctAnswer: "-6",
+  explanation: "**SAT Pattern: System Equivalence Check**\n\n**The correct answer is $-6$.**\n\n**The Fast Way (~15s):** Expand: $10x - 20 + 14 = 10x - 6$. For infinitely many solutions, this must equal $10x + k$ for all $x$, so $k = -6$.\n\n**The Full Solution:**\nLeft side: $5(2x - 4) + 14 = 10x - 20 + 14 = 10x - 6$.\nFor the equation $10x - 6 = 10x + k$ to hold for all $x$, the constants must match: $k = -6$.\n\nVerification: with $k = -6$, both sides become $10x - 6$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Writing $k = 6$ (sign error).\n* Computing $-20 + 14 = -34$ instead of $-6$.\n\n**Test Day Takeaway:** Infinitely many solutions $\\iff$ both sides identical after simplification. Match constants AND coefficients on each variable.",
+  skills: ["solving-equations", "linear-functions"]
+},
+{
+  id: 10,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A study assigned $80$ participants to one of three experimental groups. The table summarizes participants by group and outcome:\n\n| | Improved | No Change | Worsened | Total |\n|---|---|---|---|---|\n| Group X | $14$ | $9$ | $7$ | $30$ |\n| Group Y | $5$ | $11$ | $4$ | $20$ |\n| Group Z | $11$ | $13$ | $6$ | $30$ |\n| Total | $30$ | $33$ | $17$ | $80$ |\n\nIf one participant who Improved is selected at random, what is the probability that the participant was in Group Y or Group Z?",
+  choices: [
+    // distractor: uses 16/80 = 1/5 (uses grand total as denominator)
+    { id: "A", text: "$\\dfrac{1}{5}$" },
+    // distractor: stops at Y only: 5/30 = 1/6
+    { id: "B", text: "$\\dfrac{1}{6}$" },
+    { id: "C", text: "$\\dfrac{8}{15}$" },
+    // distractor: off-by-one — uses 16/30 simplified wrong
+    { id: "D", text: "$\\dfrac{14}{30}$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Restrict to the Improved column (total $30$). Y or Z count: $5 + 11 = 16$. Probability $= \\dfrac{16}{30} = \\dfrac{8}{15}$.\n\n**The Full Solution:**\nGiven: participant Improved. The conditional restricts the sample space to that column, which has $30$ total participants.\nFavorable: Improved AND (Group Y OR Group Z) = $5 + 11 = 16$.\nProbability $= \\dfrac{16}{30} = \\dfrac{8}{15}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses the grand total ($80$) as denominator: $\\dfrac{16}{80} = \\dfrac{1}{5}$.\n* Choice B: \"stops one step early\" — counts only Group Y ($5$) and divides by $30$.\n* Choice D: \"off-by-one\" — uses Group X count ($14$) instead of Y + Z.\n\n**Test Day Takeaway:** \"Given X\" means restrict to the X-row or X-column. Numerator counts favorable cases in that subset; denominator is the subset's total.",
+  skills: ["probability", "two-way-tables"]
+},
+{
+  id: 11,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "Line $\\ell$ passes through the points $(2, -3)$ and $(8, 9)$. Line $m$ is perpendicular to line $\\ell$ and passes through the point $(4, 5)$. What is the equation of line $m$?",
+  choices: [
+    // distractor: uses slope of ell (parallel, not perpendicular)
+    { id: "A", text: "$y = 2x - 3$" },
+    // distractor: applies inverse — keeps negative on slope
+    { id: "B", text: "$y = -2x + 13$" },
+    { id: "C", text: "$y = -\\dfrac{1}{2}x + 7$" },
+    // distractor: off-by-one — wrong intercept
+    { id: "D", text: "$y = -\\dfrac{1}{2}x + 5$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Slope of $\\ell$: $\\dfrac{9 - (-3)}{8 - 2} = \\dfrac{12}{6} = 2$. Perpendicular slope: $-\\dfrac{1}{2}$. Using $(4, 5)$: $5 = -\\dfrac{1}{2}(4) + b \\Rightarrow b = 7$. So $y = -\\dfrac{1}{2}x + 7$.\n\n**The Full Solution:**\n$m_{\\ell} = \\dfrac{9 - (-3)}{8 - 2} = \\dfrac{12}{6} = 2$.\nPerpendicular slopes are negative reciprocals: $m_m = -\\dfrac{1}{2}$.\nUsing the point $(4, 5)$:\n$5 = -\\dfrac{1}{2}(4) + b \\Rightarrow 5 = -2 + b \\Rightarrow b = 7$.\nEquation: $y = -\\dfrac{1}{2}x + 7$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses the slope of $\\ell$ itself (parallel, not perpendicular).\n* Choice B: \"applies the inverse operation\" — keeps the negative sign on the slope without taking the reciprocal.\n* Choice D: \"off-by-one\" — uses the $y$-coordinate of the given point ($5$) as the intercept.\n\n**Test Day Takeaway:** Perpendicular slope: flip AND change sign. Then plug in the given point to find the intercept.",
+  skills: ["slope", "linear-functions", "coordinate-geometry"]
+},
+{
+  id: 12,
+  type: "multiple-choice",
+  difficulty: "medium",
+  band: 5,
+  question: "In right triangle $ABC$, angle $C$ is the right angle, $\\sin(A) = \\dfrac{8}{17}$, and the hypotenuse $AB$ has length $34$. What is the length of $BC$?",
+  choices: [
+    // distractor: stops one step early — gives the sin value 8 directly
+    { id: "A", text: "$8$" },
+    { id: "B", text: "$16$" },
+    // distractor: applies inverse — uses 17 directly (the denominator)
+    { id: "C", text: "$17$" },
+    // distractor: wrong base — uses 34/2 instead of computing via sin
+    { id: "D", text: "$30$" }
+  ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Converting Exponential Period to Annual Rate**\n\n**Choice B is correct.**\n\n**The Fast Way:** One year = 12 months, so the annual factor is $(0.72)^{12/6} = (0.72)^2 = 0.5184$. The annual decrease is $1 - 0.5184 = 0.4816 \\approx 48\\%$.\n\n**The Full Solution:**\nThe function decreases by factor $0.72$ every 6 months. In one year (12 months):\n$f(12) = 8600(0.72)^{12/6} = 8600(0.72)^2 = 8600(0.5184) = 4458.24$.\n\nPercent decrease $= \\frac{8600 - 4458.24}{8600} \\times 100 = 48.16\\% \\approx 48\\%$.\n\n**Why the wrong answers are tempting:**\n• A: This is the 6-month decrease ($1 - 0.72 = 0.28$), not the annual decrease.\n• C: Confuses $1 - 0.4816$ with $0.5184$.\n• D: Uses the base $0.72$ as if it were the annual rate.\n\n**Test Day Takeaway:** To convert periods, raise the base to the ratio of desired period to given period.",
-  skills: ["exponential-functions", "percents"]
+  explanation: "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $\\sin(A) = \\dfrac{\\text{opposite}}{\\text{hypotenuse}} = \\dfrac{BC}{AB}$. So $BC = AB \\cdot \\sin(A) = 34 \\cdot \\dfrac{8}{17} = 16$.\n\n**The Full Solution:**\nIn right triangle $ABC$ with right angle at $C$, side $BC$ is opposite angle $A$, and $AB$ is the hypotenuse.\n$\\sin(A) = \\dfrac{BC}{AB} = \\dfrac{8}{17}$.\nSo $BC = AB \\cdot \\sin(A) = 34 \\cdot \\dfrac{8}{17} = \\dfrac{272}{17} = 16$.\n\nVerification: with $BC = 16$ and hypotenuse $34$, $AC = \\sqrt{34^2 - 16^2} = \\sqrt{1156 - 256} = \\sqrt{900} = 30$, and $\\sin(A) = \\dfrac{16}{34} = \\dfrac{8}{17}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reads $8$ from the ratio and reports it as the side.\n* Choice C: \"applies the inverse operation\" — uses the denominator $17$ as the side.\n* Choice D: \"wrong base\" — uses the other leg $AC = 30$ instead of $BC$.\n\n**Test Day Takeaway:** $\\sin(\\theta) = \\dfrac{\\text{opposite}}{\\text{hypotenuse}}$. Multiply hypotenuse by the sine ratio to get the opposite side.",
+  skills: ["trigonometry", "triangles"]
 },
 {
-  id: 16, type: "multiple-choice", difficulty: "hard",
-  question: "A researcher measures the heights (in cm) of plants under two different fertilizers. Fertilizer A has $n_A = 40$ plants with mean $\\bar{x}_A = 24.3$ and standard deviation $s_A = 3.1$. Fertilizer B has $n_B = 40$ plants with mean $\\bar{x}_B = 22.7$ and standard deviation $s_B = 4.5$. Which of the following is the most appropriate conclusion?",
-  choices: [{ id: "A", text: "Fertilizer A causes taller plants because its mean is higher." }, { id: "B", text: "The difference in means provides evidence that Fertilizer A is associated with taller plants, but a causal claim requires knowing whether this was a randomized experiment." }, { id: "C", text: "There is no meaningful difference because the standard deviations overlap." }, { id: "D", text: "Fertilizer B is better because it has more variability, indicating it works on more plant types." }],
+  id: 13,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The graph of $x^2 + 3x + y^2 + 5y = \\dfrac{33}{2}$ in the $xy$-plane is a circle. What is the length of the circle's radius?",
+  choices: [
+    // distractor: stops one step early — gives r^2 = 25 instead of r = 5
+    { id: "A", text: "$25$" },
+    { id: "B", text: "$5$" },
+    // distractor: wrong base — uses sqrt of 33/2 directly without completing
+    { id: "C", text: "$\\sqrt{\\dfrac{33}{2}}$" },
+    // distractor: applies inverse — subtracts the completing-square constants instead of adding
+    { id: "D", text: "$4$" }
+  ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Observational vs. Experimental Study Conclusions**\n\n**Choice B is correct.**\n\n**The Fast Way:** Without knowing if this was a randomized experiment, we can note an association but cannot claim causation.\n\n**The Full Solution:**\nThe data shows Fertilizer A has a higher mean (24.3 vs 22.7). However, to claim that Fertilizer A causes taller growth, the study must be a randomized controlled experiment. If plants were not randomly assigned to fertilizers, confounding variables could explain the difference. The correct conclusion acknowledges the observed difference while noting the limitation.\n\n**Why the wrong answers are tempting:**\n• A: Jumps to a causal claim without knowing the study design.\n• C: Standard deviations measure spread within groups, not whether the means differ meaningfully.\n• D: Higher variability is not an advantage; it makes results less consistent.\n\n**Test Day Takeaway:** Only randomized experiments support causal claims. Observational studies show association only.",
-  skills: ["statistics"]
+  explanation: "**SAT Pattern: Complete the Square — Non-Square Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Half of $3$ is $\\dfrac{3}{2}$, squared $= \\dfrac{9}{4}$. Half of $5$ is $\\dfrac{5}{2}$, squared $= \\dfrac{25}{4}$. Add $\\dfrac{9}{4} + \\dfrac{25}{4} = \\dfrac{34}{4} = \\dfrac{17}{2}$ to both sides: $\\left(x + \\dfrac{3}{2}\\right)^2 + \\left(y + \\dfrac{5}{2}\\right)^2 = \\dfrac{33}{2} + \\dfrac{17}{2} = \\dfrac{50}{2} = 25$. Radius $= \\sqrt{25} = 5$.\n\n**The Full Solution:**\nGroup terms and complete the square for each variable:\n$x^2 + 3x + y^2 + 5y = \\dfrac{33}{2}$\n$\\left(x^2 + 3x + \\dfrac{9}{4}\\right) + \\left(y^2 + 5y + \\dfrac{25}{4}\\right) = \\dfrac{33}{2} + \\dfrac{9}{4} + \\dfrac{25}{4}$\n$\\left(x + \\dfrac{3}{2}\\right)^2 + \\left(y + \\dfrac{5}{2}\\right)^2 = \\dfrac{66}{4} + \\dfrac{34}{4} = \\dfrac{100}{4} = 25$\n\nRadius $= \\sqrt{25} = 5$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives $r^2 = 25$ instead of $r = 5$.\n* Choice C: \"wrong base\" — uses the right-hand-side constant directly without completing the square.\n* Choice D: \"applies the inverse operation\" — subtracts the completing-square constants instead of adding.\n\n**Test Day Takeaway:** Complete the square symmetrically for BOTH variables. Add the completion constants to BOTH sides — once for $x$, once for $y$.",
+  skills: ["circle-equations", "solving-equations"]
 },
 {
-  id: 17, type: "fill-in", difficulty: "hard",
-  question: "A data set contains the following values:\n\n2, 3, 3, 4, 4, 4, 5, 5, 6, 7\n\nA new value of 48 is added to the data set. What is the new median of the 11 values?",
-  correctAnswer: "4",
-  explanation: "**SAT Pattern: Effect of Outlier on Median**\n\n**The answer is 4.**\n\n**The Fast Way:** With 11 values, the median is the 6th value when sorted. The original sorted data plus 48 at the end: 2, 3, 3, 4, 4, **4**, 5, 5, 6, 7, 48. The 6th value is 4.\n\n**The Full Solution:**\nOriginal data sorted: 2, 3, 3, 4, 4, 4, 5, 5, 6, 7 (10 values, median is average of 5th and 6th = $\\frac{4+4}{2} = 4$).\n\nAdding 48 gives 11 values. Since 48 is appended at the end of the sorted list, the 6th value (median of 11) is 4.\n\n**Common Mistakes:**\n• Recalculating the mean instead of the median (mean would change dramatically).\n• Thinking the outlier shifts the median significantly.\n\n**Test Day Takeaway:** The median is resistant to outliers. Adding an extreme value at one end shifts the median position by at most one spot.",
-  skills: ["statistics"]
+  id: 14,
+  type: "multiple-choice",
+  difficulty: "medium",
+  band: 5,
+  question: "A researcher models the relationship between hours spent practicing ($x$) and test score ($y$) for a group of students using the equation $y = 6.4x + 38$. A particular student practiced for $7$ hours and scored $89$. What is the residual for this student?",
+  choices: [
+    // distractor: predicted - actual (sign reversed)
+    { id: "A", text: "$-6.2$" },
+    { id: "B", text: "$6.2$" },
+    // distractor: arithmetic slip — uses wrong predicted value
+    { id: "C", text: "$3.8$" },
+    // distractor: gives the predicted value, not the residual
+    { id: "D", text: "$82.8$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Predicted: $6.4(7) + 38 = 44.8 + 38 = 82.8$. Residual $= 89 - 82.8 = 6.2$.\n\n**The Full Solution:**\nPredicted at $x = 7$: $y = 6.4(7) + 38 = 44.8 + 38 = 82.8$.\nResidual $=$ actual $-$ predicted $= 89 - 82.8 = 6.2$.\nA positive residual means the actual score was above the line of best fit.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — computes predicted $-$ actual.\n* Choice C: \"off-by-one\" — arithmetic slip on the predicted value.\n* Choice D: \"stops one step early\" — gives the predicted value $82.8$ without subtracting.\n\n**Test Day Takeaway:** Residual = actual $-$ predicted. Positive means above the line; negative means below.",
+  skills: ["scatterplots", "statistics"]
 },
 {
-  id: 18, type: "multiple-choice", difficulty: "hard",
-  question: "The equation $-x^2 + bx - 484 = 0$ has no real solutions. What is the greatest integer value of $b$?",
-  choices: [{ id: "A", text: "43" }, { id: "B", text: "44" }, { id: "C", text: "45" }, { id: "D", text: "88" }],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Discriminant and No Real Solutions**\n\n**Choice A is correct.**\n\n**The Fast Way:** No real solutions means discriminant $< 0$: $b^2 - 4(-1)(-484) < 0$, so $b^2 < 1936$, giving $|b| < 44$. Greatest integer is 43.\n\n**The Full Solution:**\nFor $-x^2 + bx - 484 = 0$, we have $a = -1$, $b = b$, $c = -484$.\n\nDiscriminant $= b^2 - 4ac = b^2 - 4(-1)(-484) = b^2 - 1936$.\n\nNo real solutions requires discriminant $< 0$:\n$b^2 - 1936 < 0$\n$b^2 < 1936$\n$|b| < \\sqrt{1936} = 44$\n\nThe greatest integer with $|b| < 44$ is $b = 43$.\n\n**Why the wrong answers are tempting:**\n• B: At $b = 44$, the discriminant equals 0 (one repeated real solution, not \"no\" real solutions).\n• C: $45^2 = 2025 > 1936$, so there would be two real solutions.\n• D: $88 = 2 \\times 44$; a common arithmetic error doubling the boundary.\n\n**Test Day Takeaway:** \"No real solutions\" means $b^2 - 4ac < 0$ (strictly less than, not $\\leq$).",
+  id: 15,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "In right triangle $XYZ$, angle $Y$ is the right angle, $XZ = 25$, and $YZ = 7$. What is the value of $\\cos(X)$?",
+  choices: [
+    // distractor: uses YZ (opposite to X) — this is sin(X)
+    { id: "A", text: "$\\dfrac{7}{25}$" },
+    { id: "B", text: "$\\dfrac{24}{25}$" },
+    // distractor: uses YZ/XY — this is tan(X)
+    { id: "C", text: "$\\dfrac{7}{24}$" },
+    // distractor: gives 1/tan(X) = cot(X)
+    { id: "D", text: "$\\dfrac{24}{7}$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Angle $Y$ is right, so $XZ = 25$ is the hypotenuse. Find $XY$: $XY = \\sqrt{25^2 - 7^2} = \\sqrt{625 - 49} = \\sqrt{576} = 24$. For angle $X$: adjacent $= XY = 24$, hypotenuse $= 25$. $\\cos(X) = \\dfrac{24}{25}$.\n\n**The Full Solution:**\nBy the Pythagorean theorem: $XY^2 + YZ^2 = XZ^2$.\n$XY^2 = 25^2 - 7^2 = 625 - 49 = 576 \\Rightarrow XY = 24$.\nVerification: $24^2 + 7^2 = 576 + 49 = 625 = 25^2$ \\checkmark. ($7$-$24$-$25$ Pythagorean triple.)\n$\\cos(X) = \\dfrac{\\text{adjacent to } X}{\\text{hypotenuse}} = \\dfrac{XY}{XZ} = \\dfrac{24}{25}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses $YZ$ (opposite to $X$); this is $\\sin(X)$.\n* Choice C: \"wrong base\" — uses $\\dfrac{YZ}{XY}$; this is $\\tan(X)$.\n* Choice D: \"applies the inverse operation\" — gives the reciprocal of $\\tan(X) = \\cot(X)$.\n\n**Test Day Takeaway:** Draw and label the triangle relative to the angle in question. Adjacent and opposite swap depending on which acute angle you reference.",
+  skills: ["trigonometry", "triangles"]
+},
+{
+  id: 16,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The equation $7x^2 - bx + 28 = 0$ has no real solutions. What is the greatest integer value of $b$?",
+  choices: [
+    // distractor: uses ≤ instead of < (misses strict inequality)
+    { id: "A", text: "$28$" },
+    { id: "B", text: "$27$" },
+    // distractor: off-by-one — over-corrects to 26
+    { id: "C", text: "$26$" },
+    // distractor: stops one step early — gives b^2 = 784
+    { id: "D", text: "$784$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Discriminant with Integer Bound**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** No real solutions $\\Rightarrow$ discriminant $< 0$: $b^2 - 4(7)(28) < 0 \\Rightarrow b^2 < 784 \\Rightarrow |b| < 28$. Greatest integer: $b = 27$.\n\n**The Full Solution:**\nFor $7x^2 - bx + 28 = 0$: discriminant $= (-b)^2 - 4(7)(28) = b^2 - 784$.\nNo real solutions $\\iff b^2 - 784 < 0 \\iff b^2 < 784 \\iff -28 < b < 28$.\n\nAt $b = 28$: discriminant $= 0$ (one repeated real root), so $b = 28$ does NOT give \"no real solutions.\"\nGreatest integer strictly less than $28$: $b = 27$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — uses $\\leq$ instead of $<$.\n* Choice C: \"applies the inverse operation\" — over-corrects to $b = 26$.\n* Choice D: \"stops one step early\" — gives $b^2 = 784$ instead of $b$.\n\n**Test Day Takeaway:** No real solutions $\\iff$ discriminant strictly less than zero. At discriminant $= 0$, there is exactly ONE real solution.",
   skills: ["discriminant", "quadratic-equations"]
 },
 {
-  id: 19, type: "fill-in", difficulty: "hard",
-  question: "In a study, the relationship between the number of hours of sunlight ($x$) and the yield of a crop in kilograms ($y$) is modeled by $y = -0.5x^2 + 12x + 5$. What number of hours of sunlight produces the maximum yield?",
-  correctAnswer: "12",
-  explanation: "**SAT Pattern: Vertex of a Quadratic (Maximum)**\n\n**The answer is 12.**\n\n**The Fast Way:** The vertex $x$-coordinate is $x = -\\frac{b}{2a} = -\\frac{12}{2(-0.5)} = -\\frac{12}{-1} = 12$.\n\n**The Full Solution:**\nSince $a = -0.5 < 0$, the parabola opens downward, so the vertex gives the maximum. The $x$-coordinate of the vertex is:\n$x = -\\frac{b}{2a} = -\\frac{12}{2(-0.5)} = -\\frac{12}{-1} = 12$\n\nSo 12 hours of sunlight produces the maximum yield.\n\n**Common Mistakes:**\n• Computing the maximum yield (77) instead of the hours that produce it.\n• Sign error: $-\\frac{12}{2(-0.5)} = -\\frac{12}{-1}$, not $-\\frac{12}{1}$.\n\n**Test Day Takeaway:** For maximum/minimum of $ax^2 + bx + c$, the input is $x = -\\frac{b}{2a}$.",
-  skills: ["vertex-form", "quadratic-equations", "function-interpretation"]
+  id: 17,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "A radioactive sample is modeled by $M(t) = 240(0.84)^{t/3}$, where $M$ is the mass in grams and $t$ is the time in days since the initial measurement. By what percent does the mass decrease every $3$ days?",
+  correctAnswer: "16",
+  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**The correct answer is $16$.**\n\n**The Fast Way (~15s):** Every $3$ days, the multiplier is $0.84$. Percent decrease $= 1 - 0.84 = 0.16 = 16\\%$.\n\n**The Full Solution:**\nWhen $t$ increases by $3$:\n$M(t + 3) = 240(0.84)^{(t+3)/3} = 240(0.84)^{t/3} \\cdot 0.84 = 0.84 \\cdot M(t)$.\n\nThe mass is multiplied by $0.84$ every $3$ days, so the percent decrease per $3$-day period is $1 - 0.84 = 0.16 = 16\\%$.\n\nVerification: at $t = 0$, $M = 240$. At $t = 3$, $M = 201.6$. Decrease: $\\dfrac{240 - 201.6}{240} = \\dfrac{38.4}{240} = 0.16 = 16\\%$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $84$ (the multiplier itself, not the percent decrease).\n* Computing the daily rate instead of the $3$-day rate.\n\n**Test Day Takeaway:** A decay multiplier $b < 1$ over period $d$ means the percent decrease per period is $(1 - b) \\times 100\\%$.",
+  skills: ["exponential-functions", "percents"]
 },
 {
-  id: 20, type: "multiple-choice", difficulty: "hard",
-  question: "A survey of 600 randomly selected adults found that 264 support a new policy. A 95% confidence interval for the true proportion is constructed. The survey organizer wants to claim that a majority of all adults support the policy. Is this claim supported?\n\n(Note: For 95% confidence, the margin of error is approximately $1.96\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}$.)",
-  choices: [{ id: "A", text: "Yes, because 264 out of 600 is 44%, and the interval extends above 50%." }, { id: "B", text: "Yes, because the sample size is large enough." }, { id: "C", text: "No, because the entire 95% confidence interval is below 50%." }, { id: "D", text: "No, because 264 is less than half of 600." }],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Confidence Interval and Majority Claim**\n\n**Choice C is correct.**\n\n**The Fast Way:** $\\hat{p} = \\frac{264}{600} = 0.44$. MOE $\\approx 1.96\\sqrt{\\frac{0.44 \\times 0.56}{600}} \\approx 1.96 \\times 0.0203 \\approx 0.04$. Interval: $[0.40, 0.48]$. The entire interval is below 0.50.\n\n**The Full Solution:**\n$\\hat{p} = 0.44$. Standard error $= \\sqrt{\\frac{0.44 \\times 0.56}{600}} = \\sqrt{\\frac{0.2464}{600}} = \\sqrt{0.000411} \\approx 0.0203$.\n\nMOE $= 1.96 \\times 0.0203 \\approx 0.0398$.\n\n95% CI: $(0.44 - 0.04, 0.44 + 0.04) = (0.40, 0.48)$.\n\nSince the upper bound (0.48) is still below 0.50, we cannot claim majority support.\n\n**Why the wrong answers are tempting:**\n• A: Gets $\\hat{p} = 0.44$ right but incorrectly claims the interval goes above 50%.\n• B: Large sample size reduces margin of error but does not guarantee the interval crosses 50%.\n• D: While true that 264 < 300, the reasoning should be based on the confidence interval, not just the sample count.\n\n**Test Day Takeaway:** A majority claim requires the entire confidence interval to be above 50%.",
-  skills: ["margin-of-error", "statistics"]
+  id: 18,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "Consider the system of equations.\n\n$2x + y - 3z = 7$\n$6x + 3y - 9z = 21$\n$4x + 2y - 6z = 17$\n\nHow many solutions $(x, y, z)$ does this system have?",
+  choices: [
+    { id: "A", text: "Zero" },
+    // distractor: assumes 3 equations always give unique solutions
+    { id: "B", text: "Exactly one" },
+    // distractor: linear systems never have exactly two
+    { id: "C", text: "Exactly two" },
+    // distractor: would be true if equation 3 had RHS 14 instead of 17
+    { id: "D", text: "Infinitely many" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Three-Equation Contradiction**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Equation 2 is $3 \\times$ Equation 1: $3(2x + y - 3z) = 21$ \\checkmark. Equation 3 should be $2 \\times$ Equation 1 if consistent: $2(2x + y - 3z) = 14$, but Equation 3 says $= 17$. Contradiction $\\Rightarrow$ zero solutions.\n\n**The Full Solution:**\nDivide Equation 2 by $3$: $2x + y - 3z = 7$ (same as Equation 1) \\checkmark.\nDivide Equation 3 by $2$: $2x + y - 3z = 8.5$.\nBut Equation 1 says $2x + y - 3z = 7$. Since $7 \\neq 8.5$, the system is inconsistent.\n\nThere is NO triple $(x, y, z)$ that can satisfy both \"$2x + y - 3z = 7$\" and \"$2x + y - 3z = 8.5$\" simultaneously.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — assumes $3 \\times 3$ systems always have unique solutions.\n* Choice C: \"applies the inverse operation\" — linear systems never have exactly two solutions.\n* Choice D: \"off-by-one\" — would be true if Equation 3's right side were $14$ instead of $17$.\n\n**Test Day Takeaway:** Check whether equations are scalar multiples. Same left side but different right side $\\Rightarrow$ contradiction $\\Rightarrow$ zero solutions.",
+  skills: ["systems-of-equations"]
 },
 {
-  id: 21, type: "fill-in", difficulty: "hard",
-  question: "In a study, the value of a certain quantity $Q$ doubles every 5 years. The value of $Q$ was 800 at the start of the study. What is the value of $Q$ after 20 years?\n\nExpress your answer as a whole number.",
+  id: 19,
+  type: "multiple-choice",
+  difficulty: "medium",
+  band: 5,
+  question: "A data set has $9$ values listed in order:\n\n$1, 4, 4, 6, 7, 8, 9, 11, 12$\n\nIf the value $80$ is added to the data set, which of the following is true?",
+  choices: [
+    // distractor: overestimates median shift
+    { id: "A", text: "The median increases by more than $1$ and the range increases." },
+    { id: "B", text: "The median increases by $0.5$ and the range increases." },
+    // distractor: range obviously changes
+    { id: "C", text: "The median stays the same and the range stays the same." },
+    // distractor: range clearly changes
+    { id: "D", text: "The median increases by $0.5$ and the range stays the same." }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Outlier Effect**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):**\nOriginal: $9$ values $\\to$ median $=$ $5$th value $= 7$. Range $= 12 - 1 = 11$.\nWith $80$ added: $10$ values $\\to$ median $=$ average of $5$th and $6$th values $= \\dfrac{7 + 8}{2} = 7.5$. Range $= 80 - 1 = 79$.\nMedian increases by $0.5$. Range increases.\n\n**The Full Solution:**\nOriginal sorted: $1, 4, 4, 6, \\mathbf{7}, 8, 9, 11, 12$. Median = middle ($5$th) value = $7$.\nWith $80$ appended: $1, 4, 4, 6, \\mathbf{7, 8}, 9, 11, 12, 80$. Median = average of $5$th and $6$th = $\\dfrac{7+8}{2} = 7.5$.\nMedian change: $7.5 - 7 = 0.5$. Range change: $79 - 11 = 68$ (increases).\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — overestimates the median shift; an outlier moves the median by AT MOST half of one rank shift.\n* Choice C: \"stops one step early\" — ignores the outlier's effect on range.\n* Choice D: \"applies the inverse operation\" — gets median right but ignores the obvious range change.\n\n**Test Day Takeaway:** An extreme outlier greatly affects mean and range, but barely affects the median. The median is RESISTANT to outliers.",
+  skills: ["statistics"]
+},
+{
+  id: 20,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "Two rectangular prisms are joined along one face to form a single solid. Prism A has dimensions $4 \\text{ cm} \\times 5 \\text{ cm} \\times 9 \\text{ cm}$, and Prism B has dimensions $4 \\text{ cm} \\times 5 \\text{ cm} \\times 6 \\text{ cm}$. The joined face has dimensions $4 \\text{ cm} \\times 5 \\text{ cm}$. What is the total surface area of the resulting solid, in square centimeters?",
+  choices: [
+    // distractor: off-by-one — subtracts only one of the two glued faces (350 - 20 = 330)
+    { id: "A", text: "$330$" },
+    { id: "B", text: "$310$" },
+    // distractor: stops one step early — forgets to subtract glued faces (202 + 148 = 350)
+    { id: "C", text: "$350$" },
+    // distractor: wrong base — uses the wrong face area (e.g., 6 * 9 = 54)
+    { id: "D", text: "$242$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Composite Solid Surface Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Surface area of A: $2(20 + 36 + 45) = 202$. Surface area of B: $2(20 + 24 + 30) = 148$. Sum: $350$. Subtract the joined face ($20$) from BOTH: $350 - 2 \\cdot 20 = 310$.\n\n**The Full Solution:**\nSurface area of Prism A ($4 \\times 5 \\times 9$): $2(4 \\cdot 5 + 4 \\cdot 9 + 5 \\cdot 9) = 2(20 + 36 + 45) = 2(101) = 202 \\text{ cm}^2$.\n\nSurface area of Prism B ($4 \\times 5 \\times 6$): $2(4 \\cdot 5 + 4 \\cdot 6 + 5 \\cdot 6) = 2(20 + 24 + 30) = 2(74) = 148 \\text{ cm}^2$.\n\nTotal before joining: $202 + 148 = 350 \\text{ cm}^2$.\nThe joined face ($4 \\times 5 = 20 \\text{ cm}^2$) is hidden on BOTH prisms; subtract $2 \\times 20 = 40$.\nTotal surface area: $350 - 40 = 310 \\text{ cm}^2$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — subtracts only one of the two glued faces ($350 - 20 = 330$).\n* Choice C: \"stops one step early\" — forgets to subtract any glued face.\n* Choice D: \"wrong base\" — uses the wrong face area for subtraction.\n\n**Test Day Takeaway:** When two solids are joined along a face, that face is hidden on BOTH solids — subtract its area TWICE.",
+  skills: ["surface-area", "geometry"]
+},
+{
+  id: 21,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "In a study, the value of a quantity $Q$ doubles every $5$ years. The value of $Q$ was $800$ at the start of the study. What is the value of $Q$ after $20$ years?",
   correctAnswer: "12800",
-  explanation: "**SAT Pattern: Repeated Doubling**\n\n**The answer is 12800.**\n\n**The Fast Way:** In 20 years, the quantity doubles $\\frac{20}{5} = 4$ times. $800 \\times 2^4 = 800 \\times 16 = 12800$.\n\n**The Full Solution:**\nThe model is $Q(t) = 800 \\cdot 2^{t/5}$.\n\nAt $t = 20$: $Q(20) = 800 \\cdot 2^{20/5} = 800 \\cdot 2^4 = 800 \\times 16 = 12{,}800$.\n\n**Common Mistakes:**\n• Computing $800 \\times 2 \\times 20 = 32000$ (linear instead of exponential).\n• Using $2^{20} = 1{,}048{,}576$ instead of $2^{20/5} = 2^4 = 16$.\n\n**Test Day Takeaway:** For repeated doubling, count the number of doubling periods and use $2^{\\text{periods}}$.",
+  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**The correct answer is $12{,}800$.**\n\n**The Fast Way (~15s):** In $20$ years, the quantity doubles $\\dfrac{20}{5} = 4$ times. $800 \\times 2^4 = 800 \\times 16 = 12{,}800$.\n\n**The Full Solution:**\nThe model is $Q(t) = 800 \\cdot 2^{t/5}$.\nAt $t = 20$: $Q(20) = 800 \\cdot 2^{20/5} = 800 \\cdot 2^4 = 800 \\times 16 = 12{,}800$.\n\n**Common Mistakes to Avoid:**\n* Computing $800 \\times 2 \\times 20 = 32{,}000$ (linear instead of exponential).\n* Using $2^{20}$ instead of $2^{20/5} = 2^4 = 16$.\n\n**Test Day Takeaway:** For repeated doubling, count the number of doubling periods and use $2^{\\text{periods}}$.",
   skills: ["exponential-functions"]
 },
 {
-  id: 22, type: "multiple-choice", difficulty: "hard",
-  question: "A data analyst collects a random sample of 150 customer wait times and finds that the sample mean is 7.2 minutes. She then collects another independent random sample of 600 customer wait times from the same population. Which of the following is most likely true about the second sample?",
-  choices: [{ id: "A", text: "The sample mean will be exactly 7.2 minutes." }, { id: "B", text: "The sample mean will be closer to the population mean, and the margin of error will be smaller." }, { id: "C", text: "The sample mean will be farther from the population mean because more data introduces more error." }, { id: "D", text: "The margin of error will be the same because both samples are random." }],
+  id: 22,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "Let $g(x) = 3x - 2$ and $h(x) = x^2 + 5$. If $h(g(a)) = 30$, what is a positive value of $a$?",
+  choices: [
+    // distractor: applies inverse operation — uses negative root: 3a - 2 = -5 gives a = -1
+    { id: "A", text: "$-1$" },
+    { id: "B", text: "$\\dfrac{7}{3}$" },
+    // distractor: stops one step early — confuses g(a) = 5 with a itself
+    { id: "C", text: "$5$" },
+    // distractor: wrong base — solves (3a)^2 = 25 ignoring -2
+    { id: "D", text: "$\\dfrac{5}{3}$" }
+  ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Effect of Sample Size on Estimates**\n\n**Choice B is correct.**\n\n**The Fast Way:** Larger samples produce estimates closer to the population parameter and have smaller margins of error.\n\n**The Full Solution:**\nThe margin of error is proportional to $\\frac{1}{\\sqrt{n}}$. Quadrupling the sample size from 150 to 600 cuts the margin of error in half. The Law of Large Numbers tells us that larger samples tend to produce means closer to the true population mean. So the second sample will likely have a mean closer to the true value and a smaller margin of error.\n\n**Why the wrong answers are tempting:**\n• A: The second sample mean will likely be close to 7.2 but not exactly equal.\n• C: Larger samples reduce sampling variability, not increase it.\n• D: The margin of error depends on sample size; larger $n$ means smaller MOE.\n\n**Test Day Takeaway:** Increasing sample size always reduces margin of error and improves precision.",
-  skills: ["statistics", "margin-of-error"]
+  explanation: "**SAT Pattern: Function Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $h(g(a)) = (3a - 2)^2 + 5 = 30 \\Rightarrow (3a - 2)^2 = 25 \\Rightarrow 3a - 2 = \\pm 5$. Positive root: $3a - 2 = 5 \\Rightarrow a = \\dfrac{7}{3}$.\n\n**The Full Solution:**\nStep 1: $g(a) = 3a - 2$.\nStep 2: $h(g(a)) = (3a - 2)^2 + 5 = 30 \\Rightarrow (3a - 2)^2 = 25$.\nStep 3: $3a - 2 = \\pm 5$. Positive value: $3a - 2 = 5 \\Rightarrow 3a = 7 \\Rightarrow a = \\dfrac{7}{3}$.\n\nCheck: $g\\left(\\dfrac{7}{3}\\right) = 7 - 2 = 5$, $h(5) = 25 + 5 = 30$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — uses the negative root $3a - 2 = -5$ instead of $+5$.\n* Choice C: \"stops one step early\" — confuses the intermediate $g(a) = 5$ with $a$ itself.\n* Choice D: \"wrong base\" — solves $(3a)^2 = 25$ ignoring the $-2$.\n\n**Test Day Takeaway:** In $h(g(a))$, work inside out: evaluate $g(a)$ first, then plug into $h$. Solve for $a$ from the resulting equation.",
+  skills: ["function-interpretation", "solving-equations"]
 }
       ]
     }
