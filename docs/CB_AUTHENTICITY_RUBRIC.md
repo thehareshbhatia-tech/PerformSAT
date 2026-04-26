@@ -338,7 +338,7 @@ These are real failures from past PerformSAT calibration rounds:
 
 ## 8. Lint checks (Lane B reference)
 
-The `scripts/calibrateModule.mjs --lint` mode in Lane B should mechanically enforce:
+The `scripts/calibrateModule.mjs --lint` mode in Lane B mechanically enforces:
 
 - [ ] MC items have exactly 4 choices.
 - [ ] Each MC choice has an `id` of A/B/C/D and non-empty `text`.
@@ -351,6 +351,21 @@ The `scripts/calibrateModule.mjs --lint` mode in Lane B should mechanically enfo
 - [ ] Explanation contains a "Why the wrong answers are tempting" section.
 - [ ] Each distractor has a misconception comment in source (`// distractor: stops one step early`).
 - [ ] Pattern name in explanation appears in the registry (§5).
-- [ ] IP uniqueness gate: Jaccard ≤ 0.78 AND 3-gram overlap ≤ 0.60 vs every cached QBank stem.
+- [ ] **IP uniqueness vs Educator QBank** (`uniqueness` rule): stem Jaccard ≤ 0.78 AND 3-gram overlap ≤ 0.60 vs every cached QBank stem.
+- [ ] **IP uniqueness vs PT 4-11 PDFs — stem** (`pdf-uniqueness-stem`): same thresholds vs every 25-token sliding window across the official PT 4-11 digital test PDFs.
+- [ ] **IP uniqueness vs PT 4-11 PDFs — joined answer choices** (`pdf-uniqueness-choices`): catches whole-block answer-choice copy. Only runs when joined choice text is ≥ 12 content tokens (shorter blocks of pure-numeric distractors are uninformative).
+- [ ] **IP uniqueness vs PT 4-11 PDFs — explanation** (`pdf-uniqueness-explanation`): slides a 25-token window over the explanation and reports the worst-case window's score against the PDF corpus.
 
-The semantic checks (the four-misconception rule, top-of-band stem patterns) cannot be linted — those are enforced by the calibration set in `docs/calibration_set/`.
+### Bootstrapping the PT 4-11 PDF cache
+
+The PDF rules need a one-time text extraction (`scripts/generated/pdf-text/` is gitignored — same convention as the QBank cache):
+
+```sh
+node scripts/extractCBPracticeTestText.mjs
+```
+
+This shells out to Python's `pdfplumber` and writes `sat-practice-test-{4..11}-digital.txt`. CI / fresh clones that don't have the cache yet can run with `SKIP_PDF_LINT=1` to bypass — the QBank uniqueness rule still runs, so defense in depth is preserved.
+
+### Semantic checks (not lintable)
+
+The four-misconception distractor rule and the top-of-band stem patterns cannot be linted. They're enforced by the calibration set in `docs/calibration_set/`.

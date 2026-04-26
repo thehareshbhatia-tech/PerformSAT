@@ -44,6 +44,7 @@ const ROOT = path.resolve(__dirname, '..');
 const GEN_DIR = process.env.CALIBRATE_GEN_DIR || path.join(ROOT, 'scripts', 'generated');
 const QBANK_PATH = path.join(GEN_DIR, 'cbEducatorQBank.json');
 const QBANK_INDEX_PATH = path.join(GEN_DIR, 'cbEducatorQBankIndex.json');
+const PDF_TEXT_DIR = path.join(GEN_DIR, 'pdf-text');
 const TESTS_DIR = process.env.CALIBRATE_TESTS_DIR || path.join(ROOT, 'src', 'data', 'practiceTests');
 const OUTPUT_DIR = process.env.CALIBRATE_OUTPUT_DIR || GEN_DIR;
 
@@ -424,6 +425,113 @@ function trigramOverlap(gramsA, gramsB) {
 const JACCARD_THRESHOLD = 0.78;
 const NGRAM_THRESHOLD = 0.60;
 
+// PT 4-11 PDF corpus chunking: sliding token windows match the typical stem
+// length so a verbatim copy from any single CB question still produces a
+// high-Jaccard hit even though the PDF has thousands of unrelated tokens.
+const PDF_WINDOW_TOKENS = 25;
+const PDF_WINDOW_STEP = 8;
+
+// Sliding window over a long authored field (the explanation). Stems and
+// joined choices are short enough to compare as a single window; explanations
+// are 100-500+ tokens and need windowing so a verbatim 25-token paste does
+// not get diluted by the surrounding original prose.
+const EXPLANATION_WINDOW_TOKENS = 25;
+const EXPLANATION_WINDOW_STEP = 8;
+
+// A field has to have at least this many content tokens before its uniqueness
+// score is meaningful — a 4-token blob like "31 36 46 50" (joined math
+// answer choices) collides with random PDF noise too easily.
+const MIN_TOKENS_FOR_CHECK = 12;
+
+/**
+ * Pre-tokenize a corpus once so the lint can run thousands of stem/choice/
+ * explanation comparisons against it without re-tokenizing each call.
+ *
+ * Accepts either:
+ *   - QBank-shaped object: { [id]: { stemPlain | stimulusPlain, ... } }
+ *   - PDF-window list:    [{ id, text }] (already chunked)
+ *
+ * @returns {Array<{ id: string, tokenSet: Set<string>, grams: Set<string>, text: string }>}
+ */
+export function indexCorpus(corpus) {
+  const out = [];
+  const entries = Array.isArray(corpus)
+    ? corpus.map(c => [c.id, c.text])
+    : Object.entries(corpus || {}).map(([id, item]) => [id, item && (item.stemPlain || item.stimulusPlain || '')]);
+  for (const [id, text] of entries) {
+    if (!text) continue;
+    const tokens = tokenize(text);
+    if (tokens.length === 0) continue;
+    out.push({
+      id,
+      tokenSet: new Set(tokens),
+      grams: trigrams(tokens),
+      text,
+    });
+  }
+  return out;
+}
+
+/**
+ * Slide token windows over a long authored field and return the worst-case
+ * window vs. the indexed corpus. Used for explanations.
+ *
+ * @returns {{ pass: boolean, jaccard: number, ngramOverlap: number, closestId: string|null, authoredOffset: number }}
+ */
+export function checkUniquenessSliding(authoredText, indexedCorpus, opts = {}) {
+  const winSize = opts.window || EXPLANATION_WINDOW_TOKENS;
+  const winStep = opts.step || EXPLANATION_WINDOW_STEP;
+  const aTokens = tokenize(authoredText);
+  if (aTokens.length === 0) {
+    return { pass: true, jaccard: 0, ngramOverlap: 0, closestId: null, authoredOffset: 0 };
+  }
+  // If the field is shorter than one window, fall back to a single check.
+  if (aTokens.length <= winSize) {
+    const single = matchAgainstIndex(new Set(aTokens), trigrams(aTokens), indexedCorpus);
+    return { ...single, authoredOffset: 0 };
+  }
+  let worst = { jaccard: 0, ngramOverlap: 0, closestId: null, combined: -1, authoredOffset: 0 };
+  for (let i = 0; i + winSize <= aTokens.length; i += winStep) {
+    const win = aTokens.slice(i, i + winSize);
+    const r = matchAgainstIndex(new Set(win), trigrams(win), indexedCorpus);
+    const c = (r.jaccard + r.ngramOverlap) / 2;
+    if (c > worst.combined) worst = { ...r, combined: c, authoredOffset: i };
+  }
+  const pass = worst.jaccard <= JACCARD_THRESHOLD && worst.ngramOverlap <= NGRAM_THRESHOLD;
+  return {
+    pass,
+    jaccard: Number(worst.jaccard.toFixed(4)),
+    ngramOverlap: Number(worst.ngramOverlap.toFixed(4)),
+    closestId: worst.closestId,
+    authoredOffset: worst.authoredOffset,
+  };
+}
+
+function matchAgainstIndex(aSet, aGrams, indexedCorpus) {
+  let worstJaccard = 0;
+  let worstNgram = 0;
+  let worstId = null;
+  let worstScore = -1;
+  for (const item of indexedCorpus) {
+    const j = jaccard(aSet, item.tokenSet);
+    const n = trigramOverlap(aGrams, item.grams);
+    const combined = (j + n) / 2;
+    if (combined > worstScore) {
+      worstScore = combined;
+      worstJaccard = j;
+      worstNgram = n;
+      worstId = item.id;
+    }
+  }
+  const pass = worstJaccard <= JACCARD_THRESHOLD && worstNgram <= NGRAM_THRESHOLD;
+  return {
+    pass,
+    jaccard: Number(worstJaccard.toFixed(4)),
+    ngramOverlap: Number(worstNgram.toFixed(4)),
+    closestId: worstId,
+  };
+}
+
 /**
  * Compare an authored question stem to all QBank cached items and report the
  * worst-case (closest) similarity. Pass = below both thresholds.
@@ -433,42 +541,49 @@ const NGRAM_THRESHOLD = 0.60;
  * @returns {{ pass: boolean, jaccard: number, ngramOverlap: number, closestQbankId: string|null }}
  */
 export function checkUniqueness(authoredText, qbankItems) {
+  const indexed = indexCorpus(qbankItems);
   const aTokens = tokenize(authoredText);
-  const aSet = new Set(aTokens);
-  const aGrams = trigrams(aTokens);
+  const r = matchAgainstIndex(new Set(aTokens), trigrams(aTokens), indexed);
+  return {
+    pass: r.pass,
+    jaccard: r.jaccard,
+    ngramOverlap: r.ngramOverlap,
+    closestQbankId: r.closestId,
+  };
+}
 
-  let worstJaccard = 0;
-  let worstNgram = 0;
-  let worstId = null;
-  let worstScore = -1;
-
-  for (const [id, item] of Object.entries(qbankItems || {})) {
-    if (!item) continue;
-    const text = (item.stemPlain || item.stimulusPlain || '');
-    if (!text) continue;
-    const bTokens = tokenize(text);
-    if (bTokens.length === 0) continue;
-    const bSet = new Set(bTokens);
-    const bGrams = trigrams(bTokens);
-    const j = jaccard(aSet, bSet);
-    const n = trigramOverlap(aGrams, bGrams);
-    // Combined score for "closeness": weighted average; report the worst-by-combined.
-    const combined = (j + n) / 2;
-    if (combined > worstScore) {
-      worstScore = combined;
-      worstJaccard = j;
-      worstNgram = n;
-      worstId = id;
+/**
+ * Build a sliding-window corpus from the cached PT 4-11 PDF text files.
+ * Returns an indexed corpus ready for checkUniquenessSliding / matchAgainstIndex.
+ *
+ * Throws if the cache directory is missing — bootstrap with:
+ *   node scripts/extractCBPracticeTestText.mjs
+ */
+export function loadPdfCorpus({ requireCache = true, dir = PDF_TEXT_DIR } = {}) {
+  if (!fs.existsSync(dir)) {
+    if (requireCache) {
+      throw new Error(`PDF text cache missing at ${dir}. Run: node scripts/extractCBPracticeTestText.mjs`);
+    }
+    return [];
+  }
+  const files = fs.readdirSync(dir).filter(f => f.endsWith('.txt')).sort();
+  if (files.length === 0) {
+    if (requireCache) {
+      throw new Error(`PDF text cache empty at ${dir}. Run: node scripts/extractCBPracticeTestText.mjs`);
+    }
+    return [];
+  }
+  const windows = [];
+  for (const f of files) {
+    const text = fs.readFileSync(path.join(dir, f), 'utf8');
+    const tokens = tokenize(text);
+    let idx = 0;
+    for (let i = 0; i + PDF_WINDOW_TOKENS <= tokens.length; i += PDF_WINDOW_STEP) {
+      const win = tokens.slice(i, i + PDF_WINDOW_TOKENS);
+      windows.push({ id: `${f}#${idx++}`, text: win.join(' ') });
     }
   }
-
-  const pass = worstJaccard <= JACCARD_THRESHOLD && worstNgram <= NGRAM_THRESHOLD;
-  return {
-    pass,
-    jaccard: Number(worstJaccard.toFixed(4)),
-    ngramOverlap: Number(worstNgram.toFixed(4)),
-    closestQbankId: worstId,
-  };
+  return indexCorpus(windows);
 }
 
 // ---------------------------------------------------------------------------
@@ -1062,9 +1177,12 @@ function countDistractorCommentsByQuestion(src, lineIndex) {
  * @param {object} args
  * @param {number} args.testN - 1-12
  * @param {object} args.qbankItems - { [externalId]: { stemPlain, ... } } from cbEducatorQBank.json
+ * @param {Array}  [args.pdfCorpus] - indexed PT 4-11 PDF window corpus from loadPdfCorpus().
+ *   When omitted, the PDF-based copyright-distance rules are skipped — the QBank
+ *   uniqueness rule still runs.
  * @returns {{ file: string, violations: Array<{ line: number, rule: string, message: string }> }}
  */
-export function lintPracticeTest({ testN, qbankItems }) {
+export function lintPracticeTest({ testN, qbankItems, pdfCorpus }) {
   const file = path.join(TESTS_DIR, `practiceTest${testN}.js`);
   if (!fs.existsSync(file)) {
     throw new Error(`practice test missing at ${file}`);
@@ -1073,6 +1191,10 @@ export function lintPracticeTest({ testN, qbankItems }) {
   const pt = loadPracticeTest(testN);
   const lineIndex = indexQuestionLines(src);
   const distractorCommentCounts = countDistractorCommentsByQuestion(src, lineIndex);
+
+  // Pre-index the QBank corpus once so the per-question Jaccard checks don't
+  // re-tokenize 1.3K items 528 times during a full 12-test lint.
+  const qbankIndex = indexCorpus(qbankItems);
 
   const violations = [];
   const push = (line, rule, message) => violations.push({ line, rule, message });
@@ -1200,10 +1322,48 @@ export function lintPracticeTest({ testN, qbankItems }) {
       // Rule 7 — Uniqueness gate vs cached QBank stems
       const stem = (q.question || '').toString();
       if (stem.trim()) {
-        const u = checkUniqueness(stem, qbankItems);
+        const stemTokens = tokenize(stem);
+        const u = matchAgainstIndex(new Set(stemTokens), trigrams(stemTokens), qbankIndex);
         if (!u.pass) {
           push(startLine, 'uniqueness',
-            `${prefix} stem too close to QBank item ${u.closestQbankId} (jaccard=${u.jaccard}, 3-gram=${u.ngramOverlap}; thresholds 0.78 / 0.60)`);
+            `${prefix} stem too close to QBank item ${u.closestId} (jaccard=${u.jaccard}, 3-gram=${u.ngramOverlap}; thresholds ${JACCARD_THRESHOLD} / ${NGRAM_THRESHOLD})`);
+        }
+      }
+
+      // Rule 8 — Uniqueness gate vs PT 4-11 PDF corpus (stem + joined choices + sliding-window explanation).
+      // Only runs when a pdfCorpus is supplied; the QBank rule above is mandatory.
+      if (pdfCorpus && pdfCorpus.length) {
+        // 8a — stem
+        if (stem.trim()) {
+          const stemTokens = tokenize(stem);
+          if (stemTokens.length >= MIN_TOKENS_FOR_CHECK) {
+            const u = matchAgainstIndex(new Set(stemTokens), trigrams(stemTokens), pdfCorpus);
+            if (!u.pass) {
+              push(startLine, 'pdf-uniqueness-stem',
+                `${prefix} stem too close to PT4-11 ${u.closestId} (jaccard=${u.jaccard}, 3-gram=${u.ngramOverlap}; thresholds ${JACCARD_THRESHOLD} / ${NGRAM_THRESHOLD})`);
+            }
+          }
+        }
+        // 8b — joined answer choices (catches whole-block copy of all 4 choices)
+        if (q.type === 'multiple-choice' && Array.isArray(q.choices)) {
+          const joined = q.choices.map(c => (c && c.text) || '').join(' ');
+          const cTokens = tokenize(joined);
+          if (cTokens.length >= MIN_TOKENS_FOR_CHECK) {
+            const u = matchAgainstIndex(new Set(cTokens), trigrams(cTokens), pdfCorpus);
+            if (!u.pass) {
+              push(startLine, 'pdf-uniqueness-choices',
+                `${prefix} answer choices too close to PT4-11 ${u.closestId} (jaccard=${u.jaccard}, 3-gram=${u.ngramOverlap}; thresholds ${JACCARD_THRESHOLD} / ${NGRAM_THRESHOLD})`);
+            }
+          }
+        }
+        // 8c — explanation, sliding-window worst-case
+        const exp = q.explanation || '';
+        if (exp.trim()) {
+          const u = checkUniquenessSliding(exp, pdfCorpus);
+          if (!u.pass) {
+            push(startLine, 'pdf-uniqueness-explanation',
+              `${prefix} explanation window (token offset ${u.authoredOffset}) too close to PT4-11 ${u.closestId} (jaccard=${u.jaccard}, 3-gram=${u.ngramOverlap}; thresholds ${JACCARD_THRESHOLD} / ${NGRAM_THRESHOLD})`);
+          }
         }
       }
     });
@@ -1219,12 +1379,25 @@ export function lintPracticeTest({ testN, qbankItems }) {
 export function runLint({ testNumbers }) {
   const qbank = loadQBank();
   const qbankItems = qbank.items || {};
+  // PT 4-11 PDF corpus is required by default — bootstrap is a one-line script.
+  // SKIP_PDF_LINT=1 lets CI/dev opt out if the PDFs aren't available locally.
+  let pdfCorpus = null;
+  if (!process.env.SKIP_PDF_LINT) {
+    try {
+      pdfCorpus = loadPdfCorpus();
+      console.log(`PT 4-11 PDF corpus: ${pdfCorpus.length} sliding windows indexed`);
+    } catch (e) {
+      console.error(`PDF lint corpus unavailable: ${e.message}`);
+      console.error(`(set SKIP_PDF_LINT=1 to bypass; PDF rules will be skipped)`);
+      return { total: 1, byCategory: { 'pdf-corpus-missing': 1 } };
+    }
+  }
   let total = 0;
   const byCategory = {};
   for (const testN of testNumbers) {
     let report;
     try {
-      report = lintPracticeTest({ testN, qbankItems });
+      report = lintPracticeTest({ testN, qbankItems, pdfCorpus });
     } catch (e) {
       console.error(`practiceTest${testN}.js: lint failed: ${e.message}`);
       total++;

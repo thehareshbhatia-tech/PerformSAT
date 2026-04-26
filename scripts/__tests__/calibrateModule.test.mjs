@@ -138,7 +138,16 @@ function balancedModuleQuestions() {
 // ---------------------------------------------------------------------------
 
 const mod = await import(`file://${SCRIPT}`);
-const { tokenize, checkUniqueness, analyzeDomainCoverage, lintPracticeTest, indexQuestionLines } = mod;
+const {
+  tokenize,
+  checkUniqueness,
+  checkUniquenessSliding,
+  indexCorpus,
+  loadPdfCorpus,
+  analyzeDomainCoverage,
+  lintPracticeTest,
+  indexQuestionLines,
+} = mod;
 
 // ---------------------------------------------------------------------------
 // 1. tokenize
@@ -438,6 +447,235 @@ console.log('\n[8] indexQuestionLines sanity check');
   // Module break: entry 23 should be Module 2 Q1.
   const m2first = idx[22];
   assert(m2first.moduleIndex === 1 && m2first.modulePosition === 1, 'entry 22 is module 1 (M2), position 1');
+}
+
+// ---------------------------------------------------------------------------
+// 9. indexCorpus — accepts QBank object OR a window list; pre-tokenizes once.
+// ---------------------------------------------------------------------------
+
+console.log('\n[9] indexCorpus');
+{
+  const qbObj = {
+    'a': { stemPlain: 'A pleasant cathedral has thirteen windows on the north wall.' },
+    'b': { stimulusPlain: 'Stimulus only items also index via stimulusPlain.' },
+    'c': { stemPlain: '' }, // empty -> skipped
+    'd': null,              // null -> skipped
+  };
+  const idx = indexCorpus(qbObj);
+  assert(idx.length === 2, `indexCorpus drops empty/null items (got ${idx.length}, expected 2)`);
+  assert(idx.every(e => e.tokenSet instanceof Set && e.grams instanceof Set), 'indexCorpus pre-builds Set fields');
+
+  const winList = [
+    { id: 'w0', text: 'first window of pdf text alpha bravo charlie' },
+    { id: 'w1', text: 'second window of pdf text delta echo foxtrot' },
+  ];
+  const idx2 = indexCorpus(winList);
+  assert(idx2.length === 2, `indexCorpus accepts array form (got ${idx2.length})`);
+  assert(idx2[0].id === 'w0', 'array form preserves id');
+}
+
+// ---------------------------------------------------------------------------
+// 10. loadPdfCorpus — produces a non-empty index from cached PT 4-11 text.
+// ---------------------------------------------------------------------------
+
+console.log('\n[10] loadPdfCorpus');
+{
+  // The repo's scripts/generated/pdf-text/ should be populated locally
+  // (run `node scripts/extractCBPracticeTestText.mjs` once). Test is gated
+  // on directory existence so it runs cleanly on machines without the cache.
+  const dir = path.join(ROOT, 'scripts', 'generated', 'pdf-text');
+  const cached = fs.existsSync(dir) && fs.readdirSync(dir).some(f => f.endsWith('.txt'));
+  if (cached) {
+    const corpus = loadPdfCorpus({ dir });
+    assert(corpus.length > 1000, `loadPdfCorpus produces >1000 windows (got ${corpus.length})`);
+    assert(corpus.every(w => w.tokenSet instanceof Set), 'pdf corpus windows are pre-indexed');
+    assert(corpus.every(w => /\.txt#\d+$/.test(w.id)), 'pdf window ids look like "<file>.txt#<n>"');
+  } else {
+    console.log('  (skipped — pdf-text cache absent; run scripts/extractCBPracticeTestText.mjs)');
+  }
+
+  // Non-existent dir w/ requireCache=false returns empty array.
+  const empty = loadPdfCorpus({ dir: '/no/such/dir', requireCache: false });
+  assert(Array.isArray(empty) && empty.length === 0, 'requireCache=false on missing dir returns []');
+
+  // Non-existent dir w/ requireCache=true throws.
+  let threw = false;
+  try { loadPdfCorpus({ dir: '/no/such/dir', requireCache: true }); }
+  catch (e) { threw = /missing/.test(e.message); }
+  assert(threw, 'requireCache=true on missing dir throws with a "missing" message');
+}
+
+// ---------------------------------------------------------------------------
+// 11. checkUniquenessSliding — windowing catches a verbatim slice in a long field.
+// ---------------------------------------------------------------------------
+
+console.log('\n[11] checkUniquenessSliding');
+{
+  const corpus = indexCorpus([
+    { id: 'pdf#1', text: 'lattice basis dodecahedron seventy three twelve unicycle dragonfly emerald algorithm vector projection eigenvalue rotation matrix' },
+  ]);
+
+  // A long authored explanation that contains the corpus phrase verbatim somewhere
+  // in the middle should hard-fail when the window slides over the matching segment.
+  const hostile =
+    'In this practice problem we begin by reviewing the rubric and recalling that ' +
+    'lattice basis dodecahedron seventy three twelve unicycle dragonfly emerald algorithm vector projection eigenvalue rotation matrix ' +
+    'and then continue with completely original prose describing the next step in our explanation pattern.';
+  const r1 = checkUniquenessSliding(hostile, corpus);
+  assert(r1.pass === false, `sliding window flags the planted verbatim phrase (jaccard=${r1.jaccard}, ngram=${r1.ngramOverlap})`);
+  assert(r1.closestId === 'pdf#1', 'sliding window identifies the source corpus id');
+  assert(typeof r1.authoredOffset === 'number' && r1.authoredOffset >= 0, 'sliding window reports the authoredOffset');
+
+  // A clean explanation with no overlap should pass.
+  const safe = 'A wholly distinctive narrative describing pomegranate dispersal patterns at the equinox in the southern archipelago.';
+  const r2 = checkUniquenessSliding(safe, corpus);
+  assert(r2.pass === true, `clean text passes the sliding window (jaccard=${r2.jaccard}, ngram=${r2.ngramOverlap})`);
+
+  // Short input (below window size) falls back to single-pass comparison.
+  const r3 = checkUniquenessSliding('only twelve tokens here are short of the window size limit', corpus);
+  assert(typeof r3.pass === 'boolean', 'sliding window handles short input with single-pass fallback');
+}
+
+// ---------------------------------------------------------------------------
+// 12. lint: pdfCorpus rule fires on synthesized verbatim PDF copy.
+// ---------------------------------------------------------------------------
+
+console.log('\n[12] lint with pdfCorpus catches PDF-copied stem/choices/explanation');
+{
+  // Build a tiny synthetic PDF corpus (an indexed array) and a fixture test
+  // whose Q1 deliberately copies a long verbatim slice across each field.
+  // Use a 30+ token phrase so the sliding-window check on the explanation
+  // can hit the production thresholds (jaccard > 0.78 OR 3-gram > 0.60) when
+  // the window aligns over the planted region.
+  const pdfWindows = [
+    {
+      id: 'fake-pt99.txt#0',
+      text:
+        'flagship aurora borealis cantilever dominion ephemeral granite hemlock illuminated jacaranda kestrel lithograph mahogany ' +
+        'nostalgic oblivion pinnacle quagmire resilience saxophone tidewater unflagging volcano whippoorwill xenon yardstick zephyr',
+    },
+  ];
+  const pdfCorpus = indexCorpus(pdfWindows);
+  assert(pdfCorpus.length === 1, 'synthetic pdf corpus has one window');
+
+  // 26-token verbatim slice — long enough that any 25-token window aligned
+  // over it has overwhelming jaccard + trigram overlap with the corpus.
+  const copiedSlice = pdfWindows[0].text;
+  const dir = makeTempDir('lint-pdf-');
+  const badStemQ = `{
+  id: 1,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 3,
+  question: "${copiedSlice}",
+  choices: [
+    { id: "A", text: "$1$", misconception: "stops one step early" },
+    { id: "B", text: "$2$", misconception: "applies inverse operation" },
+    { id: "C", text: "$3$", misconception: "off-by-one error" },
+    { id: "D", text: "$4$" }
+  ],
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Word-to-Expression Translation**\\n\\n**Choice D is correct.**\\n\\nThe canonical solution proceeds in three steps and references familiar identities while carefully checking each substitution and recording one operation per line for clarity to the reader.\\n\\n**Why the wrong answers are tempting:**\\n• Choice A: stops early.\\n• Choice B: inverse op.\\n• Choice C: off-by-one.",
+  skills: ["solving-equations"]
+}`;
+  // Q2 copies the slice in the explanation only.
+  const badExpQ = `{
+  id: 2,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 3,
+  question: "An entirely original ophthalmologist counts seventeen distinct chrysanthemum varietals in the rooftop sunroom.",
+  choices: [
+    { id: "A", text: "$1$", misconception: "stops one step early" },
+    { id: "B", text: "$2$", misconception: "applies inverse operation" },
+    { id: "C", text: "$3$", misconception: "off-by-one error" },
+    { id: "D", text: "$4$" }
+  ],
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Word-to-Expression Translation**\\n\\n**Choice D is correct.**\\n\\nIntro paragraph free of overlap goes here. Now we paste a forbidden phrase: ${copiedSlice} and continue with original wrap-up prose to show the explanation can still otherwise be normal.\\n\\n**Why the wrong answers are tempting:**\\n• Choice A: stops early.\\n• Choice B: inverse op.\\n• Choice C: off-by-one.",
+  skills: ["solving-equations"]
+}`;
+  // Q3 copies the slice across all four answer choices (joined choices rule).
+  const tokens = copiedSlice.split(' ');
+  const chunk = (a, b) => tokens.slice(a, b).join(' ');
+  const badChoicesQ = `{
+  id: 3,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 3,
+  question: "A different but original sentence about whittling pinewood gondolas in late autumn frost.",
+  choices: [
+    { id: "A", text: "${chunk(0,7)}", misconception: "stops one step early" },
+    { id: "B", text: "${chunk(7,14)}", misconception: "applies inverse operation" },
+    { id: "C", text: "${chunk(14,20)}", misconception: "off-by-one error" },
+    { id: "D", text: "${chunk(20,26)}" }
+  ],
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Word-to-Expression Translation**\\n\\n**Choice D is correct.**\\n\\nA clean walkthrough that does not borrow any phrasing from the corpus, with each step on its own line and verifying the answer at the end with a quick substitution.\\n\\n**Why the wrong answers are tempting:**\\n• Choice A: stops early.\\n• Choice B: inverse op.\\n• Choice C: off-by-one.",
+  skills: ["solving-equations"]
+}`;
+  const okM2 = wellFormedMc(1, 'easy', 3, { stem: 'A truly distinctive prompt referencing dodecahedron lattice rotations.' });
+
+  writeFixtureTest(dir, 4, [badStemQ, badExpQ, badChoicesQ], [okM2]);
+
+  // Tiny qbank subset so the QBank rule still has something to compare against.
+  const qbankRaw = fs.readFileSync(path.join(ROOT, 'scripts', 'generated', 'cbEducatorQBank.json'), 'utf8');
+  const qbankAll = JSON.parse(qbankRaw).items || {};
+  const qbankSubset = {};
+  let n = 0;
+  for (const [id, it] of Object.entries(qbankAll)) {
+    if (it && it.stemPlain) { qbankSubset[id] = it; if (++n >= 30) break; }
+  }
+
+  // Direct API test (we have to call lintPracticeTest so we can pass the synthetic pdfCorpus).
+  // Use CALIBRATE_TESTS_DIR to point the loader at our temp fixture.
+  process.env.CALIBRATE_TESTS_DIR = dir;
+  // Fresh import of the module so it picks up the env var.
+  const fresh = await import(`file://${SCRIPT}?reload=${Date.now()}`);
+  const report = fresh.lintPracticeTest({ testN: 4, qbankItems: qbankSubset, pdfCorpus });
+  delete process.env.CALIBRATE_TESTS_DIR;
+
+  const ruleNames = report.violations.map(v => v.rule);
+  assert(ruleNames.includes('pdf-uniqueness-stem'),
+    `lint flags Q1 stem copy (got rules: ${[...new Set(ruleNames)].join(', ')})`);
+  assert(ruleNames.includes('pdf-uniqueness-explanation'),
+    `lint flags Q2 explanation copy (got rules: ${[...new Set(ruleNames)].join(', ')})`);
+  assert(ruleNames.includes('pdf-uniqueness-choices'),
+    `lint flags Q3 joined-choices copy (got rules: ${[...new Set(ruleNames)].join(', ')})`);
+
+  // The okM2 question should NOT be flagged for any pdf-uniqueness rule.
+  const m2Violations = report.violations.filter(v => /^module 2/.test(v.message));
+  const m2Pdf = m2Violations.filter(v => v.rule.startsWith('pdf-uniqueness'));
+  assert(m2Pdf.length === 0,
+    `clean Module 2 question is not flagged by pdf rules (got ${m2Pdf.length}: ${m2Pdf.map(v => v.rule).join(',')})`);
+}
+
+// ---------------------------------------------------------------------------
+// 13. lint without pdfCorpus skips the new rules (back-compat).
+// ---------------------------------------------------------------------------
+
+console.log('\n[13] lint without pdfCorpus skips the pdf rules');
+{
+  const dir = makeTempDir('lint-nopdf-');
+  const m1 = [wellFormedMc(1, 'easy', 3, { stem: 'A wholly original probe about meandering creek hydrology measurements.' })];
+  writeFixtureTest(dir, 5, m1, m1);
+
+  const qbankRaw = fs.readFileSync(path.join(ROOT, 'scripts', 'generated', 'cbEducatorQBank.json'), 'utf8');
+  const qbankAll = JSON.parse(qbankRaw).items || {};
+  const qbankSubset = {};
+  let n = 0;
+  for (const [id, it] of Object.entries(qbankAll)) {
+    if (it && it.stemPlain) { qbankSubset[id] = it; if (++n >= 20) break; }
+  }
+
+  process.env.CALIBRATE_TESTS_DIR = dir;
+  const fresh = await import(`file://${SCRIPT}?reload=${Date.now()}_nopdf`);
+  // No pdfCorpus arg — back-compat path.
+  const report = fresh.lintPracticeTest({ testN: 5, qbankItems: qbankSubset });
+  delete process.env.CALIBRATE_TESTS_DIR;
+
+  const pdfRules = report.violations.filter(v => v.rule.startsWith('pdf-uniqueness'));
+  assert(pdfRules.length === 0, `omitting pdfCorpus skips pdf-uniqueness rules (got ${pdfRules.length})`);
 }
 
 // ---------------------------------------------------------------------------
