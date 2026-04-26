@@ -216,13 +216,14 @@ console.log('\n[3] analyzeDomainCoverage');
   const m1 = ctx.practiceTest1.modules[0];
 
   const cov = analyzeDomainCoverage(m1);
+  // After round-7 recalibration, Test 1 M1 hits the canonical 7/6/5/4 mix.
   assert(cov.current.Algebra === 7, `Test 1 M1 has 7 Algebra (got ${cov.current.Algebra})`);
-  assert(cov.current['Advanced Math'] === 9, `Test 1 M1 has 9 Advanced Math (got ${cov.current['Advanced Math']})`);
-  assert(cov.current['Problem-Solving and Data Analysis'] === 4, `Test 1 M1 has 4 PSDA (got ${cov.current['Problem-Solving and Data Analysis']})`);
-  assert(cov.current['Geometry and Trigonometry'] === 2, `Test 1 M1 has 2 Geo-Trig (got ${cov.current['Geometry and Trigonometry']})`);
-  // Gaps signal under-coverage on Geo-Trig and PSDA.
-  assert(cov.gap['Geometry and Trigonometry'] === -2, `Geo-Trig gap is -2 (got ${cov.gap['Geometry and Trigonometry']})`);
-  assert(cov.gap['Problem-Solving and Data Analysis'] === -1, `PSDA gap is -1 (got ${cov.gap['Problem-Solving and Data Analysis']})`);
+  assert(cov.current['Advanced Math'] === 6, `Test 1 M1 has 6 Advanced Math (got ${cov.current['Advanced Math']})`);
+  assert(cov.current['Problem-Solving and Data Analysis'] === 5, `Test 1 M1 has 5 PSDA (got ${cov.current['Problem-Solving and Data Analysis']})`);
+  assert(cov.current['Geometry and Trigonometry'] === 4, `Test 1 M1 has 4 Geo-Trig (got ${cov.current['Geometry and Trigonometry']})`);
+  // Gaps are zero now that the M1 domain mix matches the target.
+  assert(cov.gap['Geometry and Trigonometry'] === 0, `Geo-Trig gap is 0 (got ${cov.gap['Geometry and Trigonometry']})`);
+  assert(cov.gap['Problem-Solving and Data Analysis'] === 0, `PSDA gap is 0 (got ${cov.gap['Problem-Solving and Data Analysis']})`);
 
   // Synthesized 7/6/5/4 module: every gap zero.
   const balanced = balancedModuleQuestions();
@@ -411,11 +412,12 @@ console.log('\n[7] lintPracticeTest API surface');
   assert(typeof report.file === 'string' && report.file.endsWith('practiceTest1.js'),
     'lintPracticeTest returns file path');
   assert(Array.isArray(report.violations), 'lintPracticeTest returns violations array');
-  assert(report.violations.length > 0, 'lintPracticeTest finds violations on real Test 1 (band missing etc.)');
-  const sample = report.violations[0];
-  assert(typeof sample.line === 'number' && sample.line > 0, 'violation has numeric line number');
-  assert(typeof sample.rule === 'string' && sample.rule.length > 0, 'violation has rule name');
-  assert(typeof sample.message === 'string' && sample.message.length > 0, 'violation has descriptive message');
+  // After round-7 recalibration, Test 1 lints clean. Use a synthesized bad
+  // test (test 8 below) to verify violation shape.
+  // Just verify the API surface returns the expected shape even when zero
+  // violations: file path string, violations array.
+  assert(report.violations.length === 0,
+    `lintPracticeTest reports zero violations on cleaned-up Test 1 (got ${report.violations.length})`);
 }
 
 // ---------------------------------------------------------------------------

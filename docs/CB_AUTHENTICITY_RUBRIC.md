@@ -243,6 +243,28 @@ Approved pattern names (use these verbatim; keep the bank's pattern vocabulary t
 - Volume Scaling, Surface Area
 - Exponential Growth/Decay, Compound Interest
 
+**Added round 7 (Test-1 recalibration):**
+
+- Function Evaluation, Combining Like Terms, Multi-Step Linear Equation
+- Margin of Error, Residual, Outlier Effect
+- Discriminant Analysis (replaces "Discriminant — No Real Solutions")
+- Composite Surface Area, Composite Solid Surface Area
+- Tangent Line and Discriminant
+- Vertex Form to Standard Form, Vertex Form Maximum, Vertex Form from Two Conditions
+- Matching Coefficients, Rational Expression Simplification
+- Three-Variable System, Three-Variable Elimination, Three-Equation Contradiction
+- Conditional Probability from Two-Way Table, Conditional Probability with Percent
+- Scatterplot Line of Best Fit
+- Unit Conversion, Inequality Boundary
+- Exponent Rules with Radicals, Common-Base Exponent Simplification
+- Reverse-Percent Multi-Step, No-Solution Condition, System Equivalence Check
+- Sum of Parts Ratio, Mean from List
+- Cylinder Volume, Right Triangle Trigonometry with Perimeter
+- Perpendicular Line Through Point
+- Complete the Square — Non-Square Radius
+- Discriminant with Integer Bound
+- Percent Greater Than, Function Composition Inverse
+
 If you need a pattern not in this list, add it here in the same PR rather than coining a new name ad-hoc.
 
 ### Why-each-distractor-is-wrong rule
