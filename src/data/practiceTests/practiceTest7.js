@@ -399,101 +399,6 @@ export const practiceTest7 = {
       questions: [
 {
   id: 1,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The positive number $a$ is $300\\%$ of the sum of the positive numbers $b$ and $c$, and $c$ is $25\\%$ of $b$. What percent of $b$ is $a$?",
-  choices: [
-    // distractor: applies inverse operation — adds the two percents 300 + 25 = 325
-    { id: "A", text: "$325\\%$" },
-    // distractor: stops one step early — computes 3 * 1.25 then loses a factor of 100
-    { id: "B", text: "$3.75\\%$" },
-    { id: "C", text: "$375\\%$" },
-    // distractor: wrong base — divides 300/0.25 = 1200% ignoring the sum structure
-    { id: "D", text: "$1{,}200\\%$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Set $b = 100$. Then $c = 25\\% \\cdot 100 = 25$. Sum $b + c = 125$. So $a = 3.00 \\cdot 125 = 375$. Percent of $b$: $\\dfrac{375}{100} \\cdot 100\\% = 375\\%$.\n\n**The Full Solution:**\nLet $b = 100$ (any positive value works since percents are scale-invariant).\nThen $c = 0.25 \\cdot 100 = 25$.\nSum: $b + c = 100 + 25 = 125$.\n$a = 3.00 \\cdot 125 = 375$.\nPercent of $b$ that $a$ is: $\\dfrac{a}{b} \\cdot 100\\% = \\dfrac{375}{100} \\cdot 100\\% = 375\\%$.\n\nVerification (algebraic): $a = 3(b + c)$ and $c = 0.25b$, so $a = 3(b + 0.25b) = 3 \\cdot 1.25b = 3.75b$, giving $\\dfrac{a}{b} = 3.75 = 375\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — adds the two percents ($300 + 25 = 325$).\n* Choice B: \"stops one step early\" — computes $3.75$ but loses the percent factor of $100$.\n* Choice D: \"wrong base\" — divides $300$ by $0.25$ ignoring the sum structure.\n\n**Test Day Takeaway:** When two percents stack, pick a clean numerical value (e.g., $b = 100$) and compute through. \"Percent of $b$\" means divide by $b$, not $c$ or the sum.",
-  skills: ["percents"]
-},
-{
-  id: 2,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A factory makes $12$-inch, $8$-inch, and $5$-inch metal rods. During one shift, the number of $12$-inch rods produced is $4$ times the number $r$ of $8$-inch rods, and the number of $5$-inch rods is $25$ more than the number of $8$-inch rods. The factory produces a total of $853$ rods that shift. How many $8$-inch rods does the factory produce that shift?",
-  choices: [
-    // distractor: off-by-one — divides total by 6 (4r + r + r) ignoring the +25 offset
-    { id: "A", text: "$142$" },
-    { id: "B", text: "$138$" },
-    // distractor: applies inverse operation — uses (853 - 25)/4 = 207 instead of dividing by 6
-    { id: "C", text: "$207$" },
-    // distractor: stops one step early — divides 853 / 4 ignoring the offset and r itself
-    { id: "D", text: "$213$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Total $= 4r + r + (r + 25) = 6r + 25 = 853$. So $6r = 828$ and $r = 138$.\n\n**The Full Solution:**\nLet $r$ be the number of $8$-inch rods.\nNumber of $12$-inch rods: $4r$.\nNumber of $5$-inch rods: $r + 25$.\n\nTotal: $4r + r + (r + 25) = 6r + 25 = 853$.\n$6r = 828 \\Rightarrow r = 138$.\n\nVerification: $4(138) + 138 + (138 + 25) = 552 + 138 + 163 = 853$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — divides $853$ by $6$ ignoring the $+25$ offset.\n* Choice C: \"applies the inverse operation\" — uses $(853 - 25)/4 = 207$ instead of dividing by $6$.\n* Choice D: \"stops one step early\" — divides $853 / 4$ ignoring the offset and the additional $r$ counts.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$25$ more than\".",
-  skills: ["word-problems", "ratios"]
-},
-{
-  id: 3,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "If $x > 0$, the expression $\\sqrt[3]{x^4} \\cdot \\sqrt{x^7}$ is equivalent to $x^{p/q}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
-  choices: [
-    // distractor: stops one step early — gives p alone (= 29) instead of p + q
-    { id: "A", text: "$29$" },
-    // distractor: applies inverse operation — sums the exponent and index 7 + 3 = 10
-    { id: "B", text: "$10$" },
-    { id: "C", text: "$35$" },
-    // distractor: wrong base — sums all visible integers in the original expression: 4 + 7 + 3 + 2 = 16
-    { id: "D", text: "$16$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[3]{x^4} = x^{4/3}$. $\\sqrt{x^7} = x^{7/2}$. Add: $\\dfrac{4}{3} + \\dfrac{7}{2} = \\dfrac{8 + 21}{6} = \\dfrac{29}{6}$. So $p + q = 29 + 6 = 35$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[3]{x^4} = x^{4/3}, \\quad \\sqrt{x^7} = x^{7/2}$\n\nWhen multiplying same bases, add exponents:\n$x^{4/3} \\cdot x^{7/2} = x^{4/3 + 7/2} = x^{(8 + 21)/6} = x^{29/6}$\n\n$\\gcd(29, 6) = 1$, so $\\dfrac{29}{6}$ is in lowest terms. Then $p = 29$, $q = 6$, and $p + q = 35$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 29$, forgetting to add $q$.\n* Choice B: \"applies the inverse operation\" — sums the radical exponent and index ($7 + 3 = 10$) instead of converting and adding fractions.\n* Choice D: \"wrong base\" — sums all the integers visible in the expression.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{m/n}$ — power on top, root on the bottom. Add fractional exponents when multiplying same bases.",
-  skills: ["polynomial-operations", "exponent-rules", "radical-expressions"]
-},
-{
-  id: 4,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The function $f$ is defined by $f(x) = (x - 4)^2 - 7$. If the function $g$ is defined by $g(x) = f(x + 6)$, what is the minimum value of $g$?",
-  choices: [
-    // distractor: stops one step early — gives the x at minimum (x = -2) instead of g(x)
-    { id: "A", text: "$-2$" },
-    { id: "B", text: "$-7$" },
-    // distractor: off-by-one — forgets to add the -7 vertical shift
-    { id: "C", text: "$0$" },
-    // distractor: applies inverse operation — combines -7 and -6 into -13
-    { id: "D", text: "$-13$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f$ has minimum value $-7$ (at $x = 4$). $g(x) = f(x + 6)$ shifts $f$ horizontally by $6$ units; horizontal shifts do NOT change the minimum value. So $g$ also has minimum value $-7$.\n\n**The Full Solution:**\n$g(x) = f(x + 6) = ((x + 6) - 4)^2 - 7 = (x + 2)^2 - 7$\n\nThis is vertex form with vertex $(-2, -7)$. The minimum value is $-7$, attained at $x = -2$.\n\nVerification: $(x + 2)^2 \\geq 0$ for all real $x$, so $g(x) \\geq -7$ with equality at $x = -2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the $x$-coordinate of the minimum instead of $g(x) = -7$.\n* Choice C: \"off-by-one\" — forgets the constant $-7$ in the original function.\n* Choice D: \"applies the inverse operation\" — combines $-7$ and $-6$ into $-13$ via incorrect shift direction.\n\n**Test Day Takeaway:** Horizontal shifts (replacing $x$ with $x \\pm h$) do NOT change the minimum/maximum value of a function. Only vertical shifts ($+k$ outside) do.",
-  skills: ["function-interpretation", "vertex-form", "quadratic-equations"]
-},
-{
-  id: 5,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "For what value of $k$ does the system of equations below have no solution?\n\n$2x + 3y = 7$\n$kx + 9y = 11$",
-  choices: [
-    // distractor: stops one step early — uses k = 3 (one of the original coefficients)
-    { id: "A", text: "$3$" },
-    { id: "B", text: "$6$" },
-    // distractor: applies inverse operation — sets k/2 = 9/3 → k = 6, then takes negative
-    { id: "C", text: "$-6$" },
-    // distractor: wrong base — uses k = 9 (matches one denominator)
-    { id: "D", text: "$9$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** No solution means same slope, different intercept. Slopes equal: $-\\dfrac{2}{3} = -\\dfrac{k}{9} \\Rightarrow k = 6$. Verify intercepts differ: $\\dfrac{7}{3} \\neq \\dfrac{11}{9}$ \\checkmark.\n\n**The Full Solution:**\nWrite each equation in slope-intercept form:\n$2x + 3y = 7 \\Rightarrow y = -\\dfrac{2}{3}x + \\dfrac{7}{3}$.\n$kx + 9y = 11 \\Rightarrow y = -\\dfrac{k}{9}x + \\dfrac{11}{9}$.\n\nFor no solution: same slope, different intercept.\nSlope: $-\\dfrac{2}{3} = -\\dfrac{k}{9} \\Rightarrow k = 6$.\nIntercept check: $\\dfrac{7}{3} = \\dfrac{21}{9} \\neq \\dfrac{11}{9}$, so the lines are NOT identical \\checkmark.\n\nThus $k = 6$ produces parallel non-coincident lines, giving no solution.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — picks one of the original coefficients without solving.\n* Choice C: \"applies the inverse operation\" — sign error after solving.\n* Choice D: \"wrong base\" — picks the coefficient $9$ from the second equation directly.\n\n**Test Day Takeaway:** Two-equation system has no solution $\\iff$ ratios of $x$- and $y$-coefficients are equal but ratios of constants differ. Equivalently: same slope, different $y$-intercept.",
-  skills: ["systems-of-equations", "linear-equations"]
-},
-{
-  id: 6,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -503,7 +408,7 @@ export const practiceTest7 = {
   skills: ["vertex-form", "quadratic-equations"]
 },
 {
-  id: 7,
+  id: 2,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -522,7 +427,7 @@ export const practiceTest7 = {
   skills: ["two-way-tables", "probability"]
 },
 {
-  id: 8,
+  id: 3,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -532,7 +437,26 @@ export const practiceTest7 = {
   skills: ["quadratic-equations", "vertex-form", "function-interpretation"]
 },
 {
-  id: 9,
+  id: 4,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The positive number $a$ is $300\\%$ of the sum of the positive numbers $b$ and $c$, and $c$ is $25\\%$ of $b$. What percent of $b$ is $a$?",
+  choices: [
+    // distractor: applies inverse operation — adds the two percents 300 + 25 = 325
+    { id: "A", text: "$325\\%$" },
+    // distractor: stops one step early — computes 3 * 1.25 then loses a factor of 100
+    { id: "B", text: "$3.75\\%$" },
+    { id: "C", text: "$375\\%$" },
+    // distractor: wrong base — divides 300/0.25 = 1200% ignoring the sum structure
+    { id: "D", text: "$1{,}200\\%$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Set $b = 100$. Then $c = 25\\% \\cdot 100 = 25$. Sum $b + c = 125$. So $a = 3.00 \\cdot 125 = 375$. Percent of $b$: $\\dfrac{375}{100} \\cdot 100\\% = 375\\%$.\n\n**The Full Solution:**\nLet $b = 100$ (any positive value works since percents are scale-invariant).\nThen $c = 0.25 \\cdot 100 = 25$.\nSum: $b + c = 100 + 25 = 125$.\n$a = 3.00 \\cdot 125 = 375$.\nPercent of $b$ that $a$ is: $\\dfrac{a}{b} \\cdot 100\\% = \\dfrac{375}{100} \\cdot 100\\% = 375\\%$.\n\nVerification (algebraic): $a = 3(b + c)$ and $c = 0.25b$, so $a = 3(b + 0.25b) = 3 \\cdot 1.25b = 3.75b$, giving $\\dfrac{a}{b} = 3.75 = 375\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — adds the two percents ($300 + 25 = 325$).\n* Choice B: \"stops one step early\" — computes $3.75$ but loses the percent factor of $100$.\n* Choice D: \"wrong base\" — divides $300$ by $0.25$ ignoring the sum structure.\n\n**Test Day Takeaway:** When two percents stack, pick a clean numerical value (e.g., $b = 100$) and compute through. \"Percent of $b$\" means divide by $b$, not $c$ or the sum.",
+  skills: ["percents"]
+},
+{
+  id: 5,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -551,7 +475,93 @@ export const practiceTest7 = {
   skills: ["function-interpretation"]
 },
 {
+  id: 6,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A factory makes $12$-inch, $8$-inch, and $5$-inch metal rods. During one shift, the number of $12$-inch rods produced is $4$ times the number $r$ of $8$-inch rods, and the number of $5$-inch rods is $25$ more than the number of $8$-inch rods. The factory produces a total of $853$ rods that shift. How many $8$-inch rods does the factory produce that shift?",
+  choices: [
+    // distractor: off-by-one — divides total by 6 (4r + r + r) ignoring the +25 offset
+    { id: "A", text: "$142$" },
+    { id: "B", text: "$138$" },
+    // distractor: applies inverse operation — uses (853 - 25)/4 = 207 instead of dividing by 6
+    { id: "C", text: "$207$" },
+    // distractor: stops one step early — divides 853 / 4 ignoring the offset and r itself
+    { id: "D", text: "$213$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Total $= 4r + r + (r + 25) = 6r + 25 = 853$. So $6r = 828$ and $r = 138$.\n\n**The Full Solution:**\nLet $r$ be the number of $8$-inch rods.\nNumber of $12$-inch rods: $4r$.\nNumber of $5$-inch rods: $r + 25$.\n\nTotal: $4r + r + (r + 25) = 6r + 25 = 853$.\n$6r = 828 \\Rightarrow r = 138$.\n\nVerification: $4(138) + 138 + (138 + 25) = 552 + 138 + 163 = 853$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — divides $853$ by $6$ ignoring the $+25$ offset.\n* Choice C: \"applies the inverse operation\" — uses $(853 - 25)/4 = 207$ instead of dividing by $6$.\n* Choice D: \"stops one step early\" — divides $853 / 4$ ignoring the offset and the additional $r$ counts.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$25$ more than\".",
+  skills: ["word-problems", "ratios"]
+},
+{
+  id: 7,
+  type: "fill-in",
+  difficulty: "medium",
+  band: 5,
+  question: "The function $f$ is defined by $f(x) = 3(2)^x$. What is the value of $f(5) - f(3)$?",
+  correctAnswer: "72",
+  explanation: "**SAT Pattern: Function Evaluation**\n\n**The correct answer is $72$.**\n\n**The Fast Way (~15s):** $f(5) = 3 \\cdot 32 = 96$. $f(3) = 3 \\cdot 8 = 24$. Difference $= 96 - 24 = 72$.\n\n**The Full Solution:**\n$f(5) = 3 \\cdot 2^5 = 3 \\cdot 32 = 96$.\n$f(3) = 3 \\cdot 2^3 = 3 \\cdot 8 = 24$.\n$f(5) - f(3) = 96 - 24 = 72$.\n\n**Common Mistakes to Avoid:**\n* Computing $f(5 - 3) = f(2) = 3 \\cdot 4 = 12$ (subtracting inputs instead of outputs).\n* Forgetting the coefficient: $2^5 - 2^3 = 24$, not $72$.\n\n**Verification:** $96 - 24 = 72$ \\checkmark.\n\n**Test Day Takeaway:** $f(a) - f(b) \\neq f(a - b)$ for exponential (or most) functions. Evaluate each separately, then subtract.",
+  skills: ["exponential-functions", "function-interpretation"]
+},
+{
+  id: 8,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "If $x > 0$, the expression $\\sqrt[3]{x^4} \\cdot \\sqrt{x^7}$ is equivalent to $x^{p/q}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
+  choices: [
+    // distractor: stops one step early — gives p alone (= 29) instead of p + q
+    { id: "A", text: "$29$" },
+    // distractor: applies inverse operation — sums the exponent and index 7 + 3 = 10
+    { id: "B", text: "$10$" },
+    { id: "C", text: "$35$" },
+    // distractor: wrong base — sums all visible integers in the original expression: 4 + 7 + 3 + 2 = 16
+    { id: "D", text: "$16$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[3]{x^4} = x^{4/3}$. $\\sqrt{x^7} = x^{7/2}$. Add: $\\dfrac{4}{3} + \\dfrac{7}{2} = \\dfrac{8 + 21}{6} = \\dfrac{29}{6}$. So $p + q = 29 + 6 = 35$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[3]{x^4} = x^{4/3}, \\quad \\sqrt{x^7} = x^{7/2}$\n\nWhen multiplying same bases, add exponents:\n$x^{4/3} \\cdot x^{7/2} = x^{4/3 + 7/2} = x^{(8 + 21)/6} = x^{29/6}$\n\n$\\gcd(29, 6) = 1$, so $\\dfrac{29}{6}$ is in lowest terms. Then $p = 29$, $q = 6$, and $p + q = 35$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 29$, forgetting to add $q$.\n* Choice B: \"applies the inverse operation\" — sums the radical exponent and index ($7 + 3 = 10$) instead of converting and adding fractions.\n* Choice D: \"wrong base\" — sums all the integers visible in the expression.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{m/n}$ — power on top, root on the bottom. Add fractional exponents when multiplying same bases.",
+  skills: ["polynomial-operations", "exponent-rules", "radical-expressions"]
+},
+{
+  id: 9,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The function $f$ is defined by $f(x) = (x - 4)^2 - 7$. If the function $g$ is defined by $g(x) = f(x + 6)$, what is the minimum value of $g$?",
+  choices: [
+    // distractor: stops one step early — gives the x at minimum (x = -2) instead of g(x)
+    { id: "A", text: "$-2$" },
+    { id: "B", text: "$-7$" },
+    // distractor: off-by-one — forgets to add the -7 vertical shift
+    { id: "C", text: "$0$" },
+    // distractor: applies inverse operation — combines -7 and -6 into -13
+    { id: "D", text: "$-13$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f$ has minimum value $-7$ (at $x = 4$). $g(x) = f(x + 6)$ shifts $f$ horizontally by $6$ units; horizontal shifts do NOT change the minimum value. So $g$ also has minimum value $-7$.\n\n**The Full Solution:**\n$g(x) = f(x + 6) = ((x + 6) - 4)^2 - 7 = (x + 2)^2 - 7$\n\nThis is vertex form with vertex $(-2, -7)$. The minimum value is $-7$, attained at $x = -2$.\n\nVerification: $(x + 2)^2 \\geq 0$ for all real $x$, so $g(x) \\geq -7$ with equality at $x = -2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the $x$-coordinate of the minimum instead of $g(x) = -7$.\n* Choice C: \"off-by-one\" — forgets the constant $-7$ in the original function.\n* Choice D: \"applies the inverse operation\" — combines $-7$ and $-6$ into $-13$ via incorrect shift direction.\n\n**Test Day Takeaway:** Horizontal shifts (replacing $x$ with $x \\pm h$) do NOT change the minimum/maximum value of a function. Only vertical shifts ($+k$ outside) do.",
+  skills: ["function-interpretation", "vertex-form", "quadratic-equations"]
+},
+{
   id: 10,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "For what value of $k$ does the system of equations below have no solution?\n\n$2x + 3y = 7$\n$kx + 9y = 11$",
+  choices: [
+    // distractor: stops one step early — uses k = 3 (one of the original coefficients)
+    { id: "A", text: "$3$" },
+    { id: "B", text: "$6$" },
+    // distractor: applies inverse operation — sets k/2 = 9/3 → k = 6, then takes negative
+    { id: "C", text: "$-6$" },
+    // distractor: wrong base — uses k = 9 (matches one denominator)
+    { id: "D", text: "$9$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** No solution means same slope, different intercept. Slopes equal: $-\\dfrac{2}{3} = -\\dfrac{k}{9} \\Rightarrow k = 6$. Verify intercepts differ: $\\dfrac{7}{3} \\neq \\dfrac{11}{9}$ \\checkmark.\n\n**The Full Solution:**\nWrite each equation in slope-intercept form:\n$2x + 3y = 7 \\Rightarrow y = -\\dfrac{2}{3}x + \\dfrac{7}{3}$.\n$kx + 9y = 11 \\Rightarrow y = -\\dfrac{k}{9}x + \\dfrac{11}{9}$.\n\nFor no solution: same slope, different intercept.\nSlope: $-\\dfrac{2}{3} = -\\dfrac{k}{9} \\Rightarrow k = 6$.\nIntercept check: $\\dfrac{7}{3} = \\dfrac{21}{9} \\neq \\dfrac{11}{9}$, so the lines are NOT identical \\checkmark.\n\nThus $k = 6$ produces parallel non-coincident lines, giving no solution.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — picks one of the original coefficients without solving.\n* Choice C: \"applies the inverse operation\" — sign error after solving.\n* Choice D: \"wrong base\" — picks the coefficient $9$ from the second equation directly.\n\n**Test Day Takeaway:** Two-equation system has no solution $\\iff$ ratios of $x$- and $y$-coefficients are equal but ratios of constants differ. Equivalently: same slope, different $y$-intercept.",
+  skills: ["systems-of-equations", "linear-equations"]
+},
+{
+  id: 11,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -568,16 +578,6 @@ export const practiceTest7 = {
   correctAnswer: "B",
   explanation: "**SAT Pattern: Function Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Probability $= \\dbinom{4}{3} \\left(\\dfrac{1}{4}\\right)^3 \\left(\\dfrac{3}{4}\\right)^1 = 4 \\cdot \\dfrac{1}{64} \\cdot \\dfrac{3}{4} = \\dfrac{12}{256} = \\dfrac{3}{64}$.\n\n**The Full Solution:**\nThe probability of \"exactly $3$ red, $1$ non-red\" out of $4$ spins:\n\n* Choose which of the $4$ spins is non-red: $\\binom{4}{1} = 4$ ways.\n* Each red spin has probability $\\dfrac{1}{4}$; each non-red spin has probability $\\dfrac{3}{4}$.\n* For each arrangement: $\\left(\\dfrac{1}{4}\\right)^3 \\left(\\dfrac{3}{4}\\right) = \\dfrac{3}{256}$.\n\nTotal: $4 \\cdot \\dfrac{3}{256} = \\dfrac{12}{256} = \\dfrac{3}{64}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — uses only $(1/4)^3$, ignoring the non-red spin and the choice factor.\n* Choice C: \"stops one step early\" — gives one arrangement's probability ($3/256$) but forgets to multiply by $4$ positions.\n* Choice D: \"wrong base\" — gives $(3/4)^3 = 27/64$, the probability that $3$ specific spins are all non-red.\n\n**Test Day Takeaway:** For \"exactly $k$ successes out of $n$\" with independent trials, the formula is $\\binom{n}{k} p^k (1 - p)^{n-k}$.",
   skills: ["probability"]
-},
-{
-  id: 11,
-  type: "fill-in",
-  difficulty: "medium",
-  band: 5,
-  question: "The function $f$ is defined by $f(x) = 3(2)^x$. What is the value of $f(5) - f(3)$?",
-  correctAnswer: "72",
-  explanation: "**SAT Pattern: Function Evaluation**\n\n**The correct answer is $72$.**\n\n**The Fast Way (~15s):** $f(5) = 3 \\cdot 32 = 96$. $f(3) = 3 \\cdot 8 = 24$. Difference $= 96 - 24 = 72$.\n\n**The Full Solution:**\n$f(5) = 3 \\cdot 2^5 = 3 \\cdot 32 = 96$.\n$f(3) = 3 \\cdot 2^3 = 3 \\cdot 8 = 24$.\n$f(5) - f(3) = 96 - 24 = 72$.\n\n**Common Mistakes to Avoid:**\n* Computing $f(5 - 3) = f(2) = 3 \\cdot 4 = 12$ (subtracting inputs instead of outputs).\n* Forgetting the coefficient: $2^5 - 2^3 = 24$, not $72$.\n\n**Verification:** $96 - 24 = 72$ \\checkmark.\n\n**Test Day Takeaway:** $f(a) - f(b) \\neq f(a - b)$ for exponential (or most) functions. Evaluate each separately, then subtract.",
-  skills: ["exponential-functions", "function-interpretation"]
 },
 {
   id: 12,
@@ -601,25 +601,6 @@ export const practiceTest7 = {
 {
   id: 13,
   type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The function $f(x) = a \\cdot b^x$ passes through the points $(0, 5)$ and $(3, 320)$. What is the value of $f(2)$?",
-  choices: [
-    // distractor: stops one step early — uses b alone (= 4) without raising to the second power
-    { id: "A", text: "$20$" },
-    { id: "B", text: "$80$" },
-    // distractor: applies inverse operation — uses b^3 (= 64) by mistake at x = 2
-    { id: "C", text: "$320$" },
-    // distractor: wrong base — substitutes x = 0 result in place of f(2)
-    { id: "D", text: "$5$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f(0) = a = 5$. $f(3) = 5 b^3 = 320 \\Rightarrow b^3 = 64 \\Rightarrow b = 4$. $f(2) = 5 \\cdot 16 = 80$.\n\n**The Full Solution:**\nFrom $(0, 5)$: $f(0) = a \\cdot b^0 = a = 5$.\nFrom $(3, 320)$: $5 b^3 = 320 \\Rightarrow b^3 = 64 \\Rightarrow b = 4$.\nThen $f(2) = 5 \\cdot 4^2 = 5 \\cdot 16 = 80$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses $b = 4$ as the answer instead of $5 b^2$.\n* Choice C: \"applies the inverse operation\" — uses $f(3) = 320$ in place of $f(2)$.\n* Choice D: \"wrong base\" — gives $f(0) = 5$ instead of $f(2)$.\n\n**Test Day Takeaway:** Use $(0, y_0)$ to find $a$, then plug another point to solve for $b$. Then substitute the requested input.",
-  skills: ["exponential-functions"]
-},
-{
-  id: 14,
-  type: "multiple-choice",
   difficulty: "medium",
   band: 5,
   question: "A function $f$ is defined by $f(x) = \\dfrac{2x + 6}{x - 1}$. For what value of $x$ is $f(x) = 0$?",
@@ -635,6 +616,25 @@ export const practiceTest7 = {
   correctAnswer: "A",
   explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** A fraction equals $0$ when its numerator is $0$ (and denominator is not). $2x + 6 = 0 \\Rightarrow x = -3$. Denominator at $x = -3$: $-4 \\neq 0$ \\checkmark.\n\n**The Full Solution:**\nSet $f(x) = 0$: $\\dfrac{2x + 6}{x - 1} = 0 \\Rightarrow 2x + 6 = 0 \\Rightarrow x = -3$.\nVerify denominator: $-3 - 1 = -4 \\neq 0$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"stops one step early\" — half the correct answer.\n* Choice C: \"applies the inverse operation\" — solves for the denominator $=0$ (which makes $f$ undefined, not zero).\n* Choice D: \"wrong base\" — solves $2x + 6 = x - 1$ instead of $2x + 6 = 0$.\n\n**Test Day Takeaway:** A rational function equals zero when the numerator is zero AND the denominator is nonzero.",
   skills: ["function-interpretation", "solving-equations"]
+},
+{
+  id: 14,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The function $f(x) = a \\cdot b^x$ passes through the points $(0, 5)$ and $(3, 320)$. What is the value of $f(2)$?",
+  choices: [
+    // distractor: stops one step early — uses b alone (= 4) without raising to the second power
+    { id: "A", text: "$20$" },
+    { id: "B", text: "$80$" },
+    // distractor: applies inverse operation — uses b^3 (= 64) by mistake at x = 2
+    { id: "C", text: "$320$" },
+    // distractor: wrong base — substitutes x = 0 result in place of f(2)
+    { id: "D", text: "$5$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f(0) = a = 5$. $f(3) = 5 b^3 = 320 \\Rightarrow b^3 = 64 \\Rightarrow b = 4$. $f(2) = 5 \\cdot 16 = 80$.\n\n**The Full Solution:**\nFrom $(0, 5)$: $f(0) = a \\cdot b^0 = a = 5$.\nFrom $(3, 320)$: $5 b^3 = 320 \\Rightarrow b^3 = 64 \\Rightarrow b = 4$.\nThen $f(2) = 5 \\cdot 4^2 = 5 \\cdot 16 = 80$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses $b = 4$ as the answer instead of $5 b^2$.\n* Choice C: \"applies the inverse operation\" — uses $f(3) = 320$ in place of $f(2)$.\n* Choice D: \"wrong base\" — gives $f(0) = 5$ instead of $f(2)$.\n\n**Test Day Takeaway:** Use $(0, y_0)$ to find $a$, then plug another point to solve for $b$. Then substitute the requested input.",
+  skills: ["exponential-functions"]
 },
 {
   id: 15,

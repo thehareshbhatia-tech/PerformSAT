@@ -400,111 +400,6 @@ export const practiceTest8 = {
 {
   id: 1,
   type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "If $x > 0$, the expression $\\sqrt[4]{x^3} \\cdot \\sqrt{x^7}$ is equivalent to $x^{p/q}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
-  choices: [
-    // distractor: stops at the numerator p alone (= 17)
-    { id: "A", text: "$17$" },
-    // distractor: sums radical exponents and indices ignoring fractional add
-    { id: "B", text: "$10$" },
-    { id: "C", text: "$21$" },
-    // distractor: wrong base — sums all integers in the expression
-    { id: "D", text: "$14$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[4]{x^3} = x^{3/4}$, $\\sqrt{x^7} = x^{7/2}$. Sum: $\\dfrac{3}{4} + \\dfrac{7}{2} = \\dfrac{3}{4} + \\dfrac{14}{4} = \\dfrac{17}{4}$. So $p + q = 17 + 4 = 21$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[4]{x^3} = x^{3/4}, \\quad \\sqrt{x^7} = x^{7/2}$\n\nMultiply same bases (add exponents):\n$x^{3/4} \\cdot x^{7/2} = x^{3/4 + 14/4} = x^{17/4}$\n\n$\\gcd(17, 4) = 1$, so $\\dfrac{17}{4}$ is already in lowest terms. Then $p = 17$, $q = 4$, and $p + q = 21$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 17$, forgetting to add $q$.\n* Choice B: \"applies the inverse operation\" — sums radical exponents and indices ($3 + 7 = 10$) instead of converting to fractions.\n* Choice D: \"wrong base\" — sums all the integers in the expression ($3 + 4 + 7 = 14$).\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{m/n}$. Add fractional exponents when multiplying same bases; report $p + q$ once the fraction is in lowest terms.",
-  skills: ["exponent-rules", "radical-expressions"]
-},
-{
-  id: 2,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A factory produces $5$-inch, $8$-inch, and $11$-inch metal bolts. During one shift, the number of $11$-inch bolts produced is $4$ times the number $n$ of $8$-inch bolts, and the number of $5$-inch bolts is $50$ more than the number of $8$-inch bolts. The factory produces a total of $914$ bolts that shift. How many $8$-inch bolts does the factory produce?",
-  choices: [
-    // distractor: stops one step early — divides 914/4 forgetting other terms
-    { id: "A", text: "$229$" },
-    // distractor: applies inverse op — uses (914 - 50)/4 = 216
-    { id: "B", text: "$216$" },
-    { id: "C", text: "$144$" },
-    // distractor: off-by-one — divides 914 by 6 ignoring offset
-    { id: "D", text: "$152$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Total $= 4n + n + (n + 50) = 6n + 50 = 914$. So $6n = 864$ and $n = 144$.\n\n**The Full Solution:**\nLet $n$ be the number of $8$-inch bolts.\nNumber of $11$-inch bolts: $4n$.\nNumber of $5$-inch bolts: $n + 50$.\n\nTotal: $4n + n + (n + 50) = 6n + 50 = 914$.\n$6n = 864 \\Rightarrow n = 144$.\n\nVerification: $4(144) + 144 + (144 + 50) = 576 + 144 + 194 = 914$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — divides $914$ by $4$ forgetting the other two quantities.\n* Choice B: \"applies the inverse operation\" — uses $(914 - 50)/4 = 216$ instead of dividing by $6$.\n* Choice D: \"off-by-one\" — divides $914$ by $6$ ignoring the $+50$ offset, giving $\\approx 152$.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$50$ more than\".",
-  skills: ["solving-equations", "word-problems"]
-},
-{
-  id: 3,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "Consider the system of equations.\n\n$x + y + z = 10$\n$2x - y + z = 2$\n$x + 2y - z = 9$\n\nWhat is the value of $x + y$?",
-  choices: [
-    // distractor: stops one step early — solves only for x = 2
-    { id: "A", text: "$2$" },
-    // distractor: gives z (= 3) instead of x + y
-    { id: "B", text: "$3$" },
-    { id: "C", text: "$7$" },
-    // distractor: applies inverse op — adds eq totals (10 + 2 + 9 = 21) and miscomputes
-    { id: "D", text: "$10$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Three-Variable Elimination**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Add eq 1 and eq 3 to cancel $z$: $2x + 3y = 19$. Add eq 2 and eq 3 to cancel $z$: $3x + y = 11$. Solve: $y = 11 - 3x$. Sub: $2x + 3(11 - 3x) = 19 \\Rightarrow -7x = -14 \\Rightarrow x = 2$. Then $y = 11 - 6 = 5$. So $x + y = 7$.\n\n**The Full Solution:**\nEliminate $z$ in two ways:\n* Equation 1 + Equation 3: $(x+y+z) + (x+2y-z) = 10 + 9 \\Rightarrow 2x + 3y = 19$ ... (A)\n* Equation 2 + Equation 3: $(2x-y+z) + (x+2y-z) = 2 + 9 \\Rightarrow 3x + y = 11$ ... (B)\n\nFrom (B): $y = 11 - 3x$. Substitute into (A):\n$2x + 3(11 - 3x) = 19$\n$2x + 33 - 9x = 19$\n$-7x = -14$\n$x = 2$\n$y = 11 - 3(2) = 5$\n$z = 10 - x - y = 10 - 2 - 5 = 3$.\n\nVerify: eq 1: $2+5+3 = 10$ \\checkmark; eq 2: $4-5+3 = 2$ \\checkmark; eq 3: $2+10-3 = 9$ \\checkmark.\n\nSo $x + y = 2 + 5 = 7$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just $x = 2$.\n* Choice B: \"applies the inverse operation\" — returns $z$ instead of $x + y$.\n* Choice D: \"wrong base\" — confuses the value of $x + y + z = 10$ with $x + y$.\n\n**Test Day Takeaway:** When the question asks for $x + y$, look for two equations that combine to eliminate $z$ — then solve the resulting two-variable system.",
-  skills: ["systems-of-equations", "word-problems"]
-},
-{
-  id: 4,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "In the system of equations $4x - 6y = 10$ and $2x - 3y = c$, where $c$ is a constant, the system has no solution. What is the value of $c$?",
-  choices: [
-    // distractor: applies inverse op — divides 10 by 2 ignoring constraint
-    { id: "A", text: "$5$" },
-    { id: "B", text: "Any value other than $5$" },
-    // distractor: stops one step early — gives 10 directly
-    { id: "C", text: "$10$" },
-    // distractor: wrong base — gives the y-coefficient ratio
-    { id: "D", text: "$-3$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The system has no solution when the lines are parallel but DIFFERENT. Dividing the first equation by $2$ gives $2x - 3y = 5$. For no solution, the second equation must be $2x - 3y = c$ with $c \\neq 5$.\n\n**The Full Solution:**\nThe first equation $4x - 6y = 10$ simplifies (divide by $2$) to $2x - 3y = 5$.\nTwo lines have no intersection when they are parallel (same slope) but have different intercepts. Both equations have the same left side $2x - 3y$, so they are parallel iff $c \\neq 5$.\n\nIf $c = 5$, the two equations are identical: infinitely many solutions.\nIf $c \\neq 5$, the lines are parallel and distinct: no solution.\n\nVerification: at $c = 7$ (any value $\\neq 5$): $2x - 3y = 5$ and $2x - 3y = 7$ are inconsistent \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — gives the value where the system has INFINITELY many solutions, not no solutions.\n* Choice C: \"stops one step early\" — uses $10$ from the original right side.\n* Choice D: \"wrong base\" — picks the $y$-coefficient as the answer.\n\n**Test Day Takeaway:** No solution $\\iff$ parallel lines with different right-hand sides. Reduce both equations to a common left side and compare constants.",
-  skills: ["systems-of-equations"]
-},
-{
-  id: 5,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "In right triangle $RST$, the right angle is at vertex $T$, $RS = 65$, and $ST = 16$. What is the value of $\\cos(R)$?",
-  choices: [
-    // distractor: uses ST (opposite to R) instead of adjacent — this is sin(R)
-    { id: "A", text: "$\\dfrac{16}{65}$" },
-    { id: "B", text: "$\\dfrac{63}{65}$" },
-    // distractor: uses ST/RT (= tan R) instead of cos R
-    { id: "C", text: "$\\dfrac{16}{63}$" },
-    // distractor: gives reciprocal of tan = cot
-    { id: "D", text: "$\\dfrac{63}{16}$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Since $T$ is the right angle, $RS = 65$ is the hypotenuse. Find $RT$: $RT = \\sqrt{65^2 - 16^2} = \\sqrt{4225 - 256} = \\sqrt{3969} = 63$. ($16$-$63$-$65$ is a Pythagorean triple.) For angle $R$: adjacent $= RT = 63$, hypotenuse $= 65$. $\\cos(R) = \\dfrac{63}{65}$.\n\n**The Full Solution:**\nBy the Pythagorean theorem: $RT^2 + ST^2 = RS^2$.\n$RT^2 = 65^2 - 16^2 = 4225 - 256 = 3969 \\Rightarrow RT = 63$.\nVerification: $63^2 + 16^2 = 3969 + 256 = 4225 = 65^2$ \\checkmark.\n\nFor angle $R$: $\\cos(R) = \\dfrac{\\text{adjacent}}{\\text{hypotenuse}} = \\dfrac{RT}{RS} = \\dfrac{63}{65}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses $ST$ (opposite to $R$); this is $\\sin(R)$, not $\\cos(R)$.\n* Choice C: \"wrong base\" — uses $\\dfrac{ST}{RT}$, which is $\\tan(R)$.\n* Choice D: \"applies the inverse operation\" — gives the reciprocal of $\\tan(R) = \\cot(R)$.\n\n**Test Day Takeaway:** Always identify the hypotenuse first. Adjacent and opposite swap based on which acute angle you reference.",
-  skills: ["trigonometry", "right-triangles", "triangles"]
-},
-{
-  id: 6,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "The table below shows the results of a survey of $250$ employees about their commute method and department.\n\n| | Car | Public Transit | Bike | Total |\n|---|---|---|---|---|\n| Marketing | $40$ | $25$ | $10$ | $75$ |\n| Engineering | $30$ | $45$ | $25$ | $100$ |\n| Sales | $50$ | $15$ | $10$ | $75$ |\n| Total | $120$ | $85$ | $45$ | $250$ |\n\nIf one employee who uses public transit OR bikes is selected at random, what is the probability that the employee works in Engineering? Round to the nearest hundredth.",
-  correctAnswer: "0.54",
-  explanation: "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**The correct answer is $0.54$.**\n\n**The Fast Way (~25s):** Public transit OR bike total $= 85 + 45 = 130$. Engineering employees in those columns $= 45 + 25 = 70$. Probability $= \\dfrac{70}{130} \\approx 0.538 \\approx 0.54$.\n\n**The Full Solution:**\nGiven: an employee uses public transit OR bikes. Restrict the sample space to those columns.\nTotal in restricted set: $85 + 45 = 130$.\nFavorable (Engineering AND in restricted set): $45 + 25 = 70$.\nProbability $= \\dfrac{70}{130} = \\dfrac{7}{13} \\approx 0.5385 \\approx 0.54$.\n\n**Common Mistakes to Avoid:**\n* Using $250$ as the denominator: gives $70/250 = 0.28$.\n* Using only one column (e.g., only public transit): gives $45/85 \\approx 0.53$, very close numerically.\n\n**Test Day Takeaway:** \"Given X OR Y\" means restrict the denominator to the union of those subsets. The numerator is the favorable count within that union.",
-  skills: ["two-way-tables", "probability"]
-},
-{
-  id: 7,
-  type: "multiple-choice",
   difficulty: "medium",
   band: 5,
   question: "In the figure, two parallel lines are crossed by a transversal. One angle measures $(7y - 10)^{\\circ}$ and the alternate interior angle on the other line measures $(3y + 50)^{\\circ}$. What is the value of $y$?",
@@ -522,46 +417,7 @@ export const practiceTest8 = {
   skills: ["triangles", "angles"]
 },
 {
-  id: 8,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "A researcher surveyed $625$ randomly selected adults and found that $375$ support a new policy. The researcher uses the quick estimate margin of error $\\approx \\dfrac{1}{\\sqrt{n}}$ for a $95\\%$ confidence interval. What is the approximate margin of error, expressed as a percentage? Round to the nearest whole number.",
-  correctAnswer: "4",
-  explanation: "**SAT Pattern: Margin of Error**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~10s):** $\\dfrac{1}{\\sqrt{625}} = \\dfrac{1}{25} = 0.04 = 4\\%$.\n\n**The Full Solution:**\nThe quick-estimate $95\\%$ margin of error formula is $\\dfrac{1}{\\sqrt{n}}$, where $n$ is the SAMPLE SIZE (not the count of favorable outcomes).\n\n$\\dfrac{1}{\\sqrt{625}} = \\dfrac{1}{25} = 0.04 = 4\\%$.\n\nThe sample proportion is $\\dfrac{375}{625} = 60\\%$, so the $95\\%$ confidence interval is approximately $[56\\%, 64\\%]$.\n\n**Common Mistakes to Avoid:**\n* Using $n = 375$ (the favorable count) instead of $n = 625$ (sample size): gives $\\dfrac{1}{\\sqrt{375}} \\approx 5.16\\%$.\n* Forgetting to convert to a percentage.\n\n**Test Day Takeaway:** The margin of error formula uses the total sample size $n$, not the count of favorable responses.",
-  skills: ["margin-of-error", "statistics"]
-},
-{
-  id: 9,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "Line $j$ passes through the points $(2, 9)$ and $(6, 1)$. Line $k$ is perpendicular to line $j$ and passes through the point $(2, 9)$. Which of the following is an equation of line $k$?",
-  choices: [
-    // distractor: gives slope of j (parallel, not perpendicular)
-    { id: "A", text: "$y = -2x + 13$" },
-    { id: "B", text: "$y = \\dfrac{1}{2}x + 8$" },
-    // distractor: takes reciprocal but keeps the negative sign
-    { id: "C", text: "$y = -\\dfrac{1}{2}x + 10$" },
-    // distractor: uses absolute value of slope without reciprocating
-    { id: "D", text: "$y = 2x + 5$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Slope of $j$: $\\dfrac{1 - 9}{6 - 2} = \\dfrac{-8}{4} = -2$. Perpendicular slope: $\\dfrac{1}{2}$. Line $k$: $y - 9 = \\dfrac{1}{2}(x - 2) \\Rightarrow y = \\dfrac{1}{2}x + 8$.\n\n**The Full Solution:**\nSlope of $j$: $m_j = \\dfrac{1 - 9}{6 - 2} = \\dfrac{-8}{4} = -2$.\nPerpendicular slopes are negative reciprocals: $m_k = \\dfrac{1}{2}$.\nLine $k$ through $(2, 9)$: $y - 9 = \\dfrac{1}{2}(x - 2)$, so $y = \\dfrac{1}{2}x - 1 + 9 = \\dfrac{1}{2}x + 8$.\n\nVerification: $m_j \\cdot m_k = -2 \\cdot \\dfrac{1}{2} = -1$ \\checkmark; line $k$ passes through $(2, 9)$: $\\dfrac{1}{2}(2) + 8 = 9$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives slope of $j$ itself (parallel, not perpendicular).\n* Choice C: \"applies the inverse operation\" — takes reciprocal but keeps the negative sign.\n* Choice D: \"wrong base\" — uses absolute value of $m_j = 2$ without reciprocating.\n\n**Test Day Takeaway:** Perpendicular slopes: flip the fraction AND change the sign. The product of perpendicular slopes is $-1$.",
-  skills: ["slope", "linear-functions", "coordinate-geometry"]
-},
-{
-  id: 10,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "The equation $-3x^2 + bx - 27 = 0$ has no real solutions. What is the greatest integer value of $b$?",
-  correctAnswer: "17",
-  explanation: "**SAT Pattern: Discriminant with Integer Bound**\n\n**The correct answer is $17$.**\n\n**The Fast Way (~25s):** No real solutions $\\Rightarrow$ discriminant $< 0$: $b^2 - 4(-3)(-27) < 0 \\Rightarrow b^2 < 324 \\Rightarrow |b| < 18$. Greatest integer: $b = 17$.\n\n**The Full Solution:**\nFor $-3x^2 + bx - 27 = 0$: $a = -3$, coefficient of $x$ is $b$, constant $= -27$.\nDiscriminant $= b^2 - 4(-3)(-27) = b^2 - 324$.\nNo real solutions: $b^2 - 324 < 0 \\Rightarrow b^2 < 324 \\Rightarrow -18 < b < 18$.\n\nAt $b = 18$: discriminant $= 324 - 324 = 0$ (one repeated root). Does NOT give \"no real solutions\".\nGreatest integer with $b < 18$: $b = 17$.\n\nVerification: at $b = 17$, discriminant $= 289 - 324 = -35 < 0$ \\checkmark; at $b = 18$, discriminant $= 0$ (one solution) \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Sign error: $4ac = 4(-3)(-27) = 324$ (positive), not $-324$.\n* Using $\\leq$ instead of $<$: gives $b = 18$, which has one repeated solution, not \"no\" solutions.\n\n**Test Day Takeaway:** \"No real solutions\" requires discriminant $< 0$ (strict). The boundary value gives exactly one solution, which is not \"no\" solutions.",
-  skills: ["discriminant", "quadratic-equations"]
-},
-{
-  id: 11,
+  id: 2,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -571,7 +427,7 @@ export const practiceTest8 = {
   skills: ["linear-functions", "word-problems"]
 },
 {
-  id: 12,
+  id: 3,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -590,7 +446,26 @@ export const practiceTest8 = {
   skills: ["scatterplots", "statistics", "linear-functions"]
 },
 {
-  id: 13,
+  id: 4,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "If $x > 0$, the expression $\\sqrt[4]{x^3} \\cdot \\sqrt{x^7}$ is equivalent to $x^{p/q}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
+  choices: [
+    // distractor: stops at the numerator p alone (= 17)
+    { id: "A", text: "$17$" },
+    // distractor: sums radical exponents and indices ignoring fractional add
+    { id: "B", text: "$10$" },
+    { id: "C", text: "$21$" },
+    // distractor: wrong base — sums all integers in the expression
+    { id: "D", text: "$14$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[4]{x^3} = x^{3/4}$, $\\sqrt{x^7} = x^{7/2}$. Sum: $\\dfrac{3}{4} + \\dfrac{7}{2} = \\dfrac{3}{4} + \\dfrac{14}{4} = \\dfrac{17}{4}$. So $p + q = 17 + 4 = 21$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[4]{x^3} = x^{3/4}, \\quad \\sqrt{x^7} = x^{7/2}$\n\nMultiply same bases (add exponents):\n$x^{3/4} \\cdot x^{7/2} = x^{3/4 + 14/4} = x^{17/4}$\n\n$\\gcd(17, 4) = 1$, so $\\dfrac{17}{4}$ is already in lowest terms. Then $p = 17$, $q = 4$, and $p + q = 21$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 17$, forgetting to add $q$.\n* Choice B: \"applies the inverse operation\" — sums radical exponents and indices ($3 + 7 = 10$) instead of converting to fractions.\n* Choice D: \"wrong base\" — sums all the integers in the expression ($3 + 4 + 7 = 14$).\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{m/n}$. Add fractional exponents when multiplying same bases; report $p + q$ once the fraction is in lowest terms.",
+  skills: ["exponent-rules", "radical-expressions"]
+},
+{
+  id: 5,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -609,7 +484,26 @@ export const practiceTest8 = {
   skills: ["circle-equations", "solving-equations"]
 },
 {
-  id: 14,
+  id: 6,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A factory produces $5$-inch, $8$-inch, and $11$-inch metal bolts. During one shift, the number of $11$-inch bolts produced is $4$ times the number $n$ of $8$-inch bolts, and the number of $5$-inch bolts is $50$ more than the number of $8$-inch bolts. The factory produces a total of $914$ bolts that shift. How many $8$-inch bolts does the factory produce?",
+  choices: [
+    // distractor: stops one step early — divides 914/4 forgetting other terms
+    { id: "A", text: "$229$" },
+    // distractor: applies inverse op — uses (914 - 50)/4 = 216
+    { id: "B", text: "$216$" },
+    { id: "C", text: "$144$" },
+    // distractor: off-by-one — divides 914 by 6 ignoring offset
+    { id: "D", text: "$152$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Total $= 4n + n + (n + 50) = 6n + 50 = 914$. So $6n = 864$ and $n = 144$.\n\n**The Full Solution:**\nLet $n$ be the number of $8$-inch bolts.\nNumber of $11$-inch bolts: $4n$.\nNumber of $5$-inch bolts: $n + 50$.\n\nTotal: $4n + n + (n + 50) = 6n + 50 = 914$.\n$6n = 864 \\Rightarrow n = 144$.\n\nVerification: $4(144) + 144 + (144 + 50) = 576 + 144 + 194 = 914$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — divides $914$ by $4$ forgetting the other two quantities.\n* Choice B: \"applies the inverse operation\" — uses $(914 - 50)/4 = 216$ instead of dividing by $6$.\n* Choice D: \"off-by-one\" — divides $914$ by $6$ ignoring the $+50$ offset, giving $\\approx 152$.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$50$ more than\".",
+  skills: ["solving-equations", "word-problems"]
+},
+{
+  id: 7,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -617,6 +511,112 @@ export const practiceTest8 = {
   correctAnswer: "2.4",
   explanation: "**SAT Pattern: Percent of a Whole**\n\n**The correct answer is $2.4$.**\n\n**The Fast Way (~20s):** Total defective $= 0.02(500) + 0.03(300) = 10 + 9 = 19$. Total produced $= 800$. Percent $= \\dfrac{19}{800} \\times 100 \\approx 2.375 \\approx 2.4\\%$.\n\n**The Full Solution:**\nMonday defective: $2\\%$ of $500 = 10$ widgets.\nTuesday defective: $3\\%$ of $300 = 9$ widgets.\nTotal defective $= 10 + 9 = 19$.\nTotal production $= 500 + 300 = 800$.\n\nDefective rate $= \\dfrac{19}{800} = 0.02375 = 2.375\\% \\approx 2.4\\%$.\n\n**Common Mistakes to Avoid:**\n* Averaging the percentages directly: $\\dfrac{2 + 3}{2} = 2.5\\%$ (ignores different production volumes).\n* Using only one day's data.\n\n**Test Day Takeaway:** Never average percentages directly when groups have different sizes. Always compute total favorable $/$ total count.",
   skills: ["percents", "statistics"]
+},
+{
+  id: 8,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "Consider the system of equations.\n\n$x + y + z = 10$\n$2x - y + z = 2$\n$x + 2y - z = 9$\n\nWhat is the value of $x + y$?",
+  choices: [
+    // distractor: stops one step early — solves only for x = 2
+    { id: "A", text: "$2$" },
+    // distractor: gives z (= 3) instead of x + y
+    { id: "B", text: "$3$" },
+    { id: "C", text: "$7$" },
+    // distractor: applies inverse op — adds eq totals (10 + 2 + 9 = 21) and miscomputes
+    { id: "D", text: "$10$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Three-Variable Elimination**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Add eq 1 and eq 3 to cancel $z$: $2x + 3y = 19$. Add eq 2 and eq 3 to cancel $z$: $3x + y = 11$. Solve: $y = 11 - 3x$. Sub: $2x + 3(11 - 3x) = 19 \\Rightarrow -7x = -14 \\Rightarrow x = 2$. Then $y = 11 - 6 = 5$. So $x + y = 7$.\n\n**The Full Solution:**\nEliminate $z$ in two ways:\n* Equation 1 + Equation 3: $(x+y+z) + (x+2y-z) = 10 + 9 \\Rightarrow 2x + 3y = 19$ ... (A)\n* Equation 2 + Equation 3: $(2x-y+z) + (x+2y-z) = 2 + 9 \\Rightarrow 3x + y = 11$ ... (B)\n\nFrom (B): $y = 11 - 3x$. Substitute into (A):\n$2x + 3(11 - 3x) = 19$\n$2x + 33 - 9x = 19$\n$-7x = -14$\n$x = 2$\n$y = 11 - 3(2) = 5$\n$z = 10 - x - y = 10 - 2 - 5 = 3$.\n\nVerify: eq 1: $2+5+3 = 10$ \\checkmark; eq 2: $4-5+3 = 2$ \\checkmark; eq 3: $2+10-3 = 9$ \\checkmark.\n\nSo $x + y = 2 + 5 = 7$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just $x = 2$.\n* Choice B: \"applies the inverse operation\" — returns $z$ instead of $x + y$.\n* Choice D: \"wrong base\" — confuses the value of $x + y + z = 10$ with $x + y$.\n\n**Test Day Takeaway:** When the question asks for $x + y$, look for two equations that combine to eliminate $z$ — then solve the resulting two-variable system.",
+  skills: ["systems-of-equations", "word-problems"]
+},
+{
+  id: 9,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "In the system of equations $4x - 6y = 10$ and $2x - 3y = c$, where $c$ is a constant, the system has no solution. What is the value of $c$?",
+  choices: [
+    // distractor: applies inverse op — divides 10 by 2 ignoring constraint
+    { id: "A", text: "$5$" },
+    { id: "B", text: "Any value other than $5$" },
+    // distractor: stops one step early — gives 10 directly
+    { id: "C", text: "$10$" },
+    // distractor: wrong base — gives the y-coefficient ratio
+    { id: "D", text: "$-3$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The system has no solution when the lines are parallel but DIFFERENT. Dividing the first equation by $2$ gives $2x - 3y = 5$. For no solution, the second equation must be $2x - 3y = c$ with $c \\neq 5$.\n\n**The Full Solution:**\nThe first equation $4x - 6y = 10$ simplifies (divide by $2$) to $2x - 3y = 5$.\nTwo lines have no intersection when they are parallel (same slope) but have different intercepts. Both equations have the same left side $2x - 3y$, so they are parallel iff $c \\neq 5$.\n\nIf $c = 5$, the two equations are identical: infinitely many solutions.\nIf $c \\neq 5$, the lines are parallel and distinct: no solution.\n\nVerification: at $c = 7$ (any value $\\neq 5$): $2x - 3y = 5$ and $2x - 3y = 7$ are inconsistent \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — gives the value where the system has INFINITELY many solutions, not no solutions.\n* Choice C: \"stops one step early\" — uses $10$ from the original right side.\n* Choice D: \"wrong base\" — picks the $y$-coefficient as the answer.\n\n**Test Day Takeaway:** No solution $\\iff$ parallel lines with different right-hand sides. Reduce both equations to a common left side and compare constants.",
+  skills: ["systems-of-equations"]
+},
+{
+  id: 10,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "In right triangle $RST$, the right angle is at vertex $T$, $RS = 65$, and $ST = 16$. What is the value of $\\cos(R)$?",
+  choices: [
+    // distractor: uses ST (opposite to R) instead of adjacent — this is sin(R)
+    { id: "A", text: "$\\dfrac{16}{65}$" },
+    { id: "B", text: "$\\dfrac{63}{65}$" },
+    // distractor: uses ST/RT (= tan R) instead of cos R
+    { id: "C", text: "$\\dfrac{16}{63}$" },
+    // distractor: gives reciprocal of tan = cot
+    { id: "D", text: "$\\dfrac{63}{16}$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Since $T$ is the right angle, $RS = 65$ is the hypotenuse. Find $RT$: $RT = \\sqrt{65^2 - 16^2} = \\sqrt{4225 - 256} = \\sqrt{3969} = 63$. ($16$-$63$-$65$ is a Pythagorean triple.) For angle $R$: adjacent $= RT = 63$, hypotenuse $= 65$. $\\cos(R) = \\dfrac{63}{65}$.\n\n**The Full Solution:**\nBy the Pythagorean theorem: $RT^2 + ST^2 = RS^2$.\n$RT^2 = 65^2 - 16^2 = 4225 - 256 = 3969 \\Rightarrow RT = 63$.\nVerification: $63^2 + 16^2 = 3969 + 256 = 4225 = 65^2$ \\checkmark.\n\nFor angle $R$: $\\cos(R) = \\dfrac{\\text{adjacent}}{\\text{hypotenuse}} = \\dfrac{RT}{RS} = \\dfrac{63}{65}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses $ST$ (opposite to $R$); this is $\\sin(R)$, not $\\cos(R)$.\n* Choice C: \"wrong base\" — uses $\\dfrac{ST}{RT}$, which is $\\tan(R)$.\n* Choice D: \"applies the inverse operation\" — gives the reciprocal of $\\tan(R) = \\cot(R)$.\n\n**Test Day Takeaway:** Always identify the hypotenuse first. Adjacent and opposite swap based on which acute angle you reference.",
+  skills: ["trigonometry", "right-triangles", "triangles"]
+},
+{
+  id: 11,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "The table below shows the results of a survey of $250$ employees about their commute method and department.\n\n| | Car | Public Transit | Bike | Total |\n|---|---|---|---|---|\n| Marketing | $40$ | $25$ | $10$ | $75$ |\n| Engineering | $30$ | $45$ | $25$ | $100$ |\n| Sales | $50$ | $15$ | $10$ | $75$ |\n| Total | $120$ | $85$ | $45$ | $250$ |\n\nIf one employee who uses public transit OR bikes is selected at random, what is the probability that the employee works in Engineering? Round to the nearest hundredth.",
+  correctAnswer: "0.54",
+  explanation: "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**The correct answer is $0.54$.**\n\n**The Fast Way (~25s):** Public transit OR bike total $= 85 + 45 = 130$. Engineering employees in those columns $= 45 + 25 = 70$. Probability $= \\dfrac{70}{130} \\approx 0.538 \\approx 0.54$.\n\n**The Full Solution:**\nGiven: an employee uses public transit OR bikes. Restrict the sample space to those columns.\nTotal in restricted set: $85 + 45 = 130$.\nFavorable (Engineering AND in restricted set): $45 + 25 = 70$.\nProbability $= \\dfrac{70}{130} = \\dfrac{7}{13} \\approx 0.5385 \\approx 0.54$.\n\n**Common Mistakes to Avoid:**\n* Using $250$ as the denominator: gives $70/250 = 0.28$.\n* Using only one column (e.g., only public transit): gives $45/85 \\approx 0.53$, very close numerically.\n\n**Test Day Takeaway:** \"Given X OR Y\" means restrict the denominator to the union of those subsets. The numerator is the favorable count within that union.",
+  skills: ["two-way-tables", "probability"]
+},
+{
+  id: 12,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "A researcher surveyed $625$ randomly selected adults and found that $375$ support a new policy. The researcher uses the quick estimate margin of error $\\approx \\dfrac{1}{\\sqrt{n}}$ for a $95\\%$ confidence interval. What is the approximate margin of error, expressed as a percentage? Round to the nearest whole number.",
+  correctAnswer: "4",
+  explanation: "**SAT Pattern: Margin of Error**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~10s):** $\\dfrac{1}{\\sqrt{625}} = \\dfrac{1}{25} = 0.04 = 4\\%$.\n\n**The Full Solution:**\nThe quick-estimate $95\\%$ margin of error formula is $\\dfrac{1}{\\sqrt{n}}$, where $n$ is the SAMPLE SIZE (not the count of favorable outcomes).\n\n$\\dfrac{1}{\\sqrt{625}} = \\dfrac{1}{25} = 0.04 = 4\\%$.\n\nThe sample proportion is $\\dfrac{375}{625} = 60\\%$, so the $95\\%$ confidence interval is approximately $[56\\%, 64\\%]$.\n\n**Common Mistakes to Avoid:**\n* Using $n = 375$ (the favorable count) instead of $n = 625$ (sample size): gives $\\dfrac{1}{\\sqrt{375}} \\approx 5.16\\%$.\n* Forgetting to convert to a percentage.\n\n**Test Day Takeaway:** The margin of error formula uses the total sample size $n$, not the count of favorable responses.",
+  skills: ["margin-of-error", "statistics"]
+},
+{
+  id: 13,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "Line $j$ passes through the points $(2, 9)$ and $(6, 1)$. Line $k$ is perpendicular to line $j$ and passes through the point $(2, 9)$. Which of the following is an equation of line $k$?",
+  choices: [
+    // distractor: gives slope of j (parallel, not perpendicular)
+    { id: "A", text: "$y = -2x + 13$" },
+    { id: "B", text: "$y = \\dfrac{1}{2}x + 8$" },
+    // distractor: takes reciprocal but keeps the negative sign
+    { id: "C", text: "$y = -\\dfrac{1}{2}x + 10$" },
+    // distractor: uses absolute value of slope without reciprocating
+    { id: "D", text: "$y = 2x + 5$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Slope of $j$: $\\dfrac{1 - 9}{6 - 2} = \\dfrac{-8}{4} = -2$. Perpendicular slope: $\\dfrac{1}{2}$. Line $k$: $y - 9 = \\dfrac{1}{2}(x - 2) \\Rightarrow y = \\dfrac{1}{2}x + 8$.\n\n**The Full Solution:**\nSlope of $j$: $m_j = \\dfrac{1 - 9}{6 - 2} = \\dfrac{-8}{4} = -2$.\nPerpendicular slopes are negative reciprocals: $m_k = \\dfrac{1}{2}$.\nLine $k$ through $(2, 9)$: $y - 9 = \\dfrac{1}{2}(x - 2)$, so $y = \\dfrac{1}{2}x - 1 + 9 = \\dfrac{1}{2}x + 8$.\n\nVerification: $m_j \\cdot m_k = -2 \\cdot \\dfrac{1}{2} = -1$ \\checkmark; line $k$ passes through $(2, 9)$: $\\dfrac{1}{2}(2) + 8 = 9$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives slope of $j$ itself (parallel, not perpendicular).\n* Choice C: \"applies the inverse operation\" — takes reciprocal but keeps the negative sign.\n* Choice D: \"wrong base\" — uses absolute value of $m_j = 2$ without reciprocating.\n\n**Test Day Takeaway:** Perpendicular slopes: flip the fraction AND change the sign. The product of perpendicular slopes is $-1$.",
+  skills: ["slope", "linear-functions", "coordinate-geometry"]
+},
+{
+  id: 14,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "The equation $-3x^2 + bx - 27 = 0$ has no real solutions. What is the greatest integer value of $b$?",
+  correctAnswer: "17",
+  explanation: "**SAT Pattern: Discriminant with Integer Bound**\n\n**The correct answer is $17$.**\n\n**The Fast Way (~25s):** No real solutions $\\Rightarrow$ discriminant $< 0$: $b^2 - 4(-3)(-27) < 0 \\Rightarrow b^2 < 324 \\Rightarrow |b| < 18$. Greatest integer: $b = 17$.\n\n**The Full Solution:**\nFor $-3x^2 + bx - 27 = 0$: $a = -3$, coefficient of $x$ is $b$, constant $= -27$.\nDiscriminant $= b^2 - 4(-3)(-27) = b^2 - 324$.\nNo real solutions: $b^2 - 324 < 0 \\Rightarrow b^2 < 324 \\Rightarrow -18 < b < 18$.\n\nAt $b = 18$: discriminant $= 324 - 324 = 0$ (one repeated root). Does NOT give \"no real solutions\".\nGreatest integer with $b < 18$: $b = 17$.\n\nVerification: at $b = 17$, discriminant $= 289 - 324 = -35 < 0$ \\checkmark; at $b = 18$, discriminant $= 0$ (one solution) \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Sign error: $4ac = 4(-3)(-27) = 324$ (positive), not $-324$.\n* Using $\\leq$ instead of $<$: gives $b = 18$, which has one repeated solution, not \"no\" solutions.\n\n**Test Day Takeaway:** \"No real solutions\" requires discriminant $< 0$ (strict). The boundary value gives exactly one solution, which is not \"no\" solutions.",
+  skills: ["discriminant", "quadratic-equations"]
 },
 {
   id: 15,

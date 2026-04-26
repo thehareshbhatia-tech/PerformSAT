@@ -404,44 +404,6 @@ export const practiceTest4 = {
 {
   id: 1,
   type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The positive number $a$ is $250\\%$ of the sum of the positive numbers $b$ and $c$, and $b$ is $40\\%$ of $c$. What percent of $b$ is $a$?",
-  choices: [
-    // distractor: adds the percents: 250 + 40 = 290
-    { id: "A", text: "$290\\%$" },
-    // distractor: uses (1 + 0.40) * 250 = 350
-    { id: "B", text: "$350\\%$" },
-    { id: "C", text: "$875\\%$" },
-    // distractor: divides 250 by 0.40 = 625
-    { id: "D", text: "$625\\%$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Set $c = 100$. Then $b = 40\\% \\cdot 100 = 40$. Sum $b + c = 140$. So $a = 2.5 \\cdot 140 = 350$. Percent of $b$ that $a$ is: $\\dfrac{350}{40} \\cdot 100 = 875\\%$.\n\n**The Full Solution:**\nLet $c = 100$ (any positive choice works since percents are scale-invariant).\nThen $b = 0.40 \\cdot 100 = 40$.\nSum: $b + c = 40 + 100 = 140$.\n$a = 2.50 \\cdot 140 = 350$.\nPercent of $b$ that $a$ is: $\\dfrac{a}{b} \\cdot 100\\% = \\dfrac{350}{40} \\cdot 100\\% = 8.75 \\cdot 100\\% = 875\\%$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — adds the two percents ($250 + 40 = 290$).\n* Choice B: \"stops one step early\" — computes $a$ but reports it as a percent of the sum instead of $b$.\n* Choice D: \"wrong base\" — divides $250$ by $0.4$ ignoring the sum structure.\n\n**Test Day Takeaway:** When two percents stack, pick a clean numerical value (e.g., $c = 100$) and compute through. \"Percent of $b$\" means divide by $b$.",
-  skills: ["percents"]
-},
-{
-  id: 2,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "An aquarium holds $3{,}600$ fluid ounces of fresh water and a tank in the same room holds $5{,}120$ fluid ounces. A maintenance schedule allows the tank to lose $1$ gallon every $4$ days through evaporation, where $1$ gallon $= 128$ fluid ounces. After how many days does the tank's volume first equal the aquarium's current volume?",
-  choices: [
-    // distractor: divides total ounces by 128 without subtracting first
-    { id: "A", text: "$40$" },
-    { id: "B", text: "$47.5$" },
-    // distractor: divides 5120 by 128 = 40 days (ignores the aquarium volume)
-    { id: "C", text: "$10$" },
-    // distractor: forgets the per-4-day rate (treats as 1 gallon per day)
-    { id: "D", text: "$11.875$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Unit Conversion**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Difference: $5{,}120 - 3{,}600 = 1{,}520$ ounces. In gallons: $1{,}520 / 128 = 11.875$. At $1$ gallon per $4$ days: $11.875 \\cdot 4 = 47.5$ days.\n\n**The Full Solution:**\nThe tank must lose $5{,}120 - 3{,}600 = 1{,}520$ fluid ounces.\nConvert ounces to gallons: $\\dfrac{1{,}520}{128} = 11.875$ gallons.\nAt a rate of $1$ gallon every $4$ days, the time required is $11.875 \\cdot 4 = 47.5$ days.\n\nVerification: in $47.5$ days the tank loses $\\dfrac{47.5}{4} = 11.875$ gallons $= 11.875 \\cdot 128 = 1{,}520$ ounces; new volume $= 5{,}120 - 1{,}520 = 3{,}600$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — divides by $128$ but skips the difference step.\n* Choice C: \"stops one step early\" — divides $5{,}120$ by $128 \\cdot 4 = 512$, treating per-4-day rate without subtracting the aquarium volume.\n* Choice D: \"applies the inverse operation\" — gets the gallons but forgets the per-4-day rate.\n\n**Test Day Takeaway:** For multi-step rate problems, identify (a) what changes, (b) the conversion factor, and (c) the time-rate. Multiply or divide once for each.",
-  skills: ["word-problems", "ratios"]
-},
-{
-  id: 3,
-  type: "multiple-choice",
   difficulty: "medium",
   band: 5,
   question: "If $\\dfrac{x}{3} + \\dfrac{x}{6} = 15$, what is the value of $x$?",
@@ -459,7 +421,7 @@ export const practiceTest4 = {
   skills: ["solving-equations"]
 },
 {
-  id: 4,
+  id: 2,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -478,7 +440,7 @@ export const practiceTest4 = {
   skills: ["systems-of-equations", "solving-equations"]
 },
 {
-  id: 5,
+  id: 3,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -497,7 +459,65 @@ export const practiceTest4 = {
   skills: ["function-interpretation", "quadratic-equations", "vertex-form"]
 },
 {
+  id: 4,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The positive number $a$ is $250\\%$ of the sum of the positive numbers $b$ and $c$, and $b$ is $40\\%$ of $c$. What percent of $b$ is $a$?",
+  choices: [
+    // distractor: adds the percents: 250 + 40 = 290
+    { id: "A", text: "$290\\%$" },
+    // distractor: uses (1 + 0.40) * 250 = 350
+    { id: "B", text: "$350\\%$" },
+    { id: "C", text: "$875\\%$" },
+    // distractor: divides 250 by 0.40 = 625
+    { id: "D", text: "$625\\%$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Set $c = 100$. Then $b = 40\\% \\cdot 100 = 40$. Sum $b + c = 140$. So $a = 2.5 \\cdot 140 = 350$. Percent of $b$ that $a$ is: $\\dfrac{350}{40} \\cdot 100 = 875\\%$.\n\n**The Full Solution:**\nLet $c = 100$ (any positive choice works since percents are scale-invariant).\nThen $b = 0.40 \\cdot 100 = 40$.\nSum: $b + c = 40 + 100 = 140$.\n$a = 2.50 \\cdot 140 = 350$.\nPercent of $b$ that $a$ is: $\\dfrac{a}{b} \\cdot 100\\% = \\dfrac{350}{40} \\cdot 100\\% = 8.75 \\cdot 100\\% = 875\\%$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — adds the two percents ($250 + 40 = 290$).\n* Choice B: \"stops one step early\" — computes $a$ but reports it as a percent of the sum instead of $b$.\n* Choice D: \"wrong base\" — divides $250$ by $0.4$ ignoring the sum structure.\n\n**Test Day Takeaway:** When two percents stack, pick a clean numerical value (e.g., $c = 100$) and compute through. \"Percent of $b$\" means divide by $b$.",
+  skills: ["percents"]
+},
+{
+  id: 5,
+  type: "fill-in",
+  difficulty: "medium",
+  band: 5,
+  question: "If $2x^2 - 18 = 0$, what is a positive value of $x$?",
+  correctAnswer: "3",
+  explanation: "**SAT Pattern: Discriminant Analysis**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~10s):** $2x^2 = 18 \\Rightarrow x^2 = 9 \\Rightarrow x = 3$ (positive root).\n\n**The Full Solution:**\n$2x^2 - 18 = 0$.\n$2x^2 = 18$.\n$x^2 = 9$.\n$x = \\pm 3$.\nPositive value: $x = 3$.\n\n**Verification:** $2(3)^2 - 18 = 2(9) - 18 = 18 - 18 = 0$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Dividing $18$ by $2$ and forgetting to take the square root, answering $9$.\n* Answering $-3$ (the negative root).\n\n**Test Day Takeaway:** Isolate the $x^2$ term, then take the positive square root if positive value is requested.",
+  skills: ["solving-equations", "quadratic-equations"]
+},
+{
   id: 6,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "An aquarium holds $3{,}600$ fluid ounces of fresh water and a tank in the same room holds $5{,}120$ fluid ounces. A maintenance schedule allows the tank to lose $1$ gallon every $4$ days through evaporation, where $1$ gallon $= 128$ fluid ounces. After how many days does the tank's volume first equal the aquarium's current volume?",
+  choices: [
+    // distractor: divides total ounces by 128 without subtracting first
+    { id: "A", text: "$40$" },
+    { id: "B", text: "$47.5$" },
+    // distractor: divides 5120 by 128 = 40 days (ignores the aquarium volume)
+    { id: "C", text: "$10$" },
+    // distractor: forgets the per-4-day rate (treats as 1 gallon per day)
+    { id: "D", text: "$11.875$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Unit Conversion**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Difference: $5{,}120 - 3{,}600 = 1{,}520$ ounces. In gallons: $1{,}520 / 128 = 11.875$. At $1$ gallon per $4$ days: $11.875 \\cdot 4 = 47.5$ days.\n\n**The Full Solution:**\nThe tank must lose $5{,}120 - 3{,}600 = 1{,}520$ fluid ounces.\nConvert ounces to gallons: $\\dfrac{1{,}520}{128} = 11.875$ gallons.\nAt a rate of $1$ gallon every $4$ days, the time required is $11.875 \\cdot 4 = 47.5$ days.\n\nVerification: in $47.5$ days the tank loses $\\dfrac{47.5}{4} = 11.875$ gallons $= 11.875 \\cdot 128 = 1{,}520$ ounces; new volume $= 5{,}120 - 1{,}520 = 3{,}600$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — divides by $128$ but skips the difference step.\n* Choice C: \"stops one step early\" — divides $5{,}120$ by $128 \\cdot 4 = 512$, treating per-4-day rate without subtracting the aquarium volume.\n* Choice D: \"applies the inverse operation\" — gets the gallons but forgets the per-4-day rate.\n\n**Test Day Takeaway:** For multi-step rate problems, identify (a) what changes, (b) the conversion factor, and (c) the time-rate. Multiply or divide once for each.",
+  skills: ["word-problems", "ratios"]
+},
+{
+  id: 7,
+  type: "fill-in",
+  difficulty: "medium",
+  band: 5,
+  question: "A movie theater sold adult tickets for $\\$12$ each and child tickets for $\\$7$ each. A total of $200$ tickets were sold, and the total revenue was $\\$2{,}100$. How many adult tickets were sold?",
+  correctAnswer: "140",
+  explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**The correct answer is $140$.**\n\n**The Fast Way (~30s):** Let $a$ = adult tickets and $c$ = child tickets. From $a + c = 200$, $c = 200 - a$. Substitute into $12a + 7c = 2100$: $12a + 7(200 - a) = 2100 \\Rightarrow 5a + 1400 = 2100 \\Rightarrow a = 140$.\n\n**The Full Solution:**\nLet $a$ = adult tickets, $c$ = child tickets.\n$a + c = 200$ ... (1)\n$12a + 7c = 2100$ ... (2)\nFrom (1): $c = 200 - a$.\nSubstitute into (2): $12a + 7(200 - a) = 2100$.\n$12a + 1400 - 7a = 2100$.\n$5a = 700$.\n$a = 140$.\n\n**Verification:** $c = 60$. Revenue: $12(140) + 7(60) = 1680 + 420 = 2100$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $60$ (the number of child tickets).\n* Setting up $12a + 7c = 200$ (confusing quantity and revenue equations).\n\n**Test Day Takeaway:** Two equations: one for the count, one for the revenue. Substitute and solve.",
+  skills: ["systems-of-equations", "word-problems"]
+},
+{
+  id: 8,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -516,7 +536,7 @@ export const practiceTest4 = {
   skills: ["statistics", "mean"]
 },
 {
-  id: 7,
+  id: 9,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -535,7 +555,7 @@ export const practiceTest4 = {
   skills: ["word-problems", "solving-equations", "linear-functions"]
 },
 {
-  id: 8,
+  id: 10,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -554,17 +574,7 @@ export const practiceTest4 = {
   skills: ["quadratic-equations", "vertex-form", "function-interpretation"]
 },
 {
-  id: 9,
-  type: "fill-in",
-  difficulty: "medium",
-  band: 5,
-  question: "If $2x^2 - 18 = 0$, what is a positive value of $x$?",
-  correctAnswer: "3",
-  explanation: "**SAT Pattern: Discriminant Analysis**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~10s):** $2x^2 = 18 \\Rightarrow x^2 = 9 \\Rightarrow x = 3$ (positive root).\n\n**The Full Solution:**\n$2x^2 - 18 = 0$.\n$2x^2 = 18$.\n$x^2 = 9$.\n$x = \\pm 3$.\nPositive value: $x = 3$.\n\n**Verification:** $2(3)^2 - 18 = 2(9) - 18 = 18 - 18 = 0$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Dividing $18$ by $2$ and forgetting to take the square root, answering $9$.\n* Answering $-3$ (the negative root).\n\n**Test Day Takeaway:** Isolate the $x^2$ term, then take the positive square root if positive value is requested.",
-  skills: ["solving-equations", "quadratic-equations"]
-},
-{
-  id: 10,
+  id: 11,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -583,7 +593,7 @@ export const practiceTest4 = {
   skills: ["probability", "two-way-tables"]
 },
 {
-  id: 11,
+  id: 12,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -602,36 +612,7 @@ export const practiceTest4 = {
   skills: ["slope", "coordinate-geometry", "linear-functions"]
 },
 {
-  id: 12,
-  type: "fill-in",
-  difficulty: "medium",
-  band: 5,
-  question: "A movie theater sold adult tickets for $\\$12$ each and child tickets for $\\$7$ each. A total of $200$ tickets were sold, and the total revenue was $\\$2{,}100$. How many adult tickets were sold?",
-  correctAnswer: "140",
-  explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**The correct answer is $140$.**\n\n**The Fast Way (~30s):** Let $a$ = adult tickets and $c$ = child tickets. From $a + c = 200$, $c = 200 - a$. Substitute into $12a + 7c = 2100$: $12a + 7(200 - a) = 2100 \\Rightarrow 5a + 1400 = 2100 \\Rightarrow a = 140$.\n\n**The Full Solution:**\nLet $a$ = adult tickets, $c$ = child tickets.\n$a + c = 200$ ... (1)\n$12a + 7c = 2100$ ... (2)\nFrom (1): $c = 200 - a$.\nSubstitute into (2): $12a + 7(200 - a) = 2100$.\n$12a + 1400 - 7a = 2100$.\n$5a = 700$.\n$a = 140$.\n\n**Verification:** $c = 60$. Revenue: $12(140) + 7(60) = 1680 + 420 = 2100$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $60$ (the number of child tickets).\n* Setting up $12a + 7c = 200$ (confusing quantity and revenue equations).\n\n**Test Day Takeaway:** Two equations: one for the count, one for the revenue. Substitute and solve.",
-  skills: ["systems-of-equations", "word-problems"]
-},
-{
   id: 13,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A circle in the $xy$-plane has the equation $x^2 + y^2 - 14x + 4y + 28 = 0$. What is the radius of the circle?",
-  choices: [
-    // distractor: miscomputes -28 + 49 + 4 as 9, takes sqrt(9) = 3
-    { id: "A", text: "$3$" },
-    { id: "B", text: "$5$" },
-    // distractor: completes only one square term
-    { id: "C", text: "$\\sqrt{21}$" },
-    // distractor: gives r^2 = 25 instead of r = 5
-    { id: "D", text: "$25$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Complete the Square — Non-Square Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Complete the square:\n$(x^2 - 14x + 49) + (y^2 + 4y + 4) = -28 + 49 + 4$\n$(x - 7)^2 + (y + 2)^2 = 25$.\nRadius $= \\sqrt{25} = 5$.\n\n**The Full Solution:**\nGroup: $(x^2 - 14x) + (y^2 + 4y) = -28$.\nComplete for $x$: half of $-14$ is $-7$, $(-7)^2 = 49$.\nComplete for $y$: half of $4$ is $2$, $2^2 = 4$.\n$(x-7)^2 + (y+2)^2 = -28 + 49 + 4 = 25$.\nRadius $= \\sqrt{25} = 5$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — miscomputes $-28 + 49 + 4$ as $9$ and takes $\\sqrt{9} = 3$.\n* Choice C: \"stops one step early\" — completes only one square term.\n* Choice D: \"applies the inverse operation\" — gives $r^2 = 25$ instead of $r = 5$.\n\n**Test Day Takeaway:** Move the constant to the right, complete the square for $x$ and $y$, then the right side equals $r^2$.",
-  skills: ["circle-equations", "solving-equations"]
-},
-{
-  id: 14,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -648,6 +629,25 @@ export const practiceTest4 = {
   correctAnswer: "A",
   explanation: "**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Expand: $3(x-5)^2 - 27 = 3(x^2 - 10x + 25) - 27 = 3x^2 - 30x + 48 = 3(x - 2)(x - 8)$.\n\n**The Full Solution:**\n$y = 3(x-5)^2 - 27$\n$= 3(x^2 - 10x + 25) - 27$\n$= 3x^2 - 30x + 75 - 27$\n$= 3x^2 - 30x + 48$\n$= 3(x^2 - 10x + 16)$\n$= 3(x - 2)(x - 8)$.\n\nCheck: $x = 2$ and $x = 8$ are the $x$-intercepts.\nVerify vertex: $x = \\dfrac{2+8}{2} = 5$. $y(5) = 3(5-2)(5-8) = 3(3)(-3) = -27$. Vertex $(5, -27)$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"applies the inverse operation\" — zeros at $-2$ and $8$ would put the vertex at $x = 3$, not $5$.\n* Choice C: \"wrong base\" — zeros at $2$ and $-8$ would put the vertex at $x = -3$.\n* Choice D: \"off-by-one\" — zeros at $-2$ and $-8$ would put the vertex at $x = -5$.\n\n**Test Day Takeaway:** To convert vertex form to factored form: expand, simplify, factor. The average of the zeros must equal the vertex $x$-coordinate.",
   skills: ["quadratic-equations", "factoring", "vertex-form"]
+},
+{
+  id: 14,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A circle in the $xy$-plane has the equation $x^2 + y^2 - 14x + 4y + 28 = 0$. What is the radius of the circle?",
+  choices: [
+    // distractor: miscomputes -28 + 49 + 4 as 9, takes sqrt(9) = 3
+    { id: "A", text: "$3$" },
+    { id: "B", text: "$5$" },
+    // distractor: completes only one square term
+    { id: "C", text: "$\\sqrt{21}$" },
+    // distractor: gives r^2 = 25 instead of r = 5
+    { id: "D", text: "$25$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Complete the Square — Non-Square Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Complete the square:\n$(x^2 - 14x + 49) + (y^2 + 4y + 4) = -28 + 49 + 4$\n$(x - 7)^2 + (y + 2)^2 = 25$.\nRadius $= \\sqrt{25} = 5$.\n\n**The Full Solution:**\nGroup: $(x^2 - 14x) + (y^2 + 4y) = -28$.\nComplete for $x$: half of $-14$ is $-7$, $(-7)^2 = 49$.\nComplete for $y$: half of $4$ is $2$, $2^2 = 4$.\n$(x-7)^2 + (y+2)^2 = -28 + 49 + 4 = 25$.\nRadius $= \\sqrt{25} = 5$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — miscomputes $-28 + 49 + 4$ as $9$ and takes $\\sqrt{9} = 3$.\n* Choice C: \"stops one step early\" — completes only one square term.\n* Choice D: \"applies the inverse operation\" — gives $r^2 = 25$ instead of $r = 5$.\n\n**Test Day Takeaway:** Move the constant to the right, complete the square for $x$ and $y$, then the right side equals $r^2$.",
+  skills: ["circle-equations", "solving-equations"]
 },
 {
   id: 15,

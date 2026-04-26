@@ -398,149 +398,6 @@ export const practiceTest6 = {
 
 {
   id: 1,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The positive number $a$ is $180\\%$ of the sum of the positive numbers $b$ and $c$, and $c$ is $50\\%$ of $b$. What percent of $b$ is $a$?",
-  choices: [
-    // distractor: stops one step early — adds 180 + 50 = 230
-    { id: "A", text: "$230\\%$" },
-    // distractor: applies the percent forward — uses 180% directly
-    { id: "B", text: "$180\\%$" },
-    { id: "C", text: "$270\\%$" },
-    // distractor: wrong base — uses 180% of 1.5 with rounding to 300%
-    { id: "D", text: "$300\\%$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Let $b = 100$. Then $c = 50$, $b + c = 150$, $a = 1.80 \\cdot 150 = 270$. So $a$ is $\\dfrac{270}{100} = 270\\%$ of $b$.\n\n**The Full Solution:**\nLet $b = 100$ (a convenient value to avoid fractions).\nThen $c = 0.50 \\cdot b = 50$ and $b + c = 150$.\n$a = 1.80 \\cdot (b + c) = 1.80 \\cdot 150 = 270$.\nAs a percent of $b$: $\\dfrac{a}{b} \\cdot 100 = \\dfrac{270}{100} \\cdot 100 = 270\\%$.\n\nIn variables: $a = 1.8(b + 0.5b) = 1.8 \\cdot 1.5b = 2.7b$, so $a$ is $270\\%$ of $b$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — adds $180 + 50 = 230$ percentages directly.\n* Choice B: \"applies the percent forward\" — uses $180\\%$ as the answer without combining the second relationship.\n* Choice D: \"wrong base\" — computes $1.8 \\cdot 1.66 \\approx 3.0$ via rounding errors.\n\n**Test Day Takeaway:** Multi-step percent: pick a clean base (like $b = 100$), then walk through each percent in order. Avoid adding percentages directly.",
-  skills: ["percents", "word-problems"]
-},
-{
-  id: 2,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A workshop produces $14$-inch, $9$-inch, and $5$-inch dowels. During a single day, the number of $14$-inch dowels produced is $3$ times the number $d$ of $9$-inch dowels, and the number of $5$-inch dowels is $80$ more than the number of $9$-inch dowels. The workshop produces a total of $1{,}060$ dowels that day. How many $9$-inch dowels does the workshop produce that day?",
-  choices: [
-    // distractor: stops one step early — uses 1060/5 ignoring the +80 offset
-    { id: "A", text: "$212$" },
-    { id: "B", text: "$196$" },
-    // distractor: applies inverse op — solves 5d - 80 = 1060 by sign error
-    { id: "C", text: "$228$" },
-    // distractor: wrong base — drops the 14-inch coefficient (uses 2d + 80)
-    { id: "D", text: "$490$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Three-Variable System**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Let $d$ = number of $9$-inch dowels. Then $14$-inch count $= 3d$ and $5$-inch count $= d + 80$. Total: $3d + d + (d + 80) = 1060 \\Rightarrow 5d = 980 \\Rightarrow d = 196$.\n\n**The Full Solution:**\nLet $d$ be the number of $9$-inch dowels.\n* $14$-inch dowels: $3d$.\n* $5$-inch dowels: $d + 80$.\n\nSum equals total:\n$3d + d + (d + 80) = 1060$\n$5d + 80 = 1060$\n$5d = 980$\n$d = 196$.\n\nVerification: $14$-inch $= 588$, $9$-inch $= 196$, $5$-inch $= 276$; sum $= 588 + 196 + 276 = 1060$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses $1060 / 5 = 212$, ignoring the $+80$ offset.\n* Choice C: \"applies inverse op\" — solves $5d - 80 = 1060$: $5d = 1140$, $d = 228$ (sign error on the offset).\n* Choice D: \"wrong base\" — drops the $14$-inch term, treating it as if there were only two variables.\n\n**Test Day Takeaway:** Translate each part of a multi-rate word problem into one expression in a single variable, then sum to the total.",
-  skills: ["systems-of-equations", "word-problems"]
-},
-{
-  id: 3,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "If $x > 0$, the expression $\\sqrt[5]{x^7} \\cdot \\sqrt[3]{x^4}$ is equivalent to $x^{p/q}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
-  choices: [
-    // distractor: stops one step early — adds 7 + 4 = 11
-    { id: "A", text: "$11$" },
-    // distractor: wrong base — adds 5 + 3 = 8 (denominators)
-    { id: "B", text: "$8$" },
-    { id: "C", text: "$56$" },
-    // distractor: applies inverse op — multiplies 7*4 = 28 over 15
-    { id: "D", text: "$43$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[5]{x^7} = x^{7/5}$ and $\\sqrt[3]{x^4} = x^{4/3}$. Sum the exponents: $\\dfrac{7}{5} + \\dfrac{4}{3} = \\dfrac{21 + 20}{15} = \\dfrac{41}{15}$. Already in lowest terms, so $p + q = 41 + 15 = 56$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n* $\\sqrt[5]{x^7} = x^{7/5}$.\n* $\\sqrt[3]{x^4} = x^{4/3}$.\n\nMultiply: $x^{7/5} \\cdot x^{4/3} = x^{7/5 + 4/3}$.\n\nCommon denominator $15$:\n$\\dfrac{7}{5} + \\dfrac{4}{3} = \\dfrac{21}{15} + \\dfrac{20}{15} = \\dfrac{41}{15}$.\n\n$\\gcd(41, 15) = 1$, so $\\dfrac{41}{15}$ is in lowest terms. $p + q = 41 + 15 = 56$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — adds the numerators $7 + 4 = 11$, ignoring the denominators.\n* Choice B: \"wrong base\" — adds the denominators $5 + 3 = 8$ instead of finding the LCD.\n* Choice D: \"applies the inverse operation\" — multiplies $7 \\cdot 4 = 28$ over $15$, then $28 + 15 = 43$.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{m/n}$. To multiply same-base powers, ADD the exponents (find a common denominator first).",
-  skills: ["exponent-rules", "radical-expressions"]
-},
-{
-  id: 4,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The system of equations\n\n$2x - 5y = 8$\n$ax - 15y = 36$\n\nhas no solution. What is the value of $a$?",
-  choices: [
-    // distractor: stops one step early — uses a = 2 (the original coefficient)
-    { id: "A", text: "$2$" },
-    { id: "B", text: "$6$" },
-    // distractor: wrong base — uses 36/8 ratio for a
-    { id: "C", text: "$9$" },
-    // distractor: applies inverse op — uses negative ratio
-    { id: "D", text: "$-6$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** For no solution, the lines are parallel: same slope, different intercepts. The $y$-coefficient ratio is $-15 / -5 = 3$, so multiply equation 1's $x$-coefficient by $3$: $a = 6$. Check constants don't match: $3 \\cdot 8 = 24 \\neq 36$ \\checkmark.\n\n**The Full Solution:**\nFor no solution: coefficients of $x$ and $y$ are proportional, but constants are NOT in the same ratio.\n\nFrom the $y$-coefficients: $\\dfrac{-15}{-5} = 3$. So multiply equation 1 by $3$: $6x - 15y = 24$.\n\nCompare with $ax - 15y = 36$:\n* Same $y$-coefficient ($-15$). Need $a = 6$ for matching $x$-coefficient.\n* Constants: $24$ vs $36$ — not equal, so the lines are PARALLEL, not identical.\n\nTherefore $a = 6$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses $a = 2$ from equation 1 directly without scaling.\n* Choice C: \"wrong base\" — uses the constant ratio $36 / 8$ rounded to find $a$.\n* Choice D: \"applies the inverse operation\" — uses sign flip on $a = 6$.\n\n**Test Day Takeaway:** No solution $\\iff$ same slope, DIFFERENT intercept. Match the coefficient ratios; verify constants do NOT match the same ratio.",
-  skills: ["systems-of-equations"]
-},
-{
-  id: 5,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The table shows three values of $x$ and the corresponding values of $f(x)$, where $f$ is a linear function.\n\n| $x$ | $f(x)$ |\n|-----|--------|\n| $-3$ | $19$ |\n| $1$ | $7$ |\n| $5$ | $-5$ |\n\nIf $g(x) = f(x - 4) + 6$, what is the value of $g(5)$?",
-  choices: [
-    // distractor: applies inverse op — uses f(5+4) = f(9) and adds 6
-    { id: "A", text: "$-19$" },
-    // distractor: stops one step early — uses f(5) = -5 without shift
-    { id: "B", text: "$-5$" },
-    { id: "C", text: "$13$" },
-    // distractor: wrong base — uses f(5) and forgets the +6
-    { id: "D", text: "$1$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Function Transformation**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $g(5) = f(5 - 4) + 6 = f(1) + 6 = 7 + 6 = 13$.\n\n**The Full Solution:**\nStart from the definition: $g(x) = f(x - 4) + 6$.\n$g(5) = f(5 - 4) + 6 = f(1) + 6$.\nFrom the table, $f(1) = 7$.\n$g(5) = 7 + 6 = 13$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — shifts the wrong direction: $f(5 + 4) + 6$. From the linear pattern, $f$ has slope $-3$ and $f(0) = 10$; $f(9) = 10 - 27 = -17$, so $-17 + 6 = -11$ rounded.\n* Choice B: \"stops one step early\" — uses $f(5) = -5$ without applying the transformation.\n* Choice D: \"wrong base\" — uses $f(5) = -5$ and adds $6$: $-5 + 6 = 1$.\n\n**Test Day Takeaway:** $g(x) = f(x - h) + k$ shifts the input by $h$ (right) and adds $k$ to the output. Apply both shifts, in order.",
-  skills: ["function-interpretation", "function-transformation", "linear-functions"]
-},
-{
-  id: 6,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A researcher surveyed a random sample of $625$ first-time voters in a county and found that $36\\%$ planned to vote in the next election, with a margin of error of $\\pm 4\\%$ at a $95\\%$ confidence level. Which of the following is the most appropriate conclusion based on this survey?",
-  choices: [
-    // distractor: stops one step early — uses 36% as if it were the population value
-    { id: "A", text: "Exactly $36\\%$ of all first-time voters in the county plan to vote." },
-    { id: "B", text: "We are $95\\%$ confident that between $32\\%$ and $40\\%$ of all first-time voters in the county plan to vote." },
-    // distractor: applies inverse op — applies the margin to a different group
-    { id: "C", text: "Between $32\\%$ and $40\\%$ of all voters in the county plan to vote." },
-    // distractor: wrong base — extrapolates from sample to all U.S. voters
-    { id: "D", text: "Between $32\\%$ and $40\\%$ of all first-time voters nationwide plan to vote." }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Margin of Error**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** A margin of error of $\\pm 4\\%$ on the sample proportion $36\\%$ gives a confidence interval of $32\\%$ to $40\\%$ — and the conclusion applies to the population the sample was drawn from (first-time voters in this county), at the stated confidence level.\n\n**The Full Solution:**\nThe sample proportion is $36\\%$ with margin of error $\\pm 4\\%$. The $95\\%$ confidence interval is $36\\% \\pm 4\\% = (32\\%, 40\\%)$.\n\nThree key restrictions on the conclusion:\n* The interval applies to the POPULATION sampled (first-time voters in this county), NOT to all voters or to a different geography.\n* It must include the confidence level (\"$95\\%$ confident\").\n* It cannot claim exact equality.\n\nOnly Choice B satisfies all three.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — drops the margin of error and confidence level entirely; treats the sample value as exact.\n* Choice C: \"applies inverse op\" — broadens to \"all voters\" instead of \"first-time voters\".\n* Choice D: \"wrong base\" — broadens beyond the sampled population (this county) to the nation.\n\n**Test Day Takeaway:** Confidence-interval conclusions must (1) name the SAMPLED population, (2) include the confidence level, (3) report the interval, NOT a point.",
-  skills: ["margin-of-error", "statistics"]
-},
-{
-  id: 7,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "Consider the system of equations:\n\n$x + y + z = 18$\n$2x + y - z = 7$\n$x + 3y + 2z = 31$\n\nWhat is the value of $z$?",
-  correctAnswer: "9",
-  explanation: "**SAT Pattern: Three-Variable Elimination**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~35s):** Add equations 1 and 2 to eliminate $z$: $3x + 2y = 25$ ... (A). Compute equation 3 minus $2 \\times$ equation 1: $-x + y = -5$, so $y = x - 5$ ... (B). Sub (B) into (A): $3x + 2(x - 5) = 25 \\Rightarrow 5x = 35 \\Rightarrow x = 7$, $y = 2$, $z = 18 - 7 - 2 = 9$.\n\n**The Full Solution:**\nEliminate $z$ between equations 1 and 2 by adding them:\n$(x + y + z) + (2x + y - z) = 18 + 7 \\Rightarrow 3x + 2y = 25$ ... (A).\n\nEliminate $z$ between equations 1 and 3 (using $2 \\cdot$ equation 1):\n$\\text{eq 3} - 2 \\cdot \\text{eq 1}: (x + 3y + 2z) - (2x + 2y + 2z) = 31 - 36$\n$\\Rightarrow -x + y = -5 \\Rightarrow y = x - 5$ ... (B).\n\nSubstitute (B) into (A):\n$3x + 2(x - 5) = 25 \\Rightarrow 5x - 10 = 25 \\Rightarrow x = 7$.\nThen $y = 7 - 5 = 2$, and from equation 1: $z = 18 - 7 - 2 = 9$.\n\nVerification:\n* Eq 1: $7 + 2 + 9 = 18$ \\checkmark\n* Eq 2: $14 + 2 - 9 = 7$ \\checkmark\n* Eq 3: $7 + 6 + 18 = 31$ \\checkmark\n\n**Common Mistakes to Avoid:**\n* Solving only for $x$ and stopping (forgetting that the question asks for $z$).\n* Sign errors when subtracting equations — track signs carefully when eliminating.\n\n**Test Day Takeaway:** Three-variable systems: pick two pairs of equations to eliminate ONE variable in each pair, then solve the resulting two-variable system.",
-  skills: ["systems-of-equations"]
-},
-{
-  id: 8,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The parabola defined by $y = -3(x - h)^2 + k$ has its vertex at $(4, 19)$ and passes through the point $(2, 7)$. What is the value of $h - k$?",
-  choices: [
-    // distractor: applies inverse op — uses h + k = 23
-    { id: "A", text: "$23$" },
-    // distractor: stops one step early — uses h = 4 only
-    { id: "B", text: "$4$" },
-    { id: "C", text: "$-15$" },
-    // distractor: wrong sign — uses k - h = 15
-    { id: "D", text: "$15$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Vertex $(h, k) = (4, 19)$. Verify the second point with $a = -3$: $y = -3(2 - 4)^2 + 19 = -3(4) + 19 = 7$ \\checkmark. So $h - k = 4 - 19 = -15$.\n\n**The Full Solution:**\nIn vertex form $y = a(x - h)^2 + k$, the vertex is $(h, k)$. Given vertex $(4, 19)$: $h = 4$, $k = 19$.\n\nVerify the leading coefficient $a = -3$ with $(2, 7)$:\n$y = -3(2 - 4)^2 + 19 = -3(4) + 19 = -12 + 19 = 7$ \\checkmark.\n\nSo $h - k = 4 - 19 = -15$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — adds instead of subtracts: $h + k = 23$.\n* Choice B: \"stops one step early\" — reports $h = 4$ without subtracting $k$.\n* Choice D: \"wrong sign\" — computes $k - h = 19 - 4 = 15$.\n\n**Test Day Takeaway:** In $y = a(x - h)^2 + k$, the vertex is exactly $(h, k)$. Read $h$ and $k$ off directly; verify $a$ with the second point if asked.",
-  skills: ["vertex-form", "quadratic-equations", "function-interpretation"]
-},
-{
-  id: 9,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -550,36 +407,7 @@ export const practiceTest6 = {
   skills: ["solving-equations", "linear-functions"]
 },
 {
-  id: 10,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A study assigned $120$ participants to one of four programs: P, Q, R, or S. The two-way table summarizes the distribution by gender.\n\n| | Program P | Program Q | Program R | Program S | Total |\n|---|---|---|---|---|---|\n| Male | $9$ | $14$ | $11$ | $16$ | $50$ |\n| Female | $21$ | $16$ | $19$ | $14$ | $70$ |\n| Total | $30$ | $30$ | $30$ | $30$ | $120$ |\n\nIf one participant who is in Program P or Program R is selected at random, what is the probability that the participant is female?",
-  choices: [
-    // distractor: wrong base — uses 40/120 (the grand total)
-    { id: "A", text: "$\\dfrac{1}{3}$" },
-    // distractor: stops one step early — uses only the female total 70/120
-    { id: "B", text: "$\\dfrac{7}{12}$" },
-    { id: "C", text: "$\\dfrac{2}{3}$" },
-    // distractor: swaps numerator/denominator — uses (60-40)/60
-    { id: "D", text: "$\\dfrac{1}{4}$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Programs P and R together: $30 + 30 = 60$. Female count in P and R: $21 + 19 = 40$. Probability $= \\dfrac{40}{60} = \\dfrac{2}{3}$.\n\n**The Full Solution:**\nThe condition \"in Program P or Program R\" restricts the sample space to those two columns: $30 + 30 = 60$ participants.\nFavorable outcomes: female AND (P or R) = $21 + 19 = 40$.\nProbability $= \\dfrac{40}{60} = \\dfrac{2}{3}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses the grand total $120$: $\\dfrac{40}{120} = \\dfrac{1}{3}$.\n* Choice B: \"stops one step early\" — uses the marginal female proportion $\\dfrac{70}{120} = \\dfrac{7}{12}$, ignoring the program restriction.\n* Choice D: \"swaps numerator/denominator\" — uses $\\dfrac{60 - 40}{60} = \\dfrac{1}{3}$ but reports a wrong reduction.\n\n**Test Day Takeaway:** \"Given X\" restricts to the X-rows or X-columns. Both numerator and denominator must be computed within that restricted subset.",
-  skills: ["probability", "two-way-tables"]
-},
-{
-  id: 11,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "In the $xy$-plane, line $p$ has the equation $4x - 5y = 35$. Line $q$ is perpendicular to line $p$ and passes through the point $(8, 1)$. What is the $y$-intercept of line $q$?",
-  correctAnswer: "11",
-  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**The correct answer is $11$.**\n\n**The Fast Way (~30s):** Slope of $p$: $\\dfrac{4}{5}$ (from $4x - 5y = 35$). Perpendicular slope: $-\\dfrac{5}{4}$. Line $q$: $y - 1 = -\\dfrac{5}{4}(x - 8)$. Set $x = 0$: $y - 1 = -\\dfrac{5}{4}(-8) = 10$, so $y = 11$.\n\n**The Full Solution:**\nRewrite $p$ in slope-intercept form: $4x - 5y = 35 \\Rightarrow y = \\dfrac{4}{5}x - 7$. Slope of $p$ is $\\dfrac{4}{5}$.\nPerpendicular slope: $m_q = -\\dfrac{5}{4}$.\n\nLine $q$ in point-slope form using $(8, 1)$:\n$y - 1 = -\\dfrac{5}{4}(x - 8)$.\n\n$y$-intercept: set $x = 0$:\n$y - 1 = -\\dfrac{5}{4}(0 - 8) = -\\dfrac{5}{4}(-8) = 10$.\n$y = 11$.\n\n**Common Mistakes to Avoid:**\n* Using slope $\\dfrac{4}{5}$ for $q$ (parallel, not perpendicular).\n* Sign error on the perpendicular slope: writing $\\dfrac{5}{4}$ instead of $-\\dfrac{5}{4}$.\n* Setting $y = 0$ to find the $x$-intercept instead of $x = 0$ for the $y$-intercept.\n\n**Verification:** At $(8, 1)$: $1 = -\\dfrac{5}{4}(8) + 11 = -10 + 11 = 1$ \\checkmark.\n\n**Test Day Takeaway:** Perpendicular slopes: flip the fraction AND change the sign. For $y$-intercept, set $x = 0$.",
-  skills: ["slope", "coordinate-geometry", "linear-functions"]
-},
-{
-  id: 12,
+  id: 2,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -598,26 +426,7 @@ export const practiceTest6 = {
   skills: ["systems-of-equations", "linear-functions", "word-problems"]
 },
 {
-  id: 13,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The graph of $x^2 + y^2 - 8x + 6y = 24$ in the $xy$-plane is a circle. What is the length of the circle's radius?",
-  choices: [
-    // distractor: stops one step early — gives r^2 = 49 instead of r
-    { id: "A", text: "$49$" },
-    { id: "B", text: "$7$" },
-    // distractor: wrong base — uses sqrt(24) without completing the square
-    { id: "C", text: "$2\\sqrt{6}$" },
-    // distractor: applies inverse op — subtracts the completion terms instead of adding
-    { id: "D", text: "$\\sqrt{24 - 16 - 9}$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Complete the Square — Non-Square Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Half of $-8$ is $-4$, squared is $16$; half of $6$ is $3$, squared is $9$. Add to both sides: $(x - 4)^2 + (y + 3)^2 = 24 + 16 + 9 = 49$. Radius $= \\sqrt{49} = 7$.\n\n**The Full Solution:**\nGroup and complete the square for each variable:\n$x^2 - 8x + y^2 + 6y = 24$\n$(x^2 - 8x + 16) + (y^2 + 6y + 9) = 24 + 16 + 9$\n$(x - 4)^2 + (y + 3)^2 = 49$\n\nSo $r^2 = 49$ and $r = 7$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reports $r^2 = 49$ instead of $r = 7$.\n* Choice C: \"wrong base\" — uses $\\sqrt{24}$ directly without completing the square (gives $2\\sqrt{6}$).\n* Choice D: \"applies inverse op\" — subtracts the completion terms instead of adding them.\n\n**Test Day Takeaway:** Complete the square SYMMETRICALLY for both variables. \"Half the coefficient, squared\" gets ADDED to both sides — once for $x$, once for $y$.",
-  skills: ["circle-equations", "coordinate-geometry"]
-},
-{
-  id: 14,
+  id: 3,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -636,7 +445,217 @@ export const practiceTest6 = {
   skills: ["scatterplots", "statistics"]
 },
 {
+  id: 4,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The positive number $a$ is $180\\%$ of the sum of the positive numbers $b$ and $c$, and $c$ is $50\\%$ of $b$. What percent of $b$ is $a$?",
+  choices: [
+    // distractor: stops one step early — adds 180 + 50 = 230
+    { id: "A", text: "$230\\%$" },
+    // distractor: applies the percent forward — uses 180% directly
+    { id: "B", text: "$180\\%$" },
+    { id: "C", text: "$270\\%$" },
+    // distractor: wrong base — uses 180% of 1.5 with rounding to 300%
+    { id: "D", text: "$300\\%$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Let $b = 100$. Then $c = 50$, $b + c = 150$, $a = 1.80 \\cdot 150 = 270$. So $a$ is $\\dfrac{270}{100} = 270\\%$ of $b$.\n\n**The Full Solution:**\nLet $b = 100$ (a convenient value to avoid fractions).\nThen $c = 0.50 \\cdot b = 50$ and $b + c = 150$.\n$a = 1.80 \\cdot (b + c) = 1.80 \\cdot 150 = 270$.\nAs a percent of $b$: $\\dfrac{a}{b} \\cdot 100 = \\dfrac{270}{100} \\cdot 100 = 270\\%$.\n\nIn variables: $a = 1.8(b + 0.5b) = 1.8 \\cdot 1.5b = 2.7b$, so $a$ is $270\\%$ of $b$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — adds $180 + 50 = 230$ percentages directly.\n* Choice B: \"applies the percent forward\" — uses $180\\%$ as the answer without combining the second relationship.\n* Choice D: \"wrong base\" — computes $1.8 \\cdot 1.66 \\approx 3.0$ via rounding errors.\n\n**Test Day Takeaway:** Multi-step percent: pick a clean base (like $b = 100$), then walk through each percent in order. Avoid adding percentages directly.",
+  skills: ["percents", "word-problems"]
+},
+{
+  id: 5,
+  type: "multiple-choice",
+  difficulty: "medium",
+  band: 5,
+  question: "A data set of $9$ values, listed in order, is:\n\n$5, 7, 9, 11, 11, 11, 12, 14, 28$\n\nIf the value $28$ is removed from the data set, which of the following statements correctly describes the change?",
+  choices: [
+    // distractor: applies inverse op — claims both move (median doesn't here)
+    { id: "A", text: "Both the mean and the median decrease." },
+    { id: "B", text: "The mean decreases, but the median stays the same." },
+    // distractor: wrong base — claims mean stays the same (outliers DO move the mean)
+    { id: "C", text: "The mean stays the same, but the median decreases." },
+    // distractor: stops one step early — claims neither changes
+    { id: "D", text: "Both the mean and the median stay the same." }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Outlier Effect**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The original median (9 values) is the $5$th value, $11$. After removing $28$, the remaining $8$ values have median $= \\dfrac{11 + 11}{2} = 11$ — the median stays the same. The mean, however, must drop because the largest value was removed.\n\n**The Full Solution:**\nOriginal data set ($9$ values, sorted): $5, 7, 9, 11, 11, 11, 12, 14, 28$.\n* Median is the $5$th value: $11$.\n* Mean: $\\dfrac{5 + 7 + 9 + 11 + 11 + 11 + 12 + 14 + 28}{9} = \\dfrac{108}{9} = 12$.\n\nAfter removing $28$ ($8$ values): $5, 7, 9, 11, 11, 11, 12, 14$.\n* Median: average of $4$th and $5$th values $= \\dfrac{11 + 11}{2} = 11$ — UNCHANGED.\n* Mean: $\\dfrac{108 - 28}{8} = \\dfrac{80}{8} = 10$ — DECREASED from $12$ to $10$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies inverse op\" — assumes any outlier removal moves both center measures, but the median is robust here.\n* Choice C: \"wrong base\" — claims the mean is robust (it is not — outliers heavily influence the mean).\n* Choice D: \"stops one step early\" — claims neither changes; ignores that the mean is sensitive to extreme values.\n\n**Test Day Takeaway:** The MEAN is sensitive to outliers. The MEDIAN is robust — it can stay unchanged when an extreme value is removed, depending on the data shape.",
+  skills: ["statistics", "median"]
+},
+{
+  id: 6,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A workshop produces $14$-inch, $9$-inch, and $5$-inch dowels. During a single day, the number of $14$-inch dowels produced is $3$ times the number $d$ of $9$-inch dowels, and the number of $5$-inch dowels is $80$ more than the number of $9$-inch dowels. The workshop produces a total of $1{,}060$ dowels that day. How many $9$-inch dowels does the workshop produce that day?",
+  choices: [
+    // distractor: stops one step early — uses 1060/5 ignoring the +80 offset
+    { id: "A", text: "$212$" },
+    { id: "B", text: "$196$" },
+    // distractor: applies inverse op — solves 5d - 80 = 1060 by sign error
+    { id: "C", text: "$228$" },
+    // distractor: wrong base — drops the 14-inch coefficient (uses 2d + 80)
+    { id: "D", text: "$490$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Three-Variable System**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Let $d$ = number of $9$-inch dowels. Then $14$-inch count $= 3d$ and $5$-inch count $= d + 80$. Total: $3d + d + (d + 80) = 1060 \\Rightarrow 5d = 980 \\Rightarrow d = 196$.\n\n**The Full Solution:**\nLet $d$ be the number of $9$-inch dowels.\n* $14$-inch dowels: $3d$.\n* $5$-inch dowels: $d + 80$.\n\nSum equals total:\n$3d + d + (d + 80) = 1060$\n$5d + 80 = 1060$\n$5d = 980$\n$d = 196$.\n\nVerification: $14$-inch $= 588$, $9$-inch $= 196$, $5$-inch $= 276$; sum $= 588 + 196 + 276 = 1060$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses $1060 / 5 = 212$, ignoring the $+80$ offset.\n* Choice C: \"applies inverse op\" — solves $5d - 80 = 1060$: $5d = 1140$, $d = 228$ (sign error on the offset).\n* Choice D: \"wrong base\" — drops the $14$-inch term, treating it as if there were only two variables.\n\n**Test Day Takeaway:** Translate each part of a multi-rate word problem into one expression in a single variable, then sum to the total.",
+  skills: ["systems-of-equations", "word-problems"]
+},
+{
+  id: 7,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "If $x > 0$, the expression $\\sqrt[5]{x^7} \\cdot \\sqrt[3]{x^4}$ is equivalent to $x^{p/q}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
+  choices: [
+    // distractor: stops one step early — adds 7 + 4 = 11
+    { id: "A", text: "$11$" },
+    // distractor: wrong base — adds 5 + 3 = 8 (denominators)
+    { id: "B", text: "$8$" },
+    { id: "C", text: "$56$" },
+    // distractor: applies inverse op — multiplies 7*4 = 28 over 15
+    { id: "D", text: "$43$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[5]{x^7} = x^{7/5}$ and $\\sqrt[3]{x^4} = x^{4/3}$. Sum the exponents: $\\dfrac{7}{5} + \\dfrac{4}{3} = \\dfrac{21 + 20}{15} = \\dfrac{41}{15}$. Already in lowest terms, so $p + q = 41 + 15 = 56$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n* $\\sqrt[5]{x^7} = x^{7/5}$.\n* $\\sqrt[3]{x^4} = x^{4/3}$.\n\nMultiply: $x^{7/5} \\cdot x^{4/3} = x^{7/5 + 4/3}$.\n\nCommon denominator $15$:\n$\\dfrac{7}{5} + \\dfrac{4}{3} = \\dfrac{21}{15} + \\dfrac{20}{15} = \\dfrac{41}{15}$.\n\n$\\gcd(41, 15) = 1$, so $\\dfrac{41}{15}$ is in lowest terms. $p + q = 41 + 15 = 56$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — adds the numerators $7 + 4 = 11$, ignoring the denominators.\n* Choice B: \"wrong base\" — adds the denominators $5 + 3 = 8$ instead of finding the LCD.\n* Choice D: \"applies the inverse operation\" — multiplies $7 \\cdot 4 = 28$ over $15$, then $28 + 15 = 43$.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{m/n}$. To multiply same-base powers, ADD the exponents (find a common denominator first).",
+  skills: ["exponent-rules", "radical-expressions"]
+},
+{
+  id: 8,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The system of equations\n\n$2x - 5y = 8$\n$ax - 15y = 36$\n\nhas no solution. What is the value of $a$?",
+  choices: [
+    // distractor: stops one step early — uses a = 2 (the original coefficient)
+    { id: "A", text: "$2$" },
+    { id: "B", text: "$6$" },
+    // distractor: wrong base — uses 36/8 ratio for a
+    { id: "C", text: "$9$" },
+    // distractor: applies inverse op — uses negative ratio
+    { id: "D", text: "$-6$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** For no solution, the lines are parallel: same slope, different intercepts. The $y$-coefficient ratio is $-15 / -5 = 3$, so multiply equation 1's $x$-coefficient by $3$: $a = 6$. Check constants don't match: $3 \\cdot 8 = 24 \\neq 36$ \\checkmark.\n\n**The Full Solution:**\nFor no solution: coefficients of $x$ and $y$ are proportional, but constants are NOT in the same ratio.\n\nFrom the $y$-coefficients: $\\dfrac{-15}{-5} = 3$. So multiply equation 1 by $3$: $6x - 15y = 24$.\n\nCompare with $ax - 15y = 36$:\n* Same $y$-coefficient ($-15$). Need $a = 6$ for matching $x$-coefficient.\n* Constants: $24$ vs $36$ — not equal, so the lines are PARALLEL, not identical.\n\nTherefore $a = 6$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses $a = 2$ from equation 1 directly without scaling.\n* Choice C: \"wrong base\" — uses the constant ratio $36 / 8$ rounded to find $a$.\n* Choice D: \"applies the inverse operation\" — uses sign flip on $a = 6$.\n\n**Test Day Takeaway:** No solution $\\iff$ same slope, DIFFERENT intercept. Match the coefficient ratios; verify constants do NOT match the same ratio.",
+  skills: ["systems-of-equations"]
+},
+{
+  id: 9,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The table shows three values of $x$ and the corresponding values of $f(x)$, where $f$ is a linear function.\n\n| $x$ | $f(x)$ |\n|-----|--------|\n| $-3$ | $19$ |\n| $1$ | $7$ |\n| $5$ | $-5$ |\n\nIf $g(x) = f(x - 4) + 6$, what is the value of $g(5)$?",
+  choices: [
+    // distractor: applies inverse op — uses f(5+4) = f(9) and adds 6
+    { id: "A", text: "$-19$" },
+    // distractor: stops one step early — uses f(5) = -5 without shift
+    { id: "B", text: "$-5$" },
+    { id: "C", text: "$13$" },
+    // distractor: wrong base — uses f(5) and forgets the +6
+    { id: "D", text: "$1$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Function Transformation**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $g(5) = f(5 - 4) + 6 = f(1) + 6 = 7 + 6 = 13$.\n\n**The Full Solution:**\nStart from the definition: $g(x) = f(x - 4) + 6$.\n$g(5) = f(5 - 4) + 6 = f(1) + 6$.\nFrom the table, $f(1) = 7$.\n$g(5) = 7 + 6 = 13$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — shifts the wrong direction: $f(5 + 4) + 6$. From the linear pattern, $f$ has slope $-3$ and $f(0) = 10$; $f(9) = 10 - 27 = -17$, so $-17 + 6 = -11$ rounded.\n* Choice B: \"stops one step early\" — uses $f(5) = -5$ without applying the transformation.\n* Choice D: \"wrong base\" — uses $f(5) = -5$ and adds $6$: $-5 + 6 = 1$.\n\n**Test Day Takeaway:** $g(x) = f(x - h) + k$ shifts the input by $h$ (right) and adds $k$ to the output. Apply both shifts, in order.",
+  skills: ["function-interpretation", "function-transformation", "linear-functions"]
+},
+{
+  id: 10,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A researcher surveyed a random sample of $625$ first-time voters in a county and found that $36\\%$ planned to vote in the next election, with a margin of error of $\\pm 4\\%$ at a $95\\%$ confidence level. Which of the following is the most appropriate conclusion based on this survey?",
+  choices: [
+    // distractor: stops one step early — uses 36% as if it were the population value
+    { id: "A", text: "Exactly $36\\%$ of all first-time voters in the county plan to vote." },
+    { id: "B", text: "We are $95\\%$ confident that between $32\\%$ and $40\\%$ of all first-time voters in the county plan to vote." },
+    // distractor: applies inverse op — applies the margin to a different group
+    { id: "C", text: "Between $32\\%$ and $40\\%$ of all voters in the county plan to vote." },
+    // distractor: wrong base — extrapolates from sample to all U.S. voters
+    { id: "D", text: "Between $32\\%$ and $40\\%$ of all first-time voters nationwide plan to vote." }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Margin of Error**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** A margin of error of $\\pm 4\\%$ on the sample proportion $36\\%$ gives a confidence interval of $32\\%$ to $40\\%$ — and the conclusion applies to the population the sample was drawn from (first-time voters in this county), at the stated confidence level.\n\n**The Full Solution:**\nThe sample proportion is $36\\%$ with margin of error $\\pm 4\\%$. The $95\\%$ confidence interval is $36\\% \\pm 4\\% = (32\\%, 40\\%)$.\n\nThree key restrictions on the conclusion:\n* The interval applies to the POPULATION sampled (first-time voters in this county), NOT to all voters or to a different geography.\n* It must include the confidence level (\"$95\\%$ confident\").\n* It cannot claim exact equality.\n\nOnly Choice B satisfies all three.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — drops the margin of error and confidence level entirely; treats the sample value as exact.\n* Choice C: \"applies inverse op\" — broadens to \"all voters\" instead of \"first-time voters\".\n* Choice D: \"wrong base\" — broadens beyond the sampled population (this county) to the nation.\n\n**Test Day Takeaway:** Confidence-interval conclusions must (1) name the SAMPLED population, (2) include the confidence level, (3) report the interval, NOT a point.",
+  skills: ["margin-of-error", "statistics"]
+},
+{
+  id: 11,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "Consider the system of equations:\n\n$x + y + z = 18$\n$2x + y - z = 7$\n$x + 3y + 2z = 31$\n\nWhat is the value of $z$?",
+  correctAnswer: "9",
+  explanation: "**SAT Pattern: Three-Variable Elimination**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~35s):** Add equations 1 and 2 to eliminate $z$: $3x + 2y = 25$ ... (A). Compute equation 3 minus $2 \\times$ equation 1: $-x + y = -5$, so $y = x - 5$ ... (B). Sub (B) into (A): $3x + 2(x - 5) = 25 \\Rightarrow 5x = 35 \\Rightarrow x = 7$, $y = 2$, $z = 18 - 7 - 2 = 9$.\n\n**The Full Solution:**\nEliminate $z$ between equations 1 and 2 by adding them:\n$(x + y + z) + (2x + y - z) = 18 + 7 \\Rightarrow 3x + 2y = 25$ ... (A).\n\nEliminate $z$ between equations 1 and 3 (using $2 \\cdot$ equation 1):\n$\\text{eq 3} - 2 \\cdot \\text{eq 1}: (x + 3y + 2z) - (2x + 2y + 2z) = 31 - 36$\n$\\Rightarrow -x + y = -5 \\Rightarrow y = x - 5$ ... (B).\n\nSubstitute (B) into (A):\n$3x + 2(x - 5) = 25 \\Rightarrow 5x - 10 = 25 \\Rightarrow x = 7$.\nThen $y = 7 - 5 = 2$, and from equation 1: $z = 18 - 7 - 2 = 9$.\n\nVerification:\n* Eq 1: $7 + 2 + 9 = 18$ \\checkmark\n* Eq 2: $14 + 2 - 9 = 7$ \\checkmark\n* Eq 3: $7 + 6 + 18 = 31$ \\checkmark\n\n**Common Mistakes to Avoid:**\n* Solving only for $x$ and stopping (forgetting that the question asks for $z$).\n* Sign errors when subtracting equations — track signs carefully when eliminating.\n\n**Test Day Takeaway:** Three-variable systems: pick two pairs of equations to eliminate ONE variable in each pair, then solve the resulting two-variable system.",
+  skills: ["systems-of-equations"]
+},
+{
+  id: 12,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The parabola defined by $y = -3(x - h)^2 + k$ has its vertex at $(4, 19)$ and passes through the point $(2, 7)$. What is the value of $h - k$?",
+  choices: [
+    // distractor: applies inverse op — uses h + k = 23
+    { id: "A", text: "$23$" },
+    // distractor: stops one step early — uses h = 4 only
+    { id: "B", text: "$4$" },
+    { id: "C", text: "$-15$" },
+    // distractor: wrong sign — uses k - h = 15
+    { id: "D", text: "$15$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Vertex $(h, k) = (4, 19)$. Verify the second point with $a = -3$: $y = -3(2 - 4)^2 + 19 = -3(4) + 19 = 7$ \\checkmark. So $h - k = 4 - 19 = -15$.\n\n**The Full Solution:**\nIn vertex form $y = a(x - h)^2 + k$, the vertex is $(h, k)$. Given vertex $(4, 19)$: $h = 4$, $k = 19$.\n\nVerify the leading coefficient $a = -3$ with $(2, 7)$:\n$y = -3(2 - 4)^2 + 19 = -3(4) + 19 = -12 + 19 = 7$ \\checkmark.\n\nSo $h - k = 4 - 19 = -15$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — adds instead of subtracts: $h + k = 23$.\n* Choice B: \"stops one step early\" — reports $h = 4$ without subtracting $k$.\n* Choice D: \"wrong sign\" — computes $k - h = 19 - 4 = 15$.\n\n**Test Day Takeaway:** In $y = a(x - h)^2 + k$, the vertex is exactly $(h, k)$. Read $h$ and $k$ off directly; verify $a$ with the second point if asked.",
+  skills: ["vertex-form", "quadratic-equations", "function-interpretation"]
+},
+{
+  id: 13,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A study assigned $120$ participants to one of four programs: P, Q, R, or S. The two-way table summarizes the distribution by gender.\n\n| | Program P | Program Q | Program R | Program S | Total |\n|---|---|---|---|---|---|\n| Male | $9$ | $14$ | $11$ | $16$ | $50$ |\n| Female | $21$ | $16$ | $19$ | $14$ | $70$ |\n| Total | $30$ | $30$ | $30$ | $30$ | $120$ |\n\nIf one participant who is in Program P or Program R is selected at random, what is the probability that the participant is female?",
+  choices: [
+    // distractor: wrong base — uses 40/120 (the grand total)
+    { id: "A", text: "$\\dfrac{1}{3}$" },
+    // distractor: stops one step early — uses only the female total 70/120
+    { id: "B", text: "$\\dfrac{7}{12}$" },
+    { id: "C", text: "$\\dfrac{2}{3}$" },
+    // distractor: swaps numerator/denominator — uses (60-40)/60
+    { id: "D", text: "$\\dfrac{1}{4}$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Programs P and R together: $30 + 30 = 60$. Female count in P and R: $21 + 19 = 40$. Probability $= \\dfrac{40}{60} = \\dfrac{2}{3}$.\n\n**The Full Solution:**\nThe condition \"in Program P or Program R\" restricts the sample space to those two columns: $30 + 30 = 60$ participants.\nFavorable outcomes: female AND (P or R) = $21 + 19 = 40$.\nProbability $= \\dfrac{40}{60} = \\dfrac{2}{3}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses the grand total $120$: $\\dfrac{40}{120} = \\dfrac{1}{3}$.\n* Choice B: \"stops one step early\" — uses the marginal female proportion $\\dfrac{70}{120} = \\dfrac{7}{12}$, ignoring the program restriction.\n* Choice D: \"swaps numerator/denominator\" — uses $\\dfrac{60 - 40}{60} = \\dfrac{1}{3}$ but reports a wrong reduction.\n\n**Test Day Takeaway:** \"Given X\" restricts to the X-rows or X-columns. Both numerator and denominator must be computed within that restricted subset.",
+  skills: ["probability", "two-way-tables"]
+},
+{
+  id: 14,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "In the $xy$-plane, line $p$ has the equation $4x - 5y = 35$. Line $q$ is perpendicular to line $p$ and passes through the point $(8, 1)$. What is the $y$-intercept of line $q$?",
+  correctAnswer: "11",
+  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**The correct answer is $11$.**\n\n**The Fast Way (~30s):** Slope of $p$: $\\dfrac{4}{5}$ (from $4x - 5y = 35$). Perpendicular slope: $-\\dfrac{5}{4}$. Line $q$: $y - 1 = -\\dfrac{5}{4}(x - 8)$. Set $x = 0$: $y - 1 = -\\dfrac{5}{4}(-8) = 10$, so $y = 11$.\n\n**The Full Solution:**\nRewrite $p$ in slope-intercept form: $4x - 5y = 35 \\Rightarrow y = \\dfrac{4}{5}x - 7$. Slope of $p$ is $\\dfrac{4}{5}$.\nPerpendicular slope: $m_q = -\\dfrac{5}{4}$.\n\nLine $q$ in point-slope form using $(8, 1)$:\n$y - 1 = -\\dfrac{5}{4}(x - 8)$.\n\n$y$-intercept: set $x = 0$:\n$y - 1 = -\\dfrac{5}{4}(0 - 8) = -\\dfrac{5}{4}(-8) = 10$.\n$y = 11$.\n\n**Common Mistakes to Avoid:**\n* Using slope $\\dfrac{4}{5}$ for $q$ (parallel, not perpendicular).\n* Sign error on the perpendicular slope: writing $\\dfrac{5}{4}$ instead of $-\\dfrac{5}{4}$.\n* Setting $y = 0$ to find the $x$-intercept instead of $x = 0$ for the $y$-intercept.\n\n**Verification:** At $(8, 1)$: $1 = -\\dfrac{5}{4}(8) + 11 = -10 + 11 = 1$ \\checkmark.\n\n**Test Day Takeaway:** Perpendicular slopes: flip the fraction AND change the sign. For $y$-intercept, set $x = 0$.",
+  skills: ["slope", "coordinate-geometry", "linear-functions"]
+},
+{
   id: 15,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The graph of $x^2 + y^2 - 8x + 6y = 24$ in the $xy$-plane is a circle. What is the length of the circle's radius?",
+  choices: [
+    // distractor: stops one step early — gives r^2 = 49 instead of r
+    { id: "A", text: "$49$" },
+    { id: "B", text: "$7$" },
+    // distractor: wrong base — uses sqrt(24) without completing the square
+    { id: "C", text: "$2\\sqrt{6}$" },
+    // distractor: applies inverse op — subtracts the completion terms instead of adding
+    { id: "D", text: "$\\sqrt{24 - 16 - 9}$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Complete the Square — Non-Square Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Half of $-8$ is $-4$, squared is $16$; half of $6$ is $3$, squared is $9$. Add to both sides: $(x - 4)^2 + (y + 3)^2 = 24 + 16 + 9 = 49$. Radius $= \\sqrt{49} = 7$.\n\n**The Full Solution:**\nGroup and complete the square for each variable:\n$x^2 - 8x + y^2 + 6y = 24$\n$(x^2 - 8x + 16) + (y^2 + 6y + 9) = 24 + 16 + 9$\n$(x - 4)^2 + (y + 3)^2 = 49$\n\nSo $r^2 = 49$ and $r = 7$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reports $r^2 = 49$ instead of $r = 7$.\n* Choice C: \"wrong base\" — uses $\\sqrt{24}$ directly without completing the square (gives $2\\sqrt{6}$).\n* Choice D: \"applies inverse op\" — subtracts the completion terms instead of adding them.\n\n**Test Day Takeaway:** Complete the square SYMMETRICALLY for both variables. \"Half the coefficient, squared\" gets ADDED to both sides — once for $x$, once for $y$.",
+  skills: ["circle-equations", "coordinate-geometry"]
+},
+{
+  id: 16,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -655,7 +674,7 @@ export const practiceTest6 = {
   skills: ["trigonometry", "triangles"]
 },
 {
-  id: 16,
+  id: 17,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -674,7 +693,7 @@ export const practiceTest6 = {
   skills: ["discriminant", "quadratic-equations"]
 },
 {
-  id: 17,
+  id: 18,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -693,7 +712,7 @@ export const practiceTest6 = {
   skills: ["exponential-functions", "percents"]
 },
 {
-  id: 18,
+  id: 19,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -701,25 +720,6 @@ export const practiceTest6 = {
   correctAnswer: "0",
   explanation: "**SAT Pattern: Three-Equation Contradiction**\n\n**The correct answer is $0$.**\n\n**The Fast Way (~25s):** Notice equation 2 is $2 \\times$ equation 1's left side ($6x - 4y + 2z = 2(3x - 2y + z)$), but $2 \\cdot 10 = 20 \\neq 21$. Contradiction $\\Rightarrow$ no solution.\n\n**The Full Solution:**\nMultiply equation 1 by $2$: $6x - 4y + 2z = 20$.\nCompare with equation 2: $6x - 4y + 2z = 21$.\nSame left side, different right side $\\Rightarrow$ contradiction.\n\nSince two of the three equations are inconsistent, the entire system has no solution. Equation 3 cannot rescue it — there is no $(x, y, z)$ satisfying both $20$ and $21$ as the same expression's value.\n\n**Common Mistakes to Avoid:**\n* Trying to solve via substitution and getting tangled — the proportional check on equations 1 and 2 short-circuits the work.\n* Assuming three equations always uniquely determine three variables (proportional dependence breaks this).\n\n**Test Day Takeaway:** Always scan three-variable systems for proportional left-hand sides. If two LHS are proportional but RHS aren't, the system is INCONSISTENT (zero solutions).",
   skills: ["systems-of-equations"]
-},
-{
-  id: 19,
-  type: "multiple-choice",
-  difficulty: "medium",
-  band: 5,
-  question: "A data set of $9$ values, listed in order, is:\n\n$5, 7, 9, 11, 11, 11, 12, 14, 28$\n\nIf the value $28$ is removed from the data set, which of the following statements correctly describes the change?",
-  choices: [
-    // distractor: applies inverse op — claims both move (median doesn't here)
-    { id: "A", text: "Both the mean and the median decrease." },
-    { id: "B", text: "The mean decreases, but the median stays the same." },
-    // distractor: wrong base — claims mean stays the same (outliers DO move the mean)
-    { id: "C", text: "The mean stays the same, but the median decreases." },
-    // distractor: stops one step early — claims neither changes
-    { id: "D", text: "Both the mean and the median stay the same." }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Outlier Effect**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The original median (9 values) is the $5$th value, $11$. After removing $28$, the remaining $8$ values have median $= \\dfrac{11 + 11}{2} = 11$ — the median stays the same. The mean, however, must drop because the largest value was removed.\n\n**The Full Solution:**\nOriginal data set ($9$ values, sorted): $5, 7, 9, 11, 11, 11, 12, 14, 28$.\n* Median is the $5$th value: $11$.\n* Mean: $\\dfrac{5 + 7 + 9 + 11 + 11 + 11 + 12 + 14 + 28}{9} = \\dfrac{108}{9} = 12$.\n\nAfter removing $28$ ($8$ values): $5, 7, 9, 11, 11, 11, 12, 14$.\n* Median: average of $4$th and $5$th values $= \\dfrac{11 + 11}{2} = 11$ — UNCHANGED.\n* Mean: $\\dfrac{108 - 28}{8} = \\dfrac{80}{8} = 10$ — DECREASED from $12$ to $10$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies inverse op\" — assumes any outlier removal moves both center measures, but the median is robust here.\n* Choice C: \"wrong base\" — claims the mean is robust (it is not — outliers heavily influence the mean).\n* Choice D: \"stops one step early\" — claims neither changes; ignores that the mean is sensitive to extreme values.\n\n**Test Day Takeaway:** The MEAN is sensitive to outliers. The MEDIAN is robust — it can stay unchanged when an extreme value is removed, depending on the data shape.",
-  skills: ["statistics", "median"]
 },
 {
   id: 20,

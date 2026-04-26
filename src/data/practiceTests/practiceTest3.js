@@ -399,101 +399,6 @@ export const practiceTest3 = {
 {
   id: 1,
   type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The positive number $x$ is $180\\%$ of the sum of the positive numbers $y$ and $z$, and $y$ is $25\\%$ of $z$. What percent of $y$ is $x$?",
-  choices: [
-    // distractor: adds the percents directly: 180 + 25 = 205
-    { id: "A", text: "$205\\%$" },
-    // distractor: uses (1 + 0.25) * 180 = 225
-    { id: "B", text: "$225\\%$" },
-    { id: "C", text: "$900\\%$" },
-    // distractor: divides 180 by 0.25 = 720
-    { id: "D", text: "$720\\%$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Set $z = 100$. Then $y = 25\\% \\cdot 100 = 25$. Sum $y + z = 125$. So $x = 1.80 \\cdot 125 = 225$. Percent of $y$ that $x$ is: $\\dfrac{225}{25} \\cdot 100 = 900\\%$.\n\n**The Full Solution:**\nLet $z = 100$ (any positive choice works since percents are scale-invariant).\nThen $y = 0.25 \\cdot 100 = 25$.\nSum: $y + z = 25 + 100 = 125$.\n$x = 1.80 \\cdot 125 = 225$.\nPercent of $y$ that $x$ is: $\\dfrac{x}{y} \\cdot 100\\% = \\dfrac{225}{25} \\cdot 100\\% = 9 \\cdot 100\\% = 900\\%$.\n\nVerification (algebraic): $x = 1.8(y + z)$ and $y = 0.25z$, so $z = 4y$. Then $x = 1.8(y + 4y) = 1.8 \\cdot 5y = 9y$, giving $\\dfrac{x}{y} = 9 = 900\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — adds the two percents ($180 + 25 = 205$).\n* Choice B: \"stops one step early\" — computes $x = 225$ but reports it as a raw percent.\n* Choice D: \"wrong base\" — divides $180$ by $0.25$ ignoring the sum structure.\n\n**Test Day Takeaway:** When two percents stack, pick a clean numerical value (e.g., $z = 100$) and compute through. \"Percent of $y$\" means divide by $y$, not by $z$.",
-  skills: ["percents", "word-problems"]
-},
-{
-  id: 2,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A factory makes $11$-inch, $6$-inch, and $3$-inch metal rods. During one shift, the number of $11$-inch rods produced is $4$ times the number $r$ of $6$-inch rods, and the number of $3$-inch rods is $35$ more than the number of $6$-inch rods. The factory produces a total of $617$ rods that shift. How many $6$-inch rods does the factory produce that shift?",
-  choices: [
-    // distractor: divides total by 6 ignoring the +35 offset
-    { id: "A", text: "$103$" },
-    { id: "B", text: "$97$" },
-    // distractor: applies inverse — uses (617 - 35)/4 = 145.5
-    { id: "C", text: "$145$" },
-    // distractor: stops early — divides 617/4 ignoring offset
-    { id: "D", text: "$154$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Total $= 4r + r + (r + 35) = 6r + 35 = 617$. So $6r = 582$ and $r = 97$.\n\n**The Full Solution:**\nLet $r$ be the number of $6$-inch rods.\nNumber of $11$-inch rods: $4r$.\nNumber of $3$-inch rods: $r + 35$.\n\nTotal: $4r + r + (r + 35) = 6r + 35 = 617$.\n$6r = 582 \\Rightarrow r = 97$.\n\nVerification: $4(97) + 97 + (97 + 35) = 388 + 97 + 132 = 617$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — divides $617$ by $6$ ignoring the offset.\n* Choice C: \"applies the inverse operation\" — uses $(617 - 35)/4 = 145.5 \\approx 145$ instead of dividing by $6$.\n* Choice D: \"stops one step early\" — divides $617/4$ ignoring both the offset and the additional rod counts.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$35$ more than\".",
-  skills: ["word-problems", "ratios"]
-},
-{
-  id: 3,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "If $x > 0$, the expression $\\sqrt[4]{x^3} \\cdot \\sqrt[3]{x^5}$ is equivalent to $x^{p/q}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
-  choices: [
-    // distractor: gives p alone (29) without adding q
-    { id: "A", text: "$29$" },
-    // distractor: sums radical exponents directly (3 + 5 = 8)
-    { id: "B", text: "$8$" },
-    { id: "C", text: "$41$" },
-    // distractor: sums all numbers in expression (4 + 3 + 5 + 3 = 15)
-    { id: "D", text: "$15$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[4]{x^3} = x^{3/4}$. $\\sqrt[3]{x^5} = x^{5/3}$. Add: $\\dfrac{3}{4} + \\dfrac{5}{3} = \\dfrac{9}{12} + \\dfrac{20}{12} = \\dfrac{29}{12}$. So $p + q = 29 + 12 = 41$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[4]{x^3} = x^{3/4}, \\quad \\sqrt[3]{x^5} = x^{5/3}$\n\nWhen multiplying same bases, add exponents:\n$x^{3/4} \\cdot x^{5/3} = x^{3/4 + 5/3} = x^{(9 + 20)/12} = x^{29/12}$\n\n$\\gcd(29, 12) = 1$, so $\\dfrac{29}{12}$ is already in lowest terms. Then $p = 29$, $q = 12$, and $p + q = 41$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 29$, forgetting to add $q$.\n* Choice B: \"applies the inverse operation\" — sums the radical exponents directly ($3 + 5 = 8$) instead of converting to fractional exponents.\n* Choice D: \"wrong base\" — sums all the integers visible in the expression ($4 + 3 + 5 + 3 = 15$).\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{m/n}$ — power on top, root on the bottom. Add fractional exponents when multiplying same bases.",
-  skills: ["polynomial-operations", "exponent-rules", "radical-expressions"]
-},
-{
-  id: 4,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "Two cylindrical tanks share the same height. Tank A has a radius of $4$ feet, and Tank B has a radius that is $50\\%$ greater than Tank A's radius. What is the ratio of the volume of Tank B to the volume of Tank A?",
-  choices: [
-    // distractor: uses 1.5 instead of 1.5^2 (forgets that radius is squared in volume)
-    { id: "A", text: "$3 : 2$" },
-    // distractor: uses 50%:100% directly without considering volume scaling
-    { id: "B", text: "$1 : 2$" },
-    { id: "C", text: "$9 : 4$" },
-    // distractor: cubes the ratio instead of squaring (treats it like sphere scaling)
-    { id: "D", text: "$27 : 8$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Cylinder Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Tank B's radius is $1.5 \\times$ Tank A's. Same height, so volume ratio is $\\left(\\dfrac{r_B}{r_A}\\right)^2 = (1.5)^2 = 2.25 = \\dfrac{9}{4}$.\n\n**The Full Solution:**\nLet Tank A have radius $r_A = 4$ and height $h$. Then $r_B = 4 + 0.50 \\cdot 4 = 6$.\n\n$V_A = \\pi r_A^2 h = \\pi (16) h = 16 \\pi h$\n$V_B = \\pi r_B^2 h = \\pi (36) h = 36 \\pi h$\n\n$\\dfrac{V_B}{V_A} = \\dfrac{36 \\pi h}{16 \\pi h} = \\dfrac{36}{16} = \\dfrac{9}{4}$\n\nSo the ratio is $9 : 4$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses the linear ratio $1.5 = \\dfrac{3}{2}$ without squaring for volume.\n* Choice B: \"wrong base\" — reads \"$50\\%$ greater\" as \"half\" instead of \"$1.5 \\times$\".\n* Choice D: \"applies the inverse operation\" — cubes the ratio ($1.5^3 = 3.375 = \\dfrac{27}{8}$) as if for a sphere or similar 3D object scaling all dimensions.\n\n**Test Day Takeaway:** When only one dimension scales, the volume scales by that ratio raised to the appropriate power. Cylinders with same height scale only the cross-sectional area, so volume ratio = (radius ratio)$^2$.",
-  skills: ["volume", "geometry", "ratios"]
-},
-{
-  id: 5,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The function $f$ is defined by $f(x) = 5x - 3$. If $g(x) = f(x - 4) + 2x$, what is $g(7)$?",
-  choices: [
-    // distractor: stops at f(7) = 32 and adds 14 instead of using x - 4 = 3
-    { id: "A", text: "$46$" },
-    { id: "B", text: "$26$" },
-    // distractor: applies the +2x as a constant, getting f(3) + 2 = 14
-    { id: "C", text: "$14$" },
-    // distractor: applies the shift in wrong direction, uses f(11) + 14
-    { id: "D", text: "$66$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Function Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $g(7) = f(7 - 4) + 2(7) = f(3) + 14 = (5 \\cdot 3 - 3) + 14 = 12 + 14 = 26$.\n\n**The Full Solution:**\nFirst evaluate the shifted-input piece:\n$f(7 - 4) = f(3) = 5(3) - 3 = 12$.\n\nThen evaluate the second term:\n$2 \\cdot 7 = 14$.\n\nCombine:\n$g(7) = 12 + 14 = 26$.\n\nVerification: as a function, $g(x) = f(x - 4) + 2x = (5(x-4) - 3) + 2x = 5x - 20 - 3 + 2x = 7x - 23$. Then $g(7) = 49 - 23 = 26$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — uses $f(7) = 32$ instead of $f(3)$, then adds $14$.\n* Choice C: \"stops one step early\" — adds only $2$ (treats $2x$ as a constant) instead of $2 \\cdot 7 = 14$.\n* Choice D: \"wrong base\" — applies the shift in the wrong direction ($x + 4$), using $f(11) = 52$, then adds $14$.\n\n**Test Day Takeaway:** $f(x - h)$ shifts the INPUT to $x - h$. Substitute $x = 7$ first into the whole expression for $g(x)$, evaluating each $x$ where it appears.",
-  skills: ["function-interpretation", "function-composition"]
-},
-{
-  id: 6,
-  type: "multiple-choice",
   difficulty: "medium",
   band: 5,
   question: "A researcher wants to estimate the proportion of households in a city that have solar panels. She surveys a random sample of $400$ households and finds that $12\\%$ have solar panels, with a margin of error of $\\pm 3\\%$ at a $95\\%$ confidence level. Which of the following is the most appropriate conclusion?",
@@ -511,17 +416,7 @@ export const practiceTest3 = {
   skills: ["margin-of-error", "statistics"]
 },
 {
-  id: 7,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "Consider the system of equations:\n\n$x + y + z = 12$\n$2x - y + z = 10$\n$x + 2y - z = 5$\n\nWhat is the value of $2x - z$?",
-  correctAnswer: "3",
-  explanation: "**SAT Pattern: Three-Variable Elimination**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~30s):** Add equation 1 and equation 3 to eliminate $z$: $(x + y + z) + (x + 2y - z) = 12 + 5 \\Rightarrow 2x + 3y = 17$ ... ((A)). Add equation 2 and equation 3: $(2x - y + z) + (x + 2y - z) = 10 + 5 \\Rightarrow 3x + y = 15$ ... ((B)). From ((B)): $y = 15 - 3x$. Substitute into ((A)): $2x + 3(15 - 3x) = 17 \\Rightarrow -7x = -28 \\Rightarrow x = 4$. Then $y = 15 - 12 = 3$, and $z = 12 - 4 - 3 = 5$. So $2x - z = 8 - 5 = 3$.\n\n**The Full Solution:**\nEliminate $z$ in two ways:\n* Equation 1 + Equation 3: $2x + 3y = 17$.\n* Equation 2 + Equation 3: $3x + y = 15$.\n\nFrom the second: $y = 15 - 3x$. Substitute into the first:\n$2x + 3(15 - 3x) = 17$\n$2x + 45 - 9x = 17$\n$-7x = -28 \\Rightarrow x = 4$\n$y = 15 - 3(4) = 3$\n$z = 12 - x - y = 12 - 4 - 3 = 5$.\n\nVerification: equation 1: $4 + 3 + 5 = 12$ \\checkmark; equation 2: $8 - 3 + 5 = 10$ \\checkmark; equation 3: $4 + 6 - 5 = 5$ \\checkmark.\n\nSo $2x - z = 2(4) - 5 = 3$.\n\n**Common Mistakes to Avoid:**\n* Solving for each variable individually when only $2x - z$ is needed — eliminate to find $x$ and $z$ first.\n* Forgetting which two equations to add for the cleanest elimination.\n\n**Test Day Takeaway:** When the question asks for a specific combination like $2x - z$, look for elimination paths that naturally produce that combination, or solve the system fully and substitute at the end.",
-  skills: ["systems-of-equations", "word-problems"]
-},
-{
-  id: 8,
+  id: 2,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -540,7 +435,7 @@ export const practiceTest3 = {
   skills: ["vertex-form", "function-interpretation"]
 },
 {
-  id: 9,
+  id: 3,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -550,7 +445,26 @@ export const practiceTest3 = {
   skills: ["solving-equations"]
 },
 {
-  id: 10,
+  id: 4,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The positive number $x$ is $180\\%$ of the sum of the positive numbers $y$ and $z$, and $y$ is $25\\%$ of $z$. What percent of $y$ is $x$?",
+  choices: [
+    // distractor: adds the percents directly: 180 + 25 = 205
+    { id: "A", text: "$205\\%$" },
+    // distractor: uses (1 + 0.25) * 180 = 225
+    { id: "B", text: "$225\\%$" },
+    { id: "C", text: "$900\\%$" },
+    // distractor: divides 180 by 0.25 = 720
+    { id: "D", text: "$720\\%$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Set $z = 100$. Then $y = 25\\% \\cdot 100 = 25$. Sum $y + z = 125$. So $x = 1.80 \\cdot 125 = 225$. Percent of $y$ that $x$ is: $\\dfrac{225}{25} \\cdot 100 = 900\\%$.\n\n**The Full Solution:**\nLet $z = 100$ (any positive choice works since percents are scale-invariant).\nThen $y = 0.25 \\cdot 100 = 25$.\nSum: $y + z = 25 + 100 = 125$.\n$x = 1.80 \\cdot 125 = 225$.\nPercent of $y$ that $x$ is: $\\dfrac{x}{y} \\cdot 100\\% = \\dfrac{225}{25} \\cdot 100\\% = 9 \\cdot 100\\% = 900\\%$.\n\nVerification (algebraic): $x = 1.8(y + z)$ and $y = 0.25z$, so $z = 4y$. Then $x = 1.8(y + 4y) = 1.8 \\cdot 5y = 9y$, giving $\\dfrac{x}{y} = 9 = 900\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — adds the two percents ($180 + 25 = 205$).\n* Choice B: \"stops one step early\" — computes $x = 225$ but reports it as a raw percent.\n* Choice D: \"wrong base\" — divides $180$ by $0.25$ ignoring the sum structure.\n\n**Test Day Takeaway:** When two percents stack, pick a clean numerical value (e.g., $z = 100$) and compute through. \"Percent of $y$\" means divide by $y$, not by $z$.",
+  skills: ["percents", "word-problems"]
+},
+{
+  id: 5,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -569,7 +483,103 @@ export const practiceTest3 = {
   skills: ["probability", "two-way-tables"]
 },
 {
+  id: 6,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A factory makes $11$-inch, $6$-inch, and $3$-inch metal rods. During one shift, the number of $11$-inch rods produced is $4$ times the number $r$ of $6$-inch rods, and the number of $3$-inch rods is $35$ more than the number of $6$-inch rods. The factory produces a total of $617$ rods that shift. How many $6$-inch rods does the factory produce that shift?",
+  choices: [
+    // distractor: divides total by 6 ignoring the +35 offset
+    { id: "A", text: "$103$" },
+    { id: "B", text: "$97$" },
+    // distractor: applies inverse — uses (617 - 35)/4 = 145.5
+    { id: "C", text: "$145$" },
+    // distractor: stops early — divides 617/4 ignoring offset
+    { id: "D", text: "$154$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Total $= 4r + r + (r + 35) = 6r + 35 = 617$. So $6r = 582$ and $r = 97$.\n\n**The Full Solution:**\nLet $r$ be the number of $6$-inch rods.\nNumber of $11$-inch rods: $4r$.\nNumber of $3$-inch rods: $r + 35$.\n\nTotal: $4r + r + (r + 35) = 6r + 35 = 617$.\n$6r = 582 \\Rightarrow r = 97$.\n\nVerification: $4(97) + 97 + (97 + 35) = 388 + 97 + 132 = 617$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — divides $617$ by $6$ ignoring the offset.\n* Choice C: \"applies the inverse operation\" — uses $(617 - 35)/4 = 145.5 \\approx 145$ instead of dividing by $6$.\n* Choice D: \"stops one step early\" — divides $617/4$ ignoring both the offset and the additional rod counts.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$35$ more than\".",
+  skills: ["word-problems", "ratios"]
+},
+{
+  id: 7,
+  type: "fill-in",
+  difficulty: "medium",
+  band: 5,
+  question: "The equation $2(5x - 4) + 3 = ax + 2$ has no solution. What is the value of $a$?",
+  correctAnswer: "10",
+  explanation: "**SAT Pattern: No-Solution Condition**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~15s):** Expand left: $10x - 5$. For no solution, the coefficient of $x$ must match (so the variable cancels) but the constants must differ: $a = 10$ and $-5 \\neq 2$. So $a = 10$.\n\n**The Full Solution:**\nExpand the left side: $2(5x - 4) + 3 = 10x - 8 + 3 = 10x - 5$.\nSo the equation is $10x - 5 = ax + 2$.\nRearrange: $(10 - a)x = 7$.\nFor no solution, the coefficient of $x$ must be $0$ while the right side is nonzero:\n$10 - a = 0 \\Rightarrow a = 10$.\nCheck: $0 \\cdot x = 7 \\Rightarrow 0 = 7$, which is a contradiction. No solution \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Solving for $x$ instead of $a$.\n* Setting $a$ to make the equation have infinitely many solutions instead of no solutions.\n\n**Test Day Takeaway:** No solution $\\iff$ $0 \\cdot x = (\\text{nonzero})$. Match coefficients of $x$ on both sides; require the constants to differ.",
+  skills: ["solving-equations", "linear-functions"]
+},
+{
+  id: 8,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "If $x > 0$, the expression $\\sqrt[4]{x^3} \\cdot \\sqrt[3]{x^5}$ is equivalent to $x^{p/q}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
+  choices: [
+    // distractor: gives p alone (29) without adding q
+    { id: "A", text: "$29$" },
+    // distractor: sums radical exponents directly (3 + 5 = 8)
+    { id: "B", text: "$8$" },
+    { id: "C", text: "$41$" },
+    // distractor: sums all numbers in expression (4 + 3 + 5 + 3 = 15)
+    { id: "D", text: "$15$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[4]{x^3} = x^{3/4}$. $\\sqrt[3]{x^5} = x^{5/3}$. Add: $\\dfrac{3}{4} + \\dfrac{5}{3} = \\dfrac{9}{12} + \\dfrac{20}{12} = \\dfrac{29}{12}$. So $p + q = 29 + 12 = 41$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[4]{x^3} = x^{3/4}, \\quad \\sqrt[3]{x^5} = x^{5/3}$\n\nWhen multiplying same bases, add exponents:\n$x^{3/4} \\cdot x^{5/3} = x^{3/4 + 5/3} = x^{(9 + 20)/12} = x^{29/12}$\n\n$\\gcd(29, 12) = 1$, so $\\dfrac{29}{12}$ is already in lowest terms. Then $p = 29$, $q = 12$, and $p + q = 41$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 29$, forgetting to add $q$.\n* Choice B: \"applies the inverse operation\" — sums the radical exponents directly ($3 + 5 = 8$) instead of converting to fractional exponents.\n* Choice D: \"wrong base\" — sums all the integers visible in the expression ($4 + 3 + 5 + 3 = 15$).\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{m/n}$ — power on top, root on the bottom. Add fractional exponents when multiplying same bases.",
+  skills: ["polynomial-operations", "exponent-rules", "radical-expressions"]
+},
+{
+  id: 9,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "Two cylindrical tanks share the same height. Tank A has a radius of $4$ feet, and Tank B has a radius that is $50\\%$ greater than Tank A's radius. What is the ratio of the volume of Tank B to the volume of Tank A?",
+  choices: [
+    // distractor: uses 1.5 instead of 1.5^2 (forgets that radius is squared in volume)
+    { id: "A", text: "$3 : 2$" },
+    // distractor: uses 50%:100% directly without considering volume scaling
+    { id: "B", text: "$1 : 2$" },
+    { id: "C", text: "$9 : 4$" },
+    // distractor: cubes the ratio instead of squaring (treats it like sphere scaling)
+    { id: "D", text: "$27 : 8$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Cylinder Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Tank B's radius is $1.5 \\times$ Tank A's. Same height, so volume ratio is $\\left(\\dfrac{r_B}{r_A}\\right)^2 = (1.5)^2 = 2.25 = \\dfrac{9}{4}$.\n\n**The Full Solution:**\nLet Tank A have radius $r_A = 4$ and height $h$. Then $r_B = 4 + 0.50 \\cdot 4 = 6$.\n\n$V_A = \\pi r_A^2 h = \\pi (16) h = 16 \\pi h$\n$V_B = \\pi r_B^2 h = \\pi (36) h = 36 \\pi h$\n\n$\\dfrac{V_B}{V_A} = \\dfrac{36 \\pi h}{16 \\pi h} = \\dfrac{36}{16} = \\dfrac{9}{4}$\n\nSo the ratio is $9 : 4$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses the linear ratio $1.5 = \\dfrac{3}{2}$ without squaring for volume.\n* Choice B: \"wrong base\" — reads \"$50\\%$ greater\" as \"half\" instead of \"$1.5 \\times$\".\n* Choice D: \"applies the inverse operation\" — cubes the ratio ($1.5^3 = 3.375 = \\dfrac{27}{8}$) as if for a sphere or similar 3D object scaling all dimensions.\n\n**Test Day Takeaway:** When only one dimension scales, the volume scales by that ratio raised to the appropriate power. Cylinders with same height scale only the cross-sectional area, so volume ratio = (radius ratio)$^2$.",
+  skills: ["volume", "geometry", "ratios"]
+},
+{
+  id: 10,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The function $f$ is defined by $f(x) = 5x - 3$. If $g(x) = f(x - 4) + 2x$, what is $g(7)$?",
+  choices: [
+    // distractor: stops at f(7) = 32 and adds 14 instead of using x - 4 = 3
+    { id: "A", text: "$46$" },
+    { id: "B", text: "$26$" },
+    // distractor: applies the +2x as a constant, getting f(3) + 2 = 14
+    { id: "C", text: "$14$" },
+    // distractor: applies the shift in wrong direction, uses f(11) + 14
+    { id: "D", text: "$66$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Function Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $g(7) = f(7 - 4) + 2(7) = f(3) + 14 = (5 \\cdot 3 - 3) + 14 = 12 + 14 = 26$.\n\n**The Full Solution:**\nFirst evaluate the shifted-input piece:\n$f(7 - 4) = f(3) = 5(3) - 3 = 12$.\n\nThen evaluate the second term:\n$2 \\cdot 7 = 14$.\n\nCombine:\n$g(7) = 12 + 14 = 26$.\n\nVerification: as a function, $g(x) = f(x - 4) + 2x = (5(x-4) - 3) + 2x = 5x - 20 - 3 + 2x = 7x - 23$. Then $g(7) = 49 - 23 = 26$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — uses $f(7) = 32$ instead of $f(3)$, then adds $14$.\n* Choice C: \"stops one step early\" — adds only $2$ (treats $2x$ as a constant) instead of $2 \\cdot 7 = 14$.\n* Choice D: \"wrong base\" — applies the shift in the wrong direction ($x + 4$), using $f(11) = 52$, then adds $14$.\n\n**Test Day Takeaway:** $f(x - h)$ shifts the INPUT to $x - h$. Substitute $x = 7$ first into the whole expression for $g(x)$, evaluating each $x$ where it appears.",
+  skills: ["function-interpretation", "function-composition"]
+},
+{
   id: 11,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "Consider the system of equations:\n\n$x + y + z = 12$\n$2x - y + z = 10$\n$x + 2y - z = 5$\n\nWhat is the value of $2x - z$?",
+  correctAnswer: "3",
+  explanation: "**SAT Pattern: Three-Variable Elimination**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~30s):** Add equation 1 and equation 3 to eliminate $z$: $(x + y + z) + (x + 2y - z) = 12 + 5 \\Rightarrow 2x + 3y = 17$ ... ((A)). Add equation 2 and equation 3: $(2x - y + z) + (x + 2y - z) = 10 + 5 \\Rightarrow 3x + y = 15$ ... ((B)). From ((B)): $y = 15 - 3x$. Substitute into ((A)): $2x + 3(15 - 3x) = 17 \\Rightarrow -7x = -28 \\Rightarrow x = 4$. Then $y = 15 - 12 = 3$, and $z = 12 - 4 - 3 = 5$. So $2x - z = 8 - 5 = 3$.\n\n**The Full Solution:**\nEliminate $z$ in two ways:\n* Equation 1 + Equation 3: $2x + 3y = 17$.\n* Equation 2 + Equation 3: $3x + y = 15$.\n\nFrom the second: $y = 15 - 3x$. Substitute into the first:\n$2x + 3(15 - 3x) = 17$\n$2x + 45 - 9x = 17$\n$-7x = -28 \\Rightarrow x = 4$\n$y = 15 - 3(4) = 3$\n$z = 12 - x - y = 12 - 4 - 3 = 5$.\n\nVerification: equation 1: $4 + 3 + 5 = 12$ \\checkmark; equation 2: $8 - 3 + 5 = 10$ \\checkmark; equation 3: $4 + 6 - 5 = 5$ \\checkmark.\n\nSo $2x - z = 2(4) - 5 = 3$.\n\n**Common Mistakes to Avoid:**\n* Solving for each variable individually when only $2x - z$ is needed — eliminate to find $x$ and $z$ first.\n* Forgetting which two equations to add for the cleanest elimination.\n\n**Test Day Takeaway:** When the question asks for a specific combination like $2x - z$, look for elimination paths that naturally produce that combination, or solve the system fully and substitute at the end.",
+  skills: ["systems-of-equations", "word-problems"]
+},
+{
+  id: 12,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -588,36 +598,7 @@ export const practiceTest3 = {
   skills: ["slope", "linear-functions", "coordinate-geometry"]
 },
 {
-  id: 12,
-  type: "fill-in",
-  difficulty: "medium",
-  band: 5,
-  question: "The equation $2(5x - 4) + 3 = ax + 2$ has no solution. What is the value of $a$?",
-  correctAnswer: "10",
-  explanation: "**SAT Pattern: No-Solution Condition**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~15s):** Expand left: $10x - 5$. For no solution, the coefficient of $x$ must match (so the variable cancels) but the constants must differ: $a = 10$ and $-5 \\neq 2$. So $a = 10$.\n\n**The Full Solution:**\nExpand the left side: $2(5x - 4) + 3 = 10x - 8 + 3 = 10x - 5$.\nSo the equation is $10x - 5 = ax + 2$.\nRearrange: $(10 - a)x = 7$.\nFor no solution, the coefficient of $x$ must be $0$ while the right side is nonzero:\n$10 - a = 0 \\Rightarrow a = 10$.\nCheck: $0 \\cdot x = 7 \\Rightarrow 0 = 7$, which is a contradiction. No solution \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Solving for $x$ instead of $a$.\n* Setting $a$ to make the equation have infinitely many solutions instead of no solutions.\n\n**Test Day Takeaway:** No solution $\\iff$ $0 \\cdot x = (\\text{nonzero})$. Match coefficients of $x$ on both sides; require the constants to differ.",
-  skills: ["solving-equations", "linear-functions"]
-},
-{
   id: 13,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The graph of $x^2 + y^2 - 6x + 8y = 24$ in the $xy$-plane is a circle. What is the length of the circle's radius?",
-  choices: [
-    { id: "A", text: "$7$" },
-    // distractor: gives r^2 = 49 instead of r
-    { id: "B", text: "$49$" },
-    // distractor: subtracts completion terms instead of adding (sqrt(24 - 25))
-    { id: "C", text: "$\\sqrt{24}$" },
-    // distractor: takes the constant 24 directly without completing the square
-    { id: "D", text: "$\\sqrt{49 - 24}$" }
-  ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Complete the Square — Circle Center**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Half of $-6$ is $-3$, squared is $9$. Half of $8$ is $4$, squared is $16$. Add to both sides: $(x - 3)^2 + (y + 4)^2 = 24 + 9 + 16 = 49$. Radius $= \\sqrt{49} = 7$.\n\n**The Full Solution:**\nGroup terms and complete the square for each variable:\n$(x^2 - 6x) + (y^2 + 8y) = 24$\n$(x^2 - 6x + 9) + (y^2 + 8y + 16) = 24 + 9 + 16$\n$(x - 3)^2 + (y + 4)^2 = 49$\n\nSo $r^2 = 49$ and $r = 7$.\n\nVerification: center $(3, -4)$, radius $7$. The point $(3, 3)$ on the circle satisfies $(3-3)^2 + (3+4)^2 = 49$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"stops one step early\" — gives $r^2 = 49$ instead of $r = 7$.\n* Choice C: \"wrong base\" — uses the constant $24$ directly without completing the square.\n* Choice D: \"applies the inverse operation\" — subtracts $24$ from the completion terms instead of adding.\n\n**Test Day Takeaway:** Complete the square SYMMETRICALLY for both variables. \"Half the coefficient, squared\" gets added to BOTH sides — once for $x$, once for $y$.",
-  skills: ["circle-equations", "solving-equations"]
-},
-{
-  id: 14,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -634,6 +615,25 @@ export const practiceTest3 = {
   correctAnswer: "B",
   explanation: "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Predicted: $y = -2.8(5) + 32 = -14 + 32 = 18$ thousand. Actual: $19.5$ thousand. Residual $= 19.5 - 18 = 1.5$.\n\n**The Full Solution:**\nPredicted at $x = 5$: $-2.8(5) + 32 = -14 + 32 = 18$ thousand dollars.\nActual: $\\$19{,}500 = 19.5$ thousand dollars.\nResidual $=$ actual $-$ predicted $= 19.5 - 18 = 1.5$ thousand dollars.\nA positive residual means the actual value lies above the line of best fit.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — computes predicted $-$ actual ($18 - 19.5 = -1.5$).\n* Choice C: \"off-by-one\" — arithmetic slip on the subtraction step.\n* Choice D: \"stops one step early\" — gives the predicted value $18$ without subtracting.\n\n**Test Day Takeaway:** Residual $=$ actual $-$ predicted. Positive means above the line; negative means below.",
   skills: ["scatterplots", "statistics"]
+},
+{
+  id: 14,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The graph of $x^2 + y^2 - 6x + 8y = 24$ in the $xy$-plane is a circle. What is the length of the circle's radius?",
+  choices: [
+    { id: "A", text: "$7$" },
+    // distractor: gives r^2 = 49 instead of r
+    { id: "B", text: "$49$" },
+    // distractor: subtracts completion terms instead of adding (sqrt(24 - 25))
+    { id: "C", text: "$\\sqrt{24}$" },
+    // distractor: takes the constant 24 directly without completing the square
+    { id: "D", text: "$\\sqrt{49 - 24}$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Complete the Square — Circle Center**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Half of $-6$ is $-3$, squared is $9$. Half of $8$ is $4$, squared is $16$. Add to both sides: $(x - 3)^2 + (y + 4)^2 = 24 + 9 + 16 = 49$. Radius $= \\sqrt{49} = 7$.\n\n**The Full Solution:**\nGroup terms and complete the square for each variable:\n$(x^2 - 6x) + (y^2 + 8y) = 24$\n$(x^2 - 6x + 9) + (y^2 + 8y + 16) = 24 + 9 + 16$\n$(x - 3)^2 + (y + 4)^2 = 49$\n\nSo $r^2 = 49$ and $r = 7$.\n\nVerification: center $(3, -4)$, radius $7$. The point $(3, 3)$ on the circle satisfies $(3-3)^2 + (3+4)^2 = 49$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"stops one step early\" — gives $r^2 = 49$ instead of $r = 7$.\n* Choice C: \"wrong base\" — uses the constant $24$ directly without completing the square.\n* Choice D: \"applies the inverse operation\" — subtracts $24$ from the completion terms instead of adding.\n\n**Test Day Takeaway:** Complete the square SYMMETRICALLY for both variables. \"Half the coefficient, squared\" gets added to BOTH sides — once for $x$, once for $y$.",
+  skills: ["circle-equations", "solving-equations"]
 },
 {
   id: 15,

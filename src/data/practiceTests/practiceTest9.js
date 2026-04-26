@@ -409,44 +409,6 @@ export const practiceTest9 = {
 {
   id: 1,
   type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The positive number $a$ is $180\\%$ of the sum of the positive numbers $b$ and $c$, and $b$ is $30\\%$ of $c$. What percent of $b$ is $a$?",
-  choices: [
-    // distractor: adds the percents: 180 + 30 = 210
-    { id: "A", text: "$210\\%$" },
-    // distractor: uses (1 + 0.30) * 180 = 234%
-    { id: "B", text: "$234\\%$" },
-    { id: "C", text: "$780\\%$" },
-    // distractor: divides 180 by 0.30 = 600%
-    { id: "D", text: "$600\\%$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Set $c = 100$. Then $b = 30\\% \\cdot 100 = 30$. Sum $b + c = 130$. So $a = 1.8 \\cdot 130 = 234$. Percent of $b$ that $a$ is: $\\dfrac{234}{30} \\cdot 100 = 780\\%$.\n\n**The Full Solution:**\nLet $c = 100$ (any positive choice works since percents are scale-invariant).\nThen $b = 0.30 \\cdot 100 = 30$.\nSum: $b + c = 30 + 100 = 130$.\n$a = 1.80 \\cdot 130 = 234$.\nPercent of $b$ that $a$ is: $\\dfrac{a}{b} \\cdot 100\\% = \\dfrac{234}{30} \\cdot 100\\% = 780\\%$.\n\nVerification (algebraic): $a = 1.8(b + c)$ and $b = 0.3c$, so $c = \\tfrac{10}{3}b$. Then $a = 1.8(b + \\tfrac{10}{3}b) = 1.8 \\cdot \\tfrac{13}{3}b = 7.8b$, giving $\\dfrac{a}{b} = 7.8 = 780\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — adds the two percents ($180 + 30 = 210$).\n* Choice B: \"stops one step early\" — computes $a$ but reports it as a raw percent of $c$ instead of $b$.\n* Choice D: \"wrong base\" — divides $180$ by $0.3$ ignoring the sum structure.\n\n**Test Day Takeaway:** When two percents stack, pick a clean numerical value (e.g., $c = 100$) and compute through. \"Percent of $b$\" means divide by $b$, not by $c$.",
-  skills: ["percents"]
-},
-{
-  id: 2,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A printing shop produces three sizes of poster: large, medium, and small. During one shift, the number of large posters produced is $4$ times the number $n$ of medium posters, and the number of small posters is $35$ more than the number of medium posters. The shop produces a total of $617$ posters that shift. How many medium posters does the shop produce that shift?",
-  choices: [
-    // distractor: divides total by 6 ignoring the +35 offset
-    { id: "A", text: "$103$" },
-    { id: "B", text: "$97$" },
-    // distractor: applies inverse — uses (617 - 35)/4 = 145.5
-    { id: "C", text: "$146$" },
-    // distractor: stops one step early — divides 617/4 ignoring the offset and 6n
-    { id: "D", text: "$154$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Total $= 4n + n + (n + 35) = 6n + 35 = 617$. So $6n = 582$ and $n = 97$.\n\n**The Full Solution:**\nLet $n$ be the number of medium posters.\nNumber of large posters: $4n$.\nNumber of small posters: $n + 35$.\n\nTotal: $4n + n + (n + 35) = 6n + 35 = 617$.\n$6n = 582 \\Rightarrow n = 97$.\n\nVerification: $4(97) + 97 + (97 + 35) = 388 + 97 + 132 = 617$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — divides $617$ by $6$ ignoring the offset.\n* Choice C: \"applies the inverse operation\" — uses $(617 - 35)/4 = 145.5 \\approx 146$ instead of dividing by $6$.\n* Choice D: \"stops one step early\" — divides $617/4$ ignoring both the offset and the additional medium and small counts.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$35$ more than\".",
-  skills: ["word-problems", "ratios"]
-},
-{
-  id: 3,
-  type: "multiple-choice",
   difficulty: "medium",
   band: 5,
   question: "A data set has a mean of $52$ and a standard deviation of $7$. Which of the following values is more than $2$ standard deviations above the mean?",
@@ -464,64 +426,7 @@ export const practiceTest9 = {
   skills: ["statistics"]
 },
 {
-  id: 4,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "If $\\dfrac{x}{6} = \\dfrac{5}{12}$, what is the value of $4x - 1$?",
-  choices: [
-    // distractor: stops at x = 5/2 (forgets the 4x and -1)
-    { id: "A", text: "$\\dfrac{5}{2}$" },
-    { id: "B", text: "$9$" },
-    // distractor: forgets the -1
-    { id: "C", text: "$10$" },
-    // distractor: adds 1 instead of subtracting
-    { id: "D", text: "$11$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Shifted Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Cross-multiply: $12x = 30$, so $x = \\dfrac{5}{2}$. Then $4x - 1 = 10 - 1 = 9$.\n\n**The Full Solution:**\nFrom $\\dfrac{x}{6} = \\dfrac{5}{12}$, multiply both sides by $6$: $x = \\dfrac{30}{12} = \\dfrac{5}{2}$. Therefore $4x - 1 = 4 \\cdot \\dfrac{5}{2} - 1 = 10 - 1 = 9$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives $x$ instead of $4x - 1$.\n* Choice C: \"off-by-one\" — forgets the $-1$ and reports $4x = 10$.\n* Choice D: \"applies the inverse operation\" — adds $1$ instead of subtracting.\n\n**Test Day Takeaway:** Always check what the question asks for — here it is $4x - 1$, not $x$ alone.",
-  skills: ["solving-equations", "ratios"]
-},
-{
-  id: 5,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "In right triangle $XYZ$ with the right angle at $Z$, $\\sin X = \\dfrac{8}{17}$ and $YZ = 16$. What is the perimeter of triangle $XYZ$?",
-  choices: [
-    // distractor: gives only the two legs (16 + 30 = 46)
-    { id: "A", text: "$46$" },
-    { id: "B", text: "$80$" },
-    // distractor: uses unscaled triple (8 + 15 + 17 = 40)
-    { id: "C", text: "$40$" },
-    // distractor: uses 16 + 17 + 8 (mixes scaled and unscaled values)
-    { id: "D", text: "$41$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $\\sin X = \\dfrac{\\text{opposite}}{\\text{hypotenuse}} = \\dfrac{YZ}{XY} = \\dfrac{8}{17}$. Since $YZ = 16 = 8 \\cdot 2$, the scale factor is $2$. So $XY = 17 \\cdot 2 = 34$ and the other leg $XZ = 15 \\cdot 2 = 30$. Perimeter $= 16 + 30 + 34 = 80$.\n\n**The Full Solution:**\nIn right triangle $XYZ$ with right angle at $Z$:\n$\\sin X = \\dfrac{\\text{side opposite } X}{\\text{hypotenuse}} = \\dfrac{YZ}{XY} = \\dfrac{8}{17}$.\nGiven $YZ = 16$: $\\dfrac{16}{XY} = \\dfrac{8}{17}$, so $XY = 34$.\nUsing the Pythagorean theorem: $XZ = \\sqrt{34^2 - 16^2} = \\sqrt{1156 - 256} = \\sqrt{900} = 30$.\nPerimeter $= 16 + 30 + 34 = 80$.\n\nThis is the $8$-$15$-$17$ triple scaled by $2$: sides $16$-$30$-$34$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives only the two legs $16 + 30 = 46$ (forgets hypotenuse).\n* Choice C: \"wrong base\" — uses the unscaled $8$-$15$-$17$ triple instead of the actual sides.\n* Choice D: \"off-by-one\" — mixes $16$ (scaled) with $17$ and $8$ (unscaled).\n\n**Test Day Takeaway:** Memorize the $8$-$15$-$17$ triple. Always determine the scale factor from one corresponding side before computing the others.",
-  skills: ["trigonometry", "triangles"]
-},
-{
-  id: 6,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A biologist models a bacteria population with $P(t) = 800 \\cdot 2^{t/3}$, where $t$ is measured in hours. By what percent does the population increase every $9$ hours?",
-  choices: [
-    // distractor: 100% (one doubling, ignores 9h)
-    { id: "A", text: "$100\\%$" },
-    // distractor: 200% (treats multiplier 2^3 = 8 as 200%)
-    { id: "B", text: "$200\\%$" },
-    { id: "C", text: "$700\\%$" },
-    // distractor: 800% (treats 2^3 = 8 as 800%, off-by-one)
-    { id: "D", text: "$800\\%$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** When $t$ increases by $9$, the exponent increases by $3$, so the population is multiplied by $2^3 = 8$. Going from $P$ to $8P$ is a $700\\%$ increase.\n\n**The Full Solution:**\nCompare $P(t+9)$ to $P(t)$:\n$\\dfrac{P(t+9)}{P(t)} = \\dfrac{800 \\cdot 2^{(t+9)/3}}{800 \\cdot 2^{t/3}} = 2^{9/3} = 2^3 = 8$.\nThe population is multiplied by $8$ every $9$ hours.\nA factor of $8$ is a $(8 - 1) \\cdot 100\\% = 700\\%$ increase.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses one doubling (every $3$ hours) instead of three.\n* Choice B: \"applies the inverse operation\" — treats $2^3 = 8$ multiplier as a $200\\%$ increase.\n* Choice D: \"off-by-one\" — uses $8 \\cdot 100\\% = 800\\%$ instead of $(8-1) \\cdot 100\\% = 700\\%$.\n\n**Test Day Takeaway:** A growth factor of $k$ means a $(k-1) \\cdot 100\\%$ increase, not $k \\cdot 100\\%$.",
-  skills: ["exponential-functions", "percents"]
-},
-{
-  id: 7,
+  id: 2,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -540,17 +445,7 @@ export const practiceTest9 = {
   skills: ["two-way-tables", "probability"]
 },
 {
-  id: 8,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "Line $p$ passes through the points $(2, 5)$ and $(6, 17)$. Line $q$ is perpendicular to line $p$ and passes through the point $(9, 4)$. What is the $y$-coordinate of the point on line $q$ where $x = 0$?",
-  correctAnswer: "7",
-  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~25s):** Slope of $p$: $\\dfrac{17 - 5}{6 - 2} = 3$. Perpendicular slope: $-\\dfrac{1}{3}$. Line $q$: $y - 4 = -\\dfrac{1}{3}(x - 9)$. At $x = 0$: $y = 4 + \\dfrac{9}{3} = 4 + 3 = 7$.\n\n**The Full Solution:**\nThe slope of line $p$ is $m_p = \\dfrac{17 - 5}{6 - 2} = \\dfrac{12}{4} = 3$.\nSince line $q$ is perpendicular to line $p$, its slope is the negative reciprocal: $m_q = -\\dfrac{1}{3}$.\nUsing the point $(9, 4)$: $y - 4 = -\\dfrac{1}{3}(x - 9)$, so $y = 4 - \\dfrac{1}{3}(x - 9)$.\nAt $x = 0$: $y = 4 - \\dfrac{1}{3}(0 - 9) = 4 - \\dfrac{1}{3}(-9) = 4 + 3 = 7$.\n\n**Common Mistakes to Avoid:**\n* Using parallel slope ($m = 3$) instead of perpendicular ($-\\tfrac{1}{3}$).\n* Sign error in $-\\tfrac{1}{3}(0 - 9)$.\n\n**Test Day Takeaway:** Perpendicular lines: flip the slope and change its sign. Then plug in the given point.",
-  skills: ["slope", "linear-functions", "coordinate-geometry"]
-},
-{
-  id: 9,
+  id: 3,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -569,36 +464,26 @@ export const practiceTest9 = {
   skills: ["exponent-rules"]
 },
 {
-  id: 10,
+  id: 4,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The graph of $x^2 + 3x + y^2 + y = \\dfrac{45}{2}$ in the $xy$-plane is a circle. What is the length of the circle's radius?",
+  question: "The positive number $a$ is $180\\%$ of the sum of the positive numbers $b$ and $c$, and $b$ is $30\\%$ of $c$. What percent of $b$ is $a$?",
   choices: [
-    { id: "A", text: "$5$" },
-    // distractor: takes constant 45/2 directly without completing the square
-    { id: "B", text: "$\\sqrt{\\dfrac{45}{2}}$" },
-    // distractor: gives r^2 = 25 instead of r = 5
-    { id: "C", text: "$25$" },
-    // distractor: subtracts the half-coefficient-squared instead of adding
-    { id: "D", text: "$\\sqrt{\\dfrac{45}{2} - \\dfrac{5}{2}}$" }
+    // distractor: adds the percents: 180 + 30 = 210
+    { id: "A", text: "$210\\%$" },
+    // distractor: uses (1 + 0.30) * 180 = 234%
+    { id: "B", text: "$234\\%$" },
+    { id: "C", text: "$780\\%$" },
+    // distractor: divides 180 by 0.30 = 600%
+    { id: "D", text: "$600\\%$" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Complete the Square — Non-Square Radius**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Half of $3$ is $\\dfrac{3}{2}$; squared, $\\dfrac{9}{4}$. Half of $1$ is $\\dfrac{1}{2}$; squared, $\\dfrac{1}{4}$. Add both to RHS: $\\left(x + \\dfrac{3}{2}\\right)^2 + \\left(y + \\dfrac{1}{2}\\right)^2 = \\dfrac{45}{2} + \\dfrac{9}{4} + \\dfrac{1}{4} = \\dfrac{90 + 10}{4} = 25$. Radius $= \\sqrt{25} = 5$.\n\n**The Full Solution:**\nGroup terms and complete the square for each variable:\n$x^2 + 3x + y^2 + y = \\dfrac{45}{2}$\n$\\left(x^2 + 3x + \\dfrac{9}{4}\\right) + \\left(y^2 + y + \\dfrac{1}{4}\\right) = \\dfrac{45}{2} + \\dfrac{9}{4} + \\dfrac{1}{4}$\n$\\left(x + \\dfrac{3}{2}\\right)^2 + \\left(y + \\dfrac{1}{2}\\right)^2 = \\dfrac{90}{4} + \\dfrac{10}{4} = \\dfrac{100}{4} = 25$\n\nSo $r^2 = 25$ and $r = 5$.\n\nVerification: the circle has center $\\left(-\\dfrac{3}{2}, -\\dfrac{1}{2}\\right)$ and radius $5$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — uses $\\dfrac{45}{2}$ directly without completing the square.\n* Choice C: \"stops one step early\" — gives $r^2 = 25$ instead of $r = 5$.\n* Choice D: \"applies the inverse operation\" — subtracts the half-coefficient-squared instead of adding.\n\n**Test Day Takeaway:** Complete the square SYMMETRICALLY for both variables. \"Half the coefficient, squared\" gets added to BOTH sides — once for $x$, once for $y$.",
-  skills: ["circle-equations", "coordinate-geometry"]
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Set $c = 100$. Then $b = 30\\% \\cdot 100 = 30$. Sum $b + c = 130$. So $a = 1.8 \\cdot 130 = 234$. Percent of $b$ that $a$ is: $\\dfrac{234}{30} \\cdot 100 = 780\\%$.\n\n**The Full Solution:**\nLet $c = 100$ (any positive choice works since percents are scale-invariant).\nThen $b = 0.30 \\cdot 100 = 30$.\nSum: $b + c = 30 + 100 = 130$.\n$a = 1.80 \\cdot 130 = 234$.\nPercent of $b$ that $a$ is: $\\dfrac{a}{b} \\cdot 100\\% = \\dfrac{234}{30} \\cdot 100\\% = 780\\%$.\n\nVerification (algebraic): $a = 1.8(b + c)$ and $b = 0.3c$, so $c = \\tfrac{10}{3}b$. Then $a = 1.8(b + \\tfrac{10}{3}b) = 1.8 \\cdot \\tfrac{13}{3}b = 7.8b$, giving $\\dfrac{a}{b} = 7.8 = 780\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — adds the two percents ($180 + 30 = 210$).\n* Choice B: \"stops one step early\" — computes $a$ but reports it as a raw percent of $c$ instead of $b$.\n* Choice D: \"wrong base\" — divides $180$ by $0.3$ ignoring the sum structure.\n\n**Test Day Takeaway:** When two percents stack, pick a clean numerical value (e.g., $c = 100$) and compute through. \"Percent of $b$\" means divide by $b$, not by $c$.",
+  skills: ["percents"]
 },
 {
-  id: 11,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "The equation $5(2x - 6) + 18 = 10x + k$ has infinitely many solutions. What is the value of $k$?",
-  correctAnswer: "-12",
-  explanation: "**SAT Pattern: System Equivalence Check**\n\n**The correct answer is $-12$.**\n\n**The Fast Way (~20s):** Expand: $10x - 30 + 18 = 10x - 12$. For infinitely many solutions, $10x - 12 = 10x + k$ must hold for ALL $x$, so $k = -12$.\n\n**The Full Solution:**\nLeft side: $5(2x - 6) + 18 = 10x - 30 + 18 = 10x - 12$.\nFor the equation $10x - 12 = 10x + k$ to hold for ALL $x$, the constants must match: $k = -12$.\n\nVerification: with $k = -12$, both sides become $10x - 12$, true for any $x$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Writing $k = 12$ (sign error).\n* Computing $-30 + 18 = -48$ instead of $-12$.\n\n**Test Day Takeaway:** Infinitely many solutions $\\iff$ both sides identical after simplification. Match constant terms AND coefficients on each variable.",
-  skills: ["solving-equations", "linear-functions"]
-},
-{
-  id: 12,
+  id: 5,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -617,7 +502,151 @@ export const practiceTest9 = {
   skills: ["margin-of-error", "statistics"]
 },
 {
+  id: 6,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A printing shop produces three sizes of poster: large, medium, and small. During one shift, the number of large posters produced is $4$ times the number $n$ of medium posters, and the number of small posters is $35$ more than the number of medium posters. The shop produces a total of $617$ posters that shift. How many medium posters does the shop produce that shift?",
+  choices: [
+    // distractor: divides total by 6 ignoring the +35 offset
+    { id: "A", text: "$103$" },
+    { id: "B", text: "$97$" },
+    // distractor: applies inverse — uses (617 - 35)/4 = 145.5
+    { id: "C", text: "$146$" },
+    // distractor: stops one step early — divides 617/4 ignoring the offset and 6n
+    { id: "D", text: "$154$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Total $= 4n + n + (n + 35) = 6n + 35 = 617$. So $6n = 582$ and $n = 97$.\n\n**The Full Solution:**\nLet $n$ be the number of medium posters.\nNumber of large posters: $4n$.\nNumber of small posters: $n + 35$.\n\nTotal: $4n + n + (n + 35) = 6n + 35 = 617$.\n$6n = 582 \\Rightarrow n = 97$.\n\nVerification: $4(97) + 97 + (97 + 35) = 388 + 97 + 132 = 617$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — divides $617$ by $6$ ignoring the offset.\n* Choice C: \"applies the inverse operation\" — uses $(617 - 35)/4 = 145.5 \\approx 146$ instead of dividing by $6$.\n* Choice D: \"stops one step early\" — divides $617/4$ ignoring both the offset and the additional medium and small counts.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$35$ more than\".",
+  skills: ["word-problems", "ratios"]
+},
+{
+  id: 7,
+  type: "fill-in",
+  difficulty: "medium",
+  band: 5,
+  question: "In a bag, the ratio of red marbles to blue marbles is $5:3$. If there are $40$ marbles in the bag total and all marbles are either red or blue, how many red marbles are there?",
+  correctAnswer: "25",
+  explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**The correct answer is $25$.**\n\n**The Fast Way (~10s):** Total parts $= 5 + 3 = 8$. Each part $= 40 \\div 8 = 5$. Red marbles $= 5 \\cdot 5 = 25$.\n\n**The Full Solution:**\nThe ratio $5:3$ means for every $8$ marbles, $5$ are red and $3$ are blue. With $40$ total marbles: $\\dfrac{5}{8} \\cdot 40 = 25$ red marbles.\n\nVerification: $25$ red $+ 15$ blue $= 40$, and $\\dfrac{25}{15} = \\dfrac{5}{3}$ \\checkmark.\n\n**Test Day Takeaway:** Add ratio parts to get the total ratio, then scale to the actual total.",
+  skills: ["solving-equations", "ratios"]
+},
+{
+  id: 8,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "If $\\dfrac{x}{6} = \\dfrac{5}{12}$, what is the value of $4x - 1$?",
+  choices: [
+    // distractor: stops at x = 5/2 (forgets the 4x and -1)
+    { id: "A", text: "$\\dfrac{5}{2}$" },
+    { id: "B", text: "$9$" },
+    // distractor: forgets the -1
+    { id: "C", text: "$10$" },
+    // distractor: adds 1 instead of subtracting
+    { id: "D", text: "$11$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Shifted Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Cross-multiply: $12x = 30$, so $x = \\dfrac{5}{2}$. Then $4x - 1 = 10 - 1 = 9$.\n\n**The Full Solution:**\nFrom $\\dfrac{x}{6} = \\dfrac{5}{12}$, multiply both sides by $6$: $x = \\dfrac{30}{12} = \\dfrac{5}{2}$. Therefore $4x - 1 = 4 \\cdot \\dfrac{5}{2} - 1 = 10 - 1 = 9$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives $x$ instead of $4x - 1$.\n* Choice C: \"off-by-one\" — forgets the $-1$ and reports $4x = 10$.\n* Choice D: \"applies the inverse operation\" — adds $1$ instead of subtracting.\n\n**Test Day Takeaway:** Always check what the question asks for — here it is $4x - 1$, not $x$ alone.",
+  skills: ["solving-equations", "ratios"]
+},
+{
+  id: 9,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "In right triangle $XYZ$ with the right angle at $Z$, $\\sin X = \\dfrac{8}{17}$ and $YZ = 16$. What is the perimeter of triangle $XYZ$?",
+  choices: [
+    // distractor: gives only the two legs (16 + 30 = 46)
+    { id: "A", text: "$46$" },
+    { id: "B", text: "$80$" },
+    // distractor: uses unscaled triple (8 + 15 + 17 = 40)
+    { id: "C", text: "$40$" },
+    // distractor: uses 16 + 17 + 8 (mixes scaled and unscaled values)
+    { id: "D", text: "$41$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $\\sin X = \\dfrac{\\text{opposite}}{\\text{hypotenuse}} = \\dfrac{YZ}{XY} = \\dfrac{8}{17}$. Since $YZ = 16 = 8 \\cdot 2$, the scale factor is $2$. So $XY = 17 \\cdot 2 = 34$ and the other leg $XZ = 15 \\cdot 2 = 30$. Perimeter $= 16 + 30 + 34 = 80$.\n\n**The Full Solution:**\nIn right triangle $XYZ$ with right angle at $Z$:\n$\\sin X = \\dfrac{\\text{side opposite } X}{\\text{hypotenuse}} = \\dfrac{YZ}{XY} = \\dfrac{8}{17}$.\nGiven $YZ = 16$: $\\dfrac{16}{XY} = \\dfrac{8}{17}$, so $XY = 34$.\nUsing the Pythagorean theorem: $XZ = \\sqrt{34^2 - 16^2} = \\sqrt{1156 - 256} = \\sqrt{900} = 30$.\nPerimeter $= 16 + 30 + 34 = 80$.\n\nThis is the $8$-$15$-$17$ triple scaled by $2$: sides $16$-$30$-$34$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives only the two legs $16 + 30 = 46$ (forgets hypotenuse).\n* Choice C: \"wrong base\" — uses the unscaled $8$-$15$-$17$ triple instead of the actual sides.\n* Choice D: \"off-by-one\" — mixes $16$ (scaled) with $17$ and $8$ (unscaled).\n\n**Test Day Takeaway:** Memorize the $8$-$15$-$17$ triple. Always determine the scale factor from one corresponding side before computing the others.",
+  skills: ["trigonometry", "triangles"]
+},
+{
+  id: 10,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A biologist models a bacteria population with $P(t) = 800 \\cdot 2^{t/3}$, where $t$ is measured in hours. By what percent does the population increase every $9$ hours?",
+  choices: [
+    // distractor: 100% (one doubling, ignores 9h)
+    { id: "A", text: "$100\\%$" },
+    // distractor: 200% (treats multiplier 2^3 = 8 as 200%)
+    { id: "B", text: "$200\\%$" },
+    { id: "C", text: "$700\\%$" },
+    // distractor: 800% (treats 2^3 = 8 as 800%, off-by-one)
+    { id: "D", text: "$800\\%$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** When $t$ increases by $9$, the exponent increases by $3$, so the population is multiplied by $2^3 = 8$. Going from $P$ to $8P$ is a $700\\%$ increase.\n\n**The Full Solution:**\nCompare $P(t+9)$ to $P(t)$:\n$\\dfrac{P(t+9)}{P(t)} = \\dfrac{800 \\cdot 2^{(t+9)/3}}{800 \\cdot 2^{t/3}} = 2^{9/3} = 2^3 = 8$.\nThe population is multiplied by $8$ every $9$ hours.\nA factor of $8$ is a $(8 - 1) \\cdot 100\\% = 700\\%$ increase.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses one doubling (every $3$ hours) instead of three.\n* Choice B: \"applies the inverse operation\" — treats $2^3 = 8$ multiplier as a $200\\%$ increase.\n* Choice D: \"off-by-one\" — uses $8 \\cdot 100\\% = 800\\%$ instead of $(8-1) \\cdot 100\\% = 700\\%$.\n\n**Test Day Takeaway:** A growth factor of $k$ means a $(k-1) \\cdot 100\\%$ increase, not $k \\cdot 100\\%$.",
+  skills: ["exponential-functions", "percents"]
+},
+{
+  id: 11,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "Line $p$ passes through the points $(2, 5)$ and $(6, 17)$. Line $q$ is perpendicular to line $p$ and passes through the point $(9, 4)$. What is the $y$-coordinate of the point on line $q$ where $x = 0$?",
+  correctAnswer: "7",
+  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~25s):** Slope of $p$: $\\dfrac{17 - 5}{6 - 2} = 3$. Perpendicular slope: $-\\dfrac{1}{3}$. Line $q$: $y - 4 = -\\dfrac{1}{3}(x - 9)$. At $x = 0$: $y = 4 + \\dfrac{9}{3} = 4 + 3 = 7$.\n\n**The Full Solution:**\nThe slope of line $p$ is $m_p = \\dfrac{17 - 5}{6 - 2} = \\dfrac{12}{4} = 3$.\nSince line $q$ is perpendicular to line $p$, its slope is the negative reciprocal: $m_q = -\\dfrac{1}{3}$.\nUsing the point $(9, 4)$: $y - 4 = -\\dfrac{1}{3}(x - 9)$, so $y = 4 - \\dfrac{1}{3}(x - 9)$.\nAt $x = 0$: $y = 4 - \\dfrac{1}{3}(0 - 9) = 4 - \\dfrac{1}{3}(-9) = 4 + 3 = 7$.\n\n**Common Mistakes to Avoid:**\n* Using parallel slope ($m = 3$) instead of perpendicular ($-\\tfrac{1}{3}$).\n* Sign error in $-\\tfrac{1}{3}(0 - 9)$.\n\n**Test Day Takeaway:** Perpendicular lines: flip the slope and change its sign. Then plug in the given point.",
+  skills: ["slope", "linear-functions", "coordinate-geometry"]
+},
+{
+  id: 12,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The graph of $x^2 + 3x + y^2 + y = \\dfrac{45}{2}$ in the $xy$-plane is a circle. What is the length of the circle's radius?",
+  choices: [
+    { id: "A", text: "$5$" },
+    // distractor: takes constant 45/2 directly without completing the square
+    { id: "B", text: "$\\sqrt{\\dfrac{45}{2}}$" },
+    // distractor: gives r^2 = 25 instead of r = 5
+    { id: "C", text: "$25$" },
+    // distractor: subtracts the half-coefficient-squared instead of adding
+    { id: "D", text: "$\\sqrt{\\dfrac{45}{2} - \\dfrac{5}{2}}$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Complete the Square — Non-Square Radius**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Half of $3$ is $\\dfrac{3}{2}$; squared, $\\dfrac{9}{4}$. Half of $1$ is $\\dfrac{1}{2}$; squared, $\\dfrac{1}{4}$. Add both to RHS: $\\left(x + \\dfrac{3}{2}\\right)^2 + \\left(y + \\dfrac{1}{2}\\right)^2 = \\dfrac{45}{2} + \\dfrac{9}{4} + \\dfrac{1}{4} = \\dfrac{90 + 10}{4} = 25$. Radius $= \\sqrt{25} = 5$.\n\n**The Full Solution:**\nGroup terms and complete the square for each variable:\n$x^2 + 3x + y^2 + y = \\dfrac{45}{2}$\n$\\left(x^2 + 3x + \\dfrac{9}{4}\\right) + \\left(y^2 + y + \\dfrac{1}{4}\\right) = \\dfrac{45}{2} + \\dfrac{9}{4} + \\dfrac{1}{4}$\n$\\left(x + \\dfrac{3}{2}\\right)^2 + \\left(y + \\dfrac{1}{2}\\right)^2 = \\dfrac{90}{4} + \\dfrac{10}{4} = \\dfrac{100}{4} = 25$\n\nSo $r^2 = 25$ and $r = 5$.\n\nVerification: the circle has center $\\left(-\\dfrac{3}{2}, -\\dfrac{1}{2}\\right)$ and radius $5$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — uses $\\dfrac{45}{2}$ directly without completing the square.\n* Choice C: \"stops one step early\" — gives $r^2 = 25$ instead of $r = 5$.\n* Choice D: \"applies the inverse operation\" — subtracts the half-coefficient-squared instead of adding.\n\n**Test Day Takeaway:** Complete the square SYMMETRICALLY for both variables. \"Half the coefficient, squared\" gets added to BOTH sides — once for $x$, once for $y$.",
+  skills: ["circle-equations", "coordinate-geometry"]
+},
+{
   id: 13,
+  type: "multiple-choice",
+  difficulty: "medium",
+  band: 5,
+  question: "The following data set shows a class of $10$ students' quiz scores: $5, 6, 6, 7, 7, 7, 8, 8, 9, 10$. If a score of $2$ is added to the data set, which of the following statements is true?",
+  choices: [
+    // distractor: claims median decreases by 1
+    { id: "A", text: "The median decreases by $1$ and the range increases by $3$." },
+    // distractor: claims median decreases by 0.5
+    { id: "B", text: "The median decreases by $0.5$ and the range increases by $3$." },
+    { id: "C", text: "The median stays the same and the range increases by $3$." },
+    // distractor: range error
+    { id: "D", text: "The median decreases by $0.5$ and the range increases by $5$." }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Outlier Effect**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Original: $10$ values, median $= \\dfrac{7+7}{2} = 7$, range $= 10 - 5 = 5$. New: $11$ values $\\{2, 5, 6, 6, 7, 7, 7, 8, 8, 9, 10\\}$, median $=$ 6th value $= 7$, range $= 10 - 2 = 8$. Median unchanged, range increased by $3$.\n\n**The Full Solution:**\nOriginal data (sorted): $5, 6, 6, 7, 7, 7, 8, 8, 9, 10$.\nMedian ($10$ values) $= \\dfrac{7+7}{2} = 7$. Range $= 10 - 5 = 5$.\n\nNew data (sorted): $2, 5, 6, 6, 7, 7, 7, 8, 8, 9, 10$.\nMedian ($11$ values) $=$ 6th value $= 7$. Range $= 10 - 2 = 8$.\n\nMedian change: $7 - 7 = 0$ (unchanged).\nRange change: $8 - 5 = 3$ (increased by $3$).\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — assumes the median decreases by $1$.\n* Choice B: \"off-by-one\" — assumes the median always shifts when a value is added.\n* Choice D: \"wrong base\" — the range increases by $3$ ($10-2=8$ vs. $10-5=5$), not by $5$.\n\n**Test Day Takeaway:** Adding a low outlier extends the range but may not change the median if the middle values are unaffected.",
+  skills: ["statistics"]
+},
+{
+  id: 14,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "The equation $5(2x - 6) + 18 = 10x + k$ has infinitely many solutions. What is the value of $k$?",
+  correctAnswer: "-12",
+  explanation: "**SAT Pattern: System Equivalence Check**\n\n**The correct answer is $-12$.**\n\n**The Fast Way (~20s):** Expand: $10x - 30 + 18 = 10x - 12$. For infinitely many solutions, $10x - 12 = 10x + k$ must hold for ALL $x$, so $k = -12$.\n\n**The Full Solution:**\nLeft side: $5(2x - 6) + 18 = 10x - 30 + 18 = 10x - 12$.\nFor the equation $10x - 12 = 10x + k$ to hold for ALL $x$, the constants must match: $k = -12$.\n\nVerification: with $k = -12$, both sides become $10x - 12$, true for any $x$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Writing $k = 12$ (sign error).\n* Computing $-30 + 18 = -48$ instead of $-12$.\n\n**Test Day Takeaway:** Infinitely many solutions $\\iff$ both sides identical after simplification. Match constant terms AND coefficients on each variable.",
+  skills: ["solving-equations", "linear-functions"]
+},
+{
+  id: 15,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -636,17 +665,7 @@ export const practiceTest9 = {
   skills: ["function-interpretation", "vertex-form", "quadratic-equations"]
 },
 {
-  id: 14,
-  type: "fill-in",
-  difficulty: "medium",
-  band: 5,
-  question: "In a bag, the ratio of red marbles to blue marbles is $5:3$. If there are $40$ marbles in the bag total and all marbles are either red or blue, how many red marbles are there?",
-  correctAnswer: "25",
-  explanation: "**SAT Pattern: Sum of Parts Ratio**\n\n**The correct answer is $25$.**\n\n**The Fast Way (~10s):** Total parts $= 5 + 3 = 8$. Each part $= 40 \\div 8 = 5$. Red marbles $= 5 \\cdot 5 = 25$.\n\n**The Full Solution:**\nThe ratio $5:3$ means for every $8$ marbles, $5$ are red and $3$ are blue. With $40$ total marbles: $\\dfrac{5}{8} \\cdot 40 = 25$ red marbles.\n\nVerification: $25$ red $+ 15$ blue $= 40$, and $\\dfrac{25}{15} = \\dfrac{5}{3}$ \\checkmark.\n\n**Test Day Takeaway:** Add ratio parts to get the total ratio, then scale to the actual total.",
-  skills: ["solving-equations", "ratios"]
-},
-{
-  id: 15,
+  id: 16,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -665,7 +684,7 @@ export const practiceTest9 = {
   skills: ["discriminant", "quadratic-equations"]
 },
 {
-  id: 16,
+  id: 17,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -684,7 +703,7 @@ export const practiceTest9 = {
   skills: ["exponential-functions", "function-interpretation"]
 },
 {
-  id: 17,
+  id: 18,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -703,7 +722,7 @@ export const practiceTest9 = {
   skills: ["similar-triangles", "area"]
 },
 {
-  id: 18,
+  id: 19,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -711,25 +730,6 @@ export const practiceTest9 = {
   correctAnswer: "9",
   explanation: "**SAT Pattern: Three-Variable System**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~30s):** Add Eq1 and Eq2: $3x + y + 4z = 22$. Subtract Eq3: $2z = 6$, so $z = 3$. Then back-substitute.\n\n**The Full Solution:**\nAdd Eq1 and Eq2: $(x + 2y + z) + (2x - y + 3z) = 13 + 9$, giving $3x + y + 4z = 22$.\nSubtract Eq3: $(3x + y + 4z) - (3x + y + 2z) = 22 - 16$, giving $2z = 6$, so $z = 3$.\n\nSubstitute $z = 3$ into Eq2: $2x - y + 9 = 9$, so $y = 2x$.\nSubstitute into Eq1: $x + 2(2x) + 3 = 13$, so $5x = 10$ and $x = 2$.\nThen $y = 4$ and $z = 3$.\n\n$x + y + z = 2 + 4 + 3 = 9$.\n\nVerification: Eq1: $2 + 8 + 3 = 13$ \\checkmark; Eq2: $4 - 4 + 9 = 9$ \\checkmark; Eq3: $6 + 4 + 6 = 16$ \\checkmark.\n\n**Test Day Takeaway:** For 3-variable systems, add or subtract pairs of equations to eliminate variables. Look for combinations that simplify cleanly.",
   skills: ["systems-of-equations"]
-},
-{
-  id: 19,
-  type: "multiple-choice",
-  difficulty: "medium",
-  band: 5,
-  question: "The following data set shows a class of $10$ students' quiz scores: $5, 6, 6, 7, 7, 7, 8, 8, 9, 10$. If a score of $2$ is added to the data set, which of the following statements is true?",
-  choices: [
-    // distractor: claims median decreases by 1
-    { id: "A", text: "The median decreases by $1$ and the range increases by $3$." },
-    // distractor: claims median decreases by 0.5
-    { id: "B", text: "The median decreases by $0.5$ and the range increases by $3$." },
-    { id: "C", text: "The median stays the same and the range increases by $3$." },
-    // distractor: range error
-    { id: "D", text: "The median decreases by $0.5$ and the range increases by $5$." }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Outlier Effect**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Original: $10$ values, median $= \\dfrac{7+7}{2} = 7$, range $= 10 - 5 = 5$. New: $11$ values $\\{2, 5, 6, 6, 7, 7, 7, 8, 8, 9, 10\\}$, median $=$ 6th value $= 7$, range $= 10 - 2 = 8$. Median unchanged, range increased by $3$.\n\n**The Full Solution:**\nOriginal data (sorted): $5, 6, 6, 7, 7, 7, 8, 8, 9, 10$.\nMedian ($10$ values) $= \\dfrac{7+7}{2} = 7$. Range $= 10 - 5 = 5$.\n\nNew data (sorted): $2, 5, 6, 6, 7, 7, 7, 8, 8, 9, 10$.\nMedian ($11$ values) $=$ 6th value $= 7$. Range $= 10 - 2 = 8$.\n\nMedian change: $7 - 7 = 0$ (unchanged).\nRange change: $8 - 5 = 3$ (increased by $3$).\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — assumes the median decreases by $1$.\n* Choice B: \"off-by-one\" — assumes the median always shifts when a value is added.\n* Choice D: \"wrong base\" — the range increases by $3$ ($10-2=8$ vs. $10-5=5$), not by $5$.\n\n**Test Day Takeaway:** Adding a low outlier extends the range but may not change the median if the middle values are unaffected.",
-  skills: ["statistics"]
 },
 {
   id: 20,

@@ -381,140 +381,6 @@ export const practiceTest5 = {
       questions: [
 {
   id: 1,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "If $432$ is $p\\%$ greater than $48$, what is the value of $p$?",
-  choices: [
-    // distractor: divides 432 by 48 to get 9, then converts wrong (gives 900)
-    { id: "A", text: "$900$" },
-    { id: "B", text: "$800$" },
-    // distractor: stops one step early — gives ratio 432/48 = 9 as percent
-    { id: "C", text: "$9$" },
-    // distractor: divides 432 - 48 = 384 by 432 instead of by 48
-    { id: "D", text: "$89$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Percent Greater Than**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** \"$432$ is $p\\%$ greater than $48$\" means $432 = 48 + \\dfrac{p}{100}(48)$, so $\\dfrac{p}{100} = \\dfrac{432 - 48}{48} = \\dfrac{384}{48} = 8$, giving $p = 800$.\n\n**The Full Solution:**\n$432 = 48 + \\dfrac{p}{100} \\cdot 48$\n$432 - 48 = \\dfrac{p}{100} \\cdot 48$\n$384 = \\dfrac{48p}{100}$\n$\\dfrac{p}{100} = \\dfrac{384}{48} = 8$\n$p = 800$.\n\nVerification: $48 + 800\\% \\text{ of } 48 = 48 + 384 = 432$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — confuses $432/48 = 9$ with the percent and reports $900$.\n* Choice C: \"stops one step early\" — gives $432/48 = 9$ without converting to a percent increase.\n* Choice D: \"wrong base\" — divides $384$ by $432$ instead of $48$.\n\n**Test Day Takeaway:** \"$A$ is $p\\%$ greater than $B$\" $\\iff$ $A = B(1 + \\dfrac{p}{100})$. Solve via $\\dfrac{A - B}{B} = \\dfrac{p}{100}$.",
-  skills: ["percents", "word-problems"]
-},
-{
-  id: 2,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "A workshop produces $10$-inch, $6$-inch, and $4$-inch dowels. During one day, the number of $10$-inch dowels produced is $4$ times the number $n$ of $6$-inch dowels, and the number of $4$-inch dowels is $50$ more than the number of $6$-inch dowels. The workshop produces a total of $818$ dowels that day. How many $6$-inch dowels does the workshop produce that day?",
-  correctAnswer: "128",
-  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $128$.**\n\n**The Fast Way (~40s):** Total $= 4n + n + (n + 50) = 6n + 50 = 818$. So $6n = 768$ and $n = 128$.\n\n**The Full Solution:**\nLet $n$ be the number of $6$-inch dowels.\nNumber of $10$-inch dowels: $4n$.\nNumber of $4$-inch dowels: $n + 50$.\n\nTotal: $4n + n + (n + 50) = 6n + 50 = 818$.\n$6n = 768 \\Rightarrow n = 128$.\n\nVerification: $4(128) + 128 + (128 + 50) = 512 + 128 + 178 = 818$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting the $+50$ offset.\n* Computing $818/6$ directly without subtracting $50$ first.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$50$ more than\".",
-  skills: ["word-problems", "solving-equations"]
-},
-{
-  id: 3,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "If $x > 0$, the expression $\\sqrt[4]{x^3} \\cdot \\sqrt{x^7}$ is equivalent to $x^{p/q}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
-  choices: [
-    // distractor: gives p alone (= 17) instead of p + q
-    { id: "A", text: "$17$" },
-    // distractor: sums numerator + index (3 + 4 + 7 + 2 = 16)
-    { id: "B", text: "$16$" },
-    { id: "C", text: "$21$" },
-    // distractor: stops at p/q = 17/4 but reports 4 only
-    { id: "D", text: "$4$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[4]{x^3} = x^{3/4}$. $\\sqrt{x^7} = x^{7/2}$. Add: $\\dfrac{3}{4} + \\dfrac{7}{2} = \\dfrac{3}{4} + \\dfrac{14}{4} = \\dfrac{17}{4}$. So $p + q = 17 + 4 = 21$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[4]{x^3} = x^{3/4}, \\quad \\sqrt{x^7} = x^{7/2}$.\n\nWhen multiplying same bases, add exponents:\n$x^{3/4} \\cdot x^{7/2} = x^{3/4 + 14/4} = x^{17/4}$.\n\n$\\gcd(17, 4) = 1$, so $\\dfrac{17}{4}$ is already in lowest terms. Then $p = 17$, $q = 4$, and $p + q = 21$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 17$ without adding $q$.\n* Choice B: \"applies the inverse operation\" — sums all the integers in the expression ($3 + 4 + 7 + 2 = 16$).\n* Choice D: \"wrong base\" — gives just the denominator $q = 4$.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{m/n}$ — power on top, root on bottom. Add fractional exponents when multiplying same bases.",
-  skills: ["polynomial-operations", "exponent-rules", "radical-expressions"]
-},
-{
-  id: 4,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "In the system of equations below, $a$ is a constant.\n\n$ax + 6y = 18$\n$5x + 4y = 11$\n\nIf the system has no solution, what is the value of $a$?",
-  choices: [
-    // distractor: stops at a = 5 (just copies coefficient from second equation)
-    { id: "A", text: "$5$" },
-    // distractor: applies inverse — uses 4/6 instead of 6/4
-    { id: "B", text: "$\\dfrac{10}{3}$" },
-    { id: "C", text: "$\\dfrac{15}{2}$" },
-    // distractor: off-by-one — uses 18/4 = 4.5 ratio
-    { id: "D", text: "$\\dfrac{9}{2}$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** No solution $\\iff$ the lines are parallel (proportional coefficients) but NOT identical. Match coefficients of $x$ and $y$: $\\dfrac{a}{5} = \\dfrac{6}{4}$, so $a = \\dfrac{30}{4} = \\dfrac{15}{2}$. Verify constants do NOT match: $\\dfrac{18}{11} \\neq \\dfrac{6}{4}$ \\checkmark.\n\n**The Full Solution:**\nFor a $2 \\times 2$ linear system to have no solution, the coefficient ratios must be equal but the constant ratio must differ:\n$\\dfrac{a}{5} = \\dfrac{6}{4} \\neq \\dfrac{18}{11}$\n\nFrom $\\dfrac{a}{5} = \\dfrac{6}{4}$: $a = \\dfrac{6 \\cdot 5}{4} = \\dfrac{30}{4} = \\dfrac{15}{2}$.\n\nCheck: $\\dfrac{18}{11} \\approx 1.64$ and $\\dfrac{6}{4} = 1.5$, so the constants are NOT in the same ratio — confirming no solution.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — copies the coefficient $5$ from the other equation.\n* Choice B: \"applies the inverse operation\" — uses $\\dfrac{4}{6}$ ratio in the wrong direction.\n* Choice D: \"off-by-one\" — uses the constant ratio $\\dfrac{18}{4}$ instead of the coefficient ratio.\n\n**Test Day Takeaway:** No-solution condition: $\\dfrac{a_1}{a_2} = \\dfrac{b_1}{b_2} \\neq \\dfrac{c_1}{c_2}$. Match coefficients but NOT constants.",
-  skills: ["systems-of-equations", "solving-equations"]
-},
-{
-  id: 5,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The function $f$ is defined by $f(x) = (x + 4)^2 - 9$. If the function $g$ is defined by $g(x) = f(x - 6)$, what is the minimum value of $g$?",
-  choices: [
-    // distractor: gives the x at minimum (x = 2) instead of g(x)
-    { id: "A", text: "$2$" },
-    { id: "B", text: "$-9$" },
-    // distractor: forgets the constant -9
-    { id: "C", text: "$0$" },
-    // distractor: combines -9 + 6 = -3 (wrong shift)
-    { id: "D", text: "$-3$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f$ has minimum value $-9$ (at $x = -4$). $g(x) = f(x - 6)$ shifts $f$ horizontally; horizontal shifts do NOT change the minimum value. So $g$ has minimum value $-9$.\n\n**The Full Solution:**\n$g(x) = f(x - 6) = ((x - 6) + 4)^2 - 9 = (x - 2)^2 - 9$.\n\nThis is vertex form with vertex $(2, -9)$. The minimum value is $-9$, attained at $x = 2$.\n\nVerification: $(x - 2)^2 \\geq 0$ for all real $x$, so $g(x) \\geq -9$ with equality at $x = 2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the $x$-coordinate of the minimum ($2$) instead of $g(x) = -9$.\n* Choice C: \"off-by-one\" — forgets the constant $-9$ in the original function.\n* Choice D: \"applies the inverse operation\" — combines $-9$ and $+6$ via incorrect shift.\n\n**Test Day Takeaway:** Horizontal shifts (replacing $x$ with $x \\pm h$) do NOT change the min/max value. Only vertical shifts ($+k$ outside) do.",
-  skills: ["function-interpretation", "vertex-form", "quadratic-equations"]
-},
-{
-  id: 6,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A polling organization surveyed a random sample of $400$ likely voters and reported a margin of error of $\\pm 4$ percentage points at $95\\%$ confidence. The pollsters want to reduce the margin of error to approximately $\\pm 2$ percentage points using the same confidence level. Approximately what total sample size is needed?",
-  choices: [
-    // distractor: doubles to 800 (would only reduce MOE by sqrt(2))
-    { id: "A", text: "$800$" },
-    // distractor: 400 * 3 = 1200 (triples instead of quadruples)
-    { id: "B", text: "$1{,}200$" },
-    { id: "C", text: "$1{,}600$" },
-    // distractor: 400 * 8 = 3200 (over-quadruples)
-    { id: "D", text: "$3{,}200$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Margin of Error**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Margin of error $\\propto \\dfrac{1}{\\sqrt{n}}$. To halve the margin of error, multiply $n$ by $4$: $400 \\cdot 4 = 1{,}600$.\n\n**The Full Solution:**\nThe margin of error scales as $\\dfrac{1}{\\sqrt{n}}$. To reduce the margin of error by a factor of $k$, multiply $n$ by $k^2$.\n\nDesired ratio of margins: $\\dfrac{4}{2} = 2$. So multiply $n$ by $2^2 = 4$.\nNew sample size: $400 \\times 4 = 1{,}600$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — doubles $n$, but that only reduces MOE by $\\sqrt{2}$.\n* Choice B: \"off-by-one\" — triples instead of quadrupling.\n* Choice D: \"wrong base\" — multiplies by $8$ (over-corrects).\n\n**Test Day Takeaway:** To CUT the margin of error in half, MULTIPLY the sample size by $4$. In general, the multiplier on $n$ is the square of the desired MOE ratio.",
-  skills: ["margin-of-error", "statistics"]
-},
-{
-  id: 7,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "Consider the system of equations:\n\n$x + y + z = 11$\n$x + 2y + z = 16$\n$2x + y + 3z = 19$\n\nWhat is the value of $x + y$?",
-  correctAnswer: "9",
-  explanation: "**SAT Pattern: Three-Variable Elimination**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~30s):** Subtract equation 1 from equation 2 to isolate $y$: $y = 5$. From equation 1: $x + z = 6$. From equation 3: $2x + 3z = 14$. Solving: $z = 2$, $x = 4$. So $x + y = 4 + 5 = 9$.\n\n**The Full Solution:**\nLabel the equations:\n$(1) \\; x + y + z = 11$\n$(2) \\; x + 2y + z = 16$\n$(3) \\; 2x + y + 3z = 19$\n\nSubtract $(1)$ from $(2)$: $y = 5$.\n\nSubstitute $y = 5$ into $(1)$: $x + 5 + z = 11 \\Rightarrow x + z = 6$.\nSubstitute $y = 5$ into $(3)$: $2x + 5 + 3z = 19 \\Rightarrow 2x + 3z = 14$.\n\nFrom $x + z = 6$: $x = 6 - z$. Substitute: $2(6 - z) + 3z = 14 \\Rightarrow 12 + z = 14 \\Rightarrow z = 2$, so $x = 4$.\n\nVerification: equation $(1)$: $4 + 5 + 2 = 11$ \\checkmark; equation $(2)$: $4 + 10 + 2 = 16$ \\checkmark; equation $(3)$: $8 + 5 + 6 = 19$ \\checkmark.\n\nSo $x + y = 4 + 5 = 9$.\n\n**Common Mistakes to Avoid:**\n* Solving for each variable individually when only $x + y$ is needed.\n* Forgetting that subtracting two near-identical equations isolates one variable instantly.\n\n**Test Day Takeaway:** When two equations differ in only one variable, subtract them to isolate that variable.",
-  skills: ["systems-of-equations", "word-problems"]
-},
-{
-  id: 8,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The parabola defined by $y = -3(x - h)^2 + k$ has its vertex at the point $(2, 12)$ and passes through the point $(4, 0)$. What is the value of $h - k$?",
-  choices: [
-    // distractor: stops one step early — gives just h = 2
-    { id: "A", text: "$2$" },
-    // distractor: applies inverse — gives h + k = 14
-    { id: "B", text: "$14$" },
-    { id: "C", text: "$-10$" },
-    // distractor: wrong base — gives k - h = 10
-    { id: "D", text: "$10$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Vertex $(h, k) = (2, 12)$. Verify the parabola passes through $(4, 0)$: $y = -3(4 - 2)^2 + 12 = -3(4) + 12 = 0$ \\checkmark. So $h - k = 2 - 12 = -10$.\n\n**The Full Solution:**\nIn vertex form $y = a(x - h)^2 + k$, the vertex is $(h, k)$.\nGiven vertex $(2, 12)$: $h = 2$ and $k = 12$.\nVerify with the second point $(4, 0)$ and $a = -3$:\n$y = -3(4 - 2)^2 + 12 = -3(4) + 12 = 0$ \\checkmark.\n\nSo $h - k = 2 - 12 = -10$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reports just $h = 2$ without subtracting $k$.\n* Choice B: \"applies the inverse operation\" — computes $h + k = 14$.\n* Choice D: \"wrong base\" — computes $k - h = 10$ (sign reversed).\n\n**Test Day Takeaway:** In $y = a(x - h)^2 + k$, the vertex is exactly $(h, k)$. The other point only verifies $a$.",
-  skills: ["vertex-form", "function-interpretation"]
-},
-{
-  id: 9,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -524,45 +390,7 @@ export const practiceTest5 = {
   skills: ["solving-equations", "linear-functions"]
 },
 {
-  id: 10,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A study assigned $80$ participants to one of three experimental groups. The table summarizes participants by group and outcome:\n\n| | Improved | No Change | Worsened | Total |\n|---|---|---|---|---|\n| Group X | $14$ | $9$ | $7$ | $30$ |\n| Group Y | $5$ | $11$ | $4$ | $20$ |\n| Group Z | $11$ | $13$ | $6$ | $30$ |\n| Total | $30$ | $33$ | $17$ | $80$ |\n\nIf one participant who Improved is selected at random, what is the probability that the participant was in Group Y or Group Z?",
-  choices: [
-    // distractor: uses 16/80 = 1/5 (uses grand total as denominator)
-    { id: "A", text: "$\\dfrac{1}{5}$" },
-    // distractor: stops at Y only: 5/30 = 1/6
-    { id: "B", text: "$\\dfrac{1}{6}$" },
-    { id: "C", text: "$\\dfrac{8}{15}$" },
-    // distractor: off-by-one — uses 16/30 simplified wrong
-    { id: "D", text: "$\\dfrac{14}{30}$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Restrict to the Improved column (total $30$). Y or Z count: $5 + 11 = 16$. Probability $= \\dfrac{16}{30} = \\dfrac{8}{15}$.\n\n**The Full Solution:**\nGiven: participant Improved. The conditional restricts the sample space to that column, which has $30$ total participants.\nFavorable: Improved AND (Group Y OR Group Z) = $5 + 11 = 16$.\nProbability $= \\dfrac{16}{30} = \\dfrac{8}{15}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses the grand total ($80$) as denominator: $\\dfrac{16}{80} = \\dfrac{1}{5}$.\n* Choice B: \"stops one step early\" — counts only Group Y ($5$) and divides by $30$.\n* Choice D: \"off-by-one\" — uses Group X count ($14$) instead of Y + Z.\n\n**Test Day Takeaway:** \"Given X\" means restrict to the X-row or X-column. Numerator counts favorable cases in that subset; denominator is the subset's total.",
-  skills: ["probability", "two-way-tables"]
-},
-{
-  id: 11,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "Line $\\ell$ passes through the points $(2, -3)$ and $(8, 9)$. Line $m$ is perpendicular to line $\\ell$ and passes through the point $(4, 5)$. What is the equation of line $m$?",
-  choices: [
-    // distractor: uses slope of ell (parallel, not perpendicular)
-    { id: "A", text: "$y = 2x - 3$" },
-    // distractor: applies inverse — keeps negative on slope
-    { id: "B", text: "$y = -2x + 13$" },
-    { id: "C", text: "$y = -\\dfrac{1}{2}x + 7$" },
-    // distractor: off-by-one — wrong intercept
-    { id: "D", text: "$y = -\\dfrac{1}{2}x + 5$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Slope of $\\ell$: $\\dfrac{9 - (-3)}{8 - 2} = \\dfrac{12}{6} = 2$. Perpendicular slope: $-\\dfrac{1}{2}$. Using $(4, 5)$: $5 = -\\dfrac{1}{2}(4) + b \\Rightarrow b = 7$. So $y = -\\dfrac{1}{2}x + 7$.\n\n**The Full Solution:**\n$m_{\\ell} = \\dfrac{9 - (-3)}{8 - 2} = \\dfrac{12}{6} = 2$.\nPerpendicular slopes are negative reciprocals: $m_m = -\\dfrac{1}{2}$.\nUsing the point $(4, 5)$:\n$5 = -\\dfrac{1}{2}(4) + b \\Rightarrow 5 = -2 + b \\Rightarrow b = 7$.\nEquation: $y = -\\dfrac{1}{2}x + 7$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses the slope of $\\ell$ itself (parallel, not perpendicular).\n* Choice B: \"applies the inverse operation\" — keeps the negative sign on the slope without taking the reciprocal.\n* Choice D: \"off-by-one\" — uses the $y$-coordinate of the given point ($5$) as the intercept.\n\n**Test Day Takeaway:** Perpendicular slope: flip AND change sign. Then plug in the given point to find the intercept.",
-  skills: ["slope", "linear-functions", "coordinate-geometry"]
-},
-{
-  id: 12,
+  id: 2,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -581,26 +409,7 @@ export const practiceTest5 = {
   skills: ["trigonometry", "triangles"]
 },
 {
-  id: 13,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The graph of $x^2 + 3x + y^2 + 5y = \\dfrac{33}{2}$ in the $xy$-plane is a circle. What is the length of the circle's radius?",
-  choices: [
-    // distractor: stops one step early — gives r^2 = 25 instead of r = 5
-    { id: "A", text: "$25$" },
-    { id: "B", text: "$5$" },
-    // distractor: wrong base — uses sqrt of 33/2 directly without completing
-    { id: "C", text: "$\\sqrt{\\dfrac{33}{2}}$" },
-    // distractor: applies inverse — subtracts the completing-square constants instead of adding
-    { id: "D", text: "$4$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Complete the Square — Non-Square Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Half of $3$ is $\\dfrac{3}{2}$, squared $= \\dfrac{9}{4}$. Half of $5$ is $\\dfrac{5}{2}$, squared $= \\dfrac{25}{4}$. Add $\\dfrac{9}{4} + \\dfrac{25}{4} = \\dfrac{34}{4} = \\dfrac{17}{2}$ to both sides: $\\left(x + \\dfrac{3}{2}\\right)^2 + \\left(y + \\dfrac{5}{2}\\right)^2 = \\dfrac{33}{2} + \\dfrac{17}{2} = \\dfrac{50}{2} = 25$. Radius $= \\sqrt{25} = 5$.\n\n**The Full Solution:**\nGroup terms and complete the square for each variable:\n$x^2 + 3x + y^2 + 5y = \\dfrac{33}{2}$\n$\\left(x^2 + 3x + \\dfrac{9}{4}\\right) + \\left(y^2 + 5y + \\dfrac{25}{4}\\right) = \\dfrac{33}{2} + \\dfrac{9}{4} + \\dfrac{25}{4}$\n$\\left(x + \\dfrac{3}{2}\\right)^2 + \\left(y + \\dfrac{5}{2}\\right)^2 = \\dfrac{66}{4} + \\dfrac{34}{4} = \\dfrac{100}{4} = 25$\n\nRadius $= \\sqrt{25} = 5$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives $r^2 = 25$ instead of $r = 5$.\n* Choice C: \"wrong base\" — uses the right-hand-side constant directly without completing the square.\n* Choice D: \"applies the inverse operation\" — subtracts the completing-square constants instead of adding.\n\n**Test Day Takeaway:** Complete the square symmetrically for BOTH variables. Add the completion constants to BOTH sides — once for $x$, once for $y$.",
-  skills: ["circle-equations", "solving-equations"]
-},
-{
-  id: 14,
+  id: 3,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -619,7 +428,217 @@ export const practiceTest5 = {
   skills: ["scatterplots", "statistics"]
 },
 {
+  id: 4,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "If $432$ is $p\\%$ greater than $48$, what is the value of $p$?",
+  choices: [
+    // distractor: divides 432 by 48 to get 9, then converts wrong (gives 900)
+    { id: "A", text: "$900$" },
+    { id: "B", text: "$800$" },
+    // distractor: stops one step early — gives ratio 432/48 = 9 as percent
+    { id: "C", text: "$9$" },
+    // distractor: divides 432 - 48 = 384 by 432 instead of by 48
+    { id: "D", text: "$89$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Percent Greater Than**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** \"$432$ is $p\\%$ greater than $48$\" means $432 = 48 + \\dfrac{p}{100}(48)$, so $\\dfrac{p}{100} = \\dfrac{432 - 48}{48} = \\dfrac{384}{48} = 8$, giving $p = 800$.\n\n**The Full Solution:**\n$432 = 48 + \\dfrac{p}{100} \\cdot 48$\n$432 - 48 = \\dfrac{p}{100} \\cdot 48$\n$384 = \\dfrac{48p}{100}$\n$\\dfrac{p}{100} = \\dfrac{384}{48} = 8$\n$p = 800$.\n\nVerification: $48 + 800\\% \\text{ of } 48 = 48 + 384 = 432$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — confuses $432/48 = 9$ with the percent and reports $900$.\n* Choice C: \"stops one step early\" — gives $432/48 = 9$ without converting to a percent increase.\n* Choice D: \"wrong base\" — divides $384$ by $432$ instead of $48$.\n\n**Test Day Takeaway:** \"$A$ is $p\\%$ greater than $B$\" $\\iff$ $A = B(1 + \\dfrac{p}{100})$. Solve via $\\dfrac{A - B}{B} = \\dfrac{p}{100}$.",
+  skills: ["percents", "word-problems"]
+},
+{
+  id: 5,
+  type: "multiple-choice",
+  difficulty: "medium",
+  band: 5,
+  question: "A data set has $9$ values listed in order:\n\n$1, 4, 4, 6, 7, 8, 9, 11, 12$\n\nIf the value $80$ is added to the data set, which of the following is true?",
+  choices: [
+    // distractor: overestimates median shift
+    { id: "A", text: "The median increases by more than $1$ and the range increases." },
+    { id: "B", text: "The median increases by $0.5$ and the range increases." },
+    // distractor: range obviously changes
+    { id: "C", text: "The median stays the same and the range stays the same." },
+    // distractor: range clearly changes
+    { id: "D", text: "The median increases by $0.5$ and the range stays the same." }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Outlier Effect**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):**\nOriginal: $9$ values $\\to$ median $=$ $5$th value $= 7$. Range $= 12 - 1 = 11$.\nWith $80$ added: $10$ values $\\to$ median $=$ average of $5$th and $6$th values $= \\dfrac{7 + 8}{2} = 7.5$. Range $= 80 - 1 = 79$.\nMedian increases by $0.5$. Range increases.\n\n**The Full Solution:**\nOriginal sorted: $1, 4, 4, 6, \\mathbf{7}, 8, 9, 11, 12$. Median = middle ($5$th) value = $7$.\nWith $80$ appended: $1, 4, 4, 6, \\mathbf{7, 8}, 9, 11, 12, 80$. Median = average of $5$th and $6$th = $\\dfrac{7+8}{2} = 7.5$.\nMedian change: $7.5 - 7 = 0.5$. Range change: $79 - 11 = 68$ (increases).\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — overestimates the median shift; an outlier moves the median by AT MOST half of one rank shift.\n* Choice C: \"stops one step early\" — ignores the outlier's effect on range.\n* Choice D: \"applies the inverse operation\" — gets median right but ignores the obvious range change.\n\n**Test Day Takeaway:** An extreme outlier greatly affects mean and range, but barely affects the median. The median is RESISTANT to outliers.",
+  skills: ["statistics"]
+},
+{
+  id: 6,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "A workshop produces $10$-inch, $6$-inch, and $4$-inch dowels. During one day, the number of $10$-inch dowels produced is $4$ times the number $n$ of $6$-inch dowels, and the number of $4$-inch dowels is $50$ more than the number of $6$-inch dowels. The workshop produces a total of $818$ dowels that day. How many $6$-inch dowels does the workshop produce that day?",
+  correctAnswer: "128",
+  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $128$.**\n\n**The Fast Way (~40s):** Total $= 4n + n + (n + 50) = 6n + 50 = 818$. So $6n = 768$ and $n = 128$.\n\n**The Full Solution:**\nLet $n$ be the number of $6$-inch dowels.\nNumber of $10$-inch dowels: $4n$.\nNumber of $4$-inch dowels: $n + 50$.\n\nTotal: $4n + n + (n + 50) = 6n + 50 = 818$.\n$6n = 768 \\Rightarrow n = 128$.\n\nVerification: $4(128) + 128 + (128 + 50) = 512 + 128 + 178 = 818$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting the $+50$ offset.\n* Computing $818/6$ directly without subtracting $50$ first.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$50$ more than\".",
+  skills: ["word-problems", "solving-equations"]
+},
+{
+  id: 7,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "If $x > 0$, the expression $\\sqrt[4]{x^3} \\cdot \\sqrt{x^7}$ is equivalent to $x^{p/q}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
+  choices: [
+    // distractor: gives p alone (= 17) instead of p + q
+    { id: "A", text: "$17$" },
+    // distractor: sums numerator + index (3 + 4 + 7 + 2 = 16)
+    { id: "B", text: "$16$" },
+    { id: "C", text: "$21$" },
+    // distractor: stops at p/q = 17/4 but reports 4 only
+    { id: "D", text: "$4$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[4]{x^3} = x^{3/4}$. $\\sqrt{x^7} = x^{7/2}$. Add: $\\dfrac{3}{4} + \\dfrac{7}{2} = \\dfrac{3}{4} + \\dfrac{14}{4} = \\dfrac{17}{4}$. So $p + q = 17 + 4 = 21$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[4]{x^3} = x^{3/4}, \\quad \\sqrt{x^7} = x^{7/2}$.\n\nWhen multiplying same bases, add exponents:\n$x^{3/4} \\cdot x^{7/2} = x^{3/4 + 14/4} = x^{17/4}$.\n\n$\\gcd(17, 4) = 1$, so $\\dfrac{17}{4}$ is already in lowest terms. Then $p = 17$, $q = 4$, and $p + q = 21$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 17$ without adding $q$.\n* Choice B: \"applies the inverse operation\" — sums all the integers in the expression ($3 + 4 + 7 + 2 = 16$).\n* Choice D: \"wrong base\" — gives just the denominator $q = 4$.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{m/n}$ — power on top, root on bottom. Add fractional exponents when multiplying same bases.",
+  skills: ["polynomial-operations", "exponent-rules", "radical-expressions"]
+},
+{
+  id: 8,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "In the system of equations below, $a$ is a constant.\n\n$ax + 6y = 18$\n$5x + 4y = 11$\n\nIf the system has no solution, what is the value of $a$?",
+  choices: [
+    // distractor: stops at a = 5 (just copies coefficient from second equation)
+    { id: "A", text: "$5$" },
+    // distractor: applies inverse — uses 4/6 instead of 6/4
+    { id: "B", text: "$\\dfrac{10}{3}$" },
+    { id: "C", text: "$\\dfrac{15}{2}$" },
+    // distractor: off-by-one — uses 18/4 = 4.5 ratio
+    { id: "D", text: "$\\dfrac{9}{2}$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** No solution $\\iff$ the lines are parallel (proportional coefficients) but NOT identical. Match coefficients of $x$ and $y$: $\\dfrac{a}{5} = \\dfrac{6}{4}$, so $a = \\dfrac{30}{4} = \\dfrac{15}{2}$. Verify constants do NOT match: $\\dfrac{18}{11} \\neq \\dfrac{6}{4}$ \\checkmark.\n\n**The Full Solution:**\nFor a $2 \\times 2$ linear system to have no solution, the coefficient ratios must be equal but the constant ratio must differ:\n$\\dfrac{a}{5} = \\dfrac{6}{4} \\neq \\dfrac{18}{11}$\n\nFrom $\\dfrac{a}{5} = \\dfrac{6}{4}$: $a = \\dfrac{6 \\cdot 5}{4} = \\dfrac{30}{4} = \\dfrac{15}{2}$.\n\nCheck: $\\dfrac{18}{11} \\approx 1.64$ and $\\dfrac{6}{4} = 1.5$, so the constants are NOT in the same ratio — confirming no solution.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — copies the coefficient $5$ from the other equation.\n* Choice B: \"applies the inverse operation\" — uses $\\dfrac{4}{6}$ ratio in the wrong direction.\n* Choice D: \"off-by-one\" — uses the constant ratio $\\dfrac{18}{4}$ instead of the coefficient ratio.\n\n**Test Day Takeaway:** No-solution condition: $\\dfrac{a_1}{a_2} = \\dfrac{b_1}{b_2} \\neq \\dfrac{c_1}{c_2}$. Match coefficients but NOT constants.",
+  skills: ["systems-of-equations", "solving-equations"]
+},
+{
+  id: 9,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The function $f$ is defined by $f(x) = (x + 4)^2 - 9$. If the function $g$ is defined by $g(x) = f(x - 6)$, what is the minimum value of $g$?",
+  choices: [
+    // distractor: gives the x at minimum (x = 2) instead of g(x)
+    { id: "A", text: "$2$" },
+    { id: "B", text: "$-9$" },
+    // distractor: forgets the constant -9
+    { id: "C", text: "$0$" },
+    // distractor: combines -9 + 6 = -3 (wrong shift)
+    { id: "D", text: "$-3$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f$ has minimum value $-9$ (at $x = -4$). $g(x) = f(x - 6)$ shifts $f$ horizontally; horizontal shifts do NOT change the minimum value. So $g$ has minimum value $-9$.\n\n**The Full Solution:**\n$g(x) = f(x - 6) = ((x - 6) + 4)^2 - 9 = (x - 2)^2 - 9$.\n\nThis is vertex form with vertex $(2, -9)$. The minimum value is $-9$, attained at $x = 2$.\n\nVerification: $(x - 2)^2 \\geq 0$ for all real $x$, so $g(x) \\geq -9$ with equality at $x = 2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the $x$-coordinate of the minimum ($2$) instead of $g(x) = -9$.\n* Choice C: \"off-by-one\" — forgets the constant $-9$ in the original function.\n* Choice D: \"applies the inverse operation\" — combines $-9$ and $+6$ via incorrect shift.\n\n**Test Day Takeaway:** Horizontal shifts (replacing $x$ with $x \\pm h$) do NOT change the min/max value. Only vertical shifts ($+k$ outside) do.",
+  skills: ["function-interpretation", "vertex-form", "quadratic-equations"]
+},
+{
+  id: 10,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A polling organization surveyed a random sample of $400$ likely voters and reported a margin of error of $\\pm 4$ percentage points at $95\\%$ confidence. The pollsters want to reduce the margin of error to approximately $\\pm 2$ percentage points using the same confidence level. Approximately what total sample size is needed?",
+  choices: [
+    // distractor: doubles to 800 (would only reduce MOE by sqrt(2))
+    { id: "A", text: "$800$" },
+    // distractor: 400 * 3 = 1200 (triples instead of quadruples)
+    { id: "B", text: "$1{,}200$" },
+    { id: "C", text: "$1{,}600$" },
+    // distractor: 400 * 8 = 3200 (over-quadruples)
+    { id: "D", text: "$3{,}200$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Margin of Error**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Margin of error $\\propto \\dfrac{1}{\\sqrt{n}}$. To halve the margin of error, multiply $n$ by $4$: $400 \\cdot 4 = 1{,}600$.\n\n**The Full Solution:**\nThe margin of error scales as $\\dfrac{1}{\\sqrt{n}}$. To reduce the margin of error by a factor of $k$, multiply $n$ by $k^2$.\n\nDesired ratio of margins: $\\dfrac{4}{2} = 2$. So multiply $n$ by $2^2 = 4$.\nNew sample size: $400 \\times 4 = 1{,}600$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — doubles $n$, but that only reduces MOE by $\\sqrt{2}$.\n* Choice B: \"off-by-one\" — triples instead of quadrupling.\n* Choice D: \"wrong base\" — multiplies by $8$ (over-corrects).\n\n**Test Day Takeaway:** To CUT the margin of error in half, MULTIPLY the sample size by $4$. In general, the multiplier on $n$ is the square of the desired MOE ratio.",
+  skills: ["margin-of-error", "statistics"]
+},
+{
+  id: 11,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "Consider the system of equations:\n\n$x + y + z = 11$\n$x + 2y + z = 16$\n$2x + y + 3z = 19$\n\nWhat is the value of $x + y$?",
+  correctAnswer: "9",
+  explanation: "**SAT Pattern: Three-Variable Elimination**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~30s):** Subtract equation 1 from equation 2 to isolate $y$: $y = 5$. From equation 1: $x + z = 6$. From equation 3: $2x + 3z = 14$. Solving: $z = 2$, $x = 4$. So $x + y = 4 + 5 = 9$.\n\n**The Full Solution:**\nLabel the equations:\n$(1) \\; x + y + z = 11$\n$(2) \\; x + 2y + z = 16$\n$(3) \\; 2x + y + 3z = 19$\n\nSubtract $(1)$ from $(2)$: $y = 5$.\n\nSubstitute $y = 5$ into $(1)$: $x + 5 + z = 11 \\Rightarrow x + z = 6$.\nSubstitute $y = 5$ into $(3)$: $2x + 5 + 3z = 19 \\Rightarrow 2x + 3z = 14$.\n\nFrom $x + z = 6$: $x = 6 - z$. Substitute: $2(6 - z) + 3z = 14 \\Rightarrow 12 + z = 14 \\Rightarrow z = 2$, so $x = 4$.\n\nVerification: equation $(1)$: $4 + 5 + 2 = 11$ \\checkmark; equation $(2)$: $4 + 10 + 2 = 16$ \\checkmark; equation $(3)$: $8 + 5 + 6 = 19$ \\checkmark.\n\nSo $x + y = 4 + 5 = 9$.\n\n**Common Mistakes to Avoid:**\n* Solving for each variable individually when only $x + y$ is needed.\n* Forgetting that subtracting two near-identical equations isolates one variable instantly.\n\n**Test Day Takeaway:** When two equations differ in only one variable, subtract them to isolate that variable.",
+  skills: ["systems-of-equations", "word-problems"]
+},
+{
+  id: 12,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The parabola defined by $y = -3(x - h)^2 + k$ has its vertex at the point $(2, 12)$ and passes through the point $(4, 0)$. What is the value of $h - k$?",
+  choices: [
+    // distractor: stops one step early — gives just h = 2
+    { id: "A", text: "$2$" },
+    // distractor: applies inverse — gives h + k = 14
+    { id: "B", text: "$14$" },
+    { id: "C", text: "$-10$" },
+    // distractor: wrong base — gives k - h = 10
+    { id: "D", text: "$10$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Vertex $(h, k) = (2, 12)$. Verify the parabola passes through $(4, 0)$: $y = -3(4 - 2)^2 + 12 = -3(4) + 12 = 0$ \\checkmark. So $h - k = 2 - 12 = -10$.\n\n**The Full Solution:**\nIn vertex form $y = a(x - h)^2 + k$, the vertex is $(h, k)$.\nGiven vertex $(2, 12)$: $h = 2$ and $k = 12$.\nVerify with the second point $(4, 0)$ and $a = -3$:\n$y = -3(4 - 2)^2 + 12 = -3(4) + 12 = 0$ \\checkmark.\n\nSo $h - k = 2 - 12 = -10$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reports just $h = 2$ without subtracting $k$.\n* Choice B: \"applies the inverse operation\" — computes $h + k = 14$.\n* Choice D: \"wrong base\" — computes $k - h = 10$ (sign reversed).\n\n**Test Day Takeaway:** In $y = a(x - h)^2 + k$, the vertex is exactly $(h, k)$. The other point only verifies $a$.",
+  skills: ["vertex-form", "function-interpretation"]
+},
+{
+  id: 13,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A study assigned $80$ participants to one of three experimental groups. The table summarizes participants by group and outcome:\n\n| | Improved | No Change | Worsened | Total |\n|---|---|---|---|---|\n| Group X | $14$ | $9$ | $7$ | $30$ |\n| Group Y | $5$ | $11$ | $4$ | $20$ |\n| Group Z | $11$ | $13$ | $6$ | $30$ |\n| Total | $30$ | $33$ | $17$ | $80$ |\n\nIf one participant who Improved is selected at random, what is the probability that the participant was in Group Y or Group Z?",
+  choices: [
+    // distractor: uses 16/80 = 1/5 (uses grand total as denominator)
+    { id: "A", text: "$\\dfrac{1}{5}$" },
+    // distractor: stops at Y only: 5/30 = 1/6
+    { id: "B", text: "$\\dfrac{1}{6}$" },
+    { id: "C", text: "$\\dfrac{8}{15}$" },
+    // distractor: off-by-one — uses 16/30 simplified wrong
+    { id: "D", text: "$\\dfrac{14}{30}$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Restrict to the Improved column (total $30$). Y or Z count: $5 + 11 = 16$. Probability $= \\dfrac{16}{30} = \\dfrac{8}{15}$.\n\n**The Full Solution:**\nGiven: participant Improved. The conditional restricts the sample space to that column, which has $30$ total participants.\nFavorable: Improved AND (Group Y OR Group Z) = $5 + 11 = 16$.\nProbability $= \\dfrac{16}{30} = \\dfrac{8}{15}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses the grand total ($80$) as denominator: $\\dfrac{16}{80} = \\dfrac{1}{5}$.\n* Choice B: \"stops one step early\" — counts only Group Y ($5$) and divides by $30$.\n* Choice D: \"off-by-one\" — uses Group X count ($14$) instead of Y + Z.\n\n**Test Day Takeaway:** \"Given X\" means restrict to the X-row or X-column. Numerator counts favorable cases in that subset; denominator is the subset's total.",
+  skills: ["probability", "two-way-tables"]
+},
+{
+  id: 14,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "Line $\\ell$ passes through the points $(2, -3)$ and $(8, 9)$. Line $m$ is perpendicular to line $\\ell$ and passes through the point $(4, 5)$. What is the equation of line $m$?",
+  choices: [
+    // distractor: uses slope of ell (parallel, not perpendicular)
+    { id: "A", text: "$y = 2x - 3$" },
+    // distractor: applies inverse — keeps negative on slope
+    { id: "B", text: "$y = -2x + 13$" },
+    { id: "C", text: "$y = -\\dfrac{1}{2}x + 7$" },
+    // distractor: off-by-one — wrong intercept
+    { id: "D", text: "$y = -\\dfrac{1}{2}x + 5$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Slope of $\\ell$: $\\dfrac{9 - (-3)}{8 - 2} = \\dfrac{12}{6} = 2$. Perpendicular slope: $-\\dfrac{1}{2}$. Using $(4, 5)$: $5 = -\\dfrac{1}{2}(4) + b \\Rightarrow b = 7$. So $y = -\\dfrac{1}{2}x + 7$.\n\n**The Full Solution:**\n$m_{\\ell} = \\dfrac{9 - (-3)}{8 - 2} = \\dfrac{12}{6} = 2$.\nPerpendicular slopes are negative reciprocals: $m_m = -\\dfrac{1}{2}$.\nUsing the point $(4, 5)$:\n$5 = -\\dfrac{1}{2}(4) + b \\Rightarrow 5 = -2 + b \\Rightarrow b = 7$.\nEquation: $y = -\\dfrac{1}{2}x + 7$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses the slope of $\\ell$ itself (parallel, not perpendicular).\n* Choice B: \"applies the inverse operation\" — keeps the negative sign on the slope without taking the reciprocal.\n* Choice D: \"off-by-one\" — uses the $y$-coordinate of the given point ($5$) as the intercept.\n\n**Test Day Takeaway:** Perpendicular slope: flip AND change sign. Then plug in the given point to find the intercept.",
+  skills: ["slope", "linear-functions", "coordinate-geometry"]
+},
+{
   id: 15,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The graph of $x^2 + 3x + y^2 + 5y = \\dfrac{33}{2}$ in the $xy$-plane is a circle. What is the length of the circle's radius?",
+  choices: [
+    // distractor: stops one step early — gives r^2 = 25 instead of r = 5
+    { id: "A", text: "$25$" },
+    { id: "B", text: "$5$" },
+    // distractor: wrong base — uses sqrt of 33/2 directly without completing
+    { id: "C", text: "$\\sqrt{\\dfrac{33}{2}}$" },
+    // distractor: applies inverse — subtracts the completing-square constants instead of adding
+    { id: "D", text: "$4$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Complete the Square — Non-Square Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Half of $3$ is $\\dfrac{3}{2}$, squared $= \\dfrac{9}{4}$. Half of $5$ is $\\dfrac{5}{2}$, squared $= \\dfrac{25}{4}$. Add $\\dfrac{9}{4} + \\dfrac{25}{4} = \\dfrac{34}{4} = \\dfrac{17}{2}$ to both sides: $\\left(x + \\dfrac{3}{2}\\right)^2 + \\left(y + \\dfrac{5}{2}\\right)^2 = \\dfrac{33}{2} + \\dfrac{17}{2} = \\dfrac{50}{2} = 25$. Radius $= \\sqrt{25} = 5$.\n\n**The Full Solution:**\nGroup terms and complete the square for each variable:\n$x^2 + 3x + y^2 + 5y = \\dfrac{33}{2}$\n$\\left(x^2 + 3x + \\dfrac{9}{4}\\right) + \\left(y^2 + 5y + \\dfrac{25}{4}\\right) = \\dfrac{33}{2} + \\dfrac{9}{4} + \\dfrac{25}{4}$\n$\\left(x + \\dfrac{3}{2}\\right)^2 + \\left(y + \\dfrac{5}{2}\\right)^2 = \\dfrac{66}{4} + \\dfrac{34}{4} = \\dfrac{100}{4} = 25$\n\nRadius $= \\sqrt{25} = 5$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives $r^2 = 25$ instead of $r = 5$.\n* Choice C: \"wrong base\" — uses the right-hand-side constant directly without completing the square.\n* Choice D: \"applies the inverse operation\" — subtracts the completing-square constants instead of adding.\n\n**Test Day Takeaway:** Complete the square symmetrically for BOTH variables. Add the completion constants to BOTH sides — once for $x$, once for $y$.",
+  skills: ["circle-equations", "solving-equations"]
+},
+{
+  id: 16,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -638,7 +657,7 @@ export const practiceTest5 = {
   skills: ["trigonometry", "triangles"]
 },
 {
-  id: 16,
+  id: 17,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -657,7 +676,7 @@ export const practiceTest5 = {
   skills: ["discriminant", "quadratic-equations"]
 },
 {
-  id: 17,
+  id: 18,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -667,7 +686,7 @@ export const practiceTest5 = {
   skills: ["exponential-functions", "percents"]
 },
 {
-  id: 18,
+  id: 19,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -684,25 +703,6 @@ export const practiceTest5 = {
   correctAnswer: "A",
   explanation: "**SAT Pattern: Three-Equation Contradiction**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Equation 2 is $3 \\times$ Equation 1: $3(2x + y - 3z) = 21$ \\checkmark. Equation 3 should be $2 \\times$ Equation 1 if consistent: $2(2x + y - 3z) = 14$, but Equation 3 says $= 17$. Contradiction $\\Rightarrow$ zero solutions.\n\n**The Full Solution:**\nDivide Equation 2 by $3$: $2x + y - 3z = 7$ (same as Equation 1) \\checkmark.\nDivide Equation 3 by $2$: $2x + y - 3z = 8.5$.\nBut Equation 1 says $2x + y - 3z = 7$. Since $7 \\neq 8.5$, the system is inconsistent.\n\nThere is NO triple $(x, y, z)$ that can satisfy both \"$2x + y - 3z = 7$\" and \"$2x + y - 3z = 8.5$\" simultaneously.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — assumes $3 \\times 3$ systems always have unique solutions.\n* Choice C: \"applies the inverse operation\" — linear systems never have exactly two solutions.\n* Choice D: \"off-by-one\" — would be true if Equation 3's right side were $14$ instead of $17$.\n\n**Test Day Takeaway:** Check whether equations are scalar multiples. Same left side but different right side $\\Rightarrow$ contradiction $\\Rightarrow$ zero solutions.",
   skills: ["systems-of-equations"]
-},
-{
-  id: 19,
-  type: "multiple-choice",
-  difficulty: "medium",
-  band: 5,
-  question: "A data set has $9$ values listed in order:\n\n$1, 4, 4, 6, 7, 8, 9, 11, 12$\n\nIf the value $80$ is added to the data set, which of the following is true?",
-  choices: [
-    // distractor: overestimates median shift
-    { id: "A", text: "The median increases by more than $1$ and the range increases." },
-    { id: "B", text: "The median increases by $0.5$ and the range increases." },
-    // distractor: range obviously changes
-    { id: "C", text: "The median stays the same and the range stays the same." },
-    // distractor: range clearly changes
-    { id: "D", text: "The median increases by $0.5$ and the range stays the same." }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Outlier Effect**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):**\nOriginal: $9$ values $\\to$ median $=$ $5$th value $= 7$. Range $= 12 - 1 = 11$.\nWith $80$ added: $10$ values $\\to$ median $=$ average of $5$th and $6$th values $= \\dfrac{7 + 8}{2} = 7.5$. Range $= 80 - 1 = 79$.\nMedian increases by $0.5$. Range increases.\n\n**The Full Solution:**\nOriginal sorted: $1, 4, 4, 6, \\mathbf{7}, 8, 9, 11, 12$. Median = middle ($5$th) value = $7$.\nWith $80$ appended: $1, 4, 4, 6, \\mathbf{7, 8}, 9, 11, 12, 80$. Median = average of $5$th and $6$th = $\\dfrac{7+8}{2} = 7.5$.\nMedian change: $7.5 - 7 = 0.5$. Range change: $79 - 11 = 68$ (increases).\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — overestimates the median shift; an outlier moves the median by AT MOST half of one rank shift.\n* Choice C: \"stops one step early\" — ignores the outlier's effect on range.\n* Choice D: \"applies the inverse operation\" — gets median right but ignores the obvious range change.\n\n**Test Day Takeaway:** An extreme outlier greatly affects mean and range, but barely affects the median. The median is RESISTANT to outliers.",
-  skills: ["statistics"]
 },
 {
   id: 20,

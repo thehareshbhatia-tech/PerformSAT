@@ -391,82 +391,6 @@ export const practiceTest1 = {
 {
   id: 1,
   type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The positive number $a$ is $250\\%$ of the sum of the positive numbers $b$ and $c$, and $b$ is $40\\%$ of $c$. What percent of $b$ is $a$?",
-  choices: [
-    // distractor: adds the percents: 250 + 40 = 290
-    { id: "A", text: "$290\\%$" },
-    // distractor: uses (1 + 0.40) * 250 = 350%
-    { id: "B", text: "$350\\%$" },
-    { id: "C", text: "$875\\%$" },
-    // distractor: divides 250 by 0.40 = 625%
-    { id: "D", text: "$625\\%$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Set $c = 100$. Then $b = 40\\% \\cdot 100 = 40$. Sum $b + c = 140$. So $a = 2.5 \\cdot 140 = 350$. Percent of $b$ that $a$ is: $\\dfrac{350}{40} \\cdot 100 = 875\\%$.\n\n**The Full Solution:**\nLet $c = 100$ (any positive choice works since percents are scale-invariant).\nThen $b = 0.40 \\cdot 100 = 40$.\nSum: $b + c = 40 + 100 = 140$.\n$a = 2.50 \\cdot 140 = 350$.\nPercent of $b$ that $a$ is: $\\dfrac{a}{b} \\cdot 100\\% = \\dfrac{350}{40} \\cdot 100\\% = 8.75 \\cdot 100\\% = 875\\%$.\n\nVerification (algebraic): $a = 2.5(b + c)$ and $b = 0.4c$, so $c = 2.5b$. Then $a = 2.5(b + 2.5b) = 2.5 \\cdot 3.5b = 8.75b$, giving $\\dfrac{a}{b} = 8.75 = 875\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — adds the two percents ($250 + 40 = 290$).\n* Choice B: \"stops one step early\" — computes $a$ in dollars but reports it as a raw percent of $c$ instead of $b$.\n* Choice D: \"wrong base\" — divides $250$ by $0.4$ ignoring the sum structure.\n\n**Test Day Takeaway:** When two percents stack, pick a clean numerical value (e.g., $c = 100$) and compute through. \"Percent of $b$\" means divide by $b$, not by $c$.",
-  skills: ["percents"]
-},
-{
-  id: 2,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A factory makes $9$-inch, $7$-inch, and $4$-inch concrete screws. During one day, the number of $9$-inch screws produced is $5$ times the number $n$ of $7$-inch screws, and the number of $4$-inch screws is $40$ more than the number of $7$-inch screws. The factory produces a total of $719$ screws that day. How many $7$-inch screws does the factory produce that day?",
-  choices: [
-    // distractor: divides total by 7 ignoring the +40 offset
-    { id: "A", text: "$103$" },
-    { id: "B", text: "$97$" },
-    // distractor: applies inverse operation — uses (719 - 40)/5 = 135.8
-    { id: "C", text: "$136$" },
-    // distractor: stops one step early — divides 719/5 ignoring the offset and 7n
-    { id: "D", text: "$144$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Total $= 5n + n + (n + 40) = 7n + 40 = 719$. So $7n = 679$ and $n = 97$.\n\n**The Full Solution:**\nLet $n$ be the number of $7$-inch screws.\nNumber of $9$-inch screws: $5n$.\nNumber of $4$-inch screws: $n + 40$.\n\nTotal: $5n + n + (n + 40) = 7n + 40 = 719$.\n$7n = 679 \\Rightarrow n = 97$.\n\nVerification: $5(97) + 97 + (97 + 40) = 485 + 97 + 137 = 719$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — divides $719$ by $7$ ignoring the offset.\n* Choice C: \"applies the inverse operation\" — uses $(719 - 40)/5 = 135.8 \\approx 136$ instead of dividing by $7$.\n* Choice D: \"stops one step early\" — divides $719/5$ ignoring both the offset and the additional $7$-inch and $4$-inch counts.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$40$ more than\".",
-  skills: ["word-problems", "ratios"]
-},
-{
-  id: 3,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "If $x > 0$, the expression $\\sqrt[3]{x^2} \\cdot \\sqrt{x^5}$ is equivalent to $x^{p/q}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
-  choices: [
-    // distractor: gives p alone (= 19) instead of p + q
-    { id: "A", text: "$19$" },
-    // distractor: uses 5 + 3 = 8 (sums numerator + index without combining)
-    { id: "B", text: "$8$" },
-    { id: "C", text: "$25$" },
-    // distractor: uses 5 + 2 + 3 = 10 (sums all numbers in the original expression)
-    { id: "D", text: "$10$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[3]{x^2} = x^{2/3}$. $\\sqrt{x^5} = x^{5/2}$. Add: $\\dfrac{2}{3} + \\dfrac{5}{2} = \\dfrac{4}{6} + \\dfrac{15}{6} = \\dfrac{19}{6}$. So $p + q = 19 + 6 = 25$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[3]{x^2} = x^{2/3}, \\quad \\sqrt{x^5} = x^{5/2}$\n\nWhen multiplying same bases, add exponents:\n$x^{2/3} \\cdot x^{5/2} = x^{2/3 + 5/2} = x^{(4 + 15)/6} = x^{19/6}$\n\n$\\gcd(19, 6) = 1$, so $\\dfrac{19}{6}$ is already in lowest terms. Then $p = 19$, $q = 6$, and $p + q = 25$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 19$, forgetting to add $q$.\n* Choice B: \"applies the inverse operation\" — sums the radical exponent and index ($5 + 3 = 8$) instead of converting and adding fractions.\n* Choice D: \"wrong base\" — sums all the integers visible in the expression ($5 + 2 + 3 = 10$).\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{m/n}$ — power on top, root on the bottom. Add fractional exponents when multiplying same bases.",
-  skills: ["polynomial-operations", "exponent-rules", "radical-expressions"]
-},
-{
-  id: 4,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The function $f$ is defined by $f(x) = (x - 3)^2 - 4$. If the function $g$ is defined by $g(x) = f(x + 5)$, what is the minimum value of $g$?",
-  choices: [
-    // distractor: gives the x at minimum (x = -2) instead of g(x)
-    { id: "A", text: "$-2$" },
-    { id: "B", text: "$-4$" },
-    // distractor: forgets to add the -4 vertical shift
-    { id: "C", text: "$0$" },
-    // distractor: applies the +5 shift in the wrong direction (gets -9)
-    { id: "D", text: "$-9$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f$ has minimum value $-4$ (at $x = 3$). $g(x) = f(x + 5)$ shifts $f$ horizontally; horizontal shifts do NOT change the minimum value. So $g$ has minimum value $-4$.\n\n**The Full Solution:**\n$g(x) = f(x + 5) = ((x + 5) - 3)^2 - 4 = (x + 2)^2 - 4$\n\nThis is vertex form with vertex $(-2, -4)$. The minimum value is $-4$, attained at $x = -2$.\n\nVerification: $(x + 2)^2 \\geq 0$ for all real $x$, so $g(x) \\geq -4$ with equality at $x = -2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the $x$-coordinate of the minimum ($-2$) instead of $g(x) = -4$.\n* Choice C: \"off-by-one\" — forgets the constant $-4$ in the original function.\n* Choice D: \"applies the inverse operation\" — combines $-4$ and $-5$ into $-9$ via incorrect shift direction.\n\n**Test Day Takeaway:** Horizontal shifts (replacing $x$ with $x \\pm h$) do NOT change the minimum/maximum value of a function. Only vertical shifts ($+k$ outside) do.",
-  skills: ["function-interpretation", "vertex-form", "quadratic-equations"]
-},
-{
-  id: 5,
-  type: "multiple-choice",
   difficulty: "medium",
   band: 5,
   question: "If $f(x) = x^2$ and $g(x) = f(x - 2) + 5$, for what value of $x$ does the function $g$ attain its minimum value?",
@@ -484,46 +408,7 @@ export const practiceTest1 = {
   skills: ["function-interpretation"]
 },
 {
-  id: 6,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "A data set consists of $10$ positive integers. The list shown gives $9$ of these integers.\n\n$43, 45, 44, 43, 38, 39, 40, 46, 40$\n\nThe mean of the $9$ listed integers is $42$. If the mean of all $10$ integers is also $42$, what is the value of the tenth integer?",
-  correctAnswer: "42",
-  explanation: "**SAT Pattern: Mean from List**\n\n**The correct answer is $42$.**\n\n**The Fast Way (~25s):** If the mean does not change when one new value is added, the new value MUST equal the mean. So the tenth integer is $42$.\n\n**The Full Solution:**\nSum of $9$ listed integers: $9 \\cdot 42 = 378$.\nSum of all $10$ integers: $10 \\cdot 42 = 420$.\nTenth integer $= 420 - 378 = 42$.\n\nVerification by direct computation: $43 + 45 + 44 + 43 + 38 + 39 + 40 + 46 + 40 = 378$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing $\\dfrac{378}{9}$ and reporting that as the answer (it equals $42$, but for the wrong reason).\n* Forgetting that adding a value equal to the mean leaves the mean unchanged.\n\n**Test Day Takeaway:** Adding a value equal to the current mean leaves the mean unchanged. Always check whether your reasoning matches that invariant.",
-  skills: ["statistics", "mean"]
-},
-{
-  id: 7,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "Consider the system of equations:\n\n$x + y + z = 12$\n$2x - y + z = 9$\n$x + 2y - z = 10$\n\nWhat is the value of $x + y$?",
-  correctAnswer: "9",
-  explanation: "**SAT Pattern: Three-Variable Elimination**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~30s):** Add equation 1 and equation 3 to eliminate $z$: $(x + y + z) + (x + 2y - z) = 12 + 10 \\Rightarrow 2x + 3y = 22$ ... ((A)). Add equation 2 and equation 3: $(2x - y + z) + (x + 2y - z) = 9 + 10 \\Rightarrow 3x + y = 19$ ... ((B)). Solve $\\{2x + 3y = 22, 3x + y = 19\\}$: from ((B)), $y = 19 - 3x$; substitute into ((A)): $2x + 3(19 - 3x) = 22 \\Rightarrow -7x = -35 \\Rightarrow x = 5$, then $y = 19 - 15 = 4$. So $x + y = 5 + 4 = 9$.\n\n**The Full Solution:**\nEliminate $z$ in two ways:\n* Equation 1 + Equation 3: $2x + 3y = 22$.\n* Equation 2 + Equation 3: $3x + y = 19$.\n\nFrom the second: $y = 19 - 3x$. Substitute into the first:\n$2x + 3(19 - 3x) = 22$\n$2x + 57 - 9x = 22$\n$-7x = -35 \\Rightarrow x = 5$\n$y = 19 - 3(5) = 4$\n$z = 12 - x - y = 12 - 5 - 4 = 3$.\n\nVerification: equation 1: $5 + 4 + 3 = 12$ \\checkmark; equation 2: $10 - 4 + 3 = 9$ \\checkmark; equation 3: $5 + 8 - 3 = 10$ \\checkmark.\n\nSo $x + y = 5 + 4 = 9$.\n\n**Common Mistakes to Avoid:**\n* Solving for each variable individually when only $x + y$ is needed — pick combinations that eliminate $z$ first.\n* Forgetting that any consistent linear system with three equations and three unknowns gives a UNIQUE solution.\n\n**Test Day Takeaway:** When the question asks for $x + y$, look for two equations that combine to eliminate $z$ — then solve the resulting two-variable system.",
-  skills: ["systems-of-equations", "word-problems"]
-},
-{
-  id: 8,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The parabola defined by $y = 2(x - h)^2 + k$ has its vertex at the point $(3, -8)$ and passes through the point $(1, 0)$. What is the value of $h + k$?",
-  choices: [
-    // distractor: confuses with h - k (3 - (-8) = 11)
-    { id: "A", text: "$11$" },
-    // distractor: uses sign error on k: 3 + 8 = 11 with mixed signs
-    { id: "B", text: "$-11$" },
-    { id: "C", text: "$-5$" },
-    // distractor: stops at h alone (= 3)
-    { id: "D", text: "$3$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Vertex $(h, k) = (3, -8)$. Verify the parabola passes through $(1, 0)$: $y = 2(1 - 3)^2 + (-8) = 2(4) - 8 = 0$ \\checkmark. So $h + k = 3 + (-8) = -5$.\n\n**The Full Solution:**\nIn vertex form $y = a(x - h)^2 + k$, the vertex is $(h, k)$. Given vertex $(3, -8)$: $h = 3$ and $k = -8$.\nThe second point $(1, 0)$ is used to verify the leading coefficient $a$. With $a = 2$:\n$0 = 2(1 - 3)^2 + (-8) = 2(4) - 8 = 0$ \\checkmark.\n\nSo $h + k = 3 + (-8) = -5$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — computes $h - k = 3 - (-8) = 11$.\n* Choice B: \"applies the inverse operation\" — sign flip on $h$: $-3 + (-8) = -11$.\n* Choice D: \"stops one step early\" — reports $h = 3$ without adding $k$.\n\n**Test Day Takeaway:** In $y = a(x - h)^2 + k$, the vertex is exactly $(h, k)$. Use the second point only to verify or to find $a$.",
-  skills: ["vertex-form", "function-interpretation"]
-},
-{
-  id: 9,
+  id: 2,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -533,26 +418,7 @@ export const practiceTest1 = {
   skills: ["solving-equations", "linear-functions"]
 },
 {
-  id: 10,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A study assigned $90$ participants to one of three groups: A, B, or C. The table summarizes the distribution by age range and group.\n\n| | $0$–$9$ years | $10$–$19$ years | $20+$ years | Total |\n|---|---|---|---|---|\n| Group A | $7$ | $14$ | $9$ | $30$ |\n| Group B | $6$ | $4$ | $20$ | $30$ |\n| Group C | $17$ | $9$ | $4$ | $30$ |\n| Total | $30$ | $27$ | $33$ | $90$ |\n\nIf one participant is selected at random from those in the $10$–$19$ age range, what is the probability that the participant is in Group A or Group B?",
-  choices: [
-    // distractor: uses 18/90 = 1/5 (uses grand total as denominator)
-    { id: "A", text: "$\\dfrac{1}{5}$" },
-    // distractor: counts only A (14/27)
-    { id: "B", text: "$\\dfrac{14}{27}$" },
-    { id: "C", text: "$\\dfrac{2}{3}$" },
-    // distractor: uses 18/90 simplified and reports as a percent (off-by-one)
-    { id: "D", text: "$\\dfrac{1}{3}$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Restrict to the $10$–$19$ column (total $27$). A or B count: $14 + 4 = 18$. Probability $= \\dfrac{18}{27} = \\dfrac{2}{3}$.\n\n**The Full Solution:**\nGiven: participant is from the $10$–$19$ age range. The conditional restricts the sample space to that column, which has $27$ total participants.\nFavorable outcomes: in $10$–$19$ AND (Group A OR Group B) = $14 + 4 = 18$.\nProbability $= \\dfrac{18}{27} = \\dfrac{2}{3}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses the grand total ($90$) as denominator: $\\dfrac{18}{90} = \\dfrac{1}{5}$.\n* Choice B: \"stops one step early\" — counts only Group A in the column ($14$ out of $27$).\n* Choice D: \"off-by-one\" — uses $\\dfrac{18}{90}$ simplified to $\\dfrac{1}{5}$ but reports $\\dfrac{1}{3}$.\n\n**Test Day Takeaway:** \"Given X\" means restrict to the X-row or X-column. Numerator counts the favorable cases in that subset; denominator is the subset's total.",
-  skills: ["probability", "two-way-tables"]
-},
-{
-  id: 11,
+  id: 3,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -571,7 +437,26 @@ export const practiceTest1 = {
   skills: ["slope", "coordinate-geometry"]
 },
 {
-  id: 12,
+  id: 4,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The positive number $a$ is $250\\%$ of the sum of the positive numbers $b$ and $c$, and $b$ is $40\\%$ of $c$. What percent of $b$ is $a$?",
+  choices: [
+    // distractor: adds the percents: 250 + 40 = 290
+    { id: "A", text: "$290\\%$" },
+    // distractor: uses (1 + 0.40) * 250 = 350%
+    { id: "B", text: "$350\\%$" },
+    { id: "C", text: "$875\\%$" },
+    // distractor: divides 250 by 0.40 = 625%
+    { id: "D", text: "$625\\%$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Set $c = 100$. Then $b = 40\\% \\cdot 100 = 40$. Sum $b + c = 140$. So $a = 2.5 \\cdot 140 = 350$. Percent of $b$ that $a$ is: $\\dfrac{350}{40} \\cdot 100 = 875\\%$.\n\n**The Full Solution:**\nLet $c = 100$ (any positive choice works since percents are scale-invariant).\nThen $b = 0.40 \\cdot 100 = 40$.\nSum: $b + c = 40 + 100 = 140$.\n$a = 2.50 \\cdot 140 = 350$.\nPercent of $b$ that $a$ is: $\\dfrac{a}{b} \\cdot 100\\% = \\dfrac{350}{40} \\cdot 100\\% = 8.75 \\cdot 100\\% = 875\\%$.\n\nVerification (algebraic): $a = 2.5(b + c)$ and $b = 0.4c$, so $c = 2.5b$. Then $a = 2.5(b + 2.5b) = 2.5 \\cdot 3.5b = 8.75b$, giving $\\dfrac{a}{b} = 8.75 = 875\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — adds the two percents ($250 + 40 = 290$).\n* Choice B: \"stops one step early\" — computes $a$ in dollars but reports it as a raw percent of $c$ instead of $b$.\n* Choice D: \"wrong base\" — divides $250$ by $0.4$ ignoring the sum structure.\n\n**Test Day Takeaway:** When two percents stack, pick a clean numerical value (e.g., $c = 100$) and compute through. \"Percent of $b$\" means divide by $b$, not by $c$.",
+  skills: ["percents"]
+},
+{
+  id: 5,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -581,26 +466,26 @@ export const practiceTest1 = {
   skills: ["triangles", "angles"]
 },
 {
-  id: 13,
+  id: 6,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The graph of $x^2 + x + y^2 + y = \\dfrac{199}{2}$ in the $xy$-plane is a circle. What is the length of the circle's radius?",
+  question: "A factory makes $9$-inch, $7$-inch, and $4$-inch concrete screws. During one day, the number of $9$-inch screws produced is $5$ times the number $n$ of $7$-inch screws, and the number of $4$-inch screws is $40$ more than the number of $7$-inch screws. The factory produces a total of $719$ screws that day. How many $7$-inch screws does the factory produce that day?",
   choices: [
-    { id: "A", text: "$10$" },
-    // distractor: gives r^2 = 100 instead of r
-    { id: "B", text: "$100$" },
-    // distractor: takes the constant 199/2 directly without completing the square
-    { id: "C", text: "$\\sqrt{\\dfrac{199}{2}}$" },
-    // distractor: forgets to add the 1/4 + 1/4 = 1/2 to the right side
-    { id: "D", text: "$\\sqrt{\\dfrac{199}{2} - \\dfrac{1}{2}}$" }
+    // distractor: divides total by 7 ignoring the +40 offset
+    { id: "A", text: "$103$" },
+    { id: "B", text: "$97$" },
+    // distractor: applies inverse operation — uses (719 - 40)/5 = 135.8
+    { id: "C", text: "$136$" },
+    // distractor: stops one step early — divides 719/5 ignoring the offset and 7n
+    { id: "D", text: "$144$" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Complete the Square — Non-Square Radius**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Half of $1$ is $\\tfrac{1}{2}$; squared, that's $\\tfrac{1}{4}$. Add $\\tfrac{1}{4}$ for $x$ and $\\tfrac{1}{4}$ for $y$ to both sides: $\\left(x + \\tfrac{1}{2}\\right)^2 + \\left(y + \\tfrac{1}{2}\\right)^2 = \\tfrac{199}{2} + \\tfrac{1}{2} = 100$. Radius $= \\sqrt{100} = 10$.\n\n**The Full Solution:**\nGroup terms and complete the square for each variable:\n$x^2 + x + y^2 + y = \\dfrac{199}{2}$\n$\\left(x^2 + x + \\dfrac{1}{4}\\right) + \\left(y^2 + y + \\dfrac{1}{4}\\right) = \\dfrac{199}{2} + \\dfrac{1}{4} + \\dfrac{1}{4}$\n$\\left(x + \\dfrac{1}{2}\\right)^2 + \\left(y + \\dfrac{1}{2}\\right)^2 = \\dfrac{199}{2} + \\dfrac{1}{2} = \\dfrac{200}{2} = 100$\n\nSo $r^2 = 100$ and $r = 10$.\n\nVerification: $r^2 = 100$, and the circle has center $\\left(-\\tfrac{1}{2}, -\\tfrac{1}{2}\\right)$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"stops one step early\" — gives $r^2 = 100$ instead of $r$.\n* Choice C: \"wrong base\" — uses $\\tfrac{199}{2}$ directly without completing the square.\n* Choice D: \"applies the inverse operation\" — subtracts $\\tfrac{1}{2}$ from $\\tfrac{199}{2}$ instead of adding.\n\n**Test Day Takeaway:** Complete the square SYMMETRICALLY for both variables. \"Half the coefficient, squared\" gets added to BOTH sides — once for $x$, once for $y$.",
-  skills: ["circle-equations", "solving-equations"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Total $= 5n + n + (n + 40) = 7n + 40 = 719$. So $7n = 679$ and $n = 97$.\n\n**The Full Solution:**\nLet $n$ be the number of $7$-inch screws.\nNumber of $9$-inch screws: $5n$.\nNumber of $4$-inch screws: $n + 40$.\n\nTotal: $5n + n + (n + 40) = 7n + 40 = 719$.\n$7n = 679 \\Rightarrow n = 97$.\n\nVerification: $5(97) + 97 + (97 + 40) = 485 + 97 + 137 = 719$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — divides $719$ by $7$ ignoring the offset.\n* Choice C: \"applies the inverse operation\" — uses $(719 - 40)/5 = 135.8 \\approx 136$ instead of dividing by $7$.\n* Choice D: \"stops one step early\" — divides $719/5$ ignoring both the offset and the additional $7$-inch and $4$-inch counts.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$40$ more than\".",
+  skills: ["word-problems", "ratios"]
 },
 {
-  id: 14,
+  id: 7,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -619,7 +504,141 @@ export const practiceTest1 = {
   skills: ["scatterplots", "statistics"]
 },
 {
+  id: 8,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "If $x > 0$, the expression $\\sqrt[3]{x^2} \\cdot \\sqrt{x^5}$ is equivalent to $x^{p/q}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
+  choices: [
+    // distractor: gives p alone (= 19) instead of p + q
+    { id: "A", text: "$19$" },
+    // distractor: uses 5 + 3 = 8 (sums numerator + index without combining)
+    { id: "B", text: "$8$" },
+    { id: "C", text: "$25$" },
+    // distractor: uses 5 + 2 + 3 = 10 (sums all numbers in the original expression)
+    { id: "D", text: "$10$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[3]{x^2} = x^{2/3}$. $\\sqrt{x^5} = x^{5/2}$. Add: $\\dfrac{2}{3} + \\dfrac{5}{2} = \\dfrac{4}{6} + \\dfrac{15}{6} = \\dfrac{19}{6}$. So $p + q = 19 + 6 = 25$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[3]{x^2} = x^{2/3}, \\quad \\sqrt{x^5} = x^{5/2}$\n\nWhen multiplying same bases, add exponents:\n$x^{2/3} \\cdot x^{5/2} = x^{2/3 + 5/2} = x^{(4 + 15)/6} = x^{19/6}$\n\n$\\gcd(19, 6) = 1$, so $\\dfrac{19}{6}$ is already in lowest terms. Then $p = 19$, $q = 6$, and $p + q = 25$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 19$, forgetting to add $q$.\n* Choice B: \"applies the inverse operation\" — sums the radical exponent and index ($5 + 3 = 8$) instead of converting and adding fractions.\n* Choice D: \"wrong base\" — sums all the integers visible in the expression ($5 + 2 + 3 = 10$).\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{m/n}$ — power on top, root on the bottom. Add fractional exponents when multiplying same bases.",
+  skills: ["polynomial-operations", "exponent-rules", "radical-expressions"]
+},
+{
+  id: 9,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The function $f$ is defined by $f(x) = (x - 3)^2 - 4$. If the function $g$ is defined by $g(x) = f(x + 5)$, what is the minimum value of $g$?",
+  choices: [
+    // distractor: gives the x at minimum (x = -2) instead of g(x)
+    { id: "A", text: "$-2$" },
+    { id: "B", text: "$-4$" },
+    // distractor: forgets to add the -4 vertical shift
+    { id: "C", text: "$0$" },
+    // distractor: applies the +5 shift in the wrong direction (gets -9)
+    { id: "D", text: "$-9$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f$ has minimum value $-4$ (at $x = 3$). $g(x) = f(x + 5)$ shifts $f$ horizontally; horizontal shifts do NOT change the minimum value. So $g$ has minimum value $-4$.\n\n**The Full Solution:**\n$g(x) = f(x + 5) = ((x + 5) - 3)^2 - 4 = (x + 2)^2 - 4$\n\nThis is vertex form with vertex $(-2, -4)$. The minimum value is $-4$, attained at $x = -2$.\n\nVerification: $(x + 2)^2 \\geq 0$ for all real $x$, so $g(x) \\geq -4$ with equality at $x = -2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the $x$-coordinate of the minimum ($-2$) instead of $g(x) = -4$.\n* Choice C: \"off-by-one\" — forgets the constant $-4$ in the original function.\n* Choice D: \"applies the inverse operation\" — combines $-4$ and $-5$ into $-9$ via incorrect shift direction.\n\n**Test Day Takeaway:** Horizontal shifts (replacing $x$ with $x \\pm h$) do NOT change the minimum/maximum value of a function. Only vertical shifts ($+k$ outside) do.",
+  skills: ["function-interpretation", "vertex-form", "quadratic-equations"]
+},
+{
+  id: 10,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "A data set consists of $10$ positive integers. The list shown gives $9$ of these integers.\n\n$43, 45, 44, 43, 38, 39, 40, 46, 40$\n\nThe mean of the $9$ listed integers is $42$. If the mean of all $10$ integers is also $42$, what is the value of the tenth integer?",
+  correctAnswer: "42",
+  explanation: "**SAT Pattern: Mean from List**\n\n**The correct answer is $42$.**\n\n**The Fast Way (~25s):** If the mean does not change when one new value is added, the new value MUST equal the mean. So the tenth integer is $42$.\n\n**The Full Solution:**\nSum of $9$ listed integers: $9 \\cdot 42 = 378$.\nSum of all $10$ integers: $10 \\cdot 42 = 420$.\nTenth integer $= 420 - 378 = 42$.\n\nVerification by direct computation: $43 + 45 + 44 + 43 + 38 + 39 + 40 + 46 + 40 = 378$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing $\\dfrac{378}{9}$ and reporting that as the answer (it equals $42$, but for the wrong reason).\n* Forgetting that adding a value equal to the mean leaves the mean unchanged.\n\n**Test Day Takeaway:** Adding a value equal to the current mean leaves the mean unchanged. Always check whether your reasoning matches that invariant.",
+  skills: ["statistics", "mean"]
+},
+{
+  id: 11,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "Consider the system of equations:\n\n$x + y + z = 12$\n$2x - y + z = 9$\n$x + 2y - z = 10$\n\nWhat is the value of $x + y$?",
+  correctAnswer: "9",
+  explanation: "**SAT Pattern: Three-Variable Elimination**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~30s):** Add equation 1 and equation 3 to eliminate $z$: $(x + y + z) + (x + 2y - z) = 12 + 10 \\Rightarrow 2x + 3y = 22$ ... ((A)). Add equation 2 and equation 3: $(2x - y + z) + (x + 2y - z) = 9 + 10 \\Rightarrow 3x + y = 19$ ... ((B)). Solve $\\{2x + 3y = 22, 3x + y = 19\\}$: from ((B)), $y = 19 - 3x$; substitute into ((A)): $2x + 3(19 - 3x) = 22 \\Rightarrow -7x = -35 \\Rightarrow x = 5$, then $y = 19 - 15 = 4$. So $x + y = 5 + 4 = 9$.\n\n**The Full Solution:**\nEliminate $z$ in two ways:\n* Equation 1 + Equation 3: $2x + 3y = 22$.\n* Equation 2 + Equation 3: $3x + y = 19$.\n\nFrom the second: $y = 19 - 3x$. Substitute into the first:\n$2x + 3(19 - 3x) = 22$\n$2x + 57 - 9x = 22$\n$-7x = -35 \\Rightarrow x = 5$\n$y = 19 - 3(5) = 4$\n$z = 12 - x - y = 12 - 5 - 4 = 3$.\n\nVerification: equation 1: $5 + 4 + 3 = 12$ \\checkmark; equation 2: $10 - 4 + 3 = 9$ \\checkmark; equation 3: $5 + 8 - 3 = 10$ \\checkmark.\n\nSo $x + y = 5 + 4 = 9$.\n\n**Common Mistakes to Avoid:**\n* Solving for each variable individually when only $x + y$ is needed — pick combinations that eliminate $z$ first.\n* Forgetting that any consistent linear system with three equations and three unknowns gives a UNIQUE solution.\n\n**Test Day Takeaway:** When the question asks for $x + y$, look for two equations that combine to eliminate $z$ — then solve the resulting two-variable system.",
+  skills: ["systems-of-equations", "word-problems"]
+},
+{
+  id: 12,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The parabola defined by $y = 2(x - h)^2 + k$ has its vertex at the point $(3, -8)$ and passes through the point $(1, 0)$. What is the value of $h + k$?",
+  choices: [
+    // distractor: confuses with h - k (3 - (-8) = 11)
+    { id: "A", text: "$11$" },
+    // distractor: uses sign error on k: 3 + 8 = 11 with mixed signs
+    { id: "B", text: "$-11$" },
+    { id: "C", text: "$-5$" },
+    // distractor: stops at h alone (= 3)
+    { id: "D", text: "$3$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Vertex $(h, k) = (3, -8)$. Verify the parabola passes through $(1, 0)$: $y = 2(1 - 3)^2 + (-8) = 2(4) - 8 = 0$ \\checkmark. So $h + k = 3 + (-8) = -5$.\n\n**The Full Solution:**\nIn vertex form $y = a(x - h)^2 + k$, the vertex is $(h, k)$. Given vertex $(3, -8)$: $h = 3$ and $k = -8$.\nThe second point $(1, 0)$ is used to verify the leading coefficient $a$. With $a = 2$:\n$0 = 2(1 - 3)^2 + (-8) = 2(4) - 8 = 0$ \\checkmark.\n\nSo $h + k = 3 + (-8) = -5$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — computes $h - k = 3 - (-8) = 11$.\n* Choice B: \"applies the inverse operation\" — sign flip on $h$: $-3 + (-8) = -11$.\n* Choice D: \"stops one step early\" — reports $h = 3$ without adding $k$.\n\n**Test Day Takeaway:** In $y = a(x - h)^2 + k$, the vertex is exactly $(h, k)$. Use the second point only to verify or to find $a$.",
+  skills: ["vertex-form", "function-interpretation"]
+},
+{
+  id: 13,
+  type: "multiple-choice",
+  difficulty: "medium",
+  band: 5,
+  question: "A data set has $11$ values listed in order:\n\n$2, 3, 3, 4, 5, 5, 6, 7, 7, 8, 10$\n\nIf the value $50$ is added to the data set, which of the following is true?",
+  choices: [
+    // distractor: overestimates the median shift — middle values barely move
+    { id: "A", text: "The median increases by more than $1$ and the range increases." },
+    { id: "B", text: "The median increases by $0.5$ and the range increases." },
+    // distractor: range obviously changes with such an extreme outlier
+    { id: "C", text: "The median stays the same and the range stays the same." },
+    // distractor: range clearly increases after adding 50
+    { id: "D", text: "The median increases by $0.5$ and the range stays the same." }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Outlier Effect**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):**\nOriginal: $11$ values $\\to$ median $=$ $6$th value $= 5$. Range $= 10 - 2 = 8$.\nWith $50$ added: $12$ values $\\to$ median $=$ average of $6$th and $7$th values $= \\dfrac{5 + 6}{2} = 5.5$. Range $= 50 - 2 = 48$.\nMedian increases by $0.5$. Range increases.\n\n**The Full Solution:**\nOriginal sorted: $2, 3, 3, 4, 5, \\mathbf{5}, 6, 7, 7, 8, 10$. Median = middle (6th) value = $5$.\nWith $50$ appended: $2, 3, 3, 4, 5, \\mathbf{5, 6}, 7, 7, 8, 10, 50$. Median = average of 6th and 7th = $\\dfrac{5+6}{2} = 5.5$.\nMedian change: $5.5 - 5 = 0.5$. Range change: $48 - 8 = 40$ (increases).\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — overestimates the median shift; an outlier moves the median by AT MOST half of one rank shift.\n* Choice C: \"stops one step early\" — ignores the outlier's effect on range.\n* Choice D: \"applies the inverse operation\" — gets median right but ignores the obvious range change.\n\n**Test Day Takeaway:** An extreme outlier greatly affects mean and range, but barely affects the median. The median is RESISTANT to outliers.",
+  skills: ["statistics"]
+},
+{
+  id: 14,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A study assigned $90$ participants to one of three groups: A, B, or C. The table summarizes the distribution by age range and group.\n\n| | $0$–$9$ years | $10$–$19$ years | $20+$ years | Total |\n|---|---|---|---|---|\n| Group A | $7$ | $14$ | $9$ | $30$ |\n| Group B | $6$ | $4$ | $20$ | $30$ |\n| Group C | $17$ | $9$ | $4$ | $30$ |\n| Total | $30$ | $27$ | $33$ | $90$ |\n\nIf one participant is selected at random from those in the $10$–$19$ age range, what is the probability that the participant is in Group A or Group B?",
+  choices: [
+    // distractor: uses 18/90 = 1/5 (uses grand total as denominator)
+    { id: "A", text: "$\\dfrac{1}{5}$" },
+    // distractor: counts only A (14/27)
+    { id: "B", text: "$\\dfrac{14}{27}$" },
+    { id: "C", text: "$\\dfrac{2}{3}$" },
+    // distractor: uses 18/90 simplified and reports as a percent (off-by-one)
+    { id: "D", text: "$\\dfrac{1}{3}$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Restrict to the $10$–$19$ column (total $27$). A or B count: $14 + 4 = 18$. Probability $= \\dfrac{18}{27} = \\dfrac{2}{3}$.\n\n**The Full Solution:**\nGiven: participant is from the $10$–$19$ age range. The conditional restricts the sample space to that column, which has $27$ total participants.\nFavorable outcomes: in $10$–$19$ AND (Group A OR Group B) = $14 + 4 = 18$.\nProbability $= \\dfrac{18}{27} = \\dfrac{2}{3}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses the grand total ($90$) as denominator: $\\dfrac{18}{90} = \\dfrac{1}{5}$.\n* Choice B: \"stops one step early\" — counts only Group A in the column ($14$ out of $27$).\n* Choice D: \"off-by-one\" — uses $\\dfrac{18}{90}$ simplified to $\\dfrac{1}{5}$ but reports $\\dfrac{1}{3}$.\n\n**Test Day Takeaway:** \"Given X\" means restrict to the X-row or X-column. Numerator counts the favorable cases in that subset; denominator is the subset's total.",
+  skills: ["probability", "two-way-tables"]
+},
+{
   id: 15,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The graph of $x^2 + x + y^2 + y = \\dfrac{199}{2}$ in the $xy$-plane is a circle. What is the length of the circle's radius?",
+  choices: [
+    { id: "A", text: "$10$" },
+    // distractor: gives r^2 = 100 instead of r
+    { id: "B", text: "$100$" },
+    // distractor: takes the constant 199/2 directly without completing the square
+    { id: "C", text: "$\\sqrt{\\dfrac{199}{2}}$" },
+    // distractor: forgets to add the 1/4 + 1/4 = 1/2 to the right side
+    { id: "D", text: "$\\sqrt{\\dfrac{199}{2} - \\dfrac{1}{2}}$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Complete the Square — Non-Square Radius**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Half of $1$ is $\\tfrac{1}{2}$; squared, that's $\\tfrac{1}{4}$. Add $\\tfrac{1}{4}$ for $x$ and $\\tfrac{1}{4}$ for $y$ to both sides: $\\left(x + \\tfrac{1}{2}\\right)^2 + \\left(y + \\tfrac{1}{2}\\right)^2 = \\tfrac{199}{2} + \\tfrac{1}{2} = 100$. Radius $= \\sqrt{100} = 10$.\n\n**The Full Solution:**\nGroup terms and complete the square for each variable:\n$x^2 + x + y^2 + y = \\dfrac{199}{2}$\n$\\left(x^2 + x + \\dfrac{1}{4}\\right) + \\left(y^2 + y + \\dfrac{1}{4}\\right) = \\dfrac{199}{2} + \\dfrac{1}{4} + \\dfrac{1}{4}$\n$\\left(x + \\dfrac{1}{2}\\right)^2 + \\left(y + \\dfrac{1}{2}\\right)^2 = \\dfrac{199}{2} + \\dfrac{1}{2} = \\dfrac{200}{2} = 100$\n\nSo $r^2 = 100$ and $r = 10$.\n\nVerification: $r^2 = 100$, and the circle has center $\\left(-\\tfrac{1}{2}, -\\tfrac{1}{2}\\right)$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"stops one step early\" — gives $r^2 = 100$ instead of $r$.\n* Choice C: \"wrong base\" — uses $\\tfrac{199}{2}$ directly without completing the square.\n* Choice D: \"applies the inverse operation\" — subtracts $\\tfrac{1}{2}$ from $\\tfrac{199}{2}$ instead of adding.\n\n**Test Day Takeaway:** Complete the square SYMMETRICALLY for both variables. \"Half the coefficient, squared\" gets added to BOTH sides — once for $x$, once for $y$.",
+  skills: ["circle-equations", "solving-equations"]
+},
+{
+  id: 16,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -638,7 +657,7 @@ export const practiceTest1 = {
   skills: ["trigonometry", "triangles"]
 },
 {
-  id: 16,
+  id: 17,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -657,7 +676,7 @@ export const practiceTest1 = {
   skills: ["discriminant", "quadratic-equations"]
 },
 {
-  id: 17,
+  id: 18,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -667,7 +686,7 @@ export const practiceTest1 = {
   skills: ["exponential-functions", "percents"]
 },
 {
-  id: 18,
+  id: 19,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -684,25 +703,6 @@ export const practiceTest1 = {
   correctAnswer: "A",
   explanation: "**SAT Pattern: Three-Equation Contradiction**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Equation 2 is $3 \\times$ Equation 1: $3(x+2y-z) = 3 \\cdot 5 = 15$ \\checkmark. Equation 3 should be $2 \\times$ Equation 1 if consistent: $2(x+2y-z) = 10$, but Equation 3 says $= 11$. Contradiction $\\Rightarrow$ zero solutions.\n\n**The Full Solution:**\nDivide Equation 2 by $3$: $x + 2y - z = 5$ (same as Equation 1) \\checkmark.\nDivide Equation 3 by $2$: $x + 2y - z = 5.5$.\nBut Equation 1 says $x + 2y - z = 5$. Since $5 \\neq 5.5$, the system is inconsistent.\n\nThere is NO triple $(x, y, z)$ that can satisfy both \"$x + 2y - z = 5$\" and \"$x + 2y - z = 5.5$\" simultaneously.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — assumes $3 \\times 3$ systems always have unique solutions.\n* Choice C: \"applies the inverse operation\" — linear systems never have exactly two solutions (zero, one, or infinitely many only).\n* Choice D: \"off-by-one\" — would be true if Equation 3's right side were $10$ instead of $11$.\n\n**Test Day Takeaway:** Check whether equations are scalar multiples of each other. Same left side but different right side $\\Rightarrow$ contradiction $\\Rightarrow$ zero solutions.",
   skills: ["systems-of-equations"]
-},
-{
-  id: 19,
-  type: "multiple-choice",
-  difficulty: "medium",
-  band: 5,
-  question: "A data set has $11$ values listed in order:\n\n$2, 3, 3, 4, 5, 5, 6, 7, 7, 8, 10$\n\nIf the value $50$ is added to the data set, which of the following is true?",
-  choices: [
-    // distractor: overestimates the median shift — middle values barely move
-    { id: "A", text: "The median increases by more than $1$ and the range increases." },
-    { id: "B", text: "The median increases by $0.5$ and the range increases." },
-    // distractor: range obviously changes with such an extreme outlier
-    { id: "C", text: "The median stays the same and the range stays the same." },
-    // distractor: range clearly increases after adding 50
-    { id: "D", text: "The median increases by $0.5$ and the range stays the same." }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Outlier Effect**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):**\nOriginal: $11$ values $\\to$ median $=$ $6$th value $= 5$. Range $= 10 - 2 = 8$.\nWith $50$ added: $12$ values $\\to$ median $=$ average of $6$th and $7$th values $= \\dfrac{5 + 6}{2} = 5.5$. Range $= 50 - 2 = 48$.\nMedian increases by $0.5$. Range increases.\n\n**The Full Solution:**\nOriginal sorted: $2, 3, 3, 4, 5, \\mathbf{5}, 6, 7, 7, 8, 10$. Median = middle (6th) value = $5$.\nWith $50$ appended: $2, 3, 3, 4, 5, \\mathbf{5, 6}, 7, 7, 8, 10, 50$. Median = average of 6th and 7th = $\\dfrac{5+6}{2} = 5.5$.\nMedian change: $5.5 - 5 = 0.5$. Range change: $48 - 8 = 40$ (increases).\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — overestimates the median shift; an outlier moves the median by AT MOST half of one rank shift.\n* Choice C: \"stops one step early\" — ignores the outlier's effect on range.\n* Choice D: \"applies the inverse operation\" — gets median right but ignores the obvious range change.\n\n**Test Day Takeaway:** An extreme outlier greatly affects mean and range, but barely affects the median. The median is RESISTANT to outliers.",
-  skills: ["statistics"]
 },
 {
   id: 20,

@@ -402,63 +402,6 @@ export const practiceTest10 = {
 {
   id: 1,
   type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A quantity $a$ is $p\\%$ of the sum of two values, $b + c$. If $a = 90$, $b = 200$, and $c = 100$, what is the value of $p$?",
-  choices: [
-    // distractor: applies inverse op — divides by a instead of (b+c)
-    { id: "A", text: "$33.3$" },
-    // distractor: wrong base — uses b alone instead of b + c
-    { id: "B", text: "$45$" },
-    { id: "C", text: "$30$" },
-    // distractor: off-by-one — uses b + c + a in the denominator
-    { id: "D", text: "$23.1$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $a = \\dfrac{p}{100}(b + c) \\Rightarrow 90 = \\dfrac{p}{100}(300) \\Rightarrow p = 30$.\n\n**The Full Solution:**\n\"$a$ is $p\\%$ of $(b + c)$\" translates to: $a = \\dfrac{p}{100}(b + c)$.\nSubstitute: $90 = \\dfrac{p}{100}(200 + 100) = 3p$.\nSolve: $p = 30$.\n\nVerification: $30\\%$ of $300 = 0.30 \\cdot 300 = 90$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — divides $b$ by $a$ ($\\dfrac{300}{90} \\cdot 100$ wrongly).\n* Choice B: \"wrong base\" — uses $b = 200$ alone instead of $b + c = 300$ as denominator: $\\dfrac{90}{200} = 45\\%$.\n* Choice D: \"off-by-one\" — uses $b + c + a = 390$ in the denominator: $\\dfrac{90}{390} \\approx 23.1\\%$.\n\n**Test Day Takeaway:** \"$a$ is $p\\%$ of $X$\" means $a = \\dfrac{p}{100} \\cdot X$. The denominator is whatever follows \"of.\"",
-  skills: ["percents"]
-},
-{
-  id: 2,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A factory produces two types of bolts: standard bolts (each requiring $4$ minutes of machine time) and premium bolts (each requiring $7$ minutes of machine time). In one shift, the factory produces $35$ bolts using $176$ minutes of machine time. How many premium bolts were produced?",
-  choices: [
-    // distractor: stops one step early — gives the count of standard bolts
-    { id: "A", text: "$23$" },
-    { id: "B", text: "$12$" },
-    // distractor: applies inverse op — swaps the rates 4 and 7
-    { id: "C", text: "$16$" },
-    // distractor: off-by-one — solves correctly but reports number of standard bolts
-    { id: "D", text: "$24$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Let $s$ = standard, $p$ = premium. $s + p = 35$ and $4s + 7p = 176$. Substitute $s = 35 - p$: $4(35 - p) + 7p = 176 \\Rightarrow 140 + 3p = 176 \\Rightarrow p = 12$.\n\n**The Full Solution:**\nLet $s$ = standard bolts, $p$ = premium bolts.\n$s + p = 35$\n$4s + 7p = 176$\n\nFrom the first equation: $s = 35 - p$.\nSubstitute: $4(35 - p) + 7p = 176$\n$140 - 4p + 7p = 176$\n$140 + 3p = 176$\n$3p = 36$\n$p = 12$\n\nVerification: $s = 23$. Total: $23 + 12 = 35$ \\checkmark. Time: $4(23) + 7(12) = 92 + 84 = 176$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reports $s = 23$ (standard bolts) instead of premium.\n* Choice C: \"applies the inverse operation\" — swaps the rates $4$ and $7$, getting $p = 16$.\n* Choice D: \"off-by-one\" — solves correctly but reports number of standard bolts.\n\n**Test Day Takeaway:** Define variables explicitly and re-read what the question asks before answering.",
-  skills: ["systems-of-equations", "word-problems"]
-},
-{
-  id: 3,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "If $\\sqrt[3]{x^4} \\cdot \\sqrt{x^5} = x^k$ for $x > 0$, what is the value of $k$?",
-  choices: [
-    // distractor: applies inverse op — flips the fractional exponents
-    { id: "A", text: "$\\dfrac{17}{6}$" },
-    // distractor: stops one step early — adds numerators only (4 + 5 = 9)
-    { id: "B", text: "$\\dfrac{9}{6}$" },
-    { id: "C", text: "$\\dfrac{23}{6}$" },
-    // distractor: off-by-one — multiplies exponents instead of adding
-    { id: "D", text: "$\\dfrac{20}{6}$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\sqrt[3]{x^4} = x^{4/3}$ and $\\sqrt{x^5} = x^{5/2}$. Sum: $\\dfrac{4}{3} + \\dfrac{5}{2} = \\dfrac{8}{6} + \\dfrac{15}{6} = \\dfrac{23}{6}$.\n\n**The Full Solution:**\n$\\sqrt[3]{x^4} = x^{4/3}$\n$\\sqrt{x^5} = x^{5/2}$\n\nMultiplying with same base: add exponents.\n$x^{4/3} \\cdot x^{5/2} = x^{4/3 + 5/2}$\n\nCommon denominator $6$: $\\dfrac{4}{3} = \\dfrac{8}{6}$ and $\\dfrac{5}{2} = \\dfrac{15}{6}$.\nSum: $\\dfrac{8 + 15}{6} = \\dfrac{23}{6}$.\n\nSo $k = \\dfrac{23}{6}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — flips the fractional exponents to $\\dfrac{3}{4}$ and $\\dfrac{2}{5}$.\n* Choice B: \"stops one step early\" — adds numerators only ($4 + 5 = 9$).\n* Choice D: \"off-by-one\" — multiplies exponents instead of adding.\n\n**Test Day Takeaway:** Convert radicals to fractional exponents (power over index), then add when multiplying same bases.",
-  skills: ["exponent-rules", "radical-expressions"]
-},
-{
-  id: 4,
-  type: "multiple-choice",
   difficulty: "medium",
   band: 5,
   question: "The system of equations below has no solution. \n\n$3x + ky = 12$\n$6x - 4y = 18$\n\nWhat is the value of $k$?",
@@ -476,65 +419,7 @@ export const practiceTest10 = {
   skills: ["systems-of-equations"]
 },
 {
-  id: 5,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The function $f$ is defined by $f(x) = (x - 2)^2 + 3$. The function $g$ is defined by $g(x) = f(x + 4) - 5$. For what value of $x$ does $g$ attain its minimum?",
-  choices: [
-    // distractor: wrong sign — uses x = 6 (shift in wrong direction)
-    { id: "A", text: "$6$" },
-    { id: "B", text: "$-2$" },
-    // distractor: stops one step early — gives x = 2 (the original vertex)
-    { id: "C", text: "$2$" },
-    // distractor: off-by-one — confuses the y-shift -5 with the x-shift
-    { id: "D", text: "$-5$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f$ has minimum at $x = 2$. $g(x) = f(x + 4) - 5$ shifts $f$ left by $4$, so the minimum of $g$ is at $x = 2 - 4 = -2$.\n\n**The Full Solution:**\nThe function $f(x) = (x - 2)^2 + 3$ has minimum at $x = 2$.\nThe transformation $g(x) = f(x + 4) - 5$ shifts $f$ to the LEFT by $4$ (because of the $+4$ inside the function) and DOWN by $5$.\nThe horizontal shift moves the minimum from $x = 2$ to $x = 2 - 4 = -2$. The vertical shift does not affect the $x$-coordinate of the minimum.\n\nVerification: $g(x) = ((x + 4) - 2)^2 + 3 - 5 = (x + 2)^2 - 2$, vertex at $x = -2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong sign\" — shifts in the wrong direction ($x = 2 + 4 = 6$).\n* Choice C: \"stops one step early\" — gives the vertex of $f$ without applying the shift.\n* Choice D: \"off-by-one\" — confuses the $y$-shift $-5$ with the $x$-shift.\n\n**Test Day Takeaway:** $f(x + c)$ shifts the graph LEFT by $c$ (opposite of what the sign suggests). Vertical shifts don't affect $x$-coordinates of extrema.",
-  skills: ["function-interpretation", "vertex-form"]
-},
-{
-  id: 6,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "The mean of a list of $9$ values is $42$. When one additional value is added to the list, the mean of the new $10$-value list becomes $45$. What is the value of the additional value?",
-  correctAnswer: "72",
-  explanation: "**SAT Pattern: Mean from List**\n\n**The correct answer is $72$.**\n\n**The Fast Way (~25s):** Original sum $= 9 \\cdot 42 = 378$. New sum $= 10 \\cdot 45 = 450$. Added value $= 450 - 378 = 72$.\n\n**The Full Solution:**\nOriginal mean: $42 \\Rightarrow$ sum of original $9$ values is $9 \\cdot 42 = 378$.\nNew mean: $45 \\Rightarrow$ sum of new $10$ values is $10 \\cdot 45 = 450$.\nAdded value $=$ new sum $-$ original sum $= 450 - 378 = 72$.\n\n**Verification:** $\\dfrac{378 + 72}{10} = \\dfrac{450}{10} = 45$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing $\\dfrac{42 + 45}{2} = 43.5$ — wrong because this isn't a simple average of two means.\n* Using $9 \\cdot 45 = 405$ instead of $10 \\cdot 45$.\n\n**Test Day Takeaway:** Mean problems with added/removed values: convert to sums first (mean $\\times$ count), then work with sums.",
-  skills: ["statistics", "mean-median-mode"]
-},
-{
-  id: 7,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "The system of equations below has solution $(x, y, z)$.\n\n$x + y + z = 14$\n$2x - y + z = 9$\n$x + 2y - z = 11$\n\nWhat is the value of $z$?",
-  correctAnswer: "4",
-  explanation: "**SAT Pattern: Three-Variable Elimination**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~45s):** Add eqs $(1)+(3)$ to eliminate $z$: $2x + 3y = 25$. Add eqs $(2)+(3)$: $3x + y = 20$. Solve: $x = 5, y = 5$. Substitute into eq $(1)$: $z = 14 - 5 - 5 = 4$.\n\n**The Full Solution:**\nAdd equations $(1) + (3)$: $(x + y + z) + (x + 2y - z) = 14 + 11$, so $2x + 3y = 25$.\nAdd equations $(2) + (3)$: $(2x - y + z) + (x + 2y - z) = 9 + 11$, so $3x + y = 20$.\n\nFrom $3x + y = 20$: $y = 20 - 3x$.\nSubstitute: $2x + 3(20 - 3x) = 25 \\Rightarrow 2x + 60 - 9x = 25 \\Rightarrow -7x = -35 \\Rightarrow x = 5$.\nThen $y = 20 - 15 = 5$.\nFrom equation $(1)$: $5 + 5 + z = 14 \\Rightarrow z = 4$.\n\nVerification: equation $(2)$: $2(5) - 5 + 4 = 9$ \\checkmark. Equation $(3)$: $5 + 10 - 4 = 11$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Sign errors when adding equations.\n* Solving for $x$ or $y$ and reporting that value.\n\n**Test Day Takeaway:** For three-variable systems, eliminate one variable by adding pairs of equations to reduce to a $2 \\times 2$ system.",
-  skills: ["systems-of-equations"]
-},
-{
-  id: 8,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The parabola defined by $y = 2(x - h)^2 + k$ has its vertex at the point $(4, -3)$ and passes through the point $(2, 5)$. What is the value of $h + k$?",
-  choices: [
-    // distractor: wrong sign — uses h - k instead of h + k
-    { id: "A", text: "$7$" },
-    // distractor: stops one step early — uses k from a wrong calculation
-    { id: "B", text: "$-7$" },
-    { id: "C", text: "$1$" },
-    // distractor: off-by-one — uses passing-point coords as h, k
-    { id: "D", text: "$2$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Vertex $(4, -3)$ gives $h = 4, k = -3$. Verify: $y = 2(2 - 4)^2 + (-3) = 2(4) - 3 = 5$ \\checkmark. So $h + k = 4 + (-3) = 1$.\n\n**The Full Solution:**\nFrom vertex form $y = a(x - h)^2 + k$, the vertex is $(h, k)$.\nGiven vertex $(4, -3)$: $h = 4$ and $k = -3$.\n\nVerify with the second point $(2, 5)$: $y = 2(2 - 4)^2 + (-3) = 2(4) - 3 = 5$ \\checkmark.\n\nThus $h + k = 4 + (-3) = 1$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong sign\" — computes $h - k = 4 - (-3) = 7$ instead of $h + k$.\n* Choice B: \"stops one step early\" — uses $k$ from a wrong calculation.\n* Choice D: \"off-by-one\" — uses passing-point coordinates as $h, k$.\n\n**Test Day Takeaway:** In vertex form $y = a(x - h)^2 + k$, the vertex is $(h, k)$ — directly readable from the equation.",
-  skills: ["vertex-form", "function-interpretation"]
-},
-{
-  id: 9,
+  id: 2,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -553,45 +438,7 @@ export const practiceTest10 = {
   skills: ["factoring", "polynomial-operations"]
 },
 {
-  id: 10,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A sample of $1{,}200$ registered voters was surveyed about a ballot measure. $45\\%$ said they supported the measure. The margin of error is $3$ percentage points. Which of the following is the best interpretation of these results?",
-  choices: [
-    // distractor: stops one step early — interprets the sample count as population
-    { id: "A", text: "Exactly $540$ voters in the population support the measure." },
-    // distractor: applies inverse op — uses sample percent to predict result
-    { id: "B", text: "The measure will fail because support is below $50\\%$." },
-    { id: "C", text: "The true population proportion is plausibly between $42\\%$ and $48\\%$." },
-    // distractor: wrong base — claims sample size adjustment increases margin
-    { id: "D", text: "If $300$ more people were surveyed, the margin of error would increase." }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Margin of Error**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $45\\% \\pm 3\\% = [42\\%, 48\\%]$ is the confidence interval for the true population proportion.\n\n**The Full Solution:**\nThe margin of error of $3$ percentage points means the confidence interval is $45\\% - 3\\% = 42\\%$ to $45\\% + 3\\% = 48\\%$. This interval estimates the true population proportion, not the sample proportion.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — $540$ is the sample count ($1200 \\times 0.45$), not the population value.\n* Choice B: \"applies the inverse operation\" — the confidence interval includes values below and above; we cannot conclude the measure will fail.\n* Choice D: \"wrong base\" — increasing sample size DECREASES margin of error, not increases.\n\n**Test Day Takeaway:** Larger samples give smaller margins of error. The confidence interval applies to the population, not the sample.",
-  skills: ["margin-of-error", "statistics"]
-},
-{
-  id: 11,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "Line $\\ell$ in the $xy$-plane is perpendicular to the line $y = -\\dfrac{2}{3}x + 4$ and passes through the point $(6, 1)$. What is the equation of line $\\ell$?",
-  choices: [
-    { id: "A", text: "$y = \\dfrac{3}{2}x - 8$" },
-    // distractor: wrong sign — uses parallel slope (negative reciprocal not flipped)
-    { id: "B", text: "$y = -\\dfrac{2}{3}x + 5$" },
-    // distractor: applies inverse op — uses 2/3 (not flipped to 3/2)
-    { id: "C", text: "$y = \\dfrac{2}{3}x - 3$" },
-    // distractor: off-by-one — sign error in y-intercept calculation
-    { id: "D", text: "$y = \\dfrac{3}{2}x + 8$" }
-  ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Perpendicular slope to $-\\dfrac{2}{3}$ is $\\dfrac{3}{2}$. Use $(6, 1)$: $1 = \\dfrac{3}{2}(6) + b = 9 + b \\Rightarrow b = -8$.\n\n**The Full Solution:**\nThe given line has slope $-\\dfrac{2}{3}$. Perpendicular slope is the negative reciprocal: $\\dfrac{3}{2}$.\nUsing point-slope form with $(6, 1)$:\n$y - 1 = \\dfrac{3}{2}(x - 6)$\n$y = \\dfrac{3}{2}x - 9 + 1 = \\dfrac{3}{2}x - 8$.\n\nVerification: at $(6, 1)$: $\\dfrac{3}{2}(6) - 8 = 9 - 8 = 1$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong sign\" — keeps the same slope (parallel, not perpendicular).\n* Choice C: \"applies the inverse operation\" — uses $\\dfrac{2}{3}$ (only flipped sign, not reciprocal).\n* Choice D: \"off-by-one\" — sign error gives $b = +8$ instead of $-8$.\n\n**Test Day Takeaway:** Perpendicular slopes are negative reciprocals: flip the fraction AND change the sign.",
-  skills: ["slope", "coordinate-geometry", "linear-functions"]
-},
-{
-  id: 12,
+  id: 3,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -610,17 +457,26 @@ export const practiceTest10 = {
   skills: ["systems-of-equations", "word-problems"]
 },
 {
-  id: 13,
-  type: "fill-in",
+  id: 4,
+  type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In the $xy$-plane, the equation $x^2 + y^2 - 8x + 6y - 11 = 0$ defines a circle. What is the radius of the circle?",
-  correctAnswer: "6",
-  explanation: "**SAT Pattern: Complete the Square — Non-Square Radius**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~30s):** Complete the square: $(x - 4)^2 + (y + 3)^2 = 11 + 16 + 9 = 36$. So $r^2 = 36$ and $r = 6$.\n\n**The Full Solution:**\nGroup $x$- and $y$-terms:\n$(x^2 - 8x) + (y^2 + 6y) = 11$\n\nComplete the square: half of $-8$ is $-4$, $(-4)^2 = 16$. Half of $6$ is $3$, $3^2 = 9$.\n$(x^2 - 8x + 16) + (y^2 + 6y + 9) = 11 + 16 + 9$\n$(x - 4)^2 + (y + 3)^2 = 36$\n\nRadius $= \\sqrt{36} = 6$.\n\n**Common Mistakes to Avoid:**\n* Reporting $r^2 = 36$ instead of $r = 6$.\n* Sign errors when moving the constant to the right side.\n\n**Test Day Takeaway:** Complete the square for BOTH variables. The radius is $\\sqrt{r^2}$, not $r^2$ itself.",
-  skills: ["circle-equations", "coordinate-geometry"]
+  question: "A quantity $a$ is $p\\%$ of the sum of two values, $b + c$. If $a = 90$, $b = 200$, and $c = 100$, what is the value of $p$?",
+  choices: [
+    // distractor: applies inverse op — divides by a instead of (b+c)
+    { id: "A", text: "$33.3$" },
+    // distractor: wrong base — uses b alone instead of b + c
+    { id: "B", text: "$45$" },
+    { id: "C", text: "$30$" },
+    // distractor: off-by-one — uses b + c + a in the denominator
+    { id: "D", text: "$23.1$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $a = \\dfrac{p}{100}(b + c) \\Rightarrow 90 = \\dfrac{p}{100}(300) \\Rightarrow p = 30$.\n\n**The Full Solution:**\n\"$a$ is $p\\%$ of $(b + c)$\" translates to: $a = \\dfrac{p}{100}(b + c)$.\nSubstitute: $90 = \\dfrac{p}{100}(200 + 100) = 3p$.\nSolve: $p = 30$.\n\nVerification: $30\\%$ of $300 = 0.30 \\cdot 300 = 90$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — divides $b$ by $a$ ($\\dfrac{300}{90} \\cdot 100$ wrongly).\n* Choice B: \"wrong base\" — uses $b = 200$ alone instead of $b + c = 300$ as denominator: $\\dfrac{90}{200} = 45\\%$.\n* Choice D: \"off-by-one\" — uses $b + c + a = 390$ in the denominator: $\\dfrac{90}{390} \\approx 23.1\\%$.\n\n**Test Day Takeaway:** \"$a$ is $p\\%$ of $X$\" means $a = \\dfrac{p}{100} \\cdot X$. The denominator is whatever follows \"of.\"",
+  skills: ["percents"]
 },
 {
-  id: 14,
+  id: 5,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -639,7 +495,170 @@ export const practiceTest10 = {
   skills: ["scatterplots", "statistics", "linear-functions"]
 },
 {
+  id: 6,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A factory produces two types of bolts: standard bolts (each requiring $4$ minutes of machine time) and premium bolts (each requiring $7$ minutes of machine time). In one shift, the factory produces $35$ bolts using $176$ minutes of machine time. How many premium bolts were produced?",
+  choices: [
+    // distractor: stops one step early — gives the count of standard bolts
+    { id: "A", text: "$23$" },
+    { id: "B", text: "$12$" },
+    // distractor: applies inverse op — swaps the rates 4 and 7
+    { id: "C", text: "$16$" },
+    // distractor: off-by-one — solves correctly but reports number of standard bolts
+    { id: "D", text: "$24$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Let $s$ = standard, $p$ = premium. $s + p = 35$ and $4s + 7p = 176$. Substitute $s = 35 - p$: $4(35 - p) + 7p = 176 \\Rightarrow 140 + 3p = 176 \\Rightarrow p = 12$.\n\n**The Full Solution:**\nLet $s$ = standard bolts, $p$ = premium bolts.\n$s + p = 35$\n$4s + 7p = 176$\n\nFrom the first equation: $s = 35 - p$.\nSubstitute: $4(35 - p) + 7p = 176$\n$140 - 4p + 7p = 176$\n$140 + 3p = 176$\n$3p = 36$\n$p = 12$\n\nVerification: $s = 23$. Total: $23 + 12 = 35$ \\checkmark. Time: $4(23) + 7(12) = 92 + 84 = 176$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reports $s = 23$ (standard bolts) instead of premium.\n* Choice C: \"applies the inverse operation\" — swaps the rates $4$ and $7$, getting $p = 16$.\n* Choice D: \"off-by-one\" — solves correctly but reports number of standard bolts.\n\n**Test Day Takeaway:** Define variables explicitly and re-read what the question asks before answering.",
+  skills: ["systems-of-equations", "word-problems"]
+},
+{
+  id: 7,
+  type: "multiple-choice",
+  difficulty: "medium",
+  band: 5,
+  question: "For what value of $c$ does the system of equations below have infinitely many solutions?\n\n$3x - 6y = 12$\n$-x + 2y = c$",
+  choices: [
+    // distractor: wrong sign — uses constant from first equation with sign change
+    { id: "A", text: "$-12$" },
+    { id: "B", text: "$-4$" },
+    // distractor: applies inverse op — divides 12 by 3 but forgets sign
+    { id: "C", text: "$4$" },
+    // distractor: stops one step early — uses constant from first equation directly
+    { id: "D", text: "$12$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: System Equivalence Check**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** For infinitely many solutions, the equations must be scalar multiples. Divide the first by $-3$: $-x + 2y = -4$. So $c = -4$.\n\n**The Full Solution:**\nFor infinitely many solutions, the equations must be scalar multiples of each other.\nDivide the first equation by $-3$: $-x + 2y = -4$.\nThis must equal the second equation: $-x + 2y = c$.\nSo $c = -4$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong sign\" — uses constant from first equation with sign change.\n* Choice C: \"applies the inverse operation\" — divides $12$ by $3$ but forgets the negative.\n* Choice D: \"stops one step early\" — uses the constant from the first equation directly.\n\n**Test Day Takeaway:** For infinitely many solutions, one equation must be a multiple of the other. Match coefficients to find the constant.",
+  skills: ["systems-of-equations"]
+},
+{
+  id: 8,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "If $\\sqrt[3]{x^4} \\cdot \\sqrt{x^5} = x^k$ for $x > 0$, what is the value of $k$?",
+  choices: [
+    // distractor: applies inverse op — flips the fractional exponents
+    { id: "A", text: "$\\dfrac{17}{6}$" },
+    // distractor: stops one step early — adds numerators only (4 + 5 = 9)
+    { id: "B", text: "$\\dfrac{9}{6}$" },
+    { id: "C", text: "$\\dfrac{23}{6}$" },
+    // distractor: off-by-one — multiplies exponents instead of adding
+    { id: "D", text: "$\\dfrac{20}{6}$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\sqrt[3]{x^4} = x^{4/3}$ and $\\sqrt{x^5} = x^{5/2}$. Sum: $\\dfrac{4}{3} + \\dfrac{5}{2} = \\dfrac{8}{6} + \\dfrac{15}{6} = \\dfrac{23}{6}$.\n\n**The Full Solution:**\n$\\sqrt[3]{x^4} = x^{4/3}$\n$\\sqrt{x^5} = x^{5/2}$\n\nMultiplying with same base: add exponents.\n$x^{4/3} \\cdot x^{5/2} = x^{4/3 + 5/2}$\n\nCommon denominator $6$: $\\dfrac{4}{3} = \\dfrac{8}{6}$ and $\\dfrac{5}{2} = \\dfrac{15}{6}$.\nSum: $\\dfrac{8 + 15}{6} = \\dfrac{23}{6}$.\n\nSo $k = \\dfrac{23}{6}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — flips the fractional exponents to $\\dfrac{3}{4}$ and $\\dfrac{2}{5}$.\n* Choice B: \"stops one step early\" — adds numerators only ($4 + 5 = 9$).\n* Choice D: \"off-by-one\" — multiplies exponents instead of adding.\n\n**Test Day Takeaway:** Convert radicals to fractional exponents (power over index), then add when multiplying same bases.",
+  skills: ["exponent-rules", "radical-expressions"]
+},
+{
+  id: 9,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The function $f$ is defined by $f(x) = (x - 2)^2 + 3$. The function $g$ is defined by $g(x) = f(x + 4) - 5$. For what value of $x$ does $g$ attain its minimum?",
+  choices: [
+    // distractor: wrong sign — uses x = 6 (shift in wrong direction)
+    { id: "A", text: "$6$" },
+    { id: "B", text: "$-2$" },
+    // distractor: stops one step early — gives x = 2 (the original vertex)
+    { id: "C", text: "$2$" },
+    // distractor: off-by-one — confuses the y-shift -5 with the x-shift
+    { id: "D", text: "$-5$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f$ has minimum at $x = 2$. $g(x) = f(x + 4) - 5$ shifts $f$ left by $4$, so the minimum of $g$ is at $x = 2 - 4 = -2$.\n\n**The Full Solution:**\nThe function $f(x) = (x - 2)^2 + 3$ has minimum at $x = 2$.\nThe transformation $g(x) = f(x + 4) - 5$ shifts $f$ to the LEFT by $4$ (because of the $+4$ inside the function) and DOWN by $5$.\nThe horizontal shift moves the minimum from $x = 2$ to $x = 2 - 4 = -2$. The vertical shift does not affect the $x$-coordinate of the minimum.\n\nVerification: $g(x) = ((x + 4) - 2)^2 + 3 - 5 = (x + 2)^2 - 2$, vertex at $x = -2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong sign\" — shifts in the wrong direction ($x = 2 + 4 = 6$).\n* Choice C: \"stops one step early\" — gives the vertex of $f$ without applying the shift.\n* Choice D: \"off-by-one\" — confuses the $y$-shift $-5$ with the $x$-shift.\n\n**Test Day Takeaway:** $f(x + c)$ shifts the graph LEFT by $c$ (opposite of what the sign suggests). Vertical shifts don't affect $x$-coordinates of extrema.",
+  skills: ["function-interpretation", "vertex-form"]
+},
+{
+  id: 10,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "The mean of a list of $9$ values is $42$. When one additional value is added to the list, the mean of the new $10$-value list becomes $45$. What is the value of the additional value?",
+  correctAnswer: "72",
+  explanation: "**SAT Pattern: Mean from List**\n\n**The correct answer is $72$.**\n\n**The Fast Way (~25s):** Original sum $= 9 \\cdot 42 = 378$. New sum $= 10 \\cdot 45 = 450$. Added value $= 450 - 378 = 72$.\n\n**The Full Solution:**\nOriginal mean: $42 \\Rightarrow$ sum of original $9$ values is $9 \\cdot 42 = 378$.\nNew mean: $45 \\Rightarrow$ sum of new $10$ values is $10 \\cdot 45 = 450$.\nAdded value $=$ new sum $-$ original sum $= 450 - 378 = 72$.\n\n**Verification:** $\\dfrac{378 + 72}{10} = \\dfrac{450}{10} = 45$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing $\\dfrac{42 + 45}{2} = 43.5$ — wrong because this isn't a simple average of two means.\n* Using $9 \\cdot 45 = 405$ instead of $10 \\cdot 45$.\n\n**Test Day Takeaway:** Mean problems with added/removed values: convert to sums first (mean $\\times$ count), then work with sums.",
+  skills: ["statistics", "mean-median-mode"]
+},
+{
+  id: 11,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "The system of equations below has solution $(x, y, z)$.\n\n$x + y + z = 14$\n$2x - y + z = 9$\n$x + 2y - z = 11$\n\nWhat is the value of $z$?",
+  correctAnswer: "4",
+  explanation: "**SAT Pattern: Three-Variable Elimination**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~45s):** Add eqs $(1)+(3)$ to eliminate $z$: $2x + 3y = 25$. Add eqs $(2)+(3)$: $3x + y = 20$. Solve: $x = 5, y = 5$. Substitute into eq $(1)$: $z = 14 - 5 - 5 = 4$.\n\n**The Full Solution:**\nAdd equations $(1) + (3)$: $(x + y + z) + (x + 2y - z) = 14 + 11$, so $2x + 3y = 25$.\nAdd equations $(2) + (3)$: $(2x - y + z) + (x + 2y - z) = 9 + 11$, so $3x + y = 20$.\n\nFrom $3x + y = 20$: $y = 20 - 3x$.\nSubstitute: $2x + 3(20 - 3x) = 25 \\Rightarrow 2x + 60 - 9x = 25 \\Rightarrow -7x = -35 \\Rightarrow x = 5$.\nThen $y = 20 - 15 = 5$.\nFrom equation $(1)$: $5 + 5 + z = 14 \\Rightarrow z = 4$.\n\nVerification: equation $(2)$: $2(5) - 5 + 4 = 9$ \\checkmark. Equation $(3)$: $5 + 10 - 4 = 11$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Sign errors when adding equations.\n* Solving for $x$ or $y$ and reporting that value.\n\n**Test Day Takeaway:** For three-variable systems, eliminate one variable by adding pairs of equations to reduce to a $2 \\times 2$ system.",
+  skills: ["systems-of-equations"]
+},
+{
+  id: 12,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The parabola defined by $y = 2(x - h)^2 + k$ has its vertex at the point $(4, -3)$ and passes through the point $(2, 5)$. What is the value of $h + k$?",
+  choices: [
+    // distractor: wrong sign — uses h - k instead of h + k
+    { id: "A", text: "$7$" },
+    // distractor: stops one step early — uses k from a wrong calculation
+    { id: "B", text: "$-7$" },
+    { id: "C", text: "$1$" },
+    // distractor: off-by-one — uses passing-point coords as h, k
+    { id: "D", text: "$2$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Vertex $(4, -3)$ gives $h = 4, k = -3$. Verify: $y = 2(2 - 4)^2 + (-3) = 2(4) - 3 = 5$ \\checkmark. So $h + k = 4 + (-3) = 1$.\n\n**The Full Solution:**\nFrom vertex form $y = a(x - h)^2 + k$, the vertex is $(h, k)$.\nGiven vertex $(4, -3)$: $h = 4$ and $k = -3$.\n\nVerify with the second point $(2, 5)$: $y = 2(2 - 4)^2 + (-3) = 2(4) - 3 = 5$ \\checkmark.\n\nThus $h + k = 4 + (-3) = 1$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong sign\" — computes $h - k = 4 - (-3) = 7$ instead of $h + k$.\n* Choice B: \"stops one step early\" — uses $k$ from a wrong calculation.\n* Choice D: \"off-by-one\" — uses passing-point coordinates as $h, k$.\n\n**Test Day Takeaway:** In vertex form $y = a(x - h)^2 + k$, the vertex is $(h, k)$ — directly readable from the equation.",
+  skills: ["vertex-form", "function-interpretation"]
+},
+{
+  id: 13,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A sample of $1{,}200$ registered voters was surveyed about a ballot measure. $45\\%$ said they supported the measure. The margin of error is $3$ percentage points. Which of the following is the best interpretation of these results?",
+  choices: [
+    // distractor: stops one step early — interprets the sample count as population
+    { id: "A", text: "Exactly $540$ voters in the population support the measure." },
+    // distractor: applies inverse op — uses sample percent to predict result
+    { id: "B", text: "The measure will fail because support is below $50\\%$." },
+    { id: "C", text: "The true population proportion is plausibly between $42\\%$ and $48\\%$." },
+    // distractor: wrong base — claims sample size adjustment increases margin
+    { id: "D", text: "If $300$ more people were surveyed, the margin of error would increase." }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Margin of Error**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $45\\% \\pm 3\\% = [42\\%, 48\\%]$ is the confidence interval for the true population proportion.\n\n**The Full Solution:**\nThe margin of error of $3$ percentage points means the confidence interval is $45\\% - 3\\% = 42\\%$ to $45\\% + 3\\% = 48\\%$. This interval estimates the true population proportion, not the sample proportion.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — $540$ is the sample count ($1200 \\times 0.45$), not the population value.\n* Choice B: \"applies the inverse operation\" — the confidence interval includes values below and above; we cannot conclude the measure will fail.\n* Choice D: \"wrong base\" — increasing sample size DECREASES margin of error, not increases.\n\n**Test Day Takeaway:** Larger samples give smaller margins of error. The confidence interval applies to the population, not the sample.",
+  skills: ["margin-of-error", "statistics"]
+},
+{
+  id: 14,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "Line $\\ell$ in the $xy$-plane is perpendicular to the line $y = -\\dfrac{2}{3}x + 4$ and passes through the point $(6, 1)$. What is the equation of line $\\ell$?",
+  choices: [
+    { id: "A", text: "$y = \\dfrac{3}{2}x - 8$" },
+    // distractor: wrong sign — uses parallel slope (negative reciprocal not flipped)
+    { id: "B", text: "$y = -\\dfrac{2}{3}x + 5$" },
+    // distractor: applies inverse op — uses 2/3 (not flipped to 3/2)
+    { id: "C", text: "$y = \\dfrac{2}{3}x - 3$" },
+    // distractor: off-by-one — sign error in y-intercept calculation
+    { id: "D", text: "$y = \\dfrac{3}{2}x + 8$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Perpendicular slope to $-\\dfrac{2}{3}$ is $\\dfrac{3}{2}$. Use $(6, 1)$: $1 = \\dfrac{3}{2}(6) + b = 9 + b \\Rightarrow b = -8$.\n\n**The Full Solution:**\nThe given line has slope $-\\dfrac{2}{3}$. Perpendicular slope is the negative reciprocal: $\\dfrac{3}{2}$.\nUsing point-slope form with $(6, 1)$:\n$y - 1 = \\dfrac{3}{2}(x - 6)$\n$y = \\dfrac{3}{2}x - 9 + 1 = \\dfrac{3}{2}x - 8$.\n\nVerification: at $(6, 1)$: $\\dfrac{3}{2}(6) - 8 = 9 - 8 = 1$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong sign\" — keeps the same slope (parallel, not perpendicular).\n* Choice C: \"applies the inverse operation\" — uses $\\dfrac{2}{3}$ (only flipped sign, not reciprocal).\n* Choice D: \"off-by-one\" — sign error gives $b = +8$ instead of $-8$.\n\n**Test Day Takeaway:** Perpendicular slopes are negative reciprocals: flip the fraction AND change the sign.",
+  skills: ["slope", "coordinate-geometry", "linear-functions"]
+},
+{
   id: 15,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "In the $xy$-plane, the equation $x^2 + y^2 - 8x + 6y - 11 = 0$ defines a circle. What is the radius of the circle?",
+  correctAnswer: "6",
+  explanation: "**SAT Pattern: Complete the Square — Non-Square Radius**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~30s):** Complete the square: $(x - 4)^2 + (y + 3)^2 = 11 + 16 + 9 = 36$. So $r^2 = 36$ and $r = 6$.\n\n**The Full Solution:**\nGroup $x$- and $y$-terms:\n$(x^2 - 8x) + (y^2 + 6y) = 11$\n\nComplete the square: half of $-8$ is $-4$, $(-4)^2 = 16$. Half of $6$ is $3$, $3^2 = 9$.\n$(x^2 - 8x + 16) + (y^2 + 6y + 9) = 11 + 16 + 9$\n$(x - 4)^2 + (y + 3)^2 = 36$\n\nRadius $= \\sqrt{36} = 6$.\n\n**Common Mistakes to Avoid:**\n* Reporting $r^2 = 36$ instead of $r = 6$.\n* Sign errors when moving the constant to the right side.\n\n**Test Day Takeaway:** Complete the square for BOTH variables. The radius is $\\sqrt{r^2}$, not $r^2$ itself.",
+  skills: ["circle-equations", "coordinate-geometry"]
+},
+{
+  id: 16,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -658,7 +677,7 @@ export const practiceTest10 = {
   skills: ["trigonometry", "triangles", "right-triangles"]
 },
 {
-  id: 16,
+  id: 17,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -677,7 +696,7 @@ export const practiceTest10 = {
   skills: ["quadratic-equations", "discriminant"]
 },
 {
-  id: 17,
+  id: 18,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -687,7 +706,7 @@ export const practiceTest10 = {
   skills: ["exponent-rules", "radical-expressions"]
 },
 {
-  id: 18,
+  id: 19,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -704,25 +723,6 @@ export const practiceTest10 = {
   correctAnswer: "C",
   explanation: "**SAT Pattern: Percent Greater Than**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Percent greater $= \\dfrac{350 - 50}{50} \\times 100 = 6 \\times 100 = 600\\%$.\n\n**The Full Solution:**\n\"$A$ is what percent greater than $B$\" means $\\dfrac{A - B}{B} \\times 100$.\n$\\dfrac{350 - 50}{50} \\times 100 = \\dfrac{300}{50} \\times 100 = 6 \\times 100 = 600\\%$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — computes $\\dfrac{350 - 50}{350} \\times 100$ — divides by $350$ instead of $50$.\n* Choice B: \"stops one step early\" — computes $350 - 50 = 300$ and stops.\n* Choice D: \"wrong base\" — computes $\\dfrac{350}{50} \\times 100 = 700\\%$, but that's \"what percent OF,\" not \"what percent GREATER.\"\n\n**Test Day Takeaway:** \"Percent greater\" means $\\dfrac{\\text{difference}}{\\text{base}} \\times 100$. The base is the number after \"than.\"",
   skills: ["percents", "word-problems"]
-},
-{
-  id: 19,
-  type: "multiple-choice",
-  difficulty: "medium",
-  band: 5,
-  question: "For what value of $c$ does the system of equations below have infinitely many solutions?\n\n$3x - 6y = 12$\n$-x + 2y = c$",
-  choices: [
-    // distractor: wrong sign — uses constant from first equation with sign change
-    { id: "A", text: "$-12$" },
-    { id: "B", text: "$-4$" },
-    // distractor: applies inverse op — divides 12 by 3 but forgets sign
-    { id: "C", text: "$4$" },
-    // distractor: stops one step early — uses constant from first equation directly
-    { id: "D", text: "$12$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: System Equivalence Check**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** For infinitely many solutions, the equations must be scalar multiples. Divide the first by $-3$: $-x + 2y = -4$. So $c = -4$.\n\n**The Full Solution:**\nFor infinitely many solutions, the equations must be scalar multiples of each other.\nDivide the first equation by $-3$: $-x + 2y = -4$.\nThis must equal the second equation: $-x + 2y = c$.\nSo $c = -4$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong sign\" — uses constant from first equation with sign change.\n* Choice C: \"applies the inverse operation\" — divides $12$ by $3$ but forgets the negative.\n* Choice D: \"stops one step early\" — uses the constant from the first equation directly.\n\n**Test Day Takeaway:** For infinitely many solutions, one equation must be a multiple of the other. Match coefficients to find the constant.",
-  skills: ["systems-of-equations"]
 },
 {
   id: 20,

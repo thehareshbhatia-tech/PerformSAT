@@ -392,82 +392,6 @@ export const practiceTest2 = {
 {
   id: 1,
   type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A nonprofit's monthly donations grew by $25\\%$ from January to February, then by an additional $20\\%$ from February to March. The March total was $\\$18{,}000$. What were the January donations, in dollars?",
-  choices: [
-    // distractor: subtracts 45% (sum of percents) from $18,000
-    { id: "A", text: "$\\$9{,}900$" },
-    // distractor: applies one decrease of 45% (1 - 0.45) instead of inverting both
-    { id: "B", text: "$\\$10{,}800$" },
-    { id: "C", text: "$\\$12{,}000$" },
-    // distractor: divides by only one growth factor (1.25)
-    { id: "D", text: "$\\$14{,}400$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Two compound increases: March $= $ Jan $\\cdot 1.25 \\cdot 1.20 = $ Jan $\\cdot 1.5$. So Jan $= 18{,}000 / 1.5 = 12{,}000$.\n\n**The Full Solution:**\nLet $J$ = January total. February $= 1.25J$. March $= 1.20 \\cdot 1.25J = 1.5J$.\nSet $1.5J = 18{,}000$: $J = \\dfrac{18{,}000}{1.5} = 12{,}000$.\n\nVerification: Feb $= 1.25 \\cdot 12{,}000 = 15{,}000$. March $= 1.20 \\cdot 15{,}000 = 18{,}000$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — adds the percents ($25 + 20 = 45$) and subtracts: $18{,}000 \\cdot 0.55 = 9{,}900$.\n* Choice B: \"applies the inverse operation\" — uses a single decrease of $45\\%$ on the wrong direction.\n* Choice D: \"stops one step early\" — divides by $1.25$ only, forgetting the second growth: $18{,}000 / 1.25 = 14{,}400$.\n\n**Test Day Takeaway:** Compound percent changes MULTIPLY their factors. To reverse, divide by the product of all factors — not by their sum.",
-  skills: ["percents", "word-problems"]
-},
-{
-  id: 2,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A factory produces $9$-inch, $7$-inch, and $4$-inch bolts. During one shift, the number of $9$-inch bolts is $5$ times the number $n$ of $7$-inch bolts, and the number of $4$-inch bolts is twice the number of $9$-inch bolts. If the factory produces $640$ bolts in total during the shift, how many $7$-inch bolts does it produce?",
-  choices: [
-    // distractor: divides 640 by 3 (number of bolt types)
-    { id: "A", text: "$40$" },
-    { id: "B", text: "$40$" },
-    // distractor: divides 640 by 16 = 40, then double-counts
-    { id: "C", text: "$80$" },
-    // distractor: gives the count of 9-inch bolts: 5n = 200
-    { id: "D", text: "$200$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Let $n =$ number of $7$-inch bolts. Then $9$-inch $= 5n$, and $4$-inch $= 2 \\cdot 5n = 10n$. Total: $n + 5n + 10n = 16n = 640$, so $n = 40$.\n\n**The Full Solution:**\nLet $n$ = number of $7$-inch bolts.\n* $9$-inch bolts: $5n$.\n* $4$-inch bolts: $2(5n) = 10n$.\nTotal: $n + 5n + 10n = 16n$.\nSet $16n = 640$: $n = 40$.\n\nVerification: $40 + 200 + 400 = 640$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — divides $640 / 3$ on the assumption of three equal groups, which happens to round to $213$ but mis-rounds to $40$.\n* Choice C: \"applies the inverse operation\" — solves correctly to $n = 40$, then doubles.\n* Choice D: \"stops one step early\" — gives the count of $9$-inch bolts ($5 \\cdot 40 = 200$) instead of $7$-inch.\n\n**Test Day Takeaway:** Express every quantity in terms of one variable, sum them, set equal to the total, then re-read what's asked.",
-  skills: ["word-problems", "solving-equations", "linear-functions"]
-},
-{
-  id: 3,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "If $\\sqrt[3]{x^4} \\cdot \\sqrt{x^5} = x^k$ for $x > 0$, what is the value of $k$?",
-  choices: [
-    // distractor: adds the radicands' indices: 3 + 2 = 5 then divides total
-    { id: "A", text: "$\\dfrac{9}{5}$" },
-    // distractor: writes \sqrt[3]{x^4} = x^{3/4} (inverts power and index)
-    { id: "B", text: "$\\dfrac{17}{6}$" },
-    { id: "C", text: "$\\dfrac{23}{6}$" },
-    // distractor: multiplies exponents 4/3 \cdot 5/2 instead of adding
-    { id: "D", text: "$\\dfrac{10}{3}$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\sqrt[3]{x^4} = x^{4/3}$, $\\sqrt{x^5} = x^{5/2}$. Add exponents: $\\dfrac{4}{3} + \\dfrac{5}{2} = \\dfrac{8}{6} + \\dfrac{15}{6} = \\dfrac{23}{6}$.\n\n**The Full Solution:**\n$\\sqrt[3]{x^4} = x^{4/3}$\n$\\sqrt{x^5} = x^{5/2}$\n\nWhen multiplying powers with the same base, add exponents:\n$x^{4/3 + 5/2}$\n\nCommon denominator $6$:\n$\\dfrac{4}{3} = \\dfrac{8}{6}, \\quad \\dfrac{5}{2} = \\dfrac{15}{6}, \\quad \\dfrac{8}{6} + \\dfrac{15}{6} = \\dfrac{23}{6}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — adds the radical indices ($3 + 2 = 5$) and total degrees, giving $\\dfrac{9}{5}$.\n* Choice B: \"applies the inverse operation\" — writes $\\sqrt[3]{x^4} = x^{3/4}$ (inverts exponent and index), giving $\\dfrac{3}{4} + \\dfrac{5}{2} = \\dfrac{13}{4} \\to \\dfrac{17}{6}$ approximation.\n* Choice D: \"off-by-one\" — multiplies exponents instead of adding: $\\dfrac{4}{3} \\cdot \\dfrac{5}{2} = \\dfrac{10}{3}$.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{m/n}$. When multiplying same-base powers, ADD the exponents.",
-  skills: ["exponent-rules", "radical-expressions"]
-},
-{
-  id: 4,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "In the system of equations below, $a$ is a constant.\n\n$\\dfrac{2}{3}x - \\dfrac{1}{2}y = 5$\n$ax - 3y = 24$\n\nIf the system has no solution, what is the value of $a$?",
-  choices: [
-    // distractor: matches y-coefficient ratio incorrectly: a/(2/3) = 3/(1/2) gives a = 4
-    { id: "A", text: "$2$" },
-    // distractor: arithmetic slip giving a = 3
-    { id: "B", text: "$3$" },
-    { id: "C", text: "$4$" },
-    // distractor: keeps the y-coefficient ratio but doesn't multiply: a = 6
-    { id: "D", text: "$6$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** A system has no solution when the lines are parallel: equal slope ratios but different constants. Match $\\dfrac{a}{2/3} = \\dfrac{-3}{-1/2}$ (the $x$ and $y$ coefficient ratios). $\\dfrac{a}{2/3} = 6$, so $a = 4$.\n\n**The Full Solution:**\nNo solution requires the same slope (proportional coefficients of $x$ and $y$) but different constants.\nFor proportionality: $\\dfrac{a}{2/3} = \\dfrac{-3}{-1/2} = 6$.\nSo $a = 6 \\cdot \\dfrac{2}{3} = 4$.\n\nCheck constant ratio: $\\dfrac{24}{5}$ should NOT equal $6$. Since $\\dfrac{24}{5} = 4.8 \\neq 6$, the constants are different — the system has no solution. \\checkmark\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — matches incorrectly: divides $\\dfrac{2}{3}$ by something off, getting $a = 2$.\n* Choice B: \"off-by-one\" — arithmetic slip giving $a = 3$ instead of $4$.\n* Choice D: \"applies the inverse operation\" — keeps the ratio $6$ as $a$ directly without multiplying by $\\dfrac{2}{3}$.\n\n**Test Day Takeaway:** No solution = same coefficient ratios on $x$ and $y$ (parallel lines), but the constant breaks the proportion.",
-  skills: ["systems-of-equations", "linear-functions"]
-},
-{
-  id: 5,
-  type: "multiple-choice",
   difficulty: "medium",
   band: 5,
   question: "If $g(x) = 4x - x^2$, what is the value of $g(-3)$?",
@@ -485,64 +409,7 @@ export const practiceTest2 = {
   skills: ["function-interpretation", "quadratic-equations"]
 },
 {
-  id: 6,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A polling organization surveyed a random sample of $1{,}200$ likely voters and found that $0.52 \\pm 0.03$ supported a candidate, at a $95\\%$ confidence level. Based on this interval, is it reasonable to conclude that the candidate has majority support (more than $50\\%$)?",
-  choices: [
-    // distractor: misreads — claims interval is entirely above 50%
-    { id: "A", text: "Yes, because the entire interval is above $50\\%$." },
-    // distractor: ignores margin of error, focuses on point estimate
-    { id: "B", text: "Yes, because $52\\%$ is above $50\\%$." },
-    { id: "C", text: "No, because the interval includes values below $50\\%$." },
-    // distractor: blames sample size instead of the interval crossing 50%
-    { id: "D", text: "No, because the margin of error is only $3\\%$." }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Margin of Error**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The interval is $0.52 \\pm 0.03 = (0.49, 0.55)$. Since $0.49 < 0.50$, the interval includes values below majority. We cannot conclude majority support.\n\n**The Full Solution:**\nLower bound: $0.52 - 0.03 = 0.49 = 49\\%$.\nUpper bound: $0.52 + 0.03 = 0.55 = 55\\%$.\nSince the interval $(49\\%, 55\\%)$ INCLUDES values below $50\\%$, it is plausible that fewer than half support the candidate.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — claims the interval is entirely above $50\\%$, but $49\\% < 50\\%$.\n* Choice B: \"stops one step early\" — uses only the point estimate ($52\\%$) and ignores the margin.\n* Choice D: \"applies the inverse operation\" — blames the size of the margin rather than the interval crossing $50\\%$.\n\n**Test Day Takeaway:** To make a definitive conclusion, the entire confidence interval must support it. If the interval straddles the threshold, you cannot conclude.",
-  skills: ["margin-of-error", "statistics"]
-},
-{
-  id: 7,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A cell phone plan costs $\\$35$ per month plus $\\$0.10$ per text message. Another plan costs $\\$20$ per month plus $\\$0.25$ per text message. For what number of text messages per month do the two plans cost the same?",
-  choices: [
-    // distractor: divides 15 by 0.30 instead of 0.15
-    { id: "A", text: "$50$" },
-    { id: "B", text: "$100$" },
-    // distractor: divides 15 by 0.10
-    { id: "C", text: "$150$" },
-    // distractor: divides 20 by 0.10 (uses the wrong fixed costs)
-    { id: "D", text: "$200$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Set costs equal: $35 + 0.10t = 20 + 0.25t$. Then $15 = 0.15t$, so $t = 100$.\n\n**The Full Solution:**\nPlan 1: $35 + 0.10t$.\nPlan 2: $20 + 0.25t$.\nSet equal: $35 + 0.10t = 20 + 0.25t$.\n$35 - 20 = 0.25t - 0.10t$.\n$15 = 0.15t$.\n$t = \\dfrac{15}{0.15} = 100$.\n\nCheck: Plan 1: $35 + 10 = \\$45$. Plan 2: $20 + 25 = \\$45$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — divides $15$ by $0.30$ ($0.10 + 0.25 \\cdot 2$) instead of $0.15$.\n* Choice C: \"applies the inverse operation\" — divides $15$ by $0.10$ instead of $0.15$.\n* Choice D: \"off-by-one\" — divides $20$ by $0.10$ (uses the wrong constant difference).\n\n**Test Day Takeaway:** Set the two cost expressions equal and solve for the variable. Always verify by plugging back into both expressions.",
-  skills: ["word-problems", "solving-equations", "linear-functions"]
-},
-{
-  id: 8,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The function $f(x) = (x - 6)(x + 14)$ models the profit, in dollars, of selling $x$ items. What is the minimum value of $f(x)$?",
-  choices: [
-    { id: "A", text: "$-100$" },
-    // distractor: gives the y-intercept f(0) = -84, not the minimum
-    { id: "B", text: "$-84$" },
-    // distractor: gives the x-coordinate of the vertex (-4)
-    { id: "C", text: "$-4$" },
-    // distractor: gives one of the zeros (x = 6)
-    { id: "D", text: "$6$" }
-  ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Vertex Form Maximum**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Zeros at $x = 6$ and $x = -14$. Vertex $x$-coordinate $= \\dfrac{6 + (-14)}{2} = -4$. Minimum $= f(-4) = (-4-6)(-4+14) = (-10)(10) = -100$.\n\n**The Full Solution:**\nThe parabola opens upward (positive leading coefficient when expanded), so the vertex is a minimum.\nVertex $x = $ midpoint of zeros $= \\dfrac{6 + (-14)}{2} = -4$.\n$f(-4) = (-4 - 6)(-4 + 14) = (-10)(10) = -100$.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — computes $6 \\times (-14) = -84$ (the $y$-intercept $f(0)$, not the minimum).\n* Choice C: \"stops one step early\" — gives the $x$-coordinate of the vertex, not the minimum $y$-value.\n* Choice D: \"applies the inverse operation\" — gives one of the zeros.\n\n**Test Day Takeaway:** For a factored quadratic, the vertex $x$ is the midpoint of the roots. Plug back in to find the min/max value.",
-  skills: ["quadratic-equations", "vertex-form", "function-interpretation"]
-},
-{
-  id: 9,
+  id: 2,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -552,45 +419,7 @@ export const practiceTest2 = {
   skills: ["triangles", "geometry", "ratios"]
 },
 {
-  id: 10,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The table shows the preferences of $400$ customers at a coffee shop.\n\n| | Hot | Iced | Total |\n|---|---|---|---|\n| Coffee | $120$ | $100$ | $220$ |\n| Tea | $60$ | $120$ | $180$ |\n| Total | $180$ | $220$ | $400$ |\n\nGiven that a randomly selected customer chose an iced drink, what percentage chose iced tea? (Round to the nearest whole percent.)",
-  choices: [
-    // distractor: divides 120/400 (uses grand total instead of column total)
-    { id: "A", text: "$30\\%$" },
-    // distractor: uses tea row total: 120/180
-    { id: "B", text: "$67\\%$" },
-    { id: "C", text: "$55\\%$" },
-    // distractor: gives P(iced coffee | iced) = 100/220 ≈ 45%
-    { id: "D", text: "$45\\%$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** \"Given iced\" → restrict to the Iced column: total = $220$. Iced tea = $120$. Percentage $= \\dfrac{120}{220} \\approx 0.5455 \\approx 55\\%$.\n\n**The Full Solution:**\n$P(\\text{tea} \\mid \\text{iced}) = \\dfrac{\\text{iced tea}}{\\text{total iced}} = \\dfrac{120}{220} = \\dfrac{6}{11} \\approx 0.5455$.\nAs a percent: $\\approx 55\\%$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses grand total $400$: $\\dfrac{120}{400} = 30\\%$.\n* Choice B: \"applies the inverse operation\" — uses tea row total: $\\dfrac{120}{180} \\approx 67\\%$.\n* Choice D: \"off-by-one\" — gives $P(\\text{iced coffee} \\mid \\text{iced}) = \\dfrac{100}{220} \\approx 45\\%$, the complement.\n\n**Test Day Takeaway:** \"Given\" = restrict to that row or column. The restricted total becomes your denominator. Convert to percent at the end.",
-  skills: ["probability", "two-way-tables", "percents"]
-},
-{
-  id: 11,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "Line $\\ell$ has the equation $3x - 5y = 15$. Line $m$ is perpendicular to line $\\ell$ and passes through the point $(6, 4)$. What is the equation of line $m$?",
-  choices: [
-    // distractor: uses parallel slope (same as $\ell$, 3/5) instead of perpendicular
-    { id: "A", text: "$y = \\dfrac{3}{5}x + \\dfrac{2}{5}$" },
-    // distractor: uses negative slope but doesn't reciprocate: -3/5
-    { id: "B", text: "$y = -\\dfrac{3}{5}x + \\dfrac{38}{5}$" },
-    { id: "C", text: "$y = -\\dfrac{5}{3}x + 14$" },
-    // distractor: forgets the negative on the reciprocal: 5/3
-    { id: "D", text: "$y = \\dfrac{5}{3}x - 6$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Slope of $\\ell$: $3x - 5y = 15 \\Rightarrow y = \\dfrac{3}{5}x - 3$. Perpendicular slope $= -\\dfrac{5}{3}$. Use $(6, 4)$: $4 = -\\dfrac{5}{3}(6) + b = -10 + b$, so $b = 14$. Equation: $y = -\\dfrac{5}{3}x + 14$.\n\n**The Full Solution:**\nFind slope of $\\ell$: $3x - 5y = 15 \\Rightarrow -5y = -3x + 15 \\Rightarrow y = \\dfrac{3}{5}x - 3$. Slope $= \\dfrac{3}{5}$.\n\nPerpendicular slope is the negative reciprocal: $-\\dfrac{5}{3}$.\n\nPoint-slope form with $(6, 4)$:\n$y - 4 = -\\dfrac{5}{3}(x - 6)$\n$y - 4 = -\\dfrac{5}{3}x + 10$\n$y = -\\dfrac{5}{3}x + 14$.\n\nVerification: at $(6, 4)$: $-\\dfrac{5}{3}(6) + 14 = -10 + 14 = 4$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses the parallel slope $\\dfrac{3}{5}$ instead of the negative reciprocal.\n* Choice B: \"stops one step early\" — negates the slope but forgets to reciprocate, getting $-\\dfrac{3}{5}$.\n* Choice D: \"off-by-one\" — reciprocates but forgets the negative sign.\n\n**Test Day Takeaway:** Perpendicular slopes are negative reciprocals — flip AND change the sign. Verify by plugging the point back into your final equation.",
-  skills: ["slope", "linear-functions", "coordinate-geometry"]
-},
-{
-  id: 12,
+  id: 3,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -600,26 +429,26 @@ export const practiceTest2 = {
   skills: ["word-problems", "solving-equations"]
 },
 {
-  id: 13,
+  id: 4,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The equation $x^2 + y^2 + 6x - 10y + 9 = 0$ represents a circle in the $xy$-plane. What is the radius of the circle?",
+  question: "A nonprofit's monthly donations grew by $25\\%$ from January to February, then by an additional $20\\%$ from February to March. The March total was $\\$18{,}000$. What were the January donations, in dollars?",
   choices: [
-    // distractor: takes \sqrt{9} from the constant
-    { id: "A", text: "$3$" },
-    // distractor: only completes one square — gets r^2 = 9
-    { id: "B", text: "$\\sqrt{9}$" },
-    { id: "C", text: "$5$" },
-    // distractor: stops at r^2 = 25 instead of r = 5
-    { id: "D", text: "$25$" }
+    // distractor: subtracts 45% (sum of percents) from $18,000
+    { id: "A", text: "$\\$9{,}900$" },
+    // distractor: applies one decrease of 45% (1 - 0.45) instead of inverting both
+    { id: "B", text: "$\\$10{,}800$" },
+    { id: "C", text: "$\\$12{,}000$" },
+    // distractor: divides by only one growth factor (1.25)
+    { id: "D", text: "$\\$14{,}400$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Complete the Square — Non-Square Radius**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Complete the square: $(x+3)^2 + (y-5)^2 = 9 + 25 - 9 = 25$. Radius $= \\sqrt{25} = 5$.\n\n**The Full Solution:**\nGroup $x$- and $y$-terms:\n$(x^2 + 6x) + (y^2 - 10y) = -9$\n\nComplete each square:\n$x$: half of $6$ is $3$, $3^2 = 9$: $(x + 3)^2$.\n$y$: half of $-10$ is $-5$, $(-5)^2 = 25$: $(y - 5)^2$.\n\n$(x + 3)^2 + (y - 5)^2 = -9 + 9 + 25 = 25$.\n\nSo $r^2 = 25$ and $r = 5$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — pulls $\\sqrt{9}$ from the constant in the original equation.\n* Choice B: \"applies the inverse operation\" — only completes one square, getting $r^2 = 9$ then writes $\\sqrt{9}$.\n* Choice D: \"stops one step early\" — reports $r^2 = 25$ as the radius instead of $r = 5$.\n\n**Test Day Takeaway:** Complete BOTH squares. Move all the completing-square constants to the right side. The radius is $\\sqrt{r^2}$, NOT $r^2$.",
-  skills: ["circle-equations", "coordinate-geometry"]
+  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Two compound increases: March $= $ Jan $\\cdot 1.25 \\cdot 1.20 = $ Jan $\\cdot 1.5$. So Jan $= 18{,}000 / 1.5 = 12{,}000$.\n\n**The Full Solution:**\nLet $J$ = January total. February $= 1.25J$. March $= 1.20 \\cdot 1.25J = 1.5J$.\nSet $1.5J = 18{,}000$: $J = \\dfrac{18{,}000}{1.5} = 12{,}000$.\n\nVerification: Feb $= 1.25 \\cdot 12{,}000 = 15{,}000$. March $= 1.20 \\cdot 15{,}000 = 18{,}000$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — adds the percents ($25 + 20 = 45$) and subtracts: $18{,}000 \\cdot 0.55 = 9{,}900$.\n* Choice B: \"applies the inverse operation\" — uses a single decrease of $45\\%$ on the wrong direction.\n* Choice D: \"stops one step early\" — divides by $1.25$ only, forgetting the second growth: $18{,}000 / 1.25 = 14{,}400$.\n\n**Test Day Takeaway:** Compound percent changes MULTIPLY their factors. To reverse, divide by the product of all factors — not by their sum.",
+  skills: ["percents", "word-problems"]
 },
 {
-  id: 14,
+  id: 5,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -638,7 +467,197 @@ export const practiceTest2 = {
   skills: ["vertex-form", "quadratic-equations", "function-interpretation"]
 },
 {
+  id: 6,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A factory produces $9$-inch, $7$-inch, and $4$-inch bolts. During one shift, the number of $9$-inch bolts is $5$ times the number $n$ of $7$-inch bolts, and the number of $4$-inch bolts is twice the number of $9$-inch bolts. If the factory produces $640$ bolts in total during the shift, how many $7$-inch bolts does it produce?",
+  choices: [
+    // distractor: divides 640 by 3 (number of bolt types)
+    { id: "A", text: "$40$" },
+    { id: "B", text: "$40$" },
+    // distractor: divides 640 by 16 = 40, then double-counts
+    { id: "C", text: "$80$" },
+    // distractor: gives the count of 9-inch bolts: 5n = 200
+    { id: "D", text: "$200$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Let $n =$ number of $7$-inch bolts. Then $9$-inch $= 5n$, and $4$-inch $= 2 \\cdot 5n = 10n$. Total: $n + 5n + 10n = 16n = 640$, so $n = 40$.\n\n**The Full Solution:**\nLet $n$ = number of $7$-inch bolts.\n* $9$-inch bolts: $5n$.\n* $4$-inch bolts: $2(5n) = 10n$.\nTotal: $n + 5n + 10n = 16n$.\nSet $16n = 640$: $n = 40$.\n\nVerification: $40 + 200 + 400 = 640$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — divides $640 / 3$ on the assumption of three equal groups, which happens to round to $213$ but mis-rounds to $40$.\n* Choice C: \"applies the inverse operation\" — solves correctly to $n = 40$, then doubles.\n* Choice D: \"stops one step early\" — gives the count of $9$-inch bolts ($5 \\cdot 40 = 200$) instead of $7$-inch.\n\n**Test Day Takeaway:** Express every quantity in terms of one variable, sum them, set equal to the total, then re-read what's asked.",
+  skills: ["word-problems", "solving-equations", "linear-functions"]
+},
+{
+  id: 7,
+  type: "multiple-choice",
+  difficulty: "medium",
+  band: 5,
+  question: "A data set has $10$ values listed in order:\n\n$3, 5, 5, 7, 8, 10, 10, 12, 14, 16$\n\nEach value in the data set is increased by $6$. Which of the following is true about the new data set compared to the original?",
+  choices: [
+    // distractor: claims SD changes (but adding a constant doesn't change spread)
+    { id: "A", text: "The mean increases by $6$ and the standard deviation increases by $6$." },
+    { id: "B", text: "The mean increases by $6$ and the standard deviation stays the same." },
+    // distractor: claims mean stays same (it definitely changes)
+    { id: "C", text: "The mean stays the same and the standard deviation increases by $6$." },
+    // distractor: both wrong claims
+    { id: "D", text: "The mean stays the same and the standard deviation stays the same." }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Outlier Effect**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Adding a constant shifts every value uniformly. The mean shifts by that constant; the spread (standard deviation, range) is unchanged because relative distances are preserved.\n\n**The Full Solution:**\nOriginal mean: $\\dfrac{3+5+5+7+8+10+10+12+14+16}{10} = \\dfrac{90}{10} = 9$.\nNew mean: $9 + 6 = 15$.\nStandard deviation measures spread (deviations from the mean). Adding a constant shifts the mean by the same amount, so each deviation $(x - \\bar{x})$ stays the same. Therefore the standard deviation does not change.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — claims SD changes, but adding a constant does NOT change spread.\n* Choice C: \"wrong base\" — claims the mean stays the same, but it definitely shifts.\n* Choice D: \"off-by-one\" — both claims are wrong.\n\n**Test Day Takeaway:** Adding a constant: mean shifts, SD unchanged. Multiplying by a constant: BOTH change (both scale by the constant for SD; by the constant for mean).",
+  skills: ["statistics"]
+},
+{
+  id: 8,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "If $\\sqrt[3]{x^4} \\cdot \\sqrt{x^5} = x^k$ for $x > 0$, what is the value of $k$?",
+  choices: [
+    // distractor: adds the radicands' indices: 3 + 2 = 5 then divides total
+    { id: "A", text: "$\\dfrac{9}{5}$" },
+    // distractor: writes \sqrt[3]{x^4} = x^{3/4} (inverts power and index)
+    { id: "B", text: "$\\dfrac{17}{6}$" },
+    { id: "C", text: "$\\dfrac{23}{6}$" },
+    // distractor: multiplies exponents 4/3 \cdot 5/2 instead of adding
+    { id: "D", text: "$\\dfrac{10}{3}$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\sqrt[3]{x^4} = x^{4/3}$, $\\sqrt{x^5} = x^{5/2}$. Add exponents: $\\dfrac{4}{3} + \\dfrac{5}{2} = \\dfrac{8}{6} + \\dfrac{15}{6} = \\dfrac{23}{6}$.\n\n**The Full Solution:**\n$\\sqrt[3]{x^4} = x^{4/3}$\n$\\sqrt{x^5} = x^{5/2}$\n\nWhen multiplying powers with the same base, add exponents:\n$x^{4/3 + 5/2}$\n\nCommon denominator $6$:\n$\\dfrac{4}{3} = \\dfrac{8}{6}, \\quad \\dfrac{5}{2} = \\dfrac{15}{6}, \\quad \\dfrac{8}{6} + \\dfrac{15}{6} = \\dfrac{23}{6}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — adds the radical indices ($3 + 2 = 5$) and total degrees, giving $\\dfrac{9}{5}$.\n* Choice B: \"applies the inverse operation\" — writes $\\sqrt[3]{x^4} = x^{3/4}$ (inverts exponent and index), giving $\\dfrac{3}{4} + \\dfrac{5}{2} = \\dfrac{13}{4} \\to \\dfrac{17}{6}$ approximation.\n* Choice D: \"off-by-one\" — multiplies exponents instead of adding: $\\dfrac{4}{3} \\cdot \\dfrac{5}{2} = \\dfrac{10}{3}$.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{m/n}$. When multiplying same-base powers, ADD the exponents.",
+  skills: ["exponent-rules", "radical-expressions"]
+},
+{
+  id: 9,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "In the system of equations below, $a$ is a constant.\n\n$\\dfrac{2}{3}x - \\dfrac{1}{2}y = 5$\n$ax - 3y = 24$\n\nIf the system has no solution, what is the value of $a$?",
+  choices: [
+    // distractor: matches y-coefficient ratio incorrectly: a/(2/3) = 3/(1/2) gives a = 4
+    { id: "A", text: "$2$" },
+    // distractor: arithmetic slip giving a = 3
+    { id: "B", text: "$3$" },
+    { id: "C", text: "$4$" },
+    // distractor: keeps the y-coefficient ratio but doesn't multiply: a = 6
+    { id: "D", text: "$6$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** A system has no solution when the lines are parallel: equal slope ratios but different constants. Match $\\dfrac{a}{2/3} = \\dfrac{-3}{-1/2}$ (the $x$ and $y$ coefficient ratios). $\\dfrac{a}{2/3} = 6$, so $a = 4$.\n\n**The Full Solution:**\nNo solution requires the same slope (proportional coefficients of $x$ and $y$) but different constants.\nFor proportionality: $\\dfrac{a}{2/3} = \\dfrac{-3}{-1/2} = 6$.\nSo $a = 6 \\cdot \\dfrac{2}{3} = 4$.\n\nCheck constant ratio: $\\dfrac{24}{5}$ should NOT equal $6$. Since $\\dfrac{24}{5} = 4.8 \\neq 6$, the constants are different — the system has no solution. \\checkmark\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — matches incorrectly: divides $\\dfrac{2}{3}$ by something off, getting $a = 2$.\n* Choice B: \"off-by-one\" — arithmetic slip giving $a = 3$ instead of $4$.\n* Choice D: \"applies the inverse operation\" — keeps the ratio $6$ as $a$ directly without multiplying by $\\dfrac{2}{3}$.\n\n**Test Day Takeaway:** No solution = same coefficient ratios on $x$ and $y$ (parallel lines), but the constant breaks the proportion.",
+  skills: ["systems-of-equations", "linear-functions"]
+},
+{
+  id: 10,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A polling organization surveyed a random sample of $1{,}200$ likely voters and found that $0.52 \\pm 0.03$ supported a candidate, at a $95\\%$ confidence level. Based on this interval, is it reasonable to conclude that the candidate has majority support (more than $50\\%$)?",
+  choices: [
+    // distractor: misreads — claims interval is entirely above 50%
+    { id: "A", text: "Yes, because the entire interval is above $50\\%$." },
+    // distractor: ignores margin of error, focuses on point estimate
+    { id: "B", text: "Yes, because $52\\%$ is above $50\\%$." },
+    { id: "C", text: "No, because the interval includes values below $50\\%$." },
+    // distractor: blames sample size instead of the interval crossing 50%
+    { id: "D", text: "No, because the margin of error is only $3\\%$." }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Margin of Error**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** The interval is $0.52 \\pm 0.03 = (0.49, 0.55)$. Since $0.49 < 0.50$, the interval includes values below majority. We cannot conclude majority support.\n\n**The Full Solution:**\nLower bound: $0.52 - 0.03 = 0.49 = 49\\%$.\nUpper bound: $0.52 + 0.03 = 0.55 = 55\\%$.\nSince the interval $(49\\%, 55\\%)$ INCLUDES values below $50\\%$, it is plausible that fewer than half support the candidate.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — claims the interval is entirely above $50\\%$, but $49\\% < 50\\%$.\n* Choice B: \"stops one step early\" — uses only the point estimate ($52\\%$) and ignores the margin.\n* Choice D: \"applies the inverse operation\" — blames the size of the margin rather than the interval crossing $50\\%$.\n\n**Test Day Takeaway:** To make a definitive conclusion, the entire confidence interval must support it. If the interval straddles the threshold, you cannot conclude.",
+  skills: ["margin-of-error", "statistics"]
+},
+{
+  id: 11,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A cell phone plan costs $\\$35$ per month plus $\\$0.10$ per text message. Another plan costs $\\$20$ per month plus $\\$0.25$ per text message. For what number of text messages per month do the two plans cost the same?",
+  choices: [
+    // distractor: divides 15 by 0.30 instead of 0.15
+    { id: "A", text: "$50$" },
+    { id: "B", text: "$100$" },
+    // distractor: divides 15 by 0.10
+    { id: "C", text: "$150$" },
+    // distractor: divides 20 by 0.10 (uses the wrong fixed costs)
+    { id: "D", text: "$200$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Set costs equal: $35 + 0.10t = 20 + 0.25t$. Then $15 = 0.15t$, so $t = 100$.\n\n**The Full Solution:**\nPlan 1: $35 + 0.10t$.\nPlan 2: $20 + 0.25t$.\nSet equal: $35 + 0.10t = 20 + 0.25t$.\n$35 - 20 = 0.25t - 0.10t$.\n$15 = 0.15t$.\n$t = \\dfrac{15}{0.15} = 100$.\n\nCheck: Plan 1: $35 + 10 = \\$45$. Plan 2: $20 + 25 = \\$45$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — divides $15$ by $0.30$ ($0.10 + 0.25 \\cdot 2$) instead of $0.15$.\n* Choice C: \"applies the inverse operation\" — divides $15$ by $0.10$ instead of $0.15$.\n* Choice D: \"off-by-one\" — divides $20$ by $0.10$ (uses the wrong constant difference).\n\n**Test Day Takeaway:** Set the two cost expressions equal and solve for the variable. Always verify by plugging back into both expressions.",
+  skills: ["word-problems", "solving-equations", "linear-functions"]
+},
+{
+  id: 12,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The function $f(x) = (x - 6)(x + 14)$ models the profit, in dollars, of selling $x$ items. What is the minimum value of $f(x)$?",
+  choices: [
+    { id: "A", text: "$-100$" },
+    // distractor: gives the y-intercept f(0) = -84, not the minimum
+    { id: "B", text: "$-84$" },
+    // distractor: gives the x-coordinate of the vertex (-4)
+    { id: "C", text: "$-4$" },
+    // distractor: gives one of the zeros (x = 6)
+    { id: "D", text: "$6$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Vertex Form Maximum**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Zeros at $x = 6$ and $x = -14$. Vertex $x$-coordinate $= \\dfrac{6 + (-14)}{2} = -4$. Minimum $= f(-4) = (-4-6)(-4+14) = (-10)(10) = -100$.\n\n**The Full Solution:**\nThe parabola opens upward (positive leading coefficient when expanded), so the vertex is a minimum.\nVertex $x = $ midpoint of zeros $= \\dfrac{6 + (-14)}{2} = -4$.\n$f(-4) = (-4 - 6)(-4 + 14) = (-10)(10) = -100$.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — computes $6 \\times (-14) = -84$ (the $y$-intercept $f(0)$, not the minimum).\n* Choice C: \"stops one step early\" — gives the $x$-coordinate of the vertex, not the minimum $y$-value.\n* Choice D: \"applies the inverse operation\" — gives one of the zeros.\n\n**Test Day Takeaway:** For a factored quadratic, the vertex $x$ is the midpoint of the roots. Plug back in to find the min/max value.",
+  skills: ["quadratic-equations", "vertex-form", "function-interpretation"]
+},
+{
+  id: 13,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The table shows the preferences of $400$ customers at a coffee shop.\n\n| | Hot | Iced | Total |\n|---|---|---|---|\n| Coffee | $120$ | $100$ | $220$ |\n| Tea | $60$ | $120$ | $180$ |\n| Total | $180$ | $220$ | $400$ |\n\nGiven that a randomly selected customer chose an iced drink, what percentage chose iced tea? (Round to the nearest whole percent.)",
+  choices: [
+    // distractor: divides 120/400 (uses grand total instead of column total)
+    { id: "A", text: "$30\\%$" },
+    // distractor: uses tea row total: 120/180
+    { id: "B", text: "$67\\%$" },
+    { id: "C", text: "$55\\%$" },
+    // distractor: gives P(iced coffee | iced) = 100/220 ≈ 45%
+    { id: "D", text: "$45\\%$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Conditional Probability with Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** \"Given iced\" → restrict to the Iced column: total = $220$. Iced tea = $120$. Percentage $= \\dfrac{120}{220} \\approx 0.5455 \\approx 55\\%$.\n\n**The Full Solution:**\n$P(\\text{tea} \\mid \\text{iced}) = \\dfrac{\\text{iced tea}}{\\text{total iced}} = \\dfrac{120}{220} = \\dfrac{6}{11} \\approx 0.5455$.\nAs a percent: $\\approx 55\\%$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses grand total $400$: $\\dfrac{120}{400} = 30\\%$.\n* Choice B: \"applies the inverse operation\" — uses tea row total: $\\dfrac{120}{180} \\approx 67\\%$.\n* Choice D: \"off-by-one\" — gives $P(\\text{iced coffee} \\mid \\text{iced}) = \\dfrac{100}{220} \\approx 45\\%$, the complement.\n\n**Test Day Takeaway:** \"Given\" = restrict to that row or column. The restricted total becomes your denominator. Convert to percent at the end.",
+  skills: ["probability", "two-way-tables", "percents"]
+},
+{
+  id: 14,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "Line $\\ell$ has the equation $3x - 5y = 15$. Line $m$ is perpendicular to line $\\ell$ and passes through the point $(6, 4)$. What is the equation of line $m$?",
+  choices: [
+    // distractor: uses parallel slope (same as $\ell$, 3/5) instead of perpendicular
+    { id: "A", text: "$y = \\dfrac{3}{5}x + \\dfrac{2}{5}$" },
+    // distractor: uses negative slope but doesn't reciprocate: -3/5
+    { id: "B", text: "$y = -\\dfrac{3}{5}x + \\dfrac{38}{5}$" },
+    { id: "C", text: "$y = -\\dfrac{5}{3}x + 14$" },
+    // distractor: forgets the negative on the reciprocal: 5/3
+    { id: "D", text: "$y = \\dfrac{5}{3}x - 6$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Slope of $\\ell$: $3x - 5y = 15 \\Rightarrow y = \\dfrac{3}{5}x - 3$. Perpendicular slope $= -\\dfrac{5}{3}$. Use $(6, 4)$: $4 = -\\dfrac{5}{3}(6) + b = -10 + b$, so $b = 14$. Equation: $y = -\\dfrac{5}{3}x + 14$.\n\n**The Full Solution:**\nFind slope of $\\ell$: $3x - 5y = 15 \\Rightarrow -5y = -3x + 15 \\Rightarrow y = \\dfrac{3}{5}x - 3$. Slope $= \\dfrac{3}{5}$.\n\nPerpendicular slope is the negative reciprocal: $-\\dfrac{5}{3}$.\n\nPoint-slope form with $(6, 4)$:\n$y - 4 = -\\dfrac{5}{3}(x - 6)$\n$y - 4 = -\\dfrac{5}{3}x + 10$\n$y = -\\dfrac{5}{3}x + 14$.\n\nVerification: at $(6, 4)$: $-\\dfrac{5}{3}(6) + 14 = -10 + 14 = 4$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses the parallel slope $\\dfrac{3}{5}$ instead of the negative reciprocal.\n* Choice B: \"stops one step early\" — negates the slope but forgets to reciprocate, getting $-\\dfrac{3}{5}$.\n* Choice D: \"off-by-one\" — reciprocates but forgets the negative sign.\n\n**Test Day Takeaway:** Perpendicular slopes are negative reciprocals — flip AND change the sign. Verify by plugging the point back into your final equation.",
+  skills: ["slope", "linear-functions", "coordinate-geometry"]
+},
+{
   id: 15,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "The equation $x^2 + y^2 + 6x - 10y + 9 = 0$ represents a circle in the $xy$-plane. What is the radius of the circle?",
+  choices: [
+    // distractor: takes \sqrt{9} from the constant
+    { id: "A", text: "$3$" },
+    // distractor: only completes one square — gets r^2 = 9
+    { id: "B", text: "$\\sqrt{9}$" },
+    { id: "C", text: "$5$" },
+    // distractor: stops at r^2 = 25 instead of r = 5
+    { id: "D", text: "$25$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Complete the Square — Non-Square Radius**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Complete the square: $(x+3)^2 + (y-5)^2 = 9 + 25 - 9 = 25$. Radius $= \\sqrt{25} = 5$.\n\n**The Full Solution:**\nGroup $x$- and $y$-terms:\n$(x^2 + 6x) + (y^2 - 10y) = -9$\n\nComplete each square:\n$x$: half of $6$ is $3$, $3^2 = 9$: $(x + 3)^2$.\n$y$: half of $-10$ is $-5$, $(-5)^2 = 25$: $(y - 5)^2$.\n\n$(x + 3)^2 + (y - 5)^2 = -9 + 9 + 25 = 25$.\n\nSo $r^2 = 25$ and $r = 5$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — pulls $\\sqrt{9}$ from the constant in the original equation.\n* Choice B: \"applies the inverse operation\" — only completes one square, getting $r^2 = 9$ then writes $\\sqrt{9}$.\n* Choice D: \"stops one step early\" — reports $r^2 = 25$ as the radius instead of $r = 5$.\n\n**Test Day Takeaway:** Complete BOTH squares. Move all the completing-square constants to the right side. The radius is $\\sqrt{r^2}$, NOT $r^2$.",
+  skills: ["circle-equations", "coordinate-geometry"]
+},
+{
+  id: 16,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -657,7 +676,7 @@ export const practiceTest2 = {
   skills: ["trigonometry", "triangles", "right-triangles"]
 },
 {
-  id: 16,
+  id: 17,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -676,7 +695,7 @@ export const practiceTest2 = {
   skills: ["discriminant", "quadratic-equations"]
 },
 {
-  id: 17,
+  id: 18,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -686,7 +705,7 @@ export const practiceTest2 = {
   skills: ["exponential-functions", "percents"]
 },
 {
-  id: 18,
+  id: 19,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -703,25 +722,6 @@ export const practiceTest2 = {
   correctAnswer: "B",
   explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** No solution means coefficient of $x$ matches but constants differ. Match: $\\dfrac{a}{3} = 2 \\Rightarrow a = 6$. Constants differ: $b \\neq 5$.\n\n**The Full Solution:**\nRearrange: $\\dfrac{a}{3}x - 2x = b - 5$, so $\\left(\\dfrac{a-6}{3}\\right)x = b - 5$.\n\nFor NO solution: coefficient of $x$ must be $0$ AND right side must be nonzero.\n* $\\dfrac{a-6}{3} = 0 \\Rightarrow a = 6$.\n* $b - 5 \\neq 0 \\Rightarrow b \\neq 5$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — $a = 6, b = 5$ gives $0 = 0$ (infinitely many solutions, not no solution).\n* Choice C: \"wrong base\" — $a \\neq 6$ means coefficient of $x$ is nonzero, so the equation HAS one solution.\n* Choice D: \"off-by-one\" — $a = 3$ makes $\\dfrac{a-6}{3} = -1 \\neq 0$, so there IS a solution.\n\n**Test Day Takeaway:** No solution $=$ matching $x$-coefficients but DIFFERENT constants. Infinitely many solutions $=$ both match.",
   skills: ["solving-equations", "linear-functions"]
-},
-{
-  id: 19,
-  type: "multiple-choice",
-  difficulty: "medium",
-  band: 5,
-  question: "A data set has $10$ values listed in order:\n\n$3, 5, 5, 7, 8, 10, 10, 12, 14, 16$\n\nEach value in the data set is increased by $6$. Which of the following is true about the new data set compared to the original?",
-  choices: [
-    // distractor: claims SD changes (but adding a constant doesn't change spread)
-    { id: "A", text: "The mean increases by $6$ and the standard deviation increases by $6$." },
-    { id: "B", text: "The mean increases by $6$ and the standard deviation stays the same." },
-    // distractor: claims mean stays same (it definitely changes)
-    { id: "C", text: "The mean stays the same and the standard deviation increases by $6$." },
-    // distractor: both wrong claims
-    { id: "D", text: "The mean stays the same and the standard deviation stays the same." }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Outlier Effect**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Adding a constant shifts every value uniformly. The mean shifts by that constant; the spread (standard deviation, range) is unchanged because relative distances are preserved.\n\n**The Full Solution:**\nOriginal mean: $\\dfrac{3+5+5+7+8+10+10+12+14+16}{10} = \\dfrac{90}{10} = 9$.\nNew mean: $9 + 6 = 15$.\nStandard deviation measures spread (deviations from the mean). Adding a constant shifts the mean by the same amount, so each deviation $(x - \\bar{x})$ stays the same. Therefore the standard deviation does not change.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — claims SD changes, but adding a constant does NOT change spread.\n* Choice C: \"wrong base\" — claims the mean stays the same, but it definitely shifts.\n* Choice D: \"off-by-one\" — both claims are wrong.\n\n**Test Day Takeaway:** Adding a constant: mean shifts, SD unchanged. Multiplying by a constant: BOTH change (both scale by the constant for SD; by the constant for mean).",
-  skills: ["statistics"]
 },
 {
   id: 20,

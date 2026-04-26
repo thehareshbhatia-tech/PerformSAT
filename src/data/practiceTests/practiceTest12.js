@@ -404,92 +404,6 @@ export const practiceTest12 = {
 {
   id: 1,
   type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "If $7x + 4 = 39$, what is the value of $14x - 8$?",
-  choices: [
-    // distractor: stops one step early — gives $7x = 35$
-    { id: "A", text: "$35$" },
-    // distractor: doubles $39$ to get $78$ but forgets to subtract $16$
-    { id: "B", text: "$78$" },
-    { id: "C", text: "$62$" },
-    // distractor: gives just $x = 5$ and stops
-    { id: "D", text: "$5$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Shifted Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $14x - 8 = 2(7x + 4) - 16 = 2(39) - 16 = 78 - 16 = 62$. No need to solve for $x$.\n\n**The Full Solution:**\nNotice $14x - 8 = 2(7x + 4) - 16$. Since $7x + 4 = 39$, we have $14x - 8 = 2 \\cdot 39 - 16 = 78 - 16 = 62$.\n\nAlternatively: $7x = 35 \\Rightarrow x = 5$, so $14(5) - 8 = 70 - 8 = 62$.\n\nVerification: $14(5) - 8 = 62$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives $7x = 35$ without doubling or subtracting.\n* Choice B: \"applies the inverse operation\" — doubles $39$ but forgets the $-16$ adjustment.\n* Choice D: \"stops one step early\" — solves for $x$ and stops.\n\n**Test Day Takeaway:** Before solving for $x$, check whether the target expression is a SCALAR MULTIPLE of the given equation, possibly shifted. Often you can avoid finding $x$ entirely.",
-  skills: ["solving-equations"]
-},
-{
-  id: 2,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "A data set consists of $11$ positive integers. The list shown gives $10$ of these integers.\n\n$28, 35, 31, 27, 38, 32, 30, 33, 29, 37$\n\nThe mean of the $10$ listed integers is $32$. If the mean of all $11$ integers is also $32$, what is the value of the eleventh integer?",
-  correctAnswer: "32",
-  explanation: "**SAT Pattern: Mean from List**\n\n**The correct answer is $32$.**\n\n**The Fast Way (~25s):** If adding a value does NOT change the mean, that value MUST equal the mean. Eleventh integer $= 32$.\n\n**The Full Solution:**\nSum of $10$ integers: $10 \\cdot 32 = 320$.\nSum of $11$ integers: $11 \\cdot 32 = 352$.\nEleventh integer: $352 - 320 = 32$.\n\nVerification: $28 + 35 + 31 + 27 + 38 + 32 + 30 + 33 + 29 + 37 = 320$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing $\\dfrac{320}{10}$ and reporting that as the answer — it equals $32$, but for the wrong reason.\n* Forgetting that adding a value EQUAL to the current mean leaves the mean unchanged.\n\n**Test Day Takeaway:** Adding a value equal to the current mean leaves the mean unchanged. Verify your reasoning matches that invariant.",
-  skills: ["statistics"]
-},
-{
-  id: 3,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "If $\\sqrt[3]{x^4} \\cdot \\sqrt{x^7} = x^{p/q}$ for $x > 0$, where $\\dfrac{p}{q}$ is in lowest terms, what is the value of $p + q$?",
-  choices: [
-    // distractor: stops at $p$ alone (= $29$)
-    { id: "A", text: "$29$" },
-    // distractor: applies the inverse operation — sums radical exponents and indices
-    { id: "B", text: "$14$" },
-    { id: "C", text: "$35$" },
-    // distractor: uses $4 + 7 + 3 + 2 = 16$ (sums all visible numbers)
-    { id: "D", text: "$16$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[3]{x^4} = x^{4/3}$ and $\\sqrt{x^7} = x^{7/2}$. Add: $\\dfrac{4}{3} + \\dfrac{7}{2} = \\dfrac{8 + 21}{6} = \\dfrac{29}{6}$. So $p + q = 29 + 6 = 35$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[3]{x^4} = x^{4/3}$ and $\\sqrt{x^7} = x^{7/2}$.\n\nMultiply same bases — add exponents:\n$x^{4/3} \\cdot x^{7/2} = x^{4/3 + 7/2} = x^{(8 + 21)/6} = x^{29/6}$\n\n$\\gcd(29, 6) = 1$, so $\\dfrac{29}{6}$ is in lowest terms. $p = 29$, $q = 6$, so $p + q = 35$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just $p = 29$ without adding $q$.\n* Choice B: \"applies the inverse operation\" — sums radical exponent and index ($7 + 3 + 4 = 14$ or similar).\n* Choice D: \"wrong base\" — sums all integers in the expression.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{m/n}$. Add fractional exponents when multiplying same bases.",
-  skills: ["exponent-rules", "radical-expressions"]
-},
-{
-  id: 4,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A linear function $g$ satisfies $g(0) = 10$ and $g(5) = 0$. What is the value of $g(8) + 2 \\cdot g(3)$?",
-  choices: [
-    // distractor: stops one step early — gives $g(8) = -6$ alone
-    { id: "A", text: "$-6$" },
-    { id: "B", text: "$2$" },
-    // distractor: uses slope $-1$ instead of $-2$
-    { id: "C", text: "$8$" },
-    // distractor: applies the inverse operation — adds $g(8) + g(3)$ instead of $g(8) + 2 g(3)$
-    { id: "D", text: "$-2$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Line from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Slope $= \\dfrac{0 - 10}{5 - 0} = -2$. So $g(x) = -2x + 10$. $g(8) = -6$ and $g(3) = 4$. Combined: $-6 + 2(4) = -6 + 8 = 2$.\n\n**The Full Solution:**\nFrom $(0, 10)$ and $(5, 0)$:\nSlope $= \\dfrac{0 - 10}{5 - 0} = -2$, $y$-intercept $= 10$.\n$g(x) = -2x + 10$.\n\n$g(8) = -16 + 10 = -6$.\n$g(3) = -6 + 10 = 4$.\n$g(8) + 2 \\cdot g(3) = -6 + 8 = 2$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives $g(8) = -6$ alone.\n* Choice C: \"wrong base\" — uses slope $-1$ instead of $-2$.\n* Choice D: \"applies the inverse operation\" — adds $g(8) + g(3) = -6 + 4 = -2$ without doubling $g(3)$.\n\n**Test Day Takeaway:** Two points $\\to$ slope $\\to$ equation. Then evaluate carefully — read the FULL expression the question asks for.",
-  skills: ["linear-functions"]
-},
-{
-  id: 5,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A bag contains $5$ red marbles, $3$ blue marbles, and $2$ green marbles. Two marbles are drawn at random one after another, without replacement. What is the probability that BOTH marbles are red?",
-  choices: [
-    // distractor: assumes replacement — uses $(5/10)^2 = 1/4$
-    { id: "A", text: "$\\dfrac{1}{4}$" },
-    { id: "B", text: "$\\dfrac{2}{9}$" },
-    // distractor: stops one step early — gives only $P(\text{first red}) = 1/2$
-    { id: "C", text: "$\\dfrac{1}{2}$" },
-    // distractor: applies the inverse operation — adds probabilities instead of multiplying
-    { id: "D", text: "$\\dfrac{9}{10}$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Probability Without Replacement**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $P(\\text{1st red}) = \\dfrac{5}{10} = \\dfrac{1}{2}$. After removing one red, $P(\\text{2nd red}) = \\dfrac{4}{9}$. Multiply: $\\dfrac{1}{2} \\cdot \\dfrac{4}{9} = \\dfrac{4}{18} = \\dfrac{2}{9}$.\n\n**The Full Solution:**\nTotal marbles: $5 + 3 + 2 = 10$.\nFirst draw red: $P_1 = \\dfrac{5}{10}$.\nAfter one red removed: $4$ red of $9$ remaining. Second draw red: $P_2 = \\dfrac{4}{9}$.\n\n$P(\\text{both red}) = \\dfrac{5}{10} \\cdot \\dfrac{4}{9} = \\dfrac{20}{90} = \\dfrac{2}{9}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — assumes replacement, using $(\\dfrac{5}{10})^2 = \\dfrac{1}{4}$.\n* Choice C: \"stops one step early\" — reports only $P(\\text{1st red}) = \\dfrac{1}{2}$.\n* Choice D: \"wrong base\" — adds probabilities instead of multiplying.\n\n**Test Day Takeaway:** Without replacement, the second probability uses (favorable $- 1$) over (total $- 1$). Multiply for sequential events.",
-  skills: ["probability"]
-},
-{
-  id: 6,
-  type: "multiple-choice",
   difficulty: "medium",
   band: 5,
   question: "If $f(x) = 2x^2 - kx + 8$ and $f(3) = 5$, what is the value of $k$?",
@@ -507,7 +421,7 @@ export const practiceTest12 = {
   skills: ["function-interpretation", "solving-equations"]
 },
 {
-  id: 7,
+  id: 2,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -526,17 +440,7 @@ export const practiceTest12 = {
   skills: ["slope", "coordinate-geometry"]
 },
 {
-  id: 8,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "If $x^2 + y^2 = 100$ and $xy = 36$, what is the value of $(x + y)^2$?",
-  correctAnswer: "172",
-  explanation: "**SAT Pattern: Algebraic Identity Expansion**\n\n**The correct answer is $172$.**\n\n**The Fast Way (~15s):** $(x+y)^2 = x^2 + 2xy + y^2 = (x^2 + y^2) + 2xy = 100 + 72 = 172$.\n\n**The Full Solution:**\nExpand $(x+y)^2 = x^2 + 2xy + y^2$.\nGiven: $x^2 + y^2 = 100$ and $xy = 36$.\n$(x+y)^2 = 100 + 2(36) = 100 + 72 = 172$.\n\n**Common Mistakes to Avoid:**\n* Trying to solve for $x$ and $y$ individually — unnecessary work.\n* Writing $(x+y)^2 = x^2 + y^2$ (forgetting the $2xy$ middle term).\n\n**Test Day Takeaway:** Memorize $(x+y)^2 = x^2 + 2xy + y^2$ and $(x-y)^2 = x^2 - 2xy + y^2$. You rarely need to find individual values.",
-  skills: ["solving-equations", "polynomial-operations"]
-},
-{
-  id: 9,
+  id: 3,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -555,7 +459,26 @@ export const practiceTest12 = {
   skills: ["two-way-tables", "probability"]
 },
 {
-  id: 10,
+  id: 4,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "If $7x + 4 = 39$, what is the value of $14x - 8$?",
+  choices: [
+    // distractor: stops one step early — gives $7x = 35$
+    { id: "A", text: "$35$" },
+    // distractor: doubles $39$ to get $78$ but forgets to subtract $16$
+    { id: "B", text: "$78$" },
+    { id: "C", text: "$62$" },
+    // distractor: gives just $x = 5$ and stops
+    { id: "D", text: "$5$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Shifted Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $14x - 8 = 2(7x + 4) - 16 = 2(39) - 16 = 78 - 16 = 62$. No need to solve for $x$.\n\n**The Full Solution:**\nNotice $14x - 8 = 2(7x + 4) - 16$. Since $7x + 4 = 39$, we have $14x - 8 = 2 \\cdot 39 - 16 = 78 - 16 = 62$.\n\nAlternatively: $7x = 35 \\Rightarrow x = 5$, so $14(5) - 8 = 70 - 8 = 62$.\n\nVerification: $14(5) - 8 = 62$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives $7x = 35$ without doubling or subtracting.\n* Choice B: \"applies the inverse operation\" — doubles $39$ but forgets the $-16$ adjustment.\n* Choice D: \"stops one step early\" — solves for $x$ and stops.\n\n**Test Day Takeaway:** Before solving for $x$, check whether the target expression is a SCALAR MULTIPLE of the given equation, possibly shifted. Often you can avoid finding $x$ entirely.",
+  skills: ["solving-equations"]
+},
+{
+  id: 5,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -574,45 +497,17 @@ export const practiceTest12 = {
   skills: ["solving-equations"]
 },
 {
-  id: 11,
-  type: "multiple-choice",
+  id: 6,
+  type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "A study of $200$ households measured weekly grocery spending ($x$, in dollars) and weekly grocery delivery cost ($y$, in dollars). The line of best fit is $y = 0.18x + 3.5$. A particular household spent $\\$220$ on groceries and paid $\\$48$ for delivery. What is the residual for this household, in dollars?",
-  choices: [
-    // distractor: applies the inverse operation — predicted minus actual
-    { id: "A", text: "$-5.1$" },
-    // distractor: stops one step early — gives only the predicted value $43.1$
-    { id: "B", text: "$43.1$" },
-    { id: "C", text: "$4.9$" },
-    // distractor: drops the intercept — uses $0.18(220) = 39.6$ as predicted
-    { id: "D", text: "$8.4$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Residual**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Predicted: $0.18(220) + 3.5 = 39.6 + 3.5 = 43.1$. Residual $=$ actual $-$ predicted $= 48 - 43.1 = 4.9$.\n\n**The Full Solution:**\nPredicted at $x = 220$: $y = 0.18(220) + 3.5 = 39.6 + 3.5 = 43.1$ dollars.\nActual: $48$ dollars.\nResidual $=$ actual $-$ predicted $= 48 - 43.1 = 4.9$ dollars.\n\nA positive residual means the actual value lies ABOVE the line of best fit.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — predicted $-$ actual ($43.1 - 48 = -4.9$, then sign-flipped to $-5.1$ via arithmetic slip).\n* Choice B: \"stops one step early\" — gives only the predicted value $43.1$.\n* Choice D: \"wrong base\" — drops the intercept and uses $0.18(220) = 39.6$ as predicted.\n\n**Test Day Takeaway:** Residual $=$ actual $-$ predicted. Always include the intercept when computing the predicted value from $y = mx + b$.",
-  skills: ["scatterplots", "statistics"]
+  question: "A data set consists of $11$ positive integers. The list shown gives $10$ of these integers.\n\n$28, 35, 31, 27, 38, 32, 30, 33, 29, 37$\n\nThe mean of the $10$ listed integers is $32$. If the mean of all $11$ integers is also $32$, what is the value of the eleventh integer?",
+  correctAnswer: "32",
+  explanation: "**SAT Pattern: Mean from List**\n\n**The correct answer is $32$.**\n\n**The Fast Way (~25s):** If adding a value does NOT change the mean, that value MUST equal the mean. Eleventh integer $= 32$.\n\n**The Full Solution:**\nSum of $10$ integers: $10 \\cdot 32 = 320$.\nSum of $11$ integers: $11 \\cdot 32 = 352$.\nEleventh integer: $352 - 320 = 32$.\n\nVerification: $28 + 35 + 31 + 27 + 38 + 32 + 30 + 33 + 29 + 37 = 320$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing $\\dfrac{320}{10}$ and reporting that as the answer — it equals $32$, but for the wrong reason.\n* Forgetting that adding a value EQUAL to the current mean leaves the mean unchanged.\n\n**Test Day Takeaway:** Adding a value equal to the current mean leaves the mean unchanged. Verify your reasoning matches that invariant.",
+  skills: ["statistics"]
 },
 {
-  id: 12,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A polling organization surveyed $400$ voters and reported a margin of error of $\\pm 5\\%$ at a $95\\%$ confidence level. The pollster wants to redo the survey at the same confidence level but cut the margin of error to $\\pm 1\\%$. Approximately how many voters must they survey?",
-  choices: [
-    // distractor: doubles sample size — uses $400 \cdot 5 = 2000$ (linear thinking)
-    { id: "A", text: "$2{,}000$" },
-    // distractor: stops one step early — uses $400 \cdot 5 = 2000$ then half
-    { id: "B", text: "$8{,}000$" },
-    { id: "C", text: "$10{,}000$" },
-    // distractor: divides margin by 5 instead of squaring
-    { id: "D", text: "$80$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Margin of Error**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Margin of error $\\propto \\dfrac{1}{\\sqrt{n}}$. To cut margin from $5\\%$ to $1\\%$ (factor of $5$), multiply $n$ by $5^2 = 25$: $400 \\cdot 25 = 10{,}000$.\n\n**The Full Solution:**\nThe margin of error is inversely proportional to $\\sqrt{n}$. If we want a new margin $E_2 = \\dfrac{E_1}{5}$, we need $\\sqrt{n_2} = 5\\sqrt{n_1}$, so $n_2 = 25 n_1 = 25 \\cdot 400 = 10{,}000$.\n\nVerification: at $n = 10{,}000$, margin $\\propto \\dfrac{1}{\\sqrt{10{,}000}} = \\dfrac{1}{100}$, vs. original $\\dfrac{1}{\\sqrt{400}} = \\dfrac{1}{20}$. Ratio $\\dfrac{1/100}{1/20} = \\dfrac{1}{5}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies sample size by $5$ (linear) instead of $25$ (quadratic).\n* Choice B: \"off-by-one\" — uses factor of $20$ ($400 \\cdot 20 = 8{,}000$) instead of $25$.\n* Choice D: \"wrong base\" — divides by $5$ instead of squaring.\n\n**Test Day Takeaway:** Margin of error scales with $\\dfrac{1}{\\sqrt{n}}$. To cut margin by a factor of $k$, MULTIPLY sample size by $k^2$.",
-  skills: ["margin-of-error", "statistics"]
-},
-{
-  id: 13,
+  id: 7,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -631,7 +526,93 @@ export const practiceTest12 = {
   skills: ["vertex-form", "quadratic-equations"]
 },
 {
-  id: 14,
+  id: 8,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "If $\\sqrt[3]{x^4} \\cdot \\sqrt{x^7} = x^{p/q}$ for $x > 0$, where $\\dfrac{p}{q}$ is in lowest terms, what is the value of $p + q$?",
+  choices: [
+    // distractor: stops at $p$ alone (= $29$)
+    { id: "A", text: "$29$" },
+    // distractor: applies the inverse operation — sums radical exponents and indices
+    { id: "B", text: "$14$" },
+    { id: "C", text: "$35$" },
+    // distractor: uses $4 + 7 + 3 + 2 = 16$ (sums all visible numbers)
+    { id: "D", text: "$16$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[3]{x^4} = x^{4/3}$ and $\\sqrt{x^7} = x^{7/2}$. Add: $\\dfrac{4}{3} + \\dfrac{7}{2} = \\dfrac{8 + 21}{6} = \\dfrac{29}{6}$. So $p + q = 29 + 6 = 35$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[3]{x^4} = x^{4/3}$ and $\\sqrt{x^7} = x^{7/2}$.\n\nMultiply same bases — add exponents:\n$x^{4/3} \\cdot x^{7/2} = x^{4/3 + 7/2} = x^{(8 + 21)/6} = x^{29/6}$\n\n$\\gcd(29, 6) = 1$, so $\\dfrac{29}{6}$ is in lowest terms. $p = 29$, $q = 6$, so $p + q = 35$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just $p = 29$ without adding $q$.\n* Choice B: \"applies the inverse operation\" — sums radical exponent and index ($7 + 3 + 4 = 14$ or similar).\n* Choice D: \"wrong base\" — sums all integers in the expression.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{m/n}$. Add fractional exponents when multiplying same bases.",
+  skills: ["exponent-rules", "radical-expressions"]
+},
+{
+  id: 9,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A linear function $g$ satisfies $g(0) = 10$ and $g(5) = 0$. What is the value of $g(8) + 2 \\cdot g(3)$?",
+  choices: [
+    // distractor: stops one step early — gives $g(8) = -6$ alone
+    { id: "A", text: "$-6$" },
+    { id: "B", text: "$2$" },
+    // distractor: uses slope $-1$ instead of $-2$
+    { id: "C", text: "$8$" },
+    // distractor: applies the inverse operation — adds $g(8) + g(3)$ instead of $g(8) + 2 g(3)$
+    { id: "D", text: "$-2$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Line from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Slope $= \\dfrac{0 - 10}{5 - 0} = -2$. So $g(x) = -2x + 10$. $g(8) = -6$ and $g(3) = 4$. Combined: $-6 + 2(4) = -6 + 8 = 2$.\n\n**The Full Solution:**\nFrom $(0, 10)$ and $(5, 0)$:\nSlope $= \\dfrac{0 - 10}{5 - 0} = -2$, $y$-intercept $= 10$.\n$g(x) = -2x + 10$.\n\n$g(8) = -16 + 10 = -6$.\n$g(3) = -6 + 10 = 4$.\n$g(8) + 2 \\cdot g(3) = -6 + 8 = 2$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives $g(8) = -6$ alone.\n* Choice C: \"wrong base\" — uses slope $-1$ instead of $-2$.\n* Choice D: \"applies the inverse operation\" — adds $g(8) + g(3) = -6 + 4 = -2$ without doubling $g(3)$.\n\n**Test Day Takeaway:** Two points $\\to$ slope $\\to$ equation. Then evaluate carefully — read the FULL expression the question asks for.",
+  skills: ["linear-functions"]
+},
+{
+  id: 10,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A bag contains $5$ red marbles, $3$ blue marbles, and $2$ green marbles. Two marbles are drawn at random one after another, without replacement. What is the probability that BOTH marbles are red?",
+  choices: [
+    // distractor: assumes replacement — uses $(5/10)^2 = 1/4$
+    { id: "A", text: "$\\dfrac{1}{4}$" },
+    { id: "B", text: "$\\dfrac{2}{9}$" },
+    // distractor: stops one step early — gives only $P(\text{first red}) = 1/2$
+    { id: "C", text: "$\\dfrac{1}{2}$" },
+    // distractor: applies the inverse operation — adds probabilities instead of multiplying
+    { id: "D", text: "$\\dfrac{9}{10}$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Probability Without Replacement**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $P(\\text{1st red}) = \\dfrac{5}{10} = \\dfrac{1}{2}$. After removing one red, $P(\\text{2nd red}) = \\dfrac{4}{9}$. Multiply: $\\dfrac{1}{2} \\cdot \\dfrac{4}{9} = \\dfrac{4}{18} = \\dfrac{2}{9}$.\n\n**The Full Solution:**\nTotal marbles: $5 + 3 + 2 = 10$.\nFirst draw red: $P_1 = \\dfrac{5}{10}$.\nAfter one red removed: $4$ red of $9$ remaining. Second draw red: $P_2 = \\dfrac{4}{9}$.\n\n$P(\\text{both red}) = \\dfrac{5}{10} \\cdot \\dfrac{4}{9} = \\dfrac{20}{90} = \\dfrac{2}{9}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — assumes replacement, using $(\\dfrac{5}{10})^2 = \\dfrac{1}{4}$.\n* Choice C: \"stops one step early\" — reports only $P(\\text{1st red}) = \\dfrac{1}{2}$.\n* Choice D: \"wrong base\" — adds probabilities instead of multiplying.\n\n**Test Day Takeaway:** Without replacement, the second probability uses (favorable $- 1$) over (total $- 1$). Multiply for sequential events.",
+  skills: ["probability"]
+},
+{
+  id: 11,
+  type: "fill-in",
+  difficulty: "hard",
+  band: 7,
+  question: "If $x^2 + y^2 = 100$ and $xy = 36$, what is the value of $(x + y)^2$?",
+  correctAnswer: "172",
+  explanation: "**SAT Pattern: Algebraic Identity Expansion**\n\n**The correct answer is $172$.**\n\n**The Fast Way (~15s):** $(x+y)^2 = x^2 + 2xy + y^2 = (x^2 + y^2) + 2xy = 100 + 72 = 172$.\n\n**The Full Solution:**\nExpand $(x+y)^2 = x^2 + 2xy + y^2$.\nGiven: $x^2 + y^2 = 100$ and $xy = 36$.\n$(x+y)^2 = 100 + 2(36) = 100 + 72 = 172$.\n\n**Common Mistakes to Avoid:**\n* Trying to solve for $x$ and $y$ individually — unnecessary work.\n* Writing $(x+y)^2 = x^2 + y^2$ (forgetting the $2xy$ middle term).\n\n**Test Day Takeaway:** Memorize $(x+y)^2 = x^2 + 2xy + y^2$ and $(x-y)^2 = x^2 - 2xy + y^2$. You rarely need to find individual values.",
+  skills: ["solving-equations", "polynomial-operations"]
+},
+{
+  id: 12,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A study of $200$ households measured weekly grocery spending ($x$, in dollars) and weekly grocery delivery cost ($y$, in dollars). The line of best fit is $y = 0.18x + 3.5$. A particular household spent $\\$220$ on groceries and paid $\\$48$ for delivery. What is the residual for this household, in dollars?",
+  choices: [
+    // distractor: applies the inverse operation — predicted minus actual
+    { id: "A", text: "$-5.1$" },
+    // distractor: stops one step early — gives only the predicted value $43.1$
+    { id: "B", text: "$43.1$" },
+    { id: "C", text: "$4.9$" },
+    // distractor: drops the intercept — uses $0.18(220) = 39.6$ as predicted
+    { id: "D", text: "$8.4$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Residual**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Predicted: $0.18(220) + 3.5 = 39.6 + 3.5 = 43.1$. Residual $=$ actual $-$ predicted $= 48 - 43.1 = 4.9$.\n\n**The Full Solution:**\nPredicted at $x = 220$: $y = 0.18(220) + 3.5 = 39.6 + 3.5 = 43.1$ dollars.\nActual: $48$ dollars.\nResidual $=$ actual $-$ predicted $= 48 - 43.1 = 4.9$ dollars.\n\nA positive residual means the actual value lies ABOVE the line of best fit.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — predicted $-$ actual ($43.1 - 48 = -4.9$, then sign-flipped to $-5.1$ via arithmetic slip).\n* Choice B: \"stops one step early\" — gives only the predicted value $43.1$.\n* Choice D: \"wrong base\" — drops the intercept and uses $0.18(220) = 39.6$ as predicted.\n\n**Test Day Takeaway:** Residual $=$ actual $-$ predicted. Always include the intercept when computing the predicted value from $y = mx + b$.",
+  skills: ["scatterplots", "statistics"]
+},
+{
+  id: 13,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -639,6 +620,25 @@ export const practiceTest12 = {
   correctAnswer: "51",
   explanation: "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**The correct answer is $51$.**\n\n**The Fast Way (~20s):** $\\cos \\theta = \\dfrac{\\text{adjacent}}{\\text{hypotenuse}} = \\dfrac{8}{17} = \\dfrac{24}{h}$. Cross-multiply: $8h = 24 \\cdot 17 = 408$, so $h = 51$.\n\n**The Full Solution:**\n$\\cos \\theta = \\dfrac{\\text{adjacent}}{\\text{hypotenuse}}$.\nGiven $\\cos \\theta = \\dfrac{8}{17}$ and adjacent $= 24$: $\\dfrac{24}{h} = \\dfrac{8}{17}$.\nCross-multiply: $24 \\cdot 17 = 8h \\Rightarrow 408 = 8h \\Rightarrow h = 51$.\n\nAlternatively: scale factor between $\\dfrac{8}{17}$ and the actual triangle is $\\dfrac{24}{8} = 3$, so hypotenuse $= 17 \\cdot 3 = 51$.\n\nVerification: $\\dfrac{24}{51} = \\dfrac{8}{17}$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Confusing adjacent and opposite sides relative to angle $\\theta$.\n* Computing hypotenuse from $\\sin$ instead of $\\cos$.\n\n**Test Day Takeaway:** SOH-CAH-TOA: $\\cos = \\dfrac{\\text{Adjacent}}{\\text{Hypotenuse}}$. Set up the proportion and cross-multiply.",
   skills: ["trigonometry", "triangles"]
+},
+{
+  id: 14,
+  type: "multiple-choice",
+  difficulty: "hard",
+  band: 7,
+  question: "A polling organization surveyed $400$ voters and reported a margin of error of $\\pm 5\\%$ at a $95\\%$ confidence level. The pollster wants to redo the survey at the same confidence level but cut the margin of error to $\\pm 1\\%$. Approximately how many voters must they survey?",
+  choices: [
+    // distractor: doubles sample size — uses $400 \cdot 5 = 2000$ (linear thinking)
+    { id: "A", text: "$2{,}000$" },
+    // distractor: stops one step early — uses $400 \cdot 5 = 2000$ then half
+    { id: "B", text: "$8{,}000$" },
+    { id: "C", text: "$10{,}000$" },
+    // distractor: divides margin by 5 instead of squaring
+    { id: "D", text: "$80$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Margin of Error**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Margin of error $\\propto \\dfrac{1}{\\sqrt{n}}$. To cut margin from $5\\%$ to $1\\%$ (factor of $5$), multiply $n$ by $5^2 = 25$: $400 \\cdot 25 = 10{,}000$.\n\n**The Full Solution:**\nThe margin of error is inversely proportional to $\\sqrt{n}$. If we want a new margin $E_2 = \\dfrac{E_1}{5}$, we need $\\sqrt{n_2} = 5\\sqrt{n_1}$, so $n_2 = 25 n_1 = 25 \\cdot 400 = 10{,}000$.\n\nVerification: at $n = 10{,}000$, margin $\\propto \\dfrac{1}{\\sqrt{10{,}000}} = \\dfrac{1}{100}$, vs. original $\\dfrac{1}{\\sqrt{400}} = \\dfrac{1}{20}$. Ratio $\\dfrac{1/100}{1/20} = \\dfrac{1}{5}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies sample size by $5$ (linear) instead of $25$ (quadratic).\n* Choice B: \"off-by-one\" — uses factor of $20$ ($400 \\cdot 20 = 8{,}000$) instead of $25$.\n* Choice D: \"wrong base\" — divides by $5$ instead of squaring.\n\n**Test Day Takeaway:** Margin of error scales with $\\dfrac{1}{\\sqrt{n}}$. To cut margin by a factor of $k$, MULTIPLY sample size by $k^2$.",
+  skills: ["margin-of-error", "statistics"]
 },
 {
   id: 15,

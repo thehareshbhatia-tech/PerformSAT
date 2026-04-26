@@ -355,6 +355,7 @@ The `scripts/calibrateModule.mjs --lint` mode in Lane B mechanically enforces:
 - [ ] **IP uniqueness vs PT 4-11 PDFs — stem** (`pdf-uniqueness-stem`): same thresholds vs every 25-token sliding window across the official PT 4-11 digital test PDFs.
 - [ ] **IP uniqueness vs PT 4-11 PDFs — joined answer choices** (`pdf-uniqueness-choices`): catches whole-block answer-choice copy. Only runs when joined choice text is ≥ 12 content tokens (shorter blocks of pure-numeric distractors are uninformative).
 - [ ] **IP uniqueness vs PT 4-11 PDFs — explanation** (`pdf-uniqueness-explanation`): slides a 25-token window over the explanation and reports the worst-case window's score against the PDF corpus.
+- [ ] **Module 2 difficulty ramp** (`m2-difficulty-order`): mediums must occupy positions in `M2_MEDIUM_PRIORITY_POSITIONS` (`[1, 2, 3, 5, 7, 13]`) — the first `N_M` of those slots, where `N_M` is the test's medium count. Hards fill everywhere else. Locks in the upper-medium → top-of-band-hard ramp produced by `scripts/reorderModule2.mjs`. Module 1's existing 5E/9M/8H ramp is not enforced (manual placement during recalibration is sufficient).
 
 ### Bootstrapping the PT 4-11 PDF cache
 

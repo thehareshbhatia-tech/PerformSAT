@@ -600,6 +600,12 @@ export function loadPdfCorpus({ requireCache = true, dir = PDF_TEXT_DIR } = {}) 
 const LINT_BAND_MIN = 1;
 const LINT_BAND_MAX = 7;
 
+// Module 2 difficulty ordering: mediums occupy these positions (in order),
+// hards fill the rest. Locks in the ramp pattern produced by reorderModule2.mjs
+// so the difficulty curve in M2 doesn't drift back into "all hards with random
+// mediums sprinkled in" — see docs/MODULE_RECALIBRATION_PLAN.md.
+export const M2_MEDIUM_PRIORITY_POSITIONS = [1, 2, 3, 5, 7, 13];
+
 const APPROVED_PATTERN_NAMES = new Set([
   'Word-to-Expression Translation',
   'Percent of a Whole',
@@ -1367,6 +1373,36 @@ export function lintPracticeTest({ testN, qbankItems, pdfCorpus }) {
         }
       }
     });
+
+    // Rule 9 — M2 difficulty ramp ordering (only Module 2 / mi === 1).
+    // Mediums must occupy the priority positions; everything else must be hard.
+    // Easy questions in M2 are not expected (hard track has 0 easy) and are
+    // treated as a violation if found via the existing band/difficulty rules,
+    // not here.
+    if (mi === 1 && qs.length > 0) {
+      const mediumCount = qs.filter(q => q && q.difficulty === 'medium').length;
+      if (mediumCount > M2_MEDIUM_PRIORITY_POSITIONS.length) {
+        const firstEntry = lineIndex.find(e => e.moduleIndex === 1 && e.modulePosition === 1);
+        const startLine = firstEntry ? firstEntry.startLine : 1;
+        push(startLine, 'm2-medium-overflow',
+          `module 2 has ${mediumCount} medium questions but priority list only has ${M2_MEDIUM_PRIORITY_POSITIONS.length} slots — extend M2_MEDIUM_PRIORITY_POSITIONS`);
+      } else {
+        const expectedMediumPositions = new Set(M2_MEDIUM_PRIORITY_POSITIONS.slice(0, mediumCount));
+        for (let i = 0; i < qs.length; i++) {
+          const q = qs[i];
+          const pos = i + 1;
+          const isMedium = q && q.difficulty === 'medium';
+          const shouldBeMedium = expectedMediumPositions.has(pos);
+          if (q && q.difficulty === 'easy') continue; // band-range/difficulty rules handle easies in M2
+          if (isMedium !== shouldBeMedium) {
+            const lineEntry = lineIndex.find(e => e.moduleIndex === 1 && e.modulePosition === pos);
+            const startLine = lineEntry ? lineEntry.startLine : 1;
+            push(startLine, 'm2-difficulty-order',
+              `module 2 Q${pos} difficulty=${q && q.difficulty} but pattern expects ${shouldBeMedium ? 'medium' : 'hard'} (priority positions: [${M2_MEDIUM_PRIORITY_POSITIONS.slice(0, mediumCount).join(', ')}]; reorder with: node scripts/reorderModule2.mjs --test=${testN})`);
+          }
+        }
+      }
+    }
   });
 
   return { file, violations };

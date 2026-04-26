@@ -315,10 +315,13 @@ console.log('\n[5] lint: synthesized well-formed test passes');
     const band = i <= 5 ? 3 : (i <= 14 ? 5 : 7);
     m1.push(wellFormedMc(i, diff, band, { stem: `If $${i}x + ${i + 1} = ${i + 7}$, what is $${i}x + 3$?` }));
   }
+  // M2 (hard track) must place mediums at the priority positions [1,2,3,5,7,13]
+  // and hards everywhere else, otherwise the m2-difficulty-order rule fires.
+  const M2_MED_POS = new Set([1, 2, 3, 5, 7, 13]);
   const m2 = [];
   for (let i = 1; i <= 22; i++) {
-    const diff = i <= 5 ? 'easy' : (i <= 14 ? 'medium' : 'hard');
-    const band = i <= 5 ? 3 : (i <= 14 ? 5 : 7);
+    const diff = M2_MED_POS.has(i) ? 'medium' : 'hard';
+    const band = M2_MED_POS.has(i) ? 5 : 7;
     m2.push(wellFormedMc(i, diff, band, { stem: `Suppose $f(${i}) = ${i + 100}$ and $g(x) = f(x) - ${i}$. Find $g(${i})$.` }));
   }
   // Test number must be 1-12 (parseArgs constraint). Use test=2 — the temp
@@ -676,6 +679,59 @@ console.log('\n[13] lint without pdfCorpus skips the pdf rules');
 
   const pdfRules = report.violations.filter(v => v.rule.startsWith('pdf-uniqueness'));
   assert(pdfRules.length === 0, `omitting pdfCorpus skips pdf-uniqueness rules (got ${pdfRules.length})`);
+}
+
+// ---------------------------------------------------------------------------
+// 14. lint: m2-difficulty-order rule fires when mediums aren't at priority positions.
+// ---------------------------------------------------------------------------
+
+console.log('\n[14] lint m2-difficulty-order rule');
+{
+  const dir = makeTempDir('lint-m2order-');
+
+  // Build a valid M1 (5E/9M/8H ramp) and an INVALID M2 — 6 mediums, but at
+  // positions 6, 7, 8, 9, 10, 11 instead of [1,2,3,5,7,13].
+  const m1 = [];
+  for (let i = 1; i <= 22; i++) {
+    const diff = i <= 5 ? 'easy' : (i <= 14 ? 'medium' : 'hard');
+    const band = i <= 5 ? 3 : (i <= 14 ? 5 : 7);
+    m1.push(wellFormedMc(i, diff, band, { stem: `For the m1 entry $${i}$, what is the integer $${i + 1}$ minus $${i - 1}$?` }));
+  }
+  const wrongM2 = [];
+  const WRONG_MED_POS = new Set([6, 7, 8, 9, 10, 11]); // not the priority list
+  for (let i = 1; i <= 22; i++) {
+    const diff = WRONG_MED_POS.has(i) ? 'medium' : 'hard';
+    const band = WRONG_MED_POS.has(i) ? 5 : 7;
+    wrongM2.push(wellFormedMc(i, diff, band, { stem: `For the m2 entry $${i}$, compute $${i * 3}$ divided by $${i + 1}$.` }));
+  }
+  writeFixtureTest(dir, 6, m1, wrongM2);
+
+  const env = { ...process.env, CALIBRATE_TESTS_DIR: dir, SKIP_PDF_LINT: '1' };
+  const r = spawnSync('node', [SCRIPT, '--lint', '--test=6'], { env });
+  assert(r.status === 1, `m2-order lint exits 1 (got ${r.status})`);
+  const stdout = (r.stdout || '').toString();
+  // The rule name only appears in the byCategory summary — count violation
+  // lines by their message shape ("module 2 Q\d+ ... pattern expects ...").
+  const orderLines = stdout.split('\n').filter(l => /module 2 Q\d+ difficulty=.* pattern expects/.test(l));
+  assert(orderLines.length >= 4, `multiple m2-difficulty-order violations on bad fixture (got ${orderLines.length})`);
+  assert(/m2-difficulty-order:\s*\d+/.test(stdout), 'byCategory summary lists m2-difficulty-order count');
+
+  // Now build a CORRECT M2 and confirm the rule does not fire.
+  const okM2 = [];
+  const PRIORITY = new Set([1, 2, 3, 5, 7, 13]);
+  for (let i = 1; i <= 22; i++) {
+    const diff = PRIORITY.has(i) ? 'medium' : 'hard';
+    const band = PRIORITY.has(i) ? 5 : 7;
+    okM2.push(wellFormedMc(i, diff, band, { stem: `For the ok m2 entry $${i}$, find $${i * 4}$ minus $${i + 2}$.` }));
+  }
+  const dir2 = makeTempDir('lint-m2order-ok-');
+  writeFixtureTest(dir2, 7, m1, okM2);
+
+  const env2 = { ...process.env, CALIBRATE_TESTS_DIR: dir2, SKIP_PDF_LINT: '1' };
+  const r2 = spawnSync('node', [SCRIPT, '--lint', '--test=7'], { env2 });
+  const stdout2 = (r2.stdout || '').toString();
+  const orderLines2 = stdout2.split('\n').filter(l => /m2-difficulty-order/.test(l));
+  assert(orderLines2.length === 0, `correctly-ordered M2 has zero m2-difficulty-order violations (got ${orderLines2.length})`);
 }
 
 // ---------------------------------------------------------------------------
