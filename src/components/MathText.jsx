@@ -74,8 +74,12 @@ export const MathText = ({ children, text, className = '', style = {} }) => {
     // Step 3: Display math $$...$$
     result = result.replace(/\$\$([\s\S]*?)\$\$/g, (match, latex) => {
       try {
-        // Remove newline placeholders from latex before rendering
-        const cleanLatex = latex.replace(new RegExp(NEWLINE_PLACEHOLDER, 'g'), '\n');
+        // Restore newline placeholders + escaped-dollar placeholders before KaTeX renders.
+        // KaTeX understands \$ as a literal dollar sign in math mode; passing the raw
+        // U+FFFD placeholder triggers a "Unrecognized Unicode character" warning.
+        const cleanLatex = latex
+          .replace(new RegExp(NEWLINE_PLACEHOLDER, 'g'), '\n')
+          .replace(new RegExp(ESCAPED_DOLLAR_PLACEHOLDER, 'g'), '\\$');
         return katex.renderToString(cleanLatex.trim(), {
           displayMode: true,
           throwOnError: false
@@ -89,8 +93,10 @@ export const MathText = ({ children, text, className = '', style = {} }) => {
     // Step 4: Inline math $...$
     result = result.replace(/\$([^\$]+?)\$/g, (match, latex) => {
       try {
-        // Remove newline placeholders from latex before rendering
-        const cleanLatex = latex.replace(new RegExp(NEWLINE_PLACEHOLDER, 'g'), '\n');
+        // Restore newline placeholders + escaped-dollar placeholders before KaTeX renders.
+        const cleanLatex = latex
+          .replace(new RegExp(NEWLINE_PLACEHOLDER, 'g'), '\n')
+          .replace(new RegExp(ESCAPED_DOLLAR_PLACEHOLDER, 'g'), '\\$');
         return katex.renderToString(cleanLatex.trim(), {
           displayMode: false,
           throwOnError: false
