@@ -346,7 +346,14 @@ export const practiceTest3 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In a right triangle, the two legs have lengths $a$ and $a + 17$, and the hypotenuse has length $25$. What is the perimeter of the triangle?",
+  question: "The right triangle shown has legs of length $a$ and $a + 17$ and hypotenuse of length $25$. What is the perimeter of the triangle?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      sideLabels: ["a", "a + 17", "25"],
+      rightAngleVertex: 1
+    }
+  },
   choices: [
     // distractor: stops one step early — sums only the two legs (7 + 24 = 31) without the hypotenuse
     { id: "A", text: "$31$" },
@@ -365,7 +372,15 @@ export const practiceTest3 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "Triangle $PQR$ is a right triangle with the right angle at $Q$. If $PQ = 5\\sqrt{3}$ and $QR = 5$, what is the area of triangle $PQR$?",
+  question: "Triangle $PQR$ shown is a right triangle with the right angle at $Q$, $PQ = 5\\sqrt{3}$, and $QR = 5$. What is the area of triangle $PQR$?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      labels: ["R", "Q", "P"],
+      sideLabels: ["5", "5√3", ""],
+      rightAngleVertex: 1
+    }
+  },
   choices: [
     // distractor: drops the sqrt(3), giving 1/2 * 5 * 5 = 25/2
     { id: "A", text: "$\\dfrac{25}{2}$" },
@@ -640,7 +655,15 @@ export const practiceTest3 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In right triangle $DEF$, angle $F$ is the right angle, $DE = 41$, and $DF = 40$. What is the value of $\\sin(D)$?",
+  question: "In right triangle $DEF$ shown, angle $F$ is the right angle, $DE = 41$, and $DF = 40$. What is the value of $\\sin(D)$?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      labels: ["D", "F", "E"],
+      sideLabels: ["40", "", "41"],
+      rightAngleVertex: 1
+    }
+  },
   choices: [
     { id: "A", text: "$\\dfrac{9}{41}$" },
     // distractor: uses DF (adjacent to D) — this is cos(D)

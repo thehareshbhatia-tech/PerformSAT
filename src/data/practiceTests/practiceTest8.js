@@ -165,7 +165,14 @@ export const practiceTest8 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "In a right triangle, one of the acute angles has measure $\\theta$ where $\\sin(\\theta) = \\dfrac{8}{17}$. What is the value of $\\cos(\\theta)$?",
+  question: "In the right triangle shown, one of the acute angles has measure $\\theta$ where $\\sin(\\theta) = \\dfrac{8}{17}$. What is the value of $\\cos(\\theta)$?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      labels: ["θ", "", ""],
+      rightAngleVertex: 1
+    }
+  },
   choices: [
     // distractor: returns sin again instead of cos
     { id: "A", text: "$\\dfrac{8}{17}$" },
@@ -251,7 +258,14 @@ export const practiceTest8 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "In the figure, lines $\\ell$ and $m$ are parallel and are crossed by a transversal $t$. The angle formed between $\\ell$ and $t$ on one side measures $(4x + 5)^{\\circ}$, and the corresponding angle formed between $m$ and $t$ measures $(6x - 25)^{\\circ}$. What is the value of $x$?",
+  question: "In the figure, lines $\\ell$ and $m$ are parallel and are crossed by a transversal $t$. What is the value of $x$?",
+  diagram: {
+    type: "parallelLines",
+    params: {
+      angles: { top: ["(4x+5)°", ""], bottom: ["(6x-25)°", ""] },
+      lineLabels: ["ℓ", "m", "t"]
+    }
+  },
   correctAnswer: "15",
   explanation: "**SAT Pattern: Angles with Parallel Lines and Transversals**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~15s):** Corresponding angles are equal: $4x + 5 = 6x - 25 \\Rightarrow 30 = 2x \\Rightarrow x = 15$.\n\n**The Full Solution:**\nWhen a transversal cuts two parallel lines, corresponding angles are EQUAL:\n$4x + 5 = 6x - 25$\n$5 + 25 = 6x - 4x$\n$30 = 2x$\n$x = 15$\n\nVerification: at $x = 15$, both angles measure $4(15) + 5 = 65^{\\circ}$ and $6(15) - 25 = 65^{\\circ}$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Setting the angles SUPPLEMENTARY (summing to $180^{\\circ}$): would give $10x - 20 = 180$, $x = 20$ (wrong).\n* Confusing corresponding angles with co-interior angles.\n\n**Test Day Takeaway:** With parallel lines cut by a transversal, corresponding angles, alternate interior angles, and alternate exterior angles are EQUAL. Same-side interior angles are SUPPLEMENTARY.",
   skills: ["triangles", "angles"]
@@ -318,7 +332,15 @@ export const practiceTest8 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "In right triangle $XYZ$, the right angle is at vertex $Y$. The leg $XY$ has length $a$, and the leg $YZ$ has length $a + 17$. The hypotenuse $XZ$ has length $25$. What is the perimeter of triangle $XYZ$?",
+  question: "In right triangle $XYZ$ shown, the right angle is at vertex $Y$. The leg $XY$ has length $a$, and the leg $YZ$ has length $a + 17$. The hypotenuse $XZ$ has length $25$. What is the perimeter of triangle $XYZ$?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      labels: ["X", "Y", "Z"],
+      sideLabels: ["a", "a + 17", "25"],
+      rightAngleVertex: 1
+    }
+  },
   correctAnswer: "56",
   explanation: "**SAT Pattern: Right Triangle Trigonometry with Perimeter**\n\n**The correct answer is $56$.**\n\n**The Fast Way (~30s):** Recognize the $7$-$24$-$25$ Pythagorean triple. So $a = 7$, $a + 17 = 24$. Perimeter $= 7 + 24 + 25 = 56$.\n\n**The Full Solution:**\nApply the Pythagorean theorem: $a^2 + (a + 17)^2 = 25^2$.\n$a^2 + a^2 + 34a + 289 = 625$\n$2a^2 + 34a - 336 = 0$\n$a^2 + 17a - 168 = 0$\n$(a + 24)(a - 7) = 0$\n\nSo $a = 7$ (rejecting the negative root). Then $a + 17 = 24$.\nPerimeter $= 7 + 24 + 25 = 56$.\n\nVerification: $7^2 + 24^2 = 49 + 576 = 625 = 25^2$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting only the legs ($7 + 24 = 31$) and forgetting the hypotenuse.\n* Sign error in the quadratic and using the negative root.\n\n**Test Day Takeaway:** Memorize Pythagorean triples ($3$-$4$-$5$, $5$-$12$-$13$, $7$-$24$-$25$, $8$-$15$-$17$). When the hypotenuse is $25$, the legs are usually $7$ and $24$.",
   skills: ["triangles", "right-triangles", "area"]
@@ -402,7 +424,14 @@ export const practiceTest8 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "In the figure, two parallel lines are crossed by a transversal. One angle measures $(7y - 10)^{\\circ}$ and the alternate interior angle on the other line measures $(3y + 50)^{\\circ}$. What is the value of $y$?",
+  question: "In the figure, two parallel lines $\\ell$ and $m$ are crossed by a transversal $t$. The two labeled angles are alternate interior angles. What is the value of $y$?",
+  diagram: {
+    type: "parallelLines",
+    params: {
+      angles: { top: ["", "(7y-10)°"], bottom: ["(3y+50)°", ""] },
+      lineLabels: ["ℓ", "m", "t"]
+    }
+  },
   choices: [
     // distractor: stops at solving 7y = 60 forgetting -10
     { id: "A", text: "$\\dfrac{60}{7}$" },
@@ -555,7 +584,15 @@ export const practiceTest8 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In right triangle $RST$, the right angle is at vertex $T$, $RS = 65$, and $ST = 16$. What is the value of $\\cos(R)$?",
+  question: "In right triangle $RST$ shown, the right angle is at vertex $T$, $RS = 65$, and $ST = 16$. What is the value of $\\cos(R)$?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      labels: ["R", "T", "S"],
+      sideLabels: ["", "16", "65"],
+      rightAngleVertex: 1
+    }
+  },
   choices: [
     // distractor: uses ST (opposite to R) instead of adjacent — this is sin(R)
     { id: "A", text: "$\\dfrac{16}{65}$" },

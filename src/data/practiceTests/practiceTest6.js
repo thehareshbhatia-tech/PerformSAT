@@ -659,7 +659,14 @@ export const practiceTest6 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In right triangle $PQR$, the right angle is at $P$. If $\\cos(R) = \\dfrac{24}{25}$, what is the value of $\\sin(R)$?",
+  question: "In right triangle $PQR$ shown, the right angle is at $P$. If $\\cos(R) = \\dfrac{24}{25}$, what is the value of $\\sin(R)$?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      labels: ["Q", "P", "R"],
+      rightAngleVertex: 1
+    }
+  },
   choices: [
     // distractor: applies inverse op — uses 25/7 (reciprocal-style ratio)
     { id: "A", text: "$\\dfrac{25}{7}$" },

@@ -616,7 +616,15 @@ export const practiceTest12 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "In a right triangle, one acute angle measures $\\theta$ such that $\\cos \\theta = \\dfrac{8}{17}$. The side adjacent to angle $\\theta$ has length $24$. What is the length of the hypotenuse?",
+  question: "In the right triangle shown, one acute angle measures $\\theta$ such that $\\cos \\theta = \\dfrac{8}{17}$, and the side adjacent to $\\theta$ has length $24$. What is the length of the hypotenuse?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      labels: ["θ", "", ""],
+      sideLabels: ["24", "", ""],
+      rightAngleVertex: 1
+    }
+  },
   correctAnswer: "51",
   explanation: "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**The correct answer is $51$.**\n\n**The Fast Way (~20s):** $\\cos \\theta = \\dfrac{\\text{adjacent}}{\\text{hypotenuse}} = \\dfrac{8}{17} = \\dfrac{24}{h}$. Cross-multiply: $8h = 24 \\cdot 17 = 408$, so $h = 51$.\n\n**The Full Solution:**\n$\\cos \\theta = \\dfrac{\\text{adjacent}}{\\text{hypotenuse}}$.\nGiven $\\cos \\theta = \\dfrac{8}{17}$ and adjacent $= 24$: $\\dfrac{24}{h} = \\dfrac{8}{17}$.\nCross-multiply: $24 \\cdot 17 = 8h \\Rightarrow 408 = 8h \\Rightarrow h = 51$.\n\nAlternatively: scale factor between $\\dfrac{8}{17}$ and the actual triangle is $\\dfrac{24}{8} = 3$, so hypotenuse $= 17 \\cdot 3 = 51$.\n\nVerification: $\\dfrac{24}{51} = \\dfrac{8}{17}$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Confusing adjacent and opposite sides relative to angle $\\theta$.\n* Computing hypotenuse from $\\sin$ instead of $\\cos$.\n\n**Test Day Takeaway:** SOH-CAH-TOA: $\\cos = \\dfrac{\\text{Adjacent}}{\\text{Hypotenuse}}$. Set up the proportion and cross-multiply.",
   skills: ["trigonometry", "triangles"]

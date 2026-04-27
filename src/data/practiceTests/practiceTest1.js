@@ -232,7 +232,15 @@ export const practiceTest1 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "In a right triangle, one angle measures $90^{\\circ}$ and another measures $35^{\\circ}$. The side opposite the $35^{\\circ}$ angle has length $9$. Which expression gives the length of the hypotenuse?",
+  question: "In the right triangle shown, one acute angle measures $35^{\\circ}$ and the side opposite that angle has length $9$. Which expression gives the length of the hypotenuse?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      labels: ["35°", "", ""],
+      sideLabels: ["", "9", ""],
+      rightAngleVertex: 1
+    }
+  },
   choices: [
     { id: "A", text: "$\\dfrac{9}{\\sin 35^{\\circ}}$" },
     // distractor: uses cosine (adjacent/hypotenuse) instead of sine (opposite/hypotenuse)
@@ -338,7 +346,14 @@ export const practiceTest1 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In a right triangle, the two legs have lengths $a$ and $a + 7$, and the hypotenuse has length $13$. What is the perimeter of the triangle?",
+  question: "The right triangle shown has legs of length $a$ and $a + 7$ and hypotenuse of length $13$. What is the perimeter of the triangle?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      sideLabels: ["a", "a + 7", "13"],
+      rightAngleVertex: 1
+    }
+  },
   choices: [
     // distractor: stops one step early — sums only the two legs (5 + 12 = 17) without adding the hypotenuse
     { id: "A", text: "$17$" },
@@ -460,7 +475,14 @@ export const practiceTest1 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "In the figure below, lines $\\ell$ and $m$ are parallel and are crossed by a transversal $t$. The angle formed between $\\ell$ and $t$ on one side measures $(3x + 10)^{\\circ}$, and the corresponding angle formed between $m$ and $t$ measures $(5x - 30)^{\\circ}$. What is the value of $x$?",
+  question: "In the figure, lines $\\ell$ and $m$ are parallel and are crossed by a transversal $t$. What is the value of $x$?",
+  diagram: {
+    type: "parallelLines",
+    params: {
+      angles: { top: ["(3x+10)°", ""], bottom: ["(5x-30)°", ""] },
+      lineLabels: ["ℓ", "m", "t"]
+    }
+  },
   correctAnswer: "20",
   explanation: "**SAT Pattern: Right Triangle — Pythagorean**\n\n**The correct answer is $20$.**\n\n**The Fast Way (~20s):** Corresponding angles formed by a transversal cutting parallel lines are EQUAL: $3x + 10 = 5x - 30$. Solve: $40 = 2x \\Rightarrow x = 20$.\n\n**The Full Solution:**\nWhen a transversal crosses parallel lines, corresponding angles are equal:\n$3x + 10 = 5x - 30$\n$10 + 30 = 5x - 3x$\n$40 = 2x$\n$x = 20$\n\nVerification: at $x = 20$, the first angle measures $3(20) + 10 = 70^{\\circ}$ and the corresponding angle measures $5(20) - 30 = 70^{\\circ}$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Setting the angles SUPPLEMENTARY (summing to $180^{\\circ}$): would give $8x = 200$, $x = 25$ (wrong).\n* Reading \"corresponding\" as \"alternate exterior\" — same answer here, but only because both pairs are equal for parallel lines cut by a transversal.\n\n**Test Day Takeaway:** Parallel lines cut by a transversal: corresponding angles, alternate interior angles, and alternate exterior angles are all EQUAL. Same-side interior (co-interior) angles are SUPPLEMENTARY.",
   skills: ["triangles", "angles"]
@@ -642,7 +664,15 @@ export const practiceTest1 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In right triangle $PQR$, angle $R$ is the right angle, $PQ = 65$, and $QR = 33$. What is the value of $\\cos(P)$?",
+  question: "In right triangle $PQR$ shown, angle $R$ is the right angle, $PQ = 65$, and $QR = 33$. What is the value of $\\cos(P)$?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      labels: ["Q", "R", "P"],
+      sideLabels: ["33", "", "65"],
+      rightAngleVertex: 1
+    }
+  },
   choices: [
     // distractor: uses QR (opposite to P) — this is sin(P)
     { id: "A", text: "$\\dfrac{33}{65}$" },

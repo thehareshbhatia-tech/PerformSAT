@@ -654,7 +654,15 @@ export const practiceTest4 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In right triangle $XYZ$, angle $Z$ is the right angle, $XY = 85$, and $XZ = 77$. What is the value of $\\sin(X)$?",
+  question: "In right triangle $XYZ$ shown, angle $Z$ is the right angle, $XY = 85$, and $XZ = 77$. What is the value of $\\sin(X)$?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      labels: ["X", "Z", "Y"],
+      sideLabels: ["77", "", "85"],
+      rightAngleVertex: 1
+    }
+  },
   choices: [
     { id: "A", text: "$\\dfrac{36}{85}$" },
     // distractor: uses XZ/XY (adjacent/hypotenuse) — this is cos(X)

@@ -214,7 +214,15 @@ export const practiceTest2 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "In a right triangle, one angle measures $90^{\\circ}$ and another measures $40^{\\circ}$. The side opposite the $40^{\\circ}$ angle has length $12$. Which expression gives the length of the hypotenuse?",
+  question: "In the right triangle shown, one acute angle measures $40^{\\circ}$ and the side opposite that angle has length $12$. Which expression gives the length of the hypotenuse?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      labels: ["40°", "", ""],
+      sideLabels: ["", "12", ""],
+      rightAngleVertex: 1
+    }
+  },
   choices: [
     { id: "A", text: "$\\dfrac{12}{\\sin 40^{\\circ}}$" },
     // distractor: uses cosine (adjacent/hypotenuse) instead of sine (opposite/hypotenuse)
@@ -377,7 +385,14 @@ export const practiceTest2 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "In a right triangle, the two legs have lengths $3\\sqrt{5}$ and $6\\sqrt{5}$. What is the area of the triangle?",
+  question: "The right triangle shown has legs of length $3\\sqrt{5}$ and $6\\sqrt{5}$. What is the area of the triangle?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      sideLabels: ["3√5", "6√5", ""],
+      rightAngleVertex: 1
+    }
+  },
   correctAnswer: "45",
   explanation: "**SAT Pattern: Area with Radical Side Lengths**\n\n**The correct answer is $45$.**\n\n**The Fast Way (~15s):** Area $= \\dfrac{1}{2} \\cdot 3\\sqrt{5} \\cdot 6\\sqrt{5} = \\dfrac{1}{2} \\cdot 18 \\cdot 5 = \\dfrac{90}{2} = 45$.\n\n**The Full Solution:**\nArea of a right triangle $= \\dfrac{1}{2} \\times \\text{leg}_1 \\times \\text{leg}_2$.\n\n$= \\dfrac{1}{2} \\times 3\\sqrt{5} \\times 6\\sqrt{5}$\n\n$= \\dfrac{1}{2} \\times (3 \\times 6) \\times (\\sqrt{5} \\times \\sqrt{5})$\n\n$= \\dfrac{1}{2} \\times 18 \\times 5$\n\n$= \\dfrac{90}{2} = 45$\n\n**Common Mistakes to Avoid:**\n* Forgetting that $\\sqrt{5} \\times \\sqrt{5} = 5$, not $\\sqrt{10}$.\n* Forgetting the $\\dfrac{1}{2}$ factor, giving $90$ instead of $45$.\n\n**Verification:** $3\\sqrt{5} \\approx 6.71$ and $6\\sqrt{5} \\approx 13.42$. Area $\\approx \\dfrac{1}{2}(6.71)(13.42) \\approx 45$ \\checkmark.\n\n**Test Day Takeaway:** When multiplying radicals, $\\sqrt{a} \\times \\sqrt{a} = a$. Separate coefficients from radicals to simplify.",
   skills: ["triangles", "area", "radical-expressions"]
@@ -661,7 +676,14 @@ export const practiceTest2 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In right triangle $ABC$, angle $C$ is the right angle. If $\\sin(A) = \\dfrac{15}{17}$, what is the value of $\\cos(B)$?",
+  question: "In right triangle $ABC$ shown, angle $C$ is the right angle. If $\\sin(A) = \\dfrac{15}{17}$, what is the value of $\\cos(B)$?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      labels: ["A", "C", "B"],
+      rightAngleVertex: 1
+    }
+  },
   choices: [
     // distractor: gives cos(A) = 8/17, not cos(B)
     { id: "A", text: "$\\dfrac{8}{17}$" },

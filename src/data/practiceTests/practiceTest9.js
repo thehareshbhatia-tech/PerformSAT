@@ -385,7 +385,14 @@ export const practiceTest9 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In a right triangle, the two legs have lengths $a$ and $a + 17$, and the hypotenuse has length $25$. What is the perimeter of the triangle?",
+  question: "The right triangle shown has legs of length $a$ and $a + 17$ and hypotenuse of length $25$. What is the perimeter of the triangle?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      sideLabels: ["a", "a + 17", "25"],
+      rightAngleVertex: 1
+    }
+  },
   choices: [
     // distractor: stops one step early — sums only the two legs (7 + 24 = 31)
     { id: "A", text: "$31$" },
@@ -554,7 +561,15 @@ export const practiceTest9 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In right triangle $XYZ$ with the right angle at $Z$, $\\sin X = \\dfrac{8}{17}$ and $YZ = 16$. What is the perimeter of triangle $XYZ$?",
+  question: "In right triangle $XYZ$ shown, the right angle is at $Z$, $\\sin X = \\dfrac{8}{17}$, and $YZ = 16$. What is the perimeter of triangle $XYZ$?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      labels: ["X", "Z", "Y"],
+      sideLabels: ["", "16", ""],
+      rightAngleVertex: 1
+    }
+  },
   choices: [
     // distractor: gives only the two legs (16 + 30 = 46)
     { id: "A", text: "$46$" },

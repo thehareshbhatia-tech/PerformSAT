@@ -2,7 +2,7 @@ import React from 'react';
 import SATLinearGraph from './graphs/SATLinearGraph';
 import SATParabola from './graphs/SATParabola';
 import SATBarChart from './graphs/SATBarChart';
-import { CircleWithSector, CircleWithSquare } from './graphs/SATCircleDiagrams';
+import { CircleWithSector, CircleWithSquare, CircleWithInscribedTriangle } from './graphs/SATCircleDiagrams';
 import SATIntersectingLines from './graphs/SATIntersectingLines';
 import SATPiecewiseLinear from './graphs/SATPiecewiseLinear';
 import SATCubicGraph from './graphs/SATCubicGraph';
@@ -744,6 +744,8 @@ const QuestionDiagram = ({ type, params }) => {
       return <CircleWithSector {...params} />;
     case 'circleWithSquare':
       return <CircleWithSquare {...params} />;
+    case 'circleWithInscribedTriangle':
+      return <CircleWithInscribedTriangle {...params} />;
     case 'intersectingLines':
       return <SATIntersectingLines {...params} />;
     case 'piecewiseLinear':

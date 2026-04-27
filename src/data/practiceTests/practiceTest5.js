@@ -329,7 +329,14 @@ export const practiceTest5 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In a right triangle, the two legs have lengths $a$ and $a + 7$, and the hypotenuse has length $13$. What is the perimeter of the triangle?",
+  question: "The right triangle shown has legs of length $a$ and $a + 7$ and hypotenuse of length $13$. What is the perimeter of the triangle?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      sideLabels: ["a", "a + 7", "13"],
+      rightAngleVertex: 1
+    }
+  },
   choices: [
     // distractor: stops one step early — sums only two legs (5 + 12 = 17)
     { id: "A", text: "$17$" },
@@ -394,7 +401,15 @@ export const practiceTest5 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "In right triangle $ABC$, angle $C$ is the right angle, $\\sin(A) = \\dfrac{8}{17}$, and the hypotenuse $AB$ has length $34$. What is the length of $BC$?",
+  question: "In right triangle $ABC$ shown, angle $C$ is the right angle, $\\sin(A) = \\dfrac{8}{17}$, and the hypotenuse $AB$ has length $34$. What is the length of $BC$?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      labels: ["A", "C", "B"],
+      sideLabels: ["", "", "34"],
+      rightAngleVertex: 1
+    }
+  },
   choices: [
     // distractor: stops one step early — gives the sin value 8 directly
     { id: "A", text: "$8$" },
@@ -642,7 +657,15 @@ export const practiceTest5 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In right triangle $XYZ$, angle $Y$ is the right angle, $XZ = 25$, and $YZ = 7$. What is the value of $\\cos(X)$?",
+  question: "In right triangle $XYZ$ shown, angle $Y$ is the right angle, $XZ = 25$, and $YZ = 7$. What is the value of $\\cos(X)$?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      labels: ["X", "Y", "Z"],
+      sideLabels: ["", "7", "25"],
+      rightAngleVertex: 1
+    }
+  },
   choices: [
     // distractor: uses YZ (opposite to X) — this is sin(X)
     { id: "A", text: "$\\dfrac{7}{25}$" },

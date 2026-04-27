@@ -251,7 +251,14 @@ export const practiceTest7 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "In a right triangle, one of the acute angles is $\\theta$, and $\\sin(\\theta) = \\dfrac{9}{41}$. What is the value of $\\cos(\\theta)$?",
+  question: "In the right triangle shown, one of the acute angles is $\\theta$ and $\\sin(\\theta) = \\dfrac{9}{41}$. What is the value of $\\cos(\\theta)$?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      labels: ["θ", "", ""],
+      rightAngleVertex: 1
+    }
+  },
   choices: [
     // distractor: stops one step early — reuses sin(θ) value as cos(θ)
     { id: "A", text: "$\\dfrac{9}{41}$" },
@@ -347,7 +354,14 @@ export const practiceTest7 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In a right triangle, the two legs have lengths $a$ and $a + 1$, and the hypotenuse has length $29$. What is the perimeter of the triangle?",
+  question: "The right triangle shown has legs of length $a$ and $a + 1$ and hypotenuse of length $29$. What is the perimeter of the triangle?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      sideLabels: ["a", "a + 1", "29"],
+      rightAngleVertex: 1
+    }
+  },
   choices: [
     // distractor: stops one step early — sums only the two legs (20 + 21 = 41) without adding the hypotenuse
     { id: "A", text: "$41$" },

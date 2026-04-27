@@ -521,4 +521,220 @@ export const CircleInscribed = ({
   );
 };
 
-export default { CircleWithSector, CircleWithSquare, CircleInscribed };
+/**
+ * CircleWithInscribedTriangle - Circle with a triangle inscribed in it.
+ * Supports a horizontal diameter and a third point on the upper arc
+ * so the angle at one of the diameter endpoints can be highlighted.
+ */
+export const CircleWithInscribedTriangle = ({
+  labels = { A: 'A', B: 'B', C: 'C', O: 'O' },
+  angleAtA,             // string label, e.g., "30°"
+  angleAtAValue = 30,   // degrees for placement of C on the arc
+  showDiameter = true,
+  showCenter = true,
+  showRightAngleAtC = true,
+  radiusLabel,          // optional radius label, e.g., "10"
+  width = 280,
+  height = 280,
+}) => {
+  const centerX = width / 2;
+  const centerY = height / 2 + 20; // shift slightly down for top arc room
+  const radius = Math.min(width, height) / 2 - 40;
+
+  // Endpoints of horizontal diameter
+  const A = { x: centerX - radius, y: centerY };
+  const B = { x: centerX + radius, y: centerY };
+
+  // C on the upper arc such that angle BAC equals angleAtAValue (degrees)
+  // Using the inscribed angle / chord geometry: C lies at angle 2·angleAtAValue
+  // from B around the center (above the diameter).
+  const thetaFromCenter = (180 - 2 * angleAtAValue) * Math.PI / 180;
+  const C = {
+    x: centerX + radius * Math.cos(thetaFromCenter),
+    y: centerY - radius * Math.sin(thetaFromCenter),
+  };
+
+  // Right-angle marker at C (small square along CA and CB)
+  const renderRightAngleAtC = () => {
+    const size = 12;
+    const toA = { x: A.x - C.x, y: A.y - C.y };
+    const toB = { x: B.x - C.x, y: B.y - C.y };
+    const lenA = Math.hypot(toA.x, toA.y);
+    const lenB = Math.hypot(toB.x, toB.y);
+    const uA = { x: toA.x / lenA, y: toA.y / lenA };
+    const uB = { x: toB.x / lenB, y: toB.y / lenB };
+    const p1 = { x: C.x + uA.x * size, y: C.y + uA.y * size };
+    const p2 = { x: p1.x + uB.x * size, y: p1.y + uB.y * size };
+    const p3 = { x: C.x + uB.x * size, y: C.y + uB.y * size };
+    return (
+      <polyline
+        points={`${p1.x},${p1.y} ${p2.x},${p2.y} ${p3.x},${p3.y}`}
+        fill="none"
+        stroke={styles.colors.axis}
+        strokeWidth={1}
+      />
+    );
+  };
+
+  // Angle arc at A between AB and AC
+  const renderAngleAtA = () => {
+    const arcR = 28;
+    // AB direction from A: along +x (since B is right of A on horizontal diameter)
+    // AC direction from A
+    const angleAB = 0;
+    const angleAC = Math.atan2(C.y - A.y, C.x - A.x); // SVG y is flipped; this returns negative for upward
+    const startAngle = angleAB;
+    const endAngle = angleAC;
+    const x1 = A.x + arcR * Math.cos(startAngle);
+    const y1 = A.y + arcR * Math.sin(startAngle);
+    const x2 = A.x + arcR * Math.cos(endAngle);
+    const y2 = A.y + arcR * Math.sin(endAngle);
+    // sweep flag: 0 since we go counterclockwise in SVG (negative y direction)
+    const arcPath = `M ${x1} ${y1} A ${arcR} ${arcR} 0 0 ${endAngle < startAngle ? 0 : 1} ${x2} ${y2}`;
+    const midAngle = (startAngle + endAngle) / 2;
+    const labelX = A.x + (arcR + 18) * Math.cos(midAngle);
+    const labelY = A.y + (arcR + 18) * Math.sin(midAngle);
+    return (
+      <g>
+        <path d={arcPath} fill="none" stroke={styles.colors.axis} strokeWidth={1.2} />
+        {angleAtA && (
+          <text
+            x={labelX}
+            y={labelY + 4}
+            fontFamily="Georgia, serif"
+            fontSize={13}
+            fontStyle="italic"
+            fill={styles.colors.axis}
+            textAnchor="middle"
+          >
+            {angleAtA}
+          </text>
+        )}
+      </g>
+    );
+  };
+
+  return (
+    <svg
+      width={width}
+      height={height}
+      style={{
+        background: styles.colors.background,
+        border: `1px solid ${styles.colors.border}`,
+      }}
+    >
+      {/* Circle */}
+      <circle
+        cx={centerX}
+        cy={centerY}
+        r={radius}
+        fill="none"
+        stroke={styles.colors.axis}
+        strokeWidth={styles.strokeWidth.axis}
+      />
+
+      {/* Diameter AB */}
+      {showDiameter && (
+        <line
+          x1={A.x}
+          y1={A.y}
+          x2={B.x}
+          y2={B.y}
+          stroke={styles.colors.dataLine}
+          strokeWidth={styles.strokeWidth.dataLine}
+        />
+      )}
+
+      {/* Triangle ACB */}
+      <polygon
+        points={`${A.x},${A.y} ${C.x},${C.y} ${B.x},${B.y}`}
+        fill="rgba(0, 0, 0, 0.02)"
+        stroke={styles.colors.dataLine}
+        strokeWidth={styles.strokeWidth.dataLine}
+      />
+
+      {/* Optional radius label (drawn from O to C) */}
+      {radiusLabel && (
+        <g>
+          <line
+            x1={centerX}
+            y1={centerY}
+            x2={C.x}
+            y2={C.y}
+            stroke={styles.colors.gridLine}
+            strokeWidth={1}
+            strokeDasharray="4,4"
+          />
+          <text
+            x={(centerX + C.x) / 2 + 6}
+            y={(centerY + C.y) / 2 - 4}
+            fontFamily={styles.font.axis}
+            fontSize={styles.fontSize.tickLabel}
+            fill={styles.colors.axis}
+          >
+            {radiusLabel}
+          </text>
+        </g>
+      )}
+
+      {/* Right-angle marker at C */}
+      {showRightAngleAtC && renderRightAngleAtC()}
+
+      {/* Angle arc + label at A */}
+      {renderAngleAtA()}
+
+      {/* Center point */}
+      {showCenter && <circle cx={centerX} cy={centerY} r={3} fill={styles.colors.axis} />}
+
+      {/* Vertex points */}
+      <circle cx={A.x} cy={A.y} r={3.5} fill={styles.colors.axis} />
+      <circle cx={B.x} cy={B.y} r={3.5} fill={styles.colors.axis} />
+      <circle cx={C.x} cy={C.y} r={3.5} fill={styles.colors.axis} />
+
+      {/* Vertex labels */}
+      <text
+        x={A.x - 14}
+        y={A.y + 5}
+        fontFamily={styles.font.axis}
+        fontSize={styles.fontSize.tickLabel}
+        fill={styles.colors.axis}
+        textAnchor="middle"
+      >
+        {labels.A}
+      </text>
+      <text
+        x={B.x + 14}
+        y={B.y + 5}
+        fontFamily={styles.font.axis}
+        fontSize={styles.fontSize.tickLabel}
+        fill={styles.colors.axis}
+        textAnchor="middle"
+      >
+        {labels.B}
+      </text>
+      <text
+        x={C.x}
+        y={C.y - 10}
+        fontFamily={styles.font.axis}
+        fontSize={styles.fontSize.tickLabel}
+        fill={styles.colors.axis}
+        textAnchor="middle"
+      >
+        {labels.C}
+      </text>
+      {showCenter && (
+        <text
+          x={centerX + 8}
+          y={centerY + 14}
+          fontFamily={styles.font.axis}
+          fontSize={styles.fontSize.tickLabel}
+          fill={styles.colors.axis}
+        >
+          {labels.O}
+        </text>
+      )}
+    </svg>
+  );
+};
+
+export default { CircleWithSector, CircleWithSquare, CircleInscribed, CircleWithInscribedTriangle };

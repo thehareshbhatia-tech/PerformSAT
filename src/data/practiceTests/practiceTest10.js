@@ -186,7 +186,15 @@ export const practiceTest10 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "In a right triangle, one angle measures $90^{\\circ}$ and another measures $42^{\\circ}$. The side opposite the $42^{\\circ}$ angle has length $14$. Which expression gives the length of the hypotenuse?",
+  question: "In the right triangle shown, one acute angle measures $42^{\\circ}$ and the side opposite that angle has length $14$. Which expression gives the length of the hypotenuse?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      labels: ["42°", "", ""],
+      sideLabels: ["", "14", ""],
+      rightAngleVertex: 1
+    }
+  },
   choices: [
     { id: "A", text: "$\\dfrac{14}{\\sin 42^{\\circ}}$" },
     // distractor: wrong base — uses cosine (adjacent/hypotenuse) instead of sine
@@ -662,7 +670,15 @@ export const practiceTest10 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In a right triangle, the side adjacent to angle $\\theta$ has length $5$ and the hypotenuse has length $13$. What is the value of $\\sin \\theta$?",
+  question: "In the right triangle shown, the side adjacent to angle $\\theta$ has length $5$ and the hypotenuse has length $13$. What is the value of $\\sin \\theta$?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      labels: ["θ", "", ""],
+      sideLabels: ["5", "", "13"],
+      rightAngleVertex: 1
+    }
+  },
   choices: [
     { id: "A", text: "$\\dfrac{12}{13}$" },
     // distractor: wrong base — gives cos θ instead of sin θ

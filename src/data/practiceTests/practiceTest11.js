@@ -206,7 +206,15 @@ export const practiceTest11 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "In right triangle $XYZ$, the right angle is at $Y$, $XY = 9$, and $XZ = 15$. What is the length of $YZ$?",
+  question: "In right triangle $XYZ$ shown, the right angle is at $Y$, $XY = 9$, and $XZ = 15$. What is the length of $YZ$?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      labels: ["X", "Y", "Z"],
+      sideLabels: ["9", "", "15"],
+      rightAngleVertex: 1
+    }
+  },
   correctAnswer: "12",
   explanation: "**SAT Pattern: Right Triangle — Pythagorean**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~15s):** Recognize the $9$-$12$-$15$ Pythagorean triple (a $3$-$4$-$5$ scaled by $3$). Hypotenuse is $XZ = 15$, leg $XY = 9$, so the missing leg $YZ = 12$.\n\n**The Full Solution:**\nThe right angle is at $Y$, so $XZ$ is the hypotenuse.\n$XY^2 + YZ^2 = XZ^2$\n$9^2 + YZ^2 = 15^2$\n$81 + YZ^2 = 225$\n$YZ^2 = 144$\n$YZ = 12$.\n\n**Common Mistakes to Avoid:**\n* Treating $XY$ or $YZ$ as the hypotenuse (the hypotenuse is opposite the right angle, which is at $Y$ — so hypotenuse is $XZ$).\n* Adding instead of subtracting: $\\sqrt{225 + 81} = \\sqrt{306}$ (wrong setup).\n\n**Test Day Takeaway:** The hypotenuse is opposite the right angle. Memorize common triples: $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, and their multiples.",
   skills: ["triangles", "pythagorean"]
@@ -312,7 +320,14 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "A right triangle has legs of length $\\sqrt{5} + 2$ and $\\sqrt{5} - 2$. What is the area of the triangle?",
+  question: "The right triangle shown has legs of length $\\sqrt{5} + 2$ and $\\sqrt{5} - 2$. What is the area of the triangle?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      sideLabels: ["√5 + 2", "√5 − 2", ""],
+      rightAngleVertex: 1
+    }
+  },
   choices: [
     // distractor: computes the product 5 - 4 = 1 but forgets the 1/2 (gives 1)
     { id: "A", text: "$1$" },
@@ -341,7 +356,14 @@ export const practiceTest11 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "In triangle $ABC$, the angle at $B$ is a right angle. If $\\sin A = \\dfrac{5}{13}$, what is the value of $\\cos C$?",
+  question: "In triangle $ABC$ shown, the angle at $B$ is a right angle. If $\\sin A = \\dfrac{5}{13}$, what is the value of $\\cos C$?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      labels: ["A", "B", "C"],
+      rightAngleVertex: 1
+    }
+  },
   correctAnswer: "5/13",
   explanation: "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**The correct answer is $\\dfrac{5}{13}$.**\n\n**The Fast Way (~15s):** In a right triangle, the two acute angles are complementary: $A + C = 90^{\\circ}$. So $\\cos C = \\cos(90^{\\circ} - A) = \\sin A = \\dfrac{5}{13}$.\n\n**The Full Solution:**\nWith the right angle at $B$, angles $A$ and $C$ are complementary: $A + C = 90^{\\circ}$.\nThe complementary identity: $\\cos(90^{\\circ} - \\theta) = \\sin \\theta$.\nTherefore $\\cos C = \\cos(90^{\\circ} - A) = \\sin A = \\dfrac{5}{13}$.\n\nAlternative: if $\\sin A = \\dfrac{5}{13}$, the side opposite $A$ is $5$ and the hypotenuse is $13$. By the Pythagorean theorem, the third side is $12$. The side adjacent to $C$ is the side opposite $A$ (length $5$), and the hypotenuse is $13$. So $\\cos C = \\dfrac{5}{13}$.\n\n**Common Mistakes to Avoid:**\n* Computing $\\cos A$ instead of $\\cos C$ (would give $\\dfrac{12}{13}$).\n* Using $\\sin C$ in place of $\\cos C$.\n\n**Test Day Takeaway:** In a right triangle, the sine of one acute angle equals the cosine of the other. They are complements.",
   skills: ["triangles", "trigonometry"]
@@ -710,7 +732,15 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In right triangle $XYZ$, the right angle is at $Z$ and $\\cos X = \\dfrac{5}{13}$. If $XZ = 10$, what is the area of triangle $XYZ$?",
+  question: "In right triangle $XYZ$ shown, the right angle is at $Z$, $\\cos X = \\dfrac{5}{13}$, and $XZ = 10$. What is the area of triangle $XYZ$?",
+  diagram: {
+    type: "rightTriangle",
+    params: {
+      labels: ["X", "Z", "Y"],
+      sideLabels: ["10", "", ""],
+      rightAngleVertex: 1
+    }
+  },
   choices: [
     // distractor: uses 5-12-13 triple unscaled, gives 1/2 * 5 * 12 = 30; doubles to 60
     { id: "A", text: "$60$" },
@@ -758,7 +788,17 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "In the figure below, $\\overline{AB}$ is a diameter of the circle with center $O$ and radius $10$. Point $C$ is on the circle such that $\\angle BAC = 30^{\\circ}$. What is the length of $\\overline{BC}$?",
+  question: "In the figure, $\\overline{AB}$ is a diameter of the circle with center $O$ and radius $10$. Point $C$ is on the circle. What is the length of $\\overline{BC}$?",
+  diagram: {
+    type: "circleWithInscribedTriangle",
+    params: {
+      labels: { A: "A", B: "B", C: "C", O: "O" },
+      angleAtA: "30°",
+      angleAtAValue: 30,
+      showRightAngleAtC: true,
+      radiusLabel: "10"
+    }
+  },
   choices: [
     // distractor: uses the radius (10) instead of the diameter (20) as the hypotenuse, then halves
     { id: "A", text: "$5$" },
