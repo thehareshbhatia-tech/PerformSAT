@@ -2608,6 +2608,78 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         {/* Formula if present */}
         {question?.questionFormula && renderFormula(question.questionFormula)}
 
+        {/* R&W single passage if present */}
+        {question?.passage && (
+          <div style={{
+            marginBottom: '20px',
+            padding: '16px 20px',
+            background: colors.surface.gray,
+            borderLeft: `3px solid ${colors.focus}`,
+            borderRadius: 'var(--radius-sm)',
+            fontFamily: SAT_TYPOGRAPHY.questionFont,
+            fontSize: SAT_TYPOGRAPHY.sizes.questionText,
+            lineHeight: 1.6,
+            whiteSpace: 'pre-wrap'
+          }}>
+            <MathText text={question.passage} />
+          </div>
+        )}
+
+        {/* R&W dual-passage (Cross-Text Connections) if present */}
+        {question?.passages && Array.isArray(question.passages) && (
+          <div style={{ marginBottom: '20px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            {question.passages.map((p, i) => (
+              <div key={i} style={{
+                padding: '16px 20px',
+                background: colors.surface.gray,
+                borderLeft: `3px solid ${colors.focus}`,
+                borderRadius: 'var(--radius-sm)',
+                fontFamily: SAT_TYPOGRAPHY.questionFont,
+                fontSize: SAT_TYPOGRAPHY.sizes.questionText,
+                lineHeight: 1.6,
+                whiteSpace: 'pre-wrap'
+              }}>
+                {p.label && (
+                  <div style={{ fontWeight: 600, marginBottom: 8, fontSize: '14px', color: colors.text.secondary }}>
+                    {p.label}
+                  </div>
+                )}
+                <MathText text={p.text} />
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* R&W student notes (Rhetorical Synthesis) if present */}
+        {question?.studentNotes && (
+          <div style={{
+            marginBottom: '20px',
+            padding: '16px 20px',
+            background: colors.surface.gray,
+            borderLeft: `3px solid ${colors.focus}`,
+            borderRadius: 'var(--radius-sm)',
+            fontFamily: SAT_TYPOGRAPHY.questionFont,
+            fontSize: SAT_TYPOGRAPHY.sizes.questionText,
+            lineHeight: 1.6
+          }}>
+            {question.studentNotes.intro && (
+              <div style={{ marginBottom: 8 }}>{question.studentNotes.intro}</div>
+            )}
+            <ul style={{ paddingLeft: 20, margin: '8px 0' }}>
+              {question.studentNotes.bullets.map((b, i) => (
+                <li key={i} style={{ marginBottom: 4 }}>
+                  <MathText text={b} />
+                </li>
+              ))}
+            </ul>
+            {question.studentNotes.goal && (
+              <div style={{ marginTop: 8, fontStyle: 'italic' }}>
+                <MathText text={question.studentNotes.goal} />
+              </div>
+            )}
+          </div>
+        )}
+
         {/* Diagram if present */}
         {question?.diagram && (
           <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>

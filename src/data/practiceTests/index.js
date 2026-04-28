@@ -13,9 +13,11 @@ import { practiceTest9 } from './practiceTest9';
 import { practiceTest10 } from './practiceTest10';
 import { practiceTest11 } from './practiceTest11';
 import { practiceTest12 } from './practiceTest12';
+import { practiceTest1RW } from './practiceTest1RW';
 
 export const practiceTests = [
   practiceTest1,
+  practiceTest1RW,
   practiceTest2,
   practiceTest3,
   practiceTest4,
@@ -37,4 +39,4 @@ export const getAllPracticeTests = () => {
   return practiceTests;
 };
 
-export { practiceTest1, practiceTest2, practiceTest3, practiceTest4, practiceTest5, practiceTest6, practiceTest7, practiceTest8, practiceTest9, practiceTest10, practiceTest11, practiceTest12 };
+export { practiceTest1, practiceTest2, practiceTest3, practiceTest4, practiceTest5, practiceTest6, practiceTest7, practiceTest8, practiceTest9, practiceTest10, practiceTest11, practiceTest12, practiceTest1RW };

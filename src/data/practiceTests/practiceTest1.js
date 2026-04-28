@@ -7,7 +7,7 @@
 
 export const practiceTest1 = {
   id: "practice-test-1",
-  title: "Practice Test 1",
+  title: "Practice Test 1 — Math",
   description: "Full-length SAT Math practice test with 2 modules",
   totalQuestions: 44,
   timePerModule: 35,
