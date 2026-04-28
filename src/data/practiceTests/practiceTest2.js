@@ -404,8 +404,68 @@ export const practiceTest2 = {
       title: "Module 2",
       timeLimit: 35,
       questions: [
+// Practice Test 2 — Math Module 2 (22 questions)
+// Distribution: 3E / 6M / 13H. Q1-3 are easy openers (CB-authentic ramp).
+
 {
   id: 1,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 2,
+  question: "A rectangle has a length of $13$ inches and a width of $8$ inches. What is the perimeter of the rectangle, in inches?",
+  choices: [
+    // distractor: stops one step early - sums length and width without doubling
+    { id: "A", text: "$21$" },
+    { id: "B", text: "$42$" },
+    // distractor: wrong base - uses 4 times the perimeter formula incorrectly
+    { id: "C", text: "$84$" },
+    // distractor: gives the area instead of the perimeter
+    { id: "D", text: "$104$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Rectangle Perimeter**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Perimeter $= 2(l + w) = 2(13 + 8) = 2(21) = 42$.\n\n**The Full Solution:**\nPerimeter of a rectangle: $P = 2l + 2w = 2(l + w)$.\n$P = 2(13 + 8) = 2(21) = 42$ inches.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — adds $l + w = 21$ but forgets to double.\n* Choice C: \"wrong base\" — uses $4(l + w)$ instead of $2(l + w)$.\n* Choice D: \"applies the inverse operation\" — gives the area $l \\cdot w = 104$ instead of perimeter.\n\n**Test Day Takeaway:** Perimeter sums all sides; a rectangle has 2 of each, so $P = 2(l + w)$. Don't confuse with area $A = l \\cdot w$.",
+  skills: ["geometry", "perimeter"]
+},
+{
+  id: 2,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 2,
+  question: "A taxi service charges a flat fee of $\\$3$ plus $\\$2$ per mile. Which equation represents the total cost $C$, in dollars, for a ride of $m$ miles?",
+  choices: [
+    // distractor: swaps the roles of base fee and per-mile rate
+    { id: "A", text: "$C = 3m + 2$" },
+    { id: "B", text: "$C = 2m + 3$" },
+    // distractor: wrong base - treats per-mile rate as flat addition
+    { id: "C", text: "$C = 5 + m$" },
+    // distractor: applies inverse op - combines flat and rate as multiplication
+    { id: "D", text: "$C = 6m$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Linear Cost Setup**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Cost $=$ (per-mile rate) $\\times$ (miles) $+$ (flat fee) $= 2m + 3$.\n\n**The Full Solution:**\n\"Per mile\" means a rate that scales with miles: $2 \\cdot m = 2m$.\n\"Flat fee\" is a one-time charge: $3$.\nTotal: $C = 2m + 3$.\n\nVerification: a $5$-mile ride costs $C = 2(5) + 3 = 13$ dollars \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — swaps the roles, putting the flat fee on $m$.\n* Choice C: \"stops one step early\" — adds the two values ($3 + 2 = 5$) without applying the rate to $m$.\n* Choice D: \"applies the inverse operation\" — combines the values into a single coefficient.\n\n**Test Day Takeaway:** Linear cost $=$ rate $\\times$ quantity $+$ fixed fee. Identify which value scales (rate) and which is constant (flat fee).",
+  skills: ["linear-functions", "word-problems"]
+},
+{
+  id: 3,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 3,
+  question: "A pair of jeans originally costs $\\$40$. The price is increased by $25\\%$. What is the new price, in dollars?",
+  choices: [
+    // distractor: gives just the dollar increase, not the new total
+    { id: "A", text: "$\\$10$" },
+    // distractor: applies the inverse operation - subtracts instead of adds
+    { id: "B", text: "$\\$30$" },
+    { id: "C", text: "$\\$50$" },
+    // distractor: wrong base - adds 25 dollars instead of 25 percent
+    { id: "D", text: "$\\$65$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Percent Increase**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Increase $= 0.25 \\cdot 40 = 10$. New price $= 40 + 10 = \\$50$.\n\n**The Full Solution:**\n$25\\%$ of $\\$40 = 0.25 \\cdot 40 = \\$10$.\nNew price $= 40 + 10 = \\$50$.\n\nAlternatively: new price $= 40 \\cdot (1 + 0.25) = 40 \\cdot 1.25 = \\$50$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the dollar increase ($\\$10$) instead of the new price.\n* Choice B: \"applies the inverse operation\" — subtracts instead of adding ($\\$40 - \\$10 = \\$30$).\n* Choice D: \"wrong base\" — adds $\\$25$ as if the percent were dollars.\n\n**Test Day Takeaway:** Percent increase: new $=$ old $\\cdot (1 + \\text{percent})$. The percent is a multiplier on the OLD value, not a flat dollar amount.",
+  skills: ["percents", "word-problems"]
+},
+{
+  id: 4,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -424,7 +484,7 @@ export const practiceTest2 = {
   skills: ["function-interpretation", "quadratic-equations"]
 },
 {
-  id: 2,
+  id: 5,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -434,7 +494,7 @@ export const practiceTest2 = {
   skills: ["triangles", "geometry", "ratios"]
 },
 {
-  id: 3,
+  id: 6,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -444,7 +504,7 @@ export const practiceTest2 = {
   skills: ["word-problems", "solving-equations"]
 },
 {
-  id: 4,
+  id: 7,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -463,7 +523,7 @@ export const practiceTest2 = {
   skills: ["percents", "word-problems"]
 },
 {
-  id: 5,
+  id: 8,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -482,7 +542,7 @@ export const practiceTest2 = {
   skills: ["vertex-form", "quadratic-equations", "function-interpretation"]
 },
 {
-  id: 6,
+  id: 9,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -501,7 +561,7 @@ export const practiceTest2 = {
   skills: ["word-problems", "solving-equations", "linear-functions"]
 },
 {
-  id: 7,
+  id: 10,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -520,7 +580,7 @@ export const practiceTest2 = {
   skills: ["statistics"]
 },
 {
-  id: 8,
+  id: 11,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -539,7 +599,7 @@ export const practiceTest2 = {
   skills: ["exponent-rules", "radical-expressions"]
 },
 {
-  id: 9,
+  id: 12,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -558,7 +618,7 @@ export const practiceTest2 = {
   skills: ["systems-of-equations", "linear-functions"]
 },
 {
-  id: 10,
+  id: 13,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -577,7 +637,7 @@ export const practiceTest2 = {
   skills: ["margin-of-error", "statistics"]
 },
 {
-  id: 11,
+  id: 14,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -596,7 +656,7 @@ export const practiceTest2 = {
   skills: ["word-problems", "solving-equations", "linear-functions"]
 },
 {
-  id: 12,
+  id: 15,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -615,7 +675,7 @@ export const practiceTest2 = {
   skills: ["quadratic-equations", "vertex-form", "function-interpretation"]
 },
 {
-  id: 13,
+  id: 16,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -634,7 +694,7 @@ export const practiceTest2 = {
   skills: ["probability", "two-way-tables", "percents"]
 },
 {
-  id: 14,
+  id: 17,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -653,7 +713,7 @@ export const practiceTest2 = {
   skills: ["slope", "linear-functions", "coordinate-geometry"]
 },
 {
-  id: 15,
+  id: 18,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -672,7 +732,7 @@ export const practiceTest2 = {
   skills: ["circle-equations", "coordinate-geometry"]
 },
 {
-  id: 16,
+  id: 19,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -698,7 +758,7 @@ export const practiceTest2 = {
   skills: ["trigonometry", "triangles", "right-triangles"]
 },
 {
-  id: 17,
+  id: 20,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -717,7 +777,7 @@ export const practiceTest2 = {
   skills: ["discriminant", "quadratic-equations"]
 },
 {
-  id: 18,
+  id: 21,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -727,7 +787,7 @@ export const practiceTest2 = {
   skills: ["exponential-functions", "percents"]
 },
 {
-  id: 19,
+  id: 22,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -745,45 +805,6 @@ export const practiceTest2 = {
   explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** No solution means coefficient of $x$ matches but constants differ. Match: $\\dfrac{a}{3} = 2 \\Rightarrow a = 6$. Constants differ: $b \\neq 5$.\n\n**The Full Solution:**\nRearrange: $\\dfrac{a}{3}x - 2x = b - 5$, so $\\left(\\dfrac{a-6}{3}\\right)x = b - 5$.\n\nFor NO solution: coefficient of $x$ must be $0$ AND right side must be nonzero.\n* $\\dfrac{a-6}{3} = 0 \\Rightarrow a = 6$.\n* $b - 5 \\neq 0 \\Rightarrow b \\neq 5$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — $a = 6, b = 5$ gives $0 = 0$ (infinitely many solutions, not no solution).\n* Choice C: \"wrong base\" — $a \\neq 6$ means coefficient of $x$ is nonzero, so the equation HAS one solution.\n* Choice D: \"off-by-one\" — $a = 3$ makes $\\dfrac{a-6}{3} = -1 \\neq 0$, so there IS a solution.\n\n**Test Day Takeaway:** No solution $=$ matching $x$-coefficients but DIFFERENT constants. Infinitely many solutions $=$ both match.",
   skills: ["solving-equations", "linear-functions"]
 },
-{
-  id: 20,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "A solid is formed by attaching a right square pyramid on top of a cube of side length $6$ inches. The pyramid has the same square base as the top of the cube, and a slant height of $5$ inches. What is the total exterior surface area of the solid, in square inches? (Do not count the shared base between the cube and pyramid.)",
-  correctAnswer: "240",
-  explanation: "**SAT Pattern: Composite Solid Surface Area**\n\n**The correct answer is $240$.**\n\n**The Fast Way (~40s):** Cube exposed faces: bottom + $4$ sides $= 5 \\cdot 36 = 180$. Pyramid lateral faces: $4 \\cdot \\dfrac{1}{2}(6)(5) = 60$. Total: $180 + 60 = 240$.\n\n**The Full Solution:**\nFor the composite solid, the shared face (top of cube = base of pyramid) is internal, so exclude it.\n\n**Cube exposed surfaces:** bottom + $4$ side faces = $5$ faces.\nEach face: $6 \\times 6 = 36$.\nCube exposed: $5 \\cdot 36 = 180$ square inches.\n\n**Pyramid exposed surfaces:** $4$ triangular lateral faces.\nEach triangle: base $6$, slant height $5$. Area $= \\dfrac{1}{2}(6)(5) = 15$.\nPyramid lateral: $4 \\cdot 15 = 60$ square inches.\n\nTotal exterior surface area: $180 + 60 = 240$ square inches.\n\n**Common Mistakes to Avoid:**\n* Including the shared base ($36$) on both sides — leads to $276$ or higher.\n* Confusing slant height ($5$) with the pyramid's vertical height.\n* Using $6 \\cdot 36 = 216$ for the cube (counting all $6$ faces).\n\n**Verification:** Cube alone (all $6$ faces) $= 216$. Subtract the shared top: $216 - 36 = 180$. Add pyramid lateral: $180 + 60 = 240$ \\checkmark.\n\n**Test Day Takeaway:** For composite solids, identify which faces are shared/internal and EXCLUDE them. Use the slant height (not vertical height) for triangle areas on a pyramid.",
-  skills: ["surface-area", "geometry", "volume"]
-},
-{
-  id: 21,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A cube has a side length of $s$. A second cube has a side length that is $50\\%$ greater than $s$. The volume of the larger cube is what percent greater than the volume of the smaller cube?",
-  choices: [
-    // distractor: assumes volume scales the same as side length
-    { id: "A", text: "$50\\%$" },
-    // distractor: gets the cubic factor (1.5)^3 = 3.375 but mis-converts to percent
-    { id: "B", text: "$125\\%$" },
-    // distractor: uses 1.5^2 = 2.25, off by a power
-    { id: "C", text: "$150\\%$" },
-    { id: "D", text: "$237.5\\%$" }
-  ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Volume Scaling**\n\n**Choice D is correct.**\n\n**The Fast Way (~25s):** Larger side $= 1.5s$. Volume ratio $= (1.5)^3 = 3.375$. Percent greater $= (3.375 - 1) \\times 100\\% = 237.5\\%$.\n\n**The Full Solution:**\nSmaller cube volume: $s^3$.\nLarger cube side: $1.5s$. Volume: $(1.5s)^3 = 3.375s^3$.\nPercent greater: $\\dfrac{3.375s^3 - s^3}{s^3} \\times 100 = 2.375 \\times 100 = 237.5\\%$.\n\n**Verification:** If $s = 2$: small volume $= 8$, large side $= 3$, large volume $= 27$. Percent increase: $\\dfrac{27 - 8}{8} \\times 100 = \\dfrac{19}{8} \\times 100 = 237.5\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — assumes volume scales the same as side length.\n* Choice B: \"off-by-one\" — gets $(1.5)^3 = 3.375$ but mis-converts: $1.25 \\to 125\\%$.\n* Choice C: \"applies the inverse operation\" — uses $(1.5)^2 = 2.25 \\to 150\\%$ (off by a power of $1.5$).\n\n**Test Day Takeaway:** When a dimension is scaled by factor $k$, volume scales by $k^3$. A $50\\%$ side increase $\\Rightarrow (1.5)^3 = 3.375 \\Rightarrow 237.5\\%$ volume increase.",
-  skills: ["percents", "volume"]
-},
-{
-  id: 22,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "Let $f(x) = 3x - 2$ and $g(x) = x^2 + 5$. If $g(f(a)) = 54$, what is a positive value of $a$?",
-  correctAnswer: "3",
-  explanation: "**SAT Pattern: Function Composition**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~25s):** $g(f(a)) = (3a - 2)^2 + 5 = 54 \\Rightarrow (3a-2)^2 = 49 \\Rightarrow 3a - 2 = 7$ (positive branch) $\\Rightarrow a = 3$.\n\n**The Full Solution:**\n$f(a) = 3a - 2$.\n$g(f(a)) = (3a - 2)^2 + 5 = 54$.\n$(3a - 2)^2 = 49$.\n$3a - 2 = \\pm 7$.\nPositive branch: $3a - 2 = 7 \\Rightarrow 3a = 9 \\Rightarrow a = 3$.\nNegative branch: $3a - 2 = -7 \\Rightarrow 3a = -5 \\Rightarrow a = -\\dfrac{5}{3}$ (not positive).\n\n**Verification:** $f(3) = 7$. $g(7) = 49 + 5 = 54$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Solving $(3a - 2)^2 = 54$ instead of subtracting $5$ first.\n* Confusing $f(g(a))$ with $g(f(a))$ — order matters.\n\n**Test Day Takeaway:** Substitute the inner function into the outer; isolate the squared expression before taking square roots; pick the branch the question asks for.",
-  skills: ["function-interpretation", "solving-equations"]
-}
       ]
     }
   ]

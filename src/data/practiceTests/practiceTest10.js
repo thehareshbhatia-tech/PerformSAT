@@ -407,8 +407,68 @@ export const practiceTest10 = {
       title: "Module 2",
       timeLimit: 35,
       questions: [
+// Practice Test 10 — Math Module 2 (22 questions)
+// Distribution: 3E / 6M / 13H. Q1-3 are easy openers (CB-authentic ramp).
+
 {
   id: 1,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 2,
+  question: "If $\\dfrac{2}{5} = \\dfrac{8}{x}$, what is the value of $x$?",
+  choices: [
+    // distractor: subtracts the values incorrectly
+    { id: "A", text: "$4$" },
+    // distractor: stops one step early - uses 2*8 without dividing properly
+    { id: "B", text: "$11$" },
+    // distractor: wrong base - uses 8/2 with reversed cross-multiplication
+    { id: "C", text: "$16$" },
+    { id: "D", text: "$20$" }
+  ],
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: Solve a Proportion**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** Cross-multiply: $2x = 5 \\cdot 8 = 40$. So $x = 20$.\n\n**The Full Solution:**\n$\\dfrac{2}{5} = \\dfrac{8}{x}$\nCross-multiply: $2x = 5 \\cdot 8 = 40$.\nDivide by $2$: $x = 20$.\n\nVerification: $\\dfrac{8}{20} = 0.4 = \\dfrac{2}{5}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — divides incorrectly without proper cross-multiplication.\n* Choice B: \"applies the inverse operation\" — adds rather than cross-multiplying ($5 + 8 - 2 = 11$).\n* Choice C: \"applies the inverse operation\" — uses $8 \\cdot 2 = 16$ but doesn't account for the $5$.\n\n**Test Day Takeaway:** Cross-multiply two equal fractions: $\\dfrac{a}{b} = \\dfrac{c}{d} \\Rightarrow ad = bc$. Then solve.",
+  skills: ["solving-equations", "ratios"]
+},
+{
+  id: 2,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 3,
+  question: "Which expression is equivalent to $\\sqrt{72}$?",
+  choices: [
+    { id: "A", text: "$6\\sqrt{2}$" },
+    // distractor: uses an incorrect perfect-square factor
+    { id: "B", text: "$8\\sqrt{2}$" },
+    // distractor: stops one step early - factors but doesn't take square root
+    { id: "C", text: "$36\\sqrt{2}$" },
+    // distractor: applies inverse operation - adds instead of multiplying
+    { id: "D", text: "$\\sqrt{2} + 6$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Simplify a Radical**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $72 = 36 \\cdot 2$. $\\sqrt{72} = \\sqrt{36}\\sqrt{2} = 6\\sqrt{2}$.\n\n**The Full Solution:**\nFactor $72$ to extract the largest perfect square:\n$72 = 36 \\cdot 2$ ($36$ is a perfect square).\n$\\sqrt{72} = \\sqrt{36 \\cdot 2} = \\sqrt{36} \\cdot \\sqrt{2} = 6\\sqrt{2}$.\n\nVerification: $(6\\sqrt{2})^2 = 36 \\cdot 2 = 72$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — uses $64$ as the perfect-square factor (but $72/64$ isn't an integer).\n* Choice C: \"stops one step early\" — factors $72 = 36 \\cdot 2$ but forgets to take the square root of $36$.\n* Choice D: \"applies the inverse operation\" — adds instead of multiplying.\n\n**Test Day Takeaway:** $\\sqrt{ab} = \\sqrt{a} \\cdot \\sqrt{b}$. Pull out the largest perfect square factor.",
+  skills: ["radical-expressions"]
+},
+{
+  id: 3,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 3,
+  question: "What is the volume, in cubic feet, of a rectangular box with length $6$ feet, width $4$ feet, and height $3$ feet?",
+  choices: [
+    // distractor: stops one step early - sums dimensions
+    { id: "A", text: "$13$" },
+    // distractor: multiplies only two dimensions
+    { id: "B", text: "$24$" },
+    { id: "C", text: "$72$" },
+    // distractor: gives the surface area instead of the volume
+    { id: "D", text: "$108$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Volume of a Rectangular Box**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** $V = l \\cdot w \\cdot h = 6 \\cdot 4 \\cdot 3 = 72$.\n\n**The Full Solution:**\nVolume of a rectangular box: $V = lwh = 6 \\cdot 4 \\cdot 3 = 72$ ft$^3$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — adds $l + w + h = 13$ instead of multiplying.\n* Choice B: \"wrong base\" — uses only two dimensions ($l \\cdot w = 24$).\n* Choice D: \"applies the inverse operation\" — gives the surface area ($2(lw + lh + wh) = 2(24 + 18 + 12) = 108$) instead of volume.\n\n**Test Day Takeaway:** Volume of a rectangular box $= lwh$ (multiply all three dimensions). Surface area sums the areas of all $6$ faces.",
+  skills: ["geometry", "volume"]
+},
+{
+  id: 4,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -427,7 +487,7 @@ export const practiceTest10 = {
   skills: ["systems-of-equations"]
 },
 {
-  id: 2,
+  id: 5,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -446,7 +506,7 @@ export const practiceTest10 = {
   skills: ["factoring", "polynomial-operations"]
 },
 {
-  id: 3,
+  id: 6,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -465,7 +525,7 @@ export const practiceTest10 = {
   skills: ["systems-of-equations", "word-problems"]
 },
 {
-  id: 4,
+  id: 7,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -484,7 +544,7 @@ export const practiceTest10 = {
   skills: ["percents"]
 },
 {
-  id: 5,
+  id: 8,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -503,7 +563,7 @@ export const practiceTest10 = {
   skills: ["scatterplots", "statistics", "linear-functions"]
 },
 {
-  id: 6,
+  id: 9,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -522,7 +582,7 @@ export const practiceTest10 = {
   skills: ["systems-of-equations", "word-problems"]
 },
 {
-  id: 7,
+  id: 10,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -541,7 +601,7 @@ export const practiceTest10 = {
   skills: ["systems-of-equations"]
 },
 {
-  id: 8,
+  id: 11,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -560,7 +620,7 @@ export const practiceTest10 = {
   skills: ["exponent-rules", "radical-expressions"]
 },
 {
-  id: 9,
+  id: 12,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -579,7 +639,7 @@ export const practiceTest10 = {
   skills: ["function-interpretation", "vertex-form"]
 },
 {
-  id: 10,
+  id: 13,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -589,7 +649,7 @@ export const practiceTest10 = {
   skills: ["statistics", "mean-median-mode"]
 },
 {
-  id: 11,
+  id: 14,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -599,7 +659,7 @@ export const practiceTest10 = {
   skills: ["systems-of-equations"]
 },
 {
-  id: 12,
+  id: 15,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -618,7 +678,7 @@ export const practiceTest10 = {
   skills: ["vertex-form", "function-interpretation"]
 },
 {
-  id: 13,
+  id: 16,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -637,7 +697,7 @@ export const practiceTest10 = {
   skills: ["margin-of-error", "statistics"]
 },
 {
-  id: 14,
+  id: 17,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -656,7 +716,7 @@ export const practiceTest10 = {
   skills: ["slope", "coordinate-geometry", "linear-functions"]
 },
 {
-  id: 15,
+  id: 18,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -666,7 +726,7 @@ export const practiceTest10 = {
   skills: ["circle-equations", "coordinate-geometry"]
 },
 {
-  id: 16,
+  id: 19,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -693,7 +753,7 @@ export const practiceTest10 = {
   skills: ["trigonometry", "triangles", "right-triangles"]
 },
 {
-  id: 17,
+  id: 20,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -712,7 +772,7 @@ export const practiceTest10 = {
   skills: ["quadratic-equations", "discriminant"]
 },
 {
-  id: 18,
+  id: 21,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -722,7 +782,7 @@ export const practiceTest10 = {
   skills: ["exponent-rules", "radical-expressions"]
 },
 {
-  id: 19,
+  id: 22,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -740,63 +800,6 @@ export const practiceTest10 = {
   explanation: "**SAT Pattern: Percent Greater Than**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Percent greater $= \\dfrac{350 - 50}{50} \\times 100 = 6 \\times 100 = 600\\%$.\n\n**The Full Solution:**\n\"$A$ is what percent greater than $B$\" means $\\dfrac{A - B}{B} \\times 100$.\n$\\dfrac{350 - 50}{50} \\times 100 = \\dfrac{300}{50} \\times 100 = 6 \\times 100 = 600\\%$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — computes $\\dfrac{350 - 50}{350} \\times 100$ — divides by $350$ instead of $50$.\n* Choice B: \"stops one step early\" — computes $350 - 50 = 300$ and stops.\n* Choice D: \"wrong base\" — computes $\\dfrac{350}{50} \\times 100 = 700\\%$, but that's \"what percent OF,\" not \"what percent GREATER.\"\n\n**Test Day Takeaway:** \"Percent greater\" means $\\dfrac{\\text{difference}}{\\text{base}} \\times 100$. The base is the number after \"than.\"",
   skills: ["percents", "word-problems"]
 },
-{
-  id: 20,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A composite solid is made by placing a right circular cone (radius $3$, height $4$) on top of a right circular cylinder (radius $3$, height $6$). The lateral surface area of the cone is $15\\pi$. What is the total surface area of the composite solid (excluding the interior shared circle)?",
-  choices: [
-    // distractor: stops one step early — only computes cone lateral
-    { id: "A", text: "$15\\pi$" },
-    // distractor: off-by-one — forgets the bottom circle of cylinder
-    { id: "B", text: "$45\\pi$" },
-    { id: "C", text: "$60\\pi$" },
-    // distractor: applies inverse op — adds the shared circle twice
-    { id: "D", text: "$78\\pi$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Composite Solid Surface Area**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Cone lateral $= 15\\pi$. Cylinder lateral $= 2\\pi(3)(6) = 36\\pi$. Bottom circle of cylinder $= \\pi(3)^2 = 9\\pi$. Total $= 15 + 36 + 9 = 60\\pi$.\n\n**The Full Solution:**\nThe composite solid has three exposed surfaces (the shared circle between cone and cylinder is hidden):\n\n1. **Lateral surface of cone:** Given as $15\\pi$.\n2. **Lateral surface of cylinder:** $2\\pi r h = 2\\pi(3)(6) = 36\\pi$.\n3. **Bottom circle of cylinder:** $\\pi r^2 = \\pi(3)^2 = 9\\pi$.\n\nTotal: $15\\pi + 36\\pi + 9\\pi = 60\\pi$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — only computes the cone lateral surface.\n* Choice B: \"off-by-one\" — forgets the bottom circle of the cylinder.\n* Choice D: \"applies the inverse operation\" — incorrectly adds the shared internal circle.\n\n**Test Day Takeaway:** For composite solids, identify which surfaces are exposed. The shared interior circle is NOT counted.",
-  skills: ["volume", "geometry", "area"]
-},
-{
-  id: 21,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A scientist increased the temperature in a chamber by $40\\%$, then decreased it by $25\\%$ from the new value. If the final temperature is $63^{\\circ}$ Celsius, what was the original temperature, in degrees Celsius?",
-  choices: [
-    // distractor: applies inverse op — uses 1.40 \\cdot 0.75 = 1.05 directly on 63
-    { id: "A", text: "$66.15$" },
-    { id: "B", text: "$60$" },
-    // distractor: stops one step early — divides 63 by 1.40 only
-    { id: "C", text: "$45$" },
-    // distractor: off-by-one — uses 1.15 instead of 1.05 (combined factor)
-    { id: "D", text: "$54.78$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Combined factor: $1.40 \\times 0.75 = 1.05$. So $1.05 \\times \\text{original} = 63 \\Rightarrow \\text{original} = 60$.\n\n**The Full Solution:**\nLet $T$ be the original temperature.\nAfter $40\\%$ increase: $1.40T$.\nAfter $25\\%$ decrease from new value: $1.40T \\times 0.75 = 1.05T$.\nGiven final $= 63$: $1.05T = 63 \\Rightarrow T = 60$.\n\nVerification: $60 \\times 1.40 = 84$. $84 \\times 0.75 = 63$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $63 \\times 1.05 = 66.15$ instead of dividing.\n* Choice C: \"stops one step early\" — divides $63$ by $1.40$ alone, ignoring the second change.\n* Choice D: \"off-by-one\" — uses $1.15$ (additive) instead of $1.05$ (multiplicative).\n\n**Test Day Takeaway:** Successive percent changes multiply, not add. A $40\\%$ increase then $25\\%$ decrease is $1.40 \\times 0.75 = 1.05$, not $1.15$.",
-  skills: ["percents", "word-problems"]
-},
-{
-  id: 22,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A cone-shaped tank has a radius of $6$ feet and a height of $9$ feet. The tank is filled with water to a height of $6$ feet from the bottom. What fraction of the tank's total volume is filled with water?",
-  choices: [
-    // distractor: applies inverse op — uses linear ratio 6/9 = 2/3
-    { id: "A", text: "$\\dfrac{2}{3}$" },
-    // distractor: stops one step early — uses 6/9 = 2/3 squared
-    { id: "B", text: "$\\dfrac{4}{9}$" },
-    { id: "C", text: "$\\dfrac{8}{27}$" },
-    // distractor: wrong base — uses 6²/9² (incorrect dimensional ratio)
-    { id: "D", text: "$\\dfrac{36}{81}$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Volume Scaling**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Similar cones: linear ratio $\\dfrac{6}{9} = \\dfrac{2}{3}$. Volume scales as cube: $\\left(\\dfrac{2}{3}\\right)^3 = \\dfrac{8}{27}$.\n\n**The Full Solution:**\nThe water forms a smaller cone similar to the tank. The water cone has height $6$ and the tank has height $9$, so the linear scale ratio is $\\dfrac{6}{9} = \\dfrac{2}{3}$.\nFor similar 3D shapes, volumes scale as the cube of the linear ratio:\n$\\dfrac{V_{\\text{water}}}{V_{\\text{tank}}} = \\left(\\dfrac{2}{3}\\right)^3 = \\dfrac{8}{27}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — uses linear ratio $\\dfrac{2}{3}$ directly without cubing.\n* Choice B: \"stops one step early\" — squares the ratio (gives area scaling) instead of cubing.\n* Choice D: \"wrong base\" — uses $\\dfrac{36}{81}$ (which equals $\\dfrac{4}{9}$, the area ratio).\n\n**Test Day Takeaway:** For similar 3D figures, volume ratio = (linear ratio)$^3$. For 2D, area ratio = (linear ratio)$^2$.",
-  skills: ["volume", "geometry"]
-}
       ]
     }
   ]

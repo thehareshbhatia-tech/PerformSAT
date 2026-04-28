@@ -401,8 +401,68 @@ export const practiceTest12 = {
       title: "Module 2",
       timeLimit: 35,
       questions: [
+// Practice Test 12 — Math Module 2 (22 questions)
+// Distribution: 3E / 6M / 13H. Q1-3 are easy openers (CB-authentic ramp).
+
 {
   id: 1,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 2,
+  question: "If $5x - 7 = 18$, what is the value of $x$?",
+  choices: [
+    { id: "A", text: "$5$" },
+    // distractor: stops one step early - subtracts but doesn't divide
+    { id: "B", text: "$11$" },
+    // distractor: applies inverse op - adds 7 to 18 but skips dividing
+    { id: "C", text: "$25$" },
+    // distractor: sign error - negates the answer
+    { id: "D", text: "$-5$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** $5x = 25 \\Rightarrow x = 5$.\n\n**The Full Solution:**\n$5x - 7 = 18$\nAdd $7$ to both sides: $5x = 25$.\nDivide by $5$: $x = 5$.\nVerification: $5(5) - 7 = 25 - 7 = 18$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"stops one step early\" — does $18 - 7 = 11$ but forgets to divide by $5$.\n* Choice C: \"stops one step early\" — finds $5x = 25$ but reports $25$ instead of solving for $x$.\n* Choice D: \"applies the inverse operation\" — sign error in the answer.\n\n**Test Day Takeaway:** Two-step equations: undo addition/subtraction first, then division/multiplication. Always verify by substituting.",
+  skills: ["solving-equations"]
+},
+{
+  id: 2,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 2,
+  question: "A recipe calls for $3$ cups of flour for every $2$ cups of sugar. If a baker uses $9$ cups of flour, how many cups of sugar should the baker use?",
+  choices: [
+    // distractor: subtracts difference incorrectly
+    { id: "A", text: "$4$" },
+    { id: "B", text: "$6$" },
+    // distractor: adds the values instead of scaling proportionally
+    { id: "C", text: "$12$" },
+    // distractor: wrong scale factor - uses 1.5x sugar instead of 3x
+    { id: "D", text: "$13.5$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Proportional Scaling**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Scale factor: $9 / 3 = 3$. Sugar $= 2 \\cdot 3 = 6$ cups.\n\n**The Full Solution:**\nThe ratio of flour to sugar is $3 : 2$. With $9$ cups of flour:\n$\\dfrac{3}{2} = \\dfrac{9}{x}$\nCross-multiply: $3x = 18$, so $x = 6$.\n\nAlternatively: scale factor $= 9 / 3 = 3$, so multiply each ratio component by $3$: sugar $= 2 \\cdot 3 = 6$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — subtracts to estimate without proper scaling.\n* Choice C: \"applies the inverse operation\" — adds the difference ($9 + 3 = 12$).\n* Choice D: \"off-by-one\" — uses scale factor of $1.5$ instead of $3$.\n\n**Test Day Takeaway:** When scaling a ratio, multiply BOTH parts by the same factor. Find the factor from the ratio of new-to-old for one quantity.",
+  skills: ["ratios", "proportions"]
+},
+{
+  id: 3,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 2,
+  question: "A right triangle has legs of length $6$ and $8$. What is the area of the triangle?",
+  choices: [
+    // distractor: stops one step early - sums the legs
+    { id: "A", text: "$14$" },
+    { id: "B", text: "$24$" },
+    // distractor: forgets the 1/2 factor in area formula
+    { id: "C", text: "$48$" },
+    // distractor: gives the hypotenuse squared (used Pythagorean instead)
+    { id: "D", text: "$100$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Right Triangle Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Area $= \\dfrac{1}{2}(6)(8) = 24$.\n\n**The Full Solution:**\nFor a right triangle, the two legs are the base and height, so:\nArea $= \\dfrac{1}{2} \\cdot \\text{leg}_1 \\cdot \\text{leg}_2 = \\dfrac{1}{2}(6)(8) = 24$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — sums the legs ($6 + 8 = 14$).\n* Choice C: \"applies the inverse operation\" — multiplies the legs but forgets the $\\dfrac{1}{2}$ factor.\n* Choice D: \"wrong base\" — gives the hypotenuse squared ($6^2 + 8^2 = 100$).\n\n**Test Day Takeaway:** Right triangle area $= \\dfrac{1}{2} \\cdot \\text{leg}_1 \\cdot \\text{leg}_2$. The two legs serve as base and height because they meet at a right angle.",
+  skills: ["geometry", "area", "triangles"]
+},
+{
+  id: 4,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -421,7 +481,7 @@ export const practiceTest12 = {
   skills: ["function-interpretation", "solving-equations"]
 },
 {
-  id: 2,
+  id: 5,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -440,7 +500,7 @@ export const practiceTest12 = {
   skills: ["slope", "coordinate-geometry"]
 },
 {
-  id: 3,
+  id: 6,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -459,7 +519,7 @@ export const practiceTest12 = {
   skills: ["two-way-tables", "probability"]
 },
 {
-  id: 4,
+  id: 7,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -478,7 +538,7 @@ export const practiceTest12 = {
   skills: ["solving-equations"]
 },
 {
-  id: 5,
+  id: 8,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -497,7 +557,7 @@ export const practiceTest12 = {
   skills: ["solving-equations"]
 },
 {
-  id: 6,
+  id: 9,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -507,7 +567,7 @@ export const practiceTest12 = {
   skills: ["statistics"]
 },
 {
-  id: 7,
+  id: 10,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -526,7 +586,7 @@ export const practiceTest12 = {
   skills: ["vertex-form", "quadratic-equations"]
 },
 {
-  id: 8,
+  id: 11,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -545,7 +605,7 @@ export const practiceTest12 = {
   skills: ["exponent-rules", "radical-expressions"]
 },
 {
-  id: 9,
+  id: 12,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -564,7 +624,7 @@ export const practiceTest12 = {
   skills: ["linear-functions"]
 },
 {
-  id: 10,
+  id: 13,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -583,7 +643,7 @@ export const practiceTest12 = {
   skills: ["probability"]
 },
 {
-  id: 11,
+  id: 14,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -593,7 +653,7 @@ export const practiceTest12 = {
   skills: ["solving-equations", "polynomial-operations"]
 },
 {
-  id: 12,
+  id: 15,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -612,7 +672,7 @@ export const practiceTest12 = {
   skills: ["scatterplots", "statistics"]
 },
 {
-  id: 13,
+  id: 16,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -630,7 +690,7 @@ export const practiceTest12 = {
   skills: ["trigonometry", "triangles"]
 },
 {
-  id: 14,
+  id: 17,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -649,7 +709,7 @@ export const practiceTest12 = {
   skills: ["margin-of-error", "statistics"]
 },
 {
-  id: 15,
+  id: 18,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -668,7 +728,7 @@ export const practiceTest12 = {
   skills: ["discriminant", "quadratic-equations"]
 },
 {
-  id: 16,
+  id: 19,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -687,7 +747,7 @@ export const practiceTest12 = {
   skills: ["exponential-functions", "function-interpretation"]
 },
 {
-  id: 17,
+  id: 20,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -697,7 +757,7 @@ export const practiceTest12 = {
   skills: ["circle-equations", "coordinate-geometry"]
 },
 {
-  id: 18,
+  id: 21,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -716,7 +776,7 @@ export const practiceTest12 = {
   skills: ["quadratic-equations", "word-problems"]
 },
 {
-  id: 19,
+  id: 22,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -734,54 +794,6 @@ export const practiceTest12 = {
   explanation: "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Pythagorean identity: $\\sin^2 + \\cos^2 = 1$. Pythagorean theorem: $a^2 + b^2 = c^2$. Combine: $\\dfrac{\\sin^2 + \\cos^2}{a^2 + b^2} = \\dfrac{1}{c^2}$.\n\n**The Full Solution:**\nKey identities:\n1. $\\sin^2\\theta + \\cos^2\\theta = 1$.\n2. $a^2 + b^2 = c^2$ (legs and hypotenuse).\n\nCheck D: $\\dfrac{\\sin^2\\theta + \\cos^2\\theta}{a^2 + b^2} = \\dfrac{1}{c^2}$ \\checkmark.\n\nCheck others:\n* A: $= 1 \\neq \\dfrac{1}{c^2}$ unless $c = 1$.\n* B: $\\dfrac{a^2/c^2}{a^2} + \\dfrac{b^2/c^2}{b^2} = \\dfrac{1}{c^2} + \\dfrac{1}{c^2} = \\dfrac{2}{c^2}$.\n* C: $\\dfrac{1}{a^2} + \\dfrac{1}{b^2} = \\dfrac{c^2}{a^2 b^2}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — Pythagorean identity equals $1$, which is $\\dfrac{c^2}{c^2}$, not $\\dfrac{1}{c^2}$.\n* Choice B: \"off-by-one\" — sum of two $\\dfrac{1}{c^2}$ terms gives $\\dfrac{2}{c^2}$.\n* Choice C: \"wrong base\" — algebra gives $\\dfrac{c^2}{a^2 b^2}$, not $\\dfrac{1}{c^2}$.\n\n**Test Day Takeaway:** Pythagorean identity ($\\sin^2 + \\cos^2 = 1$) and Pythagorean theorem ($a^2 + b^2 = c^2$) are partners — combine them for clean simplifications.",
   skills: ["trigonometry"]
 },
-{
-  id: 20,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "For the system of equations below, what is the value of $a + b + c$?\n\n$a + 2b + 3c = 16$\n$2a + b - c = 5$\n$a - b + 2c = 7$",
-  correctAnswer: "8",
-  explanation: "**SAT Pattern: Three-Variable System**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~40s):** Add Eq2 + Eq3: $3a + c = 12$. Subtract Eq3 from Eq1: $3b + c = 9$. Solve the reduced 2-variable system.\n\n**The Full Solution:**\nAdd Eq2 + Eq3: $(2a + b - c) + (a - b + 2c) = 5 + 7 \\Rightarrow 3a + c = 12$ ... (i)\nEq1 − Eq3: $(a + 2b + 3c) - (a - b + 2c) = 16 - 7 \\Rightarrow 3b + c = 9$ ... (ii)\n\nFrom (ii): $c = 9 - 3b$. Substitute into (i): $3a + 9 - 3b = 12 \\Rightarrow a = b + 1$.\nSubstitute both into Eq2: $2(b + 1) + b - (9 - 3b) = 5 \\Rightarrow 6b - 7 = 5 \\Rightarrow b = 2$.\n\nThen $a = 3$ and $c = 3$. So $a + b + c = 3 + 2 + 3 = 8$.\n\nVerification: Eq1 $= 3 + 4 + 9 = 16$ \\checkmark; Eq2 $= 6 + 2 - 3 = 5$ \\checkmark; Eq3 $= 3 - 2 + 6 = 7$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Solving for individual variables when only their sum is needed — pick eliminations that simplify directly.\n* Sign errors when subtracting equations.\n\n**Test Day Takeaway:** For 3-variable systems, eliminate one variable by combining pairs of equations, reducing to a 2-variable system.",
-  skills: ["systems-of-equations"]
-},
-{
-  id: 21,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A rectangular prism has a square base with side length $s$ and height $h$. The total surface area is $150$ square inches, and the volume is $125$ cubic inches. What is the value of $s$?",
-  choices: [
-    { id: "A", text: "$5$" },
-    // distractor: $s = 10$ gives $h = 1.25$, SA = 250 (doesn't match)
-    { id: "B", text: "$10$" },
-    // distractor: doesn't satisfy both equations simultaneously
-    { id: "C", text: "$5\\sqrt{2}$" },
-    // distractor: $s = 25$ is far too large
-    { id: "D", text: "$25$" }
-  ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Surface Area and Volume System**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Try $s = 5$: volume $25h = 125 \\Rightarrow h = 5$. SA $= 2(25) + 4(5)(5) = 50 + 100 = 150$ \\checkmark.\n\n**The Full Solution:**\nVolume: $s^2 h = 125 \\Rightarrow h = \\dfrac{125}{s^2}$.\nSurface area: $2s^2 + 4sh = 150$.\nSubstitute: $2s^2 + 4s \\cdot \\dfrac{125}{s^2} = 150 \\Rightarrow 2s^2 + \\dfrac{500}{s} = 150$.\nMultiply by $s$: $2s^3 - 150s + 500 = 0 \\Rightarrow s^3 - 75s + 250 = 0$.\nTest $s = 5$: $125 - 375 + 250 = 0$ \\checkmark. So $s = 5$, $h = 5$ (it's a cube).\n\n**Why the wrong answers are tempting:**\n* Choice B: \"applies the inverse operation\" — $s = 10$ violates SA constraint.\n* Choice C: \"wrong base\" — doesn't satisfy both equations.\n* Choice D: \"applies the inverse operation\" — far too large.\n\n**Test Day Takeaway:** With surface area and volume as a 2-equation system, express one variable in terms of the other and substitute. Testing integer values from the choices is often fastest.",
-  skills: ["surface-area", "volume", "solving-equations"]
-},
-{
-  id: 22,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The function $f(x) = a \\cdot b^x$ satisfies $f(2) = 18$ and $f(5) = 486$. What is the value of $f(0)$?",
-  choices: [
-    { id: "A", text: "$2$" },
-    // distractor: confuses $a$ with $b$
-    { id: "B", text: "$3$" },
-    // distractor: computes $ab = 6$ instead of $f(0) = a$
-    { id: "C", text: "$6$" },
-    // distractor: assumes $f(0)$ always equals $1$ (true only when $a = 1$)
-    { id: "D", text: "$1$" }
-  ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** $\\dfrac{f(5)}{f(2)} = b^3 = \\dfrac{486}{18} = 27$, so $b = 3$. Then $f(2) = 9a = 18 \\Rightarrow a = 2$. Finally $f(0) = a = 2$.\n\n**The Full Solution:**\n$f(2) = ab^2 = 18$ and $f(5) = ab^5 = 486$.\nDivide: $\\dfrac{ab^5}{ab^2} = b^3 = \\dfrac{486}{18} = 27 \\Rightarrow b = 3$.\nFrom $ab^2 = 18$: $9a = 18 \\Rightarrow a = 2$.\n$f(0) = a \\cdot b^0 = a \\cdot 1 = 2$.\n\nVerification: $f(2) = 2 \\cdot 9 = 18$ \\checkmark; $f(5) = 2 \\cdot 243 = 486$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — confuses $a$ with $b$.\n* Choice C: \"applies the inverse operation\" — computes $ab = 6$ instead of $f(0) = a$.\n* Choice D: \"stops one step early\" — assumes $f(0) = 1$ (true only when $a = 1$).\n\n**Test Day Takeaway:** For $f(x) = ab^x$, dividing two function values eliminates $a$ and isolates a power of $b$. Always remember $f(0) = a$.",
-  skills: ["exponential-functions", "solving-equations"]
-}
       ]
     }
   ]

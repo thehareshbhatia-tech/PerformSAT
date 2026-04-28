@@ -411,8 +411,68 @@ export const practiceTest3 = {
       title: "Module 2",
       timeLimit: 35,
       questions: [
+// Practice Test 3 — Math Module 2 (22 questions)
+// Distribution: 3E / 6M / 13H. Q1-3 are easy openers (CB-authentic ramp).
+
 {
   id: 1,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 2,
+  question: "What is the range of the data set $\\{12, 17, 9, 23, 14, 18\\}$?",
+  choices: [
+    // distractor: gives the minimum
+    { id: "A", text: "$9$" },
+    { id: "B", text: "$14$" },
+    // distractor: gives an approximate mean (15.5) instead of the range
+    { id: "C", text: "$15.5$" },
+    // distractor: gives the maximum
+    { id: "D", text: "$23$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Range of a Data Set**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Range $=$ max $-$ min $= 23 - 9 = 14$.\n\n**The Full Solution:**\nThe range is the difference between the largest and smallest values:\nMax $= 23$, min $= 9$.\nRange $= 23 - 9 = 14$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — gives the minimum instead of the range.\n* Choice C: \"applies the inverse operation\" — computes the mean ($\\dfrac{93}{6} = 15.5$) instead of the range.\n* Choice D: \"wrong base\" — gives the maximum instead of the range.\n\n**Test Day Takeaway:** Range $=$ max $-$ min. Don't confuse with mean (sum$/n$) or median (middle).",
+  skills: ["statistics", "range"]
+},
+{
+  id: 2,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 3,
+  question: "What is the smallest integer $n$ for which $3n + 5 > 26$?",
+  choices: [
+    // distractor: uses ≥ instead of strict > and gives the boundary
+    { id: "A", text: "$7$" },
+    { id: "B", text: "$8$" },
+    // distractor: stops one step early at 3n > 21 without dividing
+    { id: "C", text: "$21$" },
+    // distractor: applies inverse op - uses 26 + 5 instead of subtracting
+    { id: "D", text: "$31$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Smallest Integer in an Inequality**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $3n > 21 \\Rightarrow n > 7$. Smallest integer strictly greater than $7$ is $8$.\n\n**The Full Solution:**\n$3n + 5 > 26$\n$3n > 21$\n$n > 7$.\n\nThe smallest integer with $n > 7$ is $8$ (since $7$ does not satisfy $n > 7$).\nVerification: at $n = 8$, $3(8) + 5 = 29 > 26$ \\checkmark. At $n = 7$, $3(7) + 5 = 26$, which is NOT strictly greater.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — confuses $>$ with $\\geq$ and gives the boundary value.\n* Choice C: \"stops one step early\" — solves $3n > 21$ but reports $3n$ instead of $n$.\n* Choice D: \"applies the inverse operation\" — adds $5$ to $26$ instead of subtracting.\n\n**Test Day Takeaway:** Strict $>$ excludes the boundary. After solving $n > k$, the smallest integer answer is $k + 1$.",
+  skills: ["solving-equations", "inequalities"]
+},
+{
+  id: 3,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 3,
+  question: "Which expression is equivalent to $x^2 - 9$?",
+  choices: [
+    // distractor: applies sum-of-squares pattern incorrectly
+    { id: "A", text: "$(x - 3)(x - 3)$" },
+    { id: "B", text: "$(x - 3)(x + 3)$" },
+    // distractor: applies sum pattern with same sign
+    { id: "C", text: "$(x + 3)(x + 3)$" },
+    // distractor: factors out x instead of using difference of squares
+    { id: "D", text: "$x(x - 9)$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Difference of Squares**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** $a^2 - b^2 = (a - b)(a + b)$. Here $a = x$, $b = 3$, so $x^2 - 9 = (x - 3)(x + 3)$.\n\n**The Full Solution:**\n$x^2 - 9 = x^2 - 3^2$.\nUsing the difference-of-squares identity $a^2 - b^2 = (a - b)(a + b)$:\n$x^2 - 3^2 = (x - 3)(x + 3)$.\nVerification: $(x - 3)(x + 3) = x^2 + 3x - 3x - 9 = x^2 - 9$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — squares $(x - 3)$ instead of using difference of squares.\n* Choice C: \"applies the inverse operation\" — uses sum-of-squares-like pattern (no real factorization).\n* Choice D: \"applies the inverse operation\" — factors out $x$ instead of treating $9$ as $3^2$.\n\n**Test Day Takeaway:** Recognize the difference-of-squares pattern $a^2 - b^2 = (a - b)(a + b)$ on sight. The two factors have OPPOSITE signs.",
+  skills: ["factoring", "polynomial-operations"]
+},
+{
+  id: 4,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -431,7 +491,7 @@ export const practiceTest3 = {
   skills: ["margin-of-error", "statistics"]
 },
 {
-  id: 2,
+  id: 5,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -450,7 +510,7 @@ export const practiceTest3 = {
   skills: ["vertex-form", "function-interpretation"]
 },
 {
-  id: 3,
+  id: 6,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -460,7 +520,7 @@ export const practiceTest3 = {
   skills: ["solving-equations"]
 },
 {
-  id: 4,
+  id: 7,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -479,7 +539,7 @@ export const practiceTest3 = {
   skills: ["percents", "word-problems"]
 },
 {
-  id: 5,
+  id: 8,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -498,7 +558,7 @@ export const practiceTest3 = {
   skills: ["probability", "two-way-tables"]
 },
 {
-  id: 6,
+  id: 9,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -517,7 +577,7 @@ export const practiceTest3 = {
   skills: ["word-problems", "ratios"]
 },
 {
-  id: 7,
+  id: 10,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -527,7 +587,7 @@ export const practiceTest3 = {
   skills: ["solving-equations", "linear-functions"]
 },
 {
-  id: 8,
+  id: 11,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -546,7 +606,7 @@ export const practiceTest3 = {
   skills: ["polynomial-operations", "exponent-rules", "radical-expressions"]
 },
 {
-  id: 9,
+  id: 12,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -565,7 +625,7 @@ export const practiceTest3 = {
   skills: ["volume", "geometry", "ratios"]
 },
 {
-  id: 10,
+  id: 13,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -584,7 +644,7 @@ export const practiceTest3 = {
   skills: ["function-interpretation", "function-composition"]
 },
 {
-  id: 11,
+  id: 14,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -594,7 +654,7 @@ export const practiceTest3 = {
   skills: ["systems-of-equations", "word-problems"]
 },
 {
-  id: 12,
+  id: 15,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -613,7 +673,7 @@ export const practiceTest3 = {
   skills: ["slope", "linear-functions", "coordinate-geometry"]
 },
 {
-  id: 13,
+  id: 16,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -632,7 +692,7 @@ export const practiceTest3 = {
   skills: ["scatterplots", "statistics"]
 },
 {
-  id: 14,
+  id: 17,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -651,7 +711,7 @@ export const practiceTest3 = {
   skills: ["circle-equations", "solving-equations"]
 },
 {
-  id: 15,
+  id: 18,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -678,7 +738,7 @@ export const practiceTest3 = {
   skills: ["trigonometry", "triangles"]
 },
 {
-  id: 16,
+  id: 19,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -697,7 +757,7 @@ export const practiceTest3 = {
   skills: ["discriminant", "quadratic-equations"]
 },
 {
-  id: 17,
+  id: 20,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -707,7 +767,7 @@ export const practiceTest3 = {
   skills: ["exponential-functions", "percents"]
 },
 {
-  id: 18,
+  id: 21,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -726,7 +786,7 @@ export const practiceTest3 = {
   skills: ["systems-of-equations"]
 },
 {
-  id: 19,
+  id: 22,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -744,45 +804,6 @@ export const practiceTest3 = {
   explanation: "**SAT Pattern: Outlier Effect**\n\n**Choice A is correct.**\n\n**The Full Solution:**\nOriginal ($9$ values): Sum $= 4+6+6+8+9+11+11+13+22 = 90$. Mean $= \\dfrac{90}{9} = 10$. Median ($5$th value) $= 9$.\n\nAfter removing $22$ ($8$ values): $4, 6, 6, 8, 9, 11, 11, 13$. Sum $= 68$. Mean $= \\dfrac{68}{8} = 8.5$. Median (average of $4$th and $5$th) $= \\dfrac{8+9}{2} = 8.5$.\n\nMean: $10 \\to 8.5$ (decreases by $1.5$) \\checkmark.\nMedian: $9 \\to 8.5$ (decreases by $0.5$) \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"stops one step early\" — the median seems resistant to outliers, but switching from odd to even count changes the median calculation, causing a small decrease here.\n* Choice C: \"wrong base\" — the mean clearly decreases when the largest value is removed.\n* Choice D: \"applies the inverse operation\" — removing the largest value cannot increase the median.\n\n**Test Day Takeaway:** Removing a high outlier decreases the mean. The median may also shift, especially when the count changes from odd to even.",
   skills: ["statistics"]
 },
-{
-  id: 20,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "A cylinder has a radius of $5$ and a height of $12$. What is the total surface area of the cylinder, expressed as a coefficient times $\\pi$? (For example, if the answer is $80\\pi$, enter $80$.)",
-  correctAnswer: "170",
-  explanation: "**SAT Pattern: Surface Area**\n\n**The correct answer is $170$ (the surface area is $170\\pi$).**\n\n**The Fast Way (~15s):** Total surface area: $2\\pi r^2 + 2\\pi r h = 2\\pi(25) + 2\\pi(60) = 50\\pi + 120\\pi = 170\\pi$.\n\n**The Full Solution:**\nTotal surface area of a cylinder: $2\\pi r^2 + 2\\pi r h$.\n$= 2\\pi(5)^2 + 2\\pi(5)(12)$\n$= 2\\pi(25) + 2\\pi(60)$\n$= 50\\pi + 120\\pi$\n$= 170\\pi$.\n\n**Verification:** Two circular bases: $2 \\times 25\\pi = 50\\pi$. Lateral surface: $2\\pi(5)(12) = 120\\pi$. Total: $170\\pi$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Giving $120\\pi$ (lateral surface only, forgetting the two circular bases).\n* Giving $145\\pi$ (adding only one base: $25\\pi + 120\\pi$).\n* Using the diameter instead of the radius in the formula.\n\n**Test Day Takeaway:** Total cylinder surface area $= 2\\pi r^2 + 2\\pi r h$ — bases plus lateral. Two bases (top and bottom) means two $\\pi r^2$ terms.",
-  skills: ["surface-area"]
-},
-{
-  id: 21,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "If $264$ is $p\\%$ greater than $48$, what is the value of $p$?",
-  choices: [
-    // distractor: arithmetic error in 264/48
-    { id: "A", text: "$350$" },
-    { id: "B", text: "$450$" },
-    // distractor: adds 1 instead of subtracting after dividing
-    { id: "C", text: "$550$" },
-    // distractor: gives the ratio 264/48 = 5.5 directly without converting
-    { id: "D", text: "$5.5$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Percent Greater Than**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):**\n$48\\left(1 + \\dfrac{p}{100}\\right) = 264$.\n$1 + \\dfrac{p}{100} = \\dfrac{264}{48} = 5.5$.\n$\\dfrac{p}{100} = 4.5$.\n$p = 450$.\n\n**The Full Solution:**\n\"$264$ is $p\\%$ greater than $48$\" means:\n$48 + \\dfrac{p}{100}(48) = 264$.\n$48\\left(1 + \\dfrac{p}{100}\\right) = 264$.\n$1 + \\dfrac{p}{100} = \\dfrac{264}{48} = 5.5$.\n$\\dfrac{p}{100} = 4.5$.\n$p = 450$.\n\n**Verification:** $48 + 450\\%$ of $48 = 48 + 216 = 264$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — arithmetic error in computing $\\dfrac{264}{48}$.\n* Choice C: \"applies the inverse operation\" — adds instead of subtracting: $\\dfrac{264}{48} = 5.5 \\to p = 550$.\n* Choice D: \"stops one step early\" — gives the ratio $\\dfrac{264}{48} = 5.5$ as the answer without converting.\n\n**Test Day Takeaway:** \"$A$ is $p\\%$ greater than $B$\" means $A = B(1 + p/100)$. Solve for $p$, and remember to subtract $1$ before multiplying by $100$.",
-  skills: ["percents", "word-problems"]
-},
-{
-  id: 22,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "Let $f(x) = x + 5$ and $g(x) = x^2 - 4$. If $g(f(a)) = 60$, what is a positive value of $a$?",
-  correctAnswer: "3",
-  explanation: "**SAT Pattern: Function Composition**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~25s):** $g(f(a)) = (a + 5)^2 - 4 = 60 \\Rightarrow (a + 5)^2 = 64 \\Rightarrow a + 5 = \\pm 8$. Positive root: $a = 3$.\n\n**The Full Solution:**\n$f(a) = a + 5$.\n$g(f(a)) = (a + 5)^2 - 4 = 60$.\n$(a + 5)^2 = 64$.\n$a + 5 = \\pm 8$.\nPositive branch: $a + 5 = 8 \\Rightarrow a = 3$.\nNegative branch: $a + 5 = -8 \\Rightarrow a = -13$ (not positive).\n\n**Verification:** $f(3) = 8$. $g(8) = 64 - 4 = 60$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Solving $(a+5)^2 = 60$ instead of $(a+5)^2 = 64$.\n* Confusing $g(f(a))$ with $f(g(a))$.\n\n**Test Day Takeaway:** In $g(f(a))$, work inside out: evaluate $f(a)$ first, then plug into $g$. Solve the resulting equation for $a$.",
-  skills: ["function-interpretation", "solving-equations"]
-}
       ]
     }
   ]

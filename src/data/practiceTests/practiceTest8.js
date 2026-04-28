@@ -419,8 +419,59 @@ export const practiceTest8 = {
       title: "Module 2",
       timeLimit: 35,
       questions: [
+// Practice Test 8 — Math Module 2 (22 questions)
+// Distribution: 3E / 6M / 13H. Q1-3 are easy openers (CB-authentic ramp).
+
 {
   id: 1,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 2,
+  question: "What percent is equivalent to the decimal $0.085$?",
+  choices: [
+    // distractor: applies inverse op - divides by 100 instead of multiplying
+    { id: "A", text: "$0.085\\%$" },
+    // distractor: off by a decimal place
+    { id: "B", text: "$0.85\\%$" },
+    { id: "C", text: "$8.5\\%$" },
+    // distractor: extra factor of 10 - applies times 1000 instead of 100
+    { id: "D", text: "$85\\%$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Decimal-to-Percent Conversion**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** To convert decimal to percent, multiply by $100$: $0.085 \\times 100 = 8.5\\%$.\n\n**The Full Solution:**\nA percent is a decimal multiplied by $100$:\n$0.085 = 0.085 \\times 100\\% = 8.5\\%$.\n\nMechanic: shift the decimal point two places to the right.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — keeps the decimal as-is without converting.\n* Choice B: \"off-by-one\" — shifts the decimal one place instead of two.\n* Choice D: \"wrong base\" — multiplies by $1000$ instead of $100$.\n\n**Test Day Takeaway:** Decimal $\\to$ percent: multiply by $100$ (shift decimal $2$ places right). Percent $\\to$ decimal: divide by $100$ (shift left).",
+  skills: ["percents"]
+},
+{
+  id: 2,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 3,
+  question: "The table shows three values of $x$ and the corresponding values of a linear function $f(x)$.\n\n| $x$ | $f(x)$ |\n|-----|--------|\n| $1$ | $3$ |\n| $3$ | $11$ |\n| $5$ | $?$ |\n\nWhat value goes in the table for $f(5)$?",
+  choices: [
+    // distractor: stops one step early - adds slope only once
+    { id: "A", text: "$15$" },
+    { id: "B", text: "$19$" },
+    // distractor: wrong base - doubles f(3)
+    { id: "C", text: "$22$" },
+    // distractor: applies inverse op - returns f(1)
+    { id: "D", text: "$3$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Linear Function Extrapolation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Slope $= \\dfrac{11 - 3}{3 - 1} = 4$. From $x = 3$ to $x = 5$, $x$ increases by $2$, so $f$ increases by $2 \\cdot 4 = 8$. $f(5) = 11 + 8 = 19$.\n\n**The Full Solution:**\nFor a linear function, the rate of change (slope) is constant.\nSlope $= \\dfrac{f(3) - f(1)}{3 - 1} = \\dfrac{11 - 3}{2} = 4$.\n\nFrom $x = 3$ to $x = 5$ ($\\Delta x = 2$): $\\Delta f = 4 \\cdot 2 = 8$.\n$f(5) = f(3) + 8 = 11 + 8 = 19$.\n\nVerification: $f(x) = 4x - 1$. $f(5) = 4(5) - 1 = 19$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — adds slope only once: $11 + 4 = 15$.\n* Choice C: \"wrong base\" — doubles $f(3)$ instead of adding $\\Delta x \\cdot$ slope.\n* Choice D: \"applies the inverse operation\" — gives $f(1)$ instead of $f(5)$.\n\n**Test Day Takeaway:** For a linear function, $\\Delta f = \\text{slope} \\cdot \\Delta x$. Compute the slope from any two points, then extrapolate.",
+  skills: ["linear-functions", "function-interpretation", "slope"]
+},
+{
+  id: 3,
+  type: "fill-in",
+  difficulty: "easy",
+  band: 2,
+  question: "In a right triangle, one of the acute angles measures $34^{\\circ}$. What is the measure, in degrees, of the other acute angle?",
+  correctAnswer: "56",
+  explanation: "**SAT Pattern: Complementary Acute Angles**\n\n**The correct answer is $56$.**\n\n**The Fast Way (~5s):** In a right triangle, the two acute angles are complementary (sum to $90^{\\circ}$): $90 - 34 = 56$.\n\n**The Full Solution:**\nThe three angles of any triangle sum to $180^{\\circ}$. In a right triangle, one angle is $90^{\\circ}$, so the other two sum to $90^{\\circ}$.\n\nGiven one acute angle is $34^{\\circ}$:\nOther acute angle $= 90^{\\circ} - 34^{\\circ} = 56^{\\circ}$.\n\n**Common Mistakes to Avoid:**\n* Computing $180 - 34 = 146$ (forgets the right angle).\n* Computing $180 - 90 - 34 - 90 = -34$ (over-subtracts).\n\n**Test Day Takeaway:** In a right triangle, the two acute angles are COMPLEMENTARY (sum to $90^{\\circ}$). One of them $= 90 -$ other.",
+  skills: ["triangles", "angles", "geometry"]
+},
+{
+  id: 4,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -446,7 +497,7 @@ export const practiceTest8 = {
   skills: ["triangles", "angles"]
 },
 {
-  id: 2,
+  id: 5,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -456,7 +507,7 @@ export const practiceTest8 = {
   skills: ["linear-functions", "word-problems"]
 },
 {
-  id: 3,
+  id: 6,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -475,7 +526,7 @@ export const practiceTest8 = {
   skills: ["scatterplots", "statistics", "linear-functions"]
 },
 {
-  id: 4,
+  id: 7,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -494,7 +545,7 @@ export const practiceTest8 = {
   skills: ["exponent-rules", "radical-expressions"]
 },
 {
-  id: 5,
+  id: 8,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -513,7 +564,7 @@ export const practiceTest8 = {
   skills: ["circle-equations", "solving-equations"]
 },
 {
-  id: 6,
+  id: 9,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -532,7 +583,7 @@ export const practiceTest8 = {
   skills: ["solving-equations", "word-problems"]
 },
 {
-  id: 7,
+  id: 10,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -542,7 +593,7 @@ export const practiceTest8 = {
   skills: ["percents", "statistics"]
 },
 {
-  id: 8,
+  id: 11,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -561,7 +612,7 @@ export const practiceTest8 = {
   skills: ["systems-of-equations", "word-problems"]
 },
 {
-  id: 9,
+  id: 12,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -580,7 +631,7 @@ export const practiceTest8 = {
   skills: ["systems-of-equations"]
 },
 {
-  id: 10,
+  id: 13,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -607,7 +658,7 @@ export const practiceTest8 = {
   skills: ["trigonometry", "right-triangles", "triangles"]
 },
 {
-  id: 11,
+  id: 14,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -617,7 +668,7 @@ export const practiceTest8 = {
   skills: ["two-way-tables", "probability"]
 },
 {
-  id: 12,
+  id: 15,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -627,7 +678,7 @@ export const practiceTest8 = {
   skills: ["margin-of-error", "statistics"]
 },
 {
-  id: 13,
+  id: 16,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -646,7 +697,7 @@ export const practiceTest8 = {
   skills: ["slope", "linear-functions", "coordinate-geometry"]
 },
 {
-  id: 14,
+  id: 17,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -656,7 +707,7 @@ export const practiceTest8 = {
   skills: ["discriminant", "quadratic-equations"]
 },
 {
-  id: 15,
+  id: 18,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -675,7 +726,7 @@ export const practiceTest8 = {
   skills: ["polynomial-operations", "solving-equations"]
 },
 {
-  id: 16,
+  id: 19,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -694,7 +745,7 @@ export const practiceTest8 = {
   skills: ["vertex-form", "function-interpretation", "quadratic-equations"]
 },
 {
-  id: 17,
+  id: 20,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -713,7 +764,7 @@ export const practiceTest8 = {
   skills: ["surface-area", "volume"]
 },
 {
-  id: 18,
+  id: 21,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -732,7 +783,7 @@ export const practiceTest8 = {
   skills: ["factoring", "polynomial-operations"]
 },
 {
-  id: 19,
+  id: 22,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -750,54 +801,6 @@ export const practiceTest8 = {
   explanation: "**SAT Pattern: Three-Equation Contradiction**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Equation 1 is $2 \\times$ Equation 2: $2(x + 2y - 3z) = 2 \\cdot 4 = 8$ \\checkmark. Equation 3 should be $3 \\times$ Equation 2 if consistent: $3(x + 2y - 3z) = 12$, but Equation 3 says $= 13$. Contradiction $\\Rightarrow$ zero solutions.\n\n**The Full Solution:**\nDivide Equation 1 by $2$: $x + 2y - 3z = 4$ (same as Equation 2) \\checkmark.\nDivide Equation 3 by $3$: $x + 2y - 3z = \\dfrac{13}{3} \\approx 4.33$.\nBut Equation 2 says $x + 2y - 3z = 4$. Since $4 \\neq \\dfrac{13}{3}$, the system is inconsistent.\n\nThere is NO triple $(x, y, z)$ that can satisfy both \"$x + 2y - 3z = 4$\" and \"$x + 2y - 3z = \\dfrac{13}{3}$\" simultaneously.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — assumes $3 \\times 3$ systems always have unique solutions.\n* Choice C: \"applies the inverse operation\" — linear systems never have exactly two solutions (zero, one, or infinitely many only).\n* Choice D: \"off-by-one\" — would be true if Equation 3's right side were $12$ instead of $13$.\n\n**Test Day Takeaway:** Check whether the three equations are scalar multiples. Same left side but different right side $\\Rightarrow$ contradiction $\\Rightarrow$ zero solutions.",
   skills: ["systems-of-equations"]
 },
-{
-  id: 20,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "The function $f(x) = x^4 - 3x^2 - 4$ can be factored using the substitution $u = x^2$. How many distinct real zeros does $f$ have?",
-  correctAnswer: "2",
-  explanation: "**SAT Pattern: Quadratic — Completing the Square**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~20s):** Let $u = x^2$: $u^2 - 3u - 4 = (u - 4)(u + 1) = 0$. So $u = 4$ or $u = -1$. Only $u = 4$ gives real $x$ values: $x = \\pm 2$.\n\n**The Full Solution:**\nLet $u = x^2$. Then $f(x) = u^2 - 3u - 4 = (u - 4)(u + 1)$.\n\n$u = 4$: $x^2 = 4 \\Rightarrow x = 2$ or $x = -2$ (two real zeros).\n$u = -1$: $x^2 = -1$ has no real solutions.\n\nTotal distinct real zeros: $2$.\n\n**Common Mistakes to Avoid:**\n* Reporting $4$ by assuming both $u$-values yield real $x$-values.\n* Reporting $1$ by forgetting that $x^2 = 4$ has two distinct real roots.\n\n**Test Day Takeaway:** After substitution $u = x^2$, check whether each $u$-value is non-negative. Negative $u$-values yield no real $x$.",
-  skills: ["quadratic-equations", "factoring"]
-},
-{
-  id: 21,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A survey of $500$ adults produced the following results.\n\n| | Supports | Opposes | No Opinion | Total |\n|---|---|---|---|---|\n| Age 18-39 | $95$ | $55$ | $50$ | $200$ |\n| Age 40-64 | $80$ | $70$ | $30$ | $180$ |\n| Age 65+ | $35$ | $60$ | $25$ | $120$ |\n| Total | $210$ | $185$ | $105$ | $500$ |\n\nA researcher claims that support for the policy decreases with age. Which of the following calculations best supports this claim?",
-  choices: [
-    // distractor: stops one step early — raw counts ignore group sizes
-    { id: "A", text: "The number who support decreases: $95$, $80$, $35$." },
-    { id: "B", text: "The proportion who support in each age group decreases: $\\dfrac{95}{200} = 47.5\\%$, $\\dfrac{80}{180} \\approx 44.4\\%$, $\\dfrac{35}{120} \\approx 29.2\\%$." },
-    // distractor: applies inverse operation — comparison is irrelevant to the claim
-    { id: "C", text: "The total opposition ($185$) is less than total support ($210$)." },
-    // distractor: wrong base — group size is irrelevant to age relationship
-    { id: "D", text: "The Age $65+$ group has the smallest number of respondents." }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** To compare groups of different sizes, use proportions (percentages), not raw counts.\n\n**The Full Solution:**\nThe age groups have different sizes ($200$, $180$, $120$), so comparing raw counts is misleading. The correct approach is to compute the proportion of each age group that supports the policy:\n* Age 18-39: $\\dfrac{95}{200} = 47.5\\%$\n* Age 40-64: $\\dfrac{80}{180} \\approx 44.4\\%$\n* Age 65+: $\\dfrac{35}{120} \\approx 29.2\\%$\n\nThe decreasing percentages across age groups support the claim.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — raw counts decrease, but the groups have different sizes; if groups were equal, the count comparison would work, but they aren't equal.\n* Choice C: \"applies the inverse operation\" — comparing overall support vs. opposition doesn't address the relationship with age.\n* Choice D: \"wrong base\" — group size is irrelevant to whether support decreases with age.\n\n**Test Day Takeaway:** When comparing across groups of different sizes, ALWAYS use proportions (row percentages), not raw counts.",
-  skills: ["two-way-tables", "statistics"]
-},
-{
-  id: 22,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "Let $g(x) = 3x - 2$ and $h(x) = x^2 + 5$. If $h(g(a)) = 54$, what is a positive value of $a$?",
-  choices: [
-    // distractor: stops one step early — gives g(a) = 7 but uses 7/3 = 2.33
-    { id: "A", text: "$\\dfrac{7}{3}$" },
-    { id: "B", text: "$3$" },
-    // distractor: applies inverse op — confuses the intermediate value with a
-    { id: "C", text: "$7$" },
-    // distractor: solves a different equation entirely
-    { id: "D", text: "$13$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Function Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $g(a) = 3a - 2$. Then $h(g(a)) = (3a - 2)^2 + 5 = 54 \\Rightarrow (3a - 2)^2 = 49 \\Rightarrow 3a - 2 = \\pm 7$. Positive root: $3a - 2 = 7 \\Rightarrow a = 3$.\n\n**The Full Solution:**\nStep 1: $g(a) = 3a - 2$.\nStep 2: $h(g(a)) = (3a - 2)^2 + 5 = 54$, so $(3a - 2)^2 = 49$.\nStep 3: $3a - 2 = 7$ (taking the positive root) $\\Rightarrow 3a = 9 \\Rightarrow a = 3$.\n\nVerification: $g(3) = 9 - 2 = 7$, $h(7) = 49 + 5 = 54$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gets $3a - 2 = 7$ then divides $7/3$ instead of solving for $a$ properly.\n* Choice C: \"wrong base\" — confuses the intermediate value $g(a) = 7$ with $a$ itself.\n* Choice D: \"applies the inverse operation\" — solves a different equation altogether.\n\n**Test Day Takeaway:** In $h(g(a))$, work inside out: evaluate $g(a)$ first, then plug into $h$. Solve the resulting equation for $a$.",
-  skills: ["function-interpretation", "solving-equations"]
-}
       ]
     }
   ]

@@ -413,8 +413,68 @@ export const practiceTest9 = {
       title: "Module 2",
       timeLimit: 35,
       questions: [
+// Practice Test 9 — Math Module 2 (22 questions)
+// Distribution: 3E / 6M / 13H. Q1-3 are easy openers (CB-authentic ramp).
+
 {
   id: 1,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 2,
+  question: "What is the mode of the data set $\\{4, 11, 4, 8, 4, 6, 13\\}$?",
+  choices: [
+    { id: "A", text: "$4$" },
+    // distractor: gives the median instead of the mode
+    { id: "B", text: "$6$" },
+    // distractor: gives the (rounded) mean instead of the mode
+    { id: "C", text: "$7$" },
+    // distractor: gives the maximum
+    { id: "D", text: "$13$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Mode of a Data Set**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Count frequencies: $4$ appears $3$ times, others $1$ time each. Most frequent value is the mode: $4$.\n\n**The Full Solution:**\nMode $=$ value that appears most often.\nFrequencies: $4 \\to 3$, $11 \\to 1$, $8 \\to 1$, $6 \\to 1$, $13 \\to 1$.\nMost frequent: $4$.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"applies the inverse operation\" — gives the median (sorted: $4, 4, 4, 6, 8, 11, 13$, middle $= 6$).\n* Choice C: \"wrong base\" — gives the rounded mean ($\\dfrac{50}{7} \\approx 7.14$).\n* Choice D: \"wrong base\" — gives the maximum value.\n\n**Test Day Takeaway:** Mode $=$ most frequent. Median $=$ middle (when sorted). Mean $=$ sum$/n$. They are different — read the question carefully.",
+  skills: ["statistics", "mode"]
+},
+{
+  id: 2,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 2,
+  question: "If $x^2 = 49$ and $x > 0$, what is the value of $x$?",
+  choices: [
+    // distractor: off by one - close to sqrt(49) but wrong
+    { id: "A", text: "$6$" },
+    { id: "B", text: "$7$" },
+    // distractor: applies inverse op - divides by 2 instead of taking square root
+    { id: "C", text: "$24.5$" },
+    // distractor: wrong base - squares 49 instead of taking root
+    { id: "D", text: "$2401$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Solve $x^2 = c$**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** $x = \\sqrt{49} = 7$ (positive root since $x > 0$).\n\n**The Full Solution:**\n$x^2 = 49$\n$x = \\pm 7$.\nThe constraint $x > 0$ selects the positive root: $x = 7$.\n\nVerification: $7^2 = 49$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — close to $\\sqrt{49}$ but wrong.\n* Choice C: \"applies the inverse operation\" — divides $49$ by $2$ instead of taking the square root.\n* Choice D: \"wrong base\" — squares $49$ instead of taking its square root.\n\n**Test Day Takeaway:** $\\sqrt{x^2} = |x|$. The constraint ($x > 0$ or $x < 0$) tells you which root to take.",
+  skills: ["solving-equations", "radical-expressions"]
+},
+{
+  id: 3,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 2,
+  question: "A rectangle has a length of $12$ cm and a width of $5$ cm. What is the area, in square centimeters, of the rectangle?",
+  choices: [
+    // distractor: stops one step early - adds length and width
+    { id: "A", text: "$17$" },
+    // distractor: gives the perimeter instead of the area
+    { id: "B", text: "$34$" },
+    { id: "C", text: "$60$" },
+    // distractor: wrong base - squares the length
+    { id: "D", text: "$144$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Rectangle Area**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Area $= l \\cdot w = 12 \\cdot 5 = 60$.\n\n**The Full Solution:**\nArea of a rectangle: $A = l \\cdot w = 12 \\cdot 5 = 60$ cm$^2$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — adds $l + w = 17$ instead of multiplying.\n* Choice B: \"applies the inverse operation\" — gives the perimeter $2(l + w) = 34$.\n* Choice D: \"wrong base\" — squares the length ($12^2 = 144$).\n\n**Test Day Takeaway:** Rectangle area $= l \\cdot w$ (multiply). Perimeter $= 2(l + w)$ (add then double).",
+  skills: ["geometry", "area"]
+},
+{
+  id: 4,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -433,7 +493,7 @@ export const practiceTest9 = {
   skills: ["statistics"]
 },
 {
-  id: 2,
+  id: 5,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -452,7 +512,7 @@ export const practiceTest9 = {
   skills: ["two-way-tables", "probability"]
 },
 {
-  id: 3,
+  id: 6,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -471,7 +531,7 @@ export const practiceTest9 = {
   skills: ["exponent-rules"]
 },
 {
-  id: 4,
+  id: 7,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -490,7 +550,7 @@ export const practiceTest9 = {
   skills: ["percents"]
 },
 {
-  id: 5,
+  id: 8,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -509,7 +569,7 @@ export const practiceTest9 = {
   skills: ["margin-of-error", "statistics"]
 },
 {
-  id: 6,
+  id: 9,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -528,7 +588,7 @@ export const practiceTest9 = {
   skills: ["word-problems", "ratios"]
 },
 {
-  id: 7,
+  id: 10,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -538,7 +598,7 @@ export const practiceTest9 = {
   skills: ["solving-equations", "ratios"]
 },
 {
-  id: 8,
+  id: 11,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -557,7 +617,7 @@ export const practiceTest9 = {
   skills: ["solving-equations", "ratios"]
 },
 {
-  id: 9,
+  id: 12,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -584,7 +644,7 @@ export const practiceTest9 = {
   skills: ["trigonometry", "triangles"]
 },
 {
-  id: 10,
+  id: 13,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -603,7 +663,7 @@ export const practiceTest9 = {
   skills: ["exponential-functions", "percents"]
 },
 {
-  id: 11,
+  id: 14,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -613,7 +673,7 @@ export const practiceTest9 = {
   skills: ["slope", "linear-functions", "coordinate-geometry"]
 },
 {
-  id: 12,
+  id: 15,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -632,7 +692,7 @@ export const practiceTest9 = {
   skills: ["circle-equations", "coordinate-geometry"]
 },
 {
-  id: 13,
+  id: 16,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -651,7 +711,7 @@ export const practiceTest9 = {
   skills: ["statistics"]
 },
 {
-  id: 14,
+  id: 17,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -661,7 +721,7 @@ export const practiceTest9 = {
   skills: ["solving-equations", "linear-functions"]
 },
 {
-  id: 15,
+  id: 18,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -680,7 +740,7 @@ export const practiceTest9 = {
   skills: ["function-interpretation", "vertex-form", "quadratic-equations"]
 },
 {
-  id: 16,
+  id: 19,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -699,7 +759,7 @@ export const practiceTest9 = {
   skills: ["discriminant", "quadratic-equations"]
 },
 {
-  id: 17,
+  id: 20,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -718,7 +778,7 @@ export const practiceTest9 = {
   skills: ["exponential-functions", "function-interpretation"]
 },
 {
-  id: 18,
+  id: 21,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -737,7 +797,7 @@ export const practiceTest9 = {
   skills: ["similar-triangles", "area"]
 },
 {
-  id: 19,
+  id: 22,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -746,54 +806,6 @@ export const practiceTest9 = {
   explanation: "**SAT Pattern: Three-Variable System**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~30s):** Add Eq1 and Eq2: $3x + y + 4z = 22$. Subtract Eq3: $2z = 6$, so $z = 3$. Then back-substitute.\n\n**The Full Solution:**\nAdd Eq1 and Eq2: $(x + 2y + z) + (2x - y + 3z) = 13 + 9$, giving $3x + y + 4z = 22$.\nSubtract Eq3: $(3x + y + 4z) - (3x + y + 2z) = 22 - 16$, giving $2z = 6$, so $z = 3$.\n\nSubstitute $z = 3$ into Eq2: $2x - y + 9 = 9$, so $y = 2x$.\nSubstitute into Eq1: $x + 2(2x) + 3 = 13$, so $5x = 10$ and $x = 2$.\nThen $y = 4$ and $z = 3$.\n\n$x + y + z = 2 + 4 + 3 = 9$.\n\nVerification: Eq1: $2 + 8 + 3 = 13$ \\checkmark; Eq2: $4 - 4 + 9 = 9$ \\checkmark; Eq3: $6 + 4 + 6 = 16$ \\checkmark.\n\n**Test Day Takeaway:** For 3-variable systems, add or subtract pairs of equations to eliminate variables. Look for combinations that simplify cleanly.",
   skills: ["systems-of-equations"]
 },
-{
-  id: 20,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "For the equation $\\sqrt{5x + 11} = x + 1$, what is the sum of all real solutions?",
-  correctAnswer: "5",
-  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~25s):** Square both sides: $5x + 11 = x^2 + 2x + 1$, so $x^2 - 3x - 10 = 0$, giving $(x-5)(x+2) = 0$. Check both solutions for extraneous roots.\n\n**The Full Solution:**\nSquare both sides (requiring $x + 1 \\geq 0$, i.e., $x \\geq -1$):\n$5x + 11 = (x+1)^2 = x^2 + 2x + 1$\n$0 = x^2 - 3x - 10 = (x-5)(x+2)$\n$x = 5$ or $x = -2$\n\nCheck $x = 5$: $\\sqrt{25 + 11} = \\sqrt{36} = 6$ and $5 + 1 = 6$ \\checkmark\nCheck $x = -2$: $x + 1 = -1 < 0$, but $\\sqrt{1} = 1 \\neq -1$ — extraneous.\n\nOnly $x = 5$ is valid. The sum of all real solutions is $5$.\n\n**Common Mistakes to Avoid:**\n* Including the extraneous root $-2$ to get sum $= 3$.\n* Squaring incorrectly: $(x+1)^2 \\neq x^2 + 1$.\n\n**Test Day Takeaway:** Always check solutions to radical equations — squaring can introduce extraneous roots.",
-  skills: ["radical-expressions", "solving-equations"]
-},
-{
-  id: 21,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A rectangular prism has dimensions $4 \\times 6 \\times 10$. A second rectangular prism has dimensions that are each $50\\%$ greater than the corresponding dimensions of the first. What is the ratio of the volume of the first prism to the volume of the second prism?",
-  choices: [
-    // distractor: linear ratio 2/3 (doesn't cube)
-    { id: "A", text: "$\\dfrac{2}{3}$" },
-    // distractor: squared ratio 4/9 (areas, not volumes)
-    { id: "B", text: "$\\dfrac{4}{9}$" },
-    { id: "C", text: "$\\dfrac{8}{27}$" },
-    // distractor: assumes doubling instead of 50% increase
-    { id: "D", text: "$\\dfrac{1}{2}$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Volume Scaling**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Each dimension is scaled by $1.5 = \\dfrac{3}{2}$. Volume scales by $\\left(\\dfrac{3}{2}\\right)^3 = \\dfrac{27}{8}$. Ratio of first to second: $\\dfrac{8}{27}$.\n\n**The Full Solution:**\nFirst prism: $V_1 = 4 \\cdot 6 \\cdot 10 = 240$.\nSecond prism dimensions: $4(1.5) \\cdot 6(1.5) \\cdot 10(1.5) = 6 \\cdot 9 \\cdot 15 = 810$.\nRatio: $\\dfrac{240}{810} = \\dfrac{8}{27}$.\n\nAlternatively, since all dimensions scale by $\\dfrac{3}{2}$, the volume ratio is $\\dfrac{1}{(3/2)^3} = \\dfrac{1}{27/8} = \\dfrac{8}{27}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the linear ratio $\\dfrac{2}{3}$, not cubed.\n* Choice B: \"off-by-one\" — gives the squared ratio (for areas, not volumes).\n* Choice D: \"wrong base\" — assumes doubling instead of $50\\%$ increase.\n\n**Test Day Takeaway:** When all dimensions scale by factor $k$: length ratio $= k$, area ratio $= k^2$, volume ratio $= k^3$.",
-  skills: ["volume", "ratios"]
-},
-{
-  id: 22,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "If $f(x) = x^2 + 1$ and $g(x) = 2x - 3$, and $f(g(a)) = 50$, what is the positive value of $a$?",
-  choices: [
-    // distractor: stops at f^{-1}(50) = 7 and reports 7
-    { id: "A", text: "$7$" },
-    { id: "B", text: "$5$" },
-    // distractor: forgets the +1 in f, solves g(a) = sqrt(50) ≈ 7.07
-    { id: "C", text: "$3$" },
-    // distractor: gives the negative root
-    { id: "D", text: "$-2$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Function Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f(g(a)) = (2a - 3)^2 + 1 = 50$, so $(2a-3)^2 = 49$, giving $2a - 3 = \\pm 7$. Positive: $2a - 3 = 7 \\Rightarrow a = 5$.\n\n**The Full Solution:**\nWrite the composition: $f(g(a)) = f(2a - 3) = (2a - 3)^2 + 1$.\nSet equal to $50$:\n$(2a - 3)^2 + 1 = 50$\n$(2a - 3)^2 = 49$\n$2a - 3 = \\pm 7$\n\nFor the positive value of $a$: $2a - 3 = 7 \\Rightarrow 2a = 10 \\Rightarrow a = 5$.\n\nVerification: $g(5) = 2(5) - 3 = 7$, and $f(7) = 7^2 + 1 = 50$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives $g(a) = 7$ but reports $7$ as $a$.\n* Choice C: \"applies the inverse operation\" — forgets the $+1$ and uses $\\sqrt{50}$.\n* Choice D: \"wrong sign\" — gives the negative root from $2a - 3 = -7$, $a = -2$.\n\n**Test Day Takeaway:** $f(g(a))$ means apply $g$ first, then $f$. Set the composition equal to the target and solve.",
-  skills: ["function-interpretation", "solving-equations"]
-}
       ]
     }
   ]

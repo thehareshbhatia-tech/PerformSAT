@@ -399,10 +399,83 @@ export const practiceTest4 = {
       timeLimit: 35,
       questions: [
 // Practice Test 4 — Math Module 2 (22 questions)
-// Hard track: 0E / 6M / 16H. Domain mix: 7 Algebra / 6 AdvMath / 5 PSDA / 4 Geo-Trig.
+// Distribution: 3E / 6M / 13H. Q1-3 are easy openers (CB-authentic ramp).
 
 {
   id: 1,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 2,
+  question: "The bar graph shows the number of pages each of $5$ students read for a book club assignment. What is the median number of pages read?",
+  diagram: {
+    type: "barChart",
+    params: {
+      data: [
+        { label: "1", value: 28 },
+        { label: "2", value: 35 },
+        { label: "3", value: 41 },
+        { label: "4", value: 32 },
+        { label: "5", value: 48 }
+      ],
+      xLabel: "Student",
+      yLabel: "Pages read",
+      yMax: 50,
+      yStep: 10
+    }
+  },
+  choices: [
+    // distractor: returns the minimum value instead of finding the median
+    { id: "A", text: "$28$" },
+    // distractor: picks one of the data values without ordering
+    { id: "B", text: "$32$" },
+    { id: "C", text: "$35$" },
+    // distractor: computes the mean (184/5 = 36.8) instead of the median
+    { id: "D", text: "$36.8$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Median from a Bar Graph**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Read the values: $28, 35, 41, 32, 48$. Sort: $28, 32, 35, 41, 48$. The middle value is $35$.\n\n**The Full Solution:**\nThe median of $5$ values is the third value when sorted in ascending order.\n\nFrom the graph: $\\{28, 35, 41, 32, 48\\}$.\nSorted: $\\{28, 32, \\mathbf{35}, 41, 48\\}$.\nMedian $= 35$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — gives the minimum instead of the median.\n* Choice B: \"stops one step early\" — picks a data value without ordering first.\n* Choice D: \"applies the inverse operation\" — computes the mean ($\\dfrac{184}{5} = 36.8$) instead of the median.\n\n**Test Day Takeaway:** For median, ALWAYS sort first. Pick the middle value (or average the two middles for even counts).",
+  skills: ["statistics", "median"]
+},
+{
+  id: 2,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 2,
+  question: "A car is traveling at a constant speed of $88$ feet per second. What is the car's speed, in miles per hour? ($1$ mile $= 5{,}280$ feet)",
+  choices: [
+    // distractor: forgets seconds-to-hours, multiplies by 60 instead of 3600
+    { id: "A", text: "$1$" },
+    { id: "B", text: "$60$" },
+    // distractor: gives the answer in feet per hour without converting to miles
+    { id: "C", text: "$316{,}800$" },
+    // distractor: returns the conversion factor itself
+    { id: "D", text: "$5{,}280$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Multi-Step Unit Conversion**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $\\dfrac{88\\text{ ft}}{1\\text{ s}} \\cdot \\dfrac{3600\\text{ s}}{1\\text{ hr}} \\cdot \\dfrac{1\\text{ mi}}{5{,}280\\text{ ft}} = \\dfrac{88 \\cdot 3600}{5{,}280} = 60$ mph.\n\n**The Full Solution:**\nConvert seconds to hours: $88$ ft/s $\\times 3600$ s/hr $= 316{,}800$ ft/hr.\nConvert feet to miles: $\\dfrac{316{,}800}{5{,}280} = 60$ mi/hr.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — multiplies by $60$ (sec→min) instead of $3600$ (sec→hr): $\\dfrac{88 \\cdot 60}{5280} \\approx 1$.\n* Choice C: \"wrong base\" — gives feet per hour without converting to miles.\n* Choice D: \"applies the inverse operation\" — returns the conversion factor as the answer.\n\n**Test Day Takeaway:** When converting compound units, chain conversion factors so unwanted units cancel.",
+  skills: ["unit-conversion", "ratios"]
+},
+{
+  id: 3,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 2,
+  question: "Which expression is equivalent to $(3x^2 + 5x) + (2x^2 - 8x)$?",
+  choices: [
+    { id: "A", text: "$5x^2 - 3x$" },
+    // distractor: adds 5x + 8x instead of 5x - 8x
+    { id: "B", text: "$5x^2 + 13x$" },
+    // distractor: multiplies x^2 coefficients (3*2=6) instead of adding (3+2=5)
+    { id: "C", text: "$6x^2 - 3x$" },
+    // distractor: adds exponents (2+2=4) instead of leaving them as 2
+    { id: "D", text: "$5x^4 - 3x$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Combining Like Terms**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Add the $x^2$ terms: $3x^2 + 2x^2 = 5x^2$. Add the $x$ terms: $5x - 8x = -3x$. Total: $5x^2 - 3x$.\n\n**The Full Solution:**\n$(3x^2 + 5x) + (2x^2 - 8x)$\n$= (3x^2 + 2x^2) + (5x - 8x)$\n$= 5x^2 + (-3x)$\n$= 5x^2 - 3x$\n\n**Why the wrong answers are tempting:**\n* Choice B: \"applies the inverse operation\" — adds $5x + 8x$ instead of $5x - 8x$.\n* Choice C: \"wrong base\" — multiplies the $x^2$ coefficients ($3 \\cdot 2 = 6$) instead of adding ($3 + 2 = 5$).\n* Choice D: \"off-by-one\" — adds the exponents ($2 + 2 = 4$) instead of leaving them.\n\n**Test Day Takeaway:** When adding polynomials, combine ONLY like terms (same variable, same exponent). Coefficients add; exponents stay.",
+  skills: ["polynomial-operations", "combining-like-terms"]
+},
+{
+  id: 4,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -421,7 +494,7 @@ export const practiceTest4 = {
   skills: ["solving-equations"]
 },
 {
-  id: 2,
+  id: 5,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -440,7 +513,7 @@ export const practiceTest4 = {
   skills: ["systems-of-equations", "solving-equations"]
 },
 {
-  id: 3,
+  id: 6,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -459,7 +532,7 @@ export const practiceTest4 = {
   skills: ["function-interpretation", "quadratic-equations", "vertex-form"]
 },
 {
-  id: 4,
+  id: 7,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -478,7 +551,7 @@ export const practiceTest4 = {
   skills: ["percents"]
 },
 {
-  id: 5,
+  id: 8,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -488,7 +561,7 @@ export const practiceTest4 = {
   skills: ["solving-equations", "quadratic-equations"]
 },
 {
-  id: 6,
+  id: 9,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -507,7 +580,7 @@ export const practiceTest4 = {
   skills: ["word-problems", "ratios"]
 },
 {
-  id: 7,
+  id: 10,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -517,7 +590,7 @@ export const practiceTest4 = {
   skills: ["systems-of-equations", "word-problems"]
 },
 {
-  id: 8,
+  id: 11,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -536,7 +609,7 @@ export const practiceTest4 = {
   skills: ["statistics", "mean"]
 },
 {
-  id: 9,
+  id: 12,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -555,7 +628,7 @@ export const practiceTest4 = {
   skills: ["word-problems", "solving-equations", "linear-functions"]
 },
 {
-  id: 10,
+  id: 13,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -574,7 +647,7 @@ export const practiceTest4 = {
   skills: ["quadratic-equations", "vertex-form", "function-interpretation"]
 },
 {
-  id: 11,
+  id: 14,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -593,7 +666,7 @@ export const practiceTest4 = {
   skills: ["probability", "two-way-tables"]
 },
 {
-  id: 12,
+  id: 15,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -612,7 +685,7 @@ export const practiceTest4 = {
   skills: ["slope", "coordinate-geometry", "linear-functions"]
 },
 {
-  id: 13,
+  id: 16,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -631,7 +704,7 @@ export const practiceTest4 = {
   skills: ["quadratic-equations", "factoring", "vertex-form"]
 },
 {
-  id: 14,
+  id: 17,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -650,7 +723,7 @@ export const practiceTest4 = {
   skills: ["circle-equations", "solving-equations"]
 },
 {
-  id: 15,
+  id: 18,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -677,7 +750,7 @@ export const practiceTest4 = {
   skills: ["trigonometry", "triangles"]
 },
 {
-  id: 16,
+  id: 19,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -696,7 +769,7 @@ export const practiceTest4 = {
   skills: ["discriminant", "quadratic-equations"]
 },
 {
-  id: 17,
+  id: 20,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -706,7 +779,7 @@ export const practiceTest4 = {
   skills: ["exponential-functions", "percents"]
 },
 {
-  id: 18,
+  id: 21,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -725,7 +798,7 @@ export const practiceTest4 = {
   skills: ["solving-equations", "linear-functions"]
 },
 {
-  id: 19,
+  id: 22,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -743,45 +816,6 @@ export const practiceTest4 = {
   explanation: "**SAT Pattern: Scaling a Data Set by a Constant**\n\n**Choice A is correct.**\n\n**The Full Solution:**\nOriginal: Sum $= 5+7+7+9+10+12+14+15+15+18+20+24 = 156$. Mean $= \\dfrac{156}{12} = 13$. Range $= 24 - 5 = 19$.\n\nAfter multiplying every value by $3$: Mean $= 3 \\times 13 = 39$. Range $= 3(24) - 3(5) = 72 - 15 = 57 = 3 \\times 19$.\n\nBoth the mean and the range are tripled.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — confuses scaling with shifting (adding a constant doesn't change the range, but multiplying does).\n* Choice C: \"stops one step early\" — thinks the mean doesn't change when every value is multiplied.\n* Choice D: \"applies the inverse operation\" — confuses multiplying by $3$ with adding $3$.\n\n**Test Day Takeaway:** Multiplying every value by $k$: mean is multiplied by $k$, standard deviation and range are also multiplied by $|k|$. This is different from adding a constant, which only shifts the mean.",
   skills: ["statistics"]
 },
-{
-  id: 20,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "A right circular cone has a radius of $6$ and a slant height of $10$. What is the total surface area of the cone? (Give your answer in terms of $\\pi$, as a coefficient. For example, if the answer is $80\\pi$, enter $80$.)",
-  correctAnswer: "96",
-  explanation: "**SAT Pattern: Composite Surface Area**\n\n**The correct answer is $96$ (the surface area is $96\\pi$).**\n\n**The Fast Way (~25s):** Total cone surface area $= \\pi r^2 + \\pi r l = \\pi(36) + \\pi(60) = 96\\pi$.\n\n**The Full Solution:**\nTotal surface area of a cone: $\\pi r^2 + \\pi r l$, where $r$ is the radius and $l$ is the slant height.\n$= \\pi(6)^2 + \\pi(6)(10)$\n$= 36\\pi + 60\\pi$\n$= 96\\pi$.\n\n**Verification:** Base area: $\\pi(36) = 36\\pi$. Lateral surface: $\\pi(6)(10) = 60\\pi$. Total: $96\\pi$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Giving $60\\pi$ (lateral surface only, forgetting the base).\n* Using $2\\pi r l$ (doubling the lateral surface area formula).\n* Confusing slant height with actual height.\n\n**Test Day Takeaway:** Total cone surface = base ($\\pi r^2$) + lateral ($\\pi r l$). Don't forget the base.",
-  skills: ["surface-area"]
-},
-{
-  id: 21,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A square has a side length of $s$. A new square is formed whose side length is $40\\%$ greater than $s$. The area of the larger square is what percent greater than the area of the original square?",
-  choices: [
-    // distractor: assumes area increases by the same percent as the side
-    { id: "A", text: "$40\\%$" },
-    // distractor: doubles 40%
-    { id: "B", text: "$80\\%$" },
-    { id: "C", text: "$96\\%$" },
-    // distractor: misinterprets (1.4)^2 = 1.96 as 196% increase
-    { id: "D", text: "$180\\%$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Percent Greater Than**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** New side $= 1.4s$, new area $= (1.4s)^2 = 1.96s^2$. Percent increase: $1.96 - 1 = 0.96 = 96\\%$.\n\n**The Full Solution:**\nOriginal area: $s^2$.\nNew side: $1.4s$. New area: $(1.4s)^2 = 1.96s^2$.\nPercent increase: $\\dfrac{1.96s^2 - s^2}{s^2} \\times 100 = 0.96 \\times 100 = 96\\%$.\n\n**Verification:** If $s = 10$: original area $= 100$, new side $= 14$, new area $= 196$.\nPercent increase: $\\dfrac{196 - 100}{100} \\times 100 = 96\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — assumes area increases by the same percent as the side.\n* Choice B: \"applies the inverse operation\" — doubles $40\\%$.\n* Choice D: \"wrong base\" — misinterprets $(1.4)^2 = 1.96$ as a $196\\%$ increase instead of a $96\\%$ increase.\n\n**Test Day Takeaway:** When a linear dimension increases by $p\\%$, area increases by $((1 + p/100)^2 - 1) \\times 100 \\%$, NOT by $p\\%$.",
-  skills: ["percents", "area"]
-},
-{
-  id: 22,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "Let $f(x) = 4x - 3$ and $g(x) = x^2 + 2$. If $g(f(a)) = 83$, what is a positive value of $a$?",
-  correctAnswer: "3",
-  explanation: "**SAT Pattern: Function Composition**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~30s):** $g(f(a)) = (4a - 3)^2 + 2 = 83 \\Rightarrow (4a - 3)^2 = 81 \\Rightarrow 4a - 3 = 9 \\Rightarrow a = 3$.\n\n**The Full Solution:**\n$f(a) = 4a - 3$.\n$g(f(a)) = (4a - 3)^2 + 2 = 83$.\n$(4a - 3)^2 = 81$.\n$4a - 3 = \\pm 9$.\nPositive branch: $4a - 3 = 9 \\Rightarrow 4a = 12 \\Rightarrow a = 3$.\nNegative branch: $4a - 3 = -9 \\Rightarrow a = -1.5$ (not positive).\n\n**Verification:** $f(3) = 12 - 3 = 9$. $g(9) = 81 + 2 = 83$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Solving $(4a-3)^2 = 83$ instead of subtracting $2$ first.\n* Confusing $g(f(a))$ with $f(g(a))$.\n\n**Test Day Takeaway:** Compose from the inside out: compute $f(a)$ first, then plug into $g$. Solve algebraically by working backward.",
-  skills: ["function-interpretation", "solving-equations"]
-}
       ]
     }
   ]

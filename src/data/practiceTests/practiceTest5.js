@@ -386,8 +386,68 @@ export const practiceTest5 = {
       title: "Module 2",
       timeLimit: 35,
       questions: [
+// Practice Test 5 — Math Module 2 (22 questions)
+// Distribution: 3E / 6M / 13H. Q1-3 are easy openers (CB-authentic ramp).
+
 {
   id: 1,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 2,
+  question: "What is $35\\%$ of $180$?",
+  choices: [
+    // distractor: applies the inverse operation — divides 180 by 35 with a decimal slip
+    { id: "A", text: "$5.14$" },
+    // distractor: off-by-five percent — computes 30% of 180
+    { id: "B", text: "$54$" },
+    { id: "C", text: "$63$" },
+    // distractor: subtracts 35 from 180 instead of multiplying by the percent
+    { id: "D", text: "$145$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Forward Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $35\\%$ of $180 = 0.35 \\times 180 = 63$.\n\n**The Full Solution:**\n\"$P\\%$ of $N$\" means $\\dfrac{P}{100} \\times N$.\n$\\dfrac{35}{100} \\times 180 = 0.35 \\times 180 = 63$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — divides $180$ by $35$ instead of multiplying by $0.35$.\n* Choice B: \"off-by-one\" — uses $30\\%$ instead of $35\\%$: $0.30 \\times 180 = 54$.\n* Choice D: \"wrong base\" — subtracts $35$ from $180$ instead of taking a percent.\n\n**Test Day Takeaway:** \"$P$ percent of $N$\" $= \\dfrac{P}{100} \\cdot N$. Convert the percent to a decimal first, then multiply.",
+  skills: ["percents"]
+},
+{
+  id: 2,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 2,
+  question: "The function $f$ is defined by $f(x) = 5x - 7$. What is the value of $f(8)$?",
+  choices: [
+    // distractor: adds 5 + 8 instead of multiplying
+    { id: "A", text: "$13$" },
+    { id: "B", text: "$33$" },
+    // distractor: stops one step early — computes 5*8 = 40 but forgets the -7
+    { id: "C", text: "$40$" },
+    // distractor: applies the inverse operation — adds 7 instead of subtracting
+    { id: "D", text: "$47$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Function Evaluation**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** $f(8) = 5(8) - 7 = 40 - 7 = 33$.\n\n**The Full Solution:**\nSubstitute $x = 8$ into $f(x) = 5x - 7$:\n$f(8) = 5(8) - 7 = 40 - 7 = 33$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — adds $5 + 8$ instead of multiplying $5 \\cdot 8$.\n* Choice C: \"stops one step early\" — computes $5 \\cdot 8 = 40$ but forgets to subtract $7$.\n* Choice D: \"applies the inverse operation\" — adds $7$ instead of subtracting.\n\n**Test Day Takeaway:** Always carry out every operation in the function. Substitute, multiply, then add/subtract.",
+  skills: ["function-evaluation", "linear-functions"]
+},
+{
+  id: 3,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 3,
+  question: "Which expression is equivalent to $6x^2 y + 9xy^2$?",
+  choices: [
+    { id: "A", text: "$3xy(2x + 3y)$" },
+    // distractor: stops one step early — factors out 3 but not xy
+    { id: "B", text: "$3(2x^2 y + 3xy^2)$" },
+    // distractor: factors out xy but not the GCF coefficient 3
+    { id: "C", text: "$xy(6x + 9y)$" },
+    // distractor: keeps an extra power of x and y inside the parentheses
+    { id: "D", text: "$3xy(2x^2 + 3y^2)$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Greatest Common Factor**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** GCF of $6x^2 y$ and $9xy^2$: coefficient $\\gcd(6,9)=3$; variable $x^{\\min(2,1)} y^{\\min(1,2)} = xy$. So GCF $= 3xy$. Factor: $3xy(2x + 3y)$.\n\n**The Full Solution:**\n$6x^2 y + 9xy^2$\n$= 3xy \\cdot 2x + 3xy \\cdot 3y$\n$= 3xy(2x + 3y)$\n\nVerification: $3xy(2x + 3y) = 6x^2 y + 9xy^2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"stops one step early\" — factors out $3$ only, leaves the $xy$ inside.\n* Choice C: \"wrong base\" — factors out $xy$ only, leaves the coefficient $3$ inside.\n* Choice D: \"off-by-one\" — keeps an extra factor of $x$ in $2x^2$ and an extra factor of $y$ in $3y^2$.\n\n**Test Day Takeaway:** GCF combines the smallest coefficient AND the smallest power of every shared variable. Pull all of it out.",
+  skills: ["factoring", "polynomial-operations"]
+},
+{
+  id: 4,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -397,7 +457,7 @@ export const practiceTest5 = {
   skills: ["solving-equations", "linear-functions"]
 },
 {
-  id: 2,
+  id: 5,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -424,7 +484,7 @@ export const practiceTest5 = {
   skills: ["trigonometry", "triangles"]
 },
 {
-  id: 3,
+  id: 6,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -443,7 +503,7 @@ export const practiceTest5 = {
   skills: ["scatterplots", "statistics"]
 },
 {
-  id: 4,
+  id: 7,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -462,7 +522,7 @@ export const practiceTest5 = {
   skills: ["percents", "word-problems"]
 },
 {
-  id: 5,
+  id: 8,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -481,17 +541,26 @@ export const practiceTest5 = {
   skills: ["statistics"]
 },
 {
-  id: 6,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "A workshop produces $10$-inch, $6$-inch, and $4$-inch dowels. During one day, the number of $10$-inch dowels produced is $4$ times the number $n$ of $6$-inch dowels, and the number of $4$-inch dowels is $50$ more than the number of $6$-inch dowels. The workshop produces a total of $818$ dowels that day. How many $6$-inch dowels does the workshop produce that day?",
-  correctAnswer: "128",
-  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $128$.**\n\n**The Fast Way (~40s):** Total $= 4n + n + (n + 50) = 6n + 50 = 818$. So $6n = 768$ and $n = 128$.\n\n**The Full Solution:**\nLet $n$ be the number of $6$-inch dowels.\nNumber of $10$-inch dowels: $4n$.\nNumber of $4$-inch dowels: $n + 50$.\n\nTotal: $4n + n + (n + 50) = 6n + 50 = 818$.\n$6n = 768 \\Rightarrow n = 128$.\n\nVerification: $4(128) + 128 + (128 + 50) = 512 + 128 + 178 = 818$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting the $+50$ offset.\n* Computing $818/6$ directly without subtracting $50$ first.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$50$ more than\".",
-  skills: ["word-problems", "solving-equations"]
+  id: 9,
+  type: "multiple-choice",
+  difficulty: "medium",
+  band: 5,
+  question: "The table shows the results of a survey of $200$ college students about their preferred study time.\n\n| | Morning | Evening | Total |\n|---|---|---|---|\n| Freshmen | $40$ | $60$ | $100$ |\n| Sophomores | $55$ | $45$ | $100$ |\n| Total | $95$ | $105$ | $200$ |\n\nGiven that a randomly selected student is a freshman, what is the probability that the student prefers morning study?",
+  choices: [
+    // distractor: wrong base - uses 40/200 (joint, not conditional)
+    { id: "A", text: "$0.20$" },
+    { id: "B", text: "$0.40$" },
+    // distractor: applies inverse op - conditions on Morning instead of Freshman
+    { id: "C", text: "$0.42$" },
+    // distractor: wrong base - gives marginal P(Morning)
+    { id: "D", text: "$0.95$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Conditional Probability from a Two-Way Table**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** P(morning | freshman) $= \\dfrac{\\text{freshman \\& morning}}{\\text{total freshmen}} = \\dfrac{40}{100} = 0.40$.\n\n**The Full Solution:**\nThe phrase \"Given that the student is a freshman\" restricts the sample space to the $100$ freshmen.\n\nWithin that group, $40$ prefer morning, so:\nP(morning | freshman) $= \\dfrac{40}{100} = 0.40$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses $40/200$ (joint probability) instead of conditioning on freshman.\n* Choice C: \"applies the inverse operation\" — conditions on Morning ($40/95 \\approx 0.42$) instead of Freshman.\n* Choice D: \"wrong base\" — gives marginal P(Morning) $= 95/100$.\n\n**Test Day Takeaway:** \"Given X\" sets X as the new total (denominator). $P(A | X) = \\dfrac{P(A \\cap X)}{P(X)} = \\dfrac{\\text{count } A \\& X}{\\text{count } X}$.",
+  skills: ["probability", "two-way-tables", "statistics"]
 },
 {
-  id: 7,
+  id: 10,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -510,26 +579,26 @@ export const practiceTest5 = {
   skills: ["polynomial-operations", "exponent-rules", "radical-expressions"]
 },
 {
-  id: 8,
+  id: 11,
   type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "In the system of equations below, $a$ is a constant.\n\n$ax + 6y = 18$\n$5x + 4y = 11$\n\nIf the system has no solution, what is the value of $a$?",
+  difficulty: "medium",
+  band: 5,
+  question: "What is the sum of the solutions to the equation $|x - 4| = 9$?",
   choices: [
-    // distractor: stops at a = 5 (just copies coefficient from second equation)
-    { id: "A", text: "$5$" },
-    // distractor: applies inverse — uses 4/6 instead of 6/4
-    { id: "B", text: "$\\dfrac{10}{3}$" },
-    { id: "C", text: "$\\dfrac{15}{2}$" },
-    // distractor: off-by-one — uses 18/4 = 4.5 ratio
-    { id: "D", text: "$\\dfrac{9}{2}$" }
+    // distractor: stops one step early - gives one of the two roots
+    { id: "A", text: "$-5$" },
+    { id: "B", text: "$8$" },
+    // distractor: stops one step early - gives the other root
+    { id: "C", text: "$13$" },
+    // distractor: wrong base - sums constants in the equation
+    { id: "D", text: "$18$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** No solution $\\iff$ the lines are parallel (proportional coefficients) but NOT identical. Match coefficients of $x$ and $y$: $\\dfrac{a}{5} = \\dfrac{6}{4}$, so $a = \\dfrac{30}{4} = \\dfrac{15}{2}$. Verify constants do NOT match: $\\dfrac{18}{11} \\neq \\dfrac{6}{4}$ \\checkmark.\n\n**The Full Solution:**\nFor a $2 \\times 2$ linear system to have no solution, the coefficient ratios must be equal but the constant ratio must differ:\n$\\dfrac{a}{5} = \\dfrac{6}{4} \\neq \\dfrac{18}{11}$\n\nFrom $\\dfrac{a}{5} = \\dfrac{6}{4}$: $a = \\dfrac{6 \\cdot 5}{4} = \\dfrac{30}{4} = \\dfrac{15}{2}$.\n\nCheck: $\\dfrac{18}{11} \\approx 1.64$ and $\\dfrac{6}{4} = 1.5$, so the constants are NOT in the same ratio — confirming no solution.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — copies the coefficient $5$ from the other equation.\n* Choice B: \"applies the inverse operation\" — uses $\\dfrac{4}{6}$ ratio in the wrong direction.\n* Choice D: \"off-by-one\" — uses the constant ratio $\\dfrac{18}{4}$ instead of the coefficient ratio.\n\n**Test Day Takeaway:** No-solution condition: $\\dfrac{a_1}{a_2} = \\dfrac{b_1}{b_2} \\neq \\dfrac{c_1}{c_2}$. Match coefficients but NOT constants.",
-  skills: ["systems-of-equations", "solving-equations"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Absolute Value Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $|x - 4| = 9 \\Rightarrow x - 4 = \\pm 9$. Two solutions: $x = 13$ and $x = -5$. Sum $= 13 + (-5) = 8$.\n\n**The Full Solution:**\n$|x - 4| = 9$ has two cases:\nCase 1: $x - 4 = 9 \\Rightarrow x = 13$.\nCase 2: $x - 4 = -9 \\Rightarrow x = -5$.\n\nSum: $13 + (-5) = 8$.\n\nShortcut: the two solutions of $|x - h| = k$ are symmetric about $x = h$, so their sum is always $2h$. Here $h = 4$, sum $= 8$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives one root ($-5$) instead of the sum.\n* Choice C: \"stops one step early\" — gives the other root ($13$).\n* Choice D: \"wrong base\" — sums constants in the equation incorrectly.\n\n**Test Day Takeaway:** $|x - h| = k$ has solutions $x = h \\pm k$. Sum of solutions $= 2h$.",
+  skills: ["absolute-value", "solving-equations"]
 },
 {
-  id: 9,
+  id: 12,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -548,7 +617,7 @@ export const practiceTest5 = {
   skills: ["function-interpretation", "vertex-form", "quadratic-equations"]
 },
 {
-  id: 10,
+  id: 13,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -567,7 +636,7 @@ export const practiceTest5 = {
   skills: ["margin-of-error", "statistics"]
 },
 {
-  id: 11,
+  id: 14,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -577,7 +646,7 @@ export const practiceTest5 = {
   skills: ["systems-of-equations", "word-problems"]
 },
 {
-  id: 12,
+  id: 15,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -596,7 +665,7 @@ export const practiceTest5 = {
   skills: ["vertex-form", "function-interpretation"]
 },
 {
-  id: 13,
+  id: 16,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -615,7 +684,7 @@ export const practiceTest5 = {
   skills: ["probability", "two-way-tables"]
 },
 {
-  id: 14,
+  id: 17,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -634,7 +703,7 @@ export const practiceTest5 = {
   skills: ["slope", "linear-functions", "coordinate-geometry"]
 },
 {
-  id: 15,
+  id: 18,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -653,7 +722,7 @@ export const practiceTest5 = {
   skills: ["circle-equations", "solving-equations"]
 },
 {
-  id: 16,
+  id: 19,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -680,7 +749,7 @@ export const practiceTest5 = {
   skills: ["trigonometry", "triangles"]
 },
 {
-  id: 17,
+  id: 20,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -699,7 +768,7 @@ export const practiceTest5 = {
   skills: ["discriminant", "quadratic-equations"]
 },
 {
-  id: 18,
+  id: 21,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -709,7 +778,7 @@ export const practiceTest5 = {
   skills: ["exponential-functions", "percents"]
 },
 {
-  id: 19,
+  id: 22,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -727,54 +796,6 @@ export const practiceTest5 = {
   explanation: "**SAT Pattern: Three-Equation Contradiction**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Equation 2 is $3 \\times$ Equation 1: $3(2x + y - 3z) = 21$ \\checkmark. Equation 3 should be $2 \\times$ Equation 1 if consistent: $2(2x + y - 3z) = 14$, but Equation 3 says $= 17$. Contradiction $\\Rightarrow$ zero solutions.\n\n**The Full Solution:**\nDivide Equation 2 by $3$: $2x + y - 3z = 7$ (same as Equation 1) \\checkmark.\nDivide Equation 3 by $2$: $2x + y - 3z = 8.5$.\nBut Equation 1 says $2x + y - 3z = 7$. Since $7 \\neq 8.5$, the system is inconsistent.\n\nThere is NO triple $(x, y, z)$ that can satisfy both \"$2x + y - 3z = 7$\" and \"$2x + y - 3z = 8.5$\" simultaneously.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — assumes $3 \\times 3$ systems always have unique solutions.\n* Choice C: \"applies the inverse operation\" — linear systems never have exactly two solutions.\n* Choice D: \"off-by-one\" — would be true if Equation 3's right side were $14$ instead of $17$.\n\n**Test Day Takeaway:** Check whether equations are scalar multiples. Same left side but different right side $\\Rightarrow$ contradiction $\\Rightarrow$ zero solutions.",
   skills: ["systems-of-equations"]
 },
-{
-  id: 20,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "Two rectangular prisms are joined along one face to form a single solid. Prism A has dimensions $4 \\text{ cm} \\times 5 \\text{ cm} \\times 9 \\text{ cm}$, and Prism B has dimensions $4 \\text{ cm} \\times 5 \\text{ cm} \\times 6 \\text{ cm}$. The joined face has dimensions $4 \\text{ cm} \\times 5 \\text{ cm}$. What is the total surface area of the resulting solid, in square centimeters?",
-  choices: [
-    // distractor: off-by-one — subtracts only one of the two glued faces (350 - 20 = 330)
-    { id: "A", text: "$330$" },
-    { id: "B", text: "$310$" },
-    // distractor: stops one step early — forgets to subtract glued faces (202 + 148 = 350)
-    { id: "C", text: "$350$" },
-    // distractor: wrong base — uses the wrong face area (e.g., 6 * 9 = 54)
-    { id: "D", text: "$242$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Composite Solid Surface Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Surface area of A: $2(20 + 36 + 45) = 202$. Surface area of B: $2(20 + 24 + 30) = 148$. Sum: $350$. Subtract the joined face ($20$) from BOTH: $350 - 2 \\cdot 20 = 310$.\n\n**The Full Solution:**\nSurface area of Prism A ($4 \\times 5 \\times 9$): $2(4 \\cdot 5 + 4 \\cdot 9 + 5 \\cdot 9) = 2(20 + 36 + 45) = 2(101) = 202 \\text{ cm}^2$.\n\nSurface area of Prism B ($4 \\times 5 \\times 6$): $2(4 \\cdot 5 + 4 \\cdot 6 + 5 \\cdot 6) = 2(20 + 24 + 30) = 2(74) = 148 \\text{ cm}^2$.\n\nTotal before joining: $202 + 148 = 350 \\text{ cm}^2$.\nThe joined face ($4 \\times 5 = 20 \\text{ cm}^2$) is hidden on BOTH prisms; subtract $2 \\times 20 = 40$.\nTotal surface area: $350 - 40 = 310 \\text{ cm}^2$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — subtracts only one of the two glued faces ($350 - 20 = 330$).\n* Choice C: \"stops one step early\" — forgets to subtract any glued face.\n* Choice D: \"wrong base\" — uses the wrong face area for subtraction.\n\n**Test Day Takeaway:** When two solids are joined along a face, that face is hidden on BOTH solids — subtract its area TWICE.",
-  skills: ["surface-area", "geometry"]
-},
-{
-  id: 21,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "In a study, the value of a quantity $Q$ doubles every $5$ years. The value of $Q$ was $800$ at the start of the study. What is the value of $Q$ after $20$ years?",
-  correctAnswer: "12800",
-  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**The correct answer is $12{,}800$.**\n\n**The Fast Way (~15s):** In $20$ years, the quantity doubles $\\dfrac{20}{5} = 4$ times. $800 \\times 2^4 = 800 \\times 16 = 12{,}800$.\n\n**The Full Solution:**\nThe model is $Q(t) = 800 \\cdot 2^{t/5}$.\nAt $t = 20$: $Q(20) = 800 \\cdot 2^{20/5} = 800 \\cdot 2^4 = 800 \\times 16 = 12{,}800$.\n\n**Common Mistakes to Avoid:**\n* Computing $800 \\times 2 \\times 20 = 32{,}000$ (linear instead of exponential).\n* Using $2^{20}$ instead of $2^{20/5} = 2^4 = 16$.\n\n**Test Day Takeaway:** For repeated doubling, count the number of doubling periods and use $2^{\\text{periods}}$.",
-  skills: ["exponential-functions"]
-},
-{
-  id: 22,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "Let $g(x) = 3x - 2$ and $h(x) = x^2 + 5$. If $h(g(a)) = 30$, what is a positive value of $a$?",
-  choices: [
-    // distractor: applies inverse operation — uses negative root: 3a - 2 = -5 gives a = -1
-    { id: "A", text: "$-1$" },
-    { id: "B", text: "$\\dfrac{7}{3}$" },
-    // distractor: stops one step early — confuses g(a) = 5 with a itself
-    { id: "C", text: "$5$" },
-    // distractor: wrong base — solves (3a)^2 = 25 ignoring -2
-    { id: "D", text: "$\\dfrac{5}{3}$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Function Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $h(g(a)) = (3a - 2)^2 + 5 = 30 \\Rightarrow (3a - 2)^2 = 25 \\Rightarrow 3a - 2 = \\pm 5$. Positive root: $3a - 2 = 5 \\Rightarrow a = \\dfrac{7}{3}$.\n\n**The Full Solution:**\nStep 1: $g(a) = 3a - 2$.\nStep 2: $h(g(a)) = (3a - 2)^2 + 5 = 30 \\Rightarrow (3a - 2)^2 = 25$.\nStep 3: $3a - 2 = \\pm 5$. Positive value: $3a - 2 = 5 \\Rightarrow 3a = 7 \\Rightarrow a = \\dfrac{7}{3}$.\n\nCheck: $g\\left(\\dfrac{7}{3}\\right) = 7 - 2 = 5$, $h(5) = 25 + 5 = 30$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — uses the negative root $3a - 2 = -5$ instead of $+5$.\n* Choice C: \"stops one step early\" — confuses the intermediate $g(a) = 5$ with $a$ itself.\n* Choice D: \"wrong base\" — solves $(3a)^2 = 25$ ignoring the $-2$.\n\n**Test Day Takeaway:** In $h(g(a))$, work inside out: evaluate $g(a)$ first, then plug into $h$. Solve for $a$ from the resulting equation.",
-  skills: ["function-interpretation", "solving-equations"]
-}
       ]
     }
   ]

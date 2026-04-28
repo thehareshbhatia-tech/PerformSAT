@@ -411,8 +411,59 @@ export const practiceTest7 = {
       title: "Module 2",
       timeLimit: 35,
       questions: [
+// Practice Test 7 — Math Module 2 (22 questions)
+// Distribution: 3E / 6M / 13H. Q1-3 are easy openers (CB-authentic ramp).
+
 {
   id: 1,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 3,
+  question: "Which of the following functions has a constant percent rate of change?",
+  choices: [
+    // distractor: linear - constant ABSOLUTE rate, not percent rate
+    { id: "A", text: "$f(x) = 3x + 5$" },
+    { id: "B", text: "$f(x) = 2(3)^x$" },
+    // distractor: quadratic - changing rate, not constant
+    { id: "C", text: "$f(x) = x^2$" },
+    // distractor: square root - changing rate
+    { id: "D", text: "$f(x) = \\sqrt{x}$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Linear vs Exponential**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Exponential functions $f(x) = a \\cdot b^x$ have a CONSTANT PERCENT rate of change (multiply by $b$ each step). Linear functions have a constant ABSOLUTE rate.\n\n**The Full Solution:**\nA linear function (Choice A) increases by the same AMOUNT each step ($+3$ per unit $x$), so its absolute change is constant — but its percent change varies.\n\nAn exponential function $f(x) = 2(3)^x$ multiplies by $3$ each unit step, so its PERCENT change ($+200\\%$) is constant.\n\n$x^2$ and $\\sqrt{x}$ are neither linear nor exponential; their rates of change vary.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — confuses constant absolute change with constant percent change.\n* Choice C: \"applies the inverse operation\" — quadratic has neither constant absolute nor constant percent change.\n* Choice D: \"wrong base\" — square root has decreasing rate of change.\n\n**Test Day Takeaway:** Linear $\\Leftrightarrow$ constant absolute change. Exponential $\\Leftrightarrow$ constant percent change.",
+  skills: ["exponential-functions", "linear-functions", "function-interpretation"]
+},
+{
+  id: 2,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 2,
+  question: "If $\\dfrac{x}{6} = \\dfrac{15}{10}$, what is the value of $x$?",
+  choices: [
+    // distractor: takes ratio of difference values incorrectly
+    { id: "A", text: "$4$" },
+    { id: "B", text: "$9$" },
+    // distractor: adds the values rather than cross-multiplying
+    { id: "C", text: "$25$" },
+    // distractor: stops one step early at cross-product without dividing
+    { id: "D", text: "$90$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Solve a Proportion**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Cross-multiply: $10x = 6 \\cdot 15 = 90$. So $x = 9$.\n\n**The Full Solution:**\n$\\dfrac{x}{6} = \\dfrac{15}{10}$\nCross-multiply: $10x = 6 \\cdot 15 = 90$.\nDivide by $10$: $x = 9$.\n\nVerification: $\\dfrac{9}{6} = 1.5 = \\dfrac{15}{10}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — divides values incorrectly without cross-multiplying.\n* Choice C: \"applies the inverse operation\" — adds the cross terms ($15 + 10 = 25$).\n* Choice D: \"stops one step early\" — gives the cross-product without dividing.\n\n**Test Day Takeaway:** Cross-multiply, then solve. Always finish the division step.",
+  skills: ["solving-equations", "ratios"]
+},
+{
+  id: 3,
+  type: "fill-in",
+  difficulty: "easy",
+  band: 2,
+  question: "On a number line, point $A$ has coordinate $-7$ and point $B$ has coordinate $11$. What is the distance between $A$ and $B$?",
+  correctAnswer: "18",
+  explanation: "**SAT Pattern: Distance on a Number Line**\n\n**The correct answer is $18$.**\n\n**The Fast Way (~5s):** Distance $= |11 - (-7)| = |18| = 18$.\n\n**The Full Solution:**\nThe distance between two points on a number line is the absolute value of their difference:\n$|B - A| = |11 - (-7)| = |11 + 7| = |18| = 18$.\n\n**Common Mistakes to Avoid:**\n* Subtracting without flipping the sign of the negative coordinate: $11 - 7 = 4$ (wrong).\n* Adding the absolute values incorrectly: works for opposite-sign pairs but fails when both are positive or both negative.\n\n**Test Day Takeaway:** Distance on a number line $= |B - A|$. Watch the signs when one or both coordinates are negative.",
+  skills: ["coordinate-geometry", "absolute-value"]
+},
+{
+  id: 4,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -422,7 +473,7 @@ export const practiceTest7 = {
   skills: ["vertex-form", "quadratic-equations"]
 },
 {
-  id: 2,
+  id: 5,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -441,7 +492,7 @@ export const practiceTest7 = {
   skills: ["two-way-tables", "probability"]
 },
 {
-  id: 3,
+  id: 6,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -451,7 +502,7 @@ export const practiceTest7 = {
   skills: ["quadratic-equations", "vertex-form", "function-interpretation"]
 },
 {
-  id: 4,
+  id: 7,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -470,7 +521,7 @@ export const practiceTest7 = {
   skills: ["percents"]
 },
 {
-  id: 5,
+  id: 8,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -489,7 +540,7 @@ export const practiceTest7 = {
   skills: ["function-interpretation"]
 },
 {
-  id: 6,
+  id: 9,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -508,7 +559,7 @@ export const practiceTest7 = {
   skills: ["word-problems", "ratios"]
 },
 {
-  id: 7,
+  id: 10,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -518,7 +569,7 @@ export const practiceTest7 = {
   skills: ["exponential-functions", "function-interpretation"]
 },
 {
-  id: 8,
+  id: 11,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -537,7 +588,7 @@ export const practiceTest7 = {
   skills: ["polynomial-operations", "exponent-rules", "radical-expressions"]
 },
 {
-  id: 9,
+  id: 12,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -556,7 +607,7 @@ export const practiceTest7 = {
   skills: ["function-interpretation", "vertex-form", "quadratic-equations"]
 },
 {
-  id: 10,
+  id: 13,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -575,7 +626,7 @@ export const practiceTest7 = {
   skills: ["systems-of-equations", "linear-equations"]
 },
 {
-  id: 11,
+  id: 14,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -594,7 +645,7 @@ export const practiceTest7 = {
   skills: ["probability"]
 },
 {
-  id: 12,
+  id: 15,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -613,7 +664,7 @@ export const practiceTest7 = {
   skills: ["slope", "coordinate-geometry", "linear-functions"]
 },
 {
-  id: 13,
+  id: 16,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -632,7 +683,7 @@ export const practiceTest7 = {
   skills: ["function-interpretation", "solving-equations"]
 },
 {
-  id: 14,
+  id: 17,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -651,7 +702,7 @@ export const practiceTest7 = {
   skills: ["exponential-functions"]
 },
 {
-  id: 15,
+  id: 18,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -670,7 +721,7 @@ export const practiceTest7 = {
   skills: ["exponential-functions", "solving-equations"]
 },
 {
-  id: 16,
+  id: 19,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -689,7 +740,7 @@ export const practiceTest7 = {
   skills: ["probability"]
 },
 {
-  id: 17,
+  id: 20,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -699,7 +750,7 @@ export const practiceTest7 = {
   skills: ["polynomial-operations", "factoring"]
 },
 {
-  id: 18,
+  id: 21,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -718,7 +769,7 @@ export const practiceTest7 = {
   skills: ["function-interpretation"]
 },
 {
-  id: 19,
+  id: 22,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -727,54 +778,6 @@ export const practiceTest7 = {
   explanation: "**SAT Pattern: Marginal Probability**\n\n**The correct answer is $25$.**\n\n**The Fast Way (~20s):** Inclusion-exclusion: $|C \\cup D| = |C| + |D| - |C \\cap D|$, so $140 = 90 + 75 - |C \\cap D|$, giving $|C \\cap D| = 25$.\n\n**The Full Solution:**\nLet $C$ = cat owners, $D$ = dog owners.\nBy inclusion-exclusion: $|C \\cup D| = |C| + |D| - |C \\cap D|$.\n$140 = 90 + 75 - |C \\cap D|$\n$140 = 165 - |C \\cap D|$\n$|C \\cap D| = 25$.\n\nVerification: only cat $= 90 - 25 = 65$, only dog $= 75 - 25 = 50$, both $= 25$. Total at least one $= 65 + 50 + 25 = 140$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing $200 - 140 = 60$ (people with neither, not both).\n* Adding $90 + 75 = 165$ without subtracting.\n\n**Test Day Takeaway:** Inclusion-exclusion: $|A \\cup B| = |A| + |B| - |A \\cap B|$. Solve for the unknown intersection.",
   skills: ["probability"]
 },
-{
-  id: 20,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The function $f(x) = ax^2 + bx + c$ has a vertex at $(3, -2)$ and passes through $(5, 6)$. What is the value of $a$?",
-  choices: [
-    // distractor: applies inverse operation — solves 6 = 4a - 2 incorrectly as 4 = 4a → a = 1
-    { id: "A", text: "$\\dfrac{1}{2}$" },
-    // distractor: stops one step early — arithmetic slip at the final step
-    { id: "B", text: "$1$" },
-    { id: "C", text: "$2$" },
-    // distractor: wrong base — divides by 2 instead of 4 in the final step
-    { id: "D", text: "$4$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Vertex form: $f(x) = a(x - 3)^2 - 2$. Use $(5, 6)$: $6 = a(5 - 3)^2 - 2 = 4a - 2$, so $4a = 8$ and $a = 2$.\n\n**The Full Solution:**\nVertex form of a quadratic: $f(x) = a(x - h)^2 + k$ where $(h, k)$ is the vertex.\n$f(x) = a(x - 3)^2 - 2$.\nSubstitute $(5, 6)$:\n$6 = a(5 - 3)^2 - 2 = 4a - 2$\n$4a = 8$\n$a = 2$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — solves $6 = 4a - 2$ as $4 = 4a \\Rightarrow a = 1$ (arithmetic error subtracting).\n* Choice B: \"stops one step early\" — similar arithmetic slip on the same step.\n* Choice D: \"wrong base\" — divides by $2$ instead of $4$ in the final step.\n\n**Test Day Takeaway:** Use vertex form $a(x - h)^2 + k$ when the vertex is given. One additional point determines $a$.",
-  skills: ["vertex-form", "quadratic-equations"]
-},
-{
-  id: 21,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "Let $f(x) = 2^x$ and $g(x) = x^2 + 1$. How many real solutions does the equation $f(x) = g(x)$ have?",
-  choices: [
-    // distractor: wrong base — assumes exponential and quadratic never intersect
-    { id: "A", text: "$0$" },
-    // distractor: stops one step early — finds only one intersection
-    { id: "B", text: "$1$" },
-    // distractor: off-by-one — finds only the two integer solutions and misses the third
-    { id: "C", text: "$2$" },
-    { id: "D", text: "$3$" }
-  ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Function Composition**\n\n**Choice D is correct.**\n\n**The Fast Way (~40s):** Test integers and analyze end behavior.\n\n**The Full Solution:**\nSolve $2^x = x^2 + 1$:\n* $x = 0$: $2^0 = 1$, $0^2 + 1 = 1$ \\checkmark (1st solution).\n* $x = 1$: $2^1 = 2$, $1^2 + 1 = 2$ \\checkmark (2nd solution).\n* $x = 2$: $2^2 = 4 < 5 = 2^2 + 1$, so $f < g$.\n* $x = 4$: $2^4 = 16 < 17 = 4^2 + 1$, so $f < g$.\n* $x = 5$: $2^5 = 32 > 26 = 5^2 + 1$, so $f > g$.\n\nSince $f(4) < g(4)$ and $f(5) > g(5)$, by the Intermediate Value Theorem there is a third intersection between $x = 4$ and $x = 5$.\n\nFor $x < 0$: $2^x < 1$ but $x^2 + 1 \\geq 1$, so no further crossings. For $x > 5$: $2^x$ dominates, no more crossings.\n\nTotal: $3$ real solutions.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — assumes exponential and quadratic never intersect.\n* Choice B: \"stops one step early\" — finds only one of the integer solutions.\n* Choice C: \"off-by-one\" — finds the two integer solutions and misses the third between $4$ and $5$.\n\n**Test Day Takeaway:** Test integer values AND check end behavior. Exponentials eventually dominate quadratics, which can create additional intersections.",
-  skills: ["exponential-functions", "function-interpretation"]
-},
-{
-  id: 22,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "A jar contains only red and blue marbles. The probability of drawing a red marble is $\\dfrac{3}{8}$. After $16$ more red marbles are added (and no marbles removed), the probability of drawing a red marble becomes $\\dfrac{1}{2}$. How many marbles were originally in the jar?",
-  correctAnswer: "64",
-  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**The correct answer is $64$.**\n\n**The Fast Way (~30s):** Let $n$ be the original total. Red $= \\dfrac{3n}{8}$. After adding $16$: $\\dfrac{(3n/8) + 16}{n + 16} = \\dfrac{1}{2}$. Solve: $n = 64$.\n\n**The Full Solution:**\nOriginal: $n$ total marbles, with $\\dfrac{3n}{8}$ red.\nAfter adding $16$ red marbles:\n$\\dfrac{\\dfrac{3n}{8} + 16}{n + 16} = \\dfrac{1}{2}$\n\nCross-multiply:\n$2 \\left( \\dfrac{3n}{8} + 16 \\right) = n + 16$\n$\\dfrac{3n}{4} + 32 = n + 16$\n$32 - 16 = n - \\dfrac{3n}{4}$\n$16 = \\dfrac{n}{4}$\n$n = 64$.\n\nVerification: original $64$, with $\\dfrac{3}{8} \\cdot 64 = 24$ red. After adding $16$: $80$ total, $40$ red. $\\dfrac{40}{80} = \\dfrac{1}{2}$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Setting up the equation with the wrong denominator (forgetting to add $16$ to the total).\n* Forgetting that BOTH the favorable count and the total change.\n\n**Test Day Takeaway:** When items are added to a group, update BOTH the favorable count and the total. Then re-equate to the new probability.",
-  skills: ["probability", "solving-equations"]
-}
       ]
     }
   ]

@@ -403,8 +403,68 @@ export const practiceTest1 = {
       title: "Module 2",
       timeLimit: 35,
       questions: [
+// Practice Test 1 — Math Module 2 (22 questions)
+// Distribution: 3E / 6M / 13H. Q1-3 are easy openers (CB-authentic ramp).
+
 {
   id: 1,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 2,
+  question: "Two of the angles in a triangle measure $41^{\\circ}$ and $67^{\\circ}$. What is the measure of the third angle?",
+  choices: [
+    // distractor: applies inverse operation - subtracts the two given angles
+    { id: "A", text: "$26^{\\circ}$" },
+    { id: "B", text: "$72^{\\circ}$" },
+    // distractor: stops one step early - reports the sum of the two given angles
+    { id: "C", text: "$108^{\\circ}$" },
+    // distractor: wrong base - uses 360 instead of 180
+    { id: "D", text: "$252^{\\circ}$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Triangle Angle Sum**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Interior angles of a triangle sum to $180^{\\circ}$. Third angle $= 180 - 41 - 67 = 72^{\\circ}$.\n\n**The Full Solution:**\n$41^{\\circ} + 67^{\\circ} + x = 180^{\\circ}$\n$108^{\\circ} + x = 180^{\\circ}$\n$x = 72^{\\circ}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — subtracts the two given angles ($67 - 41 = 26$).\n* Choice C: \"stops one step early\" — reports the sum of the given angles.\n* Choice D: \"wrong base\" — uses $360^{\\circ}$ instead of $180^{\\circ}$.\n\n**Test Day Takeaway:** Interior angles of a triangle ALWAYS sum to $180^{\\circ}$.",
+  skills: ["triangles", "angles", "geometry"]
+},
+{
+  id: 2,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 2,
+  question: "If $\\dfrac{x}{4} = 9$, what is the value of $x$?",
+  choices: [
+    // distractor: applies inverse op - divides 9 by 4 instead of multiplying
+    { id: "A", text: "$2.25$" },
+    // distractor: wrong base - subtracts 9 - 4
+    { id: "B", text: "$5$" },
+    // distractor: applies inverse op - adds 9 + 4
+    { id: "C", text: "$13$" },
+    { id: "D", text: "$36$" }
+  ],
+  correctAnswer: "D",
+  explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** Multiply both sides by $4$: $x = 4 \\cdot 9 = 36$.\n\n**The Full Solution:**\n$\\dfrac{x}{4} = 9$\n$x = 9 \\cdot 4 = 36$.\nVerification: $\\dfrac{36}{4} = 9$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — divides instead of multiplying.\n* Choice B: \"wrong base\" — subtracts instead of multiplying.\n* Choice C: \"applies the inverse operation\" — adds instead of multiplying.\n\n**Test Day Takeaway:** To isolate $x$ when divided by $k$, multiply both sides by $k$.",
+  skills: ["solving-equations"]
+},
+{
+  id: 3,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 3,
+  question: "The function $g$ is defined by $g(x) = 4x + 11$. What is the $y$-intercept of the graph of $y = g(x)$ in the $xy$-plane?",
+  choices: [
+    // distractor: wrong base - uses slope as the y-intercept
+    { id: "A", text: "$(0, 4)$" },
+    { id: "B", text: "$(0, 11)$" },
+    // distractor: applies inverse op - flips sign of constant
+    { id: "C", text: "$(0, -11)$" },
+    // distractor: confuses x-intercept-style with y-intercept format
+    { id: "D", text: "$(-11, 0)$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: y-Intercept from Slope-Intercept Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** In $y = mx + b$, the $y$-intercept is $(0, b)$. Here $b = 11$, so the $y$-intercept is $(0, 11)$.\n\n**The Full Solution:**\nThe $y$-intercept occurs where $x = 0$:\n$g(0) = 4(0) + 11 = 11$.\nSo the graph crosses the $y$-axis at $(0, 11)$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses slope ($4$) instead of $y$-intercept ($11$).\n* Choice C: \"applies the inverse operation\" — flips the sign of the constant.\n* Choice D: \"applies the inverse operation\" — uses $(b, 0)$ format instead of $(0, b)$.\n\n**Test Day Takeaway:** In $y = mx + b$, $m$ is slope and $b$ is $y$-intercept. The $y$-intercept point is always $(0, b)$.",
+  skills: ["linear-functions", "function-interpretation"]
+},
+{
+  id: 4,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -423,7 +483,7 @@ export const practiceTest1 = {
   skills: ["function-interpretation"]
 },
 {
-  id: 2,
+  id: 5,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -433,7 +493,7 @@ export const practiceTest1 = {
   skills: ["solving-equations", "linear-functions"]
 },
 {
-  id: 3,
+  id: 6,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -452,7 +512,7 @@ export const practiceTest1 = {
   skills: ["slope", "coordinate-geometry"]
 },
 {
-  id: 4,
+  id: 7,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -471,7 +531,7 @@ export const practiceTest1 = {
   skills: ["percents"]
 },
 {
-  id: 5,
+  id: 8,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -488,7 +548,7 @@ export const practiceTest1 = {
   skills: ["triangles", "angles"]
 },
 {
-  id: 6,
+  id: 9,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -507,7 +567,7 @@ export const practiceTest1 = {
   skills: ["word-problems", "ratios"]
 },
 {
-  id: 7,
+  id: 10,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -526,7 +586,7 @@ export const practiceTest1 = {
   skills: ["scatterplots", "statistics"]
 },
 {
-  id: 8,
+  id: 11,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -545,7 +605,7 @@ export const practiceTest1 = {
   skills: ["polynomial-operations", "exponent-rules", "radical-expressions"]
 },
 {
-  id: 9,
+  id: 12,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -564,7 +624,7 @@ export const practiceTest1 = {
   skills: ["function-interpretation", "vertex-form", "quadratic-equations"]
 },
 {
-  id: 10,
+  id: 13,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -574,7 +634,7 @@ export const practiceTest1 = {
   skills: ["statistics", "mean"]
 },
 {
-  id: 11,
+  id: 14,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -584,7 +644,7 @@ export const practiceTest1 = {
   skills: ["systems-of-equations", "word-problems"]
 },
 {
-  id: 12,
+  id: 15,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -603,7 +663,7 @@ export const practiceTest1 = {
   skills: ["vertex-form", "function-interpretation"]
 },
 {
-  id: 13,
+  id: 16,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -622,7 +682,7 @@ export const practiceTest1 = {
   skills: ["statistics"]
 },
 {
-  id: 14,
+  id: 17,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -641,7 +701,7 @@ export const practiceTest1 = {
   skills: ["probability", "two-way-tables"]
 },
 {
-  id: 15,
+  id: 18,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -660,7 +720,7 @@ export const practiceTest1 = {
   skills: ["circle-equations", "solving-equations"]
 },
 {
-  id: 16,
+  id: 19,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -687,7 +747,7 @@ export const practiceTest1 = {
   skills: ["trigonometry", "triangles"]
 },
 {
-  id: 17,
+  id: 20,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -706,7 +766,7 @@ export const practiceTest1 = {
   skills: ["discriminant", "quadratic-equations"]
 },
 {
-  id: 18,
+  id: 21,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -716,7 +776,7 @@ export const practiceTest1 = {
   skills: ["exponential-functions", "percents"]
 },
 {
-  id: 19,
+  id: 22,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -734,54 +794,6 @@ export const practiceTest1 = {
   explanation: "**SAT Pattern: Three-Equation Contradiction**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Equation 2 is $3 \\times$ Equation 1: $3(x+2y-z) = 3 \\cdot 5 = 15$ \\checkmark. Equation 3 should be $2 \\times$ Equation 1 if consistent: $2(x+2y-z) = 10$, but Equation 3 says $= 11$. Contradiction $\\Rightarrow$ zero solutions.\n\n**The Full Solution:**\nDivide Equation 2 by $3$: $x + 2y - z = 5$ (same as Equation 1) \\checkmark.\nDivide Equation 3 by $2$: $x + 2y - z = 5.5$.\nBut Equation 1 says $x + 2y - z = 5$. Since $5 \\neq 5.5$, the system is inconsistent.\n\nThere is NO triple $(x, y, z)$ that can satisfy both \"$x + 2y - z = 5$\" and \"$x + 2y - z = 5.5$\" simultaneously.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — assumes $3 \\times 3$ systems always have unique solutions.\n* Choice C: \"applies the inverse operation\" — linear systems never have exactly two solutions (zero, one, or infinitely many only).\n* Choice D: \"off-by-one\" — would be true if Equation 3's right side were $10$ instead of $11$.\n\n**Test Day Takeaway:** Check whether equations are scalar multiples of each other. Same left side but different right side $\\Rightarrow$ contradiction $\\Rightarrow$ zero solutions.",
   skills: ["systems-of-equations"]
 },
-{
-  id: 20,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "Two rectangular prisms are glued together along one face to form a single solid. Prism A has dimensions $5 \\text{ cm} \\times 6 \\text{ cm} \\times 10 \\text{ cm}$, and Prism B has dimensions $5 \\text{ cm} \\times 6 \\text{ cm} \\times 7 \\text{ cm}$. The glued face has dimensions $5 \\text{ cm} \\times 6 \\text{ cm}$. What is the total surface area of the resulting solid, in square centimeters?",
-  choices: [
-    // distractor: subtracts 90 instead of 60
-    { id: "A", text: "$404$" },
-    { id: "B", text: "$434$" },
-    // distractor: subtracts only one face (494 - 30)
-    { id: "C", text: "$464$" },
-    // distractor: doesn't subtract glued faces at all (280 + 214)
-    { id: "D", text: "$494$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Composite Solid Surface Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Surface area of A: $2(30 + 50 + 60) = 280$. Surface area of B: $2(30 + 35 + 42) = 214$. Sum: $494$. Subtract the glued face from BOTH solids: $494 - 2 \\cdot 30 = 434$.\n\n**The Full Solution:**\nSurface area of Prism A ($5 \\times 6 \\times 10$): $2(5 \\cdot 6 + 5 \\cdot 10 + 6 \\cdot 10) = 2(30 + 50 + 60) = 2(140) = 280 \\text{ cm}^2$.\n\nSurface area of Prism B ($5 \\times 6 \\times 7$): $2(5 \\cdot 6 + 5 \\cdot 7 + 6 \\cdot 7) = 2(30 + 35 + 42) = 2(107) = 214 \\text{ cm}^2$.\n\nTotal before gluing: $280 + 214 = 494 \\text{ cm}^2$.\nThe glued face ($5 \\times 6 = 30 \\text{ cm}^2$) is hidden on BOTH prisms; subtract $2 \\times 30 = 60$.\nTotal surface area: $494 - 60 = 434 \\text{ cm}^2$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — subtracts $90$ instead of $60$ (uses wrong face area).\n* Choice C: \"stops one step early\" — subtracts only one of the two glued faces.\n* Choice D: \"applies the inverse operation\" — does not subtract the glued face at all.\n\n**Test Day Takeaway:** When two solids are glued along a face, that face is hidden on BOTH solids. Subtract its area twice.",
-  skills: ["surface-area"]
-},
-{
-  id: 21,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "If $504$ is $p\\%$ greater than $72$, what is the value of $p$?",
-  correctAnswer: "600",
-  explanation: "**SAT Pattern: Percent Greater Than**\n\n**The correct answer is $600$.**\n\n**The Fast Way (~20s):** \"$504$ is $p\\%$ greater than $72$\" means $504 = 72 + \\tfrac{p}{100}(72)$, so $\\tfrac{504 - 72}{72} = \\tfrac{p}{100}$. Compute: $\\tfrac{432}{72} = 6$, so $\\tfrac{p}{100} = 6$ and $p = 600$.\n\n**The Full Solution:**\n$504 = 72 + \\dfrac{p}{100} \\cdot 72$\n$504 - 72 = \\dfrac{p}{100} \\cdot 72$\n$432 = \\dfrac{72p}{100}$\n$\\dfrac{p}{100} = \\dfrac{432}{72} = 6$\n$p = 600$.\n\nVerification: $72 + 600\\% \\text{ of } 72 = 72 + 432 = 504$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $700$ — comes from $\\tfrac{504}{72} = 7$, then converting without subtracting the original.\n* Dividing by $504$ instead of $72$: $\\tfrac{432}{504} \\approx 0.857$, giving $\\approx 85.7\\%$.\n\n**Test Day Takeaway:** \"$A$ is $p\\%$ greater than $B$\" $\\iff$ $A = B(1 + \\tfrac{p}{100})$. Always solve for $p$ via $\\tfrac{A - B}{B} = \\tfrac{p}{100}$.",
-  skills: ["percents", "word-problems"]
-},
-{
-  id: 22,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "Let $g(x) = 2x + 1$ and $h(x) = x^2 - 3$. If $h(g(a)) = 46$, what is a positive value of $a$?",
-  choices: [
-    // distractor: uses g(2) = 5 and miscomputes h(5) = 22 (off-by-one trap)
-    { id: "A", text: "$2$" },
-    { id: "B", text: "$3$" },
-    // distractor: confuses intermediate value g(a) = 7 with a itself
-    { id: "C", text: "$7$" },
-    // distractor: solves a different equation altogether
-    { id: "D", text: "$10$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Function Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $g(a) = 2a + 1$, so $h(g(a)) = (2a + 1)^2 - 3 = 46$, giving $(2a+1)^2 = 49$ and $2a + 1 = \\pm 7$. Positive root: $2a + 1 = 7 \\Rightarrow a = 3$.\n\n**The Full Solution:**\nStep 1: $g(a) = 2a + 1$.\nStep 2: $h(g(a)) = (2a + 1)^2 - 3 = 46 \\Rightarrow (2a + 1)^2 = 49$.\nStep 3: $2a + 1 = 7$ (taking positive root) $\\Rightarrow a = 3$.\n\nCheck: $g(3) = 7$, $h(7) = 49 - 3 = 46$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — uses $a = 2$, gets $g(2) = 5$ and $h(5) = 22 \\neq 46$.\n* Choice C: \"stops one step early\" — confuses the intermediate $g(a) = 7$ with $a$ itself.\n* Choice D: \"wrong base\" — solves a different equation.\n\n**Test Day Takeaway:** In $h(g(a))$, work inside out: evaluate $g(a)$ first, then plug into $h$. Solve the resulting equation for $a$.",
-  skills: ["function-interpretation", "solving-equations"]
-}
       ]
     }
   ]

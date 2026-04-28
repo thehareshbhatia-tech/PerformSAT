@@ -413,8 +413,68 @@ export const practiceTest11 = {
       title: "Module 2",
       timeLimit: 35,
       questions: [
+// Practice Test 11 — Math Module 2 (22 questions)
+// Distribution: 3E / 6M / 13H. Q1-3 are easy openers (CB-authentic ramp).
+
 {
   id: 1,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 2,
+  question: "What is the value of $|3 - 11|$?",
+  choices: [
+    // distractor: forgets the absolute value - keeps the negative
+    { id: "A", text: "$-8$" },
+    { id: "B", text: "$8$" },
+    // distractor: applies inverse op - adds instead of subtracting
+    { id: "C", text: "$14$" },
+    // distractor: wrong base - multiplies the values
+    { id: "D", text: "$33$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Absolute Value of a Difference**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** $|3 - 11| = |-8| = 8$.\n\n**The Full Solution:**\n$3 - 11 = -8$.\n$|-8| = 8$ (absolute value gives the magnitude).\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — computes $3 - 11 = -8$ but forgets the absolute value.\n* Choice C: \"applies the inverse operation\" — adds $3 + 11 = 14$ instead of subtracting.\n* Choice D: \"wrong base\" — multiplies $3 \\cdot 11 = 33$.\n\n**Test Day Takeaway:** Absolute value $|x|$ is always $\\geq 0$. It strips the sign while preserving the magnitude.",
+  skills: ["absolute-value", "solving-equations"]
+},
+{
+  id: 2,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 2,
+  question: "What is the slope of the graph of $y = -3x + 7$ in the $xy$-plane?",
+  choices: [
+    { id: "A", text: "$-3$" },
+    // distractor: applies inverse op - flips the sign of the slope
+    { id: "B", text: "$3$" },
+    // distractor: wrong base - uses the y-intercept instead of slope
+    { id: "C", text: "$7$" },
+    // distractor: applies inverse op - flips sign of y-intercept
+    { id: "D", text: "$-7$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Slope from $y = mx + b$**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** In $y = mx + b$, $m$ is the slope. Here $m = -3$.\n\n**The Full Solution:**\nThe slope-intercept form is $y = mx + b$, where $m$ is the slope (rate of change of $y$ per unit $x$) and $b$ is the $y$-intercept.\n\nFor $y = -3x + 7$: $m = -3$, $b = 7$. So the slope is $-3$.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"applies the inverse operation\" — flips the sign of the slope.\n* Choice C: \"wrong base\" — uses the $y$-intercept ($7$) instead of the slope.\n* Choice D: \"applies the inverse operation\" — flips the sign of the $y$-intercept.\n\n**Test Day Takeaway:** In $y = mx + b$, $m$ is ALWAYS the slope (coefficient of $x$). $b$ is the $y$-intercept.",
+  skills: ["linear-functions", "slope"]
+},
+{
+  id: 3,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 3,
+  question: "In an isosceles triangle, the two congruent angles each measure $35^{\\circ}$. What is the measure of the third angle?",
+  choices: [
+    // distractor: gives one of the congruent angles instead of the third
+    { id: "A", text: "$35^{\\circ}$" },
+    // distractor: stops one step early - sums the two given angles
+    { id: "B", text: "$70^{\\circ}$" },
+    { id: "C", text: "$110^{\\circ}$" },
+    // distractor: wrong base - uses 180 - 35 (treats it as supplementary)
+    { id: "D", text: "$145^{\\circ}$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Isosceles Triangle Angle Sum**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Triangle angles sum to $180^{\\circ}$. Third angle $= 180 - 2(35) = 180 - 70 = 110^{\\circ}$.\n\n**The Full Solution:**\nIn any triangle, the three interior angles sum to $180^{\\circ}$.\n$35^{\\circ} + 35^{\\circ} + x = 180^{\\circ}$\n$70^{\\circ} + x = 180^{\\circ}$\n$x = 110^{\\circ}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — gives the value of one of the congruent angles.\n* Choice B: \"stops one step early\" — reports the sum of the two congruent angles.\n* Choice D: \"applies the inverse operation\" — uses $180 - 35$ instead of $180 - 70$.\n\n**Test Day Takeaway:** Isosceles triangle has two equal angles AND two equal sides (the sides opposite the equal angles). Triangle angle sum: $180^{\\circ}$.",
+  skills: ["triangles", "angles", "geometry"]
+},
+{
+  id: 4,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -433,7 +493,7 @@ export const practiceTest11 = {
   skills: ["exponential-functions"]
 },
 {
-  id: 2,
+  id: 5,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -452,7 +512,7 @@ export const practiceTest11 = {
   skills: ["slope", "coordinate-geometry"]
 },
 {
-  id: 3,
+  id: 6,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -471,7 +531,7 @@ export const practiceTest11 = {
   skills: ["solving-equations", "ratios"]
 },
 {
-  id: 4,
+  id: 7,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -490,7 +550,7 @@ export const practiceTest11 = {
   skills: ["solving-equations", "linear-functions"]
 },
 {
-  id: 5,
+  id: 8,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -509,7 +569,7 @@ export const practiceTest11 = {
   skills: ["two-way-tables", "probability", "percents"]
 },
 {
-  id: 6,
+  id: 9,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -528,7 +588,7 @@ export const practiceTest11 = {
   skills: ["percents"]
 },
 {
-  id: 7,
+  id: 10,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -547,7 +607,7 @@ export const practiceTest11 = {
   skills: ["exponential-functions", "function-interpretation"]
 },
 {
-  id: 8,
+  id: 11,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -566,7 +626,7 @@ export const practiceTest11 = {
   skills: ["exponent-rules", "radical-expressions"]
 },
 {
-  id: 9,
+  id: 12,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -585,7 +645,7 @@ export const practiceTest11 = {
   skills: ["systems-of-equations", "linear-functions"]
 },
 {
-  id: 10,
+  id: 13,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -604,7 +664,7 @@ export const practiceTest11 = {
   skills: ["systems-of-equations"]
 },
 {
-  id: 11,
+  id: 14,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -623,7 +683,7 @@ export const practiceTest11 = {
   skills: ["statistics"]
 },
 {
-  id: 12,
+  id: 15,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -642,7 +702,7 @@ export const practiceTest11 = {
   skills: ["vertex-form", "function-interpretation"]
 },
 {
-  id: 13,
+  id: 16,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -661,7 +721,7 @@ export const practiceTest11 = {
   skills: ["statistics", "margin-of-error"]
 },
 {
-  id: 14,
+  id: 17,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -680,7 +740,7 @@ export const practiceTest11 = {
   skills: ["slope", "linear-functions", "coordinate-geometry"]
 },
 {
-  id: 15,
+  id: 18,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -699,7 +759,7 @@ export const practiceTest11 = {
   skills: ["surface-area", "geometry", "quadratic-equations"]
 },
 {
-  id: 16,
+  id: 19,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -718,7 +778,7 @@ export const practiceTest11 = {
   skills: ["discriminant", "quadratic-equations"]
 },
 {
-  id: 17,
+  id: 20,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -728,7 +788,7 @@ export const practiceTest11 = {
   skills: ["exponent-rules", "solving-equations"]
 },
 {
-  id: 18,
+  id: 21,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -755,7 +815,7 @@ export const practiceTest11 = {
   skills: ["trigonometry", "triangles", "area"]
 },
 {
-  id: 19,
+  id: 22,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -773,55 +833,6 @@ export const practiceTest11 = {
   explanation: "**SAT Pattern: Exponential Growth with Period**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $8\\%$ growth every $6$ months = factor of $1.08$ per half-year. In $y$ years there are $2y$ half-year periods: $50{,}000(1.08)^{2y}$.\n\n**The Full Solution:**\nGrowth factor per $6$-month period: $1.08$.\nIn $y$ years there are $2y$ periods of $6$ months.\nUsers after $y$ years: $50{,}000(1.08)^{2y}$.\n\nVerification: at $y = 1$: $50{,}000(1.08)^2 = 50{,}000(1.1664) = 58{,}320$. This matches two consecutive $8\\%$ increases: $50{,}000 \\cdot 1.08 \\cdot 1.08 = 58{,}320$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"applies the inverse operation\" — uses $y/2$ instead of $2y$.\n* Choice C: \"wrong base\" — doubles the rate to $16\\%$ per year, but compounding doesn't work that way.\n* Choice D: \"stops one step early\" — applies $8\\%$ only once per year instead of twice.\n\n**Test Day Takeaway:** Count the number of growth periods carefully. If growth occurs every $6$ months and time is in years, there are $2y$ periods.",
   skills: ["exponential-functions", "word-problems"]
 },
-{
-  id: 20,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "A sphere has a volume of $288\\pi$ cubic centimeters. What is the surface area of the sphere, in terms of $\\pi$? (Enter only the integer coefficient of $\\pi$.)",
-  correctAnswer: "144",
-  explanation: "**SAT Pattern: Surface Area**\n\n**The correct answer is $144$ (so the surface area is $144\\pi$).**\n\n**The Fast Way (~25s):** $V = \\dfrac{4}{3}\\pi r^3 = 288\\pi \\Rightarrow r^3 = 216 \\Rightarrow r = 6$. $SA = 4\\pi r^2 = 4\\pi(36) = 144\\pi$.\n\n**The Full Solution:**\nFrom the volume formula:\n$\\dfrac{4}{3}\\pi r^3 = 288\\pi$\n$r^3 = 288 \\cdot \\dfrac{3}{4} = 216$\n$r = \\sqrt[3]{216} = 6$.\n\nSurface area:\n$SA = 4\\pi r^2 = 4\\pi(6)^2 = 4\\pi(36) = 144\\pi$.\nThe coefficient of $\\pi$ is $144$.\n\n**Common Mistakes to Avoid:**\n* Forgetting to take the cube root of $216$ ($r = 6$, not $216$).\n* Confusing $4\\pi r^2$ with $\\dfrac{4}{3}\\pi r^3$ (volume formula reused).\n\n**Test Day Takeaway:** When converting between volume and surface area, find the radius first.",
-  skills: ["surface-area", "volume"]
-},
-{
-  id: 21,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "In the figure, $\\overline{AB}$ is a diameter of the circle with center $O$ and radius $10$. Point $C$ is on the circle. What is the length of $\\overline{BC}$?",
-  diagram: {
-    type: "circleWithInscribedTriangle",
-    params: {
-      labels: { A: "A", B: "B", C: "C", O: "O" },
-      angleAtA: "30°",
-      angleAtAValue: 30,
-      showRightAngleAtC: true,
-      radiusLabel: "10"
-    }
-  },
-  choices: [
-    // distractor: uses the radius (10) instead of the diameter (20) as the hypotenuse, then halves
-    { id: "A", text: "$5$" },
-    { id: "B", text: "$10$" },
-    // distractor: this would be AC (opposite the 60-degree angle), not BC
-    { id: "C", text: "$10\\sqrt{3}$" },
-    // distractor: uses the radius for the longer leg
-    { id: "D", text: "$5\\sqrt{3}$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Inscribed Angle in Semicircle**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Since $AB$ is a diameter, $\\angle ACB = 90^{\\circ}$ (Thales). In right triangle $ACB$: $AB = 20$, $\\angle BAC = 30^{\\circ}$, so $BC = AB \\sin 30^{\\circ} = 20 \\cdot \\dfrac{1}{2} = 10$.\n\n**The Full Solution:**\nThales' theorem: any angle inscribed in a semicircle is a right angle, so $\\angle ACB = 90^{\\circ}$.\nIn right triangle $ACB$ with hypotenuse $AB = 2r = 20$ and $\\angle BAC = 30^{\\circ}$:\n$\\sin 30^{\\circ} = \\dfrac{BC}{AB}$\n$\\dfrac{1}{2} = \\dfrac{BC}{20}$\n$BC = 10$.\n\nAlternatively, this is a $30$-$60$-$90$ triangle: hypotenuse $20$, shorter leg (opposite $30^{\\circ}$) $= 10$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses the radius instead of the diameter as the hypotenuse.\n* Choice C: \"applies the inverse operation\" — gives $AC$ (opposite $60^{\\circ}$) instead of $BC$.\n* Choice D: \"off-by-one\" — uses radius $10$ in place of diameter $20$ for the longer leg.\n\n**Test Day Takeaway:** An angle inscribed in a semicircle is always $90^{\\circ}$. Combine with $30$-$60$-$90$ ratios.",
-  skills: ["triangles", "trigonometry", "circle-equations"]
-},
-{
-  id: 22,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "If $720$ is $p\\%$ greater than $90$, what is the value of $p$?",
-  correctAnswer: "700",
-  explanation: "**SAT Pattern: Percent Greater Than**\n\n**The correct answer is $700$.**\n\n**The Fast Way (~20s):** \"$720$ is $p\\%$ greater than $90$\" means $720 = 90(1 + \\tfrac{p}{100})$, so $\\dfrac{720 - 90}{90} = \\dfrac{p}{100}$. Compute: $\\dfrac{630}{90} = 7$, so $p = 700$.\n\n**The Full Solution:**\n$720 = 90 + \\dfrac{p}{100}(90)$\n$720 - 90 = \\dfrac{90p}{100}$\n$630 = \\dfrac{90p}{100}$\n$\\dfrac{p}{100} = \\dfrac{630}{90} = 7$\n$p = 700$.\n\nVerification: $90 + 700\\% \\text{ of } 90 = 90 + 630 = 720$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $800$ — comes from $\\dfrac{720}{90} = 8$, then converting without subtracting the original.\n* Dividing by $720$ instead of $90$.\n\n**Test Day Takeaway:** \"$A$ is $p\\%$ greater than $B$\" $\\iff$ $A = B(1 + \\tfrac{p}{100})$. Solve via $\\tfrac{A - B}{B} = \\tfrac{p}{100}$.",
-  skills: ["percents", "word-problems"]
-}
       ]
     }
   ]

@@ -392,12 +392,59 @@ export const practiceTest6 = {
       title: "Module 2",
       timeLimit: 35,
       questions: [
-// Practice Test 6 — Math Module 2 (22 questions, hardened track)
-// Target distribution: 0 easy / 6 medium / 16 hard (±2). Domain mix 7/6/5/4.
-// Concept-fusion at the top end (Q1 multi-percent, Q3 exponent ladder, Q8 vertex/coord fusion).
+// Practice Test 6 — Math Module 2 (22 questions)
+// Distribution: 3E / 6M / 13H. Q1-3 are easy openers (CB-authentic ramp).
 
 {
   id: 1,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 2,
+  question: "The function $f$ is defined by $f(x) = 6x$. For what value of $x$ does $f(x) = 42$?",
+  choices: [
+    { id: "A", text: "$7$" },
+    // distractor: subtracts 6 from 42 instead of dividing
+    { id: "B", text: "$36$" },
+    // distractor: adds 6 to 42 instead of dividing
+    { id: "C", text: "$48$" },
+    // distractor: multiplies 6 by 42 (applies inverse)
+    { id: "D", text: "$252$" }
+  ],
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Solve $f(x) = c$**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** $6x = 42 \\Rightarrow x = \\dfrac{42}{6} = 7$.\n\n**The Full Solution:**\nSet $f(x) = 42$:\n$6x = 42$\nDivide both sides by $6$:\n$x = 7$.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"applies the inverse operation\" — subtracts $6$ from $42$ instead of dividing.\n* Choice C: \"applies the inverse operation\" — adds $6$ to $42$.\n* Choice D: \"wrong base\" — multiplies instead of dividing.\n\n**Test Day Takeaway:** To solve $kx = c$ for $x$, divide both sides by $k$.",
+  skills: ["solving-equations", "function-evaluation"]
+},
+{
+  id: 2,
+  type: "fill-in",
+  difficulty: "easy",
+  band: 2,
+  question: "Two lines intersect at a single point, forming four angles. One angle measures $53^{\\circ}$. What is the measure, in degrees, of the angle directly opposite (vertical to) it?",
+  correctAnswer: "53",
+  explanation: "**SAT Pattern: Vertical Angles**\n\n**The correct answer is $53$.**\n\n**The Fast Way (~5s):** Vertical angles (formed by two intersecting lines, opposite each other) are EQUAL. So the opposite angle is $53^{\\circ}$.\n\n**The Full Solution:**\nWhen two lines intersect, they form two pairs of vertical angles. Each pair is equal.\n\nGiven one angle is $53^{\\circ}$, the angle directly opposite is also $53^{\\circ}$.\n\nThe other two angles (adjacent to the $53^{\\circ}$ angle) are each $180^{\\circ} - 53^{\\circ} = 127^{\\circ}$ — but the question asks for the OPPOSITE angle, which is $53^{\\circ}$.\n\n**Common Mistakes to Avoid:**\n* Confusing vertical (opposite, equal) with supplementary (adjacent, sum to $180^{\\circ}$).\n* Computing $90^{\\circ} - 53^{\\circ} = 37^{\\circ}$ as if angles were complementary.\n\n**Test Day Takeaway:** Vertical = Equal. Adjacent on a straight line = Supplementary (sum to $180^{\\circ}$).",
+  skills: ["angles", "geometry"]
+},
+{
+  id: 3,
+  type: "multiple-choice",
+  difficulty: "easy",
+  band: 3,
+  question: "A bag contains $4$ red marbles, $6$ blue marbles, and $5$ green marbles. If one marble is selected at random, what is the probability that it is red?",
+  choices: [
+    // distractor: uses 1 in numerator (single-marble assumption)
+    { id: "A", text: "$\\dfrac{1}{15}$" },
+    { id: "B", text: "$\\dfrac{4}{15}$" },
+    // distractor: red/blue ratio instead of red/total
+    { id: "C", text: "$\\dfrac{4}{6}$" },
+    // distractor: blue/total instead of red/total — wrong color
+    { id: "D", text: "$\\dfrac{6}{15}$" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Simple Probability**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Total marbles $= 4 + 6 + 5 = 15$. Red marbles $= 4$. $P(\\text{red}) = \\dfrac{4}{15}$.\n\n**The Full Solution:**\nProbability $= \\dfrac{\\text{favorable outcomes}}{\\text{total outcomes}}$.\nTotal marbles: $4 + 6 + 5 = 15$.\nFavorable (red): $4$.\n$P(\\text{red}) = \\dfrac{4}{15}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses $1$ in the numerator (ignores the count of red marbles).\n* Choice C: \"applies the inverse operation\" — uses red-to-blue ratio ($4/6$) instead of red-to-total.\n* Choice D: \"wrong base\" — uses the count of blue marbles instead of red.\n\n**Test Day Takeaway:** Probability $= \\dfrac{\\text{favorable}}{\\text{total}}$. Always sum ALL outcomes for the denominator, not just one subgroup.",
+  skills: ["probability", "ratios"]
+},
+{
+  id: 4,
   type: "fill-in",
   difficulty: "medium",
   band: 5,
@@ -407,7 +454,7 @@ export const practiceTest6 = {
   skills: ["solving-equations", "linear-functions"]
 },
 {
-  id: 2,
+  id: 5,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -426,7 +473,7 @@ export const practiceTest6 = {
   skills: ["systems-of-equations", "linear-functions", "word-problems"]
 },
 {
-  id: 3,
+  id: 6,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -445,7 +492,7 @@ export const practiceTest6 = {
   skills: ["scatterplots", "statistics"]
 },
 {
-  id: 4,
+  id: 7,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -464,7 +511,7 @@ export const practiceTest6 = {
   skills: ["percents", "word-problems"]
 },
 {
-  id: 5,
+  id: 8,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
@@ -483,26 +530,26 @@ export const practiceTest6 = {
   skills: ["statistics", "median"]
 },
 {
-  id: 6,
+  id: 9,
   type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "A workshop produces $14$-inch, $9$-inch, and $5$-inch dowels. During a single day, the number of $14$-inch dowels produced is $3$ times the number $d$ of $9$-inch dowels, and the number of $5$-inch dowels is $80$ more than the number of $9$-inch dowels. The workshop produces a total of $1{,}060$ dowels that day. How many $9$-inch dowels does the workshop produce that day?",
+  difficulty: "medium",
+  band: 5,
+  question: "A book originally costs $\\$24$. After a discount, the new price is $\\$18$. By what percent has the price decreased?",
   choices: [
-    // distractor: stops one step early — uses 1060/5 ignoring the +80 offset
-    { id: "A", text: "$212$" },
-    { id: "B", text: "$196$" },
-    // distractor: applies inverse op — solves 5d - 80 = 1060 by sign error
-    { id: "C", text: "$228$" },
-    // distractor: wrong base — drops the 14-inch coefficient (uses 2d + 80)
-    { id: "D", text: "$490$" }
+    // distractor: gives the dollar decrease as a raw percent
+    { id: "A", text: "$6\\%$" },
+    { id: "B", text: "$25\\%$" },
+    // distractor: wrong base - uses new price as denominator
+    { id: "C", text: "$33.\\overline{3}\\%$" },
+    // distractor: applies inverse op - gives ratio of new to old
+    { id: "D", text: "$75\\%$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Three-Variable System**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Let $d$ = number of $9$-inch dowels. Then $14$-inch count $= 3d$ and $5$-inch count $= d + 80$. Total: $3d + d + (d + 80) = 1060 \\Rightarrow 5d = 980 \\Rightarrow d = 196$.\n\n**The Full Solution:**\nLet $d$ be the number of $9$-inch dowels.\n* $14$-inch dowels: $3d$.\n* $5$-inch dowels: $d + 80$.\n\nSum equals total:\n$3d + d + (d + 80) = 1060$\n$5d + 80 = 1060$\n$5d = 980$\n$d = 196$.\n\nVerification: $14$-inch $= 588$, $9$-inch $= 196$, $5$-inch $= 276$; sum $= 588 + 196 + 276 = 1060$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses $1060 / 5 = 212$, ignoring the $+80$ offset.\n* Choice C: \"applies inverse op\" — solves $5d - 80 = 1060$: $5d = 1140$, $d = 228$ (sign error on the offset).\n* Choice D: \"wrong base\" — drops the $14$-inch term, treating it as if there were only two variables.\n\n**Test Day Takeaway:** Translate each part of a multi-rate word problem into one expression in a single variable, then sum to the total.",
-  skills: ["systems-of-equations", "word-problems"]
+  explanation: "**SAT Pattern: Percent Decrease**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Decrease $= 24 - 18 = 6$. Percent decrease $= \\dfrac{6}{24} = 0.25 = 25\\%$.\n\n**The Full Solution:**\nPercent decrease formula: $\\dfrac{\\text{old} - \\text{new}}{\\text{old}} \\times 100\\%$.\n\n$\\dfrac{24 - 18}{24} \\times 100\\% = \\dfrac{6}{24} \\times 100\\% = 0.25 \\times 100\\% = 25\\%$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the dollar decrease ($\\$6$) as a raw percent.\n* Choice C: \"wrong base\" — uses the NEW price as the denominator ($6/18 \\approx 33.3\\%$).\n* Choice D: \"applies the inverse operation\" — gives the ratio of new to old ($18/24 = 75\\%$) instead of the decrease.\n\n**Test Day Takeaway:** Percent change is always relative to the ORIGINAL value: $\\dfrac{\\text{change}}{\\text{original}} \\times 100\\%$.",
+  skills: ["percents", "word-problems"]
 },
 {
-  id: 7,
+  id: 10,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -521,26 +568,26 @@ export const practiceTest6 = {
   skills: ["exponent-rules", "radical-expressions"]
 },
 {
-  id: 8,
+  id: 11,
   type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "The system of equations\n\n$2x - 5y = 8$\n$ax - 15y = 36$\n\nhas no solution. What is the value of $a$?",
+  difficulty: "medium",
+  band: 5,
+  question: "The function $f$ is defined by $f(x) = 5x - 8$. If $f(a) = 22$, what is the value of $a$?",
   choices: [
-    // distractor: stops one step early — uses a = 2 (the original coefficient)
-    { id: "A", text: "$2$" },
-    { id: "B", text: "$6$" },
-    // distractor: wrong base — uses 36/8 ratio for a
-    { id: "C", text: "$9$" },
-    // distractor: applies inverse op — uses negative ratio
-    { id: "D", text: "$-6$" }
+    // distractor: applies inverse op - sign error on the constant
+    { id: "A", text: "$2.8$" },
+    // distractor: stops one step early - drops the -8 entirely
+    { id: "B", text: "$4.4$" },
+    { id: "C", text: "$6$" },
+    // distractor: stops one step early - gives 5a value
+    { id: "D", text: "$30$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** For no solution, the lines are parallel: same slope, different intercepts. The $y$-coefficient ratio is $-15 / -5 = 3$, so multiply equation 1's $x$-coefficient by $3$: $a = 6$. Check constants don't match: $3 \\cdot 8 = 24 \\neq 36$ \\checkmark.\n\n**The Full Solution:**\nFor no solution: coefficients of $x$ and $y$ are proportional, but constants are NOT in the same ratio.\n\nFrom the $y$-coefficients: $\\dfrac{-15}{-5} = 3$. So multiply equation 1 by $3$: $6x - 15y = 24$.\n\nCompare with $ax - 15y = 36$:\n* Same $y$-coefficient ($-15$). Need $a = 6$ for matching $x$-coefficient.\n* Constants: $24$ vs $36$ — not equal, so the lines are PARALLEL, not identical.\n\nTherefore $a = 6$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses $a = 2$ from equation 1 directly without scaling.\n* Choice C: \"wrong base\" — uses the constant ratio $36 / 8$ rounded to find $a$.\n* Choice D: \"applies the inverse operation\" — uses sign flip on $a = 6$.\n\n**Test Day Takeaway:** No solution $\\iff$ same slope, DIFFERENT intercept. Match the coefficient ratios; verify constants do NOT match the same ratio.",
-  skills: ["systems-of-equations"]
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Solve $f(a) = c$**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $5a - 8 = 22 \\Rightarrow 5a = 30 \\Rightarrow a = 6$.\n\n**The Full Solution:**\nSet $f(a) = 22$:\n$5a - 8 = 22$\nAdd $8$ to both sides: $5a = 30$.\nDivide by $5$: $a = 6$.\nVerification: $f(6) = 5(6) - 8 = 30 - 8 = 22$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — sign error: $(22 - 8)/5 = 14/5 = 2.8$ instead of $(22 + 8)/5$.\n* Choice B: \"stops one step early\" — drops the $-8$ and computes $22/5 = 4.4$.\n* Choice D: \"stops one step early\" — solves $5a = 30$ but reports $30$ instead of dividing.\n\n**Test Day Takeaway:** Two-step linear: undo addition/subtraction first (note the sign of the constant), then divide.",
+  skills: ["solving-equations", "linear-functions", "function-evaluation"]
 },
 {
-  id: 9,
+  id: 12,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -559,7 +606,7 @@ export const practiceTest6 = {
   skills: ["function-interpretation", "function-transformation", "linear-functions"]
 },
 {
-  id: 10,
+  id: 13,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -578,7 +625,7 @@ export const practiceTest6 = {
   skills: ["margin-of-error", "statistics"]
 },
 {
-  id: 11,
+  id: 14,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -588,7 +635,7 @@ export const practiceTest6 = {
   skills: ["systems-of-equations"]
 },
 {
-  id: 12,
+  id: 15,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -607,7 +654,7 @@ export const practiceTest6 = {
   skills: ["vertex-form", "quadratic-equations", "function-interpretation"]
 },
 {
-  id: 13,
+  id: 16,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -626,7 +673,7 @@ export const practiceTest6 = {
   skills: ["probability", "two-way-tables"]
 },
 {
-  id: 14,
+  id: 17,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -636,7 +683,7 @@ export const practiceTest6 = {
   skills: ["slope", "coordinate-geometry", "linear-functions"]
 },
 {
-  id: 15,
+  id: 18,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -655,7 +702,7 @@ export const practiceTest6 = {
   skills: ["circle-equations", "coordinate-geometry"]
 },
 {
-  id: 16,
+  id: 19,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -681,7 +728,7 @@ export const practiceTest6 = {
   skills: ["trigonometry", "triangles"]
 },
 {
-  id: 17,
+  id: 20,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -700,7 +747,7 @@ export const practiceTest6 = {
   skills: ["discriminant", "quadratic-equations"]
 },
 {
-  id: 18,
+  id: 21,
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
@@ -719,7 +766,7 @@ export const practiceTest6 = {
   skills: ["exponential-functions", "percents"]
 },
 {
-  id: 19,
+  id: 22,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
@@ -728,54 +775,6 @@ export const practiceTest6 = {
   explanation: "**SAT Pattern: Three-Equation Contradiction**\n\n**The correct answer is $0$.**\n\n**The Fast Way (~25s):** Notice equation 2 is $2 \\times$ equation 1's left side ($6x - 4y + 2z = 2(3x - 2y + z)$), but $2 \\cdot 10 = 20 \\neq 21$. Contradiction $\\Rightarrow$ no solution.\n\n**The Full Solution:**\nMultiply equation 1 by $2$: $6x - 4y + 2z = 20$.\nCompare with equation 2: $6x - 4y + 2z = 21$.\nSame left side, different right side $\\Rightarrow$ contradiction.\n\nSince two of the three equations are inconsistent, the entire system has no solution. Equation 3 cannot rescue it — there is no $(x, y, z)$ satisfying both $20$ and $21$ as the same expression's value.\n\n**Common Mistakes to Avoid:**\n* Trying to solve via substitution and getting tangled — the proportional check on equations 1 and 2 short-circuits the work.\n* Assuming three equations always uniquely determine three variables (proportional dependence breaks this).\n\n**Test Day Takeaway:** Always scan three-variable systems for proportional left-hand sides. If two LHS are proportional but RHS aren't, the system is INCONSISTENT (zero solutions).",
   skills: ["systems-of-equations"]
 },
-{
-  id: 20,
-  type: "fill-in",
-  difficulty: "hard",
-  band: 7,
-  question: "A solid right circular cylinder has a radius of $5$ inches and a height of $11$ inches. The total surface area of the cylinder, including both circular bases, can be written as $k\\pi$ square inches. What is the value of $k$?",
-  correctAnswer: "160",
-  explanation: "**SAT Pattern: Surface Area**\n\n**The correct answer is $160$.**\n\n**The Fast Way (~25s):** Total SA $= 2\\pi r^2 + 2\\pi r h = 2\\pi r(r + h) = 2\\pi(5)(5 + 11) = 10\\pi(16) = 160\\pi$. So $k = 160$.\n\n**The Full Solution:**\nA cylinder's total surface area:\n* Two circular bases: $2 \\cdot \\pi r^2 = 2 \\cdot \\pi (5)^2 = 50\\pi$.\n* Lateral (side): $2\\pi r h = 2\\pi(5)(11) = 110\\pi$.\n\nTotal: $50\\pi + 110\\pi = 160\\pi$.\n\nSo the coefficient is $k = 160$.\n\n**Common Mistakes to Avoid:**\n* Forgetting the second base: using only $\\pi r^2 + 2\\pi rh = 25\\pi + 110\\pi = 135\\pi$.\n* Using $\\pi r^2 h$ (volume) instead of surface area.\n* Using diameter $d = 10$ instead of radius $5$.\n\n**Verification:** $2\\pi r(r + h) = 2\\pi(5)(16) = 160\\pi$ \\checkmark.\n\n**Test Day Takeaway:** Cylinder total SA $= 2\\pi r^2 + 2\\pi r h = 2\\pi r(r + h)$. Always include BOTH circular bases.",
-  skills: ["surface-area"]
-},
-{
-  id: 21,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "If $432$ is $p\\%$ greater than $48$, what is the value of $p$?",
-  choices: [
-    // distractor: stops one step early — gives 9 (the multiplicative factor)
-    { id: "A", text: "$9$" },
-    // distractor: applies inverse op — gives 800 (using 432/48 * 100 wrongly)
-    { id: "B", text: "$900$" },
-    { id: "C", text: "$800$" },
-    // distractor: wrong base — gives 90% via dropping a digit
-    { id: "D", text: "$90$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Percent Greater Than**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** \"$432$ is $p\\%$ greater than $48$\" means $432 = 48 + 48 \\cdot \\dfrac{p}{100}$, i.e., $432 - 48 = 384$ is $p\\%$ of $48$. So $p = \\dfrac{384}{48} \\cdot 100 = 8 \\cdot 100 = 800$.\n\n**The Full Solution:**\n\"$A$ is $p\\%$ greater than $B$\" $\\iff$ $A = B + B \\cdot \\dfrac{p}{100} = B(1 + p/100)$.\nSo $432 = 48(1 + p/100)$.\n$\\dfrac{432}{48} = 1 + \\dfrac{p}{100}$\n$9 = 1 + \\dfrac{p}{100}$\n$\\dfrac{p}{100} = 8$\n$p = 800$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the multiplicative factor $9$ (since $432 = 9 \\cdot 48$) instead of computing $p$.\n* Choice B: \"applies the inverse operation\" — uses $432 / 48 \\cdot 100 = 900$ (forgets to subtract $1$).\n* Choice D: \"wrong base\" — drops a digit to give $90$, treating the answer as a sub-$100\\%$ ratio.\n\n**Test Day Takeaway:** \"$A$ is $p\\%$ greater than $B$\" means $A = B(1 + p/100)$. Compute the ratio $A/B$, subtract $1$, and multiply by $100$ to get $p$.",
-  skills: ["percents", "word-problems"]
-},
-{
-  id: 22,
-  type: "multiple-choice",
-  difficulty: "hard",
-  band: 7,
-  question: "Let $f(x) = x - 4$ and $g(x) = x^2 + 5$. If $g(f(a)) = 30$, what is a positive value of $a$?",
-  choices: [
-    // distractor: stops one step early — gives a = 5 from sqrt(25)
-    { id: "A", text: "$5$" },
-    { id: "B", text: "$9$" },
-    // distractor: applies inverse op — uses g(a) - 4 = 30 to give 30 + 4 + 4 = 38
-    { id: "C", text: "$\\sqrt{34}$" },
-    // distractor: wrong base — gives 1 from a - 4 = -1 sign error
-    { id: "D", text: "$1$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Function Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $g(f(a)) = (a - 4)^2 + 5 = 30$, so $(a - 4)^2 = 25$, $a - 4 = \\pm 5$, giving $a = 9$ or $a = -1$. Positive: $a = 9$.\n\n**The Full Solution:**\n$f(a) = a - 4$.\n$g(f(a)) = (a - 4)^2 + 5$.\n\nSet equal to $30$:\n$(a - 4)^2 + 5 = 30$\n$(a - 4)^2 = 25$\n$a - 4 = \\pm 5$\n$a = 9$ or $a = -1$.\n\nThe positive value is $a = 9$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — solves $(a - 4)^2 = 25$ to get $a - 4 = 5$ but reports $5$ instead of $a = 9$.\n* Choice C: \"applies the inverse operation\" — sets $a - 4 = \\sqrt{30 - 5}$ wrongly outside the squared expression.\n* Choice D: \"wrong base\" — uses $a - 4 = -3$ (sign error inside).\n\n**Test Day Takeaway:** $g(f(a))$ means \"plug $f(a)$ into $g$.\" Build the composite expression carefully, then solve. Watch for the $\\pm$ when you take a square root.",
-  skills: ["function-interpretation", "function-composition", "solving-equations"]
-}
       ]
     }
   ]
