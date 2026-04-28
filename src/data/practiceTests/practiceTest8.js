@@ -90,7 +90,7 @@ export const practiceTest8 = {
     { id: "D", text: "$52{,}000$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.35 = 1{,}820$, so total $= \\frac{1{,}820}{0.35} = 5{,}200$.\n\n**The Full Solution:**\nLet $T$ be the total number of books. Then $0.35 \\cdot T = 1{,}820$.\nDivide both sides by $0.35$: $T = \\dfrac{1{,}820}{0.35} = 5{,}200$.\n\nVerification: $35\\%$ of $5{,}200 = 0.35 \\cdot 5{,}200 = 1{,}820$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $1{,}820 \\cdot 0.35 = 637$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.65$ (treats $1{,}820$ as the non-paperback count).\n* Choice D: \"off-by-one / decimal slip\" — divides by $0.035$ instead of $0.35$.\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
+  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.35 = 1{,}820$, so total $= \\frac{1{,}820}{0.35} = 5{,}200$.\n\n**The Full Solution:**\nLet $T$ be the total number of books. Then ${}0.35 \\cdot T = 1{,}820$.\nDivide both sides by $0.35$: $T = \\dfrac{1{,}820}{0.35} = 5{,}200$.\n\nVerification: $35\\%$ of $5{,}200 = 0.35 \\cdot 5{,}200 = 1{,}820$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $1{,}820 \\cdot 0.35 = 637$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.65$ (treats $1{,}820$ as the non-paperback count).\n* Choice D: \"off-by-one / decimal slip\" — divides by $0.035$ instead of $0.35$.\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
   skills: ["percents"]
 },
 {
@@ -146,16 +146,16 @@ export const practiceTest8 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "In the figure, lines $\\ell$ and $m$ are parallel and are crossed by a transversal $t$. What is the value of $x$?",
+  question: "In the figure shown, two parallel lines $\\ell$ and $m$ are cut by a transversal $t$, forming the angles labeled. What is the value of $x$?",
   diagram: {
     type: "parallelLines",
     params: {
-      angles: { top: ["(4x+5)°", ""], bottom: ["(6x-25)°", ""] },
+      angles: { top: ["(3x+10)°", ""], bottom: ["(5x-30)°", ""] },
       lineLabels: ["ℓ", "m", "t"]
     }
   },
-  correctAnswer: "15",
-  explanation: "**SAT Pattern: Angles with Parallel Lines and Transversals**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~15s):** Corresponding angles are equal: $4x + 5 = 6x - 25 \\Rightarrow 30 = 2x \\Rightarrow x = 15$.\n\n**The Full Solution:**\nWhen a transversal cuts two parallel lines, corresponding angles are EQUAL:\n$4x + 5 = 6x - 25$\n$5 + 25 = 6x - 4x$\n$30 = 2x$\n$x = 15$\n\nVerification: at $x = 15$, both angles measure $4(15) + 5 = 65^{\\circ}$ and $6(15) - 25 = 65^{\\circ}$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Setting the angles SUPPLEMENTARY (summing to $180^{\\circ}$): would give $10x - 20 = 180$, $x = 20$ (wrong).\n* Confusing corresponding angles with co-interior angles.\n\n**Test Day Takeaway:** With parallel lines cut by a transversal, corresponding angles, alternate interior angles, and alternate exterior angles are EQUAL. Same-side interior angles are SUPPLEMENTARY.",
+  correctAnswer: "20",
+  explanation: "**SAT Pattern: Angles with Parallel Lines and Transversals**\n\n**The correct answer is $20$.**\n\n**The Fast Way (~15s):** Corresponding angles are equal: $3x + 10 = 5x - 30 \\Rightarrow 40 = 2x \\Rightarrow x = 20$.\n\n**The Full Solution:**\nWhen a transversal cuts two parallel lines, corresponding angles are EQUAL:\n$3x + 10 = 5x - 30$\n$10 + 30 = 5x - 3x$\n$40 = 2x$\n$x = 20$\n\nVerification: at $x = 20$, both angles measure $3(20) + 10 = 70^{\\circ}$ and $5(20) - 30 = 70^{\\circ}$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Setting the angles SUPPLEMENTARY (summing to $180^{\\circ}$): would give $8x - 20 = 180$, $x = 25$ (wrong).\n* Confusing corresponding angles with co-interior angles.\n\n**Test Day Takeaway:** With parallel lines cut by a transversal, corresponding angles, alternate interior angles, and alternate exterior angles are EQUAL. Same-side interior angles are SUPPLEMENTARY.",
   skills: ["triangles", "angles"]
 },
 {
@@ -477,7 +477,7 @@ export const practiceTest8 = {
   band: 5,
   question: "A taxi company charges a $\\$3.50$ base fare plus $\\$2.25$ per mile. A particular ride costs a total of $\\$21.50$. How many miles long was the ride?",
   correctAnswer: "8",
-  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~15s):** $3.50 + 2.25m = 21.50 \\Rightarrow 2.25m = 18 \\Rightarrow m = 8$.\n\n**The Full Solution:**\nTotal cost $=$ base fare $+$ rate $\\times$ miles.\n$21.50 = 3.50 + 2.25m$\n$21.50 - 3.50 = 2.25m$\n$18 = 2.25m$\n$m = \\dfrac{18}{2.25} = 8$ miles.\n\nVerification: $3.50 + 2.25(8) = 3.50 + 18 = 21.50$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Dividing $21.50$ by $2.25$ without first subtracting the base fare ($\\approx 9.56$).\n* Forgetting the base fare entirely.\n\n**Test Day Takeaway:** In rate problems with a fixed startup cost, subtract the fixed cost FIRST, then divide by the per-unit rate.",
+  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~15s):** ${}3.50 + 2.25m = 21.50 \\Rightarrow 2.25m = 18 \\Rightarrow m = 8$.\n\n**The Full Solution:**\nTotal cost $=$ base fare $+$ rate $\\times$ miles.\n${}21.50 = 3.50 + 2.25m$\n${}21.50 - 3.50 = 2.25m$\n$18 = 2.25m$\n$m = \\dfrac{18}{2.25} = 8$ miles.\n\nVerification: ${}3.50 + 2.25(8) = 3.50 + 18 = 21.50$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Dividing $21.50$ by $2.25$ without first subtracting the base fare ($\\approx 9.56$).\n* Forgetting the base fare entirely.\n\n**Test Day Takeaway:** In rate problems with a fixed startup cost, subtract the fixed cost FIRST, then divide by the per-unit rate.",
   skills: ["linear-functions", "word-problems"]
 },
 {
@@ -514,18 +514,18 @@ export const practiceTest8 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "If $x > 0$, the expression $\\sqrt[4]{x^3} \\cdot \\sqrt{x^7}$ is equivalent to $x^{\\frac{p}{q}}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
+  question: "If $x > 0$, the expression $\\sqrt[4]{x^5} \\cdot \\sqrt{x^3}$ is equivalent to $x^{\\frac{p}{q}}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
   choices: [
-    // distractor: stops at the numerator p alone (= 17)
-    { id: "A", text: "$17$" },
+    // distractor: stops at the numerator p alone (= 11)
+    { id: "A", text: "$11$" },
     // distractor: sums radical exponents and indices ignoring fractional add
-    { id: "B", text: "$10$" },
-    { id: "C", text: "$21$" },
+    { id: "B", text: "$8$" },
+    { id: "C", text: "$15$" },
     // distractor: wrong base — sums all integers in the expression
-    { id: "D", text: "$14$" }
+    { id: "D", text: "$12$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[4]{x^3} = x^{\\frac{3}{4}}$, $\\sqrt{x^7} = x^{\\frac{7}{2}}$. Sum: $\\dfrac{3}{4} + \\dfrac{7}{2} = \\dfrac{3}{4} + \\dfrac{14}{4} = \\dfrac{17}{4}$. So $p + q = 17 + 4 = 21$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[4]{x^3} = x^{\\frac{3}{4}}, \\quad \\sqrt{x^7} = x^{\\frac{7}{2}}$\n\nMultiply same bases (add exponents):\n$x^{\\frac{3}{4}} \\cdot x^{\\frac{7}{2}} = x^{\\frac{3}{4} + \\frac{14}{4}} = x^{\\frac{17}{4}}$\n\n$\\gcd(17, 4) = 1$, so $\\dfrac{17}{4}$ is already in lowest terms. Then $p = 17$, $q = 4$, and $p + q = 21$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 17$, forgetting to add $q$.\n* Choice B: \"applies the inverse operation\" — sums radical exponents and indices ($3 + 7 = 10$) instead of converting to fractions.\n* Choice D: \"wrong base\" — sums all the integers in the expression ($3 + 4 + 7 = 14$).\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{\\frac{m}{n}}$. Add fractional exponents when multiplying same bases; report $p + q$ once the fraction is in lowest terms.",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[4]{x^5} = x^{\\frac{5}{4}}$, $\\sqrt{x^3} = x^{\\frac{3}{2}}$. Sum: $\\dfrac{5}{4} + \\dfrac{3}{2} = \\dfrac{5}{4} + \\dfrac{6}{4} = \\dfrac{11}{4}$. So $p + q = 11 + 4 = 15$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[4]{x^5} = x^{\\frac{5}{4}}, \\quad \\sqrt{x^3} = x^{\\frac{3}{2}}$\n\nMultiply same bases (add exponents):\n$x^{\\frac{5}{4}} \\cdot x^{\\frac{3}{2}} = x^{\\frac{5}{4} + \\frac{6}{4}} = x^{\\frac{11}{4}}$\n\n$\\gcd(11, 4) = 1$, so $\\dfrac{11}{4}$ is already in lowest terms. Then $p = 11$, $q = 4$, and $p + q = 15$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 11$, forgetting to add $q$.\n* Choice B: \"applies the inverse operation\" — sums radical exponents and indices ($5 + 3 = 8$) instead of converting to fractions.\n* Choice D: \"wrong base\" — sums all the integers in the expression ($5 + 4 + 3 = 12$).\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{\\frac{m}{n}}$. Add fractional exponents when multiplying same bases; report $p + q$ once the fraction is in lowest terms.",
   skills: ["exponent-rules", "radical-expressions"]
 },
 {

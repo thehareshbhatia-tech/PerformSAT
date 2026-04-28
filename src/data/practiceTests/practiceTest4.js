@@ -113,7 +113,7 @@ export const practiceTest4 = {
     { id: "D", text: "$6{,}000$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.34 = 204$, so total $= \\frac{204}{0.34} = 600$.\n\n**The Full Solution:**\nLet $T$ be the total number of books. Then $0.34 \\cdot T = 204$.\nDivide both sides by $0.34$: $T = \\dfrac{204}{0.34} = 600$.\n\nVerification: $34\\%$ of $600 = 0.34 \\cdot 600 = 204$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $204 \\cdot 0.34 \\approx 69$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.66$ (treats $204$ as the non-fiction count).\n* Choice D: \"off-by-one / decimal slip\" — divides by $0.034$ instead of $0.34$.\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
+  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.34 = 204$, so total $= \\frac{204}{0.34} = 600$.\n\n**The Full Solution:**\nLet $T$ be the total number of books. Then ${}0.34 \\cdot T = 204$.\nDivide both sides by $0.34$: $T = \\dfrac{204}{0.34} = 600$.\n\nVerification: $34\\%$ of $600 = 0.34 \\cdot 600 = 204$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $204 \\cdot 0.34 \\approx 69$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.66$ (treats $204$ as the non-fiction count).\n* Choice D: \"off-by-one / decimal slip\" — divides by $0.034$ instead of $0.34$.\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
   skills: ["percents"]
 },
 {
@@ -574,18 +574,18 @@ export const practiceTest4 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The positive number $a$ is $250\\%$ of the sum of the positive numbers $b$ and $c$, and $b$ is $40\\%$ of $c$. What percent of $b$ is $a$?",
+  question: "The positive number $a$ is $200\\%$ of the sum of the positive numbers $b$ and $c$, and $b$ is $25\\%$ of $c$. What percent of $b$ is $a$?",
   choices: [
-    // distractor: adds the percents: 250 + 40 = 290
-    { id: "A", text: "$290\\%$" },
-    // distractor: uses (1 + 0.40) * 250 = 350
-    { id: "B", text: "$350\\%$" },
-    { id: "C", text: "$875\\%$" },
-    // distractor: divides 250 by 0.40 = 625
-    { id: "D", text: "$625\\%$" }
+    // distractor: adds the percents: 200 + 25 = 225
+    { id: "A", text: "$225\\%$" },
+    // distractor: stops at a (= 250)
+    { id: "B", text: "$250\\%$" },
+    { id: "C", text: "$1000\\%$" },
+    // distractor: divides 200 by 0.25 = 800
+    { id: "D", text: "$800\\%$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Set $c = 100$. Then $b = 40\\% \\cdot 100 = 40$. Sum $b + c = 140$. So $a = 2.5 \\cdot 140 = 350$. Percent of $b$ that $a$ is: $\\dfrac{350}{40} \\cdot 100 = 875\\%$.\n\n**The Full Solution:**\nLet $c = 100$ (any positive choice works since percents are scale-invariant).\nThen $b = 0.40 \\cdot 100 = 40$.\nSum: $b + c = 40 + 100 = 140$.\n$a = 2.50 \\cdot 140 = 350$.\nPercent of $b$ that $a$ is: $\\dfrac{a}{b} \\cdot 100\\% = \\dfrac{350}{40} \\cdot 100\\% = 8.75 \\cdot 100\\% = 875\\%$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — adds the two percents ($250 + 40 = 290$).\n* Choice B: \"stops one step early\" — computes $a$ but reports it as a percent of the sum instead of $b$.\n* Choice D: \"wrong base\" — divides $250$ by $0.4$ ignoring the sum structure.\n\n**Test Day Takeaway:** When two percents stack, pick a clean numerical value (e.g., $c = 100$) and compute through. \"Percent of $b$\" means divide by $b$.",
+  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Set $c = 100$. Then $b = 25\\% \\cdot 100 = 25$. Sum $b + c = 125$. So $a = 2.0 \\cdot 125 = 250$. Percent of $b$ that $a$ is: $\\dfrac{250}{25} \\cdot 100 = 1000\\%$.\n\n**The Full Solution:**\nLet $c = 100$ (any positive choice works since percents are scale-invariant).\nThen $b = 0.25 \\cdot 100 = 25$.\nSum: $b + c = 25 + 100 = 125$.\n$a = 2.00 \\cdot 125 = 250$.\nPercent of $b$ that $a$ is: $\\dfrac{a}{b} \\cdot 100\\% = \\dfrac{250}{25} \\cdot 100\\% = 10 \\cdot 100\\% = 1000\\%$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — adds the two percents ($200 + 25 = 225$).\n* Choice B: \"stops one step early\" — computes $a = 250$ and reports it as the percent.\n* Choice D: \"wrong base\" — divides $200$ by $0.25$ ignoring the sum structure.\n\n**Test Day Takeaway:** When two percents stack, pick a clean numerical value (e.g., $c = 100$) and compute through. \"Percent of $b$\" means divide by $b$.",
   skills: ["percents"]
 },
 {
@@ -633,7 +633,7 @@ export const practiceTest4 = {
     { id: "D", text: "$\\$234$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Original miles: $0.30m = 117 - 45 = 72 \\Rightarrow m = 240$. New miles: $240 - 30 = 210$. New cost: $2 \\cdot 45 + 0.30 \\cdot 210 = 90 + 63 = \\$153$.\n\n**The Full Solution:**\nFrom the first trip: $45 + 0.30m = 117 \\Rightarrow 0.30m = 72 \\Rightarrow m = 240$ miles.\nNew rental: $2$ days at $\\$45$ each plus $0.30 \\cdot (240 - 30) = 0.30 \\cdot 210 = \\$63$ in mile charges.\nTotal: $2 \\cdot 45 + 63 = 90 + 63 = \\$153$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses one day instead of two: $45 + 0.30 \\cdot 210 = \\$108$.\n* Choice C: \"off-by-one\" — uses $240$ miles instead of $210$: $2 \\cdot 45 + 0.30 \\cdot 240 = \\$117$ wrong, gets $162$ via different slip.\n* Choice D: \"applies the inverse operation\" — doubles the original total, treating the trip as $2 \\cdot 117$.\n\n**Test Day Takeaway:** Read every change carefully — the new bill changes the day fee AND the mile count, both at the same per-unit rates.",
+  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Original miles: $0.30m = 117 - 45 = 72 \\Rightarrow m = 240$. New miles: $240 - 30 = 210$. New cost: $2 \\cdot 45 + 0.30 \\cdot 210 = 90 + 63 = \\$153$.\n\n**The Full Solution:**\nFrom the first trip: $45 + 0.30m = 117 \\Rightarrow 0.30m = 72 \\Rightarrow m = 240$ miles.\nNew rental: $2$ days at $\\$45$ each plus ${}0.30 \\cdot (240 - 30) = 0.30 \\cdot 210 = \\$63$ in mile charges.\nTotal: $2 \\cdot 45 + 63 = 90 + 63 = \\$153$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses one day instead of two: $45 + 0.30 \\cdot 210 = \\$108$.\n* Choice C: \"off-by-one\" — uses $240$ miles instead of $210$: $2 \\cdot 45 + 0.30 \\cdot 240 = \\$117$ wrong, gets $162$ via different slip.\n* Choice D: \"applies the inverse operation\" — doubles the original total, treating the trip as $2 \\cdot 117$.\n\n**Test Day Takeaway:** Read every change carefully — the new bill changes the day fee AND the mile count, both at the same per-unit rates.",
   skills: ["word-problems", "solving-equations", "linear-functions"]
 },
 {

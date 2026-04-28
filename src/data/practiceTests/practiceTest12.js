@@ -113,7 +113,7 @@ export const practiceTest12 = {
     { id: "D", text: "$40$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Percent Complement**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** If $40\\%$ are blue, then $60\\%$ are not blue. $0.60 \\times 60 = 36$.\n\n**The Full Solution:**\nBlue marbles: $0.40 \\times 60 = 24$. Not blue: $60 - 24 = 36$.\n\nVerification: $24 + 36 = 60$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — computes the number of blue marbles ($24$) instead of the not-blue count.\n* Choice B: \"applies the inverse operation\" — confuses $40\\%$ with $\\dfrac{40}{60}$ or treats the percent as the count.\n* Choice D: \"wrong base\" — reads $40\\%$ as $40$ marbles directly.\n\n**Test Day Takeaway:** For the complement, use $100\\% - \\text{given}\\%$, or subtract the count from the total.",
+  explanation: "**SAT Pattern: Percent Complement**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** If $40\\%$ are blue, then $60\\%$ are not blue. ${}0.60 \\times 60 = 36$.\n\n**The Full Solution:**\nBlue marbles: ${}0.40 \\times 60 = 24$. Not blue: $60 - 24 = 36$.\n\nVerification: $24 + 36 = 60$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — computes the number of blue marbles ($24$) instead of the not-blue count.\n* Choice B: \"applies the inverse operation\" — confuses $40\\%$ with $\\dfrac{40}{60}$ or treats the percent as the count.\n* Choice D: \"wrong base\" — reads $40\\%$ as $40$ marbles directly.\n\n**Test Day Takeaway:** For the complement, use $100\\% - \\text{given}\\%$, or subtract the count from the total.",
   skills: ["percents"]
 },
 {

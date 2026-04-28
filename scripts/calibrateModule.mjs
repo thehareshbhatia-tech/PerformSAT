@@ -600,11 +600,18 @@ export function loadPdfCorpus({ requireCache = true, dir = PDF_TEXT_DIR } = {}) 
 const LINT_BAND_MIN = 1;
 const LINT_BAND_MAX = 7;
 
-// Module 2 difficulty ordering: mediums occupy these positions (in order),
-// hards fill the rest. Locks in the ramp pattern produced by reorderModule2.mjs
-// so the difficulty curve in M2 doesn't drift back into "all hards with random
-// mediums sprinkled in" — see docs/MODULE_RECALIBRATION_PLAN.md.
-export const M2_MEDIUM_PRIORITY_POSITIONS = [1, 2, 3, 5, 7, 13];
+// Module 2 difficulty ordering for the easy-ramp structure:
+//   * Positions 1-3: 3 easy openers (band 1-3) — matches CB practice tests 4-11.
+//   * Positions 4-6: 3 medium ramp-up (band 4-5).
+//   * Position 7+: hards interleaved with the remaining mediums.
+// Mediums beyond position 6 are placed at positions in M2_MEDIUM_ALLOWED_POSITIONS.
+// The standard pattern (10 of 12 tests) uses [8, 10, 16]; the smoothed pattern
+// (T5, T6) uses [8, 9, 11] for a less steep ramp. Both are accepted.
+export const M2_EASY_POSITIONS = [1, 2, 3];
+export const M2_MEDIUM_REQUIRED_POSITIONS = [4, 5, 6];
+export const M2_MEDIUM_ALLOWED_POSITIONS = new Set([4, 5, 6, 8, 9, 10, 11, 16]);
+// Kept for back-compat with consumers that import the legacy name.
+export const M2_MEDIUM_PRIORITY_POSITIONS = [4, 5, 6, 8, 10, 16];
 
 const APPROVED_PATTERN_NAMES = new Set([
   'Word-to-Expression Translation',
@@ -1033,6 +1040,42 @@ const APPROVED_PATTERN_NAMES = new Set([
   "Word-to-Equation Translation",
   "Word-to-Expression",
   "Zeros of Rational Functions",
+  // Added during launch-prep sweep — easy openers (M2 Q1-3) and replacement system questions.
+  "Absolute Value of a Difference",
+  "Complementary Acute Angles",
+  "Conditional Probability from a Two-Way Table",
+  "Decimal-to-Percent Conversion",
+  "Difference of Squares",
+  "Distance on a Number Line",
+  "Forward Percent",
+  "Greatest Common Factor",
+  "Isosceles Triangle Angle Sum",
+  "Linear Cost Setup",
+  "Linear Function Extrapolation",
+  "Linear vs Exponential",
+  "Median from a Bar Graph",
+  "Mode of a Data Set",
+  "Multi-Step Unit Conversion",
+  "Parallel Lines (No Solution)",
+  "Proportional Scaling",
+  "Rectangle Perimeter",
+  "Right Triangle Area",
+  "Same Line (Infinitely Many Solutions)",
+  "Simple Probability",
+  "Simplify a Radical",
+  "Slope from $y = mx + b$",
+  "Smallest Integer in an Inequality",
+  "Solve $f(a) = c$",
+  "Solve $f(x) = c$",
+  "Solve $x^2 = c$",
+  "Solve a $2 \\times 2$ System for One Variable",
+  "Solve a Proportion",
+  "Solve for a Combination",
+  "Two-Equation System from a Word Problem",
+  "Two-Step Linear Equation",
+  "Vertical Angles",
+  "Volume of a Rectangular Box",
+  "y-Intercept from Slope-Intercept Form",
 ]);
 
 /**
@@ -1375,30 +1418,35 @@ export function lintPracticeTest({ testN, qbankItems, pdfCorpus }) {
     });
 
     // Rule 9 — M2 difficulty ramp ordering (only Module 2 / mi === 1).
-    // Mediums must occupy the priority positions; everything else must be hard.
-    // Easy questions in M2 are not expected (hard track has 0 easy) and are
-    // treated as a violation if found via the existing band/difficulty rules,
-    // not here.
+    // Easy-ramp structure: 3 easies (positions 1-3), 3 mediums (positions 4-6),
+    // then hards interleaved with the remaining mediums in the allowed positions.
     if (mi === 1 && qs.length > 0) {
-      const mediumCount = qs.filter(q => q && q.difficulty === 'medium').length;
-      if (mediumCount > M2_MEDIUM_PRIORITY_POSITIONS.length) {
-        const firstEntry = lineIndex.find(e => e.moduleIndex === 1 && e.modulePosition === 1);
-        const startLine = firstEntry ? firstEntry.startLine : 1;
-        push(startLine, 'm2-medium-overflow',
-          `module 2 has ${mediumCount} medium questions but priority list only has ${M2_MEDIUM_PRIORITY_POSITIONS.length} slots — extend M2_MEDIUM_PRIORITY_POSITIONS`);
-      } else {
-        const expectedMediumPositions = new Set(M2_MEDIUM_PRIORITY_POSITIONS.slice(0, mediumCount));
-        for (let i = 0; i < qs.length; i++) {
-          const q = qs[i];
-          const pos = i + 1;
-          const isMedium = q && q.difficulty === 'medium';
-          const shouldBeMedium = expectedMediumPositions.has(pos);
-          if (q && q.difficulty === 'easy') continue; // band-range/difficulty rules handle easies in M2
-          if (isMedium !== shouldBeMedium) {
-            const lineEntry = lineIndex.find(e => e.moduleIndex === 1 && e.modulePosition === pos);
-            const startLine = lineEntry ? lineEntry.startLine : 1;
+      const easySet = new Set(M2_EASY_POSITIONS);
+      const requiredMedSet = new Set(M2_MEDIUM_REQUIRED_POSITIONS);
+      for (let i = 0; i < qs.length; i++) {
+        const q = qs[i];
+        if (!q) continue;
+        const pos = i + 1;
+        const lineEntry = lineIndex.find(e => e.moduleIndex === 1 && e.modulePosition === pos);
+        const startLine = lineEntry ? lineEntry.startLine : 1;
+        if (easySet.has(pos)) {
+          if (q.difficulty !== 'easy') {
             push(startLine, 'm2-difficulty-order',
-              `module 2 Q${pos} difficulty=${q && q.difficulty} but pattern expects ${shouldBeMedium ? 'medium' : 'hard'} (priority positions: [${M2_MEDIUM_PRIORITY_POSITIONS.slice(0, mediumCount).join(', ')}]; reorder with: node scripts/reorderModule2.mjs --test=${testN})`);
+              `module 2 Q${pos} difficulty=${q.difficulty} but easy-ramp expects easy at positions [${M2_EASY_POSITIONS.join(', ')}]`);
+          }
+        } else if (requiredMedSet.has(pos)) {
+          if (q.difficulty !== 'medium') {
+            push(startLine, 'm2-difficulty-order',
+              `module 2 Q${pos} difficulty=${q.difficulty} but easy-ramp expects medium at positions [${M2_MEDIUM_REQUIRED_POSITIONS.join(', ')}]`);
+          }
+        } else {
+          // Past position 6: must be medium (in allowed positions) or hard.
+          if (q.difficulty === 'easy') {
+            push(startLine, 'm2-difficulty-order',
+              `module 2 Q${pos} difficulty=easy but only allowed at positions [${M2_EASY_POSITIONS.join(', ')}]`);
+          } else if (q.difficulty === 'medium' && !M2_MEDIUM_ALLOWED_POSITIONS.has(pos)) {
+            push(startLine, 'm2-difficulty-order',
+              `module 2 Q${pos} difficulty=medium but allowed only at positions [${[...M2_MEDIUM_ALLOWED_POSITIONS].join(', ')}]`);
           }
         }
       }

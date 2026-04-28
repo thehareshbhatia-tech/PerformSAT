@@ -29,9 +29,9 @@ export const practiceTest10 = {
     // distractor: stops one step early — adds $4 directly instead of $4 \\cdot 2.75 = $11
     { id: "A", text: "$\\$30.75$" },
     { id: "B", text: "$\\$37.75$" },
-    // distractor: applies inverse op — uses the flat fee as the per-mile rate ($4.50 \\cdot 4 = $18)
+    // distractor: applies inverse op — uses the flat fee as the per-mile rate (${}4.50 \\cdot 4 = $18)
     { id: "C", text: "$\\$44.75$" },
-    // distractor: wrong base — uses combined rate ($4.50 + 2.75 = $7.25 per mile)
+    // distractor: wrong base — uses combined rate (${}4.50 + 2.75 = ${}7.25 per mile)
     { id: "D", text: "$\\$55.75$" }
   ],
   correctAnswer: "B",
@@ -92,7 +92,7 @@ export const practiceTest10 = {
     { id: "D", text: "$30{,}000$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.35 = 1{,}050$, so total $= \\frac{1{,}050}{0.35} = 3{,}000$.\n\n**The Full Solution:**\nLet $T$ be the total number of members surveyed. Then $0.35 \\cdot T = 1{,}050$.\nDivide both sides by $0.35$: $T = \\dfrac{1{,}050}{0.35} = 3{,}000$.\n\nVerification: $35\\%$ of $3{,}000 = 0.35 \\cdot 3{,}000 = 1{,}050$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $1{,}050 \\cdot 0.35 = 367.5$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.65$ (treats $1{,}050$ as the count for the other group).\n* Choice D: \"off-by-one\" — divides by $0.035$ instead of $0.35$ (decimal-place slip).\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
+  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.35 = 1{,}050$, so total $= \\frac{1{,}050}{0.35} = 3{,}000$.\n\n**The Full Solution:**\nLet $T$ be the total number of members surveyed. Then ${}0.35 \\cdot T = 1{,}050$.\nDivide both sides by $0.35$: $T = \\dfrac{1{,}050}{0.35} = 3{,}000$.\n\nVerification: $35\\%$ of $3{,}000 = 0.35 \\cdot 3{,}000 = 1{,}050$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $1{,}050 \\cdot 0.35 = 367.5$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.65$ (treats $1{,}050$ as the count for the other group).\n* Choice D: \"off-by-one\" — divides by $0.035$ instead of $0.35$ (decimal-place slip).\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
   skills: ["percents"]
 },
 {
@@ -194,18 +194,18 @@ export const practiceTest10 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "A solid right circular cylinder has a radius of $4$ inches and a height of $9$ inches. The volume of the cylinder, in cubic inches, can be expressed as $k\\pi$. What is the value of $k$?",
+  question: "A solid right circular cylinder has a radius of $6$ inches and a height of $5$ inches. The volume of the cylinder, in cubic inches, can be expressed as $k\\pi$. What is the value of $k$?",
   choices: [
     // distractor: stops one step early — forgets to square the radius (uses r·h)
-    { id: "A", text: "$36$" },
+    { id: "A", text: "$30$" },
     // distractor: applies inverse op — uses cone formula V = (1/3)πr²h
-    { id: "B", text: "$48$" },
-    { id: "C", text: "$144$" },
+    { id: "B", text: "$60$" },
+    { id: "C", text: "$180$" },
     // distractor: off-by-one — squares the height instead of the radius
-    { id: "D", text: "$324$" }
+    { id: "D", text: "$150$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Cylinder Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $V = \\pi r^2 h = \\pi (4)^2 (9) = 16 \\cdot 9 \\pi = 144\\pi$. So $k = 144$.\n\n**The Full Solution:**\nThe volume formula for a right circular cylinder is $V = \\pi r^2 h$.\nWith $r = 4$ in and $h = 9$ in:\n$V = \\pi (4)^2 (9) = \\pi (16)(9) = 144\\pi$ cubic inches.\nSo $k = 144$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — forgets to square the radius, computes $\\pi rh = 36\\pi$.\n* Choice B: \"applies the inverse operation\" — uses the cone formula $\\dfrac{1}{3}\\pi r^2 h = 48\\pi$.\n* Choice D: \"off-by-one\" — squares the height instead of the radius, computes $\\pi(4)(81) = 324\\pi$.\n\n**Test Day Takeaway:** For a cylinder, square the radius first, then multiply by the height. Memorize $V = \\pi r^2 h$ — this is on the Reference Sheet.",
+  explanation: "**SAT Pattern: Cylinder Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $V = \\pi r^2 h = \\pi (6)^2 (5) = 36 \\cdot 5 \\pi = 180\\pi$. So $k = 180$.\n\n**The Full Solution:**\nThe volume formula for a right circular cylinder is $V = \\pi r^2 h$.\nWith $r = 6$ in and $h = 5$ in:\n$V = \\pi (6)^2 (5) = \\pi (36)(5) = 180\\pi$ cubic inches.\nSo $k = 180$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — forgets to square the radius, computes $\\pi rh = 30\\pi$.\n* Choice B: \"applies the inverse operation\" — uses the cone formula $\\dfrac{1}{3}\\pi r^2 h = 60\\pi$.\n* Choice D: \"off-by-one\" — squares the height instead of the radius, computes $\\pi(6)(25) = 150\\pi$.\n\n**Test Day Takeaway:** For a cylinder, square the radius first, then multiply by the height. Memorize $V = \\pi r^2 h$ — this is on the Reference Sheet.",
   skills: ["volume", "geometry"]
 },
 {
@@ -654,18 +654,18 @@ export const practiceTest10 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "If $\\sqrt[3]{x^4} \\cdot \\sqrt{x^5} = x^k$ for $x > 0$, what is the value of $k$?",
+  question: "If $\\sqrt[3]{x^2} \\cdot \\sqrt{x^7} = x^k$ for $x > 0$, what is the value of $k$?",
   choices: [
     // distractor: applies inverse op — flips the fractional exponents
-    { id: "A", text: "$\\dfrac{17}{6}$" },
-    // distractor: stops one step early — adds numerators only (4 + 5 = 9)
+    { id: "A", text: "$\\dfrac{19}{6}$" },
+    // distractor: stops one step early — adds numerators only (2 + 7 = 9)
     { id: "B", text: "$\\dfrac{9}{6}$" },
-    { id: "C", text: "$\\dfrac{23}{6}$" },
+    { id: "C", text: "$\\dfrac{25}{6}$" },
     // distractor: off-by-one — multiplies exponents instead of adding
-    { id: "D", text: "$\\dfrac{20}{6}$" }
+    { id: "D", text: "$\\dfrac{14}{6}$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\sqrt[3]{x^4} = x^{\\frac{4}{3}}$ and $\\sqrt{x^5} = x^{\\frac{5}{2}}$. Sum: $\\dfrac{4}{3} + \\dfrac{5}{2} = \\dfrac{8}{6} + \\dfrac{15}{6} = \\dfrac{23}{6}$.\n\n**The Full Solution:**\n$\\sqrt[3]{x^4} = x^{\\frac{4}{3}}$\n$\\sqrt{x^5} = x^{\\frac{5}{2}}$\n\nMultiplying with same base: add exponents.\n$x^{\\frac{4}{3}} \\cdot x^{\\frac{5}{2}} = x^{\\frac{4}{3} + \\frac{5}{2}}$\n\nCommon denominator $6$: $\\dfrac{4}{3} = \\dfrac{8}{6}$ and $\\dfrac{5}{2} = \\dfrac{15}{6}$.\nSum: $\\dfrac{8 + 15}{6} = \\dfrac{23}{6}$.\n\nSo $k = \\dfrac{23}{6}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — flips the fractional exponents to $\\dfrac{3}{4}$ and $\\dfrac{2}{5}$.\n* Choice B: \"stops one step early\" — adds numerators only ($4 + 5 = 9$).\n* Choice D: \"off-by-one\" — multiplies exponents instead of adding.\n\n**Test Day Takeaway:** Convert radicals to fractional exponents (power over index), then add when multiplying same bases.",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\sqrt[3]{x^2} = x^{\\frac{2}{3}}$ and $\\sqrt{x^7} = x^{\\frac{7}{2}}$. Sum: $\\dfrac{2}{3} + \\dfrac{7}{2} = \\dfrac{4}{6} + \\dfrac{21}{6} = \\dfrac{25}{6}$.\n\n**The Full Solution:**\n$\\sqrt[3]{x^2} = x^{\\frac{2}{3}}$\n$\\sqrt{x^7} = x^{\\frac{7}{2}}$\n\nMultiplying with same base: add exponents.\n$x^{\\frac{2}{3}} \\cdot x^{\\frac{7}{2}} = x^{\\frac{2}{3} + \\frac{7}{2}}$\n\nCommon denominator $6$: $\\dfrac{2}{3} = \\dfrac{4}{6}$ and $\\dfrac{7}{2} = \\dfrac{21}{6}$.\nSum: $\\dfrac{4 + 21}{6} = \\dfrac{25}{6}$.\n\nSo $k = \\dfrac{25}{6}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — flips the fractional exponents to $\\dfrac{3}{2}$ and $\\dfrac{2}{7}$.\n* Choice B: \"stops one step early\" — adds numerators only ($2 + 7 = 9$).\n* Choice D: \"off-by-one\" — multiplies exponents instead of adding.\n\n**Test Day Takeaway:** Convert radicals to fractional exponents (power over index), then add when multiplying same bases.",
   skills: ["exponent-rules", "radical-expressions"]
 },
 {

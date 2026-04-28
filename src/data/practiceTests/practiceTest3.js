@@ -108,7 +108,7 @@ export const practiceTest3 = {
     { id: "D", text: "$22{,}500$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.42 = 945$, so total $= \\frac{945}{0.42} = 2{,}250$.\n\n**The Full Solution:**\nLet $T$ be the total number of members. Then $0.42 \\cdot T = 945$.\nDivide both sides by $0.42$: $T = \\dfrac{945}{0.42} = 2{,}250$.\n\nVerification: $42\\%$ of $2{,}250 = 0.42 \\cdot 2{,}250 = 945$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $945 \\cdot 0.42 \\approx 397$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.58$ (treats $945$ as the non-adult count).\n* Choice D: \"off-by-one / decimal slip\" — divides by $0.042$ instead of $0.42$.\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
+  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.42 = 945$, so total $= \\frac{945}{0.42} = 2{,}250$.\n\n**The Full Solution:**\nLet $T$ be the total number of members. Then ${}0.42 \\cdot T = 945$.\nDivide both sides by $0.42$: $T = \\dfrac{945}{0.42} = 2{,}250$.\n\nVerification: $42\\%$ of $2{,}250 = 0.42 \\cdot 2{,}250 = 945$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $945 \\cdot 0.42 \\approx 397$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.58$ (treats $945$ as the non-adult count).\n* Choice D: \"off-by-one / decimal slip\" — divides by $0.042$ instead of $0.42$.\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
   skills: ["percents", "word-problems"]
 },
 {
@@ -127,7 +127,7 @@ export const practiceTest3 = {
     { id: "D", text: "The account will be worth $\\$1.06$ after one year" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Exponential Growth Interpretation**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The base $1.06 = 1 + 0.06$ means a $6\\%$ increase each year.\n\n**The Full Solution:**\nIn the model $A(t) = P_0(1 + r)^t$, the base $(1 + r)$ represents the growth factor.\n$1.06 = 1 + 0.06$, so $r = 0.06 = 6\\%$.\n\nEach year, the account value is multiplied by $1.06$, meaning it increases by $6\\%$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — confuses percentage growth with a fixed dollar amount.\n* Choice C: \"wrong base\" — interprets $1.06$ as $106\\%$ growth instead of $6\\%$ growth (the $1$ represents keeping the original, the $0.06$ is the growth).\n* Choice D: \"stops one step early\" — confuses the growth factor with the account value.\n\n**Test Day Takeaway:** In $P(1 + r)^t$, the growth rate $r$ is the base minus $1$, expressed as a percentage.",
+  explanation: "**SAT Pattern: Exponential Growth Interpretation**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The base ${}1.06 = 1 + 0.06$ means a $6\\%$ increase each year.\n\n**The Full Solution:**\nIn the model $A(t) = P_0(1 + r)^t$, the base $(1 + r)$ represents the growth factor.\n${}1.06 = 1 + 0.06$, so $r = 0.06 = 6\\%$.\n\nEach year, the account value is multiplied by $1.06$, meaning it increases by $6\\%$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — confuses percentage growth with a fixed dollar amount.\n* Choice C: \"wrong base\" — interprets $1.06$ as $106\\%$ growth instead of $6\\%$ growth (the $1$ represents keeping the original, the $0.06$ is the growth).\n* Choice D: \"stops one step early\" — confuses the growth factor with the account value.\n\n**Test Day Takeaway:** In $P(1 + r)^t$, the growth rate $r$ is the base minus $1$, expressed as a percentage.",
   skills: ["exponential-functions", "function-interpretation"]
 },
 {
@@ -135,9 +135,9 @@ export const practiceTest3 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "A solid right circular cylinder has a radius of $4$ inches and a height of $9$ inches. The volume of the cylinder, in cubic inches, can be expressed as $k\\pi$. What is the value of $k$?",
-  correctAnswer: "144",
-  explanation: "**SAT Pattern: Cylinder Volume**\n\n**The correct answer is $144$.**\n\n**The Fast Way (~10s):** $V = \\pi r^2 h = \\pi (4)^2 (9) = 16 \\cdot 9 \\pi = 144\\pi$. So $k = 144$.\n\n**The Full Solution:**\nThe volume formula for a right circular cylinder is $V = \\pi r^2 h$.\nWith $r = 4$ in and $h = 9$ in:\n$V = \\pi (4)^2 (9) = \\pi (16)(9) = 144\\pi$ cubic inches.\nSo $k = 144$.\n\n**Common Mistakes to Avoid:**\n* Forgetting to square the radius — using $\\pi r h$ would give $36\\pi$, so $k = 36$.\n* Confusing the cylinder formula with the cone formula $V = \\dfrac{1}{3}\\pi r^2 h$, which gives $48$.\n\n**Verification:** $\\pi (16)(9) = 144\\pi$ \\checkmark, and the answer $k = 144$ is unitless because we factored out $\\pi$.\n\n**Test Day Takeaway:** For a cylinder, square the radius first, then multiply by the height. Memorize $V = \\pi r^2 h$ — this is a Reference Sheet formula.",
+  question: "A solid right circular cylinder has a radius of $3$ inches and a height of $8$ inches. The volume of the cylinder, in cubic inches, can be expressed as $k\\pi$. What is the value of $k$?",
+  correctAnswer: "72",
+  explanation: "**SAT Pattern: Cylinder Volume**\n\n**The correct answer is $72$.**\n\n**The Fast Way (~10s):** $V = \\pi r^2 h = \\pi (3)^2 (8) = 9 \\cdot 8 \\pi = 72\\pi$. So $k = 72$.\n\n**The Full Solution:**\nThe volume formula for a right circular cylinder is $V = \\pi r^2 h$.\nWith $r = 3$ in and $h = 8$ in:\n$V = \\pi (3)^2 (8) = \\pi (9)(8) = 72\\pi$ cubic inches.\nSo $k = 72$.\n\n**Common Mistakes to Avoid:**\n* Forgetting to square the radius — using $\\pi r h$ would give $24\\pi$, so $k = 24$.\n* Confusing the cylinder formula with the cone formula $V = \\dfrac{1}{3}\\pi r^2 h$, which gives $24$.\n\n**Verification:** $\\pi (9)(8) = 72\\pi$ \\checkmark, and the answer $k = 72$ is unitless because we factored out $\\pi$.\n\n**Test Day Takeaway:** For a cylinder, square the radius first, then multiply by the height. Memorize $V = \\pi r^2 h$ — this is a Reference Sheet formula.",
   skills: ["volume", "geometry"]
 },
 {
@@ -476,18 +476,18 @@ export const practiceTest3 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "A researcher models the relationship between the age $x$ of a car, in years, and its value $y$, in thousands of dollars, using the equation $y = -2.8x + 32$. A particular car that is $5$ years old has an actual value of $\\$19{,}500$. What is the residual, in thousands of dollars?",
+  question: "A researcher models the relationship between the age $x$ of a truck, in years, and its value $y$, in thousands of dollars, using the equation $y = -3.5x + 28$. A particular truck that is $4$ years old has an actual value of $\\$16{,}400$. What is the residual, in thousands of dollars?",
   choices: [
     // distractor: predicted - actual (reversed sign)
-    { id: "A", text: "$-1.5$" },
-    { id: "B", text: "$1.5$" },
+    { id: "A", text: "$-2.4$" },
+    { id: "B", text: "$2.4$" },
     // distractor: arithmetic error
-    { id: "C", text: "$3.5$" },
+    { id: "C", text: "$4.8$" },
     // distractor: gives the predicted value, not the residual
-    { id: "D", text: "$18$" }
+    { id: "D", text: "$14$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Predicted: $y = -2.8(5) + 32 = -14 + 32 = 18$ thousand. Actual: $19.5$ thousand. Residual $= 19.5 - 18 = 1.5$.\n\n**The Full Solution:**\nPredicted at $x = 5$: $-2.8(5) + 32 = -14 + 32 = 18$ thousand dollars.\nActual: $\\$19{,}500 = 19.5$ thousand dollars.\nResidual $=$ actual $-$ predicted $= 19.5 - 18 = 1.5$ thousand dollars.\nA positive residual means the actual value lies above the line of best fit.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — computes predicted $-$ actual ($18 - 19.5 = -1.5$).\n* Choice C: \"off-by-one\" — arithmetic slip on the subtraction step.\n* Choice D: \"stops one step early\" — gives the predicted value $18$ without subtracting.\n\n**Test Day Takeaway:** Residual $=$ actual $-$ predicted. Positive means above the line; negative means below.",
+  explanation: "**SAT Pattern: Residual**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Predicted: $y = -3.5(4) + 28 = -14 + 28 = 14$ thousand. Actual: $16.4$ thousand. Residual $= 16.4 - 14 = 2.4$.\n\n**The Full Solution:**\nPredicted at $x = 4$: $-3.5(4) + 28 = -14 + 28 = 14$ thousand dollars.\nActual: $\\$16{,}400 = 16.4$ thousand dollars.\nResidual $=$ actual $-$ predicted $= 16.4 - 14 = 2.4$ thousand dollars.\nA positive residual means the actual value lies above the line of best fit.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — computes predicted $-$ actual ($14 - 16.4 = -2.4$).\n* Choice C: \"off-by-one\" — arithmetic slip on the subtraction step.\n* Choice D: \"stops one step early\" — gives the predicted value $14$ without subtracting.\n\n**Test Day Takeaway:** Residual $=$ actual $-$ predicted. Positive means above the line; negative means below.",
   skills: ["scatterplots", "statistics"]
 },
 {

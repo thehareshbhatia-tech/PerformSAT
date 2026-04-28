@@ -315,13 +315,16 @@ console.log('\n[5] lint: synthesized well-formed test passes');
     const band = i <= 5 ? 3 : (i <= 14 ? 5 : 7);
     m1.push(wellFormedMc(i, diff, band, { stem: `If $${i}x + ${i + 1} = ${i + 7}$, what is $${i}x + 3$?` }));
   }
-  // M2 (hard track) must place mediums at the priority positions [1,2,3,5,7,13]
-  // and hards everywhere else, otherwise the m2-difficulty-order rule fires.
-  const M2_MED_POS = new Set([1, 2, 3, 5, 7, 13]);
+  // M2 easy-ramp structure: easies at [1,2,3], mediums at [4,5,6,8,10,16],
+  // hards everywhere else. See M2_EASY_POSITIONS / M2_MEDIUM_ALLOWED_POSITIONS.
+  const M2_EASY_POS = new Set([1, 2, 3]);
+  const M2_MED_POS = new Set([4, 5, 6, 8, 10, 16]);
   const m2 = [];
   for (let i = 1; i <= 22; i++) {
-    const diff = M2_MED_POS.has(i) ? 'medium' : 'hard';
-    const band = M2_MED_POS.has(i) ? 5 : 7;
+    let diff, band;
+    if (M2_EASY_POS.has(i)) { diff = 'easy'; band = 3; }
+    else if (M2_MED_POS.has(i)) { diff = 'medium'; band = 5; }
+    else { diff = 'hard'; band = 7; }
     m2.push(wellFormedMc(i, diff, band, { stem: `Suppose $f(${i}) = ${i + 100}$ and $g(x) = f(x) - ${i}$. Find $g(${i})$.` }));
   }
   // Test number must be 1-12 (parseArgs constraint). Use test=2 — the temp
@@ -689,8 +692,10 @@ console.log('\n[14] lint m2-difficulty-order rule');
 {
   const dir = makeTempDir('lint-m2order-');
 
-  // Build a valid M1 (5E/9M/8H ramp) and an INVALID M2 — 6 mediums, but at
-  // positions 6, 7, 8, 9, 10, 11 instead of [1,2,3,5,7,13].
+  // Build a valid M1 (5E/9M/8H ramp) and an INVALID M2 — wrong easy/medium positions.
+  // Easy-ramp expects easies at [1,2,3], required mediums at [4,5,6], allowed mediums
+  // also at [8,9,10,11,16]. This bad fixture omits easies entirely and puts mediums
+  // outside the allowed positions to force violations.
   const m1 = [];
   for (let i = 1; i <= 22; i++) {
     const diff = i <= 5 ? 'easy' : (i <= 14 ? 'medium' : 'hard');
@@ -698,7 +703,10 @@ console.log('\n[14] lint m2-difficulty-order rule');
     m1.push(wellFormedMc(i, diff, band, { stem: `For the m1 entry $${i}$, what is the integer $${i + 1}$ minus $${i - 1}$?` }));
   }
   const wrongM2 = [];
-  const WRONG_MED_POS = new Set([6, 7, 8, 9, 10, 11]); // not the priority list
+  // No easies at [1,2,3] (forces 3 violations) AND mediums outside allowed
+  // positions (more violations). Q1-3 medium triggers easy-position rule,
+  // Q12, Q13, Q14 medium triggers allowed-positions rule.
+  const WRONG_MED_POS = new Set([1, 2, 3, 12, 13, 14]);
   for (let i = 1; i <= 22; i++) {
     const diff = WRONG_MED_POS.has(i) ? 'medium' : 'hard';
     const band = WRONG_MED_POS.has(i) ? 5 : 7;
@@ -711,17 +719,21 @@ console.log('\n[14] lint m2-difficulty-order rule');
   assert(r.status === 1, `m2-order lint exits 1 (got ${r.status})`);
   const stdout = (r.stdout || '').toString();
   // The rule name only appears in the byCategory summary — count violation
-  // lines by their message shape ("module 2 Q\d+ ... pattern expects ...").
-  const orderLines = stdout.split('\n').filter(l => /module 2 Q\d+ difficulty=.* pattern expects/.test(l));
+  // lines by their message shape ("module 2 Q\d+ ... easy-ramp expects ..." or "...allowed only at...").
+  const orderLines = stdout.split('\n').filter(l => /module 2 Q\d+ difficulty=.* (easy-ramp expects|allowed only at)/.test(l));
   assert(orderLines.length >= 4, `multiple m2-difficulty-order violations on bad fixture (got ${orderLines.length})`);
   assert(/m2-difficulty-order:\s*\d+/.test(stdout), 'byCategory summary lists m2-difficulty-order count');
 
   // Now build a CORRECT M2 and confirm the rule does not fire.
+  // Easy-ramp: easies at [1,2,3], mediums at [4,5,6,8,10,16], hards everywhere else.
   const okM2 = [];
-  const PRIORITY = new Set([1, 2, 3, 5, 7, 13]);
+  const OK_EASY = new Set([1, 2, 3]);
+  const OK_MED = new Set([4, 5, 6, 8, 10, 16]);
   for (let i = 1; i <= 22; i++) {
-    const diff = PRIORITY.has(i) ? 'medium' : 'hard';
-    const band = PRIORITY.has(i) ? 5 : 7;
+    let diff, band;
+    if (OK_EASY.has(i)) { diff = 'easy'; band = 3; }
+    else if (OK_MED.has(i)) { diff = 'medium'; band = 5; }
+    else { diff = 'hard'; band = 7; }
     okM2.push(wellFormedMc(i, diff, band, { stem: `For the ok m2 entry $${i}$, find $${i * 4}$ minus $${i + 2}$.` }));
   }
   const dir2 = makeTempDir('lint-m2order-ok-');

@@ -128,7 +128,7 @@ export const practiceTest5 = {
     { id: "D", text: "The revenue is $\\$1.08$ thousand in year $t$." }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** In $a \\cdot b^t$, the base $b = 1.08 = 1 + 0.08$, so the growth rate is $0.08 = 8\\%$ per year.\n\n**The Full Solution:**\nThe model $R(t) = 150(1.08)^t$ has the form $P_0(1 + r)^t$.\nHere $1 + r = 1.08$, so $r = 0.08 = 8\\%$.\nEach year the revenue grows by $8\\%$ of the previous year's value.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — confuses exponential growth with linear growth.\n* Choice C: \"applies the inverse operation\" — interprets $1.08$ as a $108\\%$ increase rather than a $1.08$ multiplier.\n* Choice D: \"stops one step early\" — misreads the base as an output value.\n\n**Test Day Takeaway:** In $P_0(1 + r)^t$, the growth rate is $r$, not the entire base. Subtract $1$ from the base to find the rate.",
+  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** In $a \\cdot b^t$, the base $b = 1.08 = 1 + 0.08$, so the growth rate is ${}0.08 = 8\\%$ per year.\n\n**The Full Solution:**\nThe model $R(t) = 150(1.08)^t$ has the form $P_0(1 + r)^t$.\nHere $1 + r = 1.08$, so $r = 0.08 = 8\\%$.\nEach year the revenue grows by $8\\%$ of the previous year's value.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — confuses exponential growth with linear growth.\n* Choice C: \"applies the inverse operation\" — interprets $1.08$ as a $108\\%$ increase rather than a $1.08$ multiplier.\n* Choice D: \"stops one step early\" — misreads the base as an output value.\n\n**Test Day Takeaway:** In $P_0(1 + r)^t$, the growth rate is $r$, not the entire base. Subtract $1$ from the base to find the rate.",
   skills: ["exponential-functions", "function-interpretation"]
 },
 {
@@ -339,25 +339,25 @@ export const practiceTest5 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The right triangle shown has legs of length $a$ and $a + 7$ and hypotenuse of length $13$. What is the perimeter of the triangle?",
+  question: "The right triangle shown has legs of length $a$ and $a + 7$ and hypotenuse of length $17$. What is the perimeter of the triangle?",
   diagram: {
     type: "rightTriangle",
     params: {
-      sideLabels: ["a", "a + 7", "13"],
+      sideLabels: ["a", "a + 7", "17"],
       rightAngleVertex: 1
     }
   },
   choices: [
-    // distractor: stops one step early — sums only two legs (5 + 12 = 17)
-    { id: "A", text: "$17$" },
-    // distractor: off-by-one — uses a + 7 = 7 instead of 12 (5 + 7 + 13 = 25)
-    { id: "B", text: "$25$" },
-    { id: "C", text: "$30$" },
-    // distractor: wrong base — double-counts a leg (5 + 12 + 13 + 5 = 35)
-    { id: "D", text: "$35$" }
+    // distractor: stops one step early — sums only two legs (8 + 15 = 23)
+    { id: "A", text: "$23$" },
+    // distractor: off-by-one — uses a + 7 = 7 instead of 15 (8 + 7 + 17 = 32)
+    { id: "B", text: "$32$" },
+    { id: "C", text: "$40$" },
+    // distractor: wrong base — double-counts a leg (8 + 15 + 17 + 8 = 48)
+    { id: "D", text: "$48$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Recognize the $5$-$12$-$13$ Pythagorean triple. So $a = 5$ and $a + 7 = 12$. Perimeter $= 5 + 12 + 13 = 30$.\n\n**The Full Solution:**\nApply the Pythagorean theorem: $a^2 + (a + 7)^2 = 13^2$.\n$a^2 + a^2 + 14a + 49 = 169$\n$2a^2 + 14a - 120 = 0$\n$a^2 + 7a - 60 = 0$\n$(a + 12)(a - 5) = 0$\n\nSo $a = 5$ (rejecting the negative root). Then $a + 7 = 12$.\n\nPerimeter $= 5 + 12 + 13 = 30$.\n\nVerification: $5^2 + 12^2 = 25 + 144 = 169 = 13^2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — adds only the two legs ($5 + 12 = 17$) and forgets the hypotenuse.\n* Choice B: \"off-by-one\" — uses $a + 7 = 7$ instead of $12$.\n* Choice D: \"wrong base\" — double-counts the leg $a = 5$.\n\n**Test Day Takeaway:** Memorize the common Pythagorean triples ($3$-$4$-$5$, $5$-$12$-$13$, $7$-$24$-$25$, $8$-$15$-$17$). When the hypotenuse is $13$, the legs are usually $5$ and $12$.",
+  explanation: "**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Recognize the $8$-$15$-$17$ Pythagorean triple. So $a = 8$ and $a + 7 = 15$. Perimeter $= 8 + 15 + 17 = 40$.\n\n**The Full Solution:**\nApply the Pythagorean theorem: $a^2 + (a + 7)^2 = 17^2$.\n$a^2 + a^2 + 14a + 49 = 289$\n$2a^2 + 14a - 240 = 0$\n$a^2 + 7a - 120 = 0$\n$(a + 15)(a - 8) = 0$\n\nSo $a = 8$ (rejecting the negative root). Then $a + 7 = 15$.\n\nPerimeter $= 8 + 15 + 17 = 40$.\n\nVerification: $8^2 + 15^2 = 64 + 225 = 289 = 17^2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — adds only the two legs ($8 + 15 = 23$) and forgets the hypotenuse.\n* Choice B: \"off-by-one\" — uses $a + 7 = 7$ instead of $15$.\n* Choice D: \"wrong base\" — double-counts the leg $a = 8$.\n\n**Test Day Takeaway:** Memorize the common Pythagorean triples ($3$-$4$-$5$, $5$-$12$-$13$, $7$-$24$-$25$, $8$-$15$-$17$). When the hypotenuse is $17$, the legs are usually $8$ and $15$.",
   skills: ["triangles", "right-triangles"]
 },
 {
@@ -424,7 +424,7 @@ export const practiceTest5 = {
     { id: "D", text: "$145$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Forward Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $35\\%$ of $180 = 0.35 \\times 180 = 63$.\n\n**The Full Solution:**\n\"$P\\%$ of $N$\" means $\\dfrac{P}{100} \\times N$.\n$\\dfrac{35}{100} \\times 180 = 0.35 \\times 180 = 63$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — divides $180$ by $35$ instead of multiplying by $0.35$.\n* Choice B: \"off-by-one\" — uses $30\\%$ instead of $35\\%$: $0.30 \\times 180 = 54$.\n* Choice D: \"wrong base\" — subtracts $35$ from $180$ instead of taking a percent.\n\n**Test Day Takeaway:** \"$P$ percent of $N$\" $= \\dfrac{P}{100} \\cdot N$. Convert the percent to a decimal first, then multiply.",
+  explanation: "**SAT Pattern: Forward Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $35\\%$ of $180 = 0.35 \\times 180 = 63$.\n\n**The Full Solution:**\n\"$P\\%$ of $N$\" means $\\dfrac{P}{100} \\times N$.\n$\\dfrac{35}{100} \\times 180 = 0.35 \\times 180 = 63$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — divides $180$ by $35$ instead of multiplying by $0.35$.\n* Choice B: \"off-by-one\" — uses $30\\%$ instead of $35\\%$: ${}0.30 \\times 180 = 54$.\n* Choice D: \"wrong base\" — subtracts $35$ from $180$ instead of taking a percent.\n\n**Test Day Takeaway:** \"$P$ percent of $N$\" $= \\dfrac{P}{100} \\cdot N$. Convert the percent to a decimal first, then multiply.",
   skills: ["percents"]
 },
 {
@@ -564,18 +564,18 @@ export const practiceTest5 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The equation $7x^2 - bx + 28 = 0$ has no real solutions. What is the greatest integer value of $b$?",
+  question: "The equation $6x^2 - bx + 24 = 0$ has no real solutions. What is the greatest integer value of $b$?",
   choices: [
     // distractor: uses ≤ instead of < (misses strict inequality)
-    { id: "A", text: "$28$" },
-    { id: "B", text: "$27$" },
-    // distractor: off-by-one — over-corrects to 26
-    { id: "C", text: "$26$" },
-    // distractor: stops one step early — gives b^2 = 784
-    { id: "D", text: "$784$" }
+    { id: "A", text: "$24$" },
+    { id: "B", text: "$23$" },
+    // distractor: off-by-one — over-corrects to 22
+    { id: "C", text: "$22$" },
+    // distractor: stops one step early — gives b^2 = 576
+    { id: "D", text: "$576$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Discriminant with Integer Bound**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** No real solutions $\\Rightarrow$ discriminant $< 0$: $b^2 - 4(7)(28) < 0 \\Rightarrow b^2 < 784 \\Rightarrow |b| < 28$. Greatest integer: $b = 27$.\n\n**The Full Solution:**\nFor $7x^2 - bx + 28 = 0$: discriminant $= (-b)^2 - 4(7)(28) = b^2 - 784$.\nNo real solutions $\\iff b^2 - 784 < 0 \\iff b^2 < 784 \\iff -28 < b < 28$.\n\nAt $b = 28$: discriminant $= 0$ (one repeated real root), so $b = 28$ does NOT give \"no real solutions.\"\nGreatest integer strictly less than $28$: $b = 27$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — uses $\\leq$ instead of $<$.\n* Choice C: \"applies the inverse operation\" — over-corrects to $b = 26$.\n* Choice D: \"stops one step early\" — gives $b^2 = 784$ instead of $b$.\n\n**Test Day Takeaway:** No real solutions $\\iff$ discriminant strictly less than zero. At discriminant $= 0$, there is exactly ONE real solution.",
+  explanation: "**SAT Pattern: Discriminant with Integer Bound**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** No real solutions $\\Rightarrow$ discriminant $< 0$: $b^2 - 4(6)(24) < 0 \\Rightarrow b^2 < 576 \\Rightarrow |b| < 24$. Greatest integer: $b = 23$.\n\n**The Full Solution:**\nFor $6x^2 - bx + 24 = 0$: discriminant $= (-b)^2 - 4(6)(24) = b^2 - 576$.\nNo real solutions $\\iff b^2 - 576 < 0 \\iff b^2 < 576 \\iff -24 < b < 24$.\n\nAt $b = 24$: discriminant $= 0$ (one repeated real root), so $b = 24$ does NOT give \"no real solutions.\"\nGreatest integer strictly less than $24$: $b = 23$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — uses $\\leq$ instead of $<$.\n* Choice C: \"applies the inverse operation\" — over-corrects to $b = 22$.\n* Choice D: \"stops one step early\" — gives $b^2 = 576$ instead of $b$.\n\n**Test Day Takeaway:** No real solutions $\\iff$ discriminant strictly less than zero. At discriminant $= 0$, there is exactly ONE real solution.",
   skills: ["discriminant", "quadratic-equations"]
 },
 {

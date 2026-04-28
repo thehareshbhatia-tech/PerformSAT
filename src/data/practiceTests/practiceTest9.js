@@ -33,7 +33,7 @@ export const practiceTest9 = {
     { id: "D", text: "$46{,}000$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.40 = 1{,}840$, so total $= \\frac{1{,}840}{0.40} = 4{,}600$.\n\n**The Full Solution:**\nLet $T$ be the total number of birds. Then $0.40 \\cdot T = 1{,}840$.\nDivide both sides by $0.40$: $T = \\dfrac{1{,}840}{0.40} = 4{,}600$.\n\nVerification: $40\\%$ of $4{,}600 = 0.40 \\cdot 4{,}600 = 1{,}840$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $1{,}840 \\cdot 0.40 = 736$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.60$ (treats $1{,}840$ as the non-migratory count).\n* Choice D: \"off-by-one\" — divides by $0.04$ instead of $0.40$ (decimal-place slip).\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
+  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.40 = 1{,}840$, so total $= \\frac{1{,}840}{0.40} = 4{,}600$.\n\n**The Full Solution:**\nLet $T$ be the total number of birds. Then ${}0.40 \\cdot T = 1{,}840$.\nDivide both sides by $0.40$: $T = \\dfrac{1{,}840}{0.40} = 4{,}600$.\n\nVerification: $40\\%$ of $4{,}600 = 0.40 \\cdot 4{,}600 = 1{,}840$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $1{,}840 \\cdot 0.40 = 736$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.60$ (treats $1{,}840$ as the non-migratory count).\n* Choice D: \"off-by-one\" — divides by $0.04$ instead of $0.40$ (decimal-place slip).\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
   skills: ["percents"]
 },
 {
@@ -155,9 +155,9 @@ export const practiceTest9 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "A solid right circular cylinder has a radius of $4$ inches and a height of $9$ inches. The volume of the cylinder, in cubic inches, can be expressed as $k\\pi$. What is the value of $k$?",
-  correctAnswer: "144",
-  explanation: "**SAT Pattern: Cylinder Volume**\n\n**The correct answer is $144$.**\n\n**The Fast Way (~10s):** $V = \\pi r^2 h = \\pi (4)^2 (9) = 16 \\cdot 9 \\pi = 144\\pi$. So $k = 144$.\n\n**The Full Solution:**\nThe volume formula for a right circular cylinder is $V = \\pi r^2 h$.\nWith $r = 4$ in and $h = 9$ in:\n$V = \\pi (4)^2 (9) = \\pi (16)(9) = 144\\pi$ cubic inches.\nSo $k = 144$.\n\n**Common Mistakes to Avoid:**\n* Forgetting to square the radius — using $\\pi r h$ would give $36\\pi$, so $k = 36$.\n* Confusing the cylinder formula with the cone formula $V = \\dfrac{1}{3}\\pi r^2 h$, which gives $48$.\n\n**Verification:** $\\pi (16)(9) = 144\\pi$ \\checkmark, and the answer $k = 144$ is unitless because we factored out $\\pi$.\n\n**Test Day Takeaway:** For a cylinder, square the radius first, then multiply by the height. Memorize $V = \\pi r^2 h$ — this is a Reference Sheet formula.",
+  question: "A solid right circular cylinder has a radius of $5$ inches and a height of $6$ inches. The volume of the cylinder, in cubic inches, can be expressed as $k\\pi$. What is the value of $k$?",
+  correctAnswer: "150",
+  explanation: "**SAT Pattern: Cylinder Volume**\n\n**The correct answer is $150$.**\n\n**The Fast Way (~10s):** $V = \\pi r^2 h = \\pi (5)^2 (6) = 25 \\cdot 6 \\pi = 150\\pi$. So $k = 150$.\n\n**The Full Solution:**\nThe volume formula for a right circular cylinder is $V = \\pi r^2 h$.\nWith $r = 5$ in and $h = 6$ in:\n$V = \\pi (5)^2 (6) = \\pi (25)(6) = 150\\pi$ cubic inches.\nSo $k = 150$.\n\n**Common Mistakes to Avoid:**\n* Forgetting to square the radius — using $\\pi r h$ would give $30\\pi$, so $k = 30$.\n* Confusing the cylinder formula with the cone formula $V = \\dfrac{1}{3}\\pi r^2 h$, which gives $50$.\n\n**Verification:** $\\pi (25)(6) = 150\\pi$ \\checkmark, and the answer $k = 150$ is unitless because we factored out $\\pi$.\n\n**Test Day Takeaway:** For a cylinder, square the radius first, then multiply by the height. Memorize $V = \\pi r^2 h$ — this is a Reference Sheet formula.",
   skills: ["volume", "geometry"]
 },
 {
@@ -365,25 +365,25 @@ export const practiceTest9 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The right triangle shown has legs of length $a$ and $a + 17$ and hypotenuse of length $25$. What is the perimeter of the triangle?",
+  question: "The right triangle shown has legs of length $a$ and $a + 31$ and hypotenuse of length $41$. What is the perimeter of the triangle?",
   diagram: {
     type: "rightTriangle",
     params: {
-      sideLabels: ["a", "a + 17", "25"],
+      sideLabels: ["a", "a + 31", "41"],
       rightAngleVertex: 1
     }
   },
   choices: [
-    // distractor: stops one step early — sums only the two legs (7 + 24 = 31)
-    { id: "A", text: "$31$" },
-    // distractor: uses a + 17 = 17 (off-by-one) and gets 7 + 17 + 25 = 49
-    { id: "B", text: "$49$" },
-    { id: "C", text: "$56$" },
-    // distractor: forgets to subtract one leg — adds 7 + 24 + 25 + 7 (wrong base, double-counts a)
-    { id: "D", text: "$63$" }
+    // distractor: stops one step early — sums only the two legs (9 + 40 = 49)
+    { id: "A", text: "$49$" },
+    // distractor: uses a + 31 = 31 (off-by-one) and gets 9 + 31 + 41 = 81
+    { id: "B", text: "$81$" },
+    { id: "C", text: "$90$" },
+    // distractor: forgets to subtract one leg — adds 9 + 40 + 41 + 9 (wrong base, double-counts a)
+    { id: "D", text: "$99$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Recognize the $7$-$24$-$25$ Pythagorean triple. So $a = 7$ and $a + 17 = 24$. Perimeter $= 7 + 24 + 25 = 56$.\n\n**The Full Solution:**\nApply the Pythagorean theorem: $a^2 + (a + 17)^2 = 25^2$.\n$a^2 + a^2 + 34a + 289 = 625$\n$2a^2 + 34a - 336 = 0$\n$a^2 + 17a - 168 = 0$\n$(a + 24)(a - 7) = 0$\n\nSo $a = 7$ (rejecting the negative root). Then $a + 17 = 24$.\n\nPerimeter $= 7 + 24 + 25 = 56$.\n\nVerification: $7^2 + 24^2 = 49 + 576 = 625 = 25^2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — adds only the two legs ($7 + 24 = 31$) and forgets the hypotenuse.\n* Choice B: \"off-by-one\" — uses $a + 17 = 17$ instead of $24$, getting $7 + 17 + 25 = 49$.\n* Choice D: \"wrong base\" — double-counts the leg $a = 7$, computing $7 + 24 + 25 + 7 = 63$.\n\n**Test Day Takeaway:** Memorize the common Pythagorean triples ($3$-$4$-$5$, $5$-$12$-$13$, $7$-$24$-$25$, $8$-$15$-$17$). When the hypotenuse is $25$, the legs are usually $7$ and $24$.",
+  explanation: "**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Recognize the $9$-$40$-$41$ Pythagorean triple. So $a = 9$ and $a + 31 = 40$. Perimeter $= 9 + 40 + 41 = 90$.\n\n**The Full Solution:**\nApply the Pythagorean theorem: $a^2 + (a + 31)^2 = 41^2$.\n$a^2 + a^2 + 62a + 961 = 1681$\n$2a^2 + 62a - 720 = 0$\n$a^2 + 31a - 360 = 0$\n$(a + 40)(a - 9) = 0$\n\nSo $a = 9$ (rejecting the negative root). Then $a + 31 = 40$.\n\nPerimeter $= 9 + 40 + 41 = 90$.\n\nVerification: $9^2 + 40^2 = 81 + 1600 = 1681 = 41^2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — adds only the two legs ($9 + 40 = 49$) and forgets the hypotenuse.\n* Choice B: \"off-by-one\" — uses $a + 31 = 31$ instead of $40$, getting $9 + 31 + 41 = 81$.\n* Choice D: \"wrong base\" — double-counts the leg $a = 9$, computing $9 + 40 + 41 + 9 = 99$.\n\n**Test Day Takeaway:** Memorize the common Pythagorean triples ($3$-$4$-$5$, $5$-$12$-$13$, $7$-$24$-$25$, $8$-$15$-$17$, $9$-$40$-$41$, $20$-$21$-$29$).",
   skills: ["triangles", "pythagorean", "perimeter"]
 },
 {

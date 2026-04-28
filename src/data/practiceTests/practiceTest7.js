@@ -82,8 +82,8 @@ export const practiceTest7 = {
   question: "A delivery service charges a flat fee of $\\$4.50$ plus $\\$1.20$ per mile driven. Which expression represents the total cost, in dollars, for a delivery of $m$ miles?",
   choices: [
     // distractor: swaps the flat fee and per-mile rate
-    { id: "A", text: "$1.20 + 4.50m$" },
-    { id: "B", text: "$4.50 + 1.20m$" },
+    { id: "A", text: "${}1.20 + 4.50m$" },
+    { id: "B", text: "${}4.50 + 1.20m$" },
     // distractor: adds the two numbers and multiplies by m (treats flat fee as per-mile)
     { id: "C", text: "$5.70m$" },
     // distractor: same swap as A — coefficient and constant interchanged
@@ -109,7 +109,7 @@ export const practiceTest7 = {
     { id: "D", text: "$7{,}800$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.40 = 312$, so total $= \\frac{312}{0.40} = 780$.\n\n**The Full Solution:**\nLet $T$ be the total weekend tickets. Then $0.40 \\cdot T = 312$.\nDivide both sides by $0.40$: $T = \\dfrac{312}{0.40} = 780$.\n\nVerification: $40\\%$ of $780 = 0.40 \\cdot 780 = 312$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $312 \\cdot 0.40 = 124.8$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.60$ (treats $312$ as the non-Friday count).\n* Choice D: \"off-by-one / decimal slip\" — divides by $0.04$ instead of $0.40$.\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
+  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.40 = 312$, so total $= \\frac{312}{0.40} = 780$.\n\n**The Full Solution:**\nLet $T$ be the total weekend tickets. Then ${}0.40 \\cdot T = 312$.\nDivide both sides by $0.40$: $T = \\dfrac{312}{0.40} = 780$.\n\nVerification: $40\\%$ of $780 = 0.40 \\cdot 780 = 312$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $312 \\cdot 0.40 = 124.8$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.60$ (treats $312$ as the non-Friday count).\n* Choice D: \"off-by-one / decimal slip\" — divides by $0.04$ instead of $0.40$.\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
   skills: ["percents"]
 },
 {
