@@ -71,7 +71,7 @@ export const practiceTest7 = {
     { id: "D", text: "The tank holds a maximum of $15$ gallons." }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Interpret Slope in Context**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** In $g(t) = 250 - 15t$, the coefficient of $t$ is $-15$, representing the rate of change: $15$ gallons lost per minute.\n\n**The Full Solution:**\nThis is in the form $g(t) = b + mt$ where $m = -15$ and $b = 250$.\nThe slope $m = -15$ means the water decreases by $15$ gallons for each additional minute.\nThe initial amount $b = 250$ is the starting volume.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — confuses the rate $15$ with the starting amount, which is $250$.\n* Choice C: \"applies the inverse operation\" — $250/15 \\approx 16.7$ minutes to empty, so $15$ minutes is not when it empties.\n* Choice D: \"wrong base\" — confuses a per-minute rate with a maximum capacity.\n\n**Test Day Takeaway:** In $f(x) = b + mx$, the coefficient of $x$ is the rate of change per unit; the constant is the initial value.",
+  explanation: "**SAT Pattern: Interpret Slope in Context**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** In $g(t) = 250 - 15t$, the coefficient of $t$ is $-15$, representing the rate of change: $15$ gallons lost per minute.\n\n**The Full Solution:**\nThis is in the form $g(t) = b + mt$ where $m = -15$ and $b = 250$.\nThe slope $m = -15$ means the water decreases by $15$ gallons for each additional minute.\nThe initial amount $b = 250$ is the starting volume.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — confuses the rate $15$ with the starting amount, which is $250$.\n* Choice C: \"applies the inverse operation\" — $\\frac{250}{15} \\approx 16.7$ minutes to empty, so $15$ minutes is not when it empties.\n* Choice D: \"wrong base\" — confuses a per-minute rate with a maximum capacity.\n\n**Test Day Takeaway:** In $f(x) = b + mx$, the coefficient of $x$ is the rate of change per unit; the constant is the initial value.",
   skills: ["function-interpretation", "linear-functions"]
 },
 {
@@ -102,14 +102,14 @@ export const practiceTest7 = {
   choices: [
     // distractor: applies percent forward — $312 \cdot 0.40 = 124.8 \approx 125$
     { id: "A", text: "$125$" },
-    // distractor: divides by complement $0.60$ — $312 / 0.60 = 520$
+    // distractor: divides by complement $0.60$ — $\\frac{312}{0.60} = 520$
     { id: "B", text: "$520$" },
     { id: "C", text: "$780$" },
     // distractor: divides by $0.04$ instead of $0.40$ (decimal slip)
     { id: "D", text: "$7{,}800$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.40 = 312$, so total $= 312 / 0.40 = 780$.\n\n**The Full Solution:**\nLet $T$ be the total weekend tickets. Then $0.40 \\cdot T = 312$.\nDivide both sides by $0.40$: $T = \\dfrac{312}{0.40} = 780$.\n\nVerification: $40\\%$ of $780 = 0.40 \\cdot 780 = 312$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $312 \\cdot 0.40 = 124.8$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.60$ (treats $312$ as the non-Friday count).\n* Choice D: \"off-by-one / decimal slip\" — divides by $0.04$ instead of $0.40$.\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
+  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.40 = 312$, so total $= \\frac{312}{0.40} = 780$.\n\n**The Full Solution:**\nLet $T$ be the total weekend tickets. Then $0.40 \\cdot T = 312$.\nDivide both sides by $0.40$: $T = \\dfrac{312}{0.40} = 780$.\n\nVerification: $40\\%$ of $780 = 0.40 \\cdot 780 = 312$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $312 \\cdot 0.40 = 124.8$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.60$ (treats $312$ as the non-Friday count).\n* Choice D: \"off-by-one / decimal slip\" — divides by $0.04$ instead of $0.40$.\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
   skills: ["percents"]
 },
 {
@@ -188,14 +188,14 @@ export const practiceTest7 = {
   choices: [
     // distractor: uses 3t in the exponent — would triple the doubling rate per hour
     { id: "A", text: "$500(2)^{3t}$" },
-    { id: "B", text: "$500(2)^{t/3}$" },
+    { id: "B", text: "$500(2)^{\\frac{t}{3}}$" },
     // distractor: swaps the base (3) and the doubling factor (2)
-    { id: "C", text: "$500(3)^{t/2}$" },
+    { id: "C", text: "$500(3)^{\\frac{t}{2}}$" },
     // distractor: combines 500 and 2 into the base — incorrectly merges initial value with rate
-    { id: "D", text: "$1000^{t/3}$" }
+    { id: "D", text: "$1000^{\\frac{t}{3}}$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** \"Doubles every $3$ hours\" means base $= 2$ and exponent $= \\dfrac{t}{3}$ so the exponent equals $1$ when $t = 3$. Initial value $= 500$.\n\n**The Full Solution:**\nGeneral doubling-period model: $P(t) = P_0 \\cdot 2^{t/d}$, where $P_0 = 500$ and $d = 3$.\nSo $P(t) = 500(2)^{t/3}$.\n\nCheck: $P(3) = 500(2)^1 = 1000$ (doubled) \\checkmark; $P(6) = 500(2)^2 = 2000$ (doubled again) \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — uses $3t$ instead of $\\dfrac{t}{3}$, which would mean tripling per hour.\n* Choice C: \"wrong base\" — swaps the doubling factor $2$ with the period $3$.\n* Choice D: \"off-by-one\" — combines the initial value $500$ and the base $2$ into a single base of $1000$.\n\n**Test Day Takeaway:** \"Doubles every $d$ units\" $\\Rightarrow$ base $= 2$, exponent $= \\dfrac{t}{d}$.",
+  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** \"Doubles every $3$ hours\" means base $= 2$ and exponent $= \\dfrac{t}{3}$ so the exponent equals $1$ when $t = 3$. Initial value $= 500$.\n\n**The Full Solution:**\nGeneral doubling-period model: $P(t) = P_0 \\cdot 2^{\\frac{t}{d}}$, where $P_0 = 500$ and $d = 3$.\nSo $P(t) = 500(2)^{\\frac{t}{3}}$.\n\nCheck: $P(3) = 500(2)^1 = 1000$ (doubled) \\checkmark; $P(6) = 500(2)^2 = 2000$ (doubled again) \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — uses $3t$ instead of $\\dfrac{t}{3}$, which would mean tripling per hour.\n* Choice C: \"wrong base\" — swaps the doubling factor $2$ with the period $3$.\n* Choice D: \"off-by-one\" — combines the initial value $500$ and the base $2$ into a single base of $1000$.\n\n**Test Day Takeaway:** \"Doubles every $d$ units\" $\\Rightarrow$ base $= 2$, exponent $= \\dfrac{t}{d}$.",
   skills: ["exponential-functions"]
 },
 {
@@ -243,7 +243,7 @@ export const practiceTest7 = {
   band: 4,
   question: "A survey found that $36$ out of $240$ households in a neighborhood have solar panels. Based on this rate, how many households out of $1{,}500$ in the entire town would be expected to have solar panels?",
   correctAnswer: "225",
-  explanation: "**SAT Pattern: Proportion Solving**\n\n**The correct answer is $225$.**\n\n**The Fast Way (~15s):** Rate $= \\dfrac{36}{240} = \\dfrac{3}{20}$. Expected: $\\dfrac{3}{20} \\cdot 1{,}500 = 225$.\n\n**The Full Solution:**\nRate of households with solar panels: $\\dfrac{36}{240} = \\dfrac{3}{20} = 0.15$.\nExpected count out of $1{,}500$: $\\dfrac{3}{20} \\cdot 1{,}500 = \\dfrac{4{,}500}{20} = 225$.\n\n**Common Mistakes to Avoid:**\n* Setting up the proportion in the wrong direction.\n* Using $36 \\cdot 1{,}500 / 240$ but stopping at the cross-multiplied numerator.\n\n**Verification:** $\\dfrac{225}{1{,}500} = \\dfrac{3}{20} = \\dfrac{36}{240}$ \\checkmark.\n\n**Test Day Takeaway:** Survey-to-population: keep the same rate. Cross-multiply only after writing $\\dfrac{\\text{part}}{\\text{whole}} = \\dfrac{\\text{part}}{\\text{whole}}$.",
+  explanation: "**SAT Pattern: Proportion Solving**\n\n**The correct answer is $225$.**\n\n**The Fast Way (~15s):** Rate $= \\dfrac{36}{240} = \\dfrac{3}{20}$. Expected: $\\dfrac{3}{20} \\cdot 1{,}500 = 225$.\n\n**The Full Solution:**\nRate of households with solar panels: $\\dfrac{36}{240} = \\dfrac{3}{20} = 0.15$.\nExpected count out of $1{,}500$: $\\dfrac{3}{20} \\cdot 1{,}500 = \\dfrac{4{,}500}{20} = 225$.\n\n**Common Mistakes to Avoid:**\n* Setting up the proportion in the wrong direction.\n* Using $36 \\cdot \\frac{1{,}500}{240}$ but stopping at the cross-multiplied numerator.\n\n**Verification:** $\\dfrac{225}{1{,}500} = \\dfrac{3}{20} = \\dfrac{36}{240}$ \\checkmark.\n\n**Test Day Takeaway:** Survey-to-population: keep the same rate. Cross-multiply only after writing $\\dfrac{\\text{part}}{\\text{whole}} = \\dfrac{\\text{part}}{\\text{whole}}$.",
   skills: ["ratios", "percents"]
 },
 {
@@ -277,7 +277,7 @@ export const practiceTest7 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "If $a^{3/4} = 8$ where $a > 0$, what is the value of $a^{3/2}$?",
+  question: "If $a^{\\frac{3}{4}} = 8$ where $a > 0$, what is the value of $a^{\\frac{3}{2}}$?",
   choices: [
     // distractor: applies inverse operation — multiplies 2 * 8 = 16 instead of squaring
     { id: "A", text: "$16$" },
@@ -288,7 +288,7 @@ export const practiceTest7 = {
     { id: "D", text: "$512$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $a^{3/2} = (a^{3/4})^2 = 8^2 = 64$.\n\n**The Full Solution:**\nGiven $a^{3/4} = 8$, we want $a^{3/2}$.\nNote that $\\dfrac{3}{2} = 2 \\cdot \\dfrac{3}{4}$, so $a^{3/2} = (a^{3/4})^2$.\nSubstitute: $(8)^2 = 64$.\n\nVerification: $a^{3/4} = 8 \\Rightarrow a = 8^{4/3} = (2^3)^{4/3} = 2^4 = 16$. Then $a^{3/2} = 16^{3/2} = 4^3 = 64$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $2 \\cdot 8 = 16$ instead of squaring.\n* Choice C: \"off-by-one\" — exponent-manipulation slip ($32 = 2^5$ has no clean derivation here).\n* Choice D: \"wrong base\" — computes $8^3$ instead of $8^2$.\n\n**Test Day Takeaway:** When you know $a^n$ and need $a^m$, write $m = k \\cdot n$ so $a^m = (a^n)^k$. Avoid solving for $a$ directly when you can chain exponents.",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $a^{\\frac{3}{2}} = (a^{\\frac{3}{4}})^2 = 8^2 = 64$.\n\n**The Full Solution:**\nGiven $a^{\\frac{3}{4}} = 8$, we want $a^{\\frac{3}{2}}$.\nNote that $\\dfrac{3}{2} = 2 \\cdot \\dfrac{3}{4}$, so $a^{\\frac{3}{2}} = (a^{\\frac{3}{4}})^2$.\nSubstitute: $(8)^2 = 64$.\n\nVerification: $a^{\\frac{3}{4}} = 8 \\Rightarrow a = 8^{\\frac{4}{3}} = (2^3)^{\\frac{4}{3}} = 2^4 = 16$. Then $a^{\\frac{3}{2}} = 16^{\\frac{3}{2}} = 4^3 = 64$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $2 \\cdot 8 = 16$ instead of squaring.\n* Choice C: \"off-by-one\" — exponent-manipulation slip ($32 = 2^5$ has no clean derivation here).\n* Choice D: \"wrong base\" — computes $8^3$ instead of $8^2$.\n\n**Test Day Takeaway:** When you know $a^n$ and need $a^m$, write $m = k \\cdot n$ so $a^m = (a^n)^k$. Avoid solving for $a$ directly when you can chain exponents.",
   skills: ["exponent-rules", "radical-expressions"]
 },
 {
@@ -517,7 +517,7 @@ export const practiceTest7 = {
   band: 7,
   question: "The function $f$ is defined by $f(x) = x^3 - 6x^2 + 11x - 6$. It is known that $f(1) = 0$. What is the sum of the other two zeros of $f$?",
   correctAnswer: "5",
-  explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~25s):** Since $f(1) = 0$, $(x - 1)$ is a factor. Divide: $x^3 - 6x^2 + 11x - 6 = (x - 1)(x^2 - 5x + 6) = (x - 1)(x - 2)(x - 3)$. Other zeros: $2$ and $3$. Sum $= 5$.\n\n**The Full Solution:**\nDivide $x^3 - 6x^2 + 11x - 6$ by $(x - 1)$ using synthetic division:\nBring down $1$; multiply by $1$ and add: $-6 + 1 = -5$. Multiply by $1$ and add: $11 + (-5) = 6$. Multiply by $1$ and add: $-6 + 6 = 0$.\nQuotient: $x^2 - 5x + 6 = (x - 2)(x - 3)$.\nZeros: $1$, $2$, $3$. The other two zeros sum to $2 + 3 = 5$.\n\n**Common Mistakes to Avoid:**\n* Reporting the sum of ALL three zeros ($1 + 2 + 3 = 6$).\n* Vieta's gives sum of all roots $= 6$ (negative of $x^2$ coefficient), but we need $6 - 1 = 5$.\n\n**Test Day Takeaway:** If one root is known, divide it out to get a quadratic, then use Vieta's on the quotient (sum of roots $= -b/a$).",
+  explanation: "**SAT Pattern: Rational Expression Simplification**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~25s):** Since $f(1) = 0$, $(x - 1)$ is a factor. Divide: $x^3 - 6x^2 + 11x - 6 = (x - 1)(x^2 - 5x + 6) = (x - 1)(x - 2)(x - 3)$. Other zeros: $2$ and $3$. Sum $= 5$.\n\n**The Full Solution:**\nDivide $x^3 - 6x^2 + 11x - 6$ by $(x - 1)$ using synthetic division:\nBring down $1$; multiply by $1$ and add: $-6 + 1 = -5$. Multiply by $1$ and add: $11 + (-5) = 6$. Multiply by $1$ and add: $-6 + 6 = 0$.\nQuotient: $x^2 - 5x + 6 = (x - 2)(x - 3)$.\nZeros: $1$, $2$, $3$. The other two zeros sum to $2 + 3 = 5$.\n\n**Common Mistakes to Avoid:**\n* Reporting the sum of ALL three zeros ($1 + 2 + 3 = 6$).\n* Vieta's gives sum of all roots $= 6$ (negative of $x^2$ coefficient), but we need $6 - 1 = 5$.\n\n**Test Day Takeaway:** If one root is known, divide it out to get a quadratic, then use Vieta's on the quotient (sum of roots $= -\\frac{b}{a}$).",
   skills: ["polynomial-operations", "factoring"]
 },
 {
@@ -583,7 +583,7 @@ export const practiceTest7 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "If $x > 0$, the expression $\\sqrt[3]{x^4} \\cdot \\sqrt{x^7}$ is equivalent to $x^{p/q}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
+  question: "If $x > 0$, the expression $\\sqrt[3]{x^4} \\cdot \\sqrt{x^7}$ is equivalent to $x^{\\frac{p}{q}}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
   choices: [
     // distractor: stops one step early — gives p alone (= 29) instead of p + q
     { id: "A", text: "$29$" },
@@ -594,7 +594,7 @@ export const practiceTest7 = {
     { id: "D", text: "$16$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[3]{x^4} = x^{4/3}$. $\\sqrt{x^7} = x^{7/2}$. Add: $\\dfrac{4}{3} + \\dfrac{7}{2} = \\dfrac{8 + 21}{6} = \\dfrac{29}{6}$. So $p + q = 29 + 6 = 35$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[3]{x^4} = x^{4/3}, \\quad \\sqrt{x^7} = x^{7/2}$\n\nWhen multiplying same bases, add exponents:\n$x^{4/3} \\cdot x^{7/2} = x^{4/3 + 7/2} = x^{(8 + 21)/6} = x^{29/6}$\n\n$\\gcd(29, 6) = 1$, so $\\dfrac{29}{6}$ is in lowest terms. Then $p = 29$, $q = 6$, and $p + q = 35$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 29$, forgetting to add $q$.\n* Choice B: \"applies the inverse operation\" — sums the radical exponent and index ($7 + 3 = 10$) instead of converting and adding fractions.\n* Choice D: \"wrong base\" — sums all the integers visible in the expression.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{m/n}$ — power on top, root on the bottom. Add fractional exponents when multiplying same bases.",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[3]{x^4} = x^{\\frac{4}{3}}$. $\\sqrt{x^7} = x^{\\frac{7}{2}}$. Add: $\\dfrac{4}{3} + \\dfrac{7}{2} = \\dfrac{8 + 21}{6} = \\dfrac{29}{6}$. So $p + q = 29 + 6 = 35$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[3]{x^4} = x^{\\frac{4}{3}}, \\quad \\sqrt{x^7} = x^{\\frac{7}{2}}$\n\nWhen multiplying same bases, add exponents:\n$x^{\\frac{4}{3}} \\cdot x^{\\frac{7}{2}} = x^{\\frac{4}{3} + \\frac{7}{2}} = x^{\\frac{8 + 21}{6}} = x^{\\frac{29}{6}}$\n\n$\\gcd(29, 6) = 1$, so $\\dfrac{29}{6}$ is in lowest terms. Then $p = 29$, $q = 6$, and $p + q = 35$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 29$, forgetting to add $q$.\n* Choice B: \"applies the inverse operation\" — sums the radical exponent and index ($7 + 3 = 10$) instead of converting and adding fractions.\n* Choice D: \"wrong base\" — sums all the integers visible in the expression.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{\\frac{m}{n}}$ — power on top, root on the bottom. Add fractional exponents when multiplying same bases.",
   skills: ["polynomial-operations", "exponent-rules", "radical-expressions"]
 },
 {
@@ -632,7 +632,7 @@ export const practiceTest7 = {
     { id: "D", text: "$213$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Total $= 4r + r + (r + 25) = 6r + 25 = 853$. So $6r = 828$ and $r = 138$.\n\n**The Full Solution:**\nLet $r$ be the number of $8$-inch rods.\nNumber of $12$-inch rods: $4r$.\nNumber of $5$-inch rods: $r + 25$.\n\nTotal: $4r + r + (r + 25) = 6r + 25 = 853$.\n$6r = 828 \\Rightarrow r = 138$.\n\nVerification: $4(138) + 138 + (138 + 25) = 552 + 138 + 163 = 853$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — divides $853$ by $6$ ignoring the $+25$ offset.\n* Choice C: \"applies the inverse operation\" — uses $(853 - 25)/4 = 207$ instead of dividing by $6$.\n* Choice D: \"stops one step early\" — divides $853 / 4$ ignoring the offset and the additional $r$ counts.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$25$ more than\".",
+  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Total $= 4r + r + (r + 25) = 6r + 25 = 853$. So $6r = 828$ and $r = 138$.\n\n**The Full Solution:**\nLet $r$ be the number of $8$-inch rods.\nNumber of $12$-inch rods: $4r$.\nNumber of $5$-inch rods: $r + 25$.\n\nTotal: $4r + r + (r + 25) = 6r + 25 = 853$.\n$6r = 828 \\Rightarrow r = 138$.\n\nVerification: $4(138) + 138 + (138 + 25) = 552 + 138 + 163 = 853$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — divides $853$ by $6$ ignoring the $+25$ offset.\n* Choice C: \"applies the inverse operation\" — uses $\\frac{853 - 25}{4} = 207$ instead of dividing by $6$.\n* Choice D: \"stops one step early\" — divides $\\frac{853}{4}$ ignoring the offset and the additional $r$ counts.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$25$ more than\".",
   skills: ["word-problems", "ratios"]
 },
 {
@@ -689,7 +689,7 @@ export const practiceTest7 = {
     { id: "D", text: "$\\dfrac{27}{64}$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Function Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Probability $= \\dbinom{4}{3} \\left(\\dfrac{1}{4}\\right)^3 \\left(\\dfrac{3}{4}\\right)^1 = 4 \\cdot \\dfrac{1}{64} \\cdot \\dfrac{3}{4} = \\dfrac{12}{256} = \\dfrac{3}{64}$.\n\n**The Full Solution:**\nThe probability of \"exactly $3$ red, $1$ non-red\" out of $4$ spins:\n\n* Choose which of the $4$ spins is non-red: $\\binom{4}{1} = 4$ ways.\n* Each red spin has probability $\\dfrac{1}{4}$; each non-red spin has probability $\\dfrac{3}{4}$.\n* For each arrangement: $\\left(\\dfrac{1}{4}\\right)^3 \\left(\\dfrac{3}{4}\\right) = \\dfrac{3}{256}$.\n\nTotal: $4 \\cdot \\dfrac{3}{256} = \\dfrac{12}{256} = \\dfrac{3}{64}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — uses only $(1/4)^3$, ignoring the non-red spin and the choice factor.\n* Choice C: \"stops one step early\" — gives one arrangement's probability ($3/256$) but forgets to multiply by $4$ positions.\n* Choice D: \"wrong base\" — gives $(3/4)^3 = 27/64$, the probability that $3$ specific spins are all non-red.\n\n**Test Day Takeaway:** For \"exactly $k$ successes out of $n$\" with independent trials, the formula is $\\binom{n}{k} p^k (1 - p)^{n-k}$.",
+  explanation: "**SAT Pattern: Function Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Probability $= \\dbinom{4}{3} \\left(\\dfrac{1}{4}\\right)^3 \\left(\\dfrac{3}{4}\\right)^1 = 4 \\cdot \\dfrac{1}{64} \\cdot \\dfrac{3}{4} = \\dfrac{12}{256} = \\dfrac{3}{64}$.\n\n**The Full Solution:**\nThe probability of \"exactly $3$ red, $1$ non-red\" out of $4$ spins:\n\n* Choose which of the $4$ spins is non-red: $\\binom{4}{1} = 4$ ways.\n* Each red spin has probability $\\dfrac{1}{4}$; each non-red spin has probability $\\dfrac{3}{4}$.\n* For each arrangement: $\\left(\\dfrac{1}{4}\\right)^3 \\left(\\dfrac{3}{4}\\right) = \\dfrac{3}{256}$.\n\nTotal: $4 \\cdot \\dfrac{3}{256} = \\dfrac{12}{256} = \\dfrac{3}{64}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — uses only $(\\frac{1}{4})^3$, ignoring the non-red spin and the choice factor.\n* Choice C: \"stops one step early\" — gives one arrangement's probability ($\\frac{3}{256}$) but forgets to multiply by $4$ positions.\n* Choice D: \"wrong base\" — gives $(\\frac{3}{4})^3 = \\frac{27}{64}$, the probability that $3$ specific spins are all non-red.\n\n**Test Day Takeaway:** For \"exactly $k$ successes out of $n$\" with independent trials, the formula is $\\binom{n}{k} p^k (1 - p)^{n-k}$.",
   skills: ["probability"]
 },
 {

@@ -64,14 +64,14 @@ export const practiceTest1 = {
   choices: [
     // distractor: applies the percent forward — $1260 \times 0.35 = 441$
     { id: "A", text: "$441$" },
-    // distractor: divides by the complement: $1260 / 0.65 \approx 1938$, rounds to $1{,}938$
+    // distractor: divides by the complement: $\\frac{1260}{0.65} \approx 1938$, rounds to $1{,}938$
     { id: "B", text: "$1{,}938$" },
     { id: "C", text: "$3{,}600$" },
     // distractor: divides by $0.035$ instead of $0.35$ (decimal-place slip)
     { id: "D", text: "$36{,}000$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.35 = 1{,}260$, so total $= 1{,}260 / 0.35 = 3{,}600$.\n\n**The Full Solution:**\nLet $T$ be the total number of books. Then $0.35 \\cdot T = 1{,}260$.\nDivide both sides by $0.35$: $T = \\dfrac{1{,}260}{0.35} = 3{,}600$.\n\nVerification: $35\\%$ of $3{,}600 = 0.35 \\cdot 3{,}600 = 1{,}260$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $1{,}260 \\cdot 0.35 = 441$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.65$ (treats $1{,}260$ as the non-fiction count).\n* Choice D: \"off-by-one / decimal slip\" — divides by $0.035$ instead of $0.35$.\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
+  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.35 = 1{,}260$, so total $= \\frac{1{,}260}{0.35} = 3{,}600$.\n\n**The Full Solution:**\nLet $T$ be the total number of books. Then $0.35 \\cdot T = 1{,}260$.\nDivide both sides by $0.35$: $T = \\dfrac{1{,}260}{0.35} = 3{,}600$.\n\nVerification: $35\\%$ of $3{,}600 = 0.35 \\cdot 3{,}600 = 1{,}260$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $1{,}260 \\cdot 0.35 = 441$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.65$ (treats $1{,}260$ as the non-fiction count).\n* Choice D: \"off-by-one / decimal slip\" — divides by $0.035$ instead of $0.35$.\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
   skills: ["percents"]
 },
 {
@@ -150,14 +150,14 @@ export const practiceTest1 = {
   choices: [
     // distractor: uses 3t instead of t/3 — would triple the exponent each hour
     { id: "A", text: "$P(t) = 500(2)^{3t}$" },
-    { id: "B", text: "$P(t) = 500(2)^{t/3}$" },
+    { id: "B", text: "$P(t) = 500(2)^{\\frac{t}{3}}$" },
     // distractor: swaps the base (3) and the doubling factor (2)
-    { id: "C", text: "$P(t) = 500(3)^{t/2}$" },
+    { id: "C", text: "$P(t) = 500(3)^{\\frac{t}{2}}$" },
     // distractor: starts at 1000 (already doubled) and uses wrong exponent
     { id: "D", text: "$P(t) = 1000(2)^{t}$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** \"Doubles every $3$ hours\" means the exponent must equal $1$ when $t = 3$: $\\dfrac{t}{3}$ gives $\\dfrac{3}{3} = 1$. Initial value is $500$, base is $2$.\n\n**The Full Solution:**\nThe general doubling-period model is $P(t) = P_0 \\cdot 2^{t/d}$, where $P_0 = 500$ and $d = 3$.\nSo $P(t) = 500(2)^{t/3}$.\n\nCheck: $P(3) = 500(2)^1 = 1000$ (doubled) \\checkmark, $P(6) = 500(2)^2 = 2000$ (doubled again) \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — uses $3t$ in the exponent instead of $\\dfrac{t}{3}$, which would triple every hour.\n* Choice C: \"wrong base\" — swaps the base and doubling period.\n* Choice D: \"off-by-one\" — starts the exponent off-by-doubling (initial value $1000$ instead of $500$).\n\n**Test Day Takeaway:** \"Doubles every $d$ units\" $\\Rightarrow$ exponent is $\\dfrac{t}{d}$. \"Triples every $d$ units\" would change the base from $2$ to $3$.",
+  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** \"Doubles every $3$ hours\" means the exponent must equal $1$ when $t = 3$: $\\dfrac{t}{3}$ gives $\\dfrac{3}{3} = 1$. Initial value is $500$, base is $2$.\n\n**The Full Solution:**\nThe general doubling-period model is $P(t) = P_0 \\cdot 2^{\\frac{t}{d}}$, where $P_0 = 500$ and $d = 3$.\nSo $P(t) = 500(2)^{\\frac{t}{3}}$.\n\nCheck: $P(3) = 500(2)^1 = 1000$ (doubled) \\checkmark, $P(6) = 500(2)^2 = 2000$ (doubled again) \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — uses $3t$ in the exponent instead of $\\dfrac{t}{3}$, which would triple every hour.\n* Choice C: \"wrong base\" — swaps the base and doubling period.\n* Choice D: \"off-by-one\" — starts the exponent off-by-doubling (initial value $1000$ instead of $500$).\n\n**Test Day Takeaway:** \"Doubles every $d$ units\" $\\Rightarrow$ exponent is $\\dfrac{t}{d}$. \"Triples every $d$ units\" would change the base from $2$ to $3$.",
   skills: ["exponential-functions", "function-interpretation"]
 },
 {
@@ -271,7 +271,7 @@ export const practiceTest1 = {
   band: 7,
   question: "A data set consists of $9$ positive integers. Eight of the integers are listed below.\n\n$12, 18, 22, 25, 27, 30, 31, 35$\n\nThe mean of all $9$ integers in the data set is $26$. What is the value of the ninth integer?",
   correctAnswer: "34",
-  explanation: "**SAT Pattern: Mean from List**\n\n**The correct answer is $34$.**\n\n**The Fast Way (~25s):** Total sum $= 9 \\cdot 26 = 234$. Sum of given $8$ integers: $12 + 18 + 22 + 25 + 27 + 30 + 31 + 35 = 200$. Ninth integer $= 234 - 200 = 34$.\n\n**The Full Solution:**\nIf the mean of $9$ integers is $26$, the sum of all $9$ is $9 \\cdot 26 = 234$.\nSum of the $8$ listed integers: $12 + 18 + 22 + 25 + 27 + 30 + 31 + 35$.\nGroup pairs that add to $40$: $(12 + 28)? $ — instead, just add: $12 + 18 = 30$; $30 + 22 = 52$; $52 + 25 = 77$; $77 + 27 = 104$; $104 + 30 = 134$; $134 + 31 = 165$; $165 + 35 = 200$.\nNinth integer $= 234 - 200 = 34$.\n\n**Common Mistakes to Avoid:**\n* Computing the mean of the given $8$ integers ($200/8 = 25$) and reporting it.\n* Subtracting the wrong way (e.g., $200 - 234 = -34$).\n\n**Verification:** mean $= \\dfrac{200 + 34}{9} = \\dfrac{234}{9} = 26$ \\checkmark.\n\n**Test Day Takeaway:** Mean $\\times$ count $=$ sum. To recover a missing value, compute the total sum from the mean, then subtract the known sum.",
+  explanation: "**SAT Pattern: Mean from List**\n\n**The correct answer is $34$.**\n\n**The Fast Way (~25s):** Total sum $= 9 \\cdot 26 = 234$. Sum of given $8$ integers: $12 + 18 + 22 + 25 + 27 + 30 + 31 + 35 = 200$. Ninth integer $= 234 - 200 = 34$.\n\n**The Full Solution:**\nIf the mean of $9$ integers is $26$, the sum of all $9$ is $9 \\cdot 26 = 234$.\nSum of the $8$ listed integers: $12 + 18 + 22 + 25 + 27 + 30 + 31 + 35$.\nGroup pairs that add to $40$: $(12 + 28)? $ — instead, just add: $12 + 18 = 30$; $30 + 22 = 52$; $52 + 25 = 77$; $77 + 27 = 104$; $104 + 30 = 134$; $134 + 31 = 165$; $165 + 35 = 200$.\nNinth integer $= 234 - 200 = 34$.\n\n**Common Mistakes to Avoid:**\n* Computing the mean of the given $8$ integers ($\\frac{200}{8} = 25$) and reporting it.\n* Subtracting the wrong way (e.g., $200 - 234 = -34$).\n\n**Verification:** mean $= \\dfrac{200 + 34}{9} = \\dfrac{234}{9} = 26$ \\checkmark.\n\n**Test Day Takeaway:** Mean $\\times$ count $=$ sum. To recover a missing value, compute the total sum from the mean, then subtract the known sum.",
   skills: ["statistics", "mean"]
 },
 {
@@ -367,7 +367,7 @@ export const practiceTest1 = {
   band: 7,
   question: "If $\\sqrt[3]{x^5} \\cdot \\sqrt{x^3} = x^k$ for $x > 0$, what is the value of $k$? Express your answer as a fraction.",
   correctAnswer: "19/6",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $\\dfrac{19}{6}$.**\n\n**The Fast Way (~20s):** Convert to exponents: $x^{5/3} \\cdot x^{3/2} = x^{5/3 + 3/2}$. Common denominator: $\\dfrac{10}{6} + \\dfrac{9}{6} = \\dfrac{19}{6}$.\n\n**The Full Solution:**\n$\\sqrt[3]{x^5} = x^{5/3}$\n$\\sqrt{x^3} = x^{3/2}$\n\nWhen multiplying powers with the same base, add exponents:\n$x^{5/3} \\cdot x^{3/2} = x^{5/3 + 3/2}$\n\nCommon denominator $6$:\n$\\dfrac{5}{3} = \\dfrac{10}{6}, \\quad \\dfrac{3}{2} = \\dfrac{9}{6}, \\quad \\dfrac{10}{6} + \\dfrac{9}{6} = \\dfrac{19}{6}$.\n\nSo $k = \\dfrac{19}{6}$.\n\n**Common Mistakes to Avoid:**\n* Writing $\\sqrt[3]{x^5} = x^{3/5}$ instead of $x^{5/3}$. The power goes in the numerator; the index goes in the denominator.\n* Multiplying exponents instead of adding when bases are multiplied.\n\n**Verification:** $\\dfrac{5}{3} + \\dfrac{3}{2} = 1.667 + 1.500 = 3.167 = \\dfrac{19}{6}$ \\checkmark.\n\n**Test Day Takeaway:** Convert radicals to fractional exponents, THEN add when multiplying same bases.",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $\\dfrac{19}{6}$.**\n\n**The Fast Way (~20s):** Convert to exponents: $x^{\\frac{5}{3}} \\cdot x^{\\frac{3}{2}} = x^{\\frac{5}{3} + \\frac{3}{2}}$. Common denominator: $\\dfrac{10}{6} + \\dfrac{9}{6} = \\dfrac{19}{6}$.\n\n**The Full Solution:**\n$\\sqrt[3]{x^5} = x^{\\frac{5}{3}}$\n$\\sqrt{x^3} = x^{\\frac{3}{2}}$\n\nWhen multiplying powers with the same base, add exponents:\n$x^{\\frac{5}{3}} \\cdot x^{\\frac{3}{2}} = x^{\\frac{5}{3} + \\frac{3}{2}}$\n\nCommon denominator $6$:\n$\\dfrac{5}{3} = \\dfrac{10}{6}, \\quad \\dfrac{3}{2} = \\dfrac{9}{6}, \\quad \\dfrac{10}{6} + \\dfrac{9}{6} = \\dfrac{19}{6}$.\n\nSo $k = \\dfrac{19}{6}$.\n\n**Common Mistakes to Avoid:**\n* Writing $\\sqrt[3]{x^5} = x^{\\frac{3}{5}}$ instead of $x^{\\frac{5}{3}}$. The power goes in the numerator; the index goes in the denominator.\n* Multiplying exponents instead of adding when bases are multiplied.\n\n**Verification:** $\\dfrac{5}{3} + \\dfrac{3}{2} = 1.667 + 1.500 = 3.167 = \\dfrac{19}{6}$ \\checkmark.\n\n**Test Day Takeaway:** Convert radicals to fractional exponents, THEN add when multiplying same bases.",
   skills: ["exponent-rules", "radical-expressions"]
 },
 {
@@ -620,7 +620,7 @@ export const practiceTest1 = {
     { id: "D", text: "$144$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Total $= 5n + n + (n + 40) = 7n + 40 = 719$. So $7n = 679$ and $n = 97$.\n\n**The Full Solution:**\nLet $n$ be the number of $7$-inch screws.\nNumber of $9$-inch screws: $5n$.\nNumber of $4$-inch screws: $n + 40$.\n\nTotal: $5n + n + (n + 40) = 7n + 40 = 719$.\n$7n = 679 \\Rightarrow n = 97$.\n\nVerification: $5(97) + 97 + (97 + 40) = 485 + 97 + 137 = 719$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — divides $719$ by $7$ ignoring the offset.\n* Choice C: \"applies the inverse operation\" — uses $(719 - 40)/5 = 135.8 \\approx 136$ instead of dividing by $7$.\n* Choice D: \"stops one step early\" — divides $719/5$ ignoring both the offset and the additional $7$-inch and $4$-inch counts.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$40$ more than\".",
+  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Total $= 5n + n + (n + 40) = 7n + 40 = 719$. So $7n = 679$ and $n = 97$.\n\n**The Full Solution:**\nLet $n$ be the number of $7$-inch screws.\nNumber of $9$-inch screws: $5n$.\nNumber of $4$-inch screws: $n + 40$.\n\nTotal: $5n + n + (n + 40) = 7n + 40 = 719$.\n$7n = 679 \\Rightarrow n = 97$.\n\nVerification: $5(97) + 97 + (97 + 40) = 485 + 97 + 137 = 719$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — divides $719$ by $7$ ignoring the offset.\n* Choice C: \"applies the inverse operation\" — uses $\\frac{719 - 40}{5} = 135.8 \\approx 136$ instead of dividing by $7$.\n* Choice D: \"stops one step early\" — divides $\\frac{719}{5}$ ignoring both the offset and the additional $7$-inch and $4$-inch counts.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$40$ more than\".",
   skills: ["word-problems", "ratios"]
 },
 {
@@ -647,9 +647,9 @@ export const practiceTest1 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "A population of bacteria is modeled by $P(t) = 8{,}000(0.73)^{t/4}$, where $t$ is the number of hours since the initial measurement. By what percent does the population decrease every $4$ hours?",
+  question: "A population of bacteria is modeled by $P(t) = 8{,}000(0.73)^{\\frac{t}{4}}$, where $t$ is the number of hours since the initial measurement. By what percent does the population decrease every $4$ hours?",
   correctAnswer: "27",
-  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**The correct answer is $27$.**\n\n**The Fast Way (~15s):** Every $4$ hours, the multiplier is $0.73$. Percent decrease $= 1 - 0.73 = 0.27 = 27\\%$.\n\n**The Full Solution:**\nWhen $t$ increases by $4$:\n$P(t + 4) = 8{,}000(0.73)^{(t+4)/4} = 8{,}000(0.73)^{t/4} \\cdot 0.73 = 0.73 \\cdot P(t)$.\n\nThe population is multiplied by $0.73$ every $4$ hours, so the percent decrease per $4$-hour period is $1 - 0.73 = 0.27 = 27\\%$.\n\nVerification: at $t = 0$, $P = 8{,}000$. At $t = 4$, $P = 5{,}840$. Decrease: $\\dfrac{8{,}000 - 5{,}840}{8{,}000} = \\dfrac{2{,}160}{8{,}000} = 0.27 = 27\\%$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $73$ (the multiplier itself, not the percent decrease).\n* Computing the hourly rate instead of the $4$-hour rate.\n\n**Test Day Takeaway:** A decay multiplier $b < 1$ over period $d$ means the percent decrease per period is $(1 - b) \\times 100\\%$.",
+  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**The correct answer is $27$.**\n\n**The Fast Way (~15s):** Every $4$ hours, the multiplier is $0.73$. Percent decrease $= 1 - 0.73 = 0.27 = 27\\%$.\n\n**The Full Solution:**\nWhen $t$ increases by $4$:\n$P(t + 4) = 8{,}000(0.73)^{\\frac{t+4}{4}} = 8{,}000(0.73)^{\\frac{t}{4}} \\cdot 0.73 = 0.73 \\cdot P(t)$.\n\nThe population is multiplied by $0.73$ every $4$ hours, so the percent decrease per $4$-hour period is $1 - 0.73 = 0.27 = 27\\%$.\n\nVerification: at $t = 0$, $P = 8{,}000$. At $t = 4$, $P = 5{,}840$. Decrease: $\\dfrac{8{,}000 - 5{,}840}{8{,}000} = \\dfrac{2{,}160}{8{,}000} = 0.27 = 27\\%$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $73$ (the multiplier itself, not the percent decrease).\n* Computing the hourly rate instead of the $4$-hour rate.\n\n**Test Day Takeaway:** A decay multiplier $b < 1$ over period $d$ means the percent decrease per period is $(1 - b) \\times 100\\%$.",
   skills: ["exponential-functions", "percents"]
 },
 {
@@ -657,7 +657,7 @@ export const practiceTest1 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "If $x > 0$, the expression $\\sqrt[3]{x^2} \\cdot \\sqrt{x^5}$ is equivalent to $x^{p/q}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
+  question: "If $x > 0$, the expression $\\sqrt[3]{x^2} \\cdot \\sqrt{x^5}$ is equivalent to $x^{\\frac{p}{q}}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
   choices: [
     // distractor: gives p alone (= 19) instead of p + q
     { id: "A", text: "$19$" },
@@ -668,7 +668,7 @@ export const practiceTest1 = {
     { id: "D", text: "$10$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[3]{x^2} = x^{2/3}$. $\\sqrt{x^5} = x^{5/2}$. Add: $\\dfrac{2}{3} + \\dfrac{5}{2} = \\dfrac{4}{6} + \\dfrac{15}{6} = \\dfrac{19}{6}$. So $p + q = 19 + 6 = 25$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[3]{x^2} = x^{2/3}, \\quad \\sqrt{x^5} = x^{5/2}$\n\nWhen multiplying same bases, add exponents:\n$x^{2/3} \\cdot x^{5/2} = x^{2/3 + 5/2} = x^{(4 + 15)/6} = x^{19/6}$\n\n$\\gcd(19, 6) = 1$, so $\\dfrac{19}{6}$ is already in lowest terms. Then $p = 19$, $q = 6$, and $p + q = 25$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 19$, forgetting to add $q$.\n* Choice B: \"applies the inverse operation\" — sums the radical exponent and index ($5 + 3 = 8$) instead of converting and adding fractions.\n* Choice D: \"wrong base\" — sums all the integers visible in the expression ($5 + 2 + 3 = 10$).\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{m/n}$ — power on top, root on the bottom. Add fractional exponents when multiplying same bases.",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[3]{x^2} = x^{\\frac{2}{3}}$. $\\sqrt{x^5} = x^{\\frac{5}{2}}$. Add: $\\dfrac{2}{3} + \\dfrac{5}{2} = \\dfrac{4}{6} + \\dfrac{15}{6} = \\dfrac{19}{6}$. So $p + q = 19 + 6 = 25$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[3]{x^2} = x^{\\frac{2}{3}}, \\quad \\sqrt{x^5} = x^{\\frac{5}{2}}$\n\nWhen multiplying same bases, add exponents:\n$x^{\\frac{2}{3}} \\cdot x^{\\frac{5}{2}} = x^{\\frac{2}{3} + \\frac{5}{2}} = x^{\\frac{4 + 15}{6}} = x^{\\frac{19}{6}}$\n\n$\\gcd(19, 6) = 1$, so $\\dfrac{19}{6}$ is already in lowest terms. Then $p = 19$, $q = 6$, and $p + q = 25$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 19$, forgetting to add $q$.\n* Choice B: \"applies the inverse operation\" — sums the radical exponent and index ($5 + 3 = 8$) instead of converting and adding fractions.\n* Choice D: \"wrong base\" — sums all the integers visible in the expression ($5 + 2 + 3 = 10$).\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{\\frac{m}{n}}$ — power on top, root on the bottom. Add fractional exponents when multiplying same bases.",
   skills: ["polynomial-operations", "exponent-rules", "radical-expressions"]
 },
 {
@@ -686,18 +686,18 @@ export const practiceTest1 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "Consider the system of equations.\n\n$x + 2y - z = 5$\n$3x + 6y - 3z = 15$\n$2x + 4y - 2z = 11$\n\nHow many solutions $(x, y, z)$ does this system have?",
+  question: "In the system of equations below, $c$ is a constant. If the system has no solution, what is the value of $c$?\n\n$4x + 6y = 9$\n$2x + cy = 7$",
   choices: [
-    { id: "A", text: "Zero" },
-    // distractor: assumes 3 equations in 3 unknowns always yield a unique solution
-    { id: "B", text: "Exactly one" },
-    // distractor: linear systems never have exactly two solutions
-    { id: "C", text: "Exactly two" },
-    // distractor: would be true if equation 3 were 2x+4y-2z = 10
-    { id: "D", text: "Infinitely many" }
+    // distractor: wrong base — gives the ratio of x-coefficients
+    { id: "A", text: "$2$" },
+    { id: "B", text: "$3$" },
+    // distractor: stops one step early — uses the y-coefficient from equation 1
+    { id: "C", text: "$6$" },
+    // distractor: applies the inverse operation — uses the right-side value of equation 2
+    { id: "D", text: "$7$" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Three-Equation Contradiction**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Equation 2 is $3 \\times$ Equation 1: $3(x+2y-z) = 3 \\cdot 5 = 15$ \\checkmark. Equation 3 should be $2 \\times$ Equation 1 if consistent: $2(x+2y-z) = 10$, but Equation 3 says $= 11$. Contradiction $\\Rightarrow$ zero solutions.\n\n**The Full Solution:**\nDivide Equation 2 by $3$: $x + 2y - z = 5$ (same as Equation 1) \\checkmark.\nDivide Equation 3 by $2$: $x + 2y - z = 5.5$.\nBut Equation 1 says $x + 2y - z = 5$. Since $5 \\neq 5.5$, the system is inconsistent.\n\nThere is NO triple $(x, y, z)$ that can satisfy both \"$x + 2y - z = 5$\" and \"$x + 2y - z = 5.5$\" simultaneously.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — assumes $3 \\times 3$ systems always have unique solutions.\n* Choice C: \"applies the inverse operation\" — linear systems never have exactly two solutions (zero, one, or infinitely many only).\n* Choice D: \"off-by-one\" — would be true if Equation 3's right side were $10$ instead of $11$.\n\n**Test Day Takeaway:** Check whether equations are scalar multiples of each other. Same left side but different right side $\\Rightarrow$ contradiction $\\Rightarrow$ zero solutions.",
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** No solution $\\Leftrightarrow$ same slope, different intercept $\\Leftrightarrow$ left-side coefficient ratios match but right-side ratio differs. $\\frac{4}{2} = \\frac{6}{c} = 2 \\Rightarrow c = 3$. Verify: $\\frac{9}{7} \\neq 2$ \\checkmark, so the lines are parallel and distinct.\n\n**The Full Solution:**\nFor a $2 \\times 2$ linear system $\\begin{cases} a_1 x + b_1 y = c_1 \\\\ a_2 x + b_2 y = c_2 \\end{cases}$:\n* No solution: $\\frac{a_1}{a_2} = \\frac{b_1}{b_2} \\neq \\frac{c_1}{c_2}$ (parallel, distinct lines).\n* Infinitely many: all three ratios equal (same line).\n* Exactly one: $\\frac{a_1}{a_2} \\neq \\frac{b_1}{b_2}$ (lines cross).\n\nHere $\\frac{4}{2} = 2$, so we need $\\frac{6}{c} = 2$, giving $c = 3$. The right-side ratio is $\\frac{9}{7} \\neq 2$, so the lines are parallel and distinct $\\Rightarrow$ no solution.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — reports the ratio $\\frac{4}{2} = 2$ instead of solving for $c$.\n* Choice C: \"stops one step early\" — uses the y-coefficient of equation 1 directly.\n* Choice D: \"applies the inverse operation\" — uses the right-side value of equation 2.\n\n**Test Day Takeaway:** No solution $\\Leftrightarrow$ ratios of $x$- and $y$-coefficients match, but constants don't. Set up $\\frac{a_1}{a_2} = \\frac{b_1}{b_2}$ and solve.",
   skills: ["systems-of-equations"]
 },
 {
@@ -705,10 +705,10 @@ export const practiceTest1 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "Consider the system of equations:\n\n$x + y + z = 12$\n$2x - y + z = 9$\n$x + 2y - z = 10$\n\nWhat is the value of $x + y$?",
-  correctAnswer: "9",
-  explanation: "**SAT Pattern: Three-Variable Elimination**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~30s):** Add equation 1 and equation 3 to eliminate $z$: $(x + y + z) + (x + 2y - z) = 12 + 10 \\Rightarrow 2x + 3y = 22$ ... ((A)). Add equation 2 and equation 3: $(2x - y + z) + (x + 2y - z) = 9 + 10 \\Rightarrow 3x + y = 19$ ... ((B)). Solve $\\{2x + 3y = 22, 3x + y = 19\\}$: from ((B)), $y = 19 - 3x$; substitute into ((A)): $2x + 3(19 - 3x) = 22 \\Rightarrow -7x = -35 \\Rightarrow x = 5$, then $y = 19 - 15 = 4$. So $x + y = 5 + 4 = 9$.\n\n**The Full Solution:**\nEliminate $z$ in two ways:\n* Equation 1 + Equation 3: $2x + 3y = 22$.\n* Equation 2 + Equation 3: $3x + y = 19$.\n\nFrom the second: $y = 19 - 3x$. Substitute into the first:\n$2x + 3(19 - 3x) = 22$\n$2x + 57 - 9x = 22$\n$-7x = -35 \\Rightarrow x = 5$\n$y = 19 - 3(5) = 4$\n$z = 12 - x - y = 12 - 5 - 4 = 3$.\n\nVerification: equation 1: $5 + 4 + 3 = 12$ \\checkmark; equation 2: $10 - 4 + 3 = 9$ \\checkmark; equation 3: $5 + 8 - 3 = 10$ \\checkmark.\n\nSo $x + y = 5 + 4 = 9$.\n\n**Common Mistakes to Avoid:**\n* Solving for each variable individually when only $x + y$ is needed — pick combinations that eliminate $z$ first.\n* Forgetting that any consistent linear system with three equations and three unknowns gives a UNIQUE solution.\n\n**Test Day Takeaway:** When the question asks for $x + y$, look for two equations that combine to eliminate $z$ — then solve the resulting two-variable system.",
-  skills: ["systems-of-equations", "word-problems"]
+  question: "Consider the system of equations:\n\n$2x + 3y = 17$\n$x + 4y = 11$\n\nWhat is the value of $x + y$?",
+  correctAnswer: "8",
+  explanation: "**SAT Pattern: Solve for a Combination**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~25s):** Subtract twice the second equation from the first to eliminate $x$: $(2x + 3y) - 2(x + 4y) = 17 - 22 \\Rightarrow -5y = -5 \\Rightarrow y = 1$. From equation 2: $x = 11 - 4 = 7$. So $x + y = 7 + 1 = 8$.\n\n**The Full Solution:**\nMultiply equation 2 by $2$: $2x + 8y = 22$.\nSubtract from equation 1: $(2x + 3y) - (2x + 8y) = 17 - 22 \\Rightarrow -5y = -5 \\Rightarrow y = 1$.\n\nSubstitute $y = 1$ into equation 2: $x + 4(1) = 11 \\Rightarrow x = 7$.\n\nVerification: equation 1: $2(7) + 3(1) = 14 + 3 = 17$ \\checkmark; equation 2: $7 + 4 = 11$ \\checkmark.\n\nSo $x + y = 7 + 1 = 8$.\n\n**Common Mistakes to Avoid:**\n* Adding equations directly without scaling — that gives $3x + 7y = 28$, no progress.\n* Solving for one variable correctly but reporting only $x$ ($= 7$) or only $y$ ($= 1$) instead of $x + y$.\n\n**Test Day Takeaway:** When the question asks for $x + y$ (or $x - y$, etc.), eliminate one variable using a single multiplication, then back-substitute. Don't always solve for $x$ and $y$ separately — sometimes a clever combination is faster.",
+  skills: ["systems-of-equations", "linear-functions"]
 },
 {
   id: 19,

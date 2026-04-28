@@ -108,7 +108,7 @@ export const practiceTest3 = {
     { id: "D", text: "$22{,}500$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.42 = 945$, so total $= 945 / 0.42 = 2{,}250$.\n\n**The Full Solution:**\nLet $T$ be the total number of members. Then $0.42 \\cdot T = 945$.\nDivide both sides by $0.42$: $T = \\dfrac{945}{0.42} = 2{,}250$.\n\nVerification: $42\\%$ of $2{,}250 = 0.42 \\cdot 2{,}250 = 945$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $945 \\cdot 0.42 \\approx 397$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.58$ (treats $945$ as the non-adult count).\n* Choice D: \"off-by-one / decimal slip\" — divides by $0.042$ instead of $0.42$.\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
+  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.42 = 945$, so total $= \\frac{945}{0.42} = 2{,}250$.\n\n**The Full Solution:**\nLet $T$ be the total number of members. Then $0.42 \\cdot T = 945$.\nDivide both sides by $0.42$: $T = \\dfrac{945}{0.42} = 2{,}250$.\n\nVerification: $42\\%$ of $2{,}250 = 0.42 \\cdot 2{,}250 = 945$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $945 \\cdot 0.42 \\approx 397$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.58$ (treats $945$ as the non-adult count).\n* Choice D: \"off-by-one / decimal slip\" — divides by $0.042$ instead of $0.42$.\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
   skills: ["percents", "word-problems"]
 },
 {
@@ -262,7 +262,7 @@ export const practiceTest3 = {
   band: 7,
   question: "If $\\left(\\dfrac{x^3}{\\sqrt{x}}\\right)^2 = x^k$ for $x > 0$, what is the value of $k$?",
   correctAnswer: "5",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~15s):** Inside: $\\dfrac{x^3}{x^{1/2}} = x^{3 - 1/2} = x^{5/2}$. Then $(x^{5/2})^2 = x^5$. So $k = 5$.\n\n**The Full Solution:**\nSimplify inside the parentheses:\n$\\dfrac{x^3}{\\sqrt{x}} = \\dfrac{x^3}{x^{1/2}} = x^{3 - 1/2} = x^{5/2}$\n\nRaise to the power of $2$:\n$(x^{5/2})^2 = x^{(5/2) \\cdot 2} = x^5$\n\nSo $k = 5$.\n\n**Common Mistakes to Avoid:**\n* Writing $\\sqrt{x} = x^2$ instead of $x^{1/2}$.\n* Adding exponents when dividing (should subtract) or adding when raising to a power (should multiply).\n\n**Verification:** $\\left(\\dfrac{x^3}{\\sqrt{x}}\\right)^2 = \\left(x^{5/2}\\right)^2 = x^5$ \\checkmark.\n\n**Test Day Takeaway:** When simplifying nested exponents: first simplify inside parentheses using division (subtract exponents), then apply the outer exponent (multiply).",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~15s):** Inside: $\\dfrac{x^3}{x^{\\frac{1}{2}}} = x^{3 - \\frac{1}{2}} = x^{\\frac{5}{2}}$. Then $(x^{\\frac{5}{2}})^2 = x^5$. So $k = 5$.\n\n**The Full Solution:**\nSimplify inside the parentheses:\n$\\dfrac{x^3}{\\sqrt{x}} = \\dfrac{x^3}{x^{\\frac{1}{2}}} = x^{3 - \\frac{1}{2}} = x^{\\frac{5}{2}}$\n\nRaise to the power of $2$:\n$(x^{\\frac{5}{2}})^2 = x^{(\\frac{5}{2}) \\cdot 2} = x^5$\n\nSo $k = 5$.\n\n**Common Mistakes to Avoid:**\n* Writing $\\sqrt{x} = x^2$ instead of $x^{\\frac{1}{2}}$.\n* Adding exponents when dividing (should subtract) or adding when raising to a power (should multiply).\n\n**Verification:** $\\left(\\dfrac{x^3}{\\sqrt{x}}\\right)^2 = \\left(x^{\\frac{5}{2}}\\right)^2 = x^5$ \\checkmark.\n\n**Test Day Takeaway:** When simplifying nested exponents: first simplify inside parentheses using division (subtract exponents), then apply the outer exponent (multiply).",
   skills: ["exponent-rules", "radical-expressions"]
 },
 {
@@ -524,18 +524,18 @@ export const practiceTest3 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "Consider the system of equations.\n\n$2x - y + 3z = 8$\n$4x - 2y + 6z = 16$\n$6x - 3y + 9z = 24$\n\nHow many solutions $(x, y, z)$ does this system have?",
+  question: "In the system of equations below, $a$ and $b$ are constants. The system has infinitely many solutions $(x, y)$. What is the value of $a + b$?\n\n$2x + 3y = 7$\n$ax + 9y = b$",
   choices: [
-    // distractor: assumes system is inconsistent (it's actually consistent and dependent)
-    { id: "A", text: "Zero" },
-    // distractor: assumes 3 equations in 3 unknowns always yield a unique solution
-    { id: "B", text: "Exactly one" },
-    // distractor: linear systems never have exactly three solutions
-    { id: "C", text: "Exactly three" },
-    { id: "D", text: "Infinitely many" }
+    // distractor: stops one step early — gives just a (= 6)
+    { id: "A", text: "$6$" },
+    // distractor: stops one step early — gives just b (= 21)
+    { id: "B", text: "$21$" },
+    { id: "C", text: "$27$" },
+    // distractor: wrong base — adds the visible coefficients 9 + 3
+    { id: "D", text: "$12$" }
   ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Counting Solutions — Dependent System**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Equation 2 $= 2 \\times$ Equation 1: $2(2x - y + 3z) = 2(8) = 16$ \\checkmark. Equation 3 $= 3 \\times$ Equation 1: $3(2x - y + 3z) = 3(8) = 24$ \\checkmark. All three equations are multiples of the same equation, so there's really only $1$ independent equation in $3$ unknowns $\\to$ infinitely many solutions.\n\n**The Full Solution:**\nDivide Eq 2 by $2$: $2x - y + 3z = 8$ (same as Eq 1).\nDivide Eq 3 by $3$: $2x - y + 3z = 8$ (same as Eq 1).\nAll three equations are equivalent. One equation in three unknowns has infinitely many solutions.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — assumes inconsistency (the system is actually consistent and dependent).\n* Choice B: \"wrong base\" — assumes $3 \\times 3$ systems always have unique solutions.\n* Choice C: \"off-by-one\" — linear systems can have $0$, $1$, or infinitely many solutions, never exactly $3$.\n\n**Test Day Takeaway:** If all equations reduce to the same equation, the system is dependent (infinitely many solutions). Compare by dividing each equation by its leading coefficient.",
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Same Line (Infinitely Many Solutions)**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Infinitely many solutions $\\Leftrightarrow$ the two equations represent the same line. Multiply equation 1 by $3$: $6x + 9y = 21$. Match against $ax + 9y = b$: $a = 6$, $b = 21$. So $a + b = 27$.\n\n**The Full Solution:**\nFor the system to have infinitely many solutions, the equations must be proportional — equation 2 must be a scalar multiple of equation 1.\n\nThe $y$-coefficient in equation 1 is $3$; in equation 2 it is $9$. The scaling factor is $\\frac{9}{3} = 3$.\n\nApply the same scaling to the other terms: $a = 3 \\cdot 2 = 6$ and $b = 3 \\cdot 7 = 21$.\n\nVerify: $3 \\cdot (2x + 3y) = 6x + 9y$ and $3 \\cdot 7 = 21$. So $6x + 9y = 21$ matches $ax + 9y = b$ with $a = 6$, $b = 21$ \\checkmark.\n\n$a + b = 6 + 21 = 27$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reports just $a$ without adding $b$.\n* Choice B: \"stops one step early\" — reports just $b$ without adding $a$.\n* Choice D: \"wrong base\" — adds the $y$-coefficients $3 + 9 = 12$ instead of solving for $a$ and $b$.\n\n**Test Day Takeaway:** Infinitely many solutions $\\Leftrightarrow$ all three ratios match: $\\frac{a_1}{a_2} = \\frac{b_1}{b_2} = \\frac{c_1}{c_2}$. Find the scale factor from the easiest pair, then apply it everywhere.",
   skills: ["systems-of-equations"]
 },
 {
@@ -619,19 +619,19 @@ export const practiceTest3 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "Consider the system of equations:\n\n$x + y + z = 12$\n$2x - y + z = 10$\n$x + 2y - z = 5$\n\nWhat is the value of $2x - z$?",
-  correctAnswer: "3",
-  explanation: "**SAT Pattern: Three-Variable Elimination**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~30s):** Add equation 1 and equation 3 to eliminate $z$: $(x + y + z) + (x + 2y - z) = 12 + 5 \\Rightarrow 2x + 3y = 17$ ... ((A)). Add equation 2 and equation 3: $(2x - y + z) + (x + 2y - z) = 10 + 5 \\Rightarrow 3x + y = 15$ ... ((B)). From ((B)): $y = 15 - 3x$. Substitute into ((A)): $2x + 3(15 - 3x) = 17 \\Rightarrow -7x = -28 \\Rightarrow x = 4$. Then $y = 15 - 12 = 3$, and $z = 12 - 4 - 3 = 5$. So $2x - z = 8 - 5 = 3$.\n\n**The Full Solution:**\nEliminate $z$ in two ways:\n* Equation 1 + Equation 3: $2x + 3y = 17$.\n* Equation 2 + Equation 3: $3x + y = 15$.\n\nFrom the second: $y = 15 - 3x$. Substitute into the first:\n$2x + 3(15 - 3x) = 17$\n$2x + 45 - 9x = 17$\n$-7x = -28 \\Rightarrow x = 4$\n$y = 15 - 3(4) = 3$\n$z = 12 - x - y = 12 - 4 - 3 = 5$.\n\nVerification: equation 1: $4 + 3 + 5 = 12$ \\checkmark; equation 2: $8 - 3 + 5 = 10$ \\checkmark; equation 3: $4 + 6 - 5 = 5$ \\checkmark.\n\nSo $2x - z = 2(4) - 5 = 3$.\n\n**Common Mistakes to Avoid:**\n* Solving for each variable individually when only $2x - z$ is needed — eliminate to find $x$ and $z$ first.\n* Forgetting which two equations to add for the cleanest elimination.\n\n**Test Day Takeaway:** When the question asks for a specific combination like $2x - z$, look for elimination paths that naturally produce that combination, or solve the system fully and substitute at the end.",
-  skills: ["systems-of-equations", "word-problems"]
+  question: "Consider the system of equations:\n\n$3x + 4y = 18$\n$5x + 2y = 16$\n\nWhat is the value of $x + y$?",
+  correctAnswer: "5",
+  explanation: "**SAT Pattern: Solve for a Combination**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~25s):** Multiply equation 2 by $2$: $10x + 4y = 32$. Subtract equation 1: $7x = 14 \\Rightarrow x = 2$. From equation 1: $4y = 18 - 6 = 12 \\Rightarrow y = 3$. So $x + y = 2 + 3 = 5$.\n\n**The Full Solution:**\nMultiply equation 2 by $2$ to match the $y$-coefficient of equation 1: $10x + 4y = 32$.\nSubtract equation 1 from this: $(10x + 4y) - (3x + 4y) = 32 - 18 \\Rightarrow 7x = 14 \\Rightarrow x = 2$.\n\nSubstitute $x = 2$ into equation 2: $5(2) + 2y = 16 \\Rightarrow 2y = 6 \\Rightarrow y = 3$.\n\nVerification: equation 1: $3(2) + 4(3) = 6 + 12 = 18$ \\checkmark; equation 2: $5(2) + 2(3) = 10 + 6 = 16$ \\checkmark.\n\nSo $x + y = 2 + 3 = 5$.\n\n**Common Mistakes to Avoid:**\n* Stopping after solving for $x$ alone ($= 2$) and reporting that as the answer.\n* Sign errors when subtracting equations — line up like terms carefully.\n\n**Test Day Takeaway:** To solve a $2 \\times 2$ system, scale one equation so the coefficients of one variable match (or are opposites), then add or subtract to eliminate.",
+  skills: ["systems-of-equations", "linear-functions"]
 },
 {
   id: 13,
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "A radioactive substance decays according to $A(t) = 200(0.84)^{t/3}$, where $A(t)$ is the amount in grams and $t$ is the time in years. By what percent does the substance decay every $3$ years?",
+  question: "A radioactive substance decays according to $A(t) = 200(0.84)^{\\frac{t}{3}}$, where $A(t)$ is the amount in grams and $t$ is the time in years. By what percent does the substance decay every $3$ years?",
   correctAnswer: "16",
-  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**The correct answer is $16$.**\n\n**The Fast Way (~15s):** Every $3$ years, the multiplier is $0.84$. Percent decay $= 1 - 0.84 = 0.16 = 16\\%$.\n\n**The Full Solution:**\nWhen $t$ increases by $3$:\n$A(t+3) = 200(0.84)^{(t+3)/3} = 200(0.84)^{t/3} \\cdot 0.84 = 0.84 \\cdot A(t)$.\nEvery $3$ years, the amount is multiplied by $0.84$.\nPercent decay $= 1 - 0.84 = 0.16 = 16\\%$.\n\n**Verification:** At $t = 0$: $A = 200$. At $t = 3$: $A = 200(0.84) = 168$.\nDecrease: $\\dfrac{200 - 168}{200} = \\dfrac{32}{200} = 0.16 = 16\\%$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $84$ (the retention factor, not the decay rate).\n* Finding the annual rate instead of the $3$-year rate.\n\n**Test Day Takeaway:** A decay multiplier $b < 1$ over period $d$ means the percent decrease per period is $(1 - b) \\times 100\\%$.",
+  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**The correct answer is $16$.**\n\n**The Fast Way (~15s):** Every $3$ years, the multiplier is $0.84$. Percent decay $= 1 - 0.84 = 0.16 = 16\\%$.\n\n**The Full Solution:**\nWhen $t$ increases by $3$:\n$A(t+3) = 200(0.84)^{\\frac{t+3}{3}} = 200(0.84)^{\\frac{t}{3}} \\cdot 0.84 = 0.84 \\cdot A(t)$.\nEvery $3$ years, the amount is multiplied by $0.84$.\nPercent decay $= 1 - 0.84 = 0.16 = 16\\%$.\n\n**Verification:** At $t = 0$: $A = 200$. At $t = 3$: $A = 200(0.84) = 168$.\nDecrease: $\\dfrac{200 - 168}{200} = \\dfrac{32}{200} = 0.16 = 16\\%$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $84$ (the retention factor, not the decay rate).\n* Finding the annual rate instead of the $3$-year rate.\n\n**Test Day Takeaway:** A decay multiplier $b < 1$ over period $d$ means the percent decrease per period is $(1 - b) \\times 100\\%$.",
   skills: ["exponential-functions", "percents"]
 },
 {
@@ -725,7 +725,7 @@ export const practiceTest3 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "If $x > 0$, the expression $\\sqrt[4]{x^3} \\cdot \\sqrt[3]{x^5}$ is equivalent to $x^{p/q}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
+  question: "If $x > 0$, the expression $\\sqrt[4]{x^3} \\cdot \\sqrt[3]{x^5}$ is equivalent to $x^{\\frac{p}{q}}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
   choices: [
     // distractor: gives p alone (29) without adding q
     { id: "A", text: "$29$" },
@@ -736,7 +736,7 @@ export const practiceTest3 = {
     { id: "D", text: "$15$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[4]{x^3} = x^{3/4}$. $\\sqrt[3]{x^5} = x^{5/3}$. Add: $\\dfrac{3}{4} + \\dfrac{5}{3} = \\dfrac{9}{12} + \\dfrac{20}{12} = \\dfrac{29}{12}$. So $p + q = 29 + 12 = 41$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[4]{x^3} = x^{3/4}, \\quad \\sqrt[3]{x^5} = x^{5/3}$\n\nWhen multiplying same bases, add exponents:\n$x^{3/4} \\cdot x^{5/3} = x^{3/4 + 5/3} = x^{(9 + 20)/12} = x^{29/12}$\n\n$\\gcd(29, 12) = 1$, so $\\dfrac{29}{12}$ is already in lowest terms. Then $p = 29$, $q = 12$, and $p + q = 41$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 29$, forgetting to add $q$.\n* Choice B: \"applies the inverse operation\" — sums the radical exponents directly ($3 + 5 = 8$) instead of converting to fractional exponents.\n* Choice D: \"wrong base\" — sums all the integers visible in the expression ($4 + 3 + 5 + 3 = 15$).\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{m/n}$ — power on top, root on the bottom. Add fractional exponents when multiplying same bases.",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[4]{x^3} = x^{\\frac{3}{4}}$. $\\sqrt[3]{x^5} = x^{\\frac{5}{3}}$. Add: $\\dfrac{3}{4} + \\dfrac{5}{3} = \\dfrac{9}{12} + \\dfrac{20}{12} = \\dfrac{29}{12}$. So $p + q = 29 + 12 = 41$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[4]{x^3} = x^{\\frac{3}{4}}, \\quad \\sqrt[3]{x^5} = x^{\\frac{5}{3}}$\n\nWhen multiplying same bases, add exponents:\n$x^{\\frac{3}{4}} \\cdot x^{\\frac{5}{3}} = x^{\\frac{3}{4} + \\frac{5}{3}} = x^{\\frac{9 + 20}{12}} = x^{\\frac{29}{12}}$\n\n$\\gcd(29, 12) = 1$, so $\\dfrac{29}{12}$ is already in lowest terms. Then $p = 29$, $q = 12$, and $p + q = 41$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 29$, forgetting to add $q$.\n* Choice B: \"applies the inverse operation\" — sums the radical exponents directly ($3 + 5 = 8$) instead of converting to fractional exponents.\n* Choice D: \"wrong base\" — sums all the integers visible in the expression ($4 + 3 + 5 + 3 = 15$).\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{\\frac{m}{n}}$ — power on top, root on the bottom. Add fractional exponents when multiplying same bases.",
   skills: ["polynomial-operations", "exponent-rules", "radical-expressions"]
 },
 {
@@ -801,7 +801,7 @@ export const practiceTest3 = {
     { id: "D", text: "$154$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Total $= 4r + r + (r + 35) = 6r + 35 = 617$. So $6r = 582$ and $r = 97$.\n\n**The Full Solution:**\nLet $r$ be the number of $6$-inch rods.\nNumber of $11$-inch rods: $4r$.\nNumber of $3$-inch rods: $r + 35$.\n\nTotal: $4r + r + (r + 35) = 6r + 35 = 617$.\n$6r = 582 \\Rightarrow r = 97$.\n\nVerification: $4(97) + 97 + (97 + 35) = 388 + 97 + 132 = 617$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — divides $617$ by $6$ ignoring the offset.\n* Choice C: \"applies the inverse operation\" — uses $(617 - 35)/4 = 145.5 \\approx 145$ instead of dividing by $6$.\n* Choice D: \"stops one step early\" — divides $617/4$ ignoring both the offset and the additional rod counts.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$35$ more than\".",
+  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Total $= 4r + r + (r + 35) = 6r + 35 = 617$. So $6r = 582$ and $r = 97$.\n\n**The Full Solution:**\nLet $r$ be the number of $6$-inch rods.\nNumber of $11$-inch rods: $4r$.\nNumber of $3$-inch rods: $r + 35$.\n\nTotal: $4r + r + (r + 35) = 6r + 35 = 617$.\n$6r = 582 \\Rightarrow r = 97$.\n\nVerification: $4(97) + 97 + (97 + 35) = 388 + 97 + 132 = 617$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — divides $617$ by $6$ ignoring the offset.\n* Choice C: \"applies the inverse operation\" — uses $\\frac{617 - 35}{4} = 145.5 \\approx 145$ instead of dividing by $6$.\n* Choice D: \"stops one step early\" — divides $\\frac{617}{4}$ ignoring both the offset and the additional rod counts.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$35$ more than\".",
   skills: ["word-problems", "ratios"]
 }
       ]

@@ -83,14 +83,14 @@ export const practiceTest8 = {
   choices: [
     // distractor: applies the percent forward — $1820 \times 0.35 = 637$
     { id: "A", text: "$637$" },
-    // distractor: divides by the complement: $1820 / 0.65 \approx 2{,}800$
+    // distractor: divides by the complement: $\\frac{1820}{0.65} \approx 2{,}800$
     { id: "B", text: "$2{,}800$" },
     { id: "C", text: "$5{,}200$" },
     // distractor: divides by $0.035$ instead of $0.35$ (decimal-place slip)
     { id: "D", text: "$52{,}000$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.35 = 1{,}820$, so total $= 1{,}820 / 0.35 = 5{,}200$.\n\n**The Full Solution:**\nLet $T$ be the total number of books. Then $0.35 \\cdot T = 1{,}820$.\nDivide both sides by $0.35$: $T = \\dfrac{1{,}820}{0.35} = 5{,}200$.\n\nVerification: $35\\%$ of $5{,}200 = 0.35 \\cdot 5{,}200 = 1{,}820$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $1{,}820 \\cdot 0.35 = 637$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.65$ (treats $1{,}820$ as the non-paperback count).\n* Choice D: \"off-by-one / decimal slip\" — divides by $0.035$ instead of $0.35$.\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
+  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.35 = 1{,}820$, so total $= \\frac{1{,}820}{0.35} = 5{,}200$.\n\n**The Full Solution:**\nLet $T$ be the total number of books. Then $0.35 \\cdot T = 1{,}820$.\nDivide both sides by $0.35$: $T = \\dfrac{1{,}820}{0.35} = 5{,}200$.\n\nVerification: $35\\%$ of $5{,}200 = 0.35 \\cdot 5{,}200 = 1{,}820$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $1{,}820 \\cdot 0.35 = 637$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.65$ (treats $1{,}820$ as the non-paperback count).\n* Choice D: \"off-by-one / decimal slip\" — divides by $0.035$ instead of $0.35$.\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
   skills: ["percents"]
 },
 {
@@ -119,7 +119,7 @@ export const practiceTest8 = {
   band: 5,
   question: "A data set consists of $8$ positive integers. Seven of these integers are listed below.\n\n$31, 38, 35, 42, 40, 33, 37$\n\nThe mean of the eight integers is $36$. What is the value of the eighth integer?",
   correctAnswer: "32",
-  explanation: "**SAT Pattern: Mean from List**\n\n**The correct answer is $32$.**\n\n**The Fast Way (~15s):** Sum of all $8$ values $= 8 \\cdot 36 = 288$. Sum of the $7$ listed: $31 + 38 + 35 + 42 + 40 + 33 + 37 = 256$. Eighth value $= 288 - 256 = 32$.\n\n**The Full Solution:**\nIf the mean of $8$ values is $36$, the total sum is $8 \\cdot 36 = 288$.\nAdd the seven listed integers: $31 + 38 + 35 + 42 + 40 + 33 + 37 = 256$.\nThe eighth integer $= 288 - 256 = 32$.\n\nVerification: $(256 + 32) / 8 = 288 / 8 = 36$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Dividing $256$ by $7$ instead of using the target total.\n* Computing $36 - 32 = 4$ and reporting that.\n\n**Test Day Takeaway:** Mean $\\times$ count $=$ total. Subtract the known sum from the total to find a missing value.",
+  explanation: "**SAT Pattern: Mean from List**\n\n**The correct answer is $32$.**\n\n**The Fast Way (~15s):** Sum of all $8$ values $= 8 \\cdot 36 = 288$. Sum of the $7$ listed: $31 + 38 + 35 + 42 + 40 + 33 + 37 = 256$. Eighth value $= 288 - 256 = 32$.\n\n**The Full Solution:**\nIf the mean of $8$ values is $36$, the total sum is $8 \\cdot 36 = 288$.\nAdd the seven listed integers: $31 + 38 + 35 + 42 + 40 + 33 + 37 = 256$.\nThe eighth integer $= 288 - 256 = 32$.\n\nVerification: $\\frac{256 + 32}{8} = \\frac{288}{8} = 36$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Dividing $256$ by $7$ instead of using the target total.\n* Computing $36 - 32 = 4$ and reporting that.\n\n**Test Day Takeaway:** Mean $\\times$ count $=$ total. Subtract the known sum from the total to find a missing value.",
   skills: ["statistics"]
 },
 {
@@ -212,7 +212,7 @@ export const practiceTest8 = {
     { id: "D", text: "$63\\%$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Two-Way Table Conditional Probability**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Pet owners total $= 86$. Apartment pet owners $= 32$. Percentage $= \\dfrac{32}{86} \\approx 0.372 \\approx 37\\%$.\n\n**The Full Solution:**\n\"Of pet owners\" restricts to the \"Owns a Pet\" column, total $= 86$.\nApartment pet owners $= 32$.\nPercentage $= \\dfrac{32}{86} \\times 100 \\approx 37.2\\% \\approx 37\\%$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses total surveyed ($150$) as denominator: $32/150 \\approx 21\\%$.\n* Choice C: \"wrong base\" — uses apartment row total ($80$) as denominator: $32/80 = 40\\%$.\n* Choice D: \"applies the inverse operation\" — computes house pet owners $/$ pet owners: $54/86 \\approx 63\\%$.\n\n**Test Day Takeaway:** \"Of [group]\" means that group's total is the denominator.",
+  explanation: "**SAT Pattern: Two-Way Table Conditional Probability**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Pet owners total $= 86$. Apartment pet owners $= 32$. Percentage $= \\dfrac{32}{86} \\approx 0.372 \\approx 37\\%$.\n\n**The Full Solution:**\n\"Of pet owners\" restricts to the \"Owns a Pet\" column, total $= 86$.\nApartment pet owners $= 32$.\nPercentage $= \\dfrac{32}{86} \\times 100 \\approx 37.2\\% \\approx 37\\%$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses total surveyed ($150$) as denominator: $\\frac{32}{150} \\approx 21\\%$.\n* Choice C: \"wrong base\" — uses apartment row total ($80$) as denominator: $\\frac{32}{80} = 40\\%$.\n* Choice D: \"applies the inverse operation\" — computes house pet owners $/$ pet owners: $\\frac{54}{86} \\approx 63\\%$.\n\n**Test Day Takeaway:** \"Of [group]\" means that group's total is the denominator.",
   skills: ["two-way-tables", "percents", "probability"]
 },
 {
@@ -294,7 +294,7 @@ export const practiceTest8 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "If $\\sqrt[3]{x^2} = 4$ and $x > 0$, what is the value of $x^{1/3}$?",
+  question: "If $\\sqrt[3]{x^2} = 4$ and $x > 0$, what is the value of $x^{\\frac{1}{3}}$?",
   choices: [
     { id: "A", text: "$2$" },
     // distractor: confuses exponent operations
@@ -305,7 +305,7 @@ export const practiceTest8 = {
     { id: "D", text: "$2\\sqrt{2}$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $\\sqrt[3]{x^2} = x^{2/3} = 4$. So $x^{1/3} = (x^{2/3})^{1/2} = 4^{1/2} = 2$.\n\n**The Full Solution:**\n$\\sqrt[3]{x^2} = x^{2/3} = 4$.\nWe want $x^{1/3}$. Since $\\dfrac{1}{3} = \\dfrac{1}{2} \\cdot \\dfrac{2}{3}$:\n$x^{1/3} = (x^{2/3})^{1/2} = 4^{1/2} = 2$.\n\nAlternatively: $x^{2/3} = 4 \\Rightarrow x = 4^{3/2} = 8$. Then $x^{1/3} = 8^{1/3} = 2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"applies the inverse operation\" — confuses exponent operations.\n* Choice C: \"stops one step early\" — thinks $x^{1/3}$ equals $x^{2/3}$.\n* Choice D: \"wrong base\" — finds $x^{1/2} = 8^{1/2} = 2\\sqrt{2}$ instead of $x^{1/3}$.\n\n**Test Day Takeaway:** Express the target exponent as a fraction of the known exponent, then use power rules.",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $\\sqrt[3]{x^2} = x^{\\frac{2}{3}} = 4$. So $x^{\\frac{1}{3}} = (x^{\\frac{2}{3}})^{\\frac{1}{2}} = 4^{\\frac{1}{2}} = 2$.\n\n**The Full Solution:**\n$\\sqrt[3]{x^2} = x^{\\frac{2}{3}} = 4$.\nWe want $x^{\\frac{1}{3}}$. Since $\\dfrac{1}{3} = \\dfrac{1}{2} \\cdot \\dfrac{2}{3}$:\n$x^{\\frac{1}{3}} = (x^{\\frac{2}{3}})^{\\frac{1}{2}} = 4^{\\frac{1}{2}} = 2$.\n\nAlternatively: $x^{\\frac{2}{3}} = 4 \\Rightarrow x = 4^{\\frac{3}{2}} = 8$. Then $x^{\\frac{1}{3}} = 8^{\\frac{1}{3}} = 2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"applies the inverse operation\" — confuses exponent operations.\n* Choice C: \"stops one step early\" — thinks $x^{\\frac{1}{3}}$ equals $x^{\\frac{2}{3}}$.\n* Choice D: \"wrong base\" — finds $x^{\\frac{1}{2}} = 8^{\\frac{1}{2}} = 2\\sqrt{2}$ instead of $x^{\\frac{1}{3}}$.\n\n**Test Day Takeaway:** Express the target exponent as a fraction of the known exponent, then use power rules.",
   skills: ["exponent-rules", "radical-expressions"]
 },
 {
@@ -514,7 +514,7 @@ export const practiceTest8 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "If $x > 0$, the expression $\\sqrt[4]{x^3} \\cdot \\sqrt{x^7}$ is equivalent to $x^{p/q}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
+  question: "If $x > 0$, the expression $\\sqrt[4]{x^3} \\cdot \\sqrt{x^7}$ is equivalent to $x^{\\frac{p}{q}}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
   choices: [
     // distractor: stops at the numerator p alone (= 17)
     { id: "A", text: "$17$" },
@@ -525,7 +525,7 @@ export const practiceTest8 = {
     { id: "D", text: "$14$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[4]{x^3} = x^{3/4}$, $\\sqrt{x^7} = x^{7/2}$. Sum: $\\dfrac{3}{4} + \\dfrac{7}{2} = \\dfrac{3}{4} + \\dfrac{14}{4} = \\dfrac{17}{4}$. So $p + q = 17 + 4 = 21$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[4]{x^3} = x^{3/4}, \\quad \\sqrt{x^7} = x^{7/2}$\n\nMultiply same bases (add exponents):\n$x^{3/4} \\cdot x^{7/2} = x^{3/4 + 14/4} = x^{17/4}$\n\n$\\gcd(17, 4) = 1$, so $\\dfrac{17}{4}$ is already in lowest terms. Then $p = 17$, $q = 4$, and $p + q = 21$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 17$, forgetting to add $q$.\n* Choice B: \"applies the inverse operation\" — sums radical exponents and indices ($3 + 7 = 10$) instead of converting to fractions.\n* Choice D: \"wrong base\" — sums all the integers in the expression ($3 + 4 + 7 = 14$).\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{m/n}$. Add fractional exponents when multiplying same bases; report $p + q$ once the fraction is in lowest terms.",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[4]{x^3} = x^{\\frac{3}{4}}$, $\\sqrt{x^7} = x^{\\frac{7}{2}}$. Sum: $\\dfrac{3}{4} + \\dfrac{7}{2} = \\dfrac{3}{4} + \\dfrac{14}{4} = \\dfrac{17}{4}$. So $p + q = 17 + 4 = 21$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[4]{x^3} = x^{\\frac{3}{4}}, \\quad \\sqrt{x^7} = x^{\\frac{7}{2}}$\n\nMultiply same bases (add exponents):\n$x^{\\frac{3}{4}} \\cdot x^{\\frac{7}{2}} = x^{\\frac{3}{4} + \\frac{14}{4}} = x^{\\frac{17}{4}}$\n\n$\\gcd(17, 4) = 1$, so $\\dfrac{17}{4}$ is already in lowest terms. Then $p = 17$, $q = 4$, and $p + q = 21$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 17$, forgetting to add $q$.\n* Choice B: \"applies the inverse operation\" — sums radical exponents and indices ($3 + 7 = 10$) instead of converting to fractions.\n* Choice D: \"wrong base\" — sums all the integers in the expression ($3 + 4 + 7 = 14$).\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{\\frac{m}{n}}$. Add fractional exponents when multiplying same bases; report $p + q$ once the fraction is in lowest terms.",
   skills: ["exponent-rules", "radical-expressions"]
 },
 {
@@ -645,7 +645,7 @@ export const practiceTest8 = {
   band: 7,
   question: "The table below shows the results of a survey of $250$ employees about their commute method and department.\n\n| | Car | Public Transit | Bike | Total |\n|---|---|---|---|---|\n| Marketing | $40$ | $25$ | $10$ | $75$ |\n| Engineering | $30$ | $45$ | $25$ | $100$ |\n| Sales | $50$ | $15$ | $10$ | $75$ |\n| Total | $120$ | $85$ | $45$ | $250$ |\n\nIf one employee who uses public transit OR bikes is selected at random, what is the probability that the employee works in Engineering? Round to the nearest hundredth.",
   correctAnswer: "0.54",
-  explanation: "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**The correct answer is $0.54$.**\n\n**The Fast Way (~25s):** Public transit OR bike total $= 85 + 45 = 130$. Engineering employees in those columns $= 45 + 25 = 70$. Probability $= \\dfrac{70}{130} \\approx 0.538 \\approx 0.54$.\n\n**The Full Solution:**\nGiven: an employee uses public transit OR bikes. Restrict the sample space to those columns.\nTotal in restricted set: $85 + 45 = 130$.\nFavorable (Engineering AND in restricted set): $45 + 25 = 70$.\nProbability $= \\dfrac{70}{130} = \\dfrac{7}{13} \\approx 0.5385 \\approx 0.54$.\n\n**Common Mistakes to Avoid:**\n* Using $250$ as the denominator: gives $70/250 = 0.28$.\n* Using only one column (e.g., only public transit): gives $45/85 \\approx 0.53$, very close numerically.\n\n**Test Day Takeaway:** \"Given X OR Y\" means restrict the denominator to the union of those subsets. The numerator is the favorable count within that union.",
+  explanation: "**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**The correct answer is $0.54$.**\n\n**The Fast Way (~25s):** Public transit OR bike total $= 85 + 45 = 130$. Engineering employees in those columns $= 45 + 25 = 70$. Probability $= \\dfrac{70}{130} \\approx 0.538 \\approx 0.54$.\n\n**The Full Solution:**\nGiven: an employee uses public transit OR bikes. Restrict the sample space to those columns.\nTotal in restricted set: $85 + 45 = 130$.\nFavorable (Engineering AND in restricted set): $45 + 25 = 70$.\nProbability $= \\dfrac{70}{130} = \\dfrac{7}{13} \\approx 0.5385 \\approx 0.54$.\n\n**Common Mistakes to Avoid:**\n* Using $250$ as the denominator: gives $\\frac{70}{250} = 0.28$.\n* Using only one column (e.g., only public transit): gives $\\frac{45}{85} \\approx 0.53$, very close numerically.\n\n**Test Day Takeaway:** \"Given X OR Y\" means restrict the denominator to the union of those subsets. The numerator is the favorable count within that union.",
   skills: ["two-way-tables", "probability"]
 },
 {
@@ -653,19 +653,19 @@ export const practiceTest8 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "Consider the system of equations.\n\n$2x + 4y - 6z = 8$\n$x + 2y - 3z = 4$\n$3x + 6y - 9z = 13$\n\nHow many solutions $(x, y, z)$ does this system have?",
+  question: "A theater sells two types of tickets to a show: adult tickets at $\\$12$ each and child tickets at $\\$8$ each. On a particular evening, $250$ tickets were sold for a total of $\\$2{,}680$. How many adult tickets were sold?",
   choices: [
-    { id: "A", text: "Zero" },
-    // distractor: assumes 3-eq 3-unknown systems always have a unique solution
-    { id: "B", text: "Exactly one" },
-    // distractor: linear systems never have exactly two solutions
-    { id: "C", text: "Exactly two" },
-    // distractor: would be true if equation 3 were 3x + 6y - 9z = 12
-    { id: "D", text: "Infinitely many" }
+    // distractor: stops one step early — number of child tickets
+    { id: "A", text: "$80$" },
+    // distractor: wrong base — uses average price (\\$10.72) ignoring system constraints
+    { id: "B", text: "$120$" },
+    { id: "C", text: "$170$" },
+    // distractor: applies the inverse operation — reports total tickets instead of adult tickets
+    { id: "D", text: "$250$" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Three-Equation Contradiction**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Equation 1 is $2 \\times$ Equation 2: $2(x + 2y - 3z) = 2 \\cdot 4 = 8$ \\checkmark. Equation 3 should be $3 \\times$ Equation 2 if consistent: $3(x + 2y - 3z) = 12$, but Equation 3 says $= 13$. Contradiction $\\Rightarrow$ zero solutions.\n\n**The Full Solution:**\nDivide Equation 1 by $2$: $x + 2y - 3z = 4$ (same as Equation 2) \\checkmark.\nDivide Equation 3 by $3$: $x + 2y - 3z = \\dfrac{13}{3} \\approx 4.33$.\nBut Equation 2 says $x + 2y - 3z = 4$. Since $4 \\neq \\dfrac{13}{3}$, the system is inconsistent.\n\nThere is NO triple $(x, y, z)$ that can satisfy both \"$x + 2y - 3z = 4$\" and \"$x + 2y - 3z = \\dfrac{13}{3}$\" simultaneously.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — assumes $3 \\times 3$ systems always have unique solutions.\n* Choice C: \"applies the inverse operation\" — linear systems never have exactly two solutions (zero, one, or infinitely many only).\n* Choice D: \"off-by-one\" — would be true if Equation 3's right side were $12$ instead of $13$.\n\n**Test Day Takeaway:** Check whether the three equations are scalar multiples. Same left side but different right side $\\Rightarrow$ contradiction $\\Rightarrow$ zero solutions.",
-  skills: ["systems-of-equations"]
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Let $a$ = adult tickets, $c$ = child tickets. Then $a + c = 250$ and $12a + 8c = 2680$. Substitute $c = 250 - a$: $12a + 8(250 - a) = 2680 \\Rightarrow 4a = 680 \\Rightarrow a = 170$.\n\n**The Full Solution:**\nLet $a$ be the number of adult tickets and $c$ be the number of child tickets.\n\nTotal tickets: $a + c = 250$.\nTotal revenue: $12a + 8c = 2680$.\n\nSolve by substitution. From the first equation: $c = 250 - a$. Substitute into the second:\n$12a + 8(250 - a) = 2680$\n$12a + 2000 - 8a = 2680$\n$4a = 680$\n$a = 170$.\n\nThen $c = 250 - 170 = 80$.\n\nVerification: $170 + 80 = 250$ tickets \\checkmark; $12(170) + 8(80) = 2040 + 640 = 2680$ dollars \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the number of child tickets ($80$) instead of adult tickets ($170$).\n* Choice B: \"wrong base\" — comes from dividing $2680$ by an average price guess.\n* Choice D: \"applies the inverse operation\" — reports total tickets sold ($250$) rather than just adult tickets.\n\n**Test Day Takeaway:** SAT word-problem systems usually have one count equation and one value (revenue/total dollars) equation. Define each variable explicitly, write both equations, and solve.",
+  skills: ["systems-of-equations", "word-problems"]
 },
 {
   id: 15,
@@ -693,7 +693,7 @@ export const practiceTest8 = {
     { id: "D", text: "$152$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Total $= 4n + n + (n + 50) = 6n + 50 = 914$. So $6n = 864$ and $n = 144$.\n\n**The Full Solution:**\nLet $n$ be the number of $8$-inch bolts.\nNumber of $11$-inch bolts: $4n$.\nNumber of $5$-inch bolts: $n + 50$.\n\nTotal: $4n + n + (n + 50) = 6n + 50 = 914$.\n$6n = 864 \\Rightarrow n = 144$.\n\nVerification: $4(144) + 144 + (144 + 50) = 576 + 144 + 194 = 914$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — divides $914$ by $4$ forgetting the other two quantities.\n* Choice B: \"applies the inverse operation\" — uses $(914 - 50)/4 = 216$ instead of dividing by $6$.\n* Choice D: \"off-by-one\" — divides $914$ by $6$ ignoring the $+50$ offset, giving $\\approx 152$.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$50$ more than\".",
+  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Total $= 4n + n + (n + 50) = 6n + 50 = 914$. So $6n = 864$ and $n = 144$.\n\n**The Full Solution:**\nLet $n$ be the number of $8$-inch bolts.\nNumber of $11$-inch bolts: $4n$.\nNumber of $5$-inch bolts: $n + 50$.\n\nTotal: $4n + n + (n + 50) = 6n + 50 = 914$.\n$6n = 864 \\Rightarrow n = 144$.\n\nVerification: $4(144) + 144 + (144 + 50) = 576 + 144 + 194 = 914$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — divides $914$ by $4$ forgetting the other two quantities.\n* Choice B: \"applies the inverse operation\" — uses $\\frac{914 - 50}{4} = 216$ instead of dividing by $6$.\n* Choice D: \"off-by-one\" — divides $914$ by $6$ ignoring the $+50$ offset, giving $\\approx 152$.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$50$ more than\".",
   skills: ["solving-equations", "word-problems"]
 },
 {
@@ -739,19 +739,19 @@ export const practiceTest8 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "Consider the system of equations.\n\n$x + y + z = 10$\n$2x - y + z = 2$\n$x + 2y - z = 9$\n\nWhat is the value of $x + y$?",
+  question: "In the system of equations below, $c$ is a constant. If the system has no solution, what is the value of $c$?\n\n$2x + 3y = 5$\n$cx + 9y = 12$",
   choices: [
-    // distractor: stops one step early — solves only for x = 2
-    { id: "A", text: "$2$" },
-    // distractor: gives z (= 3) instead of x + y
-    { id: "B", text: "$3$" },
-    { id: "C", text: "$7$" },
-    // distractor: applies inverse op — adds eq totals (10 + 2 + 9 = 21) and miscomputes
-    { id: "D", text: "$10$" }
+    // distractor: stops one step early — gives the y-coefficient ratio (9/3 = 3)
+    { id: "A", text: "$3$" },
+    { id: "B", text: "$6$" },
+    // distractor: wrong base — repeats the y-coefficient of equation 2
+    { id: "C", text: "$9$" },
+    // distractor: applies the inverse operation — repeats the right-side of equation 2
+    { id: "D", text: "$12$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Three-Variable Elimination**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Add eq 1 and eq 3 to cancel $z$: $2x + 3y = 19$. Add eq 2 and eq 3 to cancel $z$: $3x + y = 11$. Solve: $y = 11 - 3x$. Sub: $2x + 3(11 - 3x) = 19 \\Rightarrow -7x = -14 \\Rightarrow x = 2$. Then $y = 11 - 6 = 5$. So $x + y = 7$.\n\n**The Full Solution:**\nEliminate $z$ in two ways:\n* Equation 1 + Equation 3: $(x+y+z) + (x+2y-z) = 10 + 9 \\Rightarrow 2x + 3y = 19$ ... (A)\n* Equation 2 + Equation 3: $(2x-y+z) + (x+2y-z) = 2 + 9 \\Rightarrow 3x + y = 11$ ... (B)\n\nFrom (B): $y = 11 - 3x$. Substitute into (A):\n$2x + 3(11 - 3x) = 19$\n$2x + 33 - 9x = 19$\n$-7x = -14$\n$x = 2$\n$y = 11 - 3(2) = 5$\n$z = 10 - x - y = 10 - 2 - 5 = 3$.\n\nVerify: eq 1: $2+5+3 = 10$ \\checkmark; eq 2: $4-5+3 = 2$ \\checkmark; eq 3: $2+10-3 = 9$ \\checkmark.\n\nSo $x + y = 2 + 5 = 7$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just $x = 2$.\n* Choice B: \"applies the inverse operation\" — returns $z$ instead of $x + y$.\n* Choice D: \"wrong base\" — confuses the value of $x + y + z = 10$ with $x + y$.\n\n**Test Day Takeaway:** When the question asks for $x + y$, look for two equations that combine to eliminate $z$ — then solve the resulting two-variable system.",
-  skills: ["systems-of-equations", "word-problems"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** No solution $\\Leftrightarrow$ left-side coefficient ratios match but right-side ratio differs. $\\frac{2}{c} = \\frac{3}{9} = \\frac{1}{3} \\Rightarrow c = 6$. Verify: $\\frac{5}{12} \\neq \\frac{1}{3}$ \\checkmark, so the lines are parallel and distinct.\n\n**The Full Solution:**\nFor a $2 \\times 2$ linear system to have no solution, the two equations must represent parallel, distinct lines:\n* Coefficient ratios match: $\\frac{a_1}{a_2} = \\frac{b_1}{b_2}$.\n* Constant ratio differs: $\\frac{c_1}{c_2} \\neq$ that common value.\n\nThe $y$-coefficient ratio is $\\frac{3}{9} = \\frac{1}{3}$. So we need $\\frac{2}{c} = \\frac{1}{3}$, giving $c = 6$.\n\nCheck the constants: $\\frac{5}{12}$. Is this $\\frac{1}{3}$? $\\frac{1}{3} = \\frac{4}{12}$. Since $\\frac{5}{12} \\neq \\frac{4}{12}$, the lines are distinct $\\Rightarrow$ no solution.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reports the ratio $\\frac{9}{3} = 3$ instead of solving for $c$.\n* Choice C: \"wrong base\" — uses the $y$-coefficient of equation 2.\n* Choice D: \"applies the inverse operation\" — uses the right-side value of equation 2.\n\n**Test Day Takeaway:** No solution $\\Leftrightarrow$ same slope, different intercept. Set up the proportion of $x$- and $y$-coefficients, solve, then verify the constants don't also match.",
+  skills: ["systems-of-equations"]
 },
 {
   id: 20,

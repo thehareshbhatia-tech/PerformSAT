@@ -516,18 +516,18 @@ export const practiceTest5 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "Consider the system of equations.\n\n$2x + y - 3z = 7$\n$6x + 3y - 9z = 21$\n$4x + 2y - 6z = 17$\n\nHow many solutions $(x, y, z)$ does this system have?",
+  question: "In the system of equations below, $k$ is a constant. If the system has no solution, what is the value of $k$?\n\n$5x + 2y = 12$\n$10x + ky = 30$",
   choices: [
-    { id: "A", text: "Zero" },
-    // distractor: assumes 3 equations always give unique solutions
-    { id: "B", text: "Exactly one" },
-    // distractor: linear systems never have exactly two
-    { id: "C", text: "Exactly two" },
-    // distractor: would be true if equation 3 had RHS 14 instead of 17
-    { id: "D", text: "Infinitely many" }
+    // distractor: stops one step early — gives the y-coefficient ratio (k = 2 \\cdot 1 = 2 from coefficient 2)
+    { id: "A", text: "$2$" },
+    { id: "B", text: "$4$" },
+    // distractor: wrong base — uses the x-coefficient of equation 2 (= 10)
+    { id: "C", text: "$10$" },
+    // distractor: applies the inverse operation — uses the right-side value of equation 2
+    { id: "D", text: "$30$" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Three-Equation Contradiction**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Equation 2 is $3 \\times$ Equation 1: $3(2x + y - 3z) = 21$ \\checkmark. Equation 3 should be $2 \\times$ Equation 1 if consistent: $2(2x + y - 3z) = 14$, but Equation 3 says $= 17$. Contradiction $\\Rightarrow$ zero solutions.\n\n**The Full Solution:**\nDivide Equation 2 by $3$: $2x + y - 3z = 7$ (same as Equation 1) \\checkmark.\nDivide Equation 3 by $2$: $2x + y - 3z = 8.5$.\nBut Equation 1 says $2x + y - 3z = 7$. Since $7 \\neq 8.5$, the system is inconsistent.\n\nThere is NO triple $(x, y, z)$ that can satisfy both \"$2x + y - 3z = 7$\" and \"$2x + y - 3z = 8.5$\" simultaneously.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — assumes $3 \\times 3$ systems always have unique solutions.\n* Choice C: \"applies the inverse operation\" — linear systems never have exactly two solutions.\n* Choice D: \"off-by-one\" — would be true if Equation 3's right side were $14$ instead of $17$.\n\n**Test Day Takeaway:** Check whether equations are scalar multiples. Same left side but different right side $\\Rightarrow$ contradiction $\\Rightarrow$ zero solutions.",
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** No solution $\\Leftrightarrow$ left-side coefficient ratios match but right-side ratio differs. $\\frac{5}{10} = \\frac{2}{k} = \\frac{1}{2} \\Rightarrow k = 4$. Verify: $\\frac{12}{30} = \\frac{2}{5} \\neq \\frac{1}{2}$ \\checkmark, so the lines are parallel and distinct.\n\n**The Full Solution:**\nFor a $2 \\times 2$ linear system to have NO solution, the lines must be parallel and distinct: matching slopes (so left-side ratios are equal) but different $y$-intercepts (so the right-side ratio differs).\n\nLeft-side ratio of $x$-coefficients: $\\frac{5}{10} = \\frac{1}{2}$. So we need $\\frac{2}{k} = \\frac{1}{2}$, giving $k = 4$.\n\nCheck constants: $\\frac{12}{30} = \\frac{2}{5}$. Since $\\frac{2}{5} \\neq \\frac{1}{2}$, the lines are distinct.\n\n$k = 4$ produces parallel non-coincident lines $\\Rightarrow$ no solution.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses the $y$-coefficient of equation 1 directly.\n* Choice C: \"wrong base\" — uses the $x$-coefficient of equation 2.\n* Choice D: \"applies the inverse operation\" — reports the right-side value of equation 2.\n\n**Test Day Takeaway:** No solution $\\Leftrightarrow \\frac{a_1}{a_2} = \\frac{b_1}{b_2} \\neq \\frac{c_1}{c_2}$. Always verify the constant ratio fails — if it matches too, the system has infinitely many solutions instead.",
   skills: ["systems-of-equations"]
 },
 {
@@ -556,7 +556,7 @@ export const practiceTest5 = {
     { id: "D", text: "$0.95$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Conditional Probability from a Two-Way Table**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** P(morning | freshman) $= \\dfrac{\\text{freshman \\& morning}}{\\text{total freshmen}} = \\dfrac{40}{100} = 0.40$.\n\n**The Full Solution:**\nThe phrase \"Given that the student is a freshman\" restricts the sample space to the $100$ freshmen.\n\nWithin that group, $40$ prefer morning, so:\nP(morning | freshman) $= \\dfrac{40}{100} = 0.40$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses $40/200$ (joint probability) instead of conditioning on freshman.\n* Choice C: \"applies the inverse operation\" — conditions on Morning ($40/95 \\approx 0.42$) instead of Freshman.\n* Choice D: \"wrong base\" — gives marginal P(Morning) $= 95/100$.\n\n**Test Day Takeaway:** \"Given X\" sets X as the new total (denominator). $P(A | X) = \\dfrac{P(A \\cap X)}{P(X)} = \\dfrac{\\text{count } A \\& X}{\\text{count } X}$.",
+  explanation: "**SAT Pattern: Conditional Probability from a Two-Way Table**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** P(morning | freshman) $= \\dfrac{\\text{freshman \\& morning}}{\\text{total freshmen}} = \\dfrac{40}{100} = 0.40$.\n\n**The Full Solution:**\nThe phrase \"Given that the student is a freshman\" restricts the sample space to the $100$ freshmen.\n\nWithin that group, $40$ prefer morning, so:\nP(morning | freshman) $= \\dfrac{40}{100} = 0.40$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses $\\frac{40}{200}$ (joint probability) instead of conditioning on freshman.\n* Choice C: \"applies the inverse operation\" — conditions on Morning ($\\frac{40}{95} \\approx 0.42$) instead of Freshman.\n* Choice D: \"wrong base\" — gives marginal P(Morning) $= \\frac{95}{100}$.\n\n**Test Day Takeaway:** \"Given X\" sets X as the new total (denominator). $P(A | X) = \\dfrac{P(A \\cap X)}{P(X)} = \\dfrac{\\text{count } A \\& X}{\\text{count } X}$.",
   skills: ["probability", "two-way-tables", "statistics"]
 },
 {
@@ -632,7 +632,7 @@ export const practiceTest5 = {
     { id: "D", text: "$89$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Percent Greater Than**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** \"$432$ is $p\\%$ greater than $48$\" means $432 = 48 + \\dfrac{p}{100}(48)$, so $\\dfrac{p}{100} = \\dfrac{432 - 48}{48} = \\dfrac{384}{48} = 8$, giving $p = 800$.\n\n**The Full Solution:**\n$432 = 48 + \\dfrac{p}{100} \\cdot 48$\n$432 - 48 = \\dfrac{p}{100} \\cdot 48$\n$384 = \\dfrac{48p}{100}$\n$\\dfrac{p}{100} = \\dfrac{384}{48} = 8$\n$p = 800$.\n\nVerification: $48 + 800\\% \\text{ of } 48 = 48 + 384 = 432$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — confuses $432/48 = 9$ with the percent and reports $900$.\n* Choice C: \"stops one step early\" — gives $432/48 = 9$ without converting to a percent increase.\n* Choice D: \"wrong base\" — divides $384$ by $432$ instead of $48$.\n\n**Test Day Takeaway:** \"$A$ is $p\\%$ greater than $B$\" $\\iff$ $A = B(1 + \\dfrac{p}{100})$. Solve via $\\dfrac{A - B}{B} = \\dfrac{p}{100}$.",
+  explanation: "**SAT Pattern: Percent Greater Than**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** \"$432$ is $p\\%$ greater than $48$\" means $432 = 48 + \\dfrac{p}{100}(48)$, so $\\dfrac{p}{100} = \\dfrac{432 - 48}{48} = \\dfrac{384}{48} = 8$, giving $p = 800$.\n\n**The Full Solution:**\n$432 = 48 + \\dfrac{p}{100} \\cdot 48$\n$432 - 48 = \\dfrac{p}{100} \\cdot 48$\n$384 = \\dfrac{48p}{100}$\n$\\dfrac{p}{100} = \\dfrac{384}{48} = 8$\n$p = 800$.\n\nVerification: $48 + 800\\% \\text{ of } 48 = 48 + 384 = 432$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — confuses $\\frac{432}{48} = 9$ with the percent and reports $900$.\n* Choice C: \"stops one step early\" — gives $\\frac{432}{48} = 9$ without converting to a percent increase.\n* Choice D: \"wrong base\" — divides $384$ by $432$ instead of $48$.\n\n**Test Day Takeaway:** \"$A$ is $p\\%$ greater than $B$\" $\\iff$ $A = B(1 + \\dfrac{p}{100})$. Solve via $\\dfrac{A - B}{B} = \\dfrac{p}{100}$.",
   skills: ["percents", "word-problems"]
 },
 {
@@ -705,7 +705,7 @@ export const practiceTest5 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "If $x > 0$, the expression $\\sqrt[4]{x^3} \\cdot \\sqrt{x^7}$ is equivalent to $x^{p/q}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
+  question: "If $x > 0$, the expression $\\sqrt[4]{x^3} \\cdot \\sqrt{x^7}$ is equivalent to $x^{\\frac{p}{q}}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
   choices: [
     // distractor: gives p alone (= 17) instead of p + q
     { id: "A", text: "$17$" },
@@ -716,7 +716,7 @@ export const practiceTest5 = {
     { id: "D", text: "$4$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[4]{x^3} = x^{3/4}$. $\\sqrt{x^7} = x^{7/2}$. Add: $\\dfrac{3}{4} + \\dfrac{7}{2} = \\dfrac{3}{4} + \\dfrac{14}{4} = \\dfrac{17}{4}$. So $p + q = 17 + 4 = 21$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[4]{x^3} = x^{3/4}, \\quad \\sqrt{x^7} = x^{7/2}$.\n\nWhen multiplying same bases, add exponents:\n$x^{3/4} \\cdot x^{7/2} = x^{3/4 + 14/4} = x^{17/4}$.\n\n$\\gcd(17, 4) = 1$, so $\\dfrac{17}{4}$ is already in lowest terms. Then $p = 17$, $q = 4$, and $p + q = 21$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 17$ without adding $q$.\n* Choice B: \"applies the inverse operation\" — sums all the integers in the expression ($3 + 4 + 7 + 2 = 16$).\n* Choice D: \"wrong base\" — gives just the denominator $q = 4$.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{m/n}$ — power on top, root on bottom. Add fractional exponents when multiplying same bases.",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[4]{x^3} = x^{\\frac{3}{4}}$. $\\sqrt{x^7} = x^{\\frac{7}{2}}$. Add: $\\dfrac{3}{4} + \\dfrac{7}{2} = \\dfrac{3}{4} + \\dfrac{14}{4} = \\dfrac{17}{4}$. So $p + q = 17 + 4 = 21$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[4]{x^3} = x^{\\frac{3}{4}}, \\quad \\sqrt{x^7} = x^{\\frac{7}{2}}$.\n\nWhen multiplying same bases, add exponents:\n$x^{\\frac{3}{4}} \\cdot x^{\\frac{7}{2}} = x^{\\frac{3}{4} + \\frac{14}{4}} = x^{\\frac{17}{4}}$.\n\n$\\gcd(17, 4) = 1$, so $\\dfrac{17}{4}$ is already in lowest terms. Then $p = 17$, $q = 4$, and $p + q = 21$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 17$ without adding $q$.\n* Choice B: \"applies the inverse operation\" — sums all the integers in the expression ($3 + 4 + 7 + 2 = 16$).\n* Choice D: \"wrong base\" — gives just the denominator $q = 4$.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{\\frac{m}{n}}$ — power on top, root on bottom. Add fractional exponents when multiplying same bases.",
   skills: ["polynomial-operations", "exponent-rules", "radical-expressions"]
 },
 {
@@ -724,9 +724,9 @@ export const practiceTest5 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "A radioactive sample is modeled by $M(t) = 240(0.84)^{t/3}$, where $M$ is the mass in grams and $t$ is the time in days since the initial measurement. By what percent does the mass decrease every $3$ days?",
+  question: "A radioactive sample is modeled by $M(t) = 240(0.84)^{\\frac{t}{3}}$, where $M$ is the mass in grams and $t$ is the time in days since the initial measurement. By what percent does the mass decrease every $3$ days?",
   correctAnswer: "16",
-  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**The correct answer is $16$.**\n\n**The Fast Way (~15s):** Every $3$ days, the multiplier is $0.84$. Percent decrease $= 1 - 0.84 = 0.16 = 16\\%$.\n\n**The Full Solution:**\nWhen $t$ increases by $3$:\n$M(t + 3) = 240(0.84)^{(t+3)/3} = 240(0.84)^{t/3} \\cdot 0.84 = 0.84 \\cdot M(t)$.\n\nThe mass is multiplied by $0.84$ every $3$ days, so the percent decrease per $3$-day period is $1 - 0.84 = 0.16 = 16\\%$.\n\nVerification: at $t = 0$, $M = 240$. At $t = 3$, $M = 201.6$. Decrease: $\\dfrac{240 - 201.6}{240} = \\dfrac{38.4}{240} = 0.16 = 16\\%$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $84$ (the multiplier itself, not the percent decrease).\n* Computing the daily rate instead of the $3$-day rate.\n\n**Test Day Takeaway:** A decay multiplier $b < 1$ over period $d$ means the percent decrease per period is $(1 - b) \\times 100\\%$.",
+  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**The correct answer is $16$.**\n\n**The Fast Way (~15s):** Every $3$ days, the multiplier is $0.84$. Percent decrease $= 1 - 0.84 = 0.16 = 16\\%$.\n\n**The Full Solution:**\nWhen $t$ increases by $3$:\n$M(t + 3) = 240(0.84)^{\\frac{t+3}{3}} = 240(0.84)^{\\frac{t}{3}} \\cdot 0.84 = 0.84 \\cdot M(t)$.\n\nThe mass is multiplied by $0.84$ every $3$ days, so the percent decrease per $3$-day period is $1 - 0.84 = 0.16 = 16\\%$.\n\nVerification: at $t = 0$, $M = 240$. At $t = 3$, $M = 201.6$. Decrease: $\\dfrac{240 - 201.6}{240} = \\dfrac{38.4}{240} = 0.16 = 16\\%$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $84$ (the multiplier itself, not the percent decrease).\n* Computing the daily rate instead of the $3$-day rate.\n\n**Test Day Takeaway:** A decay multiplier $b < 1$ over period $d$ means the percent decrease per period is $(1 - b) \\times 100\\%$.",
   skills: ["exponential-functions", "percents"]
 },
 {
@@ -772,9 +772,9 @@ export const practiceTest5 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "Consider the system of equations:\n\n$x + y + z = 11$\n$x + 2y + z = 16$\n$2x + y + 3z = 19$\n\nWhat is the value of $x + y$?",
-  correctAnswer: "9",
-  explanation: "**SAT Pattern: Three-Variable Elimination**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~30s):** Subtract equation 1 from equation 2 to isolate $y$: $y = 5$. From equation 1: $x + z = 6$. From equation 3: $2x + 3z = 14$. Solving: $z = 2$, $x = 4$. So $x + y = 4 + 5 = 9$.\n\n**The Full Solution:**\nLabel the equations:\n$(1) \\; x + y + z = 11$\n$(2) \\; x + 2y + z = 16$\n$(3) \\; 2x + y + 3z = 19$\n\nSubtract $(1)$ from $(2)$: $y = 5$.\n\nSubstitute $y = 5$ into $(1)$: $x + 5 + z = 11 \\Rightarrow x + z = 6$.\nSubstitute $y = 5$ into $(3)$: $2x + 5 + 3z = 19 \\Rightarrow 2x + 3z = 14$.\n\nFrom $x + z = 6$: $x = 6 - z$. Substitute: $2(6 - z) + 3z = 14 \\Rightarrow 12 + z = 14 \\Rightarrow z = 2$, so $x = 4$.\n\nVerification: equation $(1)$: $4 + 5 + 2 = 11$ \\checkmark; equation $(2)$: $4 + 10 + 2 = 16$ \\checkmark; equation $(3)$: $8 + 5 + 6 = 19$ \\checkmark.\n\nSo $x + y = 4 + 5 = 9$.\n\n**Common Mistakes to Avoid:**\n* Solving for each variable individually when only $x + y$ is needed.\n* Forgetting that subtracting two near-identical equations isolates one variable instantly.\n\n**Test Day Takeaway:** When two equations differ in only one variable, subtract them to isolate that variable.",
+  question: "Joaquin scored a total of $86$ points across $14$ basketball games. He scored $5$ points in some of the games and $7$ points in each of the others. In how many games did he score $5$ points?",
+  correctAnswer: "6",
+  explanation: "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~25s):** Let $a$ = games scoring $5$ points, $b$ = games scoring $7$ points. Then $a + b = 14$ and $5a + 7b = 86$. Substitute $b = 14 - a$: $5a + 7(14 - a) = 86 \\Rightarrow -2a = 86 - 98 = -12 \\Rightarrow a = 6$.\n\n**The Full Solution:**\nLet $a$ be the number of $5$-point games and $b$ be the number of $7$-point games.\n\nTotal games: $a + b = 14$.\nTotal points: $5a + 7b = 86$.\n\nSolve by substitution. From the first equation: $b = 14 - a$. Substitute into the second:\n$5a + 7(14 - a) = 86$\n$5a + 98 - 7a = 86$\n$-2a = -12$\n$a = 6$.\n\nThen $b = 14 - 6 = 8$.\n\nVerification: $6 + 8 = 14$ games \\checkmark; $5(6) + 7(8) = 30 + 56 = 86$ points \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $b = 8$ (the number of $7$-point games) instead of $a = 6$.\n* Setting up the equations backward: $7a + 5b = 86$ — re-read the problem to confirm which variable matches which point value.\n\n**Test Day Takeaway:** SAT word problems with two unknowns and two relationships are linear systems in disguise. Define each variable in one sentence, write each relationship as an equation, then solve.",
   skills: ["systems-of-equations", "word-problems"]
 },
 {

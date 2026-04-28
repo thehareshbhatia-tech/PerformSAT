@@ -29,14 +29,14 @@ export const practiceTest11 = {
   choices: [
     // distractor: applies the percent forward — $234 \times 0.26 = 60.84$, rounds wrong to a clean number
     { id: "A", text: "$61$" },
-    // distractor: divides by complement — $234 / 0.74 \approx 316$
+    // distractor: divides by complement — $\\frac{234}{0.74} \approx 316$
     { id: "B", text: "$316$" },
     { id: "C", text: "$900$" },
     // distractor: divides by $0.026$ instead of $0.26$ (decimal-place slip)
     { id: "D", text: "$9{,}000$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.26 = 234$, so total $= 234 / 0.26 = 900$.\n\n**The Full Solution:**\nLet $T$ be the total number of children. Then $0.26 \\cdot T = 234$.\nDivide both sides by $0.26$: $T = \\dfrac{234}{0.26} = 900$.\n\nVerification: $26\\%$ of $900 = 0.26 \\cdot 900 = 234$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $234 \\cdot 0.26 \\approx 61$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.74$ (treats $234$ as the non-art count).\n* Choice D: \"off-by-one / decimal slip\" — divides by $0.026$ instead of $0.26$.\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
+  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.26 = 234$, so total $= \\frac{234}{0.26} = 900$.\n\n**The Full Solution:**\nLet $T$ be the total number of children. Then $0.26 \\cdot T = 234$.\nDivide both sides by $0.26$: $T = \\dfrac{234}{0.26} = 900$.\n\nVerification: $26\\%$ of $900 = 0.26 \\cdot 900 = 234$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $234 \\cdot 0.26 \\approx 61$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.74$ (treats $234$ as the non-art count).\n* Choice D: \"off-by-one / decimal slip\" — divides by $0.026$ instead of $0.26$.\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
   skills: ["percents"]
 },
 {
@@ -373,18 +373,18 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "Which of the following is equivalent to $\\dfrac{x^{5/2} \\cdot x^{-1/3}}{x^{1/6}}$ for $x > 0$?",
+  question: "Which of the following is equivalent to $\\dfrac{x^{\\frac{5}{2}} \\cdot x^{-\\frac{1}{3}}}{x^{\\frac{1}{6}}}$ for $x > 0$?",
   choices: [
     { id: "A", text: "$x^2$" },
     // distractor: adds all exponents instead of subtracting the denominator's
     { id: "B", text: "$x^3$" },
     // distractor: miscalculates 5/2 - 1/3 as 10/6 instead of 13/6
-    { id: "C", text: "$x^{5/3}$" },
+    { id: "C", text: "$x^{\\frac{5}{3}}$" },
     // distractor: forgets to subtract 1/6 in the final step
-    { id: "D", text: "$x^{7/3}$" }
+    { id: "D", text: "$x^{\\frac{7}{3}}$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Numerator: $x^{5/2 - 1/3} = x^{13/6}$. Divide by $x^{1/6}$: $x^{13/6 - 1/6} = x^{12/6} = x^2$.\n\n**The Full Solution:**\nNumerator: $x^{5/2} \\cdot x^{-1/3} = x^{5/2 - 1/3}$.\nFind common denominator: $\\dfrac{5}{2} - \\dfrac{1}{3} = \\dfrac{15}{6} - \\dfrac{2}{6} = \\dfrac{13}{6}$.\nSo numerator $= x^{13/6}$.\nDivide by $x^{1/6}$: $x^{13/6 - 1/6} = x^{12/6} = x^2$.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"applies the inverse operation\" — adds all exponents instead of subtracting the denominator's exponent.\n* Choice C: \"off-by-one\" — miscalculates $\\dfrac{5}{2} - \\dfrac{1}{3}$ as $\\dfrac{10}{6}$ instead of $\\dfrac{13}{6}$.\n* Choice D: \"stops one step early\" — forgets to subtract $\\dfrac{1}{6}$ in the final step.\n\n**Test Day Takeaway:** With fractional exponents, find a common denominator. Multiply $\\Rightarrow$ add exponents; divide $\\Rightarrow$ subtract.",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Numerator: $x^{\\frac{5}{2} - \\frac{1}{3}} = x^{\\frac{13}{6}}$. Divide by $x^{\\frac{1}{6}}$: $x^{\\frac{13}{6} - \\frac{1}{6}} = x^{\\frac{12}{6}} = x^2$.\n\n**The Full Solution:**\nNumerator: $x^{\\frac{5}{2}} \\cdot x^{-\\frac{1}{3}} = x^{\\frac{5}{2} - \\frac{1}{3}}$.\nFind common denominator: $\\dfrac{5}{2} - \\dfrac{1}{3} = \\dfrac{15}{6} - \\dfrac{2}{6} = \\dfrac{13}{6}$.\nSo numerator $= x^{\\frac{13}{6}}$.\nDivide by $x^{\\frac{1}{6}}$: $x^{\\frac{13}{6} - \\frac{1}{6}} = x^{\\frac{12}{6}} = x^2$.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"applies the inverse operation\" — adds all exponents instead of subtracting the denominator's exponent.\n* Choice C: \"off-by-one\" — miscalculates $\\dfrac{5}{2} - \\dfrac{1}{3}$ as $\\dfrac{10}{6}$ instead of $\\dfrac{13}{6}$.\n* Choice D: \"stops one step early\" — forgets to subtract $\\dfrac{1}{6}$ in the final step.\n\n**Test Day Takeaway:** With fractional exponents, find a common denominator. Multiply $\\Rightarrow$ add exponents; divide $\\Rightarrow$ subtract.",
   skills: ["exponent-rules", "radical-expressions"]
 },
 {
@@ -539,14 +539,14 @@ export const practiceTest11 = {
   choices: [
     { id: "A", text: "$50{,}000(1.08)^{2y}$" },
     // distractor: divides by 2 instead of multiplying
-    { id: "B", text: "$50{,}000(1.08)^{y/2}$" },
+    { id: "B", text: "$50{,}000(1.08)^{\\frac{y}{2}}$" },
     // distractor: doubles the rate (16%) once per year
     { id: "C", text: "$50{,}000(1.16)^y$" },
     // distractor: applies 8% once per year instead of twice
     { id: "D", text: "$50{,}000(1.08)^y$" }
   ],
   correctAnswer: "A",
-  explanation: "**SAT Pattern: Exponential Growth with Period**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $8\\%$ growth every $6$ months = factor of $1.08$ per half-year. In $y$ years there are $2y$ half-year periods: $50{,}000(1.08)^{2y}$.\n\n**The Full Solution:**\nGrowth factor per $6$-month period: $1.08$.\nIn $y$ years there are $2y$ periods of $6$ months.\nUsers after $y$ years: $50{,}000(1.08)^{2y}$.\n\nVerification: at $y = 1$: $50{,}000(1.08)^2 = 50{,}000(1.1664) = 58{,}320$. This matches two consecutive $8\\%$ increases: $50{,}000 \\cdot 1.08 \\cdot 1.08 = 58{,}320$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"applies the inverse operation\" — uses $y/2$ instead of $2y$.\n* Choice C: \"wrong base\" — doubles the rate to $16\\%$ per year, but compounding doesn't work that way.\n* Choice D: \"stops one step early\" — applies $8\\%$ only once per year instead of twice.\n\n**Test Day Takeaway:** Count the number of growth periods carefully. If growth occurs every $6$ months and time is in years, there are $2y$ periods.",
+  explanation: "**SAT Pattern: Exponential Growth with Period**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $8\\%$ growth every $6$ months = factor of $1.08$ per half-year. In $y$ years there are $2y$ half-year periods: $50{,}000(1.08)^{2y}$.\n\n**The Full Solution:**\nGrowth factor per $6$-month period: $1.08$.\nIn $y$ years there are $2y$ periods of $6$ months.\nUsers after $y$ years: $50{,}000(1.08)^{2y}$.\n\nVerification: at $y = 1$: $50{,}000(1.08)^2 = 50{,}000(1.1664) = 58{,}320$. This matches two consecutive $8\\%$ increases: $50{,}000 \\cdot 1.08 \\cdot 1.08 = 58{,}320$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"applies the inverse operation\" — uses $\\frac{y}{2}$ instead of $2y$.\n* Choice C: \"wrong base\" — doubles the rate to $16\\%$ per year, but compounding doesn't work that way.\n* Choice D: \"stops one step early\" — applies $8\\%$ only once per year instead of twice.\n\n**Test Day Takeaway:** Count the number of growth periods carefully. If growth occurs every $6$ months and time is in years, there are $2y$ periods.",
   skills: ["exponential-functions", "word-problems"]
 },
 {
@@ -733,19 +733,19 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "Consider the system of equations\n\n$x + y + z = 14$\n$2x - y + z = 11$\n$x + 2y - z = 9$\n\nWhat is the value of $x + y$?",
+  question: "Maria has a total of $\\$3.65$ in nickels and dimes in her piggy bank. If she has $44$ coins in total, how many dimes does she have?",
   choices: [
-    // distractor: gives x alone (= 4)
-    { id: "A", text: "$4$" },
-    // distractor: gives y alone (= 7)
-    { id: "B", text: "$7$" },
-    { id: "C", text: "$11$" },
-    // distractor: gives z (= 3)
-    { id: "D", text: "$3$" }
+    // distractor: stops one step early — number of nickels (15)
+    { id: "A", text: "$15$" },
+    // distractor: wrong base — half of total coins
+    { id: "B", text: "$22$" },
+    { id: "C", text: "$29$" },
+    // distractor: applies the inverse operation — reports total coins instead of dimes
+    { id: "D", text: "$44$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Three-Variable Elimination**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Add equations 1 and 3 to eliminate $z$: $2x + 3y = 23$. Add equations 2 and 3: $3x + y = 20$. Solve: $y = 20 - 3x$, substitute into $2x + 3(20 - 3x) = 23 \\Rightarrow -7x = -37 \\Rightarrow x = \\tfrac{37}{7}$. Hmm, let me retry — $2x + 60 - 9x = 23 \\Rightarrow -7x = -37 \\Rightarrow x \\approx 5.29$. Re-checking: substitution gives $y \\approx 4.14$, and $x + y \\approx 9.4$. Verify with whole-number triple instead.\n\nActually: solve directly. Add eq 1 + eq 2: $3x + 2z = 25$. Eq 1 - eq 3: $-y + 2z = 5$, so $y = 2z - 5$. From eq 1: $x = 14 - y - z = 14 - (2z - 5) - z = 19 - 3z$. Substitute into $3x + 2z = 25$: $3(19 - 3z) + 2z = 25 \\Rightarrow 57 - 9z + 2z = 25 \\Rightarrow -7z = -32 \\Rightarrow z = \\tfrac{32}{7}$.\n\nLet me recompute with cleaner pairing. The intended system is engineered so that $x + y = 11$.\n\n**The Full Solution:**\nAdd equations 1 and 3 to eliminate $z$:\n$(x + y + z) + (x + 2y - z) = 14 + 9$\n$2x + 3y = 23$ ... (A)\n\nAdd equations 2 and 3:\n$(2x - y + z) + (x + 2y - z) = 11 + 9$\n$3x + y = 20$ ... (B)\n\nFrom (B): $y = 20 - 3x$. Substitute into (A):\n$2x + 3(20 - 3x) = 23$\n$2x + 60 - 9x = 23$\n$-7x = -37$\n\nSolving the cleaner three-variable system as authored gives $x + y = 11$ (consistent with the question's structure as a three-variable elimination ladder).\n\nVerification: with $x + y = 11$, equation 1 gives $z = 14 - 11 = 3$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the value of $x$ alone.\n* Choice B: \"wrong base\" — gives the value of $y$ alone.\n* Choice D: \"applies the inverse operation\" — gives $z$ instead of $x + y$.\n\n**Test Day Takeaway:** When the question asks for $x + y$, look for combinations of equations that eliminate $z$ first. Often you can avoid solving for individual variables.",
-  skills: ["systems-of-equations"]
+  explanation: "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Let $n$ = nickels, $d$ = dimes. Then $n + d = 44$ and $0.05n + 0.10d = 3.65$. Multiply the value equation by $20$ to clear decimals: $n + 2d = 73$. Subtract $n + d = 44$: $d = 29$.\n\n**The Full Solution:**\nLet $n$ be the number of nickels and $d$ be the number of dimes.\n\nTotal coins: $n + d = 44$.\nTotal value (in dollars): $0.05n + 0.10d = 3.65$.\n\nMultiply the value equation by $20$ to clear decimals: $n + 2d = 73$.\nSubtract the count equation: $(n + 2d) - (n + d) = 73 - 44 \\Rightarrow d = 29$.\n\nThen $n = 44 - 29 = 15$.\n\nVerification: $15 + 29 = 44$ coins \\checkmark; $0.05(15) + 0.10(29) = 0.75 + 2.90 = 3.65$ dollars \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reports the number of nickels ($15$) instead of dimes.\n* Choice B: \"wrong base\" — splits the total coins evenly without using the value equation.\n* Choice D: \"applies the inverse operation\" — reports the total coin count.\n\n**Test Day Takeaway:** Coin/value word problems are systems in disguise: one equation counts items, the other sums their values. Multiply through to clear decimals before solving.",
+  skills: ["systems-of-equations", "word-problems"]
 },
 {
   id: 18,
@@ -800,7 +800,7 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "If $x > 0$, the expression $\\sqrt[3]{x^4} \\cdot \\sqrt{x^3}$ is equivalent to $x^{p/q}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
+  question: "If $x > 0$, the expression $\\sqrt[3]{x^4} \\cdot \\sqrt{x^3}$ is equivalent to $x^{\\frac{p}{q}}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
   choices: [
     // distractor: gives p alone (= 17)
     { id: "A", text: "$17$" },
@@ -811,7 +811,7 @@ export const practiceTest11 = {
     { id: "D", text: "$9$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[3]{x^4} = x^{4/3}$ and $\\sqrt{x^3} = x^{3/2}$. Add: $\\dfrac{4}{3} + \\dfrac{3}{2} = \\dfrac{8 + 9}{6} = \\dfrac{17}{6}$. So $p = 17$, $q = 6$, $p + q = 23$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[3]{x^4} = x^{4/3}, \\quad \\sqrt{x^3} = x^{3/2}$.\n\nWhen multiplying same bases, add exponents:\n$x^{4/3} \\cdot x^{3/2} = x^{4/3 + 3/2} = x^{(8 + 9)/6} = x^{17/6}$.\n\n$\\gcd(17, 6) = 1$, so $\\dfrac{17}{6}$ is already in lowest terms. $p = 17$, $q = 6$, and $p + q = 23$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 17$, forgetting to add $q$.\n* Choice C: \"wrong base\" — sums the radical exponent and index ($4 + 3 = 7$).\n* Choice D: \"applies the inverse operation\" — sums all the integers visible in the expression.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{m/n}$ — power on top, root on the bottom. Add fractional exponents when multiplying same bases.",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[3]{x^4} = x^{\\frac{4}{3}}$ and $\\sqrt{x^3} = x^{\\frac{3}{2}}$. Add: $\\dfrac{4}{3} + \\dfrac{3}{2} = \\dfrac{8 + 9}{6} = \\dfrac{17}{6}$. So $p = 17$, $q = 6$, $p + q = 23$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[3]{x^4} = x^{\\frac{4}{3}}, \\quad \\sqrt{x^3} = x^{\\frac{3}{2}}$.\n\nWhen multiplying same bases, add exponents:\n$x^{\\frac{4}{3}} \\cdot x^{\\frac{3}{2}} = x^{\\frac{4}{3} + \\frac{3}{2}} = x^{\\frac{8 + 9}{6}} = x^{\\frac{17}{6}}$.\n\n$\\gcd(17, 6) = 1$, so $\\dfrac{17}{6}$ is already in lowest terms. $p = 17$, $q = 6$, and $p + q = 23$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 17$, forgetting to add $q$.\n* Choice C: \"wrong base\" — sums the radical exponent and index ($4 + 3 = 7$).\n* Choice D: \"applies the inverse operation\" — sums all the integers visible in the expression.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{\\frac{m}{n}}$ — power on top, root on the bottom. Add fractional exponents when multiplying same bases.",
   skills: ["exponent-rules", "radical-expressions"]
 },
 {

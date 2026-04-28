@@ -47,12 +47,12 @@ export const practiceTest12 = {
   band: 3,
   question: "The ratio of cats to dogs at an animal shelter is $5 : 3$. If the shelter has $40$ cats and dogs combined, how many of them are dogs?",
   choices: [
-    // distractor: applies the percent forward — uses $\frac{3}{8} \cdot 40$ but mis-rounds
+    // distractor: applies the percent forward — uses $\\frac{3}{8} \cdot 40$ but mis-rounds
     { id: "A", text: "$12$" },
     { id: "B", text: "$15$" },
-    // distractor: uses $40/2 = 20$, halving instead of using the ratio
+    // distractor: uses $\\frac{40}{2} = 20$, halving instead of using the ratio
     { id: "C", text: "$20$" },
-    // distractor: solves for cats ($\frac{5}{8} \cdot 40$) instead of dogs
+    // distractor: solves for cats ($\\frac{5}{8} \cdot 40$) instead of dogs
     { id: "D", text: "$25$" }
   ],
   correctAnswer: "B",
@@ -128,11 +128,11 @@ export const practiceTest12 = {
     { id: "B", text: "$5$" },
     // distractor: arithmetic error when combining $x$ and $y$
     { id: "C", text: "$7$" },
-    // distractor: computes $19/2$ or a similar slip
+    // distractor: computes $\\frac{19}{2}$ or a similar slip
     { id: "D", text: "$9$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**Choice B is correct.**\n\n**The Full Solution:**\nFrom $3x - 2y = 0$: $3x = 2y$, so $x = \\dfrac{2y}{3}$.\nSubstitute into $2x + 5y = 19$:\n$2 \\cdot \\dfrac{2y}{3} + 5y = 19$\n$\\dfrac{4y}{3} + 5y = 19$\n$\\dfrac{4y + 15y}{3} = 19$\n$\\dfrac{19y}{3} = 19 \\Rightarrow y = 3$\n\nThen $x = \\dfrac{2(3)}{3} = 2$. So $x + y = 2 + 3 = 5$.\n\nVerification: $2(2) + 5(3) = 4 + 15 = 19$ \\checkmark; $3(2) - 2(3) = 6 - 6 = 0$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the value of $y$.\n* Choice C: \"off-by-one\" — arithmetic slip when adding $x + y$.\n* Choice D: \"wrong base\" — computes $19/2$ ignoring the second equation.\n\n**Test Day Takeaway:** When the question asks for a combination like $x + y$, solve the system fully first, THEN compute the requested expression.",
+  explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**Choice B is correct.**\n\n**The Full Solution:**\nFrom $3x - 2y = 0$: $3x = 2y$, so $x = \\dfrac{2y}{3}$.\nSubstitute into $2x + 5y = 19$:\n$2 \\cdot \\dfrac{2y}{3} + 5y = 19$\n$\\dfrac{4y}{3} + 5y = 19$\n$\\dfrac{4y + 15y}{3} = 19$\n$\\dfrac{19y}{3} = 19 \\Rightarrow y = 3$\n\nThen $x = \\dfrac{2(3)}{3} = 2$. So $x + y = 2 + 3 = 5$.\n\nVerification: $2(2) + 5(3) = 4 + 15 = 19$ \\checkmark; $3(2) - 2(3) = 6 - 6 = 0$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the value of $y$.\n* Choice C: \"off-by-one\" — arithmetic slip when adding $x + y$.\n* Choice D: \"wrong base\" — computes $\\frac{19}{2}$ ignoring the second equation.\n\n**Test Day Takeaway:** When the question asks for a combination like $x + y$, solve the system fully first, THEN compute the requested expression.",
   skills: ["systems-of-equations"]
 },
 {
@@ -200,7 +200,7 @@ export const practiceTest12 = {
   band: 5,
   question: "Two similar triangles have a scale factor of $3 : 5$. If the area of the smaller triangle is $27$ square centimeters, what is the area of the larger triangle, in square centimeters?",
   choices: [
-    // distractor: applies linear scale factor only ($27 \cdot \frac{5}{3} = 45$)
+    // distractor: applies linear scale factor only ($27 \cdot \\frac{5}{3} = 45$)
     { id: "A", text: "$45$" },
     { id: "B", text: "$75$" },
     // distractor: squares only the numerator ($27 \cdot 4 = 108$)
@@ -250,7 +250,7 @@ export const practiceTest12 = {
   choices: [
     // distractor: forgets to square the radius — uses $\pi r h = 36\pi$
     { id: "A", text: "$36$" },
-    // distractor: uses cone formula $\frac{1}{3} \pi r^2 h$ instead of cylinder
+    // distractor: uses cone formula $\\frac{1}{3} \pi r^2 h$ instead of cylinder
     { id: "B", text: "$48$" },
     // distractor: doubles the radius before squaring (uses $r = 8$)
     { id: "C", text: "$72$" },
@@ -458,7 +458,7 @@ export const practiceTest12 = {
     { id: "D", text: "$13.5$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Proportional Scaling**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Scale factor: $9 / 3 = 3$. Sugar $= 2 \\cdot 3 = 6$ cups.\n\n**The Full Solution:**\nThe ratio of flour to sugar is $3 : 2$. With $9$ cups of flour:\n$\\dfrac{3}{2} = \\dfrac{9}{x}$\nCross-multiply: $3x = 18$, so $x = 6$.\n\nAlternatively: scale factor $= 9 / 3 = 3$, so multiply each ratio component by $3$: sugar $= 2 \\cdot 3 = 6$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — subtracts to estimate without proper scaling.\n* Choice C: \"applies the inverse operation\" — adds the difference ($9 + 3 = 12$).\n* Choice D: \"off-by-one\" — uses scale factor of $1.5$ instead of $3$.\n\n**Test Day Takeaway:** When scaling a ratio, multiply BOTH parts by the same factor. Find the factor from the ratio of new-to-old for one quantity.",
+  explanation: "**SAT Pattern: Proportional Scaling**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Scale factor: $\\frac{9}{3} = 3$. Sugar $= 2 \\cdot 3 = 6$ cups.\n\n**The Full Solution:**\nThe ratio of flour to sugar is $3 : 2$. With $9$ cups of flour:\n$\\dfrac{3}{2} = \\dfrac{9}{x}$\nCross-multiply: $3x = 18$, so $x = 6$.\n\nAlternatively: scale factor $= \\frac{9}{3} = 3$, so multiply each ratio component by $3$: sugar $= 2 \\cdot 3 = 6$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — subtracts to estimate without proper scaling.\n* Choice C: \"applies the inverse operation\" — adds the difference ($9 + 3 = 12$).\n* Choice D: \"off-by-one\" — uses scale factor of $1.5$ instead of $3$.\n\n**Test Day Takeaway:** When scaling a ratio, multiply BOTH parts by the same factor. Find the factor from the ratio of new-to-old for one quantity.",
   skills: ["ratios", "proportions"]
 },
 {
@@ -563,7 +563,7 @@ export const practiceTest12 = {
     { id: "D", text: "$\\dfrac{\\sin^2 \\theta + \\cos^2 \\theta}{a^2 + b^2}$" }
   ],
   correctAnswer: "D",
-  explanation: "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Pythagorean identity: $\\sin^2 + \\cos^2 = 1$. Pythagorean theorem: $a^2 + b^2 = c^2$. Combine: $\\dfrac{\\sin^2 + \\cos^2}{a^2 + b^2} = \\dfrac{1}{c^2}$.\n\n**The Full Solution:**\nKey identities:\n1. $\\sin^2\\theta + \\cos^2\\theta = 1$.\n2. $a^2 + b^2 = c^2$ (legs and hypotenuse).\n\nCheck D: $\\dfrac{\\sin^2\\theta + \\cos^2\\theta}{a^2 + b^2} = \\dfrac{1}{c^2}$ \\checkmark.\n\nCheck others:\n* A: $= 1 \\neq \\dfrac{1}{c^2}$ unless $c = 1$.\n* B: $\\dfrac{a^2/c^2}{a^2} + \\dfrac{b^2/c^2}{b^2} = \\dfrac{1}{c^2} + \\dfrac{1}{c^2} = \\dfrac{2}{c^2}$.\n* C: $\\dfrac{1}{a^2} + \\dfrac{1}{b^2} = \\dfrac{c^2}{a^2 b^2}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — Pythagorean identity equals $1$, which is $\\dfrac{c^2}{c^2}$, not $\\dfrac{1}{c^2}$.\n* Choice B: \"off-by-one\" — sum of two $\\dfrac{1}{c^2}$ terms gives $\\dfrac{2}{c^2}$.\n* Choice C: \"wrong base\" — algebra gives $\\dfrac{c^2}{a^2 b^2}$, not $\\dfrac{1}{c^2}$.\n\n**Test Day Takeaway:** Pythagorean identity ($\\sin^2 + \\cos^2 = 1$) and Pythagorean theorem ($a^2 + b^2 = c^2$) are partners — combine them for clean simplifications.",
+  explanation: "**SAT Pattern: Right Triangle — Trig Ratios**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Pythagorean identity: $\\sin^2 + \\cos^2 = 1$. Pythagorean theorem: $a^2 + b^2 = c^2$. Combine: $\\dfrac{\\sin^2 + \\cos^2}{a^2 + b^2} = \\dfrac{1}{c^2}$.\n\n**The Full Solution:**\nKey identities:\n1. $\\sin^2\\theta + \\cos^2\\theta = 1$.\n2. $a^2 + b^2 = c^2$ (legs and hypotenuse).\n\nCheck D: $\\dfrac{\\sin^2\\theta + \\cos^2\\theta}{a^2 + b^2} = \\dfrac{1}{c^2}$ \\checkmark.\n\nCheck others:\n* A: $= 1 \\neq \\dfrac{1}{c^2}$ unless $c = 1$.\n* B: $\\dfrac{\\frac{a^2}{c^2}}{a^2} + \\dfrac{\\frac{b^2}{c^2}}{b^2} = \\dfrac{1}{c^2} + \\dfrac{1}{c^2} = \\dfrac{2}{c^2}$.\n* C: $\\dfrac{1}{a^2} + \\dfrac{1}{b^2} = \\dfrac{c^2}{a^2 b^2}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — Pythagorean identity equals $1$, which is $\\dfrac{c^2}{c^2}$, not $\\dfrac{1}{c^2}$.\n* Choice B: \"off-by-one\" — sum of two $\\dfrac{1}{c^2}$ terms gives $\\dfrac{2}{c^2}$.\n* Choice C: \"wrong base\" — algebra gives $\\dfrac{c^2}{a^2 b^2}$, not $\\dfrac{1}{c^2}$.\n\n**Test Day Takeaway:** Pythagorean identity ($\\sin^2 + \\cos^2 = 1$) and Pythagorean theorem ($a^2 + b^2 = c^2$) are partners — combine them for clean simplifications.",
   skills: ["trigonometry"]
 },
 {
@@ -589,7 +589,7 @@ export const practiceTest12 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "If $\\sqrt[3]{x^4} \\cdot \\sqrt{x^7} = x^{p/q}$ for $x > 0$, where $\\dfrac{p}{q}$ is in lowest terms, what is the value of $p + q$?",
+  question: "If $\\sqrt[3]{x^4} \\cdot \\sqrt{x^7} = x^{\\frac{p}{q}}$ for $x > 0$, where $\\dfrac{p}{q}$ is in lowest terms, what is the value of $p + q$?",
   choices: [
     // distractor: stops at $p$ alone (= $29$)
     { id: "A", text: "$29$" },
@@ -600,7 +600,7 @@ export const practiceTest12 = {
     { id: "D", text: "$16$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[3]{x^4} = x^{4/3}$ and $\\sqrt{x^7} = x^{7/2}$. Add: $\\dfrac{4}{3} + \\dfrac{7}{2} = \\dfrac{8 + 21}{6} = \\dfrac{29}{6}$. So $p + q = 29 + 6 = 35$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[3]{x^4} = x^{4/3}$ and $\\sqrt{x^7} = x^{7/2}$.\n\nMultiply same bases — add exponents:\n$x^{4/3} \\cdot x^{7/2} = x^{4/3 + 7/2} = x^{(8 + 21)/6} = x^{29/6}$\n\n$\\gcd(29, 6) = 1$, so $\\dfrac{29}{6}$ is in lowest terms. $p = 29$, $q = 6$, so $p + q = 35$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just $p = 29$ without adding $q$.\n* Choice B: \"applies the inverse operation\" — sums radical exponent and index ($7 + 3 + 4 = 14$ or similar).\n* Choice D: \"wrong base\" — sums all integers in the expression.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{m/n}$. Add fractional exponents when multiplying same bases.",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[3]{x^4} = x^{\\frac{4}{3}}$ and $\\sqrt{x^7} = x^{\\frac{7}{2}}$. Add: $\\dfrac{4}{3} + \\dfrac{7}{2} = \\dfrac{8 + 21}{6} = \\dfrac{29}{6}$. So $p + q = 29 + 6 = 35$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[3]{x^4} = x^{\\frac{4}{3}}$ and $\\sqrt{x^7} = x^{\\frac{7}{2}}$.\n\nMultiply same bases — add exponents:\n$x^{\\frac{4}{3}} \\cdot x^{\\frac{7}{2}} = x^{\\frac{4}{3} + \\frac{7}{2}} = x^{\\frac{8 + 21}{6}} = x^{\\frac{29}{6}}$\n\n$\\gcd(29, 6) = 1$, so $\\dfrac{29}{6}$ is in lowest terms. $p = 29$, $q = 6$, so $p + q = 35$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just $p = 29$ without adding $q$.\n* Choice B: \"applies the inverse operation\" — sums radical exponent and index ($7 + 3 + 4 = 14$ or similar).\n* Choice D: \"wrong base\" — sums all integers in the expression.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{\\frac{m}{n}}$. Add fractional exponents when multiplying same bases.",
   skills: ["exponent-rules", "radical-expressions"]
 },
 {
@@ -639,10 +639,10 @@ export const practiceTest12 = {
   band: 7,
   question: "A bag contains $5$ red marbles, $3$ blue marbles, and $2$ green marbles. Two marbles are drawn at random one after another, without replacement. What is the probability that BOTH marbles are red?",
   choices: [
-    // distractor: assumes replacement — uses $(5/10)^2 = 1/4$
+    // distractor: assumes replacement — uses $(\\frac{5}{10})^2 = \\frac{1}{4}$
     { id: "A", text: "$\\dfrac{1}{4}$" },
     { id: "B", text: "$\\dfrac{2}{9}$" },
-    // distractor: stops one step early — gives only $P(\text{first red}) = 1/2$
+    // distractor: stops one step early — gives only $P(\text{first red}) = \\frac{1}{2}$
     { id: "C", text: "$\\dfrac{1}{2}$" },
     // distractor: applies the inverse operation — adds probabilities instead of multiplying
     { id: "D", text: "$\\dfrac{9}{10}$" }
@@ -734,7 +734,7 @@ export const practiceTest12 = {
     { id: "D", text: "$80$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Margin of Error**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Margin of error $\\propto \\dfrac{1}{\\sqrt{n}}$. To cut margin from $5\\%$ to $1\\%$ (factor of $5$), multiply $n$ by $5^2 = 25$: $400 \\cdot 25 = 10{,}000$.\n\n**The Full Solution:**\nThe margin of error is inversely proportional to $\\sqrt{n}$. If we want a new margin $E_2 = \\dfrac{E_1}{5}$, we need $\\sqrt{n_2} = 5\\sqrt{n_1}$, so $n_2 = 25 n_1 = 25 \\cdot 400 = 10{,}000$.\n\nVerification: at $n = 10{,}000$, margin $\\propto \\dfrac{1}{\\sqrt{10{,}000}} = \\dfrac{1}{100}$, vs. original $\\dfrac{1}{\\sqrt{400}} = \\dfrac{1}{20}$. Ratio $\\dfrac{1/100}{1/20} = \\dfrac{1}{5}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies sample size by $5$ (linear) instead of $25$ (quadratic).\n* Choice B: \"off-by-one\" — uses factor of $20$ ($400 \\cdot 20 = 8{,}000$) instead of $25$.\n* Choice D: \"wrong base\" — divides by $5$ instead of squaring.\n\n**Test Day Takeaway:** Margin of error scales with $\\dfrac{1}{\\sqrt{n}}$. To cut margin by a factor of $k$, MULTIPLY sample size by $k^2$.",
+  explanation: "**SAT Pattern: Margin of Error**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Margin of error $\\propto \\dfrac{1}{\\sqrt{n}}$. To cut margin from $5\\%$ to $1\\%$ (factor of $5$), multiply $n$ by $5^2 = 25$: $400 \\cdot 25 = 10{,}000$.\n\n**The Full Solution:**\nThe margin of error is inversely proportional to $\\sqrt{n}$. If we want a new margin $E_2 = \\dfrac{E_1}{5}$, we need $\\sqrt{n_2} = 5\\sqrt{n_1}$, so $n_2 = 25 n_1 = 25 \\cdot 400 = 10{,}000$.\n\nVerification: at $n = 10{,}000$, margin $\\propto \\dfrac{1}{\\sqrt{10{,}000}} = \\dfrac{1}{100}$, vs. original $\\dfrac{1}{\\sqrt{400}} = \\dfrac{1}{20}$. Ratio $\\dfrac{\\frac{1}{100}}{\\frac{1}{20}} = \\dfrac{1}{5}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies sample size by $5$ (linear) instead of $25$ (quadratic).\n* Choice B: \"off-by-one\" — uses factor of $20$ ($400 \\cdot 20 = 8{,}000$) instead of $25$.\n* Choice D: \"wrong base\" — divides by $5$ instead of squaring.\n\n**Test Day Takeaway:** Margin of error scales with $\\dfrac{1}{\\sqrt{n}}$. To cut margin by a factor of $k$, MULTIPLY sample size by $k^2$.",
   skills: ["margin-of-error", "statistics"]
 },
 {
@@ -780,7 +780,7 @@ export const practiceTest12 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "A radioactive substance has a half-life of $18$ months. The amount remaining is modeled by $A(t) = 5000(0.5)^{t/18}$, where $t$ is in months. To the nearest hundredth of a percent, what is the percent decrease per month?",
+  question: "A radioactive substance has a half-life of $18$ months. The amount remaining is modeled by $A(t) = 5000(0.5)^{\\frac{t}{18}}$, where $t$ is in months. To the nearest hundredth of a percent, what is the percent decrease per month?",
   choices: [
     // distractor: divides $50\%$ by $18$ — linear thinking on an exponential
     { id: "A", text: "$2.78\\%$" },
@@ -791,7 +791,7 @@ export const practiceTest12 = {
     { id: "D", text: "$50.00\\%$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Monthly factor $= (0.5)^{1/18} \\approx 0.9622$. Monthly decrease $= 1 - 0.9622 = 0.0378 = 3.78\\%$.\n\n**The Full Solution:**\nRewrite $A(t) = 5000(0.5)^{t/18} = 5000 \\left[(0.5)^{1/18}\\right]^t$.\n$(0.5)^{1/18} = e^{\\ln(0.5)/18} = e^{-0.6931/18} \\approx e^{-0.03851} \\approx 0.9622$.\nMonthly decrease: $1 - 0.9622 = 0.0378 = 3.78\\%$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — divides $50\\%$ by $18$ (linear, ignores compounding).\n* Choice C: \"off-by-one\" — doubles the linear divide.\n* Choice D: \"wrong base\" — gives the decrease per $18$ months, not per month.\n\n**Test Day Takeaway:** Per-period rate from a half-life: $(0.5)^{1/n}$ where $n$ is the number of periods in one half-life. Don't divide $50\\%$ by $n$ — exponential decay does NOT scale linearly.",
+  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Monthly factor $= (0.5)^{\\frac{1}{18}} \\approx 0.9622$. Monthly decrease $= 1 - 0.9622 = 0.0378 = 3.78\\%$.\n\n**The Full Solution:**\nRewrite $A(t) = 5000(0.5)^{\\frac{t}{18}} = 5000 \\left[(0.5)^{\\frac{1}{18}}\\right]^t$.\n$(0.5)^{\\frac{1}{18}} = e^{\\frac{\\ln(0.5)}{18}} = e^{-\\frac{0.6931}{18}} \\approx e^{-0.03851} \\approx 0.9622$.\nMonthly decrease: $1 - 0.9622 = 0.0378 = 3.78\\%$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — divides $50\\%$ by $18$ (linear, ignores compounding).\n* Choice C: \"off-by-one\" — doubles the linear divide.\n* Choice D: \"wrong base\" — gives the decrease per $18$ months, not per month.\n\n**Test Day Takeaway:** Per-period rate from a half-life: $(0.5)^{\\frac{1}{n}}$ where $n$ is the number of periods in one half-life. Don't divide $50\\%$ by $n$ — exponential decay does NOT scale linearly.",
   skills: ["exponential-functions", "function-interpretation"]
 }
       ]

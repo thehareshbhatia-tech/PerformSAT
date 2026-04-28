@@ -33,7 +33,7 @@ export const practiceTest9 = {
     { id: "D", text: "$46{,}000$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.40 = 1{,}840$, so total $= 1{,}840 / 0.40 = 4{,}600$.\n\n**The Full Solution:**\nLet $T$ be the total number of birds. Then $0.40 \\cdot T = 1{,}840$.\nDivide both sides by $0.40$: $T = \\dfrac{1{,}840}{0.40} = 4{,}600$.\n\nVerification: $40\\%$ of $4{,}600 = 0.40 \\cdot 4{,}600 = 1{,}840$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $1{,}840 \\cdot 0.40 = 736$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.60$ (treats $1{,}840$ as the non-migratory count).\n* Choice D: \"off-by-one\" — divides by $0.04$ instead of $0.40$ (decimal-place slip).\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
+  explanation: "**SAT Pattern: Reverse-Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.40 = 1{,}840$, so total $= \\frac{1{,}840}{0.40} = 4{,}600$.\n\n**The Full Solution:**\nLet $T$ be the total number of birds. Then $0.40 \\cdot T = 1{,}840$.\nDivide both sides by $0.40$: $T = \\dfrac{1{,}840}{0.40} = 4{,}600$.\n\nVerification: $40\\%$ of $4{,}600 = 0.40 \\cdot 4{,}600 = 1{,}840$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — multiplies $1{,}840 \\cdot 0.40 = 736$ instead of dividing.\n* Choice B: \"wrong base\" — divides by the complement $0.60$ (treats $1{,}840$ as the non-migratory count).\n* Choice D: \"off-by-one\" — divides by $0.04$ instead of $0.40$ (decimal-place slip).\n\n**Test Day Takeaway:** When a percent of an unknown total is given, divide the part by the percent (as a decimal) to recover the whole.",
   skills: ["percents"]
 },
 {
@@ -121,14 +121,14 @@ export const practiceTest9 = {
   choices: [
     // distractor: uses 4t instead of t/4 — would quadruple the exponent each hour
     { id: "A", text: "$P(t) = 200(3)^{4t}$" },
-    { id: "B", text: "$P(t) = 200(3)^{t/4}$" },
+    { id: "B", text: "$P(t) = 200(3)^{\\frac{t}{4}}$" },
     // distractor: swaps the base (4) and the tripling factor (3)
-    { id: "C", text: "$P(t) = 200(4)^{t/3}$" },
+    { id: "C", text: "$P(t) = 200(4)^{\\frac{t}{3}}$" },
     // distractor: starts at 600 (already tripled) and uses wrong exponent
     { id: "D", text: "$P(t) = 600(3)^{t}$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** \"Triples every $4$ hours\" means the exponent must equal $1$ when $t = 4$: $\\dfrac{t}{4}$ gives $\\dfrac{4}{4} = 1$. Initial value is $200$, base is $3$.\n\n**The Full Solution:**\nThe general period-multiplier model is $P(t) = P_0 \\cdot k^{t/d}$, where $P_0 = 200$, $k = 3$, and $d = 4$.\nSo $P(t) = 200(3)^{t/4}$.\n\nCheck: $P(4) = 200(3)^1 = 600$ (tripled) \\checkmark, $P(8) = 200(3)^2 = 1800$ (tripled again) \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — uses $4t$ in the exponent instead of $\\dfrac{t}{4}$, which would multiply by $3^4 = 81$ every hour.\n* Choice C: \"wrong base\" — swaps the base and the period.\n* Choice D: \"off-by-one\" — starts the exponent off-by-tripling (initial value $600$ instead of $200$).\n\n**Test Day Takeaway:** \"Multiplies by $k$ every $d$ units\" $\\Rightarrow P(t) = P_0 \\cdot k^{t/d}$.",
+  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** \"Triples every $4$ hours\" means the exponent must equal $1$ when $t = 4$: $\\dfrac{t}{4}$ gives $\\dfrac{4}{4} = 1$. Initial value is $200$, base is $3$.\n\n**The Full Solution:**\nThe general period-multiplier model is $P(t) = P_0 \\cdot k^{\\frac{t}{d}}$, where $P_0 = 200$, $k = 3$, and $d = 4$.\nSo $P(t) = 200(3)^{\\frac{t}{4}}$.\n\nCheck: $P(4) = 200(3)^1 = 600$ (tripled) \\checkmark, $P(8) = 200(3)^2 = 1800$ (tripled again) \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — uses $4t$ in the exponent instead of $\\dfrac{t}{4}$, which would multiply by $3^4 = 81$ every hour.\n* Choice C: \"wrong base\" — swaps the base and the period.\n* Choice D: \"off-by-one\" — starts the exponent off-by-tripling (initial value $600$ instead of $200$).\n\n**Test Day Takeaway:** \"Multiplies by $k$ every $d$ units\" $\\Rightarrow P(t) = P_0 \\cdot k^{\\frac{t}{d}}$.",
   skills: ["exponential-functions", "function-interpretation"]
 },
 {
@@ -403,7 +403,7 @@ export const practiceTest9 = {
   band: 7,
   question: "If $\\sqrt[4]{x^7} \\cdot \\sqrt{x^5} = x^k$ for $x > 0$, what is the value of $k$? Express your answer as a fraction.",
   correctAnswer: "17/4",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $\\dfrac{17}{4}$.**\n\n**The Fast Way (~20s):** Convert to exponents: $x^{7/4} \\cdot x^{5/2} = x^{7/4 + 5/2}$. Common denominator: $\\dfrac{7}{4} + \\dfrac{10}{4} = \\dfrac{17}{4}$.\n\n**The Full Solution:**\n$\\sqrt[4]{x^7} = x^{7/4}$\n$\\sqrt{x^5} = x^{5/2}$\n\nWhen multiplying powers with the same base, add exponents:\n$x^{7/4} \\cdot x^{5/2} = x^{7/4 + 5/2}$\n\nCommon denominator $4$:\n$\\dfrac{7}{4} = \\dfrac{7}{4}, \\quad \\dfrac{5}{2} = \\dfrac{10}{4}, \\quad \\dfrac{7}{4} + \\dfrac{10}{4} = \\dfrac{17}{4}$.\n\nSo $k = \\dfrac{17}{4}$.\n\n**Common Mistakes to Avoid:**\n* Writing $\\sqrt[4]{x^7} = x^{4/7}$ instead of $x^{7/4}$. The power goes in the numerator; the index goes in the denominator.\n* Multiplying exponents instead of adding when bases are multiplied.\n\n**Verification:** $\\dfrac{7}{4} + \\dfrac{5}{2} = 1.75 + 2.50 = 4.25 = \\dfrac{17}{4}$ \\checkmark.\n\n**Test Day Takeaway:** Convert radicals to fractional exponents, THEN add when multiplying same bases.",
+  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $\\dfrac{17}{4}$.**\n\n**The Fast Way (~20s):** Convert to exponents: $x^{\\frac{7}{4}} \\cdot x^{\\frac{5}{2}} = x^{\\frac{7}{4} + \\frac{5}{2}}$. Common denominator: $\\dfrac{7}{4} + \\dfrac{10}{4} = \\dfrac{17}{4}$.\n\n**The Full Solution:**\n$\\sqrt[4]{x^7} = x^{\\frac{7}{4}}$\n$\\sqrt{x^5} = x^{\\frac{5}{2}}$\n\nWhen multiplying powers with the same base, add exponents:\n$x^{\\frac{7}{4}} \\cdot x^{\\frac{5}{2}} = x^{\\frac{7}{4} + \\frac{5}{2}}$\n\nCommon denominator $4$:\n$\\dfrac{7}{4} = \\dfrac{7}{4}, \\quad \\dfrac{5}{2} = \\dfrac{10}{4}, \\quad \\dfrac{7}{4} + \\dfrac{10}{4} = \\dfrac{17}{4}$.\n\nSo $k = \\dfrac{17}{4}$.\n\n**Common Mistakes to Avoid:**\n* Writing $\\sqrt[4]{x^7} = x^{\\frac{4}{7}}$ instead of $x^{\\frac{7}{4}}$. The power goes in the numerator; the index goes in the denominator.\n* Multiplying exponents instead of adding when bases are multiplied.\n\n**Verification:** $\\dfrac{7}{4} + \\dfrac{5}{2} = 1.75 + 2.50 = 4.25 = \\dfrac{17}{4}$ \\checkmark.\n\n**Test Day Takeaway:** Convert radicals to fractional exponents, THEN add when multiplying same bases.",
   skills: ["exponent-rules", "radical-expressions"]
 }
       ]
@@ -553,7 +553,7 @@ export const practiceTest9 = {
     // distractor: flips sign on the y exponent
     { id: "C", text: "$3x^3 y^4$" },
     // distractor: divides exponents instead of subtracting
-    { id: "D", text: "$\\dfrac{3x^{5/2}}{y^{7/3}}$" }
+    { id: "D", text: "$\\dfrac{3x^{\\frac{5}{2}}}{y^{\\frac{7}{3}}}$" }
   ],
   correctAnswer: "B",
   explanation: "**SAT Pattern: Common-Base Exponent Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $\\dfrac{12}{4} = 3$, $x^{5-2} = x^3$, $y^{3-7} = y^{-4} = \\dfrac{1}{y^4}$. Result: $\\dfrac{3x^3}{y^4}$.\n\n**The Full Solution:**\nWhen dividing like bases, subtract exponents: $\\dfrac{12x^5 y^3}{4x^2 y^7} = \\dfrac{12}{4} \\cdot x^{5-2} \\cdot y^{3-7} = 3x^3 y^{-4} = \\dfrac{3x^3}{y^4}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — adds exponents instead of subtracting.\n* Choice C: \"wrong sign\" — flips the sign on the $y$ exponent (uses $7 - 3 = 4$ in the wrong direction).\n* Choice D: \"applies the inverse operation\" — divides exponents instead of subtracting.\n\n**Test Day Takeaway:** When dividing powers with the same base, subtract the exponents. The SAT typically expects positive exponents in the answer.",
@@ -612,9 +612,9 @@ export const practiceTest9 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "If $x + 2y + z = 13$, $2x - y + 3z = 9$, and $3x + y + 2z = 16$, what is the value of $x + y + z$?",
-  correctAnswer: "9",
-  explanation: "**SAT Pattern: Three-Variable System**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~30s):** Add Eq1 and Eq2: $3x + y + 4z = 22$. Subtract Eq3: $2z = 6$, so $z = 3$. Then back-substitute.\n\n**The Full Solution:**\nAdd Eq1 and Eq2: $(x + 2y + z) + (2x - y + 3z) = 13 + 9$, giving $3x + y + 4z = 22$.\nSubtract Eq3: $(3x + y + 4z) - (3x + y + 2z) = 22 - 16$, giving $2z = 6$, so $z = 3$.\n\nSubstitute $z = 3$ into Eq2: $2x - y + 9 = 9$, so $y = 2x$.\nSubstitute into Eq1: $x + 2(2x) + 3 = 13$, so $5x = 10$ and $x = 2$.\nThen $y = 4$ and $z = 3$.\n\n$x + y + z = 2 + 4 + 3 = 9$.\n\nVerification: Eq1: $2 + 8 + 3 = 13$ \\checkmark; Eq2: $4 - 4 + 9 = 9$ \\checkmark; Eq3: $6 + 4 + 6 = 16$ \\checkmark.\n\n**Test Day Takeaway:** For 3-variable systems, add or subtract pairs of equations to eliminate variables. Look for combinations that simplify cleanly.",
+  question: "Consider the system of equations:\n\n$5x - 2y = 19$\n$3x + 4y = 27$\n\nWhat is the value of $x - y$?",
+  correctAnswer: "2",
+  explanation: "**SAT Pattern: Solve for a Combination**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~20s):** Multiply equation 1 by $2$ to match the $y$-coefficient magnitude: $10x - 4y = 38$. Add equation 2: $13x = 65 \\Rightarrow x = 5$. From equation 2: $4y = 27 - 15 = 12 \\Rightarrow y = 3$. So $x - y = 5 - 3 = 2$.\n\n**The Full Solution:**\nMultiply equation 1 by $2$: $10x - 4y = 38$.\nAdd equation 2: $(10x - 4y) + (3x + 4y) = 38 + 27 \\Rightarrow 13x = 65 \\Rightarrow x = 5$.\n\nSubstitute $x = 5$ into equation 2: $3(5) + 4y = 27 \\Rightarrow 4y = 12 \\Rightarrow y = 3$.\n\nVerification: equation 1: $5(5) - 2(3) = 25 - 6 = 19$ \\checkmark; equation 2: $3(5) + 4(3) = 15 + 12 = 27$ \\checkmark.\n\nSo $x - y = 5 - 3 = 2$.\n\n**Common Mistakes to Avoid:**\n* Reporting $x + y = 8$ when the question asks for $x - y$.\n* Solving for $y$ first and making sign errors — solving for $x$ first usually keeps the arithmetic cleaner here.\n\n**Test Day Takeaway:** When the $y$-coefficients have opposite signs, scale one equation so they cancel on addition. Then back-substitute for the second variable.",
   skills: ["systems-of-equations"]
 },
 {
@@ -649,7 +649,7 @@ export const practiceTest9 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "A biologist models a bacteria population with $P(t) = 800 \\cdot 2^{t/3}$, where $t$ is measured in hours. By what percent does the population increase every $9$ hours?",
+  question: "A biologist models a bacteria population with $P(t) = 800 \\cdot 2^{\\frac{t}{3}}$, where $t$ is measured in hours. By what percent does the population increase every $9$ hours?",
   choices: [
     // distractor: 100% (one doubling, ignores 9h)
     { id: "A", text: "$100\\%$" },
@@ -660,7 +660,7 @@ export const practiceTest9 = {
     { id: "D", text: "$800\\%$" }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** When $t$ increases by $9$, the exponent increases by $3$, so the population is multiplied by $2^3 = 8$. Going from $P$ to $8P$ is a $700\\%$ increase.\n\n**The Full Solution:**\nCompare $P(t+9)$ to $P(t)$:\n$\\dfrac{P(t+9)}{P(t)} = \\dfrac{800 \\cdot 2^{(t+9)/3}}{800 \\cdot 2^{t/3}} = 2^{9/3} = 2^3 = 8$.\nThe population is multiplied by $8$ every $9$ hours.\nA factor of $8$ is a $(8 - 1) \\cdot 100\\% = 700\\%$ increase.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses one doubling (every $3$ hours) instead of three.\n* Choice B: \"applies the inverse operation\" — treats $2^3 = 8$ multiplier as a $200\\%$ increase.\n* Choice D: \"off-by-one\" — uses $8 \\cdot 100\\% = 800\\%$ instead of $(8-1) \\cdot 100\\% = 700\\%$.\n\n**Test Day Takeaway:** A growth factor of $k$ means a $(k-1) \\cdot 100\\%$ increase, not $k \\cdot 100\\%$.",
+  explanation: "**SAT Pattern: Exponential Growth/Decay**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** When $t$ increases by $9$, the exponent increases by $3$, so the population is multiplied by $2^3 = 8$. Going from $P$ to $8P$ is a $700\\%$ increase.\n\n**The Full Solution:**\nCompare $P(t+9)$ to $P(t)$:\n$\\dfrac{P(t+9)}{P(t)} = \\dfrac{800 \\cdot 2^{\\frac{t+9}{3}}}{800 \\cdot 2^{\\frac{t}{3}}} = 2^{\\frac{9}{3}} = 2^3 = 8$.\nThe population is multiplied by $8$ every $9$ hours.\nA factor of $8$ is a $(8 - 1) \\cdot 100\\% = 700\\%$ increase.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses one doubling (every $3$ hours) instead of three.\n* Choice B: \"applies the inverse operation\" — treats $2^3 = 8$ multiplier as a $200\\%$ increase.\n* Choice D: \"off-by-one\" — uses $8 \\cdot 100\\% = 800\\%$ instead of $(8-1) \\cdot 100\\% = 700\\%$.\n\n**Test Day Takeaway:** A growth factor of $k$ means a $(k-1) \\cdot 100\\%$ increase, not $k \\cdot 100\\%$.",
   skills: ["exponential-functions", "percents"]
 },
 {
@@ -679,7 +679,7 @@ export const practiceTest9 = {
     { id: "D", text: "$154$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Total $= 4n + n + (n + 35) = 6n + 35 = 617$. So $6n = 582$ and $n = 97$.\n\n**The Full Solution:**\nLet $n$ be the number of medium posters.\nNumber of large posters: $4n$.\nNumber of small posters: $n + 35$.\n\nTotal: $4n + n + (n + 35) = 6n + 35 = 617$.\n$6n = 582 \\Rightarrow n = 97$.\n\nVerification: $4(97) + 97 + (97 + 35) = 388 + 97 + 132 = 617$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — divides $617$ by $6$ ignoring the offset.\n* Choice C: \"applies the inverse operation\" — uses $(617 - 35)/4 = 145.5 \\approx 146$ instead of dividing by $6$.\n* Choice D: \"stops one step early\" — divides $617/4$ ignoring both the offset and the additional medium and small counts.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$35$ more than\".",
+  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Total $= 4n + n + (n + 35) = 6n + 35 = 617$. So $6n = 582$ and $n = 97$.\n\n**The Full Solution:**\nLet $n$ be the number of medium posters.\nNumber of large posters: $4n$.\nNumber of small posters: $n + 35$.\n\nTotal: $4n + n + (n + 35) = 6n + 35 = 617$.\n$6n = 582 \\Rightarrow n = 97$.\n\nVerification: $4(97) + 97 + (97 + 35) = 388 + 97 + 132 = 617$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — divides $617$ by $6$ ignoring the offset.\n* Choice C: \"applies the inverse operation\" — uses $\\frac{617 - 35}{4} = 145.5 \\approx 146$ instead of dividing by $6$.\n* Choice D: \"stops one step early\" — divides $\\frac{617}{4}$ ignoring both the offset and the additional medium and small counts.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$35$ more than\".",
   skills: ["word-problems", "ratios"]
 },
 {
