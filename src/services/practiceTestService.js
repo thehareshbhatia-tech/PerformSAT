@@ -64,11 +64,13 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
     const attemptData = {
       attemptId,
       completedAt,
-      rawScore: results.rawScore,
-      totalQuestions: results.totalQuestions,
-      scaledScore: results.scaledScore,
-      timedMode: results.timedMode,
-      moduleScores: results.moduleScores,
+      rawScore: results.rawScore ?? null,
+      totalQuestions: results.totalQuestions ?? null,
+      scaledScore: results.scaledScore ?? null,
+      timedMode: results.timedMode ?? false,
+      moduleScores: results.moduleScores ?? [],
+      sectionScores: results.sectionScores ?? null,
+      isMultiSection: results.isMultiSection ?? false,
       diagnosticData: results.diagnosticData || null,
       diagnosticReport: results.diagnosticReport || null,
       scoringVersion: results.scoringVersion || null,
@@ -80,10 +82,15 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
     };
 
     // Keep only the last MAX_ATTEMPTS per test to prevent document bloat.
-    // Older attempts are trimmed and diagnosticReport is stripped from non-latest attempts.
+    // diagnosticReport is stripped from ALL attempts — it's regenerated on
+    // demand from diagnosticData via runDiagnostic when the user views past
+    // results (see App.jsx ViewResults fallback). diagnosticData (the per-
+    // question telemetry) is preserved on the latest attempt because several
+    // services read attempt.diagnosticData.questionDetails for trend
+    // analysis, prediction, and study plan generation.
     // NOTE: subcollection snapshot docs are NOT trimmed here — they live under
-    // progress/{userId}/attempts/{attemptId} and remain available for Review Answers
-    // even when the aggregate row falls off the main doc. Cleanup is a future task.
+    // progress/{userId}/attempts/{attemptId} and remain available for Review
+    // Answers even when the aggregate row falls off the main doc.
     const MAX_ATTEMPTS = 5;
 
     const trimAttempts = (attempts) => {
@@ -91,7 +98,12 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
         new Date(b.completedAt) - new Date(a.completedAt)
       );
       return sorted.slice(0, MAX_ATTEMPTS).map((a, i) => {
-        if (i === 0) return a; // keep latest attempt fully intact
+        if (i === 0) {
+          // Latest: keep diagnosticData, strip the (regenerable) report.
+          const { diagnosticReport, ...rest } = a;
+          return rest;
+        }
+        // Older: strip both report and data to keep the main doc lean.
         const { diagnosticReport, diagnosticData, ...slim } = a;
         return slim;
       });
@@ -129,8 +141,8 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
           testId,
           testTitle,
           attempts: [attemptData],
-          bestScaledScore: results.scaledScore,
-          bestRawScore: results.rawScore,
+          bestScaledScore: results.scaledScore ?? 0,
+          bestRawScore: results.rawScore ?? 0,
           totalAttempts: 1,
           lastAttemptAt: serverTimestamp()
         },
@@ -140,15 +152,67 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
       const currentData = progressSnap.data();
       const existingTest = currentData.practiceTestResults?.[testId];
 
+      // Diagnostic: dump per-test sizes when the doc is approaching the 1MB
+      // Firestore limit so we can see what's bloating it. No-op for healthy
+      // docs to keep logs clean in normal operation.
+      try {
+        const docKB = Math.round(JSON.stringify(currentData).length / 1024);
+        if (docKB > 700) {
+          const ptr = currentData.practiceTestResults || {};
+          const sizes = Object.entries(ptr).map(([tid, t]) => {
+            const totalBytes = JSON.stringify(t).length;
+            const attempts = t?.attempts || [];
+            const reportBytes = attempts.reduce((s, a) => s + (a?.diagnosticReport ? JSON.stringify(a.diagnosticReport).length : 0), 0);
+            const dataBytes = attempts.reduce((s, a) => s + (a?.diagnosticData ? JSON.stringify(a.diagnosticData).length : 0), 0);
+            return `${tid}:${Math.round(totalBytes / 1024)}KB(rep=${Math.round(reportBytes / 1024)}KB,data=${Math.round(dataBytes / 1024)}KB,n=${attempts.length})`;
+          });
+          console.warn('[practiceTestService] DOC AUDIT (>700KB) — total=' + docKB + 'KB | ' + sizes.join(' | '));
+        }
+      } catch (auditErr) {
+        console.warn('[practiceTestService] Audit failed (non-fatal):', auditErr.message);
+      }
+
+      // In-batch sanitation: trim every OTHER test's attempts to MAX_ATTEMPTS
+      // and strip diagnosticReport from the survivors so the doc stays under
+      // Firestore's 1MB limit. Earlier builds persisted diagnosticReport on
+      // the latest attempt of each test (and stored every attempt without
+      // trimming on tests recorded before MAX_ATTEMPTS was introduced), which
+      // alone can push the doc past the size cap. The report is regenerated
+      // on demand via runDiagnostic when the user views past results, so
+      // dropping it here is lossless.
+      const existingResults = currentData.practiceTestResults || {};
+      Object.entries(existingResults).forEach(([otherTestId, otherTest]) => {
+        if (otherTestId === testId) return; // current test handled below
+        const attempts = otherTest?.attempts || [];
+        const overSized = attempts.length > MAX_ATTEMPTS;
+        const hasReport = attempts.some((a) => a?.diagnosticReport != null);
+        if (!overSized && !hasReport) return;
+
+        const sortedAttempts = [...attempts].sort((a, b) =>
+          new Date(b.completedAt || 0) - new Date(a.completedAt || 0)
+        );
+        const cleaned = sortedAttempts.slice(0, MAX_ATTEMPTS).map((a, i) => {
+          if (i === 0) {
+            const { diagnosticReport, ...rest } = a;
+            return rest;
+          }
+          const { diagnosticReport, diagnosticData, ...slim } = a;
+          return slim;
+        });
+        batch.update(progressRef, {
+          [`practiceTestResults.${otherTestId}.attempts`]: cleaned,
+        });
+      });
+
       if (existingTest) {
         // Update existing test results, trimming old attempts to stay under Firestore 1MB limit
         console.log('[practiceTestService] Updating existing test results...');
         const updatedAttempts = trimAttempts([attemptData, ...(existingTest.attempts || [])]);
         batch.update(progressRef, {
           [`practiceTestResults.${testId}.attempts`]: updatedAttempts,
-          [`practiceTestResults.${testId}.bestScaledScore`]: Math.max(existingTest.bestScaledScore, results.scaledScore),
-          [`practiceTestResults.${testId}.bestRawScore`]: Math.max(existingTest.bestRawScore, results.rawScore),
-          [`practiceTestResults.${testId}.totalAttempts`]: existingTest.totalAttempts + 1,
+          [`practiceTestResults.${testId}.bestScaledScore`]: Math.max(existingTest.bestScaledScore ?? 0, results.scaledScore ?? 0),
+          [`practiceTestResults.${testId}.bestRawScore`]: Math.max(existingTest.bestRawScore ?? 0, results.rawScore ?? 0),
+          [`practiceTestResults.${testId}.totalAttempts`]: (existingTest.totalAttempts ?? 0) + 1,
           [`practiceTestResults.${testId}.lastAttemptAt`]: serverTimestamp(),
           lastUpdated: serverTimestamp()
         });
@@ -160,8 +224,8 @@ export const recordPracticeTestResult = async (userId, testId, testTitle, result
             testId,
             testTitle,
             attempts: [attemptData],
-            bestScaledScore: results.scaledScore,
-            bestRawScore: results.rawScore,
+            bestScaledScore: results.scaledScore ?? 0,
+            bestRawScore: results.rawScore ?? 0,
             totalAttempts: 1,
             lastAttemptAt: serverTimestamp()
           },

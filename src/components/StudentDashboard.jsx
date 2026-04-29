@@ -406,7 +406,7 @@ const StudentDashboard = ({
           )}
 
           {/* YOUR NEXT STEP - AI Banner */}
-          <h2 className="section-heading">Practice the Math Section</h2>
+          <h2 className="section-heading">Targeted Practice</h2>
           {recommendations[0] && (
             <div className="ai-practice-banner">
               <div className="ai-banner-content">

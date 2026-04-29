@@ -54,7 +54,7 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
           fontSize: '16px',
           color: colors.text.secondary
         }}>
-          Full-length SAT Math practice tests to prepare for the real exam
+          Full-length SAT practice tests to prepare for the real exam
         </p>
       </div>
 
@@ -133,24 +133,40 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, practice
                   </p>
 
                   {/* Module breakdown */}
-                  <div style={{ display: 'flex', gap: '24px', marginBottom: '16px' }}>
-                    {test.modules.map((module, idx) => (
-                      <div key={idx} style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '8px'
-                      }}>
-                        <div style={{
-                          width: '8px',
-                          height: '8px',
-                          borderRadius: '50%',
-                          background: idx === 0 ? colors.semantic.info : colors.semantic.success
-                        }} />
-                        <span style={{ fontSize: '14px', color: colors.text.secondary }}>
-                          {module.title}: {module.questions.length} questions
-                        </span>
-                      </div>
-                    ))}
+                  <div style={{ display: 'flex', gap: '20px', marginBottom: '16px', flexWrap: 'wrap' }}>
+                    {test.modules.map((module, idx) => {
+                      // For mixed-section tests, show short section + module-within-section label.
+                      const sec = module.section;
+                      const sectionModules = test.modules.filter(m => m.section === sec);
+                      const indexWithinSection = sectionModules.indexOf(module) + 1;
+                      const shortLabel = sec === 'reading-writing'
+                        ? `R&W M${indexWithinSection}`
+                        : sec === 'math'
+                          ? `Math M${indexWithinSection}`
+                          : module.title || `Module ${idx + 1}`;
+                      const dotColor = sec === 'reading-writing'
+                        ? colors.semantic.info
+                        : sec === 'math'
+                          ? colors.semantic.success
+                          : (idx === 0 ? colors.semantic.info : colors.semantic.success);
+                      return (
+                        <div key={idx} style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '8px'
+                        }}>
+                          <div style={{
+                            width: '8px',
+                            height: '8px',
+                            borderRadius: '50%',
+                            background: dotColor
+                          }} />
+                          <span style={{ fontSize: '14px', color: colors.text.secondary }}>
+                            {shortLabel}: {module.questions.length}q
+                          </span>
+                        </div>
+                      );
+                    })}
                   </div>
 
                   {/* Stats */}

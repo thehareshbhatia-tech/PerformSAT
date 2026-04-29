@@ -55,6 +55,15 @@ service cloud.firestore {
         allow delete: if false;
       }
 
+      // Per-attempt snapshot of questions + answers, written from
+      // recordPracticeTestResult so Review Answers can render the exact
+      // questions the student saw even after content drift.
+      match /attempts/{attemptId} {
+        allow read, create: if isAuthenticated() && isOwner(userId);
+        allow update: if isAuthenticated() && isOwner(userId);
+        allow delete: if false;
+      }
+
       // AI diagnostic artifacts
       match /aiDiagnostics/{artifactId} {
         allow read, create: if isAuthenticated() && isOwner(userId);

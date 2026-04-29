@@ -113,6 +113,8 @@ export function createScoredResult({
   moduleScores = [],
   diagnosticData = null,
   timedMode = false,
+  sectionScores = {},
+  isMultiSection = false,
 }) {
   return {
     scoringVersion: SCORING_VERSION,
@@ -127,6 +129,11 @@ export function createScoredResult({
     moduleScores,
     diagnosticData,
     timedMode,
+
+    // Per-section breakdown for full-length SAT (R&W + Math = 400-1600)
+    // sectionScores: { 'reading-writing': N, 'math': N }
+    sectionScores,
+    isMultiSection,
 
     // Aliases for backward-compatible consumption
     scaledScore: sectionScore,

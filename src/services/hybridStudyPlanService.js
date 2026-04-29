@@ -29,6 +29,15 @@ import {
 
 export { buildLongitudinalEvidence, computePlanDelta, mergeHybridPlan, MERGE_VERSION };
 
+// Firestore rejects writes with `undefined` field values. Round-tripping through
+// JSON.stringify drops every undefined key (and any non-serializable value), so
+// it's a safe sanitizer for plain data subtrees. Sentinels like serverTimestamp
+// must be re-attached AFTER sanitization.
+function sanitizeForFirestore(value) {
+  if (value === undefined) return null;
+  return JSON.parse(JSON.stringify(value));
+}
+
 /**
  * Fetch the current studyPlan — first try loading the artifact pointed to
  * by currentStudyPlanArtifactId; fall back to the legacy root field.
@@ -83,7 +92,9 @@ export const persistDeterministicArtifact = async (userId, plan, { attemptId = n
   };
 
   const colRef = collection(db, 'progress', userId, 'studyPlanArtifacts');
-  const artifactRef = await addDoc(colRef, artifact);
+  const sanitizedArtifact = sanitizeForFirestore(artifact);
+  sanitizedArtifact.createdAt = serverTimestamp();
+  const artifactRef = await addDoc(colRef, sanitizedArtifact);
   console.log('[hybridStudyPlanService] Deterministic artifact written, id:', artifactRef.id);
 
   const preview = {
@@ -231,7 +242,9 @@ async function persistHybridArtifact(userId, artifact) {
 
   const progressRef = doc(db, 'progress', userId);
   const colRef = collection(db, 'progress', userId, 'studyPlanArtifacts');
-  const artifactRef = await addDoc(colRef, artifact);
+  const sanitizedArtifact = sanitizeForFirestore(artifact);
+  sanitizedArtifact.createdAt = serverTimestamp();
+  const artifactRef = await addDoc(colRef, sanitizedArtifact);
 
   const preview = {
     headline: artifact.plan?.summary?.headline || 'Study Plan',

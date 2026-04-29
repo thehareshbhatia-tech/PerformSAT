@@ -274,6 +274,431 @@
   min-width: 0;
 }
 
+/* ============================================
+   Bluebook-faithful R&W layout
+   ============================================ */
+
+/* Passage — plain serif, no quote-block chrome */
+.rw-passage {
+  font-family: 'Georgia', 'Cambria', 'Times New Roman', serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--color-slate-900);
+  margin-bottom: 1.25rem;
+}
+
+.rw-passage-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.rw-passage-label {
+  font-family: var(--font-ui);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-slate-500);
+  margin-bottom: 0.5rem;
+}
+
+/* Question stem block in right pane */
+.rw-stem-block {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-slate-200);
+}
+
+.rw-stem-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.rw-stem-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: var(--color-slate-900);
+  color: var(--color-white);
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.rw-mark-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.375rem 0.75rem;
+  background: transparent;
+  border: 1px solid var(--color-slate-300);
+  border-radius: 6px;
+  font-family: var(--font-ui);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-slate-700);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.rw-mark-toggle:hover {
+  background-color: var(--color-slate-50);
+}
+
+.rw-mark-toggle.is-marked {
+  color: var(--color-amber-600, #d97706);
+  border-color: var(--color-amber-300, #fcd34d);
+  background-color: var(--color-amber-50, #fffbeb);
+}
+
+.rw-stem-text {
+  font-family: 'Georgia', 'Cambria', 'Times New Roman', serif;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--color-slate-900);
+  margin: 0 0 0.5rem 0;
+}
+
+/* Tighten R&W choice cards toward Bluebook (more compact, less candy-shop) */
+.test-session-shell[data-section="reading-writing"] .answer-choice-card {
+  padding: 0.875rem 1rem;
+  border-radius: 8px;
+  box-shadow: none;
+  border: 1px solid var(--color-slate-300);
+}
+
+.test-session-shell[data-section="reading-writing"] .answer-choice-card:hover {
+  background-color: var(--color-slate-50);
+  box-shadow: none;
+}
+
+.test-session-shell[data-section="reading-writing"] .answer-choice-card.is-selected {
+  border-color: var(--color-slate-900);
+  background-color: var(--color-white);
+  box-shadow: inset 0 0 0 1px var(--color-slate-900);
+}
+
+.test-session-shell[data-section="reading-writing"] .answer-letter-bubble {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 0.875rem;
+  border: 1px solid var(--color-slate-400);
+  background: transparent;
+  color: var(--color-slate-700);
+}
+
+.test-session-shell[data-section="reading-writing"] .is-selected .answer-letter-bubble {
+  background-color: var(--color-slate-900);
+  border-color: var(--color-slate-900);
+  color: var(--color-white);
+}
+
+.test-session-shell[data-section="reading-writing"] .answers-container {
+  gap: 0.625rem;
+}
+
+/* Drop the white card chrome on the panes for a flatter Bluebook feel */
+.test-session-shell[data-section="reading-writing"] .test-workspace-left,
+.test-session-shell[data-section="reading-writing"] .test-workspace-right {
+  border-radius: 0;
+  box-shadow: none;
+  background-color: var(--color-white);
+  padding: 1.5rem 2rem;
+  min-height: 0; /* allow flex shrink so content scrolls internally */
+}
+
+.test-session-shell[data-section="reading-writing"] .test-workspace-main {
+  background-color: var(--color-white);
+  gap: 0;
+  padding: 0;
+  min-height: 0;
+}
+
+.test-session-shell[data-section="reading-writing"] .test-session-body {
+  min-height: 0;
+}
+
+.test-session-shell[data-section="reading-writing"] .test-workspace-left {
+  border-right: 1px solid var(--color-slate-200);
+}
+
+/* Tighter spacing inside R&W choices/stem so 4 long options fit one viewport */
+.test-session-shell[data-section="reading-writing"] .rw-stem-block {
+  margin-bottom: 1rem;
+  padding-bottom: 0.875rem;
+}
+
+.test-session-shell[data-section="reading-writing"] .rw-stem-text {
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.test-session-shell[data-section="reading-writing"] .answer-text-content {
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+
+.test-session-shell[data-section="reading-writing"] .answer-choice-card {
+  padding: 0.625rem 0.875rem;
+}
+
+/* R&W passage annotate toolbar */
+.rw-passage-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.625rem 0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--color-slate-200);
+}
+
+.rw-toolbar-hint {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--color-slate-500);
+  flex: 1;
+  min-width: 0;
+}
+
+.rw-toolbar-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.rw-toolbar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.375rem 0.75rem;
+  background: transparent;
+  border: 1px solid var(--color-slate-300);
+  border-radius: 6px;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-slate-700);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.rw-toolbar-btn:hover {
+  background-color: var(--color-slate-50);
+}
+
+.rw-toolbar-btn[aria-pressed="true"] {
+  background-color: var(--color-slate-100);
+  color: var(--color-slate-900);
+}
+
+/* Conventions blank placeholder — Bluebook-style underlined slot */
+.rw-blank {
+  display: inline-block;
+  width: 2.5em;
+  height: 0.95em;
+  border-bottom: 2px solid var(--color-slate-700);
+  margin: 0 0.2em;
+  vertical-align: -2px;
+}
+
+/* Highlighted text — Bluebook-style yellow */
+.rw-highlight {
+  background-color: #fef08a;
+  color: inherit;
+  padding: 0 1px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.rw-highlight:hover {
+  background-color: #fde047;
+  outline: 1px dashed #ca8a04;
+}
+
+/* Dark Bluebook-style header for R&W */
+.test-session-shell[data-section="reading-writing"] .test-session-header {
+  background-color: #0f172a;
+  color: var(--color-white);
+  padding: 0.875rem 1.5rem;
+  border-bottom: 1px solid #1e293b;
+}
+
+.test-session-shell[data-section="reading-writing"] .test-session-header .header-title,
+.test-session-shell[data-section="reading-writing"] .test-session-header .header-subtitle {
+  color: var(--color-white);
+}
+
+.test-session-shell[data-section="reading-writing"] .test-session-header .header-subtitle {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* Exit button in dark header */
+.test-session-shell[data-section="reading-writing"] .test-session-header .btn-icon-subtle {
+  color: rgba(255, 255, 255, 0.85) !important;
+  background: transparent;
+}
+
+.test-session-shell[data-section="reading-writing"] .test-session-header .btn-icon-subtle:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-white) !important;
+}
+
+/* Right-side header buttons: ghost / outline white */
+.test-session-shell[data-section="reading-writing"] .test-session-header .btn-launch,
+.test-session-shell[data-section="reading-writing"] .test-session-header .btn-ghost-blue {
+  background: transparent;
+  color: var(--color-white);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: none;
+  font-weight: 500;
+}
+
+.test-session-shell[data-section="reading-writing"] .test-session-header .btn-launch:hover,
+.test-session-shell[data-section="reading-writing"] .test-session-header .btn-ghost-blue:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-white);
+}
+
+/* Untimed-mode pill — desaturate against dark bg */
+.test-session-shell[data-section="reading-writing"] .test-session-header span[style*="success"] {
+  background: rgba(34, 197, 94, 0.18) !important;
+  color: rgb(134, 239, 172) !important;
+}
+
+/* End-Test button: keep red but legible on dark */
+.test-session-shell[data-section="reading-writing"] .test-session-header .btn-ghost-blue[style*="error"] {
+  color: rgb(252, 165, 165) !important;
+  border-color: rgba(252, 165, 165, 0.4);
+}
+
+/* Bluebook-style bottom nav bar (R&W) */
+.test-session-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 2rem;
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-slate-200);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 5;
+}
+
+.bottom-bar-left {
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-slate-700);
+  flex: 1;
+}
+
+.bottom-bar-center {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.bottom-bar-right {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.question-grid-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid var(--color-slate-300);
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-slate-800);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.question-grid-toggle:hover {
+  background-color: var(--color-slate-50);
+}
+
+.question-grid-popover {
+  position: absolute;
+  bottom: calc(100% + 0.75rem);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-slate-200);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  padding: 1rem 1.25rem;
+  min-width: 520px;
+  max-width: 90vw;
+  z-index: 50;
+}
+
+.question-grid-popover .nav-legend {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.question-grid-popover-title {
+  font-family: var(--font-ui);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-slate-500);
+  margin-bottom: 0.75rem;
+}
+
+.bottom-nav-btn {
+  padding: 0.5rem 1.25rem;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-slate-300);
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-slate-800);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.bottom-nav-btn:hover:not(:disabled) {
+  background-color: var(--color-slate-50);
+}
+
+.bottom-nav-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.bottom-nav-btn.is-primary {
+  background-color: var(--color-slate-900);
+  border-color: var(--color-slate-900);
+  color: var(--color-white);
+}
+
+.bottom-nav-btn.is-primary:hover {
+  background-color: #1e293b;
+}
+
 /* Nav Strip Container */
 
 .nav-grid {

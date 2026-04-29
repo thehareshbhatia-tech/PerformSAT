@@ -884,12 +884,191 @@ const renderChoice = (choice) => {
   return <MathText text={choice.text} />;
 };
 
+// ============================================
+// Bluebook-style highlightable passage (R&W)
+// ============================================
+
+function getCharOffsetWithin(container, node, offset) {
+  if (!container || !node) return 0;
+  let charOffset = 0;
+  const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, null);
+  let curr;
+  while ((curr = walker.nextNode())) {
+    if (curr === node) return charOffset + offset;
+    charOffset += curr.textContent.length;
+  }
+  return charOffset;
+}
+
+function mergeHighlights(highlights) {
+  if (!highlights || highlights.length === 0) return [];
+  const sorted = [...highlights].sort((a, b) => a.start - b.start);
+  const merged = [sorted[0]];
+  for (let i = 1; i < sorted.length; i++) {
+    const last = merged[merged.length - 1];
+    if (sorted[i].start <= last.end) last.end = Math.max(last.end, sorted[i].end);
+    else merged.push({ ...sorted[i] });
+  }
+  return merged;
+}
+
+/**
+ * Strip markup `*...*` (italic) and `__...__` (underline) from passage text
+ * to produce a plain string AND a list of formatting ranges over the plain
+ * string. Highlight char offsets are computed against the plain string, so
+ * markup-aware rendering and selection-based highlighting stay aligned.
+ *
+ * Returns: { plain, formats: [{start,end,kind}] }
+ *   - kind: 'em' | 'u'
+ */
+function parsePassageMarkup(text) {
+  if (!text) return { plain: '', formats: [] };
+  const formats = [];
+  let plain = '';
+  let i = 0;
+  while (i < text.length) {
+    // Convention-question blank: 4+ consecutive underscores → render as styled placeholder.
+    // Replace with a non-breaking-space token so highlights still align cleanly.
+    if (text[i] === '_' && text[i + 1] === '_' && text[i + 2] === '_' && text[i + 3] === '_') {
+      let j = i;
+      while (j < text.length && text[j] === '_') j++;
+      const start = plain.length;
+      plain += ' ';
+      formats.push({ start, end: plain.length, kind: 'blank' });
+      i = j;
+      continue;
+    }
+    if (text[i] === '_' && text[i + 1] === '_') {
+      // underline (paired __...__)
+      const end = text.indexOf('__', i + 2);
+      if (end !== -1) {
+        const inner = text.slice(i + 2, end);
+        const start = plain.length;
+        plain += inner;
+        formats.push({ start, end: plain.length, kind: 'u' });
+        i = end + 2;
+        continue;
+      }
+    }
+    if (text[i] === '*') {
+      const end = text.indexOf('*', i + 1);
+      if (end !== -1 && end > i + 1) {
+        const inner = text.slice(i + 1, end);
+        const start = plain.length;
+        plain += inner;
+        formats.push({ start, end: plain.length, kind: 'em' });
+        i = end + 1;
+        continue;
+      }
+    }
+    plain += text[i];
+    i++;
+  }
+  return { plain, formats };
+}
+
+/**
+ * Build a flat list of segments for rendering, where each segment has:
+ *   { text, highlight, em, u, key, start?, end? }
+ * Boundaries are unioned over highlight ranges and format ranges so that
+ * formatting + highlight can co-occur on the same span.
+ */
+function buildSegments(plain, highlights, formats, hidden) {
+  if (!plain) return [];
+  const safeHighlights = (hidden ? [] : mergeHighlights(highlights || []));
+  const cuts = new Set([0, plain.length]);
+  safeHighlights.forEach((h) => { cuts.add(h.start); cuts.add(h.end); });
+  (formats || []).forEach((f) => { cuts.add(f.start); cuts.add(f.end); });
+  const sortedCuts = [...cuts].sort((a, b) => a - b);
+  const segments = [];
+  for (let i = 0; i < sortedCuts.length - 1; i++) {
+    const a = sortedCuts[i];
+    const b = sortedCuts[i + 1];
+    if (a === b) continue;
+    const hl = safeHighlights.find((h) => h.start <= a && b <= h.end);
+    const em = (formats || []).find((f) => f.kind === 'em' && f.start <= a && b <= f.end);
+    const u = (formats || []).find((f) => f.kind === 'u' && f.start <= a && b <= f.end);
+    const blank = (formats || []).find((f) => f.kind === 'blank' && f.start <= a && b <= f.end);
+    segments.push({
+      text: plain.slice(a, b),
+      highlight: !!hl,
+      em: !!em,
+      u: !!u,
+      blank: !!blank,
+      key: `s${i}`,
+      start: hl ? hl.start : undefined,
+      end: hl ? hl.end : undefined,
+    });
+  }
+  return segments;
+}
+
+const HighlightablePassage = memo(function HighlightablePassage({ text, highlights, hidden, onAddHighlight, onRemoveHighlight, ariaLabel }) {
+  const ref = useRef(null);
+
+  const { plain, formats } = useMemo(() => parsePassageMarkup(text), [text]);
+
+  const segments = useMemo(() => buildSegments(plain, highlights, formats, hidden), [plain, highlights, formats, hidden]);
+
+  const handleMouseUp = useCallback(() => {
+    const sel = window.getSelection();
+    if (!sel || sel.isCollapsed || !ref.current) return;
+    const range = sel.getRangeAt(0);
+    if (!ref.current.contains(range.startContainer) || !ref.current.contains(range.endContainer)) return;
+    const start = getCharOffsetWithin(ref.current, range.startContainer, range.startOffset);
+    const end = getCharOffsetWithin(ref.current, range.endContainer, range.endOffset);
+    if (start < end) onAddHighlight({ start, end });
+    sel.removeAllRanges();
+  }, [onAddHighlight]);
+
+  const renderSegment = (s) => {
+    if (s.blank) {
+      return <span key={s.key} className="rw-blank" aria-label="blank" />;
+    }
+    let node = s.text;
+    if (s.em) node = <em>{node}</em>;
+    if (s.u) node = <u>{node}</u>;
+    if (s.highlight) {
+      return (
+        <mark
+          key={s.key}
+          className="rw-highlight"
+          onClick={(e) => {
+            e.stopPropagation();
+            onRemoveHighlight && onRemoveHighlight({ start: s.start, end: s.end });
+          }}
+          title="Click to remove highlight"
+        >
+          {node}
+        </mark>
+      );
+    }
+    return <span key={s.key}>{node}</span>;
+  };
+
+  return (
+    <div
+      ref={ref}
+      className="rw-passage"
+      style={{ whiteSpace: 'pre-wrap' }}
+      onMouseUp={handleMouseUp}
+      aria-label={ariaLabel}
+    >
+      {segments.map(renderSegment)}
+    </div>
+  );
+});
+
 const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, onClearProgress, onSaveStudyPlan, onGoToStudyPlan, savedProgress, isTimed = true, skillProgress = null, user = null, practiceTestResults = null, completedLessons = {}, practiceProgress = {}, onNavigateToModule, onStartPractice, answeredQuestionIds = [], initialReviewModule = null, reviewSnapshotMissing = false, reviewAttemptId = null }) => {
   // Initialize state from saved progress if available
   const [currentModule, setCurrentModule] = useState(savedProgress?.currentModule || 0);
   const [currentQuestion, setCurrentQuestion] = useState(savedProgress?.currentQuestion || 0);
   const [answers, setAnswers] = useState(savedProgress?.answers || {});
   const [markedForReview, setMarkedForReview] = useState(savedProgress?.markedForReview || []);
+  const [showQuestionGridPopover, setShowQuestionGridPopover] = useState(false);
+  // Bluebook-style highlights, keyed by `${moduleIdx}-${questionIdx}-${passageKey}`
+  const [highlightsByKey, setHighlightsByKey] = useState({});
+  const [highlightsHidden, setHighlightsHidden] = useState(false);
   const [eliminatedChoices, setEliminatedChoices] = useState(savedProgress?.eliminatedChoices || {});
   const [showTimer, setShowTimer] = useState(isTimed);
   const [moduleCompleted, setModuleCompleted] = useState(false);
@@ -961,6 +1140,34 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   const module = test.modules[currentModule];
   const questions = module?.questions || [];
   const question = questions[currentQuestion];
+  // R&W detection prefers per-module section (so a full SAT can mix R&W and Math modules);
+  // falls back to test-level section for legacy R&W-only or Math-only tests.
+  const isReadingWriting = (module?.section || test?.section) === 'reading-writing';
+
+  // Highlight handlers — scoped per question via passageKey
+  const buildHighlightKey = (passageKey) => `${currentModule}-${currentQuestion}-${passageKey}`;
+  const handleAddHighlight = useCallback((passageKey, range) => {
+    setHighlightsByKey((prev) => {
+      const k = `${currentModule}-${currentQuestion}-${passageKey}`;
+      const existing = prev[k] || [];
+      return { ...prev, [k]: mergeHighlights([...existing, range]) };
+    });
+  }, [currentModule, currentQuestion]);
+  const handleRemoveHighlight = useCallback((passageKey, range) => {
+    setHighlightsByKey((prev) => {
+      const k = `${currentModule}-${currentQuestion}-${passageKey}`;
+      const existing = prev[k] || [];
+      return { ...prev, [k]: existing.filter((h) => !(h.start === range.start && h.end === range.end)) };
+    });
+  }, [currentModule, currentQuestion]);
+  const handleClearHighlights = useCallback(() => {
+    setHighlightsByKey((prev) => {
+      const out = { ...prev };
+      const prefix = `${currentModule}-${currentQuestion}-`;
+      Object.keys(out).forEach((k) => { if (k.startsWith(prefix)) delete out[k]; });
+      return out;
+    });
+  }, [currentModule, currentQuestion]);
 
   // Memoize the per-module answers for QuestionGrid (avoids O(n) filter on every render)
   const moduleAnswersForGrid = useMemo(() => {
@@ -1208,6 +1415,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         rawScore: scored.rawScore,
         totalQuestions: scored.totalQuestions,
         scaledScore: scored.sectionScore,
+        sectionScores: scored.sectionScores,
+        isMultiSection: scored.isMultiSection,
         timedMode: isTimed,
         moduleScores: scored.moduleScores,
         diagnosticData,
@@ -1718,9 +1927,18 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     const score = calculateModuleScore();
     const isLastModule = currentModule === test.modules.length - 1;
     const totalQuestions = test.modules.reduce((sum, m) => sum + m.questions.length, 0);
-    // Estimate projected score based on current module performance
-    const projectedRaw = Math.round((score / questions.length) * totalQuestions);
-    const projectedSATScore = convertToSATScore(projectedRaw, totalQuestions);
+    // Project the SAT score from answers so far. Only score modules the
+    // student has reached so we don't penalize unanswered future modules.
+    const completedTest = {
+      ...test,
+      modules: test.modules.slice(0, currentModule + 1),
+    };
+    const liveScore = scoreTest(completedTest, answers, { timedMode: isTimed });
+    const projectedSATScore = liveScore.sectionScore;
+    const projectedSectionScores = liveScore.sectionScores || {};
+    // We treat the test as multi-section in display only if more than one
+    // section has actually appeared in the modules completed so far.
+    const isMultiSection = Object.keys(projectedSectionScores).length > 1;
 
     return (
       <div style={{ maxWidth: '600px', margin: '0 auto', padding: '40px 20px', textAlign: 'center' }}>
@@ -1751,9 +1969,24 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         }}>
           <p style={{ marginBottom: '4px' }}>
             <strong>Projected SAT Score:</strong> ~{projectedSATScore}
+            {isMultiSection && (
+              <span style={{ fontSize: '12px', opacity: 0.85, display: 'block', marginTop: '4px' }}>
+                {projectedSectionScores['reading-writing'] !== undefined && (
+                  <>R&W: ~{projectedSectionScores['reading-writing']}</>
+                )}
+                {projectedSectionScores['reading-writing'] !== undefined && projectedSectionScores['math'] !== undefined && ' · '}
+                {projectedSectionScores['math'] !== undefined && (
+                  <>Math: ~{projectedSectionScores['math']}</>
+                )}
+              </span>
+            )}
           </p>
           <p style={{ fontSize: '12px', opacity: 0.8 }}>
-            Based on current performance. Complete Module 2 for your final score.
+            {isLastModule
+              ? 'Final score available now.'
+              : test.modules.length > 2
+                ? `Based on current performance. Complete the remaining ${test.modules.length - currentModule - 1} module${test.modules.length - currentModule - 1 === 1 ? '' : 's'} for your final score.`
+                : 'Based on current performance. Complete Module 2 for your final score.'}
           </p>
         </div>
 
@@ -1770,7 +2003,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             cursor: 'pointer'
           }}
         >
-          {isLastModule ? 'See Final Results' : 'Continue to Module 2'}
+          {isLastModule ? 'See Final Results' : `Continue to Module ${currentModule + 2}`}
         </button>
       </div>
     );
@@ -2103,6 +2336,52 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
                     </div>
                   )}
                 </div>
+
+                {/* Passage(s) — for R&W questions, with italic/underline/blank markup */}
+                {reviewQ?.passage && (
+                  <HighlightablePassage
+                    text={reviewQ.passage}
+                    highlights={[]}
+                    hidden={false}
+                    onAddHighlight={() => {}}
+                    onRemoveHighlight={() => {}}
+                  />
+                )}
+                {reviewQ?.passages && Array.isArray(reviewQ.passages) && (
+                  <div className="rw-passage-stack">
+                    {reviewQ.passages.map((p, i) => (
+                      <div key={i}>
+                        <div className="rw-passage-label">{p.label || `Text ${i + 1}`}</div>
+                        <HighlightablePassage
+                          text={p.text}
+                          highlights={[]}
+                          hidden={false}
+                          onAddHighlight={() => {}}
+                          onRemoveHighlight={() => {}}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
+                {reviewQ?.studentNotes && (
+                  <div className="rw-passage">
+                    {reviewQ.studentNotes.intro && (
+                      <div style={{ marginBottom: '0.5rem' }}>{reviewQ.studentNotes.intro}</div>
+                    )}
+                    <ul style={{ paddingLeft: '1.25rem', margin: '0.5rem 0' }}>
+                      {reviewQ.studentNotes.bullets.map((b, i) => (
+                        <li key={i} style={{ marginBottom: '0.25rem' }}>
+                          <MathText text={b} />
+                        </li>
+                      ))}
+                    </ul>
+                    {reviewQ.studentNotes.goal && (
+                      <div style={{ marginTop: '0.5rem', fontStyle: 'italic' }}>
+                        <MathText text={reviewQ.studentNotes.goal} />
+                      </div>
+                    )}
+                  </div>
+                )}
 
                 {/* Question Text */}
                 <div style={{
@@ -2445,7 +2724,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   const isMarked = markedForReview.includes(currentQuestion);
 
   return (
-    <div className="test-session-shell">
+    <div className="test-session-shell" data-section={isReadingWriting ? 'reading-writing' : 'math'}>
       {/* Header */}
       <div className="test-session-header">
         <div className="header-left">
@@ -2465,38 +2744,42 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         </div>
 
         <div className="header-right">
-          {/* Calculator Button */}
-          <button
-            className="btn-launch"
-            onClick={() => {
-              const telemetry = getOrCreateTelemetry(currentModuleRef.current, currentQuestionRef.current);
-              telemetry.usedCalculator = true;
-              setShowCalculator(true);
-            }}
-            style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <rect x="4" y="2" width="16" height="20" rx="2" />
-              <line x1="8" y1="6" x2="16" y2="6" />
-              <line x1="8" y1="10" x2="10" y2="10" />
-              <line x1="14" y1="10" x2="16" y2="10" />
-              <line x1="8" y1="14" x2="10" y2="14" />
-              <line x1="14" y1="14" x2="16" y2="14" />
-              <line x1="8" y1="18" x2="16" y2="18" />
-            </svg>
-            Calculator
-          </button>
-          <button
-            className="btn-launch"
-            onClick={() => setShowReference(true)}
-            style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-            </svg>
-            Reference
-          </button>
+          {/* Calculator Button — Math only */}
+          {!isReadingWriting && (
+            <button
+              className="btn-launch"
+              onClick={() => {
+                const telemetry = getOrCreateTelemetry(currentModuleRef.current, currentQuestionRef.current);
+                telemetry.usedCalculator = true;
+                setShowCalculator(true);
+              }}
+              style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect x="4" y="2" width="16" height="20" rx="2" />
+                <line x1="8" y1="6" x2="16" y2="6" />
+                <line x1="8" y1="10" x2="10" y2="10" />
+                <line x1="14" y1="10" x2="16" y2="10" />
+                <line x1="8" y1="14" x2="10" y2="14" />
+                <line x1="8" y1="18" x2="16" y2="18" />
+                <line x1="14" y1="18" x2="16" y2="18" />
+              </svg>
+              Calculator
+            </button>
+          )}
+          {!isReadingWriting && (
+            <button
+              className="btn-launch"
+              onClick={() => setShowReference(true)}
+              style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+              </svg>
+              Reference
+            </button>
+          )}
           <button
             onClick={handlePauseToggle}
             className="btn-ghost-blue"
@@ -2555,8 +2838,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         </div>
       </div>
 
-      {/* Desktop Nav Strip */}
-      {!isMobile && (
+      {/* Desktop Nav Strip — Math only. R&W uses bottom-bar popup instead (Bluebook style). */}
+      {!isMobile && !isReadingWriting && (
         <div className="test-session-nav-strip">
           <QuestionGrid
             questions={questions}
@@ -2581,70 +2864,113 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
 
             {/* Question Card - SAT Style */}
             <div className="question-panel">
-        {/* Question number badge and mark button */}
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          marginBottom: '2rem'
-        }}>
-          {/* SAT-style black box with white number */}
+        {/* Question number badge — hidden for R&W (rendered in right pane instead) */}
+        {!isReadingWriting && (
           <div style={{
-            display: 'inline-flex',
+            display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
-            width: '32px',
-            height: '32px',
-            backgroundColor: 'var(--color-slate-900)',
-            color: 'var(--color-white)',
-            fontFamily: 'var(--font-ui)',
-            fontWeight: '700',
-            fontSize: '14px',
-            borderRadius: 'var(--radius-sm)'
+            marginBottom: '2rem'
           }}>
-            {currentQuestion + 1}
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '32px',
+              height: '32px',
+              backgroundColor: 'var(--color-slate-900)',
+              color: 'var(--color-white)',
+              fontFamily: 'var(--font-ui)',
+              fontWeight: '700',
+              fontSize: '14px',
+              borderRadius: 'var(--radius-sm)'
+            }}>
+              {currentQuestion + 1}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Formula if present */}
         {question?.questionFormula && renderFormula(question.questionFormula)}
 
-        {/* R&W single passage if present */}
-        {question?.passage && (
-          <div style={{
-            marginBottom: '20px',
-            padding: '16px 20px',
-            background: colors.surface.gray,
-            borderLeft: `3px solid ${colors.focus}`,
-            borderRadius: 'var(--radius-sm)',
-            fontFamily: SAT_TYPOGRAPHY.questionFont,
-            fontSize: SAT_TYPOGRAPHY.sizes.questionText,
-            lineHeight: 1.6,
-            whiteSpace: 'pre-wrap'
-          }}>
-            <MathText text={question.passage} />
+        {/* R&W passage toolbar — Bluebook-style annotate tools */}
+        {isReadingWriting && (question?.passage || question?.passages || question?.studentNotes) && (
+          <div className="rw-passage-toolbar">
+            <span className="rw-toolbar-hint">Select text in the passage to highlight it. Click a highlight to remove it.</span>
+            <div className="rw-toolbar-actions">
+              <button
+                type="button"
+                className="rw-toolbar-btn"
+                onClick={() => setHighlightsHidden((v) => !v)}
+                aria-pressed={highlightsHidden}
+                title={highlightsHidden ? 'Show highlights' : 'Hide highlights'}
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  {highlightsHidden ? (
+                    <>
+                      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
+                      <line x1="1" y1="1" x2="23" y2="23" />
+                    </>
+                  ) : (
+                    <>
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </>
+                  )}
+                </svg>
+                {highlightsHidden ? 'Show Highlights' : 'Hide Highlights'}
+              </button>
+              <button
+                type="button"
+                className="rw-toolbar-btn"
+                onClick={handleClearHighlights}
+                title="Clear all highlights on this question"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="3 6 5 6 21 6" />
+                  <path d="M19 6l-2 14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L5 6" />
+                </svg>
+                Clear All
+              </button>
+            </div>
           </div>
         )}
 
-        {/* R&W dual-passage (Cross-Text Connections) if present */}
+        {/* R&W single passage — Bluebook-style plain serif text with selection-to-highlight */}
+        {question?.passage && (
+          isReadingWriting ? (
+            <HighlightablePassage
+              text={question.passage}
+              highlights={highlightsByKey[buildHighlightKey('main')] || []}
+              hidden={highlightsHidden}
+              onAddHighlight={(r) => handleAddHighlight('main', r)}
+              onRemoveHighlight={(r) => handleRemoveHighlight('main', r)}
+            />
+          ) : (
+            <div className="rw-passage" style={{ whiteSpace: 'pre-wrap' }}>
+              <MathText text={question.passage} />
+            </div>
+          )
+        )}
+
+        {/* R&W dual-passage (Cross-Text Connections) — stacked vertically with Text 1 / Text 2 labels */}
         {question?.passages && Array.isArray(question.passages) && (
-          <div style={{ marginBottom: '20px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+          <div className="rw-passage-stack">
             {question.passages.map((p, i) => (
-              <div key={i} style={{
-                padding: '16px 20px',
-                background: colors.surface.gray,
-                borderLeft: `3px solid ${colors.focus}`,
-                borderRadius: 'var(--radius-sm)',
-                fontFamily: SAT_TYPOGRAPHY.questionFont,
-                fontSize: SAT_TYPOGRAPHY.sizes.questionText,
-                lineHeight: 1.6,
-                whiteSpace: 'pre-wrap'
-              }}>
-                {p.label && (
-                  <div style={{ fontWeight: 600, marginBottom: 8, fontSize: '14px', color: colors.text.secondary }}>
-                    {p.label}
+              <div key={i}>
+                <div className="rw-passage-label">{p.label || `Text ${i + 1}`}</div>
+                {isReadingWriting ? (
+                  <HighlightablePassage
+                    text={p.text}
+                    highlights={highlightsByKey[buildHighlightKey(`p${i}`)] || []}
+                    hidden={highlightsHidden}
+                    onAddHighlight={(r) => handleAddHighlight(`p${i}`, r)}
+                    onRemoveHighlight={(r) => handleRemoveHighlight(`p${i}`, r)}
+                  />
+                ) : (
+                  <div className="rw-passage" style={{ whiteSpace: 'pre-wrap' }}>
+                    <MathText text={p.text} />
                   </div>
                 )}
-                <MathText text={p.text} />
               </div>
             ))}
           </div>
@@ -2652,28 +2978,19 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
 
         {/* R&W student notes (Rhetorical Synthesis) if present */}
         {question?.studentNotes && (
-          <div style={{
-            marginBottom: '20px',
-            padding: '16px 20px',
-            background: colors.surface.gray,
-            borderLeft: `3px solid ${colors.focus}`,
-            borderRadius: 'var(--radius-sm)',
-            fontFamily: SAT_TYPOGRAPHY.questionFont,
-            fontSize: SAT_TYPOGRAPHY.sizes.questionText,
-            lineHeight: 1.6
-          }}>
+          <div className="rw-passage">
             {question.studentNotes.intro && (
-              <div style={{ marginBottom: 8 }}>{question.studentNotes.intro}</div>
+              <div style={{ marginBottom: '0.5rem' }}>{question.studentNotes.intro}</div>
             )}
-            <ul style={{ paddingLeft: 20, margin: '8px 0' }}>
+            <ul style={{ paddingLeft: '1.25rem', margin: '0.5rem 0' }}>
               {question.studentNotes.bullets.map((b, i) => (
-                <li key={i} style={{ marginBottom: 4 }}>
+                <li key={i} style={{ marginBottom: '0.25rem' }}>
                   <MathText text={b} />
                 </li>
               ))}
             </ul>
             {question.studentNotes.goal && (
-              <div style={{ marginTop: 8, fontStyle: 'italic' }}>
+              <div style={{ marginTop: '0.5rem', fontStyle: 'italic' }}>
                 <MathText text={question.studentNotes.goal} />
               </div>
             )}
@@ -2728,8 +3045,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           </div>
         )}
 
-        {/* Question text - SAT Style */}
-        {(() => {
+        {/* Question text - SAT Style. For R&W, this renders in the right pane instead. */}
+        {!isReadingWriting && (() => {
           const questionText = question?.question;
           // Check if question has standalone equation blocks separated by \n\n
           // A standalone equation block is a paragraph where every line is purely math ($...$)
@@ -2798,7 +3115,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         })()}
 
         {/* Continued question text if present */}
-        {question?.questionContinued && (
+        {!isReadingWriting && question?.questionContinued && (
           <p style={{
             fontFamily: SAT_TYPOGRAPHY.questionFont,
             fontSize: SAT_TYPOGRAPHY.sizes.questionText,
@@ -2816,7 +3133,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       </div> {/* End test-workspace-left */}
 
       <div className="test-workspace-right" ref={rightPaneRef}>
-        {/* Navigation buttons top right */}
+        {/* Navigation buttons top right — Math only. R&W uses bottom bar. */}
+        {!isReadingWriting && (
         <div className="test-controls-top">
           <button
             onClick={handlePrev}
@@ -2857,6 +3175,40 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             </button>
           )}
         </div>
+        )}
+
+        {/* R&W: question number badge + stem rendered in right pane (Bluebook layout) */}
+        {isReadingWriting && (
+          <div className="rw-stem-block">
+            <div className="rw-stem-header">
+              <div className="rw-stem-number">{currentQuestion + 1}</div>
+              <button
+                onClick={handleToggleMark}
+                className={`rw-mark-toggle ${isMarked ? 'is-marked' : ''}`}
+                aria-pressed={isMarked}
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill={isMarked ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+                </svg>
+                Mark for Review
+              </button>
+            </div>
+            <p className="rw-stem-text">
+              {Array.isArray(question?.question) || (question?.question && typeof question.question === 'object')
+                ? <QuestionRenderer content={question.question} />
+                : <MathText text={question?.question} />
+              }
+            </p>
+            {question?.questionContinued && (
+              <p className="rw-stem-text">
+                {Array.isArray(question.questionContinued) || (typeof question.questionContinued === 'object')
+                  ? <QuestionRenderer content={question.questionContinued} />
+                  : <MathText text={question.questionContinued} />
+                }
+              </p>
+            )}
+          </div>
+        )}
 
         {/* Answer choices or fill-in */}
         {question?.type === 'fill-in' ? (
@@ -2944,7 +3296,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             })}
           </div>
         )}
-      {/* Action bottom right */}
+      {/* Action bottom right — hidden for R&W (mark toggle is up top in stem header) */}
+      {!isReadingWriting && (
       <div className="test-controls-bottom" style={{ justifyContent: 'center', marginTop: '1.5rem', borderTop: 'none', padding: '1rem 0' }}>
         <button
           onClick={handleToggleMark}
@@ -2981,6 +3334,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           Come Back Later
         </button>
       </div>
+      )}
       </div> {/* End test-workspace-right */}
 
       {/* Mobile Nav Grid & Legend */}
@@ -3013,8 +3367,61 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       
       </div> {/* End test-workspace-main */}
 
-      
+
       </div> {/* End test-session-body */}
+
+      {/* Bluebook-style bottom nav bar — R&W only */}
+      {isReadingWriting && !isMobile && (
+        <div className="test-session-bottom-bar">
+          <div className="bottom-bar-left">{user?.displayName || 'Student'}</div>
+          <div className="bottom-bar-center">
+            {showQuestionGridPopover && (
+              <div className="question-grid-popover">
+                <div className="question-grid-popover-title">Question Navigator — Module {currentModule + 1}</div>
+                <QuestionGrid
+                  questions={questions}
+                  currentIndex={currentQuestion}
+                  answers={moduleAnswersForGrid}
+                  markedForReview={markedForReview}
+                  onNavigate={(idx) => {
+                    handleNavigate(idx);
+                    setShowQuestionGridPopover(false);
+                  }}
+                />
+                <div className="nav-legend" style={{ marginTop: '0.75rem', paddingTop: '0.75rem', borderTop: '1px solid var(--color-slate-200)' }}>
+                  <div className="nav-legend-item"><div className="nav-legend-icon answered"></div><span>Answered</span></div>
+                  <div className="nav-legend-item"><div className="nav-legend-icon flagged"></div><span>For Review</span></div>
+                  <div className="nav-legend-item"><div className="nav-legend-icon"></div><span>Unanswered</span></div>
+                </div>
+              </div>
+            )}
+            <button
+              className="question-grid-toggle"
+              onClick={() => setShowQuestionGridPopover((v) => !v)}
+              aria-expanded={showQuestionGridPopover}
+            >
+              Question {currentQuestion + 1} of {questions.length}
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: showQuestionGridPopover ? 'rotate(0deg)' : 'rotate(180deg)', transition: 'transform 0.15s ease' }}>
+                <polyline points="18 15 12 9 6 15" />
+              </svg>
+            </button>
+          </div>
+          <div className="bottom-bar-right">
+            <button
+              className="bottom-nav-btn"
+              onClick={handlePrev}
+              disabled={currentQuestion === 0}
+            >
+              Back
+            </button>
+            {currentQuestion === questions.length - 1 ? (
+              <button className="bottom-nav-btn is-primary" onClick={handleSubmitModule}>Next</button>
+            ) : (
+              <button className="bottom-nav-btn is-primary" onClick={handleNext}>Next</button>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Pause Overlay */}
       <Modal

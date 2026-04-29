@@ -14,7 +14,7 @@ import { ChartBarIcon, ArrowRightIcon } from '../design/icons';
 import RemediationPathBlock from './RemediationPathBlock';
 import QuestionInsightCard from './QuestionInsightCard';
 import {
-  convertToSATScore, isAnswerCorrect, estimatePercentile,
+  scoreTest, convertToSATScore, isAnswerCorrect, estimatePercentile,
   inferDomain, SAT_MATH_DOMAINS, DOMAIN_DISPLAY_NAMES,
   adaptDiagnosticForUI, mergeAiIntoReport, buildUnifiedReport, buildNarrativeFlow,
 } from '../services/scoring';
@@ -581,7 +581,15 @@ const TestResults = ({
 
   const totalQuestions = test.modules.reduce((sum, m) => sum + m.questions.length, 0);
   const totalCorrect = calculateTotalScore();
-  const satScore = convertToSATScore(totalCorrect, totalQuestions);
+  // Section-aware scoring: a full-length SAT (R&W + Math) returns a 400-1600
+  // composite; a single-section test returns a 200-800 score.
+  const _scored = scoreTest(test, answers);
+  const satScore = _scored.sectionScore;
+  const sectionScores = _scored.sectionScores || {};
+  const isMultiSection = !!_scored.isMultiSection;
+  const headlineLabel = isMultiSection
+    ? 'Total Score'
+    : (test.modules[0]?.section === 'reading-writing' ? 'Reading & Writing Score' : 'Math Score');
 
   const allQuestionEntries = test.modules.flatMap((mod, modIdx) =>
     mod.questions.map((q, qIdx) => {
@@ -596,10 +604,16 @@ const TestResults = ({
   const tabs = [
     { id: 'summary', label: 'TEST OVERVIEW' },
     { id: 'diagnostic', label: 'DIAGNOSTIC INSIGHTS' },
-    ...test.modules.map((mod, idx) => ({
-      id: `module-${idx}`,
-      label: `MATH: MODULE ${idx + 1}`
-    }))
+    ...test.modules.map((mod, idx) => {
+      const sec = mod.section || (test.section === 'reading-writing' ? 'reading-writing' : 'math');
+      const sectionMods = test.modules.filter(m => (m.section || test.section) === sec);
+      const idxWithinSection = sectionMods.indexOf(mod) + 1;
+      const prefix = sec === 'reading-writing' ? 'R&W' : 'MATH';
+      return {
+        id: `module-${idx}`,
+        label: `${prefix}: MODULE ${idxWithinSection}`,
+      };
+    })
   ];
 
   const cardBase = {
@@ -713,9 +727,12 @@ const TestResults = ({
     const firstAttemptScore = attempts.length > 0 ? attempts[0].scaledScore : satScore;
     const improvementFromFirst = satScore - firstAttemptScore;
 
-    // Linear gauge geometry (200–800 scale)
-    const scorePct = ((satScore - 200) / 600) * 100;
-    const targetPct = ((targetScore - 200) / 600) * 100;
+    // Linear gauge geometry — 200-800 single-section, 400-1600 full SAT.
+    const gaugeMin = isMultiSection ? 400 : 200;
+    const gaugeMax = isMultiSection ? 1600 : 800;
+    const gaugeRange = gaugeMax - gaugeMin;
+    const scorePct = ((satScore - gaugeMin) / gaugeRange) * 100;
+    const targetPct = ((targetScore - gaugeMin) / gaugeRange) * 100;
     const accentHex = isAtTarget ? '#22c55e' : '#06b6d4';
 
     const formatTime = (seconds) => {
@@ -736,7 +753,23 @@ const TestResults = ({
             <div style={{ fontSize: '72px', fontWeight: '800', color: colors.text.primary, letterSpacing: '-0.05em', lineHeight: 1 }}>
               {satScore}
             </div>
-            <div style={{ fontSize: '13px', fontWeight: '600', color: colors.text.secondary, marginTop: '8px', letterSpacing: '0.02em', textTransform: 'uppercase' }}>Math Score</div>
+            <div style={{ fontSize: '13px', fontWeight: '600', color: colors.text.secondary, marginTop: '8px', letterSpacing: '0.02em', textTransform: 'uppercase' }}>{headlineLabel}</div>
+            {isMultiSection && (
+              <div style={{ display: 'flex', gap: '24px', justifyContent: 'center', marginTop: '12px' }}>
+                {sectionScores['reading-writing'] !== undefined && (
+                  <div style={{ textAlign: 'center' }}>
+                    <div style={{ fontSize: '24px', fontWeight: '700', color: colors.text.primary }}>{sectionScores['reading-writing']}</div>
+                    <div style={{ fontSize: '10px', fontWeight: '600', color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Reading & Writing</div>
+                  </div>
+                )}
+                {sectionScores['math'] !== undefined && (
+                  <div style={{ textAlign: 'center' }}>
+                    <div style={{ fontSize: '24px', fontWeight: '700', color: colors.text.primary }}>{sectionScores['math']}</div>
+                    <div style={{ fontSize: '10px', fontWeight: '600', color: colors.text.secondary, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Math</div>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
 
           {/* Linear score gauge (box-and-whisker style) */}
@@ -834,7 +867,7 @@ const TestResults = ({
 
             {/* Scale labels */}
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '8px' }}>
-              {[200, 400, 600, 800].map(v => (
+              {(isMultiSection ? [400, 800, 1200, 1600] : [200, 400, 600, 800]).map(v => (
                 <span key={v} style={{ fontSize: '11px', fontWeight: '600', color: colors.text.muted, fontVariantNumeric: 'tabular-nums' }}>{v}</span>
               ))}
             </div>

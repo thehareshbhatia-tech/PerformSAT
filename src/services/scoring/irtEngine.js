@@ -160,14 +160,20 @@ export function scoreTest(test, answers, opts = {}) {
   const { timedMode = false, diagnosticData = null } = opts;
   const formId = test.id;
 
-  // ── 1. Score every item and build response vector ──────────────────────
-  const responseItems = [];
+  // ── 1. Score every item, grouped by module section ─────────────────────
+  // Each section gets its own response-vector → theta → 200-800 scaled score.
+  // Tests without per-module section info collapse to a single bucket and
+  // behave exactly like before.
+  const sectionItems = {};
   let totalCorrect = 0;
   let totalQuestions = 0;
   let mod1Correct = 0;
   let mod1Total = 0;
 
   const moduleScores = test.modules.map((mod, modIdx) => {
+    const section = mod.section || test.section || 'default';
+    if (!sectionItems[section]) sectionItems[section] = [];
+
     let modCorrect = 0;
     mod.questions.forEach((q, qIdx) => {
       const key = `${modIdx}-${qIdx}`;
@@ -175,7 +181,7 @@ export function scoreTest(test, answers, opts = {}) {
       const correct = isAnswerCorrect(q, userAnswer);
 
       const params = getItemParams(q);
-      responseItems.push({ params, response: correct ? 1 : 0 });
+      sectionItems[section].push({ params, response: correct ? 1 : 0 });
 
       if (correct) {
         totalCorrect++;
@@ -188,33 +194,59 @@ export function scoreTest(test, answers, opts = {}) {
         if (correct) mod1Correct++;
       }
     });
-    return { moduleTitle: mod.title, score: modCorrect, total: mod.questions.length };
+    return {
+      moduleTitle: mod.title,
+      moduleSection: section,
+      score: modCorrect,
+      total: mod.questions.length,
+    };
   });
 
-  // ── 2. Determine module route ─────────────────────────────────────────
+  // ── 2. Determine module route (uses M1 of the first section) ───────────
   const routeTaken = test.modules.length >= 2
     ? determineRoute(formId, mod1Correct, mod1Total)
     : MODULE_ROUTE.HARD;
 
-  // ── 3. Estimate theta ─────────────────────────────────────────────────
-  const { theta, se, converged } = estimateTheta(responseItems);
+  // ── 3. Score each section independently ────────────────────────────────
+  const sectionScores = {};
+  const sectionThetas = {};
+  let aggregateSE = 0;
+  Object.entries(sectionItems).forEach(([section, items]) => {
+    if (items.length === 0) return;
+    const { theta, se } = estimateTheta(items);
+    sectionScores[section] = thetaToScaledScore(theta, formId);
+    sectionThetas[section] = Math.round(theta * 1000) / 1000;
+    aggregateSE += se * se;
+  });
+  aggregateSE = Math.sqrt(aggregateSE);
 
-  // ── 4. Map theta to SAT scale ─────────────────────────────────────────
-  const sectionScore = thetaToScaledScore(theta, formId);
+  // ── 4. Compose the headline score ──────────────────────────────────────
+  // Single-section tests: the section score IS the headline (200-800).
+  // Multi-section tests: headline is the SAT composite (sum, 400-1600).
+  const sectionKeys = Object.keys(sectionScores);
+  const isMultiSection = sectionKeys.length > 1;
+  const totalScore = sectionKeys.reduce((sum, k) => sum + sectionScores[k], 0);
+  const headlineScore = isMultiSection ? totalScore : (sectionScores[sectionKeys[0]] || 0);
+
+  // For backwards compat with single-section consumers, expose `theta` of the
+  // primary (or only) section.
+  const primaryTheta = sectionThetas[sectionKeys[0]] ?? 0;
 
   // ── 5. Package result ─────────────────────────────────────────────────
   return createScoredResult({
-    sectionScore,
+    sectionScore: headlineScore,
     rawScore: totalCorrect,
     totalQuestions,
-    thetaEstimate: Math.round(theta * 1000) / 1000,
-    standardError: Math.round(se * 1000) / 1000,
+    thetaEstimate: primaryTheta,
+    standardError: Math.round(aggregateSE * 1000) / 1000,
     routeTaken,
     itemsScored: totalQuestions,
     itemsExcluded: 0,
     moduleScores,
     diagnosticData,
     timedMode,
+    sectionScores,
+    isMultiSection,
   });
 }
 

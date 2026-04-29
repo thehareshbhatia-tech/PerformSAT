@@ -28,9 +28,12 @@
       ]
     },
     {
-      "collectionGroup": "studyPlanArtifacts",
+      "collectionGroup": "aiDiagnostics",
       "queryScope": "COLLECTION",
       "fields": [
+        { "fieldPath": "attemptTimestamp", "order": "ASCENDING" },
+        { "fieldPath": "status", "order": "ASCENDING" },
+        { "fieldPath": "testId", "order": "ASCENDING" },
         { "fieldPath": "createdAt", "order": "DESCENDING" }
       ]
     },
@@ -40,13 +43,6 @@
       "fields": [
         { "fieldPath": "moduleId", "order": "ASCENDING" },
         { "fieldPath": "lessonId", "order": "ASCENDING" },
-        { "fieldPath": "lastMessageAt", "order": "DESCENDING" }
-      ]
-    },
-    {
-      "collectionGroup": "aiChatSessions",
-      "queryScope": "COLLECTION",
-      "fields": [
         { "fieldPath": "lastMessageAt", "order": "DESCENDING" }
       ]
     }

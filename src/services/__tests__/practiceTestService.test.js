@@ -310,8 +310,10 @@ describe('recordPracticeTestResult — trimAttempts', () => {
       expect(testRow.attempts[i].diagnosticData).toBeUndefined();
       expect(testRow.attempts[i].attemptId).toBeTruthy();
     }
-    // Latest keeps full data
-    expect(testRow.attempts[0].diagnosticReport).toBeTruthy();
+    // Latest keeps diagnosticData (read by trend/prediction services) but
+    // strips diagnosticReport (regenerated on demand from diagnosticData by
+    // App.jsx's ViewResults fallback) to keep the main doc under 1MB.
+    expect(testRow.attempts[0].diagnosticReport).toBeUndefined();
     expect(testRow.attempts[0].diagnosticData).toBeTruthy();
 
     // ALL 7 subcollection snapshots survive — Review Answers can still find them

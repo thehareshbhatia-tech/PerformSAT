@@ -78,8 +78,16 @@ export const useProgress = (userId) => {
           // Get practice test results
           setPracticeTestResults(data.practiceTestResults || {});
 
-          // Get in-progress tests
-          setInProgressTests(data.inProgressTests || {});
+          // Get in-progress tests, dropping any orphaned IDs that no longer
+          // exist in the test list (e.g. `practice-test-1-rw`, which was
+          // merged into `practice-test-1` as a full-length SAT).
+          {
+            const raw = data.inProgressTests || {};
+            const orphanedIds = ['practice-test-1-rw'];
+            const cleaned = { ...raw };
+            orphanedIds.forEach((id) => { delete cleaned[id]; });
+            setInProgressTests(cleaned);
+          }
 
           // Get data loop fields
           setStudentFingerprint(data.studentFingerprint || null);
@@ -429,6 +437,8 @@ export const useProgress = (userId) => {
         rawScore: results.rawScore,
         totalQuestions: results.totalQuestions,
         scaledScore: results.scaledScore,
+        sectionScores: results.sectionScores || null,
+        isMultiSection: results.isMultiSection || false,
         timedMode: results.timedMode,
         moduleScores: results.moduleScores,
         diagnosticData: results.diagnosticData || null,
