@@ -1988,19 +1988,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   if (moduleCompleted && !testCompleted) {
     const score = calculateModuleScore();
     const isLastModule = currentModule === effectiveModules.length - 1;
-    const totalQuestions = effectiveModules.reduce((sum, m) => sum + m.questions.length, 0);
-    // Project the SAT score from answers so far. Only score modules the
-    // student has reached so we don't penalize unanswered future modules.
-    const completedTest = {
-      ...test,
-      modules: effectiveModules.slice(0, currentModule + 1),
-    };
-    const liveScore = scoreTest(completedTest, answers, { timedMode: isTimed });
-    const projectedSATScore = liveScore.sectionScore;
-    const projectedSectionScores = liveScore.sectionScores || {};
-    // We treat the test as multi-section in display only if more than one
-    // section has actually appeared in the modules completed so far.
-    const isMultiSection = Object.keys(projectedSectionScores).length > 1;
+    const remainingModules = effectiveModules.length - currentModule - 1;
 
     return (
       <div style={{ maxWidth: '600px', margin: '0 auto', padding: '40px 20px', textAlign: 'center' }}>
@@ -2019,38 +2007,17 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           {Math.round((score / questions.length) * 100)}% correct
         </p>
 
-        {/* Projected Score */}
-        <div style={{
-          background: colors.semantic.infoLight,
-          border: `1px solid ${colors.semantic.infoBg}`,
-          borderRadius: radius.md,
-          padding: '16px 20px',
-          marginBottom: '32px',
-          fontSize: '14px',
-          color: colors.semantic.info
-        }}>
-          <p style={{ marginBottom: '4px' }}>
-            <strong>Projected SAT Score:</strong> ~{projectedSATScore}
-            {isMultiSection && (
-              <span style={{ fontSize: '12px', opacity: 0.85, display: 'block', marginTop: '4px' }}>
-                {projectedSectionScores['reading-writing'] !== undefined && (
-                  <>R&W: ~{projectedSectionScores['reading-writing']}</>
-                )}
-                {projectedSectionScores['reading-writing'] !== undefined && projectedSectionScores['math'] !== undefined && ' · '}
-                {projectedSectionScores['math'] !== undefined && (
-                  <>Math: ~{projectedSectionScores['math']}</>
-                )}
-              </span>
-            )}
+        {!isLastModule && (
+          <p style={{
+            color: colors.text.secondary,
+            fontSize: '14px',
+            marginBottom: '32px',
+          }}>
+            {remainingModules === 1
+              ? 'One more module to go before your final score.'
+              : `${remainingModules} modules remaining before your final score.`}
           </p>
-          <p style={{ fontSize: '12px', opacity: 0.8 }}>
-            {isLastModule
-              ? 'Final score available now.'
-              : test.modules.length > 2
-                ? `Based on current performance. Complete the remaining ${test.modules.length - currentModule - 1} module${test.modules.length - currentModule - 1 === 1 ? '' : 's'} for your final score.`
-                : 'Based on current performance. Complete Module 2 for your final score.'}
-          </p>
-        </div>
+        )}
 
         <button
           onClick={handleNextModule}
