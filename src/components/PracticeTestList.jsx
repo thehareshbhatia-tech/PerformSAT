@@ -3,9 +3,11 @@ import { getAllPracticeTests } from '../data/practiceTests';
 import { colors, radius, zIndex } from '../design/tokens';
 import { ArrowLeftIcon, ArrowRightIcon, ChevronDownIcon, TimerIcon, CircleDotIcon } from '../design/icons';
 
-// Match the muted-teal SAT-test-prep aesthetic from the comp.
-const TEAL = '#5b9aa8';
-const TEAL_HOVER = '#4f8a96';
+// Match the Acely-inspired brand palette used across the app
+// (indigo primary, soft shadows, off-white surfaces).
+const BRAND = 'var(--color-brand-primary)';
+const BRAND_HOVER = 'var(--color-brand-primary-hover)';
+const BRAND_GLOW = 'var(--shadow-brand-glow)';
 
 const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, getTestBestScore, getTestAttempts, inProgressTests, onResumeTest, onViewResults }) => {
   const tests = getAllPracticeTests();
@@ -181,24 +183,29 @@ const TestCard = ({
   };
 
   return (
-    <div style={{
-      background: 'var(--color-white)',
-      border: '1px solid var(--color-slate-200)',
-      borderRadius: radius.lg,
-      overflow: 'hidden',
-      boxShadow: 'var(--shadow-sm)',
-    }}>
+    <div
+      onMouseEnter={(e) => { e.currentTarget.style.boxShadow = BRAND_GLOW; }}
+      onMouseLeave={(e) => { e.currentTarget.style.boxShadow = 'var(--shadow-sm)'; }}
+      style={{
+        background: 'var(--color-white)',
+        border: '1px solid var(--color-slate-200)',
+        borderRadius: radius.xl,
+        overflow: 'hidden',
+        boxShadow: 'var(--shadow-sm)',
+        transition: 'box-shadow 0.2s ease',
+      }}
+    >
       <button
         type="button"
         onClick={onToggleExpand}
         aria-expanded={isExpanded}
-        onMouseEnter={(e) => { e.currentTarget.style.background = TEAL_HOVER; }}
-        onMouseLeave={(e) => { e.currentTarget.style.background = TEAL; }}
+        onMouseEnter={(e) => { e.currentTarget.style.background = BRAND_HOVER; }}
+        onMouseLeave={(e) => { e.currentTarget.style.background = BRAND; }}
         style={{
           width: '100%',
-          background: TEAL,
+          background: BRAND,
           color: '#fff',
-          padding: '14px 20px',
+          padding: '16px 22px',
           display: 'flex',
           alignItems: 'center',
           gap: '12px',
@@ -332,7 +339,7 @@ const SectionRow = ({
       <div style={{
         width: '64px',
         height: '64px',
-        border: `2px solid ${TEAL}`,
+        border: `2px solid ${BRAND}`,
         borderRadius: '50%',
         display: 'flex',
         flexDirection: 'column',
@@ -341,8 +348,8 @@ const SectionRow = ({
         flexShrink: 0,
         lineHeight: 1,
       }}>
-        <span style={{ fontSize: '20px', fontWeight: 700, color: TEAL }}>{time}</span>
-        <span style={{ fontSize: '11px', color: TEAL, marginTop: '3px' }}>min</span>
+        <span style={{ fontSize: '20px', fontWeight: 700, color: BRAND }}>{time}</span>
+        <span style={{ fontSize: '11px', color: BRAND, marginTop: '3px' }}>min</span>
       </div>
 
       <span style={{
@@ -364,12 +371,12 @@ const SectionRow = ({
               setOpenDropdown(isOpen ? null : dropdownKey);
             }
           }}
-          onMouseEnter={(e) => { e.currentTarget.style.color = TEAL_HOVER; }}
-          onMouseLeave={(e) => { e.currentTarget.style.color = TEAL; }}
+          onMouseEnter={(e) => { e.currentTarget.style.color = BRAND_HOVER; }}
+          onMouseLeave={(e) => { e.currentTarget.style.color = BRAND; }}
           style={{
             background: 'none',
             border: 'none',
-            color: TEAL,
+            color: BRAND,
             cursor: 'pointer',
             display: 'flex',
             flexDirection: 'column',
