@@ -2900,8 +2900,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         </div>
       </div>
 
-      {/* Desktop Nav Strip — Math only. R&W uses bottom-bar popup instead (Bluebook style). */}
-      {!isMobile && !isReadingWriting && (
+      {/* Desktop Nav Strip — visible on top for both Math and R&W. */}
+      {!isMobile && (
         <div className="test-session-nav-strip">
           <QuestionGrid
             questions={questions}

@@ -124,9 +124,10 @@
 .test-session-nav-strip {
   display: flex;
   align-items: center;
-  padding: 0.5rem 1.5rem 1rem;
-  background-color: var(--color-slate-50);
-  border-bottom: none;
+  justify-content: center;
+  padding: 0.875rem 1.5rem 0.5rem;
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-slate-200);
   overflow-x: auto;
   gap: 0.25rem;
   flex-shrink: 0;
@@ -702,59 +703,73 @@
 .nav-grid {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 4px;
   margin: 0 auto;
+  padding-bottom: 8px; /* room for the current-question arrow indicator */
 }
 
 .nav-grid-item {
-  min-width: 40px;
-  height: 40px;
-  padding: 0;
-  border-radius: var(--radius-full);
+  min-width: 32px;
+  height: 32px;
+  padding: 0 8px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
-  border: none;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  border: 1px solid var(--color-slate-200);
   background-color: var(--color-white);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   color: var(--color-slate-700);
   position: relative;
   flex-shrink: 0;
 }
 
 .nav-grid-item:hover {
-  background-color: var(--color-slate-50);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-color: var(--color-brand-primary);
+  color: var(--color-brand-primary);
+  background-color: var(--color-brand-primary-light);
 }
 
 .nav-grid-item.is-current {
-  background-color: var(--color-brand-primary);
-  color: var(--color-white);
-  box-shadow: 0 4px 12px rgba(59, 82, 217, 0.25);
-  transform: translateY(-1px);
+  border-color: var(--color-brand-primary);
+  background-color: var(--color-white);
+  color: var(--color-brand-primary);
+  font-weight: 700;
+}
+
+/* Down-arrow indicator under current question (reference Bluebook navigator). */
+.nav-grid-item.is-current::before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid var(--color-brand-primary);
 }
 
 .nav-grid-item.is-answered {
-  background-color: var(--color-slate-100);
-  color: var(--color-slate-900);
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+  background-color: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
+  color: var(--color-white);
 }
 
 .nav-grid-item.is-flagged::after {
   content: '';
   position: absolute;
-  top: -2px;
-  right: -2px;
-  width: 10px;
-  height: 10px;
-  background-color: var(--color-brand-neon);
+  top: -3px;
+  right: -3px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-warning-600);
   border-radius: 50%;
-  border: 2px solid var(--color-white);
+  border: 1.5px solid var(--color-white);
 }
 
 /* Nav Legend */

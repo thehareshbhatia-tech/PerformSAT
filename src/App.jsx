@@ -9124,8 +9124,8 @@ const PerformSAT = () => {
       <div id="main-content" style={{
         maxWidth: view === 'learn' || view === 'modules' || view === 'takingTest' || view === 'reviewingPastResults' || view === 'practice' || view === 'dashboard' ? '100%' : (view === 'practiceTests' || view === 'studyPlan') ? '960px' : '800px',
         margin: '0 auto',
-        padding: (view === 'learn' || view === 'modules' || view === 'dashboard' || view === 'reviewingPastResults' || view === 'practice') ? '0' : view === 'takingTest' ? '32px 0px 60px' : '32px 32px 100px',
-        ...(view === 'learn' ? { overflow: 'hidden', height: '100vh' } : {})
+        padding: (view === 'learn' || view === 'modules' || view === 'dashboard' || view === 'reviewingPastResults' || view === 'practice' || view === 'takingTest') ? '0' : '32px 32px 100px',
+        ...(view === 'learn' || view === 'takingTest' ? { overflow: 'hidden', height: '100vh' } : {})
       }}>
         {/* Standalone AI Tutor View */}
         {view === 'tutor' && (
