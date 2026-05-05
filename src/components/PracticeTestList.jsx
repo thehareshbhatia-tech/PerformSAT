@@ -12,7 +12,15 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, getTestB
   // Each open dropdown is keyed by `${testId}:${section}` so R&W and Math
   // dropdowns don't collide on the same card.
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [expandedTestId, setExpandedTestId] = useState(null);
   const dropdownRef = useRef(null);
+
+  // First-load convenience: open the first in-progress test so Resume is one click away.
+  useEffect(() => {
+    if (expandedTestId || !inProgressTests) return;
+    const firstInProgress = tests.find((t) => inProgressTests[t.id]);
+    if (firstInProgress) setExpandedTestId(firstInProgress.id);
+  }, [inProgressTests, tests, expandedTestId]);
 
   useEffect(() => {
     if (!openDropdown) return;
@@ -24,6 +32,11 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, getTestB
     document.addEventListener('mousedown', handler);
     return () => document.removeEventListener('mousedown', handler);
   }, [openDropdown]);
+
+  const toggleExpand = (testId) => {
+    setOpenDropdown(null);
+    setExpandedTestId((prev) => (prev === testId ? null : testId));
+  };
 
   const sectionTime = (test, section) =>
     test.modules
@@ -86,6 +99,8 @@ const PracticeTestList = ({ onSelectTest, onBack, onSelectTestWithMode, getTestB
               bestScore={bestScore}
               attempts={attempts}
               inProgress={inProgress}
+              isExpanded={expandedTestId === test.id}
+              onToggleExpand={() => toggleExpand(test.id)}
               openDropdown={openDropdown}
               setOpenDropdown={setOpenDropdown}
               dropdownRef={dropdownRef}
@@ -137,6 +152,8 @@ const TestCard = ({
   bestScore,
   attempts,
   inProgress,
+  isExpanded,
+  onToggleExpand,
   openDropdown,
   setOpenDropdown,
   dropdownRef,
@@ -158,8 +175,10 @@ const TestCard = ({
     }
   };
 
-  const headerKey = `${test.id}:header`;
-  const isHeaderOpen = openDropdown === headerKey;
+  const handleViewResults = (e) => {
+    e.stopPropagation();
+    if (onViewResults && attempts > 0) onViewResults(test);
+  };
 
   return (
     <div style={{
@@ -169,15 +188,33 @@ const TestCard = ({
       overflow: 'hidden',
       boxShadow: 'var(--shadow-sm)',
     }}>
-      <div style={{
-        background: TEAL,
-        color: '#fff',
-        padding: '14px 20px',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '12px',
-      }}>
-        <ChevronDownIcon size={20} color="#fff" />
+      <button
+        type="button"
+        onClick={onToggleExpand}
+        aria-expanded={isExpanded}
+        onMouseEnter={(e) => { e.currentTarget.style.background = TEAL_HOVER; }}
+        onMouseLeave={(e) => { e.currentTarget.style.background = TEAL; }}
+        style={{
+          width: '100%',
+          background: TEAL,
+          color: '#fff',
+          padding: '14px 20px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '12px',
+          border: 'none',
+          cursor: 'pointer',
+          textAlign: 'left',
+          transition: 'background 0.15s ease',
+        }}
+      >
+        <span style={{
+          display: 'inline-flex',
+          transition: 'transform 0.2s ease',
+          transform: isExpanded ? 'rotate(0deg)' : 'rotate(-90deg)',
+        }}>
+          <ChevronDownIcon size={20} color="#fff" />
+        </span>
         <h2 style={{
           margin: 0,
           fontSize: '20px',
@@ -209,12 +246,17 @@ const TestCard = ({
             {answeredCount}/{totalQuestions} answered
           </span>
         )}
-        <button
-          type="button"
-          onClick={() => onViewResults && attempts > 0 ? onViewResults(test) : null}
+        <span
+          role={attempts > 0 ? 'button' : undefined}
+          tabIndex={attempts > 0 ? 0 : undefined}
+          onClick={handleViewResults}
+          onKeyDown={(e) => {
+            if (attempts > 0 && (e.key === 'Enter' || e.key === ' ')) {
+              e.preventDefault();
+              handleViewResults(e);
+            }
+          }}
           style={{
-            background: 'none',
-            border: 'none',
             color: 'rgba(255,255,255,0.85)',
             fontSize: '14px',
             fontStyle: 'italic',
@@ -223,38 +265,42 @@ const TestCard = ({
           }}
         >
           {attempts > 0 ? 'view' : `~${totalTime} min`}
-        </button>
-      </div>
+        </span>
+      </button>
 
-      <SectionRow
-        time={rwTime}
-        title="Reading and Writing"
-        inProgress={inProgress}
-        attempts={attempts}
-        onResume={() => onResumeTest && onResumeTest(test, inProgress?.isTimed)}
-        onLaunch={launch}
-        dropdownKey={`${test.id}:rw`}
-        openDropdown={openDropdown}
-        setOpenDropdown={setOpenDropdown}
-        dropdownRef={dropdownRef}
-        totalTime={totalTime}
-      />
+      {isExpanded && (
+        <>
+          <SectionRow
+            time={rwTime}
+            title="Reading and Writing"
+            inProgress={inProgress}
+            attempts={attempts}
+            onResume={() => onResumeTest && onResumeTest(test, inProgress?.isTimed)}
+            onLaunch={launch}
+            dropdownKey={`${test.id}:rw`}
+            openDropdown={openDropdown}
+            setOpenDropdown={setOpenDropdown}
+            dropdownRef={dropdownRef}
+            totalTime={totalTime}
+          />
 
-      <div style={{ height: '1px', background: 'var(--color-slate-200)' }} />
+          <div style={{ height: '1px', background: 'var(--color-slate-200)' }} />
 
-      <SectionRow
-        time={mathTime}
-        title="Math"
-        inProgress={inProgress}
-        attempts={attempts}
-        onResume={() => onResumeTest && onResumeTest(test, inProgress?.isTimed)}
-        onLaunch={launch}
-        dropdownKey={`${test.id}:math`}
-        openDropdown={openDropdown}
-        setOpenDropdown={setOpenDropdown}
-        dropdownRef={dropdownRef}
-        totalTime={totalTime}
-      />
+          <SectionRow
+            time={mathTime}
+            title="Math"
+            inProgress={inProgress}
+            attempts={attempts}
+            onResume={() => onResumeTest && onResumeTest(test, inProgress?.isTimed)}
+            onLaunch={launch}
+            dropdownKey={`${test.id}:math`}
+            openDropdown={openDropdown}
+            setOpenDropdown={setOpenDropdown}
+            dropdownRef={dropdownRef}
+            totalTime={totalTime}
+          />
+        </>
+      )}
     </div>
   );
 };
