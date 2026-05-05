@@ -1,45 +1,113 @@
 // Practice Tests Index
-// Export all practice tests for use in the app
+// Each test merges Reading & Writing modules followed by Math modules.
 
+// Math sections (file exports `practiceTestN`; alias to *Math here so the
+// merged test can claim the public name).
 import { practiceTest1 as practiceTest1Math } from './practiceTest1';
-import { practiceTest2 } from './practiceTest2';
-import { practiceTest3 } from './practiceTest3';
-import { practiceTest4 } from './practiceTest4';
-import { practiceTest5 } from './practiceTest5';
-import { practiceTest6 } from './practiceTest6';
-import { practiceTest7 } from './practiceTest7';
-import { practiceTest8 } from './practiceTest8';
-import { practiceTest9 } from './practiceTest9';
-import { practiceTest10 } from './practiceTest10';
-import { practiceTest11 } from './practiceTest11';
-import { practiceTest12 } from './practiceTest12';
+import { practiceTest2 as practiceTest2Math } from './practiceTest2';
+import { practiceTest3 as practiceTest3Math } from './practiceTest3';
+import { practiceTest4 as practiceTest4Math } from './practiceTest4';
+import { practiceTest5 as practiceTest5Math } from './practiceTest5';
+import { practiceTest6 as practiceTest6Math } from './practiceTest6';
+import { practiceTest7 as practiceTest7Math } from './practiceTest7';
+import { practiceTest8 as practiceTest8Math } from './practiceTest8';
+import { practiceTest9 as practiceTest9Math } from './practiceTest9';
+import { practiceTest10 as practiceTest10Math } from './practiceTest10';
+import { practiceTest11 as practiceTest11Math } from './practiceTest11';
+import { practiceTest12 as practiceTest12Math } from './practiceTest12';
+
+// R&W sections — split from Math for modular authoring.
 import { practiceTest1RW } from './practiceTest1RW';
+import { practiceTest2RW } from './practiceTest2RW';
+import { practiceTest3RW } from './practiceTest3RW';
+import { practiceTest4RW } from './practiceTest4RW';
+import { practiceTest5RW } from './practiceTest5RW';
+import { practiceTest6RW } from './practiceTest6RW';
+import { practiceTest7RW } from './practiceTest7RW';
+import { practiceTest8RW } from './practiceTest8RW';
+import { practiceTest9RW } from './practiceTest9RW';
+import { practiceTest10RW } from './practiceTest10RW';
+import { practiceTest11RW } from './practiceTest11RW';
+import { practiceTest12RW } from './practiceTest12RW';
 
-// Test 1 = full-length SAT: 2 R&W modules followed by 2 Math modules.
-// Each module carries its own `section` so the test session UI can switch
-// between R&W (passage-left split, annotate tools) and Math (calculator,
-// reference sheet) appropriately. Modules are numbered sequentially 1..4
-// across the merged test.
-const rwModules = practiceTest1RW.modules.map((m, idx) => ({
-  ...m,
-  section: 'reading-writing',
-  title: `Module ${idx + 1}`,
-}));
-const mathOffset = rwModules.length;
-const mathModules = practiceTest1Math.modules.map((m, idx) => ({
-  ...m,
-  section: 'math',
-  title: `Module ${mathOffset + idx + 1}`,
-}));
+// Module 2 Easy variants — for adaptive routing.
+// When a student scores below ~60% on Math Module 1, they receive these
+// easier questions instead of the standard (Hard) Module 2.
+import { practiceTest1M2Easy } from './practiceTest1M2Easy';
+import { practiceTest2M2Easy } from './practiceTest2M2Easy';
+import { practiceTest3M2Easy } from './practiceTest3M2Easy';
+import { practiceTest4M2Easy } from './practiceTest4M2Easy';
+import { practiceTest5M2Easy } from './practiceTest5M2Easy';
+import { practiceTest6M2Easy } from './practiceTest6M2Easy';
+import { practiceTest7M2Easy } from './practiceTest7M2Easy';
+import { practiceTest8M2Easy } from './practiceTest8M2Easy';
+import { practiceTest9M2Easy } from './practiceTest9M2Easy';
+import { practiceTest10M2Easy } from './practiceTest10M2Easy';
+import { practiceTest11M2Easy } from './practiceTest11M2Easy';
+import { practiceTest12M2Easy } from './practiceTest12M2Easy';
 
-export const practiceTest1 = {
-  id: 'practice-test-1',
-  title: 'Practice Test 1',
-  description: 'Full-length digital SAT practice test — Reading & Writing followed by Math.',
-  totalQuestions: (practiceTest1RW.totalQuestions || 54) + (practiceTest1Math.totalQuestions || 44),
-  timePerModule: 32, // R&W cadence; Math modules carry their own 35-min timeLimit
-  modules: [...rwModules, ...mathModules],
+const easyVariants = {
+  'practice-test-1': practiceTest1M2Easy,
+  'practice-test-2': practiceTest2M2Easy,
+  'practice-test-3': practiceTest3M2Easy,
+  'practice-test-4': practiceTest4M2Easy,
+  'practice-test-5': practiceTest5M2Easy,
+  'practice-test-6': practiceTest6M2Easy,
+  'practice-test-7': practiceTest7M2Easy,
+  'practice-test-8': practiceTest8M2Easy,
+  'practice-test-9': practiceTest9M2Easy,
+  'practice-test-10': practiceTest10M2Easy,
+  'practice-test-11': practiceTest11M2Easy,
+  'practice-test-12': practiceTest12M2Easy,
 };
+
+// Build a full-length practice test from R&W + Math sections. R&W modules
+// come first (numbered Module 1..N), Math modules follow (Module N+1..N+M).
+// Each module carries a `section` so the test session UI can switch between
+// R&W layout (passage split, annotate tools) and Math layout (calculator,
+// reference sheet) appropriately.
+const buildFullTest = (id, title, rw, math) => {
+  const rwModules = rw.modules.map((m, idx) => ({
+    ...m,
+    section: 'reading-writing',
+    title: `Module ${idx + 1}`,
+  }));
+  const offset = rwModules.length;
+  const mathModules = math.modules.map((m, idx) => ({
+    ...m,
+    section: 'math',
+    title: `Module ${offset + idx + 1}`,
+  }));
+  return {
+    id,
+    title,
+    description: 'Full-length digital SAT practice test — Reading & Writing followed by Math.',
+    totalQuestions:
+      (rw.totalQuestions || rwModules.reduce((s, m) => s + m.questions.length, 0)) +
+      (math.totalQuestions || mathModules.reduce((s, m) => s + m.questions.length, 0)),
+    timePerModule: 32,
+    modules: [...rwModules, ...mathModules],
+  };
+};
+
+export const practiceTest1 = buildFullTest('practice-test-1', 'Practice Test 1', practiceTest1RW, practiceTest1Math);
+export const practiceTest2 = buildFullTest('practice-test-2', 'Practice Test 2', practiceTest2RW, practiceTest2Math);
+export const practiceTest3 = buildFullTest('practice-test-3', 'Practice Test 3', practiceTest3RW, practiceTest3Math);
+export const practiceTest4 = buildFullTest('practice-test-4', 'Practice Test 4', practiceTest4RW, practiceTest4Math);
+export const practiceTest5 = buildFullTest('practice-test-5', 'Practice Test 5', practiceTest5RW, practiceTest5Math);
+export const practiceTest6 = buildFullTest('practice-test-6', 'Practice Test 6', practiceTest6RW, practiceTest6Math);
+export const practiceTest7 = buildFullTest('practice-test-7', 'Practice Test 7', practiceTest7RW, practiceTest7Math);
+export const practiceTest8 = buildFullTest('practice-test-8', 'Practice Test 8', practiceTest8RW, practiceTest8Math);
+export const practiceTest9 = buildFullTest('practice-test-9', 'Practice Test 9', practiceTest9RW, practiceTest9Math);
+export const practiceTest10 = buildFullTest('practice-test-10', 'Practice Test 10', practiceTest10RW, practiceTest10Math);
+export const practiceTest11 = buildFullTest('practice-test-11', 'Practice Test 11', practiceTest11RW, practiceTest11Math);
+export const practiceTest12 = buildFullTest('practice-test-12', 'Practice Test 12', practiceTest12RW, practiceTest12Math);
+
+// Spread is intentional so the original test object stays untouched and
+// the variant is added only on the exported copy used by the app.
+const withEasyVariant = (t) => easyVariants[t.id]
+  ? { ...t, module2Easy: easyVariants[t.id] }
+  : t;
 
 export const practiceTests = [
   practiceTest1,
@@ -53,8 +121,8 @@ export const practiceTests = [
   practiceTest9,
   practiceTest10,
   practiceTest11,
-  practiceTest12
-];
+  practiceTest12,
+].map(withEasyVariant);
 
 export const getPracticeTestById = (id) => {
   return practiceTests.find(test => test.id === id);
@@ -64,4 +132,4 @@ export const getAllPracticeTests = () => {
   return practiceTests;
 };
 
-export { practiceTest2, practiceTest3, practiceTest4, practiceTest5, practiceTest6, practiceTest7, practiceTest8, practiceTest9, practiceTest10, practiceTest11, practiceTest12, practiceTest1RW };
+export { practiceTest1RW };

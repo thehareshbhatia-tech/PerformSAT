@@ -412,7 +412,8 @@ export const practiceTest3 = {
       timeLimit: 35,
       questions: [
 // Practice Test 3 — Math Module 2 (22 questions)
-// Distribution: 3E / 6M / 13H. Q1-3 are easy openers (CB-authentic ramp).
+// Distribution: 3E / 6M / 13H with band-8 ceiling on Q15, Q17.
+// Calibrated to Bluebook Module 2 Hard (Q15 polynomial w/ zeros, Q17 trig identity).
 
 {
   id: 1,
@@ -655,22 +656,13 @@ export const practiceTest3 = {
 },
 {
   id: 15,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
-  band: 7,
-  question: "Line $p$ is defined by the equation $5x - 3y = 21$. Line $q$ is perpendicular to line $p$ and passes through the point $(-10, 7)$. What is the $x$-intercept of line $q$?",
-  choices: [
-    // distractor: arithmetic slip — gives 35/3 instead of 5/3 (forgets to subtract 10)
-    { id: "A", text: "$\\dfrac{35}{3}$" },
-    // distractor: uses parallel slope instead of perpendicular (5/3 path)
-    { id: "B", text: "$\\dfrac{32}{5}$" },
-    { id: "C", text: "$\\dfrac{5}{3}$" },
-    // distractor: uses -10 from the given point as the x-intercept directly
-    { id: "D", text: "$-10$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Slope of $p$: $y = \\dfrac{5}{3}x - 7$, so $m_p = \\dfrac{5}{3}$ and $m_q = -\\dfrac{3}{5}$. Line $q$ through $(-10, 7)$: $y - 7 = -\\dfrac{3}{5}(x + 10)$. Set $y = 0$: $\\dfrac{3}{5}(x + 10) = 7 \\Rightarrow x + 10 = \\dfrac{35}{3} \\Rightarrow x = \\dfrac{5}{3}$.\n\n**The Full Solution:**\nFrom $5x - 3y = 21$: $y = \\dfrac{5}{3}x - 7$, slope $\\dfrac{5}{3}$.\nPerpendicular slope: $-\\dfrac{3}{5}$.\n\nPoint-slope form for line $q$ through $(-10, 7)$:\n$y - 7 = -\\dfrac{3}{5}(x - (-10))$\n$y = -\\dfrac{3}{5}(x + 10) + 7$\n\nFor the $x$-intercept, set $y = 0$:\n$0 = -\\dfrac{3}{5}(x + 10) + 7$\n$\\dfrac{3}{5}(x + 10) = 7$\n$x + 10 = \\dfrac{35}{3}$\n$x = \\dfrac{35}{3} - \\dfrac{30}{3} = \\dfrac{5}{3}$\n\nVerification: at $x = \\dfrac{5}{3}$, $y = -\\dfrac{3}{5}\\left(\\dfrac{5}{3} + 10\\right) + 7 = -\\dfrac{3}{5} \\cdot \\dfrac{35}{3} + 7 = -7 + 7 = 0$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives $\\dfrac{35}{3}$ (the value of $x + 10$) instead of subtracting $10$ to isolate $x$.\n* Choice B: \"applies the inverse operation\" — uses the parallel slope $\\dfrac{5}{3}$ instead of the perpendicular slope, leading to a different intercept.\n* Choice D: \"wrong base\" — uses $-10$ from the given point as the $x$-intercept.\n\n**Test Day Takeaway:** Perpendicular slopes are negative reciprocals. After finding the new line, solve $y = 0$ for the $x$-intercept.",
-  skills: ["slope", "linear-functions", "coordinate-geometry"]
+  band: 8,
+  question: "The polynomial $p(x)$ has degree $3$ and zeros at $x = -1$, $x = 2$, and $x = 4$. If $p(0) = 16$, what is the value of $p(1)$?",
+  correctAnswer: "12",
+  explanation: "**SAT Pattern: Polynomial from Zeros + Value**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~40s):** Write $p(x) = a(x + 1)(x - 2)(x - 4)$. Use $p(0)$ to find $a$: $p(0) = a(1)(-2)(-4) = 8a = 16 \\Rightarrow a = 2$. Then $p(1) = 2(2)(-1)(-3) = 12$.\n\n**The Full Solution:**\nA degree-$3$ polynomial with the given zeros has the form:\n$p(x) = a(x + 1)(x - 2)(x - 4)$ for some leading coefficient $a$.\n\nUse the given value $p(0) = 16$ to solve for $a$:\n$p(0) = a(0 + 1)(0 - 2)(0 - 4) = a(1)(-2)(-4) = 8a = 16$\n$a = 2$.\n\nNow evaluate $p(1)$:\n$p(1) = 2(1 + 1)(1 - 2)(1 - 4) = 2 \\cdot 2 \\cdot (-1) \\cdot (-3) = 12$.\n\n**Verification:** $p(-1) = 2(0)(-3)(-5) = 0$ \\checkmark. $p(2) = 2(3)(0)(-2) = 0$ \\checkmark. $p(4) = 2(5)(2)(0) = 0$ \\checkmark. $p(0) = 2(1)(-2)(-4) = 16$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting the leading coefficient $a$ and assuming $p(x) = (x+1)(x-2)(x-4)$ directly — would give $p(0) = 8$, not $16$.\n* Sign errors with $(0 - 2)(0 - 4) = (-2)(-4) = +8$ (positive product of two negatives).\n* Reporting $a = 2$ as the answer instead of $p(1)$.\n\n**Test Day Takeaway:** A polynomial of degree $n$ with given zeros $r_1, \\ldots, r_n$ has the form $a(x - r_1)\\cdots(x - r_n)$. Use one extra given value (e.g. $p(0)$ or a $y$-intercept) to pin down $a$, then evaluate as needed.",
+  skills: ["polynomial-operations", "factoring", "function-interpretation"]
 },
 {
   id: 16,
@@ -684,22 +676,13 @@ export const practiceTest3 = {
 },
 {
   id: 17,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
-  band: 7,
-  question: "Two cylindrical tanks share the same height. Tank A has a radius of $4$ feet, and Tank B has a radius that is $50\\%$ greater than Tank A's radius. What is the ratio of the volume of Tank B to the volume of Tank A?",
-  choices: [
-    // distractor: uses 1.5 instead of 1.5^2 (forgets that radius is squared in volume)
-    { id: "A", text: "$3 : 2$" },
-    // distractor: uses 50%:100% directly without considering volume scaling
-    { id: "B", text: "$1 : 2$" },
-    { id: "C", text: "$9 : 4$" },
-    // distractor: cubes the ratio instead of squaring (treats it like sphere scaling)
-    { id: "D", text: "$27 : 8$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Cylinder Volume**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Tank B's radius is $1.5 \\times$ Tank A's. Same height, so volume ratio is $\\left(\\dfrac{r_B}{r_A}\\right)^2 = (1.5)^2 = 2.25 = \\dfrac{9}{4}$.\n\n**The Full Solution:**\nLet Tank A have radius $r_A = 4$ and height $h$. Then $r_B = 4 + 0.50 \\cdot 4 = 6$.\n\n$V_A = \\pi r_A^2 h = \\pi (16) h = 16 \\pi h$\n$V_B = \\pi r_B^2 h = \\pi (36) h = 36 \\pi h$\n\n$\\dfrac{V_B}{V_A} = \\dfrac{36 \\pi h}{16 \\pi h} = \\dfrac{36}{16} = \\dfrac{9}{4}$\n\nSo the ratio is $9 : 4$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses the linear ratio $1.5 = \\dfrac{3}{2}$ without squaring for volume.\n* Choice B: \"wrong base\" — reads \"$50\\%$ greater\" as \"half\" instead of \"$1.5 \\times$\".\n* Choice D: \"applies the inverse operation\" — cubes the ratio ($1.5^3 = 3.375 = \\dfrac{27}{8}$) as if for a sphere or similar 3D object scaling all dimensions.\n\n**Test Day Takeaway:** When only one dimension scales, the volume scales by that ratio raised to the appropriate power. Cylinders with same height scale only the cross-sectional area, so volume ratio = (radius ratio)$^2$.",
-  skills: ["volume", "geometry", "ratios"]
+  band: 8,
+  question: "For an acute angle $\\theta$, $\\sin\\theta - \\cos\\theta = \\dfrac{1}{5}$. What is the value of $\\sin\\theta \\cdot \\cos\\theta$?",
+  correctAnswer: "12/25",
+  explanation: "**SAT Pattern: Trig Identity (Square the Sum/Difference)**\n\n**The correct answer is $\\dfrac{12}{25}$.**\n\n**The Fast Way (~30s):** Square both sides of $\\sin\\theta - \\cos\\theta = \\dfrac{1}{5}$: $\\sin^2\\theta - 2\\sin\\theta\\cos\\theta + \\cos^2\\theta = \\dfrac{1}{25}$. Use $\\sin^2\\theta + \\cos^2\\theta = 1$: $1 - 2\\sin\\theta\\cos\\theta = \\dfrac{1}{25}$. So $2\\sin\\theta\\cos\\theta = \\dfrac{24}{25}$, giving $\\sin\\theta\\cos\\theta = \\dfrac{12}{25}$.\n\n**The Full Solution:**\nStart with: $\\sin\\theta - \\cos\\theta = \\dfrac{1}{5}$.\n\nSquare both sides:\n$(\\sin\\theta - \\cos\\theta)^2 = \\left(\\dfrac{1}{5}\\right)^2$\n$\\sin^2\\theta - 2\\sin\\theta\\cos\\theta + \\cos^2\\theta = \\dfrac{1}{25}$\n\nApply the Pythagorean identity $\\sin^2\\theta + \\cos^2\\theta = 1$:\n$1 - 2\\sin\\theta\\cos\\theta = \\dfrac{1}{25}$\n$2\\sin\\theta\\cos\\theta = 1 - \\dfrac{1}{25} = \\dfrac{24}{25}$\n$\\sin\\theta\\cos\\theta = \\dfrac{12}{25}$.\n\n**Verification:** Working backward, if $\\sin\\theta\\cos\\theta = \\dfrac{12}{25}$, then $(\\sin\\theta - \\cos\\theta)^2 = 1 - 2\\left(\\dfrac{12}{25}\\right) = \\dfrac{1}{25}$, so $|\\sin\\theta - \\cos\\theta| = \\dfrac{1}{5}$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting the cross-term $-2\\sin\\theta\\cos\\theta$ when squaring (it's a binomial, not separate squares).\n* Reporting $\\dfrac{24}{25}$ (the value of $2\\sin\\theta\\cos\\theta$, not $\\sin\\theta\\cos\\theta$).\n* Trying to find $\\theta$ explicitly — unnecessary.\n\n**Test Day Takeaway:** When given $\\sin\\theta \\pm \\cos\\theta$ and asked about $\\sin\\theta\\cos\\theta$ (or vice versa), SQUARE the expression and apply $\\sin^2 + \\cos^2 = 1$. Don't try to solve for the angle.",
+  skills: ["trigonometry", "trig-identities"]
 },
 {
   id: 18,

@@ -399,7 +399,8 @@ export const practiceTest4 = {
       timeLimit: 35,
       questions: [
 // Practice Test 4 — Math Module 2 (22 questions)
-// Distribution: 3E / 6M / 13H. Q1-3 are easy openers (CB-authentic ramp).
+// Distribution: 3E / 6M / 13H with band-8 ceiling on Q7, Q20.
+// Calibrated to Bluebook Module 2 Hard (Q7 composite-function inverse, Q20 rational w/ extraneous).
 
 {
   id: 1,
@@ -535,20 +536,20 @@ export const practiceTest4 = {
   id: 7,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
-  question: "Line $r$ has the equation $y = \\dfrac{2}{5}x - 3$. Line $s$ is perpendicular to line $r$ and passes through the point $(4, 1)$. Which of the following is the equation of line $s$?",
+  band: 8,
+  question: "The function $f$ is defined by $f(x) = 2x + 3$. If $f(g(x)) = 4x^2 + 3$ for all real numbers $x$, which expression defines $g(x)$?",
   choices: [
-    // distractor: uses slope 5/2 (reciprocal without sign) — gives y = 5x/2 - 9
-    { id: "A", text: "$y = \\dfrac{5}{2}x - 9$" },
-    { id: "B", text: "$y = -\\dfrac{5}{2}x + 11$" },
-    // distractor: keeps the original slope 2/5
-    { id: "C", text: "$y = \\dfrac{2}{5}x - \\dfrac{3}{5}$" },
-    // distractor: arithmetic error: -10 - 1 = -11 instead of 1 - (-10) = 11
-    { id: "D", text: "$y = -\\dfrac{5}{2}x - 11$" }
+    // distractor: takes the difference 4x^2 + 3 - 3 = 4x^2 without dividing by 2
+    { id: "A", text: "$4x^2$" },
+    { id: "B", text: "$2x^2$" },
+    // distractor: keeps the +3 piece (subtracts wrong constant)
+    { id: "C", text: "$2x^2 + 3$" },
+    // distractor: divides only the leading term, not the constant — and confuses signs
+    { id: "D", text: "$x^2 - \\dfrac{3}{2}$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Slope of $r$ is $\\dfrac{2}{5}$. Perpendicular slope $= -\\dfrac{5}{2}$. Through $(4, 1)$: $1 = -\\dfrac{5}{2}(4) + b = -10 + b$, so $b = 11$. Equation: $y = -\\dfrac{5}{2}x + 11$.\n\n**The Full Solution:**\nSlope of $s$: $m_s = -\\dfrac{1}{\\frac{2}{5}} = -\\dfrac{5}{2}$ (negative reciprocal).\nUsing point $(4, 1)$: $1 = -\\dfrac{5}{2}(4) + b$.\n$1 = -10 + b$.\n$b = 11$.\nEquation: $y = -\\dfrac{5}{2}x + 11$.\nCheck: $-\\dfrac{5}{2} \\cdot \\dfrac{2}{5} = -1$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — uses slope $\\dfrac{5}{2}$ (reciprocal without sign change).\n* Choice C: \"wrong base\" — keeps the original slope $\\dfrac{2}{5}$ (parallel, not perpendicular).\n* Choice D: \"off-by-one\" — arithmetic error: computes $-10 - 1 = -11$ instead of $1 - (-10) = 11$.\n\n**Test Day Takeaway:** Perpendicular slope = negative reciprocal. Then use the point to find $b$.",
-  skills: ["slope", "coordinate-geometry", "linear-functions"]
+  explanation: "**SAT Pattern: Solve for Inner Function in a Composition**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $f(g(x)) = 2g(x) + 3 = 4x^2 + 3$. Subtract $3$ from both sides: $2g(x) = 4x^2$. Divide by $2$: $g(x) = 2x^2$.\n\n**The Full Solution:**\nSubstitute $g(x)$ into $f$: $f(g(x)) = 2 \\cdot g(x) + 3$.\n\nSet equal to the given expression: $2 g(x) + 3 = 4x^2 + 3$.\n\nSolve for $g(x)$:\n$2 g(x) = 4x^2$\n$g(x) = 2x^2$.\n\n**Verification:** $f(g(x)) = f(2x^2) = 2(2x^2) + 3 = 4x^2 + 3$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — subtracts $3$ from both sides but forgets to divide by $2$, giving $g(x) = 4x^2$.\n* Choice C: \"applies the inverse operation\" — leaves the $+3$ inside $g(x)$, but the $+3$ comes from $f$, not $g$.\n* Choice D: \"wrong base\" — divides only the leading term $4x^2$ by $2$ but mishandles the constant.\n\n**Test Day Takeaway:** Treat $g(x)$ as the input variable: substitute it into $f$, then solve algebraically. Subtract the additive constant first, then divide by the leading coefficient.",
+  skills: ["function-composition", "function-interpretation"]
 },
 {
   id: 8,
@@ -761,22 +762,13 @@ export const practiceTest4 = {
 },
 {
   id: 20,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
-  band: 7,
-  question: "A circle in the $xy$-plane has the equation $x^2 + y^2 - 14x + 4y + 28 = 0$. What is the radius of the circle?",
-  choices: [
-    // distractor: miscomputes -28 + 49 + 4 as 9, takes sqrt(9) = 3
-    { id: "A", text: "$3$" },
-    { id: "B", text: "$5$" },
-    // distractor: completes only one square term
-    { id: "C", text: "$\\sqrt{21}$" },
-    // distractor: gives r^2 = 25 instead of r = 5
-    { id: "D", text: "$25$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Complete the Square — Non-Square Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Complete the square:\n$(x^2 - 14x + 49) + (y^2 + 4y + 4) = -28 + 49 + 4$\n$(x - 7)^2 + (y + 2)^2 = 25$.\nRadius $= \\sqrt{25} = 5$.\n\n**The Full Solution:**\nGroup: $(x^2 - 14x) + (y^2 + 4y) = -28$.\nComplete for $x$: half of $-14$ is $-7$, $(-7)^2 = 49$.\nComplete for $y$: half of $4$ is $2$, $2^2 = 4$.\n$(x-7)^2 + (y+2)^2 = -28 + 49 + 4 = 25$.\nRadius $= \\sqrt{25} = 5$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — miscomputes $-28 + 49 + 4$ as $9$ and takes $\\sqrt{9} = 3$.\n* Choice C: \"stops one step early\" — completes only one square term.\n* Choice D: \"applies the inverse operation\" — gives $r^2 = 25$ instead of $r = 5$.\n\n**Test Day Takeaway:** Move the constant to the right, complete the square for $x$ and $y$, then the right side equals $r^2$.",
-  skills: ["circle-equations", "solving-equations"]
+  band: 8,
+  question: "What value of $x$ satisfies the equation $\\dfrac{x}{x - 2} + \\dfrac{2}{x + 1} = \\dfrac{6}{x^2 - x - 2}$?",
+  correctAnswer: "-5",
+  explanation: "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**The correct answer is $-5$.**\n\n**The Fast Way (~45s):** Factor the right denominator: $x^2 - x - 2 = (x - 2)(x + 1)$. Multiply both sides by $(x - 2)(x + 1)$: $x(x + 1) + 2(x - 2) = 6$. Expand and simplify: $x^2 + 3x - 10 = 0 \\Rightarrow (x + 5)(x - 2) = 0$. So $x = -5$ or $x = 2$. Reject $x = 2$ (denominator becomes $0$). Answer: $x = -5$.\n\n**The Full Solution:**\nFactor the right denominator: $x^2 - x - 2 = (x - 2)(x + 1)$.\n\nThe common denominator across all three fractions is $(x - 2)(x + 1)$.\n\nMultiply every term by $(x - 2)(x + 1)$:\n$\\dfrac{x}{x - 2} \\cdot (x - 2)(x + 1) + \\dfrac{2}{x + 1} \\cdot (x - 2)(x + 1) = \\dfrac{6}{(x - 2)(x + 1)} \\cdot (x - 2)(x + 1)$\n$x(x + 1) + 2(x - 2) = 6$\n\nExpand:\n$x^2 + x + 2x - 4 = 6$\n$x^2 + 3x - 10 = 0$\n$(x + 5)(x - 2) = 0$\n\nSo $x = -5$ or $x = 2$.\n\n**Check for extraneous solutions:** $x = 2$ makes the denominators $x - 2 = 0$ and $x^2 - x - 2 = 0$ — division by zero. Reject. So $x = -5$ is the only valid solution.\n\n**Verification:** at $x = -5$: $\\dfrac{-5}{-7} + \\dfrac{2}{-4} = \\dfrac{5}{7} - \\dfrac{1}{2} = \\dfrac{10 - 7}{14} = \\dfrac{3}{14}$. Right side: $\\dfrac{6}{25 + 5 - 2} = \\dfrac{6}{28} = \\dfrac{3}{14}$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $x = 2$ — it satisfies the polynomial equation but makes the original equation undefined (extraneous).\n* Forgetting to factor the right-side denominator before finding the LCD.\n* Distributing incorrectly when multiplying by the LCD.\n\n**Test Day Takeaway:** Rational equations: factor every denominator, multiply through by the LCD, solve the polynomial — then ALWAYS check that no solution makes a denominator zero. Extraneous solutions are common when the LCD shares a factor with one of the denominators.",
+  skills: ["rational-equations", "factoring", "solving-equations"]
 },
 {
   id: 21,

@@ -625,22 +625,13 @@ export const practiceTest1 = {
 },
 {
   id: 13,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
-  band: 7,
-  question: "The equation $5x^2 - bx + 45 = 0$ has no real solutions. What is the greatest integer value of $b$?",
-  choices: [
-    // distractor: uses ≤ instead of < (misses the strict-inequality boundary)
-    { id: "A", text: "$30$" },
-    { id: "B", text: "$29$" },
-    // distractor: off-by-two from the boundary (28)
-    { id: "C", text: "$28$" },
-    // distractor: gives b^2 = 900 instead of b
-    { id: "D", text: "$900$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Discriminant with Integer Bound**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** No real solutions $\\Rightarrow$ discriminant $< 0$: $b^2 - 4(5)(45) < 0 \\Rightarrow b^2 < 900 \\Rightarrow |b| < 30$. Greatest integer with $|b| < 30$: $b = 29$.\n\n**The Full Solution:**\nFor $5x^2 - bx + 45 = 0$: discriminant $= (-b)^2 - 4(5)(45) = b^2 - 900$.\nNo real solutions $\\iff b^2 - 900 < 0 \\iff b^2 < 900 \\iff -30 < b < 30$.\n\nAt $b = 30$: discriminant $= 0$ (one repeated real root), so $b = 30$ does NOT give \"no real solutions.\"\nGreatest integer strictly less than $30$: $b = 29$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — uses $\\leq$ instead of $<$; at $b = 30$ there IS one real solution.\n* Choice C: \"off-by-one\" — over-corrects to $b = 28$.\n* Choice D: \"stops one step early\" — gives $b^2 = 900$ instead of $b$.\n\n**Test Day Takeaway:** No real solutions $\\iff$ discriminant $< 0$ (strict). At discriminant $= 0$, there is exactly ONE real solution.",
-  skills: ["discriminant", "quadratic-equations"]
+  band: 8,
+  question: "The polynomial $f(x) = 2x^3 + ax^2 + bx + 12$ satisfies $f(2) = 0$ and $f(-1) = 15$. What is the value of $a + b$?",
+  correctAnswer: "-11",
+  explanation: "**SAT Pattern: Polynomial Remainder Theorem with Two Conditions**\n\n**The correct answer is $-11$.**\n\n**The Fast Way (~50s):** Each function value gives one linear equation in $a$ and $b$. Solve the $2 \\times 2$ system, then add.\n\n$f(2) = 16 + 4a + 2b + 12 = 0 \\Rightarrow 4a + 2b = -28 \\Rightarrow 2a + b = -14$ (Eq 1).\n$f(-1) = -2 + a - b + 12 = 15 \\Rightarrow a - b = 5$ (Eq 2).\n\nAdd Eq 1 and Eq 2: $3a = -9 \\Rightarrow a = -3$. From Eq 2: $b = a - 5 = -8$. So $a + b = -3 + (-8) = -11$.\n\n**The Full Solution:**\nSubstitute $x = 2$ into $f(x) = 2x^3 + ax^2 + bx + 12$:\n$f(2) = 2(8) + a(4) + b(2) + 12 = 16 + 4a + 2b + 12 = 28 + 4a + 2b$.\nSet equal to $0$: $4a + 2b = -28 \\Rightarrow 2a + b = -14$. (Equation 1)\n\nSubstitute $x = -1$:\n$f(-1) = 2(-1) + a(1) + b(-1) + 12 = -2 + a - b + 12 = 10 + a - b$.\nSet equal to $15$: $a - b = 5$. (Equation 2)\n\nAdd Equations 1 and 2: $(2a + b) + (a - b) = -14 + 5 \\Rightarrow 3a = -9 \\Rightarrow a = -3$.\nFrom Equation 2: $b = a - 5 = -3 - 5 = -8$.\nSo $a + b = -3 + (-8) = -11$.\n\n**Verification:** $f(x) = 2x^3 - 3x^2 - 8x + 12$. $f(2) = 16 - 12 - 16 + 12 = 0$ \\checkmark. $f(-1) = -2 - 3 + 8 + 12 = 15$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Sign error on $2(-1)^3 = -2$ (not $+2$).\n* Forgetting the constant $+12$ when setting up either equation.\n* Reporting just $a$ ($= -3$) or $b$ ($= -8$) instead of $a + b$.\n\n**Test Day Takeaway:** A polynomial value $f(c) = k$ gives one linear equation in the unknown coefficients. Two function values $\\Rightarrow$ two equations $\\Rightarrow$ solve the system.",
+  skills: ["polynomial-operations", "remainder-theorem", "systems-of-equations"]
 },
 {
   id: 14,
@@ -656,20 +647,20 @@ export const practiceTest1 = {
   id: 15,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
-  question: "If $x > 0$, the expression $\\sqrt[3]{x^2} \\cdot \\sqrt{x^5}$ is equivalent to $x^{\\frac{p}{q}}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
+  band: 8,
+  question: "Real numbers $r$ and $s$ satisfy $r + s = 5$ and $rs = 6$. What is the value of $r^3 + s^3$?",
   choices: [
-    // distractor: gives p alone (= 19) instead of p + q
-    { id: "A", text: "$19$" },
-    // distractor: uses 5 + 3 = 8 (sums numerator + index without combining)
-    { id: "B", text: "$8$" },
-    { id: "C", text: "$25$" },
-    // distractor: uses 5 + 2 + 3 = 10 (sums all numbers in the original expression)
-    { id: "D", text: "$10$" }
+    { id: "A", text: "$35$" },
+    // distractor: forgets the cross term — uses (r+s)^3 = 125 directly
+    { id: "B", text: "$125$" },
+    // distractor: uses (r+s)^3 - rs(r+s) = 125 - 30 = 95
+    { id: "C", text: "$95$" },
+    // distractor: uses r^2 + s^2 = (r+s)^2 - 2rs = 13 instead of cubes
+    { id: "D", text: "$13$" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[3]{x^2} = x^{\\frac{2}{3}}$. $\\sqrt{x^5} = x^{\\frac{5}{2}}$. Add: $\\dfrac{2}{3} + \\dfrac{5}{2} = \\dfrac{4}{6} + \\dfrac{15}{6} = \\dfrac{19}{6}$. So $p + q = 19 + 6 = 25$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[3]{x^2} = x^{\\frac{2}{3}}, \\quad \\sqrt{x^5} = x^{\\frac{5}{2}}$\n\nWhen multiplying same bases, add exponents:\n$x^{\\frac{2}{3}} \\cdot x^{\\frac{5}{2}} = x^{\\frac{2}{3} + \\frac{5}{2}} = x^{\\frac{4 + 15}{6}} = x^{\\frac{19}{6}}$\n\n$\\gcd(19, 6) = 1$, so $\\dfrac{19}{6}$ is already in lowest terms. Then $p = 19$, $q = 6$, and $p + q = 25$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 19$, forgetting to add $q$.\n* Choice B: \"applies the inverse operation\" — sums the radical exponent and index ($5 + 3 = 8$) instead of converting and adding fractions.\n* Choice D: \"wrong base\" — sums all the integers visible in the expression ($5 + 2 + 3 = 10$).\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{\\frac{m}{n}}$ — power on top, root on the bottom. Add fractional exponents when multiplying same bases.",
-  skills: ["polynomial-operations", "exponent-rules", "radical-expressions"]
+  correctAnswer: "A",
+  explanation: "**SAT Pattern: Sum-Product Cubic Identity**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Use the identity $r^3 + s^3 = (r + s)^3 - 3rs(r + s)$. Plug in: $5^3 - 3(6)(5) = 125 - 90 = 35$.\n\n**The Full Solution:**\nStart from the cube of a sum:\n$(r + s)^3 = r^3 + 3r^2 s + 3 r s^2 + s^3 = r^3 + s^3 + 3rs(r + s)$.\n\nRearrange:\n$r^3 + s^3 = (r + s)^3 - 3rs(r + s)$.\n\nSubstitute the given values $r + s = 5$ and $rs = 6$:\n$r^3 + s^3 = 5^3 - 3(6)(5) = 125 - 90 = 35$.\n\n**Verification (concrete roots):** The numbers with sum $5$ and product $6$ are $2$ and $3$ (roots of $t^2 - 5t + 6 = 0$). Check: $2^3 + 3^3 = 8 + 27 = 35$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"stops one step early\" — uses $(r + s)^3 = 125$ without subtracting the cross term.\n* Choice C: \"off-by-one\" — drops the factor of $3$ in the cross term: $125 - 6 \\cdot 5 = 95$.\n* Choice D: \"wrong base\" — computes $r^2 + s^2 = (r + s)^2 - 2rs = 25 - 12 = 13$ (the squared identity, not cubed).\n\n**Test Day Takeaway:** Memorize $r^3 + s^3 = (r + s)^3 - 3rs(r + s)$. You almost never need to find $r$ and $s$ individually — work entirely with the sum and product.",
+  skills: ["polynomial-operations", "factoring", "sum-product"]
 },
 {
   id: 16,

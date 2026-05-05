@@ -408,7 +408,8 @@ export const practiceTest10 = {
       timeLimit: 35,
       questions: [
 // Practice Test 10 — Math Module 2 (22 questions)
-// Distribution: 3E / 6M / 13H. Q1-3 are easy openers (CB-authentic ramp).
+// Distribution: 3E / 6M / 13H with band-8 ceiling on Q11, Q22.
+// Calibrated to Bluebook Module 2 Hard (Q11 geometric probability, Q22 sector central angle).
 
 {
   id: 1,
@@ -602,13 +603,22 @@ export const practiceTest10 = {
 },
 {
   id: 11,
-  type: "fill-in",
+  type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
-  question: "In the $xy$-plane, the equation $x^2 + y^2 - 8x + 6y - 11 = 0$ defines a circle. What is the radius of the circle?",
-  correctAnswer: "6",
-  explanation: "**SAT Pattern: Complete the Square — Non-Square Radius**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~30s):** Complete the square: $(x - 4)^2 + (y + 3)^2 = 11 + 16 + 9 = 36$. So $r^2 = 36$ and $r = 6$.\n\n**The Full Solution:**\nGroup $x$- and $y$-terms:\n$(x^2 - 8x) + (y^2 + 6y) = 11$\n\nComplete the square: half of $-8$ is $-4$, $(-4)^2 = 16$. Half of $6$ is $3$, $3^2 = 9$.\n$(x^2 - 8x + 16) + (y^2 + 6y + 9) = 11 + 16 + 9$\n$(x - 4)^2 + (y + 3)^2 = 36$\n\nRadius $= \\sqrt{36} = 6$.\n\n**Common Mistakes to Avoid:**\n* Reporting $r^2 = 36$ instead of $r = 6$.\n* Sign errors when moving the constant to the right side.\n\n**Test Day Takeaway:** Complete the square for BOTH variables. The radius is $\\sqrt{r^2}$, not $r^2$ itself.",
-  skills: ["circle-equations", "coordinate-geometry"]
+  band: 8,
+  question: "A circle is inscribed in a square so that the circle is tangent to all four sides. A point is selected at random inside the square. What is the probability that the point also lies inside the circle? (Use $\\pi \\approx 3.14$ and round to two decimal places.)",
+  choices: [
+    // distractor: π/2 ≈ 1.57 — uses circumference/perimeter ratio
+    { id: "A", text: "$0.50$" },
+    // distractor: 1/2 directly — assumes half the square is inside the circle
+    { id: "B", text: "$0.64$" },
+    { id: "C", text: "$0.79$" },
+    // distractor: π/3 — uses wrong inscribed-angle ratio
+    { id: "D", text: "$1.05$" }
+  ],
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Geometric Probability**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Let the square have side $s$. The inscribed circle has radius $\\dfrac{s}{2}$. Square area $= s^2$, circle area $= \\pi \\left(\\dfrac{s}{2}\\right)^2 = \\dfrac{\\pi s^2}{4}$. Probability $= \\dfrac{\\text{circle}}{\\text{square}} = \\dfrac{\\pi}{4} \\approx 0.785 \\approx 0.79$.\n\n**The Full Solution:**\nA circle inscribed in a square (tangent to all four sides) has diameter equal to the side of the square. So if the side is $s$:\n* Square area: $s^2$.\n* Circle radius: $\\dfrac{s}{2}$, circle area: $\\pi \\left(\\dfrac{s}{2}\\right)^2 = \\dfrac{\\pi s^2}{4}$.\n\nFor a randomly chosen point inside the square, the probability that it also lies inside the circle is the ratio of areas (geometric probability):\n$P = \\dfrac{\\text{circle area}}{\\text{square area}} = \\dfrac{\\pi s^2 / 4}{s^2} = \\dfrac{\\pi}{4}$.\n\nNumerically: $\\dfrac{3.14}{4} = 0.785 \\approx 0.79$.\n\n**Verification:** This ratio is independent of the chosen side length $s$ — it scales away. The answer $\\pi/4$ matches the area-comparison value (the circle covers about $78.5\\%$ of the square).\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses a $1/2$ heuristic without computing.\n* Choice B: \"off-by-one\" — uses square-root-of-pi-over-some-thing approximation.\n* Choice D: \"applies the inverse operation\" — gets a probability greater than $1$ from $\\pi/3$ (impossible).\n\n**Test Day Takeaway:** For \"random point\" probability problems involving regions, the probability equals the ratio of the favorable region's area to the total region's area. For an inscribed circle in a square, the ratio is $\\pi/4$.",
+  skills: ["geometric-probability", "circles", "geometry"]
 },
 {
   id: 12,
@@ -783,22 +793,13 @@ export const practiceTest10 = {
 },
 {
   id: 22,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
-  band: 7,
-  question: "Line $\\ell$ in the $xy$-plane is perpendicular to the line $y = -\\dfrac{2}{3}x + 4$ and passes through the point $(6, 1)$. What is the equation of line $\\ell$?",
-  choices: [
-    { id: "A", text: "$y = \\dfrac{3}{2}x - 8$" },
-    // distractor: wrong sign — uses parallel slope (negative reciprocal not flipped)
-    { id: "B", text: "$y = -\\dfrac{2}{3}x + 5$" },
-    // distractor: applies inverse op — uses 2/3 (not flipped to 3/2)
-    { id: "C", text: "$y = \\dfrac{2}{3}x - 3$" },
-    // distractor: off-by-one — sign error in y-intercept calculation
-    { id: "D", text: "$y = \\dfrac{3}{2}x + 8$" }
-  ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Perpendicular slope to $-\\dfrac{2}{3}$ is $\\dfrac{3}{2}$. Use $(6, 1)$: $1 = \\dfrac{3}{2}(6) + b = 9 + b \\Rightarrow b = -8$.\n\n**The Full Solution:**\nThe given line has slope $-\\dfrac{2}{3}$. Perpendicular slope is the negative reciprocal: $\\dfrac{3}{2}$.\nUsing point-slope form with $(6, 1)$:\n$y - 1 = \\dfrac{3}{2}(x - 6)$\n$y = \\dfrac{3}{2}x - 9 + 1 = \\dfrac{3}{2}x - 8$.\n\nVerification: at $(6, 1)$: $\\dfrac{3}{2}(6) - 8 = 9 - 8 = 1$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong sign\" — keeps the same slope (parallel, not perpendicular).\n* Choice C: \"applies the inverse operation\" — uses $\\dfrac{2}{3}$ (only flipped sign, not reciprocal).\n* Choice D: \"off-by-one\" — sign error gives $b = +8$ instead of $-8$.\n\n**Test Day Takeaway:** Perpendicular slopes are negative reciprocals: flip the fraction AND change the sign.",
-  skills: ["slope", "coordinate-geometry", "linear-functions"]
+  band: 8,
+  question: "A circle has area $36\\pi$. A sector of the circle has arc length $4\\pi$. What is the central angle of the sector, in degrees?",
+  correctAnswer: "120",
+  explanation: "**SAT Pattern: Sector Arc & Central Angle**\n\n**The correct answer is $120$.**\n\n**The Fast Way (~30s):** From area $36\\pi$, $r = 6$, so circumference $= 12\\pi$. Arc fraction $= \\dfrac{4\\pi}{12\\pi} = \\dfrac{1}{3}$. Central angle $= \\dfrac{1}{3} \\cdot 360^{\\circ} = 120^{\\circ}$.\n\n**The Full Solution:**\nFirst find the radius from the area:\n$\\pi r^2 = 36\\pi \\Rightarrow r^2 = 36 \\Rightarrow r = 6$.\n\nThe full circumference is:\n$C = 2\\pi r = 12\\pi$.\n\nThe arc length of a sector is proportional to its central angle (out of $360^{\\circ}$):\n$\\dfrac{\\text{arc length}}{\\text{circumference}} = \\dfrac{\\theta}{360^{\\circ}}$\n$\\dfrac{4\\pi}{12\\pi} = \\dfrac{\\theta}{360^{\\circ}}$\n$\\dfrac{1}{3} = \\dfrac{\\theta}{360^{\\circ}}$\n$\\theta = 120^{\\circ}$.\n\n**Verification:** A central angle of $120^{\\circ}$ subtends $\\dfrac{1}{3}$ of the circumference; $\\dfrac{1}{3}$ of $12\\pi = 4\\pi$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $r = 6$ as the central angle.\n* Using $\\dfrac{4\\pi}{36\\pi}$ (mixing arc length with area).\n* Reporting the answer in radians ($\\dfrac{2\\pi}{3}$ rad) when degrees are requested.\n\n**Test Day Takeaway:** For a sector, BOTH arc length and area scale linearly with the central angle (out of $360^{\\circ}$ or $2\\pi$ radians). To find the angle, set up the proportion using whichever is given (arc length / circumference, or sector area / circle area).",
+  skills: ["circles", "geometry", "ratios"]
 }
       ]
     }

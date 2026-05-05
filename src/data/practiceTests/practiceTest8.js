@@ -420,7 +420,9 @@ export const practiceTest8 = {
       timeLimit: 35,
       questions: [
 // Practice Test 8 — Math Module 2 (22 questions)
-// Distribution: 3E / 6M / 13H. Q1-3 are easy openers (CB-authentic ramp).
+// Distribution: 3E / 6M / 13H with band-8 ceiling on Q20, Q21.
+// Calibrated to Bluebook Module 2 Hard (Q20 absolute-value-equation sum, Q21 chord-distance circle).
+// Note: removed Q21 duplicate of Q19 (both were system no-solution).
 
 {
   id: 1,
@@ -757,30 +759,21 @@ export const practiceTest8 = {
   id: 20,
   type: "fill-in",
   difficulty: "hard",
-  band: 7,
-  question: "The equation $-3x^2 + bx - 27 = 0$ has no real solutions. What is the greatest integer value of $b$?",
-  correctAnswer: "17",
-  explanation: "**SAT Pattern: Discriminant with Integer Bound**\n\n**The correct answer is $17$.**\n\n**The Fast Way (~25s):** No real solutions $\\Rightarrow$ discriminant $< 0$: $b^2 - 4(-3)(-27) < 0 \\Rightarrow b^2 < 324 \\Rightarrow |b| < 18$. Greatest integer: $b = 17$.\n\n**The Full Solution:**\nFor $-3x^2 + bx - 27 = 0$: $a = -3$, coefficient of $x$ is $b$, constant $= -27$.\nDiscriminant $= b^2 - 4(-3)(-27) = b^2 - 324$.\nNo real solutions: $b^2 - 324 < 0 \\Rightarrow b^2 < 324 \\Rightarrow -18 < b < 18$.\n\nAt $b = 18$: discriminant $= 324 - 324 = 0$ (one repeated root). Does NOT give \"no real solutions\".\nGreatest integer with $b < 18$: $b = 17$.\n\nVerification: at $b = 17$, discriminant $= 289 - 324 = -35 < 0$ \\checkmark; at $b = 18$, discriminant $= 0$ (one solution) \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Sign error: $4ac = 4(-3)(-27) = 324$ (positive), not $-324$.\n* Using $\\leq$ instead of $<$: gives $b = 18$, which has one repeated solution, not \"no\" solutions.\n\n**Test Day Takeaway:** \"No real solutions\" requires discriminant $< 0$ (strict). The boundary value gives exactly one solution, which is not \"no\" solutions.",
-  skills: ["discriminant", "quadratic-equations"]
+  band: 8,
+  question: "What is the sum of all real values of $x$ that satisfy the equation $|3x + 2| = x + 6$?",
+  correctAnswer: "0",
+  explanation: "**SAT Pattern: Absolute-Value Equation Splits**\n\n**The correct answer is $0$.**\n\n**The Fast Way (~40s):** Split into two cases:\nCase 1: $3x + 2 = x + 6 \\Rightarrow x = 2$ (valid: $x + 6 = 8 \\geq 0$).\nCase 2: $3x + 2 = -(x + 6) \\Rightarrow 4x = -8 \\Rightarrow x = -2$ (valid: $x + 6 = 4 \\geq 0$).\nBoth solutions valid. Sum: $2 + (-2) = 0$.\n\n**The Full Solution:**\nAn absolute-value equation $|A| = B$ has solutions when $B \\geq 0$ and either $A = B$ or $A = -B$.\n\nWe need $x + 6 \\geq 0 \\Rightarrow x \\geq -6$ (a wide enough domain to permit both cases).\n\nCase 1 ($3x + 2 \\geq 0$, i.e., $x \\geq -\\frac{2}{3}$):\n$3x + 2 = x + 6 \\Rightarrow 2x = 4 \\Rightarrow x = 2$.\nCheck $x = 2 \\geq -\\frac{2}{3}$ \\checkmark and $|3(2) + 2| = 8 = 2 + 6$ \\checkmark.\n\nCase 2 ($3x + 2 < 0$, i.e., $x < -\\frac{2}{3}$):\n$-(3x + 2) = x + 6 \\Rightarrow -3x - 2 = x + 6 \\Rightarrow -4x = 8 \\Rightarrow x = -2$.\nCheck $x = -2 < -\\frac{2}{3}$ \\checkmark and $|3(-2) + 2| = |-4| = 4 = -2 + 6$ \\checkmark.\n\nSum of solutions: $2 + (-2) = 0$.\n\n**Common Mistakes to Avoid:**\n* Forgetting to check that the right-hand side $x + 6$ is non-negative — extraneous solutions can occur otherwise.\n* Sign error in Case 2: $-(x + 6)$ distributes the negative to BOTH terms.\n* Reporting only one solution (e.g., $x = 2$) instead of the sum.\n\n**Test Day Takeaway:** $|A| = B$ splits into $A = B$ or $A = -B$, valid when $B \\geq 0$. Always verify each candidate against the original equation to catch extraneous solutions.",
+  skills: ["absolute-value", "solving-equations"]
 },
 {
   id: 21,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
-  band: 7,
-  question: "In the system of equations $4x - 6y = 10$ and $2x - 3y = c$, where $c$ is a constant, the system has no solution. What is the value of $c$?",
-  choices: [
-    // distractor: applies inverse op — divides 10 by 2 ignoring constraint
-    { id: "A", text: "$5$" },
-    { id: "B", text: "Any value other than $5$" },
-    // distractor: stops one step early — gives 10 directly
-    { id: "C", text: "$10$" },
-    // distractor: wrong base — gives the y-coefficient ratio
-    { id: "D", text: "$-3$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** The system has no solution when the lines are parallel but DIFFERENT. Dividing the first equation by $2$ gives $2x - 3y = 5$. For no solution, the second equation must be $2x - 3y = c$ with $c \\neq 5$.\n\n**The Full Solution:**\nThe first equation $4x - 6y = 10$ simplifies (divide by $2$) to $2x - 3y = 5$.\nTwo lines have no intersection when they are parallel (same slope) but have different intercepts. Both equations have the same left side $2x - 3y$, so they are parallel iff $c \\neq 5$.\n\nIf $c = 5$, the two equations are identical: infinitely many solutions.\nIf $c \\neq 5$, the lines are parallel and distinct: no solution.\n\nVerification: at $c = 7$ (any value $\\neq 5$): $2x - 3y = 5$ and $2x - 3y = 7$ are inconsistent \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — gives the value where the system has INFINITELY many solutions, not no solutions.\n* Choice C: \"stops one step early\" — uses $10$ from the original right side.\n* Choice D: \"wrong base\" — picks the $y$-coefficient as the answer.\n\n**Test Day Takeaway:** No solution $\\iff$ parallel lines with different right-hand sides. Reduce both equations to a common left side and compare constants.",
-  skills: ["systems-of-equations"]
+  band: 8,
+  question: "In a circle with center $O$, a chord $AB$ has length $16$. The perpendicular distance from $O$ to chord $AB$ is $6$. What is the area of the circle? (Give the answer as $\\pi$ times an integer; provide only the integer.)",
+  correctAnswer: "100",
+  explanation: "**SAT Pattern: Chord, Radius, Distance from Center**\n\n**The correct answer is $100$ (so the area is $100\\pi$).**\n\n**The Fast Way (~30s):** The perpendicular from the center to a chord BISECTS the chord. So half-chord $= 8$. Form a right triangle with legs $8$ (half-chord) and $6$ (distance), hypotenuse $=$ radius $r$. By Pythagoras: $r^2 = 8^2 + 6^2 = 100$, so $r = 10$. Area $= \\pi r^2 = 100\\pi$.\n\n**The Full Solution:**\nKey theorem: the perpendicular from the center of a circle to a chord BISECTS the chord. Drop a perpendicular from $O$ to $AB$, hitting at the midpoint $M$ of $AB$. Then:\n* $AM = MB = \\dfrac{16}{2} = 8$.\n* $OM = 6$ (given perpendicular distance).\n* $OA = r$ (radius, because $A$ is on the circle).\n\nTriangle $OMA$ is a right triangle (right angle at $M$). By the Pythagorean theorem:\n$r^2 = OM^2 + AM^2 = 6^2 + 8^2 = 36 + 64 = 100$\n$r = 10$.\n\nArea of the circle: $\\pi r^2 = 100\\pi$. The integer requested is $100$.\n\n**Verification:** $6$-$8$-$10$ is a familiar Pythagorean triple ($2 \\times$ the $3$-$4$-$5$ triple) \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using the FULL chord length $16$ as a leg of the triangle instead of the HALF-chord ($8$).\n* Reporting $r = 10$ instead of the area coefficient $100$.\n* Computing $\\pi \\cdot 10 = 10\\pi$ (treating $r$ as $r^2$).\n\n**Test Day Takeaway:** Drop a perpendicular from the center to any chord — it bisects the chord, forming a right triangle with legs (half-chord, distance) and hypotenuse $=$ radius. This three-piece relationship comes up constantly in circle problems.",
+  skills: ["circles", "pythagorean-theorem", "geometry"]
 },
 {
   id: 22,

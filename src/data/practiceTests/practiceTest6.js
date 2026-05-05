@@ -393,7 +393,8 @@ export const practiceTest6 = {
       timeLimit: 35,
       questions: [
 // Practice Test 6 — Math Module 2 (22 questions)
-// Distribution: 3E / 6M / 13H. Q1-3 are easy openers (CB-authentic ramp).
+// Distribution: 3E / 6M / 13H with band-8 ceiling on Q16, Q22.
+// Calibrated to Bluebook Module 2 Hard (Q16 compound exponential substitution, Q22 Vieta's r^2+s^2).
 
 {
   id: 1,
@@ -653,22 +654,13 @@ export const practiceTest6 = {
 },
 {
   id: 16,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
-  band: 7,
-  question: "The graph of $x^2 + y^2 - 8x + 6y = 24$ in the $xy$-plane is a circle. What is the length of the circle's radius?",
-  choices: [
-    // distractor: stops one step early — gives r^2 = 49 instead of r
-    { id: "A", text: "$49$" },
-    { id: "B", text: "$7$" },
-    // distractor: wrong base — uses sqrt(24) without completing the square
-    { id: "C", text: "$2\\sqrt{6}$" },
-    // distractor: applies inverse op — subtracts the completion terms instead of adding
-    { id: "D", text: "$\\sqrt{24 - 16 - 9}$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Complete the Square — Non-Square Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Half of $-8$ is $-4$, squared is $16$; half of $6$ is $3$, squared is $9$. Add to both sides: $(x - 4)^2 + (y + 3)^2 = 24 + 16 + 9 = 49$. Radius $= \\sqrt{49} = 7$.\n\n**The Full Solution:**\nGroup and complete the square for each variable:\n$x^2 - 8x + y^2 + 6y = 24$\n$(x^2 - 8x + 16) + (y^2 + 6y + 9) = 24 + 16 + 9$\n$(x - 4)^2 + (y + 3)^2 = 49$\n\nSo $r^2 = 49$ and $r = 7$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reports $r^2 = 49$ instead of $r = 7$.\n* Choice C: \"wrong base\" — uses $\\sqrt{24}$ directly without completing the square (gives $2\\sqrt{6}$).\n* Choice D: \"applies inverse op\" — subtracts the completion terms instead of adding them.\n\n**Test Day Takeaway:** Complete the square SYMMETRICALLY for both variables. \"Half the coefficient, squared\" gets ADDED to both sides — once for $x$, once for $y$.",
-  skills: ["circle-equations", "coordinate-geometry"]
+  band: 8,
+  question: "What is the sum of all real solutions to the equation $4^x - 5 \\cdot 2^x + 4 = 0$?",
+  correctAnswer: "2",
+  explanation: "**SAT Pattern: Quadratic Substitution in an Exponential Equation**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~45s):** Recognize $4^x = (2^x)^2$. Let $u = 2^x$: $u^2 - 5u + 4 = 0 \\Rightarrow (u - 1)(u - 4) = 0$, so $u = 1$ or $u = 4$. Back-substitute: $2^x = 1 \\Rightarrow x = 0$; $2^x = 4 \\Rightarrow x = 2$. Sum: $0 + 2 = 2$.\n\n**The Full Solution:**\nThe equation $4^x - 5 \\cdot 2^x + 4 = 0$ is hidden quadratic in $2^x$. Note that $4^x = (2^2)^x = 2^{2x} = (2^x)^2$.\n\nLet $u = 2^x$ (so $u > 0$). The equation becomes:\n$u^2 - 5u + 4 = 0$\n$(u - 1)(u - 4) = 0$\n$u = 1$ or $u = 4$.\n\nBack-substitute:\n* $2^x = 1 \\Rightarrow x = 0$ (since $2^0 = 1$).\n* $2^x = 4 \\Rightarrow x = 2$ (since $2^2 = 4$).\n\nBoth values are valid since $u > 0$ for both. Sum of solutions: $0 + 2 = 2$.\n\n**Verification:** at $x = 0$: $4^0 - 5 \\cdot 2^0 + 4 = 1 - 5 + 4 = 0$ \\checkmark. At $x = 2$: $4^2 - 5 \\cdot 2^2 + 4 = 16 - 20 + 4 = 0$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Failing to recognize $4^x = (2^x)^2$ — the equation does not factor in $x$ directly.\n* Substituting $u = 2^x$ but then forgetting to back-substitute to find $x$.\n* Reporting $1 + 4 = 5$ (the sum of $u$-values, not $x$-values).\n\n**Test Day Takeaway:** When an exponential equation has terms like $a^{2x}$, $a^x$, and a constant, substitute $u = a^x$ to convert to a polynomial. Solve for $u$, then back-substitute to find $x$. Reject any non-positive values of $u$.",
+  skills: ["exponent-rules", "exponential-functions", "quadratic-equations", "factoring"]
 },
 {
   id: 17,
@@ -758,22 +750,13 @@ export const practiceTest6 = {
 },
 {
   id: 22,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
-  band: 7,
-  question: "The equation $4x^2 + bx + 9 = 0$ has no real solutions. What is the greatest integer value of $b$?",
-  choices: [
-    // distractor: stops one step early — uses |b| < 12 boundary, gives b = 12
-    { id: "A", text: "$12$" },
-    { id: "B", text: "$11$" },
-    // distractor: applies inverse op — uses b^2 = 144 and reports b = 144
-    { id: "C", text: "$144$" },
-    // distractor: wrong sign — gives b = -11 (smallest integer)
-    { id: "D", text: "$-11$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Discriminant with Integer Bound**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** No real solutions $\\Leftrightarrow$ discriminant $< 0$: $b^2 - 4(4)(9) < 0$, so $b^2 < 144$, $|b| < 12$. Greatest INTEGER $b$ is $11$.\n\n**The Full Solution:**\nFor $4x^2 + bx + 9 = 0$ to have no real solutions, the discriminant must be negative:\n$\\Delta = b^2 - 4ac = b^2 - 4(4)(9) = b^2 - 144 < 0$.\n$b^2 < 144 \\Rightarrow |b| < 12 \\Rightarrow -12 < b < 12$.\n\nThe greatest INTEGER strictly less than $12$ is $11$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses $b = 12$ (the boundary), but the inequality is STRICT.\n* Choice C: \"applies the inverse operation\" — reports $b^2 = 144$ as $b$.\n* Choice D: \"wrong sign\" — gives the smallest integer $-11$ instead of the greatest.\n\n**Test Day Takeaway:** Discriminant $< 0$ is STRICT inequality. Greatest integer strictly less than $\\sqrt{144} = 12$ is $11$.",
-  skills: ["discriminant", "quadratic-equations"]
+  band: 8,
+  question: "If $r$ and $s$ are the two real solutions of the equation $x^2 - 8x + 11 = 0$, what is the value of $r^2 + s^2$?",
+  correctAnswer: "42",
+  explanation: "**SAT Pattern: Sum/Product of Roots (Vieta's)**\n\n**The correct answer is $42$.**\n\n**The Fast Way (~30s):** By Vieta's, $r + s = -\\dfrac{-8}{1} = 8$ and $rs = \\dfrac{11}{1} = 11$. Use the identity $(r + s)^2 = r^2 + 2rs + s^2$: $r^2 + s^2 = (r + s)^2 - 2rs = 64 - 22 = 42$.\n\n**The Full Solution:**\nFor a quadratic $ax^2 + bx + c = 0$ with real roots $r$ and $s$, Vieta's formulas give:\n* Sum: $r + s = -\\dfrac{b}{a}$.\n* Product: $rs = \\dfrac{c}{a}$.\n\nHere $a = 1$, $b = -8$, $c = 11$, so $r + s = 8$ and $rs = 11$.\n\nUse the algebraic identity:\n$(r + s)^2 = r^2 + 2rs + s^2$\n$\\Rightarrow r^2 + s^2 = (r + s)^2 - 2rs = 8^2 - 2(11) = 64 - 22 = 42$.\n\n**Verification (direct):** $x^2 - 8x + 11 = 0 \\Rightarrow x = \\dfrac{8 \\pm \\sqrt{64 - 44}}{2} = \\dfrac{8 \\pm 2\\sqrt{5}}{2} = 4 \\pm \\sqrt{5}$. Then $r^2 + s^2 = (4 + \\sqrt{5})^2 + (4 - \\sqrt{5})^2 = (16 + 8\\sqrt{5} + 5) + (16 - 8\\sqrt{5} + 5) = 42$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Solving for $r$ and $s$ directly via the quadratic formula — slow and error-prone.\n* Using $r^2 + s^2 = (r + s)^2$ — forgetting to subtract the cross-term $2rs$.\n* Sign error on $r + s$: the formula is $-\\frac{b}{a}$, so a negative $b$ flips to positive.\n\n**Test Day Takeaway:** Vieta's plus algebraic identities (like $r^2 + s^2 = (r+s)^2 - 2rs$ or $r^3 + s^3 = (r+s)^3 - 3rs(r+s)$) lets you answer questions ABOUT the roots without ever finding them.",
+  skills: ["quadratic-equations", "vieta-formulas", "polynomial-operations"]
 }
       ]
     }

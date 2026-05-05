@@ -405,7 +405,9 @@ export const practiceTest2 = {
       timeLimit: 35,
       questions: [
 // Practice Test 2 — Math Module 2 (22 questions)
-// Distribution: 3E / 6M / 13H. Q1-3 are easy openers (CB-authentic ramp).
+// Distribution: 3E / 6M / 13H with band-8 ceiling on Q19, Q22.
+// Calibrated to Bluebook Module 2 Hard. Q1-3 are easy openers (CB-authentic ramp);
+// Q19, Q22 are Module-2-Hard-ceiling (parameterized vertex, tangent-to-circle).
 
 {
   id: 1,
@@ -733,20 +735,20 @@ export const practiceTest2 = {
   id: 19,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
-  question: "A cell phone plan costs $\\$35$ per month plus $\\$0.10$ per text message. Another plan costs $\\$20$ per month plus $\\$0.25$ per text message. For what number of text messages per month do the two plans cost the same?",
+  band: 8,
+  question: "The function $f(x) = ax^2 + bx + c$, where $a$, $b$, and $c$ are constants, has zeros at $x = -2$ and $x = 5$, and the maximum value of $f$ is $\\dfrac{49}{4}$. What is the value of $c$?",
   choices: [
-    // distractor: divides 15 by 0.30 instead of 0.15
-    { id: "A", text: "$50$" },
-    { id: "B", text: "$100$" },
-    // distractor: divides 15 by 0.10
-    { id: "C", text: "$150$" },
-    // distractor: divides 20 by 0.10 (uses the wrong fixed costs)
-    { id: "D", text: "$200$" }
+    // distractor: takes c = -10 (correct sign of product of roots if a = 1, ignores a = -1)
+    { id: "A", text: "$-10$" },
+    // distractor: uses the max value directly as c
+    { id: "B", text: "$\\dfrac{49}{4}$" },
+    { id: "C", text: "$10$" },
+    // distractor: gives the vertex x-coordinate squared or off-by-factor
+    { id: "D", text: "$\\dfrac{9}{4}$" }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Set costs equal: $35 + 0.10t = 20 + 0.25t$. Then $15 = 0.15t$, so $t = 100$.\n\n**The Full Solution:**\nPlan 1: $35 + 0.10t$.\nPlan 2: $20 + 0.25t$.\nSet equal: $35 + 0.10t = 20 + 0.25t$.\n$35 - 20 = 0.25t - 0.10t$.\n$15 = 0.15t$.\n$t = \\dfrac{15}{0.15} = 100$.\n\nCheck: Plan 1: $35 + 10 = \\$45$. Plan 2: $20 + 25 = \\$45$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — divides $15$ by $0.30$ (${}0.10 + 0.25 \\cdot 2$) instead of $0.15$.\n* Choice C: \"applies the inverse operation\" — divides $15$ by $0.10$ instead of $0.15$.\n* Choice D: \"off-by-one\" — divides $20$ by $0.10$ (uses the wrong constant difference).\n\n**Test Day Takeaway:** Set the two cost expressions equal and solve for the variable. Always verify by plugging back into both expressions.",
-  skills: ["word-problems", "solving-equations", "linear-functions"]
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Parameterized Quadratic from Zeros + Vertex**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Factor with leading coefficient $a$: $f(x) = a(x+2)(x-5)$. Vertex at midpoint of zeros: $x = \\dfrac{3}{2}$. Plug in: $f\\left(\\dfrac{3}{2}\\right) = a\\left(\\dfrac{7}{2}\\right)\\left(-\\dfrac{7}{2}\\right) = -\\dfrac{49a}{4}$. Set equal to max $\\dfrac{49}{4}$: $a = -1$. Then $c = f(0) = -1 \\cdot (2)(-5) = 10$.\n\n**The Full Solution:**\nSince the zeros are $-2$ and $5$, write $f(x) = a(x + 2)(x - 5)$ for some constant $a$.\n\nThe parabola has a *maximum* (not minimum), so $a < 0$.\n\nThe vertex $x$-coordinate is the midpoint of the zeros: $x_v = \\dfrac{-2 + 5}{2} = \\dfrac{3}{2}$.\n\nMaximum value:\n$f\\left(\\dfrac{3}{2}\\right) = a\\left(\\dfrac{3}{2} + 2\\right)\\left(\\dfrac{3}{2} - 5\\right) = a \\cdot \\dfrac{7}{2} \\cdot \\left(-\\dfrac{7}{2}\\right) = -\\dfrac{49a}{4}$.\n\nSet equal to $\\dfrac{49}{4}$: $-\\dfrac{49a}{4} = \\dfrac{49}{4} \\Rightarrow a = -1$.\n\nNow $f(x) = -(x + 2)(x - 5) = -(x^2 - 3x - 10) = -x^2 + 3x + 10$. So $c = 10$.\n\n**Verification:** $f(-2) = -4 - 6 + 10 = 0$ \\checkmark. $f(5) = -25 + 15 + 10 = 0$ \\checkmark. $f(3/2) = -9/4 + 9/2 + 10 = 49/4$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong sign\" — assumes $a = 1$ and gets $c = (2)(-5) = -10$, ignoring that the parabola opens DOWN for a maximum.\n* Choice B: \"reuses the given value\" — copies the max value $\\dfrac{49}{4}$ as $c$.\n* Choice D: \"vertex confusion\" — squares the vertex shift $\\dfrac{3}{2}$ instead of evaluating $f(0)$.\n\n**Test Day Takeaway:** When zeros and a vertex value are given, write $f(x) = a(x - r_1)(x - r_2)$, evaluate at the vertex midpoint, solve for $a$, then evaluate at $x = 0$ for $c$. Sign of $a$ tells you max vs min.",
+  skills: ["quadratic-equations", "vertex-form", "function-interpretation"]
 },
 {
   id: 20,
@@ -755,16 +757,16 @@ export const practiceTest2 = {
   band: 7,
   question: "A factory produces $9$-inch, $7$-inch, and $4$-inch bolts. During one shift, the number of $9$-inch bolts is $5$ times the number $n$ of $7$-inch bolts, and the number of $4$-inch bolts is twice the number of $9$-inch bolts. If the factory produces $640$ bolts in total during the shift, how many $7$-inch bolts does it produce?",
   choices: [
-    // distractor: divides 640 by 3 (number of bolt types)
-    { id: "A", text: "$40$" },
+    // distractor: misreads "twice the number of 9-inch bolts" as 4n (treating 4-inch literally as 4n), gets n + 5n + 4n = 10n = 640, n = 64
+    { id: "A", text: "$64$" },
     { id: "B", text: "$40$" },
-    // distractor: divides 640 by 16 = 40, then double-counts
+    // distractor: solves correctly to n = 40 then doubles
     { id: "C", text: "$80$" },
     // distractor: gives the count of 9-inch bolts: 5n = 200
     { id: "D", text: "$200$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Let $n =$ number of $7$-inch bolts. Then $9$-inch $= 5n$, and $4$-inch $= 2 \\cdot 5n = 10n$. Total: $n + 5n + 10n = 16n = 640$, so $n = 40$.\n\n**The Full Solution:**\nLet $n$ = number of $7$-inch bolts.\n* $9$-inch bolts: $5n$.\n* $4$-inch bolts: $2(5n) = 10n$.\nTotal: $n + 5n + 10n = 16n$.\nSet $16n = 640$: $n = 40$.\n\nVerification: $40 + 200 + 400 = 640$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — divides $\\frac{640}{3}$ on the assumption of three equal groups, which happens to round to $213$ but mis-rounds to $40$.\n* Choice C: \"applies the inverse operation\" — solves correctly to $n = 40$, then doubles.\n* Choice D: \"stops one step early\" — gives the count of $9$-inch bolts ($5 \\cdot 40 = 200$) instead of $7$-inch.\n\n**Test Day Takeaway:** Express every quantity in terms of one variable, sum them, set equal to the total, then re-read what's asked.",
+  explanation: "**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Let $n =$ number of $7$-inch bolts. Then $9$-inch $= 5n$, and $4$-inch $= 2 \\cdot 5n = 10n$. Total: $n + 5n + 10n = 16n = 640$, so $n = 40$.\n\n**The Full Solution:**\nLet $n$ = number of $7$-inch bolts.\n* $9$-inch bolts: $5n$.\n* $4$-inch bolts: $2(5n) = 10n$.\nTotal: $n + 5n + 10n = 16n$.\nSet $16n = 640$: $n = 40$.\n\nVerification: $40 + 200 + 400 = 640$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"misreads the chain\" — treats the $4$-inch label as a coefficient ($4n$) rather than \"twice the $9$-inch count\" ($10n$). Gets $n + 5n + 4n = 10n = 640$, so $n = 64$.\n* Choice C: \"applies the inverse operation\" — solves correctly to $n = 40$, then doubles.\n* Choice D: \"stops one step early\" — gives the count of $9$-inch bolts ($5 \\cdot 40 = 200$) instead of $7$-inch.\n\n**Test Day Takeaway:** Express every quantity in terms of one variable, sum them, set equal to the total, then re-read what's asked.",
   skills: ["word-problems", "solving-equations", "linear-functions"]
 },
 {
@@ -788,22 +790,13 @@ export const practiceTest2 = {
 },
 {
   id: 22,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
-  band: 7,
-  question: "Line $\\ell$ has the equation $3x - 5y = 15$. Line $m$ is perpendicular to line $\\ell$ and passes through the point $(6, 4)$. What is the equation of line $m$?",
-  choices: [
-    // distractor: uses parallel slope (same as $\ell$, 3/5) instead of perpendicular
-    { id: "A", text: "$y = \\dfrac{3}{5}x + \\dfrac{2}{5}$" },
-    // distractor: uses negative slope but doesn't reciprocate: -3/5
-    { id: "B", text: "$y = -\\dfrac{3}{5}x + \\dfrac{38}{5}$" },
-    { id: "C", text: "$y = -\\dfrac{5}{3}x + 14$" },
-    // distractor: forgets the negative on the reciprocal: 5/3
-    { id: "D", text: "$y = \\dfrac{5}{3}x - 6$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Slope of $\\ell$: $3x - 5y = 15 \\Rightarrow y = \\dfrac{3}{5}x - 3$. Perpendicular slope $= -\\dfrac{5}{3}$. Use $(6, 4)$: $4 = -\\dfrac{5}{3}(6) + b = -10 + b$, so $b = 14$. Equation: $y = -\\dfrac{5}{3}x + 14$.\n\n**The Full Solution:**\nFind slope of $\\ell$: $3x - 5y = 15 \\Rightarrow -5y = -3x + 15 \\Rightarrow y = \\dfrac{3}{5}x - 3$. Slope $= \\dfrac{3}{5}$.\n\nPerpendicular slope is the negative reciprocal: $-\\dfrac{5}{3}$.\n\nPoint-slope form with $(6, 4)$:\n$y - 4 = -\\dfrac{5}{3}(x - 6)$\n$y - 4 = -\\dfrac{5}{3}x + 10$\n$y = -\\dfrac{5}{3}x + 14$.\n\nVerification: at $(6, 4)$: $-\\dfrac{5}{3}(6) + 14 = -10 + 14 = 4$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses the parallel slope $\\dfrac{3}{5}$ instead of the negative reciprocal.\n* Choice B: \"stops one step early\" — negates the slope but forgets to reciprocate, getting $-\\dfrac{3}{5}$.\n* Choice D: \"off-by-one\" — reciprocates but forgets the negative sign.\n\n**Test Day Takeaway:** Perpendicular slopes are negative reciprocals — flip AND change the sign. Verify by plugging the point back into your final equation.",
-  skills: ["slope", "linear-functions", "coordinate-geometry"]
+  band: 8,
+  question: "In the $xy$-plane, the line $y = mx + 4$ is tangent to the circle $x^2 + y^2 = 4$, where $m$ is a positive constant. What is the value of $m^2$?",
+  correctAnswer: "3",
+  explanation: "**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~45s):** A tangent line meets a circle at exactly one point, so substituting the line into the circle equation gives a quadratic with discriminant zero. Substitute $y = mx + 4$ into $x^2 + y^2 = 4$:\n$x^2 + (mx + 4)^2 = 4$\n$(1 + m^2)x^2 + 8mx + 12 = 0$\nDiscriminant $= 0$: $(8m)^2 - 4(1 + m^2)(12) = 0 \\Rightarrow 64m^2 - 48 - 48m^2 = 0 \\Rightarrow 16m^2 = 48 \\Rightarrow m^2 = 3$.\n\n**The Full Solution:**\nSubstitute the line into the circle:\n$x^2 + (mx + 4)^2 = 4$\n$x^2 + m^2x^2 + 8mx + 16 = 4$\n$(1 + m^2)x^2 + 8mx + 12 = 0$\n\nFor tangency, this quadratic in $x$ has exactly one solution, so the discriminant equals zero:\n$\\Delta = (8m)^2 - 4(1 + m^2)(12) = 64m^2 - 48 - 48m^2 = 16m^2 - 48 = 0$\n$m^2 = 3$.\n\n**Geometric verification:** Circle has center $(0, 0)$ and radius $2$. The line $y = mx + 4$ in standard form: $mx - y + 4 = 0$. Distance from origin: $\\dfrac{|4|}{\\sqrt{m^2 + 1}} = 2 \\Rightarrow \\sqrt{m^2 + 1} = 2 \\Rightarrow m^2 = 3$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Trying to solve for $m$ directly without using the tangency condition.\n* Setting the discriminant *negative* (no intersection) or *positive* (two intersections) instead of zero.\n* Reporting $m = \\sqrt{3}$ instead of $m^2 = 3$.\n\n**Test Day Takeaway:** A line is tangent to a curve when substituting gives a quadratic with discriminant exactly zero. Equivalent geometric shortcut for circles: distance from center to line equals the radius.",
+  skills: ["circle-equations", "discriminant", "coordinate-geometry", "tangent-lines"]
 }
       ]
     }

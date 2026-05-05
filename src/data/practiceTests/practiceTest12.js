@@ -402,7 +402,8 @@ export const practiceTest12 = {
       timeLimit: 35,
       questions: [
 // Practice Test 12 — Math Module 2 (22 questions)
-// Distribution: 3E / 6M / 13H. Q1-3 are easy openers (CB-authentic ramp).
+// Distribution: 3E / 6M / 13H with band-8 ceiling on Q11, Q18.
+// Calibrated to Bluebook Module 2 Hard (Q11 polynomial w/ 4 zeros find coefficient, Q18 Vieta's product-sum).
 
 {
   id: 1,
@@ -586,22 +587,13 @@ export const practiceTest12 = {
 },
 {
   id: 11,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
-  band: 7,
-  question: "If $\\sqrt[3]{x^4} \\cdot \\sqrt{x^7} = x^{\\frac{p}{q}}$ for $x > 0$, where $\\dfrac{p}{q}$ is in lowest terms, what is the value of $p + q$?",
-  choices: [
-    // distractor: stops at $p$ alone (= $29$)
-    { id: "A", text: "$29$" },
-    // distractor: applies the inverse operation — sums radical exponents and indices
-    { id: "B", text: "$14$" },
-    { id: "C", text: "$35$" },
-    // distractor: uses $4 + 7 + 3 + 2 = 16$ (sums all visible numbers)
-    { id: "D", text: "$16$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[3]{x^4} = x^{\\frac{4}{3}}$ and $\\sqrt{x^7} = x^{\\frac{7}{2}}$. Add: $\\dfrac{4}{3} + \\dfrac{7}{2} = \\dfrac{8 + 21}{6} = \\dfrac{29}{6}$. So $p + q = 29 + 6 = 35$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[3]{x^4} = x^{\\frac{4}{3}}$ and $\\sqrt{x^7} = x^{\\frac{7}{2}}$.\n\nMultiply same bases — add exponents:\n$x^{\\frac{4}{3}} \\cdot x^{\\frac{7}{2}} = x^{\\frac{4}{3} + \\frac{7}{2}} = x^{\\frac{8 + 21}{6}} = x^{\\frac{29}{6}}$\n\n$\\gcd(29, 6) = 1$, so $\\dfrac{29}{6}$ is in lowest terms. $p = 29$, $q = 6$, so $p + q = 35$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just $p = 29$ without adding $q$.\n* Choice B: \"applies the inverse operation\" — sums radical exponent and index ($7 + 3 + 4 = 14$ or similar).\n* Choice D: \"wrong base\" — sums all integers in the expression.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{\\frac{m}{n}}$. Add fractional exponents when multiplying same bases.",
-  skills: ["exponent-rules", "radical-expressions"]
+  band: 8,
+  question: "The polynomial $p(x) = x^4 + ax^3 + bx^2 + cx + d$ has zeros at $x = 1$, $x = 2$, $x = -1$, and $x = -2$, where $a$, $b$, $c$, and $d$ are constants. What is the value of $b$?",
+  correctAnswer: "-5",
+  explanation: "**SAT Pattern: Polynomial from Zeros + Coefficient Match**\n\n**The correct answer is $-5$.**\n\n**The Fast Way (~30s):** $p(x) = (x-1)(x+1)(x-2)(x+2) = (x^2-1)(x^2-4) = x^4 - 5x^2 + 4$. Match coefficients: $b = -5$.\n\n**The Full Solution:**\nWith four given zeros and a leading coefficient of $1$ (visible in $x^4$), we can write:\n$p(x) = (x - 1)(x - 2)(x + 1)(x + 2)$.\n\nGroup pairs that form differences of squares for fast expansion:\n$(x - 1)(x + 1) = x^2 - 1$\n$(x - 2)(x + 2) = x^2 - 4$\n\nMultiply:\n$p(x) = (x^2 - 1)(x^2 - 4) = x^4 - 4x^2 - x^2 + 4 = x^4 - 5x^2 + 4$\n\nMatch with $p(x) = x^4 + ax^3 + bx^2 + cx + d$:\n* $a = 0$ (no $x^3$ term).\n* $b = -5$.\n* $c = 0$ (no $x^1$ term).\n* $d = 4$.\n\nSo $b = -5$.\n\n**Verification:** $p(1) = 1 + 0 - 5 + 0 + 4 = 0$ \\checkmark. $p(2) = 16 - 20 + 4 = 0$ \\checkmark. $p(-1) = 0$ and $p(-2) = 0$ by symmetry \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting to multiply through — leaving the answer as $-1 - 4 = -5$ by lucky shortcut without verification.\n* Sign error: $(x^2 - 1)(x^2 - 4) \\neq x^4 + 5x^2 + 4$ (the cross terms are NEGATIVE).\n* Treating the polynomial as a product of linear factors without grouping for difference-of-squares.\n\n**Test Day Takeaway:** When a polynomial has zeros that come in $\\pm$ pairs, group them into differences of squares: $(x - r)(x + r) = x^2 - r^2$. This shortcut avoids fully expanding linear factors one at a time.",
+  skills: ["polynomial-operations", "factoring", "function-interpretation"]
 },
 {
   id: 12,
@@ -701,22 +693,13 @@ export const practiceTest12 = {
 },
 {
   id: 18,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
-  band: 7,
-  question: "The equation $-3x^2 + bx - 48 = 0$ has no real solutions. What is the greatest integer value of $b$?",
-  choices: [
-    { id: "A", text: "$23$" },
-    // distractor: at $b = 24$, discriminant $= 0$ — exactly one solution, not none
-    { id: "B", text: "$24$" },
-    // distractor: at $b = 25$, discriminant $> 0$ — two real solutions
-    { id: "C", text: "$25$" },
-    // distractor: valid (any $|b| < 24$) but not the greatest
-    { id: "D", text: "$12$" }
-  ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Discriminant with Integer Bound**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Discriminant $< 0$: $b^2 - 4(-3)(-48) < 0$, so $b^2 < 576$, meaning $|b| < 24$. Greatest integer: $23$.\n\n**The Full Solution:**\nFor $-3x^2 + bx - 48 = 0$, discriminant $= b^2 - 4(-3)(-48) = b^2 - 576$.\nNo real solutions $\\iff b^2 - 576 < 0 \\iff -24 < b < 24$.\nGreatest integer in this range: $23$.\n\nVerification at $b = 23$: discriminant $= 529 - 576 = -47 < 0$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"off-by-one\" — at $b = 24$, discriminant $= 0$ (exactly one solution, not none).\n* Choice C: \"applies the inverse operation\" — uses $|b| \\leq 25$ ignoring the bound.\n* Choice D: \"stops one step early\" — picks a valid but not greatest value.\n\n**Test Day Takeaway:** \"No real solutions\" means discriminant $< 0$ STRICTLY. The boundary $= 0$ gives exactly one solution.",
-  skills: ["discriminant", "quadratic-equations"]
+  band: 8,
+  question: "If $r$ and $s$ are the real solutions of the equation $x^2 + 8x + c = 0$ and $rs = 2(r + s)$, what is the value of $c$?",
+  correctAnswer: "-16",
+  explanation: "**SAT Pattern: Vieta's with Product-Sum Relation**\n\n**The correct answer is $-16$.**\n\n**The Fast Way (~30s):** Vieta's: $r + s = -8$ and $rs = c$. Given $rs = 2(r + s)$: $c = 2 \\cdot (-8) = -16$.\n\n**The Full Solution:**\nFor a quadratic $ax^2 + bx + c = 0$ with real roots $r$ and $s$, Vieta's formulas give:\n* $r + s = -\\dfrac{b}{a}$\n* $rs = \\dfrac{c}{a}$\n\nHere $a = 1$, $b = 8$, $c = c$, so $r + s = -8$ and $rs = c$.\n\nApply the given condition $rs = 2(r + s)$:\n$c = 2 \\cdot (-8) = -16$.\n\n**Verify roots are real:** With $c = -16$, the equation is $x^2 + 8x - 16 = 0$. Discriminant $= 64 - 4(1)(-16) = 64 + 64 = 128 > 0$, so two distinct real roots exist \\checkmark.\n\n**Direct check:** $r, s = \\dfrac{-8 \\pm \\sqrt{128}}{2} = -4 \\pm 4\\sqrt{2}$. Then $r + s = -8$ \\checkmark and $rs = (-4)^2 - (4\\sqrt{2})^2 = 16 - 32 = -16$ \\checkmark. Also, $rs = -16 = 2 \\cdot (-8) = 2(r+s)$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Confusing Vieta's: writing $r + s = b/a = 8$ instead of $-b/a = -8$ (sign error on sum).\n* Solving for $r$ and $s$ explicitly via the quadratic formula — wastes time.\n* Reporting $c = 16$ (forgetting the negative sign).\n\n**Test Day Takeaway:** Vieta's formulas let you answer questions about roots without computing them. When the question gives a relationship between sum and product, plug in directly: sum $= -b/a$, product $= c/a$.",
+  skills: ["quadratic-equations", "vieta-formulas", "polynomial-operations"]
 },
 {
   id: 19,

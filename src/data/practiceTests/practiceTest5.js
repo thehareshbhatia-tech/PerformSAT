@@ -387,7 +387,8 @@ export const practiceTest5 = {
       timeLimit: 35,
       questions: [
 // Practice Test 5 — Math Module 2 (22 questions)
-// Distribution: 3E / 6M / 13H. Q1-3 are easy openers (CB-authentic ramp).
+// Distribution: 3E / 6M / 13H with band-8 ceiling on Q15, Q20.
+// Calibrated to Bluebook Module 2 Hard (Q15 exponential equation, Q20 remainder theorem).
 
 {
   id: 1,
@@ -656,22 +657,13 @@ export const practiceTest5 = {
 },
 {
   id: 15,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
-  band: 7,
-  question: "The graph of $x^2 + 3x + y^2 + 5y = \\dfrac{33}{2}$ in the $xy$-plane is a circle. What is the length of the circle's radius?",
-  choices: [
-    // distractor: stops one step early — gives r^2 = 25 instead of r = 5
-    { id: "A", text: "$25$" },
-    { id: "B", text: "$5$" },
-    // distractor: wrong base — uses sqrt of 33/2 directly without completing
-    { id: "C", text: "$\\sqrt{\\dfrac{33}{2}}$" },
-    // distractor: applies inverse — subtracts the completing-square constants instead of adding
-    { id: "D", text: "$4$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Complete the Square — Non-Square Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Half of $3$ is $\\dfrac{3}{2}$, squared $= \\dfrac{9}{4}$. Half of $5$ is $\\dfrac{5}{2}$, squared $= \\dfrac{25}{4}$. Add $\\dfrac{9}{4} + \\dfrac{25}{4} = \\dfrac{34}{4} = \\dfrac{17}{2}$ to both sides: $\\left(x + \\dfrac{3}{2}\\right)^2 + \\left(y + \\dfrac{5}{2}\\right)^2 = \\dfrac{33}{2} + \\dfrac{17}{2} = \\dfrac{50}{2} = 25$. Radius $= \\sqrt{25} = 5$.\n\n**The Full Solution:**\nGroup terms and complete the square for each variable:\n$x^2 + 3x + y^2 + 5y = \\dfrac{33}{2}$\n$\\left(x^2 + 3x + \\dfrac{9}{4}\\right) + \\left(y^2 + 5y + \\dfrac{25}{4}\\right) = \\dfrac{33}{2} + \\dfrac{9}{4} + \\dfrac{25}{4}$\n$\\left(x + \\dfrac{3}{2}\\right)^2 + \\left(y + \\dfrac{5}{2}\\right)^2 = \\dfrac{66}{4} + \\dfrac{34}{4} = \\dfrac{100}{4} = 25$\n\nRadius $= \\sqrt{25} = 5$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives $r^2 = 25$ instead of $r = 5$.\n* Choice C: \"wrong base\" — uses the right-hand-side constant directly without completing the square.\n* Choice D: \"applies the inverse operation\" — subtracts the completing-square constants instead of adding.\n\n**Test Day Takeaway:** Complete the square symmetrically for BOTH variables. Add the completion constants to BOTH sides — once for $x$, once for $y$.",
-  skills: ["circle-equations", "solving-equations"]
+  band: 8,
+  question: "If $4^{x + 1} = 8^{x - 1}$, what is the value of $x$?",
+  correctAnswer: "5",
+  explanation: "**SAT Pattern: Exponential Equation with Common Base**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~30s):** Rewrite both sides as powers of $2$: $4 = 2^2$ and $8 = 2^3$. So $2^{2(x+1)} = 2^{3(x-1)}$. Equate exponents: $2x + 2 = 3x - 3$, giving $x = 5$.\n\n**The Full Solution:**\nFor an equation of the form $b^M = b^N$ (same positive base $b \\neq 1$), we must have $M = N$. So convert both sides to a common base.\n\n$4 = 2^2$ and $8 = 2^3$, so:\n$4^{x + 1} = (2^2)^{x + 1} = 2^{2(x + 1)} = 2^{2x + 2}$\n$8^{x - 1} = (2^3)^{x - 1} = 2^{3(x - 1)} = 2^{3x - 3}$\n\nSet exponents equal:\n$2x + 2 = 3x - 3$\n$5 = x$\n\n**Verification:** $4^{5 + 1} = 4^6 = 4096$. $8^{5 - 1} = 8^4 = 4096$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Setting $4 = 8$ in some way (e.g., trying to equate the bases without rewriting them as common powers).\n* Forgetting to distribute: writing $2(x+1)$ as $2x + 1$ instead of $2x + 2$.\n* Sign error: $-(-3) = +3$, leading to wrong constant.\n\n**Test Day Takeaway:** When two exponential expressions are equal and the bases are powers of a common base, rewrite both sides in that common base, then equate exponents. Use $(b^m)^n = b^{mn}$ — multiply, don't add.",
+  skills: ["exponent-rules", "solving-equations", "exponential-functions"]
 },
 {
   id: 16,
@@ -750,22 +742,13 @@ export const practiceTest5 = {
 },
 {
   id: 20,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
-  band: 7,
-  question: "Line $\\ell$ passes through the points $(2, -3)$ and $(8, 9)$. Line $m$ is perpendicular to line $\\ell$ and passes through the point $(4, 5)$. What is the equation of line $m$?",
-  choices: [
-    // distractor: uses slope of ell (parallel, not perpendicular)
-    { id: "A", text: "$y = 2x - 3$" },
-    // distractor: applies inverse — keeps negative on slope
-    { id: "B", text: "$y = -2x + 13$" },
-    { id: "C", text: "$y = -\\dfrac{1}{2}x + 7$" },
-    // distractor: off-by-one — wrong intercept
-    { id: "D", text: "$y = -\\dfrac{1}{2}x + 5$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Slope of $\\ell$: $\\dfrac{9 - (-3)}{8 - 2} = \\dfrac{12}{6} = 2$. Perpendicular slope: $-\\dfrac{1}{2}$. Using $(4, 5)$: $5 = -\\dfrac{1}{2}(4) + b \\Rightarrow b = 7$. So $y = -\\dfrac{1}{2}x + 7$.\n\n**The Full Solution:**\n$m_{\\ell} = \\dfrac{9 - (-3)}{8 - 2} = \\dfrac{12}{6} = 2$.\nPerpendicular slopes are negative reciprocals: $m_m = -\\dfrac{1}{2}$.\nUsing the point $(4, 5)$:\n$5 = -\\dfrac{1}{2}(4) + b \\Rightarrow 5 = -2 + b \\Rightarrow b = 7$.\nEquation: $y = -\\dfrac{1}{2}x + 7$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses the slope of $\\ell$ itself (parallel, not perpendicular).\n* Choice B: \"applies the inverse operation\" — keeps the negative sign on the slope without taking the reciprocal.\n* Choice D: \"off-by-one\" — uses the $y$-coordinate of the given point ($5$) as the intercept.\n\n**Test Day Takeaway:** Perpendicular slope: flip AND change sign. Then plug in the given point to find the intercept.",
-  skills: ["slope", "linear-functions", "coordinate-geometry"]
+  band: 8,
+  question: "When the polynomial $p(x) = x^3 - 5x^2 + ax - 12$ is divided by $(x - 2)$, the remainder is $4$. What is the value of $a$?",
+  correctAnswer: "14",
+  explanation: "**SAT Pattern: Polynomial Remainder Theorem**\n\n**The correct answer is $14$.**\n\n**The Fast Way (~30s):** By the Remainder Theorem, the remainder when $p(x)$ is divided by $(x - 2)$ equals $p(2)$. So $p(2) = 4$: $8 - 20 + 2a - 12 = 4 \\Rightarrow 2a - 24 = 4 \\Rightarrow a = 14$.\n\n**The Full Solution:**\nThe Remainder Theorem states: when a polynomial $p(x)$ is divided by $(x - r)$, the remainder is $p(r)$.\n\nHere $r = 2$, so the remainder is $p(2)$:\n$p(2) = (2)^3 - 5(2)^2 + a(2) - 12$\n$= 8 - 20 + 2a - 12$\n$= 2a - 24$\n\nSet equal to the given remainder: $2a - 24 = 4 \\Rightarrow 2a = 28 \\Rightarrow a = 14$.\n\n**Verification:** with $a = 14$, $p(2) = 8 - 20 + 28 - 12 = 4$ \\checkmark. (Long division of $x^3 - 5x^2 + 14x - 12$ by $(x - 2)$ gives quotient $x^2 - 3x + 8$ with remainder $4$.)\n\n**Common Mistakes to Avoid:**\n* Setting up $p(-2) = 4$ instead of $p(2) = 4$ (using $r = -2$ for divisor $(x - 2)$).\n* Forgetting to multiply: $a(2) = 2a$, not $a$.\n* Performing long division when evaluation at the root is far faster.\n\n**Test Day Takeaway:** When a polynomial is divided by $(x - r)$, the remainder is $p(r)$. To find an unknown coefficient given the remainder, evaluate $p(r)$ symbolically and set it equal to the given value.",
+  skills: ["polynomial-operations", "factoring", "function-interpretation"]
 },
 {
   id: 21,

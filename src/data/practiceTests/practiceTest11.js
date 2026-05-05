@@ -414,7 +414,9 @@ export const practiceTest11 = {
       timeLimit: 35,
       questions: [
 // Practice Test 11 — Math Module 2 (22 questions)
-// Distribution: 3E / 6M / 13H. Q1-3 are easy openers (CB-authentic ramp).
+// Distribution: 3E / 6M / 13H with band-8 ceiling on Q13.
+// Calibrated to Bluebook Module 2 Hard (Q13 combined-mean with parameter).
+// Q20 fixed: constants in equation 2 changed from 24 to 30 so the no-solution case is logically valid.
 
 {
   id: 1,
@@ -646,22 +648,13 @@ export const practiceTest11 = {
 },
 {
   id: 13,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
-  band: 7,
-  question: "In the $xy$-plane, line $\\ell$ passes through the points $(2, 7)$ and $(8, -5)$. Line $m$ is perpendicular to line $\\ell$ and passes through the point $(2, 1)$. Which of the following is an equation of line $m$?",
-  choices: [
-    // distractor: uses the slope of l directly (parallel, not perpendicular)
-    { id: "A", text: "$y = -2x + 5$" },
-    { id: "B", text: "$y = \\dfrac{1}{2}x$" },
-    // distractor: takes reciprocal but keeps the negative sign
-    { id: "C", text: "$y = -\\dfrac{1}{2}x + 2$" },
-    // distractor: uses the absolute value of slope (no reciprocal)
-    { id: "D", text: "$y = 2x - 3$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Slope of $\\ell$: $\\dfrac{-5 - 7}{8 - 2} = \\dfrac{-12}{6} = -2$. Perpendicular slope: $\\dfrac{1}{2}$. Through $(2, 1)$: $1 = \\dfrac{1}{2}(2) + b = 1 + b$, so $b = 0$. Equation: $y = \\dfrac{1}{2}x$.\n\n**The Full Solution:**\n$m_{\\ell} = \\dfrac{-5 - 7}{8 - 2} = \\dfrac{-12}{6} = -2$.\nPerpendicular slope: $m_m = \\dfrac{1}{2}$.\n\nUsing $(2, 1)$: $1 = \\dfrac{1}{2}(2) + b \\Rightarrow 1 = 1 + b \\Rightarrow b = 0$.\nEquation: $y = \\dfrac{1}{2}x$.\n\nVerification: at $x = 2$, $y = 1$ \\checkmark; slopes multiply to $-1$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses the slope of $\\ell$ itself.\n* Choice C: \"applies the inverse operation\" — takes the reciprocal but keeps the negative sign.\n* Choice D: \"wrong base\" — uses the absolute slope $2$ without reciprocating.\n\n**Test Day Takeaway:** Perpendicular slopes are negative reciprocals (flip AND change sign).",
-  skills: ["slope", "linear-functions", "coordinate-geometry"]
+  band: 8,
+  question: "A class has $12$ students with a mean test score of $a$. When $8$ new students join the class with a mean test score of $90$, the combined class of $20$ students has a mean test score of $78$. What is the value of $a$?",
+  correctAnswer: "70",
+  explanation: "**SAT Pattern: Combined Mean with Parameter**\n\n**The correct answer is $70$.**\n\n**The Fast Way (~30s):** Sum of original class: $12a$. Sum of new students: $8 \\cdot 90 = 720$. Combined sum: $20 \\cdot 78 = 1560$. So $12a + 720 = 1560 \\Rightarrow 12a = 840 \\Rightarrow a = 70$.\n\n**The Full Solution:**\nThe key identity: the sum of all scores in a group $=$ count $\\times$ mean.\n\nOriginal class:\n$\\text{sum}_1 = 12 \\cdot a = 12a$.\n\nNew students:\n$\\text{sum}_2 = 8 \\cdot 90 = 720$.\n\nCombined class of $20$ students with mean $78$:\n$\\text{sum}_{\\text{total}} = 20 \\cdot 78 = 1560$.\n\nSet up the equation:\n$12a + 720 = 1560$\n$12a = 840$\n$a = 70$.\n\n**Verification:** Original sum $= 12 \\cdot 70 = 840$. With new students: $840 + 720 = 1560 = 20 \\cdot 78$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Averaging the means: $\\dfrac{a + 90}{2} = 78 \\Rightarrow a = 66$ — WRONG because the two groups have different sizes.\n* Reporting the combined mean ($78$) as $a$.\n* Using $20$ instead of $12$ when computing the original sum.\n\n**Test Day Takeaway:** Never average means directly when group sizes differ. Convert each mean to a sum (count $\\times$ mean), add, then divide by the combined count. This is the weighted mean.",
+  skills: ["statistics", "weighted-mean", "solving-equations"]
 },
 {
   id: 14,
@@ -781,38 +774,38 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The system of linear equations\n\n$3x + ky = 12$\n$6x + 4y = 24$\n\nhas no solution. What is the value of $k$?",
+  question: "The system of linear equations\n\n$3x + ky = 12$\n$6x + 4y = 30$\n\nhas no solution. What is the value of $k$?",
   choices: [
     // distractor: reads from the LHS only (uses 4 directly)
     { id: "A", text: "$4$" },
     { id: "B", text: "$2$" },
-    // distractor: takes 6/3 ratio for k directly
+    // distractor: takes 6/3 ratio inverted to 1/2
     { id: "C", text: "$\\dfrac{1}{2}$" },
     // distractor: takes 4/3 ratio
     { id: "D", text: "$\\dfrac{4}{3}$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: No-Solution Condition**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** \"No solution\" means parallel lines: same slope, different intercepts. Multiply the first equation by $2$: $6x + 2ky = 24$. For parallel lines, $2k = 4$ (matching $y$-coefficients), so $k = 2$. But then both equations are identical (giving infinitely many solutions). Re-examine: parallel requires the LEFT sides proportional but the RIGHT sides not. Since both right sides are $24$ and proportional in this case, we need a different reading. The clean reading: if first equation $\\times 2$ gives $6x + 2ky = 24$, matching the second's left side $6x + 4y = 24$ requires $2k = 4 \\Rightarrow k = 2$ — and indeed the two equations become identical, which means infinitely many. For \"no solution,\" $k = 2$ would be correct ONLY if the right sides differed; given the structure of this problem, the intended answer is $k = 2$.\n\n**The Full Solution:**\nWrite each equation in slope form (or use coefficient ratios):\n\nEquation 1: $3x + ky = 12$, slope $= -\\dfrac{3}{k}$.\nEquation 2: $6x + 4y = 24$, slope $= -\\dfrac{6}{4} = -\\dfrac{3}{2}$.\n\nFor parallel lines, the slopes must be equal:\n$-\\dfrac{3}{k} = -\\dfrac{3}{2} \\Rightarrow k = 2$.\n\n(With $k = 2$, equation 1 becomes $3x + 2y = 12$, which is exactly equation 2 divided by $2$ — so the two are the same line. The strict \"no solution\" requires the constant terms to differ; this is the standard SAT framing, and the value of the parameter that makes the slopes match is $k = 2$.)\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reads the coefficient $4$ from the second equation directly.\n* Choice C: \"applies the inverse operation\" — uses $\\dfrac{6}{3} = 2$ inverted as $\\dfrac{1}{2}$.\n* Choice D: \"wrong base\" — uses $\\dfrac{4}{3}$ ratio.\n\n**Test Day Takeaway:** No solution $\\iff$ parallel lines $\\iff$ matching coefficient ratios on the left, but different constants on the right.",
+  explanation: "**SAT Pattern: Parallel Lines (No Solution)**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** No solution means parallel lines: matching slope, different intercepts. Compare slopes via the coefficient ratios: $\\dfrac{3}{6} = \\dfrac{k}{4}$, so $k = 2$. Verify constants: $\\dfrac{12}{30} = \\dfrac{2}{5} \\neq \\dfrac{1}{2}$, so the lines are distinct \\checkmark. So $k = 2$ produces parallel non-coincident lines $\\Rightarrow$ no solution.\n\n**The Full Solution:**\nFor a $2 \\times 2$ linear system to have NO solution, the lines must be parallel and distinct: matching slopes (so left-side coefficient ratios are equal) but different right-side ratio (so the constants don't match).\n\nLeft-side ratio of $x$-coefficients: $\\dfrac{3}{6} = \\dfrac{1}{2}$. So we need $\\dfrac{k}{4} = \\dfrac{1}{2}$, giving $k = 2$.\n\nCheck constants: $\\dfrac{12}{30} = \\dfrac{2}{5}$. Since $\\dfrac{2}{5} \\neq \\dfrac{1}{2}$, the constants disagree — so the lines are distinct. With $k = 2$ the lines are parallel and distinct $\\Rightarrow$ no solution \\checkmark.\n\n(If the right-hand side of equation 2 were $24$ instead of $30$, then $\\dfrac{12}{24} = \\dfrac{1}{2}$ would match all three ratios, giving infinitely many solutions instead of no solution.)\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reads the coefficient $4$ from equation 2 directly.\n* Choice C: \"applies the inverse operation\" — uses $\\dfrac{1}{2}$ instead of $2$ (inverts the coefficient ratio).\n* Choice D: \"wrong base\" — uses $\\dfrac{4}{3}$.\n\n**Test Day Takeaway:** No solution $\\iff \\dfrac{a_1}{a_2} = \\dfrac{b_1}{b_2} \\neq \\dfrac{c_1}{c_2}$. ALWAYS verify the constant ratio fails — if it matches too, the system has infinitely many solutions, not no solution.",
   skills: ["systems-of-equations", "linear-functions"]
 },
 {
   id: 21,
   type: "multiple-choice",
   difficulty: "hard",
-  band: 7,
-  question: "If $x > 0$, the expression $\\sqrt[3]{x^4} \\cdot \\sqrt{x^3}$ is equivalent to $x^{\\frac{p}{q}}$ where $\\dfrac{p}{q}$ is in lowest terms. What is the value of $p + q$?",
+  band: 8,
+  question: "What is the value of $x$ that satisfies the equation $\\dfrac{x^2}{x - 2} = \\dfrac{4}{x - 2} + 5$?",
   choices: [
-    // distractor: gives p alone (= 17)
-    { id: "A", text: "$17$" },
-    { id: "B", text: "$23$" },
-    // distractor: sums radical exponent and index (4 + 3 = 7)
-    { id: "C", text: "$7$" },
-    // distractor: sums all numbers in the expression (4 + 3 + 2 = 9)
-    { id: "D", text: "$9$" }
+    // distractor: extraneous root from clearing the denominator
+    { id: "A", text: "$2$" },
+    { id: "B", text: "$3$" },
+    // distractor: includes both algebraic roots without rejecting the extraneous one
+    { id: "C", text: "$2 \\text{ and } 3$" },
+    // distractor: solves $x^2 - 4 = 5$ ignoring the linear $5(x-2)$ term
+    { id: "D", text: "$\\sqrt{9} = 3 \\text{ or } -3$" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** $\\sqrt[3]{x^4} = x^{\\frac{4}{3}}$ and $\\sqrt{x^3} = x^{\\frac{3}{2}}$. Add: $\\dfrac{4}{3} + \\dfrac{3}{2} = \\dfrac{8 + 9}{6} = \\dfrac{17}{6}$. So $p = 17$, $q = 6$, $p + q = 23$.\n\n**The Full Solution:**\nConvert each radical to a fractional exponent:\n$\\sqrt[3]{x^4} = x^{\\frac{4}{3}}, \\quad \\sqrt{x^3} = x^{\\frac{3}{2}}$.\n\nWhen multiplying same bases, add exponents:\n$x^{\\frac{4}{3}} \\cdot x^{\\frac{3}{2}} = x^{\\frac{4}{3} + \\frac{3}{2}} = x^{\\frac{8 + 9}{6}} = x^{\\frac{17}{6}}$.\n\n$\\gcd(17, 6) = 1$, so $\\dfrac{17}{6}$ is already in lowest terms. $p = 17$, $q = 6$, and $p + q = 23$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives just the numerator $p = 17$, forgetting to add $q$.\n* Choice C: \"wrong base\" — sums the radical exponent and index ($4 + 3 = 7$).\n* Choice D: \"applies the inverse operation\" — sums all the integers visible in the expression.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{\\frac{m}{n}}$ — power on top, root on the bottom. Add fractional exponents when multiplying same bases.",
-  skills: ["exponent-rules", "radical-expressions"]
+  explanation: "**SAT Pattern: Rational Equation with Extraneous Solution**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Multiply through by $(x - 2)$: $x^2 = 4 + 5(x - 2) \\Rightarrow x^2 - 5x + 6 = 0 \\Rightarrow (x - 2)(x - 3) = 0$. Algebraic roots $x = 2$ and $x = 3$. Reject $x = 2$ (it's the excluded value — denominator zero). Valid solution: $x = 3$.\n\n**The Full Solution:**\nThe denominator forbids $x = 2$, so any algebraic root equal to $2$ is extraneous.\n\nMultiply both sides by $(x - 2)$:\n$x^2 = 4 + 5(x - 2)$\n$x^2 = 5x - 6$\n$x^2 - 5x + 6 = 0$\n$(x - 2)(x - 3) = 0 \\Rightarrow x = 2 \\text{ or } x = 3$.\n\nReject $x = 2$ (excluded value). The only valid solution is $x = 3$.\n\n**Verification:** Substitute $x = 3$: LHS $= \\dfrac{9}{1} = 9$. RHS $= \\dfrac{4}{1} + 5 = 9$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — accepts $x = 2$ from the algebraic factoring without checking the domain.\n* Choice C: \"stops one step early\" — keeps both algebraic roots without rejecting the extraneous one.\n* Choice D: \"applies the inverse operation\" — drops the $5(x-2)$ when clearing the denominator and solves $x^2 - 4 = 5$.\n\n**Test Day Takeaway:** When clearing a denominator in a rational equation, ALWAYS list the excluded values first. Any algebraic root that equals an excluded value is extraneous — discard it.",
+  skills: ["rational-equations", "extraneous-solutions", "factoring"]
 },
 {
   id: 22,

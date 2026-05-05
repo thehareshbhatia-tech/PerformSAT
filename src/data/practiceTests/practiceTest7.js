@@ -412,7 +412,8 @@ export const practiceTest7 = {
       timeLimit: 35,
       questions: [
 // Practice Test 7 — Math Module 2 (22 questions)
-// Distribution: 3E / 6M / 13H. Q1-3 are easy openers (CB-authentic ramp).
+// Distribution: 3E / 6M / 13H with band-8 ceiling on Q18, Q21.
+// Calibrated to Bluebook Module 2 Hard (Q18 line tangent to parabola, Q21 arithmetic sequence sum).
 
 {
   id: 1,
@@ -694,22 +695,13 @@ export const practiceTest7 = {
 },
 {
   id: 18,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
-  band: 7,
-  question: "In the $xy$-plane, the line $\\ell$ has equation $4x + 3y = 18$, and the line $m$ is perpendicular to $\\ell$ and passes through the point $(8, -1)$. What is the equation of line $m$?",
-  choices: [
-    // distractor: stops one step early — uses the slope of ℓ instead of perpendicular slope
-    { id: "A", text: "$y = -\\dfrac{4}{3}x + \\dfrac{29}{3}$" },
-    { id: "B", text: "$y = \\dfrac{3}{4}x - 7$" },
-    // distractor: applies inverse operation — keeps the negative reciprocal but flips the wrong sign
-    { id: "C", text: "$y = -\\dfrac{3}{4}x + 5$" },
-    // distractor: wrong base — uses (8, -1) reversed as (-1, 8) when substituting
-    { id: "D", text: "$y = \\dfrac{3}{4}x + \\dfrac{1}{4}$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Slope of $\\ell$: $4x + 3y = 18 \\Rightarrow y = -\\dfrac{4}{3}x + 6$. Perpendicular slope: $\\dfrac{3}{4}$. Through $(8, -1)$: $-1 = \\dfrac{3}{4}(8) + b = 6 + b$, so $b = -7$. Equation: $y = \\dfrac{3}{4}x - 7$.\n\n**The Full Solution:**\nStep 1: rewrite $\\ell$ in slope-intercept form: $4x + 3y = 18 \\Rightarrow y = -\\dfrac{4}{3}x + 6$. Slope of $\\ell = -\\dfrac{4}{3}$.\n\nStep 2: perpendicular slope $=$ negative reciprocal $= \\dfrac{3}{4}$.\n\nStep 3: line $m$ through $(8, -1)$ with slope $\\dfrac{3}{4}$:\n$y - (-1) = \\dfrac{3}{4}(x - 8)$\n$y + 1 = \\dfrac{3}{4}x - 6$\n$y = \\dfrac{3}{4}x - 7$\n\nVerification: at $(8, -1)$: $\\dfrac{3}{4}(8) - 7 = 6 - 7 = -1$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — uses the slope of $\\ell$ itself (parallel, not perpendicular).\n* Choice C: \"applies the inverse operation\" — wrong sign on the perpendicular slope.\n* Choice D: \"wrong base\" — substitutes $(8, -1)$ in reversed order or with sign error.\n\n**Test Day Takeaway:** Perpendicular slopes are negative reciprocals: flip the fraction AND change the sign. Then plug in the point to find the intercept.",
-  skills: ["slope", "coordinate-geometry", "linear-functions"]
+  band: 8,
+  question: "In the $xy$-plane, the line $y = 2x + k$ intersects the parabola $y = x^2$ at exactly one point, where $k$ is a constant. What is the value of $k$?",
+  correctAnswer: "-1",
+  explanation: "**SAT Pattern: Tangent Line via Discriminant = 0**\n\n**The correct answer is $-1$.**\n\n**The Fast Way (~30s):** Set the line equal to the parabola: $x^2 = 2x + k \\Rightarrow x^2 - 2x - k = 0$. \"Exactly one intersection\" means the discriminant is zero: $(-2)^2 - 4(1)(-k) = 0 \\Rightarrow 4 + 4k = 0 \\Rightarrow k = -1$.\n\n**The Full Solution:**\nA line and a parabola meet at exactly one point when substituting one into the other yields a quadratic with a unique solution — i.e., a tangent meeting.\n\nSubstitute the line into the parabola:\n$x^2 = 2x + k$\n$x^2 - 2x - k = 0$\n\nFor exactly one solution, the discriminant must equal $0$:\n$(-2)^2 - 4(1)(-k) = 0$\n$4 + 4k = 0$\n$k = -1$.\n\n**Verification:** With $k = -1$, the line is $y = 2x - 1$. Setting equal to $y = x^2$: $x^2 - 2x + 1 = 0 \\Rightarrow (x - 1)^2 = 0 \\Rightarrow x = 1$ (double root). Single intersection at $(1, 1)$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Setting discriminant $> 0$ (two intersections) or $< 0$ (no intersection) instead of $= 0$.\n* Sign error on $-4(1)(-k) = +4k$ (the constant term is $-k$, not $k$).\n* Reporting $k = 1$ (the $x$-coordinate of the tangency) instead of $-1$.\n\n**Test Day Takeaway:** Line tangent to a curve $\\Leftrightarrow$ substituting yields a quadratic with discriminant exactly zero. Same principle as tangent-to-circle: the algebraic interpretation of \"touches at exactly one point\" is a repeated root.",
+  skills: ["quadratic-equations", "discriminant", "coordinate-geometry", "tangent-lines"]
 },
 {
   id: 19,
@@ -742,22 +734,13 @@ export const practiceTest7 = {
 },
 {
   id: 21,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
-  band: 7,
-  question: "The positive number $a$ is $300\\%$ of the sum of the positive numbers $b$ and $c$, and $c$ is $25\\%$ of $b$. What percent of $b$ is $a$?",
-  choices: [
-    // distractor: applies inverse operation — adds the two percents 300 + 25 = 325
-    { id: "A", text: "$325\\%$" },
-    // distractor: stops one step early — computes 3 * 1.25 then loses a factor of 100
-    { id: "B", text: "$3.75\\%$" },
-    { id: "C", text: "$375\\%$" },
-    // distractor: wrong base — divides 300/0.25 = 1200% ignoring the sum structure
-    { id: "D", text: "$1{,}200\\%$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Set $b = 100$. Then $c = 25\\% \\cdot 100 = 25$. Sum $b + c = 125$. So $a = 3.00 \\cdot 125 = 375$. Percent of $b$: $\\dfrac{375}{100} \\cdot 100\\% = 375\\%$.\n\n**The Full Solution:**\nLet $b = 100$ (any positive value works since percents are scale-invariant).\nThen $c = 0.25 \\cdot 100 = 25$.\nSum: $b + c = 100 + 25 = 125$.\n$a = 3.00 \\cdot 125 = 375$.\nPercent of $b$ that $a$ is: $\\dfrac{a}{b} \\cdot 100\\% = \\dfrac{375}{100} \\cdot 100\\% = 375\\%$.\n\nVerification (algebraic): $a = 3(b + c)$ and $c = 0.25b$, so $a = 3(b + 0.25b) = 3 \\cdot 1.25b = 3.75b$, giving $\\dfrac{a}{b} = 3.75 = 375\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — adds the two percents ($300 + 25 = 325$).\n* Choice B: \"stops one step early\" — computes $3.75$ but loses the percent factor of $100$.\n* Choice D: \"wrong base\" — divides $300$ by $0.25$ ignoring the sum structure.\n\n**Test Day Takeaway:** When two percents stack, pick a clean numerical value (e.g., $b = 100$) and compute through. \"Percent of $b$\" means divide by $b$, not $c$ or the sum.",
-  skills: ["percents"]
+  band: 8,
+  question: "In an arithmetic sequence, the $4$th term is $19$ and the $9$th term is $44$. What is the sum of the first $10$ terms of the sequence?",
+  correctAnswer: "265",
+  explanation: "**SAT Pattern: Arithmetic Sequence Sum**\n\n**The correct answer is $265$.**\n\n**The Fast Way (~45s):** Common difference $d = \\dfrac{44 - 19}{9 - 4} = \\dfrac{25}{5} = 5$. First term $a_1 = 19 - 3(5) = 4$. Sum of first $10$: $S_{10} = \\dfrac{10}{2}(2 a_1 + 9d) = 5(8 + 45) = 5(53) = 265$.\n\n**The Full Solution:**\nIn an arithmetic sequence, the $n$-th term is $a_n = a_1 + (n - 1) d$, where $d$ is the common difference.\n\nUse the two given terms to find $d$:\n$a_9 - a_4 = (9 - 4) d \\Rightarrow 44 - 19 = 5 d \\Rightarrow d = 5$.\n\nFind $a_1$:\n$a_4 = a_1 + 3 d \\Rightarrow 19 = a_1 + 15 \\Rightarrow a_1 = 4$.\n\nSum of the first $n$ terms: $S_n = \\dfrac{n}{2} \\bigl(2 a_1 + (n - 1) d\\bigr)$.\n\n$S_{10} = \\dfrac{10}{2} (2 \\cdot 4 + 9 \\cdot 5) = 5 (8 + 45) = 5 \\cdot 53 = 265$.\n\n**Verification:** Sequence: $4, 9, 14, 19, 24, 29, 34, 39, 44, 49$. Sum: $4 + 9 + 14 + 19 + 24 + 29 + 34 + 39 + 44 + 49 = 265$ \\checkmark. (Or: $S_{10} = \\dfrac{10}{2}(a_1 + a_{10}) = 5(4 + 49) = 265$.)\n\n**Common Mistakes to Avoid:**\n* Using $d = (44 - 19)/9 = 25/9$ — divide by the GAP between term indices ($9 - 4 = 5$), not the larger index alone.\n* Using $a_1 = 19$ (treating the $4$th term as the $1$st).\n* Reporting $a_{10} = 49$ instead of the sum.\n\n**Test Day Takeaway:** Arithmetic sequences: $d = \\dfrac{a_n - a_m}{n - m}$, then back out $a_1$. For sum, use $S_n = \\dfrac{n}{2}(a_1 + a_n)$ — the average of the first and last term times the count.",
+  skills: ["sequences", "arithmetic-sequences"]
 },
 {
   id: 22,

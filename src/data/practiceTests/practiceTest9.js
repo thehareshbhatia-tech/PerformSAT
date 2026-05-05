@@ -414,7 +414,8 @@ export const practiceTest9 = {
       timeLimit: 35,
       questions: [
 // Practice Test 9 — Math Module 2 (22 questions)
-// Distribution: 3E / 6M / 13H. Q1-3 are easy openers (CB-authentic ramp).
+// Distribution: 3E / 6M / 13H with band-8 ceiling on Q18, Q21.
+// Calibrated to Bluebook Module 2 Hard (Q18 diameter-endpoints area, Q21 parameterized quadratic difference).
 
 {
   id: 1,
@@ -722,22 +723,13 @@ export const practiceTest9 = {
 },
 {
   id: 18,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
-  band: 7,
-  question: "The graph of $x^2 + 3x + y^2 + y = \\dfrac{45}{2}$ in the $xy$-plane is a circle. What is the length of the circle's radius?",
-  choices: [
-    { id: "A", text: "$5$" },
-    // distractor: takes constant 45/2 directly without completing the square
-    { id: "B", text: "$\\sqrt{\\dfrac{45}{2}}$" },
-    // distractor: gives r^2 = 25 instead of r = 5
-    { id: "C", text: "$25$" },
-    // distractor: subtracts the half-coefficient-squared instead of adding
-    { id: "D", text: "$\\sqrt{\\dfrac{45}{2} - \\dfrac{5}{2}}$" }
-  ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Complete the Square — Non-Square Radius**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Half of $3$ is $\\dfrac{3}{2}$; squared, $\\dfrac{9}{4}$. Half of $1$ is $\\dfrac{1}{2}$; squared, $\\dfrac{1}{4}$. Add both to RHS: $\\left(x + \\dfrac{3}{2}\\right)^2 + \\left(y + \\dfrac{1}{2}\\right)^2 = \\dfrac{45}{2} + \\dfrac{9}{4} + \\dfrac{1}{4} = \\dfrac{90 + 10}{4} = 25$. Radius $= \\sqrt{25} = 5$.\n\n**The Full Solution:**\nGroup terms and complete the square for each variable:\n$x^2 + 3x + y^2 + y = \\dfrac{45}{2}$\n$\\left(x^2 + 3x + \\dfrac{9}{4}\\right) + \\left(y^2 + y + \\dfrac{1}{4}\\right) = \\dfrac{45}{2} + \\dfrac{9}{4} + \\dfrac{1}{4}$\n$\\left(x + \\dfrac{3}{2}\\right)^2 + \\left(y + \\dfrac{1}{2}\\right)^2 = \\dfrac{90}{4} + \\dfrac{10}{4} = \\dfrac{100}{4} = 25$\n\nSo $r^2 = 25$ and $r = 5$.\n\nVerification: the circle has center $\\left(-\\dfrac{3}{2}, -\\dfrac{1}{2}\\right)$ and radius $5$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — uses $\\dfrac{45}{2}$ directly without completing the square.\n* Choice C: \"stops one step early\" — gives $r^2 = 25$ instead of $r = 5$.\n* Choice D: \"applies the inverse operation\" — subtracts the half-coefficient-squared instead of adding.\n\n**Test Day Takeaway:** Complete the square SYMMETRICALLY for both variables. \"Half the coefficient, squared\" gets added to BOTH sides — once for $x$, once for $y$.",
-  skills: ["circle-equations", "coordinate-geometry"]
+  band: 8,
+  question: "In the $xy$-plane, the endpoints of a diameter of a circle are $(1, 2)$ and $(7, 10)$. The area of the circle can be expressed as $k\\pi$, where $k$ is a positive integer. What is the value of $k$?",
+  correctAnswer: "25",
+  explanation: "**SAT Pattern: Distance + Circle Area**\n\n**The correct answer is $25$.**\n\n**The Fast Way (~30s):** Diameter $= \\sqrt{(7 - 1)^2 + (10 - 2)^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10$. Radius $= 5$, so area $= \\pi r^2 = 25\\pi$. So $k = 25$.\n\n**The Full Solution:**\nThe diameter is the distance between the two endpoints. Using the distance formula:\n$d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} = \\sqrt{(7 - 1)^2 + (10 - 2)^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10$.\n\nSince diameter $= 10$, radius $= 5$.\nArea $= \\pi r^2 = \\pi (5)^2 = 25\\pi$.\nThus $k = 25$.\n\n**Verification:** The midpoint $\\left(\\dfrac{1+7}{2}, \\dfrac{2+10}{2}\\right) = (4, 6)$ is the center. Distance from center to either endpoint: $\\sqrt{(7-4)^2 + (10-6)^2} = \\sqrt{9 + 16} = 5$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using diameter as radius: would give $\\pi(10)^2 = 100\\pi$, so $k = 100$.\n* Reporting $r = 5$ instead of $r^2 = 25$.\n* Forgetting to square one of the differences: $\\sqrt{6^2 + 8^2} \\neq 6 + 8$.\n\n**Test Day Takeaway:** Distance formula is just the Pythagorean theorem on coordinate differences. The diameter of a circle through two points is the distance between them; the radius is half. Always square the radius for area.",
+  skills: ["circles", "distance-formula", "coordinate-geometry"]
 },
 {
   id: 19,
@@ -770,22 +762,13 @@ export const practiceTest9 = {
 },
 {
   id: 21,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
-  band: 7,
-  question: "The function $f$ is defined by $f(x) = (x - 5)^2 - 9$. If the function $g$ is defined by $g(x) = f(x + 7)$, what is the minimum value of $g$?",
-  choices: [
-    // distractor: gives x at minimum (x = -2)
-    { id: "A", text: "$-2$" },
-    { id: "B", text: "$-9$" },
-    // distractor: forgets the -9 vertical shift
-    { id: "C", text: "$0$" },
-    // distractor: applies +7 shift in wrong direction
-    { id: "D", text: "$-16$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $f$ has minimum value $-9$ (at $x = 5$). $g(x) = f(x + 7)$ shifts $f$ horizontally; horizontal shifts do NOT change the minimum value. So $g$ has minimum value $-9$.\n\n**The Full Solution:**\n$g(x) = f(x + 7) = ((x + 7) - 5)^2 - 9 = (x + 2)^2 - 9$\n\nThis is vertex form with vertex $(-2, -9)$. The minimum value is $-9$, attained at $x = -2$.\n\nVerification: $(x + 2)^2 \\geq 0$ for all real $x$, so $g(x) \\geq -9$ with equality at $x = -2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the $x$-coordinate of the minimum ($-2$) instead of $g(x) = -9$.\n* Choice C: \"off-by-one\" — forgets the constant $-9$ in the original function.\n* Choice D: \"applies the inverse operation\" — combines $-9$ and $-7$ into $-16$ via incorrect shift direction.\n\n**Test Day Takeaway:** Horizontal shifts (replacing $x$ with $x \\pm h$) do NOT change the minimum/maximum value of a function. Only vertical shifts ($+k$ outside) do.",
-  skills: ["function-interpretation", "vertex-form", "quadratic-equations"]
+  band: 8,
+  question: "The function $f$ is defined by $f(x) = ax^2 + b$, where $a$ and $b$ are constants. If $f(2x - 1) - f(2x + 1) = -16x$ for all real numbers $x$, what is the value of $a$?",
+  correctAnswer: "2",
+  explanation: "**SAT Pattern: Parameterized Quadratic from a Functional Identity**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~45s):** Compute $f(2x - 1) - f(2x + 1)$ symbolically and match the coefficient of $x$ to $-16$.\n* $f(2x - 1) = a(2x - 1)^2 + b = a(4x^2 - 4x + 1) + b$.\n* $f(2x + 1) = a(2x + 1)^2 + b = a(4x^2 + 4x + 1) + b$.\n* Difference: $a[(4x^2 - 4x + 1) - (4x^2 + 4x + 1)] = a(-8x) = -8ax$.\n* Set $-8ax = -16x$, so $a = 2$.\n\n**The Full Solution:**\nExpand each composition:\n$f(2x - 1) = a(2x - 1)^2 + b = a(4x^2 - 4x + 1) + b = 4ax^2 - 4ax + a + b$\n$f(2x + 1) = a(2x + 1)^2 + b = a(4x^2 + 4x + 1) + b = 4ax^2 + 4ax + a + b$\n\nSubtract:\n$f(2x - 1) - f(2x + 1) = (4ax^2 - 4ax + a + b) - (4ax^2 + 4ax + a + b) = -8ax$\n\nSet equal to $-16x$ (must hold for all $x$):\n$-8ax = -16x$\n$-8a = -16$\n$a = 2$.\n\nNote: $b$ does not appear in the difference, so it is unconstrained.\n\n**Verification:** with $a = 2$: $f(2x - 1) - f(2x + 1) = -8(2)x = -16x$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Trying to solve by plugging in specific values of $x$ — works, but the algebraic shortcut is faster.\n* Forgetting to distribute the $a$ when expanding $a(2x \\pm 1)^2$.\n* Confusing the sign on the difference: $(2x - 1)^2 - (2x + 1)^2 = -8x$, NOT $+8x$ (the larger square is $(2x+1)^2$).\n\n**Test Day Takeaway:** Difference of squares pattern: $(P)^2 - (Q)^2 = (P - Q)(P + Q)$. Here $(2x - 1)^2 - (2x + 1)^2 = ((2x-1) - (2x+1))((2x-1) + (2x+1)) = (-2)(4x) = -8x$.",
+  skills: ["function-interpretation", "polynomial-operations", "factoring"]
 },
 {
   id: 22,

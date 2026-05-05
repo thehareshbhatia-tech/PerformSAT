@@ -1104,6 +1104,10 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   const [confirmAction, setConfirmAction] = useState(null);
   const [resumeTimeRemaining, setResumeTimeRemaining] = useState(savedProgress?.timeRemaining ?? null);
 
+  // Adaptive routing: which Module 2 variant to serve. Default 'hard' (current behavior).
+  // Switches to 'easy' when Math Module 1 score < EASY_ROUTING_THRESHOLD (60% by default).
+  const [module2Variant, setModule2Variant] = useState(savedProgress?.module2Variant || 'hard');
+
   // Responsive: track window width for mobile layout
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
   useEffect(() => {
@@ -1137,7 +1141,36 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   const attemptTimestampRef = useRef(null);
   const attemptIdRef = useRef(null);
 
-  const module = test.modules[currentModule];
+  // Identify which test.modules indices are math (vs Reading & Writing).
+  // For math-only tests, all modules are math. For full SATs (Test 1), R&W modules come first.
+  const mathModuleIndices = useMemo(
+    () => test.modules
+      .map((m, i) => (!m.section || m.section === 'math') ? i : -1)
+      .filter(i => i >= 0),
+    [test.modules]
+  );
+  const mathM1Index = mathModuleIndices[0];
+  const mathM2Index = mathModuleIndices[1];
+
+  // Effective modules: swap in Module 2 Easy variant when routing decision is 'easy'.
+  // Falls back to standard test.modules if no Easy variant is defined.
+  const effectiveModules = useMemo(() => {
+    if (module2Variant !== 'easy' || !test.module2Easy || mathM2Index === undefined) {
+      return test.modules;
+    }
+    const replaced = [...test.modules];
+    // Preserve module index/title metadata from the slot, only swap in the easy questions
+    const slot = test.modules[mathM2Index];
+    replaced[mathM2Index] = {
+      ...slot,
+      ...test.module2Easy,
+      title: slot.title,         // keep "Module 2" or "Module 4" labeling
+      section: slot.section,     // preserve section ('math')
+    };
+    return replaced;
+  }, [test, module2Variant, mathM2Index]);
+
+  const module = effectiveModules[currentModule];
   const questions = module?.questions || [];
   const question = questions[currentQuestion];
   // R&W detection prefers per-module section (so a full SAT can mix R&W and Math modules);
@@ -1275,12 +1308,13 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         isTimed,
         timeRemaining: timerSecondsRef.current,
         questionTelemetry: telemetrySnapshot,
+        module2Variant,
       };
       onSaveProgress(progressData);
     }, 2000);
 
     return () => clearTimeout(saveTimerRef.current);
-  }, [answers, currentModule, currentQuestion, markedForReview, eliminatedChoices, testCompleted, reviewMode, onSaveProgress, isTimed]);
+  }, [answers, currentModule, currentQuestion, markedForReview, eliminatedChoices, testCompleted, reviewMode, onSaveProgress, isTimed, module2Variant]);
 
   useEffect(() => {
     if (testCompleted || reviewMode) return;
@@ -1320,7 +1354,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
 
       // Build per-question diagnostic details
       const questionDetails = {};
-      test.modules.forEach((mod, modIdx) => {
+      effectiveModules.forEach((mod, modIdx) => {
         mod.questions.forEach((q, qIdx) => {
           const key = `${modIdx}-${qIdx}`;
           const userAnswer = answers[key];
@@ -1392,7 +1426,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       // Persisted to progress/{userId}/attempts/{attemptId} so Review Answers
       // shows the original problem even after content swaps under the same id.
       const questionsSnapshot = [];
-      test.modules.forEach((mod, modIdx) => {
+      effectiveModules.forEach((mod, modIdx) => {
         mod.questions.forEach((q, qIdx) => {
           questionsSnapshot.push({
             id: q.id,
@@ -1439,7 +1473,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         console.log('[PracticeTest] Starting skill recording for user:', user.uid);
         // Build list of {skills, isCorrect} entries
         const skillEntries = [];
-        test.modules.forEach((mod, modIdx) => {
+        effectiveModules.forEach((mod, modIdx) => {
           mod.questions.forEach((q, qIdx) => {
             if (q.skills && q.skills.length > 0) {
               const key = `${modIdx}-${qIdx}`;
@@ -1760,6 +1794,34 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     const curMod = currentModuleRef.current;
     if (curMod < test.modules.length - 1) {
       const nextMod = curMod + 1;
+
+      // Adaptive routing: when leaving Math Module 1 and an Easy variant exists,
+      // score Math Module 1 to decide which Module 2 variant to serve. Threshold = 60%.
+      // Skipped if test has no Easy variant or if user is past Math Module 1 already.
+      if (test.module2Easy && curMod === mathM1Index && module2Variant === 'hard') {
+        const m1Questions = test.modules[mathM1Index]?.questions || [];
+        let correct = 0;
+        m1Questions.forEach((q, qIdx) => {
+          const ans = answers[`${mathM1Index}-${qIdx}`];
+          if (ans === undefined || ans === null) return;
+          if (q.type === 'fill-in') {
+            const expected = String(q.correctAnswer).trim();
+            const given = String(ans).trim();
+            // Allow simple numeric equivalence (e.g., "3" === "3.0")
+            if (expected === given) { correct++; return; }
+            const en = parseFloat(expected); const gn = parseFloat(given);
+            if (!isNaN(en) && !isNaN(gn) && Math.abs(en - gn) < 1e-9) correct++;
+          } else if (ans === q.correctAnswer) {
+            correct++;
+          }
+        });
+        const pct = m1Questions.length > 0 ? correct / m1Questions.length : 0;
+        const EASY_ROUTING_THRESHOLD = 0.6;
+        if (pct < EASY_ROUTING_THRESHOLD) {
+          setModule2Variant('easy');
+        }
+      }
+
       setCurrentModule(nextMod);
       setCurrentQuestion(0);
       setMarkedForReview([]);
@@ -1771,7 +1833,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     } else {
       setTestCompleted(true);
     }
-  }, [test.modules.length]);
+  }, [test.modules.length, test.module2Easy, test.modules, mathM1Index, module2Variant, answers]);
 
   const moduleCompletedRef = useRef(false);
   useEffect(() => { moduleCompletedRef.current = moduleCompleted; }, [moduleCompleted]);
@@ -1795,7 +1857,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     if (!isDevMode) return;
     const autoAnswers = {};
     const choices = ['A', 'B', 'C', 'D'];
-    test.modules.forEach((mod, modIdx) => {
+    effectiveModules.forEach((mod, modIdx) => {
       mod.questions.forEach((q, qIdx) => {
         const key = `${modIdx}-${qIdx}`;
         if (q.type === 'fill-in') {
@@ -1824,8 +1886,8 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
       });
     });
     setAnswers(autoAnswers);
-    setCurrentModule(test.modules.length - 1);
-    setCurrentQuestion(test.modules[test.modules.length - 1].questions.length - 1);
+    setCurrentModule(effectiveModules.length - 1);
+    setCurrentQuestion(effectiveModules[effectiveModules.length - 1].questions.length - 1);
     setTimeout(() => setTestCompleted(true), 100);
   };
 
@@ -1905,7 +1967,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   // Calculate total score
   const calculateTotalScore = () => {
     let total = 0;
-    test.modules.forEach((mod, modIdx) => {
+    effectiveModules.forEach((mod, modIdx) => {
       mod.questions.forEach((q, qIdx) => {
         if (isAnswerCorrect(q, answers[`${modIdx}-${qIdx}`])) total++;
       });
@@ -1925,13 +1987,13 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   // Module completion screen
   if (moduleCompleted && !testCompleted) {
     const score = calculateModuleScore();
-    const isLastModule = currentModule === test.modules.length - 1;
-    const totalQuestions = test.modules.reduce((sum, m) => sum + m.questions.length, 0);
+    const isLastModule = currentModule === effectiveModules.length - 1;
+    const totalQuestions = effectiveModules.reduce((sum, m) => sum + m.questions.length, 0);
     // Project the SAT score from answers so far. Only score modules the
     // student has reached so we don't penalize unanswered future modules.
     const completedTest = {
       ...test,
-      modules: test.modules.slice(0, currentModule + 1),
+      modules: effectiveModules.slice(0, currentModule + 1),
     };
     const liveScore = scoreTest(completedTest, answers, { timedMode: isTimed });
     const projectedSATScore = liveScore.sectionScore;
@@ -2012,7 +2074,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   // Review mode screen - shows all questions with explanations
   // IMPORTANT: This must come BEFORE testCompleted check so review mode can render
   if (reviewMode) {
-    const reviewMod = test.modules[reviewModule];
+    const reviewMod = effectiveModules[reviewModule];
     const reviewQuestions = reviewMod?.questions || [];
     const reviewQ = reviewQuestions[reviewQuestion];
     const reviewKey = `${reviewModule}-${reviewQuestion}`;
@@ -2023,7 +2085,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
 
     // Build flat list of all questions for navigation
     const allQuestions = [];
-    test.modules.forEach((mod, modIdx) => {
+    effectiveModules.forEach((mod, modIdx) => {
       mod.questions.forEach((q, qIdx) => {
         const key = `${modIdx}-${qIdx}`;
         const ans = answers[key];
@@ -2134,7 +2196,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
 
           {/* Module tabs */}
           <div style={{ display: 'flex', gap: '4px', flexShrink: 0 }}>
-            {test.modules.map((mod, modIdx) => {
+            {effectiveModules.map((mod, modIdx) => {
               const modQuestions = mod.questions.map((q, qIdx) => {
                 const key = `${modIdx}-${qIdx}`;
                 const ans = answers[key];
@@ -2165,7 +2227,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           {/* Question pills */}
           <div style={{ display: 'flex', gap: '6px', flex: 1, overflowX: 'auto', paddingRight: '10px', alignItems: 'center' }}>
             {(() => {
-              const currentMod = test.modules[reviewModule];
+              const currentMod = effectiveModules[reviewModule];
               return currentMod.questions.map((q, qIdx) => {
                 const key = `${reviewModule}-${qIdx}`;
                 const ans = answers[key];
