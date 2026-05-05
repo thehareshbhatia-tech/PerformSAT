@@ -157,8 +157,12 @@ function buildFixedAnswers() {
 // because items fall back to the coarse difficulty buckets.
 // ═══════════════════════════════════════════════════════════════════════════
 
-const EXPECTED_BAND_AWARE_SCORE = 570;
-const EXPECTED_BAND_STRIPPED_SCORE = 600;
+// Re-locked at SCORING_VERSION 2.1.0 after BAND_TO_B was extended to band 8
+// and DEFAULT_THETA_SCALE was re-anchored to the College Board PT 4-11 raw→
+// scaled patterns (theta 0 ≈ 510, not 540).  Both baselines moved down by
+// ~30 because the midrange of the scale was lowered.
+const EXPECTED_BAND_AWARE_SCORE = 540;
+const EXPECTED_BAND_STRIPPED_SCORE = 570;
 
 // Allowed drift around each baseline.  ±10 points is one SAT score-step;
 // any larger movement is investigated as a regression.

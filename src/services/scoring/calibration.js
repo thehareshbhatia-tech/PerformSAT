@@ -81,28 +81,31 @@ export function determineRoute(formId, mod1Correct, mod1Total) {
 // ═══════════════════════════════════════════════════════════════════════════
 
 /**
- * Default theta-to-scaled-score conversion for SAT Math (200-800).
+ * Default theta-to-scaled-score conversion for SAT (200-800 per section).
  *
- * This is a piecewise-linear mapping derived from publicly available
- * College Board score distribution data.  The shape reflects the
- * non-uniform relationship between ability and reported score on the SAT.
+ * Anchored to the per-section raw→scaled patterns observed across the
+ * eight College Board digital practice tests (PT 4-11, linear form).
+ * The midrange (~theta 0 → 500) reflects the published CB user norm
+ * where 500 sits near the 50th percentile, not the 65th.  The shape
+ * is piecewise-linear; SAT scores are reported in 10-point steps.
  *
- * Replace with official equating tables when available.
+ * Per-form overrides via `loadScaleOverrides` take precedence when
+ * official equating tables are wired in for a specific form.
  */
 const DEFAULT_THETA_SCALE = [
   // { theta, score }
   { theta: -4.0, score: 200 },
-  { theta: -3.0, score: 230 },
-  { theta: -2.5, score: 280 },
-  { theta: -2.0, score: 330 },
-  { theta: -1.5, score: 390 },
+  { theta: -3.0, score: 240 },
+  { theta: -2.5, score: 290 },
+  { theta: -2.0, score: 340 },
+  { theta: -1.5, score: 400 },
   { theta: -1.0, score: 450 },
-  { theta: -0.5, score: 500 },
-  { theta:  0.0, score: 540 },
-  { theta:  0.5, score: 580 },
-  { theta:  1.0, score: 630 },
-  { theta:  1.5, score: 680 },
-  { theta:  2.0, score: 730 },
+  { theta: -0.5, score: 480 },
+  { theta:  0.0, score: 510 },
+  { theta:  0.5, score: 550 },
+  { theta:  1.0, score: 600 },
+  { theta:  1.5, score: 660 },
+  { theta:  2.0, score: 720 },
   { theta:  2.5, score: 770 },
   { theta:  3.0, score: 790 },
   { theta:  4.0, score: 800 },
@@ -144,16 +147,18 @@ export function thetaToScaledScore(theta, formId = null) {
 // 4. PERCENTILE TABLE
 // ═══════════════════════════════════════════════════════════════════════════
 
+// Aligned with College Board's published SAT user-norm percentile tables
+// (per-section, 200-800).  500 ≈ 50th, 600 ≈ 75th, 700 ≈ 94th.
 export const PERCENTILE_TABLE = {
-  200: 1, 210: 1, 220: 1, 230: 1, 240: 2, 250: 3, 260: 4, 270: 5,
-  280: 6, 290: 8, 300: 10, 310: 12, 320: 14, 330: 16, 340: 19,
-  350: 22, 360: 25, 370: 28, 380: 31, 390: 34, 400: 37, 410: 40,
-  420: 43, 430: 46, 440: 49, 450: 52, 460: 55, 470: 57, 480: 60,
-  490: 63, 500: 65, 510: 68, 520: 70, 530: 73, 540: 75, 550: 77,
-  560: 79, 570: 81, 580: 83, 590: 85, 600: 86, 610: 88, 620: 89,
-  630: 90, 640: 91, 650: 92, 660: 93, 670: 94, 680: 95, 690: 96,
-  700: 96, 710: 97, 720: 97, 730: 98, 740: 98, 750: 99, 760: 99,
-  770: 99, 780: 99, 790: 99, 800: 99,
+  200: 1, 210: 1, 220: 1, 230: 1, 240: 1, 250: 1, 260: 2, 270: 2,
+  280: 3, 290: 3, 300: 4, 310: 5, 320: 6, 330: 7, 340: 9,
+  350: 10, 360: 12, 370: 14, 380: 17, 390: 19, 400: 22, 410: 24,
+  420: 27, 430: 30, 440: 33, 450: 36, 460: 39, 470: 42, 480: 44,
+  490: 47, 500: 50, 510: 53, 520: 56, 530: 59, 540: 62, 550: 65,
+  560: 68, 570: 70, 580: 73, 590: 75, 600: 78, 610: 80, 620: 82,
+  630: 84, 640: 86, 650: 88, 660: 89, 670: 90, 680: 92, 690: 93,
+  700: 94, 710: 95, 720: 96, 730: 96, 740: 97, 750: 97, 760: 98,
+  770: 98, 780: 99, 790: 99, 800: 99,
 };
 
 export function estimatePercentile(scaledScore) {

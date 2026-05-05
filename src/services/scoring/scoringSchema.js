@@ -7,7 +7,10 @@
 
 // Current scoring algorithm version — bump when the calibration or
 // algorithm changes so stored results remain interpretable.
-export const SCORING_VERSION = '2.0.0';
+// 2.1.0: BAND_TO_B extended to band 8, DEFAULT_THETA_SCALE re-anchored to
+//        College Board linear PT 4-11 raw→scaled patterns, percentile table
+//        re-aligned with published CB SAT user norms (closer to 50th=500).
+export const SCORING_VERSION = '2.1.0';
 
 // ── Section identifiers ────────────────────────────────────────────────────
 export const SECTIONS = {
@@ -37,8 +40,8 @@ export const DEFAULT_IRT_PARAMS = {
 };
 
 // ── CB score_band → IRT b-parameter ────────────────────────────────────────
-// Mirrors CollegeBoard's score_band_range_cd (1-7) where 1 is easiest,
-// 7 is hardest.  More granular than the easy/medium/hard difficulty buckets
+// Mirrors CollegeBoard's score_band_range_cd (1-8) where 1 is easiest,
+// 8 is hardest.  More granular than the easy/medium/hard difficulty buckets
 // and used when question content has been pinned to a specific CB band.
 export const BAND_TO_B = {
   1: -1.5,
@@ -48,15 +51,16 @@ export const BAND_TO_B = {
   5:  0.0,
   6:  0.7,
   7:  1.5,
+  8:  2.2, // top-of-bank items (e.g., Module 2 Hard ceiling)
 };
 
-// Internal: validate that a band value is an integer in [1, 7].
+// Internal: validate that a band value is an integer in [1, 8].
 function isValidBand(band) {
   return (
     typeof band === 'number' &&
     Number.isInteger(band) &&
     band >= 1 &&
-    band <= 7
+    band <= 8
   );
 }
 

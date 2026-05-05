@@ -286,9 +286,9 @@ describe('thetaToScaledScore', () => {
     expect(thetaToScaledScore(5)).toBe(800);
   });
 
-  it('returns ~540 for theta 0 (average ability)', () => {
+  it('returns ~510 for theta 0 (average ability ≈ 50th percentile)', () => {
     const score = thetaToScaledScore(0);
-    expect(score).toBe(540);
+    expect(score).toBe(510);
   });
 
   it('is monotonically non-decreasing across the theta range', () => {
@@ -314,8 +314,8 @@ describe('estimatePercentile', () => {
     expect(estimatePercentile(800)).toBe(99);
   });
 
-  it('returns ~65th percentile for 500', () => {
-    expect(estimatePercentile(500)).toBe(65);
+  it('returns ~50th percentile for 500 (CB user-norm anchor)', () => {
+    expect(estimatePercentile(500)).toBe(50);
   });
 });
 

@@ -147,6 +147,12 @@ describe('resolveItemParams — band vs difficulty precedence', () => {
     const params = resolveItemParams({ band: 7, difficulty: 'easy' });
     expect(params.b).toBe(1.5);
   });
+
+  it('band 8 maps to its calibrated b (top-of-bank, b=+2.2)', () => {
+    const params = resolveItemParams({ band: 8 });
+    expect(params.b).toBe(BAND_TO_B[8]);
+    expect(params.b).toBe(2.2);
+  });
 });
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -159,8 +165,8 @@ describe('resolveItemParams — invalid band fallback', () => {
     expect(params.b).toBe(DEFAULT_IRT_PARAMS[DIFFICULTY.EASY].b);
   });
 
-  it('band=8 falls back to difficulty default', () => {
-    const params = resolveItemParams({ band: 8, difficulty: 'medium' });
+  it('band=9 (out of range) falls back to difficulty default', () => {
+    const params = resolveItemParams({ band: 9, difficulty: 'medium' });
     expect(params.b).toBe(DEFAULT_IRT_PARAMS[DIFFICULTY.MEDIUM].b);
   });
 
@@ -196,7 +202,7 @@ describe('resolveItemParams — invalid band fallback', () => {
 
 describe('resolveItemParams — a and c are not band-driven', () => {
   it('a=1.0 and c=0.25 regardless of band when no override', () => {
-    for (let band = 1; band <= 7; band++) {
+    for (let band = 1; band <= 8; band++) {
       const params = resolveItemParams({ band });
       expect(params.a).toBe(1.0);
       expect(params.c).toBe(0.25);
