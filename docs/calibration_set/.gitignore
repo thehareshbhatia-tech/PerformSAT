@@ -1,4 +1,8 @@
 # Source mapping — never commit. Reveals which items are CB vs PerformSAT,
 # defeating the blind-rating premise. Re-derive locally by re-running _build.mjs
 # if you need it for diagnostic purposes.
+#
+# This pattern matches both the Math calibration answer key (./.answer_key.json)
+# and the R&W calibration answer key (./rw/.answer_key.json).
 .answer_key.json
+rw/.answer_key.json
