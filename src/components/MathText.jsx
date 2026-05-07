@@ -14,6 +14,19 @@ export const MathText = ({ children, text, className = '', style = {} }) => {
     const ESCAPED_DOLLAR_PLACEHOLDER = '\uFFFD';
     result = result.replace(/\\\$/g, ESCAPED_DOLLAR_PLACEHOLDER);
 
+    // Step 0.4: Markdown italic *foo* → <em>foo</em>
+    // CB-authentic R&W content stores book titles and emphasis with single-asterisk
+    // syntax (e.g., "*Blindspot: Hidden Biases of Good People*"). MathText is the
+    // shared text renderer for choices, table cells, studentNotes bullets/goal,
+    // explanations, and the COE-Q passage path; without this step those surfaces
+    // render literal asterisks. Constraints to avoid corrupting math:
+    //  - Single-line only ([^*\n]+? blocks runaway matches across paragraphs).
+    //  - Non-empty inner content (the +? requires at least one char).
+    //  - Runs BEFORE math/currency steps so any `*` inside an inline math
+    //    expression `$...$` is never seen by this regex.
+    //  - Single-* only; we don't currently use `**bold**` in the bank.
+    result = result.replace(/\*([^*\n]+?)\*/g, '<em>$1</em>');
+
     // Step 0.5: Convert Markdown tables to HTML BEFORE newline conversion
     // Detects consecutive lines starting/ending with | and converts to <table>
     result = result.replace(
