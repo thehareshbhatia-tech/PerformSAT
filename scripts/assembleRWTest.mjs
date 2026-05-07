@@ -123,6 +123,170 @@ function cleanItem(item) {
 }
 
 // ---------------------------------------------------------------------------
+// Shape transforms — convert authoring-friendly `passage` into the structured
+// fields PracticeTest.jsx expects for three skills:
+//
+//   cross-text-connections    →  passages: [{ label, text }, ...]
+//   command-of-evidence-quant →  passage + questionTable: { type, caption, headers, rows }
+//   rhetorical-synthesis      →  studentNotes: { intro, bullets, goal? }
+//
+// Subagents may emit either the flat `passage` form (legacy / simple) or
+// the already-structured form. Transforms are idempotent: items that
+// already carry the structured field pass through untouched. Items in the
+// flat form get parsed; if the parse fails (regex doesn't match), the
+// transform throws so a malformed authored item halts assembly rather
+// than silently corrupting the bank.
+// ---------------------------------------------------------------------------
+
+function transformCrossText(item) {
+  if (item.passages && Array.isArray(item.passages) && item.passages.length >= 2) {
+    // Already structured.
+    const { passage: _drop, ...rest } = item;
+    return rest;
+  }
+  if (!item.passage) {
+    throw new Error(`q${item.id}: cross-text item has neither passage nor passages`);
+  }
+  // Match "Text 1\n\n<content1>\n\nText 2\n\n<content2>" (with possible
+  // trailing whitespace). Allow Text-N labels in case CB-style 3+ texts
+  // appear (rare; fall back to Text 1/2 only).
+  const re = /^Text 1\s*\n+([\s\S]+?)\n+Text 2\s*\n+([\s\S]+?)\s*$/;
+  const m = item.passage.match(re);
+  if (!m) {
+    throw new Error(`q${item.id}: cross-text passage does not match "Text 1\\n\\n…\\n\\nText 2\\n\\n…" pattern`);
+  }
+  const { passage: _drop, ...rest } = item;
+  return {
+    ...rest,
+    passages: [
+      { label: 'Text 1', text: m[1].trim() },
+      { label: 'Text 2', text: m[2].trim() },
+    ],
+  };
+}
+
+function transformCOEQuant(item) {
+  if (item.questionTable) {
+    return item;
+  }
+  if (!item.passage || !/\n\s*\|/.test(item.passage)) {
+    // No table embedded — COE-Q can be table-free (passage-only data
+    // references). Pass through unchanged.
+    return item;
+  }
+  const lines = item.passage.split('\n');
+  const tableStart = lines.findIndex(l => /^\s*\|/.test(l));
+  if (tableStart === -1) return item;
+
+  // Caption: walk back from tableStart over non-blank lines. Caption is
+  // the contiguous block of non-blank, non-pipe lines just above the table.
+  let captionStart = tableStart;
+  while (captionStart > 0 && lines[captionStart - 1].trim() !== '' && !/^\s*\|/.test(lines[captionStart - 1])) {
+    captionStart--;
+  }
+  const captionLines = lines.slice(captionStart, tableStart).map(l => l.trim()).filter(Boolean);
+  const caption = captionLines.join(' ');
+
+  // Prose passage: everything before the caption block, trimmed of trailing blanks.
+  let proseEnd = captionStart - 1;
+  while (proseEnd >= 0 && lines[proseEnd].trim() === '') proseEnd--;
+  const passage = lines.slice(0, proseEnd + 1).join('\n').trim();
+
+  // Table parse: header / separator / rows. Cells split on `|`, slice(1,-1)
+  // drops the leading and trailing pipe halves.
+  const tableLines = lines.slice(tableStart).filter(l => /^\s*\|/.test(l));
+  if (tableLines.length < 3) {
+    throw new Error(`q${item.id}: COE-Q table has only ${tableLines.length} pipe-lines (need header + separator + at least 1 row)`);
+  }
+  const cells = (line) => line.split('|').slice(1, -1).map(c => c.trim());
+  const headers = cells(tableLines[0]);
+  // Validate separator looks like |---|---|...
+  if (!/^\s*\|[\s|:-]+\|\s*$/.test(tableLines[1])) {
+    throw new Error(`q${item.id}: COE-Q table second pipe-line ${JSON.stringify(tableLines[1])} doesn't look like a separator`);
+  }
+  const rows = tableLines.slice(2).map(cells);
+  if (rows.some(r => r.length !== headers.length)) {
+    throw new Error(`q${item.id}: COE-Q table has ragged rows (header has ${headers.length} cols)`);
+  }
+
+  return {
+    ...item,
+    passage,
+    questionTable: {
+      type: 'table',
+      caption,
+      headers,
+      rows,
+    },
+  };
+}
+
+function transformRhetSyn(item) {
+  if (item.studentNotes) {
+    const { passage: _drop, ...rest } = item;
+    return rest;
+  }
+  if (!item.passage) {
+    throw new Error(`q${item.id}: rhet-syn item has neither passage nor studentNotes`);
+  }
+  // Pattern: "<intro line>:\n\n- bullet\n- bullet\n..."
+  const bulletStart = item.passage.indexOf('\n\n- ');
+  if (bulletStart === -1) {
+    throw new Error(`q${item.id}: rhet-syn passage doesn't contain "\\n\\n- " bullet boundary`);
+  }
+  const intro = item.passage.slice(0, bulletStart).trim();
+  const bulletsBlock = item.passage.slice(bulletStart + 2);
+  const bullets = bulletsBlock
+    .split('\n')
+    .filter(l => l.startsWith('- '))
+    .map(l => l.slice(2).trim());
+  if (bullets.length < 3) {
+    throw new Error(`q${item.id}: rhet-syn has only ${bullets.length} bullets (CB pattern is 4-6)`);
+  }
+
+  // Goal extraction: rhet-syn questions follow the pattern
+  //   "The student wants to <goal>. <canonical question>"
+  // If matched, the leading "The student wants to..." sentence becomes
+  // studentNotes.goal and is stripped from the question.
+  let goal = '';
+  let question = item.question || '';
+  const goalRe = /^(The student wants to[^.]+\.)\s+(.+)$/;
+  const gm = question.match(goalRe);
+  if (gm) {
+    goal = gm[1].trim();
+    question = gm[2].trim();
+  }
+
+  const { passage: _drop, ...rest } = item;
+  return {
+    ...rest,
+    question,
+    studentNotes: {
+      intro,
+      bullets,
+      ...(goal ? { goal } : {}),
+    },
+  };
+}
+
+/**
+ * Apply skill-specific shape transforms after `cleanItem`. Idempotent:
+ * items already in structured form pass through unchanged.
+ */
+function transformItemShape(item) {
+  switch (item.skill) {
+    case 'cross-text-connections':
+      return transformCrossText(item);
+    case 'command-of-evidence-quantitative':
+      return transformCOEQuant(item);
+    case 'rhetorical-synthesis':
+      return transformRhetSyn(item);
+    default:
+      return item;
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Emit
 // ---------------------------------------------------------------------------
 
@@ -167,8 +331,8 @@ function formatModule(moduleIndex, items) {
 }
 
 function emitTestFile(testN, items) {
-  const m1Items = items.filter(it => it.qIndex <= 27).map(it => cleanItem(it.item));
-  const m2Items = items.filter(it => it.qIndex > 27).map(it => cleanItem(it.item));
+  const m1Items = items.filter(it => it.qIndex <= 27).map(it => transformItemShape(cleanItem(it.item)));
+  const m2Items = items.filter(it => it.qIndex > 27).map(it => transformItemShape(cleanItem(it.item)));
   if (m1Items.length !== 27 || m2Items.length !== 27) {
     throw new Error(`test ${testN}: expected 27 items per module, got M1=${m1Items.length} M2=${m2Items.length}`);
   }
@@ -279,6 +443,10 @@ export {
   parseArgs,
   loadAuthoredItems,
   cleanItem,
+  transformCrossText,
+  transformCOEQuant,
+  transformRhetSyn,
+  transformItemShape,
   emitTestFile,
   assembleTest,
 };

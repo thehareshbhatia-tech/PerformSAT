@@ -502,12 +502,43 @@ const RW_MIN_TOKENS_FOR_CHECK = 12;
  * @param {number} startLine — line number for the item (for output)
  * @returns {Array<{ line, rule, message }>}
  */
+/**
+ * Derive a single passage-equivalent text string from an item, regardless
+ * of whether the item uses the legacy `passage` field, the structured
+ * `passages: [{label,text}]` cross-text form, or the rhet-syn
+ * `studentNotes: {intro, bullets, goal}` form. Used by lints that operate
+ * on natural-language passage content (entity registry, pdf uniqueness,
+ * skeleton fingerprinting). Returns '' if the item carries no passage
+ * content.
+ */
+export function getPassageText(item) {
+  if (!item) return '';
+  if (typeof item.passage === 'string' && item.passage.trim()) {
+    return item.passage;
+  }
+  if (Array.isArray(item.passages) && item.passages.length > 0) {
+    return item.passages
+      .map(p => (p && typeof p.text === 'string') ? p.text : '')
+      .filter(Boolean)
+      .join('\n\n');
+  }
+  if (item.studentNotes && typeof item.studentNotes === 'object') {
+    const sn = item.studentNotes;
+    const intro = typeof sn.intro === 'string' ? sn.intro : '';
+    const bullets = Array.isArray(sn.bullets)
+      ? sn.bullets.map(b => `- ${b}`).join('\n')
+      : '';
+    return [intro, bullets].filter(Boolean).join('\n\n');
+  }
+  return '';
+}
+
 export function validatePdfUniqueness(item, pdfCorpus, startLine) {
   const out = [];
   if (!pdfCorpus || pdfCorpus.length === 0) return out;
 
-  // 2a — passage
-  const passage = item.passage || '';
+  // 2a — passage (handles legacy passage / structured passages / studentNotes)
+  const passage = getPassageText(item);
   if (passage.trim()) {
     const tokens = tokenize(passage);
     if (tokens.length >= RW_MIN_TOKENS_FOR_CHECK) {
@@ -615,17 +646,24 @@ export function validateChoiceUniqueness(bankItems, opts = {}) {
   }
   const violations = [];
   for (const [norm, info] of counts.entries()) {
-    if (info.occurrences.length > max) {
-      const list = info.occurrences.map(o => `T${o.testN}Q${o.qid}`).join(', ');
-      // Attach the violation to the first occurrence's line.
+    // Cross-item uniqueness: SEC items legitimately reuse the same phrase
+    // across all 4 choices (only the punctuation/wording varies). Dedupe
+    // by item id so intra-item repeats don't trip the cross-item lint.
+    const distinctItems = new Map(); // qid -> first occurrence
+    for (const o of info.occurrences) {
+      const key = `T${o.testN}Q${o.qid}`;
+      if (!distinctItems.has(key)) distinctItems.set(key, o);
+    }
+    if (distinctItems.size > max) {
+      const list = Array.from(distinctItems.keys()).join(', ');
       const first = info.occurrences[0];
       violations.push({
         testN: first.testN,
         line: first.line,
         rule: 'choice-uniqueness',
-        message: `choice-uniqueness: distractor "${truncateForMsg(info.original)}" appears in ${info.occurrences.length} items (max ${max}). Items: [${list}]`,
+        message: `choice-uniqueness: distractor "${truncateForMsg(info.original)}" appears in ${distinctItems.size} items (max ${max}). Items: [${list}]`,
         norm,
-        occurrences: info.occurrences,
+        occurrences: Array.from(distinctItems.values()),
       });
     }
   }
@@ -861,9 +899,20 @@ const ALWAYS_ALLOW_SEED = new Set([
   'Antonia Brico', 'Soo Sunny Park', 'Lê Lương Minh', 'Pliny the Younger',
   'Tacitus', 'Robin Wall Kimmerer', 'Chukwuebuka Okolo', 'Lani Tsinnajinnie',
   'Michael Garcia', 'Zora Hurston',
+  // Historical educators / mentors who appear as named figures in
+  // researcher biographies (legitimate cross-references, not protagonists).
+  'Carter G. Woodson', 'Franz Boas', 'W. E. B. Du Bois',
+  'Ida B. Wells', 'Booker T. Washington', 'William Lloyd Garrison',
+  'Wendell Phillips', 'Charles Lenox Remond', 'Sojourner Truth',
+  'Frederick Douglass',
   // Common single names that mark known regions / institutions
   'Babylonian', 'Roman', 'Saharan', 'African', 'Atlantic', 'Pacific',
   'Pompeii', 'Herculaneum', 'Misenum',
+  // Saint-named idioms / eponymous diseases-and-conditions extracted from
+  // "St. X" patterns by Pattern A. These are medical / cultural terms,
+  // not researcher names, but the regex correctly matches the form.
+  "Vitus's Dance", 'Bright', "Bright's Disease", 'Anthony', "Anthony's Fire",
+  'Elmo', "Elmo's Fire", 'Helena', "Helena's Comet",
 ]);
 
 /**
@@ -886,9 +935,20 @@ export function extractEntities(passage) {
   const works = [];
 
   // --- People ---
+  // A "name token" is one of:
+  //   - a multi-letter capitalized word, including Unicode upper/lower
+  //     letters so non-ASCII names like "Ürge-Vorsatz", "DellaGiustina",
+  //     "Pérez Galdós" tokenize correctly
+  //   - a single-capital initial with period ("J.", "F.")
+  //   - a lowercase nobiliary particle ("de", "van", "von", "der", "del",
+  //     "du", "la", "le", "wa", "al", "bin", "ben") followed by a cap word —
+  //     so "Asha de Vos" or "W. E. B. Du Bois" tokenize as full names
+  //     instead of truncating at the first lowercase token.
+  const NAME_TOKEN = "(?:(?:de|van|von|der|del|du|la|le|wa|al|bin|ben)\\s+\\p{Lu}[\\p{L}'-]+|\\p{Lu}[\\p{L}'-]+|\\p{Lu}\\.)";
+
   // Pattern A: explicit title followed by 1-3 capitalized words
   //   matches: Dr. Robin Wall Kimmerer, Professor Aditi Rao
-  const titleRe = /\b(Dr|Prof|Mr|Mrs|Ms|Sir|Professor|Lady|Lord|St)\.?\s+([A-Z][a-zA-Z'-]+(?:\s+[A-Z][a-zA-Z'-]+){1,3})/g;
+  const titleRe = new RegExp(`\\b(Dr|Prof|Mr|Mrs|Ms|Sir|Professor|Lady|Lord|St)\\.?\\s+(${NAME_TOKEN}(?:\\s+${NAME_TOKEN}){1,3})`, 'gu');
   let m;
   while ((m = titleRe.exec(passage)) !== null) {
     people.push({ name: m[2], full: `${m[1]} ${m[2]}`, withTitle: true });
@@ -913,7 +973,7 @@ export function extractEntities(passage) {
     'astronomer', 'oceanographer', 'sailor', 'demographer', 'statistician',
     'psychologist', 'neuroscientist',
   ];
-  const descRe = new RegExp(`\\b(?:the\\s+)?(?:${descriptors.join('|')})\\s+([A-Z][a-zA-Z'-]+(?:\\s+[A-Z][a-zA-Z'-]+){0,3})`, 'g');
+  const descRe = new RegExp(`\\b(?:the\\s+)?(?:${descriptors.join('|')})\\s+(${NAME_TOKEN}(?:\\s+${NAME_TOKEN}){0,3})`, 'gu');
   while ((m = descRe.exec(passage)) !== null) {
     people.push({ name: m[1], full: m[1], withTitle: false });
   }
@@ -934,14 +994,25 @@ export function extractEntities(passage) {
     }
   }
   // Quoted titles: short quoted spans of 2-15 words (skip dialogue).
+  // American typography places a trailing comma inside the closing quote
+  // (`"Title,"`) so we strip a trailing comma/semicolon/colon from the
+  // extracted span before lookup; otherwise the captured title doesn't
+  // match its registry entry.
   const quoteRe = /"([A-Z][^"]{2,80})"/g;
   while ((m = quoteRe.exec(passage)) !== null) {
-    const t = m[1].trim();
+    let t = m[1].trim().replace(/[,;:]+$/, '').trim();
     if (!t) continue;
     const words = t.split(/\s+/);
+    // Title-case heuristic: real titles either are a single capitalized
+    // word ("Walden", "Trifles") or contain 2+ capitalized words ("On the
+    // Origin of Mitosing Cells", "Letter to Thomas Auld"). Dialogue spans
+    // like "Frome had been a smart fellow once" capitalize only the first
+    // word and would false-positive otherwise.
+    const capWords = words.filter(w => /^[A-Z]/.test(w)).length;
+    const looksLikeTitle = words.length === 1 || capWords >= 2;
     // Skip dialogue: pure sentence-like spans (ending with `.` or `!`) and
     // very long quotes are exempt — they're usually quotations, not titles.
-    if (words.length <= 8 && !/[.!?]$/.test(t)) {
+    if (words.length <= 8 && !/[.!?]$/.test(t) && looksLikeTitle) {
       works.push({ title: t, raw: m[0] });
     }
   }
@@ -960,7 +1031,9 @@ export function extractEntities(passage) {
  */
 export function validateEntityRegistry(item, researchers, literaryWorks, alwaysAllow) {
   const out = [];
-  if (!item || !item.passage) return out;
+  if (!item) return out;
+  const passageText = getPassageText(item);
+  if (!passageText) return out;
 
   // Index registries for fast lookup.
   const researcherSet = new Set(
@@ -969,16 +1042,29 @@ export function validateEntityRegistry(item, researchers, literaryWorks, alwaysA
   const literaryAuthorSet = new Set(
     (literaryWorks || []).map(w => (w.author || '').trim()).filter(Boolean)
   );
-  const literaryTitleSet = new Set(
-    (literaryWorks || []).map(w => (w.title || '').trim()).filter(Boolean)
-  );
+  // Known work-titles include both canonical literary works AND scholarly
+  // publication titles cited in researchers.json. We also fold in the
+  // pre-colon "main title" form ("South to America" alongside "South to
+  // America: A Journey…") because passages routinely cite the short form,
+  // not the full subtitle.
+  const expandTitle = (t) => {
+    if (!t) return [];
+    const trimmed = t.trim();
+    if (!trimmed) return [];
+    const beforeColon = trimmed.split(':')[0].trim();
+    return beforeColon !== trimmed && beforeColon ? [trimmed, beforeColon] : [trimmed];
+  };
+  const literaryTitleSet = new Set([
+    ...(literaryWorks || []).flatMap(w => expandTitle(w.title)),
+    ...(researchers || []).flatMap(r => (r.publications || []).flatMap(p => expandTitle(p.title))),
+  ]);
   const allowSet = new Set([
     ...alwaysAllow,
     ...researcherSet,
     ...literaryAuthorSet,
   ]);
 
-  const { people, works } = extractEntities(item.passage);
+  const { people, works } = extractEntities(passageText);
 
   // Track per-passage names already reported (don't duplicate per item).
   const reportedNames = new Set();
@@ -1233,10 +1319,31 @@ function runLint({ mode, testNumbers, checks }) {
   // per-skill checks; load lazily when those lints land.
   const researchers = loadResearchers();
   const literaryWorks = loadLiteraryWorks();
+  // crossTextPairs.json supplies the canonical Author 1 / Author 2 pairings
+  // for cross-text-connections items. Fold both authors into alwaysAllow so
+  // CTC items don't fail entity-registry just because the source DB for
+  // pairs is separate from researchers.json.
+  let crossTextPairs = [];
+  try {
+    crossTextPairs = loadCrossTextPairs();
+  } catch (e) {
+    console.error(`warning: crossTextPairs.json unavailable — CTC entity-registry checks may over-flag (${e.message})`);
+  }
 
+  // For each registered name, also include its trailing-period-stripped
+  // form so passages that drop the period from "Jr.", "Sr.", or "St."
+  // suffixes still match. ("Roger Pielke Jr" should look up the same
+  // entry as "Roger Pielke Jr.")
+  const expandName = (s) => {
+    const t = (s || '').trim();
+    if (!t) return [];
+    const noTrailingPeriod = t.replace(/\.$/, '');
+    return noTrailingPeriod !== t ? [t, noTrailingPeriod] : [t];
+  };
   const alwaysAllow = new Set([
     ...ALWAYS_ALLOW_SEED,
-    ...literaryWorks.map(w => (w.author || '').trim()).filter(Boolean),
+    ...literaryWorks.flatMap(w => expandName(w.author)),
+    ...crossTextPairs.flatMap(p => expandName(p?.text1?.author).concat(expandName(p?.text2?.author))),
   ]);
 
   // PDF corpus is whole-bank: per-item PDF uniqueness compares against the
