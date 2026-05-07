@@ -589,7 +589,17 @@ const SolutionExplanation = ({ explanation, isCorrect }) => {
       )}
 
       {/* ── Fallback ──────────────────────────────────────────────── */}
-      {!hasBody && !answerDetail && (
+      {/* Fires when the explanation is plain prose with no **bold** markdown
+          headers — the parser collects every continuation line into
+          `answerDetail`, so the legacy `!hasBody && !answerDetail` guard left
+          new R&W content (Tests 1/2/7 reauthored under RW_PIPELINE_PLAN.md)
+          rendering an empty Solution Explanation panel. CB-style
+          explanations don't use **SAT Pattern:**, **Choice X is correct.**,
+          or **Step N:** structure; they read as continuous prose with a
+          "Why the wrong answers are tempting:" section. Render the raw
+          explanation via RichText whenever no structured `answer` was
+          extracted; RichText handles newlines, bullets, and inline math. */}
+      {!hasBody && !answer && (
         <div style={{ padding: '8px 0' }}>
           <RichText text={explanation} />
         </div>
