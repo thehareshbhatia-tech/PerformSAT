@@ -140,8 +140,15 @@ assert(publishedContent.includes('pdf-rewritten'), 'questions tagged pdf-rewritt
 
 console.log('\n[5] Bank index wiring');
 const indexContent = fs.readFileSync(path.join(ROOT, 'src', 'data', 'questions', 'bank', 'index.js'), 'utf8');
-assert(indexContent.includes("import { generatedOfficialBank } from './generatedOfficial'"), 'index imports generatedOfficialBank');
-assert(indexContent.includes('...generatedOfficialBank'), 'index spreads generatedOfficialBank');
+// generatedOfficial.js is intentionally NOT wired into runtime — the regex
+// rewrite pipeline produces incoherent items. Lock that out at the assertion
+// level so a future careless re-import is caught here.
+assert(!indexContent.includes("import { generatedOfficialBank }"),
+  'index does NOT import generatedOfficialBank (incoherent regex output)');
+assert(!indexContent.includes('...generatedOfficialBank'),
+  'index does NOT spread generatedOfficialBank into questionBank');
+assert(indexContent.includes("from '../index'"),
+  'index pulls hand-authored topic questions instead');
 assert(indexContent.includes('SKILL_ALIAS_MAP'), 'index has skill alias bridge');
 assert(indexContent.includes('resolveSkillIds'), 'index has resolveSkillIds function');
 assert(indexContent.includes('getTargetedWeaknessSet'), 'index exports getTargetedWeaknessSet');

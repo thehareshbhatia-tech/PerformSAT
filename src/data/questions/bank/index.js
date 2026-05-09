@@ -2,14 +2,75 @@ import { algebraBank } from './algebra';
 import { problemSolvingBank } from './problemSolving';
 import { advancedMathBank } from './advancedMath';
 import { geometryBank } from './geometry';
-import { generatedOfficialBank } from './generatedOfficial';
+import { allQuestions as topicQuestionsByModule } from '../index';
+
+// NOTE: `generatedOfficial.js` (1,750 items produced by the regex-based
+// `pdf-first-strict-rewrite` pipeline) is intentionally *not* wired in here.
+// That pipeline mutates numbers and names independently across stem, choices,
+// and explanation, producing internally-incoherent items (numbers in the
+// stem don't match the explanation, names disagree, etc.). The file is kept
+// on disk so the pipeline can be repaired or replaced later, but the
+// runtime drill flow only sees hand-authored content.
+
+// ── Topic-file domain mapping ────────────────────────────────────────────────
+// Topic files in `src/data/questions/{topic}.js` are hand-authored, calibrated
+// SAT-style questions. They tag `skills` per question but lack a `domain`
+// field — we infer it from the topic name so the bank's domain index works.
+const TOPIC_DOMAIN = {
+  'linear-equations':       'algebra',
+  'systems':                'algebra',
+  'functions':              'algebra',
+  'equivalent-expressions': 'algebra',
+  'quadratics':             'advanced-math',
+  'exponents':              'advanced-math',
+  'transformations':        'advanced-math',
+  'percents':               'problem-solving',
+  'dimensional-analysis':   'problem-solving',
+  'statistics':             'problem-solving',
+  'circles':                'geometry',
+  'triangles':              'geometry',
+  'volume':                 'geometry',
+  'radians-degrees':        'geometry',
+};
+
+const sectionSlug = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+function flattenTopicQuestions(byModule) {
+  const out = [];
+  for (const [moduleId, sections] of Object.entries(byModule || {})) {
+    const domain = TOPIC_DOMAIN[moduleId] || 'algebra';
+    for (const [sectionName, questions] of Object.entries(sections || {})) {
+      for (const q of (questions || [])) {
+        if (!q || !Array.isArray(q.choices) || q.choices.length < 2) continue;
+        out.push({
+          ...q,
+          // Namespace the ID — topic files use per-section integer IDs that collide
+          // both within a topic (across sections) and across the bank's string IDs.
+          id: `topic-${moduleId}-${sectionSlug(sectionName)}-${q.id}`,
+          domain,
+          type: q.type || 'multiple-choice',
+          skills: Array.isArray(q.skills) ? q.skills : [],
+          difficulty: q.difficulty || 'medium',
+          authoredBy: q.authoredBy || 'performsat-engine',
+          // Provenance back to the source topic file
+          sourceModuleId: moduleId,
+          sourceSectionName: sectionName,
+          sourceQuestionId: q.id,
+        });
+      }
+    }
+  }
+  return out;
+}
+
+const topicBank = flattenTopicQuestions(topicQuestionsByModule);
 
 export const questionBank = [
   ...algebraBank,
   ...problemSolvingBank,
   ...advancedMathBank,
   ...geometryBank,
-  ...generatedOfficialBank,
+  ...topicBank,
 ];
 
 const bankIndex = new Map(questionBank.map(q => [q.id, q]));
