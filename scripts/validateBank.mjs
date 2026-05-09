@@ -2,16 +2,23 @@
 /**
  * Question Bank Validator
  *
- * Validates ALL bank shards (hand-authored + generated official) against the
- * AUTHORING_SPEC schema, checks for duplicates, skill coverage, and
- * cross-shard text-similarity thresholds.
+ * Validates the hand-authored bank shards against the AUTHORING_SPEC schema,
+ * checks for duplicates, skill coverage, and cross-shard text-similarity
+ * thresholds.
+ *
+ * Note: `generatedOfficial.js` was deleted in the Day 0 cleanup of the
+ * Acely-parity batch. The pipeline that produced it (regex-based
+ * pdf-first-strict-rewrite) emitted internally-incoherent items (numbers,
+ * names, references mismatched across stem/choices/explanation). The pipeline
+ * source remains at `scripts/officialQuestionBankPipeline.mjs` for repair —
+ * when the regex mutators are replaced with LLM-authored variants + an
+ * arithmetic-coherence validator, restore the import + spread below.
  */
 
 import { algebraBank } from '../src/data/questions/bank/algebra.js';
 import { problemSolvingBank } from '../src/data/questions/bank/problemSolving.js';
 import { advancedMathBank } from '../src/data/questions/bank/advancedMath.js';
 import { geometryBank } from '../src/data/questions/bank/geometry.js';
-import { generatedOfficialBank } from '../src/data/questions/bank/generatedOfficial.js';
 
 const VALID_DOMAINS = ['algebra', 'problem-solving', 'advanced-math', 'geometry'];
 const VALID_DIFFICULTIES = ['easy', 'medium', 'hard'];
@@ -54,8 +61,7 @@ function jaccardSimilarity(a, b) {
 }
 
 const handAuthored = [...algebraBank, ...problemSolvingBank, ...advancedMathBank, ...geometryBank];
-const generated = [...generatedOfficialBank];
-const bank = [...handAuthored, ...generated];
+const bank = [...handAuthored];
 
 const errors = [];
 const warnings = [];
@@ -87,26 +93,13 @@ bank.forEach((q, i) => {
   diffCounts[q.difficulty] = (diffCounts[q.difficulty] || 0) + 1;
 });
 
-const CROSS_SIMILARITY_THRESHOLD = 0.92;
-let similarPairs = 0;
-
-if (generated.length > 0 && handAuthored.length > 0) {
-  const handTokens = handAuthored.map(q => ({ id: q.id, tokens: tokenize(q.question) }));
-  const genTokens = generated.map(q => ({ id: q.id, tokens: tokenize(q.question) }));
-
-  for (const g of genTokens) {
-    for (const h of handTokens) {
-      const sim = jaccardSimilarity(g.tokens, h.tokens);
-      if (sim >= CROSS_SIMILARITY_THRESHOLD) {
-        warnings.push(`High similarity (${(sim * 100).toFixed(0)}%) between generated ${g.id} and hand-authored ${h.id}`);
-        similarPairs++;
-      }
-    }
-  }
-}
+// Cross-shard similarity check (skipped — generatedOfficial.js parked, see header).
+// When the rebuilt pipeline ships, restore this block:
+//   for (const g of generatedTokens) for (const h of handTokens)
+//     if (jaccardSimilarity(g.tokens, h.tokens) >= 0.92) warnings.push(...)
 
 console.log('\n=== QUESTION BANK VALIDATION ===');
-console.log(`Total questions: ${bank.length} (hand-authored: ${handAuthored.length}, generated: ${generated.length})`);
+console.log(`Total questions: ${bank.length} (hand-authored only — generated bank parked)`);
 console.log(`Unique IDs: ${ids.size}`);
 console.log('\nBy domain:', domainCounts);
 console.log('By difficulty:', diffCounts);
@@ -115,10 +108,6 @@ console.log(`Skills covered: ${Object.keys(skillCoverage).length} / ${TAXONOMY_S
 const uncovered = TAXONOMY_SKILLS.filter(s => !skillCoverage[s]);
 if (uncovered.length > 0) {
   console.log(`\nWARNING: ${uncovered.length} taxonomy skills not covered:`, uncovered);
-}
-
-if (similarPairs > 0) {
-  console.log(`\nSimilarity check: ${similarPairs} generated/hand-authored pairs above ${(CROSS_SIMILARITY_THRESHOLD * 100).toFixed(0)}% threshold`);
 }
 
 if (warnings.length > 0) {
