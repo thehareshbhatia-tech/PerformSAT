@@ -695,6 +695,46 @@ function truncateForMsg(s, n = 80) {
 const BANK_SKELETON_JACCARD_THRESHOLD = 0.40;
 const BANK_SKELETON_OPENING_TOKENS = 12;
 
+// Canonical College Board literary-passage opening that appears verbatim in
+// every CB Bluebook PT 4-11 literary stem (and our reauthored bank). Any pair
+// whose fingerprinted openings BOTH start with one of these prefixes is
+// matching on a structural CB stem, not on creative content. Suppress
+// `openingMatch` for such pairs — Jaccard still applies, which catches actual
+// content reuse beyond the structural opener.
+//
+// Strings are in fingerprint form: lowercase, post-stripProperNouns, with
+// names/years collapsed to placeholders (so "The following text is adapted
+// from Anton Chekhov's 1898 short story" → "the following text is adapted
+// from").
+const RW_CANONICAL_OPENING_PREFIXES = [
+  'the following text is adapted from',
+];
+
+function openingIsCanonical(opening) {
+  if (!opening) return false;
+  return RW_CANONICAL_OPENING_PREFIXES.some(p => opening.startsWith(p));
+}
+
+/**
+ * Documented source-reuse allowlist. Some CB-style banks intentionally re-use
+ * a researcher / literary work across two tests for different skills (e.g.,
+ * Banaji's *Blindspot* anchoring T1 Q50 form-structure + T2 Q51 transitions).
+ * Authors record the intent in `source_reuse` or `source_reuse_note` on the
+ * partner item, citing the partner test (e.g., "T1Q50", "from T7 Q50",
+ * "Test 4 q01"). When EITHER side of a pair documents the partner test, the
+ * bank-skeleton match is intentional — suppress the violation.
+ *
+ * Matches "T<N>" (with optional whitespace, not followed by another digit so
+ * "T1" does not match "T10") and "Test <N>" (case-insensitive). Multi-digit
+ * test numbers handled via the `(?!\d)` lookahead.
+ */
+function isDocumentedReuse(A, B) {
+  if (!A.sourceReuse.trim() && !B.sourceReuse.trim()) return false;
+  const reA = new RegExp(`(?:^|\\W)T\\s*${B.testN}(?!\\d)|\\btest\\s+${B.testN}(?!\\d)`, 'i');
+  const reB = new RegExp(`(?:^|\\W)T\\s*${A.testN}(?!\\d)|\\btest\\s+${A.testN}(?!\\d)`, 'i');
+  return reA.test(A.sourceReuse) || reB.test(B.sourceReuse);
+}
+
 const TITLE_PREFIXES = new Set([
   'Dr.', 'Dr', 'Mr.', 'Mr', 'Mrs.', 'Mrs', 'Ms.', 'Ms', 'Prof.', 'Prof',
   'Professor', 'Sir', 'Lady', 'Lord', 'St.', 'St',
@@ -817,6 +857,16 @@ export function validateBankSkeletons(bankItems) {
       opening: passageOpeningFingerprint(b.item.passage),
       tokenSet: passageNormalizedTokens(b.item.passage),
       passage: b.item.passage,
+      // Combined source_reuse / source_reuse_note text — fed to
+      // isDocumentedReuse(). Authors place either field at the item top level
+      // OR nested under `_meta`; the assembler preserves both layouts. Probe
+      // both, plus both field names. Empty string when nothing is set.
+      sourceReuse: [
+        b.item.source_reuse,
+        b.item.source_reuse_note,
+        b.item._meta && b.item._meta.source_reuse,
+        b.item._meta && b.item._meta.source_reuse_note,
+      ].filter(Boolean).join(' ').trim(),
     }))
     .filter(b => b.tokenSet.size >= 8);
 
@@ -834,14 +884,25 @@ export function validateBankSkeletons(bankItems) {
       seenPairs.add(pairKey);
 
       // Opening exact match across different tests:
-      const openingMatch = A.testN !== B.testN
+      const rawOpeningMatch = A.testN !== B.testN
         && A.opening === B.opening
         && A.opening.split(' ').filter(Boolean).length >= 6;
+      // Canonical CB-opening allowlist: when both passages start with the
+      // canonical "The following text is adapted from..." stem (or any other
+      // registered structural prefix), the opening match is mechanical, not
+      // creative. Demote `openingMatch` for those pairs — Jaccard remains the
+      // sole signal for content overlap.
+      const bothCanonical = openingIsCanonical(A.opening) && openingIsCanonical(B.opening);
+      const openingMatch = rawOpeningMatch && !bothCanonical;
       // Jaccard of normalized tokens above threshold:
       const jac = jaccardSets(A.tokenSet, B.tokenSet);
       const jaccardMatch = jac > BANK_SKELETON_JACCARD_THRESHOLD;
 
       if (openingMatch || jaccardMatch) {
+        // source_reuse metadata allowlist: if either item documents reuse and
+        // names the partner test, the pair is intentional (same researcher /
+        // literary work, distinct skills). Suppress the violation.
+        if (isDocumentedReuse(A, B)) continue;
         const reason = [];
         if (openingMatch) reason.push(`shared 12-token opening`);
         if (jaccardMatch) reason.push(`Jaccard ${jac.toFixed(2)}`);

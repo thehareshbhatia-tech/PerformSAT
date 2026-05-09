@@ -375,6 +375,74 @@ console.log('\n[6] validateBankSkeletons');
   const r2 = validateBankSkeletons(cloneBank);
   assert(r2.length >= 1, 'near-duplicate cross-test passage → bank-skeleton violation');
   assert(/mirrors/.test(r2[0].message), 'violation message contains "mirrors"');
+
+  // ---------------------------------------------------------------------------
+  // Allowlist regression: canonical CB literary opening across tests does not
+  // fire on the structural opener alone (Jaccard still applies for content).
+  // The canonical opener is "The following text is adapted from..." — every
+  // CB literary passage uses it; a shared 12-token opening fingerprint here
+  // is mechanical, not creative.
+  // ---------------------------------------------------------------------------
+  const cbA = 'The following text is adapted from Anton Chekhov\'s 1898 short story "Ionych." A young doctor settles in the provincial town of S. and tries to make himself useful to its leading family.';
+  const cbB = 'The following text is adapted from Katherine Mansfield\'s 1922 short story "The Garden Party." A bright Wellington morning frames a household preparing for an outdoor celebration on a sloping suburban lawn.';
+  const cbBank = [
+    { testN: 1, line: 50, item: rwItem({ id: 1, passage: cbA }) },
+    { testN: 2, line: 60, item: rwItem({ id: 2, passage: cbB }) },
+  ];
+  const r3 = validateBankSkeletons(cbBank);
+  assert(r3.length === 0, 'canonical CB literary opening across tests → no bank-skeleton violation (allowlisted)');
+
+  // Allowlist regression: documented source_reuse metadata across tests
+  // suppresses the violation even when content matches strongly. Either side
+  // declaring the partner test (e.g., "T7 Q10" or "Test 7") is enough.
+  const reuseAnchorA = 'In her 1999 book The Boundaries of Blackness: AIDS and the Breakdown of Black Politics, political scientist Cathy Cohen develops the concept of secondary marginalization to explain how a marginalized group can push aside its own most stigmatized members during a public-health crisis that demands rapid mobilization.';
+  const reuseAnchorB = 'In The Boundaries of Blackness (1999), political scientist Cathy Cohen develops the concept of secondary marginalization to explain how a marginalized group can push aside its own most stigmatized members during a public-health crisis that demands a rapid coalition-building response.';
+  const reuseBank = [
+    { testN: 7, line: 321, item: rwItem({ id: 710, passage: reuseAnchorA }) },
+    { testN: 8, line: 1574, item: rwItem({
+      id: 846,
+      passage: reuseAnchorB,
+      _meta: { source_reuse: 'Reuses Cathy Cohen / Boundaries of Blackness anchor from T7 Q10 (different skill).' },
+    }) },
+  ];
+  const r4 = validateBankSkeletons(reuseBank);
+  assert(r4.length === 0, 'documented source_reuse metadata in _meta → no bank-skeleton violation (allowlisted)');
+
+  // Top-level source_reuse field also recognized.
+  const reuseBankTopLevel = [
+    { testN: 1, line: 50, item: rwItem({ id: 1, passage: reuseAnchorA }) },
+    { testN: 2, line: 60, item: rwItem({
+      id: 2,
+      passage: reuseAnchorB,
+      source_reuse_note: 'Pairs with Test 1 q01 — same anchor, different skill family.',
+    }) },
+  ];
+  const r4b = validateBankSkeletons(reuseBankTopLevel);
+  assert(r4b.length === 0, 'top-level source_reuse_note → no bank-skeleton violation (allowlisted)');
+
+  // Multi-digit test numbers handled — "T1" in source_reuse must not match
+  // partner test 10 (would be a false-allowlist).
+  const reuseBankWrongTest = [
+    { testN: 10, line: 50, item: rwItem({ id: 1001, passage: reuseAnchorA }) },
+    { testN: 11, line: 60, item: rwItem({
+      id: 1102,
+      passage: reuseAnchorB,
+      _meta: { source_reuse: 'Reuses anchor from T1 Q05 (different skill).' },
+    }) },
+  ];
+  const r4c = validateBankSkeletons(reuseBankWrongTest);
+  assert(r4c.length >= 1, 'source_reuse "T1" must NOT match partner test 10 (multi-digit boundary)');
+
+  // Negative regression: a real >0.40 Jaccard match without any allowlist
+  // signal still fires — the polish must not over-suppress.
+  const realA = 'Wetland scientists tracked salinity changes across the estuary over twenty years and observed dramatic shifts in plant community composition near the coastal edge of the bay.';
+  const realB = 'Wetland scientists tracked salinity changes across the estuary over twenty years and observed dramatic shifts in plant community composition near the coastal edge of the lagoon.';
+  const realBank = [
+    { testN: 1, line: 50, item: rwItem({ id: 1, passage: realA }) },
+    { testN: 2, line: 60, item: rwItem({ id: 2, passage: realB }) },
+  ];
+  const r5 = validateBankSkeletons(realBank);
+  assert(r5.length >= 1, 'undocumented high-Jaccard duplication still fires bank-skeleton (allowlist not over-broad)');
 }
 
 // ===========================================================================
