@@ -32,6 +32,8 @@
     "bank:test:calibrate": "node scripts/__tests__/calibrateModule.test.mjs",
     "bank:lint:rubric": "node scripts/calibrateModule.mjs --lint --test=1",
     "bank:lint:rubric:all": "node scripts/calibrateModule.mjs --lint --all",
+    "rw-bank:validate": "node scripts/validateRWBank.mjs --all",
+    "rw-drill:validate": "node scripts/validateRWDrillSample.mjs",
     "eject": "react-scripts eject"
   },
   "browserslist": {
