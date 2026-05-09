@@ -114,6 +114,173 @@
   .ttc-spinner { animation: none; }
 }
 
+/* ── Day-2 Acely-polish: per-activity sub-cards ─────────────────────── */
+
+.ttc-state-day {
+  gap: 12px;
+}
+
+.ttc-day-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ttc-activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ttc-activity {
+  background: var(--color-slate-50);
+  border: 1px solid var(--color-slate-200);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+
+.ttc-activity-complete {
+  background: var(--color-success-100);
+  border-color: rgba(52, 199, 89, 0.3);
+}
+
+.ttc-activity.is-collapsed {
+  padding: 10px 16px;
+}
+
+.ttc-activity-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.ttc-activity-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ttc-activity-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-slate-900);
+  line-height: 1.3;
+}
+
+.ttc-activity-sub {
+  font-size: 13px;
+  color: var(--color-slate-600);
+  line-height: 1.4;
+}
+
+.ttc-activity-meta {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ttc-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--color-slate-100);
+  color: var(--color-slate-700);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.ttc-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.ttc-badge-success {
+  background: var(--color-success-100);
+  color: var(--color-success-600);
+}
+
+.ttc-activity-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ttc-activity-cta {
+  flex: 1 1 auto;
+  min-height: 38px;
+  padding: 9px 16px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  text-align: center;
+}
+.ttc-activity-cta:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.ttc-activity-cta-primary {
+  background: var(--color-brand-primary);
+  color: var(--color-white);
+}
+.ttc-activity-cta-primary:hover:not(:disabled) {
+  background: var(--color-brand-primary-hover);
+}
+
+.ttc-activity-cta-secondary {
+  background: var(--color-white);
+  color: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
+}
+.ttc-activity-cta-secondary:hover:not(:disabled) {
+  background: var(--color-brand-primary-light);
+}
+
+.ttc-activity-toggle {
+  background: transparent;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--color-slate-500);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.ttc-activity-toggle:hover {
+  background: var(--color-slate-100);
+  color: var(--color-slate-900);
+}
+
+/* Collapsed completed task — toggle floats to the right of the row */
+.ttc-activity.is-collapsed {
+  flex-direction: row;
+  align-items: center;
+}
+.ttc-activity.is-collapsed .ttc-activity-row {
+  flex: 1 1 auto;
+}
+.ttc-activity.is-collapsed .ttc-activity-toggle {
+  margin-left: auto;
+}
+
 /* Footer: inline adherence metric */
 
 .ttc-adherence {

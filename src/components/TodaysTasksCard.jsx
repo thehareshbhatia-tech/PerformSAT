@@ -1,38 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './TodaysTasksCard.css';
 
 /**
  * TodaysTasksCard — the Dashboard-tab hero. Replaces the legacy AI Practice
  * Banner for users who have a study plan (D-IH-1).
  *
- * Pure presentational. Takes the result of `getTodaySlice` and
- * `getSessionAdherence` plus action callbacks.
+ * Renders a list of activity sub-cards for today (matching Acely's pattern)
+ * plus state-specific empty / refreshing / rest-day / plan-complete branches.
  *
- * Visual state matrix (the kind from the slice drives the layout):
+ * Visual state matrix:
  *   - 'no-plan'        empty state with "Take a diagnostic test" CTA
- *   - 'refreshing'     spinner + "Updating your plan..." copy
+ *   - 'refreshing'     spinner + "Updating your plan..."
  *   - 'plan-complete'  celebration "All weeks complete"
  *   - 'rest-day'       "Rest day — see you <nextScheduledDay>"
- *   - 'all-done'       "All done for today — next up <nextScheduledDay>"
- *   - 'partial'        "X done, Y remaining" + next-CTA
- *   - 'ready'          primary CTA "Start: <activity.title> (~Z min)"
+ *   - 'ready' / 'partial' / 'all-done'  → list of activity sub-cards
  *
- * FM-13 fallthrough:
- *   When the first incomplete activity is a strategy-only drill (no
- *   moduleId), the CTA falls through to the next non-strategy activity.
- *   If every activity is strategy-only, we still render the strategy CTA
- *   so the user has SOMETHING to click — the failure mode the test plan
- *   names is "silent fail," and the fix is "always render a CTA."
+ * Each activity sub-card has:
+ *   - title + subtitle
+ *   - status badge (READY / IN PROGRESS / PRACTICE COMPLETE!)
+ *   - time chip (X MIN)
+ *   - CTA button (Start → / Continue → / Review Session →)
+ *   - Completed cards collapse on click (chevron toggle)
  *
- * Inline adherence:
- *   "X of last 7 days" lives in the card footer for every state except
- *   no-plan and refreshing (where it would have no anchor).
+ * Inline adherence ("X of last 7 days") sits in the card footer for every
+ * state except no-plan / refreshing.
  *
  * @param {object} props
- * @param {{ kind: string, activities: Array, day: string,
- *           weekNumber: number|null, nextScheduledDay?: string|null }} props.slice
+ * @param {{ kind: string, activities: Array, completedToday?: Array,
+ *           day: string, weekNumber: number|null,
+ *           nextScheduledDay?: string|null }} props.slice
  * @param {{ uniqueDays: number, totalDays: number, label: string }} [props.adherence]
- * @param {string} [props.dailyIntro]   Per-day editorial paragraph (Day-1 Acely-polish)
+ * @param {string} [props.dailyIntro]   Per-day editorial paragraph
  * @param {(activity: object) => void} [props.onStartActivity]
  * @param {() => void} [props.onTakeTest]
  */
@@ -44,9 +42,7 @@ function TodaysTasksCard({ slice, adherence, dailyIntro, onStartActivity, onTake
 
   return (
     <section className="ttc-card" aria-label="Today's tasks">
-      {dailyIntro && (
-        <p className="ttc-daily-intro">{dailyIntro}</p>
-      )}
+      {dailyIntro && <p className="ttc-daily-intro">{dailyIntro}</p>}
       {renderBody(safeSlice, onStartActivity, onTakeTest)}
       {showAdherence && (
         <div className="ttc-adherence" data-testid="ttc-adherence">
@@ -120,70 +116,147 @@ function renderBody(slice, onStartActivity, onTakeTest) {
         </div>
       );
 
-    case 'all-done':
-      return (
-        <div className="ttc-state ttc-state-done">
-          <div className="ttc-eyebrow">Today · {slice.day}</div>
-          <h2 className="ttc-title">All done for today.</h2>
-          <p className="ttc-sub">
-            {slice.nextScheduledDay
-              ? <>Next session: <strong>{slice.nextScheduledDay}</strong>.</>
-              : <>You're caught up. Tomorrow's plan refreshes overnight.</>}
-          </p>
-        </div>
-      );
-
-    case 'partial': {
-      const cta = pickStartableActivity(slice.activities);
-      const completedCount = (slice.completedToday || []).length;
-      const totalToday = completedCount + (slice.activities || []).length;
-      return (
-        <div className="ttc-state ttc-state-partial">
-          <div className="ttc-eyebrow">Today · {slice.day} · {completedCount}/{totalToday} done</div>
-          <h2 className="ttc-title">{ctaCopy(cta)}</h2>
-          <p className="ttc-sub">{ctaSubtitle(cta)}</p>
-          {cta && (
-            <button
-              type="button"
-              className="ttc-cta ttc-cta-primary"
-              onClick={() => onStartActivity && onStartActivity(cta)}
-            >
-              Continue →
-            </button>
-          )}
-        </div>
-      );
-    }
-
     case 'ready':
+    case 'partial':
+    case 'all-done':
     default: {
-      const cta = pickStartableActivity(slice.activities);
+      // Build the merged activity list. Incomplete first, completed below.
+      const incomplete = Array.isArray(slice.activities) ? slice.activities : [];
+      const completed = Array.isArray(slice.completedToday) ? slice.completedToday : [];
+      const isAllDone = slice.kind === 'all-done';
+      // In all-done, slice.activities contains the completed list (per
+      // getTodaySlice's contract). De-dupe by reference.
+      const allTasks = isAllDone
+        ? incomplete.map(a => ({ activity: a, isComplete: true }))
+        : [
+            ...incomplete.map(a => ({ activity: a, isComplete: false })),
+            ...completed.map(a => ({ activity: a, isComplete: true })),
+          ];
+      const completedCount = isAllDone ? incomplete.length : completed.length;
+      const totalCount = isAllDone ? incomplete.length : (incomplete.length + completed.length);
+
       return (
-        <div className="ttc-state ttc-state-ready">
-          <div className="ttc-eyebrow">Today · {slice.day}</div>
-          <h2 className="ttc-title">{ctaCopy(cta)}</h2>
-          <p className="ttc-sub">{ctaSubtitle(cta)}</p>
-          {cta && (
-            <button
-              type="button"
-              className="ttc-cta ttc-cta-primary"
-              onClick={() => onStartActivity && onStartActivity(cta)}
-            >
-              Start →
-            </button>
-          )}
+        <div className="ttc-state ttc-state-day">
+          <div className="ttc-day-header">
+            <div className="ttc-eyebrow">
+              Today · {slice.day}
+              {totalCount > 0 && <> · {completedCount}/{totalCount} done</>}
+            </div>
+            {isAllDone && slice.nextScheduledDay && (
+              <p className="ttc-sub">
+                Next session: <strong>{slice.nextScheduledDay}</strong>.
+              </p>
+            )}
+          </div>
+
+          <div className="ttc-activity-list">
+            {allTasks.map(({ activity, isComplete }, i) => (
+              <ActivityRow
+                key={(activity?.moduleId || 'act') + '-' + i}
+                activity={activity}
+                isComplete={isComplete}
+                onStart={onStartActivity}
+              />
+            ))}
+          </div>
         </div>
       );
     }
   }
 }
 
+function ActivityRow({ activity, isComplete, onStart }) {
+  const [expanded, setExpanded] = useState(!isComplete);
+  if (!activity) return null;
+
+  const title = activity.title || 'Practice session';
+  const subtitle = activity.subtitle || activity.skillName || '';
+  const minutes = typeof activity.duration === 'number' ? activity.duration : null;
+
+  // Status: completed > in-progress (future) > ready
+  const status = isComplete ? 'complete' : 'ready';
+
+  const handleStart = () => {
+    if (typeof onStart === 'function' && activity?.moduleId) onStart(activity);
+  };
+
+  const collapsed = isComplete && !expanded;
+
+  return (
+    <div className={`ttc-activity ttc-activity-${status}${collapsed ? ' is-collapsed' : ''}`}>
+      <div className="ttc-activity-row">
+        <div className="ttc-activity-text">
+          <div className="ttc-activity-title">{title}</div>
+          {subtitle && !collapsed && (
+            <div className="ttc-activity-sub">{subtitle}</div>
+          )}
+        </div>
+
+        <div className="ttc-activity-meta">
+          {isComplete ? (
+            <span className="ttc-badge ttc-badge-success">PRACTICE COMPLETE!</span>
+          ) : minutes !== null ? (
+            <span className="ttc-chip">{minutes} MIN</span>
+          ) : null}
+        </div>
+      </div>
+
+      {!collapsed && (
+        <div className="ttc-activity-actions">
+          {isComplete ? (
+            <>
+              <button
+                type="button"
+                className="ttc-activity-cta ttc-activity-cta-secondary"
+                onClick={handleStart}
+                disabled={!activity?.moduleId}
+              >
+                Review Session →
+              </button>
+              <button
+                type="button"
+                className="ttc-activity-toggle"
+                onClick={() => setExpanded(false)}
+                aria-label="Collapse this completed task"
+              >
+                ▴
+              </button>
+            </>
+          ) : (
+            <button
+              type="button"
+              className="ttc-activity-cta ttc-activity-cta-primary"
+              onClick={handleStart}
+              disabled={!activity?.moduleId}
+            >
+              Start →
+            </button>
+          )}
+        </div>
+      )}
+
+      {collapsed && (
+        <button
+          type="button"
+          className="ttc-activity-toggle"
+          onClick={() => setExpanded(true)}
+          aria-label="Expand this completed task"
+        >
+          ▾
+        </button>
+      )}
+    </div>
+  );
+}
+
 /**
  * Pick the first activity worth offering as the CTA. Strategy-only drills
- * with no moduleId can land in the queue but don't navigate cleanly, so we
- * skip them and fall through. If every activity is strategy-only we hand
- * back the first one anyway — the user gets a CTA instead of a silent fail
- * (FM-13 from the eng-review test plan).
+ * with no moduleId don't navigate cleanly, so we skip them and fall through.
+ * If every activity is strategy-only we hand back the first one anyway —
+ * the user gets a CTA instead of a silent fail (FM-13).
+ *
+ * Kept as a named export for the downstream tests that lock the FM-13
+ * contract; not used by the new render path (which lists every activity).
  *
  * @param {Array<object>} activities
  * @returns {object | null}
@@ -192,20 +265,6 @@ export function pickStartableActivity(activities) {
   if (!Array.isArray(activities) || activities.length === 0) return null;
   const startable = activities.find(a => a && a.moduleId);
   return startable || activities[0];
-}
-
-function ctaCopy(activity) {
-  if (!activity) return 'No activities scheduled.';
-  const title = activity.title || activity.subtitle || 'Practice session';
-  // Plan calls for "Start: Linear Equations Drill (15 q · ~20 min)" but
-  // question count isn't stored on activities. We surface duration only.
-  const minutes = typeof activity.duration === 'number' ? activity.duration : null;
-  return minutes ? `Start: ${title} (~${minutes} min)` : `Start: ${title}`;
-}
-
-function ctaSubtitle(activity) {
-  if (!activity) return '';
-  return activity.subtitle || activity.skillName || '';
 }
 
 export default TodaysTasksCard;
