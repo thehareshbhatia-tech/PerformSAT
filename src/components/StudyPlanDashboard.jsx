@@ -4,6 +4,7 @@ import { MathText } from './MathText';
 import { DataCard } from './ui/DataCard';
 import { PrimaryButton } from './ui/Button';
 import { getQuestionById, getQuestionsBySkillIds, getTargetedWeaknessSet } from '../data/questions/bank';
+import { getMathWeaknesses, getRWWeaknesses, getWeaknessSection } from '../services/selectors/weaknesses';
 import {
   ClipboardIcon,
   VideoCameraIcon,
@@ -139,6 +140,11 @@ const StudyPlanDashboard = ({
   };
 
   // ── Skill practice data ──────────────────────────────────────────────
+  // Section-tag contract (Day 0): each weakness now has `section: 'math' | 'rw'`.
+  // Today only the math bank ships (R&W bank lands in Day 1-2 / item #1), so we
+  // route only math-section weaknesses into the dispatcher and surface R&W ones
+  // as "drill coming soon" rows. Once the R&W bank ships, the rw branch will
+  // route to its own getTargetedWeaknessSet from `data/questions/rwBank`.
   const skillPracticeRows = useMemo(() => {
     if (!weaknesses?.length || !onStartPractice) return [];
 
@@ -156,10 +162,15 @@ const StudyPlanDashboard = ({
     })();
 
     return weaknesses.slice(0, 6).map(w => {
-      // Use getTargetedWeaknessSet for smarter question selection:
-      // - Filters by the student's weak skill
-      // - Applies difficulty mix matching their level
-      // - Excludes already-answered questions
+      const section = getWeaknessSection(w);
+
+      // R&W drills not yet wired (Day 1-2 / item #1). Surface the weakness as
+      // a row but with no questions — the UI can render a "coming soon" pill.
+      if (section === 'rw') {
+        return { ...w, section, qCount: 0, qIds: [], drillNotReady: true };
+      }
+
+      // Math weakness — route into the math bank via getTargetedWeaknessSet.
       const questions = getTargetedWeaknessSet({
         weakSkills: [{ skillId: w.skillId, domain: w.domain }],
         difficultyMix: diffMix,
@@ -172,9 +183,9 @@ const StudyPlanDashboard = ({
         const fallback = getQuestionsBySkillIds(w.skillId ? [w.skillId] : [], { limit: 15 })
           .filter(q => Array.isArray(q.choices) && q.choices.length >= 2);
         if (fallback.length === 0) return null;
-        return { ...w, qCount: fallback.length, qIds: fallback.map(q => q.id) };
+        return { ...w, section, qCount: fallback.length, qIds: fallback.map(q => q.id) };
       }
-      return { ...w, qCount: questions.length, qIds: questions.map(q => q.id) };
+      return { ...w, section, qCount: questions.length, qIds: questions.map(q => q.id) };
     }).filter(Boolean);
   }, [weaknesses, onStartPractice, answeredQuestionIds, studyPlan?.difficultyAnalysis]);
 
@@ -460,13 +471,29 @@ const StudyPlanDashboard = ({
                         </div>
                       )}
                     </div>
-                    <button
-                      className="btn-launch"
-                      style={{ flexShrink: 0, padding: '0.5rem 1rem' }}
-                      onClick={() => onStartPractice(null, null, { questionIds: w.qIds, source: 'study-plan-assigned', label: `${w.skill} Practice` })}
-                    >
-                      <PencilIcon size={14} style={{ marginRight: '6px', verticalAlign: 'text-bottom' }} /> Practice
-                    </button>
+                    {w.drillNotReady ? (
+                      // R&W drill bank not yet wired (Day 1-2 / item #1).
+                      <span
+                        style={{
+                          flexShrink: 0,
+                          padding: '0.5rem 1rem',
+                          fontSize: '0.8125rem',
+                          color: 'var(--color-slate-500)',
+                          fontStyle: 'italic',
+                        }}
+                        title="R&W focus area drills are coming soon"
+                      >
+                        Drill coming soon
+                      </span>
+                    ) : (
+                      <button
+                        className="btn-launch"
+                        style={{ flexShrink: 0, padding: '0.5rem 1rem' }}
+                        onClick={() => onStartPractice(null, null, { questionIds: w.qIds, source: 'study-plan-assigned', label: `${w.skill} Practice` })}
+                      >
+                        <PencilIcon size={14} style={{ marginRight: '6px', verticalAlign: 'text-bottom' }} /> Practice
+                      </button>
+                    )}
                   </div>
                 </div>
               );
