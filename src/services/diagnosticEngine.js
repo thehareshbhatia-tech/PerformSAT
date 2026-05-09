@@ -22,6 +22,51 @@
 
 import { getSkillById, skillTaxonomy, getSkillsForDomain } from '../data/skillTaxonomy';
 import { SKILL_ALIAS_MAP } from '../data/questions/bank';
+import { RW_CANONICAL_SKILLS, RW_DOMAINS } from '../data/questions/rwBank';
+
+// R&W canonical skills as a Set for O(1) membership checks. Used to tag
+// weakness entries with `section: 'rw'` and to infer domain when the math
+// `getSkillById` taxonomy lookup misses.
+const RW_SKILL_SET = new Set(RW_CANONICAL_SKILLS);
+const RW_DOMAIN_SET = new Set(RW_DOMAINS);
+
+// Skill → domain for R&W (mirror of rwBank's RW_SKILL_TO_DOMAIN — kept inline
+// here so the engine doesn't depend on a non-exported constant).
+const RW_SKILL_TO_DOMAIN = {
+  'central-ideas-and-details':         'information-and-ideas',
+  'inferences':                        'information-and-ideas',
+  'command-of-evidence-textual':       'information-and-ideas',
+  'command-of-evidence-quantitative':  'information-and-ideas',
+  'words-in-context':                  'craft-and-structure',
+  'text-structure-and-purpose':        'craft-and-structure',
+  'cross-text-connections':            'craft-and-structure',
+  'boundaries':                        'standard-english-conventions',
+  'form-structure-and-sense':          'standard-english-conventions',
+  'transitions':                       'expression-of-ideas',
+  'rhetorical-synthesis':              'expression-of-ideas',
+};
+
+/**
+ * Read a question's skills as an array, regardless of source shape.
+ *
+ * Math test bundles emit `q.skills: string[]` (array form, the canonical bank
+ * shape). R&W test bundles emit `q.skill: string` (singular). Both feed into
+ * `analyzeSkills` and `analyzeDomains`; this helper normalizes them so a
+ * single iteration handles both sources.
+ */
+const getQuestionSkills = (q) => {
+  if (Array.isArray(q?.skills)) return q.skills;
+  if (typeof q?.skill === 'string' && q.skill) return [q.skill];
+  return [];
+};
+
+/**
+ * Determine which test section a skill belongs to.
+ *
+ * @param {string} skillId
+ * @returns {'math' | 'rw'}
+ */
+const getSkillSection = (skillId) => RW_SKILL_SET.has(skillId) ? 'rw' : 'math';
 
 /**
  * Convert a raw skill ID (which may be an alias like "mean-median-mode")
@@ -782,21 +827,31 @@ const analyzeDomains = (questionAnalysis) => {
       if (q.isCorrect) domains[domain].byDifficulty[diff].correct++;
     }
 
-    (Array.isArray(q.skills) ? q.skills : []).forEach(s => domains[domain].skills.add(s));
+    // Normalize across math (q.skills: array) and R&W (q.skill: string).
+    getQuestionSkills(q).forEach(s => domains[domain].skills.add(s));
   });
 
-  // Calculate percentages and rank
+  // Calculate percentages and rank.
+  // R&W domains carry a section: 'rw' tag for downstream filtering. Math
+  // domains stay implicit/section-blind (the existing math-only behavior).
   const domainSummary = Object.values(domains)
     .filter(d => d.domain !== 'unknown')
-    .map(d => ({
-      ...d,
-      skills: [...d.skills],
-      accuracy: d.total > 0 ? Math.round((d.correct / d.total) * 100) : 0,
-      satWeight: DOMAIN_WEIGHTS[d.domain] || 0,
-      displayName: skillTaxonomy.domains[d.domain]?.name || d.domain,
-      color: skillTaxonomy.domains[d.domain]?.color || '#888',
-      pointsAvailable: d.wrong * 10, // Rough: each question ≈ 10 scaled points
-    }))
+    .map(d => {
+      const isRW = RW_DOMAIN_SET.has(d.domain);
+      return {
+        ...d,
+        skills: [...d.skills],
+        accuracy: d.total > 0 ? Math.round((d.correct / d.total) * 100) : 0,
+        // satWeight: DOMAIN_WEIGHTS only covers math. R&W domains return 0 —
+        // acceptable v1 behavior per /autoplan A2: R&W gets surfaced in the
+        // weakness list but does not participate in math score projection.
+        satWeight: DOMAIN_WEIGHTS[d.domain] || 0,
+        displayName: skillTaxonomy.domains[d.domain]?.name || d.domain,
+        color: skillTaxonomy.domains[d.domain]?.color || '#888',
+        pointsAvailable: d.wrong * 10, // Rough: each question ≈ 10 scaled points
+        section: isRW ? 'rw' : 'math',
+      };
+    })
     .sort((a, b) => a.accuracy - b.accuracy); // Weakest first
 
   return domainSummary;
@@ -809,17 +864,27 @@ const analyzeSkills = (questionAnalysis, skillProgress = {}) => {
   const skillMap = {};
 
   questionAnalysis.forEach(q => {
-    (Array.isArray(q.skills) ? q.skills : []).forEach(skillId => {
+    // getQuestionSkills handles both math (q.skills: array) and R&W
+    // (q.skill: string) source shapes — see top of file.
+    getQuestionSkills(q).forEach(skillId => {
       if (!skillMap[skillId]) {
         const skill = getSkillById(skillId);
         const progress = skillProgress[skillId];
+        const isRW = RW_SKILL_SET.has(skillId);
         skillMap[skillId] = {
           skillId,
           name: skill?.name || humanizeSkillId(skillId),
-          domain: skill?.domain || inferDomain([skillId]),
+          // R&W skills aren't in the math taxonomy — derive their domain from
+          // the R&W skill→domain map. Math skills go through the existing
+          // taxonomy lookup + inferDomain fallback.
+          domain: skill?.domain || (isRW ? RW_SKILL_TO_DOMAIN[skillId] : inferDomain([skillId])),
           satConcept: skill?.satConcept || '',
           modules: skill?.modules || [],
           sections: skill?.sections || [],
+          // Section-tag contract (Day 0 / 1-2 of Acely-parity batch). Every
+          // weakness flowing out of this engine carries its test subject so
+          // the focus-area drill dispatcher in StudyPlanDashboard can route.
+          section: isRW ? 'rw' : 'math',
           correct: 0,
           total: 0,
           errorTypes: [],

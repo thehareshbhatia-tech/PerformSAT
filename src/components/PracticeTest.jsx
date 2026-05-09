@@ -58,12 +58,12 @@ function buildGroundTruthDiagnosis(diagReport, rawTelemetry) {
       domain: s.domain,
       modules: s.modules || [],
       sections: s.sections || [],
-      // section-tag contract (Day 0 of Acely-parity ship list): every weakness
-      // is now tagged with its test subject ('math' or 'rw'). Today's
-      // diagnosticEngine only emits math skills, so the value here is hard-
-      // coded. R&W extraction lands in Day 1-2 (item #1) and will produce
-      // weaknesses with `section: 'rw'`. See src/services/selectors/weaknesses.js.
-      section: 'math',
+      // section-tag contract (Day 0 + Day 1-2 of Acely-parity ship list): the
+      // diagnostic engine now tags each skill with its test subject — math or
+      // rw — based on the canonical R&W skill list. See diagnosticEngine.js
+      // RW_SKILL_SET. Fall back to 'math' for legacy/unknown skills (rollback
+      // safety per `services/selectors/weaknesses.js`).
+      section: s.section || 'math',
     };
   });
 

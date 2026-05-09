@@ -14,18 +14,63 @@
 import {
   getQuestionsBySkillIds,
   getQuestionsByDomain,
-  getQuestionById,
+  getQuestionById as getMathQuestionById,
 } from '../data/questions/bank';
+import { getQuestionById as getRWQuestionById } from '../data/questions/rwBank';
+
+/**
+ * Section-aware question resolver. R&W IDs are namespaced as
+ * `rw-test{N}-...`; math IDs use bank-* / topic-* prefixes. This wrapper
+ * picks the right bank so R&W focus area drill IDs resolve cleanly when
+ * a study plan replays them.
+ *
+ * @param {string} id
+ * @returns {object | null}
+ */
+function getQuestionById(id) {
+  if (typeof id === 'string' && id.startsWith('rw-')) {
+    return getRWQuestionById(id) || null;
+  }
+  return getMathQuestionById(id) || null;
+}
 
 // ─── Defaults ────────────────────────────────────────────────────────────────
 
 const DEFAULT_QUESTIONS_PER_WEEK = 10;
 const MIN_TOTAL_QUESTIONS = 15;
 const DEFAULT_DIFFICULTY_MIX = { easy: 0.30, medium: 0.45, hard: 0.25 };
+
+// Math domain order — preserved as the legacy CANONICAL_DOMAINS export. Many
+// callers were written when math was the only section and consume this name.
 const DOMAIN_ORDER = ['algebra', 'problem-solving', 'advanced-math', 'geometry'];
 export { DOMAIN_ORDER as CANONICAL_DOMAINS };
 
+// R&W domain order — added in Day 1-2 of the Acely-parity batch (closes /autoplan
+// Phase 3 hard merge blocker A1). The College Board canonical order is
+// information-and-ideas → craft-and-structure → standard-english-conventions →
+// expression-of-ideas.
+const RW_DOMAIN_ORDER = [
+  'information-and-ideas',
+  'craft-and-structure',
+  'standard-english-conventions',
+  'expression-of-ideas',
+];
+export { RW_DOMAIN_ORDER };
+
+/**
+ * Section-aware accessor for the canonical domain order. Use this instead of
+ * importing CANONICAL_DOMAINS directly when the caller knows which test section
+ * the weakness lives in.
+ *
+ * @param {'math' | 'rw'} section
+ * @returns {string[]}
+ */
+export function getCanonicalDomains(section) {
+  return section === 'rw' ? [...RW_DOMAIN_ORDER] : [...DOMAIN_ORDER];
+}
+
 const DOMAIN_ALIAS_MAP = {
+  // Math
   'algebra': 'algebra',
   'heart of algebra': 'algebra',
   'problem-solving': 'problem-solving',
@@ -40,13 +85,24 @@ const DOMAIN_ALIAS_MAP = {
   'geometry & trigonometry': 'geometry',
   'geometry-and-trigonometry': 'geometry',
   'additional topics in math': 'geometry',
+  // R&W
+  'information-and-ideas': 'information-and-ideas',
+  'information and ideas': 'information-and-ideas',
+  'craft-and-structure': 'craft-and-structure',
+  'craft and structure': 'craft-and-structure',
+  'standard-english-conventions': 'standard-english-conventions',
+  'standard english conventions': 'standard-english-conventions',
+  'expression-of-ideas': 'expression-of-ideas',
+  'expression of ideas': 'expression-of-ideas',
 };
+
+const ALL_CANONICAL_DOMAINS = [...DOMAIN_ORDER, ...RW_DOMAIN_ORDER];
 
 export function normalizeDomain(raw) {
   if (!raw || typeof raw !== 'string') return null;
   const key = raw.trim().toLowerCase();
   if (DOMAIN_ALIAS_MAP[key]) return DOMAIN_ALIAS_MAP[key];
-  for (const canonical of DOMAIN_ORDER) {
+  for (const canonical of ALL_CANONICAL_DOMAINS) {
     if (key.includes(canonical)) return canonical;
   }
   return null;
