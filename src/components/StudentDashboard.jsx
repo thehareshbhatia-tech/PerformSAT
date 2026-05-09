@@ -238,16 +238,6 @@ const StudentDashboard = ({
     () => formatDailyIntro({ todaySlice, latestScore, topWeakness }),
     [todaySlice, latestScore, topWeakness],
   );
-  // Days until test — pulled out for the right-rail tile and the tab badge.
-  const daysUntilTest = useMemo(() => {
-    if (!user?.testDate) return null;
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    const test = new Date(user.testDate);
-    test.setHours(0, 0, 0, 0);
-    const diff = Math.ceil((test - today) / (1000 * 60 * 60 * 24));
-    return diff;
-  }, [user?.testDate]);
   // Tab count badges (Day 1 Acely-polish):
   //   dashboardCount = activities scheduled today that aren't completed
   //   studyPlanCount = total incomplete activities across all weeks
