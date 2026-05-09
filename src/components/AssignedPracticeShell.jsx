@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import { MathText } from './MathText';
 import QuestionDiagram from './QuestionDiagrams';
 import QuestionRenderer from './QuestionRenderer';
@@ -6,6 +6,7 @@ import SolutionExplanation from './SolutionExplanation';
 import AiTutorChat from './AiTutorChat';
 import HandAuthoredStamp from './HandAuthoredStamp';
 import { formatDiagnosticSentence } from '../services/diagnosticEngine';
+import { findRoundIndexForQuestion, computeRoundProgress } from '../services/buildRounds';
 import './AssignedPracticeShell.css';
 
 const C = {
@@ -74,6 +75,7 @@ const AssignedPracticeShell = ({
   onSelectAnswer,
   onCheckAnswer,
   onNextQuestion,
+  onAdvanceToNextRound,
   onTrySimilar,
   isTrySimilarExhausted = false,
   onShowHint,
@@ -121,6 +123,22 @@ const AssignedPracticeShell = ({
     onTrySimilar(currentQuestion);
   };
 
+  // Day-2 Acely-polish: round-aware question header. The current round is
+  // determined by the question id, not by currentRoundIndex (which may lag
+  // briefly during state transitions).
+  const rounds = Array.isArray(practiceState.rounds) ? practiceState.rounds : [];
+  const currentRoundIdx = currentQuestion
+    ? findRoundIndexForQuestion(rounds, currentQuestion.id)
+    : -1;
+  const currentRound = currentRoundIdx >= 0 ? rounds[currentRoundIdx] : null;
+  const positionInRound = currentRound
+    ? currentRound.questionIds.indexOf(currentQuestion?.id) + 1
+    : 0;
+  const roundProgress = useMemo(
+    () => computeRoundProgress(rounds, practiceState.answers || {}),
+    [rounds, practiceState.answers],
+  );
+
   const handleToggleEliminate = (choiceId) => {
     setEliminatedChoices(prev => {
       const current = prev[currentElimKey] || [];
@@ -132,6 +150,51 @@ const AssignedPracticeShell = ({
       };
     });
   };
+
+  // ── ROUND-COMPLETE INTERSTITIAL (Day-2 Acely-polish) ──
+  // Renders between rounds — celebrates the just-finished round + offers a
+  // pause point before the user clicks into the next one.
+  if (practiceState.showRoundComplete && currentRound && rounds.length > 1) {
+    const justFinished = roundProgress[currentRoundIdx];
+    const nextRound = rounds[currentRoundIdx + 1];
+    const correctText = justFinished
+      ? `${justFinished.correct} of ${justFinished.total} correct`
+      : '';
+    return (
+      <div className="aps-interstitial" role="status" aria-live="polite">
+        <div className="aps-interstitial-card">
+          <div className="aps-interstitial-eyebrow">Round complete</div>
+          <h2 className="aps-interstitial-title">{currentRound.label} ✓</h2>
+          {correctText && <p className="aps-interstitial-sub">{correctText}</p>}
+          <div className="aps-interstitial-circles" aria-hidden="true">
+            {rounds.map((r, i) => {
+              const p = roundProgress[i];
+              const cls = [
+                'aps-circle',
+                p?.isComplete && 'aps-circle-complete',
+                p?.isInProgress && 'aps-circle-progress',
+              ].filter(Boolean).join(' ');
+              return <span key={r.index} className={cls}>{i + 1}</span>;
+            })}
+          </div>
+          <button
+            type="button"
+            className="aps-interstitial-cta"
+            onClick={() => onAdvanceToNextRound && onAdvanceToNextRound()}
+          >
+            Continue to {nextRound?.label || 'next round'} →
+          </button>
+          <button
+            type="button"
+            className="aps-interstitial-secondary"
+            onClick={() => onBack && onBack()}
+          >
+            Pause and resume later
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   // ── COMPLETION SCREEN ──
   if (practiceState.isComplete) {
@@ -357,7 +420,9 @@ const AssignedPracticeShell = ({
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
             <HandAuthoredStamp />
             <span style={{ fontSize: '14px', fontWeight: '700', color: C.textSec }}>
-              Question {idx + 1}
+              {currentRound
+                ? `${currentRound.label} · Q ${positionInRound} of ${currentRound.questionIds.length}`
+                : `Question ${idx + 1}`}
             </span>
             {diffBadge && (
               <span style={{

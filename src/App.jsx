@@ -28,6 +28,7 @@ import AssignedPracticeShell from './components/AssignedPracticeShell';
 import DiagnosticReport from './components/DiagnosticReport';
 import { Toaster, showToast } from './components/ui/Toaster';
 import { pickSimilarQuestion } from './services/trySimilarService';
+import { buildRounds, classifyRoundBoundary } from './services/buildRounds';
 import {
   loadDiagnosticReportData,
   pickMostRecentTest,
@@ -339,14 +340,24 @@ const PerformSAT = () => {
     const { resolved } = resolveAssignedQuestions(questionIds);
     if (resolved.length === 0) return;
 
+    // Day-2 Acely-polish: split into rounds (default 8 questions each)
+    // so the shell can show round progress + an interstitial between rounds.
+    const rounds = buildRounds(resolved.map(q => q.id), 8);
+    const roundsWithStart = rounds.map((r, i) =>
+      i === 0 ? { ...r, startedAt: new Date().toISOString() } : r,
+    );
+
     setPracticeState({
       currentQuestionIndex: 0,
       selectedAnswer: null,
       showFeedback: false,
       showHint: false,
+      showRoundComplete: false,
       answers: {},
       isComplete: false,
       shuffledQuestions: resolved,
+      rounds: roundsWithStart,
+      currentRoundIndex: 0,
       practiceMode: 'assigned',
       assignmentMeta: {
         label: meta.label || 'Assigned Practice',
@@ -524,6 +535,42 @@ const PerformSAT = () => {
       return;
     }
 
+    // Day-2 Acely-polish: round boundary check (assigned mode only).
+    // When the just-answered question was the LAST in its round (and not
+    // the last round of the session), pause on a "Round X complete"
+    // interstitial in the shell instead of advancing immediately.
+    if (practiceState.practiceMode === 'assigned' && Array.isArray(practiceState.rounds)) {
+      const currentQ = questions[practiceState.currentQuestionIndex];
+      const boundary = classifyRoundBoundary(
+        practiceState.rounds,
+        currentQ?.id,
+        practiceState.answers,
+      );
+      if (boundary.isLastInRound && !boundary.isLastRound) {
+        const nowIso = new Date().toISOString();
+        setPracticeState(prev => ({
+          ...prev,
+          rounds: prev.rounds.map(r =>
+            r.index === boundary.roundIndex ? { ...r, completedAt: nowIso } : r,
+          ),
+          showRoundComplete: true,
+          selectedAnswer: null,
+          showFeedback: false,
+          showHint: false,
+        }));
+        const round = practiceState.rounds[boundary.roundIndex];
+        const correctInRound = round.questionIds.filter(
+          id => practiceState.answers[id]?.correct,
+        ).length;
+        showToast({
+          type: 'success',
+          message: `Round ${boundary.roundIndex + 1} complete · ${correctInRound}/${round.questionIds.length} correct.`,
+          duration: 3500,
+        });
+        return;
+      }
+    }
+
     if (practiceState.currentQuestionIndex < questions.length - 1) {
       setPracticeState(prev => ({
         ...prev,
@@ -539,6 +586,31 @@ const PerformSAT = () => {
       }
       setPracticeState(prev => ({ ...prev, isComplete: true }));
     }
+  };
+
+  /**
+   * handleAdvanceToNextRound — called by the shell's round-summary
+   * interstitial. Closes the interstitial, advances currentQuestionIndex
+   * to the first question of the next round, and stamps the next round's
+   * startedAt.
+   */
+  const handleAdvanceToNextRound = () => {
+    setPracticeState(prev => {
+      const nextRoundIndex = (prev.currentRoundIndex ?? 0) + 1;
+      if (!prev.rounds || nextRoundIndex >= prev.rounds.length) return prev;
+      return {
+        ...prev,
+        currentQuestionIndex: prev.currentQuestionIndex + 1,
+        currentRoundIndex: nextRoundIndex,
+        showRoundComplete: false,
+        rounds: prev.rounds.map((r, i) =>
+          i === nextRoundIndex ? { ...r, startedAt: new Date().toISOString() } : r,
+        ),
+        selectedAnswer: null,
+        showFeedback: false,
+        showHint: false,
+      };
+    });
   };
 
   // Skills whose try-similar pool has been exhausted in this session.
@@ -10086,6 +10158,7 @@ const PerformSAT = () => {
                 onSelectAnswer={handleSelectAnswer}
                 onCheckAnswer={handleCheckAnswer}
                 onNextQuestion={handleNextQuestion}
+                onAdvanceToNextRound={handleAdvanceToNextRound}
                 onTrySimilar={handleTrySimilar}
                 isTrySimilarExhausted={isTrySimilarExhausted}
                 onShowHint={handleShowHint}
