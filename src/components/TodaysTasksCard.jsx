@@ -1,5 +1,4 @@
 import React from 'react';
-import CalendarStrip from './CalendarStrip';
 import './TodaysTasksCard.css';
 
 /**
@@ -33,28 +32,20 @@ import './TodaysTasksCard.css';
  * @param {{ kind: string, activities: Array, day: string,
  *           weekNumber: number|null, nextScheduledDay?: string|null }} props.slice
  * @param {{ uniqueDays: number, totalDays: number, label: string }} [props.adherence]
- * @param {string|Date|null} [props.testDate]   For the Day-5 Calendar Strip
+ * @param {string} [props.dailyIntro]   Per-day editorial paragraph (Day-1 Acely-polish)
  * @param {(activity: object) => void} [props.onStartActivity]
  * @param {() => void} [props.onTakeTest]
  */
-function TodaysTasksCard({ slice, adherence, testDate, onStartActivity, onTakeTest }) {
+function TodaysTasksCard({ slice, adherence, dailyIntro, onStartActivity, onTakeTest }) {
   const safeSlice = slice || { kind: 'no-plan', activities: [], day: '', weekNumber: null };
   const showAdherence = adherence
-    && safeSlice.kind !== 'no-plan'
-    && safeSlice.kind !== 'refreshing';
-  // Calendar Strip surfaces the test date as a tactile artifact above the
-  // hero copy. Hidden on no-plan / refreshing where it would have nothing
-  // to anchor against (and hidden when there's no test date set).
-  const showCalendarStrip = testDate
     && safeSlice.kind !== 'no-plan'
     && safeSlice.kind !== 'refreshing';
 
   return (
     <section className="ttc-card" aria-label="Today's tasks">
-      {showCalendarStrip && (
-        <div className="ttc-calendar-strip">
-          <CalendarStrip testDate={testDate} />
-        </div>
+      {dailyIntro && (
+        <p className="ttc-daily-intro">{dailyIntro}</p>
       )}
       {renderBody(safeSlice, onStartActivity, onTakeTest)}
       {showAdherence && (

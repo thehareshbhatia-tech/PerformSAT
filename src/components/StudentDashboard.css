@@ -224,12 +224,90 @@
   grid-column: span 1;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 @media (min-width: 1024px) {
   .dashboard-side-col {
     grid-column: span 4;
+  }
+}
+
+/* Right-rail tiles (Day 1 Acely-polish): score, goal/exam two-up. */
+.dashboard-tile {
+  background: var(--color-white);
+  border: 1px solid var(--color-slate-200);
+  border-radius: 14px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--font-ui);
+}
+
+.dashboard-tile-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-slate-500);
+}
+
+.dashboard-tile-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dashboard-tile-num {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--color-slate-900);
+  letter-spacing: -0.01em;
+}
+
+.dashboard-tile-delta {
+  font-size: 13px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+.dashboard-tile-delta.is-up {
+  background: var(--color-success-100);
+  color: var(--color-success-600);
+}
+
+.dashboard-tile-delta.is-down {
+  background: var(--color-warning-100);
+  color: var(--color-warning-600);
+}
+
+.dashboard-tile-sub {
+  font-size: 12px;
+  color: var(--color-slate-500);
+  margin-top: 2px;
+}
+
+.dashboard-tile-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.dashboard-tile-pair .dashboard-tile {
+  padding: 14px 16px;
+}
+
+.dashboard-tile-pair .dashboard-tile-num {
+  font-size: 26px;
+}
+
+@media (max-width: 640px) {
+  .dashboard-tile-pair {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -508,6 +586,28 @@
   margin-left: 6px;
   font-weight: 500;
   vertical-align: middle;
+}
+
+/* Tab count chip (Day 1 Acely-polish): "Dashboard (2) / Study Plan (12)". */
+.tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 7px;
+  margin-left: 8px;
+  border-radius: 11px;
+  background: var(--color-slate-100);
+  color: var(--color-slate-700);
+  font-size: 0.75rem;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+.dashboard-top-tab.active .tab-count {
+  background: var(--color-brand-primary-light);
+  color: var(--color-brand-primary);
 }
 
 /* Study Plan tab content */

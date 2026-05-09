@@ -24,10 +24,14 @@
   gap: 10px;
 }
 
-/* Calendar Strip top inset (Day 5 D5). Tight against the eyebrow row below. */
-.ttc-calendar-strip {
-  margin: -10px -4px 6px;
-  padding: 4px;
+/* Daily intro paragraph (Day-1 Acely-polish). Serif, editorial, sits
+   above the eyebrow row. */
+.ttc-daily-intro {
+  margin: 0 0 4px;
+  font-family: var(--font-reading);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--color-slate-700);
 }
 
 .ttc-eyebrow {

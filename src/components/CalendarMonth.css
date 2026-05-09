@@ -1,0 +1,143 @@
+/* src/components/CalendarMonth.css
+ *
+ * Right-rail adherence calendar. Sits below the score-delta tile, above
+ * the goal/exam two-up. Restrained palette: brand-primary for today,
+ * brand-primary-light for practiced days, slate for everything else.
+ */
+
+.cm-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-slate-200);
+  border-radius: 14px;
+  padding: 16px 14px 14px;
+  font-family: var(--font-ui);
+  color: var(--color-slate-900);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Eyebrow row: practiced count + today date */
+.cm-eyebrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.cm-eyebrow-stat {
+  color: var(--color-brand-primary);
+}
+
+.cm-eyebrow-today {
+  color: var(--color-slate-500);
+  font-weight: 600;
+}
+
+/* Title + nav */
+.cm-header {
+  display: grid;
+  grid-template-columns: 32px 1fr 32px;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.cm-title {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-slate-900);
+}
+
+.cm-nav {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--color-slate-600);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.cm-nav:hover { background: var(--color-slate-100); color: var(--color-slate-900); }
+.cm-nav:focus-visible { outline: 2px solid var(--color-brand-primary); outline-offset: 1px; }
+
+/* Weekday header */
+.cm-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-slate-400);
+  margin-bottom: 2px;
+}
+
+.cm-weekday {
+  text-align: center;
+  padding: 4px 0;
+}
+
+/* Day cells */
+.cm-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.cm-cell {
+  aspect-ratio: 1 / 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-slate-700);
+  border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid transparent;
+  transition: background-color 120ms ease, border-color 120ms ease;
+}
+
+/* Adjacent-month dates — faded so the in-month days dominate */
+.cm-cell-out {
+  color: var(--color-slate-300);
+}
+
+/* A day the student practiced */
+.cm-cell-practiced {
+  background: var(--color-brand-primary-light);
+  color: var(--color-brand-primary);
+  font-weight: 700;
+}
+
+/* Today — strong ring on top of any practiced fill */
+.cm-cell-today {
+  border-color: var(--color-brand-primary);
+  color: var(--color-brand-primary);
+  font-weight: 700;
+}
+.cm-cell-today.cm-cell-practiced {
+  background: var(--color-brand-primary);
+  color: var(--color-white);
+  border-color: var(--color-brand-primary);
+}
+
+@media (max-width: 640px) {
+  .cm-card {
+    padding: 14px 12px 12px;
+  }
+  .cm-cell {
+    font-size: 11px;
+  }
+}

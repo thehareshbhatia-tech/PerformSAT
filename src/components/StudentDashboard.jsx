@@ -9,9 +9,13 @@ import DailyReviewCard from './DailyReviewCard';
 import PacingDrillCard from './PacingDrillCard';
 import TodaysTasksCard from './TodaysTasksCard';
 import PredictedVsActualCard from './PredictedVsActualCard';
+import CalendarMonth from './CalendarMonth';
 import { getTodaySlice } from '../services/studyPlanGenerator';
 import { getSessionAdherence } from '../services/selectors/sessionAdherence';
 import { summarizePredictions } from '../services/selectors/predictionSummary';
+import { getPracticedDayKeys } from '../services/selectors/practicedDays';
+import { formatDailyIntro } from '../services/selectors/dailyIntro';
+import { getMathWeaknesses, getRWWeaknesses } from '../services/selectors/weaknesses';
 import { PlayIcon, ChartBarIcon, TrendingUpIcon } from '../design/icons';
 import { injectAnimations, useCountUp } from '../design/animations';
 import { DataCard } from './ui/DataCard';
@@ -210,6 +214,54 @@ const StudentDashboard = ({
     () => summarizePredictions(predictionLog, practiceTestResults),
     [predictionLog, practiceTestResults],
   );
+  // Acely-polish (Day 1): derived state for the right-rail composition.
+  const practicedDayKeys = useMemo(
+    () => getPracticedDayKeys({ practiceProgress, practiceTestResults }),
+    [practiceProgress, practiceTestResults],
+  );
+  const latestScore = useMemo(() => {
+    if (!Array.isArray(scoreHistory) || scoreHistory.length === 0) return null;
+    return scoreHistory[scoreHistory.length - 1];
+  }, [scoreHistory]);
+  const scoreDelta = useMemo(() => {
+    if (!Array.isArray(scoreHistory) || scoreHistory.length < 2) return null;
+    return scoreHistory[scoreHistory.length - 1] - scoreHistory[0];
+  }, [scoreHistory]);
+  const topWeakness = useMemo(() => {
+    if (!studyPlan) return null;
+    const math = getMathWeaknesses(studyPlan);
+    const rw = getRWWeaknesses(studyPlan);
+    const merged = [...math, ...rw].sort((a, b) => (a.accuracy ?? 100) - (b.accuracy ?? 100));
+    return merged[0] || null;
+  }, [studyPlan]);
+  const dailyIntro = useMemo(
+    () => formatDailyIntro({ todaySlice, latestScore, topWeakness }),
+    [todaySlice, latestScore, topWeakness],
+  );
+  // Days until test — pulled out for the right-rail tile and the tab badge.
+  const daysUntilTest = useMemo(() => {
+    if (!user?.testDate) return null;
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const test = new Date(user.testDate);
+    test.setHours(0, 0, 0, 0);
+    const diff = Math.ceil((test - today) / (1000 * 60 * 60 * 24));
+    return diff;
+  }, [user?.testDate]);
+  // Tab count badges (Day 1 Acely-polish):
+  //   dashboardCount = activities scheduled today that aren't completed
+  //   studyPlanCount = total incomplete activities across all weeks
+  const dashboardCount = useMemo(() => {
+    if (!todaySlice || todaySlice.kind === 'no-plan' || todaySlice.kind === 'refreshing') return 0;
+    return Array.isArray(todaySlice.activities) ? todaySlice.activities.length : 0;
+  }, [todaySlice]);
+  const studyPlanCount = useMemo(() => {
+    if (!studyPlan || !Array.isArray(studyPlan.weeks)) return 0;
+    return studyPlan.weeks.reduce((sum, w) => {
+      const acts = Array.isArray(w?.activities) ? w.activities : [];
+      return sum + acts.filter(a => !a.completed).length;
+    }, 0);
+  }, [studyPlan]);
 
   const handleSelectTargetSchools = (schools) => {
     if (schools && schools.length > 0 && onUpdateTargetSchools) {
@@ -312,12 +364,22 @@ const StudentDashboard = ({
             onClick={() => setActiveTab('dashboard')}
           >
             Dashboard
+            {dashboardCount > 0 && (
+              <span className="tab-count" aria-label={`${dashboardCount} tasks today`}>
+                {dashboardCount}
+              </span>
+            )}
           </button>
           <button
             className={`dashboard-top-tab${activeTab === 'studyPlan' ? ' active' : ''}`}
             onClick={() => setActiveTab('studyPlan')}
           >
             Study Plan
+            {studyPlanCount > 0 && (
+              <span className="tab-count" aria-label={`${studyPlanCount} activities remaining`}>
+                {studyPlanCount}
+              </span>
+            )}
             {studyPlanArtifact?.delta?.skillChanges?.length > 0 && !dismissedDelta && (
               <span className="tab-badge">Updated</span>
             )}
@@ -448,7 +510,7 @@ const StudentDashboard = ({
               <TodaysTasksCard
                 slice={todaySlice}
                 adherence={sessionAdherence}
-                testDate={user?.testDate}
+                dailyIntro={dailyIntro}
                 onStartActivity={(activity) => {
                   if (activity?.moduleId) {
                     onStartPractice(activity.moduleId, activity.sectionName);
@@ -531,7 +593,55 @@ const StudentDashboard = ({
         </div>
         
         <div className="dashboard-side-col">
-          {/* AI DIAGNOSTIC & INSIGHTS */}
+          {/* Acely-polish (Day 1): right-rail composition.
+              Order matches the Acely reference: calendar (effort) → current
+              score (delta) → goal/countdown two-up. The legacy
+              DashboardDiagnosticWidget stays below the new tiles. */}
+          {hasStudyPlan && (
+            <CalendarMonth practicedDays={practicedDayKeys} />
+          )}
+
+          {latestScore !== null && (
+            <div className="dashboard-tile">
+              <div className="dashboard-tile-eyebrow">Current Score</div>
+              <div className="dashboard-tile-row">
+                <span className="dashboard-tile-num">{latestScore}</span>
+                {scoreDelta !== null && (
+                  <span className={`dashboard-tile-delta ${scoreDelta >= 0 ? 'is-up' : 'is-down'}`}>
+                    {scoreDelta >= 0 ? '↑' : '↓'} {Math.abs(scoreDelta)} pts
+                  </span>
+                )}
+              </div>
+              {projectedTestsCount > 0 && (
+                <div className="dashboard-tile-sub">
+                  Across {projectedTestsCount} test{projectedTestsCount !== 1 ? 's' : ''}
+                </div>
+              )}
+            </div>
+          )}
+
+          {(user?.targetScore || user?.testDate) && (
+            <div className="dashboard-tile-pair">
+              {user?.targetScore && (
+                <div className="dashboard-tile">
+                  <div className="dashboard-tile-eyebrow">Goal Score</div>
+                  <div className="dashboard-tile-num">{user.targetScore}</div>
+                  <div className="dashboard-tile-sub">From onboarding</div>
+                </div>
+              )}
+              {user?.testDate && (
+                <div className="dashboard-tile">
+                  <div className="dashboard-tile-eyebrow">Days Until Exam</div>
+                  <div className="dashboard-tile-num">{daysUntilTest ?? '—'}</div>
+                  <div className="dashboard-tile-sub">
+                    {new Date(user.testDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* AI DIAGNOSTIC & INSIGHTS — kept; visually below the new tiles. */}
           <DashboardDiagnosticWidget
             practiceTestResults={practiceTestResults}
             skillProgress={skillProgress}
