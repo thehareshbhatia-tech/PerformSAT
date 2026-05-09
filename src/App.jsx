@@ -25,6 +25,7 @@ import Profile from './components/Profile';
 import StudyPlanDashboard from './components/StudyPlanDashboard';
 import AdaptivePracticeShell from './components/AdaptivePracticeShell';
 import AssignedPracticeShell from './components/AssignedPracticeShell';
+import { Toaster } from './components/ui/Toaster';
 import {
   resolveAssignedQuestions,
   normalizeDomain,
@@ -9043,6 +9044,7 @@ const PerformSAT = () => {
   return (
     <ErrorBoundary>
     <BrowserRouter>
+      <Toaster />
       <Routes>
         {/* Landing Page */}
         <Route path="/" element={
