@@ -882,3 +882,223 @@
   background: var(--color-brand-primary-light);
   box-shadow: 0 0 0 1px var(--color-brand-primary);
 }
+
+/* ───────────────────────────────────────────────────────────────────────
+ * Acely-polish v3 — Weekly View tightening
+ *
+ * Scoped under `.sp-weekly-tight` so the rest of the app keeps the
+ * existing density. The wrapping `<>` of the Weekly View branch is
+ * given this class on the outer container; rules below override the
+ * shared activity-row + focus-area visuals to match Acely's calmer style.
+ *
+ * What we tune:
+ *   1. .ai-practice-banner (activity rows) → single-line layout, smaller
+ *      icon, no big "Launch X" button (whole row is clickable instead).
+ *   2. .acely-split-card (focus-area cards) → smaller accuracy chip,
+ *      neutral white card with subtle accent rather than full-bleed band.
+ *   3. .sp-week-card → flatter card, less drop shadow, weaker hover lift.
+ *   4. Plan Updated banner → neutral border instead of gradient bg.
+ * ─────────────────────────────────────────────────────────────────── */
+
+/* (1) Activity rows: collapse to a quiet single line. */
+.sp-weekly-tight .ai-practice-banner {
+  margin-bottom: 0 !important;
+  padding: 12px 16px !important;
+  border-radius: 10px !important;
+  background: var(--color-white) !important;
+  border: 1px solid var(--color-slate-200) !important;
+  box-shadow: none !important;
+  transform: none !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  transition: background 120ms ease, border-color 120ms ease !important;
+}
+.sp-weekly-tight .ai-practice-banner:hover {
+  background: var(--color-slate-50) !important;
+  border-color: var(--color-slate-300) !important;
+  transform: none !important;
+}
+.sp-weekly-tight .ai-banner-content {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  flex: 1 !important;
+  min-width: 0;
+}
+.sp-weekly-tight .ai-banner-icon {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 8px !important;
+  flex: none;
+}
+.sp-weekly-tight .ai-banner-text-group {
+  flex: 1 !important;
+  min-width: 0;
+}
+.sp-weekly-tight .ai-banner-title {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+  color: var(--color-slate-900) !important;
+  margin: 0 !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sp-weekly-tight .ai-banner-desc {
+  font-size: 12px !important;
+  color: var(--color-slate-500) !important;
+  margin: 1px 0 0 !important;
+}
+.sp-weekly-tight .ai-banner-controls .btn-launch {
+  padding: 6px 14px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+.sp-weekly-tight .ai-banner-controls .btn-launch:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* (2) Focus-area cards: small accuracy chip, white card, no split band. */
+.sp-weekly-tight .acely-split-card {
+  border-radius: 12px !important;
+  border: 1px solid var(--color-slate-200) !important;
+  box-shadow: none !important;
+  overflow: hidden;
+  transition: border-color 120ms ease, background 120ms ease !important;
+}
+.sp-weekly-tight .acely-split-card:hover {
+  border-color: var(--color-slate-300) !important;
+  background: var(--color-slate-50);
+}
+.sp-weekly-tight .acely-split-left {
+  width: 64px !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em;
+}
+.sp-weekly-tight .acely-split-right {
+  background: var(--color-white) !important;
+  padding: 14px 18px !important;
+}
+.sp-weekly-tight .acely-metric-label {
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-slate-500) !important;
+  margin-bottom: 2px !important;
+}
+.sp-weekly-tight .acely-section-name {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: var(--color-slate-900) !important;
+  letter-spacing: -0.01em;
+}
+.sp-weekly-tight .acely-split-right .btn-launch {
+  padding: 6px 12px !important;
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+.sp-weekly-tight .acely-split-right .btn-launch:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Italic editorial sentence: lighter color, smaller. */
+.sp-weekly-tight .sp-diagnostic-sentence {
+  font-size: 13px !important;
+  color: var(--color-slate-600) !important;
+  margin: 6px 4px 0 !important;
+}
+
+/* (3) Week cards: flatter, less drop shadow. */
+.sp-weekly-tight .sp-week-card {
+  border-radius: 14px !important;
+  box-shadow: none !important;
+  border: 1px solid var(--color-slate-200);
+}
+.sp-weekly-tight .sp-week-card.is-current {
+  border-color: var(--color-brand-primary-light);
+}
+.sp-weekly-tight .sp-week-indicator { display: none !important; }
+.sp-weekly-tight .sp-week-header {
+  padding: 14px 18px !important;
+}
+.sp-weekly-tight .sp-week-label {
+  font-size: 10px !important;
+}
+.sp-weekly-tight .sp-week-title {
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em;
+}
+.sp-weekly-tight .sp-week-body {
+  padding: 8px 14px 14px !important;
+  gap: 6px !important;
+}
+.sp-weekly-tight .sp-week-progress {
+  font-size: 12px !important;
+  padding: 4px 10px !important;
+  background: var(--color-slate-100) !important;
+  color: var(--color-slate-700) !important;
+  box-shadow: none !important;
+}
+.sp-weekly-tight .sp-week-toggle {
+  width: 28px !important;
+  height: 28px !important;
+}
+
+/* (4) Plan Updated banner: clean white-with-orange-accent instead of gradient. */
+.sp-weekly-tight .sp-banner.sp-banner-info {
+  background: var(--color-white) !important;
+  border: 1px solid var(--color-slate-200) !important;
+  border-left: 3px solid var(--color-brand-primary) !important;
+  border-radius: 12px !important;
+  padding: 14px 18px !important;
+}
+.sp-weekly-tight .sp-banner.sp-banner-info .sp-banner-icon {
+  background: var(--color-brand-primary) !important;
+  color: var(--color-white) !important;
+  width: 22px !important;
+  height: 22px !important;
+}
+.sp-weekly-tight .sp-banner.sp-banner-info .sp-banner-title {
+  color: var(--color-slate-900) !important;
+  font-size: 12px !important;
+  letter-spacing: 0.06em;
+}
+.sp-weekly-tight .sp-banner.sp-banner-info .sp-banner-content {
+  color: var(--color-slate-700) !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+}
+
+/* (5) Section header: Acely uses a smaller, quieter h3. */
+.sp-weekly-tight .sp-section-header {
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.005em;
+  color: var(--color-slate-900) !important;
+  margin-bottom: 8px !important;
+}
+.sp-weekly-tight .sp-section-desc {
+  font-size: 13px !important;
+  color: var(--color-slate-600) !important;
+  line-height: 1.5;
+  margin-bottom: 12px !important;
+}
+
+/* Status tag (Mastered / Needs Focus) — smaller. */
+.sp-weekly-tight .sp-activity-status-tag {
+  top: -6px !important;
+  right: 56px !important;
+  font-size: 9.5px !important;
+  padding: 2px 6px !important;
+}

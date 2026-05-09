@@ -480,7 +480,7 @@ const StudyPlanDashboard = ({
       )}
 
       {activeView === 'weeklyView' && (
-      <>
+      <div className="sp-weekly-tight">
 
 
       {/* ────────────────────────────────────────────────────────────────
@@ -677,8 +677,8 @@ const StudyPlanDashboard = ({
           3. WEEKLY PLAN — visually distinct cards
       ──────────────────────────────────────────────────────────────── */}
       <div className="sp-section">
-        <h3 className="sp-section-header">Action Plan</h3>
-        
+        <h3 className="sp-section-header">Weekly Schedule</h3>
+
         <div className="sp-timeline">
           {/* Current week */}
           <div className="sp-week-card is-current">
@@ -686,7 +686,7 @@ const StudyPlanDashboard = ({
             <div className="sp-week-header" style={{ cursor: 'default' }}>
               <div className="sp-week-title-area">
                 <div>
-                  <div className="sp-week-label">Current Task List</div>
+                  <div className="sp-week-label">This Week</div>
                   <div className="sp-week-title">
                     Week {displayCurrentWeek + 1}{currentWeek?.title ? ` — ${currentWeek.title}` : ''}
                   </div>
@@ -753,7 +753,7 @@ const StudyPlanDashboard = ({
       {/* Score Trajectory */}
       <ScoreTrajectory artifact={studyPlanArtifact} />
 
-      </>
+      </div>
       )}
 
       </div> {/* /.sp-main */}
