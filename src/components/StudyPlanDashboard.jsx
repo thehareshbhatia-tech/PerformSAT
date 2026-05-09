@@ -8,8 +8,14 @@ import {
   getQuestionsBySkillIds as getRWQuestionsBySkillIds,
   getTargetedWeaknessSet as getRWTargetedWeaknessSet,
 } from '../data/questions/rwBank';
-import { getWeaknessSection } from '../services/selectors/weaknesses';
+import { getWeaknessSection, getMathWeaknesses, getRWWeaknesses } from '../services/selectors/weaknesses';
 import { formatDiagnosticSentence } from '../services/diagnosticEngine';
+import { getTodaySlice } from '../services/studyPlanGenerator';
+import { getSessionAdherence } from '../services/selectors/sessionAdherence';
+import { formatDailyIntro } from '../services/selectors/dailyIntro';
+import { getPracticedDayKeys } from '../services/selectors/practicedDays';
+import CalendarMonth from './CalendarMonth';
+import TodaysTasksCard from './TodaysTasksCard';
 import {
   ClipboardIcon,
   VideoCameraIcon,
@@ -89,6 +95,9 @@ const StudyPlanDashboard = ({
   const [deltaDismissed, setDeltaDismissed] = useState(() =>
     !!studyPlanMeta?.artifactId && !!localStorage.getItem(`dismissedDelta:${studyPlanMeta.artifactId}`)
   );
+  // Acely-polish v2: top-level sub-tabs ("Today's Tasks" / "Weekly View")
+  // matching the reference. Default to Today's Tasks (the day-grain view).
+  const [activeView, setActiveView] = useState('todaysTasks');
 
   // ── Empty state ──────────────────────────────────────────────────────
   if (!studyPlan || !studyPlan.weeks || studyPlan.weeks.length === 0) {
@@ -123,6 +132,68 @@ const StudyPlanDashboard = ({
   const progressPercent = totalActivities > 0 ? Math.round((completedActivities / totalActivities) * 100) : 0;
   const currentWeekIndex = weeks.findIndex(w => w.activities?.some(a => !a.completed));
   const displayCurrentWeek = currentWeekIndex >= 0 ? currentWeekIndex : weeks.length - 1;
+
+  // Acely-polish v2: right-rail derived state.
+  const practicedDayKeys = useMemo(
+    () => getPracticedDayKeys({ practiceProgress, practiceTestResults }),
+    [practiceProgress, practiceTestResults],
+  );
+  const sortedTests = useMemo(() => {
+    if (!practiceTestResults) return [];
+    return Object.values(practiceTestResults)
+      .filter(t => typeof t.bestScaledScore === 'number')
+      .sort((a, b) => {
+        const at = a.lastAttemptAt?.toDate?.() || new Date(a.lastAttemptAt || 0);
+        const bt = b.lastAttemptAt?.toDate?.() || new Date(b.lastAttemptAt || 0);
+        return at - bt;
+      });
+  }, [practiceTestResults]);
+  const latestScore = sortedTests.length > 0 ? sortedTests[sortedTests.length - 1].bestScaledScore : null;
+  const scoreDelta = sortedTests.length >= 2
+    ? sortedTests[sortedTests.length - 1].bestScaledScore - sortedTests[0].bestScaledScore
+    : null;
+  const daysUntilTest = (() => {
+    if (!user?.testDate) return null;
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const test = new Date(user.testDate); test.setHours(0, 0, 0, 0);
+    return Math.ceil((test - today) / (1000 * 60 * 60 * 24));
+  })();
+
+  // Day-1 of Acely-polish v2: extract just the FIRST sentence of the
+  // adaptive-plan delta paragraph so the banner reads like a tight summary
+  // rather than a wall of strategy text. The full paragraph is available
+  // behind a "Show more" disclosure.
+  const [deltaExpanded, setDeltaExpanded] = useState(false);
+  const deltaText = studyPlan.deltaFromPrevious || '';
+  const deltaFirstSentence = (() => {
+    if (!deltaText) return '';
+    const m = deltaText.match(/^[^.!?]+[.!?]/);
+    return m ? m[0] : deltaText.slice(0, 140);
+  })();
+  const deltaHasMore = deltaText.length > deltaFirstSentence.length + 4;
+
+  // Today's-Tasks tab derived state.
+  const DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const todayDayName = DAY_NAMES[new Date().getDay()];
+  const todaySlice = useMemo(() => getTodaySlice(studyPlan, todayDayName), [studyPlan, todayDayName]);
+  const sessionAdherence = useMemo(() => getSessionAdherence(practiceProgress), [practiceProgress]);
+  const topWeakness = useMemo(() => {
+    if (!studyPlan) return null;
+    const math = getMathWeaknesses(studyPlan);
+    const rw = getRWWeaknesses(studyPlan);
+    const merged = [...math, ...rw].sort((a, b) => (a.accuracy ?? 100) - (b.accuracy ?? 100));
+    return merged[0] || null;
+  }, [studyPlan]);
+  const dailyIntro = useMemo(
+    () => formatDailyIntro({ todaySlice, latestScore, topWeakness }),
+    [todaySlice, latestScore, topWeakness],
+  );
+
+  // Tab count badges — 'Today's Tasks (N) / Weekly View (N)' matches the
+  // Acely reference exactly.
+  const todaysTasksCount = (todaySlice && Array.isArray(todaySlice.activities))
+    ? todaySlice.activities.length : 0;
+  const weeklyViewCount = totalActivities - completedActivities;
 
   // ── Handlers ─────────────────────────────────────────────────────────
   const handleGo = (activity) => {
@@ -327,8 +398,77 @@ const StudyPlanDashboard = ({
   // ====================================================================
 
   return (
-    <div className="study-plan-dashboard">
-      
+    <div className="study-plan-dashboard sp-with-rail">
+      <div className="sp-main">
+
+      {/* ────────────────────────────────────────────────────────────────
+          PROGRESS STRIP (replaces the heavy 3-card hero grid).
+      ──────────────────────────────────────────────────────────────── */}
+      <header className="sp-strip">
+        <div className="sp-strip-cell">
+          <span className="sp-strip-eyebrow">Plan Progress</span>
+          <span className="sp-strip-num">{progressPercent}%</span>
+          <span className="sp-strip-meta">{completedActivities} of {totalActivities} tasks</span>
+        </div>
+        <div className="sp-strip-divider" aria-hidden="true" />
+        <div className="sp-strip-cell sp-strip-objective">
+          <span className="sp-strip-eyebrow">Current Objective</span>
+          <span className="sp-strip-text">{summary?.headline || 'Your study plan'}</span>
+        </div>
+        <div className="sp-strip-divider" aria-hidden="true" />
+        <div className="sp-strip-cell">
+          <span className="sp-strip-eyebrow">Next</span>
+          <span className="sp-strip-text">Week {displayCurrentWeek + 1}</span>
+        </div>
+      </header>
+
+      {/* ────────────────────────────────────────────────────────────────
+          SUB-TABS: 'Today's Tasks (N) / Weekly View (N)' matching Acely.
+      ──────────────────────────────────────────────────────────────── */}
+      <div className="sp-subtabs" role="tablist" aria-label="Study plan view">
+        <button
+          type="button"
+          role="tab"
+          aria-selected={activeView === 'todaysTasks'}
+          className={`sp-subtab${activeView === 'todaysTasks' ? ' is-active' : ''}`}
+          onClick={() => setActiveView('todaysTasks')}
+        >
+          Today's Tasks
+          {todaysTasksCount > 0 && <span className="sp-subtab-count">{todaysTasksCount}</span>}
+        </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={activeView === 'weeklyView'}
+          className={`sp-subtab${activeView === 'weeklyView' ? ' is-active' : ''}`}
+          onClick={() => setActiveView('weeklyView')}
+        >
+          Weekly View
+          {weeklyViewCount > 0 && <span className="sp-subtab-count">{weeklyViewCount}</span>}
+        </button>
+      </div>
+
+      {/* ════════════════════════════════════════════════════════════════
+          TODAY'S TASKS TAB — day-grain TodaysTasksCard hero.
+      ════════════════════════════════════════════════════════════════ */}
+      {activeView === 'todaysTasks' && (
+        <TodaysTasksCard
+          slice={todaySlice}
+          adherence={sessionAdherence}
+          dailyIntro={dailyIntro}
+          onStartActivity={(activity) => {
+            if (activity?.moduleId && onStartPractice) {
+              onStartPractice(activity.moduleId, activity.sectionName);
+            }
+          }}
+          onTakeTest={onStartPracticeTest}
+        />
+      )}
+
+      {activeView === 'weeklyView' && (
+      <>
+
+
       {/* ────────────────────────────────────────────────────────────────
           0. WHAT CHANGED BANNER (adaptive plan diff)
           Sources: studyPlanArtifact.delta (Firestore) or studyPlan._diff (legacy)
@@ -389,52 +529,32 @@ const StudyPlanDashboard = ({
       )}
 
       {/* ────────────────────────────────────────────────────────────────
-          1. PROGRESS (Acely Performance Grid)
+          1. ADAPTIVE NOTES — collapsed by default to keep the above-fold
+             tight. Acely's per-day intro is 1-2 sentences; we mirror that.
       ──────────────────────────────────────────────────────────────── */}
-      <div className="sp-section acely-performance-grid">
-        <div className="acely-metric-card acely-accuracy-card">
-          <div className="acely-metric-label">Plan Progress</div>
-          <div className="acely-metric-value">{progressPercent}%</div>
-          <div className="acely-metric-detail">
-            {completedActivities} of {totalActivities} tasks completed
-          </div>
-        </div>
-        <div className="acely-metric-stack">
-          <div className="acely-split-card acely-strongest-card">
-            <div className="acely-split-left"><ClipboardIcon size={48} /></div>
-            <div className="acely-split-right">
-              <div className="acely-metric-label">Current Objective</div>
-              <div className="acely-section-name">
-                {summary?.headline || 'Your Study Plan'}
-              </div>
-              {studyPlan.deltaFromPrevious && (
-                <span className="sp-progress-badge" style={{ alignSelf: 'flex-start', marginTop: '8px' }}>Updated</span>
-              )}
-            </div>
-          </div>
-          <div className="acely-split-card" style={{ border: '1px solid var(--color-slate-200)', boxShadow: 'var(--shadow-sm)' }}>
-            <div className="acely-split-left" style={{ backgroundColor: 'var(--color-brand-primary, #ea580c)', color: 'white' }}><PinIcon size={48} /></div>
-            <div className="acely-split-right" style={{ backgroundColor: 'var(--color-slate-50)' }}>
-              <div className="acely-metric-label">Next Milestone</div>
-              <div className="acely-section-name">Complete Week {displayCurrentWeek + 1}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* What changed & Persistent weakness callouts moved out of the progress card for cleaner design */}
       {(studyPlan.deltaFromPrevious || studyPlan.persistentWeaknessStrategy) && (
-        <div className="sp-section" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+        <div className="sp-section sp-notes">
           {studyPlan.deltaFromPrevious && (
-            <div className="sp-banner sp-banner-info" style={{ background: 'var(--color-slate-50)', borderLeft: '3px solid var(--color-brand-primary)' }}>
-              <div className="sp-banner-title" style={{ color: 'var(--color-slate-500)' }}>Updated since your last test</div>
-              <div className="sp-banner-content" style={{ color: 'var(--color-slate-700)', fontWeight: 400 }}>{studyPlan.deltaFromPrevious}</div>
+            <div className="sp-note">
+              <span className="sp-note-eyebrow">Updated since your last test</span>
+              <p className="sp-note-text">
+                {deltaExpanded ? deltaText : deltaFirstSentence}
+                {deltaHasMore && (
+                  <button
+                    type="button"
+                    className="sp-note-toggle"
+                    onClick={() => setDeltaExpanded(v => !v)}
+                  >
+                    {deltaExpanded ? 'Show less' : 'Read more'}
+                  </button>
+                )}
+              </p>
             </div>
           )}
           {studyPlan.persistentWeaknessStrategy && (
-            <div className="sp-banner sp-banner-info" style={{ background: 'var(--color-slate-50)', borderLeft: '3px solid var(--color-brand-primary)' }}>
-              <div className="sp-banner-title" style={{ color: 'var(--color-slate-700)' }}>Stuck skill — different approach needed</div>
-              <div className="sp-banner-content" style={{ color: 'var(--color-slate-600)', fontWeight: 400 }}>{studyPlan.persistentWeaknessStrategy}</div>
+            <div className="sp-note">
+              <span className="sp-note-eyebrow">Stuck skill — different approach needed</span>
+              <p className="sp-note-text">{studyPlan.persistentWeaknessStrategy}</p>
             </div>
           )}
         </div>
@@ -595,6 +715,60 @@ const StudyPlanDashboard = ({
 
       {/* Score Trajectory */}
       <ScoreTrajectory artifact={studyPlanArtifact} />
+
+      </>
+      )}
+
+      </div> {/* /.sp-main */}
+
+      {/* ────────────────────────────────────────────────────────────────
+          RIGHT RAIL — calendar + score + goal/exam two-up.
+          Same composition as the StudentDashboard's Dashboard tab so
+          students see consistent context across both views.
+      ──────────────────────────────────────────────────────────────── */}
+      <aside className="sp-rail" aria-label="Study plan summary">
+        <CalendarMonth practicedDays={practicedDayKeys} />
+
+        {latestScore !== null && (
+          <div className="dashboard-tile">
+            <div className="dashboard-tile-eyebrow">Current Score</div>
+            <div className="dashboard-tile-row">
+              <span className="dashboard-tile-num">{latestScore}</span>
+              {scoreDelta !== null && (
+                <span className={`dashboard-tile-delta ${scoreDelta >= 0 ? 'is-up' : 'is-down'}`}>
+                  {scoreDelta >= 0 ? '↑' : '↓'} {Math.abs(scoreDelta)} pts
+                </span>
+              )}
+            </div>
+            {sortedTests.length > 0 && (
+              <div className="dashboard-tile-sub">
+                Across {sortedTests.length} test{sortedTests.length !== 1 ? 's' : ''}
+              </div>
+            )}
+          </div>
+        )}
+
+        {(user?.targetScore || user?.testDate) && (
+          <div className="dashboard-tile-pair">
+            {user?.targetScore && (
+              <div className="dashboard-tile">
+                <div className="dashboard-tile-eyebrow">Goal Score</div>
+                <div className="dashboard-tile-num">{user.targetScore}</div>
+                <div className="dashboard-tile-sub">From onboarding</div>
+              </div>
+            )}
+            {user?.testDate && (
+              <div className="dashboard-tile">
+                <div className="dashboard-tile-eyebrow">Days Until Exam</div>
+                <div className="dashboard-tile-num">{daysUntilTest ?? '—'}</div>
+                <div className="dashboard-tile-sub">
+                  {new Date(user.testDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+      </aside>
     </div>
   );
 };
