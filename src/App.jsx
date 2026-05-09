@@ -198,7 +198,7 @@ const PerformSAT = () => {
   }, [showCalculator]);
 
   const { user, loading, logout, updateTestDate, updateTargetScore, updateCurrentScore, updateTargetSchools } = useAuth();
-  const { completedLessons, practiceProgress, reviewQueue, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, markLessonComplete: markComplete, getModuleProgress: calcProgress, isLessonCompleted, recordPracticeAttempt, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete } = useProgress(user?.uid);
+  const { completedLessons, practiceProgress, reviewQueue, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, markLessonComplete: markComplete, getModuleProgress: calcProgress, isLessonCompleted, recordPracticeAttempt, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete } = useProgress(user?.uid);
 
   const markLessonComplete = (moduleId, lessonId) => {
     const moduleLessons = allLessons[moduleId] || [];
@@ -352,6 +352,7 @@ const PerformSAT = () => {
         label: meta.label || 'Assigned Practice',
         weekNumber: meta.weekNumber ?? null,
         source: 'study-plan-assigned',
+        weakness: meta.weakness || null,
       },
     });
     setActiveModule(null);
@@ -9254,6 +9255,7 @@ const PerformSAT = () => {
             studyPlan={studyPlan}
             studyPlanArtifact={studyPlanArtifact}
             studyPlanMeta={studyPlanMeta}
+            predictionLog={predictionLog}
             skillProgress={skillProgress}
             onNavigateToModule={(moduleId) => {
               setActiveModule(moduleId);
@@ -9271,6 +9273,7 @@ const PerformSAT = () => {
                 startAssignedPractice(opts.questionIds, {
                   label: opts.label,
                   weekNumber: opts.weekNumber,
+                  weakness: opts.weakness,
                 });
                 return;
               }
@@ -9727,6 +9730,7 @@ const PerformSAT = () => {
                 startAssignedPractice(opts.questionIds, {
                   label: opts.label,
                   weekNumber: opts.weekNumber,
+                  weakness: opts.weakness,
                 });
                 return;
               }

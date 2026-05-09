@@ -8,8 +8,10 @@ import DashboardDiagnosticWidget from './DashboardDiagnosticWidget';
 import DailyReviewCard from './DailyReviewCard';
 import PacingDrillCard from './PacingDrillCard';
 import TodaysTasksCard from './TodaysTasksCard';
+import PredictedVsActualCard from './PredictedVsActualCard';
 import { getTodaySlice } from '../services/studyPlanGenerator';
 import { getSessionAdherence } from '../services/selectors/sessionAdherence';
+import { summarizePredictions } from '../services/selectors/predictionSummary';
 import { PlayIcon, ChartBarIcon, TrendingUpIcon } from '../design/icons';
 import { injectAnimations, useCountUp } from '../design/animations';
 import { DataCard } from './ui/DataCard';
@@ -69,6 +71,7 @@ const StudentDashboard = ({
   studyPlan,
   studyPlanArtifact,
   studyPlanMeta,
+  predictionLog,
   skillProgress,
   onCompleteActivity,
   onUncompleteActivity
@@ -201,6 +204,12 @@ const StudentDashboard = ({
   const todaySlice = useMemo(() => getTodaySlice(studyPlan, todayDayName), [studyPlan, todayDayName]);
   const sessionAdherence = useMemo(() => getSessionAdherence(practiceProgress), [practiceProgress]);
   const hasStudyPlan = !!(studyPlan && Array.isArray(studyPlan.weeks) && studyPlan.weeks.length > 0);
+  // Predicted vs Actual (Day 5 ADD B). summarizePredictions returns null when
+  // no validated prediction exists yet, so the card hides itself pre-2nd-test.
+  const predictionSummary = useMemo(
+    () => summarizePredictions(predictionLog, practiceTestResults),
+    [predictionLog, practiceTestResults],
+  );
 
   const handleSelectTargetSchools = (schools) => {
     if (schools && schools.length > 0 && onUpdateTargetSchools) {
@@ -435,16 +444,24 @@ const StudentDashboard = ({
               see a clear CTA before their first diagnostic. */}
           <h2 className="section-heading">Targeted Practice</h2>
           {hasStudyPlan ? (
-            <TodaysTasksCard
-              slice={todaySlice}
-              adherence={sessionAdherence}
-              onStartActivity={(activity) => {
-                if (activity?.moduleId) {
-                  onStartPractice(activity.moduleId, activity.sectionName);
-                }
-              }}
-              onTakeTest={onStartPracticeTest}
-            />
+            <>
+              <TodaysTasksCard
+                slice={todaySlice}
+                adherence={sessionAdherence}
+                testDate={user?.testDate}
+                onStartActivity={(activity) => {
+                  if (activity?.moduleId) {
+                    onStartPractice(activity.moduleId, activity.sectionName);
+                  }
+                }}
+                onTakeTest={onStartPracticeTest}
+              />
+              {predictionSummary && (
+                <div style={{ marginTop: '16px' }}>
+                  <PredictedVsActualCard summary={predictionSummary} />
+                </div>
+              )}
+            </>
           ) : (
             recommendations[0] && (
               <div className="ai-practice-banner">

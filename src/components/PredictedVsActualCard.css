@@ -1,0 +1,62 @@
+/* src/components/PredictedVsActualCard.css
+ *
+ * Day-5 ADD B card. Sits below TodaysTasksCard on the Dashboard tab.
+ * Uses --font-reading for the editorial headline, --font-ui for stats —
+ * the two-typeface lockup landed earlier in Day 5.
+ */
+
+.pva-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-slate-200);
+  border-radius: 16px;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: var(--shadow-sm);
+  font-family: var(--font-ui);
+  color: var(--color-slate-900);
+}
+
+.pva-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-slate-500);
+}
+
+.pva-headline {
+  font-family: var(--font-reading);
+  font-size: 17px;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--color-slate-900);
+}
+
+.pva-range {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.pva-actual {
+  font-weight: 700;
+  white-space: nowrap;
+}
+.pva-actual.is-in-range  { color: var(--color-success-600); }
+.pva-actual.is-out       { color: var(--color-warning-600); }
+
+.pva-stats {
+  margin: 0;
+  font-size: 13px;
+  color: var(--color-slate-700);
+}
+
+.pva-stat-num {
+  font-weight: 700;
+  color: var(--color-slate-900);
+}
+
+.pva-rate {
+  color: var(--color-slate-500);
+}

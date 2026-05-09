@@ -9,6 +9,7 @@ import {
   getTargetedWeaknessSet as getRWTargetedWeaknessSet,
 } from '../data/questions/rwBank';
 import { getWeaknessSection } from '../services/selectors/weaknesses';
+import { formatDiagnosticSentence } from '../services/diagnosticEngine';
 import {
   ClipboardIcon,
   VideoCameraIcon,
@@ -460,29 +461,54 @@ const StudyPlanDashboard = ({
               const colorLeft = 'white';
               const bgColorRight = isGreen ? 'var(--color-success-50)' : (isRed ? 'var(--color-error-50)' : 'var(--color-accent-light-blue)');
               
+              const diagnosticSentence = formatDiagnosticSentence(w);
               return (
-                <div key={w.skillId || i} className="acely-split-card" style={{ border: '1px solid var(--color-slate-200)', boxShadow: 'var(--shadow-sm)' }}>
-                  <div className="acely-split-left" style={{ backgroundColor: bgColorLeft, color: colorLeft, width: '120px', flex: 'none' }}>
-                    {w.accuracy}%
-                  </div>
-                  <div className="acely-split-right" style={{ backgroundColor: bgColorRight, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '1.5rem' }}>
-                    <div style={{ flex: 1, minWidth: 0, paddingRight: '1rem' }}>
-                      <div className="acely-metric-label">{w.domain || 'Skill'}</div>
-                      <div className="acely-section-name" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{w.skill}</div>
-                      {w.errorType && (
-                        <div style={{ fontSize: '0.8125rem', marginTop: '0.25rem', opacity: 0.8, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                          {w.errorType}
-                        </div>
-                      )}
+                <div key={w.skillId || i} style={{ display: 'flex', flexDirection: 'column' }}>
+                  <div className="acely-split-card" style={{ border: '1px solid var(--color-slate-200)', boxShadow: 'var(--shadow-sm)' }}>
+                    <div className="acely-split-left" style={{ backgroundColor: bgColorLeft, color: colorLeft, width: '120px', flex: 'none' }}>
+                      {w.accuracy}%
                     </div>
-                    <button
-                      className="btn-launch"
-                      style={{ flexShrink: 0, padding: '0.5rem 1rem' }}
-                      onClick={() => onStartPractice(null, null, { questionIds: w.qIds, source: 'study-plan-assigned', label: `${w.skill} Practice` })}
-                    >
-                      <PencilIcon size={14} style={{ marginRight: '6px', verticalAlign: 'text-bottom' }} /> Practice
-                    </button>
+                    <div className="acely-split-right" style={{ backgroundColor: bgColorRight, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '1.5rem' }}>
+                      <div style={{ flex: 1, minWidth: 0, paddingRight: '1rem' }}>
+                        <div className="acely-metric-label">{w.domain || 'Skill'}</div>
+                        <div className="acely-section-name" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{w.skill}</div>
+                        {w.errorType && (
+                          <div style={{ fontSize: '0.8125rem', marginTop: '0.25rem', opacity: 0.8, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                            {w.errorType}
+                          </div>
+                        )}
+                      </div>
+                      <button
+                        className="btn-launch"
+                        style={{ flexShrink: 0, padding: '0.5rem 1rem' }}
+                        onClick={() => onStartPractice(null, null, {
+                          questionIds: w.qIds,
+                          source: 'study-plan-assigned',
+                          label: `${w.skill} Practice`,
+                          weakness: w, // Day 5 D3: shell renders diagnostic sentence after wrong answers
+                        })}
+                      >
+                        <PencilIcon size={14} style={{ marginRight: '6px', verticalAlign: 'text-bottom' }} /> Practice
+                      </button>
+                    </div>
                   </div>
+                  {/* Day 5 D3 — italic editorial sentence translating the
+                      6-class error taxonomy into prose. Serif by design. */}
+                  {diagnosticSentence && (
+                    <p
+                      className="sp-diagnostic-sentence"
+                      style={{
+                        margin: '8px 4px 0',
+                        fontFamily: 'var(--font-reading)',
+                        fontStyle: 'italic',
+                        fontSize: '0.9375rem',
+                        lineHeight: 1.5,
+                        color: 'var(--color-slate-700)',
+                      }}
+                    >
+                      {diagnosticSentence}
+                    </p>
+                  )}
                 </div>
               );
             })}

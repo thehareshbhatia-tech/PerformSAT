@@ -2041,6 +2041,114 @@ const analyzeTimeAllocation = (questionAnalysis) => {
 // EXPORTS
 // ═══════════════════════════════════════════════════════════════════════════
 
+// ═══════════════════════════════════════════════════════════════════════════
+// DIAGNOSTIC SENTENCE — Day 5 D3 (italic editorial copy from a weakness)
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Normalize the various errorType shapes that arrive on weakness objects:
+//   - canonical id string ('conceptual_gap')
+//   - capitalized label ('Conceptual Gap')
+//   - title-cased + spaces ('Conceptual gap')
+function normalizeErrorTypeId(raw) {
+  if (!raw || typeof raw !== 'string') return null;
+  const trimmed = raw.trim();
+  if (!trimmed) return null;
+  // Already a canonical id?
+  const ids = Object.values(ERROR_TYPES);
+  if (ids.includes(trimmed)) return trimmed;
+  // snake_case / SCREAMING_SNAKE_CASE
+  const snakeUp = trimmed.toLowerCase().replace(/[\s-]+/g, '_');
+  if (ids.includes(snakeUp)) return snakeUp;
+  // From label form
+  const labelMatch = Object.entries(ERROR_TYPE_LABELS).find(
+    ([, label]) => label.toLowerCase() === trimmed.toLowerCase(),
+  );
+  if (labelMatch) return labelMatch[0];
+  return null;
+}
+
+// Editorial sentence templates per error class. Two-typeface intent: render
+// the result in --font-reading at the call site, italicized.
+const SENTENCE_BY_ERROR_TYPE = {
+  [ERROR_TYPES.CONCEPTUAL_GAP]: ({ skill, evidence }) =>
+    `${withSkill(skill)}, you missed the underlying concept${withEvidence(evidence, ' on')}. Re-watch the lesson before drilling.`,
+  [ERROR_TYPES.PROCEDURAL_ERROR]: ({ skill, evidence }) =>
+    `${withSkill(skill)}, the concept clicks but the execution slips${withEvidence(evidence, ' —')}. Slow the algebra down.`,
+  [ERROR_TYPES.TRAP_SUSCEPTIBILITY]: ({ skill, evidence }) =>
+    `${withSkill(skill)} traps got you${withEvidence(evidence, ' on')}. Most are first-glance answers — read past the obvious choice.`,
+  [ERROR_TYPES.TIME_PRESSURE]: ({ skill, evidence }) =>
+    `Time crunched you${withSkill(skill, ' on ')}${withEvidence(evidence, ' (')}${evidence ? ')' : ''}. Practice untimed first to rebuild confidence.`,
+  [ERROR_TYPES.CARELESS_ERROR]: ({ skill, evidence }) =>
+    `${withSkill(skill)} is in your wheelhouse — these were slip-ups${withEvidence(evidence, ' (')}${evidence ? ')' : ''}. Slow your final check.`,
+  [ERROR_TYPES.UNANSWERED]: ({ skill, evidence }) =>
+    `You skipped ${skill || 'these'} questions${withEvidence(evidence, ' (')}${evidence ? ')' : ''}. When in doubt, eliminate two and guess.`,
+};
+
+function withSkill(skill, prefix = 'On ') {
+  if (!skill) return prefix.trim() === 'On' ? 'Here' : '';
+  return `${prefix}${skill}`;
+}
+
+function withEvidence(evidence, prefix = ' on') {
+  if (!evidence || typeof evidence !== 'string') return '';
+  return `${prefix} ${evidence.trim()}`;
+}
+
+/**
+ * formatDiagnosticSentence — turn a weakness into an italic editorial line.
+ *
+ * The /autoplan Phase-2 review (D3 finding) flagged that the 6-class error
+ * taxonomy was rendered as a small badge or chart cell — easy to miss.
+ * Surfacing it as one sentence of editorial prose makes the diagnostic
+ * actually readable to a 16-year-old.
+ *
+ * Input weakness shape (from `studyPlan.weaknesses` / `groundTruthDiagnosis`):
+ *   {
+ *     skill?: string,                  display name ("Slope-intercept form")
+ *     skillId?: string,                fallback when skill is missing
+ *     errorType?: string,              canonical id OR label OR snake/Title case
+ *     evidence?: string,               e.g. "4 of 6 misses"
+ *     accuracy?: number,               percentage 0-100
+ *   }
+ *
+ * Output:
+ *   A single 1-2 sentence string. Always non-empty (we fall back to a
+ *   generic accuracy-based sentence when errorType is missing).
+ *
+ * @param {object} weakness
+ * @returns {string}
+ */
+export function formatDiagnosticSentence(weakness) {
+  if (!weakness || typeof weakness !== 'object') return '';
+
+  const skill = weakness.skill || (weakness.skillId
+    ? weakness.skillId.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+    : null);
+  const evidence = weakness.evidence || null;
+  const errorTypeId = normalizeErrorTypeId(weakness.errorType);
+
+  if (errorTypeId && SENTENCE_BY_ERROR_TYPE[errorTypeId]) {
+    return SENTENCE_BY_ERROR_TYPE[errorTypeId]({ skill, evidence });
+  }
+
+  // Fallback — generic prose that still reads like editorial.
+  if (typeof weakness.accuracy === 'number') {
+    const acc = Math.round(weakness.accuracy);
+    if (skill) {
+      return `${skill}: ${acc}% accurate. The pattern is worth a closer look.`;
+    }
+    return `${acc}% accurate here. The pattern is worth a closer look.`;
+  }
+  if (skill) {
+    return `${skill} is the next focus area.`;
+  }
+  return '';
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// EXPORTS
+// ═══════════════════════════════════════════════════════════════════════════
+
 export {
   ERROR_TYPES,
   ERROR_TYPE_LABELS,

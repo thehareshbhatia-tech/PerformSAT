@@ -24,6 +24,12 @@
   gap: 10px;
 }
 
+/* Calendar Strip top inset (Day 5 D5). Tight against the eyebrow row below. */
+.ttc-calendar-strip {
+  margin: -10px -4px 6px;
+  padding: 4px;
+}
+
 .ttc-eyebrow {
   font-size: 12px;
   font-weight: 700;

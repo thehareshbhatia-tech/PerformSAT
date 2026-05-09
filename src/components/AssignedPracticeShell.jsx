@@ -4,6 +4,8 @@ import QuestionDiagram from './QuestionDiagrams';
 import QuestionRenderer from './QuestionRenderer';
 import SolutionExplanation from './SolutionExplanation';
 import AiTutorChat from './AiTutorChat';
+import HandAuthoredStamp from './HandAuthoredStamp';
+import { formatDiagnosticSentence } from '../services/diagnosticEngine';
 import './AssignedPracticeShell.css';
 
 const C = {
@@ -353,6 +355,7 @@ const AssignedPracticeShell = ({
         }}>
           {/* Question header */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
+            <HandAuthoredStamp />
             <span style={{ fontSize: '14px', fontWeight: '700', color: C.textSec }}>
               Question {idx + 1}
             </span>
@@ -588,6 +591,28 @@ const AssignedPracticeShell = ({
                 {practiceState.answers[currentQuestion.id]?.correct ? 'Correct!' : 'Incorrect'}
               </div>
               <SolutionExplanation explanation={currentQuestion.explanation} />
+
+              {/* Day 5 D3 — italic editorial sentence after a wrong answer.
+                  Only renders when the assignment carries a weakness shape
+                  (focus-area drills do; review-queue and ad-hoc don't). */}
+              {!practiceState.answers[currentQuestion.id]?.correct
+                && practiceState.assignmentMeta?.weakness
+                && (() => {
+                  const sentence = formatDiagnosticSentence(practiceState.assignmentMeta.weakness);
+                  if (!sentence) return null;
+                  return (
+                    <p style={{
+                      margin: '12px 0 0',
+                      fontFamily: 'var(--font-reading)',
+                      fontStyle: 'italic',
+                      fontSize: '14px',
+                      lineHeight: 1.5,
+                      color: C.textSec,
+                    }}>
+                      {sentence}
+                    </p>
+                  );
+                })()}
 
               {/* Try-similar — only when wrong (E4) and skill pool isn't exhausted (GAP-3) */}
               {!practiceState.answers[currentQuestion.id]?.correct && typeof onTrySimilar === 'function' && (

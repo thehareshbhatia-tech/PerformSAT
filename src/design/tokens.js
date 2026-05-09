@@ -57,6 +57,14 @@ export const typography = {
   fontFamily: 'var(--font-ui)',
   fontFamilyMath: 'var(--font-reading)',
   fontFamilyMono: '"Fira Code", monospace',
+  // Two-typeface lockup (Day 5 of Acely-parity batch).
+  // Use these aliases for new surfaces instead of fontFamily/fontFamilyMath
+  // so the intent is explicit at the call site.
+  //   ui        — buttons, persistent metrics, numerals, dense-info chrome
+  //   narrative — diagnostic sentence, weakness names, "what changed" deltas,
+  //               empty-state copy, anything that reads like editorial prose
+  ui: 'var(--font-ui)',
+  narrative: 'var(--font-reading)',
   sizes: {
     caption: '0.625rem',
     xs: '0.75rem',
