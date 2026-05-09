@@ -1,0 +1,133 @@
+/* src/components/TodaysTasksCard.css
+ *
+ * Day-4 hero card for the Dashboard tab. Replaces the AI Practice Banner
+ * (D-IH-1). Restrained — most visual weight goes to the eyebrow + title
+ * + primary CTA. Adherence sits in the footer as a small inline metric.
+ */
+
+.ttc-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-slate-200);
+  border-radius: 16px;
+  padding: 28px 28px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: var(--font-ui);
+  color: var(--color-slate-900);
+  box-shadow: var(--shadow-sm);
+}
+
+.ttc-state {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ttc-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-slate-500);
+}
+
+.ttc-title {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0;
+  color: var(--color-slate-900);
+}
+
+.ttc-sub {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--color-slate-700);
+}
+
+.ttc-cta {
+  align-self: flex-start;
+  margin-top: 6px;
+  padding: 11px 22px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.ttc-cta-primary {
+  background: var(--color-brand-primary);
+  color: var(--color-white);
+}
+.ttc-cta-primary:hover {
+  background: var(--color-brand-primary-hover);
+}
+.ttc-cta-primary:focus-visible {
+  outline: 2px solid var(--color-brand-primary);
+  outline-offset: 3px;
+}
+
+.ttc-cta-secondary {
+  background: transparent;
+  color: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
+}
+.ttc-cta-secondary:hover {
+  background: var(--color-brand-primary-light);
+}
+
+/* States with a softer accent — refreshing, rest-day, all-done */
+
+.ttc-state-refreshing .ttc-title,
+.ttc-state-rest .ttc-title,
+.ttc-state-done .ttc-title {
+  color: var(--color-slate-800);
+}
+
+.ttc-spinner {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--color-slate-200);
+  border-top-color: var(--color-brand-primary);
+  animation: ttc-spin 800ms linear infinite;
+}
+@keyframes ttc-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .ttc-spinner { animation: none; }
+}
+
+/* Footer: inline adherence metric */
+
+.ttc-adherence {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--color-slate-200);
+  font-size: 13px;
+  color: var(--color-slate-600);
+}
+
+.ttc-adherence-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-brand-primary);
+}
+
+@media (max-width: 640px) {
+  .ttc-card {
+    padding: 22px 20px 14px;
+    border-radius: 14px;
+  }
+  .ttc-title {
+    font-size: 19px;
+  }
+}

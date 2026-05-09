@@ -7,6 +7,9 @@ import StudyPlanDashboard from './StudyPlanDashboard';
 import DashboardDiagnosticWidget from './DashboardDiagnosticWidget';
 import DailyReviewCard from './DailyReviewCard';
 import PacingDrillCard from './PacingDrillCard';
+import TodaysTasksCard from './TodaysTasksCard';
+import { getTodaySlice } from '../services/studyPlanGenerator';
+import { getSessionAdherence } from '../services/selectors/sessionAdherence';
 import { PlayIcon, ChartBarIcon, TrendingUpIcon } from '../design/icons';
 import { injectAnimations, useCountUp } from '../design/animations';
 import { DataCard } from './ui/DataCard';
@@ -190,6 +193,15 @@ const StudentDashboard = ({
     });
   }, [completedLessons, practiceProgress, reviewQueue, user?.testDate, allLessons]);
 
+  // Today's Tasks slice + session adherence (Day 4 of Acely-parity batch).
+  // Day name comes from the user's local clock at component-mount time —
+  // no auto-refresh on midnight rollover (the user can refresh).
+  const DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const todayDayName = DAY_NAMES[new Date().getDay()];
+  const todaySlice = useMemo(() => getTodaySlice(studyPlan, todayDayName), [studyPlan, todayDayName]);
+  const sessionAdherence = useMemo(() => getSessionAdherence(practiceProgress), [practiceProgress]);
+  const hasStudyPlan = !!(studyPlan && Array.isArray(studyPlan.weeks) && studyPlan.weeks.length > 0);
+
   const handleSelectTargetSchools = (schools) => {
     if (schools && schools.length > 0 && onUpdateTargetSchools) {
       onUpdateTargetSchools(schools);
@@ -277,9 +289,14 @@ const StudentDashboard = ({
         <h1 className="dashboard-greeting">
           {getGreeting()}{user?.displayName ? `, ${user.displayName.split(' ')[0]}` : ''}
         </h1>
-        <p className="dashboard-subtitle">
-          Study with your personalized AI learning plan and get instant hints, explanations, and more with our AI Tutor.
-        </p>
+        {/* D-IH-2: hide the 60px subtitle when TodaysTasksCard already
+            anchors the user — it has its own copy. Brand-new users
+            (no plan) still see the longer pitch. */}
+        {!(activeTab === 'dashboard' && hasStudyPlan) && (
+          <p className="dashboard-subtitle">
+            Study with your personalized AI learning plan and get instant hints, explanations, and more with our AI Tutor.
+          </p>
+        )}
         <div className="dashboard-top-tabs">
           <button
             className={`dashboard-top-tab${activeTab === 'dashboard' ? ' active' : ''}`}
@@ -328,7 +345,9 @@ const StudentDashboard = ({
         </div>
       ) : (
       <>
-      {/* Performance Panel */}
+      {/* Performance Panel — D-IH-3: hide until the user has at least one
+          practice attempt. An empty 3-card grid is dead pixels above the fold. */}
+      {practiceEntries.length > 0 && (
       <div className="acely-performance-grid">
         <div className="acely-metric-card acely-accuracy-card">
           <div className="acely-metric-label">Practice Accuracy</div>
@@ -372,6 +391,11 @@ const StudentDashboard = ({
           </div>
         </div>
       </div>
+      )}
+      {/* D-IH-4: hide the projected score chart until the user has at
+          least 2 tests on file. With 0 or 1 tests the trend line is
+          decorative noise. */}
+      {scoreHistory.length >= 2 && (
       <div className="acely-projected-card">
         <div className="acely-projected-graph">
           <svg width="100%" height="100%" viewBox="0 0 400 120" preserveAspectRatio="none">
@@ -389,6 +413,7 @@ const StudentDashboard = ({
           )}
         </div>
       </div>
+      )}
 
       {/* Dashboard Content Grid */}
       <div className="dashboard-grid">
@@ -405,33 +430,48 @@ const StudentDashboard = ({
             />
           )}
 
-          {/* YOUR NEXT STEP - AI Banner */}
+          {/* Today's Tasks (Day 4) — replaces AI Practice Banner when a plan exists (D-IH-1).
+              The legacy banner stays as the no-plan fallback so brand-new users still
+              see a clear CTA before their first diagnostic. */}
           <h2 className="section-heading">Targeted Practice</h2>
-          {recommendations[0] && (
-            <div className="ai-practice-banner">
-              <div className="ai-banner-content">
-                <div className="ai-banner-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+          {hasStudyPlan ? (
+            <TodaysTasksCard
+              slice={todaySlice}
+              adherence={sessionAdherence}
+              onStartActivity={(activity) => {
+                if (activity?.moduleId) {
+                  onStartPractice(activity.moduleId, activity.sectionName);
+                }
+              }}
+              onTakeTest={onStartPracticeTest}
+            />
+          ) : (
+            recommendations[0] && (
+              <div className="ai-practice-banner">
+                <div className="ai-banner-content">
+                  <div className="ai-banner-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+                  </div>
+                  <div className="ai-banner-text-group">
+                    <div className="ai-banner-title">
+                      {recommendations[0].title}
+                    </div>
+                    <div className="ai-banner-desc">
+                      Practice all Math domains and subdomains
+                    </div>
+                  </div>
                 </div>
-                <div className="ai-banner-text-group">
-                  <div className="ai-banner-title">
-                    {recommendations[0].title}
+                <div className="ai-banner-controls">
+                  <div className="accuracy-group">
+                    <span className="accuracy-label">Accuracy <span style={{fontSize: '0.75rem'}}>ⓘ</span></span>
+                    <span className="accuracy-pill">{practicePercent || 0}%</span>
                   </div>
-                  <div className="ai-banner-desc">
-                    Practice all Math domains and subdomains
-                  </div>
+                  <button className="btn-launch" onClick={() => handleRecommendationClick(recommendations[0])}>
+                    Launch Practice
+                  </button>
                 </div>
               </div>
-              <div className="ai-banner-controls">
-                <div className="accuracy-group">
-                  <span className="accuracy-label">Accuracy <span style={{fontSize: '0.75rem'}}>ⓘ</span></span>
-                  <span className="accuracy-pill">{practicePercent || 0}%</span>
-                </div>
-                <button className="btn-launch" onClick={() => handleRecommendationClick(recommendations[0])}>
-                  Launch Practice
-                </button>
-              </div>
-            </div>
+            )
           )}
 
           <h2 className="section-heading">Review & Pacing</h2>
