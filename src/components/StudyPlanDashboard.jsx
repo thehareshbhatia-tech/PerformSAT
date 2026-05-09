@@ -412,7 +412,7 @@ const StudyPlanDashboard = ({
             </div>
           </div>
           <div className="acely-split-card" style={{ border: '1px solid var(--color-slate-200)', boxShadow: 'var(--shadow-sm)' }}>
-            <div className="acely-split-left" style={{ backgroundColor: 'var(--color-brand-primary, #3B52D9)', color: 'white' }}><PinIcon size={48} /></div>
+            <div className="acely-split-left" style={{ backgroundColor: 'var(--color-brand-primary, #ea580c)', color: 'white' }}><PinIcon size={48} /></div>
             <div className="acely-split-right" style={{ backgroundColor: 'var(--color-slate-50)' }}>
               <div className="acely-metric-label">Next Milestone</div>
               <div className="acely-section-name">Complete Week {displayCurrentWeek + 1}</div>

@@ -117,7 +117,7 @@ export const shadows = {
   lg: 'var(--shadow-lg)',
   xl: 'var(--shadow-lg)',
   inner: 'inset 0 2px 4px rgba(0, 0, 0, 0.05)',
-  focus: '0 0 0 3px rgba(59, 82, 217, 0.4)', // brand primary
+  focus: '0 0 0 3px rgba(234, 88, 12, 0.4)', // brand primary
 };
 
 export const transitions = {

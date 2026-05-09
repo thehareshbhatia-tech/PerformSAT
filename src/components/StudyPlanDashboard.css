@@ -15,9 +15,9 @@
 }
 
 @keyframes spPulseGlow {
-  0% { box-shadow: 0 0 0 0 rgba(59, 82, 217, 0.4); }
-  70% { box-shadow: 0 0 0 15px rgba(59, 82, 217, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(59, 82, 217, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.4); }
+  70% { box-shadow: 0 0 0 15px rgba(234, 88, 12, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(234, 88, 12, 0); }
 }
 
 .sp-section {
@@ -180,7 +180,7 @@
   right: -20px;
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle, rgba(59, 82, 217, 0.08) 0%, rgba(59, 82, 217, 0) 70%);
+  background: radial-gradient(circle, rgba(234, 88, 12, 0.08) 0%, rgba(234, 88, 12, 0) 70%);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -217,7 +217,7 @@
   border-radius: 6px;
   font-size: 0.6875rem;
   font-weight: 700;
-  background: rgba(59, 82, 217, 0.1);
+  background: rgba(234, 88, 12, 0.1);
   color: var(--color-brand-primary);
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -250,7 +250,7 @@
 .sp-progress-bar-container {
   width: 100%;
   height: 12px;
-  background: rgba(59, 82, 217, 0.1);
+  background: rgba(234, 88, 12, 0.1);
   border-radius: 9999px;
   overflow: hidden;
   margin-top: 2rem;
@@ -382,7 +382,7 @@
 }
 .sp-week-card.is-current {
   border-color: var(--color-brand-primary-light);
-  box-shadow: 0 8px 24px rgba(59, 82, 217, 0.08);
+  box-shadow: 0 8px 24px rgba(234, 88, 12, 0.08);
 }
 .sp-week-card.is-complete {
   background: var(--color-success-50);
@@ -403,7 +403,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(to right, rgba(59, 82, 217, 0.04), transparent);
+  background: linear-gradient(to right, rgba(234, 88, 12, 0.04), transparent);
   border-bottom: 1px solid var(--color-slate-100);
   cursor: pointer;
 }
@@ -572,7 +572,7 @@
   text-transform: uppercase;
 }
 .sp-activity-priority.high {
-  background: rgba(59, 82, 217, 0.1);
+  background: rgba(234, 88, 12, 0.1);
   color: var(--color-brand-primary);
 }
 
@@ -610,12 +610,12 @@
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(59, 82, 217, 0.2);
+  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.2);
 }
 .sp-activity-action:hover {
   background: var(--color-brand-primary-hover);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(59, 82, 217, 0.3);
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
 }
 
 .sp-activity-tip {
