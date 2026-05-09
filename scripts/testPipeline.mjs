@@ -118,21 +118,18 @@ if (validated.rejected > 0) {
 }
 
 // ---------------------------------------------------------------------------
-// 4. Test: Published bank shard
+// 4. Test: Published bank shard — REMOVED
 // ---------------------------------------------------------------------------
+// generatedOfficial.js was deleted in Day 0 cleanup. The PDF-first-strict-rewrite
+// pipeline produced 1,750 incoherent items (numbers, names, references mismatched
+// across stem/choices/explanation independently). The pipeline can be repaired
+// or replaced (LLM-authored variants + arithmetic-coherence validator) before
+// any future re-wiring. Until then, the published-bank-shard test is moot.
+//
+// If the pipeline is rebuilt, restore the relevant `assert(...)` checks here
+// against the new shard path.
 
-console.log('\n[4] Published bank shard');
-const publishedPath = path.join(ROOT, 'src', 'data', 'questions', 'bank', 'generatedOfficial.js');
-assert(fs.existsSync(publishedPath), 'generatedOfficial.js exists');
-
-const publishedContent = fs.readFileSync(publishedPath, 'utf8');
-assert(publishedContent.includes('generatedOfficialAlgebraBank'), 'exports algebra bank');
-assert(publishedContent.includes('generatedOfficialProblemSolvingBank'), 'exports problem-solving bank');
-assert(publishedContent.includes('generatedOfficialAdvancedMathBank'), 'exports advanced-math bank');
-assert(publishedContent.includes('generatedOfficialGeometryBank'), 'exports geometry bank');
-assert(publishedContent.includes('generatedOfficialBank'), 'exports combined bank');
-assert(publishedContent.includes('pdf-first-strict-rewrite'), 'pipeline label in output');
-assert(publishedContent.includes('pdf-rewritten'), 'questions tagged pdf-rewritten');
+console.log('\n[4] Published bank shard — SKIPPED (generatedOfficial.js removed; pipeline parked)');
 
 // ---------------------------------------------------------------------------
 // 5. Test: Bank index wiring
