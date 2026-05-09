@@ -625,11 +625,12 @@ const AssignedPracticeShell = ({
                     : 'Try a similar question for the same skill'}
                   style={{
                     marginTop: '14px',
-                    padding: '10px 16px', borderRadius: '8px',
+                    minHeight: '44px',                /* D-A11Y-1: WCAG/iOS HIG tap target */
+                    padding: '12px 18px', borderRadius: '8px',
                     border: `1px solid ${isTrySimilarExhausted ? C.border : C.brand}`,
                     background: isTrySimilarExhausted ? C.bg : C.white,
                     color: isTrySimilarExhausted ? C.textMuted : C.brand,
-                    fontSize: '13px', fontWeight: '600',
+                    fontSize: '14px', fontWeight: '600',
                     cursor: isTrySimilarExhausted ? 'not-allowed' : 'pointer',
                   }}
                 >

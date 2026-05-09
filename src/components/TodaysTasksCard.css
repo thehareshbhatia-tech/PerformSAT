@@ -56,7 +56,9 @@
 .ttc-cta {
   align-self: flex-start;
   margin-top: 6px;
-  padding: 11px 22px;
+  /* D-A11Y-1: ≥44×44 tap target for WCAG/iOS HIG. */
+  min-height: 44px;
+  padding: 12px 24px;
   border-radius: 10px;
   border: 1px solid transparent;
   font-size: 14px;

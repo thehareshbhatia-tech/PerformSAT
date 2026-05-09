@@ -52,9 +52,11 @@ A comprehensive SAT math preparation platform with video courses, progress track
 3. **Configure Environment**
    ```bash
    # Copy template and fill in your Firebase credentials
-   cp .env.local.template .env.local
+   cp .env.example .env.local
    # Edit .env.local with your Firebase config
    ```
+   The example file documents both Firebase keys and the available
+   `REACT_APP_FF_*` feature flags (Today's Tasks, R&W drills).
 
 4. **Deploy Security Rules**
    ```bash
@@ -78,6 +80,11 @@ A comprehensive SAT math preparation platform with video courses, progress track
    - Open http://localhost:3000
    - Sign in with email and school code
    - Check email for magic link
+
+> **For agents / new contributors:** start with [`CLAUDE.md`](CLAUDE.md) at
+> the repo root — it's the orientation doc with the architecture diagram,
+> the three practice shells, the section-tag weakness contract, and the
+> conventions (feature flags, selectors, JSDoc, tests).
 
 ## Project Structure
 
@@ -276,9 +283,18 @@ REACT_APP_FIREBASE_APP_ID=
 - Lesson data extraction
 - Documentation
 
-### ⚠️ Pending
-- **App.jsx Integration** - The main app file needs to be updated to use all new components
-  - See [APP_INTEGRATION_GUIDE.md](APP_INTEGRATION_GUIDE.md) for detailed instructions
+### Recently shipped (Acely-parity batch, May 2026)
+
+- Section-tagged weakness contract → R&W focus area drills (math + R&W routed by `weakness.section`)
+- Today's Tasks hero on the Dashboard tab — replaces the AI Practice Banner
+- Try-Similar question button after wrong answers in the drill flow
+- Wired DiagnosticReport from the dashboard (was unreachable)
+- Calendar Strip + Hand-Authored Stamp + Diagnostic Sentence + Predicted vs Actual card
+- Brand color resolution to PerformSAT orange (`#ea580c`)
+- Toaster primitive for transient notifications
+
+See `~/.gstack/projects/.../hareshbhatia-main-plan-20260509-132835.md` for the
+full /autoplan plan + 62-decision audit trail.
 
 ## Troubleshooting
 
@@ -296,9 +312,9 @@ Firebase Free Tier (Spark Plan):
 
 ## Support & Documentation
 
+- **Orientation (start here):** [CLAUDE.md](CLAUDE.md)
 - **Setup Guide:** [SETUP.md](SETUP.md)
-- **Integration Guide:** [APP_INTEGRATION_GUIDE.md](APP_INTEGRATION_GUIDE.md)
-- **Implementation Plan:** `.claude/plans/twinkly-orbiting-beacon.md`
+- **Architecture details:** the section "What already exists (don't rebuild)" in CLAUDE.md
 
 ## License
 
@@ -310,4 +326,6 @@ Built with Claude Code for PerformSAT
 
 ---
 
-**Next Step:** Follow [APP_INTEGRATION_GUIDE.md](APP_INTEGRATION_GUIDE.md) to complete the App.jsx integration and launch your application!
+For day-to-day commands and conventions (test scripts, bank validation,
+the three practice shells, the section-tag weakness contract), read
+[CLAUDE.md](CLAUDE.md).

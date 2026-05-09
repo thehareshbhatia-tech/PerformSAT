@@ -92,6 +92,9 @@ export function getAllWeaknesses(plan) {
 }
 
 /**
+ * Filter `studyPlan.weaknesses` to math-section entries only. Use at consumer
+ * sites that route into the math drill bank.
+ *
  * @param {object | null | undefined} plan  A study plan object.
  * @returns {object[]}  Math-section weaknesses only.
  */
@@ -100,6 +103,10 @@ export function getMathWeaknesses(plan) {
 }
 
 /**
+ * Filter `studyPlan.weaknesses` to R&W-section entries only. Use at consumer
+ * sites that route into the R&W drill bank (e.g. StudyPlanDashboard's
+ * skillPracticeRows section dispatcher).
+ *
  * @param {object | null | undefined} plan  A study plan object.
  * @returns {object[]}  R&W-section weaknesses only.
  */

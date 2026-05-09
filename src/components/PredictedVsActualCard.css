@@ -60,3 +60,13 @@
 .pva-rate {
   color: var(--color-slate-500);
 }
+
+@media (max-width: 640px) {
+  .pva-card {
+    padding: 18px 18px;
+    border-radius: 14px;
+  }
+  .pva-headline {
+    font-size: 16px;
+  }
+}
