@@ -23,9 +23,14 @@ Firebase config lives in `src/firebase/config.js`. To run against a real project
 Student logs in
    │
    ▼
-StudentDashboard  ──────── Default landing. Two tabs: "Dashboard" + "Study Plan"
-   │   ├─ Dashboard tab → widgets (perf grid, projected score, AI Practice Banner)
-   │   └─ Study Plan tab → <StudyPlanDashboard />
+StudentDashboard  ──────── Default landing. Two tabs with count badges:
+   │                       "Dashboard (N)" + "Study Plan (N)"
+   │   ├─ Dashboard tab → main column (TodaysTasksCard with per-activity
+   │   │                  sub-cards + Predicted vs Actual) +
+   │   │                  right rail (CalendarMonth + score-with-delta +
+   │   │                  goal/exam two-up + DashboardDiagnosticWidget)
+   │   └─ Study Plan tab → <StudyPlanDashboard /> with focus-area cards
+   │                        (italic Diagnostic Sentence below each)
    │
    ▼  (student takes a practice test)
 PracticeTest.jsx  ──────── Full-length test runner. Builds groundTruth diagnosis
@@ -60,7 +65,11 @@ There are three components that look like "the drill UI." They serve different p
 
 When the plan says "add a button to the drill flow" or "after a wrong answer in practice," it means **AssignedPracticeShell**. `QuestionRenderer.jsx` is just a math/text segment renderer — no answer state, no feedback panel.
 
-The mutation rules also matter: `AssignedPracticeShell` is a **controlled component** with no local state for the question list. Session state (the `shuffledQuestions` array, current index, answers) lives in `App.jsx` as `practiceState`. To insert / advance questions mid-session, the handler MUST live in `App.jsx` and the shell receives a callback prop.
+The mutation rules also matter: `AssignedPracticeShell` is a **controlled component** with no local state for the question list. Session state (the `shuffledQuestions` array, current index, answers, **rounds[]**, **currentRoundIndex**) lives in `App.jsx` as `practiceState`. To insert / advance questions mid-session, the handler MUST live in `App.jsx` and the shell receives a callback prop.
+
+### Round structure (Acely-polish Day 2)
+
+`practiceState.rounds[]` carries `{ index, questionIds, label, startedAt, completedAt }`. `buildRounds(questionIds, 8)` from `services/buildRounds.js` splits the queue at session start. The shell renders the question header as `Round N · Q M of K` and pauses on a celebration interstitial between rounds. `handleNextQuestion` checks `classifyRoundBoundary` to decide whether to advance to the next question or show the interstitial; `handleAdvanceToNextRound` handles the user's "Continue to next round" click.
 
 ## The data flow that matters most
 
@@ -122,15 +131,25 @@ The diagnostic adapter in `services/scoring/diagnosticAdapter.js` builds a **sep
 
 | Capability | Where | State |
 |------------|-------|-------|
-| Question banks (math + R&W) | `src/data/questions/bank/index.js` (math, 664 items) and `src/data/practiceTests/practiceTest{N}RW.js` (R&W, 12 test bundles ~648 items, embedded — not yet flattened) | Math: production. R&W: source data ready, flatten lands in item #1. |
-| 6-class error taxonomy | `src/services/diagnosticEngine.js:83-118` | Built. Surfaces as small badges only — wider UI surfacing is on the current Acely-parity ship list. |
-| Prediction engine + validation history | `src/services/predictionEngine.js` | Built. Currently only consumed by `AiTutorChat.jsx`. Visible-UI surface is on the current ship list. |
-| Intervention tracker | `src/services/interventionTracker.js` | Built. Same: only consumed by AiTutorChat. |
+| Question banks (math + R&W) | `src/data/questions/bank/index.js` (math, ~664 items) and `src/data/questions/rwBank/index.js` (R&W, 648 items, flattened from 12 test bundles) | Both production. Section-tag weakness contract dispatches by `weakness.section`. |
+| 6-class error taxonomy | `src/services/diagnosticEngine.js:128-172` | Built. Surfaces as italic editorial sentences via `formatDiagnosticSentence(weakness)` below Focus Area cards + after wrong answers in AssignedPracticeShell. |
+| Prediction engine + validation history | `src/services/predictionEngine.js` | Built. Surfaced via `<PredictedVsActualCard>` on the Dashboard tab; selector at `selectors/predictionSummary.js`. |
+| Intervention tracker | `src/services/interventionTracker.js` | Built. Currently consumed by AiTutorChat. |
 | 4 coach modes | `src/services/aiCoachModes.js` (hint ladder, mistake replay, teach-back, exam strategy) | Built. `CoachModePicker.jsx` exists but is currently unused. |
-| Study plan tab on homepage | `StudentDashboard.jsx:73-305` (activeTab state + tab bar + Study Plan tab mount) | Shipped 2026-03-27 (prior approved design). |
+| Study plan tab on homepage | `StudentDashboard.jsx` (activeTab state + tab bar with count badges + Study Plan tab mount) | Shipped 2026-03-27; refreshed in Acely-polish batch (right-rail composition). |
 | Trend / longitudinal analysis | `src/services/studyPlanMerger.js`, `trendContextBuilder.js` | Built. Persistent-weakness escalation works; surfaces as a small banner. |
 | Pacing analysis | `src/services/pacingService.js` | Built. PacingDrillCard.jsx component exists but is not yet wired into the dashboard. |
 | Daily review queue | `src/services/dailyReviewEngine.js`, `DailyReviewCard.jsx` | Built; mounts on dashboard. Streak tracking lives here. |
+| Today's Tasks hero | `src/components/TodaysTasksCard.jsx` | Built. Renders per-activity sub-cards (Acely-style). Uses `getTodaySlice(plan, todayDayName)` from `studyPlanGenerator.js`. |
+| Calendar-month adherence | `src/components/CalendarMonth.jsx` + `selectors/practicedDays.js` | Built. Mounts in dashboard right rail. Replaces the v1 91-tick CalendarStrip. |
+| Per-day editorial intro | `services/selectors/dailyIntro.js` | Built. Aggregates today's activities + latest score + top weakness into a 1-2 sentence coach paragraph above TodaysTasksCard. |
+| Round-based drill flow | `src/services/buildRounds.js` + `practiceState.rounds[]` | Built. Splits a 24q drill into 3 rounds × 8 with celebration interstitial. Helpers: `buildRounds`, `findRoundIndexForQuestion`, `computeRoundProgress`, `classifyRoundBoundary`. |
+| Try-Similar drill button | `services/trySimilarService.js` | Built. Mounts inside AssignedPracticeShell feedback panel. 500ms debounce + pool-exhaustion gate. |
+| Toaster (transient notifications) | `components/ui/Toaster.jsx` | Built. Module-level pubsub + single useState queue. Mounted once at App root. `import { showToast } from './components/ui/Toaster'`. |
+| Hand-Authored Stamp | `components/HandAuthoredStamp.jsx` | Built. 28×28 SVG monogram on every drill question card. |
+| DiagnosticReport from dashboard | `services/diagnosticReportLoader.js` + `selectors/recentTest.js` | Built. Wired through `onViewFullDiagnosis` → loads snapshot async → mounts `<DiagnosticReport>` at view='diagnosticReport'. |
+| Scoped logging | `src/utils/log.js` | Built. `logError/logWarn/logInfo/logDebug` + `makeLogger(scope)`. `[performsat:scope]` prefix. Test-silent, prod-quiet for info/debug unless `localStorage['performsat:logVerbose']='1'`. |
+| Firebase emulator + demo seed | `firebase.json` emulator block + `scripts/seedDemoData.mjs` | Built. `npm run dev:emulator` + `npm run dev:seed`. Seeds 1 school, 1 student, 1 completed test, 1 plan with focus area weakness on TODAY's weekday. |
 
 ## Canonical files (do not duplicate)
 
@@ -157,7 +176,15 @@ const enabled = useFeatureFlag('todaysTasks');
 
 ### Selectors
 
-Pure read accessors over `studyPlan` and similar shapes live under `src/services/selectors/`. The first one is `weaknesses.js` (Day 0). When you find yourself destructuring the same shape in multiple components, extract a selector here.
+Pure read accessors over `studyPlan`, `practiceProgress`, `predictionLog`, `practiceTestResults` etc. live under `src/services/selectors/`. When you find yourself destructuring the same shape in multiple components, extract a selector here.
+
+Existing selectors (all pure, all unit-tested):
+- `weaknesses.js` — section-tagged weakness contract (`getMathWeaknesses`, `getRWWeaknesses`, `getWeaknessesBySection`, `getWeaknessSection`, `tagWeaknessSection`)
+- `sessionAdherence.js` — "X of last N days" inline metric
+- `practicedDays.js` — `Set<YYYY-MM-DD>` for the CalendarMonth filled-dot rendering
+- `dailyIntro.js` — per-day editorial paragraph for TodaysTasksCard
+- `recentTest.js` — `pickMostRecentTest(practiceTestResults)`
+- `predictionSummary.js` — surfaces the latest validated prediction for `<PredictedVsActualCard>`
 
 ### JSDoc
 
@@ -177,18 +204,33 @@ Unit tests live next to source as `__tests__/X.test.js`. Use `CI=true npx react-
 | `node scripts/validateRWBank.mjs --all` | Validate R&W test-bundle authenticity / passage uniqueness |
 | `npm run tabs:validate` | Validate lesson content tabs |
 
-## Ship list (current — Acely-parity batch, May 2026)
+## Ship history (recent batches)
 
-The full plan + four-phase /autoplan review is at `~/.gstack/projects/thehareshbhatia-tech-PerformSAT/hareshbhatia-main-plan-20260509-132835.md`. Brief summary:
+### Acely-parity batch (Days 0-6, May 2026) — COMPLETE
+Full plan: `~/.gstack/projects/thehareshbhatia-tech-PerformSAT/hareshbhatia-main-plan-20260509-132835.md`.
 
-- **Day 0 (this commit batch):** section-tag weakness contract, `useFeatureFlag` hook, weaknesses selectors, dead-code cleanup, this CLAUDE.md.
-- **Day 1-2:** R&W focus area drills — flatten R&W bank, extend `diagnosticEngine` for R&W weaknesses, write `RW_SKILL_ALIAS_MAP`, dispatcher routes by section.
-- **Day 3:** "Generate similar question" button in `AssignedPracticeShell`, brand color resolution (orange `#ea580c` → token), mobile collapse for the shell.
-- **Day 4:** Today's Tasks hero on Dashboard tab (replaces the AI Practice Banner), wire `DiagnosticReport.jsx` to `onViewFullDiagnosis`, session-adherence streak metric.
-- **Day 5:** Predicted vs Actual card, Hand-Authored stamp on every drill question, Diagnostic Sentence below focus areas, Calendar Strip days-until-test, two-typeface lockup.
-- **Day 6:** DX polish — Firebase emulator + seed, README update, error-logging convention, `.env.example`, JSDoc convention applied, 375px mobile pass.
+- **Day 0:** section-tag weakness contract, `useFeatureFlag`, weaknesses selectors, dead-code cleanup, this CLAUDE.md.
+- **Day 1-2:** R&W focus area drills — flatten R&W bank, extend `diagnosticEngine` for R&W, dispatcher routes by section.
+- **Day 3:** Try-Similar button in `AssignedPracticeShell`, brand color → orange `#ea580c`, mobile-collapse pre-work, Toaster primitive (DX-6).
+- **Day 4:** Today's Tasks hero (replaces AI Practice Banner), `DiagnosticReport.jsx` wired from dashboard, above-fold guards.
+- **Day 5:** Predicted vs Actual card, Hand-Authored stamp, Diagnostic Sentence, Calendar Strip days-until-test, two-typeface lockup.
+- **Day 6:** Firebase emulator + seed, README, log.js, .env.example, JSDoc audit, 375px mobile pass + a11y guards.
 
-Killed: a generic persistent header (replaced by Calendar Strip + Predicted vs Actual data) and a plan-updated animation (replaced by typographic delta line).
+### Acely-polish batch (Days 1-3, May 2026) — COMPLETE
+Plan: `~/.gstack/projects/thehareshbhatia-tech-PerformSAT/hareshbhatia-main-plan-acely-polish-20260509.md`. Triggered after the user shared an Acely AI screenshot flagging the visual gap.
+
+- **Day 1:** Right-rail composition on the Dashboard tab (CalendarMonth + score-with-delta + goal/exam two-up), per-day editorial paragraph at top of TodaysTasksCard, tab count badges, CalendarStrip → CalendarMonth swap.
+- **Day 2:** Round-based drill structure in AssignedPracticeShell (3 rounds × 8 questions with celebration interstitial between rounds), TodaysTasksCard renders per-activity sub-cards with PRACTICE COMPLETE! badge + collapsible completed view.
+- **Day 3:** /design-review pass + 375px mobile + this CLAUDE.md update.
+
+### Killed / explicitly deferred
+
+- Generic persistent header (replaced by right-rail tiles)
+- Plan-updated animation (replaced by typographic delta line)
+- Purple/lavender palette experiment (deferred; orange wins)
+- Illustration character on score card (deferred to /design-shotgun)
+- Round progress persisted to Firestore (currently rounds live in `practiceState`; persistence is a follow-up)
+- AdaptivePracticeShell rounds parity (~30 min follow-up once AssignedPracticeShell rounds prove out)
 
 ## Skill routing for Claude Code
 

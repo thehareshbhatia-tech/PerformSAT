@@ -114,6 +114,13 @@
 }
 .aps-interstitial-secondary:hover { color: var(--color-slate-900); }
 
+@media (max-width: 640px) {
+  .aps-interstitial { padding: 16px; }
+  .aps-interstitial-card { padding: 28px 22px 22px; }
+  .aps-interstitial-title { font-size: 22px; }
+  .aps-circle { width: 32px; height: 32px; font-size: 12px; }
+}
+
 @media (max-width: 768px) {
   .aps-main {
     flex-direction: column;
