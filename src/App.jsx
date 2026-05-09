@@ -25,8 +25,14 @@ import Profile from './components/Profile';
 import StudyPlanDashboard from './components/StudyPlanDashboard';
 import AdaptivePracticeShell from './components/AdaptivePracticeShell';
 import AssignedPracticeShell from './components/AssignedPracticeShell';
+import DiagnosticReport from './components/DiagnosticReport';
 import { Toaster, showToast } from './components/ui/Toaster';
 import { pickSimilarQuestion } from './services/trySimilarService';
+import {
+  loadDiagnosticReportData,
+  pickMostRecentTest,
+} from './services/diagnosticReportLoader';
+import { getAllPracticeTests } from './data/practiceTests';
 import {
   resolveAssignedQuestions,
   normalizeDomain,
@@ -9301,7 +9307,45 @@ const PerformSAT = () => {
               }
             }}
             onStartPracticeTest={() => setView('practiceTests')}
-            onViewFullDiagnosis={() => setView('studyPlan')}
+            onViewFullDiagnosis={async () => {
+              // Closes CEO C1: surface DiagnosticReport from the dashboard.
+              const { testId, lastAttempt } = pickMostRecentTest(practiceTestResults);
+              if (!testId || !lastAttempt) {
+                showToast({
+                  type: 'info',
+                  message: 'Take a practice test to see your diagnostic report.',
+                });
+                return;
+              }
+              const test = getAllPracticeTests().find(t => t.id === testId);
+              if (!test) {
+                showToast({
+                  type: 'error',
+                  message: 'Could not load the test for your most recent attempt.',
+                });
+                return;
+              }
+              try {
+                const data = await loadDiagnosticReportData({
+                  userId: user?.uid,
+                  test,
+                  lastAttempt,
+                  practiceTestResults,
+                  skillProgress,
+                  user,
+                });
+                setViewingResultsData(data);
+                setSelectedPracticeTest(test);
+                setView('diagnosticReport');
+              } catch (err) {
+                // eslint-disable-next-line no-console
+                console.warn('[App] onViewFullDiagnosis load failed:', err && err.message);
+                showToast({
+                  type: 'error',
+                  message: 'Could not load your diagnostic report. Please try again.',
+                });
+              }
+            }}
             onCompleteActivity={markStudyActivityComplete}
             onUncompleteActivity={unmarkStudyActivityComplete}
           />
@@ -9498,6 +9542,58 @@ const PerformSAT = () => {
               />
             </div>
           </div>
+          </ErrorBoundary>
+        )}
+
+        {/* Full Diagnostic Report — surfaces the deeper analysis that
+            TestResults summarizes. Mounted from StudentDashboard's
+            onViewFullDiagnosis (closes CEO C1 of the /autoplan review). */}
+        {view === 'diagnosticReport' && viewingResultsData && (
+          <ErrorBoundary message="Unable to load your diagnostic report. Please go back and try again.">
+            <div style={{
+              minHeight: '100vh',
+              background: '#F5F5F7',
+              padding: '32px',
+            }}>
+              <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+                <DiagnosticReport
+                  test={viewingResultsData.test}
+                  answers={viewingResultsData.answers}
+                  diagnosticData={viewingResultsData.diagnosticData}
+                  skillProgress={skillProgress}
+                  user={user}
+                  practiceTestResults={practiceTestResults}
+                  completedLessons={completedLessons}
+                  practiceProgress={practiceProgress}
+                  savedStudyPlan={studyPlan}
+                  onNavigateToModule={(moduleId, lessonId) => {
+                    setViewingResultsData(null);
+                    setActiveModule(moduleId);
+                    if (lessonId) setActiveLesson(lessonId);
+                    setView('learn');
+                  }}
+                  onStartPractice={(moduleId, sectionName) => {
+                    setViewingResultsData(null);
+                    setActiveModule(moduleId);
+                    setActiveSection(sectionName);
+                    setView('practice');
+                  }}
+                  onStartPracticeTest={() => {
+                    setViewingResultsData(null);
+                    setView('practiceTests');
+                  }}
+                  onSaveStudyPlan={handleSaveStudyPlan}
+                  onGoToStudyPlan={() => {
+                    setViewingResultsData(null);
+                    setView('studyPlan');
+                  }}
+                  onBack={() => {
+                    setViewingResultsData(null);
+                    setView('studyPlan');
+                  }}
+                />
+              </div>
+            </div>
           </ErrorBoundary>
         )}
 
