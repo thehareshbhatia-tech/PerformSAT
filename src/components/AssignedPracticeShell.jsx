@@ -4,11 +4,12 @@ import QuestionDiagram from './QuestionDiagrams';
 import QuestionRenderer from './QuestionRenderer';
 import SolutionExplanation from './SolutionExplanation';
 import AiTutorChat from './AiTutorChat';
+import './AssignedPracticeShell.css';
 
 const C = {
-  brand: '#ea580c',
-  brandHover: '#c2410c',
-  brandLight: 'rgba(234,88,12,0.06)',
+  brand: 'var(--color-brand-primary)',
+  brandHover: 'var(--color-brand-primary-hover)',
+  brandLight: 'rgba(234,88,12,0.06)', // 0.06 alpha — softer than --color-brand-primary-light's 0.1
   success: '#10b981',
   successBg: 'rgba(16,185,129,0.08)',
   error: '#ef4444',
@@ -327,10 +328,10 @@ const AssignedPracticeShell = ({
       )}
 
       {/* ── MAIN CONTENT ── */}
-      <div style={{ flex: 1, display: 'flex', gap: '16px', minHeight: 0 }}>
+      <div className="aps-main" style={{ flex: 1, display: 'flex', gap: '16px', minHeight: 0 }}>
 
         {/* Left: Question + Answers */}
-        <div style={{
+        <div className="aps-left" style={{
           flex: '3 1 0%', background: C.white, borderRadius: '16px',
           border: `1px solid ${C.border}`, padding: '32px',
           overflow: 'auto', display: 'flex', flexDirection: 'column',
@@ -604,7 +605,7 @@ const AssignedPracticeShell = ({
         </div>
 
         {/* Right: AI Tutor */}
-        <div style={{
+        <div className="aps-right" style={{
           flex: '2 1 0%', display: 'flex', flexDirection: 'column',
           borderRadius: '16px', overflow: 'hidden', minWidth: 0,
           border: `1px solid ${C.border}`,

@@ -1,0 +1,30 @@
+/* src/components/AssignedPracticeShell.css
+ *
+ * Day-3 mobile pre-work (D-RESP-1). The shell uses inline styles for the
+ * desktop layout — this file's only job is to override the row layout to a
+ * column on narrow viewports so the question + AI Tutor stack instead of
+ * squashing side-by-side. A full 375px pass lands in Day 6.
+ */
+
+@media (max-width: 768px) {
+  .aps-main {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  /* On mobile, both panels stretch full width and shrink-fit their content
+   * instead of competing for horizontal space via flex ratios. */
+  .aps-left,
+  .aps-right {
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* Give the AI Tutor a sensible compact height when stacked so it doesn't
+   * dominate the viewport. Users can scroll within it like normal. */
+  .aps-right {
+    min-height: 280px;
+    max-height: 50vh;
+  }
+}
