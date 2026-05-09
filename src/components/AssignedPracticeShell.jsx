@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { MathText } from './MathText';
 import QuestionDiagram from './QuestionDiagrams';
 import QuestionRenderer from './QuestionRenderer';
@@ -72,6 +72,8 @@ const AssignedPracticeShell = ({
   onSelectAnswer,
   onCheckAnswer,
   onNextQuestion,
+  onTrySimilar,
+  isTrySimilarExhausted = false,
   onShowHint,
   onNavigateToQuestion,
   onToggleCalculator,
@@ -84,6 +86,8 @@ const AssignedPracticeShell = ({
 }) => {
   const [eliminatedChoices, setEliminatedChoices] = useState({});
   const [showNav, setShowNav] = useState(false);
+  // Debounce trap so a rapid double-click doesn't insert two questions.
+  const trySimilarLockRef = useRef(0);
 
   const idx = practiceState.currentQuestionIndex;
   const total = questions.length;
@@ -102,6 +106,17 @@ const AssignedPracticeShell = ({
         onNavigateToQuestion(targetIdx);
       }
     }
+  };
+
+  // Closes E4 (gate) + GAP-3 (debounce). The lock is a timestamp, not a flag,
+  // so it self-clears when the next click is >=500ms after the previous and
+  // we never need a setTimeout that could leak across question advances.
+  const handleTrySimilarClick = () => {
+    if (typeof onTrySimilar !== 'function') return;
+    const now = Date.now();
+    if (now - trySimilarLockRef.current < 500) return;
+    trySimilarLockRef.current = now;
+    onTrySimilar(currentQuestion);
   };
 
   const handleToggleEliminate = (choiceId) => {
@@ -573,6 +588,31 @@ const AssignedPracticeShell = ({
                 {practiceState.answers[currentQuestion.id]?.correct ? 'Correct!' : 'Incorrect'}
               </div>
               <SolutionExplanation explanation={currentQuestion.explanation} />
+
+              {/* Try-similar — only when wrong (E4) and skill pool isn't exhausted (GAP-3) */}
+              {!practiceState.answers[currentQuestion.id]?.correct && typeof onTrySimilar === 'function' && (
+                <button
+                  type="button"
+                  onClick={handleTrySimilarClick}
+                  disabled={isTrySimilarExhausted}
+                  aria-label={isTrySimilarExhausted
+                    ? 'No more similar questions for this skill'
+                    : 'Try a similar question for the same skill'}
+                  style={{
+                    marginTop: '14px',
+                    padding: '10px 16px', borderRadius: '8px',
+                    border: `1px solid ${isTrySimilarExhausted ? C.border : C.brand}`,
+                    background: isTrySimilarExhausted ? C.bg : C.white,
+                    color: isTrySimilarExhausted ? C.textMuted : C.brand,
+                    fontSize: '13px', fontWeight: '600',
+                    cursor: isTrySimilarExhausted ? 'not-allowed' : 'pointer',
+                  }}
+                >
+                  {isTrySimilarExhausted
+                    ? 'No more similar questions'
+                    : '↻ Try a similar question'}
+                </button>
+              )}
             </div>
           )}
 

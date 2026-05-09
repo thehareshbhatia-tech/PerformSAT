@@ -25,7 +25,8 @@ import Profile from './components/Profile';
 import StudyPlanDashboard from './components/StudyPlanDashboard';
 import AdaptivePracticeShell from './components/AdaptivePracticeShell';
 import AssignedPracticeShell from './components/AssignedPracticeShell';
-import { Toaster } from './components/ui/Toaster';
+import { Toaster, showToast } from './components/ui/Toaster';
+import { pickSimilarQuestion } from './services/trySimilarService';
 import {
   resolveAssignedQuestions,
   normalizeDomain,
@@ -532,6 +533,73 @@ const PerformSAT = () => {
       setPracticeState(prev => ({ ...prev, isComplete: true }));
     }
   };
+
+  // Skills whose try-similar pool has been exhausted in this session.
+  // The shell disables the button when the current skill is in this set
+  // (closes Phase-3 GAP-3 "disable on pool exhaustion").
+  const [trySimilarExhausted, setTrySimilarExhausted] = useState(() => new Set());
+
+  /**
+   * handleTrySimilar — append a fresh question for the same weak skill after
+   * a wrong answer. Inserts the new question right after the current index in
+   * `shuffledQuestions` and advances, mirroring the adaptive-mode pattern at
+   * handleNextQuestion lines 506-514.
+   *
+   * Dispatch and section routing live in `services/trySimilarService.js`. This
+   * wrapper translates the service's tagged result into UI side effects
+   * (toasts, state updates).
+   *
+   * Failure handling (closes Phase-3 GAP-3):
+   *   - dispatcher throws  → error toast, no state change
+   *   - dispatcher returns [] → mark skill exhausted (button disables), info toast
+   *
+   * @param {object} currentQuestion
+   */
+  const handleTrySimilar = useCallback((currentQuestion) => {
+    const excludeIds = (practiceState.shuffledQuestions || []).map(q => q.id).filter(Boolean);
+    const result = pickSimilarQuestion({ currentQuestion, excludeIds });
+
+    switch (result.kind) {
+      case 'invalid':
+        return;
+      case 'no-skill':
+        showToast({ type: 'warn', message: 'No skill is tagged on this question — try the next one.' });
+        return;
+      case 'error':
+        // eslint-disable-next-line no-console
+        console.warn('[performsat:trySimilar] dispatcher threw:', result.error && result.error.message);
+        showToast({ type: 'error', message: 'Could not load a similar question. Please try again.' });
+        return;
+      case 'exhausted':
+        setTrySimilarExhausted(prev => {
+          const next = new Set(prev);
+          result.skillIds.forEach(s => next.add(s));
+          return next;
+        });
+        showToast({ type: 'info', message: 'No more similar questions for this skill in the bank — try the next one.' });
+        return;
+      case 'ok':
+        setPracticeState(prev => {
+          const insertAt = prev.currentQuestionIndex + 1;
+          const next = [
+            ...prev.shuffledQuestions.slice(0, insertAt),
+            result.question,
+            ...prev.shuffledQuestions.slice(insertAt),
+          ];
+          return {
+            ...prev,
+            shuffledQuestions: next,
+            currentQuestionIndex: insertAt,
+            selectedAnswer: null,
+            showFeedback: false,
+            showHint: false,
+          };
+        });
+        return;
+      default:
+        return;
+    }
+  }, [practiceState.shuffledQuestions]);
 
   // Load YouTube IFrame API
   useEffect(() => {
@@ -9902,6 +9970,12 @@ const PerformSAT = () => {
 
           // Assigned practice uses its own dedicated shell
           if (isAssigned) {
+            // Surface pool-exhaustion as a per-skill flag so the shell can
+            // disable the Try-Similar button after the bank returns [].
+            const cqSkills = Array.isArray(currentQuestion?.skills)
+              ? currentQuestion.skills
+              : (currentQuestion?.skill ? [currentQuestion.skill] : []);
+            const isTrySimilarExhausted = cqSkills.some(s => trySimilarExhausted.has(s));
             return (
               <AssignedPracticeShell
                 practiceState={practiceState}
@@ -9912,6 +9986,8 @@ const PerformSAT = () => {
                 onSelectAnswer={handleSelectAnswer}
                 onCheckAnswer={handleCheckAnswer}
                 onNextQuestion={handleNextQuestion}
+                onTrySimilar={handleTrySimilar}
+                isTrySimilarExhausted={isTrySimilarExhausted}
                 onShowHint={handleShowHint}
                 onNavigateToQuestion={handleNavigateToQuestion}
                 onToggleCalculator={() => setShowCalculator(!showCalculator)}

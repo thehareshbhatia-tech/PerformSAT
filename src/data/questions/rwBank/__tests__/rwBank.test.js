@@ -67,6 +67,23 @@ describe('rwBank composition', () => {
     }
   });
 
+  // T6 — locks in the flatten-time MCQ filter so the Try-Similar dispatcher
+  // never gets a fill-in or student-produced-response shape it can't render.
+  it('no item escapes the flatten with a non-MCQ shape (T6)', () => {
+    for (const q of rwQuestionBank) {
+      // type, when present, must be 'multiple-choice' (not 'fill-in' or 'spr')
+      if (q.type !== undefined) {
+        expect(q.type).toBe('multiple-choice');
+      }
+      // The shape itself must be MCQ — a stricter check than the type field.
+      expect(Array.isArray(q.choices)).toBe(true);
+      expect(q.choices.length).toBeGreaterThanOrEqual(2);
+      // correctAnswer must be the id of one of the choices, not free-text.
+      const choiceIds = q.choices.map(c => c.id);
+      expect(choiceIds).toContain(q.correctAnswer);
+    }
+  });
+
   it('all IDs are unique across the bank', () => {
     const ids = new Set(rwQuestionBank.map(q => q.id));
     expect(ids.size).toBe(rwQuestionBank.length);
