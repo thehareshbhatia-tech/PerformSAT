@@ -97,7 +97,15 @@ const StudyPlanDashboard = ({
   );
   // Acely-polish v2: top-level sub-tabs ("Today's Tasks" / "Weekly View")
   // matching the reference. Default to Today's Tasks (the day-grain view).
-  const [activeView, setActiveView] = useState('todaysTasks');
+  // When mounted inside another tab structure (variant='inline'), the sub-
+  // tabs are hidden and we always render the weekly content — the outer
+  // tab is already labeled 'Study Plan' so the day-grain branch is
+  // redundant in that mount.
+  const showSubTabs = variant !== 'inline';
+  const [activeView, setActiveView] = useState(
+    variant === 'inline' ? 'weeklyView' : 'todaysTasks'
+  );
+  const [showAllSkillChanges, setShowAllSkillChanges] = useState(false);
 
   // ── Empty state ──────────────────────────────────────────────────────
   if (!studyPlan || !studyPlan.weeks || studyPlan.weeks.length === 0) {
@@ -402,51 +410,57 @@ const StudyPlanDashboard = ({
       <div className="sp-main">
 
       {/* ────────────────────────────────────────────────────────────────
-          PROGRESS STRIP (replaces the heavy 3-card hero grid).
+          PROGRESS STRIP (Weekly View only — Today's Tasks gets its own
+          day-header inside TodaysTasksCard, matching Acely's reference).
       ──────────────────────────────────────────────────────────────── */}
-      <header className="sp-strip">
-        <div className="sp-strip-cell">
-          <span className="sp-strip-eyebrow">Plan Progress</span>
-          <span className="sp-strip-num">{progressPercent}%</span>
-          <span className="sp-strip-meta">{completedActivities} of {totalActivities} tasks</span>
-        </div>
-        <div className="sp-strip-divider" aria-hidden="true" />
-        <div className="sp-strip-cell sp-strip-objective">
-          <span className="sp-strip-eyebrow">Current Objective</span>
-          <span className="sp-strip-text">{summary?.headline || 'Your study plan'}</span>
-        </div>
-        <div className="sp-strip-divider" aria-hidden="true" />
-        <div className="sp-strip-cell">
-          <span className="sp-strip-eyebrow">Next</span>
-          <span className="sp-strip-text">Week {displayCurrentWeek + 1}</span>
-        </div>
-      </header>
+      {activeView === 'weeklyView' && (
+        <header className="sp-strip">
+          <div className="sp-strip-cell">
+            <span className="sp-strip-eyebrow">Plan Progress</span>
+            <span className="sp-strip-num">{progressPercent}%</span>
+            <span className="sp-strip-meta">{completedActivities} of {totalActivities} tasks</span>
+          </div>
+          <div className="sp-strip-divider" aria-hidden="true" />
+          <div className="sp-strip-cell sp-strip-objective">
+            <span className="sp-strip-eyebrow">Current Objective</span>
+            <span className="sp-strip-text">{summary?.headline || 'Your study plan'}</span>
+          </div>
+          <div className="sp-strip-divider" aria-hidden="true" />
+          <div className="sp-strip-cell">
+            <span className="sp-strip-eyebrow">Next</span>
+            <span className="sp-strip-text">Week {displayCurrentWeek + 1}</span>
+          </div>
+        </header>
+      )}
 
       {/* ────────────────────────────────────────────────────────────────
           SUB-TABS: 'Today's Tasks (N) / Weekly View (N)' matching Acely.
+          Hidden when mounted inline inside another tab structure.
       ──────────────────────────────────────────────────────────────── */}
-      <div className="sp-subtabs" role="tablist" aria-label="Study plan view">
-        <button
-          type="button"
-          role="tab"
-          aria-selected={activeView === 'todaysTasks'}
-          className={`sp-subtab${activeView === 'todaysTasks' ? ' is-active' : ''}`}
-          onClick={() => setActiveView('todaysTasks')}
-        >
-          Today's Tasks
-          {todaysTasksCount > 0 && <span className="sp-subtab-count">{todaysTasksCount}</span>}
-        </button>
-        <button
-          type="button"
-          role="tab"
-          aria-selected={activeView === 'weeklyView'}
-          className={`sp-subtab${activeView === 'weeklyView' ? ' is-active' : ''}`}
-          onClick={() => setActiveView('weeklyView')}
-        >
-          Weekly View
-          {weeklyViewCount > 0 && <span className="sp-subtab-count">{weeklyViewCount}</span>}
-        </button>
-      </div>
+      {showSubTabs && (
+        <div className="sp-subtabs" role="tablist" aria-label="Study plan view">
+          <button
+            type="button"
+            role="tab"
+            aria-selected={activeView === 'todaysTasks'}
+            className={`sp-subtab${activeView === 'todaysTasks' ? ' is-active' : ''}`}
+            onClick={() => setActiveView('todaysTasks')}
+          >
+            Today's Tasks
+            {todaysTasksCount > 0 && <span className="sp-subtab-count">{todaysTasksCount}</span>}
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected={activeView === 'weeklyView'}
+            className={`sp-subtab${activeView === 'weeklyView' ? ' is-active' : ''}`}
+            onClick={() => setActiveView('weeklyView')}
+          >
+            Weekly View
+            {weeklyViewCount > 0 && <span className="sp-subtab-count">{weeklyViewCount}</span>}
+          </button>
+        </div>
+      )}
 
       {/* ════════════════════════════════════════════════════════════════
           TODAY'S TASKS TAB — day-grain TodaysTasksCard hero.
@@ -489,8 +503,8 @@ const StudyPlanDashboard = ({
             {delta.headline}
           </div>
           {delta.skillChanges?.length > 0 && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-              {delta.skillChanges.slice(0, 5).map((sc, i) => {
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '6px' }}>
+              {(showAllSkillChanges ? delta.skillChanges : delta.skillChanges.slice(0, 2)).map((sc, i) => {
                 const icon = sc.direction === 'improved' ? '✅' : sc.direction === 'worsened' ? '⚠️' : sc.direction === 'new' ? '🆕' : '✨';
                 const label = sc.direction === 'improved'
                   ? `${sc.skill}: ${sc.oldAccuracy}% → ${sc.newAccuracy}%`
@@ -506,6 +520,29 @@ const StudyPlanDashboard = ({
                   </div>
                 );
               })}
+              {delta.skillChanges.length > 2 && (
+                <button
+                  type="button"
+                  onClick={() => setShowAllSkillChanges(v => !v)}
+                  style={{
+                    background: 'transparent',
+                    border: 'none',
+                    color: 'var(--color-brand-primary)',
+                    fontSize: '12px',
+                    fontWeight: 700,
+                    padding: 0,
+                    marginTop: '2px',
+                    textAlign: 'left',
+                    cursor: 'pointer',
+                    textDecoration: 'underline',
+                    alignSelf: 'flex-start',
+                  }}
+                >
+                  {showAllSkillChanges
+                    ? 'Show less'
+                    : `Show ${delta.skillChanges.length - 2} more`}
+                </button>
+              )}
             </div>
           )}
           {delta.scoreChange && (

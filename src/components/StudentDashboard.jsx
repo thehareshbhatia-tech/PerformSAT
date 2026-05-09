@@ -381,6 +381,7 @@ const StudentDashboard = ({
         <div className="studyplan-tab-content">
           {studyPlan?.weeks?.length ? (
             <StudyPlanDashboard
+              variant="inline"
               studyPlan={studyPlan}
               studyPlanArtifact={studyPlanArtifact}
               studyPlanMeta={studyPlanMeta}
