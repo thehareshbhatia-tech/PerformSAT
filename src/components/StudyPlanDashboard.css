@@ -963,7 +963,22 @@
   box-shadow: none !important;
 }
 
-/* (2) Focus-area cards: small accuracy chip, white card, no split band. */
+/* dashboard-actions-grid is shared with the Dashboard tab; it switches to
+ * 2-col at >=768px. When the right rail is also showing at >=1024px, the
+ * main column shrinks and the inner 2-col grid overflows under the rail.
+ * Force 1-col when nested inside .sp-weekly-tight (always — narrow column
+ * benefits from full-width focus-area cards anyway). */
+.sp-weekly-tight .dashboard-actions-grid {
+  grid-template-columns: 1fr !important;
+}
+
+/* (2) Focus-area cards: small accuracy chip, white card, no split band.
+ * Inline JSX styles set bgColorLeft to var(--color-error-600) for <40%
+ * accuracy — solid red looks aggressive next to Acely's calmer palette.
+ * Override to a slate chip with colored text instead. The data-attribute
+ * trick can't be used here without JSX changes; we fall back to forcing
+ * a neutral chip via !important. The accuracy color now reads via the
+ * font, not a full red panel. */
 .sp-weekly-tight .acely-split-card {
   border-radius: 12px !important;
   border: 1px solid var(--color-slate-200) !important;
@@ -977,9 +992,27 @@
 }
 .sp-weekly-tight .acely-split-left {
   width: 64px !important;
-  font-size: 16px !important;
+  background: var(--color-slate-100) !important;
+  color: var(--color-slate-700) !important;
+  font-size: 18px !important;
   font-weight: 700 !important;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+/* Color the % chip by accuracy band — soft tint, not loud panel. */
+.sp-weekly-tight .acely-split-card[data-accuracy-band="low"] .acely-split-left {
+  background: var(--color-error-50) !important;
+  color: var(--color-error-700) !important;
+}
+.sp-weekly-tight .acely-split-card[data-accuracy-band="mid"] .acely-split-left {
+  background: var(--color-warning-50, #fffbeb) !important;
+  color: var(--color-warning-700, #b45309) !important;
+}
+.sp-weekly-tight .acely-split-card[data-accuracy-band="high"] .acely-split-left {
+  background: var(--color-success-50) !important;
+  color: var(--color-success-700) !important;
 }
 .sp-weekly-tight .acely-split-right {
   background: var(--color-white) !important;
@@ -1101,4 +1134,119 @@
   right: 56px !important;
   font-size: 9.5px !important;
   padding: 2px 6px !important;
+}
+
+/* ───────────────────────────────────────────────────────────────────────
+ * "Coming up this week" preview — fills the gap on the Today's Tasks tab
+ * when today is a rest-day or all-done. Pure-CSS card with one row per
+ * scheduled upcoming day.
+ * ─────────────────────────────────────────────────────────────────── */
+.sp-coming-up {
+  background: var(--color-white);
+  border: 1px solid var(--color-slate-200);
+  border-radius: 14px;
+  padding: 18px 20px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: var(--font-ui);
+}
+
+.sp-coming-up-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.sp-coming-up-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-slate-500);
+}
+.sp-coming-up-week {
+  font-size: 12px;
+  color: var(--color-slate-500);
+}
+
+.sp-coming-up-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sp-coming-up-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 4px;
+  border-top: 1px solid var(--color-slate-100);
+}
+.sp-coming-up-row:first-of-type { border-top: none; }
+
+.sp-coming-up-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 56px;
+}
+
+.sp-coming-up-daychip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 24px;
+  padding: 0 8px;
+  border-radius: 6px;
+  background: var(--color-slate-100);
+  color: var(--color-slate-700);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+.sp-coming-up-soon {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--color-brand-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.sp-coming-up-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.sp-coming-up-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-slate-900);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sp-coming-up-meta {
+  font-size: 12px;
+  color: var(--color-slate-500);
+  margin-top: 2px;
+}
+
+.sp-coming-up-cta {
+  flex: 0 0 auto;
+  background: transparent;
+  border: 1px solid var(--color-slate-200);
+  color: var(--color-slate-700);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  transition: background 120ms ease, border-color 120ms ease;
+}
+.sp-coming-up-cta:hover {
+  background: var(--color-slate-50);
+  border-color: var(--color-slate-300);
 }

@@ -611,26 +611,43 @@ const StudentDashboard = ({
             </div>
           )}
 
-          {(user?.targetScore || user?.testDate) && (
-            <div className="dashboard-tile-pair">
-              {user?.targetScore && (
-                <div className="dashboard-tile">
-                  <div className="dashboard-tile-eyebrow">Goal Score</div>
-                  <div className="dashboard-tile-num">{user.targetScore}</div>
-                  <div className="dashboard-tile-sub">From onboarding</div>
-                </div>
-              )}
-              {user?.testDate && (
-                <div className="dashboard-tile">
-                  <div className="dashboard-tile-eyebrow">Days Until Exam</div>
-                  <div className="dashboard-tile-num">{daysUntilTest ?? '—'}</div>
-                  <div className="dashboard-tile-sub">
-                    {new Date(user.testDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+          {(user?.targetScore || user?.testDate) && (() => {
+            const testDateIsPast = daysUntilTest !== null && daysUntilTest < 0;
+            const goalAchieved = user?.targetScore != null && latestScore != null
+              && latestScore >= user.targetScore;
+            return (
+              <div className="dashboard-tile-pair">
+                {user?.targetScore && (
+                  <div className={`dashboard-tile ${goalAchieved ? 'is-positive' : ''}`}>
+                    <div className="dashboard-tile-eyebrow">
+                      {goalAchieved ? 'Goal Achieved' : 'Goal Score'}
+                    </div>
+                    <div className="dashboard-tile-num">{user.targetScore}</div>
+                    <div className="dashboard-tile-sub">
+                      {goalAchieved
+                        ? `+${latestScore - user.targetScore} pts above target`
+                        : 'From onboarding'}
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
-          )}
+                )}
+                {user?.testDate && (
+                  <div className={`dashboard-tile ${testDateIsPast ? 'is-warn' : ''}`}>
+                    <div className="dashboard-tile-eyebrow">
+                      {testDateIsPast ? 'Test Date' : 'Days Until Exam'}
+                    </div>
+                    <div className="dashboard-tile-num">
+                      {testDateIsPast ? '—' : (daysUntilTest ?? '—')}
+                    </div>
+                    <div className="dashboard-tile-sub">
+                      {testDateIsPast
+                        ? `Was ${Math.abs(daysUntilTest)} days ago — update in settings`
+                        : new Date(user.testDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })()}
 
           {/* AI DIAGNOSTIC & INSIGHTS — kept; visually below the new tiles. */}
           <DashboardDiagnosticWidget

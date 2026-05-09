@@ -160,12 +160,20 @@ const StudyPlanDashboard = ({
   const scoreDelta = sortedTests.length >= 2
     ? sortedTests[sortedTests.length - 1].bestScaledScore - sortedTests[0].bestScaledScore
     : null;
+  // Compute days until test. Negative values (test date in the past) are
+  // common in dogfood/seed data and look terrible as "-57"; clamp + flag.
   const daysUntilTest = (() => {
     if (!user?.testDate) return null;
     const today = new Date(); today.setHours(0, 0, 0, 0);
     const test = new Date(user.testDate); test.setHours(0, 0, 0, 0);
     return Math.ceil((test - today) / (1000 * 60 * 60 * 24));
   })();
+  const testDateIsPast = daysUntilTest !== null && daysUntilTest < 0;
+  // Goal already achieved? Common in mid-test cycles where a recent score
+  // already exceeds onboarding-time target. Show a celebration tile rather
+  // than "Goal Score 710" sitting below "Current Score 900".
+  const goalAchieved = user?.targetScore != null && latestScore != null
+    && latestScore >= user.targetScore;
 
   // Day-1 of Acely-polish v2: extract just the FIRST sentence of the
   // adaptive-plan delta paragraph so the banner reads like a tight summary
@@ -202,6 +210,35 @@ const StudyPlanDashboard = ({
   const todaysTasksCount = (todaySlice && Array.isArray(todaySlice.activities))
     ? todaySlice.activities.length : 0;
   const weeklyViewCount = totalActivities - completedActivities;
+
+  // Coming-up preview for the Today's Tasks tab — when today is a rest-day
+  // or all-done, the page would otherwise leave a huge gap below a small
+  // card. Build a 4-day rolling preview of the current week, starting
+  // tomorrow, showing each day's activity count + nameplate. We inline the
+  // currentWeek lookup since the named binding is declared lower in the
+  // file (avoids a TDZ hoisting issue).
+  const comingUpDays = useMemo(() => {
+    const week = weeks[displayCurrentWeek];
+    if (!week || !Array.isArray(week.activities)) return [];
+    const todayIdx = DAY_NAMES.indexOf(todayDayName);
+    const out = [];
+    for (let offset = 1; offset <= 6; offset++) {
+      const dayIdx = (todayIdx + offset) % 7;
+      const dayName = DAY_NAMES[dayIdx];
+      const dayActs = week.activities.filter(a => a.day === dayName);
+      const incomplete = dayActs.filter(a => !a.completed);
+      if (dayActs.length === 0) continue;
+      out.push({
+        day: dayName,
+        offset,
+        total: dayActs.length,
+        incomplete: incomplete.length,
+        sample: incomplete[0] || dayActs[0],
+      });
+      if (out.length >= 4) break;
+    }
+    return out;
+  }, [weeks, displayCurrentWeek, todayDayName]);
 
   // ── Handlers ─────────────────────────────────────────────────────────
   const handleGo = (activity) => {
@@ -463,20 +500,72 @@ const StudyPlanDashboard = ({
       )}
 
       {/* ════════════════════════════════════════════════════════════════
-          TODAY'S TASKS TAB — day-grain TodaysTasksCard hero.
+          TODAY'S TASKS TAB — day-grain TodaysTasksCard hero + a
+          "Coming Up This Week" preview when today's slate is empty so the
+          tab doesn't leave a wall of whitespace under a small card.
       ════════════════════════════════════════════════════════════════ */}
       {activeView === 'todaysTasks' && (
-        <TodaysTasksCard
-          slice={todaySlice}
-          adherence={sessionAdherence}
-          dailyIntro={dailyIntro}
-          onStartActivity={(activity) => {
-            if (activity?.moduleId && onStartPractice) {
-              onStartPractice(activity.moduleId, activity.sectionName);
-            }
-          }}
-          onTakeTest={onStartPracticeTest}
-        />
+        <>
+          <TodaysTasksCard
+            slice={todaySlice}
+            adherence={sessionAdherence}
+            dailyIntro={dailyIntro}
+            onStartActivity={(activity) => {
+              if (activity?.moduleId && onStartPractice) {
+                onStartPractice(activity.moduleId, activity.sectionName);
+              }
+            }}
+            onTakeTest={onStartPracticeTest}
+          />
+
+          {(todaySlice?.kind === 'rest-day'
+            || todaySlice?.kind === 'all-done'
+            || todaySlice?.kind === 'plan-complete')
+            && comingUpDays.length > 0 && (
+            <section className="sp-coming-up" aria-label="Coming up this week">
+              <div className="sp-coming-up-header">
+                <span className="sp-coming-up-eyebrow">Coming up this week</span>
+                <span className="sp-coming-up-week">Week {displayCurrentWeek + 1}</span>
+              </div>
+              <div className="sp-coming-up-list">
+                {comingUpDays.map((cu) => {
+                  const dayShort = cu.day.slice(0, 3).toUpperCase();
+                  const sampleTitle = cu.sample?.title || 'Practice';
+                  return (
+                    <div key={cu.day} className="sp-coming-up-row">
+                      <div className="sp-coming-up-day">
+                        <span className="sp-coming-up-daychip">{dayShort}</span>
+                        {cu.offset === 1 && (
+                          <span className="sp-coming-up-soon">Tomorrow</span>
+                        )}
+                      </div>
+                      <div className="sp-coming-up-text">
+                        <div className="sp-coming-up-title">{sampleTitle}</div>
+                        <div className="sp-coming-up-meta">
+                          {cu.incomplete} of {cu.total} task{cu.total === 1 ? '' : 's'}
+                          {cu.incomplete < cu.total && ` · ${cu.total - cu.incomplete} done`}
+                        </div>
+                      </div>
+                      <button
+                        type="button"
+                        className="sp-coming-up-cta"
+                        onClick={() => {
+                          if (cu.sample?.moduleId && onStartPractice) {
+                            onStartPractice(cu.sample.moduleId, cu.sample.sectionName);
+                          } else {
+                            setActiveView('weeklyView');
+                          }
+                        }}
+                      >
+                        View →
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+          )}
+        </>
       )}
 
       {activeView === 'weeklyView' && (
@@ -612,32 +701,36 @@ const StudyPlanDashboard = ({
           )}
           <div className="dashboard-actions-grid">
             {skillPracticeRows.map((w, i) => {
-              const isGreen = w.accuracy >= 70;
-              const isRed = w.accuracy < 40;
-              const bgColorLeft = isGreen ? 'var(--color-success-600)' : (isRed ? 'var(--color-error-600)' : 'var(--color-brand-primary)');
-              const colorLeft = 'white';
-              const bgColorRight = isGreen ? 'var(--color-success-50)' : (isRed ? 'var(--color-error-50)' : 'var(--color-accent-light-blue)');
-              
+              // v3.1: classify into low/mid/high bands so CSS picks the
+              // soft-tint color. JSX no longer paints the heavy red/green
+              // panel; the chip color reads from a data attribute.
+              const accuracyBand = w.accuracy >= 70 ? 'high'
+                : w.accuracy < 40 ? 'low'
+                : 'mid';
+
               const diagnosticSentence = formatDiagnosticSentence(w);
               return (
                 <div key={w.skillId || i} style={{ display: 'flex', flexDirection: 'column' }}>
-                  <div className="acely-split-card" style={{ border: '1px solid var(--color-slate-200)', boxShadow: 'var(--shadow-sm)' }}>
-                    <div className="acely-split-left" style={{ backgroundColor: bgColorLeft, color: colorLeft, width: '120px', flex: 'none' }}>
+                  <div
+                    className="acely-split-card"
+                    data-accuracy-band={accuracyBand}
+                  >
+                    <div className="acely-split-left">
                       {w.accuracy}%
                     </div>
-                    <div className="acely-split-right" style={{ backgroundColor: bgColorRight, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '1.5rem' }}>
+                    <div className="acely-split-right" style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                       <div style={{ flex: 1, minWidth: 0, paddingRight: '1rem' }}>
                         <div className="acely-metric-label">{w.domain || 'Skill'}</div>
                         <div className="acely-section-name" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{w.skill}</div>
                         {w.errorType && (
-                          <div style={{ fontSize: '0.8125rem', marginTop: '0.25rem', opacity: 0.8, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                          <div style={{ fontSize: '0.8125rem', marginTop: '0.25rem', color: 'var(--color-slate-500)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                             {w.errorType}
                           </div>
                         )}
                       </div>
                       <button
                         className="btn-launch"
-                        style={{ flexShrink: 0, padding: '0.5rem 1rem' }}
+                        style={{ flexShrink: 0 }}
                         onClick={() => onStartPractice(null, null, {
                           questionIds: w.qIds,
                           source: 'study-plan-assigned',
@@ -788,18 +881,30 @@ const StudyPlanDashboard = ({
         {(user?.targetScore || user?.testDate) && (
           <div className="dashboard-tile-pair">
             {user?.targetScore && (
-              <div className="dashboard-tile">
-                <div className="dashboard-tile-eyebrow">Goal Score</div>
+              <div className={`dashboard-tile ${goalAchieved ? 'is-positive' : ''}`}>
+                <div className="dashboard-tile-eyebrow">
+                  {goalAchieved ? 'Goal Achieved' : 'Goal Score'}
+                </div>
                 <div className="dashboard-tile-num">{user.targetScore}</div>
-                <div className="dashboard-tile-sub">From onboarding</div>
+                <div className="dashboard-tile-sub">
+                  {goalAchieved
+                    ? `+${latestScore - user.targetScore} pts above target`
+                    : 'From onboarding'}
+                </div>
               </div>
             )}
             {user?.testDate && (
-              <div className="dashboard-tile">
-                <div className="dashboard-tile-eyebrow">Days Until Exam</div>
-                <div className="dashboard-tile-num">{daysUntilTest ?? '—'}</div>
+              <div className={`dashboard-tile ${testDateIsPast ? 'is-warn' : ''}`}>
+                <div className="dashboard-tile-eyebrow">
+                  {testDateIsPast ? 'Test Date' : 'Days Until Exam'}
+                </div>
+                <div className="dashboard-tile-num">
+                  {testDateIsPast ? '—' : (daysUntilTest ?? '—')}
+                </div>
                 <div className="dashboard-tile-sub">
-                  {new Date(user.testDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                  {testDateIsPast
+                    ? `Was ${Math.abs(daysUntilTest)} days ago — update in settings`
+                    : new Date(user.testDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
                 </div>
               </div>
             )}
