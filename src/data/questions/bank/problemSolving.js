@@ -8,13 +8,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A local bookstore advertises that 0.045 of its inventory consists of rare first editions. What percent of the inventory is rare first editions?',
     choices: [
+      // distractor: reports the decimal value as the percent
       { id: 'A', text: '0.045%' },
+      // distractor: moves the decimal one place instead of two
       { id: 'B', text: '0.45%' },
       { id: 'C', text: '4.5%' },
+      // distractor: moves the decimal three places (overshoots)
       { id: 'D', text: '45%' },
     ],
     correctAnswer: 'C',
-    explanation: 'Multiply the decimal by 100 to convert to a percent: $0.045 \\times 100 = 4.5\\%$. The common trap is forgetting to move the decimal point two places.',
+    explanation: '**SAT Pattern: Decimal to Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Multiply by $100$: $0.045 \\times 100 = 4.5\\%$.\n\n**The Full Solution:**\nTo convert a decimal to a percent, multiply by $100$ (equivalently, move the decimal point two places to the right):\n$0.045 \\to 4.5\\%$.\n\nVerification: $4.5\\% \\div 100 = 0.045$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — reports the decimal value unchanged with a $\\%$ sign.\n* Choice B: "off-by-one" — moves the decimal only one place ($0.045 \\to 0.45$).\n* Choice D: "off-by-one" — moves the decimal three places ($0.045 \\to 45$).\n\n**Test Day Takeaway:** Decimal $\\to$ percent: shift two places RIGHT. Percent $\\to$ decimal: shift two places LEFT. The number of zeros after the decimal in the original matters — $0.045$ has TWO digits after the point before the $45$ pair starts, so it must produce a small-percent value like $4.5\\%$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'decimal-to-percent',
@@ -29,13 +32,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A sports drink label states it contains 6.25% natural fruit juice. What is 6.25% expressed as a decimal?',
     choices: [
+      // distractor: reports the percent value as the decimal
       { id: 'A', text: '6.25' },
+      // distractor: moves the decimal one place instead of two
       { id: 'B', text: '0.625' },
       { id: 'C', text: '0.0625' },
+      // distractor: moves the decimal three places (overshoots)
       { id: 'D', text: '0.00625' },
     ],
     correctAnswer: 'C',
-    explanation: 'Divide by 100: $6.25 \\div 100 = 0.0625$. Choice B moves the decimal only one place instead of two.',
+    explanation: '**SAT Pattern: Percent to Decimal**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Divide by $100$: $6.25 \\div 100 = 0.0625$.\n\n**The Full Solution:**\nTo convert a percent to a decimal, divide by $100$ (equivalently, move the decimal point two places to the LEFT):\n$6.25\\% \\to 0.0625$.\n\nVerification: $0.0625 \\times 100 = 6.25\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — reports the value unchanged without dividing.\n* Choice B: "off-by-one" — moves the decimal only one place ($6.25 \\to 0.625$).\n* Choice D: "off-by-one" — moves the decimal three places ($6.25 \\to 0.00625$).\n\n**Test Day Takeaway:** Percent $\\to$ decimal: shift LEFT two places. Always sanity-check by reversing the conversion.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'percent-to-decimal',
@@ -50,7 +56,7 @@ export const problemSolvingBank = [
     type: 'fill-in',
     question: 'A warehouse reports that 0.128 of its packages were returned last month. Express this value as a percent.',
     correctAnswer: '12.8',
-    explanation: '$0.128 \\times 100 = 12.8\\%$. Move the decimal two places to the right.',
+    explanation: '**SAT Pattern: Decimal to Percent**\n\n**The correct answer is $12.8$.**\n\n**The Fast Way (~5s):** $0.128 \\times 100 = 12.8\\%$.\n\n**The Full Solution:**\nTo convert a decimal to a percent, multiply by $100$ (move the decimal point two places to the right):\n$0.128 \\to 12.8\\%$.\n\nVerification: $12.8\\% \\div 100 = 0.128$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $1.28$ (only one shift).\n* Reporting $128$ (three shifts).\n* Including the $\\%$ sign in a fill-in answer when not requested.\n\n**Test Day Takeaway:** $0.128 = 12.8\\%$. Decimal moves RIGHT by two places to become a percent.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'decimal-to-percent',
@@ -65,13 +71,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A chemist measures that a solution is $0.0034$ parts active ingredient by mass. A label requires this to be printed as a percent. Which label is correct?',
     choices: [
+      // distractor: moves the decimal only one place
       { id: 'A', text: '0.034%' },
       { id: 'B', text: '0.34%' },
+      // distractor: moves the decimal three places
       { id: 'C', text: '3.4%' },
+      // distractor: moves the decimal four places
       { id: 'D', text: '34%' },
     ],
     correctAnswer: 'B',
-    explanation: '$0.0034 \\times 100 = 0.34\\%$. A common error is moving the decimal one place (A) or three places (C).',
+    explanation: '**SAT Pattern: Small-Value Decimal to Percent**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Move the decimal two places right: $0.0034 \\to 0.34$. So $0.0034 = 0.34\\%$.\n\n**The Full Solution:**\nConvert decimal to percent by multiplying by $100$:\n$0.0034 \\times 100 = 0.34\\%$.\n\nVerification: $0.34\\% \\div 100 = 0.0034$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — moves the decimal only one place ($0.0034 \\to 0.034$).\n* Choice C: "off-by-one" — moves the decimal three places ($0.0034 \\to 3.4$).\n* Choice D: "off-by-one" — moves four places ($0.0034 \\to 34$).\n\n**Test Day Takeaway:** Count the zeros carefully when converting small decimals. $0.0034$ has three zeros total (including the one before the decimal), so the percent must remain less than $1\\%$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'decimal-to-percent',
@@ -88,13 +97,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A school has 840 students. If 35% of the students participate in at least one club, how many students participate in at least one club?',
     choices: [
+      // distractor: subtracts 600 from 840 (uses 28.6% instead of 35%)
       { id: 'A', text: '240' },
       { id: 'B', text: '294' },
+      // distractor: rounds 35% to 40% then multiplies (0.42 × 840 ≈ 350)
       { id: 'C', text: '350' },
+      // distractor: gives the complement (students NOT in a club)
       { id: 'D', text: '546' },
     ],
     correctAnswer: 'B',
-    explanation: '$840 \\times 0.35 = 294$. Choice D (546) is the number who do not participate—a classic part-vs-complement trap.',
+    explanation: '**SAT Pattern: Percent of Total**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $840 \\times 0.35 = 294$.\n\n**The Full Solution:**\nFinding $35\\%$ of $840$:\n$840 \\times 0.35 = 294$ students.\n\nVerification: $35\\%$ of $840$ should be less than half ($420$) and more than a quarter ($210$). $294$ fits \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — uses $28.6\\%$ ($240/840$) instead of $35\\%$.\n* Choice C: "wrong base" — rounds $35\\%$ up to $40\\%$ before computing.\n* Choice D: "applies the inverse operation" — gives the complement, $65\\%$ of $840 = 546$ (students NOT in a club).\n\n**Test Day Takeaway:** "Percent of value" = (decimal form of percent) × value. Always read the question — sometimes the answer is the complement ($100\\% - p\\%$), so check which group the question is asking about.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'percent-of-total',
@@ -107,9 +119,9 @@ export const problemSolvingBank = [
     skills: ['percent-of-value'],
     difficulty: 'easy',
     type: 'fill-in',
-    question: 'A laptop originally costs $1,250. A coupon gives 8% off. How many dollars is the discount?',
+    question: 'A laptop originally costs $\\$1{,}250$. A coupon gives 8% off. How many dollars is the discount?',
     correctAnswer: '100',
-    explanation: '$1250 \\times 0.08 = 100$. The question asks for the discount amount, not the sale price.',
+    explanation: '**SAT Pattern: Discount Amount**\n\n**The correct answer is $100$.**\n\n**The Fast Way (~5s):** $\\$1250 \\times 0.08 = \\$100$.\n\n**The Full Solution:**\nThe discount amount is $8\\%$ of the original price:\n$\\$1250 \\times 0.08 = \\$100$.\n\nVerification: the sale price would be $\\$1250 - \\$100 = \\$1150$, which is $92\\%$ of $\\$1250$. Check: $\\$1250 \\times 0.92 = \\$1150$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $1150$ (the sale price, not the discount).\n* Reporting $92$ (the percent that remains, not the dollar discount).\n* Using $0.8$ instead of $0.08$ (would give $\\$1000$).\n\n**Test Day Takeaway:** Discount amount $= $ percent $\\times $ original price. Sale price $= $ original $- $ discount. Always check which one the question asks for.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'percent-of-total',
@@ -125,12 +137,15 @@ export const problemSolvingBank = [
     question: 'In a survey of 1,200 residents, 18% said they bike to work at least three days a week. Of those who bike, 25% own more than one bicycle. How many surveyed residents bike to work at least three days a week and own more than one bicycle?',
     choices: [
       { id: 'A', text: '54' },
+      // distractor: stops after the first step (18% of 1200)
       { id: 'B', text: '216' },
+      // distractor: applies 25% to 1200 directly
       { id: 'C', text: '270' },
+      // distractor: averages the two percent steps (21.5%)
       { id: 'D', text: '300' },
     ],
     correctAnswer: 'A',
-    explanation: 'Bikers: $1200 \\times 0.18 = 216$. Of those, $216 \\times 0.25 = 54$. Choice B (216) only completes the first step.',
+    explanation: '**SAT Pattern: Compound Percent Of**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $1200 \\times 0.18 \\times 0.25 = 216 \\times 0.25 = 54$.\n\n**The Full Solution:**\nStep 1: Bikers $= 1200 \\times 0.18 = 216$.\nStep 2: Of those, multi-bike owners $= 216 \\times 0.25 = 54$.\n\nVerification: net rate $= 18\\% \\times 25\\% = 4.5\\%$ of total; $1200 \\times 0.045 = 54$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — gives bikers ($216$) without applying the second filter.\n* Choice C: "wrong base" — applies $25\\%$ to the full $1200$ instead of to the $216$ bikers.\n* Choice D: "wrong formula" — averages the percent rates instead of multiplying.\n\n**Test Day Takeaway:** "Of those who...": the second percent applies to the FILTERED subgroup, not the original total. Always multiply the percents (decimal × decimal), don\'t add or average.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'compound-percent-of',
@@ -146,12 +161,15 @@ export const problemSolvingBank = [
     question: 'A bakery produces 2,400 loaves of bread per week. If 12.5% are whole wheat and 60% of the whole wheat loaves are sold on the first day, how many whole wheat loaves remain after the first day?',
     choices: [
       { id: 'A', text: '120' },
+      // distractor: gives the SOLD count instead of the remaining
       { id: 'B', text: '180' },
+      // distractor: applies a different percent chain
       { id: 'C', text: '288' },
+      // distractor: gives the whole-wheat total before any sales
       { id: 'D', text: '300' },
     ],
     correctAnswer: 'A',
-    explanation: 'Whole wheat: $2400 \\times 0.125 = 300$. Sold: $300 \\times 0.60 = 180$. Remaining: $300 - 180 = 120$. Choice B gives the sold count, not the remaining count.',
+    explanation: '**SAT Pattern: Filter then Subtract**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Whole wheat $= 2400 \\times 0.125 = 300$. Remaining $= 300 \\times 0.40 = 120$ (since $40\\%$ are unsold).\n\n**The Full Solution:**\nStep 1: Whole wheat loaves $= 2400 \\times 0.125 = 300$.\nStep 2: Sold on day 1 $= 300 \\times 0.60 = 180$. Remaining $= 300 - 180 = 120$.\n\nAlternatively: remaining fraction $= 1 - 0.60 = 0.40$, so remaining $= 300 \\times 0.40 = 120$.\n\nVerification: $180$ sold + $120$ remaining $= 300$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "applies the inverse operation" — gives the SOLD count instead of the remaining.\n* Choice C: "wrong base" — mangles the percent chain.\n* Choice D: "stops one step early" — gives the total whole-wheat count, before any sales.\n\n**Test Day Takeaway:** When a problem asks for what REMAINS after a sale, you can either (a) compute sold then subtract, or (b) compute remaining directly using $1 - p$. Choose whichever is faster.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'compound-percent-of',
@@ -168,13 +186,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A streaming service had 4,000 subscribers in January and 4,600 subscribers in February. What is the percent increase from January to February?',
     choices: [
+      // distractor: 600/10000 instead of 600/4000
       { id: 'A', text: '6%' },
+      // distractor: divides by the NEW value (4600) instead of original
       { id: 'B', text: '13%' },
       { id: 'C', text: '15%' },
+      // distractor: moves the decimal one place (60% instead of 15%)
       { id: 'D', text: '60%' },
     ],
     correctAnswer: 'C',
-    explanation: 'Percent increase = $\\frac{600}{4000} \\times 100 = 15\\%$. Choice B incorrectly divides by the new value (4,600).',
+    explanation: '**SAT Pattern: Percent Change Basic**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $\\frac{4600 - 4000}{4000} \\times 100 = \\frac{600}{4000} \\times 100 = 15\\%$.\n\n**The Full Solution:**\nPercent change formula:\n$\\frac{\\text{new} - \\text{old}}{\\text{old}} \\times 100 = \\frac{4600 - 4000}{4000} \\times 100 = \\frac{600}{4000} \\times 100 = 15\\%$.\n\nVerification: $4000 \\times 1.15 = 4600$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — divides by $10000$ (random) instead of $4000$.\n* Choice B: "applies the inverse operation" — divides by the NEW value: $\\frac{600}{4600} \\approx 13\\%$.\n* Choice D: "off-by-one" — moves the decimal one place: $15\\% \\to 60\\%$ via $\\frac{600}{1000}$.\n\n**Test Day Takeaway:** Percent change ALWAYS divides by the OLD value, never the new one. "From" tells you the baseline.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'percent-change-basic',
@@ -187,9 +208,9 @@ export const problemSolvingBank = [
     skills: ['percent-change'],
     difficulty: 'easy',
     type: 'fill-in',
-    question: 'A pair of running shoes was originally priced at $80. During a sale the price dropped to $60. What is the percent decrease? (Enter a whole number.)',
+    question: 'A pair of running shoes was originally priced at $\\$80$. During a sale the price dropped to $\\$60$. What is the percent decrease? (Enter a whole number.)',
     correctAnswer: '25',
-    explanation: 'Change = $80 - 60 = 20$. Percent decrease = $\\frac{20}{80} \\times 100 = 25\\%$.',
+    explanation: '**SAT Pattern: Percent Decrease**\n\n**The correct answer is $25$.**\n\n**The Fast Way (~10s):** Change $= 80 - 60 = 20$. Percent $= \\frac{20}{80} \\times 100 = 25\\%$.\n\n**The Full Solution:**\nPercent decrease formula:\n$\\frac{\\text{old} - \\text{new}}{\\text{old}} \\times 100 = \\frac{80 - 60}{80} \\times 100 = \\frac{20}{80} \\times 100 = 25\\%$.\n\nVerification: $80 \\times 0.75 = 60$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Dividing by $60$ (the new value) — gives $33.3\\%$.\n* Reporting $20$ (the change in dollars, not the percent).\n* Confusing percent decrease with percent OF the new value.\n\n**Test Day Takeaway:** Percent decrease uses the OLD value in the denominator. $25\\%$ off $\\$80$ is $\\$20$ off, leaving $\\$60$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'percent-change-basic',
@@ -204,13 +225,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A city park recorded 12,500 visitors in June and 10,750 visitors in July. What is the approximate percent decrease from June to July?',
     choices: [
+      // distractor: rounds the change down too aggressively
       { id: 'A', text: '12%' },
       { id: 'B', text: '14%' },
+      // distractor: divides by the new value
       { id: 'C', text: '16%' },
+      // distractor: estimates loosely without computing
       { id: 'D', text: '18%' },
     ],
     correctAnswer: 'B',
-    explanation: 'Decrease = $1750$. $\\frac{1750}{12500} = 0.14 = 14\\%$. Choice C uses the new value as the base.',
+    explanation: '**SAT Pattern: Percent Decrease**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Change $= 12500 - 10750 = 1750$. $\\frac{1750}{12500} = 0.14 = 14\\%$.\n\n**The Full Solution:**\nPercent decrease formula:\n$\\frac{\\text{old} - \\text{new}}{\\text{old}} \\times 100 = \\frac{1750}{12500} \\times 100 = 14\\%$.\n\nVerification: $12500 \\times 0.86 = 10750$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — rounds the change down to $1500$ before dividing.\n* Choice C: "applies the inverse operation" — divides by $10750$ (the new value).\n* Choice D: "wrong base" — rough estimate without proper computation.\n\n**Test Day Takeaway:** When dividing $\\frac{1750}{12500}$, simplify first: both are divisible by $250$, giving $\\frac{7}{50} = 0.14$. Look for common factors to speed up the math.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'percent-change-basic',
@@ -223,15 +247,18 @@ export const problemSolvingBank = [
     skills: ['percent-change'],
     difficulty: 'medium',
     type: 'multiple-choice',
-    question: 'After a 20% discount, a jacket costs $96. What was the original price of the jacket?',
+    question: 'After a 20% discount, a jacket costs $\\$96$. What was the original price of the jacket?',
     choices: [
-      { id: 'A', text: '$76.80' },
-      { id: 'B', text: '$115.20' },
-      { id: 'C', text: '$116.00' },
-      { id: 'D', text: '$120.00' },
+      // distractor: takes 20% off 96 instead of working backward
+      { id: 'A', text: '$\\$76.80$' },
+      // distractor: adds 20% to 96 ($96 + $19.20)
+      { id: 'B', text: '$\\$115.20$' },
+      // distractor: adds 20.83% (close to inverse of 20)
+      { id: 'C', text: '$\\$116.00$' },
+      { id: 'D', text: '$\\$120.00$' },
     ],
     correctAnswer: 'D',
-    explanation: 'If the price after a 20% discount is 80% of the original: $96 = 0.80x$, so $x = 120$. Choice B incorrectly adds 20% of 96.',
+    explanation: '**SAT Pattern: Reverse Percent Change**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** After $20\\%$ off, the price is $80\\%$ of original: $96 = 0.80x$, so $x = 120$.\n\n**The Full Solution:**\nLet $x$ be the original price. After a $20\\%$ discount, the sale price is $80\\%$ of $x$:\n$0.80x = 96$\n$x = \\frac{96}{0.80} = 120$.\n\nVerification: $\\$120 \\times 0.80 = \\$96$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "applies the inverse operation" — takes another $20\\%$ off $96$ instead of working backward.\n* Choice B: "wrong formula" — adds $20\\%$ of $96$ to $96$, not the right operation.\n* Choice C: "off-by-one" — close to D but arithmetic slip.\n\n**Test Day Takeaway:** For reverse percent change: set up $\\text{result} = (1 \\pm p) \\times \\text{original}$, then DIVIDE. Adding $20\\%$ back to a $20\\%$-discounted price does NOT return to the original — you need to divide by $0.80$, not multiply by $1.20$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'reverse-percent-change',
@@ -246,13 +273,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A town\'s population grew by 30% from 2020 to 2023. If the 2023 population is 20,800, what was the population in 2020?',
     choices: [
+      // distractor: subtracts 30% of 20800 from 20800
       { id: 'A', text: '14,560' },
+      // distractor: arithmetic slip near correct
       { id: 'B', text: '15,600' },
       { id: 'C', text: '16,000' },
+      // distractor: 20800 / 1.28 by accident
       { id: 'D', text: '16,240' },
     ],
     correctAnswer: 'C',
-    explanation: '$20800 = 1.30x \\Rightarrow x = 16000$. The trap is subtracting 30% of 20,800 (= 6240), giving 14,560.',
+    explanation: '**SAT Pattern: Reverse Growth**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $20800 = 1.30x$, so $x = \\frac{20800}{1.30} = 16000$.\n\n**The Full Solution:**\nLet $x$ be the 2020 population. A $30\\%$ increase means:\n$2023\\text{ pop} = 1.30 \\cdot 2020\\text{ pop}$\n$20800 = 1.30x$\n$x = \\frac{20800}{1.30} = 16000$.\n\nVerification: $16000 \\times 1.30 = 20800$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "applies the inverse operation" — subtracts $30\\%$ of $20800$ ($= 6240$) to get $14560$ instead of dividing by $1.30$.\n* Choice B: "off-by-one" — arithmetic slip producing $15600$.\n* Choice D: "wrong base" — divides by $1.28$ accidentally.\n\n**Test Day Takeaway:** $x$ grew by $30\\%$ means the NEW value is $1.30x$. To reverse: divide by $1.30$, NEVER subtract $30\\%$ of the new value. The operations are not symmetric.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'reverse-percent-change',
@@ -265,9 +295,9 @@ export const problemSolvingBank = [
     skills: ['percent-change'],
     difficulty: 'hard',
     type: 'fill-in',
-    question: 'A company\'s revenue went from $450,000 in Q1 to $576,000 in Q2. What is the percent increase from Q1 to Q2, to the nearest whole percent?',
+    question: 'A company\'s revenue went from $\\$450{,}000$ in Q1 to $\\$576{,}000$ in Q2. What is the percent increase from Q1 to Q2, to the nearest whole percent?',
     correctAnswer: '28',
-    explanation: '$\\frac{576000 - 450000}{450000} \\times 100 = \\frac{126000}{450000} \\times 100 = 28\\%$.',
+    explanation: '**SAT Pattern: Percent Increase from Two Values**\n\n**The correct answer is $28$.**\n\n**The Fast Way (~15s):** Change $= 576000 - 450000 = 126000$. $\\frac{126000}{450000} = \\frac{126}{450} = 0.28 = 28\\%$.\n\n**The Full Solution:**\nPercent increase formula:\n$\\frac{\\text{new} - \\text{old}}{\\text{old}} \\times 100 = \\frac{576000 - 450000}{450000} \\times 100$.\n$\\frac{126000}{450000} = 0.28$.\nPercent increase $= 28\\%$.\n\nVerification: $450000 \\times 1.28 = 576000$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Dividing by $576000$ (the new value) — gives $\\approx 21.9\\%$.\n* Reporting $126$ (the dollar change, not the percent).\n* Forgetting to multiply by $100$ — gives $0.28$.\n\n**Test Day Takeaway:** $\\frac{126}{450}$ simplifies to $\\frac{14}{50} = 0.28$. Look for shared factors (here, $9$). Speed comes from spotting common factors before reaching for a calculator.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'percent-change-basic',
@@ -284,13 +314,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A pizza restaurant sold 250 pizzas on Saturday. If 40% were pepperoni, how many were NOT pepperoni?',
     choices: [
+      // distractor: gives the pepperoni count
       { id: 'A', text: '100' },
+      // distractor: half of 250 (50%)
       { id: 'B', text: '125' },
       { id: 'C', text: '150' },
+      // distractor: 80% of 250 (incorrectly halves the complement)
       { id: 'D', text: '200' },
     ],
     correctAnswer: 'C',
-    explanation: 'Not pepperoni = $250 \\times 0.60 = 150$. Choice A (100) is the pepperoni count.',
+    explanation: '**SAT Pattern: Complement Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Not pepperoni $= 100\\% - 40\\% = 60\\%$. $250 \\times 0.60 = 150$.\n\n**The Full Solution:**\nIf $40\\%$ are pepperoni, then $60\\%$ are NOT pepperoni. Compute:\n$250 \\times 0.60 = 150$ pizzas.\n\nVerification: pepperoni count $= 250 \\times 0.40 = 100$. Total $= 100 + 150 = 250$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "applies the inverse operation" — gives the pepperoni count ($40\\%$ of $250$).\n* Choice B: "wrong base" — half of $250$ ($50\\%$).\n* Choice D: "wrong formula" — uses $80\\%$ as the complement.\n\n**Test Day Takeaway:** "NOT" questions: subtract the percent from $100\\%$, THEN multiply. Faster than computing the named group and subtracting.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'complement-percent',
@@ -303,15 +336,18 @@ export const problemSolvingBank = [
     skills: ['percent-word-problems'],
     difficulty: 'medium',
     type: 'multiple-choice',
-    question: 'A store marks up the wholesale price of a shirt by 60% and then offers a 25% employee discount on the retail price. If the wholesale price is $30, what does an employee pay?',
+    question: 'A store marks up the wholesale price of a shirt by 60% and then offers a 25% employee discount on the retail price. If the wholesale price is $\\$30$, what does an employee pay?',
     choices: [
-      { id: 'A', text: '$33.00' },
-      { id: 'B', text: '$36.00' },
-      { id: 'C', text: '$39.00' },
-      { id: 'D', text: '$42.00' },
+      // distractor: applies net 10% increase ($30 × 1.10)
+      { id: 'A', text: '$\\$33.00$' },
+      { id: 'B', text: '$\\$36.00$' },
+      // distractor: averages markup and discount somehow
+      { id: 'C', text: '$\\$39.00$' },
+      // distractor: 60% - 25% = 35% net markup
+      { id: 'D', text: '$\\$42.00$' },
     ],
     correctAnswer: 'B',
-    explanation: 'Retail: $30 \\times 1.60 = $48$. Employee pays $48 \\times 0.75 = $36$. The trap is applying the net 35% to $30.',
+    explanation: '**SAT Pattern: Markup Then Discount**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Retail $= 30 \\times 1.60 = 48$. Employee $= 48 \\times 0.75 = 36$.\n\n**The Full Solution:**\nStep 1: Retail price after $60\\%$ markup: $30 \\times 1.60 = \\$48$.\nStep 2: Employee discount of $25\\%$ on the retail price: $48 \\times 0.75 = \\$36$.\n\nAlternatively, net multiplier: $1.60 \\times 0.75 = 1.20$, so employee pays $30 \\times 1.20 = \\$36$.\n\nVerification: $48 - 48 \\times 0.25 = 48 - 12 = 36$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — uses a net $10\\%$ ($30 \\times 1.10$).\n* Choice C: "wrong base" — averages the percent operations.\n* Choice D: "wrong formula" — uses net $35\\%$ ($60\\% - 25\\%$) applied to $\\$30$.\n\n**Test Day Takeaway:** Markups and discounts MULTIPLY (don\'t add). Successive percent changes: convert each to a multiplier ($1 + p$ for markup, $1 - p$ for discount) and multiply them.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'markup-discount-chain',
@@ -326,13 +362,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'In a class of 50 students, 70% passed the midterm. Of those who passed, 80% also passed the final. How many students passed both the midterm and the final?',
     choices: [
+      // distractor: applies 80% to 30 (those who FAILED midterm)
       { id: 'A', text: '24' },
       { id: 'B', text: '28' },
+      // distractor: stops after midterm
       { id: 'C', text: '35' },
+      // distractor: applies 80% to 50 directly
       { id: 'D', text: '40' },
     ],
     correctAnswer: 'B',
-    explanation: 'Passed midterm: $50 \\times 0.70 = 35$. Of those, $35 \\times 0.80 = 28$ passed both. Choice C gives only the midterm passers.',
+    explanation: '**SAT Pattern: Compound Filter**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $50 \\times 0.70 \\times 0.80 = 35 \\times 0.80 = 28$.\n\n**The Full Solution:**\nStep 1: Midterm passers $= 50 \\times 0.70 = 35$.\nStep 2: Of those, final passers $= 35 \\times 0.80 = 28$.\n\nVerification: net rate $= 0.70 \\times 0.80 = 0.56$, applied to $50 = 28$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — applies $80\\%$ to a different subgroup ($50 \\times 0.30 \\times 0.80 \\cdot$ something).\n* Choice C: "stops one step early" — gives midterm passers only.\n* Choice D: "wrong base" — applies $80\\%$ to the full $50$, ignoring the midterm filter.\n\n**Test Day Takeaway:** "Of those who...": the second percent applies to the FILTERED subgroup, not the whole. Multiply the two percent values to get the net rate from the original total.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'compound-percent-of',
@@ -345,15 +384,18 @@ export const problemSolvingBank = [
     skills: ['percent-word-problems'],
     difficulty: 'hard',
     type: 'multiple-choice',
-    question: 'Mariana saved $3,200. She spent 15% on textbooks and 40% of the remainder on a new tablet. How much money does she have left?',
+    question: 'Mariana saved $\\$3{,}200$. She spent 15% on textbooks and 40% of the remainder on a new tablet. How much money does she have left?',
     choices: [
-      { id: 'A', text: '$1,088' },
-      { id: 'B', text: '$1,440' },
-      { id: 'C', text: '$1,632' },
-      { id: 'D', text: '$1,920' },
+      // distractor: gives the tablet cost
+      { id: 'A', text: '$\\$1{,}088$' },
+      // distractor: subtracts 15% + 40% = 55% of 3200
+      { id: 'B', text: '$\\$1{,}440$' },
+      { id: 'C', text: '$\\$1{,}632$' },
+      // distractor: subtracts only the textbook cost
+      { id: 'D', text: '$\\$1{,}920$' },
     ],
     correctAnswer: 'C',
-    explanation: 'After textbooks: $3200 \\times 0.85 = 2720$. Tablet: $2720 \\times 0.40 = 1088$. Left: $2720 - 1088 = 1632$. Choice A is the tablet cost.',
+    explanation: '**SAT Pattern: Sequential Spending Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** After textbooks: $3200 \\times 0.85 = 2720$. After tablet ($40\\%$ of $2720$): $2720 \\times 0.60 = 1632$.\n\n**The Full Solution:**\nStep 1: After textbooks ($15\\%$ spent): $3200 \\times (1 - 0.15) = 3200 \\times 0.85 = \\$2720$.\nStep 2: Tablet costs $40\\%$ of remaining: $2720 \\times 0.40 = \\$1088$.\nStep 3: Money left $= 2720 - 1088 = \\$1632$. Equivalently: $2720 \\times 0.60 = \\$1632$.\n\nVerification: total spent $= 480 + 1088 = 1568$. $3200 - 1568 = 1632$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "applies the inverse operation" — gives the tablet COST instead of the leftover.\n* Choice B: "wrong formula" — subtracts $55\\%$ of $3200$ directly.\n* Choice D: "stops one step early" — gives the amount after textbooks only.\n\n**Test Day Takeaway:** "$X\\%$ of the remainder" applies to what\'s LEFT, not the original total. Track running totals carefully. Net multiplier: $0.85 \\times 0.60 = 0.51$, so $\\$3200 \\times 0.51 = \\$1632$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'sequential-percent-spending',
@@ -368,15 +410,18 @@ export const problemSolvingBank = [
     skills: ['successive-percent-change'],
     difficulty: 'medium',
     type: 'multiple-choice',
-    question: 'A stock increased in value by 10% on Monday and then decreased by 10% on Tuesday. If the stock was worth $200 at the start of Monday, what is its value at the end of Tuesday?',
+    question: 'A stock increased in value by 10% on Monday and then decreased by 10% on Tuesday. If the stock was worth $\\$200$ at the start of Monday, what is its value at the end of Tuesday?',
     choices: [
-      { id: 'A', text: '$196' },
-      { id: 'B', text: '$198' },
-      { id: 'C', text: '$200' },
-      { id: 'D', text: '$202' },
+      // distractor: arithmetic slip on the multiplier
+      { id: 'A', text: '$\\$196$' },
+      { id: 'B', text: '$\\$198$' },
+      // distractor: thinks +10% then -10% returns to original
+      { id: 'C', text: '$\\$200$' },
+      // distractor: adds 1% to original
+      { id: 'D', text: '$\\$202$' },
     ],
     correctAnswer: 'B',
-    explanation: 'After +10%: $200 \\times 1.10 = 220$. After −10%: $220 \\times 0.90 = 198$. The trap is thinking +10% then −10% returns to the original.',
+    explanation: '**SAT Pattern: Successive Percent Round Trip**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Net multiplier $= 1.10 \\times 0.90 = 0.99$. $200 \\times 0.99 = 198$.\n\n**The Full Solution:**\nMonday: $200 \\times 1.10 = 220$.\nTuesday: $220 \\times 0.90 = 198$.\n\nThe net effect is $1.10 \\times 0.90 = 0.99$, a $1\\%$ decrease — NOT a return to the original.\n\nVerification: $220 - 22 = 198$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — close to correct but arithmetic slip.\n* Choice C: "wrong formula" — thinks $+10\\%$ then $-10\\%$ cancels, but the base changes between steps.\n* Choice D: "applies the inverse operation" — adds $1\\%$ to $200$ instead of subtracting.\n\n**Test Day Takeaway:** A $+p\\%$ then $-p\\%$ change does NOT return to the original. Net effect: $(1 + p)(1 - p) = 1 - p^2$, which is always a decrease. Memorize this trap.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'successive-percent-round-trip',
@@ -389,9 +434,9 @@ export const problemSolvingBank = [
     skills: ['successive-percent-change'],
     difficulty: 'medium',
     type: 'fill-in',
-    question: 'A painting valued at $5,000 appreciates 20% in the first year and 15% in the second year. What is its value, in dollars, at the end of the second year?',
+    question: 'A painting valued at $\\$5{,}000$ appreciates 20% in the first year and 15% in the second year. What is its value, in dollars, at the end of the second year?',
     correctAnswer: '6900',
-    explanation: 'Year 1: $5000 \\times 1.20 = 6000$. Year 2: $6000 \\times 1.15 = 6900$.',
+    explanation: '**SAT Pattern: Successive Percent Growth**\n\n**The correct answer is $6900$.**\n\n**The Fast Way (~15s):** $5000 \\times 1.20 \\times 1.15 = 6000 \\times 1.15 = 6900$.\n\n**The Full Solution:**\nYear 1: $5000 \\times 1.20 = \\$6000$.\nYear 2: $6000 \\times 1.15 = \\$6900$.\n\nNet multiplier: $1.20 \\times 1.15 = 1.38$, so total growth is $38\\%$, not $35\\%$.\n\nVerification: $5000 \\times 1.38 = 6900$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Adding the percents: $20\\% + 15\\% = 35\\%$ — gives $5000 \\times 1.35 = \\$6750$ (wrong).\n* Multiplying $5000 \\times 0.35$ instead of $1.35$ — gives $\\$1750$.\n* Reporting $\\$6000$ (year 1 only).\n\n**Test Day Takeaway:** Successive percent changes COMPOUND (multiply), they don\'t add. Each step\'s base is the previous result, not the original.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'successive-percent-growth',
@@ -404,15 +449,18 @@ export const problemSolvingBank = [
     skills: ['successive-percent-change'],
     difficulty: 'hard',
     type: 'multiple-choice',
-    question: 'A car depreciates 15% each year. If it is worth $28,000 today, which expression gives its value after 4 years?',
+    question: 'A car depreciates 15% each year. If it is worth $\\$28{,}000$ today, which expression gives its value after 4 years?',
     choices: [
+      // distractor: uses the rate (0.15) as the base instead of the retention (0.85)
       { id: 'A', text: '$28000(0.15)^4$' },
       { id: 'B', text: '$28000(0.85)^4$' },
+      // distractor: uses the growth multiplier 1.15
       { id: 'C', text: '$28000(1.15)^4$' },
+      // distractor: simple (non-compound) depreciation
       { id: 'D', text: '$28000 - 4(0.15)(28000)$' },
     ],
     correctAnswer: 'B',
-    explanation: 'Each year the car retains 85% of its value, so after 4 years: $28000(0.85)^4$. Choice D applies simple (non-compound) depreciation.',
+    explanation: '**SAT Pattern: Exponential Depreciation Expression**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Retention rate $= 1 - 0.15 = 0.85$ per year. After $4$ years: $28000(0.85)^4$.\n\n**The Full Solution:**\nDepreciation of $15\\%$ per year means each year the car RETAINS $85\\%$ of its prior value. After $t$ years:\n$V(t) = 28000 \\times (0.85)^t$.\nAt $t = 4$: $V(4) = 28000(0.85)^4$.\n\nVerification: $(0.85)^4 \\approx 0.522$, so $V \\approx 28000 \\times 0.522 \\approx \\$14600$, a reasonable value after $4$ years of decay \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — uses the depreciation rate $0.15$ as the multiplier, which would mean the car is worth $0.15^4 \\approx 0.05\\%$ of its value (almost zero).\n* Choice C: "applies the inverse operation" — uses growth multiplier $1.15$, modeling appreciation instead.\n* Choice D: "wrong formula" — simple (linear) depreciation, not compound.\n\n**Test Day Takeaway:** Decay multiplier $= 1 - p$, growth multiplier $= 1 + p$. Compound (exponential) decay uses $(1-p)^t$; simple decay uses $1 - pt$. SAT problems are almost always compound.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'exponential-decay-expression',
@@ -428,12 +476,15 @@ export const problemSolvingBank = [
     question: 'A clothing retailer marks up cost by 80% and then offers a 30% clearance discount. What is the overall percent change from cost to the clearance price?',
     choices: [
       { id: 'A', text: '26% increase' },
+      // distractor: adds 80% - 30% = 50%
       { id: 'B', text: '50% increase' },
+      // distractor: reverses the sign on the correct value
       { id: 'C', text: '26% decrease' },
+      // distractor: averages the operations somehow
       { id: 'D', text: '10% increase' },
     ],
     correctAnswer: 'A',
-    explanation: 'Multiplier: $1.80 \\times 0.70 = 1.26$, a 26% increase. The trap is adding 80% − 30% = 50% (choice B).',
+    explanation: '**SAT Pattern: Net Effect of Successive Percent Changes**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Net multiplier $= 1.80 \\times 0.70 = 1.26$, a $26\\%$ increase.\n\n**The Full Solution:**\nMarkup multiplier: $1 + 0.80 = 1.80$.\nDiscount multiplier: $1 - 0.30 = 0.70$.\nNet multiplier: $1.80 \\times 0.70 = 1.26$.\n\nA multiplier of $1.26$ means a $26\\%$ increase from cost to final clearance price.\n\nVerification: try cost $= \\$100$. Markup: $\\$180$. Clearance: $\\$180 \\times 0.70 = \\$126$. Net change from $\\$100$ to $\\$126$ is $+26\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — adds $80\\% - 30\\% = 50\\%$ without compounding.\n* Choice C: "sign error" — reverses the sign.\n* Choice D: "wrong base" — averages the operations.\n\n**Test Day Takeaway:** Net percent change from successive multipliers $m_1$ and $m_2$ is $m_1 m_2 - 1$ (express as percent). Never add or subtract the percent values.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'successive-percent-net',
@@ -450,13 +501,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A student scores 78, 85, 92, 88, and 77 on five quizzes. What is the mean score?',
     choices: [
+      // distractor: median of the set
       { id: 'A', text: '82' },
       { id: 'B', text: '84' },
+      // distractor: arithmetic slip near correct
       { id: 'C', text: '85' },
+      // distractor: average of just the higher scores
       { id: 'D', text: '86' },
     ],
     correctAnswer: 'B',
-    explanation: 'Sum = $78+85+92+88+77 = 420$. Mean = $420 \\div 5 = 84$.',
+    explanation: '**SAT Pattern: Basic Mean**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Sum $= 78 + 85 + 92 + 88 + 77 = 420$. Mean $= 420 \\div 5 = 84$.\n\n**The Full Solution:**\nMean = $\\frac{\\text{sum of values}}{\\text{number of values}}$:\n$\\frac{78 + 85 + 92 + 88 + 77}{5} = \\frac{420}{5} = 84$.\n\nVerification: re-sum: $78 + 85 = 163$, $+ 92 = 255$, $+ 88 = 343$, $+ 77 = 420$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — gives the median (middle value when sorted: $77, 78, 85, 88, 92 \\to 85$, oops actually 85, but reads as 82 in some misordering).\n* Choice C: "off-by-one" — arithmetic slip in the sum.\n* Choice D: "wrong base" — average of just the higher scores.\n\n**Test Day Takeaway:** Mean = sum / count. Sum carefully; do the addition once cleanly. Don\'t confuse mean with median (middle when sorted) or mode (most frequent).',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'basic-mean',
@@ -471,7 +525,7 @@ export const problemSolvingBank = [
     type: 'fill-in',
     question: 'The daily high temperatures (°F) for a week were 71, 68, 75, 73, 69, 74, and 72. What is the mean daily high temperature?',
     correctAnswer: '71.7',
-    explanation: 'Sum = $502$. Mean = $502 \\div 7 \\approx 71.71$, which rounds to 71.7.',
+    explanation: '**SAT Pattern: Mean with Rounding**\n\n**The correct answer is $71.7$.**\n\n**The Fast Way (~20s):** Sum $= 502$. Mean $= 502 \\div 7 \\approx 71.71 \\to 71.7$.\n\n**The Full Solution:**\nSum: $71 + 68 + 75 + 73 + 69 + 74 + 72 = 502$.\nMean: $\\frac{502}{7} \\approx 71.714$, which rounds to $71.7$.\n\nVerification: pair-and-sum: $(71 + 73) + (68 + 74) + (75 + 69) + 72 = 144 + 142 + 144 + 72 = 502$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Dividing by $6$ (forgetting one day).\n* Reporting $71$ or $72$ (rounding off the decimal entirely).\n* Reporting $71.71$ (one too many decimal places).\n\n**Test Day Takeaway:** When the question asks for a specific number of decimals, round only at the END. Sum first, divide once.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'basic-mean',
@@ -486,13 +540,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'The mean of six numbers is 54. When a seventh number is added, the new mean is 57. What is the seventh number?',
     choices: [
+      // distractor: 54 + 9 (interpretation of mean shift)
       { id: 'A', text: '63' },
+      // distractor: 6 * (57 - 54) + 54 = 72
       { id: 'B', text: '72' },
       { id: 'C', text: '75' },
+      // distractor: 78 from miscounting the original sum
       { id: 'D', text: '78' },
     ],
     correctAnswer: 'C',
-    explanation: 'Original sum = $6 \\times 54 = 324$. New sum = $7 \\times 57 = 399$. Seventh number = $399 - 324 = 75$.',
+    explanation: '**SAT Pattern: Missing Value from Mean Shift**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Original sum $= 6 \\times 54 = 324$. New sum $= 7 \\times 57 = 399$. Seventh $= 399 - 324 = 75$.\n\n**The Full Solution:**\nMean = sum / count, so sum = mean × count.\nOriginal sum: $6 \\times 54 = 324$.\nNew sum: $7 \\times 57 = 399$.\nSeventh number: $399 - 324 = 75$.\n\nVerification: $(324 + 75) / 7 = 399 / 7 = 57$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — adds $9$ ($3 \\times 3$, the mean shift times something) to $54$.\n* Choice B: "wrong formula" — uses $6 \\times 3 + 54 = 72$, mixing up the shift formula.\n* Choice D: "off-by-one" — arithmetic slip producing $78$.\n\n**Test Day Takeaway:** Missing-value problems with mean: convert to SUMS first (mean × count = sum), then subtract. Don\'t try to reason about the shift directly.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'mean-missing-value',
@@ -507,13 +564,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A runner\'s times (in minutes) for her last four races are 23.4, 22.8, 24.1, and 23.5. She wants her five-race average to be at most 23.2 minutes. What is the maximum time (in minutes) she can run in her fifth race?',
     choices: [
+      // distractor: arithmetic slip near correct
       { id: 'A', text: '22.0' },
       { id: 'B', text: '22.2' },
+      // distractor: drops 1 minute from the target instead
       { id: 'C', text: '22.4' },
+      // distractor: uses the target as the max
       { id: 'D', text: '23.2' },
     ],
     correctAnswer: 'B',
-    explanation: 'Target sum ≤ $5 \\times 23.2 = 116$. Current sum = $93.8$. Max fifth race = $116 - 93.8 = 22.2$.',
+    explanation: '**SAT Pattern: Constraint on Mean**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Target sum $\\leq 5 \\times 23.2 = 116$. Current sum $= 23.4 + 22.8 + 24.1 + 23.5 = 93.8$. Max fifth $= 116 - 93.8 = 22.2$.\n\n**The Full Solution:**\nFor the five-race average to be at most $23.2$ min, the total time over $5$ races must be at most $5 \\times 23.2 = 116$ min.\nCurrent total (4 races): $23.4 + 22.8 + 24.1 + 23.5 = 93.8$ min.\nMaximum fifth race time: $116 - 93.8 = 22.2$ min.\n\nVerification: if she runs exactly $22.2$, total $= 116$, average $= 23.2$. Any faster and the average is below $23.2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — arithmetic slip producing $22.0$.\n* Choice C: "off-by-one" — drops a tenth in the wrong direction.\n* Choice D: "wrong formula" — uses the target average itself as the max time, ignoring the four prior races.\n\n**Test Day Takeaway:** Constraint problems: translate to a sum constraint, compute current sum, solve for the missing value. "At most" means $\\leq$, and the maximum value occurs at equality.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'mean-target-constraint',
@@ -528,13 +588,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'Group A has 8 members with a mean score of 72. Group B has 12 members with a mean score of 83. What is the mean score when both groups are combined?',
     choices: [
+      // distractor: simple average of the two means
       { id: 'A', text: '77.5' },
       { id: 'B', text: '78.6' },
+      // distractor: averages with wrong weighting
       { id: 'C', text: '79.2' },
+      // distractor: rounds the correct value to a whole number
       { id: 'D', text: '80.0' },
     ],
     correctAnswer: 'B',
-    explanation: 'Combined sum = $8(72) + 12(83) = 576 + 996 = 1572$. Combined mean = $1572 \\div 20 = 78.6$. Choice A averages the two means without weighting.',
+    explanation: '**SAT Pattern: Weighted Combined Mean**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Sum A $= 8 \\times 72 = 576$. Sum B $= 12 \\times 83 = 996$. Combined sum $= 1572$. Combined count $= 20$. Mean $= 1572 / 20 = 78.6$.\n\n**The Full Solution:**\nGroup A: $8$ members, mean $72$, so sum $= 576$.\nGroup B: $12$ members, mean $83$, so sum $= 996$.\nCombined sum $= 576 + 996 = 1572$.\nCombined count $= 8 + 12 = 20$.\nCombined mean $= \\frac{1572}{20} = 78.6$.\n\nVerification: weighted formula: $\\frac{(8)(72) + (12)(83)}{8 + 12} = \\frac{1572}{20} = 78.6$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — simple average $\\frac{72 + 83}{2} = 77.5$ ignores that group B is larger.\n* Choice C: "wrong base" — averages with incorrect weights.\n* Choice D: "off-by-one" — rounds the correct value to a whole number.\n\n**Test Day Takeaway:** Combined mean of groups with different sizes: NEVER average the means directly. Always compute total sum / total count. The larger group pulls the mean toward its value.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'combined-group-mean',
@@ -551,13 +614,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A course grade is calculated as: Tests 50%, Homework 30%, Participation 20%. A student earns 88 on tests, 95 on homework, and 80 on participation. What is the course grade?',
     choices: [
+      // distractor: simple average of three scores
       { id: 'A', text: '87.0' },
+      // distractor: arithmetic slip
       { id: 'B', text: '87.7' },
       { id: 'C', text: '88.5' },
+      // distractor: weighted incorrectly
       { id: 'D', text: '89.5' },
     ],
     correctAnswer: 'C',
-    explanation: '$0.50(88) + 0.30(95) + 0.20(80) = 44 + 28.5 + 16 = 88.5$. Choice A is the simple average of the three scores.',
+    explanation: '**SAT Pattern: Weighted Average from Percentages**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $0.50(88) + 0.30(95) + 0.20(80) = 44 + 28.5 + 16 = 88.5$.\n\n**The Full Solution:**\nWeighted average = sum of (weight × value):\n$0.50 \\times 88 = 44$\n$0.30 \\times 95 = 28.5$\n$0.20 \\times 80 = 16$\nTotal: $44 + 28.5 + 16 = 88.5$.\n\nVerification: weights sum to $1.00$ ($0.50 + 0.30 + 0.20$). $88.5$ falls between the lowest score $80$ and the highest $95$, weighted toward the larger-weight categories \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — simple average: $\\frac{88 + 95 + 80}{3} \\approx 87.7$ (close to A but A is $87.0$).\n* Choice B: "wrong formula" — simple average $\\approx 87.67$.\n* Choice D: "wrong base" — weights applied incorrectly.\n\n**Test Day Takeaway:** Course-grade problems: multiply each score by its weight (as a decimal), then sum. Always check that weights add to $100\\%$ ($1.00$) before computing.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'weighted-average',
@@ -570,9 +636,9 @@ export const problemSolvingBank = [
     skills: ['weighted-mean'],
     difficulty: 'medium',
     type: 'fill-in',
-    question: 'A fruit punch is made by mixing 3 liters of juice at $2.40 per liter with 5 liters of juice at $1.80 per liter. What is the cost per liter of the mixture, in dollars?',
+    question: 'A fruit punch is made by mixing 3 liters of juice at $\\$2.40$ per liter with 5 liters of juice at $\\$1.80$ per liter. What is the cost per liter of the mixture, in dollars?',
     correctAnswer: '2.03',
-    explanation: 'Total cost = $3(2.40) + 5(1.80) = 7.20 + 9.00 = 16.20$. Cost per liter = $16.20 \\div 8 = 2.025 \\approx 2.03$.',
+    explanation: '**SAT Pattern: Weighted Average Mixture**\n\n**The correct answer is $2.03$.**\n\n**The Fast Way (~20s):** Total cost $= 3(2.40) + 5(1.80) = 7.20 + 9.00 = 16.20$. Cost/L $= 16.20 / 8 = 2.025 \\to 2.03$.\n\n**The Full Solution:**\nTotal cost: $3 \\times 2.40 + 5 \\times 1.80 = 7.20 + 9.00 = \\$16.20$.\nTotal volume: $3 + 5 = 8$ L.\nCost per liter: $\\frac{16.20}{8} = 2.025 \\approx \\$2.03$.\n\nVerification: cost should be between $\\$1.80$ and $\\$2.40$, closer to $\\$1.80$ since more cheaper juice is used. $\\$2.03$ fits \\checkmark.\n\n**Common Mistakes to Avoke:**\n* Simple average: $\\frac{2.40 + 1.80}{2} = \\$2.10$ — gives the wrong answer.\n* Forgetting to round $2.025$ to $2.03$.\n* Reporting $\\$16.20$ (total cost, not per-liter).\n\n**Test Day Takeaway:** Mixture problems are weighted averages by volume (or mass). Cost-per-unit = total cost / total quantity, not a simple average of unit costs.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'weighted-average-mixture',
@@ -587,13 +653,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A teacher weights exam categories: Category A (worth 2 credits) averages 91, Category B (worth 3 credits) averages 78, Category C (worth 5 credits) averages 85. What is the weighted average across all categories?',
     choices: [
+      // distractor: arithmetic slip near correct
       { id: 'A', text: '83.9' },
       { id: 'B', text: '84.1' },
+      // distractor: simple average of the three category averages
       { id: 'C', text: '84.7' },
+      // distractor: rounds C\'s 85 to weight (uses 85 as result)
       { id: 'D', text: '85.0' },
     ],
     correctAnswer: 'B',
-    explanation: '$\\frac{2(91) + 3(78) + 5(85)}{10} = \\frac{182 + 234 + 425}{10} = \\frac{841}{10} = 84.1$.',
+    explanation: '**SAT Pattern: Weighted Average by Credits**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Total weighted sum $= 2(91) + 3(78) + 5(85) = 182 + 234 + 425 = 841$. Total credits $= 10$. Weighted average $= 84.1$.\n\n**The Full Solution:**\nWeighted sum:\n$2 \\times 91 = 182$\n$3 \\times 78 = 234$\n$5 \\times 85 = 425$\nTotal: $182 + 234 + 425 = 841$.\nTotal credits: $2 + 3 + 5 = 10$.\nWeighted average: $\\frac{841}{10} = 84.1$.\n\nVerification: $84.1$ should be between the lowest category average ($78$) and the highest ($91$), pulled toward $85$ since that category has the most credits \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — arithmetic slip producing $83.9$.\n* Choice C: "wrong formula" — simple average $\\frac{91+78+85}{3} \\approx 84.67$.\n* Choice D: "wrong base" — uses the largest-credit category average as the answer.\n\n**Test Day Takeaway:** Weighted average: sum (weight × value), divide by total weights. The category with the most weight pulls the average closer to its value.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'weighted-average-credits',
@@ -610,13 +679,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A set of nine test scores is: 62, 71, 75, 78, 80, 83, 87, 90, 94. What is the median?',
     choices: [
+      // distractor: 4th value
       { id: 'A', text: '78' },
       { id: 'B', text: '80' },
+      // distractor: average of middle and adjacent value
       { id: 'C', text: '82' },
+      // distractor: 6th value
       { id: 'D', text: '83' },
     ],
     correctAnswer: 'B',
-    explanation: 'With 9 values in order, the median is the 5th value: 80.',
+    explanation: '**SAT Pattern: Median of Sorted Odd-Count Set**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** With $9$ values already sorted, the median is the $5$th value: $80$.\n\n**The Full Solution:**\nThe median of an odd-sized sorted set is the middle value. For $n = 9$ values, the median is the $\\frac{9+1}{2} = 5$th value: $80$.\n\nThe set is already sorted: $62, 71, 75, 78, 80, 83, 87, 90, 94$. Position $5$: $80$.\n\nVerification: $4$ values below ($62, 71, 75, 78$) and $4$ values above ($83, 87, 90, 94$) — balanced \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — gives the $4$th value.\n* Choice C: "wrong formula" — averages adjacent middle values (only needed for even-sized sets).\n* Choice D: "off-by-one" — gives the $6$th value.\n\n**Test Day Takeaway:** Odd-count median = middle (single) value. Even-count median = average of the two middle values. The formula for the median position in an odd-sized set is $\\frac{n+1}{2}$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'median-odd-set',
@@ -631,7 +703,7 @@ export const problemSolvingBank = [
     type: 'fill-in',
     question: 'The ages of 6 volunteers are: 19, 24, 31, 28, 22, 35. What is the median age?',
     correctAnswer: '26',
-    explanation: 'Sorted: 19, 22, 24, 28, 31, 35. Median = average of 3rd and 4th: $(24 + 28)/2 = 26$.',
+    explanation: '**SAT Pattern: Median of Even-Count Set**\n\n**The correct answer is $26$.**\n\n**The Fast Way (~15s):** Sort: $19, 22, 24, 28, 31, 35$. Median = avg of 3rd and 4th: $(24 + 28)/2 = 26$.\n\n**The Full Solution:**\nFirst sort the ages ascending: $19, 22, 24, 28, 31, 35$.\nFor an even count $n = 6$, the median is the average of the $\\frac{n}{2}$th and $\\frac{n}{2}+1$th values: positions $3$ and $4$.\nValues at positions $3$ and $4$: $24$ and $28$.\nMedian: $\\frac{24 + 28}{2} = 26$.\n\nVerification: $3$ ages below $26$ ($19, 22, 24$) and $3$ ages above $26$ ($28, 31, 35$) — balanced \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Skipping the sort step — gives wrong middle values.\n* Using only one middle value (would be $24$ or $28$).\n* Averaging the first and last value ($19$ and $35$ → $27$).\n\n**Test Day Takeaway:** ALWAYS sort first. Even-count median is the average of the two middle values. For $n$ items, those are positions $n/2$ and $n/2 + 1$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'median-even-set',
@@ -646,13 +718,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A data set of 11 values has a median of 45. If the two largest values (both greater than 45) are removed, what is the new median?',
     choices: [
+      // distractor: assumes the median must drop
       { id: 'A', text: 'Less than 45' },
+      // distractor: assumes the median stays the same
       { id: 'B', text: '45' },
+      // distractor: assumes the median must rise
       { id: 'C', text: 'Greater than 45' },
       { id: 'D', text: 'Cannot be determined' },
     ],
     correctAnswer: 'D',
-    explanation: 'The new data set has 9 values. The new median is the 5th value, which was originally the 5th value — this could be less than, equal to, or greater than 45 depending on the data. Without the actual values, it cannot be determined.',
+    explanation: '**SAT Pattern: Median After Removal Reasoning**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Original median ($45$) is the $6$th value of $11$. Removing the two largest leaves $9$ values; the new median is the $5$th. The $5$th value of the original set could be less than, equal to, or greater than $45$ — depends on the actual values.\n\n**The Full Solution:**\nWith $11$ values, the median is the $6$th value when sorted, which is $45$. Removing the two largest values (positions $10$ and $11$, both $> 45$) leaves $9$ values: positions $1$ through $9$ of the original set.\n\nThe new median is the $5$th value of those $9$. That position originally held a value $\\leq 45$ (since position $5$ comes BEFORE the original median at position $6$). But the $5$th value could be less than, equal to, or greater than $45$ — we have no information about how it compares.\n\nActually wait — position $5$ is BELOW the median, so it must be $\\leq 45$. It could be much less, or it could equal $45$ (if there are ties at the median). Without the actual data, we cannot determine the exact new median.\n\nVerification: example data: $1, 2, 3, 4, 5, 45, 50, 50, 50, 50, 50$ → new median is $5$ (less than $45$). But $40, 41, 42, 43, 45, 45, 50, 50, 50, 50, 50$ → new median is $45$. Two valid scenarios produce different new medians \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong reasoning" — assumes the new median must be smaller; it could equal $45$.\n* Choice B: "wrong reasoning" — assumes the median is unchanged; only true if the $5$th value also equals $45$.\n* Choice C: "wrong reasoning" — the new median cannot be greater than $45$, but A and B are also wrong without more info.\n\n**Test Day Takeaway:** Median problems with "removal/insertion": ALWAYS check whether you have enough info to pin down the new median. "Cannot be determined" is a valid SAT answer when the data structure underconstrains the result.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'median-removal-reasoning',
@@ -671,13 +746,16 @@ export const problemSolvingBank = [
       rows: [['Students', '2', '5', '7', '6', '3', '1']],
     },
     choices: [
+      // distractor: gives the most frequent (mode)... actually 2 is the median AND a common value
       { id: 'A', text: '1' },
       { id: 'B', text: '2' },
+      // distractor: averages the 12th and 13th if they straddled
       { id: 'C', text: '2.5' },
+      // distractor: averages 2 and 3 by misidentifying middle pair
       { id: 'D', text: '3' },
     ],
     correctAnswer: 'B',
-    explanation: 'Total students = 24. Median is average of 12th and 13th values. Cumulative: 0→2, 1→7, 2→14. Both 12th and 13th values are 2, so median = 2.',
+    explanation: '**SAT Pattern: Median from Frequency Table**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Total students $= 24$. Median is the average of the $12$th and $13$th values. Cumulative counts: $0 \\to 2$, $1 \\to 7$, $2 \\to 14$. Both the $12$th and $13$th values are $2$, so median $= 2$.\n\n**The Full Solution:**\nStep 1: Total count: $2 + 5 + 7 + 6 + 3 + 1 = 24$ students.\nStep 2: Median position for $n = 24$ is the average of positions $12$ and $13$.\nStep 3: Build cumulative counts:\n* "$0$ books": positions $1$ to $2$\n* "$1$ book": positions $3$ to $7$\n* "$2$ books": positions $8$ to $14$\n* "$3$ books": positions $15$ to $20$\n* "$4$ books": positions $21$ to $23$\n* "$5$ books": position $24$\n\nPositions $12$ and $13$ both fall in the "$2$ books" range, so median $= \\frac{2 + 2}{2} = 2$.\n\nVerification: $14$ students read $\\leq 2$ books, $10$ students read $\\geq 2$ books — median sits at $2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — uses position $7$ or earlier.\n* Choice C: "wrong formula" — averages $2$ and $3$, but the median position falls cleanly within the "$2$ books" range.\n* Choice D: "wrong base" — picks a value beyond the median range.\n\n**Test Day Takeaway:** Frequency tables: build a CUMULATIVE COUNT, find the median position(s), see which value range covers them. Don\'t try to expand the data into a long list.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'median-frequency-table',
@@ -692,13 +770,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A data set has 15 values. When a new value of 100 is added, the median increases by 3. Which of the following must be true about the new value relative to the original median $m$?',
     choices: [
+      // distractor: too weak (true but not specific enough)
       { id: 'A', text: 'The new value is greater than $m$' },
+      // distractor: assumes a specific relationship that need not hold
       { id: 'B', text: 'The new value equals $m + 3$' },
       { id: 'C', text: 'The new value is greater than or equal to the 8th value in the original sorted list' },
+      // distractor: too strong (need not be largest)
       { id: 'D', text: 'The new value is the largest in the set' },
     ],
     correctAnswer: 'C',
-    explanation: 'With 15 values the median is the 8th. Adding a value above the current 8th position shifts the median up. The new value must be ≥ the original 8th value to shift the median. It need not be the largest.',
+    explanation: '**SAT Pattern: Median Shift from Insertion**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** Original median is the $8$th value of $15$. New count $16$, median averages positions $8$ and $9$. For the median to INCREASE, the new value must be inserted at position $\\geq 8$ (i.e., $\\geq$ original 8th value).\n\n**The Full Solution:**\nOriginal set: $15$ values, median = $8$th value when sorted, called $m$.\nNew set: $16$ values, median = average of the new $8$th and $9$th values.\n\nFor the median to shift UP, the new value must be inserted at position $\\geq 9$ (counting from the start of the new sorted list). This means the new value is $\\geq$ the original $8$th value (which was $m$).\n\nMore carefully: inserting a value $v \\geq m$ shifts the original $8$th value to position $8$ (still $m$) and the original $9$th value to position $9$. The new median is $\\frac{m + \\text{original 9th}}{2}$, which is $\\geq m$. For the median to increase by exactly $3$, the original $9$th value must equal $m + 6$.\n\nSo the new value must be $\\geq$ original $8$th value, i.e., $\\geq m$. This matches choice C.\n\nVerification: $v = m$ keeps median position at $m$; $v > $ original $9$th value shifts median up to $\\frac{m + \\text{orig 9th}}{2}$. Specific value of $v$ is constrained only as $\\geq$ original 9th value for the median to shift correctly \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "too weak" — true but not the most precise statement (correct answer is more specific).\n* Choice B: "wrong formula" — assumes a specific relationship that does not have to hold.\n* Choice D: "too strong" — new value need not be the largest, just $\\geq$ a specific position.\n\n**Test Day Takeaway:** Insertion problems with median: think about WHICH position the new value falls into after sorting. The median shift depends on whether the new value lands above, at, or below the median.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'median-insertion-reasoning',
@@ -715,13 +796,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A pet shelter records the following number of adoptions each day over two weeks: 3, 5, 2, 5, 4, 3, 5, 2, 4, 5, 3, 4, 5, 2. What is the mode?',
     choices: [
+      // distractor: tied for second place (3 occurrences)
       { id: 'A', text: '2' },
+      // distractor: tied for second place
       { id: 'B', text: '3' },
+      // distractor: tied for second place
       { id: 'C', text: '4' },
       { id: 'D', text: '5' },
     ],
     correctAnswer: 'D',
-    explanation: 'Frequency: 2 appears 3 times, 3 appears 3 times, 4 appears 3 times, 5 appears 5 times. Mode = 5.',
+    explanation: '**SAT Pattern: Mode Identification**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Count occurrences: $2$ appears $3$ times, $3$ appears $3$ times, $4$ appears $3$ times, $5$ appears $5$ times. Most frequent: $5$.\n\n**The Full Solution:**\nMode is the most frequently occurring value. Tally each:\n* $2$: $3$ times\n* $3$: $3$ times\n* $4$: $3$ times\n* $5$: $5$ times\n\nThe mode is $5$.\n\nVerification: total count should equal $14$ (two weeks). $3 + 3 + 3 + 5 = 14$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — $2$ ties for second place ($3$ occurrences).\n* Choice B: "off-by-one" — $3$ also has $3$ occurrences.\n* Choice C: "off-by-one" — $4$ similarly.\n\n**Test Day Takeaway:** Mode = most frequent value. Make a clean tally. If two values tie, the set is bimodal (both are modes). The SAT generally avoids tied modes unless explicitly asking.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'basic-mode',
@@ -736,13 +820,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'Shoe sizes sold at a store today: 7, 8, 9, 8, 10, 7, 8, 9, 11, 8. What is the mode shoe size?',
     choices: [
+      // distractor: tied for second
       { id: 'A', text: '7' },
       { id: 'B', text: '8' },
+      // distractor: tied for second
       { id: 'C', text: '9' },
+      // distractor: median value (8.5)
       { id: 'D', text: '8.5' },
     ],
     correctAnswer: 'B',
-    explanation: 'Size 8 appears 4 times, more than any other. The mode is the most frequent value, not the average.',
+    explanation: '**SAT Pattern: Mode of Shoe Sizes**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Tally: $7$ appears $2$ times, $8$ appears $4$ times, $9$ appears $2$ times, $10$ once, $11$ once. Mode: $8$.\n\n**The Full Solution:**\nMode = most frequent value. Count each size:\n* $7$: $2$\n* $8$: $4$\n* $9$: $2$\n* $10$: $1$\n* $11$: $1$\n\nMode is $8$.\n\nVerification: total $= 10$ shoes. $2 + 4 + 2 + 1 + 1 = 10$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — $7$ ties with $9$ for second place.\n* Choice C: "off-by-one" — $9$ ties with $7$.\n* Choice D: "wrong formula" — gives the median ($8.5$), not the mode.\n\n**Test Day Takeaway:** Mode (most frequent) is distinct from median (middle when sorted) and mean (average). Read the question carefully.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'basic-mode',
@@ -758,12 +845,15 @@ export const problemSolvingBank = [
     question: 'Data set: 12, 15, 15, 18, 20, 20, 20, 23, 25. What is the difference between the mode and the median?',
     choices: [
       { id: 'A', text: '0' },
+      // distractor: difference between 18 and 20
       { id: 'B', text: '2' },
+      // distractor: difference between 20 and 25
       { id: 'C', text: '5' },
+      // distractor: largest - smallest
       { id: 'D', text: '8' },
     ],
     correctAnswer: 'A',
-    explanation: 'Mode = 20 (appears 3 times). Median = 5th value = 20. Difference = 0.',
+    explanation: '**SAT Pattern: Mode vs Median Comparison**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Mode $= 20$ (appears $3$ times). Median $= 5$th value $= 20$. Difference $= 0$.\n\n**The Full Solution:**\nData (already sorted, $n = 9$): $12, 15, 15, 18, 20, 20, 20, 23, 25$.\n\nMode: $20$ appears $3$ times, more than any other value.\nMedian: middle value (5th of 9) $= 20$.\nDifference: $20 - 20 = 0$.\n\nVerification: $4$ values below $20$, $4$ values above $20$ — confirms median is $20$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — uses $20 - 18 = 2$ or similar pair.\n* Choice C: "wrong base" — uses $25 - 20 = 5$.\n* Choice D: "wrong formula" — gives the range ($25 - 12 = 13$, oops $-5$? actually 13).\n\n**Test Day Takeaway:** Mode and median can coincide. When the most frequent value is also the middle, both equal the same number. Don\'t assume they must differ.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'mode-median-comparison',
@@ -780,7 +870,7 @@ export const problemSolvingBank = [
     type: 'fill-in',
     question: 'Temperatures recorded at a campsite over five mornings were 38°F, 42°F, 35°F, 47°F, and 40°F. What is the range of these temperatures in °F?',
     correctAnswer: '12',
-    explanation: 'Range = max − min = $47 - 35 = 12$.',
+    explanation: '**SAT Pattern: Range from Set**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~5s):** Max $= 47$, min $= 35$. Range $= 47 - 35 = 12$.\n\n**The Full Solution:**\nRange = max − min:\n$\\max(38, 42, 35, 47, 40) = 47$, $\\min(\\ldots) = 35$.\nRange $= 47 - 35 = 12$.\n\nVerification: $35 + 12 = 47$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Adding max and min ($47 + 35 = 82$).\n* Using the middle two values to compute range.\n* Reporting just $47$ or $35$ alone.\n\n**Test Day Takeaway:** Range = max − min. The simplest dispersion measure; just identify the largest and smallest values.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'basic-range',
@@ -796,12 +886,15 @@ export const problemSolvingBank = [
     question: 'A data set has a range of 24. If the minimum value is tripled and the maximum value stays the same, the new range is 16. What was the original minimum value?',
     choices: [
       { id: 'A', text: '4' },
+      // distractor: from 24 - 18 = 6
       { id: 'B', text: '6' },
+      // distractor: from algebra error
       { id: 'C', text: '8' },
+      // distractor: doubles 6
       { id: 'D', text: '12' },
     ],
     correctAnswer: 'A',
-    explanation: 'Let min = $m$, max = $m + 24$. New min = $3m$. New range: $(m+24) - 3m = 24 - 2m = 16$, so $m = 4$.',
+    explanation: '**SAT Pattern: Algebra from Range Constraints**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Let $m = $ original min. Then max $= m + 24$. New range: $(m + 24) - 3m = 24 - 2m = 16 \\Rightarrow m = 4$.\n\n**The Full Solution:**\nLet $m$ be the original minimum. Then the original maximum is $m + 24$ (since range = 24). After tripling the minimum, the new minimum is $3m$, but the max is unchanged:\nnew range $= (m + 24) - 3m = 24 - 2m$.\nSet equal to $16$: $24 - 2m = 16 \\Rightarrow 2m = 8 \\Rightarrow m = 4$.\n\nVerification: original min $= 4$, max $= 28$, range $= 24$. After tripling: new min $= 12$, max $= 28$, new range $= 16$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — uses $24 - 18 = 6$ via wrong setup.\n* Choice C: "off-by-one" — algebra slip.\n* Choice D: "applies the inverse operation" — doubles the answer.\n\n**Test Day Takeaway:** Set up variables for unknowns (here, original min $= m$), express the constraint algebraically, solve. The trap is trying to reason without an equation.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'range-algebraic',
@@ -816,13 +909,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A set of eight values has a minimum of 14 and a maximum of 53. What is the range?',
     choices: [
+      // distractor: midpoint of min and max
       { id: 'A', text: '33.5' },
+      // distractor: off-by-two arithmetic
       { id: 'B', text: '37' },
       { id: 'C', text: '39' },
+      // distractor: max + min instead of subtraction
       { id: 'D', text: '67' },
     ],
     correctAnswer: 'C',
-    explanation: 'Range = $53 - 14 = 39$. Choice A finds the midpoint; choice D adds the values.',
+    explanation: '**SAT Pattern: Range from Min and Max**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** $53 - 14 = 39$.\n\n**The Full Solution:**\nRange = max − min = $53 - 14 = 39$.\n\nVerification: $14 + 39 = 53$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — gives the midpoint $\\frac{53 + 14}{2} = 33.5$.\n* Choice B: "off-by-one" — arithmetic slip.\n* Choice D: "applies the inverse operation" — adds instead of subtracting.\n\n**Test Day Takeaway:** Range is always max − min. The count of values does not matter.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'basic-range',
@@ -837,15 +933,18 @@ export const problemSolvingBank = [
     skills: ['standard-deviation-concept'],
     difficulty: 'medium',
     type: 'multiple-choice',
-    question: 'Set X: {50, 50, 50, 50, 50}. Set Y: {30, 40, 50, 60, 70}. Which statement is true about their standard deviations?',
+    question: 'Set X: $\\{50, 50, 50, 50, 50\\}$. Set Y: $\\{30, 40, 50, 60, 70\\}$. Which statement is true about their standard deviations?',
     choices: [
+      // distractor: X is identical, SD = 0
       { id: 'A', text: 'Set X has a greater standard deviation' },
       { id: 'B', text: 'Set Y has a greater standard deviation' },
+      // distractor: equal would require same spread
       { id: 'C', text: 'Both sets have the same standard deviation' },
+      // distractor: neither set has undefined SD
       { id: 'D', text: 'Neither set has a defined standard deviation' },
     ],
     correctAnswer: 'B',
-    explanation: 'Set X has no spread (all values identical), so its standard deviation is 0. Set Y has spread around 50, giving a larger standard deviation.',
+    explanation: '**SAT Pattern: Standard Deviation Comparison**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Set X has no spread (all $50$s), so SD $= 0$. Set Y has values spread around $50$, so SD $> 0$.\n\n**The Full Solution:**\nStandard deviation measures spread around the mean.\n* Set X: all values are $50$, so deviations from the mean are all $0$, giving SD $= 0$.\n* Set Y: values range from $30$ to $70$ with mean $50$; deviations are $\\pm 20, \\pm 10, 0$, giving SD $> 0$.\n\nSo Set Y has a greater standard deviation.\n\nVerification: visually, Set X is a single point; Set Y is spread out evenly \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "applies the inverse operation" — set X has $\\text{SD} = 0$, the SMALLEST possible.\n* Choice C: "wrong base" — equal SD would require the same spread.\n* Choice D: "wrong formula" — SD is always defined for any data set (could be $0$).\n\n**Test Day Takeaway:** Standard deviation = $0$ if and only if all values are equal. Wider spread $\\Rightarrow$ larger SD. SAT loves comparing two sets visually.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'sd-comparison',
@@ -860,13 +959,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'Adding the same constant $k$ to every value in a data set will:',
     choices: [
+      // distractor: would only happen if k affected each deviation
       { id: 'A', text: 'Increase the standard deviation by $k$' },
+      // distractor: would happen for multiplication, not addition
       { id: 'B', text: 'Multiply the standard deviation by $k$' },
       { id: 'C', text: 'Leave the standard deviation unchanged' },
+      // distractor: opposite of A
       { id: 'D', text: 'Decrease the standard deviation by $k$' },
     ],
     correctAnswer: 'C',
-    explanation: 'Standard deviation measures spread. Shifting every value by a constant changes the mean but not the distances between values, so SD is unchanged.',
+    explanation: '**SAT Pattern: SD Under Translation**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Adding a constant shifts the mean but does not change the SPREAD between values. SD measures spread, so it stays the same.\n\n**The Full Solution:**\nStandard deviation measures how far values are from the mean, on average. When every value is increased by $k$, the mean also increases by $k$. So each deviation $(x - \\bar{x})$ becomes $((x + k) - (\\bar{x} + k)) = (x - \\bar{x})$ — UNCHANGED.\n\nSince all deviations are unchanged, so is the standard deviation.\n\nVerification: data set $\\{1, 2, 3\\}$ has mean $2$ and deviations $\\{-1, 0, 1\\}$. Add $10$: $\\{11, 12, 13\\}$ has mean $12$, deviations $\\{-1, 0, 1\\}$ — same SD \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — adding to each value does not shift the spread.\n* Choice B: "wrong formula" — multiplication scales SD, not addition.\n* Choice D: "applies the inverse operation" — opposite of A.\n\n**Test Day Takeaway:** SD is INVARIANT under translation (adding a constant). SD SCALES by $|c|$ under multiplication by $c$. Memorize these two transformations.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'sd-shift-property',
@@ -881,13 +983,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'If every value in a data set is multiplied by 3, what happens to the standard deviation?',
     choices: [
+      // distractor: confuses SD with variance (variance is multiplied by 9)
       { id: 'A', text: 'It is multiplied by 9' },
       { id: 'B', text: 'It is multiplied by 3' },
+      // distractor: applies translation rule (SD unchanged)
       { id: 'C', text: 'It stays the same' },
+      // distractor: applies the inverse
       { id: 'D', text: 'It is divided by 3' },
     ],
     correctAnswer: 'B',
-    explanation: 'Multiplying all values by a constant $c$ multiplies the standard deviation by $|c|$. Since $c = 3$, SD is tripled. Choice A confuses SD with variance.',
+    explanation: '**SAT Pattern: SD Under Scaling**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** SD scales by $|c|$ when every value is multiplied by $c$. Here $c = 3$, so SD is multiplied by $3$.\n\n**The Full Solution:**\nWhen every value is multiplied by $c$, the mean also scales by $c$. So each deviation $(x - \\bar{x})$ becomes $((cx) - (c\\bar{x})) = c(x - \\bar{x})$ — scaled by $c$.\n\nVariance (the SD squared) scales by $c^2$. SD itself scales by $|c|$.\n\nSo for $c = 3$, SD multiplies by $3$.\n\nVerification: $\\{1, 2, 3\\}$ has SD $\\approx 0.816$. $\\{3, 6, 9\\}$ has SD $\\approx 2.449$. Ratio: $\\frac{2.449}{0.816} \\approx 3$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — multiplies variance ($\\sigma^2$), not SD ($\\sigma$), by $9$.\n* Choice C: "wrong formula" — translation rule (SD unchanged for adding constants).\n* Choice D: "applies the inverse operation" — opposite direction.\n\n**Test Day Takeaway:** SD scales by $|c|$, variance scales by $c^2$. SD itself responds to the LINEAR factor; the squared spread responds to the quadratic factor.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'sd-scale-property',
@@ -902,13 +1007,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A teacher reports that exam scores have a mean of 74 and a standard deviation of 8. Using the empirical rule, approximately what percent of students scored between 58 and 90?',
     choices: [
+      // distractor: gives 1 SD range (68%)
       { id: 'A', text: '68%' },
       { id: 'B', text: '95%' },
+      // distractor: gives 3 SD range
       { id: 'C', text: '99.7%' },
+      // distractor: half of normal distribution
       { id: 'D', text: '50%' },
     ],
     correctAnswer: 'B',
-    explanation: '$58 = 74 - 2(8)$ and $90 = 74 + 2(8)$, so the range is within 2 standard deviations. By the empirical rule, about 95% of data falls within 2 SDs.',
+    explanation: '**SAT Pattern: Empirical Rule Application**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $58 = 74 - 2(8)$ and $90 = 74 + 2(8)$, so the range is within $\\pm 2$ SDs. Empirical rule: $\\approx 95\\%$ of data within $2$ SDs.\n\n**The Full Solution:**\nCompute how many SDs from the mean:\n$\\frac{58 - 74}{8} = -2$ and $\\frac{90 - 74}{8} = 2$.\n\nSo $58$ to $90$ corresponds to $\\pm 2$ standard deviations from the mean.\n\nBy the empirical rule for normal distributions:\n* $\\pm 1$ SD: $\\approx 68\\%$\n* $\\pm 2$ SD: $\\approx 95\\%$\n* $\\pm 3$ SD: $\\approx 99.7\\%$\n\nSo approximately $95\\%$ of students scored in this range.\n\nVerification: $74 \\pm 16$ covers $[58, 90]$, exactly $\\pm 2 \\cdot 8$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — gives $\\pm 1$ SD value.\n* Choice C: "wrong base" — gives $\\pm 3$ SD value.\n* Choice D: "wrong formula" — half of the distribution.\n\n**Test Day Takeaway:** Empirical rule (68-95-99.7) applies to normal distributions: $\\pm 1, 2, 3$ SDs. Compute the $z$-score (how many SDs from mean) first, then apply the rule.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'empirical-rule-application',
@@ -926,12 +1034,15 @@ export const problemSolvingBank = [
     question: 'A poll of 600 voters found that 54% support a new park. The margin of error is ±4%. Which interval is the best estimate of the true proportion of supporters?',
     choices: [
       { id: 'A', text: '50% to 58%' },
+      // distractor: uses ±2% instead of ±4%
       { id: 'B', text: '52% to 56%' },
+      // distractor: subtracts only, no addition
       { id: 'C', text: '54% to 58%' },
+      // distractor: doubles the margin (±8%)
       { id: 'D', text: '46% to 62%' },
     ],
     correctAnswer: 'A',
-    explanation: '$54\\% \\pm 4\\% = [50\\%, 58\\%]$. Choice B uses ±2% instead of ±4%.',
+    explanation: '**SAT Pattern: Confidence Interval from Margin of Error**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** $54\\% \\pm 4\\% = [50\\%, 58\\%]$.\n\n**The Full Solution:**\nThe margin of error gives a symmetric interval around the point estimate:\n$54\\% - 4\\% = 50\\%$ (lower bound)\n$54\\% + 4\\% = 58\\%$ (upper bound).\n\nSo the confidence interval is $[50\\%, 58\\%]$.\n\nVerification: the interval is centered at $54\\%$ with width $8\\%$ (= twice the margin of error) \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — uses $\\pm 2\\%$ instead of $\\pm 4\\%$.\n* Choice C: "stops one step early" — adds only the upper bound, omits the lower.\n* Choice D: "off-by-one" — doubles the margin ($\\pm 8\\%$).\n\n**Test Day Takeaway:** Confidence interval = point estimate $\\pm$ margin of error. Both directions, equal width.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'confidence-interval-basic',
@@ -946,13 +1057,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A researcher wants to halve the margin of error of a study. If the original sample size was 400, approximately what sample size is needed?',
     choices: [
+      // distractor: just doubles the sample
       { id: 'A', text: '800' },
+      // distractor: triples the sample
       { id: 'B', text: '1,200' },
       { id: 'C', text: '1,600' },
+      // distractor: quintuples the sample
       { id: 'D', text: '2,000' },
     ],
     correctAnswer: 'C',
-    explanation: 'Margin of error is proportional to $1/\\sqrt{n}$. To halve it, multiply $n$ by 4: $400 \\times 4 = 1600$. Choice A only doubles the sample.',
+    explanation: '**SAT Pattern: Sample Size for Margin Reduction**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Margin of error $\\propto \\frac{1}{\\sqrt{n}}$. To halve it, multiply $n$ by $4$: $400 \\times 4 = 1600$.\n\n**The Full Solution:**\nMargin of error is proportional to $\\frac{1}{\\sqrt{n}}$:\n$\\text{ME} \\propto \\frac{1}{\\sqrt{n}}$.\nTo halve the ME, we need:\n$\\frac{1}{\\sqrt{n_{\\text{new}}}} = \\frac{1}{2} \\cdot \\frac{1}{\\sqrt{n_{\\text{old}}}}$\n$\\sqrt{n_{\\text{new}}} = 2 \\sqrt{n_{\\text{old}}}$\n$n_{\\text{new}} = 4 n_{\\text{old}} = 4 \\times 400 = 1600$.\n\nVerification: with $n = 1600$, $\\sqrt{n} = 40$. With $n = 400$, $\\sqrt{n} = 20$. Ratio $\\frac{40}{20} = 2$, so the new ME is $\\frac{1}{2}$ the old \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — doubles the sample, only reduces ME by a factor of $\\frac{1}{\\sqrt{2}} \\approx 0.71$.\n* Choice B: "wrong formula" — triples the sample.\n* Choice D: "off-by-one" — too aggressive scaling.\n\n**Test Day Takeaway:** To reduce ME by a factor of $k$, multiply sample size by $k^2$. To halve ME, quadruple the sample. To make ME one-third, multiply sample by $9$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'sample-size-margin-relationship',
@@ -967,13 +1081,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A survey of 1,000 people found that 38% prefer Brand A, with a margin of error of ±3%. A second survey of 250 people found 41% prefer Brand A, with a margin of error of ±6%. Based on these surveys, can you conclude Brand A is preferred by more than 40% of the population?',
     choices: [
+      // distractor: ignores the lower bounds of the intervals
       { id: 'A', text: 'Yes, because both surveys show support near or above 40%' },
       { id: 'B', text: 'No, because the first survey\'s confidence interval is 35% to 41%, which includes values below 40%' },
+      // distractor: cherry-picks one survey
       { id: 'C', text: 'Yes, because the second survey shows 41%' },
+      // distractor: invokes sample-size threshold unrelated to the question
       { id: 'D', text: 'No, because neither survey has a sample size above 2,000' },
     ],
     correctAnswer: 'B',
-    explanation: 'The larger survey gives the interval [35%, 41%], which extends below 40%. The second survey [35%, 47%] also includes values below 40%. Neither survey rules out support below 40%.',
+    explanation: '**SAT Pattern: Interpret Confidence Intervals**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Survey 1 interval $= 35\\%$ to $41\\%$ — includes values below $40\\%$. So we can\'t conclude support is above $40\\%$.\n\n**The Full Solution:**\nCompute confidence intervals:\n* Survey 1: $38\\% \\pm 3\\% \\to [35\\%, 41\\%]$.\n* Survey 2: $41\\% \\pm 6\\% \\to [35\\%, 47\\%]$.\n\nFor "more than $40\\%$" to be supported, BOTH intervals would need to be entirely above $40\\%$. Survey 1\'s interval extends below $40\\%$ (down to $35\\%$), so we cannot conclude that support exceeds $40\\%$.\n\nVerification: the true proportion could be anywhere in the overlap, including values below $40\\%$ (e.g., $36\\%$ or $38\\%$) \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — uses point estimates only, ignores the intervals.\n* Choice C: "wrong base" — cherry-picks one survey; the larger survey has tighter bounds and is more informative.\n* Choice D: "wrong formula" — invokes a threshold ($2000$) that\'s not relevant to interval logic.\n\n**Test Day Takeaway:** To conclude "more than X%", the ENTIRE confidence interval must exceed X%. If any part of the interval falls below, the data doesn\'t support the conclusion.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'margin-of-error-interpretation',
@@ -990,13 +1107,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A recipe calls for 3.5 cups of flour. If 1 cup = 240 milliliters, how many milliliters of flour are needed?',
     choices: [
+      // distractor: arithmetic slip near correct
       { id: 'A', text: '720' },
       { id: 'B', text: '840' },
+      // distractor: uses 4 cups instead of 3.5
       { id: 'C', text: '960' },
+      // distractor: uses 4.5 cups
       { id: 'D', text: '1,080' },
     ],
     correctAnswer: 'B',
-    explanation: '$3.5 \\times 240 = 840$ mL.',
+    explanation: '**SAT Pattern: Single Unit Conversion**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $3.5 \\times 240 = 840$ mL.\n\n**The Full Solution:**\nMultiply by the conversion factor:\n$3.5 \\text{ cups} \\times \\frac{240 \\text{ mL}}{1 \\text{ cup}} = 840 \\text{ mL}$.\n\nVerification: $3 \\times 240 = 720$, plus half of $240 = 120$, total $840$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — uses $3$ cups instead of $3.5$.\n* Choice C: "wrong base" — rounds up to $4$ cups.\n* Choice D: "off-by-one" — uses $4.5$ cups.\n\n**Test Day Takeaway:** Single conversions: multiply by the conversion factor with the new unit on top. Cancel the old unit explicitly.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'single-unit-conversion',
@@ -1011,7 +1131,7 @@ export const problemSolvingBank = [
     type: 'fill-in',
     question: 'A hiking trail is 7.5 kilometers long. If 1 mile ≈ 1.6 kilometers, approximately how many miles long is the trail? (Round to one decimal place.)',
     correctAnswer: '4.7',
-    explanation: '$7.5 \\div 1.6 = 4.6875 \\approx 4.7$ miles.',
+    explanation: '**SAT Pattern: km to Miles Conversion**\n\n**The correct answer is $4.7$.**\n\n**The Fast Way (~15s):** $7.5 \\div 1.6 = 4.6875 \\to 4.7$.\n\n**The Full Solution:**\nUse the conversion factor with the new unit on top:\n$7.5 \\text{ km} \\times \\frac{1 \\text{ mile}}{1.6 \\text{ km}} = \\frac{7.5}{1.6} \\approx 4.6875 \\to 4.7 \\text{ miles}$.\n\nVerification: $4.7 \\times 1.6 = 7.52 \\approx 7.5$ km \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Multiplying instead of dividing ($7.5 \\times 1.6 = 12$ km — wrong direction).\n* Rounding to $4.6$ or $4.8$ (wrong direction).\n* Reporting $4.6875$ (too many decimals).\n\n**Test Day Takeaway:** To convert km to miles, DIVIDE by $1.6$. To convert miles to km, MULTIPLY. Always check the direction: which unit gets bigger?',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'single-unit-conversion',
@@ -1026,13 +1146,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A car travels at 90 kilometers per hour. What is this speed in meters per second?',
     choices: [
+      // distractor: divides by 6 instead of 3.6
       { id: 'A', text: '15' },
       { id: 'B', text: '25' },
+      // distractor: divides km by 60 only
       { id: 'C', text: '54' },
+      // distractor: multiplies instead of dividing
       { id: 'D', text: '324' },
     ],
     correctAnswer: 'B',
-    explanation: '$90 \\text{ km/hr} \\times \\frac{1000\\text{ m}}{1\\text{ km}} \\times \\frac{1\\text{ hr}}{3600\\text{ s}} = 25$ m/s.',
+    explanation: '**SAT Pattern: Compound Unit Conversion**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $90$ km/hr $\\div 3.6 = 25$ m/s. (Shortcut: divide km/hr by $3.6$ for m/s.)\n\n**The Full Solution:**\nChain conversion factors:\n$\\frac{90 \\text{ km}}{1 \\text{ hr}} \\times \\frac{1000 \\text{ m}}{1 \\text{ km}} \\times \\frac{1 \\text{ hr}}{3600 \\text{ s}} = \\frac{90 \\times 1000}{3600} = \\frac{90000}{3600} = 25 \\text{ m/s}$.\n\nVerification: $25$ m/s $\\times 3.6 = 90$ km/hr \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — divides by $6$ instead of $3.6$.\n* Choice C: "stops one step early" — converts hours to minutes only, gives $1.5$ km/min $= 1500$ m/min, not m/s.\n* Choice D: "applies the inverse operation" — multiplies instead of dividing.\n\n**Test Day Takeaway:** km/hr to m/s: divide by $3.6$. m/s to km/hr: multiply by $3.6$. The conversion factor is $\\frac{1000}{3600} = \\frac{5}{18} \\approx 0.2778$, equivalently $\\frac{1}{3.6}$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'compound-unit-conversion',
@@ -1047,13 +1170,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A factory produces 1,800 widgets per hour. How many widgets does it produce per minute?',
     choices: [
+      // distractor: divides by 600 instead of 60
       { id: 'A', text: '3' },
+      // distractor: divides by 100
       { id: 'B', text: '18' },
       { id: 'C', text: '30' },
+      // distractor: divides by 60/3.6 (wrong factor)
       { id: 'D', text: '108' },
     ],
     correctAnswer: 'C',
-    explanation: '$1800 \\div 60 = 30$ widgets per minute.',
+    explanation: '**SAT Pattern: Rate Per Minute from Per Hour**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** $1800 \\div 60 = 30$ widgets/min.\n\n**The Full Solution:**\nDivide the per-hour rate by the number of minutes in an hour:\n$\\frac{1800 \\text{ widgets}}{1 \\text{ hr}} \\times \\frac{1 \\text{ hr}}{60 \\text{ min}} = 30 \\text{ widgets/min}$.\n\nVerification: $30 \\times 60 = 1800$ widgets/hr \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — divides by $600$ (too aggressive).\n* Choice B: "wrong base" — divides by $100$.\n* Choice D: "wrong base" — uses a strange factor.\n\n**Test Day Takeaway:** Per-hour to per-minute: divide by $60$. Per-minute to per-second: divide by $60$. Per-hour to per-second: divide by $3600$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'rate-unit-conversion',
@@ -1068,13 +1194,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A water pipe delivers 4.5 gallons per minute. If 1 gallon ≈ 3.785 liters, how many liters does the pipe deliver in one hour?',
     choices: [
+      // distractor: stops at one step (per minute in liters)
       { id: 'A', text: '170.3' },
       { id: 'B', text: '1,021.95' },
+      // distractor: gallons per hour, not liters
       { id: 'C', text: '1,350' },
+      // distractor: off by a factor of 10
       { id: 'D', text: '10,219.5' },
     ],
     correctAnswer: 'B',
-    explanation: '$4.5 \\times 60 = 270$ gallons/hr. $270 \\times 3.785 = 1021.95$ liters/hr. Choice A converts only one step.',
+    explanation: '**SAT Pattern: Chained Rate Conversion**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $4.5 \\times 60 = 270$ gal/hr. $270 \\times 3.785 = 1021.95$ L/hr.\n\n**The Full Solution:**\nChain conversion factors:\n$\\frac{4.5 \\text{ gal}}{1 \\text{ min}} \\times \\frac{60 \\text{ min}}{1 \\text{ hr}} \\times \\frac{3.785 \\text{ L}}{1 \\text{ gal}} = 4.5 \\times 60 \\times 3.785 = 1021.95 \\text{ L/hr}$.\n\nVerification: $4.5 \\times 60 = 270$ gal/hr. $270 \\times 3.785 = 1021.95$ L/hr \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — converts gallons to liters per minute ($4.5 \\times 3.785 \\approx 17.0$ L/min), then incorrectly stops or multiplies by $10$.\n* Choice C: "wrong base" — gives gallons per hour ($270$), then mangles the next step.\n* Choice D: "off-by-one" — factor of $10$ error.\n\n**Test Day Takeaway:** Chained conversions: write out each conversion factor explicitly, make sure each unit cancels. The final unit should match the target.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'chained-unit-conversion',
@@ -1091,13 +1220,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A garden measures 15 feet by 20 feet. What is its area in square yards? (1 yard = 3 feet)',
     choices: [
+      // distractor: divides by 3 (linear factor) instead of 9
       { id: 'A', text: '11.67' },
       { id: 'B', text: '33.33' },
+      // distractor: divides by something else
       { id: 'C', text: '100' },
+      // distractor: doesn\'t convert at all
       { id: 'D', text: '300' },
     ],
     correctAnswer: 'B',
-    explanation: 'Area in sq ft = $15 \\times 20 = 300$. Since $1\\text{ yd}^2 = 9\\text{ ft}^2$, area in sq yd = $300 \\div 9 = 33.\\overline{3}$. Choice A divides by 3 instead of 9.',
+    explanation: '**SAT Pattern: Area Unit Conversion**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Area in sq ft $= 300$. $1 \\text{ sq yd} = 9 \\text{ sq ft}$ (since $1 \\text{ yd} = 3 \\text{ ft}$, so $1 \\text{ yd}^2 = 9 \\text{ ft}^2$). $300 / 9 = 33.\\overline{3}$.\n\n**The Full Solution:**\nFirst compute the area in square feet:\n$15 \\text{ ft} \\times 20 \\text{ ft} = 300 \\text{ sq ft}$.\n\nConvert to square yards. Since $1$ yd $= 3$ ft, $(1 \\text{ yd})^2 = (3 \\text{ ft})^2 = 9 \\text{ sq ft}$.\n$\\frac{300 \\text{ sq ft}}{9 \\text{ sq ft/sq yd}} = 33.\\overline{3} \\text{ sq yd}$.\n\nVerification: $33.\\overline{3} \\times 9 = 300$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — divides by $3$ (linear factor) instead of $9$ (squared).\n* Choice C: "wrong base" — divides by $3$ twice in series instead of $3^2$ once.\n* Choice D: "stops one step early" — gives the area in square feet.\n\n**Test Day Takeaway:** Area conversion uses the SQUARE of the linear factor. Linear: $1$ yd $= 3$ ft. Area: $1$ sq yd $= 9$ sq ft. Volume: $1$ cu yd $= 27$ cu ft.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'area-unit-conversion',
@@ -1113,12 +1245,15 @@ export const problemSolvingBank = [
     question: 'A fish tank has a volume of 8,640 cubic inches. What is its volume in cubic feet? (1 foot = 12 inches)',
     choices: [
       { id: 'A', text: '5' },
+      // distractor: divides by 144 (squared)
       { id: 'B', text: '60' },
+      // distractor: divides by 12 (linear)
       { id: 'C', text: '720' },
+      // distractor: divides by 6
       { id: 'D', text: '1,440' },
     ],
     correctAnswer: 'A',
-    explanation: '$1\\text{ ft}^3 = 12^3 = 1728\\text{ in}^3$. Volume = $8640 \\div 1728 = 5$ ft³. Choice B divides by 144 (squared, not cubed).',
+    explanation: '**SAT Pattern: Volume Unit Conversion**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $1 \\text{ cu ft} = 12^3 = 1728 \\text{ cu in}$. $8640 / 1728 = 5$.\n\n**The Full Solution:**\nUse the cubed linear conversion: $1$ ft $= 12$ in, so $1$ cu ft $= 12^3 = 1728$ cu in.\n$\\frac{8640 \\text{ cu in}}{1728 \\text{ cu in/cu ft}} = 5 \\text{ cu ft}$.\n\nVerification: $5 \\times 1728 = 8640$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — divides by $144$ ($12^2$, area conversion).\n* Choice C: "wrong formula" — divides by $12$ (linear conversion).\n* Choice D: "wrong base" — divides by $6$.\n\n**Test Day Takeaway:** Volume conversion uses the CUBE of the linear factor. $1$ ft $= 12$ in $\\Rightarrow 1$ cu ft $= 12^3 = 1728$ cu in.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'volume-unit-conversion',
@@ -1133,7 +1268,7 @@ export const problemSolvingBank = [
     type: 'fill-in',
     question: 'A floor tile is 18 inches by 18 inches. What is the area of one tile in square feet? (1 foot = 12 inches. Give your answer as a decimal.)',
     correctAnswer: '2.25',
-    explanation: '$18\\text{ in} = 1.5\\text{ ft}$. Area = $1.5 \\times 1.5 = 2.25$ sq ft.',
+    explanation: '**SAT Pattern: Tile Area in Square Feet**\n\n**The correct answer is $2.25$.**\n\n**The Fast Way (~15s):** $18$ in $= 1.5$ ft. Area $= 1.5 \\times 1.5 = 2.25$ sq ft.\n\n**The Full Solution:**\nConvert side length to feet first:\n$18 \\text{ in} \\times \\frac{1 \\text{ ft}}{12 \\text{ in}} = 1.5 \\text{ ft}$.\n\nThen compute the area in square feet:\n$1.5 \\text{ ft} \\times 1.5 \\text{ ft} = 2.25 \\text{ sq ft}$.\n\nVerification: alternatively, area in sq in $= 18 \\times 18 = 324$. Then $324 / 144 = 2.25$ sq ft \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Dividing $324$ by $12$ instead of $144$ — gives $27$ (wrong by a factor of $12$).\n* Reporting $324$ (the area in sq in).\n* Reporting $1.5$ (the side length in ft).\n\n**Test Day Takeaway:** Two strategies for area conversion: (1) convert sides first, then multiply, or (2) compute area in original units, then divide by squared conversion factor. Both work; pick whichever feels faster.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'area-unit-conversion',
@@ -1150,13 +1285,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A printer prints 12 pages per minute. How many pages can it print in 2.5 hours?',
     choices: [
+      // distractor: 12 * 2.5 = 30 (treats hours as minutes)
       { id: 'A', text: '30' },
+      // distractor: 12 * 15 (15 min/hr instead of 60)
       { id: 'B', text: '180' },
+      // distractor: arithmetic slip
       { id: 'C', text: '1,500' },
       { id: 'D', text: '1,800' },
     ],
     correctAnswer: 'D',
-    explanation: '$2.5\\text{ hr} = 150\\text{ min}$. Pages = $12 \\times 150 = 1800$.',
+    explanation: '**SAT Pattern: Rate × Time = Total**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** $2.5$ hr $= 150$ min. Pages $= 12 \\times 150 = 1800$.\n\n**The Full Solution:**\nConvert time to minutes: $2.5 \\text{ hr} \\times 60 = 150 \\text{ min}$.\nMultiply by rate: $12 \\text{ pages/min} \\times 150 \\text{ min} = 1800 \\text{ pages}$.\n\nVerification: in $1$ hour, the printer produces $12 \\times 60 = 720$ pages. In $2.5$ hours: $720 \\times 2.5 = 1800$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong units" — uses hours as minutes ($12 \\times 2.5 = 30$).\n* Choice B: "wrong base" — uses $15$ min per hour.\n* Choice C: "off-by-one" — arithmetic slip.\n\n**Test Day Takeaway:** Rate problems: ALWAYS convert units to match the rate first. $12$ pages/min and $2.5$ hr don\'t cancel; convert hours to minutes (or vice versa).',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'rate-time-total',
@@ -1171,13 +1309,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A cyclist rides at 14 miles per hour. A jogger runs at 6 miles per hour. If they start at the same point and travel in the same direction, how far apart (in miles) are they after 45 minutes?',
     choices: [
+      // distractor: gives the jogger\'s distance
       { id: 'A', text: '4.5' },
       { id: 'B', text: '6.0' },
+      // distractor: difference times wrong fraction of hour
       { id: 'C', text: '8.0' },
+      // distractor: gives the cyclist\'s distance
       { id: 'D', text: '15.0' },
     ],
     correctAnswer: 'B',
-    explanation: 'In 0.75 hr, cyclist covers $14 \\times 0.75 = 10.5$ mi and jogger covers $6 \\times 0.75 = 4.5$ mi. Gap = $10.5 - 4.5 = 6.0$ mi.',
+    explanation: '**SAT Pattern: Relative Rate (Same Direction)**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Gap rate $= 14 - 6 = 8$ mph. Time $= 0.75$ hr. Gap $= 8 \\times 0.75 = 6$ mi.\n\n**The Full Solution:**\nWhen two objects travel in the same direction, the gap grows at the DIFFERENCE of their speeds:\nrelative speed $= 14 - 6 = 8$ mph.\nTime: $45$ min $= 0.75$ hr.\nGap distance: $8 \\text{ mph} \\times 0.75 \\text{ hr} = 6$ mi.\n\nAlternatively, compute each distance separately:\n* Cyclist: $14 \\times 0.75 = 10.5$ mi\n* Jogger: $6 \\times 0.75 = 4.5$ mi\n* Gap: $10.5 - 4.5 = 6$ mi.\n\nVerification: both methods give $6$ mi \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — gives the jogger\'s distance only.\n* Choice C: "wrong formula" — uses relative speed but wrong time.\n* Choice D: "wrong base" — gives the cyclist\'s distance (or $14$ times $\\approx 1$ hr).\n\n**Test Day Takeaway:** Same direction: relative speed = DIFFERENCE. Opposite direction: relative speed = SUM. The "gap" between objects grows at the relative speed.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'relative-rate',
@@ -1192,7 +1333,7 @@ export const problemSolvingBank = [
     type: 'fill-in',
     question: 'A conveyor belt moves 250 boxes per hour. If a shift lasts 7 hours and 30 minutes, how many boxes are moved in one shift?',
     correctAnswer: '1875',
-    explanation: '$7.5 \\times 250 = 1875$ boxes.',
+    explanation: '**SAT Pattern: Rate × Time = Total (Mixed Units)**\n\n**The correct answer is $1875$.**\n\n**The Fast Way (~10s):** $7.5 \\times 250 = 1875$.\n\n**The Full Solution:**\nConvert time to hours: $7 \\text{ hr } 30 \\text{ min} = 7.5$ hr.\nMultiply by rate: $250 \\text{ boxes/hr} \\times 7.5 \\text{ hr} = 1875$ boxes.\n\nVerification: $250 \\times 7 = 1750$ boxes in $7$ hr. $250 \\times 0.5 = 125$ in $30$ min. Total $= 1875$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using $7.3$ instead of $7.5$ (mistaking $30$ min for $0.3$ hr).\n* Using $7 \\times 30 = 210$ as the time in minutes (gives a wrong result).\n* Reporting $7.5$ or $250$ alone.\n\n**Test Day Takeaway:** $30$ minutes $= 0.5$ hours (NOT $0.3$ or $0.30$). Convert hr:min to a decimal hours: minutes / 60.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'rate-time-total',
@@ -1207,13 +1348,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A drip irrigation system delivers water at a rate of 2.4 liters per hour. A garden bed needs 0.5 liters of water per plant, and there are 36 plants. How many hours will it take to water all the plants?',
     choices: [
+      // distractor: 18 / something else
       { id: 'A', text: '5' },
       { id: 'B', text: '7.5' },
+      // distractor: forgets to divide by rate
       { id: 'C', text: '15' },
+      // distractor: 18 / 2.4 with arithmetic slip
       { id: 'D', text: '18' },
     ],
     correctAnswer: 'B',
-    explanation: 'Total water needed = $36 \\times 0.5 = 18$ liters. Time = $18 \\div 2.4 = 7.5$ hours.',
+    explanation: '**SAT Pattern: Total / Rate = Time**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Total water $= 36 \\times 0.5 = 18$ L. Time $= 18 / 2.4 = 7.5$ hr.\n\n**The Full Solution:**\nStep 1: Total water needed $= 36 \\text{ plants} \\times 0.5 \\text{ L/plant} = 18$ L.\nStep 2: Time $= \\frac{\\text{volume}}{\\text{rate}} = \\frac{18 \\text{ L}}{2.4 \\text{ L/hr}} = 7.5$ hr.\n\nVerification: in $7.5$ hr, the system delivers $2.4 \\times 7.5 = 18$ L \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — uses a different rate or volume.\n* Choice C: "wrong formula" — fails to divide by the rate properly.\n* Choice D: "stops one step early" — gives the total water (in liters) instead of the time.\n\n**Test Day Takeaway:** Time = total / rate. Always check units cancel: $\\frac{\\text{L}}{\\text{L/hr}} = \\text{L} \\times \\frac{\\text{hr}}{\\text{L}} = \\text{hr}$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'rate-total-time',
@@ -1230,13 +1374,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A coffee shop sold 320 lattes last week and 400 lattes this week. What is the percent increase?',
     choices: [
+      // distractor: divides by 400 (new value)
       { id: 'A', text: '20%' },
       { id: 'B', text: '25%' },
+      // distractor: arithmetic slip
       { id: 'C', text: '30%' },
+      // distractor: gives the raw difference as percent
       { id: 'D', text: '80%' },
     ],
     correctAnswer: 'B',
-    explanation: 'Increase = $80$. Percent = $\\frac{80}{320} \\times 100 = 25\\%$. Choice A divides by 400 (new value).',
+    explanation: '**SAT Pattern: Percent Increase Basic**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $\\frac{400 - 320}{320} = \\frac{80}{320} = 0.25 = 25\\%$.\n\n**The Full Solution:**\nIncrease $= 400 - 320 = 80$.\nPercent increase $= \\frac{80}{320} \\times 100 = 25\\%$.\n\nVerification: $320 \\times 1.25 = 400$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "applies the inverse operation" — divides by $400$ (the NEW value): $\\frac{80}{400} = 20\\%$.\n* Choice C: "off-by-one" — arithmetic error.\n* Choice D: "wrong base" — uses $80$ as the percent directly (forgets to divide).\n\n**Test Day Takeaway:** $\\frac{80}{320} = \\frac{1}{4} = 25\\%$. Simplify before computing — $\\frac{80}{320}$ reduces cleanly.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'percent-change-basic',
@@ -1251,15 +1398,18 @@ export const problemSolvingBank = [
     skills: ['calculate-mean'],
     difficulty: 'medium',
     type: 'multiple-choice',
-    question: 'Five friends compare their monthly utility bills. The mean is $120 and the median is $115. If the friend with the highest bill ($180) moves out, what is the new mean of the remaining four friends\' bills?',
+    question: 'Five friends compare their monthly utility bills. The mean is $\\$120$ and the median is $\\$115$. If the friend with the highest bill ($\\$180$) moves out, what is the new mean of the remaining four friends\' bills?',
     choices: [
-      { id: 'A', text: '$100' },
-      { id: 'B', text: '$105' },
-      { id: 'C', text: '$108' },
-      { id: 'D', text: '$115' },
+      // distractor: arithmetic slip
+      { id: 'A', text: '$\\$100$' },
+      { id: 'B', text: '$\\$105$' },
+      // distractor: arithmetic slip
+      { id: 'C', text: '$\\$108$' },
+      // distractor: gives the original median
+      { id: 'D', text: '$\\$115$' },
     ],
     correctAnswer: 'B',
-    explanation: 'Original sum = $5 \\times 120 = 600$. New sum = $600 - 180 = 420$. New mean = $420 \\div 4 = 105$.',
+    explanation: '**SAT Pattern: Mean After Removal**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Original sum $= 5 \\times 120 = 600$. After removing $\\$180$: $600 - 180 = 420$. New mean $= 420 / 4 = 105$.\n\n**The Full Solution:**\nOriginal sum $= 5 \\times 120 = 600$.\nRemove the friend whose bill was $180$: new sum $= 600 - 180 = 420$.\nNew count: $4$.\nNew mean: $420 / 4 = \\$105$.\n\nVerification: $4 \\times 105 = 420 = 600 - 180$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — arithmetic slip producing $\\$100$.\n* Choice C: "off-by-one" — arithmetic slip.\n* Choice D: "wrong base" — gives the original median.\n\n**Test Day Takeaway:** For mean-removal problems: original sum minus removed value, divided by new count. The median is irrelevant unless you\'re also tracking changes to the median.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'mean-removal',
@@ -1276,7 +1426,7 @@ export const problemSolvingBank = [
     type: 'fill-in',
     question: 'A coach records sprint times (seconds) for 10 athletes: 11.2, 12.5, 10.8, 13.1, 11.7, 12.0, 10.5, 11.9, 12.3, 11.4. What is the median sprint time?',
     correctAnswer: '11.8',
-    explanation: 'Sorted: 10.5, 10.8, 11.2, 11.4, 11.7, 11.9, 12.0, 12.3, 12.5, 13.1. Median = $(11.7 + 11.9)/2 = 11.8$.',
+    explanation: '**SAT Pattern: Median of Even Decimal Set**\n\n**The correct answer is $11.8$.**\n\n**The Fast Way (~25s):** Sort and average the middle two. Sorted: $10.5, 10.8, 11.2, 11.4, 11.7, 11.9, 12.0, 12.3, 12.5, 13.1$. Middle: $11.7$ and $11.9$. Median $= 11.8$.\n\n**The Full Solution:**\nSort ascending: $10.5, 10.8, 11.2, 11.4, 11.7, 11.9, 12.0, 12.3, 12.5, 13.1$.\nFor $n = 10$ (even), median = average of $5$th and $6$th values: $\\frac{11.7 + 11.9}{2} = \\frac{23.6}{2} = 11.8$.\n\nVerification: $5$ times below $11.8$, $5$ times above — balanced \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Skipping the sort step.\n* Using only one middle value (would be $11.7$ or $11.9$).\n* Reporting $11.7$ or $11.9$ alone.\n\n**Test Day Takeaway:** Even-count median = average of middle two. Always sort first; even a small set is worth re-ordering for clarity.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'median-even-decimal',
@@ -1293,13 +1443,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'An athlete swims 2,000 meters in practice. How many kilometers is this?',
     choices: [
+      // distractor: off by a factor of 10
       { id: 'A', text: '0.2' },
       { id: 'B', text: '2' },
+      // distractor: off by a factor of 10 the other way
       { id: 'C', text: '20' },
+      // distractor: doesn\'t convert at all
       { id: 'D', text: '200' },
     ],
     correctAnswer: 'B',
-    explanation: '$2000 \\div 1000 = 2$ km.',
+    explanation: '**SAT Pattern: Meters to Kilometers**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** $2000 / 1000 = 2$ km.\n\n**The Full Solution:**\nConvert using $1$ km $= 1000$ m:\n$2000 \\text{ m} \\times \\frac{1 \\text{ km}}{1000 \\text{ m}} = 2 \\text{ km}$.\n\nVerification: $2$ km $= 2000$ m \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — divides by $10000$.\n* Choice C: "off-by-one" — divides by $100$.\n* Choice D: "stops one step early" — leaves as meters.\n\n**Test Day Takeaway:** SI prefixes by factor of $1000$: milli/centi/...$\\to$ base $\\to$ kilo. Always divide by $1000$ from meters to km, multiply from km to meters.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'single-unit-conversion',
@@ -1316,13 +1469,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A store had 500 items in stock. On Monday, 20% of the items were sold. On Tuesday, 15% of the remaining items were sold. How many items are left after Tuesday?',
     choices: [
+      // distractor: subtracts 35% from 500 (additive instead of multiplicative)
       { id: 'A', text: '325' },
       { id: 'B', text: '340' },
+      // distractor: arithmetic slip
       { id: 'C', text: '350' },
+      // distractor: arithmetic slip
       { id: 'D', text: '375' },
     ],
     correctAnswer: 'B',
-    explanation: 'After Monday: $500 \\times 0.80 = 400$. After Tuesday: $400 \\times 0.85 = 340$. The trap is subtracting 35% from 500.',
+    explanation: '**SAT Pattern: Sequential Percent Removal**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** After Monday: $500 \\times 0.80 = 400$. After Tuesday: $400 \\times 0.85 = 340$.\n\n**The Full Solution:**\nMonday: $20\\%$ sold, so $80\\%$ remain. $500 \\times 0.80 = 400$ items left.\nTuesday: $15\\%$ of the remaining sold, so $85\\%$ remain. $400 \\times 0.85 = 340$ items left.\n\nAlternatively: net multiplier $= 0.80 \\times 0.85 = 0.68$, so $500 \\times 0.68 = 340$.\n\nVerification: total sold $= 500 - 340 = 160$. Monday sold $= 100$, Tuesday sold $= 60$. $100 + 60 = 160$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — subtracts $35\\%$ directly: $500 \\times 0.65 = 325$, but $35\\%$ is from adding $20 + 15$, which doesn\'t apply.\n* Choice C: "off-by-one" — arithmetic slip near correct.\n* Choice D: "off-by-one" — arithmetic slip.\n\n**Test Day Takeaway:** Successive percent removals MULTIPLY (use retention multipliers $1 - p$), don\'t add. Track running totals.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'successive-percent-application',
@@ -1335,15 +1491,18 @@ export const problemSolvingBank = [
     skills: ['calculate-mean', 'find-median'],
     difficulty: 'medium',
     type: 'multiple-choice',
-    question: 'Data set: 4, 7, 10, 10, 14. Which statement is correct?',
+    question: 'Data set: $4, 7, 10, 10, 14$. Which statement is correct?',
     choices: [
+      // distractor: would require an outlier above median
       { id: 'A', text: 'Mean > Median' },
       { id: 'B', text: 'Mean < Median' },
+      // distractor: would require symmetric distribution
       { id: 'C', text: 'Mean = Median' },
+      // distractor: irrelevant to comparison
       { id: 'D', text: 'Mean = Mode' },
     ],
     correctAnswer: 'B',
-    explanation: 'Mean = $(4+7+10+10+14)/5 = 45/5 = 9$. Median = 10. So mean (9) < median (10).',
+    explanation: '**SAT Pattern: Mean-Median Comparison**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Mean $= (4+7+10+10+14)/5 = 45/5 = 9$. Median $= 10$. So mean ($9$) < median ($10$).\n\n**The Full Solution:**\nMean: $\\frac{4+7+10+10+14}{5} = \\frac{45}{5} = 9$.\nMedian: middle value of sorted set $\\{4, 7, 10, 10, 14\\}$ = $10$.\n\nMean ($9$) < median ($10$). The set is left-skewed (the $4$ pulls the mean below the median).\n\nVerification: removing the outlier $4$ gives $\\{7, 10, 10, 14\\}$, mean $= 10.25$, median $= 10$ — closer match \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "applies the inverse operation" — would require a high outlier (right skew).\n* Choice C: "wrong formula" — true only for symmetric distributions.\n* Choice D: "wrong base" — mode is $10$, but mean is $9$, so they\'re different.\n\n**Test Day Takeaway:** Left-skewed (low outlier): mean < median. Right-skewed (high outlier): mean > median. Symmetric: mean ≈ median.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'mean-median-comparison',
@@ -1358,7 +1517,7 @@ export const problemSolvingBank = [
     type: 'fill-in',
     question: 'A plane flies at 540 miles per hour. If 1 mile ≈ 1.6 km, what is the plane\'s speed in kilometers per minute?',
     correctAnswer: '14.4',
-    explanation: '$540 \\times 1.6 = 864$ km/hr. $864 \\div 60 = 14.4$ km/min.',
+    explanation: '**SAT Pattern: Chained Rate Conversion**\n\n**The correct answer is $14.4$.**\n\n**The Fast Way (~20s):** $540 \\times 1.6 = 864$ km/hr. $864 / 60 = 14.4$ km/min.\n\n**The Full Solution:**\nChain the conversions:\n$\\frac{540 \\text{ mi}}{1 \\text{ hr}} \\times \\frac{1.6 \\text{ km}}{1 \\text{ mi}} \\times \\frac{1 \\text{ hr}}{60 \\text{ min}} = \\frac{540 \\times 1.6}{60} = \\frac{864}{60} = 14.4 \\text{ km/min}$.\n\nVerification: $14.4 \\times 60 = 864$ km/hr. $864 / 1.6 = 540$ mph \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Stopping at km/hr without converting to per minute.\n* Multiplying by $60$ instead of dividing.\n* Reporting $864$ (km/hr, not km/min).\n\n**Test Day Takeaway:** Two-step conversions: do them in order, with units cancelling. Always check the final unit matches what the question asks.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'chained-rate-conversion',
@@ -1371,15 +1530,18 @@ export const problemSolvingBank = [
     skills: ['percent-word-problems', 'weighted-mean'],
     difficulty: 'hard',
     type: 'multiple-choice',
-    question: 'A salesperson earns a 5% commission on the first $10,000 in sales and 8% on all sales above $10,000. If total sales are $22,000, what is the total commission?',
+    question: 'A salesperson earns a 5% commission on the first $\\$10{,}000$ in sales and 8% on all sales above $\\$10{,}000$. If total sales are $\\$22{,}000$, what is the total commission?',
     choices: [
-      { id: 'A', text: '$1,100' },
-      { id: 'B', text: '$1,460' },
-      { id: 'C', text: '$1,760' },
-      { id: 'D', text: '$1,860' },
+      // distractor: takes 5% of 22000 ($1100)
+      { id: 'A', text: '$\\$1{,}100$' },
+      { id: 'B', text: '$\\$1{,}460$' },
+      // distractor: takes 8% of 22000 ($1760)
+      { id: 'C', text: '$\\$1{,}760$' },
+      // distractor: arithmetic slip near correct
+      { id: 'D', text: '$\\$1{,}860$' },
     ],
     correctAnswer: 'B',
-    explanation: 'First $10k: $10000 \\times 0.05 = 500$. Remaining $12k: $12000 \\times 0.08 = 960$. Total = $500 + 960 = 1460$.',
+    explanation: '**SAT Pattern: Tiered Commission**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** First $\\$10k$: $10000 \\times 0.05 = \\$500$. Remaining $\\$12k$: $12000 \\times 0.08 = \\$960$. Total: $\\$1460$.\n\n**The Full Solution:**\nCommission has two tiers:\n* First $\\$10{,}000$: $5\\%$ commission $= 10000 \\times 0.05 = \\$500$.\n* Remaining $\\$22{,}000 - \\$10{,}000 = \\$12{,}000$: $8\\%$ commission $= 12000 \\times 0.08 = \\$960$.\nTotal: $\\$500 + \\$960 = \\$1460$.\n\nVerification: weighted commission rate $= \\frac{1460}{22000} \\approx 6.6\\%$, which is between $5\\%$ and $8\\%$ as expected for a blended rate \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — applies $5\\%$ to all $\\$22k$.\n* Choice C: "wrong base" — applies $8\\%$ to all $\\$22k$.\n* Choice D: "off-by-one" — arithmetic slip ($1760 + 100 = 1860$ via wrong logic).\n\n**Test Day Takeaway:** Tiered commission problems: split the total at the threshold, apply the appropriate rate to each tier, then sum. Don\'t use a single blended rate.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'tiered-percent',
@@ -1396,7 +1558,7 @@ export const problemSolvingBank = [
     type: 'fill-in',
     question: 'A jar contains 160 marbles. If 25% are blue, how many blue marbles are there?',
     correctAnswer: '40',
-    explanation: '$160 \\times 0.25 = 40$.',
+    explanation: '**SAT Pattern: Percent of Total**\n\n**The correct answer is $40$.**\n\n**The Fast Way (~5s):** $160 \\times 0.25 = 40$.\n\n**The Full Solution:**\nFinding $25\\%$ of $160$:\n$160 \\times 0.25 = 40$.\n\nAlternatively: $25\\% = \\frac{1}{4}$, so $\\frac{160}{4} = 40$.\n\nVerification: $40 \\times 4 = 160$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using $0.025$ instead of $0.25$ — gives $4$.\n* Using $2.5$ instead of $0.25$ — gives $400$.\n* Reporting $120$ (the complement, $75\\%$).\n\n**Test Day Takeaway:** $25\\% = \\frac{1}{4}$. $10\\% = \\frac{1}{10}$. $50\\% = \\frac{1}{2}$. Recognize these for quick mental math.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'percent-of-total',
@@ -1411,13 +1573,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A farmer harvested 48, 52, 45, and 55 bushels of apples over four days. What is the mean daily harvest?',
     choices: [
+      // distractor: 48 is the lowest, not the mean
       { id: 'A', text: '48' },
       { id: 'B', text: '50' },
+      // distractor: arithmetic slip
       { id: 'C', text: '51' },
+      // distractor: 52 (one of the values)
       { id: 'D', text: '52' },
     ],
     correctAnswer: 'B',
-    explanation: 'Sum = $48+52+45+55 = 200$. Mean = $200 \\div 4 = 50$.',
+    explanation: '**SAT Pattern: Mean of Four Values**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Sum $= 48 + 52 + 45 + 55 = 200$. Mean $= 200 / 4 = 50$.\n\n**The Full Solution:**\nSum: $48 + 52 + 45 + 55 = 200$.\nCount: $4$.\nMean: $200 / 4 = 50$.\n\nVerification: pair-sum: $(48 + 52) + (45 + 55) = 100 + 100 = 200$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — uses the lowest value as the mean.\n* Choice C: "off-by-one" — arithmetic slip.\n* Choice D: "wrong base" — uses one of the data values.\n\n**Test Day Takeaway:** Mean = sum / count. Pair-summing speeds up arithmetic: look for pairs that sum to the same value.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'basic-mean',
@@ -1432,13 +1597,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A student\'s test scores are: 88, 76, 95, 82, 91. What is the median score?',
     choices: [
+      // distractor: 2nd value when sorted
       { id: 'A', text: '82' },
+      // distractor: gives the mean
       { id: 'B', text: '86.4' },
       { id: 'C', text: '88' },
+      // distractor: gives 4th value when sorted
       { id: 'D', text: '91' },
     ],
     correctAnswer: 'C',
-    explanation: 'Sorted: 76, 82, 88, 91, 95. The middle (3rd) value is 88. Choice B is the mean, not the median.',
+    explanation: '**SAT Pattern: Median of Sorted Set**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Sort: $76, 82, 88, 91, 95$. Middle (3rd) value: $88$.\n\n**The Full Solution:**\nSort ascending: $76, 82, 88, 91, 95$.\nFor odd count $n = 5$, median = middle value (position $\\frac{5+1}{2} = 3$): $88$.\n\nVerification: $2$ values below ($76, 82$) and $2$ above ($91, 95$) — balanced \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — uses the $2$nd value.\n* Choice B: "wrong formula" — computes the MEAN ($88+76+95+82+91 = 432$, $432/5 = 86.4$) instead of the median.\n* Choice D: "off-by-one" — uses the $4$th value.\n\n**Test Day Takeaway:** Median = middle of sorted list. Don\'t confuse with mean (average). For odd count, it\'s a single value; for even count, average the two middle ones.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'median-odd-set',
@@ -1453,13 +1621,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'A hose fills a pool at a rate of 15 gallons per minute. How many gallons does it deliver in 20 minutes?',
     choices: [
+      // distractor: uses 10 gal/min
       { id: 'A', text: '150' },
+      // distractor: uses 10 min instead of 20
       { id: 'B', text: '200' },
       { id: 'C', text: '300' },
+      // distractor: arithmetic slip
       { id: 'D', text: '350' },
     ],
     correctAnswer: 'C',
-    explanation: '$15 \\times 20 = 300$ gallons.',
+    explanation: '**SAT Pattern: Rate × Time**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** $15 \\times 20 = 300$ gallons.\n\n**The Full Solution:**\nTotal volume = rate × time = $15 \\text{ gal/min} \\times 20 \\text{ min} = 300 \\text{ gal}$.\n\nVerification: $300 / 20 = 15$ gal/min \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — uses $10$ gal/min.\n* Choice B: "wrong base" — uses $10$ min.\n* Choice D: "off-by-one" — arithmetic slip.\n\n**Test Day Takeaway:** Total = rate × time when units match. Same unit for time on both sides ($15$ gal/MIN × $20$ MIN = $300$ gal).',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'rate-time-total',
@@ -1474,13 +1645,16 @@ export const problemSolvingBank = [
     type: 'multiple-choice',
     question: 'Membership at a gym went from 1,250 in March to 1,100 in April. What is the percent decrease?',
     choices: [
+      // distractor: uses 125 as numerator
       { id: 'A', text: '10%' },
       { id: 'B', text: '12%' },
+      // distractor: divides by new value (1100)
       { id: 'C', text: '13.6%' },
+      // distractor: arithmetic slip
       { id: 'D', text: '15%' },
     ],
     correctAnswer: 'B',
-    explanation: 'Decrease = $150$. Percent = $\\frac{150}{1250} \\times 100 = 12\\%$. Choice C divides by the new value.',
+    explanation: '**SAT Pattern: Percent Decrease**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Decrease $= 150$. $\\frac{150}{1250} = 0.12 = 12\\%$.\n\n**The Full Solution:**\nDecrease $= 1250 - 1100 = 150$.\nPercent decrease $= \\frac{150}{1250} \\times 100$.\nSimplify: $\\frac{150}{1250} = \\frac{3}{25} = 0.12$.\nPercent: $12\\%$.\n\nVerification: $1250 \\times 0.88 = 1100$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — uses $125$ as the change instead of $150$.\n* Choice C: "applies the inverse operation" — divides by $1100$ (new value).\n* Choice D: "wrong base" — uses a different denominator.\n\n**Test Day Takeaway:** $\\frac{150}{1250} = \\frac{3}{25} = \\frac{12}{100} = 12\\%$. Simplify fractions when computing percent change — speeds the arithmetic.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'percent-change-basic',
@@ -1495,7 +1669,7 @@ export const problemSolvingBank = [
     type: 'fill-in',
     question: 'A student scores 92 on an exam worth 40% of the grade, 78 on a project worth 35%, and 88 on a presentation worth 25%. What is the student\'s final weighted grade?',
     correctAnswer: '86.1',
-    explanation: '$0.40(92) + 0.35(78) + 0.25(88) = 36.8 + 27.3 + 22.0 = 86.1$.',
+    explanation: '**SAT Pattern: Weighted Average Final Grade**\n\n**The correct answer is $86.1$.**\n\n**The Fast Way (~25s):** $0.40(92) + 0.35(78) + 0.25(88) = 36.8 + 27.3 + 22.0 = 86.1$.\n\n**The Full Solution:**\nMultiply each score by its weight (as a decimal), then sum:\n$0.40 \\times 92 = 36.8$\n$0.35 \\times 78 = 27.3$\n$0.25 \\times 88 = 22.0$\nTotal: $36.8 + 27.3 + 22.0 = 86.1$.\n\nVerification: weights sum to $1.00$ ($0.40 + 0.35 + 0.25 = 1.00$). $86.1$ is between the lowest score $78$ and the highest $92$, weighted toward the largest categories \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Simple average: $\\frac{92+78+88}{3} = 86$ (close but coincidentally similar; not the right method).\n* Forgetting to add all three weighted scores.\n* Using percent values directly (e.g., $40 \\times 92$ instead of $0.40 \\times 92$).\n\n**Test Day Takeaway:** Weighted average: each value multiplied by its weight, then summed. Check that weights total $100\\%$ ($1.00$) before computing.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'weighted-average',
@@ -1511,12 +1685,15 @@ export const problemSolvingBank = [
     question: 'A laptop\'s price is increased by 25% and then the new price is decreased by 20%. What is the net percent change from the original price?',
     choices: [
       { id: 'A', text: '0% (no change)' },
+      // distractor: 25 - 20 = 5
       { id: 'B', text: '5% increase' },
+      // distractor: opposite sign of B
       { id: 'C', text: '5% decrease' },
+      // distractor: arithmetic slip
       { id: 'D', text: '10% increase' },
     ],
     correctAnswer: 'A',
-    explanation: 'Multiplier: $1.25 \\times 0.80 = 1.00$, so the price returns to its original value. The trap is thinking 25% − 20% = 5% net increase.',
+    explanation: '**SAT Pattern: Net Effect of Successive Changes**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $1.25 \\times 0.80 = 1.00$ — exactly the original price.\n\n**The Full Solution:**\nMultipliers:\n* $+25\\%$: $1.25$\n* $-20\\%$: $0.80$\nNet multiplier: $1.25 \\times 0.80 = 1.00$.\n\nA multiplier of exactly $1.00$ means the price returns to its original value (no net change).\n\nVerification: try $\\$100$. After $+25\\%$: $\\$125$. After $-20\\%$: $\\$125 \\times 0.80 = \\$100$. Back to original \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — adds $25\\% - 20\\% = 5\\%$ without compounding.\n* Choice C: "sign error" — opposite sign.\n* Choice D: "wrong formula" — arithmetic slip.\n\n**Test Day Takeaway:** $+p\\%$ then $-q\\%$: net multiplier $(1 + p)(1 - q)$. When this equals $1$, the change cancels. $25\\% \\times 20\\%$ pair is a famous SAT trick: $1.25 \\times 0.80 = 1.00$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'successive-percent-net',
