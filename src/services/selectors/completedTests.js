@@ -39,7 +39,7 @@ export function itemKey(moduleIndex, questionIndex) {
 }
 
 /**
- * getCompletedTests(practiceTestResults)
+ * getCompletedTests(practiceTestResults, opts?)
  *
  * Returns one summary per test that has at least one attempt, sorted by the
  * latest attempt's `completedAt` (newest first). The shape is what the
@@ -49,20 +49,34 @@ export function itemKey(moduleIndex, questionIndex) {
  * stores newest-first via `trimAttempts` (see practiceTestService.js:96).
  * So `attempts[0]` is the latest.
  *
+ * Each entry carries `hasItemDetails` — true when the latest attempt has
+ * `diagnosticData.questionDetails` (the per-question telemetry needed for
+ * the wrong-items breakdown). Older attempts had this stripped to keep the
+ * Firestore doc under the 1MB limit, so consumers should disable per-item
+ * features when this flag is false.
+ *
  * @param {Object<string, {attempts?: Array, testTitle?: string,
  *   bestScaledScore?: number, bestRawScore?: number, totalAttempts?: number,
  *   lastAttemptAt?: any}>} practiceTestResults
+ * @param {object} [opts]
+ * @param {boolean} [opts.requireItemDetails]  if true, drop entries whose
+ *   latest attempt has no questionDetails (no point in surfacing them in the
+ *   Past-Test-Review list — the detail view would render an empty state).
  * @returns {Array<{testId, testTitle, latestAttemptId, completedAt,
  *   rawScore, totalQuestions, scaledScore, isMultiSection, bestScaledScore,
- *   bestRawScore, totalAttempts, moduleScores}>}
+ *   bestRawScore, totalAttempts, moduleScores, hasItemDetails}>}
  */
-export function getCompletedTests(practiceTestResults) {
+export function getCompletedTests(practiceTestResults, opts = {}) {
   if (!practiceTestResults || typeof practiceTestResults !== 'object') return [];
+  const { requireItemDetails = false } = opts;
   const out = [];
   for (const [testId, results] of Object.entries(practiceTestResults)) {
     const attempts = results && Array.isArray(results.attempts) ? results.attempts : [];
     if (attempts.length === 0) continue;
     const latest = attempts[0];
+    const qDetails = latest?.diagnosticData?.questionDetails;
+    const hasItemDetails = !!(qDetails && typeof qDetails === 'object' && Object.keys(qDetails).length > 0);
+    if (requireItemDetails && !hasItemDetails) continue;
     out.push({
       testId,
       testTitle: results.testTitle || testId,
@@ -76,6 +90,7 @@ export function getCompletedTests(practiceTestResults) {
       bestRawScore: results.bestRawScore ?? null,
       totalAttempts: results.totalAttempts ?? attempts.length,
       moduleScores: latest.moduleScores || [],
+      hasItemDetails,
     });
   }
   return out.sort((a, b) => {
@@ -181,6 +196,45 @@ export function groupItemsByErrorClass(items, diagnosticReport) {
     out[cls].push(item);
   }
   return out;
+}
+
+/**
+ * findErrorClassForItem(item, attemptOrGroups, diagnosticReport)
+ *
+ * The 6-class taxonomy lives at the SKILL level (see groupItemsByErrorClass).
+ * To surface the chip for a single item — e.g. the ReviewItemCard view or the
+ * `item_reviewed` telemetry event — we look up which group the item lands in.
+ *
+ * Two call shapes:
+ *   1. `findErrorClassForItem(item, attempt, diagnosticReport)` — convenience
+ *      shape. Rebuilds groups from scratch each call. Use for one-shot lookups.
+ *   2. `findErrorClassForItem(item, precomputedGroups)` — fast shape. Pass an
+ *      already-built `groupItemsByErrorClass` result. Use when the caller
+ *      already memoizes the groups (TestReviewDetail, App.jsx item view).
+ *
+ * Detection: if `attemptOrGroups` looks like an attempt (has `attemptId` or
+ * `diagnosticData`), we treat it as the convenience shape and rebuild.
+ * Otherwise we treat it as a precomputed groups object.
+ *
+ * @param {object|null} item                        telemetry-shape item with `key`
+ * @param {object|null} attemptOrGroups
+ * @param {object|null} [diagnosticReport]          required only with shape 1
+ * @returns {string|null}                           6-class name or null
+ */
+export function findErrorClassForItem(item, attemptOrGroups, diagnosticReport) {
+  if (!item || !item.key || !attemptOrGroups) return null;
+  const looksLikeAttempt = (
+    'attemptId' in attemptOrGroups ||
+    'diagnosticData' in attemptOrGroups ||
+    'completedAt' in attemptOrGroups
+  );
+  const groups = looksLikeAttempt
+    ? groupItemsByErrorClass(extractItemsFromAttempt(attemptOrGroups), diagnosticReport)
+    : attemptOrGroups;
+  for (const [cls, items] of Object.entries(groups)) {
+    if (Array.isArray(items) && items.some(i => i.key === item.key)) return cls;
+  }
+  return null;
 }
 
 /**

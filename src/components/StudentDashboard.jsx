@@ -77,7 +77,8 @@ const StudentDashboard = ({
   predictionLog,
   skillProgress,
   onCompleteActivity,
-  onUncompleteActivity
+  onUncompleteActivity,
+  onReviewPastTests,
 }) => {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [showDatePicker, setShowDatePicker] = useState(false);
@@ -391,6 +392,7 @@ const StudentDashboard = ({
               onStartPracticeTest={onStartPracticeTest}
               onCompleteActivity={onCompleteActivity}
               onUncompleteActivity={onUncompleteActivity}
+              onReviewPastTests={onReviewPastTests}
             />
           ) : (
             <div className="studyplan-empty-state">

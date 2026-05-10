@@ -23,6 +23,9 @@ import StudyPlanDashboard from './components/StudyPlanDashboard';
 import AdaptivePracticeShell from './components/AdaptivePracticeShell';
 import AssignedPracticeShell from './components/AssignedPracticeShell';
 import DiagnosticReport from './components/DiagnosticReport';
+import PastTestReviewIndex from './components/PastTestReview/PastTestReviewIndex';
+import TestReviewDetail from './components/PastTestReview/TestReviewDetail';
+import ReviewItemCard from './components/PastTestReview/ReviewItemCard';
 import { Toaster, showToast } from './components/ui/Toaster';
 import { pickSimilarQuestion } from './services/trySimilarService';
 import { buildRounds, classifyRoundBoundary } from './services/buildRounds';
@@ -30,6 +33,12 @@ import {
   loadDiagnosticReportData,
   pickMostRecentTest,
 } from './services/diagnosticReportLoader';
+import {
+  getLatestAttempt,
+  itemKey,
+  findErrorClassForItem,
+  extractItemsFromAttempt,
+} from './services/selectors/completedTests';
 import { getAllPracticeTests } from './data/practiceTests';
 import {
   resolveAssignedQuestions,
@@ -47,6 +56,22 @@ import { getReadyAiDiagnostic, loadAttemptSnapshot } from './services/practiceTe
 import { reprioritizePlan } from './services/adaptivePlanService';
 import { buildLongitudinalEvidence } from './services/studyPlanMerger';
 import { generateStudyPlan as generateAIPlan } from './services/studyPlanService';
+import { logInfo, logWarn } from './utils/log';
+
+// ── Past-Test-Review telemetry (Phase 7 of PAST_TEST_REVIEW_PLAN.md) ──
+// Events are scoped under [performsat:pastTestReview] so they're filterable
+// in DevTools and pre-shaped for a future analytics integration. Suppressed
+// in prod unless localStorage['performsat:logVerbose']='1'.
+//
+// Success thresholds (committed in plan doc, CEO R2-F3):
+//   - Adoption:  ≥30% of students-with-tests open the surface within 2 weeks
+//   - Engagement: median session reviews ≥5 items
+//   - Retry conv: ≥40% of TestReviewDetail visitors click Retry
+//   - Sunset gate: <15% adoption by week 4 → re-evaluate
+const PTR_LOG_SCOPE = 'pastTestReview';
+const logPtrEvent = (event, data = {}) => {
+  logInfo(PTR_LOG_SCOPE, event, data);
+};
 
 // Premium Design System - Clean, Modern, Professional
 const design = {
@@ -154,14 +179,32 @@ const PerformSAT = () => {
   const [activeModule, setActiveModule] = useState(null);
   const [activeLesson, setActiveLesson] = useState(null);
   const [activeSection, setActiveSection] = useState(null); // For section-based practice
-  const [view, setView] = useState('dashboard'); // 'dashboard', 'modules', 'learn', 'practice', 'practiceTests', 'takingTest', 'profile', 'studyPlan', 'tutor'
+  const [view, setView] = useState('dashboard'); // 'dashboard' | 'practice' | 'practiceTests' | 'takingTest' | 'profile' | 'studyPlan' | 'tutor' | 'viewingResults' | 'diagnosticReport' | 'reviewingPastResults' | 'pastTestReviewIndex' | 'pastTestReviewDetail' | 'pastTestReviewItem'
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [selectedPracticeTest, setSelectedPracticeTest] = useState(null);
   const [isTestTimed, setIsTestTimed] = useState(true);
   const [viewingResultsData, setViewingResultsData] = useState(null); // { test, answers, diagnosticData, diagnosticReport }
   const [showAiTutor, setShowAiTutor] = useState(false);
 
-  // Practice state
+  // Practice state.
+  //
+  // Shape contract — every full-replacement `setPracticeState({...})` call
+  // must explicitly include or omit these optional fields:
+  //   • reviewMode (boolean) — past-test-review retry-drill session. When
+  //     true, AssignedPracticeShell renders the "Review session" banner
+  //     and back-button label flips to "Back to Review". MUST be omitted
+  //     (or set false) when starting any non-review session, otherwise a
+  //     stale review banner persists into the next drill.
+  //   • assignmentMeta (object) — drill metadata (label, weakness, source).
+  //     Includes sourceTestId/sourceTestTitle/sourceWrongCount when the
+  //     session is a Past-Test-Review retry.
+  //   • adaptiveQueueSeed / adaptiveSessionState / adaptiveDomainLabel —
+  //     adaptive-mode payload.
+  //   • rounds / currentRoundIndex / showRoundComplete — round metadata.
+  //
+  // The spread setters (`setPracticeState(prev => ({...prev, ...}))`) DO
+  // preserve these keys intentionally — that's how round completion +
+  // navigation keep review-mode active across question advances.
   const [practiceState, setPracticeState] = useState({
     currentQuestionIndex: 0,
     selectedAnswer: null,
@@ -172,6 +215,28 @@ const PerformSAT = () => {
     shuffledQuestions: [], // Store randomized questions
     practiceMode: 'standard' // 'standard' | 'adaptive'
   });
+
+  // Past-Test-Review state (Phase 6 of PAST_TEST_REVIEW_PLAN.md).
+  // The "review bundle" is the result of loadDiagnosticReportData for the
+  // selected test — async-fetched once when a test is selected and reused
+  // by both TestReviewDetail and ReviewItemCard so the snapshot fetch
+  // happens only once per session.
+  const [selectedReviewTestId, setSelectedReviewTestId] = useState(null);
+  const [selectedReviewItem, setSelectedReviewItem] = useState(null);
+  const [reviewBundle, setReviewBundle] = useState(null);
+  const [reviewBundleLoading, setReviewBundleLoading] = useState(false);
+  const [reviewBundleError, setReviewBundleError] = useState(null);
+  // Tracks where the user opened past-test-review FROM, so the back path
+  // can return them to the same surface (Dashboard tab vs immersive Study
+  // Plan view). Without this, entering from the Dashboard tab and clicking
+  // back drops them on the standalone Study Plan view, losing tab context.
+  const [pastTestReviewEntryView, setPastTestReviewEntryView] = useState('studyPlan');
+  // Monotonic request ID for handleSelectReviewTest — guards against
+  // the user clicking a second test card before the first fetch resolves.
+  // Without this, fetchB-resolves-first followed by fetchA-resolves-second
+  // would clobber B's bundle with A's data and the UI would show A while
+  // the user expected B.
+  const reviewBundleRequestRef = useRef(0);
 
   // Calculator state for practice
   const [showCalculator, setShowCalculator] = useState(false);
@@ -395,6 +460,253 @@ const PerformSAT = () => {
     setView('practice');
   };
 
+  /**
+   * startRetryDrillFromTest — opens a retry drill of items from a past
+   * practice test (Phase 5 of PAST_TEST_REVIEW_PLAN.md).
+   *
+   * Bypasses resolveAssignedQuestions because snapshot questions live OUTSIDE
+   * the production drill bank — they are CB items the student already saw on
+   * the original test, fetched from the per-attempt snapshot subcollection.
+   *
+   * Sets `reviewMode: true` so the shell renders a "review session" banner.
+   * Already-safe constraints (no extra guards needed):
+   *   • recordPracticeAttempt at the completion handler is gated by
+   *     !isAdaptiveOrAssigned, so review-mode attempts don't pollute skill
+   *     mastery counters.
+   *   • buildGroundTruthDiagnosis lives in PracticeTest.jsx (not App.jsx),
+   *     so a review-mode drill completion can't inflate Predicted vs Actual.
+   *
+   * @param {object} opts
+   * @param {string} opts.testId
+   * @param {string} opts.testTitle
+   * @param {Array<object>} opts.snapshotQuestions  drill-shape questions from
+   *                        the per-attempt snapshot, already filtered by the
+   *                        caller (typically to wrong items).
+   * @param {number} [opts.originalWrongCount]  total items the student got wrong
+   *                        on the source attempt — separate from
+   *                        snapshotQuestions.length so retry_completed
+   *                        telemetry can compute true retry-conversion.
+   */
+  const startRetryDrillFromTest = ({ testId, testTitle, snapshotQuestions, originalWrongCount }) => {
+    if (!Array.isArray(snapshotQuestions) || snapshotQuestions.length === 0) return;
+
+    const rounds = buildRounds(snapshotQuestions.map(q => q.id), 8);
+    const roundsWithStart = rounds.map((r, i) =>
+      i === 0 ? { ...r, startedAt: new Date().toISOString() } : r,
+    );
+
+    setPracticeState({
+      currentQuestionIndex: 0,
+      selectedAnswer: null,
+      showFeedback: false,
+      showHint: false,
+      showRoundComplete: false,
+      answers: {},
+      isComplete: false,
+      shuffledQuestions: snapshotQuestions,
+      rounds: roundsWithStart,
+      currentRoundIndex: 0,
+      practiceMode: 'assigned',
+      reviewMode: true,
+      assignmentMeta: {
+        label: `Reviewing ${testTitle}`,
+        source: 'past-test-review',
+        sourceTestId: testId,
+        sourceTestTitle: testTitle,
+        sourceWrongCount: typeof originalWrongCount === 'number'
+          ? originalWrongCount
+          : snapshotQuestions.length,
+      },
+    });
+    setActiveModule(null);
+    setActiveSection('__pastTestReview__');
+    setShowCalculator(false);
+    setView('practice');
+  };
+
+  // ── Past-Test-Review handlers (Phase 6 of PAST_TEST_REVIEW_PLAN.md) ──
+
+  /**
+   * handleOpenPastTestReview — entry point from the Study Plan dashboard.
+   * Resets selection state and routes to the index view. Captures the
+   * current view so the back-handler can return the user to the surface
+   * they opened from (dashboard tab vs standalone study plan).
+   */
+  const handleOpenPastTestReview = () => {
+    setPastTestReviewEntryView(view === 'dashboard' ? 'dashboard' : 'studyPlan');
+    setSelectedReviewTestId(null);
+    setSelectedReviewItem(null);
+    setReviewBundle(null);
+    setReviewBundleError(null);
+    setView('pastTestReviewIndex');
+    logPtrEvent('opened', { studentId: user?.uid || null });
+  };
+
+  /**
+   * handleSelectReviewTest — user clicked a test card in the index. Kicks
+   * off the async snapshot fetch via loadDiagnosticReportData and routes
+   * to the detail view. The detail view renders its own loading + error
+   * states (already handled by TestReviewDetail).
+   */
+  const handleSelectReviewTest = async (testId /*, _attemptId */) => {
+    const test = getAllPracticeTests().find(t => t.id === testId);
+    const lastAttempt = getLatestAttempt(practiceTestResults, testId);
+    if (!test || !lastAttempt) {
+      showToast({
+        type: 'error',
+        message: 'Could not load this test for review. Please try again.',
+      });
+      return;
+    }
+    const requestId = ++reviewBundleRequestRef.current;
+    setSelectedReviewTestId(testId);
+    setSelectedReviewItem(null);
+    setReviewBundle(null);
+    setReviewBundleError(null);
+    setReviewBundleLoading(true);
+    setView('pastTestReviewDetail');
+    try {
+      const data = await loadDiagnosticReportData({
+        userId: user?.uid,
+        test,
+        lastAttempt,
+        practiceTestResults,
+        skillProgress,
+        user,
+      });
+      // Guard: if a newer fetch superseded this one (user clicked another
+      // test card mid-flight), drop this result.
+      if (requestId !== reviewBundleRequestRef.current) return;
+      setReviewBundle({
+        test: data.test,                    // snapshot-reconstructed
+        liveTest: data.liveTest,            // for retry-drill field merging
+        answers: data.answers || {},
+        diagnosticReport: data.diagnosticReport,
+        attempt: lastAttempt,
+        attemptId: data.attemptId,
+        testTitle: test.title || testId,
+        snapshotMissing: !!data.snapshotMissing,
+      });
+      logPtrEvent('test_selected', {
+        studentId: user?.uid || null,
+        testId,
+        attemptId: data.attemptId,
+        completedAt: lastAttempt.completedAt || null,
+        snapshotMissing: !!data.snapshotMissing,
+      });
+    } catch (err) {
+      if (requestId !== reviewBundleRequestRef.current) return;
+      logWarn('pastTestReview', 'select_failed', { message: err?.message || String(err) });
+      setReviewBundleError(err?.message || 'load failed');
+    } finally {
+      // Only the latest request controls the loading flag — earlier
+      // resolutions must not flip it off while a newer fetch is pending.
+      if (requestId === reviewBundleRequestRef.current) {
+        setReviewBundleLoading(false);
+      }
+    }
+  };
+
+  /**
+   * handleSelectReviewItem — user clicked a per-item row in TestReviewDetail.
+   */
+  const handleSelectReviewItem = (item) => {
+    setSelectedReviewItem(item);
+    setView('pastTestReviewItem');
+    // Compute the per-item error class with the same logic the detail
+    // chips use, so the telemetry matches what the user saw. Only attach
+    // for incorrect items — the 6-class taxonomy is meaningless for items
+    // the student got right (a correct item whose skill is in weakSkills
+    // would otherwise log as e.g. 'conceptual_gap', distorting analytics).
+    const errorClass = (reviewBundle && !item.isCorrect)
+      ? findErrorClassForItem(item, reviewBundle.attempt, reviewBundle.diagnosticReport)
+      : null;
+    logPtrEvent('item_reviewed', {
+      studentId: user?.uid || null,
+      testId: selectedReviewTestId,
+      itemKey: item.key,
+      isCorrect: !!item.isCorrect,
+      errorClass,
+    });
+  };
+
+  /**
+   * handleRetryWrongFromReview — user clicked "Retry the N wrong" CTA in
+   * TestReviewDetail. Maps the telemetry-shape wrong items back to the
+   * snapshot question objects (via reviewBundle.test.modules) so they can
+   * be fed into startRetryDrillFromTest.
+   */
+  const handleRetryWrongFromReview = (wrongItems) => {
+    if (!reviewBundle || !Array.isArray(wrongItems)) return;
+    if (reviewBundle.snapshotMissing) {
+      showToast({
+        type: 'warn',
+        message: 'Original question text isn\'t archived for this attempt — retry isn\'t available.',
+      });
+      return;
+    }
+
+    // Snapshot questions are the canonical "what the student saw", but the
+    // loader strips passage/diagram/questionTable/questionFormula at write
+    // time (PracticeTest.jsx writes only the fields needed for the diagnostic
+    // engine). Re-attach those fields from the live test so R&W passages
+    // and math figures render in the retry drill.
+    const enrichFromLive = (snapshotQ, modIdx, qIdx) => {
+      if (!snapshotQ) return null;
+      const liveQ = reviewBundle.liveTest?.modules?.[modIdx]?.questions?.[qIdx];
+      if (!liveQ) return snapshotQ;
+      return {
+        ...snapshotQ,
+        passage: snapshotQ.passage ?? liveQ.passage,
+        diagram: snapshotQ.diagram ?? liveQ.diagram,
+        questionTable: snapshotQ.questionTable ?? liveQ.questionTable,
+        questionFormula: snapshotQ.questionFormula ?? liveQ.questionFormula,
+        hint: snapshotQ.hint ?? liveQ.hint,
+      };
+    };
+
+    const snapshotQuestions = wrongItems
+      .map(it => {
+        const snap = reviewBundle.test?.modules?.[it.moduleIndex]?.questions?.[it.questionIndex];
+        return enrichFromLive(snap, it.moduleIndex, it.questionIndex);
+      })
+      .filter(Boolean);
+
+    if (snapshotQuestions.length === 0) {
+      showToast({ type: 'info', message: 'No items available to retry.' });
+      return;
+    }
+
+    // Surface partial-mapping when some wrong items couldn't be located in
+    // the snapshot (rare; happens if test content was edited after the
+    // attempt). Telemetry helps us spot it; toast keeps the user oriented.
+    if (snapshotQuestions.length < wrongItems.length) {
+      logPtrEvent('retry_dropped', {
+        studentId: user?.uid || null,
+        testId: selectedReviewTestId,
+        expected: wrongItems.length,
+        mapped: snapshotQuestions.length,
+      });
+      showToast({
+        type: 'info',
+        message: `Drilling ${snapshotQuestions.length} of ${wrongItems.length} wrong items — some couldn't be loaded.`,
+      });
+    }
+
+    startRetryDrillFromTest({
+      testId: selectedReviewTestId,
+      testTitle: reviewBundle.testTitle,
+      snapshotQuestions,
+      originalWrongCount: wrongItems.length,
+    });
+    logPtrEvent('retry_started', {
+      studentId: user?.uid || null,
+      testId: selectedReviewTestId,
+      wrongCount: snapshotQuestions.length,
+      originalWrongCount: wrongItems.length,
+    });
+  };
+
   const handleShowHint = () => {
     setPracticeState(prev => ({ ...prev, showHint: true }));
   };
@@ -558,6 +870,21 @@ const PerformSAT = () => {
       const correctCount = Object.values(practiceState.answers).filter(a => a.correct).length;
       if (user && activeModule && activeSection && !isAdaptiveOrAssigned) {
         recordPracticeAttempt(activeModule, activeSection, practiceState.answers, correctCount, questions.length);
+      }
+      // Past-Test-Review retry-drill completion telemetry (Phase 7).
+      // `retryQuestionCount` is the number of items in this retry session
+      // (may include Try-Similar additions); `originalWrongCount` is the
+      // wrong-on-the-original-test denominator the CEO R2-F3 retry-conversion
+      // metric needs. Splitting them prevents the two from being conflated.
+      if (practiceState.reviewMode) {
+        const meta = practiceState.assignmentMeta || {};
+        logPtrEvent('retry_completed', {
+          studentId: user?.uid || null,
+          testId: meta.sourceTestId || null,
+          retryQuestionCount: questions.length,
+          originalWrongCount: meta.sourceWrongCount ?? questions.length,
+          newCorrectCount: correctCount,
+        });
       }
       setPracticeState(prev => ({ ...prev, isComplete: true }));
     }
@@ -905,6 +1232,7 @@ const PerformSAT = () => {
             }}
             onCompleteActivity={markStudyActivityComplete}
             onUncompleteActivity={unmarkStudyActivityComplete}
+            onReviewPastTests={handleOpenPastTestReview}
           />
         )}
 
@@ -1256,8 +1584,100 @@ const PerformSAT = () => {
             onStartPracticeTest={() => setView('practiceTests')}
             onCompleteActivity={markStudyActivityComplete}
             onUncompleteActivity={unmarkStudyActivityComplete}
+            onReviewPastTests={handleOpenPastTestReview}
           />
         )}
+
+        {/* ── Past-Test-Review surfaces (Phases 2-6 of PAST_TEST_REVIEW_PLAN.md) ── */}
+        {view === 'pastTestReviewIndex' && (
+          <ErrorBoundary message="Couldn't load your test review. Please go back and try again.">
+            <div style={{ minHeight: '100vh', background: '#F5F5F7', padding: '32px' }}>
+              <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+                <PastTestReviewIndex
+                  practiceTestResults={practiceTestResults}
+                  onSelectTest={handleSelectReviewTest}
+                  onTakeTest={() => setView('practiceTests')}
+                  onBack={() => setView(pastTestReviewEntryView)}
+                />
+              </div>
+            </div>
+          </ErrorBoundary>
+        )}
+
+        {view === 'pastTestReviewDetail' && (
+          <ErrorBoundary message="Couldn't load this test's review. Please go back and try again.">
+            <div style={{ minHeight: '100vh', background: '#F5F5F7', padding: '32px' }}>
+              <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+                <TestReviewDetail
+                  testTitle={reviewBundle?.testTitle || selectedReviewTestId || 'Test review'}
+                  attempt={reviewBundle?.attempt}
+                  diagnosticReport={reviewBundle?.diagnosticReport}
+                  loading={reviewBundleLoading}
+                  error={reviewBundleError}
+                  snapshotMissing={!!reviewBundle?.snapshotMissing}
+                  onSelectItem={handleSelectReviewItem}
+                  onRetryWrong={handleRetryWrongFromReview}
+                  onBack={() => setView('pastTestReviewIndex')}
+                />
+              </div>
+            </div>
+          </ErrorBoundary>
+        )}
+
+        {view === 'pastTestReviewItem' && reviewBundle && selectedReviewItem && (() => {
+          const { moduleIndex, questionIndex } = selectedReviewItem;
+          const snapshotItem =
+            reviewBundle.test?.modules?.[moduleIndex]?.questions?.[questionIndex] || null;
+          const rawAnswer =
+            reviewBundle.answers?.[itemKey(moduleIndex, questionIndex)] ?? null;
+          // Legacy attempts (no per-attempt snapshot) feed the sentinel
+          // string '__wrong__' here from diagnosticReportLoader's fallback.
+          // Don't render that as the user's literal answer.
+          const studentAnswer = rawAnswer === '__wrong__' ? null : rawAnswer;
+          // Map this item's primary skill to its 6-class error type so the
+          // chip matches what TestReviewDetail showed. Only surface for
+          // wrong items — the chip is meaningless for correct ones.
+          const errorClass = !selectedReviewItem.isCorrect
+            ? findErrorClassForItem(
+                selectedReviewItem,
+                reviewBundle.attempt,
+                reviewBundle.diagnosticReport,
+              )
+            : null;
+
+          // Prev/Next walk the SAME slice the user was viewing in
+          // TestReviewDetail. Default to wrong-only (matches the detail
+          // view's default filter). Items already arrive sorted by
+          // (moduleIndex, questionIndex) from extractItemsFromAttempt.
+          const wrongItems = reviewBundle.attempt
+            ? extractItemsFromAttempt(reviewBundle.attempt).filter(it => !it.isCorrect)
+            : [];
+          const currentIdx = wrongItems.findIndex(it => it.key === selectedReviewItem.key);
+          const prev = currentIdx > 0 ? wrongItems[currentIdx - 1] : null;
+          const next = currentIdx >= 0 && currentIdx < wrongItems.length - 1
+            ? wrongItems[currentIdx + 1]
+            : null;
+          return (
+            <ErrorBoundary message="Couldn't render this question. Please go back and try again.">
+              <div style={{ minHeight: '100vh', background: '#F5F5F7', padding: '32px' }}>
+                <div style={{ maxWidth: '780px', margin: '0 auto' }}>
+                  <ReviewItemCard
+                    snapshotItem={snapshotItem}
+                    studentAnswer={studentAnswer}
+                    isCorrect={selectedReviewItem.isCorrect}
+                    errorClass={errorClass}
+                    timeSpent={selectedReviewItem.timeSpent}
+                    testTitle={reviewBundle.testTitle}
+                    snapshotMissing={!!reviewBundle.snapshotMissing}
+                    onPrev={prev ? () => setSelectedReviewItem(prev) : undefined}
+                    onNext={next ? () => setSelectedReviewItem(next) : undefined}
+                    onBack={() => setView('pastTestReviewDetail')}
+                  />
+                </div>
+              </div>
+            </ErrorBoundary>
+          );
+        })()}
 
 
         {/* Practice View */}
@@ -1278,10 +1698,22 @@ const PerformSAT = () => {
             setShowCalculator(false);
             setView('studyPlan');
           };
+          // Past-Test-Review retry drill: route back to the per-test review
+          // detail (Phase 5 of PAST_TEST_REVIEW_PLAN.md). The view route is
+          // mounted in Phase 6.
+          const pastTestReviewBackHandler = () => {
+            setActiveSection(null);
+            setActiveModule(null);
+            setShowCalculator(false);
+            setView('pastTestReviewDetail');
+          };
           // The legacy moduleBackHandler returned to view='learn' (the
-          // deleted LearnWorkspace). Practice is now reachable only via
-          // the study plan, so all back paths route there.
-          const backHandler = studyPlanBackHandler;
+          // deleted LearnWorkspace). Practice is now reachable via the
+          // study plan or, for review-mode drills, the past-test-review
+          // detail page.
+          const backHandler = practiceState.reviewMode
+            ? pastTestReviewBackHandler
+            : studyPlanBackHandler;
           const headerTitle = isAdaptive
             ? (practiceState.adaptiveDomainLabel ? `Adaptive Practice — ${practiceState.adaptiveDomainLabel}` : 'Adaptive Practice')
             : isAssigned
@@ -1306,7 +1738,7 @@ const PerformSAT = () => {
                 questions={questions}
                 currentQuestion={currentQuestion}
                 headerTitle={headerTitle}
-                onBack={studyPlanBackHandler}
+                onBack={backHandler}
                 onSelectAnswer={handleSelectAnswer}
                 onCheckAnswer={handleCheckAnswer}
                 onNextQuestion={handleNextQuestion}
@@ -1317,10 +1749,23 @@ const PerformSAT = () => {
                 onNavigateToQuestion={handleNavigateToQuestion}
                 onToggleCalculator={() => setShowCalculator(!showCalculator)}
                 showCalculator={showCalculator}
-                onRetry={() => startAssignedPractice(
-                  practiceState.shuffledQuestions.map(q => q.id),
-                  practiceState.assignmentMeta,
-                )}
+                onRetry={() => {
+                  // Review-mode retries can't use startAssignedPractice
+                  // because snapshot question IDs aren't in the drill bank.
+                  // Re-launch with the snapshot questions in hand.
+                  if (practiceState.reviewMode) {
+                    startRetryDrillFromTest({
+                      testId: practiceState.assignmentMeta?.sourceTestId,
+                      testTitle: practiceState.assignmentMeta?.sourceTestTitle,
+                      snapshotQuestions: practiceState.shuffledQuestions,
+                    });
+                  } else {
+                    startAssignedPractice(
+                      practiceState.shuffledQuestions.map(q => q.id),
+                      practiceState.assignmentMeta,
+                    );
+                  }
+                }}
                 getDifficultyBadge={getDifficultyBadge}
                 user={user}
                 skillProgress={skillProgress}

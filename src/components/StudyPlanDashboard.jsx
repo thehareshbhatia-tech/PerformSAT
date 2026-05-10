@@ -14,6 +14,8 @@ import { getTodaySlice } from '../services/studyPlanGenerator';
 import { getSessionAdherence } from '../services/selectors/sessionAdherence';
 import { formatDailyIntro } from '../services/selectors/dailyIntro';
 import { getPracticedDayKeys } from '../services/selectors/practicedDays';
+import { getCompletedTests } from '../services/selectors/completedTests';
+import { useFeatureFlag } from '../hooks/useFeatureFlag';
 import CalendarMonth from './CalendarMonth';
 import TodaysTasksCard from './TodaysTasksCard';
 import {
@@ -88,8 +90,20 @@ const StudyPlanDashboard = ({
   onUncompleteActivity,
   studyPlanHistory,
   onSelectPlanVersion,
+  onReviewPastTests,
   answeredQuestionIds = [],
 }) => {
+  const pastTestReviewEnabled = useFeatureFlag('pastTestReview');
+  // Filter to attempts that actually have item-level telemetry — older
+  // attempts had `diagnosticData.questionDetails` stripped so the doc stayed
+  // under the Firestore 1MB limit, and surfacing them on the CTA misleads
+  // the user (they click in expecting wrong-items breakdown and hit empty).
+  const completedTestCount = useMemo(
+    () => getCompletedTests(practiceTestResults, { requireItemDetails: true }).length,
+    [practiceTestResults],
+  );
+  const showReviewTestsButton =
+    pastTestReviewEnabled && completedTestCount > 0 && typeof onReviewPastTests === 'function';
   const [expandedWeek, setExpandedWeek] = useState(null);
   const [deltaDismissed, setDeltaDismissed] = useState(() =>
     !!studyPlanMeta?.artifactId && !!localStorage.getItem(`dismissedDelta:${studyPlanMeta.artifactId}`)
@@ -537,6 +551,31 @@ const StudyPlanDashboard = ({
             }}
             onTakeTest={onStartPracticeTest}
           />
+
+          {/* Past-Test-Review entry (Phase 6 of PAST_TEST_REVIEW_PLAN.md) —
+              gated by feature flag + at-least-one-completed-test so we never
+              surface an empty surface. Behind ff so the gauntlet ships off. */}
+          {showReviewTestsButton && (
+            <div className="sp-past-test-review-cta">
+              <button
+                type="button"
+                className="sp-past-test-review-btn"
+                onClick={onReviewPastTests}
+                aria-label="Open the past test review surface"
+              >
+                <span className="sp-past-test-review-icon" aria-hidden="true">📋</span>
+                <span className="sp-past-test-review-text">
+                  <span className="sp-past-test-review-title">Review your tests</span>
+                  <span className="sp-past-test-review-sub">
+                    {completedTestCount === 1
+                      ? 'See every wrong answer explained from your test'
+                      : `See every wrong answer explained from your ${completedTestCount} tests`}
+                  </span>
+                </span>
+                <span className="sp-past-test-review-chev" aria-hidden="true">›</span>
+              </button>
+            </div>
+          )}
 
           {(todaySlice?.kind === 'rest-day'
             || todaySlice?.kind === 'all-done'

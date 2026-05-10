@@ -364,3 +364,25 @@
   padding: 24px 16px;
   font-size: 14px;
 }
+
+/* Snapshot-missing notice — appears when a legacy attempt didn't write
+   a per-attempt subcollection snapshot, so we're showing live test content
+   instead of what the student originally saw. */
+.trd-snapshot-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px;
+  margin: 14px 0;
+  background: #fef3c7;
+  border: 1px solid #fbbf24;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #92400e;
+  line-height: 1.55;
+}
+.trd-snapshot-warning-icon {
+  flex-shrink: 0;
+  font-size: 16px;
+  line-height: 1.4;
+}

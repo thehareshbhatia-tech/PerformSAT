@@ -1250,3 +1250,58 @@
   background: var(--color-slate-50);
   border-color: var(--color-slate-300);
 }
+/* ────────────────────────────────────────────────────────────────────
+   Past-Test-Review CTA — appears below TodaysTasksCard when the
+   pastTestReview feature flag is on AND the student has ≥1 completed
+   test. Wired in Phase 6 of PAST_TEST_REVIEW_PLAN.md.
+   ────────────────────────────────────────────────────────────────── */
+.sp-past-test-review-cta {
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+.sp-past-test-review-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: #fff;
+  border: 1px solid var(--color-slate-200, #e2e8f0);
+  border-radius: 14px;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+.sp-past-test-review-btn:hover {
+  border-color: var(--color-brand-primary, #ea580c);
+  background: #fff7ed;
+}
+.sp-past-test-review-btn:active {
+  transform: translateY(1px);
+}
+.sp-past-test-review-icon {
+  font-size: 22px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.sp-past-test-review-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.sp-past-test-review-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+.sp-past-test-review-sub {
+  font-size: 12.5px;
+  color: #6b7280;
+}
+.sp-past-test-review-chev {
+  color: var(--color-brand-primary, #ea580c);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1;
+}
