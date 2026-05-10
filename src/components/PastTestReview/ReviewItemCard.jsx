@@ -32,12 +32,14 @@ import './ReviewItemCard.css';
  *                                         difficulty, skills, moduleIndex, questionIndex }
  * @param {string|null} props.studentAnswer
  * @param {boolean} props.isCorrect
- * @param {string|null} [props.errorClass]   from groupItemsByErrorClass
+ * @param {string|null} [props.errorClass]      from groupItemsByErrorClass
  * @param {number|null} [props.timeSpent]
  * @param {string|null} [props.testTitle]
- * @param {() => void} [props.onTrySimilar]
- * @param {() => void} [props.onPrev]
- * @param {() => void} [props.onNext]
+ * @param {boolean} [props.snapshotMissing=false]  legacy attempt — banner
+ *                                                 appears, "Your answer"
+ *                                                 falls back to "(not recorded)".
+ * @param {() => void} [props.onPrev]            navigate to prior item
+ * @param {() => void} [props.onNext]            navigate to next item
  * @param {() => void} [props.onBack]
  */
 function ReviewItemCard({
@@ -47,7 +49,7 @@ function ReviewItemCard({
   errorClass = null,
   timeSpent = null,
   testTitle = null,
-  onTrySimilar,
+  snapshotMissing = false,
   onPrev,
   onNext,
   onBack,
@@ -94,6 +96,17 @@ function ReviewItemCard({
         </div>
       </header>
 
+      {/* Snapshot-missing notice — surface that this is reconstructed
+          content (legacy attempt without per-attempt subcollection). */}
+      {snapshotMissing && (
+        <div className="ric-snapshot-warning" role="status" data-testid="ric-snapshot-missing">
+          <span className="ric-snapshot-warning-icon" aria-hidden="true">⚠</span>
+          <span>
+            Original question text isn't archived for this attempt — content shown is from the current test (may differ from what you saw).
+          </span>
+        </div>
+      )}
+
       {/* Stem */}
       <div className="ric-stem">
         <MathText text={stemText} />
@@ -118,7 +131,7 @@ function ReviewItemCard({
           <div className="ric-fill-row">
             <span className="ric-fill-label">Your answer:</span>
             <span className={`ric-fill-value ${isCorrect ? 'is-correct' : 'is-wrong'}`}>
-              {studentAnswer || '(blank)'}
+              {studentAnswer || (snapshotMissing ? '(not recorded)' : '(blank)')}
             </span>
           </div>
           <div className="ric-fill-row">
@@ -153,29 +166,24 @@ function ReviewItemCard({
         </div>
       )}
 
-      {/* CTA row */}
-      <div className="ric-cta-row">
-        {onPrev && (
-          <button type="button" className="ric-nav ric-nav-prev" onClick={onPrev} aria-label="Previous item">
-            ← Previous
-          </button>
-        )}
-        {onTrySimilar && (
-          <button
-            type="button"
-            className="ric-cta ric-cta-primary"
-            onClick={onTrySimilar}
-            aria-label="Try a similar practice question"
-          >
-            Try a similar question →
-          </button>
-        )}
-        {onNext && (
-          <button type="button" className="ric-nav ric-nav-next" onClick={onNext} aria-label="Next item">
-            Next →
-          </button>
-        )}
-      </div>
+      {/* CTA row — Prev/Next navigate within the wrong-items list. The
+          Try-Similar CTA is intentionally not here; retry-drill (which
+          AssignedPracticeShell already supports with reviewMode) covers
+          the "I want more practice on this skill" flow. */}
+      {(onPrev || onNext) && (
+        <div className="ric-cta-row">
+          {onPrev ? (
+            <button type="button" className="ric-nav ric-nav-prev" onClick={onPrev} aria-label="Previous item">
+              ← Previous
+            </button>
+          ) : <span className="ric-nav-spacer" aria-hidden="true" />}
+          {onNext && (
+            <button type="button" className="ric-nav ric-nav-next" onClick={onNext} aria-label="Next item">
+              Next →
+            </button>
+          )}
+        </div>
+      )}
     </section>
   );
 }

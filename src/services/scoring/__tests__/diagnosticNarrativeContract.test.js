@@ -1,3 +1,14 @@
+// `diagnosticNarrativeService` transitively imports `src/firebase/config.js`
+// which calls getAuth(app) at module load. In Jest there is no .env.local
+// API key, so initialization throws (auth/invalid-api-key). The contract
+// tested here is a pure serialization shape — no Firebase reads. Stub the
+// firebase config module so the import chain resolves silently.
+jest.mock('../../../firebase/config', () => ({
+  auth: {},
+  db: {},
+  default: {},
+}));
+
 import { serializeForNarrative } from '../../diagnosticNarrativeService';
 
 function buildReport(overrides = {}) {

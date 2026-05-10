@@ -41,3 +41,8 @@ scripts/serviceAccountKey.json
 scripts/generated/
 scripts/.last-content-tab-generation-report.json
 .gstack/
+
+# Playwright E2E
+/test-results/
+/playwright-report/
+/playwright/.cache/

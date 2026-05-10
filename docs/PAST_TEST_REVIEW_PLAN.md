@@ -260,3 +260,106 @@ This plan is small, builds on existing infrastructure, and has zero IP exposure.
 ## Time taken
 ~30 min (vs 1.5 hr estimate). Existing infrastructure was richer than the plan assumed.
 
+
+---
+
+# Phases 5-9 — COMPLETED (2026-05-10, same session)
+
+## Phase 5 — RetryDrillSurface (handler + reviewMode flag + banner)
+
+The plan called for a separate `RetryDrillSurface.jsx` component, but the
+mount tree didn't need one — the surface IS the existing `AssignedPracticeShell`
+rendered with a different `practiceState`. Avoiding the new component avoids
+a 5-line indirection that would need a parallel back/onRetry/onTrySimilar
+prop wiring.
+
+**What shipped:**
+- `App.jsx::startRetryDrillFromTest({ testId, testTitle, snapshotQuestions })` —
+  parallel to `startAssignedPractice`, but bypasses `resolveAssignedQuestions`
+  because snapshot questions live OUTSIDE the production drill bank. Sets
+  `practiceState.reviewMode=true` and `assignmentMeta.source='past-test-review'`.
+- `AssignedPracticeShell` review-mode banner (between header + progress bar):
+  amber strip, "Review session — won't affect your study plan or skill mastery."
+- Completion screen back-button label flips to "Back to Review" in review mode.
+- `App.jsx` back-handler branches: `pastTestReviewBackHandler` routes review-mode
+  drills back to `view='pastTestReviewDetail'`; `studyPlanBackHandler` is the
+  default for study-plan drills.
+- `App.jsx` onRetry branches: review-mode replays the same snapshot questions
+  via `startRetryDrillFromTest` (because the IDs aren't bank-resolvable).
+
+**Already-safe constraints (no extra guards needed):**
+- `recordPracticeAttempt` at the completion handler is gated by
+  `!isAdaptiveOrAssigned`, so review-mode attempts don't pollute skill
+  mastery counters.
+- `buildGroundTruthDiagnosis` lives in `PracticeTest.jsx`, not in the drill
+  flow — review-mode drill completion can't inflate Predicted vs Actual.
+
+## Phase 6 — Wire entry button + view routing
+
+**Three new view branches in App.jsx:**
+- `view === 'pastTestReviewIndex'` → `<PastTestReviewIndex />` (the test list)
+- `view === 'pastTestReviewDetail'` → `<TestReviewDetail />` with async-loaded
+  `reviewBundle` (= `loadDiagnosticReportData` result). Shows loading/error
+  states managed by the component.
+- `view === 'pastTestReviewItem'` → `<ReviewItemCard />` for a single item;
+  looks up `snapshotItem` and `studentAnswer` from the in-memory bundle.
+
+**Entry button:** added to `StudyPlanDashboard.jsx` below `<TodaysTasksCard />`,
+gated by `useFeatureFlag('pastTestReview')` AND `getCompletedTests(...).length > 0`
+(no empty-state surfacing). Prop forwarded through `StudentDashboard.jsx` so
+the button appears on both the immersive Study Plan view and the Study Plan
+tab inside the dashboard.
+
+**Async fetch flow:** `handleSelectReviewTest` calls existing
+`loadDiagnosticReportData` (which already handles the snapshot
+subcollection + legacy fallback). The bundle is reused by both
+`TestReviewDetail` and `ReviewItemCard` so the snapshot fetch runs once.
+
+## Phase 7 — Telemetry
+
+5 events wired (skipped `try_similar` — Try-Similar wiring on
+`ReviewItemCard` is deferred to a follow-up):
+
+```
+[performsat:pastTestReview] opened          { studentId }
+[performsat:pastTestReview] test_selected   { studentId, testId, attemptId, completedAt }
+[performsat:pastTestReview] item_reviewed   { studentId, testId, itemKey, isCorrect, errorClass }
+[performsat:pastTestReview] retry_started   { studentId, testId, wrongCount }
+[performsat:pastTestReview] retry_completed { studentId, testId, wrongCount, newCorrectCount }
+```
+
+Pre-shaped for analytics integration. `logInfo`-scoped — silenced in prod
+unless `localStorage['performsat:logVerbose']='1'`.
+
+## Phase 8 — Tests
+
+**Refactor:** extracted `findErrorClassForItem(item, attempt, diagnosticReport)`
+into `services/selectors/completedTests.js` to remove a 5-line lookup
+duplicated across `handleSelectReviewItem` (telemetry) and the
+`view==='pastTestReviewItem'` render branch.
+
+**5 new unit tests** in `__tests__/completedTests.test.js`:
+- Resolves class for items whose skill is in `weakSkills`
+- Resolves class when multiple skills/classes are present
+- Returns `'mixed'` for items whose skill is NOT in `weakSkills`
+- Returns `null` for missing inputs (item, attempt, empty item)
+- Returns `null` for an item key not present in the attempt
+
+**Final test count:** 833 passing across 35 suites (+5 from baseline 828).
+The 2 pre-existing baseline failures (`diagnosticAdapter.test.js` transitions
+block + `diagnosticNarrativeContract.test.js` Firebase/undici jest issue)
+are unchanged — both predate this work.
+
+**Manual smoke deferred to user post-push:** the seed already includes a
+completed test, so `localStorage.setItem('ff:pastTestReview', '1')` + reload
+exposes the surface for dogfood.
+
+## Phase 9 — Ship
+
+Single feature commit on origin/main, no version bump.
+
+## Time taken
+
+~2 hours, end-to-end across Phases 5-9. App.jsx being 2.4k lines (vs 11k
+the plan assumed) made the wiring much cleaner than estimated — no
+DashboardShell extraction needed.

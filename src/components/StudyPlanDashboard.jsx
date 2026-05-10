@@ -14,6 +14,8 @@ import { getTodaySlice } from '../services/studyPlanGenerator';
 import { getSessionAdherence } from '../services/selectors/sessionAdherence';
 import { formatDailyIntro } from '../services/selectors/dailyIntro';
 import { getPracticedDayKeys } from '../services/selectors/practicedDays';
+import { getCompletedTests } from '../services/selectors/completedTests';
+import { useFeatureFlag } from '../hooks/useFeatureFlag';
 import CalendarMonth from './CalendarMonth';
 import TodaysTasksCard from './TodaysTasksCard';
 import {
@@ -88,25 +90,16 @@ const StudyPlanDashboard = ({
   onUncompleteActivity,
   studyPlanHistory,
   onSelectPlanVersion,
+  onReviewPastTests,
   answeredQuestionIds = [],
 }) => {
-  const [expandedWeek, setExpandedWeek] = useState(null);
-  const [deltaDismissed, setDeltaDismissed] = useState(() =>
-    !!studyPlanMeta?.artifactId && !!localStorage.getItem(`dismissedDelta:${studyPlanMeta.artifactId}`)
-  );
-  // Acely-polish v2: top-level sub-tabs ("Today's Tasks" / "Weekly View")
-  // matching the reference. Default to Today's Tasks (the day-grain view).
-  // When mounted inside another tab structure (variant='inline'), the sub-
-  // tabs are hidden and we always render the weekly content — the outer
-  // tab is already labeled 'Study Plan' so the day-grain branch is
-  // redundant in that mount.
-  const showSubTabs = variant !== 'inline';
-  const [activeView, setActiveView] = useState(
-    variant === 'inline' ? 'weeklyView' : 'todaysTasks'
-  );
-  const [showAllSkillChanges, setShowAllSkillChanges] = useState(false);
-
-  // ── Empty state ──────────────────────────────────────────────────────
+  // ── Empty state — return BEFORE any hooks ─────────────────────────────
+  // Rules of Hooks: hooks must be called in the same order every render.
+  // The component has many hooks; if studyPlan transitions from undefined
+  // (loading from Firestore) to defined (loaded), and we ran some hooks
+  // before this early return, the second render would call MORE hooks
+  // and React panics with "Rendered more hooks than during the previous
+  // render." Returning early before any hook keeps the order consistent.
   if (!studyPlan || !studyPlan.weeks || studyPlan.weeks.length === 0) {
     return (
       <div className="study-plan-dashboard">
@@ -130,6 +123,23 @@ const StudyPlanDashboard = ({
     );
   }
 
+  // ── Hooks (all below the empty-state early return) ──────────────────
+  const [expandedWeek, setExpandedWeek] = useState(null);
+  const [deltaDismissed, setDeltaDismissed] = useState(() =>
+    !!studyPlanMeta?.artifactId && !!localStorage.getItem(`dismissedDelta:${studyPlanMeta.artifactId}`)
+  );
+  // Acely-polish v2: top-level sub-tabs ("Today's Tasks" / "Weekly View")
+  // matching the reference. Default to Today's Tasks (the day-grain view).
+  // When mounted inside another tab structure (variant='inline'), the sub-
+  // tabs are hidden and we always render the weekly content — the outer
+  // tab is already labeled 'Study Plan' so the day-grain branch is
+  // redundant in that mount.
+  const showSubTabs = variant !== 'inline';
+  const [activeView, setActiveView] = useState(
+    variant === 'inline' ? 'weeklyView' : 'todaysTasks'
+  );
+  const [showAllSkillChanges, setShowAllSkillChanges] = useState(false);
+
   // ── Derived data ─────────────────────────────────────────────────────
   // Render-time guard: legacy plan artifacts in Firestore may still
   // carry type='lesson' activities — those routed to the legacy
@@ -149,6 +159,25 @@ const StudyPlanDashboard = ({
   const progressPercent = totalActivities > 0 ? Math.round((completedActivities / totalActivities) * 100) : 0;
   const currentWeekIndex = weeks.findIndex(w => visibleActivities(w).some(a => !a.completed));
   const displayCurrentWeek = currentWeekIndex >= 0 ? currentWeekIndex : weeks.length - 1;
+
+  // Past-Test-Review CTA gate. Hooks live here (after the empty-state
+  // early return) instead of at the top of the component to keep the
+  // hook order consistent across the loading→loaded transition. Putting
+  // them above the early return shifts the hook count between renders
+  // and trips React's "Rendered more hooks than during the previous
+  // render" check the first time studyPlan hydrates from Firestore.
+  const pastTestReviewEnabled = useFeatureFlag('pastTestReview');
+  // Filter to attempts that actually have item-level telemetry — older
+  // attempts had `diagnosticData.questionDetails` stripped so the doc
+  // stayed under the Firestore 1MB limit, and surfacing them on the CTA
+  // misleads the user (they click in expecting wrong-items breakdown and
+  // hit empty).
+  const completedTestCount = useMemo(
+    () => getCompletedTests(practiceTestResults, { requireItemDetails: true }).length,
+    [practiceTestResults],
+  );
+  const showReviewTestsButton =
+    pastTestReviewEnabled && completedTestCount > 0 && typeof onReviewPastTests === 'function';
 
   // Acely-polish v2: right-rail derived state.
   const practicedDayKeys = useMemo(
@@ -537,6 +566,30 @@ const StudyPlanDashboard = ({
             }}
             onTakeTest={onStartPracticeTest}
           />
+
+          {/* Past-Test-Review entry (Phase 6 of PAST_TEST_REVIEW_PLAN.md) —
+              gated by feature flag + at-least-one-completed-test so we never
+              surface an empty surface. Behind ff so the gauntlet ships off. */}
+          {showReviewTestsButton && (
+            <div className="sp-past-test-review-cta">
+              <button
+                type="button"
+                className="sp-past-test-review-btn"
+                onClick={onReviewPastTests}
+              >
+                <span className="sp-past-test-review-icon" aria-hidden="true">📋</span>
+                <span className="sp-past-test-review-text">
+                  <span className="sp-past-test-review-title">Review your tests</span>
+                  <span className="sp-past-test-review-sub">
+                    {completedTestCount === 1
+                      ? 'See every wrong answer explained from your test'
+                      : `See every wrong answer explained from your ${completedTestCount} tests`}
+                  </span>
+                </span>
+                <span className="sp-past-test-review-chev" aria-hidden="true">›</span>
+              </button>
+            </div>
+          )}
 
           {(todaySlice?.kind === 'rest-day'
             || todaySlice?.kind === 'all-done'

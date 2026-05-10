@@ -250,3 +250,26 @@
   color: #991b1b;
   text-align: center;
 }
+
+/* Snapshot-missing notice (mirrors TestReviewDetail's variant). */
+.ric-snapshot-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  margin-bottom: 14px;
+  background: #fef3c7;
+  border: 1px solid #fbbf24;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #92400e;
+  line-height: 1.5;
+}
+.ric-snapshot-warning-icon {
+  flex-shrink: 0;
+  font-size: 15px;
+  line-height: 1.4;
+}
+.ric-nav-spacer {
+  flex: 1;
+}

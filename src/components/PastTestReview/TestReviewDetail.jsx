@@ -31,6 +31,10 @@ import './TestReviewDetail.css';
  * @param {object|null} [props.diagnosticReport]   for skill→errorClass mapping
  * @param {boolean} [props.loading=false]
  * @param {string|null} [props.error=null]
+ * @param {boolean} [props.snapshotMissing=false]  legacy attempt with no
+ *                  per-attempt subcollection snapshot — content shown is
+ *                  reconstructed from the live test (may differ from what
+ *                  the student originally saw); retry CTA is disabled.
  * @param {(item: object) => void} [props.onSelectItem]
  * @param {(wrongItems: Array) => void} [props.onRetryWrong]
  * @param {() => void} [props.onBack]
@@ -41,6 +45,7 @@ function TestReviewDetail({
   diagnosticReport = null,
   loading = false,
   error = null,
+  snapshotMissing = false,
   onSelectItem,
   onRetryWrong,
   onBack,
@@ -135,6 +140,20 @@ function TestReviewDetail({
         <Stat value={`${stats.total}`} label="Total" />
       </div>
 
+      {/* Snapshot-missing notice — legacy attempts that don't have a
+          per-attempt snapshot show questions reconstructed from the live
+          test. Content may have been edited since the attempt. */}
+      {snapshotMissing && (
+        <div className="trd-snapshot-warning" role="status" data-testid="trd-snapshot-missing">
+          <span className="trd-snapshot-warning-icon" aria-hidden="true">⚠</span>
+          <span>
+            <strong>Original question text isn't archived for this attempt.</strong>{' '}
+            Content shown is from the current test (may differ from what you saw).
+            Retry isn't available.
+          </span>
+        </div>
+      )}
+
       {/* Module score row (only if multi-module) */}
       {Array.isArray(attempt.moduleScores) && attempt.moduleScores.length > 1 && (
         <div className="trd-modules">
@@ -181,7 +200,7 @@ function TestReviewDetail({
           <FilterTab active={filter === 'all'}    onClick={() => setFilter('all')}    label={`All (${allItems.length})`} />
           <FilterTab active={filter === 'wrong'}  onClick={() => setFilter('wrong')}  label={`Wrong (${wrongItems.length})`} />
         </div>
-        {wrongItems.length > 0 && onRetryWrong && (
+        {wrongItems.length > 0 && onRetryWrong && !snapshotMissing && (
           <button
             type="button"
             className="trd-retry-cta"

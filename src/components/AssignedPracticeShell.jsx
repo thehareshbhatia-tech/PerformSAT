@@ -316,7 +316,7 @@ const AssignedPracticeShell = ({
             padding: '14px 28px', borderRadius: '12px', border: 'none',
             background: C.brand, color: C.white, fontSize: '15px', fontWeight: '600', cursor: 'pointer',
           }}>
-            Back to Study Plan
+            {practiceState.reviewMode ? 'Back to Review' : 'Back to Study Plan'}
           </button>
         </div>
       </div>
@@ -379,6 +379,26 @@ const AssignedPracticeShell = ({
           </button>
         </div>
       </div>
+
+      {/* ── REVIEW-MODE BANNER (Phase 5 of PAST_TEST_REVIEW_PLAN.md) ── */}
+      {practiceState.reviewMode && (
+        <div
+          role="status"
+          aria-live="polite"
+          style={{
+            background: '#fef3c7', border: `1px solid ${C.warning}`, borderRadius: '10px',
+            padding: '8px 14px', marginBottom: '10px',
+            display: 'flex', alignItems: 'center', gap: '10px',
+            fontSize: '12.5px', color: '#92400e',
+          }}
+        >
+          <span aria-hidden="true">👁</span>
+          <span>
+            <strong>Review session.</strong>{' '}
+            This won't affect your study plan or skill mastery.
+          </span>
+        </div>
+      )}
 
       {/* ── PROGRESS BAR ── */}
       <div style={{ marginBottom: '10px', padding: '0 4px' }}>

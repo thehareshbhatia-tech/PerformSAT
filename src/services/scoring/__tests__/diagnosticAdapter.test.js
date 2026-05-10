@@ -1358,8 +1358,8 @@ describe('buildNarrativeFlow', () => {
       expect(last.id).toBe('nextMove');
     });
 
-    it('blocks follow strict order: context -> metaStrip -> behaviorAmplifier -> evidence -> nextMove', () => {
-      const order = ['context', 'metaStrip', 'behaviorAmplifier', 'evidence', 'nextMove'];
+    it('blocks follow strict order: context -> metaStrip -> behaviorAmplifier -> remediationPath -> evidence -> nextMove', () => {
+      const order = ['context', 'metaStrip', 'behaviorAmplifier', 'remediationPath', 'evidence', 'nextMove'];
       const ids = flow.blocks.map(b => b.id);
       let lastIdx = -1;
       ids.forEach(id => {

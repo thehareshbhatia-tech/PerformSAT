@@ -13,6 +13,7 @@ import {
   extractItemsFromAttempt,
   getWrongItems,
   groupItemsByErrorClass,
+  findErrorClassForItem,
   computeReviewStats,
 } from '../completedTests';
 
@@ -296,5 +297,119 @@ describe('computeReviewStats', () => {
       },
     });
     expect(computeReviewStats(attempt).accuracy).toBe(67); // 2/3 = 66.66... → 67
+  });
+});
+
+describe('getCompletedTests requireItemDetails option', () => {
+  it('keeps tests with diagnosticData.questionDetails', () => {
+    const ptr = {
+      'pt-1': {
+        attempts: [
+          makeAttempt({
+            diagnosticData: {
+              questionDetails: makeQuestionDetails([
+                { module: 0, question: 0, correct: true },
+              ]),
+            },
+          }),
+        ],
+      },
+    };
+    expect(getCompletedTests(ptr, { requireItemDetails: true })).toHaveLength(1);
+    expect(getCompletedTests(ptr, { requireItemDetails: true })[0].hasItemDetails).toBe(true);
+  });
+
+  it('drops tests whose latest attempt has no questionDetails', () => {
+    const ptr = {
+      'pt-1': { attempts: [makeAttempt()] }, // diagnosticData omitted
+    };
+    expect(getCompletedTests(ptr, { requireItemDetails: true })).toEqual([]);
+    // But the no-filter path keeps it for the count
+    expect(getCompletedTests(ptr)).toHaveLength(1);
+    expect(getCompletedTests(ptr)[0].hasItemDetails).toBe(false);
+  });
+
+  it('drops tests whose questionDetails is an empty object', () => {
+    const ptr = {
+      'pt-1': { attempts: [makeAttempt({ diagnosticData: { questionDetails: {} } })] },
+    };
+    expect(getCompletedTests(ptr, { requireItemDetails: true })).toEqual([]);
+  });
+});
+
+describe('findErrorClassForItem', () => {
+  const attemptWithSkills = () => makeAttempt({
+    diagnosticData: {
+      questionDetails: {
+        '0-0': { isCorrect: false, timeSpent: 30, skills: ['slope-intercept-form'] },
+        '0-1': { isCorrect: false, timeSpent: 12, skills: ['linear-equations'] },
+        '0-2': { isCorrect: false, timeSpent: 30, skills: ['unknown-skill'] },
+      },
+    },
+  });
+  const diagReport = {
+    skillAnalysis: {
+      weakSkills: [
+        { skillId: 'slope-intercept-form', primaryErrorType: 'conceptual_gap' },
+        { skillId: 'linear-equations', primaryErrorType: 'time_pressure' },
+      ],
+    },
+  };
+
+  it('returns the class for an item whose skill is in weakSkills', () => {
+    const items = extractItemsFromAttempt(attemptWithSkills());
+    const target = items.find(i => i.key === '0-0');
+    expect(findErrorClassForItem(target, attemptWithSkills(), diagReport)).toBe('conceptual_gap');
+  });
+
+  it('returns the right class when multiple skills/classes are present', () => {
+    const items = extractItemsFromAttempt(attemptWithSkills());
+    const target = items.find(i => i.key === '0-1');
+    expect(findErrorClassForItem(target, attemptWithSkills(), diagReport)).toBe('time_pressure');
+  });
+
+  it('returns the mixed bucket for items whose skill is not in weakSkills', () => {
+    const items = extractItemsFromAttempt(attemptWithSkills());
+    const target = items.find(i => i.key === '0-2');
+    expect(findErrorClassForItem(target, attemptWithSkills(), diagReport)).toBe('mixed');
+  });
+
+  it('returns null for missing inputs', () => {
+    expect(findErrorClassForItem(null, attemptWithSkills(), diagReport)).toBeNull();
+    expect(findErrorClassForItem({ key: '0-0' }, null, diagReport)).toBeNull();
+    expect(findErrorClassForItem({}, attemptWithSkills(), diagReport)).toBeNull();
+  });
+
+  it('returns null for an item key not present in the attempt', () => {
+    expect(findErrorClassForItem({ key: '99-99' }, attemptWithSkills(), diagReport)).toBeNull();
+  });
+
+  it('accepts a precomputed groups object as the second arg (fast shape)', () => {
+    const items = extractItemsFromAttempt(attemptWithSkills());
+    const groups = groupItemsByErrorClass(items, diagReport);
+    const target = items.find(i => i.key === '0-0');
+    // Same answer, no rebuild — the function detects this is a groups
+    // object (no `attemptId`/`diagnosticData`/`completedAt` keys) and
+    // skips the extract+group rebuild.
+    expect(findErrorClassForItem(target, groups)).toBe('conceptual_gap');
+  });
+
+  it('returns the class for CORRECT items too — callers must guard isCorrect', () => {
+    // The 6-class taxonomy is meaningless for items the student got right,
+    // but the helper itself doesn't filter on isCorrect — it returns
+    // whatever class the item's skill maps to. Callers (telemetry,
+    // ReviewItemCard chip) are responsible for hiding the value when
+    // isCorrect is true. This test pins the contract.
+    const correctItemAttempt = makeAttempt({
+      diagnosticData: {
+        questionDetails: {
+          '0-0': { isCorrect: true, timeSpent: 30, skills: ['slope-intercept-form'] },
+        },
+      },
+    });
+    const items = extractItemsFromAttempt(correctItemAttempt);
+    const target = items.find(i => i.key === '0-0');
+    expect(target.isCorrect).toBe(true);
+    expect(findErrorClassForItem(target, correctItemAttempt, diagReport)).toBe('conceptual_gap');
   });
 });
