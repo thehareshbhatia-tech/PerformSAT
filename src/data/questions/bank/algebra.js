@@ -384,7 +384,15 @@ export const algebraBank = [
     skills: ['table-to-equation'],
     difficulty: 'easy',
     type: 'multiple-choice',
-    question: 'A plant\'s height is recorded over several weeks:\n| Week | Height (cm) |\n|------|-------------|\n| 1 | 8 |\n| 3 | 14 |\n| 5 | 20 |\nWhich equation relates height $h$ to week $w$?',
+    question: 'A plant\'s height is recorded over several weeks. Which equation relates height $h$ to week $w$?',
+    questionTable: {
+      headers: ['Week', 'Height (cm)'],
+      rows: [
+        ['1', '8'],
+        ['3', '14'],
+        ['5', '20'],
+      ],
+    },
     choices: [
       { id: 'A', text: '$h = 3w + 5$' },
       { id: 'B', text: '$h = 5w + 3$' },
@@ -405,7 +413,15 @@ export const algebraBank = [
     skills: ['table-to-equation'],
     difficulty: 'easy',
     type: 'multiple-choice',
-    question: 'Temperature readings are taken over time:\n| Hour | Temp (°F) |\n|------|-----------|\n| 0 | 58 |\n| 2 | 64 |\n| 4 | 70 |\nWhich function models temperature $T$ at hour $h$?',
+    question: 'Temperature readings are taken over time. Which function models temperature $T$ at hour $h$?',
+    questionTable: {
+      headers: ['Hour', 'Temp (°F)'],
+      rows: [
+        ['0', '58'],
+        ['2', '64'],
+        ['4', '70'],
+      ],
+    },
     choices: [
       { id: 'A', text: '$T = 3h + 58$' },
       { id: 'B', text: '$T = 6h + 58$' },
@@ -426,7 +442,15 @@ export const algebraBank = [
     skills: ['table-to-equation'],
     difficulty: 'medium',
     type: 'multiple-choice',
-    question: 'A coffee shop tracks daily revenue:\n| Day | Revenue ($) |\n|-----|-------------|\n| 2 | 340 |\n| 5 | 520 |\n| 8 | 700 |\nIf $R = ad + b$, what is $b$?',
+    question: 'A coffee shop tracks daily revenue. If $R = ad + b$, what is $b$?',
+    questionTable: {
+      headers: ['Day', 'Revenue (dollars)'],
+      rows: [
+        ['2', '340'],
+        ['5', '520'],
+        ['8', '700'],
+      ],
+    },
     choices: [
       { id: 'A', text: '200' },
       { id: 'B', text: '220' },
@@ -447,7 +471,15 @@ export const algebraBank = [
     skills: ['table-to-equation'],
     difficulty: 'medium',
     type: 'multiple-choice',
-    question: 'Data points are given:\n| $x$ | $f(x)$ |\n|-----|--------|\n| $-2$ | 13 |\n| 1 | 4 |\n| 4 | $-5$ |\nWhich function fits the data?',
+    question: 'Data points are given. Which function fits the data?',
+    questionTable: {
+      headers: ['$x$', '$f(x)$'],
+      rows: [
+        ['$-2$', '13'],
+        ['1', '4'],
+        ['4', '$-5$'],
+      ],
+    },
     choices: [
       { id: 'A', text: '$f(x) = -3x + 7$' },
       { id: 'B', text: '$f(x) = 3x + 7$' },
