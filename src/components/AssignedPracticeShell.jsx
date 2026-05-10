@@ -5,6 +5,7 @@ import QuestionRenderer from './QuestionRenderer';
 import SolutionExplanation from './SolutionExplanation';
 import AiTutorChat from './AiTutorChat';
 import HandAuthoredStamp from './HandAuthoredStamp';
+import AnswerChoiceList from './shared/AnswerChoiceList';
 import { formatDiagnosticSentence } from '../services/diagnosticEngine';
 import { findRoundIndexForQuestion, computeRoundProgress } from '../services/buildRounds';
 import './AssignedPracticeShell.css';
@@ -475,8 +476,16 @@ const AssignedPracticeShell = ({
             </div>
           )}
 
-          {/* Question text */}
-          <div style={{ fontSize: '17px', fontWeight: '500', color: C.text, lineHeight: '1.6', marginBottom: '24px' }}>
+          {/* Question text — serif (Times) to match the official Bluebook
+              test stem; same family the shared AnswerChoiceList uses. */}
+          <div style={{
+            fontFamily: "'Times New Roman', 'Georgia', 'Cambria', serif",
+            fontSize: '17px',
+            fontWeight: '400',
+            color: C.text,
+            lineHeight: '1.7',
+            marginBottom: '24px',
+          }}>
             {Array.isArray(currentQuestion.question) || (currentQuestion.question && typeof currentQuestion.question === 'object')
               ? <QuestionRenderer content={currentQuestion.question} />
               : <MathText>{currentQuestion.question}</MathText>
@@ -505,7 +514,13 @@ const AssignedPracticeShell = ({
 
           {/* Continued text */}
           {currentQuestion.questionContinued && (
-            <div style={{ fontSize: '16px', color: C.text, lineHeight: '1.6', marginBottom: '20px' }}>
+            <div style={{
+              fontFamily: "'Times New Roman', 'Georgia', 'Cambria', serif",
+              fontSize: '16px',
+              color: C.text,
+              lineHeight: '1.7',
+              marginBottom: '20px',
+            }}>
               {Array.isArray(currentQuestion.questionContinued) || (typeof currentQuestion.questionContinued === 'object')
                 ? <QuestionRenderer content={currentQuestion.questionContinued} />
                 : <MathText>{currentQuestion.questionContinued}</MathText>
@@ -513,114 +528,18 @@ const AssignedPracticeShell = ({
             </div>
           )}
 
-          {/* ── Answer choices (inline below question) ── */}
+          {/* ── Answer choices (shared component — same look as the
+                full mock test, driven by AnswerChoiceList.css) ── */}
           <div style={{ borderTop: `1px solid ${C.border}`, paddingTop: '20px' }}>
-            <div>
-            {currentQuestion.choices?.map((choice) => {
-              const isSelected = practiceState.selectedAnswer === choice.id;
-              const isCorrect = choice.id === currentQuestion.correctAnswer;
-              const showResult = practiceState.showFeedback;
-              const isEliminated = eliminated.includes(choice.id);
-
-              let borderColor = C.border;
-              let bgColor = C.white;
-
-              if (showResult) {
-                if (isCorrect) { borderColor = C.success; bgColor = C.successBg; }
-                else if (isSelected && !isCorrect) { borderColor = C.error; bgColor = C.errorBg; }
-              } else if (isSelected && !isEliminated) {
-                borderColor = C.brand; bgColor = C.brandLight;
-              }
-
-              return (
-                <div
-                  key={choice.id}
-                  onClick={() => !showResult && !isEliminated && onSelectAnswer(choice.id)}
-                  style={{
-                    padding: '14px 18px', borderRadius: '10px',
-                    border: `2px solid ${borderColor}`, background: bgColor,
-                    cursor: showResult || isEliminated ? 'default' : 'pointer',
-                    marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '12px',
-                    transition: 'all 0.15s', opacity: isEliminated && !showResult ? 0.4 : 1,
-                    textDecoration: isEliminated && !showResult ? 'line-through' : 'none',
-                    position: 'relative',
-                  }}
-                >
-                  {/* Eliminate button */}
-                  {!showResult && (
-                    <button
-                      onClick={(e) => { e.stopPropagation(); handleToggleEliminate(choice.id); }}
-                      title={isEliminated ? 'Undo cross-out' : 'Cross out'}
-                      style={{
-                        position: 'absolute', top: '6px', right: '6px',
-                        background: 'none', border: 'none', cursor: 'pointer',
-                        color: isEliminated ? C.error : C.textMuted, fontSize: '10px', padding: '2px',
-                        opacity: 0.6,
-                      }}
-                    >
-                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                        <line x1="2" y1="2" x2="10" y2="10" />
-                        <line x1="10" y1="2" x2="2" y2="10" />
-                      </svg>
-                    </button>
-                  )}
-
-                  <span style={{
-                    width: '28px', height: '28px', borderRadius: '6px',
-                    background: showResult
-                      ? (isCorrect ? C.success : isSelected ? C.error : '#f5f5f7')
-                      : (isSelected && !isEliminated ? C.brand : '#f5f5f7'),
-                    color: (showResult && (isCorrect || isSelected)) || (isSelected && !isEliminated) ? C.white : C.textSec,
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    fontSize: '13px', fontWeight: '700', flexShrink: 0,
-                  }}>
-                    {showResult && isCorrect ? '✓' : showResult && isSelected && !isCorrect ? '✗' : choice.id}
-                  </span>
-                  <span style={{ fontSize: '15px', color: C.text, display: 'flex', alignItems: 'center', flex: 1 }}>
-                    {choice.table ? (
-                      <table style={{ borderCollapse: 'collapse', fontSize: '14px' }}>
-                        <thead>
-                          <tr>
-                            {choice.table.headers.map((h, i) => (
-                              <th key={i} style={{
-                                border: `1px solid ${C.border}`, padding: '4px 12px',
-                                background: '#f5f5f7', fontWeight: '600', fontStyle: 'italic'
-                              }}>{h}</th>
-                            ))}
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {choice.table.rows.map((row, i) => (
-                            <tr key={i}>
-                              {row.map((cell, j) => (
-                                <td key={j} style={{
-                                  border: `1px solid ${C.border}`, padding: '4px 12px', textAlign: 'center'
-                                }}>{cell}</td>
-                              ))}
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    ) : choice.fraction ? (
-                      <span style={{ display: 'inline-flex', alignItems: 'center' }}>
-                        {choice.text && <MathText>{choice.text}</MathText>}
-                        <span style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'center', marginLeft: choice.text ? '4px' : '0', fontFamily: 'Georgia, serif', fontStyle: 'italic' }}>
-                          <span style={{ padding: '0 4px' }}>{choice.fraction.numerator}</span>
-                          <span style={{ width: '100%', height: '1px', background: C.text, margin: '2px 0' }} />
-                          <span style={{ padding: '0 4px' }}>{choice.fraction.denominator}</span>
-                        </span>
-                        {choice.textAfter && <span style={{ marginLeft: '4px' }}>{choice.textAfter}</span>}
-                      </span>
-                    ) : Array.isArray(choice.text) || (choice.text && typeof choice.text === 'object') ? (
-                      <QuestionRenderer content={choice.text} />
-                    ) : (
-                      <MathText>{choice.text || ''}</MathText>
-                    )}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
+            <AnswerChoiceList
+              choices={currentQuestion.choices || []}
+              selectedId={practiceState.selectedAnswer}
+              eliminatedIds={eliminated}
+              showResult={practiceState.showFeedback}
+              correctId={currentQuestion.correctAnswer}
+              onSelect={onSelectAnswer}
+              onToggleEliminate={handleToggleEliminate}
+            />
 
           {/* Hint */}
           {currentQuestion.hint && !practiceState.showFeedback && (

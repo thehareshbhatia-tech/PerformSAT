@@ -6,6 +6,7 @@ import { MathText } from './MathText';
 import SolutionExplanation from './SolutionExplanation';
 import QuestionRenderer from './QuestionRenderer';
 import SATReferenceSheet from './SATReferenceSheet';
+import AnswerChoiceList from './shared/AnswerChoiceList';
 import { recordSkillAttempts } from '../services/skillService';
 import { generateDiagnosticNarrative } from '../services/diagnosticNarrativeService';
 import {
@@ -3273,63 +3274,23 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
             />
           </div>
         ) : (
-          <div className="answers-container">
-            {question?.choices?.map((choice) => {
-              const isSelected = currentAnswer === choice.id;
-              const elimKey = `${currentModule}-${currentQuestion}`;
-              const isEliminated = (eliminatedChoices[elimKey] || []).includes(choice.id);
-
-              let cardClass = "answer-choice-card";
-              if (isSelected && !isEliminated) cardClass += " is-selected";
-              if (isEliminated) cardClass += " is-eliminated";
-
-              return (
-                <div
-                  key={choice.id}
-                  className={cardClass}
-                  onClick={() => handleSelectAnswer(choice.id)}
-                >
-                  <button
-                    className="answer-eliminate-btn"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleToggleEliminate(choice.id);
-                    }}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') {
-                        e.stopPropagation();
-                      }
-                    }}
-                    title={isEliminated ? 'Undo cross-out' : 'Cross out choice'}
-                    aria-label={isEliminated ? `Undo elimination of choice ${choice.id}` : `Eliminate choice ${choice.id}`}
-                  >
-                    <svg width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                      <line x1="2" y1="2" x2="10" y2="10" />
-                      <line x1="10" y1="2" x2="2" y2="10" />
-                    </svg>
-                  </button>
-
-                  <button
-                    className="answer-select-btn"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleSelectAnswer(choice.id);
-                    }}
-                    aria-label={`Select choice ${choice.id}`}
-                    aria-pressed={isSelected}
-                  >
-                    <div className="answer-letter-bubble">
-                      {choice.id}
-                    </div>
-
-                    <div className="answer-text-content">
-                      {renderChoice(choice)}
-                    </div>
-                  </button>
-                </div>
-              );
-            })}
-          </div>
+          // Shared <AnswerChoiceList> — same component the drill flow
+          // (AssignedPracticeShell) uses, so visuals stay in lockstep.
+          // R&W section overrides at .test-session-shell[data-section=
+          // "reading-writing"] .answer-choice-card still apply since the
+          // shared component renders those exact class names.
+          (() => {
+            const elimKey = `${currentModule}-${currentQuestion}`;
+            return (
+              <AnswerChoiceList
+                choices={question?.choices || []}
+                selectedId={currentAnswer}
+                eliminatedIds={eliminatedChoices[elimKey] || []}
+                onSelect={handleSelectAnswer}
+                onToggleEliminate={handleToggleEliminate}
+              />
+            );
+          })()
         )}
       {/* Action bottom right — hidden for R&W (mark toggle is up top in stem header) */}
       {!isReadingWriting && (
