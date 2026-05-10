@@ -1,0 +1,221 @@
+import React from 'react';
+import { MathText } from '../MathText';
+import AnswerChoiceList from '../shared/AnswerChoiceList';
+import {
+  ERROR_TYPE_LABELS,
+  ERROR_TYPE_ICONS,
+  ERROR_TYPE_DESCRIPTIONS,
+  ERROR_TYPE_COLORS,
+} from '../../services/diagnosticEngine';
+import './ReviewItemCard.css';
+
+/**
+ * ReviewItemCard — single-item review surface for Past-Test-Review
+ * (Phase 4 of PAST_TEST_REVIEW_PLAN.md).
+ *
+ * Renders the original question (from the per-attempt snapshot), the
+ * student's answer (highlighted), the correct answer, the full
+ * explanation, an error-class chip with brief explainer, and a
+ * "Try a similar question" CTA that piggybacks on the existing
+ * services/trySimilarService.js.
+ *
+ * Reuses the canonical `<AnswerChoiceList>` in showResult=true mode so
+ * the visual matches the test + drill answer chrome 1:1 (correct chip,
+ * wrong chip, letter bubbles, math rendering).
+ *
+ * Pure presentation. The parent fetches the snapshot via
+ * services/diagnosticReportLoader.js and the per-item review entry via
+ * selectors/completedTests.js, then passes both down.
+ *
+ * @param {object} props
+ * @param {object} props.snapshotItem   { id, stem, choices, correctAnswer, explanation,
+ *                                         difficulty, skills, moduleIndex, questionIndex }
+ * @param {string|null} props.studentAnswer
+ * @param {boolean} props.isCorrect
+ * @param {string|null} [props.errorClass]   from groupItemsByErrorClass
+ * @param {number|null} [props.timeSpent]
+ * @param {string|null} [props.testTitle]
+ * @param {() => void} [props.onTrySimilar]
+ * @param {() => void} [props.onPrev]
+ * @param {() => void} [props.onNext]
+ * @param {() => void} [props.onBack]
+ */
+function ReviewItemCard({
+  snapshotItem,
+  studentAnswer = null,
+  isCorrect = false,
+  errorClass = null,
+  timeSpent = null,
+  testTitle = null,
+  onTrySimilar,
+  onPrev,
+  onNext,
+  onBack,
+}) {
+  if (!snapshotItem) {
+    return (
+      <section className="ric" aria-label="Review item — missing">
+        <header className="ric-header">
+          {onBack && <button type="button" className="ric-back" onClick={onBack}>← Back</button>}
+        </header>
+        <div className="ric-error">
+          <p>This item's snapshot couldn't be loaded.</p>
+        </div>
+      </section>
+    );
+  }
+
+  const errorMeta = buildErrorMeta(errorClass);
+  const moduleQ = `M${(snapshotItem.moduleIndex ?? 0) + 1}·Q${(snapshotItem.questionIndex ?? 0) + 1}`;
+  const stemText = snapshotItem.stem || snapshotItem.question || '';
+  const explanationText = snapshotItem.explanation || '';
+
+  return (
+    <section className="ric" aria-label={`Review item ${moduleQ}`}>
+      <header className="ric-header">
+        {onBack && (
+          <button type="button" className="ric-back" onClick={onBack} aria-label="Back to test review">
+            ← {testTitle || 'Test review'}
+          </button>
+        )}
+        <div className="ric-meta">
+          <span className="ric-meta-id">{moduleQ}</span>
+          {snapshotItem.difficulty && (
+            <span className={`ric-meta-diff ric-meta-diff-${snapshotItem.difficulty}`}>
+              {snapshotItem.difficulty}
+            </span>
+          )}
+          {typeof timeSpent === 'number' && (
+            <span className="ric-meta-time">{formatTime(timeSpent)}</span>
+          )}
+          <span className={`ric-meta-result ric-meta-result-${isCorrect ? 'correct' : 'wrong'}`}>
+            {isCorrect ? '✓ Correct' : '✗ Wrong'}
+          </span>
+        </div>
+      </header>
+
+      {/* Stem */}
+      <div className="ric-stem">
+        <MathText text={stemText} />
+      </div>
+
+      {/* Choices (review mode = showResult=true) */}
+      {Array.isArray(snapshotItem.choices) && snapshotItem.choices.length > 0 && (
+        <div className="ric-choices">
+          <AnswerChoiceList
+            choices={snapshotItem.choices}
+            selectedId={studentAnswer}
+            correctId={snapshotItem.correctAnswer}
+            showResult={true}
+            onSelect={() => {}}
+          />
+        </div>
+      )}
+
+      {/* Fill-in answer (no choices) */}
+      {(!Array.isArray(snapshotItem.choices) || snapshotItem.choices.length === 0) && (
+        <div className="ric-fill-in">
+          <div className="ric-fill-row">
+            <span className="ric-fill-label">Your answer:</span>
+            <span className={`ric-fill-value ${isCorrect ? 'is-correct' : 'is-wrong'}`}>
+              {studentAnswer || '(blank)'}
+            </span>
+          </div>
+          <div className="ric-fill-row">
+            <span className="ric-fill-label">Correct:</span>
+            <span className="ric-fill-value is-correct">{snapshotItem.correctAnswer}</span>
+          </div>
+        </div>
+      )}
+
+      {/* Error class chip + explainer */}
+      {!isCorrect && errorMeta && (
+        <div
+          className="ric-error-class"
+          style={{ '--ric-err-color': errorMeta.color }}
+          data-testid="ric-error-class"
+        >
+          <div className="ric-error-class-head">
+            <span className="ric-error-class-icon" aria-hidden="true">{errorMeta.icon}</span>
+            <span className="ric-error-class-label">{errorMeta.label}</span>
+          </div>
+          <p className="ric-error-class-desc">{errorMeta.description}</p>
+        </div>
+      )}
+
+      {/* Explanation */}
+      {explanationText && (
+        <div className="ric-explanation">
+          <h3 className="ric-section-title">Explanation</h3>
+          <div className="ric-explanation-body">
+            <MathText text={explanationText} />
+          </div>
+        </div>
+      )}
+
+      {/* CTA row */}
+      <div className="ric-cta-row">
+        {onPrev && (
+          <button type="button" className="ric-nav ric-nav-prev" onClick={onPrev} aria-label="Previous item">
+            ← Previous
+          </button>
+        )}
+        {onTrySimilar && (
+          <button
+            type="button"
+            className="ric-cta ric-cta-primary"
+            onClick={onTrySimilar}
+            aria-label="Try a similar practice question"
+          >
+            Try a similar question →
+          </button>
+        )}
+        {onNext && (
+          <button type="button" className="ric-nav ric-nav-next" onClick={onNext} aria-label="Next item">
+            Next →
+          </button>
+        )}
+      </div>
+    </section>
+  );
+}
+
+// ── Pure helpers (exported for unit testing) ─────────────────────────────
+
+/**
+ * buildErrorMeta(errorClass) — assemble the chip's display data from the
+ * canonical taxonomy. Returns null when no class (e.g., correct items).
+ *
+ * Falls back to a generic 'Mixed' descriptor if the class isn't in the
+ * taxonomy (defensive — no crashes on stale data).
+ *
+ * @param {string|null|undefined} errorClass
+ * @returns {{label, icon, description, color}|null}
+ */
+export function buildErrorMeta(errorClass) {
+  if (!errorClass) return null;
+  return {
+    label: ERROR_TYPE_LABELS?.[errorClass] || prettifyClass(errorClass),
+    icon: ERROR_TYPE_ICONS?.[errorClass] || '•',
+    description: ERROR_TYPE_DESCRIPTIONS?.[errorClass] || 'This item showed up in your review.',
+    color: ERROR_TYPE_COLORS?.[errorClass] || '#64748b',
+  };
+}
+
+function prettifyClass(cls) {
+  return cls.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+}
+
+/**
+ * formatTime(seconds) — same shape as TestReviewDetail.formatTime, kept
+ * local to avoid cross-component import for one helper.
+ */
+export function formatTime(seconds) {
+  if (typeof seconds !== 'number' || seconds < 0) return '—';
+  if (seconds < 60) return `${Math.round(seconds)}s`;
+  const m = Math.floor(seconds / 60);
+  const s = Math.round(seconds - m * 60);
+  return s === 0 ? `${m}m` : `${m}m ${s}s`;
+}
+
+export default ReviewItemCard;
