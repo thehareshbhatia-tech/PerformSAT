@@ -9,13 +9,16 @@ export const geometryBank = [
     type: 'multiple-choice',
     question: 'In triangle $PQR$, the measure of angle $P$ is $47°$ and the measure of angle $Q$ is $68°$. What is the measure, in degrees, of angle $R$?',
     choices: [
+      // distractor: subtracts only one of the given angles from 180
       { id: 'A', text: '$55°$' },
       { id: 'B', text: '$65°$' },
+      // distractor: averages the two given angles
       { id: 'C', text: '$75°$' },
+      // distractor: gives the supplement of the correct answer (180 - 65)
       { id: 'D', text: '$115°$' },
     ],
     correctAnswer: 'B',
-    explanation: 'The angles of a triangle sum to $180°$. So $R = 180 - 47 - 68 = 65°$. Choice D ($115°$) is the supplement of the correct answer, a common trap.',
+    explanation: '**SAT Pattern: Triangle Angle Sum**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Subtract both known angles from $180°$: $180 - 47 - 68 = 65$.\n\n**The Full Solution:**\nThe three interior angles of any triangle sum to $180°$. With angle $P = 47°$ and angle $Q = 68°$:\n$\\text{angle } R = 180° - 47° - 68° = 65°$.\n\nVerification: $47 + 68 + 65 = 180$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — subtracts only $68$ from $180$ minus a guess, never finishing the sum.\n* Choice C: "wrong base" — averages $47$ and $68$ instead of using the angle-sum identity.\n* Choice D: "applies the inverse operation" — gives $180 - 65 = 115$, the supplement of the correct angle.\n\n**Test Day Takeaway:** When a triangle problem gives two angles, the third is always $180$ minus their sum. The right answer almost never appears as a supplement in the choices.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'direct-computation',
@@ -30,13 +33,16 @@ export const geometryBank = [
     type: 'multiple-choice',
     question: 'A circular garden has a radius of $6$ feet. What is the area, in square feet, of the garden?',
     choices: [
+      // distractor: uses circumference formula 2*pi*r instead of area
       { id: 'A', text: '$12\\pi$' },
       { id: 'B', text: '$36\\pi$' },
+      // distractor: doubles the area (uses 2*pi*r^2)
       { id: 'C', text: '$72\\pi$' },
+      // distractor: uses r as the area directly
       { id: 'D', text: '$6\\pi$' },
     ],
     correctAnswer: 'B',
-    explanation: 'Area $= \\pi r^2 = \\pi(6)^2 = 36\\pi$. Choice A ($12\\pi$) comes from using $2\\pi r$ (circumference) instead.',
+    explanation: '**SAT Pattern: Circle Area from Radius**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** $A = \\pi r^2 = \\pi(6)^2 = 36\\pi$.\n\n**The Full Solution:**\nThe area of a circle is $A = \\pi r^2$ (Reference Sheet formula). With $r = 6$ feet:\n$A = \\pi(6)^2 = 36\\pi$ square feet.\n\nVerification: a $6$-foot-radius circle has diameter $12$ feet, so it sits inside a $12 \\times 12$ square of area $144$. $36\\pi \\approx 113$, which is comfortably less than $144$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — uses circumference $C = 2\\pi r = 12\\pi$ instead of area.\n* Choice C: "off-by-one" — doubles the area (uses $2\\pi r^2$).\n* Choice D: "wrong base" — treats $r$ itself as the area times $\\pi$.\n\n**Test Day Takeaway:** Area is $\\pi r^2$; circumference is $2\\pi r$. Both formulas live on the Reference Sheet, but the SAT loves the swap. Always square the radius for area.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'direct-formula',
@@ -59,12 +65,15 @@ export const geometryBank = [
     },
     choices: [
       { id: 'A', text: '$15$' },
+      // distractor: adds the legs, ignoring the Pythagorean theorem
       { id: 'B', text: '$21$' },
+      // distractor: subtracts the squares instead of adding
       { id: 'C', text: '$\\sqrt{63}$' },
+      // distractor: averages the two legs
       { id: 'D', text: '$10.5$' },
     ],
     correctAnswer: 'A',
-    explanation: '$c = \\sqrt{9^2 + 12^2} = \\sqrt{81 + 144} = \\sqrt{225} = 15$. Choice B adds the legs, ignoring the Pythagorean theorem.',
+    explanation: '**SAT Pattern: Pythagorean Theorem**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Recognize $9$-$12$-$15$ as a $3$-$4$-$5$ triple scaled by $3$.\n\n**The Full Solution:**\nFor a right triangle with legs $a$ and $b$ and hypotenuse $c$: $c^2 = a^2 + b^2$.\n$c^2 = 9^2 + 12^2 = 81 + 144 = 225$, so $c = \\sqrt{225} = 15$.\n\nVerification: $9^2 + 12^2 = 81 + 144 = 225 = 15^2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — adds the legs $9 + 12 = 21$ instead of using the theorem.\n* Choice C: "sign error" — subtracts the squares: $\\sqrt{144 - 81} = \\sqrt{63}$.\n* Choice D: "wrong base" — averages the two legs.\n\n**Test Day Takeaway:** Memorize the common Pythagorean triples: $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, $7$-$24$-$25$, and their multiples. The SAT uses them constantly to save time.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'direct-computation',
@@ -79,13 +88,16 @@ export const geometryBank = [
     type: 'multiple-choice',
     question: 'A bicycle wheel has a diameter of $26$ inches. What is the circumference, in inches, of the wheel?',
     choices: [
+      // distractor: uses radius instead of diameter (26/2 = 13)
       { id: 'A', text: '$13\\pi$' },
       { id: 'B', text: '$26\\pi$' },
+      // distractor: uses area formula pi*r^2 with d as r
       { id: 'C', text: '$169\\pi$' },
+      // distractor: doubles the diameter
       { id: 'D', text: '$52\\pi$' },
     ],
     correctAnswer: 'B',
-    explanation: 'Circumference $= \\pi d = 26\\pi$. Choice C ($169\\pi$) uses $\\pi r^2$, confusing area with circumference.',
+    explanation: '**SAT Pattern: Circumference from Diameter**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** $C = \\pi d = \\pi(26) = 26\\pi$.\n\n**The Full Solution:**\nThe circumference of a circle is $C = \\pi d$ where $d$ is the diameter (equivalently, $C = 2\\pi r$). With $d = 26$ inches:\n$C = \\pi(26) = 26\\pi$ inches.\n\nVerification: $26\\pi \\approx 81.7$ inches, which is reasonable for a bike wheel \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — divides the diameter by $2$ to get a radius, then multiplies by $\\pi$ instead of $2\\pi$.\n* Choice C: "wrong formula" — uses $\\pi r^2$ (area) with $d$ as $r$.\n* Choice D: "applies the inverse operation" — doubles the diameter.\n\n**Test Day Takeaway:** Read carefully — diameter and radius look similar but produce different formulas. $C = \\pi d$ is faster than $C = 2\\pi r$ when the diameter is given directly.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'direct-formula',
@@ -101,12 +113,15 @@ export const geometryBank = [
     question: 'A rectangular storage container has a length of $8$ cm, a width of $5$ cm, and a height of $3$ cm. What is the volume, in cubic centimeters, of the container?',
     choices: [
       { id: 'A', text: '$120$' },
+      // distractor: computes surface area (2lw + 2lh + 2wh)
       { id: 'B', text: '$158$' },
+      // distractor: multiplies just length and width
       { id: 'C', text: '$40$' },
+      // distractor: multiplies width and height only
       { id: 'D', text: '$16$' },
     ],
     correctAnswer: 'A',
-    explanation: 'Volume $= lwh = 8 \\times 5 \\times 3 = 120$. Choice B computes the surface area instead.',
+    explanation: '**SAT Pattern: Rectangular Prism Volume**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** $V = l \\cdot w \\cdot h = 8 \\cdot 5 \\cdot 3 = 120$.\n\n**The Full Solution:**\nThe volume of a rectangular prism is $V = lwh$ (Reference Sheet formula). With $l = 8$, $w = 5$, $h = 3$:\n$V = (8)(5)(3) = 120$ cubic centimeters.\n\nVerification: a $2 \\times 2 \\times 2$ box has volume $8$; a $4 \\times 5 \\times 6$ box has volume $120$. Our box fits comfortably in that range \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — computes surface area $2(lw + lh + wh) = 2(40 + 24 + 15) = 158$.\n* Choice C: "stops one step early" — multiplies length and width only, forgetting height.\n* Choice D: "wrong base" — multiplies width and height only.\n\n**Test Day Takeaway:** Volume always has three dimensions multiplied together (units like cm³). If you forget a dimension, the units give it away.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'direct-formula',
@@ -121,13 +136,16 @@ export const geometryBank = [
     type: 'multiple-choice',
     question: 'What is $90°$ expressed in radians?',
     choices: [
+      // distractor: 30° in radians
       { id: 'A', text: '$\\frac{\\pi}{6}$' },
+      // distractor: 45° in radians
       { id: 'B', text: '$\\frac{\\pi}{4}$' },
       { id: 'C', text: '$\\frac{\\pi}{2}$' },
+      // distractor: 180° in radians
       { id: 'D', text: '$\\pi$' },
     ],
     correctAnswer: 'C',
-    explanation: 'Multiply by $\\frac{\\pi}{180}$: $90 \\times \\frac{\\pi}{180} = \\frac{\\pi}{2}$. Choice D ($\\pi$) corresponds to $180°$.',
+    explanation: '**SAT Pattern: Degrees to Radians**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** $90°$ is a quarter turn; a full turn is $2\\pi$ radians. So $90°$ is $\\frac{2\\pi}{4} = \\frac{\\pi}{2}$.\n\n**The Full Solution:**\nThe conversion factor is $\\frac{\\pi \\text{ radians}}{180°}$. Multiply:\n$90° \\times \\frac{\\pi}{180°} = \\frac{90\\pi}{180} = \\frac{\\pi}{2}$ radians.\n\nVerification: $\\frac{\\pi}{2} \\times \\frac{180°}{\\pi} = 90°$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — gives $30°$ in radians ($\\frac{\\pi}{6}$).\n* Choice B: "wrong base" — gives $45°$ in radians ($\\frac{\\pi}{4}$).\n* Choice D: "off-by-one" — gives $180°$ in radians ($\\pi$), twice the correct value.\n\n**Test Day Takeaway:** Memorize the unit-circle landmarks: $0$, $\\frac{\\pi}{6}$, $\\frac{\\pi}{4}$, $\\frac{\\pi}{3}$, $\\frac{\\pi}{2}$, $\\pi$, $\\frac{3\\pi}{2}$, $2\\pi$ map to $0°$, $30°$, $45°$, $60°$, $90°$, $180°$, $270°$, $360°$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'unit-conversion',
@@ -142,7 +160,7 @@ export const geometryBank = [
     type: 'fill-in',
     question: 'A triangle has a base of $14$ meters and a height of $9$ meters. What is the area, in square meters, of the triangle?',
     correctAnswer: '63',
-    explanation: 'Area $= \\frac{1}{2}bh = \\frac{1}{2}(14)(9) = 63$. A common mistake is forgetting the $\\frac{1}{2}$ factor, giving $126$.',
+    explanation: '**SAT Pattern: Triangle Area**\n\n**The correct answer is $63$.**\n\n**The Fast Way (~5s):** $A = \\frac{1}{2}bh = \\frac{1}{2}(14)(9) = 63$.\n\n**The Full Solution:**\nThe area of a triangle is $A = \\frac{1}{2}bh$ (Reference Sheet formula). With $b = 14$ m and $h = 9$ m:\n$A = \\frac{1}{2}(14)(9) = \\frac{126}{2} = 63$ square meters.\n\nVerification: a parallelogram with the same base and height would have area $bh = 126$, exactly twice the triangle area \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting the $\\frac{1}{2}$ factor — gives $126$, twice the correct answer.\n* Computing $b + h$ instead of $b \\cdot h$.\n* Squaring the result by accident.\n\n**Test Day Takeaway:** Triangle area = $\\frac{1}{2}$ × base × height. The height must be perpendicular to the base, not a slant side.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'direct-formula',
@@ -157,13 +175,16 @@ export const geometryBank = [
     type: 'multiple-choice',
     question: 'An angle has a measure of $\\frac{\\pi}{3}$ radians. What is the measure of this angle in degrees?',
     choices: [
+      // distractor: gives π/6 in degrees
       { id: 'A', text: '$30°$' },
+      // distractor: gives π/4 in degrees
       { id: 'B', text: '$45°$' },
       { id: 'C', text: '$60°$' },
+      // distractor: doubles the correct answer (2π/3 in degrees)
       { id: 'D', text: '$120°$' },
     ],
     correctAnswer: 'C',
-    explanation: 'Multiply by $\\frac{180}{\\pi}$: $\\frac{\\pi}{3} \\times \\frac{180}{\\pi} = 60°$. Choice D doubles the correct answer.',
+    explanation: '**SAT Pattern: Radians to Degrees**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Recognize $\\frac{\\pi}{3}$ as a unit-circle landmark: $\\frac{\\pi}{3}$ radians $= 60°$.\n\n**The Full Solution:**\nMultiply by the conversion factor $\\frac{180°}{\\pi \\text{ radians}}$:\n$\\frac{\\pi}{3} \\times \\frac{180°}{\\pi} = \\frac{180°}{3} = 60°$.\n\nVerification: $60° \\times \\frac{\\pi}{180°} = \\frac{\\pi}{3}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — confuses $\\frac{\\pi}{3}$ with $\\frac{\\pi}{6}$ ($30°$).\n* Choice B: "wrong base" — confuses $\\frac{\\pi}{3}$ with $\\frac{\\pi}{4}$ ($45°$).\n* Choice D: "off-by-one" — doubles the correct answer (would be $\\frac{2\\pi}{3}$).\n\n**Test Day Takeaway:** $\\frac{\\pi}{n}$ radians has a degree measure of $\\frac{180}{n}$. So $\\frac{\\pi}{2} = 90°$, $\\frac{\\pi}{3} = 60°$, $\\frac{\\pi}{4} = 45°$, $\\frac{\\pi}{6} = 30°$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'unit-conversion',
@@ -178,13 +199,16 @@ export const geometryBank = [
     type: 'multiple-choice',
     question: 'A triangle has side lengths $7$, $7$, and $10$. Which of the following best classifies this triangle?',
     choices: [
+      // distractor: requires all three sides equal
       { id: 'A', text: 'Equilateral' },
       { id: 'B', text: 'Isosceles' },
+      // distractor: requires all three sides different
       { id: 'C', text: 'Scalene' },
+      // distractor: would require 7² + 7² = 10² (49+49=98≠100)
       { id: 'D', text: 'Right' },
     ],
     correctAnswer: 'B',
-    explanation: 'Two sides are equal ($7 = 7$), so the triangle is isosceles. It is not equilateral because the third side is different.',
+    explanation: '**SAT Pattern: Triangle Classification by Sides**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Two sides equal ($7$ and $7$), the third different ($10$) — that\'s isosceles by definition.\n\n**The Full Solution:**\nA triangle is **equilateral** if all three sides are equal, **isosceles** if exactly two sides are equal, and **scalene** if all three sides are different. With sides $7$, $7$, $10$, exactly two sides match, so the triangle is isosceles.\n\nVerification: a triangle would be right only if $7^2 + 7^2 = 10^2$, i.e., $98 = 100$. That fails, so it is not right \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — equilateral needs all three sides equal, not just two.\n* Choice C: "applies the inverse operation" — scalene needs all three sides different.\n* Choice D: "wrong formula" — would require $7^2 + 7^2 = 10^2$, but $98 \\neq 100$.\n\n**Test Day Takeaway:** Equilateral implies isosceles, but isosceles does not imply equilateral. When sides match the isosceles pattern, choose isosceles unless all three are equal.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'classification',
@@ -207,13 +231,16 @@ export const geometryBank = [
       },
     },
     choices: [
+      // distractor: gives the leg length instead of the hypotenuse
       { id: 'A', text: '$5$' },
       { id: 'B', text: '$5\\sqrt{2}$' },
+      // distractor: applies the 30-60-90 long-leg ratio
       { id: 'C', text: '$5\\sqrt{3}$' },
+      // distractor: doubles the leg
       { id: 'D', text: '$10$' },
     ],
     correctAnswer: 'B',
-    explanation: 'In a $45$-$45$-$90$ triangle the hypotenuse is $\\text{leg} \\times \\sqrt{2} = 5\\sqrt{2}$. Choice C uses the $30$-$60$-$90$ ratio by mistake.',
+    explanation: '**SAT Pattern: 45-45-90 Triangle**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** In a $45$-$45$-$90$ triangle the hypotenuse is the leg times $\\sqrt{2}$: $5\\sqrt{2}$.\n\n**The Full Solution:**\nA $45$-$45$-$90$ triangle has leg ratios $1 : 1 : \\sqrt{2}$ where the hypotenuse corresponds to $\\sqrt{2}$. Multiply each ratio by $5$ (the leg length):\nhypotenuse $= 5\\sqrt{2}$.\n\nVerification: $5^2 + 5^2 = 25 + 25 = 50 = (5\\sqrt{2})^2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — reports the leg as the hypotenuse.\n* Choice C: "wrong formula" — uses the $30$-$60$-$90$ long-leg ratio ($\\sqrt{3}$) instead of the $45$-$45$-$90$ hypotenuse ratio ($\\sqrt{2}$).\n* Choice D: "off-by-one" — doubles the leg, which would only be correct for a $30$-$60$-$90$ hypotenuse with the leg as the short side.\n\n**Test Day Takeaway:** $45$-$45$-$90$: legs equal, hypotenuse $= $ leg $\\times \\sqrt{2}$. $30$-$60$-$90$: short leg, long leg $= $ short $\\times \\sqrt{3}$, hypotenuse $= $ short $\\times 2$. Both are on the Reference Sheet.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'special-triangle-ratio',
@@ -228,13 +255,16 @@ export const geometryBank = [
     type: 'multiple-choice',
     question: 'A chord of a circle passes through the center of the circle. What is the special name for this chord?',
     choices: [
+      // distractor: radius is half the diameter, not a chord through the center
       { id: 'A', text: 'Radius' },
       { id: 'B', text: 'Diameter' },
+      // distractor: secant is any line crossing the circle, not specifically through center
       { id: 'C', text: 'Secant' },
+      // distractor: tangent touches the circle at one point, doesn't pass through
       { id: 'D', text: 'Tangent' },
     ],
     correctAnswer: 'B',
-    explanation: 'A chord that passes through the center of a circle is the diameter. A radius is only half the diameter and connects the center to the circle.',
+    explanation: '**SAT Pattern: Circle Vocabulary**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** A chord that passes through the center is, by definition, the diameter.\n\n**The Full Solution:**\nA **chord** is any line segment whose endpoints lie on the circle. The **diameter** is the longest chord, and it passes through the center. The **radius** is half the diameter and connects the center to the circle. A **tangent** touches the circle at exactly one point.\n\nVerification: a diameter splits the circle into two semicircles and has length $2r$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — radius connects the center to the circle, not two points on the circle.\n* Choice C: "wrong formula" — secant is the full line that contains a chord, not the chord itself.\n* Choice D: "applies the inverse operation" — tangent never enters the interior.\n\n**Test Day Takeaway:** Diameter $=$ longest chord $= 2 \\times $ radius. Every diameter is a chord, but not every chord is a diameter.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'definition-recall',
@@ -258,12 +288,15 @@ export const geometryBank = [
     },
     choices: [
       { id: 'A', text: '$\\frac{2}{5}$' },
+      // distractor: inverts the ratio (hypotenuse over opposite)
       { id: 'B', text: '$\\frac{5}{2}$' },
+      // distractor: gives cos(θ) = adjacent/hypotenuse with adjacent = √84
       { id: 'C', text: '$\\frac{\\sqrt{84}}{10}$' },
+      // distractor: gives tan(θ) = opposite/adjacent
       { id: 'D', text: '$\\frac{4}{\\sqrt{84}}$' },
     ],
     correctAnswer: 'A',
-    explanation: '$\\sin(\\theta) = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{4}{10} = \\frac{2}{5}$. Choice B inverts the ratio, and choice D gives $\\tan(\\theta)$.',
+    explanation: '**SAT Pattern: SOH-CAH-TOA**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Sine is opposite over hypotenuse: $\\frac{4}{10} = \\frac{2}{5}$.\n\n**The Full Solution:**\nThe sine of an angle in a right triangle is\n$\\sin(\\theta) = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{4}{10} = \\frac{2}{5}$.\n\nVerification: $\\sin(\\theta) \\leq 1$ always, and $\\frac{2}{5} = 0.4$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "applies the inverse operation" — flips the ratio (hypotenuse $/$ opposite $= \\csc \\theta$), giving a value $> 1$ which sine can never produce.\n* Choice C: "wrong formula" — gives $\\cos(\\theta) = \\frac{\\text{adjacent}}{\\text{hypotenuse}}$ with adjacent $= \\sqrt{100 - 16} = \\sqrt{84}$.\n* Choice D: "wrong formula" — gives $\\tan(\\theta) = \\frac{\\text{opposite}}{\\text{adjacent}}$.\n\n**Test Day Takeaway:** Sine of any angle in a right triangle is at most $1$. Any answer greater than $1$ for $\\sin$ or $\\cos$ is automatically wrong.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'direct-trig-ratio',
@@ -278,13 +311,16 @@ export const geometryBank = [
     type: 'multiple-choice',
     question: 'Which of the following sets of three lengths could form a triangle?',
     choices: [
+      // distractor: 2 + 3 = 5 < 8, fails triangle inequality
       { id: 'A', text: '$2, 3, 8$' },
+      // distractor: 4 + 4 = 8 < 9, fails triangle inequality
       { id: 'B', text: '$4, 4, 9$' },
       { id: 'C', text: '$5, 7, 11$' },
+      // distractor: 1 + 2 = 3, degenerate (line segment, not a triangle)
       { id: 'D', text: '$1, 2, 3$' },
     ],
     correctAnswer: 'C',
-    explanation: 'The triangle inequality requires the sum of any two sides to exceed the third. For choice C: $5 + 7 = 12 > 11$, $5 + 11 > 7$, and $7 + 11 > 5$. The other choices all violate this condition.',
+    explanation: '**SAT Pattern: Triangle Inequality**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** For each set, check whether the two shorter sides sum to MORE than the longest side.\n\n**The Full Solution:**\nThe Triangle Inequality says that for any triangle with sides $a$, $b$, $c$, the sum of any two sides must exceed the third:\n$a + b > c$, $a + c > b$, $b + c > a$.\n\nFor choice C ($5, 7, 11$): $5 + 7 = 12 > 11$ \\checkmark, $5 + 11 > 7$ \\checkmark, $7 + 11 > 5$ \\checkmark. All three pass.\n\n**Why the wrong answers are tempting:**\n* Choice A: "fails inequality" — $2 + 3 = 5 < 8$.\n* Choice B: "fails inequality" — $4 + 4 = 8 < 9$.\n* Choice D: "degenerate" — $1 + 2 = 3$ exactly, which collapses the triangle into a straight line.\n\n**Test Day Takeaway:** You only need to check the smallest two sides against the largest. If their sum is greater than the largest, the triangle exists. Equality gives a degenerate (flat) triangle.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'constraint-check',
@@ -300,12 +336,15 @@ export const geometryBank = [
     question: 'A sphere has a radius of $3$ inches. What is its volume?',
     choices: [
       { id: 'A', text: '$36\\pi$ cubic inches' },
+      // distractor: cubes the radius without the (4/3) factor
       { id: 'B', text: '$27\\pi$ cubic inches' },
+      // distractor: writes 36 as (108/3) — same value but unsimplified
       { id: 'C', text: '$\\frac{108\\pi}{3}$ cubic inches' },
+      // distractor: omits the (1/3) from (4/3) and uses 4πr³ instead
       { id: 'D', text: '$108\\pi$ cubic inches' },
     ],
     correctAnswer: 'A',
-    explanation: 'Volume $= \\frac{4}{3}\\pi r^3 = \\frac{4}{3}\\pi(27) = 36\\pi$. Choice D omits the $\\frac{1}{3}$ factor.',
+    explanation: '**SAT Pattern: Sphere Volume**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $V = \\frac{4}{3}\\pi r^3 = \\frac{4}{3}\\pi(27) = 36\\pi$.\n\n**The Full Solution:**\nThe volume of a sphere is $V = \\frac{4}{3}\\pi r^3$ (Reference Sheet formula). With $r = 3$ in:\n$V = \\frac{4}{3}\\pi(3)^3 = \\frac{4}{3}\\pi(27) = \\frac{108\\pi}{3} = 36\\pi$ cubic inches.\n\nVerification: $36\\pi \\approx 113$ cubic inches, which is reasonable for a sphere of radius $3$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — uses $\\pi r^3$ without the $\\frac{4}{3}$ factor.\n* Choice C: "unsimplified" — numerically correct but the SAT expects simplified form.\n* Choice D: "off-by-one" — uses $4\\pi r^3$, forgetting the divide-by-$3$.\n\n**Test Day Takeaway:** Sphere volume formula is $\\frac{4}{3}\\pi r^3$. The $\\frac{4}{3}$ factor is easy to drop or invert under time pressure. Always simplify; the SAT lists only simplified forms as the correct answer when both forms are present.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'direct-formula',
@@ -320,13 +359,16 @@ export const geometryBank = [
     type: 'multiple-choice',
     question: 'How many radians are in a full rotation around a circle?',
     choices: [
+      // distractor: gives half a rotation
       { id: 'A', text: '$\\pi$' },
       { id: 'B', text: '$2\\pi$' },
+      // distractor: gives the degree measure of a full rotation
       { id: 'C', text: '$360$' },
+      // distractor: gives a quarter rotation
       { id: 'D', text: '$\\frac{\\pi}{2}$' },
     ],
     correctAnswer: 'B',
-    explanation: 'A full rotation is $360° = 2\\pi$ radians. Choice A ($\\pi$) is only half a rotation.',
+    explanation: '**SAT Pattern: Radian Measure of a Full Circle**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** A full rotation is $360°$, which equals $2\\pi$ radians by definition.\n\n**The Full Solution:**\nOne complete rotation around a circle equals $360°$. Converting:\n$360° \\times \\frac{\\pi}{180°} = 2\\pi$ radians.\n\nThis is also the definition of radian measure: the angle of a full circle is the circumference divided by the radius, which is $\\frac{2\\pi r}{r} = 2\\pi$.\n\nVerification: $2\\pi$ radians $\\times \\frac{180°}{\\pi} = 360°$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — gives half a rotation ($180°$).\n* Choice C: "wrong units" — confuses degree measure with radian measure.\n* Choice D: "wrong base" — gives a quarter rotation ($90°$).\n\n**Test Day Takeaway:** $2\\pi$ radians $= 360°$. Memorize this and you can convert any radian-degree pair on the fly.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'definition-recall',
@@ -342,12 +384,15 @@ export const geometryBank = [
     question: 'Which equation represents a circle with center $(2, -3)$ and radius $4$?',
     choices: [
       { id: 'A', text: '$(x - 2)^2 + (y + 3)^2 = 16$' },
+      // distractor: flips both signs for the center
       { id: 'B', text: '$(x + 2)^2 + (y - 3)^2 = 16$' },
+      // distractor: uses r instead of r² on the right side
       { id: 'C', text: '$(x - 2)^2 + (y + 3)^2 = 4$' },
+      // distractor: uses (y - 3) instead of (y - (-3)) = (y + 3)
       { id: 'D', text: '$(x - 2)^2 + (y - 3)^2 = 16$' },
     ],
     correctAnswer: 'A',
-    explanation: 'Standard form is $(x - h)^2 + (y - k)^2 = r^2$. With center $(2, -3)$: $(x - 2)^2 + (y - (-3))^2 = 4^2$, giving choice A. Choice C forgets to square the radius.',
+    explanation: '**SAT Pattern: Circle Equation Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Standard form is $(x - h)^2 + (y - k)^2 = r^2$. Plug in $h = 2$, $k = -3$, $r = 4$: $(x - 2)^2 + (y - (-3))^2 = 16$, i.e., $(x - 2)^2 + (y + 3)^2 = 16$.\n\n**The Full Solution:**\nA circle with center $(h, k)$ and radius $r$ has equation $(x - h)^2 + (y - k)^2 = r^2$. With center $(2, -3)$:\n$(x - 2)^2 + (y - (-3))^2 = 4^2$\n$(x - 2)^2 + (y + 3)^2 = 16$.\n\nVerification: at the center $(2, -3)$: $(2-2)^2 + (-3+3)^2 = 0$, which is the squared distance from the center to itself \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "applies the inverse operation" — flips both signs, giving center $(-2, 3)$.\n* Choice C: "stops one step early" — leaves $r = 4$ instead of $r^2 = 16$ on the right side.\n* Choice D: "sign error" — writes $(y - 3)$ instead of $(y - (-3)) = (y + 3)$.\n\n**Test Day Takeaway:** The signs in the equation are OPPOSITE to the center coordinates. Center $(h, k) = (2, -3)$ produces $(x - 2)^2 + (y - (-3))^2 = (x - 2)^2 + (y + 3)^2$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'standard-form-identification',
@@ -362,13 +407,16 @@ export const geometryBank = [
     type: 'multiple-choice',
     question: 'A line is tangent to a circle at point $T$. If a radius is drawn to point $T$, what is the measure of the angle formed between the radius and the tangent line?',
     choices: [
+      // distractor: 45° is a common geometric angle but not the tangent-radius relation
       { id: 'A', text: '$45°$' },
+      // distractor: 60° is another common angle but not this one
       { id: 'B', text: '$60°$' },
       { id: 'C', text: '$90°$' },
+      // distractor: 180° would mean the tangent contains the radius
       { id: 'D', text: '$180°$' },
     ],
     correctAnswer: 'C',
-    explanation: 'A tangent line is always perpendicular to the radius drawn to the point of tangency, forming a $90°$ angle.',
+    explanation: '**SAT Pattern: Tangent-Radius Perpendicularity**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** A tangent is always perpendicular to the radius at the point of tangency, so the angle is $90°$.\n\n**The Full Solution:**\nThe defining geometric property of a tangent line is that it touches the circle at exactly one point and is perpendicular to the radius drawn to that point. So the angle between the tangent and the radius at the point of tangency is $90°$.\n\nVerification: if the tangent were not perpendicular, it would either cross the circle (becoming a secant) or miss the circle entirely \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — $45°$ is a common geometric angle but unrelated to tangent-radius geometry.\n* Choice B: "wrong base" — $60°$ similarly.\n* Choice D: "applies the inverse operation" — would mean the tangent and radius are collinear (the tangent contains the radius), which is impossible.\n\n**Test Day Takeaway:** Tangent perpendicular to radius is the most-tested circle theorem on the SAT. Whenever a tangent and a radius meet at the same point, mark a right angle there.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'definition-recall',
@@ -383,7 +431,7 @@ export const geometryBank = [
     type: 'fill-in',
     question: 'A cone has a radius of $3$ cm and a height of $7$ cm. What is the volume, in cubic centimeters, of the cone? (Give your answer in terms of $\\pi$ as a single number times $\\pi$; enter just the number.)',
     correctAnswer: '21',
-    explanation: 'Volume $= \\frac{1}{3}\\pi r^2 h = \\frac{1}{3}\\pi(9)(7) = 21\\pi$. The numerical coefficient is $21$. A common error is omitting the $\\frac{1}{3}$ factor, giving $63$.',
+    explanation: '**SAT Pattern: Cone Volume**\n\n**The correct answer is $21$.**\n\n**The Fast Way (~10s):** $V = \\frac{1}{3}\\pi r^2 h = \\frac{1}{3}\\pi(9)(7) = 21\\pi$. The coefficient of $\\pi$ is $21$.\n\n**The Full Solution:**\nThe volume of a cone is $V = \\frac{1}{3}\\pi r^2 h$ (Reference Sheet formula). With $r = 3$ cm and $h = 7$ cm:\n$V = \\frac{1}{3}\\pi(3)^2(7) = \\frac{1}{3}\\pi(9)(7) = \\frac{63\\pi}{3} = 21\\pi$ cubic centimeters.\n\nThe question asks for the coefficient of $\\pi$, which is $21$.\n\nVerification: a cylinder with the same radius and height would have volume $\\pi r^2 h = 63\\pi$. A cone is one-third of that: $21\\pi$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting the $\\frac{1}{3}$ factor — gives $63$, the cylinder volume.\n* Forgetting to square the radius — gives $7$.\n* Reporting $21\\pi$ as the answer instead of just $21$ (the question asks for the coefficient).\n\n**Test Day Takeaway:** Cone volume = $\\frac{1}{3}$ × cylinder volume with the same base and height. The $\\frac{1}{3}$ appears for cones AND pyramids; it is the most-forgotten factor in geometry on the SAT.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'direct-formula',
@@ -408,13 +456,16 @@ export const geometryBank = [
       },
     },
     choices: [
+      // distractor: subtracts 8 from 17 directly without using Pythagoras
       { id: 'A', text: '$9$' },
       { id: 'B', text: '$15$' },
+      // distractor: adds the squares instead of subtracting
       { id: 'C', text: '$\\sqrt{353}$' },
+      // distractor: estimates by halving the ladder length
       { id: 'D', text: '$12$' },
     ],
     correctAnswer: 'B',
-    explanation: 'Using the Pythagorean theorem: $h = \\sqrt{17^2 - 8^2} = \\sqrt{289 - 64} = \\sqrt{225} = 15$. Choice C adds the squares instead of subtracting.',
+    explanation: '**SAT Pattern: Ladder Pythagorean**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Recognize $8$-$15$-$17$ as a standard Pythagorean triple. The wall height is $15$.\n\n**The Full Solution:**\nThe ladder, wall, and ground form a right triangle with the ladder as the hypotenuse ($17$) and the ground distance as one leg ($8$). The wall height $h$ is the other leg:\n$h^2 + 8^2 = 17^2$\n$h^2 = 289 - 64 = 225$\n$h = 15$ feet.\n\nVerification: $8^2 + 15^2 = 64 + 225 = 289 = 17^2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — subtracts the values directly: $17 - 8 = 9$, ignoring the squares.\n* Choice C: "sign error" — adds the squares: $\\sqrt{17^2 + 8^2} = \\sqrt{353}$.\n* Choice D: "wrong base" — estimates half the ladder length without computing.\n\n**Test Day Takeaway:** Ladder problems are always Pythagorean. The ladder is the hypotenuse; the ground distance and wall height are the legs. Memorize $8$-$15$-$17$ — it shows up constantly.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'real-world-pythagorean',
@@ -427,15 +478,18 @@ export const geometryBank = [
     skills: ['similar-triangles'],
     difficulty: 'medium',
     type: 'multiple-choice',
-    question: 'Triangles $ABC$ and $DEF$ are similar. In triangle $ABC$, $AB = 6$, $BC = 9$, and $AC = 12$. If $DE = 10$, what is the length of $EF$?',
+    question: 'Triangles $ABC$ and $DEF$ are similar, with $A$, $B$, $C$ corresponding to $D$, $E$, $F$ respectively. In triangle $ABC$, $AB = 6$, $BC = 9$, and $AC = 12$. If $DE = 10$, what is the length of $EF$?',
     choices: [
+      // distractor: adds the scale-factor difference instead of multiplying
       { id: 'A', text: '$13$' },
       { id: 'B', text: '$15$' },
+      // distractor: applies the scale factor to AC instead of BC
       { id: 'C', text: '$18$' },
+      // distractor: confuses which side of triangle ABC corresponds to EF
       { id: 'D', text: '$20$' },
     ],
     correctAnswer: 'B',
-    explanation: 'The scale factor is $\\frac{DE}{AB} = \\frac{10}{6} = \\frac{5}{3}$. So $EF = BC \\times \\frac{5}{3} = 9 \\times \\frac{5}{3} = 15$. Choice D applies the scale factor to $AC$ instead of $BC$.',
+    explanation: '**SAT Pattern: Similar Triangles Proportion**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Scale factor from $ABC$ to $DEF$ is $\\frac{DE}{AB} = \\frac{10}{6} = \\frac{5}{3}$. Apply it to $BC$: $EF = 9 \\cdot \\frac{5}{3} = 15$.\n\n**The Full Solution:**\nSimilar triangles have proportional sides. Since $A \\leftrightarrow D$, $B \\leftrightarrow E$, $C \\leftrightarrow F$, the correspondence is $AB \\leftrightarrow DE$ and $BC \\leftrightarrow EF$. Set up the proportion:\n$\\frac{DE}{AB} = \\frac{EF}{BC}$\n$\\frac{10}{6} = \\frac{EF}{9}$\n$EF = 9 \\cdot \\frac{10}{6} = 15$.\n\nVerification: the scale factor $\\frac{5}{3}$ applied to $AC = 12$ would give $DF = 20$. The triangle $DEF$ has sides $10, 15, 20$, which is $5, 7.5, 10$ doubled — confirming similarity \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — adds $10 - 6 = 4$ to $BC = 9$ instead of multiplying by the scale factor.\n* Choice C: "wrong base" — applies the scale factor to $AC = 12$, giving the $DF$ length not $EF$.\n* Choice D: "applies the inverse operation" — confuses which side maps to $EF$.\n\n**Test Day Takeaway:** In similar triangles, ALWAYS find the scale factor first (ratio of corresponding sides), then multiply EACH side. Identify corresponding sides by vertex order.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'proportion-setup',
@@ -458,13 +512,16 @@ export const geometryBank = [
       },
     },
     choices: [
+      // distractor: multiplies 40 by tan(35°) instead of dividing
       { id: 'A', text: '$28.0$' },
+      // distractor: uses sin instead of tan
       { id: 'B', text: '$49.0$' },
       { id: 'C', text: '$57.1$' },
+      // distractor: uses 40/cos(35°) instead of 40/tan(35°)
       { id: 'D', text: '$69.7$' },
     ],
     correctAnswer: 'C',
-    explanation: '$\\tan(35°) = \\frac{40}{d}$, so $d = \\frac{40}{\\tan(35°)} \\approx \\frac{40}{0.7002} \\approx 57.1$. Choice A incorrectly uses $\\tan(35°) \\times 40$, swapping the ratio.',
+    explanation: '**SAT Pattern: Angle of Depression**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** $\\tan(35°) = \\frac{\\text{tower height}}{\\text{ground distance}} = \\frac{40}{d}$, so $d = \\frac{40}{\\tan(35°)} \\approx 57.1$.\n\n**The Full Solution:**\nThe angle of depression from the tower equals the angle of elevation from the car (alternate interior angles between parallel horizontal lines). The tower height $40$ m is opposite the $35°$ angle (from the car\'s perspective), and the ground distance $d$ is adjacent. So:\n$\\tan(35°) = \\frac{40}{d}$\n$d = \\frac{40}{\\tan(35°)} = \\frac{40}{0.7002} \\approx 57.1$ meters.\n\nVerification: a $35°$ angle is just under $45°$, so the adjacent side should be slightly larger than the opposite ($40$). $57.1$ is consistent \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "applies the inverse operation" — multiplies $40 \\times \\tan(35°) \\approx 28$ instead of dividing.\n* Choice B: "wrong formula" — uses $\\frac{40}{\\sin(35°)}$ (the hypotenuse, not the adjacent side).\n* Choice D: "wrong base" — uses $\\frac{40}{\\cos(35°)}$.\n\n**Test Day Takeaway:** Angle of depression $=$ angle of elevation from the other side. Tower problems: tower is opposite the angle, ground distance is adjacent — use $\\tan$. Hypotenuse problems would use $\\sin$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'angle-of-elevation-depression',
@@ -479,13 +536,16 @@ export const geometryBank = [
     type: 'multiple-choice',
     question: 'A circle has a radius of $10$ cm. What is the length, in cm, of an arc that subtends a central angle of $72°$?',
     choices: [
+      // distractor: 1/10 of circumference instead of 1/5
       { id: 'A', text: '$2\\pi$' },
       { id: 'B', text: '$4\\pi$' },
+      // distractor: 72/100 of the radius times pi (wrong proportion structure)
       { id: 'C', text: '$7.2\\pi$' },
+      // distractor: gives the full circumference
       { id: 'D', text: '$20\\pi$' },
     ],
     correctAnswer: 'B',
-    explanation: 'Arc length $= \\frac{\\theta}{360} \\times 2\\pi r = \\frac{72}{360} \\times 20\\pi = \\frac{1}{5} \\times 20\\pi = 4\\pi$. Choice D gives the full circumference.',
+    explanation: '**SAT Pattern: Arc Length**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $72° = \\frac{72}{360} = \\frac{1}{5}$ of the circle. Full circumference is $2\\pi(10) = 20\\pi$. One-fifth of that is $4\\pi$.\n\n**The Full Solution:**\nArc length is the fraction of the circumference corresponding to the central angle:\n$\\text{arc} = \\frac{\\theta}{360°} \\times 2\\pi r = \\frac{72}{360} \\times 2\\pi(10) = \\frac{1}{5} \\times 20\\pi = 4\\pi$ cm.\n\nVerification: $\\theta = 72°$ is one-fifth of a circle, and $4\\pi$ is one-fifth of $20\\pi$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — uses $\\frac{1}{10}$ instead of $\\frac{1}{5}$ of the circumference.\n* Choice C: "wrong formula" — multiplies $\\frac{72}{100} \\times 10 \\times \\pi$ instead of using $\\frac{72}{360}$.\n* Choice D: "stops one step early" — gives the full circumference without scaling by $\\frac{\\theta}{360}$.\n\n**Test Day Takeaway:** Arc length $= \\frac{\\theta}{360} \\times 2\\pi r$ in degrees, or $r\\theta$ in radians. Always identify what fraction of the full circle the angle represents.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'arc-sector-computation',
@@ -500,13 +560,16 @@ export const geometryBank = [
     type: 'multiple-choice',
     question: 'A pizza with a diameter of $16$ inches is cut into $8$ equal slices. What is the area, in square inches, of one slice?',
     choices: [
+      // distractor: uses radius 4 (half of 8, doubly divided)
       { id: 'A', text: '$4\\pi$' },
       { id: 'B', text: '$8\\pi$' },
+      // distractor: uses diameter as radius
       { id: 'C', text: '$16\\pi$' },
+      // distractor: gives half the full pizza area
       { id: 'D', text: '$32\\pi$' },
     ],
     correctAnswer: 'B',
-    explanation: 'Radius is $8$ in. Total area is $\\pi(8)^2 = 64\\pi$. One of $8$ slices: $\\frac{64\\pi}{8} = 8\\pi$. Choice A uses $r = 4$ (confusing radius with half-radius).',
+    explanation: '**SAT Pattern: Sector Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Pizza radius is $8$. Total area $= \\pi(8)^2 = 64\\pi$. One slice is $\\frac{1}{8}$ of that: $8\\pi$.\n\n**The Full Solution:**\nThe pizza has diameter $16$ inches, so the radius is $r = 8$ inches. The total area is:\n$A_{\\text{total}} = \\pi r^2 = \\pi(8)^2 = 64\\pi$ square inches.\n\nEach of the $8$ equal slices has area:\n$A_{\\text{slice}} = \\frac{64\\pi}{8} = 8\\pi$ square inches.\n\nVerification: $8$ slices $\\times 8\\pi = 64\\pi$, the full pizza area \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — uses radius $4$ (half-radius), giving $\\pi(4)^2 / 4 = 4\\pi$.\n* Choice C: "wrong base" — uses diameter $16$ as the radius.\n* Choice D: "off-by-one" — divides the full area by $2$ instead of $8$.\n\n**Test Day Takeaway:** When a problem gives diameter, immediately compute the radius (divide by $2$) before any area or volume formula. The radius is what the formulas use.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'real-world-sector',
@@ -521,7 +584,7 @@ export const geometryBank = [
     type: 'fill-in',
     question: 'A circle has the equation $(x + 5)^2 + (y - 1)^2 = 49$. What is the radius of the circle?',
     correctAnswer: '7',
-    explanation: 'The equation is in standard form $(x - h)^2 + (y - k)^2 = r^2$. Here $r^2 = 49$, so $r = 7$. A common error is reporting $49$ (the squared radius).',
+    explanation: '**SAT Pattern: Read Radius from Circle Equation**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~5s):** $r^2 = 49$, so $r = 7$.\n\n**The Full Solution:**\nThe standard form of a circle equation is $(x - h)^2 + (y - k)^2 = r^2$, where $(h, k)$ is the center and $r$ is the radius. Here:\n$(x + 5)^2 + (y - 1)^2 = 49$\nThe right side equals $r^2$, so $r^2 = 49$ and $r = \\sqrt{49} = 7$.\n\nVerification: $7^2 = 49$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $49$ as the radius (that\'s $r^2$).\n* Reporting $\\sqrt{49}$ unsimplified.\n* Confusing the center coordinates (here, $(-5, 1)$) with the radius.\n\n**Test Day Takeaway:** The right side of the circle equation is $r^2$, not $r$. Always take the square root to find the actual radius.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'extract-from-equation',
@@ -537,12 +600,15 @@ export const geometryBank = [
     question: 'A triangular prism has a base that is a right triangle with legs $5$ cm and $12$ cm. The prism is $20$ cm long. What is the volume, in cubic centimeters?',
     choices: [
       { id: 'A', text: '$600$' },
+      // distractor: omits the (1/2) in the triangle base area
       { id: 'B', text: '$1200$' },
+      // distractor: uses hypotenuse (13) instead of one leg
       { id: 'C', text: '$1560$' },
+      // distractor: divides the correct answer by 2 again
       { id: 'D', text: '$300$' },
     ],
     correctAnswer: 'A',
-    explanation: 'Base area $= \\frac{1}{2}(5)(12) = 30$. Volume $= 30 \\times 20 = 600$. Choice B omits the $\\frac{1}{2}$ in the triangle area.',
+    explanation: '**SAT Pattern: Triangular Prism Volume**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Base area $= \\frac{1}{2}(5)(12) = 30$. Volume $= 30 \\times 20 = 600$.\n\n**The Full Solution:**\nFor any prism, volume = (base area) × (length). The base is a right triangle with legs $5$ and $12$:\n$\\text{base area} = \\frac{1}{2}(5)(12) = 30$ cm².\n$\\text{volume} = 30 \\times 20 = 600$ cm³.\n\nVerification: a rectangular prism with the same dimensions would have base $5 \\times 12 = 60$ and volume $60 \\times 20 = 1200$, exactly twice the triangular prism volume \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — omits the $\\frac{1}{2}$ in the triangle base area.\n* Choice C: "wrong base" — uses the hypotenuse ($13$) instead of a leg.\n* Choice D: "off-by-one" — divides by $2$ twice.\n\n**Test Day Takeaway:** Prism volume = (base area) × (length). Identify the base shape first, compute its area, then multiply. For triangles, never forget the $\\frac{1}{2}$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'composite-formula',
@@ -557,13 +623,16 @@ export const geometryBank = [
     type: 'multiple-choice',
     question: 'In triangle $JKL$, the measure of angle $J$ is three times the measure of angle $K$, and the measure of angle $L$ is $20°$ more than the measure of angle $K$. What is the measure, in degrees, of angle $J$?',
     choices: [
+      // distractor: gives angle K instead of angle J
       { id: 'A', text: '$32$' },
+      // distractor: gives angle L instead of angle J
       { id: 'B', text: '$52$' },
       { id: 'C', text: '$96$' },
+      // distractor: solves the equation incorrectly with x = 36
       { id: 'D', text: '$108$' },
     ],
     correctAnswer: 'C',
-    explanation: 'Let angle $K = x$. Then $3x + x + (x + 20) = 180$, so $5x = 160$ and $x = 32$. Angle $J = 3(32) = 96°$. Choice A gives angle $K$ instead.',
+    explanation: '**SAT Pattern: Translate to Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Let $K = x$. Then $J + K + L = 180$ becomes $3x + x + (x + 20) = 180$, so $5x = 160$ and $x = 32$. Then $J = 3 \\cdot 32 = 96$.\n\n**The Full Solution:**\nLet $K = x$. Then $J = 3x$ and $L = x + 20$. Sum to $180°$:\n$3x + x + (x + 20) = 180$\n$5x + 20 = 180$\n$5x = 160$\n$x = 32$.\nSo angle $J = 3x = 3(32) = 96°$.\n\nVerification: $J + K + L = 96 + 32 + 52 = 180$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — gives angle $K = 32$ instead of angle $J = 3K$.\n* Choice B: "wrong base" — gives angle $L = K + 20 = 52$ instead of angle $J$.\n* Choice D: "sign error" — sets $5x = 180$ ignoring the $+20$, then $x = 36$ and $3x = 108$.\n\n**Test Day Takeaway:** When a triangle problem gives relationships between angles, set ONE angle as the variable, express the others in terms of it, and sum to $180$. Always check which angle the question asks for.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'equation-from-geometry',
@@ -579,12 +648,15 @@ export const geometryBank = [
     question: 'What are the center and radius of the circle given by $x^2 + y^2 - 6x + 4y - 12 = 0$?',
     choices: [
       { id: 'A', text: 'Center $(3, -2)$, radius $5$' },
+      // distractor: flips both signs of the center
       { id: 'B', text: 'Center $(-3, 2)$, radius $5$' },
+      // distractor: reports r² as the radius
       { id: 'C', text: 'Center $(3, -2)$, radius $25$' },
+      // distractor: uses coefficients directly without completing the square
       { id: 'D', text: 'Center $(6, -4)$, radius $\\sqrt{12}$' },
     ],
     correctAnswer: 'A',
-    explanation: 'Complete the square: $(x - 3)^2 + (y + 2)^2 = 9 + 4 + 12 = 25$. Center $(3, -2)$, $r = 5$. Choice C gives $r^2$ as the radius.',
+    explanation: '**SAT Pattern: Complete the Square for Circle**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Group: $(x^2 - 6x) + (y^2 + 4y) = 12$. Complete: $(x - 3)^2 - 9 + (y + 2)^2 - 4 = 12$, so $(x - 3)^2 + (y + 2)^2 = 25$. Center $(3, -2)$, $r = 5$.\n\n**The Full Solution:**\nStart from $x^2 + y^2 - 6x + 4y - 12 = 0$. Group $x$ and $y$ terms:\n$(x^2 - 6x) + (y^2 + 4y) = 12$.\nComplete the square: $(x^2 - 6x + 9) + (y^2 + 4y + 4) = 12 + 9 + 4$, giving:\n$(x - 3)^2 + (y + 2)^2 = 25$.\nThis is standard form, so center is $(3, -2)$ and radius is $\\sqrt{25} = 5$.\n\nVerification: plugging the center back: $(3 - 3)^2 + (-2 + 2)^2 = 0$, the squared distance from the center to itself \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "applies the inverse operation" — flips the center signs.\n* Choice C: "stops one step early" — reports $r^2 = 25$ as the radius instead of $r = 5$.\n* Choice D: "wrong formula" — uses the $-6$ and $4$ coefficients directly as the center without completing the square.\n\n**Test Day Takeaway:** To complete the square on $x^2 + bx$, add $\\left(\\frac{b}{2}\\right)^2$. To balance the equation, add the same amount on the other side. Always finish by taking $\\sqrt{}$ of the right side for the radius.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'complete-the-square',
@@ -599,13 +671,16 @@ export const geometryBank = [
     type: 'multiple-choice',
     question: 'In a $30°$-$60°$-$90°$ triangle, the side opposite the $30°$ angle has length $7$. What is the length of the hypotenuse?',
     choices: [
+      // distractor: uses 45-45-90 hypotenuse ratio
       { id: 'A', text: '$7\\sqrt{2}$' },
+      // distractor: gives the long leg instead of the hypotenuse
       { id: 'B', text: '$7\\sqrt{3}$' },
       { id: 'C', text: '$14$' },
+      // distractor: divides instead of multiplying
       { id: 'D', text: '$\\frac{7\\sqrt{3}}{3}$' },
     ],
     correctAnswer: 'C',
-    explanation: 'In a $30$-$60$-$90$ triangle the hypotenuse is twice the shorter leg: $2(7) = 14$. Choice A applies the $45$-$45$-$90$ ratio instead.',
+    explanation: '**SAT Pattern: 30-60-90 Triangle**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** In a $30$-$60$-$90$ triangle the hypotenuse is twice the short leg (opposite $30°$): $2 \\times 7 = 14$.\n\n**The Full Solution:**\nThe $30$-$60$-$90$ triangle has side ratios $1 : \\sqrt{3} : 2$, where the sides are opposite $30°$, $60°$, and $90°$ respectively. The side opposite $30°$ is the short leg ($= 7$), so the hypotenuse (opposite $90°$) is twice that:\nhypotenuse $= 2 \\times 7 = 14$.\n\nVerification: short leg $= 7$, long leg $= 7\\sqrt{3} \\approx 12.12$, hypotenuse $= 14$. Check: $7^2 + (7\\sqrt{3})^2 = 49 + 147 = 196 = 14^2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — uses the $45$-$45$-$90$ hypotenuse ratio ($\\sqrt{2}$).\n* Choice B: "stops one step early" — gives the long leg ($7\\sqrt{3}$) instead of the hypotenuse.\n* Choice D: "applies the inverse operation" — divides instead of multiplying.\n\n**Test Day Takeaway:** $30$-$60$-$90$ ratios: $1 : \\sqrt{3} : 2$ correspond to angles $30° : 60° : 90°$. The hypotenuse is ALWAYS twice the short leg. The long leg is the short leg times $\\sqrt{3}$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'special-triangle-ratio',
@@ -620,7 +695,7 @@ export const geometryBank = [
     type: 'fill-in',
     question: 'An isosceles triangle has two equal sides of length $13$ and a base of $10$. What is the area of the triangle?',
     correctAnswer: '60',
-    explanation: 'The altitude splits the base into two segments of $5$. Height $= \\sqrt{13^2 - 5^2} = \\sqrt{144} = 12$. Area $= \\frac{1}{2}(10)(12) = 60$.',
+    explanation: '**SAT Pattern: Isosceles Triangle Area**\n\n**The correct answer is $60$.**\n\n**The Fast Way (~20s):** Drop an altitude from the apex; it bisects the base. Half-base $= 5$, slant $= 13$, so altitude $= \\sqrt{169 - 25} = 12$. Area $= \\frac{1}{2}(10)(12) = 60$.\n\n**The Full Solution:**\nAn isosceles triangle\'s altitude from the apex bisects the base, creating two congruent right triangles with hypotenuse $13$ (slant side) and one leg $5$ (half the base). The other leg (the altitude $h$):\n$h = \\sqrt{13^2 - 5^2} = \\sqrt{169 - 25} = \\sqrt{144} = 12$.\nArea = $\\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(10)(12) = 60$.\n\nVerification: the two right triangles have sides $5$-$12$-$13$, a standard Pythagorean triple \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using $13$ as the height directly — the slant side is not perpendicular to the base.\n* Forgetting the $\\frac{1}{2}$ in the triangle area formula.\n* Halving the wrong side: the altitude bisects the base, not a slant side.\n\n**Test Day Takeaway:** For isosceles triangles, the altitude from the apex is perpendicular to the base AND bisects it. This creates two congruent right triangles you can solve with Pythagoras. $5$-$12$-$13$ is the most common triple in these problems.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'multi-step-geometry',
@@ -644,12 +719,15 @@ export const geometryBank = [
     },
     choices: [
       { id: 'A', text: '$\\frac{7}{25}$' },
+      // distractor: gives sin(M) instead (NP/MP = 24/25)
       { id: 'B', text: '$\\frac{24}{25}$' },
+      // distractor: gives tan(M) = NP/MN = 24/7
       { id: 'C', text: '$\\frac{7}{24}$' },
+      // distractor: inverts the ratio (sec M instead of cos M)
       { id: 'D', text: '$\\frac{25}{7}$' },
     ],
     correctAnswer: 'A',
-    explanation: '$\\cos(M) = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\frac{MN}{MP} = \\frac{7}{25}$. Choice B gives $\\sin(M)$ since $NP = 24$ is the opposite side.',
+    explanation: '**SAT Pattern: Cosine in a Right Triangle**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Cosine = adjacent/hypotenuse. From $M$, the adjacent side is $MN = 7$ and the hypotenuse is $MP = 25$. So $\\cos(M) = \\frac{7}{25}$.\n\n**The Full Solution:**\nThe right angle is at $N$, so $MP$ is the hypotenuse. From angle $M$:\n* Adjacent side (between $M$ and the right angle): $MN = 7$.\n* Opposite side (across from $M$): $NP$, which we can find using Pythagoras if needed: $NP = \\sqrt{25^2 - 7^2} = \\sqrt{576} = 24$.\n* Hypotenuse: $MP = 25$.\n\n$\\cos(M) = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\frac{7}{25}$.\n\nVerification: $\\sin^2 + \\cos^2 = \\left(\\frac{24}{25}\\right)^2 + \\left(\\frac{7}{25}\\right)^2 = \\frac{576 + 49}{625} = 1$ \\checkmark. Also, $7$-$24$-$25$ is a standard Pythagorean triple.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — gives $\\sin(M) = \\frac{NP}{MP} = \\frac{24}{25}$.\n* Choice C: "wrong formula" — gives $\\tan(M) = \\frac{NP}{MN} = \\frac{24}{7}$... well, this is $\\frac{7}{24}$, the reciprocal of tan.\n* Choice D: "applies the inverse operation" — flips the ratio (this is $\\sec M$, not $\\cos M$).\n\n**Test Day Takeaway:** SOH-CAH-TOA. Cosine is adjacent over hypotenuse. The adjacent side is the leg TOUCHING the angle (not across from it). For complementary angles, $\\cos(M) = \\sin(P)$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'direct-trig-ratio',
@@ -664,13 +742,16 @@ export const geometryBank = [
     type: 'multiple-choice',
     question: 'A model building is constructed at a scale of $1:50$. If the volume of the model is $24$ cubic inches, what is the volume, in cubic inches, of the actual building?',
     choices: [
+      // distractor: applies the linear scale factor instead of cubed
       { id: 'A', text: '$1{,}200$' },
+      // distractor: applies the square of the scale factor (area scaling)
       { id: 'B', text: '$60{,}000$' },
       { id: 'C', text: '$3{,}000{,}000$' },
+      // distractor: applies an extra power of 50
       { id: 'D', text: '$150{,}000{,}000$' },
     ],
     correctAnswer: 'C',
-    explanation: 'Volume scales as the cube of the linear scale factor: $24 \\times 50^3 = 24 \\times 125{,}000 = 3{,}000{,}000$. Choice A uses the linear factor ($\\times 50$), not the cube.',
+    explanation: '**SAT Pattern: Volume Scaling by Cube of Linear Factor**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Volume scales as $(\\text{linear factor})^3$. With factor $50$: $50^3 = 125{,}000$. Then $24 \\times 125{,}000 = 3{,}000{,}000$.\n\n**The Full Solution:**\nIf two solids are similar with linear scale factor $k$ (ratio of corresponding lengths), then:\n* Lengths scale by $k$.\n* Areas scale by $k^2$.\n* Volumes scale by $k^3$.\n\nHere $k = 50$ (the building is $50$ times larger in each linear dimension). Volume scale factor $= 50^3 = 125{,}000$:\nactual volume $= 24 \\times 125{,}000 = 3{,}000{,}000$ cubic inches.\n\nVerification: $24 \\times 125{,}000 = 24 \\times 100{,}000 + 24 \\times 25{,}000 = 2{,}400{,}000 + 600{,}000 = 3{,}000{,}000$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — applies the linear factor $50$ to volume (off by two factors of $50$).\n* Choice B: "wrong formula" — applies $50^2 = 2500$ (area scaling), off by one factor of $50$.\n* Choice D: "off-by-one" — applies $50^4$ accidentally.\n\n**Test Day Takeaway:** Length scales $k$, area scales $k^2$, volume scales $k^3$. The $1:50$ scale means each LINEAR dimension scales by $50$, so volumes scale by $50^3$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'scaling-factor',
@@ -685,13 +766,16 @@ export const geometryBank = [
     type: 'multiple-choice',
     question: 'A sprinkler waters a circular sector with radius $15$ feet and a central angle of $120°$. What area, in square feet, does the sprinkler water?',
     choices: [
+      // distractor: uses radius 5 (one-third of 15) somewhere
       { id: 'A', text: '$25\\pi$' },
       { id: 'B', text: '$75\\pi$' },
+      // distractor: uses half the area instead of one-third
       { id: 'C', text: '$150\\pi$' },
+      // distractor: gives the full circle area, no sector fraction
       { id: 'D', text: '$225\\pi$' },
     ],
     correctAnswer: 'B',
-    explanation: 'Sector area $= \\frac{120}{360} \\times \\pi(15)^2 = \\frac{1}{3}(225\\pi) = 75\\pi$. Choice D gives the full circle area.',
+    explanation: '**SAT Pattern: Sector Area from Central Angle**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $120°$ is $\\frac{1}{3}$ of the circle. Full area $= \\pi(15)^2 = 225\\pi$. One-third of that: $75\\pi$.\n\n**The Full Solution:**\nSector area is the fraction of the full circle area corresponding to the central angle:\n$A_{\\text{sector}} = \\frac{\\theta}{360°} \\times \\pi r^2 = \\frac{120}{360} \\times \\pi(15)^2 = \\frac{1}{3} \\times 225\\pi = 75\\pi$ sq ft.\n\nVerification: $\\frac{120°}{360°} = \\frac{1}{3}$, and $\\frac{1}{3}$ of $225\\pi$ is $75\\pi$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — uses radius $5$ instead of $15$ somewhere ($\\frac{225\\pi}{9}$).\n* Choice C: "off-by-one" — uses $\\frac{1}{2}$ (half) instead of $\\frac{1}{3}$.\n* Choice D: "stops one step early" — gives the full circle area without applying the sector fraction.\n\n**Test Day Takeaway:** Sector area $= \\frac{\\theta}{360} \\times \\pi r^2$ in degrees, or $\\frac{1}{2}r^2\\theta$ in radians. Always check what fraction of the circle the sector represents.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'real-world-sector',
@@ -706,7 +790,7 @@ export const geometryBank = [
     type: 'fill-in',
     question: 'Convert $150°$ to radians. Express your answer as a fraction of $\\pi$ in the form $\\frac{a}{b}$. What is the value of $a + b$ if the fraction is in lowest terms?',
     correctAnswer: '11',
-    explanation: '$150° = 150 \\times \\frac{\\pi}{180} = \\frac{5\\pi}{6}$. The fraction is $\\frac{5}{6}$, so $a + b = 5 + 6 = 11$.',
+    explanation: '**SAT Pattern: Degrees to Radians with Reduction**\n\n**The correct answer is $11$.**\n\n**The Fast Way (~20s):** $150° \\times \\frac{\\pi}{180°} = \\frac{150\\pi}{180} = \\frac{5\\pi}{6}$. So $\\frac{a}{b} = \\frac{5}{6}$, giving $a + b = 11$.\n\n**The Full Solution:**\nApply the conversion factor $\\frac{\\pi}{180°}$:\n$150° \\times \\frac{\\pi}{180°} = \\frac{150}{180}\\pi$.\n\nReduce $\\frac{150}{180}$: $\\gcd(150, 180) = 30$, so $\\frac{150}{180} = \\frac{5}{6}$.\n\nThe radian measure is $\\frac{5\\pi}{6}$, meaning the fraction of $\\pi$ is $\\frac{5}{6}$. So $a = 5$, $b = 6$, and $a + b = 11$.\n\nVerification: $\\frac{5\\pi}{6} \\times \\frac{180°}{\\pi} = \\frac{900°}{6} = 150°$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $\\frac{15}{18}$ or $\\frac{150}{180}$ without simplifying.\n* Returning $\\frac{5}{6}$ itself instead of $a + b = 11$.\n* Forgetting to multiply by $\\pi$ in the original conversion.\n\n**Test Day Takeaway:** Always simplify fractions in radian answers. $\\frac{150}{180}$ reduces to $\\frac{5}{6}$ via GCD $30$. Read the question carefully — sometimes the answer asks for a derived value like $a + b$, not the fraction itself.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'unit-conversion-variant',
@@ -721,13 +805,16 @@ export const geometryBank = [
     type: 'multiple-choice',
     question: 'A $6$-foot-tall person casts a $4$-foot shadow at the same time a flagpole casts a $20$-foot shadow. How tall, in feet, is the flagpole?',
     choices: [
+      // distractor: multiplies 6 × 4 instead of using proportion
       { id: 'A', text: '$24$' },
       { id: 'B', text: '$30$' },
+      // distractor: adds the differences instead of setting up proportion
       { id: 'C', text: '$18$' },
+      // distractor: inverts the ratio (4/6 × 20)
       { id: 'D', text: '$13.3$' },
     ],
     correctAnswer: 'B',
-    explanation: 'By similar triangles: $\\frac{6}{4} = \\frac{h}{20}$, so $h = \\frac{6 \\times 20}{4} = 30$. Choice A multiplies $6 \\times 4$ by mistake.',
+    explanation: '**SAT Pattern: Shadow Similar Triangles**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Same sun angle creates similar triangles: $\\frac{\\text{height}}{\\text{shadow}}$ is constant. $\\frac{6}{4} = \\frac{h}{20}$, so $h = 30$.\n\n**The Full Solution:**\nAt the same moment, the angle of the sun creates two similar right triangles: one with the person ($6$ ft tall, $4$-ft shadow) and one with the flagpole ($h$ ft tall, $20$-ft shadow). Similar triangles have proportional sides:\n$\\frac{\\text{height}}{\\text{shadow}} = \\frac{6}{4} = \\frac{h}{20}$.\nCross-multiply: $4h = 120$, so $h = 30$ ft.\n\nVerification: ratio $\\frac{30}{20} = \\frac{3}{2}$ matches $\\frac{6}{4} = \\frac{3}{2}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — multiplies $6 \\times 4 = 24$ without involving the $20$-ft shadow.\n* Choice C: "wrong base" — adds shadows incorrectly: $6 + (20 - 4) \\cdot \\frac{1}{2}$.\n* Choice D: "applies the inverse operation" — flips the ratio: $\\frac{4}{6} \\times 20 \\approx 13.3$.\n\n**Test Day Takeaway:** Shadow problems are always similar triangles. Set up "tall thing : its shadow" equal on both sides, then cross-multiply.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'real-world-similar-triangles',
@@ -743,12 +830,15 @@ export const geometryBank = [
     question: 'A square pyramid has a base side length of $6$ m and a height of $10$ m. What is the volume, in cubic meters?',
     choices: [
       { id: 'A', text: '$120$' },
+      // distractor: multiplies (1/2)(36)(10) using triangle area instead of square
       { id: 'B', text: '$180$' },
+      // distractor: omits the (1/3) factor
       { id: 'C', text: '$360$' },
+      // distractor: uses side 6 as edge length instead of base side
       { id: 'D', text: '$60$' },
     ],
     correctAnswer: 'A',
-    explanation: 'Volume $= \\frac{1}{3} \\times 6^2 \\times 10 = \\frac{360}{3} = 120$. Choice C omits the $\\frac{1}{3}$ factor.',
+    explanation: '**SAT Pattern: Square Pyramid Volume**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $V = \\frac{1}{3} \\cdot s^2 \\cdot h = \\frac{1}{3} \\cdot 36 \\cdot 10 = 120$.\n\n**The Full Solution:**\nThe volume of any pyramid is $V = \\frac{1}{3} \\times (\\text{base area}) \\times (\\text{height})$. For a square pyramid with base side $s$:\n$V = \\frac{1}{3} \\cdot s^2 \\cdot h = \\frac{1}{3} \\cdot 6^2 \\cdot 10 = \\frac{1}{3} \\cdot 36 \\cdot 10 = \\frac{360}{3} = 120$ m³.\n\nVerification: a $6 \\times 6 \\times 10$ rectangular prism has volume $360$. A pyramid with the same base and height is one-third: $120$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — uses $\\frac{1}{2}$ instead of $\\frac{1}{3}$ (mixing up triangle vs pyramid formulas).\n* Choice C: "stops one step early" — computes $s^2 h = 360$ without the $\\frac{1}{3}$.\n* Choice D: "wrong base" — uses side $6$ as the height, not the base.\n\n**Test Day Takeaway:** Pyramid volume = $\\frac{1}{3}$ × (base area) × (height). The $\\frac{1}{3}$ is the same for pyramids AND cones — it always applies to tapered solids.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'direct-formula',
@@ -764,12 +854,15 @@ export const geometryBank = [
     question: 'The endpoints of a diameter of a circle are $(1, 3)$ and $(7, -1)$. Which equation represents this circle?',
     choices: [
       { id: 'A', text: '$(x - 4)^2 + (y - 1)^2 = 13$' },
+      // distractor: uses diameter² instead of radius²
       { id: 'B', text: '$(x - 4)^2 + (y - 1)^2 = 52$' },
+      // distractor: gets the center wrong (uses one endpoint)
       { id: 'C', text: '$(x - 3)^2 + (y + 2)^2 = 13$' },
+      // distractor: leaves the right side as the diameter (unsquared)
       { id: 'D', text: '$(x - 4)^2 + (y - 1)^2 = \\sqrt{52}$' },
     ],
     correctAnswer: 'A',
-    explanation: 'Center is the midpoint: $(4, 1)$. Diameter $= \\sqrt{36 + 16} = \\sqrt{52}$, so $r = \\frac{\\sqrt{52}}{2}$ and $r^2 = 13$. Choice B uses the diameter squared.',
+    explanation: '**SAT Pattern: Circle from Diameter Endpoints**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Center = midpoint of diameter $= \\left(\\frac{1+7}{2}, \\frac{3-1}{2}\\right) = (4, 1)$. Diameter length $= \\sqrt{(7-1)^2 + (-1-3)^2} = \\sqrt{36 + 16} = \\sqrt{52}$. Radius $= \\sqrt{52}/2$, so $r^2 = \\frac{52}{4} = 13$.\n\n**The Full Solution:**\nThe center of a circle is the midpoint of any diameter:\n$\\text{center} = \\left(\\frac{1+7}{2}, \\frac{3+(-1)}{2}\\right) = (4, 1)$.\n\nThe diameter length, by the distance formula:\n$d = \\sqrt{(7-1)^2 + (-1-3)^2} = \\sqrt{36 + 16} = \\sqrt{52}$.\nSo radius $r = \\frac{\\sqrt{52}}{2}$, and $r^2 = \\frac{52}{4} = 13$.\n\nEquation: $(x - 4)^2 + (y - 1)^2 = 13$.\n\nVerification: plug in $(1, 3)$: $(1-4)^2 + (3-1)^2 = 9 + 4 = 13$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — uses the diameter squared ($52$) as $r^2$.\n* Choice C: "wrong base" — uses an endpoint as the center.\n* Choice D: "stops one step early" — leaves the right side as $\\sqrt{52}$ (the diameter unsimplified) without squaring.\n\n**Test Day Takeaway:** Diameter endpoints → midpoint formula gives the center, distance formula gives the diameter. Always halve to get the radius before squaring.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'multi-step-circle',
@@ -784,13 +877,16 @@ export const geometryBank = [
     type: 'multiple-choice',
     question: 'A circle has its center at $O$ and radius $5$. A tangent from external point $P$ touches the circle at $T$. If $OP = 13$, what is the length of $PT$?',
     choices: [
+      // distractor: subtracts radius from OP linearly
       { id: 'A', text: '$8$' },
       { id: 'B', text: '$12$' },
+      // distractor: adds the squares instead of subtracting
       { id: 'C', text: '$\\sqrt{194}$' },
+      // distractor: adds radius to OP linearly
       { id: 'D', text: '$18$' },
     ],
     correctAnswer: 'B',
-    explanation: 'Since $OT \\perp PT$, use the Pythagorean theorem: $PT = \\sqrt{13^2 - 5^2} = \\sqrt{144} = 12$. Choice C adds the squares instead of subtracting.',
+    explanation: '**SAT Pattern: Tangent from External Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $5$-$12$-$13$ triple. Radius $OT = 5$, hypotenuse $OP = 13$, so $PT = 12$.\n\n**The Full Solution:**\nThe radius $OT$ is perpendicular to the tangent $PT$ at the point of tangency. So triangle $OTP$ is a right triangle with:\n* Leg $OT = 5$ (radius)\n* Leg $PT = ?$ (tangent segment)\n* Hypotenuse $OP = 13$ (line from external point to center)\n\nBy Pythagoras: $PT^2 = OP^2 - OT^2 = 169 - 25 = 144$, so $PT = 12$.\n\nVerification: $5^2 + 12^2 = 25 + 144 = 169 = 13^2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — computes $13 - 5 = 8$ linearly instead of using Pythagoras.\n* Choice C: "sign error" — adds the squares: $\\sqrt{169 + 25} = \\sqrt{194}$.\n* Choice D: "applies the inverse operation" — adds: $13 + 5 = 18$.\n\n**Test Day Takeaway:** Tangent from external point: draw the radius to the tangent point — it forms a right angle. The line from the external point to the center is the hypotenuse. $5$-$12$-$13$ and $3$-$4$-$5$ show up constantly.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'tangent-pythagorean',
@@ -805,7 +901,7 @@ export const geometryBank = [
     type: 'fill-in',
     question: 'A pendulum swings through an arc of $\\frac{\\pi}{4}$ radians. If the pendulum is $2$ meters long, what is the length, in meters, of the arc traced by the tip? Express your answer as a fraction in simplest form $\\frac{a}{b}$. What is $a + b$?',
     correctAnswer: '3',
-    explanation: 'Arc length $= r\\theta = 2 \\times \\frac{\\pi}{4} = \\frac{\\pi}{2}$. Since the question asks for the numerical coefficient of $\\pi$, $\\frac{1}{2}$ gives $a + b = 1 + 2 = 3$.',
+    explanation: '**SAT Pattern: Arc Length in Radians**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~15s):** Arc $= r\\theta = 2 \\cdot \\frac{\\pi}{4} = \\frac{\\pi}{2}$. The coefficient of $\\pi$ is $\\frac{1}{2}$, so $a + b = 1 + 2 = 3$.\n\n**The Full Solution:**\nWhen the central angle is in RADIANS, arc length is simply $s = r\\theta$:\n$s = 2 \\cdot \\frac{\\pi}{4} = \\frac{2\\pi}{4} = \\frac{\\pi}{2}$ meters.\n\nWritten as a fraction of $\\pi$: $\\frac{1}{2}\\pi$. So $a = 1$, $b = 2$, and $a + b = 3$.\n\nVerification: $\\frac{\\pi}{4}$ radians is $45°$. A circle of radius $2$ has circumference $4\\pi$, so $\\frac{45}{360} \\times 4\\pi = \\frac{1}{8} \\times 4\\pi = \\frac{\\pi}{2}$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using the degree formula $\\frac{\\theta}{360} \\times 2\\pi r$ when $\\theta$ is in radians.\n* Reporting $\\frac{\\pi}{2}$ itself instead of $a + b = 3$.\n* Forgetting to simplify $\\frac{2\\pi}{4} \\to \\frac{\\pi}{2}$.\n\n**Test Day Takeaway:** With radians, arc length is just $r\\theta$. With degrees, it\'s $\\frac{\\theta}{360} \\times 2\\pi r$. Check what units the angle is in BEFORE picking the formula.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'radian-arc-length',
@@ -821,12 +917,15 @@ export const geometryBank = [
     question: 'A rectangular park measures $48$ meters by $36$ meters. A jogger runs diagonally from one corner to the opposite corner. How far, in meters, does the jogger run?',
     choices: [
       { id: 'A', text: '$60$' },
+      // distractor: averages the two sides
       { id: 'B', text: '$84$' },
+      // distractor: gives the correct value unsimplified
       { id: 'C', text: '$\\sqrt{3600}$' },
+      // distractor: subtracts the sides
       { id: 'D', text: '$42$' },
     ],
     correctAnswer: 'A',
-    explanation: 'Diagonal $= \\sqrt{48^2 + 36^2} = \\sqrt{2304 + 1296} = \\sqrt{3600} = 60$. Note that choice C is equivalent to A but not simplified; the simplified answer is $60$.',
+    explanation: '**SAT Pattern: Rectangle Diagonal**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $48 = 12 \\times 4$, $36 = 12 \\times 3$ — this is a $3$-$4$-$5$ triple scaled by $12$, so the diagonal is $12 \\times 5 = 60$.\n\n**The Full Solution:**\nThe diagonal of a rectangle, by Pythagoras with the two side lengths as legs:\n$d = \\sqrt{48^2 + 36^2} = \\sqrt{2304 + 1296} = \\sqrt{3600} = 60$ meters.\n\nVerification: $36^2 + 48^2 = 1296 + 2304 = 3600 = 60^2$ \\checkmark. Also confirms the $3$-$4$-$5$ scaling.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — adds the sides linearly ($48 + 36 = 84$) instead of using Pythagoras.\n* Choice C: "unsimplified" — numerically correct ($\\sqrt{3600} = 60$) but the SAT lists the simplified form.\n* Choice D: "applies the inverse operation" — averages: $\\frac{48 + 36}{2} = 42$.\n\n**Test Day Takeaway:** Rectangle diagonals are always Pythagorean. Look for triple multiples: $48$-$36$-$60$ is $12 \\cdot (4$-$3$-$5)$. When choices include both simplified ($60$) and unsimplified ($\\sqrt{3600}$) forms, pick the simplified one.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'real-world-pythagorean',
@@ -841,13 +940,16 @@ export const geometryBank = [
     type: 'multiple-choice',
     question: 'A tennis ball has a diameter of $6.8$ cm. What is the approximate volume, in cubic centimeters, of the tennis ball?',
     choices: [
+      // distractor: omits the (4/3) factor and squares the radius
       { id: 'A', text: '$41.6$' },
       { id: 'B', text: '$164.6$' },
+      // distractor: cubes the radius without (4/3)
       { id: 'C', text: '$131.1$' },
+      // distractor: uses the diameter as the radius
       { id: 'D', text: '$523.6$' },
     ],
     correctAnswer: 'B',
-    explanation: 'Radius $= 3.4$ cm. Volume $= \\frac{4}{3}\\pi(3.4)^3 = \\frac{4}{3}\\pi(39.304) \\approx 164.6$. Choice D uses the diameter as the radius.',
+    explanation: '**SAT Pattern: Sphere Volume Approximation**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Radius $r = \\frac{6.8}{2} = 3.4$ cm. $V = \\frac{4}{3}\\pi(3.4)^3 = \\frac{4}{3}\\pi(39.304) \\approx 164.6$ cm³.\n\n**The Full Solution:**\nThe diameter is $6.8$ cm, so radius $r = 3.4$ cm.\n$V = \\frac{4}{3}\\pi r^3 = \\frac{4}{3}\\pi(3.4)^3$.\nCompute $3.4^3 = 39.304$.\n$V = \\frac{4}{3} \\cdot 39.304 \\cdot \\pi = 52.405 \\cdot \\pi \\approx 164.6$ cm³.\n\nVerification: a $10$-cm-diameter sphere has volume $\\frac{4}{3}\\pi(5^3) \\approx 523.6$, and our sphere is smaller, so $164.6$ is consistent \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — uses $\\pi r^2$ (circle area) instead.\n* Choice C: "stops one step early" — computes $\\pi r^3$ without the $\\frac{4}{3}$.\n* Choice D: "wrong base" — uses diameter $6.8$ as the radius.\n\n**Test Day Takeaway:** Sphere volume = $\\frac{4}{3}\\pi r^3$. Always divide diameter by $2$ to get radius FIRST. Sanity-check the order of magnitude: tennis balls aren\'t $500$ cm³.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'real-world-volume',
@@ -869,13 +971,16 @@ export const geometryBank = [
       },
     },
     choices: [
+      // distractor: a² + b² > c² would be acute; here a² + b² = c²
       { id: 'A', text: 'Acute' },
       { id: 'B', text: 'Right' },
+      // distractor: a² + b² < c² would be obtuse
       { id: 'C', text: 'Obtuse' },
+      // distractor: requires all three sides equal
       { id: 'D', text: 'Equilateral' },
     ],
     correctAnswer: 'B',
-    explanation: 'Check: $8^2 + 15^2 = 64 + 225 = 289 = 17^2$. Since $a^2 + b^2 = c^2$, the triangle is a right triangle.',
+    explanation: '**SAT Pattern: Classify Triangle by Pythagorean Test**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $8$-$15$-$17$ is a standard Pythagorean triple, so the triangle is a right triangle.\n\n**The Full Solution:**\nTo classify a triangle by its sides, compare the sum of the squares of the two shorter sides to the square of the longest side:\n* If $a^2 + b^2 = c^2$ → right triangle\n* If $a^2 + b^2 > c^2$ → acute triangle\n* If $a^2 + b^2 < c^2$ → obtuse triangle\n\nHere: $8^2 + 15^2 = 64 + 225 = 289 = 17^2$. So the triangle is a right triangle.\n\nVerification: $\\sqrt{8^2 + 15^2} = \\sqrt{289} = 17$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong test" — would require $a^2 + b^2 > c^2$.\n* Choice C: "wrong test" — would require $a^2 + b^2 < c^2$.\n* Choice D: "wrong base" — equilateral requires all three sides equal.\n\n**Test Day Takeaway:** Common Pythagorean triples: $3$-$4$-$5$, $5$-$12$-$13$, $7$-$24$-$25$, $8$-$15$-$17$, $9$-$40$-$41$, $20$-$21$-$29$. Memorize them. A triple in the choices is almost always a right triangle.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'classification-via-computation',
@@ -890,13 +995,16 @@ export const geometryBank = [
     type: 'multiple-choice',
     question: 'An angle of $1$ radian is approximately equal to how many degrees?',
     choices: [
+      // distractor: π/4 in degrees
       { id: 'A', text: '$45°$' },
       { id: 'B', text: '$57.3°$' },
+      // distractor: π/2 in degrees
       { id: 'C', text: '$90°$' },
+      // distractor: doubles the correct answer (2 radians)
       { id: 'D', text: '$114.6°$' },
     ],
     correctAnswer: 'B',
-    explanation: '$1 \\text{ radian} = \\frac{180}{\\pi} \\approx 57.3°$. Choice D doubles the correct answer ($2$ radians worth).',
+    explanation: '**SAT Pattern: Radian-Degree Conversion Factor**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $1$ radian $= \\frac{180°}{\\pi} \\approx \\frac{180}{3.14} \\approx 57.3°$.\n\n**The Full Solution:**\nThe conversion factor from radians to degrees is $\\frac{180°}{\\pi}$. So:\n$1 \\text{ radian} = 1 \\times \\frac{180°}{\\pi} = \\frac{180}{\\pi} \\approx 57.3°$.\n\nVerification: a full rotation is $2\\pi \\approx 6.28$ radians $= 360°$. So $1$ radian is roughly $\\frac{360}{6.28} \\approx 57.3°$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — gives $\\frac{\\pi}{4} \\approx 0.785$ radians (not $1$ radian).\n* Choice C: "wrong base" — gives $\\frac{\\pi}{2} \\approx 1.57$ radians.\n* Choice D: "off-by-one" — gives $2$ radians.\n\n**Test Day Takeaway:** $1$ radian $\\approx 57.3°$. This is the conceptual definition: a radian is the angle whose arc length equals the radius. Useful for sanity-checking conversions.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'conceptual-understanding',
@@ -911,13 +1019,16 @@ export const geometryBank = [
     type: 'multiple-choice',
     question: 'A circular pond is surrounded by a $3$-foot-wide walking path. If the radius of the pond is $10$ feet, what is the area, in square feet, of the path alone?',
     choices: [
+      // distractor: gives the area of a 3-ft-radius circle
       { id: 'A', text: '$9\\pi$' },
       { id: 'B', text: '$69\\pi$' },
+      // distractor: subtracts radii squared linearly (13 - 10)² = 9
       { id: 'C', text: '$39\\pi$' },
+      // distractor: gives the area of the outer circle (no subtraction)
       { id: 'D', text: '$169\\pi$' },
     ],
     correctAnswer: 'B',
-    explanation: 'Outer radius is $13$. Path area $= \\pi(13)^2 - \\pi(10)^2 = 169\\pi - 100\\pi = 69\\pi$. Choice A finds only the area of a $3$-ft-radius circle.',
+    explanation: '**SAT Pattern: Annulus (Ring) Area**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Outer radius $= 10 + 3 = 13$. Path area $= \\pi(13^2 - 10^2) = \\pi(169 - 100) = 69\\pi$.\n\n**The Full Solution:**\nThe path is the annulus (ring) between the pond (inner circle, radius $10$) and the outer edge of the path (radius $10 + 3 = 13$). Annulus area:\n$A_{\\text{path}} = \\pi R^2 - \\pi r^2 = \\pi(13^2 - 10^2) = \\pi(169 - 100) = 69\\pi$ sq ft.\n\nVerification: outer area is $169\\pi$, inner area is $100\\pi$, difference is $69\\pi$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — gives the area of a $3$-ft-radius circle as if the path were a tiny disc.\n* Choice C: "wrong formula" — subtracts radii first, then squares: $(13 - 10)^2 \\cdot \\pi + 30\\pi = 39\\pi$ (mangled).\n* Choice D: "stops one step early" — gives the outer circle area without subtracting the pond.\n\n**Test Day Takeaway:** Annulus (ring) area $= \\pi R^2 - \\pi r^2$, NOT $\\pi(R - r)^2$. The two are different — order of operations matters.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'annulus-area',
@@ -932,13 +1043,16 @@ export const geometryBank = [
     type: 'multiple-choice',
     question: 'Two sides of a triangle have lengths $7$ and $11$. Which of the following could NOT be the length of the third side?',
     choices: [
+      // distractor: 5 satisfies 11 - 7 = 4 < 5 < 18
       { id: 'A', text: '$5$' },
+      // distractor: 10 satisfies all inequalities
       { id: 'B', text: '$10$' },
+      // distractor: 15 satisfies all inequalities
       { id: 'C', text: '$15$' },
       { id: 'D', text: '$19$' },
     ],
     correctAnswer: 'D',
-    explanation: 'The third side must satisfy $|7 - 11| < s < 7 + 11$, i.e., $4 < s < 18$. Only $19$ is outside this range.',
+    explanation: '**SAT Pattern: Triangle Inequality Range**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** Third side $s$ must satisfy $|11 - 7| < s < 11 + 7$, i.e., $4 < s < 18$. Only $19$ fails.\n\n**The Full Solution:**\nThe triangle inequality requires each side to be less than the sum AND greater than the absolute difference of the other two:\n$|a - b| < s < a + b$\n$|11 - 7| < s < 11 + 7$\n$4 < s < 18$.\n\nCheck choices:\n* $5$: $4 < 5 < 18$ ✓\n* $10$: ✓\n* $15$: ✓\n* $19$: $19 > 18$ ✗\n\nSo $19$ cannot be the third side.\n\nVerification: if the third side were $19$, then $7 + 11 = 18 < 19$, violating the triangle inequality \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — $5$ is JUST inside the lower bound but still valid.\n* Choice B: "wrong base" — $10$ is in the safe middle range.\n* Choice C: "wrong base" — $15$ is just under the upper bound, still valid.\n\n**Test Day Takeaway:** Triangle third side range: $|a - b| < s < a + b$. The "could NOT" wording flips the question — check which value is OUTSIDE the range.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'constraint-check',
@@ -953,7 +1067,7 @@ export const geometryBank = [
     type: 'fill-in',
     question: 'A cylindrical water tank has a radius of $4$ feet and a height of $9$ feet. What is the volume of the tank, in cubic feet? (Give your answer as a number times $\\pi$; enter just the number.)',
     correctAnswer: '144',
-    explanation: 'Volume $= \\pi r^2 h = \\pi(16)(9) = 144\\pi$. The coefficient is $144$.',
+    explanation: '**SAT Pattern: Cylinder Volume**\n\n**The correct answer is $144$.**\n\n**The Fast Way (~5s):** $V = \\pi r^2 h = \\pi(16)(9) = 144\\pi$. The coefficient is $144$.\n\n**The Full Solution:**\nA cylinder is a prism with a circular base. Volume = (base area) × (height) = $\\pi r^2 \\cdot h$.\nWith $r = 4$ and $h = 9$:\n$V = \\pi(4)^2(9) = 16 \\cdot 9 \\cdot \\pi = 144\\pi$ cubic feet.\n\nThe coefficient of $\\pi$ is $144$.\n\nVerification: $\\pi r^2$ for $r = 4$ is $16\\pi$, times $9$ gives $144\\pi$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $144\\pi$ instead of just $144$ (the question asks for the coefficient).\n* Forgetting to square the radius — gives $36$.\n* Using the cone formula $\\frac{1}{3}\\pi r^2 h$ — gives $48$.\n\n**Test Day Takeaway:** Cylinder volume = $\\pi r^2 h$. Cone volume = $\\frac{1}{3}\\pi r^2 h$. Same base and height, cone is one-third of cylinder.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'direct-formula',
@@ -972,12 +1086,15 @@ export const geometryBank = [
     question: 'The equation $x^2 + y^2 + 8x - 10y + 5 = 0$ represents a circle. What is the area of this circle?',
     choices: [
       { id: 'A', text: '$36\\pi$' },
+      // distractor: gives r instead of r² inside the area formula
       { id: 'B', text: '$\\sqrt{36}\\pi$' },
+      // distractor: leaves the +5 unmoved when completing the square
       { id: 'C', text: '$5\\pi$' },
+      // distractor: uses only the x-completion (16) as r²
       { id: 'D', text: '$16\\pi$' },
     ],
     correctAnswer: 'A',
-    explanation: 'Complete the square: $(x + 4)^2 + (y - 5)^2 = 16 + 25 - 5 = 36$. So $r^2 = 36$ and area $= 36\\pi$. Choice D uses only the $x$-part ($16$) as $r^2$.',
+    explanation: '**SAT Pattern: Circle Equation to Area**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** Complete the square: $(x + 4)^2 + (y - 5)^2 = 16 + 25 - 5 = 36$, so $r^2 = 36$. Area $= \\pi r^2 = 36\\pi$.\n\n**The Full Solution:**\nGroup and complete the square:\n$(x^2 + 8x) + (y^2 - 10y) = -5$\n$(x^2 + 8x + 16) + (y^2 - 10y + 25) = -5 + 16 + 25$\n$(x + 4)^2 + (y - 5)^2 = 36$.\nSo $r^2 = 36$ and $r = 6$. Area $= \\pi r^2 = 36\\pi$.\n\nVerification: center $(-4, 5)$, radius $6$. Plug a sample point like $(2, 5)$: $(2+4)^2 + (5-5)^2 = 36$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — confuses $\\pi r^2$ with $\\pi \\sqrt{r^2}$.\n* Choice C: "wrong base" — uses the constant $+5$ (moved to the right side) as $r^2$.\n* Choice D: "stops one step early" — uses only the $x$-completion ($16$) as $r^2$.\n\n**Test Day Takeaway:** When completing the square for circles, the right side ends up as $r^2$. Move the constant to the right side and ADD what you added to complete on the left. Don\'t forget to take $\\sqrt{}$ for $r$, then square again for area.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'complete-square-then-compute',
@@ -993,12 +1110,15 @@ export const geometryBank = [
     question: 'A surveyor stands $200$ meters from the base of a cliff. The angle of elevation to the top of the cliff is $28°$, and the angle of elevation to the top of a radio tower on top of the cliff is $32°$. What is the approximate height, in meters, of the radio tower alone?',
     choices: [
       { id: 'A', text: '$18.8$' },
+      // distractor: subtracts the angles directly and uses tan
       { id: 'B', text: '$25.0$' },
+      // distractor: gives just the cliff height
       { id: 'C', text: '$106.3$' },
+      // distractor: gives the total height (cliff + tower)
       { id: 'D', text: '$131.3$' },
     ],
     correctAnswer: 'A',
-    explanation: 'Cliff height $= 200\\tan(28°) \\approx 106.3$. Total height $= 200\\tan(32°) \\approx 125.0$. Tower $= 125.0 - 106.3 \\approx 18.8$. Choice C gives the cliff height only.',
+    explanation: '**SAT Pattern: Difference of Heights via Tangent**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Total height to top of tower: $200\\tan(32°) \\approx 125.0$. Cliff height: $200\\tan(28°) \\approx 106.3$. Tower alone: $125.0 - 106.3 = 18.7 \\approx 18.8$.\n\n**The Full Solution:**\nFrom the surveyor at $200$ m horizontal distance:\n* Cliff height = $200 \\cdot \\tan(28°) \\approx 200 \\cdot 0.5317 \\approx 106.3$ m\n* Total height to top of tower = $200 \\cdot \\tan(32°) \\approx 200 \\cdot 0.6249 \\approx 125.0$ m\n\nTower height alone = total − cliff = $125.0 - 106.3 \\approx 18.7 \\approx 18.8$ m.\n\nVerification: a $4°$ increase in angle of elevation over $200$ m horizontal distance produces a height increase of about $200 \\cdot 0.1 \\approx 20$ m — consistent \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — uses $200 \\cdot \\tan(32° - 28°) = 200 \\cdot \\tan(4°) \\approx 14$, which is also wrong; or $200 \\cdot (0.6249 - 0.5317) / 1$ rounded poorly.\n* Choice C: "stops one step early" — gives the cliff height only.\n* Choice D: "stops one step early" — gives the total (cliff + tower) height.\n\n**Test Day Takeaway:** For "object on top of object" problems, compute the total height and the base height separately using tangent, then subtract. The tangents of the two elevations are not the same as the tangent of their difference.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'double-angle-elevation',
@@ -1013,13 +1133,16 @@ export const geometryBank = [
     type: 'multiple-choice',
     question: 'Triangle $RST$ is similar to triangle $UVW$ with a scale factor of $3:5$ (from $RST$ to $UVW$). If the area of triangle $RST$ is $27$ square units, what is the area of triangle $UVW$?',
     choices: [
+      // distractor: applies the linear ratio instead of squared
       { id: 'A', text: '$45$' },
       { id: 'B', text: '$75$' },
+      // distractor: applies the linear ratio twice (overcorrect)
       { id: 'C', text: '$135$' },
+      // distractor: applies the cubed ratio (volume scaling)
       { id: 'D', text: '$225$' },
     ],
     correctAnswer: 'B',
-    explanation: 'Area scales as the square of the linear scale factor: $27 \\times \\left(\\frac{5}{3}\\right)^2 = 27 \\times \\frac{25}{9} = 75$. Choice A uses the linear ratio instead of squaring it.',
+    explanation: '**SAT Pattern: Area Scaling by Square of Linear Factor**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Area scales as the square of the linear ratio: $27 \\cdot \\left(\\frac{5}{3}\\right)^2 = 27 \\cdot \\frac{25}{9} = 75$.\n\n**The Full Solution:**\nFor similar figures with linear scale factor $k$:\n* Lengths scale by $k$.\n* Areas scale by $k^2$.\n* Volumes scale by $k^3$.\n\nFrom $RST$ to $UVW$, the linear ratio is $\\frac{5}{3}$, so the area ratio is $\\left(\\frac{5}{3}\\right)^2 = \\frac{25}{9}$.\n\n$\\text{area}(UVW) = 27 \\cdot \\frac{25}{9} = 3 \\cdot 25 = 75$ square units.\n\nVerification: $\\frac{75}{27} = \\frac{25}{9} = \\left(\\frac{5}{3}\\right)^2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — uses the linear ratio $\\frac{5}{3}$: $27 \\cdot \\frac{5}{3} = 45$.\n* Choice C: "off-by-one" — uses $\\frac{5}{3}$ then multiplies by another fraction.\n* Choice D: "wrong formula" — uses $\\left(\\frac{5}{3}\\right)^3$ (volume scaling) by mistake.\n\n**Test Day Takeaway:** Areas of similar figures scale as the SQUARE of the linear ratio. If a problem gives a length ratio and asks about area, always square it.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'area-scaling',
@@ -1034,13 +1157,16 @@ export const geometryBank = [
     type: 'multiple-choice',
     question: 'Two similar cylindrical tanks have heights in the ratio $2:3$. If the smaller tank holds $80$ gallons, how many gallons does the larger tank hold?',
     choices: [
+      // distractor: uses the linear ratio
       { id: 'A', text: '$120$' },
+      // distractor: uses the square of the ratio
       { id: 'B', text: '$180$' },
       { id: 'C', text: '$270$' },
+      // distractor: scales by 3:1 directly
       { id: 'D', text: '$240$' },
     ],
     correctAnswer: 'C',
-    explanation: 'Volume scales as the cube of the linear ratio: $80 \\times \\left(\\frac{3}{2}\\right)^3 = 80 \\times \\frac{27}{8} = 270$. Choice A uses the linear ratio, and choice B uses the square.',
+    explanation: '**SAT Pattern: Volume Scaling by Cube of Linear Ratio**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Volume scales as $(\\text{linear ratio})^3$. $\\left(\\frac{3}{2}\\right)^3 = \\frac{27}{8}$. $80 \\cdot \\frac{27}{8} = 10 \\cdot 27 = 270$.\n\n**The Full Solution:**\nFor similar solids with linear ratio $k$, volumes scale by $k^3$. Height ratio is $\\frac{3}{2}$ (since the tanks are similar, all linear dimensions scale by this factor), so volume ratio is:\n$\\left(\\frac{3}{2}\\right)^3 = \\frac{27}{8}$.\n\nLarger volume $= 80 \\cdot \\frac{27}{8} = 270$ gallons.\n\nVerification: $\\frac{270}{80} = \\frac{27}{8} = \\left(\\frac{3}{2}\\right)^3$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — uses the linear ratio: $80 \\cdot \\frac{3}{2} = 120$.\n* Choice B: "wrong formula" — uses the squared ratio: $80 \\cdot \\frac{9}{4} = 180$ (area scaling).\n* Choice D: "wrong base" — uses ratio $3:1$ instead of $3:2$.\n\n**Test Day Takeaway:** "Similar" solids means ALL linear dimensions scale together. Volume scales as the CUBE of any linear ratio.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'volume-scaling-ratio',
@@ -1055,7 +1181,7 @@ export const geometryBank = [
     type: 'fill-in',
     question: 'The circle $(x - 2)^2 + (y + 1)^2 = 25$ has a tangent line at the point $(5, 3)$. What is the slope of this tangent line? Express your answer as a fraction $-\\frac{a}{b}$ in lowest terms and enter $a + b$.',
     correctAnswer: '7',
-    explanation: 'The radius to $(5, 3)$ has slope $\\frac{3 - (-1)}{5 - 2} = \\frac{4}{3}$. The tangent is perpendicular, so its slope is $-\\frac{3}{4}$. Thus $a + b = 3 + 4 = 7$.',
+    explanation: '**SAT Pattern: Tangent Slope from Perpendicular Radius**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~30s):** Center $(2, -1)$. Radius to $(5, 3)$ has slope $\\frac{3 - (-1)}{5 - 2} = \\frac{4}{3}$. Tangent is perpendicular, so its slope is $-\\frac{3}{4}$. Thus $a + b = 3 + 4 = 7$.\n\n**The Full Solution:**\nThe tangent to a circle at a point is perpendicular to the radius at that point.\n\nCenter from the equation: $(h, k) = (2, -1)$.\n\nSlope of radius from $(2, -1)$ to $(5, 3)$:\n$m_{\\text{radius}} = \\frac{3 - (-1)}{5 - 2} = \\frac{4}{3}$.\n\nSlope of tangent = negative reciprocal:\n$m_{\\text{tangent}} = -\\frac{3}{4}$.\n\nIn the form $-\\frac{a}{b}$: $a = 3$, $b = 4$, so $a + b = 7$.\n\nVerification: $\\frac{4}{3} \\cdot \\left(-\\frac{3}{4}\\right) = -1$ \\checkmark (perpendicular slopes multiply to $-1$).\n\n**Common Mistakes to Avoid:**\n* Forgetting the negative sign on the tangent slope.\n* Computing the radius slope FROM the point TO the center (gives the same line but flips signs if not careful).\n* Reporting $\\frac{3}{4}$ or $-\\frac{3}{4}$ instead of $a + b = 7$.\n\n**Test Day Takeaway:** Tangent perpendicular to radius is THE key circle theorem. Find the slope of the radius (center → point), take the negative reciprocal, and you have the tangent slope.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'tangent-slope-circle',
@@ -1071,12 +1197,15 @@ export const geometryBank = [
     question: 'A regular hexagon has a side length of $8$. What is the area of the hexagon?',
     choices: [
       { id: 'A', text: '$96\\sqrt{3}$' },
+      // distractor: uses 6 × s² without the equilateral-triangle factor
       { id: 'B', text: '$192$' },
+      // distractor: gives half the correct area
       { id: 'C', text: '$48\\sqrt{3}$' },
+      // distractor: 6 × s² with s = 8 gives 384
       { id: 'D', text: '$384$' },
     ],
     correctAnswer: 'A',
-    explanation: 'A regular hexagon consists of $6$ equilateral triangles each with side $8$. Each triangle area is $\\frac{\\sqrt{3}}{4}(64) = 16\\sqrt{3}$. Total $= 6 \\times 16\\sqrt{3} = 96\\sqrt{3}$.',
+    explanation: '**SAT Pattern: Regular Hexagon Area via Equilateral Triangles**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** A regular hexagon $=$ $6$ equilateral triangles with the same side length. Each triangle has area $\\frac{s^2 \\sqrt{3}}{4} = \\frac{64\\sqrt{3}}{4} = 16\\sqrt{3}$. Total $= 6 \\cdot 16\\sqrt{3} = 96\\sqrt{3}$.\n\n**The Full Solution:**\nDrawing all three long diagonals through the center of a regular hexagon divides it into $6$ congruent equilateral triangles, each with side $s = 8$. The area of one equilateral triangle with side $s$:\n$A_{\\Delta} = \\frac{s^2 \\sqrt{3}}{4} = \\frac{64\\sqrt{3}}{4} = 16\\sqrt{3}$.\n\nTotal hexagon area:\n$A_{\\text{hex}} = 6 \\cdot 16\\sqrt{3} = 96\\sqrt{3}$ square units.\n\nVerification: $96\\sqrt{3} \\approx 166.3$. The hexagon fits inside a circle of radius $8$ (area $64\\pi \\approx 201$), so $166.3$ is consistent \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — uses $6s^2$ as if the triangles were squares.\n* Choice C: "off-by-one" — uses $3$ triangles instead of $6$ (just half the hexagon).\n* Choice D: "wrong formula" — uses $6s^2$ with $s^2 = 64$.\n\n**Test Day Takeaway:** A regular hexagon decomposes into $6$ equilateral triangles. Equilateral triangle area formula: $\\frac{s^2\\sqrt{3}}{4}$. Memorize it — the SAT loves hexagons.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'composite-geometry',
@@ -1092,12 +1221,15 @@ export const geometryBank = [
     question: 'A sector of a circle has an arc length of $3\\pi$ cm and a radius of $9$ cm. What is the area, in square centimeters, of the sector?',
     choices: [
       { id: 'A', text: '$\\frac{27\\pi}{2}$' },
+      // distractor: omits the (1/2) in sector area formula
       { id: 'B', text: '$27\\pi$' },
+      // distractor: uses (1/2)(9)(π/3) instead of (1/2)r²θ
       { id: 'C', text: '$\\frac{9\\pi}{2}$' },
+      // distractor: gives the full-circle area
       { id: 'D', text: '$81\\pi$' },
     ],
     correctAnswer: 'A',
-    explanation: 'Central angle $\\theta = \\frac{s}{r} = \\frac{3\\pi}{9} = \\frac{\\pi}{3}$. Sector area $= \\frac{1}{2}r^2\\theta = \\frac{1}{2}(81)\\frac{\\pi}{3} = \\frac{27\\pi}{2}$. Choice B omits the $\\frac{1}{2}$.',
+    explanation: '**SAT Pattern: Sector Area from Arc Length**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Arc $= r\\theta$ gives $\\theta = \\frac{3\\pi}{9} = \\frac{\\pi}{3}$ radians. Sector area $= \\frac{1}{2}r^2\\theta = \\frac{1}{2}(81)\\left(\\frac{\\pi}{3}\\right) = \\frac{27\\pi}{2}$.\n\n**The Full Solution:**\nFirst find the central angle from the arc length: $s = r\\theta$ (radians), so:\n$\\theta = \\frac{s}{r} = \\frac{3\\pi}{9} = \\frac{\\pi}{3}$ radians.\n\nThen the sector area:\n$A = \\frac{1}{2}r^2\\theta = \\frac{1}{2}(9)^2 \\cdot \\frac{\\pi}{3} = \\frac{81}{2} \\cdot \\frac{\\pi}{3} = \\frac{81\\pi}{6} = \\frac{27\\pi}{2}$ cm².\n\nVerification: $\\frac{\\pi}{3}$ radians is $\\frac{1}{6}$ of a full circle ($2\\pi$). Full circle area is $81\\pi$, so sector is $\\frac{81\\pi}{6} = \\frac{27\\pi}{2}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — uses $r^2\\theta$ without the $\\frac{1}{2}$.\n* Choice C: "wrong base" — uses $\\frac{1}{2}(9)\\theta$ instead of $\\frac{1}{2}r^2\\theta$.\n* Choice D: "stops one step early" — gives the full circle area without scaling.\n\n**Test Day Takeaway:** Sector area = $\\frac{1}{2}r^2\\theta$ (radians). The $\\frac{1}{2}$ comes from integration; the SAT does not derive it, so just memorize the formula.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'multi-step-sector',
@@ -1113,12 +1245,15 @@ export const geometryBank = [
     question: 'A silo consists of a cylinder with radius $5$ m and height $12$ m, topped by a cone with the same radius and a height of $4$ m. What is the total volume of the silo, in terms of $\\pi$?',
     choices: [
       { id: 'A', text: '$\\frac{1000\\pi}{3}$' },
+      // distractor: omits the cone (1/3) factor in the partial sum
       { id: 'B', text: '$\\frac{800\\pi}{3}$' },
+      // distractor: treats the cone as a cylinder
       { id: 'C', text: '$400\\pi$' },
+      // distractor: arithmetic slip yielding 980/3
       { id: 'D', text: '$\\frac{980\\pi}{3}$' },
     ],
     correctAnswer: 'A',
-    explanation: 'Cylinder volume $= \\pi(25)(12) = 300\\pi$. Cone volume $= \\frac{1}{3}\\pi(25)(4) = \\frac{100\\pi}{3}$. Total $= 300\\pi + \\frac{100\\pi}{3} = \\frac{1000\\pi}{3}$. Choice C treats the cone as a cylinder.',
+    explanation: '**SAT Pattern: Composite Solid Volume**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Cylinder: $\\pi(25)(12) = 300\\pi$. Cone: $\\frac{1}{3}\\pi(25)(4) = \\frac{100\\pi}{3}$. Total: $300\\pi + \\frac{100\\pi}{3} = \\frac{900 + 100}{3}\\pi = \\frac{1000\\pi}{3}$.\n\n**The Full Solution:**\nThe silo decomposes into a cylinder + a cone with the same radius.\n\nCylinder volume: $V_{\\text{cyl}} = \\pi r^2 h = \\pi(5)^2(12) = 300\\pi$.\n\nCone volume: $V_{\\text{cone}} = \\frac{1}{3}\\pi r^2 h = \\frac{1}{3}\\pi(5)^2(4) = \\frac{100\\pi}{3}$.\n\nTotal: $300\\pi + \\frac{100\\pi}{3} = \\frac{900\\pi + 100\\pi}{3} = \\frac{1000\\pi}{3}$ m³.\n\nVerification: $\\frac{1000\\pi}{3} \\approx 1047$. A solid cylinder of height $16$ would have volume $\\pi(25)(16) = 400\\pi \\approx 1257$. Our silo is slightly less because the cone narrows — consistent \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "off-by-one" — uses $\\frac{800\\pi}{3}$, arithmetic slip on the sum.\n* Choice C: "wrong formula" — treats the cone as a cylinder ($100\\pi$ instead of $\\frac{100\\pi}{3}$), giving total $400\\pi$.\n* Choice D: "off-by-one" — arithmetic mistake yielding $\\frac{980}{3}$.\n\n**Test Day Takeaway:** Composite solid problems: identify each shape, compute each volume separately, then add. Don\'t skip the $\\frac{1}{3}$ for cones/pyramids.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'composite-solid',
@@ -1133,7 +1268,7 @@ export const geometryBank = [
     type: 'fill-in',
     question: 'A cone has a slant height of $15$ cm and a radius of $9$ cm. What is the volume of the cone, in cubic centimeters? (Give your answer as a number times $\\pi$; enter just the number.)',
     correctAnswer: '324',
-    explanation: 'Height $= \\sqrt{15^2 - 9^2} = \\sqrt{225 - 81} = \\sqrt{144} = 12$. Volume $= \\frac{1}{3}\\pi(81)(12) = 324\\pi$.',
+    explanation: '**SAT Pattern: Cone Volume from Slant Height**\n\n**The correct answer is $324$.**\n\n**The Fast Way (~25s):** Height from Pythagoras: $h = \\sqrt{15^2 - 9^2} = \\sqrt{144} = 12$. Volume: $\\frac{1}{3}\\pi(81)(12) = 324\\pi$.\n\n**The Full Solution:**\nThe slant height, radius, and (vertical) height of a cone form a right triangle, with the slant as the hypotenuse:\n$h^2 + r^2 = (\\text{slant})^2$\n$h^2 = 15^2 - 9^2 = 225 - 81 = 144$\n$h = 12$ cm.\n\nVolume: $V = \\frac{1}{3}\\pi r^2 h = \\frac{1}{3}\\pi(81)(12) = \\frac{972\\pi}{3} = 324\\pi$ cm³.\n\nCoefficient of $\\pi$ is $324$.\n\nVerification: $9$-$12$-$15$ is a $3$-$4$-$5$ Pythagorean triple scaled by $3$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using slant height as $h$ in the volume formula — gives $\\frac{1}{3}\\pi(81)(15) = 405\\pi$.\n* Forgetting Pythagoras altogether and using $r + h$ accidentally.\n* Reporting $324\\pi$ instead of just $324$.\n\n**Test Day Takeaway:** Cone slant height $\\ell$, radius $r$, height $h$: $\\ell^2 = r^2 + h^2$. Always solve for $h$ before using the volume formula, since the formula needs the vertical height, not slant.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'multi-step-solid',
@@ -1148,7 +1283,7 @@ export const geometryBank = [
     type: 'fill-in',
     question: 'The equation $2x^2 + 2y^2 - 12x + 8y - 24 = 0$ describes a circle. What is the radius of this circle?',
     correctAnswer: '5',
-    explanation: 'Divide by $2$: $x^2 + y^2 - 6x + 4y - 12 = 0$. Complete the square: $(x - 3)^2 + (y + 2)^2 = 9 + 4 + 12 = 25$. So $r = 5$.',
+    explanation: '**SAT Pattern: Normalize Circle Equation Before Completing**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~45s):** Divide by $2$ first: $x^2 + y^2 - 6x + 4y - 12 = 0$. Complete: $(x - 3)^2 + (y + 2)^2 = 9 + 4 + 12 = 25$. So $r = 5$.\n\n**The Full Solution:**\nDivide everything by $2$ so the $x^2$ and $y^2$ coefficients are $1$:\n$x^2 + y^2 - 6x + 4y - 12 = 0$.\n\nGroup and complete the square:\n$(x^2 - 6x) + (y^2 + 4y) = 12$\n$(x - 3)^2 + (y + 2)^2 = 12 + 9 + 4 = 25$.\n\nSo $r^2 = 25$ and $r = 5$.\n\nVerification: center $(3, -2)$, radius $5$. Test point $(8, -2)$: $(8-3)^2 + (-2+2)^2 = 25$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting to divide by $2$ first — gives wrong completed-square values.\n* Reporting $r^2 = 25$ instead of $r = 5$.\n* Sign errors when moving constants across the equation.\n\n**Test Day Takeaway:** If the coefficients on $x^2$ and $y^2$ are not $1$, DIVIDE everything by that coefficient before completing the square. Otherwise the standard form is broken.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'non-standard-circle-equation',
@@ -1172,12 +1307,15 @@ export const geometryBank = [
     },
     choices: [
       { id: 'A', text: '$\\frac{5}{13}$' },
+      // distractor: gives cos(A) instead of cos(B)
       { id: 'B', text: '$\\frac{12}{13}$' },
+      // distractor: gives tan(A)
       { id: 'C', text: '$\\frac{5}{12}$' },
+      // distractor: inverts sin(A) (csc A)
       { id: 'D', text: '$\\frac{13}{5}$' },
     ],
     correctAnswer: 'A',
-    explanation: 'In a right triangle, $\\sin(A) = \\cos(B)$ because $A + B = 90°$. So $\\cos(B) = \\frac{5}{13}$. Choice B gives $\\cos(A)$ instead.',
+    explanation: '**SAT Pattern: Cofunction Identity**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** In a right triangle, the two acute angles are complementary ($A + B = 90°$), so $\\cos(B) = \\sin(A) = \\frac{5}{13}$.\n\n**The Full Solution:**\nIn a right triangle, the two non-right angles sum to $90°$ (since all three angles sum to $180°$ and one is $90°$). The cofunction identity says:\n$\\cos(90° - \\theta) = \\sin(\\theta)$.\nApplied here: $\\cos(B) = \\cos(90° - A) = \\sin(A) = \\frac{5}{13}$.\n\nVerification: with $\\sin(A) = \\frac{5}{13}$, the side opposite $A$ is $5$ and the hypotenuse is $13$. The side opposite $A$ is adjacent to $B$, so $\\cos(B) = \\frac{\\text{adjacent to } B}{\\text{hypotenuse}} = \\frac{5}{13}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — gives $\\cos(A) = \\frac{12}{13}$ (using the $5$-$12$-$13$ triple).\n* Choice C: "wrong formula" — gives $\\tan(A) = \\frac{5}{12}$.\n* Choice D: "applies the inverse operation" — flips $\\sin(A)$ to get $\\csc(A)$, which can never be valid for cosine.\n\n**Test Day Takeaway:** Cofunction identity for complementary angles: $\\sin(A) = \\cos(90° - A)$. In a right triangle the two acute angles are complementary, so swapping sine and cosine between them is always valid.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'complementary-angle-identity',
@@ -1192,13 +1330,16 @@ export const geometryBank = [
     type: 'multiple-choice',
     question: 'Sphere $A$ has a radius of $r$ and sphere $B$ has a radius of $2r$. The volume of sphere $B$ is how many times the volume of sphere $A$?',
     choices: [
+      // distractor: uses the linear ratio
       { id: 'A', text: '$2$' },
+      // distractor: uses the squared ratio
       { id: 'B', text: '$4$' },
+      // distractor: averages the linear and cubed ratios
       { id: 'C', text: '$6$' },
       { id: 'D', text: '$8$' },
     ],
     correctAnswer: 'D',
-    explanation: 'Volume scales as the cube of the linear factor: $(2)^3 = 8$. Choice B uses the square instead of the cube.',
+    explanation: '**SAT Pattern: Pure Volume Scaling**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** Linear ratio $2$, cubed for volume: $2^3 = 8$.\n\n**The Full Solution:**\nFor similar solids, volume scales as the cube of the linear ratio. Sphere $B$\'s radius is $2$ times sphere $A$\'s, so:\n$\\frac{V_B}{V_A} = (2)^3 = 8$.\n\nDirectly: $V_A = \\frac{4}{3}\\pi r^3$ and $V_B = \\frac{4}{3}\\pi(2r)^3 = \\frac{4}{3}\\pi \\cdot 8r^3$, so $\\frac{V_B}{V_A} = 8$.\n\nVerification: $\\frac{V_B}{V_A} = \\frac{\\frac{4}{3}\\pi(2r)^3}{\\frac{4}{3}\\pi r^3} = \\frac{8r^3}{r^3} = 8$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — uses the linear ratio directly.\n* Choice B: "wrong formula" — uses the squared ratio (area scaling).\n* Choice C: "wrong base" — averages or otherwise mangles the calculation.\n\n**Test Day Takeaway:** Doubling the radius multiplies the volume by $8$. Tripling multiplies by $27$. Halving divides by $8$. Power-of-three behavior — the most-tested scaling fact on the SAT.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'scaling-conceptual',
@@ -1214,12 +1355,15 @@ export const geometryBank = [
     question: 'A sector of a circle with radius $12$ has a central angle of $\\frac{5\\pi}{6}$ radians. What is the area of the sector?',
     choices: [
       { id: 'A', text: '$60\\pi$' },
+      // distractor: gives half the correct value
       { id: 'B', text: '$30\\pi$' },
+      // distractor: doubles the correct value
       { id: 'C', text: '$120\\pi$' },
+      // distractor: drops the r² factor
       { id: 'D', text: '$10\\pi$' },
     ],
     correctAnswer: 'A',
-    explanation: 'Sector area $= \\frac{1}{2}r^2\\theta = \\frac{1}{2}(144)\\left(\\frac{5\\pi}{6}\\right) = \\frac{720\\pi}{12} = 60\\pi$. Choice B omits the $r^2$ factor partially.',
+    explanation: '**SAT Pattern: Sector Area in Radians**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $A = \\frac{1}{2}r^2\\theta = \\frac{1}{2}(144)\\left(\\frac{5\\pi}{6}\\right) = 72 \\cdot \\frac{5\\pi}{6} = 12 \\cdot 5\\pi = 60\\pi$.\n\n**The Full Solution:**\nSector area in radians: $A = \\frac{1}{2}r^2\\theta$. With $r = 12$ and $\\theta = \\frac{5\\pi}{6}$:\n$A = \\frac{1}{2}(12)^2 \\cdot \\frac{5\\pi}{6} = \\frac{1}{2}(144) \\cdot \\frac{5\\pi}{6} = 72 \\cdot \\frac{5\\pi}{6} = 60\\pi$ sq units.\n\nVerification: $\\frac{5\\pi}{6}$ radians is $\\frac{5}{12}$ of a full circle ($2\\pi$). Full area $= \\pi(144) = 144\\pi$. Sector $= \\frac{5}{12} \\cdot 144\\pi = 60\\pi$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "off-by-one" — divides correct answer by $2$.\n* Choice C: "wrong formula" — omits the $\\frac{1}{2}$, giving $r^2\\theta = 120\\pi$.\n* Choice D: "wrong base" — uses $r$ instead of $r^2$.\n\n**Test Day Takeaway:** Sector area formulas: $\\frac{1}{2}r^2\\theta$ (radians) or $\\frac{\\theta}{360}\\pi r^2$ (degrees). Same answer, different formulas. Pick the one that matches the units.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'radian-sector-area',
@@ -1242,7 +1386,7 @@ export const geometryBank = [
       },
     },
     correctAnswer: '9.6',
-    explanation: 'First find $YZ = \\sqrt{20^2 - 12^2} = 16$. The altitude to the hypotenuse satisfies $h = \\frac{XY \\cdot YZ}{XZ} = \\frac{12 \\times 16}{20} = 9.6$.',
+    explanation: '**SAT Pattern: Altitude to Hypotenuse**\n\n**The correct answer is $9.6$.**\n\n**The Fast Way (~30s):** Find $YZ = 16$ (since $12$-$16$-$20$ is $3$-$4$-$5$ scaled by $4$). Area $= \\frac{1}{2}(12)(16) = 96 = \\frac{1}{2}(20)h$, so $h = \\frac{192}{20} = 9.6$.\n\n**The Full Solution:**\nFirst find leg $YZ$ using Pythagoras:\n$YZ = \\sqrt{XZ^2 - XY^2} = \\sqrt{400 - 144} = \\sqrt{256} = 16$.\n\nThe area of the right triangle can be computed two ways:\n* Using legs: $A = \\frac{1}{2}(XY)(YZ) = \\frac{1}{2}(12)(16) = 96$.\n* Using hypotenuse and altitude: $A = \\frac{1}{2}(XZ)(h) = \\frac{1}{2}(20)(h) = 10h$.\n\nSet them equal: $10h = 96 \\Rightarrow h = 9.6$.\n\nVerification: $12$-$16$-$20$ is a $3$-$4$-$5$ Pythagorean triple scaled by $4$ \\checkmark. The altitude formula $h = \\frac{\\text{leg}_1 \\cdot \\text{leg}_2}{\\text{hypotenuse}} = \\frac{12 \\cdot 16}{20} = 9.6$ checks out.\n\n**Common Mistakes to Avoid:**\n* Using $XY$ as the altitude — confuses the perpendicular legs with the altitude to the hypotenuse.\n* Forgetting that $YZ$ must be found first.\n* Reporting $96$ (the area) instead of $h$.\n\n**Test Day Takeaway:** In a right triangle, the altitude to the hypotenuse $= \\frac{\\text{leg}_1 \\cdot \\text{leg}_2}{\\text{hypotenuse}}$. This is the "two-areas trick" — equate the two area expressions to solve for the altitude.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'altitude-to-hypotenuse',
@@ -1258,12 +1402,15 @@ export const geometryBank = [
     question: 'A circular track has a circumference of $400$ meters. A runner starts at point $A$ and runs along the track to point $B$, covering an arc of $150$ meters. What is the area, in square meters, of the sector $AOB$ where $O$ is the center of the track?',
     choices: [
       { id: 'A', text: '$\\frac{15000}{\\pi}$' },
+      // distractor: doubles the correct value
       { id: 'B', text: '$\\frac{30000}{\\pi}$' },
+      // distractor: uses circumference in place of radius squared
       { id: 'C', text: '$6000\\pi$' },
+      // distractor: forgets to halve correctly
       { id: 'D', text: '$\\frac{60000}{\\pi}$' },
     ],
     correctAnswer: 'A',
-    explanation: 'From $C = 2\\pi r = 400$, we get $r = \\frac{200}{\\pi}$. The central angle is $\\theta = \\frac{150}{r} = \\frac{150\\pi}{200} = \\frac{3\\pi}{4}$. Sector area $= \\frac{1}{2}r^2\\theta = \\frac{1}{2} \\cdot \\frac{40000}{\\pi^2} \\cdot \\frac{3\\pi}{4} = \\frac{15000}{\\pi}$.',
+    explanation: '**SAT Pattern: Circumference → Radius → Sector**\n\n**Choice A is correct.**\n\n**The Fast Way (~45s):** $r = \\frac{400}{2\\pi} = \\frac{200}{\\pi}$. $\\theta = \\frac{150}{r} = \\frac{150\\pi}{200} = \\frac{3\\pi}{4}$. Sector area $= \\frac{1}{2}r^2\\theta = \\frac{1}{2} \\cdot \\frac{40000}{\\pi^2} \\cdot \\frac{3\\pi}{4} = \\frac{15000}{\\pi}$.\n\n**The Full Solution:**\nStep 1: Find the radius from circumference.\n$C = 2\\pi r \\Rightarrow r = \\frac{400}{2\\pi} = \\frac{200}{\\pi}$.\n\nStep 2: Find the central angle in radians from the arc length.\n$\\theta = \\frac{\\text{arc}}{r} = \\frac{150}{200/\\pi} = \\frac{150\\pi}{200} = \\frac{3\\pi}{4}$.\n\nStep 3: Compute the sector area.\n$A = \\frac{1}{2}r^2\\theta = \\frac{1}{2}\\left(\\frac{200}{\\pi}\\right)^2 \\cdot \\frac{3\\pi}{4} = \\frac{1}{2} \\cdot \\frac{40000}{\\pi^2} \\cdot \\frac{3\\pi}{4} = \\frac{40000 \\cdot 3}{8\\pi} = \\frac{15000}{\\pi}$ sq m.\n\nVerification: alternatively, sector area $= \\frac{\\text{arc}}{\\text{circumference}} \\cdot \\pi r^2 = \\frac{150}{400} \\cdot \\pi \\cdot \\frac{40000}{\\pi^2} = \\frac{3}{8} \\cdot \\frac{40000}{\\pi} = \\frac{15000}{\\pi}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "off-by-one" — doubles the correct value.\n* Choice C: "wrong formula" — uses $C^2$ or $C \\cdot r$ somewhere instead of $r^2$.\n* Choice D: "wrong base" — uses $r$ unsquared or doubles incorrectly.\n\n**Test Day Takeaway:** Multi-step track problems: extract $r$ from circumference, $\\theta$ from arc length (in radians, $\\theta = \\text{arc}/r$), then apply sector area $\\frac{1}{2}r^2\\theta$. Alternative: use the fraction $\\frac{\\text{arc}}{\\text{circumference}}$ of the full circle area.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'multi-step-track-problem',
