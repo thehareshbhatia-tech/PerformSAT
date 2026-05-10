@@ -1278,8 +1278,10 @@ const PerformSAT = () => {
             setShowCalculator(false);
             setView('studyPlan');
           };
-          const moduleBackHandler = () => { setView('learn'); setActiveSection(null); setShowCalculator(false); };
-          const backHandler = isStudyPlanMode ? studyPlanBackHandler : moduleBackHandler;
+          // The legacy moduleBackHandler returned to view='learn' (the
+          // deleted LearnWorkspace). Practice is now reachable only via
+          // the study plan, so all back paths route there.
+          const backHandler = studyPlanBackHandler;
           const headerTitle = isAdaptive
             ? (practiceState.adaptiveDomainLabel ? `Adaptive Practice — ${practiceState.adaptiveDomainLabel}` : 'Adaptive Practice')
             : isAssigned
