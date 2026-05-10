@@ -26,4 +26,18 @@
 **Priority:** P3
 **Depends on:** None
 
+## AI Tutor
+
+### Section context inside retry-drill review-mode
+
+**What:** AiTutorChat panel inside `AssignedPracticeShell` retry-drill review mode shows mastery advice from the WRONG section. E.g., reviewing an R&W vocabulary question, the panel surfaces "Your Function Evaluation mastery has dropped to 2%" (a Math skill) with a "Practice this skill" CTA that would yank the user out of review mode.
+
+**Why:** The "Skill needs attention" detection in AiTutorChat doesn't filter by the section of the currently-displayed question. In retry-drill review mode the items can be mixed-section (snapshot questions from a full test), so a fixed-section advice panel can mismatch the actual question.
+
+**Context:** Caught by `/design-review` against perform-sat.vercel.app on 2026-05-10. Pre-existing bug — not introduced by Past-Test-Review tier. Fix is to either (a) thread the current question's `skills`/section into the advice picker so it only surfaces matching-section advice, or (b) suppress the "Skill needs attention" alert entirely when `practiceState.reviewMode` is true (it's noise during review). Option (b) is simpler and probably right.
+
+**Effort:** S
+**Priority:** P2
+**Depends on:** None
+
 ## Completed
