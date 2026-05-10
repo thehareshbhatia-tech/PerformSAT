@@ -654,9 +654,18 @@ const PerformSAT = () => {
     const enrichFromLive = (snapshotQ, modIdx, qIdx) => {
       if (!snapshotQ) return null;
       const liveQ = reviewBundle.liveTest?.modules?.[modIdx]?.questions?.[qIdx];
-      if (!liveQ) return snapshotQ;
-      return {
+      // The snapshot reshape in loadDiagnosticReportData strips position
+      // metadata. Re-attach moduleIndex/questionIndex so the retry-drill
+      // header can show "M1·Q3 (originally missed)" instead of the
+      // generic round-position label.
+      const withPosition = {
         ...snapshotQ,
+        moduleIndex: modIdx,
+        questionIndex: qIdx,
+      };
+      if (!liveQ) return withPosition;
+      return {
+        ...withPosition,
         passage: snapshotQ.passage ?? liveQ.passage,
         diagram: snapshotQ.diagram ?? liveQ.diagram,
         questionTable: snapshotQ.questionTable ?? liveQ.questionTable,
