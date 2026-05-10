@@ -50,6 +50,13 @@ export const geometryBank = [
     difficulty: 'easy',
     type: 'multiple-choice',
     question: 'A right triangle has legs of length $9$ and $12$. What is the length of the hypotenuse?',
+    diagram: {
+      type: 'rightTriangle',
+      params: {
+        sideLabels: ['9', '', '12'],
+        rightAngleVertex: 1,
+      },
+    },
     choices: [
       { id: 'A', text: '$15$' },
       { id: 'B', text: '$21$' },
@@ -191,6 +198,14 @@ export const geometryBank = [
     difficulty: 'easy',
     type: 'multiple-choice',
     question: 'In a $45°$-$45°$-$90°$ triangle, each leg has length $5$. What is the length of the hypotenuse?',
+    diagram: {
+      type: 'rightTriangle',
+      params: {
+        labels: ['45°', '', '45°'],
+        sideLabels: ['5', '', '5'],
+        rightAngleVertex: 1,
+      },
+    },
     choices: [
       { id: 'A', text: '$5$' },
       { id: 'B', text: '$5\\sqrt{2}$' },
@@ -233,6 +248,14 @@ export const geometryBank = [
     difficulty: 'easy',
     type: 'multiple-choice',
     question: 'In a right triangle, the side opposite angle $\\theta$ has length $4$ and the hypotenuse has length $10$. What is $\\sin(\\theta)$?',
+    diagram: {
+      type: 'rightTriangle',
+      params: {
+        labels: ['θ', '', ''],
+        sideLabels: ['', '10', '4'],
+        rightAngleVertex: 1,
+      },
+    },
     choices: [
       { id: 'A', text: '$\\frac{2}{5}$' },
       { id: 'B', text: '$\\frac{5}{2}$' },
@@ -377,6 +400,13 @@ export const geometryBank = [
     difficulty: 'medium',
     type: 'multiple-choice',
     question: 'A 17-foot ladder leans against a wall. The base of the ladder is $8$ feet from the wall. How high up the wall, in feet, does the ladder reach?',
+    diagram: {
+      type: 'rightTriangle',
+      params: {
+        sideLabels: ['', '17', '8'],
+        rightAngleVertex: 1,
+      },
+    },
     choices: [
       { id: 'A', text: '$9$' },
       { id: 'B', text: '$15$' },
@@ -419,6 +449,14 @@ export const geometryBank = [
     difficulty: 'medium',
     type: 'multiple-choice',
     question: 'From the top of a $40$-meter observation tower, the angle of depression to a parked car is $35°$. What is the horizontal distance, in meters, from the base of the tower to the car? (Round to the nearest tenth.)',
+    diagram: {
+      type: 'rightTriangle',
+      params: {
+        labels: ['35°', '', ''],
+        sideLabels: ['', '', '40'],
+        rightAngleVertex: 1,
+      },
+    },
     choices: [
       { id: 'A', text: '$28.0$' },
       { id: 'B', text: '$49.0$' },
@@ -596,6 +634,14 @@ export const geometryBank = [
     difficulty: 'medium',
     type: 'multiple-choice',
     question: 'In right triangle $MNP$, the right angle is at $N$. If $MN = 7$ and $MP = 25$, what is $\\cos(M)$?',
+    diagram: {
+      type: 'rightTriangle',
+      params: {
+        labels: ['M', 'N', 'P'],
+        sideLabels: ['7', '25', ''],
+        rightAngleVertex: 1,
+      },
+    },
     choices: [
       { id: 'A', text: '$\\frac{7}{25}$' },
       { id: 'B', text: '$\\frac{24}{25}$' },
@@ -815,6 +861,13 @@ export const geometryBank = [
     difficulty: 'medium',
     type: 'multiple-choice',
     question: 'A triangle has sides of length $8$, $15$, and $17$. What type of triangle is it?',
+    diagram: {
+      type: 'rightTriangle',
+      params: {
+        sideLabels: ['8', '17', '15'],
+        rightAngleVertex: 1,
+      },
+    },
     choices: [
       { id: 'A', text: 'Acute' },
       { id: 'B', text: 'Right' },
@@ -1109,6 +1162,14 @@ export const geometryBank = [
     difficulty: 'hard',
     type: 'multiple-choice',
     question: 'In right triangle $ABC$ with the right angle at $C$, $\\sin(A) = \\frac{5}{13}$. What is $\\cos(B)$?',
+    diagram: {
+      type: 'rightTriangle',
+      params: {
+        labels: ['A', 'C', 'B'],
+        sideLabels: ['', '13', '5'],
+        rightAngleVertex: 1,
+      },
+    },
     choices: [
       { id: 'A', text: '$\\frac{5}{13}$' },
       { id: 'B', text: '$\\frac{12}{13}$' },
@@ -1172,6 +1233,14 @@ export const geometryBank = [
     difficulty: 'hard',
     type: 'fill-in',
     question: 'In right triangle $XYZ$ with hypotenuse $XZ = 20$, the altitude from $Y$ to $XZ$ has length $h$. If $XY = 12$, what is the value of $h$?',
+    diagram: {
+      type: 'rightTriangle',
+      params: {
+        labels: ['X', 'Y', 'Z'],
+        sideLabels: ['12', '20', ''],
+        rightAngleVertex: 1,
+      },
+    },
     correctAnswer: '9.6',
     explanation: 'First find $YZ = \\sqrt{20^2 - 12^2} = 16$. The altitude to the hypotenuse satisfies $h = \\frac{XY \\cdot YZ}{XZ} = \\frac{12 \\times 16}{20} = 9.6$.',
     calculatorAllowed: true,
