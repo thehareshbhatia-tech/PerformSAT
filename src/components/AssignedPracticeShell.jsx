@@ -437,13 +437,19 @@ const AssignedPracticeShell = ({
           border: `1px solid ${C.border}`, padding: '32px',
           overflow: 'auto', display: 'flex', flexDirection: 'column',
         }}>
-          {/* Question header */}
+          {/* Question header. In review mode the rounds-of-8 framing is
+              just noise — the session is "items you got wrong on this
+              test," not a skill drill. Instead show the original
+              moduleIndex·questionIndex (e.g., "M1·Q3") so the user can
+              place which item from the original test they're retrying. */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
             <HandAuthoredStamp />
             <span style={{ fontSize: '14px', fontWeight: '700', color: C.textSec }}>
-              {currentRound
-                ? `${currentRound.label} · Q ${positionInRound} of ${currentRound.questionIds.length}`
-                : `Question ${idx + 1}`}
+              {practiceState.reviewMode && typeof currentQuestion?.moduleIndex === 'number'
+                ? `M${currentQuestion.moduleIndex + 1}·Q${(currentQuestion.questionIndex ?? 0) + 1} (originally missed)`
+                : currentRound
+                  ? `${currentRound.label} · Q ${positionInRound} of ${currentRound.questionIds.length}`
+                  : `Question ${idx + 1}`}
             </span>
             {diffBadge && (
               <span style={{
