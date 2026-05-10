@@ -194,18 +194,28 @@ function ReviewItemCard({
  * buildErrorMeta(errorClass) — assemble the chip's display data from the
  * canonical taxonomy. Returns null when no class (e.g., correct items).
  *
- * Falls back to a generic 'Mixed' descriptor if the class isn't in the
- * taxonomy (defensive — no crashes on stale data).
+ * 'mixed' is a special bucket for items whose primary skill isn't in
+ * weakSkills (i.e., this miss isn't part of a recurring weakness). It
+ * gets its own description rather than the generic fallback so the user
+ * understands what the bucket means.
  *
  * @param {string|null|undefined} errorClass
  * @returns {{label, icon, description, color}|null}
  */
 export function buildErrorMeta(errorClass) {
   if (!errorClass) return null;
+  if (errorClass === 'mixed') {
+    return {
+      label: 'Outside a pattern',
+      icon: '•',
+      description: 'This miss isn\'t part of a recurring weakness — likely a one-off.',
+      color: '#64748b',
+    };
+  }
   return {
     label: ERROR_TYPE_LABELS?.[errorClass] || prettifyClass(errorClass),
     icon: ERROR_TYPE_ICONS?.[errorClass] || '•',
-    description: ERROR_TYPE_DESCRIPTIONS?.[errorClass] || 'This item showed up in your review.',
+    description: ERROR_TYPE_DESCRIPTIONS?.[errorClass] || `${prettifyClass(errorClass)} pattern detected.`,
     color: ERROR_TYPE_COLORS?.[errorClass] || '#64748b',
   };
 }

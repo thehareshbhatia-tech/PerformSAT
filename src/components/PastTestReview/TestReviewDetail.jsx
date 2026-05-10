@@ -305,7 +305,13 @@ export function buildErrorClassChips(errorClassGroups) {
     .filter(([, items]) => Array.isArray(items) && items.length > 0)
     .map(([cls, items]) => ({
       cls,
-      label: ERROR_TYPE_LABELS?.[cls] || prettifyClass(cls),
+      // 'mixed' is the catch-all bucket for items whose skill isn't in
+      // weakSkills — relabel as "Outside a pattern" so users understand
+      // the bucket's meaning (not part of a recurring weakness) rather
+      // than the literal class key.
+      label: cls === 'mixed'
+        ? 'Outside a pattern'
+        : (ERROR_TYPE_LABELS?.[cls] || prettifyClass(cls)),
       icon: ERROR_TYPE_ICONS?.[cls] || '•',
       color: ERROR_TYPE_COLORS?.[cls] || '#64748b',
       count: items.length,

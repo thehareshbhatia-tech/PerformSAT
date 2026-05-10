@@ -31,7 +31,15 @@ describe('buildErrorMeta', () => {
     expect(meta.label).toBe('Unknown Class Label');
     expect(meta.icon).toBe('•');
     expect(meta.color).toBe('#64748b');
-    expect(meta.description).toContain('review');
+    // The fallback description names the prettified class so the user
+    // sees what bucket the item landed in.
+    expect(meta.description).toContain('Unknown Class Label');
+  });
+
+  it('relabels the mixed bucket to "Outside a pattern"', () => {
+    const meta = buildErrorMeta('mixed');
+    expect(meta.label).toBe('Outside a pattern');
+    expect(meta.description.toLowerCase()).toContain('one-off');
   });
 
   it('returns canonical descriptions for each of the 6 classes', () => {
