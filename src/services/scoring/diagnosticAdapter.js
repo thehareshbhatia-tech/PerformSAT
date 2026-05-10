@@ -1906,6 +1906,7 @@ export function buildNarrativeFlow(uni) {
     blocks.push({
       id: 'remediationPath',
       label: 'Your Learning Path',
+      transition: 'Each weak skill below maps to specific lessons:',
       items: learningPath,
       style: 'path',
       visibility: 'primary',
