@@ -470,34 +470,24 @@ const mapGapsToActivities = (skillGaps, completedLessons, practiceProgress, diag
   const activities = [];
 
   skillGaps.forEach(gap => {
-    const errorType = gap.primaryErrorType;
+    // ACTIVITY TYPE 1: Watch/re-watch lessons
+    //
+    // ── REMOVED 2026-05-09 ───────────────────────────────────────────
+    // Lesson-type activities used to flow into the weekly schedule and
+    // navigated to LearnWorkspace (the legacy lesson reader). The
+    // product no longer surfaces that flow as a primary engagement —
+    // students engage via focus-area drills (AssignedPracticeShell)
+    // and full mock tests. The block that emitted `type: 'lesson'`
+    // activities is intentionally gone; downstream filters in
+    // StudyPlanDashboard.jsx + render-time guards drop any lesson
+    // activities still present in legacy plan artifacts in Firestore.
+    //
+    // To re-enable: re-introduce a `mod.lessons.forEach(...)` push
+    // inside `gap.modules.forEach(mod => { ... })` below. See git blame
+    // on this comment for the full history.
+    // ─────────────────────────────────────────────────────────────────
 
     gap.modules.forEach(mod => {
-      // ACTIVITY TYPE 1: Watch/re-watch lessons
-      // (Especially for conceptual gaps or skills the student hasn't studied)
-      if (errorType === ERROR_TYPES.CONCEPTUAL_GAP || gap.historicalMastery === null || gap.historicalMastery < 40) {
-        mod.lessons.forEach(lesson => {
-          const lessonKey = `${mod.moduleId}-${lesson.id}`;
-          const alreadyCompleted = completedLessons[lessonKey]?.completed;
-
-          activities.push({
-            type: 'lesson',
-            activityType: lesson.type === 'video' ? 'watchLesson' : 'readLesson',
-            title: alreadyCompleted ? `Review: ${lesson.title}` : lesson.title,
-            subtitle: `${mod.moduleName} → ${lesson.section || 'Core'}`,
-            moduleId: mod.moduleId,
-            lessonId: lesson.id,
-            sectionName: lesson.section,
-            duration: lesson.type === 'video' ? ACTIVITY_DURATIONS.watchLesson : ACTIVITY_DURATIONS.readLesson,
-            priority: gap.priority,
-            skillId: gap.skillId,
-            skillName: gap.skillName,
-            isReview: alreadyCompleted,
-            icon: lesson.type === 'video' ? '🎥' : '📖',
-          });
-        });
-      }
-
       // ACTIVITY TYPE 2: Practice sections
       // (For all error types — practice is always valuable)
       mod.sections.forEach(section => {
@@ -1538,9 +1528,11 @@ export function getTodaySlice(plan, todayDayName) {
   const { weeks } = plan;
 
   // Current week = first week with any incomplete activity. Mirrors the
-  // existing StudyPlanDashboard.jsx:123 derivation.
+  // existing StudyPlanDashboard.jsx:123 derivation. Lesson-type activities
+  // are excluded — see studyPlanGenerator.js:472 for the cleanup note.
+  const isVisibleActivity = (a) => a && a.type !== 'lesson';
   const currentWeekIndex = weeks.findIndex(
-    w => Array.isArray(w?.activities) && w.activities.some(a => !a.completed),
+    w => Array.isArray(w?.activities) && w.activities.filter(isVisibleActivity).some(a => !a.completed),
   );
 
   if (currentWeekIndex < 0) {
@@ -1554,7 +1546,9 @@ export function getTodaySlice(plan, todayDayName) {
   }
 
   const week = weeks[currentWeekIndex];
-  const todayActivities = (week.activities || []).filter(a => a.day === todayDayName);
+  const todayActivities = (week.activities || [])
+    .filter(isVisibleActivity)
+    .filter(a => a.day === todayDayName);
 
   if (todayActivities.length === 0) {
     return {

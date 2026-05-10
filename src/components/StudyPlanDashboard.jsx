@@ -132,13 +132,23 @@ const StudyPlanDashboard = ({
   }
 
   // ── Derived data ─────────────────────────────────────────────────────
+  // Render-time guard: legacy plan artifacts in Firestore may still
+  // carry type='lesson' activities — those routed to the legacy
+  // LearnWorkspace, which the product no longer surfaces. Drop them
+  // before rendering so users only ever see practice/review/strategy/
+  // test activities. Generator no longer emits lessons (see
+  // studyPlanGenerator.js:472), but this defends against old plans
+  // already persisted server-side.
+  const isVisibleActivity = (a) => a && a.type !== 'lesson';
+  const visibleActivities = (week) => (week?.activities || []).filter(isVisibleActivity);
+
   const delta = studyPlanArtifact?.delta || studyPlan._diff || null;
   const longitudinal = studyPlanArtifact?.longitudinal || null;
   const { weeks, summary, weaknesses } = studyPlan;
-  const totalActivities = weeks.reduce((s, w) => s + (w.activities?.length || 0), 0);
-  const completedActivities = weeks.reduce((s, w) => s + (w.activities?.filter(a => a.completed).length || 0), 0);
+  const totalActivities = weeks.reduce((s, w) => s + visibleActivities(w).length, 0);
+  const completedActivities = weeks.reduce((s, w) => s + visibleActivities(w).filter(a => a.completed).length, 0);
   const progressPercent = totalActivities > 0 ? Math.round((completedActivities / totalActivities) * 100) : 0;
-  const currentWeekIndex = weeks.findIndex(w => w.activities?.some(a => !a.completed));
+  const currentWeekIndex = weeks.findIndex(w => visibleActivities(w).some(a => !a.completed));
   const displayCurrentWeek = currentWeekIndex >= 0 ? currentWeekIndex : weeks.length - 1;
 
   // Acely-polish v2: right-rail derived state.
@@ -221,11 +231,12 @@ const StudyPlanDashboard = ({
     const week = weeks[displayCurrentWeek];
     if (!week || !Array.isArray(week.activities)) return [];
     const todayIdx = DAY_NAMES.indexOf(todayDayName);
+    const visible = week.activities.filter(a => a && a.type !== 'lesson');
     const out = [];
     for (let offset = 1; offset <= 6; offset++) {
       const dayIdx = (todayIdx + offset) % 7;
       const dayName = DAY_NAMES[dayIdx];
-      const dayActs = week.activities.filter(a => a.day === dayName);
+      const dayActs = visible.filter(a => a.day === dayName);
       const incomplete = dayActs.filter(a => !a.completed);
       if (dayActs.length === 0) continue;
       out.push({
@@ -380,14 +391,23 @@ const StudyPlanDashboard = ({
 
   // ── Render a week's activities as a flat list ────────────────────────
   const renderWeekActivities = (week, weekIdx) => {
-    const activities = week.activities || [];
-    if (activities.length === 0) {
+    // Render only visible activities — skip type='lesson' since the
+    // legacy LearnWorkspace flow is no longer surfaced (see top of
+    // this component for the full note). Map BEFORE filter so we
+    // preserve each activity's original index for the toggle-complete
+    // callback (parent uses {weekIdx, actIdx} to mutate the full array
+    // — feeding it a filtered index would mark the wrong activity).
+    const fullActivities = week.activities || [];
+    const activitiesWithIdx = fullActivities
+      .map((act, origIdx) => ({ act, origIdx }))
+      .filter(({ act }) => isVisibleActivity(act));
+    if (activitiesWithIdx.length === 0) {
       return <div style={{ fontSize: '14px', color: colors.text.muted, padding: '12px 0', textAlign: 'center' }}>No activities this week.</div>;
     }
 
     // ═══ RENDER-TIME RE-RANKING based on skillProgress ═══
     // Compute mastery status for each activity's target skill
-    const rankedActivities = activities.map((act, origIdx) => {
+    const rankedActivities = activitiesWithIdx.map(({ act, origIdx }) => {
       let masteryStatus = null; // null = no data, 'mastered', 'needs-focus', or 'normal'
       if (skillProgress && act.skillId) {
         const sp = skillProgress[act.skillId];
@@ -435,8 +455,9 @@ const StudyPlanDashboard = ({
 
   const otherWeeks = weeks.filter((_, i) => i !== displayCurrentWeek);
   const currentWeek = weeks[displayCurrentWeek];
-  const currentDone = (currentWeek?.activities || []).filter(a => a.completed).length;
-  const currentTotal = (currentWeek?.activities || []).length;
+  const currentVisibleActivities = visibleActivities(currentWeek);
+  const currentDone = currentVisibleActivities.filter(a => a.completed).length;
+  const currentTotal = currentVisibleActivities.length;
 
   // ====================================================================
   // RENDER — 3 clean sections
@@ -550,11 +571,13 @@ const StudyPlanDashboard = ({
                         type="button"
                         className="sp-coming-up-cta"
                         onClick={() => {
-                          if (cu.sample?.moduleId && onStartPractice) {
-                            onStartPractice(cu.sample.moduleId, cu.sample.sectionName);
-                          } else {
-                            setActiveView('weeklyView');
-                          }
+                          // "Coming up" is a preview of FUTURE days. Don't
+                          // auto-launch the activity — that route hits the
+                          // legacy LearnWorkspace / 2-arg practice flow, which
+                          // is old scaffolding the rest of the app no longer
+                          // surfaces. Switch to Weekly View where the user
+                          // can engage with the full plan in the canonical UI.
+                          setActiveView('weeklyView');
                         }}
                       >
                         View →
