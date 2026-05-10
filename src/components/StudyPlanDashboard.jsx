@@ -519,6 +519,32 @@ const StudyPlanDashboard = ({
         </header>
       )}
 
+      {/* Past-Test-Review entry — above the sub-tabs so it appears in BOTH
+          inline (Dashboard tab) and standalone (sidebar) mounts. Originally
+          it lived inside the Today's Tasks branch, but the inline mount
+          defaults to Weekly View, so the CTA was invisible to dashboard
+          tab users. Gated by feature flag + at-least-one-completed-test. */}
+      {showReviewTestsButton && (
+        <div className="sp-past-test-review-cta">
+          <button
+            type="button"
+            className="sp-past-test-review-btn"
+            onClick={onReviewPastTests}
+          >
+            <span className="sp-past-test-review-icon" aria-hidden="true">📋</span>
+            <span className="sp-past-test-review-text">
+              <span className="sp-past-test-review-title">Review your tests</span>
+              <span className="sp-past-test-review-sub">
+                {completedTestCount === 1
+                  ? 'See every wrong answer explained from your test'
+                  : `See every wrong answer explained from your ${completedTestCount} tests`}
+              </span>
+            </span>
+            <span className="sp-past-test-review-chev" aria-hidden="true">›</span>
+          </button>
+        </div>
+      )}
+
       {/* ────────────────────────────────────────────────────────────────
           SUB-TABS: 'Today's Tasks (N) / Weekly View (N)' matching Acely.
           Hidden when mounted inline inside another tab structure.
@@ -566,30 +592,6 @@ const StudyPlanDashboard = ({
             }}
             onTakeTest={onStartPracticeTest}
           />
-
-          {/* Past-Test-Review entry (Phase 6 of PAST_TEST_REVIEW_PLAN.md) —
-              gated by feature flag + at-least-one-completed-test so we never
-              surface an empty surface. Behind ff so the gauntlet ships off. */}
-          {showReviewTestsButton && (
-            <div className="sp-past-test-review-cta">
-              <button
-                type="button"
-                className="sp-past-test-review-btn"
-                onClick={onReviewPastTests}
-              >
-                <span className="sp-past-test-review-icon" aria-hidden="true">📋</span>
-                <span className="sp-past-test-review-text">
-                  <span className="sp-past-test-review-title">Review your tests</span>
-                  <span className="sp-past-test-review-sub">
-                    {completedTestCount === 1
-                      ? 'See every wrong answer explained from your test'
-                      : `See every wrong answer explained from your ${completedTestCount} tests`}
-                  </span>
-                </span>
-                <span className="sp-past-test-review-chev" aria-hidden="true">›</span>
-              </button>
-            </div>
-          )}
 
           {(todaySlice?.kind === 'rest-day'
             || todaySlice?.kind === 'all-done'
