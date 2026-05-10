@@ -32,9 +32,9 @@ test.describe('Past-Test-Review smoke', () => {
   test('opens the review index and lands on a test detail', async ({ page }) => {
     // ── 1. Log in ──
     await page.goto('/');
-    // The landing page shows a marketing surface; the login form is on the
-    // same route once you click "Log in" — but on direct dev navigation it
-    // already presents the auth panel. Wait for the email field.
+    // LandingPage is marketing-first — click "Log in" in the header to
+    // open the auth panel, then wait for the email field to render.
+    await page.getByRole('button', { name: 'Log in' }).first().click();
     await page.locator('#email').waitFor({ state: 'visible', timeout: 20_000 });
     await page.locator('#email').fill(TEST_EMAIL);
     await page.locator('#password').fill(TEST_PASSWORD);
