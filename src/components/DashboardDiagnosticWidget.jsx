@@ -113,7 +113,6 @@ const DashboardDiagnosticWidget = ({
   practiceProgress,
   onViewFullDiagnosis,
   onStartPracticeTest,
-  onNavigateToModule,
   onStartPractice,
 }) => {
   const [expanded, setExpanded] = useState(false);

@@ -17,7 +17,6 @@
  * - Target date urgency increases appropriately
  */
 
-import { allLessons } from '../data/lessons';
 import { hasQuestionsForSection, getSectionsWithQuestions } from '../data/questions';
 import { getSkillById, skillTaxonomy } from '../data/skillTaxonomy';
 import { ERROR_TYPES, ERROR_TYPE_LABELS, ERROR_TYPE_ICONS } from './diagnosticEngine';
@@ -375,14 +374,11 @@ const findModulesForSkill = (skillId) => {
   const allModuleIds = [...new Set([...directModules, ...taxonomyModules])];
 
   allModuleIds.forEach(moduleId => {
-    const lessons = allLessons[moduleId] || [];
-    const relevantLessons = findRelevantLessons(lessons, skillId, skill);
     const relevantSections = findRelevantSections(moduleId, skill);
 
     results.push({
       moduleId,
       moduleName: getModuleName(moduleId),
-      lessons: relevantLessons,
       sections: relevantSections,
     });
   });
@@ -394,39 +390,12 @@ const findModulesForSkill = (skillId) => {
       results.push({
         moduleId: fuzzyModule,
         moduleName: getModuleName(fuzzyModule),
-        lessons: (allLessons[fuzzyModule] || []).slice(0, 3),
         sections: [],
       });
     }
   }
 
   return results;
-};
-
-/**
- * Find lessons within a module that are relevant to a specific skill.
- */
-const findRelevantLessons = (lessons, skillId, skill) => {
-  if (!lessons || lessons.length === 0) return [];
-
-  const skillName = (skill?.name || skillId).toLowerCase();
-  const sections = (skill?.sections || []).map(s => s.toLowerCase());
-
-  // Find lessons that match by section name or title
-  const relevant = lessons.filter(lesson => {
-    const lessonSection = (lesson.section || '').toLowerCase();
-    const lessonTitle = (lesson.title || '').toLowerCase();
-
-    // Match by section
-    if (sections.some(s => lessonSection.includes(s) || s.includes(lessonSection))) return true;
-
-    // Match by skill name in title
-    if (lessonTitle.includes(skillName.split(' ')[0])) return true;
-
-    return false;
-  });
-
-  return relevant.length > 0 ? relevant.slice(0, 5) : lessons.slice(0, 3);
 };
 
 /**

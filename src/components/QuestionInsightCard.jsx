@@ -21,7 +21,7 @@ const TRAP_TYPE_LABELS = {
   unknown: 'Error Pattern',
 };
 
-const QuestionInsightCard = ({ insight, questionLabel, onNavigateToModule }) => {
+const QuestionInsightCard = ({ insight, questionLabel }) => {
   const [expanded, setExpanded] = useState(false);
 
   if (!insight) return null;
@@ -87,21 +87,8 @@ const QuestionInsightCard = ({ insight, questionLabel, onNavigateToModule }) => 
               </div>
             </div>
           )}
-          {skillLink && onNavigateToModule && (
-            <button
-              onClick={() => onNavigateToModule(skillLink.moduleId)}
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: '6px',
-                padding: '6px 12px', borderRadius: '8px', border: 'none',
-                background: 'var(--color-brand-orange-500, #f97316)', color: '#fff',
-                fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '600',
-                cursor: 'pointer', alignSelf: 'flex-start',
-                transition: 'all 0.2s ease',
-              }}
-            >
-              📖 Review: {skillLink.sections[0] || skillLink.moduleName}
-            </button>
-          )}
+          {/* Review-skill button removed — used to link into the legacy
+              LearnWorkspace lesson reader, which is gone. */}
         </div>
       </div>
     </div>

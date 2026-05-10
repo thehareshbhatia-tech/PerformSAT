@@ -61,7 +61,6 @@ const StudentDashboard = ({
   practiceTestResults,
   reviewQueue,
   dueReviewCount = 0,
-  onNavigateToModule,
   onUpdateTestDate,
   onUpdateTargetScore,
   onUpdateCurrentScore,
@@ -273,11 +272,9 @@ const StudentDashboard = ({
       onStartPractice(rec.action.moduleId, rec.action.sectionName);
     } else if (rec.action.type === 'startReview' && onStartReview) {
       onStartReview(rec.action.questions);
-    } else if (rec.action.type === 'startLesson' && onNavigateToModule) {
-      onNavigateToModule(rec.action.moduleId);
-    } else if (rec.action.type === 'browseModules') {
-      onNavigateToModule && onNavigateToModule('linear-equations');
     }
+    // 'startLesson' and 'browseModules' branches removed — both routed
+    // into the legacy LearnWorkspace flow which is gone.
   };
 
   const formatTestDate = (dateStr) => {
@@ -390,7 +387,6 @@ const StudentDashboard = ({
               skillProgress={skillProgress}
               reviewQueue={reviewQueue}
               user={user}
-              onNavigateToModule={onNavigateToModule}
               onStartPractice={onStartPractice}
               onStartPracticeTest={onStartPracticeTest}
               onCompleteActivity={onCompleteActivity}
@@ -658,7 +654,6 @@ const StudentDashboard = ({
             practiceProgress={practiceProgress}
             onViewFullDiagnosis={onViewFullDiagnosis}
             onStartPracticeTest={onStartPracticeTest}
-            onNavigateToModule={onNavigateToModule}
             onStartPractice={onStartPractice}
           />
         </div>

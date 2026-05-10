@@ -82,7 +82,6 @@ const StudyPlanDashboard = ({
   skillProgress,
   reviewQueue,
   user,
-  onNavigateToModule,
   onStartPractice,
   onStartPracticeTest,
   onCompleteActivity,
@@ -253,9 +252,9 @@ const StudyPlanDashboard = ({
 
   // ── Handlers ─────────────────────────────────────────────────────────
   const handleGo = (activity) => {
-    if (activity.type === 'lesson' && onNavigateToModule && activity.moduleId) {
-      onNavigateToModule(activity.moduleId, activity.lessonId);
-    } else if (activity.type === 'practice' && onStartPractice && activity.moduleId) {
+    // Lesson branch removed — generator no longer emits type='lesson'
+    // and the legacy LearnWorkspace mount is gone.
+    if (activity.type === 'practice' && onStartPractice && activity.moduleId) {
       onStartPractice(activity.moduleId, activity.sectionName);
     } else if (activity.type === 'test' && onStartPracticeTest) {
       onStartPracticeTest();

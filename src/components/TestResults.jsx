@@ -11,7 +11,6 @@ import { cardStyles, buttonStyles } from '../design/components';
 import { MathText } from './MathText';
 import './TestResults.css';
 import { ChartBarIcon, ArrowRightIcon } from '../design/icons';
-import RemediationPathBlock from './RemediationPathBlock';
 import QuestionInsightCard from './QuestionInsightCard';
 import {
   scoreTest, convertToSATScore, isAnswerCorrect, estimatePercentile,
@@ -472,7 +471,6 @@ const TestResults = ({
   onReview,
   onReviewModule,
   onGoToStudyPlan,
-  onNavigateToModule,
   savedStudyPlan,
   user,
 }) => {
@@ -1536,15 +1534,8 @@ const TestResults = ({
         );
       }
 
-      if (block.id === 'remediationPath') {
-        return (
-          <RemediationPathBlock
-            key={block.id}
-            items={block.items}
-            onNavigateToModule={onNavigateToModule}
-          />
-        );
-      }
+      // remediationPath block intentionally unmounted — RemediationPathBlock
+      // was deleted along with the legacy LearnWorkspace flow it linked into.
 
       if (block.id === 'evidence') {
         const TIME_RE = /time|speed|stamina|half|pace|rush|fast|slow|minute|second|avg.*time|timing/i;

@@ -358,7 +358,6 @@ const DiagnosticReport = ({
   completedLessons = {},
   practiceProgress = {},
   savedStudyPlan = null,
-  onNavigateToModule,
   onStartPractice,
   onStartPracticeTest,
   onSaveStudyPlan,
@@ -602,9 +601,8 @@ const DiagnosticReport = ({
             border: 'none', cursor: 'pointer', padding: '20px 24px',
           }}
           onClick={() => {
-            if (planNextAction.type === 'lesson' && planNextAction.moduleId && onNavigateToModule) {
-              onNavigateToModule(planNextAction.moduleId, planNextAction.lessonId);
-            } else if (planNextAction.type === 'practice' && planNextAction.moduleId && onStartPractice) {
+            // Lesson branch removed — only practice activities surface now.
+            if (planNextAction.type === 'practice' && planNextAction.moduleId && onStartPractice) {
               onStartPractice(planNextAction.moduleId);
             }
           }}
@@ -699,9 +697,8 @@ const DiagnosticReport = ({
                               border: `1px solid ${colors.surface.gray}`, cursor: 'pointer',
                             }}
                             onClick={() => {
-                              if (activity.type === 'lesson' && activity.moduleId && onNavigateToModule) {
-                                onNavigateToModule(activity.moduleId, activity.lessonId);
-                              } else if (activity.type === 'practice' && activity.moduleId && onStartPractice) {
+                              // Lesson branch removed — only practice activities surface now.
+                              if (activity.type === 'practice' && activity.moduleId && onStartPractice) {
                                 onStartPractice(activity.moduleId, activity.sectionName);
                               }
                             }}
