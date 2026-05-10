@@ -26,7 +26,13 @@ function PastTestReviewIndex({
   onTakeTest,
   onBack,
 }) {
-  const tests = getCompletedTests(practiceTestResults);
+  // Filter out attempts that have no per-question telemetry — clicking
+  // them would land the user on TestReviewDetail's empty state. The Study
+  // Plan CTA already gates on requireItemDetails > 0, so users reaching
+  // this surface always have at least one viable test. Older attempts that
+  // lack questionDetails (stripped to keep the Firestore doc under 1MB)
+  // are hidden from the list.
+  const tests = getCompletedTests(practiceTestResults, { requireItemDetails: true });
   const isEmpty = tests.length === 0;
 
   return (
