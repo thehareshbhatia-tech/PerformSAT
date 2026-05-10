@@ -150,6 +150,7 @@ The diagnostic adapter in `services/scoring/diagnosticAdapter.js` builds a **sep
 | DiagnosticReport from dashboard | `services/diagnosticReportLoader.js` + `selectors/recentTest.js` | Built. Wired through `onViewFullDiagnosis` → loads snapshot async → mounts `<DiagnosticReport>` at view='diagnosticReport'. |
 | Scoped logging | `src/utils/log.js` | Built. `logError/logWarn/logInfo/logDebug` + `makeLogger(scope)`. `[performsat:scope]` prefix. Test-silent, prod-quiet for info/debug unless `localStorage['performsat:logVerbose']='1'`. |
 | Firebase emulator + demo seed | `firebase.json` emulator block + `scripts/seedDemoData.mjs` | Built. `npm run dev:emulator` + `npm run dev:seed`. Seeds 1 school, 1 student, 1 completed test, 1 plan with focus area weakness on TODAY's weekday. |
+| Past-Test-Review tier | `src/components/PastTestReview/{PastTestReviewIndex,TestReviewDetail,ReviewItemCard}.jsx` + `src/services/selectors/completedTests.js` | Built. Lets students review every item from a past practice test and retry the wrong ones. Reuses `services/diagnosticReportLoader.js` for the snapshot fetch. Retry-drill mounts in `AssignedPracticeShell` with `practiceState.reviewMode=true` so a "review session — won't affect your study plan" banner renders + the back-button label changes. Behind `useFeatureFlag('pastTestReview')`. Telemetry events under `[performsat:pastTestReview]` scope. Plan: `docs/PAST_TEST_REVIEW_PLAN.md`. |
 
 ## Canonical files (do not duplicate)
 
@@ -192,7 +193,7 @@ New exported functions get a 4-8 line JSDoc with `@param`, `@returns`, a one-sen
 
 ### Tests
 
-Unit tests live next to source as `__tests__/X.test.js`. Use `CI=true npx react-scripts test --watchAll=false --testPathPattern="..."` to run a subset. Two pre-existing failures are baseline — `diagnosticAdapter.test.js` (transitions block) and `diagnosticNarrativeContract.test.js` (Firebase/undici jest load error) — neither is caused by anyone's recent work.
+Unit tests live next to source as `__tests__/X.test.js`. Use `CI=true npx react-scripts test --watchAll=false --testPathPattern="..."` to run a subset. Test setup in `src/setupTests.js` polyfills `TextEncoder`/`TextDecoder` and the `stream/web` globals (`ReadableStream`, etc.) so any test that transitively imports `firebase/auth` (via `undici`) loads cleanly under jsdom.
 
 ### Scripts of note
 
@@ -203,6 +204,7 @@ Unit tests live next to source as `__tests__/X.test.js`. Use `CI=true npx react-
 | `npm run bank:test` | Pipeline self-tests for the (parked) generatedOfficial pipeline |
 | `node scripts/validateRWBank.mjs --all` | Validate R&W test-bundle authenticity / passage uniqueness |
 | `npm run tabs:validate` | Validate lesson content tabs |
+| `npm run test:e2e` | Playwright smoke E2E (skips without `PERFORMSAT_TEST_EMAIL` / `_PASSWORD` env vars). Tests in `e2e/`, config at `playwright.config.js`. Requires the dev server running. |
 
 ## Ship history (recent batches)
 
