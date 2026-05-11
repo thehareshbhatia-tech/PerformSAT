@@ -3161,5 +3161,166 @@ export const problemSolvingBank = [
     sourceStyleRef: 'two-way-table-conditional-probability',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+  // ===== Phase 2 batch 7/1: reverse-percent-multi-step (8 items) =====
+  // Pattern: multi-step percent problems — "a is p% of (b + c)" with chained
+  // relationships, percent-of-percent, successive discount/markup. 8 test
+  // occurrences across PT1, PT4, PT10 and friends. SAT Pattern title (verbatim):
+  // 'Reverse-Percent Multi-Step' → kebab 'reverse-percent-multi-step'.
+  {
+    id: 'bank-ps-148',
+    domain: 'problem-solving',
+    skills: ['percent-of-value', 'percent-word-problems'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'If $a$ is $25\\%$ of $(b + c)$, where $b = 50$ and $c = 30$, what is the value of $a$?',
+    choices: [
+      { id: 'A', text: '$20$' },
+      // distractor: percent of one only
+      { id: 'B', text: '$12.5$' },
+      // distractor: adds 25% as a flat number
+      { id: 'C', text: '$25$' },
+      // distractor: ignores the percent
+      { id: 'D', text: '$80$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $a = 0.25(b + c) = 0.25(50 + 30) = 0.25(80) = 20$.\n\n**The Full Solution:**\nTranslate: "$a$ is $25\\%$ of $(b + c)$" means $a = \\dfrac{25}{100}(b + c)$.\n\nSubstitute $b = 50$, $c = 30$:\n$a = 0.25(50 + 30) = 0.25 \\cdot 80 = 20$.\n\nVerification: $25\\%$ of $80 = 80 / 4 = 20$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — computes $25\\%$ of $b$ only ($12.5$).\n* Choice C: "wrong base" — picks the $25$ directly.\n* Choice D: "wrong formula" — gives $b + c$ without applying the percent.\n\n**Test Day Takeaway:** "$a$ is $p\\%$ of $X$" $\\Rightarrow a = (p/100) \\cdot X$. The denominator/base is whatever follows "of" — here, the sum $b + c$.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'reverse-percent-multi-step',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-149',
+    domain: 'problem-solving',
+    skills: ['percent-of-value', 'percent-word-problems'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'If $a$ is $40\\%$ of $(b + c)$, where $b = 60$ and $c = 90$, what is the value of $a$?',
+    correctAnswer: '60',
+    explanation: '**SAT Pattern: Reverse-Percent Multi-Step**\n\n**The correct answer is $60$.**\n\n**The Fast Way (~15s):** $a = 0.40(60 + 90) = 0.40(150) = 60$.\n\n**The Full Solution:**\n$a = \\dfrac{40}{100}(b + c) = 0.40 \\cdot (60 + 90) = 0.40 \\cdot 150 = 60$.\n\nVerification: $40\\%$ of $150$ — convert to fraction: $\\dfrac{2}{5} \\cdot 150 = 60$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing $40\\%$ of one term: $0.40 \\cdot 60 = 24$ or $0.40 \\cdot 90 = 36$.\n* Forgetting the percent: reporting $150$ or $b + c$.\n* Adding $40$ to $60 + 90$ instead of multiplying by $0.40$.\n\n**Test Day Takeaway:** Decimal-then-multiply is faster than fraction-then-multiply for $25\\%, 40\\%, 60\\%$ — easy mental math.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'reverse-percent-multi-step',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-150',
+    domain: 'problem-solving',
+    skills: ['percent-of-value', 'percent-word-problems'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'If $30$ is $p\\%$ of $(b + c)$, where $b = 40$ and $c = 60$, what is the value of $p$?',
+    choices: [
+      { id: 'A', text: '$30$' },
+      // distractor: percent-of-one
+      { id: 'B', text: '$75$' },
+      // distractor: percent-of-other
+      { id: 'C', text: '$50$' },
+      // distractor: wrong formula
+      { id: 'D', text: '$3$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $30 = (p/100)(100) = p$. So $p = 30$.\n\n**The Full Solution:**\n$30 = \\dfrac{p}{100}(b + c) = \\dfrac{p}{100}(40 + 60) = \\dfrac{p}{100}(100)$.\n\nSimplify: $30 = p$, so $p = 30$.\n\nVerification: $30\\%$ of $100 = 30$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — uses $b = 40$: $30/40 = 75\\%$.\n* Choice C: "wrong base" — uses $c = 60$: $30/60 = 50\\%$.\n* Choice D: "off-by-one" — drops a factor of $100$ in the percent conversion.\n\n**Test Day Takeaway:** When the base sums to a round number (here $b + c = 100$), the percent value POPS OUT as the numerator directly. Watch for that.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'reverse-percent-multi-step',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-151',
+    domain: 'problem-solving',
+    skills: ['percent-of-value', 'percent-word-problems'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'If $a = 20\\%$ of $(b + c)$, $a = 50$, and $b = 100$, what is the value of $c$?',
+    correctAnswer: '150',
+    explanation: '**SAT Pattern: Reverse-Percent Multi-Step**\n\n**The correct answer is $150$.**\n\n**The Fast Way (~20s):** $50 = 0.20(100 + c) \\Rightarrow 250 = 100 + c \\Rightarrow c = 150$.\n\n**The Full Solution:**\n$a = \\dfrac{20}{100}(b + c)$\n$50 = 0.20(100 + c)$\n$50 / 0.20 = 100 + c$\n$250 = 100 + c$\n$c = 150$.\n\nVerification: $b + c = 250$. $20\\%$ of $250 = 50$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Dividing $50$ by $20$ (forgetting the percent conversion): gives $c = 2.5 - 100$ wrong.\n* Computing $50 \\cdot 5 = 250$ but forgetting to subtract $b = 100$: reports $c = 250$.\n* Adding instead of dividing: $50 + 100 = 150$ (gives the right answer by accident, wrong reasoning).\n\n**Test Day Takeaway:** Reverse-percent: $a = (p/100) X \\Rightarrow X = a / (p/100) = a \\cdot (100/p)$. Then peel off any known component of $X$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'reverse-percent-multi-step',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-152',
+    domain: 'problem-solving',
+    skills: ['successive-percent-change', 'percent-word-problems'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'A store offers a $20\\%$ discount on a jacket originally priced at $\\$50$. After the discount, a sales tax of $8\\%$ is added. What is the final price?',
+    choices: [
+      { id: 'A', text: '$\\$43.20$' },
+      // distractor: subtracts both percents
+      { id: 'B', text: '$\\$36$' },
+      // distractor: applies both as flat additions
+      { id: 'C', text: '$\\$44$' },
+      // distractor: applies tax to original
+      { id: 'D', text: '$\\$44.40$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Discount: $50 \\cdot 0.80 = 40$. Tax: $40 \\cdot 1.08 = 43.20$.\n\n**The Full Solution:**\nApply the discount first: $50 \\cdot (1 - 0.20) = 50 \\cdot 0.80 = 40$.\nApply the tax to the discounted price: $40 \\cdot (1 + 0.08) = 40 \\cdot 1.08 = 43.20$.\n\nVerification: $40 \\cdot 1.08 = 40 + 3.20 = 43.20$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — applies both as flat dollar amounts ($50 - 20 + 6 = 36$).\n* Choice C: "wrong sign" — applies tax to original $50$: $50 \\cdot 0.80 + 50 \\cdot 0.08 = 40 + 4 = 44$.\n* Choice D: "off-by-one" — applies discount and tax in wrong order: $50 \\cdot 1.08 \\cdot 0.80 = 43.20$ (same answer surprisingly), but D might come from $50 \\cdot 1.08 - 50 \\cdot 0.20 \\cdot 1.08$ slip.\n\n**Test Day Takeaway:** Successive percent changes MULTIPLY. Discount = $\\times (1 - p)$, tax/markup = $\\times (1 + p)$. Order doesn\'t matter mathematically for two scalings, but the question usually specifies one order.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'reverse-percent-multi-step',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-153',
+    domain: 'problem-solving',
+    skills: ['successive-percent-change', 'percent-word-problems'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'After a $20\\%$ increase followed by a $10\\%$ increase, the value of an item is $\\$132$. What was the original value, in dollars?',
+    correctAnswer: '100',
+    explanation: '**SAT Pattern: Reverse-Percent Multi-Step**\n\n**The correct answer is $100$.**\n\n**The Fast Way (~20s):** $V \\cdot 1.20 \\cdot 1.10 = 132 \\Rightarrow V \\cdot 1.32 = 132 \\Rightarrow V = 100$.\n\n**The Full Solution:**\nLet $V$ be the original value. Applying both increases:\n$V \\cdot (1 + 0.20)(1 + 0.10) = 132$\n$V \\cdot 1.20 \\cdot 1.10 = 132$\n$V \\cdot 1.32 = 132$\n$V = 100$.\n\nVerification: $100 \\cdot 1.20 = 120$, then $120 \\cdot 1.10 = 132$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Adding percents: treating $20\\% + 10\\% = 30\\%$ gives $V \\cdot 1.30 = 132 \\Rightarrow V \\approx 101.5$ — close but WRONG.\n* Subtracting: undoing one $20\\%$ as $132 / 1.20 = 110$ and stopping there.\n* Reporting the intermediate $V \\cdot 1.20 = 120$ value.\n\n**Test Day Takeaway:** Successive percent INCREASES compound MULTIPLICATIVELY: $(1 + p_1)(1 + p_2)$. Don\'t add the percents; multiply the factors.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'reverse-percent-multi-step',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-154',
+    domain: 'problem-solving',
+    skills: ['percent-of-value', 'percent-word-problems'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'If $a = 2.5(b + c)$ and $b$ is $40\\%$ of $c$, then $a$ is what percent of $b$?',
+    choices: [
+      { id: 'A', text: '$875\\%$' },
+      // distractor: adds the two percents
+      { id: 'B', text: '$290\\%$' },
+      // distractor: ratio without sum
+      { id: 'C', text: '$250\\%$' },
+      // distractor: forgets the +c piece
+      { id: 'D', text: '$625\\%$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Let $c = 100$. Then $b = 40$. $b + c = 140$. $a = 2.5 \\cdot 140 = 350$. $a / b = 350 / 40 = 8.75 = 875\\%$.\n\n**The Full Solution:**\nPick a clean value. Let $c = 100$.\nThen $b = 40\\%$ of $c = 0.40 \\cdot 100 = 40$.\n$b + c = 40 + 100 = 140$.\n$a = 2.5 \\cdot 140 = 350$.\n\n"$a$ is what percent of $b$":\n$\\dfrac{a}{b} \\cdot 100\\% = \\dfrac{350}{40} \\cdot 100\\% = 8.75 \\cdot 100\\% = 875\\%$.\n\nVerification (algebraic): $c = 2.5b$ (from $b = 0.40c$), so $a = 2.5(b + 2.5b) = 2.5 \\cdot 3.5b = 8.75b$. So $a / b = 8.75 = 875\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — adds $250\\% + 40\\% = 290\\%$ wrongly.\n* Choice C: "stops one step early" — reports the multiplier $2.5 = 250\\%$.\n* Choice D: "wrong base" — uses $a = 2.5 \\cdot 100 = 250$ (forgets to add $b$ to the base).\n\n**Test Day Takeaway:** "$X$ is what percent of $Y$" $= (X/Y) \\cdot 100\\%$. When percents stack with sums, plug in a clean number for the smallest unknown (here $c = 100$).',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'reverse-percent-multi-step',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-155',
+    domain: 'problem-solving',
+    skills: ['successive-percent-change', 'percent-word-problems'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'The price of an item is increased by $p\\%$, then decreased by $p\\%$. The final price is $4\\%$ less than the original price. What is the value of $p$?',
+    correctAnswer: '20',
+    explanation: '**SAT Pattern: Reverse-Percent Multi-Step**\n\n**The correct answer is $20$.**\n\n**The Fast Way (~30s):** $(1 + p/100)(1 - p/100) = 0.96 \\Rightarrow 1 - p^2/10000 = 0.96 \\Rightarrow p^2 = 400 \\Rightarrow p = 20$.\n\n**The Full Solution:**\nLet $V$ be the original price. Apply the increase, then the decrease:\n$V \\cdot \\left(1 + \\dfrac{p}{100}\\right) \\cdot \\left(1 - \\dfrac{p}{100}\\right) = 0.96 V$.\n\nCancel $V$ and apply difference of squares:\n$1 - \\dfrac{p^2}{10000} = 0.96$\n$\\dfrac{p^2}{10000} = 0.04$\n$p^2 = 400$\n$p = 20$ (positive value).\n\nVerification: $V \\cdot 1.20 \\cdot 0.80 = V \\cdot 0.96$ — exactly $4\\%$ less than $V$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Assuming the increase + decrease cancel out: that\'s only true if you ADD percents, which is WRONG for compound percent change.\n* Reporting $p = 4$ (the percent decrease in the FINAL price, not the per-step percent).\n* Forgetting to take the square root: reporting $p = 400$.\n\n**Test Day Takeaway:** Up $p\\%$ then down $p\\%$ does NOT return to the original. It returns to $V(1 - p^2/10000)$ — always less than $V$. The "lost" fraction is $p^2/10000$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'reverse-percent-multi-step',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
