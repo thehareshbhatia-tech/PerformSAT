@@ -1604,5 +1604,166 @@ export const geometryBank = [
     sourceStyleRef: 'right-triangle-trig-ratios',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+
+  // === CIRCLE IN GENERAL FORM (8 questions) — Phase 2 batch 4 priority pattern ===
+  // 8x in 12 tests. Covers: center, radius, h+k+r, area, max-x, find missing
+  // parameter, r². Requires completing the square on both x and y groupings.
+  // SAT Pattern kebab matches: 'circle-in-general-form'.
+  {
+    id: 'bank-geo-069',
+    domain: 'geometry',
+    skills: ['circle-equation', 'completing-square-circles'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'A circle in the $xy$-plane has equation $x^2 + y^2 - 4x - 6y - 12 = 0$. What are the coordinates of the center of the circle?',
+    choices: [
+      { id: 'A', text: '$(2, 3)$' },
+      // distractor: sign-flipped both
+      { id: 'B', text: '$(-2, -3)$' },
+      // distractor: uses raw -B, -C
+      { id: 'C', text: '$(4, 6)$' },
+      // distractor: sign-flipped one
+      { id: 'D', text: '$(2, -3)$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Circle in General Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Complete the square: $(x^2 - 4x) + (y^2 - 6y) = 12 \\Rightarrow (x - 2)^2 + (y - 3)^2 = 12 + 4 + 9 = 25$. Center is $(2, 3)$.\n\n**The Full Solution:**\nGroup $x$ and $y$ terms:\n$(x^2 - 4x) + (y^2 - 6y) = 12$.\n\nComplete the square for each:\n* $x^2 - 4x$: add $(-4/2)^2 = 4$. Becomes $(x - 2)^2 - 4$.\n* $y^2 - 6y$: add $(-6/2)^2 = 9$. Becomes $(y - 3)^2 - 9$.\n\nRewrite (adding $4$ and $9$ to both sides):\n$(x - 2)^2 + (y - 3)^2 = 12 + 4 + 9 = 25$.\n\nStandard form: $(x - h)^2 + (y - k)^2 = r^2$ with center $(h, k) = (2, 3)$ and $r = 5$.\n\n**Why the wrong answers are tempting:**\n* Choice B: "sign error" — picks $(-h, -k)$ instead of $(h, k)$.\n* Choice C: "wrong formula" — reports $(-B, -C) = (4, 6)$ as if center were the linear coefficients directly.\n* Choice D: "sign error" — flips one of the two signs.\n\n**Test Day Takeaway:** Standard form $(x - h)^2 + (y - k)^2 = r^2$ has center $(h, k)$ with the SIGNS from the form. From general form $x^2 + y^2 + Bx + Cy + D = 0$, center is $(-B/2, -C/2)$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'circle-in-general-form',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-070',
+    domain: 'geometry',
+    skills: ['circle-equation', 'completing-square-circles'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'A circle in the $xy$-plane has equation $x^2 + y^2 + 6x + 8y = 11$. What is the radius of the circle?',
+    correctAnswer: '6',
+    explanation: '**SAT Pattern: Circle in General Form**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~20s):** Complete the square: $(x + 3)^2 + (y + 4)^2 = 11 + 9 + 16 = 36 = 6^2$. Radius is $6$.\n\n**The Full Solution:**\nGroup and complete the square:\n$(x^2 + 6x) + (y^2 + 8y) = 11$\n$(x^2 + 6x + 9) + (y^2 + 8y + 16) = 11 + 9 + 16$\n$(x + 3)^2 + (y + 4)^2 = 36$.\n\nSo $r^2 = 36 \\Rightarrow r = 6$.\n\nVerification: half of $6$ is $3$ and $3^2 = 9$; half of $8$ is $4$ and $4^2 = 16$. Sum on the right: $11 + 9 + 16 = 36$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $r^2 = 36$ instead of $r = 6$.\n* Forgetting to add the completing-square constants to BOTH sides.\n\n**Test Day Takeaway:** For $x^2 + Bx$, the completing-square constant is $(B/2)^2$. Add it to both sides, then take a square root to get $r$ from $r^2$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'circle-in-general-form',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-071',
+    domain: 'geometry',
+    skills: ['circle-equation', 'completing-square-circles'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'A circle in the $xy$-plane has equation $x^2 + y^2 + 4x - 10y - 7 = 0$. What are the coordinates of the center?',
+    choices: [
+      // distractor: sign-flipped both
+      { id: 'A', text: '$(2, -5)$' },
+      { id: 'B', text: '$(-2, 5)$' },
+      // distractor: one sign flipped
+      { id: 'C', text: '$(-2, -5)$' },
+      // distractor: uses raw -B, -C as coords
+      { id: 'D', text: '$(-4, 10)$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Circle in General Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $(x + 2)^2 + (y - 5)^2 = 7 + 4 + 25 = 36$. Center $(-2, 5)$.\n\n**The Full Solution:**\nMove constant to right: $x^2 + y^2 + 4x - 10y = 7$.\nGroup and complete the square:\n* $x^2 + 4x \\to (x + 2)^2 - 4$.\n* $y^2 - 10y \\to (y - 5)^2 - 25$.\n\nRewrite:\n$(x + 2)^2 + (y - 5)^2 = 7 + 4 + 25 = 36$.\n\nStandard form gives center $(-2, 5)$, radius $6$.\n\n**Why the wrong answers are tempting:**\n* Choice A: "sign error" — flips both signs.\n* Choice C: "sign error" — flips only the $k$ sign.\n* Choice D: "wrong formula" — reports $-B$ and $-C$ from the linear coefficients without dividing by $2$.\n\n**Test Day Takeaway:** Center coordinates have OPPOSITE signs from what appears in $(x - h)^2$. With $+4x$ in general form, $h = -2$. With $-10y$, $k = +5$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'circle-in-general-form',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-072',
+    domain: 'geometry',
+    skills: ['circle-equation', 'completing-square-circles'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'In the $xy$-plane, the circle $x^2 + y^2 - 6x + 4y = 12$ has center $(h, k)$ and radius $r$. What is the value of $h + k + r$?',
+    correctAnswer: '6',
+    explanation: '**SAT Pattern: Circle in General Form**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~25s):** $(x - 3)^2 + (y + 2)^2 = 12 + 9 + 4 = 25$. So $h = 3$, $k = -2$, $r = 5$. $h + k + r = 6$.\n\n**The Full Solution:**\nGroup terms and complete the square:\n$(x^2 - 6x) + (y^2 + 4y) = 12$\n$(x^2 - 6x + 9) + (y^2 + 4y + 4) = 12 + 9 + 4$\n$(x - 3)^2 + (y + 2)^2 = 25$.\n\nSo $h = 3$, $k = -2$, $r = \\sqrt{25} = 5$.\n\n$h + k + r = 3 + (-2) + 5 = 6$.\n\n**Common Mistakes to Avoid:**\n* Sign errors on $k$: writing $k = 2$ instead of $-2$.\n* Reporting $r^2 = 25$ as $r$.\n* Missing one of $h$, $k$, or $r$ in the sum.\n\n**Test Day Takeaway:** Read off all three values from standard form. Don\'t confuse $r^2$ with $r$ — take the square root at the end.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'circle-in-general-form',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-073',
+    domain: 'geometry',
+    skills: ['circle-equation', 'completing-square-circles', 'circle-area'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'A circle in the $xy$-plane has equation $x^2 + y^2 - 8x + 2y + 1 = 0$. What is the area of the circle, in square units, in terms of $\\pi$?',
+    choices: [
+      // distractor: uses r = 2
+      { id: 'A', text: '$4\\pi$' },
+      // distractor: uses diameter as r
+      { id: 'B', text: '$8\\pi$' },
+      { id: 'C', text: '$16\\pi$' },
+      // distractor: doubles correct
+      { id: 'D', text: '$32\\pi$' }
+    ],
+    correctAnswer: 'C',
+    explanation: '**SAT Pattern: Circle in General Form**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $(x - 4)^2 + (y + 1)^2 = -1 + 16 + 1 = 16 \\Rightarrow r^2 = 16$. Area $= \\pi r^2 = 16\\pi$.\n\n**The Full Solution:**\nComplete the square. Move constant to right: $x^2 + y^2 - 8x + 2y = -1$.\n* $x^2 - 8x \\to (x - 4)^2 - 16$.\n* $y^2 + 2y \\to (y + 1)^2 - 1$.\n\nRewrite:\n$(x - 4)^2 + (y + 1)^2 = -1 + 16 + 1 = 16$.\n\nSo $r^2 = 16$, giving area $= \\pi r^2 = 16\\pi$.\n\nVerification: $r = 4$, so $A = \\pi \\cdot 16 = 16\\pi$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — uses $r = 2$ giving $4\\pi$.\n* Choice B: "wrong formula" — uses $\\pi d$ (circumference-style) instead of $\\pi r^2$.\n* Choice D: "off-by-one" — doubles the correct value.\n\n**Test Day Takeaway:** Area of a circle is $\\pi r^2$ — read $r^2$ DIRECTLY from the right side of standard form, no need to compute $r$ separately.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'circle-in-general-form',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-074',
+    domain: 'geometry',
+    skills: ['circle-equation', 'completing-square-circles'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'A circle in the $xy$-plane has equation $x^2 + y^2 - 6x - 4y - 12 = 0$. What is the largest $x$-value on the circle?',
+    correctAnswer: '8',
+    explanation: '**SAT Pattern: Circle in General Form**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~25s):** Center $= (3, 2)$, $r = 5$. Largest $x$ on the circle is $h + r = 3 + 5 = 8$.\n\n**The Full Solution:**\nComplete the square:\n$(x - 3)^2 + (y - 2)^2 = 12 + 9 + 4 = 25$.\n\nCenter $(3, 2)$, radius $r = 5$.\n\nThe extreme $x$-values on a circle occur directly right and left of the center, at the points $(h + r, k)$ and $(h - r, k)$:\n* Largest $x$: $h + r = 3 + 5 = 8$.\n* Smallest $x$: $h - r = 3 - 5 = -2$.\n\nVerification: at $(8, 2)$, $(8 - 3)^2 + (2 - 2)^2 = 25 + 0 = 25$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $h - r$ (smallest) instead of $h + r$ (largest).\n* Adding $r^2 = 25$ instead of $r = 5$: $3 + 25 = 28$.\n* Adding $r$ to $k$ instead of $h$.\n\n**Test Day Takeaway:** On a circle with center $(h, k)$ and radius $r$, largest $x$ is $h + r$ (rightmost), smallest is $h - r$. Same idea for $y$ via $k \\pm r$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'circle-in-general-form',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-075',
+    domain: 'geometry',
+    skills: ['circle-equation'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'In the $xy$-plane, a circle has the equation $x^2 + y^2 + ax + 4y = -4$, where $a$ is a constant. If the circle passes through the point $(1, -2)$, what is the value of $a$?',
+    correctAnswer: '-1',
+    explanation: '**SAT Pattern: Circle in General Form**\n\n**The correct answer is $-1$.**\n\n**The Fast Way (~15s):** Substitute $(1, -2)$: $1 + 4 + a - 8 = -4 \\Rightarrow a - 3 = -4 \\Rightarrow a = -1$.\n\n**The Full Solution:**\nSince $(1, -2)$ lies on the circle, it must satisfy the equation. Substitute $x = 1$, $y = -2$:\n$(1)^2 + (-2)^2 + a(1) + 4(-2) = -4$\n$1 + 4 + a - 8 = -4$\n$a - 3 = -4$\n$a = -1$.\n\nVerification: equation becomes $x^2 + y^2 - x + 4y = -4$. At $(1, -2)$: $1 + 4 - 1 - 8 = -4$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting to square $-2$ (gives $-2$ instead of $4$).\n* Sign error on $4 \\cdot (-2) = -8$ (writing $+8$).\n* Solving the wrong equation entirely (e.g., setting equal to $0$).\n\n**Test Day Takeaway:** "Passes through" means the point satisfies the equation. Substitute and solve for the unknown parameter — no need to complete the square.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'circle-in-general-form',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-076',
+    domain: 'geometry',
+    skills: ['circle-equation', 'completing-square-circles'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'The equation $x^2 + y^2 - 2x + 6y + 6 = 0$ represents a circle in the $xy$-plane. What is the value of $r^2$, where $r$ is the radius of the circle?',
+    choices: [
+      { id: 'A', text: '$4$' },
+      // distractor: gives r instead of r²
+      { id: 'B', text: '$2$' },
+      // distractor: squares correct r²
+      { id: 'C', text: '$16$' },
+      // distractor: uses original constant
+      { id: 'D', text: '$6$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Circle in General Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Move constant: $x^2 + y^2 - 2x + 6y = -6$. Complete: $(x - 1)^2 + (y + 3)^2 = -6 + 1 + 9 = 4$. So $r^2 = 4$.\n\n**The Full Solution:**\nMove the constant: $x^2 + y^2 - 2x + 6y = -6$.\n\nComplete the square:\n* $x^2 - 2x$: half of $-2$ is $-1$, $(-1)^2 = 1$. Becomes $(x - 1)^2 - 1$.\n* $y^2 + 6y$: half of $6$ is $3$, $3^2 = 9$. Becomes $(y + 3)^2 - 9$.\n\nAdd $1 + 9 = 10$ to both sides:\n$(x - 1)^2 + (y + 3)^2 = -6 + 1 + 9 = 4$.\n\nSo $r^2 = 4$ (and $r = 2$).\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — reports $r = 2$ instead of $r^2 = 4$.\n* Choice C: "wrong base" — squares $r^2 = 4$ to get $16$, applying an extra operation.\n* Choice D: "wrong base" — reports the original constant $6$ as if it were $r^2$.\n\n**Test Day Takeaway:** $r^2$ is the RIGHT side of standard form $(x - h)^2 + (y - k)^2 = r^2$. Read it directly — no extra square root if the question asks for $r^2$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'circle-in-general-form',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
