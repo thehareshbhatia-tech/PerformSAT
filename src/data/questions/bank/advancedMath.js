@@ -2533,5 +2533,159 @@ export const advancedMathBank = [
     sourceStyleRef: 'function-transformation',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+
+  // === COMMON-BASE EXPONENT SIMPLIFICATION (8 questions) — Phase 2 batch 4 ===
+  // 8x in 12 tests. Covers: rewrite-to-common-base equations, simplify
+  // monomial division (subtract exponents), cross-base (e.g., 9 vs 27),
+  // multi-variable monomials with negative exponents.
+  // SAT Pattern uses hyphen in "Common-Base": kebab is
+  // 'common-base-exponent-simplification'.
+  {
+    id: 'bank-am-116',
+    domain: 'advanced-math',
+    skills: ['exponent-laws'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'If $2^{x + 3} = 16$, what is the value of $x$?',
+    correctAnswer: '1',
+    explanation: '**SAT Pattern: Common-Base Exponent Simplification**\n\n**The correct answer is $1$.**\n\n**The Fast Way (~10s):** $16 = 2^4$, so $x + 3 = 4 \\Rightarrow x = 1$.\n\n**The Full Solution:**\nRewrite the right side with the same base as the left:\n$16 = 2 \\cdot 2 \\cdot 2 \\cdot 2 = 2^4$.\n\nSo $2^{x + 3} = 2^4$. When the bases are equal, the exponents are equal:\n$x + 3 = 4 \\Rightarrow x = 1$.\n\nVerification: $2^{1 + 3} = 2^4 = 16$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Treating $16$ as $4^2$ then equating $x + 3 = 2$ — works only if both sides are rewritten with the same base.\n* Solving $2^x = 16$ directly without isolating $2^{x+3}$.\n\n**Test Day Takeaway:** Same-base exponential equation $a^M = a^N$ $\\Rightarrow$ $M = N$. Step 1: get the bases to match. Step 2: equate exponents.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'common-base-exponent-simplification',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-117',
+    domain: 'advanced-math',
+    skills: ['exponent-laws'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'Which expression is equivalent to $\\dfrac{x^5}{x^2}$ for $x \\neq 0$? Express your answer in the form $x^n$, where $n$ is an integer; enter the value of $n$.',
+    correctAnswer: '3',
+    explanation: '**SAT Pattern: Common-Base Exponent Simplification**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~5s):** $\\dfrac{x^5}{x^2} = x^{5 - 2} = x^3$. So $n = 3$.\n\n**The Full Solution:**\nWhen dividing same-base powers, SUBTRACT the exponents:\n$\\dfrac{x^5}{x^2} = x^{5 - 2} = x^3$.\n\nSo $n = 3$.\n\nVerification: at $x = 2$, $\\dfrac{32}{4} = 8 = 2^3$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Dividing exponents ($5 / 2 = 2.5$) instead of subtracting.\n* Adding exponents ($5 + 2 = 7$).\n* Reporting $x^3$ as the answer instead of the integer $n = 3$.\n\n**Test Day Takeaway:** Same-base division $\\Rightarrow$ subtract exponents. Same-base multiplication $\\Rightarrow$ add exponents. Power-of-a-power $\\Rightarrow$ multiply exponents.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'common-base-exponent-simplification',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-118',
+    domain: 'advanced-math',
+    skills: ['exponent-laws'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'If $9^x = 27^{x - 1}$, what is the value of $x$?',
+    correctAnswer: '3',
+    explanation: '**SAT Pattern: Common-Base Exponent Simplification**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~15s):** Rewrite as base $3$: $3^{2x} = 3^{3(x - 1)} = 3^{3x - 3}$. So $2x = 3x - 3 \\Rightarrow x = 3$.\n\n**The Full Solution:**\nRewrite both sides with the same base ($3$):\n* $9^x = (3^2)^x = 3^{2x}$.\n* $27^{x - 1} = (3^3)^{x - 1} = 3^{3(x - 1)} = 3^{3x - 3}$.\n\nEquate the exponents:\n$2x = 3x - 3$\n$-x = -3$\n$x = 3$.\n\nVerification: $9^3 = 729$ and $27^{3 - 1} = 27^2 = 729$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Equating exponents without rewriting bases: $x = x - 1$ gives $0 = -1$ (no solution).\n* Distributing the exponent wrong: $(3^3)^{x - 1} = 3^{3x - 1}$ instead of $3^{3x - 3}$.\n\n**Test Day Takeaway:** When the bases are different powers of the same number, rewrite BOTH using that common base. Distribute the outer exponent carefully across the inner expression.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'common-base-exponent-simplification',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-119',
+    domain: 'advanced-math',
+    skills: ['exponent-laws'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'Which expression is equivalent to $\\dfrac{8x^4 y^7}{2x y^3}$ for $x \\neq 0$ and $y \\neq 0$?',
+    choices: [
+      // distractor: doesn't subtract exponents
+      { id: 'A', text: '$4x^4 y^7$' },
+      { id: 'B', text: '$4x^3 y^4$' },
+      // distractor: adds y exponents
+      { id: 'C', text: '$4x^3 y^{10}$' },
+      // distractor: adds x exponents
+      { id: 'D', text: '$4x^5 y^4$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Common-Base Exponent Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Coefficients: $8/2 = 4$. Variables: $x^{4-1} = x^3$, $y^{7-3} = y^4$. Result: $4x^3 y^4$.\n\n**The Full Solution:**\nSeparate the constant and the variable parts:\n$\\dfrac{8x^4 y^7}{2x y^3} = \\dfrac{8}{2} \\cdot \\dfrac{x^4}{x^1} \\cdot \\dfrac{y^7}{y^3}$.\n\nDivide each:\n* $\\dfrac{8}{2} = 4$.\n* $\\dfrac{x^4}{x^1} = x^{4 - 1} = x^3$.\n* $\\dfrac{y^7}{y^3} = y^{7 - 3} = y^4$.\n\nCombine: $4x^3 y^4$.\n\nVerification: at $x = 2$, $y = 1$: original $= \\dfrac{8 \\cdot 16 \\cdot 1}{2 \\cdot 2 \\cdot 1} = \\dfrac{128}{4} = 32$. Simplified: $4 \\cdot 8 \\cdot 1 = 32$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — doesn\'t subtract exponents, just divides coefficients.\n* Choice C: "applies the inverse operation" — adds the $y$ exponents ($7 + 3$) instead of subtracting.\n* Choice D: "applies the inverse operation" — adds the $x$ exponents instead of subtracting.\n\n**Test Day Takeaway:** Monomial division: divide coefficients, then subtract exponents for each common variable. Treat $x$ alone as $x^1$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'common-base-exponent-simplification',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-120',
+    domain: 'advanced-math',
+    skills: ['exponent-laws'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'If $4^{2x} = 8^{x + 3}$, what is the value of $x$?',
+    correctAnswer: '9',
+    explanation: '**SAT Pattern: Common-Base Exponent Simplification**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~15s):** Rewrite as base $2$: $2^{4x} = 2^{3(x + 3)} = 2^{3x + 9}$. So $4x = 3x + 9 \\Rightarrow x = 9$.\n\n**The Full Solution:**\nRewrite both sides with base $2$:\n* $4^{2x} = (2^2)^{2x} = 2^{4x}$.\n* $8^{x + 3} = (2^3)^{x + 3} = 2^{3(x + 3)} = 2^{3x + 9}$.\n\nEquate exponents:\n$4x = 3x + 9 \\Rightarrow x = 9$.\n\nVerification: $4^{18}$ vs $8^{12}$. Both equal $2^{36}$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting to distribute the outer exponent: $(2^3)^{x + 3}$ should be $2^{3(x + 3)} = 2^{3x + 9}$, NOT $2^{3x + 3}$.\n* Equating $2x = x + 3$ directly without rewriting bases.\n\n**Test Day Takeaway:** Both $4$ and $8$ are powers of $2$. Rewrite both sides as $2^{\\text{expr}}$, distribute outer exponents carefully, then equate.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'common-base-exponent-simplification',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-121',
+    domain: 'advanced-math',
+    skills: ['exponent-laws', 'simplifying-rational-expressions'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'Which expression is equivalent to $\\dfrac{12x^5 y^3}{4x^2 y^7}$ for $x \\neq 0$ and $y \\neq 0$?',
+    choices: [
+      { id: 'A', text: '$\\dfrac{3x^3}{y^4}$' },
+      // distractor: sign wrong on y exponent
+      { id: 'B', text: '$3x^3 y^4$' },
+      // distractor: wrong coefficient
+      { id: 'C', text: '$\\dfrac{8x^3}{y^4}$' },
+      // distractor: swaps x and y signs
+      { id: 'D', text: '$\\dfrac{3y^4}{x^3}$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Common-Base Exponent Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Coefficients: $12/4 = 3$. $x$: $5 - 2 = 3$. $y$: $3 - 7 = -4$. Result: $3 x^3 y^{-4} = \\dfrac{3x^3}{y^4}$.\n\n**The Full Solution:**\nSeparate the constant and variables:\n$\\dfrac{12x^5 y^3}{4x^2 y^7} = \\dfrac{12}{4} \\cdot \\dfrac{x^5}{x^2} \\cdot \\dfrac{y^3}{y^7} = 3 \\cdot x^{5 - 2} \\cdot y^{3 - 7} = 3 x^3 y^{-4}$.\n\nRewrite with positive exponents only:\n$3 x^3 y^{-4} = \\dfrac{3 x^3}{y^4}$.\n\nVerification: at $x = 2$, $y = 1$: original $= \\dfrac{12 \\cdot 32 \\cdot 1}{4 \\cdot 4 \\cdot 1} = \\dfrac{384}{16} = 24$. Simplified: $\\dfrac{3 \\cdot 8}{1} = 24$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "sign error" — gives $y^4$ in the numerator instead of $y^{-4}$ (so denominator).\n* Choice C: "wrong base" — uses $12 - 4 = 8$ instead of $12/4 = 3$ for the coefficient.\n* Choice D: "applies the inverse operation" — flips which variable goes where (inverts the entire ratio).\n\n**Test Day Takeaway:** Negative exponents end up in the DENOMINATOR: $y^{-n} = 1/y^n$. SAT answer choices usually present positive-exponent form, so convert negatives to denominator placement.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'common-base-exponent-simplification',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-122',
+    domain: 'advanced-math',
+    skills: ['exponent-laws'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'If $\\left(\\dfrac{1}{4}\\right)^{2x} = 16^{x - 3}$, what is the value of $x$? Express your answer as a fraction.',
+    correctAnswer: '3/2',
+    explanation: '**SAT Pattern: Common-Base Exponent Simplification**\n\n**The correct answer is $\\dfrac{3}{2}$.**\n\n**The Fast Way (~25s):** $\\left(\\dfrac{1}{4}\\right)^{2x} = 4^{-2x}$ and $16^{x - 3} = 4^{2(x - 3)} = 4^{2x - 6}$. Equate: $-2x = 2x - 6 \\Rightarrow x = 3/2$.\n\n**The Full Solution:**\nRewrite both sides with base $4$:\n* $\\left(\\dfrac{1}{4}\\right)^{2x} = (4^{-1})^{2x} = 4^{-2x}$.\n* $16^{x - 3} = (4^2)^{x - 3} = 4^{2x - 6}$.\n\nEquate exponents:\n$-2x = 2x - 6$\n$-4x = -6$\n$x = \\dfrac{6}{4} = \\dfrac{3}{2}$.\n\nVerification: at $x = 3/2$, $\\left(\\dfrac{1}{4}\\right)^3 = \\dfrac{1}{64}$ and $16^{-3/2} = \\dfrac{1}{16^{3/2}} = \\dfrac{1}{64}$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Treating $(1/4)^{2x}$ as $4^{2x}$ (drops the reciprocal sign in the exponent).\n* Distributing wrong on $(4^2)^{x - 3}$: getting $4^{2x - 3}$ instead of $4^{2x - 6}$.\n* Solving $-2x = 2x - 6$ as $-2x - 2x = -6$ giving $-4x = -6$, then dividing wrong.\n\n**Test Day Takeaway:** $\\dfrac{1}{a^n} = a^{-n}$. A fractional base like $1/4$ is a negative power of $4$. Convert ALL bases to the same root before equating exponents.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'common-base-exponent-simplification',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-123',
+    domain: 'advanced-math',
+    skills: ['exponent-laws'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'Which expression is equivalent to $(6x^4 y^{-2})^2 \\cdot (3x^{-1} y^3)$ for $x \\neq 0$ and $y \\neq 0$?',
+    choices: [
+      { id: 'A', text: '$\\dfrac{108 x^7}{y}$' },
+      // distractor: doesn't square 6 fully
+      { id: 'B', text: '$\\dfrac{18 x^7}{y}$' },
+      // distractor: sign wrong on y
+      { id: 'C', text: '$108 x^7 y$' },
+      // distractor: wrong squaring of 6
+      { id: 'D', text: '$\\dfrac{36 x^7}{y}$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Common-Base Exponent Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** $(6 x^4 y^{-2})^2 = 36 x^8 y^{-4}$. Multiply by $3 x^{-1} y^3$: $36 \\cdot 3 = 108$, $x^{8 - 1} = x^7$, $y^{-4 + 3} = y^{-1}$. Result: $\\dfrac{108 x^7}{y}$.\n\n**The Full Solution:**\nStep 1 — square the first factor:\n$(6 x^4 y^{-2})^2 = 6^2 \\cdot (x^4)^2 \\cdot (y^{-2})^2 = 36 x^8 y^{-4}$.\n\nStep 2 — multiply by $3 x^{-1} y^3$:\n* Coefficients: $36 \\cdot 3 = 108$.\n* $x$: $x^8 \\cdot x^{-1} = x^{8 - 1} = x^7$.\n* $y$: $y^{-4} \\cdot y^3 = y^{-4 + 3} = y^{-1}$.\n\nResult: $108 x^7 y^{-1} = \\dfrac{108 x^7}{y}$.\n\nVerification: at $x = 1$, $y = 1$: original $= (6 \\cdot 1 \\cdot 1)^2 \\cdot (3 \\cdot 1 \\cdot 1) = 36 \\cdot 3 = 108$. Simplified: $\\dfrac{108 \\cdot 1}{1} = 108$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — doesn\'t square the coefficient fully: $6^2 \\ne 18$. Likely from $6 \\cdot 3 = 18$ wrongly used as the coefficient.\n* Choice C: "sign error" — gives $y$ in the numerator instead of denominator (treats $y^{-1}$ as $y^1$).\n* Choice D: "stops one step early" — uses $6^2 = 36$ but forgets the $\\cdot 3$ factor: $36$ instead of $108$.\n\n**Test Day Takeaway:** Power-of-a-product: $(abc)^n = a^n b^n c^n$. Multiply coefficients separately, multiply same-variable powers by adding exponents. Convert negative exponents to denominator at the end.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'common-base-exponent-simplification',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
