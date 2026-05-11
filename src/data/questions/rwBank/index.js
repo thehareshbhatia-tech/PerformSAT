@@ -321,8 +321,41 @@ function shuffle(arr) {
  * for a list of weak R&W skills. `excludeIds` is the primary mechanism for
  * keeping test-already-seen items out of the drill (Phase 1 M5).
  *
+ * ── Phase 2 / Drill Routing audit (TODO #1) ──
+ *
+ * The math bank implements a three-tier cascade (SAT Pattern → sourceStyleRef
+ * → skill). The R&W bank does NOT implement Tier 1/2 because:
+ *
+ *   1. Only ~6 of 648 R&W items (<1%) carry a `**SAT Pattern: <Title>**`
+ *      header — all in practiceTest9RW.js with vocab-specific patterns
+ *      (Verb Connotation in Context, Tier-2 Vocabulary in Context,
+ *      Adjective Register in Context, Multi-word Collocation in Context).
+ *      Far too sparse for any pattern bucket to reach the Tier-1 threshold
+ *      of 8 items.
+ *   2. The R&W diagnostic engine produces NO `missedPatterns` field on
+ *      weaknesses (only math wrong items contribute to that set —
+ *      diagnosticEngine.js:917 only runs on items with `q.satPattern`).
+ *   3. R&W items have a different finer-grain signal that COULD power a
+ *      future cascade (passage type, question-stem pattern like "Which
+ *      choice most strongly supports...", error-class taxonomy) — but
+ *      adopting it requires (a) a new R&W pattern taxonomy and (b) bulk
+ *      retro-tagging the 648 items.
+ *
+ * **Decision:** Defer R&W exact-match routing until real diagnostic
+ * telemetry shows which dimension matters most for student outcomes
+ * (passage type? question stem family? error class?). Until then, R&W
+ * stays on Tier-3 (skill+domain) routing, which is already production
+ * behavior. The `missedPatterns` parameter is accepted here for API
+ * symmetry with the math bank — when R&W patterns ARE eventually
+ * authored, this function's signature won't change.
+ *
+ * Future work: see `TODOS.md` "R&W exact-match parity" — kept on the
+ * list, but DECISION made.
+ *
  * @param {object} opts
- * @param {Array<{skillId: string, domain?: string}>} opts.weakSkills
+ * @param {Array<{skillId: string, domain?: string, missedPatterns?: string[]}>} opts.weakSkills
+ *   Weakness objects. `missedPatterns` accepted for API symmetry with math
+ *   bank — currently a no-op for R&W (always empty in practice).
  * @param {string[]} [opts.errorTypes]  Reserved for future filtering; currently ignored.
  * @param {{easy: number, medium: number, hard: number}} [opts.difficultyMix]
  * @param {number} [opts.count=10]
@@ -336,6 +369,9 @@ export const getTargetedWeaknessSet = ({
   count = 10,
   excludeIds = [],
 } = {}) => {
+  // Phase 2 audit: `missedPatterns` is currently always empty for R&W
+  // weaknesses (no SAT Pattern headers in the R&W bank). Accept the field
+  // for API symmetry but skip Tier-1/Tier-2 cascade entirely.
   const skillIds = weakSkills.map(w => w.skillId || w.skill || w);
   let pool = getQuestionsBySkillIds(skillIds, { excludeIds });
 

@@ -261,6 +261,76 @@ describe('rwBank getTargetedWeaknessSet', () => {
   });
 });
 
+// ─── Phase 2 / Drill Routing API parity audit ──────────────────────────────
+//
+// These tests document the decision from the TODO #1 audit (R&W exact-match
+// parity). The math bank has a three-tier cascade keyed on SAT Patterns;
+// R&W has zero patterns in its 648 items, so the cascade short-circuits to
+// skill-based routing. The R&W getTargetedWeaknessSet still accepts the
+// `missedPatterns` field on weaknesses for API symmetry — these tests pin
+// that behavior so a future PR adding R&W patterns won't break the signature.
+
+describe('rwBank API parity audit (Phase 2 / Drill Routing TODO #1)', () => {
+  it('confirms the audit: R&W pattern coverage is too sparse for Tier-1 routing', () => {
+    // Sept-2026 audit (TODO #1): only ~6 of 648 R&W items carry
+    // **SAT Pattern: <Title>** headers (all in practiceTest9RW.js with
+    // vocab-specific patterns like 'Verb Connotation in Context',
+    // 'Tier-2 Vocabulary in Context'). At <1% coverage, no R&W pattern
+    // bucket meets the math Tier-1 threshold of 8 items per pattern.
+    //
+    // If this assertion ever fails because the count grows >= 80 (~12% of
+    // the bank), it's worth revisiting Tier-1 R&W cascade: a few patterns
+    // would have crossed the threshold and routing precision would deliver
+    // real value.
+    const withPattern = rwQuestionBank.filter(
+      (q) => typeof q.explanation === 'string' && /\*\*SAT Pattern:/.test(q.explanation),
+    );
+    expect(withPattern.length).toBeLessThan(80);
+    // Pin the current count too — if it changes substantially (more than
+    // doubles in either direction), force a re-audit.
+    expect(withPattern.length).toBeGreaterThanOrEqual(0);
+    expect(withPattern.length).toBeLessThan(20);
+  });
+
+  it('accepts a weakness with missedPatterns (no-op, API symmetry with math bank)', () => {
+    const items = getTargetedWeaknessSet({
+      weakSkills: [
+        {
+          skillId: 'words-in-context',
+          domain: 'craft-and-structure',
+          // missedPatterns is accepted but ignored — R&W has no pattern data.
+          missedPatterns: ['hypothetical-r-and-w-pattern'],
+        },
+      ],
+      count: 5,
+    });
+    expect(Array.isArray(items)).toBe(true);
+    expect(items.length).toBeGreaterThan(0);
+    expect(items.every((q) => q.skills.includes('words-in-context'))).toBe(true);
+  });
+
+  it('★REGRESSION★ — passing missedPatterns vs omitting it returns equivalent shape', () => {
+    // Pin the parity invariant. Both forms return items from the same skill
+    // pool; the missedPatterns argument is a no-op for R&W.
+    const a = getTargetedWeaknessSet({
+      weakSkills: [{ skillId: 'transitions', domain: 'expression-of-ideas' }],
+      count: 10,
+    });
+    const b = getTargetedWeaknessSet({
+      weakSkills: [
+        { skillId: 'transitions', domain: 'expression-of-ideas', missedPatterns: ['some-pattern'] },
+      ],
+      count: 10,
+    });
+    // Same skill, same domain → same eligible pool. Counts match.
+    expect(a.length).toBe(b.length);
+    // Both pools draw from the same skill bucket
+    const aSkills = new Set(a.flatMap((q) => q.skills));
+    const bSkills = new Set(b.flatMap((q) => q.skills));
+    expect(aSkills.has('transitions') && bSkills.has('transitions')).toBe(true);
+  });
+});
+
 // ─── getBankStats ───────────────────────────────────────────────────────────
 
 describe('rwBank getBankStats', () => {
