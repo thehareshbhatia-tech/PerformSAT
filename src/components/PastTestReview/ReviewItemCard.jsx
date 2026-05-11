@@ -41,6 +41,11 @@ import './ReviewItemCard.css';
  * @param {() => void} [props.onPrev]            navigate to prior item
  * @param {() => void} [props.onNext]            navigate to next item
  * @param {() => void} [props.onBack]
+ * @param {() => void} [props.onTrySimilar]      launch a 1-question drill on
+ *                                                this item's skill (Plan D4
+ *                                                of PAST_TEST_REVIEW_PLAN.md;
+ *                                                opt-in — no button rendered
+ *                                                when handler is not provided).
  */
 function ReviewItemCard({
   snapshotItem,
@@ -53,6 +58,7 @@ function ReviewItemCard({
   onPrev,
   onNext,
   onBack,
+  onTrySimilar,
 }) {
   if (!snapshotItem) {
     return (
@@ -166,10 +172,38 @@ function ReviewItemCard({
         </div>
       )}
 
-      {/* CTA row — Prev/Next navigate within the wrong-items list. The
-          Try-Similar CTA is intentionally not here; retry-drill (which
-          AssignedPracticeShell already supports with reviewMode) covers
-          the "I want more practice on this skill" flow. */}
+      {/* Try-Similar CTA — Plan D4 of PAST_TEST_REVIEW_PLAN.md. Lets a
+          student browsing wrong items launch a single-question drill on
+          this item's skill without entering retry-drill mode. Opt-in via
+          the onTrySimilar prop (App.jsx wires it; tests can render without). */}
+      {onTrySimilar && (
+        <div className="ric-cta-row" style={{ borderTop: '1px solid rgba(0,0,0,0.06)', paddingTop: '14px', marginTop: '6px' }}>
+          <button
+            type="button"
+            className="ric-try-similar"
+            onClick={onTrySimilar}
+            aria-label="Try a similar question on this skill"
+            style={{
+              padding: '10px 16px',
+              background: 'rgba(234,88,12,0.08)',
+              border: '1px solid rgba(234,88,12,0.2)',
+              borderRadius: '8px',
+              color: '#ea580c',
+              fontSize: '13.5px',
+              fontWeight: 600,
+              cursor: 'pointer',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+            }}
+          >
+            <span aria-hidden="true">🔁</span>
+            Try a similar question
+          </button>
+        </div>
+      )}
+
+      {/* CTA row — Prev/Next navigate within the wrong-items list. */}
       {(onPrev || onNext) && (
         <div className="ric-cta-row">
           {onPrev ? (

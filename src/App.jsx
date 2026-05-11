@@ -1001,6 +1001,46 @@ const PerformSAT = () => {
     }
   }, [practiceState.shuffledQuestions]);
 
+  /**
+   * handleTrySimilarFromReview — launches a 1-question assigned-practice
+   * session for the same skill as a snapshot item the student is reviewing.
+   * Used by ReviewItemCard's Try-Similar CTA (Plan D4 of
+   * PAST_TEST_REVIEW_PLAN.md). Differs from handleTrySimilar above (which
+   * INSERTS into a running session) — this LAUNCHES a fresh practice flow.
+   *
+   * @param {object} snapshotItem  — review snapshot of the wrong item
+   */
+  const handleTrySimilarFromReview = useCallback((snapshotItem) => {
+    if (!snapshotItem) return;
+    const result = pickSimilarQuestion({
+      currentQuestion: snapshotItem,
+      excludeIds: [snapshotItem.id].filter(Boolean),
+    });
+
+    switch (result.kind) {
+      case 'invalid':
+      case 'no-skill':
+        showToast({ type: 'warn', message: 'No skill is tagged on this item — cannot drill a similar question.' });
+        return;
+      case 'error':
+        // eslint-disable-next-line no-console
+        console.warn('[performsat:trySimilar:review] dispatcher threw:', result.error && result.error.message);
+        showToast({ type: 'error', message: 'Could not load a similar question. Please try again.' });
+        return;
+      case 'exhausted':
+        showToast({ type: 'info', message: 'No more similar questions for this skill in the bank.' });
+        return;
+      case 'ok':
+        startAssignedPractice([result.question.id], {
+          label: 'Similar Practice',
+          source: 'review-try-similar',
+        });
+        return;
+      default:
+        return;
+    }
+  }, [startAssignedPractice]);
+
 
   if (loading) {
     return (
@@ -1691,6 +1731,7 @@ const PerformSAT = () => {
                     onPrev={prev ? () => setSelectedReviewItem(prev) : undefined}
                     onNext={next ? () => setSelectedReviewItem(next) : undefined}
                     onBack={() => setView('pastTestReviewDetail')}
+                    onTrySimilar={() => handleTrySimilarFromReview(snapshotItem)}
                   />
                 </div>
               </div>
