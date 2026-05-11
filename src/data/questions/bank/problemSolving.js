@@ -2990,5 +2990,176 @@ export const problemSolvingBank = [
     sourceStyleRef: 'scatterplot-line-of-best-fit',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+
+  // === TWO-WAY TABLE CONDITIONAL PROBABILITY (8 questions) — Phase 2 batch 5 ===
+  // 7x in 12 tests. Sibling of conditional-probability-from-two-way-table (the
+  // word order in the title differs, kebab differs accordingly). Covers same
+  // skill: read row/column totals, compute P(A | B) = cell / B-total.
+  // SAT Pattern kebab matches test bundle: 'two-way-table-conditional-probability'.
+  {
+    id: 'bank-ps-140',
+    domain: 'problem-solving',
+    skills: ['conditional-probability', 'two-way-table'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'The table below shows the results of a survey of $150$ households about pet ownership and housing type.\n\n| | Owns a Pet | No Pet | Total |\n|---|---|---|---|\n| Apartment | $32$ | $48$ | $80$ |\n| House | $54$ | $16$ | $70$ |\n| Total | $86$ | $64$ | $150$ |\n\nIf a household in an Apartment is selected at random, what is the probability that the household owns a pet?',
+    choices: [
+      { id: 'A', text: '$\\dfrac{32}{80}$' },
+      // distractor: grand total in denominator
+      { id: 'B', text: '$\\dfrac{32}{150}$' },
+      // distractor: inverse conditional
+      { id: 'C', text: '$\\dfrac{32}{86}$' },
+      // distractor: wrong cell
+      { id: 'D', text: '$\\dfrac{48}{80}$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Two-Way Table Conditional Probability**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** "Given Apartment" $\\Rightarrow$ denominator $= 80$. Apartment $\\cap$ Owns Pet $= 32$. $P = 32/80$.\n\n**The Full Solution:**\nThe condition "household in an Apartment" restricts the universe to the $80$ apartment dwellers (the Apartment row total).\n\nOf those $80$, $32$ own a pet (cell at Apartment $\\cap$ Owns Pet).\n\n$P(\\text{Owns Pet} \\mid \\text{Apartment}) = \\dfrac{32}{80} = \\dfrac{2}{5}$.\n\nVerification: $32/80 = 0.4 = 40\\%$. The remaining $48/80 = 60\\%$ of apartment dwellers have no pet \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — uses the grand total $150$ (would give the JOINT probability).\n* Choice C: "applies the inverse operation" — gives $P(\\text{Apartment} \\mid \\text{Owns Pet})$ — reverses the condition.\n* Choice D: "wrong base" — picks the "No Pet" cell instead of "Owns Pet".\n\n**Test Day Takeaway:** "Given X" sets the denominator to X\'s total. Numerator is the cell where both conditions hold.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'two-way-table-conditional-probability',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-141',
+    domain: 'problem-solving',
+    skills: ['conditional-probability', 'two-way-table'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'The table below shows the food preferences of $200$ survey respondents.\n\n| | Prefer Sushi | Prefer Pasta | Total |\n|---|---|---|---|\n| Adults | $48$ | $72$ | $120$ |\n| Teens | $54$ | $26$ | $80$ |\n| Total | $102$ | $98$ | $200$ |\n\nIf a respondent who prefers Sushi is selected at random, what fraction (in lowest terms) of those respondents are Teens? Express your answer as a fraction.',
+    correctAnswer: '9/17',
+    explanation: '**SAT Pattern: Two-Way Table Conditional Probability**\n\n**The correct answer is $\\dfrac{9}{17}$.**\n\n**The Fast Way (~15s):** "Given Sushi" $\\Rightarrow$ denominator $= 102$. Teens $\\cap$ Sushi $= 54$. $54/102 = 9/17$.\n\n**The Full Solution:**\nThe condition restricts to the $102$ Sushi preferrers (the Sushi column total).\nOf those, $54$ are Teens (cell at Teens $\\cap$ Sushi).\n\n$P(\\text{Teens} \\mid \\text{Sushi}) = \\dfrac{54}{102}$.\n\nReduce: $\\gcd(54, 102) = 6$, so $\\dfrac{54}{102} = \\dfrac{9}{17}$.\n\nVerification: $9 \\times 6 = 54$ and $17 \\times 6 = 102$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using the grand total $200$ as the denominator: $54/200 = 27/100$ (joint probability, not conditional).\n* Reporting the unreduced $54/102$.\n* Using the wrong cell ($48$ from Adults-Sushi).\n\n**Test Day Takeaway:** When the question asks for a fraction in lowest terms, reduce by the GCD. For two-way tables, GCDs often pop out as $6$, $8$, or $12$ thanks to design-friendly numbers.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'two-way-table-conditional-probability',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-142',
+    domain: 'problem-solving',
+    skills: ['conditional-probability', 'two-way-table'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'The table below shows survey results from $300$ students about their primary mode of transportation.\n\n| | Drives | Bikes | Walks | Total |\n|---|---|---|---|---|\n| Freshmen | $20$ | $35$ | $25$ | $80$ |\n| Sophomores | $40$ | $30$ | $20$ | $90$ |\n| Juniors+ | $80$ | $20$ | $30$ | $130$ |\n| Total | $140$ | $85$ | $75$ | $300$ |\n\nIf a student who Drives is selected at random, what is the probability that the student is a Junior or above?',
+    choices: [
+      { id: 'A', text: '$\\dfrac{80}{140}$' },
+      // distractor: grand total
+      { id: 'B', text: '$\\dfrac{80}{300}$' },
+      // distractor: inverse
+      { id: 'C', text: '$\\dfrac{80}{130}$' },
+      // distractor: wrong cell
+      { id: 'D', text: '$\\dfrac{40}{140}$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Two-Way Table Conditional Probability**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Given Drives $\\Rightarrow$ denominator $= 140$. Junior+ $\\cap$ Drives $= 80$. $P = 80/140 = 4/7$.\n\n**The Full Solution:**\nThe condition "student who Drives" restricts the universe to the $140$ drivers (Drives column total).\n\nWithin those $140$, the cell at Junior+ $\\cap$ Drives is $80$.\n\n$P(\\text{Junior+} \\mid \\text{Drives}) = \\dfrac{80}{140} = \\dfrac{4}{7}$.\n\nVerification: among $140$ drivers, $80$ are Juniors+ — $80/140 \\approx 57\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — uses grand total $300$ instead of $140$.\n* Choice C: "applies the inverse operation" — gives $P(\\text{Drives} \\mid \\text{Junior+}) = 80/130$.\n* Choice D: "wrong base" — picks Sophomore-Drives cell ($40$) instead of Junior+.\n\n**Test Day Takeaway:** $P(A \\mid B)$ has the $B$-total in the denominator, the cell $A \\cap B$ in the numerator. Read which is the GIVEN condition vs the TARGET event.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'two-way-table-conditional-probability',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-143',
+    domain: 'problem-solving',
+    skills: ['conditional-probability', 'two-way-table'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'The table below shows whether each of $250$ surveyed adults has a college degree and whether they own their home.\n\n| | College Degree | No College Degree | Total |\n|---|---|---|---|\n| Owns Home | $80$ | $20$ | $100$ |\n| Rents | $70$ | $80$ | $150$ |\n| Total | $150$ | $100$ | $250$ |\n\nWhat percent of adults with a College Degree own their home? Round to the nearest whole percent.',
+    correctAnswer: '53',
+    explanation: '**SAT Pattern: Two-Way Table Conditional Probability**\n\n**The correct answer is $53$.**\n\n**The Fast Way (~10s):** Given College Degree $\\Rightarrow$ denominator $= 150$. Owns $\\cap$ Degree $= 80$. $80/150 = 0.5333\\overline{3} \\approx 53\\%$.\n\n**The Full Solution:**\nCondition: "adults with a College Degree" restricts to $150$ adults (College Degree column total).\n\nWithin those $150$, $80$ own a home (cell at Owns Home $\\cap$ College Degree).\n\n$P(\\text{Owns Home} \\mid \\text{College Degree}) = \\dfrac{80}{150} \\approx 0.5333 \\approx 53\\%$.\n\nVerification: $80/150 \\times 100 = 53.3\\%$, rounds to $53$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using the grand total ($250$) as the denominator: $80/250 = 32\\%$.\n* Reading the wrong cell (e.g., $70$ from Rents-Degree).\n* Reporting the decimal $0.53$ when the question asks for a percent.\n\n**Test Day Takeaway:** "What percent of X is Y?" $\\Leftrightarrow$ $P(Y \\mid X) \\times 100\\%$. Denominator is X-total; numerator is X $\\cap$ Y cell.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'two-way-table-conditional-probability',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-144',
+    domain: 'problem-solving',
+    skills: ['conditional-probability', 'two-way-table'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'The table below shows survey results from $400$ employees.\n\n| | Remote | In Office | Total |\n|---|---|---|---|\n| Management | $60$ | $90$ | $150$ |\n| Staff | $130$ | $120$ | $250$ |\n| Total | $190$ | $210$ | $400$ |\n\nIf a Staff employee is selected at random, what is the probability that the employee works In Office?',
+    choices: [
+      { id: 'A', text: '$\\dfrac{12}{25}$' },
+      // distractor: grand total
+      { id: 'B', text: '$\\dfrac{120}{400}$' },
+      // distractor: management instead
+      { id: 'C', text: '$\\dfrac{90}{150}$' },
+      // distractor: wrong direction (P(staff|in office))
+      { id: 'D', text: '$\\dfrac{120}{210}$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Two-Way Table Conditional Probability**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Given Staff $\\Rightarrow$ denominator $= 250$. Staff $\\cap$ In Office $= 120$. $120/250 = 12/25$.\n\n**The Full Solution:**\nThe condition "Staff employee" restricts to the $250$ Staff (Staff row total).\n\nOf those $250$, $120$ work In Office.\n\n$P(\\text{In Office} \\mid \\text{Staff}) = \\dfrac{120}{250}$.\n\nReduce by GCD: $\\gcd(120, 250) = 10$, so $\\dfrac{120}{250} = \\dfrac{12}{25}$.\n\nVerification: $12 \\cdot 10 = 120$, $25 \\cdot 10 = 250$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — uses grand total $400$ (joint probability).\n* Choice C: "wrong base" — gives $P(\\text{In Office} \\mid \\text{Management}) = 90/150$.\n* Choice D: "applies the inverse operation" — reverses condition: $P(\\text{Staff} \\mid \\text{In Office}) = 120/210$.\n\n**Test Day Takeaway:** When the row/column structure changes, the denominator changes. Identify the GIVEN condition first, then find its total.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'two-way-table-conditional-probability',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-145',
+    domain: 'problem-solving',
+    skills: ['conditional-probability', 'two-way-table'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'A class of $80$ students was surveyed about a school trip. The results: $30$ Boys and $50$ Girls were surveyed; $24$ Boys said they would attend and $35$ Girls said they would attend. If a student who said they would attend is selected at random, what is the probability that the student is a Girl? Express your answer as a fraction in lowest terms.',
+    correctAnswer: '35/59',
+    explanation: '**SAT Pattern: Two-Way Table Conditional Probability**\n\n**The correct answer is $\\dfrac{35}{59}$.**\n\n**The Fast Way (~15s):** Build the table mentally. Total attending $= 24 + 35 = 59$. Girls attending $= 35$. $P = 35/59$ ($\\gcd(35, 59) = 1$).\n\n**The Full Solution:**\nFill in the implicit two-way table:\n\n| | Attend | Not Attend | Total |\n|---|---|---|---|\n| Boys | $24$ | $6$ | $30$ |\n| Girls | $35$ | $15$ | $50$ |\n| Total | $59$ | $21$ | $80$ |\n\nGiven a student who said "attend" $\\Rightarrow$ denominator $= 59$. Girls $\\cap$ Attend $= 35$.\n\n$P(\\text{Girl} \\mid \\text{Attend}) = \\dfrac{35}{59}$.\n\nGCD$(35, 59) = 1$, so already in lowest terms.\n\nVerification: $35 + 24 = 59$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using the grand total $80$ as the denominator.\n* Using the Girls\' row total $50$ ($35/50 = 7/10$).\n* Confusing the question with "what percent of girls attended" ($35/50 = 70\\%$).\n\n**Test Day Takeaway:** Word-problem versions of two-way tables: build the table from the description, then proceed normally. The "attend" column total is the sum of attending Boys + Girls.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'two-way-table-conditional-probability',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-146',
+    domain: 'problem-solving',
+    skills: ['conditional-probability', 'two-way-table'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'The table below shows survey responses from $400$ employees.\n\n| | Agree | Disagree | Neutral | Total |\n|---|---|---|---|---|\n| Engineering | $50$ | $30$ | $20$ | $100$ |\n| Sales | $30$ | $90$ | $30$ | $150$ |\n| Marketing | $40$ | $60$ | $50$ | $150$ |\n| Total | $120$ | $180$ | $100$ | $400$ |\n\nIf an employee who is NOT Engineering is selected at random, what is the probability that the employee Disagrees?',
+    choices: [
+      { id: 'A', text: '$\\dfrac{150}{300}$' },
+      // distractor: includes Engineering
+      { id: 'B', text: '$\\dfrac{180}{400}$' },
+      // distractor: just Sales
+      { id: 'C', text: '$\\dfrac{90}{150}$' },
+      // distractor: complement of disagree
+      { id: 'D', text: '$\\dfrac{30}{100}$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Two-Way Table Conditional Probability**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** "Not Engineering" $\\Rightarrow$ denominator $= 150 + 150 = 300$. Disagree among Sales + Marketing $= 90 + 60 = 150$. $P = 150/300 = 1/2$.\n\n**The Full Solution:**\n"Not Engineering" means Sales OR Marketing. Combine their row totals:\n* Sales row total: $150$.\n* Marketing row total: $150$.\n* Combined denominator: $150 + 150 = 300$.\n\nDisagree within those rows:\n* Sales $\\cap$ Disagree: $90$.\n* Marketing $\\cap$ Disagree: $60$.\n* Combined numerator: $90 + 60 = 150$.\n\n$P(\\text{Disagree} \\mid \\text{Not Engineering}) = \\dfrac{150}{300} = \\dfrac{1}{2}$.\n\nAlternative check: total Disagree minus Engineering Disagree $= 180 - 30 = 150$. Total Not-Engineering $= 400 - 100 = 300$. Same result \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — uses grand total $400$ instead of "Not Engineering" total $300$.\n* Choice C: "stops one step early" — uses Sales row only ($90/150$), ignoring Marketing.\n* Choice D: "wrong base" — uses Engineering row.\n\n**Test Day Takeaway:** "NOT X" $\\Rightarrow$ sum all other categories. Equivalently, grand total $-$ X-total. Don\'t accidentally include the excluded category.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'two-way-table-conditional-probability',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-147',
+    domain: 'problem-solving',
+    skills: ['conditional-probability', 'two-way-table'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'A two-way table shows that, out of $500$ patients, $200$ were diagnosed with Condition $X$, and $80\\%$ of those with Condition $X$ tested positive on a screening test. Of the $300$ patients WITHOUT Condition $X$, $90$ tested positive. If a patient who tested positive is selected at random, what is the probability that the patient has Condition $X$?',
+    choices: [
+      // distractor: P(positive | X) — original given
+      { id: 'A', text: '$\\dfrac{160}{200}$' },
+      { id: 'B', text: '$\\dfrac{160}{250}$' },
+      // distractor: P(X)
+      { id: 'C', text: '$\\dfrac{200}{500}$' },
+      // distractor: ratio of positives to total
+      { id: 'D', text: '$\\dfrac{250}{500}$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Two-Way Table Conditional Probability**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Positives with $X$: $80\\%$ of $200 = 160$. Positives without $X$: $90$. Total positives: $250$. $P(X \\mid \\text{positive}) = 160/250 = 16/25$.\n\n**The Full Solution:**\nBuild the table:\n* With $X$: $200$. Of these, $80\\% = 160$ tested positive; $40$ tested negative.\n* Without $X$: $300$. Of these, $90$ tested positive; $210$ tested negative.\n\n| | Positive | Negative | Total |\n|---|---|---|---|\n| Has $X$ | $160$ | $40$ | $200$ |\n| No $X$ | $90$ | $210$ | $300$ |\n| Total | $250$ | $250$ | $500$ |\n\nGiven a patient tested positive $\\Rightarrow$ denominator $= 250$ (total positives).\nOf those, $160$ have Condition $X$.\n\n$P(\\text{has } X \\mid \\text{Positive}) = \\dfrac{160}{250} = \\dfrac{16}{25}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: "applies the inverse operation" — gives $P(\\text{positive} \\mid X) = 160/200 = 80\\%$ (the test\'s sensitivity, the GIVEN value).\n* Choice C: "wrong base" — gives the unconditional $P(X) = 200/500 = 40\\%$ — the prior probability, ignoring the test result.\n* Choice D: "wrong formula" — gives the proportion of positives in the whole sample, unrelated to the question.\n\n**Test Day Takeaway:** Bayesian-style conditional: $P(\\text{has condition} \\mid \\text{positive test}) \\neq P(\\text{positive test} \\mid \\text{has condition})$. They differ when the condition is RARE (or test isn\'t perfect). Always reconstruct the table from percentages.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'two-way-table-conditional-probability',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
