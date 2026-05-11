@@ -1868,5 +1868,148 @@ export const advancedMathBank = [
     sourceStyleRef: 'exponential-growth-decay',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+
+  // === EXPONENT RULES WITH RADICALS (8 questions) — Phase 2 priority pattern ===
+  // 15x in 12 tests = 2.8% of test items. Covers: multiply same-base radicals,
+  // divide same-base radicals, nested radical with outer power, negative
+  // exponent, p+q from rational form, identity-based value computation.
+  {
+    id: 'bank-am-084',
+    domain: 'advanced-math',
+    skills: ['exponent-laws'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'If $\\sqrt{x} \\cdot x^3 = x^k$ for $x > 0$, what is the value of $k$? Express your answer as a fraction.',
+    correctAnswer: '7/2',
+    explanation: '**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $\\dfrac{7}{2}$.**\n\n**The Fast Way (~10s):** $\\sqrt{x} = x^{\\frac{1}{2}}$. Multiply: $x^{\\frac{1}{2}} \\cdot x^3 = x^{\\frac{1}{2} + 3} = x^{\\frac{7}{2}}$. So $k = \\dfrac{7}{2}$.\n\n**The Full Solution:**\nConvert the radical: $\\sqrt{x} = x^{\\frac{1}{2}}$.\nMultiply same-base powers by adding exponents:\n$x^{\\frac{1}{2}} \\cdot x^3 = x^{\\frac{1}{2} + 3} = x^{\\frac{1}{2} + \\frac{6}{2}} = x^{\\frac{7}{2}}$.\nSo $k = \\dfrac{7}{2}$.\n\nVerification: at $x = 4$, $\\sqrt{4} \\cdot 4^3 = 2 \\cdot 64 = 128$, and $4^{\\frac{7}{2}} = (4^{\\frac{1}{2}})^7 = 2^7 = 128$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Writing $\\sqrt{x} = x^2$ instead of $x^{\\frac{1}{2}}$ (confusing square root with squaring).\n* Multiplying the exponents ($\\dfrac{1}{2} \\cdot 3 = \\dfrac{3}{2}$) instead of adding them.\n\n**Test Day Takeaway:** $\\sqrt{x} = x^{\\frac{1}{2}}$. When multiplying same-base powers, ADD exponents. Convert all radicals to fractional exponents first.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'exponent-rules-with-radicals',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-085',
+    domain: 'advanced-math',
+    skills: ['exponent-laws'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'If $2^x = 16$, what is the value of $2^{x + 1}$?',
+    correctAnswer: '32',
+    explanation: '**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $32$.**\n\n**The Fast Way (~5s):** $2^{x + 1} = 2^x \\cdot 2 = 16 \\cdot 2 = 32$.\n\n**The Full Solution:**\nUse the product rule: $2^{x + 1} = 2^x \\cdot 2^1 = 2^x \\cdot 2$.\nSubstitute $2^x = 16$: $16 \\cdot 2 = 32$.\n\nVerification: $2^x = 16 \\Rightarrow x = 4$. Then $2^{4 + 1} = 2^5 = 32$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Adding $1$ to the value of $2^x$ to get $17$ (treats the exponent like a coefficient).\n* Computing $2^{x \\cdot 1}$ instead of $2^{x + 1}$, which would leave $16$ unchanged.\n\n**Test Day Takeaway:** $a^{m + n} = a^m \\cdot a^n$. To shift the exponent by $+1$, multiply by the base; no need to find $x$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'exponent-rules-with-radicals',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-086',
+    domain: 'advanced-math',
+    skills: ['exponent-laws'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'If $\\sqrt[3]{x^2} \\cdot \\sqrt{x^5} = x^{\\frac{p}{q}}$ for $x > 0$, where $\\dfrac{p}{q}$ is in lowest terms, what is the value of $p + q$?',
+    choices: [
+      // distractor: gives just p (numerator)
+      { id: 'A', text: '$19$' },
+      { id: 'B', text: '$25$' },
+      // distractor: gives the original numerators added (2+5)
+      { id: 'C', text: '$7$' },
+      // distractor: multiplies p and q (19 × 6 / something)
+      { id: 'D', text: '$30$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $\\sqrt[3]{x^2} = x^{\\frac{2}{3}}$, $\\sqrt{x^5} = x^{\\frac{5}{2}}$. Sum: $\\dfrac{2}{3} + \\dfrac{5}{2} = \\dfrac{4}{6} + \\dfrac{15}{6} = \\dfrac{19}{6}$. $\\gcd(19, 6) = 1$, so $p = 19$, $q = 6$, $p + q = 25$.\n\n**The Full Solution:**\nConvert each radical:\n$\\sqrt[3]{x^2} = x^{\\frac{2}{3}}, \\quad \\sqrt{x^5} = x^{\\frac{5}{2}}$.\n\nMultiplying same-base powers, add exponents:\n$x^{\\frac{2}{3}} \\cdot x^{\\frac{5}{2}} = x^{\\frac{2}{3} + \\frac{5}{2}}$.\n\nCommon denominator $6$: $\\dfrac{2}{3} = \\dfrac{4}{6}$ and $\\dfrac{5}{2} = \\dfrac{15}{6}$.\nSum: $\\dfrac{4 + 15}{6} = \\dfrac{19}{6}$.\n\nCheck that $\\dfrac{19}{6}$ is in lowest terms: $\\gcd(19, 6) = 1$, yes.\nSo $p = 19$, $q = 6$, and $p + q = 25$.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — gives $p = 19$ (the numerator) and forgets to add $q$.\n* Choice C: "wrong base" — adds the radical numerators directly ($2 + 5 = 7$) without converting to fractional exponents.\n* Choice D: "wrong formula" — confuses sum with another combination.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{\\frac{m}{n}}$ — power on top, root on the bottom. After adding fractional exponents, verify the result is in lowest terms before reading off $p$ and $q$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'exponent-rules-with-radicals',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-087',
+    domain: 'advanced-math',
+    skills: ['exponent-laws'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'If $\\dfrac{x^{\\frac{5}{2}}}{x^{\\frac{1}{6}}} = x^k$ for $x > 0$, what is the value of $k$? Express your answer as a fraction.',
+    correctAnswer: '7/3',
+    explanation: '**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $\\dfrac{7}{3}$.**\n\n**The Fast Way (~15s):** Division of same base: subtract exponents. $\\dfrac{5}{2} - \\dfrac{1}{6} = \\dfrac{15}{6} - \\dfrac{1}{6} = \\dfrac{14}{6} = \\dfrac{7}{3}$.\n\n**The Full Solution:**\nDivision with the same base: subtract exponents.\n$\\dfrac{x^{\\frac{5}{2}}}{x^{\\frac{1}{6}}} = x^{\\frac{5}{2} - \\frac{1}{6}}$.\n\nCommon denominator $6$:\n$\\dfrac{5}{2} = \\dfrac{15}{6}, \\quad \\dfrac{15}{6} - \\dfrac{1}{6} = \\dfrac{14}{6} = \\dfrac{7}{3}$.\n\nSo $k = \\dfrac{7}{3}$.\n\nVerification: at $x = 64$, $\\dfrac{64^{\\frac{5}{2}}}{64^{\\frac{1}{6}}} = \\dfrac{32768}{2} = 16384$. And $64^{\\frac{7}{3}} = (64^{\\frac{1}{3}})^7 = 4^7 = 16384$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Adding the exponents instead of subtracting when dividing.\n* Forgetting to reduce $\\dfrac{14}{6}$ to $\\dfrac{7}{3}$.\n\n**Test Day Takeaway:** Divide same-base powers $\\Rightarrow$ subtract exponents. Always reduce the resulting fraction.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'exponent-rules-with-radicals',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-088',
+    domain: 'advanced-math',
+    skills: ['exponent-laws'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'If $(\\sqrt{x} \\cdot x^2)^3 = x^k$ for $x > 0$, what is the value of $k$? Express your answer as a fraction.',
+    correctAnswer: '15/2',
+    explanation: '**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $\\dfrac{15}{2}$.**\n\n**The Fast Way (~20s):** Inside: $\\sqrt{x} \\cdot x^2 = x^{\\frac{1}{2} + 2} = x^{\\frac{5}{2}}$. Outer cube: $(x^{\\frac{5}{2}})^3 = x^{\\frac{15}{2}}$.\n\n**The Full Solution:**\nStep 1 — simplify inside the parentheses:\n$\\sqrt{x} \\cdot x^2 = x^{\\frac{1}{2}} \\cdot x^2 = x^{\\frac{1}{2} + 2} = x^{\\frac{5}{2}}$.\n\nStep 2 — apply the outer power (multiply exponents):\n$(x^{\\frac{5}{2}})^3 = x^{\\frac{5}{2} \\cdot 3} = x^{\\frac{15}{2}}$.\n\nSo $k = \\dfrac{15}{2}$.\n\nVerification: at $x = 4$, $(\\sqrt{4} \\cdot 16)^3 = (2 \\cdot 16)^3 = 32^3 = 32768$. And $4^{\\frac{15}{2}} = (4^{\\frac{1}{2}})^{15} = 2^{15} = 32768$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Distributing the outer cube to each factor separately, forgetting that the simplification must come first.\n* Adding the outer exponent instead of multiplying.\n* Writing $\\sqrt{x} = x^2$ instead of $x^{\\frac{1}{2}}$.\n\n**Test Day Takeaway:** Nested exponents: simplify INSIDE the parentheses first (using multiplication of same bases $\\to$ add exponents), then apply the OUTER power (multiply exponents).',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'exponent-rules-with-radicals',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-089',
+    domain: 'advanced-math',
+    skills: ['exponent-laws'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'If $\\dfrac{x^{\\frac{7}{2}} \\cdot x^{-\\frac{2}{3}}}{x^{\\frac{1}{6}}} = x^k$ for $x > 0$, what is the value of $k$? Express your answer as a fraction.',
+    correctAnswer: '8/3',
+    explanation: '**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $\\dfrac{8}{3}$.**\n\n**The Fast Way (~25s):** Combine: $\\dfrac{7}{2} - \\dfrac{2}{3} - \\dfrac{1}{6} = \\dfrac{21}{6} - \\dfrac{4}{6} - \\dfrac{1}{6} = \\dfrac{16}{6} = \\dfrac{8}{3}$.\n\n**The Full Solution:**\nApply the product and quotient rules together. Numerator: $x^{\\frac{7}{2}} \\cdot x^{-\\frac{2}{3}} = x^{\\frac{7}{2} - \\frac{2}{3}}$. Then divide by $x^{\\frac{1}{6}}$: subtract $\\dfrac{1}{6}$.\n\nNet exponent: $\\dfrac{7}{2} - \\dfrac{2}{3} - \\dfrac{1}{6}$.\n\nCommon denominator $6$:\n$\\dfrac{7}{2} = \\dfrac{21}{6}, \\quad \\dfrac{2}{3} = \\dfrac{4}{6}, \\quad \\dfrac{1}{6} = \\dfrac{1}{6}$.\n\nCompute: $\\dfrac{21}{6} - \\dfrac{4}{6} - \\dfrac{1}{6} = \\dfrac{21 - 4 - 1}{6} = \\dfrac{16}{6} = \\dfrac{8}{3}$.\n\nSo $k = \\dfrac{8}{3}$.\n\nVerification: at $x = 8$, $\\dfrac{8^{\\frac{7}{2}} \\cdot 8^{-\\frac{2}{3}}}{8^{\\frac{1}{6}}} = \\dfrac{(2\\sqrt{2})^7 \\cdot 4^{-1}}{\\sqrt[6]{8}}$. Easier: $8^{\\frac{8}{3}} = (8^{\\frac{1}{3}})^8 = 2^8 = 256$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Treating the negative exponent as a sign on the base: $x^{-\\frac{2}{3}}$ is in the numerator but contributes a SUBTRACTION to the exponent sum.\n* Adding the denominator\'s exponent instead of subtracting.\n* Combining $\\dfrac{21 - 4 - 1}{6}$ as $\\dfrac{18}{6} = 3$ (off-by-one error).\n\n**Test Day Takeaway:** Sign discipline: positive exponents add when bases multiply, denominator exponents subtract, and a negative exponent contributes a subtraction. Track all three signs in one expression.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'exponent-rules-with-radicals',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-090',
+    domain: 'advanced-math',
+    skills: ['exponent-laws'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'If $a^{\\frac{2}{5}} = 9$ for $a > 0$, what is the value of $a^{\\frac{6}{5}}$?',
+    choices: [
+      // distractor: multiplies 9 by 3 (the exponent ratio 6/5 ÷ 2/5)
+      { id: 'A', text: '$27$' },
+      // distractor: triples 9
+      { id: 'B', text: '$72$' },
+      { id: 'C', text: '$729$' },
+      // distractor: solves for a (243) and reports it
+      { id: 'D', text: '$243$' }
+    ],
+    correctAnswer: 'C',
+    explanation: '**SAT Pattern: Exponent Rules with Radicals**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $\\dfrac{6}{5} = 3 \\cdot \\dfrac{2}{5}$, so $a^{\\frac{6}{5}} = (a^{\\frac{2}{5}})^3 = 9^3 = 729$.\n\n**The Full Solution:**\nGiven $a^{\\frac{2}{5}} = 9$, we want $a^{\\frac{6}{5}}$.\nObserve that $\\dfrac{6}{5} = 3 \\cdot \\dfrac{2}{5}$.\nBy the power-of-a-power rule:\n$a^{\\frac{6}{5}} = a^{3 \\cdot \\frac{2}{5}} = (a^{\\frac{2}{5}})^3 = 9^3 = 729$.\n\nVerification: solve for $a$: $a^{\\frac{2}{5}} = 9 \\Rightarrow a = 9^{\\frac{5}{2}} = (9^{\\frac{1}{2}})^5 = 3^5 = 243$. Then $a^{\\frac{6}{5}} = 243^{\\frac{6}{5}} = (243^{\\frac{1}{5}})^6 = 3^6 = 729$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — multiplies $9 \\cdot 3 = 27$, treating exponent ratio as a multiplier.\n* Choice B: "off-by-one" — gives $9 \\cdot 8$ or similar arithmetic slip.\n* Choice D: "stops one step early" — solves for $a = 243$ and reports $a$ instead of $a^{\\frac{6}{5}}$.\n\n**Test Day Takeaway:** When you know $a^n$ and need $a^m$, write $m = k \\cdot n$ so $a^m = (a^n)^k$. Avoid solving for $a$ directly — it costs more steps.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'exponent-rules-with-radicals',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-091',
+    domain: 'advanced-math',
+    skills: ['exponent-laws'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'If $\\dfrac{\\sqrt[3]{x^4}}{\\sqrt[5]{x^2}} = x^{\\frac{p}{q}}$ for $x > 0$, where $\\dfrac{p}{q}$ is in lowest terms, what is the value of $p + q$?',
+    correctAnswer: '29',
+    explanation: '**SAT Pattern: Exponent Rules with Radicals**\n\n**The correct answer is $29$.**\n\n**The Fast Way (~30s):** $\\sqrt[3]{x^4} = x^{\\frac{4}{3}}$, $\\sqrt[5]{x^2} = x^{\\frac{2}{5}}$. Subtract: $\\dfrac{4}{3} - \\dfrac{2}{5} = \\dfrac{20}{15} - \\dfrac{6}{15} = \\dfrac{14}{15}$. $\\gcd(14, 15) = 1$, so $p = 14$, $q = 15$, $p + q = 29$.\n\n**The Full Solution:**\nConvert each radical to fractional exponents:\n$\\sqrt[3]{x^4} = x^{\\frac{4}{3}}, \\quad \\sqrt[5]{x^2} = x^{\\frac{2}{5}}$.\n\nDivision rule: subtract exponents.\n$\\dfrac{x^{\\frac{4}{3}}}{x^{\\frac{2}{5}}} = x^{\\frac{4}{3} - \\frac{2}{5}}$.\n\nCommon denominator $15$:\n$\\dfrac{4}{3} = \\dfrac{20}{15}, \\quad \\dfrac{2}{5} = \\dfrac{6}{15}, \\quad \\dfrac{20}{15} - \\dfrac{6}{15} = \\dfrac{14}{15}$.\n\nCheck lowest terms: $\\gcd(14, 15) = 1$, so $\\dfrac{14}{15}$ is reduced.\n$p = 14$, $q = 15$, $p + q = 29$.\n\n**Common Mistakes to Avoid:**\n* Writing $\\sqrt[5]{x^2} = x^{\\frac{5}{2}}$ (inverting numerator and index).\n* Adding the exponents instead of subtracting when dividing.\n* Reporting just $p$ ($14$) and forgetting to add $q$.\n* Failing to reduce a non-reduced fraction before reading off $p$ and $q$.\n\n**Test Day Takeaway:** $\\sqrt[n]{x^m} = x^{\\frac{m}{n}}$ — power UP, root DOWN. Divide $\\Rightarrow$ subtract exponents. Always reduce before reading $p$ and $q$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'exponent-rules-with-radicals',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
