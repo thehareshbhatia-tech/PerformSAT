@@ -2173,5 +2173,203 @@ export const advancedMathBank = [
     sourceStyleRef: 'vertex-form-from-two-conditions',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+
+  // === RATIONAL EXPRESSION SIMPLIFICATION (8 questions) — Phase 2 batch 3 ===
+  // 10x in 12 tests. Covers: simplify single fraction by factoring,
+  // multiply two rationals, add rationals, solve rational equation,
+  // identify equivalent factored form.
+  // SAT Pattern kebab matches test bundle: 'rational-expression-simplification'.
+  {
+    id: 'bank-am-100',
+    domain: 'advanced-math',
+    skills: ['simplifying-rational-expressions', 'difference-of-squares'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'Which expression is equivalent to $\\dfrac{x^2 - 9}{x - 3}$ for all values of $x$ where the expression is defined?',
+    choices: [
+      // distractor: subtracts incorrectly
+      { id: 'A', text: '$x - 3$' },
+      { id: 'B', text: '$x + 3$' },
+      // distractor: divides each term separately
+      { id: 'C', text: '$x^2 - 3$' },
+      // distractor: cancels wrong
+      { id: 'D', text: '$3$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Rational Expression Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Factor numerator: $x^2 - 9 = (x - 3)(x + 3)$. Cancel $(x - 3)$ with denominator: result is $x + 3$.\n\n**The Full Solution:**\nFactor the numerator using the difference of squares:\n$x^2 - 9 = (x - 3)(x + 3)$.\n\n$\\dfrac{x^2 - 9}{x - 3} = \\dfrac{(x - 3)(x + 3)}{x - 3} = x + 3$ (for $x \\neq 3$).\n\nVerification: at $x = 5$, $\\dfrac{25 - 9}{5 - 3} = \\dfrac{16}{2} = 8 = 5 + 3$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "sign error" — pairs the $-3$ but uses the wrong factor of the difference of squares.\n* Choice C: "wrong formula" — divides $x^2 / x$ and $-9/-3$ separately as if the expression splits term-by-term (it does not — the denominator divides the WHOLE numerator).\n* Choice D: "wrong base" — cancels the $x$ terms and the constants separately.\n\n**Test Day Takeaway:** Factor first, then cancel matching factors. $a^2 - b^2 = (a - b)(a + b)$ is the difference-of-squares pattern.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'rational-expression-simplification',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-101',
+    domain: 'advanced-math',
+    skills: ['simplifying-rational-expressions', 'difference-of-squares'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'Which expression is equivalent to $\\dfrac{x^2 - 25}{x^2 + 5x}$ for all values of $x$ where the expression is defined?',
+    choices: [
+      // distractor: cancels x²/x² = 1 wrongly
+      { id: 'A', text: '$\\dfrac{-25}{5x}$' },
+      { id: 'B', text: '$\\dfrac{x - 5}{x}$' },
+      // distractor: cancels (x+5)/x instead of cancelling fully
+      { id: 'C', text: '$\\dfrac{x - 5}{5}$' },
+      // distractor: factors incorrectly
+      { id: 'D', text: '$\\dfrac{x + 5}{x}$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Rational Expression Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Factor: $(x-5)(x+5) / [x(x+5)]$. Cancel $(x+5)$: $\\dfrac{x - 5}{x}$.\n\n**The Full Solution:**\nFactor numerator and denominator:\n* Numerator: $x^2 - 25 = (x - 5)(x + 5)$.\n* Denominator: $x^2 + 5x = x(x + 5)$.\n\n$\\dfrac{(x - 5)(x + 5)}{x(x + 5)} = \\dfrac{x - 5}{x}$ (cancel the common factor $(x + 5)$, valid for $x \\neq -5$ and $x \\neq 0$).\n\nVerification: at $x = 10$, $\\dfrac{100 - 25}{100 + 50} = \\dfrac{75}{150} = \\dfrac{1}{2}$. And $\\dfrac{10 - 5}{10} = \\dfrac{5}{10} = \\dfrac{1}{2}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — cancels $x^2 / x^2 = 1$ leaving $-25 / 5x$, but you can\'t cancel partial sums like that.\n* Choice C: "wrong base" — cancels the wrong factor; leaves $5$ in denominator instead of $x$.\n* Choice D: "sign error" — picks the wrong factor of the difference of squares.\n\n**Test Day Takeaway:** Always factor BOTH numerator and denominator FULLY before cancelling. Cancel only WHOLE common factors, never individual terms within a sum.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'rational-expression-simplification',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-102',
+    domain: 'advanced-math',
+    skills: ['simplifying-rational-expressions', 'perfect-square-trinomial', 'difference-of-squares'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'Which expression is equivalent to $\\dfrac{x^2 + 8x + 16}{x^2 - 16}$ for all values of $x$ where the expression is defined?',
+    choices: [
+      // distractor: ignores sign in difference of squares
+      { id: 'A', text: '$\\dfrac{x + 4}{x + 4}$' },
+      { id: 'B', text: '$\\dfrac{x + 4}{x - 4}$' },
+      // distractor: doesn't square (x+4)^2
+      { id: 'C', text: '$\\dfrac{1}{x - 4}$' },
+      // distractor: factors trinomial wrong
+      { id: 'D', text: '$\\dfrac{x - 4}{x + 4}$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Rational Expression Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Factor: $(x + 4)^2 / [(x - 4)(x + 4)]$. Cancel ONE $(x + 4)$: $\\dfrac{x + 4}{x - 4}$.\n\n**The Full Solution:**\nFactor numerator and denominator:\n* Numerator: $x^2 + 8x + 16 = (x + 4)^2 = (x + 4)(x + 4)$ (perfect square).\n* Denominator: $x^2 - 16 = (x - 4)(x + 4)$ (difference of squares).\n\n$\\dfrac{(x + 4)(x + 4)}{(x - 4)(x + 4)} = \\dfrac{x + 4}{x - 4}$ (cancel ONE $(x + 4)$, valid for $x \\neq -4$ and $x \\neq 4$).\n\nVerification: at $x = 5$, $\\dfrac{25 + 40 + 16}{25 - 16} = \\dfrac{81}{9} = 9$. And $\\dfrac{5 + 4}{5 - 4} = \\dfrac{9}{1} = 9$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — doesn\'t recognize the difference of squares; treats the denominator as $(x + 4)$ alone.\n* Choice C: "wrong formula" — cancels BOTH $(x + 4)$ factors, leaving only $1 / (x - 4)$.\n* Choice D: "sign error" — swaps which factor is cancelled, putting $(x - 4)$ on top.\n\n**Test Day Takeaway:** Perfect square trinomial: $a^2 + 2ab + b^2 = (a + b)^2$. Difference of squares: $a^2 - b^2 = (a - b)(a + b)$. With a $(a + b)^2$ on top and $(a - b)(a + b)$ on bottom, only ONE factor cancels.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'rational-expression-simplification',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-103',
+    domain: 'advanced-math',
+    skills: ['simplifying-rational-expressions', 'difference-of-squares'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'Which expression is equivalent to $\\dfrac{x^2 - 4}{x + 3} \\cdot \\dfrac{x + 3}{x - 2}$ for all values of $x$ where the expression is defined?',
+    choices: [
+      // distractor: forgets to cancel (x-2)
+      { id: 'A', text: '$\\dfrac{(x + 2)(x + 3)}{x - 2}$' },
+      { id: 'B', text: '$x + 2$' },
+      // distractor: doesn't factor (x²-4)
+      { id: 'C', text: '$\\dfrac{x^2 - 4}{x - 2}$' },
+      // distractor: sign error: x-2 instead of x+2
+      { id: 'D', text: '$x - 2$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Rational Expression Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Factor $x^2 - 4 = (x - 2)(x + 2)$. The product is $\\dfrac{(x - 2)(x + 2)(x + 3)}{(x + 3)(x - 2)} = x + 2$ (after canceling $(x + 3)$ and $(x - 2)$).\n\n**The Full Solution:**\nFactor the numerator of the first fraction: $x^2 - 4 = (x - 2)(x + 2)$.\n\nWrite the product:\n$\\dfrac{(x - 2)(x + 2)}{x + 3} \\cdot \\dfrac{x + 3}{x - 2} = \\dfrac{(x - 2)(x + 2)(x + 3)}{(x + 3)(x - 2)}$.\n\nCancel the common factors $(x + 3)$ and $(x - 2)$ (valid for $x \\neq -3$ and $x \\neq 2$):\n$= x + 2$.\n\nVerification: at $x = 5$, $\\dfrac{25 - 4}{5 + 3} \\cdot \\dfrac{5 + 3}{5 - 2} = \\dfrac{21}{8} \\cdot \\dfrac{8}{3} = \\dfrac{168}{24} = 7 = 5 + 2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — cancels $(x + 3)$ but forgets to cancel $(x - 2)$.\n* Choice C: "stops one step early" — never factors $(x^2 - 4)$, so $(x - 2)$ never cancels.\n* Choice D: "sign error" — picks the wrong factor of the difference of squares.\n\n**Test Day Takeaway:** Before multiplying rational expressions, FACTOR everything first. Then cancel matching factors before computing the product.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'rational-expression-simplification',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-104',
+    domain: 'advanced-math',
+    skills: ['simplifying-rational-expressions', 'difference-of-squares'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'Which expression is equivalent to $\\dfrac{4x^2 - 9}{2x^2 - x - 3}$ for all values of $x$ where the expression is defined?',
+    choices: [
+      // distractor: factors numerator wrong
+      { id: 'A', text: '$\\dfrac{2x - 3}{x - 1}$' },
+      { id: 'B', text: '$\\dfrac{2x + 3}{x + 1}$' },
+      // distractor: doesn't factor (4x²-9)
+      { id: 'C', text: '$\\dfrac{4x^2 - 9}{x + 1}$' },
+      // distractor: factors denominator wrong
+      { id: 'D', text: '$\\dfrac{2x + 3}{x - 1}$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Rational Expression Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $4x^2 - 9 = (2x - 3)(2x + 3)$. Factor denominator: $2x^2 - x - 3 = (2x - 3)(x + 1)$. Cancel $(2x - 3)$: $\\dfrac{2x + 3}{x + 1}$.\n\n**The Full Solution:**\nFactor numerator (difference of squares with $2x$ and $3$):\n$4x^2 - 9 = (2x)^2 - 3^2 = (2x - 3)(2x + 3)$.\n\nFactor denominator (search for two numbers multiplying to $2 \\cdot (-3) = -6$ and summing to $-1$ — the coefficient of $x$): $-3$ and $2$ work.\n$2x^2 - x - 3 = 2x^2 - 3x + 2x - 3 = x(2x - 3) + (2x - 3) = (2x - 3)(x + 1)$.\n\nSimplify:\n$\\dfrac{(2x - 3)(2x + 3)}{(2x - 3)(x + 1)} = \\dfrac{2x + 3}{x + 1}$ (cancel $(2x - 3)$, valid for $x \\neq 3/2$ and $x \\neq -1$).\n\nVerification: at $x = 2$, $\\dfrac{16 - 9}{8 - 2 - 3} = \\dfrac{7}{3}$. And $\\dfrac{4 + 3}{2 + 1} = \\dfrac{7}{3}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "sign error" — keeps $(2x - 3)$ as the remaining numerator factor (it should be $(2x + 3)$).\n* Choice C: "stops one step early" — doesn\'t factor the numerator.\n* Choice D: "sign error" — produces $(x - 1)$ in the denominator instead of $(x + 1)$ via wrong factoring.\n\n**Test Day Takeaway:** $a^2 - b^2 = (a - b)(a + b)$ works even with composite "$a$" like $2x$. For trinomials $ax^2 + bx + c$, find two numbers multiplying to $ac$ and summing to $b$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'rational-expression-simplification',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-105',
+    domain: 'advanced-math',
+    skills: ['simplifying-rational-expressions'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'Which expression is equivalent to $\\dfrac{3}{x - 1} + \\dfrac{2}{x + 2}$ for all values of $x$ where the expression is defined?',
+    choices: [
+      // distractor: adds numerators and denominators separately
+      { id: 'A', text: '$\\dfrac{5}{2x + 1}$' },
+      { id: 'B', text: '$\\dfrac{5x + 4}{(x - 1)(x + 2)}$' },
+      // distractor: forgets to distribute when combining
+      { id: 'C', text: '$\\dfrac{5}{(x - 1)(x + 2)}$' },
+      // distractor: sign error on numerator
+      { id: 'D', text: '$\\dfrac{5x - 4}{(x - 1)(x + 2)}$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Rational Expression Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** LCD $= (x - 1)(x + 2)$. Numerator: $3(x + 2) + 2(x - 1) = 3x + 6 + 2x - 2 = 5x + 4$.\n\n**The Full Solution:**\nFind a common denominator: $(x - 1)(x + 2)$.\n\nRewrite each fraction:\n$\\dfrac{3}{x - 1} = \\dfrac{3(x + 2)}{(x - 1)(x + 2)}$\n$\\dfrac{2}{x + 2} = \\dfrac{2(x - 1)}{(x - 1)(x + 2)}$\n\nAdd:\n$\\dfrac{3(x + 2) + 2(x - 1)}{(x - 1)(x + 2)} = \\dfrac{3x + 6 + 2x - 2}{(x - 1)(x + 2)} = \\dfrac{5x + 4}{(x - 1)(x + 2)}$.\n\nVerification: at $x = 2$, $\\dfrac{3}{1} + \\dfrac{2}{4} = 3 + 0.5 = 3.5$. And $\\dfrac{14}{(1)(4)} = \\dfrac{14}{4} = 3.5$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — adds the numerators ($3 + 2 = 5$) AND the denominators ($x - 1 + x + 2 = 2x + 1$) as if you can add fractions term-by-term.\n* Choice C: "stops one step early" — finds the common denominator but forgets to multiply each numerator by the OTHER fraction\'s denominator.\n* Choice D: "sign error" — gets $5x - 4$ instead of $5x + 4$ by mistakenly distributing $2(x - 1)$ as $2x - 2$ then sign-flipping.\n\n**Test Day Takeaway:** Adding rational expressions: find the LCD first, multiply each numerator by what\'s missing from its denominator, then add. Never add term-by-term.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'rational-expression-simplification',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-106',
+    domain: 'advanced-math',
+    skills: ['simplifying-rational-expressions'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'How many real solutions does the equation $\\dfrac{3}{x - 2} + \\dfrac{4}{x + 2} = \\dfrac{14}{x^2 - 4}$ have?',
+    choices: [
+      // distractor: claims no solutions (mistakenly identifies x=2 or -2 as extraneous when it's not)
+      { id: 'A', text: '$0$' },
+      { id: 'B', text: '$1$' },
+      // distractor: counts both solutions of expanded quadratic
+      { id: 'C', text: '$2$' },
+      // distractor: claims infinitely many (linear → no solution)
+      { id: 'D', text: 'Infinitely many' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Rational Expression Simplification**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Multiply by LCD $(x - 2)(x + 2)$: $3(x + 2) + 4(x - 2) = 14 \\Rightarrow 7x - 2 = 14 \\Rightarrow x = \\dfrac{16}{7}$. Check: $x = 16/7$ is neither $2$ nor $-2$, so it\'s a valid solution. ONE real solution.\n\n**The Full Solution:**\nMultiply both sides by the LCD $(x - 2)(x + 2) = x^2 - 4$:\n$3(x + 2) + 4(x - 2) = 14$\n$3x + 6 + 4x - 8 = 14$\n$7x - 2 = 14$\n$7x = 16$\n$x = \\dfrac{16}{7}$.\n\nCheck for extraneous solutions: the original equation excludes $x = 2$ and $x = -2$ (denominators zero). Since $\\dfrac{16}{7} \\neq 2$ and $\\dfrac{16}{7} \\neq -2$, the solution is valid.\n\nNumber of real solutions: **$1$**.\n\nVerification: at $x = 16/7$, $\\dfrac{3}{16/7 - 2} + \\dfrac{4}{16/7 + 2} = \\dfrac{3}{2/7} + \\dfrac{4}{30/7} = \\dfrac{21}{2} + \\dfrac{28}{30} = 10.5 + 0.933 \\approx 11.43$. And $\\dfrac{14}{(16/7)^2 - 4} = \\dfrac{14}{256/49 - 196/49} = \\dfrac{14}{60/49} = \\dfrac{14 \\cdot 49}{60} = \\dfrac{686}{60} \\approx 11.43$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — flags the only solution as extraneous despite it being valid.\n* Choice C: "wrong formula" — expects a quadratic structure and counts two solutions, but the equation simplifies to a LINEAR one.\n* Choice D: "wrong base" — would only happen if both sides reduced to an identity, which they don\'t.\n\n**Test Day Takeaway:** Rational equations: multiply by LCD, solve the resulting polynomial, then CHECK against the original denominator restrictions. Only count solutions that don\'t zero a denominator.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'rational-expression-simplification',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-107',
+    domain: 'advanced-math',
+    skills: ['simplifying-rational-expressions', 'finding-roots-factoring'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'Which expression is equivalent to $\\dfrac{x^2 - 9}{x^2 + 5x + 6} \\cdot \\dfrac{x^2 + 4x + 4}{x^2 - x - 6}$ for all values of $x$ where the expression is defined?',
+    choices: [
+      { id: 'A', text: '$1$' },
+      // distractor: forgets to cancel one (x+2)
+      { id: 'B', text: '$\\dfrac{x + 2}{x - 3}$' },
+      // distractor: leaves (x-3) in denominator
+      { id: 'C', text: '$\\dfrac{x - 3}{x + 2}$' },
+      // distractor: keeps (x+2) squared
+      { id: 'D', text: '$(x + 2)^2$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Rational Expression Simplification**\n\n**Choice A is correct.**\n\n**The Fast Way (~40s):** Factor everything: numerator $= (x - 3)(x + 3)(x + 2)^2$, denominator $= (x + 2)(x + 3)(x - 3)(x + 2)$. Cancel ALL four factors: result is $1$.\n\n**The Full Solution:**\nFactor each piece:\n* $x^2 - 9 = (x - 3)(x + 3)$ (difference of squares).\n* $x^2 + 5x + 6 = (x + 2)(x + 3)$ (find $2$ and $3$).\n* $x^2 + 4x + 4 = (x + 2)^2$ (perfect square).\n* $x^2 - x - 6 = (x - 3)(x + 2)$ (find $-3$ and $2$).\n\nProduct:\n$\\dfrac{(x - 3)(x + 3)}{(x + 2)(x + 3)} \\cdot \\dfrac{(x + 2)(x + 2)}{(x - 3)(x + 2)}$\n\nCombine:\n$\\dfrac{(x - 3)(x + 3)(x + 2)(x + 2)}{(x + 2)(x + 3)(x - 3)(x + 2)} = 1$ (for $x \\neq -3, -2, 3$).\n\nEvery factor in the numerator has a matching factor in the denominator, leaving exactly $1$.\n\nVerification: at $x = 1$, first fraction $= \\dfrac{1 - 9}{1 + 5 + 6} = \\dfrac{-8}{12} = -\\dfrac{2}{3}$. Second fraction $= \\dfrac{1 + 4 + 4}{1 - 1 - 6} = \\dfrac{9}{-6} = -\\dfrac{3}{2}$. Product $= \\left(-\\dfrac{2}{3}\\right) \\cdot \\left(-\\dfrac{3}{2}\\right) = 1$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — forgets to cancel ONE of the $(x + 2)$ factors.\n* Choice C: "stops one step early" — only partially cancels, leaving $(x - 3)/(x + 2)$.\n* Choice D: "wrong formula" — keeps the $(x + 2)^2$ uncancelled.\n\n**Test Day Takeaway:** Factor EVERYTHING fully first. Multiply numerators, multiply denominators, then cancel all matching factors. When everything cancels, the answer is $1$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'rational-expression-simplification',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
