@@ -2837,5 +2837,158 @@ export const problemSolvingBank = [
     sourceStyleRef: 'outlier-effect',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+
+  // === SCATTERPLOT LINE OF BEST FIT (8 questions) — Phase 2 batch 4 priority ===
+  // 8x in 12 tests. Covers: plug-in prediction, solve-for-x-given-y,
+  // slope-in-context interpretation, intercept-in-context interpretation,
+  // line-from-two-predicted-points, n-unit-increase impact.
+  // SAT Pattern kebab matches: 'scatterplot-line-of-best-fit'.
+  {
+    id: 'bank-ps-132',
+    domain: 'problem-solving',
+    skills: ['slope-intercept-form', 'function-evaluation'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'A scatterplot is modeled by the linear equation $\\hat{y} = 3x + 5$. According to this model, what is the predicted value of $y$ when $x = 7$?',
+    correctAnswer: '26',
+    explanation: '**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is $26$.**\n\n**The Fast Way (~5s):** $\\hat{y} = 3(7) + 5 = 21 + 5 = 26$.\n\n**The Full Solution:**\nSubstitute $x = 7$ into the line of best fit:\n$\\hat{y} = 3(7) + 5 = 21 + 5 = 26$.\n\nVerification: at $x = 7$, $3 \\times 7 = 21$ and $21 + 5 = 26$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Multiplying $7$ by both the slope $3$ and the intercept $5$: $7 \\cdot 3 \\cdot 5 = 105$.\n* Forgetting the intercept: reporting $21$.\n\n**Test Day Takeaway:** A line of best fit is just a regular linear equation. Plug in the $x$-value, multiply by the slope, add the intercept.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'scatterplot-line-of-best-fit',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-133',
+    domain: 'problem-solving',
+    skills: ['slope-intercept-form', 'function-evaluation'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'A scatterplot is modeled by $\\hat{y} = -2x + 40$. What is the predicted value of $y$ when $x = 15$?',
+    correctAnswer: '10',
+    explanation: '**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~5s):** $\\hat{y} = -2(15) + 40 = -30 + 40 = 10$.\n\n**The Full Solution:**\nSubstitute $x = 15$:\n$\\hat{y} = -2(15) + 40 = -30 + 40 = 10$.\n\nVerification: $-2 \\cdot 15 = -30$, and $-30 + 40 = 10$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Sign error: computing $+30 + 40 = 70$ instead of $-30 + 40$.\n* Subtracting in the wrong direction: $40 - 30 = 10$ is the same answer, but the order matters for sign-carrying.\n\n**Test Day Takeaway:** With a negative slope, the predicted value DECREASES as $x$ increases. Carry the sign through carefully when multiplying.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'scatterplot-line-of-best-fit',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-134',
+    domain: 'problem-solving',
+    skills: ['slope-intercept-form'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'A scatterplot is modeled by $\\hat{y} = 0.5x + 12$. According to this model, at what value of $x$ does the predicted $y$ equal $30$?',
+    correctAnswer: '36',
+    explanation: '**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is $36$.**\n\n**The Fast Way (~10s):** $30 = 0.5x + 12 \\Rightarrow 0.5x = 18 \\Rightarrow x = 36$.\n\n**The Full Solution:**\nSet $\\hat{y} = 30$ and solve for $x$:\n$30 = 0.5x + 12$\n$30 - 12 = 0.5x$\n$18 = 0.5x$\n$x = \\dfrac{18}{0.5} = 36$.\n\nVerification: at $x = 36$, $\\hat{y} = 0.5(36) + 12 = 18 + 12 = 30$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Multiplying $30$ by $0.5$ instead of dividing: $30 \\cdot 0.5 = 15$.\n* Forgetting to subtract the intercept first.\n* Dividing $30$ by $0.5$ first ($60$), then subtracting wrong.\n\n**Test Day Takeaway:** To find $x$ given $\\hat{y}$: subtract the intercept, then divide by the slope. Reverse the order of operations.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'scatterplot-line-of-best-fit',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-135',
+    domain: 'problem-solving',
+    skills: ['slope-intercept-form'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'A company\'s daily revenue, in dollars, is modeled by $\\hat{y} = 4.5x + 200$, where $x$ is the number of items sold that day. Which of the following is the BEST interpretation of the coefficient $4.5$ in this model?',
+    choices: [
+      { id: 'A', text: 'The average revenue per additional item sold, in dollars.' },
+      // distractor: confuses slope with intercept
+      { id: 'B', text: 'The revenue earned when zero items are sold.' },
+      // distractor: misreads slope as quantity
+      { id: 'C', text: 'The number of items sold per dollar earned.' },
+      // distractor: total revenue
+      { id: 'D', text: 'The total revenue for the day.' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** In $\\hat{y} = mx + b$, the slope $m$ is the change in $\\hat{y}$ per unit change in $x$. Here $4.5$ is revenue per additional item.\n\n**The Full Solution:**\nThe coefficient of $x$ in a linear model is the SLOPE, which represents the change in the predicted output per unit increase in $x$.\n\nUnits: $4.5 = \\dfrac{\\Delta \\text{revenue (dollars)}}{\\Delta \\text{items}}$. So $4.5$ is "dollars per item".\n\nFor each ADDITIONAL item sold, daily revenue is expected to increase by $\\$4.50$.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — describes the intercept ($\\$200$), not the slope.\n* Choice C: "applies the inverse operation" — inverts the slope ratio (items per dollar instead of dollars per item).\n* Choice D: "wrong formula" — gives the total $\\hat{y}$, not the rate.\n\n**Test Day Takeaway:** In $\\hat{y} = mx + b$ with context, $m$ is the RATE of change of $y$ per unit of $x$ — read the units of both axes. The intercept $b$ is the value of $\\hat{y}$ at $x = 0$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'scatterplot-line-of-best-fit',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-136',
+    domain: 'problem-solving',
+    skills: ['slope-intercept-form'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'A weather station\'s temperature, in degrees Fahrenheit, is modeled by $\\hat{y} = -1.2x + 80$, where $x$ is the number of hours past noon. Which of the following is the BEST interpretation of the value $80$ in this model?',
+    choices: [
+      // distractor: confuses intercept with slope
+      { id: 'A', text: 'The temperature decreases by $80$ degrees each hour.' },
+      { id: 'B', text: 'The predicted temperature at noon (when $x = 0$) is $80$ degrees.' },
+      // distractor: maximum temperature
+      { id: 'C', text: 'The highest temperature the station can reach is $80$ degrees.' },
+      // distractor: temperature far in future
+      { id: 'D', text: 'The temperature after many hours is $80$ degrees.' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** In $\\hat{y} = mx + b$, the intercept $b$ is the value of $\\hat{y}$ when $x = 0$. Here $80$ is the temperature at noon.\n\n**The Full Solution:**\nThe constant term in a linear model is the $y$-intercept, which represents the predicted output value when $x = 0$.\n\nGiven $x =$ hours past noon:\n* $x = 0$ corresponds to noon.\n* $\\hat{y}(0) = -1.2(0) + 80 = 80$.\n\nSo $80$ degrees is the predicted temperature AT NOON.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — describes the slope ($-1.2$), not the intercept.\n* Choice C: "wrong formula" — the model has decreasing temperature ($m < 0$); $80$ at $x = 0$ is the STARTING value, but the question doesn\'t say it\'s the max (though it does happen to be the max here, the interpretation of $80$ is "value at $x = 0$").\n* Choice D: "sign error" — for negative slope, as $x$ grows, $\\hat{y}$ decreases (not approaches $80$).\n\n**Test Day Takeaway:** The intercept $b$ is the predicted value AT $x = 0$. Translate that into context: $x = 0$ means "at noon" or "initially" or "before any change."',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'scatterplot-line-of-best-fit',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-137',
+    domain: 'problem-solving',
+    skills: ['slope-intercept-form', 'function-evaluation'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'A scatterplot is modeled by $\\hat{y} = 1.85x + 3.4$. What is the predicted value of $y$ when $x = 6$?',
+    correctAnswer: '14.5',
+    explanation: '**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is $14.5$.**\n\n**The Fast Way (~10s):** $\\hat{y} = 1.85(6) + 3.4 = 11.1 + 3.4 = 14.5$.\n\n**The Full Solution:**\nMultiply: $1.85 \\times 6 = 11.10$.\nAdd intercept: $11.10 + 3.4 = 14.5$.\n\nSo $\\hat{y} = 14.5$ when $x = 6$.\n\nVerification: $1.85 \\times 6 = 11.10$ (slide the decimal one position from $185 \\times 6 = 1110$). $11.10 + 3.40 = 14.50$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Decimal slip: $1.85 \\times 6 = 1.11$ or $111$ — misplaces the decimal.\n* Adding $3.4$ as $3$ or $4$: gives $14.1$ or $15.1$.\n* Multiplying $6$ by both $1.85$ and $3.4$ together: $6 \\cdot 1.85 \\cdot 3.4 = 37.74$.\n\n**Test Day Takeaway:** With decimal slopes, take care with decimal placement. Use long-multiplication or partial products: $1.85 \\times 6 = 1 \\times 6 + 0.85 \\times 6 = 6 + 5.1 = 11.1$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'scatterplot-line-of-best-fit',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-138',
+    domain: 'problem-solving',
+    skills: ['slope-intercept-form', 'slope-from-points'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'A line of best fit for a scatterplot passes through the points $(4, 18)$ and $(10, 36)$. According to this line, what is the predicted value of $y$ when $x = 20$?',
+    correctAnswer: '66',
+    explanation: '**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is $66$.**\n\n**The Fast Way (~25s):** Slope $= (36 - 18)/(10 - 4) = 3$. Intercept: $18 = 3(4) + b \\Rightarrow b = 6$. At $x = 20$: $\\hat{y} = 3(20) + 6 = 66$.\n\n**The Full Solution:**\nStep 1: find the slope.\n$m = \\dfrac{36 - 18}{10 - 4} = \\dfrac{18}{6} = 3$.\n\nStep 2: find the intercept using one of the points (say $(4, 18)$):\n$18 = 3(4) + b \\Rightarrow b = 18 - 12 = 6$.\n\nSo the line is $\\hat{y} = 3x + 6$.\n\nStep 3: predict at $x = 20$:\n$\\hat{y} = 3(20) + 6 = 60 + 6 = 66$.\n\nVerification: check with the OTHER point: $\\hat{y}(10) = 3(10) + 6 = 36$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using only one point and not finding the slope.\n* Inverting the slope formula: $(10 - 4)/(36 - 18) = 1/3$ instead of $3$.\n* Forgetting to add the intercept after computing $3 \\times 20$.\n\n**Test Day Takeaway:** Two points give a complete linear equation. Step 1: slope from the slope formula. Step 2: intercept from substitution. Step 3: predict at the requested $x$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'scatterplot-line-of-best-fit',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-139',
+    domain: 'problem-solving',
+    skills: ['slope-intercept-form'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'A scatterplot is modeled by $\\hat{y} = 0.85x + 15$. According to this model, what is the change in the predicted value of $y$ when $x$ increases by $5$?',
+    choices: [
+      // distractor: gives slope alone
+      { id: 'A', text: '$0.85$' },
+      { id: 'B', text: '$4.25$' },
+      // distractor: gives x-increase
+      { id: 'C', text: '$5$' },
+      // distractor: gives intercept
+      { id: 'D', text: '$15$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Scatterplot Line of Best Fit**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** The slope is $0.85$. A $5$-unit increase in $x$ produces a change in $\\hat{y}$ of $5 \\times 0.85 = 4.25$.\n\n**The Full Solution:**\nThe slope $m = 0.85$ tells us how much $\\hat{y}$ changes per UNIT change in $x$. So for a $\\Delta x = 5$ change in $x$:\n$\\Delta \\hat{y} = m \\cdot \\Delta x = 0.85 \\cdot 5 = 4.25$.\n\nVerification: at $x = 0$, $\\hat{y} = 15$. At $x = 5$, $\\hat{y} = 0.85(5) + 15 = 4.25 + 15 = 19.25$. Change: $19.25 - 15 = 4.25$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — reports the slope without multiplying by $\\Delta x$.\n* Choice C: "wrong base" — reports the $\\Delta x$ directly.\n* Choice D: "wrong formula" — reports the intercept.\n\n**Test Day Takeaway:** Change in $\\hat{y}$ for a change in $x$ of $\\Delta x$ is $m \\cdot \\Delta x$. The intercept does NOT participate in the change calculation.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'scatterplot-line-of-best-fit',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
