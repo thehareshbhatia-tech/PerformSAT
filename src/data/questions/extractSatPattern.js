@@ -127,6 +127,56 @@ const PATTERN_ALIASES = Object.freeze({
   // Algebraic expansion / FOIL → matching coefficients pool
   'expanding-a-product-foil': 'matching-coefficients',
   'algebraic-identity-expansion': 'matching-coefficients',
+  'foil-distribution': 'matching-coefficients',
+
+  // Quadratic via factoring — more variants
+  'quadratic-by-factoring': 'quadratic-via-factoring',
+  'polynomial-factoring-with-given-factor': 'quadratic-via-factoring',
+
+  // Proportions / ratios — more variants
+  'proportions': 'proportion-ratio',
+  'proportion-with-linear-expressions': 'proportion-ratio',
+  'rate-word-problem-proportions': 'proportion-ratio',
+  'ratios-with-a-total': 'proportion-ratio',
+
+  // Trig — short form
+  'soh-cah-toa': 'right-triangle-trig-ratios',
+
+  // Reading slope-intercept form — more variants
+  'slope-from-y-mx-b': 'reading-slope-intercept-form',
+  'slope-intercept-form': 'reading-slope-intercept-form',
+
+  // Parallel / line-construction variants
+  'parallel-line-equation': 'parallel-line-through-a-point',
+  'equation-of-a-line-through-two-points': 'line-from-two-points',
+
+  // Two-step linear — more variants
+  'linear-equation-with-a-fraction': 'two-step-linear-equation',
+  'linear-word-problem-with-two-step-solve': 'two-step-linear-equation',
+
+  // Combining like terms — variants
+  'distribute-and-combine': 'combining-like-terms',
+
+  // Mean — variants
+  'mean-from-total': 'mean-from-list',
+  'mean-of-a-small-data-set': 'mean-from-list',
+  'combined-mean-with-parameter': 'finding-a-missing-value-given-the-mean',
+
+  // Percent — more variants
+  'percent-of-a-value': 'percent-of-a-whole',
+  'percent-complement': 'basic-probability',
+
+  // Triangle angle sum variant (isosceles is a special case)
+  'isosceles-triangle-angle-sum': 'triangle-angle-sum',
+
+  // Rectangle area variant (word order)
+  'area-of-a-rectangle': 'rectangle-area',
+
+  // Exponential function variants — these share the exp-evaluation concept
+  'exponential-function-evaluation': 'function-evaluation',
+  'exponential-growth-rate': 'exponential-growth-decay',
+  'exponential-growth-with-period': 'exponential-growth-decay',
+  'function-evaluation-with-quadratic': 'function-evaluation',
 
   // Percent variants — share with percent-decrease where appropriate
   'percent-change-decrease': 'percent-decrease',
