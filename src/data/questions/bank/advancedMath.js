@@ -3010,5 +3010,165 @@ export const advancedMathBank = [
     sourceStyleRef: 'discriminant-analysis',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+  // ===== Phase 2 batch 7/4: quadratic-via-factoring (8 items) =====
+  // Pattern: solve x^2 + bx + c = 0 by finding two numbers with product c and
+  // sum b. 7 test occurrences across PT1/2/3 M2Easy variants. SAT Pattern
+  // title (verbatim): 'Quadratic via Factoring' → 'quadratic-via-factoring'.
+  {
+    id: 'bank-am-140',
+    domain: 'advanced-math',
+    skills: ['finding-roots-factoring'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'What are the solutions of the equation $x^2 + 7x + 12 = 0$?',
+    choices: [
+      { id: 'A', text: '$x = -3, x = -4$' },
+      // distractor: sign error - gives factor numbers as roots
+      { id: 'B', text: '$x = 3, x = 4$' },
+      // distractor: uses coefficients
+      { id: 'C', text: '$x = 7, x = 12$' },
+      // distractor: stops at the factor sum/product values
+      { id: 'D', text: '$x = -7, x = -12$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Quadratic via Factoring**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Two numbers with product $12$ and sum $7$: $3$ and $4$. Factor: $(x + 3)(x + 4) = 0$. Roots: $x = -3, -4$.\n\n**The Full Solution:**\n$x^2 + 7x + 12 = 0$. Factor: find two numbers whose product is $12$ and sum is $7$.\n\n$3 \\times 4 = 12$ and $3 + 4 = 7$ \\checkmark.\n\nSo $x^2 + 7x + 12 = (x + 3)(x + 4) = 0$, giving $x = -3$ or $x = -4$.\n\nVerification: $(-3)^2 + 7(-3) + 12 = 9 - 21 + 12 = 0$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong sign" — gives the factor numbers themselves (forgets to negate for roots).\n* Choice C: "wrong base" — picks the original coefficients as roots.\n* Choice D: "wrong base" — negates the coefficients (still wrong).\n\n**Test Day Takeaway:** Factor $x^2 + bx + c$: find numbers with product $c$, sum $b$. The roots are the OPPOSITES of those numbers.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'quadratic-via-factoring',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-141',
+    domain: 'advanced-math',
+    skills: ['finding-roots-factoring'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'If $(x - 6)(x + 2) = 0$ and $x > 0$, what is the value of $x$?',
+    correctAnswer: '6',
+    explanation: '**SAT Pattern: Quadratic via Factoring**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~5s):** Zero-product: $x - 6 = 0 \\Rightarrow x = 6$, or $x + 2 = 0 \\Rightarrow x = -2$. With $x > 0$: $x = 6$.\n\n**The Full Solution:**\nBy the zero-product property, at least one factor must equal $0$:\n* $x - 6 = 0 \\Rightarrow x = 6$.\n* $x + 2 = 0 \\Rightarrow x = -2$.\n\nThe constraint $x > 0$ selects $x = 6$.\n\nVerification: $(6 - 6)(6 + 2) = 0 \\cdot 8 = 0$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $-2$ (the other root, excluded).\n* Reporting $-6$ or $2$ (drops the sign correctly per factor).\n* Reporting $12$ ($6 \\cdot 2$) — that\'s the product of the factor constants, irrelevant.\n\n**Test Day Takeaway:** Already-factored quadratic: the roots are the OPPOSITES of the constants inside each factor. $(x - 6)$ gives root $6$; $(x + 2)$ gives root $-2$.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'quadratic-via-factoring',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-142',
+    domain: 'advanced-math',
+    skills: ['finding-roots-factoring'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'What is the positive solution of the equation $x^2 - 5x - 14 = 0$?',
+    choices: [
+      { id: 'A', text: '$7$' },
+      // distractor: other root
+      { id: 'B', text: '$-2$' },
+      // distractor: sign error
+      { id: 'C', text: '$-7$' },
+      // distractor: factor not root
+      { id: 'D', text: '$14$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Quadratic via Factoring**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Numbers with product $-14$ and sum $-5$: $-7$ and $2$. Factor: $(x - 7)(x + 2) = 0$. Roots: $x = 7$ or $x = -2$. Positive: $x = 7$.\n\n**The Full Solution:**\nFactor $x^2 - 5x - 14$ by finding numbers with product $-14$ and sum $-5$.\nBecause the product is NEGATIVE, the two numbers have opposite signs.\nTrying $-7$ and $2$: $-7 \\cdot 2 = -14$ \\checkmark and $-7 + 2 = -5$ \\checkmark.\n\n$x^2 - 5x - 14 = (x - 7)(x + 2) = 0$, so $x = 7$ or $x = -2$. Positive: $x = 7$.\n\nVerification: $7^2 - 5(7) - 14 = 49 - 35 - 14 = 0$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong sign" — picks the negative root, ignoring "positive" constraint.\n* Choice C: "wrong sign" — gives the factor number $-7$ instead of its opposite $7$.\n* Choice D: "wrong base" — uses constant term $14$ directly.\n\n**Test Day Takeaway:** When $c < 0$, the two factor numbers have OPPOSITE signs. The larger-magnitude one carries the sign of $b$.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'quadratic-via-factoring',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-143',
+    domain: 'advanced-math',
+    skills: ['finding-roots-factoring'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'What is the sum of the solutions of the equation $x^2 + 4x - 21 = 0$?',
+    correctAnswer: '-4',
+    explanation: '**SAT Pattern: Quadratic via Factoring**\n\n**The correct answer is $-4$.**\n\n**The Fast Way (~10s):** By Vieta\'s: sum of roots $= -b/a = -4/1 = -4$. (No need to factor!)\n\n**The Full Solution:**\nFor $ax^2 + bx + c = 0$, sum of roots $= -b/a$. Here $a = 1$, $b = 4$: sum $= -4$.\n\nVerification by factoring: numbers with product $-21$, sum $4$: $-3$ and $7$. Roots: $x = 3$ and $x = -7$. Sum: $3 + (-7) = -4$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $4$ (forgets the negative sign in Vieta\'s).\n* Reporting $21$ or $-21$ (the constant, related to PRODUCT not sum).\n* Computing one root only.\n\n**Test Day Takeaway:** Vieta\'s formulas: for $x^2 + bx + c = 0$, sum of roots $= -b$, product of roots $= c$. Don\'t factor if you only need the sum or product.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'quadratic-via-factoring',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-144',
+    domain: 'advanced-math',
+    skills: ['finding-roots-factoring'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'Which of the following is a solution to the equation $x^2 - x - 30 = 0$?',
+    choices: [
+      { id: 'A', text: '$6$' },
+      // distractor: sign error
+      { id: 'B', text: '$-6$' },
+      // distractor: factor not root
+      { id: 'C', text: '$5$' },
+      // distractor: wrong base
+      { id: 'D', text: '$30$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Quadratic via Factoring**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Numbers with product $-30$ and sum $-1$: $-6$ and $5$. Factor: $(x - 6)(x + 5) = 0$. Roots: $x = 6$ or $x = -5$. Only Choice A ($6$) is a valid root.\n\n**The Full Solution:**\nFactor $x^2 - x - 30$: find numbers with product $-30$ and sum $-1$.\nTrying $-6$ and $5$: $-6 \\cdot 5 = -30$ \\checkmark and $-6 + 5 = -1$ \\checkmark.\n\n$x^2 - x - 30 = (x - 6)(x + 5) = 0$. Roots: $x = 6$ or $x = -5$.\n\nVerification: $6^2 - 6 - 30 = 36 - 6 - 30 = 0$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong sign" — uses the factor number $-6$ directly (root is $+6$).\n* Choice C: "wrong sign" — drops the sign on $-5$ (the actual other root).\n* Choice D: "wrong base" — picks constant $30$ as a root.\n\n**Test Day Takeaway:** When asked "which is A solution" (not all solutions), check the choices against the factored form. The roots are opposites of the factor constants.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'quadratic-via-factoring',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-145',
+    domain: 'advanced-math',
+    skills: ['finding-roots-factoring'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'What is the greater of the two solutions of the equation $x^2 - 11x + 24 = 0$?',
+    correctAnswer: '8',
+    explanation: '**SAT Pattern: Quadratic via Factoring**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~15s):** Numbers with product $24$, sum $-11$: $-3$ and $-8$. Factor: $(x - 3)(x - 8) = 0$. Roots $x = 3$ or $x = 8$. Greater: $8$.\n\n**The Full Solution:**\nFactor: find numbers with product $24$ and sum $-11$. Both negative since the product is positive and the sum is negative: $-3$ and $-8$.\n\n$x^2 - 11x + 24 = (x - 3)(x - 8) = 0$. Roots: $x = 3$ or $x = 8$.\n\nThe greater solution is $8$.\n\nVerification: $8^2 - 11(8) + 24 = 64 - 88 + 24 = 0$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $3$ (the smaller root).\n* Reporting $-8$ (sign error on the factor).\n* Computing $11/2 = 5.5$ (vertex $x$-coordinate, not a root).\n\n**Test Day Takeaway:** When BOTH the constant ($c$) is positive AND the middle coefficient ($b$) is negative, BOTH roots are positive. Pick the one the question asks for (greater / lesser / sum).',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'quadratic-via-factoring',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-146',
+    domain: 'advanced-math',
+    skills: ['finding-roots-factoring'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'For the equation $2x^2 + 7x - 4 = 0$, what is the positive solution?',
+    choices: [
+      { id: 'A', text: '$\\dfrac{1}{2}$' },
+      // distractor: other root
+      { id: 'B', text: '$-4$' },
+      // distractor: sign flip
+      { id: 'C', text: '$4$' },
+      // distractor: doesn't divide
+      { id: 'D', text: '$2$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Quadratic via Factoring**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** AC method: $a \\cdot c = 2 \\cdot (-4) = -8$. Need numbers with product $-8$, sum $7$: $-1$ and $8$. Rewrite: $2x^2 - x + 8x - 4 = x(2x - 1) + 4(2x - 1) = (2x - 1)(x + 4) = 0$. Roots: $x = 1/2$ or $x = -4$. Positive: $x = 1/2$.\n\n**The Full Solution:**\nFor $2x^2 + 7x - 4$, use the AC method:\n$a \\cdot c = 2 \\cdot (-4) = -8$. Find two numbers with product $-8$ and sum $7$: try $-1$ and $8$ — yes ($-1 \\cdot 8 = -8$ and $-1 + 8 = 7$).\n\nSplit the middle term:\n$2x^2 + 7x - 4 = 2x^2 - x + 8x - 4$\n$= x(2x - 1) + 4(2x - 1)$\n$= (2x - 1)(x + 4)$\n\nSet each factor to zero: $2x - 1 = 0 \\Rightarrow x = 1/2$, or $x + 4 = 0 \\Rightarrow x = -4$.\n\nPositive: $x = 1/2$.\n\nVerification: $2(1/2)^2 + 7(1/2) - 4 = 1/2 + 7/2 - 4 = 8/2 - 4 = 0$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong sign" — picks negative root, ignores "positive" constraint.\n* Choice C: "wrong sign" — gives factor number $-4$\'s opposite without recognizing the other factor.\n* Choice D: "wrong base" — picks the leading coefficient.\n\n**Test Day Takeaway:** Non-monic quadratic (leading coefficient $\\ne 1$): use the AC method. Multiply $a \\cdot c$ to find the product target; the sum is still $b$.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'quadratic-via-factoring',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-147',
+    domain: 'advanced-math',
+    skills: ['finding-roots-factoring'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'For what value of $k$ does the equation $x^2 + 8x + k = 0$ have $-3$ as one of its solutions?',
+    correctAnswer: '15',
+    explanation: '**SAT Pattern: Quadratic via Factoring**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~15s):** Substitute $x = -3$: $9 - 24 + k = 0 \\Rightarrow k = 15$.\n\n**The Full Solution:**\nIf $-3$ is a solution, it must satisfy the equation:\n$(-3)^2 + 8(-3) + k = 0$\n$9 - 24 + k = 0$\n$-15 + k = 0$\n$k = 15$.\n\nVerification by factoring: at $k = 15$, $x^2 + 8x + 15 = (x + 3)(x + 5) = 0$, so $x = -3$ or $x = -5$ \\checkmark — $-3$ is a root.\n\n**Common Mistakes to Avoid:**\n* Sign error on $(-3)^2$: writing $-9$ instead of $9$.\n* Sign error on $8(-3)$: writing $+24$ instead of $-24$.\n* Forgetting to substitute — trying to factor without using the given root.\n\n**Test Day Takeaway:** Given a root, SUBSTITUTE rather than factor. Plug the root value into the equation and solve for the unknown coefficient.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'quadratic-via-factoring',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
