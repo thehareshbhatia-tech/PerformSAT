@@ -2011,5 +2011,167 @@ export const advancedMathBank = [
     sourceStyleRef: 'exponent-rules-with-radicals',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+
+  // === VERTEX FORM FROM TWO CONDITIONS (8 questions) — Phase 2 batch 2 ===
+  // 12x in 12 tests. Covers: solve-for-a from vertex+point, h+k/h-k/a+k
+  // recovery from given form, y-intercept from vertex+point, function shift +
+  // minimum, minimum-condition + point. SAT Pattern kebab matches:
+  // 'vertex-form-from-two-conditions'.
+  {
+    id: 'bank-am-092',
+    domain: 'advanced-math',
+    skills: ['vertex-form', 'function-evaluation'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'In the $xy$-plane, a parabola with equation $y = a(x - 4)^2 + 3$ passes through the point $(5, 7)$. What is the value of $a$?',
+    correctAnswer: '4',
+    explanation: '**SAT Pattern: Vertex Form from Two Conditions**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~10s):** Plug in: $7 = a(5 - 4)^2 + 3 = a + 3$. So $a = 4$.\n\n**The Full Solution:**\nSubstitute $(x, y) = (5, 7)$ into $y = a(x - 4)^2 + 3$:\n$7 = a(5 - 4)^2 + 3$\n$7 = a(1)^2 + 3$\n$7 = a + 3$\n$a = 4$.\n\nVerification: $y = 4(x - 4)^2 + 3$. At $x = 5$: $4(1) + 3 = 7$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting to square the $(5 - 4)$ factor (in this case it equals $1$ either way, but in similar problems with $(5 - 3)^2 = 4 \\neq 2$ it matters).\n* Subtracting $3$ from $7$ in the wrong direction.\n\n**Test Day Takeaway:** To solve for $a$ in vertex form $y = a(x - h)^2 + k$, plug in a known point, isolate $a$, divide by the squared factor.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'vertex-form-from-two-conditions',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-093',
+    domain: 'advanced-math',
+    skills: ['vertex-form', 'function-evaluation'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'The graph of $y = (x - 2)^2 - 3$ is a parabola in the $xy$-plane. What is the $y$-intercept of the parabola?',
+    choices: [
+      // distractor: gives vertex y-coordinate
+      { id: 'A', text: '$-3$' },
+      // distractor: gives -2 (vertex x with sign issue)
+      { id: 'B', text: '$-2$' },
+      { id: 'C', text: '$1$' },
+      // distractor: gives 4 (forgot to subtract 3)
+      { id: 'D', text: '$4$' }
+    ],
+    correctAnswer: 'C',
+    explanation: '**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $y$-intercept means $x = 0$: $y = (0 - 2)^2 - 3 = 4 - 3 = 1$.\n\n**The Full Solution:**\nThe $y$-intercept of a graph is its $y$-value when $x = 0$.\n\nSubstitute $x = 0$ into $y = (x - 2)^2 - 3$:\n$y = (0 - 2)^2 - 3 = (-2)^2 - 3 = 4 - 3 = 1$.\n\nVerification: the vertex is at $(2, -3)$. Moving $2$ units LEFT from the vertex (to $x = 0$) and applying the squared term lifts $y$ by $4$, giving $-3 + 4 = 1$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — gives the vertex $y$-coordinate ($-3$) instead of evaluating at $x = 0$.\n* Choice B: "wrong base" — gives $-2$ (sign-flipped vertex $x$).\n* Choice D: "stops one step early" — computes $(0 - 2)^2 = 4$ and forgets to subtract $3$.\n\n**Test Day Takeaway:** $y$-intercept: substitute $x = 0$ and compute. Don\'t conflate $y$-intercept with vertex $y$ unless the vertex happens to be on the $y$-axis.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'vertex-form-from-two-conditions',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-094',
+    domain: 'advanced-math',
+    skills: ['vertex-form'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'The parabola defined by $y = 3(x - h)^2 + k$ has its vertex at $(2, -5)$ and passes through the point $(4, 7)$. What is the value of $h + k$?',
+    correctAnswer: '-3',
+    explanation: '**SAT Pattern: Vertex Form from Two Conditions**\n\n**The correct answer is $-3$.**\n\n**The Fast Way (~10s):** Vertex form $y = a(x - h)^2 + k$ has vertex at $(h, k)$. So $h = 2$, $k = -5$. $h + k = 2 + (-5) = -3$.\n\n**The Full Solution:**\nThe vertex form $y = a(x - h)^2 + k$ has its vertex at the point $(h, k)$. The given vertex $(2, -5)$ tells us directly:\n$h = 2, \\quad k = -5$.\n\nVerify against the passing point: $y = 3(4 - 2)^2 + (-5) = 3(4) - 5 = 12 - 5 = 7$ \\checkmark (matches the given $(4, 7)$).\n\n$h + k = 2 + (-5) = -3$.\n\n**Common Mistakes to Avoid:**\n* Reading the vertex as $(h, k) = (-2, 5)$ because the form has $(x - h)$ — but the sign in the form is already accounted for: if the vertex is at $x = 2$, then $h = 2$, not $-2$.\n* Confusing $h$ and $k$ (using the $y$-coord as $h$).\n* Adding rather than reporting the asked combination (e.g., reporting $-7$ from $h - k$).\n\n**Test Day Takeaway:** In $y = a(x - h)^2 + k$, the vertex is at $(h, k)$ — same sign convention as the form suggests. Read $(h, k)$ directly off the vertex coordinates.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'vertex-form-from-two-conditions',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-095',
+    domain: 'advanced-math',
+    skills: ['vertex-form'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'The parabola defined by $y = -2(x - h)^2 + k$ has its vertex at $(3, 8)$ and passes through the point $(5, 0)$. What is the value of $h - k$?',
+    correctAnswer: '-5',
+    explanation: '**SAT Pattern: Vertex Form from Two Conditions**\n\n**The correct answer is $-5$.**\n\n**The Fast Way (~10s):** Vertex $(h, k) = (3, 8)$, so $h - k = 3 - 8 = -5$.\n\n**The Full Solution:**\nIn vertex form $y = a(x - h)^2 + k$, the vertex is $(h, k)$. Given vertex $(3, 8)$:\n$h = 3, \\quad k = 8$.\n\nVerify with the passing point $(5, 0)$:\n$y = -2(5 - 3)^2 + 8 = -2(4) + 8 = -8 + 8 = 0$ \\checkmark (matches the given $y = 0$).\n\n$h - k = 3 - 8 = -5$.\n\n**Common Mistakes to Avoid:**\n* Reporting $11$ ($h + k$) instead of $h - k$.\n* Reporting $5$ ($k - h$, sign flip).\n* Confusing the negative coefficient $a = -2$ with the values of $h$ or $k$.\n\n**Test Day Takeaway:** Re-read the LAST sentence: it asks for a specific combination ($h - k$, $h + k$, $a + k$, etc.). Identify $(h, k)$ first, then compute the asked combination.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'vertex-form-from-two-conditions',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-096',
+    domain: 'advanced-math',
+    skills: ['vertex-form', 'function-evaluation'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'In the $xy$-plane, a parabola has vertex $(3, -4)$ and passes through the point $(5, 8)$. What is the $y$-intercept of this parabola?',
+    choices: [
+      // distractor: gives the vertex y-coord
+      { id: 'A', text: '$-4$' },
+      // distractor: just plugs x=0 without solving for a (uses a=1)
+      { id: 'B', text: '$5$' },
+      { id: 'C', text: '$23$' },
+      // distractor: y-intercept calculated with wrong sign on (0-3)^2
+      { id: 'D', text: '$-23$' }
+    ],
+    correctAnswer: 'C',
+    explanation: '**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $y = a(x - 3)^2 - 4$. From $(5, 8)$: $8 = a(4) - 4 \\Rightarrow a = 3$. $y$-intercept: $y(0) = 3(9) - 4 = 23$.\n\n**The Full Solution:**\nStep 1 — write the vertex form using the given vertex:\n$y = a(x - 3)^2 + (-4) = a(x - 3)^2 - 4$.\n\nStep 2 — solve for $a$ using the passing point $(5, 8)$:\n$8 = a(5 - 3)^2 - 4$\n$8 = 4a - 4$\n$4a = 12$\n$a = 3$.\n\nStep 3 — evaluate at $x = 0$ to find the $y$-intercept:\n$y = 3(0 - 3)^2 - 4 = 3 \\cdot 9 - 4 = 27 - 4 = 23$.\n\nVerification: at $x = 5$, $y = 3(2)^2 - 4 = 12 - 4 = 8$ \\checkmark. At $x = 0$, $y = 23$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — reports the vertex $y$-coord without computing the $y$-intercept.\n* Choice B: "wrong base" — assumes $a = 1$ and skips Step 2: $(0 - 3)^2 - 4 = 9 - 4 = 5$.\n* Choice D: "sign error" — sign mistake on $(0 - 3)^2$, getting $-9$ instead of $+9$.\n\n**Test Day Takeaway:** Three steps for parabolas with vertex + point: (1) write vertex form using $(h, k)$, (2) solve for $a$ using the second condition, (3) evaluate at $x = 0$ (or wherever asked).',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'vertex-form-from-two-conditions',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-097',
+    domain: 'advanced-math',
+    skills: ['vertex-form', 'function-transformations'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'The function $f$ is defined by $f(x) = (x - 2)^2 + 3$. The function $g$ is defined by $g(x) = f(x + 4) - 5$. For what value of $x$ does $g$ attain its minimum value?',
+    choices: [
+      // distractor: subtracts 4 from wrong baseline (uses vertex y)
+      { id: 'A', text: '$-1$' },
+      { id: 'B', text: '$-2$' },
+      // distractor: adds 4 instead of subtracting
+      { id: 'C', text: '$6$' },
+      // distractor: uses 4 without combining with original vertex
+      { id: 'D', text: '$2$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $f$ has min at $x = 2$. $g(x) = f(x + 4) - 5$ shifts $f$ LEFT by $4$, so $g$\'s min is at $x = 2 - 4 = -2$.\n\n**The Full Solution:**\n$f(x) = (x - 2)^2 + 3$ has vertex at $(2, 3)$ — a minimum (parabola opens upward).\n\n$g(x) = f(x + 4) - 5$ applies two transformations to $f$:\n1. Replacing $x$ with $x + 4$ shifts the graph LEFT by $4$ units.\n2. Subtracting $5$ shifts the graph DOWN by $5$ units.\n\nThe shift left moves the vertex $x$-coordinate from $2$ to $2 - 4 = -2$. The shift down moves the vertex $y$-coordinate from $3$ to $3 - 5 = -2$.\n\n$g$ attains its minimum at $x = -2$ (with $g(-2) = -2$).\n\nVerification: $g(-2) = f(-2 + 4) - 5 = f(2) - 5 = (0)^2 + 3 - 5 = -2$ \\checkmark. For any other $x$, $g(x) > -2$.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — subtracts $4$ from the vertex $y$ instead of vertex $x$, giving $3 - 4 = -1$.\n* Choice C: "applies the inverse operation" — adds $4$ instead of subtracting (treats $f(x + 4)$ as a RIGHT shift).\n* Choice D: "stops one step early" — reports $f$\'s original vertex $x$ without applying the shift.\n\n**Test Day Takeaway:** $f(x + c)$ shifts LEFT by $c$ (not right). The trick: setting the inside expression $x + c$ to equal the original min argument $x_0$ gives $x = x_0 - c$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'vertex-form-from-two-conditions',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-098',
+    domain: 'advanced-math',
+    skills: ['vertex-form', 'function-evaluation'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'The function $f$ is defined by $f(x) = a(x - h)^2 + k$, where $a$, $h$, and $k$ are constants. $f$ has a minimum value of $-5$ at $x = 3$ and $f(7) = 27$. What is the value of $f(0)$?',
+    correctAnswer: '13',
+    explanation: '**SAT Pattern: Vertex Form from Two Conditions**\n\n**The correct answer is $13$.**\n\n**The Fast Way (~25s):** Min $-5$ at $x = 3$ $\\Rightarrow$ vertex $(3, -5)$, so $h = 3$, $k = -5$. From $f(7) = 27$: $27 = a(16) - 5 \\Rightarrow a = 2$. $f(0) = 2(9) - 5 = 13$.\n\n**The Full Solution:**\nStep 1 — the minimum value of $f$ tells us $(h, k)$:\n* Minimum value $-5$ $\\Rightarrow$ $k = -5$.\n* Achieved at $x = 3$ $\\Rightarrow$ $h = 3$.\n* (Since $f$ has a minimum, $a > 0$.)\n\nSo $f(x) = a(x - 3)^2 - 5$.\n\nStep 2 — use $f(7) = 27$ to solve for $a$:\n$27 = a(7 - 3)^2 - 5$\n$27 = 16a - 5$\n$16a = 32$\n$a = 2$.\n\nFull form: $f(x) = 2(x - 3)^2 - 5$.\n\nStep 3 — evaluate at $x = 0$:\n$f(0) = 2(0 - 3)^2 - 5 = 2 \\cdot 9 - 5 = 18 - 5 = 13$.\n\nVerification: $f(3) = 0 - 5 = -5$ (the minimum) \\checkmark. $f(7) = 2(16) - 5 = 27$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reading "minimum value $-5$" as $h = -5$ instead of $k = -5$ (the value is the $y$-coordinate, the location is the $x$-coordinate).\n* Forgetting to square $(7 - 3) = 4$ before solving for $a$.\n* Computing $f(0)$ with the wrong $a$.\n\n**Test Day Takeaway:** "Minimum/maximum value of $f$ at $x = x_0$" gives the vertex directly: $(x_0, $ min/max value$)$. Build the form, then use the second condition to find $a$, then evaluate wherever asked.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'vertex-form-from-two-conditions',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-099',
+    domain: 'advanced-math',
+    skills: ['vertex-form'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'The parabola defined by $y = -2(x - h)^2 + k$ has its vertex at $(5, 16)$ and passes through the point $(3, 8)$. What is the value of $h - k$?',
+    choices: [
+      { id: 'A', text: '$-11$' },
+      // distractor: h+k instead of h-k
+      { id: 'B', text: '$21$' },
+      // distractor: sign-flip on h-k
+      { id: 'C', text: '$11$' },
+      // distractor: -h-k
+      { id: 'D', text: '$-21$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Vertex $(h, k) = (5, 16)$, so $h - k = 5 - 16 = -11$. The passing point is a CONSISTENCY CHECK, not needed to find $h$ and $k$.\n\n**The Full Solution:**\nThe vertex form $y = a(x - h)^2 + k$ has vertex at $(h, k)$. Given vertex $(5, 16)$:\n$h = 5, \\quad k = 16$.\n\nVerify with the passing point $(3, 8)$ — the value of $a$ is already given as $-2$:\n$y = -2(3 - 5)^2 + 16 = -2(4) + 16 = -8 + 16 = 8$ \\checkmark.\n\nThe equation is consistent. Compute the requested combination:\n$h - k = 5 - 16 = -11$.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — reports $h + k = 5 + 16 = 21$ instead of $h - k$.\n* Choice C: "sign error" — gives $|h - k|$ or computes $k - h = 16 - 5 = 11$ (sign flip).\n* Choice D: "applies the inverse operation" — gives $-(h + k) = -21$.\n\n**Test Day Takeaway:** When the question asks for $h - k$ (or any specific combination), the passing point is often a CONSISTENCY CHECK rather than a constraint to solve. Read the vertex directly, verify the math, then compute the asked combination.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'vertex-form-from-two-conditions',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
