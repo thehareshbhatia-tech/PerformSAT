@@ -1851,5 +1851,157 @@ export const problemSolvingBank = [
     sourceStyleRef: 'mean-from-list',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+
+  // === RESIDUAL (8 questions) — Phase 2 batch 2 priority pattern ===
+  // 11x in 12 tests. Covers: compute-residual, sign-interpretation,
+  // find-actual-from-predicted, find-x-from-residual, compare-residuals.
+  // SAT Pattern kebab matches test bundle: 'residual'.
+  {
+    id: 'bank-ps-084',
+    domain: 'problem-solving',
+    skills: ['calculate-mean', 'slope-intercept-form'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'The line of best fit for a scatterplot is given by $\\hat{y} = 2x + 1$. A data point in the scatterplot has coordinates $(5, 13)$. What is the residual at that data point?',
+    correctAnswer: '2',
+    explanation: '**SAT Pattern: Residual**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~10s):** Predicted: $\\hat{y} = 2(5) + 1 = 11$. Residual $= y - \\hat{y} = 13 - 11 = 2$.\n\n**The Full Solution:**\nA residual measures how far an actual data point lies ABOVE ($+$) or BELOW ($-$) the line of best fit at the same $x$:\n$$\\text{residual} = y_{\\text{actual}} - \\hat{y}_{\\text{predicted}}$$\n\nAt $x = 5$: predicted $\\hat{y} = 2(5) + 1 = 11$.\nActual $y = 13$.\nResidual $= 13 - 11 = 2$ (positive — the point lies $2$ units ABOVE the line).\n\nVerification: $13 - 11 = 2$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting the predicted value $11$ instead of the residual.\n* Computing $\\hat{y} - y$ instead of $y - \\hat{y}$ (sign would flip).\n\n**Test Day Takeaway:** Residual $= $ actual $-$ predicted. Positive means above the line; negative means below.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'residual',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-085',
+    domain: 'problem-solving',
+    skills: ['calculate-mean', 'slope-intercept-form'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'The line of best fit for a scatterplot is $\\hat{y} = -x + 10$. A data point has coordinates $(3, 5)$. What is the residual at that data point?',
+    correctAnswer: '-2',
+    explanation: '**SAT Pattern: Residual**\n\n**The correct answer is $-2$.**\n\n**The Fast Way (~10s):** Predicted: $\\hat{y} = -3 + 10 = 7$. Residual $= y - \\hat{y} = 5 - 7 = -2$.\n\n**The Full Solution:**\nAt $x = 3$: predicted $\\hat{y} = -(3) + 10 = 7$.\nActual $y = 5$.\nResidual $= 5 - 7 = -2$.\n\nThe negative sign means the actual point lies $2$ units BELOW the line of best fit at $x = 3$.\n\nVerification: $5 - 7 = -2$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $2$ (the magnitude) and dropping the sign.\n* Sign error when evaluating $-x + 10$ at $x = 3$ — careful: $-3 + 10 = 7$, not $13$.\n\n**Test Day Takeaway:** Residual carries a SIGN. Below the line $\\Rightarrow$ negative residual. Above the line $\\Rightarrow$ positive residual. Always carry the sign through.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'residual',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-086',
+    domain: 'problem-solving',
+    skills: ['calculate-mean', 'slope-intercept-form'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'The line of best fit for a scatterplot is $\\hat{y} = 1.5x + 4$. A data point has coordinates $(8, 14)$. What is the residual at that data point?',
+    choices: [
+      { id: 'A', text: '$-2$' },
+      // distractor: sign error (predicted - actual)
+      { id: 'B', text: '$2$' },
+      // distractor: negative predicted value
+      { id: 'C', text: '$-16$' },
+      // distractor: reports actual y
+      { id: 'D', text: '$14$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Residual**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Predicted: $\\hat{y} = 1.5(8) + 4 = 16$. Residual $= 14 - 16 = -2$.\n\n**The Full Solution:**\nPredicted value at $x = 8$:\n$\\hat{y} = 1.5(8) + 4 = 12 + 4 = 16$.\n\nResidual:\n$y - \\hat{y} = 14 - 16 = -2$.\n\nThe negative sign indicates the actual data point lies $2$ units BELOW the line of best fit at $x = 8$.\n\nVerification: $1.5 \\times 8 = 12$, $12 + 4 = 16$, $14 - 16 = -2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "sign error" — computes $\\hat{y} - y = 16 - 14 = 2$ (formula flipped).\n* Choice C: "wrong formula" — gives $-\\hat{y}$ instead of $y - \\hat{y}$.\n* Choice D: "stops one step early" — reports the actual $y$-value instead of the residual.\n\n**Test Day Takeaway:** Compute the predicted value FIRST using the line equation, then subtract: residual $= y - \\hat{y}$. Pay attention to the sign — it tells you above vs below the line.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'residual',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-087',
+    domain: 'problem-solving',
+    skills: ['calculate-mean', 'slope-intercept-form'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'A data point in a scatterplot has a residual of $+5$ relative to the line of best fit. Which of the following best describes the relationship between the data point and the line of best fit at that $x$-value?',
+    choices: [
+      { id: 'A', text: 'The actual $y$-value is $5$ units above the line\'s prediction at that $x$.' },
+      // distractor: sign-reversed interpretation
+      { id: 'B', text: 'The actual $y$-value is $5$ units below the line\'s prediction at that $x$.' },
+      // distractor: misreads residual as x-coordinate
+      { id: 'C', text: 'The $x$-coordinate of the data point is $5$.' },
+      // distractor: misreads residual as slope
+      { id: 'D', text: 'The slope of the line of best fit is $5$.' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Residual**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Residual $= y - \\hat{y}$. A POSITIVE residual means actual $y$ exceeds the predicted $\\hat{y}$ — the point lies ABOVE the line.\n\n**The Full Solution:**\nThe residual is defined as:\n$$\\text{residual} = y_{\\text{actual}} - \\hat{y}_{\\text{predicted}}$$\n\nSign interpretation:\n* Positive residual $\\Rightarrow$ actual $>$ predicted $\\Rightarrow$ point is ABOVE the line.\n* Negative residual $\\Rightarrow$ actual $<$ predicted $\\Rightarrow$ point is BELOW the line.\n* Zero residual $\\Rightarrow$ actual $=$ predicted $\\Rightarrow$ point is ON the line.\n\nA residual of $+5$ means the actual $y$-value is $5$ units ABOVE the line\'s prediction at that $x$.\n\n**Why the wrong answers are tempting:**\n* Choice B: "sign error" — describes a NEGATIVE residual.\n* Choice C: "wrong formula" — confuses the residual with the $x$-coordinate.\n* Choice D: "wrong formula" — confuses the residual with a slope value.\n\n**Test Day Takeaway:** Sign of residual = position relative to the line. Positive = above. Negative = below. Zero = on.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'residual',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-088',
+    domain: 'problem-solving',
+    skills: ['calculate-mean', 'slope-intercept-form'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'The line of best fit for a scatterplot is $\\hat{y} = 0.75x + 2.5$. A data point has coordinates $(6, 8)$. What is the residual at that data point?',
+    correctAnswer: '1',
+    explanation: '**SAT Pattern: Residual**\n\n**The correct answer is $1$.**\n\n**The Fast Way (~15s):** Predicted: $\\hat{y} = 0.75(6) + 2.5 = 4.5 + 2.5 = 7$. Residual $= 8 - 7 = 1$.\n\n**The Full Solution:**\nAt $x = 6$:\n$\\hat{y} = 0.75 \\times 6 + 2.5 = 4.5 + 2.5 = 7$.\n\nResidual:\n$y - \\hat{y} = 8 - 7 = 1$.\n\nThe positive residual means the actual data point lies $1$ unit above the line at $x = 6$.\n\nVerification: $0.75 \\times 6 = 4.5$, $4.5 + 2.5 = 7$, $8 - 7 = 1$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Decimal slip in $0.75 \\times 6$ (some students compute $0.45$ by misplacing the decimal).\n* Adding instead of multiplying: $0.75 + 6 = 6.75$ is wrong.\n* Forgetting the intercept $2.5$ entirely.\n\n**Test Day Takeaway:** With decimal slope coefficients, slow down on the multiplication step. Pencil-write the intermediate value before adding the intercept.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'residual',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-089',
+    domain: 'problem-solving',
+    skills: ['calculate-mean', 'slope-intercept-form'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'For a data point in a scatterplot, the line of best fit predicts a $y$-value of $18$ at that $x$-coordinate. If the residual at that data point is $-3$, what is the actual $y$-coordinate of the data point?',
+    correctAnswer: '15',
+    explanation: '**SAT Pattern: Residual**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~10s):** Residual $= y - \\hat{y}$, so $y = \\hat{y} + \\text{residual} = 18 + (-3) = 15$.\n\n**The Full Solution:**\nRearrange the residual formula to solve for $y$:\n$$\\text{residual} = y - \\hat{y} \\Rightarrow y = \\hat{y} + \\text{residual}$$\n\nSubstitute: $y = 18 + (-3) = 15$.\n\nVerification: at this $x$, predicted is $18$, actual is $15$, so residual $= 15 - 18 = -3$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Adding $3$ instead of subtracting (drops the negative sign on the residual).\n* Reporting $-3$ or $18$ directly.\n\n**Test Day Takeaway:** From the formula residual $= y - \\hat{y}$, the actual $y$ equals predicted $+$ residual. Carry the residual\'s sign into the addition.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'residual',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-090',
+    domain: 'problem-solving',
+    skills: ['calculate-mean', 'slope-intercept-form'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'The line of best fit for a scatterplot is $\\hat{y} = 2x + 5$. A data point has actual $y$-value $17$ and a residual of $-2$. What is the $x$-coordinate of the data point?',
+    correctAnswer: '7',
+    explanation: '**SAT Pattern: Residual**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~20s):** Residual $= y - \\hat{y}$, so $\\hat{y} = y - \\text{residual} = 17 - (-2) = 19$. Solve $2x + 5 = 19 \\Rightarrow x = 7$.\n\n**The Full Solution:**\nStep 1: from the residual, find $\\hat{y}$.\n$\\text{residual} = y - \\hat{y} \\Rightarrow \\hat{y} = y - \\text{residual} = 17 - (-2) = 19$.\n\nStep 2: solve the line equation for $x$.\n$\\hat{y} = 2x + 5 = 19$\n$2x = 14$\n$x = 7$.\n\nVerification: at $x = 7$, $\\hat{y} = 2(7) + 5 = 19$, and residual $= 17 - 19 = -2$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing $\\hat{y}$ as $17 + (-2) = 15$ instead of $17 - (-2) = 19$ (sign mistake on the rearrangement).\n* Solving $2x + 5 = 17$ (using actual $y$ instead of predicted) — gives $x = 6$, off by $1$.\n\n**Test Day Takeaway:** Backward from a residual: find $\\hat{y}$ via $y - \\text{residual}$, then plug into the line equation. Watch the sign on the residual when subtracting.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'residual',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-091',
+    domain: 'problem-solving',
+    skills: ['calculate-mean', 'slope-intercept-form'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'The table below shows the $x$-coordinate and the actual $y$-coordinate of four data points in a scatterplot. The line of best fit for the scatterplot is $\\hat{y} = 3x + 2$. Which data point has the GREATEST absolute residual relative to the line of best fit?\n\n| $x$ | $y$ |\n|---|---|\n| $2$ | $10$ |\n| $4$ | $13$ |\n| $6$ | $25$ |\n| $8$ | $22$ |',
+    choices: [
+      // distractor: smallest |residual| = 1 at (4, 13)
+      { id: 'A', text: '$(2, 10)$' },
+      // distractor: |residual| = 1 (smallest)
+      { id: 'B', text: '$(4, 13)$' },
+      { id: 'C', text: '$(6, 25)$' },
+      // distractor: |residual| = 4 (second largest, sign trap)
+      { id: 'D', text: '$(8, 22)$' }
+    ],
+    correctAnswer: 'C',
+    explanation: '**SAT Pattern: Residual**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Compute each residual $y - (3x + 2)$:\n* $(2, 10)$: $10 - 8 = +2$\n* $(4, 13)$: $13 - 14 = -1$\n* $(6, 25)$: $25 - 20 = +5$ ← largest $|$residual$|$\n* $(8, 22)$: $22 - 26 = -4$\n\n**The Full Solution:**\nFor each data point, compute the predicted value $\\hat{y} = 3x + 2$ and then the residual $y - \\hat{y}$:\n\n| $x$ | $y$ | $\\hat{y} = 3x + 2$ | Residual | $\\|$Residual$\\|$ |\n|---|---|---|---|---|\n| $2$ | $10$ | $8$ | $+2$ | $2$ |\n| $4$ | $13$ | $14$ | $-1$ | $1$ |\n| $6$ | $25$ | $20$ | $+5$ | **$5$** |\n| $8$ | $22$ | $26$ | $-4$ | $4$ |\n\nThe greatest absolute residual is $5$, at $(6, 25)$.\n\nVerification: $(6, 25)$ lies $5$ units above the line at $x = 6$; $(8, 22)$ lies $4$ units below the line at $x = 8$. $5 > 4$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — only computes $(2, 10)$ and picks the FIRST positive residual seen.\n* Choice B: "wrong base" — picks the SMALLEST $|$residual$|$ instead of largest.\n* Choice D: "applies the inverse operation" — picks the largest NEGATIVE residual ($-4$) without comparing to the positive $+5$.\n\n**Test Day Takeaway:** Compute every residual, take absolute values, then compare. The sign tells you above/below, but absolute value tells you how FAR.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'residual',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
