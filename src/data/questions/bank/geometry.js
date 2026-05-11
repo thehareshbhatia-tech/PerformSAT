@@ -1765,5 +1765,166 @@ export const geometryBank = [
     sourceStyleRef: 'circle-in-general-form',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+  // ===== Phase 2 batch 5/3: right-triangle-pythagorean (8 items) =====
+  // Test bundles use this 7x across PT3, PT7, PT9. The title in test explanations is
+  // 'Right Triangle — Pythagorean' with em-dash (U+2014); kebab slug is
+  // 'right-triangle-pythagorean'. Items lean on the canonical Pythagorean triples
+  // (3-4-5, 5-12-13, 7-24-25, 8-15-17, 9-40-41) and their multiples.
+  {
+    id: 'bank-geo-077',
+    domain: 'geometry',
+    skills: ['pythagorean-theorem'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'A right triangle has legs of length $6$ and $8$. What is the length of the hypotenuse?',
+    choices: [
+      { id: 'A', text: '$10$' },
+      // distractor: adds the legs
+      { id: 'B', text: '$14$' },
+      // distractor: forgets to take square root
+      { id: 'C', text: '$\\sqrt{14}$' },
+      // distractor: subtracts the squares instead
+      { id: 'D', text: '$\\sqrt{28}$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Recognize the $6$-$8$-$10$ Pythagorean triple ($2 \\times$ the $3$-$4$-$5$). Hypotenuse $= 10$.\n\n**The Full Solution:**\nApply the Pythagorean theorem: $c^2 = a^2 + b^2$.\n$c^2 = 6^2 + 8^2 = 36 + 64 = 100$\n$c = \\sqrt{100} = 10$.\n\nVerification: $6 = 2 \\cdot 3$ and $8 = 2 \\cdot 4$, so the triangle is the $3$-$4$-$5$ scaled by $2$, giving hypotenuse $2 \\cdot 5 = 10$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — adds the legs directly ($6 + 8 = 14$). Triangle inequality says the hypotenuse must be LESS than this.\n* Choice C: "stops one step early" — forgets to square the legs and just takes $\\sqrt{6 + 8}$.\n* Choice D: "wrong sign" — subtracts: $\\sqrt{64 - 36} = \\sqrt{28}$.\n\n**Test Day Takeaway:** Memorize the $3$-$4$-$5$ triple and its multiples ($6$-$8$-$10$, $9$-$12$-$15$, etc.). The hypotenuse is ALWAYS the largest side.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'right-triangle-pythagorean',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-078',
+    domain: 'geometry',
+    skills: ['pythagorean-theorem'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'A right triangle has legs of length $8$ and $15$. What is the length of the hypotenuse?',
+    correctAnswer: '17',
+    explanation: '**SAT Pattern: Right Triangle — Pythagorean**\n\n**The correct answer is $17$.**\n\n**The Fast Way (~10s):** Recognize the $8$-$15$-$17$ Pythagorean triple. Hypotenuse $= 17$.\n\n**The Full Solution:**\nApply the Pythagorean theorem:\n$c^2 = 8^2 + 15^2 = 64 + 225 = 289$\n$c = \\sqrt{289} = 17$.\n\nVerification: $17^2 = 289$ and $8^2 + 15^2 = 64 + 225 = 289$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Adding the legs: $8 + 15 = 23$ (violates the triangle inequality for any triangle, but is also just wrong).\n* Computing $\\sqrt{8 + 15} = \\sqrt{23}$ (skipping the squaring step).\n* Subtracting: $\\sqrt{225 - 64} = \\sqrt{161}$ — applies to finding a LEG, not a hypotenuse.\n\n**Test Day Takeaway:** The four canonical SAT Pythagorean triples are $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$, and $7$-$24$-$25$. Memorize them — they appear on every Math test.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'right-triangle-pythagorean',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-079',
+    domain: 'geometry',
+    skills: ['pythagorean-theorem'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'In a right triangle, the hypotenuse has length $26$ and one leg has length $10$. What is the length of the other leg?',
+    choices: [
+      { id: 'A', text: '$24$' },
+      // distractor: subtracts the lengths directly
+      { id: 'B', text: '$16$' },
+      // distractor: adds instead of subtracts
+      { id: 'C', text: '$36$' },
+      // distractor: forgets to take square root
+      { id: 'D', text: '$576$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $26 = 2 \\times 13$ and $10 = 2 \\times 5$, so the triangle is the $5$-$12$-$13$ scaled by $2$: legs $10$ and $24$, hypotenuse $26$.\n\n**The Full Solution:**\nApply $a^2 + b^2 = c^2$ with $c = 26$, $a = 10$:\n$10^2 + b^2 = 26^2$\n$100 + b^2 = 676$\n$b^2 = 576$\n$b = \\sqrt{576} = 24$.\n\nVerification: $10^2 + 24^2 = 100 + 576 = 676 = 26^2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong sign" — subtracts the lengths directly ($26 - 10 = 16$) instead of using the theorem.\n* Choice C: "wrong base" — adds them ($26 + 10 = 36$) instead of using the theorem.\n* Choice D: "stops one step early" — reports $b^2 = 576$ instead of $b = 24$.\n\n**Test Day Takeaway:** Finding a LEG given the hypotenuse: $b^2 = c^2 - a^2$ (subtract!). Finding a HYPOTENUSE given two legs: $c^2 = a^2 + b^2$ (add!). Direction matters.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'right-triangle-pythagorean',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-080',
+    domain: 'geometry',
+    skills: ['pythagorean-theorem'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'A rectangle has a length of $9$ and a diagonal of length $15$. What is the width of the rectangle?',
+    correctAnswer: '12',
+    explanation: '**SAT Pattern: Right Triangle — Pythagorean**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~15s):** The diagonal of a rectangle splits it into two right triangles with legs $L$ and $W$ and hypotenuse equal to the diagonal. $9$ and $15$ are $3 \\times (3, 5)$, so it\'s a $9$-$12$-$15$ triple. $W = 12$.\n\n**The Full Solution:**\nThe diagonal of a rectangle and its two sides form a right triangle. By the Pythagorean theorem:\n$L^2 + W^2 = d^2$\n$9^2 + W^2 = 15^2$\n$81 + W^2 = 225$\n$W^2 = 144$\n$W = \\sqrt{144} = 12$.\n\nVerification: $9$-$12$-$15$ is the $3$-$4$-$5$ triple scaled by $3$: $9 = 3 \\cdot 3$, $12 = 3 \\cdot 4$, $15 = 3 \\cdot 5$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Treating the diagonal as one of the legs ($9^2 + 15^2 = 306$, $\\sqrt{306} \\approx 17.5$).\n* Subtracting lengths directly: $15 - 9 = 6$.\n* Stopping at $W^2 = 144$.\n\n**Test Day Takeaway:** A rectangle\'s diagonal is the HYPOTENUSE of a right triangle whose legs are the length and width. Always identify which side is the hypotenuse first.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'right-triangle-pythagorean',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-081',
+    domain: 'geometry',
+    skills: ['pythagorean-theorem'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'A right triangle has legs of length $9$ and $40$. What is the perimeter of the triangle?',
+    choices: [
+      { id: 'A', text: '$90$' },
+      // distractor: forgets to add the hypotenuse
+      { id: 'B', text: '$49$' },
+      // distractor: uses wrong hypotenuse
+      { id: 'C', text: '$89$' },
+      // distractor: uses sum of squares
+      { id: 'D', text: '$1681$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Recognize the $9$-$40$-$41$ Pythagorean triple. Perimeter $= 9 + 40 + 41 = 90$.\n\n**The Full Solution:**\nApply the Pythagorean theorem to find the hypotenuse:\n$c^2 = 9^2 + 40^2 = 81 + 1600 = 1681$\n$c = \\sqrt{1681} = 41$.\n\nPerimeter $= 9 + 40 + 41 = 90$.\n\nVerification: $41^2 = 1681$ \\checkmark. The triple $9$-$40$-$41$ is a primitive Pythagorean triple.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — adds only the two legs: $9 + 40 = 49$.\n* Choice C: "off-by-one" — uses hypotenuse $40$ (wrong) and sums $9 + 40 + 40 = 89$.\n* Choice D: "wrong base" — reports $c^2 = 1681$ as if it were the perimeter.\n\n**Test Day Takeaway:** "Perimeter" = sum of ALL THREE sides. Find the missing side first, then add all three. The $9$-$40$-$41$ triple is rare but shows up.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'right-triangle-pythagorean',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-082',
+    domain: 'geometry',
+    skills: ['pythagorean-theorem', 'triangle-area'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'A right triangle has a hypotenuse of length $25$ and one leg of length $15$. What is the area of the triangle?',
+    correctAnswer: '150',
+    explanation: '**SAT Pattern: Right Triangle — Pythagorean**\n\n**The correct answer is $150$.**\n\n**The Fast Way (~20s):** Recognize $15$-$20$-$25$ ($5 \\times 3$-$4$-$5$). Missing leg $= 20$. Area $= \\dfrac{1}{2}(15)(20) = 150$.\n\n**The Full Solution:**\nStep 1 — find the missing leg using $a^2 + b^2 = c^2$:\n$15^2 + b^2 = 25^2$\n$225 + b^2 = 625$\n$b^2 = 400$\n$b = 20$.\n\nStep 2 — compute the area. The two legs are perpendicular, so they form the base and height:\nArea $= \\dfrac{1}{2} \\cdot 15 \\cdot 20 = \\dfrac{1}{2} \\cdot 300 = 150$.\n\nVerification: $15$-$20$-$25 = 5 \\cdot (3, 4, 5)$, so this is a $3$-$4$-$5$ scaled by $5$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using $\\dfrac{1}{2}(15)(25) = 187.5$ — the hypotenuse is NOT a height of the triangle.\n* Forgetting the $\\dfrac{1}{2}$ factor: $15 \\times 20 = 300$.\n* Confusing area with perimeter: $15 + 20 + 25 = 60$.\n\n**Test Day Takeaway:** In a right triangle, the two legs are the base and height. Area $= \\dfrac{1}{2} \\cdot \\text{leg}_1 \\cdot \\text{leg}_2$. Use the hypotenuse only to find a missing leg.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'right-triangle-pythagorean',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-083',
+    domain: 'geometry',
+    skills: ['pythagorean-theorem'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'In a right triangle, the two legs have lengths $a$ and $a + 7$, and the hypotenuse has length $13$. What is the value of $a$?',
+    choices: [
+      { id: 'A', text: '$5$' },
+      // distractor: solves for the other variable
+      { id: 'B', text: '$12$' },
+      // distractor: picks the negative root
+      { id: 'C', text: '$-12$' },
+      // distractor: forgets to take square root
+      { id: 'D', text: '$60$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Right Triangle — Pythagorean**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Hypotenuse $13$ + integer legs $\\Rightarrow$ $5$-$12$-$13$ triple. Legs differ by $7$. So $a = 5$ and $a + 7 = 12$.\n\n**The Full Solution:**\nApply $a^2 + (a + 7)^2 = 13^2$:\n$a^2 + a^2 + 14a + 49 = 169$\n$2a^2 + 14a - 120 = 0$\n$a^2 + 7a - 60 = 0$\n$(a + 12)(a - 5) = 0$\n\nSo $a = 5$ or $a = -12$. Lengths must be positive, so $a = 5$.\n\nVerification: legs $5$ and $12$, hypotenuse $13$: $5^2 + 12^2 = 25 + 144 = 169 = 13^2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "applies the inverse operation" — gives $a + 7 = 12$ (the OTHER leg) instead of $a$.\n* Choice C: "wrong sign" — picks the negative root (rejected because lengths must be positive).\n* Choice D: "stops one step early" — reports the constant from $a^2 + 7a - 60 = 0$ as the answer.\n\n**Test Day Takeaway:** When legs are given as variable expressions, plug into $a^2 + b^2 = c^2$ and solve the quadratic. ALWAYS check the question to see which expression is the answer.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'right-triangle-pythagorean',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-084',
+    domain: 'geometry',
+    skills: ['pythagorean-theorem'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'In a right triangle, the hypotenuse has length $a + 1$ and the two legs have lengths $a$ and $9$. What is the value of $a$?',
+    correctAnswer: '40',
+    explanation: '**SAT Pattern: Right Triangle — Pythagorean**\n\n**The correct answer is $40$.**\n\n**The Fast Way (~30s):** Hypotenuse and one leg differ by $1$ $\\Rightarrow$ legs $9$ and $40$, hypotenuse $41$ ($9$-$40$-$41$ triple).\n\n**The Full Solution:**\nApply $a^2 + 9^2 = (a + 1)^2$:\n$a^2 + 81 = a^2 + 2a + 1$\n$81 = 2a + 1$\n$2a = 80$\n$a = 40$.\n\nVerification: legs $40$ and $9$, hypotenuse $41$: $40^2 + 9^2 = 1600 + 81 = 1681 = 41^2$ \\checkmark. This is the $9$-$40$-$41$ Pythagorean triple.\n\n**Common Mistakes to Avoid:**\n* Expanding $(a + 1)^2$ incorrectly: $(a + 1)^2 \\neq a^2 + 1$.\n* Forgetting that the $a^2$ terms cancel — the equation is LINEAR in $a$, not quadratic.\n* Off-by-one: solving $2a = 81 \\Rightarrow a = 40.5$.\n\n**Test Day Takeaway:** When the hypotenuse is "one more than a leg", the $a^2$ terms cancel and you get a clean linear equation. The result is usually a known Pythagorean triple like $5$-$12$-$13$ or $9$-$40$-$41$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'right-triangle-pythagorean',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
