@@ -2505,5 +2505,167 @@ export const problemSolvingBank = [
     sourceStyleRef: 'reverse-percent',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+
+  // === SUM-OF-PARTS RATIO (8 questions) — Phase 2 batch 3 priority pattern ===
+  // 9x in 12 tests. Covers: 2-way ratio of total, 3-way ratio of total,
+  // ratio + difference, chained ratios. Key principle: denominator of each
+  // fraction is the SUM of ratio parts, not just one part.
+  // SAT Pattern kebab matches test bundle: 'sum-of-parts-ratio'.
+  {
+    id: 'bank-ps-116',
+    domain: 'problem-solving',
+    skills: ['word-problem-to-equation'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'A trail mix is made with cashews and raisins in a ratio of $5$ cups of cashews to $3$ cups of raisins. If the total amount of trail mix is $40$ cups, how many cups of raisins are in the mix?',
+    correctAnswer: '15',
+    explanation: '**SAT Pattern: Sum of Parts Ratio**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~10s):** Raisins are $\\dfrac{3}{5 + 3} = \\dfrac{3}{8}$ of the total. So raisins $= \\dfrac{3}{8} \\cdot 40 = 15$ cups.\n\n**The Full Solution:**\nLet cashews $= 5k$ and raisins $= 3k$ (so the ratio is $5 : 3$).\nTotal: $5k + 3k = 8k = 40$, so $k = 5$.\nRaisins $= 3k = 3 \\cdot 5 = 15$ cups.\n\nVerification: cashews $= 5 \\cdot 5 = 25$, total $= 25 + 15 = 40$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using $\\dfrac{3}{5}$ (ratio of raisins to cashews) instead of $\\dfrac{3}{8}$ (raisins out of total).\n* Reporting cashews ($25$) instead of raisins.\n* Reporting the raw ratio number ($3$).\n\n**Test Day Takeaway:** When two parts are given as a ratio and the TOTAL of both parts is known, the denominator of each fraction is the SUM of the ratio parts, not just one part.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'sum-of-parts-ratio',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-117',
+    domain: 'problem-solving',
+    skills: ['word-problem-to-equation'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'A recipe calls for flour and sugar in the ratio $7$ cups of flour to $2$ cups of sugar. If the total amount of flour and sugar combined is $45$ cups, how many cups of sugar are in the recipe?',
+    choices: [
+      // distractor: gives the flour amount
+      { id: 'A', text: '$35$' },
+      { id: 'B', text: '$10$' },
+      // distractor: gives the raw ratio number for sugar
+      { id: 'C', text: '$2$' },
+      // distractor: divides total by 2 (sugar ratio)
+      { id: 'D', text: '$22.5$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Sum of Parts Ratio**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Sugar is $\\dfrac{2}{7 + 2} = \\dfrac{2}{9}$ of total. Sugar $= \\dfrac{2}{9} \\cdot 45 = 10$ cups.\n\n**The Full Solution:**\nLet flour $= 7k$ and sugar $= 2k$ so the ratio is $7 : 2$.\nTotal: $7k + 2k = 9k = 45 \\Rightarrow k = 5$.\nSugar $= 2k = 2 \\cdot 5 = 10$ cups.\n\nVerification: flour $= 35$, total $= 35 + 10 = 45$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "applies the inverse operation" — gives the flour amount instead of sugar.\n* Choice C: "stops one step early" — reports the raw ratio number $2$ as if it were the cup count.\n* Choice D: "wrong base" — divides total by the sugar ratio number ($45 / 2 = 22.5$).\n\n**Test Day Takeaway:** When the question asks for one part of a sum, always check which fraction of the TOTAL it is: numerator $=$ that part\'s ratio number; denominator $=$ SUM of all ratio numbers.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'sum-of-parts-ratio',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-118',
+    domain: 'problem-solving',
+    skills: ['word-problem-to-equation'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'A jar contains blue marbles and green marbles in a ratio of $4 : 7$. If there are $99$ marbles total in the jar, how many blue marbles are there?',
+    correctAnswer: '36',
+    explanation: '**SAT Pattern: Sum of Parts Ratio**\n\n**The correct answer is $36$.**\n\n**The Fast Way (~10s):** Blue is $\\dfrac{4}{4 + 7} = \\dfrac{4}{11}$ of $99 = 36$.\n\n**The Full Solution:**\nLet blue $= 4k$ and green $= 7k$.\nTotal: $4k + 7k = 11k = 99 \\Rightarrow k = 9$.\nBlue $= 4k = 4 \\cdot 9 = 36$.\n\nVerification: green $= 7 \\cdot 9 = 63$, total $= 36 + 63 = 99$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using $\\dfrac{4}{7}$ instead of $\\dfrac{4}{11}$.\n* Reporting green ($63$) instead of blue.\n\n**Test Day Takeaway:** With $a : b$ ratio summing to $T$, the parts are $\\dfrac{a}{a+b} \\cdot T$ and $\\dfrac{b}{a+b} \\cdot T$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'sum-of-parts-ratio',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-119',
+    domain: 'problem-solving',
+    skills: ['word-problem-to-equation'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'In a classroom, the ratio of girls to boys is $4 : 5$. If there are $36$ students in total, how many girls are in the classroom?',
+    choices: [
+      { id: 'A', text: '$16$' },
+      // distractor: gives boys
+      { id: 'B', text: '$20$' },
+      // distractor: wrong fraction (uses 4/8 from misreading sum)
+      { id: 'C', text: '$18$' },
+      // distractor: uses 4/10 (treats sum as 10 instead of 9)
+      { id: 'D', text: '$14.4$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Sum of Parts Ratio**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Girls $= \\dfrac{4}{4 + 5} \\cdot 36 = \\dfrac{4}{9} \\cdot 36 = 16$.\n\n**The Full Solution:**\nLet girls $= 4k$ and boys $= 5k$.\nTotal: $4k + 5k = 9k = 36 \\Rightarrow k = 4$.\nGirls $= 4k = 4 \\cdot 4 = 16$.\n\nVerification: boys $= 5 \\cdot 4 = 20$, total $= 16 + 20 = 36$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "applies the inverse operation" — gives boys instead of girls.\n* Choice C: "wrong base" — uses sum $= 8$ instead of $9$, gives $\\dfrac{4}{8} \\cdot 36 = 18$.\n* Choice D: "wrong base" — uses sum $= 10$ (e.g., adds an extra unit somewhere), gives $\\dfrac{4}{10} \\cdot 36 = 14.4$.\n\n**Test Day Takeaway:** Always verify the sum of ratio parts. For ratio $a : b$, the denominator of each fraction is $a + b$ exactly — no other value.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'sum-of-parts-ratio',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-120',
+    domain: 'problem-solving',
+    skills: ['word-problem-to-equation'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'A piggy bank contains pennies, nickels, and dimes in the ratio $3 : 4 : 1$. If there are $96$ coins in total, how many dimes are in the bank?',
+    choices: [
+      { id: 'A', text: '$12$' },
+      // distractor: gives nickels
+      { id: 'B', text: '$48$' },
+      // distractor: gives pennies
+      { id: 'C', text: '$36$' },
+      // distractor: uses 1/3 (ignores 4 in sum) → 96/12=8 wait 1/(3+1)=1/4 * 96 = 24
+      { id: 'D', text: '$24$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Sum of Parts Ratio**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Dimes $= \\dfrac{1}{3 + 4 + 1} \\cdot 96 = \\dfrac{1}{8} \\cdot 96 = 12$.\n\n**The Full Solution:**\nLet pennies $= 3k$, nickels $= 4k$, dimes $= 1k = k$.\nTotal: $3k + 4k + k = 8k = 96 \\Rightarrow k = 12$.\nDimes $= k = 12$.\n\nVerification: pennies $= 36$, nickels $= 48$, dimes $= 12$; total $= 36 + 48 + 12 = 96$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "applies the inverse operation" — gives the nickel count ($4k = 48$).\n* Choice C: "wrong base" — gives the penny count ($3k = 36$).\n* Choice D: "wrong base" — uses sum $= 4$ instead of $8$ (treats it as $3:1$, ignoring nickels), gives $\\dfrac{1}{4} \\cdot 96 = 24$.\n\n**Test Day Takeaway:** With three or more parts, the denominator is the SUM of all parts in the ratio. Don\'t drop any term from the sum.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'sum-of-parts-ratio',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-121',
+    domain: 'problem-solving',
+    skills: ['word-problem-to-equation'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'A concrete mix consists of cement, sand, and gravel in the ratio $1 : 2 : 3$. If the total amount of mix is $96$ buckets, how many buckets of gravel are in the mix?',
+    correctAnswer: '48',
+    explanation: '**SAT Pattern: Sum of Parts Ratio**\n\n**The correct answer is $48$.**\n\n**The Fast Way (~10s):** Gravel $= \\dfrac{3}{1 + 2 + 3} \\cdot 96 = \\dfrac{3}{6} \\cdot 96 = 48$.\n\n**The Full Solution:**\nLet cement $= k$, sand $= 2k$, gravel $= 3k$.\nTotal: $k + 2k + 3k = 6k = 96 \\Rightarrow k = 16$.\nGravel $= 3k = 3 \\cdot 16 = 48$ buckets.\n\nVerification: cement $= 16$, sand $= 32$, gravel $= 48$; total $= 16 + 32 + 48 = 96$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using $\\dfrac{3}{5}$ or $\\dfrac{3}{4}$ instead of $\\dfrac{3}{6}$ (forgetting one component in the sum).\n* Reporting cement ($16$) or sand ($32$) instead of gravel.\n\n**Test Day Takeaway:** A ratio $a : b : c$ summing to $T$ gives parts $\\dfrac{a}{a+b+c} T$, $\\dfrac{b}{a+b+c} T$, and $\\dfrac{c}{a+b+c} T$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'sum-of-parts-ratio',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-122',
+    domain: 'problem-solving',
+    skills: ['word-problem-to-equation'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'Two ingredients are mixed in the ratio $5 : 7$. The total amount of the mixture is $60$ ounces. How many MORE ounces of the larger ingredient than of the smaller ingredient are in the mixture?',
+    choices: [
+      { id: 'A', text: '$10$' },
+      // distractor: gives the larger ingredient amount
+      { id: 'B', text: '$35$' },
+      // distractor: gives the smaller ingredient amount
+      { id: 'C', text: '$25$' },
+      // distractor: raw ratio difference (7 - 5 = 2)
+      { id: 'D', text: '$2$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Sum of Parts Ratio**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Larger $= \\dfrac{7}{12} \\cdot 60 = 35$, smaller $= \\dfrac{5}{12} \\cdot 60 = 25$. Difference $= 35 - 25 = 10$.\n\n**The Full Solution:**\nLet smaller $= 5k$ and larger $= 7k$.\nTotal: $5k + 7k = 12k = 60 \\Rightarrow k = 5$.\nLarger $= 7k = 35$, smaller $= 5k = 25$.\nDifference $= 35 - 25 = 10$ ounces.\n\nShortcut: the difference is $(7 - 5) k = 2k = 2 \\cdot 5 = 10$ — you can avoid computing each part if you only need the difference.\n\nVerification: $25 + 35 = 60$ \\checkmark and $35 - 25 = 10$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — reports the larger ingredient amount ($35$) without subtracting.\n* Choice C: "stops one step early" — reports the smaller ingredient amount ($25$).\n* Choice D: "stops one step early" — reports the raw ratio difference ($7 - 5 = 2$) without scaling by $k = 5$.\n\n**Test Day Takeaway:** When asked for a DIFFERENCE between ratio parts, you can compute $(a - b) k$ where $k$ is the common scale factor — no need to compute each part individually.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'sum-of-parts-ratio',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-123',
+    domain: 'problem-solving',
+    skills: ['word-problem-to-equation'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'Three siblings, $A$, $B$, and $C$, share a sum of $\\$90$. $A$\'s share is $3$ times $B$\'s share, and $B$\'s share is $2$ times $C$\'s share. How many dollars is $A$\'s share?',
+    correctAnswer: '60',
+    explanation: '**SAT Pattern: Sum of Parts Ratio**\n\n**The correct answer is $60$.**\n\n**The Fast Way (~25s):** Let $C = x$. Then $B = 2x$, $A = 3B = 6x$. Total $= x + 2x + 6x = 9x = 90 \\Rightarrow x = 10$. $A = 6x = 60$.\n\n**The Full Solution:**\nChain the relationships starting from the smallest share. Let $C = x$. Then:\n* $B = 2 \\cdot C = 2x$ (B is twice C).\n* $A = 3 \\cdot B = 3 \\cdot 2x = 6x$ (A is three times B).\n\nThe ratio $A : B : C = 6 : 2 : 1$, summing to $9$.\nTotal: $6x + 2x + x = 9x = 90 \\Rightarrow x = 10$.\nA\'s share $= 6x = 60$.\n\nVerification: $A = 60$, $B = 20$, $C = 10$. Sum $= 90$ \\checkmark. $A / B = 60 / 20 = 3$ \\checkmark. $B / C = 20 / 10 = 2$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Misreading the order: A is $3$ times B, not the other way around.\n* Stopping at $x = 10$ and reporting it as A\'s share.\n* Treating the relationships as additive ("A has $3$ more than B") instead of multiplicative.\n\n**Test Day Takeaway:** With chained ratios ($A = mB$, $B = nC$), set the SMALLEST as $x$ and chain forward to get the others as multiples of $x$. Then sum and solve.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'sum-of-parts-ratio',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
