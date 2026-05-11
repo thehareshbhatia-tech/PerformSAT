@@ -3407,5 +3407,166 @@ export const algebraBank = [
     sourceStyleRef: 'system-of-equations-substitution',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+  // ===== Phase 2 batch 6/5: no-solution-condition (8 items) =====
+  // Pattern: 2-equation linear system has NO solution ⟺ parallel lines (same
+  // slope, different intercept). Find the parameter that produces parallelism.
+  // 8 test occurrences across PT3, PT10, PT12 and friends.
+  // SAT Pattern title (verbatim): 'No-Solution Condition' →
+  // kebab 'no-solution-condition'.
+  {
+    id: 'bank-alg-154',
+    domain: 'algebra',
+    skills: ['system-solution-types'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'The system of equations $y = 4x + 1$ and $y = (k + 1)x + 5$ has no solution. What is the value of $k$?',
+    choices: [
+      { id: 'A', text: '$3$' },
+      // distractor: forgets the +1
+      { id: 'B', text: '$4$' },
+      // distractor: sign error
+      { id: 'C', text: '$-3$' },
+      // distractor: matches the intercept instead of slope
+      { id: 'D', text: '$5$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: No-Solution Condition**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** No solution = parallel = same slope. Match slopes: $k + 1 = 4 \\Rightarrow k = 3$.\n\n**The Full Solution:**\nTwo lines have NO solution if and only if they are parallel: same slope, different intercepts.\n\nLine 1 slope: $4$. Line 2 slope: $k + 1$.\n\nMatch: $k + 1 = 4 \\Rightarrow k = 3$.\n\nVerify intercepts differ: line 1 intercept $1$, line 2 intercept $5$. $1 \\ne 5$ \\checkmark — truly parallel-distinct (no solution), not coincident.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — solves $k = 4$ without subtracting the $+1$.\n* Choice C: "wrong sign" — sign flip when isolating $k$.\n* Choice D: "wrong base" — matches the $y$-intercept (which would create different lines, irrelevant to no-solution condition).\n\n**Test Day Takeaway:** NO SOLUTION = parallel lines = matching slopes + DIFFERENT intercepts. The slope condition gives the parameter; the intercept check confirms "no solution" (vs. infinitely many).',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'no-solution-condition',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-155',
+    domain: 'algebra',
+    skills: ['system-solution-types'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'For what value of $k$ does the system $y = 2x - 3$ and $y = kx + 7$ have no solution?',
+    correctAnswer: '2',
+    explanation: '**SAT Pattern: No-Solution Condition**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~10s):** No solution = parallel = same slope. Match: $k = 2$.\n\n**The Full Solution:**\nFor no solution, the slopes must match while the intercepts differ.\n\nLine 1 slope: $2$. Line 2 slope: $k$. Match: $k = 2$.\n\nVerify intercepts differ: $-3 \\ne 7$ \\checkmark — parallel and distinct.\n\n**Common Mistakes to Avoid:**\n* Reporting $-3$ or $7$ (the intercepts).\n* Computing $k = -2$ (sign error).\n* Solving for $x$ or $y$ — those are NOT the question.\n\n**Test Day Takeaway:** When both equations are already in slope-intercept form $y = mx + b$, just match the $m$ values. Confirm $b$ values differ for "no solution" (vs. "infinitely many").',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'no-solution-condition',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-156',
+    domain: 'algebra',
+    skills: ['system-solution-types'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'The system of equations $2x + 3y = 9$ and $4x + ky = 5$ has no solution. What is the value of $k$?',
+    choices: [
+      { id: 'A', text: '$6$' },
+      // distractor: matches the wrong ratio
+      { id: 'B', text: '$3$' },
+      // distractor: sign error
+      { id: 'C', text: '$-6$' },
+      // distractor: uses constant ratio
+      { id: 'D', text: '$\\dfrac{5}{3}$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: No-Solution Condition**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Coefficients of $x$: $4/2 = 2$. Coefficients of $y$ must match: $k/3 = 2 \\Rightarrow k = 6$. Constants: $5/9 \\ne 2$ \\checkmark.\n\n**The Full Solution:**\nFor a 2-equation linear system to have NO solution, the coefficients of $x$ and $y$ must be proportional (parallel), but the constants must NOT match the same proportion (not coincident).\n\nRatio of $x$-coefficients: $\\dfrac{4}{2} = 2$.\nMatch on $y$-coefficients: $\\dfrac{k}{3} = 2 \\Rightarrow k = 6$.\nCheck constants: $\\dfrac{5}{9} \\ne 2$ \\checkmark — confirms no solution.\n\nVerification: at $k = 6$, the second equation is $4x + 6y = 5$. Multiplying first by $2$: $4x + 6y = 18$. So $18 = 5$ has no solution \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — uses $y$-coefficient $3$ directly without scaling.\n* Choice C: "wrong sign" — sign flip during ratio match.\n* Choice D: "wrong base" — uses constant ratio $5/3$, which doesn\'t apply to the coefficient match.\n\n**Test Day Takeaway:** For "no solution" with standard-form equations, find the slope ratio from the $x$- and $y$-coefficients separately and match them.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'no-solution-condition',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-157',
+    domain: 'algebra',
+    skills: ['system-solution-types'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'For what value of $k$ does the system $5x - 2y = 10$ and $kx - 4y = 25$ have no solution?',
+    correctAnswer: '10',
+    explanation: '**SAT Pattern: No-Solution Condition**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~15s):** Ratio of $y$-coefficients: $-4/-2 = 2$. Match on $x$: $k/5 = 2 \\Rightarrow k = 10$. Check constants: $25/10 = 5/2 \\ne 2$ \\checkmark.\n\n**The Full Solution:**\nMatch the $y$-coefficient ratio:\n$\\dfrac{-4}{-2} = 2$.\n\nMatch the $x$-coefficient ratio to the same value:\n$\\dfrac{k}{5} = 2 \\Rightarrow k = 10$.\n\nCheck constants:\n$\\dfrac{25}{10} = 2.5 \\ne 2$ \\checkmark — confirms parallel-distinct, so no solution.\n\nVerification: at $k = 10$, second equation is $10x - 4y = 25$. Multiplying first by $2$: $10x - 4y = 20$. So $20 = 25$, contradiction \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting that two negatives in the $y$-coefficient ratio cancel: $-4/-2 = 2$ (positive).\n* Using constant ratio: $25/10 = 2.5$, then setting $k/5 = 2.5 \\Rightarrow k = 12.5$ — that\'s the INFINITE-solutions case, not no-solution.\n* Reporting $25$ (a constant from the right side) by mistake.\n\n**Test Day Takeaway:** When both lines have a coefficient with $-$, the negative signs in the ratio cancel cleanly. Always check the constants don\'t match the same ratio — otherwise it\'s "infinitely many", not "no solution".',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'no-solution-condition',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-158',
+    domain: 'algebra',
+    skills: ['system-solution-types'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'The system of equations $3x + my = 12$ and $6x - 4y = 7$ has no solution. What is the value of $m$?',
+    choices: [
+      { id: 'A', text: '$-2$' },
+      // distractor: drops negative
+      { id: 'B', text: '$2$' },
+      // distractor: uses y-coefficient directly
+      { id: 'C', text: '$-4$' },
+      // distractor: uses x-coefficient
+      { id: 'D', text: '$6$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: No-Solution Condition**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Slope from first: $-3/m$. Slope from second: $6/4 = 3/2$. Match: $-3/m = 3/2 \\Rightarrow m = -2$. Check constants ($12/7 \\ne 3/2$) \\checkmark.\n\n**The Full Solution:**\nFor no solution, the slopes must match.\n\nLine 1: $3x + my = 12 \\Rightarrow$ slope $= -\\dfrac{3}{m}$.\nLine 2: $6x - 4y = 7 \\Rightarrow$ slope $= \\dfrac{6}{4} = \\dfrac{3}{2}$.\n\nMatch: $-\\dfrac{3}{m} = \\dfrac{3}{2}$.\nCross-multiply: $-6 = 3m \\Rightarrow m = -2$.\n\nVerify intercepts differ: line 1 with $m = -2$: $3x - 2y = 12$, intercept $-6$. Line 2: intercept $-7/4$. Different \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong sign" — drops the negative when matching slopes.\n* Choice C: "wrong base" — uses the $y$-coefficient of line 2 ($-4$).\n* Choice D: "wrong base" — uses the $x$-coefficient of line 2 ($6$).\n\n**Test Day Takeaway:** Slope in standard form $ax + by = c$ is $-a/b$. The NEGATIVE sign matters when matching slopes of two equations. Don\'t drop it.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'no-solution-condition',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-159',
+    domain: 'algebra',
+    skills: ['system-solution-types'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'For what value of $a$ does the system $ax + 2y = 5$ and $4x + 8y = 11$ have no solution?',
+    correctAnswer: '1',
+    explanation: '**SAT Pattern: No-Solution Condition**\n\n**The correct answer is $1$.**\n\n**The Fast Way (~15s):** Ratio of $y$-coefficients: $8/2 = 4$. Match $x$-coefficients: $4/a = 4 \\Rightarrow a = 1$. Check constants: $11/5 \\ne 4$ \\checkmark.\n\n**The Full Solution:**\nMatch the slopes:\nLine 1 slope: $-a/2$.\nLine 2 slope: $-4/8 = -1/2$.\n\nMatch: $-a/2 = -1/2 \\Rightarrow a = 1$.\n\nCheck constants: line 1 with $a = 1$: $x + 2y = 5$. Line 2: $4x + 8y = 11$ which is $4(x + 2y) = 11$, so $x + 2y = 11/4 \\ne 5$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Solving $4/a = 4$ by inverting: getting $a = 1/4$ instead.\n* Confusing "no solution" with "infinitely many" (which would give the same slope ratio but $a$ matches constants too — here $a = 4 \\cdot 5 / 11 = 20/11$, NOT clean integers, so not the case).\n* Forgetting to verify constants differ.\n\n**Test Day Takeaway:** When the parameter is in the $x$-slot of one equation and the $y$-slot is fixed in both, the cleanest match is via the $y$-coefficient ratio. Then propagate to the $x$-side.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'no-solution-condition',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-160',
+    domain: 'algebra',
+    skills: ['system-solution-types'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'The system of equations $kx + 4y = 9$ and $3x + ky = 12$ has no solution for which positive integer value of $k$?',
+    choices: [
+      { id: 'A', text: '$2\\sqrt{3}$ (none of the listed integers)' },
+      // distractor: the boundary value
+      { id: 'B', text: '$\\sqrt{12}$' },
+      { id: 'C', text: 'No positive integer satisfies this' },
+      // distractor: matches when k = 2 sqrt 3
+      { id: 'D', text: '$6$' }
+    ],
+    correctAnswer: 'C',
+    explanation: '**SAT Pattern: No-Solution Condition**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Slope match: $-k/4 = -3/k \\Rightarrow k^2 = 12 \\Rightarrow k = \\pm 2\\sqrt{3}$. Neither value is a positive integer, so NO positive integer satisfies the condition.\n\n**The Full Solution:**\nLine 1 slope: $-k/4$. Line 2 slope: $-3/k$.\n\nFor no solution, slopes match:\n$-\\dfrac{k}{4} = -\\dfrac{3}{k}$\n$k^2 = 12$\n$k = \\pm 2\\sqrt{3} \\approx \\pm 3.46$.\n\nNeither value is a positive integer (or any integer). Plus, we\'d need to verify constants differ — but since $k$ has no integer solution to the slope condition, the question\'s premise has no integer answer.\n\nVerification: at $k = 2\\sqrt{3} \\approx 3.46$, slopes are equal but $k$ is irrational; for any positive INTEGER $k$, the slopes are not equal and the system has a UNIQUE solution.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — gives the actual non-integer slope-match value.\n* Choice B: "wrong form" — gives the same $k = 2\\sqrt{3}$ in radical form ($\\sqrt{12}$).\n* Choice D: "wrong base" — picks an integer near $\\sqrt{12}$ that doesn\'t satisfy the equation.\n\n**Test Day Takeaway:** When the parameter appears in BOTH coefficient slots, the slope-match condition becomes $k^2 = $ something. Solve for $k$ and check whether the answer fits the required form (integer, positive, etc.). Sometimes "none of these" is the right answer.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'no-solution-condition',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-161',
+    domain: 'algebra',
+    skills: ['system-solution-types'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'A line $L_1$ passes through the point $(0, 5)$ with slope $m$. Another line $L_2$ passes through the point $(0, -2)$ with slope $3$. If $L_1$ and $L_2$ never intersect, what is the value of $m$?',
+    correctAnswer: '3',
+    explanation: '**SAT Pattern: No-Solution Condition**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~10s):** Two lines never intersect $\\iff$ they are parallel $\\iff$ same slope. $m = 3$.\n\n**The Full Solution:**\nTwo distinct lines never intersect exactly when they have the same slope (parallel and distinct).\n\n$L_1$: passes through $(0, 5)$ with slope $m$, so $y = mx + 5$.\n$L_2$: passes through $(0, -2)$ with slope $3$, so $y = 3x - 2$.\n\nThe $y$-intercepts ($5$ and $-2$) are different, so the lines are NOT coincident. They\'re parallel and distinct iff $m = 3$.\n\nVerification: at $m = 3$, $L_1: y = 3x + 5$ and $L_2: y = 3x - 2$. Subtracting: $0 = 7$, contradiction \\checkmark — they never intersect.\n\n**Common Mistakes to Avoid:**\n* Reporting $5$ or $-2$ (the intercepts).\n* Computing $m = -1/3$ (the perpendicular slope, which would mean they DO intersect at one point).\n* Computing $m = 7$ from $5 - (-2)$ (irrelevant arithmetic).\n\n**Test Day Takeaway:** "Never intersect" / "do not intersect" / "no point in common" all mean the same thing: parallel and distinct. Match slopes; verify intercepts differ.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'no-solution-condition',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
