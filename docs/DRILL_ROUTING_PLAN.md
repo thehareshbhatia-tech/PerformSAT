@@ -380,3 +380,181 @@ No new script. Down from 18 files in v1 plan.**
 
 **UNRESOLVED:** 0
 **VERDICT:** ENG CLEARED — ready to implement. No UI scope, so design review is N/A. Not a significant product change, so CEO review is N/A.
+
+---
+
+# Phase 2 — Coverage, Parity, Visibility (May 2026) — SHIPPED
+
+After Phase 1 (the two-tier cascade) landed (`9a7c1a4`), four problems from the
+original "NOT in scope" list became the next priority:
+
+1. Tier 1 fired rarely because bank density was low (~1.5 items / pattern).
+2. `AdaptivePracticeShell` had no Tier-1 routing — only `AssignedPracticeShell` did.
+3. The student never saw which pattern they were being drilled on.
+4. R&W routing was untouched — students were getting skill-only drills regardless.
+
+Phase 2 addressed all four.
+
+## 1. `PATTERN_ALIASES` map — coverage win without authoring
+
+`src/data/questions/extractSatPattern.js` now maintains a 55-entry alias map:
+
+```js
+const PATTERN_ALIASES = {
+  'volume-of-a-cylinder': 'cylinder-volume',
+  'pythagorean-theorem-5-12-13': 'right-triangle-pythagorean',
+  'linear-system-by-elimination': 'system-of-equations-elimination',
+  'solve-a-proportion': 'proportion-ratio',
+  // … 51 more
+};
+```
+
+Applied AFTER the kebab transform inside `extractSatPattern`:
+`return PATTERN_ALIASES[slug] || slug`. Single hop only — chained aliases
+are pinned out by a test (`extractSatPattern.test.js` no-chained-aliases
+invariant).
+
+**Win:** lifted Tier-1 coverage 76.5% → 82.8% of main-test items with **zero
+new bank items**. Variant spellings of the same canonical pattern now
+collapse into one pool.
+
+**Decision-cost trade-off:** authoring all the variants individually would
+have meant ~2000 redundant items. The alias map is one file, one bidirectional
+lookup, sub-1ms cost at extract time, and inverts the authoring problem from
+"hand-author every variant" to "name the variant once, alias it once."
+
+## 2. Bank expansion (batches 1–17) — ~460 → ~890 items
+
+Sustained 17 batches of pattern-targeted authoring across `bank/algebra.js`,
+`bank/advancedMath.js`, `bank/geometry.js`, `bank/problemSolving.js`. Each
+batch picked the next sub-threshold SAT Pattern and authored ~24 items to
+push it over `TIER1_PATTERN_THRESHOLD`. Every batch validated via
+`npm run bank:validate` before commit.
+
+**Discipline:** every item carries the `**SAT Pattern: <Title>**` header in
+its `explanation` (enforced by validator). Skill tags drawn from the canonical
+79-skill taxonomy (`scripts/validateBank.mjs` is strict). Hand-authored, no
+regex-generated content.
+
+## 3. AdaptivePracticeShell parity (commit `75d8aff`)
+
+`src/services/practiceAssignmentService.js::buildDomainAdaptiveQueueSeed` now
+accepts an optional `weaknesses` argument. When supplied, it:
+
+1. Filters to weaknesses matching the enforced domain.
+2. Extracts `missedPatterns` from those weaknesses.
+3. If `getQuestionsBySatPatterns(patterns)` returns pool ≥
+   `TIER1_PATTERN_THRESHOLD`, biases up to `floor(poolSize / 2)` of the
+   seed with pattern-matched items, leaving the rest as plain domain
+   shuffle for breadth.
+4. Attaches `missedPatterns` to the returned seed so the shell can render
+   the chip.
+
+`App.jsx::startAdaptivePractice` filters `studyPlan.weaknesses` to math
+and passes them in.
+
+**★REGRESSION★ pinned by test:** calling `buildDomainAdaptiveQueueSeed`
+without `weaknesses` returns byte-identical seed to pre-change behavior.
+7 new unit tests cover empty-weaknesses, single-weakness, multi-dedup,
+cross-domain exclusion, domain-less, empty-array, and the regression
+invariant.
+
+## 4. Drill chip — `Practicing: <Pattern>`
+
+Both shells render a `🎯 Practicing: <Pattern>` chip beneath the header
+title when the weakness/seed carries a matched pattern AND the bank pool
+actually meets `TIER1_PATTERN_THRESHOLD`. Powered by:
+
+- `src/services/selectors/missedPatternLabel.js::formatPatternLabel`
+  (kebab → Title Case with ACRONYMS preserved — SOH/CAH/TOA/FOIL/LCM/GCF/
+  GCD/SAT — and SMALL_WORDS lowercased except as first token)
+- `src/services/selectors/missedPatternLabel.js::pickPrimaryMissedPattern`
+  (returns first non-empty pattern from `weakness.missedPatterns`)
+
+**Precision gate (added in Phase 2 final pass):** AssignedPracticeShell
+checks `getBankRoutingStats().byPattern[slug] >= TIER1_PATTERN_THRESHOLD`
+before surfacing the chip. Without this gate, a weakness with a
+`missedPatterns: ['reverse-percent']` whose pattern pool is sub-threshold
+would still show "Practicing: Reverse Percent" while Tier 2 or Tier 3
+actually served the drill — misleading. With the gate, chip-shown is
+exactly the Tier-1-fired indicator.
+
+AdaptivePracticeShell got this precision for free — `buildDomainAdaptiveQueueSeed`
+only attaches `missedPatterns` to the seed when its internal pool meets
+threshold.
+
+## 5. Drill telemetry (`drill_started`, `drill_chip_shown`)
+
+`src/services/analyticsService.js` got two helpers:
+
+```js
+trackDrillStarted(userId, { tier, pattern, section, source, questionCount })
+trackDrillChipShown(userId, { pattern, section, source })
+```
+
+Both shells fire `drill_started` on first mount with the tier classification.
+`drill_chip_shown` fires when the chip is rendered. Buffered through the
+existing 30-second flush → Firestore `progress/<uid>.analyticsEvents` array.
+
+**Why this matters:** lets us answer downstream "does Tier-1 firing improve
+drill completion rate?" by joining `drill_started` events tagged
+`tier: 'pattern'` against `recovery_drill_done` events for the same session.
+Pure-product question that we couldn't answer before.
+
+## 6. R&W exact-match audit — DECISION: DEFER (commit `7bb70fb`)
+
+Walked all 648 R&W items in the flattened bank, counted SAT Pattern
+header presence:
+
+- 6 of 648 items carry parseable SAT Pattern headers (<1%)
+- All 6 live in `practiceTest9RW.js` with vocab-specific patterns
+- Far too sparse for any bucket to reach `TIER1_PATTERN_THRESHOLD = 8`
+
+**Decision pinned in code:** `rwBank/index.js::getTargetedWeaknessSet`
+JSDoc documents the audit conclusion. The function accepts `missedPatterns`
+in its args for API symmetry with the math bank, but it's a no-op (R&W
+never produces `missedPatterns` since the diagnostic engine only
+populates them for items with `q.satPattern`).
+
+**Re-audit trigger pinned in `rwBank/__tests__/rwBank.test.js`:** if R&W
+pattern coverage ever grows to ≥80 items (~12% of bank), revisit the
+decision. Until then R&W stays on Tier-3 (skill+domain) routing.
+
+## Tier-2 fuel via `missedStyles` — DECISION: NO ACTION POSSIBLE
+
+Test bundles (`src/data/practiceTests/practiceTest{1..12}.js`) do NOT
+carry `sourceStyleRef` fields on items. `grep -c sourceStyleRef
+src/data/practiceTests/practiceTest1.js` returns 0. The proposed fix —
+have `diagnosticEngine.analyzeSkills` aggregate `q.sourceStyleRef` from
+wrong test items into `weakness.missedStylesSet` — would aggregate
+undefined onto undefined.
+
+Tier 2 currently derives styles via `patternToStyle.get(pattern)`, built
+from BANK items that have BOTH a SAT Pattern AND a `sourceStyleRef`. This
+is the only viable Tier-2 input path given the data shape. No action.
+
+## Coverage after Phase 2
+
+| Metric                            | Phase 1 ship | Phase 2 ship |
+|-----------------------------------|--------------|--------------|
+| Bank items (math)                 | ~460         | ~890         |
+| Distinct SAT Patterns in bank     | ~50          | ~80          |
+| Tier-1-viable patterns (≥8 items) | ~6           | ~75          |
+| Main-test items covered by Tier 1 | ~14%         | ~83%         |
+| AdaptivePracticeShell uses Tier 1 | No           | Yes          |
+| Student sees which pattern        | No           | Yes (chip)   |
+| Drill tier observable in analytics| No           | Yes          |
+| R&W on Tier 1                     | No           | No (deferred — audit-pinned) |
+
+## Outstanding follow-ups
+
+- `decideTier({ weakSkills })` standalone helper if more callers need
+  tier metadata without invoking `getTargetedWeaknessSet`. Today the
+  chip-precision check uses `getBankRoutingStats().byPattern[slug]`
+  directly — sufficient for the two existing callers, no helper needed yet.
+- Render tests for the chip — blocked on `@testing-library/react` install.
+  Pure-function tests for `formatPatternLabel` / `pickPrimaryMissedPattern`
+  (15 specs) cover the data path.
+- Further bank expansion to push Tier-1 coverage toward 90%. Diminishing
+  returns — the high-traffic patterns are covered.
+

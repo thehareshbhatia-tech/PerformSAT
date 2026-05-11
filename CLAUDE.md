@@ -2,7 +2,7 @@
 
 PerformSAT is a digital-SAT prep web app: students take adaptive practice tests, get a diagnostic-driven study plan, drill weak skills, and track score trajectory toward a target. Built on Create React App + Firebase. ~256 JS/JSX files in `src/` (~9.7MB).
 
-The codebase is mid-scale, mostly mature, with one large orchestrating file (`src/App.jsx`, ~11k lines) that owns view state and practice-session state. The recent direction is closing UX gaps vs Acely AI while surfacing PerformSAT's deeper diagnostic engine.
+The codebase is mid-scale, mostly mature, with one large orchestrating file (`src/App.jsx`, ~2.9k lines) that owns view state and practice-session state. The recent direction is closing UX gaps vs Acely AI, surfacing PerformSAT's deeper diagnostic engine, and tightening drill routing to exact-question-type precision (see `docs/DRILL_ROUTING_PLAN.md`).
 
 This file is the orientation document for new contributors and LLM agents. Keep it up to date when architecture moves.
 
@@ -131,7 +131,9 @@ The diagnostic adapter in `services/scoring/diagnosticAdapter.js` builds a **sep
 
 | Capability | Where | State |
 |------------|-------|-------|
-| Question banks (math + R&W) | `src/data/questions/bank/index.js` (math, ~664 items) and `src/data/questions/rwBank/index.js` (R&W, 648 items, flattened from 12 test bundles) | Both production. Section-tag weakness contract dispatches by `weakness.section`. |
+| Question banks (math + R&W) | `src/data/questions/bank/index.js` (math, ~890 items after Phase-2 expansion) and `src/data/questions/rwBank/index.js` (R&W, 648 items, flattened from 12 test bundles) | Both production. Section-tag weakness contract dispatches by `weakness.section`. |
+| Three-tier drill routing (math) | `src/data/questions/extractSatPattern.js` (lazy SAT Pattern extractor + 55-entry `PATTERN_ALIASES` map), `src/data/questions/bank/index.js::getTargetedWeaknessSet` (Tier 1 satPattern → Tier 2 sourceStyleRef → Tier 3 skill cascade with thresholds `TIER1_PATTERN=8` / `TIER2_STYLE=12`) | Production. Tier 1 fires for ~83% of main-test items. R&W bank is on Tier 3 (skill) only — audit found <1% of R&W items carry SAT Pattern headers; decision deferred. |
+| Drill chip (`Practicing: <Pattern>`) | `src/services/selectors/missedPatternLabel.js` + chip render in `AssignedPracticeShell` and `AdaptivePracticeShell`. Chip is gated on the pattern bank pool actually being viable (≥ `TIER1_PATTERN_THRESHOLD`) so it doesn't mislead when only Tier 3 fires. | Production. Pairs with `drill_started` / `drill_chip_shown` analyticsService events for measuring routing precision impact. |
 | 6-class error taxonomy | `src/services/diagnosticEngine.js:128-172` | Built. Surfaces as italic editorial sentences via `formatDiagnosticSentence(weakness)` below Focus Area cards + after wrong answers in AssignedPracticeShell. |
 | Prediction engine + validation history | `src/services/predictionEngine.js` | Built. Surfaced via `<PredictedVsActualCard>` on the Dashboard tab; selector at `selectors/predictionSummary.js`. |
 | Intervention tracker | `src/services/interventionTracker.js` | Built. Currently consumed by AiTutorChat. |
@@ -154,7 +156,7 @@ The diagnostic adapter in `services/scoring/diagnosticAdapter.js` builds a **sep
 
 ## Canonical files (do not duplicate)
 
-- `src/App.jsx` — the entrypoint mount target. It IS large (~11k lines). Items #2 and #4 of the current ship list both touch it. A `<DashboardShell>` extraction is on the deferred TODOS list — not in this batch.
+- `src/App.jsx` — the entrypoint mount target. ~2.9k lines (down from ~11k after Acely-parity excisions). A `<DashboardShell>` extraction is on the deferred TODOS list — not in this batch.
 - `src/index.js:6` — the React entrypoint imports `./App` (resolves to `src/App.jsx`).
 - `src/components/StudyPlanDashboard.jsx` — the active study plan view. Both `App.jsx:9539` and `StudentDashboard.jsx:305` mount it.
 
@@ -224,6 +226,20 @@ Plan: `~/.gstack/projects/thehareshbhatia-tech-PerformSAT/hareshbhatia-main-plan
 - **Day 1:** Right-rail composition on the Dashboard tab (CalendarMonth + score-with-delta + goal/exam two-up), per-day editorial paragraph at top of TodaysTasksCard, tab count badges, CalendarStrip → CalendarMonth swap.
 - **Day 2:** Round-based drill structure in AssignedPracticeShell (3 rounds × 8 questions with celebration interstitial between rounds), TodaysTasksCard renders per-activity sub-cards with PRACTICE COMPLETE! badge + collapsible completed view.
 - **Day 3:** /design-review pass + 375px mobile + this CLAUDE.md update.
+
+### Drill-routing batch (Phase 1 + Phase 2, May 2026) — COMPLETE
+
+Plan: `docs/DRILL_ROUTING_PLAN.md`. Goal: route drills to questions of the same SAT Pattern first, fall back to broader `sourceStyleRef`, then to skill.
+
+- **Phase 1 (commit `9a7c1a4`):** Two-tier cascade architecture — `extractSatPattern.js` lazy extractor + `patternIndex` / `patternToStyle` indexes at bank-module load + `getTargetedWeaknessSet` cascade. Diagnostic engine threads `satPattern` onto `questionAnalysis` records and aggregates `missedPatterns` per skill. Iron-rule regression test pins byte-identical Tier-3 behavior for legacy (no-`missedPatterns`) weaknesses.
+- **Phase 2 (multi-batch, May 2026):**
+  - `PATTERN_ALIASES` map in `extractSatPattern.js` — 55 entries — collapses variant kebab spellings (e.g., `volume-of-a-cylinder → cylinder-volume`, three 5-12-13 Pythagorean variants → `right-triangle-pythagorean`). Lifted Tier-1 coverage 76.5% → 82.8% of main-test items with no new bank items.
+  - Bank expansion across batches 1-17: ~460 → ~890 items. Algebra, advanced math, geometry, problem-solving shards all got Tier-1-priority pattern coverage.
+  - `AdaptivePracticeShell` parity — `buildDomainAdaptiveQueueSeed` now accepts `weaknesses` and biases up to half the seed pool with Tier-1 pattern-matched items when threshold is met. The adaptive shell renders the same `Practicing: <Pattern>` chip.
+  - `Practicing: <Pattern>` chip in both shells, gated on bank pool ≥ threshold so the chip only fires when Tier 1 actually serves the drill. Telemetry: `drill_started` + `drill_chip_shown` events to `analyticsService`.
+  - R&W exact-match audit — found <1% of R&W items carry parseable SAT Pattern headers. Documented decision in `rwBank/index.js::getTargetedWeaknessSet` JSDoc and pinned with a regression-style test that re-triggers the audit if R&W pattern coverage ever grows to ≥80 items.
+
+Outstanding follow-ups (low priority): formal `decideTier(weakness)` exported helper if more callers need it; chip-mount render tests once `@testing-library/react` is installed; further bank expansion to push Tier-1 coverage toward 90%.
 
 ### Killed / explicitly deferred
 

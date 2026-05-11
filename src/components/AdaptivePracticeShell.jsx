@@ -1,9 +1,10 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { MathText } from './MathText';
 import QuestionDiagram from './QuestionDiagrams';
 import QuestionRenderer from './QuestionRenderer';
 import SolutionExplanation from './SolutionExplanation';
 import { formatPatternLabel } from '../services/selectors/missedPatternLabel';
+import { trackDrillStarted, trackDrillChipShown } from '../services/analyticsService';
 
 const C = {
   brand: '#ea580c',
@@ -102,6 +103,7 @@ const AdaptivePracticeShell = ({
   showCalculator,
   onRelaunch,
   getDifficultyBadge,
+  user,
 }) => {
   const [markedForReview, setMarkedForReview] = useState([]);
   const [eliminatedChoices, setEliminatedChoices] = useState({});
@@ -124,11 +126,49 @@ const AdaptivePracticeShell = ({
   // missedPatterns in this domain), surface the first one as a chip so
   // students see WHY the pool is targeted. Falls back to no chip on
   // legacy seeds or domain-only sessions with no weaknesses.
-  const drillPatternLabel = useMemo(() => {
+  //
+  // Precision: `buildDomainAdaptiveQueueSeed` only attaches `missedPatterns`
+  // to the seed when its internal pattern pool meets TIER1_PATTERN_THRESHOLD.
+  // So if `missedPatterns` is present here, Tier 1 has fired by construction —
+  // the chip is precise without an extra pool-size check at this layer.
+  const { drillPatternLabel, drillPatternSlug } = useMemo(() => {
     const patterns = practiceState?.adaptiveQueueSeed?.missedPatterns;
-    if (!Array.isArray(patterns) || patterns.length === 0) return null;
-    return formatPatternLabel(patterns[0]);
+    if (!Array.isArray(patterns) || patterns.length === 0) {
+      return { drillPatternLabel: null, drillPatternSlug: null };
+    }
+    const slug = patterns[0];
+    return { drillPatternLabel: formatPatternLabel(slug), drillPatternSlug: slug };
   }, [practiceState?.adaptiveQueueSeed?.missedPatterns]);
+
+  // Drill-launch + chip-shown telemetry. Same shape as AssignedPracticeShell
+  // — see analyticsService.js doc comment for the event taxonomy.
+  const drillStartTrackedRef = useRef(false);
+  useEffect(() => {
+    if (drillStartTrackedRef.current) return;
+    const uid = user?.uid;
+    if (!uid) return;
+    const enforcedDomain = practiceState?.adaptiveQueueSeed?.enforcedDomain || null;
+    // Adaptive sessions are always math today — the enforcedDomain is the
+    // math domain (algebra / advanced-math / problem-solving / geometry).
+    const section = enforcedDomain ? 'math' : null;
+    const source = 'adaptive';
+    const tier = drillPatternLabel ? 'pattern' : 'skill';
+    trackDrillStarted(uid, {
+      tier,
+      pattern: drillPatternSlug || null,
+      section,
+      source,
+      questionCount: Array.isArray(questions) ? questions.length : 0,
+    });
+    if (drillPatternLabel && drillPatternSlug) {
+      trackDrillChipShown(uid, {
+        pattern: drillPatternSlug,
+        section,
+        source,
+      });
+    }
+    drillStartTrackedRef.current = true;
+  }, [user?.uid, drillPatternLabel, drillPatternSlug, practiceState?.adaptiveQueueSeed, questions]);
 
   const currentElimKey = `${idx}`;
   const eliminated = eliminatedChoices[currentElimKey] || [];

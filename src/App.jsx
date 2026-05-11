@@ -1855,6 +1855,7 @@ const PerformSAT = () => {
                   label: practiceState.adaptiveDomainLabel,
                 })}
                 getDifficultyBadge={getDifficultyBadge}
+                user={user}
               />
             );
           }

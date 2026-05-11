@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { MathText } from './MathText';
 import QuestionDiagram from './QuestionDiagrams';
 import QuestionRenderer from './QuestionRenderer';
@@ -8,10 +8,8 @@ import HandAuthoredStamp from './HandAuthoredStamp';
 import AnswerChoiceList from './shared/AnswerChoiceList';
 import { formatDiagnosticSentence } from '../services/diagnosticEngine';
 import { findRoundIndexForQuestion, computeRoundProgress } from '../services/buildRounds';
-import {
-  formatPatternLabel,
-  pickPrimaryMissedPattern,
-} from '../services/selectors/missedPatternLabel';
+import { getDrillChipForWeakness } from '../services/selectors/drillChip';
+import { trackDrillStarted, trackDrillChipShown } from '../services/analyticsService';
 import './AssignedPracticeShell.css';
 
 const C = {
@@ -150,11 +148,51 @@ const AssignedPracticeShell = ({
   // see WHY their drill was assembled (not just "Algebra Practice" but
   // "Practicing: Reverse Percent"). Falls back to no chip when the weakness
   // is legacy/skill-only — graceful, never a worse experience.
-  const drillPatternLabel = useMemo(() => {
+  //
+  // `getDrillChipForWeakness` returns null when the bank pool for the
+  // weakness's pattern is below TIER1_PATTERN_THRESHOLD, so chip-shown ≡
+  // Tier-1 fired ≡ exact pattern match was viable.
+  const drillChip = useMemo(
+    () => getDrillChipForWeakness(practiceState?.assignmentMeta?.weakness),
+    [practiceState?.assignmentMeta?.weakness],
+  );
+  const drillPatternLabel = drillChip?.label || null;
+  const drillPatternSlug = drillChip?.slug || null;
+
+  // Drill-launch + chip-shown telemetry. Fires once per shell mount.
+  // `tier` is 'pattern' when the chip is visible (precision-gated Tier 1
+  // confirmation), 'skill' when a weakness with skill but no viable pattern
+  // is driving the drill, 'unknown' otherwise (e.g., review-mode retry).
+  // Stable userId guard prevents anonymous mounts from logging.
+  const drillStartTrackedRef = useRef(false);
+  useEffect(() => {
+    if (drillStartTrackedRef.current) return;
+    const uid = user?.uid;
+    if (!uid) return;
     const weakness = practiceState?.assignmentMeta?.weakness;
-    const slug = pickPrimaryMissedPattern(weakness);
-    return slug ? formatPatternLabel(slug) : null;
-  }, [practiceState?.assignmentMeta?.weakness]);
+    const section = weakness?.section || null;
+    const source = practiceState?.reviewMode
+      ? 'review-retry'
+      : (practiceState?.assignmentMeta?.source || 'assigned');
+    let tier = 'unknown';
+    if (drillPatternLabel) tier = 'pattern';
+    else if (weakness?.skillId || weakness?.skill) tier = 'skill';
+    trackDrillStarted(uid, {
+      tier,
+      pattern: drillPatternSlug || null,
+      section,
+      source,
+      questionCount: Array.isArray(questions) ? questions.length : 0,
+    });
+    if (drillPatternLabel && drillPatternSlug) {
+      trackDrillChipShown(uid, {
+        pattern: drillPatternSlug,
+        section,
+        source,
+      });
+    }
+    drillStartTrackedRef.current = true;
+  }, [user?.uid, drillPatternLabel, drillPatternSlug, practiceState?.assignmentMeta, practiceState?.reviewMode, questions]);
 
   const handleToggleEliminate = (choiceId) => {
     setEliminatedChoices(prev => {

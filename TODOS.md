@@ -68,4 +68,22 @@ Why option B over option A (threading section through advice picker): treats the
 
 Tier-1 routing precision is now VISIBLE to students. With 75 Tier-1 patterns covering 82.8% of main-test items, the chip fires often enough to make the targeting feel real.
 
+### Drill chip precision gate + Tier telemetry — DONE (2026-05-11)
+
+**Problem found mid-session:** the chip in AssignedPracticeShell read from `weakness.missedPatterns` and rendered whenever ANY pattern was carried — regardless of whether the bank actually had enough items to serve a Tier-1 drill for that pattern. Result: chip could say "Practicing: Reverse Percent" while the actual drill served Tier-3 skill-bucket items because the pattern pool was sub-threshold.
+
+**Fix:** AssignedPracticeShell now checks `getBankRoutingStats().byPattern[slug] >= TIER1_PATTERN_THRESHOLD` before surfacing the chip. AdaptivePracticeShell already had this precision implicitly (`buildDomainAdaptiveQueueSeed` only attaches `missedPatterns` to the seed when its own pattern pool meets threshold).
+
+**Telemetry:** added `trackDrillStarted` + `trackDrillChipShown` to `analyticsService`. Both shells fire `drill_started` on mount with `{ tier: 'pattern'|'skill'|'unknown', pattern, section, source, questionCount }`. Lets us answer "does the chip fire often enough?" and later "do students complete more questions when the chip surfaces?" from the buffered analytics events.
+
+Chip-shown ≡ Tier-1 fired ≡ exact pattern match was viable. This effectively closes the "tierFired surfacing" follow-up — the chip is the visible tier indicator, the telemetry is the measurable one.
+
+### Tier-2 fuel via missedStyles aggregation — DECISION: NO ACTION POSSIBLE (2026-05-11)
+
+**Audit conclusion:** test bundles (`src/data/practiceTests/practiceTest{1..12}.js`) do NOT carry `sourceStyleRef` fields on items. `grep -c sourceStyleRef src/data/practiceTests/practiceTest1.js` returns 0. The proposed architectural fix — have `diagnosticEngine.analyzeSkills` aggregate `q.sourceStyleRef` from wrong test items into `weakness.missedStylesSet` — would aggregate undefined onto undefined.
+
+**What this means:** Tier 2 of the drill-routing cascade derives styles via `patternToStyle.get(pattern)`, built from BANK items that have BOTH a SAT Pattern AND a sourceStyleRef. This is the only viable Tier-2 input path given the data shape. Adding a parallel `missedStyles` field would either be empty (no fuel from tests) or require re-tagging all 528 test items.
+
+**Decision:** No action. Tier 2 fires as well as it can with current bank coverage of the `patternToStyle` map. Future option if Tier-2 firing rate becomes a real concern: extend test bundle items to carry `sourceStyleRef`, or expand the `patternToStyle` map by hand-curating it as a standalone file.
+
 ## Completed

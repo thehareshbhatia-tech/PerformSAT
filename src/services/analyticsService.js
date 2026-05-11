@@ -18,6 +18,8 @@
  *   practice_test     test_completed          { scaledScore, rawScore, timedMode }
  *   practice_test     test_started            { testId, timedMode }
  *   review            review_session_done     { itemCount, accuracy, streakDay }
+ *   drill             drill_started           { tier, pattern, section, source, questionCount }
+ *   drill             drill_chip_shown        { pattern, section, source }
  *   drill             recovery_drill_done     { errorType, accuracy, minutes }
  *   drill             pacing_drill_done       { modeId, accuracy, avgTime }
  *   study_plan        plan_generated          { weekCount, intensity, scoreGap }
@@ -25,6 +27,18 @@
  *   ai_tutor          coach_mode_used         { modeId, messageCount }
  *   engagement        session_start           {}
  *   engagement        session_end             { durationMinutes }
+ *
+ * Drill routing instrumentation (added Phase 2, May 2026):
+ *   - `drill_started` fires once per drill-shell mount. `tier` is one of
+ *     'pattern' (Tier 1 — exact SAT Pattern match fired), 'skill' (Tier 3
+ *     — fell through to skill-based routing), or 'unknown' (could not
+ *     classify, typically legacy weakness). Pairs with `recovery_drill_done`
+ *     to measure completion-rate-by-tier.
+ *   - `drill_chip_shown` fires when the "Practicing: <Pattern>" chip is
+ *     visible. Pre-condition: Tier 1 fired (chip is gated on bank pool size
+ *     in AssignedPracticeShell, and on seed.missedPatterns presence in
+ *     AdaptivePracticeShell). This is a strict subset of `drill_started`
+ *     where `tier === 'pattern'`.
  */
 
 import { db } from '../firebase/config';
@@ -228,3 +242,35 @@ export const trackSessionStart = (userId) =>
 
 export const trackSessionEnd = (userId, durationMinutes) =>
   trackEvent(userId, 'engagement', 'session_end', { durationMinutes });
+
+/**
+ * Drill-launch instrumentation — fires once per drill-shell mount.
+ *
+ * @param {string} userId
+ * @param {object} properties
+ * @param {'pattern'|'skill'|'unknown'} properties.tier — routing tier that fired
+ * @param {string|null} [properties.pattern] — kebab SAT Pattern slug if tier='pattern'
+ * @param {'math'|'rw'|null} [properties.section]
+ * @param {string} [properties.source] — e.g., 'assigned', 'adaptive', 'review-retry'
+ * @param {number} [properties.questionCount]
+ */
+export const trackDrillStarted = (userId, properties = {}) =>
+  trackEvent(userId, 'drill', 'drill_started', properties);
+
+/**
+ * Drill chip surfacing instrumentation — fires when the
+ * "Practicing: <Pattern>" chip becomes visible in a drill shell.
+ *
+ * Implicit invariant: chip-shown ⇒ Tier 1 fired (the chip is gated on
+ * bank pool ≥ TIER1_PATTERN_THRESHOLD in AssignedPracticeShell and on
+ * seed.missedPatterns presence in AdaptivePracticeShell, which itself
+ * is gated by the same threshold inside buildDomainAdaptiveQueueSeed).
+ *
+ * @param {string} userId
+ * @param {object} properties
+ * @param {string} properties.pattern — kebab SAT Pattern slug
+ * @param {'math'|'rw'|null} [properties.section]
+ * @param {string} [properties.source]
+ */
+export const trackDrillChipShown = (userId, properties = {}) =>
+  trackEvent(userId, 'drill', 'drill_chip_shown', properties);
