@@ -546,15 +546,51 @@ is the only viable Tier-2 input path given the data shape. No action.
 | Drill tier observable in analytics| No           | Yes          |
 | R&W on Tier 1                     | No           | No (deferred — audit-pinned) |
 
+## `decideTier` — tier-decision helper (added 2026-05-11)
+
+Both shells' telemetry initially classified tier ad-hoc:
+`drillPatternLabel ? 'pattern' : 'skill'`. Correct most of the time but
+wouldn't catch Tier-2 firing, and divergent classifiers in two files is
+drift-prone. Refactored into a single source of truth:
+
+```js
+import { decideTier } from '../data/questions/bank';
+
+const { tier, poolSize, matchedPatterns, matchedStyles } = decideTier({
+  weakSkills: [weakness],
+  excludeIds: [],
+});
+// tier ∈ {'pattern', 'style', 'skill', 'empty'}
+```
+
+Mirrors `getTargetedWeaknessSet`'s cascade exactly — same thresholds, same
+union-of-patterns construction. Pure read, no side effects, no shuffle.
+Both functions live in the same module file to keep the parity visible.
+
+The parity invariant is pinned: `decideTier=pattern ⇒
+getTargetedWeaknessSet` returns items from the matched pattern bucket;
+`decideTier=empty ⇒ getTargetedWeaknessSet` returns `[]`; etc.
+13 specs in `bank/__tests__/decideTier.test.js`.
+
+Use cases today:
+- AssignedPracticeShell `drill_started` telemetry — accurate tier field.
+- AdaptivePracticeShell `drill_started` telemetry — synthesizes a
+  weakness-shape from `seed.missedPatterns` and runs through the same helper.
+- (Future) any caller that wants "would Tier 1 fire?" without paying
+  selection cost.
+
+Distinct from `drillChip` (the chip-precision selector): `decideTier` is
+generous about tier=pattern (union pool meets threshold). `drillChip` is
+conservative about the chip label (first-pattern's INDIVIDUAL pool must
+meet threshold — otherwise the chip's single-pattern claim would mislead).
+Both behaviors are correct for their question.
+
 ## Outstanding follow-ups
 
-- `decideTier({ weakSkills })` standalone helper if more callers need
-  tier metadata without invoking `getTargetedWeaknessSet`. Today the
-  chip-precision check uses `getBankRoutingStats().byPattern[slug]`
-  directly — sufficient for the two existing callers, no helper needed yet.
 - Render tests for the chip — blocked on `@testing-library/react` install.
-  Pure-function tests for `formatPatternLabel` / `pickPrimaryMissedPattern`
-  (15 specs) cover the data path.
+  Pure-function tests for `drillChip` (12 specs), `formatPatternLabel` /
+  `pickPrimaryMissedPattern` (15 specs), and `decideTier` (13 specs) cover
+  the data path.
 - Further bank expansion to push Tier-1 coverage toward 90%. Diminishing
   returns — the high-traffic patterns are covered.
 

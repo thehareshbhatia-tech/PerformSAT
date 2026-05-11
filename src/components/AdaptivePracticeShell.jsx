@@ -4,6 +4,7 @@ import QuestionDiagram from './QuestionDiagrams';
 import QuestionRenderer from './QuestionRenderer';
 import SolutionExplanation from './SolutionExplanation';
 import { formatPatternLabel } from '../services/selectors/missedPatternLabel';
+import { decideTier } from '../data/questions/bank';
 import { trackDrillStarted, trackDrillChipShown } from '../services/analyticsService';
 
 const C = {
@@ -142,20 +143,32 @@ const AdaptivePracticeShell = ({
 
   // Drill-launch + chip-shown telemetry. Same shape as AssignedPracticeShell
   // — see analyticsService.js doc comment for the event taxonomy.
+  //
+  // Tier classification: the adaptive seed already encodes Tier-1 firing
+  // (buildDomainAdaptiveQueueSeed only attaches `missedPatterns` to the seed
+  // when its internal pool meets threshold). We synthesize a weakness-shaped
+  // input for `decideTier` to make the classification consistent with
+  // AssignedPracticeShell — same source-of-truth helper, same cascade logic.
   const drillStartTrackedRef = useRef(false);
   useEffect(() => {
     if (drillStartTrackedRef.current) return;
     const uid = user?.uid;
     if (!uid) return;
-    const enforcedDomain = practiceState?.adaptiveQueueSeed?.enforcedDomain || null;
+    const seed = practiceState?.adaptiveQueueSeed;
+    const enforcedDomain = seed?.enforcedDomain || null;
     // Adaptive sessions are always math today — the enforcedDomain is the
     // math domain (algebra / advanced-math / problem-solving / geometry).
     const section = enforcedDomain ? 'math' : null;
     const source = 'adaptive';
-    const tier = drillPatternLabel ? 'pattern' : 'skill';
+    const synthesizedWeakness = Array.isArray(seed?.missedPatterns) && seed.missedPatterns.length
+      ? { missedPatterns: seed.missedPatterns, domain: enforcedDomain }
+      : null;
+    const decision = synthesizedWeakness
+      ? decideTier({ weakSkills: [synthesizedWeakness] })
+      : { tier: 'skill', matchedPatterns: [] };
     trackDrillStarted(uid, {
-      tier,
-      pattern: drillPatternSlug || null,
+      tier: decision.tier,
+      pattern: drillPatternSlug || decision.matchedPatterns?.[0] || null,
       section,
       source,
       questionCount: Array.isArray(questions) ? questions.length : 0,

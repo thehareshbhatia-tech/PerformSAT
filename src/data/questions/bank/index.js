@@ -660,3 +660,84 @@ export const DRILL_ROUTING_THRESHOLDS = Object.freeze({
   TIER1_PATTERN: TIER1_PATTERN_THRESHOLD,
   TIER2_STYLE: TIER2_STYLE_THRESHOLD,
 });
+
+/**
+ * decideTier — returns which routing tier WOULD fire for the given
+ * weakness set, WITHOUT actually selecting questions. Useful for:
+ *
+ *   1. Instrumenting drill launches with accurate `tier` classification
+ *      (the drill shells use this to tag `drill_started` events).
+ *   2. UI-side decisions that depend on whether Tier 1 is going to fire
+ *      (e.g., the chip-precision gate, which currently uses
+ *      getBankRoutingStats().byPattern[slug] directly — equivalent at
+ *      single-pattern weaknesses, but decideTier handles multi-pattern
+ *      union and Tier 2 derivation correctly).
+ *   3. Future drill-routing telemetry where we want to know what would
+ *      have fired without paying the cost of selection.
+ *
+ * Cascade logic mirrors getTargetedWeaknessSet exactly — same thresholds,
+ * same union-of-patterns and union-of-styles construction. Pure read,
+ * no side effects, no shuffle. Two callers means two places that must
+ * stay in sync; the parity is pinned by tests.
+ *
+ * @param {object} args
+ * @param {Array} args.weakSkills — weakness objects (may carry missedPatterns)
+ * @param {string[]} [args.excludeIds] — IDs to subtract from pool sizes
+ * @returns {{tier: 'pattern'|'style'|'skill'|'empty', poolSize: number, matchedPatterns: string[], matchedStyles: string[]}}
+ *
+ * Tier values:
+ *   - 'pattern' — Tier 1 fires; pattern pool ≥ TIER1_PATTERN_THRESHOLD
+ *   - 'style'   — Tier 2 fires; pattern pool sub-threshold but derived
+ *                  style pool ≥ TIER2_STYLE_THRESHOLD
+ *   - 'skill'   — Tier 3 fires (legacy); skill-based pool is non-empty
+ *                  OR weakSkills has at least one entry (domain fallback)
+ *   - 'empty'   — no weakness inputs at all
+ */
+export const decideTier = ({ weakSkills = [], excludeIds = [] } = {}) => {
+  if (!Array.isArray(weakSkills) || weakSkills.length === 0) {
+    return { tier: 'empty', poolSize: 0, matchedPatterns: [], matchedStyles: [] };
+  }
+
+  // Tier 1 probe — exact pattern pool size
+  const patterns = weakSkills.flatMap(w =>
+    Array.isArray(w?.missedPatterns) ? w.missedPatterns : []
+  );
+  if (patterns.length) {
+    const pool = getQuestionsBySatPatterns(patterns, { excludeIds });
+    if (pool.length >= TIER1_PATTERN_THRESHOLD) {
+      return {
+        tier: 'pattern',
+        poolSize: pool.length,
+        matchedPatterns: [...new Set(patterns)],
+        matchedStyles: [],
+      };
+    }
+  }
+
+  // Tier 2 probe — derived style pool size
+  const derivedStyles = [...new Set(
+    patterns.map(p => patternToStyle.get(p)).filter(Boolean)
+  )];
+  if (derivedStyles.length) {
+    const pool = getQuestionsByStyles(derivedStyles, { excludeIds });
+    if (pool.length >= TIER2_STYLE_THRESHOLD) {
+      return {
+        tier: 'style',
+        poolSize: pool.length,
+        matchedPatterns: [...new Set(patterns)],
+        matchedStyles: derivedStyles,
+      };
+    }
+  }
+
+  // Tier 3 — skill-based; matches getTargetedWeaknessSet's fallthrough.
+  // We don't compute the actual skill pool size here (it's a separate
+  // accessor and somewhat expensive); poolSize=0 communicates "we don't
+  // know the size, only that this tier fires."
+  return {
+    tier: 'skill',
+    poolSize: 0,
+    matchedPatterns: [...new Set(patterns)],
+    matchedStyles: derivedStyles,
+  };
+};

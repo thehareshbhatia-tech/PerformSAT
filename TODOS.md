@@ -74,7 +74,9 @@ Tier-1 routing precision is now VISIBLE to students. With 75 Tier-1 patterns cov
 
 **Fix:** AssignedPracticeShell now checks `getBankRoutingStats().byPattern[slug] >= TIER1_PATTERN_THRESHOLD` before surfacing the chip. AdaptivePracticeShell already had this precision implicitly (`buildDomainAdaptiveQueueSeed` only attaches `missedPatterns` to the seed when its own pattern pool meets threshold).
 
-**Telemetry:** added `trackDrillStarted` + `trackDrillChipShown` to `analyticsService`. Both shells fire `drill_started` on mount with `{ tier: 'pattern'|'skill'|'unknown', pattern, section, source, questionCount }`. Lets us answer "does the chip fire often enough?" and later "do students complete more questions when the chip surfaces?" from the buffered analytics events.
+**Telemetry:** added `trackDrillStarted` + `trackDrillChipShown` to `analyticsService`. Both shells fire `drill_started` on mount with `{ tier: 'pattern'|'style'|'skill'|'empty', pattern, section, source, questionCount }`. Lets us answer "does the chip fire often enough?" and later "do students complete more questions when the chip surfaces?" from the buffered analytics events.
+
+**`decideTier({ weakSkills })`** added to `bank/index.js` as the source-of-truth tier classifier — mirrors `getTargetedWeaknessSet`'s cascade without selection. Both shells use it for the `tier` telemetry field. Parity with the actual routing function is pinned by 13 specs in `decideTier.test.js`.
 
 Chip-shown ≡ Tier-1 fired ≡ exact pattern match was viable. This effectively closes the "tierFired surfacing" follow-up — the chip is the visible tier indicator, the telemetry is the measurable one.
 

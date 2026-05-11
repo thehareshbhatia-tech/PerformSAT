@@ -2075,7 +2075,8 @@ export const geometryBank = [
     createdAt: '2026-05-11'
   },
   // ===== Phase 2 batch 9/1: triangle-angle-sum (7 items) =====
-  // Bank already has 1 item (bank-geo-XXX). Adding 7 to reach 8.
+  // Bank already has 2 items (bank-geo-001 easy, bank-geo-026 medium).
+  // Adding 7 reaches 9 — clear of TIER1_PATTERN_THRESHOLD = 8.
   // 5 test occurrences across M2Easy variants.
   { id: 'bank-geo-092', domain: 'geometry', skills: ['triangle-angle-sum'], difficulty: 'easy', type: 'multiple-choice',
     question: 'In triangle $ABC$, the measures of angles $A$ and $B$ are $50°$ and $70°$, respectively. What is the measure of angle $C$?',

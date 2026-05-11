@@ -9,6 +9,7 @@ import AnswerChoiceList from './shared/AnswerChoiceList';
 import { formatDiagnosticSentence } from '../services/diagnosticEngine';
 import { findRoundIndexForQuestion, computeRoundProgress } from '../services/buildRounds';
 import { getDrillChipForWeakness } from '../services/selectors/drillChip';
+import { decideTier } from '../data/questions/bank';
 import { trackDrillStarted, trackDrillChipShown } from '../services/analyticsService';
 import './AssignedPracticeShell.css';
 
@@ -160,9 +161,10 @@ const AssignedPracticeShell = ({
   const drillPatternSlug = drillChip?.slug || null;
 
   // Drill-launch + chip-shown telemetry. Fires once per shell mount.
-  // `tier` is 'pattern' when the chip is visible (precision-gated Tier 1
-  // confirmation), 'skill' when a weakness with skill but no viable pattern
-  // is driving the drill, 'unknown' otherwise (e.g., review-mode retry).
+  // Tier classification comes from `decideTier` — the source-of-truth
+  // cascade mirror of `getTargetedWeaknessSet`. So `tier: 'pattern'` here
+  // ≡ Tier 1 actually fired, `tier: 'style'` ≡ Tier 2 fired, etc. Pairs
+  // with `recovery_drill_done` downstream to measure completion-rate-by-tier.
   // Stable userId guard prevents anonymous mounts from logging.
   const drillStartTrackedRef = useRef(false);
   useEffect(() => {
@@ -174,12 +176,10 @@ const AssignedPracticeShell = ({
     const source = practiceState?.reviewMode
       ? 'review-retry'
       : (practiceState?.assignmentMeta?.source || 'assigned');
-    let tier = 'unknown';
-    if (drillPatternLabel) tier = 'pattern';
-    else if (weakness?.skillId || weakness?.skill) tier = 'skill';
+    const decision = weakness ? decideTier({ weakSkills: [weakness] }) : { tier: 'empty' };
     trackDrillStarted(uid, {
-      tier,
-      pattern: drillPatternSlug || null,
+      tier: decision.tier,
+      pattern: drillPatternSlug || decision.matchedPatterns?.[0] || null,
       section,
       source,
       questionCount: Array.isArray(questions) ? questions.length : 0,
