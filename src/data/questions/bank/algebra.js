@@ -3088,5 +3088,162 @@ export const algebraBank = [
     sourceStyleRef: 'function-evaluation',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+  // ===== Phase 2 batch 6/2: interpret-slope-in-context (7 items) =====
+  // Bank already has bank-alg-009 for this pattern (1 item). Adding 7 more
+  // for total of 8 (Tier 1 threshold).
+  // Pattern: real-world linear function f(t) = b + mt is given; question asks
+  // what the slope m represents in the scenario. 10 test occurrences across
+  // PT1, PT2, PT4, PT6, PT7, PT10, PT11 and friends. SAT Pattern title
+  // (verbatim): 'Interpret Slope in Context' → 'interpret-slope-in-context'.
+  {
+    id: 'bank-alg-139',
+    domain: 'algebra',
+    skills: ['slope-intercept-form'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'The function $V(t) = 50 + 8t$ models the volume, in liters, of water in a tank $t$ minutes after filling begins. What does the number $8$ represent in this context?',
+    choices: [
+      // distractor: 50 is the initial value, not the rate
+      { id: 'A', text: 'The volume of water in the tank before filling begins' },
+      { id: 'B', text: 'The number of liters added each minute' },
+      // distractor: treats 8 as an input value
+      { id: 'C', text: 'The volume of water in the tank after $8$ minutes' },
+      // distractor: inverts the rate
+      { id: 'D', text: 'The number of minutes needed to add $1$ liter' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Interpret Slope in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** In $V(t) = 50 + 8t$, the coefficient of $t$ is the rate of change: $8$ liters per minute.\n\n**The Full Solution:**\nThe function is in the form $V(t) = b + mt$, where $m = 8$ is the slope and $b = 50$ is the $V$-intercept. The slope tells us the rate of change: for each additional minute, the volume increases by $8$ liters.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — confuses the slope $8$ with the initial value $50$.\n* Choice C: "applies the inverse operation" — treats $8$ as an input value $t = 8$ instead of a rate.\n* Choice D: "applies the inverse operation" — inverts the rate (one liter per $1/8$ minute).\n\n**Test Day Takeaway:** In $y = b + mx$, the coefficient of the variable is ALWAYS the rate of change per unit of that variable. The constant is the starting value.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'interpret-slope-in-context',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-140',
+    domain: 'algebra',
+    skills: ['slope-intercept-form'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'A cell phone plan costs $C(m) = 25 + 0.10m$ dollars, where $m$ is the number of minutes used. What does the number $0.10$ represent in this context?',
+    choices: [
+      // distractor: confuses with the base fee
+      { id: 'A', text: 'The fixed monthly fee, in dollars' },
+      { id: 'B', text: 'The cost, in dollars, of each additional minute' },
+      // distractor: inverts the rate
+      { id: 'C', text: 'The number of minutes per dollar' },
+      // distractor: treats as a percent
+      { id: 'D', text: 'The percent discount on the monthly fee' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Interpret Slope in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** In $C(m) = 25 + 0.10m$, the coefficient of $m$ is the rate of change: $\\$0.10$ per minute.\n\n**The Full Solution:**\nThe function is in the form $C(m) = b + km$ where $k = 0.10$ is the slope and $b = 25$ is the fixed fee. The slope is the marginal cost: each additional minute adds $\\$0.10$ to the bill.\n\nVerification: at $m = 0$, $C = \\$25$ (the fixed fee). At $m = 10$, $C = 25 + 1 = \\$26$ — exactly $\\$1$ for $10$ minutes, confirming $\\$0.10$/minute \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — confuses the slope $0.10$ with the fixed fee $25$.\n* Choice C: "applies the inverse operation" — inverts the rate ($10$ minutes per dollar).\n* Choice D: "wrong formula" — treats the decimal as a percent.\n\n**Test Day Takeaway:** Cost functions: the COEFFICIENT of the variable is the marginal cost per unit. The CONSTANT is the fixed fee that you pay regardless of usage.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'interpret-slope-in-context',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-141',
+    domain: 'algebra',
+    skills: ['slope-intercept-form'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'The function $f(t) = 85 + 12t$ models the temperature, in degrees Fahrenheit, of a liquid $t$ minutes after heating begins. By how many degrees does the temperature increase each minute?',
+    correctAnswer: '12',
+    explanation: '**SAT Pattern: Interpret Slope in Context**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~10s):** The coefficient of $t$ is the rate: $12$ degrees per minute.\n\n**The Full Solution:**\nIn $f(t) = b + mt$, the slope $m$ is the per-unit rate of change of $f$. Here $m = 12$, so the temperature rises by $12$ degrees for each additional minute.\n\nVerification: $f(0) = 85$, $f(1) = 85 + 12 = 97$ — a $12$-degree increase in one minute \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $85$ — that\'s the initial temperature, not the rate.\n* Reporting $1/12$ — that would be how many degrees per "extra second" if minutes were inverted.\n* Reporting $97$ (the temperature after $1$ minute) instead of the CHANGE.\n\n**Test Day Takeaway:** "Per minute" means dividing by minutes. The coefficient of $t$ already has those units baked in: $[\\text{rate}] = [\\text{output units}] / [\\text{input units}]$.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'interpret-slope-in-context',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-142',
+    domain: 'algebra',
+    skills: ['slope-intercept-form'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'The function $T(t) = 200 - 15t$ models the temperature, in degrees Fahrenheit, of a pie $t$ minutes after it is removed from the oven. What does the number $15$ represent in this context?',
+    choices: [
+      // distractor: confuses with initial temperature
+      { id: 'A', text: 'The temperature of the pie when removed from the oven' },
+      { id: 'B', text: 'The number of degrees the pie cools each minute' },
+      // distractor: misses the sign
+      { id: 'C', text: 'The number of degrees the pie warms each minute' },
+      // distractor: inverts the rate
+      { id: 'D', text: 'The number of minutes for the pie to cool by $1$ degree' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Interpret Slope in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** In $T(t) = 200 - 15t$, the coefficient of $t$ is $-15$. The temperature DECREASES by $15$ degrees per minute. So "$15$" represents the cooling rate.\n\n**The Full Solution:**\nThe function is in the form $T(t) = b + mt$ with $m = -15$ and $b = 200$. The negative slope means the temperature decreases as time increases: the pie cools by $15$°F each minute.\n\nThe number "$15$" in the formula has the magnitude of the rate; the negative sign in $-15$ tells us the direction (cooling, not warming).\n\nVerification: $T(0) = 200$, $T(1) = 185$ — a $15$-degree drop \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — that\'s the initial value $200$, not the slope.\n* Choice C: "wrong sign" — flips the direction of cooling.\n* Choice D: "applies the inverse operation" — inverts the rate.\n\n**Test Day Takeaway:** Negative slope in a real-world context $\\Rightarrow$ the quantity is DECREASING. The magnitude $|m|$ is the rate of decrease per unit time.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'interpret-slope-in-context',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-143',
+    domain: 'algebra',
+    skills: ['slope-intercept-form'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'A savings account balance is modeled by $S(w) = 1200 + 75w$, where $w$ is the number of weeks since the account was opened. What does the number $75$ represent in this context?',
+    choices: [
+      // distractor: confuses with starting balance
+      { id: 'A', text: 'The initial balance, in dollars' },
+      { id: 'B', text: 'The amount deposited, in dollars, each week' },
+      // distractor: treats as a total
+      { id: 'C', text: 'The total amount deposited so far, in dollars' },
+      // distractor: inverts the rate
+      { id: 'D', text: 'The number of weeks needed to save $1$ dollar' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Interpret Slope in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** In $S(w) = 1200 + 75w$, the coefficient of $w$ is the rate: $\\$75$ per week.\n\n**The Full Solution:**\nThe function is in the form $S(w) = b + mw$ where $m = 75$ is the per-week deposit and $b = 1200$ is the starting balance.\n\nVerification: $S(0) = \\$1200$ (initial). $S(1) = 1275$, increase of $\\$75$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — confuses the slope with the initial balance ($\\$1200$).\n* Choice C: "stops one step early" — total deposits depend on $w$, not just the rate.\n* Choice D: "applies the inverse operation" — inverts the rate.\n\n**Test Day Takeaway:** Whenever a real-world balance formula has the form (initial) $+$ (rate)$\\times$(time), the COEFFICIENT of time is always the per-unit change.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'interpret-slope-in-context',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-144',
+    domain: 'algebra',
+    skills: ['slope-intercept-form'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'The distance, in miles, that a car has traveled is modeled by $D(t) = 60t + 8$, where $t$ is the time in hours since the trip started. What does the number $8$ represent in this context?',
+    choices: [
+      // distractor: confuses with slope
+      { id: 'A', text: 'The speed of the car, in miles per hour' },
+      { id: 'B', text: 'The distance, in miles, the car had already traveled when the trip started' },
+      // distractor: input at unit time
+      { id: 'C', text: 'The distance traveled after $8$ hours' },
+      // distractor: wrong formula
+      { id: 'D', text: 'The number of hours needed to travel $1$ mile' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Interpret Slope in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** In $D(t) = 60t + 8$, the constant $8$ is the $D$-intercept: distance at $t = 0$. So $8$ is the distance ALREADY traveled before the trip started (the "head start").\n\n**The Full Solution:**\nThe function is in the form $D(t) = mt + b$ where $m = 60$ is the speed (slope) and $b = 8$ is the $D$-intercept. The intercept tells us the value of $D$ when $t = 0$: $D(0) = 60(0) + 8 = 8$.\n\nSo when the timer "starts," the car was already $8$ miles into its journey. The $60$ is the SPEED (miles per hour), not the intercept.\n\nVerification: at $t = 0$, $D = 8$ — initial distance \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — that\'s the slope ($60$), not the intercept.\n* Choice C: "applies the inverse operation" — treats $8$ as an input $t = 8$, not a constant.\n* Choice D: "applies the inverse operation" — inverts a non-rate.\n\n**Test Day Takeaway:** When the equation has the form $f(t) = mt + b$, the SLOPE $m$ is the rate (per-unit change) and the INTERCEPT $b$ is the starting value. Same role even when the constant is on the right of the slope term.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'interpret-slope-in-context',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-145',
+    domain: 'algebra',
+    skills: ['slope-intercept-form'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'The value of a car, in dollars, is modeled by $V(y) = 24000 - 1800y$, where $y$ is the number of years since the car was purchased. By how many dollars does the value of the car decrease each year?',
+    correctAnswer: '1800',
+    explanation: '**SAT Pattern: Interpret Slope in Context**\n\n**The correct answer is $1800$.**\n\n**The Fast Way (~10s):** The coefficient of $y$ is $-1800$. The car DECREASES by $1800$ dollars per year, so the decrease per year is $1800$.\n\n**The Full Solution:**\nIn $V(y) = 24000 - 1800y$, the function has the form $V(y) = b + my$ with $m = -1800$ and $b = 24000$. The negative slope means the value drops as years pass; the magnitude $|m| = 1800$ is the per-year decrease.\n\nVerification: $V(0) = 24000$, $V(1) = 22200$ — a $\\$1800$ drop in one year \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $-1800$ — the question asks "by how many" (a positive magnitude).\n* Reporting $24000$ — that\'s the initial value, not the rate.\n* Reporting $22200$ ($V$ at $y = 1$) instead of the CHANGE.\n\n**Test Day Takeaway:** "By how many" or "decrease by" expects a POSITIVE answer — the magnitude of the change. The negative sign in the formula tells you the direction; you don\'t carry it into the answer.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'interpret-slope-in-context',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
