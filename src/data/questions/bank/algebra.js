@@ -2765,5 +2765,167 @@ export const algebraBank = [
     sourceStyleRef: 'system-of-equations-elimination',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+  // ===== Phase 2 batch 5/4: system-equivalence-check (8 items) =====
+  // Pattern: equation/system has infinitely many solutions ⟺ identical after
+  // simplification (or proportional coefficients AND constants).
+  // 7 test occurrences across PT1, PT5, PT6, PT9, PT10, PT11, PT12.
+  // SAT Pattern title (verbatim): 'System Equivalence Check' →
+  // kebab 'system-equivalence-check'.
+  {
+    id: 'bank-alg-123',
+    domain: 'algebra',
+    skills: ['system-solution-types', 'infinite-solutions-condition'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'The equation $3(4x - 2) + 6 = 12x + k$ has infinitely many solutions. What is the value of $k$?',
+    choices: [
+      { id: 'A', text: '$0$' },
+      // distractor: forgets to add 6 (so reports -6)
+      { id: 'B', text: '$-6$' },
+      // distractor: sign flip
+      { id: 'C', text: '$6$' },
+      // distractor: drops the distribution
+      { id: 'D', text: '$-2$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: System Equivalence Check**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Expand the left side: $3(4x - 2) + 6 = 12x - 6 + 6 = 12x$. For infinitely many solutions, $12x = 12x + k$ must hold for ALL $x$, so $k = 0$.\n\n**The Full Solution:**\nSimplify the left side first:\n$3(4x - 2) + 6 = 12x - 6 + 6 = 12x$.\n\nSet the simplified equation: $12x = 12x + k$.\n\nFor this to be true for EVERY $x$, the constants on both sides must match. Since the constant on the left is $0$, $k = 0$.\n\nVerification: with $k = 0$, the equation is $12x = 12x$, true for every $x$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — reports the partial result $-6$ before adding the $+6$.\n* Choice C: "wrong sign" — sign flip when matching constants.\n* Choice D: "wrong base" — picks the $-2$ from inside the parentheses without scaling by $3$.\n\n**Test Day Takeaway:** Infinitely many solutions $\\iff$ the equation simplifies to an IDENTITY (same expression on both sides). Match the coefficient on $x$ AND the constant term.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'system-equivalence-check',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-124',
+    domain: 'algebra',
+    skills: ['system-solution-types', 'infinite-solutions-condition'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'The equation $2(5x + 4) - 3 = 10x + b$ has infinitely many solutions. What is the value of $b$?',
+    correctAnswer: '5',
+    explanation: '**SAT Pattern: System Equivalence Check**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~15s):** Expand: $2(5x + 4) - 3 = 10x + 8 - 3 = 10x + 5$. So $b = 5$.\n\n**The Full Solution:**\nSimplify the left side:\n$2(5x + 4) - 3 = 10x + 8 - 3 = 10x + 5$.\n\nThe equation becomes $10x + 5 = 10x + b$.\n\nFor infinitely many solutions, both sides must be identical for every $x$. The coefficient on $x$ already matches ($10 = 10$). The constants must match: $b = 5$.\n\nVerification: with $b = 5$, left $= 10x + 5 = $ right \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing $8 - 3 = 11$ (sign error) and reporting $b = 11$.\n* Forgetting to distribute the $2$: getting $5x + 8 - 3 = 5x + 5$ and reporting $b = 5$ for the wrong reason.\n* Mismatching the $x$ coefficient with the constant.\n\n**Test Day Takeaway:** Simplify each side FIRST (distribute, combine constants). Then match coefficient on each variable AND the constant separately.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'system-equivalence-check',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-125',
+    domain: 'algebra',
+    skills: ['system-solution-types', 'infinite-solutions-condition'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'For what value of $m$ does the system below have infinitely many solutions?\n\n$3x + 5y = 9$\n$6x + 10y = m$',
+    choices: [
+      { id: 'A', text: '$18$' },
+      // distractor: doesn't scale at all
+      { id: 'B', text: '$9$' },
+      // distractor: triples instead of doubles
+      { id: 'C', text: '$27$' },
+      // distractor: uses different ratio
+      { id: 'D', text: '$3$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: System Equivalence Check**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** The coefficients of the second equation are $2\\times$ those of the first ($6 = 2 \\cdot 3$, $10 = 2 \\cdot 5$). For infinitely many solutions, the constant must also scale by $2$: $m = 2 \\cdot 9 = 18$.\n\n**The Full Solution:**\nFor infinitely many solutions, the two equations must represent the SAME line — one is a scalar multiple of the other.\n\nMultiply the first equation by $2$:\n$2(3x + 5y) = 2 \\cdot 9$\n$6x + 10y = 18$.\n\nThis must match the second equation $6x + 10y = m$. So $m = 18$.\n\nVerification: at $m = 18$, both equations represent the line $3x + 5y = 9$ — every point on it is a solution \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — reports the original constant $9$ without scaling.\n* Choice C: "wrong base" — uses the wrong multiplier ($3 \\times 9 = 27$).\n* Choice D: "applies the inverse operation" — divides instead of multiplies.\n\n**Test Day Takeaway:** Same line $\\iff$ ALL three of $(a, b, c)$ in $ax + by = c$ scale by the same factor. Identify the multiplier from the coefficients first, then apply it to the constant.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'system-equivalence-check',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-126',
+    domain: 'algebra',
+    skills: ['system-solution-types', 'infinite-solutions-condition'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'For what value of $c$ does the system below have infinitely many solutions?\n\n$-4x + 6y = 8$\n$2x - 3y = c$',
+    correctAnswer: '-4',
+    explanation: '**SAT Pattern: System Equivalence Check**\n\n**The correct answer is $-4$.**\n\n**The Fast Way (~20s):** The second equation\'s coefficients are $-\\dfrac{1}{2}$ times the first ($2 = -\\dfrac{1}{2}(-4)$, $-3 = -\\dfrac{1}{2}(6)$). So $c = -\\dfrac{1}{2}(8) = -4$.\n\n**The Full Solution:**\nFor infinitely many solutions, one equation is a scalar multiple of the other.\n\nMultiply the first equation by $-\\dfrac{1}{2}$:\n$-\\dfrac{1}{2}(-4x + 6y) = -\\dfrac{1}{2}(8)$\n$2x - 3y = -4$.\n\nMatching against $2x - 3y = c$ gives $c = -4$.\n\nVerification: at $c = -4$, multiplying the second by $-2$ gives $-4x + 6y = 8$ — identical to the first \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using the wrong sign on the multiplier: $\\dfrac{1}{2}$ instead of $-\\dfrac{1}{2}$, getting $c = 4$.\n* Multiplying the constant by $2$ instead of $\\dfrac{1}{2}$.\n* Skipping the sign comparison on coefficients.\n\n**Test Day Takeaway:** When equation coefficients differ in sign, the multiplier is NEGATIVE. The constant must scale by the same NEGATIVE factor.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'system-equivalence-check',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-127',
+    domain: 'algebra',
+    skills: ['system-solution-types', 'infinite-solutions-condition'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'For what value of $k$ does the equation $4(x - 2) + 3 = 2(2x - k)$ have infinitely many solutions?',
+    choices: [
+      { id: 'A', text: '$\\dfrac{5}{2}$' },
+      // distractor: forgets to negate
+      { id: 'B', text: '$-\\dfrac{5}{2}$' },
+      // distractor: drops the +3 term
+      { id: 'C', text: '$4$' },
+      // distractor: wrong simplification
+      { id: 'D', text: '$5$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: System Equivalence Check**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Simplify both sides. LHS $= 4x - 8 + 3 = 4x - 5$. RHS $= 4x - 2k$. For the constants to match: $-2k = -5 \\Rightarrow k = \\dfrac{5}{2}$.\n\n**The Full Solution:**\nSimplify the left side:\n$4(x - 2) + 3 = 4x - 8 + 3 = 4x - 5$.\n\nSimplify the right side:\n$2(2x - k) = 4x - 2k$.\n\nFor infinitely many solutions, both sides must be identical. The $x$ coefficients already match ($4 = 4$). Match the constants:\n$-5 = -2k$\n$k = \\dfrac{5}{2}$.\n\nVerification: with $k = 5/2$, RHS $= 4x - 5$, identical to LHS \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong sign" — solves $-5 = -2k$ as $k = -5/2$ by canceling the negatives incorrectly.\n* Choice C: "wrong base" — picks the coefficient $4$ as the answer.\n* Choice D: "stops one step early" — reports $-5$\'s absolute value before dividing by $2$.\n\n**Test Day Takeaway:** When BOTH sides have parentheses, distribute both, then collect like terms before matching coefficients. Don\'t try to compare un-simplified forms.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'system-equivalence-check',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-128',
+    domain: 'algebra',
+    skills: ['system-solution-types', 'infinite-solutions-condition'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'The equation $\\dfrac{1}{2}(6x + 8) = 3x + c$ has infinitely many solutions. What is the value of $c$?',
+    correctAnswer: '4',
+    explanation: '**SAT Pattern: System Equivalence Check**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~10s):** $\\dfrac{1}{2}(6x + 8) = 3x + 4$. So $c = 4$.\n\n**The Full Solution:**\nDistribute on the left side:\n$\\dfrac{1}{2}(6x + 8) = \\dfrac{1}{2}(6x) + \\dfrac{1}{2}(8) = 3x + 4$.\n\nThe equation becomes $3x + 4 = 3x + c$.\n\nFor infinitely many solutions, the constants must match: $c = 4$.\n\nVerification: with $c = 4$, both sides equal $3x + 4$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting to distribute the $\\dfrac{1}{2}$ to BOTH terms (taking $6x + 4$ instead of $3x + 4$).\n* Computing $\\dfrac{1}{2} \\cdot 8 = 8$ (forgetting the half).\n* Reporting $c = 8$ (using the un-halved constant).\n\n**Test Day Takeaway:** Distribute the fraction to EACH term inside the parentheses. $\\dfrac{1}{2}(6x + 8) \\ne 6x + 4$.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'system-equivalence-check',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-129',
+    domain: 'algebra',
+    skills: ['system-solution-types', 'infinite-solutions-condition'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'The system below has infinitely many solutions. What is the value of $m \\cdot n$?\n\n$mx + 2y = 4$\n$6x + ny = 12$',
+    choices: [
+      { id: 'A', text: '$12$' },
+      // distractor: m + n instead of m * n
+      { id: 'B', text: '$8$' },
+      // distractor: wrong multiplier
+      { id: 'C', text: '$6$' },
+      // distractor: drops scaling on n
+      { id: 'D', text: '$4$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: System Equivalence Check**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** The constant ratio is $12/4 = 3$, so the second equation is $3\\times$ the first. So $6 = 3m \\Rightarrow m = 2$, and $n = 3 \\cdot 2 = 6$. Product $mn = 12$.\n\n**The Full Solution:**\nFor infinitely many solutions, one equation is a scalar multiple of the other. The constants give the multiplier: $12 \\div 4 = 3$. So the second equation $= 3 \\times$ the first equation:\n$3(mx + 2y) = 3 \\cdot 4$\n$3mx + 6y = 12$.\n\nMatch against $6x + ny = 12$:\n* $x$ coefficient: $3m = 6 \\Rightarrow m = 2$.\n* $y$ coefficient: $6 = n \\Rightarrow n = 6$.\n\nProduct: $m \\cdot n = 2 \\cdot 6 = 12$.\n\nVerification: with $m = 2$, $n = 6$: first is $2x + 2y = 4$, second is $6x + 6y = 12$. Divide second by $3$: $2x + 2y = 4$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — adds $m + n = 8$ instead of multiplying.\n* Choice C: "wrong base" — uses $n = 6$ directly as the answer (drops $m$).\n* Choice D: "stops one step early" — uses the constant $4$ directly.\n\n**Test Day Takeaway:** Two unknowns in a system equivalence problem: solve them ONE AT A TIME using the same multiplier. Identify the scalar from the cleanest pair (often the constants).',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'system-equivalence-check',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-130',
+    domain: 'algebra',
+    skills: ['system-solution-types', 'infinite-solutions-condition'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'If the equation $a(x - 4) + 7 = 5x + b$ has infinitely many solutions, what is the value of $a + b$?',
+    correctAnswer: '-8',
+    explanation: '**SAT Pattern: System Equivalence Check**\n\n**The correct answer is $-8$.**\n\n**The Fast Way (~30s):** Expand: $ax - 4a + 7 = 5x + b$. Match: $a = 5$ (coefficients), $-4a + 7 = b$ (constants). With $a = 5$: $b = -20 + 7 = -13$. Sum $a + b = 5 + (-13) = -8$.\n\n**The Full Solution:**\nExpand the left side:\n$a(x - 4) + 7 = ax - 4a + 7$.\n\nThe equation is $ax - 4a + 7 = 5x + b$.\n\nFor infinitely many solutions, BOTH the coefficient on $x$ AND the constant must match:\n* Coefficients: $a = 5$.\n* Constants: $-4a + 7 = b$. Substituting $a = 5$: $b = -20 + 7 = -13$.\n\nSum: $a + b = 5 + (-13) = -8$.\n\nVerification: with $a = 5$, $b = -13$: LHS $= 5(x - 4) + 7 = 5x - 20 + 7 = 5x - 13$, RHS $= 5x - 13$. Identical for every $x$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting that BOTH coefficient AND constant must match (solving only one).\n* Computing $-4(5) = -20$ but writing $b = -20$ (forgetting the $+7$).\n* Adding incorrectly: $5 + 13 = 18$ instead of $5 + (-13) = -8$.\n\n**Test Day Takeaway:** When the parameter appears in BOTH the coefficient AND the constant, solve the coefficient equation FIRST, then substitute to find the other parameter. Two unknowns, two conditions.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'system-equivalence-check',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
