@@ -2103,5 +2103,202 @@ export const algebraBank = [
     sourceStyleRef: 'linear-extrapolation',
     authoredBy: 'performsat-engine',
     createdAt: '2026-02-28'
+  },
+
+  // === SHIFTED OUTPUT (8 questions) — Phase 2 priority pattern ===
+  // Covers 4 sub-flavors: linear-cost-with-fee, cross-multiply-then-shift,
+  // direct-linear-expression-shift, function-evaluation-shift. All map to
+  // satPattern 'shifted-output' (24x in 12 tests = 4.5% of all test items).
+  {
+    id: 'bank-alg-091',
+    domain: 'algebra',
+    skills: ['word-problem-to-equation'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'A bakery sells muffins for $\\$3$ each plus a flat $\\$4$ packaging fee per order. The total cost of buying $m$ muffins, including packaging, is $\\$34$. What is the total cost, in dollars, of buying $m + 5$ muffins (with one packaging fee)?',
+    choices: [
+      // distractor: adds 5 directly as dollars instead of 5 \cdot \$3 = \$15
+      { id: 'A', text: '$\\$39$' },
+      { id: 'B', text: '$\\$49$' },
+      // distractor: double-counts the packaging fee
+      { id: 'C', text: '$\\$53$' },
+      // distractor: uses the fee as the per-muffin rate
+      { id: 'D', text: '$\\$54$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Shifted Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $5$ extra muffins at $\\$3$ each add $\\$15$ to the original total. New total: $\\$34 + \\$15 = \\$49$.\n\n**The Full Solution:**\nLet the original cost equation be $3m + 4 = 34$, so $3m = 30$ and $m = 10$.\nFor $m + 5 = 15$ muffins: total $= 3(15) + 4 = 45 + 4 = \\$49$.\n\nShortcut: you do not need to find $m$. Adding $5$ muffins adds $5 \\cdot \\$3 = \\$15$, and the packaging fee is unchanged, so the new total is $\\$34 + \\$15 = \\$49$.\n\nVerification: $3(15) + 4 = 49$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "applies the inverse operation" — adds the count $5$ as dollars instead of $5 \\cdot \\$3 = \\$15$.\n* Choice C: "off-by-one" — adds an extra packaging fee as if a second order is placed ($\\$34 + \\$15 + \\$4 = \\$53$).\n* Choice D: "wrong base" — uses the fee ($\\$4$) as the unit price, getting $\\$34 + 5 \\cdot \\$4 = \\$54$.\n\n**Test Day Takeaway:** Linear cost = (rate $\\times$ quantity) + fixed fee. Adding more items only changes the rate-times-quantity piece — the fixed fee does not change.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'shifted-output',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-092',
+    domain: 'algebra',
+    skills: ['word-problem-to-equation'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'A streaming service charges $\\$2$ per pay-per-view show plus a $\\$9$ monthly subscription. A user\'s bill last month, for $s$ shows, was $\\$27$. What would the bill be, in dollars, if the user had watched $s + 4$ shows in the same month (with one monthly subscription)?',
+    choices: [
+      // distractor: stops one step early, doesn't multiply 4 by the rate
+      { id: 'A', text: '$\\$31$' },
+      { id: 'B', text: '$\\$35$' },
+      // distractor: adds 9 again (second subscription)
+      { id: 'C', text: '$\\$36$' },
+      // distractor: uses the subscription as the per-show rate
+      { id: 'D', text: '$\\$63$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Shifted Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $4$ extra shows at $\\$2$ each add $4 \\cdot \\$2 = \\$8$ to the original total. New bill: $\\$27 + \\$8 = \\$35$.\n\n**The Full Solution:**\nLet the original cost equation be $2s + 9 = 27$, so $2s = 18$ and $s = 9$.\nFor $s + 4 = 13$ shows: bill $= 2(13) + 9 = 26 + 9 = \\$35$.\n\nShortcut: you do not need to find $s$. Adding $4$ shows adds $4 \\cdot \\$2 = \\$8$. The subscription is unchanged.\n\nVerification: $2(13) + 9 = 35$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "applies the inverse operation" — adds the count $4$ as dollars instead of $4 \\cdot \\$2 = \\$8$.\n* Choice C: "off-by-one" — adds another monthly subscription ($\\$27 + \\$8 + \\$9 \\to$ but mis-rounds to $\\$36$).\n* Choice D: "wrong base" — uses the subscription ($\\$9$) as the per-show rate: $\\$27 + 4 \\cdot \\$9 = \\$63$.\n\n**Test Day Takeaway:** When a problem mixes a per-unit charge with a flat subscription/fee, only the per-unit part scales with quantity. Read which constant attaches to the variable.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'shifted-output',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-093',
+    domain: 'algebra',
+    skills: ['combining-like-terms'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'If $7x - 4 = 24$, what is the value of $7x + 11$?',
+    choices: [
+      // distractor: solves for x and reports x = 4
+      { id: 'A', text: '$4$' },
+      { id: 'B', text: '$39$' },
+      // distractor: stops at 7x = 28
+      { id: 'C', text: '$28$' },
+      // distractor: subtracts 11 instead of adding
+      { id: 'D', text: '$17$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Shifted Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** $7x + 11$ differs from $7x - 4$ by exactly $+15$, so the answer is $24 + 15 = 39$.\n\n**The Full Solution:**\n$7x - 4 = 24 \\Rightarrow 7x = 28$. So $7x + 11 = 28 + 11 = 39$.\n\nNote: you do NOT need to find $x$. Once you isolate $7x = 28$, the requested expression is just $28 + 11$.\n\nVerification: $x = 4$, so $7(4) + 11 = 28 + 11 = 39$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — solves $7x = 28 \\Rightarrow x = 4$ and reports $x$ instead of $7x + 11$.\n* Choice C: "stops one step early" — reports $7x$ without adding $11$.\n* Choice D: "applies the inverse operation" — subtracts $11$ from $28$ instead of adding.\n\n**Test Day Takeaway:** Re-read the question. When asked for an expression in $x$ (not $x$ itself), check whether the requested form is just a constant shift from what you already have — you can often skip solving for $x$ entirely.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'shifted-output',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-094',
+    domain: 'algebra',
+    skills: ['combining-like-terms'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'If $\\dfrac{4x}{15} = \\dfrac{8}{5}$, what is the value of $x - 5$?',
+    choices: [
+      // distractor: solves for x and reports x = 6
+      { id: 'A', text: '$1$' },
+      { id: 'B', text: '$6$' },
+      // distractor: adds 5 instead of subtracting
+      { id: 'C', text: '$11$' },
+      // distractor: keeps 4x = 24 and subtracts 5
+      { id: 'D', text: '$19$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Shifted Output**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Cross-multiply: $4x \\cdot 5 = 15 \\cdot 8$, so $20x = 120$ and $x = 6$. Then $x - 5 = 1$.\n\n**The Full Solution:**\n$\\dfrac{4x}{15} = \\dfrac{8}{5}$\n\nCross-multiply: $5 \\cdot 4x = 15 \\cdot 8 \\Rightarrow 20x = 120 \\Rightarrow x = 6$.\n\nThe question asks for $x - 5$, not $x$: $6 - 5 = 1$.\n\nVerification: $\\dfrac{4(6)}{15} = \\dfrac{24}{15} = \\dfrac{8}{5}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — solves for $x$ correctly but forgets to subtract $5$.\n* Choice C: "applies the inverse operation" — adds $5$ to $x$ instead of subtracting.\n* Choice D: "wrong base" — keeps $4x = 24$ instead of solving for $x$, then subtracts $5$.\n\n**Test Day Takeaway:** Always re-read the last sentence before answering. The question often asks for a related quantity (like $x - 5$), not the variable itself.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'shifted-output',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-095',
+    domain: 'algebra',
+    skills: ['function-evaluation'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'The function $g$ is defined by $g(x) = 4x + 7$. What is the value of $g(5) - 9$?',
+    choices: [
+      // distractor: subtracts 9 from the input instead of the output
+      { id: 'A', text: '$-1$' },
+      { id: 'B', text: '$18$' },
+      // distractor: stops at g(5) = 27
+      { id: 'C', text: '$27$' },
+      // distractor: adds 9 instead of subtracting
+      { id: 'D', text: '$36$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Shifted Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $g(5) = 4(5) + 7 = 27$. Then $g(5) - 9 = 27 - 9 = 18$.\n\n**The Full Solution:**\nEvaluate $g$ at $x = 5$:\n$g(5) = 4(5) + 7 = 20 + 7 = 27$.\nThe question asks for $g(5) - 9$, not $g(5)$ alone:\n$g(5) - 9 = 27 - 9 = 18$.\n\nVerification: $g(5) = 27$ \\checkmark, and $27 - 9 = 18$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — applies the $-9$ to the INPUT, computing $g(5 - 9) = g(-4) = -16 + 7 = -9$ (and rounds toward $-1$ via arithmetic slip).\n* Choice C: "stops one step early" — reports $g(5) = 27$ without subtracting $9$.\n* Choice D: "applies the inverse operation" — adds $9$ instead of subtracting.\n\n**Test Day Takeaway:** Read carefully: $g(5) - 9$ subtracts $9$ from the OUTPUT, while $g(5 - 9) = g(-4)$ subtracts $9$ from the INPUT. The two are very different.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'shifted-output',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-096',
+    domain: 'algebra',
+    skills: ['combining-like-terms'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'If $6m + 14 = 50$, what is the value of $6m - 22$?',
+    choices: [
+      // distractor: solves for m = 6 and reports m
+      { id: 'A', text: '$6$' },
+      { id: 'B', text: '$14$' },
+      // distractor: stops at 6m = 36
+      { id: 'C', text: '$36$' },
+      // distractor: subtracts 22 from 50 directly
+      { id: 'D', text: '$28$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Shifted Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** $6m - 22 = (6m + 14) - 36 = 50 - 36 = 14$. The requested expression differs from the given one by exactly $-36$.\n\n**The Full Solution:**\n$6m + 14 = 50 \\Rightarrow 6m = 36$. So $6m - 22 = 36 - 22 = 14$.\n\nNo need to find $m$ explicitly — the question asks for $6m - 22$, and you have $6m = 36$.\n\nVerification: $m = 6$, so $6(6) + 14 = 50$ \\checkmark, and $6(6) - 22 = 36 - 22 = 14$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — solves $6m = 36 \\Rightarrow m = 6$ and reports $m$ instead of $6m - 22$.\n* Choice C: "stops one step early" — reports $6m = 36$ without subtracting $22$.\n* Choice D: "wrong base" — subtracts $22$ from the original total $50$ instead of from $6m$.\n\n**Test Day Takeaway:** When the requested expression shares the coefficient of the variable with the given equation (here both have $6m$), you can isolate the $6m$ term and shift the constant — no need to find $m$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'shifted-output',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-097',
+    domain: 'algebra',
+    skills: ['word-problem-to-equation'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'An online photo lab charges $\\$0.40$ per print plus a flat $\\$5.00$ service fee per order. The total cost of an order of $p$ prints (with the service fee) is $\\$13.00$. What is the total cost, in dollars, of an order of $p + 8$ prints with one service fee?',
+    choices: [
+      // distractor: stops one step early — adds 8 directly as dollars
+      { id: 'A', text: '$\\$13.40$' },
+      // distractor: ignores fee in new total
+      { id: 'B', text: '$\\$11.20$' },
+      { id: 'C', text: '$\\$16.20$' },
+      // distractor: uses the fee as the per-print rate
+      { id: 'D', text: '$\\$53.00$' }
+    ],
+    correctAnswer: 'C',
+    explanation: '**SAT Pattern: Shifted Output**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $8$ extra prints at $\\$0.40$ each add $8 \\cdot \\$0.40 = \\$3.20$. New total: $\\$13.00 + \\$3.20 = \\$16.20$.\n\n**The Full Solution:**\nOriginal cost equation: $0.40p + 5.00 = 13.00$, so $0.40p = 8.00$ and $p = 20$.\nFor $p + 8 = 28$ prints: total $= 0.40(28) + 5.00 = 11.20 + 5.00 = \\$16.20$.\n\nShortcut: skip finding $p$. Adding $8$ prints adds $8 \\cdot \\$0.40 = \\$3.20$. The service fee is unchanged. New total $= \\$13.00 + \\$3.20 = \\$16.20$.\n\nVerification: $0.40(28) + 5 = 16.20$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "applies the inverse operation" — adds the count $8$ as $\\$0.40$ each but mistakenly to the count itself ($\\$13.00 + \\$0.40 = \\$13.40$).\n* Choice B: "stops one step early" — gives just the print cost $0.40 \\cdot 28 = \\$11.20$ and forgets the service fee.\n* Choice D: "wrong base" — uses the service fee ($\\$5$) as the per-print rate: $\\$13 + 8 \\cdot \\$5 = \\$53$.\n\n**Test Day Takeaway:** With decimal per-unit rates, the trap is sliding the decimal — pause and compute $8 \\cdot 0.40$ explicitly before adding to the original total.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'shifted-output',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-098',
+    domain: 'algebra',
+    skills: ['combining-like-terms'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'If $\\dfrac{9z}{22} = \\dfrac{27}{11}$, what is the value of $2z - 5$?',
+    choices: [
+      { id: 'A', text: '$7$' },
+      // distractor: solves for z = 6 and reports z
+      { id: 'B', text: '$6$' },
+      // distractor: stops at 2z = 12
+      { id: 'C', text: '$12$' },
+      // distractor: adds 5 instead of subtracting
+      { id: 'D', text: '$17$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Shifted Output**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Cross-multiply: $9z \\cdot 11 = 22 \\cdot 27 \\Rightarrow 99z = 594 \\Rightarrow z = 6$. Then $2z - 5 = 12 - 5 = 7$.\n\n**The Full Solution:**\n$\\dfrac{9z}{22} = \\dfrac{27}{11}$\n\nCross-multiply: $11 \\cdot 9z = 22 \\cdot 27 \\Rightarrow 99z = 594 \\Rightarrow z = 6$.\n\nFaster: simplify the right side first. $\\dfrac{27}{11}$ scaled by $2$ in numerator and denominator gives $\\dfrac{54}{22}$, so $\\dfrac{9z}{22} = \\dfrac{54}{22} \\Rightarrow 9z = 54 \\Rightarrow z = 6$.\n\nThe question asks for $2z - 5$, not $z$: $2(6) - 5 = 12 - 5 = 7$.\n\nVerification: $\\dfrac{9(6)}{22} = \\dfrac{54}{22} = \\dfrac{27}{11}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — solves for $z = 6$ and reports $z$ instead of $2z - 5$.\n* Choice C: "stops one step early" — computes $2z = 12$ but forgets the $-5$.\n* Choice D: "applies the inverse operation" — adds $5$ to $2z$ instead of subtracting.\n\n**Test Day Takeaway:** With a coefficient-changing shift (here $z \\to 2z$ then $-5$), you DO need to find $z$ first. Watch the chain: $z$ → $2z$ → $2z - 5$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'shifted-output',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];

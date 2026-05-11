@@ -1,4 +1,16 @@
 import { getBankRoutingStats, DRILL_ROUTING_THRESHOLDS } from '../index';
+import { algebraBank } from '../algebra';
+import { problemSolvingBank } from '../problemSolving';
+import { advancedMathBank } from '../advancedMath';
+import { geometryBank } from '../geometry';
+
+// Dynamic hand-authored count — grows as Phase 2 authoring lands.
+// Computed at test time so adding items doesn't require updating literals.
+const HAND_AUTHORED_COUNT =
+  algebraBank.length +
+  problemSolvingBank.length +
+  advancedMathBank.length +
+  geometryBank.length;
 
 describe('bank drill-routing indexes', () => {
   let stats;
@@ -33,11 +45,11 @@ describe('bank drill-routing indexes', () => {
 
     it('the byPattern counts sum to the hand-authored bank size', () => {
       const sum = Object.values(stats.byPattern).reduce((a, b) => a + b, 0);
-      // Hand-authored = 300. Some items may share a pattern, so
-      // distinctPatterns < 300, but the sum of all bucket sizes equals 300.
-      // Note: topic-flattened items don't have SAT Patterns and are not
-      // in patternIndex, so they don't contribute to this sum.
-      expect(sum).toBe(300);
+      // Some items may share a pattern, so distinctPatterns may be
+      // less than HAND_AUTHORED_COUNT, but the sum of all bucket sizes
+      // equals it. Topic-flattened items don't have SAT Patterns and
+      // are not in patternIndex, so they don't contribute to this sum.
+      expect(sum).toBe(HAND_AUTHORED_COUNT);
     });
   });
 
