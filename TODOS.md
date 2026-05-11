@@ -2,29 +2,31 @@
 
 ## Past-Test-Review
 
-### AbortController for in-flight test fetches
+### AbortController for in-flight test fetches — DECISION: DEFERRED (2026-05-11)
 
-**What:** Thread an `AbortSignal` through `services/diagnosticReportLoader.js::loadDiagnosticReportData` → `services/practiceTestService.js::loadAttemptSnapshot` so a rapidly-superseded fetch is actually cancelled at the Firestore layer.
+**Audit conclusion:** Firebase JS SDK v10.7.1 (current) does NOT accept `AbortSignal` on `getDoc()` or any other read primitive. There is no client-side cancellation API. Implementing an "abort wrapper" at the app level would:
 
-**Why:** The current request-ID guard (`reviewBundleRequestRef` in `App.jsx::handleSelectReviewTest`) prevents stale state — late-arriving results from older fetches are dropped. But the underlying Firestore `getDoc()` call still completes, wasting a read. On a slow network with rapid card-clicking, this adds up.
+  1. Drop the promise's result on signal (equivalent to what `reviewBundleRequestRef` already does — request-ID guard catches and discards stale data on arrival).
+  2. NOT save the Firestore read — the network call still completes server-side and the document is still billed.
+  3. Add code complexity (wrapper + signal threading through 2 service layers) for zero observable benefit.
 
-**Context:** Firestore's web SDK `getDoc` doesn't honor `AbortSignal` natively, so the implementation would wrap the promise + manual ignore-on-signal pattern (the network call still completes, but our code drops the result). Net behavior is equivalent to what `reviewBundleRequestRef` already does. The real win is in cost: every aborted fetch saves a Firestore read. Investigate whether Firestore SDK has native cancel support before implementing.
+The TODO's premise — that aborting saves cost — is incorrect given the current Firestore SDK. The cost-saving win requires either:
+- Firebase adding native cancel (not on their roadmap as of 2026-05),
+- Or replacing Firestore reads with a different transport (e.g., fetch + signed URLs), which is a much larger architectural change.
 
-**Effort:** M
-**Priority:** P3
-**Depends on:** None
+**Decision:** DEFER until either condition above changes. Re-evaluate when upgrading Firebase to v11+ — check release notes for cancel support.
 
-### Wire Try-Similar onto ReviewItemCard
+**Adjacent ideas that WOULD save reads (if cost becomes a real concern):**
+- Client-side dedupe: if the same `getDoc(refX)` is requested while one is in flight, return the same promise. Net: one read for N concurrent callers.
+- Debounce the trigger: 200-300ms debounce on `handleSelectReviewTest` would collapse rapid card-clicks BEFORE the fetch starts. Net: fewer reads when a user scrolls quickly past N cards.
 
-**What:** Wire an "Try a similar question" CTA on `ReviewItemCard` that calls `services/trySimilarService.js::pickSimilarQuestion` and launches a single-question `AssignedPracticeShell` session for the same skill.
+Both are different concerns from AbortController; either could be its own TODO if Firestore cost shows up in production.
 
-**Why:** Plan D4 explicitly endorsed Try-Similar on every ReviewItemCard. The retry-drill flow already has Try-Similar mid-session, but a user browsing wrong items without entering retry-drill should be able to drill more practice on a specific skill from the per-item view too.
+### Wire Try-Similar onto ReviewItemCard — DONE (2026-05-11, commit `c217ed9`)
 
-**Context:** Phase 6 of `docs/PAST_TEST_REVIEW_PLAN.md` originally scoped this in but it was deferred so the rest could ship. App.jsx already imports `pickSimilarQuestion`. Plumbing: pass `onTrySimilar` from App.jsx through to `ReviewItemCard`, on click call `pickSimilarQuestion({ currentQuestion: snapshotItem, excludeIds: [snapshotItem.id] })`, on success launch a 1-question `startAssignedPractice` session. The current code already drops the JSDoc/JSX for `onTrySimilar` (cleaner contract).
+`ReviewItemCard` now accepts an optional `onTrySimilar` prop. When provided, renders a "🔁 Try a similar question" CTA below the explanation. `App.jsx::handleTrySimilarFromReview` calls `pickSimilarQuestion({ currentQuestion: snapshotItem, excludeIds: [snapshotItem.id] })` and on success launches a 1-question `startAssignedPractice` session with `source: 'review-try-similar'`.
 
-**Effort:** S
-**Priority:** P3
-**Depends on:** None
+Distinct from the in-session `handleTrySimilar` (which inserts into the current drill) — this LAUNCHES a fresh practice flow from review mode.
 
 ## AI Tutor
 
