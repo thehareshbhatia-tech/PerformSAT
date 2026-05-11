@@ -748,6 +748,7 @@ const AssignedPracticeShell = ({
             embedded={true}
             headerCompact={true}
             standalone={false}
+            reviewMode={!!practiceState.reviewMode}
             skillProgress={skillProgress}
             testDate={user?.testDate}
             user={user}

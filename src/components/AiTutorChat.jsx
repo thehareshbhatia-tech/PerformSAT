@@ -204,6 +204,11 @@ const AiTutorChat = ({
   studentFingerprint = null,
   interventionLog = null,
   predictionLog = null,
+  // When true, suppresses cross-section proactive recommendations.
+  // In retry-drill review mode the snapshot items are mixed-section
+  // (e.g., reviewing an R&W item with Math skill drift advice → mismatch).
+  // See TODOS.md "Section context inside retry-drill review-mode" (P2).
+  reviewMode = false,
 }) => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
@@ -633,6 +638,14 @@ Your goal is to build their problem-solving instincts. Every question they solve
   useEffect(() => {
     if (!skillProgress || hintDismissed || messages.length > 0) return;
 
+    // Review-mode suppression (TODOS.md "Section context inside retry-drill
+    // review-mode", P2): in retry-drill review the snapshot questions are
+    // mixed-section, so any "Skill X has dropped to Y%" advice that doesn't
+    // match the visible question's section is noise. Suppress the proactive
+    // panel entirely during review mode — the student is in inspection mode,
+    // not learning mode.
+    if (reviewMode) return;
+
     // Check if we should offer a proactive hint for the current question
     if (isPracticeQuestion && practiceContext?.skills) {
       const hintCheck = shouldOfferProactiveHint(skillProgress, practiceContext.skills);
@@ -674,7 +687,7 @@ Your goal is to build their problem-solving instincts. Every question they solve
     if (rec) {
       setProactiveRec(rec);
     }
-  }, [skillProgress, isPracticeQuestion, practiceContext, testDate, hintDismissed, messages.length, practiceTestResults, learningMemory]);
+  }, [skillProgress, isPracticeQuestion, practiceContext, testDate, hintDismissed, messages.length, practiceTestResults, learningMemory, reviewMode]);
 
   // Track intervention when chat session reaches 4+ messages
   useEffect(() => {
