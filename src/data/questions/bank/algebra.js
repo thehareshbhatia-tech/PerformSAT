@@ -2927,5 +2927,166 @@ export const algebraBank = [
     sourceStyleRef: 'system-equivalence-check',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+  // ===== Phase 2 batch 6/1: function-evaluation (8 items) =====
+  // Pattern: evaluate a function at a given input. Spans linear, quadratic, and
+  // exponential function definitions. 15 test occurrences (highest-frequency
+  // uncovered pattern after batches 1-5). SAT Pattern title (verbatim):
+  // 'Function Evaluation' → kebab 'function-evaluation'.
+  {
+    id: 'bank-alg-131',
+    domain: 'algebra',
+    skills: ['function-evaluation'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'The function $f$ is defined by $f(x) = 3x + 7$. What is the value of $f(4)$?',
+    choices: [
+      { id: 'A', text: '$19$' },
+      // distractor: adds the input to the constant directly
+      { id: 'B', text: '$11$' },
+      // distractor: multiplies but doesn't add
+      { id: 'C', text: '$12$' },
+      // distractor: forgets the constant
+      { id: 'D', text: '$21$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Function Evaluation**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $f(4) = 3(4) + 7 = 12 + 7 = 19$.\n\n**The Full Solution:**\nSubstitute $x = 4$ into the formula:\n$f(4) = 3(4) + 7 = 12 + 7 = 19$.\n\nVerification: at $x = 4$, $3x = 12$ and adding $7$ gives $19$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — adds the constant to the input directly ($4 + 7 = 11$).\n* Choice C: "stops one step early" — reports $3 \\cdot 4 = 12$ without adding the constant.\n* Choice D: "wrong sign" — multiplies $3 \\cdot 7 = 21$ instead of using the formula.\n\n**Test Day Takeaway:** Substitute the input value EVERYWHERE you see $x$ in the formula, then simplify in order: multiplication before addition.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'function-evaluation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-132',
+    domain: 'algebra',
+    skills: ['function-evaluation'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'The function $g$ is defined by $g(x) = 10 - 2x$. What is the value of $g(3)$?',
+    correctAnswer: '4',
+    explanation: '**SAT Pattern: Function Evaluation**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~10s):** $g(3) = 10 - 2(3) = 10 - 6 = 4$.\n\n**The Full Solution:**\nSubstitute $x = 3$:\n$g(3) = 10 - 2(3) = 10 - 6 = 4$.\n\nVerification: at $x = 3$, $2x = 6$. Subtracting from $10$ gives $4$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing $10 - 2 = 8$ then multiplying by $3$ (wrong order of operations).\n* Computing $10 - 23 = -13$ (concatenating $2$ and $3$ instead of multiplying).\n* Adding instead of subtracting: $10 + 6 = 16$.\n\n**Test Day Takeaway:** Multiplication before subtraction (PEMDAS). $10 - 2x$ at $x = 3$ is $10 - (2 \\cdot 3) = 10 - 6 = 4$, NOT $(10 - 2) \\cdot 3 = 24$.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'function-evaluation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-133',
+    domain: 'algebra',
+    skills: ['function-evaluation'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'The function $h$ is defined by $h(x) = x^2 - 5x + 2$. What is the value of $h(-2)$?',
+    choices: [
+      { id: 'A', text: '$16$' },
+      // distractor: sign error on the squared term
+      { id: 'B', text: '$-12$' },
+      // distractor: arithmetic slip
+      { id: 'C', text: '$8$' },
+      // distractor: another arithmetic mistake
+      { id: 'D', text: '$-4$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Function Evaluation**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $h(-2) = (-2)^2 - 5(-2) + 2 = 4 + 10 + 2 = 16$.\n\n**The Full Solution:**\nSubstitute $x = -2$:\n$h(-2) = (-2)^2 - 5(-2) + 2$\n$= 4 - (-10) + 2$\n$= 4 + 10 + 2$\n$= 16$.\n\nVerification: $(-2)^2 = 4$ (positive, since a negative squared is positive), and $-5(-2) = 10$ (negative times negative is positive) \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong sign" — writes $(-2)^2 = -4$ (sign error): $-4 + 10 - 2 = 4$, no wait... drop to $-4 - 10 + 2 = -12$.\n* Choice C: "off-by-one" — computes $-5(-2) = -10$ (sign error): $4 - 10 + 2 = -4$ then mistakenly negates to $4 + 4 = 8$.\n* Choice D: "wrong sign" — computes $-5(-2) = -10$: $4 - 10 + 2 = -4$.\n\n**Test Day Takeaway:** When the input is negative, parenthesize EVERYWHERE: $(-2)^2$, $-5 \\cdot (-2)$. Two negatives make a positive — twice, in this problem.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'function-evaluation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-134',
+    domain: 'advanced-math',
+    skills: ['function-evaluation'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'The function $f$ is defined by $f(x) = 2^x + 1$. What is the value of $f(4)$?',
+    correctAnswer: '17',
+    explanation: '**SAT Pattern: Function Evaluation**\n\n**The correct answer is $17$.**\n\n**The Fast Way (~10s):** $f(4) = 2^4 + 1 = 16 + 1 = 17$.\n\n**The Full Solution:**\nSubstitute $x = 4$:\n$f(4) = 2^4 + 1 = 16 + 1 = 17$.\n\nVerification: $2^4 = 2 \\cdot 2 \\cdot 2 \\cdot 2 = 16$, then $+1$ gives $17$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing $2 \\cdot 4 = 8$ instead of $2^4 = 16$ (confuses exponentiation with multiplication).\n* Computing $2^4 \\cdot 1 = 16$ (treats $+1$ as $\\times 1$).\n* Computing $4^2 = 16$ — happens to give the right $2^4$ value, but is the wrong reasoning; would fail on $f(3) = 2^3 + 1 = 9$ vs $3^2 + 1 = 10$.\n\n**Test Day Takeaway:** Exponentiation: the base is below the exponent. $2^x$ means $x$ copies of $2$ multiplied. Don\'t confuse with $x^2$.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'function-evaluation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-135',
+    domain: 'algebra',
+    skills: ['function-evaluation'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'The function $f$ is defined by $f(x) = 5x - 2$. What is the value of $f(7) - f(3)$?',
+    choices: [
+      { id: 'A', text: '$20$' },
+      // distractor: computes f(7-3) = f(4)
+      { id: 'B', text: '$18$' },
+      // distractor: f(7) only
+      { id: 'C', text: '$33$' },
+      // distractor: f(7) - f(3) but slips on subtraction
+      { id: 'D', text: '$15$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Function Evaluation**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $f(7) - f(3) = (5 \\cdot 7 - 2) - (5 \\cdot 3 - 2) = 33 - 13 = 20$.\n\n**The Full Solution:**\nEvaluate each piece:\n* $f(7) = 5(7) - 2 = 35 - 2 = 33$.\n* $f(3) = 5(3) - 2 = 15 - 2 = 13$.\n\nSubtract: $f(7) - f(3) = 33 - 13 = 20$.\n\nFaster: for a LINEAR function $f(x) = mx + b$, $f(a) - f(c) = m(a - c)$. Here $m = 5$, $a - c = 7 - 3 = 4$, so $f(7) - f(3) = 5 \\cdot 4 = 20$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — computes $f(7 - 3) = f(4) = 18$ instead of $f(7) - f(3)$.\n* Choice C: "stops one step early" — reports $f(7) = 33$ without subtracting $f(3)$.\n* Choice D: "wrong base" — picks $f(3) = 15$ minus its own $0$.\n\n**Test Day Takeaway:** $f(a) - f(b) \\ne f(a - b)$ in general. For LINEAR $f$, the slope shortcut $m(a - b)$ works — handy on the test.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'function-evaluation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-136',
+    domain: 'advanced-math',
+    skills: ['function-evaluation'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'The function $f$ is defined by $f(x) = 3 \\cdot 2^x$. What is the value of $f(5) - f(3)$?',
+    correctAnswer: '72',
+    explanation: '**SAT Pattern: Function Evaluation**\n\n**The correct answer is $72$.**\n\n**The Fast Way (~15s):** $f(5) - f(3) = 3 \\cdot 32 - 3 \\cdot 8 = 96 - 24 = 72$.\n\n**The Full Solution:**\nEvaluate each piece:\n* $f(5) = 3 \\cdot 2^5 = 3 \\cdot 32 = 96$.\n* $f(3) = 3 \\cdot 2^3 = 3 \\cdot 8 = 24$.\n\nSubtract: $f(5) - f(3) = 96 - 24 = 72$.\n\nFaster: factor out $f(3)$: $f(5) - f(3) = 3 \\cdot 2^3(2^2 - 1) = 24 \\cdot 3 = 72$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing $f(5 - 3) = f(2) = 12$ instead of subtracting.\n* Forgetting the leading $3$: computing $2^5 - 2^3 = 24$.\n* Order of operations slip: $3 \\cdot 2^5 \\ne (3 \\cdot 2)^5 = 6^5$.\n\n**Test Day Takeaway:** Exponential $f(x) = a \\cdot b^x$ — evaluate by computing $b^x$ FIRST (PEMDAS), then multiply by $a$. Subtractions like $f(5) - f(3)$ can be factored cleanly.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'function-evaluation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-137',
+    domain: 'advanced-math',
+    skills: ['function-evaluation'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'The function $f$ is defined by $f(x) = (2x - 1)^2 - 5$. What is the value of $f(-2)$?',
+    choices: [
+      { id: 'A', text: '$20$' },
+      // distractor: doesn't subtract the 5
+      { id: 'B', text: '$25$' },
+      // distractor: forgets to square the negative
+      { id: 'C', text: '$4$' },
+      // distractor: arithmetic slip on the squaring
+      { id: 'D', text: '$-4$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Function Evaluation**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $f(-2) = (2(-2) - 1)^2 - 5 = (-5)^2 - 5 = 25 - 5 = 20$.\n\n**The Full Solution:**\nSubstitute $x = -2$:\n$f(-2) = (2(-2) - 1)^2 - 5$\n$= (-4 - 1)^2 - 5$\n$= (-5)^2 - 5$\n$= 25 - 5$\n$= 20$.\n\nVerification: $-4 - 1 = -5$, and $(-5)^2 = 25$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — reports $(-5)^2 = 25$ without subtracting the trailing $-5$.\n* Choice C: "wrong base" — computes $2(-2) - 1 = -5$ but writes $(-5)^2 - 5 = -5 - (-5)$ wrongly (or treats inside as $-5 - 5 = -10$, then $(-10)^2 - 5 = 95$).\n* Choice D: "wrong sign" — drops the negative when squaring: $(-5)^2 = -25$, then $-25 - 5 = -30$... or other arithmetic slip giving $-4$.\n\n**Test Day Takeaway:** With nested expressions, work from the INSIDE out: parentheses → exponent → addition/subtraction. The $-5$ outside the square only applies AFTER squaring.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'function-evaluation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-138',
+    domain: 'advanced-math',
+    skills: ['function-evaluation'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'The function $f$ is defined by $f(x) = 800(0.5)^x$. What is the value of $f(0) + f(1)$?',
+    correctAnswer: '1200',
+    explanation: '**SAT Pattern: Function Evaluation**\n\n**The correct answer is $1200$.**\n\n**The Fast Way (~15s):** $f(0) = 800 \\cdot 1 = 800$ (anything to the zero power is $1$). $f(1) = 800 \\cdot 0.5 = 400$. Sum: $1200$.\n\n**The Full Solution:**\nEvaluate each piece:\n* $f(0) = 800 \\cdot (0.5)^0 = 800 \\cdot 1 = 800$.\n* $f(1) = 800 \\cdot (0.5)^1 = 800 \\cdot 0.5 = 400$.\n\nSum: $f(0) + f(1) = 800 + 400 = 1200$.\n\nVerification: at $x = 0$, the exponential factor is $1$, so $f(0)$ equals the leading coefficient $800$. At $x = 1$, the exponential is just the base $0.5$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing $(0.5)^0 = 0$ (anything to the zero is $1$, not $0$).\n* Computing $f(0) + f(1) = f(0 + 1) = f(1) = 400$ (sum of values, not value of sum).\n* Computing $800 \\cdot 0 = 0$ for $f(0)$ — treating the exponent as a multiplier.\n\n**Test Day Takeaway:** Exponent of $0$ on any nonzero base equals $1$. So $f(0) = a \\cdot b^0 = a \\cdot 1 = a$ — the leading coefficient — every time.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'function-evaluation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
