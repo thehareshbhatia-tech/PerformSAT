@@ -40,4 +40,42 @@
 **Priority:** P2
 **Depends on:** None
 
+## Drill Routing (exact-question-type)
+
+### R&W exact-match parity
+
+**What:** Audit R&W bank items (`src/data/questions/rwBank/index.js`, 648 items flattened from 12 test bundles) for whether their `explanation` fields carry `**SAT Pattern: <Title>**` headers. If yes, extend the two-tier cascade in `getTargetedWeaknessSet` to R&W weaknesses. If no, decide whether to enrich R&W explanations or use a different routing taxonomy.
+
+**Why:** Math focus areas get Tier 1 (exact SAT Pattern) + Tier 2 (sourceStyleRef) precision after this PR ships. R&W focus areas continue using skill-only routing. UX asymmetry — a student should not notice "the math drills feel more targeted than the R&W drills."
+
+**Context:** This batch (math drill routing) ships `extractSatPattern.js` as a generic utility — reusing it for R&W is the easy part. The audit is the unknown: R&W explanations may use a different structural convention (R&W items were authored separately from the test-bundle-format math enrichment). Start by grepping `rwBank/*.js` for `SAT Pattern:`. If coverage is high, parallel implementation. If low or absent, propose a "Skill Pattern" taxonomy specific to R&W (e.g., `central-idea-vs-detail`, `cross-text-synthesis`).
+
+**Effort:** M
+**Priority:** P2
+**Depends on:** Math drill routing shipped first (this PR).
+
+### AdaptivePracticeShell exact-match parity
+
+**What:** Extend the two-tier cascade to fire when drills are launched from `AdaptivePracticeShell.jsx` (not just `AssignedPracticeShell.jsx`). Currently `getTargetedWeaknessSet` is called from the study-plan-driven (assigned) flow; the adaptive flow uses different selection logic.
+
+**Why:** Students who launch the adaptive practice flow (separate from the study plan) miss out on Tier 1/2 precision. The architecture is in place after this PR — wiring it into the adaptive shell is mechanical.
+
+**Context:** Per CLAUDE.md, AdaptivePracticeShell is "Alternate adaptive practice (difficulty adjusts)" with `practiceMode='adaptive'`. The state/wiring differ from AssignedPracticeShell. CLAUDE.md also lists "AdaptivePracticeShell rounds parity (~30 min follow-up once AssignedPracticeShell rounds prove out)" as deferred — exact-match parity is a sibling concern; both could be bundled into one AdaptivePracticeShell refresh.
+
+**Effort:** S-M
+**Priority:** P3
+**Depends on:** This PR; AdaptivePracticeShell rounds parity could be bundled.
+
+### Surface `missedPatterns` in drill UI
+
+**What:** Show students a label like "Practicing: Reverse-Percent" or "Drilling 5 Sum-of-Parts Ratio problems" in the `AssignedPracticeShell` header or focus area card. Sourced from `weakness.missedPatterns` and the tier that fired (visible via `[performsat:drill-routing]` log today).
+
+**Why:** Transparency. Tier 1 routing is currently invisible to the student — they get a more-targeted drill but don't know it's targeted. Surfacing the pattern transforms invisible routing into perceived intelligence. Strong A/B candidate.
+
+**Context:** Premature today — Tier 1 will rarely fire in v1 (bank density is ~1.5 items/pattern). The visible UX delta arrives when Phase 2 bank expansion ships (≥8 items per pattern). Re-evaluate this TODO after Phase 2 lands. Risk: surfacing now would mislead students about precision. Counter-risk: surfacing later (after they're used to skill-only labels) might feel cold/algorithmic. A/B test before rolling out.
+
+**Effort:** S
+**Priority:** P3
+**Depends on:** Phase 2 bank expansion to make Tier 1 fire reliably.
+
 ## Completed

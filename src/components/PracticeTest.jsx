@@ -65,6 +65,11 @@ function buildGroundTruthDiagnosis(diagReport, rawTelemetry) {
       // RW_SKILL_SET. Fall back to 'math' for legacy/unknown skills (rollback
       // safety per `services/selectors/weaknesses.js`).
       section: s.section || 'math',
+      // Drill-routing: distinct SAT Patterns the student missed for this
+      // skill. Feeds Tier 1 of getTargetedWeaknessSet. Empty array on
+      // legacy plans (analyzeSkills wasn't aggregating this field then),
+      // which short-circuits Tier 1 + Tier 2 cleanly.
+      missedPatterns: Array.isArray(s.missedPatterns) ? s.missedPatterns : [],
     };
   });
 

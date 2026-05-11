@@ -3,6 +3,10 @@ import { problemSolvingBank } from './problemSolving';
 import { advancedMathBank } from './advancedMath';
 import { geometryBank } from './geometry';
 import { allQuestions as topicQuestionsByModule } from '../index';
+import { extractSatPattern } from '../extractSatPattern';
+import { makeLogger } from '../../../utils/log';
+
+const log = makeLogger('drill-routing');
 
 // NOTE: `generatedOfficial.js` (1,750 items produced by the regex-based
 // `pdf-first-strict-rewrite` pipeline) is intentionally *not* wired in here.
@@ -78,6 +82,17 @@ const skillIndex = new Map();
 const domainIndex = new Map();
 const difficultyIndex = new Map();
 
+// Drill-routing indexes for the two-tier cascade in getTargetedWeaknessSet.
+// `patternIndex` powers Tier 1 (exact SAT Pattern). `styleIndex` powers
+// Tier 2 (sourceStyleRef). `patternToStyle` is the bank-derived
+// many-to-one mapping that lets diagnosis-time SAT Patterns fall back to
+// their parent sourceStyleRef when Tier 1 pool is too thin. Built once at
+// module load from the bank items themselves — the bank IS the source of
+// truth for this mapping.
+const patternIndex = new Map();
+const styleIndex = new Map();
+const patternToStyle = new Map();
+
 questionBank.forEach(q => {
   (q.skills || []).forEach(sid => {
     if (!skillIndex.has(sid)) skillIndex.set(sid, []);
@@ -88,6 +103,22 @@ questionBank.forEach(q => {
 
   if (!difficultyIndex.has(q.difficulty)) difficultyIndex.set(q.difficulty, []);
   difficultyIndex.get(q.difficulty).push(q);
+
+  // Drill-routing indexes — driven by lazy extraction from explanation
+  // (so adding a new bank item with the standard `**SAT Pattern: ...**`
+  // header automatically registers it for Tier 1 matching).
+  const satPattern = extractSatPattern(q.explanation);
+  if (satPattern) {
+    if (!patternIndex.has(satPattern)) patternIndex.set(satPattern, []);
+    patternIndex.get(satPattern).push(q);
+    if (q.sourceStyleRef && !patternToStyle.has(satPattern)) {
+      patternToStyle.set(satPattern, q.sourceStyleRef);
+    }
+  }
+  if (q.sourceStyleRef) {
+    if (!styleIndex.has(q.sourceStyleRef)) styleIndex.set(q.sourceStyleRef, []);
+    styleIndex.get(q.sourceStyleRef).push(q);
+  }
 });
 
 export const SKILL_ALIAS_MAP = {
@@ -395,11 +426,21 @@ function resolveSkillIds(rawIds) {
 
 export const getQuestionById = (id) => bankIndex.get(id) || null;
 
+// Applies the difficulty / excludeIds / limit options uniformly across all
+// pool-builder accessors. Keeps the post-filter surface DRY across Tier 1,
+// Tier 2, and Tier 3 of `getTargetedWeaknessSet`.
+const applyFilters = (input, { difficulty, excludeIds = [], limit } = {}) => {
+  let results = input;
+  if (difficulty) results = results.filter(q => q.difficulty === difficulty);
+  if (excludeIds.length) results = results.filter(q => !excludeIds.includes(q.id));
+  if (limit) results = results.slice(0, limit);
+  return results;
+};
+
 export const getQuestionsBySkillIds = (skillIds, opts = {}) => {
-  const { difficulty, excludeIds = [], limit } = opts;
   const resolved = resolveSkillIds(skillIds);
   const seen = new Set();
-  let results = [];
+  const results = [];
   resolved.forEach(sid => {
     (skillIndex.get(sid) || []).forEach(q => {
       if (!seen.has(q.id)) {
@@ -408,19 +449,56 @@ export const getQuestionsBySkillIds = (skillIds, opts = {}) => {
       }
     });
   });
-  if (difficulty) results = results.filter(q => q.difficulty === difficulty);
-  if (excludeIds.length) results = results.filter(q => !excludeIds.includes(q.id));
-  if (limit) results = results.slice(0, limit);
-  return results;
+  return applyFilters(results, opts);
 };
 
 export const getQuestionsByDomain = (domain, opts = {}) => {
-  const { difficulty, excludeIds = [], limit } = opts;
-  let results = [...(domainIndex.get(domain) || [])];
-  if (difficulty) results = results.filter(q => q.difficulty === difficulty);
-  if (excludeIds.length) results = results.filter(q => !excludeIds.includes(q.id));
-  if (limit) results = results.slice(0, limit);
-  return results;
+  return applyFilters([...(domainIndex.get(domain) || [])], opts);
+};
+
+/**
+ * Look up bank items by exact SAT Pattern tag (kebab-cased). Powers Tier 1
+ * of the drill-routing cascade in `getTargetedWeaknessSet`.
+ *
+ * @param {string[]} patterns — kebab-cased pattern keys (deduped, unioned)
+ * @param {object} [opts] — { difficulty, excludeIds, limit }
+ * @returns {Question[]} deduped, filtered pool. Empty if no patterns hit.
+ */
+export const getQuestionsBySatPatterns = (patterns, opts = {}) => {
+  const seen = new Set();
+  const results = [];
+  patterns.forEach(p => {
+    (patternIndex.get(p) || []).forEach(q => {
+      if (!seen.has(q.id)) {
+        seen.add(q.id);
+        results.push(q);
+      }
+    });
+  });
+  return applyFilters(results, opts);
+};
+
+/**
+ * Look up bank items by sourceStyleRef (a broader category than SAT
+ * Pattern — multiple SAT Patterns roll up to one sourceStyleRef). Powers
+ * Tier 2 of the drill-routing cascade.
+ *
+ * @param {string[]} styles — sourceStyleRef values (deduped, unioned)
+ * @param {object} [opts] — { difficulty, excludeIds, limit }
+ * @returns {Question[]} deduped, filtered pool. Empty if no styles hit.
+ */
+export const getQuestionsByStyles = (styles, opts = {}) => {
+  const seen = new Set();
+  const results = [];
+  styles.forEach(s => {
+    (styleIndex.get(s) || []).forEach(q => {
+      if (!seen.has(q.id)) {
+        seen.add(q.id);
+        results.push(q);
+      }
+    });
+  });
+  return applyFilters(results, opts);
 };
 
 const shuffle = (arr) => {
@@ -432,7 +510,97 @@ const shuffle = (arr) => {
   return a;
 };
 
-export const getTargetedWeaknessSet = ({ weakSkills = [], errorTypes = [], difficultyMix, count = 10, excludeIds = [] }) => {
+// ── Drill-routing cascade thresholds ──────────────────────────────────────
+// See docs/DRILL_ROUTING_PLAN.md for calibration rationale.
+//
+/** Minimum bank items required to serve a Tier 1 (exact SAT Pattern) drill.
+ *  Below this, cascade falls through to Tier 2. Calibrated to ~one round
+ *  size (rounds are 8 questions per AssignedPracticeShell wiring). */
+const TIER1_PATTERN_THRESHOLD = 8;
+
+/** Minimum bank items required to serve a Tier 2 (sourceStyleRef) drill.
+ *  Below this, cascade falls through to skill-level matching (Tier 3,
+ *  the legacy behavior). */
+const TIER2_STYLE_THRESHOLD = 12;
+
+// Selects `count` items from a pool, optionally honoring a difficultyMix
+// (a {easy, medium, hard} ratio summing to ~1). Extracted from the
+// original `getTargetedWeaknessSet` so each cascade tier can reuse it.
+const selectFromPool = (pool, count, difficultyMix) => {
+  if (difficultyMix) {
+    const easy = shuffle(pool.filter(q => q.difficulty === 'easy'))
+      .slice(0, Math.ceil(count * (difficultyMix.easy || 0.3)));
+    const medium = shuffle(pool.filter(q => q.difficulty === 'medium'))
+      .slice(0, Math.ceil(count * (difficultyMix.medium || 0.45)));
+    const hard = shuffle(pool.filter(q => q.difficulty === 'hard'))
+      .slice(0, Math.ceil(count * (difficultyMix.hard || 0.25)));
+    return shuffle([...easy, ...medium, ...hard]).slice(0, count);
+  }
+  return shuffle(pool).slice(0, count);
+};
+
+/**
+ * Build a targeted drill pool for a set of weaknesses, applying the
+ * three-tier cascade described in docs/DRILL_ROUTING_PLAN.md:
+ *
+ *   1. Tier 1 — exact SAT Pattern match (weakness.missedPatterns).
+ *      Fires when pool ≥ TIER1_PATTERN_THRESHOLD.
+ *   2. Tier 2 — derived sourceStyleRef (parent category of patterns).
+ *      Fires when pool ≥ TIER2_STYLE_THRESHOLD.
+ *   3. Tier 3 — skill-level matching (legacy behavior). Always fires as
+ *      the floor; if even that is empty, expand to domain.
+ *
+ * Legacy weaknesses (hydrated from Firestore plans saved before this
+ * change) have no `missedPatterns` field → Tier 1 + Tier 2 short-circuit
+ * on empty input → Tier 3 fires with byte-identical behavior to today.
+ *
+ * @param {object} args
+ * @param {Array} args.weakSkills — weakness objects (may carry missedPatterns)
+ * @param {Array} [args.errorTypes] — preserved for API compat (unused today)
+ * @param {object} [args.difficultyMix] — { easy, medium, hard } ratios
+ * @param {number} [args.count=10] — number of drill questions to return
+ * @param {string[]} [args.excludeIds] — question IDs to skip
+ * @returns {Question[]} shuffled drill pool
+ */
+// eslint-disable-next-line no-unused-vars
+export const getTargetedWeaknessSet = ({
+  weakSkills = [],
+  errorTypes = [],
+  difficultyMix,
+  count = 10,
+  excludeIds = [],
+  // Threshold overrides — primarily for unit tests. Production callers
+  // omit these and pick up the module-level defaults below. Lowering
+  // them is a deliberate v1 → v2 tuning lever, not an API surface to
+  // call from app code.
+  tier1Threshold = TIER1_PATTERN_THRESHOLD,
+  tier2Threshold = TIER2_STYLE_THRESHOLD,
+}) => {
+  // ── Tier 1 — exact SAT Pattern ──────────────────────────────────────
+  const patterns = weakSkills.flatMap(w =>
+    Array.isArray(w?.missedPatterns) ? w.missedPatterns : []
+  );
+  if (patterns.length) {
+    const pool = getQuestionsBySatPatterns(patterns, { excludeIds });
+    if (pool.length >= tier1Threshold) {
+      log.info(`Tier 1 (satPattern) matched, pool=${pool.length}`);
+      return selectFromPool(pool, count, difficultyMix);
+    }
+  }
+
+  // ── Tier 2 — derived sourceStyleRef ─────────────────────────────────
+  const derivedStyles = [...new Set(
+    patterns.map(p => patternToStyle.get(p)).filter(Boolean)
+  )];
+  if (derivedStyles.length) {
+    const pool = getQuestionsByStyles(derivedStyles, { excludeIds });
+    if (pool.length >= tier2Threshold) {
+      log.info(`Tier 2 (sourceStyleRef) matched, pool=${pool.length}`);
+      return selectFromPool(pool, count, difficultyMix);
+    }
+  }
+
+  // ── Tier 3 — skill (legacy behavior, preserved byte-identically) ────
   const skillIds = weakSkills.map(w => w.skillId || w.skill || w);
   let pool = getQuestionsBySkillIds(skillIds, { excludeIds });
 
@@ -443,14 +611,8 @@ export const getTargetedWeaknessSet = ({ weakSkills = [], errorTypes = [], diffi
     });
   }
 
-  if (difficultyMix) {
-    const easy = shuffle(pool.filter(q => q.difficulty === 'easy')).slice(0, Math.ceil(count * (difficultyMix.easy || 0.3)));
-    const medium = shuffle(pool.filter(q => q.difficulty === 'medium')).slice(0, Math.ceil(count * (difficultyMix.medium || 0.45)));
-    const hard = shuffle(pool.filter(q => q.difficulty === 'hard')).slice(0, Math.ceil(count * (difficultyMix.hard || 0.25)));
-    return shuffle([...easy, ...medium, ...hard]).slice(0, count);
-  }
-
-  return shuffle(pool).slice(0, count);
+  log.info(`Tier 3 (skill) matched, pool=${pool.length}`);
+  return selectFromPool(pool, count, difficultyMix);
 };
 
 export const getBankStats = () => {
@@ -460,3 +622,41 @@ export const getBankStats = () => {
   skillIndex.forEach((qs, sid) => { stats.bySkill[sid] = qs.length; });
   return stats;
 };
+
+/**
+ * Surfaces the drill-routing index state for testing and diagnostics.
+ * Exposes pool sizes per SAT Pattern / sourceStyleRef and the
+ * pattern→style mapping coverage. Read-only — returned objects are
+ * fresh copies, never the live Maps.
+ */
+export const getBankRoutingStats = () => {
+  const byPattern = {};
+  patternIndex.forEach((qs, p) => { byPattern[p] = qs.length; });
+  const byStyle = {};
+  styleIndex.forEach((qs, s) => { byStyle[s] = qs.length; });
+  const patternToStyleEntries = {};
+  patternToStyle.forEach((style, pattern) => { patternToStyleEntries[pattern] = style; });
+  return {
+    distinctPatterns: patternIndex.size,
+    distinctStyles: styleIndex.size,
+    patternToStyleCoverage: patternToStyle.size,
+    byPattern,
+    byStyle,
+    patternToStyle: patternToStyleEntries,
+    // Hand-authored bank items lacking a parseable SAT Pattern. Should
+    // be 0 in production — protective regression guard. Hand-authored
+    // items live in the `bank/{algebra,problemSolving,advancedMath,
+    // geometry}.js` shards and don't carry `sourceModuleId` (only
+    // topic-flattened items do — those predate the test-bundle format
+    // and don't have SAT Pattern headers, which is expected).
+    bankItemsWithoutPattern: questionBank.filter(
+      q => !q.sourceModuleId && !extractSatPattern(q.explanation),
+    ).length,
+  };
+};
+
+// Thresholds exported for test verification (read-only).
+export const DRILL_ROUTING_THRESHOLDS = Object.freeze({
+  TIER1_PATTERN: TIER1_PATTERN_THRESHOLD,
+  TIER2_STYLE: TIER2_STYLE_THRESHOLD,
+});

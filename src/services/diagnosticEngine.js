@@ -23,6 +23,7 @@
 import { getSkillById, skillTaxonomy, getSkillsForDomain } from '../data/skillTaxonomy';
 import { SKILL_ALIAS_MAP } from '../data/questions/bank';
 import { RW_CANONICAL_SKILLS, RW_DOMAINS } from '../data/questions/rwBank';
+import { extractSatPattern } from '../data/questions/extractSatPattern';
 
 // R&W canonical skills as a Set for O(1) membership checks. Used to tag
 // weakness entries with `section: 'rw'` and to infer domain when the math
@@ -621,6 +622,13 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
         timeVsDifficulty: categorizeTimeForDifficulty(tSpent, q.difficulty),
       };
 
+      // Extract the SAT Pattern from the explanation so it's available to
+      // skill aggregation (analyzeSkills) without re-reading the source
+      // question. Returns null when the explanation is missing or doesn't
+      // carry the standard `**SAT Pattern: <Title>**` header (graceful
+      // fallback: weakness.missedPatterns just omits this item).
+      const satPattern = extractSatPattern(q.explanation);
+
       if (isCorrect) {
         totalCorrect++;
         questionAnalysis.push({
@@ -633,6 +641,7 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
           skills: rawSkillIds,
           skillNames,
           domain,
+          satPattern,
           timeSpent: tSpent,
           ...behaviorEvidence,
         });
@@ -649,6 +658,7 @@ export const runDiagnostic = (test, answers, diagnosticData, skillProgress = {},
           skills: rawSkillIds,
           skillNames,
           domain,
+          satPattern,
           timeSpent: tSpent,
           userAnswer,
           correctAnswer: q.correctAnswer,
@@ -888,6 +898,11 @@ const analyzeSkills = (questionAnalysis, skillProgress = {}) => {
           correct: 0,
           total: 0,
           errorTypes: [],
+          // Drill-routing: collects distinct SAT Patterns for wrong items
+          // attributable to this skill. Feeds Tier 1 of the cascade in
+          // getTargetedWeaknessSet (see docs/DRILL_ROUTING_PLAN.md).
+          // Stored as a Set during aggregation, serialized to array below.
+          missedPatternsSet: new Set(),
           // Historical data
           historicalMastery: progress?.mastery || null,
           historicalAttempts: progress?.attempts || 0,
@@ -899,18 +914,28 @@ const analyzeSkills = (questionAnalysis, skillProgress = {}) => {
         skillMap[skillId].correct++;
       } else {
         skillMap[skillId].errorTypes.push(q.errorType);
+        // Only wrong items contribute to missedPatterns. Items lacking
+        // a parseable SAT Pattern (satPattern === null) are skipped —
+        // they participate in Tier 3 (skill) fallback only.
+        if (q.satPattern) {
+          skillMap[skillId].missedPatternsSet.add(q.satPattern);
+        }
       }
     });
   });
 
   // Calculate accuracies and sort by weakness
-  const skills = Object.values(skillMap).map(s => ({
-    ...s,
-    testAccuracy: s.total > 0 ? Math.round((s.correct / s.total) * 100) : 0,
-    isWeak: s.total > 0 && (s.correct / s.total) < 0.5,
-    isStrong: s.total > 0 && (s.correct / s.total) >= 0.8,
-    primaryErrorType: getMostCommonErrorType(s.errorTypes),
-  }));
+  const skills = Object.values(skillMap).map(s => {
+    const { missedPatternsSet, ...rest } = s;
+    return {
+      ...rest,
+      missedPatterns: [...missedPatternsSet],
+      testAccuracy: s.total > 0 ? Math.round((s.correct / s.total) * 100) : 0,
+      isWeak: s.total > 0 && (s.correct / s.total) < 0.5,
+      isStrong: s.total > 0 && (s.correct / s.total) >= 0.8,
+      primaryErrorType: getMostCommonErrorType(s.errorTypes),
+    };
+  });
 
   const weakSkills = skills.filter(s => s.isWeak).sort((a, b) => a.testAccuracy - b.testAccuracy);
   const strongSkills = skills.filter(s => s.isStrong).sort((a, b) => b.testAccuracy - a.testAccuracy);

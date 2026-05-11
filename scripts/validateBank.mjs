@@ -88,6 +88,15 @@ bank.forEach((q, i) => {
   }
   if (!q.explanation) errors.push(`${label}: missing explanation`);
 
+  // Drill-routing Tier 1 depends on every bank item having a parseable
+  // `**SAT Pattern: <Title>**` header at the start of its explanation.
+  // Missing items still ship (graceful fallthrough to Tier 2/3), but the
+  // bank should stay fully covered — flag as an error to catch authoring
+  // drift early. See docs/DRILL_ROUTING_PLAN.md.
+  if (q.explanation && !/\*\*SAT Pattern:\s*([^*]+?)\s*\*\*/.test(q.explanation)) {
+    errors.push(`${label}: explanation missing **SAT Pattern: <Title>** header`);
+  }
+
   (q.skills || []).forEach(s => { skillCoverage[s] = (skillCoverage[s] || 0) + 1; });
   domainCounts[q.domain] = (domainCounts[q.domain] || 0) + 1;
   diffCounts[q.difficulty] = (diffCounts[q.difficulty] || 0) + 1;
