@@ -8,6 +8,10 @@ import HandAuthoredStamp from './HandAuthoredStamp';
 import AnswerChoiceList from './shared/AnswerChoiceList';
 import { formatDiagnosticSentence } from '../services/diagnosticEngine';
 import { findRoundIndexForQuestion, computeRoundProgress } from '../services/buildRounds';
+import {
+  formatPatternLabel,
+  pickPrimaryMissedPattern,
+} from '../services/selectors/missedPatternLabel';
 import './AssignedPracticeShell.css';
 
 const C = {
@@ -139,6 +143,18 @@ const AssignedPracticeShell = ({
     () => computeRoundProgress(rounds, practiceState.answers || {}),
     [rounds, practiceState.answers],
   );
+
+  // Phase 2 surfacing: when the weakness that triggered this drill carries
+  // a specific SAT Pattern (e.g., 'reverse-percent'), show a "Practicing:"
+  // chip in the header. Makes Tier-1 routing precision visible — students
+  // see WHY their drill was assembled (not just "Algebra Practice" but
+  // "Practicing: Reverse Percent"). Falls back to no chip when the weakness
+  // is legacy/skill-only — graceful, never a worse experience.
+  const drillPatternLabel = useMemo(() => {
+    const weakness = practiceState?.assignmentMeta?.weakness;
+    const slug = pickPrimaryMissedPattern(weakness);
+    return slug ? formatPatternLabel(slug) : null;
+  }, [practiceState?.assignmentMeta?.weakness]);
 
   const handleToggleEliminate = (choiceId) => {
     setEliminatedChoices(prev => {
@@ -346,7 +362,27 @@ const AssignedPracticeShell = ({
             ← Exit
           </button>
           <div style={{ width: '1px', height: '20px', background: C.border }} />
-          <span style={{ fontSize: '15px', fontWeight: '600', color: C.text }}>{headerTitle}</span>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+            <span style={{ fontSize: '15px', fontWeight: '600', color: C.text }}>{headerTitle}</span>
+            {drillPatternLabel && (
+              <span
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  fontSize: '11.5px',
+                  fontWeight: '600',
+                  color: C.brand,
+                  letterSpacing: '0.02em',
+                  textTransform: 'uppercase',
+                }}
+                title={`Drilling questions of the same SAT Pattern as the items you missed`}
+              >
+                <span aria-hidden="true">🎯</span>
+                Practicing: {drillPatternLabel}
+              </span>
+            )}
+          </div>
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
