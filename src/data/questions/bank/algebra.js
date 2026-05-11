@@ -2451,5 +2451,158 @@ export const algebraBank = [
     sourceStyleRef: 'multi-step-linear-equation',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+
+  // === LINE FROM TWO POINTS (8 questions) — Phase 2 batch 4 priority pattern ===
+  // 8x in 12 tests. Covers: slope+point→intercept, two points→slope,
+  // two points→intercept, function values→evaluate at new x, x-intercept,
+  // parallel & perpendicular line construction, combined function values.
+  // SAT Pattern kebab matches: 'line-from-two-points'.
+  {
+    id: 'bank-alg-107',
+    domain: 'algebra',
+    skills: ['slope-intercept-form'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'A line in the $xy$-plane has slope $2$ and passes through the point $(3, 7)$. What is the $y$-intercept of the line?',
+    correctAnswer: '1',
+    explanation: '**SAT Pattern: Line from Two Points**\n\n**The correct answer is $1$.**\n\n**The Fast Way (~10s):** $y = 2x + b$. Plug in $(3, 7)$: $7 = 6 + b \\Rightarrow b = 1$.\n\n**The Full Solution:**\nWith slope $m = 2$, the line has the form $y = 2x + b$. Substitute the point $(3, 7)$ to find $b$:\n$7 = 2(3) + b$\n$7 = 6 + b$\n$b = 1$.\n\nThe $y$-intercept is $1$.\n\nVerification: line is $y = 2x + 1$. At $(3, 7)$: $2(3) + 1 = 7$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Subtracting in the wrong direction: $b = 6 - 7 = -1$.\n* Reporting the $y$-coordinate of the point ($7$) as the $y$-intercept.\n\n**Test Day Takeaway:** Slope + one point: write $y = mx + b$, plug in the point, solve for $b$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'line-from-two-points',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-108',
+    domain: 'algebra',
+    skills: ['slope-from-points'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'What is the slope of the line that passes through the points $(1, 4)$ and $(5, 12)$?',
+    correctAnswer: '2',
+    explanation: '**SAT Pattern: Line from Two Points**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~5s):** Slope $= \\dfrac{12 - 4}{5 - 1} = \\dfrac{8}{4} = 2$.\n\n**The Full Solution:**\nThe slope between $(x_1, y_1)$ and $(x_2, y_2)$ is:\n$m = \\dfrac{y_2 - y_1}{x_2 - x_1} = \\dfrac{12 - 4}{5 - 1} = \\dfrac{8}{4} = 2$.\n\nVerification: starting at $(1, 4)$ with slope $2$, moving right $4$ to $x = 5$ raises $y$ by $8$ to $12$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Inverting the formula: $\\dfrac{x_2 - x_1}{y_2 - y_1} = \\dfrac{4}{8} = 0.5$.\n* Mixing point order: $\\dfrac{12 - 4}{1 - 5} = -2$ (sign flipped).\n\n**Test Day Takeaway:** Slope = rise OVER run. Compute $y$-differences in the SAME order as $x$-differences (both $(2) - (1)$).',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'line-from-two-points',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-109',
+    domain: 'algebra',
+    skills: ['slope-from-points', 'slope-intercept-form'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'A line in the $xy$-plane passes through $(2, -1)$ and $(6, 11)$. What is the $y$-intercept of the line?',
+    correctAnswer: '-7',
+    explanation: '**SAT Pattern: Line from Two Points**\n\n**The correct answer is $-7$.**\n\n**The Fast Way (~15s):** Slope $= (11 - (-1))/(6 - 2) = 12/4 = 3$. Plug $(2, -1)$: $-1 = 6 + b \\Rightarrow b = -7$.\n\n**The Full Solution:**\nStep 1: find the slope.\n$m = \\dfrac{11 - (-1)}{6 - 2} = \\dfrac{12}{4} = 3$.\n\nStep 2: use the slope-intercept form with one point. Plug $(2, -1)$ into $y = 3x + b$:\n$-1 = 3(2) + b = 6 + b$\n$b = -7$.\n\nThe $y$-intercept is $-7$.\n\nVerification: $y = 3x - 7$ at $(2, -1)$: $3(2) - 7 = -1$ \\checkmark. At $(6, 11)$: $3(6) - 7 = 11$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Sign error in computing the slope ($-1$ should give $+12$ in the numerator).\n* Using the wrong point or sign when solving for $b$.\n\n**Test Day Takeaway:** Two-point problem: find slope first, then substitute either point into $y = mx + b$ to solve for $b$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'line-from-two-points',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-110',
+    domain: 'algebra',
+    skills: ['slope-from-points', 'function-evaluation'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'A linear function $g$ satisfies $g(0) = 4$ and $g(3) = 13$. What is the value of $g(5)$?',
+    correctAnswer: '19',
+    explanation: '**SAT Pattern: Line from Two Points**\n\n**The correct answer is $19$.**\n\n**The Fast Way (~15s):** Slope $= (13 - 4)/(3 - 0) = 3$. So $g(x) = 3x + 4$ (intercept is $g(0) = 4$). $g(5) = 19$.\n\n**The Full Solution:**\nA linear function has the form $g(x) = mx + b$. The two given values are:\n* $g(0) = b = 4$, so $b = 4$.\n* $g(3) = 3m + 4 = 13$, so $3m = 9$ and $m = 3$.\n\nTherefore $g(x) = 3x + 4$.\n\nEvaluate at $x = 5$:\n$g(5) = 3(5) + 4 = 15 + 4 = 19$.\n\nVerification: $g(0) = 4$ \\checkmark, $g(3) = 13$ \\checkmark, $g(5) = 19$.\n\n**Common Mistakes to Avoid:**\n* Forgetting that $g(0)$ is the intercept directly — no separate computation needed.\n* Using slope $13 - 4 = 9$ (forgets to divide by run).\n* Adding $5 - 3 = 2$ extra units of slope: $13 + 2(3) = 19$ would actually give the right answer but only by coincidence; the principle is to use the FULL formula.\n\n**Test Day Takeaway:** $g(0)$ in a linear function = the $y$-intercept. Two function values define the line completely; then evaluate at any new $x$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'line-from-two-points',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-111',
+    domain: 'algebra',
+    skills: ['slope-intercept-form'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'A line in the $xy$-plane has slope $-2$ and passes through the point $(3, 4)$. At what $x$-value does the line cross the $x$-axis?',
+    choices: [
+      // distractor: gives the slope as x-intercept
+      { id: 'A', text: '$2$' },
+      { id: 'B', text: '$5$' },
+      // distractor: gives the y-intercept
+      { id: 'C', text: '$10$' },
+      // distractor: sign error
+      { id: 'D', text: '$-5$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Line from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $y = -2x + b$. Plug $(3, 4)$: $4 = -6 + b \\Rightarrow b = 10$. Line: $y = -2x + 10$. Set $y = 0$: $0 = -2x + 10 \\Rightarrow x = 5$.\n\n**The Full Solution:**\nFind the equation of the line. With slope $-2$ and point $(3, 4)$:\n$y = -2x + b$\n$4 = -2(3) + b = -6 + b$\n$b = 10$.\n\nLine: $y = -2x + 10$.\n\nThe $x$-intercept is where $y = 0$:\n$0 = -2x + 10$\n$2x = 10$\n$x = 5$.\n\nVerification: at $x = 5$, $y = -2(5) + 10 = 0$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — gives $|m| = 2$ as the $x$-intercept.\n* Choice C: "stops one step early" — reports the $y$-intercept ($b = 10$) instead of the $x$-intercept.\n* Choice D: "sign error" — flips the sign of $x$.\n\n**Test Day Takeaway:** $x$-intercept: set $y = 0$ and solve for $x$. $y$-intercept: set $x = 0$. Don\'t conflate them.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'line-from-two-points',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-112',
+    domain: 'algebra',
+    skills: ['writing-parallel-equation', 'slope-intercept-form'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'Which of the following is an equation of the line in the $xy$-plane that passes through $(2, 1)$ and is parallel to the line $y = 3x + 7$?',
+    choices: [
+      { id: 'A', text: '$y = 3x - 5$' },
+      // distractor: sign error on intercept
+      { id: 'B', text: '$y = 3x + 5$' },
+      // distractor: uses perpendicular slope
+      { id: 'C', text: '$y = -\\dfrac{1}{3}x + \\dfrac{5}{3}$' },
+      // distractor: uses point's y as intercept
+      { id: 'D', text: '$y = 3x + 1$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Line from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Parallel lines share slope. Slope $= 3$. Plug $(2, 1)$: $1 = 6 + b \\Rightarrow b = -5$.\n\n**The Full Solution:**\nParallel lines have the SAME slope. The given line $y = 3x + 7$ has slope $3$, so the new line also has slope $3$.\n\nWrite $y = 3x + b$ and substitute $(2, 1)$:\n$1 = 3(2) + b = 6 + b$\n$b = -5$.\n\nThe equation is $y = 3x - 5$.\n\nVerification: at $(2, 1)$: $3(2) - 5 = 1$ \\checkmark. Slope $3$ matches the given line\'s slope \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "sign error" — flips the sign of the computed intercept.\n* Choice C: "wrong formula" — uses the PERPENDICULAR slope (negative reciprocal $-1/3$) instead of parallel.\n* Choice D: "wrong base" — uses the point\'s $y$-coordinate ($1$) as the intercept directly.\n\n**Test Day Takeaway:** Parallel $\\Rightarrow$ same slope. Perpendicular $\\Rightarrow$ negative reciprocal slope. After matching the slope, use any given point to find the new intercept.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'line-from-two-points',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-113',
+    domain: 'algebra',
+    skills: ['writing-perpendicular-equation', 'function-evaluation'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'Line $\\ell$ passes through the point $(4, 2)$ and is perpendicular to the line $y = 2x + 3$. What is the $y$-value on line $\\ell$ when $x = 8$?',
+    correctAnswer: '0',
+    explanation: '**SAT Pattern: Line from Two Points**\n\n**The correct answer is $0$.**\n\n**The Fast Way (~25s):** Perpendicular slope $= -1/2$. $y = -\\dfrac{1}{2}x + b$; plug $(4, 2)$: $2 = -2 + b \\Rightarrow b = 4$. At $x = 8$: $y = -4 + 4 = 0$.\n\n**The Full Solution:**\nStep 1: find the perpendicular slope. The given line has slope $2$, so the perpendicular slope is $-\\dfrac{1}{2}$ (negative reciprocal).\n\nStep 2: find the intercept of $\\ell$. With slope $-\\dfrac{1}{2}$ and point $(4, 2)$:\n$2 = -\\dfrac{1}{2}(4) + b = -2 + b$\n$b = 4$.\n\nLine $\\ell$: $y = -\\dfrac{1}{2}x + 4$.\n\nStep 3: evaluate at $x = 8$:\n$y = -\\dfrac{1}{2}(8) + 4 = -4 + 4 = 0$.\n\nVerification: $-\\dfrac{1}{2} \\cdot 2 = -1$ (slopes\' product is $-1$, confirming perpendicular) \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using the PARALLEL slope ($2$) instead of perpendicular ($-1/2$).\n* Computing the reciprocal without the negative sign: $1/2$ — gives a different line.\n* Forgetting the negative sign on $-1/2 \\cdot 8 = -4$.\n\n**Test Day Takeaway:** Perpendicular slope = $-1/m$. Multiply the two slopes to verify: their product should be $-1$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'line-from-two-points',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-114',
+    domain: 'algebra',
+    skills: ['slope-from-points', 'function-evaluation'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'A linear function $h$ satisfies $h(2) = 5$ and $h(8) = 11$. What is the value of $h(10) - h(-2)$?',
+    choices: [
+      // distractor: sum instead of difference
+      { id: 'A', text: '$14$' },
+      { id: 'B', text: '$12$' },
+      // distractor: just the slope
+      { id: 'C', text: '$1$' },
+      // distractor: arithmetic slip
+      { id: 'D', text: '$10$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Line from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Slope $= (11 - 5)/(8 - 2) = 1$. $h(x) = x + 3$. $h(10) - h(-2) = 13 - 1 = 12$.\n\n**The Full Solution:**\nFind the slope: $m = \\dfrac{11 - 5}{8 - 2} = \\dfrac{6}{6} = 1$.\n\nFind the intercept using $h(2) = 5$: $5 = 1 \\cdot 2 + b \\Rightarrow b = 3$. So $h(x) = x + 3$.\n\nCompute the requested values:\n* $h(10) = 10 + 3 = 13$.\n* $h(-2) = -2 + 3 = 1$.\n* $h(10) - h(-2) = 13 - 1 = 12$.\n\nShortcut: for any linear function, $h(a) - h(b) = m(a - b)$. So $h(10) - h(-2) = 1 \\cdot (10 - (-2)) = 12$. No need to find $b$.\n\nVerification: $h(8) = 8 + 3 = 11$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "applies the inverse operation" — adds instead of subtracting: $13 + 1 = 14$.\n* Choice C: "stops one step early" — reports just the slope $m = 1$.\n* Choice D: "off-by-one" — arithmetic slip on one of the evaluations.\n\n**Test Day Takeaway:** For a linear $h$, $h(a) - h(b) = m(a - b)$ — you can skip finding the intercept entirely when computing differences.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'line-from-two-points',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
