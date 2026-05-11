@@ -2344,5 +2344,166 @@ export const problemSolvingBank = [
     sourceStyleRef: 'conditional-probability-from-two-way-table',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+
+  // === REVERSE-PERCENT (8 questions) — Phase 2 batch 3 priority pattern ===
+  // 10x in 12 tests. Covers: basic "X is P% of total" reverse, discount
+  // reverse (sale → original), growth reverse (new → old), multi-step reverse.
+  // SAT Pattern kebab matches test bundle: 'reverse-percent'.
+  {
+    id: 'bank-ps-108',
+    domain: 'problem-solving',
+    skills: ['percent-word-problems', 'percent-of-value'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'A cafeteria serves $240$ vegetarian meals on a given day, which is $30\\%$ of the total number of meals served that day. How many total meals were served?',
+    choices: [
+      // distractor: forward percent (240 × 0.30)
+      { id: 'A', text: '$72$' },
+      { id: 'B', text: '$800$' },
+      // distractor: adds 30% (treats as 30% MORE)
+      { id: 'C', text: '$312$' },
+      // distractor: divides by 1/3 instead of 0.30
+      { id: 'D', text: '$720$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Reverse-Percent**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Total $\\times 0.30 = 240$, so total $= \\dfrac{240}{0.30} = 800$.\n\n**The Full Solution:**\nLet $T$ be the total number of meals. The $240$ vegetarian meals are $30\\%$ of $T$:\n$0.30 \\cdot T = 240$.\n\nDivide both sides by $0.30$:\n$T = \\dfrac{240}{0.30} = 800$.\n\nVerification: $30\\%$ of $800 = 0.30 \\cdot 800 = 240$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "applies the inverse operation" — multiplies forward instead of dividing: $240 \\cdot 0.30 = 72$.\n* Choice C: "wrong formula" — adds $30\\%$ to $240$ instead of recognizing $240$ as the part: $240 \\cdot 1.30 = 312$.\n* Choice D: "wrong base" — divides by $\\dfrac{1}{3} = 0.333$ instead of $0.30$.\n\n**Test Day Takeaway:** When a percent of an UNKNOWN total is given, divide the known part by the percent (as a decimal) to recover the whole.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'reverse-percent',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-109',
+    domain: 'problem-solving',
+    skills: ['percent-word-problems', 'percent-of-value'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'A library contains $875$ fiction books, which is $35\\%$ of the total number of books in the library. How many books are in the library in total?',
+    correctAnswer: '2500',
+    explanation: '**SAT Pattern: Reverse-Percent**\n\n**The correct answer is $2{,}500$.**\n\n**The Fast Way (~10s):** Total $= \\dfrac{875}{0.35} = 2{,}500$.\n\n**The Full Solution:**\nLet $T$ be the total number of books. Then:\n$0.35 \\cdot T = 875$.\n\nDivide both sides by $0.35$:\n$T = \\dfrac{875}{0.35} = 2{,}500$.\n\nVerification: $35\\%$ of $2{,}500 = 0.35 \\cdot 2{,}500 = 875$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Multiplying $875 \\times 0.35 = 306.25$ (forward operation).\n* Dividing by $0.035$ instead of $0.35$ (decimal slip): would give $25{,}000$.\n* Reporting $625$ from $875 \\times 0.71$ or similar arithmetic slip.\n\n**Test Day Takeaway:** Reverse-percent = part $\\div$ rate. Always check that the result is LARGER than the given part when the rate is less than $100\\%$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'reverse-percent',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-110',
+    domain: 'problem-solving',
+    skills: ['percent-word-problems', 'percent-of-value'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'A factory produced $1{,}287$ widgets in a given month, which represents $55\\%$ of the company\'s monthly production target. What is the monthly production target, in number of widgets?',
+    correctAnswer: '2340',
+    explanation: '**SAT Pattern: Reverse-Percent**\n\n**The correct answer is $2{,}340$.**\n\n**The Fast Way (~10s):** Target $= \\dfrac{1{,}287}{0.55} = 2{,}340$.\n\n**The Full Solution:**\nLet $T$ be the monthly target. The factory produced $55\\%$ of $T$:\n$0.55 \\cdot T = 1{,}287$.\n\nDivide both sides by $0.55$:\n$T = \\dfrac{1{,}287}{0.55} = 2{,}340$.\n\nVerification: $55\\%$ of $2{,}340 = 0.55 \\cdot 2{,}340 = 1{,}287$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Multiplying $1{,}287 \\times 0.55 = 707.85$ (forward operation, not reverse).\n* Subtracting $55\\%$ instead of dividing.\n* Dividing by $5.5$ or $0.055$ (decimal-position slips).\n\n**Test Day Takeaway:** A target or "whole" reached only PARTIALLY: divide what you have by the fraction achieved. Sanity check: $1{,}287$ is roughly half the answer, consistent with $55\\%$ being roughly half.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'reverse-percent',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-111',
+    domain: 'problem-solving',
+    skills: ['percent-word-problems', 'percent-change'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'After a $20\\%$ discount, a jacket sells for $\\$96$. What was the original price, in dollars, of the jacket?',
+    choices: [
+      // distractor: adds 20% to sale price
+      { id: 'A', text: '$\\$115.20$' },
+      { id: 'B', text: '$\\$120$' },
+      // distractor: applies discount again
+      { id: 'C', text: '$\\$76.80$' },
+      // distractor: divides by 0.20 instead of 0.80
+      { id: 'D', text: '$\\$480$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Reverse-Percent**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** A $20\\%$ discount keeps $80\\%$. So $0.80 \\cdot \\text{original} = 96 \\Rightarrow \\text{original} = \\dfrac{96}{0.80} = 120$.\n\n**The Full Solution:**\nLet $P$ be the original price. After a $20\\%$ discount, the sale price is $P - 0.20P = 0.80P$.\nSet this equal to the given sale price:\n$0.80P = 96$.\n\nDivide by $0.80$:\n$P = \\dfrac{96}{0.80} = 120$.\n\nVerification: $20\\%$ discount on $\\$120$ removes $\\$24$, leaving $\\$96$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "applies the inverse operation" — adds $20\\%$ to the sale price ($96 \\cdot 1.20 = 115.20$). The discount fraction does not invert by addition.\n* Choice C: "applies the inverse operation" — applies a SECOND $20\\%$ discount ($96 \\cdot 0.80 = 76.80$) instead of reversing.\n* Choice D: "wrong base" — divides by $0.20$ (the discount fraction) instead of $0.80$ (the retention fraction).\n\n**Test Day Takeaway:** "After an $r\\%$ discount" the multiplier is $(1 - r/100)$. Divide the SALE price by this multiplier to recover the ORIGINAL.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'reverse-percent',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-112',
+    domain: 'problem-solving',
+    skills: ['percent-word-problems', 'percent-change'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'A school\'s enrollment increased by $12\\%$ from last year to this year. If this year\'s enrollment is $1{,}400$ students, what was last year\'s enrollment?',
+    correctAnswer: '1250',
+    explanation: '**SAT Pattern: Reverse-Percent**\n\n**The correct answer is $1{,}250$.**\n\n**The Fast Way (~15s):** A $12\\%$ increase makes the multiplier $1.12$. So last $= \\dfrac{1{,}400}{1.12} = 1{,}250$.\n\n**The Full Solution:**\nLet $L$ be last year\'s enrollment. A $12\\%$ increase means this year\'s enrollment is:\n$L \\cdot 1.12 = 1{,}400$.\n\nDivide by $1.12$:\n$L = \\dfrac{1{,}400}{1.12} = 1{,}250$.\n\nVerification: $1{,}250 \\cdot 1.12 = 1{,}400$ \\checkmark. The increase is $1{,}400 - 1{,}250 = 150$, and $\\dfrac{150}{1{,}250} = 0.12 = 12\\%$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Subtracting $12\\%$ of $1{,}400$ ($1{,}400 \\cdot 0.88 = 1{,}232$) — this would be the value AFTER decreasing $1{,}400$ by $12\\%$, not reversing the increase.\n* Dividing by $0.12$ instead of $1.12$.\n* Dividing by $0.88$ instead of $1.12$.\n\n**Test Day Takeaway:** "After an $r\\%$ INCREASE" the multiplier is $(1 + r/100) = 1.12$ for $12\\%$. Divide by $1.12$ to reverse the increase — not by $0.88$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'reverse-percent',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-113',
+    domain: 'problem-solving',
+    skills: ['percent-word-problems', 'percent-of-value'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'In a town, $27\\%$ of registered voters did not vote in a recent election. If $3{,}650$ registered voters did vote in that election, how many registered voters live in the town?',
+    choices: [
+      { id: 'A', text: '$5{,}000$' },
+      // distractor: forward 27% (treats 3650 as total and 27% as the count)
+      { id: 'B', text: '$986$' },
+      // distractor: divides by 0.27 instead of 0.73
+      { id: 'C', text: '$13{,}519$' },
+      // distractor: adds 27% to 3650
+      { id: 'D', text: '$4{,}636$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Reverse-Percent**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $27\\%$ did not vote $\\Rightarrow 73\\%$ did vote. $0.73 \\cdot \\text{total} = 3{,}650 \\Rightarrow \\text{total} = \\dfrac{3{,}650}{0.73} = 5{,}000$.\n\n**The Full Solution:**\nLet $T$ be the total registered voters. If $27\\%$ did not vote, then $100\\% - 27\\% = 73\\%$ did vote.\nThe $3{,}650$ voters who did vote are $73\\%$ of $T$:\n$0.73 \\cdot T = 3{,}650$.\n\nDivide by $0.73$:\n$T = \\dfrac{3{,}650}{0.73} = 5{,}000$.\n\nVerification: $73\\%$ of $5{,}000 = 3{,}650$ \\checkmark. The other $27\\%$ is $1{,}350$ who did not vote.\n\n**Why the wrong answers are tempting:**\n* Choice B: "applies the inverse operation" — multiplies $3{,}650 \\cdot 0.27 = 986$ (treats $3{,}650$ as the total and finds the non-voter count).\n* Choice C: "wrong base" — divides by the WRONG percent: $\\dfrac{3{,}650}{0.27} = 13{,}519$.\n* Choice D: "wrong formula" — adds $27\\%$ to $3{,}650$ ($3{,}650 \\cdot 1.27 = 4{,}636$).\n\n**Test Day Takeaway:** When a problem describes the COMPLEMENT ("did not vote", "do not have"), the part given is the OTHER percent. Subtract from $100\\%$ first to find the rate the given part represents.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'reverse-percent',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-114',
+    domain: 'problem-solving',
+    skills: ['percent-word-problems', 'percent-change'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'A jacket is on sale for $\\$51$, which represents a $15\\%$ discount off the original price. What was the original price, in dollars, of the jacket?',
+    choices: [
+      { id: 'A', text: '$\\$60$' },
+      // distractor: 51 × 1.15 (adds 15%)
+      { id: 'B', text: '$\\$58.65$' },
+      // distractor: 51 / 0.15 (divides by discount rate)
+      { id: 'C', text: '$\\$340$' },
+      // distractor: applies a 15% discount to 51 again (51 × 0.85 = 43.35 ≈ 43)
+      { id: 'D', text: '$\\$43$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Reverse-Percent**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $15\\%$ off means the customer pays $85\\%$. $0.85 \\cdot \\text{original} = 51 \\Rightarrow \\text{original} = \\dfrac{51}{0.85} = 60$.\n\n**The Full Solution:**\nLet $P$ be the original price. A $15\\%$ discount removes $0.15P$, leaving $0.85P$:\n$0.85P = 51$.\n\nDivide by $0.85$:\n$P = \\dfrac{51}{0.85} = 60$.\n\nVerification: $15\\%$ of $\\$60$ is $\\$9$. $\\$60 - \\$9 = \\$51$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "applies the inverse operation" — adds $15\\%$ to the sale price ($51 \\cdot 1.15 = 58.65$). Reversing a discount is NOT the same as adding the same percent.\n* Choice C: "wrong base" — divides by the discount rate ($0.15$) instead of the retention rate ($0.85$): $\\dfrac{51}{0.15} = 340$.\n* Choice D: "applies the operation again" — applies ANOTHER $15\\%$ discount to $\\$51$.\n\n**Test Day Takeaway:** A discount keeps a FRACTION of the original price. Original $=$ sale price $\\div$ retention rate. For a $15\\%$ discount, divide by $0.85$, not $0.15$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'reverse-percent',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-115',
+    domain: 'problem-solving',
+    skills: ['percent-word-problems', 'successive-percent-change'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'An item\'s price was first increased by $20\\%$ and then decreased by $10\\%$ from the increased price. The final price is $\\$108$. What was the original price, in dollars, of the item?',
+    correctAnswer: '100',
+    explanation: '**SAT Pattern: Reverse-Percent**\n\n**The correct answer is $100$.**\n\n**The Fast Way (~20s):** Net multiplier $= 1.20 \\times 0.90 = 1.08$. So $1.08 \\cdot \\text{original} = 108 \\Rightarrow \\text{original} = 100$.\n\n**The Full Solution:**\nLet $P$ be the original price. Apply each percent change as a multiplier:\n* After $+20\\%$: $1.20 P$.\n* After $-10\\%$ on the new price: $0.90 \\times 1.20 P = 1.08 P$.\n\nSet final equal to $\\$108$:\n$1.08 P = 108$.\n\nDivide:\n$P = \\dfrac{108}{1.08} = 100$.\n\nVerification: $P = 100 \\Rightarrow$ after $+20\\%$: $120$. After $-10\\%$: $0.9 \\cdot 120 = 108$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Adding the percents naively: $+20\\% - 10\\% = +10\\%$ net, giving $108 / 1.10 \\approx 98.18$. Successive percents do NOT add — they MULTIPLY.\n* Reversing in the wrong order (dividing by $0.90$ first, then $1.20$ — actually gives the same answer because multiplication is commutative, but students often get confused).\n* Subtracting $10\\%$ from the ORIGINAL instead of from the INCREASED price.\n\n**Test Day Takeaway:** Successive percent changes compose by MULTIPLICATION, not addition. Compute the combined multiplier, then divide the final value to find the original.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'reverse-percent',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
