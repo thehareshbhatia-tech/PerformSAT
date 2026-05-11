@@ -3866,5 +3866,168 @@ export const algebraBank = [
     sourceStyleRef: 'two-step-linear-equation',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+  // ===== Phase 2 batch 7/5: perpendicular-line-through-point (8 items) =====
+  // Pattern: given a line and a point not on it, find an equation (or feature)
+  // of the line through that point PERPENDICULAR to the given line.
+  // Perpendicular slopes are negative reciprocals: m_perp = -1/m.
+  // 7 test occurrences across PT6, PT12, M2Easy variants. SAT Pattern title
+  // (verbatim): 'Perpendicular Line Through Point' →
+  // kebab 'perpendicular-line-through-point'.
+  {
+    id: 'bank-alg-177',
+    domain: 'algebra',
+    skills: ['perpendicular-negative-reciprocal'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'What is the slope of a line that is perpendicular to the line $y = 2x + 3$?',
+    choices: [
+      { id: 'A', text: '$-\\dfrac{1}{2}$' },
+      // distractor: just flips the fraction
+      { id: 'B', text: '$\\dfrac{1}{2}$' },
+      // distractor: only negates
+      { id: 'C', text: '$-2$' },
+      // distractor: uses original slope
+      { id: 'D', text: '$2$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Original slope $= 2 = \\dfrac{2}{1}$. Perpendicular slope $= -\\dfrac{1}{2}$ (negative reciprocal).\n\n**The Full Solution:**\nPerpendicular slopes multiply to $-1$. If the original slope is $m$, the perpendicular slope is $-\\dfrac{1}{m}$.\n\nGiven $y = 2x + 3$: slope $= 2$. Perpendicular slope $= -\\dfrac{1}{2}$.\n\nVerification: $2 \\cdot (-\\dfrac{1}{2}) = -1$ \\checkmark (the perpendicularity condition).\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong sign" — flips the fraction but forgets to negate.\n* Choice C: "stops one step early" — negates but doesn\'t flip (gives $-m$, not $-1/m$).\n* Choice D: "wrong base" — uses the original slope.\n\n**Test Day Takeaway:** Perpendicular slope = negative reciprocal: FLIP the fraction AND change the SIGN. Both operations.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'perpendicular-line-through-point',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-178',
+    domain: 'algebra',
+    skills: ['perpendicular-negative-reciprocal'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'What is the slope of a line that is perpendicular to the line $y = -\\dfrac{1}{3}x + 5$?',
+    correctAnswer: '3',
+    explanation: '**SAT Pattern: Perpendicular Line Through Point**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~5s):** Original slope $= -\\dfrac{1}{3}$. Perpendicular: $-\\dfrac{1}{-1/3} = 3$.\n\n**The Full Solution:**\nPerpendicular slope is the negative reciprocal: $m_{\\perp} = -\\dfrac{1}{m}$.\n\nGiven slope $= -\\dfrac{1}{3}$:\n$m_{\\perp} = -\\dfrac{1}{-1/3} = -1 \\cdot (-3) = 3$.\n\nVerification: $\\left(-\\dfrac{1}{3}\\right) \\cdot 3 = -1$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $-3$ (forgets that negating the already-negative original gives positive).\n* Reporting $\\dfrac{1}{3}$ (only flips the absolute value).\n* Reporting $-\\dfrac{1}{3}$ (gives original slope, not perpendicular).\n\n**Test Day Takeaway:** Negative reciprocal of $-1/3$ is $+3$. Sign flips, fraction flips — both.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'perpendicular-line-through-point',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-179',
+    domain: 'algebra',
+    skills: ['writing-perpendicular-equation'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'In the $xy$-plane, line $\\ell$ is perpendicular to the line $y = 3x - 7$ and passes through the point $(0, 4)$. What is an equation of line $\\ell$?',
+    choices: [
+      { id: 'A', text: '$y = -\\dfrac{1}{3}x + 4$' },
+      // distractor: uses original slope
+      { id: 'B', text: '$y = 3x + 4$' },
+      // distractor: sign error on slope
+      { id: 'C', text: '$y = \\dfrac{1}{3}x + 4$' },
+      // distractor: uses point's x = 0 incorrectly
+      { id: 'D', text: '$y = -\\dfrac{1}{3}x - 7$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Perpendicular slope $= -1/3$. Passes through $(0, 4) \\Rightarrow y$-intercept $= 4$. Equation: $y = -\\dfrac{1}{3}x + 4$.\n\n**The Full Solution:**\nOriginal slope $= 3$. Perpendicular slope $= -\\dfrac{1}{3}$.\n\nSince the line passes through $(0, 4)$, the $y$-intercept IS $4$ (because $x = 0$ at the $y$-intercept).\n\nEquation: $y = -\\dfrac{1}{3}x + 4$.\n\nVerification: at $x = 0$, $y = 4$ \\checkmark. Slope is $-1/3$, perpendicular to $3$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — uses original slope $3$ instead of perpendicular.\n* Choice C: "wrong sign" — drops the negative on the perpendicular slope.\n* Choice D: "wrong base" — uses the original intercept $-7$ instead of $4$.\n\n**Test Day Takeaway:** When a line passes through $(0, b)$, that $b$ is the $y$-intercept — no need to compute. Just plug into slope-intercept form.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'perpendicular-line-through-point',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-180',
+    domain: 'algebra',
+    skills: ['perpendicular-negative-reciprocal'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'A line is perpendicular to the line $2x + 5y = 10$. What is the slope of the perpendicular line?',
+    correctAnswer: '5/2',
+    explanation: '**SAT Pattern: Perpendicular Line Through Point**\n\n**The correct answer is $\\dfrac{5}{2}$.**\n\n**The Fast Way (~15s):** Rewrite: $5y = -2x + 10 \\Rightarrow y = -\\dfrac{2}{5}x + 2$. Slope $= -\\dfrac{2}{5}$. Perpendicular: $\\dfrac{5}{2}$.\n\n**The Full Solution:**\nFind the slope of the given line. From $2x + 5y = 10$:\n$5y = -2x + 10$\n$y = -\\dfrac{2}{5}x + 2$. Slope $= -\\dfrac{2}{5}$.\n\nPerpendicular slope = $-\\dfrac{1}{-2/5} = \\dfrac{5}{2}$.\n\nVerification: $\\left(-\\dfrac{2}{5}\\right) \\cdot \\dfrac{5}{2} = -1$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using slope $= -A/B = -2/5$ directly: that\'s actually correct here.\n* Forgetting the negative: gives $-5/2$ instead.\n* Slope of standard form sign confusion: $Ax + By = C \\Rightarrow$ slope $= -A/B$, not $A/B$.\n\n**Test Day Takeaway:** Standard-form slope: $Ax + By = C \\Rightarrow$ slope $= -A/B$. Memorize this — saves the rewriting step.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'perpendicular-line-through-point',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-181',
+    domain: 'algebra',
+    skills: ['writing-perpendicular-equation'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'In the $xy$-plane, line $\\ell$ is perpendicular to $y = -2x + 5$ and passes through $(4, 1)$. What is the $y$-intercept of line $\\ell$?',
+    choices: [
+      { id: 'A', text: '$-1$' },
+      // distractor: uses original slope's intercept
+      { id: 'B', text: '$5$' },
+      // distractor: uses the point y-value
+      { id: 'C', text: '$1$' },
+      // distractor: arithmetic slip
+      { id: 'D', text: '$3$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Perpendicular slope $= 1/2$. Equation: $y - 1 = \\dfrac{1}{2}(x - 4) \\Rightarrow y = \\dfrac{1}{2}x - 2 + 1 = \\dfrac{1}{2}x - 1$. $y$-intercept $= -1$.\n\n**The Full Solution:**\nOriginal slope $= -2$. Perpendicular slope $= -\\dfrac{1}{-2} = \\dfrac{1}{2}$.\n\nUse point-slope through $(4, 1)$:\n$y - 1 = \\dfrac{1}{2}(x - 4)$\n$y - 1 = \\dfrac{1}{2}x - 2$\n$y = \\dfrac{1}{2}x - 1$.\n\n$y$-intercept $= -1$.\n\nVerification: at $x = 4$, $y = 2 - 1 = 1$ \\checkmark. Slope $= 1/2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — uses the original line\'s intercept.\n* Choice C: "wrong base" — picks the $y$-coordinate of the given point.\n* Choice D: "off-by-one" — slip in arithmetic.\n\n**Test Day Takeaway:** Point-slope form: $y - y_0 = m(x - x_0)$. Distribute on the right, then add $y_0$ to both sides to read off the $y$-intercept.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'perpendicular-line-through-point',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-182',
+    domain: 'algebra',
+    skills: ['writing-perpendicular-equation'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'In the $xy$-plane, line $k$ is perpendicular to $y = -\\dfrac{1}{4}x + 3$ and passes through the origin. What is the value of $y$ when $x = 2$ on line $k$?',
+    correctAnswer: '8',
+    explanation: '**SAT Pattern: Perpendicular Line Through Point**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~20s):** Perpendicular slope $= 4$. Through origin: $y = 4x$. At $x = 2$: $y = 8$.\n\n**The Full Solution:**\nOriginal slope $= -\\dfrac{1}{4}$. Perpendicular slope $= -\\dfrac{1}{-1/4} = 4$.\n\nLine passes through origin $(0, 0)$, so $y$-intercept $= 0$.\nEquation: $y = 4x$.\n\nAt $x = 2$: $y = 4 \\cdot 2 = 8$.\n\nVerification: line $y = 4x$ passes through origin \\checkmark. Slope $4$ is perpendicular to $-1/4$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using original slope: $y = -\\dfrac{1}{4}(2) = -\\dfrac{1}{2}$.\n* Forgetting that "through origin" means $b = 0$.\n* Stopping at slope: reporting $4$ instead of evaluating at $x = 2$.\n\n**Test Day Takeaway:** "Through the origin" $\\Rightarrow$ $y$-intercept $= 0$. Line equation is $y = mx$ (no $+b$).',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'perpendicular-line-through-point',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-183',
+    domain: 'algebra',
+    skills: ['writing-perpendicular-equation'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'In the $xy$-plane, line $\\ell$ is perpendicular to the line $4x - 3y = 12$ and passes through the point $(2, -1)$. What is the $y$-intercept of line $\\ell$?',
+    choices: [
+      { id: 'A', text: '$\\dfrac{1}{2}$' },
+      // distractor: sign error
+      { id: 'B', text: '$-\\dfrac{1}{2}$' },
+      // distractor: uses original slope
+      { id: 'C', text: '$-4$' },
+      // distractor: drops the +1 step
+      { id: 'D', text: '$\\dfrac{3}{2}$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Perpendicular Line Through Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Slope of $4x - 3y = 12$ is $4/3$. Perpendicular: $-3/4$. Through $(2, -1)$: $y + 1 = -\\dfrac{3}{4}(x - 2) \\Rightarrow y = -\\dfrac{3}{4}x + \\dfrac{3}{2} - 1 = -\\dfrac{3}{4}x + \\dfrac{1}{2}$. $y$-intercept $= \\dfrac{1}{2}$.\n\n**The Full Solution:**\nFrom $4x - 3y = 12$: $-3y = -4x + 12 \\Rightarrow y = \\dfrac{4}{3}x - 4$. Slope $= \\dfrac{4}{3}$.\n\nPerpendicular slope $= -\\dfrac{3}{4}$.\n\nPoint-slope through $(2, -1)$:\n$y - (-1) = -\\dfrac{3}{4}(x - 2)$\n$y + 1 = -\\dfrac{3}{4}x + \\dfrac{3}{2}$\n$y = -\\dfrac{3}{4}x + \\dfrac{3}{2} - 1$\n$y = -\\dfrac{3}{4}x + \\dfrac{1}{2}$.\n\n$y$-intercept $= \\dfrac{1}{2}$.\n\nVerification: at $x = 2$, $y = -\\dfrac{3}{2} + \\dfrac{1}{2} = -1$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong sign" — drops the negative when subtracting $1$ from $3/2$.\n* Choice C: "wrong base" — uses original-line intercept.\n* Choice D: "stops one step early" — stops at $3/2$ before subtracting the $+1$.\n\n**Test Day Takeaway:** Two-step transformation when the point is NOT on either axis: distribute slope across $(x - x_0)$, then add $y_0$ to both sides. Watch the signs.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'perpendicular-line-through-point',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-184',
+    domain: 'algebra',
+    skills: ['perpendicular-negative-reciprocal'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'Line $L_1$ has slope $k$ and is perpendicular to line $L_2$, which has slope $-\\dfrac{2}{7}$. What is the value of $k$?',
+    correctAnswer: '7/2',
+    explanation: '**SAT Pattern: Perpendicular Line Through Point**\n\n**The correct answer is $\\dfrac{7}{2}$.**\n\n**The Fast Way (~10s):** Perpendicular: $k \\cdot (-2/7) = -1 \\Rightarrow k = \\dfrac{7}{2}$.\n\n**The Full Solution:**\nPerpendicular slopes multiply to $-1$:\n$k \\cdot \\left(-\\dfrac{2}{7}\\right) = -1$\n$-\\dfrac{2k}{7} = -1$\n$k = \\dfrac{7}{2}$.\n\nAlternatively: negative reciprocal of $-2/7$ is $-\\dfrac{1}{-2/7} = \\dfrac{7}{2}$.\n\nVerification: $\\dfrac{7}{2} \\cdot \\left(-\\dfrac{2}{7}\\right) = -1$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $-7/2$ (forgets to flip the sign).\n* Reporting $-2/7$ or $2/7$ (gives original slope or its absolute value).\n* Computing $7/2 = 3.5$ but reporting it differently.\n\n**Test Day Takeaway:** Perpendicularity condition: $m_1 \\cdot m_2 = -1$. Solve algebraically OR use negative-reciprocal shortcut (FLIP + NEGATE).',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'perpendicular-line-through-point',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
