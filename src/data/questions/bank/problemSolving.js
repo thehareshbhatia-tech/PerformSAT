@@ -2667,5 +2667,175 @@ export const problemSolvingBank = [
     sourceStyleRef: 'sum-of-parts-ratio',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+
+  // === OUTLIER EFFECT (8 questions) — Phase 2 batch 3 priority pattern ===
+  // 9x in 12 tests. Covers: adding outlier, shifting all by constant,
+  // scaling, replacing, mean-vs-median sensitivity, must-be-true.
+  // SAT Pattern kebab matches test bundle: 'outlier-effect'.
+  {
+    id: 'bank-ps-124',
+    domain: 'problem-solving',
+    skills: ['calculate-mean'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'A list of $5$ values has a mean of $30$. A sixth value of $90$ is added to the list. What is the mean of the new $6$-value list?',
+    correctAnswer: '40',
+    explanation: '**SAT Pattern: Outlier Effect**\n\n**The correct answer is $40$.**\n\n**The Fast Way (~10s):** Old sum $= 5 \\times 30 = 150$. New sum $= 150 + 90 = 240$. New mean $= 240 / 6 = 40$.\n\n**The Full Solution:**\nThe sum of the original $5$ values is $5 \\cdot 30 = 150$.\nAdding $90$ gives a new sum of $150 + 90 = 240$.\nThe new $6$-value mean is $\\dfrac{240}{6} = 40$.\n\nVerification: the added value of $90$ is far above the original mean of $30$, so the mean should INCREASE — and it did, by $10$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Averaging the old mean and the new value: $\\dfrac{30 + 90}{2} = 60$ — ignores that there are now $6$ values, not $2$.\n* Reporting the added value $90$ as the new mean.\n\n**Test Day Takeaway:** Adding a value FAR ABOVE the current mean pulls the mean UPWARD. The size of the pull depends on how many values are already in the list — a bigger list resists change more.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'outlier-effect',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-125',
+    domain: 'problem-solving',
+    skills: ['calculate-mean', 'find-median'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'A data set has a mean of $25$ and a median of $22$. If each value in the data set is increased by $8$, what are the new mean and median of the data set?',
+    choices: [
+      // distractor: only mean shifts; median unchanged
+      { id: 'A', text: 'Mean $= 33$, median $= 22$' },
+      { id: 'B', text: 'Mean $= 33$, median $= 30$' },
+      // distractor: doubles both
+      { id: 'C', text: 'Mean $= 50$, median $= 44$' },
+      // distractor: only median shifts
+      { id: 'D', text: 'Mean $= 25$, median $= 30$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Outlier Effect**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Shifting EVERY value by $+8$ shifts BOTH the mean and median by $+8$. New mean $= 33$, new median $= 30$.\n\n**The Full Solution:**\nWhen every value in a data set is increased by a constant $c$:\n* Mean shifts by $+c$ (each term in the sum shifts by $c$; divide by $n$ gives a $c$ shift).\n* Median shifts by $+c$ (the middle value\'s new value is its old value $+ c$).\n\nWith $c = 8$:\n* New mean $= 25 + 8 = 33$.\n* New median $= 22 + 8 = 30$.\n\nVerification: try a small set $\\{20, 22, 30, 33\\}$ with median $= (22 + 30)/2 = 26$. Add $8$ to each: $\\{28, 30, 38, 41\\}$, new median $= 34 = 26 + 8$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — shifts only the mean, leaves median unchanged.\n* Choice C: "wrong formula" — multiplies by $2$ instead of adding $8$.\n* Choice D: "stops one step early" — shifts only the median.\n\n**Test Day Takeaway:** A SHIFT by $c$ moves the entire distribution: mean and median both move by exactly $c$. Range and standard deviation are UNCHANGED (the spread is the same).',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'outlier-effect',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-126',
+    domain: 'problem-solving',
+    skills: ['calculate-mean'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'A list of $10$ values has a mean of $50$. The smallest value, which is $20$, is replaced with a new value of $80$. What is the mean of the new $10$-value list?',
+    correctAnswer: '56',
+    explanation: '**SAT Pattern: Outlier Effect**\n\n**The correct answer is $56$.**\n\n**The Fast Way (~10s):** Replacing $20$ with $80$ increases the sum by $60$. With $10$ values, the mean shifts by $60/10 = 6$. New mean $= 50 + 6 = 56$.\n\n**The Full Solution:**\nOld sum: $10 \\cdot 50 = 500$.\nReplacement changes the sum by $80 - 20 = +60$.\nNew sum: $500 + 60 = 560$.\nNew mean: $560 / 10 = 56$.\n\nThe count is unchanged at $10$; only the sum shifted by $+60$, so the mean shifts by $+6$.\n\nVerification: any list of $10$ values summing to $560$ has mean $56$ — for example, replacing one $20$ with $80$ in a $\\{20, \\dots\\}$ list adds $60$ to the sum \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Treating it like ADD/REMOVE (changes count) — replacement keeps count constant.\n* Averaging $20$ and $80$ to get $50$ and concluding no change.\n\n**Test Day Takeaway:** REPLACING a single value changes the mean by $\\dfrac{\\text{new} - \\text{old}}{n}$. Replacing the smallest with a much larger value pulls the mean UP.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'outlier-effect',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-127',
+    domain: 'problem-solving',
+    skills: ['calculate-mean', 'find-median'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'A data set of $7$ values has a mean of $60$ and a median of $55$. An additional value of $200$ is added to the data set. Which of the following statements best describes the effect on the mean and median?',
+    choices: [
+      // distractor: same impact on both
+      { id: 'A', text: 'Both the mean and median increase by the same amount.' },
+      { id: 'B', text: 'The mean increases by more than the median.' },
+      // distractor: opposite direction
+      { id: 'C', text: 'The mean decreases and the median increases.' },
+      // distractor: median changes more
+      { id: 'D', text: 'The median increases by more than the mean.' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Outlier Effect**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** The mean is SENSITIVE to outliers; the median is RESISTANT. Adding $200$ (much larger than the current values) pulls the mean upward sharply, while the median barely shifts.\n\n**The Full Solution:**\nBefore: $7$ values, mean $60$ (sum $= 420$), median $55$ (the $4$th value).\nAfter adding $200$:\n* New sum $= 420 + 200 = 620$. New mean $= 620 / 8 = 77.5$. Change: $+17.5$.\n* New median is the average of the $4$th and $5$th values of the sorted $8$-value list. Since $200$ is the new MAXIMUM, it goes to position $8$, so the $4$th and $5$th values are the old $4$th and $5$th — say $55$ and (some value above $55$). The new median is between $55$ and a value above $55$ — at most a small shift, much less than $17.5$.\n\nQualitatively: the mean change is large; the median change is small or zero. **Mean increases by more.**\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — equates mean and median sensitivity. They are different by design.\n* Choice C: "sign error" — claims the mean decreases despite adding a HIGH value.\n* Choice D: "applies the inverse operation" — reverses the well-known sensitivity ordering.\n\n**Test Day Takeaway:** Mean is pulled toward outliers; median is resistant. Adding a high outlier $\\Rightarrow$ mean shifts up MORE than the median. Adding a low outlier $\\Rightarrow$ mean shifts down MORE than the median.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'outlier-effect',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-128',
+    domain: 'problem-solving',
+    skills: ['calculate-mean', 'find-median'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'A data set has a mean of $14$ and a median of $12$. If each value in the data set is multiplied by $3$, what are the new mean and median of the data set?',
+    choices: [
+      // distractor: shifts by 3 instead of scaling
+      { id: 'A', text: 'Mean $= 17$, median $= 15$' },
+      { id: 'B', text: 'Mean $= 42$, median $= 36$' },
+      // distractor: only mean scales
+      { id: 'C', text: 'Mean $= 42$, median $= 12$' },
+      // distractor: only median scales
+      { id: 'D', text: 'Mean $= 14$, median $= 36$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Outlier Effect**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Multiplying EVERY value by $k$ multiplies BOTH the mean and median by $k$. New mean $= 14 \\times 3 = 42$, new median $= 12 \\times 3 = 36$.\n\n**The Full Solution:**\nWhen every value in a data set is multiplied by a constant $k$:\n* Sum is multiplied by $k$ $\\Rightarrow$ mean is multiplied by $k$.\n* The middle value\'s new position is $k$ times its old value $\\Rightarrow$ median is multiplied by $k$.\n\nWith $k = 3$:\n* New mean $= 14 \\times 3 = 42$.\n* New median $= 12 \\times 3 = 36$.\n\nNote: range and standard deviation also multiply by $k$ (the spread scales).\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — adds $3$ instead of multiplying.\n* Choice C: "stops one step early" — scales the mean but forgets the median.\n* Choice D: "stops one step early" — scales the median but forgets the mean.\n\n**Test Day Takeaway:** SCALING by $k$ (multiplying every value by $k$): mean, median, AND spread (range, SD) all multiply by $k$. SHIFTING by $c$ (adding $c$ to every value): mean and median shift by $c$; spread is unchanged.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'outlier-effect',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-129',
+    domain: 'problem-solving',
+    skills: ['calculate-mean', 'find-median'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'A data set has a mean of $70$ and a median of $60$. Which of the following statements MUST be true based only on this information?',
+    choices: [
+      // distractor: claims a specific number is in the set
+      { id: 'A', text: 'The data set contains the value $70$.' },
+      { id: 'B', text: 'The data set contains at least one value greater than or equal to $70$.' },
+      // distractor: claims symmetric distribution
+      { id: 'C', text: 'The data set is symmetric about $65$.' },
+      // distractor: claims median is the most common value
+      { id: 'D', text: 'The data set has $60$ as its mode.' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Outlier Effect**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Mean $= 70$ requires that the SUM divided by $n$ equals $70$. If every value were $< 70$, the sum would be $< 70n$ and the mean $< 70$. So at least one value must be $\\geq 70$.\n\n**The Full Solution:**\nGiven mean $= 70$: $\\dfrac{\\text{sum}}{n} = 70 \\Rightarrow \\text{sum} = 70n$.\n\nSuppose, for contradiction, that ALL values were strictly less than $70$. Then the sum would be strictly less than $70n$, and the mean strictly less than $70$ — contradicting the given mean.\n\nTherefore at least one value must be $\\geq 70$. This is the only statement that MUST be true.\n\nMean $>$ median is consistent with right-skew (a long tail of high values), but skew is not the same as having any specific value in the set.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — the mean does not have to be a member of the data set (e.g., $\\{60, 80\\}$ has mean $70$ but $70$ itself is not in the set).\n* Choice C: "wrong base" — mean $\\neq$ median, so the data is NOT symmetric. Symmetric data would have mean $=$ median.\n* Choice D: "wrong formula" — median tells us the middle value, NOT the most common (mode). They are different measures.\n\n**Test Day Takeaway:** A mean of $M$ requires at least one value $\\geq M$ (and at least one value $\\leq M$). Mean $>$ median often suggests right-skew but doesn\'t prove a specific shape.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'outlier-effect',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-130',
+    domain: 'problem-solving',
+    skills: ['calculate-mean', 'find-median'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'A data set of $9$ values has a mean equal to its median, both $40$. The largest value in the set is increased by $18$, and no other values change. Which of the following best describes the new mean and median?',
+    choices: [
+      // distractor: both increase by the full 18
+      { id: 'A', text: 'Mean increases by $18$; median increases by $18$.' },
+      { id: 'B', text: 'Mean increases by $2$; median is unchanged.' },
+      // distractor: only median changes
+      { id: 'C', text: 'Mean unchanged; median increases by $2$.' },
+      // distractor: ignores change
+      { id: 'D', text: 'Both mean and median are unchanged.' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Outlier Effect**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Sum increases by $18$. With $9$ values, mean shifts by $18 / 9 = 2$. The largest value is still the largest, so the median (the $5$th of $9$) is unchanged.\n\n**The Full Solution:**\nOriginal sum: $9 \\cdot 40 = 360$.\nNew sum: $360 + 18 = 378$.\nNew mean: $378 / 9 = 42$. So mean increased by $2$.\n\nMedian: with $9$ sorted values, the median is the $5$th value. Increasing the LARGEST (the $9$th value) doesn\'t change its position relative to the others — it remains the $9$th. The $5$th value is unchanged. So the median stays at $40$.\n\nVerification: change in mean $= +2$ \\checkmark, change in median $= 0$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — increases mean by the full amount $18$ instead of dividing by $n = 9$. Similarly for median.\n* Choice C: "applies the inverse operation" — claims only the median changes (in fact only the mean does).\n* Choice D: "wrong formula" — ignores the change to the sum.\n\n**Test Day Takeaway:** Changing only the LARGEST value affects the mean (by $\\Delta/n$) but not the median (the middle value is unchanged unless the modification crosses a position boundary).',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'outlier-effect',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-131',
+    domain: 'problem-solving',
+    skills: ['calculate-mean'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'A list of $10$ values has a mean of $30$ and a median of $25$. Each value in the list is first multiplied by $2$ and then increased by $5$. What is the mean of the new list?',
+    correctAnswer: '65',
+    explanation: '**SAT Pattern: Outlier Effect**\n\n**The correct answer is $65$.**\n\n**The Fast Way (~10s):** Apply the SAME transformation to the mean: $2 \\times 30 + 5 = 65$.\n\n**The Full Solution:**\nWhen every value is replaced by $f(x) = 2x + 5$, the new mean is $f(\\text{old mean})$:\n* Multiply by $2$: each value contributes $2x$ to the sum; total scales by $2$; mean scales by $2$.\n* Add $5$: every value contributes $+5$; total grows by $5n$; mean grows by $5$.\n\nCombined: new mean $= 2 \\cdot 30 + 5 = 60 + 5 = 65$.\n\nVerification: any list with mean $30$ scaled by $2$ has mean $60$; then shifted by $+5$ has mean $65$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Applying operations to the WRONG quantity (e.g., to the median instead of the mean).\n* Doing operations in the wrong order: shifting first by $5$ then doubling would give $2 \\cdot 35 = 70$ — different result.\n* Forgetting to scale: reporting $30 + 5 = 35$.\n\n**Test Day Takeaway:** Affine transformations on every value ($f(x) = ax + b$) transform the mean the same way: new mean $= a \\cdot$ (old mean) $+ b$. Same rule applies to median.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'outlier-effect',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
