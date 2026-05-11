@@ -2300,5 +2300,156 @@ export const algebraBank = [
     sourceStyleRef: 'shifted-output',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+
+  // === MULTI-STEP LINEAR EQUATION (8 questions) — Phase 2 priority pattern ===
+  // 20x in 12 tests = 3.8% of test items. Covers: distribute+combine,
+  // LCD-fractions, same-denominator, and coefficient-chain word problems.
+  {
+    id: 'bank-alg-099',
+    domain: 'algebra',
+    skills: ['distributive-property', 'combining-like-terms'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'If $3(x + 4) - 2 = 19$, what is the value of $x$?',
+    correctAnswer: '3',
+    explanation: '**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~10s):** $3(x + 4) = 21 \\Rightarrow x + 4 = 7 \\Rightarrow x = 3$.\n\n**The Full Solution:**\n$3(x + 4) - 2 = 19$\n$3x + 12 - 2 = 19$\n$3x + 10 = 19$\n$3x = 9$\n$x = 3$\n\nVerification: $3(3 + 4) - 2 = 3(7) - 2 = 21 - 2 = 19$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting to distribute the $3$ to BOTH terms inside the parentheses (writing $3x + 4 - 2 = 19$).\n* Sign error when combining $+12 - 2 = 10$.\n\n**Test Day Takeaway:** Distribute first, combine like terms second, isolate the variable last. Three steps in fixed order.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'multi-step-linear-equation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-100',
+    domain: 'algebra',
+    skills: ['distributive-property', 'combining-like-terms'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'If $2(x - 5) + 4x = 26$, what is the value of $x$?',
+    correctAnswer: '6',
+    explanation: '**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~10s):** $2x - 10 + 4x = 26 \\Rightarrow 6x = 36 \\Rightarrow x = 6$.\n\n**The Full Solution:**\n$2(x - 5) + 4x = 26$\n$2x - 10 + 4x = 26$\n$6x - 10 = 26$\n$6x = 36$\n$x = 6$\n\nVerification: $2(6 - 5) + 4(6) = 2(1) + 24 = 2 + 24 = 26$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Distributing $2$ only to $x$ and not to $-5$ (writing $2x - 5 + 4x = 26$).\n* Combining $2x + 4x$ as $6x^2$ instead of $6x$.\n\n**Test Day Takeaway:** When a variable appears both inside and outside parentheses, distribute first, then combine all like terms before isolating.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'multi-step-linear-equation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-101',
+    domain: 'algebra',
+    skills: ['distributive-property', 'combining-like-terms'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'If $5(2y - 3) = 3y + 6$, what is the value of $y$?',
+    choices: [
+      // distractor: sign error — combines as 10y - 15 = 3y + 6 then 7y = -9
+      { id: 'A', text: '$-\\dfrac{9}{7}$' },
+      // distractor: divides 6 by 3 directly, ignoring y on the right
+      { id: 'B', text: '$2$' },
+      { id: 'C', text: '$3$' },
+      // distractor: solves 10y = 3y + 21, gives 7y = 21
+      { id: 'D', text: '$21$' }
+    ],
+    correctAnswer: 'C',
+    explanation: '**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $10y - 15 = 3y + 6 \\Rightarrow 7y = 21 \\Rightarrow y = 3$.\n\n**The Full Solution:**\n$5(2y - 3) = 3y + 6$\n$10y - 15 = 3y + 6$\n$10y - 3y = 6 + 15$\n$7y = 21$\n$y = 3$\n\nVerification: LHS $= 5(2(3) - 3) = 5(3) = 15$. RHS $= 3(3) + 6 = 9 + 6 = 15$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "sign error" — moves $-15$ to the right side without flipping its sign, getting $7y = -9$.\n* Choice B: "wrong base" — ignores the $y$ on the right side and solves $5(2y - 3) = 6$ instead.\n* Choice D: "stops one step early" — solves correctly to $7y = 21$ and reports $21$ instead of dividing by $7$.\n\n**Test Day Takeaway:** When variables appear on both sides, move all $y$ terms to one side and all constants to the other. Watch sign flips when moving terms across the equals sign.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'multi-step-linear-equation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-102',
+    domain: 'algebra',
+    skills: ['distributive-property', 'combining-like-terms'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'If $7(2x - 1) + 5 = 4(3x + 2)$, what is the value of $x$?',
+    correctAnswer: '5',
+    explanation: '**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~20s):** $14x - 7 + 5 = 12x + 8 \\Rightarrow 14x - 2 = 12x + 8 \\Rightarrow 2x = 10 \\Rightarrow x = 5$.\n\n**The Full Solution:**\n$7(2x - 1) + 5 = 4(3x + 2)$\n$14x - 7 + 5 = 12x + 8$\n$14x - 2 = 12x + 8$\n$14x - 12x = 8 + 2$\n$2x = 10$\n$x = 5$\n\nVerification: LHS $= 7(2(5) - 1) + 5 = 7(9) + 5 = 63 + 5 = 68$. RHS $= 4(3(5) + 2) = 4(17) = 68$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Distributing $7$ incorrectly: $14x - 7$ becomes $14x - 1$.\n* Combining $-7 + 5$ as $-12$ instead of $-2$.\n* Sign flip error when moving $-2$ across the equals: $14x = 12x + 6$ instead of $+8$.\n\n**Test Day Takeaway:** Distribute on BOTH sides first. Then combine constants on each side. Then bring variable terms together. Check each sign change.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'multi-step-linear-equation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-103',
+    domain: 'algebra',
+    skills: ['combining-like-terms', 'simplifying-rational-expressions'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'If $\\dfrac{x + 1}{2} + \\dfrac{x + 3}{4} = 5$, what is the value of $x$?',
+    correctAnswer: '5',
+    explanation: '**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~20s):** Multiply every term by the LCD $4$: $2(x + 1) + (x + 3) = 20 \\Rightarrow 3x + 5 = 20 \\Rightarrow x = 5$.\n\n**The Full Solution:**\nMultiply each term of $\\dfrac{x + 1}{2} + \\dfrac{x + 3}{4} = 5$ by the LCD $4$:\n$2(x + 1) + (x + 3) = 20$\n$2x + 2 + x + 3 = 20$\n$3x + 5 = 20$\n$3x = 15$\n$x = 5$\n\nVerification: $\\dfrac{5 + 1}{2} + \\dfrac{5 + 3}{4} = \\dfrac{6}{2} + \\dfrac{8}{4} = 3 + 2 = 5$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Multiplying only the left side by $4$, leaving the $5$ on the right untouched.\n* Forgetting to distribute $2$ to BOTH terms inside the first numerator.\n* Adding the fractions without a common denominator: $\\dfrac{(x+1)+(x+3)}{2+4}$ — wrong.\n\n**Test Day Takeaway:** When an equation contains fractions, multiply every term by the LCD to clear all denominators at once. This always works.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'multi-step-linear-equation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-104',
+    domain: 'algebra',
+    skills: ['combining-like-terms'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'What value of $x$ satisfies $\\dfrac{3x - 1}{5} = \\dfrac{x + 11}{5}$?',
+    choices: [
+      // distractor: sign error: 3x + 1 = x + 11 → 2x = 10 → x = 5
+      { id: 'A', text: '$5$' },
+      { id: 'B', text: '$6$' },
+      // distractor: stops at 2x = 12 and reports the intermediate value
+      { id: 'C', text: '$12$' },
+      // distractor: ignores the x on the right side: 3x - 1 = 11
+      { id: 'D', text: '$4$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Same denominator on both sides $\\Rightarrow$ set numerators equal: $3x - 1 = x + 11 \\Rightarrow 2x = 12 \\Rightarrow x = 6$.\n\n**The Full Solution:**\nSince both fractions have the same denominator $5$, they are equal exactly when their numerators are equal:\n$3x - 1 = x + 11$\n$3x - x = 11 + 1$\n$2x = 12$\n$x = 6$.\n\nVerification: $\\dfrac{3(6) - 1}{5} = \\dfrac{17}{5}$, and $\\dfrac{6 + 11}{5} = \\dfrac{17}{5}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "sign error" — moves $-1$ across without flipping ($3x + 1 = x + 11 \\Rightarrow x = 5$).\n* Choice C: "stops one step early" — reports the intermediate $2x = 12$ instead of dividing by $2$.\n* Choice D: "wrong base" — ignores the $x$ on the right side and solves $3x - 1 = 11$.\n\n**Test Day Takeaway:** When two fractions with equal denominators are set equal, the numerators must be equal. No cross-multiplication needed.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'multi-step-linear-equation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-105',
+    domain: 'algebra',
+    skills: ['word-problem-to-equation', 'combining-like-terms'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'A community center has red, blue, and green chairs. The number of blue chairs is $3$ times the number of red chairs, and the number of green chairs is $12$ more than the number of red chairs. There are $192$ chairs in total. How many red chairs are there?',
+    choices: [
+      // distractor: ignores the +12 offset and divides 192/5 → 38.4 → rounded
+      { id: 'A', text: '$38$' },
+      { id: 'B', text: '$36$' },
+      // distractor: forgets the 3x multiplier on blue chairs (treats blue = red)
+      { id: 'C', text: '$60$' },
+      // distractor: reports the number of BLUE chairs instead of red
+      { id: 'D', text: '$108$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Multi-Step Linear Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Let $r =$ red. Then blue $= 3r$, green $= r + 12$. Total: $r + 3r + (r + 12) = 5r + 12 = 192 \\Rightarrow 5r = 180 \\Rightarrow r = 36$.\n\n**The Full Solution:**\nLet $r$ = number of red chairs.\n* Blue chairs: $3r$.\n* Green chairs: $r + 12$.\nTotal: $r + 3r + (r + 12) = 5r + 12$.\nSet $5r + 12 = 192$: $5r = 180 \\Rightarrow r = 36$.\n\nVerification: red $= 36$, blue $= 108$, green $= 48$. Total $= 36 + 108 + 48 = 192$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — ignores the $+12$ offset and divides $192/5 = 38.4$, rounding down.\n* Choice C: "wrong base" — drops the $3 \\cdot$ coefficient on blue, treating blue $= r$: $3r + 12 = 192 \\Rightarrow r = 60$.\n* Choice D: "stops one step early" — solves correctly to $r = 36$ then reports blue ($3 \\cdot 36 = 108$) instead of red.\n\n**Test Day Takeaway:** Express every quantity in terms of one variable, sum them, set equal to the total. Always re-read what is being asked at the end — the question may ask for a related quantity, not the one you solved for.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'multi-step-linear-equation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-106',
+    domain: 'algebra',
+    skills: ['combining-like-terms', 'simplifying-rational-expressions'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'If $\\dfrac{2x + 3}{4} - \\dfrac{x - 5}{8} = 4$, what is the value of $x$?',
+    correctAnswer: '7',
+    explanation: '**SAT Pattern: Multi-Step Linear Equation**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~25s):** Multiply every term by the LCD $8$: $2(2x + 3) - (x - 5) = 32 \\Rightarrow 3x + 11 = 32 \\Rightarrow x = 7$.\n\n**The Full Solution:**\nMultiply each term of $\\dfrac{2x + 3}{4} - \\dfrac{x - 5}{8} = 4$ by $8$ (the LCD):\n$2(2x + 3) - (x - 5) = 32$\n$4x + 6 - x + 5 = 32$\n$3x + 11 = 32$\n$3x = 21$\n$x = 7$\n\nVerification: $\\dfrac{2(7) + 3}{4} - \\dfrac{7 - 5}{8} = \\dfrac{17}{4} - \\dfrac{2}{8} = \\dfrac{17}{4} - \\dfrac{1}{4} = \\dfrac{16}{4} = 4$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting to distribute the NEGATIVE sign on the second term: $-(x - 5)$ becomes $-x + 5$, NOT $-x - 5$.\n* Multiplying only one fraction by the LCD, leaving the other untouched.\n* Multiplying $\\dfrac{2x + 3}{4}$ by $8$ but only the numerator, missing that the denominator $4$ cancels half of the $8$.\n\n**Test Day Takeaway:** Clear all denominators first by multiplying every term by the LCD. Then distribute, watch the negative sign on the subtracted fraction, and combine like terms.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'multi-step-linear-equation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
