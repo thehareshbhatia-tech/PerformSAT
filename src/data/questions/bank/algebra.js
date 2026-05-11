@@ -3706,5 +3706,165 @@ export const algebraBank = [
     sourceStyleRef: 'slope-from-two-points',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+  // ===== Phase 2 batch 7/3: two-step-linear-equation (8 items) =====
+  // Pattern: ax + b = c, solve for x in two steps. 7 test occurrences across
+  // PT3, PT12, M2Easy variants. SAT Pattern title (verbatim): 'Two-Step
+  // Linear Equation' → kebab 'two-step-linear-equation'.
+  {
+    id: 'bank-alg-169',
+    domain: 'algebra',
+    skills: ['combining-like-terms'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'If $5x - 7 = 18$, what is the value of $x$?',
+    choices: [
+      { id: 'A', text: '$5$' },
+      // distractor: stops at 5x = 25
+      { id: 'B', text: '$25$' },
+      // distractor: subtracts 7 instead of adding
+      { id: 'C', text: '$\\dfrac{11}{5}$' },
+      // distractor: divides first
+      { id: 'D', text: '$\\dfrac{18}{5}$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Two-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Add $7$: $5x = 25$. Divide by $5$: $x = 5$.\n\n**The Full Solution:**\n$5x - 7 = 18$\nAdd $7$ to both sides: $5x = 25$.\nDivide by $5$: $x = 5$.\n\nVerification: $5(5) - 7 = 25 - 7 = 18$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — gives $5x = 25$ but forgets to divide.\n* Choice C: "wrong sign" — subtracts $7$ instead of adding: $11/5$.\n* Choice D: "wrong order" — divides $18$ by $5$ before handling the $-7$.\n\n**Test Day Takeaway:** Two-step equations: undo the addition/subtraction FIRST, then the multiplication/division. Always substitute back to check.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'two-step-linear-equation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-170',
+    domain: 'algebra',
+    skills: ['combining-like-terms'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'If $3x + 4 = 22$, what is the value of $x$?',
+    correctAnswer: '6',
+    explanation: '**SAT Pattern: Two-Step Linear Equation**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~5s):** Subtract $4$: $3x = 18$. Divide by $3$: $x = 6$.\n\n**The Full Solution:**\n$3x + 4 = 22$\nSubtract $4$: $3x = 18$.\nDivide by $3$: $x = 6$.\n\nVerification: $3(6) + 4 = 18 + 4 = 22$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Stopping at $3x = 18$ and reporting $18$.\n* Adding $4$ instead of subtracting: $3x = 26 \\Rightarrow x = 26/3$.\n* Dividing $22$ by $3$ first: $22/3 - 4 = 22/3 - 12/3 = 10/3$.\n\n**Test Day Takeaway:** Inverse operations. Adding $4$ on the left? Subtract $4$ from both sides. Multiplied by $3$? Divide both sides by $3$. ORDER: addition/subtraction FIRST.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'two-step-linear-equation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-171',
+    domain: 'algebra',
+    skills: ['combining-like-terms'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'If $\\dfrac{x}{4} - 3 = 5$, what is the value of $x$?',
+    choices: [
+      { id: 'A', text: '$32$' },
+      // distractor: forgets to multiply at the end
+      { id: 'B', text: '$8$' },
+      // distractor: wrong sign on subtraction
+      { id: 'C', text: '$\\dfrac{1}{2}$' },
+      // distractor: divides instead of multiplies
+      { id: 'D', text: '$2$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Two-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Add $3$: $x/4 = 8$. Multiply by $4$: $x = 32$.\n\n**The Full Solution:**\n$\\dfrac{x}{4} - 3 = 5$\nAdd $3$: $\\dfrac{x}{4} = 8$.\nMultiply by $4$: $x = 32$.\n\nVerification: $\\dfrac{32}{4} - 3 = 8 - 3 = 5$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — reports $x/4 = 8$ instead of solving for $x$.\n* Choice C: "applies the inverse operation" — divides by $4$ instead of multiplying.\n* Choice D: "wrong base" — $8/4 = 2$, picks the wrong step\'s answer.\n\n**Test Day Takeaway:** $\\dfrac{x}{a} = b \\Rightarrow x = ab$ (MULTIPLY both sides by $a$). The inverse of "divide by $4$" is "multiply by $4$".',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'two-step-linear-equation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-172',
+    domain: 'algebra',
+    skills: ['combining-like-terms'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'If $7 - 2x = 13$, what is the value of $x$?',
+    correctAnswer: '-3',
+    explanation: '**SAT Pattern: Two-Step Linear Equation**\n\n**The correct answer is $-3$.**\n\n**The Fast Way (~10s):** Subtract $7$: $-2x = 6$. Divide by $-2$: $x = -3$.\n\n**The Full Solution:**\n$7 - 2x = 13$\nSubtract $7$: $-2x = 6$.\nDivide by $-2$: $x = -3$.\n\nVerification: $7 - 2(-3) = 7 + 6 = 13$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Dropping the negative when dividing: $x = 3$.\n* Forgetting to subtract $7$: $-2x = 13$, then $x = -6.5$.\n* Treating $7 - 2x$ as $5x$ via slip.\n\n**Test Day Takeaway:** When the coefficient of $x$ is negative, dividing keeps the sign. $-2x = 6 \\Rightarrow x = -3$ (negative answer expected).',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'two-step-linear-equation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-173',
+    domain: 'algebra',
+    skills: ['combining-like-terms'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'If $4(x + 2) = 28$, what is the value of $x$?',
+    choices: [
+      { id: 'A', text: '$5$' },
+      // distractor: forgets to subtract 2 at the end
+      { id: 'B', text: '$7$' },
+      // distractor: distributes wrongly
+      { id: 'C', text: '$6.5$' },
+      // distractor: divides 28 by 4 only
+      { id: 'D', text: '$26$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Two-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Divide by $4$: $x + 2 = 7$. Subtract $2$: $x = 5$.\n\n**The Full Solution:**\nMethod 1 (divide first):\n$4(x + 2) = 28$\n$x + 2 = 7$\n$x = 5$.\n\nMethod 2 (distribute first):\n$4x + 8 = 28$\n$4x = 20$\n$x = 5$.\n\nVerification: $4(5 + 2) = 4 \\cdot 7 = 28$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — gives $x + 2 = 7$ as the answer.\n* Choice C: "wrong base" — divides $26/4 = 6.5$ via slip.\n* Choice D: "wrong base" — gives $28 - 2 = 26$.\n\n**Test Day Takeaway:** When the variable is inside parentheses with a coefficient outside, DIVIDE first to clear the coefficient, then handle the inner expression. Saves a distribution step.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'two-step-linear-equation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-174',
+    domain: 'algebra',
+    skills: ['combining-like-terms'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'If $\\dfrac{2x + 1}{3} = 5$, what is the value of $x$?',
+    correctAnswer: '7',
+    explanation: '**SAT Pattern: Two-Step Linear Equation**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~10s):** Multiply by $3$: $2x + 1 = 15$. Subtract $1$: $2x = 14$. Divide by $2$: $x = 7$.\n\n**The Full Solution:**\n$\\dfrac{2x + 1}{3} = 5$\nMultiply by $3$: $2x + 1 = 15$.\nSubtract $1$: $2x = 14$.\nDivide by $2$: $x = 7$.\n\nVerification: $\\dfrac{2(7) + 1}{3} = \\dfrac{15}{3} = 5$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Only multiplying part of the numerator by $3$: $\\dfrac{6x + 1}{3} = 5$ — wrong distribution.\n* Stopping at $2x = 14$ and reporting $14$.\n* Dividing by $3$ instead of multiplying: $2x + 1 = 5/3$ — wrong inverse.\n\n**Test Day Takeaway:** When the entire LHS is divided by a number, multiply both SIDES by that number FIRST to clear the fraction. Then proceed as a standard two-step equation.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'two-step-linear-equation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-175',
+    domain: 'algebra',
+    skills: ['combining-like-terms'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'If $\\dfrac{3}{4}x - 5 = 7$, what is the value of $x$?',
+    choices: [
+      { id: 'A', text: '$16$' },
+      // distractor: doesn't multiply by 4/3
+      { id: 'B', text: '$12$' },
+      // distractor: 16/4 = 4
+      { id: 'C', text: '$\\dfrac{16}{3}$' },
+      // distractor: stops at 3/4 x = 12
+      { id: 'D', text: '$9$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Two-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Add $5$: $\\dfrac{3}{4}x = 12$. Multiply by $\\dfrac{4}{3}$: $x = 12 \\cdot \\dfrac{4}{3} = 16$.\n\n**The Full Solution:**\n$\\dfrac{3}{4}x - 5 = 7$\nAdd $5$: $\\dfrac{3}{4}x = 12$.\nMultiply by $\\dfrac{4}{3}$ (the reciprocal of $\\dfrac{3}{4}$):\n$x = 12 \\cdot \\dfrac{4}{3} = \\dfrac{48}{3} = 16$.\n\nVerification: $\\dfrac{3}{4}(16) - 5 = 12 - 5 = 7$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — gives $\\dfrac{3}{4}x = 12$, then $12 \\cdot \\dfrac{1}{4} \\cdot ...$ slips.\n* Choice C: "wrong formula" — multiplies $12$ by $\\dfrac{4}{3}$ but reports $\\dfrac{16}{3}$ via slip.\n* Choice D: "wrong base" — adds $5 + ... $ wrongly.\n\n**Test Day Takeaway:** To clear a fractional coefficient like $\\dfrac{3}{4}$, multiply by the RECIPROCAL ($\\dfrac{4}{3}$). Don\'t just multiply by $4$.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'two-step-linear-equation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-176',
+    domain: 'algebra',
+    skills: ['combining-like-terms'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'If $\\dfrac{x - 6}{5} + 4 = 0$, what is the value of $x$?',
+    correctAnswer: '-14',
+    explanation: '**SAT Pattern: Two-Step Linear Equation**\n\n**The correct answer is $-14$.**\n\n**The Fast Way (~15s):** Subtract $4$: $\\dfrac{x - 6}{5} = -4$. Multiply by $5$: $x - 6 = -20$. Add $6$: $x = -14$.\n\n**The Full Solution:**\n$\\dfrac{x - 6}{5} + 4 = 0$\nSubtract $4$: $\\dfrac{x - 6}{5} = -4$.\nMultiply by $5$: $x - 6 = -20$.\nAdd $6$: $x = -14$.\n\nVerification: $\\dfrac{-14 - 6}{5} + 4 = \\dfrac{-20}{5} + 4 = -4 + 4 = 0$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Sign error on the right side: $\\dfrac{x - 6}{5} = 4$ instead of $-4$.\n* Forgetting the $-6$ at the end: reports $x = -20$.\n* Multiplying by $5$ before subtracting $4$: gives $x - 6 = -20$ but applies the $4$ wrongly.\n\n**Test Day Takeaway:** A linear equation with a fraction wrapper. Peel off the constant OUTSIDE the fraction first, then clear the fraction, then peel off inside.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'two-step-linear-equation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
