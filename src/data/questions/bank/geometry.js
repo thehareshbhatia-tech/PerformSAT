@@ -1417,4 +1417,192 @@ export const geometryBank = [
     authoredBy: 'performsat-engine',
     createdAt: '2026-02-28',
   },
+
+  // === RIGHT-TRIANGLE TRIG RATIOS (8 questions) — Phase 2 priority pattern ===
+  // 17x in 12 tests = 3.2% of test items. Covers: SOHCAHTOA from given sides,
+  // side-from-ratio scaling, identity-based ratio composition, real-world angle.
+  // Pythagorean triples used: 5-12-13, 8-15-17, 7-24-25, 3-4-5.
+  {
+    id: 'bank-geo-061',
+    domain: 'geometry',
+    skills: ['soh-cah-toa', 'pythagorean-theorem'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'In right triangle $ABC$, the right angle is at vertex $C$. If $AB = 13$ and $BC = 5$, what is the value of $\\sin A$?',
+    choices: [
+      { id: 'A', text: '$\\dfrac{5}{13}$' },
+      // distractor: cos(A) instead of sin(A)
+      { id: 'B', text: '$\\dfrac{12}{13}$' },
+      // distractor: tan(A)
+      { id: 'C', text: '$\\dfrac{5}{12}$' },
+      // distractor: inverts the ratio (csc instead of sin)
+      { id: 'D', text: '$\\dfrac{13}{5}$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Right Triangle Trigonometry**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $AB$ is the hypotenuse (opposite the right angle at $C$). Side $BC$ is opposite angle $A$. $\\sin A = \\dfrac{\\text{opposite}}{\\text{hypotenuse}} = \\dfrac{5}{13}$.\n\n**The Full Solution:**\nThe right angle is at $C$, so the hypotenuse is the side opposite $C$, which is $AB = 13$.\nThe side opposite angle $A$ is $BC = 5$.\n\nBy SOH: $\\sin A = \\dfrac{\\text{opposite to } A}{\\text{hypotenuse}} = \\dfrac{BC}{AB} = \\dfrac{5}{13}$.\n\nVerification: $AC = \\sqrt{13^2 - 5^2} = \\sqrt{169 - 25} = \\sqrt{144} = 12$. Recognize the $5$-$12$-$13$ triple. $\\sin A = 5/13$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — uses $AC = 12$ (adjacent to $A$); this is $\\cos A$, not $\\sin A$.\n* Choice C: "applies the inverse operation" — gives $\\dfrac{BC}{AC} = \\dfrac{5}{12}$, which is $\\tan A$.\n* Choice D: "applies the inverse operation" — inverts $\\sin A$ to get $\\csc A$.\n\n**Test Day Takeaway:** Step 1: identify the hypotenuse (opposite the right angle). Step 2: for the angle in question, identify opposite and adjacent. Step 3: apply SOH-CAH-TOA.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'right-triangle-trig-ratios',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-062',
+    domain: 'geometry',
+    skills: ['soh-cah-toa', 'pythagorean-theorem'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'In right triangle $PQR$, the right angle is at vertex $R$. If $PQ = 17$ and $PR = 8$, what is the value of $\\cos P$?',
+    choices: [
+      { id: 'A', text: '$\\dfrac{8}{17}$' },
+      // distractor: sin P instead of cos P
+      { id: 'B', text: '$\\dfrac{15}{17}$' },
+      // distractor: tan P
+      { id: 'C', text: '$\\dfrac{15}{8}$' },
+      // distractor: inverts to sec P
+      { id: 'D', text: '$\\dfrac{17}{8}$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Right Triangle Trigonometry**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $PQ$ is the hypotenuse. $PR$ is adjacent to angle $P$. $\\cos P = \\dfrac{\\text{adjacent}}{\\text{hypotenuse}} = \\dfrac{8}{17}$.\n\n**The Full Solution:**\nThe right angle is at $R$, so $PQ = 17$ is the hypotenuse.\nThe side adjacent to angle $P$ (touching $P$ but not the hypotenuse) is $PR = 8$.\n\nBy CAH: $\\cos P = \\dfrac{PR}{PQ} = \\dfrac{8}{17}$.\n\nVerification: $QR = \\sqrt{17^2 - 8^2} = \\sqrt{289 - 64} = \\sqrt{225} = 15$. Recognize the $8$-$15$-$17$ triple. $\\cos P = 8/17$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — uses $QR = 15$ (opposite to $P$); this is $\\sin P$, not $\\cos P$.\n* Choice C: "applies the inverse operation" — gives $\\dfrac{QR}{PR} = \\dfrac{15}{8}$, which is $\\tan P$.\n* Choice D: "applies the inverse operation" — inverts $\\cos P$ to get $\\sec P$.\n\n**Test Day Takeaway:** For $\\cos$ of an angle, identify the side ADJACENT to that angle (touching it but not the hypotenuse), then divide by the hypotenuse.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'right-triangle-trig-ratios',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-063',
+    domain: 'geometry',
+    skills: ['soh-cah-toa', 'pythagorean-theorem'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'In right triangle $JKL$, the right angle is at vertex $K$. If $JK = 7$ and $KL = 24$, what is the value of $\\tan L$?',
+    choices: [
+      // distractor: sin(L)
+      { id: 'A', text: '$\\dfrac{7}{25}$' },
+      { id: 'B', text: '$\\dfrac{7}{24}$' },
+      // distractor: cos(L)
+      { id: 'C', text: '$\\dfrac{24}{25}$' },
+      // distractor: inverse (cot L)
+      { id: 'D', text: '$\\dfrac{24}{7}$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Right Triangle Trigonometry**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** With right angle at $K$, for angle $L$: opposite $= JK = 7$, adjacent $= KL = 24$. $\\tan L = \\dfrac{7}{24}$.\n\n**The Full Solution:**\nThe right angle is at $K$, so $JL$ is the hypotenuse.\nFor angle $L$:\n* The side OPPOSITE $L$ is $JK = 7$.\n* The side ADJACENT to $L$ (and not the hypotenuse) is $KL = 24$.\n\nBy TOA: $\\tan L = \\dfrac{\\text{opposite}}{\\text{adjacent}} = \\dfrac{JK}{KL} = \\dfrac{7}{24}$.\n\nVerification: $JL = \\sqrt{7^2 + 24^2} = \\sqrt{49 + 576} = \\sqrt{625} = 25$. This is the $7$-$24$-$25$ Pythagorean triple. $\\tan L = 7/24$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — uses hypotenuse ($25$) as the denominator; this gives $\\sin L = 7/25$.\n* Choice C: "wrong base" — gives $\\dfrac{KL}{JL} = \\dfrac{24}{25}$, which is $\\cos L$.\n* Choice D: "applies the inverse operation" — swaps opposite and adjacent (gives $\\cot L$).\n\n**Test Day Takeaway:** For $\\tan$, you do NOT need the hypotenuse — just opposite over adjacent. The hypotenuse value $25$ is a distractor in this problem.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'right-triangle-trig-ratios',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-064',
+    domain: 'geometry',
+    skills: ['soh-cah-toa', 'special-right-triangles'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'In right triangle $ABC$, the right angle is at vertex $A$. If $\\cos B = \\dfrac{3}{5}$ and $AB = 18$, what is the length of $BC$?',
+    choices: [
+      // distractor: uses raw 3-5 ratio without scaling: thinks AB = 3 → BC = 5
+      { id: 'A', text: '$5$' },
+      // distractor: uses AC = 24 instead of BC
+      { id: 'B', text: '$24$' },
+      { id: 'C', text: '$30$' },
+      // distractor: applies inverse — divides 18 by 3/5 wrong
+      { id: 'D', text: '$10.8$' }
+    ],
+    correctAnswer: 'C',
+    explanation: '**SAT Pattern: Right Triangle Trigonometry**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** $\\cos B = \\dfrac{\\text{adjacent}}{\\text{hypotenuse}} = \\dfrac{AB}{BC} = \\dfrac{3}{5}$. So $\\dfrac{18}{BC} = \\dfrac{3}{5} \\Rightarrow BC = \\dfrac{18 \\cdot 5}{3} = 30$.\n\n**The Full Solution:**\nThe right angle is at $A$, so $BC$ is the hypotenuse.\nFor angle $B$: adjacent $= AB$, opposite $= AC$.\n$\\cos B = \\dfrac{AB}{BC} = \\dfrac{3}{5}$.\n\nSet up the proportion: $\\dfrac{18}{BC} = \\dfrac{3}{5}$.\nCross-multiply: $3 \\cdot BC = 18 \\cdot 5 = 90 \\Rightarrow BC = 30$.\n\nVerification: $AC = \\sqrt{30^2 - 18^2} = \\sqrt{900 - 324} = \\sqrt{576} = 24$. This is the $3$-$4$-$5$ triple scaled by $6$: sides $18$-$24$-$30$. $\\cos B = 18/30 = 3/5$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — reports the raw ratio numerator $5$ without scaling to match $AB = 18$.\n* Choice B: "wrong base" — gives $AC = 24$ (the third side) instead of $BC$ (the hypotenuse, which is what was asked).\n* Choice D: "applies the inverse operation" — computes $18 \\cdot (3/5) = 10.8$ instead of $18 \\cdot (5/3)$.\n\n**Test Day Takeaway:** When given a trig ratio and one side, set up a proportion: $\\dfrac{\\text{given side}}{\\text{unknown}} = \\dfrac{\\text{matching ratio piece}}{\\text{ratio piece for unknown}}$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'right-triangle-trig-ratios',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-065',
+    domain: 'geometry',
+    skills: ['soh-cah-toa', 'special-right-triangles'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'In right triangle $MNP$, the right angle is at vertex $P$. If $\\sin M = \\dfrac{24}{25}$, what is the value of $\\cos M$?',
+    choices: [
+      { id: 'A', text: '$\\dfrac{7}{25}$' },
+      // distractor: tan M instead of cos M
+      { id: 'B', text: '$\\dfrac{24}{7}$' },
+      // distractor: subtracts naively: 1 - 24/25 = 1/25
+      { id: 'C', text: '$\\dfrac{1}{25}$' },
+      // distractor: cot M
+      { id: 'D', text: '$\\dfrac{7}{24}$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Right Triangle Trigonometry**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $\\sin M = \\dfrac{24}{25}$ means opposite $= 24$, hypotenuse $= 25$. This is the $7$-$24$-$25$ triple, so adjacent $= 7$. Therefore $\\cos M = \\dfrac{7}{25}$.\n\n**The Full Solution:**\nGiven $\\sin M = \\dfrac{\\text{opposite}}{\\text{hypotenuse}} = \\dfrac{24}{25}$, scale so that opposite $= 24$ and hypotenuse $= 25$.\n\nUse Pythagoras to find the adjacent side: adjacent $= \\sqrt{25^2 - 24^2} = \\sqrt{625 - 576} = \\sqrt{49} = 7$.\n\nSo $\\cos M = \\dfrac{\\text{adjacent}}{\\text{hypotenuse}} = \\dfrac{7}{25}$.\n\nAlternatively, use the Pythagorean identity: $\\sin^2 M + \\cos^2 M = 1 \\Rightarrow \\cos^2 M = 1 - \\dfrac{576}{625} = \\dfrac{49}{625} \\Rightarrow \\cos M = \\dfrac{7}{25}$.\n\nVerification: in a $7$-$24$-$25$ triangle, $\\sin M = 24/25$ and $\\cos M = 7/25$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "applies the inverse operation" — gives $\\dfrac{\\text{opp}}{\\text{adj}} = \\dfrac{24}{7}$, which is $\\tan M$.\n* Choice C: "wrong formula" — subtracts naively: $1 - \\dfrac{24}{25} = \\dfrac{1}{25}$. The Pythagorean identity uses SQUARES, not the raw values.\n* Choice D: "applies the inverse operation" — gives $\\dfrac{\\text{adj}}{\\text{opp}} = \\dfrac{7}{24}$, which is $\\cot M$.\n\n**Test Day Takeaway:** When given one trig ratio, recognize the Pythagorean triple to find the third side instantly, or use the identity $\\sin^2 + \\cos^2 = 1$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'right-triangle-trig-ratios',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-066',
+    domain: 'geometry',
+    skills: ['soh-cah-toa', 'triangle-area'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'A $30$-foot ladder leans against a vertical wall, making an angle of $\\theta$ with the ground, where $\\cos \\theta = 0.8$. How many feet high up the wall does the ladder reach?',
+    choices: [
+      { id: 'A', text: '$18$' },
+      // distractor: uses cos as wall height (it's the ground distance)
+      { id: 'B', text: '$24$' },
+      // distractor: gives the hypotenuse (ladder length)
+      { id: 'C', text: '$30$' },
+      // distractor: uses 1 - 0.8 = 0.2 instead of sin
+      { id: 'D', text: '$6$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Right Triangle Trigonometry**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** $\\cos \\theta = 0.8 = 4/5$ means this is the $3$-$4$-$5$ triple, so $\\sin \\theta = 0.6$. Wall height $= 30 \\cdot \\sin \\theta = 30 \\cdot 0.6 = 18$ ft.\n\n**The Full Solution:**\nDraw the right triangle: ladder is the hypotenuse, wall is the side opposite $\\theta$, ground is adjacent.\n* Hypotenuse $= 30$ ft.\n* Adjacent (ground distance) $= 30 \\cdot \\cos \\theta = 30 \\cdot 0.8 = 24$ ft.\n* Opposite (wall height) $= 30 \\cdot \\sin \\theta$.\n\nFind $\\sin \\theta$ via the Pythagorean identity: $\\sin^2 \\theta = 1 - \\cos^2 \\theta = 1 - 0.64 = 0.36 \\Rightarrow \\sin \\theta = 0.6$.\nWall height $= 30 \\cdot 0.6 = 18$ ft.\n\nVerification: ground $= 24$, wall $= 18$, ladder $= 30$. Check: $24^2 + 18^2 = 576 + 324 = 900 = 30^2$ \\checkmark. This is the $3$-$4$-$5$ triple scaled by $6$ (sides $18$-$24$-$30$).\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — gives $30 \\cdot \\cos \\theta = 24$, which is the GROUND DISTANCE, not the wall height.\n* Choice C: "stops one step early" — reports the hypotenuse (ladder length) without computing the opposite side.\n* Choice D: "wrong formula" — uses $1 - \\cos \\theta = 0.2$ instead of $\\sin \\theta$. The complement of cosine is NOT $1 - \\cos$; use the Pythagorean identity.\n\n**Test Day Takeaway:** Draw the triangle and label every side: ladder = hypotenuse, wall = opposite, ground = adjacent. $\\cos \\theta$ gives the ADJACENT ratio; use $\\sin \\theta$ for the OPPOSITE (wall) side.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'right-triangle-trig-ratios',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-067',
+    domain: 'geometry',
+    skills: ['soh-cah-toa', 'pythagorean-theorem', 'special-right-triangles'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'In right triangle $UVW$, the right angle is at vertex $V$. If $\\tan U = \\dfrac{5}{12}$ and $UV = 36$, what is the perimeter of triangle $UVW$?',
+    correctAnswer: '90',
+    explanation: '**SAT Pattern: Right Triangle Trigonometry**\n\n**The correct answer is $90$.**\n\n**The Fast Way (~30s):** $\\tan U = \\dfrac{VW}{UV} = \\dfrac{5}{12}$. Scale: $UV = 36 = 12 \\cdot 3$, so the triangle is the $5$-$12$-$13$ triple scaled by $3$: sides $15$-$36$-$39$. Perimeter $= 15 + 36 + 39 = 90$.\n\n**The Full Solution:**\nRight angle at $V$, so $UW$ is the hypotenuse. For angle $U$: opposite $= VW$, adjacent $= UV$.\n$\\tan U = \\dfrac{VW}{UV} = \\dfrac{5}{12}$.\n\nGiven $UV = 36$: $\\dfrac{VW}{36} = \\dfrac{5}{12} \\Rightarrow VW = \\dfrac{36 \\cdot 5}{12} = 15$.\n\nFind the hypotenuse: $UW = \\sqrt{36^2 + 15^2} = \\sqrt{1296 + 225} = \\sqrt{1521} = 39$.\n\nPerimeter $= UV + VW + UW = 36 + 15 + 39 = 90$.\n\nVerification: the sides $15$-$36$-$39$ are the $5$-$12$-$13$ triple scaled by $3$. $5^2 + 12^2 = 169 = 13^2$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting only the legs ($36 + 15 = 51$) and forgetting the hypotenuse.\n* Mixing scaled and unscaled values (e.g., $15 + 36 + 13 = 64$).\n* Using $\\dfrac{5}{12}$ as the literal lengths instead of as a ratio.\n\n**Test Day Takeaway:** $\\tan U = \\dfrac{\\text{opposite}}{\\text{adjacent}}$ — recognize $\\dfrac{5}{12}$ as the $5$-$12$-$13$ triple, then scale all three sides by the multiplier ($36/12 = 3$ here).',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'right-triangle-trig-ratios',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-068',
+    domain: 'geometry',
+    skills: ['soh-cah-toa', 'pythagorean-theorem'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'In right triangle $XYZ$, the right angle is at vertex $Y$. If $\\sin X = \\dfrac{3}{5}$, what is the value of $\\cos X \\cdot \\tan X$?',
+    choices: [
+      { id: 'A', text: '$\\dfrac{3}{5}$' },
+      // distractor: gives cos X alone
+      { id: 'B', text: '$\\dfrac{4}{5}$' },
+      // distractor: gives tan X alone
+      { id: 'C', text: '$\\dfrac{3}{4}$' },
+      // distractor: multiplies numerators and denominators wrong (3/5 × 4/5)
+      { id: 'D', text: '$\\dfrac{12}{25}$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Right Triangle Trigonometry**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Identity: $\\cos X \\cdot \\tan X = \\cos X \\cdot \\dfrac{\\sin X}{\\cos X} = \\sin X = \\dfrac{3}{5}$.\n\n**The Full Solution:**\nGiven $\\sin X = \\dfrac{3}{5}$, recognize the $3$-$4$-$5$ triple: opposite $= 3$, hypotenuse $= 5$, adjacent $= 4$.\n* $\\cos X = \\dfrac{4}{5}$\n* $\\tan X = \\dfrac{3}{4}$\n\nMultiply: $\\cos X \\cdot \\tan X = \\dfrac{4}{5} \\cdot \\dfrac{3}{4} = \\dfrac{12}{20} = \\dfrac{3}{5}$.\n\nIdentity check: by definition, $\\tan X = \\dfrac{\\sin X}{\\cos X}$, so $\\cos X \\cdot \\tan X = \\sin X$ for any angle. The product simplifies to $\\sin X$.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — reports $\\cos X = \\dfrac{4}{5}$ without multiplying by $\\tan X$.\n* Choice C: "stops one step early" — reports $\\tan X = \\dfrac{3}{4}$ without multiplying by $\\cos X$.\n* Choice D: "wrong formula" — multiplies the wrong fractions ($\\dfrac{3}{5} \\cdot \\dfrac{4}{5} = \\dfrac{12}{25}$) instead of $\\cos \\cdot \\tan$.\n\n**Test Day Takeaway:** The identity $\\cos X \\cdot \\tan X = \\sin X$ collapses the calculation. Recognize it when you see $\\cos$ times $\\tan$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'right-triangle-trig-ratios',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  }
 ];
