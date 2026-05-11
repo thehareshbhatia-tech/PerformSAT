@@ -1700,4 +1700,156 @@ export const problemSolvingBank = [
     authoredBy: 'performsat-engine',
     createdAt: '2026-02-28',
   },
+
+  // === MEAN FROM LIST (8 questions) — Phase 2 batch 2 priority pattern ===
+  // 11x in 12 tests. Covers: sum-from-mean, add-value-find-new-value,
+  // remove-value-find-new-mean, replace-value, combined-list weighting.
+  // SAT Pattern kebab matches test bundle: 'mean-from-list'.
+  {
+    id: 'bank-ps-076',
+    domain: 'problem-solving',
+    skills: ['calculate-mean'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'The mean of a list of $6$ values is $14$. What is the sum of all $6$ values?',
+    correctAnswer: '84',
+    explanation: '**SAT Pattern: Mean from List**\n\n**The correct answer is $84$.**\n\n**The Fast Way (~5s):** Sum $= \\text{mean} \\times \\text{count} = 14 \\times 6 = 84$.\n\n**The Full Solution:**\nThe mean of $n$ values is defined as $\\bar{x} = \\dfrac{\\text{sum}}{n}$, so the sum equals $\\bar{x} \\cdot n$.\nHere: $\\text{sum} = 14 \\times 6 = 84$.\n\nVerification: any list of $6$ values that sums to $84$ has mean $14$ — for example $\\{14, 14, 14, 14, 14, 14\\}$ or $\\{10, 12, 14, 14, 16, 18\\}$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Dividing the mean by the count (would give a meaningless small number).\n* Squaring the count or otherwise applying a wrong formula.\n\n**Test Day Takeaway:** Sum $= $ mean $\\times $ count. This formula is the foundation for every "add/remove/replace a value" mean problem on the SAT.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'mean-from-list',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-077',
+    domain: 'problem-solving',
+    skills: ['calculate-mean'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'The mean of a list of $8$ numbers is $12$. A $9$th number is added to the list and the new mean is $13$. What is the value of the $9$th number?',
+    correctAnswer: '21',
+    explanation: '**SAT Pattern: Mean from List**\n\n**The correct answer is $21$.**\n\n**The Fast Way (~15s):** Old sum $= 8 \\times 12 = 96$. New sum $= 9 \\times 13 = 117$. Added value $= 117 - 96 = 21$.\n\n**The Full Solution:**\nOld total: $8 \\times 12 = 96$.\nNew total: $9 \\times 13 = 117$.\nThe added value is the difference: $117 - 96 = 21$.\n\nVerification: $\\dfrac{96 + 21}{9} = \\dfrac{117}{9} = 13$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting the new mean ($13$) as the added value.\n* Subtracting means directly ($13 - 12 = 1$) — this ignores the count change.\n\n**Test Day Takeaway:** When a value is added to or removed from a list, work with SUMS, not means. Old sum vs new sum reveals the added/removed value directly.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'mean-from-list',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-078',
+    domain: 'problem-solving',
+    skills: ['calculate-mean'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'A student\'s mean score on $5$ tests is $78$. After taking a $6$th test, the student\'s mean across all $6$ tests is $80$. What is the score on the $6$th test?',
+    choices: [
+      // distractor: new mean reported as new test score
+      { id: 'A', text: '$80$' },
+      // distractor: averages the two means
+      { id: 'B', text: '$79$' },
+      // distractor: old mean reported
+      { id: 'C', text: '$78$' },
+      { id: 'D', text: '$90$' }
+    ],
+    correctAnswer: 'D',
+    explanation: '**SAT Pattern: Mean from List**\n\n**Choice D is correct.**\n\n**The Fast Way (~20s):** Old sum $= 5 \\times 78 = 390$. New sum $= 6 \\times 80 = 480$. $6$th test score $= 480 - 390 = 90$.\n\n**The Full Solution:**\nOld total across $5$ tests: $5 \\times 78 = 390$.\nNew total across $6$ tests: $6 \\times 80 = 480$.\nThe $6$th test\'s score is the change in the total: $480 - 390 = 90$.\n\nVerification: $\\dfrac{390 + 90}{6} = \\dfrac{480}{6} = 80$ \\checkmark. To lift a mean of $78$ over $5$ tests to $80$ over $6$ tests requires a $6$th test well above $80$ — specifically $90$.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — reports the new mean ($80$) as if the $6$th test equals the new mean.\n* Choice B: "wrong formula" — averages the two means ($\\dfrac{78 + 80}{2} = 79$).\n* Choice C: "stops one step early" — reports the old mean.\n\n**Test Day Takeaway:** To LIFT the mean, the new value must be ABOVE the new mean by enough to pull up all existing values. Intuition check: a $90$ on the $6$th test pulls $5$ tests of $78$ up by $2$ each, exactly $80$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'mean-from-list',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-079',
+    domain: 'problem-solving',
+    skills: ['calculate-mean'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'The mean of a list of $7$ values is $24$. If the value $30$ is removed from the list, what is the mean of the remaining $6$ values?',
+    choices: [
+      { id: 'A', text: '$23$' },
+      // distractor: ignores removal, just divides 168 by 6
+      { id: 'B', text: '$28$' },
+      // distractor: subtracts 30 from mean directly
+      { id: 'C', text: '$-6$' },
+      // distractor: averages 24 and 30
+      { id: 'D', text: '$27$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Mean from List**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Original sum $= 7 \\times 24 = 168$. After removing $30$: new sum $= 138$. New mean $= 138 / 6 = 23$.\n\n**The Full Solution:**\nOld total: $7 \\times 24 = 168$.\nRemove $30$: new total $= 168 - 30 = 138$.\nNew mean: $138 / 6 = 23$.\n\nVerification: removing a value ($30$) ABOVE the current mean ($24$) should LOWER the mean — and $23 < 24$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — divides the original total $168$ by the new count $6$, forgetting to remove $30$ from the sum: $168 / 6 = 28$.\n* Choice C: "wrong formula" — subtracts $30$ from the mean directly ($24 - 30 = -6$), confusing value subtraction with mean change.\n* Choice D: "wrong formula" — averages $24$ and $30$.\n\n**Test Day Takeaway:** Removing a value ABOVE the mean lowers the mean. Removing a value BELOW the mean raises it. Always work with SUMS and let the arithmetic flow.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'mean-from-list',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-080',
+    domain: 'problem-solving',
+    skills: ['calculate-mean'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'The mean of a list of $10$ values is $50$. If a value of $35$ in the list is replaced by a new value of $65$, what is the new mean of the $10$ values?',
+    correctAnswer: '53',
+    explanation: '**SAT Pattern: Mean from List**\n\n**The correct answer is $53$.**\n\n**The Fast Way (~10s):** Replacing $35$ with $65$ increases the sum by $30$. The list still has $10$ values, so the mean increases by $30/10 = 3$. New mean $= 50 + 3 = 53$.\n\n**The Full Solution:**\nOld total: $10 \\times 50 = 500$.\nReplacement changes the sum by $+(65 - 35) = +30$.\nNew total: $500 + 30 = 530$.\nNew mean: $530 / 10 = 53$.\n\nVerification: the count is unchanged at $10$; only the sum shifted by $+30$, so the mean shifts by $+3$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Treating it like an add OR remove (changing the count).\n* Averaging the old value and the new value.\n\n**Test Day Takeaway:** When a single value is REPLACED, the count is unchanged and the mean shifts by (new value $-$ old value) $/$ count.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'mean-from-list',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-081',
+    domain: 'problem-solving',
+    skills: ['calculate-mean'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'The mean of a list of $n$ values is $16$. When $3$ additional values, each equal to $24$, are added to the list, the new mean of all $n + 3$ values is $18$. What is the value of $n$?',
+    correctAnswer: '9',
+    explanation: '**SAT Pattern: Mean from List**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~20s):** Set up: $\\dfrac{16n + 3(24)}{n + 3} = 18 \\Rightarrow 16n + 72 = 18(n + 3) = 18n + 54 \\Rightarrow 2n = 18 \\Rightarrow n = 9$.\n\n**The Full Solution:**\nOld sum: $16n$.\nNew sum: $16n + 3(24) = 16n + 72$.\nNew count: $n + 3$.\nNew mean equation: $\\dfrac{16n + 72}{n + 3} = 18$.\n\nMultiply both sides by $n + 3$:\n$16n + 72 = 18(n + 3) = 18n + 54$.\n\nSolve: $72 - 54 = 18n - 16n \\Rightarrow 18 = 2n \\Rightarrow n = 9$.\n\nVerification: original list of $9$ values with mean $16$ has sum $144$. Add $3 \\times 24 = 72$: new sum $= 216$, new count $= 12$, new mean $= 216 / 12 = 18$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Solving the original mean equation incorrectly (e.g., distributing $18$ to one term only).\n* Treating the $3$ added values as having their own separate mean rather than three individual values.\n\n**Test Day Takeaway:** When the count is unknown, set up the new-mean equation in terms of $n$, clear the fraction, then solve the resulting linear equation.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'mean-from-list',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-082',
+    domain: 'problem-solving',
+    skills: ['weighted-mean', 'calculate-mean'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'List $A$ consists of $12$ values with a mean of $30$. List $B$ consists of $8$ values with a mean of $40$. What is the mean of the combined list of $20$ values?',
+    choices: [
+      { id: 'A', text: '$34$' },
+      // distractor: simple average of the two means
+      { id: 'B', text: '$35$' },
+      // distractor: weighted toward B incorrectly
+      { id: 'C', text: '$36$' },
+      // distractor: incorrect weighting (uses B's count for A and vice versa)
+      { id: 'D', text: '$33$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Mean from List**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Sum of $A$: $12 \\times 30 = 360$. Sum of $B$: $8 \\times 40 = 320$. Combined: $\\dfrac{360 + 320}{20} = \\dfrac{680}{20} = 34$.\n\n**The Full Solution:**\nMean of a combined list is the TOTAL sum divided by the TOTAL count, not the average of the two means.\n* Sum of List $A$: $12 \\times 30 = 360$.\n* Sum of List $B$: $8 \\times 40 = 320$.\n* Combined sum: $360 + 320 = 680$.\n* Combined count: $12 + 8 = 20$.\n* Combined mean: $\\dfrac{680}{20} = 34$.\n\nIntuition: List $A$ has more values, so its mean of $30$ pulls the combined mean closer to $30$ than to $40$. The result $34$ is closer to $30$ than to $40$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — averages the two means ($\\dfrac{30 + 40}{2} = 35$), ignoring that List $A$ has more values.\n* Choice C: "applies the inverse operation" — weights TOWARD the larger mean instead of the larger count.\n* Choice D: "wrong base" — swaps the counts when weighting.\n\n**Test Day Takeaway:** Combined mean $= \\dfrac{\\text{sum}_A + \\text{sum}_B}{\\text{count}_A + \\text{count}_B}$. The combined mean is pulled TOWARD the mean of the LARGER group, not the larger value.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'mean-from-list',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-083',
+    domain: 'problem-solving',
+    skills: ['calculate-mean'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'The mean of a list of $n$ values is $50$. When a single value of $80$ is added, the mean of the new $n + 1$ values is $51$. What is the value of $n$?',
+    correctAnswer: '29',
+    explanation: '**SAT Pattern: Mean from List**\n\n**The correct answer is $29$.**\n\n**The Fast Way (~20s):** $\\dfrac{50n + 80}{n + 1} = 51 \\Rightarrow 50n + 80 = 51n + 51 \\Rightarrow n = 29$.\n\n**The Full Solution:**\nOld sum: $50n$.\nNew sum after adding $80$: $50n + 80$.\nNew count: $n + 1$.\n\nNew mean equation: $\\dfrac{50n + 80}{n + 1} = 51$.\n\nMultiply both sides by $n + 1$:\n$50n + 80 = 51(n + 1) = 51n + 51$.\n\nSolve: $80 - 51 = 51n - 50n \\Rightarrow n = 29$.\n\nVerification: original list of $29$ values with mean $50$ has sum $1450$. Add $80$: new sum $= 1530$, new count $= 30$, new mean $= 1530 / 30 = 51$ \\checkmark.\n\nAlternative intuition: the added value $80$ is $29$ above the new mean $51$ (i.e., $80 - 51 = 29$). It "pulls up" the mean by $1$, meaning it provided $29$ units of "lift" to compensate for $n$ values each needing $+1$ lift. Hence $n = 29$.\n\n**Common Mistakes to Avoid:**\n* Forgetting to multiply $51$ by $(n + 1)$ — leaving only $51n$.\n* Mishandling the $+80$ as a multiplier instead of an added constant.\n\n**Test Day Takeaway:** When solving for $n$ in mean-change problems, the structure is always $\\dfrac{\\text{old sum} + \\text{new value}}{n + 1} = \\text{new mean}$. Clear the fraction first, then solve linearly.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'mean-from-list',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  }
 ];
