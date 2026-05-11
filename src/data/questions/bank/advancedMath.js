@@ -1699,4 +1699,174 @@ export const advancedMathBank = [
     authoredBy: 'performsat-engine',
     createdAt: '2026-02-28',
   },
+
+  // === EXPONENTIAL GROWTH/DECAY (8 questions) — Phase 2 priority pattern ===
+  // 19x in 12 tests = 3.6% of test items. Covers: model construction from
+  // doubling/halving language, factor interpretation, percent-change extraction,
+  // period mismatch, and compounded-to-annual rate conversion.
+  {
+    id: 'bank-am-076',
+    domain: 'advanced-math',
+    skills: ['exponential-growth-decay'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'A colony of bacteria triples every $2$ hours. If the initial population is $60$, which of the following functions $P$ models the population $t$ hours after the initial measurement?',
+    choices: [
+      // distractor: linear growth instead of exponential
+      { id: 'A', text: '$P(t) = 60 + 3t$' },
+      { id: 'B', text: '$P(t) = 60 \\cdot 3^{\\frac{t}{2}}$' },
+      // distractor: uses 2t instead of t/2 (triples every half-hour)
+      { id: 'C', text: '$P(t) = 60 \\cdot 3^{2t}$' },
+      // distractor: confuses initial value with the growth factor
+      { id: 'D', text: '$P(t) = 3 \\cdot 60^{\\frac{t}{2}}$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** "Triples every $2$ hours" means base $= 3$ and the exponent must equal $1$ when $t = 2$, so the exponent is $\\dfrac{t}{2}$. Initial value $60$ goes out front.\n\n**The Full Solution:**\nGeneral periodic-multiplier model: $P(t) = P_0 \\cdot b^{\\frac{t}{d}}$, where $P_0 = 60$, $b = 3$ (tripling factor), $d = 2$ (hours per tripling).\nSo $P(t) = 60 \\cdot 3^{\\frac{t}{2}}$.\n\nCheck: $P(0) = 60$ \\checkmark. $P(2) = 60 \\cdot 3 = 180$ (tripled once) \\checkmark. $P(4) = 60 \\cdot 9 = 540$ (tripled twice) \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — uses linear growth ($+3t$) instead of exponential multiplication.\n* Choice C: "applies the inverse operation" — uses $2t$ instead of $\\dfrac{t}{2}$, which would mean tripling every half-hour.\n* Choice D: "wrong base" — swaps the initial value $60$ and the growth factor $3$.\n\n**Test Day Takeaway:** "Triples every $d$ units" $\\Rightarrow$ base $3$, exponent $\\dfrac{t}{d}$. Initial value sits OUT FRONT as a multiplier; growth factor is the BASE.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'exponential-growth-decay',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-077',
+    domain: 'advanced-math',
+    skills: ['exponential-growth-decay'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'A function $g$ is defined by $g(t) = 4{,}500(1.07)^t$, where $t$ is the number of years since 2020. The expression $1.07$ in the definition of $g$ best represents which of the following?',
+    choices: [
+      // distractor: reads 1.07 as the rate without subtracting 1
+      { id: 'A', text: 'The annual growth rate of $107\\%$.' },
+      { id: 'B', text: 'The annual growth rate of $7\\%$.' },
+      // distractor: confuses growth factor with initial value
+      { id: 'C', text: 'The initial value of $g$.' },
+      // distractor: reads 1.07 as a dollar amount
+      { id: 'D', text: 'The annual growth of $\\$1.07$.' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Growth factor $1.07 = 1 + 0.07$. The "extra" $0.07$ above the $1$ is the growth rate: $7\\%$ per year.\n\n**The Full Solution:**\nIn the model $g(t) = P_0(1 + r)^t$, the base $(1 + r)$ represents the growth factor per period:\n* The $1$ keeps the previous value.\n* The $+r$ adds the growth.\n\nHere $1.07 = 1 + 0.07$, so $r = 0.07 = 7\\%$ per year.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — reads $1.07$ as $107\\%$ directly, missing that the $1$ represents the existing value (not new growth).\n* Choice C: "wrong formula" — confuses the growth factor with the initial value. The initial value is $4{,}500$ (the coefficient out front).\n* Choice D: "wrong formula" — interprets $1.07$ as a fixed dollar amount, which would be linear growth, not exponential.\n\n**Test Day Takeaway:** In $P_0(1 + r)^t$, the growth rate is $r = (\\text{base}) - 1$. Subtract $1$, then read as a percent.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'exponential-growth-decay',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-078',
+    domain: 'advanced-math',
+    skills: ['exponential-growth-decay', 'percent-change'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'The number of customers at a store is modeled by $C(t) = 12{,}000(0.82)^{\\frac{t}{5}}$, where $t$ is the number of years since the store opened. By what percent does the customer count decrease every $5$ years?',
+    correctAnswer: '18',
+    explanation: '**SAT Pattern: Exponential Growth/Decay**\n\n**The correct answer is $18$.**\n\n**The Fast Way (~10s):** Every $5$ years the multiplier is $0.82$. Percent decrease $= 1 - 0.82 = 0.18 = 18\\%$.\n\n**The Full Solution:**\nWhen $t$ increases by $5$:\n$C(t + 5) = 12{,}000(0.82)^{\\frac{t + 5}{5}} = 12{,}000(0.82)^{\\frac{t}{5}} \\cdot 0.82 = 0.82 \\cdot C(t)$.\n\nThe customer count is multiplied by $0.82$ every $5$ years. Percent decrease $= 1 - 0.82 = 0.18 = 18\\%$.\n\nVerification: at $t = 0$, $C = 12{,}000$. At $t = 5$, $C = 12{,}000 \\cdot 0.82 = 9{,}840$. Decrease: $\\dfrac{12{,}000 - 9{,}840}{12{,}000} = \\dfrac{2{,}160}{12{,}000} = 0.18 = 18\\%$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $82$ (the retention multiplier, not the decay rate).\n* Computing an annual rate by dividing $18\\%$ by $5$ — exponential decay does NOT scale linearly across periods.\n\n**Test Day Takeaway:** For a decay multiplier $b < 1$ over period $d$, the percent decrease PER PERIOD is $(1 - b) \\times 100\\%$. Don\'t scale linearly to a different period.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'exponential-growth-decay',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-079',
+    domain: 'advanced-math',
+    skills: ['exponential-growth-decay'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'A medication concentration in the bloodstream halves every $8$ hours. If the initial dose results in a concentration of $240$ mg/L, which of the following functions $C$ models the concentration $t$ hours after the dose?',
+    choices: [
+      // distractor: linear decay instead of exponential
+      { id: 'A', text: '$C(t) = 240 - 30t$' },
+      // distractor: uses 8t instead of t/8 (halves every 1/8 hour)
+      { id: 'B', text: '$C(t) = 240 \\left(\\dfrac{1}{2}\\right)^{8t}$' },
+      { id: 'C', text: '$C(t) = 240 \\left(\\dfrac{1}{2}\\right)^{\\frac{t}{8}}$' },
+      // distractor: wrong base (uses 2 instead of 1/2 - growth not decay)
+      { id: 'D', text: '$C(t) = 240 \\cdot 2^{\\frac{t}{8}}$' }
+    ],
+    correctAnswer: 'C',
+    explanation: '**SAT Pattern: Exponential Growth/Decay**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** "Halves every $8$ hours" means base $= \\dfrac{1}{2}$ and exponent $= \\dfrac{t}{8}$ (so the exponent equals $1$ at $t = 8$).\n\n**The Full Solution:**\nHalving-period decay model: $C(t) = C_0 \\cdot \\left(\\dfrac{1}{2}\\right)^{\\frac{t}{h}}$, where $C_0 = 240$ is the initial concentration and $h = 8$ is the half-life.\nSo $C(t) = 240 \\left(\\dfrac{1}{2}\\right)^{\\frac{t}{8}}$.\n\nCheck: $C(0) = 240$ \\checkmark. $C(8) = 240 \\cdot \\tfrac{1}{2} = 120$ (halved) \\checkmark. $C(16) = 240 \\cdot \\tfrac{1}{4} = 60$ (halved again) \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — uses linear decay ($-30$ per hour). This would predict $C = 0$ at $t = 8$, missing the asymptotic decay.\n* Choice B: "applies the inverse operation" — uses $8t$ instead of $\\dfrac{t}{8}$, which would halve every $\\dfrac{1}{8}$ of an hour (way too fast).\n* Choice D: "wrong base" — uses $2$ instead of $\\dfrac{1}{2}$, which would model DOUBLING every $8$ hours — the opposite of decay.\n\n**Test Day Takeaway:** "Halves every $h$ units" $\\Rightarrow$ base $\\dfrac{1}{2}$, exponent $\\dfrac{t}{h}$. The exponent must equal $1$ when $t = h$ (one half-life has elapsed).',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'exponential-growth-decay',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-080',
+    domain: 'advanced-math',
+    skills: ['exponential-growth-decay'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'A social media platform\'s active user count grows by $5\\%$ every $4$ months. If the platform has $80{,}000$ active users at the start of the year, which of the following expressions gives the number of active users $y$ years later?',
+    choices: [
+      // distractor: uses y/4 (growth every 4 years) instead of 3y (3 four-month periods per year)
+      { id: 'A', text: '$80{,}000(1.05)^{\\frac{y}{4}}$' },
+      { id: 'B', text: '$80{,}000(1.05)^{3y}$' },
+      // distractor: scales the rate instead of the exponent (3 × 5% = 15%)
+      { id: 'C', text: '$80{,}000(1.15)^y$' },
+      // distractor: misses that 4 months × 3 = 1 year (uses 4y)
+      { id: 'D', text: '$80{,}000(1.05)^{4y}$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Growth factor per $4$-month period $= 1.05$. There are $\\dfrac{12}{4} = 3$ periods per year, so in $y$ years there are $3y$ periods: $80{,}000(1.05)^{3y}$.\n\n**The Full Solution:**\nGrowth factor per $4$-month period: $1 + 0.05 = 1.05$.\nNumber of $4$-month periods in $y$ years: $\\dfrac{12 \\text{ months}}{4 \\text{ months/period}} \\cdot y = 3y$.\nUsers after $y$ years: $80{,}000(1.05)^{3y}$.\n\nVerification: at $y = 1$, $(1.05)^3 = 1.157625$, so users $\\approx 80{,}000 \\cdot 1.158 = 92{,}610$. This matches three consecutive $5\\%$ increases: $80{,}000 \\cdot 1.05 \\cdot 1.05 \\cdot 1.05 = 92{,}610$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "applies the inverse operation" — uses $\\dfrac{y}{4}$ instead of $3y$, treating "every $4$ months" as "every $4$ years".\n* Choice C: "wrong formula" — multiplies the percent rate by $3$ to get an annual rate of $15\\%$, but compounding doesn\'t scale linearly ($1.05^3 \\neq 1.15$).\n* Choice D: "off-by-one" — uses $4y$ instead of $3y$, perhaps because the period is "$4$ months."\n\n**Test Day Takeaway:** Count growth periods carefully. If growth happens every $d$ months and time is in years, there are $\\dfrac{12}{d} \\cdot y$ periods. Match the units before raising to a power.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'exponential-growth-decay',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-081',
+    domain: 'advanced-math',
+    skills: ['exponential-growth-decay'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'A car\'s value is modeled by $V(t) = 28{,}000(0.88)^t$, where $V(t)$ is in dollars and $t$ is the number of years since purchase. Which of the following best describes the role of $0.88$ in this model?',
+    choices: [
+      // distractor: confuses retention with loss
+      { id: 'A', text: 'The car loses $88\\%$ of its value each year.' },
+      { id: 'B', text: 'The car retains $88\\%$ of its value each year.' },
+      // distractor: treats 0.88 as a dollar amount
+      { id: 'C', text: 'The car loses $\\$0.88$ in value each year.' },
+      // distractor: confuses base with initial value
+      { id: 'D', text: 'The car is worth $\\$0.88$ initially.' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Exponential Growth/Decay**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Base $0.88 < 1$ means decay. Each year, the car keeps $88\\%$ of its value (and therefore loses $12\\%$).\n\n**The Full Solution:**\nIn $V(t) = V_0 \\cdot b^t$, the base $b$ is the per-period multiplier:\n* If $b < 1$: the quantity decays. Each period it RETAINS $b \\cdot 100\\%$ and LOSES $(1 - b) \\cdot 100\\%$.\n* If $b > 1$: the quantity grows.\n\nHere $b = 0.88$, so the car retains $88\\%$ each year (losing $1 - 0.88 = 12\\%$).\n\n**Why the wrong answers are tempting:**\n* Choice A: "applies the inverse operation" — confuses retention with loss. Losing $88\\%$ would mean keeping $12\\%$, so the multiplier would be $0.12$, not $0.88$.\n* Choice C: "wrong formula" — treats $0.88$ as a dollar amount (linear), but this is an exponential decay multiplier.\n* Choice D: "wrong base" — confuses the decay multiplier with the initial value $V_0 = 28{,}000$.\n\n**Test Day Takeaway:** A multiplier $b < 1$ means the quantity KEEPS $b \\cdot 100\\%$ each period and LOSES $(1-b) \\cdot 100\\%$. Always check whether you\'re reporting the retention or the loss.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'exponential-growth-decay',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-082',
+    domain: 'advanced-math',
+    skills: ['exponential-growth-decay', 'percent-change'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'A savings account is modeled by $S(t) = 15{,}000(1.004)^{12t}$, where $t$ is the number of years since the account was opened. What is the annual percent increase in $S$, to the nearest tenth of a percent?',
+    correctAnswer: '4.9',
+    explanation: '**SAT Pattern: Exponential Growth/Decay**\n\n**The correct answer is $4.9$.**\n\n**The Fast Way (~30s):** Annual factor $= (1.004)^{12} \\approx 1.0490$. Annual increase $= 1.0490 - 1 = 0.0490 = 4.9\\%$.\n\n**The Full Solution:**\nThe expression $(1.004)^{12t}$ compounds at $0.4\\%$ per month. To find the annual rate, evaluate the growth over $t = 1$ year:\n\nAnnual factor $= (1.004)^{12} \\approx 1.04907$.\n\nAnnual percent increase $\\approx 1.04907 - 1 = 0.04907 \\approx 4.9\\%$.\n\nVerification: at $t = 1$ year, $S = 15{,}000 \\cdot 1.04907 \\approx 15{,}736.07$. This matches $15{,}000$ at $0.4\\%$ growth compounded monthly for $12$ months: $15{,}000 \\cdot (1.004)^{12} = 15{,}736.07$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $0.4$ (the monthly rate, not annual).\n* Reporting $4.8$ (multiplying $0.4\\% \\times 12$, treating compounding as linear).\n\n**Test Day Takeaway:** Effective annual rate = (growth factor over $1$ year) $- 1$, expressed as a percent. Compounding produces slightly MORE than the simple multiple ($12 \\times 0.4\\% = 4.8\\%$ vs actual $\\approx 4.9\\%$).',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'exponential-growth-decay',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-083',
+    domain: 'advanced-math',
+    skills: ['exponential-growth-decay', 'percent-change'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'A radioactive isotope decays according to $A(t) = 320 \\cdot (0.5)^{\\frac{t}{24}}$, where $A(t)$ is the mass in grams and $t$ is the time in days. To the nearest hundredth of a percent, by what percent does the mass decrease in one day?',
+    correctAnswer: '2.85',
+    explanation: '**SAT Pattern: Exponential Growth/Decay**\n\n**The correct answer is $2.85$ (also accept $2.86$).**\n\n**The Fast Way (~30s):** Per-day multiplier $= (0.5)^{\\frac{1}{24}} \\approx 0.97149$. Per-day decrease $= 1 - 0.97149 \\approx 0.02851 \\approx 2.85\\%$.\n\n**The Full Solution:**\nRewrite $A(t) = 320 \\cdot (0.5)^{\\frac{t}{24}} = 320 \\cdot \\left[(0.5)^{\\frac{1}{24}}\\right]^t$.\n\nThe per-day multiplier is $(0.5)^{\\frac{1}{24}}$. Compute:\n$(0.5)^{\\frac{1}{24}} = e^{\\frac{\\ln(0.5)}{24}} = e^{-\\frac{0.6931}{24}} \\approx e^{-0.02888} \\approx 0.97149$.\n\nPer-day decrease $= 1 - 0.97149 \\approx 0.02851 \\approx 2.85\\%$.\n\nVerification: after $24$ days, $A \\to 320 \\cdot 0.97149^{24} \\approx 320 \\cdot 0.5 = 160$ — half the original \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing $\\dfrac{50\\%}{24} \\approx 2.08\\%$ — exponential decay does NOT scale linearly across periods.\n* Reporting $50\\%$ or $24\\%$ (mistaking the half-life period for the daily rate).\n\n**Test Day Takeaway:** Per-period rate from a half-life: $(0.5)^{\\frac{1}{n}}$ where $n$ = number of periods in one half-life. The decrease is $1 - (0.5)^{\\frac{1}{n}}$, NOT $\\dfrac{50\\%}{n}$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'exponential-growth-decay',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  }
 ];
