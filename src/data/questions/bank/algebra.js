@@ -3245,5 +3245,167 @@ export const algebraBank = [
     sourceStyleRef: 'interpret-slope-in-context',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+  // ===== Phase 2 batch 6/4: system-of-equations-substitution (8 items) =====
+  // Pattern: solve a system of equations by substitution. Includes 2-equation
+  // linear systems and mixed linear-quadratic systems. 8 test occurrences
+  // across PT2, PT5, PT10, PT12 and M2Easy variants. SAT Pattern title
+  // (verbatim from test bundles): 'System of Equations — Substitution'
+  // with em-dash (U+2014) → kebab 'system-of-equations-substitution'.
+  {
+    id: 'bank-alg-146',
+    domain: 'algebra',
+    skills: ['substitution-method'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'The system of equations $y = 2x + 1$ and $y = 3x - 4$ has solution $(x, y)$. What is the value of $x$?',
+    choices: [
+      { id: 'A', text: '$5$' },
+      // distractor: solves for y
+      { id: 'B', text: '$11$' },
+      // distractor: wrong sign on subtraction
+      { id: 'C', text: '$-5$' },
+      // distractor: stops after first substitution
+      { id: 'D', text: '$1$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: System of Equations — Substitution**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Both equations equal $y$, so set them equal: $2x + 1 = 3x - 4 \\Rightarrow 5 = x$.\n\n**The Full Solution:**\nSince both equations are solved for $y$, substitute one into the other:\n$2x + 1 = 3x - 4$\n$1 + 4 = 3x - 2x$\n$5 = x$.\n\nVerification: at $x = 5$, $y = 2(5) + 1 = 11$ and $y = 3(5) - 4 = 11$ \\checkmark — both equations agree.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — reports $y = 11$ as the answer.\n* Choice C: "wrong sign" — solves $2x - 1 = 3x + 4$ by sign error.\n* Choice D: "stops one step early" — picks the constant in the first equation.\n\n**Test Day Takeaway:** When both equations are in the form $y = \\ldots$, set the right-hand sides equal. No substitution variable needed.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'system-of-equations-substitution',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-147',
+    domain: 'algebra',
+    skills: ['substitution-method'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'If $y = x + 4$ and $2x + y = 13$, what is the value of $x$?',
+    correctAnswer: '3',
+    explanation: '**SAT Pattern: System of Equations — Substitution**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~15s):** Substitute $y = x + 4$ into the second equation: $2x + (x + 4) = 13 \\Rightarrow 3x = 9 \\Rightarrow x = 3$.\n\n**The Full Solution:**\nSubstitute the first equation into the second:\n$2x + (x + 4) = 13$\n$3x + 4 = 13$\n$3x = 9$\n$x = 3$.\n\nVerification: $y = 3 + 4 = 7$. Check second equation: $2(3) + 7 = 13$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting the parentheses around the substitution: $2x + x + 4 = 13$ works here, but in general the parens matter for sign handling.\n* Solving for $y$ instead of $x$.\n* Adding instead of subtracting: $3x = 17$.\n\n**Test Day Takeaway:** Substitution: replace EVERY occurrence of the substituted variable with the equivalent expression. Then solve the single-variable equation that remains.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'system-of-equations-substitution',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-148',
+    domain: 'algebra',
+    skills: ['substitution-method'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'The system of equations below has solution $(x, y)$. What is the value of $y$?\n\n$x = 2y - 5$\n$3x + y = 6$',
+    choices: [
+      { id: 'A', text: '$3$' },
+      // distractor: solves for x
+      { id: 'B', text: '$1$' },
+      // distractor: arithmetic slip
+      { id: 'C', text: '$5$' },
+      // distractor: sign error
+      { id: 'D', text: '$-3$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: System of Equations — Substitution**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Substitute $x = 2y - 5$ into $3x + y = 6$: $3(2y - 5) + y = 6 \\Rightarrow 7y - 15 = 6 \\Rightarrow y = 3$.\n\n**The Full Solution:**\nSubstitute $x = 2y - 5$ into the second equation:\n$3(2y - 5) + y = 6$\n$6y - 15 + y = 6$\n$7y - 15 = 6$\n$7y = 21$\n$y = 3$.\n\nVerification: $x = 2(3) - 5 = 1$. Check: $3(1) + 3 = 6$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — reports $x = 1$ as the answer.\n* Choice C: "stops one step early" — picks the constant $-5$\'s magnitude.\n* Choice D: "wrong sign" — drops the sign when distributing $3(2y - 5)$.\n\n**Test Day Takeaway:** When one equation gives $x$ in terms of $y$, substitute INTO the other equation. Distribute carefully; the sign on $-5$ matters.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'system-of-equations-substitution',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-149',
+    domain: 'algebra',
+    skills: ['substitution-method'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'A store sells small notebooks for $\\$3$ each and large notebooks for $\\$7$ each. A customer buys $12$ notebooks for a total of $\\$56$. How many large notebooks did the customer buy?',
+    correctAnswer: '5',
+    explanation: '**SAT Pattern: System of Equations — Substitution**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~30s):** Let $s$ = small, $\\ell$ = large. $s + \\ell = 12$, $3s + 7\\ell = 56$. Substitute $s = 12 - \\ell$: $3(12 - \\ell) + 7\\ell = 56 \\Rightarrow 36 + 4\\ell = 56 \\Rightarrow \\ell = 5$.\n\n**The Full Solution:**\nLet $s$ = number of small notebooks and $\\ell$ = number of large notebooks.\n* Count equation: $s + \\ell = 12$.\n* Cost equation: $3s + 7\\ell = 56$.\n\nFrom the count equation: $s = 12 - \\ell$. Substitute into the cost equation:\n$3(12 - \\ell) + 7\\ell = 56$\n$36 - 3\\ell + 7\\ell = 56$\n$36 + 4\\ell = 56$\n$4\\ell = 20$\n$\\ell = 5$.\n\nVerification: $s = 7$, $\\ell = 5$. Count: $7 + 5 = 12$ \\checkmark. Cost: $3(7) + 7(5) = 21 + 35 = 56$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Swapping prices: $7s + 3\\ell = 56$ gives $\\ell = 7$ (the small count).\n* Solving for $s$ instead of $\\ell$ — answer is $7$, not what was asked.\n* Setting up only one equation; need TWO for two unknowns.\n\n**Test Day Takeaway:** Two-quantity word problems: define variables, write TWO equations (count + total-cost), then substitute. Always re-read the question to confirm which variable it asks for.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'system-of-equations-substitution',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-150',
+    domain: 'algebra',
+    skills: ['substitution-method'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'The system of equations below has solution $(x, y)$. What is the value of $x + y$?\n\n$y = 4x - 1$\n$2x + 3y = 11$',
+    choices: [
+      { id: 'A', text: '$4$' },
+      // distractor: only x
+      { id: 'B', text: '$1$' },
+      // distractor: only y
+      { id: 'C', text: '$3$' },
+      // distractor: x - y
+      { id: 'D', text: '$-2$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: System of Equations — Substitution**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Substitute $y = 4x - 1$: $2x + 3(4x - 1) = 11 \\Rightarrow 14x = 14 \\Rightarrow x = 1$. Then $y = 3$. $x + y = 4$.\n\n**The Full Solution:**\nSubstitute $y = 4x - 1$ into $2x + 3y = 11$:\n$2x + 3(4x - 1) = 11$\n$2x + 12x - 3 = 11$\n$14x = 14$\n$x = 1$.\n\nThen $y = 4(1) - 1 = 3$. So $x + y = 1 + 3 = 4$.\n\nVerification: $2(1) + 3(3) = 2 + 9 = 11$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — reports $x = 1$ instead of $x + y$.\n* Choice C: "stops one step early" — reports $y = 3$.\n* Choice D: "wrong sign" — computes $x - y = -2$.\n\n**Test Day Takeaway:** After finding $(x, y)$, RE-READ the question. SAT often asks for a derived quantity like $x + y$, $xy$, or $y - x$, not the individual values.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'system-of-equations-substitution',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-151',
+    domain: 'algebra',
+    skills: ['substitution-method'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'If $3a + b = 14$ and $b = a + 2$, what is the value of $a$?',
+    correctAnswer: '3',
+    explanation: '**SAT Pattern: System of Equations — Substitution**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~15s):** Substitute $b = a + 2$: $3a + (a + 2) = 14 \\Rightarrow 4a = 12 \\Rightarrow a = 3$.\n\n**The Full Solution:**\nSubstitute the expression for $b$ into the first equation:\n$3a + (a + 2) = 14$\n$4a + 2 = 14$\n$4a = 12$\n$a = 3$.\n\nVerification: $b = 3 + 2 = 5$. Check first equation: $3(3) + 5 = 14$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Subtracting instead of adding inside the parentheses: $3a - a - 2 = 14$ gives $a = 8$.\n* Solving for $b$ first by mistake — wastes time.\n* Reporting $b = 5$ instead of $a = 3$.\n\n**Test Day Takeaway:** When one equation already isolates a variable (e.g., $b = \\ldots$), use SUBSTITUTION rather than elimination. Plug the expression directly in.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'system-of-equations-substitution',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-152',
+    domain: 'algebra',
+    skills: ['substitution-method'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'The system of equations below has solution $(x, y)$ where $x > 0$. What is the value of $x$?\n\n$y = x - 1$\n$x^2 - y = 7$',
+    choices: [
+      { id: 'A', text: '$3$' },
+      // distractor: picks negative root
+      { id: 'B', text: '$-2$' },
+      // distractor: solves for y
+      { id: 'C', text: '$2$' },
+      // distractor: stops at the wrong step
+      { id: 'D', text: '$4$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: System of Equations — Substitution**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Substitute $y = x - 1$: $x^2 - (x - 1) = 7 \\Rightarrow x^2 - x - 6 = 0 \\Rightarrow (x - 3)(x + 2) = 0$. With $x > 0$: $x = 3$.\n\n**The Full Solution:**\nSubstitute $y = x - 1$ into $x^2 - y = 7$:\n$x^2 - (x - 1) = 7$\n$x^2 - x + 1 = 7$\n$x^2 - x - 6 = 0$\n$(x - 3)(x + 2) = 0$\n$x = 3$ or $x = -2$.\n\nThe constraint $x > 0$ selects $x = 3$.\n\nVerification: $y = 3 - 1 = 2$. Check: $3^2 - 2 = 9 - 2 = 7$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong sign" — picks the negative root, ignoring $x > 0$.\n* Choice C: "wrong base" — reports $y = 2$.\n* Choice D: "stops one step early" — slip during factoring (e.g., $(x - 4)(x + 1)$).\n\n**Test Day Takeaway:** Linear-quadratic system $\\Rightarrow$ substitute the linear into the quadratic. Expect TWO solutions; use the constraint to pick the right one.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'system-of-equations-substitution',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-153',
+    domain: 'algebra',
+    skills: ['substitution-method'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'If $2x + 3y = 12$ and $y = x - 1$, what is the value of $xy$?',
+    correctAnswer: '6',
+    explanation: '**SAT Pattern: System of Equations — Substitution**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~25s):** Substitute $y = x - 1$ into $2x + 3y = 12$: $2x + 3(x - 1) = 12 \\Rightarrow 5x - 3 = 12 \\Rightarrow x = 3$. Then $y = 2$. $xy = 3 \\cdot 2 = 6$.\n\n**The Full Solution:**\nSubstitute $y = x - 1$ into $2x + 3y = 12$:\n$2x + 3(x - 1) = 12$\n$2x + 3x - 3 = 12$\n$5x = 15$\n$x = 3$.\n\nThen $y = 3 - 1 = 2$.\n\n$xy = (3)(2) = 6$.\n\nVerification: $2(3) + 3(2) = 6 + 6 = 12$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting to distribute the $3$ across $(x - 1)$: $2x + 3x - 1 = 12$ gives $x = 13/5$.\n* Reporting $x + y = 5$ or $x - y = 1$ instead of $xy$.\n* Slip on the sign of $-1$ when distributing.\n\n**Test Day Takeaway:** "Value of $xy$" asks for the PRODUCT of the two solution components. Solve for $x$ and $y$ separately, then multiply.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'system-of-equations-substitution',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
