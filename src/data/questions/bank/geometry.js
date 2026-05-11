@@ -1926,5 +1926,152 @@ export const geometryBank = [
     sourceStyleRef: 'right-triangle-pythagorean',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+  // ===== Phase 2 batch 6/3: cylinder-volume (7 items) =====
+  // Bank already has bank-geo-035 (or thereabouts) for this pattern (1 item).
+  // Adding 7 more for total of 8 (Tier 1 threshold).
+  // Pattern: apply $V = \\pi r^2 h$ in forward, reverse, ratio, and rate
+  // scenarios. 9 test occurrences across PT3, PT5, PT8, PT12 and friends.
+  // SAT Pattern title (verbatim): 'Cylinder Volume' → 'cylinder-volume'.
+  {
+    id: 'bank-geo-085',
+    domain: 'geometry',
+    skills: ['volume-prism'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'A right circular cylinder has a radius of $2$ inches and a height of $10$ inches. What is the volume, in cubic inches, of the cylinder?',
+    choices: [
+      { id: 'A', text: '$40\\pi$' },
+      // distractor: forgets to square the radius
+      { id: 'B', text: '$20\\pi$' },
+      // distractor: uses cone formula
+      { id: 'C', text: '$\\dfrac{40\\pi}{3}$' },
+      // distractor: swaps radius and height roles
+      { id: 'D', text: '$200\\pi$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Cylinder Volume**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $V = \\pi r^2 h = \\pi (2)^2 (10) = 40\\pi$.\n\n**The Full Solution:**\nThe volume of a right circular cylinder: $V = \\pi r^2 h$.\nWith $r = 2$ and $h = 10$:\n$V = \\pi (2)^2 (10) = \\pi (4)(10) = 40\\pi$ cubic inches.\n\nVerification: $\\pi r^2 = 4\\pi$ (base area), times $h = 10$ gives $40\\pi$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — uses $\\pi r h = 20\\pi$ instead of $\\pi r^2 h$.\n* Choice C: "wrong formula" — uses cone formula $\\dfrac{1}{3}\\pi r^2 h$.\n* Choice D: "wrong base" — squares the height instead: $\\pi r h^2 = 200\\pi$.\n\n**Test Day Takeaway:** $V_{\\text{cyl}} = \\pi r^2 h$ is on the Reference Sheet. The radius is squared, the height is not.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'cylinder-volume',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-086',
+    domain: 'geometry',
+    skills: ['volume-prism'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'A right circular cylinder has a radius of $5$ centimeters and a height of $3$ centimeters. The volume of the cylinder is $k\\pi$ cubic centimeters. What is the value of $k$?',
+    correctAnswer: '75',
+    explanation: '**SAT Pattern: Cylinder Volume**\n\n**The correct answer is $75$.**\n\n**The Fast Way (~10s):** $V = \\pi r^2 h = \\pi (5)^2 (3) = 75\\pi$. So $k = 75$.\n\n**The Full Solution:**\n$V = \\pi r^2 h = \\pi (5)^2 (3) = \\pi (25)(3) = 75\\pi$ cubic cm.\n\nThe coefficient of $\\pi$ is $k = 75$.\n\n**Common Mistakes to Avoid:**\n* Reporting $75\\pi$ when the question asks for $k$ (just the coefficient).\n* Forgetting to square the radius: $5 \\cdot 3 = 15$.\n* Using cone formula: $\\dfrac{1}{3}(75) = 25$.\n\n**Test Day Takeaway:** "$V = k\\pi$" wording is a hint: factor $\\pi$ out and report the numeric coefficient.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'cylinder-volume',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-087',
+    domain: 'geometry',
+    skills: ['volume-prism'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'The volume of a right circular cylinder is $125\\pi$ cubic centimeters. If the radius is $5$ centimeters, what is the height, in centimeters, of the cylinder?',
+    choices: [
+      { id: 'A', text: '$5$' },
+      // distractor: divides by radius (not squared)
+      { id: 'B', text: '$25$' },
+      // distractor: ignores the radius
+      { id: 'C', text: '$125$' },
+      // distractor: divides by 2 (off-by-one slip)
+      { id: 'D', text: '$10$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Cylinder Volume**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $V = \\pi r^2 h \\Rightarrow 125\\pi = \\pi(25) h \\Rightarrow h = 5$.\n\n**The Full Solution:**\nStart from $V = \\pi r^2 h$:\n$125\\pi = \\pi (5)^2 h$\n$125\\pi = 25\\pi h$\n$h = \\dfrac{125\\pi}{25\\pi} = 5$.\n\nVerification: $V = \\pi(5)^2(5) = 25 \\cdot 5 \\pi = 125\\pi$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — divides $V$ by $r$ instead of $r^2$: $125/5 = 25$.\n* Choice C: "stops one step early" — reports $V/\\pi = 125$ without dividing by $r^2$.\n* Choice D: "wrong base" — half of $25 \\pi$ via wrong unit slip.\n\n**Test Day Takeaway:** Reverse the formula: $h = V / (\\pi r^2)$. SQUARE the radius before dividing.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'cylinder-volume',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-088',
+    domain: 'geometry',
+    skills: ['volume-prism'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'The volume of a right circular cylinder is $48\\pi$ cubic inches and its height is $3$ inches. What is the radius, in inches, of the cylinder?',
+    correctAnswer: '4',
+    explanation: '**SAT Pattern: Cylinder Volume**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~15s):** $V = \\pi r^2 h \\Rightarrow 48\\pi = \\pi r^2 (3) \\Rightarrow r^2 = 16 \\Rightarrow r = 4$.\n\n**The Full Solution:**\nFrom $V = \\pi r^2 h$:\n$48\\pi = \\pi r^2 (3)$\n$48 = 3 r^2$\n$r^2 = 16$\n$r = 4$ (radius must be positive).\n\nVerification: $V = \\pi (4)^2 (3) = \\pi (16)(3) = 48\\pi$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Stopping at $r^2 = 16$ and reporting $16$ instead of $r = 4$.\n* Dividing by $h$ first then taking the square root of the wrong number: $V/h = 16\\pi$, $\\sqrt{16} = 4$ \\checkmark — same answer, but the path matters.\n* Computing $\\sqrt{48/3} = \\sqrt{16} = 4$ but reporting the intermediate $48/3 = 16$.\n\n**Test Day Takeaway:** Solving for the radius needs a square root at the end. $r^2 = V / (\\pi h)$, then $r = \\sqrt{\\text{that}}$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'cylinder-volume',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-089',
+    domain: 'geometry',
+    skills: ['volume-prism'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'A right circular cylinder has radius $r$ and height $h$. If the radius is doubled and the height stays the same, by what factor is the volume multiplied?',
+    choices: [
+      { id: 'A', text: '$4$' },
+      // distractor: doubles the volume (assumes linear in r)
+      { id: 'B', text: '$2$' },
+      // distractor: squared but forgets the cube root step
+      { id: 'C', text: '$8$' },
+      // distractor: leaves it unchanged
+      { id: 'D', text: '$1$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Cylinder Volume**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $V = \\pi r^2 h$. Doubling $r$ gives $\\pi (2r)^2 h = 4\\pi r^2 h$ — volume multiplies by $4$.\n\n**The Full Solution:**\nOriginal volume: $V_1 = \\pi r^2 h$.\nNew volume with $r \\to 2r$:\n$V_2 = \\pi (2r)^2 h = \\pi (4r^2) h = 4 \\pi r^2 h = 4 V_1$.\n\nSo the volume multiplies by $4$.\n\nVerification: at $r = 1$, $h = 1$: $V_1 = \\pi$. New $r = 2$: $V_2 = \\pi (4)(1) = 4\\pi$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — doubles, but doesn\'t apply the SQUARE on the radius.\n* Choice C: "wrong formula" — uses a cube factor (would apply if BOTH r and h doubled, getting $8$).\n* Choice D: "wrong base" — assumes the scaling cancels somehow.\n\n**Test Day Takeaway:** When a LENGTH dimension scales by $k$, AREA scales by $k^2$ and VOLUME scales by $k^3$. Here only the radius (not height) scales, so the base AREA changes by $k^2 = 4$ but the volume only inherits that factor: $V \\to 4V$.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'cylinder-volume',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-090',
+    domain: 'geometry',
+    skills: ['volume-prism'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'Cylinder $A$ and cylinder $B$ are right circular cylinders. They have the same height, but cylinder $A$\'s radius is half that of cylinder $B$. What is the ratio of the volume of cylinder $A$ to the volume of cylinder $B$?',
+    choices: [
+      { id: 'A', text: '$1 : 4$' },
+      // distractor: assumes linear scaling
+      { id: 'B', text: '$1 : 2$' },
+      // distractor: cubes instead of squares
+      { id: 'C', text: '$1 : 8$' },
+      // distractor: inverts the ratio direction
+      { id: 'D', text: '$2 : 1$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Cylinder Volume**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Same $h$, $r_A = r_B / 2$. So $V_A / V_B = (r_A / r_B)^2 = (1/2)^2 = 1/4$. Ratio $1 : 4$.\n\n**The Full Solution:**\nLet $r_B = r$ (so $r_A = r/2$) and $h_A = h_B = h$.\n\n$V_A = \\pi (r/2)^2 h = \\pi \\cdot \\dfrac{r^2}{4} \\cdot h = \\dfrac{\\pi r^2 h}{4}$.\n$V_B = \\pi r^2 h$.\n\n$\\dfrac{V_A}{V_B} = \\dfrac{\\pi r^2 h / 4}{\\pi r^2 h} = \\dfrac{1}{4}$.\n\nSo $V_A : V_B = 1 : 4$.\n\nNumerical check: at $r = 2$, $h = 1$: $V_B = \\pi(4)(1) = 4\\pi$, $V_A = \\pi(1)(1) = \\pi$. Ratio $\\pi : 4\\pi = 1 : 4$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — uses the radius ratio directly instead of squaring.\n* Choice C: "wrong formula" — cubes (would apply if BOTH dimensions halved).\n* Choice D: "wrong sign" — inverts the ratio direction (gives $B:A$ instead of $A:B$).\n\n**Test Day Takeaway:** Volume ratio scales as the SQUARE of the radius ratio (with same height). Halving radius $\\Rightarrow$ volume goes to $\\dfrac{1}{4}$.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'cylinder-volume',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-geo-091',
+    domain: 'geometry',
+    skills: ['volume-prism'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'A cylindrical tank with a radius of $3$ feet and a height of $10$ feet is filled with water at a rate of $30\\pi$ cubic feet per minute. How many minutes does it take to fill the tank completely?',
+    correctAnswer: '3',
+    explanation: '**SAT Pattern: Cylinder Volume**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~20s):** $V = \\pi(3)^2(10) = 90\\pi$ ft³. Time $= V / \\text{rate} = 90\\pi / 30\\pi = 3$ min.\n\n**The Full Solution:**\nStep 1 — find the volume:\n$V = \\pi r^2 h = \\pi (3)^2 (10) = 90\\pi$ cubic feet.\n\nStep 2 — divide by the fill rate:\n$\\text{time} = \\dfrac{V}{\\text{rate}} = \\dfrac{90\\pi}{30\\pi} = 3$ minutes.\n\nVerification: in $3$ minutes at $30\\pi$ ft³/min, water added $= 90\\pi$ ft³, exactly filling the tank \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $90\\pi$ (the volume, not the time).\n* Multiplying instead of dividing: $90\\pi \\cdot 30\\pi = 2700\\pi^2$.\n* Forgetting to square the radius — would give $30\\pi / 30\\pi = 1$ minute.\n\n**Test Day Takeaway:** Two-step word problem: VOLUME first, then RATE = VOLUME / TIME, so TIME = VOLUME / RATE. The $\\pi$ cancels — by design.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'cylinder-volume',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
