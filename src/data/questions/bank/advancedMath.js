@@ -2687,5 +2687,165 @@ export const advancedMathBank = [
     sourceStyleRef: 'common-base-exponent-simplification',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+  // ===== Phase 2 batch 5/2: tangent-line-and-discriminant (8 items) =====
+  // Pattern: line tangent to parabola ⟺ system has exactly one solution ⟺ discriminant = 0.
+  // Test bundles use this 7x across PT7, PT8, PT9. SAT Pattern title (verbatim from explanations):
+  // 'Tangent Line and Discriminant' → kebab 'tangent-line-and-discriminant'.
+  {
+    id: 'bank-am-124',
+    domain: 'advanced-math',
+    skills: ['tangent-lines', 'discriminant-analysis'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'In the $xy$-plane, the line $y = 2x + b$ is tangent to the parabola $y = x^2 + 4x + 3$. What is the value of $b$?',
+    choices: [
+      { id: 'A', text: '$2$' },
+      // distractor: sign error in disc formula
+      { id: 'B', text: '$-2$' },
+      // distractor: forgets the discriminant condition (just plugs in)
+      { id: 'C', text: '$3$' },
+      // distractor: uses the wrong middle term
+      { id: 'D', text: '$0$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Tangent Line and Discriminant**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Set equal: $x^2 + 4x + 3 = 2x + b \\Rightarrow x^2 + 2x + (3 - b) = 0$. Discriminant $= 0$: $4 - 4(3 - b) = 0 \\Rightarrow 3 - b = 1 \\Rightarrow b = 2$.\n\n**The Full Solution:**\nSet the two expressions for $y$ equal:\n$x^2 + 4x + 3 = 2x + b$\n$x^2 + 2x + (3 - b) = 0$\n\nFor exactly one intersection (tangency), the discriminant must equal zero:\n$\\Delta = 2^2 - 4(1)(3 - b) = 0$\n$4 - 12 + 4b = 0$\n$4b = 8$\n$b = 2$.\n\nVerification at $b = 2$: $x^2 + 2x + 1 = (x + 1)^2 = 0$, so $x = -1$ (double root). Then $y = 2(-1) + 2 = 0$. Single tangent point at $(-1, 0)$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong sign" — sign error when moving $b$ across the equals sign.\n* Choice C: "wrong base" — just reads off the constant term of the parabola.\n* Choice D: "stops one step early" — sets the middle term to zero instead of the discriminant.\n\n**Test Day Takeaway:** Tangency $\\iff$ one solution $\\iff$ discriminant $= 0$. Move everything to one side first, then apply $b^2 - 4ac = 0$.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'tangent-line-and-discriminant',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-125',
+    domain: 'advanced-math',
+    skills: ['tangent-lines', 'discriminant-analysis'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'In the $xy$-plane, the line $y = 6x + 1$ is tangent to the parabola $y = x^2 + c$. What is the value of $c$?',
+    correctAnswer: '10',
+    explanation: '**SAT Pattern: Tangent Line and Discriminant**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~20s):** Set equal: $x^2 + c = 6x + 1 \\Rightarrow x^2 - 6x + (c - 1) = 0$. Discriminant $= 0$: $36 - 4(c - 1) = 0 \\Rightarrow c - 1 = 9 \\Rightarrow c = 10$.\n\n**The Full Solution:**\nSet the two expressions for $y$ equal:\n$x^2 + c = 6x + 1$\n$x^2 - 6x + (c - 1) = 0$\n\nFor exactly one intersection:\n$\\Delta = (-6)^2 - 4(1)(c - 1) = 0$\n$36 - 4c + 4 = 0$\n$4c = 40$\n$c = 10$.\n\nVerification at $c = 10$: $x^2 - 6x + 9 = (x - 3)^2 = 0$, so $x = 3$. Then $y = 6(3) + 1 = 19$. Tangent at $(3, 19)$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using $b = 6$ instead of $b = -6$ — actually fine since $b^2$ is the same, but watch the sign when isolating $c$.\n* Forgetting to subtract $1$ when moving $1$ to the parabola side.\n* Setting the discriminant to anything other than zero (e.g., positive for "two solutions" by mistake).\n\n**Test Day Takeaway:** Discriminant $= 0$ is the tangency condition. The sign of $b$ in $b^2 - 4ac$ doesn\'t matter (it\'s squared) — but the sign of $c$ in your rearranged quadratic does.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'tangent-line-and-discriminant',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-126',
+    domain: 'advanced-math',
+    skills: ['tangent-lines', 'discriminant-analysis'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'In the $xy$-plane, the line $y = 3x - 5$ is tangent to the parabola $y = kx^2 + 5x + 1$. What is the value of $k$?',
+    choices: [
+      { id: 'A', text: '$\\dfrac{1}{6}$' },
+      // distractor: inverts the fraction
+      { id: 'B', text: '$6$' },
+      // distractor: sign / formula error
+      { id: 'C', text: '$-\\dfrac{1}{6}$' },
+      // distractor: arithmetic slip
+      { id: 'D', text: '$\\dfrac{1}{3}$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Tangent Line and Discriminant**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Set equal: $kx^2 + 5x + 1 = 3x - 5 \\Rightarrow kx^2 + 2x + 6 = 0$. Discriminant $= 0$: $4 - 24k = 0 \\Rightarrow k = \\dfrac{1}{6}$.\n\n**The Full Solution:**\nSet the two $y$-expressions equal:\n$kx^2 + 5x + 1 = 3x - 5$\n$kx^2 + 2x + 6 = 0$\n\nThis is a quadratic in $x$ with $a = k$, $b = 2$, $c = 6$. For exactly one intersection:\n$\\Delta = 2^2 - 4(k)(6) = 0$\n$4 - 24k = 0$\n$k = \\dfrac{4}{24} = \\dfrac{1}{6}$.\n\nVerification at $k = 1/6$: $\\dfrac{1}{6}x^2 + 2x + 6 = 0 \\Rightarrow x^2 + 12x + 36 = 0 \\Rightarrow (x + 6)^2 = 0$, so $x = -6$. Then $y = 3(-6) - 5 = -23$. Tangent at $(-6, -23)$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "applies the inverse operation" — inverts the fraction at the end.\n* Choice C: "wrong sign" — drops a sign in the rearrangement step.\n* Choice D: "wrong base" — uses the wrong middle term (e.g., $b = 3$ instead of $2$).\n\n**Test Day Takeaway:** When $k$ is the leading coefficient, the discriminant equation gives a CLEAN linear equation in $k$. Don\'t panic about $k$ in the $a$-slot.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'tangent-line-and-discriminant',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-127',
+    domain: 'advanced-math',
+    skills: ['tangent-lines', 'discriminant-analysis'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'In the $xy$-plane, the line $y = 4x + 1$ is tangent to the parabola $y = x^2 + bx + 5$, where $b > 0$. What is the value of $b$?',
+    correctAnswer: '8',
+    explanation: '**SAT Pattern: Tangent Line and Discriminant**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~30s):** Set equal: $x^2 + bx + 5 = 4x + 1 \\Rightarrow x^2 + (b - 4)x + 4 = 0$. Discriminant $= 0$: $(b - 4)^2 - 16 = 0 \\Rightarrow b - 4 = \\pm 4 \\Rightarrow b = 0$ or $8$. With $b > 0$: $b = 8$.\n\n**The Full Solution:**\nSet the two $y$-expressions equal:\n$x^2 + bx + 5 = 4x + 1$\n$x^2 + (b - 4)x + 4 = 0$\n\nFor exactly one intersection:\n$\\Delta = (b - 4)^2 - 4(1)(4) = 0$\n$(b - 4)^2 = 16$\n$b - 4 = \\pm 4$\n$b = 0$ or $b = 8$.\n\nThe condition $b > 0$ selects $b = 8$.\n\nVerification at $b = 8$: $x^2 + 4x + 4 = (x + 2)^2 = 0$, so $x = -2$. Then $y = 4(-2) + 1 = -7$. Tangent at $(-2, -7)$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting that $(b - 4)^2 = 16$ yields TWO values, then ignoring the constraint $b > 0$.\n* Sign error: writing $(b - 4)^2 + 16 = 0$ (no real solutions) by misreading the discriminant.\n* Reporting $0$ — that\'s the other root, excluded by $b > 0$.\n\n**Test Day Takeaway:** When $b$ appears as a coefficient and the discriminant equation is quadratic in $b$, expect TWO candidate values. Read the question for the sign/range constraint that selects one.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'tangent-line-and-discriminant',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-128',
+    domain: 'advanced-math',
+    skills: ['tangent-lines', 'discriminant-analysis'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'In the $xy$-plane, the line $y = 5x - c$ is tangent to the parabola $y = 2x^2 + 3x + 1$. What is the value of $c$?',
+    choices: [
+      { id: 'A', text: '$-\\dfrac{1}{2}$' },
+      // distractor: sign flip
+      { id: 'B', text: '$\\dfrac{1}{2}$' },
+      // distractor: arithmetic error
+      { id: 'C', text: '$1$' },
+      // distractor: forgets to divide by 8
+      { id: 'D', text: '$-4$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Tangent Line and Discriminant**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Set equal: $2x^2 + 3x + 1 = 5x - c \\Rightarrow 2x^2 - 2x + (1 + c) = 0$. Discriminant $= 0$: $4 - 8(1 + c) = 0 \\Rightarrow 1 + c = \\dfrac{1}{2} \\Rightarrow c = -\\dfrac{1}{2}$.\n\n**The Full Solution:**\nSet the two $y$-expressions equal:\n$2x^2 + 3x + 1 = 5x - c$\n$2x^2 - 2x + (1 + c) = 0$\n\nWith $a = 2$, $b = -2$, $C_{\\text{quad}} = 1 + c$ (using $C$ for the constant term to avoid confusion with the unknown $c$):\n$\\Delta = (-2)^2 - 4(2)(1 + c) = 0$\n$4 - 8 - 8c = 0$\n$-8c = 4$\n$c = -\\dfrac{1}{2}$.\n\nVerification at $c = -1/2$: $2x^2 - 2x + \\dfrac{1}{2} = 0 \\Rightarrow 4x^2 - 4x + 1 = 0 \\Rightarrow (2x - 1)^2 = 0$, so $x = 1/2$. Then $y = 5(1/2) - (-1/2) = 3$. Tangent at $(1/2, 3)$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong sign" — drops the negative when isolating $c$.\n* Choice C: "stops one step early" — solves $1 + c = 0$ wrongly.\n* Choice D: "wrong base" — uses the constant of the parabola as if it were the answer.\n\n**Test Day Takeaway:** When the unknown is in the constant term, watch the rearrangement carefully. The $-c$ on the line side becomes $+c$ when moved across, so the rearranged constant is $1 + c$.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'tangent-line-and-discriminant',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-129',
+    domain: 'advanced-math',
+    skills: ['tangent-lines', 'discriminant-analysis'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'In the $xy$-plane, the line $y = mx + 1$ is tangent to the parabola $y = x^2 + 5$, where $m > 0$. What is the value of $m$?',
+    correctAnswer: '4',
+    explanation: '**SAT Pattern: Tangent Line and Discriminant**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~25s):** Set equal: $x^2 + 5 = mx + 1 \\Rightarrow x^2 - mx + 4 = 0$. Discriminant $= 0$: $m^2 - 16 = 0 \\Rightarrow m = \\pm 4$. With $m > 0$: $m = 4$.\n\n**The Full Solution:**\nSet the two $y$-expressions equal:\n$x^2 + 5 = mx + 1$\n$x^2 - mx + 4 = 0$\n\nFor exactly one intersection:\n$\\Delta = (-m)^2 - 4(1)(4) = 0$\n$m^2 - 16 = 0$\n$m^2 = 16$\n$m = \\pm 4$.\n\nThe condition $m > 0$ selects $m = 4$.\n\nVerification at $m = 4$: $x^2 - 4x + 4 = (x - 2)^2 = 0$, so $x = 2$. Then $y = 4(2) + 1 = 9$. Tangent at $(2, 9)$ \\checkmark. (Geometrically, the parabola opens up with vertex at $(0, 5)$; two tangent lines pass through the point where the parabola meets the line $y = mx + 1$.)\n\n**Common Mistakes to Avoid:**\n* Reporting $-4$ — the other root, excluded by $m > 0$.\n* Forgetting to take the square root: reporting $m = 16$.\n* Sign error: setting the discriminant to $-16$ instead of $16$.\n\n**Test Day Takeaway:** Slope $m$ as the unknown often gives $m^2 = $ positive number, yielding two opposite-sign answers. The problem\'s constraint picks one.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'tangent-line-and-discriminant',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-130',
+    domain: 'advanced-math',
+    skills: ['tangent-lines', 'discriminant-analysis'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'In the $xy$-plane, the line $y = 6x + b$ is tangent to the parabola $y = 3x^2 - 12$. What is the value of $b$?',
+    choices: [
+      { id: 'A', text: '$-15$' },
+      // distractor: sign flip
+      { id: 'B', text: '$15$' },
+      // distractor: forgets to divide by 12
+      { id: 'C', text: '$-3$' },
+      // distractor: ignores the constant from the parabola
+      { id: 'D', text: '$-12$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Tangent Line and Discriminant**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Set equal: $3x^2 - 12 = 6x + b \\Rightarrow 3x^2 - 6x - (12 + b) = 0$. Discriminant $= 0$: $36 + 12(12 + b) = 0 \\Rightarrow 12 + b = -3 \\Rightarrow b = -15$.\n\n**The Full Solution:**\nSet the two $y$-expressions equal:\n$3x^2 - 12 = 6x + b$\n$3x^2 - 6x - 12 - b = 0$\n$3x^2 - 6x - (12 + b) = 0$\n\nWith $a = 3$, $B = -6$, $C = -(12 + b)$:\n$\\Delta = B^2 - 4aC = 0$\n$(-6)^2 - 4(3)[-(12 + b)] = 0$\n$36 + 12(12 + b) = 0$\n$36 + 144 + 12b = 0$\n$12b = -180$\n$b = -15$.\n\nVerification at $b = -15$: $3x^2 - 6x + 3 = 0 \\Rightarrow x^2 - 2x + 1 = (x - 1)^2 = 0$, so $x = 1$. Then $y = 6(1) + (-15) = -9$. On the parabola: $3(1)^2 - 12 = -9$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong sign" — drops the negative when isolating $b$.\n* Choice C: "stops one step early" — solves $12 + b = -3$ as $b = -3$.\n* Choice D: "wrong base" — picks the parabola\'s constant as if no algebra were needed.\n\n**Test Day Takeaway:** When the parabola has a $-12$ baked in and the line adds a $b$, both end up in the rearranged constant: $-12 - b$. The sign discipline is everything here.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'tangent-line-and-discriminant',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-131',
+    domain: 'advanced-math',
+    skills: ['tangent-lines', 'discriminant-analysis'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'In the $xy$-plane, the line $y = 2x + 5$ is tangent to the parabola $y = x^2 + kx + 9$ for two different values of $k$. What is the sum of those two values of $k$?',
+    correctAnswer: '4',
+    explanation: '**SAT Pattern: Tangent Line and Discriminant**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~30s):** Set equal: $x^2 + kx + 9 = 2x + 5 \\Rightarrow x^2 + (k - 2)x + 4 = 0$. Discriminant $= 0$: $(k - 2)^2 = 16 \\Rightarrow k - 2 = \\pm 4 \\Rightarrow k = 6$ or $-2$. Sum: $6 + (-2) = 4$.\n\n**The Full Solution:**\nSet the two $y$-expressions equal:\n$x^2 + kx + 9 = 2x + 5$\n$x^2 + (k - 2)x + 4 = 0$\n\nFor exactly one intersection:\n$\\Delta = (k - 2)^2 - 4(1)(4) = 0$\n$(k - 2)^2 = 16$\n$k - 2 = \\pm 4$\n$k = 6$ or $k = -2$.\n\nSum: $6 + (-2) = 4$.\n\nFaster: any quadratic $(k - 2)^2 = 16$ has roots symmetric about $k = 2$, so their sum is $2 \\times 2 = 4$ by Vieta\'s. No need to find the individual roots.\n\nVerification at $k = 6$: $x^2 + 4x + 4 = (x + 2)^2 = 0$, so $x = -2$. Then $y = 2(-2) + 5 = 1$. \\checkmark\nVerification at $k = -2$: $x^2 - 4x + 4 = (x - 2)^2 = 0$, so $x = 2$. Then $y = 2(2) + 5 = 9$. \\checkmark\n\n**Common Mistakes to Avoid:**\n* Stopping at one value of $k$ and reporting that instead of the sum.\n* Computing $6 - (-2) = 8$ (the difference, not the sum).\n* Forgetting that $(k - 2)^2 = 16$ has TWO solutions (the $\\pm$).\n\n**Test Day Takeaway:** When a "tangent" condition leads to a perfect square equation in the parameter, expect two values. "Sum of values" is a common SAT twist that you can shortcut via Vieta\'s or symmetry.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'tangent-line-and-discriminant',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
