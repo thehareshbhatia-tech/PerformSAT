@@ -2847,5 +2847,168 @@ export const advancedMathBank = [
     sourceStyleRef: 'tangent-line-and-discriminant',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+  // ===== Phase 2 batch 5/5: discriminant-analysis (8 items) =====
+  // Pattern: classify the number of real solutions of a quadratic by the sign of the
+  // discriminant b² - 4ac. Δ > 0 (two real), Δ = 0 (one real), Δ < 0 (no real).
+  // 7 test occurrences across PT8, PT12 and friends. SAT Pattern title (verbatim):
+  // 'Discriminant Analysis' → kebab 'discriminant-analysis'.
+  // Distinct from tangent-line-and-discriminant: this pattern is on a STANDALONE
+  // quadratic, not a system between a line and a parabola.
+  {
+    id: 'bank-am-132',
+    domain: 'advanced-math',
+    skills: ['discriminant-analysis'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'For what value of $c$ does the equation $x^2 + 8x + c = 0$ have exactly one real solution?',
+    choices: [
+      { id: 'A', text: '$16$' },
+      // distractor: forgets the 4 in 4ac
+      { id: 'B', text: '$64$' },
+      // distractor: doubles instead of halves
+      { id: 'C', text: '$32$' },
+      // distractor: uses b directly
+      { id: 'D', text: '$8$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Discriminant Analysis**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Discriminant $= 0$: $8^2 - 4(1)(c) = 0 \\Rightarrow 64 = 4c \\Rightarrow c = 16$.\n\n**The Full Solution:**\nFor exactly one real solution, the discriminant must equal zero:\n$\\Delta = b^2 - 4ac = 0$\n$(8)^2 - 4(1)(c) = 0$\n$64 - 4c = 0$\n$c = 16$.\n\nVerification at $c = 16$: $x^2 + 8x + 16 = (x + 4)^2 = 0$, so $x = -4$ (one repeated solution) \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — reports $b^2 = 64$ without dividing by $4$.\n* Choice C: "wrong base" — uses the wrong divisor (gets $64/2 = 32$).\n* Choice D: "wrong base" — picks the coefficient $b = 8$ directly.\n\n**Test Day Takeaway:** Exactly one real solution $\\iff$ $\\Delta = b^2 - 4ac = 0$. Two real solutions: $\\Delta > 0$. No real solutions: $\\Delta < 0$.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'discriminant-analysis',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-133',
+    domain: 'advanced-math',
+    skills: ['discriminant-analysis'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'If the equation $x^2 + kx + 9 = 0$ has exactly one real solution and $k > 0$, what is the value of $k$?',
+    correctAnswer: '6',
+    explanation: '**SAT Pattern: Discriminant Analysis**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~15s):** Discriminant $= 0$: $k^2 - 4(1)(9) = 0 \\Rightarrow k^2 = 36 \\Rightarrow k = \\pm 6$. Positive: $k = 6$.\n\n**The Full Solution:**\nFor exactly one real solution:\n$\\Delta = k^2 - 4(1)(9) = 0$\n$k^2 = 36$\n$k = \\pm 6$.\n\nThe constraint $k > 0$ selects $k = 6$.\n\nVerification at $k = 6$: $x^2 + 6x + 9 = (x + 3)^2 = 0$, so $x = -3$ (repeated root) \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $-6$ — the other root, excluded by $k > 0$.\n* Forgetting to take the square root: writing $k = 36$.\n* Computing $4ac = 4 \\cdot 9 = 36$ but writing the discriminant as $k - 36$ instead of $k^2 - 36$.\n\n**Test Day Takeaway:** When $b$ is the unknown, expect the $\\pm$ from the square root. The problem\'s sign constraint picks one.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'discriminant-analysis',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-134',
+    domain: 'advanced-math',
+    skills: ['discriminant-analysis'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'For what positive value of $b$ does the equation $2x^2 + bx + 8 = 0$ have exactly one real solution?',
+    choices: [
+      { id: 'A', text: '$8$' },
+      // distractor: forgets the 2 in 4ac
+      { id: 'B', text: '$\\sqrt{32}$' },
+      // distractor: drops the leading coefficient entirely
+      { id: 'C', text: '$\\sqrt{64}/\\sqrt{2}$' },
+      // distractor: arithmetic slip
+      { id: 'D', text: '$16$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Discriminant Analysis**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $\\Delta = 0$: $b^2 - 4(2)(8) = 0 \\Rightarrow b^2 = 64 \\Rightarrow b = \\pm 8$. Positive: $b = 8$.\n\n**The Full Solution:**\nFor exactly one real solution:\n$\\Delta = b^2 - 4ac = 0$\n$b^2 - 4(2)(8) = 0$\n$b^2 - 64 = 0$\n$b^2 = 64$\n$b = \\pm 8$.\n\nThe constraint "positive value" selects $b = 8$.\n\nVerification at $b = 8$: $2x^2 + 8x + 8 = 0 \\Rightarrow x^2 + 4x + 4 = (x + 2)^2 = 0$, so $x = -2$ (repeated) \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — drops the leading coefficient: $b^2 = 4(8) = 32$.\n* Choice C: "wrong formula" — divides instead of multiplies in the discriminant.\n* Choice D: "stops one step early" — reports $b^2 = 64$ but messes up taking the root, doubling instead.\n\n**Test Day Takeaway:** Don\'t skip the leading coefficient $a$ in $4ac$. For $2x^2 + bx + 8 = 0$, $a = 2$ — so $4ac = 4 \\cdot 2 \\cdot 8 = 64$, not $32$.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'discriminant-analysis',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-135',
+    domain: 'advanced-math',
+    skills: ['discriminant-analysis'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'If the equation $3x^2 + 12x + c = 0$ has no real solutions, what is the least integer value of $c$?',
+    correctAnswer: '13',
+    explanation: '**SAT Pattern: Discriminant Analysis**\n\n**The correct answer is $13$.**\n\n**The Fast Way (~25s):** No real solutions $\\iff$ $\\Delta < 0$: $144 - 12c < 0 \\Rightarrow c > 12$. Least INTEGER: $c = 13$.\n\n**The Full Solution:**\nFor no real solutions:\n$\\Delta = b^2 - 4ac < 0$\n$(12)^2 - 4(3)(c) < 0$\n$144 - 12c < 0$\n$12c > 144$\n$c > 12$.\n\nThe LEAST integer greater than $12$ is $13$.\n\nVerification at $c = 13$: $\\Delta = 144 - 12(13) = 144 - 156 = -12 < 0$ \\checkmark. At $c = 12$: $\\Delta = 0$ (one solution, not none).\n\n**Common Mistakes to Avoid:**\n* Reporting $c = 12$ — gives exactly one solution, NOT no solutions.\n* Forgetting to multiply by $a = 3$: solving $144 - 4c < 0 \\Rightarrow c > 36$.\n* Misreading "least" — the LEAST value of $c$ satisfying $c > 12$ is the smallest integer strictly greater than $12$, which is $13$.\n\n**Test Day Takeaway:** Strict inequality $\\Delta < 0$ EXCLUDES the boundary $c = 12$. "Least integer" with strict $>$ means the next integer up.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'discriminant-analysis',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-136',
+    domain: 'advanced-math',
+    skills: ['discriminant-analysis'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'For which value of $k$ does the equation $4x^2 - kx + 9 = 0$ have two distinct real solutions?',
+    choices: [
+      { id: 'A', text: '$13$' },
+      // distractor: at the boundary
+      { id: 'B', text: '$12$' },
+      // distractor: inside the no-solution range
+      { id: 'C', text: '$5$' },
+      // distractor: also at the boundary
+      { id: 'D', text: '$-12$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Discriminant Analysis**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Two distinct real solutions $\\iff$ $\\Delta > 0$: $k^2 - 144 > 0 \\Rightarrow |k| > 12$. Only Choice A ($k = 13$) satisfies $|k| > 12$.\n\n**The Full Solution:**\nFor two distinct real solutions:\n$\\Delta = k^2 - 4(4)(9) > 0$\n$k^2 - 144 > 0$\n$k^2 > 144$\n$|k| > 12$, i.e. $k > 12$ or $k < -12$.\n\nCheck each choice:\n* A: $k = 13$, $|k| = 13 > 12$ \\checkmark.\n* B: $k = 12$, $|k| = 12$ — at the boundary, $\\Delta = 0$ (ONE solution, not two).\n* C: $k = 5$, $|k| = 5 < 12$ — $\\Delta < 0$, no real solutions.\n* D: $k = -12$, $|k| = 12$ — boundary, one solution.\n\nVerification: at $k = 13$, $\\Delta = 169 - 144 = 25 > 0$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "off-by-one" — uses $\\geq$ instead of $>$ on the discriminant.\n* Choice C: "wrong sign" — picks a value inside the no-solution range.\n* Choice D: "off-by-one" — boundary value gives one solution, not two distinct.\n\n**Test Day Takeaway:** "Two DISTINCT" means STRICTLY $\\Delta > 0$. At the boundary $\\Delta = 0$, the solutions coincide (one repeated root, not two distinct).',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'discriminant-analysis',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-137',
+    domain: 'advanced-math',
+    skills: ['discriminant-analysis'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'If the equation $x^2 + (k + 1)x + 4 = 0$ has exactly one real solution and $k > 0$, what is the value of $k$?',
+    correctAnswer: '3',
+    explanation: '**SAT Pattern: Discriminant Analysis**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~25s):** $\\Delta = 0$: $(k+1)^2 - 16 = 0 \\Rightarrow (k+1)^2 = 16 \\Rightarrow k + 1 = \\pm 4 \\Rightarrow k = 3$ or $-5$. Positive: $k = 3$.\n\n**The Full Solution:**\nFor exactly one real solution:\n$\\Delta = (k + 1)^2 - 4(1)(4) = 0$\n$(k + 1)^2 = 16$\n$k + 1 = \\pm 4$\n$k = 3$ or $k = -5$.\n\nThe constraint $k > 0$ selects $k = 3$.\n\nVerification at $k = 3$: $x^2 + 4x + 4 = (x + 2)^2 = 0$, so $x = -2$ (repeated) \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Expanding $(k + 1)^2$ as $k^2 + 1$ (forgets the cross term $2k$).\n* Stopping at $k + 1 = 4$ and forgetting $k + 1 = -4$ (only one value of $k$ stays in the positive range, but you must consider both before filtering).\n* Reporting $-5$ — the rejected root.\n\n**Test Day Takeaway:** When the coefficient $b$ contains the parameter as $(k + \\text{constant})$, the discriminant equation becomes a quadratic in $k$ (via the $\\pm$). Solve for both, then apply the constraint.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'discriminant-analysis',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-138',
+    domain: 'advanced-math',
+    skills: ['discriminant-analysis'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'For which of the following values of $a$ does the equation $ax^2 - 4x + 1 = 0$ have no real solutions?',
+    choices: [
+      { id: 'A', text: '$5$' },
+      // distractor: at the boundary
+      { id: 'B', text: '$4$' },
+      // distractor: in the two-solution range
+      { id: 'C', text: '$3$' },
+      // distractor: a = 0 makes it linear
+      { id: 'D', text: '$0$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Discriminant Analysis**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** No real solutions $\\iff$ $\\Delta < 0$: $16 - 4a < 0 \\Rightarrow a > 4$. Only Choice A ($a = 5$) satisfies $a > 4$. (Also $a \\neq 0$, otherwise the equation is linear, not quadratic.)\n\n**The Full Solution:**\nFor no real solutions:\n$\\Delta = (-4)^2 - 4(a)(1) < 0$\n$16 - 4a < 0$\n$4a > 16$\n$a > 4$.\n\nWe also need $a \\neq 0$ to keep the equation quadratic (otherwise it becomes $-4x + 1 = 0$, a linear equation with the unique solution $x = 1/4$, NOT "no real solutions").\n\nCheck each choice:\n* A: $a = 5$, $\\Delta = 16 - 20 = -4 < 0$ \\checkmark.\n* B: $a = 4$, $\\Delta = 0$ — one real solution.\n* C: $a = 3$, $\\Delta = 4 > 0$ — two real solutions.\n* D: $a = 0$ — equation becomes $-4x + 1 = 0$, linear with $x = 1/4$.\n\n**Why the wrong answers are tempting:**\n* Choice B: "off-by-one" — boundary gives ONE solution, not zero.\n* Choice C: "wrong sign" — value gives two solutions.\n* Choice D: "edge case" — $a = 0$ kills the quadratic; equation becomes linear with one solution.\n\n**Test Day Takeaway:** When the leading coefficient is the parameter, also require $a \\neq 0$ to keep the equation quadratic. Otherwise the question is asking the wrong thing.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'discriminant-analysis',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-139',
+    domain: 'advanced-math',
+    skills: ['discriminant-analysis'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'If the equation $x^2 + bx + 25 = 0$ has exactly one real solution, what is the sum of all possible values of $b$?',
+    correctAnswer: '0',
+    explanation: '**SAT Pattern: Discriminant Analysis**\n\n**The correct answer is $0$.**\n\n**The Fast Way (~15s):** $\\Delta = 0$: $b^2 - 100 = 0 \\Rightarrow b = \\pm 10$. Sum: $10 + (-10) = 0$.\n\n**The Full Solution:**\nFor exactly one real solution:\n$\\Delta = b^2 - 4(1)(25) = 0$\n$b^2 - 100 = 0$\n$b^2 = 100$\n$b = \\pm 10$.\n\nSum of values: $10 + (-10) = 0$.\n\nFaster: equation $b^2 = 100$ has roots symmetric about $b = 0$, so by symmetry the sum is $0$.\n\nVerification at $b = 10$: $x^2 + 10x + 25 = (x + 5)^2 = 0$, $x = -5$ \\checkmark.\nVerification at $b = -10$: $x^2 - 10x + 25 = (x - 5)^2 = 0$, $x = 5$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting only $10$ (one of the values, not the sum).\n* Computing $10 - (-10) = 20$ (the difference, not the sum).\n* Forgetting that $b^2 = 100$ has TWO roots (just taking the positive).\n\n**Test Day Takeaway:** "Sum of all possible values" of a parameter whose square equals a constant is $0$ — the roots are $\\pm$-pairs that cancel. Vieta\'s confirms it instantly.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'discriminant-analysis',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
