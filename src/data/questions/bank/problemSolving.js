@@ -2173,5 +2173,176 @@ export const problemSolvingBank = [
     sourceStyleRef: 'margin-of-error',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+
+  // === CONDITIONAL PROBABILITY FROM TWO-WAY TABLE (8 questions) — Phase 2 batch 2 ===
+  // 18x in 12 tests (highest-frequency Phase-2-batch-2 pattern). Covers:
+  // simple-conditional, conditional-with-OR-grouping, percent-answer-conversion,
+  // joint-vs-conditional, working-backward-from-marginals, sub-table conditional.
+  // SAT Pattern kebab matches test bundle: 'conditional-probability-from-two-way-table'.
+  {
+    id: 'bank-ps-100',
+    domain: 'problem-solving',
+    skills: ['conditional-probability', 'two-way-table'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'The table below shows the pet ownership of residents of an apartment complex by apartment type.\n\n| | Has Pet | No Pet | Total |\n|---|---|---|---|\n| Studio | $15$ | $45$ | $60$ |\n| 1-Bedroom | $30$ | $30$ | $60$ |\n| Total | $45$ | $75$ | $120$ |\n\nIf a resident with a pet is selected at random, what is the probability that the resident lives in a Studio?',
+    choices: [
+      { id: 'A', text: '$\\dfrac{1}{3}$' },
+      // distractor: uses grand total instead of pet-only total
+      { id: 'B', text: '$\\dfrac{1}{8}$' },
+      // distractor: inverse conditional P(pet | Studio)
+      { id: 'C', text: '$\\dfrac{1}{4}$' },
+      // distractor: takes Studio total / Pet total reversed
+      { id: 'D', text: '$3$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Given pet $\\Rightarrow$ denominator is the pet column total ($45$). Studio AND pet $= 15$. $\\dfrac{15}{45} = \\dfrac{1}{3}$.\n\n**The Full Solution:**\n"Given a resident with a pet" restricts the universe to the $45$ pet-owners (the "Has Pet" column total).\nOf those $45$, $15$ live in studios.\n$P(\\text{Studio} \\mid \\text{Pet}) = \\dfrac{15}{45} = \\dfrac{1}{3}$.\n\nVerification: among the $45$ pet owners, $15/45 = 33.3\\%$ live in studios \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — uses the grand total $120$ as the denominator ($15/120 = 1/8$), which would give the JOINT probability $P(\\text{Studio AND Pet})$, not the conditional.\n* Choice C: "applies the inverse operation" — gives $P(\\text{Pet} \\mid \\text{Studio}) = 15/60 = 1/4$ (the reverse condition).\n* Choice D: "wrong formula" — inverts the fraction.\n\n**Test Day Takeaway:** "Given X" sets the DENOMINATOR equal to the X-total. The numerator is the cell where both conditions are met.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'conditional-probability-from-two-way-table',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-101',
+    domain: 'problem-solving',
+    skills: ['conditional-probability', 'two-way-table'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'The table below shows the lunch preference of students at a small school by grade.\n\n| | Sandwich | Salad | Total |\n|---|---|---|---|\n| 9th Grade | $40$ | $20$ | $60$ |\n| 10th Grade | $25$ | $35$ | $60$ |\n| 11th Grade | $35$ | $25$ | $60$ |\n| Total | $100$ | $80$ | $180$ |\n\nIf a $10$th-grade student is selected at random, what is the probability that the student prefers Salad? Express your answer as a decimal rounded to the nearest hundredth.',
+    correctAnswer: '0.58',
+    explanation: '**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**The correct answer is $0.58$ (also accept $0.59$).**\n\n**The Fast Way (~10s):** Given $10$th grader $\\Rightarrow$ denominator $= 60$. Of those, $35$ prefer salad. $35 / 60 = 0.5833 \\approx 0.58$.\n\n**The Full Solution:**\nThe condition "if a $10$th-grade student is selected" restricts the universe to the $60$ $10$th graders (the $10$th-grade row total).\nOf those $60$, the cell at $10$th-grade $\\cap$ Salad shows $35$ students.\n$P(\\text{Salad} \\mid 10\\text{th}) = \\dfrac{35}{60} = 0.5833\\overline{3} \\approx 0.58$.\n\nVerification: among $10$th graders, $35/60 = 58.3\\%$ prefer salad \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using the grand total $180$ as the denominator (gives joint probability $35/180 = 0.19$).\n* Reading the wrong cell (e.g., $25$ from $11$th-grade Salad).\n* Reporting as $35$ or $60$ directly.\n\n**Test Day Takeaway:** When the condition is a ROW category (like a specific grade), the denominator is that row\'s total. When the condition is a COLUMN category (like a preference), the denominator is that column\'s total.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'conditional-probability-from-two-way-table',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-102',
+    domain: 'problem-solving',
+    skills: ['conditional-probability', 'two-way-table'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'The table shows the transportation method used by employees at a company to commute to work.\n\n| | Drives | Transit | Bikes | Total |\n|---|---|---|---|---|\n| Engineering | $20$ | $35$ | $15$ | $70$ |\n| Marketing | $25$ | $10$ | $5$ | $40$ |\n| Sales | $30$ | $15$ | $5$ | $50$ |\n| Total | $75$ | $60$ | $25$ | $160$ |\n\nIf one employee who uses Transit is selected at random, what is the probability that the employee works in Engineering?',
+    choices: [
+      // distractor: uses grand total instead of transit total
+      { id: 'A', text: '$\\dfrac{35}{160}$' },
+      { id: 'B', text: '$\\dfrac{35}{60}$' },
+      // distractor: inverse conditional P(transit | engineering)
+      { id: 'C', text: '$\\dfrac{35}{70}$' },
+      // distractor: uses wrong cell
+      { id: 'D', text: '$\\dfrac{20}{60}$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Given Transit $\\Rightarrow$ denominator $=$ Transit column total $= 60$. Engineering $\\cap$ Transit cell $= 35$. $P = 35/60$.\n\n**The Full Solution:**\nCondition: "employee who uses Transit." This restricts the universe to the $60$ Transit users (the Transit column total).\n\nWithin those $60$, $35$ work in Engineering (cell at Engineering $\\cap$ Transit).\n\n$P(\\text{Engineering} \\mid \\text{Transit}) = \\dfrac{35}{60}$.\n\nVerification: among the $60$ Transit users, $35$ are engineers — $35/60 \\approx 58.3\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — uses the grand total $160$ in the denominator (gives the JOINT probability $P(\\text{Engineering AND Transit}) = 35/160$).\n* Choice C: "applies the inverse operation" — gives $P(\\text{Transit} \\mid \\text{Engineering}) = 35/70$ (reverses the condition).\n* Choice D: "wrong base" — uses the Engineering-Drives cell ($20$) instead of Engineering-Transit ($35$).\n\n**Test Day Takeaway:** $P(A \\mid B)$ has $B$\'s total in the denominator and the cell at $A \\cap B$ in the numerator. Always identify which is the condition vs the target.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'conditional-probability-from-two-way-table',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-103',
+    domain: 'problem-solving',
+    skills: ['conditional-probability', 'two-way-table'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'The table shows the survey responses of $200$ students regarding their primary source of news.\n\n| | Print | Television | Online | Total |\n|---|---|---|---|---|\n| Freshmen | $5$ | $30$ | $45$ | $80$ |\n| Seniors | $10$ | $20$ | $90$ | $120$ |\n| Total | $15$ | $50$ | $135$ | $200$ |\n\nIf one student who gets news from Television OR Online is selected at random, what is the probability that the student is a Senior?',
+    choices: [
+      { id: 'A', text: '$\\dfrac{110}{185}$' },
+      // distractor: uses grand total
+      { id: 'B', text: '$\\dfrac{110}{200}$' },
+      // distractor: uses Senior total
+      { id: 'C', text: '$\\dfrac{110}{120}$' },
+      // distractor: only counts Online (not Online OR TV)
+      { id: 'D', text: '$\\dfrac{90}{135}$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** "Given TV or Online" $\\Rightarrow$ denominator $= 50 + 135 = 185$. Senior $\\cap$ (TV or Online) $= 20 + 90 = 110$. $P = 110/185$.\n\n**The Full Solution:**\nStep 1: identify the condition\'s universe. "Television OR Online" includes both columns:\n* Total in TV column: $50$.\n* Total in Online column: $135$.\n* Combined: $50 + 135 = 185$.\n\nStep 2: count Seniors within that universe:\n* Senior $\\cap$ TV: $20$.\n* Senior $\\cap$ Online: $90$.\n* Combined: $20 + 90 = 110$.\n\n$P(\\text{Senior} \\mid \\text{TV or Online}) = \\dfrac{110}{185}$.\n\nVerification: $110/185 \\approx 0.595 = 59.5\\%$ of TV-or-Online users are Seniors \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — uses the grand total $200$ instead of the conditioned subgroup total $185$.\n* Choice C: "applies the inverse operation" — gives $P(\\text{TV or Online} \\mid \\text{Senior}) = 110/120$ (reverses the condition).\n* Choice D: "stops one step early" — counts only the Online cell ($90/135$), ignoring TV.\n\n**Test Day Takeaway:** "X OR Y" in the condition $\\Rightarrow$ ADD the column (or row) totals to get the denominator. ADD the matching cells in the same rows (or columns) to get the numerator.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'conditional-probability-from-two-way-table',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-104',
+    domain: 'problem-solving',
+    skills: ['conditional-probability', 'two-way-table'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'The table below shows membership status by exercise frequency at a fitness center.\n\n| | Member | Non-Member | Total |\n|---|---|---|---|\n| Daily | $48$ | $12$ | $60$ |\n| Weekly | $30$ | $20$ | $50$ |\n| Total | $78$ | $32$ | $110$ |\n\nIf one Member is selected at random, what percent of Members exercise Daily? Round to the nearest whole percent.',
+    correctAnswer: '62',
+    explanation: '**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**The correct answer is $62$.**\n\n**The Fast Way (~10s):** Given Member $\\Rightarrow$ denominator $= 78$. Daily AND Member $= 48$. $48/78 \\approx 0.6154 \\approx 62\\%$.\n\n**The Full Solution:**\nThe condition "if one Member is selected" restricts the universe to the $78$ Members.\n\nOf those $78$, the cell at Daily $\\cap$ Member is $48$.\n\n$P(\\text{Daily} \\mid \\text{Member}) = \\dfrac{48}{78} = 0.6154... \\approx 62\\%$.\n\nVerification: among the $78$ Members, $48$ exercise daily — $48/78 = 61.5\\%$ rounds to $62\\%$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting the decimal $0.62$ when the answer should be a whole-number percent.\n* Using the grand total $110$ as the denominator ($48/110 = 43.6\\%$).\n* Reading the wrong cell (e.g., $30$ from Weekly-Member or $12$ from Daily-NonMember).\n\n**Test Day Takeaway:** "What percent of X is Y?" is the same conditional probability question asked in percent form. The X-total is the denominator; the X $\\cap$ Y cell is the numerator; convert to percent at the end.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'conditional-probability-from-two-way-table',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-105',
+    domain: 'problem-solving',
+    skills: ['conditional-probability', 'two-way-table'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'The table below shows test outcomes for a group of patients.\n\n| | Positive | Negative | Total |\n|---|---|---|---|\n| Disease | $80$ | $20$ | $100$ |\n| No Disease | $40$ | $360$ | $400$ |\n| Total | $120$ | $380$ | $500$ |\n\nA patient is selected at random from this group. What is the probability that the patient has the disease AND tests positive?',
+    choices: [
+      { id: 'A', text: '$\\dfrac{80}{500}$' },
+      // distractor: conditional P(disease | positive) instead of joint
+      { id: 'B', text: '$\\dfrac{80}{120}$' },
+      // distractor: conditional P(positive | disease) instead of joint
+      { id: 'C', text: '$\\dfrac{80}{100}$' },
+      // distractor: uses wrong cell
+      { id: 'D', text: '$\\dfrac{40}{500}$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** JOINT probability $P(\\text{Disease AND Positive})$ uses the GRAND total $500$ as denominator. Disease $\\cap$ Positive cell $= 80$. $P = 80/500$.\n\n**The Full Solution:**\nThis question asks for the JOINT probability of two events (NOT the conditional probability).\n\n$P(\\text{Disease AND Positive}) = \\dfrac{\\text{cell at Disease} \\cap \\text{Positive}}{\\text{grand total}} = \\dfrac{80}{500}$.\n\nThis simplifies to $\\dfrac{4}{25} = 0.16 = 16\\%$ — the joint share of the entire group.\n\nContrast with conditional probabilities:\n* $P(\\text{Disease} \\mid \\text{Positive}) = \\dfrac{80}{120}$ (given positive test).\n* $P(\\text{Positive} \\mid \\text{Disease}) = \\dfrac{80}{100}$ (given disease — this is the test\'s sensitivity).\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — uses the Positive column total $120$, giving the CONDITIONAL $P(\\text{Disease} \\mid \\text{Positive})$.\n* Choice C: "wrong base" — uses the Disease row total $100$, giving the CONDITIONAL $P(\\text{Positive} \\mid \\text{Disease})$.\n* Choice D: "wrong base" — picks the wrong cell ($40$ from No-Disease-Positive).\n\n**Test Day Takeaway:** "A AND B" without conditioning $\\Rightarrow$ JOINT probability $\\Rightarrow$ grand total in denominator. "A given B" $\\Rightarrow$ CONDITIONAL $\\Rightarrow$ B\'s total in denominator. Listen for "given" vs "and".',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'conditional-probability-from-two-way-table',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-106',
+    domain: 'problem-solving',
+    skills: ['conditional-probability', 'two-way-table'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'A survey of $500$ employees recorded whether they took public transit and whether they worked remotely some days. Of the $500$, $200$ took public transit, $300$ worked remotely some days, and $80$ both took public transit AND worked remotely some days. If one employee who took public transit is selected at random, what is the probability that the employee did NOT work remotely on any day? Express your answer as a decimal rounded to the nearest hundredth.',
+    correctAnswer: '0.6',
+    explanation: '**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**The correct answer is $0.6$ (also accept $0.60$).**\n\n**The Fast Way (~25s):** Of $200$ transit users, $80$ also worked remotely. So $200 - 80 = 120$ took transit but did NOT work remotely. $P = 120/200 = 0.60$.\n\n**The Full Solution:**\nReconstruct the two-way table from the marginal totals:\n\n| | Transit | No Transit | Total |\n|---|---|---|---|\n| Remote some days | $80$ | $300 - 80 = 220$ | $300$ |\n| Never remote | $200 - 80 = 120$ | $500 - 300 - 80 = ...$ — actually compute the other cell directly | $200$ |\n| Total | $200$ | $300$ | $500$ |\n\nWe need $P(\\text{Never Remote} \\mid \\text{Transit})$:\n* Denominator: Transit users $= 200$.\n* Numerator: Transit AND Never Remote $= 200 - 80 = 120$.\n\n$P = \\dfrac{120}{200} = 0.6$.\n\nVerification: of the $200$ Transit users, $80$ worked remotely sometimes and $120$ never did. $120/200 = 60\\%$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using $300/500 = 0.6$ (the overall remote-work proportion — happens to match here, but for the wrong reason; SAT often uses traps where these numerically coincide).\n* Subtracting $80$ from $500$ instead of $200$ ($420/500 = 0.84$).\n* Reading the question as conditioning on "Never Remote" instead of "Transit".\n\n**Test Day Takeaway:** When the problem gives marginals + ONE joint cell, fill in the table mentally: subtract the joint from each marginal to get the other cells in the same row/column. Then apply the conditional formula.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'conditional-probability-from-two-way-table',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-107',
+    domain: 'problem-solving',
+    skills: ['conditional-probability', 'two-way-table'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'The table below shows the academic standing of students by their participation in extracurricular activities.\n\n| | High Honors | Honors | No Honors | Total |\n|---|---|---|---|---|\n| Athletics | $20$ | $40$ | $10$ | $70$ |\n| Arts | $15$ | $25$ | $10$ | $50$ |\n| Both | $25$ | $20$ | $5$ | $50$ |\n| None | $5$ | $15$ | $30$ | $50$ |\n| Total | $65$ | $100$ | $55$ | $220$ |\n\nIf one student in Athletics OR Both is selected at random, what is the probability that the student earned High Honors?',
+    choices: [
+      { id: 'A', text: '$\\dfrac{45}{120}$' },
+      // distractor: uses grand total
+      { id: 'B', text: '$\\dfrac{45}{220}$' },
+      // distractor: uses High Honors total
+      { id: 'C', text: '$\\dfrac{45}{65}$' },
+      // distractor: only Athletics row (misses Both)
+      { id: 'D', text: '$\\dfrac{20}{70}$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Conditional Probability from Two-Way Table**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Athletics row $+$ Both row totals $= 70 + 50 = 120$. High Honors in those rows $= 20 + 25 = 45$. $P = 45/120 = 3/8 = 0.375$.\n\n**The Full Solution:**\nCondition: "Athletics OR Both" combines two rows.\n* Row total for Athletics: $70$.\n* Row total for Both: $50$.\n* Combined denominator: $70 + 50 = 120$.\n\nWithin those rows, count High Honors:\n* High Honors $\\cap$ Athletics: $20$.\n* High Honors $\\cap$ Both: $25$.\n* Combined numerator: $20 + 25 = 45$.\n\n$P(\\text{High Honors} \\mid \\text{Athletics or Both}) = \\dfrac{45}{120} = \\dfrac{3}{8} = 0.375$.\n\nVerification: among the $120$ students in Athletics or Both, $45$ earned High Honors — $45/120 = 37.5\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — uses the grand total $220$, giving the joint probability $P(\\text{Athletics or Both AND High Honors}) = 45/220 \\approx 20.5\\%$ (not what was asked).\n* Choice C: "applies the inverse operation" — gives $P(\\text{Athletics or Both} \\mid \\text{High Honors}) = 45/65$ (reverses the condition).\n* Choice D: "stops one step early" — uses Athletics only ($20$ over $70$) and ignores the Both row.\n\n**Test Day Takeaway:** When the condition combines TWO row labels with OR, you add BOTH row totals to the denominator and add the matching cells from BOTH rows to the numerator. Don\'t stop at the first row.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'conditional-probability-from-two-way-table',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
