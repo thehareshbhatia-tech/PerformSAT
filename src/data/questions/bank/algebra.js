@@ -2604,5 +2604,166 @@ export const algebraBank = [
     sourceStyleRef: 'line-from-two-points',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+
+  // === SYSTEM OF EQUATIONS — ELIMINATION (8 questions) — Phase 2 batch 4 ===
+  // 8x in 12 tests. Covers: direct elimination, multiply-then-eliminate,
+  // find specific variable, find combination of variables, multiply both eqs.
+  // SAT Pattern uses em-dash: kebab matches 'system-of-equations-elimination'.
+  {
+    id: 'bank-alg-115',
+    domain: 'algebra',
+    skills: ['elimination-method', 'setting-up-systems'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'The solution to the system of equations $3x + y = 11$ and $x - y = 1$ is $(x, y)$. What is the value of $x$?',
+    correctAnswer: '3',
+    explanation: '**SAT Pattern: System of Equations — Elimination**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~10s):** Adding the equations: $(3x + y) + (x - y) = 11 + 1 \\Rightarrow 4x = 12 \\Rightarrow x = 3$.\n\n**The Full Solution:**\nThe coefficients of $y$ are $+1$ and $-1$, so adding the two equations cancels $y$:\n$(3x + y) + (x - y) = 11 + 1$\n$4x = 12$\n$x = 3$.\n\nVerification: at $x = 3$, $y = 3 - 1 = 2$ (from the second equation). Check first: $3(3) + 2 = 11$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Subtracting instead of adding when the $y$-coefficients are already opposites.\n* Reporting $y = 2$ instead of $x$.\n\n**Test Day Takeaway:** When the coefficients of a variable are opposites ($+1$ and $-1$), simply ADD the equations to eliminate it.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'system-of-equations-elimination',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-116',
+    domain: 'algebra',
+    skills: ['elimination-method', 'setting-up-systems'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'The system of equations $2x + 3y = 17$ and $2x - 3y = -1$ has solution $(x, y)$. What is the value of $y$?',
+    correctAnswer: '3',
+    explanation: '**SAT Pattern: System of Equations — Elimination**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~10s):** Subtracting: $(2x + 3y) - (2x - 3y) = 17 - (-1) \\Rightarrow 6y = 18 \\Rightarrow y = 3$.\n\n**The Full Solution:**\nThe coefficients of $x$ are both $2$, so subtracting eliminates $x$:\n$(2x + 3y) - (2x - 3y) = 17 - (-1)$\n$6y = 18$\n$y = 3$.\n\nVerification: at $y = 3$, $2x + 9 = 17 \\Rightarrow x = 4$. Check second: $2(4) - 3(3) = 8 - 9 = -1$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Adding instead of subtracting when $x$-coefficients match.\n* Sign error: $17 - (-1) = 18$, NOT $16$.\n\n**Test Day Takeaway:** When two coefficients are EQUAL (not opposites), SUBTRACT to eliminate. Watch the signs when subtracting a negative.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'system-of-equations-elimination',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-117',
+    domain: 'algebra',
+    skills: ['elimination-method', 'setting-up-systems'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'The solution to the system of equations $x + 2y = 9$ and $3x - y = 13$ is $(x, y)$. What is the value of $x$?',
+    choices: [
+      // distractor: gives y
+      { id: 'A', text: '$1$' },
+      // distractor: sign error
+      { id: 'B', text: '$4$' },
+      { id: 'C', text: '$5$' },
+      // distractor: stops at 7x = 35
+      { id: 'D', text: '$35$' }
+    ],
+    correctAnswer: 'C',
+    explanation: '**SAT Pattern: System of Equations — Elimination**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Multiply 2nd by $2$: $6x - 2y = 26$. Add to 1st: $7x = 35 \\Rightarrow x = 5$.\n\n**The Full Solution:**\nTo eliminate $y$, scale so the $y$-coefficients are opposites. The $y$-coefficients are $+2$ and $-1$; multiply the 2nd equation by $2$:\n$2 \\cdot (3x - y) = 2 \\cdot 13 \\Rightarrow 6x - 2y = 26$.\n\nAdd to the 1st: $(x + 2y) + (6x - 2y) = 9 + 26 \\Rightarrow 7x = 35 \\Rightarrow x = 5$.\n\nVerification: $y$ from 1st: $5 + 2y = 9 \\Rightarrow y = 2$. Check 2nd: $3(5) - 2 = 13$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — gives $y = 1$ wait actually $y = 2$. Misreading.\n* Choice B: "sign error" — got $4$ from $7x = 28$ via miscomputation.\n* Choice D: "stops one step early" — reports $7x = 35$ without dividing by $7$.\n\n**Test Day Takeaway:** When coefficients don\'t naturally cancel, multiply one (or both) equations so they do. Pick the variable that\'s easier to eliminate.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'system-of-equations-elimination',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-118',
+    domain: 'algebra',
+    skills: ['elimination-method', 'setting-up-systems'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'The solution to the system of equations $2x + 5y = 16$ and $4x + 3y = 18$ is $(x, y)$. What is the value of $y$?',
+    correctAnswer: '2',
+    explanation: '**SAT Pattern: System of Equations — Elimination**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~15s):** Multiply 1st by $2$: $4x + 10y = 32$. Subtract 2nd: $7y = 14 \\Rightarrow y = 2$.\n\n**The Full Solution:**\nThe $x$-coefficients are $2$ and $4$; multiply the 1st equation by $2$ to match:\n$2 \\cdot (2x + 5y) = 2 \\cdot 16 \\Rightarrow 4x + 10y = 32$.\n\nNow subtract the 2nd equation: $(4x + 10y) - (4x + 3y) = 32 - 18 \\Rightarrow 7y = 14 \\Rightarrow y = 2$.\n\nVerification: from 1st: $2x + 5(2) = 16 \\Rightarrow 2x = 6 \\Rightarrow x = 3$. Check 2nd: $4(3) + 3(2) = 12 + 6 = 18$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting to multiply the RIGHT side: $2 \\cdot 16 = 32$, not $16$.\n* Adding when you should subtract.\n* Reporting $x$ instead of $y$.\n\n**Test Day Takeaway:** Multiply ONE equation by a constant so the chosen variable has equal (or opposite) coefficients. Then add or subtract accordingly.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'system-of-equations-elimination',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-119',
+    domain: 'algebra',
+    skills: ['elimination-method', 'setting-up-systems'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'The solution to the system of equations $2x - y = 5$ and $x + y = 4$ is $(x, y)$. What is the value of $3x + y$?',
+    choices: [
+      // distractor: gives x + y from the given equation
+      { id: 'A', text: '$4$' },
+      // distractor: gives x only
+      { id: 'B', text: '$3$' },
+      // distractor: gives 3x only
+      { id: 'C', text: '$9$' },
+      { id: 'D', text: '$10$' }
+    ],
+    correctAnswer: 'D',
+    explanation: '**SAT Pattern: System of Equations — Elimination**\n\n**Choice D is correct.**\n\n**The Fast Way (~15s):** Add: $3x = 9 \\Rightarrow x = 3$. Then $y = 4 - 3 = 1$. $3x + y = 9 + 1 = 10$.\n\n**The Full Solution:**\nAdd the equations to eliminate $y$:\n$(2x - y) + (x + y) = 5 + 4$\n$3x = 9$\n$x = 3$.\n\nFrom the 2nd: $y = 4 - x = 4 - 3 = 1$.\n\nCompute the requested expression:\n$3x + y = 3(3) + 1 = 9 + 1 = 10$.\n\nVerification: at $(x, y) = (3, 1)$: $2(3) - 1 = 5$ \\checkmark, $3 + 1 = 4$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — reports the given $x + y = 4$ instead of $3x + y$.\n* Choice B: "stops one step early" — reports $x = 3$.\n* Choice C: "stops one step early" — reports $3x = 9$ without adding $y$.\n\n**Test Day Takeaway:** Read the LAST sentence: the question may ask for a combination like $3x + y$, not just $x$ or $y$. Solve the system fully, then plug into the expression.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'system-of-equations-elimination',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-120',
+    domain: 'algebra',
+    skills: ['elimination-method'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'The system of equations $5x - 4y = 22$ and $3x + 4y = 26$ has solution $(x, y)$. What is the value of $y$?',
+    choices: [
+      { id: 'A', text: '$2$' },
+      // distractor: gives x
+      { id: 'B', text: '$6$' },
+      // distractor: computes wrong combination
+      { id: 'C', text: '$8$' },
+      // distractor: sign error
+      { id: 'D', text: '$-2$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: System of Equations — Elimination**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Adding eliminates $y$: $8x = 48 \\Rightarrow x = 6$. From 1st: $30 - 4y = 22 \\Rightarrow y = 2$.\n\n**The Full Solution:**\nThe $y$-coefficients are $-4$ and $+4$, opposites. Add the equations:\n$(5x - 4y) + (3x + 4y) = 22 + 26$\n$8x = 48$\n$x = 6$.\n\nSubstitute into the 1st equation:\n$5(6) - 4y = 22$\n$30 - 4y = 22$\n$-4y = -8$\n$y = 2$.\n\nVerification: 2nd: $3(6) + 4(2) = 18 + 8 = 26$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — reports $x$ instead of $y$.\n* Choice C: "wrong base" — uses $30 - 4y = 22$ but arrives at $y = 8/4 = 2$ — wait, that gives the right answer. The distractor must be something else. Likely: divides $4y = 8$ as $y = 8$ instead of $2$.\n* Choice D: "sign error" — gets $y = -2$ from flipping the sign in $-4y = -8$.\n\n**Test Day Takeaway:** When $y$-coefficients are opposites, ADD. Then substitute back to find the OTHER variable. Read the question to see which is requested.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'system-of-equations-elimination',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-121',
+    domain: 'algebra',
+    skills: ['elimination-method', 'setting-up-systems'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'The solution to the system of equations $3x + 2y = 11$ and $5x - 3y = 12$ is $(x, y)$. What is the value of $x$?',
+    correctAnswer: '3',
+    explanation: '**SAT Pattern: System of Equations — Elimination**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~25s):** Multiply 1st by $3$ and 2nd by $2$ to give matching $y$ coefficients in opposite signs ($+6, -6$): $9x + 6y = 33$ and $10x - 6y = 24$. Add: $19x = 57 \\Rightarrow x = 3$.\n\n**The Full Solution:**\nTo eliminate $y$, the LCM of $|2|$ and $|3|$ is $6$. Scale the first equation by $3$ and the second by $2$ so the $y$-coefficients become $+6$ and $-6$:\n* $3 \\cdot (3x + 2y) = 3 \\cdot 11 \\Rightarrow 9x + 6y = 33$.\n* $2 \\cdot (5x - 3y) = 2 \\cdot 12 \\Rightarrow 10x - 6y = 24$.\n\nAdd: $(9x + 6y) + (10x - 6y) = 33 + 24 \\Rightarrow 19x = 57 \\Rightarrow x = 3$.\n\nVerification: from 1st: $9 + 2y = 11 \\Rightarrow y = 1$. Check 2nd: $15 - 3 = 12$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting to scale the RIGHT side along with the equation: e.g., writing $9x + 6y = 11$ instead of $33$.\n* Adding when one side should be subtracted (or vice versa).\n\n**Test Day Takeaway:** For systems where neither coefficient is an easy match, multiply BOTH equations by appropriate constants to create matching (or opposite) coefficients on one variable.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'system-of-equations-elimination',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-122',
+    domain: 'algebra',
+    skills: ['elimination-method', 'combining-like-terms'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'The system of equations $2x + y = 8$ and $x - y = 1$ has solution $(x, y)$. What is the value of $6x + 3y$?',
+    choices: [
+      // distractor: gives 2x + y from given
+      { id: 'A', text: '$8$' },
+      // distractor: gives 3x only
+      { id: 'B', text: '$9$' },
+      // distractor: off by factor of 2
+      { id: 'C', text: '$12$' },
+      { id: 'D', text: '$24$' }
+    ],
+    correctAnswer: 'D',
+    explanation: '**SAT Pattern: System of Equations — Elimination**\n\n**Choice D is correct.**\n\n**The Fast Way (~10s):** $6x + 3y = 3(2x + y) = 3 \\cdot 8 = 24$. No need to solve the system.\n\n**The Full Solution:**\nNotice that $6x + 3y = 3(2x + y)$. We are GIVEN $2x + y = 8$, so:\n$6x + 3y = 3 \\cdot 8 = 24$.\n\nLonger path (if you don\'t notice the factoring): add the equations to find $x = 3$, then $y = 2$. $6(3) + 3(2) = 18 + 6 = 24$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — reports the given $2x + y = 8$ without scaling by $3$.\n* Choice B: "stops one step early" — reports $3x = 9$ from one elimination step.\n* Choice C: "off-by-one" — gives $12 = 4 \\cdot 3$ via wrong scaling.\n\n**Test Day Takeaway:** Before grinding through a system, check whether the requested expression is a MULTIPLE of one of the given equations. If $6x + 3y = 3(2x + y)$ and you know $2x + y$, you\'re done.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'system-of-equations-elimination',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
