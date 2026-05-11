@@ -8,13 +8,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'A hiking trail climbs from 1,200 feet at mile marker 3 to 1,800 feet at mile marker 9. What is the rate of elevation gain, in feet per mile?',
     choices: [
+      // distractor: averages the two endpoints somehow
       { id: 'A', text: '75' },
       { id: 'B', text: '100' },
+      // distractor: divides rise by 3 (one endpoint) instead of 6 (run)
       { id: 'C', text: '200' },
+      // distractor: gives total rise without dividing by run
       { id: 'D', text: '600' }
     ],
     correctAnswer: 'B',
-    explanation: 'Slope = (1800 − 1200)/(9 − 3) = 600/6 = 100. Trap D gives the total rise without dividing by the run.',
+    explanation: '**SAT Pattern: Rate of Change from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Slope $= \\frac{1800 - 1200}{9 - 3} = \\frac{600}{6} = 100$ ft/mile.\n\n**The Full Solution:**\nRate of change = $\\frac{\\text{change in elevation}}{\\text{change in distance}} = \\frac{1800 - 1200}{9 - 3} = \\frac{600}{6} = 100$ feet per mile.\n\nVerification: at mile $3$: $1200$ ft. At mile $9$: $1200 + 100(6) = 1800$ ft ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — averages endpoints incorrectly.\n* Choice C: "wrong base" — divides $600$ by $3$ instead of $6$.\n* Choice D: "stops one step early" — gives total rise ($600$ ft) without dividing by the run.\n\n**Test Day Takeaway:** Rate of change = (change in $y$) / (change in $x$). The units in the answer ("per mile") tell you what goes in the denominator.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'slope-rate-of-change',
@@ -29,13 +32,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'A delivery drone travels from position $(2, 14)$ to $(8, 38)$ on a coordinate grid. What is the slope of its path?',
     choices: [
+      // distractor: divides 24/8 by mistake
       { id: 'A', text: '3' },
       { id: 'B', text: '4' },
+      // distractor: gives the run (8 - 2)
       { id: 'C', text: '6' },
+      // distractor: gives the rise without dividing by run
       { id: 'D', text: '24' }
     ],
     correctAnswer: 'B',
-    explanation: 'Slope = (38 − 14)/(8 − 2) = 24/6 = 4. Trap D is the numerator alone (rise without dividing by run).',
+    explanation: '**SAT Pattern: Slope from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Slope $= \\frac{38 - 14}{8 - 2} = \\frac{24}{6} = 4$.\n\n**The Full Solution:**\nSlope formula: $m = \\frac{y_2 - y_1}{x_2 - x_1}$.\nWith $(x_1, y_1) = (2, 14)$ and $(x_2, y_2) = (8, 38)$:\n$m = \\frac{38 - 14}{8 - 2} = \\frac{24}{6} = 4$.\n\nVerification: starting at $(2, 14)$ with slope $4$, after $6$ units of $x$ we get $14 + 4(6) = 38$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — divides $24/8 = 3$ instead of $24/6$.\n* Choice C: "wrong base" — gives the run (denominator) instead of the slope.\n* Choice D: "stops one step early" — gives the rise without dividing.\n\n**Test Day Takeaway:** Slope is rise OVER run. Make sure $y$-values are subtracted in the SAME order as $x$-values (both new minus old).',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'slope-rate-of-change',
@@ -50,13 +56,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'A car rental company charges based on distance. A 30-mile trip costs $\\$45$ and a 70-mile trip costs $\\$85$. What is the charge per mile?',
     choices: [
+      // distractor: divides cost by total miles instead of using slope
       { id: 'A', text: '$\\$0.75$' },
       { id: 'B', text: '$\\$1.00$' },
+      // distractor: divides 85/70 (one cost by one distance)
       { id: 'C', text: '$\\$1.21$' },
+      // distractor: divides 45/30 (the SHORTER trip rate)
       { id: 'D', text: '$\\$1.50$' }
     ],
     correctAnswer: 'B',
-    explanation: 'Rate = (85 − 45)/(70 − 30) = 40/40 = $1.00 per mile. Trap C divides one cost by one distance (85/70).',
+    explanation: '**SAT Pattern: Per-Unit Rate (Slope of Cost)**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Rate $= \\frac{85 - 45}{70 - 30} = \\frac{40}{40} = \\$1.00$ per mile.\n\n**The Full Solution:**\nThe per-mile rate is the slope of the cost-vs-distance line, using two known points:\n$\\text{rate} = \\frac{\\Delta \\text{cost}}{\\Delta \\text{miles}} = \\frac{85 - 45}{70 - 30} = \\frac{40}{40} = \\$1.00$/mile.\n\nVerification: with $\\$1.00$/mile, the difference between $30$ and $70$ miles is $\\$40$, matching the cost difference \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — divides one cost by one distance ($45/30 = 1.50$ then maybe averages).\n* Choice C: "wrong base" — divides $85/70 \\approx 1.21$ ignoring the base fee.\n* Choice D: "wrong base" — uses the SHORTER trip\'s per-mile cost ($45/30 = 1.50$).\n\n**Test Day Takeaway:** With a base fee involved, dividing total cost by miles gives the AVERAGE cost, not the per-mile rate. Use slope formula to isolate the per-mile charge.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'slope-rate-of-change',
@@ -71,7 +80,7 @@ export const algebraBank = [
     type: 'fill-in',
     question: 'A candle is 30 cm tall. After burning for 2 hours it is 24 cm, and after 5 hours it is 15 cm. At what rate, in cm per hour, does the candle shrink? (Enter a positive number.)',
     correctAnswer: '3',
-    explanation: 'Rate of change = (15 − 24)/(5 − 2) = −9/3 = −3, so the candle shrinks at 3 cm per hour.',
+    explanation: '**SAT Pattern: Rate from Two Points (Negative Slope)**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~10s):** Rate $= \\frac{15 - 24}{5 - 2} = \\frac{-9}{3} = -3$ cm/hr. Shrinks at $3$ cm/hr.\n\n**The Full Solution:**\nUse the two given measurements at hours $2$ and $5$:\n$\\text{rate} = \\frac{15 - 24}{5 - 2} = \\frac{-9}{3} = -3$ cm/hr.\nThe negative sign means the candle is getting SHORTER. The shrink rate (positive) is $3$ cm/hr.\n\nVerification: starting at $30$ cm, after $2$ hr the candle is $30 - 3(2) = 24$ cm ✓. After $5$ hr: $30 - 3(5) = 15$ cm ✓ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $-3$ (the question asks for a positive number).\n* Using the initial $30$ cm height in the slope formula.\n* Dividing $-9$ by $2$ or $5$ instead of $3$ (the difference in hours).\n\n**Test Day Takeaway:** Shrink/decay rate problems: slope is negative, but the "rate of shrink" is positive (the magnitude). Read what the question asks.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'slope-rate-of-change',
@@ -86,13 +95,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'A fitness tracker shows 1,400 steps at 7:00 AM and 5,000 steps at 7:48 AM. What is the average rate, in steps per minute?',
     choices: [
+      // distractor: arithmetic slip near correct
       { id: 'A', text: '72' },
       { id: 'B', text: '75' },
+      // distractor: rounds change to 3840 / 48 = 80
       { id: 'C', text: '80' },
+      // distractor: divides only the final count by minutes
       { id: 'D', text: '104' }
     ],
     correctAnswer: 'B',
-    explanation: 'Elapsed time = 48 minutes. Rate = (5000 − 1400)/48 = 3600/48 = 75. Trap D divides only 5000 by 48.',
+    explanation: '**SAT Pattern: Average Rate Over Time**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Change in steps $= 5000 - 1400 = 3600$. Time elapsed $= 48$ min. Rate $= 3600 / 48 = 75$ steps/min.\n\n**The Full Solution:**\nAverage rate = (change in steps) / (change in time):\n* Step change: $5000 - 1400 = 3600$\n* Time elapsed: $7:48 - 7:00 = 48$ min\n* Rate: $\\frac{3600}{48} = 75$ steps/min.\n\nVerification: $75 \\times 48 = 3600$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — arithmetic slip producing $72$.\n* Choice C: "wrong base" — rounds the step change up.\n* Choice D: "wrong formula" — divides only the FINAL count by elapsed time ($5000/48 \\approx 104$), ignoring the initial.\n\n**Test Day Takeaway:** Average rate uses CHANGE in both numerator and denominator. Subtract initial from final for both.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'slope-rate-of-change',
@@ -109,13 +121,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'A gardener\'s rain barrel holds 12 gallons and a drip system adds 0.75 gallons per hour. Which equation models total water $w$ after $h$ hours?',
     choices: [
+      // distractor: swaps slope and intercept
       { id: 'A', text: '$w = 12h + 0.75$' },
       { id: 'B', text: '$w = 0.75h + 12$' },
+      // distractor: combines them into one coefficient
       { id: 'C', text: '$w = 12.75h$' },
+      // distractor: adds them and uses h once
       { id: 'D', text: '$w = h + 12.75$' }
     ],
     correctAnswer: 'B',
-    explanation: 'Rate (slope) = 0.75, initial amount (intercept) = 12. Trap A swaps slope and intercept.',
+    explanation: '**SAT Pattern: Linear Model (Identify Slope and Intercept)**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Per-hour rate $0.75$ = slope; initial $12$ gallons = $y$-intercept. So $w = 0.75h + 12$.\n\n**The Full Solution:**\nLinear model: $w = mh + b$ where $m$ is the per-hour rate and $b$ is the initial amount.\n* Rate ($m$): $0.75$ gallons per hour.\n* Initial ($b$): $12$ gallons (when $h = 0$).\nEquation: $w = 0.75h + 12$.\n\nVerification: at $h = 0$: $w = 12$ ✓. After $4$ hours: $w = 12 + 3 = 15$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "applies the inverse operation" — swaps slope and intercept.\n* Choice C: "wrong formula" — combines them as a single coefficient of $h$, losing the initial value.\n* Choice D: "wrong formula" — adds them and uses $h$ with coefficient $1$.\n\n**Test Day Takeaway:** Linear model: $y = (\\text{rate}) \\cdot x + (\\text{initial value})$. Initial = $y$-intercept, what you have at $x = 0$. Rate = slope, what changes per unit of $x$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'linear-model',
@@ -130,13 +145,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'A gym charges a $\\$25$ registration fee and $\\$40$ per month. Which equation gives total cost $C$ after $m$ months?',
     choices: [
+      // distractor: swaps rate and fee
       { id: 'A', text: '$C = 25m + 40$' },
       { id: 'B', text: '$C = 40m + 25$' },
+      // distractor: combines them into one coefficient
       { id: 'C', text: '$C = 65m$' },
+      // distractor: subtracts the fee instead of adding
       { id: 'D', text: '$C = 40m - 25$' }
     ],
     correctAnswer: 'B',
-    explanation: 'Monthly rate = 40 (slope), one-time fee = 25 (intercept). Trap A reverses the two values.',
+    explanation: '**SAT Pattern: Linear Cost Model**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Monthly rate $\\$40$ = slope; one-time fee $\\$25$ = $y$-intercept. So $C = 40m + 25$.\n\n**The Full Solution:**\nTotal cost = (monthly rate)(months) + (one-time fee):\n$C = 40m + 25$.\n\nVerification: at $m = 0$ (signup day): $C = 25$ ✓. After $3$ months: $C = 120 + 25 = 145$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "applies the inverse operation" — swaps rate and fee.\n* Choice C: "wrong formula" — combines them as a single per-month rate, losing the fee.\n* Choice D: "sign error" — subtracts the fee instead of adding.\n\n**Test Day Takeaway:** "Per [unit]" = slope (coefficient of variable). "One-time/initial/flat" = intercept (constant). Cost increases over time, so use $+$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'linear-model',
@@ -151,13 +169,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'Which equation has a slope of $-2$ and a $y$-intercept of $9$?',
     choices: [
+      // distractor: swaps slope and intercept
       { id: 'A', text: '$y = 9x - 2$' },
       { id: 'B', text: '$y = -2x + 9$' },
+      // distractor: drops the negative on slope
       { id: 'C', text: '$y = 2x + 9$' },
+      // distractor: flips sign on intercept
       { id: 'D', text: '$y = -2x - 9$' }
     ],
     correctAnswer: 'B',
-    explanation: 'Slope-intercept form y = mx + b with m = −2, b = 9. Trap A puts the intercept as the slope.',
+    explanation: '**SAT Pattern: Slope-Intercept Form Identification**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** $y = mx + b$ with $m = -2$, $b = 9$: $y = -2x + 9$.\n\n**The Full Solution:**\nSlope-intercept form: $y = mx + b$ where $m$ is slope and $b$ is $y$-intercept.\nWith $m = -2$ and $b = 9$: $y = -2x + 9$.\n\nVerification: at $x = 0$: $y = 9$ (matches intercept). Slope $= -2$ means $y$ decreases by $2$ for each unit increase in $x$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "applies the inverse operation" — swaps slope ($9$) and intercept ($-2$).\n* Choice C: "sign error" — drops the negative on slope.\n* Choice D: "sign error" — flips intercept sign.\n\n**Test Day Takeaway:** In $y = mx + b$: $m$ is the coefficient of $x$; $b$ is the constant. The order of operations matters — slope multiplies $x$, intercept stands alone.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'slope-intercept-identification',
@@ -172,13 +193,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'The equation $y = -3x + 210$ models remaining pages in a novel after $x$ reading sessions. What does the $-3$ represent?',
     choices: [
+      // distractor: would be value of x making y = 0
       { id: 'A', text: 'Total sessions needed' },
       { id: 'B', text: 'Pages read per session' },
+      // distractor: confuses slope with intercept (210)
       { id: 'C', text: 'Starting page count' },
+      // distractor: would be y at x = total sessions
       { id: 'D', text: 'Final page count' }
     ],
     correctAnswer: 'B',
-    explanation: 'The slope −3 means 3 pages are subtracted per session. Trap C confuses slope with the y-intercept 210.',
+    explanation: '**SAT Pattern: Interpret Slope in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Slope $-3$: $y$ decreases by $3$ per unit $x$. In context: $3$ pages read per session.\n\n**The Full Solution:**\nIn the equation $y = -3x + 210$:\n* $y$ = remaining pages\n* $x$ = sessions completed\n* slope $m = -3$ = change in $y$ per unit change in $x$\n\nSince $y$ goes DOWN by $3$ each session, the reader is consuming $3$ pages per session. (Remaining pages decrease as sessions accumulate.)\n\nVerification: at $x = 0$: $210$ pages (initial). At $x = 1$: $207$ pages. The $3$-page drop matches "pages read per session" ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — total sessions $= 210/3 = 70$, not the slope.\n* Choice C: "wrong base" — confuses slope ($-3$) with $y$-intercept ($210$).\n* Choice D: "wrong base" — final page count is $y$ at end, not the slope.\n\n**Test Day Takeaway:** Slope represents the RATE of change in context: "$y$-units per $x$-unit". Negative slope means $y$ is decreasing as $x$ increases.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'interpret-slope',
@@ -191,15 +215,18 @@ export const algebraBank = [
     skills: ['slope-intercept-form'],
     difficulty: 'medium',
     type: 'multiple-choice',
-    question: 'Rewrite $4x - 2y = 10$ in slope-intercept form. What are the slope and $y$-intercept?',
+    question: 'A line in the coordinate plane is given by $4x - 2y = 10$. Which of the following correctly identifies the slope and the $y$-intercept of this line?',
     choices: [
       { id: 'A', text: 'slope $= 2$, $y$-intercept $= -5$' },
+      // distractor: divides by -2 but flips the sign on both terms instead of only the right-hand side
       { id: 'B', text: 'slope $= -2$, $y$-intercept $= 5$' },
+      // distractor: reads slope and intercept directly off the standard-form coefficients
       { id: 'C', text: 'slope $= 4$, $y$-intercept $= -10$' },
+      // distractor: solves for slope correctly but keeps +10 as a positive intercept
       { id: 'D', text: 'slope $= 2$, $y$-intercept $= 5$' }
     ],
     correctAnswer: 'A',
-    explanation: '$-2y = -4x + 10 \\Rightarrow y = 2x - 5$. Slope = 2, intercept = −5. Trap D flips the sign of the intercept.',
+    explanation: '**SAT Pattern: Standard to Slope-Intercept**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Isolate $y$: $-2y = -4x + 10$, then divide every term by $-2$: $y = 2x - 5$. Read off slope $= 2$ and $y$-intercept $= -5$.\n\n**The Full Solution:**\nStart from $4x - 2y = 10$. Subtract $4x$ from both sides: $-2y = -4x + 10$. Divide every term by $-2$: $y = 2x - 5$. In slope-intercept form $y = mx + b$, we have $m = 2$ and $b = -5$.\n\nVerification: at $x = 0$, $y = -5$ matches the $y$-intercept. At $x = 1$, $y = -3$, and the slope from $(0, -5)$ to $(1, -3)$ is $\\frac{-3 - (-5)}{1 - 0} = 2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "applies the inverse operation" — divides $-2y = -4x + 10$ by $-2$ but flips both signs instead of only the right-hand-side terms (would give $y = -2x + 5$).\n* Choice C: "wrong base" — reads slope and intercept directly off the standard-form coefficients $4$ and $-10$ without first solving for $y$.\n* Choice D: "off-by-one" — gets the slope right but keeps the value $10$ as a positive intercept instead of dividing it by $-2$.\n\n**Test Day Takeaway:** Standard form $Ax + By = C$ never lets you read the slope or intercept directly. Always isolate $y$ FIRST, then dividing every term by the coefficient of $y$ gives slope-intercept form.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'standard-to-slope-intercept',
@@ -214,13 +241,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'A pool holds 480 gallons at 10:00 AM and 210 gallons at 1:00 PM, draining at a constant rate. At what time will the pool be empty?',
     choices: [
+      // distractor: off-by-one hour from correct
       { id: 'A', text: '2:20 PM' },
+      // distractor: rounds the 2:20 forward to 3:00
       { id: 'B', text: '3:00 PM' },
       { id: 'C', text: '3:20 PM' },
+      // distractor: doubles the remaining time after 1 PM
       { id: 'D', text: '4:00 PM' }
     ],
     correctAnswer: 'C',
-    explanation: 'Drain rate = (480 − 210)/3 = 90 gal/hr. From 1 PM, time to empty = 210/90 = 7/3 hr = 2 hr 20 min → 3:20 PM. Trap B rounds to a whole hour.',
+    explanation: '**SAT Pattern: Linear Model to Find Zero Time**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Drain rate $= \\frac{480 - 210}{3} = 90$ gal/hr. From $1$ PM, time to drain $210$ gal at $90$ gal/hr $= 210/90 = 7/3$ hr $= 2$ hr $20$ min. So empty at $3:20$ PM.\n\n**The Full Solution:**\nStep 1: Find drain rate from two points.\n* From 10 AM to 1 PM ($3$ hr), pool went from $480$ to $210$ gal.\n* Rate: $\\frac{480 - 210}{3} = 90$ gal/hr.\n\nStep 2: Find time to drain remaining $210$ gal at $90$ gal/hr:\ntime $= \\frac{210}{90} = \\frac{7}{3} = 2.333$ hr $= 2$ hr $20$ min.\n\nStep 3: Add to $1$ PM: $1:00 + 2:20 = 3:20$ PM.\n\nVerification: at $3:20$ PM, total drain time from $10$ AM is $5\\frac{1}{3}$ hr. $90 \\times 5\\frac{1}{3} = 480$ gal $=$ initial amount \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — drops the $1$-hour offset.\n* Choice B: "wrong base" — rounds $2:20$ forward to a whole hour.\n* Choice D: "wrong formula" — doubles the remaining time.\n\n**Test Day Takeaway:** Linear models with time: compute the rate first, use the most recent point as the new "starting time", solve for when $y = 0$. Convert decimal hours to hours-and-minutes.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'linear-model-time',
@@ -235,13 +265,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'A bacteria colony grows linearly from 120 at hour 0 to 1,320 at hour 10. At what hour does the count first exceed 900?',
     choices: [
+      // distractor: too imprecise (correct value is exactly 6.5)
       { id: 'A', text: 'Between hour 6 and 7' },
+      // distractor: wrong range
       { id: 'B', text: 'Between hour 7 and 8' },
       { id: 'C', text: 'Exactly hour 6.5' },
+      // distractor: off-by-one hour
       { id: 'D', text: 'Exactly hour 7.5' }
     ],
     correctAnswer: 'C',
-    explanation: 'Rate = (1320 − 120)/10 = 120/hr. Solve 120t + 120 = 900 → t = 780/120 = 6.5. Trap A gives a range that does not pinpoint the answer.',
+    explanation: '**SAT Pattern: Linear Model Threshold**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Rate $= (1320 - 120)/10 = 120$/hr. Solve $120 + 120t = 900 \\Rightarrow 120t = 780 \\Rightarrow t = 6.5$.\n\n**The Full Solution:**\nLinear model: $N(t) = 120 + 120t$ (initial $120$, slope $120$/hr).\nSet $N(t) = 900$:\n$120 + 120t = 900$\n$120t = 780$\n$t = 6.5$ hours.\n\nVerification: $N(6.5) = 120 + 120(6.5) = 120 + 780 = 900$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — gives a range but the exact value is $6.5$.\n* Choice B: "wrong base" — wrong range.\n* Choice D: "off-by-one" — off by one hour.\n\n**Test Day Takeaway:** When choices include both ranges AND exact values, prefer the exact when the math gives a clean number. $780/120$ simplifies to $6.5$ exactly.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'linear-model-inequality',
@@ -259,12 +292,15 @@ export const algebraBank = [
     question: 'A bakery sells cupcakes for $\\$3$ each and muffins for $\\$2$ each. Saturday\'s combined sales: 85 items for $\\$210$. If $c$ is cupcakes sold, which equation is correct?',
     choices: [
       { id: 'A', text: '$3c + 2(85 - c) = 210$' },
+      // distractor: swaps cupcake/muffin prices
       { id: 'B', text: '$2c + 3(85 - c) = 210$' },
+      // distractor: doesn\'t account for muffin count
       { id: 'C', text: '$3c + 2c = 210$' },
+      // distractor: combines prices wrong
       { id: 'D', text: '$5c = 210$' }
     ],
     correctAnswer: 'A',
-    explanation: 'Revenue = 3c + 2(85 − c). Muffins sold = 85 − c. Trap B swaps the prices for cupcakes and muffins.',
+    explanation: '**SAT Pattern: Word Problem to Equation Setup**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Cupcakes: $c$ at $\\$3$ each $= 3c$. Muffins: $85 - c$ at $\\$2$ each $= 2(85 - c)$. Sum equals $210$.\n\n**The Full Solution:**\nLet $c$ = number of cupcakes sold. Since total is $85$ items, muffins sold = $85 - c$.\nRevenue:\n* Cupcakes: $3c$ dollars\n* Muffins: $2(85 - c)$ dollars\nTotal: $3c + 2(85 - c) = 210$.\n\nVerification: this expands to $3c + 170 - 2c = 210$, so $c = 40$. Then $40$ cupcakes ($\\$120$) + $45$ muffins ($\\$90$) = $\\$210$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — swaps cupcake and muffin prices.\n* Choice C: "wrong formula" — doesn\'t express muffin count correctly.\n* Choice D: "wrong formula" — combines prices but loses the count constraint.\n\n**Test Day Takeaway:** Two-variable word problems with a total constraint: use $c$ and $(\\text{total} - c)$ to express both quantities in terms of one variable. Always check the count constraint AND the cost constraint.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'word-problem-setup',
@@ -280,12 +316,15 @@ export const algebraBank = [
     question: 'A phone plan costs $\\$35$ per month plus $\\$0.10$ per text. Last month\'s bill was $\\$52$. Which equation finds the number of texts $t$?',
     choices: [
       { id: 'A', text: '$35 + 0.10t = 52$' },
+      // distractor: subtracts fixed cost instead of adding
       { id: 'B', text: '$0.10t - 35 = 52$' },
+      // distractor: swaps which is the per-text rate
       { id: 'C', text: '$35t + 0.10 = 52$' },
+      // distractor: combines fixed and variable costs
       { id: 'D', text: '$35.10t = 52$' }
     ],
     correctAnswer: 'A',
-    explanation: 'Fixed cost 35 plus 0.10 per text equals total 52. Trap C treats 35 as the per-text rate.',
+    explanation: '**SAT Pattern: Linear Cost Equation Setup**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Fixed cost ($\\$35$) plus per-text cost ($\\$0.10 \\cdot t$) equals total ($\\$52$): $35 + 0.10t = 52$.\n\n**The Full Solution:**\nTotal cost = (fixed monthly fee) + (per-text rate)(number of texts):\n$35 + 0.10t = 52$.\n\nSolving: $0.10t = 17 \\Rightarrow t = 170$ texts.\n\nVerification: $35 + 0.10(170) = 35 + 17 = 52$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "sign error" — subtracts instead of adding the monthly fee.\n* Choice C: "wrong base" — treats $\\$35$ as the per-text rate.\n* Choice D: "wrong formula" — combines fixed and variable into one coefficient.\n\n**Test Day Takeaway:** Linear cost setup: fixed fee is a constant (added), per-unit cost is a slope (multiplied by quantity). Combine them with $+$, not concatenation.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'word-problem-setup',
@@ -300,13 +339,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'A streaming service had 4,500 subscribers in January and gains 350 per month. A rival had 6,200 subscribers but loses 150 per month. After how many months will they be equal?',
     choices: [
+      // distractor: only uses the gain rate (350)
       { id: 'A', text: '$3.0$' },
       { id: 'B', text: '$3.4$' },
+      // distractor: rounds up
       { id: 'C', text: '$4.0$' },
+      // distractor: arithmetic slip
       { id: 'D', text: '$5.0$' }
     ],
     correctAnswer: 'B',
-    explanation: '4500 + 350m = 6200 − 150m → 500m = 1700 → m = 3.4. Trap A only uses the gain of 350.',
+    explanation: '**SAT Pattern: Set Two Linear Models Equal**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Set $4500 + 350m = 6200 - 150m$. Combine: $500m = 1700 \\Rightarrow m = 3.4$.\n\n**The Full Solution:**\nLet $m$ = months from January. Set the two models equal:\nService A: $4500 + 350m$\nRival: $6200 - 150m$ (loses, so $-$)\n$4500 + 350m = 6200 - 150m$\n$500m = 1700$\n$m = 3.4$ months.\n\nVerification: at $m = 3.4$: A $= 4500 + 350(3.4) = 4500 + 1190 = 5690$. Rival $= 6200 - 150(3.4) = 6200 - 510 = 5690$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — uses only A\'s gain rate ($1700/350 \\neq 3.4$, would be 4.86, off).\n* Choice C: "wrong formula" — rounds up the result.\n* Choice D: "wrong base" — arithmetic slip producing $5$.\n\n**Test Day Takeaway:** When two quantities grow/shrink at different rates and you want to find when they\'re equal: set up both linear models, set them equal, solve. The RELATIVE rate ($350 + 150 = 500$/month gap closing) determines how fast they converge.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'word-problem-setup',
@@ -322,12 +364,15 @@ export const algebraBank = [
     question: 'A printer has already produced 54 pages and prints 18 pages per minute. How many more minutes are needed to reach 270 pages?',
     choices: [
       { id: 'A', text: '12' },
+      // distractor: divides 270 / 18 without subtracting 54
       { id: 'B', text: '15' },
+      // distractor: divides 54 / 18 (pages already done by rate)
       { id: 'C', text: '3' },
+      // distractor: uses the rate as the answer
       { id: 'D', text: '18' }
     ],
     correctAnswer: 'A',
-    explanation: '54 + 18m = 270 → 18m = 216 → m = 12. Trap B divides 270 by 18 without subtracting pages already printed.',
+    explanation: '**SAT Pattern: Linear Equation with Starting Quantity**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Pages still needed $= 270 - 54 = 216$. Time $= 216/18 = 12$ minutes.\n\n**The Full Solution:**\nLet $m$ = minutes more. Total pages = starting pages + (rate)(minutes):\n$54 + 18m = 270$\n$18m = 216$\n$m = 12$ minutes.\n\nVerification: $54 + 18(12) = 54 + 216 = 270$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — divides $270/18$ without subtracting the $54$ already printed.\n* Choice C: "wrong base" — divides $54/18 = 3$.\n* Choice D: "wrong base" — uses the rate.\n\n**Test Day Takeaway:** "How many MORE" problems: subtract what\'s already done from the target, then divide by the rate. The answer is the additional time, not the total.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'word-problem-setup',
@@ -342,13 +387,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'A warehouse worker loads small boxes (4 lb each) and large boxes (9 lb each) onto a pallet rated for 500 lb. With 20 small boxes already loaded, what is the maximum number of large boxes that fit?',
     choices: [
+      // distractor: subtracts 4 from 80 in error
       { id: 'A', text: '44' },
       { id: 'B', text: '46' },
+      // distractor: rounds UP instead of down (47 large boxes would exceed)
       { id: 'C', text: '47' },
+      // distractor: divides 500/9 directly ignoring 80 lb already used
       { id: 'D', text: '55' }
     ],
     correctAnswer: 'B',
-    explanation: 'Weight used = 80 lb. Remaining = 420 lb. 420 ÷ 9 = 46.67, so at most 46. Trap C rounds up instead of down.',
+    explanation: '**SAT Pattern: Inequality Word Problem (Floor)**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Weight used $= 20 \\times 4 = 80$ lb. Remaining $= 500 - 80 = 420$ lb. $420/9 = 46.67$, so at most $46$ large boxes.\n\n**The Full Solution:**\nLet $L$ = number of large boxes. Constraint:\n$20(4) + 9L \\leq 500$\n$80 + 9L \\leq 500$\n$9L \\leq 420$\n$L \\leq 46.67$.\nSince $L$ must be a whole number, max is $L = 46$.\n\nVerification: $80 + 9(46) = 80 + 414 = 494 \\leq 500$ ✓. $80 + 9(47) = 503 > 500$ ✗ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — arithmetic slip.\n* Choice C: "applies the inverse operation" — rounds UP, but $47$ large boxes would exceed the pallet capacity.\n* Choice D: "stops one step early" — divides $500/9$ without accounting for the small boxes already loaded.\n\n**Test Day Takeaway:** "Maximum that fits" with capacity constraint: take the FLOOR of the decimal result. Rounding up violates the inequality.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'inequality-word-problem',
@@ -363,13 +411,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'A landscaper charges $\\$50$ for a consultation plus $\\$35$ per hour. A second landscaper charges $\\$55$ per hour with no consultation fee. After how many hours is the cost the same?',
     choices: [
+      // distractor: arithmetic slip
       { id: 'A', text: '2' },
       { id: 'B', text: '2.5' },
+      // distractor: rounds up
       { id: 'C', text: '3' },
+      // distractor: divides 50/10 instead of 50/20
       { id: 'D', text: '5' }
     ],
     correctAnswer: 'B',
-    explanation: '50 + 35h = 55h → 50 = 20h → h = 2.5. Trap D divides 50 by 10 instead of 20.',
+    explanation: '**SAT Pattern: Break-Even Equation**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Set $50 + 35h = 55h \\Rightarrow 50 = 20h \\Rightarrow h = 2.5$.\n\n**The Full Solution:**\nLandscaper A: $50 + 35h$ dollars.\nLandscaper B: $55h$ dollars.\nSet equal:\n$50 + 35h = 55h$\n$50 = 20h$\n$h = 2.5$ hours.\n\nVerification: at $h = 2.5$: A $= 50 + 87.5 = \\$137.50$. B $= 55(2.5) = \\$137.50$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — arithmetic slip.\n* Choice C: "wrong formula" — rounds up.\n* Choice D: "wrong base" — divides $50/10$ instead of $50/20$.\n\n**Test Day Takeaway:** Break-even problems: equate the two cost models, solve for the variable. The DIFFERENCE in rates ($55 - 35 = 20$) tells you how fast the cheaper-per-hour option catches up to the one with a fixed fee.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'break-even-word-problem',
@@ -395,12 +446,15 @@ export const algebraBank = [
     },
     choices: [
       { id: 'A', text: '$h = 3w + 5$' },
+      // distractor: swaps slope and intercept
       { id: 'B', text: '$h = 5w + 3$' },
+      // distractor: uses week 1 height as intercept
       { id: 'C', text: '$h = 3w + 8$' },
+      // distractor: doubles slope
       { id: 'D', text: '$h = 6w + 2$' }
     ],
     correctAnswer: 'A',
-    explanation: 'Slope = (14 − 8)/(3 − 1) = 3. Then 8 = 3(1) + b → b = 5. Trap C uses the first height directly as the intercept.',
+    explanation: '**SAT Pattern: Linear Equation from Table**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Slope $= (14 - 8)/(3 - 1) = 3$. Use $(1, 8)$: $8 = 3(1) + b \\Rightarrow b = 5$. Equation: $h = 3w + 5$.\n\n**The Full Solution:**\nStep 1: Find slope from any two points.\n$m = \\frac{14 - 8}{3 - 1} = \\frac{6}{2} = 3$.\n\nStep 2: Find $b$ using one point.\nUsing $(1, 8)$: $8 = 3(1) + b \\Rightarrow b = 5$.\n\nEquation: $h = 3w + 5$.\n\nVerification: at $w = 5$: $h = 3(5) + 5 = 20$ ✓ (matches the table) \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "applies the inverse operation" — swaps slope and intercept.\n* Choice C: "wrong base" — uses first height ($8$) as the intercept.\n* Choice D: "wrong base" — doubles the slope.\n\n**Test Day Takeaway:** Table-to-equation: compute slope, then find intercept using ANY data point. Verify by checking another point.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'table-to-linear',
@@ -424,12 +478,15 @@ export const algebraBank = [
     },
     choices: [
       { id: 'A', text: '$T = 3h + 58$' },
+      // distractor: uses total 6° change as hourly slope
       { id: 'B', text: '$T = 6h + 58$' },
+      // distractor: uses hour-2 temp as intercept
       { id: 'C', text: '$T = 3h + 64$' },
+      // distractor: swaps slope and intercept
       { id: 'D', text: '$T = 58h + 3$' }
     ],
     correctAnswer: 'A',
-    explanation: 'Slope = (64 − 58)/(2 − 0) = 3 per hour, intercept = 58. Trap B uses the total 6-degree change as the hourly slope.',
+    explanation: '**SAT Pattern: Linear Equation from Table (Intercept Given)**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Slope $= (64 - 58)/(2 - 0) = 3$°/hr. Intercept: $T(0) = 58$. Equation: $T = 3h + 58$.\n\n**The Full Solution:**\nStep 1: Find slope.\n$m = \\frac{64 - 58}{2 - 0} = \\frac{6}{2} = 3$ °F/hr.\n\nStep 2: Since $h = 0$ is in the table, the intercept is read directly: $b = 58$.\n\nEquation: $T = 3h + 58$.\n\nVerification: at $h = 4$: $T = 3(4) + 58 = 70$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — uses total $6$° change as hourly slope (forgets to divide by hours).\n* Choice C: "wrong base" — uses hour $2$ temp ($64$) as the intercept.\n* Choice D: "applies the inverse operation" — swaps slope and intercept.\n\n**Test Day Takeaway:** When the table includes $x = 0$, the $y$-value at $x = 0$ IS the intercept. Compute slope from any two points; divide by the run.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'table-to-linear',
@@ -452,13 +509,16 @@ export const algebraBank = [
       ],
     },
     choices: [
+      // distractor: backs off day 1 by mistake (340 - 60 - 60 - 20)
       { id: 'A', text: '200' },
       { id: 'B', text: '220' },
+      // distractor: subtracts 180 instead of 120
       { id: 'C', text: '160' },
+      // distractor: adds instead of subtracting
       { id: 'D', text: '280' }
     ],
     correctAnswer: 'B',
-    explanation: 'Slope = (520 − 340)/(5 − 2) = 60. Then 340 = 60(2) + b → b = 220. Trap C subtracts 180 from 340 incorrectly.',
+    explanation: '**SAT Pattern: Find Intercept from Slope and Point**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Slope $a = (520 - 340)/(5 - 2) = 60$. At day $2$: $340 = 60(2) + b \\Rightarrow b = 220$.\n\n**The Full Solution:**\nStep 1: Find slope from table.\n$a = \\frac{520 - 340}{5 - 2} = \\frac{180}{3} = 60$ dollars/day.\n\nStep 2: Use a known point to solve for $b$. Using $(2, 340)$:\n$340 = 60(2) + b$\n$340 = 120 + b$\n$b = 220$.\n\nVerification: at $d = 8$: $R = 60(8) + 220 = 480 + 220 = 700$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — backs off too far.\n* Choice C: "wrong base" — subtracts $180$ from $340$.\n* Choice D: "applies the inverse operation" — adds instead of subtracting.\n\n**Test Day Takeaway:** When the table does not include $x = 0$, you must back-calculate the intercept. Slope first, then use any point in $y = ax + b$ to solve for $b$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'table-to-linear',
@@ -482,12 +542,15 @@ export const algebraBank = [
     },
     choices: [
       { id: 'A', text: '$f(x) = -3x + 7$' },
+      // distractor: sign error on slope
       { id: 'B', text: '$f(x) = 3x + 7$' },
+      // distractor: sign error on intercept
       { id: 'C', text: '$f(x) = -3x - 7$' },
+      // distractor: uses f(1) = 4 as the intercept
       { id: 'D', text: '$f(x) = -3x + 4$' }
     ],
     correctAnswer: 'A',
-    explanation: 'Slope = (4 − 13)/(1 − (−2)) = −9/3 = −3. Then 4 = −3(1) + b → b = 7. Trap D uses the y-value at x = 1 as the intercept.',
+    explanation: '**SAT Pattern: Linear Function from Table (Negative Slope)**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Slope $= (4 - 13)/(1 - (-2)) = -9/3 = -3$. At $x = 1$: $4 = -3(1) + b \\Rightarrow b = 7$. Equation: $f(x) = -3x + 7$.\n\n**The Full Solution:**\nStep 1: Find slope.\n$m = \\frac{4 - 13}{1 - (-2)} = \\frac{-9}{3} = -3$.\n\nStep 2: Find intercept using $(1, 4)$:\n$4 = -3(1) + b \\Rightarrow b = 7$.\n\nEquation: $f(x) = -3x + 7$.\n\nVerification: at $x = -2$: $f(-2) = -3(-2) + 7 = 13$ ✓. At $x = 4$: $f(4) = -12 + 7 = -5$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "sign error" — drops the negative on slope.\n* Choice C: "sign error" — flips intercept sign.\n* Choice D: "wrong base" — uses $f(1) = 4$ as the intercept (skips the slope-intercept step).\n\n**Test Day Takeaway:** Always verify with a SECOND point from the table after solving. Catches sign errors quickly.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'table-to-linear',
@@ -505,12 +568,15 @@ export const algebraBank = [
     question: 'If $f(x) = 4x - 7$, what is $f(5)$?',
     choices: [
       { id: 'A', text: '13' },
+      // distractor: 4 + 5 + (−7) = 2, or other arithmetic slip
       { id: 'B', text: '27' },
+      // distractor: subtracts 5 from 7 wrong direction
       { id: 'C', text: '$-3$' },
+      // distractor: forgets to subtract 7
       { id: 'D', text: '20' }
     ],
     correctAnswer: 'A',
-    explanation: 'f(5) = 4(5) − 7 = 20 − 7 = 13. Trap D forgets to subtract 7.',
+    explanation: '**SAT Pattern: Direct Function Evaluation**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** $f(5) = 4(5) - 7 = 20 - 7 = 13$.\n\n**The Full Solution:**\nSubstitute $x = 5$ into $f(x) = 4x - 7$:\n$f(5) = 4(5) - 7 = 20 - 7 = 13$.\n\nVerification: $4(5) = 20$ and $20 - 7 = 13$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — arithmetic slip; $27$ would be $20 + 7$.\n* Choice C: "sign error" — $7 - 5 \\cdot 2$ or similar.\n* Choice D: "stops one step early" — gives $4 \\cdot 5 = 20$ without subtracting.\n\n**Test Day Takeaway:** Substitute, then follow order of operations: multiplication before subtraction.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'direct-evaluation',
@@ -525,7 +591,7 @@ export const algebraBank = [
     type: 'fill-in',
     question: 'If $g(x) = -2x + 15$, what is $g(-3)$?',
     correctAnswer: '21',
-    explanation: 'g(−3) = −2(−3) + 15 = 6 + 15 = 21. Common error: computing −2(−3) as −6 instead of +6.',
+    explanation: '**SAT Pattern: Function Evaluation with Negatives**\n\n**The correct answer is $21$.**\n\n**The Fast Way (~5s):** $g(-3) = -2(-3) + 15 = 6 + 15 = 21$.\n\n**The Full Solution:**\nSubstitute $x = -3$:\n$g(-3) = -2(-3) + 15$\n$= 6 + 15$ (since negative times negative is positive)\n$= 21$.\n\nVerification: $-2 \\cdot (-3) = +6$ ✓ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing $-2(-3) = -6$ instead of $+6$ (sign error).\n* Subtracting $15$ instead of adding.\n* Reporting $9$ ($15 - 6$ with sign error).\n\n**Test Day Takeaway:** Negative times negative is POSITIVE. When substituting a negative input, parenthesize: $-2(-3) = +6$, not $-6$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'direct-evaluation',
@@ -540,13 +606,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'A taxi charges $C(m) = 2.50m + 3.00$, where $m$ is miles traveled. A customer pays $\\$28.00$. How many miles did they travel?',
     choices: [
+      // distractor: arithmetic slip
       { id: 'A', text: '8' },
       { id: 'B', text: '10' },
+      // distractor: divides 28/2.50 without subtracting base
       { id: 'C', text: '11.2' },
+      // distractor: arithmetic slip
       { id: 'D', text: '12.4' }
     ],
     correctAnswer: 'B',
-    explanation: '2.50m + 3.00 = 28.00 → 2.50m = 25.00 → m = 10. Trap C divides 28 by 2.50 without subtracting the base fare.',
+    explanation: '**SAT Pattern: Solve for Function Input**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $2.50m + 3.00 = 28.00 \\Rightarrow 2.50m = 25 \\Rightarrow m = 10$.\n\n**The Full Solution:**\nSet $C(m) = 28$:\n$2.50m + 3.00 = 28.00$\n$2.50m = 25.00$\n$m = 10$ miles.\n\nVerification: $C(10) = 2.50(10) + 3 = 25 + 3 = 28$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — arithmetic slip.\n* Choice C: "stops one step early" — divides $28/2.50 = 11.2$ without subtracting the base fare.\n* Choice D: "wrong base" — arithmetic slip.\n\n**Test Day Takeaway:** Solve-for-input problems: subtract the constant first, THEN divide by the slope. Order: undo addition, then multiplication.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'function-solve-for-input',
@@ -561,7 +630,7 @@ export const algebraBank = [
     type: 'fill-in',
     question: 'If $f(x) = x^2 - 4x + 7$, what is $f(3)$?',
     correctAnswer: '4',
-    explanation: 'f(3) = 9 − 12 + 7 = 4. Common error: forgetting to square before subtracting.',
+    explanation: '**SAT Pattern: Function Evaluation (Quadratic)**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~10s):** $f(3) = 9 - 12 + 7 = 4$.\n\n**The Full Solution:**\nSubstitute $x = 3$:\n$f(3) = 3^2 - 4(3) + 7 = 9 - 12 + 7 = 4$.\n\nFollow order of operations: square first, then multiply, then add/subtract left to right.\n\nVerification: $9 - 12 = -3$; $-3 + 7 = 4$ ✓ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting to square $3$: would give $3 - 12 + 7 = -2$.\n* Computing $3^2 = 6$ instead of $9$.\n* Misordering: $(9 + 7) - 12 = 4$ is fine, but $9 - (12 + 7) = -10$ is wrong.\n\n**Test Day Takeaway:** Order of operations is critical with quadratics: SQUARE first, then handle the rest left to right.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'direct-evaluation',
@@ -576,13 +645,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'If $f(x) = 3x - 7$ and $f(a) = f(2a - 5)$, what is $a$?',
     choices: [
+      // distractor: incorrect equation setup (3a - 7 = 2a - 5)
       { id: 'A', text: '3' },
       { id: 'B', text: '5' },
+      // distractor: uses 7 from f(x) somewhere
       { id: 'C', text: '7' },
+      // distractor: double 5
       { id: 'D', text: '10' }
     ],
     correctAnswer: 'B',
-    explanation: 'Since f is one-to-one (linear with nonzero slope), f(a) = f(2a − 5) implies a = 2a − 5, so a = 5. Trap A incorrectly sets 3a − 7 = 2a − 5.',
+    explanation: '**SAT Pattern: Function Equality (One-to-One Linear)**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $f$ is one-to-one (linear with slope $\\neq 0$), so $f(a) = f(b)$ implies $a = b$. Set $a = 2a - 5 \\Rightarrow a = 5$.\n\n**The Full Solution:**\nLinear functions with nonzero slope are one-to-one: different inputs give different outputs. So $f(a) = f(2a - 5)$ requires $a = 2a - 5$.\nSolve: $a = 2a - 5 \\Rightarrow 5 = a$.\n\nAlternatively: substitute directly. $f(a) = 3a - 7$. $f(2a - 5) = 3(2a - 5) - 7 = 6a - 22$. Set equal:\n$3a - 7 = 6a - 22 \\Rightarrow -3a = -15 \\Rightarrow a = 5$.\n\nVerification: $f(5) = 8$ and $f(2(5) - 5) = f(5) = 8$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — sets $3a - 7 = 2a - 5$ wrongly.\n* Choice C: "wrong base" — uses $7$ from $f(x)$.\n* Choice D: "off-by-one" — doubles correct answer.\n\n**Test Day Takeaway:** Linear functions are one-to-one (when slope $\\neq 0$). $f(a) = f(b) \\Rightarrow a = b$ for any linear $f$. Cleanest path.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'function-equality',
@@ -600,12 +672,15 @@ export const algebraBank = [
     question: 'Line $p$ has equation $y = \\frac{2}{3}x - 4$. What is the slope of any line parallel to $p$?',
     choices: [
       { id: 'A', text: '$\\frac{2}{3}$' },
+      // distractor: flips sign instead of leaving alone
       { id: 'B', text: '$-\\frac{2}{3}$' },
+      // distractor: gives reciprocal
       { id: 'C', text: '$\\frac{3}{2}$' },
+      // distractor: gives perpendicular slope (negative reciprocal)
       { id: 'D', text: '$-\\frac{3}{2}$' }
     ],
     correctAnswer: 'A',
-    explanation: 'Parallel lines share the same slope, 2/3. Trap D gives the perpendicular slope.',
+    explanation: '**SAT Pattern: Parallel Slope Identification**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Parallel lines have the SAME slope: $\\frac{2}{3}$.\n\n**The Full Solution:**\nTwo lines are parallel if and only if they have equal slopes. Given $y = \\frac{2}{3}x - 4$ has slope $\\frac{2}{3}$, any parallel line also has slope $\\frac{2}{3}$.\n\nVerification: parallel lines never intersect; same slope ensures this \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "sign error" — flips slope sign.\n* Choice C: "wrong formula" — reciprocal (related to perpendicular).\n* Choice D: "wrong formula" — negative reciprocal = PERPENDICULAR slope.\n\n**Test Day Takeaway:** Parallel = same slope. Perpendicular = negative reciprocal. Different operations.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'parallel-slope-id',
@@ -620,13 +695,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'Line $\\ell$ passes through $(1, 4)$ and $(-3, 12)$. What is the slope of a line parallel to $\\ell$?',
     choices: [
+      // distractor: sign error in slope
       { id: 'A', text: '$2$' },
       { id: 'B', text: '$-2$' },
+      // distractor: gives perpendicular slope (negative reciprocal)
       { id: 'C', text: '$\\frac{1}{2}$' },
+      // distractor: reciprocal with sign error
       { id: 'D', text: '$-\\frac{1}{2}$' }
     ],
     correctAnswer: 'B',
-    explanation: 'Slope = (12 − 4)/(−3 − 1) = 8/(−4) = −2. Parallel slope is also −2. Trap C gives the perpendicular slope.',
+    explanation: '**SAT Pattern: Parallel Slope from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Slope of $\\ell = (12 - 4)/(-3 - 1) = 8/(-4) = -2$. Parallel also has slope $-2$.\n\n**The Full Solution:**\nCompute slope of $\\ell$ from the two points:\n$m = \\frac{12 - 4}{-3 - 1} = \\frac{8}{-4} = -2$.\nParallel lines have the same slope: $-2$.\n\nVerification: from $(1, 4)$ with slope $-2$, after $\\Delta x = -4$: $y = 4 + (-2)(-4) = 12$ ✓ (matches $(-3, 12)$) \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "sign error" — drops the negative.\n* Choice C: "wrong formula" — gives perpendicular slope.\n* Choice D: "wrong formula" — reciprocal with sign error.\n\n**Test Day Takeaway:** Compute the slope correctly first (with signs), then apply the parallel rule (same slope) or perpendicular rule (negative reciprocal). Don\'t mix the two.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'parallel-slope-id',
@@ -641,7 +719,7 @@ export const algebraBank = [
     type: 'fill-in',
     question: 'The line $6x - 4y = 20$ has slope $m$. What is $m$?',
     correctAnswer: '1.5',
-    explanation: 'Rearrange: −4y = −6x + 20 → y = (3/2)x − 5. Slope = 3/2 = 1.5.',
+    explanation: '**SAT Pattern: Slope from Standard Form**\n\n**The correct answer is $1.5$.**\n\n**The Fast Way (~10s):** For $Ax + By = C$, slope $= -A/B = -6/(-4) = 1.5$.\n\n**The Full Solution:**\nSolve for $y$:\n$6x - 4y = 20$\n$-4y = -6x + 20$\n$y = \\frac{3}{2}x - 5$.\nSlope $m = \\frac{3}{2} = 1.5$.\n\nVerification: at $x = 0$: $y = -5$. At $x = 2$: $y = -2$. Slope $= (-2 - (-5))/(2 - 0) = 3/2$ ✓ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Sign error when dividing by $-4$: gives $-1.5$.\n* Using $6/4 = 1.5$ but with wrong sign.\n* Reporting the intercept $-5$.\n\n**Test Day Takeaway:** For $Ax + By = C$, slope is $-A/B$. Or just isolate $y$ and read the coefficient.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'standard-form-slope',
@@ -659,12 +737,15 @@ export const algebraBank = [
     question: 'Which equation represents a line parallel to $y = -5x + 8$ that passes through $(2, 1)$?',
     choices: [
       { id: 'A', text: '$y = -5x + 11$' },
+      // distractor: sign error on intercept
       { id: 'B', text: '$y = -5x - 9$' },
+      // distractor: uses perpendicular slope
       { id: 'C', text: '$y = \\frac{1}{5}x + \\frac{3}{5}$' },
+      // distractor: drops the negative on slope
       { id: 'D', text: '$y = 5x - 9$' }
     ],
     correctAnswer: 'A',
-    explanation: 'Parallel slope = −5. Through (2, 1): 1 = −5(2) + b → b = 11. Trap D uses slope +5.',
+    explanation: '**SAT Pattern: Parallel Line Through a Point**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Parallel slope $= -5$. At $(2, 1)$: $1 = -5(2) + b \\Rightarrow b = 11$. Equation: $y = -5x + 11$.\n\n**The Full Solution:**\nParallel lines have the same slope: $m = -5$.\nUse point-slope or solve for $b$ at $(2, 1)$:\n$1 = -5(2) + b$\n$1 = -10 + b$\n$b = 11$.\nEquation: $y = -5x + 11$.\n\nVerification: at $x = 2$: $y = -10 + 11 = 1$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "sign error" — flips intercept sign.\n* Choice C: "wrong formula" — uses perpendicular slope.\n* Choice D: "sign error" — drops the negative on slope.\n\n**Test Day Takeaway:** Parallel through a point: KEEP the slope, solve for new intercept using the point.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'parallel-line-equation',
@@ -680,12 +761,15 @@ export const algebraBank = [
     question: 'A road follows $3x - 4y = 20$. A bike path is parallel and passes through $(0, 7)$. Which equation describes the bike path?',
     choices: [
       { id: 'A', text: '$y = \\frac{3}{4}x + 7$' },
+      // distractor: uses perpendicular slope
       { id: 'B', text: '$y = -\\frac{4}{3}x + 7$' },
+      // distractor: keeps road\'s intercept
       { id: 'C', text: '$y = \\frac{3}{4}x - 5$' },
+      // distractor: inverts the slope
       { id: 'D', text: '$y = \\frac{4}{3}x + 7$' }
     ],
     correctAnswer: 'A',
-    explanation: 'Road: y = (3/4)x − 5, slope 3/4. Parallel through (0, 7): y = (3/4)x + 7. Trap B uses the negative reciprocal.',
+    explanation: '**SAT Pattern: Parallel from Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Road slope: $-A/B = -3/(-4) = 3/4$. Parallel through $(0, 7)$: $y = (3/4)x + 7$.\n\n**The Full Solution:**\nFind road slope by solving for $y$:\n$3x - 4y = 20 \\Rightarrow -4y = -3x + 20 \\Rightarrow y = \\frac{3}{4}x - 5$.\nSlope: $\\frac{3}{4}$.\nParallel through $(0, 7)$: $y$-intercept is $7$ directly (since the point\'s $x$ is $0$):\n$y = \\frac{3}{4}x + 7$.\n\nVerification: at $x = 0$: $y = 7$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — uses negative reciprocal (perpendicular).\n* Choice C: "stops one step early" — keeps the road\'s intercept.\n* Choice D: "wrong formula" — inverts the slope.\n\n**Test Day Takeaway:** When a point is $(0, k)$, the $y$-intercept IS $k$. Saves a step.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'parallel-line-equation',
@@ -701,12 +785,15 @@ export const algebraBank = [
     question: 'Line $\\ell$ passes through $(1, 4)$ and $(-3, 12)$. Which equation represents a line parallel to $\\ell$ with $y$-intercept $-1$?',
     choices: [
       { id: 'A', text: '$y = -2x - 1$' },
+      // distractor: sign error on slope
       { id: 'B', text: '$y = 2x - 1$' },
+      // distractor: sign error on intercept
       { id: 'C', text: '$y = -2x + 1$' },
+      // distractor: reciprocal slope (related to perpendicular)
       { id: 'D', text: '$y = \\frac{1}{2}x - 1$' }
     ],
     correctAnswer: 'A',
-    explanation: 'Slope of ℓ = (12 − 4)/(−3 − 1) = −2. Parallel line: y = −2x − 1. Trap D uses the reciprocal of the slope.',
+    explanation: '**SAT Pattern: Parallel with Specified Intercept**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Slope of $\\ell = (12 - 4)/(-3 - 1) = -2$. With intercept $-1$: $y = -2x - 1$.\n\n**The Full Solution:**\nStep 1: Slope of $\\ell$:\n$m = \\frac{12 - 4}{-3 - 1} = \\frac{8}{-4} = -2$.\nStep 2: Parallel line with $y$-intercept $-1$: $y = -2x + (-1) = -2x - 1$.\n\nVerification: at $x = 0$: $y = -1$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "sign error" — drops the negative on slope.\n* Choice C: "sign error" — flips intercept sign.\n* Choice D: "wrong formula" — uses reciprocal of slope.\n\n**Test Day Takeaway:** Parallel + given intercept: drop in the slope from the original, then the new intercept directly.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'parallel-line-equation',
@@ -723,13 +810,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'A fence runs along a line with slope $4$. A garden wall is perpendicular to the fence. What is the wall\'s slope?',
     choices: [
+      // distractor: gives parallel slope
       { id: 'A', text: '$4$' },
+      // distractor: negates without reciprocal
       { id: 'B', text: '$-4$' },
+      // distractor: reciprocal without negation
       { id: 'C', text: '$\\frac{1}{4}$' },
       { id: 'D', text: '$-\\frac{1}{4}$' }
     ],
     correctAnswer: 'D',
-    explanation: 'Perpendicular slope = negative reciprocal = −1/4. Trap B negates without taking the reciprocal.',
+    explanation: '**SAT Pattern: Perpendicular Slope (Negative Reciprocal)**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** Perpendicular = negative reciprocal. $4 \\to -\\frac{1}{4}$.\n\n**The Full Solution:**\nIf two lines are perpendicular, their slopes are negative reciprocals: $m_1 \\cdot m_2 = -1$.\nWith $m_1 = 4$: $m_2 = -\\frac{1}{4}$.\n\nVerification: $4 \\cdot \\left(-\\frac{1}{4}\\right) = -1$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — parallel slope (same), not perpendicular.\n* Choice B: "stops one step early" — negates without taking reciprocal.\n* Choice C: "stops one step early" — takes reciprocal without negating.\n\n**Test Day Takeaway:** Perpendicular = both negate AND take reciprocal. Check: $m_1 \\cdot m_2 = -1$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'perpendicular-slope-id',
@@ -744,13 +834,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'Line $m$ passes through $(-1, 5)$ and $(3, -3)$. What is the slope of a line perpendicular to $m$?',
     choices: [
+      // distractor: gives parallel slope
       { id: 'A', text: '$-2$' },
+      // distractor: negates without reciprocal
       { id: 'B', text: '$2$' },
       { id: 'C', text: '$\\frac{1}{2}$' },
+      // distractor: reciprocal with wrong sign
       { id: 'D', text: '$-\\frac{1}{2}$' }
     ],
     correctAnswer: 'C',
-    explanation: 'Slope of m = (−3 − 5)/(3 − (−1)) = −8/4 = −2. Perpendicular = 1/2. Trap B only negates without reciprocal.',
+    explanation: '**SAT Pattern: Perpendicular Slope from Two Points**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Slope of $m = (-3 - 5)/(3 - (-1)) = -8/4 = -2$. Perpendicular: $1/2$.\n\n**The Full Solution:**\nStep 1: Slope of $m$:\n$m_1 = \\frac{-3 - 5}{3 - (-1)} = \\frac{-8}{4} = -2$.\nStep 2: Perpendicular slope $= -1/m_1 = -1/(-2) = 1/2$.\n\nVerification: $-2 \\cdot 1/2 = -1$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — parallel slope.\n* Choice B: "stops one step early" — only negates.\n* Choice D: "sign error" — flips both sign and reciprocal but in wrong combination.\n\n**Test Day Takeaway:** Compute slope first (with signs), then apply $-1/m$ for perpendicular. Two operations: negate AND reciprocate.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'perpendicular-slope-id',
@@ -765,7 +858,7 @@ export const algebraBank = [
     type: 'fill-in',
     question: 'A line has slope $\\frac{5}{8}$. What is the slope of a perpendicular line? Express as a decimal.',
     correctAnswer: '-1.6',
-    explanation: 'Perpendicular slope = −8/5 = −1.6.',
+    explanation: '**SAT Pattern: Perpendicular Slope as Decimal**\n\n**The correct answer is $-1.6$.**\n\n**The Fast Way (~10s):** Perpendicular slope $= -8/5 = -1.6$.\n\n**The Full Solution:**\nGiven slope $\\frac{5}{8}$, perpendicular slope is the negative reciprocal: $-\\frac{8}{5}$.\nConvert to decimal: $-\\frac{8}{5} = -1.6$.\n\nVerification: $\\frac{5}{8} \\cdot \\left(-\\frac{8}{5}\\right) = -1$ ✓ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $1.6$ (forgets negative sign).\n* Reporting $0.625$ (= $5/8$, the original slope).\n* Reporting $-0.625$ (negates without taking reciprocal).\n\n**Test Day Takeaway:** Perpendicular: flip fraction (reciprocal) AND change sign. $\\frac{5}{8} \\to -\\frac{8}{5} = -1.6$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'perpendicular-slope-id',
@@ -783,12 +876,15 @@ export const algebraBank = [
     question: 'Write the equation of a line perpendicular to $y = \\frac{3}{5}x + 2$ that passes through $(6, -1)$.',
     choices: [
       { id: 'A', text: '$y = -\\frac{5}{3}x + 9$' },
+      // distractor: sign error on slope
       { id: 'B', text: '$y = \\frac{5}{3}x - 11$' },
+      // distractor: uses negation of original slope (not perpendicular)
       { id: 'C', text: '$y = -\\frac{3}{5}x + \\frac{13}{5}$' },
+      // distractor: sign error on intercept
       { id: 'D', text: '$y = -\\frac{5}{3}x - 11$' }
     ],
     correctAnswer: 'A',
-    explanation: 'Perp slope = −5/3. Through (6, −1): −1 = −(5/3)(6) + b → −1 = −10 + b → b = 9. Trap C uses the negative of the original slope instead of the negative reciprocal.',
+    explanation: '**SAT Pattern: Perpendicular Line Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Perpendicular slope $= -5/3$. At $(6, -1)$: $-1 = -(5/3)(6) + b = -10 + b \\Rightarrow b = 9$.\n\n**The Full Solution:**\nOriginal slope $\\frac{3}{5}$. Perpendicular slope: $-\\frac{5}{3}$.\nThrough $(6, -1)$:\n$-1 = -\\frac{5}{3}(6) + b$\n$-1 = -10 + b$\n$b = 9$.\nEquation: $y = -\\frac{5}{3}x + 9$.\n\nVerification: at $x = 6$: $y = -10 + 9 = -1$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "sign error" — drops the negative on perpendicular slope.\n* Choice C: "wrong formula" — uses negation of slope instead of negative reciprocal.\n* Choice D: "sign error" — flips intercept sign.\n\n**Test Day Takeaway:** Perpendicular through a point: compute perpendicular slope (flip and negate), then solve for $b$ using the point.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'perpendicular-line-equation',
@@ -804,12 +900,15 @@ export const algebraBank = [
     question: 'The line $2x + 6y = 18$ represents a trail. A new trail is perpendicular and passes through $(4, -2)$. What is its equation?',
     choices: [
       { id: 'A', text: '$y = 3x - 14$' },
+      // distractor: uses parallel slope
       { id: 'B', text: '$y = -\\frac{1}{3}x - \\frac{2}{3}$' },
+      // distractor: sign error on intercept
       { id: 'C', text: '$y = 3x + 10$' },
+      // distractor: sign error on slope
       { id: 'D', text: '$y = -3x + 10$' }
     ],
     correctAnswer: 'A',
-    explanation: 'Original: y = −(1/3)x + 3, slope −1/3. Perp slope = 3. Through (4, −2): −2 = 3(4) + b → b = −14. Trap D uses −3 as the slope.',
+    explanation: '**SAT Pattern: Perpendicular from Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Original slope: $-A/B = -2/6 = -1/3$. Perpendicular: $3$. At $(4, -2)$: $-2 = 3(4) + b = 12 + b \\Rightarrow b = -14$. Equation: $y = 3x - 14$.\n\n**The Full Solution:**\nFind original slope by solving for $y$:\n$2x + 6y = 18 \\Rightarrow 6y = -2x + 18 \\Rightarrow y = -\\frac{1}{3}x + 3$.\nOriginal slope: $-\\frac{1}{3}$. Perpendicular slope: $3$.\nAt $(4, -2)$: $-2 = 3(4) + b \\Rightarrow b = -14$.\nEquation: $y = 3x - 14$.\n\nVerification: at $x = 4$: $y = 12 - 14 = -2$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — uses parallel slope (same as original).\n* Choice C: "sign error" — flips intercept sign.\n* Choice D: "sign error" — uses $-3$ as slope.\n\n**Test Day Takeaway:** From $Ax + By = C$: slope $= -A/B$. Apply $-1/m$ for perpendicular slope, then plug in the point.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'perpendicular-line-equation',
@@ -824,7 +923,7 @@ export const algebraBank = [
     type: 'fill-in',
     question: 'A line perpendicular to $y = \\frac{4}{7}x + 3$ passes through $(4, 2)$. What is its $y$-intercept?',
     correctAnswer: '9',
-    explanation: 'Perp slope = −7/4. Through (4, 2): 2 = −(7/4)(4) + b → 2 = −7 + b → b = 9.',
+    explanation: '**SAT Pattern: y-Intercept of Perpendicular Line**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~20s):** Perp slope $= -7/4$. At $(4, 2)$: $2 = -(7/4)(4) + b = -7 + b \\Rightarrow b = 9$.\n\n**The Full Solution:**\nOriginal slope $\\frac{4}{7}$. Perpendicular slope: $-\\frac{7}{4}$.\nThrough $(4, 2)$: $2 = -\\frac{7}{4}(4) + b = -7 + b \\Rightarrow b = 9$.\n\nVerification: equation $y = -\\frac{7}{4}x + 9$ at $x = 4$: $y = -7 + 9 = 2$ ✓ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using parallel slope $\\frac{4}{7}$ instead of perpendicular $-\\frac{7}{4}$.\n* Sign error: getting $b = -5$ instead of $9$.\n* Reporting $-7$ (the intermediate value).\n\n**Test Day Takeaway:** Find perp slope first, then use point to solve for $b$. The $y$-intercept is the constant term in $y = mx + b$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'perpendicular-line-equation',
@@ -841,13 +940,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'How many solutions does the system have?\n$y = 2x + 5$\n$y = 2x - 3$',
     choices: [
+      // distractor: linear systems usually have one, but parallel lines don\'t
       { id: 'A', text: 'Exactly one' },
+      // distractor: linear systems can\'t have exactly two
       { id: 'B', text: 'Exactly two' },
+      // distractor: requires identical equations
       { id: 'C', text: 'Infinitely many' },
       { id: 'D', text: 'No solution' }
     ],
     correctAnswer: 'D',
-    explanation: 'Same slope (2) but different intercepts → parallel lines, no intersection. Trap C requires identical equations.',
+    explanation: '**SAT Pattern: Classify System (Parallel Lines)**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** Same slope ($2$), different intercepts ($5 \\neq -3$). Parallel lines never meet → no solution.\n\n**The Full Solution:**\nBoth equations have slope $2$. The $y$-intercepts are $5$ and $-3$. Lines with the same slope and different intercepts are PARALLEL — they never intersect.\n\nVerification: setting equal: $2x + 5 = 2x - 3 \\Rightarrow 5 = -3$, a contradiction. No solution \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — most linear systems have one solution, but parallel lines don\'t.\n* Choice B: "wrong formula" — linear systems can\'t have exactly two solutions.\n* Choice C: "wrong base" — infinitely many requires IDENTICAL equations.\n\n**Test Day Takeaway:** Same slope, different intercepts $\\Rightarrow$ NO solution. Same slope AND same intercept $\\Rightarrow$ infinitely many. Different slopes $\\Rightarrow$ exactly one.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'system-type-classification',
@@ -862,13 +964,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'How many solutions does the system have?\n$y = 3x + 2$\n$y = -x + 6$',
     choices: [
+      // distractor: would require parallel lines (same slope)
       { id: 'A', text: 'No solution' },
       { id: 'B', text: 'Exactly one' },
+      // distractor: linear systems can\'t have exactly two
       { id: 'C', text: 'Exactly two' },
+      // distractor: would require identical lines
       { id: 'D', text: 'Infinitely many' }
     ],
     correctAnswer: 'B',
-    explanation: 'Slopes 3 and −1 are different, so the lines intersect exactly once. Trap D would require identical lines.',
+    explanation: '**SAT Pattern: Classify System (Different Slopes)**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Slopes $3$ and $-1$ are DIFFERENT, so the lines intersect at exactly one point.\n\n**The Full Solution:**\nThe two lines have different slopes ($3$ and $-1$), so they intersect at exactly one point. Find it:\n$3x + 2 = -x + 6 \\Rightarrow 4x = 4 \\Rightarrow x = 1$; then $y = 5$. One solution: $(1, 5)$.\n\nVerification: $3(1) + 2 = 5$ ✓; $-1 + 6 = 5$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — no solution requires parallel lines.\n* Choice C: "wrong formula" — linear systems never have exactly two solutions.\n* Choice D: "wrong base" — would require identical equations.\n\n**Test Day Takeaway:** Different slopes $\\Rightarrow$ exactly one intersection. Don\'t overthink — read off slopes from $y = mx + b$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'system-type-classification',
@@ -884,12 +989,15 @@ export const algebraBank = [
     question: 'For what value of $k$ does the system have infinitely many solutions?\n$6x - 9y = 12$\n$2x - 3y = k$',
     choices: [
       { id: 'A', text: '4' },
+      // distractor: uses original right-hand side
       { id: 'B', text: '12' },
+      // distractor: ratio confusion
       { id: 'C', text: '3' },
+      // distractor: multiplies by 3 instead of dividing
       { id: 'D', text: '36' }
     ],
     correctAnswer: 'A',
-    explanation: 'Divide the first by 3: 2x − 3y = 4. For identical equations, k = 4. Trap B uses the original right-hand side.',
+    explanation: '**SAT Pattern: Parameter for Identical Equations**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Divide eq 1 by $3$: $2x - 3y = 4$. For infinite solutions, $k = 4$.\n\n**The Full Solution:**\nFor infinitely many solutions, the two equations must be EQUIVALENT (one is a multiple of the other).\nDivide first equation by $3$: $\\frac{6x - 9y}{3} = \\frac{12}{3} \\Rightarrow 2x - 3y = 4$.\nFor this to match the second equation, $k = 4$.\n\nVerification: $2x - 3y = 4$ is now identical to the second equation. Same line, infinitely many solutions \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — uses the original right-hand side without dividing.\n* Choice C: "wrong base" — uses the divisor ($3$) instead of the result.\n* Choice D: "applies the inverse operation" — multiplies by $3$ instead of dividing.\n\n**Test Day Takeaway:** Infinitely many solutions $\\Leftrightarrow$ equations are proportional. Scale one to match the other and the constants must match too.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'system-type-classification',
@@ -904,13 +1012,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'For which values of $a$ and $b$ does $3x + ay = 12$ and $6x + 8y = b$ have no solution?',
     choices: [
+      // distractor: gives infinite solutions, not no solution
       { id: 'A', text: '$a = 4$, $b = 24$' },
+      // distractor: a correct but b too specific
       { id: 'B', text: '$a = 4$, $b = 20$' },
+      // distractor: wrong a value
       { id: 'C', text: '$a = 8$, $b = 24$' },
       { id: 'D', text: '$a = 4$, $b \\neq 24$' }
     ],
     correctAnswer: 'D',
-    explanation: 'Multiply first by 2: 6x + 2ay = 24. For parallel (no solution): 2a = 8 → a = 4, and b ≠ 24. Trap A makes them identical (infinite solutions).',
+    explanation: '**SAT Pattern: Parameter for No Solution**\n\n**Choice D is correct.**\n\n**The Fast Way (~30s):** Multiply eq 1 by $2$: $6x + 2ay = 24$. For lines to be PARALLEL (same slope, different intercepts): $2a = 8 \\Rightarrow a = 4$, AND $b \\neq 24$.\n\n**The Full Solution:**\nMultiply first equation by $2$: $6x + 2ay = 24$.\nFor the two equations to be PARALLEL (so no solution), we need:\n* Coefficients proportional: $\\frac{6}{6} = \\frac{2a}{8}$, so $2a = 8 \\Rightarrow a = 4$.\n* But constants NOT proportional: $b \\neq 24$.\n\nVerification: at $a = 4, b = 24$: identical equations (infinite solutions, not no solution). At $a = 4, b \\neq 24$: parallel lines (no solution) \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "applies the inverse operation" — gives identical equations (infinite solutions).\n* Choice B: "wrong base" — $b = 20$ works but the question allows ANY $b \\neq 24$.\n* Choice C: "wrong base" — wrong value for $a$.\n\n**Test Day Takeaway:** No solution: SAME slope, DIFFERENT intercepts. Match coefficient ratios for slope; require constant ratio to differ.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'system-no-solution-parameter',
@@ -928,12 +1039,15 @@ export const algebraBank = [
     question: 'A farmer buys tomato seed packs ($\\$4$) and pepper seed packs ($\\$6$), 15 packs total for $\\$74$. With $t$ = tomato and $p$ = pepper, which system applies?',
     choices: [
       { id: 'A', text: '$t + p = 15$, $4t + 6p = 74$' },
+      // distractor: swaps total count and total cost
       { id: 'B', text: '$t + p = 74$, $4t + 6p = 15$' },
+      // distractor: swaps tomato/pepper prices
       { id: 'C', text: '$t + p = 15$, $6t + 4p = 74$' },
+      // distractor: swaps count and cost AND uses 4/6 wrong
       { id: 'D', text: '$4t + 6p = 15$, $t + p = 74$' }
     ],
     correctAnswer: 'A',
-    explanation: 'Count: t + p = 15. Cost: 4t + 6p = 74. Trap C assigns the wrong price to each seed type.',
+    explanation: '**SAT Pattern: System Setup (Count + Cost)**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Count: $t + p = 15$. Cost: $4t + 6p = 74$.\n\n**The Full Solution:**\nTwo constraints:\n* Total packs: $t + p = 15$\n* Total cost: $\\$4$ per tomato + $\\$6$ per pepper $= 4t + 6p = 74$\n\nVerification: solving gives $t = 8$, $p = 7$. Check: $8 \\cdot 4 + 7 \\cdot 6 = 32 + 42 = 74$ ✓ and $8 + 7 = 15$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "applies the inverse operation" — swaps count and cost.\n* Choice C: "wrong base" — assigns the wrong price to each seed type.\n* Choice D: "wrong formula" — combines errors.\n\n**Test Day Takeaway:** Two-variable word problems with TWO constraints (count + cost, or count + weight, etc.): write each constraint as a separate equation. Match each variable to its rate (price, weight, etc.) carefully.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'system-setup-word-problem',
@@ -949,12 +1063,15 @@ export const algebraBank = [
     question: 'A theater sells adult ($\\$12$) and child ($\\$7$) tickets. 230 tickets sold for $\\$2,210$. Which system applies with $a$ = adult, $c$ = child?',
     choices: [
       { id: 'A', text: '$a + c = 230$, $12a + 7c = 2210$' },
+      // distractor: swaps total count and total revenue
       { id: 'B', text: '$a + c = 2210$, $12a + 7c = 230$' },
+      // distractor: same as B variant
       { id: 'C', text: '$12a + 7c = 230$, $a + c = 2210$' },
+      // distractor: reverses which ticket costs $12
       { id: 'D', text: '$a + c = 230$, $7a + 12c = 2210$' }
     ],
     correctAnswer: 'A',
-    explanation: 'Count: a + c = 230. Revenue: 12a + 7c = 2210. Trap D reverses which ticket costs $12.',
+    explanation: '**SAT Pattern: Ticket Sales System**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Count: $a + c = 230$. Revenue: $12a + 7c = 2210$.\n\n**The Full Solution:**\nTwo constraints:\n* Tickets: $a + c = 230$\n* Revenue: $\\$12$ per adult + $\\$7$ per child $= 12a + 7c = 2210$\n\nVerification: solving gives $a = 120$, $c = 110$. Check: $12 \\cdot 120 + 7 \\cdot 110 = 1440 + 770 = 2210$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "applies the inverse operation" — swaps count and revenue.\n* Choice C: "applies the inverse operation" — same swap.\n* Choice D: "wrong base" — reverses which ticket costs $\\$12$.\n\n**Test Day Takeaway:** Read the problem twice to match variables to prices. Adult ticket costs $\\$12$, so the coefficient of $a$ is $12$. Don\'t reverse.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'system-setup-word-problem',
@@ -970,12 +1087,15 @@ export const algebraBank = [
     question: 'A chemist mixes a 40% acid solution with a 70% acid solution to produce 60 L of a 52% solution. Which system uses $x$ = liters of 40% and $y$ = liters of 70%?',
     choices: [
       { id: 'A', text: '$x + y = 60$, $0.40x + 0.70y = 31.2$' },
+      // distractor: uses percent values directly instead of decimals
       { id: 'B', text: '$x + y = 60$, $40x + 70y = 52$' },
+      // distractor: swaps total volume and total acid
       { id: 'C', text: '$x + y = 52$, $0.40x + 0.70y = 60$' },
+      // distractor: forgets to compute 0.52 * 60
       { id: 'D', text: '$x + y = 60$, $0.40x + 0.70y = 52$' }
     ],
     correctAnswer: 'A',
-    explanation: 'Volume: x + y = 60. Acid: 0.40x + 0.70y = 0.52 × 60 = 31.2. Trap D forgets to compute 0.52 × 60.',
+    explanation: '**SAT Pattern: Mixture System Setup**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Volume: $x + y = 60$. Acid: $0.40x + 0.70y = 0.52 \\cdot 60 = 31.2$.\n\n**The Full Solution:**\nTwo constraints:\n* Total volume: $x + y = 60$\n* Total acid: $40\\%$ of $x$ + $70\\%$ of $y$ = $52\\%$ of $60$. As decimals: $0.40x + 0.70y = 0.52 \\cdot 60 = 31.2$.\n\nVerification: solving gives $x = 36$, $y = 24$. Check: $0.40(36) + 0.70(24) = 14.4 + 16.8 = 31.2$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — uses percent values ($40$, $70$, $52$) directly instead of decimals.\n* Choice C: "applies the inverse operation" — swaps the two constraints.\n* Choice D: "stops one step early" — uses $52$ as the acid total instead of $0.52 \\cdot 60 = 31.2$.\n\n**Test Day Takeaway:** Mixture problems: total of substance (acid here) is (percent) × (total volume). Use DECIMAL percents, not raw numbers.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'mixture-system',
@@ -991,12 +1111,15 @@ export const algebraBank = [
     question: 'A food truck owner buys $x$ pounds of chicken at $\\$5$/lb and $y$ pounds of beef at $\\$8$/lb, spending exactly $\\$200$ on 30 total pounds. Which system models this?',
     choices: [
       { id: 'A', text: '$x + y = 30$, $5x + 8y = 200$' },
+      // distractor: swaps weight and cost
       { id: 'B', text: '$x + y = 200$, $5x + 8y = 30$' },
+      // distractor: swaps chicken/beef prices
       { id: 'C', text: '$x + y = 30$, $8x + 5y = 200$' },
+      // distractor: swaps everything
       { id: 'D', text: '$5x + 8y = 30$, $x + y = 200$' }
     ],
     correctAnswer: 'A',
-    explanation: 'Weight: x + y = 30. Cost: 5x + 8y = 200. Trap C swaps the per-pound costs.',
+    explanation: '**SAT Pattern: Two-Variable Word Problem (Weight + Cost)**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Weight: $x + y = 30$. Cost: $5x + 8y = 200$.\n\n**The Full Solution:**\nTwo constraints:\n* Total weight: $x + y = 30$\n* Total cost: $5x + 8y = 200$ (where $5$ is chicken price, $8$ is beef price)\n\nVerification: solving gives $x = 13.\\overline{3}$, $y = 16.\\overline{6}$. Check: $5(40/3) + 8(50/3) = 200/3 + 400/3 = 600/3 = 200$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "applies the inverse operation" — swaps weight constraint and cost constraint.\n* Choice C: "wrong base" — swaps chicken and beef prices.\n* Choice D: "wrong formula" — combines errors.\n\n**Test Day Takeaway:** Match each variable to its rate (price/lb). Whichever variable corresponds to a $\\$5$/lb item gets coefficient $5$ in the cost equation.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'system-setup-word-problem',
@@ -1013,13 +1136,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'Solve by substitution:\n$y = 3x - 1$\n$2x + y = 14$\nWhat is $x$?',
     choices: [
+      // distractor: arithmetic slip
       { id: 'A', text: '2' },
       { id: 'B', text: '3' },
+      // distractor: gives y, not x
       { id: 'C', text: '5' },
+      // distractor: gives total 2x + y
       { id: 'D', text: '8' }
     ],
     correctAnswer: 'B',
-    explanation: 'Substitute: 2x + (3x − 1) = 14 → 5x − 1 = 14 → 5x = 15 → x = 3. Trap A guesses without solving.',
+    explanation: '**SAT Pattern: Substitution Method**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Substitute $y = 3x - 1$ into eq 2: $2x + (3x - 1) = 14 \\Rightarrow 5x = 15 \\Rightarrow x = 3$.\n\n**The Full Solution:**\nFirst equation already has $y$ isolated: $y = 3x - 1$.\nSubstitute into second equation:\n$2x + (3x - 1) = 14$\n$5x - 1 = 14$\n$5x = 15$\n$x = 3$.\n\nVerification: $y = 3(3) - 1 = 8$. Check eq 2: $2(3) + 8 = 14$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — arithmetic slip.\n* Choice C: "wrong base" — close to $y$ value but $y = 8$, not $5$.\n* Choice D: "wrong base" — gives $y$ instead of $x$ (or sum $14 - 6 = 8$).\n\n**Test Day Takeaway:** Substitution: pick the equation with an isolated variable (or isolate one first), then plug into the OTHER equation. Don\'t substitute into the same equation.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'substitution-solve',
@@ -1034,13 +1160,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'Solve:\n$y = x + 4$\n$y = 2x + 1$\nWhat is $y$?',
     choices: [
+      // distractor: gives x instead of y
       { id: 'A', text: '3' },
+      // distractor: arithmetic slip
       { id: 'B', text: '5' },
       { id: 'C', text: '7' },
+      // distractor: arithmetic slip
       { id: 'D', text: '9' }
     ],
     correctAnswer: 'C',
-    explanation: 'Set equal: x + 4 = 2x + 1 → x = 3. Then y = 3 + 4 = 7. Trap A gives x instead of y.',
+    explanation: '**SAT Pattern: System Equal to y on Both Sides**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Set equal: $x + 4 = 2x + 1 \\Rightarrow x = 3$. $y = 3 + 4 = 7$.\n\n**The Full Solution:**\nBoth equations have $y$ isolated. Set the right sides equal:\n$x + 4 = 2x + 1$\n$3 = x$, so $x = 3$.\nThen $y = x + 4 = 7$.\n\nVerification: eq 2: $y = 2(3) + 1 = 7$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — gives $x$ value, not $y$.\n* Choice B: "off-by-one" — arithmetic slip.\n* Choice D: "off-by-one" — arithmetic slip.\n\n**Test Day Takeaway:** When BOTH equations give $y$ in terms of $x$, set the right sides equal directly. Read the question carefully — sometimes the answer is $y$, sometimes $x$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'substitution-solve',
@@ -1055,7 +1184,7 @@ export const algebraBank = [
     type: 'fill-in',
     question: 'Solve by substitution:\n$x = 2y + 5$\n$3x - 4y = 25$\nWhat is $y$?',
     correctAnswer: '5',
-    explanation: '3(2y + 5) − 4y = 25 → 6y + 15 − 4y = 25 → 2y = 10 → y = 5.',
+    explanation: '**SAT Pattern: Substitution (x in terms of y)**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~15s):** Substitute $x = 2y + 5$ into eq 2: $3(2y + 5) - 4y = 25 \\Rightarrow 6y + 15 - 4y = 25 \\Rightarrow 2y = 10 \\Rightarrow y = 5$.\n\n**The Full Solution:**\nFirst equation has $x$ isolated. Substitute into second:\n$3(2y + 5) - 4y = 25$\n$6y + 15 - 4y = 25$\n$2y = 10$\n$y = 5$.\n\nVerification: $x = 2(5) + 5 = 15$. Check eq 2: $3(15) - 4(5) = 45 - 20 = 25$ ✓ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Distributing $3$ to only the $2y$ term, not the $+5$.\n* Reporting $x = 15$ instead of $y$.\n* Solving for $x$ first then plugging into the OTHER equation (works, but slower).\n\n**Test Day Takeaway:** When substituting, distribute the coefficient to EVERY term of the substituted expression.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'substitution-solve',
@@ -1071,12 +1200,15 @@ export const algebraBank = [
     question: 'A food truck sells tacos ($\\$3$) and burritos ($\\$5$). Maria buys 9 items totaling $\\$31$. Using substitution, how many burritos did she buy?',
     choices: [
       { id: 'A', text: '2' },
+      // distractor: random
       { id: 'B', text: '3' },
+      // distractor: arithmetic slip
       { id: 'C', text: '4' },
+      // distractor: gives tacos count, not burritos
       { id: 'D', text: '7' }
     ],
     correctAnswer: 'A',
-    explanation: 't = 9 − b. Then 3(9 − b) + 5b = 31 → 27 + 2b = 31 → b = 2. Trap D gives tacos, not burritos.',
+    explanation: '**SAT Pattern: Substitution in Word Problem**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $t + b = 9$, $3t + 5b = 31$. Substitute $t = 9 - b$: $3(9 - b) + 5b = 31 \\Rightarrow 27 + 2b = 31 \\Rightarrow b = 2$.\n\n**The Full Solution:**\nLet $t$ = tacos, $b$ = burritos.\nSystem: $t + b = 9$ (count); $3t + 5b = 31$ (cost).\nSolve eq 1 for $t$: $t = 9 - b$. Substitute into eq 2:\n$3(9 - b) + 5b = 31$\n$27 - 3b + 5b = 31$\n$27 + 2b = 31$\n$2b = 4$\n$b = 2$.\n\nVerification: $t = 7$, $b = 2$. Cost: $3(7) + 5(2) = 21 + 10 = 31$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "off-by-one" — random.\n* Choice C: "off-by-one" — arithmetic slip.\n* Choice D: "wrong base" — gives tacos count, not burritos.\n\n**Test Day Takeaway:** Always identify which variable the question asks for. "How many burritos" = solve for $b$, not $t$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'substitution-word-problem',
@@ -1091,13 +1223,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'Solve:\n$y = \\frac{1}{2}x + 3$\n$3x - 2y = 10$\nWhat is $x$?',
     choices: [
+      // distractor: forgets to distribute the -2
       { id: 'A', text: '4' },
+      // distractor: arithmetic slip
       { id: 'B', text: '6' },
       { id: 'C', text: '8' },
+      // distractor: arithmetic slip
       { id: 'D', text: '10' }
     ],
     correctAnswer: 'C',
-    explanation: '3x − 2(½x + 3) = 10 → 3x − x − 6 = 10 → 2x = 16 → x = 8. Trap A forgets to distribute the −2.',
+    explanation: '**SAT Pattern: Substitution with Fraction**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Substitute $y = \\frac{1}{2}x + 3$ into eq 2: $3x - 2(\\frac{1}{2}x + 3) = 10 \\Rightarrow 3x - x - 6 = 10 \\Rightarrow 2x = 16 \\Rightarrow x = 8$.\n\n**The Full Solution:**\nSubstitute into $3x - 2y = 10$:\n$3x - 2\\left(\\frac{1}{2}x + 3\\right) = 10$\n$3x - x - 6 = 10$\n$2x = 16$\n$x = 8$.\n\nVerification: $y = \\frac{1}{2}(8) + 3 = 7$. Check eq 2: $3(8) - 2(7) = 24 - 14 = 10$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — forgets to distribute $-2$ to both terms in $(\\frac{1}{2}x + 3)$.\n* Choice B: "off-by-one" — arithmetic slip.\n* Choice D: "wrong base" — close to correct but arithmetic slip.\n\n**Test Day Takeaway:** When substituting an expression, multiply the OUTSIDE coefficient by EVERY term in the parentheses. Don\'t drop the constant term.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'substitution-solve',
@@ -1112,7 +1247,7 @@ export const algebraBank = [
     type: 'fill-in',
     question: 'Solve:\n$y = 3x + 1$\n$x + 2y = 23$\nWhat is $x + y$?',
     correctAnswer: '13',
-    explanation: 'Substitute: x + 2(3x + 1) = 23 → 7x + 2 = 23 → 7x = 21 → x = 3, y = 10. So x + y = 13. Common trap: forgetting to distribute the 2.',
+    explanation: '**SAT Pattern: Substitution then Sum**\n\n**The correct answer is $13$.**\n\n**The Fast Way (~25s):** Substitute $y = 3x + 1$ into eq 2: $x + 2(3x + 1) = 23 \\Rightarrow 7x + 2 = 23 \\Rightarrow x = 3$. $y = 10$. Sum: $3 + 10 = 13$.\n\n**The Full Solution:**\nSubstitute into eq 2:\n$x + 2(3x + 1) = 23$\n$x + 6x + 2 = 23$\n$7x = 21 \\Rightarrow x = 3$.\nThen $y = 3(3) + 1 = 10$.\n$x + y = 3 + 10 = 13$.\n\nVerification: $3 + 2(10) = 23$ ✓ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting only $x = 3$ or $y = 10$.\n* Forgetting to distribute the $2$ to both $3x$ AND $1$.\n* Adding incorrectly at the end.\n\n**Test Day Takeaway:** When the question asks for $x + y$ (or similar combination), solve for both, then combine. Don\'t stop after one variable.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'substitution-solve',
@@ -1129,13 +1264,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'Solve using elimination:\n$x + y = 10$\n$x - y = 4$\nWhat is $x$?',
     choices: [
+      // distractor: gives y, not x
       { id: 'A', text: '3' },
+      // distractor: averages 10 and 4 (5 = halfway between)
       { id: 'B', text: '5' },
       { id: 'C', text: '7' },
+      // distractor: gives 2x = 14 without dividing
       { id: 'D', text: '14' }
     ],
     correctAnswer: 'C',
-    explanation: 'Add: 2x = 14 → x = 7. Trap B takes the average of 10 and 4.',
+    explanation: '**SAT Pattern: Elimination by Addition**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Add the two equations: $2x = 14 \\Rightarrow x = 7$.\n\n**The Full Solution:**\nAdd the equations to eliminate $y$:\n$(x + y) + (x - y) = 10 + 4$\n$2x = 14$\n$x = 7$.\n\nVerification: $y = 10 - 7 = 3$. Check eq 2: $7 - 3 = 4$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — gives $y$ value, not $x$.\n* Choice B: "wrong formula" — averages constants without using elimination structure.\n* Choice D: "stops one step early" — gives $2x = 14$ without dividing.\n\n**Test Day Takeaway:** Elimination by addition: when one variable has opposite coefficients ($+y$ and $-y$), add the equations to cancel it.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'elimination-solve',
@@ -1150,7 +1288,7 @@ export const algebraBank = [
     type: 'fill-in',
     question: 'Solve:\n$x + y = 13$\n$x - y = 5$\nWhat is $y$?',
     correctAnswer: '4',
-    explanation: 'Add: 2x = 18 → x = 9. Then 9 + y = 13 → y = 4.',
+    explanation: '**SAT Pattern: Elimination then Back-Substitute**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~10s):** Subtract: $(x + y) - (x - y) = 13 - 5 \\Rightarrow 2y = 8 \\Rightarrow y = 4$.\n\n**The Full Solution:**\nMethod 1 (Subtract directly):\n$(x + y) - (x - y) = 13 - 5$\n$2y = 8 \\Rightarrow y = 4$.\n\nMethod 2 (Add then back-substitute):\nAdd: $2x = 18 \\Rightarrow x = 9$. Then $9 + y = 13 \\Rightarrow y = 4$.\n\nVerification: $9 + 4 = 13$ ✓, $9 - 4 = 5$ ✓ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $9$ ($x$ value).\n* Sign error: subtracting in wrong direction.\n* Reporting the difference ($8$) without dividing.\n\n**Test Day Takeaway:** To find $y$ directly, SUBTRACT to eliminate $x$. To find $x$, add. Pick the operation that leaves the variable you want.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'elimination-solve',
@@ -1165,13 +1303,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'Solve:\n$5x + 3y = 33$\n$2x + 3y = 18$\nWhat is $x$?',
     choices: [
+      // distractor: gives y, not x
       { id: 'A', text: '3' },
       { id: 'B', text: '5' },
+      // distractor: arithmetic slip
       { id: 'C', text: '6' },
+      // distractor: gives 3x = 15 without dividing
       { id: 'D', text: '15' }
     ],
     correctAnswer: 'B',
-    explanation: 'Subtract eq 2 from eq 1: 3x = 15 → x = 5. Trap D gives the raw difference 15 without dividing by the coefficient.',
+    explanation: '**SAT Pattern: Elimination by Subtraction**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Subtract eq 2 from eq 1: $3x = 15 \\Rightarrow x = 5$.\n\n**The Full Solution:**\nSubtract eq 2 from eq 1 to eliminate $y$:\n$(5x + 3y) - (2x + 3y) = 33 - 18$\n$3x = 15 \\Rightarrow x = 5$.\n\nVerification: $y = (18 - 10)/3 = 8/3$. Check eq 1: $5(5) + 3(8/3) = 25 + 8 = 33$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — gives $y$, not $x$.\n* Choice C: "off-by-one" — arithmetic slip.\n* Choice D: "stops one step early" — gives $3x = 15$ without dividing by $3$.\n\n**Test Day Takeaway:** When both equations have the SAME coefficient on one variable, subtract to eliminate it. Pay attention to whether you\'re looking for $x$ or $y$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'elimination-solve',
@@ -1186,13 +1327,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'Solve:\n$4x + 5y = 47$\n$4x - 3y = 7$\nWhat is $y$?',
     choices: [
+      // distractor: gives x, not y
       { id: 'A', text: '3' },
       { id: 'B', text: '5' },
+      // distractor: 8y = 40, with arithmetic error
       { id: 'C', text: '7' },
+      // distractor: arithmetic slip
       { id: 'D', text: '8' }
     ],
     correctAnswer: 'B',
-    explanation: 'Subtract second from first: 8y = 40 → y = 5. Trap A substitutes incorrectly.',
+    explanation: '**SAT Pattern: Elimination (Subtract to Cancel x)**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Subtract eq 2 from eq 1: $8y = 40 \\Rightarrow y = 5$.\n\n**The Full Solution:**\nBoth equations have $4x$. Subtract eq 2 from eq 1:\n$(4x + 5y) - (4x - 3y) = 47 - 7$\n$8y = 40$\n$y = 5$.\n\nVerification: solve for $x$: $4x + 25 = 47 \\Rightarrow x = 22/4 = 5.5$. Wait — check: $4(5.5) - 3(5) = 22 - 15 = 7$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — close to $x$ value.\n* Choice C: "off-by-one" — arithmetic slip in subtraction.\n* Choice D: "off-by-one" — arithmetic slip.\n\n**Test Day Takeaway:** Subtracting eliminates the variable with matching coefficients. $-(-3y) = +3y$, so $5y - (-3y) = 8y$, not $2y$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'elimination-solve',
@@ -1207,13 +1351,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'Solve:\n$3x + 4y = 24$\n$5x - 2y = 14$\nWhat is $x + y$?',
     choices: [
+      // distractor: gives x - y instead of x + y
       { id: 'A', text: '5' },
+      // distractor: arithmetic slip
       { id: 'B', text: '6' },
       { id: 'C', text: '7' },
+      // distractor: arithmetic slip
       { id: 'D', text: '8' }
     ],
     correctAnswer: 'C',
-    explanation: 'Multiply second by 2: 10x − 4y = 28. Add to first: 13x = 52 → x = 4. Then 12 + 4y = 24 → y = 3. So x + y = 7. Trap A gives x − y instead.',
+    explanation: '**SAT Pattern: Elimination with Scaling**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Multiply eq 2 by $2$: $10x - 4y = 28$. Add to eq 1: $13x = 52 \\Rightarrow x = 4$. Then $4y = 24 - 12 = 12 \\Rightarrow y = 3$. Sum: $7$.\n\n**The Full Solution:**\nMultiply eq 2 by $2$ so $y$-coefficient becomes $-4$, matching opposite of eq 1\'s $+4y$:\n$10x - 4y = 28$.\nAdd to eq 1:\n$13x = 52 \\Rightarrow x = 4$.\nSubstitute: $3(4) + 4y = 24 \\Rightarrow 4y = 12 \\Rightarrow y = 3$.\n$x + y = 4 + 3 = 7$.\n\nVerification: eq 2: $5(4) - 2(3) = 20 - 6 = 14$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — gives $x - y = 1$... actually no, $5 = x - y$ requires different values.\n* Choice B: "off-by-one" — arithmetic slip.\n* Choice D: "off-by-one" — arithmetic slip.\n\n**Test Day Takeaway:** Elimination with scaling: multiply ONE equation so the variable\'s coefficients are opposite, then add. Sometimes you need to scale BOTH equations.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'elimination-solve',
@@ -1228,13 +1375,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'A pet store sells goldfish ($\\$2$) and tropical fish ($\\$7$). On Friday, 50 fish were sold for $\\$200$. How many tropical fish were sold?',
     choices: [
+      // distractor: arithmetic slip
       { id: 'A', text: '15' },
       { id: 'B', text: '20' },
+      // distractor: arithmetic slip
       { id: 'C', text: '25' },
+      // distractor: gives goldfish count
       { id: 'D', text: '30' }
     ],
     correctAnswer: 'B',
-    explanation: 'g + t = 50 and 2g + 7t = 200. Substitute g = 50 − t: 100 − 2t + 7t = 200 → 5t = 100 → t = 20. Trap D gives goldfish count.',
+    explanation: '**SAT Pattern: System Word Problem (Mixed Prices)**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $g + t = 50$, $2g + 7t = 200$. Substitute $g = 50 - t$: $2(50 - t) + 7t = 200 \\Rightarrow 100 + 5t = 200 \\Rightarrow t = 20$.\n\n**The Full Solution:**\nLet $g$ = goldfish, $t$ = tropical fish.\nSystem: $g + t = 50$ (count); $2g + 7t = 200$ (revenue).\nSolve eq 1 for $g$: $g = 50 - t$.\nSubstitute: $2(50 - t) + 7t = 200 \\Rightarrow 100 - 2t + 7t = 200 \\Rightarrow 5t = 100 \\Rightarrow t = 20$.\n\nVerification: $g = 30$, $t = 20$. Revenue: $2(30) + 7(20) = 60 + 140 = 200$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — arithmetic slip.\n* Choice C: "off-by-one" — arithmetic slip.\n* Choice D: "wrong base" — gives goldfish count ($30$) instead of tropical fish ($20$).\n\n**Test Day Takeaway:** Substitution + word problem: always check WHICH count the question asks for. Tropical fish $= t$, NOT $g$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'system-word-problem',
@@ -1251,13 +1401,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'Two lines intersect at $(3, 5)$ on a coordinate plane. What is the solution to the system?',
     choices: [
+      // distractor: gives only x-coordinate
       { id: 'A', text: '$x = 3$ only' },
+      // distractor: gives only y-coordinate
       { id: 'B', text: '$y = 5$ only' },
       { id: 'C', text: '$(3, 5)$' },
+      // distractor: contradicts the given fact (they DO intersect)
       { id: 'D', text: 'No solution' }
     ],
     correctAnswer: 'C',
-    explanation: 'The intersection point is the solution, an ordered pair. Traps A and B give only one coordinate.',
+    explanation: '**SAT Pattern: Intersection as Solution**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Intersection point IS the solution, written as an ordered pair: $(3, 5)$.\n\n**The Full Solution:**\nThe solution to a system of two equations is the point (or set of points) where both equations are simultaneously true. For two lines, that\'s their intersection point. The solution is the ordered pair $(x, y) = (3, 5)$.\n\nVerification: at $(3, 5)$, both lines pass through, satisfying both equations \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — gives only $x$.\n* Choice B: "stops one step early" — gives only $y$.\n* Choice D: "contradicts" — no solution would mean the lines don\'t intersect.\n\n**Test Day Takeaway:** Solutions to two-variable systems are ordered pairs. "No solution" only when lines are parallel; "infinitely many" when identical.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'graphing-intersection',
@@ -1272,13 +1425,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'Two lines on a graph never meet. What can you conclude about the system?',
     choices: [
+      // distractor: requires the lines to intersect
       { id: 'A', text: 'One solution' },
+      // distractor: requires overlapping lines
       { id: 'B', text: 'Infinitely many solutions' },
       { id: 'C', text: 'No solution' },
+      // distractor: linear systems can\'t have two solutions
       { id: 'D', text: 'Two solutions' }
     ],
     correctAnswer: 'C',
-    explanation: 'Parallel (non-intersecting) lines mean the system is inconsistent. Trap B confuses this with overlapping lines.',
+    explanation: '**SAT Pattern: Classify System (Parallel Lines)**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Lines that never meet are parallel → no solution.\n\n**The Full Solution:**\nA system\'s solutions are intersection points of the graphs. If two lines never meet, they don\'t intersect, so the system has NO solution. Lines that don\'t meet are parallel.\n\nVerification: parallel lines have same slope, different intercepts, no intersection \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — requires intersection.\n* Choice B: "wrong base" — requires overlapping lines (same line).\n* Choice D: "wrong formula" — linear systems can\'t have exactly two solutions.\n\n**Test Day Takeaway:** Never-meeting lines = parallel = no solution. Overlapping (same line) = infinite solutions. Different directions = one solution.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'graphing-system-type',
@@ -1294,12 +1450,15 @@ export const algebraBank = [
     question: 'The graphs of $y = x + 1$ and $y = -2x + 7$ intersect at what point?',
     choices: [
       { id: 'A', text: '$(2, 3)$' },
+      // distractor: arithmetic slip
       { id: 'B', text: '$(3, 1)$' },
+      // distractor: plugs x = 1 into second equation only
       { id: 'C', text: '$(1, 5)$' },
+      // distractor: arithmetic slip
       { id: 'D', text: '$(4, 5)$' }
     ],
     correctAnswer: 'A',
-    explanation: 'x + 1 = −2x + 7 → 3x = 6 → x = 2, y = 3. Trap C plugs x = 1 into only the second equation.',
+    explanation: '**SAT Pattern: Find Intersection by Setting Equal**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** Set $x + 1 = -2x + 7 \\Rightarrow 3x = 6 \\Rightarrow x = 2$, $y = 3$.\n\n**The Full Solution:**\nSet the right sides equal (both equal $y$):\n$x + 1 = -2x + 7$\n$3x = 6$\n$x = 2$.\nThen $y = 2 + 1 = 3$. Intersection: $(2, 3)$.\n\nVerification: eq 2: $y = -2(2) + 7 = 3$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "off-by-one" — swaps coordinates.\n* Choice C: "wrong base" — plugs $x = 1$ into eq 2 only.\n* Choice D: "off-by-one" — arithmetic slip.\n\n**Test Day Takeaway:** Two lines in $y = mx + b$ form: set right sides equal, solve for $x$, then plug back. Verify with the OTHER equation.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'graphing-intersection',
@@ -1314,13 +1473,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'The system $y = |x - 2|$ and $y = 4$ is graphed. How many intersection points are there?',
     choices: [
+      // distractor: would require y > max value
       { id: 'A', text: '0' },
+      // distractor: considers only the positive case
       { id: 'B', text: '1' },
       { id: 'C', text: '2' },
+      // distractor: linear/absolute value can\'t intersect 3 times
       { id: 'D', text: '3' }
     ],
     correctAnswer: 'C',
-    explanation: '|x − 2| = 4 → x = 6 or x = −2. Two intersection points. Trap B considers only x − 2 = 4.',
+    explanation: '**SAT Pattern: Absolute Value Intersection**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $|x - 2| = 4$ has TWO solutions: $x - 2 = 4$ or $x - 2 = -4$, giving $x = 6$ or $x = -2$.\n\n**The Full Solution:**\nSet $|x - 2| = 4$:\n$x - 2 = 4$ or $x - 2 = -4$\n$x = 6$ or $x = -2$.\nTwo intersection points: $(6, 4)$ and $(-2, 4)$.\n\nVerification: the absolute-value graph is a V; a horizontal line $y = 4$ crosses both arms of the V \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — would require the horizontal line to miss the V entirely.\n* Choice B: "stops one step early" — considers only $x - 2 = 4$, not $x - 2 = -4$.\n* Choice D: "wrong base" — only 3 intersections if the equation had more pieces.\n\n**Test Day Takeaway:** Absolute value equations have TWO cases: positive and negative. Don\'t miss the negative case.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'graphing-intersection',
@@ -1337,13 +1499,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'Which system has infinitely many solutions?',
     choices: [
+      // distractor: same slope but different intercepts (no solution)
       { id: 'A', text: '$y = 3x + 1$ and $y = 3x + 5$' },
+      // distractor: different slopes (one solution)
       { id: 'B', text: '$y = 3x + 1$ and $y = -3x + 1$' },
       { id: 'C', text: '$y = 3x + 1$ and $6x - 2y = -2$' },
+      // distractor: different slopes (one solution)
       { id: 'D', text: '$y = 3x + 1$ and $y = x + 1$' }
     ],
     correctAnswer: 'C',
-    explanation: 'Rewrite C: −2y = −6x − 2 → y = 3x + 1, identical to the first equation. Trap A has same slope but different intercepts (no solution).',
+    explanation: '**SAT Pattern: Identify Identical-Lines System**\n\n**Choice C is correct.**\n\n**The Fast Way (~20s):** Rewrite C\'s second equation: $-2y = -6x - 2 \\Rightarrow y = 3x + 1$. Same as the first equation → infinitely many solutions.\n\n**The Full Solution:**\nFor infinitely many solutions, the two equations must represent the SAME line.\n* A: same slope ($3$) but different intercepts ($1, 5$). Parallel → no solution.\n* B: different slopes ($3$ and $-3$). One solution.\n* C: rewrite second: $6x - 2y = -2 \\Rightarrow -2y = -6x - 2 \\Rightarrow y = 3x + 1$. SAME as first! ✓\n* D: different slopes ($3$ and $1$). One solution.\n\nVerification: in C, every point on $y = 3x + 1$ also satisfies $6x - 2y = -2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — same slope, different intercept = NO solution, not infinite.\n* Choice B: "wrong base" — different slopes = one solution.\n* Choice D: "wrong base" — different slopes = one solution.\n\n**Test Day Takeaway:** Infinitely many solutions $\\Leftrightarrow$ SAME line. Always check by converting both to $y = mx + b$ form.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'infinite-solutions-identification',
@@ -1358,13 +1523,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'For what value of $a$ does the system have infinitely many solutions?\n$ax + 6y = 15$\n$4x + 8y = 20$',
     choices: [
+      // distractor: ratio confusion
       { id: 'A', text: '2' },
       { id: 'B', text: '3' },
+      // distractor: copies coefficient 4 from eq 2
       { id: 'C', text: '4' },
+      // distractor: uses 5 from RHS
       { id: 'D', text: '5' }
     ],
     correctAnswer: 'B',
-    explanation: 'Simplify eq 2: x + 2y = 5. Multiply by 3: 3x + 6y = 15. So a = 3. Trap C copies the coefficient 4 from eq 2.',
+    explanation: '**SAT Pattern: Parameter for Proportional Equations**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** Simplify eq 2: $x + 2y = 5$. Multiply by $3$: $3x + 6y = 15$. So $a = 3$.\n\n**The Full Solution:**\nFor infinite solutions, the two equations must be proportional. Divide eq 2 by $4$:\n$x + 2y = 5$.\nNow scale this to match eq 1\'s right side ($15$): multiply by $3$:\n$3x + 6y = 15$.\nSo $a = 3$.\n\nVerification: equations $3x + 6y = 15$ and $4x + 8y = 20$ — ratios: $3/4 = 6/8 = 15/20 = 3/4$ ✓ (all proportional) \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — ratio confusion.\n* Choice C: "wrong base" — copies coefficient from eq 2.\n* Choice D: "wrong base" — uses $5$ from the right side.\n\n**Test Day Takeaway:** For two linear equations to be the same line: ALL ratios ($A_1/A_2$, $B_1/B_2$, $C_1/C_2$) must be equal.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'infinite-solutions-parameter',
@@ -1380,12 +1548,15 @@ export const algebraBank = [
     question: '$\\frac{1}{2}x - ky = 3$ and $-2x + 12y = c$ have infinitely many solutions. What is $c$?',
     choices: [
       { id: 'A', text: '$-12$' },
+      // distractor: drops the negative
       { id: 'B', text: '$12$' },
+      // distractor: arithmetic slip
       { id: 'C', text: '$-6$' },
+      // distractor: arithmetic slip
       { id: 'D', text: '$6$' }
     ],
     correctAnswer: 'A',
-    explanation: 'Multiply first by −4: −2x + 4ky = −12. Match with −2x + 12y = c: 4k = 12 → k = 3, c = −12. Trap B drops the negative.',
+    explanation: '**SAT Pattern: Find c for Infinite Solutions**\n\n**Choice A is correct.**\n\n**The Fast Way (~30s):** Multiply eq 1 by $-4$: $-2x + 4ky = -12$. Match coefficients with eq 2: $4k = 12 \\Rightarrow k = 3$, $c = -12$.\n\n**The Full Solution:**\nFor infinite solutions, eq 2 is a scalar multiple of eq 1. Look at $x$-coefficients: $\\frac{1}{2}$ vs $-2$. Multiplier: $-2 / (1/2) = -4$.\n\nApply $-4$ to eq 1:\n$-4 \\cdot \\frac{1}{2}x + (-4)(-k)y = -4 \\cdot 3$\n$-2x + 4ky = -12$.\n\nMatch with eq 2: $4k = 12 \\Rightarrow k = 3$; $c = -12$.\n\nVerification: with $k = 3$, eq 1 is $\\frac{1}{2}x - 3y = 3$. Multiply by $-4$: $-2x + 12y = -12$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "sign error" — drops the negative.\n* Choice C: "off-by-one" — arithmetic slip.\n* Choice D: "off-by-one" — arithmetic slip.\n\n**Test Day Takeaway:** Find the SCALING factor from the variable coefficients, then apply to ALL terms, including the constant.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'infinite-solutions-parameter',
@@ -1400,7 +1571,7 @@ export const algebraBank = [
     type: 'fill-in',
     question: 'For the system $2x + 5y = 20$ and $6x + 15y = k$ to have infinitely many solutions, what must $k$ equal?',
     correctAnswer: '60',
-    explanation: 'Multiply first by 3: 6x + 15y = 60. For identical equations, k = 60.',
+    explanation: '**SAT Pattern: Find Constant for Identical Equations**\n\n**The correct answer is $60$.**\n\n**The Fast Way (~10s):** Multiply eq 1 by $3$: $6x + 15y = 60$. So $k = 60$.\n\n**The Full Solution:**\nFor infinite solutions, eq 2 must be a multiple of eq 1. The $x$-coefficient went from $2$ to $6$, a multiplier of $3$. Apply to the constant:\n$3 \\cdot 20 = 60$. So $k = 60$.\n\nVerification: $6x + 15y = 60$ is exactly $3 \\cdot (2x + 5y = 20)$ ✓ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Using only one coefficient ratio without applying to constant.\n* Reporting $20$ (forgot to scale).\n* Arithmetic slip on $3 \\cdot 20$.\n\n**Test Day Takeaway:** When the variable coefficients scale by some factor, the constant must scale by the same factor.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'infinite-solutions-parameter',
@@ -1417,13 +1588,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'If $f(x) = 3x + 8$, what is $f(0)$?',
     choices: [
+      // distractor: assumes f(0) = 0
       { id: 'A', text: '0' },
+      // distractor: uses 3 (slope coefficient)
       { id: 'B', text: '3' },
       { id: 'C', text: '8' },
+      // distractor: adds 3 + 8
       { id: 'D', text: '11' }
     ],
     correctAnswer: 'C',
-    explanation: 'f(0) = 3(0) + 8 = 8. Trap A assumes f(0) is always 0.',
+    explanation: '**SAT Pattern: Basic Function Notation**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** $f(0) = 3(0) + 8 = 8$.\n\n**The Full Solution:**\nSubstitute $x = 0$:\n$f(0) = 3(0) + 8 = 0 + 8 = 8$.\n\nNote: $f(0)$ is the $y$-intercept of the function — the value at $x = 0$.\n\nVerification: graph of $y = 3x + 8$ crosses $y$-axis at $8$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — assumes $f(0)$ is always $0$. That\'s only true for functions like $f(x) = ax$ without an intercept.\n* Choice B: "wrong base" — uses the slope coefficient.\n* Choice D: "wrong formula" — adds $3 + 8$.\n\n**Test Day Takeaway:** $f(0)$ is the constant term in the function (for linear). Substitute $0$ for the variable, follow order of operations.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'function-notation-basic',
@@ -1438,7 +1612,7 @@ export const algebraBank = [
     type: 'fill-in',
     question: 'If $h(t) = -5t + 40$, what value of $t$ makes $h(t) = 0$?',
     correctAnswer: '8',
-    explanation: '0 = −5t + 40 → 5t = 40 → t = 8. Common mistake: dividing 40 by −5 to get −8.',
+    explanation: '**SAT Pattern: Find x-intercept (Zero of Function)**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~10s):** $-5t + 40 = 0 \\Rightarrow 5t = 40 \\Rightarrow t = 8$.\n\n**The Full Solution:**\nSet $h(t) = 0$:\n$-5t + 40 = 0$\n$-5t = -40$\n$t = 8$.\n\nVerification: $h(8) = -5(8) + 40 = -40 + 40 = 0$ ✓ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Sign error: dividing $40$ by $-5$ to get $-8$.\n* Reporting $40$ (the constant).\n* Subtracting $5$ from $40$ to get $35$.\n\n**Test Day Takeaway:** "What value makes $f = 0$" is the $x$-intercept. Set up the equation, isolate the variable. Watch signs carefully.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'function-notation-zero',
@@ -1453,13 +1627,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'A concert venue models profit as $P(n) = 15n - 2400$, where $n$ is attendees. What is the minimum attendance needed to break even?',
     choices: [
+      // distractor: arithmetic slip
       { id: 'A', text: '140' },
+      // distractor: arithmetic slip
       { id: 'B', text: '150' },
       { id: 'C', text: '160' },
+      // distractor: divides 2400/10 instead of 2400/15
       { id: 'D', text: '240' }
     ],
     correctAnswer: 'C',
-    explanation: '15n − 2400 = 0 → n = 160. Trap D divides 2400 by 10 instead of 15.',
+    explanation: '**SAT Pattern: Break-Even from Profit Function**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** Break even means $P = 0$: $15n - 2400 = 0 \\Rightarrow n = 160$.\n\n**The Full Solution:**\nSet $P(n) = 0$:\n$15n - 2400 = 0$\n$15n = 2400$\n$n = 160$.\n\nVerification: $P(160) = 15(160) - 2400 = 2400 - 2400 = 0$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — arithmetic slip.\n* Choice B: "off-by-one" — arithmetic slip.\n* Choice D: "wrong base" — divides $2400 / 10$ instead of $2400 / 15$.\n\n**Test Day Takeaway:** Break-even = zero profit. Set $P = 0$ and solve. Memorize: $2400 / 15 = 160$ (factor: $15 = 3 \\cdot 5$; $2400 / 15 = 160$).',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'function-notation-application',
@@ -1474,13 +1651,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'If $f(x) = 7 - 2x$ and $f(k) = -3$, what is $k$?',
     choices: [
+      // distractor: solves 7 − 2k = 3 (wrong sign)
       { id: 'A', text: '2' },
       { id: 'B', text: '5' },
+      // distractor: sign error
       { id: 'C', text: '$-5$' },
+      // distractor: arithmetic slip (doubling)
       { id: 'D', text: '10' }
     ],
     correctAnswer: 'B',
-    explanation: '7 − 2k = −3 → −2k = −10 → k = 5. Trap A solves 7 − 2k = 3 instead of −3.',
+    explanation: '**SAT Pattern: Solve for Input from Output**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Set $7 - 2k = -3 \\Rightarrow -2k = -10 \\Rightarrow k = 5$.\n\n**The Full Solution:**\nGiven $f(k) = -3$:\n$7 - 2k = -3$\n$-2k = -3 - 7 = -10$\n$k = 5$.\n\nVerification: $f(5) = 7 - 2(5) = 7 - 10 = -3$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "sign error" — solves $7 - 2k = 3$ (positive $3$).\n* Choice C: "sign error" — flips final sign.\n* Choice D: "wrong formula" — arithmetic slip (doubling).\n\n**Test Day Takeaway:** $f(k) = $ value: set the function expression equal to that value, isolate $k$. Watch signs when moving terms across.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'function-notation-solve',
@@ -1495,13 +1675,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'A linear function $f$ satisfies $f(1) - f(-1) = 12$. What is the slope of $f$?',
     choices: [
+      // distractor: divides 12 by 3
       { id: 'A', text: '4' },
       { id: 'B', text: '6' },
+      // distractor: forgets to divide by 2 (run = 2, not 1)
       { id: 'C', text: '12' },
+      // distractor: thinks more info is needed
       { id: 'D', text: 'Cannot be determined' }
     ],
     correctAnswer: 'B',
-    explanation: 'Let f(x) = mx + b. Then f(1) − f(−1) = (m + b) − (−m + b) = 2m = 12 → m = 6. Trap C forgets to divide by 2.',
+    explanation: '**SAT Pattern: Slope from Function Difference**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Slope $= \\frac{f(1) - f(-1)}{1 - (-1)} = \\frac{12}{2} = 6$.\n\n**The Full Solution:**\nSlope of a linear function $f(x) = mx + b$ between two $x$-values: $m = \\frac{f(x_2) - f(x_1)}{x_2 - x_1}$.\nFor $x_1 = -1$, $x_2 = 1$:\n$m = \\frac{f(1) - f(-1)}{1 - (-1)} = \\frac{12}{2} = 6$.\n\nAlternatively: $f(1) = m + b$, $f(-1) = -m + b$. Difference $= 2m = 12 \\Rightarrow m = 6$.\n\nVerification: with $m = 6$: $f(1) - f(-1) = (6 + b) - (-6 + b) = 12$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — divides $12 / 3$.\n* Choice C: "stops one step early" — forgets the run is $2$ ($x$-difference), not $1$.\n* Choice D: "wrong base" — slope IS determinable from this info.\n\n**Test Day Takeaway:** Slope between two points: divide the $y$-difference by the $x$-difference. For symmetric inputs $\\pm a$, the $x$-difference is $2a$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'function-slope-from-values',
@@ -1518,13 +1701,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'What is the domain of $f(x) = \\frac{1}{x - 4}$?',
     choices: [
+      // distractor: ignores the restriction
       { id: 'A', text: 'All real numbers' },
       { id: 'B', text: 'All real numbers except $x = 4$' },
+      // distractor: sign error
       { id: 'C', text: 'All real numbers except $x = -4$' },
+      // distractor: applies inequality (wrong type of restriction)
       { id: 'D', text: '$x > 4$' }
     ],
     correctAnswer: 'B',
-    explanation: 'Denominator x − 4 = 0 when x = 4, which must be excluded. Trap C flips the sign.',
+    explanation: '**SAT Pattern: Domain (Denominator Restriction)**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Denominator $x - 4 = 0$ when $x = 4$. Exclude that value.\n\n**The Full Solution:**\nFor a rational function $\\frac{1}{x - 4}$, the denominator cannot equal zero:\n$x - 4 \\neq 0 \\Rightarrow x \\neq 4$.\nAll other real numbers are allowed.\n\nVerification: at $x = 4$, $f$ is undefined (division by zero). At any other $x$, $f(x)$ is a real number \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — ignores the denominator restriction.\n* Choice C: "sign error" — flips sign of the excluded value.\n* Choice D: "wrong formula" — applies inequality restriction (not applicable here).\n\n**Test Day Takeaway:** Domain restrictions come from: (1) zero denominators, (2) negative radicands (under even roots), (3) negative logs. Identify each, exclude only what creates undefined output.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'domain-restriction',
@@ -1539,13 +1725,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'For which value of $x$ is $f(x) = \\frac{5}{x + 7}$ undefined?',
     choices: [
+      // distractor: random
       { id: 'A', text: '$x = 0$' },
+      // distractor: uses numerator (5) as restriction
       { id: 'B', text: '$x = 5$' },
+      // distractor: positive 7 instead of -7
       { id: 'C', text: '$x = 7$' },
       { id: 'D', text: '$x = -7$' }
     ],
     correctAnswer: 'D',
-    explanation: 'x + 7 = 0 when x = −7. Trap C uses positive 7.',
+    explanation: '**SAT Pattern: Find Undefined Point (Denominator Zero)**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** $x + 7 = 0 \\Rightarrow x = -7$.\n\n**The Full Solution:**\nThe function is undefined where the denominator is zero:\n$x + 7 = 0 \\Rightarrow x = -7$.\n\nVerification: $f(-7) = \\frac{5}{0}$, undefined ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — random.\n* Choice B: "wrong formula" — uses numerator as restriction.\n* Choice C: "sign error" — flips sign (positive $7$).\n\n**Test Day Takeaway:** Sign of excluded value is OPPOSITE the sign in the denominator: $(x + 7)$ excludes $x = -7$; $(x - 7)$ excludes $x = +7$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'domain-restriction',
@@ -1560,13 +1749,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'What is the domain of $g(x) = \\frac{x + 2}{x^2 - 9}$?',
     choices: [
+      // distractor: uses 9 as the restriction
       { id: 'A', text: 'All reals except $x = 9$' },
+      // distractor: only positive root
       { id: 'B', text: 'All reals except $x = 3$' },
       { id: 'C', text: 'All reals except $x = 3$ and $x = -3$' },
+      // distractor: uses numerator root
       { id: 'D', text: 'All reals except $x = -2$' }
     ],
     correctAnswer: 'C',
-    explanation: 'Factor: (x − 3)(x + 3) = 0 → x ≠ ±3. Trap B excludes only the positive root.',
+    explanation: '**SAT Pattern: Domain with Quadratic Denominator**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $x^2 - 9 = 0 \\Rightarrow x = \\pm 3$. Exclude both.\n\n**The Full Solution:**\nFactor the denominator: $x^2 - 9 = (x - 3)(x + 3)$.\nSet to zero: $x = 3$ or $x = -3$. Exclude both from the domain.\n\nVerification: $g(3)$ and $g(-3)$ are both undefined; all other reals are valid \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — uses $9$ instead of solving $x^2 = 9$.\n* Choice B: "stops one step early" — only excludes the positive root.\n* Choice D: "wrong formula" — uses the numerator root (which doesn\'t restrict the domain).\n\n**Test Day Takeaway:** $x^2 = 9$ has TWO solutions: $\\pm 3$. Quadratic denominators often produce multiple restrictions.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'domain-restriction',
@@ -1582,12 +1774,15 @@ export const algebraBank = [
     question: 'What is the domain of $f(x) = \\frac{\\sqrt{x + 5}}{x - 2}$?',
     choices: [
       { id: 'A', text: '$x \\geq -5$, $x \\neq 2$' },
+      // distractor: uses > instead of ≥
       { id: 'B', text: '$x > -5$' },
+      // distractor: ignores denominator
       { id: 'C', text: '$x \\geq -5$' },
+      // distractor: applies wrong type of restriction
       { id: 'D', text: '$x > 2$' }
     ],
     correctAnswer: 'A',
-    explanation: 'Radicand: x + 5 ≥ 0 → x ≥ −5. Denominator: x ≠ 2. Both must hold. Trap C ignores the denominator.',
+    explanation: '**SAT Pattern: Domain with Radical and Denominator**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Radical needs $x + 5 \\geq 0$ ($x \\geq -5$). Denominator $x - 2 \\neq 0$ ($x \\neq 2$). Both: $x \\geq -5$ AND $x \\neq 2$.\n\n**The Full Solution:**\nTwo restrictions:\n1. Radicand: $x + 5 \\geq 0 \\Rightarrow x \\geq -5$ (square root needs nonneg input).\n2. Denominator: $x - 2 \\neq 0 \\Rightarrow x \\neq 2$.\n\nDomain: $x \\geq -5$ AND $x \\neq 2$.\n\nVerification: at $x = -5$: $f(-5) = \\sqrt{0}/(-7) = 0$, defined ✓. At $x = 2$: $f(2) = \\sqrt{7}/0$, undefined ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "off-by-one" — uses $>$ instead of $\\geq$ (excludes $x = -5$ where $f$ is actually defined as $0/-7 = 0$).\n* Choice C: "stops one step early" — ignores denominator restriction.\n* Choice D: "wrong base" — only allows $x > 2$, but $x \\geq -5$ is the radical\'s domain.\n\n**Test Day Takeaway:** Combine ALL domain restrictions: even roots need $\\geq 0$ inside; denominators need $\\neq 0$. Use AND between conditions.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'domain-restriction',
@@ -1604,13 +1799,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'If $f(x) = 2x + 1$ and $g(x) = x^2 - 3$, what is $f(g(2))$?',
     choices: [
+      // distractor: computes only g(2) = 1
       { id: 'A', text: '1' },
       { id: 'B', text: '3' },
+      // distractor: computes f(2) instead of f(g(2))
       { id: 'C', text: '7' },
+      // distractor: computes g(f(2)) instead
       { id: 'D', text: '9' }
     ],
     correctAnswer: 'B',
-    explanation: 'g(2) = 4 − 3 = 1. f(1) = 2 + 1 = 3. Trap D computes f(2) then g of that.',
+    explanation: '**SAT Pattern: Function Composition (Inner First)**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $g(2) = 4 - 3 = 1$. $f(1) = 2 + 1 = 3$.\n\n**The Full Solution:**\nFor $f(g(2))$, evaluate from the INSIDE OUT:\nStep 1: $g(2) = 2^2 - 3 = 1$.\nStep 2: $f(1) = 2(1) + 1 = 3$.\n\nVerification: $f(g(2)) = f(1) = 3$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — gives only $g(2) = 1$.\n* Choice C: "wrong base" — computes $f(2) = 5$... actually $2(2) + 1 = 5$ but maybe with arithmetic slip.\n* Choice D: "applies the inverse operation" — computes $g(f(2)) = g(5) = 25 - 3 = 22$... or some other miscalc.\n\n**Test Day Takeaway:** $f(g(x))$ means apply $g$ FIRST, then $f$. Inside out. Don\'t reverse the order.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'function-composition',
@@ -1625,7 +1823,7 @@ export const algebraBank = [
     type: 'fill-in',
     question: 'If $f(x) = x + 6$ and $g(x) = 2x$, what is $g(f(5))$?',
     correctAnswer: '22',
-    explanation: 'f(5) = 11. g(11) = 22. Common error: computing f(g(5)) = f(10) = 16 instead.',
+    explanation: '**SAT Pattern: Composition with Specific Input**\n\n**The correct answer is $22$.**\n\n**The Fast Way (~10s):** $f(5) = 11$. $g(11) = 22$.\n\n**The Full Solution:**\nFor $g(f(5))$, work inside out:\nStep 1: $f(5) = 5 + 6 = 11$.\nStep 2: $g(11) = 2(11) = 22$.\n\nVerification: $g(f(5)) = g(11) = 22$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing $f(g(5))$ instead: $f(10) = 16$.\n* Reporting $11$ (only the inner step).\n* Doubling $5$ first: $g(5) = 10$, $f(10) = 16$.\n\n**Test Day Takeaway:** $g(f(5))$: $f$ applies first (to $5$), then $g$ to the result. The OUTER function is applied LAST.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'function-composition',
@@ -1641,12 +1839,15 @@ export const algebraBank = [
     question: 'If $f(x) = x + 4$ and $g(x) = 3x - 2$, which expression equals $g(f(x))$?',
     choices: [
       { id: 'A', text: '$3x + 10$' },
+      // distractor: fails to distribute 3 to +4 (only gets +4 - 2 = 2 inside)
       { id: 'B', text: '$3x + 2$' },
+      // distractor: arithmetic slip
       { id: 'C', text: '$3x + 14$' },
+      // distractor: doubles 3 or arithmetic slip
       { id: 'D', text: '$3x + 6$' }
     ],
     correctAnswer: 'A',
-    explanation: 'g(f(x)) = g(x + 4) = 3(x + 4) − 2 = 3x + 12 − 2 = 3x + 10. Trap B fails to distribute 3 into +4.',
+    explanation: '**SAT Pattern: Function Composition (Expression)**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $g(f(x)) = g(x + 4) = 3(x + 4) - 2 = 3x + 12 - 2 = 3x + 10$.\n\n**The Full Solution:**\nReplace $x$ in $g$ with $f(x) = x + 4$:\n$g(f(x)) = g(x + 4) = 3(x + 4) - 2 = 3x + 12 - 2 = 3x + 10$.\n\nVerification: at $x = 1$: $f(1) = 5$, $g(5) = 13$. Using $g(f(x)) = 3x + 10$: $3(1) + 10 = 13$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — fails to distribute $3$ to $+4$ (only gets $3x + 4 - 2 = 3x + 2$).\n* Choice C: "off-by-one" — adds instead of subtracting at the end.\n* Choice D: "off-by-one" — arithmetic slip.\n\n**Test Day Takeaway:** Composition: substitute, then DISTRIBUTE the outer coefficient to EVERY term of the substituted expression.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'function-composition',
@@ -1661,7 +1862,7 @@ export const algebraBank = [
     type: 'fill-in',
     question: 'Let $f(x) = 5x - 3$ and $g(x) = \\frac{x + 3}{5}$. What is $f(g(17))$?',
     correctAnswer: '17',
-    explanation: 'g(17) = 20/5 = 4. f(4) = 20 − 3 = 17. These functions are inverses, so f(g(x)) = x.',
+    explanation: '**SAT Pattern: Composition of Inverse Functions**\n\n**The correct answer is $17$.**\n\n**The Fast Way (~10s):** $f$ and $g$ are inverses, so $f(g(x)) = x$. For input $17$: output $17$.\n\n**The Full Solution:**\nStep 1: $g(17) = (17 + 3)/5 = 20/5 = 4$.\nStep 2: $f(4) = 5(4) - 3 = 20 - 3 = 17$.\n\nNote: $g$ is the INVERSE of $f$. To verify: $f(g(x)) = f\\left(\\frac{x + 3}{5}\\right) = 5 \\cdot \\frac{x + 3}{5} - 3 = x + 3 - 3 = x$.\n\nVerification: $f(g(17)) = 17$ ✓ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing only $g(17) = 4$.\n* Doing $f(17)$ instead of $f(g(17))$.\n* Arithmetic slip in fractions.\n\n**Test Day Takeaway:** When $f$ and $g$ are inverses, $f(g(x)) = g(f(x)) = x$. Recognizing this saves time.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'function-composition-inverse',
@@ -1678,13 +1879,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'The graph of $f(x)$ is shifted 3 units to the right. Which function represents the result?',
     choices: [
+      // distractor: vertical shift up
       { id: 'A', text: '$f(x) + 3$' },
+      // distractor: vertical shift down
       { id: 'B', text: '$f(x) - 3$' },
+      // distractor: shifts left, not right
       { id: 'C', text: '$f(x + 3)$' },
       { id: 'D', text: '$f(x - 3)$' }
     ],
     correctAnswer: 'D',
-    explanation: 'Right shift by 3 → f(x − 3). Trap C shifts left, not right.',
+    explanation: '**SAT Pattern: Horizontal Shift**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** Right shift by $h$: $f(x - h)$. Right $3$: $f(x - 3)$.\n\n**The Full Solution:**\nHorizontal shifts work OPPOSITE to what feels intuitive:\n* $f(x - h)$ shifts RIGHT by $h$ units.\n* $f(x + h)$ shifts LEFT by $h$ units.\n\nFor right shift by $3$: $f(x - 3)$.\n\nVerification: original $f$ passes through $(0, f(0))$. Shifted version: at $x = 3$, value is $f(3 - 3) = f(0)$ — the original $x = 0$ point is now at $x = 3$, i.e., shifted right by $3$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — vertical shift, not horizontal.\n* Choice B: "wrong formula" — vertical shift down.\n* Choice C: "applies the inverse operation" — shifts LEFT (opposite direction).\n\n**Test Day Takeaway:** Inside parentheses: HORIZONTAL shift, OPPOSITE direction. Outside parentheses: VERTICAL shift, SAME direction.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'transformation-identification',
@@ -1699,13 +1903,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'If the graph of $f(x)$ is reflected over the $x$-axis, which function represents the result?',
     choices: [
+      // distractor: reflects over y-axis instead
       { id: 'A', text: '$f(-x)$' },
       { id: 'B', text: '$-f(x)$' },
+      // distractor: vertical shift, not reflection
       { id: 'C', text: '$f(x) - 1$' },
+      // distractor: absolute value, not reflection
       { id: 'D', text: '$|f(x)|$' }
     ],
     correctAnswer: 'B',
-    explanation: 'Negating the output reflects over the x-axis: −f(x). Trap A reflects over the y-axis.',
+    explanation: '**SAT Pattern: Reflection over Axis**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Reflect over $x$-axis: negate the OUTPUT. So $-f(x)$.\n\n**The Full Solution:**\nReflection over the $x$-axis: every $y$-value flips sign. $y \\to -y$. So the new function is $-f(x)$.\n\nReflection over the $y$-axis would flip $x$ signs: $f(-x)$.\n\nVerification: if $f(2) = 5$, then $-f(2) = -5$. Reflected over $x$-axis, $(2, 5) \\to (2, -5)$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong axis" — reflects over $y$-axis (negates input, not output).\n* Choice C: "wrong formula" — vertical shift, not reflection.\n* Choice D: "wrong formula" — absolute value (folds negative $y$ to positive).\n\n**Test Day Takeaway:** Reflect over $x$-axis: $-f(x)$ (negate output). Reflect over $y$-axis: $f(-x)$ (negate input).',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'transformation-identification',
@@ -1721,12 +1928,15 @@ export const algebraBank = [
     question: 'The vertex of $f(x) = x^2$ is at the origin. What is the vertex of $g(x) = (x - 5)^2 + 3$?',
     choices: [
       { id: 'A', text: '$(5, 3)$' },
+      // distractor: misreads (x - 5) as h = -5
       { id: 'B', text: '$(-5, 3)$' },
+      // distractor: sign error on y
       { id: 'C', text: '$(5, -3)$' },
+      // distractor: both signs wrong
       { id: 'D', text: '$(-5, -3)$' }
     ],
     correctAnswer: 'A',
-    explanation: 'Shift right 5 and up 3 moves the vertex to (5, 3). Trap B gets the horizontal direction wrong.',
+    explanation: '**SAT Pattern: Vertex from Transformations**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Vertex form $(x - h)^2 + k$: vertex is $(h, k) = (5, 3)$.\n\n**The Full Solution:**\nThe original parabola $f(x) = x^2$ has vertex at origin $(0, 0)$. Transformations:\n* $(x - 5)^2$: shift right $5$.\n* $+ 3$: shift up $3$.\nNew vertex: $(0 + 5, 0 + 3) = (5, 3)$.\n\nVerification: $g(5) = 0 + 3 = 3$, minimum value. Vertex $(5, 3)$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "sign error" — misreads $(x - 5)$ as $h = -5$.\n* Choice C: "sign error" — flips $k$ to $-3$.\n* Choice D: "applies the inverse operation" — flips both signs.\n\n**Test Day Takeaway:** Vertex form $a(x - h)^2 + k$ gives vertex $(h, k)$. Sign INSIDE parentheses is opposite to $h$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'transformation-vertex',
@@ -1742,12 +1952,15 @@ export const algebraBank = [
     question: 'If $g(x) = f(x) + 5$ and $f(x) = 2x - 1$, what is the $y$-intercept of $g$?',
     choices: [
       { id: 'A', text: '4' },
+      // distractor: adds 5 without considering f\'s intercept
       { id: 'B', text: '5' },
+      // distractor: arithmetic slip
       { id: 'C', text: '6' },
+      // distractor: gives f\'s intercept
       { id: 'D', text: '$-1$' }
     ],
     correctAnswer: 'A',
-    explanation: 'g(x) = 2x − 1 + 5 = 2x + 4. y-intercept = 4. Trap B adds 5 without considering f\'s intercept of −1.',
+    explanation: '**SAT Pattern: y-Intercept After Vertical Shift**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $g(x) = 2x - 1 + 5 = 2x + 4$. $y$-intercept: $4$.\n\n**The Full Solution:**\nSubstitute $f(x) = 2x - 1$ into $g(x) = f(x) + 5$:\n$g(x) = (2x - 1) + 5 = 2x + 4$.\n$y$-intercept = $g(0) = 4$.\n\nVerification: $f(0) = -1$, $g(0) = -1 + 5 = 4$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — adds $5$ without considering $f$\'s intercept of $-1$.\n* Choice C: "off-by-one" — arithmetic slip.\n* Choice D: "wrong base" — gives $f$\'s intercept ($-1$) instead of $g$\'s.\n\n**Test Day Takeaway:** Vertical shift adds to EVERY $y$-value, including the intercept. Original intercept $-1$, shift by $+5$: new intercept $4$.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'transformation-application',
@@ -1763,12 +1976,15 @@ export const algebraBank = [
     question: '$f(x) = |x|$ is transformed to $g(x) = -2|x - 1| + 6$. Which describes ALL transformations?',
     choices: [
       { id: 'A', text: 'Right 1, vertical stretch by 2, reflect over $x$-axis, up 6' },
+      // distractor: misses the reflection and wrong direction
       { id: 'B', text: 'Left 1, vertical stretch by 2, up 6' },
+      // distractor: compress instead of stretch, wrong axis for reflection
       { id: 'C', text: 'Right 1, vertical compress by 2, reflect over $y$-axis, up 6' },
+      // distractor: wrong direction on vertical shift
       { id: 'D', text: 'Right 1, vertical stretch by 2, down 6' }
     ],
     correctAnswer: 'A',
-    explanation: 'x − 1 shifts right, factor 2 stretches vertically, negative reflects over x-axis, +6 shifts up. Trap B omits the reflection.',
+    explanation: '**SAT Pattern: Identify Multiple Transformations**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Parse $-2|x - 1| + 6$:\n- $(x - 1)$: shift right $1$\n- $2$: vertical stretch by $2$\n- $-$: reflect over $x$-axis\n- $+6$: shift up $6$\n\n**The Full Solution:**\nIn $g(x) = -2|x - 1| + 6$, identify each transformation from $f(x) = |x|$:\n1. $(x - 1)$ inside: horizontal shift RIGHT by $1$.\n2. Coefficient $|2| = 2 > 1$: vertical STRETCH by factor $2$.\n3. Negative coefficient: reflection over $x$-axis.\n4. $+6$ outside: vertical shift UP by $6$.\n\nVerification: at $x = 1$, $g(1) = 0 + 6 = 6$ (the vertex of $g$). Original $f$ has vertex at $(0, 0)$; new vertex at $(1, 6)$ — shifted right $1$, up $6$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — misses the reflection.\n* Choice C: "wrong base" — compress vs stretch, wrong reflection axis.\n* Choice D: "sign error" — wrong direction on vertical shift.\n\n**Test Day Takeaway:** Decompose transformations systematically: (1) shifts inside parentheses (horizontal, opposite sign), (2) coefficient/stretch, (3) reflection (negative coefficient), (4) shifts outside (vertical, same sign).',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'transformation-identification',
@@ -1786,12 +2002,15 @@ export const algebraBank = [
     question: 'A line passes through the origin and $(5, 20)$. What is its equation?',
     choices: [
       { id: 'A', text: '$y = 4x$' },
+      // distractor: uses 5 as slope
       { id: 'B', text: '$y = 5x$' },
+      // distractor: uses 20 as slope
       { id: 'C', text: '$y = 20x$' },
+      // distractor: uses nonzero intercept (line doesn't pass through origin)
       { id: 'D', text: '$y = x + 15$' }
     ],
     correctAnswer: 'A',
-    explanation: 'Through origin so b = 0. Slope = 20/5 = 4. Trap D uses a nonzero intercept.',
+    explanation: '**SAT Pattern: Line Through Origin**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Through origin: $b = 0$. Slope $= 20/5 = 4$. So $y = 4x$.\n\n**The Full Solution:**\nPasses through origin means $y$-intercept is $0$.\nSlope: $m = (20 - 0)/(5 - 0) = 20/5 = 4$.\nEquation: $y = 4x$.\n\nVerification: at $x = 5$: $y = 4(5) = 20$ ✓; at $x = 0$: $y = 0$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — uses $x$-value of the point as slope.\n* Choice C: "wrong base" — uses $y$-value as slope.\n* Choice D: "wrong formula" — uses a nonzero intercept (line wouldn\'t pass through origin).\n\n**Test Day Takeaway:** "Through origin" = $y$-intercept is $0$. Equation is $y = mx$ (no constant).',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'function-from-points',
@@ -1807,12 +2026,15 @@ export const algebraBank = [
     question: 'A linear function passes through $(0, -2)$ and $(4, 10)$. Which function fits?',
     choices: [
       { id: 'A', text: '$f(x) = 3x - 2$' },
+      // distractor: arithmetic slip on slope
       { id: 'B', text: '$f(x) = 2x - 2$' },
+      // distractor: sign error on intercept
       { id: 'C', text: '$f(x) = 3x + 2$' },
+      // distractor: uses 4 as slope (the run)
       { id: 'D', text: '$f(x) = 4x - 2$' }
     ],
     correctAnswer: 'A',
-    explanation: 'Slope = (10 − (−2))/(4 − 0) = 12/4 = 3. Intercept = −2. Trap B miscalculates the slope.',
+    explanation: '**SAT Pattern: Linear Function from Two Points (y-Intercept Given)**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Intercept from $(0, -2)$: $b = -2$. Slope: $(10 - (-2))/(4 - 0) = 12/4 = 3$. So $f(x) = 3x - 2$.\n\n**The Full Solution:**\nThe point $(0, -2)$ gives the $y$-intercept directly: $b = -2$.\nSlope between the two points:\n$m = \\frac{10 - (-2)}{4 - 0} = \\frac{12}{4} = 3$.\nFunction: $f(x) = 3x - 2$.\n\nVerification: $f(4) = 3(4) - 2 = 10$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "off-by-one" — wrong slope.\n* Choice C: "sign error" — flips intercept sign.\n* Choice D: "wrong base" — uses run ($4$) as slope.\n\n**Test Day Takeaway:** When one point is on the $y$-axis ($x = 0$), the $y$-value IS the intercept. Saves a step.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'function-from-points',
@@ -1827,7 +2049,7 @@ export const algebraBank = [
     type: 'fill-in',
     question: 'A linear function has $f(3) = 10$ and $f(7) = 26$. What is $f(10)$?',
     correctAnswer: '38',
-    explanation: 'Slope = (26 − 10)/(7 − 3) = 4. f(x) = 4x + b, 10 = 12 + b → b = −2. f(10) = 40 − 2 = 38.',
+    explanation: '**SAT Pattern: Linear Extrapolation**\n\n**The correct answer is $38$.**\n\n**The Fast Way (~20s):** Slope $= (26 - 10)/(7 - 3) = 4$. From $f(7) = 26$, $f(10) = 26 + 4(3) = 38$.\n\n**The Full Solution:**\nSlope: $m = \\frac{26 - 10}{7 - 3} = \\frac{16}{4} = 4$.\nFind intercept: $f(3) = 10 = 4(3) + b \\Rightarrow b = -2$. So $f(x) = 4x - 2$.\n$f(10) = 4(10) - 2 = 38$.\n\nVerification: from $(7, 26)$, advance $3$ units in $x$ → $y$ goes up by $4 \\times 3 = 12$. New $y = 26 + 12 = 38$ ✓ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting the intercept step: $f(10) = 4(10) = 40$.\n* Using wrong slope formula.\n* Reporting $26 + 4 = 30$ (only advancing by $1$ unit instead of $3$).\n\n**Test Day Takeaway:** Linear extrapolation: slope first, then either build full equation OR step from a known point.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'function-from-conditions',
@@ -1842,13 +2064,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'A linear function satisfies $f(2) = 11$ and $f(5) = 23$. What is $f(0)$?',
     choices: [
+      // distractor: arithmetic slip
       { id: 'A', text: '1' },
       { id: 'B', text: '3' },
+      // distractor: gives slope
       { id: 'C', text: '5' },
+      // distractor: arithmetic slip
       { id: 'D', text: '7' }
     ],
     correctAnswer: 'B',
-    explanation: 'Slope = (23 − 11)/(5 − 2) = 4. Then 11 = 4(2) + b → b = 3. f(0) = 3. Trap A subtracts the slope from the intercept.',
+    explanation: '**SAT Pattern: Find y-Intercept from Two Points**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Slope $= (23 - 11)/(5 - 2) = 4$. $f(0)$ = $f(2) - 2 \\cdot 4 = 11 - 8 = 3$.\n\n**The Full Solution:**\nSlope: $m = \\frac{23 - 11}{5 - 2} = \\frac{12}{3} = 4$.\nUsing $f(2) = 11$: $11 = 4(2) + b \\Rightarrow b = 3$.\n$f(0) = 4(0) + 3 = 3$.\n\nVerification: $f(5) = 4(5) + 3 = 23$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — arithmetic slip.\n* Choice C: "wrong base" — gives slope ($4$ or $5$, near-miss).\n* Choice D: "off-by-one" — arithmetic slip.\n\n**Test Day Takeaway:** $f(0)$ = $y$-intercept. To extrapolate back: take a known $f$-value and subtract slope × (steps to $0$).',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'function-from-conditions',
@@ -1863,13 +2088,16 @@ export const algebraBank = [
     type: 'multiple-choice',
     question: 'A membership service has 260 members at month 4 and 440 at month 10. Assuming linear growth, how many members were there at month 0?',
     choices: [
+      // distractor: subtracts one extra period
       { id: 'A', text: '120' },
       { id: 'B', text: '140' },
+      // distractor: arithmetic slip
       { id: 'C', text: '180' },
+      // distractor: arithmetic slip
       { id: 'D', text: '200' }
     ],
     correctAnswer: 'B',
-    explanation: 'Slope = (440 − 260)/(10 − 4) = 30/month. At month 0: 260 − 30(4) = 260 − 120 = 140. Trap A subtracts one extra period.',
+    explanation: '**SAT Pattern: Linear Extrapolation Back to t = 0**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Slope $= (440 - 260)/(10 - 4) = 30$/month. At month $0$: $260 - 30(4) = 260 - 120 = 140$.\n\n**The Full Solution:**\nSlope: $m = \\frac{440 - 260}{10 - 4} = \\frac{180}{6} = 30$ members/month.\nGoing back from month $4$ to month $0$ (back $4$ periods): $260 - 30 \\cdot 4 = 260 - 120 = 140$.\n\nVerification: at month $0$, $140$ members; at month $4$, $140 + 30(4) = 260$ ✓; at month $10$, $140 + 30(10) = 440$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "off-by-one" — backs off $5$ periods instead of $4$.\n* Choice C: "off-by-one" — arithmetic slip.\n* Choice D: "off-by-one" — arithmetic slip.\n\n**Test Day Takeaway:** Linear extrapolation BACK to $t = 0$: take a known value and SUBTRACT slope × (steps to $0$). Count periods carefully.',
     calculatorAllowed: true,
     tags: [],
     sourceStyleRef: 'linear-extrapolation',
