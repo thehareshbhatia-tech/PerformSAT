@@ -3568,5 +3568,143 @@ export const algebraBank = [
     sourceStyleRef: 'no-solution-condition',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+  // ===== Phase 2 batch 7/2: slope-from-two-points (7 items) =====
+  // Bank already has 1 item for this pattern (around bank-alg-006 — an old one).
+  // Adding 7 more for total of 8 (Tier 1 threshold).
+  // Pattern: slope = Δy/Δx between two points. 7 test occurrences across PT1,
+  // PT4, PT11 + M2Easy variants. SAT Pattern title (verbatim): 'Slope from
+  // Two Points' → kebab 'slope-from-two-points'.
+  {
+    id: 'bank-alg-162',
+    domain: 'algebra',
+    skills: ['slope-from-points'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'What is the slope of the line that passes through the points $(1, 2)$ and $(4, 11)$?',
+    choices: [
+      { id: 'A', text: '$3$' },
+      // distractor: gives rise without dividing
+      { id: 'B', text: '$9$' },
+      // distractor: flipped order
+      { id: 'C', text: '$\\dfrac{1}{3}$' },
+      // distractor: gives run instead of slope
+      { id: 'D', text: '$13$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Slope from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Slope $= \\dfrac{11 - 2}{4 - 1} = \\dfrac{9}{3} = 3$.\n\n**The Full Solution:**\nSlope formula: $m = \\dfrac{y_2 - y_1}{x_2 - x_1}$.\n\nWith $(x_1, y_1) = (1, 2)$ and $(x_2, y_2) = (4, 11)$:\n$m = \\dfrac{11 - 2}{4 - 1} = \\dfrac{9}{3} = 3$.\n\nVerification: starting at $(1, 2)$ with slope $3$, after $3$ units of $x$ we reach $y = 2 + 3 \\cdot 3 = 11$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — reports the rise $9$ without dividing by the run.\n* Choice C: "applies the inverse operation" — flips numerator and denominator.\n* Choice D: "wrong base" — adds $4 + 9 = 13$ via slip.\n\n**Test Day Takeaway:** Slope $= \\dfrac{\\Delta y}{\\Delta x}$. ALWAYS rise over run.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'slope-from-two-points',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-163',
+    domain: 'algebra',
+    skills: ['slope-from-points'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'What is the slope of the line that passes through the points $(0, 5)$ and $(4, -3)$?',
+    correctAnswer: '-2',
+    explanation: '**SAT Pattern: Slope from Two Points**\n\n**The correct answer is $-2$.**\n\n**The Fast Way (~10s):** Slope $= \\dfrac{-3 - 5}{4 - 0} = \\dfrac{-8}{4} = -2$.\n\n**The Full Solution:**\n$m = \\dfrac{y_2 - y_1}{x_2 - x_1} = \\dfrac{-3 - 5}{4 - 0} = \\dfrac{-8}{4} = -2$.\n\nVerification: at $(0, 5)$ with slope $-2$, after $4$ units of $x$: $y = 5 - 2 \\cdot 4 = -3$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Dropping the negative: reporting $2$.\n* Mixing the order: $\\dfrac{5 - (-3)}{0 - 4} = \\dfrac{8}{-4} = -2$ (same answer here, but the practice of consistent order matters generally).\n* Computing $\\dfrac{5 - 3}{4 - 0} = 0.5$ (forgets the sign of $-3$).\n\n**Test Day Takeaway:** Negative slope = line goes DOWN from left to right. SAT fill-ins accept negative signs.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'slope-from-two-points',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-164',
+    domain: 'algebra',
+    skills: ['slope-from-points'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'What is the slope of the line that passes through the points $(2, 5)$ and $(8, 8)$?',
+    choices: [
+      { id: 'A', text: '$\\dfrac{1}{2}$' },
+      // distractor: gives run/rise
+      { id: 'B', text: '$2$' },
+      // distractor: just the rise
+      { id: 'C', text: '$3$' },
+      // distractor: just the run
+      { id: 'D', text: '$6$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Slope from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Slope $= \\dfrac{8 - 5}{8 - 2} = \\dfrac{3}{6} = \\dfrac{1}{2}$.\n\n**The Full Solution:**\n$m = \\dfrac{y_2 - y_1}{x_2 - x_1} = \\dfrac{8 - 5}{8 - 2} = \\dfrac{3}{6}$.\n\nReduce: $\\dfrac{3}{6} = \\dfrac{1}{2}$.\n\nVerification: at $(2, 5)$ with slope $1/2$: after $6$ units of $x$, $y = 5 + (1/2)(6) = 5 + 3 = 8$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "applies the inverse operation" — flips to $6/3 = 2$.\n* Choice C: "wrong base" — reports the rise $3$ instead of the slope.\n* Choice D: "wrong base" — reports the run $6$.\n\n**Test Day Takeaway:** Reduce fractions to lowest terms. $3/6 = 1/2$, $4/8 = 1/2$, $5/10 = 1/2$ — recognize equivalent forms.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'slope-from-two-points',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-165',
+    domain: 'algebra',
+    skills: ['slope-from-points'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'What is the slope of the line that passes through the points $(-3, 7)$ and $(5, -1)$?',
+    correctAnswer: '-1',
+    explanation: '**SAT Pattern: Slope from Two Points**\n\n**The correct answer is $-1$.**\n\n**The Fast Way (~10s):** Slope $= \\dfrac{-1 - 7}{5 - (-3)} = \\dfrac{-8}{8} = -1$.\n\n**The Full Solution:**\n$m = \\dfrac{y_2 - y_1}{x_2 - x_1} = \\dfrac{-1 - 7}{5 - (-3)} = \\dfrac{-8}{8} = -1$.\n\nVerification: $5 - (-3) = 5 + 3 = 8$ \\checkmark. Line $y = -x + 4$ passes through $(-3, 7)$ ($7 = 3 + 4$) and $(5, -1)$ ($-1 = -5 + 4$) \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Dropping the double-negative: $5 - (-3) \\ne 5 - 3 = 2$. The correct difference is $8$.\n* Sign error on the numerator: $7 - (-1) = 8$ if done with consistent order, but mixing gives $-8$ instead of $8$.\n* Computing $\\dfrac{-8}{2} = -4$ via wrong denominator.\n\n**Test Day Takeaway:** Negative coordinates: $a - (-b) = a + b$. Two negatives in subtraction make a positive. Watch the sign carefully.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'slope-from-two-points',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-166',
+    domain: 'algebra',
+    skills: ['slope-from-points'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'What is the slope of the line that passes through the points $(2, 7)$ and $(10, 7)$?',
+    choices: [
+      { id: 'A', text: '$0$' },
+      // distractor: gives the y-value
+      { id: 'B', text: '$7$' },
+      // distractor: undefined assumed for any constant
+      { id: 'C', text: 'undefined' },
+      // distractor: gives x-difference
+      { id: 'D', text: '$8$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Slope from Two Points**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Both $y$-coordinates are $7$. Slope $= \\dfrac{0}{8} = 0$. Horizontal line.\n\n**The Full Solution:**\n$m = \\dfrac{7 - 7}{10 - 2} = \\dfrac{0}{8} = 0$.\n\nThe line is HORIZONTAL: $y = 7$ for all $x$.\n\nVerification: both given points have $y = 7$, confirming horizontal \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong base" — picks the constant $y$-value as the slope.\n* Choice C: "wrong sign" — confuses horizontal (slope $0$) with vertical (slope undefined).\n* Choice D: "wrong base" — reports the run $8$.\n\n**Test Day Takeaway:** HORIZONTAL line: $y$-values match $\\Rightarrow$ slope $= 0$. VERTICAL line: $x$-values match $\\Rightarrow$ slope is UNDEFINED (division by zero). Don\'t confuse them.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'slope-from-two-points',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-167',
+    domain: 'algebra',
+    skills: ['slope-from-points'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'What is the slope of the line that passes through the points $(-2, 3)$ and $(6, 19)$?',
+    correctAnswer: '2',
+    explanation: '**SAT Pattern: Slope from Two Points**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~10s):** Slope $= \\dfrac{19 - 3}{6 - (-2)} = \\dfrac{16}{8} = 2$.\n\n**The Full Solution:**\n$m = \\dfrac{y_2 - y_1}{x_2 - x_1} = \\dfrac{19 - 3}{6 - (-2)} = \\dfrac{16}{8} = 2$.\n\nVerification: line $y = 2x + 7$ passes through $(-2, 3)$ ($2(-2) + 7 = 3$) and $(6, 19)$ ($2(6) + 7 = 19$) \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing $6 - 2 = 4$ instead of $6 - (-2) = 8$ — drops the negative.\n* Wrong order: $\\dfrac{3 - 19}{6 - (-2)} = -2$.\n* Reducing wrongly: $16/8 = 1$ via slip.\n\n**Test Day Takeaway:** $a - (-b) = a + b$. Negative coordinates expand the run/rise.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'slope-from-two-points',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-alg-168',
+    domain: 'algebra',
+    skills: ['slope-from-points'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'A line passes through the points $(2, k)$ and $(5, 11)$, and has a slope of $3$. What is the value of $k$?',
+    correctAnswer: '2',
+    explanation: '**SAT Pattern: Slope from Two Points**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~20s):** Slope formula: $3 = \\dfrac{11 - k}{5 - 2} = \\dfrac{11 - k}{3} \\Rightarrow 11 - k = 9 \\Rightarrow k = 2$.\n\n**The Full Solution:**\nUse the slope formula:\n$3 = \\dfrac{11 - k}{5 - 2}$\n$3 = \\dfrac{11 - k}{3}$\n\nMultiply both sides by $3$:\n$9 = 11 - k$\n$k = 11 - 9 = 2$.\n\nVerification: slope from $(2, 2)$ to $(5, 11) = (11 - 2)/(5 - 2) = 9/3 = 3$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Sign error: solving $11 - k = -9 \\Rightarrow k = 20$.\n* Cross-multiplication slip: $(11 - k)(3) = 3$ instead of $(11 - k) = 3 \\cdot 3$.\n* Reporting $11$ or $9$ (intermediate values, not $k$).\n\n**Test Day Takeaway:** When one $y$-coordinate is unknown and the slope is given, set up the slope formula and solve algebraically. Multiply both sides by the run first to clear the fraction.',
+    calculatorAllowed: false,
+    tags: [],
+    sourceStyleRef: 'slope-from-two-points',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
