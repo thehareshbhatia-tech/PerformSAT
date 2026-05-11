@@ -2003,5 +2003,175 @@ export const problemSolvingBank = [
     sourceStyleRef: 'residual',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+
+  // === MARGIN OF ERROR (8 questions) — Phase 2 batch 2 priority pattern ===
+  // 11x in 12 tests. Covers: compute-MOE-from-formula, interpret-confidence-
+  // interval, halve-MOE-via-sample-size, scope-of-inference, compare-intervals,
+  // solve-for-n inversely. SAT Pattern kebab matches: 'margin-of-error'.
+  {
+    id: 'bank-ps-092',
+    domain: 'problem-solving',
+    skills: ['margin-of-error'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'A researcher surveyed $100$ randomly selected adults and approximates the margin of error using the quick estimate $\\text{MOE} \\approx \\dfrac{1}{\\sqrt{n}}$ at a $95\\%$ confidence level. What is the approximate margin of error, expressed as a percent?',
+    correctAnswer: '10',
+    explanation: '**SAT Pattern: Margin of Error**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~5s):** $\\dfrac{1}{\\sqrt{100}} = \\dfrac{1}{10} = 0.10 = 10\\%$.\n\n**The Full Solution:**\nUsing the quick estimate $\\text{MOE} \\approx \\dfrac{1}{\\sqrt{n}}$ with $n = 100$:\n$\\text{MOE} \\approx \\dfrac{1}{\\sqrt{100}} = \\dfrac{1}{10} = 0.10$.\n\nAs a percent: $0.10 \\times 100\\% = 10\\%$.\n\nVerification: $\\sqrt{100} = 10$ and $\\dfrac{1}{10}$ is exactly $0.10$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $0.10$ as the answer (the question asks for a percent).\n* Computing $\\sqrt{100} = 100$ instead of $10$ (slip on perfect squares).\n\n**Test Day Takeaway:** The shortcut $\\text{MOE} \\approx \\dfrac{1}{\\sqrt{n}}$ gives a useful approximation for $95\\%$ confidence intervals on proportions. Memorize the perfect-square sample sizes: $n = 100, 400, 625, 1600, 2500$ give clean MOE values.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'margin-of-error',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-093',
+    domain: 'problem-solving',
+    skills: ['margin-of-error'],
+    difficulty: 'easy',
+    type: 'multiple-choice',
+    question: 'A researcher surveyed a random sample of $400$ voters in a city and reported that $55\\%$ of them support a new parking ordinance, with a margin of error of $\\pm 4\\%$ at a $95\\%$ confidence level. Which of the following is the BEST interpretation of the survey results?',
+    choices: [
+      // distractor: reports sample percent as if certain about it
+      { id: 'A', text: 'Exactly $55\\%$ of all voters in the city support the ordinance.' },
+      { id: 'B', text: 'We are $95\\%$ confident that the proportion of voters in the city who support the ordinance is between $51\\%$ and $59\\%$.' },
+      // distractor: misreads MOE as variance/extremes
+      { id: 'C', text: 'Between $4\\%$ and $55\\%$ of voters support the ordinance.' },
+      // distractor: applies to wrong population (all voters everywhere)
+      { id: 'D', text: 'We are $95\\%$ confident that between $51\\%$ and $59\\%$ of all voters nationwide support the ordinance.' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Margin of Error**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** A $95\\%$ confidence interval of $55\\% \\pm 4\\%$ means we are $95\\%$ confident the TRUE population proportion (of the SAMPLED population — voters in the city) lies between $51\\%$ and $59\\%$.\n\n**The Full Solution:**\nA confidence interval has three components that must all appear in the interpretation:\n1. The CENTER: the sample proportion $55\\%$.\n2. The MARGIN: $\\pm 4\\%$, so the interval is $[51\\%, 59\\%]$.\n3. The CONFIDENCE: $95\\%$ certainty.\n4. The POPULATION: the population that was SAMPLED — voters in this city.\n\nCombining: "We are $95\\%$ confident that the proportion of voters in the city is between $51\\%$ and $59\\%$."\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — treats the sample proportion as a certain population value. Sampling always has uncertainty.\n* Choice C: "wrong formula" — misinterprets MOE as a lower bound. MOE is centered on the sample value.\n* Choice D: "scope shift" — extends conclusions to a population that was NOT sampled (all voters nationwide). A city sample only supports inference about the city.\n\n**Test Day Takeaway:** Always check three things in a CI interpretation: (1) interval centered on the sample value $\\pm$ MOE, (2) the confidence level stated explicitly, (3) the SAMPLED population (not a broader one).',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'margin-of-error',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-094',
+    domain: 'problem-solving',
+    skills: ['margin-of-error'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'A study uses the quick estimate $\\text{MOE} \\approx \\dfrac{1}{\\sqrt{n}}$ for a $95\\%$ confidence interval. If $n = 1{,}600$, what is the approximate margin of error, expressed as a percent?',
+    correctAnswer: '2.5',
+    explanation: '**SAT Pattern: Margin of Error**\n\n**The correct answer is $2.5$.**\n\n**The Fast Way (~10s):** $\\sqrt{1600} = 40$, so $\\text{MOE} \\approx \\dfrac{1}{40} = 0.025 = 2.5\\%$.\n\n**The Full Solution:**\n$\\text{MOE} \\approx \\dfrac{1}{\\sqrt{n}} = \\dfrac{1}{\\sqrt{1{,}600}}$.\n\n$\\sqrt{1{,}600} = \\sqrt{16 \\cdot 100} = 4 \\cdot 10 = 40$.\n\n$\\text{MOE} \\approx \\dfrac{1}{40} = 0.025$.\n\nAs a percent: $0.025 \\times 100 = 2.5\\%$.\n\nVerification: doubling the sample from $400$ ($\\sqrt{n} = 20$, MOE $= 5\\%$) to $1{,}600$ ($\\sqrt{n} = 40$, MOE $= 2.5\\%$) halves the MOE — consistent with the $\\dfrac{1}{\\sqrt{n}}$ relationship \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing $\\sqrt{1{,}600}$ as $400$ instead of $40$.\n* Reporting $0.025$ without converting to a percent.\n\n**Test Day Takeaway:** Quadrupling the sample size HALVES the margin of error because MOE $\\propto \\dfrac{1}{\\sqrt{n}}$ and $\\sqrt{4n} = 2\\sqrt{n}$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'margin-of-error',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-095',
+    domain: 'problem-solving',
+    skills: ['margin-of-error'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'A polling organization surveyed $400$ voters and reported a margin of error of $\\pm 5\\%$ at a $95\\%$ confidence level. The pollster wants to redo the survey at the same confidence level but cut the margin of error in half (to $\\pm 2.5\\%$). What sample size must the pollster use?',
+    choices: [
+      // distractor: doubles the sample (treats MOE linearly)
+      { id: 'A', text: '$800$' },
+      { id: 'B', text: '$1{,}600$' },
+      // distractor: halves the sample (inverse direction)
+      { id: 'C', text: '$200$' },
+      // distractor: applies a 10× factor
+      { id: 'D', text: '$4{,}000$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Margin of Error**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $\\text{MOE} \\propto \\dfrac{1}{\\sqrt{n}}$. To halve MOE, multiply $n$ by $4$: $4 \\times 400 = 1{,}600$.\n\n**The Full Solution:**\nThe margin of error scales as $\\text{MOE} \\propto \\dfrac{1}{\\sqrt{n}}$.\n\nTo halve the MOE, we need $\\sqrt{n_{\\text{new}}} = 2 \\sqrt{n_{\\text{old}}}$, which means $n_{\\text{new}} = 4 \\cdot n_{\\text{old}}$.\n\n$n_{\\text{new}} = 4 \\times 400 = 1{,}600$.\n\nVerification: at $n = 400$, $\\sqrt{n} = 20$, $\\text{MOE} \\approx \\dfrac{1}{20} = 5\\%$. At $n = 1{,}600$, $\\sqrt{n} = 40$, $\\text{MOE} \\approx \\dfrac{1}{40} = 2.5\\%$. Exactly half \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong formula" — doubles the sample, treating MOE linearly. But MOE scales with the SQUARE ROOT of $n$.\n* Choice C: "applies the inverse operation" — halves the sample (would DOUBLE the MOE).\n* Choice D: "wrong base" — multiplies by an arbitrary $10$ factor.\n\n**Test Day Takeaway:** Cut MOE in HALF $\\Rightarrow$ multiply sample size by $4$. Cut MOE to one-third $\\Rightarrow$ multiply sample size by $9$. The factor is always the SQUARE of the MOE reduction.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'margin-of-error',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-096',
+    domain: 'problem-solving',
+    skills: ['margin-of-error'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'A researcher surveys a random sample of $600$ first-year college students at a single university and finds that $42\\%$ have a part-time job. The reported margin of error at $95\\%$ confidence is $\\pm 3\\%$. Which of the following is the most appropriate population for which this estimate is valid?',
+    choices: [
+      // distractor: too broad — all college students nationwide
+      { id: 'A', text: 'All college students in the country.' },
+      // distractor: subset that wasn\'t sampled — older students
+      { id: 'B', text: 'Older college students at the university.' },
+      { id: 'C', text: 'First-year students at that university.' },
+      // distractor: outside university — all young adults
+      { id: 'D', text: 'All young adults in the city.' }
+    ],
+    correctAnswer: 'C',
+    explanation: '**SAT Pattern: Margin of Error**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** The sample was first-year students at one university. Confidence intervals only support inference about the population that was SAMPLED.\n\n**The Full Solution:**\nA confidence interval describes plausible values for the proportion in the population that was actually SAMPLED. The sample here:\n* Was drawn from FIRST-YEAR students.\n* Was drawn from ONE university.\n\nGeneralizing beyond either restriction (to older students, to other universities, to non-students) is NOT supported by the data.\n\nThe most appropriate population is exactly the sampled one: first-year students at that university.\n\n**Why the wrong answers are tempting:**\n* Choice A: "scope shift" — extends inference to ALL college students nationwide; the sample was at one university.\n* Choice B: "wrong base" — extends to older students who were NOT sampled.\n* Choice D: "scope shift" — extends to non-students.\n\n**Test Day Takeaway:** A confidence interval is only valid for the EXACT population that was sampled. Generalization beyond it is statistically unsupported.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'margin-of-error',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-097',
+    domain: 'problem-solving',
+    skills: ['margin-of-error'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'A pollster surveys two independent random samples of city residents about a tax measure. Sample $A$ reports support of $52\\%$ with margin of error $\\pm 3\\%$ at a $95\\%$ confidence level. Sample $B$ reports support of $58\\%$ with margin of error $\\pm 4\\%$ at the same confidence level. Which conclusion is best supported by the data?',
+    choices: [
+      // distractor: claims significant difference despite overlap
+      { id: 'A', text: 'Support increased significantly between the two samples.' },
+      { id: 'B', text: 'The confidence intervals overlap, so the data does not strongly demonstrate a difference in support.' },
+      // distractor: confidently inverts the relationship
+      { id: 'C', text: 'Support decreased significantly between the two samples.' },
+      // distractor: misreads MOE as exact value
+      { id: 'D', text: 'Exactly $52\\%$ and $58\\%$ support the measure in the two surveys.' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Margin of Error**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** Sample $A$ CI: $[49\\%, 55\\%]$. Sample $B$ CI: $[54\\%, 62\\%]$. The intervals overlap at $54\\%$-$55\\%$, so the data does not provide strong evidence of a true difference.\n\n**The Full Solution:**\nCompute each confidence interval:\n* Sample $A$: $52\\% \\pm 3\\% \\Rightarrow [49\\%, 55\\%]$.\n* Sample $B$: $58\\% \\pm 4\\% \\Rightarrow [54\\%, 62\\%]$.\n\nCheck for overlap: the upper bound of $A$ ($55\\%$) is greater than the lower bound of $B$ ($54\\%$). So the intervals overlap in $[54\\%, 55\\%]$.\n\nWhen confidence intervals overlap, the data is consistent with both samples having the SAME underlying population proportion. We cannot conclude there is a real difference.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — claims significance despite overlap. Overlapping CIs are inconsistent with a confident "significant" claim.\n* Choice C: "sign error" — inverts the direction (and still ignores the overlap).\n* Choice D: "wrong formula" — treats the sample percent as the EXACT population proportion, ignoring the MOE entirely.\n\n**Test Day Takeaway:** Two confidence intervals OVERLAP $\\Rightarrow$ data does not strongly demonstrate a difference. Two confidence intervals are DISJOINT $\\Rightarrow$ data supports a difference.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'margin-of-error',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-098',
+    domain: 'problem-solving',
+    skills: ['margin-of-error'],
+    difficulty: 'hard',
+    type: 'fill-in',
+    question: 'A researcher wants to keep the margin of error at most $2\\%$ in a $95\\%$ confidence interval for a proportion, using the quick estimate $\\text{MOE} \\approx \\dfrac{1}{\\sqrt{n}}$. What is the minimum sample size $n$ the researcher must use?',
+    correctAnswer: '2500',
+    explanation: '**SAT Pattern: Margin of Error**\n\n**The correct answer is $2{,}500$.**\n\n**The Fast Way (~15s):** $\\dfrac{1}{\\sqrt{n}} \\leq 0.02 \\Rightarrow \\sqrt{n} \\geq 50 \\Rightarrow n \\geq 2{,}500$.\n\n**The Full Solution:**\nSet up the inequality:\n$\\dfrac{1}{\\sqrt{n}} \\leq 0.02$.\n\nTake reciprocals (flips inequality because $0.02 > 0$):\n$\\sqrt{n} \\geq \\dfrac{1}{0.02} = 50$.\n\nSquare both sides:\n$n \\geq 50^2 = 2{,}500$.\n\nThe minimum sample size is $2{,}500$.\n\nVerification: at $n = 2{,}500$, $\\sqrt{n} = 50$, $\\text{MOE} \\approx \\dfrac{1}{50} = 0.02 = 2\\%$ — exactly at the threshold \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting to square: gives $n \\geq 50$ instead of $n \\geq 2{,}500$.\n* Treating the threshold as a percent in the wrong direction (e.g., $1/0.2 = 5$).\n\n**Test Day Takeaway:** To bound the MOE from above by $m$ (as a decimal), need $n \\geq \\dfrac{1}{m^2}$. Square the inverse of the target MOE.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'margin-of-error',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-ps-099',
+    domain: 'problem-solving',
+    skills: ['margin-of-error'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'A polling firm surveyed a random sample of $1{,}200$ likely voters and found that $0.52 \\pm 0.03$ supported a candidate at a $95\\%$ confidence level. Based on this confidence interval, which of the following conclusions is BEST supported?',
+    choices: [
+      // distractor: overstates certainty — exact majority
+      { id: 'A', text: 'A majority of likely voters definitely support the candidate.' },
+      { id: 'B', text: 'It is plausible (but not certain) that the true proportion of supporters is below $0.50$, so the data does not provide strong evidence of majority support.' },
+      // distractor: confidently claims minority support
+      { id: 'C', text: 'A minority of likely voters definitely support the candidate.' },
+      // distractor: misreads CI bounds
+      { id: 'D', text: 'We are $95\\%$ confident that the proportion of supporters lies between $0.03$ and $0.52$.' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Margin of Error**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** CI is $[0.49, 0.55]$. The lower bound $0.49 < 0.50$ means the true proportion could plausibly be below a majority. So the data does NOT strongly demonstrate majority support.\n\n**The Full Solution:**\nCompute the confidence interval:\n$0.52 \\pm 0.03 \\Rightarrow [0.49, 0.55]$.\n\nThe interval $[0.49, 0.55]$ includes values both BELOW and ABOVE the majority threshold of $0.50$. The true population proportion could plausibly be anywhere in this range.\n\nKey reasoning:\n* If the entire CI were ABOVE $0.50$, we could conclude majority support with high confidence.\n* If the entire CI were BELOW $0.50$, we could conclude lack of majority.\n* The CI straddling $0.50$ means we cannot confidently conclude either direction — the data is consistent with both majority and non-majority outcomes.\n\n**Why the wrong answers are tempting:**\n* Choice A: "wrong base" — treats the sample proportion ($0.52$) as a population certainty without considering the MOE.\n* Choice C: "sign error" — reverses the (already incorrect) certainty claim.\n* Choice D: "wrong formula" — confuses MOE with the lower bound of the interval. The CI is $0.52 - 0.03$ to $0.52 + 0.03$, not $0.03$ to $0.52$.\n\n**Test Day Takeaway:** When a CI straddles a key threshold (like $0.5$, $0$, or any null value), the data does NOT confidently demonstrate which side is correct. Look for whether the entire interval lies above or below the threshold.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'margin-of-error',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
