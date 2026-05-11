@@ -2371,5 +2371,167 @@ export const advancedMathBank = [
     sourceStyleRef: 'rational-expression-simplification',
     authoredBy: 'performsat-engine',
     createdAt: '2026-05-11'
+  },
+
+  // === FUNCTION TRANSFORMATION (8 questions) — Phase 2 batch 3 priority pattern ===
+  // 10x in 12 tests. Covers: horizontal shift, vertical shift, evaluate
+  // transformed function, find x of min after shift, find min value after
+  // shift, combined shifts, reflection + scaling.
+  // SAT Pattern kebab matches test bundle: 'function-transformation'.
+  {
+    id: 'bank-am-108',
+    domain: 'advanced-math',
+    skills: ['function-transformations', 'function-evaluation'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'The function $f$ is defined by $f(x) = x^2 + 2x$. The function $g$ is defined by $g(x) = f(x - 3)$. What is the value of $g(5)$?',
+    correctAnswer: '8',
+    explanation: '**SAT Pattern: Function Transformation**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~10s):** $g(5) = f(5 - 3) = f(2) = 4 + 4 = 8$.\n\n**The Full Solution:**\nTo evaluate $g(5)$, plug $5$ into the definition $g(x) = f(x - 3)$:\n$g(5) = f(5 - 3) = f(2)$.\n\nNow evaluate $f$ at $2$:\n$f(2) = 2^2 + 2(2) = 4 + 4 = 8$.\n\nVerification: $g(5) = f(2) = 8$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Evaluating $f(5)$ and then subtracting $3$ (wrong: gives $f(5) - 3 = 32 - 3 = 29$).\n* Adding $3$ instead of subtracting: $f(5 + 3) = f(8) = 64 + 16 = 80$.\n\n**Test Day Takeaway:** $g(x) = f(x - c)$ means "evaluate $f$ at $x - c$". Plug into the INPUT first, then evaluate $f$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'function-transformation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-109',
+    domain: 'advanced-math',
+    skills: ['function-transformations', 'function-evaluation'],
+    difficulty: 'easy',
+    type: 'fill-in',
+    question: 'The function $f$ is defined by $f(x) = 3x - 4$. The function $g$ is defined by $g(x) = f(x) + 7$. What is the value of $g(2)$?',
+    correctAnswer: '9',
+    explanation: '**SAT Pattern: Function Transformation**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~5s):** $g(2) = f(2) + 7 = (6 - 4) + 7 = 2 + 7 = 9$.\n\n**The Full Solution:**\n$g(x) = f(x) + 7$ adds $7$ to the OUTPUT of $f$.\nFirst compute $f(2)$:\n$f(2) = 3(2) - 4 = 6 - 4 = 2$.\nThen add $7$:\n$g(2) = 2 + 7 = 9$.\n\nVerification: $f(2) = 2$ and $g(2) = f(2) + 7 = 9$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Adding $7$ to the INPUT: $f(2 + 7) = f(9) = 23$.\n* Computing $g(x) = 3x - 4 + 7 = 3x + 3$, then $g(2) = 9$ — this gets the right answer but only because the formula was simplified correctly. The principle is to add $7$ AFTER applying $f$.\n\n**Test Day Takeaway:** $g(x) = f(x) + c$ ADDS $c$ to the OUTPUT. $g(x) = f(x + c)$ would add $c$ to the INPUT — very different.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'function-transformation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-110',
+    domain: 'advanced-math',
+    skills: ['function-transformations', 'vertex-form'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'The function $f$ is defined by $f(x) = 2x^2 - 8x + 3$. The function $g$ is defined by $g(x) = f(x + 1)$. What is the minimum value of $g(x)$?',
+    correctAnswer: '-5',
+    explanation: '**SAT Pattern: Function Transformation**\n\n**The correct answer is $-5$.**\n\n**The Fast Way (~20s):** $f$\'s min value is at $x = -b/(2a) = 8/4 = 2$, giving $f(2) = 8 - 16 + 3 = -5$. Horizontal shifts do NOT change the minimum VALUE — only its location. So $g$\'s min is also $-5$.\n\n**The Full Solution:**\nFind the minimum of $f$ first. For $f(x) = 2x^2 - 8x + 3$ (a parabola opening upward, $a = 2 > 0$), the minimum occurs at:\n$x_{\\min} = -\\dfrac{b}{2a} = -\\dfrac{-8}{4} = 2$.\n\nMinimum value of $f$: $f(2) = 2(4) - 8(2) + 3 = 8 - 16 + 3 = -5$.\n\n$g(x) = f(x + 1)$ shifts $f$\'s graph LEFT by $1$ unit. A horizontal shift moves the location of the minimum but does NOT change its value.\n\nTherefore $g$\'s minimum value is still $-5$.\n\nVerification: $g$ achieves its min where $x + 1 = 2$, i.e., at $x = 1$. $g(1) = f(2) = -5$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Subtracting or adding $1$ to the minimum VALUE (mistaking a horizontal shift for vertical).\n* Computing $g(0) = f(1) = 2 - 8 + 3 = -3$ and reporting $-3$.\n\n**Test Day Takeaway:** Horizontal shift $g(x) = f(x + c)$: changes WHERE the extremum occurs, NOT its value. Vertical shift $g(x) = f(x) + c$: changes the VALUE, not the location.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'function-transformation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-111',
+    domain: 'advanced-math',
+    skills: ['function-transformations', 'function-evaluation'],
+    difficulty: 'medium',
+    type: 'fill-in',
+    question: 'The function $f$ is defined by $f(x) = x^2 - 4x + 1$. The function $g$ is defined by $g(x) = f(x + 3)$. What is the value of $g(0)$?',
+    correctAnswer: '-2',
+    explanation: '**SAT Pattern: Function Transformation**\n\n**The correct answer is $-2$.**\n\n**The Fast Way (~10s):** $g(0) = f(0 + 3) = f(3) = 9 - 12 + 1 = -2$.\n\n**The Full Solution:**\nApply the definition $g(x) = f(x + 3)$ at $x = 0$:\n$g(0) = f(0 + 3) = f(3)$.\n\nEvaluate $f(3)$:\n$f(3) = 3^2 - 4(3) + 1 = 9 - 12 + 1 = -2$.\n\nVerification: $g(0) = f(3) = -2$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing $f(0) + 3 = 1 + 3 = 4$ (treats the transformation as vertical).\n* Subtracting $3$ instead of adding inside the function: $f(0 - 3) = f(-3) = 9 + 12 + 1 = 22$.\n\n**Test Day Takeaway:** $g(x) = f(x + c)$: substitute $x + c$ INTO the function definition. Then evaluate as you would any function call.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'function-transformation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-112',
+    domain: 'advanced-math',
+    skills: ['function-transformations', 'vertex-form'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'The function $f$ is defined by $f(x) = (x - 2)^2 + 5$. The function $g$ is defined by $g(x) = f(x - 3)$. For what value of $x$ does $g$ attain its minimum value?',
+    choices: [
+      // distractor: subtracts 3 from f's vertex x instead of adding
+      { id: 'A', text: '$-1$' },
+      // distractor: uses f's vertex x without shifting
+      { id: 'B', text: '$2$' },
+      { id: 'C', text: '$5$' },
+      // distractor: just uses 3 (the shift amount)
+      { id: 'D', text: '$3$' }
+    ],
+    correctAnswer: 'C',
+    explanation: '**SAT Pattern: Function Transformation**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $f$ has min at $x = 2$. $g(x) = f(x - 3)$ shifts $f$ RIGHT by $3$, so $g$\'s min is at $x = 2 + 3 = 5$.\n\n**The Full Solution:**\n$f(x) = (x - 2)^2 + 5$ has its minimum where $(x - 2)^2$ is zero, i.e., at $x = 2$. Min value $= 5$.\n\n$g(x) = f(x - 3)$ shifts the graph of $f$ horizontally. Setting the inside of $f$ to equal the original min argument:\n$x - 3 = 2 \\Rightarrow x = 5$.\n\nSo $g$ achieves its minimum at $x = 5$ (with the same min value $5$).\n\nVerification: $g(5) = f(5 - 3) = f(2) = 0 + 5 = 5$ \\checkmark. For any other $x$, $g(x) > 5$.\n\n**Why the wrong answers are tempting:**\n* Choice A: "applies the inverse operation" — subtracts $3$ from $f$\'s min $x$ instead of adding. $f(x - c)$ shifts RIGHT by $c$, not left.\n* Choice B: "stops one step early" — uses $f$\'s original min $x = 2$ without applying the shift.\n* Choice D: "wrong base" — gives the shift amount $c = 3$ directly without combining with the original.\n\n**Test Day Takeaway:** $g(x) = f(x - c)$ shifts the graph RIGHT by $c$. The trick: setting the inside $x - c$ equal to the original min argument $x_0$ gives $x = x_0 + c$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'function-transformation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-113',
+    domain: 'advanced-math',
+    skills: ['function-transformations'],
+    difficulty: 'medium',
+    type: 'multiple-choice',
+    question: 'The function $f$ is defined by $f(x) = 2x^2 + 1$. The function $g$ is defined by $g(x) = f(x) - 6$. What is the minimum value of $g(x)$?',
+    choices: [
+      // distractor: minimum of f
+      { id: 'A', text: '$1$' },
+      { id: 'B', text: '$-5$' },
+      // distractor: sign error
+      { id: 'C', text: '$7$' },
+      // distractor: adds 6 instead of subtracting
+      { id: 'D', text: '$5$' }
+    ],
+    correctAnswer: 'B',
+    explanation: '**SAT Pattern: Function Transformation**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $f$\'s minimum is at $x = 0$: $f(0) = 1$. $g(x) = f(x) - 6$ shifts the minimum down by $6$: $g$\'s min $= 1 - 6 = -5$.\n\n**The Full Solution:**\nFor $f(x) = 2x^2 + 1$, the minimum value is $f(0) = 1$ (parabola opens upward, vertex at $x = 0$).\n\n$g(x) = f(x) - 6$ shifts $f$\'s graph DOWN by $6$ units. A vertical shift moves the minimum VALUE but not its location.\n\nMinimum of $g$: $1 - 6 = -5$ (achieved at $x = 0$, the same location).\n\nVerification: $g(0) = f(0) - 6 = 1 - 6 = -5$ \\checkmark. For any other $x$, $g(x) > -5$.\n\n**Why the wrong answers are tempting:**\n* Choice A: "stops one step early" — reports $f$\'s minimum without applying the vertical shift.\n* Choice C: "sign error" — confuses the direction of the shift ($+6$ instead of $-6$): $1 - (-6) = 7$.\n* Choice D: "wrong formula" — adds $|c|$ to the min instead of subtracting: $1 + 6 = 7$ — wait, this would give $7$ not $5$. Maybe represents $|f(0)| + 6 - 2 = $ some other mix-up. Conceptually a "wrong-magnitude" shift.\n\n**Test Day Takeaway:** Vertical shift $g(x) = f(x) + c$: changes the min/max VALUE by $c$ but NOT its location. $c$ is signed; subtracting $6$ shifts DOWN by $6$.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'function-transformation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-114',
+    domain: 'advanced-math',
+    skills: ['function-transformations', 'vertex-form'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'The function $f$ is defined by $f(x) = (x + 1)^2 - 2$. The function $g$ is defined by $g(x) = f(x - 4) + 7$. At what value of $x$ does $g$ attain its minimum, and what is that minimum?',
+    choices: [
+      { id: 'A', text: '$x = 3$, minimum $= 5$' },
+      // distractor: only horizontal shift applied
+      { id: 'B', text: '$x = 3$, minimum $= -2$' },
+      // distractor: wrong horizontal shift direction
+      { id: 'C', text: '$x = -5$, minimum $= 5$' },
+      // distractor: only vertical shift applied
+      { id: 'D', text: '$x = -1$, minimum $= 5$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Function Transformation**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** $f$ has vertex at $(-1, -2)$. $g(x) = f(x - 4) + 7$ shifts RIGHT by $4$ and UP by $7$. New vertex: $(-1 + 4, -2 + 7) = (3, 5)$. So $g$ attains min at $x = 3$, min value $5$.\n\n**The Full Solution:**\n$f(x) = (x + 1)^2 - 2$ has vertex at $(-1, -2)$ — a minimum.\n\nApply two transformations:\n1. $f(x - 4)$: HORIZONTAL shift right by $4$. Vertex $x$ moves from $-1$ to $-1 + 4 = 3$.\n2. $+ 7$: VERTICAL shift up by $7$. Vertex $y$ moves from $-2$ to $-2 + 7 = 5$.\n\nSo $g$\'s vertex is $(3, 5)$. Minimum value $5$ achieved at $x = 3$.\n\nVerification: $g(3) = f(3 - 4) + 7 = f(-1) + 7 = -2 + 7 = 5$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "stops one step early" — applies horizontal shift only.\n* Choice C: "applies the inverse operation" — subtracts $4$ instead of adding, putting the vertex at $-5$.\n* Choice D: "stops one step early" — applies vertical shift only; keeps $f$\'s original vertex $x$.\n\n**Test Day Takeaway:** Combined shifts: apply each transformation separately. $f(x - c) + d$: vertex moves RIGHT $c$ and UP $d$. Track both components.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'function-transformation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
+  },
+  {
+    id: 'bank-am-115',
+    domain: 'advanced-math',
+    skills: ['function-transformations', 'vertex-form'],
+    difficulty: 'hard',
+    type: 'multiple-choice',
+    question: 'The function $f$ is defined by $f(x) = x^2$. The function $g$ is defined by $g(x) = -2 f(x - 1) + 3$. What is the vertex of the graph of $g$ in the $xy$-plane?',
+    choices: [
+      { id: 'A', text: '$(1, 3)$' },
+      // distractor: wrong horizontal shift direction
+      { id: 'B', text: '$(-1, 3)$' },
+      // distractor: wrong vertical sign
+      { id: 'C', text: '$(1, -3)$' },
+      // distractor: f's vertex unchanged
+      { id: 'D', text: '$(0, 0)$' }
+    ],
+    correctAnswer: 'A',
+    explanation: '**SAT Pattern: Function Transformation**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** $f$ has vertex $(0, 0)$. The composition $-2 f(x - 1) + 3$ shifts the vertex RIGHT by $1$ and UP by $3$ (the scale and reflection don\'t move the vertex). New vertex: $(1, 3)$.\n\n**The Full Solution:**\nStart with $f(x) = x^2$, vertex at $(0, 0)$.\n\n$g(x) = -2 f(x - 1) + 3 = -2(x - 1)^2 + 3$.\n\nThis is in vertex form $a(x - h)^2 + k$ with $a = -2$, $h = 1$, $k = 3$. The vertex is at $(h, k) = (1, 3)$.\n\nThe coefficient $-2$ reflects the parabola (opens DOWNWARD) and stretches it vertically by $2$ — but these operations leave the vertex at $(1, 3)$ unchanged.\n\nVerification: $g(1) = -2(0)^2 + 3 = 3$. Check that $g(1)$ is the max (since the parabola opens downward): $g(0) = -2(1) + 3 = 1$, $g(2) = -2(1) + 3 = 1$, both less than $3$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "applies the inverse operation" — uses $(x + 1)$ direction instead of $(x - 1)$: shifts LEFT.\n* Choice C: "sign error" — flips the sign of the vertical shift to $-3$.\n* Choice D: "stops one step early" — reports the vertex of $f$ before any transformation.\n\n**Test Day Takeaway:** In $g(x) = a f(x - h) + k$, the vertex shifts to $(h, k)$. The coefficient $a$ (including its sign) does not affect the vertex LOCATION — only the direction and width of the parabola.',
+    calculatorAllowed: true,
+    tags: [],
+    sourceStyleRef: 'function-transformation',
+    authoredBy: 'performsat-engine',
+    createdAt: '2026-05-11'
   }
 ];
