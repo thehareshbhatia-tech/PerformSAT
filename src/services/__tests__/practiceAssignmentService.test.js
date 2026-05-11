@@ -591,6 +591,97 @@ describe('buildDomainAdaptiveQueueSeed', () => {
     const seed = buildDomainAdaptiveQueueSeed({ enforcedDomain: 'geometry', seed: 'fallback', poolSize: 200 });
     expect(seed.poolIds.length).toBeGreaterThan(0);
   });
+
+  // ── Phase 2 parity: weakness-aware pattern biasing ─────────────────────
+  describe('Phase 2 weakness bias (missedPatterns)', () => {
+    test('exposes empty missedPatterns when no weaknesses are passed', () => {
+      const seed = buildDomainAdaptiveQueueSeed({
+        enforcedDomain: 'algebra',
+        seed: 'no-weak',
+      });
+      expect(seed.missedPatterns).toEqual([]);
+    });
+
+    test('surfaces missedPatterns from a single weakness in this domain', () => {
+      const seed = buildDomainAdaptiveQueueSeed({
+        enforcedDomain: 'algebra',
+        seed: 'weak-1',
+        weaknesses: [
+          {
+            skillId: 'slope-intercept-form',
+            domain: 'algebra',
+            section: 'math',
+            missedPatterns: ['reverse-percent'],
+          },
+        ],
+      });
+      expect(seed.missedPatterns).toContain('reverse-percent');
+    });
+
+    test('aggregates missedPatterns from multiple weaknesses (dedup)', () => {
+      const seed = buildDomainAdaptiveQueueSeed({
+        enforcedDomain: 'algebra',
+        seed: 'weak-2',
+        weaknesses: [
+          { skillId: 'a', domain: 'algebra', missedPatterns: ['reverse-percent', 'mean-from-list'] },
+          { skillId: 'b', domain: 'algebra', missedPatterns: ['reverse-percent'] }, // dup
+        ],
+      });
+      expect(seed.missedPatterns).toHaveLength(2);
+      expect(seed.missedPatterns).toEqual(expect.arrayContaining(['reverse-percent', 'mean-from-list']));
+    });
+
+    test('excludes weaknesses from a different domain', () => {
+      const seed = buildDomainAdaptiveQueueSeed({
+        enforcedDomain: 'algebra',
+        seed: 'weak-cross',
+        weaknesses: [
+          { skillId: 'a', domain: 'geometry', missedPatterns: ['right-triangle-pythagorean'] },
+          { skillId: 'b', domain: 'algebra', missedPatterns: ['reverse-percent'] },
+        ],
+      });
+      expect(seed.missedPatterns).toEqual(['reverse-percent']);
+    });
+
+    test('includes domain-less weaknesses (defensive — treat as in-domain)', () => {
+      const seed = buildDomainAdaptiveQueueSeed({
+        enforcedDomain: 'algebra',
+        seed: 'weak-nodom',
+        weaknesses: [{ skillId: 'a', missedPatterns: ['reverse-percent'] }],
+      });
+      expect(seed.missedPatterns).toEqual(['reverse-percent']);
+    });
+
+    test('falls through to plain shuffle when missedPatterns is empty array', () => {
+      const seedPlain = buildDomainAdaptiveQueueSeed({
+        enforcedDomain: 'algebra',
+        seed: 'fall-1',
+      });
+      const seedEmpty = buildDomainAdaptiveQueueSeed({
+        enforcedDomain: 'algebra',
+        seed: 'fall-1',
+        weaknesses: [{ skillId: 'a', missedPatterns: [] }],
+      });
+      // Same seed → same pool ordering when no bias kicks in
+      expect(seedEmpty.poolIds).toEqual(seedPlain.poolIds);
+    });
+
+    test('★REGRESSION★ — legacy callers (no weaknesses arg) get identical seed', () => {
+      // Critical: a caller that omits `weaknesses` must get byte-identical
+      // behavior from before this PR. Passing undefined === omitting.
+      const before = buildDomainAdaptiveQueueSeed({
+        enforcedDomain: 'algebra',
+        seed: 'legacy',
+      });
+      const withUndefined = buildDomainAdaptiveQueueSeed({
+        enforcedDomain: 'algebra',
+        seed: 'legacy',
+        weaknesses: undefined,
+      });
+      expect(withUndefined.poolIds).toEqual(before.poolIds);
+      expect(withUndefined.byDifficulty).toEqual(before.byDifficulty);
+    });
+  });
 });
 
 // ── normalizeDomain ──────────────────────────────────────────────────────────

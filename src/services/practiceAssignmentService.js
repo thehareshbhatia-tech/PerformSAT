@@ -14,7 +14,9 @@
 import {
   getQuestionsBySkillIds,
   getQuestionsByDomain,
+  getQuestionsBySatPatterns,
   getQuestionById as getMathQuestionById,
+  DRILL_ROUTING_THRESHOLDS,
 } from '../data/questions/bank';
 import { getQuestionById as getRWQuestionById } from '../data/questions/rwBank';
 
@@ -393,12 +395,22 @@ export function buildAdaptiveQueueSeed({
  * Build an adaptive queue seed focused on a single domain.
  * Domain questions fill first, then broader pool as fallback.
  * Deterministic, MCQ-only, same shape as buildAdaptiveQueueSeed.
+ *
+ * @param {Array} [opts.weaknesses] — optional weakness objects with
+ *   `missedPatterns` (Phase 2 routing). When provided, the seed BIASES
+ *   the pool toward pattern-matched items first (Tier 1 routing parity
+ *   with the assigned drill flow). Falls back to plain domain shuffle
+ *   when weaknesses don't include missedPatterns or pattern pools are
+ *   too thin. Filter your weaknesses array to math+domain BEFORE passing.
+ *   `getWeaknessesByDomain(plan, enforcedDomain)` would do this cleanly
+ *   but is currently implicit at the call site (App.jsx).
  */
 export function buildDomainAdaptiveQueueSeed({
   enforcedDomain,
   existingPoolIds = [],
   seed = '',
   poolSize = 60,
+  weaknesses = [],
 } = {}) {
   if (!enforcedDomain) return null;
 
@@ -406,11 +418,50 @@ export function buildDomainAdaptiveQueueSeed({
   const usedIds = new Set();
   let pool = [];
 
-  const domainCandidates = getQuestionsByDomain(enforcedDomain, { excludeIds: [] }).filter(isMCQGlobal);
-  const shuffled = seededShuffle(domainCandidates, numericSeed);
-  pool = shuffled.slice(0, poolSize);
-  pool.forEach(q => usedIds.add(q.id));
+  // ── Tier-1 BIAS (Phase 2 parity with AssignedPracticeShell) ──
+  // Collect missedPatterns from weaknesses, prefer items matching them
+  // at the FRONT of the pool. Only kicks in when the pattern pool meets
+  // the same TIER1_PATTERN threshold the cascade uses for assigned drills.
+  // Otherwise the pool falls through to plain domain shuffle below.
+  const missedPatterns = Array.isArray(weaknesses)
+    ? [...new Set(
+        weaknesses
+          .filter(w => w && (!w.domain || w.domain === enforcedDomain))
+          .flatMap(w => Array.isArray(w.missedPatterns) ? w.missedPatterns : []),
+      )]
+    : [];
 
+  if (missedPatterns.length > 0) {
+    const patternPool = getQuestionsBySatPatterns(missedPatterns, {
+      excludeIds: [],
+    }).filter(isMCQGlobal).filter(q => q.domain === enforcedDomain);
+    if (patternPool.length >= DRILL_ROUTING_THRESHOLDS.TIER1_PATTERN) {
+      const patternShuffled = seededShuffle(patternPool, numericSeed + 1);
+      // Reserve up to half the pool for pattern-matched items (caps the
+      // bias — student still gets domain breadth, not a single-pattern
+      // tunnel). The other half is plain-domain MCQs.
+      const patternQuota = Math.min(patternShuffled.length, Math.floor(poolSize / 2));
+      const patternPicks = patternShuffled.slice(0, patternQuota);
+      patternPicks.forEach(q => {
+        pool.push(q);
+        usedIds.add(q.id);
+      });
+    }
+  }
+
+  // ── Plain domain fill ──
+  const domainCandidates = getQuestionsByDomain(enforcedDomain, {
+    excludeIds: [...usedIds],
+  }).filter(isMCQGlobal);
+  const shuffled = seededShuffle(domainCandidates, numericSeed);
+  const remaining = poolSize - pool.length;
+  const domainBatch = shuffled.slice(0, remaining);
+  domainBatch.forEach(q => {
+    pool.push(q);
+    usedIds.add(q.id);
+  });
+
+  // ── Cross-domain fallback only when pool is still thin ──
   if (pool.length < 20) {
     for (const domain of DOMAIN_ORDER) {
       if (domain === enforcedDomain || pool.length >= poolSize) continue;
@@ -436,6 +487,10 @@ export function buildDomainAdaptiveQueueSeed({
     weakSkillIds: [],
     weakDomains: [enforcedDomain],
     enforcedDomain,
+    // Surface the missedPatterns the seed was biased toward, so the
+    // adaptive shell can show a "Practicing: <patterns>" chip (UI parity
+    // with AssignedPracticeShell).
+    missedPatterns,
     sessionLength: DEFAULT_SESSION_LENGTH,
     targetQuestions: DEFAULT_SESSION_LENGTH,
     minMasteryPercent: DEFAULT_MIN_MASTERY_PERCENT,

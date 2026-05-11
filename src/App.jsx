@@ -421,10 +421,20 @@ const PerformSAT = () => {
     let sessionState;
 
     if (resolvedDomain) {
+      // Phase 2 parity: pass math weaknesses so the seed can bias its pool
+      // toward currently-missed SAT Patterns within this domain (Tier-1
+      // routing for the adaptive flow, matching what AssignedPracticeShell
+      // already gets via getTargetedWeaknessSet). When the plan has no
+      // weaknesses or none have missedPatterns, the seed falls back to the
+      // plain domain shuffle — same behavior as before.
+      const planWeaknesses = Array.isArray(studyPlan?.weaknesses)
+        ? studyPlan.weaknesses.filter(w => w && (w.section ? w.section === 'math' : true))
+        : [];
       queueSeed = buildDomainAdaptiveQueueSeed({
         enforcedDomain: resolvedDomain,
         existingPoolIds: studyPlan?.adaptivePractice?.poolIds || [],
         seed: resolvedDomain + (studyPlan?.adaptivePractice?.createdAt || ''),
+        weaknesses: planWeaknesses,
       });
       if (!queueSeed?.poolIds?.length) return;
       sessionState = createAdaptiveSessionState(queueSeed);

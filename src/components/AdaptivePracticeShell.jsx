@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { MathText } from './MathText';
 import QuestionDiagram from './QuestionDiagrams';
 import QuestionRenderer from './QuestionRenderer';
 import SolutionExplanation from './SolutionExplanation';
+import { formatPatternLabel } from '../services/selectors/missedPatternLabel';
 
 const C = {
   brand: '#ea580c',
@@ -117,6 +118,17 @@ const AdaptivePracticeShell = ({
   const idx = practiceState.currentQuestionIndex;
   const totalServed = questions.length;
   const diffBadge = currentQuestion?.difficulty ? getDifficultyBadge(currentQuestion.difficulty) : null;
+
+  // Phase 2 parity with AssignedPracticeShell: when the adaptive seed was
+  // biased toward specific SAT Patterns (from studyPlan weaknesses with
+  // missedPatterns in this domain), surface the first one as a chip so
+  // students see WHY the pool is targeted. Falls back to no chip on
+  // legacy seeds or domain-only sessions with no weaknesses.
+  const drillPatternLabel = useMemo(() => {
+    const patterns = practiceState?.adaptiveQueueSeed?.missedPatterns;
+    if (!Array.isArray(patterns) || patterns.length === 0) return null;
+    return formatPatternLabel(patterns[0]);
+  }, [practiceState?.adaptiveQueueSeed?.missedPatterns]);
 
   const currentElimKey = `${idx}`;
   const eliminated = eliminatedChoices[currentElimKey] || [];
@@ -272,7 +284,27 @@ const AdaptivePracticeShell = ({
           }}>
             ← Exit
           </button>
-          <span style={{ fontSize: '15px', fontWeight: '600' }}>{headerTitle}</span>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+            <span style={{ fontSize: '15px', fontWeight: '600' }}>{headerTitle}</span>
+            {drillPatternLabel && (
+              <span
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  fontSize: '11px',
+                  fontWeight: '600',
+                  color: 'rgba(255,255,255,0.7)',
+                  letterSpacing: '0.02em',
+                  textTransform: 'uppercase',
+                }}
+                title="The adaptive pool is biased toward this SAT Pattern based on your study plan."
+              >
+                <span aria-hidden="true">🎯</span>
+                Practicing: {drillPatternLabel}
+              </span>
+            )}
+          </div>
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
