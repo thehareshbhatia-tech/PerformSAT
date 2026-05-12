@@ -1282,32 +1282,12 @@ export const advancedMathBank = [
     authoredBy: 'performsat-engine',
     createdAt: '2026-02-28',
   },
-  {
-    id: 'bank-am-059',
-    domain: 'advanced-math',
-    skills: ['distributive-property'],
-    difficulty: 'hard',
-    type: 'multiple-choice',
-    question: 'Which expression is equivalent to $(x + 2)^3$?',
-    choices: [
-      { id: 'A', text: '$x^3 + 6x^2 + 12x + 8$' },
-      // distractor: applies sum-of-cubes incorrectly
-      { id: 'B', text: '$x^3 + 8$' },
-      // distractor: uses wrong binomial coefficients
-      { id: 'C', text: '$x^3 + 2x^2 + 4x + 8$' },
-      // distractor: swaps middle coefficients
-      { id: 'D', text: '$x^3 + 4x^2 + 6x + 8$' },
-    ],
-    correctAnswer: 'A',
-    explanation: '**SAT Pattern: Cube of Binomial**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** $(x + 2)^3 = x^3 + 3(x^2)(2) + 3(x)(4) + 8 = x^3 + 6x^2 + 12x + 8$. (Binomial expansion with coefficients $1, 3, 3, 1$.)\n\n**The Full Solution:**\nBinomial formula for cubes: $(a + b)^3 = a^3 + 3a^2 b + 3a b^2 + b^3$.\nWith $a = x$ and $b = 2$:\n$(x + 2)^3 = x^3 + 3(x)^2(2) + 3(x)(2)^2 + (2)^3 = x^3 + 6x^2 + 12x + 8$.\n\nAlternatively: $(x + 2)^3 = (x + 2)(x + 2)^2 = (x + 2)(x^2 + 4x + 4) = x^3 + 4x^2 + 4x + 2x^2 + 8x + 8 = x^3 + 6x^2 + 12x + 8$.\n\nVerification: at $x = 1$: $(1 + 2)^3 = 27$. Standard: $1 + 6 + 12 + 8 = 27$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong formula" — applies $a^3 + b^3$ instead of $(a + b)^3$.\n* Choice C: "wrong base" — uses coefficients $1, 2, 4, 1$ instead of $1, 3, 3, 1$.\n* Choice D: "off-by-one" — swaps coefficients.\n\n**Test Day Takeaway:** $(a + b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$. The middle coefficients are BOTH $3$. Don\'t confuse with $a^3 + b^3$, which is a different identity.',
-    calculatorAllowed: true,
-    tags: [],
-    sourceStyleRef: 'cube-expansion',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
-  },
-
-  // ── combining-like-terms (4 questions) ────────────────────────────
+  { id: 'bank-am-059', domain: 'advanced-math', skills: ['distributive-property'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'For all values of $x$, the equation $(x + 2)^3 = ax^3 + bx^2 + cx + d$ is true, where $a$, $b$, $c$, and $d$ are constants. What is the value of $a - b + c - d$?',
+    choices: [{ id: 'A', text: '$-27$' }, { id: 'B', text: '$-1$' }, { id: 'C', text: '$1$' }, { id: 'D', text: '$27$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Alternating-Sign Coefficient Sum via $f(-1)$**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Let $f(x) = ax^3 + bx^2 + cx + d$. Then $f(-1) = a(-1)^3 + b(-1)^2 + c(-1) + d = -a + b - c + d$, so $a - b + c - d = -f(-1)$. Since $f(x) = (x + 2)^3$, $f(-1) = (-1 + 2)^3 = 1$, and $a - b + c - d = -1$.\n\n**The Full Solution:**\nMethod 1 (substitution shortcut):\n$f(-1) = -a + b - c + d$, so $-f(-1) = a - b + c - d$.\nCompute directly: $f(-1) = (-1 + 2)^3 = 1^3 = 1$.\nTherefore $a - b + c - d = -1$.\n\nMethod 2 (full expansion):\n$(x + 2)^3 = x^3 + 6x^2 + 12x + 8$, so $a = 1$, $b = 6$, $c = 12$, $d = 8$.\n$a - b + c - d = 1 - 6 + 12 - 8 = -1$.\n\nVerification: $-1 = -(1)^3 = -f(-1)$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-27$): computes $-(1 + 2)^3 = -27$ — substitutes $x = 1$ (gives $a + b + c + d$, not the alternating sign) and then sign-flips.\n* Choice B ($-1$): correct.\n* Choice C ($1$): correctly identifies $f(-1) = 1$ but forgets to negate ($f(-1)$ gives $-a + b - c + d$, not $a - b + c - d$).\n* Choice D ($27$): computes $(1 + 2)^3 = 27$ — substitutes $x = 1$, gives $a + b + c + d$ instead.\n\n**Test Day Takeaway:** For 'sum of coefficients' style questions, plug in $x = 1$ to get $a + b + c + d = f(1)$. For 'alternating-sign sum', plug in $x = -1$ to get $-a + b - c + d = f(-1)$. Watch the sign relationship between $f(-1)$ and the specific alternating combination the question asks for.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'cube-of-binomial', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
   { id: 'bank-am-060', domain: 'advanced-math', skills: ['combining-like-terms'], difficulty: 'easy', type: 'multiple-choice',
     question: 'Which of the following expressions is equivalent to $7x^2 - 3x + 4x^2 + 9x - 2$?',
     choices: [{ id: 'A', text: '$3x^2 + 6x - 2$' }, { id: 'B', text: '$11x^2 - 12x - 2$' }, { id: 'C', text: '$11x^2 + 6x - 2$' }, { id: 'D', text: '$11x^4 + 6x - 2$' }],
