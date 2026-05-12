@@ -261,6 +261,41 @@ When the user's request matches a /skill, invoke it with the Skill tool first in
 - "design audit", "visual polish" → invoke `/design-review`
 - "plan review", "is this plan good" → invoke `/plan-eng-review` or `/autoplan`
 - "what did we ship", "weekly retro" → invoke `/retro`
-- "checkpoint", "where was I" → invoke `/checkpoint`
+- "save progress", "checkpoint this" → invoke `/context-save` (formerly `/checkpoint`; renamed in gstack v1.1.3.0 because Claude Code now reserves `/checkpoint` as a native rewind alias)
+- "resume", "where was I", "pick up where I left off" → invoke `/context-restore` (formerly `/checkpoint resume`)
 
 Anything not on this list, just answer — don't force a skill match.
+
+## GBrain Configuration (configured by /setup-gbrain)
+- Mode: local-stdio
+- Engine: pglite
+- Config file: ~/.gbrain/config.json (mode 0600)
+- Setup date: 2026-05-12
+- MCP registered: yes (user scope, restart Claude Code to see `mcp__gbrain__*` tools)
+- Artifacts sync: off (deferred — set up later with `/setup-gbrain` if cross-machine sync becomes useful)
+- Current repo policy: read-write
+- Embeddings: disabled (no OPENAI_API_KEY); keyword search works, semantic `gbrain query` degraded until you run `OPENAI_API_KEY=... gbrain embed --stale`
+
+## GBrain Search Guidance (configured by /sync-gbrain)
+<!-- gstack-gbrain-search-guidance:start -->
+
+GBrain is set up locally (PGLite) and synced on this machine. 108 pages indexed: 74 markdown (docs/, CHANGELOG, READMEs), 25 prior session transcripts, 5 design-docs, 3 timelines, 1 learnings file. The agent should prefer gbrain over Grep when the question is semantic, when you don't know the exact identifier yet, or when you want prior session context.
+
+Prefer gbrain when:
+- "Where is X handled?" / semantic intent, no exact string yet:
+    `gbrain search "<terms>"` (keyword, works today)
+    `gbrain query "<question>"` (hybrid, needs embeddings — currently degraded)
+- "What did we decide last time?" / past plans, retros, learnings:
+    `gbrain search "<terms>"` against the brain corpus
+- "What was I working on when X?":
+    `gbrain search "<topic>"` finds matching session transcripts
+- "Show me the drill routing plan":
+    `gbrain get docs/drill_routing_plan`
+
+Grep is still right for known exact strings, regex, multiline patterns, and file globs in source code (gbrain 0.18.2 doesn't yet index source code by symbol — only markdown + transcripts).
+
+The brain auto-syncs incrementally on every gstack skill start. Run `/sync-gbrain` to force-refresh, `/sync-gbrain --full` for full reindex.
+
+Restart Claude Code (this session won't see the new MCP) to use `mcp__gbrain__*` tools directly instead of shelling out to `gbrain`.
+
+<!-- gstack-gbrain-search-guidance:end -->
