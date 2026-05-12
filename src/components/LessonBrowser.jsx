@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { colors, typography, spacing, radius, shadows, transitions, breakpoints } from '../design/tokens';
-import { cardStyles, inputStyles, badgeStyles } from '../design/components';
+import { buttonStyles, cardStyles, inputStyles, badgeStyles } from '../design/components';
 import { injectAnimations } from '../design/animations';
 import { Button } from './ui/Button';
 
