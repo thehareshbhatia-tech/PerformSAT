@@ -71,8 +71,10 @@ const PATTERN_ALIASES = Object.freeze({
   'pythagorean-theorem-5-12-13': 'pythagorean-triple-recognition',
   'pythagorean-theorem-5-12-13-triple': 'pythagorean-triple-recognition',
   'pythagorean-theorem-5-12-13-family': 'pythagorean-triple-recognition',
+  'pythagorean-theorem-3-4-5-family': 'pythagorean-triple-recognition',
   'pythagorean-theorem-6-8-10-2x-3-4-5': 'pythagorean-triple-recognition',
   'pythagorean-theorem-multiple-of-3-4-5': 'pythagorean-triple-recognition',
+  'perimeter-of-a-right-triangle-3-4-5': 'pythagorean-triple-recognition',
 
   // Trig — short form, same method
   'soh-cah-toa': 'right-triangle-trig-ratios',
@@ -81,6 +83,8 @@ const PATTERN_ALIASES = Object.freeze({
   // ratios. With a 5-12-13 or 9-40-41 triangle, students who know the triples
   // can read off sin/cos/tan from memory without recomputing via Pythagorean.
   'soh-cah-toa-in-a-5-12-13-triangle': 'trig-ratio-with-known-triple',
+  'soh-cah-toa-in-a-3-4-5-triangle': 'trig-ratio-with-known-triple',
+  'soh-cah-toa-in-an-8-15-17-triangle': 'trig-ratio-with-known-triple',
   'soh-cah-toa-tangent-in-a-9-40-41-triangle': 'trig-ratio-with-known-triple',
 
   // Trig with perimeter constraint — DISTINCT METHOD. Given the perimeter
