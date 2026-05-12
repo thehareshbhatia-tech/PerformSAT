@@ -23,6 +23,9 @@ import StudyPlanDashboard from './components/StudyPlanDashboard';
 import AdaptivePracticeShell from './components/AdaptivePracticeShell';
 import AssignedPracticeShell from './components/AssignedPracticeShell';
 import DiagnosticReport from './components/DiagnosticReport';
+import LearnWorkspace from './components/learn/LearnWorkspace';
+import LessonBrowser from './components/LessonBrowser';
+import { allLessons } from './data/lessons';
 import PastTestReviewIndex from './components/PastTestReview/PastTestReviewIndex';
 import TestReviewDetail from './components/PastTestReview/TestReviewDetail';
 import ReviewItemCard from './components/PastTestReview/ReviewItemCard';
@@ -255,7 +258,7 @@ const PerformSAT = () => {
   }, [showCalculator]);
 
   const { user, loading, logout, updateTestDate, updateTargetScore, updateCurrentScore, updateTargetSchools } = useAuth();
-  const { completedLessons, practiceProgress, reviewQueue, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, recordPracticeAttempt, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete } = useProgress(user?.uid);
+  const { completedLessons, practiceProgress, reviewQueue, skillProgress, answeredQuestionIds, practiceTestResults, inProgressTests, studyPlan, studyPlanMeta, studyPlanArtifact, predictionLog, recordPracticeAttempt, hasPracticed, getBestScore, getDueCount, getReviewStatistics, getSkillDiagnosticSummary, getSkillBreakdown, recordPracticeTestAttempt, getTestBestScore, getTestAttempts, saveTestProgress, clearTestProgress, getTestProgress, hasTestProgress, saveStudyPlan, markStudyActivityComplete, unmarkStudyActivityComplete, markLessonComplete, isLessonCompleted, getModuleProgress } = useProgress(user?.uid);
 
   // Adaptive study plan pipeline: fast path (deterministic) + slow path (AI)
   const handleSaveStudyPlan = async (deterministicPlan, diagnosticReport) => {
@@ -1134,6 +1137,7 @@ const PerformSAT = () => {
         currentView={view}
         onNavigate={(navId) => {
           if (navId === 'dashboard') { setView('dashboard'); setActiveModule(null); setActiveLesson(null); }
+          else if (navId === 'modules') { setView('modules'); setActiveModule(null); setActiveLesson(null); }
           else if (navId === 'practiceTests') { setView('practiceTests'); setSelectedPracticeTest(null); }
           else if (navId === 'studyPlan') { setView('studyPlan'); }
           else if (navId === 'tutor') { setView('tutor'); setShowAiTutor(true); }
@@ -1142,13 +1146,13 @@ const PerformSAT = () => {
         }}
         user={user}
         onLogout={logout}
-        hideNav={view === 'takingTest' || view === 'reviewingPastResults' || view === 'practice'}
+        hideNav={view === 'takingTest' || view === 'reviewingPastResults' || view === 'practice' || view === 'learn'}
       >
       {/* Main Content */}
       <div id="main-content" style={{
-        maxWidth: view === 'takingTest' || view === 'reviewingPastResults' || view === 'practice' || view === 'dashboard' ? '100%' : (view === 'practiceTests' || view === 'studyPlan') ? '960px' : '800px',
+        maxWidth: view === 'takingTest' || view === 'reviewingPastResults' || view === 'practice' || view === 'dashboard' || view === 'learn' || view === 'modules' ? '100%' : (view === 'practiceTests' || view === 'studyPlan') ? '960px' : '800px',
         margin: '0 auto',
-        padding: (view === 'dashboard' || view === 'reviewingPastResults' || view === 'practice' || view === 'takingTest') ? '0' : '32px 32px 100px',
+        padding: (view === 'dashboard' || view === 'reviewingPastResults' || view === 'practice' || view === 'takingTest' || view === 'learn') ? '0' : '32px 32px 100px',
         ...(view === 'takingTest' ? { overflow: 'hidden', height: '100vh' } : {})
       }}>
         {/* Standalone AI Tutor View */}
@@ -1186,6 +1190,66 @@ const PerformSAT = () => {
             skillProgress={skillProgress}
           />
         )}
+
+        {/* Learn — Module Catalog View */}
+        {view === 'modules' && (
+          <LessonBrowser
+            completedLessons={completedLessons}
+            skillProgress={skillProgress}
+            onSelectModule={(moduleId) => {
+              const lessons = allLessons[moduleId] || [];
+              setActiveModule(moduleId);
+              setActiveLesson(lessons[0]?.id || null);
+              setView('learn');
+            }}
+          />
+        )}
+
+        {/* Learn — Lesson Workspace View */}
+        {view === 'learn' && activeModule && (() => {
+          const moduleLessons = allLessons[activeModule] || [];
+          const currentLesson = moduleLessons.find(l => l.id === activeLesson) || moduleLessons[0] || null;
+          // Find module title from LessonBrowser's MODULES if available; fall back to id.
+          const moduleTitleMap = {
+            'linear-equations': 'Linear Equations',
+            'functions': 'Functions',
+            'systems': 'System of Equations',
+            'transformations': 'Transformations',
+            'exponents': 'Exponents & Exponential Functions',
+            'percents': 'Percents',
+            'equivalent-expressions': 'Equivalent Expressions',
+            'quadratics': 'Quadratic Functions & Equations',
+            'radians-degrees': 'Radians & Degrees',
+            'triangles': 'Triangles',
+            'circles': 'Circles',
+            'volume': 'Volume',
+            'statistics': 'Statistics',
+            'dimensional-analysis': 'Dimensional Analysis',
+          };
+          const moduleTitle = moduleTitleMap[activeModule] || activeModule;
+          const moduleProgress = getModuleProgress
+            ? getModuleProgress(activeModule, moduleLessons.length)
+            : 0;
+          return (
+            <LearnWorkspace
+              moduleId={activeModule}
+              moduleLessons={moduleLessons}
+              moduleTitle={moduleTitle}
+              activeLessonId={currentLesson?.id || null}
+              currentLesson={currentLesson}
+              onSelectLesson={(lessonId) => setActiveLesson(lessonId)}
+              onBack={() => { setView('modules'); setActiveLesson(null); }}
+              onMarkComplete={(modId, lessonId) => {
+                if (markLessonComplete) markLessonComplete(modId, lessonId, currentLesson);
+              }}
+              isLessonCompleted={isLessonCompleted || (() => false)}
+              moduleProgress={moduleProgress}
+              renderLessonContent={() => null}
+              videoTranscript=""
+              videoTimestamp={0}
+            />
+          );
+        })()}
 
         {/* Student Dashboard View */}
         {view === 'dashboard' && (
