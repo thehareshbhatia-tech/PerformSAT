@@ -35,39 +35,124 @@ const BANK_DIR = path.join(REPO_ROOT, 'src/data/questions/bank');
 const QBANK_PATH = path.join(REPO_ROOT, 'scripts/generated/cbEducatorQBank.json');
 const OUTPUT_PATH = path.join(REPO_ROOT, 'scripts/generated/bank-quality-scores.jsonl');
 
-// Skill → CB skill_desc mapping (subset of calibrateModule.mjs::SKILL_TO_CB)
+// Skill → CB skill_desc mapping. Each bank skill maps to one or more
+// College Board skill categories. Items whose skills all miss this map
+// get SKIP'd by the grader for lack of anchors. The set of CB categories
+// is fixed (see cbEducatorQBank.json). Keep this map in sync with
+// scripts/calibrateModule.mjs::SKILL_TO_CB.
 const SKILL_TO_CB = {
+  // Linear equations in one variable
   'combining-like-terms': ['Linear equations in one variable'],
   'distributive-property': ['Linear equations in one variable', 'Equivalent expressions'],
-  'function-notation': ['Linear functions'],
-  'function-composition': ['Nonlinear functions'],
-  'word-problem-to-equation': ['Linear equations in one variable', 'Linear equations in two variables'],
-  'system-solution-types': ['Systems of two linear equations in two variables'],
+  'absolute-value': ['Linear equations in one variable'],
+  'infinite-solutions-condition': ['Linear equations in one variable', 'Equivalent expressions'],
+
+  // Linear equations in two variables
   'perpendicular-negative-reciprocal': ['Linear equations in two variables'],
   'writing-parallel-equation': ['Linear equations in two variables'],
-  'circle-equation': ['Circles'],
-  'soh-cah-toa': ['Right triangles and trigonometry'],
-  'triangle-area': ['Area and volume'],
-  'volume-prism': ['Area and volume'],
-  'triangle-angle-sum': ['Lines, angles, and triangles'],
-  'pythagorean-theorem': ['Right triangles and trigonometry'],
-  'percent-of-value': ['Percentages'],
-  'percent-change': ['Percentages'],
-  'probability-basics': ['Probability and conditional probability'],
-  'conditional-probability': ['Probability and conditional probability'],
-  'calculate-mean': ['One-variable data: Distributions and measures of center and spread'],
-  'exponential-growth-decay': ['Nonlinear functions'],
-  'quadratic-factoring': ['Equivalent expressions', 'Nonlinear equations in one variable and systems of equations in two variables'],
-  'converting-quadratic-forms': ['Equivalent expressions'],
-  'absolute-value': ['Linear equations in one variable'],
+  'writing-perpendicular-equation': ['Linear equations in two variables'],
+  'parallel-line-slope': ['Linear equations in two variables'],
+  'slope-intercept-form': ['Linear equations in two variables', 'Linear functions'],
+  'slope-from-points': ['Linear equations in two variables', 'Linear functions'],
+  'table-to-equation': ['Linear equations in two variables', 'Linear functions'],
+  'word-problem-to-equation': ['Linear equations in one variable', 'Linear equations in two variables'],
+
+  // Linear functions
+  'function-notation': ['Linear functions'],
+  'function-evaluation': ['Linear functions', 'Nonlinear functions'],
+  'finding-function-from-conditions': ['Linear functions', 'Nonlinear functions'],
+
+  // Systems of two linear equations in two variables
+  'system-solution-types': ['Systems of two linear equations in two variables'],
   'elimination-method': ['Systems of two linear equations in two variables'],
   'setting-up-systems': ['Systems of two linear equations in two variables'],
-  'unit-conversion': ['Ratios, rates, proportional relationships, and units'],
-  'tangent-lines': ['Circles'],
+  'substitution-method': ['Systems of two linear equations in two variables'],
+  'graphing-systems': ['Systems of two linear equations in two variables'],
+
+  // Equivalent expressions
+  'quadratic-factoring': ['Equivalent expressions', 'Nonlinear equations in one variable and systems of equations in two variables'],
+  'converting-quadratic-forms': ['Equivalent expressions'],
   'roots-from-factors': ['Equivalent expressions'],
   'exponent-laws': ['Equivalent expressions'],
   'difference-of-squares': ['Equivalent expressions'],
   'perfect-square-trinomial': ['Equivalent expressions'],
+  'simplifying-rational-expressions': ['Equivalent expressions'],
+  'comparing-exponentials': ['Equivalent expressions', 'Nonlinear functions'],
+  'domain-restrictions': ['Equivalent expressions', 'Nonlinear functions'],
+  'zero-negative-exponents': ['Equivalent expressions'],
+  'finding-roots-factoring': ['Equivalent expressions', 'Nonlinear equations in one variable and systems of equations in two variables'],
+  'identify-quadratic': ['Equivalent expressions', 'Nonlinear functions'],
+
+  // Nonlinear equations in one variable and systems
+  'discriminant-analysis': ['Nonlinear equations in one variable and systems of equations in two variables', 'Equivalent expressions'],
+  'vertex-formula': ['Nonlinear equations in one variable and systems of equations in two variables', 'Nonlinear functions'],
+
+  // Nonlinear functions
+  'function-composition': ['Nonlinear functions'],
+  'exponential-growth-decay': ['Nonlinear functions'],
+  'function-transformations': ['Nonlinear functions'],
+  'exponential-y-intercept': ['Nonlinear functions'],
+  'vertex-form': ['Nonlinear functions', 'Equivalent expressions'],
+  'parabola-direction': ['Nonlinear functions', 'Equivalent expressions'],
+
+  // Circles
+  'circle-equation': ['Circles'],
+  'tangent-lines': ['Circles'],
+  'circle-area': ['Circles', 'Area and volume'],
+  'circle-parts': ['Circles'],
+  'completing-square-circles': ['Circles', 'Equivalent expressions'],
+  'circumference': ['Circles'],
+  'sector-area': ['Circles'],
+  'arc-length': ['Circles'],
+
+  // Right triangles and trigonometry
+  'soh-cah-toa': ['Right triangles and trigonometry'],
+  'pythagorean-theorem': ['Right triangles and trigonometry'],
+  'special-right-triangles': ['Right triangles and trigonometry'],
+  'degrees-to-radians': ['Right triangles and trigonometry'],
+  'radians-to-degrees': ['Right triangles and trigonometry'],
+  'radian-measure-understanding': ['Right triangles and trigonometry'],
+
+  // Area and volume
+  'triangle-area': ['Area and volume'],
+  'volume-prism': ['Area and volume'],
+  'volume-pyramid-cone': ['Area and volume'],
+  'volume-sphere': ['Area and volume'],
+  'volume-scaling': ['Area and volume'],
+  'squared-cubed-units': ['Area and volume', 'Ratios, rates, proportional relationships, and units'],
+
+  // Lines, angles, and triangles
+  'triangle-angle-sum': ['Lines, angles, and triangles'],
+  'triangle-inequality': ['Lines, angles, and triangles'],
+  'triangle-types': ['Lines, angles, and triangles'],
+  'similar-triangles': ['Lines, angles, and triangles', 'Right triangles and trigonometry'],
+
+  // Probability and conditional probability
+  'probability-basics': ['Probability and conditional probability'],
+  'conditional-probability': ['Probability and conditional probability'],
+  'two-way-table': ['Probability and conditional probability'],
+
+  // One-variable data
+  'calculate-mean': ['One-variable data: Distributions and measures of center and spread'],
+  'find-median': ['One-variable data: Distributions and measures of center and spread'],
+  'find-mode': ['One-variable data: Distributions and measures of center and spread'],
+  'range-calculation': ['One-variable data: Distributions and measures of center and spread'],
+  'standard-deviation-concept': ['One-variable data: Distributions and measures of center and spread'],
+  'weighted-mean': ['One-variable data: Distributions and measures of center and spread'],
+
+  // Percentages
+  'percent-of-value': ['Percentages'],
+  'percent-change': ['Percentages'],
+  'percent-decimal-conversion': ['Percentages'],
+  'percent-word-problems': ['Percentages'],
+  'successive-percent-change': ['Percentages'],
+
+  // Ratios, rates, proportional relationships, and units
+  'unit-conversion': ['Ratios, rates, proportional relationships, and units'],
+  'rate-conversion': ['Ratios, rates, proportional relationships, and units'],
+
+  // Margin of error / Inference from sample statistics
+  'margin-of-error': ['Inference from sample statistics and margin of error'],
 };
 
 // CLI parsing
@@ -76,10 +161,13 @@ function parseArgs() {
   const idsArg = args.find(a => a.startsWith('--ids='));
   const sampleArg = args.find(a => a.startsWith('--sample='));
   const skillArg = args.find(a => a.startsWith('--skill='));
+  const seedArg = args.find(a => a.startsWith('--seed='));
   const ids = idsArg ? idsArg.split('=')[1].split(',') : null;
   const sampleCount = sampleArg ? parseInt(sampleArg.split('=')[1], 10) : null;
   const skill = skillArg ? skillArg.split('=')[1] : null;
-  return { ids, sampleCount, skill };
+  // `--seed=N` is reproducible; omit for a time-based seed (default).
+  const seed = seedArg ? parseInt(seedArg.split('=')[1], 10) : Date.now() & 0x7fffffff;
+  return { ids, sampleCount, skill, seed };
 }
 
 async function loadBank() {
@@ -288,7 +376,7 @@ function extractJson(output) {
 }
 
 async function main() {
-  const { ids, sampleCount, skill } = parseArgs();
+  const { ids, sampleCount, skill, seed } = parseArgs();
   const bank = await loadBank();
   const qbankBySkill = await loadQBank();
 
@@ -299,10 +387,19 @@ async function main() {
   } else if (skill) {
     targets = bank.filter(i => (i.skills || []).includes(skill));
   } else if (sampleCount) {
-    // Random sample with seed
-    const seed = 42;
+    // Fisher-Yates shuffle with a seedable LCG. The previous
+    // implementation used `sort((a, b) => rand() - 0.5)`, which is a
+    // biased shuffle (some permutations are over-represented) and
+    // hard-coded seed=42, so consecutive `--sample=N` runs returned
+    // the same items by coincidence of seed.
     const rand = (() => { let s = seed; return () => (s = (s * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff; })();
-    targets = [...bank].sort(() => rand() - 0.5).slice(0, sampleCount);
+    const shuffled = [...bank];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(rand() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    targets = shuffled.slice(0, sampleCount);
+    console.log(`(seed=${seed} — pass --seed=${seed} to reproduce this sample)`);
   } else {
     console.log('Usage: --ids=... | --sample=N | --skill=...');
     process.exit(1);
