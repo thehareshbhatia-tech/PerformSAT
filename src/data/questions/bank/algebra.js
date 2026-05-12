@@ -4789,5 +4789,105 @@ export const algebraBank = [
   { id: 'bank-alg-319', domain: 'algebra', skills: ['combining-like-terms'], difficulty: 'hard', type: 'fill-in',
     question: 'What is the coefficient of $x^2$ in the simplification of $3(x^2 - 2x) - 2(x^2 + 4)$?', correctAnswer: '1',
     explanation: '**SAT Pattern: Combining Like Terms**\n\nThe correct answer is $1$. $3x^2 - 2x^2 = x^2$.',
-    calculatorAllowed: false, tags: [], sourceStyleRef: 'combining-like-terms', authoredBy: 'performsat-engine', createdAt: '2026-05-11' }
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'combining-like-terms', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
+
+  // ─── SOLVE FOR INPUT FROM OUTPUT (bank-alg-320..326) ──────────────────────
+  // Granularity principle: inverse evaluation (given f(a)=c, find a) is a
+  // DISTINCT method from direct evaluation. Items pin "solve an equation"
+  // not "substitute and compute."
+  { id: 'bank-alg-320', domain: 'algebra', skills: ['function-notation'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'If $f(x) = 2x + 5$, what is the value of $x$ when $f(x) = 13$?',
+    choices: [{ id: 'A', text: '$4$' }, { id: 'B', text: '$9$' }, { id: 'C', text: '$13$' }, { id: 'D', text: '$31$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Solve for Input from Output**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Set $2x + 5 = 13 \\Rightarrow 2x = 8 \\Rightarrow x = 4$.\n\n**The Full Solution:**\nThis is the INVERSE of direct evaluation. Instead of plugging $x$ in to get $f(x)$, set the output expression equal to the given value and SOLVE for $x$:\n$f(x) = 13$ becomes $2x + 5 = 13$.\nSubtract $5$: $2x = 8$. Divide by $2$: $x = 4$.\n\nVerification: $f(4) = 2(4) + 5 = 13$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B: confuses input with output — gives $f(2)$.\n* C: returns the given output value without solving.\n* D: $13 \\cdot 2 + 5$ (wrong direction).\n\n**Test Day Takeaway:** \"What is $x$ when $f(x) = c$\" means SOLVE an equation. Direction matters: input → output (substitute) vs output → input (solve).",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'solve-for-input-from-output', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-alg-321', domain: 'algebra', skills: ['function-notation'], difficulty: 'easy', type: 'fill-in',
+    question: 'If $g(x) = 3x - 7$ and $g(a) = 8$, what is the value of $a$?',
+    correctAnswer: '5',
+    explanation: "**SAT Pattern: Solve for Input from Output**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~10s):** $3a - 7 = 8 \\Rightarrow 3a = 15 \\Rightarrow a = 5$.\n\n**The Full Solution:**\nThe notation $g(a) = 8$ means: input is $a$, output is $8$.\nSubstitute and solve: $3a - 7 = 8$. Add $7$: $3a = 15$. Divide by $3$: $a = 5$.\n\nVerification: $g(5) = 3(5) - 7 = 8$ \\checkmark.\n\n**Common Mistakes:** Reporting $8$ (the output, not the input); reporting $3$ (subtracts $7$ from $8$ without dividing); reporting $1$ ($8-7=1$, ignores the $3$).\n\n**Test Day Takeaway:** $g(a) = c$ is an equation in $a$. Solve it like any other linear equation.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'solve-for-input-from-output', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-alg-322', domain: 'algebra', skills: ['function-notation'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'If $f(x) = -4x + 12$ and $f(a) = -8$, what is the value of $a$?',
+    choices: [{ id: 'A', text: '$5$' }, { id: 'B', text: '$-5$' }, { id: 'C', text: '$1$' }, { id: 'D', text: '$-1$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Solve for Input from Output**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $-4a + 12 = -8 \\Rightarrow -4a = -20 \\Rightarrow a = 5$.\n\n**The Full Solution:**\nSet $f(a) = -8$: $-4a + 12 = -8$.\nSubtract $12$: $-4a = -20$. Divide by $-4$: $a = 5$.\n\nVerification: $f(5) = -4(5) + 12 = -8$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B: sign error on the division.\n* C: arithmetic from a wrong setup.\n* D: drops the sign and divides incorrectly.\n\n**Test Day Takeaway:** Negative coefficients flip sign on division. Track signs at every step.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'solve-for-input-from-output', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-alg-323', domain: 'algebra', skills: ['function-notation'], difficulty: 'medium', type: 'fill-in',
+    question: 'A tank drains according to $V(t) = 240 - 12t$, where $V$ is the volume in gallons remaining after $t$ minutes. At what time, in minutes, does the volume reach $60$ gallons?',
+    correctAnswer: '15',
+    explanation: "**SAT Pattern: Solve for Input from Output**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~10s):** $240 - 12t = 60 \\Rightarrow 12t = 180 \\Rightarrow t = 15$.\n\n**The Full Solution:**\nThe question asks for the TIME ($t$, input) at which volume ($V$, output) equals $60$.\nSet $V(t) = 60$: $240 - 12t = 60$.\nSubtract $240$: $-12t = -180$. Divide by $-12$: $t = 15$.\n\nVerification: $V(15) = 240 - 180 = 60$ \\checkmark.\n\n**Common Mistakes:** Reporting $60$ (the output); reporting $180$ (stops before dividing); reporting $20$ ($240/12$ as a shortcut).\n\n**Test Day Takeaway:** In word problems, identify which variable is INPUT and which is OUTPUT. \"When does $V$ equal X\" means \"find $t$.\"",
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'solve-for-input-from-output', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-alg-324', domain: 'algebra', skills: ['function-notation'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'The table shows three values of a linear function $f$.\n\n| $x$ | $f(x)$ |\n|---|---|\n| $-2$ | $-7$ |\n| $1$ | $5$ |\n| $4$ | $17$ |\n\nFor what value of $x$ does $f(x) = 29$?',
+    choices: [{ id: 'A', text: '$7$' }, { id: 'B', text: '$8$' }, { id: 'C', text: '$29$' }, { id: 'D', text: '$12$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Solve for Input from Output**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Slope $= (5 - (-7))/(1 - (-2)) = 12/3 = 4$. With point $(1, 5)$: $f(x) = 4x + 1$. Set $4x + 1 = 29 \\Rightarrow x = 7$.\n\n**The Full Solution:**\nStep 1: Recover the function. Slope $= \\frac{5 - (-7)}{1 - (-2)} = 4$. Using $(1, 5)$: $5 = 4(1) + b \\Rightarrow b = 1$. So $f(x) = 4x + 1$.\nStep 2: Solve $4x + 1 = 29 \\Rightarrow x = 7$.\n\nVerification: $f(7) = 4(7) + 1 = 29$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B: extends the table by $+1$ per step (wrong increment).\n* C: returns the output.\n* D: arithmetic slip.\n\n**Test Day Takeaway:** From a table of a linear function: slope first, intercept second, then solve for the requested input.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'solve-for-input-from-output', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-alg-325', domain: 'algebra', skills: ['function-notation'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'If $f(x) = x^2 - 9$ and $f(a) = 16$ for some positive number $a$, what is the value of $a$?',
+    choices: [{ id: 'A', text: '$5$' }, { id: 'B', text: '$4$' }, { id: 'C', text: '$7$' }, { id: 'D', text: '$25$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Solve for Input from Output**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $a^2 - 9 = 16 \\Rightarrow a^2 = 25 \\Rightarrow a = 5$ (positive).\n\n**The Full Solution:**\nSet $f(a) = 16$: $a^2 - 9 = 16$.\nAdd $9$: $a^2 = 25$. Square root: $a = \\pm 5$. Question specifies positive, so $a = 5$.\n\nVerification: $f(5) = 25 - 9 = 16$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B: takes $\\sqrt{16}$ directly without first solving for $a^2$.\n* C: $16 - 9 = 7$ (treats it as direct evaluation).\n* D: stops at $a^2 = 25$ without taking the root.\n\n**Test Day Takeaway:** Inverse evaluation of quadratics gives TWO inputs ($\\pm$). Read the question's sign constraint carefully.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'solve-for-input-from-output', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-alg-326', domain: 'algebra', skills: ['function-notation'], difficulty: 'hard', type: 'fill-in',
+    question: 'The functions $f$ and $g$ are defined by $f(x) = 2x + 3$ and $g(x) = f(x) - 7$. For what value of $x$ does $g(x) = 0$?',
+    correctAnswer: '2',
+    explanation: "**SAT Pattern: Solve for Input from Output**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~10s):** $g(x) = (2x + 3) - 7 = 2x - 4$. Set $2x - 4 = 0 \\Rightarrow x = 2$.\n\n**The Full Solution:**\nFirst simplify: $g(x) = f(x) - 7 = (2x + 3) - 7 = 2x - 4$.\nThen solve $g(x) = 0$: $2x - 4 = 0 \\Rightarrow x = 2$.\n\nVerification: $g(2) = 2(2) - 4 = 0$ \\checkmark. Alt: $f(2) = 7$, $g(2) = 7 - 7 = 0$ \\checkmark.\n\n**Common Mistakes:** Reporting $0$ (the given output); reporting $-2$ (sign error); reporting $5$ (solves $f(x) = 7$ but forgets to apply $-7$).\n\n**Test Day Takeaway:** When functions are nested, simplify FIRST, solve SECOND. Always identify input vs output.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'solve-for-input-from-output', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  // ─── LINEAR COST EQUATION SETUP (bank-alg-327..333) ───────────────────────
+  // Granularity principle: SINGLE-variable linear cost setup (fixed fee +
+  // per-unit), NOT a 2-variable system. Previously mis-aliased into
+  // two-equation-system-from-a-word-problem pool. Now its own pattern.
+  { id: 'bank-alg-327', domain: 'algebra', skills: ['word-problem-to-equation'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'A gym charges a $\\$30$ joining fee plus $\\$15$ per month. Which equation models the total cost $C$ for $m$ months of membership?',
+    choices: [{ id: 'A', text: '$C = 15m + 30$' }, { id: 'B', text: '$C = 30m + 15$' }, { id: 'C', text: '$C = 45m$' }, { id: 'D', text: '$C = 30 - 15m$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Linear Cost Equation Setup**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Fixed fee ($\\$30$) is the constant; per-month ($\\$15$) is the slope multiplied by $m$. Total: $15m + 30$.\n\n**The Full Solution:**\nLinear cost model: $C = (\\text{rate})(\\text{quantity}) + (\\text{fixed fee})$.\nHere rate $= \\$15/\\text{month}$, quantity $= m$ months, fixed fee $= \\$30$.\n$C = 15m + 30$.\n\nVerification: at $m = 0$ (signup day): $C = 30$ \\checkmark. After $4$ months: $C = 60 + 30 = 90$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B: swaps which value is per-month vs fixed.\n* C: adds the two values instead of treating them separately.\n* D: subtracts instead of adds.\n\n**Test Day Takeaway:** \"Joining fee\" / \"setup\" / \"one-time\" $\\to$ constant. \"Per X\" $\\to$ slope (coefficient of variable). Use $+$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'linear-cost-equation-setup', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-alg-328', domain: 'algebra', skills: ['word-problem-to-equation'], difficulty: 'easy', type: 'fill-in',
+    question: 'A printing service charges a $\\$8$ setup fee plus $\\$0.25$ per page. The total cost of an order with $p$ pages is $\\$23$. What is the value of $p$?',
+    correctAnswer: '60',
+    explanation: "**SAT Pattern: Linear Cost Equation Setup**\n\n**The correct answer is $60$.**\n\n**The Fast Way (~10s):** $0.25p + 8 = 23 \\Rightarrow 0.25p = 15 \\Rightarrow p = 60$.\n\n**The Full Solution:**\nSetup: total $=$ (per-page rate)(pages) $+$ setup fee.\n$0.25p + 8 = 23$.\nSubtract $8$: $0.25p = 15$. Divide by $0.25$: $p = 60$.\n\nVerification: $0.25(60) + 8 = 15 + 8 = 23$ \\checkmark.\n\n**Common Mistakes:** Reporting $23$ (the total cost); reporting $15$ (stops before dividing); reporting $92$ ($23/0.25$ ignoring the fee).\n\n**Test Day Takeaway:** Setup fee subtracts from total BEFORE dividing by the per-unit rate.",
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'linear-cost-equation-setup', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-alg-329', domain: 'algebra', skills: ['word-problem-to-equation'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A car rental company charges a flat $\\$25$ insurance fee plus $\\$0.40$ per mile driven. Sara\'s total bill was $\\$73$. How many miles did she drive?',
+    choices: [{ id: 'A', text: '$120$' }, { id: 'B', text: '$182.5$' }, { id: 'C', text: '$48$' }, { id: 'D', text: '$245$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Linear Cost Equation Setup**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $0.40m + 25 = 73 \\Rightarrow 0.40m = 48 \\Rightarrow m = 120$.\n\n**The Full Solution:**\nCost equation: $0.40m + 25 = 73$.\nSubtract $25$: $0.40m = 48$. Divide by $0.40$: $m = 120$.\n\nVerification: $0.40(120) + 25 = 48 + 25 = 73$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B: $73/0.40$ — ignores the fee.\n* C: $48$ — stops before dividing.\n* D: random-ish; arithmetic slip.\n\n**Test Day Takeaway:** Cost = rate × quantity + fixed fee. To solve for quantity: subtract fee FIRST, then divide.",
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'linear-cost-equation-setup', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-alg-330', domain: 'algebra', skills: ['word-problem-to-equation'], difficulty: 'medium', type: 'fill-in',
+    question: 'A photographer charges a $\\$120$ session fee plus $\\$15$ per printed photo. A client\'s total bill is $\\$255$. How many photos were printed?',
+    correctAnswer: '9',
+    explanation: "**SAT Pattern: Linear Cost Equation Setup**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~10s):** $15p + 120 = 255 \\Rightarrow 15p = 135 \\Rightarrow p = 9$.\n\n**The Full Solution:**\n$15p + 120 = 255$. Subtract $120$: $15p = 135$. Divide by $15$: $p = 9$.\n\nVerification: $15(9) + 120 = 135 + 120 = 255$ \\checkmark.\n\n**Common Mistakes:** Reporting $17$ ($255/15$ without subtracting); reporting $135$ (stops before dividing); reporting $255$ (the total).\n\n**Test Day Takeaway:** Same pattern every time: subtract fee, divide by rate. Don't shortcut by dividing the total directly.",
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'linear-cost-equation-setup', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-alg-331', domain: 'algebra', skills: ['word-problem-to-equation'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A taxi charges $\\$3.50$ as a base fare plus $\\$2.25$ per mile. Which equation correctly represents the total fare $F$ for a ride of $m$ miles?',
+    choices: [{ id: 'A', text: '$F = 2.25m + 3.50$' }, { id: 'B', text: '$F = 3.50m + 2.25$' }, { id: 'C', text: '$F = (2.25 + 3.50)m$' }, { id: 'D', text: '$F = 2.25 + 3.50m$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Linear Cost Equation Setup**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Per-mile $\\$2.25$ is the slope; base $\\$3.50$ is the constant.\n\n**The Full Solution:**\nBase fare ($\\$3.50$) is what you pay regardless of distance — that's the constant term.\nPer-mile rate ($\\$2.25$) is what scales with distance — that's the coefficient of $m$.\nResult: $F = 2.25m + 3.50$.\n\nVerification: at $m = 0$ (boarding): $F = 3.50$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B: swaps the roles of base and per-mile.\n* C: adds the rates incorrectly.\n* D: same swap as B, different form.\n\n**Test Day Takeaway:** Identify the constant (base/fixed/initial) and the slope (per-unit rate) BEFORE writing the equation. Then put the slope on the variable.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'linear-cost-equation-setup', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-alg-332', domain: 'algebra', skills: ['word-problem-to-equation'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'A storage facility charges $\\$45$ per month for a standard unit plus a one-time $\\$80$ insurance fee. Maria paid a total of $\\$485$ over the duration of her rental. How many months did she rent the unit?',
+    choices: [{ id: 'A', text: '$9$' }, { id: 'B', text: '$10$' }, { id: 'C', text: '$11$' }, { id: 'D', text: '$15$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Linear Cost Equation Setup**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $45m + 80 = 485 \\Rightarrow 45m = 405 \\Rightarrow m = 9$.\n\n**The Full Solution:**\n$45m + 80 = 485$. Subtract $80$: $45m = 405$. Divide by $45$: $m = 9$.\n\nVerification: $45(9) + 80 = 405 + 80 = 485$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B: rounds up incorrectly.\n* C: arithmetic slip.\n* D: subtracts the wrong amount ($485 - 45 = 440 \\div 45 \\approx 9.8$, not exact, may confuse to $15$ as next round number).\n\n**Test Day Takeaway:** When the answer is meant to be a whole number (months, days), verify by plugging back. Decimals usually mean arithmetic error.",
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'linear-cost-equation-setup', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-alg-333', domain: 'algebra', skills: ['word-problem-to-equation'], difficulty: 'hard', type: 'fill-in',
+    question: 'A cleaning service charges a fixed travel fee plus an hourly rate of $\\$35$ per hour. A 3-hour job costs $\\$135$. What is the fixed travel fee, in dollars?',
+    correctAnswer: '30',
+    explanation: "**SAT Pattern: Linear Cost Equation Setup**\n\n**The correct answer is $30$.**\n\n**The Fast Way (~10s):** $35(3) + f = 135 \\Rightarrow 105 + f = 135 \\Rightarrow f = 30$.\n\n**The Full Solution:**\nLet $f$ = fixed travel fee.\nCost equation: $35h + f = $ total, where $h = $ hours.\nFor a 3-hour job costing $\\$135$: $35(3) + f = 135 \\Rightarrow 105 + f = 135 \\Rightarrow f = 30$.\n\nVerification: $35(3) + 30 = 105 + 30 = 135$ \\checkmark.\n\n**Common Mistakes:** Reporting $135$ (the total cost); reporting $45$ ($135 - 35 \\cdot 3 + 15$ kind of arithmetic mess); reporting $105$ (the variable-cost portion).\n\n**Test Day Takeaway:** When the fixed fee is the unknown, the rate × quantity portion is known. Subtract to isolate the fixed component.",
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'linear-cost-equation-setup', authoredBy: 'performsat-engine', createdAt: '2026-05-12' }
 ];

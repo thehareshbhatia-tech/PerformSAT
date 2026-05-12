@@ -3669,5 +3669,60 @@ export const problemSolvingBank = [
     question: 'A bag has $40$ marbles: $25\\%$ are red. Of the red marbles, $40\\%$ have a stripe. How many marbles in the bag are red AND striped?',
     correctAnswer: '4',
     explanation: '**SAT Pattern: Conditional Probability with Percent**\n\n**The correct answer is $4$.**\n\n**The Fast Way:** $0.25 \\cdot 40 = 10$ red. $0.40 \\cdot 10 = 4$ striped.\n\n**Test Day Takeaway:** Apply percents sequentially to the counts.',
-    calculatorAllowed: false, tags: [], sourceStyleRef: 'conditional-probability-with-percent', authoredBy: 'performsat-engine', createdAt: '2026-05-11' }
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'conditional-probability-with-percent', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
+
+  // ─── PERCENT COMPLEMENT (bank-ps-217..224) ────────────────────────────────
+  // Granularity principle: 100% − x% is a percent operation, NOT probability.
+  // Was previously mis-aliased to basic-probability. Now its own pattern.
+  { id: 'bank-ps-217', domain: 'problem-solving', skills: ['percent-of-value'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'In a town, $35\\%$ of residents own a car. What percent of residents do NOT own a car?',
+    choices: [{ id: 'A', text: '$65\\%$' }, { id: 'B', text: '$35\\%$' }, { id: 'C', text: '$75\\%$' }, { id: 'D', text: '$135\\%$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Percent Complement**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Complement: $100\\% - 35\\% = 65\\%$.\n\n**The Full Solution:**\nPercent complement: every percent of a whole has its complement equal to $100\\%$ minus that percent.\n$100\\% - 35\\% = 65\\%$ of residents do not own a car.\n\nVerification: $35\\% + 65\\% = 100\\%$ (all residents) \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B: returns the given percent.\n* C: $100 - 25$ (mis-reads the given as $25\\%$).\n* D: adds instead of subtracts.\n\n**Test Day Takeaway:** \"NOT,\" \"don't,\" \"remain\" → complement. Subtract from $100\\%$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'percent-complement', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-ps-218', domain: 'problem-solving', skills: ['percent-of-value'], difficulty: 'easy', type: 'fill-in',
+    question: 'A survey found that $42\\%$ of students take a foreign language class. What percent of students do NOT take a foreign language class?',
+    correctAnswer: '58',
+    explanation: "**SAT Pattern: Percent Complement**\n\n**The correct answer is $58$.**\n\n**The Fast Way (~5s):** $100 - 42 = 58$.\n\n**The Full Solution:**\nIf $42\\%$ take the class, the complement ($100\\% - 42\\% = 58\\%$) do not.\n\n**Common Mistakes:** Reporting $42$ (the given); reporting $52$ ($100 - 48$, mis-reads).\n\n**Test Day Takeaway:** Complement is one subtraction. Don't overthink.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'percent-complement', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-ps-219', domain: 'problem-solving', skills: ['percent-of-value'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A store discounts an item by $30\\%$ off its original price. What fraction of the original price does the customer pay?',
+    choices: [{ id: 'A', text: '$0.70$' }, { id: 'B', text: '$0.30$' }, { id: 'C', text: '$1.30$' }, { id: 'D', text: '$0.07$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Percent Complement**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** $30\\%$ off means $70\\%$ paid: $0.70$.\n\n**The Full Solution:**\nA discount of $30\\%$ means the customer pays the COMPLEMENT: $100\\% - 30\\% = 70\\%$, or $0.70$ as a decimal.\n\nVerification: at \\$100 original: \\$30 discount, customer pays \\$70 = $70\\% = 0.70$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B: gives the discount fraction, not what's paid.\n* C: adds instead of subtracts.\n* D: misplaces the decimal ($30\\% = 0.30$ but written as $0.07$ from a different mistake).\n\n**Test Day Takeaway:** \"$X\\%$ off\" → pay $(100 - X)\\%$. Discount and amount-paid are complements.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'percent-complement', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-ps-220', domain: 'problem-solving', skills: ['percent-of-value'], difficulty: 'medium', type: 'fill-in',
+    question: 'A class has $250$ students. $68\\%$ scored above the median on a test. How many students scored AT or BELOW the median?',
+    correctAnswer: '80',
+    explanation: "**SAT Pattern: Percent Complement**\n\n**The correct answer is $80$.**\n\n**The Fast Way (~10s):** $100\\% - 68\\% = 32\\%$ at or below. $0.32 \\cdot 250 = 80$.\n\n**The Full Solution:**\nStep 1: Find the complement percent: $100\\% - 68\\% = 32\\%$.\nStep 2: Apply to the count: $32\\% \\times 250 = 80$ students.\n\nVerification: $68\\% \\times 250 = 170$ above; $170 + 80 = 250$ total \\checkmark.\n\n**Common Mistakes:** Reporting $170$ (the above-median count); reporting $68$ (raw percent, not count); reporting $32$ (the complement percent, not the count).\n\n**Test Day Takeaway:** Two steps: complement the percent, then apply to the total. Don't conflate percent and count.",
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'percent-complement', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-ps-221', domain: 'problem-solving', skills: ['percent-of-value'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A polling firm reports that $54\\%$ of voters support a proposal. If the firm interviewed $850$ voters, how many voters do NOT support the proposal?',
+    choices: [{ id: 'A', text: '$391$' }, { id: 'B', text: '$459$' }, { id: 'C', text: '$46$' }, { id: 'D', text: '$54$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Percent Complement**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $100\\% - 54\\% = 46\\%$. $0.46 \\cdot 850 = 391$.\n\n**The Full Solution:**\nComplement: $46\\%$ don't support. Count: $0.46 \\times 850 = 391$.\n\nVerification: $54\\% \\times 850 = 459$ supporters; $459 + 391 = 850$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B: the supporter count (not complement).\n* C: the raw complement percent.\n* D: the given percent.\n\n**Test Day Takeaway:** Always check that supporters + non-supporters $=$ total. This catches arithmetic errors.",
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'percent-complement', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-ps-222', domain: 'problem-solving', skills: ['percent-of-value'], difficulty: 'medium', type: 'fill-in',
+    question: 'A bank account earns $5\\%$ interest, but the account holder pays $20\\%$ of the interest earned in taxes. What percent of the original interest does the account holder KEEP after taxes?',
+    correctAnswer: '80',
+    explanation: "**SAT Pattern: Percent Complement**\n\n**The correct answer is $80$.**\n\n**The Fast Way (~5s):** Pays $20\\%$ of interest in tax, keeps the complement: $100\\% - 20\\% = 80\\%$.\n\n**The Full Solution:**\nThe $5\\%$ interest rate is a distractor — the question asks what fraction of the INTEREST is kept after taxes. If $20\\%$ is paid in tax, then $80\\%$ is kept.\n\nVerification: if interest = \\$100, tax = \\$20, kept = \\$80 = $80\\%$ \\checkmark.\n\n**Common Mistakes:** Reporting $4$ ($5 \\cdot 0.80$ — confuses interest rate with percent kept); reporting $20$ (the tax rate); reporting $5$ (the interest rate).\n\n**Test Day Takeaway:** Read the question. The $5\\%$ interest rate is a distractor — only the $20\\%$ tax-on-interest matters here. Take the complement.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'percent-complement', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-ps-223', domain: 'problem-solving', skills: ['percent-of-value'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'On a quiz, $\\dfrac{3}{8}$ of the questions are multiple-choice. The rest are fill-in-the-blank. What percent of the questions are fill-in-the-blank?',
+    choices: [{ id: 'A', text: '$62.5\\%$' }, { id: 'B', text: '$37.5\\%$' }, { id: 'C', text: '$50\\%$' }, { id: 'D', text: '$75\\%$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Percent Complement**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $3/8 = 37.5\\%$ MC. Complement: $100\\% - 37.5\\% = 62.5\\%$ fill-in.\n\n**The Full Solution:**\nStep 1: Convert the fraction: $3/8 = 0.375 = 37.5\\%$ multiple-choice.\nStep 2: Complement: $100\\% - 37.5\\% = 62.5\\%$ fill-in.\n\nVerification: $3/8 + 5/8 = 8/8 = 100\\%$ \\checkmark. And $5/8 = 0.625 = 62.5\\%$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B: the MC fraction as a percent (not the complement).\n* C: assumes equal split.\n* D: random.\n\n**Test Day Takeaway:** Fraction → percent (multiply by $100$). Then take the complement for \"the rest.\" Two steps.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'percent-complement', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-ps-224', domain: 'problem-solving', skills: ['percent-of-value'], difficulty: 'hard', type: 'fill-in',
+    question: 'A factory inspects $400$ items and rejects $7.5\\%$ of them due to defects. How many items pass inspection?',
+    correctAnswer: '370',
+    explanation: "**SAT Pattern: Percent Complement**\n\n**The correct answer is $370$.**\n\n**The Fast Way (~10s):** Complement: $100\\% - 7.5\\% = 92.5\\%$ pass. $0.925 \\cdot 400 = 370$.\n\n**The Full Solution:**\nComplement: $92.5\\%$ pass. Count: $0.925 \\times 400 = 370$.\n\nVerification: rejected = $0.075 \\times 400 = 30$. $30 + 370 = 400$ \\checkmark.\n\n**Common Mistakes:** Reporting $30$ (the rejected count); reporting $92.5$ (the percent); reporting $7.5$ (the rejected percent).\n\n**Test Day Takeaway:** Whenever a question describes a process with a \"reject/fail/discard rate,\" the complement is the \"pass/accept/keep\" count. Always verify pass + fail = total.",
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'percent-complement', authoredBy: 'performsat-engine', createdAt: '2026-05-12' }
 ];

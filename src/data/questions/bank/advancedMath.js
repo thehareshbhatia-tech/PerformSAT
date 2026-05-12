@@ -3404,5 +3404,115 @@ export const advancedMathBank = [
     question: 'A radioactive substance has a half-life of $10$ years. If the initial amount is $80$ grams, how many grams remain after $30$ years?',
     correctAnswer: '10',
     explanation: '**SAT Pattern: Exponential Growth Model**\n\n**The correct answer is $10$.**\n\n**The Fast Way:** $30/10 = 3$ half-lives. $80 \\cdot (1/2)^3 = 80/8 = 10$.\n\n**Test Day Takeaway:** Half-life $h$: amount = $A_0 (1/2)^{t/h}$.',
-    calculatorAllowed: false, tags: [], sourceStyleRef: 'exponential-growth-model', authoredBy: 'performsat-engine', createdAt: '2026-05-11' }
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'exponential-growth-model', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
+
+  // ─── VIETA'S SUM/PRODUCT OF ROOTS (bank-am-188..195) ──────────────────────
+  // Granularity principle (2026-05-12): Vieta's (sum=-b/a, product=c/a) is a
+  // DISTINCT method from factoring. Items pin direct-Vieta's approach.
+  { id: 'bank-am-188', domain: 'advanced-math', skills: ['quadratic-factoring'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'The quadratic equation $2x^2 - 10x + 7 = 0$ has two real solutions. What is the sum of these solutions?',
+    choices: [{ id: 'A', text: '$5$' }, { id: 'B', text: '$-5$' }, { id: 'C', text: '$10$' }, { id: 'D', text: '$3.5$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Sum/Product of Roots — Vieta's**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Sum of roots $= -b/a = -(-10)/2 = 5$. No need to solve the quadratic.\n\n**The Full Solution:**\nVieta's: if $ax^2 + bx + c = 0$ has roots $r_1, r_2$, then $r_1 + r_2 = -b/a$.\nHere $a = 2$, $b = -10$: sum $= -(-10)/2 = 5$.\n\nVerification: roots are $x = \\frac{10 \\pm \\sqrt{44}}{4}$. Sum $= \\frac{10 + \\sqrt{44}}{4} + \\frac{10 - \\sqrt{44}}{4} = \\frac{20}{4} = 5$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B: sign error — uses $b/a$.\n* C: drops the $/a$ entirely.\n* D: confuses with $c/a$ (the product).\n\n**Test Day Takeaway:** Sum $= -b/a$, product $= c/a$. Faster than solving the quadratic, especially for irrational roots.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'vieta-sum-product-of-roots', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-am-189', domain: 'advanced-math', skills: ['quadratic-factoring'], difficulty: 'easy', type: 'fill-in',
+    question: 'The quadratic equation $3x^2 + 12x + 9 = 0$ has two real solutions. What is the product of these solutions?',
+    correctAnswer: '3',
+    explanation: "**SAT Pattern: Sum/Product of Roots — Vieta's**\n\n**The correct answer is $3$.**\n\n**The Fast Way (~5s):** Product of roots $= c/a = 9/3 = 3$.\n\n**The Full Solution:**\nVieta's: $r_1 \\cdot r_2 = c/a$. Here $a = 3$, $c = 9$: product $= 9/3 = 3$.\n\nVerification: factor $3(x^2 + 4x + 3) = 3(x+1)(x+3)$. Roots are $-1$ and $-3$. Product $= (-1)(-3) = 3$ \\checkmark.\n\n**Common Mistakes:** Reporting $9$ (forgets $/a$); reporting $-3$ (wrong sign — two negative roots multiply to positive); reporting $12$ (uses $b$ instead of $c$).\n\n**Test Day Takeaway:** Product of roots $= c/a$, regardless of the sign of $b$. The sign of $a$ and $c$ together determines the product's sign.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'vieta-sum-product-of-roots', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-am-190', domain: 'advanced-math', skills: ['quadratic-factoring'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'The equation $x^2 - 8x + k = 0$ has two roots. One of the roots is $5$. What is the other root?',
+    choices: [{ id: 'A', text: '$3$' }, { id: 'B', text: '$-3$' }, { id: 'C', text: '$13$' }, { id: 'D', text: '$-13$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Sum/Product of Roots — Vieta's**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Sum of roots $= -b/a = 8$. Other root $= 8 - 5 = 3$. (Don't bother finding $k$.)\n\n**The Full Solution:**\nVieta's sum: $r_1 + r_2 = 8$. Given $r_1 = 5$: $r_2 = 3$.\n\nVerification: with roots $3$ and $5$, quadratic is $(x-3)(x-5) = x^2 - 8x + 15$, so $k = 15$. Check $x = 3$: $9 - 24 + 15 = 0$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B: sign error.\n* C: adds the given root to the sum ($5 + 8$).\n* D: sign error on the wrong-formula answer.\n\n**Test Day Takeaway:** When one root is given, Vieta's sum gives the other in one subtraction. The parameter $k$ is irrelevant to the question.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'vieta-sum-product-of-roots', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-am-191', domain: 'advanced-math', skills: ['quadratic-factoring'], difficulty: 'medium', type: 'fill-in',
+    question: 'The equation $2x^2 + bx - 18 = 0$ has $x = 3$ as one of its roots. What is the other root?',
+    correctAnswer: '-3',
+    explanation: "**SAT Pattern: Sum/Product of Roots — Vieta's**\n\n**The correct answer is $-3$.**\n\n**The Fast Way (~10s):** Product $= c/a = -18/2 = -9$. With one root $= 3$: other root $= -9/3 = -3$.\n\n**The Full Solution:**\nVieta's product: $r_1 \\cdot r_2 = -9$. Given $r_1 = 3$: $r_2 = -3$.\n\nVerification: roots $3$ and $-3$ give $2(x-3)(x+3) = 2(x^2 - 9) = 2x^2 - 18$, so $b = 0$. At $x = 3$: $18 + 0 - 18 = 0$ \\checkmark.\n\n**Common Mistakes:** Reporting $-9$ (product, not the other root); reporting $3$ (the given root); ignoring the $/a$ when $a \\neq 1$.\n\n**Test Day Takeaway:** Product-of-roots is fastest when $a \\neq 1$ AND a root is given. It works even when $b$ is unknown.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'vieta-sum-product-of-roots', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-am-192', domain: 'advanced-math', skills: ['quadratic-factoring'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A quadratic equation $x^2 + bx + c = 0$ has two real solutions whose sum is $7$ and whose product is $12$. What is the value of $b + c$?',
+    choices: [{ id: 'A', text: '$5$' }, { id: 'B', text: '$-5$' }, { id: 'C', text: '$19$' }, { id: 'D', text: '$-19$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Sum/Product of Roots — Vieta's**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** With $a = 1$: $b = -(\\text{sum}) = -7$, $c = \\text{product} = 12$. So $b + c = 5$.\n\n**The Full Solution:**\nFor monic quadratics ($a = 1$): sum of roots $= -b$, product $= c$.\nSum $= 7 \\Rightarrow b = -7$. Product $= 12 \\Rightarrow c = 12$. $b + c = 5$.\n\nVerification: $x^2 - 7x + 12 = (x-3)(x-4)$. Roots $3, 4$. Sum $= 7$ \\checkmark, product $= 12$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B: flips the result's sign.\n* C: uses $b = +7$ (forgets the negation).\n* D: combines both sign errors.\n\n**Test Day Takeaway:** For monic ($a = 1$) quadratics, sum maps to $-b$ and product maps to $c$. Forgetting the negative on $b$ is the #1 trap.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'vieta-sum-product-of-roots', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-am-193', domain: 'advanced-math', skills: ['quadratic-factoring'], difficulty: 'medium', type: 'fill-in',
+    question: 'The roots of $5x^2 + 25x + c = 0$ have a product equal to $6$. What is the value of $c$?',
+    correctAnswer: '30',
+    explanation: "**SAT Pattern: Sum/Product of Roots — Vieta's**\n\n**The correct answer is $30$.**\n\n**The Fast Way (~5s):** Product $= c/a = c/5 = 6 \\Rightarrow c = 30$.\n\n**The Full Solution:**\nVieta's: $c/a = $ product. $c/5 = 6 \\Rightarrow c = 30$.\n\nVerification: $5x^2 + 25x + 30 = 5(x+2)(x+3)$. Roots $-2, -3$. Product $= 6$ \\checkmark.\n\n**Common Mistakes:** Reporting $6$ (uses the product as $c$ — forgets to scale by $a$); reporting $1.2$ (divides instead of multiplies); reporting $-30$ (sign confusion).\n\n**Test Day Takeaway:** $c = a \\cdot \\text{product}$. When $a \\neq 1$, scale up; never just copy the product into $c$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'vieta-sum-product-of-roots', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-am-194', domain: 'advanced-math', skills: ['quadratic-factoring'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'The roots of $x^2 - 6x + 4 = 0$ are $r$ and $s$. What is the value of $r^2 + s^2$?',
+    choices: [{ id: 'A', text: '$28$' }, { id: 'B', text: '$32$' }, { id: 'C', text: '$24$' }, { id: 'D', text: '$40$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Sum/Product of Roots — Vieta's**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** Identity: $r^2 + s^2 = (r+s)^2 - 2rs$. From Vieta's, $r + s = 6$ and $rs = 4$. So $r^2 + s^2 = 36 - 8 = 28$.\n\n**The Full Solution:**\nDon't solve for $r$ and $s$ separately. Use the algebraic identity:\n$$r^2 + s^2 = (r+s)^2 - 2rs.$$\nFrom Vieta's: $r + s = -b/a = 6$, $rs = c/a = 4$.\nResult: $r^2 + s^2 = 6^2 - 2(4) = 36 - 8 = 28$.\n\nVerification: actual roots are $3 \\pm \\sqrt{5}$. $(3+\\sqrt{5})^2 + (3-\\sqrt{5})^2 = (14 + 6\\sqrt{5}) + (14 - 6\\sqrt{5}) = 28$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B: arithmetic slip after the right setup.\n* C: drops the factor of $2$ in $2rs$.\n* D: adds $2rs$ instead of subtracting.\n\n**Test Day Takeaway:** Symmetric expressions in roots ($r^2 + s^2$, $r^3 + s^3$, $1/r + 1/s$) reduce to Vieta's via identities. Key one: $r^2 + s^2 = (r+s)^2 - 2rs$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'vieta-sum-product-of-roots', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-am-195', domain: 'advanced-math', skills: ['quadratic-factoring'], difficulty: 'hard', type: 'fill-in',
+    question: 'The equation $3x^2 + bx - 24 = 0$ has $x = 2$ as one of its roots. What is the value of $b$?',
+    correctAnswer: '6',
+    explanation: "**SAT Pattern: Sum/Product of Roots — Vieta's**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~15s):** Product $= -24/3 = -8$. Other root $= -8/2 = -4$. Sum $= 2 + (-4) = -2 = -b/3 \\Rightarrow b = 6$.\n\n**The Full Solution:**\nChain Vieta's: product to find the other root, then sum to find $b$.\n\nStep 1: Product $= c/a = -8$. Given $r_1 = 2$: $r_2 = -8/2 = -4$.\nStep 2: Sum $= -b/a$. With both roots: $2 + (-4) = -2 = -b/3 \\Rightarrow b = 6$.\n\nVerification: plug $x = 2$ into $3x^2 + 6x - 24$: $12 + 12 - 24 = 0$ \\checkmark.\n\n**Common Mistakes:** Reporting $-6$ (sign error on $-b/a$); reporting $-2$ (gives sum, not $b$); reporting $2$ (the given root).\n\n**Test Day Takeaway:** When $a \\neq 1$ AND a root is given, chain Vieta's: product → other root, sum → missing coefficient. Two formulas, no factoring needed.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'vieta-sum-product-of-roots', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  // ─── INTERPRET EXPONENTIAL PARAMETERS (bank-am-196..203) ──────────────────
+  // Granularity principle: interpreting a, b, exponent-denominator in
+  // a·b^(t/k) is a DISTINCT method from building the model from words.
+  { id: 'bank-am-196', domain: 'advanced-math', skills: ['exponential-growth-decay'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'The function $f(t) = 800(1.04)^t$ models the value of an investment $t$ years after it was opened. Which of the following best describes the meaning of $1.04$ in this context?',
+    choices: [{ id: 'A', text: 'The investment increases by $4\\%$ each year.' }, { id: 'B', text: 'The investment increases by $104\\%$ each year.' }, { id: 'C', text: 'The investment is worth $\\$1.04$ initially.' }, { id: 'D', text: 'The investment increases by $\\$1.04$ each year.' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Exponential Growth Interpretation**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** Base $1.04 = 1 + 0.04$. The $0.04$ is the per-year growth rate, i.e., $4\\%$ per year.\n\n**The Full Solution:**\nFor exponential model $a \\cdot b^t$:\n* $a = 800$ is the initial value.\n* $b = 1.04$ is the per-period MULTIPLIER, not the per-period change.\nGrowth rate: $b - 1 = 0.04 = 4\\%$ per year.\n\nVerification: at $t = 1$: $f(1) = 800 \\cdot 1.04 = 832$, which is $4\\%$ more than $800$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B: misreads the base as the percent itself ($1.04$ as $104\\%$).\n* C: confuses base with initial value.\n* D: treats it as additive growth, not multiplicative.\n\n**Test Day Takeaway:** Exponential growth: base $b$ means \"multiplied by $b$ each period.\" Growth rate = $b - 1$ (in decimal) = $(b - 1) \\cdot 100\\%$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'exponential-growth-interpretation', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-am-197', domain: 'advanced-math', skills: ['exponential-growth-decay'], difficulty: 'easy', type: 'fill-in',
+    question: 'A population is modeled by $P(t) = 5000(0.92)^t$ where $t$ is years. By what percent does the population decrease each year?',
+    correctAnswer: '8',
+    explanation: "**SAT Pattern: Exponential Growth Interpretation**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~5s):** Base $0.92 = 1 - 0.08$. Decay rate: $8\\%$ per year.\n\n**The Full Solution:**\nFor decay model $a \\cdot b^t$ with $b < 1$:\nDecay rate $= 1 - b = 1 - 0.92 = 0.08 = 8\\%$.\n\nVerification: at $t = 1$: $P = 5000 \\cdot 0.92 = 4600$, which is $8\\%$ less than $5000$ \\checkmark.\n\n**Common Mistakes:** Reporting $92$ (base as a percent); reporting $108$ (treats it as growth, not decay); reporting $0.08$ (decimal instead of percent).\n\n**Test Day Takeaway:** Decay rate $= 1 - b$. Growth rate $= b - 1$. Either way, it's the deviation from $1$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'exponential-growth-interpretation', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-am-198', domain: 'advanced-math', skills: ['exponential-growth-decay'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'The function $V(t) = 12000(0.85)^{t/5}$ models the value (in dollars) of a piece of equipment $t$ years after purchase. By what percent does the equipment\'s value decrease every $5$ years?',
+    choices: [{ id: 'A', text: '$15\\%$' }, { id: 'B', text: '$85\\%$' }, { id: 'C', text: '$5\\%$' }, { id: 'D', text: '$3\\%$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Exponential Growth Interpretation**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** The exponent denominator $5$ matches the question's \"$5$ years.\" Base $0.85$ over each $5$-year period: decay rate $1 - 0.85 = 0.15 = 15\\%$.\n\n**The Full Solution:**\nThe model is $V(t) = 12000 \\cdot 0.85^{t/5}$. The exponent's denominator ($5$) says: \"the base is applied once every $5$ years.\"\nEvery $5$ years, value is multiplied by $0.85$ → decreases by $1 - 0.85 = 15\\%$.\n\nVerification: $V(5) = 12000 \\cdot 0.85^1 = 10200$ (a $15\\%$ drop). $V(0) = 12000$, $V(5) = 10200$. Drop: $1800$, which is $15\\%$ of $12000$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B: base as percent.\n* C: confuses with the denominator.\n* D: roughly the per-year rate (not what's asked).\n\n**Test Day Takeaway:** When the exponent has a denominator $k$ (i.e., $b^{t/k}$), $b$ describes the change over $k$ time units, NOT per single time unit. Match the question's stated period to the denominator.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'exponential-growth-interpretation', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-am-199', domain: 'advanced-math', skills: ['exponential-growth-decay'], difficulty: 'medium', type: 'fill-in',
+    question: 'A bacteria population is modeled by $B(t) = 200(2)^{t/3}$ where $t$ is hours. By what factor does the population grow every $3$ hours?',
+    correctAnswer: '2',
+    explanation: "**SAT Pattern: Exponential Growth Interpretation**\n\n**The correct answer is $2$.**\n\n**The Fast Way (~5s):** The base $2$ applies once per $3$-hour period (the denominator of the exponent). Factor per $3$ hours: $2$ (doubles).\n\n**The Full Solution:**\nIn $B(t) = 200 \\cdot 2^{t/3}$:\nWhen $t = 3$: $B = 200 \\cdot 2^1 = 400$. Factor: $400/200 = 2$.\nThe denominator $3$ tells us the base describes change over $3$ hours.\n\nVerification: at $t = 6$: $B = 200 \\cdot 2^2 = 800 = 4 \\cdot 200$ (two doublings) \\checkmark.\n\n**Common Mistakes:** Reporting $3$ (the denominator); reporting $200$ (initial); reporting $100$ ($200\\%$).\n\n**Test Day Takeaway:** \"$b^{t/k}$ over $k$ units\" → factor is $b$. \"$b^{t/k}$ over $1$ unit\" → factor is $b^{1/k}$. Read the denominator.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'exponential-growth-interpretation', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-am-200', domain: 'advanced-math', skills: ['exponential-growth-decay'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'The function $A(t) = 1000(1.05)^t$ models a savings account, where $A$ is the balance after $t$ years. Which statement is best supported by this model?',
+    choices: [{ id: 'A', text: 'The initial balance is $\\$1000$ and the account grows by $5\\%$ each year.' }, { id: 'B', text: 'The initial balance is $\\$5\\%$ and the account grows by $\\$1000$ each year.' }, { id: 'C', text: 'The account grows by $\\$1.05$ each year.' }, { id: 'D', text: 'The account grows by $50\\%$ each year.' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Exponential Growth Interpretation**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $a = 1000$ → initial value. $b = 1.05 \\to b - 1 = 0.05 = 5\\%$ → growth rate.\n\n**The Full Solution:**\nIn $a \\cdot b^t$:\n* $a = 1000$ is the value at $t = 0$ (initial balance).\n* $b = 1.05$ is the per-year multiplier. Growth rate: $5\\%$.\n\nVerification: $A(0) = 1000$ \\checkmark. $A(1) = 1050$ — a $5\\%$ increase \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B: swaps $a$ and $b$ roles.\n* C: treats growth as additive.\n* D: misreads $1.05$ as $1 + 0.5$.\n\n**Test Day Takeaway:** Two parameters to interpret: $a$ (initial value, at $t = 0$) and $b$ (multiplier). Convert $b$ to a rate via $b - 1$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'exponential-growth-interpretation', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-am-201', domain: 'advanced-math', skills: ['exponential-growth-decay'], difficulty: 'medium', type: 'fill-in',
+    question: 'A car\'s value is modeled by $V(t) = 25000(0.88)^t$, where $V$ is in dollars and $t$ is years since purchase. What is the initial value of the car, in dollars?',
+    correctAnswer: '25000',
+    explanation: "**SAT Pattern: Exponential Growth Interpretation**\n\n**The correct answer is $25000$.**\n\n**The Fast Way (~3s):** At $t = 0$: $V(0) = 25000 \\cdot 0.88^0 = 25000 \\cdot 1 = 25000$. Initial value $= a$.\n\n**The Full Solution:**\nIn $a \\cdot b^t$, the initial value is $a$ (because $b^0 = 1$).\nHere $a = 25000$, so initial value is $\\$25{,}000$.\n\n**Common Mistakes:** Reporting $0.88$ (the base); reporting $22000$ ($0.88 \\times 25000$ — value after 1 year, not initial); reporting $12$ ($1 - 0.88$ as percent).\n\n**Test Day Takeaway:** Initial value is always the coefficient $a$ in front of $b^t$. Just look — no computation needed.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'exponential-growth-interpretation', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-am-202', domain: 'advanced-math', skills: ['exponential-growth-decay'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'A population is modeled by $P(t) = a(1.03)^t$, where $t$ is years. If the population is $1545$ at $t = 0$, what is the meaning of $a$ and what is its value?',
+    choices: [{ id: 'A', text: '$a$ is the initial population, equal to $1545$.' }, { id: 'B', text: '$a$ is the growth rate, equal to $1545$.' }, { id: 'C', text: '$a$ is the growth factor, equal to $1.03$.' }, { id: 'D', text: '$a$ is the population in $1$ year, equal to $1545$.' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Exponential Growth Interpretation**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** $P(0) = a \\cdot 1 = a$. Given $P(0) = 1545$: $a = 1545$, the initial population.\n\n**The Full Solution:**\nIn $a \\cdot b^t$, evaluating at $t = 0$: $P(0) = a \\cdot b^0 = a \\cdot 1 = a$.\nThe problem states $P(0) = 1545$, so $a = 1545$. This is the initial population.\n\nVerification: at $t = 1$: $P = 1545 \\cdot 1.03 = 1591.35$, a $3\\%$ increase \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B: confuses initial value with growth rate (different concepts).\n* C: confuses $a$ with $b$.\n* D: confuses $P(0)$ with $P(1)$.\n\n**Test Day Takeaway:** In $a \\cdot b^t$, $a$ is always the value at $t = 0$. Re-derive this if confused: $a \\cdot b^0 = a$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'exponential-growth-interpretation', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
+
+  { id: 'bank-am-203', domain: 'advanced-math', skills: ['exponential-growth-decay'], difficulty: 'hard', type: 'fill-in',
+    question: 'The function $f(t) = 50(3)^{t/2}$ models a quantity that triples every $2$ time units. By what factor does the quantity grow in $1$ time unit?',
+    correctAnswer: '1.732',
+    explanation: "**SAT Pattern: Exponential Growth Interpretation**\n\n**The correct answer is $\\sqrt{3} \\approx 1.732$.**\n\n**The Fast Way (~10s):** Per-1-unit factor: $3^{1/2} = \\sqrt{3} \\approx 1.732$.\n\n**The Full Solution:**\nThe model is $f(t) = 50 \\cdot 3^{t/2}$.\nPer $1$ time unit: $f(1)/f(0) = 3^{1/2}/3^0 = 3^{1/2} = \\sqrt{3} \\approx 1.732$.\n\nVerification: $\\sqrt{3} \\cdot \\sqrt{3} = 3$. So after $2$ units: tripling (matches model) \\checkmark.\n\n**Common Mistakes:** Reporting $3$ (per-2-unit factor); reporting $1.5$ (half of $3$); reporting $2$ (the denominator).\n\n**Test Day Takeaway:** To convert $b^{t/k}$ to a per-1-unit factor: raise to the $1/k$ power. $3^{t/2}$ → per-unit factor $= 3^{1/2} = \\sqrt{3}$.",
+    calculatorAllowed: true, tags: [], sourceStyleRef: 'exponential-growth-interpretation', authoredBy: 'performsat-engine', createdAt: '2026-05-12' }
 ];
