@@ -23,7 +23,7 @@ const ROUTE_VIEWS = Object.fromEntries(
 // Navigation items.
 const NAV_ITEMS = [
   { id: 'dashboard', label: 'Home', route: '/app', icon: HomeIcon },
-  { id: 'modules', label: 'Learn', route: '/app/learn', icon: BookIcon },
+  { id: 'modules', label: 'Videos', route: '/app/learn', icon: BookIcon },
   { id: 'practiceTests', label: 'Tests', route: '/app/tests', icon: ClockIcon },
   { id: 'studyPlan', label: 'Study Plan', route: '/app/study-plan', icon: StudyPlanIcon },
   { id: 'tutor', label: 'AI Tutor', route: '/app/tutor', icon: SparklesIcon },
