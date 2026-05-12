@@ -752,30 +752,12 @@ export const advancedMathBank = [
     authoredBy: 'performsat-engine',
     createdAt: '2026-02-28',
   },
-  {
-    id: 'bank-am-034',
-    domain: 'advanced-math',
-    skills: ['converting-quadratic-forms'],
-    difficulty: 'hard',
-    type: 'multiple-choice',
-    question: 'Given $g(x) = -3(x - 2)(x + 6)$, what is $g(x)$ in standard form?',
-    choices: [
-      { id: 'A', text: '$-3x^2 - 12x + 36$' },
-      // distractor: distributes negative to only first term
-      { id: 'B', text: '$-3x^2 + 12x + 36$' },
-      // distractor: distributes negative to constant only
-      { id: 'C', text: '$-3x^2 - 12x - 36$' },
-      // distractor: forgets the negative
-      { id: 'D', text: '$3x^2 + 12x - 36$' },
-    ],
-    correctAnswer: 'A',
-    explanation: '**SAT Pattern: Factored to Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way (~20s):** $(x - 2)(x + 6) = x^2 + 4x - 12$. Multiply by $-3$: $-3x^2 - 12x + 36$.\n\n**The Full Solution:**\nFOIL the binomials first:\n$(x - 2)(x + 6) = x^2 + 6x - 2x - 12 = x^2 + 4x - 12$.\nMultiply each term by $-3$:\n$-3(x^2 + 4x - 12) = -3x^2 - 12x + 36$.\n\nVerification: at $x = 0$: original $= -3(-2)(6) = 36$. Standard: $0 + 0 + 36 = 36$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "sign error" — distributes $-3$ to only the $x^2$ term, missing the middle.\n* Choice C: "sign error" — distributes $-3$ incorrectly across the constant.\n* Choice D: "sign error" — drops the negative entirely.\n\n**Test Day Takeaway:** FOIL first, then distribute the leading coefficient. The negative sign applies to EVERY term, not just the first.',
-    calculatorAllowed: true,
-    tags: [],
-    sourceStyleRef: 'factored-to-standard',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
-  },
+  { id: 'bank-am-034', domain: 'advanced-math', skills: ['converting-quadratic-forms'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'In the $xy$-plane, the graph of $y = f(x)$ is a parabola with vertex $(2, 9)$. The parabola intersects the $x$-axis at $x = -1$ and $x = 5$. What is the value of $f(-3)$?',
+    choices: [{ id: 'A', text: '$-25$' }, { id: 'B', text: '$-16$' }, { id: 'C', text: '$0$' }, { id: 'D', text: '$9$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Vertex Form from Vertex + Intercepts**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Vertex form $f(x) = a(x - 2)^2 + 9$. Plug in the intercept $x = -1$: $a(9) + 9 = 0 \\Rightarrow a = -1$. So $f(x) = -(x - 2)^2 + 9$. Then $f(-3) = -(-5)^2 + 9 = -25 + 9 = -16$.\n\n**The Full Solution:**\nStep 1: Write $f$ in vertex form using the vertex $(2, 9)$.\n$\\quad f(x) = a(x - 2)^2 + 9$.\nStep 2: Use one $x$-intercept to solve for $a$. At $x = -1$, $f(-1) = 0$:\n$\\quad a(-1 - 2)^2 + 9 = 0$\n$\\quad 9a + 9 = 0$\n$\\quad a = -1$.\nStep 3: Substitute $a$: $f(x) = -(x - 2)^2 + 9$.\nStep 4: Evaluate at $x = -3$:\n$\\quad f(-3) = -(-3 - 2)^2 + 9 = -(-5)^2 + 9 = -25 + 9 = -16$.\n\nVerification: the other intercept should also satisfy $f(5) = -(3)^2 + 9 = 0$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-25$): correctly computes $-(-3 - 2)^2 = -25$ but forgets to add $k = 9$. The vertex form has a final additive term that is easy to drop.\n* Choice B ($-16$): correct.\n* Choice C ($0$): mistakes $-3$ for an $x$-intercept (perhaps confusing the symmetry: $-3$ is the reflection of $7$ across $x = 2$, not of an intercept). $f$ equals zero only at $x = -1$ and $x = 5$.\n* Choice D ($9$): reports the MAXIMUM value of $f$ (the $y$-coordinate of the vertex) rather than the value at the specific input $x = -3$.\n\n**Test Day Takeaway:** When given the vertex and one other point on a parabola, vertex form $f(x) = a(x - h)^2 + k$ lets you read $(h, k)$ directly and solve for $a$ in one step. Then evaluate carefully: the $-(x - 2)^2$ piece is negative for ALL $x \\ne 2$, while the $+ 9$ piece is constant — track both.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'factored-to-standard', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
   {
     id: 'bank-am-035',
     domain: 'advanced-math',
@@ -1336,30 +1318,12 @@ export const advancedMathBank = [
   },
 
   // ── combining-like-terms (4 questions) ────────────────────────────
-  {
-    id: 'bank-am-060',
-    domain: 'advanced-math',
-    skills: ['combining-like-terms'],
-    difficulty: 'easy',
-    type: 'multiple-choice',
-    question: 'Simplify $7x^2 - 3x + 4x^2 + 9x - 2$.',
-    choices: [
-      { id: 'A', text: '$11x^2 + 6x - 2$' },
-      // distractor: subtracts the x terms (-3 - 9 = -12)
-      { id: 'B', text: '$11x^2 - 12x - 2$' },
-      // distractor: subtracts x² terms (7 - 4 = 3)
-      { id: 'C', text: '$3x^2 + 6x - 2$' },
-      // distractor: adds exponents when combining like terms
-      { id: 'D', text: '$11x^4 + 6x - 2$' },
-    ],
-    correctAnswer: 'A',
-    explanation: '**SAT Pattern: Combine Like Terms**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $x^2$ terms: $7 + 4 = 11$. $x$ terms: $-3 + 9 = 6$. Constant: $-2$. Result: $11x^2 + 6x - 2$.\n\n**The Full Solution:**\nGroup like terms:\n* $x^2$: $7x^2 + 4x^2 = 11x^2$\n* $x$: $-3x + 9x = 6x$\n* constant: $-2$\nCombined: $11x^2 + 6x - 2$.\n\nVerification: at $x = 1$: original $= 7 - 3 + 4 + 9 - 2 = 15$. Simplified: $11 + 6 - 2 = 15$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "sign error" — subtracts $x$ terms instead of adding.\n* Choice C: "sign error" — subtracts $x^2$ terms.\n* Choice D: "wrong formula" — adds exponents (gives $x^4$) when combining like terms.\n\n**Test Day Takeaway:** Like terms share the SAME variable and exponent. Add their coefficients ONLY; the variable and exponent stay the same. $7x^2 + 4x^2 = 11x^2$, NOT $11x^4$.',
-    calculatorAllowed: true,
-    tags: [],
-    sourceStyleRef: 'combine-polynomial',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
-  },
+  { id: 'bank-am-060', domain: 'advanced-math', skills: ['combining-like-terms'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'Which of the following expressions is equivalent to $7x^2 - 3x + 4x^2 + 9x - 2$?',
+    choices: [{ id: 'A', text: '$3x^2 + 6x - 2$' }, { id: 'B', text: '$11x^2 - 12x - 2$' }, { id: 'C', text: '$11x^2 + 6x - 2$' }, { id: 'D', text: '$11x^4 + 6x - 2$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Combine Like Terms**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $x^2$ terms: $7 + 4 = 11$. $x$ terms: $-3 + 9 = 6$. Constant: $-2$. Result: $11x^2 + 6x - 2$.\n\n**The Full Solution:**\nGroup like terms (terms with the same variable and exponent):\n* $x^2$ terms: $7x^2 + 4x^2 = 11x^2$\n* $x$ terms: $-3x + 9x = 6x$\n* Constant: $-2$\nCombined: $11x^2 + 6x - 2$.\n\nVerification: at $x = 1$, original $= 7 - 3 + 4 + 9 - 2 = 15$. Simplified: $11 + 6 - 2 = 15$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A ($3x^2 + 6x - 2$): subtracts the $x^2$ coefficients ($7 - 4 = 3$) instead of adding. Mis-tracks the signs on like terms.\n* Choice B ($11x^2 - 12x - 2$): correctly combines $x^2$ but subtracts the $x$ coefficients ($-3 - 9 = -12$) instead of adding them ($-3 + 9 = 6$).\n* Choice D ($11x^4 + 6x - 2$): correctly combines coefficients, but adds the exponents on $x^2 + x^2$ to get $x^4$. Like-term combination keeps the exponent unchanged.\n\n**Test Day Takeaway:** Like terms share the SAME variable and exponent. Add their coefficients only; the exponent stays the same. $7x^2 + 4x^2 = 11x^2$, not $11x^4$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'combine-polynomial', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
   {
     id: 'bank-am-061',
     domain: 'advanced-math',
@@ -1399,32 +1363,12 @@ export const advancedMathBank = [
     authoredBy: 'performsat-engine',
     createdAt: '2026-02-28',
   },
-  {
-    id: 'bank-am-063',
-    domain: 'advanced-math',
-    skills: ['combining-like-terms', 'distributive-property'],
-    difficulty: 'hard',
-    type: 'multiple-choice',
-    question: 'Simplify $2(x^2 - 3x + 1) + 3(2x^2 + x - 4) - (x^2 + 2x + 5)$.',
-    choices: [
-      { id: 'A', text: '$7x^2 - 5x - 15$' },
-      // distractor: sign error on middle term
-      { id: 'B', text: '$7x^2 + x - 15$' },
-      // distractor: forgets to subtract the x² from the third group
-      { id: 'C', text: '$9x^2 - 5x - 15$' },
-      // distractor: sign error on constant
-      { id: 'D', text: '$7x^2 - 5x - 5$' },
-    ],
-    correctAnswer: 'A',
-    explanation: '**SAT Pattern: Multi-Distribute and Combine**\n\n**Choice A is correct.**\n\n**The Fast Way (~35s):** Distribute each, then combine:\n$2x^2 - 6x + 2 + 6x^2 + 3x - 12 - x^2 - 2x - 5$\n$x^2$: $(2 + 6 - 1) = 7$\n$x$: $(-6 + 3 - 2) = -5$\nconst: $(2 - 12 - 5) = -15$\nResult: $7x^2 - 5x - 15$.\n\n**The Full Solution:**\nDistribute each coefficient:\n* $2(x^2 - 3x + 1) = 2x^2 - 6x + 2$\n* $3(2x^2 + x - 4) = 6x^2 + 3x - 12$\n* $-(x^2 + 2x + 5) = -x^2 - 2x - 5$\nCombine all terms:\n* $x^2$ coefficient: $2 + 6 - 1 = 7$\n* $x$ coefficient: $-6 + 3 - 2 = -5$\n* constant: $2 - 12 - 5 = -15$\nResult: $7x^2 - 5x - 15$.\n\nVerification: at $x = 1$: $2(-1) + 3(-1) - 8 = -2 - 3 - 8 = -13$. Standard: $7 - 5 - 15 = -13$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "sign error" — middle term computed wrong.\n* Choice C: "stops one step early" — uses $(2 + 6) - 1$ wrong, or forgets to subtract.\n* Choice D: "sign error" — constant term off.\n\n**Test Day Takeaway:** Multi-distribute problems: distribute first, then group. The negative sign on the third polynomial flips ALL its terms. Track each coefficient column separately.',
-    calculatorAllowed: true,
-    tags: [],
-    sourceStyleRef: 'multi-distribute-combine',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
-  },
-
-  // ── difference-of-squares (4 questions) ───────────────────────────
+  { id: 'bank-am-063', domain: 'advanced-math', skills: ['combining-like-terms', 'distributive-property'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'The expression $3(2x^2 + ax) - 2(x^2 + x - b)$ is equivalent to $4x^2 + 16x + 6$ for all values of $x$, where $a$ and $b$ are constants. What is the value of $a + b$?',
+    choices: [{ id: 'A', text: '$3$' }, { id: 'B', text: '$6$' }, { id: 'C', text: '$9$' }, { id: 'D', text: '$12$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Match Coefficients of Equivalent Polynomials**\n\n**Choice C is correct.**\n\n**The Fast Way (~45s):** Expand: $6x^2 + 3ax - 2x^2 - 2x + 2b = 4x^2 + (3a - 2)x + 2b$. Match: $3a - 2 = 16 \\Rightarrow a = 6$. $2b = 6 \\Rightarrow b = 3$. So $a + b = 9$.\n\n**The Full Solution:**\nStep 1: Expand each product.\n$\\quad 3(2x^2 + ax) = 6x^2 + 3ax$\n$\\quad -2(x^2 + x - b) = -2x^2 - 2x + 2b$\nStep 2: Combine: $(6 - 2)x^2 + (3a - 2)x + 2b = 4x^2 + (3a - 2)x + 2b$.\nStep 3: Match coefficient of $x$ with the target $4x^2 + 16x + 6$: $3a - 2 = 16 \\Rightarrow 3a = 18 \\Rightarrow a = 6$.\nStep 4: Match constant: $2b = 6 \\Rightarrow b = 3$.\nStep 5: $a + b = 6 + 3 = 9$.\n\nVerification: with $a = 6$, $b = 3$: $3(2x^2 + 6x) - 2(x^2 + x - 3) = 6x^2 + 18x - 2x^2 - 2x + 6 = 4x^2 + 16x + 6$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A ($3$): sign-flips the $-b$ when distributing, treats $-2(x^2 + x - b) = -2x^2 - 2x - 2b$ (correct sign) but then matches $-2b = 6$ to get $b = -3$, summing with $a = 6$ to get $a + b = 3$.\n* Choice B ($6$): reports $a$ alone. Stops one step early after solving the $x$-coefficient equation.\n* Choice C ($9$): correct.\n* Choice D ($12$): forgets that the constant in the expansion is $2b$, not $b$, so reads $b = 6$ directly. Then $a + b = 6 + 6 = 12$.\n\n**Test Day Takeaway:** Equivalent polynomials means the two sides are identical as polynomials — match each coefficient column separately ($x^2$, $x$, constant). Track sign distribution carefully; pay attention to factors that multiply the unknown after distribution.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'multi-distribute-combine', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
   {
     id: 'bank-am-064',
     domain: 'advanced-math',
@@ -1449,30 +1393,12 @@ export const advancedMathBank = [
     authoredBy: 'performsat-engine',
     createdAt: '2026-02-28',
   },
-  {
-    id: 'bank-am-065',
-    domain: 'advanced-math',
-    skills: ['difference-of-squares'],
-    difficulty: 'medium',
-    type: 'multiple-choice',
-    question: 'Which of the following is a factorization of $4y^2 - 25$?',
-    choices: [
-      { id: 'A', text: '$(2y + 5)(2y - 5)$' },
-      // distractor: separates 4 from y² incorrectly
-      { id: 'B', text: '$(4y + 5)(y - 5)$' },
-      // distractor: squares the factor (loses one)
-      { id: 'C', text: '$(2y - 5)^2$' },
-      // distractor: not factored at all
-      { id: 'D', text: '$(4y - 25)$' },
-    ],
-    correctAnswer: 'A',
-    explanation: '**SAT Pattern: Difference of Squares with Coefficient**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $4y^2 = (2y)^2$, $25 = 5^2$. Apply $a^2 - b^2 = (a + b)(a - b)$: $(2y + 5)(2y - 5)$.\n\n**The Full Solution:**\nRecognize both terms as perfect squares:\n* $4y^2 = (2y)^2$\n* $25 = 5^2$\nApply difference of squares: $(2y)^2 - 5^2 = (2y + 5)(2y - 5)$.\n\nVerification: expand $(2y + 5)(2y - 5) = 4y^2 - 10y + 10y - 25 = 4y^2 - 25$ ✓ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "wrong factoring" — separates the $4$ coefficient from the $y^2$ incorrectly.\n* Choice C: "wrong formula" — squares only one factor.\n* Choice D: "stops one step early" — gives the difference but not factored.\n\n**Test Day Takeaway:** Recognize coefficients as squares too: $4 = 2^2$, $9 = 3^2$, $16 = 4^2$, $25 = 5^2$. Then $4y^2 - 25 = (2y - 5)(2y + 5)$.',
-    calculatorAllowed: true,
-    tags: [],
-    sourceStyleRef: 'difference-of-squares',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
-  },
+  { id: 'bank-am-065', domain: 'advanced-math', skills: ['difference-of-squares'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'Which of the following is the complete factorization of $x^4 - 16y^4$ over the integers?',
+    choices: [{ id: 'A', text: '$(x^2 - 4y^2)(x^2 + 4y^2)$' }, { id: 'B', text: '$(x - 2y)(x + 2y)(x^2 + 4y^2)$' }, { id: 'C', text: '$(x - 4y)(x + 4y)(x^2 + 4y^2)$' }, { id: 'D', text: '$(x - 2y)^2(x + 2y)^2$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Two-Step Difference of Squares**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $x^4 - 16y^4 = (x^2)^2 - (4y^2)^2 = (x^2 - 4y^2)(x^2 + 4y^2)$. Then $x^2 - 4y^2 = (x - 2y)(x + 2y)$. Full: $(x - 2y)(x + 2y)(x^2 + 4y^2)$.\n\n**The Full Solution:**\nStep 1: Apply difference of squares to $x^4 - 16y^4$. Write each term as a square: $x^4 = (x^2)^2$ and $16y^4 = (4y^2)^2$. So $x^4 - 16y^4 = (x^2 - 4y^2)(x^2 + 4y^2)$.\nStep 2: $x^2 - 4y^2$ is itself a difference of squares: $x^2 - (2y)^2 = (x - 2y)(x + 2y)$.\nStep 3: $x^2 + 4y^2$ is a SUM of squares and does not factor over the integers.\nStep 4: Combine: $(x - 2y)(x + 2y)(x^2 + 4y^2)$.\n\nVerification: $(x - 2y)(x + 2y) = x^2 - 4y^2$, then $(x^2 - 4y^2)(x^2 + 4y^2) = x^4 - 16y^4$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: stops one step early after the FIRST difference-of-squares application. $(x^2 - 4y^2)$ still factors further.\n* Choice C: takes $\\sqrt{16y^4}$ incorrectly as $4y$ instead of $4y^2$, treating $x^4 - 16y^4$ as $(x^2)^2 - (4y)^2$, which is wrong.\n* Choice D: applies difference-of-squares incorrectly to the SUM factor $(x^2 + 4y^2)$. Sum of squares does not factor over the integers.\n\n**Test Day Takeaway:** When you see $x^4$ or higher even powers, keep applying difference of squares until each factor is either a sum-of-squares (irreducible) or linear. Always check $\\sqrt{\\text{coefficient}}$ AND $\\sqrt{\\text{power}}$ — $\\sqrt{16y^4} = 4y^2$, not $4y$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'difference-of-squares', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
   {
     id: 'bank-am-066',
     domain: 'advanced-math',
