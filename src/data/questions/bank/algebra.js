@@ -4669,11 +4669,11 @@ export const algebraBank = [
   // ===== Phase 2 batch 15: top 2x patterns (concise items) =====
   // linear-equation-with-variables-on-both-sides
   { id: 'bank-alg-296', domain: 'algebra', skills: ['combining-like-terms'], difficulty: 'easy', type: 'multiple-choice',
-    question: 'If $3x + 5 = 5x - 7$, what is the value of $x$?',
-    choices: [{ id: 'A', text: '$6$' }, { id: 'B', text: '$-1$' }, { id: 'C', text: '$2$' }, { id: 'D', text: '$\\dfrac{12}{8}$' }],
+    question: 'What value of $x$ satisfies the equation $3x + 5 = 5x - 7$?',
+    choices: [{ id: 'A', text: '$6$' }, { id: 'B', text: '$-1$' }, { id: 'C', text: '$2$' }, { id: 'D', text: '$\\dfrac{3}{2}$' }],
     correctAnswer: 'A',
-    explanation: '**SAT Pattern: Linear Equation with Variables on Both Sides**\n\n**Choice A is correct.**\n\n**The Fast Way:** $12 = 2x \\Rightarrow x = 6$.',
-    calculatorAllowed: false, tags: [], sourceStyleRef: 'linear-equation-with-variables-on-both-sides', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
+    explanation: "**SAT Pattern: Linear Equation with Variables on Both Sides**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Move $x$'s together and constants together: $5 + 7 = 5x - 3x \\Rightarrow 12 = 2x \\Rightarrow x = 6$.\n\n**The Full Solution:**\nSubtract $3x$ from both sides: $5 = 2x - 7$.\nAdd $7$: $12 = 2x$.\nDivide by $2$: $x = 6$.\n\nVerification: $3(6) + 5 = 23$ and $5(6) - 7 = 23$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B ($-1$): sign error when moving terms — student writes $-2x = 12 \\Rightarrow x = -6$, then mis-arithmetic to $-1$.\n* Choice C ($2$): subtracts constants $5 - 7 = -2$ and divides by $-1$ (the wrong coefficient) — arrives at $2$.\n* Choice D ($3/2$): drops the $-7$ in the rearrangement — uses a setup error that produces $12/8$ then simplifies.\n\n**Test Day Takeaway:** With variables on both sides, isolate the $x$ terms first, then move the constants. Track signs carefully when subtracting from the larger-coefficient side.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'linear-equation-with-variables-on-both-sides', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
   { id: 'bank-alg-297', domain: 'algebra', skills: ['combining-like-terms'], difficulty: 'easy', type: 'fill-in',
     question: 'What value of $x$ satisfies the equation $4x - 3 = 2x + 9$?',
     correctAnswer: '6',
