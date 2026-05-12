@@ -89,15 +89,120 @@ describe('extractSatPattern', () => {
       expect(extractSatPattern('**SAT Pattern: Volume of a Cylinder**')).toBe('cylinder-volume');
     });
 
-    it('maps three Pythagorean 5-12-13 variants to "right-triangle-pythagorean"', () => {
+    it('maps three Pythagorean 5-12-13 variants to "pythagorean-triple-recognition"', () => {
+      // Granularity principle (2026-05-12): triple recognition is a DISTINCT
+      // method from generic Pythagorean theorem. See
+      // docs/SAT_PATTERN_GRANULARITY_PROPOSAL.md.
       expect(extractSatPattern('**SAT Pattern: Pythagorean Theorem (5-12-13)**')).toBe(
-        'right-triangle-pythagorean',
+        'pythagorean-triple-recognition',
       );
       expect(extractSatPattern('**SAT Pattern: Pythagorean Theorem (5-12-13 Triple)**')).toBe(
-        'right-triangle-pythagorean',
+        'pythagorean-triple-recognition',
       );
       expect(extractSatPattern('**SAT Pattern: Pythagorean Theorem (5-12-13 Family)**')).toBe(
+        'pythagorean-triple-recognition',
+      );
+      // Generic Pythagorean (on a rectangle = diagonal) still routes to the
+      // canonical right-triangle-pythagorean since it uses the same method
+      // as direct theorem application.
+      expect(extractSatPattern('**SAT Pattern: Pythagorean Theorem on a Rectangle**')).toBe(
         'right-triangle-pythagorean',
+      );
+    });
+
+    it('separates inverse function evaluation from direct evaluation', () => {
+      // Direct evaluation: compute f(x) at given input
+      expect(extractSatPattern('**SAT Pattern: Solving via Function Notation**')).toBe(
+        'function-evaluation',
+      );
+      expect(extractSatPattern('**SAT Pattern: Function Evaluation in Context**')).toBe(
+        'function-evaluation',
+      );
+      // Inverse evaluation: given f(a) = c, find a. Distinct method.
+      expect(extractSatPattern('**SAT Pattern: Solve f(x) = c**')).toBe(
+        'solve-for-input-from-output',
+      );
+      expect(extractSatPattern('**SAT Pattern: Solve f(a) = c**')).toBe(
+        'solve-for-input-from-output',
+      );
+      expect(extractSatPattern('**SAT Pattern: Solving for Input from Output**')).toBe(
+        'solve-for-input-from-output',
+      );
+      expect(extractSatPattern('**SAT Pattern: Solving for the Input Given the Output**')).toBe(
+        'solve-for-input-from-output',
+      );
+    });
+
+    it('separates Vieta\'s sum/product from factoring', () => {
+      // Factoring path: still canonical
+      expect(extractSatPattern('**SAT Pattern: Zero Product Property**')).toBe(
+        'quadratic-via-factoring',
+      );
+      expect(extractSatPattern('**SAT Pattern: Polynomial Factoring with Given Factor**')).toBe(
+        'quadratic-via-factoring',
+      );
+      // Vieta's: distinct method (sum=-b/a, product=c/a)
+      expect(extractSatPattern("**SAT Pattern: Sum/Product of Roots — Vieta's**")).toBe(
+        'vieta-sum-product-of-roots',
+      );
+      expect(extractSatPattern("**SAT Pattern: Quadratic — Vieta's Sum/Product**")).toBe(
+        'vieta-sum-product-of-roots',
+      );
+    });
+
+    it('separates tangent-to-circle from tangent-to-parabola', () => {
+      // Parabola: same method as canonical
+      expect(extractSatPattern('**SAT Pattern: Tangent Line via Discriminant = 0**')).toBe(
+        'tangent-line-and-discriminant',
+      );
+      // Circle: distinct geometric setup
+      expect(extractSatPattern('**SAT Pattern: Tangent Line to Circle (Discriminant = 0)**')).toBe(
+        'line-tangent-to-circle',
+      );
+    });
+
+    it('routes trig with known triples to its own pattern', () => {
+      // Generic right-triangle trig: canonical
+      expect(extractSatPattern('**SAT Pattern: SOH-CAH-TOA**')).toBe(
+        'right-triangle-trig-ratios',
+      );
+      // Trig where triple recognition lets the student skip computation
+      expect(extractSatPattern('**SAT Pattern: SOH-CAH-TOA in a 5-12-13 Triangle**')).toBe(
+        'trig-ratio-with-known-triple',
+      );
+      expect(extractSatPattern('**SAT Pattern: SOH-CAH-TOA Tangent in a 9-40-41 Triangle**')).toBe(
+        'trig-ratio-with-known-triple',
+      );
+      // Trig from perimeter (must solve for sides first)
+      expect(extractSatPattern('**SAT Pattern: Right Triangle Trigonometry with Perimeter**')).toBe(
+        'trig-ratio-from-perimeter',
+      );
+    });
+
+    it('fixes mis-aliased linear-cost-setup (used to point to system pool)', () => {
+      // Linear Cost Setup is a SINGLE-variable equation, not a 2-variable system.
+      expect(extractSatPattern('**SAT Pattern: Linear Cost Setup**')).toBe(
+        'linear-cost-equation-setup',
+      );
+    });
+
+    it('fixes mis-aliased percent-complement (used to point to basic-probability)', () => {
+      // Percent complement (100% - x%) has nothing to do with probability.
+      // No alias entry; resolves to its own canonical.
+      expect(extractSatPattern('**SAT Pattern: Percent Complement**')).toBe('percent-complement');
+    });
+
+    it('routes exponential build vs interpret separately', () => {
+      // Test bundles use these specific titles; new patterns split them.
+      expect(extractSatPattern('**SAT Pattern: Exponential Growth Interpretation**')).toBe(
+        'interpret-exponential-parameters',
+      );
+      expect(extractSatPattern('**SAT Pattern: Exponential Growth Model**')).toBe(
+        'build-exponential-model',
+      );
+      // Generic title stays at canonical
+      expect(extractSatPattern('**SAT Pattern: Exponential Growth/Decay**')).toBe(
+        'exponential-growth-decay',
       );
     });
 
