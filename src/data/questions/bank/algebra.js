@@ -565,7 +565,7 @@ export const algebraBank = [
     skills: ['function-evaluation'],
     difficulty: 'easy',
     type: 'multiple-choice',
-    question: 'If $f(x) = 4x - 7$, what is $f(5)$?',
+    question: 'The function $f$ is defined by $f(x) = 4x - 7$. What is the value of $f(5)$?',
     choices: [
       { id: 'A', text: '13' },
       // distractor: 4 + 5 + (−7) = 2, or other arithmetic slip
@@ -589,7 +589,7 @@ export const algebraBank = [
     skills: ['function-evaluation'],
     difficulty: 'easy',
     type: 'fill-in',
-    question: 'If $g(x) = -2x + 15$, what is $g(-3)$?',
+    question: 'The function $g$ is defined by $g(x) = -2x + 15$. What is the value of $g(-3)$?',
     correctAnswer: '21',
     explanation: '**SAT Pattern: Function Evaluation with Negatives**\n\n**The correct answer is $21$.**\n\n**The Fast Way (~5s):** $g(-3) = -2(-3) + 15 = 6 + 15 = 21$.\n\n**The Full Solution:**\nSubstitute $x = -3$:\n$g(-3) = -2(-3) + 15$\n$= 6 + 15$ (since negative times negative is positive)\n$= 21$.\n\nVerification: $-2 \\cdot (-3) = +6$ ✓ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing $-2(-3) = -6$ instead of $+6$ (sign error).\n* Subtracting $15$ instead of adding.\n* Reporting $9$ ($15 - 6$ with sign error).\n\n**Test Day Takeaway:** Negative times negative is POSITIVE. When substituting a negative input, parenthesize: $-2(-3) = +6$, not $-6$.',
     calculatorAllowed: true,
@@ -628,7 +628,7 @@ export const algebraBank = [
     skills: ['function-evaluation'],
     difficulty: 'medium',
     type: 'fill-in',
-    question: 'If $f(x) = x^2 - 4x + 7$, what is $f(3)$?',
+    question: 'The function $f$ is defined by $f(x) = x^2 - 4x + 7$. What is the value of $f(3)$?',
     correctAnswer: '4',
     explanation: '**SAT Pattern: Function Evaluation (Quadratic)**\n\n**The correct answer is $4$.**\n\n**The Fast Way (~10s):** $f(3) = 9 - 12 + 7 = 4$.\n\n**The Full Solution:**\nSubstitute $x = 3$:\n$f(3) = 3^2 - 4(3) + 7 = 9 - 12 + 7 = 4$.\n\nFollow order of operations: square first, then multiply, then add/subtract left to right.\n\nVerification: $9 - 12 = -3$; $-3 + 7 = 4$ ✓ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Forgetting to square $3$: would give $3 - 12 + 7 = -2$.\n* Computing $3^2 = 6$ instead of $9$.\n* Misordering: $(9 + 7) - 12 = 4$ is fine, but $9 - (12 + 7) = -10$ is wrong.\n\n**Test Day Takeaway:** Order of operations is critical with quadratics: SQUARE first, then handle the rest left to right.',
     calculatorAllowed: true,
@@ -643,7 +643,7 @@ export const algebraBank = [
     skills: ['function-evaluation', 'function-notation'],
     difficulty: 'hard',
     type: 'multiple-choice',
-    question: 'If $f(x) = 3x - 7$ and $f(a) = f(2a - 5)$, what is $a$?',
+    question: 'The function $f$ is defined by $f(x) = 3x - 7$. If $f(a) = f(2a - 5)$, what is the value of $a$?',
     choices: [
       // distractor: incorrect equation setup (3a - 7 = 2a - 5)
       { id: 'A', text: '3' },
@@ -1586,7 +1586,7 @@ export const algebraBank = [
     skills: ['function-notation'],
     difficulty: 'easy',
     type: 'multiple-choice',
-    question: 'If $f(x) = 3x + 8$, what is $f(0)$?',
+    question: 'The function $f$ is defined by $f(x) = 3x + 8$. What is the value of $f(0)$?',
     choices: [
       // distractor: assumes f(0) = 0
       { id: 'A', text: '0' },
@@ -1610,7 +1610,7 @@ export const algebraBank = [
     skills: ['function-notation'],
     difficulty: 'easy',
     type: 'fill-in',
-    question: 'If $h(t) = -5t + 40$, what value of $t$ makes $h(t) = 0$?',
+    question: 'The function $h$ is defined by $h(t) = -5t + 40$. For what value of $t$ does $h(t) = 0$?',
     correctAnswer: '8',
     explanation: '**SAT Pattern: Find x-intercept (Zero of Function)**\n\n**The correct answer is $8$.**\n\n**The Fast Way (~10s):** $-5t + 40 = 0 \\Rightarrow 5t = 40 \\Rightarrow t = 8$.\n\n**The Full Solution:**\nSet $h(t) = 0$:\n$-5t + 40 = 0$\n$-5t = -40$\n$t = 8$.\n\nVerification: $h(8) = -5(8) + 40 = -40 + 40 = 0$ ✓ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Sign error: dividing $40$ by $-5$ to get $-8$.\n* Reporting $40$ (the constant).\n* Subtracting $5$ from $40$ to get $35$.\n\n**Test Day Takeaway:** "What value makes $f = 0$" is the $x$-intercept. Set up the equation, isolate the variable. Watch signs carefully.',
     calculatorAllowed: true,
@@ -1649,7 +1649,7 @@ export const algebraBank = [
     skills: ['function-notation'],
     difficulty: 'medium',
     type: 'multiple-choice',
-    question: 'If $f(x) = 7 - 2x$ and $f(k) = -3$, what is $k$?',
+    question: 'The function $f$ is defined by $f(x) = 7 - 2x$. If $f(k) = -3$, what is the value of $k$?',
     choices: [
       // distractor: solves 7 − 2k = 3 (wrong sign)
       { id: 'A', text: '2' },
@@ -1797,7 +1797,7 @@ export const algebraBank = [
     skills: ['function-composition'],
     difficulty: 'medium',
     type: 'multiple-choice',
-    question: 'If $f(x) = 2x + 1$ and $g(x) = x^2 - 3$, what is $f(g(2))$?',
+    question: 'The functions $f$ and $g$ are defined by $f(x) = 2x + 1$ and $g(x) = x^2 - 3$. What is the value of $f(g(2))$?',
     choices: [
       // distractor: computes only g(2) = 1
       { id: 'A', text: '1' },
@@ -1821,7 +1821,7 @@ export const algebraBank = [
     skills: ['function-composition'],
     difficulty: 'medium',
     type: 'fill-in',
-    question: 'If $f(x) = x + 6$ and $g(x) = 2x$, what is $g(f(5))$?',
+    question: 'The functions $f$ and $g$ are defined by $f(x) = x + 6$ and $g(x) = 2x$. What is the value of $g(f(5))$?',
     correctAnswer: '22',
     explanation: '**SAT Pattern: Composition with Specific Input**\n\n**The correct answer is $22$.**\n\n**The Fast Way (~10s):** $f(5) = 11$. $g(11) = 22$.\n\n**The Full Solution:**\nFor $g(f(5))$, work inside out:\nStep 1: $f(5) = 5 + 6 = 11$.\nStep 2: $g(11) = 2(11) = 22$.\n\nVerification: $g(f(5)) = g(11) = 22$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing $f(g(5))$ instead: $f(10) = 16$.\n* Reporting $11$ (only the inner step).\n* Doubling $5$ first: $g(5) = 10$, $f(10) = 16$.\n\n**Test Day Takeaway:** $g(f(5))$: $f$ applies first (to $5$), then $g$ to the result. The OUTER function is applied LAST.',
     calculatorAllowed: true,
@@ -1836,7 +1836,7 @@ export const algebraBank = [
     skills: ['function-composition'],
     difficulty: 'hard',
     type: 'multiple-choice',
-    question: 'If $f(x) = x + 4$ and $g(x) = 3x - 2$, which expression equals $g(f(x))$?',
+    question: 'The functions $f$ and $g$ are defined by $f(x) = x + 4$ and $g(x) = 3x - 2$. Which expression is equivalent to $g(f(x))$?',
     choices: [
       { id: 'A', text: '$3x + 10$' },
       // distractor: fails to distribute 3 to +4 (only gets +4 - 2 = 2 inside)
@@ -1949,7 +1949,7 @@ export const algebraBank = [
     skills: ['function-transformations'],
     difficulty: 'medium',
     type: 'multiple-choice',
-    question: 'If $g(x) = f(x) + 5$ and $f(x) = 2x - 1$, what is the $y$-intercept of $g$?',
+    question: 'The functions $g$ and $f$ are defined by $g(x) = f(x) + 5$ and $f(x) = 2x - 1$. What is the $y$-intercept of $g$?',
     choices: [
       { id: 'A', text: '4' },
       // distractor: adds 5 without considering f\'s intercept
@@ -4533,24 +4533,24 @@ export const algebraBank = [
   // ===== Phase 2 batch 11/1: vertex-form-to-standard-form (8 items) =====
   // Convert vertex form to standard, ask for coefficient sum or specific value.
   { id: 'bank-alg-272', domain: 'algebra', skills: ['distributive-property', 'converting-quadratic-forms'], difficulty: 'easy', type: 'multiple-choice',
-    question: 'If $f(x) = (x - 2)^2 + 3$, what is $f(x)$ in standard form $ax^2 + bx + c$?',
+    question: 'The function $f$ is defined by $f(x) = (x - 2)^2 + 3$. Which of the following expresses $f(x)$ in standard form $ax^2 + bx + c$?',
     choices: [{ id: 'A', text: '$x^2 - 4x + 7$' }, { id: 'B', text: '$x^2 + 4x + 7$' }, { id: 'C', text: '$x^2 - 4x + 3$' }, { id: 'D', text: '$x^2 - 2x + 3$' }],
     correctAnswer: 'A',
     explanation: '**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way:** $(x - 2)^2 = x^2 - 4x + 4$. Add $3$: $x^2 - 4x + 7$.\n\n**Test Day Takeaway:** $(x - h)^2 = x^2 - 2hx + h^2$.',
     calculatorAllowed: false, tags: [], sourceStyleRef: 'vertex-form-to-standard-form', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
   { id: 'bank-alg-273', domain: 'algebra', skills: ['distributive-property', 'converting-quadratic-forms'], difficulty: 'easy', type: 'fill-in',
-    question: 'If $f(x) = (x + 3)^2 - 5$, what is the constant term in standard form?',
+    question: 'The function $f$ is defined by $f(x) = (x + 3)^2 - 5$. What is the constant term in standard form?',
     correctAnswer: '4',
     explanation: '**SAT Pattern: Vertex Form to Standard Form**\n\n**The correct answer is $4$.**\n\n**The Fast Way:** $(x + 3)^2 = x^2 + 6x + 9$. $- 5$: constant $= 9 - 5 = 4$.\n\n**Test Day Takeaway:** Constant term = $h^2 + k$ when expanding $(x - h)^2 + k$.',
     calculatorAllowed: false, tags: [], sourceStyleRef: 'vertex-form-to-standard-form', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
   { id: 'bank-alg-274', domain: 'algebra', skills: ['distributive-property', 'converting-quadratic-forms'], difficulty: 'medium', type: 'multiple-choice',
-    question: 'If $f(x) = 2(x - 3)^2 + 1$, what is the coefficient of $x$ when $f(x)$ is written in standard form?',
+    question: 'The function $f$ is defined by $f(x) = 2(x - 3)^2 + 1$. What is the coefficient of $x$ when $f(x)$ is written in standard form?',
     choices: [{ id: 'A', text: '$-12$' }, { id: 'B', text: '$-6$' }, { id: 'C', text: '$6$' }, { id: 'D', text: '$12$' }],
     correctAnswer: 'A',
     explanation: '**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way:** $2(x - 3)^2 = 2(x^2 - 6x + 9) = 2x^2 - 12x + 18$. Coefficient of $x$: $-12$.\n\n**Test Day Takeaway:** Leading coefficient distributes to ALL terms after squaring.',
     calculatorAllowed: false, tags: [], sourceStyleRef: 'vertex-form-to-standard-form', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
   { id: 'bank-alg-275', domain: 'algebra', skills: ['distributive-property', 'converting-quadratic-forms'], difficulty: 'medium', type: 'fill-in',
-    question: 'If $f(x) = (x - 5)^2 + 3$ is rewritten as $x^2 + bx + c$, what is the value of $b + c$?',
+    question: 'The function $f$ is defined by $f(x) = (x - 5)^2 + 3$. When $f(x)$ is rewritten in the form $x^2 + bx + c$, what is the value of $b + c$?',
     correctAnswer: '18',
     explanation: '**SAT Pattern: Vertex Form to Standard Form**\n\n**The correct answer is $18$.**\n\n**The Fast Way:** $(x - 5)^2 + 3 = x^2 - 10x + 28$. $b + c = -10 + 28 = 18$.\n\n**Test Day Takeaway:** Sum of coefficients of $x$ + constant in standard form.',
     calculatorAllowed: false, tags: [], sourceStyleRef: 'vertex-form-to-standard-form', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
@@ -4561,18 +4561,18 @@ export const algebraBank = [
     explanation: '**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way:** $a + b + c = f(1)$. Find $a$ from $f(2) = 5$: $4a - 7 = 5 \\Rightarrow a = 3$. $f(1) = 3(1 - 4)^2 - 7 = 27 - 7 = 20$.\n\n**Test Day Takeaway:** $a + b + c = f(1)$ shortcut. No need to expand to standard form.',
     calculatorAllowed: false, tags: [], sourceStyleRef: 'vertex-form-to-standard-form', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
   { id: 'bank-alg-277', domain: 'algebra', skills: ['distributive-property', 'converting-quadratic-forms'], difficulty: 'medium', type: 'fill-in',
-    question: 'If $f(x) = -(x + 1)^2 + 6$, what is the constant term in standard form?',
+    question: 'The function $f$ is defined by $f(x) = -(x + 1)^2 + 6$. What is the constant term in standard form?',
     correctAnswer: '5',
     explanation: '**SAT Pattern: Vertex Form to Standard Form**\n\n**The correct answer is $5$.**\n\n**The Fast Way:** $-(x + 1)^2 = -(x^2 + 2x + 1) = -x^2 - 2x - 1$. Constant: $-1 + 6 = 5$.\n\n**Test Day Takeaway:** Apply the leading sign carefully when distributing.',
     calculatorAllowed: false, tags: [], sourceStyleRef: 'vertex-form-to-standard-form', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
   { id: 'bank-alg-278', domain: 'algebra', skills: ['distributive-property', 'converting-quadratic-forms'], difficulty: 'hard', type: 'multiple-choice',
-    question: 'If $f(x) = 3(x - 2)^2 + k$ is written as $3x^2 - 12x + 17$, what is the value of $k$?',
+    question: 'The function $f$ is defined by $f(x) = 3(x - 2)^2 + k$, where $k$ is a constant. When $f(x)$ is rewritten in standard form, the result is $3x^2 - 12x + 17$. What is the value of $k$?',
     choices: [{ id: 'A', text: '$5$' }, { id: 'B', text: '$17$' }, { id: 'C', text: '$12$' }, { id: 'D', text: '$-12$' }],
     correctAnswer: 'A',
     explanation: '**SAT Pattern: Vertex Form to Standard Form**\n\n**Choice A is correct.**\n\n**The Fast Way:** $3(x - 2)^2 = 3x^2 - 12x + 12$. Plus $k$: constant $= 12 + k$. Set equal: $12 + k = 17 \\Rightarrow k = 5$.\n\n**Test Day Takeaway:** Match constants after expanding the vertex term.',
     calculatorAllowed: false, tags: [], sourceStyleRef: 'vertex-form-to-standard-form', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
   { id: 'bank-alg-279', domain: 'algebra', skills: ['distributive-property', 'converting-quadratic-forms'], difficulty: 'hard', type: 'fill-in',
-    question: 'If $f(x) = 2(x - 3)^2 - 5$, what is the value of $f(x)$ at $x = 5$?',
+    question: 'The function $f$ is defined by $f(x) = 2(x - 3)^2 - 5$. What is the value of $f(x)$ at $x = 5$?',
     correctAnswer: '3',
     explanation: '**SAT Pattern: Vertex Form to Standard Form**\n\n**The correct answer is $3$.**\n\n**The Fast Way:** $f(5) = 2(5 - 3)^2 - 5 = 2(4) - 5 = 8 - 5 = 3$.\n\n**Test Day Takeaway:** No need to convert — just evaluate directly in vertex form.',
     calculatorAllowed: false, tags: [], sourceStyleRef: 'vertex-form-to-standard-form', authoredBy: 'performsat-engine', createdAt: '2026-05-11' },
@@ -4796,20 +4796,20 @@ export const algebraBank = [
   // DISTINCT method from direct evaluation. Items pin "solve an equation"
   // not "substitute and compute."
   { id: 'bank-alg-320', domain: 'algebra', skills: ['function-notation'], difficulty: 'easy', type: 'multiple-choice',
-    question: 'If $f(x) = 2x + 5$, what is the value of $x$ when $f(x) = 13$?',
+    question: 'The function $f$ is defined by $f(x) = 2x + 5$. For what value of $x$ does $f(x) = 13$?',
     choices: [{ id: 'A', text: '$4$' }, { id: 'B', text: '$9$' }, { id: 'C', text: '$13$' }, { id: 'D', text: '$31$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Solve for Input from Output**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Set $2x + 5 = 13 \\Rightarrow 2x = 8 \\Rightarrow x = 4$.\n\n**The Full Solution:**\nThis is the INVERSE of direct evaluation. Instead of plugging $x$ in to get $f(x)$, set the output expression equal to the given value and SOLVE for $x$:\n$f(x) = 13$ becomes $2x + 5 = 13$.\nSubtract $5$: $2x = 8$. Divide by $2$: $x = 4$.\n\nVerification: $f(4) = 2(4) + 5 = 13$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B: confuses input with output — gives $f(2)$.\n* C: returns the given output value without solving.\n* D: $13 \\cdot 2 + 5$ (wrong direction).\n\n**Test Day Takeaway:** \"What is $x$ when $f(x) = c$\" means SOLVE an equation. Direction matters: input → output (substitute) vs output → input (solve).",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'solve-for-input-from-output', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
 
   { id: 'bank-alg-321', domain: 'algebra', skills: ['function-notation'], difficulty: 'easy', type: 'fill-in',
-    question: 'If $g(x) = 3x - 7$ and $g(a) = 8$, what is the value of $a$?',
+    question: 'The function $g$ is defined by $g(x) = 3x - 7$. If $g(a) = 8$, what is the value of $a$?',
     correctAnswer: '5',
     explanation: "**SAT Pattern: Solve for Input from Output**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~10s):** $3a - 7 = 8 \\Rightarrow 3a = 15 \\Rightarrow a = 5$.\n\n**The Full Solution:**\nThe notation $g(a) = 8$ means: input is $a$, output is $8$.\nSubstitute and solve: $3a - 7 = 8$. Add $7$: $3a = 15$. Divide by $3$: $a = 5$.\n\nVerification: $g(5) = 3(5) - 7 = 8$ \\checkmark.\n\n**Common Mistakes:** Reporting $8$ (the output, not the input); reporting $3$ (subtracts $7$ from $8$ without dividing); reporting $1$ ($8-7=1$, ignores the $3$).\n\n**Test Day Takeaway:** $g(a) = c$ is an equation in $a$. Solve it like any other linear equation.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'solve-for-input-from-output', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
 
   { id: 'bank-alg-322', domain: 'algebra', skills: ['function-notation'], difficulty: 'medium', type: 'multiple-choice',
-    question: 'If $f(x) = -4x + 12$ and $f(a) = -8$, what is the value of $a$?',
+    question: 'The function $f$ is defined by $f(x) = -4x + 12$. If $f(a) = -8$, what is the value of $a$?',
     choices: [{ id: 'A', text: '$5$' }, { id: 'B', text: '$-5$' }, { id: 'C', text: '$1$' }, { id: 'D', text: '$-1$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Solve for Input from Output**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $-4a + 12 = -8 \\Rightarrow -4a = -20 \\Rightarrow a = 5$.\n\n**The Full Solution:**\nSet $f(a) = -8$: $-4a + 12 = -8$.\nSubtract $12$: $-4a = -20$. Divide by $-4$: $a = 5$.\n\nVerification: $f(5) = -4(5) + 12 = -8$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B: sign error on the division.\n* C: arithmetic from a wrong setup.\n* D: drops the sign and divides incorrectly.\n\n**Test Day Takeaway:** Negative coefficients flip sign on division. Track signs at every step.",
@@ -4829,7 +4829,7 @@ export const algebraBank = [
     calculatorAllowed: false, tags: [], sourceStyleRef: 'solve-for-input-from-output', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
 
   { id: 'bank-alg-325', domain: 'algebra', skills: ['function-notation'], difficulty: 'hard', type: 'multiple-choice',
-    question: 'If $f(x) = x^2 - 9$ and $f(a) = 16$ for some positive number $a$, what is the value of $a$?',
+    question: 'The function $f$ is defined by $f(x) = x^2 - 9$. If $f(a) = 16$ and $a > 0$, what is the value of $a$?',
     choices: [{ id: 'A', text: '$5$' }, { id: 'B', text: '$4$' }, { id: 'C', text: '$7$' }, { id: 'D', text: '$25$' }],
     correctAnswer: 'A',
     explanation: "**SAT Pattern: Solve for Input from Output**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** $a^2 - 9 = 16 \\Rightarrow a^2 = 25 \\Rightarrow a = 5$ (positive).\n\n**The Full Solution:**\nSet $f(a) = 16$: $a^2 - 9 = 16$.\nAdd $9$: $a^2 = 25$. Square root: $a = \\pm 5$. Question specifies positive, so $a = 5$.\n\nVerification: $f(5) = 25 - 9 = 16$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* B: takes $\\sqrt{16}$ directly without first solving for $a^2$.\n* C: $16 - 9 = 7$ (treats it as direct evaluation).\n* D: stops at $a^2 = 25$ without taking the root.\n\n**Test Day Takeaway:** Inverse evaluation of quadratics gives TWO inputs ($\\pm$). Read the question's sign constraint carefully.",
