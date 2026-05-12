@@ -852,32 +852,12 @@ export const advancedMathBank = [
     correctAnswer: '9',
     explanation: "**SAT Pattern: Exponent Laws — Quotient Rule + Solve**\n\n**The correct answer is $9$.**\n\n**The Fast Way (~10s):** Quotient rule: $\\dfrac{x^{2a + 3}}{x^a} = x^{(2a + 3) - a} = x^{a + 3}$. Set $a + 3 = 12 \\Rightarrow a = 9$.\n\n**The Full Solution:**\nStep 1: Apply the quotient rule for exponents: $\\dfrac{x^m}{x^n} = x^{m - n}$.\n$\\quad \\dfrac{x^{2a + 3}}{x^a} = x^{(2a + 3) - a} = x^{a + 3}$.\nStep 2: Equate the exponents (valid because the equation holds for ALL $x > 0$, not just $x = 0$ or $x = 1$):\n$\\quad a + 3 = 12 \\Rightarrow a = 9$.\n\nVerification: $\\dfrac{x^{2(9) + 3}}{x^9} = \\dfrac{x^{21}}{x^9} = x^{12}$ \\checkmark.\n\n**Common Mistakes:** Reporting $5$ (gets the right equation $a + 3 = 12$ but solves $a + 3 = 8$ by mis-reading the exponent on the right); reporting $12$ (substitutes the target exponent for $a$ directly); reporting $6$ (mis-applies the quotient rule as $2a + 3 - a = 12$ but solves arithmetic-wrong).\n\n**Test Day Takeaway:** Quotient rule: $\\dfrac{x^m}{x^n} = x^{m - n}$ — SUBTRACT exponents when dividing same-base powers. The 'for all positive $x$' clause is what lets you equate exponents on both sides.",
     calculatorAllowed: false, tags: [], sourceStyleRef: 'exponent-equation', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
-  {
-    id: 'bank-am-040',
-    domain: 'advanced-math',
-    skills: ['exponent-laws'],
-    difficulty: 'hard',
-    type: 'multiple-choice',
-    question: 'Which expression is equivalent to $\\frac{12x^5 y^{-2}}{4x^{-1} y^3}$?',
-    choices: [
-      { id: 'A', text: '$\\frac{3x^6}{y^5}$' },
-      // distractor: subtracts x as 5 - 1 instead of 5 - (-1)
-      { id: 'B', text: '$\\frac{3x^4}{y^5}$' },
-      // distractor: keeps y in numerator
-      { id: 'C', text: '$3x^6 y^5$' },
-      // distractor: incorrect y exponent subtraction
-      { id: 'D', text: '$\\frac{3x^4}{y}$' },
-    ],
-    correctAnswer: 'A',
-    explanation: '**SAT Pattern: Simplify with Negative Exponents**\n\n**Choice A is correct.**\n\n**The Fast Way (~25s):** Coefficient: $12/4 = 3$. $x$: $5 - (-1) = 6$. $y$: $-2 - 3 = -5 \\Rightarrow y^{-5} = 1/y^5$. Result: $\\frac{3x^6}{y^5}$.\n\n**The Full Solution:**\nApply the quotient rule to each variable separately:\n* Coefficient: $\\frac{12}{4} = 3$.\n* $x$: $\\frac{x^5}{x^{-1}} = x^{5 - (-1)} = x^6$.\n* $y$: $\\frac{y^{-2}}{y^3} = y^{-2 - 3} = y^{-5} = \\frac{1}{y^5}$.\nCombine: $\\frac{3x^6}{y^5}$.\n\nVerification: $\\frac{3x^6}{y^5} \\cdot 4x^{-1}y^3 = 12 x^5 y^{-2}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: "sign error" — subtracts $x$ exponents as $5 - 1$ instead of $5 - (-1) = 6$.\n* Choice C: "sign error" — keeps $y$ in numerator instead of denominator.\n* Choice D: "wrong base" — combines $y$ exponents incorrectly.\n\n**Test Day Takeaway:** Subtracting a NEGATIVE exponent is the same as ADDING. $5 - (-1) = 6$, not $4$. Negative exponents in the final answer go in the DENOMINATOR (or invert).',
-    calculatorAllowed: true,
-    tags: [],
-    sourceStyleRef: 'exponent-simplify',
-    authoredBy: 'performsat-engine',
-    createdAt: '2026-02-28',
-  },
-
-  // ── zero-negative-exponents (4 questions) ─────────────────────────
+  { id: 'bank-am-040', domain: 'advanced-math', skills: ['exponent-laws'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'For all positive values of $x$ and $y$, the equation $\\dfrac{12 x^a y^b}{4 x^{-1} y^3} = 3 x^6 y^{-5}$ is true, where $a$ and $b$ are constants. What is the value of $a + b$?',
+    choices: [{ id: 'A', text: '$-7$' }, { id: 'B', text: '$-2$' }, { id: 'C', text: '$3$' }, { id: 'D', text: '$5$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Match Coefficients After Exponent Simplification**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Simplify LHS: $\\dfrac{12 x^a y^b}{4 x^{-1} y^3} = 3 x^{a + 1} y^{b - 3}$. Match exponents with $3 x^6 y^{-5}$: $a + 1 = 6 \\Rightarrow a = 5$; $b - 3 = -5 \\Rightarrow b = -2$. So $a + b = 5 + (-2) = 3$.\n\n**The Full Solution:**\nStep 1: Apply the quotient rule for exponents on each variable: $\\dfrac{x^a}{x^{-1}} = x^{a - (-1)} = x^{a + 1}$ and $\\dfrac{y^b}{y^3} = y^{b - 3}$. The coefficient is $12/4 = 3$.\nLHS simplified: $3 x^{a + 1} y^{b - 3}$.\nStep 2: Match each piece to the RHS $3 x^6 y^{-5}$:\n$\\quad a + 1 = 6 \\Rightarrow a = 5$.\n$\\quad b - 3 = -5 \\Rightarrow b = -2$.\nStep 3: Compute the sum: $a + b = 5 + (-2) = 3$.\n\nVerification: with $a = 5$, $b = -2$: $\\dfrac{12 x^5 y^{-2}}{4 x^{-1} y^3} = 3 x^{5 - (-1)} y^{-2 - 3} = 3 x^6 y^{-5}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A ($-7$): sign-flips both: $a + 1 = -6 \\Rightarrow a = -7$ (uses $-6$ instead of $+6$ for the $x$-exponent). Combined with correct $b$, gets $-7 + (-2)$, but reads just $-7$ in confusion.\n* Choice B ($-2$): reports $b$ alone (stops one step early after solving the $y$-exponent equation).\n* Choice C ($3$): correct.\n* Choice D ($5$): reports $a$ alone (stops one step early after solving the $x$-exponent equation).\n\n**Test Day Takeaway:** When the equation is given as the SIMPLIFIED form, work backward by reversing the exponent rules. The quotient rule $\\dfrac{x^a}{x^b} = x^{a - b}$ gives one equation per variable; pair with the target exponent to solve for each unknown. Always re-read what the question wants — $a$, $b$, $a + b$, or some other combination.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'simplify-exponent-quotient', authoredBy: 'performsat-engine', createdAt: '2026-05-12' },
   {
     id: 'bank-am-041',
     domain: 'advanced-math',
