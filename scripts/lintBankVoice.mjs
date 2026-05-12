@@ -85,19 +85,35 @@ const RULES = [
   {
     id: 'stem-if-with-question',
     severity: 'warn',
-    description: 'Stem opens with "If [equation], what is..." — soft form of CB-voice drift, but sometimes acceptable for genuine conditionals',
+    description: 'Stem opens with "If [equation], what is the value of $x$?" — pure-solve form. CB prefers "What value of $x$ satisfies..." for this case.',
     test: (item) => {
       const stem = item.question || '';
-      // Stricter pattern: opens with "If ", then a math statement, then ", what" — but NOT a function-call form (those are caught by the harder rule above).
-      if (/^\s*If\s+\$[^$]+\$\s*,?\s+(what|for what)/i.test(stem)) {
-        // Exclude if it's the function-call form (already caught above)
-        if (/^\s*If\s+\$[fghpqrFGHPQR]\s*\(/i.test(stem)) return null;
-        return {
-          reason: 'Consider rephrasing — CB prefers "The equation shown..." or "[equation]. What is the value of..." over "If [equation], what is..."',
-          excerpt: stem.slice(0, 120),
-        };
+      if (!/^\s*If\s+\$[^$]+\$\s*,?\s+(what|for what)/i.test(stem)) return null;
+      // Exclude function-call form (caught by harder rule).
+      if (/^\s*If\s+\$[fghpqrFGHPQR]\s*\(/i.test(stem)) return null;
+      // Exclude legitimate CB shifted-output: "If [eq], what is the value of [SHIFTED expr]?"
+      // where the follow-up is more than just a single bare variable.
+      // E.g., "If $7x - 4 = 24$, what is the value of $7x + 11$?" is authentic CB voice.
+      // The TELL is that the follow-up math expression contains more than one term
+      // (has +, -, ×, /, or a coefficient on the variable, or a constant, or sum/product/greater-of, etc.).
+      const followUp = stem.match(/what is(?:\s+the\s+(?:value|sum|product|greater|lesser|sum of all solutions)\s+of)?\s+([^?]+?)\s*\?/i);
+      if (followUp) {
+        const expr = followUp[1].trim();
+        // If the follow-up is just a bare single-variable $x$ / $y$ / etc., that's pure-solve (flag it).
+        if (/^\$[a-z]\$$/.test(expr)) {
+          return {
+            reason: 'Pure-solve: replace with "What value of $x$ satisfies the equation [eq]?" (CB voice). Run scripts/fixBankPureSolveStems.mjs.',
+            excerpt: stem.slice(0, 120),
+          };
+        }
+        // Multi-term follow-up like "$6x - 1$", "$3x + 8$", "all solutions", "the sum of solutions" — authentic CB voice.
+        return null;
       }
-      return null;
+      // Fall back to flagging if we can't parse the follow-up.
+      return {
+        reason: 'Consider rephrasing — CB prefers "What value of $x$ satisfies..." over "If [equation], what is...".',
+        excerpt: stem.slice(0, 120),
+      };
     },
   },
 
