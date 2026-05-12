@@ -195,14 +195,23 @@ CB AUTHENTICITY RUBRIC (5 dimensions, each 1-5):
    2 = off by one band in the wrong direction
    1 = off by two bands
 
-5. OVERALL CB-GRADE — would this fit unobtrusively in PT 4-11?
-   5 = indistinguishable from a real CB item
-   4 = reads as CB-grade; a careful reviewer might quibble but a student wouldn't notice
-   3 = plausible but tonally off (wrong voice — too verbose/casual/clinical, or math too clean/messy)
-   2 = perceptibly different (feels like a textbook/state-test/workbook problem)
-   1 = obviously not CB-grade
+5. OVERALL CB-GRADE — would the STEM, CHOICES, AND DISTRACTOR DESIGN look indistinguishable from a real CB item?
+   5 = stem voice, choice form, and distractor misconceptions all match CB
+   4 = reads as CB-grade in stem and choices; minor distractor or notation quibble
+   3 = stem/choices/distractors plausible but feel off (wrong voice or wrong distractor misconception archetype)
+   2 = perceptibly different stem voice or distractor design (feels like a textbook/state-test/workbook problem)
+   1 = stem voice or distractor design obviously not CB
 
-For comparison, here are 2-3 ACTUAL CB items on the same skill. Rate the target against these.
+IMPORTANT: When rating Overall CB-grade, focus ONLY on the stem, choices, and the
+4-misconception distractor analysis. DO NOT penalize the explanation for being
+PerformSAT-formatted (Fast Way / Full Solution / Why-tempting / Test Day Takeaway) —
+that template is the deliberate target per the PerformSAT authenticity rubric.
+A CB-grade item has stem + choices indistinguishable from CB; the explanation can
+be in any consistent format.
+
+For comparison, here are 2-3 ACTUAL CB items on the same skill. Rate the target's
+STEM and CHOICES against these CB items. Compare the CB rationale to the target's
+explanation only to verify the distractor MISCONCEPTIONS match — not the tone.
 
 ${anchorBlocks}
 
