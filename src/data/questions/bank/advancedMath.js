@@ -823,7 +823,7 @@ export const advancedMathBank = [
     skills: ['exponent-laws'],
     difficulty: 'easy',
     type: 'multiple-choice',
-    question: 'Simplify $(3a^2b)^3$.',
+    question: 'Which expression is equivalent to $(3a^2b)^3$?',
     choices: [
       // distractor: 3² = 9 instead of 3³
       { id: 'A', text: '$9a^6b^3$' },
@@ -1253,7 +1253,7 @@ export const advancedMathBank = [
     skills: ['distributive-property'],
     difficulty: 'easy',
     type: 'multiple-choice',
-    question: 'Expand $-4(3x - 7)$.',
+    question: 'Which expression is equivalent to $-4(3x - 7)$?',
     choices: [
       { id: 'A', text: '$-12x + 28$' },
       // distractor: sign error on constant
@@ -1316,7 +1316,7 @@ export const advancedMathBank = [
     skills: ['distributive-property'],
     difficulty: 'hard',
     type: 'multiple-choice',
-    question: 'Expand $(x + 2)^3$.',
+    question: 'Which expression is equivalent to $(x + 2)^3$?',
     choices: [
       { id: 'A', text: '$x^3 + 6x^2 + 12x + 8$' },
       // distractor: applies sum-of-cubes incorrectly
@@ -1431,7 +1431,7 @@ export const advancedMathBank = [
     skills: ['difference-of-squares'],
     difficulty: 'easy',
     type: 'multiple-choice',
-    question: 'Factor $x^2 - 49$.',
+    question: 'Which of the following is a factorization of $x^2 - 49$?',
     choices: [
       { id: 'A', text: '$(x + 7)(x - 7)$' },
       // distractor: squares the factor instead
@@ -1455,7 +1455,7 @@ export const advancedMathBank = [
     skills: ['difference-of-squares'],
     difficulty: 'medium',
     type: 'multiple-choice',
-    question: 'Factor $4y^2 - 25$.',
+    question: 'Which of the following is a factorization of $4y^2 - 25$?',
     choices: [
       { id: 'A', text: '$(2y + 5)(2y - 5)$' },
       // distractor: separates 4 from y² incorrectly
@@ -1544,7 +1544,7 @@ export const advancedMathBank = [
     skills: ['perfect-square-trinomial'],
     difficulty: 'medium',
     type: 'multiple-choice',
-    question: 'Factor $9x^2 - 30x + 25$.',
+    question: 'Which of the following is a factorization of $9x^2 - 30x + 25$?',
     choices: [
       { id: 'A', text: '$(3x - 5)^2$' },
       // distractor: incorrect factoring
