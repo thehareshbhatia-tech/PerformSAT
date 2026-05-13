@@ -4,6 +4,7 @@ import 'katex/dist/katex.min.css';
 import './design-tokens.css';
 import './design/global.css';
 import App from './App';
+import DiagramPreview from './components/__DiagramPreview';
 
 // Global KaTeX style fixes
 const style = document.createElement('style');
@@ -29,8 +30,11 @@ style.textContent = `
 document.head.appendChild(style);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+// Dev-only diagram preview: gated on URL hash; never reaches production users
+// unless they hand-craft the hash. Cheap escape hatch for visual iteration.
+const isDiagramPreview = typeof window !== 'undefined' && window.location.hash.startsWith('#__diag=');
 root.render(
   <React.StrictMode>
-    <App />
+    {isDiagramPreview ? <DiagramPreview /> : <App />}
   </React.StrictMode>
 );

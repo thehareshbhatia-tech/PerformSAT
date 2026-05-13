@@ -27,74 +27,138 @@ const SATGrid = ({
   xMax = 10,
   yMin = -10,
   yMax = 10,
+  // --- New, all optional (back-compat) ---
+  xGridStep = 1,       // grid-line interval on x
+  yGridStep = 1,       // grid-line interval on y
+  xLabelStep,          // tick-label interval on x; falls back to auto if unset
+  yLabelStep,          // tick-label interval on y; falls back to auto if unset
+  xLabel,              // contextual axis label (e.g., "Hours studied")
+  yLabel,              // contextual axis label (e.g., "Test score")
+  title,               // optional chart title above the grid
   children
 }) => {
-  const gridArea = size - 2 * padding;
+  // Non-uniform padding: only grows when labels are present, so old callers
+  // see identical SVG geometry (300x300, padding 30 on all sides).
+  const padTop = padding + (title ? 18 : 0);
+  const padBottom = padding + (xLabel ? 22 : 0);
+  const padLeft = padding + (yLabel ? 22 : 0);
+  const padRight = padding;
+
+  // Width grows to keep the grid roughly square when y-axis label is present.
+  const width = size + (yLabel ? 22 : 0);
+  const height = size + (title ? 18 : 0) + (xLabel ? 22 : 0);
+  const gridWidth = width - padLeft - padRight;
+  const gridHeight = height - padTop - padBottom;
   const xRange = xMax - xMin;
   const yRange = yMax - yMin;
-  const unitSizeX = gridArea / xRange;
-  const unitSizeY = gridArea / yRange;
+  const unitSizeX = gridWidth / xRange;
+  const unitSizeY = gridHeight / yRange;
 
   // Convert math coords to SVG coords
-  const toX = (x) => padding + (x - xMin) * unitSizeX;
-  const toY = (y) => padding + (yMax - y) * unitSizeY;
+  const toX = (x) => padLeft + (x - xMin) * unitSizeX;
+  const toY = (y) => padTop + (yMax - y) * unitSizeY;
 
-  // Determine which labels to show (only major ones)
+  // Grid-line positions stepped by xGridStep / yGridStep
+  const xGridLines = [];
+  for (let n = xMin; n <= xMax + 1e-9; n += xGridStep) xGridLines.push(Math.round(n * 1e6) / 1e6);
+  const yGridLines = [];
+  for (let n = yMin; n <= yMax + 1e-9; n += yGridStep) yGridLines.push(Math.round(n * 1e6) / 1e6);
+
+  // X-axis renders at y=0 if 0 is in range, otherwise at yMin (so it sits on the grid bottom).
+  const axisY = (yMin <= 0 && yMax >= 0) ? 0 : yMin;
+  const axisX = (xMin <= 0 && xMax >= 0) ? 0 : xMin;
+
+  // Determine which labels to show. We always exclude the value sitting on
+  // the perpendicular axis: that label would overlap the axis line itself.
+  // (For the classic 0-centered case, axisY=axisX=0, so this preserves the
+  // old "filter !== 0" behavior. For shifted ranges where axisY=yMin > 0, it
+  // also drops the redundant yMin label that would collide with the x-axis.)
   const getXLabels = () => {
-    if (xRange <= 12) return Array.from({ length: xRange + 1 }, (_, i) => xMin + i).filter(x => x !== 0 && x % 2 === 0);
-    if (xRange <= 24) return Array.from({ length: xRange + 1 }, (_, i) => xMin + i).filter(x => x !== 0 && x % 5 === 0);
-    return [xMin, Math.round(xMin/2), Math.round(xMax/2), xMax].filter(x => x !== 0);
+    if (xLabelStep) {
+      const out = [];
+      for (let n = xMin; n <= xMax + 1e-9; n += xLabelStep) {
+        const v = Math.round(n * 1e6) / 1e6;
+        if (v !== axisX) out.push(v);
+      }
+      return out;
+    }
+    if (xRange <= 12) return Array.from({ length: xRange + 1 }, (_, i) => xMin + i).filter(x => x !== axisX && x % 2 === 0);
+    if (xRange <= 24) return Array.from({ length: xRange + 1 }, (_, i) => xMin + i).filter(x => x !== axisX && x % 5 === 0);
+    return [xMin, Math.round(xMin/2), Math.round(xMax/2), xMax].filter(x => x !== axisX);
   };
 
   const getYLabels = () => {
-    if (yRange <= 12) return Array.from({ length: yRange + 1 }, (_, i) => yMin + i).filter(y => y !== 0 && y % 2 === 0);
-    if (yRange <= 24) return Array.from({ length: yRange + 1 }, (_, i) => yMin + i).filter(y => y !== 0 && y % 5 === 0);
-    return [yMin, Math.round(yMin/2), Math.round(yMax/2), yMax].filter(y => y !== 0);
+    if (yLabelStep) {
+      const out = [];
+      for (let n = yMin; n <= yMax + 1e-9; n += yLabelStep) {
+        const v = Math.round(n * 1e6) / 1e6;
+        if (v !== axisY) out.push(v);
+      }
+      return out;
+    }
+    if (yRange <= 12) return Array.from({ length: yRange + 1 }, (_, i) => yMin + i).filter(y => y !== axisY && y % 2 === 0);
+    if (yRange <= 24) return Array.from({ length: yRange + 1 }, (_, i) => yMin + i).filter(y => y !== axisY && y % 5 === 0);
+    return [yMin, Math.round(yMin/2), Math.round(yMax/2), yMax].filter(y => y !== axisY);
   };
 
   return (
-    <svg width={size} height={size} style={{ display: 'block', margin: '0 auto' }}>
-      {/* Light gray background */}
-      <rect x={padding} y={padding} width={gridArea} height={gridArea} fill="#e5e5e5" />
+    <svg width={width} height={height} style={{ display: 'block', margin: '0 auto' }}>
+      {/* Title (top center) */}
+      {title && (
+        <text x={padLeft + gridWidth / 2} y={padTop - 6} fontSize="13" fontFamily="Arial, sans-serif" textAnchor="middle" fontWeight="600" fill="#333">{title}</text>
+      )}
 
-      {/* White grid lines - every unit */}
-      {Array.from({ length: xRange + 1 }, (_, i) => xMin + i).map(n => (
-        <line key={`v${n}`} x1={toX(n)} y1={padding} x2={toX(n)} y2={size - padding} stroke="white" strokeWidth="1" />
+      {/* Light gray background */}
+      <rect x={padLeft} y={padTop} width={gridWidth} height={gridHeight} fill="#e5e5e5" />
+
+      {/* White grid lines */}
+      {xGridLines.map(n => (
+        <line key={`v${n}`} x1={toX(n)} y1={padTop} x2={toX(n)} y2={padTop + gridHeight} stroke="white" strokeWidth="1" />
       ))}
-      {Array.from({ length: yRange + 1 }, (_, i) => yMin + i).map(n => (
-        <line key={`h${n}`} x1={padding} y1={toY(n)} x2={size - padding} y2={toY(n)} stroke="white" strokeWidth="1" />
+      {yGridLines.map(n => (
+        <line key={`h${n}`} x1={padLeft} y1={toY(n)} x2={padLeft + gridWidth} y2={toY(n)} stroke="white" strokeWidth="1" />
       ))}
 
       {/* X-axis with arrow */}
-      <line x1={padding - 10} y1={toY(0)} x2={size - padding + 10} y2={toY(0)} stroke="#444" strokeWidth="1.5" />
-      <polygon points={`${size - padding + 18},${toY(0)} ${size - padding + 8},${toY(0) - 4} ${size - padding + 8},${toY(0) + 4}`} fill="#444" />
+      <line x1={padLeft - 10} y1={toY(axisY)} x2={padLeft + gridWidth + 10} y2={toY(axisY)} stroke="#444" strokeWidth="1.5" />
+      <polygon points={`${padLeft + gridWidth + 18},${toY(axisY)} ${padLeft + gridWidth + 8},${toY(axisY) - 4} ${padLeft + gridWidth + 8},${toY(axisY) + 4}`} fill="#444" />
 
       {/* Y-axis with arrow */}
-      <line x1={toX(0)} y1={size - padding + 10} x2={toX(0)} y2={padding - 10} stroke="#444" strokeWidth="1.5" />
-      <polygon points={`${toX(0)},${padding - 18} ${toX(0) - 4},${padding - 8} ${toX(0) + 4},${padding - 8}`} fill="#444" />
+      <line x1={toX(axisX)} y1={padTop + gridHeight + 10} x2={toX(axisX)} y2={padTop - 10} stroke="#444" strokeWidth="1.5" />
+      <polygon points={`${toX(axisX)},${padTop - 18} ${toX(axisX) - 4},${padTop - 8} ${toX(axisX) + 4},${padTop - 8}`} fill="#444" />
 
-      {/* Y label */}
-      <text x={toX(0) + 8} y={padding - 10} fontSize="14" fontFamily="Times New Roman, serif" fontStyle="italic" fill="#333">y</text>
+      {/* Y axis tick label (only when no contextual yLabel) */}
+      {!yLabel && (
+        <text x={toX(axisX) + 8} y={padTop - 10} fontSize="14" fontFamily="Times New Roman, serif" fontStyle="italic" fill="#333">y</text>
+      )}
 
-      {/* X-axis labels */}
+      {/* X-axis tick labels */}
       {getXLabels().map(x => (
-        <text key={`xl${x}`} x={toX(x)} y={toY(0) + 15} fontSize="12" fontFamily="Arial, sans-serif" textAnchor="middle" fill="#333">{x}</text>
+        <text key={`xl${x}`} x={toX(x)} y={toY(axisY) + 15} fontSize="12" fontFamily="Arial, sans-serif" textAnchor="middle" fill="#333">{x}</text>
       ))}
 
-      {/* Y-axis labels */}
+      {/* Y-axis tick labels */}
       {getYLabels().map(y => (
-        <text key={`yl${y}`} x={toX(0) - 5} y={toY(y) + 4} fontSize="12" fontFamily="Arial, sans-serif" textAnchor="end" fill="#333">{y}</text>
+        <text key={`yl${y}`} x={toX(axisX) - 5} y={toY(y) + 4} fontSize="12" fontFamily="Arial, sans-serif" textAnchor="end" fill="#333">{y}</text>
       ))}
+
+      {/* Contextual axis labels */}
+      {xLabel && (
+        <text x={padLeft + gridWidth / 2} y={height - 6} fontSize="12" fontFamily="Arial, sans-serif" textAnchor="middle" fontStyle="italic" fill="#333">{xLabel}</text>
+      )}
+      {yLabel && (
+        <text x={12} y={padTop + gridHeight / 2} fontSize="12" fontFamily="Arial, sans-serif" textAnchor="middle" fontStyle="italic" fill="#333" transform={`rotate(-90, 12, ${padTop + gridHeight / 2})`}>{yLabel}</text>
+      )}
 
       {/* Clip path for drawing inside grid only */}
       <defs>
         <clipPath id="gridClip">
-          <rect x={padding} y={padding} width={gridArea} height={gridArea} />
+          <rect x={padLeft} y={padTop} width={gridWidth} height={gridHeight} />
         </clipPath>
       </defs>
 
       {/* Render children with coordinate conversion functions */}
-      {typeof children === 'function' ? children({ toX, toY, padding, gridArea }) : children}
+      {typeof children === 'function' ? children({ toX, toY, padding, gridArea: gridWidth, gridWidth, gridHeight, padLeft, padTop }) : children}
     </svg>
   );
 };
@@ -311,15 +375,34 @@ export const QuadraticInterceptsDiagram = ({ intercepts = [0, 4], vertex = null 
 // =============================================================================
 // SCATTERPLOT DIAGRAM - Points for best-fit questions
 // =============================================================================
-export const ScatterplotDiagram = ({ points = [], xMax = 10, yMax = 10, bestFitLine }) => {
+export const ScatterplotDiagram = ({
+  points = [],
+  xMin = 0,
+  xMax = 10,
+  yMin = 0,
+  yMax = 10,
+  xGridStep = 1,
+  yGridStep = 1,
+  xLabelStep,
+  yLabelStep,
+  xLabel,
+  yLabel,
+  title,
+  bestFitLine
+}) => {
   return (
-    <SATGrid xMin={0} xMax={xMax} yMin={0} yMax={yMax}>
+    <SATGrid
+      xMin={xMin} xMax={xMax} yMin={yMin} yMax={yMax}
+      xGridStep={xGridStep} yGridStep={yGridStep}
+      xLabelStep={xLabelStep} yLabelStep={yLabelStep}
+      xLabel={xLabel} yLabel={yLabel} title={title}
+    >
       {({ toX, toY }) => (
         <g>
           {bestFitLine && (
             <line
-              x1={toX(0)}
-              y1={toY(bestFitLine.intercept)}
+              x1={toX(xMin)}
+              y1={toY(bestFitLine.slope * xMin + bestFitLine.intercept)}
               x2={toX(xMax)}
               y2={toY(bestFitLine.slope * xMax + bestFitLine.intercept)}
               stroke="#2563eb"
