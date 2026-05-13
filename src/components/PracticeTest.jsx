@@ -1119,6 +1119,13 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   // Adaptive routing: which Module 2 variant to serve. Default 'hard' (current behavior).
   // Switches to 'easy' when Math Module 1 score < EASY_ROUTING_THRESHOLD (60% by default).
   const [module2Variant, setModule2Variant] = useState(savedProgress?.module2Variant || 'hard');
+  // True when the user explicitly chose a Module 2 variant on the M1-complete
+  // screen. Disables the auto-route below so a student who got routed to Easy
+  // can switch to Hard (and vice versa). Persisted to savedProgress so the
+  // override survives a tab reload mid-test.
+  const [m2VariantManuallySet, setM2VariantManuallySet] = useState(
+    savedProgress?.m2VariantManuallySet ?? false,
+  );
 
   // Responsive: track window width for mobile layout
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
@@ -1163,6 +1170,56 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   );
   const mathM1Index = mathModuleIndices[0];
   const mathM2Index = mathModuleIndices[1];
+
+  // Score Math Module 1 (raw correct/total/percent) for the M2 routing
+  // decision and the toggle UI on the M1-complete screen. Recomputes only
+  // when relevant answers change. Returns null on tests without an M1.
+  const M2_ROUTING_THRESHOLD = 0.6;
+  const m1Score = useMemo(() => {
+    if (mathM1Index === undefined) return null;
+    const m1Qs = test.modules[mathM1Index]?.questions || [];
+    if (m1Qs.length === 0) return null;
+    let correct = 0;
+    m1Qs.forEach((q, idx) => {
+      const ans = answers[`${mathM1Index}-${idx}`];
+      if (ans === undefined || ans === null) return;
+      if (q.type === 'fill-in') {
+        const expected = String(q.correctAnswer).trim();
+        const given = String(ans).trim();
+        if (expected === given) { correct++; return; }
+        const en = parseFloat(expected); const gn = parseFloat(given);
+        if (!isNaN(en) && !isNaN(gn) && Math.abs(en - gn) < 1e-9) correct++;
+      } else if (ans === q.correctAnswer) {
+        correct++;
+      }
+    });
+    return { correct, total: m1Qs.length, pct: correct / m1Qs.length };
+  }, [test, mathM1Index, answers]);
+
+  // Recommended Module 2 variant. Mirrors the historical auto-route logic:
+  // sub-threshold M1 score → Easy. Null when the test has no Easy variant.
+  const recommendedM2Variant = useMemo(() => {
+    if (!test.module2Easy || !m1Score) return null;
+    return m1Score.pct < M2_ROUTING_THRESHOLD ? 'easy' : 'hard';
+  }, [test.module2Easy, m1Score]);
+
+  // When the user reaches the M1-complete screen for the first time AND
+  // hasn't already manually chosen a variant, pre-fill `module2Variant`
+  // with the recommendation. This lets the toggle UI render the correct
+  // pre-selected option without forcing the user to "first click" to
+  // re-discover the recommendation. The auto-route block inside
+  // handleNextModule is left in place as a defensive fallback for tests
+  // that haven't rendered the M1-complete screen (e.g., direct programmatic
+  // module advance), but it's now gated on `!m2VariantManuallySet`.
+  useEffect(() => {
+    if (!moduleCompleted) return;
+    if (currentModule !== mathM1Index) return;
+    if (!recommendedM2Variant) return;
+    if (m2VariantManuallySet) return;
+    if (module2Variant !== recommendedM2Variant) {
+      setModule2Variant(recommendedM2Variant);
+    }
+  }, [moduleCompleted, currentModule, mathM1Index, recommendedM2Variant, m2VariantManuallySet, module2Variant]);
 
   // Effective modules: swap in Module 2 Easy variant when routing decision is 'easy'.
   // Falls back to standard test.modules if no Easy variant is defined.
@@ -1321,12 +1378,13 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         timeRemaining: timerSecondsRef.current,
         questionTelemetry: telemetrySnapshot,
         module2Variant,
+        m2VariantManuallySet,
       };
       onSaveProgress(progressData);
     }, 2000);
 
     return () => clearTimeout(saveTimerRef.current);
-  }, [answers, currentModule, currentQuestion, markedForReview, eliminatedChoices, testCompleted, reviewMode, onSaveProgress, isTimed, module2Variant]);
+  }, [answers, currentModule, currentQuestion, markedForReview, eliminatedChoices, testCompleted, reviewMode, onSaveProgress, isTimed, module2Variant, m2VariantManuallySet]);
 
   useEffect(() => {
     if (testCompleted || reviewMode) return;
@@ -1809,8 +1867,18 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
 
       // Adaptive routing: when leaving Math Module 1 and an Easy variant exists,
       // score Math Module 1 to decide which Module 2 variant to serve. Threshold = 60%.
-      // Skipped if test has no Easy variant or if user is past Math Module 1 already.
-      if (test.module2Easy && curMod === mathM1Index && module2Variant === 'hard') {
+      // Skipped when the user explicitly chose a variant on the M1-complete screen
+      // (`m2VariantManuallySet`), or when the test has no Easy variant.
+      //
+      // In typical flow the useEffect above already pre-set module2Variant to
+      // the recommendation by the time the user clicks Continue, so this block
+      // is a defensive fallback for paths that skip the M1-complete screen.
+      if (
+        test.module2Easy
+        && curMod === mathM1Index
+        && !m2VariantManuallySet
+        && module2Variant === 'hard'
+      ) {
         const m1Questions = test.modules[mathM1Index]?.questions || [];
         let correct = 0;
         m1Questions.forEach((q, qIdx) => {
@@ -1828,8 +1896,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           }
         });
         const pct = m1Questions.length > 0 ? correct / m1Questions.length : 0;
-        const EASY_ROUTING_THRESHOLD = 0.6;
-        if (pct < EASY_ROUTING_THRESHOLD) {
+        if (pct < M2_ROUTING_THRESHOLD) {
           setModule2Variant('easy');
         }
       }
@@ -1845,7 +1912,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     } else {
       setTestCompleted(true);
     }
-  }, [test.modules.length, test.module2Easy, test.modules, mathM1Index, module2Variant, answers]);
+  }, [test.modules.length, test.module2Easy, test.modules, mathM1Index, module2Variant, m2VariantManuallySet, answers]);
 
   const moduleCompletedRef = useRef(false);
   useEffect(() => { moduleCompletedRef.current = moduleCompleted; }, [moduleCompleted]);
@@ -2001,6 +2068,74 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     const score = calculateModuleScore();
     const isLastModule = currentModule === effectiveModules.length - 1;
     const remainingModules = effectiveModules.length - currentModule - 1;
+    // The variant chooser surfaces only between Math Module 1 and Module 2
+    // and only on tests that ship an Easy variant. Other modules just show
+    // the score + continue button.
+    const showM2Chooser =
+      !isLastModule
+      && currentModule === mathM1Index
+      && !!test.module2Easy
+      && !!recommendedM2Variant;
+    const m1Pct = m1Score ? Math.round(m1Score.pct * 100) : null;
+    const variantButton = (variant) => {
+      const selected = module2Variant === variant;
+      const isRecommended = recommendedM2Variant === variant;
+      const heading = variant === 'easy' ? 'Easier set' : 'Harder set';
+      const blurb = variant === 'easy'
+        ? 'Eases up after Module 1. Confidence-builders, fewer traps.'
+        : 'Full College Board Module 2 Hard calibration. Where the real test lives.';
+      return (
+        <button
+          key={variant}
+          onClick={() => {
+            setModule2Variant(variant);
+            setM2VariantManuallySet(true);
+          }}
+          style={{
+            flex: 1,
+            padding: '16px 18px',
+            textAlign: 'left',
+            background: selected ? 'rgba(234, 88, 12, 0.06)' : '#fff',
+            border: `2px solid ${selected ? colors.focus : '#e5e7eb'}`,
+            borderRadius: radius.md,
+            cursor: 'pointer',
+            position: 'relative',
+            transition: 'border-color 0.15s, background 0.15s',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: '4px' }}>
+            <span style={{ fontWeight: 600, fontSize: '15px', color: colors.text.primary }}>{heading}</span>
+            {isRecommended && (
+              <span style={{
+                fontSize: '11px',
+                fontWeight: 600,
+                textTransform: 'uppercase',
+                letterSpacing: '0.04em',
+                color: colors.focus,
+              }}>
+                Recommended
+              </span>
+            )}
+          </div>
+          <div style={{ fontSize: '13px', color: colors.text.secondary, lineHeight: 1.45 }}>
+            {blurb}
+          </div>
+          {selected && (
+            <div style={{
+              position: 'absolute',
+              top: '10px',
+              right: '12px',
+              width: '14px',
+              height: '14px',
+              borderRadius: '50%',
+              background: colors.focus,
+              border: '3px solid #fff',
+              boxShadow: '0 0 0 2px ' + (colors.focus),
+            }} />
+          )}
+        </button>
+      );
+    };
 
     return (
       <div style={{ maxWidth: '600px', margin: '0 auto', padding: '40px 20px', textAlign: 'center' }}>
@@ -2019,7 +2154,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           {Math.round((score / questions.length) * 100)}% correct
         </p>
 
-        {!isLastModule && (
+        {!isLastModule && !showM2Chooser && (
           <p style={{
             color: colors.text.secondary,
             fontSize: '14px',
@@ -2029,6 +2164,37 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               ? 'One more module to go before your final score.'
               : `${remainingModules} modules remaining before your final score.`}
           </p>
+        )}
+
+        {showM2Chooser && (
+          <div style={{ textAlign: 'left', margin: '8px 0 28px' }}>
+            <div style={{
+              fontSize: '13px',
+              fontWeight: 600,
+              textTransform: 'uppercase',
+              letterSpacing: '0.06em',
+              color: colors.text.muted,
+              marginBottom: '10px',
+              textAlign: 'center',
+            }}>
+              Choose your Module 2
+            </div>
+            <p style={{
+              color: colors.text.secondary,
+              fontSize: '13px',
+              lineHeight: 1.55,
+              marginBottom: '14px',
+              textAlign: 'center',
+            }}>
+              Based on your {m1Pct}% Module 1 score we recommend the{' '}
+              <strong>{recommendedM2Variant === 'easy' ? 'easier' : 'harder'}</strong> set —
+              {' '}but you can pick either.
+            </p>
+            <div style={{ display: 'flex', gap: '12px' }}>
+              {variantButton('easy')}
+              {variantButton('hard')}
+            </div>
+          </div>
         )}
 
         <button
