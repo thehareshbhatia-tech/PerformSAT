@@ -1119,13 +1119,18 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   // Adaptive routing: which Module 2 variant to serve. Default 'hard' (current behavior).
   // Switches to 'easy' when Math Module 1 score < EASY_ROUTING_THRESHOLD (60% by default).
   const [module2Variant, setModule2Variant] = useState(savedProgress?.module2Variant || 'hard');
-  // True when the user explicitly chose a Module 2 variant on the M1-complete
-  // screen. Disables the auto-route below so a student who got routed to Easy
-  // can switch to Hard (and vice versa). Persisted to savedProgress so the
-  // override survives a tab reload mid-test.
+  // True when the user explicitly chose a Module 2 variant via the inline
+  // switcher rendered above the Module 2 question grid. Disables the auto-
+  // route below so a student who got routed to Easy can switch to Hard
+  // (and vice versa). Persisted to savedProgress so the override survives
+  // a tab reload mid-test.
   const [m2VariantManuallySet, setM2VariantManuallySet] = useState(
     savedProgress?.m2VariantManuallySet ?? false,
   );
+  // When the user requests an M2 variant swap while they already have
+  // answers in M2, defer the swap to a confirmation modal. Null when no
+  // swap is pending; `{ newVariant, answerCount }` when one is queued.
+  const [pendingM2Switch, setPendingM2Switch] = useState(null);
 
   // Responsive: track window width for mobile layout
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
@@ -1202,24 +1207,6 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     if (!test.module2Easy || !m1Score) return null;
     return m1Score.pct < M2_ROUTING_THRESHOLD ? 'easy' : 'hard';
   }, [test.module2Easy, m1Score]);
-
-  // When the user reaches the M1-complete screen for the first time AND
-  // hasn't already manually chosen a variant, pre-fill `module2Variant`
-  // with the recommendation. This lets the toggle UI render the correct
-  // pre-selected option without forcing the user to "first click" to
-  // re-discover the recommendation. The auto-route block inside
-  // handleNextModule is left in place as a defensive fallback for tests
-  // that haven't rendered the M1-complete screen (e.g., direct programmatic
-  // module advance), but it's now gated on `!m2VariantManuallySet`.
-  useEffect(() => {
-    if (!moduleCompleted) return;
-    if (currentModule !== mathM1Index) return;
-    if (!recommendedM2Variant) return;
-    if (m2VariantManuallySet) return;
-    if (module2Variant !== recommendedM2Variant) {
-      setModule2Variant(recommendedM2Variant);
-    }
-  }, [moduleCompleted, currentModule, mathM1Index, recommendedM2Variant, m2VariantManuallySet, module2Variant]);
 
   // Effective modules: swap in Module 2 Easy variant when routing decision is 'easy'.
   // Falls back to standard test.modules if no Easy variant is defined.
@@ -1930,6 +1917,53 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     });
   };
 
+  // Switch the active Module 2 variant from the inline switcher rendered
+  // above the M2 question grid. The variant determines which question set
+  // `effectiveModules` swaps in, so switching mid-module makes the existing
+  // M2 answers point at a different question (the same `${modIdx}-${qIdx}`
+  // key now refers to a Hard-variant question instead of Easy, or vice
+  // versa). Clearing the M2 keys is the safe move; we confirm first when
+  // any are present so the student doesn't lose work by accident.
+  const applyM2VariantSwitch = useCallback((newVariant) => {
+    setModule2Variant(newVariant);
+    setM2VariantManuallySet(true);
+    if (mathM2Index !== undefined) {
+      const prefix = `${mathM2Index}-`;
+      setAnswers(prev => {
+        const out = { ...prev };
+        Object.keys(out).forEach(k => { if (k.startsWith(prefix)) delete out[k]; });
+        return out;
+      });
+      setEliminatedChoices(prev => {
+        const out = { ...prev };
+        Object.keys(out).forEach(k => { if (k.startsWith(prefix)) delete out[k]; });
+        return out;
+      });
+      setMarkedForReview([]);  // M2-only list at this point in the test
+    }
+    setCurrentQuestion(0);
+  }, [mathM2Index]);
+
+  const handleRequestM2Switch = useCallback((newVariant) => {
+    if (!test.module2Easy || mathM2Index === undefined) return;
+    if (newVariant === module2Variant) return;
+    const prefix = `${mathM2Index}-`;
+    const answerCount = Object.keys(answers).filter(k => k.startsWith(prefix)).length;
+    if (answerCount === 0) {
+      applyM2VariantSwitch(newVariant);
+    } else {
+      setPendingM2Switch({ newVariant, answerCount });
+    }
+  }, [test.module2Easy, mathM2Index, module2Variant, answers, applyM2VariantSwitch]);
+
+  const handleConfirmM2Switch = useCallback(() => {
+    if (!pendingM2Switch) return;
+    applyM2VariantSwitch(pendingM2Switch.newVariant);
+    setPendingM2Switch(null);
+  }, [pendingM2Switch, applyM2VariantSwitch]);
+
+  const handleCancelM2Switch = useCallback(() => setPendingM2Switch(null), []);
+
   const isDevMode = typeof window !== 'undefined' && window.location.hostname === 'localhost';
 
   const handleDevAutoSubmit = () => {
@@ -2068,74 +2102,6 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
     const score = calculateModuleScore();
     const isLastModule = currentModule === effectiveModules.length - 1;
     const remainingModules = effectiveModules.length - currentModule - 1;
-    // The variant chooser surfaces only between Math Module 1 and Module 2
-    // and only on tests that ship an Easy variant. Other modules just show
-    // the score + continue button.
-    const showM2Chooser =
-      !isLastModule
-      && currentModule === mathM1Index
-      && !!test.module2Easy
-      && !!recommendedM2Variant;
-    const m1Pct = m1Score ? Math.round(m1Score.pct * 100) : null;
-    const variantButton = (variant) => {
-      const selected = module2Variant === variant;
-      const isRecommended = recommendedM2Variant === variant;
-      const heading = variant === 'easy' ? 'Easier set' : 'Harder set';
-      const blurb = variant === 'easy'
-        ? 'Eases up after Module 1. Confidence-builders, fewer traps.'
-        : 'Full College Board Module 2 Hard calibration. Where the real test lives.';
-      return (
-        <button
-          key={variant}
-          onClick={() => {
-            setModule2Variant(variant);
-            setM2VariantManuallySet(true);
-          }}
-          style={{
-            flex: 1,
-            padding: '16px 18px',
-            textAlign: 'left',
-            background: selected ? 'rgba(234, 88, 12, 0.06)' : '#fff',
-            border: `2px solid ${selected ? colors.focus : '#e5e7eb'}`,
-            borderRadius: radius.md,
-            cursor: 'pointer',
-            position: 'relative',
-            transition: 'border-color 0.15s, background 0.15s',
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: '4px' }}>
-            <span style={{ fontWeight: 600, fontSize: '15px', color: colors.text.primary }}>{heading}</span>
-            {isRecommended && (
-              <span style={{
-                fontSize: '11px',
-                fontWeight: 600,
-                textTransform: 'uppercase',
-                letterSpacing: '0.04em',
-                color: colors.focus,
-              }}>
-                Recommended
-              </span>
-            )}
-          </div>
-          <div style={{ fontSize: '13px', color: colors.text.secondary, lineHeight: 1.45 }}>
-            {blurb}
-          </div>
-          {selected && (
-            <div style={{
-              position: 'absolute',
-              top: '10px',
-              right: '12px',
-              width: '14px',
-              height: '14px',
-              borderRadius: '50%',
-              background: colors.focus,
-              border: '3px solid #fff',
-              boxShadow: '0 0 0 2px ' + (colors.focus),
-            }} />
-          )}
-        </button>
-      );
-    };
 
     return (
       <div style={{ maxWidth: '600px', margin: '0 auto', padding: '40px 20px', textAlign: 'center' }}>
@@ -2154,7 +2120,7 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
           {Math.round((score / questions.length) * 100)}% correct
         </p>
 
-        {!isLastModule && !showM2Chooser && (
+        {!isLastModule && (
           <p style={{
             color: colors.text.secondary,
             fontSize: '14px',
@@ -2164,37 +2130,6 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
               ? 'One more module to go before your final score.'
               : `${remainingModules} modules remaining before your final score.`}
           </p>
-        )}
-
-        {showM2Chooser && (
-          <div style={{ textAlign: 'left', margin: '8px 0 28px' }}>
-            <div style={{
-              fontSize: '13px',
-              fontWeight: 600,
-              textTransform: 'uppercase',
-              letterSpacing: '0.06em',
-              color: colors.text.muted,
-              marginBottom: '10px',
-              textAlign: 'center',
-            }}>
-              Choose your Module 2
-            </div>
-            <p style={{
-              color: colors.text.secondary,
-              fontSize: '13px',
-              lineHeight: 1.55,
-              marginBottom: '14px',
-              textAlign: 'center',
-            }}>
-              Based on your {m1Pct}% Module 1 score we recommend the{' '}
-              <strong>{recommendedM2Variant === 'easy' ? 'easier' : 'harder'}</strong> set —
-              {' '}but you can pick either.
-            </p>
-            <div style={{ display: 'flex', gap: '12px' }}>
-              {variantButton('easy')}
-              {variantButton('hard')}
-            </div>
-          </div>
         )}
 
         <button
@@ -3044,6 +2979,77 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         </div>
       </div>
 
+      {/* Module 2 variant switcher — surfaces only on Math Module 2 when the
+          test ships an Easy variant. Active variant tile is highlighted; the
+          other is clickable. Click triggers handleRequestM2Switch, which
+          confirms first if there are answers to discard. */}
+      {currentModule === mathM2Index && !!test.module2Easy && !testCompleted && !moduleCompleted && (
+        <div style={{
+          maxWidth: '1100px',
+          margin: '12px auto 0',
+          padding: '0 16px',
+          display: 'flex',
+          gap: '10px',
+          alignItems: 'stretch',
+        }}>
+          {[
+            {
+              variant: 'easy',
+              label: 'Module 2 (Easy)',
+              blurb: 'Eases up after Module 1. Confidence-builders, fewer traps.',
+            },
+            {
+              variant: 'hard',
+              label: 'Module 2 (Hard)',
+              blurb: 'Full College Board Module 2 Hard calibration.',
+            },
+          ].map(({ variant, label, blurb }) => {
+            const active = module2Variant === variant;
+            const isRecommended = recommendedM2Variant === variant;
+            return (
+              <button
+                key={variant}
+                type="button"
+                onClick={active ? undefined : () => handleRequestM2Switch(variant)}
+                aria-pressed={active}
+                disabled={active}
+                style={{
+                  flex: 1,
+                  padding: '10px 14px',
+                  textAlign: 'left',
+                  background: active ? 'rgba(234, 88, 12, 0.06)' : '#fff',
+                  border: `2px solid ${active ? colors.focus : '#e5e7eb'}`,
+                  borderRadius: radius.md,
+                  cursor: active ? 'default' : 'pointer',
+                  transition: 'border-color 0.15s, background 0.15s',
+                  position: 'relative',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px' }}>
+                  <span style={{ fontWeight: 600, fontSize: '14px', color: colors.text.primary }}>
+                    {label}
+                  </span>
+                  <span style={{
+                    fontSize: '11px',
+                    fontWeight: 600,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.04em',
+                    color: active ? colors.focus : 'var(--color-slate-500)',
+                  }}>
+                    {active
+                      ? (isRecommended ? 'Active · Recommended' : 'Active')
+                      : `Switch to ${variant === 'easy' ? 'Easy' : 'Hard'} →`}
+                  </span>
+                </div>
+                <div style={{ fontSize: '12px', color: colors.text.secondary, marginTop: '2px', lineHeight: 1.4 }}>
+                  {blurb}
+                </div>
+              </button>
+            );
+          })}
+        </div>
+      )}
+
       {/* Desktop Nav Strip — visible on top for both Math and R&W. */}
       {!isMobile && (
         <div className="test-session-nav-strip">
@@ -3612,6 +3618,46 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
         }}>⏸</div>
         <p className="modal-text" style={{ textAlign: 'center' }}>
           {isTimed ? 'Timer is frozen. ' : ''}Your progress has been saved.
+        </p>
+      </Modal>
+
+      {/* Module 2 variant switch confirmation — surfaces only when the user
+          has already answered something in M2 and clicks the other variant
+          tile above the Q grid. Confirming discards those answers and resets
+          M2 to question 1 (because the same key on the other variant points
+          at a different question). */}
+      <Modal
+        isOpen={!!pendingM2Switch}
+        onClose={handleCancelM2Switch}
+        title={pendingM2Switch
+          ? `Switch to Module 2 (${pendingM2Switch.newVariant === 'hard' ? 'Hard' : 'Easy'})?`
+          : ''}
+        footer={
+          <div style={{ display: 'flex', width: '100%', gap: '0.75rem' }}>
+            <Button onClick={handleCancelM2Switch} variant="secondary" style={{ flex: 1 }}>
+              Keep current
+            </Button>
+            <Button onClick={handleConfirmM2Switch} variant="destructive" style={{ flex: 1 }}>
+              Switch and restart
+            </Button>
+          </div>
+        }
+      >
+        <div style={{
+          width: '48px', height: '48px', borderRadius: '50%',
+          background: 'var(--color-warning-100)', color: 'var(--color-warning-600)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          margin: '0 auto 1.25rem', fontSize: '22px',
+        }}>⚠</div>
+        <p className="modal-text" style={{ textAlign: 'center' }}>
+          {pendingM2Switch && (
+            <>
+              Switching restarts Module 2 from question 1. Your{' '}
+              {pendingM2Switch.answerCount}{' '}
+              current {pendingM2Switch.answerCount === 1 ? 'answer' : 'answers'} on
+              {' '}Module 2 will be cleared.
+            </>
+          )}
         </p>
       </Modal>
 
