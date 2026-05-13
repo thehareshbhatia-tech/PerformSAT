@@ -176,6 +176,12 @@ export const practiceTest5 = {
   difficulty: "medium",
   band: 5,
   question: "The scatterplot of a set of data is modeled by the equation $y = 2.4x + 18.5$. According to this model, what is the predicted value of $y$ when $x = 12$?",
+  diagram: { type: "scatterplot", params: {
+    points: [[1,22],[2,22],[3,28],[4,26],[5,29],[6,34],[7,33],[8,38],[9,40],[10,42],[11,43],[13,52],[14,52]],
+    xMin: 0, xMax: 15, yMin: 0, yMax: 60,
+    xGridStep: 1, yGridStep: 5, xLabelStep: 3, yLabelStep: 10,
+    bestFitLine: { slope: 2.4, intercept: 18.5 },
+  } },
   choices: [
     // distractor: stops at 2.4 * 12 = 28.8 — forgets to add the 18.5 intercept
     { id: "A", text: "$28.8$" },

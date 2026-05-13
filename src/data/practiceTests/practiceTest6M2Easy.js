@@ -340,7 +340,14 @@ export const practiceTest6M2Easy = {
       type: "fill-in",
       difficulty: "hard",
       band: 7,
-      question: "A scatterplot models the relationship between number of advertisements aired $x$ and product sales $y$ (in hundreds of units). The line of best fit is $\\hat{y} = 1.5x + 12$. According to the model, how many additional hundreds of units are predicted to be sold for each additional advertisement aired?",
+      question: "The scatterplot below shows the relationship between number of advertisements aired $x$ and product sales $y$ (in hundreds of units). The line of best fit is $\\hat{y} = 1.5x + 12$. According to the model, how many additional hundreds of units are predicted to be sold for each additional advertisement aired?",
+      diagram: { type: "scatterplot", params: {
+        points: [[2,16],[5,18],[8,26],[10,28],[12,28],[15,32],[18,42],[20,40],[24,46],[28,56]],
+        xMin: 0, xMax: 30, yMin: 0, yMax: 60,
+        xGridStep: 5, yGridStep: 5, xLabelStep: 5, yLabelStep: 10,
+        xLabel: "Ads aired", yLabel: "Sales (hundreds of units)",
+        bestFitLine: { slope: 1.5, intercept: 12 },
+      } },
       correctAnswer: "1.5",
       explanation: "**SAT Pattern: Slope as Rate of Change in Context**\n\n**The correct answer is $1.5$.**\n\n**The Fast Way (~5s):** Slope $= 1.5$ is the predicted increase in $y$ per unit increase in $x$.\n\n**The Full Solution:**\nFor a linear model $\\hat{y} = mx + b$:\n* slope $m$ = predicted change in $y$ per one-unit change in $x$.\n* intercept $b$ = predicted $y$ when $x = 0$.\n\nHere $m = 1.5$: each additional advertisement predicts an additional $1.5$ hundreds of units in sales.\n\n**Common Mistakes to Avoid:**\n* Reporting $12$ (the intercept — predicted sales with $0$ ads).\n* Reporting $13.5$ (predicted sales after $1$ ad: $1.5(1) + 12$).\n* Reporting $150$ — multiplying $1.5$ by $100$ to convert (the units already say \"in hundreds\").\n\n**Test Day Takeaway:** Slope of best-fit line $=$ predicted change in $y$ per unit change in $x$. The intercept is the predicted $y$ at $x = 0$.",
       skills: ["linear-functions", "slope"]

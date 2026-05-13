@@ -388,7 +388,16 @@ export const ScatterplotDiagram = ({
   xLabel,
   yLabel,
   title,
-  bestFitLine
+  bestFitLine,
+  // Single point to render in brand-orange + larger + optional label.
+  // Use for residual-style questions where one specific data point matters
+  // (e.g. "the data point at (5, 13)").
+  highlightPoint,            // [x, y] | null
+  highlightLabel,            // optional string drawn next to the highlight
+  // When true (and a bestFitLine + highlightPoint are both present),
+  // draws a dashed vertical line from the highlight point down/up to the
+  // best-fit line — a visual residual.
+  showResidual = false,
 }) => {
   return (
     <SATGrid
@@ -397,24 +406,61 @@ export const ScatterplotDiagram = ({
       xLabelStep={xLabelStep} yLabelStep={yLabelStep}
       xLabel={xLabel} yLabel={yLabel} title={title}
     >
-      {({ toX, toY }) => (
-        <g>
-          {bestFitLine && (
-            <line
-              x1={toX(xMin)}
-              y1={toY(bestFitLine.slope * xMin + bestFitLine.intercept)}
-              x2={toX(xMax)}
-              y2={toY(bestFitLine.slope * xMax + bestFitLine.intercept)}
-              stroke="#2563eb"
-              strokeWidth={2}
-              strokeDasharray="6,3"
-            />
-          )}
-          {points.map(([px, py], i) => (
-            <circle key={i} cx={toX(px)} cy={toY(py)} r="4" fill="#333" />
-          ))}
-        </g>
-      )}
+      {({ toX, toY }) => {
+        const lineYAtX = (x) => bestFitLine ? bestFitLine.slope * x + bestFitLine.intercept : null;
+        return (
+          <g>
+            {bestFitLine && (
+              <line
+                x1={toX(xMin)}
+                y1={toY(bestFitLine.slope * xMin + bestFitLine.intercept)}
+                x2={toX(xMax)}
+                y2={toY(bestFitLine.slope * xMax + bestFitLine.intercept)}
+                stroke="#2563eb"
+                strokeWidth={2}
+                strokeDasharray="6,3"
+              />
+            )}
+            {points.map(([px, py], i) => (
+              <circle key={i} cx={toX(px)} cy={toY(py)} r="4" fill="#333" />
+            ))}
+            {highlightPoint && bestFitLine && showResidual && (
+              <line
+                x1={toX(highlightPoint[0])}
+                y1={toY(highlightPoint[1])}
+                x2={toX(highlightPoint[0])}
+                y2={toY(lineYAtX(highlightPoint[0]))}
+                stroke="#ea580c"
+                strokeWidth={1.5}
+                strokeDasharray="3,3"
+              />
+            )}
+            {highlightPoint && (
+              <>
+                <circle
+                  cx={toX(highlightPoint[0])}
+                  cy={toY(highlightPoint[1])}
+                  r="6"
+                  fill="#ea580c"
+                  stroke="#9a3412"
+                  strokeWidth="1"
+                />
+                {highlightLabel && (
+                  <text
+                    x={toX(highlightPoint[0]) + 9}
+                    y={toY(highlightPoint[1]) - 6}
+                    fontSize="11"
+                    fontFamily="Arial, sans-serif"
+                    fill="#9a3412"
+                  >
+                    {highlightLabel}
+                  </text>
+                )}
+              </>
+            )}
+          </g>
+        );
+      }}
     </SATGrid>
   );
 };

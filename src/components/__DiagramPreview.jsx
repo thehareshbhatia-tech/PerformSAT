@@ -11,6 +11,48 @@ import QuestionDiagram from './QuestionDiagrams';
 import QuestionRenderer from './QuestionRenderer';
 import { getQuestionById, questionBank } from '../data/questions/bank';
 
+// Walk all practice-test bundles. Test items DON'T live in the bank index, so
+// previewing a test item by id (e.g. test10:4 or test10M2Easy:14) needs this
+// side-channel that opens the test bundle and walks for a matching `id`.
+const lookupTestItem = (token) => {
+  const m = /^test(\d+)(M2Easy)?:(.+)$/.exec(token);
+  if (!m) return null;
+  const tNum = m[1];
+  const variant = m[2] ? 'M2Easy' : '';
+  const itemId = m[3];
+  let mod;
+  try {
+    // eslint-disable-next-line global-require
+    mod = require(`../data/practiceTests/practiceTest${tNum}${variant}.js`);
+  } catch (e) {
+    return { _error: `Could not load practiceTest${tNum}${variant}.js — ${e.message}` };
+  }
+  // Test bundles export different shapes. Walk anything array-shaped, collecting EVERY
+  // node whose id matches. Practice tests reuse 1-22 between Module 1 and Module 2, so a
+  // single id can have multiple hits; pick a diagrammed match first (this preview tool is
+  // for diagram review), then fall back to the first match.
+  const matches = [];
+  const visit = (node, depth = 0) => {
+    if (!node || depth > 6) return;
+    if (Array.isArray(node)) {
+      for (const child of node) visit(child, depth + 1);
+      return;
+    }
+    if (typeof node === 'object') {
+      if (String(node.id) === String(itemId) && (node.question || node.choices)) {
+        matches.push(node);
+        return; // don't descend into a matched item's own subtree
+      }
+      for (const v of Object.values(node)) visit(v, depth + 1);
+    }
+  };
+  visit(mod);
+  if (matches.length === 0) {
+    return { _error: `Item "${itemId}" not found in practiceTest${tNum}${variant}.js` };
+  }
+  return matches.find((q) => q.diagram) || matches[0];
+};
+
 const cardStyle = {
   border: '1px solid #d4d4d4',
   borderRadius: 8,
@@ -61,12 +103,21 @@ const resolveIds = (raw) => {
 };
 
 const DiagramPreviewCard = ({ id }) => {
-  const q = getQuestionById(id);
+  // Bank ids first; test-bundle items via "test<N>[M2Easy]:<id>" syntax.
+  const q = id.startsWith('test') ? lookupTestItem(id) : getQuestionById(id);
   if (!q) {
     return (
       <div style={{ ...cardStyle, borderColor: '#fca5a5', background: '#fef2f2' }}>
         <div style={labelStyle}>missing</div>
         <div>No bank item found for id <code>{id}</code></div>
+      </div>
+    );
+  }
+  if (q._error) {
+    return (
+      <div style={{ ...cardStyle, borderColor: '#fca5a5', background: '#fef2f2' }}>
+        <div style={labelStyle}>error</div>
+        <div>{q._error}</div>
       </div>
     );
   }

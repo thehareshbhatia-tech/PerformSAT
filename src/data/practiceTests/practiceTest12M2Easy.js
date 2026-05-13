@@ -277,7 +277,14 @@ export const practiceTest12M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "A scatterplot shows the relationship between time spent watching TV per day ($x$, in hours) and a student's grade ($y$, on a $100$-point scale). The line of best fit has equation $y = -3x + 90$. According to the line, what grade is predicted for a student who watches $4$ hours of TV per day?",
+      question: "The scatterplot below shows the relationship between time spent watching TV per day ($x$, in hours) and a student's grade ($y$, on a $100$-point scale). The line of best fit has equation $y = -3x + 90$. According to the line, what grade is predicted for a student who watches $4$ hours of TV per day?",
+      diagram: { type: "scatterplot", params: {
+        points: [[0,92],[1,89],[2,86],[3,80],[4,76],[5,76],[6,70],[7,71],[8,64],[9,65]],
+        xMin: 0, xMax: 10, yMin: 50, yMax: 95,
+        xGridStep: 1, yGridStep: 5, xLabelStep: 2, yLabelStep: 10,
+        xLabel: "Hours of TV per day", yLabel: "Grade",
+        bestFitLine: { slope: -3, intercept: 90 },
+      } },
       choices: [
         { id: "A", text: "$78$" },
         // distractor: ignores negative slope — 3*4 + 90

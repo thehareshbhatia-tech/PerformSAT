@@ -340,7 +340,14 @@ export const practiceTest7M2Easy = {
       type: "fill-in",
       difficulty: "hard",
       band: 7,
-      question: "A scatterplot shows the relationship between hours studied $x$ and exam score $y$ for $25$ students. The line of best fit is $\\hat{y} = 5x + 50$. According to the model, how many points does the predicted score increase for each additional hour of studying?",
+      question: "The scatterplot below shows the relationship between hours studied $x$ and exam score $y$ for $25$ students. The line of best fit is $\\hat{y} = 5x + 50$. According to the model, how many points does the predicted score increase for each additional hour of studying?",
+      diagram: { type: "scatterplot", params: {
+        points: [[1,52],[2,58],[3,68],[4,66],[5,78],[6,76],[7,88],[8,86],[9,98]],
+        xMin: 0, xMax: 10, yMin: 40, yMax: 105,
+        xGridStep: 1, yGridStep: 5, xLabelStep: 2, yLabelStep: 10,
+        xLabel: "Hours studied", yLabel: "Exam score",
+        bestFitLine: { slope: 5, intercept: 50 },
+      } },
       correctAnswer: "5",
       explanation: "**SAT Pattern: Slope as Rate of Change in Context**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~5s):** In $\\hat{y} = 5x + 50$, the slope $5$ is the predicted increase in $y$ per unit increase in $x$.\n\n**The Full Solution:**\nFor a linear model $\\hat{y} = mx + b$:\n* slope $m$ = predicted change in $y$ per one-unit change in $x$.\n* intercept $b$ = predicted $y$ when $x = 0$.\n\nHere $m = 5$: each additional hour studied predicts an increase of $5$ points.\n\n**Common Mistakes to Avoke:**\n* Reporting $50$ (the intercept — predicted score with $0$ hours studied).\n* Reporting $55$ (the predicted score after $1$ hour: $5(1) + 50$).\n\n**Test Day Takeaway:** In $\\hat{y} = mx + b$, slope $m$ tells you how much $y$ changes per one-unit change in $x$. Intercept $b$ tells you the value of $y$ when $x = 0$.",
       skills: ["linear-functions", "slope"]

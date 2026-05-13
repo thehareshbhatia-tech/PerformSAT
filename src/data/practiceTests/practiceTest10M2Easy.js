@@ -248,7 +248,14 @@ export const practiceTest10M2Easy = {
       type: "fill-in",
       difficulty: "medium",
       band: 5,
-      question: "A scatterplot shows the relationship between hours studied ($x$) and test score ($y$) for students. The line of best fit is $y = 6x + 50$. According to this model, what test score is predicted for a student who studies $7$ hours?",
+      question: "The scatterplot below shows the relationship between hours studied ($x$) and test score ($y$) for students. The line of best fit is $y = 6x + 50$. According to this model, what test score is predicted for a student who studies $7$ hours?",
+      diagram: { type: "scatterplot", params: {
+        points: [[0,52],[1,55],[2,64],[3,66],[4,76],[5,78],[6,88],[7,90],[8,96],[9,108]],
+        xMin: 0, xMax: 10, yMin: 40, yMax: 115,
+        xGridStep: 1, yGridStep: 5, xLabelStep: 2, yLabelStep: 15,
+        xLabel: "Hours studied", yLabel: "Test score",
+        bestFitLine: { slope: 6, intercept: 50 },
+      } },
       correctAnswer: "92",
       explanation: "**SAT Pattern: Line of Best Fit Prediction**\n\n**Answer: $92$.**\n\n**The Fast Way (~10s):** $y = 6(7) + 50 = 42 + 50 = 92$.\n\n**The Full Solution:**\nSubstitute $x = 7$ into $y = 6x + 50$:\n$y = 6(7) + 50 = 42 + 50 = 92$.\n\n**Common Mistakes to Avoid:**\n* Stopping at $42$ (forgetting the $+ 50$).\n* Adding $6 + 50 + 7 = 63$ instead of multiplying.\n* Dividing instead of multiplying when computing $6 \\cdot 7$.\n\n**Test Day Takeaway:** A line of best fit gives a predicted $y$-value for any $x$. Just plug in $x$ and compute.",
       skills: ["function-evaluation", "slope-intercept-form"]

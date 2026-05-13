@@ -349,7 +349,14 @@ export const practiceTest2M2Easy = {
       type: "fill-in",
       difficulty: "hard",
       band: 7,
-      question: "A scatterplot shows the relationship between weight $x$ (in pounds) and miles per gallon $y$ for several cars. The line of best fit is $\\hat{y} = -0.005x + 50$. According to the model, by how many miles per gallon does the predicted gas mileage decrease for each additional pound of weight? Express your answer as a decimal.",
+      question: "The scatterplot below shows the relationship between weight $x$ (in pounds) and miles per gallon $y$ for several cars. The line of best fit is $\\hat{y} = -0.005x + 50$. According to the model, by how many miles per gallon does the predicted gas mileage decrease for each additional pound of weight? Express your answer as a decimal.",
+      diagram: { type: "scatterplot", params: {
+        points: [[1500,44],[2000,38],[2500,40],[3000,33],[3500,34],[4000,28],[4500,29],[5000,23]],
+        xMin: 1000, xMax: 5500, yMin: 20, yMax: 50,
+        xGridStep: 500, yGridStep: 5, xLabelStep: 1000, yLabelStep: 5,
+        xLabel: "Weight (lb)", yLabel: "Miles per gallon",
+        bestFitLine: { slope: -0.005, intercept: 50 },
+      } },
       correctAnswer: "0.005",
       explanation: "**SAT Pattern: Slope as Rate of Change in Context**\n\n**The correct answer is $0.005$.**\n\n**The Fast Way (~5s):** In $\\hat{y} = -0.005x + 50$, the slope $-0.005$ means $y$ decreases by $0.005$ per unit increase in $x$.\n\n**The Full Solution:**\nFor a linear model $\\hat{y} = mx + b$:\n* slope $m$ = predicted change in $y$ per one-unit change in $x$.\n\nHere $m = -0.005$. The negative sign means $y$ DECREASES; the magnitude $0.005$ is the size of the decrease.\n\n\"By how much does it decrease\" asks for the magnitude, so the answer is $0.005$ miles per gallon per pound.\n\n**Common Mistakes to Avoid:**\n* Reporting $-0.005$ — the question asks for the AMOUNT of decrease (positive).\n* Reporting $50$ (the intercept) — that's the predicted MPG when weight is $0$.\n\n**Test Day Takeaway:** In $\\hat{y} = mx + b$, the slope $m$ is the predicted change in $y$ per unit change in $x$. Negative slope means decrease; report the magnitude when asked \"by how much does it decrease\".",
       skills: ["linear-functions", "scatterplots", "slope"]

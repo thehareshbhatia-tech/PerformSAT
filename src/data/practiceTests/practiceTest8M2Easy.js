@@ -359,7 +359,13 @@ export const practiceTest8M2Easy = {
       type: "fill-in",
       difficulty: "hard",
       band: 7,
-      question: "A scatterplot shows that as $x$ increases, $y$ tends to decrease. The line of best fit has slope $-2.5$. If $x$ increases by $4$, by approximately how many units does the predicted value of $y$ change? (Give your answer as a positive number.)",
+      question: "The scatterplot below shows data with a line of best fit that has slope $-2.5$. If $x$ increases by $4$, by approximately how many units does the predicted value of $y$ change? (Give your answer as a positive number.)",
+      diagram: { type: "scatterplot", params: {
+        points: [[1,46],[2,42],[3,40],[4,38],[5,32],[6,32],[7,28],[8,26],[9,18],[10,18],[11,12],[12,12]],
+        xMin: 0, xMax: 14, yMin: 0, yMax: 55,
+        xGridStep: 1, yGridStep: 5, xLabelStep: 2, yLabelStep: 10,
+        bestFitLine: { slope: -2.5, intercept: 50 },
+      } },
       correctAnswer: "10",
       explanation: "**SAT Pattern: Slope as Rate of Change**\n\n**The correct answer is $10$.**\n\n**The Fast Way (~10s):** $\\Delta y = m \\cdot \\Delta x = -2.5 \\cdot 4 = -10$. The MAGNITUDE of the change is $10$.\n\n**The Full Solution:**\nSlope $= \\dfrac{\\Delta y}{\\Delta x}$, so $\\Delta y = m \\cdot \\Delta x = (-2.5)(4) = -10$.\n\nThe predicted $y$ DECREASES by $10$ units. The question asks for a positive number, so the answer is $10$.\n\n**Common Mistakes to Avoid:**\n* Reporting $-10$ when the question explicitly asks for a positive number.\n* Adding instead of multiplying: $-2.5 + 4 = 1.5$.\n* Using $|{-2.5}| / 4 = 0.625$ (dividing instead of multiplying).\n\n**Test Day Takeaway:** Slope $\\times$ change in $x$ $=$ change in $y$. Read the question carefully: a negative slope means $y$ DECREASES; the magnitude of the change is the absolute value.",
       skills: ["slope", "linear-functions"]

@@ -339,7 +339,14 @@ export const practiceTest4M2Easy = {
       type: "fill-in",
       difficulty: "hard",
       band: 7,
-      question: "A scatterplot shows the relationship between the temperature $x$ (in degrees Fahrenheit) and the daily ice cream sales $y$ (in dollars) at a shop. The line of best fit is $\\hat{y} = 12x - 200$. Based on the model, by how many dollars do daily sales increase for each $1^{\\circ}\\text{F}$ increase in temperature?",
+      question: "The scatterplot below shows the relationship between the temperature $x$ (in degrees Fahrenheit) and the daily ice cream sales $y$ (in dollars) at a shop. The line of best fit is $\\hat{y} = 12x - 200$. Based on the model, by how many dollars do daily sales increase for each $1^{\\circ}\\text{F}$ increase in temperature?",
+      diagram: { type: "scatterplot", params: {
+        points: [[55,500],[60,540],[65,560],[70,680],[75,720],[80,760],[85,840],[90,860],[95,920]],
+        xMin: 50, xMax: 100, yMin: 0, yMax: 1100,
+        xGridStep: 5, yGridStep: 100, xLabelStep: 10, yLabelStep: 200,
+        xLabel: "Temperature (°F)", yLabel: "Daily sales ($)",
+        bestFitLine: { slope: 12, intercept: -200 },
+      } },
       correctAnswer: "12",
       explanation: "**SAT Pattern: Slope as Rate of Change in Context**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~5s):** In $\\hat{y} = 12x - 200$, slope $12$ is the predicted increase in $y$ per one-unit increase in $x$.\n\n**The Full Solution:**\nFor a linear model $\\hat{y} = mx + b$:\n* slope $m$ $=$ predicted change in $y$ per one-unit change in $x$.\n* intercept $b$ $=$ predicted $y$ when $x = 0$.\n\nHere $m = 12$: each $1^{\\circ}\\text{F}$ rise predicts \\$$12$ more in sales.\n\n**Common Mistakes to Avoid:**\n* Reporting $-200$ (the intercept — predicted sales at $0^{\\circ}\\text{F}$, which is also unrealistic but is what the model says).\n* Reporting $200$ (drops the negative).\n* Reporting a specific predicted value like $\\hat{y}(1) = -188$.\n\n**Test Day Takeaway:** In $\\hat{y} = mx + b$, slope $m$ tells you how much $y$ changes per one-unit change in $x$. Always use the slope for \"rate of change per unit\" questions.",
       skills: ["scatterplots", "linear-functions"]

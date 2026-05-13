@@ -340,7 +340,14 @@ export const practiceTest3M2Easy = {
       type: "fill-in",
       difficulty: "hard",
       band: 7,
-      question: "A scatterplot shows the relationship between the number of customers $x$ at a coffee shop and daily revenue $y$ in dollars. The line of best fit is $\\hat{y} = 4.5x + 80$. According to the model, what is the predicted daily revenue, in dollars, when there are $40$ customers?",
+      question: "The scatterplot below shows the relationship between the number of customers $x$ at a coffee shop and daily revenue $y$ in dollars. The line of best fit is $\\hat{y} = 4.5x + 80$. According to the model, what is the predicted daily revenue, in dollars, when there are $40$ customers?",
+      diagram: { type: "scatterplot", params: {
+        points: [[5,90],[10,140],[15,140],[20,180],[25,180],[30,220],[35,250],[40,260],[45,275]],
+        xMin: 0, xMax: 50, yMin: 0, yMax: 320,
+        xGridStep: 5, yGridStep: 40, xLabelStep: 10, yLabelStep: 80,
+        xLabel: "Customers", yLabel: "Daily revenue ($)",
+        bestFitLine: { slope: 4.5, intercept: 80 },
+      } },
       correctAnswer: "260",
       explanation: "**SAT Pattern: Predicting from a Line of Best Fit**\n\n**The correct answer is $260$.**\n\n**The Fast Way (~10s):** Plug $x = 40$ into $\\hat{y} = 4.5x + 80$: $\\hat{y} = 4.5(40) + 80 = 180 + 80 = 260$.\n\n**The Full Solution:**\nThe line of best fit predicts $\\hat{y}$ for a given $x$. Substitute $x = 40$:\n$\\hat{y} = 4.5(40) + 80 = 180 + 80 = 260$ dollars.\n\n**Common Mistakes to Avoid:**\n* Reporting $80$ (the $y$-intercept — predicted revenue with $0$ customers).\n* Reporting $4.5$ (the slope — change in revenue per customer).\n* Forgetting to add the intercept: $4.5 \\cdot 40 = 180$.\n\n**Test Day Takeaway:** To predict from a line of best fit, plug the given $x$-value in and compute. Slope tells you change PER unit; intercept is the value at $x = 0$.",
       skills: ["scatterplots", "linear-functions"]

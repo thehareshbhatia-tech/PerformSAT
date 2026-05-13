@@ -340,7 +340,14 @@ export const practiceTest5M2Easy = {
       type: "fill-in",
       difficulty: "hard",
       band: 7,
-      question: "A scatterplot models the relationship between minutes exercised per day $x$ and resting heart rate $y$ for $30$ adults. The line of best fit is $\\hat{y} = -0.4x + 78$. According to the model, by how many beats per minute does resting heart rate decrease for each additional minute of daily exercise?",
+      question: "The scatterplot below shows the relationship between minutes exercised per day $x$ and resting heart rate $y$ for $30$ adults. The line of best fit is $\\hat{y} = -0.4x + 78$. According to the model, by how many beats per minute does resting heart rate decrease for each additional minute of daily exercise?",
+      diagram: { type: "scatterplot", params: {
+        points: [[10,76],[20,72],[30,68],[40,60],[50,60],[60,52],[70,52],[80,44],[90,42]],
+        xMin: 0, xMax: 100, yMin: 30, yMax: 90,
+        xGridStep: 10, yGridStep: 5, xLabelStep: 20, yLabelStep: 10,
+        xLabel: "Daily exercise (min)", yLabel: "Resting heart rate",
+        bestFitLine: { slope: -0.4, intercept: 78 },
+      } },
       correctAnswer: ".4",
       explanation: "**SAT Pattern: Slope as Rate of Change in Context**\n\n**The correct answer is $0.4$.**\n\n**The Fast Way (~10s):** Slope $= -0.4$ means $y$ decreases by $0.4$ for each unit increase in $x$.\n\n**The Full Solution:**\nFor a linear model $\\hat{y} = mx + b$:\n* slope $m$ = predicted change in $y$ per one-unit change in $x$.\n* intercept $b$ = predicted $y$ when $x = 0$.\n\nHere $m = -0.4$: each additional minute of exercise predicts a decrease of $0.4$ beats per minute. The DECREASE is $0.4$ (the magnitude of the slope).\n\n**Common Mistakes to Avoid:**\n* Reporting $-0.4$ — the question asks for the size of the decrease, which is positive.\n* Reporting $78$ (the intercept).\n* Reporting $77.6$ (the predicted heart rate after $1$ minute).\n\n**Test Day Takeaway:** In $\\hat{y} = mx + b$, slope $m$ tells you how much $y$ changes per one-unit change in $x$. Negative slope $\\Rightarrow$ decrease.",
       skills: ["linear-functions", "slope"]

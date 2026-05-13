@@ -148,7 +148,14 @@ export const practiceTest9M2Easy = {
       type: "multiple-choice",
       difficulty: "medium",
       band: 5,
-      question: "A scatterplot of weight ($x$, in pounds) versus height ($y$, in inches) for a group of dogs shows a positive linear association. Which of the following is a reasonable interpretation?",
+      question: "The scatterplot below shows weight ($x$, in pounds) versus height ($y$, in inches) for a group of dogs. The data show a positive linear association. Which of the following is a reasonable interpretation?",
+      diagram: { type: "scatterplot", params: {
+        points: [[8,9],[12,11],[20,13],[25,14],[35,16],[45,18],[55,20],[65,21],[80,24],[95,26]],
+        xMin: 0, xMax: 110, yMin: 0, yMax: 30,
+        xGridStep: 10, yGridStep: 2, xLabelStep: 20, yLabelStep: 5,
+        xLabel: "Weight (lb)", yLabel: "Height (in)",
+        bestFitLine: { slope: 0.2, intercept: 8 },
+      } },
       choices: [
         // distractor: confuses correlation with causation
         { id: "A", text: "Heavier dogs are taller because of their weight." },

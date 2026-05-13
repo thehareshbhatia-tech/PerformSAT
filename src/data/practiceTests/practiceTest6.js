@@ -162,7 +162,14 @@ export const practiceTest6 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "A scatterplot shows the relationship between the number of hours $x$ a student practices a sport per week and their performance score $y$. The line of best fit for the data is $y = 6.4x + 22$. According to the model, what is the predicted score for a student who practices for $9$ hours per week?",
+  question: "The scatterplot below shows the relationship between the number of hours $x$ a student practices a sport per week and their performance score $y$. The line of best fit for the data is $y = 6.4x + 22$. According to the model, what is the predicted score for a student who practices for $9$ hours per week?",
+  diagram: { type: "scatterplot", params: {
+    points: [[1,30],[2,32],[3,42],[4,46],[5,52],[6,62],[7,64],[8,74],[10,84],[11,90]],
+    xMin: 0, xMax: 12, yMin: 0, yMax: 100,
+    xGridStep: 1, yGridStep: 10, xLabelStep: 2, yLabelStep: 20,
+    xLabel: "Hours practiced per week", yLabel: "Performance score",
+    bestFitLine: { slope: 6.4, intercept: 22 },
+  } },
   correctAnswer: "79.6",
   explanation: "**SAT Pattern: Scatterplot Line of Best Fit**\n\n**The correct answer is $79.6$.**\n\n**The Fast Way (~10s):** Substitute $x = 9$: $y = 6.4(9) + 22 = 57.6 + 22 = 79.6$.\n\n**The Full Solution:**\nThe predicted value comes from substituting the input directly:\n$y = 6.4(9) + 22 = 57.6 + 22 = 79.6$.\n\n**Common Mistakes to Avoid:**\n* Computing only the slope contribution: $6.4 \\cdot 9 = 57.6$ and forgetting to add the intercept $22$.\n* Reading the equation as $y = 6.4 + 22x$, giving $6.4 + 198 = 204.4$.\n* Rounding the slope $6.4$ to $6$ and computing $6(9) + 22 = 76$.\n\n**Verification:** The intercept $22$ is the predicted score for $x = 0$, and the slope $6.4$ is the predicted score increase per added hour, so the model's value at $x = 9$ is $22 + 9 \\cdot 6.4 = 79.6$ \\checkmark.\n\n**Test Day Takeaway:** A line of best fit is just a linear function. Plug in the input to get the prediction. Use BOTH the slope and the intercept.",
   skills: ["scatterplots", "linear-functions"]

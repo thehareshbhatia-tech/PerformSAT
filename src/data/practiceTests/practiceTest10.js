@@ -473,7 +473,14 @@ export const practiceTest10 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "A scatterplot of $25$ data points has a line of best fit $y = 1.4x + 8$. One specific data point has $x = 12$ and $y = 26$. What is the residual for this data point?",
+  question: "The scatterplot below has line of best fit $y = 1.4x + 8$. The highlighted data point has coordinates $(12, 26)$. What is the residual for this data point?",
+  diagram: { type: "scatterplot", params: {
+    points: [[1,10],[2,12],[3,11],[4,15],[5,14],[6,18],[7,16],[8,21],[9,20],[10,24],[11,21],[13,28],[14,28]],
+    xMin: 0, xMax: 15, yMin: 0, yMax: 32,
+    xGridStep: 1, yGridStep: 4, xLabelStep: 3, yLabelStep: 8,
+    bestFitLine: { slope: 1.4, intercept: 8 },
+    highlightPoint: [12, 26], highlightLabel: "(12, 26)", showResidual: true,
+  } },
   choices: [
     // distractor: wrong sign — computes predicted - actual
     { id: "A", text: "$-1.2$" },

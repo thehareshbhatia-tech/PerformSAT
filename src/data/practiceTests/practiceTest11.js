@@ -168,7 +168,14 @@ export const practiceTest11 = {
   type: "fill-in",
   difficulty: "medium",
   band: 5,
-  question: "The line of best fit for a scatterplot is given by $\\hat{y} = 2.4x + 3.2$. A specific data point in the scatterplot has the coordinates $(10, 30)$. What is the residual at that data point?",
+  question: "The scatterplot below has line of best fit $\\hat{y} = 2.4x + 3.2$. The highlighted data point has coordinates $(10, 30)$. What is the residual at that data point?",
+  diagram: { type: "scatterplot", params: {
+    points: [[1,5],[2,9],[3,11],[4,14],[5,16],[6,16],[7,20],[8,21],[9,26],[11,29],[12,32]],
+    xMin: 0, xMax: 12, yMin: 0, yMax: 36,
+    xGridStep: 1, yGridStep: 4, xLabelStep: 2, yLabelStep: 8,
+    bestFitLine: { slope: 2.4, intercept: 3.2 },
+    highlightPoint: [10, 30], highlightLabel: "(10, 30)", showResidual: true,
+  } },
   correctAnswer: "2.8",
   explanation: "**SAT Pattern: Residual**\n\n**The correct answer is $2.8$.**\n\n**The Fast Way (~15s):** Predicted: $\\hat{y} = 2.4(10) + 3.2 = 27.2$. Actual: $30$. Residual $= 30 - 27.2 = 2.8$.\n\n**The Full Solution:**\nResidual = actual $-$ predicted.\nPredicted $\\hat{y}$ at $x = 10$: $2.4(10) + 3.2 = 24 + 3.2 = 27.2$.\nActual $y$: $30$.\nResidual: $30 - 27.2 = 2.8$.\n\nA positive residual means the data point lies above the line of best fit.\n\n**Common Mistakes to Avoid:**\n* Computing predicted $-$ actual ($-2.8$) instead of actual $-$ predicted.\n* Forgetting to add the intercept $3.2$ to the predicted value.\n\n**Test Day Takeaway:** Residual = actual $-$ predicted. Positive residual = above the line; negative = below.",
   skills: ["scatterplots", "statistics"]
