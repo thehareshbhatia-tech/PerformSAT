@@ -1903,6 +1903,16 @@ export const problemSolvingBank = [
     difficulty: 'medium',
     type: 'multiple-choice',
     question: 'A data point in a scatterplot has a residual of $+5$ relative to the line of best fit. Which of the following best describes the relationship between the data point and the line of best fit at that $x$-value?',
+    // Illustrative scatter — the line equation is unimportant; what matters is
+    // that the highlighted point sits exactly +5 units above the best-fit line
+    // so the student can see the residual visually.
+    diagram: { type: 'scatterplot', params: {
+      points: [[0,4],[1,3],[2,5],[3,5],[4,8],[6,10],[7,9],[8,12],[9,13],[10,12],[11,15]],
+      xMin: 0, xMax: 12, yMin: 0, yMax: 16,
+      xGridStep: 1, yGridStep: 1, xLabelStep: 2, yLabelStep: 4,
+      bestFitLine: { slope: 1, intercept: 3 },
+      highlightPoint: [5, 13], highlightLabel: 'residual = +5', showResidual: true,
+    } },
     choices: [
       { id: 'A', text: 'The actual $y$-value is $5$ units above the line\'s prediction at that $x$.' },
       // distractor: sign-reversed interpretation
@@ -1949,6 +1959,17 @@ export const problemSolvingBank = [
     difficulty: 'medium',
     type: 'fill-in',
     question: 'For a data point in a scatterplot, the line of best fit predicts a $y$-value of $18$ at that $x$-coordinate. If the residual at that data point is $-3$, what is the actual $y$-coordinate of the data point?',
+    // Illustrative scatter. The line at the highlight's x-coordinate sits at
+    // y = 18 (the predicted value the stem mentions). The highlighted point
+    // is 3 units below, matching residual = -3. No label so it doesn't spoil
+    // the answer (which is the actual y-value).
+    diagram: { type: 'scatterplot', params: {
+      points: [[1,5],[2,9],[3,9],[4,13],[5,15],[6,17],[8,21],[9,21],[10,25],[11,27]],
+      xMin: 0, xMax: 12, yMin: 0, yMax: 30,
+      xGridStep: 1, yGridStep: 2, xLabelStep: 2, yLabelStep: 6,
+      bestFitLine: { slope: 2, intercept: 4 },
+      highlightPoint: [7, 15], showResidual: true,
+    } },
     correctAnswer: '15',
     explanation: '**SAT Pattern: Residual**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~10s):** Residual $= y - \\hat{y}$, so $y = \\hat{y} + \\text{residual} = 18 + (-3) = 15$.\n\n**The Full Solution:**\nRearrange the residual formula to solve for $y$:\n$$\\text{residual} = y - \\hat{y} \\Rightarrow y = \\hat{y} + \\text{residual}$$\n\nSubstitute: $y = 18 + (-3) = 15$.\n\nVerification: at this $x$, predicted is $18$, actual is $15$, so residual $= 15 - 18 = -3$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Adding $3$ instead of subtracting (drops the negative sign on the residual).\n* Reporting $-3$ or $18$ directly.\n\n**Test Day Takeaway:** From the formula residual $= y - \\hat{y}$, the actual $y$ equals predicted $+$ residual. Carry the residual\'s sign into the addition.',
     calculatorAllowed: true,
@@ -1964,6 +1985,17 @@ export const problemSolvingBank = [
     difficulty: 'hard',
     type: 'fill-in',
     question: 'The line of best fit for a scatterplot is $\\hat{y} = 2x + 5$. A data point has actual $y$-value $17$ and a residual of $-2$. What is the $x$-coordinate of the data point?',
+    // Scatter along the line ŷ = 2x + 5 named in the stem. The highlighted
+    // point is at y = 17 with a residual of -2 (so 2 units below the line at
+    // its x). No label — the question asks for the x-coordinate, so labeling
+    // the point would spoil the answer; the student reads x off the axis.
+    diagram: { type: 'scatterplot', params: {
+      points: [[1,6],[2,8],[3,12],[4,12],[5,16],[6,18],[8,22],[9,22],[10,26],[11,27]],
+      xMin: 0, xMax: 12, yMin: 0, yMax: 30,
+      xGridStep: 1, yGridStep: 2, xLabelStep: 2, yLabelStep: 6,
+      bestFitLine: { slope: 2, intercept: 5 },
+      highlightPoint: [7, 17], showResidual: true,
+    } },
     correctAnswer: '7',
     explanation: '**SAT Pattern: Residual**\n\n**The correct answer is $7$.**\n\n**The Fast Way (~20s):** Residual $= y - \\hat{y}$, so $\\hat{y} = y - \\text{residual} = 17 - (-2) = 19$. Solve $2x + 5 = 19 \\Rightarrow x = 7$.\n\n**The Full Solution:**\nStep 1: from the residual, find $\\hat{y}$.\n$\\text{residual} = y - \\hat{y} \\Rightarrow \\hat{y} = y - \\text{residual} = 17 - (-2) = 19$.\n\nStep 2: solve the line equation for $x$.\n$\\hat{y} = 2x + 5 = 19$\n$2x = 14$\n$x = 7$.\n\nVerification: at $x = 7$, $\\hat{y} = 2(7) + 5 = 19$, and residual $= 17 - 19 = -2$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Computing $\\hat{y}$ as $17 + (-2) = 15$ instead of $17 - (-2) = 19$ (sign mistake on the rearrangement).\n* Solving $2x + 5 = 17$ (using actual $y$ instead of predicted) — gives $x = 6$, off by $1$.\n\n**Test Day Takeaway:** Backward from a residual: find $\\hat{y}$ via $y - \\text{residual}$, then plug into the line equation. Watch the sign on the residual when subtracting.',
     calculatorAllowed: true,
