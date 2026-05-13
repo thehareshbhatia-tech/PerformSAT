@@ -603,7 +603,93 @@ const StudyPlanDashboard = ({
             adherence={sessionAdherence}
             dailyIntro={dailyIntro}
             onStartActivity={(activity) => {
-              if (activity?.moduleId && onStartPractice) {
+              if (!activity || !onStartPractice) return;
+
+              // Route this activity through AssignedPracticeShell (same UI as
+              // the Weekly View "Practice" buttons) instead of falling through
+              // to App.jsx's legacy `practiceMode: 'prescriptive'` inline
+              // render — the "old screen" with the centered title, "Easy
+              // difficulty selected based on your performance" banner, no
+              // round indicator, no Assisted Help panel.
+              //
+              // The activity's skillId (set by studyPlanGenerator.js:476 from
+              // `gap.skillId`) is more granular than the weakness skillId from
+              // the diagnostic engine. E.g., the "Practice: Vertex" activity
+              // has skillId='vertex-form', but the matching weakness is
+              // "Function Interpretation" with missedPattern
+              // 'vertex-form-from-two-conditions'. We try three lookups in
+              // order: (1) cached row by exact skillId, (2) weakness by exact
+              // skillId, (3) any weakness whose missedPatterns prefix-matches
+              // the activity's skillId — the third is what catches Vertex.
+              if (!activity.skillId) {
+                if (activity.moduleId) onStartPractice(activity.moduleId, activity.sectionName);
+                return;
+              }
+
+              const cachedRow = skillPracticeRows.find(r => r.skillId === activity.skillId);
+              const exactWeakness = !cachedRow ? weaknesses?.find(wk => wk.skillId === activity.skillId) : null;
+              // Heuristic third lookup: scan every weakness's missedPatterns
+              // for a slug that prefix-matches the activity's skillId. The
+              // first hit gives us a Tier-1-routable pattern for this drill.
+              let prefixedPattern = null;
+              if (!cachedRow && !exactWeakness && Array.isArray(weaknesses)) {
+                for (const w of weaknesses) {
+                  if (!Array.isArray(w.missedPatterns)) continue;
+                  const hit = w.missedPatterns.find(p =>
+                    p === activity.skillId || p.startsWith(activity.skillId + '-')
+                  );
+                  if (hit) { prefixedPattern = hit; break; }
+                }
+              }
+
+              let qIds = cachedRow?.qIds;
+              let weaknessForShell = cachedRow;
+
+              if (!qIds) {
+                const baseW = exactWeakness || {
+                  skillId: activity.skillId,
+                  skill: activity.skillName || activity.skillId,
+                  domain: 'math',
+                  section: 'math',
+                  missedPatterns: prefixedPattern ? [prefixedPattern] : undefined,
+                };
+                const section = getWeaknessSection(baseW);
+                const targetedQuery = section === 'rw' ? getRWTargetedWeaknessSet : getTargetedWeaknessSet;
+                const fallbackQuery = section === 'rw' ? getRWQuestionsBySkillIds : getQuestionsBySkillIds;
+                let mp = Array.isArray(baseW.missedPatterns) ? baseW.missedPatterns : undefined;
+                if (section !== 'rw') {
+                  const chip = getDrillChipForWeakness(baseW);
+                  if (chip) mp = [chip.slug];
+                }
+                let qs = targetedQuery({
+                  weakSkills: [{ skillId: baseW.skillId, domain: baseW.domain, missedPatterns: mp }],
+                  count: 15,
+                  excludeIds: answeredQuestionIds,
+                }).filter(q => Array.isArray(q.choices) && q.choices.length >= 2);
+                if (qs.length === 0) {
+                  qs = fallbackQuery([baseW.skillId], { limit: 15 })
+                    .filter(q => Array.isArray(q.choices) && q.choices.length >= 2);
+                }
+                if (qs.length > 0) {
+                  qIds = qs.map(q => q.id);
+                  weaknessForShell = { ...baseW, section };
+                }
+              }
+
+              if (qIds && qIds.length > 0) {
+                onStartPractice(null, null, {
+                  questionIds: qIds,
+                  source: 'study-plan-todays-tasks',
+                  label: activity.title || (activity.skillName ? `${activity.skillName} Practice` : 'Practice'),
+                  weakness: weaknessForShell,
+                });
+                return;
+              }
+
+              // Last-resort fallback. Both targeted and skill-id lookups came
+              // up empty — pass through to the legacy module/section path so
+              // the user at least lands SOMEWHERE rather than a dead button.
+              if (activity.moduleId) {
                 onStartPractice(activity.moduleId, activity.sectionName);
               }
             }}
