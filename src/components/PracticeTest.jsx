@@ -2808,8 +2808,19 @@ const PracticeTest = ({ test, onBack, onComplete, onSaveResult, onSaveProgress, 
   // Test completion screen - TestResults with direct navigation to Study Plan tab
   if (testCompleted) {
     return (
-      <div style={{ 
-        minHeight: '100vh', 
+      // App.jsx's #main-content locks to `height: 100vh; overflow: hidden`
+      // while view === 'takingTest' (required so the active-test
+      // `.test-session-shell` two-pane layout can manage its own scroll).
+      // When the test ends we stay on the same view but flip to rendering
+      // <TestResults>, whose content runs taller than the viewport. Without
+      // our own scroll container here, the parent clips everything below
+      // the fold and the student can't reach 'Diagnostic Insights' or any
+      // tab content past the first ~900 px. Take the full 100vh from the
+      // locked parent and scroll inside this wrapper.
+      <div style={{
+        height: '100vh',
+        overflowY: 'auto',
+        boxSizing: 'border-box',
         background: '#F5F5F7',
         backgroundImage: 'radial-gradient(circle at 50% 0%, rgba(255,255,255,0.8) 0%, rgba(245,245,247,0) 100%)',
         padding: isMobile ? '16px' : '32px'
