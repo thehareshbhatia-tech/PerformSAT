@@ -9,6 +9,7 @@ import {
   getTargetedWeaknessSet as getRWTargetedWeaknessSet,
 } from '../data/questions/rwBank';
 import { getWeaknessSection, getMathWeaknesses, getRWWeaknesses } from '../services/selectors/weaknesses';
+import { getDrillChipForWeakness } from '../services/selectors/drillChip';
 import { formatDiagnosticSentence } from '../services/diagnosticEngine';
 import { getTodaySlice } from '../services/studyPlanGenerator';
 import { getSessionAdherence } from '../services/selectors/sessionAdherence';
@@ -330,8 +331,24 @@ const StudyPlanDashboard = ({
       const targetedQuery = section === 'rw' ? getRWTargetedWeaknessSet : getTargetedWeaknessSet;
       const fallbackQuery = section === 'rw' ? getRWQuestionsBySkillIds : getQuestionsBySkillIds;
 
+      // Drill-routing precision: pass `missedPatterns` through so the cascade
+      // can fire Tier 1 (exact SAT Pattern) instead of falling all the way to
+      // Tier 3 (skill alias). When the chip is viable on this section, restrict
+      // to the chip's single pattern so the drill content matches the chip's
+      // "Practicing: <Pattern>" claim. Without restriction, the chip names one
+      // pattern but the pool unions every missed pattern on the weakness — a
+      // student opens "Scatterplots Practice" and gets mean-of-running-times
+      // problems because skillId 'Scatterplots' aliases to 'calculate-mean'
+      // in Tier 3 (see SKILL_ALIAS_MAP). R&W goes without chip restriction
+      // for now — its drill chip wiring lands in a separate batch.
+      let missedPatterns = Array.isArray(w.missedPatterns) ? w.missedPatterns : undefined;
+      if (section !== 'rw') {
+        const chip = getDrillChipForWeakness(w);
+        if (chip) missedPatterns = [chip.slug];
+      }
+
       const questions = targetedQuery({
-        weakSkills: [{ skillId: w.skillId, domain: w.domain }],
+        weakSkills: [{ skillId: w.skillId, domain: w.domain, missedPatterns }],
         difficultyMix: diffMix,
         count: 15,
         excludeIds: answeredQuestionIds,

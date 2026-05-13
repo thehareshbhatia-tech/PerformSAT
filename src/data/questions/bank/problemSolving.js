@@ -2944,6 +2944,16 @@ export const problemSolvingBank = [
     difficulty: 'medium',
     type: 'multiple-choice',
     question: 'A company\'s daily revenue, in dollars, is modeled by $\\hat{y} = 4.5x + 200$, where $x$ is the number of items sold that day. Which of the following is the BEST interpretation of the coefficient $4.5$ in this model?',
+    // Scatter along ŷ = 4.5x + 200. Axis labels reinforce the business
+    // context the stem references; the slope's "+4.50 per item" appears
+    // visually as the rise/run, which anchors choice A.
+    diagram: { type: 'scatterplot', params: {
+      points: [[2,212],[4,215],[6,228],[8,238],[10,242],[12,252],[14,260],[16,275],[18,278],[20,290],[22,300],[24,305],[26,318],[28,320]],
+      xMin: 0, xMax: 30, yMin: 0, yMax: 400,
+      xGridStep: 2, yGridStep: 50, xLabelStep: 5, yLabelStep: 100,
+      xLabel: 'Items sold', yLabel: 'Daily revenue ($)',
+      bestFitLine: { slope: 4.5, intercept: 200 },
+    } },
     choices: [
       { id: 'A', text: 'The average revenue per additional item sold, in dollars.' },
       // distractor: confuses slope with intercept
@@ -2968,6 +2978,16 @@ export const problemSolvingBank = [
     difficulty: 'medium',
     type: 'multiple-choice',
     question: 'A weather station\'s temperature, in degrees Fahrenheit, is modeled by $\\hat{y} = -1.2x + 80$, where $x$ is the number of hours past noon. Which of the following is the BEST interpretation of the value $80$ in this model?',
+    // Scatter along ŷ = -1.2x + 80 — negative slope, intercept = 80°F at
+    // x = 0 (noon). The y-intercept is what choice B describes; the chart
+    // makes it visible by anchoring the line at (0, 80) on the y-axis.
+    diagram: { type: 'scatterplot', params: {
+      points: [[0,80],[1,80],[2,78],[3,77],[5,73],[6,74],[8,71],[9,68],[11,66],[12,67],[14,62],[16,61],[18,57],[19,58]],
+      xMin: 0, xMax: 20, yMin: 50, yMax: 90,
+      xGridStep: 1, yGridStep: 2, xLabelStep: 4, yLabelStep: 10,
+      xLabel: 'Hours past noon', yLabel: 'Temperature (°F)',
+      bestFitLine: { slope: -1.2, intercept: 80 },
+    } },
     choices: [
       // distractor: confuses intercept with slope
       { id: 'A', text: 'The temperature decreases by $80$ degrees each hour.' },
