@@ -575,19 +575,19 @@ export const practiceTest10 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The parabola defined by $y = 2(x - h)^2 + k$ has its vertex at the point $(4, -3)$ and passes through the point $(2, 5)$. What is the value of $h + k$?",
+  question: "A chemical engineer is studying the yield of a reaction as a function of the temperature, in degrees Celsius, of the reaction vessel. The yield, in grams of product, is modeled by $Y(t) = -0.5(t - 65)^2 + 80$, where $t$ is the temperature in degrees Celsius. Which of the following is the best interpretation of the vertex of the graph of $Y(t)$ in the $tY$-plane in this context?",
   choices: [
-    // distractor: wrong sign — uses h - k instead of h + k
-    { id: "A", text: "$7$" },
-    // distractor: stops one step early — uses k from a wrong calculation
-    { id: "B", text: "$-7$" },
-    { id: "C", text: "$1$" },
-    // distractor: off-by-one — uses passing-point coords as h, k
-    { id: "D", text: "$2$" }
+    // distractor: swaps coordinates
+    { id: "A", text: "The maximum yield of approximately $65$ grams occurs at a temperature of $80^\\circ\\text{C}$." },
+    { id: "B", text: "The maximum yield of approximately $80$ grams occurs at a temperature of $65^\\circ\\text{C}$." },
+    // distractor: wrong direction — calls the max a min
+    { id: "C", text: "The minimum yield of approximately $80$ grams occurs at a temperature of $65^\\circ\\text{C}$." },
+    // distractor: wrong base — uses the leading coefficient as the temperature
+    { id: "D", text: "The maximum yield of approximately $80$ grams occurs at a temperature of $0.5^\\circ\\text{C}$." }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Vertex $(4, -3)$ gives $h = 4, k = -3$. Verify: $y = 2(2 - 4)^2 + (-3) = 2(4) - 3 = 5$ \\checkmark. So $h + k = 4 + (-3) = 1$.\n\n**The Full Solution:**\nFrom vertex form $y = a(x - h)^2 + k$, the vertex is $(h, k)$.\nGiven vertex $(4, -3)$: $h = 4$ and $k = -3$.\n\nVerify with the second point $(2, 5)$: $y = 2(2 - 4)^2 + (-3) = 2(4) - 3 = 5$ \\checkmark.\n\nThus $h + k = 4 + (-3) = 1$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong sign\" — computes $h - k = 4 - (-3) = 7$ instead of $h + k$.\n* Choice B: \"stops one step early\" — uses $k$ from a wrong calculation.\n* Choice D: \"off-by-one\" — uses passing-point coordinates as $h, k$.\n\n**Test Day Takeaway:** In vertex form $y = a(x - h)^2 + k$, the vertex is $(h, k)$ — directly readable from the equation.",
-  skills: ["vertex-form", "function-interpretation"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Interpret Vertex Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Vertex of $Y(t) = -0.5(t - 65)^2 + 80$ is $(65, 80)$. $a = -0.5 < 0$, so vertex is a MAX. Max yield $= 80$ g at $t = 65^\\circ\\text{C}$.\n\n**The Full Solution:**\nVertex form $Y(t) = a(t - h)^2 + k$ has vertex $(h, k) = (65, 80)$. Because $a = -0.5 < 0$, the parabola opens DOWNWARD and the vertex is the MAXIMUM of $Y$. The maximum yield is $80$ grams, achieved at a temperature of $65^\\circ\\text{C}$.\n\nVerification: $Y(65) = 0 + 80 = 80$. $Y(60) = -0.5(25) + 80 = 67.5$ (lower). $Y(70) = -0.5(25) + 80 = 67.5$ (also lower, symmetric) — confirms $65^\\circ\\text{C}$ is the optimal temperature \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"swaps coordinates\" — swaps the $t$ (temperature) and $Y$ (yield) values of the vertex.\n* Choice C: \"wrong direction\" — since $a < 0$, the vertex is a MAX, not a min. The reaction has an optimal temperature; going hotter or colder reduces yield.\n* Choice D: \"wrong base\" — uses the leading coefficient $0.5$ as the temperature.\n\n**Test Day Takeaway:** Optimization problems via vertex form: the input value at the vertex ($h$) is the OPTIMAL setting; the output value ($k$) is the OPTIMAL result. Sign of $a$ tells you if optimal is a max ($a < 0$) or min ($a > 0$).",
+  skills: ["function-interpretation", "quadratic-equations"]
 },
 {
   id: 10,

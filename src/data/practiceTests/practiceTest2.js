@@ -538,19 +538,19 @@ export const practiceTest2 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "The function $p(t) = -16t^2 + 64t + 80$ models the height, in feet, of a projectile $t$ seconds after launch. At what time, in seconds, does the projectile reach its maximum height?",
+  question: "A track-and-field coach analyzes a javelin throw. The height of the javelin above the ground, in meters, is modeled by $h(t) = -4.9(t - 1.5)^2 + 12$, where $t$ is the time, in seconds, after the javelin leaves the athlete's hand. Which of the following is the best interpretation of the vertex of the graph of $h(t)$ in the $th$-plane?",
   choices: [
-    // distractor: divides 64/64 instead of 64/32
-    { id: "A", text: "$1$" },
-    { id: "B", text: "$2$" },
-    // distractor: uses -b/a = 4 (forgets factor of 2 in the denominator)
-    { id: "C", text: "$4$" },
-    // distractor: solves p(t) = 0 (when projectile lands)
-    { id: "D", text: "$5$" }
+    // distractor: swaps coordinates of the vertex
+    { id: "A", text: "The javelin reaches a maximum height of $1.5$ meters, $12$ seconds after release." },
+    { id: "B", text: "The javelin reaches a maximum height of $12$ meters, $1.5$ seconds after release." },
+    // distractor: wrong direction — calls the max a min
+    { id: "C", text: "The javelin reaches a minimum height of $12$ meters, $1.5$ seconds after release." },
+    // distractor: wrong base — uses the leading coefficient's magnitude as the time
+    { id: "D", text: "The javelin reaches a maximum height of $12$ meters, $4.9$ seconds after release." }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Vertex Form Maximum**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Time of maximum $= -\\dfrac{b}{2a} = -\\dfrac{64}{2(-16)} = -\\dfrac{64}{-32} = 2$ seconds.\n\n**The Full Solution:**\nFor $p(t) = -16t^2 + 64t + 80$: $a = -16$, $b = 64$.\nVertex at $t = -\\dfrac{b}{2a} = -\\dfrac{64}{-32} = 2$.\nMax height: $p(2) = -64 + 128 + 80 = 144$ feet (at $t = 2$ seconds).\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — divides $64$ by $64$ instead of $32$.\n* Choice C: \"wrong base\" — uses $-\\frac{b}{a} = 4$ (forgets factor of $2$).\n* Choice D: \"applies the inverse operation\" — solves $p(t) = 0$, which is when the projectile LANDS, not the max.\n\n**Test Day Takeaway:** For $at^2 + bt + c$, the vertex (max/min) occurs at $t = -\\dfrac{b}{2a}$.",
-  skills: ["vertex-form", "quadratic-equations", "function-interpretation"]
+  explanation: "**SAT Pattern: Interpret Vertex Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Vertex of $h(t) = -4.9(t - 1.5)^2 + 12$ is $(1.5, 12)$. $a = -4.9 < 0$, so vertex is a MAX. Max height $= 12$ m at $t = 1.5$ s.\n\n**The Full Solution:**\nVertex form $h(t) = a(t - h_0)^2 + k$ has vertex $(h_0, k) = (1.5, 12)$. Because $a = -4.9 < 0$, the parabola opens DOWN and the vertex is the maximum value. The max height of $12$ m is reached at $t = 1.5$ s after release.\n\nVerification: $h(1.5) = 0 + 12 = 12$. $h(0)$ (at release): $h = -4.9(2.25) + 12 \\approx 0.975$ m, so the javelin starts near hand height. $h(3) = -4.9(2.25) + 12 \\approx 0.975$ (symmetric, near ground again) \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"swaps coordinates\" — swaps the $t$ (time) and $h$ (height) values of the vertex.\n* Choice C: \"wrong direction\" — since $a < 0$, the vertex is a MAX, not a min. The javelin arcs up then falls.\n* Choice D: \"wrong base\" — uses the leading coefficient's magnitude $4.9$ as the time (it's actually the gravity-related coefficient).\n\n**Test Day Takeaway:** Vertex form $a(t - h_0)^2 + k$: vertex is $(h_0, k)$ — input first, output second. Sign of $a$ tells you max vs min. The $-4.9$ in projectile problems is $-g/2$ (gravity), NOT the time of max.",
+  skills: ["function-interpretation", "quadratic-equations"]
 },
 {
   id: 9,

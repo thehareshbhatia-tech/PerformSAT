@@ -743,19 +743,19 @@ export const practiceTest1 = {
   type: "multiple-choice",
   difficulty: "hard",
   band: 7,
-  question: "The parabola defined by $y = 2(x - h)^2 + k$ has its vertex at the point $(3, -8)$ and passes through the point $(1, 0)$. What is the value of $h + k$?",
+  question: "A landscape architect designs a decorative water fountain in which water shoots from a nozzle and arcs through the air before landing in a pool. The height of the water stream, in feet, is modeled by $y = -0.25(x - 12)^2 + 9$, where $x$ is the horizontal distance, in feet, from the nozzle. Which of the following is the best interpretation of the vertex of the graph of $y$ in the $xy$-plane in this context?",
   choices: [
-    // distractor: confuses with h - k (3 - (-8) = 11)
-    { id: "A", text: "$11$" },
-    // distractor: uses sign error on k: 3 + 8 = 11 with mixed signs
-    { id: "B", text: "$-11$" },
-    { id: "C", text: "$-5$" },
-    // distractor: stops at h alone (= 3)
-    { id: "D", text: "$3$" }
+    // distractor: swaps coordinates of the vertex
+    { id: "A", text: "The water stream reaches an estimated maximum height of $12$ feet at a horizontal distance of $9$ feet from the nozzle." },
+    { id: "B", text: "The water stream reaches an estimated maximum height of $9$ feet at a horizontal distance of $12$ feet from the nozzle." },
+    // distractor: wrong direction — calls the max a min
+    { id: "C", text: "The water stream reaches an estimated minimum height of $9$ feet at a horizontal distance of $12$ feet from the nozzle." },
+    // distractor: wrong base — uses the leading coefficient's magnitude
+    { id: "D", text: "The water stream reaches an estimated maximum height of $9$ feet at a horizontal distance of $0.25$ feet from the nozzle." }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Vertex Form from Two Conditions**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Vertex $(h, k) = (3, -8)$. Verify the parabola passes through $(1, 0)$: $y = 2(1 - 3)^2 + (-8) = 2(4) - 8 = 0$ \\checkmark. So $h + k = 3 + (-8) = -5$.\n\n**The Full Solution:**\nIn vertex form $y = a(x - h)^2 + k$, the vertex is $(h, k)$. Given vertex $(3, -8)$: $h = 3$ and $k = -8$.\nThe second point $(1, 0)$ is used to verify the leading coefficient $a$. With $a = 2$:\n$0 = 2(1 - 3)^2 + (-8) = 2(4) - 8 = 0$ \\checkmark.\n\nSo $h + k = 3 + (-8) = -5$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — computes $h - k = 3 - (-8) = 11$.\n* Choice B: \"applies the inverse operation\" — sign flip on $h$: $-3 + (-8) = -11$.\n* Choice D: \"stops one step early\" — reports $h = 3$ without adding $k$.\n\n**Test Day Takeaway:** In $y = a(x - h)^2 + k$, the vertex is exactly $(h, k)$. Use the second point only to verify or to find $a$.",
-  skills: ["vertex-form", "function-interpretation"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Interpret Vertex Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Vertex of $y = -0.25(x - 12)^2 + 9$ is $(12, 9)$. $a = -0.25 < 0$, so vertex is a MAX. Max height $= 9$ ft at horizontal distance $x = 12$ ft.\n\n**The Full Solution:**\nVertex form $y = a(x - h)^2 + k$ has vertex $(h, k) = (12, 9)$. Because $a = -0.25 < 0$, the parabola opens DOWNWARD and the vertex is the MAXIMUM of $y$. So the maximum height is $9$ feet, achieved at a horizontal distance of $12$ feet from the nozzle.\n\nVerification: $y(12) = 0 + 9 = 9$. $y(0)$ (at the nozzle): $y = -0.25(144) + 9 = -36 + 9 = -27$ — below ground, indicating the nozzle is below the modeled peak (or that the model only applies in the airborne range). $y(24)$: $y = -0.25(144) + 9 = -27$ (symmetric, water has landed) \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"swaps coordinates\" — swaps the $x$ (horizontal distance) and $y$ (height) values of the vertex.\n* Choice C: \"wrong direction\" — since $a < 0$, the vertex is a MAX, not a min. The water arcs UP to a peak and falls.\n* Choice D: \"wrong base\" — uses the leading coefficient's magnitude $0.25$ as the horizontal distance.\n\n**Test Day Takeaway:** Vertex form $a(x - h)^2 + k$: vertex is $(h, k)$ where $h$ is the input value (horizontal distance, time, price, etc.) and $k$ is the output value (height, profit, etc.). Sign of $a$ tells you max ($a < 0$) vs min ($a > 0$).",
+  skills: ["function-interpretation", "quadratic-equations"]
 },
 {
   id: 22,

@@ -582,19 +582,19 @@ export const practiceTest3 = {
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "A rocket's height $h$, in meters, after $t$ seconds is modeled by $h(t) = -5(t - 8)^2 + 400$. What is the height of the rocket at launch ($t = 0$)?",
+  question: "A soccer player kicks a ball into the air. The height of the ball above the ground, in meters, after the kick is modeled by $h(t) = -4.9(t - 0.8)^2 + 4.2$, where $t$ is the time, in seconds, after the kick. Which of the following is the best interpretation of the vertex of the graph of $h(t)$ in the $th$-plane?",
   choices: [
-    // distractor: computes -5(64) = -320 and subtracts 400
-    { id: "A", text: "$-400$ meters" },
-    // distractor: assumes launch height is 0 (ground level)
-    { id: "B", text: "$0$ meters" },
-    { id: "C", text: "$80$ meters" },
-    // distractor: gives the maximum height (vertex value) instead of the launch height
-    { id: "D", text: "$400$ meters" }
+    // distractor: swaps coordinates
+    { id: "A", text: "The ball reaches a maximum height of $0.8$ meters, $4.2$ seconds after the kick." },
+    { id: "B", text: "The ball reaches a maximum height of $4.2$ meters, $0.8$ seconds after the kick." },
+    // distractor: wrong direction — calls the max a min
+    { id: "C", text: "The ball reaches a minimum height of $4.2$ meters, $0.8$ seconds after the kick." },
+    // distractor: wrong base — uses the leading coefficient as the time
+    { id: "D", text: "The ball reaches a maximum height of $4.2$ meters, $4.9$ seconds after the kick." }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Evaluating Vertex Form at a Specific Input**\n\n**Choice C is correct.**\n\n**The Fast Way (~15s):** $h(0) = -5(0 - 8)^2 + 400 = -5(64) + 400 = -320 + 400 = 80$.\n\n**The Full Solution:**\n$h(0) = -5(-8)^2 + 400 = -5(64) + 400 = -320 + 400 = 80$ meters.\nNote: The maximum height is $400$ meters at $t = 8$, but the launch height is $80$ meters.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — computes $-5(64) = -320$ and subtracts $400$.\n* Choice B: \"stops one step early\" — assumes launch height is $0$ (ground level).\n* Choice D: \"wrong base\" — gives the maximum height (vertex value) instead of the launch height.\n\n**Test Day Takeaway:** The vertex value ($k$) is the max/min, not necessarily the starting value. To find the starting value, plug in $t = 0$.",
-  skills: ["vertex-form", "function-interpretation"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Interpret Vertex Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Vertex of $h(t) = -4.9(t - 0.8)^2 + 4.2$ is $(0.8, 4.2)$. $a = -4.9 < 0$, so vertex is a MAX. Max height $= 4.2$ m at $t = 0.8$ s.\n\n**The Full Solution:**\nVertex form $h(t) = a(t - h_0)^2 + k$ has vertex $(h_0, k) = (0.8, 4.2)$. Because $a = -4.9 < 0$, the parabola opens DOWN and the vertex is the maximum height. The ball reaches its max of $4.2$ m at $t = 0.8$ s.\n\nVerification: $h(0.8) = 0 + 4.2 = 4.2$. $h(0)$ (at the kick): $h \\approx -4.9(0.64) + 4.2 \\approx 1.06$ m (above the ground at kick time). $h(1.6) \\approx 1.06$ (symmetric) \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"swaps coordinates\" — swaps the $t$ (time) and $h$ (height) values of the vertex.\n* Choice C: \"wrong direction\" — since $a < 0$, the vertex is a MAX, not a min.\n* Choice D: \"wrong base\" — uses the gravity-related leading coefficient $4.9$ as the time.\n\n**Test Day Takeaway:** Vertex form $a(t - h_0)^2 + k$ in a projectile context: $(h_0, k)$ is the vertex, where $h_0$ is the time of max and $k$ is the max height. The leading coefficient $a$ encodes gravity, not time.",
+  skills: ["function-interpretation", "quadratic-equations"]
 },
 {
   id: 11,
