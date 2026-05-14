@@ -437,38 +437,38 @@ export const practiceTest6 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 2,
-  question: "The function $f$ is defined by $f(x) = 6x$. For what value of $x$ does $f(x) = 42$?",
+  question: "A restaurant tracks its napkin supply through a busy weekend service. The manager observes that the supply decreases at a constant rate of $80$ napkins per hour as servers use them at tables. Which type of function best models the relationship between the number of napkins remaining in the supply and the time elapsed since the service began?",
   choices: [
-    { id: "A", text: "$7$" },
-    // distractor: subtracts 6 from 42 instead of dividing
-    { id: "B", text: "$36$" },
-    // distractor: adds 6 to 42 instead of dividing
-    { id: "C", text: "$48$" },
-    // distractor: multiplies 6 by 42 (applies inverse)
-    { id: "D", text: "$252$" }
+    // distractor: confuses constant rate with multiplicative decay
+    { id: "A", text: "Decreasing exponential" },
+    { id: "B", text: "Decreasing linear" },
+    // distractor: sign error — napkins are DECREASING (used)
+    { id: "C", text: "Increasing linear" },
+    // distractor: combines wrong type with wrong direction
+    { id: "D", text: "Increasing exponential" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Solve $f(x) = c$**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** $6x = 42 \\Rightarrow x = \\dfrac{42}{6} = 7$.\n\n**The Full Solution:**\nSet $f(x) = 42$:\n$6x = 42$\nDivide both sides by $6$:\n$x = 7$.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"applies the inverse operation\" — subtracts $6$ from $42$ instead of dividing.\n* Choice C: \"applies the inverse operation\" — adds $6$ to $42$.\n* Choice D: \"wrong base\" — multiplies instead of dividing.\n\n**Test Day Takeaway:** To solve $kx = c$ for $x$, divide both sides by $k$.",
-  skills: ["solving-equations", "function-evaluation"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Classify Physical Motion Model**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** \"Constant rate\" + \"decreases\" $\\Rightarrow$ decreasing linear. Each hour removes the same $80$ napkins, so the change per unit time is constant.\n\n**The Full Solution:**\nThe defining feature of a LINEAR function is constant rate of change. \"$80$ napkins per hour\" describes exactly that — same number removed each hour. Because the supply is DECREASING (napkins used), the slope is negative.\n\nA model would be $N(t) = N_0 - 80t$.\n\nVerification: at $t = 0$, $N = N_0$; at $t = 1$, $N = N_0 - 80$; at $t = 2$, $N = N_0 - 160$. Differences: $-80, -80$ — constant \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong formula\" — exponential decay would mean the supply shrinks by a fraction of itself each hour (smaller absolute drops as the supply shrinks), but the problem fixes the rate at $80$ per hour.\n* Choice C: \"sign error\" — \"decreases\" means napkins are being used, so the slope is negative.\n* Choice D: \"wrong direction AND wrong type\" — combines both errors.\n\n**Test Day Takeaway:** \"Constant rate of X per unit\" $\\Rightarrow$ LINEAR. \"Constant percent/fraction per unit\" $\\Rightarrow$ EXPONENTIAL. Read the rate language carefully.",
+  skills: ["function-interpretation", "linear-functions"]
 },
 {
   id: 4,
   type: "multiple-choice",
   difficulty: "medium",
   band: 5,
-  question: "The function $f$ is defined by $f(x) = 5x - 8$. If $f(a) = 22$, what is the value of $a$?",
+  question: "A landscaping crew sets up an irrigation system whose water-pressure profile, in pounds per square inch (psi), at the sprinkler head is modeled by $P(t) = -2(t - 9)^2 + 72$, where $t$ is the time in hours after the system is switched on. Which of the following is the best interpretation of the vertex of the graph of $y = P(t)$ in the $ty$-plane?",
   choices: [
-    // distractor: applies inverse op - sign error on the constant
-    { id: "A", text: "$2.8$" },
-    // distractor: stops one step early - drops the -8 entirely
-    { id: "B", text: "$4.4$" },
-    { id: "C", text: "$6$" },
-    // distractor: stops one step early - gives 5a value
-    { id: "D", text: "$30$" }
+    // distractor: swaps coordinates of the vertex
+    { id: "A", text: "The water pressure reaches an estimated maximum of $9$ psi, $72$ hours after the system is switched on." },
+    { id: "B", text: "The water pressure reaches an estimated maximum of $72$ psi, $9$ hours after the system is switched on." },
+    // distractor: wrong direction — calls the max a min
+    { id: "C", text: "The water pressure reaches an estimated minimum of $72$ psi, $9$ hours after the system is switched on." },
+    // distractor: wrong base — uses the leading coefficient as the time
+    { id: "D", text: "The water pressure reaches an estimated maximum of $72$ psi, $2$ hours after the system is switched on." }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Solve $f(a) = c$**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $5a - 8 = 22 \\Rightarrow 5a = 30 \\Rightarrow a = 6$.\n\n**The Full Solution:**\nSet $f(a) = 22$:\n$5a - 8 = 22$\nAdd $8$ to both sides: $5a = 30$.\nDivide by $5$: $a = 6$.\nVerification: $f(6) = 5(6) - 8 = 30 - 8 = 22$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — sign error: $\\frac{22 - 8}{5} = \\frac{14}{5} = 2.8$ instead of $\\frac{22 + 8}{5}$.\n* Choice B: \"stops one step early\" — drops the $-8$ and computes $\\frac{22}{5} = 4.4$.\n* Choice D: \"stops one step early\" — solves $5a = 30$ but reports $30$ instead of dividing.\n\n**Test Day Takeaway:** Two-step linear: undo addition/subtraction first (note the sign of the constant), then divide.",
-  skills: ["solving-equations", "linear-functions", "function-evaluation"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Interpret Vertex Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Vertex of $P(t) = -2(t - 9)^2 + 72$ is $(9, 72)$. $a = -2 < 0$, so vertex is a MAX. Max pressure $= 72$ psi at $t = 9$ hours.\n\n**The Full Solution:**\nVertex form $P(t) = a(t - h)^2 + k$ has vertex $(h, k) = (9, 72)$. Because $a = -2 < 0$, the parabola opens DOWN and the vertex is the maximum of $P(t)$. So the maximum pressure is $72$ psi, achieved at $t = 9$ hours.\n\nVerification: $P(9) = 0 + 72 = 72$ ✓. $P(8) = -2 + 72 = 70 < 72$. $P(10) = -2 + 72 = 70 < 72$ — both lower than $72$, confirming it's a max \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"swaps coordinates\" — swaps the $t$ and $P$ values of the vertex.\n* Choice C: \"wrong direction\" — since $a < 0$ the vertex is a MAX, not a min.\n* Choice D: \"wrong base\" — uses the leading coefficient $-2$ (its magnitude) as the time.\n\n**Test Day Takeaway:** Vertex form $a(t - h)^2 + k$: vertex is $(h, k)$ where $h$ is the input (time) and $k$ is the output (pressure). Sign of $a$ tells you max ($a < 0$) vs min ($a > 0$).",
+  skills: ["function-interpretation", "quadratic-equations"]
 },
 {
   id: 5,
@@ -578,22 +578,13 @@ export const practiceTest6 = {
 },
 {
   id: 12,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "The positive number $a$ is $180\\%$ of the sum of the positive numbers $b$ and $c$, and $c$ is $50\\%$ of $b$. What percent of $b$ is $a$?",
-  choices: [
-    // distractor: stops one step early — adds 180 + 50 = 230
-    { id: "A", text: "$230\\%$" },
-    // distractor: applies the percent forward — uses 180% directly
-    { id: "B", text: "$180\\%$" },
-    { id: "C", text: "$270\\%$" },
-    // distractor: wrong base — uses 180% of 1.5 with rounding to 300%
-    { id: "D", text: "$300\\%$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Reverse-Percent Multi-Step**\n\n**Choice C is correct.**\n\n**The Fast Way (~30s):** Let $b = 100$. Then $c = 50$, $b + c = 150$, $a = 1.80 \\cdot 150 = 270$. So $a$ is $\\dfrac{270}{100} = 270\\%$ of $b$.\n\n**The Full Solution:**\nLet $b = 100$ (a convenient value to avoid fractions).\nThen $c = 0.50 \\cdot b = 50$ and $b + c = 150$.\n$a = 1.80 \\cdot (b + c) = 1.80 \\cdot 150 = 270$.\nAs a percent of $b$: $\\dfrac{a}{b} \\cdot 100 = \\dfrac{270}{100} \\cdot 100 = 270\\%$.\n\nIn variables: $a = 1.8(b + 0.5b) = 1.8 \\cdot 1.5b = 2.7b$, so $a$ is $270\\%$ of $b$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — adds $180 + 50 = 230$ percentages directly.\n* Choice B: \"applies the percent forward\" — uses $180\\%$ as the answer without combining the second relationship.\n* Choice D: \"wrong base\" — computes $1.8 \\cdot 1.66 \\approx 3.0$ via rounding errors.\n\n**Test Day Takeaway:** Multi-step percent: pick a clean base (like $b = 100$), then walk through each percent in order. Avoid adding percentages directly.",
-  skills: ["percents", "word-problems"]
+  question: "A theater operator has a budget of $\\$5{,}000$ to purchase concession-stand cups for the next month. To qualify for a wholesale discount, the operator must order a minimum of $250$ cups total. Standard cups cost $\\$14$ each and souvenir cups cost $\\$25$ each. What is the maximum number of souvenir cups the operator can order while staying within the budget and qualifying for the discount?",
+  correctAnswer: "136",
+  explanation: "**SAT Pattern: Inequality Word Problem (Floor)**\n\n**The correct answer is $136$.**\n\n**The Fast Way (~45s):** Let $s$ = standard, $v$ = souvenir. To max $v$, set $s + v = 250$ exactly, $s = 250 - v$. Budget: $14(250 - v) + 25v \\leq 5000 \\Rightarrow 3500 + 11v \\leq 5000 \\Rightarrow v \\leq 136.36$. Floor: $v = 136$.\n\n**The Full Solution:**\nLet $s$ = standard cups, $v$ = souvenir cups.\nConstraints:\n* Discount floor: $s + v \\geq 250$.\n* Budget: $14s + 25v \\leq 5{,}000$.\n* Both non-negative integers.\n\nTo MAXIMIZE $v$, fill the rest with the cheaper standard cups at EXACTLY the floor (any extras waste budget). Set $s = 250 - v$:\n\n$14(250 - v) + 25v \\leq 5{,}000$\n$3{,}500 - 14v + 25v \\leq 5{,}000$\n$11v \\leq 1{,}500$\n$v \\leq 136.36...$.\n\nMax integer: $v = 136$.\n\n**Verification:** With $v = 136$, $s = 114$. Total: $114 + 136 = 250 \\geq 250$ ✓. Cost: $14(114) + 25(136) = 1{,}596 + 3{,}400 = 4{,}996 \\leq 5{,}000$ ✓. Try $v = 137$, $s = 113$: $14(113) + 25(137) = 1{,}582 + 3{,}425 = 5{,}007 > 5{,}000$ ✗ — exceeds budget \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $200$ (treats $5{,}000/25 = 200$ as the max, ignoring the discount floor — but also $s = 0, v = 200$ satisfies the floor only because $200 \\geq 250$ is FALSE, so this candidate fails on floor anyway).\n* Reporting $250$ (treats the floor as the answer).\n* Reporting $137$ (forgets to round DOWN — $137$ exceeds budget).\n* Reporting $114$ (reports standard cups instead of souvenir).\n\n**Test Day Takeaway:** Two-constraint optimization (budget + minimum total): To maximize one quantity, fill the remainder with the cheaper option AT EXACTLY the minimum total. Solve the resulting single-variable inequality and take the FLOOR.",
+  skills: ["inequalities", "word-problems", "systems-of-equations"]
 },
 {
   id: 13,

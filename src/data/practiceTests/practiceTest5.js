@@ -401,38 +401,38 @@ export const practiceTest5 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "Which expression is equivalent to $6x^2 y + 9xy^2$?",
+  question: "A smartphone manufacturer reports that the wholesale value of a particular model decreases by approximately $12\\%$ each year as newer models are released. Which type of function best models the wholesale value of the phone as a function of the number of years since its release?",
   choices: [
-    { id: "A", text: "$3xy(2x + 3y)$" },
-    // distractor: stops one step early — factors out 3 but not xy
-    { id: "B", text: "$3(2x^2 y + 3xy^2)$" },
-    // distractor: factors out xy but not the GCF coefficient 3
-    { id: "C", text: "$xy(6x + 9y)$" },
-    // distractor: keeps an extra power of x and y inside the parentheses
-    { id: "D", text: "$3xy(2x^2 + 3y^2)$" }
+    // distractor: linear — same DOLLAR amount lost each year (wrong; \"by 12%\" is multiplicative)
+    { id: "A", text: "Decreasing linear" },
+    { id: "B", text: "Decreasing exponential" },
+    // distractor: wrong direction — \"decreases\" is decay, not growth
+    { id: "C", text: "Increasing exponential" },
+    // distractor: wrong type — value doesn't curve quadratically
+    { id: "D", text: "Quadratic" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Greatest Common Factor**\n\n**Choice A is correct.**\n\n**The Fast Way (~15s):** GCF of $6x^2 y$ and $9xy^2$: coefficient $\\gcd(6,9)=3$; variable $x^{\\min(2,1)} y^{\\min(1,2)} = xy$. So GCF $= 3xy$. Factor: $3xy(2x + 3y)$.\n\n**The Full Solution:**\n$6x^2 y + 9xy^2$\n$= 3xy \\cdot 2x + 3xy \\cdot 3y$\n$= 3xy(2x + 3y)$\n\nVerification: $3xy(2x + 3y) = 6x^2 y + 9xy^2$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"stops one step early\" — factors out $3$ only, leaves the $xy$ inside.\n* Choice C: \"wrong base\" — factors out $xy$ only, leaves the coefficient $3$ inside.\n* Choice D: \"off-by-one\" — keeps an extra factor of $x$ in $2x^2$ and an extra factor of $y$ in $3y^2$.\n\n**Test Day Takeaway:** GCF combines the smallest coefficient AND the smallest power of every shared variable. Pull all of it out.",
-  skills: ["factoring", "polynomial-operations"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Classify Physical Motion Model**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** \"Decreases by $12\\%$ each year\" = multiplied by $0.88$ each year (a fixed factor) $\\Rightarrow$ exponential decay.\n\n**The Full Solution:**\n\"By $12\\%$ each year\" means the value loses a fixed PERCENT of the current value, not a fixed DOLLAR amount. Each year's value is $1 - 0.12 = 0.88$ times the previous year's. A multiplicative factor applied at fixed intervals is the definition of exponential.\n\nA model would be $V(t) = V_0 \\cdot (0.88)^t$ where $t$ is years since release.\n\nVerification: at $t = 0$, $V = V_0$; at $t = 1$, $V = 0.88V_0$; at $t = 2$, $V = 0.7744V_0$. The dollar amount lost each year shrinks (smaller percent of a smaller value), which is the signature of exponential decay vs the constant dollar amount lost in linear decay \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong formula\" — linear would mean the same dollar amount lost each year (e.g., $\\$60$/year). \"By $12\\%$\" is a PERCENT of the current value, which is multiplicative.\n* Choice C: \"wrong direction\" — \"decreases\" means the value goes DOWN, so this is decay (base $< 1$), not growth.\n* Choice D: \"wrong formula\" — the rate of decrease changes year over year (in dollar terms), but in a MULTIPLICATIVE way, not the QUADRATIC way (constant second difference).\n\n**Test Day Takeaway:** \"Decreases by X percent each [period]\" $\\Rightarrow$ EXPONENTIAL decay with base $1 - 0.X$. \"Decreases by X units each [period]\" $\\Rightarrow$ LINEAR.",
+  skills: ["function-interpretation", "exponential-growth-decay"]
 },
 {
   id: 2,
   type: "multiple-choice",
   difficulty: "easy",
   band: 2,
-  question: "What is $35\\%$ of $180$?",
+  question: "A new gym is opening. The function $m(d) = 5d + 12$ approximates the total number of members signed up at the gym after $d$ days since the doors opened. Which statement is the best interpretation of the $y$-intercept of the graph of $y = m(d)$ in the $dy$-plane in this context?",
   choices: [
-    // distractor: applies the inverse operation — divides 180 by 35 with a decimal slip
-    { id: "A", text: "$5.14$" },
-    // distractor: off-by-five percent — computes 30% of 180
-    { id: "B", text: "$54$" },
-    { id: "C", text: "$63$" },
-    // distractor: subtracts 35 from 180 instead of multiplying by the percent
-    { id: "D", text: "$145$" }
+    // distractor: confuses slope (rate) with y-intercept (initial value)
+    { id: "A", text: "The gym signed up approximately $12$ new members each day." },
+    { id: "B", text: "The gym opened with approximately $12$ members already signed up." },
+    // distractor: swaps slope and intercept
+    { id: "C", text: "The gym opened with approximately $5$ members already signed up." },
+    // distractor: combines both confusions
+    { id: "D", text: "The gym signed up approximately $5$ new members each day, starting from zero." }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Forward Percent**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $35\\%$ of $180 = 0.35 \\times 180 = 63$.\n\n**The Full Solution:**\n\"$P\\%$ of $N$\" means $\\dfrac{P}{100} \\times N$.\n$\\dfrac{35}{100} \\times 180 = 0.35 \\times 180 = 63$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — divides $180$ by $35$ instead of multiplying by $0.35$.\n* Choice B: \"off-by-one\" — uses $30\\%$ instead of $35\\%$: ${}0.30 \\times 180 = 54$.\n* Choice D: \"wrong base\" — subtracts $35$ from $180$ instead of taking a percent.\n\n**Test Day Takeaway:** \"$P$ percent of $N$\" $= \\dfrac{P}{100} \\cdot N$. Convert the percent to a decimal first, then multiply.",
-  skills: ["percents"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $y$-intercept of $m(d) = 5d + 12$ is $m(0) = 12$. At $d = 0$ (opening day), members $\\approx 12$.\n\n**The Full Solution:**\nThe $y$-intercept of a linear function $m(d) = md + b$ is $b$, the value at $d = 0$. Here $b = 12$, and $d$ counts days since opening, so $d = 0$ is opening day. The gym started with about $12$ members already signed up (presumably pre-registered before the doors opened).\n\nVerification: at $d = 0$, $m = 12$ ✓. At $d = 1$, $m = 17$ — about $5$ new members in one day, confirming the slope of $5$ members per day. The slope is the per-day rate; the $y$-intercept is the starting count \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"correct interpretation of slope, wrong question\" — accurately describes the slope ($5$ per day), but the question asks about the $y$-intercept.\n* Choice C: \"swaps coefficients\" — uses the slope's magnitude as the starting count.\n* Choice D: \"sign error AND wrong base\" — ignores the $+12$ intercept and treats the start as zero.\n\n**Test Day Takeaway:** $y$-intercept = value at input $0$ = the starting count in the story. Slope = rate of change per unit. The question's wording (\"$y$-intercept\" vs \"slope/rate\") tells you which to report.",
+  skills: ["function-interpretation", "linear-functions"]
 },
 {
   id: 3,
@@ -761,10 +761,10 @@ export const practiceTest5 = {
   type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "Joaquin scored a total of $86$ points across $14$ basketball games. He scored $5$ points in some of the games and $7$ points in each of the others. In how many games did he score $5$ points?",
-  correctAnswer: "6",
-  explanation: "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**The correct answer is $6$.**\n\n**The Fast Way (~25s):** Let $a$ = games scoring $5$ points, $b$ = games scoring $7$ points. Then $a + b = 14$ and $5a + 7b = 86$. Substitute $b = 14 - a$: $5a + 7(14 - a) = 86 \\Rightarrow -2a = 86 - 98 = -12 \\Rightarrow a = 6$.\n\n**The Full Solution:**\nLet $a$ be the number of $5$-point games and $b$ be the number of $7$-point games.\n\nTotal games: $a + b = 14$.\nTotal points: $5a + 7b = 86$.\n\nSolve by substitution. From the first equation: $b = 14 - a$. Substitute into the second:\n$5a + 7(14 - a) = 86$\n$5a + 98 - 7a = 86$\n$-2a = -12$\n$a = 6$.\n\nThen $b = 14 - 6 = 8$.\n\nVerification: $6 + 8 = 14$ games \\checkmark; $5(6) + 7(8) = 30 + 56 = 86$ points \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $b = 8$ (the number of $7$-point games) instead of $a = 6$.\n* Setting up the equations backward: $7a + 5b = 86$ — re-read the problem to confirm which variable matches which point value.\n\n**Test Day Takeaway:** SAT word problems with two unknowns and two relationships are linear systems in disguise. Define each variable in one sentence, write each relationship as an equation, then solve.",
-  skills: ["systems-of-equations", "word-problems"]
+  question: "A school store has a budget of $\\$2{,}100$ to purchase notebooks for the upcoming term. To qualify for a teacher-supply discount, the store must order a minimum of $220$ notebooks total. Standard notebooks cost $\\$7$ each and lab notebooks cost $\\$11$ each. What is the maximum number of lab notebooks the store can order while staying within the budget and qualifying for the discount?",
+  correctAnswer: "140",
+  explanation: "**SAT Pattern: Inequality Word Problem (Floor)**\n\n**The correct answer is $140$.**\n\n**The Fast Way (~40s):** Let $s$ = standard, $\\ell$ = lab. To max $\\ell$, set $s + \\ell = 220$ exactly, $s = 220 - \\ell$. Budget: $7(220 - \\ell) + 11\\ell \\leq 2100 \\Rightarrow 1540 + 4\\ell \\leq 2100 \\Rightarrow \\ell \\leq 140$.\n\n**The Full Solution:**\nLet $s$ = standard notebooks, $\\ell$ = lab notebooks.\nConstraints:\n* Discount floor: $s + \\ell \\geq 220$.\n* Budget: $7s + 11\\ell \\leq 2{,}100$.\n* Both non-negative integers.\n\nTo MAXIMIZE $\\ell$, fill the rest with the cheaper standard notebooks at EXACTLY the floor (any extras waste budget). Set $s = 220 - \\ell$:\n\n$7(220 - \\ell) + 11\\ell \\leq 2{,}100$\n$1{,}540 - 7\\ell + 11\\ell \\leq 2{,}100$\n$4\\ell \\leq 560$\n$\\ell \\leq 140$.\n\nMax integer: $\\ell = 140$.\n\n**Verification:** With $\\ell = 140$, $s = 80$. Total: $80 + 140 = 220 \\geq 220$ ✓. Cost: $7(80) + 11(140) = 560 + 1{,}540 = 2{,}100 \\leq 2{,}100$ ✓ (exactly at budget). Try $\\ell = 141$, $s = 79$: $7(79) + 11(141) = 553 + 1{,}551 = 2{,}104 > 2{,}100$ ✗ — exceeds budget \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $190$ (treats $2{,}100/11 \\approx 190$ as the max, ignoring the discount floor — also $s = 0, \\ell = 190$ violates the floor since $0 + 190 = 190 < 220$).\n* Reporting $220$ (treats the floor itself as the answer).\n* Reporting $141$ (forgets to round DOWN — $141$ exceeds budget).\n* Reporting $80$ (reports standard notebooks instead of lab).\n\n**Test Day Takeaway:** Two-constraint optimization (budget + minimum total): To maximize one quantity, fill the remainder with the cheaper option AT EXACTLY the minimum total. Solve the resulting single-variable inequality and take the FLOOR.",
+  skills: ["inequalities", "word-problems", "systems-of-equations"]
 },
 {
   id: 22,

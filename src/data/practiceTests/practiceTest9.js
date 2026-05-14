@@ -422,38 +422,38 @@ export const practiceTest9 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 2,
-  question: "A rectangle has a length of $12$ cm and a width of $5$ cm. What is the area, in square centimeters, of the rectangle?",
+  question: "A long-distance runner pacing for a marathon maintains a constant speed of $6$ miles per hour for the first part of the race. Which type of function best models the relationship between the total distance the runner has covered and the time elapsed since the start of the race?",
   choices: [
-    // distractor: stops one step early - adds length and width
-    { id: "A", text: "$17$" },
-    // distractor: gives the perimeter instead of the area
-    { id: "B", text: "$34$" },
-    { id: "C", text: "$60$" },
-    // distractor: wrong base - squares the length
-    { id: "D", text: "$144$" }
+    // distractor: confuses constant speed with multiplicative growth
+    { id: "A", text: "Increasing exponential" },
+    { id: "B", text: "Increasing linear" },
+    // distractor: sign error — runner is moving FORWARD (gaining distance)
+    { id: "C", text: "Decreasing linear" },
+    // distractor: combines wrong type with wrong direction
+    { id: "D", text: "Decreasing exponential" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Rectangle Area**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Area $= l \\cdot w = 12 \\cdot 5 = 60$.\n\n**The Full Solution:**\nArea of a rectangle: $A = l \\cdot w = 12 \\cdot 5 = 60$ cm$^2$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — adds $l + w = 17$ instead of multiplying.\n* Choice B: \"applies the inverse operation\" — gives the perimeter $2(l + w) = 34$.\n* Choice D: \"wrong base\" — squares the length ($12^2 = 144$).\n\n**Test Day Takeaway:** Rectangle area $= l \\cdot w$ (multiply). Perimeter $= 2(l + w)$ (add then double).",
-  skills: ["geometry", "area"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Classify Physical Motion Model**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** \"Constant speed\" + \"distance covered\" $\\Rightarrow$ increasing linear. Each hour adds the same $6$ miles, so the change per unit time is constant.\n\n**The Full Solution:**\nThe defining feature of a LINEAR function is constant rate of change. \"$6$ miles per hour\" describes exactly that — same number of miles covered each hour. Because the runner is moving FORWARD (distance growing), the slope is positive.\n\nA model would be $d(t) = 6t$ (starting at $0$ miles).\n\nVerification: at $t = 0$, $d = 0$; at $t = 1$, $d = 6$; at $t = 2$, $d = 12$. Differences: $+6, +6$ — constant \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong formula\" — exponential growth requires a multiplicative factor, not a constant additive rate.\n* Choice C: \"sign error\" — distance covered INCREASES as time passes.\n* Choice D: \"wrong direction AND wrong type\" — combines both errors.\n\n**Test Day Takeaway:** \"Constant speed/rate of X per unit\" $\\Rightarrow$ LINEAR (positive slope when moving forward).",
+  skills: ["function-interpretation", "linear-functions"]
 },
 {
   id: 2,
   type: "multiple-choice",
   difficulty: "easy",
   band: 2,
-  question: "If $x^2 = 49$ and $x > 0$, what is the value of $x$?",
+  question: "A community classroom keeps a running roster of students enrolled in its evening adult-education program. The function $r(m) = 6m + 22$ approximates the number of students enrolled after $m$ months since the program began. Which statement is the best interpretation of the $y$-intercept of the graph of $y = r(m)$ in the $my$-plane in this context?",
   choices: [
-    // distractor: off by one - close to sqrt(49) but wrong
-    { id: "A", text: "$6$" },
-    { id: "B", text: "$7$" },
-    // distractor: applies inverse op - divides by 2 instead of taking square root
-    { id: "C", text: "$24.5$" },
-    // distractor: wrong base - squares 49 instead of taking root
-    { id: "D", text: "$2401$" }
+    // distractor: confuses slope with intercept
+    { id: "A", text: "The program enrolled approximately $22$ new students each month." },
+    { id: "B", text: "The program began with approximately $22$ students already enrolled." },
+    // distractor: swaps slope and intercept
+    { id: "C", text: "The program began with approximately $6$ students already enrolled." },
+    // distractor: combines both confusions
+    { id: "D", text: "The program enrolled approximately $6$ new students each month, starting from zero." }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Solve $x^2 = c$**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** $x = \\sqrt{49} = 7$ (positive root since $x > 0$).\n\n**The Full Solution:**\n$x^2 = 49$\n$x = \\pm 7$.\nThe constraint $x > 0$ selects the positive root: $x = 7$.\n\nVerification: $7^2 = 49$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — close to $\\sqrt{49}$ but wrong.\n* Choice C: \"applies the inverse operation\" — divides $49$ by $2$ instead of taking the square root.\n* Choice D: \"wrong base\" — squares $49$ instead of taking its square root.\n\n**Test Day Takeaway:** $\\sqrt{x^2} = |x|$. The constraint ($x > 0$ or $x < 0$) tells you which root to take.",
-  skills: ["solving-equations", "radical-expressions"]
+  explanation: "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $y$-intercept of $r(m) = 6m + 22$ is $r(0) = 22$. At $m = 0$ (program began), enrollment $\\approx 22$.\n\n**The Full Solution:**\nThe $y$-intercept of a linear function $r(m) = mm + b$ is $b$, the value at $m = 0$. Here $b = 22$, and $m$ counts months since the program began, so $m = 0$ corresponds to the program's start. The program began with about $22$ students already enrolled (likely pre-registered).\n\nVerification: at $m = 0$, $r = 22$ ✓. At $m = 1$, $r = 28$ — gained $6$ in one month, confirming the slope. The slope is the per-month growth; the $y$-intercept is the starting enrollment \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"correct interpretation of slope, wrong question\" — accurately describes the slope, but the question asks about the $y$-intercept.\n* Choice C: \"swaps coefficients\" — uses the slope's magnitude as the starting count.\n* Choice D: \"sign error AND wrong base\" — ignores the $+22$ and treats the start as zero.\n\n**Test Day Takeaway:** $y$-intercept = value at input $0$ = the starting count. Slope = rate of change per unit. The question's wording tells you which to report.",
+  skills: ["function-interpretation", "linear-functions"]
 },
 {
   id: 3,
@@ -666,22 +666,13 @@ export const practiceTest9 = {
 },
 {
   id: 15,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "A printing shop produces three sizes of poster: large, medium, and small. During one shift, the number of large posters produced is $4$ times the number $n$ of medium posters, and the number of small posters is $35$ more than the number of medium posters. The shop produces a total of $617$ posters that shift. How many medium posters does the shop produce that shift?",
-  choices: [
-    // distractor: divides total by 6 ignoring the +35 offset
-    { id: "A", text: "$103$" },
-    { id: "B", text: "$97$" },
-    // distractor: applies inverse — uses (617 - 35)/4 = 145.5
-    { id: "C", text: "$146$" },
-    // distractor: stops one step early — divides 617/4 ignoring the offset and 6n
-    { id: "D", text: "$154$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Word-Problem to Multi-Step Linear**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Total $= 4n + n + (n + 35) = 6n + 35 = 617$. So $6n = 582$ and $n = 97$.\n\n**The Full Solution:**\nLet $n$ be the number of medium posters.\nNumber of large posters: $4n$.\nNumber of small posters: $n + 35$.\n\nTotal: $4n + n + (n + 35) = 6n + 35 = 617$.\n$6n = 582 \\Rightarrow n = 97$.\n\nVerification: $4(97) + 97 + (97 + 35) = 388 + 97 + 132 = 617$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — divides $617$ by $6$ ignoring the offset.\n* Choice C: \"applies the inverse operation\" — uses $\\frac{617 - 35}{4} = 145.5 \\approx 146$ instead of dividing by $6$.\n* Choice D: \"stops one step early\" — divides $\\frac{617}{4}$ ignoring both the offset and the additional medium and small counts.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$35$ more than\".",
-  skills: ["word-problems", "ratios"]
+  question: "A nonprofit organization has a budget of $\\$1{,}680$ to purchase awards for an annual gala. To qualify for a vendor's volume discount, the nonprofit must order a minimum of $160$ awards total. Engraved plaques cost $\\$7.50$ each and crystal trophies cost $\\$12.40$ each. What is the maximum number of crystal trophies the nonprofit can order while staying within the budget and qualifying for the discount?",
+  correctAnswer: "97",
+  explanation: "**SAT Pattern: Inequality Word Problem (Floor)**\n\n**The correct answer is $97$.**\n\n**The Fast Way (~45s):** Let $p$ = plaques, $t$ = trophies. To max $t$, set $p + t = 160$ exactly, $p = 160 - t$. Budget: $7.50(160 - t) + 12.40t \\leq 1680 \\Rightarrow 1200 + 4.90t \\leq 1680 \\Rightarrow t \\leq 97.96$. Floor: $t = 97$.\n\n**The Full Solution:**\nLet $p$ = plaques, $t$ = trophies.\nConstraints:\n* Discount floor: $p + t \\geq 160$.\n* Budget: $7.50p + 12.40t \\leq 1{,}680$.\n* Both non-negative integers.\n\nTo MAXIMIZE $t$, fill the rest with the cheaper plaques at EXACTLY the floor (any extras waste budget). Set $p = 160 - t$:\n\n$7.50(160 - t) + 12.40t \\leq 1{,}680$\n$1{,}200 - 7.50t + 12.40t \\leq 1{,}680$\n$4.90t \\leq 480$\n$t \\leq 97.959...$.\n\nMax integer: $t = 97$.\n\n**Verification:** With $t = 97$, $p = 63$. Total: $63 + 97 = 160 \\geq 160$ ✓. Cost: $7.50(63) + 12.40(97) = 472.50 + 1{,}202.80 = 1{,}675.30 \\leq 1{,}680$ ✓. Try $t = 98$, $p = 62$: $7.50(62) + 12.40(98) = 465 + 1{,}215.20 = 1{,}680.20 > 1{,}680$ ✗ — exceeds budget by $\\$0.20$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $135$ (treats $1{,}680/12.40 \\approx 135$ as the max, ignoring the discount floor — also $p = 0, t = 135$ violates the floor since $0 + 135 = 135 < 160$).\n* Reporting $160$ (treats the floor as the answer).\n* Reporting $98$ (forgets to round DOWN — $98$ exceeds budget).\n* Reporting $63$ (reports plaques instead of trophies).\n\n**Test Day Takeaway:** Two-constraint optimization (budget + minimum total): To maximize one quantity, fill the remainder with the cheaper option AT EXACTLY the minimum total. Solve the resulting single-variable inequality and take the FLOOR.",
+  skills: ["inequalities", "word-problems", "systems-of-equations"]
 },
 {
   id: 16,

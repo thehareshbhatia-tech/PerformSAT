@@ -414,19 +414,19 @@ export const practiceTest2 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 2,
-  question: "A rectangle has a length of $13$ inches and a width of $8$ inches. What is the perimeter of the rectangle, in inches?",
+  question: "A warehouse receives a steady stream of shipping boxes from a delivery truck. Workers move the boxes onto a storage rack at a constant rate of $8$ boxes per hour. There were $25$ boxes already on the rack when the truck arrived. Which type of function best models the relationship between the number of boxes on the rack and the time since the truck arrived?",
   choices: [
-    // distractor: stops one step early - sums length and width without doubling
-    { id: "A", text: "$21$" },
-    { id: "B", text: "$42$" },
-    // distractor: wrong base - uses 4 times the perimeter formula incorrectly
-    { id: "C", text: "$84$" },
-    // distractor: gives the area instead of the perimeter
-    { id: "D", text: "$104$" }
+    // distractor: confuses constant rate with multiplicative growth
+    { id: "A", text: "Increasing exponential" },
+    { id: "B", text: "Increasing linear" },
+    // distractor: sign error — boxes are being ADDED
+    { id: "C", text: "Decreasing linear" },
+    // distractor: combines wrong type with wrong direction
+    { id: "D", text: "Decreasing exponential" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Rectangle Perimeter**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Perimeter $= 2(l + w) = 2(13 + 8) = 2(21) = 42$.\n\n**The Full Solution:**\nPerimeter of a rectangle: $P = 2l + 2w = 2(l + w)$.\n$P = 2(13 + 8) = 2(21) = 42$ inches.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — adds $l + w = 21$ but forgets to double.\n* Choice C: \"wrong base\" — uses $4(l + w)$ instead of $2(l + w)$.\n* Choice D: \"applies the inverse operation\" — gives the area $l \\cdot w = 104$ instead of perimeter.\n\n**Test Day Takeaway:** Perimeter sums all sides; a rectangle has 2 of each, so $P = 2(l + w)$. Don't confuse with area $A = l \\cdot w$.",
-  skills: ["geometry", "perimeter"]
+  explanation: "**SAT Pattern: Classify Physical Motion Model**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** \"Constant rate\" + \"moving onto the rack\" $\\Rightarrow$ increasing linear. Each hour adds the same $8$ boxes, so the change per unit time is constant.\n\n**The Full Solution:**\nThe defining feature of a LINEAR function is constant rate of change. \"$8$ boxes per hour\" describes exactly that — same number added each hour. Because boxes are being ADDED (count growing), the slope is positive.\n\nA model would be $B(t) = 25 + 8t$.\n\nVerification: at $t = 0$, $B = 25$; at $t = 1$, $B = 33$; at $t = 2$, $B = 41$. Differences: $+8, +8$ — constant \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong formula\" — exponential growth requires a multiplicative factor each hour (e.g., \"doubles each hour\"), not a constant additive rate.\n* Choice C: \"sign error\" — boxes are being placed ONTO the rack (count increases), so the slope is positive.\n* Choice D: \"wrong direction AND wrong type\" — combines both errors.\n\n**Test Day Takeaway:** \"Constant rate of X per unit\" $\\Rightarrow$ LINEAR. The verb (\"added/moved onto\" vs \"removed\") tells you the sign. Reserve EXPONENTIAL for \"multiplied by\" or \"percent\" language.",
+  skills: ["function-interpretation", "linear-functions"]
 },
 {
   id: 2,
@@ -452,19 +452,19 @@ export const practiceTest2 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "A pair of jeans originally costs $\\$40$. The price is increased by $25\\%$. What is the new price, in dollars?",
+  question: "A small bakery tracks its flour inventory through a baking day. The function $F(b) = -1.4b + 60$ approximates the amount of flour remaining, in pounds, after baking $b$ batches of bread. Which statement is the best interpretation of the $y$-intercept of the graph of $y = F(b)$ in the $by$-plane in this context?",
   choices: [
-    // distractor: gives just the dollar increase, not the new total
-    { id: "A", text: "$\\$10$" },
-    // distractor: applies the inverse operation - subtracts instead of adds
-    { id: "B", text: "$\\$30$" },
-    { id: "C", text: "$\\$50$" },
-    // distractor: wrong base - adds 25 dollars instead of 25 percent
-    { id: "D", text: "$\\$65$" }
+    // distractor: confuses slope (rate) with y-intercept (initial value)
+    { id: "A", text: "The bakery used approximately $60$ pounds of flour for each batch." },
+    // distractor: confuses slope's magnitude with starting amount
+    { id: "B", text: "The bakery started with approximately $1.4$ pounds of flour." },
+    { id: "C", text: "The bakery started with approximately $60$ pounds of flour." },
+    // distractor: combines both confusions
+    { id: "D", text: "The bakery used approximately $1.4$ pounds of flour for each batch." }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Percent Increase**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Increase $= 0.25 \\cdot 40 = 10$. New price $= 40 + 10 = \\$50$.\n\n**The Full Solution:**\n$25\\%$ of $\\$40 = 0.25 \\cdot 40 = \\$10$.\nNew price $= 40 + 10 = \\$50$.\n\nAlternatively: new price $= 40 \\cdot (1 + 0.25) = 40 \\cdot 1.25 = \\$50$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — gives the dollar increase ($\\$10$) instead of the new price.\n* Choice B: \"applies the inverse operation\" — subtracts instead of adding ($\\$40 - \\$10 = \\$30$).\n* Choice D: \"wrong base\" — adds $\\$25$ as if the percent were dollars.\n\n**Test Day Takeaway:** Percent increase: new $=$ old $\\cdot (1 + \\text{percent})$. The percent is a multiplier on the OLD value, not a flat dollar amount.",
-  skills: ["percents", "word-problems"]
+  explanation: "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $y$-intercept of $F(b) = -1.4b + 60$ is $F(0) = 60$. At $b = 0$ (no batches yet), flour $\\approx 60$ lb.\n\n**The Full Solution:**\nThe $y$-intercept of a linear function $F(b) = mb + b_0$ is the value at $b = 0$. Here that value is $60$, and $b$ counts batches baked, so $b = 0$ corresponds to BEFORE any baking. The bakery started the day with about $60$ pounds of flour.\n\nVerification: at $b = 0$, $F = 60$ ✓. At $b = 10$, $F = 60 - 14 = 46$ — about $14$ pounds used over $10$ batches, confirming the $1.4$-pound-per-batch slope. The slope is the rate; the $y$-intercept is the initial value \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base AND wrong unit\" — treats the initial total as a per-batch rate. At $60$ pounds per batch the bakery would run out in a single batch.\n* Choice B: \"swaps coefficients\" — uses the slope's magnitude as the starting amount.\n* Choice D: \"correct interpretation of slope, wrong question\" — accurately describes the slope, but the question asks about the $y$-intercept (initial value, not rate).\n\n**Test Day Takeaway:** In $F(b) = mb + b_0$ contextual problems: the constant is the INITIAL value at $b = 0$. The coefficient on $b$ is the per-unit RATE. The question's wording (\"$y$-intercept\" vs \"slope/rate\") tells you which to report.",
+  skills: ["function-interpretation", "linear-functions"]
 },
 {
   id: 4,
@@ -752,22 +752,13 @@ export const practiceTest2 = {
 },
 {
   id: 20,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "A factory produces $9$-inch, $7$-inch, and $4$-inch bolts. During one shift, the number of $9$-inch bolts is $5$ times the number $n$ of $7$-inch bolts, and the number of $4$-inch bolts is twice the number of $9$-inch bolts. If the factory produces $640$ bolts in total during the shift, how many $7$-inch bolts does it produce?",
-  choices: [
-    // distractor: misreads "twice the number of 9-inch bolts" as 4n (treating 4-inch literally as 4n), gets n + 5n + 4n = 10n = 640, n = 64
-    { id: "A", text: "$64$" },
-    { id: "B", text: "$40$" },
-    // distractor: solves correctly to n = 40 then doubles
-    { id: "C", text: "$80$" },
-    // distractor: gives the count of 9-inch bolts: 5n = 200
-    { id: "D", text: "$200$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Word-Problem to Multi-Step Linear**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Let $n =$ number of $7$-inch bolts. Then $9$-inch $= 5n$, and $4$-inch $= 2 \\cdot 5n = 10n$. Total: $n + 5n + 10n = 16n = 640$, so $n = 40$.\n\n**The Full Solution:**\nLet $n$ = number of $7$-inch bolts.\n* $9$-inch bolts: $5n$.\n* $4$-inch bolts: $2(5n) = 10n$.\nTotal: $n + 5n + 10n = 16n$.\nSet $16n = 640$: $n = 40$.\n\nVerification: $40 + 200 + 400 = 640$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"misreads the chain\" — treats the $4$-inch label as a coefficient ($4n$) rather than \"twice the $9$-inch count\" ($10n$). Gets $n + 5n + 4n = 10n = 640$, so $n = 64$.\n* Choice C: \"applies the inverse operation\" — solves correctly to $n = 40$, then doubles.\n* Choice D: \"stops one step early\" — gives the count of $9$-inch bolts ($5 \\cdot 40 = 200$) instead of $7$-inch.\n\n**Test Day Takeaway:** Express every quantity in terms of one variable, sum them, set equal to the total, then re-read what's asked.",
-  skills: ["word-problems", "solving-equations", "linear-functions"]
+  question: "A research lab has a budget of $\\$1{,}400$ to purchase glass beakers. To qualify for a wholesale discount, the lab must order a minimum of $160$ beakers total. Standard beakers cost $\\$5$ each and graduated beakers cost $\\$9$ each. What is the maximum number of graduated beakers the lab can order while staying within the budget and qualifying for the discount?",
+  correctAnswer: "150",
+  explanation: "**SAT Pattern: Inequality Word Problem (Floor)**\n\n**The correct answer is $150$.**\n\n**The Fast Way (~40s):** Let $s$ = standard, $g$ = graduated. To max $g$, set $s + g = 160$ exactly, $s = 160 - g$. Budget: $5(160 - g) + 9g \\leq 1400 \\Rightarrow 800 + 4g \\leq 1400 \\Rightarrow g \\leq 150$.\n\n**The Full Solution:**\nLet $s$ = standard beakers, $g$ = graduated beakers.\nConstraints:\n* Discount floor: $s + g \\geq 160$.\n* Budget: $5s + 9g \\leq 1{,}400$.\n* Both non-negative integers.\n\nTo MAXIMIZE $g$, fill the rest with the cheaper standard beakers at EXACTLY the floor (any extras waste budget). Set $s = 160 - g$:\n\n$5(160 - g) + 9g \\leq 1{,}400$\n$800 - 5g + 9g \\leq 1{,}400$\n$4g \\leq 600$\n$g \\leq 150$.\n\nMax integer: $g = 150$.\n\n**Verification:** With $g = 150$, $s = 10$. Total: $10 + 150 = 160 \\geq 160$ ✓. Cost: $5(10) + 9(150) = 50 + 1{,}350 = 1{,}400 \\leq 1{,}400$ ✓ (exactly at budget). Try $g = 151$, $s = 9$: $5(9) + 9(151) = 45 + 1{,}359 = 1{,}404 > 1{,}400$ ✗ — exceeds budget \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $155$ (treats $1{,}400/9 \\approx 155$ as the max, ignoring the discount floor; also $s = 0, g = 155$ violates the floor since $0 + 155 = 155 < 160$).\n* Answering $160$ (treats the floor itself as the answer).\n* Answering $151$ (forgets to round DOWN — $151$ exceeds budget).\n* Answering $10$ (reports standard beakers instead of graduated).\n\n**Test Day Takeaway:** Two-constraint optimization (budget + minimum total): To maximize one quantity, fill the remainder with the cheaper option AT EXACTLY the minimum total. Solve the resulting single-variable inequality and take the FLOOR. Always verify the next integer up.",
+  skills: ["inequalities", "word-problems", "systems-of-equations"]
 },
 {
   id: 21,

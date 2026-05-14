@@ -411,38 +411,38 @@ export const practiceTest1 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "The function $g$ is defined by $g(x) = 4x + 11$. What is the $y$-intercept of the graph of $y = g(x)$ in the $xy$-plane?",
+  question: "A small water reservoir is being refilled from a city main at a constant rate of $80$ gallons per hour. The reservoir contained $1{,}200$ gallons at the start of the refill. What type of function best models the relationship between the amount of water in the reservoir and the time since the refill began?",
   choices: [
-    // distractor: wrong base - uses slope as the y-intercept
-    { id: "A", text: "$(0, 4)$" },
-    { id: "B", text: "$(0, 11)$" },
-    // distractor: applies inverse op - flips sign of constant
-    { id: "C", text: "$(0, -11)$" },
-    // distractor: confuses x-intercept-style with y-intercept format
-    { id: "D", text: "$(-11, 0)$" }
+    // distractor: confuses constant rate with multiplicative growth
+    { id: "A", text: "Increasing exponential" },
+    { id: "B", text: "Increasing linear" },
+    // distractor: sign error — refilling is increasing
+    { id: "C", text: "Decreasing linear" },
+    // distractor: combines wrong type with wrong direction
+    { id: "D", text: "Decreasing exponential" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: y-Intercept from Slope-Intercept Form**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** In $y = mx + b$, the $y$-intercept is $(0, b)$. Here $b = 11$, so the $y$-intercept is $(0, 11)$.\n\n**The Full Solution:**\nThe $y$-intercept occurs where $x = 0$:\n$g(0) = 4(0) + 11 = 11$.\nSo the graph crosses the $y$-axis at $(0, 11)$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — uses slope ($4$) instead of $y$-intercept ($11$).\n* Choice C: \"applies the inverse operation\" — flips the sign of the constant.\n* Choice D: \"applies the inverse operation\" — uses $(b, 0)$ format instead of $(0, b)$.\n\n**Test Day Takeaway:** In $y = mx + b$, $m$ is slope and $b$ is $y$-intercept. The $y$-intercept point is always $(0, b)$.",
-  skills: ["linear-functions", "function-interpretation"]
+  explanation: "**SAT Pattern: Classify Physical Motion Model**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** \"Constant rate\" + \"refilled\" $\\Rightarrow$ increasing linear. Each hour adds the same $80$ gallons, so the change per unit time is constant.\n\n**The Full Solution:**\nThe defining feature of a LINEAR function is constant rate of change. \"$80$ gallons per hour\" describes exactly that — same amount added each hour. Because the reservoir is being REFILLED (water growing), the slope is positive.\n\nA model would be $W(t) = 1{,}200 + 80t$.\n\nVerification: at $t = 0$, $W = 1{,}200$; at $t = 1$, $W = 1{,}280$; at $t = 2$, $W = 1{,}360$. Differences: $+80, +80$ — constant \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong formula\" — exponential growth would require a multiplicative factor each hour (e.g., \"doubles each hour\"), not a constant additive rate.\n* Choice C: \"sign error\" — \"refilled\" means the water amount INCREASES, so the slope is positive.\n* Choice D: \"wrong direction AND wrong type\" — combines both errors.\n\n**Test Day Takeaway:** \"Constant rate of X per unit\" $\\Rightarrow$ LINEAR. The sign (increasing/decreasing) comes from the verb (\"refills/grows\" vs \"drains/loses\"). Reserve EXPONENTIAL for \"multiplied by\" or \"by X percent\" language.",
+  skills: ["function-interpretation", "linear-functions"]
 },
 {
   id: 2,
   type: "multiple-choice",
   difficulty: "easy",
   band: 2,
-  question: "If $\\dfrac{x}{4} = 9$, what is the value of $x$?",
+  question: "A phone's battery percentage decreases as the user streams video. The function $b(t) = -1.5t + 96$ approximates the remaining battery percentage after $t$ minutes of continuous streaming. Which statement is the best interpretation of the $y$-intercept of the graph of $y = b(t)$ in the $ty$-plane in this context?",
   choices: [
-    // distractor: applies inverse op - divides 9 by 4 instead of multiplying
-    { id: "A", text: "$2.25$" },
-    // distractor: wrong base - subtracts 9 - 4
-    { id: "B", text: "$5$" },
-    // distractor: applies inverse op - adds 9 + 4
-    { id: "C", text: "$13$" },
-    { id: "D", text: "$36$" }
+    // distractor: confuses slope (rate) with y-intercept (initial value)
+    { id: "A", text: "The phone uses approximately $96\\%$ of battery per minute of streaming." },
+    // distractor: confuses slope's magnitude with starting battery
+    { id: "B", text: "The phone started with approximately $1.5\\%$ of battery before streaming began." },
+    { id: "C", text: "The phone started with approximately $96\\%$ of battery before streaming began." },
+    // distractor: combines both confusions
+    { id: "D", text: "The phone uses approximately $1.5\\%$ of battery per minute of streaming." }
   ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: One-Step Linear Equation**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** Multiply both sides by $4$: $x = 4 \\cdot 9 = 36$.\n\n**The Full Solution:**\n$\\dfrac{x}{4} = 9$\n$x = 9 \\cdot 4 = 36$.\nVerification: $\\dfrac{36}{4} = 9$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — divides instead of multiplying.\n* Choice B: \"wrong base\" — subtracts instead of multiplying.\n* Choice C: \"applies the inverse operation\" — adds instead of multiplying.\n\n**Test Day Takeaway:** To isolate $x$ when divided by $k$, multiply both sides by $k$.",
-  skills: ["solving-equations"]
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $y$-intercept of $b(t) = -1.5t + 96$ is $b(0) = 96$. At $t = 0$ (streaming just started), battery $\\approx 96\\%$.\n\n**The Full Solution:**\nThe $y$-intercept of a linear function $b(t) = mt + b$ is $b$, the value at $t = 0$. Here the constant is $96$, and $t = 0$ corresponds to the moment streaming begins. So the phone started streaming with about $96\\%$ battery remaining.\n\nVerification: at $t = 0$, $b = 96$ ✓. At $t = 1$, $b = 94.5$ — drop of $1.5\\%$ in one minute, confirming the slope. The slope is the rate; the $y$-intercept is the initial value \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base AND wrong unit\" — treats the initial battery percentage as a per-minute usage rate.\n* Choice B: \"swaps coefficients\" — uses the slope's magnitude as the starting amount.\n* Choice D: \"correct interpretation of slope, wrong question\" — accurately describes the slope, but the question asks about the $y$-intercept (initial value, not rate).\n\n**Test Day Takeaway:** In $f(t) = mt + b$ contextual problems: $b$ (the $y$-intercept) is the INITIAL value at $t = 0$. $m$ (the slope) is the per-unit RATE OF CHANGE. The question's wording (\"$y$-intercept\" vs \"slope/rate\") tells you which to report.",
+  skills: ["function-interpretation", "linear-functions"]
 },
 {
   id: 3,
@@ -606,22 +606,13 @@ export const practiceTest1 = {
 },
 {
   id: 12,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "A factory makes $9$-inch, $7$-inch, and $4$-inch concrete screws. During one day, the number of $9$-inch screws produced is $5$ times the number $n$ of $7$-inch screws, and the number of $4$-inch screws is $40$ more than the number of $7$-inch screws. The factory produces a total of $719$ screws that day. How many $7$-inch screws does the factory produce that day?",
-  choices: [
-    // distractor: divides total by 7 ignoring the +40 offset
-    { id: "A", text: "$103$" },
-    { id: "B", text: "$97$" },
-    // distractor: applies inverse operation — uses (719 - 40)/5 = 135.8
-    { id: "C", text: "$136$" },
-    // distractor: stops one step early — divides 719/5 ignoring the offset and 7n
-    { id: "D", text: "$144$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Word-Problem to Multi-Step Linear**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Total $= 5n + n + (n + 40) = 7n + 40 = 719$. So $7n = 679$ and $n = 97$.\n\n**The Full Solution:**\nLet $n$ be the number of $7$-inch screws.\nNumber of $9$-inch screws: $5n$.\nNumber of $4$-inch screws: $n + 40$.\n\nTotal: $5n + n + (n + 40) = 7n + 40 = 719$.\n$7n = 679 \\Rightarrow n = 97$.\n\nVerification: $5(97) + 97 + (97 + 40) = 485 + 97 + 137 = 719$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — divides $719$ by $7$ ignoring the offset.\n* Choice C: \"applies the inverse operation\" — uses $\\frac{719 - 40}{5} = 135.8 \\approx 136$ instead of dividing by $7$.\n* Choice D: \"stops one step early\" — divides $\\frac{719}{5}$ ignoring both the offset and the additional $7$-inch and $4$-inch counts.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$40$ more than\".",
-  skills: ["word-problems", "ratios"]
+  question: "A student club is purchasing t-shirts for a fundraiser. The club has a budget of $\\$1{,}260$. To qualify for bulk-discount pricing, the club must order a minimum of $140$ shirts total. Cotton shirts cost $\\$5.80$ each and tri-blend shirts cost $\\$10.40$ each. What is the maximum number of tri-blend shirts the club can order while staying within the budget and qualifying for the discount?",
+  correctAnswer: "97",
+  explanation: "**SAT Pattern: Inequality Word Problem (Floor)**\n\n**The correct answer is $97$.**\n\n**The Fast Way (~45s):** Let $c$ = cotton, $t$ = tri-blend. To max $t$, set $c + t = 140$ exactly, $c = 140 - t$. Budget: $5.80(140 - t) + 10.40t \\leq 1260 \\Rightarrow 812 + 4.60t \\leq 1260 \\Rightarrow t \\leq 97.39$. Floor: $t = 97$.\n\n**The Full Solution:**\nLet $c$ = cotton shirts, $t$ = tri-blend shirts.\nConstraints:\n* Discount floor: $c + t \\geq 140$.\n* Budget: $5.80c + 10.40t \\leq 1{,}260$.\n* Both non-negative integers.\n\nTo MAXIMIZE $t$, fill the rest with the cheaper cotton shirts at EXACTLY the floor (any extra cotton shirts waste budget). Set $c = 140 - t$:\n\n$5.80(140 - t) + 10.40t \\leq 1{,}260$\n$812 - 5.80t + 10.40t \\leq 1{,}260$\n$4.60t \\leq 448$\n$t \\leq 97.391...$.\n\nMax integer: $t = 97$.\n\n**Verification:** With $t = 97$, $c = 43$. Total: $97 + 43 = 140 \\geq 140$ ✓. Cost: $5.80(43) + 10.40(97) = 249.40 + 1{,}008.80 = 1{,}258.20 \\leq 1{,}260$ ✓. Try $t = 98$, $c = 42$: $5.80(42) + 10.40(98) = 243.60 + 1{,}019.20 = 1{,}262.80 > 1{,}260$ ✗ — exceeds budget \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $121$ (treats $1{,}260/10.40 \\approx 121$ as the max, ignoring the discount floor — also $c = 0, t = 121$ violates the floor since $0 + 121 = 121 < 140$).\n* Answering $140$ (treats the floor itself as the answer).\n* Answering $98$ (forgets to round DOWN — $98$ exceeds the budget).\n* Answering $43$ (reports cotton shirts instead of tri-blend).\n\n**Test Day Takeaway:** Two-constraint optimization (budget + minimum total): To maximize one quantity, fill the remainder with the cheaper option AT EXACTLY the minimum total. Solve the resulting single-variable inequality and take the FLOOR. Always verify the next integer up.",
+  skills: ["inequalities", "word-problems", "systems-of-equations"]
 },
 {
   id: 13,

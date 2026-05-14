@@ -410,19 +410,19 @@ export const practiceTest12 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 2,
-  question: "If $5x - 7 = 18$, what is the value of $x$?",
+  question: "A pizza oven is turned off after a long bake and begins to cool. The oven's interior temperature drops at a constant rate of $4$ degrees Fahrenheit per minute as it loses heat to the surrounding room. Which type of function best models the relationship between the oven's interior temperature and the time elapsed since it was turned off?",
   choices: [
-    { id: "A", text: "$5$" },
-    // distractor: stops one step early - subtracts but doesn't divide
-    { id: "B", text: "$11$" },
-    // distractor: applies inverse op - adds 7 to 18 but skips dividing
-    { id: "C", text: "$25$" },
-    // distractor: sign error - negates the answer
-    { id: "D", text: "$-5$" }
+    // distractor: confuses constant rate with multiplicative decay
+    { id: "A", text: "Decreasing exponential" },
+    { id: "B", text: "Decreasing linear" },
+    // distractor: sign error — \"cooling\" is decreasing
+    { id: "C", text: "Increasing linear" },
+    // distractor: combines wrong type with wrong direction
+    { id: "D", text: "Increasing exponential" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Two-Step Linear Equation**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** $5x = 25 \\Rightarrow x = 5$.\n\n**The Full Solution:**\n$5x - 7 = 18$\nAdd $7$ to both sides: $5x = 25$.\nDivide by $5$: $x = 5$.\nVerification: $5(5) - 7 = 25 - 7 = 18$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"stops one step early\" — does $18 - 7 = 11$ but forgets to divide by $5$.\n* Choice C: \"stops one step early\" — finds $5x = 25$ but reports $25$ instead of solving for $x$.\n* Choice D: \"applies the inverse operation\" — sign error in the answer.\n\n**Test Day Takeaway:** Two-step equations: undo addition/subtraction first, then division/multiplication. Always verify by substituting.",
-  skills: ["solving-equations"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Classify Physical Motion Model**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** \"Constant rate\" + \"drops\" $\\Rightarrow$ decreasing linear. Each minute removes the same $4$ degrees, so the change per unit time is constant.\n\n**The Full Solution:**\nThe defining feature of a LINEAR function is constant rate of change. \"$4$ degrees per minute\" describes exactly that — same amount lost each minute. Because the oven is COOLING (temperature decreasing), the slope is negative.\n\nA model would be $T(t) = T_0 - 4t$, where $T_0$ is the oven's starting temperature.\n\nVerification: at $t = 0$, $T = T_0$; at $t = 1$, $T = T_0 - 4$; at $t = 2$, $T = T_0 - 8$. Differences: $-4, -4$ — constant \\checkmark.\n\n(Note: real cooling toward room temperature is exponential, with the rate decreasing as the temperature approaches the ambient. The problem specifies CONSTANT rate, so linear is the intended model.)\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong formula\" — exponential decay loses a PERCENT of the current temperature each minute, so the absolute amount lost each minute would shrink as $T$ shrinks. But the problem fixes the rate at $4$ degrees per minute, so it's linear.\n* Choice C: \"sign error\" — \"cooling\" means temperature DECREASES, so the slope is negative.\n* Choice D: \"wrong direction AND wrong type\" — combines both errors.\n\n**Test Day Takeaway:** \"Constant rate of X per unit\" $\\Rightarrow$ LINEAR (regardless of physical plausibility). \"Constant fraction/percent per unit\" $\\Rightarrow$ EXPONENTIAL. Read the rate language carefully.",
+  skills: ["function-interpretation", "linear-functions"]
 },
 {
   id: 2,
@@ -448,19 +448,19 @@ export const practiceTest12 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 2,
-  question: "A recipe calls for $3$ cups of flour for every $2$ cups of sugar. If a baker uses $9$ cups of flour, how many cups of sugar should the baker use?",
+  question: "An office printer is being used continuously throughout the workday. The function $T(p) = -0.3p + 50$ approximates the volume, in milliliters, of toner remaining in the printer's cartridge after printing $p$ pages. Which statement is the best interpretation of the $y$-intercept of the graph of $y = T(p)$ in the $py$-plane in this context?",
   choices: [
-    // distractor: subtracts difference incorrectly
-    { id: "A", text: "$4$" },
-    { id: "B", text: "$6$" },
-    // distractor: adds the values instead of scaling proportionally
-    { id: "C", text: "$12$" },
-    // distractor: wrong scale factor - uses 1.5x sugar instead of 3x
-    { id: "D", text: "$13.5$" }
+    // distractor: confuses slope (rate) with y-intercept (initial)
+    { id: "A", text: "The cartridge used approximately $50$ milliliters of toner for each page printed." },
+    // distractor: swaps slope and intercept
+    { id: "B", text: "The cartridge held approximately $0.3$ milliliters of toner before printing began." },
+    { id: "C", text: "The cartridge held approximately $50$ milliliters of toner before printing began." },
+    // distractor: combines both confusions
+    { id: "D", text: "The cartridge used approximately $0.3$ milliliters of toner for each page printed." }
   ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Proportional Scaling**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Scale factor: $\\frac{9}{3} = 3$. Sugar $= 2 \\cdot 3 = 6$ cups.\n\n**The Full Solution:**\nThe ratio of flour to sugar is $3 : 2$. With $9$ cups of flour:\n$\\dfrac{3}{2} = \\dfrac{9}{x}$\nCross-multiply: $3x = 18$, so $x = 6$.\n\nAlternatively: scale factor $= \\frac{9}{3} = 3$, so multiply each ratio component by $3$: sugar $= 2 \\cdot 3 = 6$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — subtracts to estimate without proper scaling.\n* Choice C: \"applies the inverse operation\" — adds the difference ($9 + 3 = 12$).\n* Choice D: \"off-by-one\" — uses scale factor of $1.5$ instead of $3$.\n\n**Test Day Takeaway:** When scaling a ratio, multiply BOTH parts by the same factor. Find the factor from the ratio of new-to-old for one quantity.",
-  skills: ["ratios", "proportions"]
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $y$-intercept of $T(p) = -0.3p + 50$ is $T(0) = 50$. At $p = 0$ (no pages printed yet), toner $\\approx 50$ mL.\n\n**The Full Solution:**\nThe $y$-intercept of a linear function $T(p) = mp + b$ is $b$, the value at $p = 0$. Here $b = 50$, and $p$ counts pages printed, so $p = 0$ corresponds to BEFORE any printing began. The cartridge started with about $50$ mL of toner.\n\nVerification: at $p = 0$, $T = 50$ ✓. At $p = 100$, $T = 50 - 30 = 20$ — about $30$ mL used over $100$ pages, confirming the slope of $0.3$ mL per page \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base AND wrong unit\" — treats the initial total as a per-page rate. At $50$ mL per page the cartridge would empty in a single print job.\n* Choice B: \"swaps coefficients\" — uses the slope's magnitude as the starting amount.\n* Choice D: \"correct interpretation of slope, wrong question\" — accurately describes the slope, but the question asks about the $y$-intercept (initial value, not rate).\n\n**Test Day Takeaway:** In $f(p) = mp + b$ contextual problems: $b$ (the $y$-intercept) is the INITIAL value at $p = 0$. $m$ (the slope) is the per-unit RATE. The question's wording (\"$y$-intercept\" vs \"slope/rate\") tells you which to report.",
+  skills: ["function-interpretation", "linear-functions"]
 },
 {
   id: 4,
@@ -626,22 +626,13 @@ export const practiceTest12 = {
 },
 {
   id: 14,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "A bag contains $5$ red marbles, $3$ blue marbles, and $2$ green marbles. Two marbles are drawn at random one after another, without replacement. What is the probability that BOTH marbles are red?",
-  choices: [
-    // distractor: assumes replacement — uses $(\\frac{5}{10})^2 = \\frac{1}{4}$
-    { id: "A", text: "$\\dfrac{1}{4}$" },
-    { id: "B", text: "$\\dfrac{2}{9}$" },
-    // distractor: stops one step early — gives only $P(\text{first red}) = \\frac{1}{2}$
-    { id: "C", text: "$\\dfrac{1}{2}$" },
-    // distractor: applies the inverse operation — adds probabilities instead of multiplying
-    { id: "D", text: "$\\dfrac{9}{10}$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Probability Without Replacement**\n\n**Choice B is correct.**\n\n**The Fast Way (~25s):** $P(\\text{1st red}) = \\dfrac{5}{10} = \\dfrac{1}{2}$. After removing one red, $P(\\text{2nd red}) = \\dfrac{4}{9}$. Multiply: $\\dfrac{1}{2} \\cdot \\dfrac{4}{9} = \\dfrac{4}{18} = \\dfrac{2}{9}$.\n\n**The Full Solution:**\nTotal marbles: $5 + 3 + 2 = 10$.\nFirst draw red: $P_1 = \\dfrac{5}{10}$.\nAfter one red removed: $4$ red of $9$ remaining. Second draw red: $P_2 = \\dfrac{4}{9}$.\n\n$P(\\text{both red}) = \\dfrac{5}{10} \\cdot \\dfrac{4}{9} = \\dfrac{20}{90} = \\dfrac{2}{9}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — assumes replacement, using $(\\dfrac{5}{10})^2 = \\dfrac{1}{4}$.\n* Choice C: \"stops one step early\" — reports only $P(\\text{1st red}) = \\dfrac{1}{2}$.\n* Choice D: \"wrong base\" — adds probabilities instead of multiplying.\n\n**Test Day Takeaway:** Without replacement, the second probability uses (favorable $- 1$) over (total $- 1$). Multiply for sequential events.",
-  skills: ["probability"]
+  question: "An event planner has a budget of $\\$2{,}000$ to purchase favors for a charity gala. To honor a venue contract, the planner must distribute a minimum of $180$ favors total. Basic favors cost $\\$8$ each and premium favors cost $\\$15$ each. What is the maximum number of premium favors the planner can purchase while staying within the budget and meeting the contract minimum?",
+  correctAnswer: "80",
+  explanation: "**SAT Pattern: Inequality Word Problem (Floor)**\n\n**The correct answer is $80$.**\n\n**The Fast Way (~45s):** Let $b$ = basic, $p$ = premium. To max $p$, set $b + p = 180$ exactly, $b = 180 - p$. Budget: $8(180 - p) + 15p \\leq 2000 \\Rightarrow 1440 + 7p \\leq 2000 \\Rightarrow p \\leq 80$.\n\n**The Full Solution:**\nLet $b$ = basic favors, $p$ = premium favors.\nConstraints:\n* Contract floor: $b + p \\geq 180$.\n* Budget: $8b + 15p \\leq 2{,}000$.\n* Both non-negative integers.\n\nTo MAXIMIZE $p$, fill the rest with the cheaper basic favors at EXACTLY the floor (any extras waste budget). Set $b = 180 - p$:\n\n$8(180 - p) + 15p \\leq 2{,}000$\n$1{,}440 - 8p + 15p \\leq 2{,}000$\n$7p \\leq 560$\n$p \\leq 80$.\n\nMax integer: $p = 80$.\n\n**Verification:** With $p = 80$, $b = 100$. Total: $80 + 100 = 180 \\geq 180$ ✓. Cost: $8(100) + 15(80) = 800 + 1{,}200 = 2{,}000 \\leq 2{,}000$ ✓ (exactly at budget). Try $p = 81$, $b = 99$: $8(99) + 15(81) = 792 + 1{,}215 = 2{,}007 > 2{,}000$ ✗ — exceeds budget \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $133$ (treats $2{,}000/15 \\approx 133$ as the max, ignoring the contract floor — also $b = 0, p = 133$ violates the floor since $0 + 133 = 133 < 180$).\n* Answering $180$ (treats the floor itself as the answer).\n* Answering $81$ (forgets to round DOWN — $81$ exceeds budget).\n* Answering $100$ (reports basic favors instead of premium).\n\n**Test Day Takeaway:** Two-constraint optimization (budget + minimum total): To maximize one quantity, fill the remainder with the cheaper option AT EXACTLY the minimum total. Solve the resulting single-variable inequality and take the FLOOR. Always verify the next integer up.",
+  skills: ["inequalities", "word-problems", "systems-of-equations"]
 },
 {
   id: 15,

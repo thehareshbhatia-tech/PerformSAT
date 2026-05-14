@@ -417,32 +417,41 @@ export const practiceTest7 = {
 
 {
   id: 1,
-  type: "fill-in",
+  type: "multiple-choice",
   difficulty: "easy",
   band: 2,
-  question: "On a number line, point $A$ has coordinate $-7$ and point $B$ has coordinate $11$. What is the distance between $A$ and $B$?",
-  correctAnswer: "18",
-  explanation: "**SAT Pattern: Distance on a Number Line**\n\n**The correct answer is $18$.**\n\n**The Fast Way (~5s):** Distance $= |11 - (-7)| = |18| = 18$.\n\n**The Full Solution:**\nThe distance between two points on a number line is the absolute value of their difference:\n$|B - A| = |11 - (-7)| = |11 + 7| = |18| = 18$.\n\n**Common Mistakes to Avoid:**\n* Subtracting without flipping the sign of the negative coordinate: $11 - 7 = 4$ (wrong).\n* Adding the absolute values incorrectly: works for opposite-sign pairs but fails when both are positive or both negative.\n\n**Test Day Takeaway:** Distance on a number line $= |B - A|$. Watch the signs when one or both coordinates are negative.",
-  skills: ["coordinate-geometry", "absolute-value"]
+  question: "A laboratory technician records that a yeast culture in a controlled environment triples every $90$ minutes. Which type of function best models the number of yeast cells in the culture as a function of time elapsed since the start of the experiment?",
+  choices: [
+    // distractor: linear — yeast adds the SAME number each interval (wrong)
+    { id: "A", text: "Increasing linear" },
+    { id: "B", text: "Increasing exponential" },
+    // distractor: wrong direction — \"triples\" is growth, not decay
+    { id: "C", text: "Decreasing exponential" },
+    // distractor: wrong type — quadratic has a constant second difference, not a constant multiplier
+    { id: "D", text: "Quadratic" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Classify Physical Motion Model**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** \"Triples every $90$ minutes\" = multiplied by a fixed factor ($3$) every fixed period $\\Rightarrow$ exponential growth.\n\n**The Full Solution:**\nWhen a quantity is MULTIPLIED by a constant factor (here, $3$) every constant time interval (here, $90$ minutes), the model is EXPONENTIAL. The factor is $> 1$, so the function increases.\n\nA model would be $N(t) = N_0 \\cdot 3^{t/90}$ where $t$ is minutes.\n\nVerification: at $t = 0$, $N = N_0$; at $t = 90$, $N = 3N_0$; at $t = 180$, $N = 9N_0$. Each interval triples the previous, not adds a fixed amount \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong formula\" — linear would mean adding the SAME number each interval, but tripling adds increasing amounts.\n* Choice C: \"wrong direction\" — tripling means GROWTH, not decay. Decay would say \"halves every interval.\"\n* Choice D: \"wrong formula\" — quadratic relationships have a constant SECOND difference (acceleration), not a constant multiplicative factor.\n\n**Test Day Takeaway:** \"Doubles / triples / grows by X percent every [period]\" $\\Rightarrow$ EXPONENTIAL. \"Adds X every [period]\" $\\Rightarrow$ LINEAR. The distinction is multiplicative vs additive.",
+  skills: ["function-interpretation", "exponential-growth-decay"]
 },
 {
   id: 2,
   type: "multiple-choice",
   difficulty: "easy",
   band: 2,
-  question: "If $\\dfrac{x}{6} = \\dfrac{15}{10}$, what is the value of $x$?",
+  question: "A community garden has been operating for several years. The function $p(t) = 2.5t + 18$ approximates the number of plots planted at the garden after $t$ years of operation. Which statement is the best interpretation of the $y$-intercept of the graph of $y = p(t)$ in the $ty$-plane in this context?",
   choices: [
-    // distractor: takes ratio of difference values incorrectly
-    { id: "A", text: "$4$" },
-    { id: "B", text: "$9$" },
-    // distractor: adds the values rather than cross-multiplying
-    { id: "C", text: "$25$" },
-    // distractor: stops one step early at cross-product without dividing
-    { id: "D", text: "$90$" }
+    // distractor: confuses slope (rate) with y-intercept (initial)
+    { id: "A", text: "The garden adds approximately $18$ plots each year." },
+    { id: "B", text: "The garden began with approximately $18$ plots planted." },
+    // distractor: swaps slope and intercept
+    { id: "C", text: "The garden began with approximately $2.5$ plots planted." },
+    // distractor: combines both confusions
+    { id: "D", text: "The garden adds approximately $2.5$ plots each year, starting from zero plots." }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Solve a Proportion**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** Cross-multiply: $10x = 6 \\cdot 15 = 90$. So $x = 9$.\n\n**The Full Solution:**\n$\\dfrac{x}{6} = \\dfrac{15}{10}$\nCross-multiply: $10x = 6 \\cdot 15 = 90$.\nDivide by $10$: $x = 9$.\n\nVerification: $\\dfrac{9}{6} = 1.5 = \\dfrac{15}{10}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — divides values incorrectly without cross-multiplying.\n* Choice C: \"applies the inverse operation\" — adds the cross terms ($15 + 10 = 25$).\n* Choice D: \"stops one step early\" — gives the cross-product without dividing.\n\n**Test Day Takeaway:** Cross-multiply, then solve. Always finish the division step.",
-  skills: ["solving-equations", "ratios"]
+  explanation: "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $y$-intercept of $p(t) = 2.5t + 18$ is $p(0) = 18$. At $t = 0$ (the garden began), plots $\\approx 18$.\n\n**The Full Solution:**\nThe $y$-intercept of a linear function $p(t) = mt + b$ is $b$, the value at $t = 0$. Here $b = 18$, and $t$ counts years of operation, so $t = 0$ is when the garden began. The garden started with about $18$ plots.\n\nVerification: at $t = 0$, $p = 18$ ✓. At $t = 1$, $p = 20.5$ — about $2.5$ plots added in one year, confirming the slope. The $y$-intercept is the starting count; the slope is the per-year rate \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"correct interpretation of slope, wrong question\" — accurately describes the slope, but the question asks about the $y$-intercept.\n* Choice C: \"swaps coefficients\" — uses the slope's magnitude as the starting count.\n* Choice D: \"sign error AND wrong base\" — ignores the $+18$ and treats the start as zero.\n\n**Test Day Takeaway:** $y$-intercept = value at input $0$ = the starting point in the story. Slope = rate of change per unit. The question's wording (\"$y$-intercept\" vs \"slope/rate\") tells you which to report.",
+  skills: ["function-interpretation", "linear-functions"]
 },
 {
   id: 3,
@@ -619,22 +628,13 @@ export const practiceTest7 = {
 },
 {
   id: 14,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "A factory makes $12$-inch, $8$-inch, and $5$-inch metal rods. During one shift, the number of $12$-inch rods produced is $4$ times the number $r$ of $8$-inch rods, and the number of $5$-inch rods is $25$ more than the number of $8$-inch rods. The factory produces a total of $853$ rods that shift. How many $8$-inch rods does the factory produce that shift?",
-  choices: [
-    // distractor: off-by-one — divides total by 6 (4r + r + r) ignoring the +25 offset
-    { id: "A", text: "$142$" },
-    { id: "B", text: "$138$" },
-    // distractor: applies inverse operation — uses (853 - 25)/4 = 207 instead of dividing by 6
-    { id: "C", text: "$207$" },
-    // distractor: stops one step early — divides 853 / 4 ignoring the offset and r itself
-    { id: "D", text: "$213$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Word-Problem to Multi-Step Linear**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Total $= 4r + r + (r + 25) = 6r + 25 = 853$. So $6r = 828$ and $r = 138$.\n\n**The Full Solution:**\nLet $r$ be the number of $8$-inch rods.\nNumber of $12$-inch rods: $4r$.\nNumber of $5$-inch rods: $r + 25$.\n\nTotal: $4r + r + (r + 25) = 6r + 25 = 853$.\n$6r = 828 \\Rightarrow r = 138$.\n\nVerification: $4(138) + 138 + (138 + 25) = 552 + 138 + 163 = 853$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — divides $853$ by $6$ ignoring the $+25$ offset.\n* Choice C: \"applies the inverse operation\" — uses $\\frac{853 - 25}{4} = 207$ instead of dividing by $6$.\n* Choice D: \"stops one step early\" — divides $\\frac{853}{4}$ ignoring the offset and the additional $r$ counts.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$25$ more than\".",
-  skills: ["word-problems", "ratios"]
+  question: "An office manager has a budget of $\\$3{,}900$ to purchase chairs for a new co-working space. To qualify for a corporate-account discount, the manager must order a minimum of $200$ chairs total. Standard chairs cost $\\$15$ each and executive chairs cost $\\$28$ each. What is the maximum number of executive chairs the manager can order while staying within the budget and qualifying for the discount?",
+  correctAnswer: "69",
+  explanation: "**SAT Pattern: Inequality Word Problem (Floor)**\n\n**The correct answer is $69$.**\n\n**The Fast Way (~45s):** Let $s$ = standard, $e$ = executive. To max $e$, set $s + e = 200$ exactly, $s = 200 - e$. Budget: $15(200 - e) + 28e \\leq 3900 \\Rightarrow 3000 + 13e \\leq 3900 \\Rightarrow e \\leq 69.23$. Floor: $e = 69$.\n\n**The Full Solution:**\nLet $s$ = standard chairs, $e$ = executive chairs.\nConstraints:\n* Discount floor: $s + e \\geq 200$.\n* Budget: $15s + 28e \\leq 3{,}900$.\n* Both non-negative integers.\n\nTo MAXIMIZE $e$, fill the rest with the cheaper standard chairs at EXACTLY the floor (any extra standard chairs waste budget). Set $s = 200 - e$:\n\n$15(200 - e) + 28e \\leq 3{,}900$\n$3{,}000 - 15e + 28e \\leq 3{,}900$\n$13e \\leq 900$\n$e \\leq 69.230...$.\n\nMax integer: $e = 69$.\n\n**Verification:** With $e = 69$, $s = 131$. Total: $131 + 69 = 200 \\geq 200$ ✓. Cost: $15(131) + 28(69) = 1{,}965 + 1{,}932 = 3{,}897 \\leq 3{,}900$ ✓. Try $e = 70$, $s = 130$: $15(130) + 28(70) = 1{,}950 + 1{,}960 = 3{,}910 > 3{,}900$ ✗ — exceeds budget \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $139$ (treats $3{,}900/28 \\approx 139$ as the max, ignoring the discount floor — also $s = 0, e = 139$ violates the floor: $0 + 139 = 139 < 200$).\n* Answering $200$ (treats the floor itself as the answer).\n* Answering $70$ (forgets to round DOWN — $70$ exceeds the budget).\n* Answering $131$ (reports standard chairs instead of executive).\n\n**Test Day Takeaway:** Two-constraint optimization (budget + minimum total): To maximize one quantity, fill the remainder with the cheaper option AT EXACTLY the minimum total. Solve the resulting single-variable inequality and take the FLOOR. Always verify the next integer up.",
+  skills: ["inequalities", "word-problems", "systems-of-equations"]
 },
 {
   id: 15,

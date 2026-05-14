@@ -416,38 +416,38 @@ export const practiceTest10 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "Which expression is equivalent to $\\sqrt{72}$?",
+  question: "After a hockey practice, the ice rink crew measures the thickness of the ice as it melts in the off-season. The crew finds that the ice thickness decreases at a constant rate of $0.5$ centimeters per hour as the rink warms. Which type of function best models the relationship between the ice thickness and the time elapsed since the cooling system was turned off?",
   choices: [
-    { id: "A", text: "$6\\sqrt{2}$" },
-    // distractor: uses an incorrect perfect-square factor
-    { id: "B", text: "$8\\sqrt{2}$" },
-    // distractor: stops one step early - factors but doesn't take square root
-    { id: "C", text: "$36\\sqrt{2}$" },
-    // distractor: applies inverse operation - adds instead of multiplying
-    { id: "D", text: "$\\sqrt{2} + 6$" }
+    // distractor: confuses constant rate with multiplicative decay
+    { id: "A", text: "Decreasing exponential" },
+    { id: "B", text: "Decreasing linear" },
+    // distractor: sign error — ice is MELTING, so thickness decreases
+    { id: "C", text: "Increasing linear" },
+    // distractor: combines wrong type with wrong direction
+    { id: "D", text: "Increasing exponential" }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Simplify a Radical**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** $72 = 36 \\cdot 2$. $\\sqrt{72} = \\sqrt{36}\\sqrt{2} = 6\\sqrt{2}$.\n\n**The Full Solution:**\nFactor $72$ to extract the largest perfect square:\n$72 = 36 \\cdot 2$ ($36$ is a perfect square).\n$\\sqrt{72} = \\sqrt{36 \\cdot 2} = \\sqrt{36} \\cdot \\sqrt{2} = 6\\sqrt{2}$.\n\nVerification: $(6\\sqrt{2})^2 = 36 \\cdot 2 = 72$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"wrong base\" — uses $64$ as the perfect-square factor (but $\\frac{72}{64}$ isn't an integer).\n* Choice C: \"stops one step early\" — factors $72 = 36 \\cdot 2$ but forgets to take the square root of $36$.\n* Choice D: \"applies the inverse operation\" — adds instead of multiplying.\n\n**Test Day Takeaway:** $\\sqrt{ab} = \\sqrt{a} \\cdot \\sqrt{b}$. Pull out the largest perfect square factor.",
-  skills: ["radical-expressions"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Classify Physical Motion Model**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** \"Constant rate\" + \"decreases\" $\\Rightarrow$ decreasing linear. Each hour removes the same $0.5$ centimeters.\n\n**The Full Solution:**\nThe defining feature of a LINEAR function is constant rate of change. \"$0.5$ cm per hour\" describes exactly that — same amount of thickness lost each hour. Because the ice is MELTING (thickness decreasing), the slope is negative.\n\nA model would be $T(h) = T_0 - 0.5h$.\n\nVerification: at $h = 0$, $T = T_0$; at $h = 1$, $T = T_0 - 0.5$; at $h = 2$, $T = T_0 - 1$. Differences: $-0.5, -0.5$ — constant \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong formula\" — exponential decay would mean the fraction lost each hour is constant (so the absolute drop shrinks). The problem fixes the rate at $0.5$ cm/hour, so it's linear.\n* Choice C: \"sign error\" — \"decreases\" means thickness goes DOWN.\n* Choice D: \"wrong direction AND wrong type\" — combines both errors.\n\n**Test Day Takeaway:** \"Constant rate of X per unit\" $\\Rightarrow$ LINEAR. \"Constant fraction/percent per unit\" $\\Rightarrow$ EXPONENTIAL. Read the rate language carefully.",
+  skills: ["function-interpretation", "linear-functions"]
 },
 {
   id: 2,
   type: "multiple-choice",
   difficulty: "easy",
   band: 2,
-  question: "If $\\dfrac{2}{5} = \\dfrac{8}{x}$, what is the value of $x$?",
+  question: "A hospital pharmacy logs its inventory of disposable syringes throughout the day. The function $s(p) = -3p + 540$ approximates the number of syringes remaining in stock after $p$ patient visits. Which statement is the best interpretation of the $y$-intercept of the graph of $y = s(p)$ in the $py$-plane in this context?",
   choices: [
-    // distractor: subtracts the values incorrectly
-    { id: "A", text: "$4$" },
-    // distractor: stops one step early - uses 2*8 without dividing properly
-    { id: "B", text: "$11$" },
-    // distractor: wrong base - uses 8/2 with reversed cross-multiplication
-    { id: "C", text: "$16$" },
-    { id: "D", text: "$20$" }
+    // distractor: confuses slope with intercept
+    { id: "A", text: "The pharmacy used approximately $540$ syringes for each patient visit." },
+    // distractor: swaps coefficients
+    { id: "B", text: "The pharmacy started with approximately $3$ syringes in stock at the beginning of the day." },
+    { id: "C", text: "The pharmacy started with approximately $540$ syringes in stock at the beginning of the day." },
+    // distractor: combines both confusions
+    { id: "D", text: "The pharmacy used approximately $3$ syringes for each patient visit." }
   ],
-  correctAnswer: "D",
-  explanation: "**SAT Pattern: Solve a Proportion**\n\n**Choice D is correct.**\n\n**The Fast Way (~5s):** Cross-multiply: $2x = 5 \\cdot 8 = 40$. So $x = 20$.\n\n**The Full Solution:**\n$\\dfrac{2}{5} = \\dfrac{8}{x}$\nCross-multiply: $2x = 5 \\cdot 8 = 40$.\nDivide by $2$: $x = 20$.\n\nVerification: $\\dfrac{8}{20} = 0.4 = \\dfrac{2}{5}$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — divides incorrectly without proper cross-multiplication.\n* Choice B: \"applies the inverse operation\" — adds rather than cross-multiplying ($5 + 8 - 2 = 11$).\n* Choice C: \"applies the inverse operation\" — uses $8 \\cdot 2 = 16$ but doesn't account for the $5$.\n\n**Test Day Takeaway:** Cross-multiply two equal fractions: $\\dfrac{a}{b} = \\dfrac{c}{d} \\Rightarrow ad = bc$. Then solve.",
-  skills: ["solving-equations", "ratios"]
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $y$-intercept of $s(p) = -3p + 540$ is $s(0) = 540$. At $p = 0$ (no patients seen yet), syringes $\\approx 540$.\n\n**The Full Solution:**\nThe $y$-intercept of a linear function $s(p) = mp + b$ is $b$, the value at $p = 0$. Here $b = 540$, and $p$ counts patient visits, so $p = 0$ corresponds to BEFORE any patients were seen. The pharmacy started the day with about $540$ syringes in stock.\n\nVerification: at $p = 0$, $s = 540$ ✓. At $p = 1$, $s = 537$ — used $3$ syringes for one patient, confirming the slope. The slope is the per-patient usage; the $y$-intercept is the starting inventory \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base AND wrong unit\" — treats the initial inventory as a per-patient rate. At $540$ per patient, the stock would last about one patient.\n* Choice B: \"swaps coefficients\" — uses the slope's magnitude as the starting inventory.\n* Choice D: \"correct interpretation of slope, wrong question\" — accurately describes the slope, but the question asks about the $y$-intercept.\n\n**Test Day Takeaway:** $y$-intercept = value at input $0$ = the starting amount. Slope = rate of change per unit. The question's wording tells you which to report.",
+  skills: ["function-interpretation", "linear-functions"]
 },
 {
   id: 3,
@@ -687,22 +687,13 @@ export const practiceTest10 = {
 },
 {
   id: 16,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "A factory produces two types of bolts: standard bolts (each requiring $4$ minutes of machine time) and premium bolts (each requiring $7$ minutes of machine time). In one shift, the factory produces $35$ bolts using $176$ minutes of machine time. How many premium bolts were produced?",
-  choices: [
-    // distractor: stops one step early — gives the count of standard bolts
-    { id: "A", text: "$23$" },
-    { id: "B", text: "$12$" },
-    // distractor: applies inverse op — swaps the rates 4 and 7
-    { id: "C", text: "$16$" },
-    // distractor: off-by-one — solves correctly but reports number of standard bolts
-    { id: "D", text: "$24$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: System of Equations — Substitution**\n\n**Choice B is correct.**\n\n**The Fast Way (~30s):** Let $s$ = standard, $p$ = premium. $s + p = 35$ and $4s + 7p = 176$. Substitute $s = 35 - p$: $4(35 - p) + 7p = 176 \\Rightarrow 140 + 3p = 176 \\Rightarrow p = 12$.\n\n**The Full Solution:**\nLet $s$ = standard bolts, $p$ = premium bolts.\n$s + p = 35$\n$4s + 7p = 176$\n\nFrom the first equation: $s = 35 - p$.\nSubstitute: $4(35 - p) + 7p = 176$\n$140 - 4p + 7p = 176$\n$140 + 3p = 176$\n$3p = 36$\n$p = 12$\n\nVerification: $s = 23$. Total: $23 + 12 = 35$ \\checkmark. Time: $4(23) + 7(12) = 92 + 84 = 176$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reports $s = 23$ (standard bolts) instead of premium.\n* Choice C: \"applies the inverse operation\" — swaps the rates $4$ and $7$, getting $p = 16$.\n* Choice D: \"off-by-one\" — solves correctly but reports number of standard bolts.\n\n**Test Day Takeaway:** Define variables explicitly and re-read what the question asks before answering.",
-  skills: ["systems-of-equations", "word-problems"]
+  question: "A museum gift shop has a budget of $\\$640$ to purchase souvenir mugs for a special exhibit. To qualify for a wholesale-supplier discount, the shop must order a minimum of $80$ mugs total. Standard mugs cost $\\$5.20$ each and commemorative mugs cost $\\$9.60$ each. What is the maximum number of commemorative mugs the shop can order while staying within the budget and qualifying for the discount?",
+  correctAnswer: "50",
+  explanation: "**SAT Pattern: Inequality Word Problem (Floor)**\n\n**The correct answer is $50$.**\n\n**The Fast Way (~40s):** Let $s$ = standard, $c$ = commemorative. To max $c$, set $s + c = 80$ exactly, $s = 80 - c$. Budget: $5.20(80 - c) + 9.60c \\leq 640 \\Rightarrow 416 + 4.40c \\leq 640 \\Rightarrow c \\leq 50.91$. Floor: $c = 50$.\n\n**The Full Solution:**\nLet $s$ = standard mugs, $c$ = commemorative mugs.\nConstraints:\n* Discount floor: $s + c \\geq 80$.\n* Budget: $5.20s + 9.60c \\leq 640$.\n* Both non-negative integers.\n\nTo MAXIMIZE $c$, fill the rest with the cheaper standard mugs at EXACTLY the floor. Set $s = 80 - c$:\n\n$5.20(80 - c) + 9.60c \\leq 640$\n$416 - 5.20c + 9.60c \\leq 640$\n$4.40c \\leq 224$\n$c \\leq 50.909...$.\n\nMax integer: $c = 50$.\n\n**Verification:** With $c = 50$, $s = 30$. Total: $30 + 50 = 80 \\geq 80$ ✓. Cost: $5.20(30) + 9.60(50) = 156 + 480 = 636 \\leq 640$ ✓. Try $c = 51$, $s = 29$: $5.20(29) + 9.60(51) = 150.80 + 489.60 = 640.40 > 640$ ✗ — exceeds budget by $\\$0.40$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $66$ (treats $640/9.60 \\approx 66$ as the max, ignoring the discount floor — also $s = 0, c = 66$ violates the floor since $0 + 66 = 66 < 80$).\n* Reporting $80$ (treats the floor as the answer).\n* Reporting $51$ (forgets to round DOWN — $51$ exceeds budget).\n* Reporting $30$ (reports standard mugs instead of commemorative).\n\n**Test Day Takeaway:** Two-constraint optimization (budget + minimum total): To maximize one quantity, fill the remainder with the cheaper option AT EXACTLY the minimum total. Solve the resulting single-variable inequality and take the FLOOR.",
+  skills: ["inequalities", "word-problems", "systems-of-equations"]
 },
 {
   id: 17,

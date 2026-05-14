@@ -430,38 +430,38 @@ export const practiceTest11 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "In an isosceles triangle, the two congruent angles each measure $35^{\\circ}$. What is the measure of the third angle?",
+  question: "A microbiologist studies the decay of a viral sample under controlled laboratory conditions. The number of viable virus particles in the sample is reduced by half every $5$ hours. Which type of function best models the number of viable virus particles as a function of time elapsed since the sample was prepared?",
   choices: [
-    // distractor: gives one of the congruent angles instead of the third
-    { id: "A", text: "$35^{\\circ}$" },
-    // distractor: stops one step early - sums the two given angles
-    { id: "B", text: "$70^{\\circ}$" },
-    { id: "C", text: "$110^{\\circ}$" },
-    // distractor: wrong base - uses 180 - 35 (treats it as supplementary)
-    { id: "D", text: "$145^{\\circ}$" }
+    // distractor: linear — same NUMBER lost each interval (wrong; half is multiplicative)
+    { id: "A", text: "Decreasing linear" },
+    { id: "B", text: "Decreasing exponential" },
+    // distractor: wrong direction — \"reduced\" is decay, not growth
+    { id: "C", text: "Increasing exponential" },
+    // distractor: wrong type — half-life is not a quadratic process
+    { id: "D", text: "Quadratic" }
   ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Isosceles Triangle Angle Sum**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Triangle angles sum to $180^{\\circ}$. Third angle $= 180 - 2(35) = 180 - 70 = 110^{\\circ}$.\n\n**The Full Solution:**\nIn any triangle, the three interior angles sum to $180^{\\circ}$.\n$35^{\\circ} + 35^{\\circ} + x = 180^{\\circ}$\n$70^{\\circ} + x = 180^{\\circ}$\n$x = 110^{\\circ}$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — gives the value of one of the congruent angles.\n* Choice B: \"stops one step early\" — reports the sum of the two congruent angles.\n* Choice D: \"applies the inverse operation\" — uses $180 - 35$ instead of $180 - 70$.\n\n**Test Day Takeaway:** Isosceles triangle has two equal angles AND two equal sides (the sides opposite the equal angles). Triangle angle sum: $180^{\\circ}$.",
-  skills: ["triangles", "angles", "geometry"]
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Classify Physical Motion Model**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** \"Reduced by half every $5$ hours\" = multiplied by $\\frac{1}{2}$ every fixed period $\\Rightarrow$ exponential decay.\n\n**The Full Solution:**\n\"Reduced by half\" means multiplied by $\\frac{1}{2}$ — a multiplicative factor applied at a fixed time interval. That's the definition of exponential decay. The base is $\\frac{1}{2} < 1$, so the function decreases.\n\nA model would be $N(t) = N_0 \\cdot (\\frac{1}{2})^{t/5}$ where $t$ is hours.\n\nVerification: at $t = 0$, $N = N_0$; at $t = 5$, $N = \\frac{1}{2}N_0$; at $t = 10$, $N = \\frac{1}{4}N_0$; at $t = 15$, $N = \\frac{1}{8}N_0$. Each successive $5$-hour interval removes LESS in absolute terms — the signature of exponential decay \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong formula\" — linear would mean the same absolute number lost each interval. \"Half\" is a FRACTION of the current value, which is multiplicative.\n* Choice C: \"wrong direction\" — \"reduced\" means the count goes DOWN.\n* Choice D: \"wrong formula\" — half-life is an exponential process, not quadratic. Quadratic relationships have constant SECOND differences, not constant multiplicative factors.\n\n**Test Day Takeaway:** \"Halves / loses X percent\" every fixed period $\\Rightarrow$ exponential DECAY (base between $0$ and $1$). Half-life problems are exponential, never linear.",
+  skills: ["function-interpretation", "exponential-growth-decay"]
 },
 {
   id: 2,
   type: "multiple-choice",
   difficulty: "easy",
   band: 2,
-  question: "What is the slope of the graph of $y = -3x + 7$ in the $xy$-plane?",
+  question: "A bookstore tracks its monthly stock of a popular paperback. The function $b(d) = -7d + 280$ approximates the number of copies remaining in the store after $d$ days of the month. Which statement is the best interpretation of the $y$-intercept of the graph of $y = b(d)$ in the $dy$-plane in this context?",
   choices: [
-    { id: "A", text: "$-3$" },
-    // distractor: applies inverse op - flips the sign of the slope
-    { id: "B", text: "$3$" },
-    // distractor: wrong base - uses the y-intercept instead of slope
-    { id: "C", text: "$7$" },
-    // distractor: applies inverse op - flips sign of y-intercept
-    { id: "D", text: "$-7$" }
+    // distractor: confuses slope with intercept
+    { id: "A", text: "The store sold approximately $280$ copies each day." },
+    // distractor: swaps coefficients
+    { id: "B", text: "The store began the month with approximately $7$ copies in stock." },
+    { id: "C", text: "The store began the month with approximately $280$ copies in stock." },
+    // distractor: combines both confusions
+    { id: "D", text: "The store sold approximately $7$ copies each day." }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Slope from $y = mx + b$**\n\n**Choice A is correct.**\n\n**The Fast Way (~5s):** In $y = mx + b$, $m$ is the slope. Here $m = -3$.\n\n**The Full Solution:**\nThe slope-intercept form is $y = mx + b$, where $m$ is the slope (rate of change of $y$ per unit $x$) and $b$ is the $y$-intercept.\n\nFor $y = -3x + 7$: $m = -3$, $b = 7$. So the slope is $-3$.\n\n**Why the wrong answers are tempting:**\n* Choice B: \"applies the inverse operation\" — flips the sign of the slope.\n* Choice C: \"wrong base\" — uses the $y$-intercept ($7$) instead of the slope.\n* Choice D: \"applies the inverse operation\" — flips the sign of the $y$-intercept.\n\n**Test Day Takeaway:** In $y = mx + b$, $m$ is ALWAYS the slope (coefficient of $x$). $b$ is the $y$-intercept.",
-  skills: ["linear-functions", "slope"]
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $y$-intercept of $b(d) = -7d + 280$ is $b(0) = 280$. At $d = 0$ (start of month), copies $\\approx 280$.\n\n**The Full Solution:**\nThe $y$-intercept of a linear function $b(d) = md + b_0$ is the value at $d = 0$. Here that value is $280$, and $d$ counts days into the month, so $d = 0$ is the first day. The store began the month with about $280$ copies in stock.\n\nVerification: at $d = 0$, $b = 280$ ✓. At $d = 1$, $b = 273$ — about $7$ copies sold in one day, confirming the slope. The slope is the per-day sales rate; the $y$-intercept is the starting inventory \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base AND wrong unit\" — treats the initial inventory as a per-day rate. At $280$/day, the stock would empty in the first day.\n* Choice B: \"swaps coefficients\" — uses the slope's magnitude as the starting inventory.\n* Choice D: \"correct interpretation of slope, wrong question\" — accurately describes the slope, but the question asks about the $y$-intercept.\n\n**Test Day Takeaway:** $y$-intercept = value at input $0$ = the starting amount. Slope = rate of change per unit. The question's wording tells you which to report.",
+  skills: ["function-interpretation", "linear-functions"]
 },
 {
   id: 3,
@@ -730,22 +730,13 @@ export const practiceTest11 = {
 },
 {
   id: 17,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "Maria has a total of $\\$3.65$ in nickels and dimes in her piggy bank. If she has $44$ coins in total, how many dimes does she have?",
-  choices: [
-    // distractor: stops one step early — number of nickels (15)
-    { id: "A", text: "$15$" },
-    // distractor: wrong base — half of total coins
-    { id: "B", text: "$22$" },
-    { id: "C", text: "$29$" },
-    // distractor: applies the inverse operation — reports total coins instead of dimes
-    { id: "D", text: "$44$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Two-Equation System from a Word Problem**\n\n**Choice C is correct.**\n\n**The Fast Way (~25s):** Let $n$ = nickels, $d$ = dimes. Then $n + d = 44$ and $0.05n + 0.10d = 3.65$. Multiply the value equation by $20$ to clear decimals: $n + 2d = 73$. Subtract $n + d = 44$: $d = 29$.\n\n**The Full Solution:**\nLet $n$ be the number of nickels and $d$ be the number of dimes.\n\nTotal coins: $n + d = 44$.\nTotal value (in dollars): $0.05n + 0.10d = 3.65$.\n\nMultiply the value equation by $20$ to clear decimals: $n + 2d = 73$.\nSubtract the count equation: $(n + 2d) - (n + d) = 73 - 44 \\Rightarrow d = 29$.\n\nThen $n = 44 - 29 = 15$.\n\nVerification: $15 + 29 = 44$ coins \\checkmark; $0.05(15) + 0.10(29) = 0.75 + 2.90 = 3.65$ dollars \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — reports the number of nickels ($15$) instead of dimes.\n* Choice B: \"wrong base\" — splits the total coins evenly without using the value equation.\n* Choice D: \"applies the inverse operation\" — reports the total coin count.\n\n**Test Day Takeaway:** Coin/value word problems are systems in disguise: one equation counts items, the other sums their values. Multiply through to clear decimals before solving.",
-  skills: ["systems-of-equations", "word-problems"]
+  question: "A high-school sports coach has a budget of $\\$3{,}000$ to purchase uniforms for the upcoming season. To qualify for a team-supplier discount, the coach must order a minimum of $230$ uniforms total. Standard uniforms cost $\\$9$ each and pro uniforms cost $\\$15$ each. What is the maximum number of pro uniforms the coach can order while staying within the budget and qualifying for the discount?",
+  correctAnswer: "155",
+  explanation: "**SAT Pattern: Inequality Word Problem (Floor)**\n\n**The correct answer is $155$.**\n\n**The Fast Way (~40s):** Let $s$ = standard, $p$ = pro. To max $p$, set $s + p = 230$ exactly, $s = 230 - p$. Budget: $9(230 - p) + 15p \\leq 3000 \\Rightarrow 2070 + 6p \\leq 3000 \\Rightarrow p \\leq 155$.\n\n**The Full Solution:**\nLet $s$ = standard uniforms, $p$ = pro uniforms.\nConstraints:\n* Discount floor: $s + p \\geq 230$.\n* Budget: $9s + 15p \\leq 3{,}000$.\n* Both non-negative integers.\n\nTo MAXIMIZE $p$, fill the rest with the cheaper standard uniforms at EXACTLY the floor (any extras waste budget). Set $s = 230 - p$:\n\n$9(230 - p) + 15p \\leq 3{,}000$\n$2{,}070 - 9p + 15p \\leq 3{,}000$\n$6p \\leq 930$\n$p \\leq 155$.\n\nMax integer: $p = 155$.\n\n**Verification:** With $p = 155$, $s = 75$. Total: $75 + 155 = 230 \\geq 230$ ✓. Cost: $9(75) + 15(155) = 675 + 2{,}325 = 3{,}000 \\leq 3{,}000$ ✓ (exactly at budget). Try $p = 156$, $s = 74$: $9(74) + 15(156) = 666 + 2{,}340 = 3{,}006 > 3{,}000$ ✗ — exceeds budget by $\\$6$ \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $200$ (treats $3{,}000/15 = 200$ as the max, ignoring the discount floor — but also $s = 0, p = 200$ satisfies the floor since $200 \\geq 230$ is FALSE, so this candidate fails on floor anyway).\n* Reporting $230$ (treats the floor as the answer).\n* Reporting $156$ (forgets to round DOWN — $156$ exceeds budget).\n* Reporting $75$ (reports standard uniforms instead of pro).\n\n**Test Day Takeaway:** Two-constraint optimization (budget + minimum total): To maximize one quantity, fill the remainder with the cheaper option AT EXACTLY the minimum total. Solve the resulting single-variable inequality and take the FLOOR.",
+  skills: ["inequalities", "word-problems", "systems-of-equations"]
 },
 {
   id: 18,

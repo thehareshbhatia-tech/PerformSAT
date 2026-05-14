@@ -420,19 +420,19 @@ export const practiceTest3 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 2,
-  question: "What is the range of the data set $\\{12, 17, 9, 23, 14, 18\\}$?",
+  question: "A retirement portfolio invested in a particular index fund has historically quadrupled in value every $14$ years. Assuming this trend continues, which type of function best models the value of the portfolio as a function of the number of years since the initial investment?",
   choices: [
-    // distractor: gives the minimum
-    { id: "A", text: "$9$" },
-    { id: "B", text: "$14$" },
-    // distractor: gives an approximate mean (15.5) instead of the range
-    { id: "C", text: "$15.5$" },
-    // distractor: gives the maximum
-    { id: "D", text: "$23$" }
+    // distractor: linear — value would add the SAME amount each year
+    { id: "A", text: "Increasing linear" },
+    { id: "B", text: "Increasing exponential" },
+    // distractor: wrong direction — \"quadruples\" is growth, not decay
+    { id: "C", text: "Decreasing exponential" },
+    // distractor: wrong type — quadratic has constant second difference, not constant multiplier
+    { id: "D", text: "Quadratic" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Range of a Data Set**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Range $=$ max $-$ min $= 23 - 9 = 14$.\n\n**The Full Solution:**\nThe range is the difference between the largest and smallest values:\nMax $= 23$, min $= 9$.\nRange $= 23 - 9 = 14$.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — gives the minimum instead of the range.\n* Choice C: \"applies the inverse operation\" — computes the mean ($\\dfrac{93}{6} = 15.5$) instead of the range.\n* Choice D: \"wrong base\" — gives the maximum instead of the range.\n\n**Test Day Takeaway:** Range $=$ max $-$ min. Don't confuse with mean (sum$/n$) or median (middle).",
-  skills: ["statistics", "range"]
+  explanation: "**SAT Pattern: Classify Physical Motion Model**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** \"Quadruples every $14$ years\" = multiplied by a fixed factor ($4$) every fixed period $\\Rightarrow$ exponential growth.\n\n**The Full Solution:**\nWhen a quantity is MULTIPLIED by a constant factor (here, $4$) every constant time interval (here, $14$ years), the model is EXPONENTIAL. The factor is $> 1$, so the function increases.\n\nA model would be $V(t) = V_0 \\cdot 4^{t/14}$ where $t$ is years.\n\nVerification: at $t = 0$, $V = V_0$; at $t = 14$, $V = 4V_0$; at $t = 28$, $V = 16V_0$. Each $14$-year period quadruples the value, not adds a fixed amount \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong formula\" — linear would mean adding the SAME number of dollars each year, but quadrupling adds an increasing number each year.\n* Choice C: \"wrong direction\" — quadrupling means GROWTH, not decay. Decay would say \"halves every $14$ years.\"\n* Choice D: \"wrong formula\" — quadratic relationships have constant SECOND differences, not constant multiplicative factors.\n\n**Test Day Takeaway:** \"Multiplied / doubles / quadruples / grows by X percent every [period]\" $\\Rightarrow$ EXPONENTIAL. \"Adds X every [period]\" $\\Rightarrow$ LINEAR.",
+  skills: ["function-interpretation", "exponential-growth-decay"]
 },
 {
   id: 2,
@@ -458,19 +458,19 @@ export const practiceTest3 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 3,
-  question: "Which expression is equivalent to $x^2 - 9$?",
+  question: "A local food truck has been operating for two years. The function $c(w) = 18w + 45$ approximates the cumulative number of regular customers the truck has gained after $w$ weeks of operation. Which statement is the best interpretation of the $y$-intercept of the graph of $y = c(w)$ in the $wy$-plane in this context?",
   choices: [
-    // distractor: applies sum-of-squares pattern incorrectly
-    { id: "A", text: "$(x - 3)(x - 3)$" },
-    { id: "B", text: "$(x - 3)(x + 3)$" },
-    // distractor: applies sum pattern with same sign
-    { id: "C", text: "$(x + 3)(x + 3)$" },
-    // distractor: factors out x instead of using difference of squares
-    { id: "D", text: "$x(x - 9)$" }
+    // distractor: confuses slope (rate) with y-intercept (initial)
+    { id: "A", text: "The truck added approximately $45$ new regular customers each week." },
+    { id: "B", text: "The truck began operations with approximately $45$ regular customers from a previous venue." },
+    // distractor: swaps slope and intercept
+    { id: "C", text: "The truck began operations with approximately $18$ regular customers from a previous venue." },
+    // distractor: combines both confusions
+    { id: "D", text: "The truck added approximately $18$ new regular customers each week, starting from zero." }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Difference of Squares**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** $a^2 - b^2 = (a - b)(a + b)$. Here $a = x$, $b = 3$, so $x^2 - 9 = (x - 3)(x + 3)$.\n\n**The Full Solution:**\n$x^2 - 9 = x^2 - 3^2$.\nUsing the difference-of-squares identity $a^2 - b^2 = (a - b)(a + b)$:\n$x^2 - 3^2 = (x - 3)(x + 3)$.\nVerification: $(x - 3)(x + 3) = x^2 + 3x - 3x - 9 = x^2 - 9$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — squares $(x - 3)$ instead of using difference of squares.\n* Choice C: \"applies the inverse operation\" — uses sum-of-squares-like pattern (no real factorization).\n* Choice D: \"applies the inverse operation\" — factors out $x$ instead of treating $9$ as $3^2$.\n\n**Test Day Takeaway:** Recognize the difference-of-squares pattern $a^2 - b^2 = (a - b)(a + b)$ on sight. The two factors have OPPOSITE signs.",
-  skills: ["factoring", "polynomial-operations"]
+  explanation: "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $y$-intercept of $c(w) = 18w + 45$ is $c(0) = 45$. At $w = 0$ (the truck just started), regular customers $\\approx 45$.\n\n**The Full Solution:**\nThe $y$-intercept of a linear function $c(w) = mw + b$ is $b$, the value at $w = 0$. Here $b = 45$, and $w$ counts weeks of operation, so $w = 0$ corresponds to when the truck began. The truck started with about $45$ regular customers, presumably carried over from a previous venue.\n\nVerification: at $w = 0$, $c = 45$ ✓. At $w = 1$, $c = 63$ — gained $18$ customers in one week, confirming the slope. The slope is the per-week growth; the $y$-intercept is the starting customer base \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"correct interpretation of slope, wrong question\" — accurately describes the slope, but the question asks about the $y$-intercept.\n* Choice C: \"swaps coefficients\" — uses the slope's magnitude as the starting count.\n* Choice D: \"sign error AND wrong base\" — ignores the $+45$ and treats the start as zero.\n\n**Test Day Takeaway:** $y$-intercept = value at input $0$ = the starting point in the story. Slope = rate of change per unit. The question's wording (\"$y$-intercept\" vs \"slope/rate\") tells you which to report.",
+  skills: ["function-interpretation", "linear-functions"]
 },
 {
   id: 4,
@@ -770,22 +770,13 @@ export const practiceTest3 = {
 },
 {
   id: 22,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "A factory makes $11$-inch, $6$-inch, and $3$-inch metal rods. During one shift, the number of $11$-inch rods produced is $4$ times the number $r$ of $6$-inch rods, and the number of $3$-inch rods is $35$ more than the number of $6$-inch rods. The factory produces a total of $617$ rods that shift. How many $6$-inch rods does the factory produce that shift?",
-  choices: [
-    // distractor: divides total by 6 ignoring the +35 offset
-    { id: "A", text: "$103$" },
-    { id: "B", text: "$97$" },
-    // distractor: applies inverse — uses (617 - 35)/4 = 145.5
-    { id: "C", text: "$145$" },
-    // distractor: stops early — divides 617/4 ignoring offset
-    { id: "D", text: "$154$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Word-Problem to Multi-Step Linear**\n\n**Choice B is correct.**\n\n**The Fast Way (~40s):** Total $= 4r + r + (r + 35) = 6r + 35 = 617$. So $6r = 582$ and $r = 97$.\n\n**The Full Solution:**\nLet $r$ be the number of $6$-inch rods.\nNumber of $11$-inch rods: $4r$.\nNumber of $3$-inch rods: $r + 35$.\n\nTotal: $4r + r + (r + 35) = 6r + 35 = 617$.\n$6r = 582 \\Rightarrow r = 97$.\n\nVerification: $4(97) + 97 + (97 + 35) = 388 + 97 + 132 = 617$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"off-by-one\" — divides $617$ by $6$ ignoring the offset.\n* Choice C: \"applies the inverse operation\" — uses $\\frac{617 - 35}{4} = 145.5 \\approx 145$ instead of dividing by $6$.\n* Choice D: \"stops one step early\" — divides $\\frac{617}{4}$ ignoring both the offset and the additional rod counts.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$35$ more than\".",
-  skills: ["word-problems", "ratios"]
+  question: "A school prom committee has a budget of $\\$720$ for centerpieces. To receive a vendor's quantity discount, the committee must order a minimum of $100$ centerpieces total. Simple centerpieces cost $\\$4$ each and elegant centerpieces cost $\\$8$ each. What is the maximum number of elegant centerpieces the committee can order while staying within the budget and qualifying for the discount?",
+  correctAnswer: "80",
+  explanation: "**SAT Pattern: Inequality Word Problem (Floor)**\n\n**The correct answer is $80$.**\n\n**The Fast Way (~40s):** Let $s$ = simple, $e$ = elegant. To max $e$, set $s + e = 100$ exactly, $s = 100 - e$. Budget: $4(100 - e) + 8e \\leq 720 \\Rightarrow 400 + 4e \\leq 720 \\Rightarrow e \\leq 80$.\n\n**The Full Solution:**\nLet $s$ = simple centerpieces, $e$ = elegant centerpieces.\nConstraints:\n* Discount floor: $s + e \\geq 100$.\n* Budget: $4s + 8e \\leq 720$.\n* Both non-negative integers.\n\nTo MAXIMIZE $e$, fill the rest with the cheaper simple centerpieces at EXACTLY the floor (any extras waste budget). Set $s = 100 - e$:\n\n$4(100 - e) + 8e \\leq 720$\n$400 - 4e + 8e \\leq 720$\n$4e \\leq 320$\n$e \\leq 80$.\n\nMax integer: $e = 80$.\n\n**Verification:** With $e = 80$, $s = 20$. Total: $20 + 80 = 100 \\geq 100$ ✓. Cost: $4(20) + 8(80) = 80 + 640 = 720 \\leq 720$ ✓ (exactly at budget). Try $e = 81$, $s = 19$: $4(19) + 8(81) = 76 + 648 = 724 > 720$ ✗ — exceeds budget \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $90$ (treats $720/8 = 90$ as the max, ignoring the floor — also $s = 0, e = 90$ violates the floor: $0 + 90 = 90 < 100$).\n* Answering $100$ (treats the floor itself as the answer).\n* Answering $81$ (forgets to round DOWN).\n* Answering $20$ (reports simple centerpieces instead of elegant).\n\n**Test Day Takeaway:** Two-constraint optimization (budget + minimum total): To maximize one quantity, fill the remainder with the cheaper option AT EXACTLY the minimum total. Solve the resulting single-variable inequality and take the FLOOR.",
+  skills: ["inequalities", "word-problems", "systems-of-equations"]
 }
       ]
     }

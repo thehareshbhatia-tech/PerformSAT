@@ -407,19 +407,19 @@ export const practiceTest4 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 2,
-  question: "A car is traveling at a constant speed of $88$ feet per second. What is the car's speed, in miles per hour? ($1$ mile $= 5{,}280$ feet)",
+  question: "A rescue helicopter ascends from a landing pad at an altitude of $200$ feet to a cruising altitude of $1{,}400$ feet at a constant rate of $150$ feet per minute. What type of function best models the relationship between the ascending helicopter's altitude and time?",
   choices: [
-    // distractor: forgets seconds-to-hours, multiplies by 60 instead of 3600
-    { id: "A", text: "$1$" },
-    { id: "B", text: "$60$" },
-    // distractor: gives the answer in feet per hour without converting to miles
-    { id: "C", text: "$316{,}800$" },
-    // distractor: returns the conversion factor itself
-    { id: "D", text: "$5{,}280$" }
+    // distractor: confuses constant rate with multiplicative growth
+    { id: "A", text: "Increasing exponential" },
+    { id: "B", text: "Increasing linear" },
+    // distractor: sign error — \"ascending\" is increasing
+    { id: "C", text: "Decreasing linear" },
+    // distractor: combines wrong type with wrong direction
+    { id: "D", text: "Decreasing exponential" }
   ],
   correctAnswer: "B",
-  explanation: "**SAT Pattern: Multi-Step Unit Conversion**\n\n**Choice B is correct.**\n\n**The Fast Way (~20s):** $\\dfrac{88\\text{ ft}}{1\\text{ s}} \\cdot \\dfrac{3600\\text{ s}}{1\\text{ hr}} \\cdot \\dfrac{1\\text{ mi}}{5{,}280\\text{ ft}} = \\dfrac{88 \\cdot 3600}{5{,}280} = 60$ mph.\n\n**The Full Solution:**\nConvert seconds to hours: $88$ ft/s $\\times 3600$ s/hr $= 316{,}800$ ft/hr.\nConvert feet to miles: $\\dfrac{316{,}800}{5{,}280} = 60$ mi/hr.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — multiplies by $60$ (sec→min) instead of $3600$ (sec→hr): $\\dfrac{88 \\cdot 60}{5280} \\approx 1$.\n* Choice C: \"wrong base\" — gives feet per hour without converting to miles.\n* Choice D: \"applies the inverse operation\" — returns the conversion factor as the answer.\n\n**Test Day Takeaway:** When converting compound units, chain conversion factors so unwanted units cancel.",
-  skills: ["unit-conversion", "ratios"]
+  explanation: "**SAT Pattern: Classify Physical Motion Model**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** \"Constant rate\" + \"ascends\" $\\Rightarrow$ increasing linear. Each minute adds the same $150$ feet, so the change per unit time is constant.\n\n**The Full Solution:**\nThe defining feature of a LINEAR function is constant rate of change. \"Ascends at a constant rate of $150$ feet per minute\" describes exactly that — same number of feet added each minute. Because the helicopter is ASCENDING (altitude growing), the slope is positive.\n\nA model would be $h(t) = 200 + 150t$.\n\nVerification: at $t = 0$, $h = 200$ (pad); at $t = 1$, $h = 350$; at $t = 2$, $h = 500$. Differences: $+150, +150$ — constant \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong formula\" — exponential growth requires a multiplicative factor (e.g., \"doubles each minute\"), not a constant additive rate.\n* Choice C: \"sign error\" — \"ascends\" means altitude INCREASES, so the slope is positive.\n* Choice D: \"wrong direction AND wrong type\" — combines both errors.\n\n**Test Day Takeaway:** \"Constant rate of X per unit\" = LINEAR. The sign (increasing/decreasing) comes from the verb (\"ascends/climbs\" vs \"descends/drops\"). Reserve EXPONENTIAL for \"multiplied by\" or \"by X percent\" language.",
+  skills: ["function-interpretation", "linear-functions"]
 },
 {
   id: 2,
@@ -461,19 +461,19 @@ export const practiceTest4 = {
   type: "multiple-choice",
   difficulty: "easy",
   band: 2,
-  question: "Which expression is equivalent to $(3x^2 + 5x) + (2x^2 - 8x)$?",
+  question: "A meal-prep service makes prepackaged lunches. The function $f(x) = -8x + 240$ approximates the volume, in fluid ounces, of soup the service had remaining after preparing $x$ lunch boxes. Which statement is the best interpretation of the $y$-intercept of the graph of $y = f(x)$ in the $xy$-plane in this context?",
   choices: [
-    { id: "A", text: "$5x^2 - 3x$" },
-    // distractor: adds 5x + 8x instead of 5x - 8x
-    { id: "B", text: "$5x^2 + 13x$" },
-    // distractor: multiplies x^2 coefficients (3*2=6) instead of adding (3+2=5)
-    { id: "C", text: "$6x^2 - 3x$" },
-    // distractor: adds exponents (2+2=4) instead of leaving them as 2
-    { id: "D", text: "$5x^4 - 3x$" }
+    // distractor: confuses slope with intercept
+    { id: "A", text: "The service used approximately $240$ fluid ounces of soup for each lunch box." },
+    // distractor: confuses slope with intercept (low value)
+    { id: "B", text: "The service had approximately $8$ fluid ounces of soup before preparing the lunch boxes." },
+    { id: "C", text: "The service had approximately $240$ fluid ounces of soup before preparing the lunch boxes." },
+    // distractor: combines both confusions
+    { id: "D", text: "The service used approximately $8$ fluid ounces of soup for each lunch box." }
   ],
-  correctAnswer: "A",
-  explanation: "**SAT Pattern: Combining Like Terms**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Add the $x^2$ terms: $3x^2 + 2x^2 = 5x^2$. Add the $x$ terms: $5x - 8x = -3x$. Total: $5x^2 - 3x$.\n\n**The Full Solution:**\n$(3x^2 + 5x) + (2x^2 - 8x)$\n$= (3x^2 + 2x^2) + (5x - 8x)$\n$= 5x^2 + (-3x)$\n$= 5x^2 - 3x$\n\n**Why the wrong answers are tempting:**\n* Choice B: \"applies the inverse operation\" — adds $5x + 8x$ instead of $5x - 8x$.\n* Choice C: \"wrong base\" — multiplies the $x^2$ coefficients ($3 \\cdot 2 = 6$) instead of adding ($3 + 2 = 5$).\n* Choice D: \"off-by-one\" — adds the exponents ($2 + 2 = 4$) instead of leaving them.\n\n**Test Day Takeaway:** When adding polynomials, combine ONLY like terms (same variable, same exponent). Coefficients add; exponents stay.",
-  skills: ["polynomial-operations", "combining-like-terms"]
+  correctAnswer: "C",
+  explanation: "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $y$-intercept of $f(x) = -8x + 240$ is $f(0) = 240$. At $x = 0$ (no lunch boxes made yet), soup remaining $= 240$ fl oz.\n\n**The Full Solution:**\nThe $y$-intercept of a linear function $f(x) = mx + b$ is $b$, the value at $x = 0$. Here $b = 240$, and $x$ counts lunch boxes prepared, so $x = 0$ corresponds to BEFORE any preparation began. The service started with about $240$ fluid ounces of soup.\n\nVerification: at $x = 0$, $f = 240$ (initial) ✓. At $x = 1$, $f = 232$ — used $8$ oz on the first lunch. The slope $-8$ separately gives the per-lunch usage of $8$ fl oz, but that's the SLOPE, not the $y$-intercept \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base AND wrong unit\" — treats the initial total as a per-lunch rate.\n* Choice B: \"swaps coefficients\" — uses the slope's magnitude as the starting amount.\n* Choice D: \"correct interpretation of slope, but wrong question\" — accurately describes the slope, but the question asks about the $y$-intercept (initial amount, not rate).\n\n**Test Day Takeaway:** In $f(x) = mx + b$ contextual problems: $b$ (the $y$-intercept) is the INITIAL value at $x = 0$. $m$ (the slope) is the per-unit RATE. The question's wording (\"$y$-intercept\" vs \"slope\" or \"rate\") tells you which to read off.",
+  skills: ["function-interpretation", "linear-functions"]
 },
 {
   id: 4,
@@ -772,22 +772,13 @@ export const practiceTest4 = {
 },
 {
   id: 21,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "An aquarium holds $3{,}600$ fluid ounces of fresh water and a tank in the same room holds $5{,}120$ fluid ounces. A maintenance schedule allows the tank to lose $1$ gallon every $4$ days through evaporation, where $1$ gallon $= 128$ fluid ounces. After how many days does the tank's volume first equal the aquarium's current volume?",
-  choices: [
-    // distractor: divides total ounces by 128 without subtracting first
-    { id: "A", text: "$40$" },
-    { id: "B", text: "$47.5$" },
-    // distractor: divides 5120 by 128 = 40 days (ignores the aquarium volume)
-    { id: "C", text: "$10$" },
-    // distractor: forgets the per-4-day rate (treats as 1 gallon per day)
-    { id: "D", text: "$11.875$" }
-  ],
-  correctAnswer: "B",
-  explanation: "**SAT Pattern: Unit Conversion**\n\n**Choice B is correct.**\n\n**The Fast Way (~35s):** Difference: $5{,}120 - 3{,}600 = 1{,}520$ ounces. In gallons: $\\frac{1{,}520}{128} = 11.875$. At $1$ gallon per $4$ days: $11.875 \\cdot 4 = 47.5$ days.\n\n**The Full Solution:**\nThe tank must lose $5{,}120 - 3{,}600 = 1{,}520$ fluid ounces.\nConvert ounces to gallons: $\\dfrac{1{,}520}{128} = 11.875$ gallons.\nAt a rate of $1$ gallon every $4$ days, the time required is $11.875 \\cdot 4 = 47.5$ days.\n\nVerification: in $47.5$ days the tank loses $\\dfrac{47.5}{4} = 11.875$ gallons $= 11.875 \\cdot 128 = 1{,}520$ ounces; new volume $= 5{,}120 - 1{,}520 = 3{,}600$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base\" — divides by $128$ but skips the difference step.\n* Choice C: \"stops one step early\" — divides $5{,}120$ by $128 \\cdot 4 = 512$, treating per-4-day rate without subtracting the aquarium volume.\n* Choice D: \"applies the inverse operation\" — gets the gallons but forgets the per-4-day rate.\n\n**Test Day Takeaway:** For multi-step rate problems, identify (a) what changes, (b) the conversion factor, and (c) the time-rate. Multiply or divide once for each.",
-  skills: ["word-problems", "ratios"]
+  question: "A bookstore owner budgets $\\$1{,}800$ to purchase journals for an upcoming festival. To qualify for a wholesale discount, the owner must purchase a minimum of $200$ journals total. If plain journals cost $\\$5.40$ each and hardcover journals cost $\\$13.20$ each, what is the maximum number of hardcover journals the owner can purchase while staying within the budget and qualifying for the discount?",
+  correctAnswer: "92",
+  explanation: "**SAT Pattern: Inequality Word Problem (Floor)**\n\n**The correct answer is $92$.**\n\n**The Fast Way (~45s):** Let $h$ = hardcover, $p$ = plain. To max $h$, set $p + h = 200$ exactly, $p = 200 - h$. Budget: $5.40(200 - h) + 13.20h \\leq 1800 \\Rightarrow 1080 + 7.80h \\leq 1800 \\Rightarrow h \\leq 92.30$. Floor: $h = 92$.\n\n**The Full Solution:**\nLet $p$ = plain journals and $h$ = hardcover journals.\nConstraints:\n* Discount floor: $p + h \\geq 200$.\n* Budget: $5.40p + 13.20h \\leq 1{,}800$.\n* Both non-negative integers.\n\nTo MAXIMIZE $h$, fill the rest with the cheaper plain journals at EXACTLY the floor (any extra plain journals waste budget). Set $p = 200 - h$:\n\n$5.40(200 - h) + 13.20h \\leq 1{,}800$\n$1{,}080 - 5.40h + 13.20h \\leq 1{,}800$\n$7.80h \\leq 720$\n$h \\leq 92.307...$.\n\nMax integer: $h = 92$.\n\n**Verification:** With $h = 92$, $p = 108$. Total: $92 + 108 = 200 \\geq 200$ ✓. Cost: $5.40(108) + 13.20(92) = 583.20 + 1{,}214.40 = 1{,}797.60 \\leq 1{,}800$ ✓. Try $h = 93$, $p = 107$: $5.40(107) + 13.20(93) = 577.80 + 1{,}227.60 = 1{,}805.40 > 1{,}800$ ✗ — exceeds budget \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Answering $136$ (treats $1{,}800/13.20 \\approx 136$ as the max, ignoring the discount floor — but ALSO $p = 0, h = 136$ violates the floor: $0 + 136 = 136 < 200$).\n* Answering $200$ (treats the floor itself as the answer).\n* Answering $93$ (forgets to round DOWN — $93$ exceeds the budget by about $\\$5.40$).\n* Answering $108$ (reports plain journals instead of hardcover).\n\n**Test Day Takeaway:** Two-constraint optimization (budget + minimum total): To maximize one quantity, fill the remainder with the cheaper option AT EXACTLY the minimum total. Solve the resulting single-variable inequality and take the FLOOR. Always verify the next integer up to confirm it fails.",
+  skills: ["inequalities", "word-problems", "systems-of-equations"]
 },
 {
   id: 22,

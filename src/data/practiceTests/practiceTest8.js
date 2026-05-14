@@ -426,32 +426,41 @@ export const practiceTest8 = {
 
 {
   id: 1,
-  type: "fill-in",
+  type: "multiple-choice",
   difficulty: "easy",
   band: 2,
-  question: "In a right triangle, one of the acute angles measures $34^{\\circ}$. What is the measure, in degrees, of the other acute angle?",
-  correctAnswer: "56",
-  explanation: "**SAT Pattern: Complementary Acute Angles**\n\n**The correct answer is $56$.**\n\n**The Fast Way (~5s):** In a right triangle, the two acute angles are complementary (sum to $90^{\\circ}$): $90 - 34 = 56$.\n\n**The Full Solution:**\nThe three angles of any triangle sum to $180^{\\circ}$. In a right triangle, one angle is $90^{\\circ}$, so the other two sum to $90^{\\circ}$.\n\nGiven one acute angle is $34^{\\circ}$:\nOther acute angle $= 90^{\\circ} - 34^{\\circ} = 56^{\\circ}$.\n\n**Common Mistakes to Avoid:**\n* Computing $180 - 34 = 146$ (forgets the right angle).\n* Computing $180 - 90 - 34 - 90 = -34$ (over-subtracts).\n\n**Test Day Takeaway:** In a right triangle, the two acute angles are COMPLEMENTARY (sum to $90^{\\circ}$). One of them $= 90 -$ other.",
-  skills: ["triangles", "angles", "geometry"]
+  question: "A college club tracks attendance at its weekly meetings. Each week, the number of attendees is approximately $5\\%$ higher than the previous week's attendance, as word-of-mouth spreads. Which type of function best models the number of attendees as a function of the number of weeks since the club began?",
+  choices: [
+    // distractor: linear — same NUMBER more each week (wrong; \"5%\" is multiplicative)
+    { id: "A", text: "Increasing linear" },
+    { id: "B", text: "Increasing exponential" },
+    // distractor: wrong direction — \"higher\" is growth, not decay
+    { id: "C", text: "Decreasing exponential" },
+    // distractor: wrong type — quadratic has constant second difference
+    { id: "D", text: "Quadratic" }
+  ],
+  correctAnswer: "B",
+  explanation: "**SAT Pattern: Classify Physical Motion Model**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** \"$5\\%$ higher than the previous week\" = multiplied by $1.05$ each week (a fixed factor) $\\Rightarrow$ exponential growth.\n\n**The Full Solution:**\n\"$5\\%$ higher than the previous week's attendance\" describes a percent of the CURRENT week's attendees, not a fixed number. Each week's attendance is $1.05$ times the previous week's — a multiplicative factor applied at fixed intervals. That's the definition of exponential growth.\n\nA model would be $A(w) = A_0 \\cdot (1.05)^w$ where $w$ is weeks.\n\nVerification: at $w = 0$, $A = A_0$; at $w = 1$, $A = 1.05 A_0$; at $w = 2$, $A = 1.1025 A_0$. The NUMBER added each week (in attendees) grows over time, the signature of exponential growth vs the constant number added in linear growth \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong formula\" — linear would mean the same NUMBER of new attendees each week (e.g., $+10$). \"$5\\%$\" is a percent of the current value, which is multiplicative.\n* Choice C: \"wrong direction\" — \"higher\" means growth, not decay.\n* Choice D: \"wrong formula\" — quadratic relationships have constant SECOND differences, not constant multiplicative factors.\n\n**Test Day Takeaway:** \"Higher / grows / increases by X percent each [period]\" $\\Rightarrow$ EXPONENTIAL growth. \"Higher by X each [period]\" $\\Rightarrow$ LINEAR.",
+  skills: ["function-interpretation", "exponential-growth-decay"]
 },
 {
   id: 2,
   type: "multiple-choice",
   difficulty: "easy",
   band: 2,
-  question: "What percent is equivalent to the decimal $0.085$?",
+  question: "A high-school marching band uses a particular brand of candle for a fundraiser. The function $C(h) = -16h + 240$ approximates the height of a candle, in millimeters, after $h$ hours of continuous burning. Which statement is the best interpretation of the $y$-intercept of the graph of $y = C(h)$ in the $hy$-plane in this context?",
   choices: [
-    // distractor: applies inverse op - divides by 100 instead of multiplying
-    { id: "A", text: "$0.085\\%$" },
-    // distractor: off by a decimal place
-    { id: "B", text: "$0.85\\%$" },
-    { id: "C", text: "$8.5\\%$" },
-    // distractor: extra factor of 10 - applies times 1000 instead of 100
-    { id: "D", text: "$85\\%$" }
+    // distractor: confuses slope with intercept
+    { id: "A", text: "The candle burns down at approximately $240$ millimeters per hour." },
+    // distractor: swaps coefficients
+    { id: "B", text: "The candle was approximately $16$ millimeters tall before it was lit." },
+    { id: "C", text: "The candle was approximately $240$ millimeters tall before it was lit." },
+    // distractor: combines both confusions
+    { id: "D", text: "The candle burns down at approximately $16$ millimeters per hour." }
   ],
   correctAnswer: "C",
-  explanation: "**SAT Pattern: Decimal-to-Percent Conversion**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** To convert decimal to percent, multiply by $100$: $0.085 \\times 100 = 8.5\\%$.\n\n**The Full Solution:**\nA percent is a decimal multiplied by $100$:\n$0.085 = 0.085 \\times 100\\% = 8.5\\%$.\n\nMechanic: shift the decimal point two places to the right.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"applies the inverse operation\" — keeps the decimal as-is without converting.\n* Choice B: \"off-by-one\" — shifts the decimal one place instead of two.\n* Choice D: \"wrong base\" — multiplies by $1000$ instead of $100$.\n\n**Test Day Takeaway:** Decimal $\\to$ percent: multiply by $100$ (shift decimal $2$ places right). Percent $\\to$ decimal: divide by $100$ (shift left).",
-  skills: ["percents"]
+  explanation: "**SAT Pattern: Interpret Initial Value in Context**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** $y$-intercept of $C(h) = -16h + 240$ is $C(0) = 240$. At $h = 0$ (before burning), height $\\approx 240$ mm.\n\n**The Full Solution:**\nThe $y$-intercept of a linear function $C(h) = mh + b$ is $b$, the value at $h = 0$. Here $b = 240$, and $h$ counts hours of burning, so $h = 0$ is BEFORE the candle was lit. The candle was about $240$ millimeters tall to start.\n\nVerification: at $h = 0$, $C = 240$ ✓. At $h = 1$, $C = 224$ — about $16$ mm burned in one hour, confirming the slope. The slope is the burn rate; the $y$-intercept is the initial height \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"wrong base AND wrong unit\" — treats the initial height as a per-hour burn rate. At $240$ mm/hour the candle would vanish in the first hour.\n* Choice B: \"swaps coefficients\" — uses the slope's magnitude as the starting height.\n* Choice D: \"correct interpretation of slope, wrong question\" — accurately describes the slope, but the question asks about the $y$-intercept.\n\n**Test Day Takeaway:** $y$-intercept = value at input $0$ = the starting amount. Slope = rate of change per unit. The question's wording tells you which to report.",
+  skills: ["function-interpretation", "linear-functions"]
 },
 {
   id: 3,
@@ -681,22 +690,13 @@ export const practiceTest8 = {
 },
 {
   id: 16,
-  type: "multiple-choice",
+  type: "fill-in",
   difficulty: "hard",
   band: 7,
-  question: "A factory produces $5$-inch, $8$-inch, and $11$-inch metal bolts. During one shift, the number of $11$-inch bolts produced is $4$ times the number $n$ of $8$-inch bolts, and the number of $5$-inch bolts is $50$ more than the number of $8$-inch bolts. The factory produces a total of $914$ bolts that shift. How many $8$-inch bolts does the factory produce?",
-  choices: [
-    // distractor: stops one step early — divides 914/4 forgetting other terms
-    { id: "A", text: "$229$" },
-    // distractor: applies inverse op — uses (914 - 50)/4 = 216
-    { id: "B", text: "$216$" },
-    { id: "C", text: "$144$" },
-    // distractor: off-by-one — divides 914 by 6 ignoring offset
-    { id: "D", text: "$152$" }
-  ],
-  correctAnswer: "C",
-  explanation: "**SAT Pattern: Word-Problem to Multi-Step Linear**\n\n**Choice C is correct.**\n\n**The Fast Way (~40s):** Total $= 4n + n + (n + 50) = 6n + 50 = 914$. So $6n = 864$ and $n = 144$.\n\n**The Full Solution:**\nLet $n$ be the number of $8$-inch bolts.\nNumber of $11$-inch bolts: $4n$.\nNumber of $5$-inch bolts: $n + 50$.\n\nTotal: $4n + n + (n + 50) = 6n + 50 = 914$.\n$6n = 864 \\Rightarrow n = 144$.\n\nVerification: $4(144) + 144 + (144 + 50) = 576 + 144 + 194 = 914$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* Choice A: \"stops one step early\" — divides $914$ by $4$ forgetting the other two quantities.\n* Choice B: \"applies the inverse operation\" — uses $\\frac{914 - 50}{4} = 216$ instead of dividing by $6$.\n* Choice D: \"off-by-one\" — divides $914$ by $6$ ignoring the $+50$ offset, giving $\\approx 152$.\n\n**Test Day Takeaway:** When three quantities share a common variable, write each in terms of that variable, then sum and equate to the total. Always include any offsets like \"$50$ more than\".",
-  skills: ["solving-equations", "word-problems"]
+  question: "A hospital food-service manager has a budget of $\\$880$ to purchase reusable meal trays. To qualify for a hospital-supply discount, the manager must order a minimum of $120$ trays total. Standard trays cost $\\$5.50$ each and insulated trays cost $\\$9.20$ each. What is the maximum number of insulated trays the manager can order while staying within the budget and qualifying for the discount?",
+  correctAnswer: "59",
+  explanation: "**SAT Pattern: Inequality Word Problem (Floor)**\n\n**The correct answer is $59$.**\n\n**The Fast Way (~45s):** Let $s$ = standard, $i$ = insulated. To max $i$, set $s + i = 120$ exactly, $s = 120 - i$. Budget: $5.50(120 - i) + 9.20i \\leq 880 \\Rightarrow 660 + 3.70i \\leq 880 \\Rightarrow i \\leq 59.46$. Floor: $i = 59$.\n\n**The Full Solution:**\nLet $s$ = standard trays, $i$ = insulated trays.\nConstraints:\n* Discount floor: $s + i \\geq 120$.\n* Budget: $5.50s + 9.20i \\leq 880$.\n* Both non-negative integers.\n\nTo MAXIMIZE $i$, fill the rest with the cheaper standard trays at EXACTLY the floor (any extras waste budget). Set $s = 120 - i$:\n\n$5.50(120 - i) + 9.20i \\leq 880$\n$660 - 5.50i + 9.20i \\leq 880$\n$3.70i \\leq 220$\n$i \\leq 59.459...$.\n\nMax integer: $i = 59$.\n\n**Verification:** With $i = 59$, $s = 61$. Total: $61 + 59 = 120 \\geq 120$ ✓. Cost: $5.50(61) + 9.20(59) = 335.50 + 542.80 = 878.30 \\leq 880$ ✓. Try $i = 60$, $s = 60$: $5.50(60) + 9.20(60) = 330 + 552 = 882 > 880$ ✗ — exceeds budget \\checkmark.\n\n**Common Mistakes to Avoid:**\n* Reporting $95$ (treats $880/9.20 \\approx 95$ as the max, ignoring the discount floor — also $s = 0, i = 95$ violates the floor since $0 + 95 = 95 < 120$).\n* Reporting $120$ (treats the floor as the answer).\n* Reporting $60$ (forgets to round DOWN — $60$ exceeds budget).\n* Reporting $61$ (reports standard trays instead of insulated).\n\n**Test Day Takeaway:** Two-constraint optimization (budget + minimum total): To maximize one quantity, fill the remainder with the cheaper option AT EXACTLY the minimum total. Solve the resulting single-variable inequality and take the FLOOR.",
+  skills: ["inequalities", "word-problems", "systems-of-equations"]
 },
 {
   id: 17,
