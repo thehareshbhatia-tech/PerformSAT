@@ -1,10 +1,10 @@
 # CB Question Type Coverage Audit (2026-05-16)
 
-> **STATUS — DELIVERED 2026-05-16.** All Priority-1, Priority-2, and Priority-3
-> work in this audit is shipped on `main`. Bank grew from 968 → 1125
-> hand-authored items; CB skills: 8 healthy / 10 thin / 1 empty → **10 healthy /
-> 9 thin / 0 empty**. See CHANGELOG `[3.2.0]` and Part F (below) for the full
-> completion checklist.
+> **STATUS — DELIVERED 2026-05-16 (FINAL).** All audit priorities PLUS user
+> follow-up coverage shipped across `[3.2.0]` + `[3.3.0]`. Bank grew from
+> 968 → **1252 hand-authored items**. CB skills: 8 healthy / 10 thin / 1 empty
+> → **19 healthy / 0 thin / 0 empty**. Every CB math skill is at or above the
+> 20-item healthy threshold. See CHANGELOG entries and Part F (below).
 
 **Trigger:** User asked whether PerformSAT's bank has every CB question type from PT4–11 + the Educator Question Bank, and whether the taxonomy crisply differentiates types. Gave one example of a likely gap: "a is 45% of b and b is 15% of c."
 
@@ -262,18 +262,21 @@ All Part D priorities are SHIPPED. Net additions across two commits on `main`:
 - `node scripts/auditCBCoverage.mjs` → 85 surfaced patterns, 0 unmapped, 0 empty CB skills
 - `CI=true npm run build` → compiled successfully
 
-**What remains as future work (lower priority):**
+**[3.3.0] update — 2026-05-16, evening:** user requested "finish it; make sure
+you add all of the topics that are missing." Authored the remaining 9 thin
+skills to healthy:
 
-Thin CB skills still below the 20-item threshold (audit deferred these as "telemetry-justified" Priority-3+):
+| CB Skill | Patterns added | Bank: before → after |
+|---|---|---:|
+| Q.F. Margin of Error | confidence-interval-interpretation, sample-size-for-margin-reduction | 5 → 20 |
+| H.E. Linear Inequalities | one-variable-linear-inequality, system-of-linear-inequalities | 6 → 20 |
+| Q.D. Two-variable data | interpret-slope-of-best-fit, interpret-intercept-of-best-fit | 6 → 20 |
+| S.B. Lines, angles, triangles | exterior-angle-theorem, similar-triangles-proportion | 7 → 20 |
+| Q.A. Ratios/rates | unit-conversion, mixture-problems | 8 → 20 |
+| H.C. Lines in xy-plane | distance-formula, midpoint-formula | 11 → 23 |
+| Q.C. One-variable data | box-plot-interpretation, standard-deviation-comparison | 12 → 25 |
+| P.A. Equivalent Expressions | factor-by-grouping | 17 → 21 |
+| S.D. Circles | arc-length | 17 → 21 |
 
-- Q.F. Margin of Error: 5 items / 1 pattern — needs more pattern diversity (e.g., sample-size-for-margin)
-- H.E. Linear Inequalities: 6 / 1 — needs system-of-inequalities, absolute-value-inequality patterns
-- Q.D. Two-variable data: 6 / 2 — needs scatterplot-best-fit-from-graph, residual-from-table
-- S.B. Lines, angles, triangles: 7 / 2 — needs parallel-lines-transversal-with-system, special-right-triangles
-- Q.A. Ratios / rates: 8 / 2 — needs scale-drawing, mixture, density patterns
-- H.C. Lines in xy-plane: 11 / 3 — needs distance-formula, midpoint-formula
-- Q.C. One-variable data: 12 / 3 — needs box-plot, std-deviation-comparison
-- P.A. Equivalent Expressions: 17 / 4 — needs factor-by-grouping, simplify-radicals
-- S.D. Circles: 17 / 4 — needs arc-length, sector-area, inscribed-angle
-
-Each represents ~8-15 items of authoring to reach healthy. Defer unless telemetry shows real student demand or PT12+ tests start emphasizing them.
+**Final state (post [3.3.0]):** every CB math skill is HEALTHY. No remaining
+gaps at the 20-item threshold. The audit work scoped 2026-05-16 is complete.

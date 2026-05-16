@@ -132,6 +132,8 @@ export const PATTERN_TO_CB_SKILL = {
   'parallel-line-through-a-point':           'linear-equations-two-variables',
   'perpendicular-line-through-point':        'linear-equations-two-variables',
   'perpendicular-slope':                     'linear-equations-two-variables',
+  'distance-formula':                        'linear-equations-two-variables',
+  'midpoint-formula':                        'linear-equations-two-variables',
 
   // ── H.D. Systems of two linear equations in two variables ─────────────────
   'system-of-equations-substitution':        'linear-systems',
@@ -146,12 +148,15 @@ export const PATTERN_TO_CB_SKILL = {
 
   // ── H.E. Linear inequalities ──────────────────────────────────────────────
   'inequality-word-problem-floor':           'linear-inequalities',
+  'one-variable-linear-inequality':          'linear-inequalities',
+  'system-of-linear-inequalities':           'linear-inequalities',
 
   // ── P.A. Equivalent expressions ───────────────────────────────────────────
   'vertex-form-to-standard-form':            'equivalent-expressions',
   'rational-expression-simplification':      'equivalent-expressions',
   'common-base-exponent-simplification':     'equivalent-expressions',
   'exponent-rules-with-radicals':            'equivalent-expressions',
+  'factor-by-grouping':                      'equivalent-expressions',
 
   // ── P.B. Nonlinear equations & systems ────────────────────────────────────
   'quadratic-via-factoring':                 'nonlinear-equations',
@@ -185,6 +190,8 @@ export const PATTERN_TO_CB_SKILL = {
   // ── Q.A. Ratios, rates, proportional relationships, units ────────────────
   'proportion-ratio':                        'ratios-rates-proportions',
   'sum-of-parts-ratio':                      'ratios-rates-proportions',
+  'unit-conversion':                         'ratios-rates-proportions',
+  'mixture-problems':                        'ratios-rates-proportions',
 
   // ── Q.B. Percentages ──────────────────────────────────────────────────────
   'percent-of-a-number':                     'percentages',
@@ -201,10 +208,14 @@ export const PATTERN_TO_CB_SKILL = {
   'mean-from-list':                          'one-variable-data',
   'finding-a-missing-value-given-the-mean':  'one-variable-data',
   'outlier-effect':                          'one-variable-data',
+  'box-plot-interpretation':                 'one-variable-data',
+  'standard-deviation-comparison':           'one-variable-data',
 
   // ── Q.D. Two-variable data (models, scatterplots) ────────────────────────
   'residual':                                'two-variable-data',
   'scatterplot-line-of-best-fit':            'two-variable-data',
+  'interpret-slope-of-best-fit':             'two-variable-data',
+  'interpret-intercept-of-best-fit':         'two-variable-data',
 
   // ── Q.E. Probability and conditional probability ─────────────────────────
   'basic-probability':                       'probability',
@@ -216,6 +227,8 @@ export const PATTERN_TO_CB_SKILL = {
 
   // ── Q.F. Inference / margin of error ──────────────────────────────────────
   'margin-of-error':                         'inference-margin-of-error',
+  'confidence-interval-interpretation':      'inference-margin-of-error',
+  'sample-size-for-margin-reduction':        'inference-margin-of-error',
 
   // ── Q.G. Evaluating statistical claims ────────────────────────────────────
   'observational-vs-experimental-study':     'statistical-claims', // random ASSIGNMENT supports causation
@@ -234,6 +247,8 @@ export const PATTERN_TO_CB_SKILL = {
   // ── S.B. Lines, angles, and triangles ─────────────────────────────────────
   'triangle-angle-sum':                      'lines-angles-triangles',
   'angles-with-parallel-lines-and-transversals': 'lines-angles-triangles',
+  'exterior-angle-theorem':                  'lines-angles-triangles',
+  'similar-triangles-proportion':            'lines-angles-triangles',
 
   // ── S.C. Right triangles and trigonometry ─────────────────────────────────
   'right-triangle-pythagorean':              'right-triangles-trig',
@@ -249,6 +264,7 @@ export const PATTERN_TO_CB_SKILL = {
   'circle-in-general-form':                  'circles',
   'distance-from-center-as-radius':          'circles',
   'line-tangent-to-circle':                  'circles',
+  'arc-length':                              'circles',
 };
 
 // ── Lookup helpers ───────────────────────────────────────────────────────────

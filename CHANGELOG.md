@@ -2,6 +2,46 @@
 
 All notable changes to PerformSAT are documented here. Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project follows [Semantic Versioning](https://semver.org/).
 
+## [3.3.0] - 2026-05-16
+
+### Added — All 19 CB skills now healthy (math bank: 1125 → 1252)
+
+User pushed back after the [3.2.0] batch: "I don't see any transformations; perhaps more things can be missing that I don't see." This batch closes the remaining gaps and makes EVERY CB skill healthy (≥20 items).
+
+- **17 new SAT Pattern pools** + healthy-push tails:
+  - Q.F. Margin of Error: `confidence-interval-interpretation` (8), `sample-size-for-margin-reduction` (8) + 3 tail items → 5 → 20 items.
+  - Q.A. Ratios / rates: `unit-conversion` (8), `mixture-problems` (8) → 8 → 20 items.
+  - Q.C. One-variable data: `box-plot-interpretation` (8), `standard-deviation-comparison` (8) → 12 → 25 items.
+  - Q.D. Two-variable data: `interpret-slope-of-best-fit` (8 + tail), `interpret-intercept-of-best-fit` (8) → 6 → 20 items.
+  - H.E. Linear Inequalities: `one-variable-linear-inequality` (8), `system-of-linear-inequalities` (8) + 2 tail → 6 → 20 items.
+  - H.C. Lines in xy-plane: `distance-formula` (8), `midpoint-formula` (8) → 11 → 23 items.
+  - S.B. Lines, angles, triangles: `exterior-angle-theorem` (8), `similar-triangles-proportion` (8) → 7 → 20 items.
+  - S.D. Circles: `arc-length` (4) → 17 → 21 items.
+  - P.A. Equivalent Expressions: `factor-by-grouping` (4) → 17 → 21 items.
+
+### CB skill coverage state
+
+| | 2026-05-15 | 2026-05-16 (post audit, [3.2.0]) | 2026-05-16 (final, [3.3.0]) |
+|---|---:|---:|---:|
+| Healthy (≥20 items) | 8 | 10 | **19** |
+| Thin | 10 | 9 | **0** |
+| Empty | 1 (Q.G.) | 0 | **0** |
+| Hand-authored bank size | 968 | 1125 | **1252** |
+| Surfaced patterns (≥4 items) | 68 | 85 | **96+** |
+
+Every CB-skill pool now meets the audit's 20-item threshold.
+
+### PATTERN_TO_CB_SKILL additions (17)
+
+`one-variable-linear-inequality`, `system-of-linear-inequalities`, `distance-formula`, `midpoint-formula`, `unit-conversion`, `mixture-problems`, `box-plot-interpretation`, `standard-deviation-comparison`, `interpret-slope-of-best-fit`, `interpret-intercept-of-best-fit`, `confidence-interval-interpretation`, `sample-size-for-margin-reduction`, `exterior-angle-theorem`, `similar-triangles-proportion`, `arc-length`, `factor-by-grouping`.
+
+### Validation
+
+- `npm run bank:validate`: 1252 items, all checks pass
+- Full Jest suite: 986 / 986 pass
+- `CI=true npm run build`: compiled successfully
+- `node scripts/auditCBCoverage.mjs`: all surfaced patterns mapped, **0 empty, 0 thin, 19 healthy**
+
 ## [3.2.0] - 2026-05-16
 
 ### Added — CB question-type gap closure (Math bank: 968 → 1125 hand-authored)

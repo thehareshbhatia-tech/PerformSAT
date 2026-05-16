@@ -2786,5 +2786,146 @@ export const geometryBank = [
     question: 'A triangle has vertices $(0, 0)$, $(a, 0)$, and $(0, 12)$, where $a > 0$. If the area of the triangle is $30$ square units, what is the value of $a$?',
     correctAnswer: '5',
     explanation: "**SAT Pattern: Area of Triangle from Coordinates**\n\n**The correct answer is $5$.**\n\n**The Fast Way (~10s):** Right triangle on axes: $\\dfrac{1}{2} \\cdot a \\cdot 12 = 30 \\Rightarrow 6a = 30 \\Rightarrow a = 5$.\n\n**The Full Solution:**\nThe triangle has legs along the axes: horizontal leg of length $a$ and vertical leg of length $12$.\nArea $= (1/2) \\cdot a \\cdot 12 = 6a$. Set $6a = 30$: $a = 5$.\n\nVerification: $(1/2)(5)(12) = 30$ \\checkmark.\n\n**Common Mistakes:**\n* Reporting $30$: reports the area, not $a$.\n* Reporting $2.5$: arithmetic error ($30/12$).\n* Reporting $60$: uses $a \\cdot 12 = 60$, forgets $1/2$.\n\n**Test Day Takeaway:** Triangles with sides on the axes: solve $(1/2) \\cdot \\text{leg}_1 \\cdot \\text{leg}_2 = \\text{area}$ for the unknown.",
-    calculatorAllowed: false, tags: [], sourceStyleRef: 'area-of-triangle-from-coordinates', authoredBy: 'performsat-engine', createdAt: '2026-05-16' }
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'area-of-triangle-from-coordinates', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  // ─── S.B. EXTERIOR ANGLE THEOREM (bank-geo-211..218) ─────────────────────
+  // Exterior angle of a triangle = sum of the two non-adjacent interior angles.
+  { id: 'bank-geo-211', domain: 'geometry', skills: ['triangles'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'In a triangle, two interior angles measure $40°$ and $65°$. What is the measure of the exterior angle adjacent to the third interior angle?',
+    choices: [{ id: 'A', text: '$75°$' }, { id: 'B', text: '$105°$' }, { id: 'C', text: '$115°$' }, { id: 'D', text: '$180°$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice B is correct.**\n\n**The Fast Way (~5s):** Exterior angle = sum of the two non-adjacent interior angles = $40° + 65° = 105°$.\n\n**The Full Solution:**\nExterior angle theorem: the exterior angle at a vertex equals the SUM of the two non-adjacent (remote) interior angles. Here: $40° + 65° = 105°$.\n\nVerification: third interior = $180° - 40° - 65° = 75°$. Exterior = $180° - 75° = 105°$ \\checkmark.\n\n**Why the wrong answers are tempting:**\n* A: reports the third INTERIOR angle.\n* C: arithmetic error.\n* D: reports $180°$ (the straight line).\n\n**Test Day Takeaway:** Exterior angle = sum of the two REMOTE interior angles. Fast: skip computing the third interior.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'exterior-angle-theorem', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-212', domain: 'geometry', skills: ['triangles'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'A triangle has interior angles measuring $50°$ and $70°$. What is the exterior angle adjacent to the third angle?',
+    choices: [{ id: 'A', text: '$60°$' }, { id: 'B', text: '$110°$' }, { id: 'C', text: '$120°$' }, { id: 'D', text: '$130°$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** $50° + 70° = 120°$.\n\n**Test Day Takeaway:** Exterior = sum of remote interior angles.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'exterior-angle-theorem', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-213', domain: 'geometry', skills: ['triangles'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'The exterior angle at one vertex of a triangle measures $115°$. One of the non-adjacent interior angles is $45°$. What is the measure of the other non-adjacent interior angle?',
+    choices: [{ id: 'A', text: '$45°$' }, { id: 'B', text: '$65°$' }, { id: 'C', text: '$70°$' }, { id: 'D', text: '$135°$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Exterior = sum of remote interiors: $115° = 45° + x \\Rightarrow x = 70°$.\n\n**Why the wrong answers are tempting:**\n* A: copies the given.\n* B: $115° - 45° - 5°$ (arithmetic error).\n* D: subtracts wrong direction.\n\n**Test Day Takeaway:** Solve for one remote interior: subtract the other from the exterior.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'exterior-angle-theorem', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-214', domain: 'geometry', skills: ['triangles'], difficulty: 'medium', type: 'fill-in',
+    question: 'In a triangle, an exterior angle measures $130°$. The two non-adjacent interior angles are in the ratio $3:2$. What is the measure, in degrees, of the larger non-adjacent interior angle?',
+    correctAnswer: '78',
+    explanation: "**SAT Pattern: Exterior Angle Theorem**\n\n**The correct answer is $78$.**\n\n**The Fast Way (~10s):** Sum of remote interiors = $130°$. Ratio $3:2$ means parts are $3x + 2x = 5x = 130 \\Rightarrow x = 26$. Larger: $3 \\cdot 26 = 78°$.\n\n**Test Day Takeaway:** When two parts have a known ratio AND a known sum, compute the unit value: total/sum-of-ratio-parts.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'exterior-angle-theorem', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-215', domain: 'geometry', skills: ['triangles'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'In a triangle, the three interior angles are $x°$, $(2x)°$, and $(3x)°$. What is the exterior angle adjacent to the $(3x)°$ angle?',
+    choices: [{ id: 'A', text: '$60°$' }, { id: 'B', text: '$90°$' }, { id: 'C', text: '$120°$' }, { id: 'D', text: '$150°$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $x + 2x + 3x = 180 \\Rightarrow x = 30$. Exterior at $3x = 90°$ vertex = $x + 2x = 30 + 60 = 90°$.\n\n**Test Day Takeaway:** First solve for $x$ using the interior-angle sum, then apply exterior angle theorem.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'exterior-angle-theorem', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-216', domain: 'geometry', skills: ['triangles'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'In a triangle, the exterior angle adjacent to angle $A$ measures $140°$. If angle $B$ (one of the remote interior angles) measures $80°$, what is the measure of angle $C$?',
+    choices: [{ id: 'A', text: '$40°$' }, { id: 'B', text: '$60°$' }, { id: 'C', text: '$80°$' }, { id: 'D', text: '$220°$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $140° = B + C = 80° + C \\Rightarrow C = 60°$.\n\n**Test Day Takeaway:** Exterior angle equation: solve for the missing remote interior.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'exterior-angle-theorem', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-217', domain: 'geometry', skills: ['triangles'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'The interior angle and exterior angle at a vertex of a triangle are SUPPLEMENTARY (sum to $180°$). If the exterior angle at a vertex is $105°$ and one of the remote interior angles is twice the other, what is the measure of the smaller remote interior angle?',
+    choices: [{ id: 'A', text: '$25°$' }, { id: 'B', text: '$35°$' }, { id: 'C', text: '$45°$' }, { id: 'D', text: '$70°$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Exterior Angle Theorem**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Sum of remote interiors = $105°$. Ratio $2:1$: parts $2x + x = 3x = 105 \\Rightarrow x = 35°$. Smaller: $35°$.\n\n**Test Day Takeaway:** 'Twice the other' → ratio $2 : 1$. Total / (sum of ratio parts) = unit value.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'exterior-angle-theorem', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-218', domain: 'geometry', skills: ['triangles'], difficulty: 'hard', type: 'fill-in',
+    question: 'In a triangle, the three exterior angles (one at each vertex) have measures in the ratio $2:3:4$. What is the measure, in degrees, of the smallest INTERIOR angle of the triangle?',
+    correctAnswer: '20',
+    explanation: "**SAT Pattern: Exterior Angle Theorem**\n\n**The correct answer is $20$.**\n\n**The Fast Way (~15s):** Sum of exterior angles of any polygon = $360°$. Ratio $2:3:4 \\Rightarrow 9x = 360 \\Rightarrow x = 40°$. Exterior angles: $80°, 120°, 160°$. Smallest interior = $180° - (\\text{largest exterior}) = 180° - 160° = 20°$.\n\n**The Full Solution:**\nThe three exterior angles (one at each vertex) of any triangle sum to $360°$. Let the parts be $2x, 3x, 4x$: $9x = 360 \\Rightarrow x = 40°$. The exterior angles are $80°, 120°, 160°$.\n\nEach exterior + adjacent interior = $180°$ (supplementary). So interior angles: $180 - 80 = 100°$; $180 - 120 = 60°$; $180 - 160 = 20°$. Smallest: $20°$.\n\nVerification: interior angles sum: $100 + 60 + 20 = 180°$ \\checkmark.\n\n**Common Mistakes:**\n* Reporting $40$: reports the parameter $x$, not an angle.\n* Reporting $60$: middle interior.\n* Reporting $80$: smallest EXTERIOR.\n\n**Test Day Takeaway:** Sum of exterior angles of a triangle = $360°$. Largest exterior corresponds to smallest interior (supplementary pairs).",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'exterior-angle-theorem', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  // ─── S.B. SIMILAR TRIANGLES PROPORTION (bank-geo-219..226) ───────────────
+  // Corresponding sides of similar triangles are proportional. Set up a proportion.
+  { id: 'bank-geo-219', domain: 'geometry', skills: ['similar-triangles'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'Triangle $ABC$ is similar to triangle $DEF$. If $AB = 4$, $DE = 6$, and $BC = 10$, what is the length of $EF$?',
+    choices: [{ id: 'A', text: '$6$' }, { id: 'B', text: '$10$' }, { id: 'C', text: '$15$' }, { id: 'D', text: '$24$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Scale factor $DEF/ABC = 6/4 = 3/2$. $EF = BC \\cdot 3/2 = 10 \\cdot 1.5 = 15$.\n\n**The Full Solution:**\nIn similar triangles, corresponding sides are proportional: $AB/DE = BC/EF \\Rightarrow 4/6 = 10/EF \\Rightarrow EF = 60/4 = 15$.\n\n**Why the wrong answers are tempting:**\n* A: copies $DE$.\n* B: copies $BC$.\n* D: $AB \\cdot BC = 4 \\cdot 6$.\n\n**Test Day Takeaway:** Set up the proportion using CORRESPONDING sides. Solve for the unknown.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'similar-triangles-proportion', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-220', domain: 'geometry', skills: ['similar-triangles'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'Two similar triangles have corresponding side ratios of $2:5$. If the perimeter of the smaller triangle is $24$, what is the perimeter of the larger triangle?',
+    choices: [{ id: 'A', text: '$48$' }, { id: 'B', text: '$54$' }, { id: 'C', text: '$60$' }, { id: 'D', text: '$72$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice C is correct.**\n\n**The Fast Way (~5s):** Perimeters scale linearly: $24 \\cdot 5/2 = 60$.\n\n**Test Day Takeaway:** Perimeters scale by the LINEAR ratio (same as sides). Areas scale by the square; volumes by the cube.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'similar-triangles-proportion', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-221', domain: 'geometry', skills: ['similar-triangles'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'In two similar triangles, the longest side of the smaller triangle is $8$ and the longest side of the larger triangle is $20$. If the shortest side of the smaller triangle is $5$, what is the shortest side of the larger triangle?',
+    choices: [{ id: 'A', text: '$8$' }, { id: 'B', text: '$10$' }, { id: 'C', text: '$12.5$' }, { id: 'D', text: '$15$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Scale: $20/8 = 5/2$. Shortest in larger: $5 \\cdot 5/2 = 12.5$.\n\n**Test Day Takeaway:** Determine the scale factor from any pair of corresponding sides, then apply it to any other side.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'similar-triangles-proportion', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-222', domain: 'geometry', skills: ['similar-triangles'], difficulty: 'medium', type: 'fill-in',
+    question: 'Triangles $PQR$ and $STU$ are similar. $PQ = 6$, $ST = 9$, and $QR = 8$. What is the length of $TU$?',
+    correctAnswer: '12',
+    explanation: "**SAT Pattern: Similar Triangles Proportion**\n\n**The correct answer is $12$.**\n\n**The Fast Way (~10s):** Scale $STU/PQR = 9/6 = 3/2$. $TU = QR \\cdot 3/2 = 8 \\cdot 1.5 = 12$.\n\n**Test Day Takeaway:** Set up the proportion: $PQ/ST = QR/TU$. Solve.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'similar-triangles-proportion', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-223', domain: 'geometry', skills: ['similar-triangles'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'In the figure, $DE \\parallel BC$ in triangle $ABC$, creating triangle $ADE$ similar to triangle $ABC$. If $AD = 4$, $DB = 6$, and $BC = 15$, what is the length of $DE$?',
+    choices: [{ id: 'A', text: '$4$' }, { id: 'B', text: '$6$' }, { id: 'C', text: '$10$' }, { id: 'D', text: '$22.5$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** $AB = 4 + 6 = 10$. Similar ratio $AD/AB = 4/10$. $DE = BC \\cdot 4/10 = 15 \\cdot 0.4 = 6$.\n\n**Test Day Takeaway:** When a line PARALLEL to one side cuts the triangle, it creates a smaller similar triangle. Scale by the ratio of the corresponding side from a shared vertex.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'similar-triangles-proportion', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-224', domain: 'geometry', skills: ['similar-triangles'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A $6$-foot-tall person casts a shadow $4$ feet long. At the same time, a nearby flagpole casts a shadow $20$ feet long. How tall is the flagpole, in feet?',
+    choices: [{ id: 'A', text: '$13$' }, { id: 'B', text: '$26$' }, { id: 'C', text: '$30$' }, { id: 'D', text: '$40$' }],
+    correctAnswer: 'C',
+    explanation: "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice C is correct.**\n\n**The Fast Way (~10s):** Similar right triangles (sun angle is common). $6/4 = h/20 \\Rightarrow h = 30$ ft.\n\n**Test Day Takeaway:** Shadow problems: set up height/shadow proportion. Both objects share the same sun-angle, so the triangles are similar.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'similar-triangles-proportion', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-225', domain: 'geometry', skills: ['similar-triangles'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'In triangles $ABC$ and $DEF$, $\\angle A = \\angle D$, $\\angle B = \\angle E$, $AB = 12$, $BC = 15$, and $DE = 8$. What is the length of $EF$?',
+    choices: [{ id: 'A', text: '$8$' }, { id: 'B', text: '$10$' }, { id: 'C', text: '$11$' }, { id: 'D', text: '$15$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Similar Triangles Proportion**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** AA similarity. Scale $DEF/ABC = 8/12 = 2/3$. $EF = 15 \\cdot 2/3 = 10$.\n\n**Test Day Takeaway:** AA similarity: two pairs of equal angles imply the triangles are similar. Sides are proportional.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'similar-triangles-proportion', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-226', domain: 'geometry', skills: ['similar-triangles'], difficulty: 'hard', type: 'fill-in',
+    question: "Triangle $A$ has sides $6, 8, 10$. Triangle $B$ is similar to triangle $A$ and has perimeter $36$. What is the length of the longest side of triangle $B$?",
+    correctAnswer: '15',
+    explanation: "**SAT Pattern: Similar Triangles Proportion**\n\n**The correct answer is $15$.**\n\n**The Fast Way (~10s):** Perimeter of $A$: $6 + 8 + 10 = 24$. Scale: $36/24 = 3/2$. Longest side: $10 \\cdot 3/2 = 15$.\n\n**Test Day Takeaway:** Perimeter ratio = side ratio. Use it to find the scale factor.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'similar-triangles-proportion', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  // ─── S.D. ARC LENGTH (bank-geo-227..230) ──────────────────────────────────
+  // Arc length = (central angle / 360) × circumference, or = r·θ (radians).
+  { id: 'bank-geo-227', domain: 'geometry', skills: ['arc-length'], difficulty: 'easy', type: 'multiple-choice',
+    question: 'A circle has a radius of $10$. What is the length of an arc that subtends a central angle of $90°$?',
+    choices: [{ id: 'A', text: '$5\\pi$' }, { id: 'B', text: '$10\\pi$' }, { id: 'C', text: '$20\\pi$' }, { id: 'D', text: '$25\\pi$' }],
+    correctAnswer: 'A',
+    explanation: "**SAT Pattern: Arc Length**\n\n**Choice A is correct.**\n\n**The Fast Way (~10s):** Arc = $(90°/360°) \\cdot 2\\pi r = (1/4) \\cdot 20\\pi = 5\\pi$.\n\n**The Full Solution:**\nArc length $= \\dfrac{\\theta}{360°} \\cdot 2\\pi r = \\dfrac{90}{360} \\cdot 2\\pi(10) = (1/4)(20\\pi) = 5\\pi$.\n\n**Why the wrong answers are tempting:**\n* B: full circumference for radius $5$.\n* C: full circumference of the given circle.\n* D: area of a quarter-circle ($\\pi r^2 / 4 = 25\\pi$).\n\n**Test Day Takeaway:** Arc length = fraction of the circumference. $90°$ = quarter of $360°$, so a quarter of $2\\pi r$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'arc-length', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-228', domain: 'geometry', skills: ['arc-length'], difficulty: 'medium', type: 'multiple-choice',
+    question: 'A circle has radius $6$. An arc on this circle subtends a central angle of $60°$. What is the length of the arc?',
+    choices: [{ id: 'A', text: '$\\pi$' }, { id: 'B', text: '$2\\pi$' }, { id: 'C', text: '$6\\pi$' }, { id: 'D', text: '$12\\pi$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Arc Length**\n\n**Choice B is correct.**\n\n**The Fast Way (~10s):** $60°/360° = 1/6$. Arc = $(1/6) \\cdot 2\\pi(6) = 2\\pi$.\n\n**Test Day Takeaway:** $60°$ = one-sixth of a circle. $1/6 \\cdot 2\\pi r = \\pi r / 3$.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'arc-length', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-229', domain: 'geometry', skills: ['arc-length'], difficulty: 'medium', type: 'fill-in',
+    question: 'A circle has radius $9$. An arc on the circle has length $6\\pi$. What is the measure, in degrees, of the central angle that subtends this arc?',
+    correctAnswer: '120',
+    explanation: "**SAT Pattern: Arc Length**\n\n**The correct answer is $120$.**\n\n**The Fast Way (~10s):** Arc / circumference = $\\theta/360°$. $6\\pi / (18\\pi) = 1/3 = \\theta/360 \\Rightarrow \\theta = 120°$.\n\n**Test Day Takeaway:** Reverse direction: arc length / circumference gives the FRACTION of the full circle (in degrees, multiply by $360°$).",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'arc-length', authoredBy: 'performsat-engine', createdAt: '2026-05-16' },
+
+  { id: 'bank-geo-230', domain: 'geometry', skills: ['arc-length'], difficulty: 'hard', type: 'multiple-choice',
+    question: 'A circle has a circumference of $24\\pi$. An arc on this circle subtends a central angle of $\\dfrac{\\pi}{4}$ radians. What is the length of the arc?',
+    choices: [{ id: 'A', text: '$\\pi$' }, { id: 'B', text: '$3\\pi$' }, { id: 'C', text: '$6\\pi$' }, { id: 'D', text: '$8\\pi$' }],
+    correctAnswer: 'B',
+    explanation: "**SAT Pattern: Arc Length**\n\n**Choice B is correct.**\n\n**The Fast Way (~15s):** Circumference $24\\pi = 2\\pi r \\Rightarrow r = 12$. Arc (in radians) = $r\\theta = 12 \\cdot \\pi/4 = 3\\pi$.\n\n**The Full Solution:**\nIn radians, arc length = $r \\theta$. With $r = 12$ and $\\theta = \\pi/4$: arc $= 12 \\cdot \\pi/4 = 3\\pi$.\n\n**Test Day Takeaway:** Radian formula is simpler: arc $= r\\theta$ (no fraction). Degree formula uses $\\theta/360$ of circumference.",
+    calculatorAllowed: false, tags: [], sourceStyleRef: 'arc-length', authoredBy: 'performsat-engine', createdAt: '2026-05-16' }
 ];
